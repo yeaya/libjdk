@@ -1,9 +1,7 @@
 #include <com/sun/tools/javac/jvm/ClassWriter.h>
-
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/Attribute$RetentionPolicy.h>
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
-#include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Directive$ExportsDirective.h>
 #include <com/sun/tools/javac/code/Directive$ExportsFlag.h>
@@ -84,8 +82,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractQueue.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
 #include <java/util/LinkedHashSet.h>
@@ -134,7 +130,6 @@ using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Attribute$RetentionPolicy = ::com::sun::tools::javac::code::Attribute$RetentionPolicy;
 using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCompound;
-using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
 using $Directive$ExportsDirective = ::com::sun::tools::javac::code::Directive$ExportsDirective;
 using $Directive$ExportsFlag = ::com::sun::tools::javac::code::Directive$ExportsFlag;
 using $Directive$OpensDirective = ::com::sun::tools::javac::code::Directive$OpensDirective;
@@ -147,7 +142,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Preview = ::com::sun::tools::javac::code::Preview;
 using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
@@ -156,7 +150,6 @@ using $Symbol$ModuleFlags = ::com::sun::tools::javac::code::Symbol$ModuleFlags;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
-using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
@@ -173,13 +166,10 @@ using $ClassWriter$StackMapTableFrame = ::com::sun::tools::javac::jvm::ClassWrit
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$LocalVar = ::com::sun::tools::javac::jvm::Code$LocalVar;
 using $Code$LocalVar$Range = ::com::sun::tools::javac::jvm::Code$LocalVar$Range;
-using $Code$StackMapFormat = ::com::sun::tools::javac::jvm::Code$StackMapFormat;
 using $Code$StackMapFrame = ::com::sun::tools::javac::jvm::Code$StackMapFrame;
 using $Gen = ::com::sun::tools::javac::jvm::Gen;
 using $PoolConstant$Dynamic$BsmKey = ::com::sun::tools::javac::jvm::PoolConstant$Dynamic$BsmKey;
 using $PoolConstant$LoadableConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant;
-using $PoolWriter = ::com::sun::tools::javac::jvm::PoolWriter;
-using $PoolWriter$SharedSignatureGenerator = ::com::sun::tools::javac::jvm::PoolWriter$SharedSignatureGenerator;
 using $Target = ::com::sun::tools::javac::jvm::Target;
 using $UninitializedType = ::com::sun::tools::javac::jvm::UninitializedType;
 using $Option = ::com::sun::tools::javac::main::Option;
@@ -198,7 +188,6 @@ using $Names = ::com::sun::tools::javac::util::Names;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
@@ -206,14 +195,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractQueue = ::java::util::AbstractQueue;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
@@ -243,29 +229,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* s) override {
-		 return $of(ClassWriter::lambda$writeModuleAttribute$0($cast($Symbol$ClassSymbol, s)));
+		 return ClassWriter::lambda$writeModuleAttribute$0($cast($Symbol$ClassSymbol, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ClassWriter$$Lambda$lambda$writeModuleAttribute$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* ClassWriter$$Lambda$lambda$writeModuleAttribute$0::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$$Lambda$lambda$writeModuleAttribute$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ClassWriter$$Lambda$lambda$writeModuleAttribute$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$$Lambda$lambda$writeModuleAttribute$0);
+	});
 	return class$;
 }
 $Class* ClassWriter$$Lambda$lambda$writeModuleAttribute$0::class$ = nullptr;
@@ -279,33 +262,29 @@ public:
 	virtual void accept(Object$* srvc, Object$* impls) override {
 		$nc(inst$)->lambda$writeModuleAttribute$2($cast($Symbol$ClassSymbol, srvc), $cast($Set, impls));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1>());
-	}
 	ClassWriter* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, inst$)},
-	{}
-};
-$MethodInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, init$, void, ClassWriter*)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, init$, void, ClassWriter*)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1);
+	});
 	return class$;
 }
 $Class* ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::class$ = nullptr;
@@ -319,152 +298,32 @@ public:
 	virtual void accept(Object$* impl) override {
 		$nc(inst$)->lambda$writeModuleAttribute$1($cast($Symbol$ClassSymbol, impl));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2>());
-	}
 	ClassWriter* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, inst$)},
-	{}
-};
-$MethodInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, init$, void, ClassWriter*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::load$($String* name, bool initialize) {
-	$loadClass(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/ClassWriter;)V", nullptr, $PUBLIC, $method(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, init$, void, ClassWriter*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2);
+	});
 	return class$;
 }
 $Class* ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::class$ = nullptr;
-
-$FieldInfo _ClassWriter_FieldInfo_[] = {
-	{"classWriterKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/jvm/ClassWriter;>;", $PROTECTED | $STATIC | $FINAL, $staticField(ClassWriter, classWriterKey)},
-	{"options", "Lcom/sun/tools/javac/util/Options;", nullptr, $PRIVATE | $FINAL, $field(ClassWriter, options)},
-	{"verbose", "Z", nullptr, $PRIVATE, $field(ClassWriter, verbose)},
-	{"emitSourceFile", "Z", nullptr, $PRIVATE, $field(ClassWriter, emitSourceFile)},
-	{"genCrt", "Z", nullptr, $PRIVATE, $field(ClassWriter, genCrt)},
-	{"debugstackmap", "Z", nullptr, $PRIVATE, $field(ClassWriter, debugstackmap)},
-	{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $PRIVATE, $field(ClassWriter, preview)},
-	{"target", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE, $field(ClassWriter, target)},
-	{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE, $field(ClassWriter, source)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE, $field(ClassWriter, types)},
-	{"check", "Lcom/sun/tools/javac/comp/Check;", nullptr, $PRIVATE, $field(ClassWriter, check)},
-	{"multiModuleMode", "Z", nullptr, $PUBLIC, $field(ClassWriter, multiModuleMode)},
-	{"extraAttributeHooks", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/code/Symbol;>;>;", $PRIVATE, $field(ClassWriter, extraAttributeHooks)},
-	{"DATA_BUF_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, DATA_BUF_SIZE)},
-	{"CLASS_BUF_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, CLASS_BUF_SIZE)},
-	{"databuf", "Lcom/sun/tools/javac/util/ByteBuffer;", nullptr, $PUBLIC, $field(ClassWriter, databuf)},
-	{"poolbuf", "Lcom/sun/tools/javac/util/ByteBuffer;", nullptr, 0, $field(ClassWriter, poolbuf)},
-	{"poolWriter", "Lcom/sun/tools/javac/jvm/PoolWriter;", nullptr, $FINAL, $field(ClassWriter, poolWriter)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(ClassWriter, log)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(ClassWriter, names)},
-	{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $FINAL, $field(ClassWriter, fileManager)},
-	{"SAME_FRAME_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, SAME_FRAME_SIZE)},
-	{"SAME_LOCALS_1_STACK_ITEM_EXTENDED", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, SAME_LOCALS_1_STACK_ITEM_EXTENDED)},
-	{"SAME_FRAME_EXTENDED", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, SAME_FRAME_EXTENDED)},
-	{"FULL_FRAME", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, FULL_FRAME)},
-	{"MAX_LOCAL_LENGTH_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, MAX_LOCAL_LENGTH_DIFF)},
-	{"dumpClassModifiers", "Z", nullptr, $PRIVATE, $field(ClassWriter, dumpClassModifiers)},
-	{"dumpFieldModifiers", "Z", nullptr, $PRIVATE, $field(ClassWriter, dumpFieldModifiers)},
-	{"dumpInnerClassModifiers", "Z", nullptr, $PRIVATE, $field(ClassWriter, dumpInnerClassModifiers)},
-	{"dumpMethodModifiers", "Z", nullptr, $PRIVATE, $field(ClassWriter, dumpMethodModifiers)},
-	{"flagName", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassWriter, flagName)},
-	{"awriter", "Lcom/sun/tools/javac/jvm/ClassWriter$AttributeWriter;", nullptr, 0, $field(ClassWriter, awriter)},
-	{}
-};
-
-$MethodInfo _ClassWriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ClassWriter, init$, void, $Context*)},
-	{"addExtraAttributes", "(Ljava/util/function/ToIntFunction;)V", "(Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/code/Symbol;>;)V", $PUBLIC, $virtualMethod(ClassWriter, addExtraAttributes, void, $ToIntFunction*)},
-	{"adjustFlags", "(J)I", nullptr, 0, $virtualMethod(ClassWriter, adjustFlags, int32_t, int64_t)},
-	{"beginAttrs", "()I", nullptr, 0, $virtualMethod(ClassWriter, beginAttrs, int32_t)},
-	{"endAttr", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter, endAttr, void, int32_t)},
-	{"endAttrs", "(II)V", nullptr, 0, $virtualMethod(ClassWriter, endAttrs, void, int32_t, int32_t)},
-	{"flagNames", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassWriter, flagNames, $String*, int64_t)},
-	{"getLastModified", "(Ljavax/tools/FileObject;)J", nullptr, 0, $virtualMethod(ClassWriter, getLastModified, int64_t, $FileObject*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/ClassWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassWriter, instance, ClassWriter*, $Context*)},
-	{"lambda$writeModuleAttribute$0", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassWriter, lambda$writeModuleAttribute$0, $Set*, $Symbol$ClassSymbol*)},
-	{"lambda$writeModuleAttribute$1", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassWriter, lambda$writeModuleAttribute$1, void, $Symbol$ClassSymbol*)},
-	{"lambda$writeModuleAttribute$2", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Set;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassWriter, lambda$writeModuleAttribute$2, void, $Symbol$ClassSymbol*, $Set*)},
-	{"listNested", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)V", $PRIVATE, $method(ClassWriter, listNested, void, $Symbol*, $ListBuffer*)},
-	{"needsLocalVariableTypeEntry", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(ClassWriter, needsLocalVariableTypeEntry, bool, $Type*)},
-	{"putChar", "(Lcom/sun/tools/javac/util/ByteBuffer;II)V", nullptr, 0, $virtualMethod(ClassWriter, putChar, void, $ByteBuffer*, int32_t, int32_t)},
-	{"putInt", "(Lcom/sun/tools/javac/util/ByteBuffer;II)V", nullptr, 0, $virtualMethod(ClassWriter, putInt, void, $ByteBuffer*, int32_t, int32_t)},
-	{"writeAttr", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeAttr, int32_t, $Name*)},
-	{"writeBootstrapMethods", "()V", nullptr, 0, $virtualMethod(ClassWriter, writeBootstrapMethods, void)},
-	{"writeClass", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeClass, $JavaFileObject*, $Symbol$ClassSymbol*), "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow,com.sun.tools.javac.jvm.ClassWriter$StringOverflow"},
-	{"writeClassFile", "(Ljava/io/OutputStream;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeClassFile, void, $OutputStream*, $Symbol$ClassSymbol*), "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow,com.sun.tools.javac.jvm.ClassWriter$StringOverflow"},
-	{"writeCode", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $virtualMethod(ClassWriter, writeCode, void, $Code*)},
-	{"writeCompoundAttribute", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, 0, $virtualMethod(ClassWriter, writeCompoundAttribute, void, $Attribute$Compound*)},
-	{"writeEnclosingMethodAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeEnclosingMethodAttribute, int32_t, $Symbol$ClassSymbol*)},
-	{"writeEnclosingMethodAttribute", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeEnclosingMethodAttribute, int32_t, $Name*, $Symbol$ClassSymbol*)},
-	{"writeExtraAttributes", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeExtraAttributes, int32_t, $Symbol*)},
-	{"writeExtraClassAttributes", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeExtraClassAttributes, int32_t, $Symbol$ClassSymbol*)},
-	{"writeField", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $virtualMethod(ClassWriter, writeField, void, $Symbol$VarSymbol*)},
-	{"writeFields", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(ClassWriter, writeFields, void, $Scope*)},
-	{"writeFlagAttrs", "(J)I", nullptr, 0, $virtualMethod(ClassWriter, writeFlagAttrs, int32_t, int64_t)},
-	{"writeInnerClasses", "()V", nullptr, 0, $virtualMethod(ClassWriter, writeInnerClasses, void)},
-	{"writeJavaAnnotations", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)I", 0, $virtualMethod(ClassWriter, writeJavaAnnotations, int32_t, $List*)},
-	{"writeMemberAttrs", "(Lcom/sun/tools/javac/code/Symbol;Z)I", nullptr, 0, $virtualMethod(ClassWriter, writeMemberAttrs, int32_t, $Symbol*, bool)},
-	{"writeMethod", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(ClassWriter, writeMethod, void, $Symbol$MethodSymbol*)},
-	{"writeMethodParametersAttr", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeMethodParametersAttr, int32_t, $Symbol$MethodSymbol*)},
-	{"writeMethods", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(ClassWriter, writeMethods, void, $Scope*)},
-	{"writeModuleAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeModuleAttribute, int32_t, $Symbol$ClassSymbol*)},
-	{"writeNestHostIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeNestHostIfNeeded, int32_t, $Symbol$ClassSymbol*)},
-	{"writeNestMembersIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeNestMembersIfNeeded, int32_t, $Symbol$ClassSymbol*)},
-	{"writeParamAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", $PRIVATE, $method(ClassWriter, writeParamAnnotations, void, $List*, $Attribute$RetentionPolicy*)},
-	{"writeParamAnnotations", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", nullptr, $PRIVATE, $method(ClassWriter, writeParamAnnotations, void, $Symbol$MethodSymbol*, $Attribute$RetentionPolicy*)},
-	{"writeParameterAttrs", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;)I", 0, $virtualMethod(ClassWriter, writeParameterAttrs, int32_t, $List*)},
-	{"writePermittedSubclassesIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writePermittedSubclassesIfNeeded, int32_t, $Symbol$ClassSymbol*)},
-	{"writePosition", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, 0, $virtualMethod(ClassWriter, writePosition, void, $TypeAnnotationPosition*)},
-	{"writeRecordAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeRecordAttribute, int32_t, $Symbol$ClassSymbol*)},
-	{"writeStackMap", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $virtualMethod(ClassWriter, writeStackMap, void, $Code*)},
-	{"writeStackMapType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(ClassWriter, writeStackMapType, void, $Type*)},
-	{"writeTypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)V", nullptr, 0, $virtualMethod(ClassWriter, writeTypeAnnotation, void, $Attribute$TypeCompound*)},
-	{"writeTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Z)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;Z)I", 0, $virtualMethod(ClassWriter, writeTypeAnnotations, int32_t, $List*, bool)},
-	{}
-};
-
-$InnerClassInfo _ClassWriter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassWriter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "com.sun.tools.javac.jvm.ClassWriter", "StackMapTableFrame", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.jvm.ClassWriter$AttributeWriter", "com.sun.tools.javac.jvm.ClassWriter", "AttributeWriter", 0},
-	{"com.sun.tools.javac.jvm.ClassWriter$StringOverflow", "com.sun.tools.javac.jvm.ClassWriter", "StringOverflow", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.jvm.ClassWriter$PoolOverflow", "com.sun.tools.javac.jvm.ClassWriter", "PoolOverflow", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassWriter",
-	"com.sun.tools.javac.jvm.ClassFile",
-	nullptr,
-	_ClassWriter_FieldInfo_,
-	_ClassWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassWriter$1,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$FullFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$AppendFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$ChopFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameFrame,com.sun.tools.javac.jvm.ClassWriter$AttributeWriter,com.sun.tools.javac.jvm.ClassWriter$StringOverflow,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow"
-};
-
-$Object* allocate$ClassWriter($Class* clazz) {
-	return $of($alloc(ClassWriter));
-}
 
 $Context$Key* ClassWriter::classWriterKey = nullptr;
 $StringArray* ClassWriter::flagName = nullptr;
@@ -479,13 +338,13 @@ ClassWriter* ClassWriter::instance($Context* context) {
 }
 
 void ClassWriter::init$($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ClassFile::init$();
 	$set(this, extraAttributeHooks, $List::nil());
 	$set(this, databuf, $new($ByteBuffer, ClassWriter::DATA_BUF_SIZE));
 	$set(this, poolbuf, $new($ByteBuffer, ClassWriter::CLASS_BUF_SIZE));
 	$set(this, awriter, $new($ClassWriter$AttributeWriter, this));
-	$nc(context)->put(ClassWriter::classWriterKey, $of(this));
+	$nc(context)->put(ClassWriter::classWriterKey, this);
 	$set(this, log, $Log::instance(context));
 	$set(this, names, $Names::instance(context));
 	$set(this, options, $Options::instance(context));
@@ -499,16 +358,16 @@ void ClassWriter::init$($Context* context) {
 	$set(this, poolWriter, $nc($($Gen::instance(context)))->poolWriter);
 	$init($Option);
 	this->verbose = $nc(this->options)->isSet($Option::VERBOSE);
-	this->genCrt = $nc(this->options)->isSet($Option::XJCOV);
-	this->debugstackmap = $nc(this->options)->isSet("debug.stackmap"_s);
-	bool var$0 = $nc(this->options)->isUnset($Option::G_CUSTOM);
-	this->emitSourceFile = var$0 || $nc(this->options)->isSet($Option::G_CUSTOM, "source"_s);
-	$var($String, modifierFlags, $nc(this->options)->get("debug.dumpmodifiers"_s));
+	this->genCrt = this->options->isSet($Option::XJCOV);
+	this->debugstackmap = this->options->isSet("debug.stackmap"_s);
+	bool var$0 = this->options->isUnset($Option::G_CUSTOM);
+	this->emitSourceFile = var$0 || this->options->isSet($Option::G_CUSTOM, "source"_s);
+	$var($String, modifierFlags, this->options->get("debug.dumpmodifiers"_s));
 	if (modifierFlags != nullptr) {
-		this->dumpClassModifiers = modifierFlags->indexOf((int32_t)u'c') != -1;
-		this->dumpFieldModifiers = modifierFlags->indexOf((int32_t)u'f') != -1;
-		this->dumpInnerClassModifiers = modifierFlags->indexOf((int32_t)u'i') != -1;
-		this->dumpMethodModifiers = modifierFlags->indexOf((int32_t)u'm') != -1;
+		this->dumpClassModifiers = modifierFlags->indexOf(u'c') != -1;
+		this->dumpFieldModifiers = modifierFlags->indexOf(u'f') != -1;
+		this->dumpInnerClassModifiers = modifierFlags->indexOf(u'i') != -1;
+		this->dumpMethodModifiers = modifierFlags->indexOf(u'm') != -1;
 	}
 }
 
@@ -520,11 +379,11 @@ $String* ClassWriter::flagNames(int64_t flags) {
 	$init(ClassWriter);
 	$var($StringBuilder, sbuf, $new($StringBuilder));
 	int32_t i = 0;
-	int64_t f = (int64_t)(flags & (uint64_t)(int64_t)4095);
+	int64_t f = flags & 0x0fff;
 	while (f != 0) {
-		if (((int64_t)(f & (uint64_t)(int64_t)1)) != 0) {
+		if ((f & 1) != 0) {
 			sbuf->append(" "_s);
-			sbuf->append($nc(ClassWriter::flagName)->get(i));
+			sbuf->append(ClassWriter::flagName->get(i));
 		}
 		f = f >> 1;
 		++i;
@@ -533,15 +392,15 @@ $String* ClassWriter::flagNames(int64_t flags) {
 }
 
 void ClassWriter::putChar($ByteBuffer* buf, int32_t op, int32_t x) {
-	$nc($nc(buf)->elems)->set(op, (int8_t)((int32_t)((x >> 8) & (uint32_t)255)));
-	$nc(buf->elems)->set(op + 1, (int8_t)((int32_t)((x) & (uint32_t)255)));
+	$nc($nc(buf)->elems)->set(op, (int8_t)((x >> 8) & 0xff));
+	buf->elems->set(op + 1, (int8_t)((x) & 0xff));
 }
 
 void ClassWriter::putInt($ByteBuffer* buf, int32_t adr, int32_t x) {
-	$nc($nc(buf)->elems)->set(adr, (int8_t)((int32_t)((x >> 24) & (uint32_t)255)));
-	$nc(buf->elems)->set(adr + 1, (int8_t)((int32_t)((x >> 16) & (uint32_t)255)));
-	$nc(buf->elems)->set(adr + 2, (int8_t)((int32_t)((x >> 8) & (uint32_t)255)));
-	$nc(buf->elems)->set(adr + 3, (int8_t)((int32_t)((x) & (uint32_t)255)));
+	$nc($nc(buf)->elems)->set(adr, (int8_t)((x >> 24) & 0xff));
+	buf->elems->set(adr + 1, (int8_t)((x >> 16) & 0xff));
+	buf->elems->set(adr + 2, (int8_t)((x >> 8) & 0xff));
+	buf->elems->set(adr + 3, (int8_t)((x) & 0xff));
 }
 
 int32_t ClassWriter::writeAttr($Name* attrName) {
@@ -569,23 +428,23 @@ int32_t ClassWriter::writeEnclosingMethodAttribute($Symbol$ClassSymbol* c) {
 }
 
 int32_t ClassWriter::writeEnclosingMethodAttribute($Name* attributeName, $Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
 	if ($nc($nc(c)->owner)->kind != $Kinds$Kind::MTH && c->name != $nc(this->names)->empty) {
 		return 0;
 	}
 	int32_t alenIdx = writeAttr(attributeName);
-	$var($Symbol$ClassSymbol, enclClass, $nc($nc(c)->owner)->enclClass());
-	$var($Symbol$MethodSymbol, enclMethod, ($nc(c->owner)->type == nullptr || $nc(c->owner)->kind != $Kinds$Kind::MTH) ? ($Symbol$MethodSymbol*)nullptr : $nc(($cast($Symbol$MethodSymbol, c->owner)))->originalEnclosingMethod());
+	$var($Symbol$ClassSymbol, enclClass, $nc(c->owner)->enclClass());
+	$var($Symbol$MethodSymbol, enclMethod, ($nc(c->owner)->type == nullptr || c->owner->kind != $Kinds$Kind::MTH) ? ($Symbol$MethodSymbol*)nullptr : $cast($Symbol$MethodSymbol, c->owner)->originalEnclosingMethod());
 	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass(enclClass));
-	$nc(this->databuf)->appendChar(enclMethod == nullptr ? 0 : $nc(this->poolWriter)->putNameAndType(enclMethod));
+	$nc(this->databuf)->appendChar(enclMethod == nullptr ? 0 : this->poolWriter->putNameAndType(enclMethod));
 	endAttr(alenIdx);
 	return 1;
 }
 
 int32_t ClassWriter::writeFlagAttrs(int64_t flags) {
 	int32_t acount = 0;
-	if (((int64_t)(flags & (uint64_t)(int64_t)0x00020000)) != 0) {
+	if ((flags & 0x00020000) != 0) {
 		int32_t alenIdx = writeAttr($nc(this->names)->Deprecated);
 		endAttr(alenIdx);
 		++acount;
@@ -594,16 +453,16 @@ int32_t ClassWriter::writeFlagAttrs(int64_t flags) {
 }
 
 int32_t ClassWriter::writeMemberAttrs($Symbol* sym, bool isRecordComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t acount = 0;
 	if (!isRecordComponent) {
 		acount = writeFlagAttrs($nc(sym)->flags());
 	}
 	int64_t flags = $nc(sym)->flags();
-	bool var$0 = ((int64_t)(flags & (uint64_t)(4096 | (int64_t)0x0000000080000000))) != 4096 && ((int64_t)(flags & (uint64_t)(int64_t)0x20000000)) == 0;
+	bool var$0 = (flags & (0x1000 | (int64_t)0x80000000)) != 0x1000 && (flags & 0x20000000) == 0;
 	if (var$0) {
 		bool var$1 = !$nc(this->types)->isSameType(sym->type, $(sym->erasure(this->types)));
-		var$0 = (var$1 || $nc($nc(this->poolWriter)->signatureGen)->hasTypeVar($($nc(sym->type)->getThrownTypes())));
+		var$0 = var$1 || $nc($nc(this->poolWriter)->signatureGen)->hasTypeVar($($nc(sym->type)->getThrownTypes()));
 	}
 	if (var$0) {
 		int32_t alenIdx = writeAttr($nc(this->names)->Signature);
@@ -617,8 +476,8 @@ int32_t ClassWriter::writeMemberAttrs($Symbol* sym, bool isRecordComponent) {
 }
 
 int32_t ClassWriter::writeMethodParametersAttr($Symbol$MethodSymbol* m) {
-	$useLocalCurrentObjectStackCache();
-	$var($Type$MethodType, ty, $nc($($nc(m)->externalType(this->types)))->asMethodType());
+	$useLocalObjectStack();
+	$var($Type$MethodType, ty, $$nc($nc(m)->externalType(this->types))->asMethodType());
 	int32_t allparams = $nc($nc(ty)->argtypes$)->size();
 	if (m->params$ != nullptr && allparams != 0) {
 		int32_t attrIndex = writeAttr($nc(this->names)->MethodParameters);
@@ -628,8 +487,8 @@ int32_t ClassWriter::writeMethodParametersAttr($Symbol$MethodSymbol* m) {
 			for (; $nc(i$)->hasNext();) {
 				$var($Symbol$VarSymbol, s, $cast($Symbol$VarSymbol, i$->next()));
 				{
-					int32_t var$0 = ((int32_t)((int32_t)$nc(s)->flags() & (uint32_t)((16 | 4096) | 32768)));
-					int32_t flags = var$0 | ((int32_t)((int32_t)m->flags() & (uint32_t)4096));
+					int32_t var$0 = (int32_t)$nc(s)->flags() & ((0x10 | 0x1000) | 0x8000);
+					int32_t flags = var$0 | ((int32_t)m->flags() & 0x1000);
 					$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName(s->name));
 					$nc(this->databuf)->appendChar(flags);
 				}
@@ -640,8 +499,8 @@ int32_t ClassWriter::writeMethodParametersAttr($Symbol$MethodSymbol* m) {
 			for (; $nc(i$)->hasNext();) {
 				$var($Symbol$VarSymbol, s, $cast($Symbol$VarSymbol, i$->next()));
 				{
-					int32_t var$1 = ((int32_t)((int32_t)$nc(s)->flags() & (uint32_t)((16 | 4096) | 32768)));
-					int32_t flags = var$1 | ((int32_t)((int32_t)m->flags() & (uint32_t)4096));
+					int32_t var$1 = (int32_t)$nc(s)->flags() & ((0x10 | 0x1000) | 0x8000);
+					int32_t flags = var$1 | ((int32_t)m->flags() & 0x1000);
 					$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName(s->name));
 					$nc(this->databuf)->appendChar(flags);
 				}
@@ -652,8 +511,8 @@ int32_t ClassWriter::writeMethodParametersAttr($Symbol$MethodSymbol* m) {
 			for (; $nc(i$)->hasNext();) {
 				$var($Symbol$VarSymbol, s, $cast($Symbol$VarSymbol, i$->next()));
 				{
-					int32_t var$2 = ((int32_t)((int32_t)$nc(s)->flags() & (uint32_t)((16 | 4096) | 32768)));
-					int32_t flags = var$2 | ((int32_t)((int32_t)m->flags() & (uint32_t)4096));
+					int32_t var$2 = (int32_t)$nc(s)->flags() & ((0x10 | 0x1000) | 0x8000);
+					int32_t flags = var$2 | ((int32_t)m->flags() & 0x1000);
 					$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName(s->name));
 					$nc(this->databuf)->appendChar(flags);
 				}
@@ -667,16 +526,16 @@ int32_t ClassWriter::writeMethodParametersAttr($Symbol$MethodSymbol* m) {
 }
 
 void ClassWriter::writeParamAnnotations($List* params, $Attribute$RetentionPolicy* retention) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->databuf)->appendByte($nc(params)->length());
 	{
-		$var($Iterator, i$, $nc(params)->iterator());
+		$var($Iterator, i$, params->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol$VarSymbol, s, $cast($Symbol$VarSymbol, i$->next()));
 			{
 				$var($ListBuffer, buf, $new($ListBuffer));
 				{
-					$var($Iterator, i$, $nc($($nc(s)->getRawAttributes()))->iterator());
+					$var($Iterator, i$, $$nc($nc(s)->getRawAttributes())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Attribute$Compound, a, $cast($Attribute$Compound, i$->next()));
 						if ($nc(this->types)->getRetention(a) == retention) {
@@ -699,44 +558,34 @@ void ClassWriter::writeParamAnnotations($List* params, $Attribute$RetentionPolic
 
 void ClassWriter::writeParamAnnotations($Symbol$MethodSymbol* m, $Attribute$RetentionPolicy* retention) {
 	$nc(this->databuf)->appendByte($nc($nc(m)->params$)->length());
-	writeParamAnnotations($nc(m)->params$, retention);
+	writeParamAnnotations(m->params$, retention);
 }
 
 int32_t ClassWriter::writeParameterAttrs($List* vars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hasVisible = false;
 	bool hasInvisible = false;
 	if (vars != nullptr) {
-		{
-			$var($Iterator, i$, vars->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Symbol$VarSymbol, s, $cast($Symbol$VarSymbol, i$->next()));
-				{
+		$var($Iterator, i$, vars->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Symbol$VarSymbol, s, $cast($Symbol$VarSymbol, i$->next()));
+			{
+				$var($Iterator, i$, $$nc($nc(s)->getRawAttributes())->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Attribute$Compound, a, $cast($Attribute$Compound, i$->next()));
 					{
-						$var($Iterator, i$, $nc($($nc(s)->getRawAttributes()))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Attribute$Compound, a, $cast($Attribute$Compound, i$->next()));
-							{
-								$init($ClassWriter$1);
-								switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$Attribute$RetentionPolicy)->get($nc(($($nc(this->types)->getRetention(a))))->ordinal())) {
-								case 1:
-									{
-										break;
-									}
-								case 2:
-									{
-										hasInvisible = true;
-										break;
-									}
-								case 3:
-									{
-										hasVisible = true;
-										break;
-									}
-								default:
-									{}
-								}
-							}
+						$init($ClassWriter$1);
+						switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$Attribute$RetentionPolicy)->get(($$nc($nc(this->types)->getRetention(a)))->ordinal())) {
+						case 1:
+							break;
+						case 2:
+							hasInvisible = true;
+							break;
+						case 3:
+							hasVisible = true;
+							break;
+						default:
+							break;
 						}
 					}
 				}
@@ -762,35 +611,29 @@ int32_t ClassWriter::writeParameterAttrs($List* vars) {
 }
 
 int32_t ClassWriter::writeJavaAnnotations($List* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(attrs)->isEmpty()) {
 		return 0;
 	}
 	$var($ListBuffer, visibles, $new($ListBuffer));
 	$var($ListBuffer, invisibles, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc(attrs)->iterator());
+		$var($Iterator, i$, attrs->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$Compound, a, $cast($Attribute$Compound, i$->next()));
 			{
 				$init($ClassWriter$1);
-				switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$Attribute$RetentionPolicy)->get($nc(($($nc(this->types)->getRetention(a))))->ordinal())) {
+				switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$Attribute$RetentionPolicy)->get(($$nc($nc(this->types)->getRetention(a)))->ordinal())) {
 				case 1:
-					{
-						break;
-					}
+					break;
 				case 2:
-					{
-						invisibles->append(a);
-						break;
-					}
+					invisibles->append(a);
+					break;
 				case 3:
-					{
-						visibles->append(a);
-						break;
-					}
+					visibles->append(a);
+					break;
 				default:
-					{}
+					break;
 				}
 			}
 		}
@@ -826,14 +669,14 @@ int32_t ClassWriter::writeJavaAnnotations($List* attrs) {
 }
 
 int32_t ClassWriter::writeTypeAnnotations($List* typeAnnos, bool inCode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(typeAnnos)->isEmpty()) {
 		return 0;
 	}
 	$var($ListBuffer, visibles, $new($ListBuffer));
 	$var($ListBuffer, invisibles, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc(typeAnnos)->iterator());
+		$var($Iterator, i$, typeAnnos->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$TypeCompound, tc, $cast($Attribute$TypeCompound, i$->next()));
 			{
@@ -846,30 +689,24 @@ int32_t ClassWriter::writeTypeAnnotations($List* typeAnnos, bool inCode) {
 						continue;
 					}
 				}
-				if ($nc($nc(tc)->position)->type->isLocal() != inCode) {
+				if ($nc(tc->position)->type->isLocal() != inCode) {
 					continue;
 				}
-				if (!$nc($nc(tc)->position)->emitToClassfile()) {
+				if (!$nc(tc->position)->emitToClassfile()) {
 					continue;
 				}
 				$init($ClassWriter$1);
-				switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$Attribute$RetentionPolicy)->get($nc(($($nc(this->types)->getRetention(static_cast<$Attribute$Compound*>(tc)))))->ordinal())) {
+				switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$Attribute$RetentionPolicy)->get(($$nc($nc(this->types)->getRetention(tc)))->ordinal())) {
 				case 1:
-					{
-						break;
-					}
+					break;
 				case 2:
-					{
-						invisibles->append(tc);
-						break;
-					}
+					invisibles->append(tc);
+					break;
 				case 3:
-					{
-						visibles->append(tc);
-						break;
-					}
+					visibles->append(tc);
+					break;
 				default:
-					{}
+					break;
 				}
 			}
 		}
@@ -905,16 +742,16 @@ int32_t ClassWriter::writeTypeAnnotations($List* typeAnnos, bool inCode) {
 }
 
 void ClassWriter::writeCompoundAttribute($Attribute$Compound* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putDescriptor($nc(c)->type));
-	$nc(this->databuf)->appendChar($nc($nc(c)->values)->length());
+	$nc(this->databuf)->appendChar($nc(c->values)->length());
 	{
-		$var($Iterator, i$, $nc($nc(c)->values)->iterator());
+		$var($Iterator, i$, c->values->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Pair, p, $cast($Pair, i$->next()));
 			{
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($nc(($cast($Symbol$MethodSymbol, $nc(p)->fst)))->name));
-				$nc(($cast($Attribute, $nc(p)->snd)))->accept(this->awriter);
+				$nc(this->databuf)->appendChar(this->poolWriter->putName($nc(($cast($Symbol$MethodSymbol, $nc(p)->fst)))->name));
+				$nc($cast($Attribute, p->snd))->accept(this->awriter);
 			}
 		}
 	}
@@ -926,100 +763,63 @@ void ClassWriter::writeTypeAnnotation($Attribute$TypeCompound* c) {
 }
 
 void ClassWriter::writePosition($TypeAnnotationPosition* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->databuf)->appendByte($nc(p)->type->targetTypeValue());
 	$init($ClassWriter$1);
-	switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$TargetType)->get(($nc(p)->type)->ordinal())) {
+	switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$TargetType)->get((p->type)->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{
-			$nc(this->databuf)->appendChar(p->offset);
-			break;
-		}
+		$nc(this->databuf)->appendChar(p->offset);
+		break;
 	case 5:
-		{}
 	case 6:
-		{
-			$nc(this->databuf)->appendChar($nc(p->lvarOffset)->length);
-			for (int32_t i = 0; i < $nc(p->lvarOffset)->length; ++i) {
-				$nc(this->databuf)->appendChar($nc(p->lvarOffset)->get(i));
-				$nc(this->databuf)->appendChar($nc(p->lvarLength)->get(i));
-				$nc(this->databuf)->appendChar($nc(p->lvarIndex)->get(i));
-			}
-			break;
+		$nc(this->databuf)->appendChar($nc(p->lvarOffset)->length);
+		for (int32_t i = 0; i < $nc(p->lvarOffset)->length; ++i) {
+			$nc(this->databuf)->appendChar(p->lvarOffset->get(i));
+			$nc(this->databuf)->appendChar($nc(p->lvarLength)->get(i));
+			$nc(this->databuf)->appendChar($nc(p->lvarIndex)->get(i));
 		}
+		break;
 	case 7:
-		{
-			$nc(this->databuf)->appendChar(p->getExceptionIndex());
-			break;
-		}
+		$nc(this->databuf)->appendChar(p->getExceptionIndex());
+		break;
 	case 8:
-		{
-			break;
-		}
+		break;
 	case 9:
-		{}
 	case 10:
-		{
-			$nc(this->databuf)->appendByte(p->parameter_index);
-			break;
-		}
+		$nc(this->databuf)->appendByte(p->parameter_index);
+		break;
 	case 11:
-		{}
 	case 12:
-		{
-			$nc(this->databuf)->appendByte(p->parameter_index);
-			$nc(this->databuf)->appendByte(p->bound_index);
-			break;
-		}
+		$nc(this->databuf)->appendByte(p->parameter_index);
+		$nc(this->databuf)->appendByte(p->bound_index);
+		break;
 	case 13:
-		{
-			$nc(this->databuf)->appendChar(p->type_index);
-			break;
-		}
+		$nc(this->databuf)->appendChar(p->type_index);
+		break;
 	case 14:
-		{
-			$nc(this->databuf)->appendChar(p->type_index);
-			break;
-		}
+		$nc(this->databuf)->appendChar(p->type_index);
+		break;
 	case 15:
-		{
-			$nc(this->databuf)->appendByte(p->parameter_index);
-			break;
-		}
+		$nc(this->databuf)->appendByte(p->parameter_index);
+		break;
 	case 16:
-		{}
 	case 17:
-		{}
 	case 18:
-		{}
 	case 19:
-		{}
 	case 20:
-		{
-			$nc(this->databuf)->appendChar(p->offset);
-			$nc(this->databuf)->appendByte(p->type_index);
-			break;
-		}
+		$nc(this->databuf)->appendChar(p->offset);
+		$nc(this->databuf)->appendByte(p->type_index);
+		break;
 	case 21:
-		{}
 	case 22:
-		{
-			break;
-		}
+		break;
 	case 23:
-		{
-			$throwNew($AssertionError, $of("jvm.ClassWriter: UNKNOWN target type should never occur!"_s));
-		}
+		$throwNew($AssertionError, $of("jvm.ClassWriter: UNKNOWN target type should never occur!"_s));
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"jvm.ClassWriter: Unknown target type for position: "_s, p})));
-		}
+		$throwNew($AssertionError, $$of($str({"jvm.ClassWriter: Unknown target type for position: "_s, p})));
 	}
 	{
 		$nc(this->databuf)->appendByte($nc(p->location)->size());
@@ -1027,7 +827,7 @@ void ClassWriter::writePosition($TypeAnnotationPosition* p) {
 		{
 			$var($Iterator, i$, $nc(loc)->iterator());
 			for (; $nc(i$)->hasNext();) {
-				int32_t i = $nc(($cast($Integer, $(i$->next()))))->intValue();
+				int32_t i = $$sure($Integer, i$->next())->intValue();
 				$nc(this->databuf)->appendByte((int8_t)i);
 			}
 		}
@@ -1035,22 +835,20 @@ void ClassWriter::writePosition($TypeAnnotationPosition* p) {
 }
 
 int32_t ClassWriter::writeModuleAttribute($Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$ModuleSymbol, m, $cast($Symbol$ModuleSymbol, $nc(c)->owner));
 	int32_t alenIdx = writeAttr($nc(this->names)->Module);
 	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putModule(m));
 	$nc(this->databuf)->appendChar($Symbol$ModuleFlags::value($nc(m)->flags$));
-	$nc(this->databuf)->appendChar($nc(m)->version != nullptr ? $nc(this->poolWriter)->putName($nc(m)->version) : 0);
+	$nc(this->databuf)->appendChar(m->version != nullptr ? this->poolWriter->putName(m->version) : 0);
 	$var($ListBuffer, requires, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc($nc(m)->requires)->iterator());
+		$var($Iterator, i$, $nc(m->requires)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Directive$RequiresDirective, r, $cast($Directive$RequiresDirective, i$->next()));
-			{
-				$init($Directive$RequiresFlag);
-				if (!$nc($nc(r)->flags)->contains($Directive$RequiresFlag::EXTRA)) {
-					requires->add(r);
-				}
+			$init($Directive$RequiresFlag);
+			if (!$nc($nc(r)->flags)->contains($Directive$RequiresFlag::EXTRA)) {
+				requires->add(r);
 			}
 		}
 	}
@@ -1060,31 +858,31 @@ int32_t ClassWriter::writeModuleAttribute($Symbol$ClassSymbol* c) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Directive$RequiresDirective, r, $cast($Directive$RequiresDirective, i$->next()));
 			{
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putModule($nc(r)->module));
-				$nc(this->databuf)->appendChar($Directive$RequiresFlag::value($nc(r)->flags));
-				$nc(this->databuf)->appendChar($nc($nc(r)->module)->version != nullptr ? $nc(this->poolWriter)->putName($nc($nc(r)->module)->version) : 0);
+				$nc(this->databuf)->appendChar(this->poolWriter->putModule($nc(r)->module));
+				$nc(this->databuf)->appendChar($Directive$RequiresFlag::value(r->flags));
+				$nc(this->databuf)->appendChar($nc(r->module)->version != nullptr ? this->poolWriter->putName(r->module->version) : 0);
 			}
 		}
 	}
 	$var($List, exports, m->exports);
 	$nc(this->databuf)->appendChar($nc(exports)->size());
 	{
-		$var($Iterator, i$, $nc(exports)->iterator());
+		$var($Iterator, i$, exports->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Directive$ExportsDirective, e, $cast($Directive$ExportsDirective, i$->next()));
 			{
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putPackage($nc(e)->packge));
-				$nc(this->databuf)->appendChar($Directive$ExportsFlag::value($nc(e)->flags));
-				if ($nc(e)->modules == nullptr) {
+				$nc(this->databuf)->appendChar(this->poolWriter->putPackage($nc(e)->packge));
+				$nc(this->databuf)->appendChar($Directive$ExportsFlag::value(e->flags));
+				if (e->modules == nullptr) {
 					$nc(this->databuf)->appendChar(0);
 				} else {
-					$nc(this->databuf)->appendChar($nc(e->modules)->size());
+					$nc(this->databuf)->appendChar(e->modules->size());
 					{
-						$var($Iterator, i$, $nc(e->modules)->iterator());
+						$var($Iterator, i$, e->modules->iterator());
 						for (; $nc(i$)->hasNext();) {
 							$var($Symbol$ModuleSymbol, msym, $cast($Symbol$ModuleSymbol, i$->next()));
 							{
-								$nc(this->databuf)->appendChar($nc(this->poolWriter)->putModule(msym));
+								$nc(this->databuf)->appendChar(this->poolWriter->putModule(msym));
 							}
 						}
 					}
@@ -1095,22 +893,22 @@ int32_t ClassWriter::writeModuleAttribute($Symbol$ClassSymbol* c) {
 	$var($List, opens, m->opens);
 	$nc(this->databuf)->appendChar($nc(opens)->size());
 	{
-		$var($Iterator, i$, $nc(opens)->iterator());
+		$var($Iterator, i$, opens->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Directive$OpensDirective, o, $cast($Directive$OpensDirective, i$->next()));
 			{
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putPackage($nc(o)->packge));
-				$nc(this->databuf)->appendChar($Directive$OpensFlag::value($nc(o)->flags));
-				if ($nc(o)->modules == nullptr) {
+				$nc(this->databuf)->appendChar(this->poolWriter->putPackage($nc(o)->packge));
+				$nc(this->databuf)->appendChar($Directive$OpensFlag::value(o->flags));
+				if (o->modules == nullptr) {
 					$nc(this->databuf)->appendChar(0);
 				} else {
-					$nc(this->databuf)->appendChar($nc(o->modules)->size());
+					$nc(this->databuf)->appendChar(o->modules->size());
 					{
-						$var($Iterator, i$, $nc(o->modules)->iterator());
+						$var($Iterator, i$, o->modules->iterator());
 						for (; $nc(i$)->hasNext();) {
 							$var($Symbol$ModuleSymbol, msym, $cast($Symbol$ModuleSymbol, i$->next()));
 							{
-								$nc(this->databuf)->appendChar($nc(this->poolWriter)->putModule(msym));
+								$nc(this->databuf)->appendChar(this->poolWriter->putModule(msym));
 							}
 						}
 					}
@@ -1121,11 +919,11 @@ int32_t ClassWriter::writeModuleAttribute($Symbol$ClassSymbol* c) {
 	$var($List, uses, m->uses);
 	$nc(this->databuf)->appendChar($nc(uses)->size());
 	{
-		$var($Iterator, i$, $nc(uses)->iterator());
+		$var($Iterator, i$, uses->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Directive$UsesDirective, s, $cast($Directive$UsesDirective, i$->next()));
 			{
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass($nc(s)->service));
+				$nc(this->databuf)->appendChar(this->poolWriter->putClass($nc(s)->service));
 			}
 		}
 	}
@@ -1135,28 +933,28 @@ int32_t ClassWriter::writeModuleAttribute($Symbol$ClassSymbol* c) {
 		for (; $nc(i$)->hasNext();) {
 			$var($Directive$ProvidesDirective, p, $cast($Directive$ProvidesDirective, i$->next()));
 			{
-				$nc(($cast($Set, $(mergedProvides->computeIfAbsent($nc(p)->service, static_cast<$Function*>($$new(ClassWriter$$Lambda$lambda$writeModuleAttribute$0)))))))->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>($nc(p)->impls)));
+				$$sure($Set, mergedProvides->computeIfAbsent($nc(p)->service, $$new(ClassWriter$$Lambda$lambda$writeModuleAttribute$0)))->addAll($cast($AbstractCollection, $nc(p)->impls));
 			}
 		}
 	}
 	$nc(this->databuf)->appendChar(mergedProvides->size());
-	mergedProvides->forEach(static_cast<$BiConsumer*>($$new(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, this)));
+	mergedProvides->forEach($$new(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1, this));
 	endAttr(alenIdx);
 	return 1;
 }
 
 void ClassWriter::writeInnerClasses() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t alenIdx = writeAttr($nc(this->names)->InnerClasses);
 	$nc(this->databuf)->appendChar($nc($nc(this->poolWriter)->innerClasses)->size());
 	{
-		$var($Iterator, i$, $nc($nc(this->poolWriter)->innerClasses)->iterator());
+		$var($Iterator, i$, $nc(this->poolWriter->innerClasses)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol$ClassSymbol, inner, $cast($Symbol$ClassSymbol, i$->next()));
 			{
 				$nc(inner)->markAbstractIfNeeded(this->types);
 				char16_t flags = (char16_t)adjustFlags(inner->flags_field);
-				if (((int32_t)(flags & (uint32_t)512)) != 0) {
+				if ((flags & 0x0200) != 0) {
 					flags |= 1024;
 				}
 				flags &= (char16_t)~2048;
@@ -1166,10 +964,10 @@ void ClassWriter::writeInnerClasses() {
 					$nc(pw)->println($$str({"INNERCLASS  "_s, inner->name}));
 					pw->println($$str({"---"_s, $(flagNames(flags))}));
 				}
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass(inner));
+				$nc(this->databuf)->appendChar(this->poolWriter->putClass(inner));
 				$init($Kinds$Kind);
-				$nc(this->databuf)->appendChar($nc(inner->owner)->kind == $Kinds$Kind::TYP && !$nc(inner->name)->isEmpty() ? $nc(this->poolWriter)->putClass($cast($Symbol$ClassSymbol, inner->owner)) : 0);
-				$nc(this->databuf)->appendChar(!$nc(inner->name)->isEmpty() ? $nc(this->poolWriter)->putName(inner->name) : 0);
+				$nc(this->databuf)->appendChar($nc(inner->owner)->kind == $Kinds$Kind::TYP && !$nc(inner->name)->isEmpty() ? this->poolWriter->putClass($cast($Symbol$ClassSymbol, inner->owner)) : 0);
+				$nc(this->databuf)->appendChar(!$nc(inner->name)->isEmpty() ? this->poolWriter->putName(inner->name) : 0);
 				$nc(this->databuf)->appendChar(flags);
 			}
 		}
@@ -1178,17 +976,17 @@ void ClassWriter::writeInnerClasses() {
 }
 
 int32_t ClassWriter::writeRecordAttribute($Symbol$ClassSymbol* csym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t alenIdx = writeAttr($nc(this->names)->Record);
 	$var($Scope, s, $nc(csym)->members());
-	$nc(this->databuf)->appendChar($nc($(csym->getRecordComponents()))->size());
+	$nc(this->databuf)->appendChar($$nc(csym->getRecordComponents())->size());
 	{
-		$var($Iterator, i$, $nc($(csym->getRecordComponents()))->iterator());
+		$var($Iterator, i$, $$nc(csym->getRecordComponents())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol$VarSymbol, v, $cast($Symbol$VarSymbol, i$->next()));
 			{
 				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($nc(v)->name));
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putDescriptor(static_cast<$Symbol*>(v)));
+				$nc(this->databuf)->appendChar(this->poolWriter->putDescriptor(v));
 				int32_t acountIdx = beginAttrs();
 				int32_t acount = 0;
 				acount += writeMemberAttrs(v, true);
@@ -1201,10 +999,10 @@ int32_t ClassWriter::writeRecordAttribute($Symbol$ClassSymbol* csym) {
 }
 
 int32_t ClassWriter::writeNestMembersIfNeeded($Symbol$ClassSymbol* csym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, nested, $new($ListBuffer));
 	listNested(csym, nested);
-	$var($Set, nestedUnique, $new($LinkedHashSet, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(nested)))));
+	$var($Set, nestedUnique, $new($LinkedHashSet, $cast($AbstractCollection, nested)));
 	$init($Kinds$Kind);
 	if ($nc($nc(csym)->owner)->kind == $Kinds$Kind::PCK && !nestedUnique->isEmpty()) {
 		int32_t alenIdx = writeAttr($nc(this->names)->NestMembers);
@@ -1236,41 +1034,37 @@ int32_t ClassWriter::writeNestHostIfNeeded($Symbol$ClassSymbol* csym) {
 }
 
 void ClassWriter::listNested($Symbol* sym, $ListBuffer* seen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
 	if ($nc(sym)->kind != $Kinds$Kind::TYP) {
 		return;
 	}
 	$var($Symbol$ClassSymbol, csym, $cast($Symbol$ClassSymbol, sym));
-	if ($nc($nc(csym)->owner)->kind != $Kinds$Kind::PCK) {
+	if ($nc(csym->owner)->kind != $Kinds$Kind::PCK) {
 		$nc(seen)->add(csym);
 	}
-	if ($nc(csym)->members() != nullptr) {
-		{
-			$var($Iterator, i$, $nc($($nc($($nc(sym)->members()))->getSymbols()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Symbol, s, $cast($Symbol, i$->next()));
-				{
-					listNested(s, seen);
-				}
+	if (csym->members() != nullptr) {
+		$var($Iterator, i$, $$nc($$nc(sym->members())->getSymbols())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Symbol, s, $cast($Symbol, i$->next()));
+			{
+				listNested(s, seen);
 			}
 		}
 	}
-	if ($nc(csym)->trans_local != nullptr) {
-		{
-			$var($Iterator, i$, $nc(csym->trans_local)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Symbol, s, $cast($Symbol, i$->next()));
-				{
-					listNested(s, seen);
-				}
+	if (csym->trans_local != nullptr) {
+		$var($Iterator, i$, csym->trans_local->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Symbol, s, $cast($Symbol, i$->next()));
+			{
+				listNested(s, seen);
 			}
 		}
 	}
 }
 
 int32_t ClassWriter::writePermittedSubclassesIfNeeded($Symbol$ClassSymbol* csym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(csym)->permitted)->nonEmpty()) {
 		int32_t alenIdx = writeAttr($nc(this->names)->PermittedSubclasses);
 		$nc(this->databuf)->appendChar($nc(csym->permitted)->size());
@@ -1290,25 +1084,23 @@ int32_t ClassWriter::writePermittedSubclassesIfNeeded($Symbol$ClassSymbol* csym)
 }
 
 void ClassWriter::writeBootstrapMethods() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t alenIdx = writeAttr($nc(this->names)->BootstrapMethods);
 	$nc(this->databuf)->appendChar($nc($nc(this->poolWriter)->bootstrapMethods)->size());
 	{
-		$var($Iterator, i$, $nc($($nc($nc(this->poolWriter)->bootstrapMethods)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->poolWriter->bootstrapMethods)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($PoolConstant$Dynamic$BsmKey, bsmKey, $cast($PoolConstant$Dynamic$BsmKey, i$->next()));
 			{
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putConstant($nc(bsmKey)->bsm));
-				$var($PoolConstant$LoadableConstantArray, uniqueArgs, $nc(bsmKey)->staticArgs);
+				$nc(this->databuf)->appendChar(this->poolWriter->putConstant($nc(bsmKey)->bsm));
+				$var($PoolConstant$LoadableConstantArray, uniqueArgs, bsmKey->staticArgs);
 				$nc(this->databuf)->appendChar($nc(uniqueArgs)->length);
 				{
 					$var($PoolConstant$LoadableConstantArray, arr$, uniqueArgs);
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 						$var($PoolConstant$LoadableConstant, arg, arr$->get(i$));
 						{
-							$nc(this->databuf)->appendChar($nc(this->poolWriter)->putConstant(arg));
+							$nc(this->databuf)->appendChar(this->poolWriter->putConstant(arg));
 						}
 					}
 				}
@@ -1319,22 +1111,22 @@ void ClassWriter::writeBootstrapMethods() {
 }
 
 void ClassWriter::writeField($Symbol$VarSymbol* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t flags = adjustFlags($nc(v)->flags());
 	$nc(this->databuf)->appendChar(flags);
 	if (this->dumpFieldModifiers) {
 		$init($Log$WriterKind);
 		$var($PrintWriter, pw, $nc(this->log)->getWriter($Log$WriterKind::ERROR));
-		$nc(pw)->println($$str({"FIELD  "_s, $nc(v)->name}));
-		pw->println($$str({"---"_s, $(flagNames($nc(v)->flags()))}));
+		$nc(pw)->println($$str({"FIELD  "_s, v->name}));
+		pw->println($$str({"---"_s, $(flagNames(v->flags()))}));
 	}
-	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($nc(v)->name));
-	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putDescriptor(static_cast<$Symbol*>(v)));
+	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName(v->name));
+	$nc(this->databuf)->appendChar(this->poolWriter->putDescriptor(v));
 	int32_t acountIdx = beginAttrs();
 	int32_t acount = 0;
-	if ($nc(v)->getConstValue() != nullptr) {
+	if (v->getConstValue() != nullptr) {
 		int32_t alenIdx = writeAttr($nc(this->names)->ConstantValue);
-		$nc(this->databuf)->appendChar($nc(this->poolWriter)->putConstant($(v->getConstValue())));
+		$nc(this->databuf)->appendChar(this->poolWriter->putConstant($(v->getConstValue())));
 		endAttr(alenIdx);
 		++acount;
 	}
@@ -1344,34 +1136,34 @@ void ClassWriter::writeField($Symbol$VarSymbol* v) {
 }
 
 void ClassWriter::writeMethod($Symbol$MethodSymbol* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t flags = adjustFlags($nc(m)->flags());
 	$nc(this->databuf)->appendChar(flags);
 	if (this->dumpMethodModifiers) {
 		$init($Log$WriterKind);
 		$var($PrintWriter, pw, $nc(this->log)->getWriter($Log$WriterKind::ERROR));
-		$nc(pw)->println($$str({"METHOD  "_s, $nc(m)->name}));
-		pw->println($$str({"---"_s, $(flagNames($nc(m)->flags()))}));
+		$nc(pw)->println($$str({"METHOD  "_s, m->name}));
+		pw->println($$str({"---"_s, $(flagNames(m->flags()))}));
 	}
-	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($nc(m)->name));
-	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putDescriptor(static_cast<$Symbol*>(m)));
+	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName(m->name));
+	$nc(this->databuf)->appendChar(this->poolWriter->putDescriptor(m));
 	int32_t acountIdx = beginAttrs();
 	int32_t acount = 0;
-	if ($nc(m)->code != nullptr) {
+	if (m->code != nullptr) {
 		int32_t alenIdx = writeAttr($nc(this->names)->Code);
 		writeCode(m->code);
 		$set(m, code, nullptr);
 		endAttr(alenIdx);
 		++acount;
 	}
-	$var($List, thrown, $nc($($nc(m)->erasure(this->types)))->getThrownTypes());
+	$var($List, thrown, $$nc(m->erasure(this->types))->getThrownTypes());
 	if ($nc(thrown)->nonEmpty()) {
 		int32_t alenIdx = writeAttr($nc(this->names)->Exceptions);
 		$nc(this->databuf)->appendChar(thrown->length());
 		{
 			$var($List, l, thrown);
-			for (; l->nonEmpty(); $assign(l, l->tail)) {
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass($cast($Type, $nc(l)->head)));
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				$nc(this->databuf)->appendChar(this->poolWriter->putClass($cast($Type, l->head)));
 			}
 		}
 		endAttr(alenIdx);
@@ -1387,7 +1179,7 @@ void ClassWriter::writeMethod($Symbol$MethodSymbol* m) {
 	if (var$0) {
 		$init($Option);
 		bool var$1 = $nc(this->options)->isSet($Option::PARAMETERS);
-		var$0 = (var$1 || m->isConstructor() && ((int64_t)(m->flags_field & (uint64_t)(int64_t)0x2000000000000000)) != 0);
+		var$0 = var$1 || m->isConstructor() && (m->flags_field & (int64_t)0x2000000000000000) != 0;
 	}
 	if (var$0) {
 		if (!m->isLambdaMethod()) {
@@ -1403,17 +1195,17 @@ void ClassWriter::writeMethod($Symbol$MethodSymbol* m) {
 }
 
 void ClassWriter::writeCode($Code* code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->databuf)->appendChar($nc(code)->max_stack);
-	$nc(this->databuf)->appendChar($nc(code)->max_locals);
-	$nc(this->databuf)->appendInt($nc(code)->cp);
-	$nc(this->databuf)->appendBytes($nc(code)->code, 0, code->cp);
-	$nc(this->databuf)->appendChar($nc($nc(code)->catchInfo)->length());
+	$nc(this->databuf)->appendChar(code->max_locals);
+	$nc(this->databuf)->appendInt(code->cp);
+	$nc(this->databuf)->appendBytes(code->code, 0, code->cp);
+	$nc(this->databuf)->appendChar($nc(code->catchInfo)->length());
 	{
-		$var($List, l, $nc($nc(code)->catchInfo)->toList());
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		$var($List, l, $nc(code->catchInfo)->toList());
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			for (int32_t i = 0; i < $nc(($cast($chars, l->head)))->length; ++i) {
-				$nc(this->databuf)->appendChar($nc(($cast($chars, l->head)))->get(i));
+				$nc(this->databuf)->appendChar(($cast($chars, l->head))->get(i));
 			}
 		}
 	}
@@ -1424,9 +1216,9 @@ void ClassWriter::writeCode($Code* code) {
 		$nc(this->databuf)->appendChar($nc(code->lineInfo)->length());
 		{
 			$var($List, l, $nc(code->lineInfo)->reverse());
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 				for (int32_t i = 0; i < $nc(($cast($chars, l->head)))->length; ++i) {
-					$nc(this->databuf)->appendChar($nc(($cast($chars, l->head)))->get(i));
+					$nc(this->databuf)->appendChar(($cast($chars, l->head))->get(i));
 				}
 			}
 		}
@@ -1454,12 +1246,12 @@ void ClassWriter::writeCode($Code* code) {
 					$var($Code$LocalVar$Range, r, $cast($Code$LocalVar$Range, i$->next()));
 					{
 						$Assert::check($nc(r)->start_pc >= 0 && r->start_pc <= code->cp);
-						$nc(this->databuf)->appendChar($nc(r)->start_pc);
-						$Assert::check($nc(r)->length > 0 && (r->start_pc + r->length) <= code->cp);
-						$nc(this->databuf)->appendChar($nc(r)->length);
+						$nc(this->databuf)->appendChar(r->start_pc);
+						$Assert::check(r->length > 0 && (r->start_pc + r->length) <= code->cp);
+						$nc(this->databuf)->appendChar(r->length);
 						$var($Symbol$VarSymbol, sym, var->sym);
 						$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($nc(sym)->name));
-						$nc(this->databuf)->appendChar($nc(this->poolWriter)->putDescriptor(static_cast<$Symbol*>(sym)));
+						$nc(this->databuf)->appendChar(this->poolWriter->putDescriptor(sym));
 						$nc(this->databuf)->appendChar(var->reg);
 						if (needsLocalVariableTypeEntry($nc(var->sym)->type)) {
 							++nGenericVars;
@@ -1471,7 +1263,7 @@ void ClassWriter::writeCode($Code* code) {
 		endAttr(alenIdx);
 		++acount;
 		if (nGenericVars > 0) {
-			alenIdx = writeAttr($nc(this->names)->LocalVariableTypeTable);
+			alenIdx = writeAttr(this->names->LocalVariableTypeTable);
 			$nc(this->databuf)->appendChar(nGenericVars);
 			int32_t count = 0;
 			for (int32_t i = 0; i < code->varBufferSize; ++i) {
@@ -1486,9 +1278,9 @@ void ClassWriter::writeCode($Code* code) {
 						$var($Code$LocalVar$Range, r, $cast($Code$LocalVar$Range, i$->next()));
 						{
 							$nc(this->databuf)->appendChar($nc(r)->start_pc);
-							$nc(this->databuf)->appendChar($nc(r)->length);
-							$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($nc(sym)->name));
-							$nc(this->databuf)->appendChar($nc(this->poolWriter)->putSignature(sym));
+							$nc(this->databuf)->appendChar(r->length);
+							$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName(sym->name));
+							$nc(this->databuf)->appendChar(this->poolWriter->putSignature(sym));
 							$nc(this->databuf)->appendChar(var->reg);
 							++count;
 						}
@@ -1519,7 +1311,7 @@ bool ClassWriter::needsLocalVariableTypeEntry($Type* t) {
 }
 
 void ClassWriter::writeStackMap($Code* code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nframes = $nc(code)->stackMapBufferSize;
 	if (this->debugstackmap) {
 		$nc($System::out)->println($$str({" nframes = "_s, $$str(nframes)}));
@@ -1528,76 +1320,70 @@ void ClassWriter::writeStackMap($Code* code) {
 	$init($ClassWriter$1);
 	switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat)->get($nc((code->stackMap))->ordinal())) {
 	case 1:
+		for (int32_t i = 0; i < nframes; ++i) {
+			if (this->debugstackmap) {
+				$nc($System::out)->print($$str({"  "_s, $$str(i), ":"_s}));
+			}
+			$var($Code$StackMapFrame, frame, $nc(code->stackMapBuffer)->get(i));
+			if (this->debugstackmap) {
+				$nc($System::out)->print($$str({" pc="_s, $$str($nc(frame)->pc)}));
+			}
+			$nc(this->databuf)->appendChar($nc(frame)->pc);
+			int32_t localCount = 0;
+			for (int32_t j = 0; j < $nc(frame->locals)->length; j += $Code::width($nc(frame->locals)->get(j))) {
+				++localCount;
+			}
+			if (this->debugstackmap) {
+				$nc($System::out)->print($$str({" nlocals="_s, $$str(localCount)}));
+			}
+			$nc(this->databuf)->appendChar(localCount);
+			for (int32_t j = 0; j < $nc(frame->locals)->length; j += $Code::width($nc(frame->locals)->get(j))) {
+				if (this->debugstackmap) {
+					$nc($System::out)->print($$str({" local["_s, $$str(j), "]="_s}));
+				}
+				writeStackMapType(frame->locals->get(j));
+			}
+			int32_t stackCount = 0;
+			for (int32_t j = 0; j < $nc(frame->stack)->length; j += $Code::width($nc(frame->stack)->get(j))) {
+				++stackCount;
+			}
+			if (this->debugstackmap) {
+				$nc($System::out)->print($$str({" nstack="_s, $$str(stackCount)}));
+			}
+			$nc(this->databuf)->appendChar(stackCount);
+			for (int32_t j = 0; j < $nc(frame->stack)->length; j += $Code::width($nc(frame->stack)->get(j))) {
+				if (this->debugstackmap) {
+					$nc($System::out)->print($$str({" stack["_s, $$str(j), "]="_s}));
+				}
+				writeStackMapType(frame->stack->get(j));
+			}
+			if (this->debugstackmap) {
+				$nc($System::out)->println();
+			}
+		}
+		break;
+	case 2:
 		{
+			$Assert::checkNull(code->stackMapBuffer);
 			for (int32_t i = 0; i < nframes; ++i) {
 				if (this->debugstackmap) {
 					$nc($System::out)->print($$str({"  "_s, $$str(i), ":"_s}));
 				}
-				$var($Code$StackMapFrame, frame, $nc(code->stackMapBuffer)->get(i));
-				if (this->debugstackmap) {
-					$nc($System::out)->print($$str({" pc="_s, $$str($nc(frame)->pc)}));
-				}
-				$nc(this->databuf)->appendChar($nc(frame)->pc);
-				int32_t localCount = 0;
-				for (int32_t j = 0; j < $nc($nc(frame)->locals)->length; j += $Code::width($nc($nc(frame)->locals)->get(j))) {
-					++localCount;
-				}
-				if (this->debugstackmap) {
-					$nc($System::out)->print($$str({" nlocals="_s, $$str(localCount)}));
-				}
-				$nc(this->databuf)->appendChar(localCount);
-				for (int32_t j = 0; j < $nc($nc(frame)->locals)->length; j += $Code::width($nc($nc(frame)->locals)->get(j))) {
-					if (this->debugstackmap) {
-						$nc($System::out)->print($$str({" local["_s, $$str(j), "]="_s}));
-					}
-					writeStackMapType($nc(frame->locals)->get(j));
-				}
-				int32_t stackCount = 0;
-				for (int32_t j = 0; j < $nc($nc(frame)->stack)->length; j += $Code::width($nc($nc(frame)->stack)->get(j))) {
-					++stackCount;
-				}
-				if (this->debugstackmap) {
-					$nc($System::out)->print($$str({" nstack="_s, $$str(stackCount)}));
-				}
-				$nc(this->databuf)->appendChar(stackCount);
-				for (int32_t j = 0; j < $nc($nc(frame)->stack)->length; j += $Code::width($nc($nc(frame)->stack)->get(j))) {
-					if (this->debugstackmap) {
-						$nc($System::out)->print($$str({" stack["_s, $$str(j), "]="_s}));
-					}
-					writeStackMapType($nc(frame->stack)->get(j));
-				}
+				$var($ClassWriter$StackMapTableFrame, frame, $nc(code->stackMapTableBuffer)->get(i));
+				$nc(frame)->write(this);
 				if (this->debugstackmap) {
 					$nc($System::out)->println();
 				}
 			}
 			break;
 		}
-	case 2:
-		{
-			{
-				$Assert::checkNull(code->stackMapBuffer);
-				for (int32_t i = 0; i < nframes; ++i) {
-					if (this->debugstackmap) {
-						$nc($System::out)->print($$str({"  "_s, $$str(i), ":"_s}));
-					}
-					$var($ClassWriter$StackMapTableFrame, frame, $nc(code->stackMapTableBuffer)->get(i));
-					$nc(frame)->write(this);
-					if (this->debugstackmap) {
-						$nc($System::out)->println();
-					}
-				}
-				break;
-			}
-		}
 	default:
-		{
-			$throwNew($AssertionError, $of("Unexpected stackmap format value"_s));
-		}
+		$throwNew($AssertionError, $of("Unexpected stackmap format value"_s));
 	}
 }
 
 void ClassWriter::writeStackMapType($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (t == nullptr) {
 		if (this->debugstackmap) {
 			$nc($System::out)->print("empty"_s);
@@ -1605,109 +1391,83 @@ void ClassWriter::writeStackMapType($Type* t) {
 		$nc(this->databuf)->appendByte(0);
 	} else {
 		$init($ClassWriter$1);
-		switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+		switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc(t->getTag()))->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{}
 		case 3:
-			{}
 		case 4:
-			{}
 		case 8:
-			{
-				if (this->debugstackmap) {
-					$nc($System::out)->print("int"_s);
-				}
-				$nc(this->databuf)->appendByte(1);
-				break;
+			if (this->debugstackmap) {
+				$nc($System::out)->print("int"_s);
 			}
+			$nc(this->databuf)->appendByte(1);
+			break;
 		case 6:
-			{
-				if (this->debugstackmap) {
-					$nc($System::out)->print("float"_s);
-				}
-				$nc(this->databuf)->appendByte(2);
-				break;
+			if (this->debugstackmap) {
+				$nc($System::out)->print("float"_s);
 			}
+			$nc(this->databuf)->appendByte(2);
+			break;
 		case 7:
-			{
-				if (this->debugstackmap) {
-					$nc($System::out)->print("double"_s);
-				}
-				$nc(this->databuf)->appendByte(3);
-				break;
+			if (this->debugstackmap) {
+				$nc($System::out)->print("double"_s);
 			}
+			$nc(this->databuf)->appendByte(3);
+			break;
 		case 5:
-			{
-				if (this->debugstackmap) {
-					$nc($System::out)->print("long"_s);
-				}
-				$nc(this->databuf)->appendByte(4);
-				break;
+			if (this->debugstackmap) {
+				$nc($System::out)->print("long"_s);
 			}
+			$nc(this->databuf)->appendByte(4);
+			break;
 		case 9:
-			{
-				if (this->debugstackmap) {
-					$nc($System::out)->print("null"_s);
-				}
-				$nc(this->databuf)->appendByte(5);
-				break;
+			if (this->debugstackmap) {
+				$nc($System::out)->print("null"_s);
 			}
+			$nc(this->databuf)->appendByte(5);
+			break;
 		case 10:
-			{}
 		case 11:
-			{}
 		case 12:
-			{
-				if (this->debugstackmap) {
-					$nc($System::out)->print($$str({"object("_s, $nc($($nc(this->types)->erasure(t)))->tsym, ")"_s}));
-				}
-				$nc(this->databuf)->appendByte(7);
-				$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass($($nc(this->types)->erasure(t))));
-				break;
+			if (this->debugstackmap) {
+				$nc($System::out)->print($$str({"object("_s, $nc($($nc(this->types)->erasure(t)))->tsym, ")"_s}));
 			}
+			$nc(this->databuf)->appendByte(7);
+			$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass($($nc(this->types)->erasure(t))));
+			break;
 		case 13:
-			{
-				if (this->debugstackmap) {
-					$nc($System::out)->print("uninit_this"_s);
-				}
-				$nc(this->databuf)->appendByte(6);
-				break;
+			if (this->debugstackmap) {
+				$nc($System::out)->print("uninit_this"_s);
 			}
+			$nc(this->databuf)->appendByte(6);
+			break;
 		case 14:
 			{
-				{
-					$var($UninitializedType, uninitType, $cast($UninitializedType, t));
-					$nc(this->databuf)->appendByte(8);
-					if (this->debugstackmap) {
-						$nc($System::out)->print($$str({"uninit_object@"_s, $$str(uninitType->offset)}));
-					}
-					$nc(this->databuf)->appendChar(uninitType->offset);
+				$var($UninitializedType, uninitType, $cast($UninitializedType, t));
+				$nc(this->databuf)->appendByte(8);
+				if (this->debugstackmap) {
+					$nc($System::out)->print($$str({"uninit_object@"_s, $$str(uninitType->offset)}));
 				}
-				break;
+				$nc(this->databuf)->appendChar(uninitType->offset);
 			}
+			break;
 		default:
-			{
-				$throwNew($AssertionError);
-			}
+			$throwNew($AssertionError);
 		}
 	}
 }
 
 void ClassWriter::writeFields($Scope* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, vars, $List::nil());
 	{
 		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc(s)->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
+		$var($Iterator, i$, $$nc($nc(s)->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				$init($Kinds$Kind);
-				if ($nc(sym)->kind == $Kinds$Kind::VAR) {
-					$assign(vars, $nc(vars)->prepend($cast($Symbol$VarSymbol, sym)));
-				}
+			$init($Kinds$Kind);
+			if ($nc(sym)->kind == $Kinds$Kind::VAR) {
+				$assign(vars, $nc(vars)->prepend($cast($Symbol$VarSymbol, sym)));
 			}
 		}
 	}
@@ -1718,18 +1478,16 @@ void ClassWriter::writeFields($Scope* s) {
 }
 
 void ClassWriter::writeMethods($Scope* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, methods, $List::nil());
 	{
 		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc(s)->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
+		$var($Iterator, i$, $$nc($nc(s)->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
-			{
-				$init($Kinds$Kind);
-				if ($nc(sym)->kind == $Kinds$Kind::MTH && ((int64_t)(sym->flags() & (uint64_t)(int64_t)0x0000002000000000)) == 0) {
-					$assign(methods, $nc(methods)->prepend($cast($Symbol$MethodSymbol, sym)));
-				}
+			$init($Kinds$Kind);
+			if ($nc(sym)->kind == $Kinds$Kind::MTH && (sym->flags() & (int64_t)0x0000002000000000) == 0) {
+				$assign(methods, $nc(methods)->prepend($cast($Symbol$MethodSymbol, sym)));
 			}
 		}
 	}
@@ -1740,14 +1498,14 @@ void ClassWriter::writeMethods($Scope* s) {
 }
 
 $JavaFileObject* ClassWriter::writeClass($Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	$var($String, name, $nc(($nc($nc(c)->owner)->kind == $Kinds$Kind::MDL ? $nc(c)->name : c->flatname))->toString());
+	$var($String, name, $nc(($nc($nc(c)->owner)->kind == $Kinds$Kind::MDL ? c->name : c->flatname))->toString());
 	$var($JavaFileManager$Location, outLocn, nullptr);
 	if (this->multiModuleMode) {
 		$var($Symbol$ModuleSymbol, msym, $nc(c->owner)->kind == $Kinds$Kind::MDL ? $cast($Symbol$ModuleSymbol, c->owner) : $nc($(c->packge()))->modle);
 		$init($StandardLocation);
-		$assign(outLocn, $nc(this->fileManager)->getLocationForModule(static_cast<$JavaFileManager$Location*>($StandardLocation::CLASS_OUTPUT), $($nc($nc(msym)->name)->toString())));
+		$assign(outLocn, $nc(this->fileManager)->getLocationForModule($StandardLocation::CLASS_OUTPUT, $($nc($nc(msym)->name)->toString())));
 	} else {
 		$init($StandardLocation);
 		$assign(outLocn, $StandardLocation::CLASS_OUTPUT);
@@ -1755,54 +1513,52 @@ $JavaFileObject* ClassWriter::writeClass($Symbol$ClassSymbol* c) {
 	$init($JavaFileObject$Kind);
 	$var($JavaFileObject, outFile, $nc(this->fileManager)->getJavaFileForOutput(outLocn, name, $JavaFileObject$Kind::CLASS, c->sourcefile));
 	$var($OutputStream, out, $nc(outFile)->openOutputStream());
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				writeClassFile(out, c);
-				if (this->verbose) {
-					$nc(this->log)->printVerbose("wrote.file"_s, $$new($ObjectArray, {$($of(outFile->getName()))}));
-				}
-				$nc(out)->close();
-				$assign(out, nullptr);
-			} catch ($Types$SignatureGenerator$InvalidSignatureException& ex) {
-				$nc(this->log)->error($($CompilerProperties$Errors::CannotGenerateClass(c, $($CompilerProperties$Fragments::IllegalSignature(c, $(ex->type()))))));
+			writeClassFile(out, c);
+			if (this->verbose) {
+				$nc(this->log)->printVerbose("wrote.file"_s, $$new($ObjectArray, {$(outFile->getName())}));
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (out != nullptr) {
-				out->close();
-				outFile->delete$();
-				$assign(outFile, nullptr);
-			}
+			$nc(out)->close();
+			$assign(out, nullptr);
+		} catch ($Types$SignatureGenerator$InvalidSignatureException& ex) {
+			$nc(this->log)->error($($CompilerProperties$Errors::CannotGenerateClass(c, $($CompilerProperties$Fragments::IllegalSignature(c, $(ex->type()))))));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (out != nullptr) {
+			out->close();
+			outFile->delete$();
+			$assign(outFile, nullptr);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return outFile;
 }
 
 void ClassWriter::writeClassFile($OutputStream* out, $Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
-	$Assert::check(((int64_t)($nc(c)->flags() & (uint64_t)(int64_t)0x01000000)) == 0);
+	$useLocalObjectStack();
+	$Assert::check(($nc(c)->flags() & 0x01000000) == 0);
 	$nc(this->databuf)->reset();
 	$nc(this->poolbuf)->reset();
-	$var($Type, supertype, $nc(this->types)->supertype($nc(c)->type));
-	$var($List, interfaces, $nc(this->types)->interfaces($nc(c)->type));
-	$var($List, typarams, $nc($nc(c)->type)->getTypeArguments());
+	$var($Type, supertype, $nc(this->types)->supertype(c->type));
+	$var($List, interfaces, $nc(this->types)->interfaces(c->type));
+	$var($List, typarams, $nc(c->type)->getTypeArguments());
 	int32_t flags = 0;
 	$init($Kinds$Kind);
 	if ($nc(c->owner)->kind == $Kinds$Kind::MDL) {
-		flags = 32768;
+		flags = 0x00008000;
 	} else {
-		flags = adjustFlags((int64_t)(c->flags() & (uint64_t)~(int64_t)0x0000080000000000));
-		if (((int32_t)(flags & (uint32_t)4)) != 0) {
+		flags = adjustFlags(c->flags() & ~(int64_t)0x0000080000000000);
+		if ((flags & 4) != 0) {
 			flags |= 1;
 		}
-		flags = (int32_t)(((int32_t)(flags & (uint32_t)32273)) & (uint32_t)~2048);
-		if (((int32_t)(flags & (uint32_t)512)) == 0) {
+		flags = (flags & 0x7e11) & ~0x0800;
+		if ((flags & 0x0200) == 0) {
 			flags |= 32;
 		}
 	}
@@ -1815,17 +1571,17 @@ void ClassWriter::writeClassFile($OutputStream* out, $Symbol$ClassSymbol* c) {
 	}
 	$nc(this->databuf)->appendChar(flags);
 	if ($nc(c->owner)->kind == $Kinds$Kind::MDL) {
-		$var($Symbol$PackageSymbol, unnamed, $nc(($cast($Symbol$ModuleSymbol, c->owner)))->unnamedPackage);
+		$var($Symbol$PackageSymbol, unnamed, $cast($Symbol$ModuleSymbol, c->owner)->unnamedPackage);
 		$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass($$new($Symbol$ClassSymbol, 0, $nc(this->names)->module_info, unnamed)));
 	} else {
 		$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass(c));
 	}
 	$init($TypeTag);
-	$nc(this->databuf)->appendChar($nc(supertype)->hasTag($TypeTag::CLASS) ? $nc(this->poolWriter)->putClass($cast($Symbol$ClassSymbol, $nc(supertype)->tsym)) : 0);
+	$nc(this->databuf)->appendChar($nc(supertype)->hasTag($TypeTag::CLASS) ? $nc(this->poolWriter)->putClass($cast($Symbol$ClassSymbol, supertype->tsym)) : 0);
 	$nc(this->databuf)->appendChar($nc(interfaces)->length());
 	{
 		$var($List, l, interfaces);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass($cast($Symbol$ClassSymbol, $nc(($cast($Type, l->head)))->tsym)));
 		}
 	}
@@ -1833,45 +1589,35 @@ void ClassWriter::writeClassFile($OutputStream* out, $Symbol$ClassSymbol* c) {
 	int32_t methodsCount = 0;
 	{
 		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc($(c->members()))->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
+		$var($Iterator, i$, $$nc($$nc(c->members())->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
 			{
 				$init($ClassWriter$1);
 				switch ($nc($ClassWriter$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->get($nc(($nc(sym)->kind))->ordinal())) {
 				case 1:
-					{
-						++fieldsCount;
-						break;
-					}
+					++fieldsCount;
+					break;
 				case 2:
-					{
-						if (((int64_t)(sym->flags() & (uint64_t)(int64_t)0x0000002000000000)) == 0) {
-							++methodsCount;
-						}
-						break;
+					if ((sym->flags() & (int64_t)0x0000002000000000) == 0) {
+						++methodsCount;
 					}
+					break;
 				case 3:
-					{
-						$nc(this->poolWriter)->enterInner($cast($Symbol$ClassSymbol, sym));
-						break;
-					}
+					$nc(this->poolWriter)->enterInner($cast($Symbol$ClassSymbol, sym));
+					break;
 				default:
-					{
-						$Assert::error();
-					}
+					$Assert::error();
 				}
 			}
 		}
 	}
 	if (c->trans_local != nullptr) {
-		{
-			$var($Iterator, i$, $nc(c->trans_local)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Symbol$ClassSymbol, local, $cast($Symbol$ClassSymbol, i$->next()));
-				{
-					$nc(this->poolWriter)->enterInner(local);
-				}
+		$var($Iterator, i$, c->trans_local->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Symbol$ClassSymbol, local, $cast($Symbol$ClassSymbol, i$->next()));
+			{
+				$nc(this->poolWriter)->enterInner(local);
 			}
 		}
 	}
@@ -1882,11 +1628,11 @@ void ClassWriter::writeClassFile($OutputStream* out, $Symbol$ClassSymbol* c) {
 	int32_t acountIdx = beginAttrs();
 	int32_t acount = 0;
 	bool var$0 = $nc(typarams)->length() != 0;
-	bool sigReq = var$0 || $nc($($nc(supertype)->allparams()))->length() != 0;
+	bool sigReq = var$0 || $$nc(supertype->allparams())->length() != 0;
 	{
 		$var($List, l, interfaces);
-		for (; !sigReq && l->nonEmpty(); $assign(l, l->tail)) {
-			sigReq = $nc($($nc(($cast($Type, l->head)))->allparams()))->length() != 0;
+		for (; !sigReq && $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			sigReq = $$nc($nc($cast($Type, l->head))->allparams())->length() != 0;
 		}
 	}
 	if (sigReq) {
@@ -1898,17 +1644,17 @@ void ClassWriter::writeClassFile($OutputStream* out, $Symbol$ClassSymbol* c) {
 	if (c->sourcefile != nullptr && this->emitSourceFile) {
 		int32_t alenIdx = writeAttr($nc(this->names)->SourceFile);
 		$var($String, simpleName, $PathFileObject::getSimpleName(c->sourcefile));
-		$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($($nc(this->names)->fromString(simpleName))));
+		$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($(this->names->fromString(simpleName))));
 		endAttr(alenIdx);
 		++acount;
 	}
 	if (this->genCrt) {
 		int32_t alenIdx = writeAttr($nc(this->names)->SourceID);
-		$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($($nc(this->names)->fromString($($Long::toString(getLastModified(c->sourcefile)))))));
+		$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($(this->names->fromString($($Long::toString(getLastModified(c->sourcefile)))))));
 		endAttr(alenIdx);
 		++acount;
-		alenIdx = writeAttr($nc(this->names)->CompilationID);
-		$nc(this->databuf)->appendChar($nc(this->poolWriter)->putName($($nc(this->names)->fromString($($Long::toString($System::currentTimeMillis()))))));
+		alenIdx = writeAttr(this->names->CompilationID);
+		$nc(this->databuf)->appendChar(this->poolWriter->putName($(this->names->fromString($($Long::toString($System::currentTimeMillis()))))));
 		endAttr(alenIdx);
 		++acount;
 	}
@@ -1918,13 +1664,13 @@ void ClassWriter::writeClassFile($OutputStream* out, $Symbol$ClassSymbol* c) {
 	acount += writeEnclosingMethodAttribute(c);
 	if ($nc(c->owner)->kind == $Kinds$Kind::MDL) {
 		acount += writeModuleAttribute(c);
-		acount += writeFlagAttrs((int64_t)($nc(c->owner)->flags() & (uint64_t)(int64_t)~0x00020000));
+		acount += writeFlagAttrs($nc(c->owner)->flags() & ~0x00020000);
 	}
 	acount += writeExtraClassAttributes(c);
 	acount += writeExtraAttributes(c);
 	$nc(this->poolbuf)->appendInt($ClassFile::JAVA_MAGIC);
 	bool var$1 = $nc(this->preview)->isEnabled();
-	if (var$1 && $nc(this->preview)->usesPreview(c->sourcefile)) {
+	if (var$1 && this->preview->usesPreview(c->sourcefile)) {
 		$nc(this->poolbuf)->appendChar($ClassFile::PREVIEW_MINOR_VERSION);
 	} else {
 		$nc(this->poolbuf)->appendChar($nc(this->target)->minorVersion);
@@ -1946,14 +1692,14 @@ void ClassWriter::writeClassFile($OutputStream* out, $Symbol$ClassSymbol* c) {
 		writeBootstrapMethods();
 		++acount;
 	}
-	if (!$nc($nc(this->poolWriter)->innerClasses)->isEmpty()) {
+	if (!$nc(this->poolWriter->innerClasses)->isEmpty()) {
 		writeInnerClasses();
 		++acount;
 	}
 	endAttrs(acountIdx, acount);
 	$nc(out)->write($nc(this->poolbuf)->elems, 0, $nc(this->poolbuf)->length);
-	$nc(this->poolWriter)->writePool(out);
-	$nc(this->poolWriter)->reset();
+	this->poolWriter->writePool(out);
+	this->poolWriter->reset();
 	out->write($nc(this->databuf)->elems, 0, $nc(this->databuf)->length);
 }
 
@@ -1962,7 +1708,7 @@ int32_t ClassWriter::writeExtraClassAttributes($Symbol$ClassSymbol* c) {
 }
 
 int32_t ClassWriter::writeExtraAttributes($Symbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	{
 		$var($Iterator, i$, $nc(this->extraAttributeHooks)->iterator());
@@ -1981,25 +1727,25 @@ int32_t ClassWriter::adjustFlags(int64_t flags) {
 	if ($nc(this->target)->obsoleteAccStrict()) {
 		result &= (uint32_t)~2048;
 	}
-	if (((int64_t)(flags & (uint64_t)(int64_t)0x0000000080000000)) != 0) {
+	if ((flags & (int64_t)0x80000000) != 0) {
 		result |= 64;
 	}
-	if (((int64_t)(flags & (uint64_t)(int64_t)0x0000000400000000)) != 0) {
+	if ((flags & (int64_t)0x0000000400000000) != 0) {
 		result |= 128;
 	}
-	if (((int64_t)(flags & (uint64_t)(int64_t)0x0000080000000000)) != 0) {
+	if ((flags & (int64_t)0x0000080000000000) != 0) {
 		result &= (uint32_t)~1024;
 	}
 	return result;
 }
 
 int64_t ClassWriter::getLastModified($FileObject* filename) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t mod = 0;
 	try {
 		mod = $nc(filename)->getLastModified();
 	} catch ($SecurityException& e) {
-		$throwNew($AssertionError, $of($$str({"CRT: couldn\'t get source file modification date: "_s, $(e->getMessage())})));
+		$throwNew($AssertionError, $$of($str({"CRT: couldn\'t get source file modification date: "_s, $(e->getMessage())})));
 	}
 	return mod;
 }
@@ -2007,7 +1753,7 @@ int64_t ClassWriter::getLastModified($FileObject* filename) {
 void ClassWriter::lambda$writeModuleAttribute$2($Symbol$ClassSymbol* srvc, $Set* impls) {
 	$nc(this->databuf)->appendChar($nc(this->poolWriter)->putClass(srvc));
 	$nc(this->databuf)->appendChar($nc(impls)->size());
-	$nc(impls)->forEach(static_cast<$Consumer*>($$new(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, this)));
+	impls->forEach($$new(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2, this));
 }
 
 void ClassWriter::lambda$writeModuleAttribute$1($Symbol$ClassSymbol* impl) {
@@ -2019,7 +1765,7 @@ $Set* ClassWriter::lambda$writeModuleAttribute$0($Symbol$ClassSymbol* s) {
 	return $new($LinkedHashSet);
 }
 
-void clinit$ClassWriter($Class* class$) {
+void ClassWriter::clinit$($Class* clazz) {
 	$assignStatic(ClassWriter::classWriterKey, $new($Context$Key));
 	$assignStatic(ClassWriter::flagName, $new($StringArray, {
 		"PUBLIC"_s,
@@ -2042,17 +1788,127 @@ ClassWriter::ClassWriter() {
 
 $Class* ClassWriter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ClassWriter$$Lambda$lambda$writeModuleAttribute$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$0")) {
 			return ClassWriter$$Lambda$lambda$writeModuleAttribute$0::load$(name, initialize);
 		}
-		if (name->equals(ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1")) {
 			return ClassWriter$$Lambda$lambda$writeModuleAttribute$2$1::load$(name, initialize);
 		}
-		if (name->equals(ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2")) {
 			return ClassWriter$$Lambda$lambda$writeModuleAttribute$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(ClassWriter, name, initialize, &_ClassWriter_ClassInfo_, clinit$ClassWriter, allocate$ClassWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"classWriterKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/jvm/ClassWriter;>;", $PROTECTED | $STATIC | $FINAL, $staticField(ClassWriter, classWriterKey)},
+		{"options", "Lcom/sun/tools/javac/util/Options;", nullptr, $PRIVATE | $FINAL, $field(ClassWriter, options)},
+		{"verbose", "Z", nullptr, $PRIVATE, $field(ClassWriter, verbose)},
+		{"emitSourceFile", "Z", nullptr, $PRIVATE, $field(ClassWriter, emitSourceFile)},
+		{"genCrt", "Z", nullptr, $PRIVATE, $field(ClassWriter, genCrt)},
+		{"debugstackmap", "Z", nullptr, $PRIVATE, $field(ClassWriter, debugstackmap)},
+		{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $PRIVATE, $field(ClassWriter, preview)},
+		{"target", "Lcom/sun/tools/javac/jvm/Target;", nullptr, $PRIVATE, $field(ClassWriter, target)},
+		{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE, $field(ClassWriter, source)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE, $field(ClassWriter, types)},
+		{"check", "Lcom/sun/tools/javac/comp/Check;", nullptr, $PRIVATE, $field(ClassWriter, check)},
+		{"multiModuleMode", "Z", nullptr, $PUBLIC, $field(ClassWriter, multiModuleMode)},
+		{"extraAttributeHooks", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/code/Symbol;>;>;", $PRIVATE, $field(ClassWriter, extraAttributeHooks)},
+		{"DATA_BUF_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, DATA_BUF_SIZE)},
+		{"CLASS_BUF_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, CLASS_BUF_SIZE)},
+		{"databuf", "Lcom/sun/tools/javac/util/ByteBuffer;", nullptr, $PUBLIC, $field(ClassWriter, databuf)},
+		{"poolbuf", "Lcom/sun/tools/javac/util/ByteBuffer;", nullptr, 0, $field(ClassWriter, poolbuf)},
+		{"poolWriter", "Lcom/sun/tools/javac/jvm/PoolWriter;", nullptr, $FINAL, $field(ClassWriter, poolWriter)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(ClassWriter, log)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(ClassWriter, names)},
+		{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE | $FINAL, $field(ClassWriter, fileManager)},
+		{"SAME_FRAME_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, SAME_FRAME_SIZE)},
+		{"SAME_LOCALS_1_STACK_ITEM_EXTENDED", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, SAME_LOCALS_1_STACK_ITEM_EXTENDED)},
+		{"SAME_FRAME_EXTENDED", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, SAME_FRAME_EXTENDED)},
+		{"FULL_FRAME", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, FULL_FRAME)},
+		{"MAX_LOCAL_LENGTH_DIFF", "I", nullptr, $STATIC | $FINAL, $constField(ClassWriter, MAX_LOCAL_LENGTH_DIFF)},
+		{"dumpClassModifiers", "Z", nullptr, $PRIVATE, $field(ClassWriter, dumpClassModifiers)},
+		{"dumpFieldModifiers", "Z", nullptr, $PRIVATE, $field(ClassWriter, dumpFieldModifiers)},
+		{"dumpInnerClassModifiers", "Z", nullptr, $PRIVATE, $field(ClassWriter, dumpInnerClassModifiers)},
+		{"dumpMethodModifiers", "Z", nullptr, $PRIVATE, $field(ClassWriter, dumpMethodModifiers)},
+		{"flagName", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassWriter, flagName)},
+		{"awriter", "Lcom/sun/tools/javac/jvm/ClassWriter$AttributeWriter;", nullptr, 0, $field(ClassWriter, awriter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ClassWriter, init$, void, $Context*)},
+		{"addExtraAttributes", "(Ljava/util/function/ToIntFunction;)V", "(Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/code/Symbol;>;)V", $PUBLIC, $virtualMethod(ClassWriter, addExtraAttributes, void, $ToIntFunction*)},
+		{"adjustFlags", "(J)I", nullptr, 0, $virtualMethod(ClassWriter, adjustFlags, int32_t, int64_t)},
+		{"beginAttrs", "()I", nullptr, 0, $virtualMethod(ClassWriter, beginAttrs, int32_t)},
+		{"endAttr", "(I)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter, endAttr, void, int32_t)},
+		{"endAttrs", "(II)V", nullptr, 0, $virtualMethod(ClassWriter, endAttrs, void, int32_t, int32_t)},
+		{"flagNames", "(J)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassWriter, flagNames, $String*, int64_t)},
+		{"getLastModified", "(Ljavax/tools/FileObject;)J", nullptr, 0, $virtualMethod(ClassWriter, getLastModified, int64_t, $FileObject*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/jvm/ClassWriter;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassWriter, instance, ClassWriter*, $Context*)},
+		{"lambda$writeModuleAttribute$0", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/util/Set;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClassWriter, lambda$writeModuleAttribute$0, $Set*, $Symbol$ClassSymbol*)},
+		{"lambda$writeModuleAttribute$1", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassWriter, lambda$writeModuleAttribute$1, void, $Symbol$ClassSymbol*)},
+		{"lambda$writeModuleAttribute$2", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Ljava/util/Set;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(ClassWriter, lambda$writeModuleAttribute$2, void, $Symbol$ClassSymbol*, $Set*)},
+		{"listNested", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)V", $PRIVATE, $method(ClassWriter, listNested, void, $Symbol*, $ListBuffer*)},
+		{"needsLocalVariableTypeEntry", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(ClassWriter, needsLocalVariableTypeEntry, bool, $Type*)},
+		{"putChar", "(Lcom/sun/tools/javac/util/ByteBuffer;II)V", nullptr, 0, $virtualMethod(ClassWriter, putChar, void, $ByteBuffer*, int32_t, int32_t)},
+		{"putInt", "(Lcom/sun/tools/javac/util/ByteBuffer;II)V", nullptr, 0, $virtualMethod(ClassWriter, putInt, void, $ByteBuffer*, int32_t, int32_t)},
+		{"writeAttr", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeAttr, int32_t, $Name*)},
+		{"writeBootstrapMethods", "()V", nullptr, 0, $virtualMethod(ClassWriter, writeBootstrapMethods, void)},
+		{"writeClass", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljavax/tools/JavaFileObject;", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeClass, $JavaFileObject*, $Symbol$ClassSymbol*), "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow,com.sun.tools.javac.jvm.ClassWriter$StringOverflow"},
+		{"writeClassFile", "(Ljava/io/OutputStream;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $virtualMethod(ClassWriter, writeClassFile, void, $OutputStream*, $Symbol$ClassSymbol*), "java.io.IOException,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow,com.sun.tools.javac.jvm.ClassWriter$StringOverflow"},
+		{"writeCode", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $virtualMethod(ClassWriter, writeCode, void, $Code*)},
+		{"writeCompoundAttribute", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, 0, $virtualMethod(ClassWriter, writeCompoundAttribute, void, $Attribute$Compound*)},
+		{"writeEnclosingMethodAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeEnclosingMethodAttribute, int32_t, $Symbol$ClassSymbol*)},
+		{"writeEnclosingMethodAttribute", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeEnclosingMethodAttribute, int32_t, $Name*, $Symbol$ClassSymbol*)},
+		{"writeExtraAttributes", "(Lcom/sun/tools/javac/code/Symbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeExtraAttributes, int32_t, $Symbol*)},
+		{"writeExtraClassAttributes", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, $PROTECTED, $virtualMethod(ClassWriter, writeExtraClassAttributes, int32_t, $Symbol$ClassSymbol*)},
+		{"writeField", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, 0, $virtualMethod(ClassWriter, writeField, void, $Symbol$VarSymbol*)},
+		{"writeFields", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(ClassWriter, writeFields, void, $Scope*)},
+		{"writeFlagAttrs", "(J)I", nullptr, 0, $virtualMethod(ClassWriter, writeFlagAttrs, int32_t, int64_t)},
+		{"writeInnerClasses", "()V", nullptr, 0, $virtualMethod(ClassWriter, writeInnerClasses, void)},
+		{"writeJavaAnnotations", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)I", 0, $virtualMethod(ClassWriter, writeJavaAnnotations, int32_t, $List*)},
+		{"writeMemberAttrs", "(Lcom/sun/tools/javac/code/Symbol;Z)I", nullptr, 0, $virtualMethod(ClassWriter, writeMemberAttrs, int32_t, $Symbol*, bool)},
+		{"writeMethod", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, 0, $virtualMethod(ClassWriter, writeMethod, void, $Symbol$MethodSymbol*)},
+		{"writeMethodParametersAttr", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeMethodParametersAttr, int32_t, $Symbol$MethodSymbol*)},
+		{"writeMethods", "(Lcom/sun/tools/javac/code/Scope;)V", nullptr, 0, $virtualMethod(ClassWriter, writeMethods, void, $Scope*)},
+		{"writeModuleAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeModuleAttribute, int32_t, $Symbol$ClassSymbol*)},
+		{"writeNestHostIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeNestHostIfNeeded, int32_t, $Symbol$ClassSymbol*)},
+		{"writeNestMembersIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeNestMembersIfNeeded, int32_t, $Symbol$ClassSymbol*)},
+		{"writeParamAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", $PRIVATE, $method(ClassWriter, writeParamAnnotations, void, $List*, $Attribute$RetentionPolicy*)},
+		{"writeParamAnnotations", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute$RetentionPolicy;)V", nullptr, $PRIVATE, $method(ClassWriter, writeParamAnnotations, void, $Symbol$MethodSymbol*, $Attribute$RetentionPolicy*)},
+		{"writeParameterAttrs", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$VarSymbol;>;)I", 0, $virtualMethod(ClassWriter, writeParameterAttrs, int32_t, $List*)},
+		{"writePermittedSubclassesIfNeeded", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writePermittedSubclassesIfNeeded, int32_t, $Symbol$ClassSymbol*)},
+		{"writePosition", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition;)V", nullptr, 0, $virtualMethod(ClassWriter, writePosition, void, $TypeAnnotationPosition*)},
+		{"writeRecordAttribute", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)I", nullptr, 0, $virtualMethod(ClassWriter, writeRecordAttribute, int32_t, $Symbol$ClassSymbol*)},
+		{"writeStackMap", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $virtualMethod(ClassWriter, writeStackMap, void, $Code*)},
+		{"writeStackMapType", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(ClassWriter, writeStackMapType, void, $Type*)},
+		{"writeTypeAnnotation", "(Lcom/sun/tools/javac/code/Attribute$TypeCompound;)V", nullptr, 0, $virtualMethod(ClassWriter, writeTypeAnnotation, void, $Attribute$TypeCompound*)},
+		{"writeTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Z)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;Z)I", 0, $virtualMethod(ClassWriter, writeTypeAnnotations, int32_t, $List*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassWriter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame", "com.sun.tools.javac.jvm.ClassWriter", "StackMapTableFrame", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.jvm.ClassWriter$AttributeWriter", "com.sun.tools.javac.jvm.ClassWriter", "AttributeWriter", 0},
+		{"com.sun.tools.javac.jvm.ClassWriter$StringOverflow", "com.sun.tools.javac.jvm.ClassWriter", "StringOverflow", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.jvm.ClassWriter$PoolOverflow", "com.sun.tools.javac.jvm.ClassWriter", "PoolOverflow", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassWriter",
+		"com.sun.tools.javac.jvm.ClassFile",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassWriter$1,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$FullFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$AppendFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$ChopFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameLocals1StackItemFrame,com.sun.tools.javac.jvm.ClassWriter$StackMapTableFrame$SameFrame,com.sun.tools.javac.jvm.ClassWriter$AttributeWriter,com.sun.tools.javac.jvm.ClassWriter$StringOverflow,com.sun.tools.javac.jvm.ClassWriter$PoolOverflow"
+	};
+	$loadClass(ClassWriter, name, initialize, &classInfo$$, ClassWriter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassWriter);
+	});
 	return class$;
 }
 

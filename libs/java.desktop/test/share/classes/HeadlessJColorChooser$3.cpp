@@ -1,5 +1,4 @@
 #include <HeadlessJColorChooser$3.h>
-
 #include <HeadlessJColorChooser.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJColorChooser$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJColorChooser$3, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJColorChooser$3_EnclosingMethodInfo_ = {
-	"HeadlessJColorChooser",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJColorChooser$3_InnerClassesInfo_[] = {
-	{"HeadlessJColorChooser$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJColorChooser$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJColorChooser$3",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJColorChooser$3_MethodInfo_,
-	nullptr,
-	&_HeadlessJColorChooser$3_EnclosingMethodInfo_,
-	_HeadlessJColorChooser$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJColorChooser"
-};
-
-$Object* allocate$HeadlessJColorChooser$3($Class* clazz) {
-	return $of($alloc(HeadlessJColorChooser$3));
-}
-
 void HeadlessJColorChooser$3::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJColorChooser$3::HeadlessJColorChooser$3() {
 }
 
 $Class* HeadlessJColorChooser$3::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJColorChooser$3, name, initialize, &_HeadlessJColorChooser$3_ClassInfo_, allocate$HeadlessJColorChooser$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJColorChooser$3, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJColorChooser",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJColorChooser$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJColorChooser$3",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJColorChooser"
+	};
+	$loadClass(HeadlessJColorChooser$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJColorChooser$3));
+	});
 	return class$;
 }
 

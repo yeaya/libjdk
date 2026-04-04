@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema.h>
 #include <java/awt/Color.h>
 #include <java/awt/Dimension.h>
@@ -48,68 +47,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _TMSchema$Prop_FieldInfo_[] = {
-	{"COLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, COLOR)},
-	{"SIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, SIZE)},
-	{"FLATMENUS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, FLATMENUS)},
-	{"BORDERONLY", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, BORDERONLY)},
-	{"IMAGECOUNT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, IMAGECOUNT)},
-	{"BORDERSIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, BORDERSIZE)},
-	{"PROGRESSCHUNKSIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, PROGRESSCHUNKSIZE)},
-	{"PROGRESSSPACESIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, PROGRESSSPACESIZE)},
-	{"TEXTSHADOWOFFSET", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TEXTSHADOWOFFSET)},
-	{"NORMALSIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, NORMALSIZE)},
-	{"SIZINGMARGINS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, SIZINGMARGINS)},
-	{"CONTENTMARGINS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, CONTENTMARGINS)},
-	{"CAPTIONMARGINS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, CAPTIONMARGINS)},
-	{"BORDERCOLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, BORDERCOLOR)},
-	{"FILLCOLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, FILLCOLOR)},
-	{"TEXTCOLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TEXTCOLOR)},
-	{"TEXTSHADOWCOLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TEXTSHADOWCOLOR)},
-	{"BGTYPE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, BGTYPE)},
-	{"TEXTSHADOWTYPE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TEXTSHADOWTYPE)},
-	{"TRANSITIONDURATIONS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TRANSITIONDURATIONS)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$Prop, $VALUES)},
-	{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(TMSchema$Prop, type)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(TMSchema$Prop, value)},
-	{}
-};
-
-$MethodInfo _TMSchema$Prop_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$Prop, $values, $TMSchema$PropArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Class;I)V", "(Ljava/lang/Class<*>;I)V", $PRIVATE, $method(TMSchema$Prop, init$, void, $String*, int32_t, $Class*, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $method(TMSchema$Prop, getValue, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TMSchema$Prop, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Prop, valueOf, TMSchema$Prop*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Prop, values, $TMSchema$PropArray*)},
-	{}
-};
-
-$InnerClassInfo _TMSchema$Prop_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.TMSchema$Prop", "com.sun.java.swing.plaf.windows.TMSchema", "Prop", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TMSchema$Prop_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.windows.TMSchema$Prop",
-	"java.lang.Enum",
-	nullptr,
-	_TMSchema$Prop_FieldInfo_,
-	_TMSchema$Prop_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;>;",
-	nullptr,
-	_TMSchema$Prop_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.TMSchema"
-};
-
-$Object* allocate$TMSchema$Prop($Class* clazz) {
-	return $of($alloc(TMSchema$Prop));
-}
 
 TMSchema$Prop* TMSchema$Prop::COLOR = nullptr;
 TMSchema$Prop* TMSchema$Prop::SIZE = nullptr;
@@ -180,22 +117,23 @@ int32_t TMSchema$Prop::getValue() {
 }
 
 $String* TMSchema$Prop::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$(name()), "["_s}));
-	$var($String, var$1, $$concat(var$2, $($nc(this->type)->getName())));
-	$var($String, var$0, $$concat(var$1, "] = "_s));
-	return $concat(var$0, $$str(this->value));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(name()));
+	var$0->append("["_s);
+	var$0->append($($nc(this->type)->getName()));
+	var$0->append("] = "_s);
+	var$0->append(this->value);
+	return $str(var$0);
 }
 
-void clinit$TMSchema$Prop($Class* class$) {
+void TMSchema$Prop::clinit$($Class* clazz) {
 	$load($Color);
 	$assignStatic(TMSchema$Prop::COLOR, $new(TMSchema$Prop, "COLOR"_s, 0, $Color::class$, 204));
 	$load($Dimension);
 	$assignStatic(TMSchema$Prop::SIZE, $new(TMSchema$Prop, "SIZE"_s, 1, $Dimension::class$, 207));
-	$load($Boolean);
 	$assignStatic(TMSchema$Prop::FLATMENUS, $new(TMSchema$Prop, "FLATMENUS"_s, 2, $Boolean::class$, 1001));
 	$assignStatic(TMSchema$Prop::BORDERONLY, $new(TMSchema$Prop, "BORDERONLY"_s, 3, $Boolean::class$, 2203));
-	$load($Integer);
 	$assignStatic(TMSchema$Prop::IMAGECOUNT, $new(TMSchema$Prop, "IMAGECOUNT"_s, 4, $Integer::class$, 2401));
 	$assignStatic(TMSchema$Prop::BORDERSIZE, $new(TMSchema$Prop, "BORDERSIZE"_s, 5, $Integer::class$, 2403));
 	$assignStatic(TMSchema$Prop::PROGRESSCHUNKSIZE, $new(TMSchema$Prop, "PROGRESSCHUNKSIZE"_s, 6, $Integer::class$, 2411));
@@ -221,7 +159,63 @@ TMSchema$Prop::TMSchema$Prop() {
 }
 
 $Class* TMSchema$Prop::load$($String* name, bool initialize) {
-	$loadClass(TMSchema$Prop, name, initialize, &_TMSchema$Prop_ClassInfo_, clinit$TMSchema$Prop, allocate$TMSchema$Prop);
+	$FieldInfo fieldInfos$$[] = {
+		{"COLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, COLOR)},
+		{"SIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, SIZE)},
+		{"FLATMENUS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, FLATMENUS)},
+		{"BORDERONLY", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, BORDERONLY)},
+		{"IMAGECOUNT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, IMAGECOUNT)},
+		{"BORDERSIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, BORDERSIZE)},
+		{"PROGRESSCHUNKSIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, PROGRESSCHUNKSIZE)},
+		{"PROGRESSSPACESIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, PROGRESSSPACESIZE)},
+		{"TEXTSHADOWOFFSET", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TEXTSHADOWOFFSET)},
+		{"NORMALSIZE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, NORMALSIZE)},
+		{"SIZINGMARGINS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, SIZINGMARGINS)},
+		{"CONTENTMARGINS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, CONTENTMARGINS)},
+		{"CAPTIONMARGINS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, CAPTIONMARGINS)},
+		{"BORDERCOLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, BORDERCOLOR)},
+		{"FILLCOLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, FILLCOLOR)},
+		{"TEXTCOLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TEXTCOLOR)},
+		{"TEXTSHADOWCOLOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TEXTSHADOWCOLOR)},
+		{"BGTYPE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, BGTYPE)},
+		{"TEXTSHADOWTYPE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TEXTSHADOWTYPE)},
+		{"TRANSITIONDURATIONS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Prop, TRANSITIONDURATIONS)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$Prop, $VALUES)},
+		{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(TMSchema$Prop, type)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(TMSchema$Prop, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$Prop, $values, $TMSchema$PropArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/Class;I)V", "(Ljava/lang/Class<*>;I)V", $PRIVATE, $method(TMSchema$Prop, init$, void, $String*, int32_t, $Class*, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $method(TMSchema$Prop, getValue, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TMSchema$Prop, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Prop, valueOf, TMSchema$Prop*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Prop, values, $TMSchema$PropArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.TMSchema$Prop", "com.sun.java.swing.plaf.windows.TMSchema", "Prop", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.windows.TMSchema$Prop",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$Prop;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.TMSchema"
+	};
+	$loadClass(TMSchema$Prop, name, initialize, &classInfo$$, TMSchema$Prop::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TMSchema$Prop));
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class $export Source$Feature$DiagKind : public ::java::lang::Enum {
 public:
 	Source$Feature$DiagKind();
 	static $Array<::com::sun::tools::javac::code::Source$Feature$DiagKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::code::Source$Feature$DiagKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::code::Source$Feature$DiagKind>* values();

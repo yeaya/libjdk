@@ -1,5 +1,4 @@
 #include <java/awt/geom/ArcIterator.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Arc2D.h>
 #include <java/awt/geom/PathIterator.h>
@@ -31,45 +30,6 @@ namespace java {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _ArcIterator_FieldInfo_[] = {
-	{"x", "D", nullptr, 0, $field(ArcIterator, x)},
-	{"y", "D", nullptr, 0, $field(ArcIterator, y)},
-	{"w", "D", nullptr, 0, $field(ArcIterator, w)},
-	{"h", "D", nullptr, 0, $field(ArcIterator, h)},
-	{"angStRad", "D", nullptr, 0, $field(ArcIterator, angStRad)},
-	{"increment", "D", nullptr, 0, $field(ArcIterator, increment)},
-	{"cv", "D", nullptr, 0, $field(ArcIterator, cv)},
-	{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(ArcIterator, affine)},
-	{"index", "I", nullptr, 0, $field(ArcIterator, index)},
-	{"arcSegs", "I", nullptr, 0, $field(ArcIterator, arcSegs)},
-	{"lineSegs", "I", nullptr, 0, $field(ArcIterator, lineSegs)},
-	{}
-};
-
-$MethodInfo _ArcIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/Arc2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(ArcIterator, init$, void, $Arc2D*, $AffineTransform*)},
-	{"btan", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(ArcIterator, btan, double, double)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(ArcIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(ArcIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(ArcIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(ArcIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(ArcIterator, next, void)},
-	{}
-};
-
-$ClassInfo _ArcIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.geom.ArcIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_ArcIterator_FieldInfo_,
-	_ArcIterator_MethodInfo_
-};
-
-$Object* allocate$ArcIterator($Class* clazz) {
-	return $of($alloc(ArcIterator));
-}
-
 void ArcIterator::init$($Arc2D* a, $AffineTransform* at) {
 	this->w = $nc(a)->getWidth() / 2;
 	this->h = a->getHeight() / 2;
@@ -96,20 +56,14 @@ void ArcIterator::init$($Arc2D* a, $AffineTransform* at) {
 	}
 	switch (a->getArcType()) {
 	case $Arc2D::OPEN:
-		{
-			this->lineSegs = 0;
-			break;
-		}
+		this->lineSegs = 0;
+		break;
 	case $Arc2D::CHORD:
-		{
-			this->lineSegs = 1;
-			break;
-		}
+		this->lineSegs = 1;
+		break;
 	case $Arc2D::PIE:
-		{
-			this->lineSegs = 2;
-			break;
-		}
+		this->lineSegs = 2;
+		break;
 	}
 	if (this->w < 0 || this->h < 0) {
 		this->arcSegs = (this->lineSegs = -1);
@@ -144,7 +98,7 @@ int32_t ArcIterator::currentSegment($floats* coords) {
 		$nc(coords)->set(0, (float)(this->x + $Math::cos(angle) * this->w));
 		coords->set(1, (float)(this->y + $Math::sin(angle) * this->h));
 		if (this->affine != nullptr) {
-			$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+			this->affine->transform(coords, 0, coords, 0, 1);
 		}
 		return $PathIterator::SEG_MOVETO;
 	}
@@ -155,7 +109,7 @@ int32_t ArcIterator::currentSegment($floats* coords) {
 		$nc(coords)->set(0, (float)this->x);
 		coords->set(1, (float)this->y);
 		if (this->affine != nullptr) {
-			$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+			this->affine->transform(coords, 0, coords, 0, 1);
 		}
 		return $PathIterator::SEG_LINETO;
 	}
@@ -172,7 +126,7 @@ int32_t ArcIterator::currentSegment($floats* coords) {
 	coords->set(4, (float)(this->x + relx * this->w));
 	coords->set(5, (float)(this->y + rely * this->h));
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, 3);
+		this->affine->transform(coords, 0, coords, 0, 3);
 	}
 	return $PathIterator::SEG_CUBICTO;
 }
@@ -186,7 +140,7 @@ int32_t ArcIterator::currentSegment($doubles* coords) {
 		$nc(coords)->set(0, this->x + $Math::cos(angle) * this->w);
 		coords->set(1, this->y + $Math::sin(angle) * this->h);
 		if (this->affine != nullptr) {
-			$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+			this->affine->transform(coords, 0, coords, 0, 1);
 		}
 		return $PathIterator::SEG_MOVETO;
 	}
@@ -197,7 +151,7 @@ int32_t ArcIterator::currentSegment($doubles* coords) {
 		$nc(coords)->set(0, this->x);
 		coords->set(1, this->y);
 		if (this->affine != nullptr) {
-			$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+			this->affine->transform(coords, 0, coords, 0, 1);
 		}
 		return $PathIterator::SEG_LINETO;
 	}
@@ -214,7 +168,7 @@ int32_t ArcIterator::currentSegment($doubles* coords) {
 	coords->set(4, this->x + relx * this->w);
 	coords->set(5, this->y + rely * this->h);
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, 3);
+		this->affine->transform(coords, 0, coords, 0, 3);
 	}
 	return $PathIterator::SEG_CUBICTO;
 }
@@ -223,7 +177,41 @@ ArcIterator::ArcIterator() {
 }
 
 $Class* ArcIterator::load$($String* name, bool initialize) {
-	$loadClass(ArcIterator, name, initialize, &_ArcIterator_ClassInfo_, allocate$ArcIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "D", nullptr, 0, $field(ArcIterator, x)},
+		{"y", "D", nullptr, 0, $field(ArcIterator, y)},
+		{"w", "D", nullptr, 0, $field(ArcIterator, w)},
+		{"h", "D", nullptr, 0, $field(ArcIterator, h)},
+		{"angStRad", "D", nullptr, 0, $field(ArcIterator, angStRad)},
+		{"increment", "D", nullptr, 0, $field(ArcIterator, increment)},
+		{"cv", "D", nullptr, 0, $field(ArcIterator, cv)},
+		{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(ArcIterator, affine)},
+		{"index", "I", nullptr, 0, $field(ArcIterator, index)},
+		{"arcSegs", "I", nullptr, 0, $field(ArcIterator, arcSegs)},
+		{"lineSegs", "I", nullptr, 0, $field(ArcIterator, lineSegs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/Arc2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(ArcIterator, init$, void, $Arc2D*, $AffineTransform*)},
+		{"btan", "(D)D", nullptr, $PRIVATE | $STATIC, $staticMethod(ArcIterator, btan, double, double)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(ArcIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(ArcIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(ArcIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(ArcIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(ArcIterator, next, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.geom.ArcIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArcIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArcIterator);
+	});
 	return class$;
 }
 

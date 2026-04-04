@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Annotate$Queues.h>
-
 #include <com/sun/tools/javac/comp/Annotate.h>
 #include <com/sun/tools/javac/util/ListBuffer.h>
 #include <jcpp.h>
@@ -16,47 +15,8 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Annotate$Queues_FieldInfo_[] = {
-	{"q", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(Annotate$Queues, q)},
-	{"validateQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(Annotate$Queues, validateQ)},
-	{"typesQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(Annotate$Queues, typesQ)},
-	{"afterTypesQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(Annotate$Queues, afterTypesQ)},
-	{}
-};
-
-$MethodInfo _Annotate$Queues_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Annotate$Queues, init$, void)},
-	{"<init>", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;)V", $PUBLIC, $method(Annotate$Queues, init$, void, $ListBuffer*, $ListBuffer*, $ListBuffer*, $ListBuffer*)},
-	{}
-};
-
-$InnerClassInfo _Annotate$Queues_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Annotate$Queues", "com.sun.tools.javac.comp.Annotate", "Queues", $STATIC},
-	{}
-};
-
-$ClassInfo _Annotate$Queues_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Annotate$Queues",
-	"java.lang.Object",
-	nullptr,
-	_Annotate$Queues_FieldInfo_,
-	_Annotate$Queues_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Annotate$Queues_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Annotate"
-};
-
-$Object* allocate$Annotate$Queues($Class* clazz) {
-	return $of($alloc(Annotate$Queues));
-}
-
 void Annotate$Queues::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, var$0, $new($ListBuffer));
 	$var($ListBuffer, var$1, $new($ListBuffer));
 	$var($ListBuffer, var$2, $new($ListBuffer));
@@ -74,7 +34,40 @@ Annotate$Queues::Annotate$Queues() {
 }
 
 $Class* Annotate$Queues::load$($String* name, bool initialize) {
-	$loadClass(Annotate$Queues, name, initialize, &_Annotate$Queues_ClassInfo_, allocate$Annotate$Queues);
+	$FieldInfo fieldInfos$$[] = {
+		{"q", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(Annotate$Queues, q)},
+		{"validateQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(Annotate$Queues, validateQ)},
+		{"typesQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(Annotate$Queues, typesQ)},
+		{"afterTypesQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(Annotate$Queues, afterTypesQ)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Annotate$Queues, init$, void)},
+		{"<init>", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;)V", $PUBLIC, $method(Annotate$Queues, init$, void, $ListBuffer*, $ListBuffer*, $ListBuffer*, $ListBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Annotate$Queues", "com.sun.tools.javac.comp.Annotate", "Queues", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Annotate$Queues",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Annotate"
+	};
+	$loadClass(Annotate$Queues, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$Queues);
+	});
 	return class$;
 }
 

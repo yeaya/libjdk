@@ -1,16 +1,13 @@
 #include <sun/font/StrikeCache.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/SoftReference.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <jdk/internal/misc/Unsafe.h>
@@ -31,7 +28,6 @@
 
 using $FontStrikeArray = $Array<::sun::font::FontStrike>;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -39,13 +35,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Reference = ::java::lang::ref::Reference;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
@@ -63,85 +57,6 @@ using $AccelGraphicsConfig = ::sun::java2d::pipe::hw::AccelGraphicsConfig;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _StrikeCache_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $STATIC | $FINAL, $staticField(StrikeCache, unsafe)},
-	{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC, $staticField(StrikeCache, refQueue)},
-	{"disposeListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/font/GlyphDisposedListener;>;", $STATIC, $staticField(StrikeCache, disposeListeners)},
-	{"MINSTRIKES", "I", nullptr, $STATIC, $staticField(StrikeCache, MINSTRIKES)},
-	{"recentStrikeIndex", "I", nullptr, $STATIC, $staticField(StrikeCache, recentStrikeIndex)},
-	{"recentStrikes", "[Lsun/font/FontStrike;", nullptr, $STATIC, $staticField(StrikeCache, recentStrikes)},
-	{"cacheRefTypeWeak", "Z", nullptr, $STATIC, $staticField(StrikeCache, cacheRefTypeWeak)},
-	{"nativeAddressSize", "I", nullptr, $STATIC, $staticField(StrikeCache, nativeAddressSize)},
-	{"glyphInfoSize", "I", nullptr, $STATIC, $staticField(StrikeCache, glyphInfoSize)},
-	{"xAdvanceOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, xAdvanceOffset)},
-	{"yAdvanceOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, yAdvanceOffset)},
-	{"boundsOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, boundsOffset)},
-	{"widthOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, widthOffset)},
-	{"heightOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, heightOffset)},
-	{"rowBytesOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, rowBytesOffset)},
-	{"topLeftXOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, topLeftXOffset)},
-	{"topLeftYOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, topLeftYOffset)},
-	{"pixelDataOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, pixelDataOffset)},
-	{"cacheCellOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, cacheCellOffset)},
-	{"managedOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, managedOffset)},
-	{"invisibleGlyphPtr", "J", nullptr, $STATIC, $staticField(StrikeCache, invisibleGlyphPtr)},
-	{}
-};
-
-$MethodInfo _StrikeCache_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StrikeCache, init$, void)},
-	{"addGlyphDisposedListener", "(Lsun/font/GlyphDisposedListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StrikeCache, addGlyphDisposedListener, void, $GlyphDisposedListener*)},
-	{"disposeStrike", "(Lsun/font/FontStrikeDisposer;)V", nullptr, $STATIC, $staticMethod(StrikeCache, disposeStrike, void, $FontStrikeDisposer*)},
-	{"doDispose", "(Lsun/font/FontStrikeDisposer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StrikeCache, doDispose, void, $FontStrikeDisposer*)},
-	{"freeCachedIntMemory", "([IJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StrikeCache, freeCachedIntMemory, void, $ints*, int64_t)},
-	{"freeCachedLongMemory", "([JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StrikeCache, freeCachedLongMemory, void, $longs*, int64_t)},
-	{"freeIntMemory", "([IJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StrikeCache, freeIntMemory, void, $ints*, int64_t)},
-	{"freeIntPointer", "(I)V", nullptr, $STATIC | $NATIVE, $staticMethod(StrikeCache, freeIntPointer, void, int32_t)},
-	{"freeLongMemory", "([JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StrikeCache, freeLongMemory, void, $longs*, int64_t)},
-	{"freeLongPointer", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(StrikeCache, freeLongPointer, void, int64_t)},
-	{"getGlyphCacheDescription", "([J)V", nullptr, $STATIC | $NATIVE, $staticMethod(StrikeCache, getGlyphCacheDescription, void, $longs*)},
-	{"getStrikeRef", "(Lsun/font/FontStrike;)Ljava/lang/ref/Reference;", "(Lsun/font/FontStrike;)Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;", $PUBLIC | $STATIC, $staticMethod(StrikeCache, getStrikeRef, $Reference*, $FontStrike*)},
-	{"getStrikeRef", "(Lsun/font/FontStrike;Z)Ljava/lang/ref/Reference;", "(Lsun/font/FontStrike;Z)Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;", $PUBLIC | $STATIC, $staticMethod(StrikeCache, getStrikeRef, $Reference*, $FontStrike*, bool)},
-	{"longAddresses", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StrikeCache, longAddresses, bool)},
-	{"notifyDisposeListeners", "(Ljava/util/ArrayList;)V", "(Ljava/util/ArrayList<Ljava/lang/Long;>;)V", $PRIVATE | $STATIC, $staticMethod(StrikeCache, notifyDisposeListeners, void, $ArrayList*)},
-	{"refStrike", "(Lsun/font/FontStrike;)V", nullptr, $STATIC, $staticMethod(StrikeCache, refStrike, void, $FontStrike*)},
-	{}
-};
-
-#define _METHOD_INDEX_freeIntMemory 6
-#define _METHOD_INDEX_freeIntPointer 7
-#define _METHOD_INDEX_freeLongMemory 8
-#define _METHOD_INDEX_freeLongPointer 9
-#define _METHOD_INDEX_getGlyphCacheDescription 10
-
-$InnerClassInfo _StrikeCache_InnerClassesInfo_[] = {
-	{"sun.font.StrikeCache$WeakDisposerRef", "sun.font.StrikeCache", "WeakDisposerRef", $STATIC},
-	{"sun.font.StrikeCache$SoftDisposerRef", "sun.font.StrikeCache", "SoftDisposerRef", $STATIC},
-	{"sun.font.StrikeCache$DisposableStrike", "sun.font.StrikeCache", "DisposableStrike", $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.font.StrikeCache$2", nullptr, nullptr, 0},
-	{"sun.font.StrikeCache$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _StrikeCache_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.StrikeCache",
-	"java.lang.Object",
-	nullptr,
-	_StrikeCache_FieldInfo_,
-	_StrikeCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StrikeCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.StrikeCache$WeakDisposerRef,sun.font.StrikeCache$SoftDisposerRef,sun.font.StrikeCache$DisposableStrike,sun.font.StrikeCache$2,sun.font.StrikeCache$1"
-};
-
-$Object* allocate$StrikeCache($Class* clazz) {
-	return $of($alloc(StrikeCache));
-}
 
 $Unsafe* StrikeCache::unsafe = nullptr;
 $ReferenceQueue* StrikeCache::refQueue = nullptr;
@@ -170,7 +85,7 @@ void StrikeCache::init$() {
 
 void StrikeCache::getGlyphCacheDescription($longs* infoArray) {
 	$init(StrikeCache);
-	$prepareNativeStatic(StrikeCache, getGlyphCacheDescription, void, $longs* infoArray);
+	$prepareNativeStatic(getGlyphCacheDescription, void, $longs* infoArray);
 	$invokeNativeStatic(infoArray);
 	$finishNativeStatic();
 }
@@ -188,34 +103,34 @@ void StrikeCache::refStrike($FontStrike* strike) {
 
 void StrikeCache::doDispose($FontStrikeDisposer* disposer) {
 	$init(StrikeCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(disposer)->intGlyphImages != nullptr) {
 		freeCachedIntMemory(disposer->intGlyphImages, disposer->pScalerContext);
 	} else if (disposer->longGlyphImages != nullptr) {
 		freeCachedLongMemory(disposer->longGlyphImages, disposer->pScalerContext);
 	} else if (disposer->segIntGlyphImages != nullptr) {
 		for (int32_t i = 0; i < $nc(disposer->segIntGlyphImages)->length; ++i) {
-			if ($nc(disposer->segIntGlyphImages)->get(i) != nullptr) {
-				freeCachedIntMemory($nc(disposer->segIntGlyphImages)->get(i), disposer->pScalerContext);
+			if (disposer->segIntGlyphImages->get(i) != nullptr) {
+				freeCachedIntMemory(disposer->segIntGlyphImages->get(i), disposer->pScalerContext);
 				disposer->pScalerContext = 0;
 				$nc(disposer->segIntGlyphImages)->set(i, nullptr);
 			}
 		}
-		if (disposer->pScalerContext != (int64_t)0) {
+		if (disposer->pScalerContext != 0) {
 			freeCachedIntMemory($$new($ints, 0), disposer->pScalerContext);
 		}
 	} else if (disposer->segLongGlyphImages != nullptr) {
 		for (int32_t i = 0; i < $nc(disposer->segLongGlyphImages)->length; ++i) {
-			if ($nc(disposer->segLongGlyphImages)->get(i) != nullptr) {
-				freeCachedLongMemory($nc(disposer->segLongGlyphImages)->get(i), disposer->pScalerContext);
+			if (disposer->segLongGlyphImages->get(i) != nullptr) {
+				freeCachedLongMemory(disposer->segLongGlyphImages->get(i), disposer->pScalerContext);
 				disposer->pScalerContext = 0;
 				$nc(disposer->segLongGlyphImages)->set(i, nullptr);
 			}
 		}
-		if (disposer->pScalerContext != (int64_t)0) {
+		if (disposer->pScalerContext != 0) {
 			freeCachedLongMemory($$new($longs, 0), disposer->pScalerContext);
 		}
-	} else if (disposer->pScalerContext != (int64_t)0) {
+	} else if (disposer->pScalerContext != 0) {
 		if (longAddresses()) {
 			freeCachedLongMemory($$new($longs, 0), disposer->pScalerContext);
 		} else {
@@ -231,7 +146,7 @@ bool StrikeCache::longAddresses() {
 
 void StrikeCache::disposeStrike($FontStrikeDisposer* disposer) {
 	$init(StrikeCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Disposer);
 	if ($Disposer::pollingQueue) {
 		doDispose(disposer);
@@ -240,10 +155,10 @@ void StrikeCache::disposeStrike($FontStrikeDisposer* disposer) {
 	$var($RenderQueue, rq, nullptr);
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	if (!$GraphicsEnvironment::isHeadless()) {
-		$var($GraphicsConfiguration, gc, $nc($($nc(ge)->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$var($GraphicsConfiguration, gc, $$nc($nc(ge)->getDefaultScreenDevice())->getDefaultConfiguration());
 		if ($instanceOf($AccelGraphicsConfig, gc)) {
 			$var($AccelGraphicsConfig, agc, $cast($AccelGraphicsConfig, gc));
-			$var($BufferedContext, bc, $nc(agc)->getContext());
+			$var($BufferedContext, bc, agc->getContext());
 			if (bc != nullptr) {
 				$assign(rq, bc->getRenderQueue());
 			}
@@ -251,18 +166,16 @@ void StrikeCache::disposeStrike($FontStrikeDisposer* disposer) {
 	}
 	if (rq != nullptr) {
 		rq->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				rq->flushAndInvokeNow($$new($StrikeCache$2, disposer));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				rq->unlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			rq->flushAndInvokeNow($$new($StrikeCache$2, disposer));
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			rq->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
 		doDispose(disposer);
@@ -271,37 +184,37 @@ void StrikeCache::disposeStrike($FontStrikeDisposer* disposer) {
 
 void StrikeCache::freeIntPointer(int32_t ptr) {
 	$init(StrikeCache);
-	$prepareNativeStatic(StrikeCache, freeIntPointer, void, int32_t ptr);
+	$prepareNativeStatic(freeIntPointer, void, int32_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void StrikeCache::freeLongPointer(int64_t ptr) {
 	$init(StrikeCache);
-	$prepareNativeStatic(StrikeCache, freeLongPointer, void, int64_t ptr);
+	$prepareNativeStatic(freeLongPointer, void, int64_t ptr);
 	$invokeNativeStatic(ptr);
 	$finishNativeStatic();
 }
 
 void StrikeCache::freeIntMemory($ints* glyphPtrs, int64_t pContext) {
 	$init(StrikeCache);
-	$prepareNativeStatic(StrikeCache, freeIntMemory, void, $ints* glyphPtrs, int64_t pContext);
+	$prepareNativeStatic(freeIntMemory, void, $ints* glyphPtrs, int64_t pContext);
 	$invokeNativeStatic(glyphPtrs, pContext);
 	$finishNativeStatic();
 }
 
 void StrikeCache::freeLongMemory($longs* glyphPtrs, int64_t pContext) {
 	$init(StrikeCache);
-	$prepareNativeStatic(StrikeCache, freeLongMemory, void, $longs* glyphPtrs, int64_t pContext);
+	$prepareNativeStatic(freeLongMemory, void, $longs* glyphPtrs, int64_t pContext);
 	$invokeNativeStatic(glyphPtrs, pContext);
 	$finishNativeStatic();
 }
 
 void StrikeCache::freeCachedIntMemory($ints* glyphPtrs, int64_t pContext) {
 	$init(StrikeCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(StrikeCache::disposeListeners) {
-		if ($nc(StrikeCache::disposeListeners)->size() > 0) {
+		if (StrikeCache::disposeListeners->size() > 0) {
 			$var($ArrayList, gids, nullptr);
 			for (int32_t i = 0; i < $nc(glyphPtrs)->length; ++i) {
 				if (glyphPtrs->get(i) != 0 && $nc(StrikeCache::unsafe)->getByte(glyphPtrs->get(i) + StrikeCache::managedOffset) == 0) {
@@ -321,9 +234,9 @@ void StrikeCache::freeCachedIntMemory($ints* glyphPtrs, int64_t pContext) {
 
 void StrikeCache::freeCachedLongMemory($longs* glyphPtrs, int64_t pContext) {
 	$init(StrikeCache);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(StrikeCache::disposeListeners) {
-		if ($nc(StrikeCache::disposeListeners)->size() > 0) {
+		if (StrikeCache::disposeListeners->size() > 0) {
 			$var($ArrayList, gids, nullptr);
 			for (int32_t i = 0; i < $nc(glyphPtrs)->length; ++i) {
 				if (glyphPtrs->get(i) != 0 && $nc(StrikeCache::unsafe)->getByte(glyphPtrs->get(i) + StrikeCache::managedOffset) == 0) {
@@ -344,20 +257,18 @@ void StrikeCache::freeCachedLongMemory($longs* glyphPtrs, int64_t pContext) {
 void StrikeCache::addGlyphDisposedListener($GlyphDisposedListener* listener) {
 	$init(StrikeCache);
 	$synchronized(StrikeCache::disposeListeners) {
-		$nc(StrikeCache::disposeListeners)->add(listener);
+		StrikeCache::disposeListeners->add(listener);
 	}
 }
 
 void StrikeCache::notifyDisposeListeners($ArrayList* glyphs) {
 	$init(StrikeCache);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(StrikeCache::disposeListeners)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($GlyphDisposedListener, listener, $cast($GlyphDisposedListener, i$->next()));
-			{
-				$nc(listener)->glyphDisposed(glyphs);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(StrikeCache::disposeListeners)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($GlyphDisposedListener, listener, $cast($GlyphDisposedListener, i$->next()));
+		{
+			$nc(listener)->glyphDisposed(glyphs);
 		}
 	}
 }
@@ -383,8 +294,8 @@ $Reference* StrikeCache::getStrikeRef($FontStrike* strike, bool weak) {
 	}
 }
 
-void clinit$StrikeCache($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void StrikeCache::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(StrikeCache::unsafe, $Unsafe::getUnsafe());
 	$assignStatic(StrikeCache::refQueue, $Disposer::getQueue());
@@ -410,7 +321,7 @@ void clinit$StrikeCache($Class* class$) {
 		if (StrikeCache::nativeAddressSize < 4) {
 			$throwNew($InternalError, $$str({"Unexpected address size for font data: "_s, $$str(StrikeCache::nativeAddressSize)}));
 		}
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($StrikeCache$1)));
+		$AccessController::doPrivileged($$new($StrikeCache$1));
 	}
 }
 
@@ -418,7 +329,74 @@ StrikeCache::StrikeCache() {
 }
 
 $Class* StrikeCache::load$($String* name, bool initialize) {
-	$loadClass(StrikeCache, name, initialize, &_StrikeCache_ClassInfo_, clinit$StrikeCache, allocate$StrikeCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $STATIC | $FINAL, $staticField(StrikeCache, unsafe)},
+		{"refQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/lang/Object;>;", $STATIC, $staticField(StrikeCache, refQueue)},
+		{"disposeListeners", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/font/GlyphDisposedListener;>;", $STATIC, $staticField(StrikeCache, disposeListeners)},
+		{"MINSTRIKES", "I", nullptr, $STATIC, $staticField(StrikeCache, MINSTRIKES)},
+		{"recentStrikeIndex", "I", nullptr, $STATIC, $staticField(StrikeCache, recentStrikeIndex)},
+		{"recentStrikes", "[Lsun/font/FontStrike;", nullptr, $STATIC, $staticField(StrikeCache, recentStrikes)},
+		{"cacheRefTypeWeak", "Z", nullptr, $STATIC, $staticField(StrikeCache, cacheRefTypeWeak)},
+		{"nativeAddressSize", "I", nullptr, $STATIC, $staticField(StrikeCache, nativeAddressSize)},
+		{"glyphInfoSize", "I", nullptr, $STATIC, $staticField(StrikeCache, glyphInfoSize)},
+		{"xAdvanceOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, xAdvanceOffset)},
+		{"yAdvanceOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, yAdvanceOffset)},
+		{"boundsOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, boundsOffset)},
+		{"widthOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, widthOffset)},
+		{"heightOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, heightOffset)},
+		{"rowBytesOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, rowBytesOffset)},
+		{"topLeftXOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, topLeftXOffset)},
+		{"topLeftYOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, topLeftYOffset)},
+		{"pixelDataOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, pixelDataOffset)},
+		{"cacheCellOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, cacheCellOffset)},
+		{"managedOffset", "I", nullptr, $STATIC, $staticField(StrikeCache, managedOffset)},
+		{"invisibleGlyphPtr", "J", nullptr, $STATIC, $staticField(StrikeCache, invisibleGlyphPtr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StrikeCache, init$, void)},
+		{"addGlyphDisposedListener", "(Lsun/font/GlyphDisposedListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StrikeCache, addGlyphDisposedListener, void, $GlyphDisposedListener*)},
+		{"disposeStrike", "(Lsun/font/FontStrikeDisposer;)V", nullptr, $STATIC, $staticMethod(StrikeCache, disposeStrike, void, $FontStrikeDisposer*)},
+		{"doDispose", "(Lsun/font/FontStrikeDisposer;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StrikeCache, doDispose, void, $FontStrikeDisposer*)},
+		{"freeCachedIntMemory", "([IJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StrikeCache, freeCachedIntMemory, void, $ints*, int64_t)},
+		{"freeCachedLongMemory", "([JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(StrikeCache, freeCachedLongMemory, void, $longs*, int64_t)},
+		{"freeIntMemory", "([IJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StrikeCache, freeIntMemory, void, $ints*, int64_t)},
+		{"freeIntPointer", "(I)V", nullptr, $STATIC | $NATIVE, $staticMethod(StrikeCache, freeIntPointer, void, int32_t)},
+		{"freeLongMemory", "([JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(StrikeCache, freeLongMemory, void, $longs*, int64_t)},
+		{"freeLongPointer", "(J)V", nullptr, $STATIC | $NATIVE, $staticMethod(StrikeCache, freeLongPointer, void, int64_t)},
+		{"getGlyphCacheDescription", "([J)V", nullptr, $STATIC | $NATIVE, $staticMethod(StrikeCache, getGlyphCacheDescription, void, $longs*)},
+		{"getStrikeRef", "(Lsun/font/FontStrike;)Ljava/lang/ref/Reference;", "(Lsun/font/FontStrike;)Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;", $PUBLIC | $STATIC, $staticMethod(StrikeCache, getStrikeRef, $Reference*, $FontStrike*)},
+		{"getStrikeRef", "(Lsun/font/FontStrike;Z)Ljava/lang/ref/Reference;", "(Lsun/font/FontStrike;Z)Ljava/lang/ref/Reference<Lsun/font/FontStrike;>;", $PUBLIC | $STATIC, $staticMethod(StrikeCache, getStrikeRef, $Reference*, $FontStrike*, bool)},
+		{"longAddresses", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StrikeCache, longAddresses, bool)},
+		{"notifyDisposeListeners", "(Ljava/util/ArrayList;)V", "(Ljava/util/ArrayList<Ljava/lang/Long;>;)V", $PRIVATE | $STATIC, $staticMethod(StrikeCache, notifyDisposeListeners, void, $ArrayList*)},
+		{"refStrike", "(Lsun/font/FontStrike;)V", nullptr, $STATIC, $staticMethod(StrikeCache, refStrike, void, $FontStrike*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.StrikeCache$WeakDisposerRef", "sun.font.StrikeCache", "WeakDisposerRef", $STATIC},
+		{"sun.font.StrikeCache$SoftDisposerRef", "sun.font.StrikeCache", "SoftDisposerRef", $STATIC},
+		{"sun.font.StrikeCache$DisposableStrike", "sun.font.StrikeCache", "DisposableStrike", $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.font.StrikeCache$2", nullptr, nullptr, 0},
+		{"sun.font.StrikeCache$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.StrikeCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.StrikeCache$WeakDisposerRef,sun.font.StrikeCache$SoftDisposerRef,sun.font.StrikeCache$DisposableStrike,sun.font.StrikeCache$2,sun.font.StrikeCache$1"
+	};
+	$loadClass(StrikeCache, name, initialize, &classInfo$$, StrikeCache::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StrikeCache);
+	});
 	return class$;
 }
 

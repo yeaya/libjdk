@@ -1,5 +1,4 @@
 #include <sun/print/AttributeUpdater.h>
-
 #include <javax/print/attribute/PrintServiceAttributeSet.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $PrintServiceAttributeSet = ::javax::print::attribute::PrintServiceAttribu
 namespace sun {
 	namespace print {
 
-$MethodInfo _AttributeUpdater_MethodInfo_[] = {
-	{"getUpdatedAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeUpdater, getUpdatedAttributes, $PrintServiceAttributeSet*)},
-	{}
-};
-
-$ClassInfo _AttributeUpdater_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.print.AttributeUpdater",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AttributeUpdater_MethodInfo_
-};
-
-$Object* allocate$AttributeUpdater($Class* clazz) {
-	return $of($alloc(AttributeUpdater));
-}
-
 $Class* AttributeUpdater::load$($String* name, bool initialize) {
-	$loadClass(AttributeUpdater, name, initialize, &_AttributeUpdater_ClassInfo_, allocate$AttributeUpdater);
+	$MethodInfo methodInfos$$[] = {
+		{"getUpdatedAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AttributeUpdater, getUpdatedAttributes, $PrintServiceAttributeSet*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.print.AttributeUpdater",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AttributeUpdater, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeUpdater);
+	});
 	return class$;
 }
 

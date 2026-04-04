@@ -1,5 +1,4 @@
 #include <javax/swing/event/TreeSelectionEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/swing/tree/TreePath.h>
 #include <jcpp.h>
@@ -16,41 +15,6 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$FieldInfo _TreeSelectionEvent_FieldInfo_[] = {
-	{"paths", "[Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(TreeSelectionEvent, paths)},
-	{"areNew", "[Z", nullptr, $PROTECTED, $field(TreeSelectionEvent, areNew)},
-	{"oldLeadSelectionPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(TreeSelectionEvent, oldLeadSelectionPath)},
-	{"newLeadSelectionPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(TreeSelectionEvent, newLeadSelectionPath)},
-	{}
-};
-
-$MethodInfo _TreeSelectionEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;[Ljavax/swing/tree/TreePath;[ZLjavax/swing/tree/TreePath;Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $method(TreeSelectionEvent, init$, void, Object$*, $TreePathArray*, $booleans*, $TreePath*, $TreePath*)},
-	{"<init>", "(Ljava/lang/Object;Ljavax/swing/tree/TreePath;ZLjavax/swing/tree/TreePath;Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $method(TreeSelectionEvent, init$, void, Object$*, $TreePath*, bool, $TreePath*, $TreePath*)},
-	{"cloneWithSource", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, cloneWithSource, $Object*, Object$*)},
-	{"getNewLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, getNewLeadSelectionPath, $TreePath*)},
-	{"getOldLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, getOldLeadSelectionPath, $TreePath*)},
-	{"getPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, getPath, $TreePath*)},
-	{"getPaths", "()[Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, getPaths, $TreePathArray*)},
-	{"isAddedPath", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, isAddedPath, bool)},
-	{"isAddedPath", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, isAddedPath, bool, $TreePath*)},
-	{"isAddedPath", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, isAddedPath, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _TreeSelectionEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.TreeSelectionEvent",
-	"java.util.EventObject",
-	nullptr,
-	_TreeSelectionEvent_FieldInfo_,
-	_TreeSelectionEvent_MethodInfo_
-};
-
-$Object* allocate$TreeSelectionEvent($Class* clazz) {
-	return $of($alloc(TreeSelectionEvent));
-}
-
 void TreeSelectionEvent::init$(Object$* source, $TreePathArray* paths, $booleans* areNew, $TreePath* oldLeadSelectionPath, $TreePath* newLeadSelectionPath) {
 	$EventObject::init$(source);
 	$set(this, paths, paths);
@@ -62,9 +26,9 @@ void TreeSelectionEvent::init$(Object$* source, $TreePathArray* paths, $booleans
 void TreeSelectionEvent::init$(Object$* source, $TreePath* path, bool isNew, $TreePath* oldLeadSelectionPath, $TreePath* newLeadSelectionPath) {
 	$EventObject::init$(source);
 	$set(this, paths, $new($TreePathArray, 1));
-	$nc(this->paths)->set(0, path);
+	this->paths->set(0, path);
 	$set(this, areNew, $new($booleans, 1));
-	$nc(this->areNew)->set(0, isNew);
+	this->areNew->set(0, isNew);
 	$set(this, oldLeadSelectionPath, oldLeadSelectionPath);
 	$set(this, newLeadSelectionPath, newLeadSelectionPath);
 }
@@ -96,7 +60,7 @@ bool TreeSelectionEvent::isAddedPath($TreePath* path) {
 }
 
 bool TreeSelectionEvent::isAddedPath(int32_t index) {
-	if (this->paths == nullptr || index < 0 || index >= $nc(this->paths)->length) {
+	if (this->paths == nullptr || index < 0 || index >= this->paths->length) {
 		$throwNew($IllegalArgumentException, "index is beyond range of added paths identified by TreeSelectionEvent"_s);
 	}
 	return $nc(this->areNew)->get(index);
@@ -111,14 +75,44 @@ $TreePath* TreeSelectionEvent::getNewLeadSelectionPath() {
 }
 
 $Object* TreeSelectionEvent::cloneWithSource(Object$* newSource) {
-	return $of($new(TreeSelectionEvent, newSource, this->paths, this->areNew, this->oldLeadSelectionPath, this->newLeadSelectionPath));
+	return $new(TreeSelectionEvent, newSource, this->paths, this->areNew, this->oldLeadSelectionPath, this->newLeadSelectionPath);
 }
 
 TreeSelectionEvent::TreeSelectionEvent() {
 }
 
 $Class* TreeSelectionEvent::load$($String* name, bool initialize) {
-	$loadClass(TreeSelectionEvent, name, initialize, &_TreeSelectionEvent_ClassInfo_, allocate$TreeSelectionEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"paths", "[Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(TreeSelectionEvent, paths)},
+		{"areNew", "[Z", nullptr, $PROTECTED, $field(TreeSelectionEvent, areNew)},
+		{"oldLeadSelectionPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(TreeSelectionEvent, oldLeadSelectionPath)},
+		{"newLeadSelectionPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(TreeSelectionEvent, newLeadSelectionPath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;[Ljavax/swing/tree/TreePath;[ZLjavax/swing/tree/TreePath;Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $method(TreeSelectionEvent, init$, void, Object$*, $TreePathArray*, $booleans*, $TreePath*, $TreePath*)},
+		{"<init>", "(Ljava/lang/Object;Ljavax/swing/tree/TreePath;ZLjavax/swing/tree/TreePath;Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $method(TreeSelectionEvent, init$, void, Object$*, $TreePath*, bool, $TreePath*, $TreePath*)},
+		{"cloneWithSource", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, cloneWithSource, $Object*, Object$*)},
+		{"getNewLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, getNewLeadSelectionPath, $TreePath*)},
+		{"getOldLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, getOldLeadSelectionPath, $TreePath*)},
+		{"getPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, getPath, $TreePath*)},
+		{"getPaths", "()[Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, getPaths, $TreePathArray*)},
+		{"isAddedPath", "()Z", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, isAddedPath, bool)},
+		{"isAddedPath", "(Ljavax/swing/tree/TreePath;)Z", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, isAddedPath, bool, $TreePath*)},
+		{"isAddedPath", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TreeSelectionEvent, isAddedPath, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.TreeSelectionEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TreeSelectionEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeSelectionEvent);
+	});
 	return class$;
 }
 

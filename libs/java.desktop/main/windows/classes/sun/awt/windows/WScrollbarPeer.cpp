@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WScrollbarPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -20,7 +19,6 @@
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WObjectPeer.h>
 #include <sun/awt/windows/WScrollbarPeer$1.h>
@@ -61,7 +59,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WScrollbarPeer$1 = ::sun::awt::windows::WScrollbarPeer$1;
 using $WScrollbarPeer$2 = ::sun::awt::windows::WScrollbarPeer$2;
@@ -71,103 +68,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WScrollbarPeer_FieldInfo_[] = {
-	{"dragInProgress", "Z", nullptr, $PRIVATE, $field(WScrollbarPeer, dragInProgress)},
-	{}
-};
-
-$MethodInfo _WScrollbarPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Scrollbar;)V", nullptr, 0, $method(WScrollbarPeer, init$, void, $Scrollbar*)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WScrollbarPeer, create, void, $WComponentPeer*)},
-	{"drag", "(I)V", nullptr, 0, $method(WScrollbarPeer, drag, void, int32_t)},
-	{"dragEnd", "(I)V", nullptr, 0, $method(WScrollbarPeer, dragEnd, void, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WScrollbarPeer, getMinimumSize, $Dimension*)},
-	{"getScrollbarSize", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(WScrollbarPeer, getScrollbarSize, int32_t, int32_t)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WScrollbarPeer, initialize, void)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"lineDown", "(I)V", nullptr, 0, $method(WScrollbarPeer, lineDown, void, int32_t)},
-	{"lineUp", "(I)V", nullptr, 0, $method(WScrollbarPeer, lineUp, void, int32_t)},
-	{"pageDown", "(I)V", nullptr, 0, $method(WScrollbarPeer, pageDown, void, int32_t)},
-	{"pageUp", "(I)V", nullptr, 0, $method(WScrollbarPeer, pageUp, void, int32_t)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"postAdjustmentEvent", "(IIZ)V", nullptr, $PRIVATE, $method(WScrollbarPeer, postAdjustmentEvent, void, int32_t, int32_t, bool)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setLineIncrement", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WScrollbarPeer, setLineIncrement, void, int32_t)},
-	{"setPageIncrement", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WScrollbarPeer, setPageIncrement, void, int32_t)},
-	{"setValues", "(IIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WScrollbarPeer, setValues, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WScrollbarPeer, shouldClearRectBeforePaint, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"warp", "(I)V", nullptr, 0, $method(WScrollbarPeer, warp, void, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_create 23
-#define _METHOD_INDEX_getScrollbarSize 27
-#define _METHOD_INDEX_setLineIncrement 47
-#define _METHOD_INDEX_setPageIncrement 48
-#define _METHOD_INDEX_setValues 49
-
-$InnerClassInfo _WScrollbarPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WScrollbarPeer$2", nullptr, nullptr, 0},
-	{"sun.awt.windows.WScrollbarPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WScrollbarPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WScrollbarPeer",
-	"sun.awt.windows.WComponentPeer",
-	"java.awt.peer.ScrollbarPeer",
-	_WScrollbarPeer_FieldInfo_,
-	_WScrollbarPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WScrollbarPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WScrollbarPeer$2,sun.awt.windows.WScrollbarPeer$1"
-};
-
-$Object* allocate$WScrollbarPeer($Class* clazz) {
-	return $of($alloc(WScrollbarPeer));
-}
 
 bool WScrollbarPeer::isObscured() {
 	 return this->$WComponentPeer::isObscured();
@@ -331,15 +231,14 @@ void WScrollbarPeer::finalize() {
 
 int32_t WScrollbarPeer::getScrollbarSize(int32_t orientation) {
 	$init(WScrollbarPeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WScrollbarPeer, getScrollbarSize, int32_t, int32_t orientation);
-	$ret = $invokeNativeStatic(orientation);
+	$prepareNativeStatic(getScrollbarSize, int32_t, int32_t orientation);
+	int32_t $ret = $invokeNativeStatic(orientation);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Dimension* WScrollbarPeer::getMinimumSize() {
-	if ($nc(($cast($Scrollbar, this->target)))->getOrientation() == $Scrollbar::VERTICAL) {
+	if ($nc($cast($Scrollbar, this->target))->getOrientation() == $Scrollbar::VERTICAL) {
 		return $new($Dimension, getScrollbarSize($Scrollbar::VERTICAL), 50);
 	} else {
 		return $new($Dimension, 50, getScrollbarSize($Scrollbar::HORIZONTAL));
@@ -347,19 +246,19 @@ $Dimension* WScrollbarPeer::getMinimumSize() {
 }
 
 void WScrollbarPeer::setValues(int32_t value, int32_t visible, int32_t minimum, int32_t maximum) {
-	$prepareNative(WScrollbarPeer, setValues, void, int32_t value, int32_t visible, int32_t minimum, int32_t maximum);
+	$prepareNative(setValues, void, int32_t value, int32_t visible, int32_t minimum, int32_t maximum);
 	$invokeNative(value, visible, minimum, maximum);
 	$finishNative();
 }
 
 void WScrollbarPeer::setLineIncrement(int32_t l) {
-	$prepareNative(WScrollbarPeer, setLineIncrement, void, int32_t l);
+	$prepareNative(setLineIncrement, void, int32_t l);
 	$invokeNative(l);
 	$finishNative();
 }
 
 void WScrollbarPeer::setPageIncrement(int32_t l) {
-	$prepareNative(WScrollbarPeer, setPageIncrement, void, int32_t l);
+	$prepareNative(setPageIncrement, void, int32_t l);
 	$invokeNative(l);
 	$finishNative();
 }
@@ -370,7 +269,7 @@ void WScrollbarPeer::init$($Scrollbar* target) {
 }
 
 void WScrollbarPeer::create($WComponentPeer* parent) {
-	$prepareNative(WScrollbarPeer, create, void, $WComponentPeer* parent);
+	$prepareNative(create, void, $WComponentPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
@@ -385,7 +284,7 @@ void WScrollbarPeer::initialize() {
 }
 
 void WScrollbarPeer::postAdjustmentEvent(int32_t type, int32_t value, bool isAdjusting) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Scrollbar, sb, $cast($Scrollbar, this->target));
 	$WToolkit::executeOnEventHandlerThread(sb, $$new($WScrollbarPeer$1, this, sb, isAdjusting, value, type));
 }
@@ -418,7 +317,7 @@ void WScrollbarPeer::drag(int32_t value) {
 }
 
 void WScrollbarPeer::dragEnd(int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Scrollbar, sb, $cast($Scrollbar, this->target));
 	if (!this->dragInProgress) {
 		return;
@@ -435,7 +334,92 @@ WScrollbarPeer::WScrollbarPeer() {
 }
 
 $Class* WScrollbarPeer::load$($String* name, bool initialize) {
-	$loadClass(WScrollbarPeer, name, initialize, &_WScrollbarPeer_ClassInfo_, allocate$WScrollbarPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"dragInProgress", "Z", nullptr, $PRIVATE, $field(WScrollbarPeer, dragInProgress)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Scrollbar;)V", nullptr, 0, $method(WScrollbarPeer, init$, void, $Scrollbar*)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WScrollbarPeer, create, void, $WComponentPeer*)},
+		{"drag", "(I)V", nullptr, 0, $method(WScrollbarPeer, drag, void, int32_t)},
+		{"dragEnd", "(I)V", nullptr, 0, $method(WScrollbarPeer, dragEnd, void, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WScrollbarPeer, getMinimumSize, $Dimension*)},
+		{"getScrollbarSize", "(I)I", nullptr, $STATIC | $NATIVE, $staticMethod(WScrollbarPeer, getScrollbarSize, int32_t, int32_t)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WScrollbarPeer, initialize, void)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"lineDown", "(I)V", nullptr, 0, $method(WScrollbarPeer, lineDown, void, int32_t)},
+		{"lineUp", "(I)V", nullptr, 0, $method(WScrollbarPeer, lineUp, void, int32_t)},
+		{"pageDown", "(I)V", nullptr, 0, $method(WScrollbarPeer, pageDown, void, int32_t)},
+		{"pageUp", "(I)V", nullptr, 0, $method(WScrollbarPeer, pageUp, void, int32_t)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"postAdjustmentEvent", "(IIZ)V", nullptr, $PRIVATE, $method(WScrollbarPeer, postAdjustmentEvent, void, int32_t, int32_t, bool)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setLineIncrement", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WScrollbarPeer, setLineIncrement, void, int32_t)},
+		{"setPageIncrement", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WScrollbarPeer, setPageIncrement, void, int32_t)},
+		{"setValues", "(IIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WScrollbarPeer, setValues, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WScrollbarPeer, shouldClearRectBeforePaint, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"warp", "(I)V", nullptr, 0, $method(WScrollbarPeer, warp, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WScrollbarPeer$2", nullptr, nullptr, 0},
+		{"sun.awt.windows.WScrollbarPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WScrollbarPeer",
+		"sun.awt.windows.WComponentPeer",
+		"java.awt.peer.ScrollbarPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WScrollbarPeer$2,sun.awt.windows.WScrollbarPeer$1"
+	};
+	$loadClass(WScrollbarPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WScrollbarPeer));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ArrayType$1.h>
 #include <com/sun/tools/javac/code/Type$ArrayType$2.h>
@@ -12,7 +11,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/util/List.h>
-#include <javax/lang/model/type/ArrayType.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <javax/lang/model/type/TypeMirror.h>
 #include <javax/lang/model/type/TypeVisitor.h>
@@ -38,7 +36,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $1List = ::java::util::List;
-using $ArrayType = ::javax::lang::model::type::ArrayType;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
@@ -48,72 +45,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type$ArrayType_FieldInfo_[] = {
-	{"elemtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$ArrayType, elemtype)},
-	{}
-};
-
-$MethodInfo _Type$ArrayType_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Type$ArrayType, init$, void, $Type*, $Symbol$TypeSymbol*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$ArrayType, init$, void, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$ArrayType;)V", nullptr, $PUBLIC, $method(Type$ArrayType, init$, void, Type$ArrayType*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$ArrayType, accept, $Object*, $Type$Visitor*, Object$*)},
-	{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$ArrayType, accept, $Object*, $TypeVisitor*, Object$*)},
-	{"allparams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$ArrayType, allparams, $List*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ArrayType;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, cloneWithMetadata, Type$ArrayType*, $TypeMetadata*)},
-	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, complete, void)},
-	{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, contains, bool, $Type*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, equals, bool, Object$*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType, getAnnotationMirrors, $1List*)},
-	{"getComponentType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, getComponentType, $TypeMirror*)},
-	{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, getKind, $TypeKind*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, getTag, $TypeTag*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, hashCode, int32_t)},
-	{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isErroneous, bool)},
-	{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isNullOrReference, bool)},
-	{"isParameterized", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isParameterized, bool)},
-	{"isRaw", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isRaw, bool)},
-	{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isReference, bool)},
-	{"isVarargs", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isVarargs, bool)},
-	{"makeVarargs", "()Lcom/sun/tools/javac/code/Type$ArrayType;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, makeVarargs, Type$ArrayType*)},
-	{"*poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, poolTag, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Type$ArrayType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$ArrayType", "com.sun.tools.javac.code.Type", "ArrayType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "com.sun.tools.javac.jvm.PoolConstant", "LoadableConstant", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Type$ArrayType$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Type$ArrayType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$ArrayType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$ArrayType",
-	"com.sun.tools.javac.code.Type",
-	"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant,javax.lang.model.type.ArrayType",
-	_Type$ArrayType_FieldInfo_,
-	_Type$ArrayType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$ArrayType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$ArrayType($Class* clazz) {
-	return $of($alloc(Type$ArrayType));
-}
 
 $Object* Type$ArrayType::poolKey($Types* types) {
 	 return this->$Type::poolKey(types);
@@ -146,7 +77,7 @@ void Type$ArrayType::init$($Type* elemtype, $Symbol$TypeSymbol* arrayClass, $Typ
 }
 
 void Type$ArrayType::init$(Type$ArrayType* that) {
-	Type$ArrayType::init$($nc(that)->elemtype, that->tsym, $(that->getMetadata()));
+	Type$ArrayType::init$($nc(that)->elemtype, $nc(that)->tsym, $($nc(that)->getMetadata()));
 }
 
 int32_t Type$ArrayType::poolTag() {
@@ -163,24 +94,24 @@ $TypeTag* Type$ArrayType::getTag() {
 }
 
 $Object* Type$ArrayType::accept($Type$Visitor* v, Object$* s) {
-	return $of($nc(v)->visitArrayType(this, s));
+	return $nc(v)->visitArrayType(this, s);
 }
 
 $String* Type$ArrayType::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($Type, t, this->elemtype);
 	$init($TypeKind);
 	while ($nc(t)->getKind() == $TypeKind::ARRAY) {
-		$assign(t, $cast($Type, $nc(($cast(Type$ArrayType, t)))->getComponentType()));
+		$assign(t, $cast($Type, $cast(Type$ArrayType, t)->getComponentType()));
 	}
-	sb->append($of(t));
+	sb->append(t);
 	$assign(t, this);
 	do {
-		t->appendAnnotationsString(sb, true);
+		$nc(t)->appendAnnotationsString(sb, true);
 		sb->append("[]"_s);
-		$assign(t, $cast($Type, $nc(($cast(Type$ArrayType, t)))->getComponentType()));
-	} while (t->getKind() == $TypeKind::ARRAY);
+		$assign(t, $cast($Type, $cast(Type$ArrayType, t)->getComponentType()));
+	} while ($nc(t)->getKind() == $TypeKind::ARRAY);
 	return sb->toString();
 }
 
@@ -191,13 +122,13 @@ bool Type$ArrayType::equals(Object$* obj) {
 		$assign(arrayType, $cast(Type$ArrayType, obj));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
+	bool var$0 = var$1;
 	return var$0 && (this == arrayType || $nc(this->elemtype)->equals($nc(arrayType)->elemtype));
 }
 
 int32_t Type$ArrayType::hashCode() {
 	$init($TypeTag);
-	int32_t var$0 = ($TypeTag::ARRAY->ordinal() << 5);
+	int32_t var$0 = $TypeTag::ARRAY->ordinal() << 5;
 	return var$0 + $nc(this->elemtype)->hashCode();
 }
 
@@ -252,7 +183,7 @@ $TypeKind* Type$ArrayType::getKind() {
 }
 
 $Object* Type$ArrayType::accept($TypeVisitor* v, Object$* p) {
-	return $of($nc(v)->visitArray(this, p));
+	return $nc(v)->visitArray(this, p);
 }
 
 $1List* Type$ArrayType::getAnnotationMirrors() {
@@ -263,7 +194,67 @@ Type$ArrayType::Type$ArrayType() {
 }
 
 $Class* Type$ArrayType::load$($String* name, bool initialize) {
-	$loadClass(Type$ArrayType, name, initialize, &_Type$ArrayType_ClassInfo_, allocate$Type$ArrayType);
+	$FieldInfo fieldInfos$$[] = {
+		{"elemtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$ArrayType, elemtype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Type$ArrayType, init$, void, $Type*, $Symbol$TypeSymbol*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$ArrayType, init$, void, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$ArrayType;)V", nullptr, $PUBLIC, $method(Type$ArrayType, init$, void, Type$ArrayType*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Type$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;S:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Type$Visitor<TR;TS;>;TS;)TR;", $PUBLIC, $virtualMethod(Type$ArrayType, accept, $Object*, $Type$Visitor*, Object$*)},
+		{"accept", "(Ljavax/lang/model/type/TypeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/type/TypeVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Type$ArrayType, accept, $Object*, $TypeVisitor*, Object$*)},
+		{"allparams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$ArrayType, allparams, $List*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$ArrayType;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, cloneWithMetadata, Type$ArrayType*, $TypeMetadata*)},
+		{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, complete, void)},
+		{"contains", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, contains, bool, $Type*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, equals, bool, Object$*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$ArrayType, getAnnotationMirrors, $1List*)},
+		{"getComponentType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, getComponentType, $TypeMirror*)},
+		{"getKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, getKind, $TypeKind*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, getTag, $TypeTag*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, hashCode, int32_t)},
+		{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isErroneous, bool)},
+		{"isNullOrReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isNullOrReference, bool)},
+		{"isParameterized", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isParameterized, bool)},
+		{"isRaw", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isRaw, bool)},
+		{"isReference", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isReference, bool)},
+		{"isVarargs", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, isVarargs, bool)},
+		{"makeVarargs", "()Lcom/sun/tools/javac/code/Type$ArrayType;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, makeVarargs, Type$ArrayType*)},
+		{"*poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, poolTag, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$ArrayType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$ArrayType", "com.sun.tools.javac.code.Type", "ArrayType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "com.sun.tools.javac.jvm.PoolConstant", "LoadableConstant", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Type$ArrayType$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Type$ArrayType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$ArrayType",
+		"com.sun.tools.javac.code.Type",
+		"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant,javax.lang.model.type.ArrayType",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$ArrayType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$ArrayType));
+	});
 	return class$;
 }
 

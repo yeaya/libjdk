@@ -21,7 +21,7 @@ public:
 	CardLayout$Card();
 	void init$(::java::awt::CardLayout* this$0, $String* cardName, ::java::awt::Component* cardComponent);
 	::java::awt::CardLayout* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x5C2731B0BB6BD6AE;
+	static const int64_t serialVersionUID = (int64_t)0x5c2731b0bb6bd6ae;
 	$String* name = nullptr;
 	::java::awt::Component* comp = nullptr;
 };

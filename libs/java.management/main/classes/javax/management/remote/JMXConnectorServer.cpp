@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXConnectorServer.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -30,7 +29,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $MBeanNotificationInfo = ::javax::management::MBeanNotificationInfo;
 using $MBeanServer = ::javax::management::MBeanServer;
@@ -46,56 +44,6 @@ using $MBeanServerForwarder = ::javax::management::remote::MBeanServerForwarder;
 namespace javax {
 	namespace management {
 		namespace remote {
-
-$FieldInfo _JMXConnectorServer_FieldInfo_[] = {
-	{"AUTHENTICATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServer, AUTHENTICATOR)},
-	{"mbeanServer", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE, $field(JMXConnectorServer, mbeanServer)},
-	{"myName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(JMXConnectorServer, myName)},
-	{"connectionIds", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JMXConnectorServer, connectionIds)},
-	{"sequenceNumberLock", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXConnectorServer, sequenceNumberLock)},
-	{"sequenceNumber", "J", nullptr, $PRIVATE | $STATIC, $staticField(JMXConnectorServer, sequenceNumber)},
-	{}
-};
-
-$MethodInfo _JMXConnectorServer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAddress", "()Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JMXConnectorServer, init$, void)},
-	{"<init>", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $method(JMXConnectorServer, init$, void, $MBeanServer*)},
-	{"connectionClosed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(JMXConnectorServer, connectionClosed, void, $String*, $String*, Object$*)},
-	{"connectionFailed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(JMXConnectorServer, connectionFailed, void, $String*, $String*, Object$*)},
-	{"connectionOpened", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(JMXConnectorServer, connectionOpened, void, $String*, $String*, Object$*)},
-	{"getConnectionIds", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServer, getConnectionIds, $StringArray*)},
-	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JMXConnectorServer, getMBeanServer, $MBeanServer*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServer, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getNotificationSource", "()Ljava/lang/Object;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JMXConnectorServer, getNotificationSource, $Object*)},
-	{"nextSequenceNumber", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXConnectorServer, nextSequenceNumber, int64_t)},
-	{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServer, postDeregister, void)},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServer, postRegister, void, $Boolean*)},
-	{"preDeregister", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JMXConnectorServer, preDeregister, void), "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JMXConnectorServer, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*)},
-	{"sendNotification", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(JMXConnectorServer, sendNotification, void, $String*, $String*, $String*, Object$*)},
-	{"setMBeanServerForwarder", "(Ljavax/management/remote/MBeanServerForwarder;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JMXConnectorServer, setMBeanServerForwarder, void, $MBeanServerForwarder*)},
-	{"toJMXConnector", "(Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC, $virtualMethod(JMXConnectorServer, toJMXConnector, $JMXConnector*, $Map*), "java.io.IOException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JMXConnectorServer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.management.remote.JMXConnectorServer",
-	"javax.management.NotificationBroadcasterSupport",
-	"javax.management.remote.JMXConnectorServerMBean,javax.management.MBeanRegistration,javax.management.remote.JMXAddressable",
-	_JMXConnectorServer_FieldInfo_,
-	_JMXConnectorServer_MethodInfo_
-};
-
-$Object* allocate$JMXConnectorServer($Class* clazz) {
-	return $of($alloc(JMXConnectorServer));
-}
 
 int32_t JMXConnectorServer::hashCode() {
 	 return this->$NotificationBroadcasterSupport::hashCode();
@@ -152,7 +100,7 @@ void JMXConnectorServer::setMBeanServerForwarder($MBeanServerForwarder* mbsf) {
 
 $StringArray* JMXConnectorServer::getConnectionIds() {
 	$synchronized(this->connectionIds) {
-		return $fcast($StringArray, $nc(this->connectionIds)->toArray($$new($StringArray, $nc(this->connectionIds)->size())));
+		return $cast($StringArray, this->connectionIds->toArray($$new($StringArray, this->connectionIds->size())));
 	}
 }
 
@@ -165,7 +113,7 @@ $JMXConnector* JMXConnectorServer::toJMXConnector($Map* env) {
 }
 
 $MBeanNotificationInfoArray* JMXConnectorServer::getNotificationInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JMXConnectionNotification);
 	$var($StringArray, types, $new($StringArray, {
 		$JMXConnectionNotification::OPENED,
@@ -182,7 +130,7 @@ void JMXConnectorServer::connectionOpened($String* connectionId, $String* messag
 		$throwNew($NullPointerException, "Illegal null argument"_s);
 	}
 	$synchronized(this->connectionIds) {
-		$nc(this->connectionIds)->add(connectionId);
+		this->connectionIds->add(connectionId);
 	}
 	$init($JMXConnectionNotification);
 	sendNotification($JMXConnectionNotification::OPENED, connectionId, message, userData);
@@ -193,7 +141,7 @@ void JMXConnectorServer::connectionClosed($String* connectionId, $String* messag
 		$throwNew($NullPointerException, "Illegal null argument"_s);
 	}
 	$synchronized(this->connectionIds) {
-		$nc(this->connectionIds)->remove($of(connectionId));
+		this->connectionIds->remove(connectionId);
 	}
 	$init($JMXConnectionNotification);
 	sendNotification($JMXConnectionNotification::CLOSED, connectionId, message, userData);
@@ -204,18 +152,16 @@ void JMXConnectorServer::connectionFailed($String* connectionId, $String* messag
 		$throwNew($NullPointerException, "Illegal null argument"_s);
 	}
 	$synchronized(this->connectionIds) {
-		$nc(this->connectionIds)->remove($of(connectionId));
+		this->connectionIds->remove(connectionId);
 	}
 	$init($JMXConnectionNotification);
 	sendNotification($JMXConnectionNotification::FAILED, connectionId, message, userData);
 }
 
 void JMXConnectorServer::sendNotification($String* type, $String* connectionId, $String* message, Object$* userData) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, type);
-	$var($Object, var$1, getNotificationSource());
-	$var($String, var$2, connectionId);
-	$var($Notification, notif, $new($JMXConnectionNotification, var$0, var$1, var$2, nextSequenceNumber(), message, userData));
+	$useLocalObjectStack();
+	$var($Object, var$0, getNotificationSource());
+	$var($Notification, notif, $new($JMXConnectionNotification, type, var$0, connectionId, nextSequenceNumber(), message, userData));
 	sendNotification(notif);
 }
 
@@ -265,7 +211,7 @@ void JMXConnectorServer::postDeregister() {
 	$set(this, myName, nullptr);
 }
 
-void clinit$JMXConnectorServer($Class* class$) {
+void JMXConnectorServer::clinit$($Class* clazz) {
 	$assignStatic(JMXConnectorServer::AUTHENTICATOR, "jmx.remote.authenticator"_s);
 	$assignStatic(JMXConnectorServer::sequenceNumberLock, $new($ints, 0));
 }
@@ -274,7 +220,52 @@ JMXConnectorServer::JMXConnectorServer() {
 }
 
 $Class* JMXConnectorServer::load$($String* name, bool initialize) {
-	$loadClass(JMXConnectorServer, name, initialize, &_JMXConnectorServer_ClassInfo_, clinit$JMXConnectorServer, allocate$JMXConnectorServer);
+	$FieldInfo fieldInfos$$[] = {
+		{"AUTHENTICATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JMXConnectorServer, AUTHENTICATOR)},
+		{"mbeanServer", "Ljavax/management/MBeanServer;", nullptr, $PRIVATE, $field(JMXConnectorServer, mbeanServer)},
+		{"myName", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(JMXConnectorServer, myName)},
+		{"connectionIds", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JMXConnectorServer, connectionIds)},
+		{"sequenceNumberLock", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMXConnectorServer, sequenceNumberLock)},
+		{"sequenceNumber", "J", nullptr, $PRIVATE | $STATIC, $staticField(JMXConnectorServer, sequenceNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAddress", "()Ljavax/management/remote/JMXServiceURL;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JMXConnectorServer, init$, void)},
+		{"<init>", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $method(JMXConnectorServer, init$, void, $MBeanServer*)},
+		{"connectionClosed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(JMXConnectorServer, connectionClosed, void, $String*, $String*, Object$*)},
+		{"connectionFailed", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(JMXConnectorServer, connectionFailed, void, $String*, $String*, Object$*)},
+		{"connectionOpened", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(JMXConnectorServer, connectionOpened, void, $String*, $String*, Object$*)},
+		{"getConnectionIds", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServer, getConnectionIds, $StringArray*)},
+		{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JMXConnectorServer, getMBeanServer, $MBeanServer*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServer, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getNotificationSource", "()Ljava/lang/Object;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(JMXConnectorServer, getNotificationSource, $Object*)},
+		{"nextSequenceNumber", "()J", nullptr, $PRIVATE | $STATIC, $staticMethod(JMXConnectorServer, nextSequenceNumber, int64_t)},
+		{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServer, postDeregister, void)},
+		{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(JMXConnectorServer, postRegister, void, $Boolean*)},
+		{"preDeregister", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JMXConnectorServer, preDeregister, void), "java.lang.Exception"},
+		{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JMXConnectorServer, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*)},
+		{"sendNotification", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(JMXConnectorServer, sendNotification, void, $String*, $String*, $String*, Object$*)},
+		{"setMBeanServerForwarder", "(Ljavax/management/remote/MBeanServerForwarder;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JMXConnectorServer, setMBeanServerForwarder, void, $MBeanServerForwarder*)},
+		{"toJMXConnector", "(Ljava/util/Map;)Ljavax/management/remote/JMXConnector;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljavax/management/remote/JMXConnector;", $PUBLIC, $virtualMethod(JMXConnectorServer, toJMXConnector, $JMXConnector*, $Map*), "java.io.IOException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.management.remote.JMXConnectorServer",
+		"javax.management.NotificationBroadcasterSupport",
+		"javax.management.remote.JMXConnectorServerMBean,javax.management.MBeanRegistration,javax.management.remote.JMXAddressable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMXConnectorServer, name, initialize, &classInfo$$, JMXConnectorServer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JMXConnectorServer));
+	});
 	return class$;
 }
 

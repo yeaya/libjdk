@@ -98,7 +98,7 @@ public:
 	int32_t selectionEnd = 0;
 	bool backgroundSetByClientCode = false;
 	::java::awt::event::TextListener* textListener = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xE1438AE5BD01EFE5;
+	static const int64_t serialVersionUID = (int64_t)0xe1438ae5bd01efe5;
 	int32_t textComponentSerializedDataVersion = 0;
 	bool checkForEnableIM = false;
 };

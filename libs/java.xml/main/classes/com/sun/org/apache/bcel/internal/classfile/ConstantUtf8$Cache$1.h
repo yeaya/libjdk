@@ -25,7 +25,7 @@ public:
 	ConstantUtf8$Cache$1();
 	void init$(int32_t arg0, float arg1, bool arg2);
 	virtual bool removeEldestEntry(::java::util::Map$Entry* eldest) override;
-	static const int64_t serialVersionUID = (int64_t)0x89F126FC4724708A;
+	static const int64_t serialVersionUID = (int64_t)0x89f126fc4724708a;
 };
 
 						} // classfile

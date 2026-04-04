@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/JavacTaskPool$ReusableContext$1.h>
-
 #include <com/sun/source/tree/ClassTree.h>
 #include <com/sun/source/tree/Tree.h>
 #include <com/sun/source/util/TreeScanner.h>
@@ -14,7 +13,6 @@
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$LetExpr.h>
@@ -23,7 +21,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <java/lang/Iterable.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/Collection.h>
 #include <jcpp.h>
 
 #undef CLASS
@@ -41,73 +38,21 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$LetExpr = ::com::sun::tools::javac::tree::JCTree$LetExpr;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _JavacTaskPool$ReusableContext$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;", nullptr, $FINAL | $SYNTHETIC, $field(JavacTaskPool$ReusableContext$1, this$0)},
-	{}
-};
-
-$MethodInfo _JavacTaskPool$ReusableContext$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;)V", nullptr, 0, $method(JavacTaskPool$ReusableContext$1, init$, void, $JavacTaskPool$ReusableContext*)},
-	{"isCoreClass", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(JavacTaskPool$ReusableContext$1, isCoreClass, bool, $Symbol*)},
-	{"scan", "(Lcom/sun/source/tree/Tree;Lcom/sun/tools/javac/code/Symtab;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$1, scan, $Void*, $Tree*, $Symtab*)},
-	{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTaskPool$ReusableContext$1, scan, $Object*, $Tree*, Object$*)},
-	{"supertype", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(JavacTaskPool$ReusableContext$1, supertype, $Type*, $Symbol*)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Lcom/sun/tools/javac/code/Symtab;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$1, visitClass, $Void*, $ClassTree*, $Symtab*)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTaskPool$ReusableContext$1, visitClass, $Object*, $ClassTree*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacTaskPool$ReusableContext$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.api.JavacTaskPool$ReusableContext",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JavacTaskPool$ReusableContext$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "com.sun.tools.javac.api.JavacTaskPool", "ReusableContext", $STATIC},
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavacTaskPool$ReusableContext$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$1",
-	"com.sun.source.util.TreeScanner",
-	nullptr,
-	_JavacTaskPool$ReusableContext$1_FieldInfo_,
-	_JavacTaskPool$ReusableContext$1_MethodInfo_,
-	"Lcom/sun/source/util/TreeScanner<Ljava/lang/Void;Lcom/sun/tools/javac/code/Symtab;>;",
-	&_JavacTaskPool$ReusableContext$1_EnclosingMethodInfo_,
-	_JavacTaskPool$ReusableContext$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.JavacTaskPool"
-};
-
-$Object* allocate$JavacTaskPool$ReusableContext$1($Class* clazz) {
-	return $of($alloc(JavacTaskPool$ReusableContext$1));
-}
 
 void JavacTaskPool$ReusableContext$1::init$($JavacTaskPool$ReusableContext* this$0) {
 	$set(this, this$0, this$0);
@@ -123,18 +68,18 @@ $Void* JavacTaskPool$ReusableContext$1::scan($Tree* tree, $Symtab* syms) {
 			var$0 = true;
 		}
 		if (var$0) {
-			scan(static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>($nc(letExpr)->defs))), $of(syms));
-			scan(static_cast<$Tree*>(static_cast<$JCTree*>(static_cast<$JCTree$JCCaseLabel*>($nc(letExpr)->expr))), syms);
+			scan($cast($AbstractCollection, $nc(letExpr)->defs), syms);
+			scan($cast($JCTree, letExpr->expr), syms);
 			return nullptr;
 		} else {
-			return $cast($Void, $TreeScanner::scan(tree, $of(syms)));
+			return $cast($Void, $TreeScanner::scan(tree, syms));
 		}
 	}
 }
 
 $Void* JavacTaskPool$ReusableContext$1::visitClass($ClassTree* node, $Symtab* syms) {
-	$useLocalCurrentObjectStackCache();
-	$var($Symbol, sym, $nc(($cast($JCTree$JCClassDecl, node)))->sym);
+	$useLocalObjectStack();
+	$var($Symbol, sym, $nc($cast($JCTree$JCClassDecl, node))->sym);
 	if (sym != nullptr) {
 		$var($Symbol$ModuleSymbol, var$0, $nc($(sym->packge()))->modle);
 		$nc(syms)->removeClass(var$0, $(sym->flatName()));
@@ -149,13 +94,13 @@ $Void* JavacTaskPool$ReusableContext$1::visitClass($ClassTree* node, $Symtab* sy
 }
 
 bool JavacTaskPool$ReusableContext$1::isCoreClass($Symbol* s) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($nc(s)->flatName()))->toString()))->startsWith("java."_s);
+	$useLocalObjectStack();
+	return $$nc($$nc($nc(s)->flatName())->toString())->startsWith("java."_s);
 }
 
 $Type* JavacTaskPool$ReusableContext$1::supertype($Symbol* s) {
 	$init($TypeTag);
-	if ($nc(s)->type == nullptr || !$nc($nc(s)->type)->hasTag($TypeTag::CLASS)) {
+	if ($nc(s)->type == nullptr || !s->type->hasTag($TypeTag::CLASS)) {
 		return nullptr;
 	} else {
 		$var($Type$ClassType, ct, $cast($Type$ClassType, s->type));
@@ -164,18 +109,59 @@ $Type* JavacTaskPool$ReusableContext$1::supertype($Symbol* s) {
 }
 
 $Object* JavacTaskPool$ReusableContext$1::visitClass($ClassTree* node, Object$* syms) {
-	return $of(this->visitClass(node, $cast($Symtab, syms)));
+	return this->visitClass(node, $cast($Symtab, syms));
 }
 
 $Object* JavacTaskPool$ReusableContext$1::scan($Tree* tree, Object$* syms) {
-	return $of(this->scan(tree, $cast($Symtab, syms)));
+	return this->scan(tree, $cast($Symtab, syms));
 }
 
 JavacTaskPool$ReusableContext$1::JavacTaskPool$ReusableContext$1() {
 }
 
 $Class* JavacTaskPool$ReusableContext$1::load$($String* name, bool initialize) {
-	$loadClass(JavacTaskPool$ReusableContext$1, name, initialize, &_JavacTaskPool$ReusableContext$1_ClassInfo_, allocate$JavacTaskPool$ReusableContext$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;", nullptr, $FINAL | $SYNTHETIC, $field(JavacTaskPool$ReusableContext$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/JavacTaskPool$ReusableContext;)V", nullptr, 0, $method(JavacTaskPool$ReusableContext$1, init$, void, $JavacTaskPool$ReusableContext*)},
+		{"isCoreClass", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(JavacTaskPool$ReusableContext$1, isCoreClass, bool, $Symbol*)},
+		{"scan", "(Lcom/sun/source/tree/Tree;Lcom/sun/tools/javac/code/Symtab;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$1, scan, $Void*, $Tree*, $Symtab*)},
+		{"scan", "(Lcom/sun/source/tree/Tree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTaskPool$ReusableContext$1, scan, $Object*, $Tree*, Object$*)},
+		{"supertype", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(JavacTaskPool$ReusableContext$1, supertype, $Type*, $Symbol*)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Lcom/sun/tools/javac/code/Symtab;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$1, visitClass, $Void*, $ClassTree*, $Symtab*)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTaskPool$ReusableContext$1, visitClass, $Object*, $ClassTree*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.api.JavacTaskPool$ReusableContext",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "com.sun.tools.javac.api.JavacTaskPool", "ReusableContext", $STATIC},
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$1",
+		"com.sun.source.util.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/source/util/TreeScanner<Ljava/lang/Void;Lcom/sun/tools/javac/code/Symtab;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.JavacTaskPool"
+	};
+	$loadClass(JavacTaskPool$ReusableContext$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacTaskPool$ReusableContext$1);
+	});
 	return class$;
 }
 

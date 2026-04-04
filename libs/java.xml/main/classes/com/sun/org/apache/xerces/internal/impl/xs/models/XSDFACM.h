@@ -105,6 +105,7 @@ class XSDFACM : public ::com::sun::org::apache::xerces::internal::impl::xs::mode
 	$class(XSDFACM, 0, ::com::sun::org::apache::xerces::internal::impl::xs::models::XSCMValidator)
 public:
 	XSDFACM();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* syntaxTree, int32_t leafCount);
 	void buildDFA(::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* syntaxTree);
 	void calcFollowList(::com::sun::org::apache::xerces::internal::impl::dtd::models::CMNode* nodeCur);

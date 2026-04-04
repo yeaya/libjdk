@@ -1,5 +1,4 @@
 #include <javax/management/monitor/MonitorSettingException.h>
-
 #include <javax/management/JMRuntimeException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $JMRuntimeException = ::javax::management::JMRuntimeException;
 namespace javax {
 	namespace management {
 		namespace monitor {
-
-$FieldInfo _MonitorSettingException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MonitorSettingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MonitorSettingException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MonitorSettingException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MonitorSettingException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _MonitorSettingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.monitor.MonitorSettingException",
-	"javax.management.JMRuntimeException",
-	nullptr,
-	_MonitorSettingException_FieldInfo_,
-	_MonitorSettingException_MethodInfo_
-};
-
-$Object* allocate$MonitorSettingException($Class* clazz) {
-	return $of($alloc(MonitorSettingException));
-}
 
 void MonitorSettingException::init$() {
 	$JMRuntimeException::init$();
@@ -55,7 +30,26 @@ void MonitorSettingException::throw$() {
 }
 
 $Class* MonitorSettingException::load$($String* name, bool initialize) {
-	$loadClass(MonitorSettingException, name, initialize, &_MonitorSettingException_ClassInfo_, allocate$MonitorSettingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MonitorSettingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MonitorSettingException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MonitorSettingException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.monitor.MonitorSettingException",
+		"javax.management.JMRuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MonitorSettingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MonitorSettingException);
+	});
 	return class$;
 }
 

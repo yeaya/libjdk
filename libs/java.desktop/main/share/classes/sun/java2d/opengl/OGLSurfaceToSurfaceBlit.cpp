@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLSurfaceToSurfaceBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLSurfaceToSurfaceBlit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(OGLSurfaceToSurfaceBlit, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLSurfaceToSurfaceBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLSurfaceToSurfaceBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	nullptr,
-	_OGLSurfaceToSurfaceBlit_MethodInfo_
-};
-
-$Object* allocate$OGLSurfaceToSurfaceBlit($Class* clazz) {
-	return $of($alloc(OGLSurfaceToSurfaceBlit));
-}
-
 void OGLSurfaceToSurfaceBlit::init$() {
 	$init($OGLSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ OGLSurfaceToSurfaceBlit::OGLSurfaceToSurfaceBlit() {
 }
 
 $Class* OGLSurfaceToSurfaceBlit::load$($String* name, bool initialize) {
-	$loadClass(OGLSurfaceToSurfaceBlit, name, initialize, &_OGLSurfaceToSurfaceBlit_ClassInfo_, allocate$OGLSurfaceToSurfaceBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(OGLSurfaceToSurfaceBlit, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceToSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLSurfaceToSurfaceBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OGLSurfaceToSurfaceBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLSurfaceToSurfaceBlit);
+	});
 	return class$;
 }
 

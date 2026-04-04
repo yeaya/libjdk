@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/OpenDataException.h>
-
 #include <javax/management/JMException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $JMException = ::javax::management::JMException;
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$FieldInfo _OpenDataException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OpenDataException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _OpenDataException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OpenDataException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OpenDataException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _OpenDataException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.OpenDataException",
-	"javax.management.JMException",
-	nullptr,
-	_OpenDataException_FieldInfo_,
-	_OpenDataException_MethodInfo_
-};
-
-$Object* allocate$OpenDataException($Class* clazz) {
-	return $of($alloc(OpenDataException));
-}
 
 void OpenDataException::init$() {
 	$JMException::init$();
@@ -55,7 +30,26 @@ void OpenDataException::throw$() {
 }
 
 $Class* OpenDataException::load$($String* name, bool initialize) {
-	$loadClass(OpenDataException, name, initialize, &_OpenDataException_ClassInfo_, allocate$OpenDataException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OpenDataException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OpenDataException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OpenDataException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.OpenDataException",
+		"javax.management.JMException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpenDataException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenDataException);
+	});
 	return class$;
 }
 

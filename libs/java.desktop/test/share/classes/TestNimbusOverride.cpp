@@ -1,8 +1,6 @@
 #include <TestNimbusOverride.h>
-
 #include <TestNimbusOverride$1.h>
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/LayoutManager.h>
@@ -34,10 +32,7 @@
 
 using $TestNimbusOverride$1 = ::TestNimbusOverride$1;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Serializable = ::java::io::Serializable;
@@ -49,7 +44,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Action = ::javax::swing::Action;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
@@ -68,27 +62,24 @@ public:
 	virtual void run() override {
 		TestNimbusOverride::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestNimbusOverride$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestNimbusOverride$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestNimbusOverride$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestNimbusOverride$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestNimbusOverride$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestNimbusOverride$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestNimbusOverride$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestNimbusOverride$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestNimbusOverride$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestNimbusOverride$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestNimbusOverride$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestNimbusOverride$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestNimbusOverride$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestNimbusOverride$$Lambda$lambda$main$0::class$ = nullptr;
@@ -101,101 +92,58 @@ public:
 	virtual void run() override {
 		TestNimbusOverride::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestNimbusOverride$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestNimbusOverride$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestNimbusOverride$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestNimbusOverride$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo TestNimbusOverride$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestNimbusOverride$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestNimbusOverride$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestNimbusOverride$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestNimbusOverride$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestNimbusOverride$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestNimbusOverride$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestNimbusOverride$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestNimbusOverride$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* TestNimbusOverride$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _TestNimbusOverride_FieldInfo_[] = {
-	{"tf", "LTestNimbusOverride;", nullptr, $PRIVATE | $STATIC, $staticField(TestNimbusOverride, tf)},
-	{"passed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestNimbusOverride, passed)},
-	{}
-};
-
-$MethodInfo _TestNimbusOverride_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestNimbusOverride, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestNimbusOverride, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestNimbusOverride, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestNimbusOverride, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TestNimbusOverride_InnerClassesInfo_[] = {
-	{"TestNimbusOverride$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestNimbusOverride_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestNimbusOverride",
-	"javax.swing.JFrame",
-	nullptr,
-	_TestNimbusOverride_FieldInfo_,
-	_TestNimbusOverride_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestNimbusOverride_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestNimbusOverride$1"
-};
-
-$Object* allocate$TestNimbusOverride($Class* clazz) {
-	return $of($alloc(TestNimbusOverride));
-}
 
 TestNimbusOverride* TestNimbusOverride::tf = nullptr;
 bool TestNimbusOverride::passed = false;
 
 void TestNimbusOverride::main($StringArray* args) {
 	$init(TestNimbusOverride);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestNimbusOverride$$Lambda$lambda$main$0)));
-			robot->setAutoDelay(100);
-			robot->waitForIdle();
-			robot->keyPress($KeyEvent::VK_SPACE);
-			robot->keyRelease($KeyEvent::VK_SPACE);
-			robot->waitForIdle();
-			if (!TestNimbusOverride::passed) {
-				$throwNew($RuntimeException, "Setting Nimbus.Overrides property affects custom keymap installation"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestNimbusOverride$$Lambda$lambda$main$1$1)));
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		$SwingUtilities::invokeAndWait($$new(TestNimbusOverride$$Lambda$lambda$main$0));
+		robot->setAutoDelay(100);
+		robot->waitForIdle();
+		robot->keyPress($KeyEvent::VK_SPACE);
+		robot->keyRelease($KeyEvent::VK_SPACE);
+		robot->waitForIdle();
+		if (!TestNimbusOverride::passed) {
+			$throwNew($RuntimeException, "Setting Nimbus.Overrides property affects custom keymap installation"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SwingUtilities::invokeAndWait($$new(TestNimbusOverride$$Lambda$lambda$main$1$1));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void TestNimbusOverride::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JFrame::init$();
 	setDefaultCloseOperation($WindowConstants::DISPOSE_ON_CLOSE);
 	$var($JEditorPane, pp, $new($JEditorPane));
@@ -205,8 +153,7 @@ void TestNimbusOverride::init$() {
 	contentPanel->setLayout($$new($BorderLayout));
 	setContentPane(contentPanel);
 	contentPanel->setPreferredSize($$new($Dimension, 400, 300));
-	$init($BorderLayout);
-	contentPanel->add(static_cast<$Component*>(pp), $of($BorderLayout::CENTER));
+	contentPanel->add(pp, $BorderLayout::CENTER);
 	$var($Keymap, origKeymap, pp->getKeymap());
 	$var($Keymap, km, $JEditorPane::addKeymap("Test keymap"_s, origKeymap));
 	$var($KeyStroke, var$0, $KeyStroke::getKeyStroke(u' '));
@@ -224,14 +171,14 @@ void TestNimbusOverride::lambda$main$0() {
 	try {
 		$UIManager::setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel"_s);
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$assignStatic(TestNimbusOverride::tf, $new(TestNimbusOverride));
-	$nc(TestNimbusOverride::tf)->pack();
+	TestNimbusOverride::tf->pack();
 	$nc(TestNimbusOverride::tf)->setVisible(true);
 }
 
-void clinit$TestNimbusOverride($Class* class$) {
+void TestNimbusOverride::clinit$($Class* clazz) {
 	TestNimbusOverride::passed = false;
 }
 
@@ -240,14 +187,46 @@ TestNimbusOverride::TestNimbusOverride() {
 
 $Class* TestNimbusOverride::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestNimbusOverride$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestNimbusOverride$$Lambda$lambda$main$0")) {
 			return TestNimbusOverride$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestNimbusOverride$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("TestNimbusOverride$$Lambda$lambda$main$1$1")) {
 			return TestNimbusOverride$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestNimbusOverride, name, initialize, &_TestNimbusOverride_ClassInfo_, clinit$TestNimbusOverride, allocate$TestNimbusOverride);
+	$FieldInfo fieldInfos$$[] = {
+		{"tf", "LTestNimbusOverride;", nullptr, $PRIVATE | $STATIC, $staticField(TestNimbusOverride, tf)},
+		{"passed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestNimbusOverride, passed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestNimbusOverride, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestNimbusOverride, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestNimbusOverride, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestNimbusOverride, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestNimbusOverride$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestNimbusOverride",
+		"javax.swing.JFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestNimbusOverride$1"
+	};
+	$loadClass(TestNimbusOverride, name, initialize, &classInfo$$, TestNimbusOverride::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestNimbusOverride));
+	});
 	return class$;
 }
 

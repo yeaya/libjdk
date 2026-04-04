@@ -20,7 +20,7 @@ class $export PrintFilesEvent : public ::java::awt::desktop::FilesEvent {
 public:
 	PrintFilesEvent();
 	void init$(::java::util::List* files);
-	static const int64_t serialVersionUID = (int64_t)0xB02ACC5C8C0DBF46;
+	static const int64_t serialVersionUID = (int64_t)0xb02acc5c8c0dbf46;
 };
 
 		} // desktop

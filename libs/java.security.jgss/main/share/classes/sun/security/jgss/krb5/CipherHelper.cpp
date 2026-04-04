@@ -1,14 +1,11 @@
 #include <sun/security/jgss/krb5/CipherHelper.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/Math.h>
 #include <java/security/GeneralSecurityException.h>
-#include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
-#include <java/security/spec/AlgorithmParameterSpec.h>
 #include <javax/crypto/Cipher.h>
 #include <javax/crypto/CipherInputStream.h>
 #include <javax/crypto/CipherOutputStream.h>
@@ -73,10 +70,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Cipher = ::javax::crypto::Cipher;
 using $CipherInputStream = ::javax::crypto::CipherInputStream;
 using $CipherOutputStream = ::javax::crypto::CipherOutputStream;
@@ -105,134 +100,37 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _CipherHelper_FieldInfo_[] = {
-	{"KG_USAGE_SEAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, KG_USAGE_SEAL)},
-	{"KG_USAGE_SIGN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, KG_USAGE_SIGN)},
-	{"KG_USAGE_SEQ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, KG_USAGE_SEQ)},
-	{"DES_CHECKSUM_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, DES_CHECKSUM_SIZE)},
-	{"DES_IV_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, DES_IV_SIZE)},
-	{"AES_IV_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, AES_IV_SIZE)},
-	{"HMAC_CHECKSUM_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, HMAC_CHECKSUM_SIZE)},
-	{"KG_USAGE_SIGN_MS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, KG_USAGE_SIGN_MS)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CipherHelper, DEBUG)},
-	{"ZERO_IV", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CipherHelper, ZERO_IV)},
-	{"ZERO_IV_AES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CipherHelper, ZERO_IV_AES)},
-	{"etype", "I", nullptr, $PRIVATE, $field(CipherHelper, etype)},
-	{"sgnAlg", "I", nullptr, $PRIVATE, $field(CipherHelper, sgnAlg)},
-	{"sealAlg", "I", nullptr, $PRIVATE, $field(CipherHelper, sealAlg)},
-	{"keybytes", "[B", nullptr, $PRIVATE, $field(CipherHelper, keybytes)},
-	{}
-};
-
-$MethodInfo _CipherHelper_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/krb5/EncryptionKey;)V", nullptr, 0, $method(CipherHelper, init$, void, $EncryptionKey*), "org.ietf.jgss.GSSException"},
-	{"aes128Decrypt", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, $PRIVATE, $method(CipherHelper, aes128Decrypt, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"aes128Encrypt", "([B[B[BIII)[B", nullptr, $PRIVATE, $method(CipherHelper, aes128Encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"aes128Sha2Decrypt", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, $PRIVATE, $method(CipherHelper, aes128Sha2Decrypt, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"aes128Sha2Encrypt", "([B[B[BIII)[B", nullptr, $PRIVATE, $method(CipherHelper, aes128Sha2Encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"aes256Decrypt", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, $PRIVATE, $method(CipherHelper, aes256Decrypt, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"aes256Encrypt", "([B[B[BIII)[B", nullptr, $PRIVATE, $method(CipherHelper, aes256Encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"aes256Sha2Decrypt", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, $PRIVATE, $method(CipherHelper, aes256Sha2Decrypt, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"aes256Sha2Encrypt", "([B[B[BIII)[B", nullptr, $PRIVATE, $method(CipherHelper, aes256Sha2Encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"arcFourDecrypt", "(Lsun/security/jgss/krb5/WrapToken;[BII[BI)V", nullptr, $PRIVATE, $method(CipherHelper, arcFourDecrypt, void, $WrapToken*, $bytes*, int32_t, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
-	{"arcFourEncrypt", "(Lsun/security/jgss/krb5/WrapToken;[B[BII[B)[B", nullptr, $PRIVATE, $method(CipherHelper, arcFourEncrypt, $bytes*, $WrapToken*, $bytes*, $bytes*, int32_t, int32_t, $bytes*), "org.ietf.jgss.GSSException"},
-	{"calculateChecksum", "(I[B[B[BIII)[B", nullptr, 0, $virtualMethod(CipherHelper, calculateChecksum, $bytes*, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"calculateChecksum", "([B[BIII)[B", nullptr, 0, $virtualMethod(CipherHelper, calculateChecksum, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"decryptData", "(Lsun/security/jgss/krb5/WrapToken;[BII[BI)V", nullptr, 0, $virtualMethod(CipherHelper, decryptData, void, $WrapToken*, $bytes*, int32_t, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
-	{"decryptData", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, 0, $virtualMethod(CipherHelper, decryptData, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"decryptData", "(Lsun/security/jgss/krb5/WrapToken;Ljava/io/InputStream;I[BI)V", nullptr, 0, $virtualMethod(CipherHelper, decryptData, void, $WrapToken*, $InputStream*, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException,java.io.IOException"},
-	{"decryptData", "(Lsun/security/jgss/krb5/WrapToken_v2;Ljava/io/InputStream;I[BII)V", nullptr, 0, $virtualMethod(CipherHelper, decryptData, void, $WrapToken_v2*, $InputStream*, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException,java.io.IOException"},
-	{"decryptSeq", "([B[BII)[B", nullptr, 0, $virtualMethod(CipherHelper, decryptSeq, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"des3KdDecrypt", "(Lsun/security/jgss/krb5/WrapToken;[BII[BI)V", nullptr, $PRIVATE, $method(CipherHelper, des3KdDecrypt, void, $WrapToken*, $bytes*, int32_t, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
-	{"des3KdEncrypt", "([B[BII[B)[B", nullptr, $PRIVATE, $method(CipherHelper, des3KdEncrypt, $bytes*, $bytes*, $bytes*, int32_t, int32_t, $bytes*), "org.ietf.jgss.GSSException"},
-	{"desCbcDecrypt", "(Lsun/security/jgss/krb5/WrapToken;[B[BII[BI)V", nullptr, $PRIVATE, $method(CipherHelper, desCbcDecrypt, void, $WrapToken*, $bytes*, $bytes*, int32_t, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
-	{"desCbcDecrypt", "(Lsun/security/jgss/krb5/WrapToken;[BLjava/io/InputStream;I[BI)V", nullptr, $PRIVATE, $method(CipherHelper, desCbcDecrypt, void, $WrapToken*, $bytes*, $InputStream*, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException,java.io.IOException"},
-	{"encryptData", "(Lsun/security/jgss/krb5/WrapToken;[B[BII[BLjava/io/OutputStream;)V", nullptr, 0, $virtualMethod(CipherHelper, encryptData, void, $WrapToken*, $bytes*, $bytes*, int32_t, int32_t, $bytes*, $OutputStream*), "org.ietf.jgss.GSSException,java.io.IOException"},
-	{"encryptData", "(Lsun/security/jgss/krb5/WrapToken_v2;[B[B[BIII)[B", nullptr, 0, $virtualMethod(CipherHelper, encryptData, $bytes*, $WrapToken_v2*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"encryptData", "(Lsun/security/jgss/krb5/WrapToken;[B[BII[B[BI)V", nullptr, 0, $virtualMethod(CipherHelper, encryptData, void, $WrapToken*, $bytes*, $bytes*, int32_t, int32_t, $bytes*, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
-	{"encryptData", "(Lsun/security/jgss/krb5/WrapToken_v2;[B[B[BII[BII)I", nullptr, 0, $virtualMethod(CipherHelper, encryptData, int32_t, $WrapToken_v2*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"encryptSeq", "([B[BII)[B", nullptr, 0, $virtualMethod(CipherHelper, encryptSeq, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"getChecksumLength", "()I", nullptr, 0, $virtualMethod(CipherHelper, getChecksumLength, int32_t), "org.ietf.jgss.GSSException"},
-	{"getDesCbcChecksum", "([B[B[BII)[B", nullptr, $PRIVATE, $method(CipherHelper, getDesCbcChecksum, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"getDesEncryptionKey", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(CipherHelper, getDesEncryptionKey, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getEType", "()I", nullptr, 0, $virtualMethod(CipherHelper, getEType, int32_t)},
-	{"getInitializedDes", "(Z[B[B)Ljavax/crypto/Cipher;", nullptr, $PRIVATE | $FINAL, $method(CipherHelper, getInitializedDes, $Cipher*, bool, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getProto", "()I", nullptr, 0, $virtualMethod(CipherHelper, getProto, int32_t)},
-	{"getSealAlg", "()I", nullptr, 0, $virtualMethod(CipherHelper, getSealAlg, int32_t)},
-	{"getSgnAlg", "()I", nullptr, 0, $virtualMethod(CipherHelper, getSgnAlg, int32_t)},
-	{"isArcFour", "()Z", nullptr, 0, $virtualMethod(CipherHelper, isArcFour, bool)},
-	{}
-};
-
-$InnerClassInfo _CipherHelper_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.CipherHelper$WrapTokenInputStream", "sun.security.jgss.krb5.CipherHelper", "WrapTokenInputStream", 0},
-	{}
-};
-
-$ClassInfo _CipherHelper_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.CipherHelper",
-	"java.lang.Object",
-	nullptr,
-	_CipherHelper_FieldInfo_,
-	_CipherHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CipherHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.CipherHelper$WrapTokenInputStream"
-};
-
-$Object* allocate$CipherHelper($Class* clazz) {
-	return $of($alloc(CipherHelper));
-}
-
 bool CipherHelper::DEBUG = false;
 $bytes* CipherHelper::ZERO_IV = nullptr;
 $bytes* CipherHelper::ZERO_IV_AES = nullptr;
 
 void CipherHelper::init$($EncryptionKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->etype = $nc(key)->getEType();
 	$set(this, keybytes, key->getBytes());
 	switch (this->etype) {
 	case $EncryptedData::ETYPE_DES_CBC_CRC:
-		{}
 	case $EncryptedData::ETYPE_DES_CBC_MD5:
-		{
-			this->sgnAlg = $MessageToken::SGN_ALG_DES_MAC_MD5;
-			this->sealAlg = $MessageToken::SEAL_ALG_DES;
-			break;
-		}
+		this->sgnAlg = $MessageToken::SGN_ALG_DES_MAC_MD5;
+		this->sealAlg = $MessageToken::SEAL_ALG_DES;
+		break;
 	case $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD:
-		{
-			this->sgnAlg = $MessageToken::SGN_ALG_HMAC_SHA1_DES3_KD;
-			this->sealAlg = $MessageToken::SEAL_ALG_DES3_KD;
-			break;
-		}
+		this->sgnAlg = $MessageToken::SGN_ALG_HMAC_SHA1_DES3_KD;
+		this->sealAlg = $MessageToken::SEAL_ALG_DES3_KD;
+		break;
 	case $EncryptedData::ETYPE_ARCFOUR_HMAC:
-		{
-			this->sgnAlg = $MessageToken::SGN_ALG_HMAC_MD5_ARCFOUR;
-			this->sealAlg = $MessageToken::SEAL_ALG_ARCFOUR_HMAC;
-			break;
-		}
+		this->sgnAlg = $MessageToken::SGN_ALG_HMAC_MD5_ARCFOUR;
+		this->sealAlg = $MessageToken::SEAL_ALG_ARCFOUR_HMAC;
+		break;
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-		{}
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-		{}
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{}
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			this->sgnAlg = -1;
-			this->sealAlg = -1;
-			break;
-		}
+		this->sgnAlg = -1;
+		this->sealAlg = -1;
+		break;
 	default:
-		{
-			$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported encryption type: "_s, $$str(this->etype)}));
-		}
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported encryption type: "_s, $$str(this->etype)}));
 	}
 }
 
@@ -261,120 +159,108 @@ bool CipherHelper::isArcFour() {
 }
 
 $bytes* CipherHelper::calculateChecksum(int32_t alg, $bytes* header$renamed, $bytes* trailer$renamed, $bytes* data$renamed, int32_t start, int32_t len, int32_t tokenId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, trailer, trailer$renamed);
 	$var($bytes, data, data$renamed);
 	$var($bytes, header, header$renamed);
-	{
-		$var($bytes, buf, nullptr)
-		int32_t offset = 0;
-		int32_t total = 0;
-		$var($bytes, buffer, nullptr)
-		int32_t off = 0;
-		int32_t tot = 0;
-		switch (alg) {
-		case $MessageToken::SGN_ALG_DES_MAC_MD5:
-			{
-				try {
-					$var($MessageDigest, md5, $MessageDigest::getInstance("MD5"_s));
-					$nc(md5)->update(header);
-					md5->update(data, start, len);
-					if (trailer != nullptr) {
-						md5->update(trailer);
-					}
-					$assign(data, md5->digest());
-					start = 0;
-					len = $nc(data)->length;
-					$assign(header, nullptr);
-					$assign(trailer, nullptr);
-				} catch ($NoSuchAlgorithmException& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not get MD5 Message Digest - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
+	$var($bytes, buf, nullptr);
+	int32_t offset = 0;
+	int32_t total = 0;
+	$var($bytes, buffer, nullptr);
+	int32_t off = 0;
+	int32_t tot = 0;
+	switch (alg) {
+	case $MessageToken::SGN_ALG_DES_MAC_MD5:
+		try {
+			$var($MessageDigest, md5, $MessageDigest::getInstance("MD5"_s));
+			$nc(md5)->update(header);
+			md5->update(data, start, len);
+			if (trailer != nullptr) {
+				md5->update(trailer);
 			}
-		case $MessageToken::SGN_ALG_DES_MAC:
-			{
-				return getDesCbcChecksum(this->keybytes, header, data, start, len);
-			}
-		case $MessageToken::SGN_ALG_HMAC_SHA1_DES3_KD:
-			{
-				if (header == nullptr && trailer == nullptr) {
-					$assign(buf, data);
-					total = len;
-					offset = start;
-				} else {
-					total = ((header != nullptr ? $nc(header)->length : 0) + len + (trailer != nullptr ? $nc(trailer)->length : 0));
-					$assign(buf, $new($bytes, total));
-					int32_t pos = 0;
-					if (header != nullptr) {
-						$System::arraycopy(header, 0, buf, 0, header->length);
-						pos = header->length;
-					}
-					$System::arraycopy(data, start, buf, pos, len);
-					pos += len;
-					if (trailer != nullptr) {
-						$System::arraycopy(trailer, 0, buf, pos, trailer->length);
-					}
-					offset = 0;
-				}
-				try {
-					$var($bytes, answer, $Des3::calculateChecksum(this->keybytes, CipherHelper::KG_USAGE_SIGN, buf, offset, total));
-					return answer;
-				} catch ($GeneralSecurityException& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use HMAC-SHA1-DES3-KD signing algorithm - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-			}
-		case $MessageToken::SGN_ALG_HMAC_MD5_ARCFOUR:
-			{
-				if (header == nullptr && trailer == nullptr) {
-					$assign(buffer, data);
-					tot = len;
-					off = start;
-				} else {
-					tot = ((header != nullptr ? $nc(header)->length : 0) + len + (trailer != nullptr ? $nc(trailer)->length : 0));
-					$assign(buffer, $new($bytes, tot));
-					int32_t pos = 0;
-					if (header != nullptr) {
-						$System::arraycopy(header, 0, buffer, 0, header->length);
-						pos = header->length;
-					}
-					$System::arraycopy(data, start, buffer, pos, len);
-					pos += len;
-					if (trailer != nullptr) {
-						$System::arraycopy(trailer, 0, buffer, pos, trailer->length);
-					}
-					off = 0;
-				}
-				try {
-					int32_t key_usage = CipherHelper::KG_USAGE_SIGN;
-					if (tokenId == $Krb5Token::MIC_ID) {
-						key_usage = CipherHelper::KG_USAGE_SIGN_MS;
-					}
-					$var($bytes, answer, $ArcFourHmac::calculateChecksum(this->keybytes, key_usage, buffer, off, tot));
-					$var($bytes, output, $new($bytes, getChecksumLength()));
-					$System::arraycopy(answer, 0, output, 0, output->length);
-					return output;
-				} catch ($GeneralSecurityException& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use HMAC_MD5_ARCFOUR signing algorithm - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-			}
-		default:
-			{
-				$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported signing algorithm: "_s, $$str(this->sgnAlg)}));
-			}
+			$assign(data, md5->digest());
+			start = 0;
+			len = $nc(data)->length;
+			$assign(header, nullptr);
+			$assign(trailer, nullptr);
+		} catch ($NoSuchAlgorithmException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not get MD5 Message Digest - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
 		}
+	case $MessageToken::SGN_ALG_DES_MAC:
+		return getDesCbcChecksum(this->keybytes, header, data, start, len);
+	case $MessageToken::SGN_ALG_HMAC_SHA1_DES3_KD:
+		if (header == nullptr && trailer == nullptr) {
+			$assign(buf, data);
+			total = len;
+			offset = start;
+		} else {
+			total = ((header != nullptr ? header->length : 0) + len + (trailer != nullptr ? trailer->length : 0));
+			$assign(buf, $new($bytes, total));
+			int32_t pos = 0;
+			if (header != nullptr) {
+				$System::arraycopy(header, 0, buf, 0, header->length);
+				pos = header->length;
+			}
+			$System::arraycopy(data, start, buf, pos, len);
+			pos += len;
+			if (trailer != nullptr) {
+				$System::arraycopy(trailer, 0, buf, pos, trailer->length);
+			}
+			offset = 0;
+		}
+		try {
+			$var($bytes, answer, $Des3::calculateChecksum(this->keybytes, CipherHelper::KG_USAGE_SIGN, buf, offset, total));
+			return answer;
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use HMAC-SHA1-DES3-KD signing algorithm - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
+		}
+	case $MessageToken::SGN_ALG_HMAC_MD5_ARCFOUR:
+		if (header == nullptr && trailer == nullptr) {
+			$assign(buffer, data);
+			tot = len;
+			off = start;
+		} else {
+			tot = ((header != nullptr ? header->length : 0) + len + (trailer != nullptr ? trailer->length : 0));
+			$assign(buffer, $new($bytes, tot));
+			int32_t pos = 0;
+			if (header != nullptr) {
+				$System::arraycopy(header, 0, buffer, 0, header->length);
+				pos = header->length;
+			}
+			$System::arraycopy(data, start, buffer, pos, len);
+			pos += len;
+			if (trailer != nullptr) {
+				$System::arraycopy(trailer, 0, buffer, pos, trailer->length);
+			}
+			off = 0;
+		}
+		try {
+			int32_t key_usage = CipherHelper::KG_USAGE_SIGN;
+			if (tokenId == $Krb5Token::MIC_ID) {
+				key_usage = CipherHelper::KG_USAGE_SIGN_MS;
+			}
+			$var($bytes, answer, $ArcFourHmac::calculateChecksum(this->keybytes, key_usage, buffer, off, tot));
+			$var($bytes, output, $new($bytes, getChecksumLength()));
+			$System::arraycopy(answer, 0, output, 0, output->length);
+			return output;
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use HMAC_MD5_ARCFOUR signing algorithm - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
+		}
+	default:
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported signing algorithm: "_s, $$str(this->sgnAlg)}));
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* CipherHelper::calculateChecksum($bytes* header, $bytes* data, int32_t start, int32_t len, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
-	int32_t total = ((header != nullptr ? $nc(header)->length : 0) + len);
+	$useLocalObjectStack();
+	int32_t total = ((header != nullptr ? header->length : 0) + len);
 	$var($bytes, buf, $new($bytes, total));
 	$System::arraycopy(data, start, buf, 0, len);
 	if (header != nullptr) {
@@ -382,319 +268,242 @@ $bytes* CipherHelper::calculateChecksum($bytes* header, $bytes* data, int32_t st
 	}
 	switch (this->etype) {
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-		{
-			try {
-				$var($bytes, answer, $Aes128::calculateChecksum(this->keybytes, key_usage, buf, 0, total));
-				return answer;
-			} catch ($GeneralSecurityException& e) {
-				$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use AES128 signing algorithm - "_s, $(e->getMessage())})));
-				ge->initCause(e);
-				$throw(ge);
-			}
+		try {
+			$var($bytes, answer, $Aes128::calculateChecksum(this->keybytes, key_usage, buf, 0, total));
+			return answer;
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use AES128 signing algorithm - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
 		}
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-		{
-			try {
-				$var($bytes, answer, $Aes256::calculateChecksum(this->keybytes, key_usage, buf, 0, total));
-				return answer;
-			} catch ($GeneralSecurityException& e) {
-				$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use AES256 signing algorithm - "_s, $(e->getMessage())})));
-				ge->initCause(e);
-				$throw(ge);
-			}
+		try {
+			$var($bytes, answer, $Aes256::calculateChecksum(this->keybytes, key_usage, buf, 0, total));
+			return answer;
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use AES256 signing algorithm - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
 		}
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{
-			try {
-				$var($bytes, answer, $Aes128Sha2::calculateChecksum(this->keybytes, key_usage, buf, 0, total));
-				return answer;
-			} catch ($GeneralSecurityException& e) {
-				$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use AES128 signing algorithm - "_s, $(e->getMessage())})));
-				ge->initCause(e);
-				$throw(ge);
-			}
+		try {
+			$var($bytes, answer, $Aes128Sha2::calculateChecksum(this->keybytes, key_usage, buf, 0, total));
+			return answer;
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use AES128 signing algorithm - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
 		}
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			try {
-				$var($bytes, answer, $Aes256Sha2::calculateChecksum(this->keybytes, key_usage, buf, 0, total));
-				return answer;
-			} catch ($GeneralSecurityException& e) {
-				$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use AES256 signing algorithm - "_s, $(e->getMessage())})));
-				ge->initCause(e);
-				$throw(ge);
-			}
+		try {
+			$var($bytes, answer, $Aes256Sha2::calculateChecksum(this->keybytes, key_usage, buf, 0, total));
+			return answer;
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use AES256 signing algorithm - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
 		}
 	default:
-		{
-			$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported encryption type: "_s, $$str(this->etype)}));
-		}
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported encryption type: "_s, $$str(this->etype)}));
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* CipherHelper::encryptSeq($bytes* ivec, $bytes* plaintext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($bytes, iv, nullptr)
-		$var($bytes, checksum, nullptr)
-		switch (this->sgnAlg) {
-		case $MessageToken::SGN_ALG_DES_MAC_MD5:
-			{}
-		case $MessageToken::SGN_ALG_DES_MAC:
-			{
-				try {
-					$var($Cipher, des, getInitializedDes(true, this->keybytes, ivec));
-					return $nc(des)->doFinal(plaintext, start, len);
-				} catch ($GeneralSecurityException& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not encrypt sequence number using DES - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-			}
-		case $MessageToken::SGN_ALG_HMAC_SHA1_DES3_KD:
-			{
-				if ($nc(ivec)->length == CipherHelper::DES_IV_SIZE) {
-					$assign(iv, ivec);
-				} else {
-					$assign(iv, $new($bytes, CipherHelper::DES_IV_SIZE));
-					$System::arraycopy(ivec, 0, iv, 0, CipherHelper::DES_IV_SIZE);
-				}
-				try {
-					return $Des3::encryptRaw(this->keybytes, CipherHelper::KG_USAGE_SEQ, iv, plaintext, start, len);
-				} catch ($Exception& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not encrypt sequence number using DES3-KD - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-			}
-		case $MessageToken::SGN_ALG_HMAC_MD5_ARCFOUR:
-			{
-				if ($nc(ivec)->length == CipherHelper::HMAC_CHECKSUM_SIZE) {
-					$assign(checksum, ivec);
-				} else {
-					$assign(checksum, $new($bytes, CipherHelper::HMAC_CHECKSUM_SIZE));
-					$System::arraycopy(ivec, 0, checksum, 0, CipherHelper::HMAC_CHECKSUM_SIZE);
-				}
-				try {
-					return $ArcFourHmac::encryptSeq(this->keybytes, CipherHelper::KG_USAGE_SEQ, checksum, plaintext, start, len);
-				} catch ($Exception& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not encrypt sequence number using RC4-HMAC - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-			}
-		default:
-			{
-				$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported signing algorithm: "_s, $$str(this->sgnAlg)}));
-			}
+	$useLocalObjectStack();
+	$var($bytes, iv, nullptr);
+	$var($bytes, checksum, nullptr);
+	switch (this->sgnAlg) {
+	case $MessageToken::SGN_ALG_DES_MAC_MD5:
+	case $MessageToken::SGN_ALG_DES_MAC:
+		try {
+			$var($Cipher, des, getInitializedDes(true, this->keybytes, ivec));
+			return $nc(des)->doFinal(plaintext, start, len);
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not encrypt sequence number using DES - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
 		}
+	case $MessageToken::SGN_ALG_HMAC_SHA1_DES3_KD:
+		if ($nc(ivec)->length == CipherHelper::DES_IV_SIZE) {
+			$assign(iv, ivec);
+		} else {
+			$assign(iv, $new($bytes, CipherHelper::DES_IV_SIZE));
+			$System::arraycopy(ivec, 0, iv, 0, CipherHelper::DES_IV_SIZE);
+		}
+		try {
+			return $Des3::encryptRaw(this->keybytes, CipherHelper::KG_USAGE_SEQ, iv, plaintext, start, len);
+		} catch ($Exception& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not encrypt sequence number using DES3-KD - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
+		}
+	case $MessageToken::SGN_ALG_HMAC_MD5_ARCFOUR:
+		if ($nc(ivec)->length == CipherHelper::HMAC_CHECKSUM_SIZE) {
+			$assign(checksum, ivec);
+		} else {
+			$assign(checksum, $new($bytes, CipherHelper::HMAC_CHECKSUM_SIZE));
+			$System::arraycopy(ivec, 0, checksum, 0, CipherHelper::HMAC_CHECKSUM_SIZE);
+		}
+		try {
+			return $ArcFourHmac::encryptSeq(this->keybytes, CipherHelper::KG_USAGE_SEQ, checksum, plaintext, start, len);
+		} catch ($Exception& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not encrypt sequence number using RC4-HMAC - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
+		}
+	default:
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported signing algorithm: "_s, $$str(this->sgnAlg)}));
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* CipherHelper::decryptSeq($bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($bytes, iv, nullptr)
-		$var($bytes, checksum, nullptr)
-		switch (this->sgnAlg) {
-		case $MessageToken::SGN_ALG_DES_MAC_MD5:
-			{}
-		case $MessageToken::SGN_ALG_DES_MAC:
-			{
-				try {
-					$var($Cipher, des, getInitializedDes(false, this->keybytes, ivec));
-					return $nc(des)->doFinal(ciphertext, start, len);
-				} catch ($GeneralSecurityException& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not decrypt sequence number using DES - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-			}
-		case $MessageToken::SGN_ALG_HMAC_SHA1_DES3_KD:
-			{
-				if ($nc(ivec)->length == CipherHelper::DES_IV_SIZE) {
-					$assign(iv, ivec);
-				} else {
-					$assign(iv, $new($bytes, 8));
-					$System::arraycopy(ivec, 0, iv, 0, CipherHelper::DES_IV_SIZE);
-				}
-				try {
-					return $Des3::decryptRaw(this->keybytes, CipherHelper::KG_USAGE_SEQ, iv, ciphertext, start, len);
-				} catch ($Exception& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not decrypt sequence number using DES3-KD - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-			}
-		case $MessageToken::SGN_ALG_HMAC_MD5_ARCFOUR:
-			{
-				if ($nc(ivec)->length == CipherHelper::HMAC_CHECKSUM_SIZE) {
-					$assign(checksum, ivec);
-				} else {
-					$assign(checksum, $new($bytes, CipherHelper::HMAC_CHECKSUM_SIZE));
-					$System::arraycopy(ivec, 0, checksum, 0, CipherHelper::HMAC_CHECKSUM_SIZE);
-				}
-				try {
-					return $ArcFourHmac::decryptSeq(this->keybytes, CipherHelper::KG_USAGE_SEQ, checksum, ciphertext, start, len);
-				} catch ($Exception& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not decrypt sequence number using RC4-HMAC - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-			}
-		default:
-			{
-				$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported signing algorithm: "_s, $$str(this->sgnAlg)}));
-			}
+	$useLocalObjectStack();
+	$var($bytes, iv, nullptr);
+	$var($bytes, checksum, nullptr);
+	switch (this->sgnAlg) {
+	case $MessageToken::SGN_ALG_DES_MAC_MD5:
+	case $MessageToken::SGN_ALG_DES_MAC:
+		try {
+			$var($Cipher, des, getInitializedDes(false, this->keybytes, ivec));
+			return $nc(des)->doFinal(ciphertext, start, len);
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not decrypt sequence number using DES - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
 		}
+	case $MessageToken::SGN_ALG_HMAC_SHA1_DES3_KD:
+		if ($nc(ivec)->length == CipherHelper::DES_IV_SIZE) {
+			$assign(iv, ivec);
+		} else {
+			$assign(iv, $new($bytes, 8));
+			$System::arraycopy(ivec, 0, iv, 0, CipherHelper::DES_IV_SIZE);
+		}
+		try {
+			return $Des3::decryptRaw(this->keybytes, CipherHelper::KG_USAGE_SEQ, iv, ciphertext, start, len);
+		} catch ($Exception& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not decrypt sequence number using DES3-KD - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
+		}
+	case $MessageToken::SGN_ALG_HMAC_MD5_ARCFOUR:
+		if ($nc(ivec)->length == CipherHelper::HMAC_CHECKSUM_SIZE) {
+			$assign(checksum, ivec);
+		} else {
+			$assign(checksum, $new($bytes, CipherHelper::HMAC_CHECKSUM_SIZE));
+			$System::arraycopy(ivec, 0, checksum, 0, CipherHelper::HMAC_CHECKSUM_SIZE);
+		}
+		try {
+			return $ArcFourHmac::decryptSeq(this->keybytes, CipherHelper::KG_USAGE_SEQ, checksum, ciphertext, start, len);
+		} catch ($Exception& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not decrypt sequence number using RC4-HMAC - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
+		}
+	default:
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported signing algorithm: "_s, $$str(this->sgnAlg)}));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t CipherHelper::getChecksumLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->etype) {
 	case $EncryptedData::ETYPE_DES_CBC_CRC:
-		{}
 	case $EncryptedData::ETYPE_DES_CBC_MD5:
-		{
-			return CipherHelper::DES_CHECKSUM_SIZE;
-		}
+		return CipherHelper::DES_CHECKSUM_SIZE;
 	case $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD:
-		{
-			return $Des3::getChecksumLength();
-		}
+		return $Des3::getChecksumLength();
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-		{
-			return $Aes128::getChecksumLength();
-		}
+		return $Aes128::getChecksumLength();
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-		{
-			return $Aes256::getChecksumLength();
-		}
+		return $Aes256::getChecksumLength();
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{
-			return $Aes128Sha2::getChecksumLength();
-		}
+		return $Aes128Sha2::getChecksumLength();
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			return $Aes256Sha2::getChecksumLength();
-		}
+		return $Aes256Sha2::getChecksumLength();
 	case $EncryptedData::ETYPE_ARCFOUR_HMAC:
-		{
-			return CipherHelper::HMAC_CHECKSUM_SIZE;
-		}
+		return CipherHelper::HMAC_CHECKSUM_SIZE;
 	default:
-		{
-			$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported encryption type: "_s, $$str(this->etype)}));
-		}
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported encryption type: "_s, $$str(this->etype)}));
 	}
 }
 
 void CipherHelper::decryptData($WrapToken* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->sealAlg) {
 	case $MessageToken::SEAL_ALG_DES:
-		{
-			desCbcDecrypt(token, $(getDesEncryptionKey(this->keybytes)), ciphertext, cStart, cLen, plaintext, pStart);
-			break;
-		}
+		desCbcDecrypt(token, $(getDesEncryptionKey(this->keybytes)), ciphertext, cStart, cLen, plaintext, pStart);
+		break;
 	case $MessageToken::SEAL_ALG_DES3_KD:
-		{
-			des3KdDecrypt(token, ciphertext, cStart, cLen, plaintext, pStart);
-			break;
-		}
+		des3KdDecrypt(token, ciphertext, cStart, cLen, plaintext, pStart);
+		break;
 	case $MessageToken::SEAL_ALG_ARCFOUR_HMAC:
-		{
-			arcFourDecrypt(token, ciphertext, cStart, cLen, plaintext, pStart);
-			break;
-		}
+		arcFourDecrypt(token, ciphertext, cStart, cLen, plaintext, pStart);
+		break;
 	default:
-		{
-			$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported seal algorithm: "_s, $$str(this->sealAlg)}));
-		}
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported seal algorithm: "_s, $$str(this->sealAlg)}));
 	}
 }
 
 void CipherHelper::decryptData($WrapToken_v2* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->etype) {
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-		{
-			aes128Decrypt(token, ciphertext, cStart, cLen, plaintext, pStart, key_usage);
-			break;
-		}
+		aes128Decrypt(token, ciphertext, cStart, cLen, plaintext, pStart, key_usage);
+		break;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-		{
-			aes256Decrypt(token, ciphertext, cStart, cLen, plaintext, pStart, key_usage);
-			break;
-		}
+		aes256Decrypt(token, ciphertext, cStart, cLen, plaintext, pStart, key_usage);
+		break;
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{
-			aes128Sha2Decrypt(token, ciphertext, cStart, cLen, plaintext, pStart, key_usage);
-			break;
-		}
+		aes128Sha2Decrypt(token, ciphertext, cStart, cLen, plaintext, pStart, key_usage);
+		break;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			aes256Sha2Decrypt(token, ciphertext, cStart, cLen, plaintext, pStart, key_usage);
-			break;
-		}
+		aes256Sha2Decrypt(token, ciphertext, cStart, cLen, plaintext, pStart, key_usage);
+		break;
 	default:
-		{
-			$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported etype: "_s, $$str(this->etype)}));
-		}
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported etype: "_s, $$str(this->etype)}));
 	}
 }
 
 void CipherHelper::decryptData($WrapToken* token, $InputStream* cipherStream, int32_t cLen, $bytes* plaintext, int32_t pStart) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($bytes, ciphertext, nullptr)
-		$var($bytes, ctext, nullptr)
-		switch (this->sealAlg) {
-		case $MessageToken::SEAL_ALG_DES:
-			{
-				desCbcDecrypt(token, $(getDesEncryptionKey(this->keybytes)), cipherStream, cLen, plaintext, pStart);
-				break;
-			}
-		case $MessageToken::SEAL_ALG_DES3_KD:
-			{
-				$assign(ciphertext, $new($bytes, cLen));
-				try {
-					$Krb5Token::readFully(cipherStream, ciphertext, 0, cLen);
-				} catch ($IOException& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "Cannot read complete token"_s));
-					ge->initCause(e);
-					$throw(ge);
-				}
-				des3KdDecrypt(token, ciphertext, 0, cLen, plaintext, pStart);
-				break;
-			}
-		case $MessageToken::SEAL_ALG_ARCFOUR_HMAC:
-			{
-				$assign(ctext, $new($bytes, cLen));
-				try {
-					$Krb5Token::readFully(cipherStream, ctext, 0, cLen);
-				} catch ($IOException& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "Cannot read complete token"_s));
-					ge->initCause(e);
-					$throw(ge);
-				}
-				arcFourDecrypt(token, ctext, 0, cLen, plaintext, pStart);
-				break;
-			}
-		default:
-			{
-				$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported seal algorithm: "_s, $$str(this->sealAlg)}));
-			}
+	$useLocalObjectStack();
+	$var($bytes, ciphertext, nullptr);
+	$var($bytes, ctext, nullptr);
+	switch (this->sealAlg) {
+	case $MessageToken::SEAL_ALG_DES:
+		desCbcDecrypt(token, $(getDesEncryptionKey(this->keybytes)), cipherStream, cLen, plaintext, pStart);
+		break;
+	case $MessageToken::SEAL_ALG_DES3_KD:
+		$assign(ciphertext, $new($bytes, cLen));
+		try {
+			$Krb5Token::readFully(cipherStream, ciphertext, 0, cLen);
+		} catch ($IOException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "Cannot read complete token"_s));
+			ge->initCause(e);
+			$throw(ge);
 		}
+		des3KdDecrypt(token, ciphertext, 0, cLen, plaintext, pStart);
+		break;
+	case $MessageToken::SEAL_ALG_ARCFOUR_HMAC:
+		$assign(ctext, $new($bytes, cLen));
+		try {
+			$Krb5Token::readFully(cipherStream, ctext, 0, cLen);
+		} catch ($IOException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "Cannot read complete token"_s));
+			ge->initCause(e);
+			$throw(ge);
+		}
+		arcFourDecrypt(token, ctext, 0, cLen, plaintext, pStart);
+		break;
+	default:
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported seal algorithm: "_s, $$str(this->sealAlg)}));
 	}
 }
 
 void CipherHelper::decryptData($WrapToken_v2* token, $InputStream* cipherStream, int32_t cLen, $bytes* plaintext, int32_t pStart, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ciphertext, $new($bytes, cLen));
 	try {
 		$Krb5Token::readFully(cipherStream, ciphertext, 0, cLen);
@@ -705,174 +514,124 @@ void CipherHelper::decryptData($WrapToken_v2* token, $InputStream* cipherStream,
 	}
 	switch (this->etype) {
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-		{
-			aes128Decrypt(token, ciphertext, 0, cLen, plaintext, pStart, key_usage);
-			break;
-		}
+		aes128Decrypt(token, ciphertext, 0, cLen, plaintext, pStart, key_usage);
+		break;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-		{
-			aes256Decrypt(token, ciphertext, 0, cLen, plaintext, pStart, key_usage);
-			break;
-		}
+		aes256Decrypt(token, ciphertext, 0, cLen, plaintext, pStart, key_usage);
+		break;
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{
-			aes128Sha2Decrypt(token, ciphertext, 0, cLen, plaintext, pStart, key_usage);
-			break;
-		}
+		aes128Sha2Decrypt(token, ciphertext, 0, cLen, plaintext, pStart, key_usage);
+		break;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			aes256Sha2Decrypt(token, ciphertext, 0, cLen, plaintext, pStart, key_usage);
-			break;
-		}
+		aes256Sha2Decrypt(token, ciphertext, 0, cLen, plaintext, pStart, key_usage);
+		break;
 	default:
-		{
-			$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported etype: "_s, $$str(this->etype)}));
-		}
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported etype: "_s, $$str(this->etype)}));
 	}
 }
 
 void CipherHelper::encryptData($WrapToken* token, $bytes* confounder, $bytes* plaintext, int32_t start, int32_t len, $bytes* padding, $OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Cipher, des, nullptr)
-		$var($CipherOutputStream, cos, nullptr)
-		$var($bytes, ctext, nullptr)
-		$var($bytes, ciphertext, nullptr)
-		switch (this->sealAlg) {
-		case $MessageToken::SEAL_ALG_DES:
-			{
-				$assign(des, getInitializedDes(true, $(getDesEncryptionKey(this->keybytes)), CipherHelper::ZERO_IV));
-				$assign(cos, $new($CipherOutputStream, os, des));
-				$nc(cos)->write(confounder);
-				$nc(cos)->write(plaintext, start, len);
-				$nc(cos)->write(padding);
-				break;
-			}
-		case $MessageToken::SEAL_ALG_DES3_KD:
-			{
-				$assign(ctext, des3KdEncrypt(confounder, plaintext, start, len, padding));
-				$nc(os)->write(ctext);
-				break;
-			}
-		case $MessageToken::SEAL_ALG_ARCFOUR_HMAC:
-			{
-				$assign(ciphertext, arcFourEncrypt(token, confounder, plaintext, start, len, padding));
-				$nc(os)->write(ciphertext);
-				break;
-			}
-		default:
-			{
-				$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported seal algorithm: "_s, $$str(this->sealAlg)}));
-			}
-		}
+	$useLocalObjectStack();
+	$var($Cipher, des, nullptr);
+	$var($CipherOutputStream, cos, nullptr);
+	$var($bytes, ctext, nullptr);
+	$var($bytes, ciphertext, nullptr);
+	switch (this->sealAlg) {
+	case $MessageToken::SEAL_ALG_DES:
+		$assign(des, getInitializedDes(true, $(getDesEncryptionKey(this->keybytes)), CipherHelper::ZERO_IV));
+		$assign(cos, $new($CipherOutputStream, os, des));
+		$nc(cos)->write(confounder);
+		cos->write(plaintext, start, len);
+		cos->write(padding);
+		break;
+	case $MessageToken::SEAL_ALG_DES3_KD:
+		$assign(ctext, des3KdEncrypt(confounder, plaintext, start, len, padding));
+		$nc(os)->write(ctext);
+		break;
+	case $MessageToken::SEAL_ALG_ARCFOUR_HMAC:
+		$assign(ciphertext, arcFourEncrypt(token, confounder, plaintext, start, len, padding));
+		$nc(os)->write(ciphertext);
+		break;
+	default:
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported seal algorithm: "_s, $$str(this->sealAlg)}));
 	}
 }
 
 $bytes* CipherHelper::encryptData($WrapToken_v2* token, $bytes* confounder, $bytes* tokenHeader, $bytes* plaintext, int32_t start, int32_t len, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->etype) {
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-		{
-			return aes128Encrypt(confounder, tokenHeader, plaintext, start, len, key_usage);
-		}
+		return aes128Encrypt(confounder, tokenHeader, plaintext, start, len, key_usage);
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-		{
-			return aes256Encrypt(confounder, tokenHeader, plaintext, start, len, key_usage);
-		}
+		return aes256Encrypt(confounder, tokenHeader, plaintext, start, len, key_usage);
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{
-			return aes128Sha2Encrypt(confounder, tokenHeader, plaintext, start, len, key_usage);
-		}
+		return aes128Sha2Encrypt(confounder, tokenHeader, plaintext, start, len, key_usage);
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			return aes256Sha2Encrypt(confounder, tokenHeader, plaintext, start, len, key_usage);
-		}
+		return aes256Sha2Encrypt(confounder, tokenHeader, plaintext, start, len, key_usage);
 	default:
-		{
-			$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported etype: "_s, $$str(this->etype)}));
-		}
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported etype: "_s, $$str(this->etype)}));
 	}
 }
 
 void CipherHelper::encryptData($WrapToken* token, $bytes* confounder, $bytes* plaintext, int32_t pStart, int32_t pLen, $bytes* padding, $bytes* ciphertext, int32_t cStart) {
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t pos = 0;
-		$var($Cipher, des, nullptr)
-		$var($bytes, ctext, nullptr)
-		$var($bytes, ctext2, nullptr)
-		switch (this->sealAlg) {
-		case $MessageToken::SEAL_ALG_DES:
-			{
-				pos = cStart;
-				$assign(des, getInitializedDes(true, $(getDesEncryptionKey(this->keybytes)), CipherHelper::ZERO_IV));
-				try {
-					pos += $nc(des)->update(confounder, 0, $nc(confounder)->length, ciphertext, pos);
-					pos += des->update(plaintext, pStart, pLen, ciphertext, pos);
-					des->update(padding, 0, $nc(padding)->length, ciphertext, pos);
-					des->doFinal();
-				} catch ($GeneralSecurityException& e) {
-					$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use DES Cipher - "_s, $(e->getMessage())})));
-					ge->initCause(e);
-					$throw(ge);
-				}
-				break;
-			}
-		case $MessageToken::SEAL_ALG_DES3_KD:
-			{
-				$assign(ctext, des3KdEncrypt(confounder, plaintext, pStart, pLen, padding));
-				$System::arraycopy(ctext, 0, ciphertext, cStart, $nc(ctext)->length);
-				break;
-			}
-		case $MessageToken::SEAL_ALG_ARCFOUR_HMAC:
-			{
-				$assign(ctext2, arcFourEncrypt(token, confounder, plaintext, pStart, pLen, padding));
-				$System::arraycopy(ctext2, 0, ciphertext, cStart, $nc(ctext2)->length);
-				break;
-			}
-		default:
-			{
-				$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported seal algorithm: "_s, $$str(this->sealAlg)}));
-			}
+	$useLocalObjectStack();
+	int32_t pos = 0;
+	$var($Cipher, des, nullptr);
+	$var($bytes, ctext, nullptr);
+	$var($bytes, ctext2, nullptr);
+	switch (this->sealAlg) {
+	case $MessageToken::SEAL_ALG_DES:
+		pos = cStart;
+		$assign(des, getInitializedDes(true, $(getDesEncryptionKey(this->keybytes)), CipherHelper::ZERO_IV));
+		try {
+			pos += $nc(des)->update(confounder, 0, $nc(confounder)->length, ciphertext, pos);
+			pos += des->update(plaintext, pStart, pLen, ciphertext, pos);
+			des->update(padding, 0, $nc(padding)->length, ciphertext, pos);
+			des->doFinal();
+		} catch ($GeneralSecurityException& e) {
+			$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $$str({"Could not use DES Cipher - "_s, $(e->getMessage())})));
+			ge->initCause(e);
+			$throw(ge);
 		}
+		break;
+	case $MessageToken::SEAL_ALG_DES3_KD:
+		$assign(ctext, des3KdEncrypt(confounder, plaintext, pStart, pLen, padding));
+		$System::arraycopy(ctext, 0, ciphertext, cStart, $nc(ctext)->length);
+		break;
+	case $MessageToken::SEAL_ALG_ARCFOUR_HMAC:
+		$assign(ctext2, arcFourEncrypt(token, confounder, plaintext, pStart, pLen, padding));
+		$System::arraycopy(ctext2, 0, ciphertext, cStart, $nc(ctext2)->length);
+		break;
+	default:
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported seal algorithm: "_s, $$str(this->sealAlg)}));
 	}
 }
 
 int32_t CipherHelper::encryptData($WrapToken_v2* token, $bytes* confounder, $bytes* tokenHeader, $bytes* plaintext, int32_t pStart, int32_t pLen, $bytes* ciphertext, int32_t cStart, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ctext, nullptr);
 	switch (this->etype) {
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-		{
-			$assign(ctext, aes128Encrypt(confounder, tokenHeader, plaintext, pStart, pLen, key_usage));
-			break;
-		}
+		$assign(ctext, aes128Encrypt(confounder, tokenHeader, plaintext, pStart, pLen, key_usage));
+		break;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-		{
-			$assign(ctext, aes256Encrypt(confounder, tokenHeader, plaintext, pStart, pLen, key_usage));
-			break;
-		}
+		$assign(ctext, aes256Encrypt(confounder, tokenHeader, plaintext, pStart, pLen, key_usage));
+		break;
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{
-			$assign(ctext, aes128Sha2Encrypt(confounder, tokenHeader, plaintext, pStart, pLen, key_usage));
-			break;
-		}
+		$assign(ctext, aes128Sha2Encrypt(confounder, tokenHeader, plaintext, pStart, pLen, key_usage));
+		break;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			$assign(ctext, aes256Sha2Encrypt(confounder, tokenHeader, plaintext, pStart, pLen, key_usage));
-			break;
-		}
+		$assign(ctext, aes256Sha2Encrypt(confounder, tokenHeader, plaintext, pStart, pLen, key_usage));
+		break;
 	default:
-		{
-			$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported etype: "_s, $$str(this->etype)}));
-		}
+		$throwNew($GSSException, $GSSException::FAILURE, -1, $$str({"Unsupported etype: "_s, $$str(this->etype)}));
 	}
 	$System::arraycopy(ctext, 0, ciphertext, cStart, $nc(ctext)->length);
-	return $nc(ctext)->length;
+	return ctext->length;
 }
 
 $bytes* CipherHelper::getDesCbcChecksum($bytes* key, $bytes* header, $bytes* data, int32_t offset, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Cipher, des, getInitializedDes(true, key, CipherHelper::ZERO_IV));
 	int32_t blockSize = $nc(des)->getBlockSize();
 	$var($bytes, finalBlock, $new($bytes, blockSize));
@@ -885,7 +644,7 @@ $bytes* CipherHelper::getDesCbcChecksum($bytes* key, $bytes* header, $bytes* dat
 		$System::arraycopy(data, offset + numBlocks * blockSize, finalBlock, 0, lastBytes);
 	}
 	try {
-		$var($bytes, temp, $new($bytes, $Math::max(blockSize, (header == nullptr ? blockSize : $nc(header)->length))));
+		$var($bytes, temp, $new($bytes, $Math::max(blockSize, (header == nullptr ? blockSize : header->length))));
 		if (header != nullptr) {
 			des->update(header, 0, header->length, temp, 0);
 		}
@@ -906,12 +665,12 @@ $bytes* CipherHelper::getDesCbcChecksum($bytes* key, $bytes* header, $bytes* dat
 }
 
 $Cipher* CipherHelper::getInitializedDes(bool encryptMode, $bytes* key, $bytes* ivBytes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($IvParameterSpec, iv, $new($IvParameterSpec, ivBytes));
-		$var($SecretKey, jceKey, static_cast<$SecretKey*>(($new($SecretKeySpec, key, "DES"_s))));
+		$var($SecretKey, jceKey, $cast($SecretKey, ($new($SecretKeySpec, key, "DES"_s))));
 		$var($Cipher, desCipher, $Cipher::getInstance("DES/CBC/NoPadding"_s));
-		$nc(desCipher)->init((encryptMode ? $Cipher::ENCRYPT_MODE : $Cipher::DECRYPT_MODE), static_cast<$Key*>(jceKey), static_cast<$AlgorithmParameterSpec*>(iv));
+		$nc(desCipher)->init((encryptMode ? $Cipher::ENCRYPT_MODE : $Cipher::DECRYPT_MODE), jceKey, iv);
 		return desCipher;
 	} catch ($GeneralSecurityException& e) {
 		$var($GSSException, ge, $new($GSSException, $GSSException::FAILURE, -1, $(e->getMessage())));
@@ -922,7 +681,7 @@ $Cipher* CipherHelper::getInitializedDes(bool encryptMode, $bytes* key, $bytes* 
 }
 
 void CipherHelper::desCbcDecrypt($WrapToken* token, $bytes* key, $bytes* cipherText, int32_t offset, int32_t len, $bytes* dataOutBuf, int32_t dataOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t temp = 0;
 		$var($Cipher, des, getInitializedDes(false, key, CipherHelper::ZERO_IV));
@@ -943,8 +702,7 @@ void CipherHelper::desCbcDecrypt($WrapToken* token, $bytes* key, $bytes* cipherT
 		if (padSize < 1 || padSize > 8) {
 			$throwNew($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "Invalid padding on Wrap Token"_s);
 		}
-		$init($WrapToken);
-		$set($nc(token), padding, $nc($WrapToken::pads)->get(padSize));
+		$set(token, padding, $nc($WrapToken::pads)->get(padSize));
 		blockSize -= padSize;
 		$System::arraycopy(finalBlock, 0, dataOutBuf, dataOffset, blockSize);
 	} catch ($GeneralSecurityException& e) {
@@ -955,7 +713,7 @@ void CipherHelper::desCbcDecrypt($WrapToken* token, $bytes* key, $bytes* cipherT
 }
 
 void CipherHelper::desCbcDecrypt($WrapToken* token, $bytes* key, $InputStream* is, int32_t len, $bytes* dataOutBuf, int32_t dataOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t temp = 0;
 	$var($Cipher, des, getInitializedDes(false, key, CipherHelper::ZERO_IV));
 	$var($CipherHelper$WrapTokenInputStream, truncatedInputStream, $new($CipherHelper$WrapTokenInputStream, this, is, len));
@@ -981,8 +739,7 @@ void CipherHelper::desCbcDecrypt($WrapToken* token, $bytes* key, $InputStream* i
 	if (padSize < 1 || padSize > 8) {
 		$throwNew($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "Invalid padding on Wrap Token"_s);
 	}
-	$init($WrapToken);
-	$set($nc(token), padding, $nc($WrapToken::pads)->get(padSize));
+	$set(token, padding, $nc($WrapToken::pads)->get(padSize));
 	blockSize -= padSize;
 	$System::arraycopy(finalBlock, 0, dataOutBuf, dataOffset, blockSize);
 }
@@ -992,15 +749,15 @@ $bytes* CipherHelper::getDesEncryptionKey($bytes* key) {
 	if ($nc(key)->length > 8) {
 		$throwNew($GSSException, $GSSException::FAILURE, -100, "Invalid DES Key!"_s);
 	}
-	$var($bytes, retVal, $new($bytes, $nc(key)->length));
+	$var($bytes, retVal, $new($bytes, key->length));
 	for (int32_t i = 0; i < key->length; ++i) {
-		retVal->set(i, (int8_t)(key->get(i) ^ 240));
+		retVal->set(i, (int8_t)(key->get(i) ^ 0xf0));
 	}
 	return retVal;
 }
 
 void CipherHelper::des3KdDecrypt($WrapToken* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ptext, nullptr);
 	try {
 		$assign(ptext, $Des3::decryptRaw(this->keybytes, CipherHelper::KG_USAGE_SEAL, CipherHelper::ZERO_IV, ciphertext, cStart, cLen));
@@ -1009,7 +766,7 @@ void CipherHelper::des3KdDecrypt($WrapToken* token, $bytes* ciphertext, int32_t 
 		ge->initCause(e);
 		$throw(ge);
 	}
-	int32_t padSize = $nc(ptext)->get(ptext->length - 1);
+	int32_t padSize = $nc(ptext)->get($nc(ptext)->length - 1);
 	if (padSize < 1 || padSize > 8) {
 		$throwNew($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "Invalid padding on Wrap Token"_s);
 	}
@@ -1021,7 +778,7 @@ void CipherHelper::des3KdDecrypt($WrapToken* token, $bytes* ciphertext, int32_t 
 }
 
 $bytes* CipherHelper::des3KdEncrypt($bytes* confounder, $bytes* plaintext, int32_t start, int32_t len, $bytes* padding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, all, $new($bytes, $nc(confounder)->length + len + $nc(padding)->length));
 	$System::arraycopy(confounder, 0, all, 0, confounder->length);
 	$System::arraycopy(plaintext, start, all, confounder->length, len);
@@ -1038,7 +795,7 @@ $bytes* CipherHelper::des3KdEncrypt($bytes* confounder, $bytes* plaintext, int32
 }
 
 void CipherHelper::arcFourDecrypt($WrapToken* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, var$0, $nc(token)->getChecksum());
 	$var($bytes, seqNum, decryptSeq(var$0, $(token->getEncSeqNumber()), 0, 8));
 	$var($bytes, ptext, nullptr);
@@ -1049,18 +806,18 @@ void CipherHelper::arcFourDecrypt($WrapToken* token, $bytes* ciphertext, int32_t
 		ge->initCause(e);
 		$throw(ge);
 	}
-	int32_t padSize = $nc(ptext)->get(ptext->length - 1);
+	int32_t padSize = $nc(ptext)->get($nc(ptext)->length - 1);
 	if (padSize < 1) {
 		$throwNew($GSSException, $GSSException::DEFECTIVE_TOKEN, -1, "Invalid padding on Wrap Token"_s);
 	}
-	$set($nc(token), padding, $nc($WrapToken::pads)->get(padSize));
+	$set(token, padding, $nc($WrapToken::pads)->get(padSize));
 	int32_t len = ptext->length - $WrapToken::CONFOUNDER_SIZE - padSize;
 	$System::arraycopy(ptext, $WrapToken::CONFOUNDER_SIZE, plaintext, pStart, len);
 	$System::arraycopy(ptext, 0, token->confounder, 0, $WrapToken::CONFOUNDER_SIZE);
 }
 
 $bytes* CipherHelper::arcFourEncrypt($WrapToken* token, $bytes* confounder, $bytes* plaintext, int32_t start, int32_t len, $bytes* padding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, all, $new($bytes, $nc(confounder)->length + len + $nc(padding)->length));
 	$System::arraycopy(confounder, 0, all, 0, confounder->length);
 	$System::arraycopy(plaintext, start, all, confounder->length, len);
@@ -1079,7 +836,7 @@ $bytes* CipherHelper::arcFourEncrypt($WrapToken* token, $bytes* confounder, $byt
 }
 
 $bytes* CipherHelper::aes128Encrypt($bytes* confounder, $bytes* tokenHeader, $bytes* plaintext, int32_t start, int32_t len, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, all, $new($bytes, $nc(confounder)->length + len + $nc(tokenHeader)->length));
 	$System::arraycopy(confounder, 0, all, 0, confounder->length);
 	$System::arraycopy(plaintext, start, all, confounder->length, len);
@@ -1096,7 +853,7 @@ $bytes* CipherHelper::aes128Encrypt($bytes* confounder, $bytes* tokenHeader, $by
 }
 
 $bytes* CipherHelper::aes128Sha2Encrypt($bytes* confounder, $bytes* tokenHeader, $bytes* plaintext, int32_t start, int32_t len, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, all, $new($bytes, $nc(confounder)->length + len + $nc(tokenHeader)->length));
 	$System::arraycopy(confounder, 0, all, 0, confounder->length);
 	$System::arraycopy(plaintext, start, all, confounder->length, len);
@@ -1113,7 +870,7 @@ $bytes* CipherHelper::aes128Sha2Encrypt($bytes* confounder, $bytes* tokenHeader,
 }
 
 void CipherHelper::aes128Decrypt($WrapToken_v2* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ptext, nullptr);
 	try {
 		$assign(ptext, $Aes128::decryptRaw(this->keybytes, key_usage, CipherHelper::ZERO_IV_AES, ciphertext, cStart, cLen));
@@ -1127,7 +884,7 @@ void CipherHelper::aes128Decrypt($WrapToken_v2* token, $bytes* ciphertext, int32
 }
 
 void CipherHelper::aes128Sha2Decrypt($WrapToken_v2* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ptext, nullptr);
 	try {
 		$assign(ptext, $Aes128Sha2::decryptRaw(this->keybytes, key_usage, CipherHelper::ZERO_IV_AES, ciphertext, cStart, cLen));
@@ -1141,7 +898,7 @@ void CipherHelper::aes128Sha2Decrypt($WrapToken_v2* token, $bytes* ciphertext, i
 }
 
 $bytes* CipherHelper::aes256Encrypt($bytes* confounder, $bytes* tokenHeader, $bytes* plaintext, int32_t start, int32_t len, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, all, $new($bytes, $nc(confounder)->length + len + $nc(tokenHeader)->length));
 	$System::arraycopy(confounder, 0, all, 0, confounder->length);
 	$System::arraycopy(plaintext, start, all, confounder->length, len);
@@ -1158,7 +915,7 @@ $bytes* CipherHelper::aes256Encrypt($bytes* confounder, $bytes* tokenHeader, $by
 }
 
 $bytes* CipherHelper::aes256Sha2Encrypt($bytes* confounder, $bytes* tokenHeader, $bytes* plaintext, int32_t start, int32_t len, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, all, $new($bytes, $nc(confounder)->length + len + $nc(tokenHeader)->length));
 	$System::arraycopy(confounder, 0, all, 0, confounder->length);
 	$System::arraycopy(plaintext, start, all, confounder->length, len);
@@ -1175,7 +932,7 @@ $bytes* CipherHelper::aes256Sha2Encrypt($bytes* confounder, $bytes* tokenHeader,
 }
 
 void CipherHelper::aes256Decrypt($WrapToken_v2* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ptext, nullptr);
 	try {
 		$assign(ptext, $Aes256::decryptRaw(this->keybytes, key_usage, CipherHelper::ZERO_IV_AES, ciphertext, cStart, cLen));
@@ -1189,7 +946,7 @@ void CipherHelper::aes256Decrypt($WrapToken_v2* token, $bytes* ciphertext, int32
 }
 
 void CipherHelper::aes256Sha2Decrypt($WrapToken_v2* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart, int32_t key_usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ptext, nullptr);
 	try {
 		$assign(ptext, $Aes256Sha2::decryptRaw(this->keybytes, key_usage, CipherHelper::ZERO_IV_AES, ciphertext, cStart, cLen));
@@ -1202,7 +959,7 @@ void CipherHelper::aes256Sha2Decrypt($WrapToken_v2* token, $bytes* ciphertext, i
 	$System::arraycopy(ptext, $WrapToken_v2::CONFOUNDER_SIZE, plaintext, pStart, len);
 }
 
-void clinit$CipherHelper($Class* class$) {
+void CipherHelper::clinit$($Class* clazz) {
 	$init($Krb5Util);
 	CipherHelper::DEBUG = $Krb5Util::DEBUG;
 	$assignStatic(CipherHelper::ZERO_IV, $new($bytes, CipherHelper::DES_IV_SIZE));
@@ -1213,7 +970,84 @@ CipherHelper::CipherHelper() {
 }
 
 $Class* CipherHelper::load$($String* name, bool initialize) {
-	$loadClass(CipherHelper, name, initialize, &_CipherHelper_ClassInfo_, clinit$CipherHelper, allocate$CipherHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"KG_USAGE_SEAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, KG_USAGE_SEAL)},
+		{"KG_USAGE_SIGN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, KG_USAGE_SIGN)},
+		{"KG_USAGE_SEQ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, KG_USAGE_SEQ)},
+		{"DES_CHECKSUM_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, DES_CHECKSUM_SIZE)},
+		{"DES_IV_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, DES_IV_SIZE)},
+		{"AES_IV_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, AES_IV_SIZE)},
+		{"HMAC_CHECKSUM_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, HMAC_CHECKSUM_SIZE)},
+		{"KG_USAGE_SIGN_MS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CipherHelper, KG_USAGE_SIGN_MS)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CipherHelper, DEBUG)},
+		{"ZERO_IV", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CipherHelper, ZERO_IV)},
+		{"ZERO_IV_AES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CipherHelper, ZERO_IV_AES)},
+		{"etype", "I", nullptr, $PRIVATE, $field(CipherHelper, etype)},
+		{"sgnAlg", "I", nullptr, $PRIVATE, $field(CipherHelper, sgnAlg)},
+		{"sealAlg", "I", nullptr, $PRIVATE, $field(CipherHelper, sealAlg)},
+		{"keybytes", "[B", nullptr, $PRIVATE, $field(CipherHelper, keybytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/krb5/EncryptionKey;)V", nullptr, 0, $method(CipherHelper, init$, void, $EncryptionKey*), "org.ietf.jgss.GSSException"},
+		{"aes128Decrypt", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, $PRIVATE, $method(CipherHelper, aes128Decrypt, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"aes128Encrypt", "([B[B[BIII)[B", nullptr, $PRIVATE, $method(CipherHelper, aes128Encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"aes128Sha2Decrypt", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, $PRIVATE, $method(CipherHelper, aes128Sha2Decrypt, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"aes128Sha2Encrypt", "([B[B[BIII)[B", nullptr, $PRIVATE, $method(CipherHelper, aes128Sha2Encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"aes256Decrypt", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, $PRIVATE, $method(CipherHelper, aes256Decrypt, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"aes256Encrypt", "([B[B[BIII)[B", nullptr, $PRIVATE, $method(CipherHelper, aes256Encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"aes256Sha2Decrypt", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, $PRIVATE, $method(CipherHelper, aes256Sha2Decrypt, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"aes256Sha2Encrypt", "([B[B[BIII)[B", nullptr, $PRIVATE, $method(CipherHelper, aes256Sha2Encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"arcFourDecrypt", "(Lsun/security/jgss/krb5/WrapToken;[BII[BI)V", nullptr, $PRIVATE, $method(CipherHelper, arcFourDecrypt, void, $WrapToken*, $bytes*, int32_t, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+		{"arcFourEncrypt", "(Lsun/security/jgss/krb5/WrapToken;[B[BII[B)[B", nullptr, $PRIVATE, $method(CipherHelper, arcFourEncrypt, $bytes*, $WrapToken*, $bytes*, $bytes*, int32_t, int32_t, $bytes*), "org.ietf.jgss.GSSException"},
+		{"calculateChecksum", "(I[B[B[BIII)[B", nullptr, 0, $virtualMethod(CipherHelper, calculateChecksum, $bytes*, int32_t, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"calculateChecksum", "([B[BIII)[B", nullptr, 0, $virtualMethod(CipherHelper, calculateChecksum, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"decryptData", "(Lsun/security/jgss/krb5/WrapToken;[BII[BI)V", nullptr, 0, $virtualMethod(CipherHelper, decryptData, void, $WrapToken*, $bytes*, int32_t, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+		{"decryptData", "(Lsun/security/jgss/krb5/WrapToken_v2;[BII[BII)V", nullptr, 0, $virtualMethod(CipherHelper, decryptData, void, $WrapToken_v2*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"decryptData", "(Lsun/security/jgss/krb5/WrapToken;Ljava/io/InputStream;I[BI)V", nullptr, 0, $virtualMethod(CipherHelper, decryptData, void, $WrapToken*, $InputStream*, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException,java.io.IOException"},
+		{"decryptData", "(Lsun/security/jgss/krb5/WrapToken_v2;Ljava/io/InputStream;I[BII)V", nullptr, 0, $virtualMethod(CipherHelper, decryptData, void, $WrapToken_v2*, $InputStream*, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException,java.io.IOException"},
+		{"decryptSeq", "([B[BII)[B", nullptr, 0, $virtualMethod(CipherHelper, decryptSeq, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"des3KdDecrypt", "(Lsun/security/jgss/krb5/WrapToken;[BII[BI)V", nullptr, $PRIVATE, $method(CipherHelper, des3KdDecrypt, void, $WrapToken*, $bytes*, int32_t, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+		{"des3KdEncrypt", "([B[BII[B)[B", nullptr, $PRIVATE, $method(CipherHelper, des3KdEncrypt, $bytes*, $bytes*, $bytes*, int32_t, int32_t, $bytes*), "org.ietf.jgss.GSSException"},
+		{"desCbcDecrypt", "(Lsun/security/jgss/krb5/WrapToken;[B[BII[BI)V", nullptr, $PRIVATE, $method(CipherHelper, desCbcDecrypt, void, $WrapToken*, $bytes*, $bytes*, int32_t, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+		{"desCbcDecrypt", "(Lsun/security/jgss/krb5/WrapToken;[BLjava/io/InputStream;I[BI)V", nullptr, $PRIVATE, $method(CipherHelper, desCbcDecrypt, void, $WrapToken*, $bytes*, $InputStream*, int32_t, $bytes*, int32_t), "org.ietf.jgss.GSSException,java.io.IOException"},
+		{"encryptData", "(Lsun/security/jgss/krb5/WrapToken;[B[BII[BLjava/io/OutputStream;)V", nullptr, 0, $virtualMethod(CipherHelper, encryptData, void, $WrapToken*, $bytes*, $bytes*, int32_t, int32_t, $bytes*, $OutputStream*), "org.ietf.jgss.GSSException,java.io.IOException"},
+		{"encryptData", "(Lsun/security/jgss/krb5/WrapToken_v2;[B[B[BIII)[B", nullptr, 0, $virtualMethod(CipherHelper, encryptData, $bytes*, $WrapToken_v2*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"encryptData", "(Lsun/security/jgss/krb5/WrapToken;[B[BII[B[BI)V", nullptr, 0, $virtualMethod(CipherHelper, encryptData, void, $WrapToken*, $bytes*, $bytes*, int32_t, int32_t, $bytes*, $bytes*, int32_t), "org.ietf.jgss.GSSException"},
+		{"encryptData", "(Lsun/security/jgss/krb5/WrapToken_v2;[B[B[BII[BII)I", nullptr, 0, $virtualMethod(CipherHelper, encryptData, int32_t, $WrapToken_v2*, $bytes*, $bytes*, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"encryptSeq", "([B[BII)[B", nullptr, 0, $virtualMethod(CipherHelper, encryptSeq, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"getChecksumLength", "()I", nullptr, 0, $virtualMethod(CipherHelper, getChecksumLength, int32_t), "org.ietf.jgss.GSSException"},
+		{"getDesCbcChecksum", "([B[B[BII)[B", nullptr, $PRIVATE, $method(CipherHelper, getDesCbcChecksum, $bytes*, $bytes*, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"getDesEncryptionKey", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(CipherHelper, getDesEncryptionKey, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getEType", "()I", nullptr, 0, $virtualMethod(CipherHelper, getEType, int32_t)},
+		{"getInitializedDes", "(Z[B[B)Ljavax/crypto/Cipher;", nullptr, $PRIVATE | $FINAL, $method(CipherHelper, getInitializedDes, $Cipher*, bool, $bytes*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getProto", "()I", nullptr, 0, $virtualMethod(CipherHelper, getProto, int32_t)},
+		{"getSealAlg", "()I", nullptr, 0, $virtualMethod(CipherHelper, getSealAlg, int32_t)},
+		{"getSgnAlg", "()I", nullptr, 0, $virtualMethod(CipherHelper, getSgnAlg, int32_t)},
+		{"isArcFour", "()Z", nullptr, 0, $virtualMethod(CipherHelper, isArcFour, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.CipherHelper$WrapTokenInputStream", "sun.security.jgss.krb5.CipherHelper", "WrapTokenInputStream", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.CipherHelper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.CipherHelper$WrapTokenInputStream"
+	};
+	$loadClass(CipherHelper, name, initialize, &classInfo$$, CipherHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CipherHelper);
+	});
 	return class$;
 }
 

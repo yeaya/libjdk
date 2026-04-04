@@ -1,5 +1,4 @@
 #include <java/awt/RadialGradientPaint.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/MultipleGradientPaint$ColorSpaceType.h>
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
@@ -46,65 +45,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 namespace java {
 	namespace awt {
 
-$Attribute RadialGradientPaint_Attribute_var$1[] = {
-	{'s', "centerPoint"},
-	{'s', "radius"},
-	{'s', "focusPoint"},
-	{'s', "fractions"},
-	{'s', "colors"},
-	{'s', "cycleMethod"},
-	{'s', "colorSpace"},
-	{'s', "transform"},
-	{'-'}
-};
-
-$NamedAttribute RadialGradientPaint_Attribute_var$0[] = {
-	{"value", '[', RadialGradientPaint_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _RadialGradientPaint_MethodAnnotations_init$6[] = {
-	{"Ljava/beans/ConstructorProperties;", RadialGradientPaint_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _RadialGradientPaint_FieldInfo_[] = {
-	{"focus", "Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $FINAL, $field(RadialGradientPaint, focus)},
-	{"center", "Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $FINAL, $field(RadialGradientPaint, center)},
-	{"radius", "F", nullptr, $PRIVATE | $FINAL, $field(RadialGradientPaint, radius)},
-	{}
-};
-
-$MethodInfo _RadialGradientPaint_MethodInfo_[] = {
-	{"<init>", "(FFF[F[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, float, float, float, $floats*, $ColorArray*)},
-	{"<init>", "(Ljava/awt/geom/Point2D;F[F[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Point2D*, float, $floats*, $ColorArray*)},
-	{"<init>", "(FFF[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, float, float, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
-	{"<init>", "(Ljava/awt/geom/Point2D;F[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Point2D*, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
-	{"<init>", "(FFFFF[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, float, float, float, float, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
-	{"<init>", "(Ljava/awt/geom/Point2D;FLjava/awt/geom/Point2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Point2D*, float, $Point2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
-	{"<init>", "(Ljava/awt/geom/Point2D;FLjava/awt/geom/Point2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Point2D*, float, $Point2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*, $AffineTransform*), nullptr, nullptr, _RadialGradientPaint_MethodAnnotations_init$6},
-	{"<init>", "(Ljava/awt/geom/Rectangle2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Rectangle2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
-	{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC, $virtualMethod(RadialGradientPaint, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
-	{"createGradientTransform", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticMethod(RadialGradientPaint, createGradientTransform, $AffineTransform*, $Rectangle2D*)},
-	{"getCenterPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $method(RadialGradientPaint, getCenterPoint, $Point2D*)},
-	{"getFocusPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $method(RadialGradientPaint, getFocusPoint, $Point2D*)},
-	{"getRadius", "()F", nullptr, $PUBLIC, $method(RadialGradientPaint, getRadius, float)},
-	{}
-};
-
-$ClassInfo _RadialGradientPaint_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.RadialGradientPaint",
-	"java.awt.MultipleGradientPaint",
-	nullptr,
-	_RadialGradientPaint_FieldInfo_,
-	_RadialGradientPaint_MethodInfo_
-};
-
-$Object* allocate$RadialGradientPaint($Class* clazz) {
-	return $of($alloc(RadialGradientPaint));
-}
-
 void RadialGradientPaint::init$(float cx, float cy, float radius, $floats* fractions, $ColorArray* colors) {
 	$init($MultipleGradientPaint$CycleMethod);
 	RadialGradientPaint::init$(cx, cy, radius, cx, cy, fractions, colors, $MultipleGradientPaint$CycleMethod::NO_CYCLE);
@@ -124,10 +64,9 @@ void RadialGradientPaint::init$($Point2D* center, float radius, $floats* fractio
 }
 
 void RadialGradientPaint::init$(float cx, float cy, float radius, float fx, float fy, $floats* fractions, $ColorArray* colors, $MultipleGradientPaint$CycleMethod* cycleMethod) {
-	$useLocalCurrentObjectStackCache();
-	$var($Point2D, var$0, static_cast<$Point2D*>($new($Point2D$Float, cx, cy)));
-	float var$1 = radius;
-	RadialGradientPaint::init$(var$0, var$1, static_cast<$Point2D*>($$new($Point2D$Float, fx, fy)), fractions, colors, cycleMethod);
+	$useLocalObjectStack();
+	$var($Point2D, var$0, $new($Point2D$Float, cx, cy));
+	RadialGradientPaint::init$(var$0, radius, $$new($Point2D$Float, fx, fy), fractions, colors, cycleMethod);
 }
 
 void RadialGradientPaint::init$($Point2D* center, float radius, $Point2D* focus, $floats* fractions, $ColorArray* colors, $MultipleGradientPaint$CycleMethod* cycleMethod) {
@@ -154,18 +93,15 @@ void RadialGradientPaint::init$($Point2D* center, float radius, $Point2D* focus,
 }
 
 void RadialGradientPaint::init$($Rectangle2D* gradientBounds, $floats* fractions, $ColorArray* colors, $MultipleGradientPaint$CycleMethod* cycleMethod) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double var$1 = $nc(gradientBounds)->getCenterX();
-	$var($Point2D, var$0, static_cast<$Point2D*>($new($Point2D$Double, var$1, gradientBounds->getCenterY())));
-	double var$3 = $nc(gradientBounds)->getCenterX();
-	$var($Point2D, var$2, static_cast<$Point2D*>($new($Point2D$Double, var$3, gradientBounds->getCenterY())));
-	$var($floats, var$4, fractions);
-	$var($ColorArray, var$5, colors);
-	$var($MultipleGradientPaint$CycleMethod, var$6, cycleMethod);
+	$var($Point2D, var$0, $new($Point2D$Double, var$1, gradientBounds->getCenterY()));
+	double var$3 = gradientBounds->getCenterX();
+	$var($Point2D, var$2, $new($Point2D$Double, var$3, gradientBounds->getCenterY()));
 	$init($MultipleGradientPaint$ColorSpaceType);
-	$var($MultipleGradientPaint$ColorSpaceType, var$7, $MultipleGradientPaint$ColorSpaceType::SRGB);
-	RadialGradientPaint::init$(var$0, 1.0f, var$2, var$4, var$5, var$6, var$7, $(createGradientTransform(gradientBounds)));
-	if ($nc(gradientBounds)->isEmpty()) {
+	$var($MultipleGradientPaint$ColorSpaceType, var$4, $MultipleGradientPaint$ColorSpaceType::SRGB);
+	RadialGradientPaint::init$(var$0, 1.0f, var$2, fractions, colors, cycleMethod, var$4, $(createGradientTransform(gradientBounds)));
+	if (gradientBounds->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Gradient bounds must be non-empty"_s);
 	}
 }
@@ -177,35 +113,29 @@ $AffineTransform* RadialGradientPaint::createGradientTransform($Rectangle2D* r) 
 	$var($AffineTransform, xform, $AffineTransform::getTranslateInstance(cx, cy));
 	double var$0 = r->getWidth() / 2;
 	$nc(xform)->scale(var$0, r->getHeight() / 2);
-	xform->translate(-cx, -cy);
+	$nc(xform)->translate(-cx, -cy);
 	return xform;
 }
 
 $PaintContext* RadialGradientPaint::createContext($ColorModel* cm, $Rectangle* deviceBounds, $Rectangle2D* userBounds, $AffineTransform* transform$renamed, $RenderingHints* hints) {
-	$useLocalCurrentObjectStackCache();
 	$var($AffineTransform, transform, transform$renamed);
 	$assign(transform, $new($AffineTransform, transform));
 	transform->concatenate(this->gradientTransform);
-	$var($ColorModel, var$0, cm);
-	$var($Rectangle, var$1, deviceBounds);
-	$var($Rectangle2D, var$2, userBounds);
-	$var($AffineTransform, var$3, transform);
-	$var($RenderingHints, var$4, hints);
-	float var$5 = (float)$nc(this->center)->getX();
-	float var$6 = (float)$nc(this->center)->getY();
-	float var$7 = this->radius;
-	float var$8 = (float)$nc(this->focus)->getX();
-	return $new($RadialGradientPaintContext, this, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, (float)$nc(this->focus)->getY(), this->fractions, this->colors, this->cycleMethod, this->colorSpace);
+	float var$0 = (float)$nc(this->center)->getX();
+	float var$1 = (float)this->center->getY();
+	float var$2 = this->radius;
+	float var$3 = (float)$nc(this->focus)->getX();
+	return $new($RadialGradientPaintContext, this, cm, deviceBounds, userBounds, transform, hints, var$0, var$1, var$2, var$3, (float)this->focus->getY(), this->fractions, this->colors, this->cycleMethod, this->colorSpace);
 }
 
 $Point2D* RadialGradientPaint::getCenterPoint() {
 	double var$0 = $nc(this->center)->getX();
-	return $new($Point2D$Double, var$0, $nc(this->center)->getY());
+	return $new($Point2D$Double, var$0, this->center->getY());
 }
 
 $Point2D* RadialGradientPaint::getFocusPoint() {
 	double var$0 = $nc(this->focus)->getX();
-	return $new($Point2D$Double, var$0, $nc(this->focus)->getY());
+	return $new($Point2D$Double, var$0, this->focus->getY());
 }
 
 float RadialGradientPaint::getRadius() {
@@ -216,7 +146,58 @@ RadialGradientPaint::RadialGradientPaint() {
 }
 
 $Class* RadialGradientPaint::load$($String* name, bool initialize) {
-	$loadClass(RadialGradientPaint, name, initialize, &_RadialGradientPaint_ClassInfo_, allocate$RadialGradientPaint);
+	$FieldInfo fieldInfos$$[] = {
+		{"focus", "Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $FINAL, $field(RadialGradientPaint, focus)},
+		{"center", "Ljava/awt/geom/Point2D;", nullptr, $PRIVATE | $FINAL, $field(RadialGradientPaint, center)},
+		{"radius", "F", nullptr, $PRIVATE | $FINAL, $field(RadialGradientPaint, radius)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "centerPoint"},
+		{'s', "radius"},
+		{'s', "focusPoint"},
+		{'s', "fractions"},
+		{'s', "colors"},
+		{'s', "cycleMethod"},
+		{'s', "colorSpace"},
+		{'s', "transform"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$6$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$6[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$6$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FFF[F[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, float, float, float, $floats*, $ColorArray*)},
+		{"<init>", "(Ljava/awt/geom/Point2D;F[F[Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Point2D*, float, $floats*, $ColorArray*)},
+		{"<init>", "(FFF[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, float, float, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
+		{"<init>", "(Ljava/awt/geom/Point2D;F[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Point2D*, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
+		{"<init>", "(FFFFF[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, float, float, float, float, float, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
+		{"<init>", "(Ljava/awt/geom/Point2D;FLjava/awt/geom/Point2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Point2D*, float, $Point2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
+		{"<init>", "(Ljava/awt/geom/Point2D;FLjava/awt/geom/Point2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Point2D*, float, $Point2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*, $AffineTransform*), nullptr, nullptr, init$methodAnnotations$$$6},
+		{"<init>", "(Ljava/awt/geom/Rectangle2D;[F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;)V", nullptr, $PUBLIC, $method(RadialGradientPaint, init$, void, $Rectangle2D*, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*)},
+		{"createContext", "(Ljava/awt/image/ColorModel;Ljava/awt/Rectangle;Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)Ljava/awt/PaintContext;", nullptr, $PUBLIC, $virtualMethod(RadialGradientPaint, createContext, $PaintContext*, $ColorModel*, $Rectangle*, $Rectangle2D*, $AffineTransform*, $RenderingHints*)},
+		{"createGradientTransform", "(Ljava/awt/geom/Rectangle2D;)Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE | $STATIC, $staticMethod(RadialGradientPaint, createGradientTransform, $AffineTransform*, $Rectangle2D*)},
+		{"getCenterPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $method(RadialGradientPaint, getCenterPoint, $Point2D*)},
+		{"getFocusPoint", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $method(RadialGradientPaint, getFocusPoint, $Point2D*)},
+		{"getRadius", "()F", nullptr, $PUBLIC, $method(RadialGradientPaint, getRadius, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.RadialGradientPaint",
+		"java.awt.MultipleGradientPaint",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RadialGradientPaint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RadialGradientPaint);
+	});
 	return class$;
 }
 

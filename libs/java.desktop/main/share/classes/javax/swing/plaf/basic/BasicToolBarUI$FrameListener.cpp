@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/basic/BasicToolBarUI$FrameListener.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowAdapter.h>
@@ -15,7 +13,6 @@
 
 #undef HORIZONTAL
 
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $WindowAdapter = ::java::awt::event::WindowAdapter;
@@ -25,51 +22,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JToolBar = ::javax::swing::JToolBar;
-using $RootPaneContainer = ::javax::swing::RootPaneContainer;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicToolBarUI = ::javax::swing::plaf::basic::BasicToolBarUI;
-using $BasicToolBarUI$DragWindow = ::javax::swing::plaf::basic::BasicToolBarUI$DragWindow;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicToolBarUI$FrameListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicToolBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicToolBarUI$FrameListener, this$0)},
-	{}
-};
-
-$MethodInfo _BasicToolBarUI$FrameListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicToolBarUI;)V", nullptr, $PROTECTED, $method(BasicToolBarUI$FrameListener, init$, void, $BasicToolBarUI*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$FrameListener, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicToolBarUI$FrameListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicToolBarUI$FrameListener", "javax.swing.plaf.basic.BasicToolBarUI", "FrameListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicToolBarUI$FrameListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicToolBarUI$FrameListener",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_BasicToolBarUI$FrameListener_FieldInfo_,
-	_BasicToolBarUI$FrameListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicToolBarUI$FrameListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicToolBarUI"
-};
-
-$Object* allocate$BasicToolBarUI$FrameListener($Class* clazz) {
-	return $of($alloc(BasicToolBarUI$FrameListener));
-}
 
 void BasicToolBarUI$FrameListener::init$($BasicToolBarUI* this$0) {
 	$set(this, this$0, this$0);
@@ -77,19 +36,19 @@ void BasicToolBarUI$FrameListener::init$($BasicToolBarUI* this$0) {
 }
 
 void BasicToolBarUI$FrameListener::windowClosing($WindowEvent* w) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->this$0->toolBar)->isFloatable()) {
 		if (this->this$0->dragWindow != nullptr) {
-			$nc(this->this$0->dragWindow)->setVisible(false);
+			this->this$0->dragWindow->setVisible(false);
 		}
 		this->this$0->floating = false;
 		if (this->this$0->floatingToolBar == nullptr) {
 			$set(this->this$0, floatingToolBar, this->this$0->createFloatingWindow(this->this$0->toolBar));
 		}
 		if ($instanceOf($Window, this->this$0->floatingToolBar)) {
-			$nc(($cast($Window, this->this$0->floatingToolBar)))->setVisible(false);
+			$cast($Window, this->this$0->floatingToolBar)->setVisible(false);
 		}
-		$nc($($nc(this->this$0->floatingToolBar)->getContentPane()))->remove(static_cast<$Component*>(this->this$0->toolBar));
+		$$nc($nc(this->this$0->floatingToolBar)->getContentPane())->remove(this->this$0->toolBar);
 		$var($String, constraint, this->this$0->constraintBeforeFloating);
 		if ($nc(this->this$0->toolBar)->getOrientation() == $JToolBar::HORIZONTAL) {
 			if (constraint == "West"_s || constraint == "East"_s) {
@@ -104,7 +63,7 @@ void BasicToolBarUI$FrameListener::windowClosing($WindowEvent* w) {
 		if (this->this$0->propertyListener != nullptr) {
 			$UIManager::removePropertyChangeListener(this->this$0->propertyListener);
 		}
-		$nc(this->this$0->dockingSource)->add(static_cast<$Component*>(this->this$0->toolBar), $of(constraint));
+		$nc(this->this$0->dockingSource)->add(this->this$0->toolBar, constraint);
 		$nc(this->this$0->dockingSource)->invalidate();
 		$var($Container, dockingSourceParent, $nc(this->this$0->dockingSource)->getParent());
 		if (dockingSourceParent != nullptr) {
@@ -118,7 +77,37 @@ BasicToolBarUI$FrameListener::BasicToolBarUI$FrameListener() {
 }
 
 $Class* BasicToolBarUI$FrameListener::load$($String* name, bool initialize) {
-	$loadClass(BasicToolBarUI$FrameListener, name, initialize, &_BasicToolBarUI$FrameListener_ClassInfo_, allocate$BasicToolBarUI$FrameListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicToolBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicToolBarUI$FrameListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicToolBarUI;)V", nullptr, $PROTECTED, $method(BasicToolBarUI$FrameListener, init$, void, $BasicToolBarUI*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicToolBarUI$FrameListener, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicToolBarUI$FrameListener", "javax.swing.plaf.basic.BasicToolBarUI", "FrameListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicToolBarUI$FrameListener",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicToolBarUI"
+	};
+	$loadClass(BasicToolBarUI$FrameListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicToolBarUI$FrameListener));
+	});
 	return class$;
 }
 

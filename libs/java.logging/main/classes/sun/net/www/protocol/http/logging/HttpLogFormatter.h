@@ -31,6 +31,7 @@ class HttpLogFormatter : public ::java::util::logging::SimpleFormatter {
 	$class(HttpLogFormatter, 0, ::java::util::logging::SimpleFormatter)
 public:
 	HttpLogFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* format(::java::util::logging::LogRecord* record) override;
 	static $volatile(::java::util::regex::Pattern*) pattern;

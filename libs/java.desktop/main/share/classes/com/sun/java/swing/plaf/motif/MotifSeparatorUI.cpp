@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifSeparatorUI.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicSeparatorUI.h>
@@ -18,25 +17,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifSeparatorUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifSeparatorUI",
-	"javax.swing.plaf.basic.BasicSeparatorUI",
-	nullptr,
-	nullptr,
-	_MotifSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$MotifSeparatorUI($Class* clazz) {
-	return $of($alloc(MotifSeparatorUI));
-}
-
 void MotifSeparatorUI::init$() {
 	$BasicSeparatorUI::init$();
 }
@@ -50,7 +30,22 @@ MotifSeparatorUI::MotifSeparatorUI() {
 }
 
 $Class* MotifSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(MotifSeparatorUI, name, initialize, &_MotifSeparatorUI_ClassInfo_, allocate$MotifSeparatorUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifSeparatorUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifSeparatorUI",
+		"javax.swing.plaf.basic.BasicSeparatorUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifSeparatorUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifSeparatorUI);
+	});
 	return class$;
 }
 

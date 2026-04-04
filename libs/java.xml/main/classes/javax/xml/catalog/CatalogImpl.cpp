@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/CatalogImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/jaxp/SAXParserFactoryImpl.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
@@ -36,7 +35,6 @@
 #include <javax/xml/parsers/SAXParser.h>
 #include <javax/xml/parsers/SAXParserFactory.h>
 #include <org/xml/sax/SAXException.h>
-#include <org/xml/sax/helpers/DefaultHandler.h>
 #include <jcpp.h>
 
 #undef CATALOG
@@ -57,7 +55,6 @@ using $SAXParserFactoryImpl = ::com::sun::org::apache::xerces::internal::jaxp::S
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -68,8 +65,6 @@ using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Spliterator = ::java::util::Spliterator;
 using $Spliterators = ::java::util::Spliterators;
 using $Consumer = ::java::util::function::Consumer;
@@ -91,7 +86,6 @@ using $ParserConfigurationException = ::javax::xml::parsers::ParserConfiguration
 using $SAXParser = ::javax::xml::parsers::SAXParser;
 using $SAXParserFactory = ::javax::xml::parsers::SAXParserFactory;
 using $SAXException = ::org::xml::sax::SAXException;
-using $DefaultHandler = ::org::xml::sax::helpers::DefaultHandler;
 
 namespace javax {
 	namespace xml {
@@ -105,27 +99,24 @@ public:
 	virtual bool test(Object$* entry) override {
 		 return CatalogImpl::lambda$reset$0($cast($BaseEntry, entry));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CatalogImpl$$Lambda$lambda$reset$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CatalogImpl$$Lambda$lambda$reset$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CatalogImpl$$Lambda$lambda$reset$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CatalogImpl$$Lambda$lambda$reset$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo CatalogImpl$$Lambda$lambda$reset$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.xml.catalog.CatalogImpl$$Lambda$lambda$reset$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* CatalogImpl$$Lambda$lambda$reset$0::load$($String* name, bool initialize) {
-	$loadClass(CatalogImpl$$Lambda$lambda$reset$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CatalogImpl$$Lambda$lambda$reset$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CatalogImpl$$Lambda$lambda$reset$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.xml.catalog.CatalogImpl$$Lambda$lambda$reset$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CatalogImpl$$Lambda$lambda$reset$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CatalogImpl$$Lambda$lambda$reset$0);
+	});
 	return class$;
 }
 $Class* CatalogImpl$$Lambda$lambda$reset$0::class$ = nullptr;
@@ -138,27 +129,24 @@ public:
 	virtual void accept(Object$* entry) override {
 		CatalogImpl::lambda$reset$1($cast($BaseEntry, entry));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CatalogImpl$$Lambda$lambda$reset$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CatalogImpl$$Lambda$lambda$reset$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CatalogImpl$$Lambda$lambda$reset$1$1, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CatalogImpl$$Lambda$lambda$reset$1$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo CatalogImpl$$Lambda$lambda$reset$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.xml.catalog.CatalogImpl$$Lambda$lambda$reset$1$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* CatalogImpl$$Lambda$lambda$reset$1$1::load$($String* name, bool initialize) {
-	$loadClass(CatalogImpl$$Lambda$lambda$reset$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CatalogImpl$$Lambda$lambda$reset$1$1, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CatalogImpl$$Lambda$lambda$reset$1$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.xml.catalog.CatalogImpl$$Lambda$lambda$reset$1$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CatalogImpl$$Lambda$lambda$reset$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CatalogImpl$$Lambda$lambda$reset$1$1);
+	});
 	return class$;
 }
 $Class* CatalogImpl$$Lambda$lambda$reset$1$1::class$ = nullptr;
@@ -172,33 +160,29 @@ public:
 	virtual void accept(Object$* next) override {
 		$nc(inst$)->lambda$loadNextCatalogs$2($cast($NextCatalog, next));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2>());
-	}
 	CatalogImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, inst$)},
-	{}
-};
-$MethodInfo CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2::methodInfos[3] = {
-	{"<init>", "(Ljavax/xml/catalog/CatalogImpl;)V", nullptr, $PUBLIC, $method(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, init$, void, CatalogImpl*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.xml.catalog.CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2::load$($String* name, bool initialize) {
-	$loadClass(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/catalog/CatalogImpl;)V", nullptr, $PUBLIC, $method(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, init$, void, CatalogImpl*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.xml.catalog.CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2);
+	});
 	return class$;
 }
 $Class* CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2::class$ = nullptr;
@@ -212,110 +196,32 @@ public:
 	virtual void accept(Object$* uri) override {
 		$nc(inst$)->lambda$loadNextCatalogs$3($cast($String, uri));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3>());
-	}
 	CatalogImpl* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, inst$)},
-	{}
-};
-$MethodInfo CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::methodInfos[3] = {
-	{"<init>", "(Ljavax/xml/catalog/CatalogImpl;)V", nullptr, $PUBLIC, $method(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, init$, void, CatalogImpl*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, accept, void, Object$*)},
-	{}
-};
-$ClassInfo CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.xml.catalog.CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::load$($String* name, bool initialize) {
-	$loadClass(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/catalog/CatalogImpl;)V", nullptr, $PUBLIC, $method(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, init$, void, CatalogImpl*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.xml.catalog.CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3);
+	});
 	return class$;
 }
 $Class* CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::class$ = nullptr;
-
-$FieldInfo _CatalogImpl_FieldInfo_[] = {
-	{"level", "I", nullptr, 0, $field(CatalogImpl, level)},
-	{"isDeferred", "Z", nullptr, 0, $field(CatalogImpl, isDeferred$)},
-	{"resolveType", "Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, 0, $field(CatalogImpl, resolveType)},
-	{"isEmpty", "Z", nullptr, 0, $field(CatalogImpl, isEmpty$)},
-	{"current", "I", nullptr, 0, $field(CatalogImpl, current)},
-	{"systemId", "Ljava/lang/String;", nullptr, 0, $field(CatalogImpl, systemId)},
-	{"inputFiles", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(CatalogImpl, inputFiles)},
-	{"nextCatalogs", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/catalog/NextCatalog;>;", 0, $field(CatalogImpl, nextCatalogs)},
-	{"parser", "Ljavax/xml/parsers/SAXParser;", nullptr, 0, $field(CatalogImpl, parser)},
-	{}
-};
-
-$MethodInfo _CatalogImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/xml/catalog/CatalogFeatures;[Ljava/net/URI;)V", nullptr, $PUBLIC | $TRANSIENT, $method(CatalogImpl, init$, void, $CatalogFeatures*, $URIArray*), "javax.xml.catalog.CatalogException"},
-	{"<init>", "(Ljavax/xml/catalog/CatalogImpl;Ljavax/xml/catalog/CatalogFeatures;[Ljava/net/URI;)V", nullptr, $PUBLIC | $TRANSIENT, $method(CatalogImpl, init$, void, CatalogImpl*, $CatalogFeatures*, $URIArray*), "javax.xml.catalog.CatalogException"},
-	{"addNextCatalog", "(Ljavax/xml/catalog/NextCatalog;)V", nullptr, 0, $virtualMethod(CatalogImpl, addNextCatalog, void, $NextCatalog*)},
-	{"catalogs", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljavax/xml/catalog/Catalog;>;", $PUBLIC, $virtualMethod(CatalogImpl, catalogs, $Stream*)},
-	{"getCatalog", "(Ljavax/xml/catalog/CatalogImpl;Ljava/net/URI;)Ljavax/xml/catalog/Catalog;", nullptr, 0, $virtualMethod(CatalogImpl, getCatalog, $Catalog*, CatalogImpl*, $URI*)},
-	{"getParent", "()Ljavax/xml/catalog/Catalog;", nullptr, $PUBLIC, $virtualMethod(CatalogImpl, getParent, $Catalog*)},
-	{"getParser", "()Ljavax/xml/parsers/SAXParser;", nullptr, $PRIVATE, $method(CatalogImpl, getParser, $SAXParser*)},
-	{"getResolve", "()Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $FINAL, $method(CatalogImpl, getResolve, $GroupEntry$ResolveType*)},
-	{"init", "(Ljavax/xml/catalog/CatalogFeatures;)V", nullptr, $PRIVATE, $method(CatalogImpl, init, void, $CatalogFeatures*)},
-	{"isDeferred", "()Z", nullptr, $PUBLIC, $virtualMethod(CatalogImpl, isDeferred, bool)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(CatalogImpl, isEmpty, bool)},
-	{"isTop", "()Z", nullptr, 0, $virtualMethod(CatalogImpl, isTop, bool)},
-	{"lambda$loadNextCatalogs$2", "(Ljavax/xml/catalog/NextCatalog;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CatalogImpl, lambda$loadNextCatalogs$2, void, $NextCatalog*)},
-	{"lambda$loadNextCatalogs$3", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CatalogImpl, lambda$loadNextCatalogs$3, void, $String*)},
-	{"lambda$reset$0", "(Ljavax/xml/catalog/BaseEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CatalogImpl, lambda$reset$0, bool, $BaseEntry*)},
-	{"lambda$reset$1", "(Ljavax/xml/catalog/BaseEntry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CatalogImpl, lambda$reset$1, void, $BaseEntry*)},
-	{"load", "()V", nullptr, 0, $virtualMethod(CatalogImpl, load, void)},
-	{"loadNextCatalogs", "()V", nullptr, 0, $virtualMethod(CatalogImpl, loadNextCatalogs, void)},
-	{"loadedCatalogCount", "()I", nullptr, 0, $virtualMethod(CatalogImpl, loadedCatalogCount, int32_t)},
-	{"markAsSearched", "()V", nullptr, 0, $virtualMethod(CatalogImpl, markAsSearched, void)},
-	{"*matchPublic", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*matchSystem", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*matchURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CatalogImpl, parse, void, $String*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CatalogImpl, reset, void)},
-	{"saveLoadedCatalog", "(Ljava/lang/String;Ljavax/xml/catalog/CatalogImpl;)V", nullptr, 0, $virtualMethod(CatalogImpl, saveLoadedCatalog, void, $String*, CatalogImpl*)},
-	{"setDeferred", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(CatalogImpl, setDeferred, void, $String*)},
-	{"setResolve", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(CatalogImpl, setResolve, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _CatalogImpl_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.CatalogImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CatalogImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.xml.catalog.CatalogImpl",
-	"javax.xml.catalog.GroupEntry",
-	"javax.xml.catalog.Catalog",
-	_CatalogImpl_FieldInfo_,
-	_CatalogImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CatalogImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.CatalogImpl$1"
-};
-
-$Object* allocate$CatalogImpl($Class* clazz) {
-	return $of($alloc(CatalogImpl));
-}
 
 $String* CatalogImpl::matchSystem($String* systemId) {
 	 return this->$GroupEntry::matchSystem(systemId);
@@ -354,7 +260,7 @@ void CatalogImpl::init$($CatalogFeatures* f, $URIArray* uris) {
 }
 
 void CatalogImpl::init$(CatalogImpl* parent, $CatalogFeatures* f, $URIArray* uris) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BaseEntry$CatalogEntryType);
 	$GroupEntry::init$($BaseEntry$CatalogEntryType::CATALOG, parent);
 	this->level = 0;
@@ -364,7 +270,7 @@ void CatalogImpl::init$(CatalogImpl* parent, $CatalogFeatures* f, $URIArray* uri
 	this->current = 0;
 	if (f == nullptr) {
 		$init($CatalogMessages);
-		$throwNew($NullPointerException, $($CatalogMessages::formatMessage($CatalogMessages::ERR_NULL_ARGUMENT, $$new($ObjectArray, {$of("CatalogFeatures"_s)}))));
+		$throwNew($NullPointerException, $($CatalogMessages::formatMessage($CatalogMessages::ERR_NULL_ARGUMENT, $$new($ObjectArray, {"CatalogFeatures"_s}))));
 	}
 	init(f);
 	$var($StringArray, catalogFile, nullptr);
@@ -375,7 +281,7 @@ void CatalogImpl::init$(CatalogImpl* parent, $CatalogFeatures* f, $URIArray* uri
 			$assign(catalogFile, files->split(";"_s));
 		}
 	} else {
-		$assign(catalogFile, $new($StringArray, uris->length));
+		$assign(catalogFile, $new($StringArray, $nc(uris)->length));
 		for (int32_t i = 0; i < uris->length; ++i) {
 			catalogFile->set(i, $($nc(uris->get(i))->toASCIIString()));
 		}
@@ -385,9 +291,7 @@ void CatalogImpl::init$(CatalogImpl* parent, $CatalogFeatures* f, $URIArray* uri
 		$var($URI, uri, nullptr);
 		{
 			$var($StringArray, arr$, catalogFile);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, temp, arr$->get(i$));
 				{
 					$assign(uri, $URI::create(temp));
@@ -398,7 +302,7 @@ void CatalogImpl::init$(CatalogImpl* parent, $CatalogFeatures* f, $URIArray* uri
 							$set(this, baseURI, $new($URL, this->systemId));
 						} catch ($MalformedURLException& e) {
 							$init($CatalogMessages);
-							$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_INVALID_PATH, $$new($ObjectArray, {$of(temp)}), e);
+							$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_INVALID_PATH, $$new($ObjectArray, {temp}), e);
 						}
 						break;
 					}
@@ -409,7 +313,7 @@ void CatalogImpl::init$(CatalogImpl* parent, $CatalogFeatures* f, $URIArray* uri
 			$set(this, inputFiles, $new($ArrayList));
 			for (int32_t i = start; i < catalogFile->length; ++i) {
 				if (catalogFile->get(i) != nullptr) {
-					$nc(this->inputFiles)->add(catalogFile->get(i));
+					this->inputFiles->add(catalogFile->get(i));
 				}
 			}
 		}
@@ -429,13 +333,13 @@ void CatalogImpl::load() {
 }
 
 void CatalogImpl::init($CatalogFeatures* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->parent == nullptr) {
 		this->level = 0;
 	} else {
-		this->level = $nc(this->parent)->level + 1;
-		$set(this, loadedCatalogs, $nc(this->parent)->loadedCatalogs);
-		$set(this, catalogsSearched, $nc(this->parent)->catalogsSearched);
+		this->level = this->parent->level + 1;
+		$set(this, loadedCatalogs, this->parent->loadedCatalogs);
+		$set(this, catalogsSearched, this->parent->catalogsSearched);
 	}
 	if (f == nullptr) {
 		$set(this, features, $CatalogFeatures::defaults());
@@ -449,13 +353,13 @@ void CatalogImpl::init($CatalogFeatures* f) {
 }
 
 void CatalogImpl::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GroupEntry::reset();
 	this->current = 0;
 	if (this->level == 0) {
 		$nc(this->catalogsSearched)->clear();
 	}
-	$nc($($nc($($nc(this->entries)->stream()))->filter(static_cast<$Predicate*>($$new(CatalogImpl$$Lambda$lambda$reset$0)))))->forEach(static_cast<$Consumer*>($$new(CatalogImpl$$Lambda$lambda$reset$1$1)));
+	$$nc($$nc($nc(this->entries)->stream())->filter($$new(CatalogImpl$$Lambda$lambda$reset$0)))->forEach($$new(CatalogImpl$$Lambda$lambda$reset$1$1));
 }
 
 bool CatalogImpl::isTop() {
@@ -492,18 +396,18 @@ void CatalogImpl::parse($String* systemId) {
 	}
 	try {
 		$var($CatalogReader, reader, $new($CatalogReader, this, this->parser));
-		$nc(this->parser)->parse(systemId, static_cast<$DefaultHandler*>(reader));
+		$nc(this->parser)->parse(systemId, reader);
 	} catch ($SAXException& ex) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSING_FAILED, static_cast<$Throwable*>(ex));
+		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSING_FAILED, ex);
 	} catch ($IOException& ex) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSING_FAILED, static_cast<$Throwable*>(ex));
+		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSING_FAILED, ex);
 	}
 }
 
 $SAXParser* CatalogImpl::getParser() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SAXParser, p, nullptr);
 	try {
 		$var($SAXParserFactory, spf, $new($SAXParserFactoryImpl));
@@ -513,10 +417,10 @@ $SAXParser* CatalogImpl::getParser() {
 		$assign(p, spf->newSAXParser());
 	} catch ($ParserConfigurationException& e) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSING_FAILED, static_cast<$Throwable*>(e));
+		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSING_FAILED, e);
 	} catch ($SAXException& e) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSING_FAILED, static_cast<$Throwable*>(e));
+		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_PARSING_FAILED, e);
 	}
 	return p;
 }
@@ -526,7 +430,7 @@ bool CatalogImpl::isEmpty() {
 }
 
 $Stream* CatalogImpl::catalogs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, iter, $new($CatalogImpl$1, this));
 	return $StreamSupport::stream($($Spliterators::spliteratorUnknownSize(iter, $Spliterator::ORDERED | $Spliterator::NONNULL)), false);
 }
@@ -542,17 +446,17 @@ void CatalogImpl::addNextCatalog($NextCatalog* catalog) {
 }
 
 void CatalogImpl::loadNextCatalogs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nextCatalogs != nullptr) {
-		$nc($($nc(this->nextCatalogs)->stream()))->forEach(static_cast<$Consumer*>($$new(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, this)));
+		$$nc(this->nextCatalogs->stream())->forEach($$new(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2, this));
 	}
 	if (this->inputFiles != nullptr) {
-		$nc($($nc(this->inputFiles)->stream()))->forEach(static_cast<$Consumer*>($$new(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, this)));
+		$$nc(this->inputFiles->stream())->forEach($$new(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3, this));
 	}
 }
 
 $Catalog* CatalogImpl::getCatalog(CatalogImpl* parent, $URI* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (uri == nullptr) {
 		return nullptr;
 	}
@@ -585,7 +489,7 @@ void CatalogImpl::lambda$loadNextCatalogs$2($NextCatalog* next) {
 
 void CatalogImpl::lambda$reset$1($BaseEntry* entry) {
 	$init(CatalogImpl);
-	$nc(($cast($GroupEntry, entry)))->reset();
+	$nc($cast($GroupEntry, entry))->reset();
 }
 
 bool CatalogImpl::lambda$reset$0($BaseEntry* entry) {
@@ -599,20 +503,88 @@ CatalogImpl::CatalogImpl() {
 
 $Class* CatalogImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CatalogImpl$$Lambda$lambda$reset$0::classInfo$.name)) {
+		if (name->equals("javax.xml.catalog.CatalogImpl$$Lambda$lambda$reset$0")) {
 			return CatalogImpl$$Lambda$lambda$reset$0::load$(name, initialize);
 		}
-		if (name->equals(CatalogImpl$$Lambda$lambda$reset$1$1::classInfo$.name)) {
+		if (name->equals("javax.xml.catalog.CatalogImpl$$Lambda$lambda$reset$1$1")) {
 			return CatalogImpl$$Lambda$lambda$reset$1$1::load$(name, initialize);
 		}
-		if (name->equals(CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2::classInfo$.name)) {
+		if (name->equals("javax.xml.catalog.CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2")) {
 			return CatalogImpl$$Lambda$lambda$loadNextCatalogs$2$2::load$(name, initialize);
 		}
-		if (name->equals(CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::classInfo$.name)) {
+		if (name->equals("javax.xml.catalog.CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3")) {
 			return CatalogImpl$$Lambda$lambda$loadNextCatalogs$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(CatalogImpl, name, initialize, &_CatalogImpl_ClassInfo_, allocate$CatalogImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"level", "I", nullptr, 0, $field(CatalogImpl, level)},
+		{"isDeferred", "Z", nullptr, 0, $field(CatalogImpl, isDeferred$)},
+		{"resolveType", "Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, 0, $field(CatalogImpl, resolveType)},
+		{"isEmpty", "Z", nullptr, 0, $field(CatalogImpl, isEmpty$)},
+		{"current", "I", nullptr, 0, $field(CatalogImpl, current)},
+		{"systemId", "Ljava/lang/String;", nullptr, 0, $field(CatalogImpl, systemId)},
+		{"inputFiles", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(CatalogImpl, inputFiles)},
+		{"nextCatalogs", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/catalog/NextCatalog;>;", 0, $field(CatalogImpl, nextCatalogs)},
+		{"parser", "Ljavax/xml/parsers/SAXParser;", nullptr, 0, $field(CatalogImpl, parser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/xml/catalog/CatalogFeatures;[Ljava/net/URI;)V", nullptr, $PUBLIC | $TRANSIENT, $method(CatalogImpl, init$, void, $CatalogFeatures*, $URIArray*), "javax.xml.catalog.CatalogException"},
+		{"<init>", "(Ljavax/xml/catalog/CatalogImpl;Ljavax/xml/catalog/CatalogFeatures;[Ljava/net/URI;)V", nullptr, $PUBLIC | $TRANSIENT, $method(CatalogImpl, init$, void, CatalogImpl*, $CatalogFeatures*, $URIArray*), "javax.xml.catalog.CatalogException"},
+		{"addNextCatalog", "(Ljavax/xml/catalog/NextCatalog;)V", nullptr, 0, $virtualMethod(CatalogImpl, addNextCatalog, void, $NextCatalog*)},
+		{"catalogs", "()Ljava/util/stream/Stream;", "()Ljava/util/stream/Stream<Ljavax/xml/catalog/Catalog;>;", $PUBLIC, $virtualMethod(CatalogImpl, catalogs, $Stream*)},
+		{"getCatalog", "(Ljavax/xml/catalog/CatalogImpl;Ljava/net/URI;)Ljavax/xml/catalog/Catalog;", nullptr, 0, $virtualMethod(CatalogImpl, getCatalog, $Catalog*, CatalogImpl*, $URI*)},
+		{"getParent", "()Ljavax/xml/catalog/Catalog;", nullptr, $PUBLIC, $virtualMethod(CatalogImpl, getParent, $Catalog*)},
+		{"getParser", "()Ljavax/xml/parsers/SAXParser;", nullptr, $PRIVATE, $method(CatalogImpl, getParser, $SAXParser*)},
+		{"getResolve", "()Ljavax/xml/catalog/GroupEntry$ResolveType;", nullptr, $PUBLIC | $FINAL, $method(CatalogImpl, getResolve, $GroupEntry$ResolveType*)},
+		{"init", "(Ljavax/xml/catalog/CatalogFeatures;)V", nullptr, $PRIVATE, $method(CatalogImpl, init, void, $CatalogFeatures*)},
+		{"isDeferred", "()Z", nullptr, $PUBLIC, $virtualMethod(CatalogImpl, isDeferred, bool)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(CatalogImpl, isEmpty, bool)},
+		{"isTop", "()Z", nullptr, 0, $virtualMethod(CatalogImpl, isTop, bool)},
+		{"lambda$loadNextCatalogs$2", "(Ljavax/xml/catalog/NextCatalog;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CatalogImpl, lambda$loadNextCatalogs$2, void, $NextCatalog*)},
+		{"lambda$loadNextCatalogs$3", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(CatalogImpl, lambda$loadNextCatalogs$3, void, $String*)},
+		{"lambda$reset$0", "(Ljavax/xml/catalog/BaseEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CatalogImpl, lambda$reset$0, bool, $BaseEntry*)},
+		{"lambda$reset$1", "(Ljavax/xml/catalog/BaseEntry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CatalogImpl, lambda$reset$1, void, $BaseEntry*)},
+		{"load", "()V", nullptr, 0, $virtualMethod(CatalogImpl, load, void)},
+		{"loadNextCatalogs", "()V", nullptr, 0, $virtualMethod(CatalogImpl, loadNextCatalogs, void)},
+		{"loadedCatalogCount", "()I", nullptr, 0, $virtualMethod(CatalogImpl, loadedCatalogCount, int32_t)},
+		{"markAsSearched", "()V", nullptr, 0, $virtualMethod(CatalogImpl, markAsSearched, void)},
+		{"*matchPublic", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*matchSystem", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*matchURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CatalogImpl, parse, void, $String*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(CatalogImpl, reset, void)},
+		{"saveLoadedCatalog", "(Ljava/lang/String;Ljavax/xml/catalog/CatalogImpl;)V", nullptr, 0, $virtualMethod(CatalogImpl, saveLoadedCatalog, void, $String*, CatalogImpl*)},
+		{"setDeferred", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(CatalogImpl, setDeferred, void, $String*)},
+		{"setResolve", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(CatalogImpl, setResolve, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.CatalogImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.xml.catalog.CatalogImpl",
+		"javax.xml.catalog.GroupEntry",
+		"javax.xml.catalog.Catalog",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.CatalogImpl$1"
+	};
+	$loadClass(CatalogImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CatalogImpl));
+	});
 	return class$;
 }
 

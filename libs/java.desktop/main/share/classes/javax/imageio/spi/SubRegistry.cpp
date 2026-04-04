@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/SubRegistry.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/invoke/CallSite.h>
@@ -19,7 +18,6 @@
 #include <javax/imageio/spi/ServiceRegistry.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -29,10 +27,8 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $PartiallyOrderedSet = ::javax::imageio::spi::PartiallyOrderedSet;
 using $RegisterableService = ::javax::imageio::spi::RegisterableService;
 using $ServiceRegistry = ::javax::imageio::spi::ServiceRegistry;
@@ -49,77 +45,36 @@ public:
 		$set(this, rs, rs);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$clear$0(rs));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SubRegistry$$Lambda$lambda$clear$0>());
+		 return $nc(inst$)->lambda$clear$0(rs);
 	}
 	SubRegistry* inst$ = nullptr;
 	$RegisterableService* rs = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SubRegistry$$Lambda$lambda$clear$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SubRegistry$$Lambda$lambda$clear$0, inst$)},
-	{"rs", "Ljavax/imageio/spi/RegisterableService;", nullptr, $PUBLIC, $field(SubRegistry$$Lambda$lambda$clear$0, rs)},
-	{}
-};
-$MethodInfo SubRegistry$$Lambda$lambda$clear$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/imageio/spi/SubRegistry;Ljavax/imageio/spi/RegisterableService;)V", nullptr, $PUBLIC, $method(SubRegistry$$Lambda$lambda$clear$0, init$, void, SubRegistry*, $RegisterableService*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SubRegistry$$Lambda$lambda$clear$0, run, $Object*)},
-	{}
-};
-$ClassInfo SubRegistry$$Lambda$lambda$clear$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.imageio.spi.SubRegistry$$Lambda$lambda$clear$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* SubRegistry$$Lambda$lambda$clear$0::load$($String* name, bool initialize) {
-	$loadClass(SubRegistry$$Lambda$lambda$clear$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SubRegistry$$Lambda$lambda$clear$0, inst$)},
+		{"rs", "Ljavax/imageio/spi/RegisterableService;", nullptr, $PUBLIC, $field(SubRegistry$$Lambda$lambda$clear$0, rs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/SubRegistry;Ljavax/imageio/spi/RegisterableService;)V", nullptr, $PUBLIC, $method(SubRegistry$$Lambda$lambda$clear$0, init$, void, SubRegistry*, $RegisterableService*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SubRegistry$$Lambda$lambda$clear$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.imageio.spi.SubRegistry$$Lambda$lambda$clear$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SubRegistry$$Lambda$lambda$clear$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubRegistry$$Lambda$lambda$clear$0);
+	});
 	return class$;
 }
 $Class* SubRegistry$$Lambda$lambda$clear$0::class$ = nullptr;
-
-$FieldInfo _SubRegistry_FieldInfo_[] = {
-	{"registry", "Ljavax/imageio/spi/ServiceRegistry;", nullptr, 0, $field(SubRegistry, registry)},
-	{"category", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", 0, $field(SubRegistry, category)},
-	{"poset", "Ljavax/imageio/spi/PartiallyOrderedSet;", "Ljavax/imageio/spi/PartiallyOrderedSet<Ljava/lang/Object;>;", $FINAL, $field(SubRegistry, poset)},
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Object;>;", $FINAL, $field(SubRegistry, map)},
-	{"accMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/security/AccessControlContext;>;", $FINAL, $field(SubRegistry, accMap)},
-	{}
-};
-
-$MethodInfo _SubRegistry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $method(SubRegistry, init$, void, $ServiceRegistry*, $Class*)},
-	{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, clear, void)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, contains, bool, Object$*)},
-	{"deregisterServiceProvider", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, deregisterServiceProvider, bool, Object$*)},
-	{"finalize", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, finalize, void)},
-	{"getServiceProviderByClass", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, getServiceProviderByClass, $Object*, $Class*)},
-	{"getServiceProviders", "(Z)Ljava/util/Iterator;", "(Z)Ljava/util/Iterator<Ljava/lang/Object;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, getServiceProviders, $Iterator*, bool)},
-	{"lambda$clear$0", "(Ljavax/imageio/spi/RegisterableService;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(SubRegistry, lambda$clear$0, $Void*, $RegisterableService*)},
-	{"registerServiceProvider", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, registerServiceProvider, bool, Object$*)},
-	{"setOrdering", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, setOrdering, bool, Object$*, Object$*)},
-	{"unsetOrdering", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, unsetOrdering, bool, Object$*, Object$*)},
-	{}
-};
-
-$ClassInfo _SubRegistry_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.spi.SubRegistry",
-	"java.lang.Object",
-	nullptr,
-	_SubRegistry_FieldInfo_,
-	_SubRegistry_MethodInfo_
-};
-
-$Object* allocate$SubRegistry($Class* clazz) {
-	return $of($alloc(SubRegistry));
-}
 
 void SubRegistry::init$($ServiceRegistry* registry, $Class* category) {
 	$set(this, poset, $new($PartiallyOrderedSet));
@@ -131,20 +86,20 @@ void SubRegistry::init$($ServiceRegistry* registry, $Class* category) {
 
 bool SubRegistry::registerServiceProvider(Object$* provider) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($Object, oprovider, $nc(this->map)->get($nc($of(provider))->getClass()));
+		$useLocalObjectStack();
+		$var($Object, oprovider, this->map->get($nc($of(provider))->getClass()));
 		bool present = oprovider != nullptr;
 		if (present) {
 			deregisterServiceProvider(oprovider);
 		}
-		$nc(this->map)->put($nc($of(provider))->getClass(), provider);
-		$var($Object, var$0, $of($nc($of(provider))->getClass()));
-		$nc(this->accMap)->put(var$0, $($AccessController::getContext()));
-		$nc(this->poset)->add(provider);
+		this->map->put($of(provider)->getClass(), provider);
+		$var($Object, var$0, $of(provider)->getClass());
+		this->accMap->put(var$0, $($AccessController::getContext()));
+		this->poset->add(provider);
 		if ($instanceOf($RegisterableService, provider)) {
 			$var($RegisterableService, rs, $cast($RegisterableService, provider));
 			try {
-				$nc(rs)->onRegistration(this->registry, this->category);
+				rs->onRegistration(this->registry, this->category);
 			} catch ($Throwable& t) {
 				$nc($System::err)->println("Caught and handled this exception :"_s);
 				t->printStackTrace();
@@ -156,15 +111,15 @@ bool SubRegistry::registerServiceProvider(Object$* provider) {
 
 bool SubRegistry::deregisterServiceProvider(Object$* provider) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($Object, oprovider, $nc(this->map)->get($nc($of(provider))->getClass()));
+		$useLocalObjectStack();
+		$var($Object, oprovider, this->map->get($nc($of(provider))->getClass()));
 		if ($equals(provider, oprovider)) {
-			$nc(this->map)->remove($nc($of(provider))->getClass());
-			$nc(this->accMap)->remove($nc($of(provider))->getClass());
-			$nc(this->poset)->remove(provider);
+			this->map->remove($of(provider)->getClass());
+			this->accMap->remove($of(provider)->getClass());
+			this->poset->remove(provider);
 			if ($instanceOf($RegisterableService, provider)) {
 				$var($RegisterableService, rs, $cast($RegisterableService, provider));
-				$nc(rs)->onDeregistration(this->registry, this->category);
+				rs->onDeregistration(this->registry, this->category);
 			}
 			return true;
 		}
@@ -174,57 +129,57 @@ bool SubRegistry::deregisterServiceProvider(Object$* provider) {
 
 bool SubRegistry::contains(Object$* provider) {
 	$synchronized(this) {
-		$var($Object, oprovider, $nc(this->map)->get($nc($of(provider))->getClass()));
+		$var($Object, oprovider, this->map->get($nc($of(provider))->getClass()));
 		return $equals(oprovider, provider);
 	}
 }
 
 bool SubRegistry::setOrdering(Object$* firstProvider, Object$* secondProvider) {
 	$synchronized(this) {
-		return $nc(this->poset)->setOrdering(firstProvider, secondProvider);
+		return this->poset->setOrdering(firstProvider, secondProvider);
 	}
 }
 
 bool SubRegistry::unsetOrdering(Object$* firstProvider, Object$* secondProvider) {
 	$synchronized(this) {
-		return $nc(this->poset)->unsetOrdering(firstProvider, secondProvider);
+		return this->poset->unsetOrdering(firstProvider, secondProvider);
 	}
 }
 
 $Iterator* SubRegistry::getServiceProviders(bool useOrdering) {
 	$synchronized(this) {
 		if (useOrdering) {
-			return $nc(this->poset)->iterator();
+			return this->poset->iterator();
 		} else {
-			return $nc($($nc(this->map)->values()))->iterator();
+			return $$nc(this->map->values())->iterator();
 		}
 	}
 }
 
 $Object* SubRegistry::getServiceProviderByClass($Class* providerClass) {
 	$synchronized(this) {
-		return $of($nc(this->map)->get(providerClass));
+		return this->map->get(providerClass);
 	}
 }
 
 void SubRegistry::clear() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
-		$var($Iterator, iter, $nc($($nc(this->map)->values()))->iterator());
+		$var($Iterator, iter, $$nc(this->map->values())->iterator());
 		while ($nc(iter)->hasNext()) {
 			$var($Object, provider, iter->next());
 			iter->remove();
 			if ($instanceOf($RegisterableService, provider)) {
 				$var($RegisterableService, rs, $cast($RegisterableService, provider));
-				$var($AccessControlContext, acc, $cast($AccessControlContext, $nc(this->accMap)->get($nc($of(provider))->getClass())));
+				$var($AccessControlContext, acc, $cast($AccessControlContext, this->accMap->get(provider->getClass())));
 				if (acc != nullptr || $System::getSecurityManager() == nullptr) {
-					$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SubRegistry$$Lambda$lambda$clear$0, this, rs)), acc);
+					$AccessController::doPrivileged($cast($PrivilegedAction, $$new(SubRegistry$$Lambda$lambda$clear$0, this, rs)), acc);
 				}
 			}
 		}
-		$nc(this->poset)->clear();
-		$nc(this->accMap)->clear();
+		this->poset->clear();
+		this->accMap->clear();
 	}
 }
 
@@ -244,11 +199,43 @@ SubRegistry::SubRegistry() {
 
 $Class* SubRegistry::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SubRegistry$$Lambda$lambda$clear$0::classInfo$.name)) {
+		if (name->equals("javax.imageio.spi.SubRegistry$$Lambda$lambda$clear$0")) {
 			return SubRegistry$$Lambda$lambda$clear$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SubRegistry, name, initialize, &_SubRegistry_ClassInfo_, allocate$SubRegistry);
+	$FieldInfo fieldInfos$$[] = {
+		{"registry", "Ljavax/imageio/spi/ServiceRegistry;", nullptr, 0, $field(SubRegistry, registry)},
+		{"category", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", 0, $field(SubRegistry, category)},
+		{"poset", "Ljavax/imageio/spi/PartiallyOrderedSet;", "Ljavax/imageio/spi/PartiallyOrderedSet<Ljava/lang/Object;>;", $FINAL, $field(SubRegistry, poset)},
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Object;>;", $FINAL, $field(SubRegistry, map)},
+		{"accMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/security/AccessControlContext;>;", $FINAL, $field(SubRegistry, accMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $method(SubRegistry, init$, void, $ServiceRegistry*, $Class*)},
+		{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, clear, void)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, contains, bool, Object$*)},
+		{"deregisterServiceProvider", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, deregisterServiceProvider, bool, Object$*)},
+		{"finalize", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, finalize, void)},
+		{"getServiceProviderByClass", "(Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, getServiceProviderByClass, $Object*, $Class*)},
+		{"getServiceProviders", "(Z)Ljava/util/Iterator;", "(Z)Ljava/util/Iterator<Ljava/lang/Object;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, getServiceProviders, $Iterator*, bool)},
+		{"lambda$clear$0", "(Ljavax/imageio/spi/RegisterableService;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(SubRegistry, lambda$clear$0, $Void*, $RegisterableService*)},
+		{"registerServiceProvider", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, registerServiceProvider, bool, Object$*)},
+		{"setOrdering", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, setOrdering, bool, Object$*, Object$*)},
+		{"unsetOrdering", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SubRegistry, unsetOrdering, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.spi.SubRegistry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SubRegistry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SubRegistry);
+	});
 	return class$;
 }
 

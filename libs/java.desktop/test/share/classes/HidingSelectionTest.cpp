@@ -1,9 +1,7 @@
 #include <HidingSelectionTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
@@ -30,10 +28,7 @@
 
 #undef BUTTON1_DOWN_MASK
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
@@ -65,27 +60,24 @@ public:
 	virtual void run() override {
 		HidingSelectionTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HidingSelectionTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HidingSelectionTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo HidingSelectionTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HidingSelectionTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* HidingSelectionTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(HidingSelectionTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HidingSelectionTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* HidingSelectionTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -98,27 +90,24 @@ public:
 	virtual void run() override {
 		HidingSelectionTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HidingSelectionTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HidingSelectionTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo HidingSelectionTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HidingSelectionTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* HidingSelectionTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(HidingSelectionTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HidingSelectionTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* HidingSelectionTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -132,33 +121,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->requestFocus();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HidingSelectionTest$$Lambda$requestFocus$2>());
-	}
 	$JComponent* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HidingSelectionTest$$Lambda$requestFocus$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HidingSelectionTest$$Lambda$requestFocus$2, inst$)},
-	{}
-};
-$MethodInfo HidingSelectionTest$$Lambda$requestFocus$2::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$requestFocus$2, init$, void, $JComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$requestFocus$2, run, void)},
-	{}
-};
-$ClassInfo HidingSelectionTest$$Lambda$requestFocus$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HidingSelectionTest$$Lambda$requestFocus$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* HidingSelectionTest$$Lambda$requestFocus$2::load$($String* name, bool initialize) {
-	$loadClass(HidingSelectionTest$$Lambda$requestFocus$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HidingSelectionTest$$Lambda$requestFocus$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$requestFocus$2, init$, void, $JComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$requestFocus$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HidingSelectionTest$$Lambda$requestFocus$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest$$Lambda$requestFocus$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest$$Lambda$requestFocus$2);
+	});
 	return class$;
 }
 $Class* HidingSelectionTest$$Lambda$requestFocus$2::class$ = nullptr;
@@ -172,33 +157,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->selectAll();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HidingSelectionTest$$Lambda$selectAll$3>());
-	}
 	$JTextComponent* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HidingSelectionTest$$Lambda$selectAll$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HidingSelectionTest$$Lambda$selectAll$3, inst$)},
-	{}
-};
-$MethodInfo HidingSelectionTest$$Lambda$selectAll$3::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$selectAll$3, init$, void, $JTextComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$selectAll$3, run, void)},
-	{}
-};
-$ClassInfo HidingSelectionTest$$Lambda$selectAll$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HidingSelectionTest$$Lambda$selectAll$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* HidingSelectionTest$$Lambda$selectAll$3::load$($String* name, bool initialize) {
-	$loadClass(HidingSelectionTest$$Lambda$selectAll$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HidingSelectionTest$$Lambda$selectAll$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$selectAll$3, init$, void, $JTextComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$selectAll$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HidingSelectionTest$$Lambda$selectAll$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest$$Lambda$selectAll$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest$$Lambda$selectAll$3);
+	});
 	return class$;
 }
 $Class* HidingSelectionTest$$Lambda$selectAll$3::class$ = nullptr;
@@ -211,27 +192,24 @@ public:
 	virtual void run() override {
 		HidingSelectionTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HidingSelectionTest$$Lambda$lambda$main$2$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HidingSelectionTest$$Lambda$lambda$main$2$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$lambda$main$2$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$lambda$main$2$4, run, void)},
-	{}
-};
-$ClassInfo HidingSelectionTest$$Lambda$lambda$main$2$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HidingSelectionTest$$Lambda$lambda$main$2$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* HidingSelectionTest$$Lambda$lambda$main$2$4::load$($String* name, bool initialize) {
-	$loadClass(HidingSelectionTest$$Lambda$lambda$main$2$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$lambda$main$2$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$lambda$main$2$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HidingSelectionTest$$Lambda$lambda$main$2$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest$$Lambda$lambda$main$2$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest$$Lambda$lambda$main$2$4);
+	});
 	return class$;
 }
 $Class* HidingSelectionTest$$Lambda$lambda$main$2$4::class$ = nullptr;
@@ -245,33 +223,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->clearSelectedPath();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HidingSelectionTest$$Lambda$clearSelectedPath$5>());
-	}
 	$MenuSelectionManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HidingSelectionTest$$Lambda$clearSelectedPath$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HidingSelectionTest$$Lambda$clearSelectedPath$5, inst$)},
-	{}
-};
-$MethodInfo HidingSelectionTest$$Lambda$clearSelectedPath$5::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$clearSelectedPath$5, init$, void, $MenuSelectionManager*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$clearSelectedPath$5, run, void)},
-	{}
-};
-$ClassInfo HidingSelectionTest$$Lambda$clearSelectedPath$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HidingSelectionTest$$Lambda$clearSelectedPath$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* HidingSelectionTest$$Lambda$clearSelectedPath$5::load$($String* name, bool initialize) {
-	$loadClass(HidingSelectionTest$$Lambda$clearSelectedPath$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HidingSelectionTest$$Lambda$clearSelectedPath$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$clearSelectedPath$5, init$, void, $MenuSelectionManager*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$clearSelectedPath$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HidingSelectionTest$$Lambda$clearSelectedPath$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest$$Lambda$clearSelectedPath$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest$$Lambda$clearSelectedPath$5);
+	});
 	return class$;
 }
 $Class* HidingSelectionTest$$Lambda$clearSelectedPath$5::class$ = nullptr;
@@ -284,27 +258,24 @@ public:
 	virtual void run() override {
 		HidingSelectionTest::lambda$main$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HidingSelectionTest$$Lambda$lambda$main$3$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo HidingSelectionTest$$Lambda$lambda$main$3$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$lambda$main$3$6, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$lambda$main$3$6, run, void)},
-	{}
-};
-$ClassInfo HidingSelectionTest$$Lambda$lambda$main$3$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HidingSelectionTest$$Lambda$lambda$main$3$6",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* HidingSelectionTest$$Lambda$lambda$main$3$6::load$($String* name, bool initialize) {
-	$loadClass(HidingSelectionTest$$Lambda$lambda$main$3$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$lambda$main$3$6, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$lambda$main$3$6, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HidingSelectionTest$$Lambda$lambda$main$3$6",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest$$Lambda$lambda$main$3$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest$$Lambda$lambda$main$3$6);
+	});
 	return class$;
 }
 $Class* HidingSelectionTest$$Lambda$lambda$main$3$6::class$ = nullptr;
@@ -318,72 +289,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<HidingSelectionTest$$Lambda$dispose$7>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo HidingSelectionTest$$Lambda$dispose$7::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HidingSelectionTest$$Lambda$dispose$7, inst$)},
-	{}
-};
-$MethodInfo HidingSelectionTest$$Lambda$dispose$7::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$dispose$7, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$dispose$7, run, void)},
-	{}
-};
-$ClassInfo HidingSelectionTest$$Lambda$dispose$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"HidingSelectionTest$$Lambda$dispose$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* HidingSelectionTest$$Lambda$dispose$7::load$($String* name, bool initialize) {
-	$loadClass(HidingSelectionTest$$Lambda$dispose$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(HidingSelectionTest$$Lambda$dispose$7, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(HidingSelectionTest$$Lambda$dispose$7, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(HidingSelectionTest$$Lambda$dispose$7, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"HidingSelectionTest$$Lambda$dispose$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest$$Lambda$dispose$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest$$Lambda$dispose$7);
+	});
 	return class$;
 }
 $Class* HidingSelectionTest$$Lambda$dispose$7::class$ = nullptr;
-
-$FieldInfo _HidingSelectionTest_FieldInfo_[] = {
-	{"field1", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, field1)},
-	{"field2", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, field2)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, frame)},
-	{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, bounds)},
-	{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, menu)},
-	{"anotherWindow", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, anotherWindow)},
-	{"menuLoc", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, menuLoc)},
-	{"frame2", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, frame2)},
-	{}
-};
-
-$MethodInfo _HidingSelectionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest, init$, void)},
-	{"biEqual", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $STATIC, $staticMethod(HidingSelectionTest, biEqual, bool, $BufferedImage*, $BufferedImage*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HidingSelectionTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HidingSelectionTest, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HidingSelectionTest, lambda$main$2, void)},
-	{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HidingSelectionTest, lambda$main$3, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HidingSelectionTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _HidingSelectionTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HidingSelectionTest",
-	"java.lang.Object",
-	nullptr,
-	_HidingSelectionTest_FieldInfo_,
-	_HidingSelectionTest_MethodInfo_
-};
-
-$Object* allocate$HidingSelectionTest($Class* clazz) {
-	return $of($alloc(HidingSelectionTest));
-}
 
 $JTextField* HidingSelectionTest::field1 = nullptr;
 $JTextField* HidingSelectionTest::field2 = nullptr;
@@ -398,20 +329,20 @@ void HidingSelectionTest::init$() {
 }
 
 void HidingSelectionTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$lambda$main$0)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$lambda$main$0));
 	$var($Robot, robot, $new($Robot));
 	robot->waitForIdle();
 	robot->delay(200);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$lambda$main$1$1)));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$lambda$main$1$1));
 	$init(HidingSelectionTest);
 	$var($BufferedImage, nosel, robot->createScreenCapture(HidingSelectionTest::bounds));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(HidingSelectionTest::field2)))));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$selectAll$3, static_cast<$JTextField*>($nc(HidingSelectionTest::field2)))));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$requestFocus$2, $nc(HidingSelectionTest::field2)));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$selectAll$3, $nc(HidingSelectionTest::field2)));
 	robot->waitForIdle();
 	robot->delay(200);
 	$var($BufferedImage, sel, robot->createScreenCapture(HidingSelectionTest::bounds));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$lambda$main$2$4)));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$lambda$main$2$4));
 	robot->mouseMove($nc(HidingSelectionTest::menuLoc)->x, $nc(HidingSelectionTest::menuLoc)->y);
 	robot->mousePress($InputEvent::BUTTON1_DOWN_MASK);
 	robot->delay(50);
@@ -421,31 +352,31 @@ void HidingSelectionTest::main($StringArray* args) {
 	if (!biEqual($(robot->createScreenCapture(HidingSelectionTest::bounds)), sel)) {
 		$throwNew($RuntimeException, "Test fails: menu hides selection"_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$clearSelectedPath$5, static_cast<$MenuSelectionManager*>($nc($($MenuSelectionManager::defaultManager()))))));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(HidingSelectionTest::field1)))));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$clearSelectedPath$5, $nc($($MenuSelectionManager::defaultManager()))));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$requestFocus$2, $nc(HidingSelectionTest::field1)));
 	robot->waitForIdle();
 	robot->delay(200);
 	if (!biEqual($(robot->createScreenCapture(HidingSelectionTest::bounds)), nosel)) {
 		$throwNew($RuntimeException, "Test fails: focus lost doesn\'t hide selection"_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(HidingSelectionTest::field2)))));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$requestFocus$2, $nc(HidingSelectionTest::field2)));
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$lambda$main$3$6)));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$lambda$main$3$6));
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$requestFocus$2, static_cast<$JTextField*>($nc(HidingSelectionTest::anotherWindow)))));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$requestFocus$2, $nc(HidingSelectionTest::anotherWindow)));
 	robot->waitForIdle();
 	robot->delay(200);
 	if (biEqual($(robot->createScreenCapture(HidingSelectionTest::bounds)), nosel)) {
 		$throwNew($RuntimeException, "Test fails: switch window hides selection"_s);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$selectAll$3, static_cast<$JTextField*>($nc(HidingSelectionTest::anotherWindow)))));
+	$SwingUtilities::invokeAndWait($$new(HidingSelectionTest$$Lambda$selectAll$3, $nc(HidingSelectionTest::anotherWindow)));
 	robot->waitForIdle();
 	robot->delay(200);
 	if (biEqual($(robot->createScreenCapture(HidingSelectionTest::bounds)), sel)) {
 		$throwNew($RuntimeException, "Test fails: selection ownership is lost selection is shown"_s);
 	}
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$dispose$7, static_cast<$JFrame*>($nc(HidingSelectionTest::frame2)))));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(HidingSelectionTest$$Lambda$dispose$7, static_cast<$JFrame*>($nc(HidingSelectionTest::frame)))));
+	$SwingUtilities::invokeLater($$new(HidingSelectionTest$$Lambda$dispose$7, $nc(HidingSelectionTest::frame2)));
+	$SwingUtilities::invokeLater($$new(HidingSelectionTest$$Lambda$dispose$7, $nc(HidingSelectionTest::frame)));
 }
 
 bool HidingSelectionTest::biEqual($BufferedImage* i1, $BufferedImage* i2) {
@@ -476,7 +407,7 @@ void HidingSelectionTest::lambda$main$3() {
 	$nc(loc)->translate(0, $nc(HidingSelectionTest::frame)->getHeight());
 	$nc(HidingSelectionTest::frame2)->setLocation(loc);
 	$assignStatic(HidingSelectionTest::anotherWindow, $new($JTextField, "textField3"_s));
-	$nc(HidingSelectionTest::frame2)->add(static_cast<$Component*>(HidingSelectionTest::anotherWindow));
+	$nc(HidingSelectionTest::frame2)->add(HidingSelectionTest::anotherWindow);
 	$nc(HidingSelectionTest::frame2)->pack();
 	$nc(HidingSelectionTest::frame2)->setVisible(true);
 }
@@ -494,19 +425,19 @@ void HidingSelectionTest::lambda$main$1() {
 }
 
 void HidingSelectionTest::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(HidingSelectionTest);
 	$assignStatic(HidingSelectionTest::frame, $new($JFrame));
 	$assignStatic(HidingSelectionTest::field1, $new($JTextField, "field1                       "_s));
 	$assignStatic(HidingSelectionTest::field2, $new($JTextField, "field2                       "_s));
-	$nc(HidingSelectionTest::field1)->setEditable(false);
+	HidingSelectionTest::field1->setEditable(false);
 	$nc(HidingSelectionTest::field2)->setEditable(false);
-	$nc($($nc(HidingSelectionTest::frame)->getContentPane()))->setLayout($$new($FlowLayout));
-	$nc($($nc(HidingSelectionTest::frame)->getContentPane()))->add(static_cast<$Component*>(HidingSelectionTest::field1));
-	$nc($($nc(HidingSelectionTest::frame)->getContentPane()))->add(static_cast<$Component*>(HidingSelectionTest::field2));
+	$$nc($nc(HidingSelectionTest::frame)->getContentPane())->setLayout($$new($FlowLayout));
+	$$nc($nc(HidingSelectionTest::frame)->getContentPane())->add(HidingSelectionTest::field1);
+	$$nc($nc(HidingSelectionTest::frame)->getContentPane())->add(HidingSelectionTest::field2);
 	$var($JMenuBar, menuBar, $new($JMenuBar));
 	$assignStatic(HidingSelectionTest::menu, $new($JMenu, "menu"_s));
-	$nc(HidingSelectionTest::menu)->add($$new($JMenuItem, "item"_s));
+	HidingSelectionTest::menu->add($$new($JMenuItem, "item"_s));
 	menuBar->add(HidingSelectionTest::menu);
 	$nc(HidingSelectionTest::frame)->setJMenuBar(menuBar);
 	$nc(HidingSelectionTest::frame)->pack();
@@ -518,32 +449,63 @@ HidingSelectionTest::HidingSelectionTest() {
 
 $Class* HidingSelectionTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(HidingSelectionTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("HidingSelectionTest$$Lambda$lambda$main$0")) {
 			return HidingSelectionTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(HidingSelectionTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("HidingSelectionTest$$Lambda$lambda$main$1$1")) {
 			return HidingSelectionTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(HidingSelectionTest$$Lambda$requestFocus$2::classInfo$.name)) {
+		if (name->equals("HidingSelectionTest$$Lambda$requestFocus$2")) {
 			return HidingSelectionTest$$Lambda$requestFocus$2::load$(name, initialize);
 		}
-		if (name->equals(HidingSelectionTest$$Lambda$selectAll$3::classInfo$.name)) {
+		if (name->equals("HidingSelectionTest$$Lambda$selectAll$3")) {
 			return HidingSelectionTest$$Lambda$selectAll$3::load$(name, initialize);
 		}
-		if (name->equals(HidingSelectionTest$$Lambda$lambda$main$2$4::classInfo$.name)) {
+		if (name->equals("HidingSelectionTest$$Lambda$lambda$main$2$4")) {
 			return HidingSelectionTest$$Lambda$lambda$main$2$4::load$(name, initialize);
 		}
-		if (name->equals(HidingSelectionTest$$Lambda$clearSelectedPath$5::classInfo$.name)) {
+		if (name->equals("HidingSelectionTest$$Lambda$clearSelectedPath$5")) {
 			return HidingSelectionTest$$Lambda$clearSelectedPath$5::load$(name, initialize);
 		}
-		if (name->equals(HidingSelectionTest$$Lambda$lambda$main$3$6::classInfo$.name)) {
+		if (name->equals("HidingSelectionTest$$Lambda$lambda$main$3$6")) {
 			return HidingSelectionTest$$Lambda$lambda$main$3$6::load$(name, initialize);
 		}
-		if (name->equals(HidingSelectionTest$$Lambda$dispose$7::classInfo$.name)) {
+		if (name->equals("HidingSelectionTest$$Lambda$dispose$7")) {
 			return HidingSelectionTest$$Lambda$dispose$7::load$(name, initialize);
 		}
 	}
-	$loadClass(HidingSelectionTest, name, initialize, &_HidingSelectionTest_ClassInfo_, allocate$HidingSelectionTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"field1", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, field1)},
+		{"field2", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, field2)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, frame)},
+		{"bounds", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, bounds)},
+		{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, menu)},
+		{"anotherWindow", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, anotherWindow)},
+		{"menuLoc", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, menuLoc)},
+		{"frame2", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(HidingSelectionTest, frame2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HidingSelectionTest, init$, void)},
+		{"biEqual", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $STATIC, $staticMethod(HidingSelectionTest, biEqual, bool, $BufferedImage*, $BufferedImage*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HidingSelectionTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HidingSelectionTest, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HidingSelectionTest, lambda$main$2, void)},
+		{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HidingSelectionTest, lambda$main$3, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HidingSelectionTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HidingSelectionTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HidingSelectionTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HidingSelectionTest);
+	});
 	return class$;
 }
 

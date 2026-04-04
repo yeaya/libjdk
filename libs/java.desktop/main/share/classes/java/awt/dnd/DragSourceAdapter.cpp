@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DragSourceAdapter.h>
-
 #include <java/awt/dnd/DragSourceDragEvent.h>
 #include <java/awt/dnd/DragSourceDropEvent.h>
 #include <java/awt/dnd/DragSourceEvent.h>
@@ -16,35 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace dnd {
-
-$MethodInfo _DragSourceAdapter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(DragSourceAdapter, init$, void)},
-	{"dragDropEnd", "(Ljava/awt/dnd/DragSourceDropEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragDropEnd, void, $DragSourceDropEvent*)},
-	{"dragEnter", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragEnter, void, $DragSourceDragEvent*)},
-	{"dragExit", "(Ljava/awt/dnd/DragSourceEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragExit, void, $DragSourceEvent*)},
-	{"dragMouseMoved", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragMouseMoved, void, $DragSourceDragEvent*)},
-	{"dragOver", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragOver, void, $DragSourceDragEvent*)},
-	{"dropActionChanged", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dropActionChanged, void, $DragSourceDragEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DragSourceAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.dnd.DragSourceAdapter",
-	"java.lang.Object",
-	"java.awt.dnd.DragSourceListener,java.awt.dnd.DragSourceMotionListener",
-	nullptr,
-	_DragSourceAdapter_MethodInfo_
-};
-
-$Object* allocate$DragSourceAdapter($Class* clazz) {
-	return $of($alloc(DragSourceAdapter));
-}
 
 int32_t DragSourceAdapter::hashCode() {
 	 return this->$DragSourceListener::hashCode();
@@ -91,7 +61,32 @@ DragSourceAdapter::DragSourceAdapter() {
 }
 
 $Class* DragSourceAdapter::load$($String* name, bool initialize) {
-	$loadClass(DragSourceAdapter, name, initialize, &_DragSourceAdapter_ClassInfo_, allocate$DragSourceAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(DragSourceAdapter, init$, void)},
+		{"dragDropEnd", "(Ljava/awt/dnd/DragSourceDropEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragDropEnd, void, $DragSourceDropEvent*)},
+		{"dragEnter", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragEnter, void, $DragSourceDragEvent*)},
+		{"dragExit", "(Ljava/awt/dnd/DragSourceEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragExit, void, $DragSourceEvent*)},
+		{"dragMouseMoved", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragMouseMoved, void, $DragSourceDragEvent*)},
+		{"dragOver", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dragOver, void, $DragSourceDragEvent*)},
+		{"dropActionChanged", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC, $virtualMethod(DragSourceAdapter, dropActionChanged, void, $DragSourceDragEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.dnd.DragSourceAdapter",
+		"java.lang.Object",
+		"java.awt.dnd.DragSourceListener,java.awt.dnd.DragSourceMotionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DragSourceAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DragSourceAdapter));
+	});
 	return class$;
 }
 

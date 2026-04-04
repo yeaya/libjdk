@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipFileSystem$ParentLookup.h>
-
 #include <java/util/Arrays.h>
 #include <jdk/nio/zipfs/ZipFileSystem$IndexNode.h>
 #include <jdk/nio/zipfs/ZipFileSystem.h>
@@ -15,45 +14,6 @@ using $ZipFileSystem$IndexNode = ::jdk::nio::zipfs::ZipFileSystem$IndexNode;
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipFileSystem$ParentLookup_FieldInfo_[] = {
-	{"len", "I", nullptr, 0, $field(ZipFileSystem$ParentLookup, len)},
-	{}
-};
-
-$MethodInfo _ZipFileSystem$ParentLookup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ZipFileSystem$ParentLookup, init$, void)},
-	{"as", "([BI)Ljdk/nio/zipfs/ZipFileSystem$ParentLookup;", nullptr, $FINAL, $method(ZipFileSystem$ParentLookup, as, ZipFileSystem$ParentLookup*, $bytes*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$ParentLookup, equals, bool, Object$*)},
-	{"name", "([BI)V", nullptr, 0, $virtualMethod(ZipFileSystem$ParentLookup, name, void, $bytes*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ZipFileSystem$ParentLookup_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipFileSystem$ParentLookup", "jdk.nio.zipfs.ZipFileSystem", "ParentLookup", $STATIC},
-	{"jdk.nio.zipfs.ZipFileSystem$IndexNode", "jdk.nio.zipfs.ZipFileSystem", "IndexNode", $STATIC},
-	{}
-};
-
-$ClassInfo _ZipFileSystem$ParentLookup_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipFileSystem$ParentLookup",
-	"jdk.nio.zipfs.ZipFileSystem$IndexNode",
-	nullptr,
-	_ZipFileSystem$ParentLookup_FieldInfo_,
-	_ZipFileSystem$ParentLookup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipFileSystem$ParentLookup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipFileSystem"
-};
-
-$Object* allocate$ZipFileSystem$ParentLookup($Class* clazz) {
-	return $of($alloc(ZipFileSystem$ParentLookup));
-}
 
 void ZipFileSystem$ParentLookup::init$() {
 	$ZipFileSystem$IndexNode::init$();
@@ -78,7 +38,7 @@ bool ZipFileSystem$ParentLookup::equals(Object$* other) {
 	if (!($instanceOf($ZipFileSystem$IndexNode, other))) {
 		return false;
 	}
-	$var($bytes, oname, $nc(($cast($ZipFileSystem$IndexNode, other)))->name$);
+	$var($bytes, oname, $nc($cast($ZipFileSystem$IndexNode, other))->name$);
 	return $Arrays::equals(this->$ZipFileSystem$IndexNode::name$, 0, this->len, oname, 0, $nc(oname)->length);
 }
 
@@ -86,7 +46,40 @@ ZipFileSystem$ParentLookup::ZipFileSystem$ParentLookup() {
 }
 
 $Class* ZipFileSystem$ParentLookup::load$($String* name, bool initialize) {
-	$loadClass(ZipFileSystem$ParentLookup, name, initialize, &_ZipFileSystem$ParentLookup_ClassInfo_, allocate$ZipFileSystem$ParentLookup);
+	$FieldInfo fieldInfos$$[] = {
+		{"len", "I", nullptr, 0, $field(ZipFileSystem$ParentLookup, len)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ZipFileSystem$ParentLookup, init$, void)},
+		{"as", "([BI)Ljdk/nio/zipfs/ZipFileSystem$ParentLookup;", nullptr, $FINAL, $method(ZipFileSystem$ParentLookup, as, ZipFileSystem$ParentLookup*, $bytes*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$ParentLookup, equals, bool, Object$*)},
+		{"name", "([BI)V", nullptr, 0, $virtualMethod(ZipFileSystem$ParentLookup, name, void, $bytes*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipFileSystem$ParentLookup", "jdk.nio.zipfs.ZipFileSystem", "ParentLookup", $STATIC},
+		{"jdk.nio.zipfs.ZipFileSystem$IndexNode", "jdk.nio.zipfs.ZipFileSystem", "IndexNode", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipFileSystem$ParentLookup",
+		"jdk.nio.zipfs.ZipFileSystem$IndexNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipFileSystem"
+	};
+	$loadClass(ZipFileSystem$ParentLookup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipFileSystem$ParentLookup);
+	});
 	return class$;
 }
 

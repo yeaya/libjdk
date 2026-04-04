@@ -16,6 +16,7 @@ class Version : public ::java::lang::Object {
 	$class(Version, 0, ::java::lang::Object)
 public:
 	Version();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getVersion();
 	static $String* VERSION;

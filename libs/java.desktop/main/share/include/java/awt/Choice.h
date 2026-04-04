@@ -52,6 +52,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add($String* item);
 	virtual void addItem($String* item);
@@ -91,7 +92,7 @@ public:
 	::java::awt::event::ItemListener* itemListener = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0xC771968881BB9DD1;
+	static const int64_t serialVersionUID = (int64_t)0xc771968881bb9dd1;
 	int32_t choiceSerializedDataVersion = 0;
 };
 

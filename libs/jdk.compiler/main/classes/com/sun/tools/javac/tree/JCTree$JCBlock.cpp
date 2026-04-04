@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
-
-#include <com/sun/source/tree/BlockTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/code/Flags.h>
@@ -17,7 +15,6 @@
 #undef NOPOS
 #undef STATIC
 
-using $BlockTree = ::com::sun::source::tree::BlockTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $Flags = ::com::sun::tools::javac::code::Flags;
@@ -37,55 +34,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCBlock_FieldInfo_[] = {
-	{"flags", "J", nullptr, $PUBLIC, $field(JCTree$JCBlock, flags)},
-	{"stats", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PUBLIC, $field(JCTree$JCBlock, stats)},
-	{"endpos", "I", nullptr, $PUBLIC, $field(JCTree$JCBlock, endpos)},
-	{}
-};
-
-$MethodInfo _JCTree$JCBlock_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(JLcom/sun/tools/javac/util/List;)V", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)V", $PROTECTED, $method(JCTree$JCBlock, init$, void, int64_t, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBlock, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCBlock, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBlock, getKind, $Tree$Kind*)},
-	{"getStatements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PUBLIC, $virtualMethod(JCTree$JCBlock, getStatements, $1List*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBlock, getTag, $JCTree$Tag*)},
-	{"isStatic", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBlock, isStatic, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCBlock_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCBlock", "com.sun.tools.javac.tree.JCTree", "JCBlock", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCBlock_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCBlock",
-	"com.sun.tools.javac.tree.JCTree$JCStatement",
-	"com.sun.source.tree.BlockTree",
-	_JCTree$JCBlock_FieldInfo_,
-	_JCTree$JCBlock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCBlock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCBlock($Class* clazz) {
-	return $of($alloc(JCTree$JCBlock));
-}
 
 $String* JCTree$JCBlock::toString() {
 	 return this->$JCTree$JCStatement::toString();
@@ -128,11 +76,11 @@ $1List* JCTree$JCBlock::getStatements() {
 }
 
 bool JCTree$JCBlock::isStatic() {
-	return ((int64_t)(this->flags & (uint64_t)(int64_t)$Flags::STATIC)) != 0;
+	return (this->flags & $Flags::STATIC) != 0;
 }
 
 $Object* JCTree$JCBlock::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitBlock(this, d));
+	return $nc(v)->visitBlock(this, d);
 }
 
 $JCTree$Tag* JCTree$JCBlock::getTag() {
@@ -144,7 +92,50 @@ JCTree$JCBlock::JCTree$JCBlock() {
 }
 
 $Class* JCTree$JCBlock::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCBlock, name, initialize, &_JCTree$JCBlock_ClassInfo_, allocate$JCTree$JCBlock);
+	$FieldInfo fieldInfos$$[] = {
+		{"flags", "J", nullptr, $PUBLIC, $field(JCTree$JCBlock, flags)},
+		{"stats", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PUBLIC, $field(JCTree$JCBlock, stats)},
+		{"endpos", "I", nullptr, $PUBLIC, $field(JCTree$JCBlock, endpos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(JLcom/sun/tools/javac/util/List;)V", "(JLcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)V", $PROTECTED, $method(JCTree$JCBlock, init$, void, int64_t, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBlock, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCBlock, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBlock, getKind, $Tree$Kind*)},
+		{"getStatements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;", $PUBLIC, $virtualMethod(JCTree$JCBlock, getStatements, $1List*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBlock, getTag, $JCTree$Tag*)},
+		{"isStatic", "()Z", nullptr, $PUBLIC, $virtualMethod(JCTree$JCBlock, isStatic, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCBlock", "com.sun.tools.javac.tree.JCTree", "JCBlock", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCBlock",
+		"com.sun.tools.javac.tree.JCTree$JCStatement",
+		"com.sun.source.tree.BlockTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCBlock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCBlock));
+	});
 	return class$;
 }
 

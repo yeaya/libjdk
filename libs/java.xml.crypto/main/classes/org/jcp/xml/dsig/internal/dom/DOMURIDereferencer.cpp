@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMURIDereferencer.h>
-
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
@@ -50,7 +49,6 @@ using $ApacheOctetStreamData = ::org::jcp::xml::dsig::internal::dom::ApacheOctet
 using $Policy = ::org::jcp::xml::dsig::internal::dom::Policy;
 using $Utils = ::org::jcp::xml::dsig::internal::dom::Utils;
 using $Attr = ::org::w3c::dom::Attr;
-using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 
@@ -61,30 +59,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMURIDereferencer_FieldInfo_[] = {
-	{"INSTANCE", "Ljavax/xml/crypto/URIDereferencer;", nullptr, $STATIC | $FINAL, $staticField(DOMURIDereferencer, INSTANCE)},
-	{}
-};
-
-$MethodInfo _DOMURIDereferencer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DOMURIDereferencer, init$, void)},
-	{"dereference", "(Ljavax/xml/crypto/URIReference;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMURIDereferencer, dereference, $Data*, $URIReference*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
-	{}
-};
-
-$ClassInfo _DOMURIDereferencer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMURIDereferencer",
-	"java.lang.Object",
-	"javax.xml.crypto.URIDereferencer",
-	_DOMURIDereferencer_FieldInfo_,
-	_DOMURIDereferencer_MethodInfo_
-};
-
-$Object* allocate$DOMURIDereferencer($Class* clazz) {
-	return $of($alloc(DOMURIDereferencer));
-}
-
 $URIDereferencer* DOMURIDereferencer::INSTANCE = nullptr;
 
 void DOMURIDereferencer::init$() {
@@ -92,7 +66,7 @@ void DOMURIDereferencer::init$() {
 }
 
 $Data* DOMURIDereferencer::dereference($URIReference* uriRef, $XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (uriRef == nullptr) {
 		$throwNew($NullPointerException, "uriRef cannot be null"_s);
 	}
@@ -112,17 +86,17 @@ $Data* DOMURIDereferencer::dereference($URIReference* uriRef, $XMLCryptoContext*
 	if (var$0 && uri->charAt(0) == u'#') {
 		$var($String, id, uri->substring(1));
 		if (id->startsWith("xpointer(id("_s)) {
-			int32_t i1 = id->indexOf((int32_t)u'\'');
-			int32_t i2 = id->indexOf((int32_t)u'\'', i1 + 1);
+			int32_t i1 = id->indexOf(u'\'');
+			int32_t i2 = id->indexOf(u'\'', i1 + 1);
 			$assign(id, id->substring(i1 + 1, i2));
 		}
-		$var($Node, referencedElem, $nc($($nc(uriAttr)->getOwnerDocument()))->getElementById(id));
+		$var($Node, referencedElem, $$nc($nc(uriAttr)->getOwnerDocument())->getElementById(id));
 		if (referencedElem == nullptr) {
 			$assign(referencedElem, $nc(dcc)->getElementById(id));
 		}
 		if (referencedElem != nullptr) {
 			if (secVal && $Policy::restrictDuplicateIds()) {
-				$var($Element, start, $nc($(referencedElem->getOwnerDocument()))->getDocumentElement());
+				$var($Element, start, $$nc(referencedElem->getOwnerDocument())->getDocumentElement());
 				if (!$XMLUtils::protectAgainstWrappingAttack(start, $cast($Element, referencedElem), id)) {
 					$var($String, error, $str({"Multiple Elements with the same ID "_s, id, " detected when secure validation is enabled"_s}));
 					$throwNew($URIReferenceException, error);
@@ -139,24 +113,24 @@ $Data* DOMURIDereferencer::dereference($URIReference* uriRef, $XMLCryptoContext*
 			} else {
 				result->setSourceURI($(uriAttr->getNodeValue()));
 			}
-			return static_cast<$Data*>(static_cast<$ApacheData*>($new($ApacheNodeSetData, result)));
+			return $cast($ApacheData, $new($ApacheNodeSetData, result));
 		}
 	}
 	try {
 		$var($ResourceResolverContext, resContext, $new($ResourceResolverContext, uriAttr, baseURI, false));
 		$var($XMLSignatureInput, in, $ResourceResolver::resolve(resContext));
 		if ($nc(in)->isOctetStream()) {
-			return static_cast<$Data*>(static_cast<$OctetStreamData*>($new($ApacheOctetStreamData, in)));
+			return $cast($OctetStreamData, $new($ApacheOctetStreamData, in));
 		} else {
-			return static_cast<$Data*>(static_cast<$ApacheData*>($new($ApacheNodeSetData, in)));
+			return $cast($ApacheData, $new($ApacheNodeSetData, in));
 		}
 	} catch ($Exception& e) {
-		$throwNew($URIReferenceException, static_cast<$Throwable*>(e));
+		$throwNew($URIReferenceException, e);
 	}
 	$shouldNotReachHere();
 }
 
-void clinit$DOMURIDereferencer($Class* class$) {
+void DOMURIDereferencer::clinit$($Class* clazz) {
 	$assignStatic(DOMURIDereferencer::INSTANCE, $new(DOMURIDereferencer));
 }
 
@@ -164,7 +138,26 @@ DOMURIDereferencer::DOMURIDereferencer() {
 }
 
 $Class* DOMURIDereferencer::load$($String* name, bool initialize) {
-	$loadClass(DOMURIDereferencer, name, initialize, &_DOMURIDereferencer_ClassInfo_, clinit$DOMURIDereferencer, allocate$DOMURIDereferencer);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljavax/xml/crypto/URIDereferencer;", nullptr, $STATIC | $FINAL, $staticField(DOMURIDereferencer, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DOMURIDereferencer, init$, void)},
+		{"dereference", "(Ljavax/xml/crypto/URIReference;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMURIDereferencer, dereference, $Data*, $URIReference*, $XMLCryptoContext*), "javax.xml.crypto.URIReferenceException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMURIDereferencer",
+		"java.lang.Object",
+		"javax.xml.crypto.URIDereferencer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMURIDereferencer, name, initialize, &classInfo$$, DOMURIDereferencer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMURIDereferencer);
+	});
 	return class$;
 }
 

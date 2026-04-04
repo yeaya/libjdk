@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TestSupport$F1.h>
-
 #include <jdk/internal/net/http/websocket/TestSupport.h>
 #include <jcpp.h>
 
@@ -14,43 +13,37 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$CompoundAttribute _TestSupport$F1_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _TestSupport$F1_MethodInfo_[] = {
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TA;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TestSupport$F1, apply, $Object*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _TestSupport$F1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TestSupport$F1", "jdk.internal.net.http.websocket.TestSupport", "F1", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestSupport$F1_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.websocket.TestSupport$F1",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TestSupport$F1_MethodInfo_,
-	"<A:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_TestSupport$F1_InnerClassesInfo_,
-	_TestSupport$F1_Annotations_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TestSupport"
-};
-
-$Object* allocate$TestSupport$F1($Class* clazz) {
-	return $of($alloc(TestSupport$F1));
-}
-
 $Class* TestSupport$F1::load$($String* name, bool initialize) {
-	$loadClass(TestSupport$F1, name, initialize, &_TestSupport$F1_ClassInfo_, allocate$TestSupport$F1);
+	$MethodInfo methodInfos$$[] = {
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", "(TA;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(TestSupport$F1, apply, $Object*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TestSupport$F1", "jdk.internal.net.http.websocket.TestSupport", "F1", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.websocket.TestSupport$F1",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<A:Ljava/lang/Object;R:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TestSupport"
+	};
+	$loadClass(TestSupport$F1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSupport$F1);
+	});
 	return class$;
 }
 

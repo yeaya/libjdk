@@ -59,6 +59,7 @@ class D3DGraphicsDevice : public ::sun::awt::Win32GraphicsDevice {
 	$class(D3DGraphicsDevice, 0, ::sun::awt::Win32GraphicsDevice)
 public:
 	D3DGraphicsDevice();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t screennum, ::sun::java2d::pipe::hw::ContextCapabilities* d3dCaps);
 	virtual void addFSWindowListener(::java::awt::Window* w) override;
 	virtual void configDisplayMode(int32_t screen, ::java::awt::peer::WindowPeer* w, int32_t width, int32_t height, int32_t bitDepth, int32_t refreshRate) override;

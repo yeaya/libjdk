@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapName$1.h>
-
 #include <com/sun/jndi/ldap/LdapName$Rdn.h>
 #include <com/sun/jndi/ldap/LdapName.h>
 #include <java/util/Enumeration.h>
@@ -19,50 +18,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapName$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jndi/ldap/LdapName;", nullptr, $FINAL | $SYNTHETIC, $field(LdapName$1, this$0)},
-	{"val$enum_", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(LdapName$1, val$enum_)},
-	{}
-};
-
-$MethodInfo _LdapName$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapName;Ljava/util/Enumeration;)V", "()V", 0, $method(LdapName$1, init$, void, $LdapName*, $Enumeration*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName$1, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$1, nextElement, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LdapName$1_EnclosingMethodInfo_ = {
-	"com.sun.jndi.ldap.LdapName",
-	"getAll",
-	"()Ljava/util/Enumeration;"
-};
-
-$InnerClassInfo _LdapName$1_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.LdapName$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LdapName$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.LdapName$1",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_LdapName$1_FieldInfo_,
-	_LdapName$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
-	&_LdapName$1_EnclosingMethodInfo_,
-	_LdapName$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.LdapName"
-};
-
-$Object* allocate$LdapName$1($Class* clazz) {
-	return $of($alloc(LdapName$1));
-}
-
 void LdapName$1::init$($LdapName* this$0, $Enumeration* val$enum_) {
 	$set(this, this$0, this$0);
 	$set(this, val$enum_, val$enum_);
@@ -73,14 +28,51 @@ bool LdapName$1::hasMoreElements() {
 }
 
 $Object* LdapName$1::nextElement() {
-	return $of($nc(($cast($LdapName$Rdn, $($nc(this->val$enum_)->nextElement()))))->toString());
+	return $of($$sure($LdapName$Rdn, $nc(this->val$enum_)->nextElement())->toString());
 }
 
 LdapName$1::LdapName$1() {
 }
 
 $Class* LdapName$1::load$($String* name, bool initialize) {
-	$loadClass(LdapName$1, name, initialize, &_LdapName$1_ClassInfo_, allocate$LdapName$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jndi/ldap/LdapName;", nullptr, $FINAL | $SYNTHETIC, $field(LdapName$1, this$0)},
+		{"val$enum_", "Ljava/util/Enumeration;", nullptr, $FINAL | $SYNTHETIC, $field(LdapName$1, val$enum_)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/ldap/LdapName;Ljava/util/Enumeration;)V", "()V", 0, $method(LdapName$1, init$, void, $LdapName*, $Enumeration*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName$1, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName$1, nextElement, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.jndi.ldap.LdapName",
+		"getAll",
+		"()Ljava/util/Enumeration;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.LdapName$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.LdapName$1",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.LdapName"
+	};
+	$loadClass(LdapName$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapName$1);
+	});
 	return class$;
 }
 

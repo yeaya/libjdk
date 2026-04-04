@@ -26,7 +26,10 @@ public:
 	::javax::swing::event::TreeExpansionEvent* event = nullptr;
 	ExpandVetoException(const ExpandVetoException& e);
 	virtual void throw$() override;
-	inline ExpandVetoException* operator ->() {
+	inline ExpandVetoException* operator ->() const {
+		return (ExpandVetoException*)throwing$;
+	}
+	inline operator ExpandVetoException*() const {
 		return (ExpandVetoException*)throwing$;
 	}
 };

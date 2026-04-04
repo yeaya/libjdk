@@ -1,11 +1,8 @@
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL$1.h>
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel.h>
 #include <java/awt/Toolkit.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
@@ -18,12 +15,10 @@ using $GTKLookAndFeel = ::com::sun::java::swing::plaf::gtk::GTKLookAndFeel;
 using $GTKLookAndFeel$WeakPCL$1 = ::com::sun::java::swing::plaf::gtk::GTKLookAndFeel$WeakPCL$1;
 using $Toolkit = ::java::awt::Toolkit;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
@@ -34,51 +29,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKLookAndFeel$WeakPCL_FieldInfo_[] = {
-	{"kit", "Ljava/awt/Toolkit;", nullptr, $PRIVATE, $field(GTKLookAndFeel$WeakPCL, kit)},
-	{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKLookAndFeel$WeakPCL, key)},
-	{}
-};
-
-$MethodInfo _GTKLookAndFeel$WeakPCL_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel;Ljava/awt/Toolkit;Ljava/lang/String;)V", nullptr, 0, $method(GTKLookAndFeel$WeakPCL, init$, void, $GTKLookAndFeel*, $Toolkit*, $String*)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(GTKLookAndFeel$WeakPCL, dispose, void)},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GTKLookAndFeel$WeakPCL, getKey, $String*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKLookAndFeel$WeakPCL, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _GTKLookAndFeel$WeakPCL_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL", "com.sun.java.swing.plaf.gtk.GTKLookAndFeel", "WeakPCL", $STATIC},
-	{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GTKLookAndFeel$WeakPCL_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL",
-	"java.lang.ref.WeakReference",
-	"java.beans.PropertyChangeListener",
-	_GTKLookAndFeel$WeakPCL_FieldInfo_,
-	_GTKLookAndFeel$WeakPCL_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel;>;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_GTKLookAndFeel$WeakPCL_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
-};
-
-$Object* allocate$GTKLookAndFeel$WeakPCL($Class* clazz) {
-	return $of($alloc(GTKLookAndFeel$WeakPCL));
-}
 
 $Object* GTKLookAndFeel$WeakPCL::clone() {
 	 return this->$WeakReference::clone();
@@ -112,7 +62,7 @@ $String* GTKLookAndFeel$WeakPCL::getKey() {
 }
 
 void GTKLookAndFeel$WeakPCL::propertyChange($PropertyChangeEvent* pce) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GTKLookAndFeel, lnf, $cast($GTKLookAndFeel, get()));
 	if (lnf == nullptr || !$equals($UIManager::getLookAndFeel(), lnf)) {
 		dispose();
@@ -129,7 +79,46 @@ GTKLookAndFeel$WeakPCL::GTKLookAndFeel$WeakPCL() {
 }
 
 $Class* GTKLookAndFeel$WeakPCL::load$($String* name, bool initialize) {
-	$loadClass(GTKLookAndFeel$WeakPCL, name, initialize, &_GTKLookAndFeel$WeakPCL_ClassInfo_, allocate$GTKLookAndFeel$WeakPCL);
+	$FieldInfo fieldInfos$$[] = {
+		{"kit", "Ljava/awt/Toolkit;", nullptr, $PRIVATE, $field(GTKLookAndFeel$WeakPCL, kit)},
+		{"key", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GTKLookAndFeel$WeakPCL, key)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel;Ljava/awt/Toolkit;Ljava/lang/String;)V", nullptr, 0, $method(GTKLookAndFeel$WeakPCL, init$, void, $GTKLookAndFeel*, $Toolkit*, $String*)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(GTKLookAndFeel$WeakPCL, dispose, void)},
+		{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GTKLookAndFeel$WeakPCL, getKey, $String*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(GTKLookAndFeel$WeakPCL, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL", "com.sun.java.swing.plaf.gtk.GTKLookAndFeel", "WeakPCL", $STATIC},
+		{"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKLookAndFeel$WeakPCL",
+		"java.lang.ref.WeakReference",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Lcom/sun/java/swing/plaf/gtk/GTKLookAndFeel;>;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+	};
+	$loadClass(GTKLookAndFeel$WeakPCL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKLookAndFeel$WeakPCL));
+	});
 	return class$;
 }
 

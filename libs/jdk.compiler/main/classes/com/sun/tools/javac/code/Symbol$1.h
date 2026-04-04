@@ -15,6 +15,7 @@ class Symbol$1 : public ::java::lang::Object {
 	$class(Symbol$1, 0, ::java::lang::Object)
 public:
 	Symbol$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 	static $ints* $SwitchMap$javax$lang$model$element$ElementKind;
 };

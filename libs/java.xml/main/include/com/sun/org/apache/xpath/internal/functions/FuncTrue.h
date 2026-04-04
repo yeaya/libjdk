@@ -55,7 +55,7 @@ public:
 	void init$();
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual void fixupVariables(::java::util::List* vars, int32_t globalsSize) override;
-	static const int64_t serialVersionUID = (int64_t)0x4E98229345E17677;
+	static const int64_t serialVersionUID = (int64_t)0x4e98229345e17677;
 };
 
 						} // functions

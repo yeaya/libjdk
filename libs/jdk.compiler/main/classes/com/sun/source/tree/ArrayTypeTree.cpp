@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ArrayTypeTree.h>
-
 #include <com/sun/source/tree/Tree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ArrayTypeTree_MethodInfo_[] = {
-	{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypeTree, getType, $Tree*)},
-	{}
-};
-
-$ClassInfo _ArrayTypeTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ArrayTypeTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_ArrayTypeTree_MethodInfo_
-};
-
-$Object* allocate$ArrayTypeTree($Class* clazz) {
-	return $of($alloc(ArrayTypeTree));
-}
-
 $Class* ArrayTypeTree::load$($String* name, bool initialize) {
-	$loadClass(ArrayTypeTree, name, initialize, &_ArrayTypeTree_ClassInfo_, allocate$ArrayTypeTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayTypeTree, getType, $Tree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ArrayTypeTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArrayTypeTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayTypeTree);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class PrimitiveWrapperMap : public ::java::lang::Object {
 	$class(PrimitiveWrapperMap, 0, ::java::lang::Object)
 public:
 	PrimitiveWrapperMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Class* getType($String* name);
 	static void replacePrimitivesWithWrappers($ClassArray* types);

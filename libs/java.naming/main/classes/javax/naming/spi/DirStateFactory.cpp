@@ -1,5 +1,4 @@
 #include <javax/naming/spi/DirStateFactory.h>
-
 #include <java/util/Hashtable.h>
 #include <javax/naming/Context.h>
 #include <javax/naming/Name.h>
@@ -20,37 +19,32 @@ namespace javax {
 	namespace naming {
 		namespace spi {
 
-$MethodInfo _DirStateFactory_MethodInfo_[] = {
-	{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", $PUBLIC | $ABSTRACT, $virtualMethod(DirStateFactory, getStateToBind, $DirStateFactory$Result*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "javax.naming.NamingException"},
-	{}
-};
-
-$InnerClassInfo _DirStateFactory_InnerClassesInfo_[] = {
-	{"javax.naming.spi.DirStateFactory$Result", "javax.naming.spi.DirStateFactory", "Result", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DirStateFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.spi.DirStateFactory",
-	nullptr,
-	"javax.naming.spi.StateFactory",
-	nullptr,
-	_DirStateFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirStateFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.naming.spi.DirStateFactory$Result"
-};
-
-$Object* allocate$DirStateFactory($Class* clazz) {
-	return $of($alloc(DirStateFactory));
-}
-
 $Class* DirStateFactory::load$($String* name, bool initialize) {
-	$loadClass(DirStateFactory, name, initialize, &_DirStateFactory_ClassInfo_, allocate$DirStateFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", $PUBLIC | $ABSTRACT, $virtualMethod(DirStateFactory, getStateToBind, $DirStateFactory$Result*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "javax.naming.NamingException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.naming.spi.DirStateFactory$Result", "javax.naming.spi.DirStateFactory", "Result", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.spi.DirStateFactory",
+		nullptr,
+		"javax.naming.spi.StateFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.naming.spi.DirStateFactory$Result"
+	};
+	$loadClass(DirStateFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirStateFactory);
+	});
 	return class$;
 }
 

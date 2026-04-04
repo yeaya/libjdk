@@ -1,15 +1,11 @@
 #include <javax/swing/plaf/basic/BasicTableUI$Handler.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -26,10 +22,8 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/Timer.h>
 #include <javax/swing/event/ListSelectionEvent.h>
-#include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/plaf/basic/BasicGraphicsUtils.h>
 #include <javax/swing/plaf/basic/BasicTableUI.h>
-#include <javax/swing/plaf/basic/DragRecognitionSupport$BeforeDrag.h>
 #include <javax/swing/plaf/basic/DragRecognitionSupport.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellEditor.h>
@@ -43,16 +37,13 @@
 #undef WHEN_ANCESTOR_OF_FOCUSED_COMPONENT
 #undef WHEN_FOCUSED
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -67,103 +58,23 @@ using $ActionMap = ::javax::swing::ActionMap;
 using $CellEditor = ::javax::swing::CellEditor;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
-using $JTable = ::javax::swing::JTable;
 using $JTable$DropLocation = ::javax::swing::JTable$DropLocation;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
-using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $BasicTableUI = ::javax::swing::plaf::basic::BasicTableUI;
 using $DragRecognitionSupport = ::javax::swing::plaf::basic::DragRecognitionSupport;
-using $DragRecognitionSupport$BeforeDrag = ::javax::swing::plaf::basic::DragRecognitionSupport$BeforeDrag;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTableUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTableUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTableUI$Handler, this$0)},
-	{"dispatchComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(BasicTableUI$Handler, dispatchComponent)},
-	{"pressedRow", "I", nullptr, $PRIVATE, $field(BasicTableUI$Handler, pressedRow)},
-	{"pressedCol", "I", nullptr, $PRIVATE, $field(BasicTableUI$Handler, pressedCol)},
-	{"pressedEvent", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE, $field(BasicTableUI$Handler, pressedEvent)},
-	{"dragPressDidSelection", "Z", nullptr, $PRIVATE, $field(BasicTableUI$Handler, dragPressDidSelection)},
-	{"dragStarted", "Z", nullptr, $PRIVATE, $field(BasicTableUI$Handler, dragStarted)},
-	{"shouldStartTimer", "Z", nullptr, $PRIVATE, $field(BasicTableUI$Handler, shouldStartTimer)},
-	{"outsidePrefSize", "Z", nullptr, $PRIVATE, $field(BasicTableUI$Handler, outsidePrefSize)},
-	{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE, $field(BasicTableUI$Handler, timer)},
-	{}
-};
-
-$MethodInfo _BasicTableUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTableUI;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, init$, void, $BasicTableUI*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, actionPerformed, void, $ActionEvent*)},
-	{"adjustSelection", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, adjustSelection, void, $MouseEvent*)},
-	{"canStartDrag", "()Z", nullptr, $PRIVATE, $method(BasicTableUI$Handler, canStartDrag, bool)},
-	{"dragStarting", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, dragStarting, void, $MouseEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, focusLost, void, $FocusEvent*)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, keyPressed, void, $KeyEvent*)},
-	{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, keyReleased, void, $KeyEvent*)},
-	{"keyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, keyTyped, void, $KeyEvent*)},
-	{"maybeStartTimer", "()V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, maybeStartTimer, void)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mousePressed, void, $MouseEvent*)},
-	{"mousePressedDND", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, mousePressedDND, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseReleased, void, $MouseEvent*)},
-	{"mouseReleasedDND", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, mouseReleasedDND, void, $MouseEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"repaintDropLocation", "(Ljavax/swing/JTable$DropLocation;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, repaintDropLocation, void, $JTable$DropLocation*)},
-	{"repaintLeadCell", "()V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, repaintLeadCell, void)},
-	{"repostEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(BasicTableUI$Handler, repostEvent, bool, $MouseEvent*)},
-	{"setDispatchComponent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, setDispatchComponent, void, $MouseEvent*)},
-	{"setValueIsAdjusting", "(Z)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, setValueIsAdjusting, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicTableUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTableUI$Handler", "javax.swing.plaf.basic.BasicTableUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _BasicTableUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTableUI$Handler",
-	"java.lang.Object",
-	"java.awt.event.FocusListener,javax.swing.event.MouseInputListener,java.beans.PropertyChangeListener,javax.swing.event.ListSelectionListener,java.awt.event.ActionListener,javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag",
-	_BasicTableUI$Handler_FieldInfo_,
-	_BasicTableUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTableUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTableUI"
-};
-
-$Object* allocate$BasicTableUI$Handler($Class* clazz) {
-	return $of($alloc(BasicTableUI$Handler));
-}
 
 int32_t BasicTableUI$Handler::hashCode() {
 	 return this->$FocusListener::hashCode();
@@ -215,8 +126,8 @@ void BasicTableUI$Handler::keyReleased($KeyEvent* e) {
 }
 
 void BasicTableUI$Handler::keyTyped($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = (int32_t)$nc(e)->getKeyChar();
+	$useLocalObjectStack();
+	int32_t var$0 = $nc(e)->getKeyChar();
 	$var($KeyStroke, keyStroke, $KeyStroke::getKeyStroke(var$0, e->getModifiers()));
 	$var($InputMap, map, $nc(this->this$0->table)->getInputMap($JComponent::WHEN_FOCUSED));
 	if (map != nullptr && map->get(keyStroke) != nullptr) {
@@ -227,7 +138,7 @@ void BasicTableUI$Handler::keyTyped($KeyEvent* e) {
 		return;
 	}
 	$assign(keyStroke, $KeyStroke::getKeyStrokeForEvent(e));
-	if ($nc(e)->getKeyChar() == u'\r') {
+	if (e->getKeyChar() == u'\r') {
 		return;
 	}
 	int32_t leadRow = $BasicTableUI::getAdjustedLead(this->this$0->table, true);
@@ -242,16 +153,16 @@ void BasicTableUI$Handler::keyTyped($KeyEvent* e) {
 		if ($instanceOf($JComponent, editorComp)) {
 			$var($JComponent, component, $cast($JComponent, editorComp));
 			$assign(map, component->getInputMap($JComponent::WHEN_FOCUSED));
-			$var($Object, binding, (map != nullptr) ? $nc(map)->get(keyStroke) : ($Object*)nullptr);
+			$var($Object, binding, (map != nullptr) ? map->get(keyStroke) : ($Object*)nullptr);
 			if (binding == nullptr) {
 				$assign(map, component->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT));
-				$assign(binding, (map != nullptr) ? $nc(map)->get(keyStroke) : ($Object*)nullptr);
+				$assign(binding, (map != nullptr) ? map->get(keyStroke) : ($Object*)nullptr);
 			}
 			if (binding != nullptr) {
 				$var($ActionMap, am, component->getActionMap());
-				$var($Action, action, (am != nullptr) ? $nc(am)->get(binding) : ($Action*)nullptr);
-				if (action != nullptr && $SwingUtilities::notifyAction(action, keyStroke, e, component, $nc(e)->getModifiers())) {
-					$nc(e)->consume();
+				$var($Action, action, (am != nullptr) ? am->get(binding) : ($Action*)nullptr);
+				if (action != nullptr && $SwingUtilities::notifyAction(action, keyStroke, e, component, e->getModifiers())) {
+					e->consume();
 				}
 			}
 		}
@@ -262,11 +173,11 @@ void BasicTableUI$Handler::mouseClicked($MouseEvent* e) {
 }
 
 void BasicTableUI$Handler::setDispatchComponent($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, editorComponent, $nc(this->this$0->table)->getEditorComponent());
 	$var($Point, p, $nc(e)->getPoint());
 	$var($Point, p2, $SwingUtilities::convertPoint(this->this$0->table, p, editorComponent));
-	$set(this, dispatchComponent, $SwingUtilities::getDeepestComponentAt(editorComponent, $nc(p2)->x, p2->y));
+	$set(this, dispatchComponent, $SwingUtilities::getDeepestComponentAt(editorComponent, $nc(p2)->x, $nc(p2)->y));
 	$SwingUtilities2::setSkipClickCount(this->dispatchComponent, e->getClickCount() - 1);
 }
 
@@ -280,33 +191,33 @@ bool BasicTableUI$Handler::repostEvent($MouseEvent* e) {
 }
 
 void BasicTableUI$Handler::setValueIsAdjusting(bool flag) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->this$0->table)->getSelectionModel()))->setValueIsAdjusting(flag);
-	$nc($($nc($($nc(this->this$0->table)->getColumnModel()))->getSelectionModel()))->setValueIsAdjusting(flag);
+	$useLocalObjectStack();
+	$$nc($nc(this->this$0->table)->getSelectionModel())->setValueIsAdjusting(flag);
+	$$nc($$nc($nc(this->this$0->table)->getColumnModel())->getSelectionModel())->setValueIsAdjusting(flag);
 }
 
 bool BasicTableUI$Handler::canStartDrag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pressedRow == -1 || this->pressedCol == -1) {
 		return false;
 	}
 	if (this->this$0->isFileList) {
 		return !this->outsidePrefSize;
 	}
-	bool var$0 = ($nc($($nc(this->this$0->table)->getSelectionModel()))->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION);
-	if (var$0 && ($nc($($nc($($nc(this->this$0->table)->getColumnModel()))->getSelectionModel()))->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION)) {
+	bool var$0 = $$nc($nc(this->this$0->table)->getSelectionModel())->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION;
+	if (var$0 && ($$nc($$nc(this->this$0->table->getColumnModel())->getSelectionModel())->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION)) {
 		return true;
 	}
 	return $nc(this->this$0->table)->isCellSelected(this->pressedRow, this->pressedCol);
 }
 
 void BasicTableUI$Handler::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities2::shouldIgnore(e, this->this$0->table)) {
 		return;
 	}
 	bool var$0 = $nc(this->this$0->table)->isEditing();
-	if (var$0 && !$nc($($nc(this->this$0->table)->getCellEditor()))->stopCellEditing()) {
+	if (var$0 && !$$nc(this->this$0->table->getCellEditor())->stopCellEditing()) {
 		$var($Component, editorComponent, $nc(this->this$0->table)->getEditorComponent());
 		if (editorComponent != nullptr && !editorComponent->hasFocus()) {
 			$SwingUtilities2::compositeRequestFocus(editorComponent);
@@ -334,7 +245,7 @@ void BasicTableUI$Handler::mousePressed($MouseEvent* e) {
 }
 
 void BasicTableUI$Handler::mousePressedDND($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, pressedEvent, e);
 	bool grabFocus = true;
 	this->dragStarted = false;
@@ -344,10 +255,10 @@ void BasicTableUI$Handler::mousePressedDND($MouseEvent* e) {
 		if ($BasicGraphicsUtils::isMenuShortcutKeyDown(e) && this->this$0->isFileList) {
 			return;
 		} else {
-			bool var$2 = !$nc(e)->isShiftDown();
-			if (var$2 && $nc(this->this$0->table)->isCellSelected(this->pressedRow, this->pressedCol)) {
-				$nc($($nc(this->this$0->table)->getSelectionModel()))->addSelectionInterval(this->pressedRow, this->pressedRow);
-				$nc($($nc($($nc(this->this$0->table)->getColumnModel()))->getSelectionModel()))->addSelectionInterval(this->pressedCol, this->pressedCol);
+			bool var$1 = !$nc(e)->isShiftDown();
+			if (var$1 && $nc(this->this$0->table)->isCellSelected(this->pressedRow, this->pressedCol)) {
+				$$nc($nc(this->this$0->table)->getSelectionModel())->addSelectionInterval(this->pressedRow, this->pressedRow);
+				$$nc($$nc($nc(this->this$0->table)->getColumnModel())->getSelectionModel())->addSelectionInterval(this->pressedCol, this->pressedCol);
 				return;
 			}
 		}
@@ -363,12 +274,12 @@ void BasicTableUI$Handler::mousePressedDND($MouseEvent* e) {
 }
 
 void BasicTableUI$Handler::adjustSelection($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->outsidePrefSize) {
 		bool var$0 = $nc(e)->getID() == $MouseEvent::MOUSE_PRESSED;
 		if (var$0) {
 			bool var$1 = !e->isShiftDown();
-			var$0 = (var$1 || $nc($($nc(this->this$0->table)->getSelectionModel()))->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION);
+			var$0 = var$1 || $$nc($nc(this->this$0->table)->getSelectionModel())->getSelectionMode() == $ListSelectionModel::SINGLE_SELECTION;
 		}
 		if (var$0) {
 			$nc(this->this$0->table)->clearSelection();
@@ -388,7 +299,7 @@ void BasicTableUI$Handler::adjustSelection($MouseEvent* e) {
 		repostEvent(e);
 	}
 	$var($CellEditor, editor, $nc(this->this$0->table)->getCellEditor());
-	if (dragEnabled || editor == nullptr || $nc(editor)->shouldSelectCell(e)) {
+	if (dragEnabled || editor == nullptr || editor->shouldSelectCell(e)) {
 		int32_t var$2 = this->pressedRow;
 		int32_t var$3 = this->pressedCol;
 		bool var$4 = $BasicGraphicsUtils::isMenuShortcutKeyDown(e);
@@ -398,7 +309,7 @@ void BasicTableUI$Handler::adjustSelection($MouseEvent* e) {
 
 void BasicTableUI$Handler::valueChanged($ListSelectionEvent* e) {
 	if (this->timer != nullptr) {
-		$nc(this->timer)->stop();
+		this->timer->stop();
 		$set(this, timer, nullptr);
 	}
 }
@@ -418,7 +329,7 @@ void BasicTableUI$Handler::maybeStartTimer() {
 	}
 	if (this->timer == nullptr) {
 		$set(this, timer, $new($Timer, 1200, this));
-		$nc(this->timer)->setRepeats(false);
+		this->timer->setRepeats(false);
 	}
 	$nc(this->timer)->start();
 }
@@ -439,7 +350,7 @@ void BasicTableUI$Handler::mouseReleased($MouseEvent* e) {
 }
 
 void BasicTableUI$Handler::mouseReleasedDND($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MouseEvent, me, $DragRecognitionSupport::mouseReleased(e));
 	if (me != nullptr) {
 		$SwingUtilities2::adjustFocus(this->this$0->table);
@@ -454,8 +365,8 @@ void BasicTableUI$Handler::mouseReleasedDND($MouseEvent* e) {
 		}
 		$var($Point, p, $nc(e)->getPoint());
 		bool var$1 = this->pressedEvent != nullptr && $nc(this->this$0->table)->rowAtPoint(p) == this->pressedRow;
-		bool var$0 = var$1 && $nc(this->this$0->table)->columnAtPoint(p) == this->pressedCol;
-		if (var$0 && $nc(this->this$0->table)->editCellAt(this->pressedRow, this->pressedCol, this->pressedEvent)) {
+		bool var$0 = var$1 && this->this$0->table->columnAtPoint(p) == this->pressedCol;
+		if (var$0 && this->this$0->table->editCellAt(this->pressedRow, this->pressedCol, this->pressedEvent)) {
 			setDispatchComponent(this->pressedEvent);
 			repostEvent(this->pressedEvent);
 			$var($CellEditor, ce, $nc(this->this$0->table)->getCellEditor());
@@ -476,11 +387,11 @@ void BasicTableUI$Handler::mouseMoved($MouseEvent* e) {
 }
 
 void BasicTableUI$Handler::dragStarting($MouseEvent* me) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->dragStarted = true;
 	if ($BasicGraphicsUtils::isMenuShortcutKeyDown(me) && this->this$0->isFileList) {
-		$nc($($nc(this->this$0->table)->getSelectionModel()))->addSelectionInterval(this->pressedRow, this->pressedRow);
-		$nc($($nc($($nc(this->this$0->table)->getColumnModel()))->getSelectionModel()))->addSelectionInterval(this->pressedCol, this->pressedCol);
+		$$nc($nc(this->this$0->table)->getSelectionModel())->addSelectionInterval(this->pressedRow, this->pressedRow);
+		$$nc($$nc($nc(this->this$0->table)->getColumnModel())->getSelectionModel())->addSelectionInterval(this->pressedCol, this->pressedCol);
 	}
 	$set(this, pressedEvent, nullptr);
 }
@@ -507,41 +418,40 @@ void BasicTableUI$Handler::mouseDragged($MouseEvent* e) {
 }
 
 void BasicTableUI$Handler::propertyChange($PropertyChangeEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, changeName, $nc(event)->getPropertyName());
 	if ("componentOrientation"_s == changeName) {
 		$var($InputMap, inputMap, this->this$0->getInputMap($JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT));
 		$SwingUtilities::replaceUIInputMap(this->this$0->table, $JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT, inputMap);
 		$var($JTableHeader, header, $nc(this->this$0->table)->getTableHeader());
 		if (header != nullptr) {
-			header->setComponentOrientation($cast($ComponentOrientation, $(event->getNewValue())));
+			header->setComponentOrientation($$cast($ComponentOrientation, event->getNewValue()));
 		}
 	} else if ("dropLocation"_s == changeName) {
 		$var($JTable$DropLocation, oldValue, $cast($JTable$DropLocation, event->getOldValue()));
 		repaintDropLocation(oldValue);
 		repaintDropLocation($($nc(this->this$0->table)->getDropLocation()));
 	} else if ("Table.isFileList"_s == changeName) {
-		$init($Boolean);
 		this->this$0->isFileList = $nc($Boolean::TRUE)->equals($($nc(this->this$0->table)->getClientProperty("Table.isFileList"_s)));
 		$nc(this->this$0->table)->revalidate();
 		$nc(this->this$0->table)->repaint();
 		if (this->this$0->isFileList) {
-			$nc($($nc(this->this$0->table)->getSelectionModel()))->addListSelectionListener($(this->this$0->getHandler()));
+			$$nc($nc(this->this$0->table)->getSelectionModel())->addListSelectionListener($(this->this$0->getHandler()));
 		} else {
-			$nc($($nc(this->this$0->table)->getSelectionModel()))->removeListSelectionListener($(this->this$0->getHandler()));
+			$$nc($nc(this->this$0->table)->getSelectionModel())->removeListSelectionListener($(this->this$0->getHandler()));
 			$set(this, timer, nullptr);
 		}
 	} else if ("selectionModel"_s == changeName) {
 		if (this->this$0->isFileList) {
 			$var($ListSelectionModel, old, $cast($ListSelectionModel, event->getOldValue()));
 			$nc(old)->removeListSelectionListener($(this->this$0->getHandler()));
-			$nc($($nc(this->this$0->table)->getSelectionModel()))->addListSelectionListener($(this->this$0->getHandler()));
+			$$nc($nc(this->this$0->table)->getSelectionModel())->addListSelectionListener($(this->this$0->getHandler()));
 		}
 	}
 }
 
 void BasicTableUI$Handler::repaintDropLocation($JTable$DropLocation* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (loc == nullptr) {
 		return;
 	}
@@ -554,13 +464,13 @@ void BasicTableUI$Handler::repaintDropLocation($JTable$DropLocation* loc) {
 		}
 		return;
 	}
-	if ($nc(loc)->isInsertRow()) {
+	if (loc->isInsertRow()) {
 		$var($Rectangle, rect, this->this$0->extendRect($(this->this$0->getHDropLineRect(loc)), true));
 		if (rect != nullptr) {
 			$nc(this->this$0->table)->repaint(rect);
 		}
 	}
-	if ($nc(loc)->isInsertColumn()) {
+	if (loc->isInsertColumn()) {
 		$var($Rectangle, rect, this->this$0->extendRect($(this->this$0->getVDropLineRect(loc)), false));
 		if (rect != nullptr) {
 			$nc(this->this$0->table)->repaint(rect);
@@ -572,7 +482,77 @@ BasicTableUI$Handler::BasicTableUI$Handler() {
 }
 
 $Class* BasicTableUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicTableUI$Handler, name, initialize, &_BasicTableUI$Handler_ClassInfo_, allocate$BasicTableUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTableUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTableUI$Handler, this$0)},
+		{"dispatchComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(BasicTableUI$Handler, dispatchComponent)},
+		{"pressedRow", "I", nullptr, $PRIVATE, $field(BasicTableUI$Handler, pressedRow)},
+		{"pressedCol", "I", nullptr, $PRIVATE, $field(BasicTableUI$Handler, pressedCol)},
+		{"pressedEvent", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE, $field(BasicTableUI$Handler, pressedEvent)},
+		{"dragPressDidSelection", "Z", nullptr, $PRIVATE, $field(BasicTableUI$Handler, dragPressDidSelection)},
+		{"dragStarted", "Z", nullptr, $PRIVATE, $field(BasicTableUI$Handler, dragStarted)},
+		{"shouldStartTimer", "Z", nullptr, $PRIVATE, $field(BasicTableUI$Handler, shouldStartTimer)},
+		{"outsidePrefSize", "Z", nullptr, $PRIVATE, $field(BasicTableUI$Handler, outsidePrefSize)},
+		{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE, $field(BasicTableUI$Handler, timer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTableUI;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, init$, void, $BasicTableUI*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, actionPerformed, void, $ActionEvent*)},
+		{"adjustSelection", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, adjustSelection, void, $MouseEvent*)},
+		{"canStartDrag", "()Z", nullptr, $PRIVATE, $method(BasicTableUI$Handler, canStartDrag, bool)},
+		{"dragStarting", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, dragStarting, void, $MouseEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, focusLost, void, $FocusEvent*)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, keyPressed, void, $KeyEvent*)},
+		{"keyReleased", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, keyReleased, void, $KeyEvent*)},
+		{"keyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, keyTyped, void, $KeyEvent*)},
+		{"maybeStartTimer", "()V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, maybeStartTimer, void)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mousePressed, void, $MouseEvent*)},
+		{"mousePressedDND", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, mousePressedDND, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, mouseReleased, void, $MouseEvent*)},
+		{"mouseReleasedDND", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, mouseReleasedDND, void, $MouseEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"repaintDropLocation", "(Ljavax/swing/JTable$DropLocation;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, repaintDropLocation, void, $JTable$DropLocation*)},
+		{"repaintLeadCell", "()V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, repaintLeadCell, void)},
+		{"repostEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(BasicTableUI$Handler, repostEvent, bool, $MouseEvent*)},
+		{"setDispatchComponent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, setDispatchComponent, void, $MouseEvent*)},
+		{"setValueIsAdjusting", "(Z)V", nullptr, $PRIVATE, $method(BasicTableUI$Handler, setValueIsAdjusting, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableUI$Handler, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTableUI$Handler", "javax.swing.plaf.basic.BasicTableUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag", "javax.swing.plaf.basic.DragRecognitionSupport", "BeforeDrag", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTableUI$Handler",
+		"java.lang.Object",
+		"java.awt.event.FocusListener,javax.swing.event.MouseInputListener,java.beans.PropertyChangeListener,javax.swing.event.ListSelectionListener,java.awt.event.ActionListener,javax.swing.plaf.basic.DragRecognitionSupport$BeforeDrag",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTableUI"
+	};
+	$loadClass(BasicTableUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTableUI$Handler));
+	});
 	return class$;
 }
 

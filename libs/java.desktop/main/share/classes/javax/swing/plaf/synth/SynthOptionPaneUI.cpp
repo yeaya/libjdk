@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthOptionPaneUI.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -11,7 +10,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
@@ -26,7 +24,6 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <sun/swing/DefaultLookup.h>
 #include <jcpp.h>
 
@@ -37,16 +34,13 @@
 #undef REMAINDER
 
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -61,61 +55,13 @@ using $BasicOptionPaneUI = ::javax::swing::plaf::basic::BasicOptionPaneUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthOptionPaneUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthOptionPaneUI, style)},
-	{}
-};
-
-$MethodInfo _SynthOptionPaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthOptionPaneUI, init$, void)},
-	{"createMessageArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, createMessageArea, $Container*)},
-	{"createSeparator", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, createSeparator, $Container*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthOptionPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthOptionPaneUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthOptionPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getSizeButtonsToSameWidth", "()Z", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, getSizeButtonsToSameWidth, bool)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthOptionPaneUI, updateStyle, void, $JComponent*)},
-	{}
-};
-
-$ClassInfo _SynthOptionPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthOptionPaneUI",
-	"javax.swing.plaf.basic.BasicOptionPaneUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthOptionPaneUI_FieldInfo_,
-	_SynthOptionPaneUI_MethodInfo_
-};
-
-$Object* allocate$SynthOptionPaneUI($Class* clazz) {
-	return $of($alloc(SynthOptionPaneUI));
-}
 
 int32_t SynthOptionPaneUI::hashCode() {
 	 return this->$BasicOptionPaneUI::hashCode();
@@ -156,7 +102,7 @@ void SynthOptionPaneUI::installListeners() {
 }
 
 void SynthOptionPaneUI::updateStyle($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$var($SynthStyle, oldStyle, this->style);
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -184,15 +130,15 @@ void SynthOptionPaneUI::uninstallListeners() {
 }
 
 void SynthOptionPaneUI::installComponents() {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->optionPane)->add($(static_cast<$Component*>(createMessageArea())));
+	$useLocalObjectStack();
+	$nc(this->optionPane)->add($(createMessageArea()));
 	$var($Container, separator, createSeparator());
 	if (separator != nullptr) {
-		$nc(this->optionPane)->add(static_cast<$Component*>(separator));
+		$nc(this->optionPane)->add(separator);
 		$var($SynthContext, context, getContext(this->optionPane, $SynthConstants::ENABLED));
-		$nc(this->optionPane)->add($($Box::createVerticalStrut($nc($($nc(context)->getStyle()))->getInt(context, "OptionPane.separatorPadding"_s, 6))));
+		$nc(this->optionPane)->add($($Box::createVerticalStrut($$nc($nc(context)->getStyle())->getInt(context, "OptionPane.separatorPadding"_s, 6))));
 	}
-	$nc(this->optionPane)->add($(static_cast<$Component*>(createButtonArea())));
+	$nc(this->optionPane)->add($(createButtonArea()));
 	$nc(this->optionPane)->applyComponentOrientation($($nc(this->optionPane)->getComponentOrientation()));
 }
 
@@ -209,13 +155,11 @@ int32_t SynthOptionPaneUI::getComponentState($JComponent* c) {
 }
 
 void SynthOptionPaneUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintOptionPaneBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintOptionPaneBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -228,12 +172,12 @@ void SynthOptionPaneUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthOptionPaneUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintOptionPaneBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintOptionPaneBorder(context, g, x, y, w, h);
 }
 
 void SynthOptionPaneUI::propertyChange($PropertyChangeEvent* e) {
 	if ($SynthLookAndFeel::shouldUpdateStyle(e)) {
-		updateStyle($cast($JOptionPane, $($nc(e)->getSource())));
+		updateStyle($$cast($JOptionPane, $nc(e)->getSource()));
 	}
 }
 
@@ -242,35 +186,31 @@ bool SynthOptionPaneUI::getSizeButtonsToSameWidth() {
 }
 
 $Container* SynthOptionPaneUI::createMessageArea() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, top, $new($JPanel));
 	top->setName("OptionPane.messageArea"_s);
 	top->setLayout($$new($BorderLayout));
-	$var($Container, body, $new($JPanel, static_cast<$LayoutManager*>($$new($GridBagLayout))));
-	$var($Container, realBody, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$var($Container, body, $new($JPanel, $$new($GridBagLayout)));
+	$var($Container, realBody, $new($JPanel, $$new($BorderLayout)));
 	body->setName("OptionPane.body"_s);
 	realBody->setName("OptionPane.realBody"_s);
 	if (getIcon() != nullptr) {
 		$var($JPanel, sep, $new($JPanel));
 		sep->setName("OptionPane.separator"_s);
 		sep->setPreferredSize($$new($Dimension, 15, 1));
-		$init($BorderLayout);
-		realBody->add(static_cast<$Component*>(sep), $of($BorderLayout::BEFORE_LINE_BEGINS));
+		realBody->add(sep, $BorderLayout::BEFORE_LINE_BEGINS);
 	}
-	$init($BorderLayout);
-	realBody->add(static_cast<$Component*>(body), $of($BorderLayout::CENTER));
+	realBody->add(body, $BorderLayout::CENTER);
 	$var($GridBagConstraints, cons, $new($GridBagConstraints));
 	cons->gridx = (cons->gridy = 0);
 	cons->gridwidth = $GridBagConstraints::REMAINDER;
 	cons->gridheight = 1;
 	$var($SynthContext, context, getContext(this->optionPane, $SynthConstants::ENABLED));
-	cons->anchor = $nc($($nc(context)->getStyle()))->getInt(context, "OptionPane.messageAnchor"_s, $GridBagConstraints::CENTER);
+	cons->anchor = $$nc($nc(context)->getStyle())->getInt(context, "OptionPane.messageAnchor"_s, $GridBagConstraints::CENTER);
 	$set(cons, insets, $new($Insets, 0, 0, 3, 0));
-	$var($Container, var$0, body);
-	$var($GridBagConstraints, var$1, cons);
-	$var($Object, var$2, getMessage());
-	addMessageComponents(var$0, var$1, var$2, getMaxCharactersPerLineCount(), false);
-	top->add(static_cast<$Component*>(realBody), $of($BorderLayout::CENTER));
+	$var($Object, var$0, getMessage());
+	addMessageComponents(body, cons, var$0, getMaxCharactersPerLineCount(), false);
+	top->add(realBody, $BorderLayout::CENTER);
 	addIcon(top);
 	return top;
 }
@@ -285,7 +225,48 @@ SynthOptionPaneUI::SynthOptionPaneUI() {
 }
 
 $Class* SynthOptionPaneUI::load$($String* name, bool initialize) {
-	$loadClass(SynthOptionPaneUI, name, initialize, &_SynthOptionPaneUI_ClassInfo_, allocate$SynthOptionPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthOptionPaneUI, style)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthOptionPaneUI, init$, void)},
+		{"createMessageArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, createMessageArea, $Container*)},
+		{"createSeparator", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, createSeparator, $Container*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthOptionPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthOptionPaneUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthOptionPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getSizeButtonsToSameWidth", "()Z", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, getSizeButtonsToSameWidth, bool)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthOptionPaneUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthOptionPaneUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthOptionPaneUI, updateStyle, void, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthOptionPaneUI",
+		"javax.swing.plaf.basic.BasicOptionPaneUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthOptionPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthOptionPaneUI));
+	});
 	return class$;
 }
 

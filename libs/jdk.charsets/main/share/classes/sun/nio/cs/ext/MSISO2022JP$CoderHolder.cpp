@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/MSISO2022JP$CoderHolder.h>
-
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/DoubleByte$Decoder.h>
@@ -21,50 +20,14 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _MSISO2022JP$CoderHolder_FieldInfo_[] = {
-	{"DEC0208", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $STATIC | $FINAL, $staticField(MSISO2022JP$CoderHolder, DEC0208)},
-	{"ENC0208", "Lsun/nio/cs/DoubleByte$Encoder;", nullptr, $STATIC | $FINAL, $staticField(MSISO2022JP$CoderHolder, ENC0208)},
-	{}
-};
-
-$MethodInfo _MSISO2022JP$CoderHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MSISO2022JP$CoderHolder, init$, void)},
-	{}
-};
-
-$InnerClassInfo _MSISO2022JP$CoderHolder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.MSISO2022JP$CoderHolder", "sun.nio.cs.ext.MSISO2022JP", "CoderHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MSISO2022JP$CoderHolder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.MSISO2022JP$CoderHolder",
-	"java.lang.Object",
-	nullptr,
-	_MSISO2022JP$CoderHolder_FieldInfo_,
-	_MSISO2022JP$CoderHolder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MSISO2022JP$CoderHolder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.MSISO2022JP"
-};
-
-$Object* allocate$MSISO2022JP$CoderHolder($Class* clazz) {
-	return $of($alloc(MSISO2022JP$CoderHolder));
-}
-
 $DoubleByte$Decoder* MSISO2022JP$CoderHolder::DEC0208 = nullptr;
 $DoubleByte$Encoder* MSISO2022JP$CoderHolder::ENC0208 = nullptr;
 
 void MSISO2022JP$CoderHolder::init$() {
 }
 
-void clinit$MSISO2022JP$CoderHolder($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MSISO2022JP$CoderHolder::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(MSISO2022JP$CoderHolder::DEC0208, $cast($DoubleByte$Decoder, $$new($JIS_X_0208_MS932)->newDecoder()));
 	$assignStatic(MSISO2022JP$CoderHolder::ENC0208, $cast($DoubleByte$Encoder, $$new($JIS_X_0208_MS932)->newEncoder()));
 }
@@ -73,7 +36,37 @@ MSISO2022JP$CoderHolder::MSISO2022JP$CoderHolder() {
 }
 
 $Class* MSISO2022JP$CoderHolder::load$($String* name, bool initialize) {
-	$loadClass(MSISO2022JP$CoderHolder, name, initialize, &_MSISO2022JP$CoderHolder_ClassInfo_, clinit$MSISO2022JP$CoderHolder, allocate$MSISO2022JP$CoderHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEC0208", "Lsun/nio/cs/DoubleByte$Decoder;", nullptr, $STATIC | $FINAL, $staticField(MSISO2022JP$CoderHolder, DEC0208)},
+		{"ENC0208", "Lsun/nio/cs/DoubleByte$Encoder;", nullptr, $STATIC | $FINAL, $staticField(MSISO2022JP$CoderHolder, ENC0208)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MSISO2022JP$CoderHolder, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.MSISO2022JP$CoderHolder", "sun.nio.cs.ext.MSISO2022JP", "CoderHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.MSISO2022JP$CoderHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.MSISO2022JP"
+	};
+	$loadClass(MSISO2022JP$CoderHolder, name, initialize, &classInfo$$, MSISO2022JP$CoderHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MSISO2022JP$CoderHolder);
+	});
 	return class$;
 }
 

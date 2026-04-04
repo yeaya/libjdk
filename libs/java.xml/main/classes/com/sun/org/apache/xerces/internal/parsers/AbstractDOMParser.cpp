@@ -1,7 +1,5 @@
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractDOMParser.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/AttrImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMErrorImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
@@ -113,7 +111,6 @@
 #undef XML_URI
 
 using $AttrImpl = ::com::sun::org::apache::xerces::internal::dom::AttrImpl;
-using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DOMErrorImpl = ::com::sun::org::apache::xerces::internal::dom::DOMErrorImpl;
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
@@ -136,7 +133,6 @@ using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XSSimpleType = ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType;
 using $AbstractDOMParser$Abort = ::com::sun::org::apache::xerces::internal::parsers::AbstractDOMParser$Abort;
 using $AbstractXMLDocumentParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractXMLDocumentParser;
-using $DOMErrorHandlerWrapper = ::com::sun::org::apache::xerces::internal::util::DOMErrorHandlerWrapper;
 using $ObjectFactory = ::com::sun::org::apache::xerces::internal::utils::ObjectFactory;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
@@ -158,16 +154,12 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $Locale = ::java::util::Locale;
 using $Stack = ::java::util::Stack;
 using $Attr = ::org::w3c::dom::Attr;
-using $CDATASection = ::org::w3c::dom::CDATASection;
 using $Comment = ::org::w3c::dom::Comment;
 using $DOMError = ::org::w3c::dom::DOMError;
-using $DOMErrorHandler = ::org::w3c::dom::DOMErrorHandler;
 using $Document = ::org::w3c::dom::Document;
-using $DocumentType = ::org::w3c::dom::DocumentType;
 using $Element = ::org::w3c::dom::Element;
 using $EntityReference = ::org::w3c::dom::EntityReference;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
@@ -185,135 +177,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _AbstractDOMParser_FieldInfo_[] = {
-	{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, NAMESPACES)},
-	{"CREATE_ENTITY_REF_NODES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, CREATE_ENTITY_REF_NODES)},
-	{"INCLUDE_COMMENTS_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, INCLUDE_COMMENTS_FEATURE)},
-	{"CREATE_CDATA_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, CREATE_CDATA_NODES_FEATURE)},
-	{"INCLUDE_IGNORABLE_WHITESPACE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, INCLUDE_IGNORABLE_WHITESPACE)},
-	{"DEFER_NODE_EXPANSION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, DEFER_NODE_EXPANSION)},
-	{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractDOMParser, RECOGNIZED_FEATURES)},
-	{"DOCUMENT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, DOCUMENT_CLASS_NAME)},
-	{"CURRENT_ELEMENT_NODE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, CURRENT_ELEMENT_NODE)},
-	{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractDOMParser, RECOGNIZED_PROPERTIES)},
-	{"DEFAULT_DOCUMENT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, DEFAULT_DOCUMENT_CLASS_NAME)},
-	{"CORE_DOCUMENT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, CORE_DOCUMENT_CLASS_NAME)},
-	{"PSVI_DOCUMENT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, PSVI_DOCUMENT_CLASS_NAME)},
-	{"DEBUG_EVENTS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractDOMParser, DEBUG_EVENTS)},
-	{"DEBUG_BASEURI", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractDOMParser, DEBUG_BASEURI)},
-	{"fErrorHandler", "Lcom/sun/org/apache/xerces/internal/util/DOMErrorHandlerWrapper;", nullptr, $PROTECTED, $field(AbstractDOMParser, fErrorHandler)},
-	{"fInDTD", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fInDTD)},
-	{"fCreateEntityRefNodes", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fCreateEntityRefNodes)},
-	{"fIncludeIgnorableWhitespace", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fIncludeIgnorableWhitespace)},
-	{"fIncludeComments", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fIncludeComments)},
-	{"fCreateCDATANodes", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fCreateCDATANodes)},
-	{"fDocument", "Lorg/w3c/dom/Document;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocument)},
-	{"fDocumentImpl", "Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentImpl)},
-	{"fStorePSVI", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fStorePSVI)},
-	{"fDocumentClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentClassName)},
-	{"fDocumentType", "Lorg/w3c/dom/DocumentType;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentType)},
-	{"fCurrentNode", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentNode)},
-	{"fCurrentCDATASection", "Lorg/w3c/dom/CDATASection;", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentCDATASection)},
-	{"fCurrentEntityDecl", "Lcom/sun/org/apache/xerces/internal/dom/EntityImpl;", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentEntityDecl)},
-	{"fDeferredEntityDecl", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fDeferredEntityDecl)},
-	{"fStringBuilder", "Ljava/lang/StringBuilder;", nullptr, $PROTECTED | $FINAL, $field(AbstractDOMParser, fStringBuilder)},
-	{"fInternalSubset", "Ljava/lang/StringBuilder;", nullptr, $PROTECTED, $field(AbstractDOMParser, fInternalSubset)},
-	{"fDeferNodeExpansion", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fDeferNodeExpansion)},
-	{"fNamespaceAware", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fNamespaceAware)},
-	{"fDeferredDocumentImpl", "Lcom/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDeferredDocumentImpl)},
-	{"fDocumentIndex", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentIndex)},
-	{"fDocumentTypeIndex", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentTypeIndex)},
-	{"fCurrentNodeIndex", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentNodeIndex)},
-	{"fCurrentCDATASectionIndex", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentCDATASectionIndex)},
-	{"fInDTDExternalSubset", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fInDTDExternalSubset)},
-	{"fRoot", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(AbstractDOMParser, fRoot)},
-	{"fInCDATASection", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fInCDATASection)},
-	{"fFirstChunk", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fFirstChunk)},
-	{"fFilterReject", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fFilterReject)},
-	{"fBaseURIStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/String;>;", $PROTECTED | $FINAL, $field(AbstractDOMParser, fBaseURIStack)},
-	{"fRejectedElementDepth", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fRejectedElementDepth)},
-	{"fSkippedElemStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/Boolean;>;", $PROTECTED, $field(AbstractDOMParser, fSkippedElemStack)},
-	{"fInEntityRef", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fInEntityRef)},
-	{"fAttrQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(AbstractDOMParser, fAttrQName)},
-	{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PRIVATE, $field(AbstractDOMParser, fLocator)},
-	{"fDOMFilter", "Lorg/w3c/dom/ls/LSParserFilter;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDOMFilter)},
-	{}
-};
-
-$MethodInfo _AbstractDOMParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PROTECTED, $method(AbstractDOMParser, init$, void, $XMLParserConfiguration*)},
-	{"abort", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, abort, void)},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, attributeDecl, void, $String*, $String*, $String*, $StringArray*, $String*, $XMLString*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, characters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"comment", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, comment, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"createAttrNode", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)Lorg/w3c/dom/Attr;", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, createAttrNode, $Attr*, $QName*)},
-	{"createElementNode", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)Lorg/w3c/dom/Element;", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, createElementNode, $Element*, $QName*)},
-	{"doctypeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, doctypeDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"dropDocumentReferences", "()V", nullptr, $PUBLIC | $FINAL, $method(AbstractDOMParser, dropDocumentReferences, void)},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, elementDecl, void, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, emptyElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endAttlist", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endAttlist, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endConditional", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endConditional, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endDTD", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endDTD, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endDocument", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endDocument, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endElement, void, $QName*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endExternalSubset", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endExternalSubset, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endGeneralEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endGeneralEntity, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"endParameterEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endParameterEntity, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, externalEntityDecl, void, $String*, $XMLResourceIdentifier*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"getDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, getDocument, $Document*)},
-	{"getDocumentClassName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, getDocumentClassName, $String*)},
-	{"handleBaseURI", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDOMParser, handleBaseURI, void, $Node*)},
-	{"handleBaseURI", "(I)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDOMParser, handleBaseURI, void, int32_t)},
-	{"ignorableWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, ignorableWhitespace, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"ignoredCharacters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, ignoredCharacters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, internalEntityDecl, void, $String*, $XMLString*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"notationDecl", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, notationDecl, void, $String*, $XMLResourceIdentifier*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, processingInstruction, void, $String*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"setCharacterData", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, setCharacterData, void, bool)},
-	{"setDocumentClassName", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, setDocumentClassName, void, $String*)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, setLocale, void, $Locale*)},
-	{"startAttlist", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startAttlist, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startConditional", "(SLcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startConditional, void, int16_t, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startDTD", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startDTD, void, $XMLLocator*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startDocument", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startDocument, void, $XMLLocator*, $String*, $NamespaceContext*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startExternalSubset", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startExternalSubset, void, $XMLResourceIdentifier*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startGeneralEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startGeneralEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startParameterEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startParameterEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"textDecl", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, textDecl, void, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, unparsedEntityDecl, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"xmlDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, xmlDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$InnerClassInfo _AbstractDOMParser_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser$Abort", "com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser", "Abort", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AbstractDOMParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser",
-	"com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser",
-	nullptr,
-	_AbstractDOMParser_FieldInfo_,
-	_AbstractDOMParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDOMParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser$Abort"
-};
-
-$Object* allocate$AbstractDOMParser($Class* clazz) {
-	return $of($alloc(AbstractDOMParser));
-}
 
 $String* AbstractDOMParser::NAMESPACES = nullptr;
 $String* AbstractDOMParser::CREATE_ENTITY_REF_NODES = nullptr;
@@ -356,7 +219,7 @@ $String* AbstractDOMParser::getDocumentClassName() {
 }
 
 void AbstractDOMParser::setDocumentClassName($String* documentClassName$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, documentClassName, documentClassName$renamed);
 	if (documentClassName == nullptr) {
 		$assign(documentClassName, AbstractDOMParser::DEFAULT_DOCUMENT_CLASS_NAME);
@@ -368,15 +231,15 @@ void AbstractDOMParser::setDocumentClassName($String* documentClassName$renamed)
 			$load($Document);
 			if (!$Document::class$->isAssignableFrom(_class)) {
 				$init($DOMMessageFormatter);
-				$throwNew($IllegalArgumentException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "InvalidDocumentClassName"_s, $$new($ObjectArray, {$of(documentClassName)}))));
+				$throwNew($IllegalArgumentException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "InvalidDocumentClassName"_s, $$new($ObjectArray, {documentClassName}))));
 			}
 		} catch ($ClassNotFoundException& e) {
 			$init($DOMMessageFormatter);
-			$throwNew($IllegalArgumentException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "MissingDocumentClassName"_s, $$new($ObjectArray, {$of(documentClassName)}))));
+			$throwNew($IllegalArgumentException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "MissingDocumentClassName"_s, $$new($ObjectArray, {documentClassName}))));
 		}
 	}
 	$set(this, fDocumentClassName, documentClassName);
-	if (!$nc(documentClassName)->equals(AbstractDOMParser::DEFAULT_DOCUMENT_CLASS_NAME)) {
+	if (!documentClassName->equals(AbstractDOMParser::DEFAULT_DOCUMENT_CLASS_NAME)) {
 		this->fDeferNodeExpansion = false;
 	}
 }
@@ -404,7 +267,7 @@ void AbstractDOMParser::reset() {
 	this->fNamespaceAware = $nc(this->fConfiguration)->getFeature(AbstractDOMParser::NAMESPACES);
 	this->fIncludeComments = $nc(this->fConfiguration)->getFeature(AbstractDOMParser::INCLUDE_COMMENTS_FEATURE);
 	this->fCreateCDATANodes = $nc(this->fConfiguration)->getFeature(AbstractDOMParser::CREATE_CDATA_NODES_FEATURE);
-	setDocumentClassName($cast($String, $($nc(this->fConfiguration)->getProperty(AbstractDOMParser::DOCUMENT_CLASS_NAME))));
+	setDocumentClassName($$cast($String, $nc(this->fConfiguration)->getProperty(AbstractDOMParser::DOCUMENT_CLASS_NAME)));
 	$set(this, fDocument, nullptr);
 	$set(this, fDocumentImpl, nullptr);
 	this->fStorePSVI = false;
@@ -412,7 +275,7 @@ void AbstractDOMParser::reset() {
 	this->fDocumentTypeIndex = -1;
 	$set(this, fDeferredDocumentImpl, nullptr);
 	$set(this, fCurrentNode, nullptr);
-	$nc(this->fStringBuilder)->setLength(0);
+	this->fStringBuilder->setLength(0);
 	$set(this, fRoot, nullptr);
 	this->fInDTD = false;
 	this->fInDTDExternalSubset = false;
@@ -420,7 +283,7 @@ void AbstractDOMParser::reset() {
 	this->fFirstChunk = false;
 	$set(this, fCurrentCDATASection, nullptr);
 	this->fCurrentCDATASectionIndex = -1;
-	$nc(this->fBaseURIStack)->removeAllElements();
+	this->fBaseURIStack->removeAllElements();
 }
 
 void AbstractDOMParser::setLocale($Locale* locale) {
@@ -428,7 +291,8 @@ void AbstractDOMParser::setLocale($Locale* locale) {
 }
 
 void AbstractDOMParser::startGeneralEntity($String* name, $XMLResourceIdentifier* identifier, $String* encoding, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (!this->fDeferNodeExpansion) {
 		if (this->fFilterReject) {
 			return;
@@ -437,12 +301,12 @@ void AbstractDOMParser::startGeneralEntity($String* name, $XMLResourceIdentifier
 		$var($EntityReference, er, $nc(this->fDocument)->createEntityReference(name));
 		if (this->fDocumentImpl != nullptr) {
 			$var($EntityReferenceImpl, erImpl, $cast($EntityReferenceImpl, er));
-			$nc(erImpl)->setBaseURI(identifier == nullptr ? ($String*)nullptr : $($nc(identifier)->getExpandedSystemId()));
+			$nc(erImpl)->setBaseURI(identifier == nullptr ? ($String*)nullptr : $(identifier->getExpandedSystemId()));
 			if (this->fDocumentType != nullptr) {
-				$var($NamedNodeMap, entities, $nc(this->fDocumentType)->getEntities());
+				$var($NamedNodeMap, entities, this->fDocumentType->getEntities());
 				$set(this, fCurrentEntityDecl, $cast($EntityImpl, $nc(entities)->getNamedItem(name)));
 				if (this->fCurrentEntityDecl != nullptr) {
-					$nc(this->fCurrentEntityDecl)->setInputEncoding(encoding);
+					this->fCurrentEntityDecl->setInputEncoding(encoding);
 				}
 			}
 			erImpl->needsSyncChildren(false);
@@ -452,10 +316,10 @@ void AbstractDOMParser::startGeneralEntity($String* name, $XMLResourceIdentifier
 		if (!this->fCreateEntityRefNodes) {
 			$set(this, fCurrentNode, er);
 		} else {
-			$nc(($cast($NodeImpl, er)))->setReadOnly(true, true);
+			$nc($cast($NodeImpl, er))->setReadOnly(true, true);
 		}
 	} else {
-		int32_t er = $nc(this->fDeferredDocumentImpl)->createDeferredEntityReference(name, identifier == nullptr ? ($String*)nullptr : $($nc(identifier)->getExpandedSystemId()));
+		int32_t er = $nc(this->fDeferredDocumentImpl)->createDeferredEntityReference(name, identifier == nullptr ? ($String*)nullptr : $(identifier->getExpandedSystemId()));
 		if (this->fDocumentTypeIndex != -1) {
 			int32_t node = $nc(this->fDeferredDocumentImpl)->getLastChild(this->fDocumentTypeIndex, false);
 			while (node != -1) {
@@ -484,7 +348,7 @@ void AbstractDOMParser::textDecl($String* version, $String* encoding, $Augmentat
 	}
 	if (!this->fDeferNodeExpansion) {
 		if (this->fCurrentEntityDecl != nullptr && !this->fFilterReject) {
-			$nc(this->fCurrentEntityDecl)->setXmlEncoding(encoding);
+			this->fCurrentEntityDecl->setXmlEncoding(encoding);
 			if (version != nullptr) {
 				$nc(this->fCurrentEntityDecl)->setXmlVersion(version);
 			}
@@ -495,14 +359,14 @@ void AbstractDOMParser::textDecl($String* version, $String* encoding, $Augmentat
 }
 
 void AbstractDOMParser::comment($XMLString* text, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fInDTD) {
 		if (this->fInternalSubset != nullptr && !this->fInDTDExternalSubset) {
-			$nc(this->fInternalSubset)->append("<!--"_s);
+			this->fInternalSubset->append("<!--"_s);
 			if ($nc(text)->length > 0) {
-				$nc(this->fInternalSubset)->append(text->ch, text->offset, text->length);
+				this->fInternalSubset->append(text->ch, text->offset, text->length);
 			}
-			$nc(this->fInternalSubset)->append("-->"_s);
+			this->fInternalSubset->append("-->"_s);
 		}
 		return;
 	}
@@ -513,33 +377,25 @@ void AbstractDOMParser::comment($XMLString* text, $Augmentations* augs) {
 		$var($Comment, comment, $nc(this->fDocument)->createComment($($nc(text)->toString())));
 		setCharacterData(false);
 		$nc(this->fCurrentNode)->appendChild(comment);
-		if (this->fDOMFilter != nullptr && !this->fInEntityRef && ((int32_t)($nc(this->fDOMFilter)->getWhatToShow() & (uint32_t)$NodeFilter::SHOW_COMMENT)) != 0) {
-			int16_t code = $nc(this->fDOMFilter)->acceptNode(comment);
+		if (this->fDOMFilter != nullptr && !this->fInEntityRef && (this->fDOMFilter->getWhatToShow() & $NodeFilter::SHOW_COMMENT) != 0) {
+			int16_t code = this->fDOMFilter->acceptNode(comment);
 			switch (code) {
 			case $LSParserFilter::FILTER_INTERRUPT:
 				{
-					{
-						$init($AbstractDOMParser$Abort);
-						$throw($AbstractDOMParser$Abort::INSTANCE);
-					}
+					$init($AbstractDOMParser$Abort);
+					$throw($AbstractDOMParser$Abort::INSTANCE);
 				}
 			case $LSParserFilter::FILTER_REJECT:
 				{
-					{
-					}
 				}
 			case $LSParserFilter::FILTER_SKIP:
 				{
-					{
-						$nc(this->fCurrentNode)->removeChild(comment);
-						this->fFirstChunk = true;
-						return;
-					}
+					$nc(this->fCurrentNode)->removeChild(comment);
+					this->fFirstChunk = true;
+					return;
 				}
 			default:
 				{
-					{
-					}
 				}
 			}
 		}
@@ -550,18 +406,19 @@ void AbstractDOMParser::comment($XMLString* text, $Augmentations* augs) {
 }
 
 void AbstractDOMParser::processingInstruction($String* target, $XMLString* data, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fInDTD) {
 		if (this->fInternalSubset != nullptr && !this->fInDTDExternalSubset) {
-			$nc(this->fInternalSubset)->append("<?"_s);
-			$nc(this->fInternalSubset)->append(target);
+			this->fInternalSubset->append("<?"_s);
+			this->fInternalSubset->append(target);
 			if ($nc(data)->length > 0) {
-				$nc(this->fInternalSubset)->append(u' ')->append(data->ch, data->offset, data->length);
+				this->fInternalSubset->append(u' ')->append(data->ch, data->offset, data->length);
 			}
-			$nc(this->fInternalSubset)->append("?>"_s);
+			this->fInternalSubset->append("?>"_s);
 		}
 		return;
 	}
+	;
 	if (!this->fDeferNodeExpansion) {
 		if (this->fFilterReject) {
 			return;
@@ -569,33 +426,25 @@ void AbstractDOMParser::processingInstruction($String* target, $XMLString* data,
 		$var($ProcessingInstruction, pi, $nc(this->fDocument)->createProcessingInstruction(target, $($nc(data)->toString())));
 		setCharacterData(false);
 		$nc(this->fCurrentNode)->appendChild(pi);
-		if (this->fDOMFilter != nullptr && !this->fInEntityRef && ((int32_t)($nc(this->fDOMFilter)->getWhatToShow() & (uint32_t)$NodeFilter::SHOW_PROCESSING_INSTRUCTION)) != 0) {
-			int16_t code = $nc(this->fDOMFilter)->acceptNode(pi);
+		if (this->fDOMFilter != nullptr && !this->fInEntityRef && (this->fDOMFilter->getWhatToShow() & $NodeFilter::SHOW_PROCESSING_INSTRUCTION) != 0) {
+			int16_t code = this->fDOMFilter->acceptNode(pi);
 			switch (code) {
 			case $LSParserFilter::FILTER_INTERRUPT:
 				{
-					{
-						$init($AbstractDOMParser$Abort);
-						$throw($AbstractDOMParser$Abort::INSTANCE);
-					}
+					$init($AbstractDOMParser$Abort);
+					$throw($AbstractDOMParser$Abort::INSTANCE);
 				}
 			case $LSParserFilter::FILTER_REJECT:
 				{
-					{
-					}
 				}
 			case $LSParserFilter::FILTER_SKIP:
 				{
-					{
-						$nc(this->fCurrentNode)->removeChild(pi);
-						this->fFirstChunk = true;
-						return;
-					}
+					$nc(this->fCurrentNode)->removeChild(pi);
+					this->fFirstChunk = true;
+					return;
 				}
 			default:
 				{
-					{
-					}
 				}
 			}
 		}
@@ -606,7 +455,7 @@ void AbstractDOMParser::processingInstruction($String* target, $XMLString* data,
 }
 
 void AbstractDOMParser::startDocument($XMLLocator* locator, $String* encoding, $NamespaceContext* namespaceContext, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, fLocator, locator);
 	if (!this->fDeferNodeExpansion) {
@@ -616,7 +465,7 @@ void AbstractDOMParser::startDocument($XMLLocator* locator, $String* encoding, $
 			$nc(this->fDocumentImpl)->setStrictErrorChecking(false);
 			$nc(this->fDocumentImpl)->setInputEncoding(encoding);
 			$nc(this->fDocumentImpl)->setDocumentURI($($nc(locator)->getExpandedSystemId()));
-		} else if ($nc(this->fDocumentClassName)->equals(AbstractDOMParser::PSVI_DOCUMENT_CLASS_NAME)) {
+		} else if (this->fDocumentClassName->equals(AbstractDOMParser::PSVI_DOCUMENT_CLASS_NAME)) {
 			$set(this, fDocument, $new($PSVIDocumentImpl));
 			$set(this, fDocumentImpl, $cast($CoreDocumentImpl, this->fDocument));
 			this->fStorePSVI = true;
@@ -626,7 +475,7 @@ void AbstractDOMParser::startDocument($XMLLocator* locator, $String* encoding, $
 		} else {
 			try {
 				$Class* documentClass = $ObjectFactory::findProviderClass(this->fDocumentClassName, true);
-				$set(this, fDocument, $cast($Document, $nc($($nc(documentClass)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0))));
+				$set(this, fDocument, $cast($Document, $$nc($nc(documentClass)->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0))));
 				$Class* defaultDocClass = $ObjectFactory::findProviderClass(AbstractDOMParser::CORE_DOCUMENT_CLASS_NAME, true);
 				if ($nc(defaultDocClass)->isAssignableFrom(documentClass)) {
 					$set(this, fDocumentImpl, $cast($CoreDocumentImpl, this->fDocument));
@@ -643,14 +492,14 @@ void AbstractDOMParser::startDocument($XMLLocator* locator, $String* encoding, $
 			} catch ($ClassNotFoundException& e) {
 			} catch ($Exception& e) {
 				$init($DOMMessageFormatter);
-				$throwNew($RuntimeException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "CannotCreateDocumentClass"_s, $$new($ObjectArray, {$of(this->fDocumentClassName)}))));
+				$throwNew($RuntimeException, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "CannotCreateDocumentClass"_s, $$new($ObjectArray, {this->fDocumentClassName}))));
 			}
 		}
 		$set(this, fCurrentNode, this->fDocument);
 	} else {
 		$set(this, fDeferredDocumentImpl, $new($DeferredDocumentImpl, this->fNamespaceAware));
 		$set(this, fDocument, this->fDeferredDocumentImpl);
-		this->fDocumentIndex = $nc(this->fDeferredDocumentImpl)->createDeferredDocument();
+		this->fDocumentIndex = this->fDeferredDocumentImpl->createDeferredDocument();
 		$nc(this->fDeferredDocumentImpl)->setInputEncoding(encoding);
 		$nc(this->fDeferredDocumentImpl)->setDocumentURI($($nc(locator)->getExpandedSystemId()));
 		this->fCurrentNodeIndex = this->fDocumentIndex;
@@ -661,7 +510,7 @@ void AbstractDOMParser::xmlDecl($String* version, $String* encoding, $String* st
 	if (!this->fDeferNodeExpansion) {
 		if (this->fDocumentImpl != nullptr) {
 			if (version != nullptr) {
-				$nc(this->fDocumentImpl)->setXmlVersion(version);
+				this->fDocumentImpl->setXmlVersion(version);
 			}
 			$nc(this->fDocumentImpl)->setXmlEncoding(encoding);
 			$nc(this->fDocumentImpl)->setXmlStandalone("yes"_s->equals(standalone));
@@ -678,7 +527,7 @@ void AbstractDOMParser::xmlDecl($String* version, $String* encoding, $String* st
 void AbstractDOMParser::doctypeDecl($String* rootElement, $String* publicId, $String* systemId, $Augmentations* augs) {
 	if (!this->fDeferNodeExpansion) {
 		if (this->fDocumentImpl != nullptr) {
-			$set(this, fDocumentType, $nc(this->fDocumentImpl)->createDocumentType(rootElement, publicId, systemId));
+			$set(this, fDocumentType, this->fDocumentImpl->createDocumentType(rootElement, publicId, systemId));
 			$nc(this->fCurrentNode)->appendChild(this->fDocumentType);
 		}
 	} else {
@@ -688,7 +537,8 @@ void AbstractDOMParser::doctypeDecl($String* rootElement, $String* publicId, $St
 }
 
 void AbstractDOMParser::startElement($QName* element, $XMLAttributes* attributes, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (!this->fDeferNodeExpansion) {
 		if (this->fFilterReject) {
 			++this->fRejectedElementDepth;
@@ -702,14 +552,14 @@ void AbstractDOMParser::startElement($QName* element, $XMLAttributes* attributes
 			$var($Attr, attr, createAttrNode(this->fAttrQName));
 			$var($String, attrValue, attributes->getValue(i));
 			$init($Constants);
-			$var($AttributePSVI, attrPSVI, $cast($AttributePSVI, $nc($(attributes->getAugmentations(i)))->getItem($Constants::ATTRIBUTE_PSVI)));
+			$var($AttributePSVI, attrPSVI, $cast($AttributePSVI, $$nc(attributes->getAugmentations(i))->getItem($Constants::ATTRIBUTE_PSVI)));
 			if (this->fStorePSVI && attrPSVI != nullptr) {
-				$nc(($cast($PSVIAttrNSImpl, attr)))->setPSVI(attrPSVI);
+				$nc($cast($PSVIAttrNSImpl, attr))->setPSVI(attrPSVI);
 			}
 			$nc(attr)->setValue(attrValue);
 			bool specified = attributes->isSpecified(i);
 			$init($NamespaceContext);
-			if (!specified && (seenSchemaDefault || ($nc(this->fAttrQName)->uri != nullptr && $nc(this->fAttrQName)->uri != $NamespaceContext::XMLNS_URI && $nc(this->fAttrQName)->prefix == nullptr))) {
+			if (!specified && (seenSchemaDefault || (this->fAttrQName->uri != nullptr && this->fAttrQName->uri != $NamespaceContext::XMLNS_URI && this->fAttrQName->prefix == nullptr))) {
 				$nc(el)->setAttributeNodeNS(attr);
 				seenSchemaDefault = true;
 			} else {
@@ -724,16 +574,15 @@ void AbstractDOMParser::startElement($QName* element, $XMLAttributes* attributes
 					if (type == nullptr) {
 						$assign(type, attrPSVI->getTypeDefinition());
 						if (type != nullptr) {
-							id = $nc(($cast($XSSimpleType, type)))->isIDType();
+							id = $cast($XSSimpleType, type)->isIDType();
 							attrImpl->setType(type);
 						}
 					} else {
-						id = $nc(($cast($XSSimpleType, type)))->isIDType();
+						id = $cast($XSSimpleType, type)->isIDType();
 						attrImpl->setType(type);
 					}
 				} else {
-					$init($Boolean);
-					bool isDeclared = $nc($Boolean::TRUE)->equals($($nc($(attributes->getAugmentations(i)))->getItem($Constants::ATTRIBUTE_DECLARED)));
+					bool isDeclared = $nc($Boolean::TRUE)->equals($($$nc(attributes->getAugmentations(i))->getItem($Constants::ATTRIBUTE_DECLARED)));
 					if (isDeclared) {
 						$assign(type, attributes->getType(i));
 						id = "ID"_s->equals(type);
@@ -741,7 +590,7 @@ void AbstractDOMParser::startElement($QName* element, $XMLAttributes* attributes
 					attrImpl->setType(type);
 				}
 				if (id) {
-					$nc(($cast($ElementImpl, el)))->setIdAttributeNode(attr, true);
+					$nc($cast($ElementImpl, el))->setIdAttributeNode(attr, true);
 				}
 				attrImpl->setSpecified(specified);
 			}
@@ -755,46 +604,36 @@ void AbstractDOMParser::startElement($QName* element, $XMLAttributes* attributes
 				if (type == nullptr) {
 					$assign(type, elementPSVI->getTypeDefinition());
 				}
-				$nc(($cast($ElementNSImpl, el)))->setType(type);
+				$nc($cast($ElementNSImpl, el))->setType(type);
 			}
 		}
 		if (this->fDOMFilter != nullptr && !this->fInEntityRef) {
 			if (this->fRoot == nullptr) {
 				$set(this, fRoot, el);
 			} else {
-				int16_t code = $nc(this->fDOMFilter)->startElement(el);
+				int16_t code = this->fDOMFilter->startElement(el);
 				switch (code) {
 				case $LSParserFilter::FILTER_INTERRUPT:
 					{
-						{
-							$init($AbstractDOMParser$Abort);
-							$throw($AbstractDOMParser$Abort::INSTANCE);
-						}
+						$init($AbstractDOMParser$Abort);
+						$throw($AbstractDOMParser$Abort::INSTANCE);
 					}
 				case $LSParserFilter::FILTER_REJECT:
 					{
-						{
-							this->fFilterReject = true;
-							this->fRejectedElementDepth = 0;
-							return;
-						}
+						this->fFilterReject = true;
+						this->fRejectedElementDepth = 0;
+						return;
 					}
 				case $LSParserFilter::FILTER_SKIP:
 					{
-						{
-							this->fFirstChunk = true;
-							$init($Boolean);
-							$nc(this->fSkippedElemStack)->push($Boolean::TRUE);
-							return;
-						}
+						this->fFirstChunk = true;
+						$nc(this->fSkippedElemStack)->push($Boolean::TRUE);
+						return;
 					}
 				default:
 					{
-						{
-							if (!$nc(this->fSkippedElemStack)->isEmpty()) {
-								$init($Boolean);
-								$nc(this->fSkippedElemStack)->push($Boolean::FALSE);
-							}
+						if (!$nc(this->fSkippedElemStack)->isEmpty()) {
+							this->fSkippedElemStack->push($Boolean::FALSE);
 						}
 					}
 				}
@@ -803,36 +642,34 @@ void AbstractDOMParser::startElement($QName* element, $XMLAttributes* attributes
 		$nc(this->fCurrentNode)->appendChild(el);
 		$set(this, fCurrentNode, el);
 	} else {
-		int32_t el = $nc(this->fDeferredDocumentImpl)->createDeferredElement(this->fNamespaceAware ? $nc(element)->uri : ($String*)nullptr, element->rawname);
+		int32_t el = $nc(this->fDeferredDocumentImpl)->createDeferredElement(this->fNamespaceAware ? $nc(element)->uri : ($String*)nullptr, $nc(element)->rawname);
 		$var($Object, type, nullptr);
 		int32_t attrCount = $nc(attributes)->getLength();
 		for (int32_t i = attrCount - 1; i >= 0; --i) {
 			$init($Constants);
-			$var($AttributePSVI, attrPSVI, $cast($AttributePSVI, $nc($(attributes->getAugmentations(i)))->getItem($Constants::ATTRIBUTE_PSVI)));
+			$var($AttributePSVI, attrPSVI, $cast($AttributePSVI, $$nc(attributes->getAugmentations(i))->getItem($Constants::ATTRIBUTE_PSVI)));
 			bool id = false;
 			if (attrPSVI != nullptr && this->fNamespaceAware) {
 				$assign(type, attrPSVI->getMemberTypeDefinition());
 				if (type == nullptr) {
 					$assign(type, attrPSVI->getTypeDefinition());
 					if (type != nullptr) {
-						id = $nc(($cast($XSSimpleType, type)))->isIDType();
+						id = $cast($XSSimpleType, type)->isIDType();
 					}
 				} else {
-					id = $nc(($cast($XSSimpleType, type)))->isIDType();
+					id = $cast($XSSimpleType, type)->isIDType();
 				}
 			} else {
-				$init($Boolean);
-				bool isDeclared = $nc($Boolean::TRUE)->equals($($nc($(attributes->getAugmentations(i)))->getItem($Constants::ATTRIBUTE_DECLARED)));
+				bool isDeclared = $nc($Boolean::TRUE)->equals($($$nc(attributes->getAugmentations(i))->getItem($Constants::ATTRIBUTE_DECLARED)));
 				if (isDeclared) {
 					$assign(type, attributes->getType(i));
 					id = "ID"_s->equals(type);
 				}
 			}
-			int32_t var$0 = el;
-			$var($String, var$1, attributes->getQName(i));
-			$var($String, var$2, attributes->getURI(i));
-			$var($String, var$3, attributes->getValue(i));
-			$nc(this->fDeferredDocumentImpl)->setDeferredAttribute(var$0, var$1, var$2, var$3, attributes->isSpecified(i), id, type);
+			$var($String, var$0, attributes->getQName(i));
+			$var($String, var$1, attributes->getURI(i));
+			$var($String, var$2, attributes->getValue(i));
+			$nc(this->fDeferredDocumentImpl)->setDeferredAttribute(el, var$0, var$1, var$2, attributes->isSpecified(i), id, type);
 		}
 		$nc(this->fDeferredDocumentImpl)->appendChild(this->fCurrentNodeIndex, el);
 		this->fCurrentNodeIndex = el;
@@ -845,7 +682,8 @@ void AbstractDOMParser::emptyElement($QName* element, $XMLAttributes* attributes
 }
 
 void AbstractDOMParser::characters($XMLString* text, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (!this->fDeferNodeExpansion) {
 		if (this->fFilterReject) {
 			return;
@@ -856,7 +694,7 @@ void AbstractDOMParser::characters($XMLString* text, $Augmentations* augs) {
 				$nc(this->fCurrentNode)->appendChild(this->fCurrentCDATASection);
 				$set(this, fCurrentNode, this->fCurrentCDATASection);
 			} else {
-				$nc(this->fCurrentCDATASection)->appendData($($nc(text)->toString()));
+				this->fCurrentCDATASection->appendData($($nc(text)->toString()));
 			}
 		} else if (!this->fInDTD) {
 			if ($nc(text)->length == 0) {
@@ -866,19 +704,19 @@ void AbstractDOMParser::characters($XMLString* text, $Augmentations* augs) {
 			if (child != nullptr && child->getNodeType() == $Node::TEXT_NODE) {
 				if (this->fFirstChunk) {
 					if (this->fDocumentImpl != nullptr) {
-						$nc(this->fStringBuilder)->append($($nc(($cast($TextImpl, child)))->removeData()));
+						this->fStringBuilder->append($($cast($TextImpl, child)->removeData()));
 					} else {
-						$nc(this->fStringBuilder)->append($($nc(($cast($Text, child)))->getData()));
-						$nc(($cast($Text, child)))->setNodeValue(nullptr);
+						this->fStringBuilder->append($($cast($Text, child)->getData()));
+						$cast($Text, child)->setNodeValue(nullptr);
 					}
 					this->fFirstChunk = false;
 				}
-				if ($nc(text)->length > 0) {
-					$nc(this->fStringBuilder)->append(text->ch, text->offset, text->length);
+				if (text->length > 0) {
+					this->fStringBuilder->append(text->ch, text->offset, text->length);
 				}
 			} else {
 				this->fFirstChunk = true;
-				$var($Text, textNode, $nc(this->fDocument)->createTextNode($($nc(text)->toString())));
+				$var($Text, textNode, $nc(this->fDocument)->createTextNode($(text->toString())));
 				$nc(this->fCurrentNode)->appendChild(textNode);
 			}
 		}
@@ -896,14 +734,14 @@ void AbstractDOMParser::characters($XMLString* text, $Augmentations* augs) {
 		if ($nc(text)->length == 0) {
 			return;
 		}
-		$var($String, value, $nc(text)->toString());
+		$var($String, value, text->toString());
 		int32_t txt = $nc(this->fDeferredDocumentImpl)->createDeferredTextNode(value, false);
 		$nc(this->fDeferredDocumentImpl)->appendChild(this->fCurrentNodeIndex, txt);
 	}
 }
 
 void AbstractDOMParser::ignorableWhitespace($XMLString* text, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->fIncludeIgnorableWhitespace || this->fFilterReject) {
 		return;
 	}
@@ -927,21 +765,22 @@ void AbstractDOMParser::ignorableWhitespace($XMLString* text, $Augmentations* au
 }
 
 void AbstractDOMParser::endElement($QName* element, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (!this->fDeferNodeExpansion) {
 		if (augs != nullptr && this->fDocumentImpl != nullptr && (this->fNamespaceAware || this->fStorePSVI)) {
 			$init($Constants);
-			$var($ElementPSVI, elementPSVI, $cast($ElementPSVI, $nc(augs)->getItem($Constants::ELEMENT_PSVI)));
+			$var($ElementPSVI, elementPSVI, $cast($ElementPSVI, augs->getItem($Constants::ELEMENT_PSVI)));
 			if (elementPSVI != nullptr) {
 				if (this->fNamespaceAware) {
 					$var($XSTypeDefinition, type, elementPSVI->getMemberTypeDefinition());
 					if (type == nullptr) {
 						$assign(type, elementPSVI->getTypeDefinition());
 					}
-					$nc(($cast($ElementNSImpl, this->fCurrentNode)))->setType(type);
+					$nc($cast($ElementNSImpl, this->fCurrentNode))->setType(type);
 				}
 				if (this->fStorePSVI) {
-					$nc(($cast($PSVIElementNSImpl, this->fCurrentNode)))->setPSVI(elementPSVI);
+					$nc($cast($PSVIElementNSImpl, this->fCurrentNode))->setPSVI(elementPSVI);
 				}
 			}
 		}
@@ -953,50 +792,41 @@ void AbstractDOMParser::endElement($QName* element, $Augmentations* augs) {
 				return;
 			}
 			if (!$nc(this->fSkippedElemStack)->isEmpty()) {
-				$init($Boolean);
-				if ($equals($nc(this->fSkippedElemStack)->pop(), $Boolean::TRUE)) {
+				if ($equals(this->fSkippedElemStack->pop(), $Boolean::TRUE)) {
 					return;
 				}
 			}
 			setCharacterData(false);
-			if ((this->fCurrentNode != this->fRoot) && !this->fInEntityRef && ((int32_t)($nc(this->fDOMFilter)->getWhatToShow() & (uint32_t)$NodeFilter::SHOW_ELEMENT)) != 0) {
+			if ((this->fCurrentNode != this->fRoot) && !this->fInEntityRef && ($nc(this->fDOMFilter)->getWhatToShow() & $NodeFilter::SHOW_ELEMENT) != 0) {
 				int16_t code = $nc(this->fDOMFilter)->acceptNode(this->fCurrentNode);
 				switch (code) {
 				case $LSParserFilter::FILTER_INTERRUPT:
 					{
-						{
-							$init($AbstractDOMParser$Abort);
-							$throw($AbstractDOMParser$Abort::INSTANCE);
-						}
+						$init($AbstractDOMParser$Abort);
+						$throw($AbstractDOMParser$Abort::INSTANCE);
 					}
 				case $LSParserFilter::FILTER_REJECT:
 					{
-						{
-							$var($Node, parent, $nc(this->fCurrentNode)->getParentNode());
-							$nc(parent)->removeChild(this->fCurrentNode);
-							$set(this, fCurrentNode, parent);
-							return;
-						}
+						$var($Node, parent, $nc(this->fCurrentNode)->getParentNode());
+						$nc(parent)->removeChild(this->fCurrentNode);
+						$set(this, fCurrentNode, parent);
+						return;
 					}
 				case $LSParserFilter::FILTER_SKIP:
 					{
-						{
-							this->fFirstChunk = true;
-							$var($Node, parent, $nc(this->fCurrentNode)->getParentNode());
-							$var($NodeList, ls, $nc(this->fCurrentNode)->getChildNodes());
-							int32_t length = $nc(ls)->getLength();
-							for (int32_t i = 0; i < length; ++i) {
-								$nc(parent)->appendChild($(ls->item(0)));
-							}
-							$nc(parent)->removeChild(this->fCurrentNode);
-							$set(this, fCurrentNode, parent);
-							return;
+						this->fFirstChunk = true;
+						$var($Node, parent, $nc(this->fCurrentNode)->getParentNode());
+						$var($NodeList, ls, $nc(this->fCurrentNode)->getChildNodes());
+						int32_t length = $nc(ls)->getLength();
+						for (int32_t i = 0; i < length; ++i) {
+							$nc(parent)->appendChild($(ls->item(0)));
 						}
+						$nc(parent)->removeChild(this->fCurrentNode);
+						$set(this, fCurrentNode, parent);
+						return;
 					}
 				default:
 					{
-						{
-						}
 					}
 				}
 			}
@@ -1040,34 +870,26 @@ void AbstractDOMParser::endCDATA($Augmentations* augs) {
 			return;
 		}
 		if (this->fCurrentCDATASection != nullptr) {
-			if (this->fDOMFilter != nullptr && !this->fInEntityRef && ((int32_t)($nc(this->fDOMFilter)->getWhatToShow() & (uint32_t)$NodeFilter::SHOW_CDATA_SECTION)) != 0) {
-				int16_t code = $nc(this->fDOMFilter)->acceptNode(this->fCurrentCDATASection);
+			if (this->fDOMFilter != nullptr && !this->fInEntityRef && (this->fDOMFilter->getWhatToShow() & $NodeFilter::SHOW_CDATA_SECTION) != 0) {
+				int16_t code = this->fDOMFilter->acceptNode(this->fCurrentCDATASection);
 				switch (code) {
 				case $LSParserFilter::FILTER_INTERRUPT:
 					{
-						{
-							$init($AbstractDOMParser$Abort);
-							$throw($AbstractDOMParser$Abort::INSTANCE);
-						}
+						$init($AbstractDOMParser$Abort);
+						$throw($AbstractDOMParser$Abort::INSTANCE);
 					}
 				case $LSParserFilter::FILTER_REJECT:
 					{
-						{
-						}
 					}
 				case $LSParserFilter::FILTER_SKIP:
 					{
-						{
-							$var($Node, parent, $nc(this->fCurrentNode)->getParentNode());
-							$nc(parent)->removeChild(this->fCurrentCDATASection);
-							$set(this, fCurrentNode, parent);
-							return;
-						}
+						$var($Node, parent, $nc(this->fCurrentNode)->getParentNode());
+						$nc(parent)->removeChild(this->fCurrentCDATASection);
+						$set(this, fCurrentNode, parent);
+						return;
 					}
 				default:
 					{
-						{
-						}
 					}
 				}
 			}
@@ -1081,11 +903,11 @@ void AbstractDOMParser::endCDATA($Augmentations* augs) {
 }
 
 void AbstractDOMParser::endDocument($Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->fDeferNodeExpansion) {
 		if (this->fDocumentImpl != nullptr) {
 			if (this->fLocator != nullptr) {
-				if ($nc(this->fLocator)->getEncoding() != nullptr) {
+				if (this->fLocator->getEncoding() != nullptr) {
 					$nc(this->fDocumentImpl)->setInputEncoding($($nc(this->fLocator)->getEncoding()));
 				}
 			}
@@ -1094,7 +916,7 @@ void AbstractDOMParser::endDocument($Augmentations* augs) {
 		$set(this, fCurrentNode, nullptr);
 	} else {
 		if (this->fLocator != nullptr) {
-			if ($nc(this->fLocator)->getEncoding() != nullptr) {
+			if (this->fLocator->getEncoding() != nullptr) {
 				$nc(this->fDeferredDocumentImpl)->setInputEncoding($($nc(this->fLocator)->getEncoding()));
 			}
 		}
@@ -1103,18 +925,19 @@ void AbstractDOMParser::endDocument($Augmentations* augs) {
 }
 
 void AbstractDOMParser::endGeneralEntity($String* name, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (!this->fDeferNodeExpansion) {
 		if (this->fFilterReject) {
 			return;
 		}
 		setCharacterData(true);
 		if (this->fDocumentType != nullptr) {
-			$var($NamedNodeMap, entities, $nc(this->fDocumentType)->getEntities());
+			$var($NamedNodeMap, entities, this->fDocumentType->getEntities());
 			$set(this, fCurrentEntityDecl, $cast($EntityImpl, $nc(entities)->getNamedItem(name)));
 			if (this->fCurrentEntityDecl != nullptr) {
-				if (this->fCurrentEntityDecl != nullptr && $nc(this->fCurrentEntityDecl)->getFirstChild() == nullptr) {
-					$nc(this->fCurrentEntityDecl)->setReadOnly(false, true);
+				if (this->fCurrentEntityDecl != nullptr && this->fCurrentEntityDecl->getFirstChild() == nullptr) {
+					this->fCurrentEntityDecl->setReadOnly(false, true);
 					$var($Node, child, $nc(this->fCurrentNode)->getFirstChild());
 					while (child != nullptr) {
 						$var($Node, copy, child->cloneNode(true));
@@ -1130,40 +953,32 @@ void AbstractDOMParser::endGeneralEntity($String* name, $Augmentations* augs) {
 		bool removeEntityRef = false;
 		if (this->fCreateEntityRefNodes) {
 			if (this->fDocumentImpl != nullptr) {
-				$nc(($cast($NodeImpl, this->fCurrentNode)))->setReadOnly(true, true);
+				$nc($cast($NodeImpl, this->fCurrentNode))->setReadOnly(true, true);
 			}
-			if (this->fDOMFilter != nullptr && ((int32_t)($nc(this->fDOMFilter)->getWhatToShow() & (uint32_t)$NodeFilter::SHOW_ENTITY_REFERENCE)) != 0) {
-				int16_t code = $nc(this->fDOMFilter)->acceptNode(this->fCurrentNode);
+			if (this->fDOMFilter != nullptr && (this->fDOMFilter->getWhatToShow() & $NodeFilter::SHOW_ENTITY_REFERENCE) != 0) {
+				int16_t code = this->fDOMFilter->acceptNode(this->fCurrentNode);
 				switch (code) {
 				case $LSParserFilter::FILTER_INTERRUPT:
 					{
-						{
-							$init($AbstractDOMParser$Abort);
-							$throw($AbstractDOMParser$Abort::INSTANCE);
-						}
+						$init($AbstractDOMParser$Abort);
+						$throw($AbstractDOMParser$Abort::INSTANCE);
 					}
 				case $LSParserFilter::FILTER_REJECT:
 					{
-						{
-							$var($Node, parent, $nc(this->fCurrentNode)->getParentNode());
-							$nc(parent)->removeChild(this->fCurrentNode);
-							$set(this, fCurrentNode, parent);
-							return;
-						}
+						$var($Node, parent, $nc(this->fCurrentNode)->getParentNode());
+						$nc(parent)->removeChild(this->fCurrentNode);
+						$set(this, fCurrentNode, parent);
+						return;
 					}
 				case $LSParserFilter::FILTER_SKIP:
 					{
-						{
-							this->fFirstChunk = true;
-							removeEntityRef = true;
-							break;
-						}
+						this->fFirstChunk = true;
+						removeEntityRef = true;
+						break;
 					}
 				default:
 					{
-						{
-							$set(this, fCurrentNode, $nc(this->fCurrentNode)->getParentNode());
-						}
+						$set(this, fCurrentNode, $nc(this->fCurrentNode)->getParentNode());
 					}
 				}
 			} else {
@@ -1179,7 +994,7 @@ void AbstractDOMParser::endGeneralEntity($String* name, $Augmentations* augs) {
 				$var($Node, child, children->item(0));
 				bool var$0 = node != nullptr && node->getNodeType() == $Node::TEXT_NODE;
 				if (var$0 && $nc(child)->getNodeType() == $Node::TEXT_NODE) {
-					$nc(($cast($Text, node)))->appendData($(child->getNodeValue()));
+					$cast($Text, node)->appendData($(child->getNodeValue()));
 					$nc(this->fCurrentNode)->removeChild(child);
 				} else {
 					$assign(node, $nc(parent)->insertBefore(child, this->fCurrentNode));
@@ -1246,41 +1061,41 @@ void AbstractDOMParser::endGeneralEntity($String* name, $Augmentations* augs) {
 }
 
 void AbstractDOMParser::handleBaseURI($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fDocumentImpl != nullptr) {
 		$var($String, baseURI, nullptr);
 		int16_t nodeType = $nc(node)->getNodeType();
 		if (nodeType == $Node::ELEMENT_NODE) {
 			if (this->fNamespaceAware) {
-				if ($nc(($cast($Element, node)))->getAttributeNodeNS("http://www.w3.org/XML/1998/namespace"_s, "base"_s) != nullptr) {
+				if ($cast($Element, node)->getAttributeNodeNS("http://www.w3.org/XML/1998/namespace"_s, "base"_s) != nullptr) {
 					return;
 				}
-			} else if ($nc(($cast($Element, node)))->getAttributeNode("xml:base"_s) != nullptr) {
+			} else if ($cast($Element, node)->getAttributeNode("xml:base"_s) != nullptr) {
 				return;
 			}
-			$assign(baseURI, $nc(($cast($EntityReferenceImpl, this->fCurrentNode)))->getBaseURI());
+			$assign(baseURI, $nc($cast($EntityReferenceImpl, this->fCurrentNode))->getBaseURI());
 			if (baseURI != nullptr && !baseURI->equals($($nc(this->fDocumentImpl)->getDocumentURI()))) {
 				if (this->fNamespaceAware) {
-					$nc(($cast($Element, node)))->setAttributeNS("http://www.w3.org/XML/1998/namespace"_s, "xml:base"_s, baseURI);
+					$cast($Element, node)->setAttributeNS("http://www.w3.org/XML/1998/namespace"_s, "xml:base"_s, baseURI);
 				} else {
-					$nc(($cast($Element, node)))->setAttribute("xml:base"_s, baseURI);
+					$cast($Element, node)->setAttribute("xml:base"_s, baseURI);
 				}
 			}
 		} else if (nodeType == $Node::PROCESSING_INSTRUCTION_NODE) {
-			$assign(baseURI, $nc(($cast($EntityReferenceImpl, this->fCurrentNode)))->getBaseURI());
+			$assign(baseURI, $nc($cast($EntityReferenceImpl, this->fCurrentNode))->getBaseURI());
 			if (baseURI != nullptr && this->fErrorHandler != nullptr) {
 				$var($DOMErrorImpl, error, $new($DOMErrorImpl));
 				$set(error, fType, "pi-base-uri-not-preserved"_s);
 				$set(error, fRelatedData, baseURI);
 				error->fSeverity = $DOMError::SEVERITY_WARNING;
-				$nc($($nc(this->fErrorHandler)->getErrorHandler()))->handleError(error);
+				$$nc(this->fErrorHandler->getErrorHandler())->handleError(error);
 			}
 		}
 	}
 }
 
 void AbstractDOMParser::handleBaseURI(int32_t node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t nodeType = $nc(this->fDeferredDocumentImpl)->getNodeType(node, false);
 	if (nodeType == $Node::ELEMENT_NODE) {
 		$var($String, baseURI, $nc(this->fDeferredDocumentImpl)->getNodeValueString(this->fCurrentNodeIndex, false));
@@ -1300,15 +1115,16 @@ void AbstractDOMParser::handleBaseURI(int32_t node) {
 			$set(error, fType, "pi-base-uri-not-preserved"_s);
 			$set(error, fRelatedData, baseURI);
 			error->fSeverity = $DOMError::SEVERITY_WARNING;
-			$nc($($nc(this->fErrorHandler)->getErrorHandler()))->handleError(error);
+			$$nc(this->fErrorHandler->getErrorHandler())->handleError(error);
 		}
 	}
 }
 
 void AbstractDOMParser::startDTD($XMLLocator* locator, $Augmentations* augs) {
+	;
 	this->fInDTD = true;
 	if (locator != nullptr) {
-		$nc(this->fBaseURIStack)->push($(locator->getBaseSystemId()));
+		this->fBaseURIStack->push($(locator->getBaseSystemId()));
 	}
 	if (this->fDeferNodeExpansion || this->fDocumentImpl != nullptr) {
 		$set(this, fInternalSubset, $new($StringBuilder, 1024));
@@ -1316,18 +1132,19 @@ void AbstractDOMParser::startDTD($XMLLocator* locator, $Augmentations* augs) {
 }
 
 void AbstractDOMParser::endDTD($Augmentations* augs) {
+	;
 	this->fInDTD = false;
-	if (!$nc(this->fBaseURIStack)->isEmpty()) {
-		$nc(this->fBaseURIStack)->pop();
+	if (!this->fBaseURIStack->isEmpty()) {
+		this->fBaseURIStack->pop();
 	}
-	$var($String, internalSubset, this->fInternalSubset != nullptr && $nc(this->fInternalSubset)->length() > 0 ? $nc(this->fInternalSubset)->toString() : ($String*)nullptr);
+	$var($String, internalSubset, this->fInternalSubset != nullptr && this->fInternalSubset->length() > 0 ? this->fInternalSubset->toString() : ($String*)nullptr);
 	if (this->fDeferNodeExpansion) {
 		if (internalSubset != nullptr) {
 			$nc(this->fDeferredDocumentImpl)->setInternalSubset(this->fDocumentTypeIndex, internalSubset);
 		}
 	} else if (this->fDocumentImpl != nullptr) {
 		if (internalSubset != nullptr) {
-			$nc(($cast($DocumentTypeImpl, this->fDocumentType)))->setInternalSubset(internalSubset);
+			$nc($cast($DocumentTypeImpl, this->fDocumentType))->setInternalSubset(internalSubset);
 		}
 	}
 }
@@ -1339,43 +1156,45 @@ void AbstractDOMParser::endConditional($Augmentations* augs) {
 }
 
 void AbstractDOMParser::startExternalSubset($XMLResourceIdentifier* identifier, $Augmentations* augs) {
-	$nc(this->fBaseURIStack)->push($($nc(identifier)->getBaseSystemId()));
+	;
+	this->fBaseURIStack->push($($nc(identifier)->getBaseSystemId()));
 	this->fInDTDExternalSubset = true;
 }
 
 void AbstractDOMParser::endExternalSubset($Augmentations* augs) {
 	this->fInDTDExternalSubset = false;
-	$nc(this->fBaseURIStack)->pop();
+	this->fBaseURIStack->pop();
 }
 
 void AbstractDOMParser::internalEntityDecl($String* name, $XMLString* text, $XMLString* nonNormalizedText, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	if (this->fInternalSubset != nullptr && !this->fInDTDExternalSubset) {
-		$nc(this->fInternalSubset)->append("<!ENTITY "_s);
+		this->fInternalSubset->append("<!ENTITY "_s);
 		if ($nc(name)->startsWith("%"_s)) {
-			$nc(this->fInternalSubset)->append("% "_s);
-			$nc(this->fInternalSubset)->append($(name->substring(1)));
+			this->fInternalSubset->append("% "_s);
+			this->fInternalSubset->append($(name->substring(1)));
 		} else {
-			$nc(this->fInternalSubset)->append(name);
+			this->fInternalSubset->append(name);
 		}
-		$nc(this->fInternalSubset)->append(u' ');
+		this->fInternalSubset->append(u' ');
 		$var($String, value, $nc(nonNormalizedText)->toString());
-		bool singleQuote = $nc(value)->indexOf((int32_t)u'\'') == -1;
+		bool singleQuote = $nc(value)->indexOf(u'\'') == -1;
 		$nc(this->fInternalSubset)->append(singleQuote ? u'\'' : u'\"');
-		$nc(this->fInternalSubset)->append(value);
-		$nc(this->fInternalSubset)->append(singleQuote ? u'\'' : u'\"');
-		$nc(this->fInternalSubset)->append(">\n"_s);
+		this->fInternalSubset->append(value);
+		this->fInternalSubset->append(singleQuote ? u'\'' : u'\"');
+		this->fInternalSubset->append(">\n"_s);
 	}
 	if ($nc(name)->startsWith("%"_s)) {
 		return;
 	}
 	if (this->fDocumentType != nullptr) {
-		$var($NamedNodeMap, entities, $nc(this->fDocumentType)->getEntities());
+		$var($NamedNodeMap, entities, this->fDocumentType->getEntities());
 		$var($EntityImpl, entity, $cast($EntityImpl, $nc(entities)->getNamedItem(name)));
 		if (entity == nullptr) {
 			$assign(entity, $cast($EntityImpl, $nc(this->fDocumentImpl)->createEntity(name)));
-			$nc(entity)->setBaseURI($cast($String, $($nc(this->fBaseURIStack)->peek())));
-			entities->setNamedItem(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(entity)))));
+			$nc(entity)->setBaseURI($$cast($String, this->fBaseURIStack->peek()));
+			entities->setNamedItem($cast($ParentNode, entity));
 		}
 	}
 	if (this->fDocumentTypeIndex != -1) {
@@ -1393,47 +1212,48 @@ void AbstractDOMParser::internalEntityDecl($String* name, $XMLString* text, $XML
 			node = $nc(this->fDeferredDocumentImpl)->getRealPrevSibling(node, false);
 		}
 		if (!found) {
-			int32_t entityIndex = $nc(this->fDeferredDocumentImpl)->createDeferredEntity(name, nullptr, nullptr, nullptr, $cast($String, $($nc(this->fBaseURIStack)->peek())));
+			int32_t entityIndex = $nc(this->fDeferredDocumentImpl)->createDeferredEntity(name, nullptr, nullptr, nullptr, $$cast($String, this->fBaseURIStack->peek()));
 			$nc(this->fDeferredDocumentImpl)->appendChild(this->fDocumentTypeIndex, entityIndex);
 		}
 	}
 }
 
 void AbstractDOMParser::externalEntityDecl($String* name, $XMLResourceIdentifier* identifier, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($String, publicId, $nc(identifier)->getPublicId());
 	$var($String, literalSystemId, identifier->getLiteralSystemId());
 	if (this->fInternalSubset != nullptr && !this->fInDTDExternalSubset) {
-		$nc(this->fInternalSubset)->append("<!ENTITY "_s);
+		this->fInternalSubset->append("<!ENTITY "_s);
 		if ($nc(name)->startsWith("%"_s)) {
-			$nc(this->fInternalSubset)->append("% "_s);
-			$nc(this->fInternalSubset)->append($(name->substring(1)));
+			this->fInternalSubset->append("% "_s);
+			this->fInternalSubset->append($(name->substring(1)));
 		} else {
-			$nc(this->fInternalSubset)->append(name);
+			this->fInternalSubset->append(name);
 		}
-		$nc(this->fInternalSubset)->append(u' ');
+		this->fInternalSubset->append(u' ');
 		if (publicId != nullptr) {
-			$nc(this->fInternalSubset)->append("PUBLIC \'"_s);
-			$nc(this->fInternalSubset)->append(publicId);
-			$nc(this->fInternalSubset)->append("\' \'"_s);
+			this->fInternalSubset->append("PUBLIC \'"_s);
+			this->fInternalSubset->append(publicId);
+			this->fInternalSubset->append("\' \'"_s);
 		} else {
-			$nc(this->fInternalSubset)->append("SYSTEM \'"_s);
+			this->fInternalSubset->append("SYSTEM \'"_s);
 		}
-		$nc(this->fInternalSubset)->append(literalSystemId);
-		$nc(this->fInternalSubset)->append("\'>\n"_s);
+		this->fInternalSubset->append(literalSystemId);
+		this->fInternalSubset->append("\'>\n"_s);
 	}
 	if ($nc(name)->startsWith("%"_s)) {
 		return;
 	}
 	if (this->fDocumentType != nullptr) {
-		$var($NamedNodeMap, entities, $nc(this->fDocumentType)->getEntities());
+		$var($NamedNodeMap, entities, this->fDocumentType->getEntities());
 		$var($EntityImpl, entity, $cast($EntityImpl, $nc(entities)->getNamedItem(name)));
 		if (entity == nullptr) {
 			$assign(entity, $cast($EntityImpl, $nc(this->fDocumentImpl)->createEntity(name)));
 			$nc(entity)->setPublicId(publicId);
 			entity->setSystemId(literalSystemId);
 			entity->setBaseURI($(identifier->getBaseSystemId()));
-			entities->setNamedItem(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(entity)))));
+			entities->setNamedItem($cast($ParentNode, entity));
 		}
 	}
 	if (this->fDocumentTypeIndex != -1) {
@@ -1458,44 +1278,46 @@ void AbstractDOMParser::externalEntityDecl($String* name, $XMLResourceIdentifier
 }
 
 void AbstractDOMParser::startParameterEntity($String* name, $XMLResourceIdentifier* identifier, $String* encoding, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
+	;
 	$init($Constants);
 	if (augs != nullptr && this->fInternalSubset != nullptr && !this->fInDTDExternalSubset && $nc($Boolean::TRUE)->equals($(augs->getItem($Constants::ENTITY_SKIPPED)))) {
-		$nc(this->fInternalSubset)->append(name)->append(";\n"_s);
+		this->fInternalSubset->append(name)->append(";\n"_s);
 	}
-	$nc(this->fBaseURIStack)->push($($nc(identifier)->getExpandedSystemId()));
+	this->fBaseURIStack->push($($nc(identifier)->getExpandedSystemId()));
 }
 
 void AbstractDOMParser::endParameterEntity($String* name, $Augmentations* augs) {
-	$nc(this->fBaseURIStack)->pop();
+	;
+	this->fBaseURIStack->pop();
 }
 
 void AbstractDOMParser::unparsedEntityDecl($String* name, $XMLResourceIdentifier* identifier, $String* notation, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($String, publicId, $nc(identifier)->getPublicId());
 	$var($String, literalSystemId, identifier->getLiteralSystemId());
 	if (this->fInternalSubset != nullptr && !this->fInDTDExternalSubset) {
-		$nc(this->fInternalSubset)->append("<!ENTITY "_s);
-		$nc(this->fInternalSubset)->append(name);
-		$nc(this->fInternalSubset)->append(u' ');
+		this->fInternalSubset->append("<!ENTITY "_s);
+		this->fInternalSubset->append(name);
+		this->fInternalSubset->append(u' ');
 		if (publicId != nullptr) {
-			$nc(this->fInternalSubset)->append("PUBLIC \'"_s);
-			$nc(this->fInternalSubset)->append(publicId);
+			this->fInternalSubset->append("PUBLIC \'"_s);
+			this->fInternalSubset->append(publicId);
 			if (literalSystemId != nullptr) {
-				$nc(this->fInternalSubset)->append("\' \'"_s);
-				$nc(this->fInternalSubset)->append(literalSystemId);
+				this->fInternalSubset->append("\' \'"_s);
+				this->fInternalSubset->append(literalSystemId);
 			}
 		} else {
-			$nc(this->fInternalSubset)->append("SYSTEM \'"_s);
-			$nc(this->fInternalSubset)->append(literalSystemId);
+			this->fInternalSubset->append("SYSTEM \'"_s);
+			this->fInternalSubset->append(literalSystemId);
 		}
-		$nc(this->fInternalSubset)->append("\' NDATA "_s);
-		$nc(this->fInternalSubset)->append(notation);
-		$nc(this->fInternalSubset)->append(">\n"_s);
+		this->fInternalSubset->append("\' NDATA "_s);
+		this->fInternalSubset->append(notation);
+		this->fInternalSubset->append(">\n"_s);
 	}
 	if (this->fDocumentType != nullptr) {
-		$var($NamedNodeMap, entities, $nc(this->fDocumentType)->getEntities());
+		$var($NamedNodeMap, entities, this->fDocumentType->getEntities());
 		$var($EntityImpl, entity, $cast($EntityImpl, $nc(entities)->getNamedItem(name)));
 		if (entity == nullptr) {
 			$assign(entity, $cast($EntityImpl, $nc(this->fDocumentImpl)->createEntity(name)));
@@ -1503,7 +1325,7 @@ void AbstractDOMParser::unparsedEntityDecl($String* name, $XMLResourceIdentifier
 			entity->setSystemId(literalSystemId);
 			entity->setNotationName(notation);
 			entity->setBaseURI($(identifier->getBaseSystemId()));
-			entities->setNamedItem(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(entity)))));
+			entities->setNamedItem($cast($ParentNode, entity));
 		}
 	}
 	if (this->fDocumentTypeIndex != -1) {
@@ -1528,33 +1350,33 @@ void AbstractDOMParser::unparsedEntityDecl($String* name, $XMLResourceIdentifier
 }
 
 void AbstractDOMParser::notationDecl($String* name, $XMLResourceIdentifier* identifier, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, publicId, $nc(identifier)->getPublicId());
 	$var($String, literalSystemId, identifier->getLiteralSystemId());
 	if (this->fInternalSubset != nullptr && !this->fInDTDExternalSubset) {
-		$nc(this->fInternalSubset)->append("<!NOTATION "_s);
-		$nc(this->fInternalSubset)->append(name);
+		this->fInternalSubset->append("<!NOTATION "_s);
+		this->fInternalSubset->append(name);
 		if (publicId != nullptr) {
-			$nc(this->fInternalSubset)->append(" PUBLIC \'"_s);
-			$nc(this->fInternalSubset)->append(publicId);
+			this->fInternalSubset->append(" PUBLIC \'"_s);
+			this->fInternalSubset->append(publicId);
 			if (literalSystemId != nullptr) {
-				$nc(this->fInternalSubset)->append("\' \'"_s);
-				$nc(this->fInternalSubset)->append(literalSystemId);
+				this->fInternalSubset->append("\' \'"_s);
+				this->fInternalSubset->append(literalSystemId);
 			}
 		} else {
-			$nc(this->fInternalSubset)->append(" SYSTEM \'"_s);
-			$nc(this->fInternalSubset)->append(literalSystemId);
+			this->fInternalSubset->append(" SYSTEM \'"_s);
+			this->fInternalSubset->append(literalSystemId);
 		}
-		$nc(this->fInternalSubset)->append("\'>\n"_s);
+		this->fInternalSubset->append("\'>\n"_s);
 	}
 	if (this->fDocumentImpl != nullptr && this->fDocumentType != nullptr) {
-		$var($NamedNodeMap, notations, $nc(this->fDocumentType)->getNotations());
+		$var($NamedNodeMap, notations, this->fDocumentType->getNotations());
 		if ($nc(notations)->getNamedItem(name) == nullptr) {
 			$var($NotationImpl, notation, $cast($NotationImpl, $nc(this->fDocumentImpl)->createNotation(name)));
 			$nc(notation)->setPublicId(publicId);
 			notation->setSystemId(literalSystemId);
 			notation->setBaseURI($(identifier->getBaseSystemId()));
-			notations->setNamedItem(static_cast<$Node*>(static_cast<$NodeImpl*>(notation)));
+			notations->setNamedItem($cast($NodeImpl, notation));
 		}
 	}
 	if (this->fDocumentTypeIndex != -1) {
@@ -1583,55 +1405,55 @@ void AbstractDOMParser::ignoredCharacters($XMLString* text, $Augmentations* augs
 
 void AbstractDOMParser::elementDecl($String* name, $String* contentModel, $Augmentations* augs) {
 	if (this->fInternalSubset != nullptr && !this->fInDTDExternalSubset) {
-		$nc(this->fInternalSubset)->append("<!ELEMENT "_s);
-		$nc(this->fInternalSubset)->append(name);
-		$nc(this->fInternalSubset)->append(u' ');
-		$nc(this->fInternalSubset)->append(contentModel);
-		$nc(this->fInternalSubset)->append(">\n"_s);
+		this->fInternalSubset->append("<!ELEMENT "_s);
+		this->fInternalSubset->append(name);
+		this->fInternalSubset->append(u' ');
+		this->fInternalSubset->append(contentModel);
+		this->fInternalSubset->append(">\n"_s);
 	}
 }
 
 void AbstractDOMParser::attributeDecl($String* elementName, $String* attributeName, $String* type, $StringArray* enumeration, $String* defaultType, $XMLString* defaultValue, $XMLString* nonNormalizedDefaultValue, $Augmentations* augs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fInternalSubset != nullptr && !this->fInDTDExternalSubset) {
-		$nc(this->fInternalSubset)->append("<!ATTLIST "_s);
-		$nc(this->fInternalSubset)->append(elementName);
-		$nc(this->fInternalSubset)->append(u' ');
-		$nc(this->fInternalSubset)->append(attributeName);
-		$nc(this->fInternalSubset)->append(u' ');
+		this->fInternalSubset->append("<!ATTLIST "_s);
+		this->fInternalSubset->append(elementName);
+		this->fInternalSubset->append(u' ');
+		this->fInternalSubset->append(attributeName);
+		this->fInternalSubset->append(u' ');
 		if ($nc(type)->equals("ENUMERATION"_s)) {
-			$nc(this->fInternalSubset)->append(u'(');
+			this->fInternalSubset->append(u'(');
 			for (int32_t i = 0; i < $nc(enumeration)->length; ++i) {
 				if (i > 0) {
-					$nc(this->fInternalSubset)->append(u'|');
+					this->fInternalSubset->append(u'|');
 				}
-				$nc(this->fInternalSubset)->append(enumeration->get(i));
+				this->fInternalSubset->append(enumeration->get(i));
 			}
-			$nc(this->fInternalSubset)->append(u')');
+			this->fInternalSubset->append(u')');
 		} else {
-			$nc(this->fInternalSubset)->append(type);
+			this->fInternalSubset->append(type);
 		}
 		if (defaultType != nullptr) {
-			$nc(this->fInternalSubset)->append(u' ');
-			$nc(this->fInternalSubset)->append(defaultType);
+			this->fInternalSubset->append(u' ');
+			this->fInternalSubset->append(defaultType);
 		}
 		if (defaultValue != nullptr) {
-			$nc(this->fInternalSubset)->append(" \'"_s);
+			this->fInternalSubset->append(" \'"_s);
 			for (int32_t i = 0; i < defaultValue->length; ++i) {
 				char16_t c = $nc(defaultValue->ch)->get(defaultValue->offset + i);
 				if (c == u'\'') {
-					$nc(this->fInternalSubset)->append("&apos;"_s);
+					this->fInternalSubset->append("&apos;"_s);
 				} else {
-					$nc(this->fInternalSubset)->append(c);
+					this->fInternalSubset->append(c);
 				}
 			}
-			$nc(this->fInternalSubset)->append(u'\'');
+			this->fInternalSubset->append(u'\'');
 		}
-		$nc(this->fInternalSubset)->append(">\n"_s);
+		this->fInternalSubset->append(">\n"_s);
 	}
 	if (this->fDeferredDocumentImpl != nullptr) {
 		if (defaultValue != nullptr) {
-			int32_t elementDefIndex = $nc(this->fDeferredDocumentImpl)->lookupElementDefinition(elementName);
+			int32_t elementDefIndex = this->fDeferredDocumentImpl->lookupElementDefinition(elementName);
 			if (elementDefIndex == -1) {
 				elementDefIndex = $nc(this->fDeferredDocumentImpl)->createDeferredElementDefinition(elementName);
 				$nc(this->fDeferredDocumentImpl)->appendChild(this->fDocumentTypeIndex, elementDefIndex);
@@ -1640,7 +1462,7 @@ void AbstractDOMParser::attributeDecl($String* elementName, $String* attributeNa
 			$var($String, namespaceURI, nullptr);
 			if (nsEnabled) {
 				bool var$0 = $nc(attributeName)->startsWith("xmlns:"_s);
-				if (var$0 || $nc(attributeName)->equals("xmlns"_s)) {
+				if (var$0 || attributeName->equals("xmlns"_s)) {
 					$init($NamespaceContext);
 					$assign(namespaceURI, $NamespaceContext::XMLNS_URI);
 				} else if (attributeName->startsWith("xml:"_s)) {
@@ -1656,18 +1478,18 @@ void AbstractDOMParser::attributeDecl($String* elementName, $String* attributeNa
 		}
 	} else if (this->fDocumentImpl != nullptr) {
 		if (defaultValue != nullptr) {
-			$var($NamedNodeMap, elements, $nc(($cast($DocumentTypeImpl, this->fDocumentType)))->getElements());
+			$var($NamedNodeMap, elements, $nc($cast($DocumentTypeImpl, this->fDocumentType))->getElements());
 			$var($ElementDefinitionImpl, elementDef, $cast($ElementDefinitionImpl, $nc(elements)->getNamedItem(elementName)));
 			if (elementDef == nullptr) {
 				$assign(elementDef, $nc(this->fDocumentImpl)->createElementDefinition(elementName));
-				$nc($($nc(($cast($DocumentTypeImpl, this->fDocumentType)))->getElements()))->setNamedItem(elementDef);
+				$$nc($nc($cast($DocumentTypeImpl, this->fDocumentType))->getElements())->setNamedItem(elementDef);
 			}
 			bool nsEnabled = this->fNamespaceAware;
 			$var($AttrImpl, attr, nullptr);
 			if (nsEnabled) {
 				$var($String, namespaceURI, nullptr);
 				bool var$1 = $nc(attributeName)->startsWith("xmlns:"_s);
-				if (var$1 || $nc(attributeName)->equals("xmlns"_s)) {
+				if (var$1 || attributeName->equals("xmlns"_s)) {
 					$init($NamespaceContext);
 					$assign(namespaceURI, $NamespaceContext::XMLNS_URI);
 				} else if (attributeName->startsWith("xml:"_s)) {
@@ -1682,9 +1504,9 @@ void AbstractDOMParser::attributeDecl($String* elementName, $String* attributeNa
 			attr->setSpecified(false);
 			attr->setIdAttribute("ID"_s->equals(type));
 			if (nsEnabled) {
-				$nc($($nc(elementDef)->getAttributes()))->setNamedItemNS(static_cast<$Node*>(static_cast<$NodeImpl*>(attr)));
+				$$nc($nc(elementDef)->getAttributes())->setNamedItemNS($cast($NodeImpl, attr));
 			} else {
-				$nc($($nc(elementDef)->getAttributes()))->setNamedItem(static_cast<$Node*>(static_cast<$NodeImpl*>(attr)));
+				$$nc($nc(elementDef)->getAttributes())->setNamedItem($cast($NodeImpl, attr));
 			}
 		}
 	}
@@ -1700,9 +1522,9 @@ $Element* AbstractDOMParser::createElementNode($QName* element) {
 	$var($Element, el, nullptr);
 	if (this->fNamespaceAware) {
 		if (this->fDocumentImpl != nullptr) {
-			$assign(el, $nc(this->fDocumentImpl)->createElementNS($nc(element)->uri, element->rawname, element->localpart));
+			$assign(el, this->fDocumentImpl->createElementNS($nc(element)->uri, $nc(element)->rawname, $nc(element)->localpart));
 		} else {
-			$assign(el, $nc(this->fDocument)->createElementNS($nc(element)->uri, element->rawname));
+			$assign(el, $nc(this->fDocument)->createElementNS($nc(element)->uri, $nc(element)->rawname));
 		}
 	} else {
 		$assign(el, $nc(this->fDocument)->createElement($nc(element)->rawname));
@@ -1714,9 +1536,9 @@ $Attr* AbstractDOMParser::createAttrNode($QName* attrQName) {
 	$var($Attr, attr, nullptr);
 	if (this->fNamespaceAware) {
 		if (this->fDocumentImpl != nullptr) {
-			$assign(attr, $nc(this->fDocumentImpl)->createAttributeNS($nc(attrQName)->uri, attrQName->rawname, attrQName->localpart));
+			$assign(attr, this->fDocumentImpl->createAttributeNS($nc(attrQName)->uri, $nc(attrQName)->rawname, $nc(attrQName)->localpart));
 		} else {
-			$assign(attr, $nc(this->fDocument)->createAttributeNS($nc(attrQName)->uri, attrQName->rawname));
+			$assign(attr, $nc(this->fDocument)->createAttributeNS($nc(attrQName)->uri, $nc(attrQName)->rawname));
 		}
 	} else {
 		$assign(attr, $nc(this->fDocument)->createAttribute($nc(attrQName)->rawname));
@@ -1725,48 +1547,40 @@ $Attr* AbstractDOMParser::createAttrNode($QName* attrQName) {
 }
 
 void AbstractDOMParser::setCharacterData(bool sawChars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fFirstChunk = sawChars;
 	$var($Node, child, $nc(this->fCurrentNode)->getLastChild());
 	if (child != nullptr) {
-		if ($nc(this->fStringBuilder)->length() > 0) {
+		if (this->fStringBuilder->length() > 0) {
 			if (child->getNodeType() == $Node::TEXT_NODE) {
 				if (this->fDocumentImpl != nullptr) {
-					$nc(($cast($TextImpl, child)))->replaceData($($nc(this->fStringBuilder)->toString()));
+					$cast($TextImpl, child)->replaceData($(this->fStringBuilder->toString()));
 				} else {
-					$nc(($cast($Text, child)))->setData($($nc(this->fStringBuilder)->toString()));
+					$cast($Text, child)->setData($(this->fStringBuilder->toString()));
 				}
 			}
-			$nc(this->fStringBuilder)->setLength(0);
+			this->fStringBuilder->setLength(0);
 		}
 		if (this->fDOMFilter != nullptr && !this->fInEntityRef) {
-			bool var$0 = (child->getNodeType() == $Node::TEXT_NODE);
-			if (var$0 && (((int32_t)($nc(this->fDOMFilter)->getWhatToShow() & (uint32_t)$NodeFilter::SHOW_TEXT)) != 0)) {
+			bool var$0 = child->getNodeType() == $Node::TEXT_NODE;
+			if (var$0 && ((this->fDOMFilter->getWhatToShow() & $NodeFilter::SHOW_TEXT) != 0)) {
 				int16_t code = $nc(this->fDOMFilter)->acceptNode(child);
 				switch (code) {
 				case $LSParserFilter::FILTER_INTERRUPT:
 					{
-						{
-							$init($AbstractDOMParser$Abort);
-							$throw($AbstractDOMParser$Abort::INSTANCE);
-						}
+						$init($AbstractDOMParser$Abort);
+						$throw($AbstractDOMParser$Abort::INSTANCE);
 					}
 				case $LSParserFilter::FILTER_REJECT:
 					{
-						{
-						}
 					}
 				case $LSParserFilter::FILTER_SKIP:
 					{
-						{
-							$nc(this->fCurrentNode)->removeChild(child);
-							return;
-						}
+						$nc(this->fCurrentNode)->removeChild(child);
+						return;
 					}
 				default:
 					{
-						{
-						}
 					}
 				}
 			}
@@ -1779,7 +1593,7 @@ void AbstractDOMParser::abort() {
 	$throw($AbstractDOMParser$Abort::INSTANCE);
 }
 
-void clinit$AbstractDOMParser($Class* class$) {
+void AbstractDOMParser::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(AbstractDOMParser::NAMESPACES, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::NAMESPACES_FEATURE}));
 	$assignStatic(AbstractDOMParser::CREATE_ENTITY_REF_NODES, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::CREATE_ENTITY_REF_NODES_FEATURE}));
@@ -1810,7 +1624,130 @@ AbstractDOMParser::AbstractDOMParser() {
 }
 
 $Class* AbstractDOMParser::load$($String* name, bool initialize) {
-	$loadClass(AbstractDOMParser, name, initialize, &_AbstractDOMParser_ClassInfo_, clinit$AbstractDOMParser, allocate$AbstractDOMParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"NAMESPACES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, NAMESPACES)},
+		{"CREATE_ENTITY_REF_NODES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, CREATE_ENTITY_REF_NODES)},
+		{"INCLUDE_COMMENTS_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, INCLUDE_COMMENTS_FEATURE)},
+		{"CREATE_CDATA_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, CREATE_CDATA_NODES_FEATURE)},
+		{"INCLUDE_IGNORABLE_WHITESPACE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, INCLUDE_IGNORABLE_WHITESPACE)},
+		{"DEFER_NODE_EXPANSION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, DEFER_NODE_EXPANSION)},
+		{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractDOMParser, RECOGNIZED_FEATURES)},
+		{"DOCUMENT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, DOCUMENT_CLASS_NAME)},
+		{"CURRENT_ELEMENT_NODE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, CURRENT_ELEMENT_NODE)},
+		{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractDOMParser, RECOGNIZED_PROPERTIES)},
+		{"DEFAULT_DOCUMENT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, DEFAULT_DOCUMENT_CLASS_NAME)},
+		{"CORE_DOCUMENT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, CORE_DOCUMENT_CLASS_NAME)},
+		{"PSVI_DOCUMENT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDOMParser, PSVI_DOCUMENT_CLASS_NAME)},
+		{"DEBUG_EVENTS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractDOMParser, DEBUG_EVENTS)},
+		{"DEBUG_BASEURI", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractDOMParser, DEBUG_BASEURI)},
+		{"fErrorHandler", "Lcom/sun/org/apache/xerces/internal/util/DOMErrorHandlerWrapper;", nullptr, $PROTECTED, $field(AbstractDOMParser, fErrorHandler)},
+		{"fInDTD", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fInDTD)},
+		{"fCreateEntityRefNodes", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fCreateEntityRefNodes)},
+		{"fIncludeIgnorableWhitespace", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fIncludeIgnorableWhitespace)},
+		{"fIncludeComments", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fIncludeComments)},
+		{"fCreateCDATANodes", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fCreateCDATANodes)},
+		{"fDocument", "Lorg/w3c/dom/Document;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocument)},
+		{"fDocumentImpl", "Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentImpl)},
+		{"fStorePSVI", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fStorePSVI)},
+		{"fDocumentClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentClassName)},
+		{"fDocumentType", "Lorg/w3c/dom/DocumentType;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentType)},
+		{"fCurrentNode", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentNode)},
+		{"fCurrentCDATASection", "Lorg/w3c/dom/CDATASection;", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentCDATASection)},
+		{"fCurrentEntityDecl", "Lcom/sun/org/apache/xerces/internal/dom/EntityImpl;", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentEntityDecl)},
+		{"fDeferredEntityDecl", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fDeferredEntityDecl)},
+		{"fStringBuilder", "Ljava/lang/StringBuilder;", nullptr, $PROTECTED | $FINAL, $field(AbstractDOMParser, fStringBuilder)},
+		{"fInternalSubset", "Ljava/lang/StringBuilder;", nullptr, $PROTECTED, $field(AbstractDOMParser, fInternalSubset)},
+		{"fDeferNodeExpansion", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fDeferNodeExpansion)},
+		{"fNamespaceAware", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fNamespaceAware)},
+		{"fDeferredDocumentImpl", "Lcom/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDeferredDocumentImpl)},
+		{"fDocumentIndex", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentIndex)},
+		{"fDocumentTypeIndex", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fDocumentTypeIndex)},
+		{"fCurrentNodeIndex", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentNodeIndex)},
+		{"fCurrentCDATASectionIndex", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fCurrentCDATASectionIndex)},
+		{"fInDTDExternalSubset", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fInDTDExternalSubset)},
+		{"fRoot", "Lorg/w3c/dom/Node;", nullptr, $PROTECTED, $field(AbstractDOMParser, fRoot)},
+		{"fInCDATASection", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fInCDATASection)},
+		{"fFirstChunk", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fFirstChunk)},
+		{"fFilterReject", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fFilterReject)},
+		{"fBaseURIStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/String;>;", $PROTECTED | $FINAL, $field(AbstractDOMParser, fBaseURIStack)},
+		{"fRejectedElementDepth", "I", nullptr, $PROTECTED, $field(AbstractDOMParser, fRejectedElementDepth)},
+		{"fSkippedElemStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/lang/Boolean;>;", $PROTECTED, $field(AbstractDOMParser, fSkippedElemStack)},
+		{"fInEntityRef", "Z", nullptr, $PROTECTED, $field(AbstractDOMParser, fInEntityRef)},
+		{"fAttrQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE | $FINAL, $field(AbstractDOMParser, fAttrQName)},
+		{"fLocator", "Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;", nullptr, $PRIVATE, $field(AbstractDOMParser, fLocator)},
+		{"fDOMFilter", "Lorg/w3c/dom/ls/LSParserFilter;", nullptr, $PROTECTED, $field(AbstractDOMParser, fDOMFilter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PROTECTED, $method(AbstractDOMParser, init$, void, $XMLParserConfiguration*)},
+		{"abort", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, abort, void)},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, attributeDecl, void, $String*, $String*, $String*, $StringArray*, $String*, $XMLString*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"characters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, characters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"comment", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, comment, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"createAttrNode", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)Lorg/w3c/dom/Attr;", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, createAttrNode, $Attr*, $QName*)},
+		{"createElementNode", "(Lcom/sun/org/apache/xerces/internal/xni/QName;)Lorg/w3c/dom/Element;", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, createElementNode, $Element*, $QName*)},
+		{"doctypeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, doctypeDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"dropDocumentReferences", "()V", nullptr, $PUBLIC | $FINAL, $method(AbstractDOMParser, dropDocumentReferences, void)},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, elementDecl, void, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"emptyElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, emptyElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endAttlist", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endAttlist, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endConditional", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endConditional, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endDTD", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endDTD, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endDocument", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endDocument, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endElement, void, $QName*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endExternalSubset", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endExternalSubset, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endGeneralEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endGeneralEntity, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"endParameterEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, endParameterEntity, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, externalEntityDecl, void, $String*, $XMLResourceIdentifier*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"getDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, getDocument, $Document*)},
+		{"getDocumentClassName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, getDocumentClassName, $String*)},
+		{"handleBaseURI", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDOMParser, handleBaseURI, void, $Node*)},
+		{"handleBaseURI", "(I)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDOMParser, handleBaseURI, void, int32_t)},
+		{"ignorableWhitespace", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, ignorableWhitespace, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"ignoredCharacters", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, ignoredCharacters, void, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, internalEntityDecl, void, $String*, $XMLString*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"notationDecl", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, notationDecl, void, $String*, $XMLResourceIdentifier*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"processingInstruction", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLString;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, processingInstruction, void, $String*, $XMLString*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, reset, void), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"setCharacterData", "(Z)V", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, setCharacterData, void, bool)},
+		{"setDocumentClassName", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDOMParser, setDocumentClassName, void, $String*)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, setLocale, void, $Locale*)},
+		{"startAttlist", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startAttlist, void, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startCDATA", "(Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startCDATA, void, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startConditional", "(SLcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startConditional, void, int16_t, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startDTD", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startDTD, void, $XMLLocator*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startDocument", "(Lcom/sun/org/apache/xerces/internal/xni/XMLLocator;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startDocument, void, $XMLLocator*, $String*, $NamespaceContext*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startElement", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startElement, void, $QName*, $XMLAttributes*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startExternalSubset", "(Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startExternalSubset, void, $XMLResourceIdentifier*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startGeneralEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startGeneralEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startParameterEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, startParameterEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"textDecl", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, textDecl, void, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, unparsedEntityDecl, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"xmlDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC, $virtualMethod(AbstractDOMParser, xmlDecl, void, $String*, $String*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser$Abort", "com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser", "Abort", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser",
+		"com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser$Abort"
+	};
+	$loadClass(AbstractDOMParser, name, initialize, &classInfo$$, AbstractDOMParser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDOMParser));
+	});
 	return class$;
 }
 

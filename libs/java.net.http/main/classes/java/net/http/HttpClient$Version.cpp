@@ -1,5 +1,4 @@
 #include <java/net/http/HttpClient$Version.h>
-
 #include <java/lang/Enum.h>
 #include <java/net/http/HttpClient.h>
 #include <jcpp.h>
@@ -17,46 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace net {
 		namespace http {
-
-$FieldInfo _HttpClient$Version_FieldInfo_[] = {
-	{"HTTP_1_1", "Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Version, HTTP_1_1)},
-	{"HTTP_2", "Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Version, HTTP_2)},
-	{"$VALUES", "[Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClient$Version, $VALUES)},
-	{}
-};
-
-$MethodInfo _HttpClient$Version_MethodInfo_[] = {
-	{"$values", "()[Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClient$Version, $values, $HttpClient$VersionArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpClient$Version, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Version, valueOf, HttpClient$Version*, $String*)},
-	{"values", "()[Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Version, values, $HttpClient$VersionArray*)},
-	{}
-};
-
-$InnerClassInfo _HttpClient$Version_InnerClassesInfo_[] = {
-	{"java.net.http.HttpClient$Version", "java.net.http.HttpClient", "Version", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _HttpClient$Version_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.net.http.HttpClient$Version",
-	"java.lang.Enum",
-	nullptr,
-	_HttpClient$Version_FieldInfo_,
-	_HttpClient$Version_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/net/http/HttpClient$Version;>;",
-	nullptr,
-	_HttpClient$Version_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpClient"
-};
-
-$Object* allocate$HttpClient$Version($Class* clazz) {
-	return $of($alloc(HttpClient$Version));
-}
 
 HttpClient$Version* HttpClient$Version::HTTP_1_1 = nullptr;
 HttpClient$Version* HttpClient$Version::HTTP_2 = nullptr;
@@ -84,7 +43,7 @@ void HttpClient$Version::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$HttpClient$Version($Class* class$) {
+void HttpClient$Version::clinit$($Class* clazz) {
 	$assignStatic(HttpClient$Version::HTTP_1_1, $new(HttpClient$Version, "HTTP_1_1"_s, 0));
 	$assignStatic(HttpClient$Version::HTTP_2, $new(HttpClient$Version, "HTTP_2"_s, 1));
 	$assignStatic(HttpClient$Version::$VALUES, HttpClient$Version::$values());
@@ -94,7 +53,41 @@ HttpClient$Version::HttpClient$Version() {
 }
 
 $Class* HttpClient$Version::load$($String* name, bool initialize) {
-	$loadClass(HttpClient$Version, name, initialize, &_HttpClient$Version_ClassInfo_, clinit$HttpClient$Version, allocate$HttpClient$Version);
+	$FieldInfo fieldInfos$$[] = {
+		{"HTTP_1_1", "Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Version, HTTP_1_1)},
+		{"HTTP_2", "Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(HttpClient$Version, HTTP_2)},
+		{"$VALUES", "[Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(HttpClient$Version, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(HttpClient$Version, $values, $HttpClient$VersionArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(HttpClient$Version, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Version, valueOf, HttpClient$Version*, $String*)},
+		{"values", "()[Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $STATIC, $staticMethod(HttpClient$Version, values, $HttpClient$VersionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpClient$Version", "java.net.http.HttpClient", "Version", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.net.http.HttpClient$Version",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/net/http/HttpClient$Version;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpClient"
+	};
+	$loadClass(HttpClient$Version, name, initialize, &classInfo$$, HttpClient$Version::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpClient$Version));
+	});
 	return class$;
 }
 

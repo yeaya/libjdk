@@ -1,5 +1,4 @@
 #include <org/w3c/dom/ls/LSResourceResolver.h>
-
 #include <org/w3c/dom/ls/LSInput.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace org {
 		namespace dom {
 			namespace ls {
 
-$MethodInfo _LSResourceResolver_MethodInfo_[] = {
-	{"resolveResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSResourceResolver, resolveResource, $LSInput*, $String*, $String*, $String*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _LSResourceResolver_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.w3c.dom.ls.LSResourceResolver",
-	nullptr,
-	nullptr,
-	nullptr,
-	_LSResourceResolver_MethodInfo_
-};
-
-$Object* allocate$LSResourceResolver($Class* clazz) {
-	return $of($alloc(LSResourceResolver));
-}
-
 $Class* LSResourceResolver::load$($String* name, bool initialize) {
-	$loadClass(LSResourceResolver, name, initialize, &_LSResourceResolver_ClassInfo_, allocate$LSResourceResolver);
+	$MethodInfo methodInfos$$[] = {
+		{"resolveResource", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSResourceResolver, resolveResource, $LSInput*, $String*, $String*, $String*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.w3c.dom.ls.LSResourceResolver",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LSResourceResolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LSResourceResolver);
+	});
 	return class$;
 }
 

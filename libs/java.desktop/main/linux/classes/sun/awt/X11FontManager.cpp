@@ -1,12 +1,9 @@
 #include <sun/awt/X11FontManager.h>
-
-#include <java/awt/Font.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
 #include <java/io/IOException.h>
-#include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -49,13 +46,11 @@
 #undef TT_WORD
 #undef WEIGHT_NAME_FIELD
 
-using $Font = ::java::awt::Font;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $StreamTokenizer = ::java::io::StreamTokenizer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -73,7 +68,6 @@ using $FontConfiguration = ::sun::awt::FontConfiguration;
 using $CompositeFont = ::sun::font::CompositeFont;
 using $FcFontConfiguration = ::sun::font::FcFontConfiguration;
 using $FontAccess = ::sun::font::FontAccess;
-using $FontConfigManager = ::sun::font::FontConfigManager;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $MFontConfiguration = ::sun::font::MFontConfiguration;
 using $NativeFont = ::sun::font::NativeFont;
@@ -81,66 +75,6 @@ using $SunFontManager = ::sun::font::SunFontManager;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _X11FontManager_FieldInfo_[] = {
-	{"FOUNDRY_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, FOUNDRY_FIELD)},
-	{"FAMILY_NAME_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, FAMILY_NAME_FIELD)},
-	{"WEIGHT_NAME_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, WEIGHT_NAME_FIELD)},
-	{"SLANT_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, SLANT_FIELD)},
-	{"SETWIDTH_NAME_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, SETWIDTH_NAME_FIELD)},
-	{"ADD_STYLE_NAME_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, ADD_STYLE_NAME_FIELD)},
-	{"PIXEL_SIZE_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, PIXEL_SIZE_FIELD)},
-	{"POINT_SIZE_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, POINT_SIZE_FIELD)},
-	{"RESOLUTION_X_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, RESOLUTION_X_FIELD)},
-	{"RESOLUTION_Y_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, RESOLUTION_Y_FIELD)},
-	{"SPACING_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, SPACING_FIELD)},
-	{"AVERAGE_WIDTH_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, AVERAGE_WIDTH_FIELD)},
-	{"CHARSET_REGISTRY_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, CHARSET_REGISTRY_FIELD)},
-	{"CHARSET_ENCODING_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, CHARSET_ENCODING_FIELD)},
-	{"fontNameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, fontNameMap)},
-	{"xlfdMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, xlfdMap)},
-	{"xFontDirsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, xFontDirsMap)},
-	{"fontConfigDirs", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, fontConfigDirs)},
-	{"registeredDirs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, registeredDirs)},
-	{"fontdirs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(X11FontManager, fontdirs)},
-	{}
-};
-
-$MethodInfo _X11FontManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11FontManager, init$, void)},
-	{"addFontToPlatformFontPath", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(X11FontManager, addFontToPlatformFontPath, void, $String*)},
-	{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $virtualMethod(X11FontManager, createFontConfiguration, $FontConfiguration*)},
-	{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(X11FontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
-	{"getFileNameFromPlatformName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11FontManager, getFileNameFromPlatformName, $String*, $String*)},
-	{"getFileNameFromXLFD", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(X11FontManager, getFileNameFromXLFD, $String*, $String*)},
-	{"getFontConfigFUIR", "(Ljava/lang/String;II)Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED, $virtualMethod(X11FontManager, getFontConfigFUIR, $FontUIResource*, $String*, int32_t, int32_t)},
-	{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(X11FontManager, getFontPath, $String*, bool)},
-	{"getInstance", "()Lsun/awt/X11FontManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11FontManager, getInstance, X11FontManager*)},
-	{"getNativeNames", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(X11FontManager, getNativeNames, $StringArray*, $String*, $String*)},
-	{"getPlatformFontPathFromFontConfig", "()V", nullptr, $PRIVATE, $method(X11FontManager, getPlatformFontPathFromFontConfig, void)},
-	{"getX11FontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(X11FontManager, getX11FontName, $String*, $String*)},
-	{"isHeadless", "()Z", nullptr, $PRIVATE, $method(X11FontManager, isHeadless, bool)},
-	{"loadFonts", "()V", nullptr, $PUBLIC, $virtualMethod(X11FontManager, loadFonts, void)},
-	{"registerFontDir", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(X11FontManager, registerFontDir, void, $String*)},
-	{"registerFontDirs", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(X11FontManager, registerFontDirs, void, $String*)},
-	{"registerPlatformFontsUsedByFontConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(X11FontManager, registerPlatformFontsUsedByFontConfiguration, void)},
-	{"specificFontIDForName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(X11FontManager, specificFontIDForName, $String*, $String*)},
-	{"switchFontIDForName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(X11FontManager, switchFontIDForName, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _X11FontManager_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11FontManager",
-	"sun.awt.FcFontManager",
-	nullptr,
-	_X11FontManager_FieldInfo_,
-	_X11FontManager_MethodInfo_
-};
-
-$Object* allocate$X11FontManager($Class* clazz) {
-	return $of($alloc(X11FontManager));
-}
 
 $Map* X11FontManager::fontNameMap = nullptr;
 $Map* X11FontManager::xlfdMap = nullptr;
@@ -159,7 +93,7 @@ X11FontManager* X11FontManager::getInstance() {
 }
 
 $String* X11FontManager::getFileNameFromPlatformName($String* platName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(platName)->startsWith("/"_s)) {
 		return platName;
 	}
@@ -174,7 +108,7 @@ $String* X11FontManager::getFileNameFromPlatformName($String* platName) {
 		if (fileName->startsWith("/"_s)) {
 			$var($Vector, xVal, $cast($Vector, $nc(X11FontManager::xlfdMap)->get(fileName)));
 			if (xVal == nullptr) {
-				if ($nc($(getFontConfiguration()))->needToSearchForFile(fileName)) {
+				if ($$nc(getFontConfiguration())->needToSearchForFile(fileName)) {
 					$assign(fileName, nullptr);
 				}
 				if (fileName != nullptr) {
@@ -182,7 +116,7 @@ $String* X11FontManager::getFileNameFromPlatformName($String* platName) {
 					xVal->add(platName);
 					$nc(X11FontManager::xlfdMap)->put(fileName, xVal);
 				}
-			} else if (!$nc(xVal)->contains(platName)) {
+			} else if (!xVal->contains(platName)) {
 				xVal->add(platName);
 			}
 		}
@@ -193,7 +127,7 @@ $String* X11FontManager::getFileNameFromPlatformName($String* platName) {
 	}
 	if (fontID != nullptr) {
 		$assign(fileName, $cast($String, $nc(X11FontManager::fontNameMap)->get(fontID)));
-		if (this->fontPath == nullptr && (fileName == nullptr || !$nc(fileName)->startsWith("/"_s))) {
+		if (this->fontPath == nullptr && (fileName == nullptr || !fileName->startsWith("/"_s))) {
 			if ($FontUtilities::debugFonts()) {
 				$FontUtilities::logWarning($$str({"** Registering all font paths because can\'t find file for "_s, platName}));
 			}
@@ -220,7 +154,7 @@ $String* X11FontManager::getFileNameFromPlatformName($String* platName) {
 }
 
 $StringArray* X11FontManager::getNativeNames($String* fontFileName, $String* platformName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, nativeNames, nullptr);
 	if (($assign(nativeNames, $cast($Vector, $nc(X11FontManager::xlfdMap)->get(fontFileName)))) == nullptr) {
 		if (platformName == nullptr) {
@@ -232,127 +166,125 @@ $StringArray* X11FontManager::getNativeNames($String* fontFileName, $String* pla
 		}
 	} else {
 		int32_t len = $nc(nativeNames)->size();
-		return $fcast($StringArray, nativeNames->toArray($$new($StringArray, len)));
+		return $cast($StringArray, nativeNames->toArray($$new($StringArray, len)));
 	}
 }
 
 void X11FontManager::registerFontDir($String* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($FontUtilities::debugFonts()) {
 		$FontUtilities::logInfo($$str({"ParseFontDir "_s, path}));
 	}
 	$init($File);
 	$var($File, fontsDotDir, $new($File, $$str({path, $File::separator, "fonts.dir"_s})));
 	$var($FileReader, fr, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				if (fontsDotDir->canRead()) {
-					$assign(fr, $new($FileReader, fontsDotDir));
-					$var($BufferedReader, br, $new($BufferedReader, fr, 8192));
-					$var($StreamTokenizer, st, $new($StreamTokenizer, static_cast<$Reader*>(br)));
-					st->eolIsSignificant(true);
-					int32_t ttype = st->nextToken();
-					if (ttype == $StreamTokenizer::TT_NUMBER) {
-						int32_t numEntries = $cast(int32_t, st->nval);
-						ttype = st->nextToken();
-						if (ttype == $StreamTokenizer::TT_EOL) {
-							st->resetSyntax();
-							st->wordChars(32, 127);
-							st->wordChars(128 + 32, 255);
-							st->whitespaceChars(0, 31);
-							for (int32_t i = 0; i < numEntries; ++i) {
-								ttype = st->nextToken();
-								if (ttype == $StreamTokenizer::TT_EOF) {
-									break;
-								}
-								if (ttype != $StreamTokenizer::TT_WORD) {
-									break;
-								}
-								int32_t breakPos = $nc(st->sval)->indexOf((int32_t)u' ');
-								if (breakPos <= 0) {
-									++numEntries;
-									ttype = st->nextToken();
-									if (ttype != $StreamTokenizer::TT_EOL) {
-										break;
-									}
-									continue;
-								}
-								if ($nc(st->sval)->charAt(0) == u'!') {
-									++numEntries;
-									ttype = st->nextToken();
-									if (ttype != $StreamTokenizer::TT_EOL) {
-										break;
-									}
-									continue;
-								}
-								$var($String, fileName, $nc(st->sval)->substring(0, breakPos));
-								int32_t lastColon = fileName->lastIndexOf((int32_t)u':');
-								if (lastColon > 0) {
-									if (lastColon + 1 >= fileName->length()) {
-										continue;
-									}
-									$assign(fileName, fileName->substring(lastColon + 1));
-								}
-								$var($String, fontPart, $nc(st->sval)->substring(breakPos + 1));
-								$var($String, fontID, specificFontIDForName(fontPart));
-								$var($String, sVal, $cast($String, $nc(X11FontManager::fontNameMap)->get(fontID)));
-								if ($FontUtilities::debugFonts()) {
-									$FontUtilities::logInfo($$str({"file="_s, fileName, " xlfd="_s, fontPart}));
-									$FontUtilities::logInfo($$str({"fontID="_s, fontID, " sVal="_s, sVal}));
-								}
-								$var($String, fullPath, nullptr);
-								try {
-									$var($File, file, $new($File, path, fileName));
-									if (X11FontManager::xFontDirsMap == nullptr) {
-										$assignStatic(X11FontManager::xFontDirsMap, $new($HashMap));
-									}
-									$nc(X11FontManager::xFontDirsMap)->put(fontID, path);
-									$assign(fullPath, file->getCanonicalPath());
-								} catch ($IOException& e) {
-									$assign(fullPath, $str({path, $File::separator, fileName}));
-								}
-								$var($Vector, xVal, $cast($Vector, $nc(X11FontManager::xlfdMap)->get(fullPath)));
-								if ($FontUtilities::debugFonts()) {
-									$FontUtilities::logInfo($$str({"fullPath="_s, fullPath, " xVal="_s, xVal}));
-								}
-								bool var$1 = (xVal == nullptr || !$nc(xVal)->contains(fontPart)) && (sVal == nullptr);
-								if (var$1 || !$nc(sVal)->startsWith("/"_s)) {
-									if ($FontUtilities::debugFonts()) {
-										$FontUtilities::logInfo($$str({"Map fontID:"_s, fontID, "to file:"_s, fullPath}));
-									}
-									$nc(X11FontManager::fontNameMap)->put(fontID, fullPath);
-									if (xVal == nullptr) {
-										$assign(xVal, $new($Vector));
-										$nc(X11FontManager::xlfdMap)->put(fullPath, xVal);
-									}
-									$nc(xVal)->add(fontPart);
-								}
+			if (fontsDotDir->canRead()) {
+				$assign(fr, $new($FileReader, fontsDotDir));
+				$var($BufferedReader, br, $new($BufferedReader, fr, 8192));
+				$var($StreamTokenizer, st, $new($StreamTokenizer, br));
+				st->eolIsSignificant(true);
+				int32_t ttype = st->nextToken();
+				if (ttype == $StreamTokenizer::TT_NUMBER) {
+					int32_t numEntries = $cast(int32_t, st->nval);
+					ttype = st->nextToken();
+					if (ttype == $StreamTokenizer::TT_EOL) {
+						st->resetSyntax();
+						st->wordChars(32, 127);
+						st->wordChars(128 + 32, 255);
+						st->whitespaceChars(0, 31);
+						for (int32_t i = 0; i < numEntries; ++i) {
+							ttype = st->nextToken();
+							if (ttype == $StreamTokenizer::TT_EOF) {
+								break;
+							}
+							if (ttype != $StreamTokenizer::TT_WORD) {
+								break;
+							}
+							int32_t breakPos = $nc(st->sval)->indexOf(u' ');
+							if (breakPos <= 0) {
+								++numEntries;
 								ttype = st->nextToken();
 								if (ttype != $StreamTokenizer::TT_EOL) {
 									break;
 								}
+								continue;
+							}
+							if (st->sval->charAt(0) == u'!') {
+								++numEntries;
+								ttype = st->nextToken();
+								if (ttype != $StreamTokenizer::TT_EOL) {
+									break;
+								}
+								continue;
+							}
+							$var($String, fileName, st->sval->substring(0, breakPos));
+							int32_t lastColon = fileName->lastIndexOf(u':');
+							if (lastColon > 0) {
+								if (lastColon + 1 >= fileName->length()) {
+									continue;
+								}
+								$assign(fileName, fileName->substring(lastColon + 1));
+							}
+							$var($String, fontPart, st->sval->substring(breakPos + 1));
+							$var($String, fontID, specificFontIDForName(fontPart));
+							$var($String, sVal, $cast($String, $nc(X11FontManager::fontNameMap)->get(fontID)));
+							if ($FontUtilities::debugFonts()) {
+								$FontUtilities::logInfo($$str({"file="_s, fileName, " xlfd="_s, fontPart}));
+								$FontUtilities::logInfo($$str({"fontID="_s, fontID, " sVal="_s, sVal}));
+							}
+							$var($String, fullPath, nullptr);
+							try {
+								$var($File, file, $new($File, path, fileName));
+								if (X11FontManager::xFontDirsMap == nullptr) {
+									$assignStatic(X11FontManager::xFontDirsMap, $new($HashMap));
+								}
+								$nc(X11FontManager::xFontDirsMap)->put(fontID, path);
+								$assign(fullPath, file->getCanonicalPath());
+							} catch ($IOException& e) {
+								$assign(fullPath, $str({path, $File::separator, fileName}));
+							}
+							$var($Vector, xVal, $cast($Vector, $nc(X11FontManager::xlfdMap)->get(fullPath)));
+							if ($FontUtilities::debugFonts()) {
+								$FontUtilities::logInfo($$str({"fullPath="_s, fullPath, " xVal="_s, xVal}));
+							}
+							bool var$1 = (xVal == nullptr || !xVal->contains(fontPart)) && (sVal == nullptr);
+							if (var$1 || !$nc(sVal)->startsWith("/"_s)) {
+								if ($FontUtilities::debugFonts()) {
+									$FontUtilities::logInfo($$str({"Map fontID:"_s, fontID, "to file:"_s, fullPath}));
+								}
+								$nc(X11FontManager::fontNameMap)->put(fontID, fullPath);
+								if (xVal == nullptr) {
+									$assign(xVal, $new($Vector));
+									$nc(X11FontManager::xlfdMap)->put(fullPath, xVal);
+								}
+								$nc(xVal)->add(fontPart);
+							}
+							ttype = st->nextToken();
+							if (ttype != $StreamTokenizer::TT_EOL) {
+								break;
 							}
 						}
 					}
-					fr->close();
 				}
-			} catch ($IOException& ioe1) {
+				fr->close();
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (fr != nullptr) {
-				try {
-					fr->close();
-				} catch ($IOException& ioe2) {
-				}
+		} catch ($IOException& ioe1) {
+		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (fr != nullptr) {
+			try {
+				fr->close();
+			} catch ($IOException& ioe2) {
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -379,12 +311,12 @@ bool X11FontManager::isHeadless() {
 }
 
 $String* X11FontManager::specificFontIDForName($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, hPos, $new($ints, 14));
 	int32_t hyphenCnt = 1;
 	int32_t pos = 1;
 	while (pos != -1 && hyphenCnt < 14) {
-		pos = $nc(name)->indexOf((int32_t)u'-', pos);
+		pos = $nc(name)->indexOf(u'-', pos);
 		if (pos != -1) {
 			hPos->set(hyphenCnt++, pos);
 			++pos;
@@ -396,20 +328,22 @@ $String* X11FontManager::specificFontIDForName($String* name) {
 		}
 		return name;
 	}
-	$var($String, var$0, $($nc(name)->substring(hPos->get(X11FontManager::FAMILY_NAME_FIELD - 1), hPos->get(X11FontManager::SETWIDTH_NAME_FIELD))));
-	$var($String, sb, $concat(var$0, $(name->substring(hPos->get(X11FontManager::CHARSET_REGISTRY_FIELD - 1)))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc(name)->substring(hPos->get(X11FontManager::FAMILY_NAME_FIELD - 1), hPos->get(X11FontManager::SETWIDTH_NAME_FIELD))));
+	var$0->append($(name->substring(hPos->get(X11FontManager::CHARSET_REGISTRY_FIELD - 1))));
+	$var($String, sb, $str(var$0));
 	$init($Locale);
-	$var($String, retval, $nc(sb)->toLowerCase($Locale::ENGLISH));
+	$var($String, retval, sb->toLowerCase($Locale::ENGLISH));
 	return retval;
 }
 
 $String* X11FontManager::switchFontIDForName($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, hPos, $new($ints, 14));
 	int32_t hyphenCnt = 1;
 	int32_t pos = 1;
 	while (pos != -1 && hyphenCnt < 14) {
-		pos = $nc(name)->indexOf((int32_t)u'-', pos);
+		pos = $nc(name)->indexOf(u'-', pos);
 		if (pos != -1) {
 			hPos->set(hyphenCnt++, pos);
 			++pos;
@@ -435,17 +369,20 @@ $String* X11FontManager::switchFontIDForName($String* name) {
 	if (var$0 && encoding->equals("fontspecific"_s)) {
 		$assign(registry, "adobe"_s);
 	}
-	$var($String, var$4, $$str({$(name->substring(hPos->get(X11FontManager::FAMILY_NAME_FIELD - 1), hPos->get(X11FontManager::SLANT_FIELD - 1) + 1)), slant}));
-	$var($String, var$3, $$concat(var$4, $(name->substring(hPos->get(X11FontManager::SLANT_FIELD), hPos->get(X11FontManager::SETWIDTH_NAME_FIELD) + 1))));
-	$var($String, var$2, $$concat(var$3, registry));
-	$var($String, sb, $concat(var$2, $(name->substring(hPos->get(X11FontManager::CHARSET_ENCODING_FIELD - 1)))));
+	$var($StringBuilder, var$2, $new($StringBuilder));
+	var$2->append($(name->substring(hPos->get(X11FontManager::FAMILY_NAME_FIELD - 1), hPos->get(X11FontManager::SLANT_FIELD - 1) + 1)));
+	var$2->append(slant);
+	var$2->append($(name->substring(hPos->get(X11FontManager::SLANT_FIELD), hPos->get(X11FontManager::SETWIDTH_NAME_FIELD) + 1)));
+	var$2->append(registry);
+	var$2->append($(name->substring(hPos->get(X11FontManager::CHARSET_ENCODING_FIELD - 1))));
+	$var($String, sb, $str(var$2));
 	$init($Locale);
-	$var($String, retval, $nc(sb)->toLowerCase($Locale::ENGLISH));
+	$var($String, retval, sb->toLowerCase($Locale::ENGLISH));
 	return retval;
 }
 
 $String* X11FontManager::getFileNameFromXLFD($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fileName, nullptr);
 	$var($String, fontID, specificFontIDForName(name));
 	if (fontID != nullptr) {
@@ -462,14 +399,14 @@ $String* X11FontManager::getFileNameFromXLFD($String* name) {
 }
 
 void X11FontManager::registerFontDirs($String* pathName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($StringTokenizer, parser, $new($StringTokenizer, pathName, $File::pathSeparator));
 	try {
 		while (parser->hasMoreTokens()) {
 			$var($String, dirPath, parser->nextToken());
 			if (dirPath != nullptr && !$nc(X11FontManager::registeredDirs)->containsKey(dirPath)) {
-				$nc(X11FontManager::registeredDirs)->put(dirPath, nullptr);
+				X11FontManager::registeredDirs->put(dirPath, nullptr);
 				registerFontDir(dirPath);
 			}
 		}
@@ -478,7 +415,7 @@ void X11FontManager::registerFontDirs($String* pathName) {
 }
 
 void X11FontManager::addFontToPlatformFontPath($String* platformName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	getPlatformFontPathFromFontConfig();
 	if (X11FontManager::xFontDirsMap != nullptr) {
 		$var($String, fontID, specificFontIDForName(platformName));
@@ -491,11 +428,11 @@ void X11FontManager::addFontToPlatformFontPath($String* platformName) {
 }
 
 void X11FontManager::getPlatformFontPathFromFontConfig() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (X11FontManager::fontConfigDirs == nullptr) {
-		$assignStatic(X11FontManager::fontConfigDirs, $nc($(getFontConfiguration()))->getAWTFontPathSet());
+		$assignStatic(X11FontManager::fontConfigDirs, $$nc(getFontConfiguration())->getAWTFontPathSet());
 		if ($FontUtilities::debugFonts() && X11FontManager::fontConfigDirs != nullptr) {
-			$var($StringArray, names, $fcast($StringArray, $nc(X11FontManager::fontConfigDirs)->toArray($$new($StringArray, 0))));
+			$var($StringArray, names, $cast($StringArray, X11FontManager::fontConfigDirs->toArray($$new($StringArray, 0))));
 			for (int32_t i = 0; i < $nc(names)->length; ++i) {
 				$FontUtilities::logInfo($$str({"awtfontpath : "_s, names->get(i)}));
 			}
@@ -504,7 +441,7 @@ void X11FontManager::getPlatformFontPathFromFontConfig() {
 }
 
 void X11FontManager::registerPlatformFontsUsedByFontConfiguration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	getPlatformFontPathFromFontConfig();
 	if (X11FontManager::fontConfigDirs == nullptr) {
 		return;
@@ -515,11 +452,11 @@ void X11FontManager::registerPlatformFontsUsedByFontConfiguration() {
 		$init($File);
 		$nc(X11FontManager::fontConfigDirs)->add($$str({$SunFontManager::jreLibDirName, $File::separator, "oblique-fonts"_s}));
 	}
-	$assignStatic(X11FontManager::fontdirs, $fcast($StringArray, $nc(X11FontManager::fontConfigDirs)->toArray($$new($StringArray, 0))));
+	$assignStatic(X11FontManager::fontdirs, $cast($StringArray, $nc(X11FontManager::fontConfigDirs)->toArray($$new($StringArray, 0))));
 }
 
 $FontConfiguration* X11FontManager::createFontConfiguration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontConfiguration, mFontConfig, $new($MFontConfiguration, this));
 	$init($FontUtilities);
 	if ($FontUtilities::isLinux && !mFontConfig->foundOsSpecificFile()) {
@@ -544,18 +481,18 @@ $String* X11FontManager::getFontPath(bool noType1Fonts) {
 }
 
 $FontUIResource* X11FontManager::getFontConfigFUIR($String* family, int32_t style, int32_t size) {
-	$useLocalCurrentObjectStackCache();
-	$var($CompositeFont, font2D, $nc($(getFontConfigManager()))->getFontConfigFont(family, style));
+	$useLocalObjectStack();
+	$var($CompositeFont, font2D, $$nc(getFontConfigManager())->getFontConfigFont(family, style));
 	if (font2D == nullptr) {
 		return $new($FontUIResource, family, style, size);
 	}
 	$var($FontUIResource, fuir, $new($FontUIResource, $($nc(font2D)->getFamilyName(nullptr)), style, size));
-	$nc($($FontAccess::getFontAccess()))->setFont2D(fuir, $nc(font2D)->handle);
-	$nc($($FontAccess::getFontAccess()))->setCreatedFont(fuir);
+	$$nc($FontAccess::getFontAccess())->setFont2D(fuir, font2D->handle);
+	$$nc($FontAccess::getFontAccess())->setCreatedFont(fuir);
 	return fuir;
 }
 
-void clinit$X11FontManager($Class* class$) {
+void X11FontManager::clinit$($Class* clazz) {
 	$assignStatic(X11FontManager::fontNameMap, $new($HashMap));
 	$assignStatic(X11FontManager::xlfdMap, $new($HashMap));
 	$assignStatic(X11FontManager::fontConfigDirs, nullptr);
@@ -567,7 +504,62 @@ X11FontManager::X11FontManager() {
 }
 
 $Class* X11FontManager::load$($String* name, bool initialize) {
-	$loadClass(X11FontManager, name, initialize, &_X11FontManager_ClassInfo_, clinit$X11FontManager, allocate$X11FontManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"FOUNDRY_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, FOUNDRY_FIELD)},
+		{"FAMILY_NAME_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, FAMILY_NAME_FIELD)},
+		{"WEIGHT_NAME_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, WEIGHT_NAME_FIELD)},
+		{"SLANT_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, SLANT_FIELD)},
+		{"SETWIDTH_NAME_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, SETWIDTH_NAME_FIELD)},
+		{"ADD_STYLE_NAME_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, ADD_STYLE_NAME_FIELD)},
+		{"PIXEL_SIZE_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, PIXEL_SIZE_FIELD)},
+		{"POINT_SIZE_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, POINT_SIZE_FIELD)},
+		{"RESOLUTION_X_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, RESOLUTION_X_FIELD)},
+		{"RESOLUTION_Y_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, RESOLUTION_Y_FIELD)},
+		{"SPACING_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, SPACING_FIELD)},
+		{"AVERAGE_WIDTH_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, AVERAGE_WIDTH_FIELD)},
+		{"CHARSET_REGISTRY_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, CHARSET_REGISTRY_FIELD)},
+		{"CHARSET_ENCODING_FIELD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(X11FontManager, CHARSET_ENCODING_FIELD)},
+		{"fontNameMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, fontNameMap)},
+		{"xlfdMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Vector<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, xlfdMap)},
+		{"xFontDirsMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, xFontDirsMap)},
+		{"fontConfigDirs", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, fontConfigDirs)},
+		{"registeredDirs", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(X11FontManager, registeredDirs)},
+		{"fontdirs", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(X11FontManager, fontdirs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11FontManager, init$, void)},
+		{"addFontToPlatformFontPath", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(X11FontManager, addFontToPlatformFontPath, void, $String*)},
+		{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $virtualMethod(X11FontManager, createFontConfiguration, $FontConfiguration*)},
+		{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(X11FontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
+		{"getFileNameFromPlatformName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(X11FontManager, getFileNameFromPlatformName, $String*, $String*)},
+		{"getFileNameFromXLFD", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(X11FontManager, getFileNameFromXLFD, $String*, $String*)},
+		{"getFontConfigFUIR", "(Ljava/lang/String;II)Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED, $virtualMethod(X11FontManager, getFontConfigFUIR, $FontUIResource*, $String*, int32_t, int32_t)},
+		{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(X11FontManager, getFontPath, $String*, bool)},
+		{"getInstance", "()Lsun/awt/X11FontManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(X11FontManager, getInstance, X11FontManager*)},
+		{"getNativeNames", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(X11FontManager, getNativeNames, $StringArray*, $String*, $String*)},
+		{"getPlatformFontPathFromFontConfig", "()V", nullptr, $PRIVATE, $method(X11FontManager, getPlatformFontPathFromFontConfig, void)},
+		{"getX11FontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(X11FontManager, getX11FontName, $String*, $String*)},
+		{"isHeadless", "()Z", nullptr, $PRIVATE, $method(X11FontManager, isHeadless, bool)},
+		{"loadFonts", "()V", nullptr, $PUBLIC, $virtualMethod(X11FontManager, loadFonts, void)},
+		{"registerFontDir", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(X11FontManager, registerFontDir, void, $String*)},
+		{"registerFontDirs", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(X11FontManager, registerFontDirs, void, $String*)},
+		{"registerPlatformFontsUsedByFontConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(X11FontManager, registerPlatformFontsUsedByFontConfiguration, void)},
+		{"specificFontIDForName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(X11FontManager, specificFontIDForName, $String*, $String*)},
+		{"switchFontIDForName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(X11FontManager, switchFontIDForName, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11FontManager",
+		"sun.awt.FcFontManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X11FontManager, name, initialize, &classInfo$$, X11FontManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11FontManager));
+	});
 	return class$;
 }
 

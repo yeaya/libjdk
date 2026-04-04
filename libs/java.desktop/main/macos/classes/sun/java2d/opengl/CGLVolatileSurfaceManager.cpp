@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/CGLVolatileSurfaceManager.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/Transparency.h>
@@ -20,7 +19,6 @@
 #undef UNDEFINED
 
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Image = ::java::awt::Image;
 using $Transparency = ::java::awt::Transparency;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -39,33 +37,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _CGLVolatileSurfaceManager_FieldInfo_[] = {
-	{"accelerationEnabled", "Z", nullptr, $PRIVATE | $FINAL, $field(CGLVolatileSurfaceManager, accelerationEnabled)},
-	{}
-};
-
-$MethodInfo _CGLVolatileSurfaceManager_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CGLVolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
-	{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(CGLVolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
-	{"initContents", "()V", nullptr, $PUBLIC, $virtualMethod(CGLVolatileSurfaceManager, initContents, void)},
-	{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(CGLVolatileSurfaceManager, isAccelerationEnabled, bool)},
-	{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(CGLVolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
-	{}
-};
-
-$ClassInfo _CGLVolatileSurfaceManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.CGLVolatileSurfaceManager",
-	"sun.awt.image.VolatileSurfaceManager",
-	nullptr,
-	_CGLVolatileSurfaceManager_FieldInfo_,
-	_CGLVolatileSurfaceManager_MethodInfo_
-};
-
-$Object* allocate$CGLVolatileSurfaceManager($Class* clazz) {
-	return $of($alloc(CGLVolatileSurfaceManager));
-}
-
 void CGLVolatileSurfaceManager::init$($SunVolatileImage* vImg, Object$* context) {
 	$VolatileSurfaceManager::init$(vImg, context);
 	int32_t transparency = $nc(vImg)->getTransparency();
@@ -78,7 +49,7 @@ bool CGLVolatileSurfaceManager::isAccelerationEnabled() {
 }
 
 $SurfaceData* CGLVolatileSurfaceManager::initAcceleratedSurface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($CGLGraphicsConfig, gc, $cast($CGLGraphicsConfig, $nc(this->vImg)->getGraphicsConfig()));
 		$var($ColorModel, cm, $nc(gc)->getColorModel($nc(this->vImg)->getTransparency()));
@@ -86,9 +57,8 @@ $SurfaceData* CGLVolatileSurfaceManager::initAcceleratedSurface() {
 		if (type == $OGLSurfaceData::UNDEFINED) {
 			type = $OGLSurfaceData::FBOBJECT;
 		}
-		$var($CGLGraphicsConfig, var$0, gc);
-		int32_t var$1 = $nc(this->vImg)->getWidth();
-		return $CGLSurfaceData::createData(var$0, var$1, $nc(this->vImg)->getHeight(), cm, this->vImg, type);
+		int32_t var$0 = $nc(this->vImg)->getWidth();
+		return $CGLSurfaceData::createData(gc, var$0, this->vImg->getHeight(), cm, this->vImg, type);
 	} catch ($NullPointerException& ignored) {
 		return nullptr;
 	} catch ($OutOfMemoryError& ignored) {
@@ -111,7 +81,29 @@ CGLVolatileSurfaceManager::CGLVolatileSurfaceManager() {
 }
 
 $Class* CGLVolatileSurfaceManager::load$($String* name, bool initialize) {
-	$loadClass(CGLVolatileSurfaceManager, name, initialize, &_CGLVolatileSurfaceManager_ClassInfo_, allocate$CGLVolatileSurfaceManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"accelerationEnabled", "Z", nullptr, $PRIVATE | $FINAL, $field(CGLVolatileSurfaceManager, accelerationEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CGLVolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
+		{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(CGLVolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
+		{"initContents", "()V", nullptr, $PUBLIC, $virtualMethod(CGLVolatileSurfaceManager, initContents, void)},
+		{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(CGLVolatileSurfaceManager, isAccelerationEnabled, bool)},
+		{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(CGLVolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.CGLVolatileSurfaceManager",
+		"sun.awt.image.VolatileSurfaceManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CGLVolatileSurfaceManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CGLVolatileSurfaceManager));
+	});
 	return class$;
 }
 

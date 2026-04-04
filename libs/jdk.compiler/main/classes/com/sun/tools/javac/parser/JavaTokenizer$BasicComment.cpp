@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavaTokenizer$BasicComment.h>
-
 #include <com/sun/tools/javac/parser/JavaTokenizer.h>
 #include <com/sun/tools/javac/parser/ScannerFactory.h>
 #include <com/sun/tools/javac/parser/Tokens$Comment$CommentStyle.h>
@@ -22,55 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _JavaTokenizer$BasicComment_FieldInfo_[] = {
-	{"cs", "Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, 0, $field(JavaTokenizer$BasicComment, cs)},
-	{"deprecatedFlag", "Z", nullptr, $PROTECTED, $field(JavaTokenizer$BasicComment, deprecatedFlag)},
-	{"scanned", "Z", nullptr, $PROTECTED, $field(JavaTokenizer$BasicComment, scanned)},
-	{}
-};
-
-$MethodInfo _JavaTokenizer$BasicComment_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(JavaTokenizer$BasicComment, init$, void, $Tokens$Comment$CommentStyle*, $ScannerFactory*, $chars*, int32_t)},
-	{"getSourcePos", "(I)I", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getSourcePos, int32_t, int32_t)},
-	{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getStyle, $Tokens$Comment$CommentStyle*)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getText, $String*)},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, isDeprecated, bool)},
-	{"scanDocComment", "()V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer$BasicComment, scanDocComment, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JavaTokenizer$BasicComment_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavaTokenizer$BasicComment", "com.sun.tools.javac.parser.JavaTokenizer", "BasicComment", $PROTECTED | $STATIC},
-	{"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader", "com.sun.tools.javac.parser.UnicodeReader", "PositionTrackingReader", $STATIC},
-	{"com.sun.tools.javac.parser.Tokens$Comment", "com.sun.tools.javac.parser.Tokens", "Comment", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavaTokenizer$BasicComment_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.JavaTokenizer$BasicComment",
-	"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader",
-	"com.sun.tools.javac.parser.Tokens$Comment",
-	_JavaTokenizer$BasicComment_FieldInfo_,
-	_JavaTokenizer$BasicComment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaTokenizer$BasicComment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavaTokenizer"
-};
-
-$Object* allocate$JavaTokenizer$BasicComment($Class* clazz) {
-	return $of($alloc(JavaTokenizer$BasicComment));
-}
 
 int32_t JavaTokenizer$BasicComment::hashCode() {
 	 return this->$UnicodeReader$PositionTrackingReader::hashCode();
@@ -120,82 +70,73 @@ bool JavaTokenizer$BasicComment::isDeprecated() {
 }
 
 void JavaTokenizer$BasicComment::scanDocComment() {
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			bool deprecatedPrefix = false;
-			accept("/**"_s);
-			bool forEachLine$continue = false;
-			while (isAvailable()) {
-				skipWhitespace();
-				while (accept(u'*')) {
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		bool deprecatedPrefix = false;
+		accept("/**"_s);
+		bool forEachLine$continue = false;
+		while (isAvailable()) {
+			skipWhitespace();
+			while (accept(u'*')) {
+				if (is(u'/')) {
+					return$1 = true;
+					goto $finally;
+				}
+			}
+			skipWhitespace();
+			deprecatedPrefix = this->deprecatedFlag || accept("@deprecated"_s);
+			if (deprecatedPrefix && isAvailable()) {
+				if ($Character::isWhitespace(get())) {
+					this->deprecatedFlag = true;
+				} else if (accept(u'*')) {
 					if (is(u'/')) {
+						this->deprecatedFlag = true;
 						return$1 = true;
 						goto $finally;
 					}
 				}
-				skipWhitespace();
-				deprecatedPrefix = this->deprecatedFlag || accept("@deprecated"_s);
-				if (deprecatedPrefix && isAvailable()) {
-					if ($Character::isWhitespace(get())) {
-						this->deprecatedFlag = true;
-					} else if (accept(u'*')) {
-						if (is(u'/')) {
-							this->deprecatedFlag = true;
-							return$1 = true;
-							goto $finally;
-						}
+			}
+			while (isAvailable()) {
+				switch (get()) {
+				case u'*':
+					next();
+					if (is(u'/')) {
+						return$1 = true;
+						goto $finally;
 					}
+					break;
+				case u'\r':
+				case u'\n':
+					accept(u'\r');
+					accept(u'\n');
+					forEachLine$continue = true;
+					break;
+				default:
+					next();
+					break;
 				}
-				while (isAvailable()) {
-					switch (get()) {
-					case u'*':
-						{
-							next();
-							if (is(u'/')) {
-								return$1 = true;
-								goto $finally;
-							}
-							break;
-						}
-					case u'\r':
-						{}
-					case u'\n':
-						{
-							accept(u'\r');
-							accept(u'\n');
-							forEachLine$continue = true;
-							break;
-						}
-					default:
-						{
-							next();
-							break;
-						}
-					}
-
-					if (forEachLine$continue) {
-						break;
-					}				}
 				if (forEachLine$continue) {
-					forEachLine$continue = false;
-					continue;
+					break;
 				}
 			}
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			this->scanned = true;
+			if (forEachLine$continue) {
+				forEachLine$continue = false;
+				continue;
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->scanned = true;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -203,7 +144,50 @@ JavaTokenizer$BasicComment::JavaTokenizer$BasicComment() {
 }
 
 $Class* JavaTokenizer$BasicComment::load$($String* name, bool initialize) {
-	$loadClass(JavaTokenizer$BasicComment, name, initialize, &_JavaTokenizer$BasicComment_ClassInfo_, allocate$JavaTokenizer$BasicComment);
+	$FieldInfo fieldInfos$$[] = {
+		{"cs", "Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, 0, $field(JavaTokenizer$BasicComment, cs)},
+		{"deprecatedFlag", "Z", nullptr, $PROTECTED, $field(JavaTokenizer$BasicComment, deprecatedFlag)},
+		{"scanned", "Z", nullptr, $PROTECTED, $field(JavaTokenizer$BasicComment, scanned)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;Lcom/sun/tools/javac/parser/ScannerFactory;[CI)V", nullptr, $PROTECTED, $method(JavaTokenizer$BasicComment, init$, void, $Tokens$Comment$CommentStyle*, $ScannerFactory*, $chars*, int32_t)},
+		{"getSourcePos", "(I)I", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getSourcePos, int32_t, int32_t)},
+		{"getStyle", "()Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getStyle, $Tokens$Comment$CommentStyle*)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, getText, $String*)},
+		{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaTokenizer$BasicComment, isDeprecated, bool)},
+		{"scanDocComment", "()V", nullptr, $PROTECTED, $virtualMethod(JavaTokenizer$BasicComment, scanDocComment, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavaTokenizer$BasicComment", "com.sun.tools.javac.parser.JavaTokenizer", "BasicComment", $PROTECTED | $STATIC},
+		{"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader", "com.sun.tools.javac.parser.UnicodeReader", "PositionTrackingReader", $STATIC},
+		{"com.sun.tools.javac.parser.Tokens$Comment", "com.sun.tools.javac.parser.Tokens", "Comment", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.JavaTokenizer$BasicComment",
+		"com.sun.tools.javac.parser.UnicodeReader$PositionTrackingReader",
+		"com.sun.tools.javac.parser.Tokens$Comment",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavaTokenizer"
+	};
+	$loadClass(JavaTokenizer$BasicComment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavaTokenizer$BasicComment));
+	});
 	return class$;
 }
 

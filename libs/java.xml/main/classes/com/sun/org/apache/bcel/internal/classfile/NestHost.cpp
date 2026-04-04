@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/NestHost.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -29,37 +28,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _NestHost_FieldInfo_[] = {
-	{"hostClassIndex", "I", nullptr, $PRIVATE, $field(NestHost, hostClassIndex)},
-	{}
-};
-
-$MethodInfo _NestHost_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/NestHost;)V", nullptr, $PUBLIC, $method(NestHost, init$, void, NestHost*)},
-	{"<init>", "(IIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(NestHost, init$, void, int32_t, int32_t, int32_t, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(NestHost, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(NestHost, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(NestHost, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(NestHost, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getHostClassIndex", "()I", nullptr, $PUBLIC, $method(NestHost, getHostClassIndex, int32_t)},
-	{"setHostClassIndex", "(I)V", nullptr, $PUBLIC, $method(NestHost, setHostClassIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NestHost, toString, $String*)},
-	{}
-};
-
-$ClassInfo _NestHost_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.NestHost",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_NestHost_FieldInfo_,
-	_NestHost_MethodInfo_
-};
-
-$Object* allocate$NestHost($Class* clazz) {
-	return $of($alloc(NestHost));
-}
 
 void NestHost::init$(NestHost* c) {
 	int32_t var$0 = $nc(c)->getNameIndex();
@@ -96,10 +64,10 @@ void NestHost::setHostClassIndex(int32_t hostClassIndex) {
 }
 
 $String* NestHost::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append("NestHost: "_s);
-	$var($String, class_name, $nc($($Attribute::getConstantPool()))->getConstantString(this->hostClassIndex, $Const::CONSTANT_Class));
+	$var($String, class_name, $$nc($Attribute::getConstantPool())->getConstantString(this->hostClassIndex, $Const::CONSTANT_Class));
 	buf->append($($Utility::compactClassName(class_name, false)));
 	return buf->toString();
 }
@@ -114,7 +82,33 @@ NestHost::NestHost() {
 }
 
 $Class* NestHost::load$($String* name, bool initialize) {
-	$loadClass(NestHost, name, initialize, &_NestHost_ClassInfo_, allocate$NestHost);
+	$FieldInfo fieldInfos$$[] = {
+		{"hostClassIndex", "I", nullptr, $PRIVATE, $field(NestHost, hostClassIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/NestHost;)V", nullptr, $PUBLIC, $method(NestHost, init$, void, NestHost*)},
+		{"<init>", "(IIILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(NestHost, init$, void, int32_t, int32_t, int32_t, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(NestHost, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(NestHost, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(NestHost, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(NestHost, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getHostClassIndex", "()I", nullptr, $PUBLIC, $method(NestHost, getHostClassIndex, int32_t)},
+		{"setHostClassIndex", "(I)V", nullptr, $PUBLIC, $method(NestHost, setHostClassIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NestHost, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.NestHost",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NestHost, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NestHost));
+	});
 	return class$;
 }
 

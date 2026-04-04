@@ -1,5 +1,4 @@
 #include <javax/swing/JFormattedTextField$CancelAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/JFormattedTextField.h>
@@ -18,57 +17,25 @@ using $TextAction = ::javax::swing::text::TextAction;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JFormattedTextField$CancelAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JFormattedTextField$CancelAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$CancelAction, actionPerformed, void, $ActionEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$CancelAction, isEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _JFormattedTextField$CancelAction_InnerClassesInfo_[] = {
-	{"javax.swing.JFormattedTextField$CancelAction", "javax.swing.JFormattedTextField", "CancelAction", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JFormattedTextField$CancelAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JFormattedTextField$CancelAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_JFormattedTextField$CancelAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFormattedTextField$CancelAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JFormattedTextField"
-};
-
-$Object* allocate$JFormattedTextField$CancelAction($Class* clazz) {
-	return $of($alloc(JFormattedTextField$CancelAction));
-}
-
 void JFormattedTextField$CancelAction::init$() {
 	$TextAction::init$("reset-field-edit"_s);
 }
 
 void JFormattedTextField$CancelAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getFocusedComponent());
 	if ($instanceOf($JFormattedTextField, target)) {
 		$var($JFormattedTextField, ftf, $cast($JFormattedTextField, target));
-		$nc(ftf)->setValue($(ftf->getValue()));
+		ftf->setValue($(ftf->getValue()));
 	}
 }
 
 bool JFormattedTextField$CancelAction::isEnabled() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getFocusedComponent());
 	if ($instanceOf($JFormattedTextField, target)) {
 		$var($JFormattedTextField, ftf, $cast($JFormattedTextField, target));
-		if (!$nc(ftf)->isEdited()) {
+		if (!ftf->isEdited()) {
 			return false;
 		}
 		return true;
@@ -80,7 +47,34 @@ JFormattedTextField$CancelAction::JFormattedTextField$CancelAction() {
 }
 
 $Class* JFormattedTextField$CancelAction::load$($String* name, bool initialize) {
-	$loadClass(JFormattedTextField$CancelAction, name, initialize, &_JFormattedTextField$CancelAction_ClassInfo_, allocate$JFormattedTextField$CancelAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JFormattedTextField$CancelAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$CancelAction, actionPerformed, void, $ActionEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$CancelAction, isEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JFormattedTextField$CancelAction", "javax.swing.JFormattedTextField", "CancelAction", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JFormattedTextField$CancelAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JFormattedTextField"
+	};
+	$loadClass(JFormattedTextField$CancelAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JFormattedTextField$CancelAction));
+	});
 	return class$;
 }
 

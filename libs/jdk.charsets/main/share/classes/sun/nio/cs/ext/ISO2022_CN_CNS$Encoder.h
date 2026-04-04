@@ -31,6 +31,7 @@ class ISO2022_CN_CNS$Encoder : public ::sun::nio::cs::ext::ISO2022$Encoder {
 public:
 	ISO2022_CN_CNS$Encoder();
 	using ::sun::nio::cs::ext::ISO2022$Encoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual bool canEncode(char16_t c) override;
 	virtual bool isLegalReplacement($bytes* repl) override;

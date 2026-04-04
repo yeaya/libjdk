@@ -18,6 +18,7 @@ class $export RepaintOnFrameIconifiedStateChangeTest : public ::java::lang::Obje
 	$class(RepaintOnFrameIconifiedStateChangeTest, 0, ::java::lang::Object)
 public:
 	RepaintOnFrameIconifiedStateChangeTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createGUI();
 	static void main($StringArray* args);

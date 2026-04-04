@@ -21,6 +21,7 @@ class $export PingFrame : public ::jdk::internal::net::http::frame::Http2Frame {
 	$class(PingFrame, 0, ::jdk::internal::net::http::frame::Http2Frame)
 public:
 	PingFrame();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t flags, $bytes* data);
 	virtual $String* flagAsString(int32_t flag) override;
 	virtual $bytes* getData();

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XToolkitThreadBlockedHandler.h>
-
 #include <java/awt/Toolkit.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/XToolkit.h>
@@ -20,35 +19,6 @@ using $ToolkitThreadBlockedHandler = ::sun::awt::datatransfer::ToolkitThreadBloc
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XToolkitThreadBlockedHandler_FieldInfo_[] = {
-	{"priveleged_lock", "Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkitThreadBlockedHandler, priveleged_lock)},
-	{"tk", "Lsun/awt/X11/XToolkit;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkitThreadBlockedHandler, tk)},
-	{}
-};
-
-$MethodInfo _XToolkitThreadBlockedHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XToolkitThreadBlockedHandler, init$, void)},
-	{"enter", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkitThreadBlockedHandler, enter, void)},
-	{"exit", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkitThreadBlockedHandler, exit, void)},
-	{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $STATIC, $staticMethod(XToolkitThreadBlockedHandler, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
-	{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkitThreadBlockedHandler, lock, void)},
-	{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkitThreadBlockedHandler, unlock, void)},
-	{}
-};
-
-$ClassInfo _XToolkitThreadBlockedHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XToolkitThreadBlockedHandler",
-	"java.lang.Object",
-	"sun.awt.datatransfer.ToolkitThreadBlockedHandler",
-	_XToolkitThreadBlockedHandler_FieldInfo_,
-	_XToolkitThreadBlockedHandler_MethodInfo_
-};
-
-$Object* allocate$XToolkitThreadBlockedHandler($Class* clazz) {
-	return $of($alloc(XToolkitThreadBlockedHandler));
-}
 
 $ToolkitThreadBlockedHandler* XToolkitThreadBlockedHandler::priveleged_lock = nullptr;
 $XToolkit* XToolkitThreadBlockedHandler::tk = nullptr;
@@ -77,7 +47,7 @@ void XToolkitThreadBlockedHandler::exit() {
 	$XlibWrapper::ExitSecondaryLoop();
 }
 
-void clinit$XToolkitThreadBlockedHandler($Class* class$) {
+void XToolkitThreadBlockedHandler::clinit$($Class* clazz) {
 	{
 		$assignStatic(XToolkitThreadBlockedHandler::priveleged_lock, $new(XToolkitThreadBlockedHandler));
 	}
@@ -88,7 +58,31 @@ XToolkitThreadBlockedHandler::XToolkitThreadBlockedHandler() {
 }
 
 $Class* XToolkitThreadBlockedHandler::load$($String* name, bool initialize) {
-	$loadClass(XToolkitThreadBlockedHandler, name, initialize, &_XToolkitThreadBlockedHandler_ClassInfo_, clinit$XToolkitThreadBlockedHandler, allocate$XToolkitThreadBlockedHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"priveleged_lock", "Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkitThreadBlockedHandler, priveleged_lock)},
+		{"tk", "Lsun/awt/X11/XToolkit;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XToolkitThreadBlockedHandler, tk)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XToolkitThreadBlockedHandler, init$, void)},
+		{"enter", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkitThreadBlockedHandler, enter, void)},
+		{"exit", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkitThreadBlockedHandler, exit, void)},
+		{"getToolkitThreadBlockedHandler", "()Lsun/awt/datatransfer/ToolkitThreadBlockedHandler;", nullptr, $STATIC, $staticMethod(XToolkitThreadBlockedHandler, getToolkitThreadBlockedHandler, $ToolkitThreadBlockedHandler*)},
+		{"lock", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkitThreadBlockedHandler, lock, void)},
+		{"unlock", "()V", nullptr, $PUBLIC, $virtualMethod(XToolkitThreadBlockedHandler, unlock, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XToolkitThreadBlockedHandler",
+		"java.lang.Object",
+		"sun.awt.datatransfer.ToolkitThreadBlockedHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XToolkitThreadBlockedHandler, name, initialize, &classInfo$$, XToolkitThreadBlockedHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XToolkitThreadBlockedHandler);
+	});
 	return class$;
 }
 

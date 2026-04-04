@@ -1,5 +1,4 @@
 #include <sun/awt/CGraphicsEnvironment.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -27,7 +26,6 @@ using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $CGraphicsDeviceArray = $Array<::sun::awt::CGraphicsDevice>;
 using $Font = ::java::awt::Font;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
-using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -37,10 +35,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $Map = ::java::util::Map;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
@@ -51,71 +47,20 @@ using $SurfaceManagerFactory = ::sun::java2d::SurfaceManagerFactory;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _CGraphicsEnvironment_FieldInfo_[] = {
-	{"devices", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/awt/CGraphicsDevice;>;", $PRIVATE | $FINAL, $field(CGraphicsEnvironment, devices)},
-	{"mainDisplayID", "I", nullptr, $PRIVATE, $field(CGraphicsEnvironment, mainDisplayID)},
-	{"displayReconfigContext", "J", nullptr, $PRIVATE | $FINAL, $field(CGraphicsEnvironment, displayReconfigContext)},
-	{"oldDevices", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/ref/WeakReference<Lsun/awt/CGraphicsDevice;>;>;", $PRIVATE, $field(CGraphicsEnvironment, oldDevices)},
-	{"sLogicalFonts", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(CGraphicsEnvironment, sLogicalFonts)},
-	{}
-};
-
-$MethodInfo _CGraphicsEnvironment_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CGraphicsEnvironment, init$, void)},
-	{"_displayReconfiguration", "(IZ)V", nullptr, 0, $method(CGraphicsEnvironment, _displayReconfiguration, void, int32_t, bool)},
-	{"deregisterDisplayReconfiguration", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CGraphicsEnvironment, deregisterDisplayReconfiguration, void, int64_t)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(CGraphicsEnvironment, finalize, void), "java.lang.Throwable"},
-	{"getAllFonts", "()[Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(CGraphicsEnvironment, getAllFonts, $FontArray*)},
-	{"getDefaultScreenDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CGraphicsEnvironment, getDefaultScreenDevice, $GraphicsDevice*), "java.awt.HeadlessException"},
-	{"getDisplayIDs", "()[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsEnvironment, getDisplayIDs, $ints*)},
-	{"getMainDisplayID", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsEnvironment, getMainDisplayID, int32_t)},
-	{"getNumScreens", "()I", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CGraphicsEnvironment, getNumScreens, int32_t)},
-	{"getScreenDevice", "(I)Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(CGraphicsEnvironment, getScreenDevice, $GraphicsDevice*, int32_t)},
-	{"getScreenDevices", "()[Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CGraphicsEnvironment, getScreenDevices, $GraphicsDeviceArray*), "java.awt.HeadlessException"},
-	{"getSimilarDevice", "(Lsun/awt/CGraphicsDevice;)Lsun/awt/CGraphicsDevice;", nullptr, $PRIVATE, $method(CGraphicsEnvironment, getSimilarDevice, $CGraphicsDevice*, $CGraphicsDevice*)},
-	{"init", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(CGraphicsEnvironment, init, void)},
-	{"initDevices", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CGraphicsEnvironment, initDevices, void)},
-	{"isDisplayLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(CGraphicsEnvironment, isDisplayLocal, bool)},
-	{"makeScreenDevice", "(I)Ljava/awt/GraphicsDevice;", nullptr, $PROTECTED, $virtualMethod(CGraphicsEnvironment, makeScreenDevice, $GraphicsDevice*, int32_t)},
-	{"rebuildDevices", "()V", nullptr, $PRIVATE, $method(CGraphicsEnvironment, rebuildDevices, void)},
-	{"registerDisplayReconfiguration", "()J", nullptr, $PRIVATE | $NATIVE, $method(CGraphicsEnvironment, registerDisplayReconfiguration, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_deregisterDisplayReconfiguration 2
-#define _METHOD_INDEX_getDisplayIDs 6
-#define _METHOD_INDEX_getMainDisplayID 7
-#define _METHOD_INDEX_registerDisplayReconfiguration 17
-
-$ClassInfo _CGraphicsEnvironment_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.CGraphicsEnvironment",
-	"sun.java2d.SunGraphicsEnvironment",
-	nullptr,
-	_CGraphicsEnvironment_FieldInfo_,
-	_CGraphicsEnvironment_MethodInfo_
-};
-
-$Object* allocate$CGraphicsEnvironment($Class* clazz) {
-	return $of($alloc(CGraphicsEnvironment));
-}
-
 $StringArray* CGraphicsEnvironment::sLogicalFonts = nullptr;
 
 $ints* CGraphicsEnvironment::getDisplayIDs() {
 	$init(CGraphicsEnvironment);
-	$var($ints, $ret, nullptr);
-	$prepareNativeStatic(CGraphicsEnvironment, getDisplayIDs, $ints*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getDisplayIDs, $ints*);
+	$var($ints, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t CGraphicsEnvironment::getMainDisplayID() {
 	$init(CGraphicsEnvironment);
-	int32_t $ret = 0;
-	$prepareNativeStatic(CGraphicsEnvironment, getMainDisplayID, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getMainDisplayID, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
@@ -125,15 +70,14 @@ void CGraphicsEnvironment::init() {
 }
 
 int64_t CGraphicsEnvironment::registerDisplayReconfiguration() {
-	int64_t $ret = 0;
-	$prepareNative(CGraphicsEnvironment, registerDisplayReconfiguration, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(registerDisplayReconfiguration, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void CGraphicsEnvironment::deregisterDisplayReconfiguration(int64_t context) {
-	$prepareNative(CGraphicsEnvironment, deregisterDisplayReconfiguration, void, int64_t context);
+	$prepareNative(deregisterDisplayReconfiguration, void, int64_t context);
 	$invokeNative(context);
 	$finishNative();
 }
@@ -148,7 +92,7 @@ void CGraphicsEnvironment::init$() {
 	}
 	rebuildDevices();
 	this->displayReconfigContext = registerDisplayReconfiguration();
-	if (this->displayReconfigContext == (int64_t)0) {
+	if (this->displayReconfigContext == 0) {
 		$throwNew($RuntimeException, "Could not register CoreGraphics display reconfiguration callback"_s);
 	}
 }
@@ -163,29 +107,27 @@ void CGraphicsEnvironment::_displayReconfiguration(int32_t displayId, bool remov
 }
 
 void CGraphicsEnvironment::finalize() {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SunGraphicsEnvironment::finalize();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			deregisterDisplayReconfiguration(this->displayReconfigContext);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SunGraphicsEnvironment::finalize();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		deregisterDisplayReconfiguration(this->displayReconfigContext);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void CGraphicsEnvironment::initDevices() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Map, old, $new($HashMap, this->devices));
-		$nc(this->devices)->clear();
+		this->devices->clear();
 		this->mainDisplayID = getMainDisplayID();
 		if (!old->containsKey($($Integer::valueOf(this->mainDisplayID)))) {
-			$var($Object, var$0, $of($Integer::valueOf(this->mainDisplayID)));
+			$var($Object, var$0, $Integer::valueOf(this->mainDisplayID));
 			old->put(var$0, $$new($CGraphicsDevice, this->mainDisplayID));
 		}
 		$var($ints, displayIDs, getDisplayIDs());
@@ -194,22 +136,20 @@ void CGraphicsEnvironment::initDevices() {
 		}
 		{
 			$var($ints, arr$, displayIDs);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				int32_t id = arr$->get(i$);
 				{
-					$var($Object, var$1, $of($Integer::valueOf(id)));
-					$nc(this->devices)->put(var$1, old->containsKey($($Integer::valueOf(id))) ? $cast($CGraphicsDevice, $(old->remove($($Integer::valueOf(id))))) : $$new($CGraphicsDevice, id));
+					$var($Object, var$1, $Integer::valueOf(id));
+					this->devices->put(var$1, old->containsKey($($Integer::valueOf(id))) ? $$cast($CGraphicsDevice, old->remove($($Integer::valueOf(id)))) : $$new($CGraphicsDevice, id));
 				}
 			}
 		}
 		this->mainDisplayID = getMainDisplayID();
-		if (!$nc(this->devices)->containsKey($($Integer::valueOf(this->mainDisplayID)))) {
-			this->mainDisplayID = $nc(displayIDs)->get(0);
+		if (!this->devices->containsKey($($Integer::valueOf(this->mainDisplayID)))) {
+			this->mainDisplayID = displayIDs->get(0);
 		}
 		{
-			$var($Iterator, i$, $nc($(old->values()))->iterator());
+			$var($Iterator, i$, $$nc(old->values())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($CGraphicsDevice, gd, $cast($CGraphicsDevice, i$->next()));
 				{
@@ -220,11 +160,11 @@ void CGraphicsEnvironment::initDevices() {
 		{
 			$var($ListIterator, it, $nc(this->oldDevices)->listIterator());
 			for (; $nc(it)->hasNext();) {
-				$var($CGraphicsDevice, gd, $cast($CGraphicsDevice, $nc(($cast($WeakReference, $(it->next()))))->get()));
+				$var($CGraphicsDevice, gd, $cast($CGraphicsDevice, $$sure($WeakReference, it->next())->get()));
 				if (gd != nullptr) {
 					$var($CGraphicsDevice, similarDevice, getSimilarDevice(gd));
 					if (similarDevice == nullptr) {
-						gd->invalidate($cast($CGraphicsDevice, $($nc(this->devices)->get($($Integer::valueOf(this->mainDisplayID))))));
+						gd->invalidate($$cast($CGraphicsDevice, this->devices->get($($Integer::valueOf(this->mainDisplayID)))));
 					} else {
 						gd->invalidate(similarDevice);
 					}
@@ -238,16 +178,12 @@ void CGraphicsEnvironment::initDevices() {
 }
 
 $CGraphicsDevice* CGraphicsEnvironment::getSimilarDevice($CGraphicsDevice* old) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(this->devices)->values()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($CGraphicsDevice, device, $cast($CGraphicsDevice, i$->next()));
-			{
-				if ($nc($($nc(device)->getBounds()))->equals($($nc(old)->getBounds()))) {
-					return device;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc(this->devices->values())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($CGraphicsDevice, device, $cast($CGraphicsDevice, i$->next()));
+		if ($$nc($nc(device)->getBounds())->equals($($nc(old)->getBounds()))) {
+			return device;
 		}
 	}
 	return nullptr;
@@ -255,26 +191,26 @@ $CGraphicsDevice* CGraphicsEnvironment::getSimilarDevice($CGraphicsDevice* old) 
 
 $GraphicsDevice* CGraphicsEnvironment::getDefaultScreenDevice() {
 	$synchronized(this) {
-		return $cast($GraphicsDevice, $nc(this->devices)->get($($Integer::valueOf(this->mainDisplayID))));
+		return $cast($GraphicsDevice, this->devices->get($($Integer::valueOf(this->mainDisplayID))));
 	}
 }
 
 $GraphicsDeviceArray* CGraphicsEnvironment::getScreenDevices() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		return $fcast($GraphicsDeviceArray, $nc($($nc(this->devices)->values()))->toArray($$new($CGraphicsDeviceArray, $nc($($nc(this->devices)->values()))->size())));
+		$useLocalObjectStack();
+		return $cast($GraphicsDeviceArray, $$nc(this->devices->values())->toArray($$new($CGraphicsDeviceArray, $$nc(this->devices->values())->size())));
 	}
 }
 
 $GraphicsDevice* CGraphicsEnvironment::getScreenDevice(int32_t displayID) {
 	$synchronized(this) {
-		return $cast($GraphicsDevice, $nc(this->devices)->get($($Integer::valueOf(displayID))));
+		return $cast($GraphicsDevice, this->devices->get($($Integer::valueOf(displayID))));
 	}
 }
 
 int32_t CGraphicsEnvironment::getNumScreens() {
 	$synchronized(this) {
-		return $nc(this->devices)->size();
+		return this->devices->size();
 	}
 }
 
@@ -288,7 +224,7 @@ bool CGraphicsEnvironment::isDisplayLocal() {
 }
 
 $FontArray* CGraphicsEnvironment::getAllFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontArray, newFonts, nullptr);
 	$var($FontArray, superFonts, $SunGraphicsEnvironment::getAllFonts());
 	int32_t numLogical = $nc(CGraphicsEnvironment::sLogicalFonts)->length;
@@ -296,12 +232,12 @@ $FontArray* CGraphicsEnvironment::getAllFonts() {
 	$assign(newFonts, $new($FontArray, numOtherFonts + numLogical));
 	$System::arraycopy(superFonts, 0, newFonts, numLogical, numOtherFonts);
 	for (int32_t i = 0; i < numLogical; ++i) {
-		newFonts->set(i, $$new($Font, $nc(CGraphicsEnvironment::sLogicalFonts)->get(i), $Font::PLAIN, 1));
+		newFonts->set(i, $$new($Font, CGraphicsEnvironment::sLogicalFonts->get(i), $Font::PLAIN, 1));
 	}
 	return newFonts;
 }
 
-void clinit$CGraphicsEnvironment($Class* class$) {
+void CGraphicsEnvironment::clinit$($Class* clazz) {
 	{
 		$Toolkit::getDefaultToolkit();
 		$SurfaceManagerFactory::setInstance($$new($MacosxSurfaceManagerFactory));
@@ -319,7 +255,46 @@ CGraphicsEnvironment::CGraphicsEnvironment() {
 }
 
 $Class* CGraphicsEnvironment::load$($String* name, bool initialize) {
-	$loadClass(CGraphicsEnvironment, name, initialize, &_CGraphicsEnvironment_ClassInfo_, clinit$CGraphicsEnvironment, allocate$CGraphicsEnvironment);
+	$FieldInfo fieldInfos$$[] = {
+		{"devices", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lsun/awt/CGraphicsDevice;>;", $PRIVATE | $FINAL, $field(CGraphicsEnvironment, devices)},
+		{"mainDisplayID", "I", nullptr, $PRIVATE, $field(CGraphicsEnvironment, mainDisplayID)},
+		{"displayReconfigContext", "J", nullptr, $PRIVATE | $FINAL, $field(CGraphicsEnvironment, displayReconfigContext)},
+		{"oldDevices", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/ref/WeakReference<Lsun/awt/CGraphicsDevice;>;>;", $PRIVATE, $field(CGraphicsEnvironment, oldDevices)},
+		{"sLogicalFonts", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(CGraphicsEnvironment, sLogicalFonts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CGraphicsEnvironment, init$, void)},
+		{"_displayReconfiguration", "(IZ)V", nullptr, 0, $method(CGraphicsEnvironment, _displayReconfiguration, void, int32_t, bool)},
+		{"deregisterDisplayReconfiguration", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CGraphicsEnvironment, deregisterDisplayReconfiguration, void, int64_t)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(CGraphicsEnvironment, finalize, void), "java.lang.Throwable"},
+		{"getAllFonts", "()[Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(CGraphicsEnvironment, getAllFonts, $FontArray*)},
+		{"getDefaultScreenDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CGraphicsEnvironment, getDefaultScreenDevice, $GraphicsDevice*), "java.awt.HeadlessException"},
+		{"getDisplayIDs", "()[I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsEnvironment, getDisplayIDs, $ints*)},
+		{"getMainDisplayID", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CGraphicsEnvironment, getMainDisplayID, int32_t)},
+		{"getNumScreens", "()I", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CGraphicsEnvironment, getNumScreens, int32_t)},
+		{"getScreenDevice", "(I)Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(CGraphicsEnvironment, getScreenDevice, $GraphicsDevice*, int32_t)},
+		{"getScreenDevices", "()[Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CGraphicsEnvironment, getScreenDevices, $GraphicsDeviceArray*), "java.awt.HeadlessException"},
+		{"getSimilarDevice", "(Lsun/awt/CGraphicsDevice;)Lsun/awt/CGraphicsDevice;", nullptr, $PRIVATE, $method(CGraphicsEnvironment, getSimilarDevice, $CGraphicsDevice*, $CGraphicsDevice*)},
+		{"init", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(CGraphicsEnvironment, init, void)},
+		{"initDevices", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CGraphicsEnvironment, initDevices, void)},
+		{"isDisplayLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(CGraphicsEnvironment, isDisplayLocal, bool)},
+		{"makeScreenDevice", "(I)Ljava/awt/GraphicsDevice;", nullptr, $PROTECTED, $virtualMethod(CGraphicsEnvironment, makeScreenDevice, $GraphicsDevice*, int32_t)},
+		{"rebuildDevices", "()V", nullptr, $PRIVATE, $method(CGraphicsEnvironment, rebuildDevices, void)},
+		{"registerDisplayReconfiguration", "()J", nullptr, $PRIVATE | $NATIVE, $method(CGraphicsEnvironment, registerDisplayReconfiguration, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.CGraphicsEnvironment",
+		"sun.java2d.SunGraphicsEnvironment",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CGraphicsEnvironment, name, initialize, &classInfo$$, CGraphicsEnvironment::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CGraphicsEnvironment));
+	});
 	return class$;
 }
 

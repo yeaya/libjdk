@@ -1,13 +1,10 @@
 #include <jdk.unsupported.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/nio/file/ExtendedCopyOption.h>
 #include <com/sun/nio/file/ExtendedOpenOption.h>
 #include <com/sun/nio/file/ExtendedWatchEventModifier.h>
@@ -102,6 +99,7 @@ $bytes* jdk$unsupported$GetResource($String* name) {
 
 void jdk$unsupported::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"jdk.unsupported", "17.35", "",
 		&_jdk$unsupported_ModuleInfo_,

@@ -22,6 +22,7 @@ class JavacParser$PatternResult : public ::java::lang::Enum {
 public:
 	JavacParser$PatternResult();
 	static $Array<::com::sun::tools::javac::parser::JavacParser$PatternResult>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::parser::JavacParser$PatternResult* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::parser::JavacParser$PatternResult>* values();

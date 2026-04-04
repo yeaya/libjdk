@@ -48,6 +48,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::TextComponent* target);
 	virtual void enableEditing(bool e);
 	virtual int32_t getCaretPosition() override;

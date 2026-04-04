@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/Metacity$RoundRectClipShape.h>
-
 #include <com/sun/java/swing/plaf/gtk/Metacity$RoundRectClipShape$RoundishRectIterator.h>
 #include <com/sun/java/swing/plaf/gtk/Metacity.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -29,69 +28,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _Metacity$RoundRectClipShape_FieldInfo_[] = {
-	{"TOP_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(Metacity$RoundRectClipShape, TOP_LEFT)},
-	{"TOP_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(Metacity$RoundRectClipShape, TOP_RIGHT)},
-	{"BOTTOM_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(Metacity$RoundRectClipShape, BOTTOM_LEFT)},
-	{"BOTTOM_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(Metacity$RoundRectClipShape, BOTTOM_RIGHT)},
-	{"x", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, x)},
-	{"y", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, y)},
-	{"width", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, width)},
-	{"height", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, height)},
-	{"arcwidth", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, arcwidth)},
-	{"archeight", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, archeight)},
-	{"corners", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, corners)},
-	{}
-};
-
-$MethodInfo _Metacity$RoundRectClipShape_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Metacity$RoundRectClipShape, init$, void)},
-	{"<init>", "(IIIIIII)V", nullptr, $PUBLIC, $method(Metacity$RoundRectClipShape, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"classify", "(DDDD)I", nullptr, $PRIVATE, $method(Metacity$RoundRectClipShape, classify, int32_t, double, double, double, double)},
-	{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, contains, bool, double, double)},
-	{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, contains, bool, double, double, double, double)},
-	{"getArcHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getArcHeight, double)},
-	{"getArcWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getArcWidth, double)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getBounds2D, $Rectangle2D*)},
-	{"getCornerFlags", "()I", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getCornerFlags, int32_t)},
-	{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getHeight, double)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getWidth, double)},
-	{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getY, double)},
-	{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, intersects, bool, double, double, double, double)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, isEmpty, bool)},
-	{"setFrame", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, setFrame, void, double, double, double, double)},
-	{"setRoundedRect", "(IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, setRoundedRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Metacity$RoundRectClipShape_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape", "com.sun.java.swing.plaf.gtk.Metacity", "RoundRectClipShape", $STATIC},
-	{"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape$RoundishRectIterator", "com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape", "RoundishRectIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _Metacity$RoundRectClipShape_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape",
-	"java.awt.geom.RectangularShape",
-	nullptr,
-	_Metacity$RoundRectClipShape_FieldInfo_,
-	_Metacity$RoundRectClipShape_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Metacity$RoundRectClipShape_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.Metacity"
-};
-
-$Object* allocate$Metacity$RoundRectClipShape($Class* clazz) {
-	return $of($alloc(Metacity$RoundRectClipShape));
-}
 
 void Metacity$RoundRectClipShape::init$() {
 	$RectangularShape::init$();
@@ -175,7 +111,64 @@ Metacity$RoundRectClipShape::Metacity$RoundRectClipShape() {
 }
 
 $Class* Metacity$RoundRectClipShape::load$($String* name, bool initialize) {
-	$loadClass(Metacity$RoundRectClipShape, name, initialize, &_Metacity$RoundRectClipShape_ClassInfo_, allocate$Metacity$RoundRectClipShape);
+	$FieldInfo fieldInfos$$[] = {
+		{"TOP_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(Metacity$RoundRectClipShape, TOP_LEFT)},
+		{"TOP_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(Metacity$RoundRectClipShape, TOP_RIGHT)},
+		{"BOTTOM_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(Metacity$RoundRectClipShape, BOTTOM_LEFT)},
+		{"BOTTOM_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(Metacity$RoundRectClipShape, BOTTOM_RIGHT)},
+		{"x", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, x)},
+		{"y", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, y)},
+		{"width", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, width)},
+		{"height", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, height)},
+		{"arcwidth", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, arcwidth)},
+		{"archeight", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, archeight)},
+		{"corners", "I", nullptr, 0, $field(Metacity$RoundRectClipShape, corners)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Metacity$RoundRectClipShape, init$, void)},
+		{"<init>", "(IIIIIII)V", nullptr, $PUBLIC, $method(Metacity$RoundRectClipShape, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"classify", "(DDDD)I", nullptr, $PRIVATE, $method(Metacity$RoundRectClipShape, classify, int32_t, double, double, double, double)},
+		{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, contains, bool, double, double)},
+		{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, contains, bool, double, double, double, double)},
+		{"getArcHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getArcHeight, double)},
+		{"getArcWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getArcWidth, double)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getBounds2D, $Rectangle2D*)},
+		{"getCornerFlags", "()I", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getCornerFlags, int32_t)},
+		{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getHeight, double)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getWidth, double)},
+		{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, getY, double)},
+		{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, intersects, bool, double, double, double, double)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, isEmpty, bool)},
+		{"setFrame", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, setFrame, void, double, double, double, double)},
+		{"setRoundedRect", "(IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(Metacity$RoundRectClipShape, setRoundedRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape", "com.sun.java.swing.plaf.gtk.Metacity", "RoundRectClipShape", $STATIC},
+		{"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape$RoundishRectIterator", "com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape", "RoundishRectIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.Metacity$RoundRectClipShape",
+		"java.awt.geom.RectangularShape",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.Metacity"
+	};
+	$loadClass(Metacity$RoundRectClipShape, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Metacity$RoundRectClipShape));
+	});
 	return class$;
 }
 

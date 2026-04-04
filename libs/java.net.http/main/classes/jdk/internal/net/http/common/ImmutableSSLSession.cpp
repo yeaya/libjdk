@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/ImmutableSSLSession.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/Principal.h>
 #include <java/security/cert/Certificate.h>
@@ -21,49 +20,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _ImmutableSSLSession_FieldInfo_[] = {
-	{"delegate", "Ljavax/net/ssl/SSLSession;", nullptr, $PRIVATE | $FINAL, $field(ImmutableSSLSession, delegate)},
-	{}
-};
-
-$MethodInfo _ImmutableSSLSession_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLSession;)V", nullptr, 0, $method(ImmutableSSLSession, init$, void, $SSLSession*)},
-	{"getApplicationBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getApplicationBufferSize, int32_t)},
-	{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getCipherSuite, $String*)},
-	{"getCreationTime", "()J", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getCreationTime, int64_t)},
-	{"getId", "()[B", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getId, $bytes*)},
-	{"getLastAccessedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getLastAccessedTime, int64_t)},
-	{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getLocalCertificates, $CertificateArray*)},
-	{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getLocalPrincipal, $Principal*)},
-	{"getPacketBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPacketBufferSize, int32_t)},
-	{"getPeerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPeerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPeerHost, $String*)},
-	{"getPeerPort", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPeerPort, int32_t)},
-	{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getProtocol, $String*)},
-	{"getSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getSessionContext, $SSLSessionContext*)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getValue, $Object*, $String*)},
-	{"getValueNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getValueNames, $StringArray*)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, invalidate, void)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, isValid, bool)},
-	{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, putValue, void, $String*, Object$*)},
-	{"removeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, removeValue, void, $String*)},
-	{}
-};
-
-$ClassInfo _ImmutableSSLSession_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.common.ImmutableSSLSession",
-	"java.lang.Object",
-	"javax.net.ssl.SSLSession",
-	_ImmutableSSLSession_FieldInfo_,
-	_ImmutableSSLSession_MethodInfo_
-};
-
-$Object* allocate$ImmutableSSLSession($Class* clazz) {
-	return $of($alloc(ImmutableSSLSession));
-}
 
 void ImmutableSSLSession::init$($SSLSession* session) {
 	$set(this, delegate, session);
@@ -98,7 +54,7 @@ void ImmutableSSLSession::putValue($String* name, Object$* value) {
 }
 
 $Object* ImmutableSSLSession::getValue($String* name) {
-	return $of($nc(this->delegate)->getValue(name));
+	return $nc(this->delegate)->getValue(name);
 }
 
 void ImmutableSSLSession::removeValue($String* name) {
@@ -153,7 +109,45 @@ ImmutableSSLSession::ImmutableSSLSession() {
 }
 
 $Class* ImmutableSSLSession::load$($String* name, bool initialize) {
-	$loadClass(ImmutableSSLSession, name, initialize, &_ImmutableSSLSession_ClassInfo_, allocate$ImmutableSSLSession);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljavax/net/ssl/SSLSession;", nullptr, $PRIVATE | $FINAL, $field(ImmutableSSLSession, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/net/ssl/SSLSession;)V", nullptr, 0, $method(ImmutableSSLSession, init$, void, $SSLSession*)},
+		{"getApplicationBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getApplicationBufferSize, int32_t)},
+		{"getCipherSuite", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getCipherSuite, $String*)},
+		{"getCreationTime", "()J", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getCreationTime, int64_t)},
+		{"getId", "()[B", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getId, $bytes*)},
+		{"getLastAccessedTime", "()J", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getLastAccessedTime, int64_t)},
+		{"getLocalCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getLocalCertificates, $CertificateArray*)},
+		{"getLocalPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getLocalPrincipal, $Principal*)},
+		{"getPacketBufferSize", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPacketBufferSize, int32_t)},
+		{"getPeerCertificates", "()[Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPeerCertificates, $CertificateArray*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getPeerHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPeerHost, $String*)},
+		{"getPeerPort", "()I", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPeerPort, int32_t)},
+		{"getPeerPrincipal", "()Ljava/security/Principal;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getPeerPrincipal, $Principal*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getProtocol, $String*)},
+		{"getSessionContext", "()Ljavax/net/ssl/SSLSessionContext;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getSessionContext, $SSLSessionContext*)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getValue, $Object*, $String*)},
+		{"getValueNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, getValueNames, $StringArray*)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, invalidate, void)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, isValid, bool)},
+		{"putValue", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, putValue, void, $String*, Object$*)},
+		{"removeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableSSLSession, removeValue, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.common.ImmutableSSLSession",
+		"java.lang.Object",
+		"javax.net.ssl.SSLSession",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImmutableSSLSession, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableSSLSession);
+	});
 	return class$;
 }
 

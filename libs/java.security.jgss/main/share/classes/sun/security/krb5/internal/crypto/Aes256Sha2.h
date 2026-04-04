@@ -32,6 +32,7 @@ class Aes256Sha2 : public ::java::lang::Object {
 	$class(Aes256Sha2, 0, ::java::lang::Object)
 public:
 	Aes256Sha2();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* calculateChecksum($bytes* baseKey, int32_t usage, $bytes* input, int32_t start, int32_t len);
 	static $bytes* decrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len);

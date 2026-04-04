@@ -75,6 +75,7 @@ class $export MemberEnter : public ::com::sun::tools::javac::tree::JCTree$Visito
 	$class(MemberEnter, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	MemberEnter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void checkReceiver(::com::sun::tools::javac::tree::JCTree$JCVariableDecl* tree, ::com::sun::tools::javac::comp::Env* localEnv);
 	virtual void checkType(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::code::Type* type, ::com::sun::tools::javac::util::JCDiagnostic$Error* errorKey);

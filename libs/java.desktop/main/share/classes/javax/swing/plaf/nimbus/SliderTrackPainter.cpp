@@ -1,14 +1,11 @@
 #include <javax/swing/plaf/nimbus/SliderTrackPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
@@ -25,9 +22,7 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
@@ -46,67 +41,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _SliderTrackPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SliderTrackPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SliderTrackPainter, BACKGROUND_ENABLED)},
-	{"state", "I", nullptr, $PRIVATE, $field(SliderTrackPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SliderTrackPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SliderTrackPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SliderTrackPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SliderTrackPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SliderTrackPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color11)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SliderTrackPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _SliderTrackPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SliderTrackPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect2, $RoundRectangle2D*)},
-	{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect3, $RoundRectangle2D*)},
-	{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect4, $RoundRectangle2D*)},
-	{"decodeRoundRect5", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect5, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SliderTrackPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SliderTrackPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderTrackPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderTrackPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _SliderTrackPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.SliderTrackPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_SliderTrackPainter_FieldInfo_,
-	_SliderTrackPainter_MethodInfo_
-};
-
-$Object* allocate$SliderTrackPainter($Class* clazz) {
-	return $of($alloc(SliderTrackPainter));
-}
-
 void SliderTrackPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.110526316f, 0.25490195f, -245));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, 0.0055555105f, -0.061265234f, 0.05098039f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, 0.01010108f, -0.059835073f, 0.10588235f, 0));
@@ -126,15 +66,11 @@ void SliderTrackPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, 
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case SliderTrackPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case SliderTrackPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	}
 }
 
@@ -143,7 +79,7 @@ $AbstractRegionPainter$PaintContext* SliderTrackPainter::getPaintContext() {
 }
 
 void SliderTrackPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->roundRect);
@@ -156,7 +92,7 @@ void SliderTrackPainter::paintBackgroundDisabled($Graphics2D* g) {
 }
 
 void SliderTrackPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color6);
 	g->fill(this->roundRect);
@@ -169,57 +105,57 @@ void SliderTrackPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 $RoundRectangle2D* SliderTrackPainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(0.2f);
-	double var$1 = (double)decodeY(1.6f);
+	double var$0 = decodeX(0.2f);
+	double var$1 = decodeY(1.6f);
 	float var$3 = decodeX(2.8f);
-	double var$2 = (double)(var$3 - decodeX(0.2f));
+	double var$2 = var$3 - decodeX(0.2f);
 	float var$4 = decodeY(2.8333333f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.6f), 8.705882f, 8.705882f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* SliderTrackPainter::decodeRoundRect2() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.0f), 4.9411764f, 4.9411764f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* SliderTrackPainter::decodeRoundRect3() {
-	double var$0 = (double)decodeX(0.29411763f);
-	double var$1 = (double)decodeY(1.2f);
+	double var$0 = decodeX(0.29411763f);
+	double var$1 = decodeY(1.2f);
 	float var$3 = decodeX(2.7058823f);
-	double var$2 = (double)(var$3 - decodeX(0.29411763f));
+	double var$2 = var$3 - decodeX(0.29411763f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.2f), 4.0f, 4.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* SliderTrackPainter::decodeRoundRect4() {
-	double var$0 = (double)decodeX(0.2f);
-	double var$1 = (double)decodeY(1.6f);
+	double var$0 = decodeX(0.2f);
+	double var$1 = decodeY(1.6f);
 	float var$3 = decodeX(2.8f);
-	double var$2 = (double)(var$3 - decodeX(0.2f));
+	double var$2 = var$3 - decodeX(0.2f);
 	float var$4 = decodeY(2.1666667f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.6f), 8.705882f, 8.705882f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* SliderTrackPainter::decodeRoundRect5() {
-	double var$0 = (double)decodeX(0.28823528f);
-	double var$1 = (double)decodeY(1.2f);
+	double var$0 = decodeX(0.28823528f);
+	double var$1 = decodeY(1.2f);
 	float var$3 = decodeX(2.7f);
-	double var$2 = (double)(var$3 - decodeX(0.28823528f));
+	double var$2 = var$3 - decodeX(0.28823528f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.2f), 4.0f, 4.0f);
 	return this->roundRect;
 }
 
 $Paint* SliderTrackPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -237,7 +173,7 @@ $Paint* SliderTrackPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* SliderTrackPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -259,7 +195,7 @@ $Paint* SliderTrackPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* SliderTrackPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -277,7 +213,7 @@ $Paint* SliderTrackPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* SliderTrackPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -302,7 +238,57 @@ SliderTrackPainter::SliderTrackPainter() {
 }
 
 $Class* SliderTrackPainter::load$($String* name, bool initialize) {
-	$loadClass(SliderTrackPainter, name, initialize, &_SliderTrackPainter_ClassInfo_, allocate$SliderTrackPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(SliderTrackPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(SliderTrackPainter, BACKGROUND_ENABLED)},
+		{"state", "I", nullptr, $PRIVATE, $field(SliderTrackPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(SliderTrackPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(SliderTrackPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(SliderTrackPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(SliderTrackPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(SliderTrackPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(SliderTrackPainter, color11)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(SliderTrackPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(SliderTrackPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect2, $RoundRectangle2D*)},
+		{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect3, $RoundRectangle2D*)},
+		{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect4, $RoundRectangle2D*)},
+		{"decodeRoundRect5", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(SliderTrackPainter, decodeRoundRect5, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(SliderTrackPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(SliderTrackPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderTrackPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(SliderTrackPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.SliderTrackPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SliderTrackPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SliderTrackPainter);
+	});
 	return class$;
 }
 

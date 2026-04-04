@@ -1,5 +1,4 @@
 #include <javax/swing/ScrollPaneLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -58,80 +57,6 @@ using $Border = ::javax::swing::border::Border;
 namespace javax {
 	namespace swing {
 
-$CompoundAttribute _ScrollPaneLayout_MethodAnnotations_getViewportBorderBounds13[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ScrollPaneLayout_FieldInfo_[] = {
-	{"viewport", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(ScrollPaneLayout, viewport)},
-	{"vsb", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(ScrollPaneLayout, vsb)},
-	{"hsb", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(ScrollPaneLayout, hsb)},
-	{"rowHead", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(ScrollPaneLayout, rowHead)},
-	{"colHead", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(ScrollPaneLayout, colHead)},
-	{"lowerLeft", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(ScrollPaneLayout, lowerLeft)},
-	{"lowerRight", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(ScrollPaneLayout, lowerRight)},
-	{"upperLeft", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(ScrollPaneLayout, upperLeft)},
-	{"upperRight", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(ScrollPaneLayout, upperRight)},
-	{"vsbPolicy", "I", nullptr, $PROTECTED, $field(ScrollPaneLayout, vsbPolicy)},
-	{"hsbPolicy", "I", nullptr, $PROTECTED, $field(ScrollPaneLayout, hsbPolicy)},
-	{}
-};
-
-$MethodInfo _ScrollPaneLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScrollPaneLayout, init$, void)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"addSingletonComponent", "(Ljava/awt/Component;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(ScrollPaneLayout, addSingletonComponent, $Component*, $Component*, $Component*)},
-	{"adjustForHSB", "(ZLjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Insets;)V", nullptr, $PRIVATE, $method(ScrollPaneLayout, adjustForHSB, void, bool, $Rectangle*, $Rectangle*, $Insets*)},
-	{"adjustForVSB", "(ZLjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Insets;Z)V", nullptr, $PRIVATE, $method(ScrollPaneLayout, adjustForVSB, void, bool, $Rectangle*, $Rectangle*, $Insets*, bool)},
-	{"getColumnHeader", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getColumnHeader, $JViewport*)},
-	{"getCorner", "(Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getCorner, $Component*, $String*)},
-	{"getHorizontalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getHorizontalScrollBar, $JScrollBar*)},
-	{"getHorizontalScrollBarPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getHorizontalScrollBarPolicy, int32_t)},
-	{"getRowHeader", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getRowHeader, $JViewport*)},
-	{"getVerticalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getVerticalScrollBar, $JScrollBar*)},
-	{"getVerticalScrollBarPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getVerticalScrollBarPolicy, int32_t)},
-	{"getViewport", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getViewport, $JViewport*)},
-	{"getViewportBorderBounds", "(Ljavax/swing/JScrollPane;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ScrollPaneLayout, getViewportBorderBounds, $Rectangle*, $JScrollPane*), nullptr, nullptr, _ScrollPaneLayout_MethodAnnotations_getViewportBorderBounds13},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, removeLayoutComponent, void, $Component*)},
-	{"setHorizontalScrollBarPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, setHorizontalScrollBarPolicy, void, int32_t)},
-	{"setVerticalScrollBarPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, setVerticalScrollBarPolicy, void, int32_t)},
-	{"syncWithScrollPane", "(Ljavax/swing/JScrollPane;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, syncWithScrollPane, void, $JScrollPane*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ScrollPaneLayout_InnerClassesInfo_[] = {
-	{"javax.swing.ScrollPaneLayout$UIResource", "javax.swing.ScrollPaneLayout", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ScrollPaneLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ScrollPaneLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager,javax.swing.ScrollPaneConstants,java.io.Serializable",
-	_ScrollPaneLayout_FieldInfo_,
-	_ScrollPaneLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScrollPaneLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.ScrollPaneLayout$UIResource"
-};
-
-$Object* allocate$ScrollPaneLayout($Class* clazz) {
-	return $of($alloc(ScrollPaneLayout));
-}
-
 int32_t ScrollPaneLayout::hashCode() {
 	 return this->$LayoutManager::hashCode();
 }
@@ -174,7 +99,7 @@ void ScrollPaneLayout::syncWithScrollPane($JScrollPane* sp) {
 
 $Component* ScrollPaneLayout::addSingletonComponent($Component* oldC, $Component* newC) {
 	if ((oldC != nullptr) && (oldC != newC)) {
-		$nc($(oldC->getParent()))->remove(oldC);
+		$$nc(oldC->getParent())->remove(oldC);
 	}
 	return newC;
 }
@@ -183,40 +108,24 @@ void ScrollPaneLayout::addLayoutComponent($String* s, $Component* c) {
 	$init($ScrollPaneConstants);
 	if ($nc(s)->equals($ScrollPaneConstants::VIEWPORT)) {
 		$set(this, viewport, $cast($JViewport, addSingletonComponent(this->viewport, c)));
+	} else if (s->equals($ScrollPaneConstants::VERTICAL_SCROLLBAR)) {
+		$set(this, vsb, $cast($JScrollBar, addSingletonComponent(this->vsb, c)));
+	} else if (s->equals($ScrollPaneConstants::HORIZONTAL_SCROLLBAR)) {
+		$set(this, hsb, $cast($JScrollBar, addSingletonComponent(this->hsb, c)));
+	} else if (s->equals($ScrollPaneConstants::ROW_HEADER)) {
+		$set(this, rowHead, $cast($JViewport, addSingletonComponent(this->rowHead, c)));
+	} else if (s->equals($ScrollPaneConstants::COLUMN_HEADER)) {
+		$set(this, colHead, $cast($JViewport, addSingletonComponent(this->colHead, c)));
+	} else if (s->equals($ScrollPaneConstants::LOWER_LEFT_CORNER)) {
+		$set(this, lowerLeft, addSingletonComponent(this->lowerLeft, c));
+	} else if (s->equals($ScrollPaneConstants::LOWER_RIGHT_CORNER)) {
+		$set(this, lowerRight, addSingletonComponent(this->lowerRight, c));
+	} else if (s->equals($ScrollPaneConstants::UPPER_LEFT_CORNER)) {
+		$set(this, upperLeft, addSingletonComponent(this->upperLeft, c));
+	} else if (s->equals($ScrollPaneConstants::UPPER_RIGHT_CORNER)) {
+		$set(this, upperRight, addSingletonComponent(this->upperRight, c));
 	} else {
-		if (s->equals($ScrollPaneConstants::VERTICAL_SCROLLBAR)) {
-			$set(this, vsb, $cast($JScrollBar, addSingletonComponent(this->vsb, c)));
-		} else {
-			if (s->equals($ScrollPaneConstants::HORIZONTAL_SCROLLBAR)) {
-				$set(this, hsb, $cast($JScrollBar, addSingletonComponent(this->hsb, c)));
-			} else {
-				if (s->equals($ScrollPaneConstants::ROW_HEADER)) {
-					$set(this, rowHead, $cast($JViewport, addSingletonComponent(this->rowHead, c)));
-				} else {
-					if (s->equals($ScrollPaneConstants::COLUMN_HEADER)) {
-						$set(this, colHead, $cast($JViewport, addSingletonComponent(this->colHead, c)));
-					} else {
-						if (s->equals($ScrollPaneConstants::LOWER_LEFT_CORNER)) {
-							$set(this, lowerLeft, addSingletonComponent(this->lowerLeft, c));
-						} else {
-							if (s->equals($ScrollPaneConstants::LOWER_RIGHT_CORNER)) {
-								$set(this, lowerRight, addSingletonComponent(this->lowerRight, c));
-							} else {
-								if (s->equals($ScrollPaneConstants::UPPER_LEFT_CORNER)) {
-									$set(this, upperLeft, addSingletonComponent(this->upperLeft, c));
-								} else {
-									if (s->equals($ScrollPaneConstants::UPPER_RIGHT_CORNER)) {
-										$set(this, upperRight, addSingletonComponent(this->upperRight, c));
-									} else {
-										$throwNew($IllegalArgumentException, $$str({"invalid layout key "_s, s}));
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		$throwNew($IllegalArgumentException, $$str({"invalid layout key "_s, s}));
 	}
 }
 
@@ -249,18 +158,12 @@ int32_t ScrollPaneLayout::getVerticalScrollBarPolicy() {
 void ScrollPaneLayout::setVerticalScrollBarPolicy(int32_t x) {
 	switch (x) {
 	case $ScrollPaneConstants::VERTICAL_SCROLLBAR_AS_NEEDED:
-		{}
 	case $ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER:
-		{}
 	case $ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS:
-		{
-			this->vsbPolicy = x;
-			break;
-		}
+		this->vsbPolicy = x;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "invalid verticalScrollBarPolicy"_s);
-		}
+		$throwNew($IllegalArgumentException, "invalid verticalScrollBarPolicy"_s);
 	}
 }
 
@@ -271,18 +174,12 @@ int32_t ScrollPaneLayout::getHorizontalScrollBarPolicy() {
 void ScrollPaneLayout::setHorizontalScrollBarPolicy(int32_t x) {
 	switch (x) {
 	case $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_AS_NEEDED:
-		{}
 	case $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER:
-		{}
 	case $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS:
-		{
-			this->hsbPolicy = x;
-			break;
-		}
+		this->hsbPolicy = x;
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "invalid horizontalScrollBarPolicy"_s);
-		}
+		$throwNew($IllegalArgumentException, "invalid horizontalScrollBarPolicy"_s);
 	}
 }
 
@@ -310,36 +207,30 @@ $Component* ScrollPaneLayout::getCorner($String* key) {
 	$init($ScrollPaneConstants);
 	if ($nc(key)->equals($ScrollPaneConstants::LOWER_LEFT_CORNER)) {
 		return this->lowerLeft;
+	} else if (key->equals($ScrollPaneConstants::LOWER_RIGHT_CORNER)) {
+		return this->lowerRight;
+	} else if (key->equals($ScrollPaneConstants::UPPER_LEFT_CORNER)) {
+		return this->upperLeft;
+	} else if (key->equals($ScrollPaneConstants::UPPER_RIGHT_CORNER)) {
+		return this->upperRight;
 	} else {
-		if (key->equals($ScrollPaneConstants::LOWER_RIGHT_CORNER)) {
-			return this->lowerRight;
-		} else {
-			if (key->equals($ScrollPaneConstants::UPPER_LEFT_CORNER)) {
-				return this->upperLeft;
-			} else {
-				if (key->equals($ScrollPaneConstants::UPPER_RIGHT_CORNER)) {
-					return this->upperRight;
-				} else {
-					return nullptr;
-				}
-			}
-		}
+		return nullptr;
 	}
 }
 
 $Dimension* ScrollPaneLayout::preferredLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JScrollPane, scrollPane, $cast($JScrollPane, parent));
 	this->vsbPolicy = $nc(scrollPane)->getVerticalScrollBarPolicy();
 	this->hsbPolicy = scrollPane->getHorizontalScrollBarPolicy();
 	$var($Insets, insets, $nc(parent)->getInsets());
-	int32_t prefWidth = $nc(insets)->left + insets->right;
+	int32_t prefWidth = $nc(insets)->left + $nc(insets)->right;
 	int32_t prefHeight = insets->top + insets->bottom;
 	$var($Dimension, extentSize, nullptr);
 	$var($Dimension, viewSize, nullptr);
 	$var($Component, view, nullptr);
 	if (this->viewport != nullptr) {
-		$assign(extentSize, $nc(this->viewport)->getPreferredSize());
+		$assign(extentSize, this->viewport->getPreferredSize());
 		$assign(view, $nc(this->viewport)->getView());
 		if (view != nullptr) {
 			$assign(viewSize, view->getPreferredSize());
@@ -354,22 +245,22 @@ $Dimension* ScrollPaneLayout::preferredLayoutSize($Container* parent) {
 	$var($Border, viewportBorder, scrollPane->getViewportBorder());
 	if (viewportBorder != nullptr) {
 		$var($Insets, vpbInsets, viewportBorder->getBorderInsets(parent));
-		prefWidth += $nc(vpbInsets)->left + vpbInsets->right;
+		prefWidth += $nc(vpbInsets)->left + $nc(vpbInsets)->right;
 		prefHeight += vpbInsets->top + vpbInsets->bottom;
 	}
-	if ((this->rowHead != nullptr) && $nc(this->rowHead)->isVisible()) {
-		prefWidth += $nc($($nc(this->rowHead)->getPreferredSize()))->width;
+	if ((this->rowHead != nullptr) && this->rowHead->isVisible()) {
+		prefWidth += $nc($(this->rowHead->getPreferredSize()))->width;
 	}
-	if ((this->colHead != nullptr) && $nc(this->colHead)->isVisible()) {
-		prefHeight += $nc($($nc(this->colHead)->getPreferredSize()))->height;
+	if ((this->colHead != nullptr) && this->colHead->isVisible()) {
+		prefHeight += $nc($(this->colHead->getPreferredSize()))->height;
 	}
 	if ((this->vsb != nullptr) && (this->vsbPolicy != $ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER)) {
 		if (this->vsbPolicy == $ScrollPaneConstants::VERTICAL_SCROLLBAR_ALWAYS) {
-			prefWidth += $nc($($nc(this->vsb)->getPreferredSize()))->width;
+			prefWidth += $nc($(this->vsb->getPreferredSize()))->width;
 		} else if ((viewSize != nullptr) && (extentSize != nullptr)) {
 			bool canScroll = true;
 			if ($instanceOf($Scrollable, view)) {
-				canScroll = !$nc(($cast($Scrollable, view)))->getScrollableTracksViewportHeight();
+				canScroll = !$cast($Scrollable, view)->getScrollableTracksViewportHeight();
 			}
 			if (canScroll && (viewSize->height > extentSize->height)) {
 				prefWidth += $nc($($nc(this->vsb)->getPreferredSize()))->width;
@@ -378,11 +269,11 @@ $Dimension* ScrollPaneLayout::preferredLayoutSize($Container* parent) {
 	}
 	if ((this->hsb != nullptr) && (this->hsbPolicy != $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER)) {
 		if (this->hsbPolicy == $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS) {
-			prefHeight += $nc($($nc(this->hsb)->getPreferredSize()))->height;
+			prefHeight += $nc($(this->hsb->getPreferredSize()))->height;
 		} else if ((viewSize != nullptr) && (extentSize != nullptr)) {
 			bool canScroll = true;
 			if ($instanceOf($Scrollable, view)) {
-				canScroll = !$nc(($cast($Scrollable, view)))->getScrollableTracksViewportWidth();
+				canScroll = !$cast($Scrollable, view)->getScrollableTracksViewportWidth();
 			}
 			if (canScroll && (viewSize->width > extentSize->width)) {
 				prefHeight += $nc($($nc(this->hsb)->getPreferredSize()))->height;
@@ -393,54 +284,54 @@ $Dimension* ScrollPaneLayout::preferredLayoutSize($Container* parent) {
 }
 
 $Dimension* ScrollPaneLayout::minimumLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JScrollPane, scrollPane, $cast($JScrollPane, parent));
 	this->vsbPolicy = $nc(scrollPane)->getVerticalScrollBarPolicy();
 	this->hsbPolicy = scrollPane->getHorizontalScrollBarPolicy();
 	$var($Insets, insets, $nc(parent)->getInsets());
-	int32_t minWidth = $nc(insets)->left + insets->right;
+	int32_t minWidth = $nc(insets)->left + $nc(insets)->right;
 	int32_t minHeight = insets->top + insets->bottom;
 	if (this->viewport != nullptr) {
-		$var($Dimension, size, $nc(this->viewport)->getMinimumSize());
+		$var($Dimension, size, this->viewport->getMinimumSize());
 		minWidth += $nc(size)->width;
 		minHeight += size->height;
 	}
 	$var($Border, viewportBorder, scrollPane->getViewportBorder());
 	if (viewportBorder != nullptr) {
 		$var($Insets, vpbInsets, viewportBorder->getBorderInsets(parent));
-		minWidth += $nc(vpbInsets)->left + vpbInsets->right;
+		minWidth += $nc(vpbInsets)->left + $nc(vpbInsets)->right;
 		minHeight += vpbInsets->top + vpbInsets->bottom;
 	}
-	if ((this->rowHead != nullptr) && $nc(this->rowHead)->isVisible()) {
-		$var($Dimension, size, $nc(this->rowHead)->getMinimumSize());
+	if ((this->rowHead != nullptr) && this->rowHead->isVisible()) {
+		$var($Dimension, size, this->rowHead->getMinimumSize());
 		minWidth += $nc(size)->width;
 		minHeight = $Math::max(minHeight, size->height);
 	}
-	if ((this->colHead != nullptr) && $nc(this->colHead)->isVisible()) {
-		$var($Dimension, size, $nc(this->colHead)->getMinimumSize());
+	if ((this->colHead != nullptr) && this->colHead->isVisible()) {
+		$var($Dimension, size, this->colHead->getMinimumSize());
 		minWidth = $Math::max(minWidth, $nc(size)->width);
-		minHeight += $nc(size)->height;
+		minHeight += size->height;
 	}
 	if ((this->vsb != nullptr) && (this->vsbPolicy != $ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER)) {
-		$var($Dimension, size, $nc(this->vsb)->getMinimumSize());
+		$var($Dimension, size, this->vsb->getMinimumSize());
 		minWidth += $nc(size)->width;
 		minHeight = $Math::max(minHeight, size->height);
 	}
 	if ((this->hsb != nullptr) && (this->hsbPolicy != $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_NEVER)) {
-		$var($Dimension, size, $nc(this->hsb)->getMinimumSize());
+		$var($Dimension, size, this->hsb->getMinimumSize());
 		minWidth = $Math::max(minWidth, $nc(size)->width);
-		minHeight += $nc(size)->height;
+		minHeight += size->height;
 	}
 	return $new($Dimension, minWidth, minHeight);
 }
 
 void ScrollPaneLayout::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JScrollPane, scrollPane, $cast($JScrollPane, parent));
 	this->vsbPolicy = $nc(scrollPane)->getVerticalScrollBarPolicy();
 	this->hsbPolicy = scrollPane->getHorizontalScrollBarPolicy();
 	$var($Rectangle, availR, scrollPane->getBounds());
-	$nc(availR)->x = (availR->y = 0);
+	$nc(availR)->x = ($nc(availR)->y = 0);
 	$var($Insets, insets, $nc(parent)->getInsets());
 	availR->x = $nc(insets)->left;
 	availR->y = insets->top;
@@ -448,15 +339,15 @@ void ScrollPaneLayout::layoutContainer($Container* parent) {
 	availR->height -= insets->top + insets->bottom;
 	bool leftToRight = $SwingUtilities::isLeftToRight(scrollPane);
 	$var($Rectangle, colHeadR, $new($Rectangle, 0, availR->y, 0, 0));
-	if ((this->colHead != nullptr) && ($nc(this->colHead)->isVisible())) {
-		int32_t colHeadHeight = $Math::min(availR->height, $nc($($nc(this->colHead)->getPreferredSize()))->height);
+	if ((this->colHead != nullptr) && (this->colHead->isVisible())) {
+		int32_t colHeadHeight = $Math::min(availR->height, $nc($(this->colHead->getPreferredSize()))->height);
 		colHeadR->height = colHeadHeight;
 		availR->y += colHeadHeight;
 		availR->height -= colHeadHeight;
 	}
 	$var($Rectangle, rowHeadR, $new($Rectangle, 0, 0, 0, 0));
-	if ((this->rowHead != nullptr) && ($nc(this->rowHead)->isVisible())) {
-		int32_t rowHeadWidth = $Math::min(availR->width, $nc($($nc(this->rowHead)->getPreferredSize()))->width);
+	if ((this->rowHead != nullptr) && (this->rowHead->isVisible())) {
+		int32_t rowHeadWidth = $Math::min(availR->width, $nc($(this->rowHead->getPreferredSize()))->width);
 		rowHeadR->width = rowHeadWidth;
 		availR->width -= rowHeadWidth;
 		if (leftToRight) {
@@ -477,9 +368,9 @@ void ScrollPaneLayout::layoutContainer($Container* parent) {
 	} else {
 		$assign(vpbInsets, $new($Insets, 0, 0, 0, 0));
 	}
-	$var($Component, view, (this->viewport != nullptr) ? $nc(this->viewport)->getView() : ($Component*)nullptr);
-	$var($Dimension, viewPrefSize, (view != nullptr) ? $nc(view)->getPreferredSize() : $new($Dimension, 0, 0));
-	$var($Dimension, extentSize, (this->viewport != nullptr) ? $nc(this->viewport)->toViewCoordinates($(availR->getSize())) : $new($Dimension, 0, 0));
+	$var($Component, view, (this->viewport != nullptr) ? this->viewport->getView() : ($Component*)nullptr);
+	$var($Dimension, viewPrefSize, (view != nullptr) ? view->getPreferredSize() : $new($Dimension, 0, 0));
+	$var($Dimension, extentSize, (this->viewport != nullptr) ? this->viewport->toViewCoordinates($(availR->getSize())) : $new($Dimension, 0, 0));
 	bool viewTracksViewportWidth = false;
 	bool viewTracksViewportHeight = false;
 	bool isEmpty = (availR->width < 0 || availR->height < 0);
@@ -504,7 +395,7 @@ void ScrollPaneLayout::layoutContainer($Container* parent) {
 		adjustForVSB(true, availR, vsbR, vpbInsets, leftToRight);
 		$assign(extentSize, $nc(this->viewport)->toViewCoordinates($(availR->getSize())));
 	}
-	$var($Rectangle, hsbR, $new($Rectangle, availR->x - $nc(vpbInsets)->left, 0, 0, 0));
+	$var($Rectangle, hsbR, $new($Rectangle, availR->x - vpbInsets->left, 0, 0, 0));
 	bool hsbNeeded = false;
 	if (this->hsbPolicy == $ScrollPaneConstants::HORIZONTAL_SCROLLBAR_ALWAYS) {
 		hsbNeeded = true;
@@ -524,7 +415,7 @@ void ScrollPaneLayout::layoutContainer($Container* parent) {
 		}
 	}
 	if (this->viewport != nullptr) {
-		$nc(this->viewport)->setBounds(availR);
+		this->viewport->setBounds(availR);
 		if (sv != nullptr) {
 			$assign(extentSize, $nc(this->viewport)->toViewCoordinates($(availR->getSize())));
 			bool oldHSBNeeded = hsbNeeded;
@@ -546,7 +437,7 @@ void ScrollPaneLayout::layoutContainer($Container* parent) {
 					adjustForHSB(hsbNeeded, availR, hsbR, vpbInsets);
 					if ((this->vsb != nullptr) && !vsbNeeded && (this->vsbPolicy != $ScrollPaneConstants::VERTICAL_SCROLLBAR_NEVER)) {
 						$assign(extentSize, $nc(this->viewport)->toViewCoordinates($(availR->getSize())));
-						vsbNeeded = viewPrefSize->height > $nc(extentSize)->height;
+						vsbNeeded = $nc(viewPrefSize)->height > $nc(extentSize)->height;
 						if (vsbNeeded) {
 							adjustForVSB(true, availR, vsbR, vpbInsets, leftToRight);
 						}
@@ -558,17 +449,17 @@ void ScrollPaneLayout::layoutContainer($Container* parent) {
 			}
 		}
 	}
-	vsbR->height = availR->height + $nc(vpbInsets)->top + vpbInsets->bottom;
+	vsbR->height = availR->height + vpbInsets->top + vpbInsets->bottom;
 	hsbR->width = availR->width + vpbInsets->left + vpbInsets->right;
 	rowHeadR->height = availR->height + vpbInsets->top + vpbInsets->bottom;
 	rowHeadR->y = availR->y - vpbInsets->top;
 	colHeadR->width = availR->width + vpbInsets->left + vpbInsets->right;
 	colHeadR->x = availR->x - vpbInsets->left;
 	if (this->rowHead != nullptr) {
-		$nc(this->rowHead)->setBounds(rowHeadR);
+		this->rowHead->setBounds(rowHeadR);
 	}
 	if (this->colHead != nullptr) {
-		$nc(this->colHead)->setBounds(colHeadR);
+		this->colHead->setBounds(colHeadR);
 	}
 	if (this->vsb != nullptr) {
 		if (vsbNeeded) {
@@ -601,16 +492,16 @@ void ScrollPaneLayout::layoutContainer($Container* parent) {
 		}
 	}
 	if (this->lowerLeft != nullptr) {
-		$nc(this->lowerLeft)->setBounds(leftToRight ? rowHeadR->x : vsbR->x, hsbR->y, leftToRight ? rowHeadR->width : vsbR->width, hsbR->height);
+		this->lowerLeft->setBounds(leftToRight ? rowHeadR->x : vsbR->x, hsbR->y, leftToRight ? rowHeadR->width : vsbR->width, hsbR->height);
 	}
 	if (this->lowerRight != nullptr) {
-		$nc(this->lowerRight)->setBounds(leftToRight ? vsbR->x : rowHeadR->x, hsbR->y, leftToRight ? vsbR->width : rowHeadR->width, hsbR->height);
+		this->lowerRight->setBounds(leftToRight ? vsbR->x : rowHeadR->x, hsbR->y, leftToRight ? vsbR->width : rowHeadR->width, hsbR->height);
 	}
 	if (this->upperLeft != nullptr) {
-		$nc(this->upperLeft)->setBounds(leftToRight ? rowHeadR->x : vsbR->x, colHeadR->y, leftToRight ? rowHeadR->width : vsbR->width, colHeadR->height);
+		this->upperLeft->setBounds(leftToRight ? rowHeadR->x : vsbR->x, colHeadR->y, leftToRight ? rowHeadR->width : vsbR->width, colHeadR->height);
 	}
 	if (this->upperRight != nullptr) {
-		$nc(this->upperRight)->setBounds(leftToRight ? vsbR->x : rowHeadR->x, colHeadR->y, leftToRight ? vsbR->width : rowHeadR->width, colHeadR->height);
+		this->upperRight->setBounds(leftToRight ? vsbR->x : rowHeadR->x, colHeadR->y, leftToRight ? vsbR->width : rowHeadR->width, colHeadR->height);
 	}
 }
 
@@ -618,7 +509,7 @@ void ScrollPaneLayout::adjustForVSB(bool wantsVSB, $Rectangle* available, $Recta
 	int32_t oldWidth = $nc(vsbR)->width;
 	if (wantsVSB) {
 		int32_t vsbWidth = $Math::max(0, $Math::min($nc($($nc(this->vsb)->getPreferredSize()))->width, $nc(available)->width));
-		$nc(available)->width -= vsbWidth;
+		available->width -= vsbWidth;
 		vsbR->width = vsbWidth;
 		if (leftToRight) {
 			vsbR->x = available->x + available->width + $nc(vpbInsets)->right;
@@ -635,7 +526,7 @@ void ScrollPaneLayout::adjustForHSB(bool wantsHSB, $Rectangle* available, $Recta
 	int32_t oldHeight = $nc(hsbR)->height;
 	if (wantsHSB) {
 		int32_t hsbHeight = $Math::max(0, $Math::min($nc(available)->height, $nc($($nc(this->hsb)->getPreferredSize()))->height));
-		$nc(available)->height -= hsbHeight;
+		available->height -= hsbHeight;
 		hsbR->y = available->y + available->height + $nc(vpbInsets)->bottom;
 		hsbR->height = hsbHeight;
 	} else {
@@ -651,7 +542,74 @@ ScrollPaneLayout::ScrollPaneLayout() {
 }
 
 $Class* ScrollPaneLayout::load$($String* name, bool initialize) {
-	$loadClass(ScrollPaneLayout, name, initialize, &_ScrollPaneLayout_ClassInfo_, allocate$ScrollPaneLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"viewport", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(ScrollPaneLayout, viewport)},
+		{"vsb", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(ScrollPaneLayout, vsb)},
+		{"hsb", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(ScrollPaneLayout, hsb)},
+		{"rowHead", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(ScrollPaneLayout, rowHead)},
+		{"colHead", "Ljavax/swing/JViewport;", nullptr, $PROTECTED, $field(ScrollPaneLayout, colHead)},
+		{"lowerLeft", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(ScrollPaneLayout, lowerLeft)},
+		{"lowerRight", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(ScrollPaneLayout, lowerRight)},
+		{"upperLeft", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(ScrollPaneLayout, upperLeft)},
+		{"upperRight", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(ScrollPaneLayout, upperRight)},
+		{"vsbPolicy", "I", nullptr, $PROTECTED, $field(ScrollPaneLayout, vsbPolicy)},
+		{"hsbPolicy", "I", nullptr, $PROTECTED, $field(ScrollPaneLayout, hsbPolicy)},
+		{}
+	};
+	$CompoundAttribute getViewportBorderBoundsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScrollPaneLayout, init$, void)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"addSingletonComponent", "(Ljava/awt/Component;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(ScrollPaneLayout, addSingletonComponent, $Component*, $Component*, $Component*)},
+		{"adjustForHSB", "(ZLjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Insets;)V", nullptr, $PRIVATE, $method(ScrollPaneLayout, adjustForHSB, void, bool, $Rectangle*, $Rectangle*, $Insets*)},
+		{"adjustForVSB", "(ZLjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Insets;Z)V", nullptr, $PRIVATE, $method(ScrollPaneLayout, adjustForVSB, void, bool, $Rectangle*, $Rectangle*, $Insets*, bool)},
+		{"getColumnHeader", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getColumnHeader, $JViewport*)},
+		{"getCorner", "(Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getCorner, $Component*, $String*)},
+		{"getHorizontalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getHorizontalScrollBar, $JScrollBar*)},
+		{"getHorizontalScrollBarPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getHorizontalScrollBarPolicy, int32_t)},
+		{"getRowHeader", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getRowHeader, $JViewport*)},
+		{"getVerticalScrollBar", "()Ljavax/swing/JScrollBar;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getVerticalScrollBar, $JScrollBar*)},
+		{"getVerticalScrollBarPolicy", "()I", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getVerticalScrollBarPolicy, int32_t)},
+		{"getViewport", "()Ljavax/swing/JViewport;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, getViewport, $JViewport*)},
+		{"getViewportBorderBounds", "(Ljavax/swing/JScrollPane;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(ScrollPaneLayout, getViewportBorderBounds, $Rectangle*, $JScrollPane*), nullptr, nullptr, getViewportBorderBoundsmethodAnnotations$$},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, removeLayoutComponent, void, $Component*)},
+		{"setHorizontalScrollBarPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, setHorizontalScrollBarPolicy, void, int32_t)},
+		{"setVerticalScrollBarPolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, setVerticalScrollBarPolicy, void, int32_t)},
+		{"syncWithScrollPane", "(Ljavax/swing/JScrollPane;)V", nullptr, $PUBLIC, $virtualMethod(ScrollPaneLayout, syncWithScrollPane, void, $JScrollPane*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ScrollPaneLayout$UIResource", "javax.swing.ScrollPaneLayout", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ScrollPaneLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager,javax.swing.ScrollPaneConstants,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.ScrollPaneLayout$UIResource"
+	};
+	$loadClass(ScrollPaneLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScrollPaneLayout));
+	});
 	return class$;
 }
 

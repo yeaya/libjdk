@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/InstanceOfTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/PatternTree.h>
 #include <com/sun/source/tree/Tree.h>
@@ -16,28 +15,24 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _InstanceOfTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getExpression, $ExpressionTree*)},
-	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getPattern, $PatternTree*)},
-	{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getType, $Tree*)},
-	{}
-};
-
-$ClassInfo _InstanceOfTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.InstanceOfTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_InstanceOfTree_MethodInfo_
-};
-
-$Object* allocate$InstanceOfTree($Class* clazz) {
-	return $of($alloc(InstanceOfTree));
-}
-
 $Class* InstanceOfTree::load$($String* name, bool initialize) {
-	$loadClass(InstanceOfTree, name, initialize, &_InstanceOfTree_ClassInfo_, allocate$InstanceOfTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getExpression, $ExpressionTree*)},
+		{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getPattern, $PatternTree*)},
+		{"getType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InstanceOfTree, getType, $Tree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.InstanceOfTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InstanceOfTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstanceOfTree);
+	});
 	return class$;
 }
 

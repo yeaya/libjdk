@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/PNGImageReader.h>
-
 #include <com/sun/imageio/plugins/common/ReaderUtil.h>
 #include <com/sun/imageio/plugins/png/PNGImageDataEnumeration.h>
 #include <com/sun/imageio/plugins/png/PNGMetadata.h>
@@ -77,7 +76,6 @@ using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $DataBufferUShort = ::java::awt::image::DataBufferUShort;
 using $Raster = ::java::awt::image::Raster;
-using $SampleModel = ::java::awt::image::SampleModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
@@ -119,123 +117,6 @@ namespace com {
 			namespace plugins {
 				namespace png {
 
-$FieldInfo _PNGImageReader_FieldInfo_[] = {
-	{"IHDR_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, IHDR_TYPE)},
-	{"PLTE_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PLTE_TYPE)},
-	{"IDAT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, IDAT_TYPE)},
-	{"IEND_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, IEND_TYPE)},
-	{"bKGD_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, bKGD_TYPE)},
-	{"cHRM_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, cHRM_TYPE)},
-	{"gAMA_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, gAMA_TYPE)},
-	{"hIST_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, hIST_TYPE)},
-	{"iCCP_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, iCCP_TYPE)},
-	{"iTXt_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, iTXt_TYPE)},
-	{"pHYs_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, pHYs_TYPE)},
-	{"sBIT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, sBIT_TYPE)},
-	{"sPLT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, sPLT_TYPE)},
-	{"sRGB_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, sRGB_TYPE)},
-	{"tEXt_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, tEXt_TYPE)},
-	{"tIME_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, tIME_TYPE)},
-	{"tRNS_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, tRNS_TYPE)},
-	{"zTXt_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, zTXt_TYPE)},
-	{"PNG_COLOR_GRAY", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_GRAY)},
-	{"PNG_COLOR_RGB", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_RGB)},
-	{"PNG_COLOR_PALETTE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_PALETTE)},
-	{"PNG_COLOR_GRAY_ALPHA", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_GRAY_ALPHA)},
-	{"PNG_COLOR_RGB_ALPHA", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_RGB_ALPHA)},
-	{"inputBandsForColorType", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, inputBandsForColorType)},
-	{"PNG_FILTER_NONE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_NONE)},
-	{"PNG_FILTER_SUB", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_SUB)},
-	{"PNG_FILTER_UP", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_UP)},
-	{"PNG_FILTER_AVERAGE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_AVERAGE)},
-	{"PNG_FILTER_PAETH", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_PAETH)},
-	{"adam7XOffset", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, adam7XOffset)},
-	{"adam7YOffset", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, adam7YOffset)},
-	{"adam7XSubsampling", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, adam7XSubsampling)},
-	{"adam7YSubsampling", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, adam7YSubsampling)},
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PNGImageReader, debug)},
-	{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(PNGImageReader, stream)},
-	{"gotHeader", "Z", nullptr, 0, $field(PNGImageReader, gotHeader)},
-	{"gotMetadata", "Z", nullptr, 0, $field(PNGImageReader, gotMetadata)},
-	{"lastParam", "Ljavax/imageio/ImageReadParam;", nullptr, 0, $field(PNGImageReader, lastParam)},
-	{"imageStartPosition", "J", nullptr, 0, $field(PNGImageReader, imageStartPosition)},
-	{"sourceRegion", "Ljava/awt/Rectangle;", nullptr, 0, $field(PNGImageReader, sourceRegion)},
-	{"sourceXSubsampling", "I", nullptr, 0, $field(PNGImageReader, sourceXSubsampling)},
-	{"sourceYSubsampling", "I", nullptr, 0, $field(PNGImageReader, sourceYSubsampling)},
-	{"sourceMinProgressivePass", "I", nullptr, 0, $field(PNGImageReader, sourceMinProgressivePass)},
-	{"sourceMaxProgressivePass", "I", nullptr, 0, $field(PNGImageReader, sourceMaxProgressivePass)},
-	{"sourceBands", "[I", nullptr, 0, $field(PNGImageReader, sourceBands)},
-	{"destinationBands", "[I", nullptr, 0, $field(PNGImageReader, destinationBands)},
-	{"destinationOffset", "Ljava/awt/Point;", nullptr, 0, $field(PNGImageReader, destinationOffset)},
-	{"metadata", "Lcom/sun/imageio/plugins/png/PNGMetadata;", nullptr, 0, $field(PNGImageReader, metadata)},
-	{"pixelStream", "Ljava/io/DataInputStream;", nullptr, 0, $field(PNGImageReader, pixelStream)},
-	{"theImage", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(PNGImageReader, theImage)},
-	{"pixelsDone", "I", nullptr, 0, $field(PNGImageReader, pixelsDone)},
-	{"totalPixels", "I", nullptr, 0, $field(PNGImageReader, totalPixels)},
-	{"bandOffsets", "[[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReader, bandOffsets)},
-	{}
-};
-
-$MethodInfo _PNGImageReader_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(PNGImageReader, init$, void, $ImageReaderSpi*)},
-	{"createRaster", "(IIIII)Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $method(PNGImageReader, createRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"decodeAverageFilter", "([BI[BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, decodeAverageFilter, void, $bytes*, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"decodeImage", "()V", nullptr, $PRIVATE, $method(PNGImageReader, decodeImage, void), "java.io.IOException,javax.imageio.IIOException"},
-	{"decodePaethFilter", "([BI[BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, decodePaethFilter, void, $bytes*, int32_t, $bytes*, int32_t, int32_t, int32_t)},
-	{"decodePass", "(IIIIIII)V", nullptr, $PRIVATE, $method(PNGImageReader, decodePass, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"decodeSubFilter", "([BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, decodeSubFilter, void, $bytes*, int32_t, int32_t, int32_t)},
-	{"decodeUpFilter", "([BI[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, decodeUpFilter, void, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
-	{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getDefaultReadParam, $ImageReadParam*)},
-	{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getHeight, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getImageMetadata, $IIOMetadata*, int32_t), "javax.imageio.IIOException"},
-	{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(PNGImageReader, getImageTypes, $Iterator*, int32_t), "javax.imageio.IIOException"},
-	{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getNumImages, int32_t, bool), "javax.imageio.IIOException"},
-	{"getRawImageType", "(I)Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getRawImageType, $ImageTypeSpecifier*, int32_t), "java.io.IOException"},
-	{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getStreamMetadata, $IIOMetadata*), "javax.imageio.IIOException"},
-	{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getWidth, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"inflate", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, inflate, $bytes*, $bytes*), "java.io.IOException"},
-	{"paethPredictor", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, paethPredictor, int32_t, int32_t, int32_t, int32_t)},
-	{"parse_PLTE_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_PLTE_chunk, void, int32_t), "java.io.IOException"},
-	{"parse_bKGD_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_bKGD_chunk, void), "java.io.IOException"},
-	{"parse_cHRM_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_cHRM_chunk, void), "java.io.IOException"},
-	{"parse_gAMA_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_gAMA_chunk, void), "java.io.IOException"},
-	{"parse_hIST_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_hIST_chunk, void, int32_t), "java.io.IOException,javax.imageio.IIOException"},
-	{"parse_iCCP_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_iCCP_chunk, void, int32_t), "java.io.IOException"},
-	{"parse_iTXt_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_iTXt_chunk, void, int32_t), "java.io.IOException"},
-	{"parse_pHYs_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_pHYs_chunk, void), "java.io.IOException"},
-	{"parse_sBIT_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_sBIT_chunk, void), "java.io.IOException"},
-	{"parse_sPLT_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_sPLT_chunk, void, int32_t), "java.io.IOException,javax.imageio.IIOException"},
-	{"parse_sRGB_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_sRGB_chunk, void), "java.io.IOException"},
-	{"parse_tEXt_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_tEXt_chunk, void, int32_t), "java.io.IOException"},
-	{"parse_tIME_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_tIME_chunk, void), "java.io.IOException"},
-	{"parse_tRNS_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_tRNS_chunk, void, int32_t), "java.io.IOException"},
-	{"parse_zTXt_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_zTXt_chunk, void, int32_t), "java.io.IOException"},
-	{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "javax.imageio.IIOException"},
-	{"readHeader", "()V", nullptr, $PRIVATE, $method(PNGImageReader, readHeader, void), "javax.imageio.IIOException"},
-	{"readImage", "(Ljavax/imageio/ImageReadParam;)V", nullptr, $PRIVATE, $method(PNGImageReader, readImage, void, $ImageReadParam*), "javax.imageio.IIOException"},
-	{"readMetadata", "()V", nullptr, $PRIVATE, $method(PNGImageReader, readMetadata, void), "javax.imageio.IIOException"},
-	{"readNullTerminatedString", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGImageReader, readNullTerminatedString, $String*, $String*, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, reset, void)},
-	{"resetStreamSettings", "()V", nullptr, $PRIVATE, $method(PNGImageReader, resetStreamSettings, void)},
-	{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, setInput, void, Object$*, bool, bool)},
-	{"skipPass", "(II)V", nullptr, $PRIVATE, $method(PNGImageReader, skipPass, void, int32_t, int32_t), "java.io.IOException,javax.imageio.IIOException"},
-	{"updateImageProgress", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, updateImageProgress, void, int32_t)},
-	{}
-};
-
-$ClassInfo _PNGImageReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.png.PNGImageReader",
-	"javax.imageio.ImageReader",
-	nullptr,
-	_PNGImageReader_FieldInfo_,
-	_PNGImageReader_MethodInfo_
-};
-
-$Object* allocate$PNGImageReader($Class* clazz) {
-	return $of($alloc(PNGImageReader));
-}
-
 $ints* PNGImageReader::inputBandsForColorType = nullptr;
 $ints* PNGImageReader::adam7XOffset = nullptr;
 $ints* PNGImageReader::adam7YOffset = nullptr;
@@ -271,7 +152,7 @@ void PNGImageReader::setInput(Object$* input, bool seekForwardOnly, bool ignoreM
 }
 
 $String* PNGImageReader::readNullTerminatedString($String* charset, int32_t maxLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	int32_t b = 0;
 	int32_t count = 0;
@@ -312,11 +193,11 @@ void PNGImageReader::readHeader() {
 		int32_t width = $nc(this->stream)->readInt();
 		int32_t height = $nc(this->stream)->readInt();
 		$nc(this->stream)->readFully(signature, 0, 5);
-		int32_t bitDepth = (int32_t)(signature->get(0) & (uint32_t)255);
-		int32_t colorType = (int32_t)(signature->get(1) & (uint32_t)255);
-		int32_t compressionMethod = (int32_t)(signature->get(2) & (uint32_t)255);
-		int32_t filterMethod = (int32_t)(signature->get(3) & (uint32_t)255);
-		int32_t interlaceMethod = (int32_t)(signature->get(4) & (uint32_t)255);
+		int32_t bitDepth = signature->get(0) & 0xff;
+		int32_t colorType = signature->get(1) & 0xff;
+		int32_t compressionMethod = signature->get(2) & 0xff;
+		int32_t filterMethod = signature->get(3) & 0xff;
+		int32_t interlaceMethod = signature->get(4) & 0xff;
 		$nc(this->stream)->skipBytes(4);
 		$nc(this->stream)->flushBefore($nc(this->stream)->getStreamPosition());
 		if (width <= 0) {
@@ -347,13 +228,13 @@ void PNGImageReader::readHeader() {
 			$throwNew($IIOException, "Unknown interlace method (not 0 or 1)!"_s);
 		}
 		$nc(this->metadata)->IHDR_present = true;
-		$nc(this->metadata)->IHDR_width = width;
-		$nc(this->metadata)->IHDR_height = height;
-		$nc(this->metadata)->IHDR_bitDepth = bitDepth;
-		$nc(this->metadata)->IHDR_colorType = colorType;
-		$nc(this->metadata)->IHDR_compressionMethod = compressionMethod;
-		$nc(this->metadata)->IHDR_filterMethod = filterMethod;
-		$nc(this->metadata)->IHDR_interlaceMethod = interlaceMethod;
+		this->metadata->IHDR_width = width;
+		this->metadata->IHDR_height = height;
+		this->metadata->IHDR_bitDepth = bitDepth;
+		this->metadata->IHDR_colorType = colorType;
+		this->metadata->IHDR_compressionMethod = compressionMethod;
+		this->metadata->IHDR_filterMethod = filterMethod;
+		this->metadata->IHDR_interlaceMethod = interlaceMethod;
 		this->gotHeader = true;
 	} catch ($IOException& e) {
 		$throwNew($IIOException, "I/O error reading PNG header!"_s, e);
@@ -364,7 +245,7 @@ void PNGImageReader::parse_PLTE_chunk(int32_t chunkLength) {
 	if ($nc(this->metadata)->PLTE_present) {
 		processWarningOccurred("A PNG image may not contain more than one PLTE chunk.\nThe chunk wil be ignored."_s);
 		return;
-	} else if ($nc(this->metadata)->IHDR_colorType == PNGImageReader::PNG_COLOR_GRAY || $nc(this->metadata)->IHDR_colorType == PNGImageReader::PNG_COLOR_GRAY_ALPHA) {
+	} else if (this->metadata->IHDR_colorType == PNGImageReader::PNG_COLOR_GRAY || this->metadata->IHDR_colorType == PNGImageReader::PNG_COLOR_GRAY_ALPHA) {
 		processWarningOccurred("A PNG gray or gray alpha image cannot have a PLTE chunk.\nThe chunk wil be ignored."_s);
 		return;
 	}
@@ -372,7 +253,7 @@ void PNGImageReader::parse_PLTE_chunk(int32_t chunkLength) {
 	$nc(this->stream)->readFully(palette);
 	int32_t numEntries = chunkLength / 3;
 	if ($nc(this->metadata)->IHDR_colorType == PNGImageReader::PNG_COLOR_PALETTE) {
-		int32_t maxEntries = $sl(1, $nc(this->metadata)->IHDR_bitDepth);
+		int32_t maxEntries = $sl(1, this->metadata->IHDR_bitDepth);
 		if (numEntries > maxEntries) {
 			processWarningOccurred("PLTE chunk contains too many entries for bit depth, ignoring extras."_s);
 			numEntries = maxEntries;
@@ -390,27 +271,27 @@ void PNGImageReader::parse_PLTE_chunk(int32_t chunkLength) {
 		paletteEntries = 2;
 	}
 	$nc(this->metadata)->PLTE_present = true;
-	$set($nc(this->metadata), PLTE_red, $new($bytes, paletteEntries));
-	$set($nc(this->metadata), PLTE_green, $new($bytes, paletteEntries));
-	$set($nc(this->metadata), PLTE_blue, $new($bytes, paletteEntries));
+	$set(this->metadata, PLTE_red, $new($bytes, paletteEntries));
+	$set(this->metadata, PLTE_green, $new($bytes, paletteEntries));
+	$set(this->metadata, PLTE_blue, $new($bytes, paletteEntries));
 	int32_t index = 0;
 	for (int32_t i = 0; i < numEntries; ++i) {
-		$nc($nc(this->metadata)->PLTE_red)->set(i, palette->get(index++));
-		$nc($nc(this->metadata)->PLTE_green)->set(i, palette->get(index++));
-		$nc($nc(this->metadata)->PLTE_blue)->set(i, palette->get(index++));
+		this->metadata->PLTE_red->set(i, palette->get(index++));
+		this->metadata->PLTE_green->set(i, palette->get(index++));
+		this->metadata->PLTE_blue->set(i, palette->get(index++));
 	}
 }
 
 void PNGImageReader::parse_bKGD_chunk() {
 	if ($nc(this->metadata)->IHDR_colorType == PNGImageReader::PNG_COLOR_PALETTE) {
-		$nc(this->metadata)->bKGD_colorType = PNGImageReader::PNG_COLOR_PALETTE;
-		$nc(this->metadata)->bKGD_index = $nc(this->stream)->readUnsignedByte();
-	} else if ($nc(this->metadata)->IHDR_colorType == PNGImageReader::PNG_COLOR_GRAY || $nc(this->metadata)->IHDR_colorType == PNGImageReader::PNG_COLOR_GRAY_ALPHA) {
-		$nc(this->metadata)->bKGD_colorType = PNGImageReader::PNG_COLOR_GRAY;
-		$nc(this->metadata)->bKGD_gray = $nc(this->stream)->readUnsignedShort();
+		this->metadata->bKGD_colorType = PNGImageReader::PNG_COLOR_PALETTE;
+		this->metadata->bKGD_index = $nc(this->stream)->readUnsignedByte();
+	} else if (this->metadata->IHDR_colorType == PNGImageReader::PNG_COLOR_GRAY || this->metadata->IHDR_colorType == PNGImageReader::PNG_COLOR_GRAY_ALPHA) {
+		this->metadata->bKGD_colorType = PNGImageReader::PNG_COLOR_GRAY;
+		this->metadata->bKGD_gray = $nc(this->stream)->readUnsignedShort();
 	} else {
 		$nc(this->metadata)->bKGD_colorType = PNGImageReader::PNG_COLOR_RGB;
-		$nc(this->metadata)->bKGD_red = $nc(this->stream)->readUnsignedShort();
+		this->metadata->bKGD_red = $nc(this->stream)->readUnsignedShort();
 		$nc(this->metadata)->bKGD_green = $nc(this->stream)->readUnsignedShort();
 		$nc(this->metadata)->bKGD_blue = $nc(this->stream)->readUnsignedShort();
 	}
@@ -432,35 +313,35 @@ void PNGImageReader::parse_cHRM_chunk() {
 void PNGImageReader::parse_gAMA_chunk() {
 	int32_t gamma = $nc(this->stream)->readInt();
 	$nc(this->metadata)->gAMA_gamma = gamma;
-	$nc(this->metadata)->gAMA_present = true;
+	this->metadata->gAMA_present = true;
 }
 
 void PNGImageReader::parse_hIST_chunk(int32_t chunkLength) {
 	if (!$nc(this->metadata)->PLTE_present) {
 		$throwNew($IIOException, "hIST chunk without prior PLTE chunk!"_s);
 	}
-	$set($nc(this->metadata), hIST_histogram, $new($chars, chunkLength / 2));
-	$nc(this->stream)->readFully($nc(this->metadata)->hIST_histogram, 0, $nc($nc(this->metadata)->hIST_histogram)->length);
+	$set(this->metadata, hIST_histogram, $new($chars, chunkLength / 2));
+	$nc(this->stream)->readFully(this->metadata->hIST_histogram, 0, this->metadata->hIST_histogram->length);
 	$nc(this->metadata)->hIST_present = true;
 }
 
 void PNGImageReader::parse_iCCP_chunk(int32_t chunkLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyword, readNullTerminatedString("ISO-8859-1"_s, 80));
 	int32_t compressedProfileLength = chunkLength - $nc(keyword)->length() - 2;
 	if (compressedProfileLength <= 0) {
 		$throwNew($IIOException, "iCCP chunk length is not proper"_s);
 	}
 	$set($nc(this->metadata), iCCP_profileName, keyword);
-	$nc(this->metadata)->iCCP_compressionMethod = $nc(this->stream)->readUnsignedByte();
+	this->metadata->iCCP_compressionMethod = $nc(this->stream)->readUnsignedByte();
 	$var($bytes, compressedProfile, $new($bytes, compressedProfileLength));
 	$nc(this->stream)->readFully(compressedProfile);
 	$set($nc(this->metadata), iCCP_compressedProfile, compressedProfile);
-	$nc(this->metadata)->iCCP_present = true;
+	this->metadata->iCCP_present = true;
 }
 
 void PNGImageReader::parse_iTXt_chunk(int32_t chunkLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t chunkStart = $nc(this->stream)->getStreamPosition();
 	$var($String, keyword, readNullTerminatedString("ISO-8859-1"_s, 80));
 	$nc($nc(this->metadata)->iTXt_keyword)->add(keyword);
@@ -493,10 +374,9 @@ void PNGImageReader::parse_iTXt_chunk(int32_t chunkLength) {
 		$assign(text, $new($String, b, "UTF8"_s));
 	}
 	$nc($nc(this->metadata)->iTXt_text)->add(text);
-	$init($PNGMetadata);
 	if ($nc(keyword)->equals($PNGMetadata::tEXt_creationTimeKey)) {
-		int32_t index = $nc($nc(this->metadata)->iTXt_text)->size() - 1;
-		$nc(this->metadata)->decodeImageCreationTimeFromTextChunk($($nc($nc(this->metadata)->iTXt_text)->listIterator(index)));
+		int32_t index = this->metadata->iTXt_text->size() - 1;
+		this->metadata->decodeImageCreationTimeFromTextChunk($(this->metadata->iTXt_text->listIterator(index)));
 	}
 }
 
@@ -510,7 +390,7 @@ void PNGImageReader::parse_pHYs_chunk() {
 void PNGImageReader::parse_sBIT_chunk() {
 	int32_t colorType = $nc(this->metadata)->IHDR_colorType;
 	if (colorType == PNGImageReader::PNG_COLOR_GRAY || colorType == PNGImageReader::PNG_COLOR_GRAY_ALPHA) {
-		$nc(this->metadata)->sBIT_grayBits = $nc(this->stream)->readUnsignedByte();
+		this->metadata->sBIT_grayBits = $nc(this->stream)->readUnsignedByte();
 	} else if (colorType == PNGImageReader::PNG_COLOR_RGB || colorType == PNGImageReader::PNG_COLOR_PALETTE || colorType == PNGImageReader::PNG_COLOR_RGB_ALPHA) {
 		$nc(this->metadata)->sBIT_redBits = $nc(this->stream)->readUnsignedByte();
 		$nc(this->metadata)->sBIT_greenBits = $nc(this->stream)->readUnsignedByte();
@@ -520,7 +400,7 @@ void PNGImageReader::parse_sBIT_chunk() {
 		$nc(this->metadata)->sBIT_alphaBits = $nc(this->stream)->readUnsignedByte();
 	}
 	$nc(this->metadata)->sBIT_colorType = colorType;
-	$nc(this->metadata)->sBIT_present = true;
+	this->metadata->sBIT_present = true;
 }
 
 void PNGImageReader::parse_sPLT_chunk(int32_t chunkLength) {
@@ -532,11 +412,11 @@ void PNGImageReader::parse_sPLT_chunk(int32_t chunkLength) {
 	int32_t sampleDepth = $nc(this->stream)->readUnsignedByte();
 	$nc(this->metadata)->sPLT_sampleDepth = sampleDepth;
 	int32_t numEntries = $div(remainingChunkLength, (4 * (sampleDepth / 8) + 2));
-	$set($nc(this->metadata), sPLT_red, $new($ints, numEntries));
-	$set($nc(this->metadata), sPLT_green, $new($ints, numEntries));
-	$set($nc(this->metadata), sPLT_blue, $new($ints, numEntries));
-	$set($nc(this->metadata), sPLT_alpha, $new($ints, numEntries));
-	$set($nc(this->metadata), sPLT_frequency, $new($ints, numEntries));
+	$set(this->metadata, sPLT_red, $new($ints, numEntries));
+	$set(this->metadata, sPLT_green, $new($ints, numEntries));
+	$set(this->metadata, sPLT_blue, $new($ints, numEntries));
+	$set(this->metadata, sPLT_alpha, $new($ints, numEntries));
+	$set(this->metadata, sPLT_frequency, $new($ints, numEntries));
 	if (sampleDepth == 8) {
 		for (int32_t i = 0; i < numEntries; ++i) {
 			$nc($nc(this->metadata)->sPLT_red)->set(i, $nc(this->stream)->readUnsignedByte());
@@ -565,7 +445,7 @@ void PNGImageReader::parse_sRGB_chunk() {
 }
 
 void PNGImageReader::parse_tEXt_chunk(int32_t chunkLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyword, readNullTerminatedString("ISO-8859-1"_s, 80));
 	int32_t textLength = chunkLength - $nc(keyword)->length() - 1;
 	if (textLength < 0) {
@@ -575,10 +455,9 @@ void PNGImageReader::parse_tEXt_chunk(int32_t chunkLength) {
 	$var($bytes, b, $new($bytes, textLength));
 	$nc(this->stream)->readFully(b);
 	$nc($nc(this->metadata)->tEXt_text)->add($$new($String, b, "ISO-8859-1"_s));
-	$init($PNGMetadata);
 	if (keyword->equals($PNGMetadata::tEXt_creationTimeKey)) {
-		int32_t index = $nc($nc(this->metadata)->tEXt_text)->size() - 1;
-		$nc(this->metadata)->decodeImageCreationTimeFromTextChunk($($nc($nc(this->metadata)->tEXt_text)->listIterator(index)));
+		int32_t index = this->metadata->tEXt_text->size() - 1;
+		this->metadata->decodeImageCreationTimeFromTextChunk($(this->metadata->tEXt_text->listIterator(index)));
 	}
 }
 
@@ -595,7 +474,7 @@ void PNGImageReader::parse_tIME_chunk() {
 void PNGImageReader::parse_tRNS_chunk(int32_t chunkLength) {
 	int32_t colorType = $nc(this->metadata)->IHDR_colorType;
 	if (colorType == PNGImageReader::PNG_COLOR_PALETTE) {
-		if (!$nc(this->metadata)->PLTE_present) {
+		if (!this->metadata->PLTE_present) {
 			processWarningOccurred("tRNS chunk without prior PLTE chunk, ignoring it."_s);
 			return;
 		}
@@ -606,8 +485,8 @@ void PNGImageReader::parse_tRNS_chunk(int32_t chunkLength) {
 			numEntries = maxEntries;
 		}
 		$set($nc(this->metadata), tRNS_alpha, $new($bytes, numEntries));
-		$nc(this->metadata)->tRNS_colorType = PNGImageReader::PNG_COLOR_PALETTE;
-		$nc(this->stream)->read($nc(this->metadata)->tRNS_alpha, 0, numEntries);
+		this->metadata->tRNS_colorType = PNGImageReader::PNG_COLOR_PALETTE;
+		$nc(this->stream)->read(this->metadata->tRNS_alpha, 0, numEntries);
 		$nc(this->stream)->skipBytes(chunkLength - numEntries);
 	} else if (colorType == PNGImageReader::PNG_COLOR_GRAY) {
 		if (chunkLength != 2) {
@@ -636,31 +515,29 @@ void PNGImageReader::parse_tRNS_chunk(int32_t chunkLength) {
 
 $bytes* PNGImageReader::inflate($bytes* b) {
 	$init(PNGImageReader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, bais, $new($ByteArrayInputStream, b));
 	$var($InputStream, iis, $new($InflaterInputStream, bais));
 	$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
 	int32_t c = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while ((c = iis->read()) != -1) {
-				baos->write(c);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			iis->close();
+	$var($Throwable, var$0, nullptr);
+	try {
+		while ((c = iis->read()) != -1) {
+			baos->write(c);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		iis->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return baos->toByteArray();
 }
 
 void PNGImageReader::parse_zTXt_chunk(int32_t chunkLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyword, readNullTerminatedString("ISO-8859-1"_s, 80));
 	int32_t textLength = chunkLength - $nc(keyword)->length() - 2;
 	if (textLength < 0) {
@@ -672,15 +549,14 @@ void PNGImageReader::parse_zTXt_chunk(int32_t chunkLength) {
 	$var($bytes, b, $new($bytes, textLength));
 	$nc(this->stream)->readFully(b);
 	$nc($nc(this->metadata)->zTXt_text)->add($$new($String, $(inflate(b)), "ISO-8859-1"_s));
-	$init($PNGMetadata);
 	if (keyword->equals($PNGMetadata::tEXt_creationTimeKey)) {
 		int32_t index = $nc($nc(this->metadata)->zTXt_text)->size() - 1;
-		$nc(this->metadata)->decodeImageCreationTimeFromTextChunk($($nc($nc(this->metadata)->zTXt_text)->listIterator(index)));
+		this->metadata->decodeImageCreationTimeFromTextChunk($(this->metadata->zTXt_text->listIterator(index)));
 	}
 }
 
 void PNGImageReader::readMetadata() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->gotMetadata) {
 		return;
 	}
@@ -720,6 +596,7 @@ void PNGImageReader::readMetadata() {
 			if (chunkLength < 0) {
 				$throwNew($IIOException, $$str({"Invalid chunk length "_s, $$str(chunkLength)}));
 			}
+			;
 			try {
 				if (chunkType != PNGImageReader::IEND_TYPE) {
 					$nc(this->stream)->mark();
@@ -731,133 +608,97 @@ void PNGImageReader::readMetadata() {
 				$throwNew($IIOException, $$str({"Invalid chunk length "_s, $$str(chunkLength)}));
 			}
 			{
-				$var($bytes, b, nullptr)
-				$var($StringBuilder, chunkName, nullptr)
+				$var($bytes, b, nullptr);
+				$var($StringBuilder, chunkName, nullptr);
 				int32_t ancillaryBit = 0;
 				switch (chunkType) {
 				case PNGImageReader::IDAT_TYPE:
-					{
-						if (this->imageStartPosition == (int64_t)-1) {
-							if (colorType == PNGImageReader::PNG_COLOR_PALETTE && !($nc(this->metadata)->PLTE_present)) {
-								$throwNew($IIOException, "Required PLTE chunk missing"_s);
-							}
-							this->imageStartPosition = $nc(this->stream)->getStreamPosition() - 8;
+					if (this->imageStartPosition == -1) {
+						if (colorType == PNGImageReader::PNG_COLOR_PALETTE && !($nc(this->metadata)->PLTE_present)) {
+							$throwNew($IIOException, "Required PLTE chunk missing"_s);
 						}
-						$nc(this->stream)->skipBytes(chunkLength);
-						break;
+						this->imageStartPosition = $nc(this->stream)->getStreamPosition() - 8;
 					}
+					$nc(this->stream)->skipBytes(chunkLength);
+					break;
 				case PNGImageReader::IEND_TYPE:
-					{
-						$nc(this->stream)->seek(this->imageStartPosition);
-						$nc(this->stream)->flushBefore($nc(this->stream)->getStreamPosition());
-						loop$break = true;
-						break;
-					}
+					$nc(this->stream)->seek(this->imageStartPosition);
+					$nc(this->stream)->flushBefore($nc(this->stream)->getStreamPosition());
+					loop$break = true;
+					break;
 				case PNGImageReader::PLTE_TYPE:
-					{
-						parse_PLTE_chunk(chunkLength);
-						break;
-					}
+					parse_PLTE_chunk(chunkLength);
+					break;
 				case PNGImageReader::bKGD_TYPE:
-					{
-						parse_bKGD_chunk();
-						break;
-					}
+					parse_bKGD_chunk();
+					break;
 				case PNGImageReader::cHRM_TYPE:
-					{
-						parse_cHRM_chunk();
-						break;
-					}
+					parse_cHRM_chunk();
+					break;
 				case PNGImageReader::gAMA_TYPE:
-					{
-						parse_gAMA_chunk();
-						break;
-					}
+					parse_gAMA_chunk();
+					break;
 				case PNGImageReader::hIST_TYPE:
-					{
-						parse_hIST_chunk(chunkLength);
-						break;
-					}
+					parse_hIST_chunk(chunkLength);
+					break;
 				case PNGImageReader::iCCP_TYPE:
-					{
-						parse_iCCP_chunk(chunkLength);
-						break;
-					}
+					parse_iCCP_chunk(chunkLength);
+					break;
 				case PNGImageReader::iTXt_TYPE:
-					{
-						if (this->ignoreMetadata) {
-							$nc(this->stream)->skipBytes(chunkLength);
-						} else {
-							parse_iTXt_chunk(chunkLength);
-						}
-						break;
+					if (this->ignoreMetadata) {
+						$nc(this->stream)->skipBytes(chunkLength);
+					} else {
+						parse_iTXt_chunk(chunkLength);
 					}
+					break;
 				case PNGImageReader::pHYs_TYPE:
-					{
-						parse_pHYs_chunk();
-						break;
-					}
+					parse_pHYs_chunk();
+					break;
 				case PNGImageReader::sBIT_TYPE:
-					{
-						parse_sBIT_chunk();
-						break;
-					}
+					parse_sBIT_chunk();
+					break;
 				case PNGImageReader::sPLT_TYPE:
-					{
-						parse_sPLT_chunk(chunkLength);
-						break;
-					}
+					parse_sPLT_chunk(chunkLength);
+					break;
 				case PNGImageReader::sRGB_TYPE:
-					{
-						parse_sRGB_chunk();
-						break;
-					}
+					parse_sRGB_chunk();
+					break;
 				case PNGImageReader::tEXt_TYPE:
-					{
-						parse_tEXt_chunk(chunkLength);
-						break;
-					}
+					parse_tEXt_chunk(chunkLength);
+					break;
 				case PNGImageReader::tIME_TYPE:
-					{
-						parse_tIME_chunk();
-						break;
-					}
+					parse_tIME_chunk();
+					break;
 				case PNGImageReader::tRNS_TYPE:
-					{
-						parse_tRNS_chunk(chunkLength);
-						break;
-					}
+					parse_tRNS_chunk(chunkLength);
+					break;
 				case PNGImageReader::zTXt_TYPE:
-					{
-						if (this->ignoreMetadata) {
-							$nc(this->stream)->skipBytes(chunkLength);
-						} else {
-							parse_zTXt_chunk(chunkLength);
-						}
-						break;
+					if (this->ignoreMetadata) {
+						$nc(this->stream)->skipBytes(chunkLength);
+					} else {
+						parse_zTXt_chunk(chunkLength);
 					}
+					break;
 				default:
-					{
-						$assign(b, $new($bytes, chunkLength));
-						$nc(this->stream)->readFully(b);
-						$assign(chunkName, $new($StringBuilder, 4));
-						$nc(chunkName)->append((char16_t)((int32_t)((uint32_t)chunkType >> 24)));
-						$nc(chunkName)->append((char16_t)((int32_t)((chunkType >> 16) & (uint32_t)255)));
-						$nc(chunkName)->append((char16_t)((int32_t)((chunkType >> 8) & (uint32_t)255)));
-						$nc(chunkName)->append((char16_t)((int32_t)(chunkType & (uint32_t)255)));
-						ancillaryBit = (int32_t)((uint32_t)chunkType >> 28);
-						if (ancillaryBit == 0) {
-							processWarningOccurred("Encountered unknown chunk with critical bit set!"_s);
-						}
-						$nc($nc(this->metadata)->unknownChunkType)->add($($nc(chunkName)->toString()));
-						$nc($nc(this->metadata)->unknownChunkData)->add(b);
-						break;
+					$assign(b, $new($bytes, chunkLength));
+					$nc(this->stream)->readFully(b);
+					$assign(chunkName, $new($StringBuilder, 4));
+					$nc(chunkName)->append((char16_t)((int32_t)((uint32_t)chunkType >> 24)));
+					chunkName->append((char16_t)((chunkType >> 16) & 0xff));
+					chunkName->append((char16_t)((chunkType >> 8) & 0xff));
+					chunkName->append((char16_t)(chunkType & 0xff));
+					ancillaryBit = (int32_t)((uint32_t)chunkType >> 28);
+					if (ancillaryBit == 0) {
+						processWarningOccurred("Encountered unknown chunk with critical bit set!"_s);
 					}
+					$nc($nc(this->metadata)->unknownChunkType)->add($(chunkName->toString()));
+					$nc(this->metadata->unknownChunkData)->add(b);
+					break;
 				}
-
 				if (loop$break) {
 					break;
-				}			}
+				}
+			}
 			if (chunkCRC != $nc(this->stream)->readInt()) {
 				$throwNew($IIOException, $$str({"Failed to read a chunk of type "_s, $$str(chunkType)}));
 			}
@@ -872,8 +713,8 @@ void PNGImageReader::decodeSubFilter($bytes* curr, int32_t coff, int32_t count, 
 	$init(PNGImageReader);
 	for (int32_t i = bpp; i < count; ++i) {
 		int32_t val = 0;
-		val = (int32_t)($nc(curr)->get(i + coff) & (uint32_t)255);
-		val += (int32_t)(curr->get(i + coff - bpp) & (uint32_t)255);
+		val = $nc(curr)->get(i + coff) & 0xff;
+		val += curr->get(i + coff - bpp) & 0xff;
 		curr->set(i + coff, (int8_t)val);
 	}
 }
@@ -881,8 +722,8 @@ void PNGImageReader::decodeSubFilter($bytes* curr, int32_t coff, int32_t count, 
 void PNGImageReader::decodeUpFilter($bytes* curr, int32_t coff, $bytes* prev, int32_t poff, int32_t count) {
 	$init(PNGImageReader);
 	for (int32_t i = 0; i < count; ++i) {
-		int32_t raw = (int32_t)($nc(curr)->get(i + coff) & (uint32_t)255);
-		int32_t prior = (int32_t)($nc(prev)->get(i + poff) & (uint32_t)255);
+		int32_t raw = $nc(curr)->get(i + coff) & 0xff;
+		int32_t prior = $nc(prev)->get(i + poff) & 0xff;
 		curr->set(i + coff, (int8_t)(raw + prior));
 	}
 }
@@ -893,14 +734,14 @@ void PNGImageReader::decodeAverageFilter($bytes* curr, int32_t coff, $bytes* pre
 	int32_t priorPixel = 0;
 	int32_t priorRow = 0;
 	for (int32_t i = 0; i < bpp; ++i) {
-		raw = (int32_t)($nc(curr)->get(i + coff) & (uint32_t)255);
-		priorRow = (int32_t)($nc(prev)->get(i + poff) & (uint32_t)255);
+		raw = $nc(curr)->get(i + coff) & 0xff;
+		priorRow = $nc(prev)->get(i + poff) & 0xff;
 		curr->set(i + coff, (int8_t)(raw + priorRow / 2));
 	}
 	for (int32_t i = bpp; i < count; ++i) {
-		raw = (int32_t)($nc(curr)->get(i + coff) & (uint32_t)255);
-		priorPixel = (int32_t)(curr->get(i + coff - bpp) & (uint32_t)255);
-		priorRow = (int32_t)($nc(prev)->get(i + poff) & (uint32_t)255);
+		raw = $nc(curr)->get(i + coff) & 0xff;
+		priorPixel = curr->get(i + coff - bpp) & 0xff;
+		priorRow = $nc(prev)->get(i + poff) & 0xff;
 		curr->set(i + coff, (int8_t)(raw + (priorPixel + priorRow) / 2));
 	}
 }
@@ -927,21 +768,21 @@ void PNGImageReader::decodePaethFilter($bytes* curr, int32_t coff, $bytes* prev,
 	int32_t priorRow = 0;
 	int32_t priorRowPixel = 0;
 	for (int32_t i = 0; i < bpp; ++i) {
-		raw = (int32_t)($nc(curr)->get(i + coff) & (uint32_t)255);
-		priorRow = (int32_t)($nc(prev)->get(i + poff) & (uint32_t)255);
+		raw = $nc(curr)->get(i + coff) & 0xff;
+		priorRow = $nc(prev)->get(i + poff) & 0xff;
 		curr->set(i + coff, (int8_t)(raw + priorRow));
 	}
 	for (int32_t i = bpp; i < count; ++i) {
-		raw = (int32_t)($nc(curr)->get(i + coff) & (uint32_t)255);
-		priorPixel = (int32_t)(curr->get(i + coff - bpp) & (uint32_t)255);
-		priorRow = (int32_t)($nc(prev)->get(i + poff) & (uint32_t)255);
-		priorRowPixel = (int32_t)(prev->get(i + poff - bpp) & (uint32_t)255);
+		raw = $nc(curr)->get(i + coff) & 0xff;
+		priorPixel = curr->get(i + coff - bpp) & 0xff;
+		priorRow = $nc(prev)->get(i + poff) & 0xff;
+		priorRowPixel = prev->get(i + poff - bpp) & 0xff;
 		curr->set(i + coff, (int8_t)(raw + paethPredictor(priorPixel, priorRow, priorRowPixel)));
 	}
 }
 
 $WritableRaster* PNGImageReader::createRaster(int32_t width, int32_t height, int32_t bands, int32_t scanlineStride, int32_t bitDepth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataBuffer, dataBuffer, nullptr);
 	$var($WritableRaster, ras, nullptr);
 	$var($Point, origin, $new($Point, 0, 0));
@@ -950,10 +791,10 @@ $WritableRaster* PNGImageReader::createRaster(int32_t width, int32_t height, int
 		$assign(ras, $Raster::createPackedRaster(dataBuffer, width, height, bitDepth, origin));
 	} else if (bitDepth <= 8) {
 		$assign(dataBuffer, $new($DataBufferByte, height * scanlineStride));
-		$assign(ras, $Raster::createInterleavedRaster(dataBuffer, width, height, scanlineStride, bands, $nc(PNGImageReader::bandOffsets)->get(bands), origin));
+		$assign(ras, $Raster::createInterleavedRaster(dataBuffer, width, height, scanlineStride, bands, PNGImageReader::bandOffsets->get(bands), origin));
 	} else {
 		$assign(dataBuffer, $new($DataBufferUShort, height * scanlineStride));
-		$assign(ras, $Raster::createInterleavedRaster(dataBuffer, width, height, scanlineStride, bands, $nc(PNGImageReader::bandOffsets)->get(bands), origin));
+		$assign(ras, $Raster::createInterleavedRaster(dataBuffer, width, height, scanlineStride, bands, PNGImageReader::bandOffsets->get(bands), origin));
 	}
 	return ras;
 }
@@ -962,8 +803,8 @@ void PNGImageReader::skipPass(int32_t passWidth, int32_t passHeight) {
 	if ((passWidth == 0) || (passHeight == 0)) {
 		return;
 	}
-	int32_t inputBands = $nc(PNGImageReader::inputBandsForColorType)->get($nc(this->metadata)->IHDR_colorType);
-	int32_t bitsPerRow = $Math::multiplyExact((inputBands * $nc(this->metadata)->IHDR_bitDepth), passWidth);
+	int32_t inputBands = PNGImageReader::inputBandsForColorType->get($nc(this->metadata)->IHDR_colorType);
+	int32_t bitsPerRow = $Math::multiplyExact((inputBands * this->metadata->IHDR_bitDepth), passWidth);
 	int32_t bytesPerRow = (bitsPerRow + 7) / 8;
 	for (int32_t srcY = 0; srcY < passHeight; ++srcY) {
 		$nc(this->pixelStream)->skipBytes(1 + bytesPerRow);
@@ -976,7 +817,7 @@ void PNGImageReader::updateImageProgress(int32_t newPixels) {
 }
 
 void PNGImageReader::decodePass(int32_t passNum, int32_t xStart, int32_t yStart, int32_t xStep, int32_t yStep, int32_t passWidth, int32_t passHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((passWidth == 0) || (passHeight == 0)) {
 		return;
 	}
@@ -992,7 +833,7 @@ void PNGImageReader::decodePass(int32_t passNum, int32_t xStart, int32_t yStart,
 	int32_t updateXStep = vals->get(4);
 	int32_t updateYStep = vals->get(5);
 	int32_t bitDepth = $nc(this->metadata)->IHDR_bitDepth;
-	int32_t inputBands = $nc(PNGImageReader::inputBandsForColorType)->get($nc(this->metadata)->IHDR_colorType);
+	int32_t inputBands = PNGImageReader::inputBandsForColorType->get(this->metadata->IHDR_colorType);
 	int32_t bytesPerPixel = (bitDepth == 16) ? 2 : 1;
 	bytesPerPixel *= inputBands;
 	int32_t bitsPerRow = $Math::multiplyExact((inputBands * bitDepth), passWidth);
@@ -1020,9 +861,9 @@ void PNGImageReader::decodePass(int32_t passNum, int32_t xStart, int32_t yStart,
 	$var($DataBuffer, dataBuffer, passRow->getDataBuffer());
 	int32_t type = $nc(dataBuffer)->getDataType();
 	if (type == $DataBuffer::TYPE_BYTE) {
-		$assign(byteData, $nc(($cast($DataBufferByte, dataBuffer)))->getData());
+		$assign(byteData, $cast($DataBufferByte, dataBuffer)->getData());
 	} else {
-		$assign(shortData, $nc(($cast($DataBufferUShort, dataBuffer)))->getData());
+		$assign(shortData, $cast($DataBufferUShort, dataBuffer)->getData());
 	}
 	processPassStarted(this->theImage, passNum, this->sourceMinProgressivePass, this->sourceMaxProgressivePass, updateMinX, updateMinY, updateXStep, updateYStep, this->destinationBands);
 	if (this->sourceBands != nullptr) {
@@ -1033,7 +874,7 @@ void PNGImageReader::decodePass(int32_t passNum, int32_t xStart, int32_t yStart,
 		$assign(imRas, imRas->createWritableChild(0, 0, var$0, imRas->getHeight(), 0, 0, this->destinationBands));
 	}
 	bool adjustBitDepths = false;
-	$var($ints, outputSampleSize, $nc($(imRas->getSampleModel()))->getSampleSize());
+	$var($ints, outputSampleSize, $$nc($nc(imRas)->getSampleModel())->getSampleSize());
 	for (int32_t b = 0; b < inputBands; ++b) {
 		if ($nc(outputSampleSize)->get(b) != bitDepth) {
 			adjustBitDepths = true;
@@ -1055,7 +896,7 @@ void PNGImageReader::decodePass(int32_t passNum, int32_t xStart, int32_t yStart,
 	}
 	bool useSetRect = srcXStep == 1 && updateXStep == 1 && !adjustBitDepths && ($instanceOf($ByteInterleavedRaster, imRas));
 	if (useSetRect) {
-		$assign(passRow, passRow->createWritableChild(srcX, 0, updateWidth, 1, 0, 0, nullptr));
+		$assign(passRow, $nc(passRow)->createWritableChild(srcX, 0, updateWidth, 1, 0, 0, nullptr));
 	}
 	for (int32_t srcY = 0; srcY < passHeight; ++srcY) {
 		updateImageProgress(passWidth);
@@ -1067,71 +908,59 @@ void PNGImageReader::decodePass(int32_t passNum, int32_t xStart, int32_t yStart,
 			$var($bytes, tmp, prior);
 			$assign(prior, curr);
 			$assign(curr, tmp);
-			$nc(this->pixelStream)->readFully(curr, 0, bytesPerRow);
+			this->pixelStream->readFully(curr, 0, bytesPerRow);
 		} catch ($ZipException& ze) {
 			$throw(ze);
 		}
 		switch (filter) {
 		case PNGImageReader::PNG_FILTER_NONE:
-			{
-				break;
-			}
+			break;
 		case PNGImageReader::PNG_FILTER_SUB:
-			{
-				decodeSubFilter(curr, 0, bytesPerRow, bytesPerPixel);
-				break;
-			}
+			decodeSubFilter(curr, 0, bytesPerRow, bytesPerPixel);
+			break;
 		case PNGImageReader::PNG_FILTER_UP:
-			{
-				decodeUpFilter(curr, 0, prior, 0, bytesPerRow);
-				break;
-			}
+			decodeUpFilter(curr, 0, prior, 0, bytesPerRow);
+			break;
 		case PNGImageReader::PNG_FILTER_AVERAGE:
-			{
-				decodeAverageFilter(curr, 0, prior, 0, bytesPerRow, bytesPerPixel);
-				break;
-			}
+			decodeAverageFilter(curr, 0, prior, 0, bytesPerRow, bytesPerPixel);
+			break;
 		case PNGImageReader::PNG_FILTER_PAETH:
-			{
-				decodePaethFilter(curr, 0, prior, 0, bytesPerRow, bytesPerPixel);
-				break;
-			}
+			decodePaethFilter(curr, 0, prior, 0, bytesPerRow, bytesPerPixel);
+			break;
 		default:
-			{
-				$throwNew($IIOException, $$str({"Unknown row filter type (= "_s, $$str(filter), ")!"_s}));
-			}
+			$throwNew($IIOException, $$str({"Unknown row filter type (= "_s, $$str(filter), ")!"_s}));
 		}
 		if (bitDepth < 16) {
 			$System::arraycopy(curr, 0, byteData, 0, bytesPerRow);
 		} else {
 			int32_t idx = 0;
 			for (int32_t j = 0; j < eltsPerRow; ++j) {
-				$nc(shortData)->set(j, (int16_t)(($nc(curr)->get(idx) << 8) | ((int32_t)(curr->get(idx + 1) & (uint32_t)255))));
+				$nc(shortData)->set(j, (int16_t)(($nc(curr)->get(idx) << 8) | ($nc(curr)->get(idx + 1) & 0xff)));
 				idx += 2;
 			}
 		}
 		int32_t sourceY = srcY * yStep + yStart;
-		if ((sourceY >= $nc(this->sourceRegion)->y) && (sourceY < $nc(this->sourceRegion)->y + $nc(this->sourceRegion)->height) && (($mod((sourceY - $nc(this->sourceRegion)->y), this->sourceYSubsampling)) == 0)) {
-			int32_t dstY = $nc(this->destinationOffset)->y + $div((sourceY - $nc(this->sourceRegion)->y), this->sourceYSubsampling);
+		if ((sourceY >= $nc(this->sourceRegion)->y) && (sourceY < this->sourceRegion->y + this->sourceRegion->height) && (($mod((sourceY - this->sourceRegion->y), this->sourceYSubsampling)) == 0)) {
+			int32_t dstY = $nc(this->destinationOffset)->y + $div((sourceY - this->sourceRegion->y), this->sourceYSubsampling);
 			if (dstY < dstMinY) {
 				continue;
 			}
 			if (dstY > dstMaxY) {
 				break;
 			}
-			bool var$1 = $nc($($nc(this->theImage)->getSampleModel()))->getNumBands() == inputBands + 1;
+			bool var$1 = $$nc($nc(this->theImage)->getSampleModel())->getNumBands() == inputBands + 1;
 			bool tRNSTransparentPixelPresent = var$1 && $nc(this->metadata)->hasTransparentColor();
 			if (useSetRect && !tRNSTransparentPixelPresent) {
 				imRas->setRect(updateMinX, dstY, passRow);
 			} else {
 				int32_t newSrcX = srcX;
 				$var($ints, temp, $new($ints, inputBands + 1));
-				int32_t opaque = (bitDepth < 16) ? 255 : 0x0000FFFF;
+				int32_t opaque = (bitDepth < 16) ? 255 : 0x0000ffff;
 				for (int32_t dstX = updateMinX; dstX < updateMinX + updateWidth; dstX += updateXStep) {
-					passRow->getPixel(newSrcX, 0, ps);
+					$nc(passRow)->getPixel(newSrcX, 0, ps);
 					if (adjustBitDepths) {
 						for (int32_t b = 0; b < inputBands; ++b) {
-							$nc(ps)->set(b, $nc($nc(scale)->get(b))->get(ps->get(b)));
+							$nc(ps)->set(b, $nc($nc(scale)->get(b))->get($nc(ps)->get(b)));
 						}
 					}
 					if (tRNSTransparentPixelPresent) {
@@ -1139,14 +968,14 @@ void PNGImageReader::decodePass(int32_t passNum, int32_t xStart, int32_t yStart,
 							temp->set(0, $nc(ps)->get(0));
 							temp->set(1, ps->get(1));
 							temp->set(2, ps->get(2));
-							if (ps->get(0) == $nc(this->metadata)->tRNS_red && ps->get(1) == $nc(this->metadata)->tRNS_green && ps->get(2) == $nc(this->metadata)->tRNS_blue) {
+							if (ps->get(0) == this->metadata->tRNS_red && ps->get(1) == this->metadata->tRNS_green && ps->get(2) == this->metadata->tRNS_blue) {
 								temp->set(3, 0);
 							} else {
 								temp->set(3, opaque);
 							}
 						} else {
 							temp->set(0, $nc(ps)->get(0));
-							if (ps->get(0) == $nc(this->metadata)->tRNS_gray) {
+							if (ps->get(0) == this->metadata->tRNS_gray) {
 								temp->set(1, 0);
 							} else {
 								temp->set(1, opaque);
@@ -1167,19 +996,19 @@ void PNGImageReader::decodePass(int32_t passNum, int32_t xStart, int32_t yStart,
 
 void PNGImageReader::decodeImage() {
 	int32_t width = $nc(this->metadata)->IHDR_width;
-	int32_t height = $nc(this->metadata)->IHDR_height;
+	int32_t height = this->metadata->IHDR_height;
 	this->pixelsDone = 0;
 	this->totalPixels = width * height;
-	if ($nc(this->metadata)->IHDR_interlaceMethod == 0) {
+	if (this->metadata->IHDR_interlaceMethod == 0) {
 		decodePass(0, 0, 0, 1, 1, width, height);
 	} else {
 		for (int32_t i = 0; i <= this->sourceMaxProgressivePass; ++i) {
-			int32_t XOffset = $nc(PNGImageReader::adam7XOffset)->get(i);
-			int32_t YOffset = $nc(PNGImageReader::adam7YOffset)->get(i);
-			int32_t XSubsampling = $nc(PNGImageReader::adam7XSubsampling)->get(i);
-			int32_t YSubsampling = $nc(PNGImageReader::adam7YSubsampling)->get(i);
-			int32_t xbump = $nc(PNGImageReader::adam7XSubsampling)->get(i + 1) - 1;
-			int32_t ybump = $nc(PNGImageReader::adam7YSubsampling)->get(i + 1) - 1;
+			int32_t XOffset = PNGImageReader::adam7XOffset->get(i);
+			int32_t YOffset = PNGImageReader::adam7YOffset->get(i);
+			int32_t XSubsampling = PNGImageReader::adam7XSubsampling->get(i);
+			int32_t YSubsampling = PNGImageReader::adam7YSubsampling->get(i);
+			int32_t xbump = PNGImageReader::adam7XSubsampling->get(i + 1) - 1;
+			int32_t ybump = PNGImageReader::adam7YSubsampling->get(i + 1) - 1;
 			if (i >= this->sourceMinProgressivePass) {
 				decodePass(i, XOffset, YOffset, XSubsampling, YSubsampling, $div((width + xbump), XSubsampling), $div((height + ybump), YSubsampling));
 			} else {
@@ -1193,10 +1022,10 @@ void PNGImageReader::decodeImage() {
 }
 
 void PNGImageReader::readImage($ImageReadParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	readMetadata();
 	int32_t width = $nc(this->metadata)->IHDR_width;
-	int32_t height = $nc(this->metadata)->IHDR_height;
+	int32_t height = this->metadata->IHDR_height;
 	this->sourceXSubsampling = 1;
 	this->sourceYSubsampling = 1;
 	this->sourceMinProgressivePass = 0;
@@ -1214,54 +1043,52 @@ void PNGImageReader::readImage($ImageReadParam* param) {
 		$set(this, destinationOffset, param->getDestinationOffset());
 	}
 	$var($Inflater, inf, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$nc(this->stream)->seek(this->imageStartPosition);
-				$var($Enumeration, e, $new($PNGImageDataEnumeration, this->stream));
-				$var($InputStream, is, $new($SequenceInputStream, e));
-				$assign(inf, $new($Inflater));
-				$assign(is, $new($InflaterInputStream, is, inf));
-				$assign(is, $new($BufferedInputStream, is));
-				$set(this, pixelStream, $new($DataInputStream, is));
-				$set(this, theImage, getDestination(param, $(getImageTypes(0)), width, height));
-				$var($Rectangle, destRegion, $new($Rectangle, 0, 0, 0, 0));
-				$set(this, sourceRegion, $new($Rectangle, 0, 0, 0, 0));
-				computeRegions(param, width, height, this->theImage, this->sourceRegion, destRegion);
-				$nc(this->destinationOffset)->setLocation($(destRegion->getLocation()));
-				int32_t colorType = $nc(this->metadata)->IHDR_colorType;
-				bool var$1 = $nc($($nc(this->theImage)->getSampleModel()))->getNumBands() == $nc(PNGImageReader::inputBandsForColorType)->get(colorType) + 1;
-				if (var$1 && $nc(this->metadata)->hasTransparentColor()) {
-					checkReadParamBandSettings(param, $nc(PNGImageReader::inputBandsForColorType)->get(colorType) + 1, $nc($($nc(this->theImage)->getSampleModel()))->getNumBands());
-				} else {
-					checkReadParamBandSettings(param, $nc(PNGImageReader::inputBandsForColorType)->get(colorType), $nc($($nc(this->theImage)->getSampleModel()))->getNumBands());
-				}
-				clearAbortRequest();
-				processImageStarted(0);
+			$nc(this->stream)->seek(this->imageStartPosition);
+			$var($Enumeration, e, $new($PNGImageDataEnumeration, this->stream));
+			$var($InputStream, is, $new($SequenceInputStream, e));
+			$assign(inf, $new($Inflater));
+			$assign(is, $new($InflaterInputStream, is, inf));
+			$assign(is, $new($BufferedInputStream, is));
+			$set(this, pixelStream, $new($DataInputStream, is));
+			$set(this, theImage, getDestination(param, $(getImageTypes(0)), width, height));
+			$var($Rectangle, destRegion, $new($Rectangle, 0, 0, 0, 0));
+			$set(this, sourceRegion, $new($Rectangle, 0, 0, 0, 0));
+			computeRegions(param, width, height, this->theImage, this->sourceRegion, destRegion);
+			$nc(this->destinationOffset)->setLocation($(destRegion->getLocation()));
+			int32_t colorType = $nc(this->metadata)->IHDR_colorType;
+			bool var$1 = $$nc($nc(this->theImage)->getSampleModel())->getNumBands() == PNGImageReader::inputBandsForColorType->get(colorType) + 1;
+			if (var$1 && this->metadata->hasTransparentColor()) {
+				checkReadParamBandSettings(param, PNGImageReader::inputBandsForColorType->get(colorType) + 1, $$nc($nc(this->theImage)->getSampleModel())->getNumBands());
+			} else {
+				checkReadParamBandSettings(param, PNGImageReader::inputBandsForColorType->get(colorType), $$nc($nc(this->theImage)->getSampleModel())->getNumBands());
+			}
+			clearAbortRequest();
+			processImageStarted(0);
+			if (abortRequested()) {
+				processReadAborted();
+			} else {
+				decodeImage();
 				if (abortRequested()) {
 					processReadAborted();
 				} else {
-					decodeImage();
-					if (abortRequested()) {
-						processReadAborted();
-					} else {
-						processImageComplete();
-					}
+					processImageComplete();
 				}
-			} catch ($IOException& e) {
-				$throwNew($IIOException, "Error reading PNG image data"_s, e);
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (inf != nullptr) {
-				inf->end();
-			}
+		} catch ($IOException& e) {
+			$throwNew($IIOException, "Error reading PNG image data"_s, e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (inf != nullptr) {
+			inf->end();
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1292,7 +1119,7 @@ int32_t PNGImageReader::getHeight(int32_t imageIndex) {
 }
 
 $Iterator* PNGImageReader::getImageTypes(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (imageIndex != 0) {
 		$throwNew($IndexOutOfBoundsException, "imageIndex != 0!"_s);
 	}
@@ -1302,7 +1129,7 @@ $Iterator* PNGImageReader::getImageTypes(int32_t imageIndex) {
 	$var($ColorSpace, gray, nullptr);
 	$var($ints, bandOffsets, nullptr);
 	int32_t bitDepth = $nc(this->metadata)->IHDR_bitDepth;
-	int32_t colorType = $nc(this->metadata)->IHDR_colorType;
+	int32_t colorType = this->metadata->IHDR_colorType;
 	int32_t dataType = 0;
 	if (bitDepth <= 8) {
 		dataType = $DataBuffer::TYPE_BYTE;
@@ -1311,114 +1138,102 @@ $Iterator* PNGImageReader::getImageTypes(int32_t imageIndex) {
 	}
 	{
 		int32_t plength = 0;
-		$var($bytes, red, nullptr)
-		$var($bytes, green, nullptr)
-		$var($bytes, blue, nullptr)
-		$var($bytes, alpha, nullptr)
+		$var($bytes, red, nullptr);
+		$var($bytes, green, nullptr);
+		$var($bytes, blue, nullptr);
+		$var($bytes, alpha, nullptr);
 		switch (colorType) {
 		case PNGImageReader::PNG_COLOR_GRAY:
-			{
-				readMetadata();
-				if ($nc(this->metadata)->hasTransparentColor()) {
-					$assign(gray, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
-					$assign(bandOffsets, $new($ints, 2));
-					bandOffsets->set(0, 0);
-					bandOffsets->set(1, 1);
-					l->add($($ImageTypeSpecifier::createInterleaved(gray, bandOffsets, dataType, true, false)));
-				}
-				l->add($($ImageTypeSpecifier::createGrayscale(bitDepth, dataType, false)));
-				break;
-			}
-		case PNGImageReader::PNG_COLOR_RGB:
-			{
-				readMetadata();
-				if (bitDepth == 8) {
-					if ($nc(this->metadata)->hasTransparentColor()) {
-						l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_4BYTE_ABGR)));
-					}
-					l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_3BYTE_BGR)));
-					l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_INT_RGB)));
-					l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_INT_BGR)));
-				}
-				if ($nc(this->metadata)->hasTransparentColor()) {
-					$assign(rgb, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-					$assign(bandOffsets, $new($ints, 4));
-					bandOffsets->set(0, 0);
-					bandOffsets->set(1, 1);
-					bandOffsets->set(2, 2);
-					bandOffsets->set(3, 3);
-					l->add($($ImageTypeSpecifier::createInterleaved(rgb, bandOffsets, dataType, true, false)));
-				}
-				$assign(rgb, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-				$assign(bandOffsets, $new($ints, 3));
-				$nc(bandOffsets)->set(0, 0);
-				$nc(bandOffsets)->set(1, 1);
-				$nc(bandOffsets)->set(2, 2);
-				l->add($($ImageTypeSpecifier::createInterleaved(rgb, bandOffsets, dataType, false, false)));
-				break;
-			}
-		case PNGImageReader::PNG_COLOR_PALETTE:
-			{
-				readMetadata();
-				plength = $sl(1, bitDepth);
-				$assign(red, $nc(this->metadata)->PLTE_red);
-				$assign(green, $nc(this->metadata)->PLTE_green);
-				$assign(blue, $nc(this->metadata)->PLTE_blue);
-				if ($nc($nc(this->metadata)->PLTE_red)->length < plength) {
-					$assign(red, $Arrays::copyOf($nc(this->metadata)->PLTE_red, plength));
-					$Arrays::fill(red, $nc($nc(this->metadata)->PLTE_red)->length, plength, $nc($nc(this->metadata)->PLTE_red)->get($nc($nc(this->metadata)->PLTE_red)->length - 1));
-					$assign(green, $Arrays::copyOf($nc(this->metadata)->PLTE_green, plength));
-					$Arrays::fill(green, $nc($nc(this->metadata)->PLTE_green)->length, plength, $nc($nc(this->metadata)->PLTE_green)->get($nc($nc(this->metadata)->PLTE_green)->length - 1));
-					$assign(blue, $Arrays::copyOf($nc(this->metadata)->PLTE_blue, plength));
-					$Arrays::fill(blue, $nc($nc(this->metadata)->PLTE_blue)->length, plength, $nc($nc(this->metadata)->PLTE_blue)->get($nc($nc(this->metadata)->PLTE_blue)->length - 1));
-				}
-				$assign(alpha, nullptr);
-				if ($nc(this->metadata)->tRNS_present && ($nc(this->metadata)->tRNS_alpha != nullptr)) {
-					if ($nc($nc(this->metadata)->tRNS_alpha)->length == $nc(red)->length) {
-						$assign(alpha, $nc(this->metadata)->tRNS_alpha);
-					} else {
-						$assign(alpha, $Arrays::copyOf($nc(this->metadata)->tRNS_alpha, red->length));
-						$Arrays::fill(alpha, $nc($nc(this->metadata)->tRNS_alpha)->length, red->length, (int8_t)255);
-					}
-				}
-				l->add($($ImageTypeSpecifier::createIndexed(red, green, blue, alpha, bitDepth, $DataBuffer::TYPE_BYTE)));
-				break;
-			}
-		case PNGImageReader::PNG_COLOR_GRAY_ALPHA:
-			{
+			readMetadata();
+			if ($nc(this->metadata)->hasTransparentColor()) {
 				$assign(gray, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
 				$assign(bandOffsets, $new($ints, 2));
-				$nc(bandOffsets)->set(0, 0);
-				$nc(bandOffsets)->set(1, 1);
+				bandOffsets->set(0, 0);
+				bandOffsets->set(1, 1);
 				l->add($($ImageTypeSpecifier::createInterleaved(gray, bandOffsets, dataType, true, false)));
-				break;
 			}
-		case PNGImageReader::PNG_COLOR_RGB_ALPHA:
-			{
-				if (bitDepth == 8) {
+			l->add($($ImageTypeSpecifier::createGrayscale(bitDepth, dataType, false)));
+			break;
+		case PNGImageReader::PNG_COLOR_RGB:
+			readMetadata();
+			if (bitDepth == 8) {
+				if ($nc(this->metadata)->hasTransparentColor()) {
 					l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_4BYTE_ABGR)));
-					l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_INT_ARGB)));
 				}
+				l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_3BYTE_BGR)));
+				l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_INT_RGB)));
+				l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_INT_BGR)));
+			}
+			if ($nc(this->metadata)->hasTransparentColor()) {
 				$assign(rgb, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
 				$assign(bandOffsets, $new($ints, 4));
-				$nc(bandOffsets)->set(0, 0);
-				$nc(bandOffsets)->set(1, 1);
-				$nc(bandOffsets)->set(2, 2);
-				$nc(bandOffsets)->set(3, 3);
+				bandOffsets->set(0, 0);
+				bandOffsets->set(1, 1);
+				bandOffsets->set(2, 2);
+				bandOffsets->set(3, 3);
 				l->add($($ImageTypeSpecifier::createInterleaved(rgb, bandOffsets, dataType, true, false)));
-				break;
 			}
+			$assign(rgb, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+			$assign(bandOffsets, $new($ints, 3));
+			bandOffsets->set(0, 0);
+			bandOffsets->set(1, 1);
+			bandOffsets->set(2, 2);
+			l->add($($ImageTypeSpecifier::createInterleaved(rgb, bandOffsets, dataType, false, false)));
+			break;
+		case PNGImageReader::PNG_COLOR_PALETTE:
+			readMetadata();
+			plength = $sl(1, bitDepth);
+			$assign(red, $nc(this->metadata)->PLTE_red);
+			$assign(green, this->metadata->PLTE_green);
+			$assign(blue, this->metadata->PLTE_blue);
+			if ($nc(this->metadata->PLTE_red)->length < plength) {
+				$assign(red, $Arrays::copyOf(this->metadata->PLTE_red, plength));
+				$Arrays::fill(red, this->metadata->PLTE_red->length, plength, this->metadata->PLTE_red->get(this->metadata->PLTE_red->length - 1));
+				$assign(green, $Arrays::copyOf(this->metadata->PLTE_green, plength));
+				$Arrays::fill(green, $nc(this->metadata->PLTE_green)->length, plength, $nc(this->metadata->PLTE_green)->get($nc(this->metadata->PLTE_green)->length - 1));
+				$assign(blue, $Arrays::copyOf(this->metadata->PLTE_blue, plength));
+				$Arrays::fill(blue, $nc(this->metadata->PLTE_blue)->length, plength, $nc(this->metadata->PLTE_blue)->get($nc(this->metadata->PLTE_blue)->length - 1));
+			}
+			$assign(alpha, nullptr);
+			if (this->metadata->tRNS_present && (this->metadata->tRNS_alpha != nullptr)) {
+				if (this->metadata->tRNS_alpha->length == $nc(red)->length) {
+					$assign(alpha, this->metadata->tRNS_alpha);
+				} else {
+					$assign(alpha, $Arrays::copyOf(this->metadata->tRNS_alpha, red->length));
+					$Arrays::fill(alpha, this->metadata->tRNS_alpha->length, red->length, (int8_t)255);
+				}
+			}
+			l->add($($ImageTypeSpecifier::createIndexed(red, green, blue, alpha, bitDepth, $DataBuffer::TYPE_BYTE)));
+			break;
+		case PNGImageReader::PNG_COLOR_GRAY_ALPHA:
+			$assign(gray, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
+			$assign(bandOffsets, $new($ints, 2));
+			bandOffsets->set(0, 0);
+			bandOffsets->set(1, 1);
+			l->add($($ImageTypeSpecifier::createInterleaved(gray, bandOffsets, dataType, true, false)));
+			break;
+		case PNGImageReader::PNG_COLOR_RGB_ALPHA:
+			if (bitDepth == 8) {
+				l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_4BYTE_ABGR)));
+				l->add($($ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_INT_ARGB)));
+			}
+			$assign(rgb, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+			$assign(bandOffsets, $new($ints, 4));
+			bandOffsets->set(0, 0);
+			bandOffsets->set(1, 1);
+			bandOffsets->set(2, 2);
+			bandOffsets->set(3, 3);
+			l->add($($ImageTypeSpecifier::createInterleaved(rgb, bandOffsets, dataType, true, false)));
+			break;
 		default:
-			{
-				break;
-			}
+			break;
 		}
 	}
 	return l->iterator();
 }
 
 $ImageTypeSpecifier* PNGImageReader::getRawImageType(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, types, getImageTypes(imageIndex));
 	$var($ImageTypeSpecifier, raw, nullptr);
 	do {
@@ -1474,8 +1289,8 @@ void PNGImageReader::resetStreamSettings() {
 	this->imageStartPosition = -1;
 }
 
-void clinit$PNGImageReader($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PNGImageReader::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(PNGImageReader::inputBandsForColorType, $new($ints, {
 		1,
 		-1,
@@ -1524,7 +1339,7 @@ void clinit$PNGImageReader($Class* class$) {
 		1
 	}));
 	$assignStatic(PNGImageReader::bandOffsets, $new($intArray2, {
-		($ints*)nullptr,
+		nullptr,
 		$$new($ints, {0}),
 		$$new($ints, {
 			0,
@@ -1548,7 +1363,119 @@ PNGImageReader::PNGImageReader() {
 }
 
 $Class* PNGImageReader::load$($String* name, bool initialize) {
-	$loadClass(PNGImageReader, name, initialize, &_PNGImageReader_ClassInfo_, clinit$PNGImageReader, allocate$PNGImageReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"IHDR_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, IHDR_TYPE)},
+		{"PLTE_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PLTE_TYPE)},
+		{"IDAT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, IDAT_TYPE)},
+		{"IEND_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, IEND_TYPE)},
+		{"bKGD_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, bKGD_TYPE)},
+		{"cHRM_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, cHRM_TYPE)},
+		{"gAMA_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, gAMA_TYPE)},
+		{"hIST_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, hIST_TYPE)},
+		{"iCCP_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, iCCP_TYPE)},
+		{"iTXt_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, iTXt_TYPE)},
+		{"pHYs_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, pHYs_TYPE)},
+		{"sBIT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, sBIT_TYPE)},
+		{"sPLT_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, sPLT_TYPE)},
+		{"sRGB_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, sRGB_TYPE)},
+		{"tEXt_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, tEXt_TYPE)},
+		{"tIME_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, tIME_TYPE)},
+		{"tRNS_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, tRNS_TYPE)},
+		{"zTXt_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, zTXt_TYPE)},
+		{"PNG_COLOR_GRAY", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_GRAY)},
+		{"PNG_COLOR_RGB", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_RGB)},
+		{"PNG_COLOR_PALETTE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_PALETTE)},
+		{"PNG_COLOR_GRAY_ALPHA", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_GRAY_ALPHA)},
+		{"PNG_COLOR_RGB_ALPHA", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_COLOR_RGB_ALPHA)},
+		{"inputBandsForColorType", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, inputBandsForColorType)},
+		{"PNG_FILTER_NONE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_NONE)},
+		{"PNG_FILTER_SUB", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_SUB)},
+		{"PNG_FILTER_UP", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_UP)},
+		{"PNG_FILTER_AVERAGE", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_AVERAGE)},
+		{"PNG_FILTER_PAETH", "I", nullptr, $STATIC | $FINAL, $constField(PNGImageReader, PNG_FILTER_PAETH)},
+		{"adam7XOffset", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, adam7XOffset)},
+		{"adam7YOffset", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, adam7YOffset)},
+		{"adam7XSubsampling", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, adam7XSubsampling)},
+		{"adam7YSubsampling", "[I", nullptr, $STATIC | $FINAL, $staticField(PNGImageReader, adam7YSubsampling)},
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PNGImageReader, debug)},
+		{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(PNGImageReader, stream)},
+		{"gotHeader", "Z", nullptr, 0, $field(PNGImageReader, gotHeader)},
+		{"gotMetadata", "Z", nullptr, 0, $field(PNGImageReader, gotMetadata)},
+		{"lastParam", "Ljavax/imageio/ImageReadParam;", nullptr, 0, $field(PNGImageReader, lastParam)},
+		{"imageStartPosition", "J", nullptr, 0, $field(PNGImageReader, imageStartPosition)},
+		{"sourceRegion", "Ljava/awt/Rectangle;", nullptr, 0, $field(PNGImageReader, sourceRegion)},
+		{"sourceXSubsampling", "I", nullptr, 0, $field(PNGImageReader, sourceXSubsampling)},
+		{"sourceYSubsampling", "I", nullptr, 0, $field(PNGImageReader, sourceYSubsampling)},
+		{"sourceMinProgressivePass", "I", nullptr, 0, $field(PNGImageReader, sourceMinProgressivePass)},
+		{"sourceMaxProgressivePass", "I", nullptr, 0, $field(PNGImageReader, sourceMaxProgressivePass)},
+		{"sourceBands", "[I", nullptr, 0, $field(PNGImageReader, sourceBands)},
+		{"destinationBands", "[I", nullptr, 0, $field(PNGImageReader, destinationBands)},
+		{"destinationOffset", "Ljava/awt/Point;", nullptr, 0, $field(PNGImageReader, destinationOffset)},
+		{"metadata", "Lcom/sun/imageio/plugins/png/PNGMetadata;", nullptr, 0, $field(PNGImageReader, metadata)},
+		{"pixelStream", "Ljava/io/DataInputStream;", nullptr, 0, $field(PNGImageReader, pixelStream)},
+		{"theImage", "Ljava/awt/image/BufferedImage;", nullptr, 0, $field(PNGImageReader, theImage)},
+		{"pixelsDone", "I", nullptr, 0, $field(PNGImageReader, pixelsDone)},
+		{"totalPixels", "I", nullptr, 0, $field(PNGImageReader, totalPixels)},
+		{"bandOffsets", "[[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReader, bandOffsets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(PNGImageReader, init$, void, $ImageReaderSpi*)},
+		{"createRaster", "(IIIII)Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE, $method(PNGImageReader, createRaster, $WritableRaster*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"decodeAverageFilter", "([BI[BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, decodeAverageFilter, void, $bytes*, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"decodeImage", "()V", nullptr, $PRIVATE, $method(PNGImageReader, decodeImage, void), "java.io.IOException,javax.imageio.IIOException"},
+		{"decodePaethFilter", "([BI[BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, decodePaethFilter, void, $bytes*, int32_t, $bytes*, int32_t, int32_t, int32_t)},
+		{"decodePass", "(IIIIIII)V", nullptr, $PRIVATE, $method(PNGImageReader, decodePass, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"decodeSubFilter", "([BIII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, decodeSubFilter, void, $bytes*, int32_t, int32_t, int32_t)},
+		{"decodeUpFilter", "([BI[BII)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, decodeUpFilter, void, $bytes*, int32_t, $bytes*, int32_t, int32_t)},
+		{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getDefaultReadParam, $ImageReadParam*)},
+		{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getHeight, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getImageMetadata, $IIOMetadata*, int32_t), "javax.imageio.IIOException"},
+		{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(PNGImageReader, getImageTypes, $Iterator*, int32_t), "javax.imageio.IIOException"},
+		{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getNumImages, int32_t, bool), "javax.imageio.IIOException"},
+		{"getRawImageType", "(I)Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getRawImageType, $ImageTypeSpecifier*, int32_t), "java.io.IOException"},
+		{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getStreamMetadata, $IIOMetadata*), "javax.imageio.IIOException"},
+		{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, getWidth, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"inflate", "([B)[B", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, inflate, $bytes*, $bytes*), "java.io.IOException"},
+		{"paethPredictor", "(III)I", nullptr, $PRIVATE | $STATIC, $staticMethod(PNGImageReader, paethPredictor, int32_t, int32_t, int32_t, int32_t)},
+		{"parse_PLTE_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_PLTE_chunk, void, int32_t), "java.io.IOException"},
+		{"parse_bKGD_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_bKGD_chunk, void), "java.io.IOException"},
+		{"parse_cHRM_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_cHRM_chunk, void), "java.io.IOException"},
+		{"parse_gAMA_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_gAMA_chunk, void), "java.io.IOException"},
+		{"parse_hIST_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_hIST_chunk, void, int32_t), "java.io.IOException,javax.imageio.IIOException"},
+		{"parse_iCCP_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_iCCP_chunk, void, int32_t), "java.io.IOException"},
+		{"parse_iTXt_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_iTXt_chunk, void, int32_t), "java.io.IOException"},
+		{"parse_pHYs_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_pHYs_chunk, void), "java.io.IOException"},
+		{"parse_sBIT_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_sBIT_chunk, void), "java.io.IOException"},
+		{"parse_sPLT_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_sPLT_chunk, void, int32_t), "java.io.IOException,javax.imageio.IIOException"},
+		{"parse_sRGB_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_sRGB_chunk, void), "java.io.IOException"},
+		{"parse_tEXt_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_tEXt_chunk, void, int32_t), "java.io.IOException"},
+		{"parse_tIME_chunk", "()V", nullptr, $PRIVATE, $method(PNGImageReader, parse_tIME_chunk, void), "java.io.IOException"},
+		{"parse_tRNS_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_tRNS_chunk, void, int32_t), "java.io.IOException"},
+		{"parse_zTXt_chunk", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, parse_zTXt_chunk, void, int32_t), "java.io.IOException"},
+		{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "javax.imageio.IIOException"},
+		{"readHeader", "()V", nullptr, $PRIVATE, $method(PNGImageReader, readHeader, void), "javax.imageio.IIOException"},
+		{"readImage", "(Ljavax/imageio/ImageReadParam;)V", nullptr, $PRIVATE, $method(PNGImageReader, readImage, void, $ImageReadParam*), "javax.imageio.IIOException"},
+		{"readMetadata", "()V", nullptr, $PRIVATE, $method(PNGImageReader, readMetadata, void), "javax.imageio.IIOException"},
+		{"readNullTerminatedString", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(PNGImageReader, readNullTerminatedString, $String*, $String*, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, reset, void)},
+		{"resetStreamSettings", "()V", nullptr, $PRIVATE, $method(PNGImageReader, resetStreamSettings, void)},
+		{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(PNGImageReader, setInput, void, Object$*, bool, bool)},
+		{"skipPass", "(II)V", nullptr, $PRIVATE, $method(PNGImageReader, skipPass, void, int32_t, int32_t), "java.io.IOException,javax.imageio.IIOException"},
+		{"updateImageProgress", "(I)V", nullptr, $PRIVATE, $method(PNGImageReader, updateImageProgress, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.png.PNGImageReader",
+		"javax.imageio.ImageReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PNGImageReader, name, initialize, &classInfo$$, PNGImageReader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGImageReader);
+	});
 	return class$;
 }
 

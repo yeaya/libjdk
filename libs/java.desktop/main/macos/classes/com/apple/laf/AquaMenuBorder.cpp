@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaMenuBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
@@ -23,35 +22,6 @@ using $Border = ::javax::swing::border::Border;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaMenuBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBorder, getBorderInsets, $Insets*, $Component*)},
-	{"getEmptyInsets", "()Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaMenuBorder, getEmptyInsets, $Insets*)},
-	{"getItemInsets", "()Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaMenuBorder, getItemInsets, $Insets*)},
-	{"getPopupInsets", "()Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaMenuBorder, getPopupInsets, $Insets*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaMenuBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AquaMenuBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaMenuBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource",
-	nullptr,
-	_AquaMenuBorder_MethodInfo_
-};
-
-$Object* allocate$AquaMenuBorder($Class* clazz) {
-	return $of($alloc(AquaMenuBorder));
-}
 
 int32_t AquaMenuBorder::hashCode() {
 	 return this->$Border::hashCode();
@@ -99,7 +69,7 @@ $Insets* AquaMenuBorder::getPopupInsets() {
 }
 
 $Insets* AquaMenuBorder::getBorderInsets($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JPopupMenu, c))) {
 		return getItemInsets();
 	}
@@ -121,7 +91,32 @@ AquaMenuBorder::AquaMenuBorder() {
 }
 
 $Class* AquaMenuBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaMenuBorder, name, initialize, &_AquaMenuBorder_ClassInfo_, allocate$AquaMenuBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaMenuBorder, getBorderInsets, $Insets*, $Component*)},
+		{"getEmptyInsets", "()Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaMenuBorder, getEmptyInsets, $Insets*)},
+		{"getItemInsets", "()Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaMenuBorder, getItemInsets, $Insets*)},
+		{"getPopupInsets", "()Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaMenuBorder, getPopupInsets, $Insets*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaMenuBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaMenuBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AquaMenuBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaMenuBorder));
+	});
 	return class$;
 }
 

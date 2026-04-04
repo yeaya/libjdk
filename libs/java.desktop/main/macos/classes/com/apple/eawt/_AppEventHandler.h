@@ -86,6 +86,7 @@ class _AppEventHandler : public ::java::lang::Object {
 	$class(_AppEventHandler, 0, ::java::lang::Object)
 public:
 	_AppEventHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addListener(::java::awt::desktop::SystemEventListener* listener);
 	virtual void cancelQuit();

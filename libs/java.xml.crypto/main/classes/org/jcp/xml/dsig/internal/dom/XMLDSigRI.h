@@ -29,6 +29,7 @@ public:
 	XMLDSigRI();
 	using ::java::security::Provider::load;
 	using ::java::security::Provider::getProperty;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void access$000(::org::jcp::xml::dsig::internal::dom::XMLDSigRI* x0, ::java::security::Provider$Service* x1);
 	static void access$100(::org::jcp::xml::dsig::internal::dom::XMLDSigRI* x0, ::java::security::Provider$Service* x1);
@@ -43,7 +44,7 @@ public:
 	static void access$700(::org::jcp::xml::dsig::internal::dom::XMLDSigRI* x0, ::java::security::Provider$Service* x1);
 	static void access$800(::org::jcp::xml::dsig::internal::dom::XMLDSigRI* x0, ::java::security::Provider$Service* x1);
 	static void access$900(::org::jcp::xml::dsig::internal::dom::XMLDSigRI* x0, ::java::security::Provider$Service* x1);
-	static const int64_t serialVersionUID = (int64_t)0xB9EBA165A116A566;
+	static const int64_t serialVersionUID = (int64_t)0xb9eba165a116a566;
 	static $String* INFO;
 	static $String* VER;
 };

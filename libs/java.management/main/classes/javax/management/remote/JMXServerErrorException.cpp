@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXServerErrorException.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Error.h>
 #include <jcpp.h>
@@ -13,31 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace management {
 		namespace remote {
-
-$FieldInfo _JMXServerErrorException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMXServerErrorException, serialVersionUID)},
-	{"cause", "Ljava/lang/Error;", nullptr, $PRIVATE | $FINAL, $field(JMXServerErrorException, cause)},
-	{}
-};
-
-$MethodInfo _JMXServerErrorException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Error;)V", nullptr, $PUBLIC, $method(JMXServerErrorException, init$, void, $String*, $Error*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(JMXServerErrorException, getCause, $Throwable*)},
-	{}
-};
-
-$ClassInfo _JMXServerErrorException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.JMXServerErrorException",
-	"java.io.IOException",
-	nullptr,
-	_JMXServerErrorException_FieldInfo_,
-	_JMXServerErrorException_MethodInfo_
-};
-
-$Object* allocate$JMXServerErrorException($Class* clazz) {
-	return $of($alloc(JMXServerErrorException));
-}
 
 void JMXServerErrorException::init$($String* s, $Error* err) {
 	$IOException::init$(s);
@@ -59,7 +33,27 @@ void JMXServerErrorException::throw$() {
 }
 
 $Class* JMXServerErrorException::load$($String* name, bool initialize) {
-	$loadClass(JMXServerErrorException, name, initialize, &_JMXServerErrorException_ClassInfo_, allocate$JMXServerErrorException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMXServerErrorException, serialVersionUID)},
+		{"cause", "Ljava/lang/Error;", nullptr, $PRIVATE | $FINAL, $field(JMXServerErrorException, cause)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Error;)V", nullptr, $PUBLIC, $method(JMXServerErrorException, init$, void, $String*, $Error*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(JMXServerErrorException, getCause, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.JMXServerErrorException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JMXServerErrorException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXServerErrorException);
+	});
 	return class$;
 }
 

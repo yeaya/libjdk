@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImageCache.h>
-
 #include <java/awt/Image.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -34,9 +33,6 @@ using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
-using $Lock = ::java::util::concurrent::locks::Lock;
-using $ReadWriteLock = ::java::util::concurrent::locks::ReadWriteLock;
 using $ReentrantReadWriteLock = ::java::util::concurrent::locks::ReentrantReadWriteLock;
 using $Supplier = ::java::util::function::Supplier;
 using $AppContext = ::sun::awt::AppContext;
@@ -53,81 +49,33 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(ImageCache::lambda$getInstance$0());
+		 return ImageCache::lambda$getInstance$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ImageCache$$Lambda$lambda$getInstance$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ImageCache$$Lambda$lambda$getInstance$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageCache$$Lambda$lambda$getInstance$0, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageCache$$Lambda$lambda$getInstance$0, get, $Object*)},
-	{}
-};
-$ClassInfo ImageCache$$Lambda$lambda$getInstance$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.image.ImageCache$$Lambda$lambda$getInstance$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* ImageCache$$Lambda$lambda$getInstance$0::load$($String* name, bool initialize) {
-	$loadClass(ImageCache$$Lambda$lambda$getInstance$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageCache$$Lambda$lambda$getInstance$0, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageCache$$Lambda$lambda$getInstance$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.image.ImageCache$$Lambda$lambda$getInstance$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageCache$$Lambda$lambda$getInstance$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageCache$$Lambda$lambda$getInstance$0);
+	});
 	return class$;
 }
 $Class* ImageCache$$Lambda$lambda$getInstance$0::class$ = nullptr;
 
-$FieldInfo _ImageCache_FieldInfo_[] = {
-	{"map", "Ljava/util/LinkedHashMap;", "Ljava/util/LinkedHashMap<Lsun/awt/image/ImageCache$PixelsKey;Lsun/awt/image/ImageCache$ImageSoftReference;>;", $PRIVATE | $FINAL, $field(ImageCache, map)},
-	{"maxPixelCount", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache, maxPixelCount)},
-	{"currentPixelCount", "I", nullptr, $PRIVATE, $field(ImageCache, currentPixelCount)},
-	{"lock", "Ljava/util/concurrent/locks/ReadWriteLock;", nullptr, $PRIVATE | $FINAL, $field(ImageCache, lock)},
-	{"referenceQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/awt/Image;>;", $PRIVATE | $FINAL, $field(ImageCache, referenceQueue)},
-	{}
-};
-
-$MethodInfo _ImageCache_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ImageCache, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, 0, $method(ImageCache, init$, void)},
-	{"flush", "()V", nullptr, $PUBLIC, $method(ImageCache, flush, void)},
-	{"getImage", "(Lsun/awt/image/ImageCache$PixelsKey;)Ljava/awt/Image;", nullptr, $PUBLIC, $method(ImageCache, getImage, $Image*, $ImageCache$PixelsKey*)},
-	{"getInstance", "()Lsun/awt/image/ImageCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageCache, getInstance, ImageCache*)},
-	{"lambda$getInstance$0", "()Lsun/awt/image/ImageCache;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ImageCache, lambda$getInstance$0, ImageCache*)},
-	{"setImage", "(Lsun/awt/image/ImageCache$PixelsKey;Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(ImageCache, setImage, void, $ImageCache$PixelsKey*, $Image*)},
-	{}
-};
-
-$InnerClassInfo _ImageCache_InnerClassesInfo_[] = {
-	{"sun.awt.image.ImageCache$ImageSoftReference", "sun.awt.image.ImageCache", "ImageSoftReference", $PRIVATE | $STATIC},
-	{"sun.awt.image.ImageCache$PixelsKey", "sun.awt.image.ImageCache", "PixelsKey", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImageCache_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.image.ImageCache",
-	"java.lang.Object",
-	nullptr,
-	_ImageCache_FieldInfo_,
-	_ImageCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.image.ImageCache$ImageSoftReference,sun.awt.image.ImageCache$PixelsKey"
-};
-
-$Object* allocate$ImageCache($Class* clazz) {
-	return $of($alloc(ImageCache));
-}
-
 ImageCache* ImageCache::getInstance() {
 	$load(ImageCache);
-	return $cast(ImageCache, $AppContext::getSoftReferenceValue(ImageCache::class$, static_cast<$Supplier*>($$new(ImageCache$$Lambda$lambda$getInstance$0))));
+	return $cast(ImageCache, $AppContext::getSoftReferenceValue(ImageCache::class$, $$new(ImageCache$$Lambda$lambda$getInstance$0)));
 }
 
 void ImageCache::init$(int32_t maxPixelCount) {
@@ -143,91 +91,86 @@ void ImageCache::init$() {
 }
 
 void ImageCache::flush() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->lock)->writeLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->map)->clear();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($($nc(this->lock)->writeLock()))->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$$nc($nc(this->lock)->writeLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->map)->clear();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$$nc(this->lock->writeLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $Image* ImageCache::getImage($ImageCache$PixelsKey* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageCache$ImageSoftReference, ref, nullptr);
-	$nc($($nc(this->lock)->readLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(ref, $cast($ImageCache$ImageSoftReference, $nc(this->map)->get(key)));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($($nc(this->lock)->readLock()))->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$$nc($nc(this->lock)->readLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(ref, $cast($ImageCache$ImageSoftReference, $nc(this->map)->get(key)));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$$nc(this->lock->readLock())->unlock();
 	}
-	return ref == nullptr ? ($Image*)nullptr : $cast($Image, $nc(ref)->get());
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	return ref == nullptr ? ($Image*)nullptr : $cast($Image, ref->get());
 }
 
 void ImageCache::setImage($ImageCache$PixelsKey* key, $Image* image) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->lock)->writeLock()))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			$var($ImageCache$ImageSoftReference, ref, $cast($ImageCache$ImageSoftReference, $nc(this->map)->get(key)));
-			if (ref != nullptr) {
-				if (ref->get() != nullptr) {
-					return$1 = true;
-					goto $finally;
-				}
-				this->currentPixelCount -= $nc(key)->getPixelCount();
-				$nc(this->map)->remove(key);
+	$useLocalObjectStack();
+	$$nc($nc(this->lock)->writeLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		$var($ImageCache$ImageSoftReference, ref, $cast($ImageCache$ImageSoftReference, $nc(this->map)->get(key)));
+		if (ref != nullptr) {
+			if (ref->get() != nullptr) {
+				return$1 = true;
+				goto $finally;
 			}
-			int32_t newPixelCount = $nc(key)->getPixelCount();
-			this->currentPixelCount += newPixelCount;
-			if (this->currentPixelCount > this->maxPixelCount) {
-				while (($assign(ref, $cast($ImageCache$ImageSoftReference, $nc(this->referenceQueue)->poll()))) != nullptr) {
-					$nc(this->map)->remove($nc(ref)->key);
-					this->currentPixelCount -= $nc($nc(ref)->key)->getPixelCount();
-				}
+			this->currentPixelCount -= $nc(key)->getPixelCount();
+			this->map->remove(key);
+		}
+		;
+		int32_t newPixelCount = $nc(key)->getPixelCount();
+		this->currentPixelCount += newPixelCount;
+		if (this->currentPixelCount > this->maxPixelCount) {
+			while (($assign(ref, $cast($ImageCache$ImageSoftReference, $nc(this->referenceQueue)->poll()))) != nullptr) {
+				this->map->remove($nc(ref)->key);
+				this->currentPixelCount -= $nc(ref->key)->getPixelCount();
 			}
-			if (this->currentPixelCount > this->maxPixelCount) {
-				$var($Iterator, mapIter, $nc($($nc(this->map)->entrySet()))->iterator());
-				while ((this->currentPixelCount > this->maxPixelCount) && $nc(mapIter)->hasNext()) {
-					$var($Map$Entry, entry, $cast($Map$Entry, mapIter->next()));
-					mapIter->remove();
-					$var($Image, img, $cast($Image, $nc(($cast($ImageCache$ImageSoftReference, $($nc(entry)->getValue()))))->get()));
-					if (img != nullptr) {
-						img->flush();
-					}
-					this->currentPixelCount -= $nc($nc(($cast($ImageCache$ImageSoftReference, $(entry->getValue()))))->key)->getPixelCount();
+		}
+		if (this->currentPixelCount > this->maxPixelCount) {
+			$var($Iterator, mapIter, $$nc(this->map->entrySet())->iterator());
+			while ((this->currentPixelCount > this->maxPixelCount) && $nc(mapIter)->hasNext()) {
+				$var($Map$Entry, entry, $cast($Map$Entry, mapIter->next()));
+				mapIter->remove();
+				$var($Image, img, $cast($Image, $$sure($ImageCache$ImageSoftReference, $nc(entry)->getValue())->get()));
+				if (img != nullptr) {
+					img->flush();
 				}
+				this->currentPixelCount -= $nc($nc(($$cast($ImageCache$ImageSoftReference, entry->getValue())))->key)->getPixelCount();
 			}
-			$nc(this->map)->put(key, $$new($ImageCache$ImageSoftReference, key, image, this->referenceQueue));
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$nc($($nc(this->lock)->writeLock()))->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+		this->map->put(key, $$new($ImageCache$ImageSoftReference, key, image, this->referenceQueue));
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		$$nc(this->lock->writeLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -240,11 +183,50 @@ ImageCache::ImageCache() {
 
 $Class* ImageCache::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ImageCache$$Lambda$lambda$getInstance$0::classInfo$.name)) {
+		if (name->equals("sun.awt.image.ImageCache$$Lambda$lambda$getInstance$0")) {
 			return ImageCache$$Lambda$lambda$getInstance$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ImageCache, name, initialize, &_ImageCache_ClassInfo_, allocate$ImageCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/LinkedHashMap;", "Ljava/util/LinkedHashMap<Lsun/awt/image/ImageCache$PixelsKey;Lsun/awt/image/ImageCache$ImageSoftReference;>;", $PRIVATE | $FINAL, $field(ImageCache, map)},
+		{"maxPixelCount", "I", nullptr, $PRIVATE | $FINAL, $field(ImageCache, maxPixelCount)},
+		{"currentPixelCount", "I", nullptr, $PRIVATE, $field(ImageCache, currentPixelCount)},
+		{"lock", "Ljava/util/concurrent/locks/ReadWriteLock;", nullptr, $PRIVATE | $FINAL, $field(ImageCache, lock)},
+		{"referenceQueue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljava/awt/Image;>;", $PRIVATE | $FINAL, $field(ImageCache, referenceQueue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ImageCache, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, 0, $method(ImageCache, init$, void)},
+		{"flush", "()V", nullptr, $PUBLIC, $method(ImageCache, flush, void)},
+		{"getImage", "(Lsun/awt/image/ImageCache$PixelsKey;)Ljava/awt/Image;", nullptr, $PUBLIC, $method(ImageCache, getImage, $Image*, $ImageCache$PixelsKey*)},
+		{"getInstance", "()Lsun/awt/image/ImageCache;", nullptr, $PUBLIC | $STATIC, $staticMethod(ImageCache, getInstance, ImageCache*)},
+		{"lambda$getInstance$0", "()Lsun/awt/image/ImageCache;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ImageCache, lambda$getInstance$0, ImageCache*)},
+		{"setImage", "(Lsun/awt/image/ImageCache$PixelsKey;Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(ImageCache, setImage, void, $ImageCache$PixelsKey*, $Image*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.ImageCache$ImageSoftReference", "sun.awt.image.ImageCache", "ImageSoftReference", $PRIVATE | $STATIC},
+		{"sun.awt.image.ImageCache$PixelsKey", "sun.awt.image.ImageCache", "PixelsKey", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.image.ImageCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.image.ImageCache$ImageSoftReference,sun.awt.image.ImageCache$PixelsKey"
+	};
+	$loadClass(ImageCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageCache);
+	});
 	return class$;
 }
 

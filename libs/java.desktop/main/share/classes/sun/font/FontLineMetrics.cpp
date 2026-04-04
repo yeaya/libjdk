@@ -1,5 +1,4 @@
 #include <sun/font/FontLineMetrics.h>
-
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/font/LineMetrics.h>
 #include <java/lang/ClassCastException.h>
@@ -20,47 +19,6 @@ using $CoreMetrics = ::sun::font::CoreMetrics;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _FontLineMetrics_FieldInfo_[] = {
-	{"numchars", "I", nullptr, $PUBLIC, $field(FontLineMetrics, numchars)},
-	{"cm", "Lsun/font/CoreMetrics;", nullptr, $PUBLIC | $FINAL, $field(FontLineMetrics, cm)},
-	{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC | $FINAL, $field(FontLineMetrics, frc)},
-	{}
-};
-
-$MethodInfo _FontLineMetrics_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(ILsun/font/CoreMetrics;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(FontLineMetrics, init$, void, int32_t, $CoreMetrics*, $FontRenderContext*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, equals, bool, Object$*)},
-	{"getAscent", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getAscent, float)},
-	{"getBaselineIndex", "()I", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getBaselineIndex, int32_t)},
-	{"getBaselineOffsets", "()[F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getBaselineOffsets, $floats*)},
-	{"getDescent", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getDescent, float)},
-	{"getHeight", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getHeight, float)},
-	{"getLeading", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getLeading, float)},
-	{"getNumChars", "()I", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getNumChars, int32_t)},
-	{"getStrikethroughOffset", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getStrikethroughOffset, float)},
-	{"getStrikethroughThickness", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getStrikethroughThickness, float)},
-	{"getUnderlineOffset", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getUnderlineOffset, float)},
-	{"getUnderlineThickness", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getUnderlineThickness, float)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _FontLineMetrics_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.FontLineMetrics",
-	"java.awt.font.LineMetrics",
-	"java.lang.Cloneable",
-	_FontLineMetrics_FieldInfo_,
-	_FontLineMetrics_MethodInfo_
-};
-
-$Object* allocate$FontLineMetrics($Class* clazz) {
-	return $of($alloc(FontLineMetrics));
-}
 
 $String* FontLineMetrics::toString() {
 	 return this->$LineMetrics::toString();
@@ -127,7 +85,7 @@ int32_t FontLineMetrics::hashCode() {
 
 bool FontLineMetrics::equals(Object$* rhs) {
 	try {
-		return $nc(this->cm)->equals($nc(($cast(FontLineMetrics, rhs)))->cm);
+		return $nc(this->cm)->equals($nc($cast(FontLineMetrics, rhs))->cm);
 	} catch ($ClassCastException& e) {
 		return false;
 	}
@@ -136,9 +94,9 @@ bool FontLineMetrics::equals(Object$* rhs) {
 
 $Object* FontLineMetrics::clone() {
 	try {
-		return $of($LineMetrics::clone());
+		return $LineMetrics::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -147,7 +105,43 @@ FontLineMetrics::FontLineMetrics() {
 }
 
 $Class* FontLineMetrics::load$($String* name, bool initialize) {
-	$loadClass(FontLineMetrics, name, initialize, &_FontLineMetrics_ClassInfo_, allocate$FontLineMetrics);
+	$FieldInfo fieldInfos$$[] = {
+		{"numchars", "I", nullptr, $PUBLIC, $field(FontLineMetrics, numchars)},
+		{"cm", "Lsun/font/CoreMetrics;", nullptr, $PUBLIC | $FINAL, $field(FontLineMetrics, cm)},
+		{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC | $FINAL, $field(FontLineMetrics, frc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(ILsun/font/CoreMetrics;Ljava/awt/font/FontRenderContext;)V", nullptr, $PUBLIC, $method(FontLineMetrics, init$, void, int32_t, $CoreMetrics*, $FontRenderContext*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, equals, bool, Object$*)},
+		{"getAscent", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getAscent, float)},
+		{"getBaselineIndex", "()I", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getBaselineIndex, int32_t)},
+		{"getBaselineOffsets", "()[F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getBaselineOffsets, $floats*)},
+		{"getDescent", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getDescent, float)},
+		{"getHeight", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getHeight, float)},
+		{"getLeading", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getLeading, float)},
+		{"getNumChars", "()I", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getNumChars, int32_t)},
+		{"getStrikethroughOffset", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getStrikethroughOffset, float)},
+		{"getStrikethroughThickness", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getStrikethroughThickness, float)},
+		{"getUnderlineOffset", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getUnderlineOffset, float)},
+		{"getUnderlineThickness", "()F", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, getUnderlineThickness, float)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(FontLineMetrics, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.FontLineMetrics",
+		"java.awt.font.LineMetrics",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FontLineMetrics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FontLineMetrics));
+	});
 	return class$;
 }
 

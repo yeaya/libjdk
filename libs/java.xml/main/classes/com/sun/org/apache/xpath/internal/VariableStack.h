@@ -64,6 +64,7 @@ class $export VariableStack : public ::java::lang::Cloneable {
 	$class(VariableStack, 0, ::java::lang::Cloneable)
 public:
 	VariableStack();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void clearLocalSlots(int32_t start, int32_t len);
 	virtual $Object* clone() override;

@@ -23,6 +23,7 @@ class AquaLookAndFeel : public ::javax::swing::plaf::basic::BasicLookAndFeel {
 	$class(AquaLookAndFeel, 0, ::javax::swing::plaf::basic::BasicLookAndFeel)
 public:
 	AquaLookAndFeel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::ActionMap* getAudioActionMap() override;
 	virtual ::javax::swing::UIDefaults* getDefaults() override;

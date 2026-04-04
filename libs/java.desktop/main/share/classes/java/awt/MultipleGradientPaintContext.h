@@ -54,6 +54,7 @@ class MultipleGradientPaintContext : public ::java::awt::PaintContext {
 	$class(MultipleGradientPaintContext, 0, ::java::awt::PaintContext)
 public:
 	MultipleGradientPaintContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::MultipleGradientPaint* mgp, ::java::awt::image::ColorModel* cm, ::java::awt::Rectangle* deviceBounds, ::java::awt::geom::Rectangle2D* userBounds, ::java::awt::geom::AffineTransform* t, ::java::awt::RenderingHints* hints, $floats* fractions, $Array<::java::awt::Color>* colors, ::java::awt::MultipleGradientPaint$CycleMethod* cycleMethod, ::java::awt::MultipleGradientPaint$ColorSpaceType* colorSpace);
 	void calculateLookupData($Array<::java::awt::Color>* colors);
 	void calculateMultipleArrayGradient($Array<::java::awt::Color>* colors);

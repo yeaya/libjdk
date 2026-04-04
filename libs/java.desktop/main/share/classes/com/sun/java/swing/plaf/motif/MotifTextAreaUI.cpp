@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifTextAreaUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTextUI.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifTextAreaUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextAreaUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifTextAreaUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTextAreaUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifTextAreaUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifTextAreaUI",
-	"javax.swing.plaf.basic.BasicTextAreaUI",
-	nullptr,
-	nullptr,
-	_MotifTextAreaUI_MethodInfo_
-};
-
-$Object* allocate$MotifTextAreaUI($Class* clazz) {
-	return $of($alloc(MotifTextAreaUI));
-}
-
 void MotifTextAreaUI::init$() {
 	$BasicTextAreaUI::init$();
 }
@@ -59,7 +38,23 @@ MotifTextAreaUI::MotifTextAreaUI() {
 }
 
 $Class* MotifTextAreaUI::load$($String* name, bool initialize) {
-	$loadClass(MotifTextAreaUI, name, initialize, &_MotifTextAreaUI_ClassInfo_, allocate$MotifTextAreaUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifTextAreaUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifTextAreaUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifTextAreaUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifTextAreaUI",
+		"javax.swing.plaf.basic.BasicTextAreaUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifTextAreaUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifTextAreaUI));
+	});
 	return class$;
 }
 

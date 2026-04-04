@@ -1,5 +1,4 @@
 #include <java/awt/image/RasterFormatException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _RasterFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RasterFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RasterFormatException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RasterFormatException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _RasterFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.RasterFormatException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_RasterFormatException_FieldInfo_,
-	_RasterFormatException_MethodInfo_
-};
-
-$Object* allocate$RasterFormatException($Class* clazz) {
-	return $of($alloc(RasterFormatException));
-}
 
 void RasterFormatException::init$($String* s) {
 	$RuntimeException::init$(s);
@@ -49,7 +25,25 @@ void RasterFormatException::throw$() {
 }
 
 $Class* RasterFormatException::load$($String* name, bool initialize) {
-	$loadClass(RasterFormatException, name, initialize, &_RasterFormatException_ClassInfo_, allocate$RasterFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RasterFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RasterFormatException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.RasterFormatException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RasterFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RasterFormatException);
+	});
 	return class$;
 }
 

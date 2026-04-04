@@ -1,5 +1,4 @@
 #include <javax/swing/JCheckBoxMenuItem.h>
-
 #include <java/awt/Component.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -23,122 +22,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Action = ::javax::swing::Action;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JCheckBoxMenuItem$AccessibleJCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem$AccessibleJCheckBoxMenuItem;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JToggleButton$ToggleButtonModel = ::javax::swing::JToggleButton$ToggleButtonModel;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JCheckBoxMenuItem_Attribute_var$0[] = {
-	{"description", 's', "A menu item which can be selected or deselected."},
-	{}
-};
-
-$NamedAttribute JCheckBoxMenuItem_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JCheckBoxMenuItem_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JCheckBoxMenuItem_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JCheckBoxMenuItem_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JCheckBoxMenuItem_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JCheckBoxMenuItem_MethodAnnotations_getAccessibleContext7[] = {
-	{"Ljava/beans/BeanProperty;", JCheckBoxMenuItem_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JCheckBoxMenuItem_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JCheckBoxMenuItem_MethodAnnotations_getSelectedObjects8[] = {
-	{"Ljava/beans/BeanProperty;", JCheckBoxMenuItem_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JCheckBoxMenuItem_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JCheckBoxMenuItem_MethodAnnotations_getUIClassID10[] = {
-	{"Ljava/beans/BeanProperty;", JCheckBoxMenuItem_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JCheckBoxMenuItem_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The selection state of the check box menu item"},
-	{}
-};
-
-$CompoundAttribute _JCheckBoxMenuItem_MethodAnnotations_setState12[] = {
-	{"Ljava/beans/BeanProperty;", JCheckBoxMenuItem_Attribute_var$5},
-	{}
-};
-
-$FieldInfo _JCheckBoxMenuItem_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JCheckBoxMenuItem, uiClassID)},
-	{}
-};
-
-$MethodInfo _JCheckBoxMenuItem_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void)},
-	{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $Icon*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $String*)},
-	{"<init>", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $Action*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $String*, $Icon*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;Z)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $String*, $Icon*, bool)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JCheckBoxMenuItem, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JCheckBoxMenuItem_MethodAnnotations_getAccessibleContext7},
-	{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCheckBoxMenuItem, getSelectedObjects, $ObjectArray*), nullptr, nullptr, _JCheckBoxMenuItem_MethodAnnotations_getSelectedObjects8},
-	{"getState", "()Z", nullptr, $PUBLIC, $virtualMethod(JCheckBoxMenuItem, getState, bool)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCheckBoxMenuItem, getUIClassID, $String*), nullptr, nullptr, _JCheckBoxMenuItem_MethodAnnotations_getUIClassID10},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JCheckBoxMenuItem, paramString, $String*)},
-	{"setState", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JCheckBoxMenuItem, setState, void, bool), nullptr, nullptr, _JCheckBoxMenuItem_MethodAnnotations_setState12},
-	{"shouldUpdateSelectedStateFromAction", "()Z", nullptr, 0, $virtualMethod(JCheckBoxMenuItem, shouldUpdateSelectedStateFromAction, bool)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JCheckBoxMenuItem, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JCheckBoxMenuItem_InnerClassesInfo_[] = {
-	{"javax.swing.JCheckBoxMenuItem$AccessibleJCheckBoxMenuItem", "javax.swing.JCheckBoxMenuItem", "AccessibleJCheckBoxMenuItem", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JCheckBoxMenuItem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JCheckBoxMenuItem",
-	"javax.swing.JMenuItem",
-	nullptr,
-	_JCheckBoxMenuItem_FieldInfo_,
-	_JCheckBoxMenuItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCheckBoxMenuItem_InnerClassesInfo_,
-	_JCheckBoxMenuItem_Annotations_,
-	nullptr,
-	"javax.swing.JCheckBoxMenuItem$AccessibleJCheckBoxMenuItem"
-};
-
-$Object* allocate$JCheckBoxMenuItem($Class* clazz) {
-	return $of($alloc(JCheckBoxMenuItem));
-}
 
 $String* JCheckBoxMenuItem::uiClassID = nullptr;
 
@@ -189,7 +80,7 @@ void JCheckBoxMenuItem::setState(bool b) {
 }
 
 $ObjectArray* JCheckBoxMenuItem::getSelectedObjects() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isSelected() == false) {
 		return nullptr;
 	}
@@ -200,11 +91,11 @@ $ObjectArray* JCheckBoxMenuItem::getSelectedObjects() {
 
 void JCheckBoxMenuItem::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JCheckBoxMenuItem::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JCheckBoxMenuItem::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -227,12 +118,101 @@ $AccessibleContext* JCheckBoxMenuItem::getAccessibleContext() {
 JCheckBoxMenuItem::JCheckBoxMenuItem() {
 }
 
-void clinit$JCheckBoxMenuItem($Class* class$) {
+void JCheckBoxMenuItem::clinit$($Class* clazz) {
 	$assignStatic(JCheckBoxMenuItem::uiClassID, "CheckBoxMenuItemUI"_s);
 }
 
 $Class* JCheckBoxMenuItem::load$($String* name, bool initialize) {
-	$loadClass(JCheckBoxMenuItem, name, initialize, &_JCheckBoxMenuItem_ClassInfo_, clinit$JCheckBoxMenuItem, allocate$JCheckBoxMenuItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JCheckBoxMenuItem, uiClassID)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getSelectedObjectsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getSelectedObjectsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getSelectedObjectsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setStatemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The selection state of the check box menu item"},
+		{}
+	};
+	$CompoundAttribute setStatemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setStatemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void)},
+		{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $Icon*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $String*)},
+		{"<init>", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $Action*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $String*, $Icon*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;Z)V", nullptr, $PUBLIC, $method(JCheckBoxMenuItem, init$, void, $String*, $Icon*, bool)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JCheckBoxMenuItem, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JCheckBoxMenuItem, getSelectedObjects, $ObjectArray*), nullptr, nullptr, getSelectedObjectsmethodAnnotations$$},
+		{"getState", "()Z", nullptr, $PUBLIC, $virtualMethod(JCheckBoxMenuItem, getState, bool)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JCheckBoxMenuItem, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JCheckBoxMenuItem, paramString, $String*)},
+		{"setState", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JCheckBoxMenuItem, setState, void, bool), nullptr, nullptr, setStatemethodAnnotations$$},
+		{"shouldUpdateSelectedStateFromAction", "()Z", nullptr, 0, $virtualMethod(JCheckBoxMenuItem, shouldUpdateSelectedStateFromAction, bool)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JCheckBoxMenuItem, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JCheckBoxMenuItem$AccessibleJCheckBoxMenuItem", "javax.swing.JCheckBoxMenuItem", "AccessibleJCheckBoxMenuItem", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"description", 's', "A menu item which can be selected or deselected."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JCheckBoxMenuItem",
+		"javax.swing.JMenuItem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JCheckBoxMenuItem$AccessibleJCheckBoxMenuItem"
+	};
+	$loadClass(JCheckBoxMenuItem, name, initialize, &classInfo$$, JCheckBoxMenuItem::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCheckBoxMenuItem));
+	});
 	return class$;
 }
 

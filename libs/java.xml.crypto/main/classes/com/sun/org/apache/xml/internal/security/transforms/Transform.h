@@ -86,6 +86,7 @@ class Transform : public ::com::sun::org::apache::xml::internal::security::utils
 	$class(Transform, 0, ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy)
 public:
 	Transform();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc, $String* algorithmURI);
 	void init$(::org::w3c::dom::Document* doc, $String* algorithmURI, ::org::w3c::dom::Element* contextChild);
 	void init$(::org::w3c::dom::Document* doc, $String* algorithmURI, ::org::w3c::dom::NodeList* contextNodes);

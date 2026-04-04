@@ -1,5 +1,4 @@
 #include <javax/swing/JTree$TreeTimer.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <javax/swing/JTree.h>
@@ -18,42 +17,6 @@ using $Timer = ::javax::swing::Timer;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JTree$TreeTimer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JTree;", nullptr, $FINAL | $SYNTHETIC, $field(JTree$TreeTimer, this$0)},
-	{}
-};
-
-$MethodInfo _JTree$TreeTimer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTree;)V", nullptr, $PUBLIC, $method(JTree$TreeTimer, init$, void, $JTree*)},
-	{"fireActionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeTimer, fireActionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _JTree$TreeTimer_InnerClassesInfo_[] = {
-	{"javax.swing.JTree$TreeTimer", "javax.swing.JTree", "TreeTimer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _JTree$TreeTimer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTree$TreeTimer",
-	"javax.swing.Timer",
-	nullptr,
-	_JTree$TreeTimer_FieldInfo_,
-	_JTree$TreeTimer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTree$TreeTimer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTree"
-};
-
-$Object* allocate$JTree$TreeTimer($Class* clazz) {
-	return $of($alloc(JTree$TreeTimer));
-}
-
 void JTree$TreeTimer::init$($JTree* this$0) {
 	$set(this, this$0, this$0);
 	$Timer::init$(2000, nullptr);
@@ -68,7 +31,37 @@ JTree$TreeTimer::JTree$TreeTimer() {
 }
 
 $Class* JTree$TreeTimer::load$($String* name, bool initialize) {
-	$loadClass(JTree$TreeTimer, name, initialize, &_JTree$TreeTimer_ClassInfo_, allocate$JTree$TreeTimer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JTree;", nullptr, $FINAL | $SYNTHETIC, $field(JTree$TreeTimer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTree;)V", nullptr, $PUBLIC, $method(JTree$TreeTimer, init$, void, $JTree*)},
+		{"fireActionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTree$TreeTimer, fireActionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTree$TreeTimer", "javax.swing.JTree", "TreeTimer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTree$TreeTimer",
+		"javax.swing.Timer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTree"
+	};
+	$loadClass(JTree$TreeTimer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTree$TreeTimer);
+	});
 	return class$;
 }
 

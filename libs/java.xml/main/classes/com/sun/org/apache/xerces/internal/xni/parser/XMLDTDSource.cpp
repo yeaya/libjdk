@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
 #include <jcpp.h>
 
@@ -16,27 +15,23 @@ namespace com {
 						namespace xni {
 							namespace parser {
 
-$MethodInfo _XMLDTDSource_MethodInfo_[] = {
-	{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDSource, getDTDHandler, $XMLDTDHandler*)},
-	{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDSource, setDTDHandler, void, $XMLDTDHandler*)},
-	{}
-};
-
-$ClassInfo _XMLDTDSource_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDSource",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XMLDTDSource_MethodInfo_
-};
-
-$Object* allocate$XMLDTDSource($Class* clazz) {
-	return $of($alloc(XMLDTDSource));
-}
-
 $Class* XMLDTDSource::load$($String* name, bool initialize) {
-	$loadClass(XMLDTDSource, name, initialize, &_XMLDTDSource_ClassInfo_, allocate$XMLDTDSource);
+	$MethodInfo methodInfos$$[] = {
+		{"getDTDHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDSource, getDTDHandler, $XMLDTDHandler*)},
+		{"setDTDHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDTDHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDSource, setDTDHandler, void, $XMLDTDHandler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDTDSource",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLDTDSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLDTDSource);
+	});
 	return class$;
 }
 

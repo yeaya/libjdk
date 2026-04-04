@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/pubapi/ArrayTypeDesc.h>
-
 #include <com/sun/tools/sjavac/pubapi/TypeDesc.h>
 #include <javax/lang/model/type/TypeKind.h>
 #include <jcpp.h>
@@ -18,32 +17,6 @@ namespace com {
 			namespace sjavac {
 				namespace pubapi {
 
-$FieldInfo _ArrayTypeDesc_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayTypeDesc, serialVersionUID)},
-	{"compTypeDesc", "Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, 0, $field(ArrayTypeDesc, compTypeDesc)},
-	{}
-};
-
-$MethodInfo _ArrayTypeDesc_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/pubapi/TypeDesc;)V", nullptr, $PUBLIC, $method(ArrayTypeDesc, init$, void, $TypeDesc*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayTypeDesc, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayTypeDesc, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _ArrayTypeDesc_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.pubapi.ArrayTypeDesc",
-	"com.sun.tools.sjavac.pubapi.TypeDesc",
-	nullptr,
-	_ArrayTypeDesc_FieldInfo_,
-	_ArrayTypeDesc_MethodInfo_
-};
-
-$Object* allocate$ArrayTypeDesc($Class* clazz) {
-	return $of($alloc(ArrayTypeDesc));
-}
-
 void ArrayTypeDesc::init$($TypeDesc* compTypeDesc) {
 	$init($TypeKind);
 	$TypeDesc::init$($TypeKind::ARRAY);
@@ -54,7 +27,7 @@ bool ArrayTypeDesc::equals(Object$* obj) {
 	if (!$TypeDesc::equals(obj)) {
 		return false;
 	}
-	return $nc(this->compTypeDesc)->equals($nc(($cast(ArrayTypeDesc, obj)))->compTypeDesc);
+	return $nc(this->compTypeDesc)->equals($nc($cast(ArrayTypeDesc, obj))->compTypeDesc);
 }
 
 int32_t ArrayTypeDesc::hashCode() {
@@ -66,7 +39,28 @@ ArrayTypeDesc::ArrayTypeDesc() {
 }
 
 $Class* ArrayTypeDesc::load$($String* name, bool initialize) {
-	$loadClass(ArrayTypeDesc, name, initialize, &_ArrayTypeDesc_ClassInfo_, allocate$ArrayTypeDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ArrayTypeDesc, serialVersionUID)},
+		{"compTypeDesc", "Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, 0, $field(ArrayTypeDesc, compTypeDesc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/sjavac/pubapi/TypeDesc;)V", nullptr, $PUBLIC, $method(ArrayTypeDesc, init$, void, $TypeDesc*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ArrayTypeDesc, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayTypeDesc, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.pubapi.ArrayTypeDesc",
+		"com.sun.tools.sjavac.pubapi.TypeDesc",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayTypeDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayTypeDesc);
+	});
 	return class$;
 }
 

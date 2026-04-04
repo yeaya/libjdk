@@ -112,6 +112,7 @@ public:
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* frame, $String* doctitle, ::java::util::Properties* props);
 	void init$(::java::awt::Frame* frame, $String* doctitle, ::java::awt::JobAttributes* jobAttributes, ::java::awt::PageAttributes* pageAttributes);
 	void copyAttributes(::javax::print::PrintService* printServ);

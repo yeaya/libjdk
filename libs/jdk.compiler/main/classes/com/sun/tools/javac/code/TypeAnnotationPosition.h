@@ -54,6 +54,7 @@ class $export TypeAnnotationPosition : public ::java::lang::Object {
 	$class(TypeAnnotationPosition, 0, ::java::lang::Object)
 public:
 	TypeAnnotationPosition();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::TargetType* ttype, int32_t pos, int32_t parameter_index, ::com::sun::tools::javac::tree::JCTree$JCLambda* onLambda, int32_t type_index, int32_t bound_index, ::com::sun::tools::javac::util::List* location);
 	static ::com::sun::tools::javac::code::TypeAnnotationPosition* classExtends(::com::sun::tools::javac::util::List* location, ::com::sun::tools::javac::tree::JCTree$JCLambda* onLambda, int32_t type_index, int32_t pos);
 	static ::com::sun::tools::javac::code::TypeAnnotationPosition* classExtends(::com::sun::tools::javac::util::List* location, ::com::sun::tools::javac::tree::JCTree$JCLambda* onLambda, int32_t pos);

@@ -26,6 +26,7 @@ class XConstants : public ::java::lang::Object {
 	$class(XConstants, 0, ::java::lang::Object)
 public:
 	XConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t X_PROTOCOL = 11;
 	static const int32_t X_PROTOCOL_REVISION = 0;

@@ -27,6 +27,7 @@ class XMap : public ::java::lang::Object {
 	$class(XMap, 0, ::java::lang::Object)
 public:
 	XMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* className, int32_t minU, int32_t maxU, int32_t nBytes, bool addAscii, bool lowPartOnly);
 	static ::sun::font::XMap* getXMapper($String* encoding);
 	static ::sun::font::XMap* getXMapperInternal($String* encoding);

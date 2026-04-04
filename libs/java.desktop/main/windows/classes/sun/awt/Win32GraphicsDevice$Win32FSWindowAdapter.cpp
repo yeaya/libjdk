@@ -1,5 +1,4 @@
 #include <sun/awt/Win32GraphicsDevice$Win32FSWindowAdapter.h>
-
 #include <java/awt/DisplayMode.h>
 #include <java/awt/Frame.h>
 #include <java/awt/GraphicsDevice.h>
@@ -30,80 +29,31 @@ using $Win32GraphicsDevice = ::sun::awt::Win32GraphicsDevice;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _Win32GraphicsDevice$Win32FSWindowAdapter_FieldInfo_[] = {
-	{"device", "Lsun/awt/Win32GraphicsDevice;", nullptr, $PRIVATE, $field(Win32GraphicsDevice$Win32FSWindowAdapter, device)},
-	{"dm", "Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $field(Win32GraphicsDevice$Win32FSWindowAdapter, dm)},
-	{}
-};
-
-$MethodInfo _Win32GraphicsDevice$Win32FSWindowAdapter_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/Win32GraphicsDevice;)V", nullptr, 0, $method(Win32GraphicsDevice$Win32FSWindowAdapter, init$, void, $Win32GraphicsDevice*)},
-	{"setFSWindowsState", "(Ljava/awt/Window;I)V", nullptr, $PRIVATE, $method(Win32GraphicsDevice$Win32FSWindowAdapter, setFSWindowsState, void, $Window*, int32_t)},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsDevice$Win32FSWindowAdapter, windowActivated, void, $WindowEvent*)},
-	{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsDevice$Win32FSWindowAdapter, windowDeactivated, void, $WindowEvent*)},
-	{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsDevice$Win32FSWindowAdapter, windowDeiconified, void, $WindowEvent*)},
-	{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsDevice$Win32FSWindowAdapter, windowIconified, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _Win32GraphicsDevice$Win32FSWindowAdapter_InnerClassesInfo_[] = {
-	{"sun.awt.Win32GraphicsDevice$Win32FSWindowAdapter", "sun.awt.Win32GraphicsDevice", "Win32FSWindowAdapter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Win32GraphicsDevice$Win32FSWindowAdapter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.Win32GraphicsDevice$Win32FSWindowAdapter",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_Win32GraphicsDevice$Win32FSWindowAdapter_FieldInfo_,
-	_Win32GraphicsDevice$Win32FSWindowAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Win32GraphicsDevice$Win32FSWindowAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.Win32GraphicsDevice"
-};
-
-$Object* allocate$Win32GraphicsDevice$Win32FSWindowAdapter($Class* clazz) {
-	return $of($alloc(Win32GraphicsDevice$Win32FSWindowAdapter));
-}
-
 void Win32GraphicsDevice$Win32FSWindowAdapter::init$($Win32GraphicsDevice* device) {
 	$WindowAdapter::init$();
 	$set(this, device, device);
 }
 
 void Win32GraphicsDevice$Win32FSWindowAdapter::setFSWindowsState($Window* other, int32_t state) {
-	$useLocalCurrentObjectStackCache();
-	$var($GraphicsDeviceArray, gds, $nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getScreenDevices());
+	$useLocalObjectStack();
+	$var($GraphicsDeviceArray, gds, $$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getScreenDevices());
 	if (other != nullptr) {
-		{
-			$var($GraphicsDeviceArray, arr$, gds);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($GraphicsDevice, gd, arr$->get(i$));
-				{
-					if (other == $nc(gd)->getFullScreenWindow()) {
-						return;
-					}
-				}
+		$var($GraphicsDeviceArray, arr$, gds);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($GraphicsDevice, gd, arr$->get(i$));
+			if (other == $nc(gd)->getFullScreenWindow()) {
+				return;
 			}
 		}
 	}
 	{
 		$var($GraphicsDeviceArray, arr$, gds);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($GraphicsDevice, gd, arr$->get(i$));
 			{
 				$var($Window, fsw, $nc(gd)->getFullScreenWindow());
 				if ($instanceOf($Frame, fsw)) {
-					$nc(($cast($Frame, fsw)))->setExtendedState(state);
+					$cast($Frame, fsw)->setExtendedState(state);
 				}
 			}
 		}
@@ -121,7 +71,7 @@ void Win32GraphicsDevice$Win32FSWindowAdapter::windowActivated($WindowEvent* e) 
 void Win32GraphicsDevice$Win32FSWindowAdapter::windowIconified($WindowEvent* e) {
 	$var($DisplayMode, ddm, $nc(this->device)->defaultDisplayMode);
 	if (ddm != nullptr) {
-		$set(this, dm, $nc(this->device)->getDisplayMode());
+		$set(this, dm, this->device->getDisplayMode());
 		$nc(this->device)->setDisplayMode(ddm);
 	}
 }
@@ -137,7 +87,42 @@ Win32GraphicsDevice$Win32FSWindowAdapter::Win32GraphicsDevice$Win32FSWindowAdapt
 }
 
 $Class* Win32GraphicsDevice$Win32FSWindowAdapter::load$($String* name, bool initialize) {
-	$loadClass(Win32GraphicsDevice$Win32FSWindowAdapter, name, initialize, &_Win32GraphicsDevice$Win32FSWindowAdapter_ClassInfo_, allocate$Win32GraphicsDevice$Win32FSWindowAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Lsun/awt/Win32GraphicsDevice;", nullptr, $PRIVATE, $field(Win32GraphicsDevice$Win32FSWindowAdapter, device)},
+		{"dm", "Ljava/awt/DisplayMode;", nullptr, $PRIVATE, $field(Win32GraphicsDevice$Win32FSWindowAdapter, dm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/Win32GraphicsDevice;)V", nullptr, 0, $method(Win32GraphicsDevice$Win32FSWindowAdapter, init$, void, $Win32GraphicsDevice*)},
+		{"setFSWindowsState", "(Ljava/awt/Window;I)V", nullptr, $PRIVATE, $method(Win32GraphicsDevice$Win32FSWindowAdapter, setFSWindowsState, void, $Window*, int32_t)},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsDevice$Win32FSWindowAdapter, windowActivated, void, $WindowEvent*)},
+		{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsDevice$Win32FSWindowAdapter, windowDeactivated, void, $WindowEvent*)},
+		{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsDevice$Win32FSWindowAdapter, windowDeiconified, void, $WindowEvent*)},
+		{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(Win32GraphicsDevice$Win32FSWindowAdapter, windowIconified, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.Win32GraphicsDevice$Win32FSWindowAdapter", "sun.awt.Win32GraphicsDevice", "Win32FSWindowAdapter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.Win32GraphicsDevice$Win32FSWindowAdapter",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.Win32GraphicsDevice"
+	};
+	$loadClass(Win32GraphicsDevice$Win32FSWindowAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32GraphicsDevice$Win32FSWindowAdapter));
+	});
 	return class$;
 }
 

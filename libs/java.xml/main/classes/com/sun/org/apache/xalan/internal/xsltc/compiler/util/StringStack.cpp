@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/StringStack.h>
-
 #include <java/util/Stack.h>
 #include <jcpp.h>
 
@@ -17,33 +16,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 								namespace util {
-
-$FieldInfo _StringStack_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(StringStack, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StringStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringStack, init$, void)},
-	{"peekString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StringStack, peekString, $String*)},
-	{"popString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StringStack, popString, $String*)},
-	{"pushString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(StringStack, pushString, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _StringStack_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack",
-	"java.util.Stack",
-	nullptr,
-	_StringStack_FieldInfo_,
-	_StringStack_MethodInfo_,
-	"Ljava/util/Stack<Ljava/lang/String;>;"
-};
-
-$Object* allocate$StringStack($Class* clazz) {
-	return $of($alloc(StringStack));
-}
 
 void StringStack::init$() {
 	$Stack::init$();
@@ -65,7 +37,29 @@ StringStack::StringStack() {
 }
 
 $Class* StringStack::load$($String* name, bool initialize) {
-	$loadClass(StringStack, name, initialize, &_StringStack_ClassInfo_, allocate$StringStack);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(StringStack, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringStack, init$, void)},
+		{"peekString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StringStack, peekString, $String*)},
+		{"popString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(StringStack, popString, $String*)},
+		{"pushString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(StringStack, pushString, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.StringStack",
+		"java.util.Stack",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Stack<Ljava/lang/String;>;"
+	};
+	$loadClass(StringStack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringStack));
+	});
 	return class$;
 }
 

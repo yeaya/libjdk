@@ -40,7 +40,7 @@ public:
 	int32_t readUnsigned();
 	int64_t readVarInt();
 	bool trackFinished();
-	static const int32_t MTrk_MAGIC = 0x4D54726B;
+	static const int32_t MTrk_MAGIC = 0x4d54726b;
 	static const bool STRICT_PARSER = false;
 	static const bool DEBUG = false;
 	int32_t tracks = 0;

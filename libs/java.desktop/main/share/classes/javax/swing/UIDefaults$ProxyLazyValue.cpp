@@ -1,11 +1,9 @@
 #include <javax/swing/UIDefaults$ProxyLazyValue.h>
-
 #include <java/awt/Color.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/UIDefaults$ProxyLazyValue$1.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/plaf/ColorUIResource.h>
@@ -22,59 +20,12 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$ProxyLazyValue$1 = ::javax::swing::UIDefaults$ProxyLazyValue$1;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _UIDefaults$ProxyLazyValue_FieldInfo_[] = {
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(UIDefaults$ProxyLazyValue, acc)},
-	{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIDefaults$ProxyLazyValue, className)},
-	{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIDefaults$ProxyLazyValue, methodName)},
-	{"args", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(UIDefaults$ProxyLazyValue, args)},
-	{}
-};
-
-$MethodInfo _UIDefaults$ProxyLazyValue_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UIDefaults$ProxyLazyValue, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UIDefaults$ProxyLazyValue, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UIDefaults$ProxyLazyValue, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UIDefaults$ProxyLazyValue, init$, void, $String*, $String*, $ObjectArray*)},
-	{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults$ProxyLazyValue, createValue, $Object*, $UIDefaults*)},
-	{"getClassArray", "([Ljava/lang/Object;)[Ljava/lang/Class;", "([Ljava/lang/Object;)[Ljava/lang/Class<*>;", $PRIVATE, $method(UIDefaults$ProxyLazyValue, getClassArray, $ClassArray*, $ObjectArray*)},
-	{"printArgs", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(UIDefaults$ProxyLazyValue, printArgs, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _UIDefaults$ProxyLazyValue_InnerClassesInfo_[] = {
-	{"javax.swing.UIDefaults$ProxyLazyValue", "javax.swing.UIDefaults", "ProxyLazyValue", $PUBLIC | $STATIC},
-	{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.UIDefaults$ProxyLazyValue$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UIDefaults$ProxyLazyValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.UIDefaults$ProxyLazyValue",
-	"java.lang.Object",
-	"javax.swing.UIDefaults$LazyValue",
-	_UIDefaults$ProxyLazyValue_FieldInfo_,
-	_UIDefaults$ProxyLazyValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UIDefaults$ProxyLazyValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.UIDefaults"
-};
-
-$Object* allocate$UIDefaults$ProxyLazyValue($Class* clazz) {
-	return $of($alloc(UIDefaults$ProxyLazyValue));
-}
 
 void UIDefaults$ProxyLazyValue::init$($String* c) {
 	UIDefaults$ProxyLazyValue::init$(c, ($String*)nullptr);
@@ -102,7 +53,7 @@ $Object* UIDefaults$ProxyLazyValue::createValue($UIDefaults* table) {
 	if (this->acc == nullptr && $System::getSecurityManager() != nullptr) {
 		$throwNew($SecurityException, "null AccessControlContext"_s);
 	}
-	return $of($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($UIDefaults$ProxyLazyValue$1, this, table)), this->acc));
+	return $AccessController::doPrivileged($$new($UIDefaults$ProxyLazyValue$1, this, table), this->acc);
 }
 
 $ClassArray* UIDefaults$ProxyLazyValue::getClassArray($ObjectArray* args) {
@@ -111,16 +62,14 @@ $ClassArray* UIDefaults$ProxyLazyValue::getClassArray($ObjectArray* args) {
 		$assign(types, $new($ClassArray, args->length));
 		for (int32_t i = 0; i < args->length; ++i) {
 			if ($instanceOf($Integer, args->get(i))) {
-				$init($Integer);
 				types->set(i, $Integer::TYPE);
 			} else if ($instanceOf($Boolean, args->get(i))) {
-				$init($Boolean);
 				types->set(i, $Boolean::TYPE);
 			} else if ($instanceOf($ColorUIResource, args->get(i))) {
 				$load($Color);
 				types->set(i, $Color::class$);
 			} else {
-				types->set(i, $nc($of(args->get(i)))->getClass());
+				types->set(i, $nc(args->get(i))->getClass());
 			}
 		}
 	}
@@ -128,7 +77,7 @@ $ClassArray* UIDefaults$ProxyLazyValue::getClassArray($ObjectArray* args) {
 }
 
 $String* UIDefaults$ProxyLazyValue::printArgs($ObjectArray* array) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, "{"_s);
 	if (array != nullptr) {
 		for (int32_t i = 0; i < array->length - 1; ++i) {
@@ -145,7 +94,47 @@ UIDefaults$ProxyLazyValue::UIDefaults$ProxyLazyValue() {
 }
 
 $Class* UIDefaults$ProxyLazyValue::load$($String* name, bool initialize) {
-	$loadClass(UIDefaults$ProxyLazyValue, name, initialize, &_UIDefaults$ProxyLazyValue_ClassInfo_, allocate$UIDefaults$ProxyLazyValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE, $field(UIDefaults$ProxyLazyValue, acc)},
+		{"className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIDefaults$ProxyLazyValue, className)},
+		{"methodName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UIDefaults$ProxyLazyValue, methodName)},
+		{"args", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(UIDefaults$ProxyLazyValue, args)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UIDefaults$ProxyLazyValue, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UIDefaults$ProxyLazyValue, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UIDefaults$ProxyLazyValue, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UIDefaults$ProxyLazyValue, init$, void, $String*, $String*, $ObjectArray*)},
+		{"createValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults$ProxyLazyValue, createValue, $Object*, $UIDefaults*)},
+		{"getClassArray", "([Ljava/lang/Object;)[Ljava/lang/Class;", "([Ljava/lang/Object;)[Ljava/lang/Class<*>;", $PRIVATE, $method(UIDefaults$ProxyLazyValue, getClassArray, $ClassArray*, $ObjectArray*)},
+		{"printArgs", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE, $method(UIDefaults$ProxyLazyValue, printArgs, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.UIDefaults$ProxyLazyValue", "javax.swing.UIDefaults", "ProxyLazyValue", $PUBLIC | $STATIC},
+		{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.UIDefaults$ProxyLazyValue$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.UIDefaults$ProxyLazyValue",
+		"java.lang.Object",
+		"javax.swing.UIDefaults$LazyValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.UIDefaults"
+	};
+	$loadClass(UIDefaults$ProxyLazyValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UIDefaults$ProxyLazyValue);
+	});
 	return class$;
 }
 

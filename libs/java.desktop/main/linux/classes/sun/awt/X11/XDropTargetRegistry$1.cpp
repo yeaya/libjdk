@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDropTargetRegistry$1.h>
-
 #include <sun/awt/X11/XDropTargetRegistry.h>
 #include <jcpp.h>
 
@@ -13,49 +12,6 @@ using $XDropTargetRegistry = ::sun::awt::X11::XDropTargetRegistry;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XDropTargetRegistry$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XDropTargetRegistry;", nullptr, $FINAL | $SYNTHETIC, $field(XDropTargetRegistry$1, this$0)},
-	{"val$window", "J", nullptr, $FINAL | $SYNTHETIC, $field(XDropTargetRegistry$1, val$window)},
-	{}
-};
-
-$MethodInfo _XDropTargetRegistry$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XDropTargetRegistry;J)V", "()V", 0, $method(XDropTargetRegistry$1, init$, void, $XDropTargetRegistry*, int64_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XDropTargetRegistry$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _XDropTargetRegistry$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XDropTargetRegistry",
-	"addDelayedRegistrationEntry",
-	"(J)V"
-};
-
-$InnerClassInfo _XDropTargetRegistry$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XDropTargetRegistry$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XDropTargetRegistry$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XDropTargetRegistry$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_XDropTargetRegistry$1_FieldInfo_,
-	_XDropTargetRegistry$1_MethodInfo_,
-	nullptr,
-	&_XDropTargetRegistry$1_EnclosingMethodInfo_,
-	_XDropTargetRegistry$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XDropTargetRegistry"
-};
-
-$Object* allocate$XDropTargetRegistry$1($Class* clazz) {
-	return $of($alloc(XDropTargetRegistry$1));
-}
 
 void XDropTargetRegistry$1::init$($XDropTargetRegistry* this$0, int64_t val$window) {
 	$set(this, this$0, this$0);
@@ -71,7 +27,43 @@ XDropTargetRegistry$1::XDropTargetRegistry$1() {
 }
 
 $Class* XDropTargetRegistry$1::load$($String* name, bool initialize) {
-	$loadClass(XDropTargetRegistry$1, name, initialize, &_XDropTargetRegistry$1_ClassInfo_, allocate$XDropTargetRegistry$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XDropTargetRegistry;", nullptr, $FINAL | $SYNTHETIC, $field(XDropTargetRegistry$1, this$0)},
+		{"val$window", "J", nullptr, $FINAL | $SYNTHETIC, $field(XDropTargetRegistry$1, val$window)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XDropTargetRegistry;J)V", "()V", 0, $method(XDropTargetRegistry$1, init$, void, $XDropTargetRegistry*, int64_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XDropTargetRegistry$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XDropTargetRegistry",
+		"addDelayedRegistrationEntry",
+		"(J)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XDropTargetRegistry$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XDropTargetRegistry$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XDropTargetRegistry"
+	};
+	$loadClass(XDropTargetRegistry$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XDropTargetRegistry$1);
+	});
 	return class$;
 }
 

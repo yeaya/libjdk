@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicLabelUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
@@ -11,7 +10,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <java/lang/SecurityManager.h>
 #include <javax/swing/Action.h>
@@ -60,9 +58,7 @@ using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -70,7 +66,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Icon = ::javax::swing::Icon;
 using $InputMap = ::javax::swing::InputMap;
@@ -94,71 +89,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicLabelUI_FieldInfo_[] = {
-	{"labelUI", "Ljavax/swing/plaf/basic/BasicLabelUI;", nullptr, $PROTECTED | $STATIC, $staticField(BasicLabelUI, labelUI)},
-	{"BASIC_LABEL_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicLabelUI, BASIC_LABEL_UI_KEY)},
-	{"paintIconR", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicLabelUI, paintIconR)},
-	{"paintTextR", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicLabelUI, paintTextR)},
-	{}
-};
-
-$MethodInfo _BasicLabelUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicLabelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicLabelUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installComponents", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, installComponents, void, $JLabel*)},
-	{"installDefaults", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, installDefaults, void, $JLabel*)},
-	{"installKeyboardActions", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, installKeyboardActions, void, $JLabel*)},
-	{"installListeners", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, installListeners, void, $JLabel*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, installUI, void, $JComponent*)},
-	{"layout", "(Ljavax/swing/JLabel;Ljava/awt/FontMetrics;II)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicLabelUI, layout, $String*, $JLabel*, $FontMetrics*, int32_t, int32_t)},
-	{"layoutCL", "(Ljavax/swing/JLabel;Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, layoutCL, $String*, $JLabel*, $FontMetrics*, $String*, $Icon*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicLabelUI, loadActionMap, void, $LazyActionMap*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintDisabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, paintDisabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
-	{"paintEnabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, paintEnabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, uninstallComponents, void, $JLabel*)},
-	{"uninstallDefaults", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, uninstallDefaults, void, $JLabel*)},
-	{"uninstallKeyboardActions", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, uninstallKeyboardActions, void, $JLabel*)},
-	{"uninstallListeners", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, uninstallListeners, void, $JLabel*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _BasicLabelUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicLabelUI$Actions", "javax.swing.plaf.basic.BasicLabelUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicLabelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicLabelUI",
-	"javax.swing.plaf.LabelUI",
-	"java.beans.PropertyChangeListener",
-	_BasicLabelUI_FieldInfo_,
-	_BasicLabelUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicLabelUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicLabelUI$Actions"
-};
-
-$Object* allocate$BasicLabelUI($Class* clazz) {
-	return $of($alloc(BasicLabelUI));
-}
 
 int32_t BasicLabelUI::hashCode() {
 	 return this->$LabelUI::hashCode();
@@ -191,26 +121,18 @@ void BasicLabelUI::init$() {
 
 void BasicLabelUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicLabelUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicLabelUI$Actions);
 	$nc(map)->put($$new($BasicLabelUI$Actions, $BasicLabelUI$Actions::PRESS));
 	map->put($$new($BasicLabelUI$Actions, $BasicLabelUI$Actions::RELEASE));
 }
 
 $String* BasicLabelUI::layoutCL($JLabel* label, $FontMetrics* fontMetrics, $String* text, $Icon* icon, $Rectangle* viewR, $Rectangle* iconR, $Rectangle* textR) {
-	$useLocalCurrentObjectStackCache();
-	$var($JComponent, var$0, static_cast<$JComponent*>(label));
-	$var($FontMetrics, var$1, fontMetrics);
-	$var($String, var$2, text);
-	$var($Icon, var$3, icon);
-	int32_t var$4 = $nc(label)->getVerticalAlignment();
-	int32_t var$5 = label->getHorizontalAlignment();
-	int32_t var$6 = label->getVerticalTextPosition();
-	int32_t var$7 = label->getHorizontalTextPosition();
-	$var($Rectangle, var$8, viewR);
-	$var($Rectangle, var$9, iconR);
-	$var($Rectangle, var$10, textR);
-	return $SwingUtilities::layoutCompoundLabel(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, label->getIconTextGap());
+	int32_t var$0 = $nc(label)->getVerticalAlignment();
+	int32_t var$1 = label->getHorizontalAlignment();
+	int32_t var$2 = label->getVerticalTextPosition();
+	int32_t var$3 = label->getHorizontalTextPosition();
+	return $SwingUtilities::layoutCompoundLabel($cast($JComponent, label), fontMetrics, text, icon, var$0, var$1, var$2, var$3, viewR, iconR, textR, label->getIconTextGap());
 }
 
 void BasicLabelUI::paintEnabledText($JLabel* l, $Graphics* g, $String* s, int32_t textX, int32_t textY) {
@@ -220,39 +142,37 @@ void BasicLabelUI::paintEnabledText($JLabel* l, $Graphics* g, $String* s, int32_
 }
 
 void BasicLabelUI::paintDisabledText($JLabel* l, $Graphics* g, $String* s, int32_t textX, int32_t textY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t accChar = $nc(l)->getDisplayedMnemonicIndex();
 	$var($Color, background, l->getBackground());
 	$nc(g)->setColor($($nc(background)->brighter()));
 	$SwingUtilities2::drawStringUnderlineCharAt(l, g, s, accChar, textX + 1, textY + 1);
-	g->setColor($($nc(background)->darker()));
+	g->setColor($(background->darker()));
 	$SwingUtilities2::drawStringUnderlineCharAt(l, g, s, accChar, textX, textY);
 }
 
 void BasicLabelUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $cast($JLabel, c));
 	$var($String, text, $nc(label)->getText());
 	$var($Icon, icon, (label->isEnabled()) ? label->getIcon() : label->getDisabledIcon());
 	if ((icon == nullptr) && (text == nullptr)) {
 		return;
 	}
-	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(label), g));
-	$var($JLabel, var$0, label);
-	$var($FontMetrics, var$1, fm);
-	int32_t var$2 = $nc(c)->getWidth();
-	$var($String, clippedText, layout(var$0, var$1, var$2, c->getHeight()));
+	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(label, g));
+	int32_t var$0 = $nc(c)->getWidth();
+	$var($String, clippedText, layout(label, fm, var$0, c->getHeight()));
 	if (icon != nullptr) {
 		icon->paintIcon(c, g, $nc(this->paintIconR)->x, $nc(this->paintIconR)->y);
 	}
 	if (text != nullptr) {
 		$init($BasicHTML);
-		$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
+		$var($View, v, $cast($View, c->getClientProperty($BasicHTML::propertyKey)));
 		if (v != nullptr) {
 			v->paint(g, this->paintTextR);
 		} else {
 			int32_t textX = $nc(this->paintTextR)->x;
-			int32_t textY = $nc(this->paintTextR)->y + $nc(fm)->getAscent();
+			int32_t textY = this->paintTextR->y + $nc(fm)->getAscent();
 			if (label->isEnabled()) {
 				paintEnabledText(label, g, clippedText, textX, textY);
 			} else {
@@ -263,7 +183,7 @@ void BasicLabelUI::paint($Graphics* g, $JComponent* c) {
 }
 
 $String* BasicLabelUI::layout($JLabel* label, $FontMetrics* fm, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, $nc(label)->getInsets(nullptr));
 	$var($String, text, label->getText());
 	$var($Icon, icon, (label->isEnabled()) ? label->getIcon() : label->getDisabledIcon());
@@ -278,18 +198,18 @@ $String* BasicLabelUI::layout($JLabel* label, $FontMetrics* fm, int32_t width, i
 }
 
 $Dimension* BasicLabelUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $cast($JLabel, c));
 	$var($String, text, $nc(label)->getText());
 	$var($Icon, icon, (label->isEnabled()) ? label->getIcon() : label->getDisabledIcon());
 	$var($Insets, insets, label->getInsets(nullptr));
 	$var($Font, font, label->getFont());
-	int32_t dx = $nc(insets)->left + insets->right;
+	int32_t dx = $nc(insets)->left + $nc(insets)->right;
 	int32_t dy = insets->top + insets->bottom;
 	if ((icon == nullptr) && ((text == nullptr) || ((text != nullptr) && (font == nullptr)))) {
 		return $new($Dimension, dx, dy);
 	} else if ((text == nullptr) || ((icon != nullptr) && (font == nullptr))) {
-		int32_t var$0 = icon->getIconWidth() + dx;
+		int32_t var$0 = $nc(icon)->getIconWidth() + dx;
 		return $new($Dimension, var$0, icon->getIconHeight() + dy);
 	} else {
 		$var($FontMetrics, fm, label->getFontMetrics(font));
@@ -314,7 +234,7 @@ $Dimension* BasicLabelUI::getPreferredSize($JComponent* c) {
 }
 
 $Dimension* BasicLabelUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize(c));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -326,7 +246,7 @@ $Dimension* BasicLabelUI::getMinimumSize($JComponent* c) {
 }
 
 $Dimension* BasicLabelUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, getPreferredSize(c));
 	$init($BasicHTML);
 	$var($View, v, $cast($View, $nc(c)->getClientProperty($BasicHTML::propertyKey)));
@@ -338,11 +258,11 @@ $Dimension* BasicLabelUI::getMaximumSize($JComponent* c) {
 }
 
 int32_t BasicLabelUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LabelUI::getBaseline(c, width, height);
 	$var($JLabel, label, $cast($JLabel, c));
 	$var($String, text, $nc(label)->getText());
-	bool var$0 = text == nullptr || $nc(text)->isEmpty();
+	bool var$0 = text == nullptr || text->isEmpty();
 	if (var$0 || label->getFont() == nullptr) {
 		return -1;
 	}
@@ -358,22 +278,16 @@ $Component$BaselineResizeBehavior* BasicLabelUI::getBaselineResizeBehavior($JCom
 		$init($Component$BaselineResizeBehavior);
 		return $Component$BaselineResizeBehavior::OTHER;
 	}
-	switch ($nc(($cast($JLabel, c)))->getVerticalAlignment()) {
+	switch ($cast($JLabel, c)->getVerticalAlignment()) {
 	case $JLabel::TOP:
-		{
-			$init($Component$BaselineResizeBehavior);
-			return $Component$BaselineResizeBehavior::CONSTANT_ASCENT;
-		}
+		$init($Component$BaselineResizeBehavior);
+		return $Component$BaselineResizeBehavior::CONSTANT_ASCENT;
 	case $JLabel::BOTTOM:
-		{
-			$init($Component$BaselineResizeBehavior);
-			return $Component$BaselineResizeBehavior::CONSTANT_DESCENT;
-		}
+		$init($Component$BaselineResizeBehavior);
+		return $Component$BaselineResizeBehavior::CONSTANT_DESCENT;
 	case $JLabel::CENTER:
-		{
-			$init($Component$BaselineResizeBehavior);
-			return $Component$BaselineResizeBehavior::CENTER_OFFSET;
-		}
+		$init($Component$BaselineResizeBehavior);
+		return $Component$BaselineResizeBehavior::CENTER_OFFSET;
 	}
 	$init($Component$BaselineResizeBehavior);
 	return $Component$BaselineResizeBehavior::OTHER;
@@ -395,7 +309,6 @@ void BasicLabelUI::uninstallUI($JComponent* c) {
 
 void BasicLabelUI::installDefaults($JLabel* c) {
 	$LookAndFeel::installColorsAndFont(c, "Label.background"_s, "Label.foreground"_s, "Label.font"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(c, "opaque"_s, $Boolean::FALSE);
 }
 
@@ -405,11 +318,11 @@ void BasicLabelUI::installListeners($JLabel* c) {
 
 void BasicLabelUI::installComponents($JLabel* c) {
 	$BasicHTML::updateRenderer(c, $($nc(c)->getText()));
-	$nc(c)->setInheritsPopupMenu(true);
+	c->setInheritsPopupMenu(true);
 }
 
 void BasicLabelUI::installKeyboardActions($JLabel* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dka = $nc(l)->getDisplayedMnemonic();
 	$var($Component, lf, l->getLabelFor());
 	if ((dka != 0) && (lf != nullptr)) {
@@ -449,7 +362,7 @@ void BasicLabelUI::uninstallKeyboardActions($JLabel* c) {
 
 $ComponentUI* BasicLabelUI::createUI($JComponent* c) {
 	$init(BasicLabelUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() != nullptr) {
 		$var($AppContext, appContext, $AppContext::getAppContext());
 		$var(BasicLabelUI, safeBasicLabelUI, $cast(BasicLabelUI, $nc(appContext)->get(BasicLabelUI::BASIC_LABEL_UI_KEY)));
@@ -463,18 +376,18 @@ $ComponentUI* BasicLabelUI::createUI($JComponent* c) {
 }
 
 void BasicLabelUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, $nc(e)->getPropertyName());
 	if (name == "text"_s || "font"_s == name || "foreground"_s == name || $SwingUtilities2::isScaleChanged(e)) {
 		$var($JLabel, lbl, $cast($JLabel, e->getSource()));
 		$var($String, text, $nc(lbl)->getText());
 		$BasicHTML::updateRenderer(lbl, text);
 	} else if (name == "labelFor"_s || name == "displayedMnemonic"_s) {
-		installKeyboardActions($cast($JLabel, $(e->getSource())));
+		installKeyboardActions($$cast($JLabel, e->getSource()));
 	}
 }
 
-void clinit$BasicLabelUI($Class* class$) {
+void BasicLabelUI::clinit$($Class* clazz) {
 	$assignStatic(BasicLabelUI::labelUI, $new(BasicLabelUI));
 	$assignStatic(BasicLabelUI::BASIC_LABEL_UI_KEY, $new($Object));
 }
@@ -483,7 +396,66 @@ BasicLabelUI::BasicLabelUI() {
 }
 
 $Class* BasicLabelUI::load$($String* name, bool initialize) {
-	$loadClass(BasicLabelUI, name, initialize, &_BasicLabelUI_ClassInfo_, clinit$BasicLabelUI, allocate$BasicLabelUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"labelUI", "Ljavax/swing/plaf/basic/BasicLabelUI;", nullptr, $PROTECTED | $STATIC, $staticField(BasicLabelUI, labelUI)},
+		{"BASIC_LABEL_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicLabelUI, BASIC_LABEL_UI_KEY)},
+		{"paintIconR", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicLabelUI, paintIconR)},
+		{"paintTextR", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(BasicLabelUI, paintTextR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicLabelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicLabelUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installComponents", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, installComponents, void, $JLabel*)},
+		{"installDefaults", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, installDefaults, void, $JLabel*)},
+		{"installKeyboardActions", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, installKeyboardActions, void, $JLabel*)},
+		{"installListeners", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, installListeners, void, $JLabel*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, installUI, void, $JComponent*)},
+		{"layout", "(Ljavax/swing/JLabel;Ljava/awt/FontMetrics;II)Ljava/lang/String;", nullptr, $PRIVATE, $method(BasicLabelUI, layout, $String*, $JLabel*, $FontMetrics*, int32_t, int32_t)},
+		{"layoutCL", "(Ljavax/swing/JLabel;Ljava/awt/FontMetrics;Ljava/lang/String;Ljavax/swing/Icon;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, layoutCL, $String*, $JLabel*, $FontMetrics*, $String*, $Icon*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicLabelUI, loadActionMap, void, $LazyActionMap*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintDisabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, paintDisabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
+		{"paintEnabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, paintEnabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, uninstallComponents, void, $JLabel*)},
+		{"uninstallDefaults", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, uninstallDefaults, void, $JLabel*)},
+		{"uninstallKeyboardActions", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, uninstallKeyboardActions, void, $JLabel*)},
+		{"uninstallListeners", "(Ljavax/swing/JLabel;)V", nullptr, $PROTECTED, $virtualMethod(BasicLabelUI, uninstallListeners, void, $JLabel*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicLabelUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicLabelUI$Actions", "javax.swing.plaf.basic.BasicLabelUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicLabelUI",
+		"javax.swing.plaf.LabelUI",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicLabelUI$Actions"
+	};
+	$loadClass(BasicLabelUI, name, initialize, &classInfo$$, BasicLabelUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicLabelUI));
+	});
 	return class$;
 }
 

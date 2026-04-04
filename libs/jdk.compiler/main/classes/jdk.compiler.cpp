@@ -1,5 +1,4 @@
 #include <jdk.compiler.h>
-
 #include <java.base.h>
 #include <java.compiler.h>
 #include <jdk.zipfs.h>
@@ -8,8 +7,6 @@
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <com/sun/source/doctree/AttributeTree.h>
 #include <com/sun/source/doctree/AttributeTree$ValueKind.h>
 #include <com/sun/source/doctree/AuthorTree.h>
@@ -3408,6 +3405,7 @@ void jdk$compiler::init() {
 	::java$base::init();
 	::java$compiler::init();
 	::jdk$zipfs::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"jdk.compiler", "17.35", "",
 		&_jdk$compiler_ModuleInfo_,

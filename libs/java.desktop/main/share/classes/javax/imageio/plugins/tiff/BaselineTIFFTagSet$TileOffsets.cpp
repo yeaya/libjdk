@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$TileOffsets.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$TileOffsets_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$TileOffsets, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$TileOffsets_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$TileOffsets", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "TileOffsets", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$TileOffsets_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$TileOffsets",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$TileOffsets_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$TileOffsets_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$TileOffsets($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$TileOffsets));
-}
-
 void BaselineTIFFTagSet$TileOffsets::init$() {
 	$TIFFTag::init$("TileOffsets"_s, 324, $sl(1, $TIFFTag::TIFF_LONG));
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$TileOffsets::BaselineTIFFTagSet$TileOffsets() {
 }
 
 $Class* BaselineTIFFTagSet$TileOffsets::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$TileOffsets, name, initialize, &_BaselineTIFFTagSet$TileOffsets_ClassInfo_, allocate$BaselineTIFFTagSet$TileOffsets);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$TileOffsets, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$TileOffsets", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "TileOffsets", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$TileOffsets",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$TileOffsets, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$TileOffsets);
+	});
 	return class$;
 }
 

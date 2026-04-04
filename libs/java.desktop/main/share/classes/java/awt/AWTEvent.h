@@ -74,6 +74,7 @@ class $export AWTEvent : public ::java::util::EventObject {
 	$class(AWTEvent, 0, ::java::util::EventObject)
 public:
 	AWTEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Event* event);
 	void init$(Object$* source, int32_t id);
 	virtual void consume();
@@ -116,7 +117,7 @@ public:
 	static const int64_t WINDOW_STATE_EVENT_MASK = 0x00040000;
 	static const int64_t WINDOW_FOCUS_EVENT_MASK = 0x00080000;
 	static const int32_t RESERVED_ID_MAX = 1999;
-	static const int64_t serialVersionUID = (int64_t)0xE6AB2DE118DF8AC3;
+	static const int64_t serialVersionUID = (int64_t)0xe6ab2de118df8ac3;
 };
 
 	} // awt

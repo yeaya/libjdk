@@ -1,5 +1,4 @@
 #include <javax/xml/stream/util/XMLEventAllocator.h>
-
 #include <javax/xml/stream/XMLStreamReader.h>
 #include <javax/xml/stream/events/XMLEvent.h>
 #include <javax/xml/stream/util/XMLEventConsumer.h>
@@ -16,28 +15,24 @@ namespace javax {
 		namespace stream {
 			namespace util {
 
-$MethodInfo _XMLEventAllocator_MethodInfo_[] = {
-	{"allocate", "(Ljavax/xml/stream/XMLStreamReader;)Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEventAllocator, allocate, $XMLEvent*, $XMLStreamReader*), "javax.xml.stream.XMLStreamException"},
-	{"allocate", "(Ljavax/xml/stream/XMLStreamReader;Ljavax/xml/stream/util/XMLEventConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEventAllocator, allocate, void, $XMLStreamReader*, $XMLEventConsumer*), "javax.xml.stream.XMLStreamException"},
-	{"newInstance", "()Ljavax/xml/stream/util/XMLEventAllocator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEventAllocator, newInstance, XMLEventAllocator*)},
-	{}
-};
-
-$ClassInfo _XMLEventAllocator_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.stream.util.XMLEventAllocator",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XMLEventAllocator_MethodInfo_
-};
-
-$Object* allocate$XMLEventAllocator($Class* clazz) {
-	return $of($alloc(XMLEventAllocator));
-}
-
 $Class* XMLEventAllocator::load$($String* name, bool initialize) {
-	$loadClass(XMLEventAllocator, name, initialize, &_XMLEventAllocator_ClassInfo_, allocate$XMLEventAllocator);
+	$MethodInfo methodInfos$$[] = {
+		{"allocate", "(Ljavax/xml/stream/XMLStreamReader;)Ljavax/xml/stream/events/XMLEvent;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEventAllocator, allocate, $XMLEvent*, $XMLStreamReader*), "javax.xml.stream.XMLStreamException"},
+		{"allocate", "(Ljavax/xml/stream/XMLStreamReader;Ljavax/xml/stream/util/XMLEventConsumer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEventAllocator, allocate, void, $XMLStreamReader*, $XMLEventConsumer*), "javax.xml.stream.XMLStreamException"},
+		{"newInstance", "()Ljavax/xml/stream/util/XMLEventAllocator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEventAllocator, newInstance, XMLEventAllocator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.stream.util.XMLEventAllocator",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLEventAllocator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEventAllocator);
+	});
 	return class$;
 }
 

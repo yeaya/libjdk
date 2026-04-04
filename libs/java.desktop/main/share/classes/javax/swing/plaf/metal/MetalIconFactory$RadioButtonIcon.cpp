@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$RadioButtonIcon.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -32,45 +31,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalIconFactory$RadioButtonIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$RadioButtonIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$RadioButtonIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$RadioButtonIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$RadioButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"paintOceanIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$RadioButtonIcon, paintOceanIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$RadioButtonIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$RadioButtonIcon", "javax.swing.plaf.metal.MetalIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$RadioButtonIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$RadioButtonIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_MetalIconFactory$RadioButtonIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$RadioButtonIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$RadioButtonIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$RadioButtonIcon));
-}
-
 int32_t MetalIconFactory$RadioButtonIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -95,8 +55,8 @@ void MetalIconFactory$RadioButtonIcon::init$() {
 }
 
 void MetalIconFactory$RadioButtonIcon::paintOceanIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	$var($ButtonModel, model, $nc(($cast($JRadioButton, c)))->getModel());
+	$useLocalObjectStack();
+	$var($ButtonModel, model, $nc($cast($JRadioButton, c))->getModel());
 	bool enabled = $nc(model)->isEnabled();
 	bool var$0 = enabled && model->isPressed();
 	bool pressed = (var$0 && model->isArmed());
@@ -104,7 +64,7 @@ void MetalIconFactory$RadioButtonIcon::paintOceanIcon($Component* c, $Graphics* 
 	$nc(g)->translate(x, y);
 	if (enabled && !pressed) {
 		$MetalUtils::drawGradient(c, g, "RadioButton.gradient"_s, 1, 1, 10, 10, true);
-		g->setColor($($nc(c)->getBackground()));
+		g->setColor($(c->getBackground()));
 		g->fillRect(1, 1, 1, 1);
 		g->fillRect(10, 1, 1, 1);
 		g->fillRect(1, 10, 1, 1);
@@ -141,7 +101,7 @@ void MetalIconFactory$RadioButtonIcon::paintOceanIcon($Component* c, $Graphics* 
 }
 
 void MetalIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, aaHint, $SwingUtilities2::getAndSetAntialisingHintForScaledGraphics(g));
 	if ($MetalLookAndFeel::usingOcean()) {
 		paintOceanIcon(c, g, x, y);
@@ -159,12 +119,12 @@ void MetalIconFactory$RadioButtonIcon::paintIcon($Component* c, $Graphics* g, in
 	$var($Color, whiteOuterRightArc, $MetalLookAndFeel::getControlHighlight());
 	$var($Color, interiorColor, background);
 	if (!model->isEnabled()) {
-		$assign(whiteInnerLeftArc, ($assign(whiteOuterRightArc, background)));
-		$assign(darkCircle, ($assign(dotColor, shadow)));
+		$assign(whiteInnerLeftArc, $assign(whiteOuterRightArc, background));
+		$assign(darkCircle, $assign(dotColor, shadow));
 	} else {
-		bool var$1 = model->isPressed();
-		if (var$1 && model->isArmed()) {
-			$assign(whiteInnerLeftArc, ($assign(interiorColor, shadow)));
+		bool var$0 = model->isPressed();
+		if (var$0 && model->isArmed()) {
+			$assign(whiteInnerLeftArc, $assign(interiorColor, shadow));
 		}
 	}
 	$nc(g)->translate(x, y);
@@ -198,7 +158,41 @@ MetalIconFactory$RadioButtonIcon::MetalIconFactory$RadioButtonIcon() {
 }
 
 $Class* MetalIconFactory$RadioButtonIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$RadioButtonIcon, name, initialize, &_MetalIconFactory$RadioButtonIcon_ClassInfo_, allocate$MetalIconFactory$RadioButtonIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$RadioButtonIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$RadioButtonIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$RadioButtonIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$RadioButtonIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"paintOceanIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$RadioButtonIcon, paintOceanIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$RadioButtonIcon", "javax.swing.plaf.metal.MetalIconFactory", "RadioButtonIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$RadioButtonIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$RadioButtonIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$RadioButtonIcon));
+	});
 	return class$;
 }
 

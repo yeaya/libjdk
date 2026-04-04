@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Source$1.h>
-
 #include <com/sun/tools/javac/code/Source.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <jcpp.h>
@@ -34,109 +33,73 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Source$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$Source", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Source$1, $SwitchMap$com$sun$tools$javac$code$Source)},
-	{}
-};
-
-$EnclosingMethodInfo _Source$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Source",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Source$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Source$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Source$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.code.Source$1",
-	"java.lang.Object",
-	nullptr,
-	_Source$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Source$1_EnclosingMethodInfo_,
-	_Source$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Source"
-};
-
-$Object* allocate$Source$1($Class* clazz) {
-	return $of($alloc(Source$1));
-}
-
 $ints* Source$1::$SwitchMap$com$sun$tools$javac$code$Source = nullptr;
 
-void clinit$Source$1($Class* class$) {
+void Source$1::clinit$($Class* clazz) {
 	$assignStatic(Source$1::$SwitchMap$com$sun$tools$javac$code$Source, $new($ints, $($Source::values())->length));
 	{
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK17->ordinal(), 1);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK17->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK16->ordinal(), 2);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK16->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK15->ordinal(), 3);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK15->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK14->ordinal(), 4);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK14->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK13->ordinal(), 5);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK13->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK12->ordinal(), 6);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK12->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK11->ordinal(), 7);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK11->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK10->ordinal(), 8);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK10->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK9->ordinal(), 9);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK9->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK8->ordinal(), 10);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK8->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK7->ordinal(), 11);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK7->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK6->ordinal(), 12);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK6->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK5->ordinal(), 13);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK5->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK1_4->ordinal(), 14);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK1_4->ordinal(), 14);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK1_2->ordinal(), 15);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK1_2->ordinal(), 15);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Source$1::$SwitchMap$com$sun$tools$javac$code$Source)->set($Source::JDK1_3->ordinal(), 16);
+			Source$1::$SwitchMap$com$sun$tools$javac$code$Source->set($Source::JDK1_3->ordinal(), 16);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -146,7 +109,37 @@ Source$1::Source$1() {
 }
 
 $Class* Source$1::load$($String* name, bool initialize) {
-	$loadClass(Source$1, name, initialize, &_Source$1_ClassInfo_, clinit$Source$1, allocate$Source$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$Source", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Source$1, $SwitchMap$com$sun$tools$javac$code$Source)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Source",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Source$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.code.Source$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Source"
+	};
+	$loadClass(Source$1, name, initialize, &classInfo$$, Source$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Source$1);
+	});
 	return class$;
 }
 

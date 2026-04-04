@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/XMLCharacterRecognizer.h>
-
 #include <java/lang/StringBuffer.h>
 #include <jcpp.h>
 
@@ -14,28 +13,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$MethodInfo _XMLCharacterRecognizer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLCharacterRecognizer, init$, void)},
-	{"isWhiteSpace", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLCharacterRecognizer, isWhiteSpace, bool, char16_t)},
-	{"isWhiteSpace", "([CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLCharacterRecognizer, isWhiteSpace, bool, $chars*, int32_t, int32_t)},
-	{"isWhiteSpace", "(Ljava/lang/StringBuffer;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLCharacterRecognizer, isWhiteSpace, bool, $StringBuffer*)},
-	{"isWhiteSpace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLCharacterRecognizer, isWhiteSpace, bool, $String*)},
-	{}
-};
-
-$ClassInfo _XMLCharacterRecognizer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.XMLCharacterRecognizer",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_XMLCharacterRecognizer_MethodInfo_
-};
-
-$Object* allocate$XMLCharacterRecognizer($Class* clazz) {
-	return $of($alloc(XMLCharacterRecognizer));
-}
 
 void XMLCharacterRecognizer::init$() {
 }
@@ -80,7 +57,25 @@ XMLCharacterRecognizer::XMLCharacterRecognizer() {
 }
 
 $Class* XMLCharacterRecognizer::load$($String* name, bool initialize) {
-	$loadClass(XMLCharacterRecognizer, name, initialize, &_XMLCharacterRecognizer_ClassInfo_, allocate$XMLCharacterRecognizer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLCharacterRecognizer, init$, void)},
+		{"isWhiteSpace", "(C)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLCharacterRecognizer, isWhiteSpace, bool, char16_t)},
+		{"isWhiteSpace", "([CII)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLCharacterRecognizer, isWhiteSpace, bool, $chars*, int32_t, int32_t)},
+		{"isWhiteSpace", "(Ljava/lang/StringBuffer;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLCharacterRecognizer, isWhiteSpace, bool, $StringBuffer*)},
+		{"isWhiteSpace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLCharacterRecognizer, isWhiteSpace, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.XMLCharacterRecognizer",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLCharacterRecognizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLCharacterRecognizer);
+	});
 	return class$;
 }
 

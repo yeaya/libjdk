@@ -17,6 +17,7 @@ class OutputFormat$Defaults : public ::java::lang::Object {
 	$class(OutputFormat$Defaults, 0, ::java::lang::Object)
 public:
 	OutputFormat$Defaults();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t Indent = 4;
 	static $String* Encoding;

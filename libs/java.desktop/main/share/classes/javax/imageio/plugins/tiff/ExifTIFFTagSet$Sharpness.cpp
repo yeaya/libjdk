@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$Sharpness.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,38 +15,8 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$Sharpness_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$Sharpness, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$Sharpness_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$Sharpness", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "Sharpness", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$Sharpness_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$Sharpness",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$Sharpness_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$Sharpness_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$Sharpness($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$Sharpness));
-}
-
 void ExifTIFFTagSet$Sharpness::init$() {
-	$TIFFTag::init$("Sharpness"_s, 0x0000A40A, $sl(1, $TIFFTag::TIFF_SHORT), 1);
+	$TIFFTag::init$("Sharpness"_s, 0x0000a40a, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(0, "Normal"_s);
 	addValueName(1, "Soft"_s);
 	addValueName(2, "Hard"_s);
@@ -57,7 +26,32 @@ ExifTIFFTagSet$Sharpness::ExifTIFFTagSet$Sharpness() {
 }
 
 $Class* ExifTIFFTagSet$Sharpness::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$Sharpness, name, initialize, &_ExifTIFFTagSet$Sharpness_ClassInfo_, allocate$ExifTIFFTagSet$Sharpness);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$Sharpness, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$Sharpness", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "Sharpness", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$Sharpness",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$Sharpness, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$Sharpness);
+	});
 	return class$;
 }
 

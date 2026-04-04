@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Http1AsyncReceiver$Http1AsyncDelegateSubscription.h>
-
 #include <java/lang/Runnable.h>
 #include <java/util/function/Consumer.h>
 #include <jdk/internal/net/http/AbstractSubscription.h>
@@ -23,46 +22,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Http1AsyncReceiver$Http1AsyncDelegateSubscription_FieldInfo_[] = {
-	{"onCancel", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(Http1AsyncReceiver$Http1AsyncDelegateSubscription, onCancel)},
-	{"onError", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/lang/Throwable;>;", $PRIVATE | $FINAL, $field(Http1AsyncReceiver$Http1AsyncDelegateSubscription, onError)},
-	{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PRIVATE | $FINAL, $field(Http1AsyncReceiver$Http1AsyncDelegateSubscription, scheduler)},
-	{"cancelled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Http1AsyncReceiver$Http1AsyncDelegateSubscription, cancelled)},
-	{}
-};
-
-$MethodInfo _Http1AsyncReceiver$Http1AsyncDelegateSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(Http1AsyncReceiver$Http1AsyncDelegateSubscription, init$, void, $SequentialScheduler*, $Runnable*, $Consumer*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegateSubscription, cancel, void)},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegateSubscription, request, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _Http1AsyncReceiver$Http1AsyncDelegateSubscription_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Http1AsyncReceiver$Http1AsyncDelegateSubscription", "jdk.internal.net.http.Http1AsyncReceiver", "Http1AsyncDelegateSubscription", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Http1AsyncReceiver$Http1AsyncDelegateSubscription_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.Http1AsyncReceiver$Http1AsyncDelegateSubscription",
-	"jdk.internal.net.http.AbstractSubscription",
-	nullptr,
-	_Http1AsyncReceiver$Http1AsyncDelegateSubscription_FieldInfo_,
-	_Http1AsyncReceiver$Http1AsyncDelegateSubscription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Http1AsyncReceiver$Http1AsyncDelegateSubscription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Http1AsyncReceiver"
-};
-
-$Object* allocate$Http1AsyncReceiver$Http1AsyncDelegateSubscription($Class* clazz) {
-	return $of($alloc(Http1AsyncReceiver$Http1AsyncDelegateSubscription));
-}
 
 void Http1AsyncReceiver$Http1AsyncDelegateSubscription::init$($SequentialScheduler* scheduler, $Runnable* onCancel, $Consumer* onError) {
 	$AbstractSubscription::init$();
@@ -95,7 +54,41 @@ Http1AsyncReceiver$Http1AsyncDelegateSubscription::Http1AsyncReceiver$Http1Async
 }
 
 $Class* Http1AsyncReceiver$Http1AsyncDelegateSubscription::load$($String* name, bool initialize) {
-	$loadClass(Http1AsyncReceiver$Http1AsyncDelegateSubscription, name, initialize, &_Http1AsyncReceiver$Http1AsyncDelegateSubscription_ClassInfo_, allocate$Http1AsyncReceiver$Http1AsyncDelegateSubscription);
+	$FieldInfo fieldInfos$$[] = {
+		{"onCancel", "Ljava/lang/Runnable;", nullptr, $PRIVATE | $FINAL, $field(Http1AsyncReceiver$Http1AsyncDelegateSubscription, onCancel)},
+		{"onError", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/lang/Throwable;>;", $PRIVATE | $FINAL, $field(Http1AsyncReceiver$Http1AsyncDelegateSubscription, onError)},
+		{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $PRIVATE | $FINAL, $field(Http1AsyncReceiver$Http1AsyncDelegateSubscription, scheduler)},
+		{"cancelled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Http1AsyncReceiver$Http1AsyncDelegateSubscription, cancelled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer;)V", "(Ljdk/internal/net/http/common/SequentialScheduler;Ljava/lang/Runnable;Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(Http1AsyncReceiver$Http1AsyncDelegateSubscription, init$, void, $SequentialScheduler*, $Runnable*, $Consumer*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegateSubscription, cancel, void)},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(Http1AsyncReceiver$Http1AsyncDelegateSubscription, request, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Http1AsyncReceiver$Http1AsyncDelegateSubscription", "jdk.internal.net.http.Http1AsyncReceiver", "Http1AsyncDelegateSubscription", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.Http1AsyncReceiver$Http1AsyncDelegateSubscription",
+		"jdk.internal.net.http.AbstractSubscription",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Http1AsyncReceiver"
+	};
+	$loadClass(Http1AsyncReceiver$Http1AsyncDelegateSubscription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Http1AsyncReceiver$Http1AsyncDelegateSubscription);
+	});
 	return class$;
 }
 

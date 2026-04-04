@@ -30,6 +30,7 @@ class $export Infer$GraphInferenceSteps : public ::java::lang::Enum {
 public:
 	Infer$GraphInferenceSteps();
 	static $Array<::com::sun::tools::javac::comp::Infer$GraphInferenceSteps>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::java::util::EnumSet* steps);
 	static ::com::sun::tools::javac::comp::Infer$GraphInferenceSteps* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::comp::Infer$GraphInferenceSteps>* values();

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$FontSize.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
@@ -34,57 +33,13 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$FontSize_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/CSS;", nullptr, $FINAL | $SYNTHETIC, $field(CSS$FontSize, this$0)},
-	{"value", "F", nullptr, 0, $field(CSS$FontSize, value)},
-	{"index", "Z", nullptr, 0, $field(CSS$FontSize, index)},
-	{"lu", "Ljavax/swing/text/html/CSS$LengthUnit;", nullptr, 0, $field(CSS$FontSize, lu)},
-	{}
-};
-
-$MethodInfo _CSS$FontSize_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/CSS;)V", nullptr, 0, $method(CSS$FontSize, init$, void, $CSS*)},
-	{"fromStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontSize, fromStyleConstants, $Object*, $StyleConstants*, Object$*)},
-	{"getValue", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/StyleSheet;)I", nullptr, 0, $virtualMethod(CSS$FontSize, getValue, int32_t, $AttributeSet*, $StyleSheet*)},
-	{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontSize, parseCssValue, $Object*, $String*)},
-	{"parseHtmlValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontSize, parseHtmlValue, $Object*, $String*)},
-	{"toStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljavax/swing/text/View;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontSize, toStyleConstants, $Object*, $StyleConstants*, $View*)},
-	{}
-};
-
-$InnerClassInfo _CSS$FontSize_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$FontSize", "javax.swing.text.html.CSS", "FontSize", 0},
-	{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
-	{}
-};
-
-$ClassInfo _CSS$FontSize_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSS$FontSize",
-	"javax.swing.text.html.CSS$CssValue",
-	nullptr,
-	_CSS$FontSize_FieldInfo_,
-	_CSS$FontSize_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$FontSize_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$FontSize($Class* clazz) {
-	return $of($alloc(CSS$FontSize));
-}
-
 void CSS$FontSize::init$($CSS* this$0) {
 	$set(this, this$0, this$0);
 	$CSS$CssValue::init$();
 }
 
 int32_t CSS$FontSize::getValue($AttributeSet* a, $StyleSheet* ss$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet, ss, ss$renamed);
 	$assign(ss, this->this$0->getStyleSheet(ss));
 	if (this->index) {
@@ -92,8 +47,8 @@ int32_t CSS$FontSize::getValue($AttributeSet* a, $StyleSheet* ss$renamed) {
 	} else if (this->lu == nullptr) {
 		return $Math::round(this->value);
 	} else {
-		if ($nc(this->lu)->type == 0) {
-			bool isW3CLengthUnits = (ss == nullptr) ? false : $nc(ss)->isW3CLengthUnits();
+		if (this->lu->type == 0) {
+			bool isW3CLengthUnits = (ss == nullptr) ? false : ss->isW3CLengthUnits();
 			return $Math::round($nc(this->lu)->getValue(isW3CLengthUnits));
 		}
 		if (a != nullptr) {
@@ -101,10 +56,10 @@ int32_t CSS$FontSize::getValue($AttributeSet* a, $StyleSheet* ss$renamed) {
 			if (resolveParent != nullptr) {
 				int32_t pValue = $StyleConstants::getFontSize(resolveParent);
 				float retValue = 0.0;
-				if ($nc(this->lu)->type == 1 || $nc(this->lu)->type == 3) {
-					retValue = $nc(this->lu)->value * (float)pValue;
+				if ($nc(this->lu)->type == 1 || this->lu->type == 3) {
+					retValue = this->lu->value * (float)pValue;
 				} else {
-					retValue = $nc(this->lu)->value + (float)pValue;
+					retValue = this->lu->value + (float)pValue;
 				}
 				return $Math::round(retValue);
 			}
@@ -118,25 +73,25 @@ $Object* CSS$FontSize::parseCssValue($String* value) {
 	$set(fs, svalue, value);
 	try {
 		if ($nc(value)->equals("xx-small"_s)) {
-			fs->value = (float)1;
+			fs->value = 1;
 			fs->index = true;
 		} else if (value->equals("x-small"_s)) {
-			fs->value = (float)2;
+			fs->value = 2;
 			fs->index = true;
 		} else if (value->equals("small"_s)) {
-			fs->value = (float)3;
+			fs->value = 3;
 			fs->index = true;
 		} else if (value->equals("medium"_s)) {
-			fs->value = (float)4;
+			fs->value = 4;
 			fs->index = true;
 		} else if (value->equals("large"_s)) {
-			fs->value = (float)5;
+			fs->value = 5;
 			fs->index = true;
 		} else if (value->equals("x-large"_s)) {
-			fs->value = (float)6;
+			fs->value = 6;
 			fs->index = true;
 		} else if (value->equals("xx-large"_s)) {
-			fs->value = (float)7;
+			fs->value = 7;
 			fs->index = true;
 		} else {
 			$set(fs, lu, $new($CSS$LengthUnit, value, (int16_t)1, 1.0f));
@@ -144,52 +99,52 @@ $Object* CSS$FontSize::parseCssValue($String* value) {
 	} catch ($NumberFormatException& nfe) {
 		$assign(fs, nullptr);
 	}
-	return $of(fs);
+	return fs;
 }
 
 $Object* CSS$FontSize::parseHtmlValue($String* value) {
-	$useLocalCurrentObjectStackCache();
-	if ((value == nullptr) || ($nc(value)->length() == 0)) {
-		return $of(nullptr);
+	$useLocalObjectStack();
+	if ((value == nullptr) || (value->length() == 0)) {
+		return nullptr;
 	}
 	$var(CSS$FontSize, fs, $new(CSS$FontSize, this->this$0));
 	$set(fs, svalue, value);
 	try {
 		int32_t baseFontSize = this->this$0->getBaseFontSize();
 		if ($nc(value)->charAt(0) == u'+') {
-			int32_t relSize = $nc($($Integer::valueOf($(value->substring(1)))))->intValue();
+			int32_t relSize = $($Integer::valueOf($(value->substring(1))))->intValue();
 			fs->value = (float)(baseFontSize + relSize);
 			fs->index = true;
 		} else if (value->charAt(0) == u'-') {
-			int32_t relSize = -$nc($($Integer::valueOf($(value->substring(1)))))->intValue();
+			int32_t relSize = -$($Integer::valueOf($(value->substring(1))))->intValue();
 			fs->value = (float)(baseFontSize + relSize);
 			fs->index = true;
 		} else {
 			fs->value = (float)$Integer::parseInt(value);
 			if (fs->value > 7) {
-				fs->value = (float)7;
+				fs->value = 7;
 			} else if (fs->value < 0) {
-				fs->value = (float)0;
+				fs->value = 0;
 			}
 			fs->index = true;
 		}
 	} catch ($NumberFormatException& nfe) {
 		$assign(fs, nullptr);
 	}
-	return $of(fs);
+	return fs;
 }
 
 $Object* CSS$FontSize::fromStyleConstants($StyleConstants* key, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Number, value)) {
 		$var(CSS$FontSize, fs, $new(CSS$FontSize, this->this$0));
 		$init($StyleSheet);
-		fs->value = (float)$CSS::getIndexOfSize($nc(($cast($Number, value)))->floatValue(), $StyleSheet::sizeMapDefault);
+		fs->value = (float)$CSS::getIndexOfSize($cast($Number, value)->floatValue(), $StyleSheet::sizeMapDefault);
 		$set(fs, svalue, $Integer::toString($cast(int32_t, fs->value)));
 		fs->index = true;
-		return $of(fs);
+		return fs;
 	}
-	return $of(parseCssValue($($nc($of(value))->toString())));
+	return parseCssValue($($nc($of(value))->toString()));
 }
 
 $Object* CSS$FontSize::toStyleConstants($StyleConstants* key, $View* v) {
@@ -203,7 +158,45 @@ CSS$FontSize::CSS$FontSize() {
 }
 
 $Class* CSS$FontSize::load$($String* name, bool initialize) {
-	$loadClass(CSS$FontSize, name, initialize, &_CSS$FontSize_ClassInfo_, allocate$CSS$FontSize);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/CSS;", nullptr, $FINAL | $SYNTHETIC, $field(CSS$FontSize, this$0)},
+		{"value", "F", nullptr, 0, $field(CSS$FontSize, value)},
+		{"index", "Z", nullptr, 0, $field(CSS$FontSize, index)},
+		{"lu", "Ljavax/swing/text/html/CSS$LengthUnit;", nullptr, 0, $field(CSS$FontSize, lu)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/CSS;)V", nullptr, 0, $method(CSS$FontSize, init$, void, $CSS*)},
+		{"fromStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontSize, fromStyleConstants, $Object*, $StyleConstants*, Object$*)},
+		{"getValue", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/html/StyleSheet;)I", nullptr, 0, $virtualMethod(CSS$FontSize, getValue, int32_t, $AttributeSet*, $StyleSheet*)},
+		{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontSize, parseCssValue, $Object*, $String*)},
+		{"parseHtmlValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontSize, parseHtmlValue, $Object*, $String*)},
+		{"toStyleConstants", "(Ljavax/swing/text/StyleConstants;Ljavax/swing/text/View;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$FontSize, toStyleConstants, $Object*, $StyleConstants*, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$FontSize", "javax.swing.text.html.CSS", "FontSize", 0},
+		{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSS$FontSize",
+		"javax.swing.text.html.CSS$CssValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$FontSize, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$FontSize);
+	});
 	return class$;
 }
 

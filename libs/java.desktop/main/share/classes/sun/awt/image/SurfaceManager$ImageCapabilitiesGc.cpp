@@ -1,5 +1,4 @@
 #include <sun/awt/image/SurfaceManager$ImageCapabilitiesGc.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -10,7 +9,6 @@
 #include <jcpp.h>
 
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -25,43 +23,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _SurfaceManager$ImageCapabilitiesGc_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/image/SurfaceManager;", nullptr, $FINAL | $SYNTHETIC, $field(SurfaceManager$ImageCapabilitiesGc, this$0)},
-	{"gc", "Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(SurfaceManager$ImageCapabilitiesGc, gc)},
-	{}
-};
-
-$MethodInfo _SurfaceManager$ImageCapabilitiesGc_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/SurfaceManager;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(SurfaceManager$ImageCapabilitiesGc, init$, void, $SurfaceManager*, $GraphicsConfiguration*)},
-	{"isAccelerated", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceManager$ImageCapabilitiesGc, isAccelerated, bool)},
-	{}
-};
-
-$InnerClassInfo _SurfaceManager$ImageCapabilitiesGc_InnerClassesInfo_[] = {
-	{"sun.awt.image.SurfaceManager$ImageCapabilitiesGc", "sun.awt.image.SurfaceManager", "ImageCapabilitiesGc", 0},
-	{}
-};
-
-$ClassInfo _SurfaceManager$ImageCapabilitiesGc_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.image.SurfaceManager$ImageCapabilitiesGc",
-	"java.awt.ImageCapabilities",
-	nullptr,
-	_SurfaceManager$ImageCapabilitiesGc_FieldInfo_,
-	_SurfaceManager$ImageCapabilitiesGc_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SurfaceManager$ImageCapabilitiesGc_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.SurfaceManager"
-};
-
-$Object* allocate$SurfaceManager$ImageCapabilitiesGc($Class* clazz) {
-	return $of($alloc(SurfaceManager$ImageCapabilitiesGc));
-}
-
 void SurfaceManager$ImageCapabilitiesGc::init$($SurfaceManager* this$0, $GraphicsConfiguration* gc) {
 	$set(this, this$0, this$0);
 	$ImageCapabilities::init$(false);
@@ -69,13 +30,13 @@ void SurfaceManager$ImageCapabilitiesGc::init$($SurfaceManager* this$0, $Graphic
 }
 
 bool SurfaceManager$ImageCapabilitiesGc::isAccelerated() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, tmpGc, this->gc);
 	if (tmpGc == nullptr) {
-		$assign(tmpGc, $nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration());
+		$assign(tmpGc, $$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration());
 	}
 	if ($instanceOf($SurfaceManager$ProxiedGraphicsConfig, tmpGc)) {
-		$var($Object, proxyKey, $nc(($cast($SurfaceManager$ProxiedGraphicsConfig, tmpGc)))->getProxyKey());
+		$var($Object, proxyKey, $cast($SurfaceManager$ProxiedGraphicsConfig, tmpGc)->getProxyKey());
 		if (proxyKey != nullptr) {
 			$var($SurfaceDataProxy, sdp, $cast($SurfaceDataProxy, this->this$0->getCacheData(proxyKey)));
 			return (sdp != nullptr && sdp->isAccelerated());
@@ -88,7 +49,38 @@ SurfaceManager$ImageCapabilitiesGc::SurfaceManager$ImageCapabilitiesGc() {
 }
 
 $Class* SurfaceManager$ImageCapabilitiesGc::load$($String* name, bool initialize) {
-	$loadClass(SurfaceManager$ImageCapabilitiesGc, name, initialize, &_SurfaceManager$ImageCapabilitiesGc_ClassInfo_, allocate$SurfaceManager$ImageCapabilitiesGc);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/image/SurfaceManager;", nullptr, $FINAL | $SYNTHETIC, $field(SurfaceManager$ImageCapabilitiesGc, this$0)},
+		{"gc", "Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(SurfaceManager$ImageCapabilitiesGc, gc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/SurfaceManager;Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(SurfaceManager$ImageCapabilitiesGc, init$, void, $SurfaceManager*, $GraphicsConfiguration*)},
+		{"isAccelerated", "()Z", nullptr, $PUBLIC, $virtualMethod(SurfaceManager$ImageCapabilitiesGc, isAccelerated, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.SurfaceManager$ImageCapabilitiesGc", "sun.awt.image.SurfaceManager", "ImageCapabilitiesGc", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.image.SurfaceManager$ImageCapabilitiesGc",
+		"java.awt.ImageCapabilities",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.SurfaceManager"
+	};
+	$loadClass(SurfaceManager$ImageCapabilitiesGc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SurfaceManager$ImageCapabilitiesGc);
+	});
 	return class$;
 }
 

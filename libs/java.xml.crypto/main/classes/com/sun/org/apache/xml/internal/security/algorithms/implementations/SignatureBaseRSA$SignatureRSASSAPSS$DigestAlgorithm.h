@@ -21,6 +21,7 @@ class SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm : public ::java::lang:
 public:
 	SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm();
 	static $Array<::com::sun::org::apache::xml::internal::security::algorithms::implementations::SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* digestAlgorithm, $String* xmlDigestAlgorithm, int32_t saltLength);
 	static ::com::sun::org::apache::xml::internal::security::algorithms::implementations::SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* fromDigestAlgorithm($String* digestAlgorithm);
 	static ::com::sun::org::apache::xml::internal::security::algorithms::implementations::SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* fromXmlDigestAlgorithm($String* xmlDigestAlgorithm);

@@ -40,6 +40,7 @@ class ServerFactoryImpl : public ::javax::security::sasl::SaslServerFactory {
 	$class(ServerFactoryImpl, 0, ::javax::security::sasl::SaslServerFactory)
 public:
 	ServerFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::security::sasl::SaslServer* createSaslServer($String* mech, $String* protocol, $String* serverName, ::java::util::Map* props, ::javax::security::auth::callback::CallbackHandler* cbh) override;
 	virtual $StringArray* getMechanismNames(::java::util::Map* props) override;

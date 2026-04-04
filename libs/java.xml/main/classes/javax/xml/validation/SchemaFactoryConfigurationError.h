@@ -23,10 +23,13 @@ public:
 	void init$($String* message);
 	void init$($Throwable* cause);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x310230CA473012EE;
+	static const int64_t serialVersionUID = (int64_t)0x310230ca473012ee;
 	SchemaFactoryConfigurationError(const SchemaFactoryConfigurationError& e);
 	virtual void throw$() override;
-	inline SchemaFactoryConfigurationError* operator ->() {
+	inline SchemaFactoryConfigurationError* operator ->() const {
+		return (SchemaFactoryConfigurationError*)throwing$;
+	}
+	inline operator SchemaFactoryConfigurationError*() const {
 		return (SchemaFactoryConfigurationError*)throwing$;
 	}
 };

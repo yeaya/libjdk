@@ -1,5 +1,4 @@
 #include <java/awt/print/PrinterGraphics.h>
-
 #include <java/awt/print/PrinterJob.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace print {
 
-$MethodInfo _PrinterGraphics_MethodInfo_[] = {
-	{"getPrinterJob", "()Ljava/awt/print/PrinterJob;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterGraphics, getPrinterJob, $PrinterJob*)},
-	{}
-};
-
-$ClassInfo _PrinterGraphics_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.print.PrinterGraphics",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PrinterGraphics_MethodInfo_
-};
-
-$Object* allocate$PrinterGraphics($Class* clazz) {
-	return $of($alloc(PrinterGraphics));
-}
-
 $Class* PrinterGraphics::load$($String* name, bool initialize) {
-	$loadClass(PrinterGraphics, name, initialize, &_PrinterGraphics_ClassInfo_, allocate$PrinterGraphics);
+	$MethodInfo methodInfos$$[] = {
+		{"getPrinterJob", "()Ljava/awt/print/PrinterJob;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrinterGraphics, getPrinterJob, $PrinterJob*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.print.PrinterGraphics",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PrinterGraphics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrinterGraphics);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/d3d/D3DSurfaceData.h>
@@ -26,25 +25,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DSurfaceToGDIWindowSurfaceScale_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DSurfaceToGDIWindowSurfaceScale, init$, void)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceToGDIWindowSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _D3DSurfaceToGDIWindowSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DSurfaceToGDIWindowSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	nullptr,
-	_D3DSurfaceToGDIWindowSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$D3DSurfaceToGDIWindowSurfaceScale($Class* clazz) {
-	return $of($alloc(D3DSurfaceToGDIWindowSurfaceScale));
-}
-
 void D3DSurfaceToGDIWindowSurfaceScale::init$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -60,7 +40,22 @@ D3DSurfaceToGDIWindowSurfaceScale::D3DSurfaceToGDIWindowSurfaceScale() {
 }
 
 $Class* D3DSurfaceToGDIWindowSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(D3DSurfaceToGDIWindowSurfaceScale, name, initialize, &_D3DSurfaceToGDIWindowSurfaceScale_ClassInfo_, allocate$D3DSurfaceToGDIWindowSurfaceScale);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DSurfaceToGDIWindowSurfaceScale, init$, void)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceToGDIWindowSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DSurfaceToGDIWindowSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DSurfaceToGDIWindowSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DSurfaceToGDIWindowSurfaceScale);
+	});
 	return class$;
 }
 

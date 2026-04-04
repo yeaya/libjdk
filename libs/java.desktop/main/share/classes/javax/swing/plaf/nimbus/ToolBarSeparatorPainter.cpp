@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/ToolBarSeparatorPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -31,41 +30,15 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ToolBarSeparatorPainter_FieldInfo_[] = {
-	{"SPACE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ToolBarSeparatorPainter, SPACE)},
-	{"INSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ToolBarSeparatorPainter, INSET)},
-	{}
-};
-
-$MethodInfo _ToolBarSeparatorPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ToolBarSeparatorPainter, init$, void)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ToolBarSeparatorPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED, $virtualMethod(ToolBarSeparatorPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{}
-};
-
-$ClassInfo _ToolBarSeparatorPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.ToolBarSeparatorPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_ToolBarSeparatorPainter_FieldInfo_,
-	_ToolBarSeparatorPainter_MethodInfo_
-};
-
-$Object* allocate$ToolBarSeparatorPainter($Class* clazz) {
-	return $of($alloc(ToolBarSeparatorPainter));
-}
-
 void ToolBarSeparatorPainter::init$() {
 	$AbstractRegionPainter::init$();
 }
 
 $AbstractRegionPainter$PaintContext* ToolBarSeparatorPainter::getPaintContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, var$0, $new($Insets, 1, 0, 1, 0));
 	$init($AbstractRegionPainter$PaintContext$CacheMode);
-	return $new($AbstractRegionPainter$PaintContext, var$0, $$new($Dimension, 38, 7), false, $AbstractRegionPainter$PaintContext$CacheMode::NO_CACHING, (double)1, (double)1);
+	return $new($AbstractRegionPainter$PaintContext, var$0, $$new($Dimension, 38, 7), false, $AbstractRegionPainter$PaintContext$CacheMode::NO_CACHING, 1, 1);
 }
 
 void ToolBarSeparatorPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width, int32_t height, $ObjectArray* extendedCacheKeys) {
@@ -80,7 +53,28 @@ ToolBarSeparatorPainter::ToolBarSeparatorPainter() {
 }
 
 $Class* ToolBarSeparatorPainter::load$($String* name, bool initialize) {
-	$loadClass(ToolBarSeparatorPainter, name, initialize, &_ToolBarSeparatorPainter_ClassInfo_, allocate$ToolBarSeparatorPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"SPACE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ToolBarSeparatorPainter, SPACE)},
+		{"INSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ToolBarSeparatorPainter, INSET)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ToolBarSeparatorPainter, init$, void)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ToolBarSeparatorPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED, $virtualMethod(ToolBarSeparatorPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.ToolBarSeparatorPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ToolBarSeparatorPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToolBarSeparatorPainter);
+	});
 	return class$;
 }
 

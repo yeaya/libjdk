@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/PAData.h>
-
 #include <java/io/IOException.h>
 #include <java/math/BigInteger.h>
 #include <java/nio/charset/Charset.h>
@@ -36,7 +35,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Vector = ::java::util::Vector;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
@@ -56,53 +54,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _PAData_FieldInfo_[] = {
-	{"pADataType", "I", nullptr, $PRIVATE, $field(PAData, pADataType)},
-	{"pADataValue", "[B", nullptr, $PRIVATE, $field(PAData, pADataValue)},
-	{"TAG_PATYPE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PAData, TAG_PATYPE)},
-	{"TAG_PAVALUE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PAData, TAG_PAVALUE)},
-	{}
-};
-
-$MethodInfo _PAData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PAData, init$, void)},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(PAData, init$, void, int32_t, $bytes*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PAData, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(PAData, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PAData, clone, $Object*)},
-	{"getPreferredEType", "([Lsun/security/krb5/internal/PAData;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, getPreferredEType, int32_t, $PADataArray*, int32_t), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"getSaltAndParams", "(I[Lsun/security/krb5/internal/PAData;)Lsun/security/krb5/internal/PAData$SaltAndParams;", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, getSaltAndParams, $PAData$SaltAndParams*, int32_t, $PADataArray*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(PAData, getType, int32_t)},
-	{"getValue", "()[B", nullptr, $PUBLIC, $virtualMethod(PAData, getValue, $bytes*)},
-	{"parseSequence", "(Lsun/security/util/DerInputStream;BZ)[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, parseSequence, $PADataArray*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PAData, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PAData_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.PAData$SaltAndParams", "sun.security.krb5.internal.PAData", "SaltAndParams", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PAData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.PAData",
-	"java.lang.Object",
-	nullptr,
-	_PAData_FieldInfo_,
-	_PAData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PAData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.PAData$SaltAndParams"
-};
-
-$Object* allocate$PAData($Class* clazz) {
-	return $of($alloc(PAData));
-}
-
 void PAData::init$() {
 	$set(this, pADataValue, nullptr);
 }
@@ -119,36 +70,36 @@ $Object* PAData::clone() {
 	$var(PAData, new_pAData, $new(PAData));
 	new_pAData->pADataType = this->pADataType;
 	if (this->pADataValue != nullptr) {
-		$set(new_pAData, pADataValue, $new($bytes, $nc(this->pADataValue)->length));
-		$System::arraycopy(this->pADataValue, 0, new_pAData->pADataValue, 0, $nc(this->pADataValue)->length);
+		$set(new_pAData, pADataValue, $new($bytes, this->pADataValue->length));
+		$System::arraycopy(this->pADataValue, 0, new_pAData->pADataValue, 0, this->pADataValue->length);
 	}
-	return $of(new_pAData);
+	return new_pAData;
 }
 
 void PAData::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, pADataValue, nullptr);
 	$var($DerValue, der, nullptr);
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)31)) == 1) {
-		this->pADataType = $nc($($nc($(der->getData()))->getBigInteger()))->intValue();
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & 0x1f) == 1) {
+		this->pADataType = $$nc($$nc(der->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($(encoding->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)31)) == 2) {
-		$set(this, pADataValue, $nc($(der->getData()))->getOctetString());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & 0x1f) == 2) {
+		$set(this, pADataValue, $$nc(der->getData())->getOctetString());
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* PAData::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
 	temp->putInteger(this->pADataType);
@@ -166,22 +117,22 @@ int32_t PAData::getType() {
 }
 
 $bytes* PAData::getValue() {
-	return ((this->pADataValue == nullptr) ? ($bytes*)nullptr : $cast($bytes, $nc(this->pADataValue)->clone()));
+	return ((this->pADataValue == nullptr) ? ($bytes*)nullptr : $cast($bytes, this->pADataValue->clone()));
 }
 
 $PADataArray* PAData::parseSequence($DerInputStream* data, int8_t explicitTag, bool optional) {
-	$useLocalCurrentObjectStackCache();
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	$useLocalObjectStack();
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, subDer, $nc(data)->getDerValue());
-	$var($DerValue, subsubDer, $nc($($nc(subDer)->getData()))->getDerValue());
+	$var($DerValue, subsubDer, $$nc($nc(subDer)->getData())->getDerValue());
 	if ($nc(subsubDer)->getTag() != $DerValue::tag_SequenceOf) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 	$var($Vector, v, $new($Vector));
-	while ($nc($($nc(subsubDer)->getData()))->available() > 0) {
-		v->addElement($$new(PAData, $($nc($(subsubDer->getData()))->getDerValue())));
+	while ($$nc(subsubDer->getData())->available() > 0) {
+		v->addElement($$new(PAData, $($$nc(subsubDer->getData())->getDerValue())));
 	}
 	if (v->size() > 0) {
 		$var($PADataArray, pas, $new($PADataArray, v->size()));
@@ -192,7 +143,7 @@ $PADataArray* PAData::parseSequence($DerInputStream* data, int8_t explicitTag, b
 }
 
 int32_t PAData::getPreferredEType($PADataArray* pas, int32_t defaultEType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (pas == nullptr) {
 		return defaultEType;
 	}
@@ -200,32 +151,26 @@ int32_t PAData::getPreferredEType($PADataArray* pas, int32_t defaultEType) {
 	$var($DerValue, d2, nullptr);
 	{
 		$var($PADataArray, arr$, pas);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var(PAData, p, arr$->get(i$));
 			{
 				if ($nc(p)->getValue() == nullptr) {
 					continue;
 				}
-				switch ($nc(p)->getType()) {
+				switch (p->getType()) {
 				case $Krb5::PA_ETYPE_INFO:
-					{
-						$assign(d, $new($DerValue, $(p->getValue())));
-						break;
-					}
+					$assign(d, $new($DerValue, $(p->getValue())));
+					break;
 				case $Krb5::PA_ETYPE_INFO2:
-					{
-						$assign(d2, $new($DerValue, $(p->getValue())));
-						break;
-					}
+					$assign(d2, $new($DerValue, $(p->getValue())));
+					break;
 				}
 			}
 		}
 	}
 	if (d2 != nullptr) {
 		while ($nc(d2->data$)->available() > 0) {
-			$var($DerValue, value, $nc(d2->data$)->getDerValue());
+			$var($DerValue, value, d2->data$->getDerValue());
 			$var($ETypeInfo2, tmp, $new($ETypeInfo2, value));
 			bool var$0 = $EType::isNewer(tmp->getEType());
 			if (var$0 || tmp->getParams() == nullptr) {
@@ -235,7 +180,7 @@ int32_t PAData::getPreferredEType($PADataArray* pas, int32_t defaultEType) {
 	}
 	if (d != nullptr) {
 		while ($nc(d->data$)->available() > 0) {
-			$var($DerValue, value, $nc(d->data$)->getDerValue());
+			$var($DerValue, value, d->data$->getDerValue());
 			$var($ETypeInfo, tmp, $new($ETypeInfo, value));
 			return tmp->getEType();
 		}
@@ -244,7 +189,7 @@ int32_t PAData::getPreferredEType($PADataArray* pas, int32_t defaultEType) {
 }
 
 $PAData$SaltAndParams* PAData::getSaltAndParams(int32_t eType, $PADataArray* pas) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (pas == nullptr) {
 		return nullptr;
 	}
@@ -253,44 +198,36 @@ $PAData$SaltAndParams* PAData::getSaltAndParams(int32_t eType, $PADataArray* pas
 	$var($String, paPwSalt, nullptr);
 	{
 		$var($PADataArray, arr$, pas);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var(PAData, p, arr$->get(i$));
 			{
 				if ($nc(p)->getValue() == nullptr) {
 					continue;
 				}
-				switch ($nc(p)->getType()) {
+				switch (p->getType()) {
 				case $Krb5::PA_PW_SALT:
-					{
-						$init($KerberosString);
-						$init($StandardCharsets);
-						$assign(paPwSalt, $new($String, $(p->getValue()), $KerberosString::MSNAME ? $StandardCharsets::UTF_8 : $StandardCharsets::ISO_8859_1));
-						break;
-					}
+					$init($KerberosString);
+					$init($StandardCharsets);
+					$assign(paPwSalt, $new($String, $(p->getValue()), $KerberosString::MSNAME ? $StandardCharsets::UTF_8 : $StandardCharsets::ISO_8859_1));
+					break;
 				case $Krb5::PA_ETYPE_INFO:
-					{
-						$assign(d, $new($DerValue, $(p->getValue())));
-						break;
-					}
+					$assign(d, $new($DerValue, $(p->getValue())));
+					break;
 				case $Krb5::PA_ETYPE_INFO2:
-					{
-						$assign(d2, $new($DerValue, $(p->getValue())));
-						break;
-					}
+					$assign(d2, $new($DerValue, $(p->getValue())));
+					break;
 				}
 			}
 		}
 	}
 	if (d2 != nullptr) {
 		while ($nc(d2->data$)->available() > 0) {
-			$var($DerValue, value, $nc(d2->data$)->getDerValue());
+			$var($DerValue, value, d2->data$->getDerValue());
 			$var($ETypeInfo2, tmp, $new($ETypeInfo2, value));
 			bool var$0 = tmp->getEType() == eType;
 			if (var$0) {
 				bool var$1 = $EType::isNewer(eType);
-				var$0 = (var$1 || tmp->getParams() == nullptr);
+				var$0 = var$1 || tmp->getParams() == nullptr;
 			}
 			if (var$0) {
 				$var($String, var$2, tmp->getSalt());
@@ -300,7 +237,7 @@ $PAData$SaltAndParams* PAData::getSaltAndParams(int32_t eType, $PADataArray* pas
 	}
 	if (d != nullptr) {
 		while ($nc(d->data$)->available() > 0) {
-			$var($DerValue, value, $nc(d->data$)->getDerValue());
+			$var($DerValue, value, d->data$->getDerValue());
 			$var($ETypeInfo, tmp, $new($ETypeInfo, value));
 			if (tmp->getEType() == eType) {
 				return $new($PAData$SaltAndParams, $(tmp->getSalt()), nullptr);
@@ -314,68 +251,58 @@ $PAData$SaltAndParams* PAData::getSaltAndParams(int32_t eType, $PADataArray* pas
 }
 
 $String* PAData::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(">>>Pre-Authentication Data:\n\t PA-DATA type = "_s)->append(this->pADataType)->append(u'\n');
 	switch (this->pADataType) {
 	case $Krb5::PA_ENC_TIMESTAMP:
-		{
-			sb->append("\t PA-ENC-TIMESTAMP"_s);
-			break;
-		}
+		sb->append("\t PA-ENC-TIMESTAMP"_s);
+		break;
 	case $Krb5::PA_ETYPE_INFO:
-		{
-			if (this->pADataValue != nullptr) {
-				try {
-					$var($DerValue, der, $new($DerValue, this->pADataValue));
-					while ($nc(der->data$)->available() > 0) {
-						$var($DerValue, value, $nc(der->data$)->getDerValue());
-						$var($ETypeInfo, info, $new($ETypeInfo, value));
-						sb->append("\t PA-ETYPE-INFO etype = "_s)->append(info->getEType())->append(", salt = "_s)->append($(info->getSalt()))->append(u'\n');
-					}
-				} catch ($IOException& e) {
-					sb->append("\t <Unparseable PA-ETYPE-INFO>\n"_s);
-				} catch ($Asn1Exception& e) {
-					sb->append("\t <Unparseable PA-ETYPE-INFO>\n"_s);
+		if (this->pADataValue != nullptr) {
+			try {
+				$var($DerValue, der, $new($DerValue, this->pADataValue));
+				while ($nc(der->data$)->available() > 0) {
+					$var($DerValue, value, der->data$->getDerValue());
+					$var($ETypeInfo, info, $new($ETypeInfo, value));
+					sb->append("\t PA-ETYPE-INFO etype = "_s)->append(info->getEType())->append(", salt = "_s)->append($(info->getSalt()))->append(u'\n');
 				}
+			} catch ($IOException& e) {
+				sb->append("\t <Unparseable PA-ETYPE-INFO>\n"_s);
+			} catch ($Asn1Exception& e) {
+				sb->append("\t <Unparseable PA-ETYPE-INFO>\n"_s);
 			}
-			break;
 		}
+		break;
 	case $Krb5::PA_ETYPE_INFO2:
-		{
-			if (this->pADataValue != nullptr) {
-				try {
-					$var($DerValue, der, $new($DerValue, this->pADataValue));
-					while ($nc(der->data$)->available() > 0) {
-						$var($DerValue, value, $nc(der->data$)->getDerValue());
-						$var($ETypeInfo2, info2, $new($ETypeInfo2, value));
-						sb->append("\t PA-ETYPE-INFO2 etype = "_s)->append(info2->getEType())->append(", salt = "_s)->append($(info2->getSalt()))->append(", s2kparams = "_s);
-						$var($bytes, s2kparams, info2->getParams());
-						if (s2kparams == nullptr) {
-							sb->append("null\n"_s);
-						} else if ($nc(s2kparams)->length == 0) {
-							sb->append("empty\n"_s);
-						} else {
-							sb->append($($$new($HexDumpEncoder)->encodeBuffer(s2kparams)));
-						}
+		if (this->pADataValue != nullptr) {
+			try {
+				$var($DerValue, der, $new($DerValue, this->pADataValue));
+				while ($nc(der->data$)->available() > 0) {
+					$var($DerValue, value, der->data$->getDerValue());
+					$var($ETypeInfo2, info2, $new($ETypeInfo2, value));
+					sb->append("\t PA-ETYPE-INFO2 etype = "_s)->append(info2->getEType())->append(", salt = "_s)->append($(info2->getSalt()))->append(", s2kparams = "_s);
+					$var($bytes, s2kparams, info2->getParams());
+					if (s2kparams == nullptr) {
+						sb->append("null\n"_s);
+					} else if (s2kparams->length == 0) {
+						sb->append("empty\n"_s);
+					} else {
+						sb->append($($$new($HexDumpEncoder)->encodeBuffer(s2kparams)));
 					}
-				} catch ($IOException& e) {
-					sb->append("\t <Unparseable PA-ETYPE-INFO>\n"_s);
-				} catch ($Asn1Exception& e) {
-					sb->append("\t <Unparseable PA-ETYPE-INFO>\n"_s);
 				}
+			} catch ($IOException& e) {
+				sb->append("\t <Unparseable PA-ETYPE-INFO>\n"_s);
+			} catch ($Asn1Exception& e) {
+				sb->append("\t <Unparseable PA-ETYPE-INFO>\n"_s);
 			}
-			break;
 		}
+		break;
 	case $Krb5::PA_FOR_USER:
-		{
-			sb->append("\t PA-FOR-USER\n"_s);
-			break;
-		}
+		sb->append("\t PA-FOR-USER\n"_s);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return sb->toString();
 }
@@ -384,7 +311,48 @@ PAData::PAData() {
 }
 
 $Class* PAData::load$($String* name, bool initialize) {
-	$loadClass(PAData, name, initialize, &_PAData_ClassInfo_, allocate$PAData);
+	$FieldInfo fieldInfos$$[] = {
+		{"pADataType", "I", nullptr, $PRIVATE, $field(PAData, pADataType)},
+		{"pADataValue", "[B", nullptr, $PRIVATE, $field(PAData, pADataValue)},
+		{"TAG_PATYPE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PAData, TAG_PATYPE)},
+		{"TAG_PAVALUE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PAData, TAG_PAVALUE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PAData, init$, void)},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(PAData, init$, void, int32_t, $bytes*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(PAData, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(PAData, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PAData, clone, $Object*)},
+		{"getPreferredEType", "([Lsun/security/krb5/internal/PAData;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, getPreferredEType, int32_t, $PADataArray*, int32_t), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{"getSaltAndParams", "(I[Lsun/security/krb5/internal/PAData;)Lsun/security/krb5/internal/PAData$SaltAndParams;", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, getSaltAndParams, $PAData$SaltAndParams*, int32_t, $PADataArray*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(PAData, getType, int32_t)},
+		{"getValue", "()[B", nullptr, $PUBLIC, $virtualMethod(PAData, getValue, $bytes*)},
+		{"parseSequence", "(Lsun/security/util/DerInputStream;BZ)[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC | $STATIC, $staticMethod(PAData, parseSequence, $PADataArray*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PAData, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.PAData$SaltAndParams", "sun.security.krb5.internal.PAData", "SaltAndParams", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.PAData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.PAData$SaltAndParams"
+	};
+	$loadClass(PAData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PAData);
+	});
 	return class$;
 }
 

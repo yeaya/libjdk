@@ -32,6 +32,7 @@ class HotspotMemory : public ::sun::management::HotspotMemoryMBean {
 	$class(HotspotMemory, 0, ::sun::management::HotspotMemoryMBean)
 public:
 	HotspotMemory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::management::VMManagement* vm);
 	virtual ::java::util::List* getInternalMemoryCounters() override;
 	::sun::management::VMManagement* jvm = nullptr;

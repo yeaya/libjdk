@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaNativeResources$2.h>
-
 #include <com/apple/laf/AquaNativeResources$CColorPaintUIResource.h>
 #include <com/apple/laf/AquaNativeResources.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
@@ -17,44 +16,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaNativeResources$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaNativeResources$2, init$, void)},
-	{"getInstance", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(AquaNativeResources$2, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaNativeResources$2_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaNativeResources",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaNativeResources$2_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaNativeResources$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaNativeResources$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaNativeResources$2",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaNativeResources$2_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/awt/Color;>;",
-	&_AquaNativeResources$2_EnclosingMethodInfo_,
-	_AquaNativeResources$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaNativeResources"
-};
-
-$Object* allocate$AquaNativeResources$2($Class* clazz) {
-	return $of($alloc(AquaNativeResources$2));
-}
-
 void AquaNativeResources$2::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
@@ -68,7 +29,39 @@ AquaNativeResources$2::AquaNativeResources$2() {
 }
 
 $Class* AquaNativeResources$2::load$($String* name, bool initialize) {
-	$loadClass(AquaNativeResources$2, name, initialize, &_AquaNativeResources$2_ClassInfo_, allocate$AquaNativeResources$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaNativeResources$2, init$, void)},
+		{"getInstance", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(AquaNativeResources$2, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaNativeResources",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaNativeResources$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaNativeResources$2",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/awt/Color;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaNativeResources"
+	};
+	$loadClass(AquaNativeResources$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaNativeResources$2);
+	});
 	return class$;
 }
 

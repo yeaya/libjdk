@@ -44,7 +44,7 @@ public:
 	DocumentImpl$LEntry();
 	void init$(::com::sun::org::apache::xerces::internal::dom::DocumentImpl* this$0, $String* type, ::org::w3c::dom::events::EventListener* listener, bool useCapture);
 	::com::sun::org::apache::xerces::internal::dom::DocumentImpl* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x8B0E2519EC706001;
+	static const int64_t serialVersionUID = (int64_t)0x8b0e2519ec706001;
 	$String* type = nullptr;
 	::org::w3c::dom::events::EventListener* listener = nullptr;
 	bool useCapture = false;

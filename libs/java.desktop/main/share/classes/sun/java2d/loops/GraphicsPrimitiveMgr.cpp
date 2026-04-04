@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/GraphicsPrimitiveMgr.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -33,7 +32,6 @@ using $Color = ::java::awt::Color;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -58,63 +56,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _GraphicsPrimitiveMgr_FieldInfo_[] = {
-	{"debugTrace", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GraphicsPrimitiveMgr, debugTrace)},
-	{"primitives", "[Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, primitives)},
-	{"generalPrimitives", "[Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, generalPrimitives)},
-	{"needssort", "Z", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, needssort)},
-	{"primSorter", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/java2d/loops/GraphicsPrimitive;>;", $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, primSorter)},
-	{"primFinder", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, primFinder)},
-	{}
-};
-
-$MethodInfo _GraphicsPrimitiveMgr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsPrimitiveMgr, init$, void)},
-	{"initIDs", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(GraphicsPrimitiveMgr, initIDs, void, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*)},
-	{"locate", "(ILsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, locate, $GraphicsPrimitive*, int32_t, $SurfaceType*)},
-	{"locate", "(ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, locate, $GraphicsPrimitive*, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"locate", "(Lsun/java2d/loops/GraphicsPrimitiveMgr$PrimitiveSpec;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsPrimitiveMgr, locate, $GraphicsPrimitive*, $GraphicsPrimitiveMgr$PrimitiveSpec*)},
-	{"locateGeneral", "(I)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsPrimitiveMgr, locateGeneral, $GraphicsPrimitive*, int32_t)},
-	{"locatePrim", "(ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, locatePrim, $GraphicsPrimitive*, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitiveMgr, main, void, $StringArray*)},
-	{"register", "([Lsun/java2d/loops/GraphicsPrimitive;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, register$, void, $GraphicsPrimitiveArray*)},
-	{"registerGeneral", "(Lsun/java2d/loops/GraphicsPrimitive;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, registerGeneral, void, $GraphicsPrimitive*)},
-	{"registerNativeLoops", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GraphicsPrimitiveMgr, registerNativeLoops, void)},
-	{"testPrimitiveInstantiation", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitiveMgr, testPrimitiveInstantiation, void)},
-	{"testPrimitiveInstantiation", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitiveMgr, testPrimitiveInstantiation, void, bool)},
-	{"writeLog", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsPrimitiveMgr, writeLog, void, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 1
-#define _METHOD_INDEX_registerNativeLoops 10
-
-$InnerClassInfo _GraphicsPrimitiveMgr_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.GraphicsPrimitiveMgr$PrimitiveSpec", "sun.java2d.loops.GraphicsPrimitiveMgr", "PrimitiveSpec", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.GraphicsPrimitiveMgr$2", nullptr, nullptr, 0},
-	{"sun.java2d.loops.GraphicsPrimitiveMgr$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GraphicsPrimitiveMgr_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.loops.GraphicsPrimitiveMgr",
-	"java.lang.Object",
-	nullptr,
-	_GraphicsPrimitiveMgr_FieldInfo_,
-	_GraphicsPrimitiveMgr_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsPrimitiveMgr_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.GraphicsPrimitiveMgr$PrimitiveSpec,sun.java2d.loops.GraphicsPrimitiveMgr$2,sun.java2d.loops.GraphicsPrimitiveMgr$1"
-};
-
-$Object* allocate$GraphicsPrimitiveMgr($Class* clazz) {
-	return $of($alloc(GraphicsPrimitiveMgr));
-}
-
 $GraphicsPrimitiveArray* GraphicsPrimitiveMgr::primitives = nullptr;
 $GraphicsPrimitiveArray* GraphicsPrimitiveMgr::generalPrimitives = nullptr;
 bool GraphicsPrimitiveMgr::needssort = false;
@@ -123,14 +64,14 @@ $Comparator* GraphicsPrimitiveMgr::primFinder = nullptr;
 
 void GraphicsPrimitiveMgr::initIDs($Class* GP, $Class* ST, $Class* CT, $Class* SG2D, $Class* Color, $Class* AT, $Class* XORComp, $Class* AlphaComp, $Class* Path2D, $Class* Path2DFloat, $Class* SHints) {
 	$init(GraphicsPrimitiveMgr);
-	$prepareNativeStatic(GraphicsPrimitiveMgr, initIDs, void, $Class* GP, $Class* ST, $Class* CT, $Class* SG2D, $Class* Color, $Class* AT, $Class* XORComp, $Class* AlphaComp, $Class* Path2D, $Class* Path2DFloat, $Class* SHints);
+	$prepareNativeStatic(initIDs, void, $Class* GP, $Class* ST, $Class* CT, $Class* SG2D, $Class* Color, $Class* AT, $Class* XORComp, $Class* AlphaComp, $Class* Path2D, $Class* Path2DFloat, $Class* SHints);
 	$invokeNativeStatic(GP, ST, CT, SG2D, Color, AT, XORComp, AlphaComp, Path2D, Path2DFloat, SHints);
 	$finishNativeStatic();
 }
 
 void GraphicsPrimitiveMgr::registerNativeLoops() {
 	$init(GraphicsPrimitiveMgr);
-	$prepareNativeStatic(GraphicsPrimitiveMgr, registerNativeLoops, void);
+	$prepareNativeStatic(registerNativeLoops, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -139,13 +80,13 @@ void GraphicsPrimitiveMgr::init$() {
 }
 
 void GraphicsPrimitiveMgr::register$($GraphicsPrimitiveArray* newPrimitives) {
-	$load(GraphicsPrimitiveMgr);
+	$init(GraphicsPrimitiveMgr);
 	$synchronized(class$) {
-		$init(GraphicsPrimitiveMgr);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($GraphicsPrimitiveArray, devCollection, GraphicsPrimitiveMgr::primitives);
 		int32_t oldSize = 0;
 		int32_t newSize = $nc(newPrimitives)->length;
+		;
 		if (devCollection != nullptr) {
 			oldSize = devCollection->length;
 		}
@@ -160,9 +101,8 @@ void GraphicsPrimitiveMgr::register$($GraphicsPrimitiveArray* newPrimitives) {
 }
 
 void GraphicsPrimitiveMgr::registerGeneral($GraphicsPrimitive* gen) {
-	$load(GraphicsPrimitiveMgr);
+	$init(GraphicsPrimitiveMgr);
 	$synchronized(class$) {
-		$init(GraphicsPrimitiveMgr);
 		if (GraphicsPrimitiveMgr::generalPrimitives == nullptr) {
 			$assignStatic(GraphicsPrimitiveMgr::generalPrimitives, $new($GraphicsPrimitiveArray, {gen}));
 			return;
@@ -176,9 +116,8 @@ void GraphicsPrimitiveMgr::registerGeneral($GraphicsPrimitive* gen) {
 }
 
 $GraphicsPrimitive* GraphicsPrimitiveMgr::locate(int32_t primTypeID, $SurfaceType* dsttype) {
-	$load(GraphicsPrimitiveMgr);
+	$init(GraphicsPrimitiveMgr);
 	$synchronized(class$) {
-		$init(GraphicsPrimitiveMgr);
 		$init($SurfaceType);
 		$init($CompositeType);
 		return locate(primTypeID, $SurfaceType::OpaqueColor, $CompositeType::Src, dsttype);
@@ -186,9 +125,8 @@ $GraphicsPrimitive* GraphicsPrimitiveMgr::locate(int32_t primTypeID, $SurfaceTyp
 }
 
 $GraphicsPrimitive* GraphicsPrimitiveMgr::locate(int32_t primTypeID, $SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
-	$load(GraphicsPrimitiveMgr);
+	$init(GraphicsPrimitiveMgr);
 	$synchronized(class$) {
-		$init(GraphicsPrimitiveMgr);
 		$var($GraphicsPrimitive, prim, locatePrim(primTypeID, srctype, comptype, dsttype));
 		if (prim == nullptr) {
 			$assign(prim, locateGeneral(primTypeID));
@@ -204,18 +142,17 @@ $GraphicsPrimitive* GraphicsPrimitiveMgr::locate(int32_t primTypeID, $SurfaceTyp
 }
 
 $GraphicsPrimitive* GraphicsPrimitiveMgr::locatePrim(int32_t primTypeID, $SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
-	$load(GraphicsPrimitiveMgr);
+	$init(GraphicsPrimitiveMgr);
 	$synchronized(class$) {
-		$init(GraphicsPrimitiveMgr);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SurfaceType, src, nullptr);
 		$var($SurfaceType, dst, nullptr);
 		$var($CompositeType, cmp, nullptr);
 		$var($GraphicsPrimitive, prim, nullptr);
 		$var($GraphicsPrimitiveMgr$PrimitiveSpec, spec, $new($GraphicsPrimitiveMgr$PrimitiveSpec));
-		for ($assign(dst, dsttype); dst != nullptr; $assign(dst, $nc(dst)->getSuperType())) {
-			for ($assign(src, srctype); src != nullptr; $assign(src, $nc(src)->getSuperType())) {
-				for ($assign(cmp, comptype); cmp != nullptr; $assign(cmp, $nc(cmp)->getSuperType())) {
+		for ($assign(dst, dsttype); dst != nullptr; $assign(dst, dst->getSuperType())) {
+			for ($assign(src, srctype); src != nullptr; $assign(src, src->getSuperType())) {
+				for ($assign(cmp, comptype); cmp != nullptr; $assign(cmp, cmp->getSuperType())) {
 					spec->uniqueID = $GraphicsPrimitive::makeUniqueID(primTypeID, src, cmp, dst);
 					$assign(prim, locate(spec));
 					if (prim != nullptr) {
@@ -230,12 +167,12 @@ $GraphicsPrimitive* GraphicsPrimitiveMgr::locatePrim(int32_t primTypeID, $Surfac
 
 $GraphicsPrimitive* GraphicsPrimitiveMgr::locateGeneral(int32_t primTypeID) {
 	$init(GraphicsPrimitiveMgr);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (GraphicsPrimitiveMgr::generalPrimitives == nullptr) {
 		return nullptr;
 	}
 	for (int32_t i = 0; i < $nc(GraphicsPrimitiveMgr::generalPrimitives)->length; ++i) {
-		$var($GraphicsPrimitive, prim, $nc(GraphicsPrimitiveMgr::generalPrimitives)->get(i));
+		$var($GraphicsPrimitive, prim, GraphicsPrimitiveMgr::generalPrimitives->get(i));
 		if ($nc(prim)->getPrimTypeID() == primTypeID) {
 			return prim;
 		}
@@ -245,12 +182,12 @@ $GraphicsPrimitive* GraphicsPrimitiveMgr::locateGeneral(int32_t primTypeID) {
 
 $GraphicsPrimitive* GraphicsPrimitiveMgr::locate($GraphicsPrimitiveMgr$PrimitiveSpec* spec) {
 	$init(GraphicsPrimitiveMgr);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (GraphicsPrimitiveMgr::needssort) {
 		$init($GraphicsPrimitive);
 		if ($GraphicsPrimitive::traceflags != 0) {
 			for (int32_t i = 0; i < $nc(GraphicsPrimitiveMgr::primitives)->length; ++i) {
-				$nc(GraphicsPrimitiveMgr::primitives)->set(i, $($nc($nc(GraphicsPrimitiveMgr::primitives)->get(i))->traceWrap()));
+				GraphicsPrimitiveMgr::primitives->set(i, $($nc(GraphicsPrimitiveMgr::primitives->get(i))->traceWrap()));
 			}
 		}
 		$Arrays::sort(GraphicsPrimitiveMgr::primitives, GraphicsPrimitiveMgr::primSorter);
@@ -264,16 +201,20 @@ $GraphicsPrimitive* GraphicsPrimitiveMgr::locate($GraphicsPrimitiveMgr$Primitive
 	if (index >= 0) {
 		$var($GraphicsPrimitive, prim, $nc(devCollection)->get(index));
 		if ($instanceOf($GraphicsPrimitiveProxy, prim)) {
-			$assign(prim, $nc(($cast($GraphicsPrimitiveProxy, prim)))->instantiate());
+			$assign(prim, $cast($GraphicsPrimitiveProxy, prim)->instantiate());
 			devCollection->set(index, prim);
+			;
 		}
+		;
 		return prim;
 	}
+	;
 	return nullptr;
 }
 
 void GraphicsPrimitiveMgr::writeLog($String* str) {
 	$init(GraphicsPrimitiveMgr);
+	;
 }
 
 void GraphicsPrimitiveMgr::testPrimitiveInstantiation() {
@@ -283,31 +224,35 @@ void GraphicsPrimitiveMgr::testPrimitiveInstantiation() {
 
 void GraphicsPrimitiveMgr::testPrimitiveInstantiation(bool verbose) {
 	$init(GraphicsPrimitiveMgr);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t resolved = 0;
 	int32_t unresolved = 0;
 	$var($GraphicsPrimitiveArray, prims, GraphicsPrimitiveMgr::primitives);
 	for (int32_t j = 0; j < $nc(prims)->length; ++j) {
 		$var($GraphicsPrimitive, p, prims->get(j));
 		if ($instanceOf($GraphicsPrimitiveProxy, p)) {
-			$var($GraphicsPrimitive, r, $nc(($cast($GraphicsPrimitiveProxy, p)))->instantiate());
-			bool var$0 = !$nc($($nc(r)->getSignature()))->equals($($nc(p)->getSignature()));
+			$var($GraphicsPrimitive, r, $cast($GraphicsPrimitiveProxy, p)->instantiate());
+			bool var$0 = !$$nc($nc(r)->getSignature())->equals($(p->getSignature()));
 			if (!var$0) {
-				int32_t var$1 = $nc(r)->getUniqueID();
-				var$0 = var$1 != $nc(p)->getUniqueID();
+				int32_t var$1 = r->getUniqueID();
+				var$0 = var$1 != p->getUniqueID();
 			}
 			if (var$0) {
 				$nc($System::out)->println($$str({"r.getSignature == "_s, $(r->getSignature())}));
-				$nc($System::out)->println($$str({"r.getUniqueID == "_s, $$str(r->getUniqueID())}));
-				$nc($System::out)->println($$str({"p.getSignature == "_s, $(p->getSignature())}));
-				$nc($System::out)->println($$str({"p.getUniqueID == "_s, $$str(p->getUniqueID())}));
-				$var($String, var$2, $$str({"Primitive "_s, p, " returns wrong signature for "_s}));
-				$throwNew($RuntimeException, $$concat(var$2, $($of(r)->getClass())));
+				$System::out->println($$str({"r.getUniqueID == "_s, $$str(r->getUniqueID())}));
+				$System::out->println($$str({"p.getSignature == "_s, $(p->getSignature())}));
+				$System::out->println($$str({"p.getUniqueID == "_s, $$str(p->getUniqueID())}));
+				$var($StringBuilder, var$2, $new($StringBuilder));
+				var$2->append("Primitive "_s);
+				var$2->append(p);
+				var$2->append(" returns wrong signature for "_s);
+				var$2->append(r->getClass());
+				$throwNew($RuntimeException, $$str(var$2));
 			}
 			++unresolved;
 			$assign(p, r);
 			if (verbose) {
-				$nc($System::out)->println($of(p));
+				$nc($System::out)->println(p);
 			}
 		} else {
 			if (verbose) {
@@ -317,8 +262,8 @@ void GraphicsPrimitiveMgr::testPrimitiveInstantiation(bool verbose) {
 		}
 	}
 	$nc($System::out)->println($$str({$$str(resolved), " graphics primitives were not proxied."_s}));
-	$nc($System::out)->println($$str({$$str(unresolved), " proxied graphics primitives resolved correctly."_s}));
-	$nc($System::out)->println($$str({$$str(resolved), $$str(unresolved), " total graphics primitives"_s}));
+	$System::out->println($$str({$$str(unresolved), " proxied graphics primitives resolved correctly."_s}));
+	$System::out->println($$str({$$str(resolved), $$str(unresolved), " total graphics primitives"_s}));
 }
 
 void GraphicsPrimitiveMgr::main($StringArray* argv) {
@@ -330,7 +275,7 @@ void GraphicsPrimitiveMgr::main($StringArray* argv) {
 	testPrimitiveInstantiation($nc(argv)->length > 0);
 }
 
-void clinit$GraphicsPrimitiveMgr($Class* class$) {
+void GraphicsPrimitiveMgr::clinit$($Class* clazz) {
 	GraphicsPrimitiveMgr::needssort = true;
 	{
 		$load($GraphicsPrimitive);
@@ -357,7 +302,55 @@ GraphicsPrimitiveMgr::GraphicsPrimitiveMgr() {
 }
 
 $Class* GraphicsPrimitiveMgr::load$($String* name, bool initialize) {
-	$loadClass(GraphicsPrimitiveMgr, name, initialize, &_GraphicsPrimitiveMgr_ClassInfo_, clinit$GraphicsPrimitiveMgr, allocate$GraphicsPrimitiveMgr);
+	$FieldInfo fieldInfos$$[] = {
+		{"debugTrace", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GraphicsPrimitiveMgr, debugTrace)},
+		{"primitives", "[Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, primitives)},
+		{"generalPrimitives", "[Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, generalPrimitives)},
+		{"needssort", "Z", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, needssort)},
+		{"primSorter", "Ljava/util/Comparator;", "Ljava/util/Comparator<Lsun/java2d/loops/GraphicsPrimitive;>;", $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, primSorter)},
+		{"primFinder", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(GraphicsPrimitiveMgr, primFinder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GraphicsPrimitiveMgr, init$, void)},
+		{"initIDs", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(GraphicsPrimitiveMgr, initIDs, void, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*, $Class*)},
+		{"locate", "(ILsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, locate, $GraphicsPrimitive*, int32_t, $SurfaceType*)},
+		{"locate", "(ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, locate, $GraphicsPrimitive*, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"locate", "(Lsun/java2d/loops/GraphicsPrimitiveMgr$PrimitiveSpec;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsPrimitiveMgr, locate, $GraphicsPrimitive*, $GraphicsPrimitiveMgr$PrimitiveSpec*)},
+		{"locateGeneral", "(I)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsPrimitiveMgr, locateGeneral, $GraphicsPrimitive*, int32_t)},
+		{"locatePrim", "(ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, locatePrim, $GraphicsPrimitive*, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitiveMgr, main, void, $StringArray*)},
+		{"register", "([Lsun/java2d/loops/GraphicsPrimitive;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, register$, void, $GraphicsPrimitiveArray*)},
+		{"registerGeneral", "(Lsun/java2d/loops/GraphicsPrimitive;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitiveMgr, registerGeneral, void, $GraphicsPrimitive*)},
+		{"registerNativeLoops", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GraphicsPrimitiveMgr, registerNativeLoops, void)},
+		{"testPrimitiveInstantiation", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitiveMgr, testPrimitiveInstantiation, void)},
+		{"testPrimitiveInstantiation", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitiveMgr, testPrimitiveInstantiation, void, bool)},
+		{"writeLog", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsPrimitiveMgr, writeLog, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.GraphicsPrimitiveMgr$PrimitiveSpec", "sun.java2d.loops.GraphicsPrimitiveMgr", "PrimitiveSpec", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.GraphicsPrimitiveMgr$2", nullptr, nullptr, 0},
+		{"sun.java2d.loops.GraphicsPrimitiveMgr$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.loops.GraphicsPrimitiveMgr",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.GraphicsPrimitiveMgr$PrimitiveSpec,sun.java2d.loops.GraphicsPrimitiveMgr$2,sun.java2d.loops.GraphicsPrimitiveMgr$1"
+	};
+	$loadClass(GraphicsPrimitiveMgr, name, initialize, &classInfo$$, GraphicsPrimitiveMgr::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsPrimitiveMgr);
+	});
 	return class$;
 }
 

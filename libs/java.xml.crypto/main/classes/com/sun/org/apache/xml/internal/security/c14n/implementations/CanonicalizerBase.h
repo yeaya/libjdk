@@ -144,6 +144,7 @@ public:
 	using ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizerSpi::engineCanonicalize;
 	using ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizerSpi::engineCanonicalizeXPathNodeSet;
 	using ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizerSpi::engineCanonicalizeSubTree;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool includeComments);
 	void canonicalizeSubTree(::org::w3c::dom::Node* currentNode, ::com::sun::org::apache::xml::internal::security::c14n::implementations::NameSpaceSymbTable* ns, ::org::w3c::dom::Node* endnode, int32_t documentLevel, ::org::w3c::dom::Node* excludeNode, ::java::io::OutputStream* writer);
 	void canonicalizeXPathNodeSet(::org::w3c::dom::Node* currentNode, ::org::w3c::dom::Node* endnode, ::java::io::OutputStream* writer);

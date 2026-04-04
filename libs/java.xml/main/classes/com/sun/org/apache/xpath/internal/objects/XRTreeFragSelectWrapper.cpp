@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/XRTreeFragSelectWrapper.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
@@ -42,50 +41,18 @@ namespace com {
 					namespace internal {
 						namespace objects {
 
-$FieldInfo _XRTreeFragSelectWrapper_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XRTreeFragSelectWrapper, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _XRTreeFragSelectWrapper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $method(XRTreeFragSelectWrapper, init$, void, $Expression*)},
-	{"asNodeIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, asNodeIterator, $DTMIterator*)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, detach, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, fixupVariables, void, $List*, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, getType, int32_t)},
-	{"num", "()D", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, num, double), "javax.xml.transform.TransformerException"},
-	{"rtf", "()I", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, rtf, int32_t)},
-	{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, str, $String*)},
-	{"xstr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, xstr, $XMLString*)},
-	{}
-};
-
-$ClassInfo _XRTreeFragSelectWrapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XRTreeFragSelectWrapper",
-	"com.sun.org.apache.xpath.internal.objects.XRTreeFrag",
-	nullptr,
-	_XRTreeFragSelectWrapper_FieldInfo_,
-	_XRTreeFragSelectWrapper_MethodInfo_
-};
-
-$Object* allocate$XRTreeFragSelectWrapper($Class* clazz) {
-	return $of($alloc(XRTreeFragSelectWrapper));
-}
-
 void XRTreeFragSelectWrapper::init$($Expression* expr) {
 	$XRTreeFrag::init$(expr);
 }
 
 void XRTreeFragSelectWrapper::fixupVariables($List* vars, int32_t globalsSize) {
-	$nc(($cast($Expression, this->m_obj)))->fixupVariables(vars, globalsSize);
+	$nc($cast($Expression, this->m_obj))->fixupVariables(vars, globalsSize);
 }
 
 $XObject* XRTreeFragSelectWrapper::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XObject, m_selected, nullptr);
-	$assign(m_selected, $nc(($cast($Expression, this->m_obj)))->execute(xctxt));
+	$assign(m_selected, $nc($cast($Expression, this->m_obj))->execute(xctxt));
 	$nc(m_selected)->allowDetachToRelease(this->m_allowRelease);
 	if (m_selected->getType() == $XObject::CLASS_STRING) {
 		return m_selected;
@@ -137,7 +104,34 @@ XRTreeFragSelectWrapper::XRTreeFragSelectWrapper() {
 }
 
 $Class* XRTreeFragSelectWrapper::load$($String* name, bool initialize) {
-	$loadClass(XRTreeFragSelectWrapper, name, initialize, &_XRTreeFragSelectWrapper_ClassInfo_, allocate$XRTreeFragSelectWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XRTreeFragSelectWrapper, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $method(XRTreeFragSelectWrapper, init$, void, $Expression*)},
+		{"asNodeIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, asNodeIterator, $DTMIterator*)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, detach, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, fixupVariables, void, $List*, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, getType, int32_t)},
+		{"num", "()D", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, num, double), "javax.xml.transform.TransformerException"},
+		{"rtf", "()I", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, rtf, int32_t)},
+		{"str", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, str, $String*)},
+		{"xstr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XRTreeFragSelectWrapper, xstr, $XMLString*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XRTreeFragSelectWrapper",
+		"com.sun.org.apache.xpath.internal.objects.XRTreeFrag",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XRTreeFragSelectWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XRTreeFragSelectWrapper));
+	});
 	return class$;
 }
 

@@ -14,6 +14,7 @@ class LCMSImageLayout$1 : public ::java::lang::Object {
 	$class(LCMSImageLayout$1, 0, ::java::lang::Object)
 public:
 	LCMSImageLayout$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$java2d$cmm$lcms$LCMSImageLayout$BandOrder;
 };
 

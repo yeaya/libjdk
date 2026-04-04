@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Parser.h>
-
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
@@ -17,29 +16,25 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$MethodInfo _Parser_MethodInfo_[] = {
-	{"parseCompilationUnit", "()Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseCompilationUnit, $JCTree$JCCompilationUnit*)},
-	{"parseExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseExpression, $JCTree$JCExpression*)},
-	{"parseStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseStatement, $JCTree$JCStatement*)},
-	{"parseType", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseType, $JCTree$JCExpression*)},
-	{}
-};
-
-$ClassInfo _Parser_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.parser.Parser",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Parser_MethodInfo_
-};
-
-$Object* allocate$Parser($Class* clazz) {
-	return $of($alloc(Parser));
-}
-
 $Class* Parser::load$($String* name, bool initialize) {
-	$loadClass(Parser, name, initialize, &_Parser_ClassInfo_, allocate$Parser);
+	$MethodInfo methodInfos$$[] = {
+		{"parseCompilationUnit", "()Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseCompilationUnit, $JCTree$JCCompilationUnit*)},
+		{"parseExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseExpression, $JCTree$JCExpression*)},
+		{"parseStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseStatement, $JCTree$JCStatement*)},
+		{"parseType", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Parser, parseType, $JCTree$JCExpression*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.parser.Parser",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Parser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Parser);
+	});
 	return class$;
 }
 

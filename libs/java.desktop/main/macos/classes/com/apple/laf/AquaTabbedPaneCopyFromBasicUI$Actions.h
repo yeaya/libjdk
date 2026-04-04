@@ -57,6 +57,7 @@ class AquaTabbedPaneCopyFromBasicUI$Actions : public ::sun::swing::UIAction {
 	$class(AquaTabbedPaneCopyFromBasicUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	AquaTabbedPaneCopyFromBasicUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	static $Object* getUIOfType(::javax::swing::plaf::ComponentUI* ui, $Class* klass);

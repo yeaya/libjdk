@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dom/DOMURIReference.h>
-
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace javax {
 		namespace crypto {
 			namespace dom {
 
-$MethodInfo _DOMURIReference_MethodInfo_[] = {
-	{"getHere", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMURIReference, getHere, $Node*)},
-	{}
-};
-
-$ClassInfo _DOMURIReference_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.dom.DOMURIReference",
-	nullptr,
-	"javax.xml.crypto.URIReference",
-	nullptr,
-	_DOMURIReference_MethodInfo_
-};
-
-$Object* allocate$DOMURIReference($Class* clazz) {
-	return $of($alloc(DOMURIReference));
-}
-
 $Class* DOMURIReference::load$($String* name, bool initialize) {
-	$loadClass(DOMURIReference, name, initialize, &_DOMURIReference_ClassInfo_, allocate$DOMURIReference);
+	$MethodInfo methodInfos$$[] = {
+		{"getHere", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMURIReference, getHere, $Node*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.dom.DOMURIReference",
+		nullptr,
+		"javax.xml.crypto.URIReference",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMURIReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMURIReference);
+	});
 	return class$;
 }
 

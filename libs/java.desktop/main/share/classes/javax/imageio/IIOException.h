@@ -20,10 +20,13 @@ public:
 	IIOException();
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xD35DB96440B82FDD;
+	static const int64_t serialVersionUID = (int64_t)0xd35db96440b82fdd;
 	IIOException(const IIOException& e);
 	virtual void throw$() override;
-	inline IIOException* operator ->() {
+	inline IIOException* operator ->() const {
+		return (IIOException*)throwing$;
+	}
+	inline operator IIOException*() const {
 		return (IIOException*)throwing$;
 	}
 };

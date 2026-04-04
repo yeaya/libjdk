@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/Region.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Locale.h>
@@ -79,7 +78,6 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $JComponent = ::javax::swing::JComponent;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $AppContext = ::sun::awt::AppContext;
@@ -88,98 +86,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _Region_FieldInfo_[] = {
-	{"UI_TO_REGION_MAP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Region, UI_TO_REGION_MAP_KEY)},
-	{"LOWER_CASE_NAME_MAP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Region, LOWER_CASE_NAME_MAP_KEY)},
-	{"ARROW_BUTTON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, ARROW_BUTTON)},
-	{"BUTTON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, BUTTON)},
-	{"CHECK_BOX", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, CHECK_BOX)},
-	{"CHECK_BOX_MENU_ITEM", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, CHECK_BOX_MENU_ITEM)},
-	{"COLOR_CHOOSER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, COLOR_CHOOSER)},
-	{"COMBO_BOX", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, COMBO_BOX)},
-	{"DESKTOP_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, DESKTOP_PANE)},
-	{"DESKTOP_ICON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, DESKTOP_ICON)},
-	{"EDITOR_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, EDITOR_PANE)},
-	{"FILE_CHOOSER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, FILE_CHOOSER)},
-	{"FORMATTED_TEXT_FIELD", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, FORMATTED_TEXT_FIELD)},
-	{"INTERNAL_FRAME", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, INTERNAL_FRAME)},
-	{"INTERNAL_FRAME_TITLE_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, INTERNAL_FRAME_TITLE_PANE)},
-	{"LABEL", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, LABEL)},
-	{"LIST", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, LIST)},
-	{"MENU", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, MENU)},
-	{"MENU_BAR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, MENU_BAR)},
-	{"MENU_ITEM", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, MENU_ITEM)},
-	{"MENU_ITEM_ACCELERATOR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, MENU_ITEM_ACCELERATOR)},
-	{"OPTION_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, OPTION_PANE)},
-	{"PANEL", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, PANEL)},
-	{"PASSWORD_FIELD", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, PASSWORD_FIELD)},
-	{"POPUP_MENU", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, POPUP_MENU)},
-	{"POPUP_MENU_SEPARATOR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, POPUP_MENU_SEPARATOR)},
-	{"PROGRESS_BAR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, PROGRESS_BAR)},
-	{"RADIO_BUTTON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, RADIO_BUTTON)},
-	{"RADIO_BUTTON_MENU_ITEM", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, RADIO_BUTTON_MENU_ITEM)},
-	{"ROOT_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, ROOT_PANE)},
-	{"SCROLL_BAR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SCROLL_BAR)},
-	{"SCROLL_BAR_TRACK", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SCROLL_BAR_TRACK)},
-	{"SCROLL_BAR_THUMB", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SCROLL_BAR_THUMB)},
-	{"SCROLL_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SCROLL_PANE)},
-	{"SEPARATOR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SEPARATOR)},
-	{"SLIDER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SLIDER)},
-	{"SLIDER_TRACK", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SLIDER_TRACK)},
-	{"SLIDER_THUMB", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SLIDER_THUMB)},
-	{"SPINNER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SPINNER)},
-	{"SPLIT_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SPLIT_PANE)},
-	{"SPLIT_PANE_DIVIDER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SPLIT_PANE_DIVIDER)},
-	{"TABBED_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABBED_PANE)},
-	{"TABBED_PANE_TAB", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABBED_PANE_TAB)},
-	{"TABBED_PANE_TAB_AREA", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABBED_PANE_TAB_AREA)},
-	{"TABBED_PANE_CONTENT", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABBED_PANE_CONTENT)},
-	{"TABLE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABLE)},
-	{"TABLE_HEADER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABLE_HEADER)},
-	{"TEXT_AREA", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TEXT_AREA)},
-	{"TEXT_FIELD", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TEXT_FIELD)},
-	{"TEXT_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TEXT_PANE)},
-	{"TOGGLE_BUTTON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOGGLE_BUTTON)},
-	{"TOOL_BAR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_BAR)},
-	{"TOOL_BAR_CONTENT", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_BAR_CONTENT)},
-	{"TOOL_BAR_DRAG_WINDOW", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_BAR_DRAG_WINDOW)},
-	{"TOOL_TIP", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_TIP)},
-	{"TOOL_BAR_SEPARATOR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_BAR_SEPARATOR)},
-	{"TREE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TREE)},
-	{"TREE_CELL", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TREE_CELL)},
-	{"VIEWPORT", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, VIEWPORT)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Region, name)},
-	{"subregion", "Z", nullptr, $PRIVATE | $FINAL, $field(Region, subregion)},
-	{}
-};
-
-$MethodInfo _Region_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(Region, init$, void, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PROTECTED, $method(Region, init$, void, $String*, $String*, bool)},
-	{"getLowerCaseName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Region, getLowerCaseName, $String*)},
-	{"getLowerCaseNameMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljavax/swing/plaf/synth/Region;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(Region, getLowerCaseNameMap, $Map*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Region, getName, $String*)},
-	{"getRegion", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/Region;", nullptr, $STATIC, $staticMethod(Region, getRegion, Region*, $JComponent*)},
-	{"getUItoRegionMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljavax/swing/plaf/synth/Region;>;", $PRIVATE | $STATIC, $staticMethod(Region, getUItoRegionMap, $Map*)},
-	{"isSubregion", "()Z", nullptr, $PUBLIC, $virtualMethod(Region, isSubregion, bool)},
-	{"registerUIs", "(Ljavax/swing/UIDefaults;)V", nullptr, $STATIC, $staticMethod(Region, registerUIs, void, $UIDefaults*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Region, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Region_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.Region",
-	"java.lang.Object",
-	nullptr,
-	_Region_FieldInfo_,
-	_Region_MethodInfo_
-};
-
-$Object* allocate$Region($Class* clazz) {
-	return $of($alloc(Region));
-}
 
 $Object* Region::UI_TO_REGION_MAP_KEY = nullptr;
 $Object* Region::LOWER_CASE_NAME_MAP_KEY = nullptr;
@@ -243,7 +149,7 @@ Region* Region::VIEWPORT = nullptr;
 
 $Map* Region::getUItoRegionMap() {
 	$init(Region);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, context, $AppContext::getAppContext());
 	$var($Map, map, $cast($Map, $nc(context)->get(Region::UI_TO_REGION_MAP_KEY)));
 	if (map == nullptr) {
@@ -300,7 +206,7 @@ $Map* Region::getUItoRegionMap() {
 
 $Map* Region::getLowerCaseNameMap() {
 	$init(Region);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, context, $AppContext::getAppContext());
 	$var($Map, map, $cast($Map, $nc(context)->get(Region::LOWER_CASE_NAME_MAP_KEY)));
 	if (map == nullptr) {
@@ -312,20 +218,18 @@ $Map* Region::getLowerCaseNameMap() {
 
 Region* Region::getRegion($JComponent* c) {
 	$init(Region);
-	$useLocalCurrentObjectStackCache();
-	return $cast(Region, $nc($(getUItoRegionMap()))->get($($nc(c)->getUIClassID())));
+	$useLocalObjectStack();
+	return $cast(Region, $$nc(getUItoRegionMap())->get($($nc(c)->getUIClassID())));
 }
 
 void Region::registerUIs($UIDefaults* table) {
 	$init(Region);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc($(getUItoRegionMap()))->keySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, key, i$->next());
-			{
-				$nc(table)->put(key, "javax.swing.plaf.synth.SynthLookAndFeel"_s);
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($$nc(getUItoRegionMap())->keySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, key, i$->next());
+		{
+			$nc(table)->put(key, "javax.swing.plaf.synth.SynthLookAndFeel"_s);
 		}
 	}
 }
@@ -341,7 +245,7 @@ void Region::init$($String* name, bool subregion) {
 void Region::init$($String* name, $String* ui, bool subregion) {
 	Region::init$(name, subregion);
 	if (ui != nullptr) {
-		$nc($(getUItoRegionMap()))->put(ui, this);
+		$$nc(getUItoRegionMap())->put(ui, this);
 	}
 }
 
@@ -354,7 +258,7 @@ $String* Region::getName() {
 }
 
 $String* Region::getLowerCaseName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, lowerCaseNameMap, getLowerCaseNameMap());
 	$var($String, lowerCaseName, $cast($String, $nc(lowerCaseNameMap)->get(this)));
 	if (lowerCaseName == nullptr) {
@@ -369,7 +273,7 @@ $String* Region::toString() {
 	return this->name;
 }
 
-void clinit$Region($Class* class$) {
+void Region::clinit$($Class* clazz) {
 	$assignStatic(Region::UI_TO_REGION_MAP_KEY, $new($Object));
 	$assignStatic(Region::LOWER_CASE_NAME_MAP_KEY, $new($Object));
 	$assignStatic(Region::ARROW_BUTTON, $new(Region, "ArrowButton"_s, false));
@@ -435,7 +339,94 @@ Region::Region() {
 }
 
 $Class* Region::load$($String* name, bool initialize) {
-	$loadClass(Region, name, initialize, &_Region_ClassInfo_, clinit$Region, allocate$Region);
+	$FieldInfo fieldInfos$$[] = {
+		{"UI_TO_REGION_MAP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Region, UI_TO_REGION_MAP_KEY)},
+		{"LOWER_CASE_NAME_MAP_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Region, LOWER_CASE_NAME_MAP_KEY)},
+		{"ARROW_BUTTON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, ARROW_BUTTON)},
+		{"BUTTON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, BUTTON)},
+		{"CHECK_BOX", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, CHECK_BOX)},
+		{"CHECK_BOX_MENU_ITEM", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, CHECK_BOX_MENU_ITEM)},
+		{"COLOR_CHOOSER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, COLOR_CHOOSER)},
+		{"COMBO_BOX", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, COMBO_BOX)},
+		{"DESKTOP_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, DESKTOP_PANE)},
+		{"DESKTOP_ICON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, DESKTOP_ICON)},
+		{"EDITOR_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, EDITOR_PANE)},
+		{"FILE_CHOOSER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, FILE_CHOOSER)},
+		{"FORMATTED_TEXT_FIELD", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, FORMATTED_TEXT_FIELD)},
+		{"INTERNAL_FRAME", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, INTERNAL_FRAME)},
+		{"INTERNAL_FRAME_TITLE_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, INTERNAL_FRAME_TITLE_PANE)},
+		{"LABEL", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, LABEL)},
+		{"LIST", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, LIST)},
+		{"MENU", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, MENU)},
+		{"MENU_BAR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, MENU_BAR)},
+		{"MENU_ITEM", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, MENU_ITEM)},
+		{"MENU_ITEM_ACCELERATOR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, MENU_ITEM_ACCELERATOR)},
+		{"OPTION_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, OPTION_PANE)},
+		{"PANEL", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, PANEL)},
+		{"PASSWORD_FIELD", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, PASSWORD_FIELD)},
+		{"POPUP_MENU", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, POPUP_MENU)},
+		{"POPUP_MENU_SEPARATOR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, POPUP_MENU_SEPARATOR)},
+		{"PROGRESS_BAR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, PROGRESS_BAR)},
+		{"RADIO_BUTTON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, RADIO_BUTTON)},
+		{"RADIO_BUTTON_MENU_ITEM", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, RADIO_BUTTON_MENU_ITEM)},
+		{"ROOT_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, ROOT_PANE)},
+		{"SCROLL_BAR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SCROLL_BAR)},
+		{"SCROLL_BAR_TRACK", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SCROLL_BAR_TRACK)},
+		{"SCROLL_BAR_THUMB", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SCROLL_BAR_THUMB)},
+		{"SCROLL_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SCROLL_PANE)},
+		{"SEPARATOR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SEPARATOR)},
+		{"SLIDER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SLIDER)},
+		{"SLIDER_TRACK", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SLIDER_TRACK)},
+		{"SLIDER_THUMB", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SLIDER_THUMB)},
+		{"SPINNER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SPINNER)},
+		{"SPLIT_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SPLIT_PANE)},
+		{"SPLIT_PANE_DIVIDER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, SPLIT_PANE_DIVIDER)},
+		{"TABBED_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABBED_PANE)},
+		{"TABBED_PANE_TAB", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABBED_PANE_TAB)},
+		{"TABBED_PANE_TAB_AREA", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABBED_PANE_TAB_AREA)},
+		{"TABBED_PANE_CONTENT", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABBED_PANE_CONTENT)},
+		{"TABLE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABLE)},
+		{"TABLE_HEADER", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TABLE_HEADER)},
+		{"TEXT_AREA", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TEXT_AREA)},
+		{"TEXT_FIELD", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TEXT_FIELD)},
+		{"TEXT_PANE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TEXT_PANE)},
+		{"TOGGLE_BUTTON", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOGGLE_BUTTON)},
+		{"TOOL_BAR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_BAR)},
+		{"TOOL_BAR_CONTENT", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_BAR_CONTENT)},
+		{"TOOL_BAR_DRAG_WINDOW", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_BAR_DRAG_WINDOW)},
+		{"TOOL_TIP", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_TIP)},
+		{"TOOL_BAR_SEPARATOR", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TOOL_BAR_SEPARATOR)},
+		{"TREE", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TREE)},
+		{"TREE_CELL", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, TREE_CELL)},
+		{"VIEWPORT", "Ljavax/swing/plaf/synth/Region;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Region, VIEWPORT)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Region, name)},
+		{"subregion", "Z", nullptr, $PRIVATE | $FINAL, $field(Region, subregion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(Region, init$, void, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PROTECTED, $method(Region, init$, void, $String*, $String*, bool)},
+		{"getLowerCaseName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Region, getLowerCaseName, $String*)},
+		{"getLowerCaseNameMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljavax/swing/plaf/synth/Region;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(Region, getLowerCaseNameMap, $Map*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Region, getName, $String*)},
+		{"getRegion", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/Region;", nullptr, $STATIC, $staticMethod(Region, getRegion, Region*, $JComponent*)},
+		{"getUItoRegionMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljavax/swing/plaf/synth/Region;>;", $PRIVATE | $STATIC, $staticMethod(Region, getUItoRegionMap, $Map*)},
+		{"isSubregion", "()Z", nullptr, $PUBLIC, $virtualMethod(Region, isSubregion, bool)},
+		{"registerUIs", "(Ljavax/swing/UIDefaults;)V", nullptr, $STATIC, $staticMethod(Region, registerUIs, void, $UIDefaults*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Region, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.Region",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Region, name, initialize, &classInfo$$, Region::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Region);
+	});
 	return class$;
 }
 

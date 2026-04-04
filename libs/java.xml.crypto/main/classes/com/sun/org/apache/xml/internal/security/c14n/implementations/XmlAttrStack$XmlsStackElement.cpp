@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/XmlAttrStack$XmlsStackElement.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/XmlAttrStack.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -10,7 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -22,43 +20,6 @@ namespace com {
 							namespace c14n {
 								namespace implementations {
 
-$FieldInfo _XmlAttrStack$XmlsStackElement_FieldInfo_[] = {
-	{"level", "I", nullptr, 0, $field(XmlAttrStack$XmlsStackElement, level)},
-	{"rendered", "Z", nullptr, 0, $field(XmlAttrStack$XmlsStackElement, rendered)},
-	{"nodes", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Attr;>;", $FINAL, $field(XmlAttrStack$XmlsStackElement, nodes)},
-	{}
-};
-
-$MethodInfo _XmlAttrStack$XmlsStackElement_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XmlAttrStack$XmlsStackElement, init$, void)},
-	{}
-};
-
-$InnerClassInfo _XmlAttrStack$XmlsStackElement_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.c14n.implementations.XmlAttrStack$XmlsStackElement", "com.sun.org.apache.xml.internal.security.c14n.implementations.XmlAttrStack", "XmlsStackElement", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XmlAttrStack$XmlsStackElement_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.XmlAttrStack$XmlsStackElement",
-	"java.lang.Object",
-	nullptr,
-	_XmlAttrStack$XmlsStackElement_FieldInfo_,
-	_XmlAttrStack$XmlsStackElement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XmlAttrStack$XmlsStackElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.XmlAttrStack"
-};
-
-$Object* allocate$XmlAttrStack$XmlsStackElement($Class* clazz) {
-	return $of($alloc(XmlAttrStack$XmlsStackElement));
-}
-
 void XmlAttrStack$XmlsStackElement::init$() {
 	this->rendered = false;
 	$set(this, nodes, $new($ArrayList));
@@ -68,7 +29,38 @@ XmlAttrStack$XmlsStackElement::XmlAttrStack$XmlsStackElement() {
 }
 
 $Class* XmlAttrStack$XmlsStackElement::load$($String* name, bool initialize) {
-	$loadClass(XmlAttrStack$XmlsStackElement, name, initialize, &_XmlAttrStack$XmlsStackElement_ClassInfo_, allocate$XmlAttrStack$XmlsStackElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"level", "I", nullptr, 0, $field(XmlAttrStack$XmlsStackElement, level)},
+		{"rendered", "Z", nullptr, 0, $field(XmlAttrStack$XmlsStackElement, rendered)},
+		{"nodes", "Ljava/util/List;", "Ljava/util/List<Lorg/w3c/dom/Attr;>;", $FINAL, $field(XmlAttrStack$XmlsStackElement, nodes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XmlAttrStack$XmlsStackElement, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.c14n.implementations.XmlAttrStack$XmlsStackElement", "com.sun.org.apache.xml.internal.security.c14n.implementations.XmlAttrStack", "XmlsStackElement", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.XmlAttrStack$XmlsStackElement",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.XmlAttrStack"
+	};
+	$loadClass(XmlAttrStack$XmlsStackElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XmlAttrStack$XmlsStackElement);
+	});
 	return class$;
 }
 

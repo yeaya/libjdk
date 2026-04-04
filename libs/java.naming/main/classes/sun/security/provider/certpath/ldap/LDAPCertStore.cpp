@@ -1,5 +1,4 @@
 #include <sun/security/provider/certpath/ldap/LDAPCertStore.h>
-
 #include <java/lang/SecurityManager.h>
 #include <java/net/URI.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -47,51 +46,11 @@ namespace sun {
 			namespace certpath {
 				namespace ldap {
 
-$FieldInfo _LDAPCertStore_FieldInfo_[] = {
-	{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LDAPCertStore, debug)},
-	{"ldapDN", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LDAPCertStore, ldapDN)},
-	{"impl", "Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;", nullptr, $PRIVATE, $field(LDAPCertStore, impl)},
-	{"certStoreCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Lsun/security/provider/certpath/ldap/LDAPCertStore$Key;Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LDAPCertStore, certStoreCache)},
-	{}
-};
-
-$MethodInfo _LDAPCertStore_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(LDAPCertStore, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
-	{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(LDAPCertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
-	{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(LDAPCertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
-	{"getInstance", "(Ljava/security/cert/LDAPCertStoreParameters;)Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(LDAPCertStore, getInstance, $LDAPCertStoreImpl*, $LDAPCertStoreParameters*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{}
-};
-
-$InnerClassInfo _LDAPCertStore_InnerClassesInfo_[] = {
-	{"sun.security.provider.certpath.ldap.LDAPCertStore$Key", "sun.security.provider.certpath.ldap.LDAPCertStore", "Key", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _LDAPCertStore_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.provider.certpath.ldap.LDAPCertStore",
-	"java.security.cert.CertStoreSpi",
-	nullptr,
-	_LDAPCertStore_FieldInfo_,
-	_LDAPCertStore_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LDAPCertStore_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.provider.certpath.ldap.LDAPCertStore$Key"
-};
-
-$Object* allocate$LDAPCertStore($Class* clazz) {
-	return $of($alloc(LDAPCertStore));
-}
-
 $Debug* LDAPCertStore::debug = nullptr;
 $Cache* LDAPCertStore::certStoreCache = nullptr;
 
 void LDAPCertStore::init$($CertStoreParameters* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CertStoreSpi::init$(params);
 	$var($String, serverName, nullptr);
 	int32_t port = 0;
@@ -101,15 +60,15 @@ void LDAPCertStore::init$($CertStoreParameters* params) {
 	}
 	if ($instanceOf($LDAPCertStoreParameters, params)) {
 		$var($LDAPCertStoreParameters, p, $cast($LDAPCertStoreParameters, params));
-		$assign(serverName, $nc(p)->getServerName());
+		$assign(serverName, p->getServerName());
 		port = p->getPort();
 	} else if ($instanceOf($URICertStoreParameters, params)) {
 		$var($URICertStoreParameters, p, $cast($URICertStoreParameters, params));
-		$var($URI, u, $nc(p)->getURI());
-		if (!$nc($($nc(u)->getScheme()))->equalsIgnoreCase("ldap"_s)) {
+		$var($URI, u, p->getURI());
+		if (!$$nc($nc(u)->getScheme())->equalsIgnoreCase("ldap"_s)) {
 			$throwNew($InvalidAlgorithmParameterException, $$str({"Unsupported scheme \'"_s, $(u->getScheme()), "\', only LDAP URIs are supported for LDAP certstore"_s}));
 		}
-		$assign(serverName, $nc(u)->getHost());
+		$assign(serverName, u->getHost());
 		if (serverName == nullptr) {
 			$assign(serverName, "localhost"_s);
 		}
@@ -132,32 +91,29 @@ void LDAPCertStore::init$($CertStoreParameters* params) {
 	$var($LDAPCertStoreImpl, lci, $cast($LDAPCertStoreImpl, $nc(LDAPCertStore::certStoreCache)->get(k)));
 	if (lci == nullptr) {
 		$set(this, impl, $new($LDAPCertStoreImpl, serverName, port));
-		$nc(LDAPCertStore::certStoreCache)->put(k, this->impl);
+		LDAPCertStore::certStoreCache->put(k, this->impl);
 	} else {
 		$set(this, impl, lci);
 		if (LDAPCertStore::debug != nullptr) {
-			$nc(LDAPCertStore::debug)->println("LDAPCertStore.getInstance: cache hit"_s);
+			LDAPCertStore::debug->println("LDAPCertStore.getInstance: cache hit"_s);
 		}
 	}
 	$set(this, ldapDN, dn);
 }
 
 $LDAPCertStoreImpl* LDAPCertStore::getInstance($LDAPCertStoreParameters* params) {
-	$load(LDAPCertStore);
+	$init(LDAPCertStore);
 	$synchronized(class$) {
-		$init(LDAPCertStore);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, serverName, $nc(params)->getServerName());
 		int32_t port = params->getPort();
 		$var($LDAPCertStore$Key, k, $new($LDAPCertStore$Key, serverName, port));
 		$var($LDAPCertStoreImpl, lci, $cast($LDAPCertStoreImpl, $nc(LDAPCertStore::certStoreCache)->get(k)));
 		if (lci == nullptr) {
 			$assign(lci, $new($LDAPCertStoreImpl, serverName, port));
-			$nc(LDAPCertStore::certStoreCache)->put(k, lci);
-		} else {
-			if (LDAPCertStore::debug != nullptr) {
-				$nc(LDAPCertStore::debug)->println("LDAPCertStore.getInstance: cache hit"_s);
-			}
+			LDAPCertStore::certStoreCache->put(k, lci);
+		} else if (LDAPCertStore::debug != nullptr) {
+			LDAPCertStore::debug->println("LDAPCertStore.getInstance: cache hit"_s);
 		}
 		return lci;
 	}
@@ -165,15 +121,15 @@ $LDAPCertStoreImpl* LDAPCertStore::getInstance($LDAPCertStoreParameters* params)
 
 $Collection* LDAPCertStore::engineGetCertificates($CertSelector* selector$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($CertSelector, selector, selector$renamed);
 		if (LDAPCertStore::debug != nullptr) {
-			$nc(LDAPCertStore::debug)->println($$str({"LDAPCertStore.engineGetCertificates() selector: "_s, $($String::valueOf($of(selector)))}));
+			LDAPCertStore::debug->println($$str({"LDAPCertStore.engineGetCertificates() selector: "_s, $($String::valueOf(selector))}));
 		}
 		if (selector == nullptr) {
 			$assign(selector, $new($X509CertSelector));
 		} else if (!($instanceOf($X509CertSelector, selector))) {
-			$throwNew($CertStoreException, $$str({"Need X509CertSelector to find certs, but instance of "_s, $($nc($of(selector))->getClass()->getName()), " passed"_s}));
+			$throwNew($CertStoreException, $$str({"Need X509CertSelector to find certs, but instance of "_s, $($of(selector)->getClass()->getName()), " passed"_s}));
 		}
 		return $nc(this->impl)->getCertificates($cast($X509CertSelector, selector), this->ldapDN);
 	}
@@ -181,21 +137,21 @@ $Collection* LDAPCertStore::engineGetCertificates($CertSelector* selector$rename
 
 $Collection* LDAPCertStore::engineGetCRLs($CRLSelector* selector$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($CRLSelector, selector, selector$renamed);
 		if (LDAPCertStore::debug != nullptr) {
-			$nc(LDAPCertStore::debug)->println($$str({"LDAPCertStore.engineGetCRLs() selector: "_s, selector}));
+			LDAPCertStore::debug->println($$str({"LDAPCertStore.engineGetCRLs() selector: "_s, selector}));
 		}
 		if (selector == nullptr) {
 			$assign(selector, $new($X509CRLSelector));
 		} else if (!($instanceOf($X509CRLSelector, selector))) {
-			$throwNew($CertStoreException, $$str({"Need X509CRLSelector to find CRLs, but instance of "_s, $($nc($of(selector))->getClass()->getName()), " passed"_s}));
+			$throwNew($CertStoreException, $$str({"Need X509CRLSelector to find CRLs, but instance of "_s, $($of(selector)->getClass()->getName()), " passed"_s}));
 		}
 		return $nc(this->impl)->getCRLs($cast($X509CRLSelector, selector), this->ldapDN);
 	}
 }
 
-void clinit$LDAPCertStore($Class* class$) {
+void LDAPCertStore::clinit$($Class* clazz) {
 	$assignStatic(LDAPCertStore::debug, $Debug::getInstance("certpath"_s));
 	$assignStatic(LDAPCertStore::certStoreCache, $Cache::newSoftMemoryCache(185));
 }
@@ -204,7 +160,41 @@ LDAPCertStore::LDAPCertStore() {
 }
 
 $Class* LDAPCertStore::load$($String* name, bool initialize) {
-	$loadClass(LDAPCertStore, name, initialize, &_LDAPCertStore_ClassInfo_, clinit$LDAPCertStore, allocate$LDAPCertStore);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Lsun/security/util/Debug;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LDAPCertStore, debug)},
+		{"ldapDN", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LDAPCertStore, ldapDN)},
+		{"impl", "Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;", nullptr, $PRIVATE, $field(LDAPCertStore, impl)},
+		{"certStoreCache", "Lsun/security/util/Cache;", "Lsun/security/util/Cache<Lsun/security/provider/certpath/ldap/LDAPCertStore$Key;Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LDAPCertStore, certStoreCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/cert/CertStoreParameters;)V", nullptr, $PUBLIC, $method(LDAPCertStore, init$, void, $CertStoreParameters*), "java.security.InvalidAlgorithmParameterException"},
+		{"engineGetCRLs", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CRLSelector;)Ljava/util/Collection<Ljava/security/cert/X509CRL;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(LDAPCertStore, engineGetCRLs, $Collection*, $CRLSelector*), "java.security.cert.CertStoreException"},
+		{"engineGetCertificates", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection;", "(Ljava/security/cert/CertSelector;)Ljava/util/Collection<Ljava/security/cert/X509Certificate;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(LDAPCertStore, engineGetCertificates, $Collection*, $CertSelector*), "java.security.cert.CertStoreException"},
+		{"getInstance", "(Ljava/security/cert/LDAPCertStoreParameters;)Lsun/security/provider/certpath/ldap/LDAPCertStoreImpl;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(LDAPCertStore, getInstance, $LDAPCertStoreImpl*, $LDAPCertStoreParameters*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.provider.certpath.ldap.LDAPCertStore$Key", "sun.security.provider.certpath.ldap.LDAPCertStore", "Key", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.provider.certpath.ldap.LDAPCertStore",
+		"java.security.cert.CertStoreSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.provider.certpath.ldap.LDAPCertStore$Key"
+	};
+	$loadClass(LDAPCertStore, name, initialize, &classInfo$$, LDAPCertStore::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LDAPCertStore);
+	});
 	return class$;
 }
 

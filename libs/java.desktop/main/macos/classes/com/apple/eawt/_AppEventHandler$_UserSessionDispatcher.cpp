@@ -1,5 +1,4 @@
 #include <com/apple/eawt/_AppEventHandler$_UserSessionDispatcher.h>
-
 #include <com/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor.h>
 #include <com/apple/eawt/_AppEventHandler.h>
 #include <java/awt/desktop/UserSessionEvent$Reason.h>
@@ -23,48 +22,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$FieldInfo __AppEventHandler$_UserSessionDispatcher_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_UserSessionDispatcher, this$0)},
-	{}
-};
-
-$MethodInfo __AppEventHandler$_UserSessionDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_UserSessionDispatcher, init$, void, $_AppEventHandler*)},
-	{"createEvent", "(Z)Ljava/awt/desktop/UserSessionEvent;", nullptr, 0, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, createEvent, $Object*, bool)},
-	{"performFalseEventOn", "(Ljava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, performFalseEventOn, void, $UserSessionListener*, $UserSessionEvent*)},
-	{"performFalseEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, performFalseEventOn, void, Object$*, Object$*)},
-	{"performTrueEventOn", "(Ljava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, performTrueEventOn, void, $UserSessionListener*, $UserSessionEvent*)},
-	{"performTrueEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, performTrueEventOn, void, Object$*, Object$*)},
-	{"registerNativeListener", "()V", nullptr, 0, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, registerNativeListener, void)},
-	{}
-};
-
-$InnerClassInfo __AppEventHandler$_UserSessionDispatcher_InnerClassesInfo_[] = {
-	{"com.apple.eawt._AppEventHandler$_UserSessionDispatcher", "com.apple.eawt._AppEventHandler", "_UserSessionDispatcher", 0},
-	{"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor", "com.apple.eawt._AppEventHandler", "_BooleanAppEventMultiplexor", $ABSTRACT},
-	{}
-};
-
-$ClassInfo __AppEventHandler$_UserSessionDispatcher_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.eawt._AppEventHandler$_UserSessionDispatcher",
-	"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor",
-	nullptr,
-	__AppEventHandler$_UserSessionDispatcher_FieldInfo_,
-	__AppEventHandler$_UserSessionDispatcher_MethodInfo_,
-	"Lcom/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor<Ljava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent;>;",
-	nullptr,
-	__AppEventHandler$_UserSessionDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt._AppEventHandler"
-};
-
-$Object* allocate$_AppEventHandler$_UserSessionDispatcher($Class* clazz) {
-	return $of($alloc(_AppEventHandler$_UserSessionDispatcher));
-}
-
 void _AppEventHandler$_UserSessionDispatcher::init$($_AppEventHandler* this$0) {
 	$set(this, this$0, this$0);
 	$_AppEventHandler$_BooleanAppEventMultiplexor::init$(this$0);
@@ -72,7 +29,7 @@ void _AppEventHandler$_UserSessionDispatcher::init$($_AppEventHandler* this$0) {
 
 $Object* _AppEventHandler$_UserSessionDispatcher::createEvent(bool isTrue) {
 	$init($UserSessionEvent$Reason);
-	return $of($new($UserSessionEvent, $UserSessionEvent$Reason::UNSPECIFIED));
+	return $new($UserSessionEvent, $UserSessionEvent$Reason::UNSPECIFIED);
 }
 
 void _AppEventHandler$_UserSessionDispatcher::performFalseEventOn($UserSessionListener* listener, $UserSessionEvent* e) {
@@ -99,7 +56,43 @@ _AppEventHandler$_UserSessionDispatcher::_AppEventHandler$_UserSessionDispatcher
 }
 
 $Class* _AppEventHandler$_UserSessionDispatcher::load$($String* name, bool initialize) {
-	$loadClass(_AppEventHandler$_UserSessionDispatcher, name, initialize, &__AppEventHandler$_UserSessionDispatcher_ClassInfo_, allocate$_AppEventHandler$_UserSessionDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_UserSessionDispatcher, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_UserSessionDispatcher, init$, void, $_AppEventHandler*)},
+		{"createEvent", "(Z)Ljava/awt/desktop/UserSessionEvent;", nullptr, 0, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, createEvent, $Object*, bool)},
+		{"performFalseEventOn", "(Ljava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, performFalseEventOn, void, $UserSessionListener*, $UserSessionEvent*)},
+		{"performFalseEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, performFalseEventOn, void, Object$*, Object$*)},
+		{"performTrueEventOn", "(Ljava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, performTrueEventOn, void, $UserSessionListener*, $UserSessionEvent*)},
+		{"performTrueEventOn", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, performTrueEventOn, void, Object$*, Object$*)},
+		{"registerNativeListener", "()V", nullptr, 0, $virtualMethod(_AppEventHandler$_UserSessionDispatcher, registerNativeListener, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt._AppEventHandler$_UserSessionDispatcher", "com.apple.eawt._AppEventHandler", "_UserSessionDispatcher", 0},
+		{"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor", "com.apple.eawt._AppEventHandler", "_BooleanAppEventMultiplexor", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.eawt._AppEventHandler$_UserSessionDispatcher",
+		"com.apple.eawt._AppEventHandler$_BooleanAppEventMultiplexor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/eawt/_AppEventHandler$_BooleanAppEventMultiplexor<Ljava/awt/desktop/UserSessionListener;Ljava/awt/desktop/UserSessionEvent;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt._AppEventHandler"
+	};
+	$loadClass(_AppEventHandler$_UserSessionDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppEventHandler$_UserSessionDispatcher);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/pubapi/TypeDesc.h>
-
 #include <com/sun/tools/javac/util/StringUtils.h>
 #include <com/sun/tools/sjavac/pubapi/ArrayTypeDesc.h>
 #include <com/sun/tools/sjavac/pubapi/PrimitiveTypeDesc.h>
@@ -38,53 +37,13 @@ namespace com {
 			namespace sjavac {
 				namespace pubapi {
 
-$FieldInfo _TypeDesc_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeDesc, serialVersionUID)},
-	{"typeKind", "Ljavax/lang/model/type/TypeKind;", nullptr, 0, $field(TypeDesc, typeKind)},
-	{}
-};
-
-$MethodInfo _TypeDesc_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/type/TypeKind;)V", nullptr, $PUBLIC, $method(TypeDesc, init$, void, $TypeKind*)},
-	{"decodeString", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, decodeString, TypeDesc*, $String*)},
-	{"encodeAsString", "(Lcom/sun/tools/sjavac/pubapi/TypeDesc;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, encodeAsString, $String*, TypeDesc*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeDesc, equals, bool, Object$*)},
-	{"fromType", "(Ljavax/lang/model/type/TypeMirror;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, fromType, TypeDesc*, $TypeMirror*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeDesc, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TypeDesc_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.pubapi.TypeDesc$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TypeDesc_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.sjavac.pubapi.TypeDesc",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_TypeDesc_FieldInfo_,
-	_TypeDesc_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeDesc_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.pubapi.TypeDesc$1"
-};
-
-$Object* allocate$TypeDesc($Class* clazz) {
-	return $of($alloc(TypeDesc));
-}
-
 void TypeDesc::init$($TypeKind* typeKind) {
 	$set(this, typeKind, typeKind);
 }
 
 TypeDesc* TypeDesc::decodeString($String* s$renamed) {
 	$init(TypeDesc);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, s$renamed);
 	$assign(s, $nc(s)->trim());
 	if (s->endsWith("[]"_s)) {
@@ -103,32 +62,35 @@ TypeDesc* TypeDesc::decodeString($String* s$renamed) {
 
 $String* TypeDesc::encodeAsString(TypeDesc* td) {
 	$init(TypeDesc);
-	$useLocalCurrentObjectStackCache();
-	$init($TypeKind);
-	if ($nc($nc(td)->typeKind)->isPrimitive() || $nc(td)->typeKind == $TypeKind::VOID) {
+	$useLocalObjectStack();
+	if ($nc($nc(td)->typeKind)->isPrimitive() || td->typeKind == $TypeKind::VOID) {
 		return $StringUtils::toLowerCase($($nc(td->typeKind)->toString()));
 	}
-	if ($nc(td)->typeKind == $TypeKind::ARRAY) {
-		return $str({$(encodeAsString($nc(($cast($ArrayTypeDesc, td)))->compTypeDesc)), "[]"_s});
+	if (td->typeKind == $TypeKind::ARRAY) {
+		return $str({$(encodeAsString($cast($ArrayTypeDesc, td)->compTypeDesc)), "[]"_s});
 	}
-	if ($nc(td)->typeKind == $TypeKind::TYPEVAR) {
-		return $str({"#"_s, $nc(($cast($TypeVarTypeDesc, td)))->identifier});
+	if (td->typeKind == $TypeKind::TYPEVAR) {
+		return $str({"#"_s, $cast($TypeVarTypeDesc, td)->identifier});
 	}
-	if ($nc(td)->typeKind == $TypeKind::DECLARED) {
-		return $nc($nc(($cast($ReferenceTypeDesc, td)))->javaType)->toString();
+	if (td->typeKind == $TypeKind::DECLARED) {
+		return $nc($cast($ReferenceTypeDesc, td)->javaType)->toString();
 	}
-	$throwNew($AssertionError, $of($$str({"Unhandled type: "_s, $nc(td)->typeKind})));
+	$throwNew($AssertionError, $$of($str({"Unhandled type: "_s, td->typeKind})));
 }
 
 TypeDesc* TypeDesc::fromType($TypeMirror* type) {
 	$init(TypeDesc);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TypeVisitor, v, $new($TypeDesc$1));
 	$var(TypeDesc, td, $cast(TypeDesc, v->visit(type)));
 	if (td == nullptr) {
-		$var($String, var$1, $$str({"Unhandled type mirror: "_s, type, " ("_s}));
-		$var($String, var$0, $$concat(var$1, $($nc($of(type))->getClass())));
-		$throwNew($AssertionError, $of(($$concat(var$0, ")"_s))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unhandled type mirror: "_s);
+		var$0->append(type);
+		var$0->append(" ("_s);
+		var$0->append($nc($of(type))->getClass());
+		var$0->append(")"_s);
+		$throwNew($AssertionError, $$of($str(var$0)));
 	}
 	return td;
 }
@@ -137,7 +99,7 @@ bool TypeDesc::equals(Object$* obj) {
 	if ($of(this)->getClass() != $nc($of(obj))->getClass()) {
 		return false;
 	}
-	return $nc(this->typeKind)->equals($nc(($cast(TypeDesc, obj)))->typeKind);
+	return $nc(this->typeKind)->equals($cast(TypeDesc, obj)->typeKind);
 }
 
 int32_t TypeDesc::hashCode() {
@@ -148,7 +110,41 @@ TypeDesc::TypeDesc() {
 }
 
 $Class* TypeDesc::load$($String* name, bool initialize) {
-	$loadClass(TypeDesc, name, initialize, &_TypeDesc_ClassInfo_, allocate$TypeDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TypeDesc, serialVersionUID)},
+		{"typeKind", "Ljavax/lang/model/type/TypeKind;", nullptr, 0, $field(TypeDesc, typeKind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/lang/model/type/TypeKind;)V", nullptr, $PUBLIC, $method(TypeDesc, init$, void, $TypeKind*)},
+		{"decodeString", "(Ljava/lang/String;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, decodeString, TypeDesc*, $String*)},
+		{"encodeAsString", "(Lcom/sun/tools/sjavac/pubapi/TypeDesc;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, encodeAsString, $String*, TypeDesc*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TypeDesc, equals, bool, Object$*)},
+		{"fromType", "(Ljavax/lang/model/type/TypeMirror;)Lcom/sun/tools/sjavac/pubapi/TypeDesc;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeDesc, fromType, TypeDesc*, $TypeMirror*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TypeDesc, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.pubapi.TypeDesc$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.sjavac.pubapi.TypeDesc",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.pubapi.TypeDesc$1"
+	};
+	$loadClass(TypeDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeDesc);
+	});
 	return class$;
 }
 

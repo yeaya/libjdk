@@ -33,7 +33,7 @@ public:
 	virtual void translate(int32_t dx, int32_t dy);
 	int32_t x = 0;
 	int32_t y = 0;
-	static const int64_t serialVersionUID = (int64_t)0xB6C48A72347EC826;
+	static const int64_t serialVersionUID = (int64_t)0xb6c48a72347ec826;
 };
 
 	} // awt

@@ -36,7 +36,7 @@ public:
 	DocumentImpl$EnclosingAttr();
 	void init$(::com::sun::org::apache::xerces::internal::dom::DocumentImpl* this$0);
 	::com::sun::org::apache::xerces::internal::dom::DocumentImpl* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x4847E90A0943BDF0;
+	static const int64_t serialVersionUID = (int64_t)0x4847e90a0943bdf0;
 	::com::sun::org::apache::xerces::internal::dom::AttrImpl* node = nullptr;
 	$String* oldvalue = nullptr;
 };

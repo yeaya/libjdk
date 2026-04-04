@@ -21,6 +21,7 @@ class VSyncedBSManager : public ::java::lang::Object {
 	$class(VSyncedBSManager, 0, ::java::lang::Object)
 public:
 	VSyncedBSManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool checkAllowed(::java::awt::image::BufferStrategy* bs) {return false;}
 	static ::sun::awt::image::VSyncedBSManager* getInstance(bool create);

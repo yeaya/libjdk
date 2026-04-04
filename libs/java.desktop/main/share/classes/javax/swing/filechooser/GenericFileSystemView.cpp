@@ -1,5 +1,4 @@
 #include <javax/swing/filechooser/GenericFileSystemView.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <javax/swing/UIManager.h>
@@ -18,30 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace filechooser {
 
-$FieldInfo _GenericFileSystemView_FieldInfo_[] = {
-	{"newFolderString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GenericFileSystemView, newFolderString)},
-	{}
-};
-
-$MethodInfo _GenericFileSystemView_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GenericFileSystemView, init$, void)},
-	{"createNewFolder", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(GenericFileSystemView, createNewFolder, $File*, $File*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _GenericFileSystemView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.filechooser.GenericFileSystemView",
-	"javax.swing.filechooser.FileSystemView",
-	nullptr,
-	_GenericFileSystemView_FieldInfo_,
-	_GenericFileSystemView_MethodInfo_
-};
-
-$Object* allocate$GenericFileSystemView($Class* clazz) {
-	return $of($alloc(GenericFileSystemView));
-}
-
 $String* GenericFileSystemView::newFolderString = nullptr;
 
 void GenericFileSystemView::init$() {
@@ -49,7 +24,7 @@ void GenericFileSystemView::init$() {
 }
 
 $File* GenericFileSystemView::createNewFolder($File* containingDir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (containingDir == nullptr) {
 		$throwNew($IOException, "Containing directory is null:"_s);
 	}
@@ -62,7 +37,7 @@ $File* GenericFileSystemView::createNewFolder($File* containingDir) {
 	return newFolder;
 }
 
-void clinit$GenericFileSystemView($Class* class$) {
+void GenericFileSystemView::clinit$($Class* clazz) {
 	$assignStatic(GenericFileSystemView::newFolderString, $UIManager::getString("FileChooser.other.newFolder"_s));
 }
 
@@ -70,7 +45,26 @@ GenericFileSystemView::GenericFileSystemView() {
 }
 
 $Class* GenericFileSystemView::load$($String* name, bool initialize) {
-	$loadClass(GenericFileSystemView, name, initialize, &_GenericFileSystemView_ClassInfo_, clinit$GenericFileSystemView, allocate$GenericFileSystemView);
+	$FieldInfo fieldInfos$$[] = {
+		{"newFolderString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GenericFileSystemView, newFolderString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GenericFileSystemView, init$, void)},
+		{"createNewFolder", "(Ljava/io/File;)Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(GenericFileSystemView, createNewFolder, $File*, $File*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.filechooser.GenericFileSystemView",
+		"javax.swing.filechooser.FileSystemView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GenericFileSystemView, name, initialize, &classInfo$$, GenericFileSystemView::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GenericFileSystemView);
+	});
 	return class$;
 }
 

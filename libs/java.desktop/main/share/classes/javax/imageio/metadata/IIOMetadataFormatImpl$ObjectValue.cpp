@@ -1,5 +1,4 @@
 #include <javax/imageio/metadata/IIOMetadataFormatImpl$ObjectValue.h>
-
 #include <java/lang/Comparable.h>
 #include <java/util/List.h>
 #include <javax/imageio/metadata/IIOMetadataFormatImpl.h>
@@ -14,49 +13,6 @@ using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl
 namespace javax {
 	namespace imageio {
 		namespace metadata {
-
-$FieldInfo _IIOMetadataFormatImpl$ObjectValue_FieldInfo_[] = {
-	{"this$0", "Ljavax/imageio/metadata/IIOMetadataFormatImpl;", nullptr, $FINAL | $SYNTHETIC, $field(IIOMetadataFormatImpl$ObjectValue, this$0)},
-	{"valueType", "I", nullptr, 0, $field(IIOMetadataFormatImpl$ObjectValue, valueType)},
-	{"classType", "Ljava/lang/Class;", "Ljava/lang/Class<+TT;>;", 0, $field(IIOMetadataFormatImpl$ObjectValue, classType)},
-	{"defaultValue", "Ljava/lang/Object;", "TT;", 0, $field(IIOMetadataFormatImpl$ObjectValue, defaultValue)},
-	{"enumeratedValues", "Ljava/util/List;", "Ljava/util/List<+TT;>;", 0, $field(IIOMetadataFormatImpl$ObjectValue, enumeratedValues)},
-	{"minValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<-TT;>;", 0, $field(IIOMetadataFormatImpl$ObjectValue, minValue)},
-	{"maxValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<-TT;>;", 0, $field(IIOMetadataFormatImpl$ObjectValue, maxValue)},
-	{"arrayMinLength", "I", nullptr, 0, $field(IIOMetadataFormatImpl$ObjectValue, arrayMinLength)},
-	{"arrayMaxLength", "I", nullptr, 0, $field(IIOMetadataFormatImpl$ObjectValue, arrayMaxLength)},
-	{}
-};
-
-$MethodInfo _IIOMetadataFormatImpl$ObjectValue_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/metadata/IIOMetadataFormatImpl;)V", nullptr, 0, $method(IIOMetadataFormatImpl$ObjectValue, init$, void, $IIOMetadataFormatImpl*)},
-	{}
-};
-
-$InnerClassInfo _IIOMetadataFormatImpl$ObjectValue_InnerClassesInfo_[] = {
-	{"javax.imageio.metadata.IIOMetadataFormatImpl$ObjectValue", "javax.imageio.metadata.IIOMetadataFormatImpl", "ObjectValue", 0},
-	{}
-};
-
-$ClassInfo _IIOMetadataFormatImpl$ObjectValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.metadata.IIOMetadataFormatImpl$ObjectValue",
-	"java.lang.Object",
-	nullptr,
-	_IIOMetadataFormatImpl$ObjectValue_FieldInfo_,
-	_IIOMetadataFormatImpl$ObjectValue_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_IIOMetadataFormatImpl$ObjectValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.metadata.IIOMetadataFormatImpl"
-};
-
-$Object* allocate$IIOMetadataFormatImpl$ObjectValue($Class* clazz) {
-	return $of($alloc(IIOMetadataFormatImpl$ObjectValue));
-}
 
 void IIOMetadataFormatImpl$ObjectValue::init$($IIOMetadataFormatImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -74,7 +30,44 @@ IIOMetadataFormatImpl$ObjectValue::IIOMetadataFormatImpl$ObjectValue() {
 }
 
 $Class* IIOMetadataFormatImpl$ObjectValue::load$($String* name, bool initialize) {
-	$loadClass(IIOMetadataFormatImpl$ObjectValue, name, initialize, &_IIOMetadataFormatImpl$ObjectValue_ClassInfo_, allocate$IIOMetadataFormatImpl$ObjectValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/imageio/metadata/IIOMetadataFormatImpl;", nullptr, $FINAL | $SYNTHETIC, $field(IIOMetadataFormatImpl$ObjectValue, this$0)},
+		{"valueType", "I", nullptr, 0, $field(IIOMetadataFormatImpl$ObjectValue, valueType)},
+		{"classType", "Ljava/lang/Class;", "Ljava/lang/Class<+TT;>;", 0, $field(IIOMetadataFormatImpl$ObjectValue, classType)},
+		{"defaultValue", "Ljava/lang/Object;", "TT;", 0, $field(IIOMetadataFormatImpl$ObjectValue, defaultValue)},
+		{"enumeratedValues", "Ljava/util/List;", "Ljava/util/List<+TT;>;", 0, $field(IIOMetadataFormatImpl$ObjectValue, enumeratedValues)},
+		{"minValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<-TT;>;", 0, $field(IIOMetadataFormatImpl$ObjectValue, minValue)},
+		{"maxValue", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<-TT;>;", 0, $field(IIOMetadataFormatImpl$ObjectValue, maxValue)},
+		{"arrayMinLength", "I", nullptr, 0, $field(IIOMetadataFormatImpl$ObjectValue, arrayMinLength)},
+		{"arrayMaxLength", "I", nullptr, 0, $field(IIOMetadataFormatImpl$ObjectValue, arrayMaxLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/metadata/IIOMetadataFormatImpl;)V", nullptr, 0, $method(IIOMetadataFormatImpl$ObjectValue, init$, void, $IIOMetadataFormatImpl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.metadata.IIOMetadataFormatImpl$ObjectValue", "javax.imageio.metadata.IIOMetadataFormatImpl", "ObjectValue", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.metadata.IIOMetadataFormatImpl$ObjectValue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.metadata.IIOMetadataFormatImpl"
+	};
+	$loadClass(IIOMetadataFormatImpl$ObjectValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIOMetadataFormatImpl$ObjectValue);
+	});
 	return class$;
 }
 

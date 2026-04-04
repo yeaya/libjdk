@@ -94,6 +94,7 @@ public:
 	virtual void activate() override {}
 	virtual void deactivate(bool isTemporary) override {}
 	virtual void hideWindows() override {}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void awtLock() {}
 	virtual void awtUnlock() {}

@@ -1,5 +1,4 @@
 #include <javax/management/remote/SubjectDelegationPermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 namespace javax {
 	namespace management {
 		namespace remote {
-
-$FieldInfo _SubjectDelegationPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SubjectDelegationPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SubjectDelegationPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubjectDelegationPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubjectDelegationPermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _SubjectDelegationPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.management.remote.SubjectDelegationPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_SubjectDelegationPermission_FieldInfo_,
-	_SubjectDelegationPermission_MethodInfo_
-};
-
-$Object* allocate$SubjectDelegationPermission($Class* clazz) {
-	return $of($alloc(SubjectDelegationPermission));
-}
 
 void SubjectDelegationPermission::init$($String* name) {
 	$BasicPermission::init$(name);
@@ -52,7 +27,26 @@ SubjectDelegationPermission::SubjectDelegationPermission() {
 }
 
 $Class* SubjectDelegationPermission::load$($String* name, bool initialize) {
-	$loadClass(SubjectDelegationPermission, name, initialize, &_SubjectDelegationPermission_ClassInfo_, allocate$SubjectDelegationPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SubjectDelegationPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubjectDelegationPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SubjectDelegationPermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.management.remote.SubjectDelegationPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SubjectDelegationPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SubjectDelegationPermission));
+	});
 	return class$;
 }
 

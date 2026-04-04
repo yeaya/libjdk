@@ -55,6 +55,7 @@ class $export JDesktopPane : public ::javax::swing::JLayeredPane {
 	$class(JDesktopPane, 0, ::javax::swing::JLayeredPane)
 public:
 	JDesktopPane();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JLayeredPane::contains;
 	using ::javax::swing::JLayeredPane::enable;
 	using ::javax::swing::JLayeredPane::getBounds;

@@ -1,5 +1,4 @@
 #include <sun/tools/serialver/SerialVer.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/ObjectStreamClass.h>
@@ -18,50 +17,18 @@ using $URLArray = $Array<::java::net::URL>;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $ObjectStreamClass = ::java::io::ObjectStreamClass;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedURLException = ::java::net::MalformedURLException;
-using $URI = ::java::net::URI;
 using $URLClassLoader = ::java::net::URLClassLoader;
-using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $Res = ::sun::tools::serialver::Res;
 
 namespace sun {
 	namespace tools {
 		namespace serialver {
-
-$FieldInfo _SerialVer_FieldInfo_[] = {
-	{"loader", "Ljava/net/URLClassLoader;", nullptr, $STATIC, $staticField(SerialVer, loader)},
-	{}
-};
-
-$MethodInfo _SerialVer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SerialVer, init$, void)},
-	{"initializeLoader", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SerialVer, initializeLoader, void, $String*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SerialVer, main, void, $StringArray*)},
-	{"resolveClass", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SerialVer, resolveClass, $String*, $String*), "java.lang.ClassNotFoundException"},
-	{"serialSyntax", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SerialVer, serialSyntax, $String*, $String*), "java.lang.ClassNotFoundException"},
-	{"usage", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(SerialVer, usage, void)},
-	{}
-};
-
-$ClassInfo _SerialVer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.tools.serialver.SerialVer",
-	"java.lang.Object",
-	nullptr,
-	_SerialVer_FieldInfo_,
-	_SerialVer_MethodInfo_
-};
-
-$Object* allocate$SerialVer($Class* clazz) {
-	return $of($alloc(SerialVer));
-}
 
 $URLClassLoader* SerialVer::loader = nullptr;
 
@@ -70,23 +37,23 @@ void SerialVer::init$() {
 
 void SerialVer::initializeLoader($String* cp) {
 	$init(SerialVer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($StringArray, paths, $nc(cp)->split($File::pathSeparator));
 	int32_t count = paths->length;
 	$var($URLArray, urls, $new($URLArray, count));
 	for (int32_t i = 0; i < count; ++i) {
-		urls->set(i, $($nc($($nc($($Paths::get(paths->get(i), $$new($StringArray, 0))))->toUri()))->toURL()));
+		urls->set(i, $($$nc($$nc($Paths::get(paths->get(i), $$new($StringArray, 0)))->toUri())->toURL()));
 	}
 	$assignStatic(SerialVer::loader, $new($URLClassLoader, urls));
 }
 
 $String* SerialVer::serialSyntax($String* classname) {
 	$init(SerialVer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ret, nullptr);
 	bool classFound = false;
-	if ($nc(classname)->indexOf((int32_t)u'$') != -1) {
+	if ($nc(classname)->indexOf(u'$') != -1) {
 		$assign(ret, resolveClass(classname));
 	} else {
 		try {
@@ -98,7 +65,7 @@ $String* SerialVer::serialSyntax($String* classname) {
 			$var($StringBuilder, workBuffer, $new($StringBuilder, classname));
 			$var($String, workName, workBuffer->toString());
 			int32_t i = 0;
-			while ((i = $nc(workName)->lastIndexOf((int32_t)u'.')) != -1 && !classFound) {
+			while ((i = workName->lastIndexOf(u'.')) != -1 && !classFound) {
 				workBuffer->setCharAt(i, u'$');
 				try {
 					$assign(workName, workBuffer->toString());
@@ -117,7 +84,7 @@ $String* SerialVer::serialSyntax($String* classname) {
 
 $String* SerialVer::resolveClass($String* classname) {
 	$init(SerialVer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* cl = $Class::forName(classname, false, SerialVer::loader);
 	$var($ObjectStreamClass, desc, $ObjectStreamClass::lookup(cl));
@@ -130,14 +97,14 @@ $String* SerialVer::resolveClass($String* classname) {
 
 void SerialVer::main($StringArray* args) {
 	$init(SerialVer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, envcp, nullptr);
 	int32_t i = 0;
 	if ($nc(args)->length == 0) {
 		usage();
 		$System::exit(1);
 	}
-	for (i = 0; i < $nc(args)->length; ++i) {
+	for (i = 0; i < args->length; ++i) {
 		if ($nc(args->get(i))->equals("-classpath"_s)) {
 			if ((i + 1 == args->length) || $nc(args->get(i + 1))->startsWith("-"_s)) {
 				$nc($System::err)->println($($Res::getText("error.missing.classpath"_s)));
@@ -169,12 +136,12 @@ void SerialVer::main($StringArray* args) {
 		$nc($System::err)->println($($Res::getText("error.parsing.classpath"_s, envcp)));
 		$System::exit(3);
 	}
-	if (i == $nc(args)->length) {
+	if (i == args->length) {
 		usage();
 		$System::exit(1);
 	}
 	bool exitFlag = false;
-	for (i = i; i < $nc(args)->length; ++i) {
+	for (i = i; i < args->length; ++i) {
 		try {
 			$var($String, syntax, serialSyntax(args->get(i)));
 			if (syntax != nullptr) {
@@ -198,7 +165,7 @@ void SerialVer::usage() {
 	$nc($System::err)->println($($Res::getText("usage"_s)));
 }
 
-void clinit$SerialVer($Class* class$) {
+void SerialVer::clinit$($Class* clazz) {
 	$assignStatic(SerialVer::loader, nullptr);
 }
 
@@ -206,7 +173,30 @@ SerialVer::SerialVer() {
 }
 
 $Class* SerialVer::load$($String* name, bool initialize) {
-	$loadClass(SerialVer, name, initialize, &_SerialVer_ClassInfo_, clinit$SerialVer, allocate$SerialVer);
+	$FieldInfo fieldInfos$$[] = {
+		{"loader", "Ljava/net/URLClassLoader;", nullptr, $STATIC, $staticField(SerialVer, loader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SerialVer, init$, void)},
+		{"initializeLoader", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(SerialVer, initializeLoader, void, $String*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SerialVer, main, void, $StringArray*)},
+		{"resolveClass", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SerialVer, resolveClass, $String*, $String*), "java.lang.ClassNotFoundException"},
+		{"serialSyntax", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(SerialVer, serialSyntax, $String*, $String*), "java.lang.ClassNotFoundException"},
+		{"usage", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(SerialVer, usage, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.tools.serialver.SerialVer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialVer, name, initialize, &classInfo$$, SerialVer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SerialVer);
+	});
 	return class$;
 }
 

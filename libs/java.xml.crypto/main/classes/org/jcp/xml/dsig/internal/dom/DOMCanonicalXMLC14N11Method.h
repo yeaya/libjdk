@@ -36,6 +36,7 @@ class DOMCanonicalXMLC14N11Method : public ::org::jcp::xml::dsig::internal::dom:
 	$class(DOMCanonicalXMLC14N11Method, 0, ::org::jcp::xml::dsig::internal::dom::ApacheCanonicalizer)
 public:
 	DOMCanonicalXMLC14N11Method();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::org::jcp::xml::dsig::internal::dom::ApacheCanonicalizer::init;
 	void init$();
 	virtual void init(::javax::xml::crypto::dsig::spec::TransformParameterSpec* params) override;

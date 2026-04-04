@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/KeyInfo.h>
-
 #include <com/sun/org/apache/xml/internal/security/keys/content/DEREncodedKeyValue.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/KeyInfoReference.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/KeyName.h>
@@ -97,112 +96,11 @@ namespace com {
 						namespace security {
 							namespace keys {
 
-$FieldInfo _KeyInfo_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyInfo, LOG)},
-	{"x509Datas", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/content/X509Data;>;", $PRIVATE, $field(KeyInfo, x509Datas)},
-	{"nullList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;>;", $PRIVATE | $STATIC | $FINAL, $staticField(KeyInfo, nullList)},
-	{"storageResolvers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;>;", $PRIVATE, $field(KeyInfo, storageResolvers)},
-	{"internalKeyResolvers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;", $PRIVATE, $field(KeyInfo, internalKeyResolvers)},
-	{"secureValidation", "Z", nullptr, $PRIVATE, $field(KeyInfo, secureValidation)},
-	{}
-};
-
-$MethodInfo _KeyInfo_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(KeyInfo, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyInfo, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/KeyName;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $KeyName*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/keyvalues/DSAKeyValue;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $DSAKeyValue*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/keyvalues/RSAKeyValue;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $RSAKeyValue*)},
-	{"add", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $PublicKey*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/KeyValue;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $KeyValue*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/MgmtData;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $MgmtData*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/PGPData;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $PGPData*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/RetrievalMethod;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $RetrievalMethod*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/SPKIData;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $SPKIData*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/X509Data;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $X509Data*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/DEREncodedKeyValue;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $DEREncodedKeyValue*)},
-	{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/KeyInfoReference;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $KeyInfoReference*)},
-	{"addDEREncodedKeyValue", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addDEREncodedKeyValue, void, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addKeyInfoReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addKeyInfoReference, void, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addKeyName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addKeyName, void, $String*)},
-	{"addKeyValue", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addKeyValue, void, $PublicKey*)},
-	{"addKeyValue", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addKeyValue, void, $Element*)},
-	{"addMgmtData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addMgmtData, void, $String*)},
-	{"addRetrievalMethod", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addRetrievalMethod, void, $String*, $Transforms*, $String*)},
-	{"addStorageResolver", "(Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addStorageResolver, void, $StorageResolver*)},
-	{"addUnknownElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addUnknownElement, void, $Element*)},
-	{"applyCurrentResolver", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(KeyInfo, applyCurrentResolver, $X509Certificate*, $String*, $KeyResolverSpi*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"containsDEREncodedKeyValue", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsDEREncodedKeyValue, bool)},
-	{"containsKeyInfoReference", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsKeyInfoReference, bool)},
-	{"containsKeyName", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsKeyName, bool)},
-	{"containsKeyValue", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsKeyValue, bool)},
-	{"containsMgmtData", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsMgmtData, bool)},
-	{"containsPGPData", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsPGPData, bool)},
-	{"containsRetrievalMethod", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsRetrievalMethod, bool)},
-	{"containsSPKIData", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsSPKIData, bool)},
-	{"containsUnknownElement", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsUnknownElement, bool)},
-	{"containsX509Data", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsX509Data, bool)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getBaseLocalName, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getId, $String*)},
-	{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getPrivateKey, $PrivateKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getPrivateKeyFromInternalResolvers", "()Ljava/security/PrivateKey;", nullptr, 0, $virtualMethod(KeyInfo, getPrivateKeyFromInternalResolvers, $PrivateKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getPrivateKeyFromStaticResolvers", "()Ljava/security/PrivateKey;", nullptr, 0, $virtualMethod(KeyInfo, getPrivateKeyFromStaticResolvers, $PrivateKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getPublicKeyFromInternalResolvers", "()Ljava/security/PublicKey;", nullptr, 0, $virtualMethod(KeyInfo, getPublicKeyFromInternalResolvers, $PublicKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getPublicKeyFromStaticResolvers", "()Ljava/security/PublicKey;", nullptr, 0, $virtualMethod(KeyInfo, getPublicKeyFromStaticResolvers, $PublicKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getSecretKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getSecretKey, $SecretKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getSecretKeyFromInternalResolvers", "()Ljavax/crypto/SecretKey;", nullptr, 0, $virtualMethod(KeyInfo, getSecretKeyFromInternalResolvers, $SecretKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getSecretKeyFromStaticResolvers", "()Ljavax/crypto/SecretKey;", nullptr, 0, $virtualMethod(KeyInfo, getSecretKeyFromStaticResolvers, $SecretKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getX509Certificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getX509Certificate, $X509Certificate*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getX509CertificateFromInternalResolvers", "()Ljava/security/cert/X509Certificate;", nullptr, 0, $virtualMethod(KeyInfo, getX509CertificateFromInternalResolvers, $X509Certificate*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"getX509CertificateFromStaticResolvers", "()Ljava/security/cert/X509Certificate;", nullptr, 0, $virtualMethod(KeyInfo, getX509CertificateFromStaticResolvers, $X509Certificate*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, isEmpty, bool)},
-	{"itemDEREncodedKeyValue", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/DEREncodedKeyValue;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemDEREncodedKeyValue, $DEREncodedKeyValue*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemInternalKeyResolver", "(I)Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;", nullptr, 0, $virtualMethod(KeyInfo, itemInternalKeyResolver, $KeyResolverSpi*, int32_t)},
-	{"itemKeyInfoReference", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/KeyInfoReference;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemKeyInfoReference, $KeyInfoReference*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemKeyName", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/KeyName;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemKeyName, $KeyName*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemKeyValue", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/KeyValue;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemKeyValue, $KeyValue*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemMgmtData", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/MgmtData;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemMgmtData, $MgmtData*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemPGPData", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/PGPData;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemPGPData, $PGPData*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemRetrievalMethod", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/RetrievalMethod;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemRetrievalMethod, $RetrievalMethod*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemSPKIData", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/SPKIData;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemSPKIData, $SPKIData*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"itemUnknownElement", "(I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemUnknownElement, $Element*, int32_t)},
-	{"itemX509Data", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/X509Data;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemX509Data, $X509Data*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"lengthDEREncodedKeyValue", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthDEREncodedKeyValue, int32_t)},
-	{"lengthInternalKeyResolver", "()I", nullptr, 0, $virtualMethod(KeyInfo, lengthInternalKeyResolver, int32_t)},
-	{"lengthKeyInfoReference", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthKeyInfoReference, int32_t)},
-	{"lengthKeyName", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthKeyName, int32_t)},
-	{"lengthKeyValue", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthKeyValue, int32_t)},
-	{"lengthMgmtData", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthMgmtData, int32_t)},
-	{"lengthPGPData", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthPGPData, int32_t)},
-	{"lengthRetrievalMethod", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthRetrievalMethod, int32_t)},
-	{"lengthSPKIData", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthSPKIData, int32_t)},
-	{"lengthUnknownElement", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthUnknownElement, int32_t)},
-	{"lengthX509Data", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthX509Data, int32_t)},
-	{"registerInternalKeyResolver", "(Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, registerInternalKeyResolver, void, $KeyResolverSpi*)},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, setId, void, $String*)},
-	{"setSecureValidation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, setSecureValidation, void, bool)},
-	{}
-};
-
-$ClassInfo _KeyInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.KeyInfo",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	_KeyInfo_FieldInfo_,
-	_KeyInfo_MethodInfo_
-};
-
-$Object* allocate$KeyInfo($Class* clazz) {
-	return $of($alloc(KeyInfo));
-}
-
 $Logger* KeyInfo::LOG = nullptr;
 $List* KeyInfo::nullList = nullptr;
 
 void KeyInfo::init$($Document* doc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(doc);
 	$set(this, storageResolvers, KeyInfo::nullList);
 	$set(this, internalKeyResolvers, $new($ArrayList));
@@ -210,7 +108,7 @@ void KeyInfo::init$($Document* doc) {
 	$var($String, prefix, $ElementProxy::getDefaultPrefix($(this->getBaseNamespace())));
 	if (prefix != nullptr && prefix->length() > 0) {
 		$init($Constants);
-		$nc($(getElement()))->setAttributeNS($Constants::NamespaceSpecNS, $$str({"xmlns:"_s, prefix}), $(this->getBaseNamespace()));
+		$$nc(getElement())->setAttributeNS($Constants::NamespaceSpecNS, $$str({"xmlns:"_s, prefix}), $(this->getBaseNamespace()));
 	}
 }
 
@@ -241,72 +139,72 @@ $String* KeyInfo::getId() {
 }
 
 void KeyInfo::addKeyName($String* keynameString) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($KeyName, $(getDocument()), keynameString));
 }
 
 void KeyInfo::add($KeyName* keyname) {
-	appendSelf(static_cast<$ElementProxy*>(keyname));
+	appendSelf(keyname);
 	addReturnToSelf();
 }
 
 void KeyInfo::addKeyValue($PublicKey* pk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($KeyValue, $(getDocument()), pk));
 }
 
 void KeyInfo::addKeyValue($Element* unknownKeyValueElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($KeyValue, $(getDocument()), unknownKeyValueElement));
 }
 
 void KeyInfo::add($DSAKeyValue* dsakeyvalue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($KeyValue, $(getDocument()), dsakeyvalue));
 }
 
 void KeyInfo::add($RSAKeyValue* rsakeyvalue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($KeyValue, $(getDocument()), rsakeyvalue));
 }
 
 void KeyInfo::add($PublicKey* pk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($KeyValue, $(getDocument()), pk));
 }
 
 void KeyInfo::add($KeyValue* keyvalue) {
-	appendSelf(static_cast<$ElementProxy*>(keyvalue));
+	appendSelf(keyvalue);
 	addReturnToSelf();
 }
 
 void KeyInfo::addMgmtData($String* mgmtdata) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($MgmtData, $(getDocument()), mgmtdata));
 }
 
 void KeyInfo::add($MgmtData* mgmtdata) {
-	appendSelf(static_cast<$ElementProxy*>(mgmtdata));
+	appendSelf(mgmtdata);
 	addReturnToSelf();
 }
 
 void KeyInfo::add($PGPData* pgpdata) {
-	appendSelf(static_cast<$ElementProxy*>(pgpdata));
+	appendSelf(pgpdata);
 	addReturnToSelf();
 }
 
 void KeyInfo::addRetrievalMethod($String* uri, $Transforms* transforms, $String* Type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($RetrievalMethod, $(getDocument()), uri, transforms, Type));
 }
 
 void KeyInfo::add($RetrievalMethod* retrievalmethod) {
-	appendSelf(static_cast<$ElementProxy*>(retrievalmethod));
+	appendSelf(retrievalmethod);
 	addReturnToSelf();
 }
 
 void KeyInfo::add($SPKIData* spkidata) {
-	appendSelf(static_cast<$ElementProxy*>(spkidata));
+	appendSelf(spkidata);
 	addReturnToSelf();
 }
 
@@ -315,32 +213,32 @@ void KeyInfo::add($X509Data* x509data) {
 		$set(this, x509Datas, $new($ArrayList));
 	}
 	$nc(this->x509Datas)->add(x509data);
-	appendSelf(static_cast<$ElementProxy*>(x509data));
+	appendSelf(x509data);
 	addReturnToSelf();
 }
 
 void KeyInfo::addDEREncodedKeyValue($PublicKey* pk) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($DEREncodedKeyValue, $(getDocument()), pk));
 }
 
 void KeyInfo::add($DEREncodedKeyValue* derEncodedKeyValue) {
-	appendSelf(static_cast<$ElementProxy*>(derEncodedKeyValue));
+	appendSelf(derEncodedKeyValue);
 	addReturnToSelf();
 }
 
 void KeyInfo::addKeyInfoReference($String* URI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->add($$new($KeyInfoReference, $(getDocument()), URI));
 }
 
 void KeyInfo::add($KeyInfoReference* keyInfoReference) {
-	appendSelf(static_cast<$ElementProxy*>(keyInfoReference));
+	appendSelf(keyInfoReference);
 	addReturnToSelf();
 }
 
 void KeyInfo::addUnknownElement($Element* element) {
-	appendSelf(static_cast<$Node*>(element));
+	appendSelf(element);
 	addReturnToSelf();
 }
 
@@ -376,7 +274,7 @@ int32_t KeyInfo::lengthSPKIData() {
 
 int32_t KeyInfo::lengthX509Data() {
 	if (this->x509Datas != nullptr) {
-		return $nc(this->x509Datas)->size();
+		return this->x509Datas->size();
 	}
 	$init($Constants);
 	return this->length($Constants::SignatureSpecNS, $Constants::_TAG_X509DATA);
@@ -393,13 +291,13 @@ int32_t KeyInfo::lengthKeyInfoReference() {
 }
 
 int32_t KeyInfo::lengthUnknownElement() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t res = 0;
-	$var($Node, childNode, $nc($(getElement()))->getFirstChild());
+	$var($Node, childNode, $$nc(getElement())->getFirstChild());
 	while (childNode != nullptr) {
 		bool var$0 = childNode->getNodeType() == $Node::ELEMENT_NODE;
 		$init($Constants);
-		if (var$0 && $nc($(childNode->getNamespaceURI()))->equals($Constants::SignatureSpecNS)) {
+		if (var$0 && $$nc(childNode->getNamespaceURI())->equals($Constants::SignatureSpecNS)) {
 			++res;
 		}
 		$assign(childNode, childNode->getNextSibling());
@@ -408,7 +306,7 @@ int32_t KeyInfo::lengthUnknownElement() {
 }
 
 $KeyName* KeyInfo::itemKeyName(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_KEYNAME, i));
 	if (e != nullptr) {
@@ -418,7 +316,7 @@ $KeyName* KeyInfo::itemKeyName(int32_t i) {
 }
 
 $KeyValue* KeyInfo::itemKeyValue(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_KEYVALUE, i));
 	if (e != nullptr) {
@@ -428,7 +326,7 @@ $KeyValue* KeyInfo::itemKeyValue(int32_t i) {
 }
 
 $MgmtData* KeyInfo::itemMgmtData(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_MGMTDATA, i));
 	if (e != nullptr) {
@@ -438,7 +336,7 @@ $MgmtData* KeyInfo::itemMgmtData(int32_t i) {
 }
 
 $PGPData* KeyInfo::itemPGPData(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_PGPDATA, i));
 	if (e != nullptr) {
@@ -448,7 +346,7 @@ $PGPData* KeyInfo::itemPGPData(int32_t i) {
 }
 
 $RetrievalMethod* KeyInfo::itemRetrievalMethod(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_RETRIEVALMETHOD, i));
 	if (e != nullptr) {
@@ -458,7 +356,7 @@ $RetrievalMethod* KeyInfo::itemRetrievalMethod(int32_t i) {
 }
 
 $SPKIData* KeyInfo::itemSPKIData(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_SPKIDATA, i));
 	if (e != nullptr) {
@@ -468,9 +366,9 @@ $SPKIData* KeyInfo::itemSPKIData(int32_t i) {
 }
 
 $X509Data* KeyInfo::itemX509Data(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->x509Datas != nullptr) {
-		return $cast($X509Data, $nc(this->x509Datas)->get(i));
+		return $cast($X509Data, this->x509Datas->get(i));
 	}
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDsNode($(getFirstChild()), $Constants::_TAG_X509DATA, i));
@@ -481,7 +379,7 @@ $X509Data* KeyInfo::itemX509Data(int32_t i) {
 }
 
 $DEREncodedKeyValue* KeyInfo::itemDEREncodedKeyValue(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDs11Node($(getFirstChild()), $Constants::_TAG_DERENCODEDKEYVALUE, i));
 	if (e != nullptr) {
@@ -491,7 +389,7 @@ $DEREncodedKeyValue* KeyInfo::itemDEREncodedKeyValue(int32_t i) {
 }
 
 $KeyInfoReference* KeyInfo::itemKeyInfoReference(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($Element, e, $XMLUtils::selectDs11Node($(getFirstChild()), $Constants::_TAG_KEYINFOREFERENCE, i));
 	if (e != nullptr) {
@@ -501,13 +399,13 @@ $KeyInfoReference* KeyInfo::itemKeyInfoReference(int32_t i) {
 }
 
 $Element* KeyInfo::itemUnknownElement(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t res = 0;
-	$var($Node, childNode, $nc($(getElement()))->getFirstChild());
+	$var($Node, childNode, $$nc(getElement())->getFirstChild());
 	while (childNode != nullptr) {
 		bool var$0 = childNode->getNodeType() == $Node::ELEMENT_NODE;
 		$init($Constants);
-		if (var$0 && $nc($(childNode->getNamespaceURI()))->equals($Constants::SignatureSpecNS)) {
+		if (var$0 && $$nc(childNode->getNamespaceURI())->equals($Constants::SignatureSpecNS)) {
 			++res;
 			if (res == i) {
 				return $cast($Element, childNode);
@@ -571,15 +469,15 @@ $PublicKey* KeyInfo::getPublicKey() {
 	$nc(KeyInfo::LOG)->debug("I couldn\'t find a key using the per-KeyInfo key resolvers"_s);
 	$assign(pk, this->getPublicKeyFromStaticResolvers());
 	if (pk != nullptr) {
-		$nc(KeyInfo::LOG)->debug("I could find a key using the system-wide key resolvers"_s);
+		KeyInfo::LOG->debug("I could find a key using the system-wide key resolvers"_s);
 		return pk;
 	}
-	$nc(KeyInfo::LOG)->debug("I couldn\'t find a key using the system-wide key resolvers"_s);
+	KeyInfo::LOG->debug("I couldn\'t find a key using the system-wide key resolvers"_s);
 	return nullptr;
 }
 
 $PublicKey* KeyInfo::getPublicKeyFromStaticResolvers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, it, $KeyResolver::iterator());
 	while ($nc(it)->hasNext()) {
 		$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, it->next()));
@@ -587,15 +485,13 @@ $PublicKey* KeyInfo::getPublicKeyFromStaticResolvers() {
 		$var($String, uri, this->getBaseURI());
 		while (currentChild != nullptr) {
 			if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
-				{
-					$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
-						{
-							$var($PublicKey, pk, $nc(keyResolver)->engineLookupAndResolvePublicKey($cast($Element, currentChild), uri, storage, this->secureValidation));
-							if (pk != nullptr) {
-								return pk;
-							}
+				$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
+					{
+						$var($PublicKey, pk, $nc(keyResolver)->engineLookupAndResolvePublicKey($cast($Element, currentChild), uri, storage, this->secureValidation));
+						if (pk != nullptr) {
+							return pk;
 						}
 					}
 				}
@@ -607,32 +503,28 @@ $PublicKey* KeyInfo::getPublicKeyFromStaticResolvers() {
 }
 
 $PublicKey* KeyInfo::getPublicKeyFromInternalResolvers() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->internalKeyResolvers)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, i$->next()));
-			{
-				$nc(KeyInfo::LOG)->debug("Try {}"_s, $$new($ObjectArray, {$($of($nc($of(keyResolver))->getClass()->getName()))}));
-				$var($Node, currentChild, getFirstChild());
-				$var($String, uri, this->getBaseURI());
-				while (currentChild != nullptr) {
-					if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->internalKeyResolvers)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, i$->next()));
+		{
+			$nc(KeyInfo::LOG)->debug("Try {}"_s, $$new($ObjectArray, {$($nc(keyResolver)->getClass()->getName())}));
+			$var($Node, currentChild, getFirstChild());
+			$var($String, uri, this->getBaseURI());
+			while (currentChild != nullptr) {
+				if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
+					$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
 						{
-							$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
-								{
-									$var($PublicKey, pk, $nc(keyResolver)->engineLookupAndResolvePublicKey($cast($Element, currentChild), uri, storage, this->secureValidation));
-									if (pk != nullptr) {
-										return pk;
-									}
-								}
+							$var($PublicKey, pk, keyResolver->engineLookupAndResolvePublicKey($cast($Element, currentChild), uri, storage, this->secureValidation));
+							if (pk != nullptr) {
+								return pk;
 							}
 						}
 					}
-					$assign(currentChild, currentChild->getNextSibling());
 				}
+				$assign(currentChild, currentChild->getNextSibling());
 			}
 		}
 	}
@@ -648,16 +540,16 @@ $X509Certificate* KeyInfo::getX509Certificate() {
 	$nc(KeyInfo::LOG)->debug("I couldn\'t find a X509Certificate using the per-KeyInfo key resolvers"_s);
 	$assign(cert, this->getX509CertificateFromStaticResolvers());
 	if (cert != nullptr) {
-		$nc(KeyInfo::LOG)->debug("I could find a X509Certificate using the system-wide key resolvers"_s);
+		KeyInfo::LOG->debug("I could find a X509Certificate using the system-wide key resolvers"_s);
 		return cert;
 	}
-	$nc(KeyInfo::LOG)->debug("I couldn\'t find a X509Certificate using the system-wide key resolvers"_s);
+	KeyInfo::LOG->debug("I couldn\'t find a X509Certificate using the system-wide key resolvers"_s);
 	return nullptr;
 }
 
 $X509Certificate* KeyInfo::getX509CertificateFromStaticResolvers() {
-	$useLocalCurrentObjectStackCache();
-	$nc(KeyInfo::LOG)->debug("Start getX509CertificateFromStaticResolvers() with {} resolvers"_s, $$new($ObjectArray, {$($of($Integer::valueOf($KeyResolver::length())))}));
+	$useLocalObjectStack();
+	$nc(KeyInfo::LOG)->debug("Start getX509CertificateFromStaticResolvers() with {} resolvers"_s, $$new($ObjectArray, {$($Integer::valueOf($KeyResolver::length()))}));
 	$var($String, uri, this->getBaseURI());
 	$var($Iterator, it, $KeyResolver::iterator());
 	while ($nc(it)->hasNext()) {
@@ -671,19 +563,17 @@ $X509Certificate* KeyInfo::getX509CertificateFromStaticResolvers() {
 }
 
 $X509Certificate* KeyInfo::applyCurrentResolver($String* uri, $KeyResolverSpi* keyResolver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, currentChild, getFirstChild());
 	while (currentChild != nullptr) {
 		if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
-			{
-				$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
-					{
-						$var($X509Certificate, cert, $nc(keyResolver)->engineLookupResolveX509Certificate($cast($Element, currentChild), uri, storage, this->secureValidation));
-						if (cert != nullptr) {
-							return cert;
-						}
+			$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
+				{
+					$var($X509Certificate, cert, $nc(keyResolver)->engineLookupResolveX509Certificate($cast($Element, currentChild), uri, storage, this->secureValidation));
+					if (cert != nullptr) {
+						return cert;
 					}
 				}
 			}
@@ -694,15 +584,15 @@ $X509Certificate* KeyInfo::applyCurrentResolver($String* uri, $KeyResolverSpi* k
 }
 
 $X509Certificate* KeyInfo::getX509CertificateFromInternalResolvers() {
-	$useLocalCurrentObjectStackCache();
-	$nc(KeyInfo::LOG)->debug("Start getX509CertificateFromInternalResolvers() with {} resolvers"_s, $$new($ObjectArray, {$($of($Integer::valueOf(+this->lengthInternalKeyResolver())))}));
+	$useLocalObjectStack();
+	$nc(KeyInfo::LOG)->debug("Start getX509CertificateFromInternalResolvers() with {} resolvers"_s, $$new($ObjectArray, {$($Integer::valueOf(+this->lengthInternalKeyResolver()))}));
 	$var($String, uri, this->getBaseURI());
 	{
 		$var($Iterator, i$, $nc(this->internalKeyResolvers)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, i$->next()));
 			{
-				$nc(KeyInfo::LOG)->debug("Try {}"_s, $$new($ObjectArray, {$($of($nc($of(keyResolver))->getClass()->getName()))}));
+				KeyInfo::LOG->debug("Try {}"_s, $$new($ObjectArray, {$($nc(keyResolver)->getClass()->getName())}));
 				$var($X509Certificate, cert, applyCurrentResolver(uri, keyResolver));
 				if (cert != nullptr) {
 					return cert;
@@ -722,15 +612,15 @@ $SecretKey* KeyInfo::getSecretKey() {
 	$nc(KeyInfo::LOG)->debug("I couldn\'t find a secret key using the per-KeyInfo key resolvers"_s);
 	$assign(sk, this->getSecretKeyFromStaticResolvers());
 	if (sk != nullptr) {
-		$nc(KeyInfo::LOG)->debug("I could find a secret key using the system-wide key resolvers"_s);
+		KeyInfo::LOG->debug("I could find a secret key using the system-wide key resolvers"_s);
 		return sk;
 	}
-	$nc(KeyInfo::LOG)->debug("I couldn\'t find a secret key using the system-wide key resolvers"_s);
+	KeyInfo::LOG->debug("I couldn\'t find a secret key using the system-wide key resolvers"_s);
 	return nullptr;
 }
 
 $SecretKey* KeyInfo::getSecretKeyFromStaticResolvers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, it, $KeyResolver::iterator());
 	while ($nc(it)->hasNext()) {
 		$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, it->next()));
@@ -738,15 +628,13 @@ $SecretKey* KeyInfo::getSecretKeyFromStaticResolvers() {
 		$var($String, uri, this->getBaseURI());
 		while (currentChild != nullptr) {
 			if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
-				{
-					$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
-						{
-							$var($SecretKey, sk, $nc(keyResolver)->engineLookupAndResolveSecretKey($cast($Element, currentChild), uri, storage, this->secureValidation));
-							if (sk != nullptr) {
-								return sk;
-							}
+				$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
+					{
+						$var($SecretKey, sk, $nc(keyResolver)->engineLookupAndResolveSecretKey($cast($Element, currentChild), uri, storage, this->secureValidation));
+						if (sk != nullptr) {
+							return sk;
 						}
 					}
 				}
@@ -758,32 +646,28 @@ $SecretKey* KeyInfo::getSecretKeyFromStaticResolvers() {
 }
 
 $SecretKey* KeyInfo::getSecretKeyFromInternalResolvers() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->internalKeyResolvers)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, i$->next()));
-			{
-				$nc(KeyInfo::LOG)->debug("Try {}"_s, $$new($ObjectArray, {$($of($nc($of(keyResolver))->getClass()->getName()))}));
-				$var($Node, currentChild, getFirstChild());
-				$var($String, uri, this->getBaseURI());
-				while (currentChild != nullptr) {
-					if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->internalKeyResolvers)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, i$->next()));
+		{
+			$nc(KeyInfo::LOG)->debug("Try {}"_s, $$new($ObjectArray, {$($nc(keyResolver)->getClass()->getName())}));
+			$var($Node, currentChild, getFirstChild());
+			$var($String, uri, this->getBaseURI());
+			while (currentChild != nullptr) {
+				if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
+					$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
 						{
-							$var($Iterator, i$, $nc(this->storageResolvers)->iterator());
-							for (; $nc(i$)->hasNext();) {
-								$var($StorageResolver, storage, $cast($StorageResolver, i$->next()));
-								{
-									$var($SecretKey, sk, $nc(keyResolver)->engineLookupAndResolveSecretKey($cast($Element, currentChild), uri, storage, this->secureValidation));
-									if (sk != nullptr) {
-										return sk;
-									}
-								}
+							$var($SecretKey, sk, keyResolver->engineLookupAndResolveSecretKey($cast($Element, currentChild), uri, storage, this->secureValidation));
+							if (sk != nullptr) {
+								return sk;
 							}
 						}
 					}
-					$assign(currentChild, currentChild->getNextSibling());
 				}
+				$assign(currentChild, currentChild->getNextSibling());
 			}
 		}
 	}
@@ -799,15 +683,15 @@ $PrivateKey* KeyInfo::getPrivateKey() {
 	$nc(KeyInfo::LOG)->debug("I couldn\'t find a secret key using the per-KeyInfo key resolvers"_s);
 	$assign(pk, this->getPrivateKeyFromStaticResolvers());
 	if (pk != nullptr) {
-		$nc(KeyInfo::LOG)->debug("I could find a private key using the system-wide key resolvers"_s);
+		KeyInfo::LOG->debug("I could find a private key using the system-wide key resolvers"_s);
 		return pk;
 	}
-	$nc(KeyInfo::LOG)->debug("I couldn\'t find a private key using the system-wide key resolvers"_s);
+	KeyInfo::LOG->debug("I couldn\'t find a private key using the system-wide key resolvers"_s);
 	return nullptr;
 }
 
 $PrivateKey* KeyInfo::getPrivateKeyFromStaticResolvers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, it, $KeyResolver::iterator());
 	while ($nc(it)->hasNext()) {
 		$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, it->next()));
@@ -827,24 +711,22 @@ $PrivateKey* KeyInfo::getPrivateKeyFromStaticResolvers() {
 }
 
 $PrivateKey* KeyInfo::getPrivateKeyFromInternalResolvers() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->internalKeyResolvers)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, i$->next()));
-			{
-				$nc(KeyInfo::LOG)->debug("Try {}"_s, $$new($ObjectArray, {$($of($nc($of(keyResolver))->getClass()->getName()))}));
-				$var($Node, currentChild, getFirstChild());
-				$var($String, uri, this->getBaseURI());
-				while (currentChild != nullptr) {
-					if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
-						$var($PrivateKey, pk, $nc(keyResolver)->engineLookupAndResolvePrivateKey($cast($Element, currentChild), uri, nullptr, this->secureValidation));
-						if (pk != nullptr) {
-							return pk;
-						}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->internalKeyResolvers)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($KeyResolverSpi, keyResolver, $cast($KeyResolverSpi, i$->next()));
+		{
+			$nc(KeyInfo::LOG)->debug("Try {}"_s, $$new($ObjectArray, {$($nc(keyResolver)->getClass()->getName())}));
+			$var($Node, currentChild, getFirstChild());
+			$var($String, uri, this->getBaseURI());
+			while (currentChild != nullptr) {
+				if (currentChild->getNodeType() == $Node::ELEMENT_NODE) {
+					$var($PrivateKey, pk, keyResolver->engineLookupAndResolvePrivateKey($cast($Element, currentChild), uri, nullptr, this->secureValidation));
+					if (pk != nullptr) {
+						return pk;
 					}
-					$assign(currentChild, currentChild->getNextSibling());
 				}
+				$assign(currentChild, currentChild->getNextSibling());
 			}
 		}
 	}
@@ -875,7 +757,7 @@ $String* KeyInfo::getBaseLocalName() {
 	return $Constants::_TAG_KEYINFO;
 }
 
-void clinit$KeyInfo($Class* class$) {
+void KeyInfo::clinit$($Class* clazz) {
 	$assignStatic(KeyInfo::LOG, $LoggerFactory::getLogger(KeyInfo::class$));
 	{
 		$var($List, list, $new($ArrayList, 1));
@@ -888,7 +770,103 @@ KeyInfo::KeyInfo() {
 }
 
 $Class* KeyInfo::load$($String* name, bool initialize) {
-	$loadClass(KeyInfo, name, initialize, &_KeyInfo_ClassInfo_, clinit$KeyInfo, allocate$KeyInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyInfo, LOG)},
+		{"x509Datas", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/content/X509Data;>;", $PRIVATE, $field(KeyInfo, x509Datas)},
+		{"nullList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;>;", $PRIVATE | $STATIC | $FINAL, $staticField(KeyInfo, nullList)},
+		{"storageResolvers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;>;", $PRIVATE, $field(KeyInfo, storageResolvers)},
+		{"internalKeyResolvers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;>;", $PRIVATE, $field(KeyInfo, internalKeyResolvers)},
+		{"secureValidation", "Z", nullptr, $PRIVATE, $field(KeyInfo, secureValidation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(KeyInfo, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyInfo, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/KeyName;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $KeyName*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/keyvalues/DSAKeyValue;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $DSAKeyValue*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/keyvalues/RSAKeyValue;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $RSAKeyValue*)},
+		{"add", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $PublicKey*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/KeyValue;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $KeyValue*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/MgmtData;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $MgmtData*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/PGPData;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $PGPData*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/RetrievalMethod;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $RetrievalMethod*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/SPKIData;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $SPKIData*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/X509Data;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $X509Data*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/DEREncodedKeyValue;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $DEREncodedKeyValue*)},
+		{"add", "(Lcom/sun/org/apache/xml/internal/security/keys/content/KeyInfoReference;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, add, void, $KeyInfoReference*)},
+		{"addDEREncodedKeyValue", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addDEREncodedKeyValue, void, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addKeyInfoReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addKeyInfoReference, void, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addKeyName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addKeyName, void, $String*)},
+		{"addKeyValue", "(Ljava/security/PublicKey;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addKeyValue, void, $PublicKey*)},
+		{"addKeyValue", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addKeyValue, void, $Element*)},
+		{"addMgmtData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addMgmtData, void, $String*)},
+		{"addRetrievalMethod", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addRetrievalMethod, void, $String*, $Transforms*, $String*)},
+		{"addStorageResolver", "(Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addStorageResolver, void, $StorageResolver*)},
+		{"addUnknownElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, addUnknownElement, void, $Element*)},
+		{"applyCurrentResolver", "(Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;)Ljava/security/cert/X509Certificate;", nullptr, $PRIVATE, $method(KeyInfo, applyCurrentResolver, $X509Certificate*, $String*, $KeyResolverSpi*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"containsDEREncodedKeyValue", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsDEREncodedKeyValue, bool)},
+		{"containsKeyInfoReference", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsKeyInfoReference, bool)},
+		{"containsKeyName", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsKeyName, bool)},
+		{"containsKeyValue", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsKeyValue, bool)},
+		{"containsMgmtData", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsMgmtData, bool)},
+		{"containsPGPData", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsPGPData, bool)},
+		{"containsRetrievalMethod", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsRetrievalMethod, bool)},
+		{"containsSPKIData", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsSPKIData, bool)},
+		{"containsUnknownElement", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsUnknownElement, bool)},
+		{"containsX509Data", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, containsX509Data, bool)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getBaseLocalName, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getId, $String*)},
+		{"getPrivateKey", "()Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getPrivateKey, $PrivateKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getPrivateKeyFromInternalResolvers", "()Ljava/security/PrivateKey;", nullptr, 0, $virtualMethod(KeyInfo, getPrivateKeyFromInternalResolvers, $PrivateKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getPrivateKeyFromStaticResolvers", "()Ljava/security/PrivateKey;", nullptr, 0, $virtualMethod(KeyInfo, getPrivateKeyFromStaticResolvers, $PrivateKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getPublicKeyFromInternalResolvers", "()Ljava/security/PublicKey;", nullptr, 0, $virtualMethod(KeyInfo, getPublicKeyFromInternalResolvers, $PublicKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getPublicKeyFromStaticResolvers", "()Ljava/security/PublicKey;", nullptr, 0, $virtualMethod(KeyInfo, getPublicKeyFromStaticResolvers, $PublicKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getSecretKey", "()Ljavax/crypto/SecretKey;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getSecretKey, $SecretKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getSecretKeyFromInternalResolvers", "()Ljavax/crypto/SecretKey;", nullptr, 0, $virtualMethod(KeyInfo, getSecretKeyFromInternalResolvers, $SecretKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getSecretKeyFromStaticResolvers", "()Ljavax/crypto/SecretKey;", nullptr, 0, $virtualMethod(KeyInfo, getSecretKeyFromStaticResolvers, $SecretKey*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getX509Certificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, getX509Certificate, $X509Certificate*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getX509CertificateFromInternalResolvers", "()Ljava/security/cert/X509Certificate;", nullptr, 0, $virtualMethod(KeyInfo, getX509CertificateFromInternalResolvers, $X509Certificate*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"getX509CertificateFromStaticResolvers", "()Ljava/security/cert/X509Certificate;", nullptr, 0, $virtualMethod(KeyInfo, getX509CertificateFromStaticResolvers, $X509Certificate*), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyInfo, isEmpty, bool)},
+		{"itemDEREncodedKeyValue", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/DEREncodedKeyValue;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemDEREncodedKeyValue, $DEREncodedKeyValue*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemInternalKeyResolver", "(I)Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;", nullptr, 0, $virtualMethod(KeyInfo, itemInternalKeyResolver, $KeyResolverSpi*, int32_t)},
+		{"itemKeyInfoReference", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/KeyInfoReference;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemKeyInfoReference, $KeyInfoReference*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemKeyName", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/KeyName;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemKeyName, $KeyName*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemKeyValue", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/KeyValue;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemKeyValue, $KeyValue*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemMgmtData", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/MgmtData;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemMgmtData, $MgmtData*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemPGPData", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/PGPData;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemPGPData, $PGPData*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemRetrievalMethod", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/RetrievalMethod;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemRetrievalMethod, $RetrievalMethod*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemSPKIData", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/SPKIData;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemSPKIData, $SPKIData*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"itemUnknownElement", "(I)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemUnknownElement, $Element*, int32_t)},
+		{"itemX509Data", "(I)Lcom/sun/org/apache/xml/internal/security/keys/content/X509Data;", nullptr, $PUBLIC, $virtualMethod(KeyInfo, itemX509Data, $X509Data*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"lengthDEREncodedKeyValue", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthDEREncodedKeyValue, int32_t)},
+		{"lengthInternalKeyResolver", "()I", nullptr, 0, $virtualMethod(KeyInfo, lengthInternalKeyResolver, int32_t)},
+		{"lengthKeyInfoReference", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthKeyInfoReference, int32_t)},
+		{"lengthKeyName", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthKeyName, int32_t)},
+		{"lengthKeyValue", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthKeyValue, int32_t)},
+		{"lengthMgmtData", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthMgmtData, int32_t)},
+		{"lengthPGPData", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthPGPData, int32_t)},
+		{"lengthRetrievalMethod", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthRetrievalMethod, int32_t)},
+		{"lengthSPKIData", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthSPKIData, int32_t)},
+		{"lengthUnknownElement", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthUnknownElement, int32_t)},
+		{"lengthX509Data", "()I", nullptr, $PUBLIC, $virtualMethod(KeyInfo, lengthX509Data, int32_t)},
+		{"registerInternalKeyResolver", "(Lcom/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, registerInternalKeyResolver, void, $KeyResolverSpi*)},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, setId, void, $String*)},
+		{"setSecureValidation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(KeyInfo, setSecureValidation, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.KeyInfo",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyInfo, name, initialize, &classInfo$$, KeyInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyInfo);
+	});
 	return class$;
 }
 

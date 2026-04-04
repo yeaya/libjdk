@@ -14,6 +14,7 @@ class $export Kernel : public ::java::lang::Cloneable {
 	$class(Kernel, 0, ::java::lang::Cloneable)
 public:
 	Kernel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t width, int32_t height, $floats* data);
 	virtual $Object* clone() override;
 	int32_t getHeight();

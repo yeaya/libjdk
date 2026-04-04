@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/CommentTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,26 +9,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _CommentTree_MethodInfo_[] = {
-	{"getBody", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CommentTree, getBody, $String*)},
-	{}
-};
-
-$ClassInfo _CommentTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.CommentTree",
-	nullptr,
-	"com.sun.source.doctree.DocTree",
-	nullptr,
-	_CommentTree_MethodInfo_
-};
-
-$Object* allocate$CommentTree($Class* clazz) {
-	return $of($alloc(CommentTree));
-}
-
 $Class* CommentTree::load$($String* name, bool initialize) {
-	$loadClass(CommentTree, name, initialize, &_CommentTree_ClassInfo_, allocate$CommentTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBody", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CommentTree, getBody, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.CommentTree",
+		nullptr,
+		"com.sun.source.doctree.DocTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CommentTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CommentTree);
+	});
 	return class$;
 }
 

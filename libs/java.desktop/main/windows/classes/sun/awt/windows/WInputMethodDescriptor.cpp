@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WInputMethodDescriptor.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/im/spi/InputMethod.h>
@@ -20,38 +19,11 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$MethodInfo _WInputMethodDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WInputMethodDescriptor, init$, void)},
-	{"createInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PUBLIC, $virtualMethod(WInputMethodDescriptor, createInputMethod, $InputMethod*), "java.lang.Exception"},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(WInputMethodDescriptor, getAvailableLocales, $LocaleArray*)},
-	{"getAvailableLocalesInternal", "()[Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(WInputMethodDescriptor, getAvailableLocalesInternal, $LocaleArray*)},
-	{"getInputMethodDisplayName", "(Ljava/util/Locale;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WInputMethodDescriptor, getInputMethodDisplayName, $String*, $Locale*, $Locale*)},
-	{"getInputMethodIcon", "(Ljava/util/Locale;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(WInputMethodDescriptor, getInputMethodIcon, $Image*, $Locale*)},
-	{"getNativeAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WInputMethodDescriptor, getNativeAvailableLocales, $LocaleArray*)},
-	{"hasDynamicLocaleList", "()Z", nullptr, $PUBLIC, $virtualMethod(WInputMethodDescriptor, hasDynamicLocaleList, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_getNativeAvailableLocales 6
-
-$ClassInfo _WInputMethodDescriptor_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WInputMethodDescriptor",
-	"java.lang.Object",
-	"java.awt.im.spi.InputMethodDescriptor",
-	nullptr,
-	_WInputMethodDescriptor_MethodInfo_
-};
-
-$Object* allocate$WInputMethodDescriptor($Class* clazz) {
-	return $of($alloc(WInputMethodDescriptor));
-}
-
 void WInputMethodDescriptor::init$() {
 }
 
 $LocaleArray* WInputMethodDescriptor::getAvailableLocales() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocaleArray, locales, getAvailableLocalesInternal());
 	$var($LocaleArray, tmp, $new($LocaleArray, $nc(locales)->length));
 	$System::arraycopy(locales, 0, tmp, 0, locales->length);
@@ -69,9 +41,9 @@ bool WInputMethodDescriptor::hasDynamicLocaleList() {
 
 $String* WInputMethodDescriptor::getInputMethodDisplayName($Locale* inputLocale, $Locale* displayLanguage) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, name, "System Input Methods"_s);
-		if ($nc($($Locale::getDefault()))->equals(displayLanguage)) {
+		if ($$nc($Locale::getDefault())->equals(displayLanguage)) {
 			$assign(name, $Toolkit::getProperty("AWT.HostInputMethodDisplayName"_s, name));
 		}
 		return name;
@@ -88,9 +60,8 @@ $InputMethod* WInputMethodDescriptor::createInputMethod() {
 
 $LocaleArray* WInputMethodDescriptor::getNativeAvailableLocales() {
 	$init(WInputMethodDescriptor);
-	$var($LocaleArray, $ret, nullptr);
-	$prepareNativeStatic(WInputMethodDescriptor, getNativeAvailableLocales, $LocaleArray*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getNativeAvailableLocales, $LocaleArray*);
+	$var($LocaleArray, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -99,7 +70,28 @@ WInputMethodDescriptor::WInputMethodDescriptor() {
 }
 
 $Class* WInputMethodDescriptor::load$($String* name, bool initialize) {
-	$loadClass(WInputMethodDescriptor, name, initialize, &_WInputMethodDescriptor_ClassInfo_, allocate$WInputMethodDescriptor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WInputMethodDescriptor, init$, void)},
+		{"createInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PUBLIC, $virtualMethod(WInputMethodDescriptor, createInputMethod, $InputMethod*), "java.lang.Exception"},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(WInputMethodDescriptor, getAvailableLocales, $LocaleArray*)},
+		{"getAvailableLocalesInternal", "()[Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(WInputMethodDescriptor, getAvailableLocalesInternal, $LocaleArray*)},
+		{"getInputMethodDisplayName", "(Ljava/util/Locale;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WInputMethodDescriptor, getInputMethodDisplayName, $String*, $Locale*, $Locale*)},
+		{"getInputMethodIcon", "(Ljava/util/Locale;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(WInputMethodDescriptor, getInputMethodIcon, $Image*, $Locale*)},
+		{"getNativeAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WInputMethodDescriptor, getNativeAvailableLocales, $LocaleArray*)},
+		{"hasDynamicLocaleList", "()Z", nullptr, $PUBLIC, $virtualMethod(WInputMethodDescriptor, hasDynamicLocaleList, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WInputMethodDescriptor",
+		"java.lang.Object",
+		"java.awt.im.spi.InputMethodDescriptor",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WInputMethodDescriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WInputMethodDescriptor);
+	});
 	return class$;
 }
 

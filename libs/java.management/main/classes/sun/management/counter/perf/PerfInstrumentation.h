@@ -42,6 +42,7 @@ class $export PerfInstrumentation : public ::java::lang::Object {
 	$class(PerfInstrumentation, 0, ::java::lang::Object)
 public:
 	PerfInstrumentation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::ByteBuffer* b);
 	virtual ::java::util::List* findByPattern($String* patternString);
 	virtual ::java::util::List* getAllCounters();

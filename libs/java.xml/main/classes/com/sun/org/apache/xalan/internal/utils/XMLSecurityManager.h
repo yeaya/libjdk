@@ -54,6 +54,7 @@ class XMLSecurityManager : public ::java::lang::Object {
 	$class(XMLSecurityManager, 0, ::java::lang::Object)
 public:
 	XMLSecurityManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool secureProcessing);
 	int32_t getIndex($String* propertyName);

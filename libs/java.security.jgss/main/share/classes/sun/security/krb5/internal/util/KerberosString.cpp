@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/util/KerberosString.h>
-
 #include <java/io/IOException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
@@ -26,33 +25,6 @@ namespace sun {
 			namespace internal {
 				namespace util {
 
-$FieldInfo _KerberosString_FieldInfo_[] = {
-	{"MSNAME", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KerberosString, MSNAME)},
-	{"s", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KerberosString, s)},
-	{}
-};
-
-$MethodInfo _KerberosString_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosString, init$, void, $String*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KerberosString, init$, void, $DerValue*), "java.io.IOException"},
-	{"toDerValue", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $method(KerberosString, toDerValue, $DerValue*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosString, toString, $String*)},
-	{}
-};
-
-$ClassInfo _KerberosString_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.krb5.internal.util.KerberosString",
-	"java.lang.Object",
-	nullptr,
-	_KerberosString_FieldInfo_,
-	_KerberosString_MethodInfo_
-};
-
-$Object* allocate$KerberosString($Class* clazz) {
-	return $of($alloc(KerberosString));
-}
-
 bool KerberosString::MSNAME = false;
 
 void KerberosString::init$($String* s) {
@@ -60,12 +32,12 @@ void KerberosString::init$($String* s) {
 }
 
 void KerberosString::init$($DerValue* der) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(der)->tag != $DerValue::tag_GeneralString) {
 		$throwNew($IOException, $$str({"KerberosString\'s tag is incorrect: "_s, $$str(der->tag)}));
 	}
 	$init($StandardCharsets);
-	$set(this, s, $new($String, $($nc(der)->getDataBytes()), KerberosString::MSNAME ? $StandardCharsets::UTF_8 : $StandardCharsets::US_ASCII));
+	$set(this, s, $new($String, $(der->getDataBytes()), KerberosString::MSNAME ? $StandardCharsets::UTF_8 : $StandardCharsets::US_ASCII));
 }
 
 $String* KerberosString::toString() {
@@ -77,7 +49,7 @@ $DerValue* KerberosString::toDerValue() {
 	return $new($DerValue, $DerValue::tag_GeneralString, $($nc(this->s)->getBytes(KerberosString::MSNAME ? $StandardCharsets::UTF_8 : $StandardCharsets::US_ASCII)));
 }
 
-void clinit$KerberosString($Class* class$) {
+void KerberosString::clinit$($Class* clazz) {
 	{
 		$var($String, prop, $GetPropertyAction::privilegedGetProperty("sun.security.krb5.msinterop.kstring"_s, "true"_s));
 		KerberosString::MSNAME = $Boolean::parseBoolean(prop);
@@ -88,7 +60,29 @@ KerberosString::KerberosString() {
 }
 
 $Class* KerberosString::load$($String* name, bool initialize) {
-	$loadClass(KerberosString, name, initialize, &_KerberosString_ClassInfo_, clinit$KerberosString, allocate$KerberosString);
+	$FieldInfo fieldInfos$$[] = {
+		{"MSNAME", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(KerberosString, MSNAME)},
+		{"s", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KerberosString, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KerberosString, init$, void, $String*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(KerberosString, init$, void, $DerValue*), "java.io.IOException"},
+		{"toDerValue", "()Lsun/security/util/DerValue;", nullptr, $PUBLIC, $method(KerberosString, toDerValue, $DerValue*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KerberosString, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.krb5.internal.util.KerberosString",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KerberosString, name, initialize, &classInfo$$, KerberosString::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KerberosString);
+	});
 	return class$;
 }
 

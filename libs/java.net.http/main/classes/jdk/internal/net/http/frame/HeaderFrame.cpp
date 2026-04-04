@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/HeaderFrame.h>
-
 #include <java/util/List.h>
 #include <jdk/internal/net/http/common/Utils.h>
 #include <jdk/internal/net/http/frame/Http2Frame.h>
@@ -23,36 +22,6 @@ namespace jdk {
 			namespace http {
 				namespace frame {
 
-$FieldInfo _HeaderFrame_FieldInfo_[] = {
-	{"headerLength", "I", nullptr, $FINAL, $field(HeaderFrame, headerLength)},
-	{"headerBlocks", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $FINAL, $field(HeaderFrame, headerBlocks)},
-	{"END_STREAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeaderFrame, END_STREAM)},
-	{"END_HEADERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeaderFrame, END_HEADERS)},
-	{}
-};
-
-$MethodInfo _HeaderFrame_MethodInfo_[] = {
-	{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(HeaderFrame, init$, void, int32_t, int32_t, $List*)},
-	{"endHeaders", "()Z", nullptr, $PUBLIC, $virtualMethod(HeaderFrame, endHeaders, bool)},
-	{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderFrame, flagAsString, $String*, int32_t)},
-	{"getHeaderBlock", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(HeaderFrame, getHeaderBlock, $List*)},
-	{"getHeaderLength", "()I", nullptr, 0, $virtualMethod(HeaderFrame, getHeaderLength, int32_t)},
-	{}
-};
-
-$ClassInfo _HeaderFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.frame.HeaderFrame",
-	"jdk.internal.net.http.frame.Http2Frame",
-	nullptr,
-	_HeaderFrame_FieldInfo_,
-	_HeaderFrame_MethodInfo_
-};
-
-$Object* allocate$HeaderFrame($Class* clazz) {
-	return $of($alloc(HeaderFrame));
-}
-
 void HeaderFrame::init$(int32_t streamid, int32_t flags, $List* headerBlocks) {
 	$Http2Frame::init$(streamid, flags);
 	$set(this, headerBlocks, headerBlocks);
@@ -60,24 +29,17 @@ void HeaderFrame::init$(int32_t streamid, int32_t flags, $List* headerBlocks) {
 }
 
 $String* HeaderFrame::flagAsString(int32_t flag) {
-
-	$var($String, var$0, nullptr)
+	$var($String, var$0, nullptr);
 	switch (flag) {
 	case HeaderFrame::END_HEADERS:
-		{
-			$assign(var$0, "END_HEADERS"_s);
-			break;
-		}
+		$assign(var$0, "END_HEADERS"_s);
+		break;
 	case HeaderFrame::END_STREAM:
-		{
-			$assign(var$0, "END_STREAM"_s);
-			break;
-		}
+		$assign(var$0, "END_STREAM"_s);
+		break;
 	default:
-		{
-			$assign(var$0, $Http2Frame::flagAsString(flag));
-			break;
-		}
+		$assign(var$0, $Http2Frame::flagAsString(flag));
+		break;
 	}
 	return var$0;
 }
@@ -98,7 +60,32 @@ HeaderFrame::HeaderFrame() {
 }
 
 $Class* HeaderFrame::load$($String* name, bool initialize) {
-	$loadClass(HeaderFrame, name, initialize, &_HeaderFrame_ClassInfo_, allocate$HeaderFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"headerLength", "I", nullptr, $FINAL, $field(HeaderFrame, headerLength)},
+		{"headerBlocks", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $FINAL, $field(HeaderFrame, headerBlocks)},
+		{"END_STREAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeaderFrame, END_STREAM)},
+		{"END_HEADERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(HeaderFrame, END_HEADERS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILjava/util/List;)V", "(IILjava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(HeaderFrame, init$, void, int32_t, int32_t, $List*)},
+		{"endHeaders", "()Z", nullptr, $PUBLIC, $virtualMethod(HeaderFrame, endHeaders, bool)},
+		{"flagAsString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HeaderFrame, flagAsString, $String*, int32_t)},
+		{"getHeaderBlock", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC, $virtualMethod(HeaderFrame, getHeaderBlock, $List*)},
+		{"getHeaderLength", "()I", nullptr, 0, $virtualMethod(HeaderFrame, getHeaderLength, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.frame.HeaderFrame",
+		"jdk.internal.net.http.frame.Http2Frame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HeaderFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeaderFrame);
+	});
 	return class$;
 }
 

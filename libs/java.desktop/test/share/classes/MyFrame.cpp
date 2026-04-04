@@ -1,5 +1,4 @@
 #include <MyFrame.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -29,34 +28,8 @@ using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $WindowConstants = ::javax::swing::WindowConstants;
 
-$FieldInfo _MyFrame_FieldInfo_[] = {
-	{"bi", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(MyFrame, bi)},
-	{"content", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MyFrame, content)},
-	{}
-};
-
-$MethodInfo _MyFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MyFrame, init$, void)},
-	{"getPixelColor", "(II)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(MyFrame, getPixelColor, $Color*, int32_t, int32_t)},
-	{"paintFrameToBufferedImage", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(MyFrame, paintFrameToBufferedImage, void, $Component*)},
-	{}
-};
-
-$ClassInfo _MyFrame_ClassInfo_ = {
-	$ACC_SUPER,
-	"MyFrame",
-	"javax.swing.JFrame",
-	nullptr,
-	_MyFrame_FieldInfo_,
-	_MyFrame_MethodInfo_
-};
-
-$Object* allocate$MyFrame($Class* clazz) {
-	return $of($alloc(MyFrame));
-}
-
 void MyFrame::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JFrame::init$();
 	$set(this, content, "A\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\nM\nN\nO"_s);
 	$var($JEditorPane, editpane, $new($JEditorPane));
@@ -64,7 +37,7 @@ void MyFrame::init$() {
 	editpane->setText(this->content);
 	editpane->setCaretPosition(0);
 	$var($JScrollPane, scrollpane, $new($JScrollPane, editpane));
-	add(static_cast<$Component*>(scrollpane));
+	add(scrollpane);
 	setDefaultCloseOperation($WindowConstants::DISPOSE_ON_CLOSE);
 	setSize($$new($Dimension, 200, 200));
 	$set(this, bi, $new($BufferedImage, 200, 200, $BufferedImage::TYPE_INT_ARGB));
@@ -75,10 +48,10 @@ void MyFrame::init$() {
 $Color* MyFrame::getPixelColor(int32_t x, int32_t y) {
 	paintFrameToBufferedImage(this);
 	int32_t pixel = $nc(this->bi)->getRGB(x, y);
-	int32_t alpha = (int32_t)((pixel >> 24) & (uint32_t)255);
-	int32_t red = (int32_t)((pixel >> 16) & (uint32_t)255);
-	int32_t green = (int32_t)((pixel >> 8) & (uint32_t)255);
-	int32_t blue = (int32_t)((pixel) & (uint32_t)255);
+	int32_t alpha = (pixel >> 24) & 0xff;
+	int32_t red = (pixel >> 16) & 0xff;
+	int32_t green = (pixel >> 8) & 0xff;
+	int32_t blue = (pixel) & 0xff;
 	$var($Color, pixelColor, $new($Color, red, green, blue, alpha));
 	return pixelColor;
 }
@@ -91,7 +64,28 @@ MyFrame::MyFrame() {
 }
 
 $Class* MyFrame::load$($String* name, bool initialize) {
-	$loadClass(MyFrame, name, initialize, &_MyFrame_ClassInfo_, allocate$MyFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"bi", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(MyFrame, bi)},
+		{"content", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MyFrame, content)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MyFrame, init$, void)},
+		{"getPixelColor", "(II)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(MyFrame, getPixelColor, $Color*, int32_t, int32_t)},
+		{"paintFrameToBufferedImage", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(MyFrame, paintFrameToBufferedImage, void, $Component*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MyFrame",
+		"javax.swing.JFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MyFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MyFrame));
+	});
 	return class$;
 }
 

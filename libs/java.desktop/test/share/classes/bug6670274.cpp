@@ -1,9 +1,7 @@
 #include <bug6670274.h>
-
 #include <bug6670274$1.h>
 #include <bug6670274$TestTabbedPaneUI.h>
 #include <java/awt/Component.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/SwingUtilities.h>
@@ -13,63 +11,26 @@
 
 using $bug6670274$1 = ::bug6670274$1;
 using $bug6670274$TestTabbedPaneUI = ::bug6670274$TestTabbedPaneUI;
-using $Component = ::java::awt::Component;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JPanel = ::javax::swing::JPanel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $View = ::javax::swing::text::View;
-
-$MethodInfo _bug6670274_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6670274, init$, void)},
-	{"check", "(Lbug6670274$TestTabbedPaneUI;[I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(bug6670274, check, void, $bug6670274$TestTabbedPaneUI*, $ints*)},
-	{"createGui", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6670274, createGui, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6670274, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6670274_InnerClassesInfo_[] = {
-	{"bug6670274$TestTabbedPaneUI", "bug6670274", "TestTabbedPaneUI", $STATIC},
-	{"bug6670274$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6670274_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6670274",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6670274_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6670274_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6670274$TestTabbedPaneUI,bug6670274$1"
-};
-
-$Object* allocate$bug6670274($Class* clazz) {
-	return $of($alloc(bug6670274));
-}
 
 void bug6670274::init$() {
 }
 
 void bug6670274::createGui() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, pane, $new($JTabbedPane));
 	$var($bug6670274$TestTabbedPaneUI, ui, $new($bug6670274$TestTabbedPaneUI));
-	pane->setUI(static_cast<$TabbedPaneUI*>(ui));
-	pane->add("one"_s, static_cast<$Component*>($$new($JPanel)));
-	pane->add("<html><i>Two</i></html>"_s, static_cast<$Component*>($$new($JPanel)));
-	pane->add("three"_s, static_cast<$Component*>($$new($JPanel)));
+	pane->setUI(ui);
+	pane->add("one"_s, $$new($JPanel));
+	pane->add("<html><i>Two</i></html>"_s, $$new($JPanel));
+	pane->add("three"_s, $$new($JPanel));
 	pane->setTitleAt(0, "<html><i>ONE</i></html>"_s);
 	check(ui, $$new($ints, {
 		0,
@@ -86,8 +47,8 @@ void bug6670274::createGui() {
 }
 
 void bug6670274::check($bug6670274$TestTabbedPaneUI* ui, $ints* indices) {
-	$useLocalCurrentObjectStackCache();
-	for (int32_t i = 0; i < $nc($($nc(ui)->getTabbedPane()))->getTabCount(); ++i) {
+	$useLocalObjectStack();
+	for (int32_t i = 0; i < $$nc($nc(ui)->getTabbedPane())->getTabCount(); ++i) {
 		$nc($System::out)->print($$str({"Checking tab #"_s, $$str(i)}));
 		$var($View, view, ui->getTextViewForTab(i));
 		bool found = false;
@@ -97,7 +58,7 @@ void bug6670274::check($bug6670274$TestTabbedPaneUI* ui, $ints* indices) {
 				break;
 			}
 		}
-		$nc($System::out)->print($$str({"; view = "_s, view}));
+		$System::out->print($$str({"; view = "_s, view}));
 		if (found) {
 			if (view == nullptr) {
 				$throwNew($RuntimeException, "View is unexpectedly null"_s);
@@ -105,7 +66,7 @@ void bug6670274::check($bug6670274$TestTabbedPaneUI* ui, $ints* indices) {
 		} else if (view != nullptr) {
 			$throwNew($RuntimeException, "View is unexpectedly not null"_s);
 		}
-		$nc($System::out)->println(" ok"_s);
+		$System::out->println(" ok"_s);
 	}
 	$nc($System::out)->println(""_s);
 }
@@ -118,7 +79,35 @@ bug6670274::bug6670274() {
 }
 
 $Class* bug6670274::load$($String* name, bool initialize) {
-	$loadClass(bug6670274, name, initialize, &_bug6670274_ClassInfo_, allocate$bug6670274);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6670274, init$, void)},
+		{"check", "(Lbug6670274$TestTabbedPaneUI;[I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(bug6670274, check, void, $bug6670274$TestTabbedPaneUI*, $ints*)},
+		{"createGui", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6670274, createGui, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6670274, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6670274$TestTabbedPaneUI", "bug6670274", "TestTabbedPaneUI", $STATIC},
+		{"bug6670274$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6670274",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6670274$TestTabbedPaneUI,bug6670274$1"
+	};
+	$loadClass(bug6670274, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6670274);
+	});
 	return class$;
 }
 

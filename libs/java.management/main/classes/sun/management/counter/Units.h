@@ -31,6 +31,7 @@ class $export Units : public ::java::io::Serializable {
 	$class(Units, 0, ::java::io::Serializable)
 public:
 	Units();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t value);
 	virtual int32_t intValue();
 	virtual $String* toString() override;
@@ -46,7 +47,7 @@ public:
 	static ::sun::management::counter::Units* EVENTS;
 	static ::sun::management::counter::Units* STRING;
 	static ::sun::management::counter::Units* HERTZ;
-	static const int64_t serialVersionUID = (int64_t)0x6109C59A2636DD85;
+	static const int64_t serialVersionUID = (int64_t)0x6109c59a2636dd85;
 };
 
 		} // counter

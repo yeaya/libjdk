@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/JobMediaSheetsCompleted.h>
-
 #include <javax/print/attribute/IntegerSyntax.h>
 #include <jcpp.h>
 
@@ -15,36 +14,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _JobMediaSheetsCompleted_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobMediaSheetsCompleted, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JobMediaSheetsCompleted_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JobMediaSheetsCompleted, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobMediaSheetsCompleted, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobMediaSheetsCompleted, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobMediaSheetsCompleted, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JobMediaSheetsCompleted_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.JobMediaSheetsCompleted",
-	"javax.print.attribute.IntegerSyntax",
-	"javax.print.attribute.PrintJobAttribute",
-	_JobMediaSheetsCompleted_FieldInfo_,
-	_JobMediaSheetsCompleted_MethodInfo_
-};
-
-$Object* allocate$JobMediaSheetsCompleted($Class* clazz) {
-	return $of($alloc(JobMediaSheetsCompleted));
-}
 
 int32_t JobMediaSheetsCompleted::hashCode() {
 	 return this->$IntegerSyntax::hashCode();
@@ -82,7 +51,32 @@ JobMediaSheetsCompleted::JobMediaSheetsCompleted() {
 }
 
 $Class* JobMediaSheetsCompleted::load$($String* name, bool initialize) {
-	$loadClass(JobMediaSheetsCompleted, name, initialize, &_JobMediaSheetsCompleted_ClassInfo_, allocate$JobMediaSheetsCompleted);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobMediaSheetsCompleted, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JobMediaSheetsCompleted, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(JobMediaSheetsCompleted, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(JobMediaSheetsCompleted, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JobMediaSheetsCompleted, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.JobMediaSheetsCompleted",
+		"javax.print.attribute.IntegerSyntax",
+		"javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JobMediaSheetsCompleted, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JobMediaSheetsCompleted));
+	});
 	return class$;
 }
 

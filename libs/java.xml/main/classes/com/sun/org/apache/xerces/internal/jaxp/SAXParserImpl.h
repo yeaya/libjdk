@@ -153,6 +153,7 @@ class SAXParserImpl : public ::javax::xml::parsers::SAXParser, public ::com::sun
 	$class(SAXParserImpl, 0, ::javax::xml::parsers::SAXParser, ::com::sun::org::apache::xerces::internal::jaxp::JAXPConstants, ::com::sun::org::apache::xerces::internal::xs::PSVIProvider)
 public:
 	SAXParserImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

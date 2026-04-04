@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWChoicePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -16,7 +15,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/awt/event/ItemListener.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/VolatileImage.h>
@@ -49,7 +47,6 @@ using $ItemSelectable = ::java::awt::ItemSelectable;
 using $Point = ::java::awt::Point;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $ItemEvent = ::java::awt::event::ItemEvent;
-using $ItemListener = ::java::awt::event::ItemListener;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
@@ -68,88 +65,6 @@ using $PlatformComponent = ::sun::lwawt::PlatformComponent;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWChoicePeer_FieldInfo_[] = {
-	{"skipPostMessage", "Z", nullptr, $PRIVATE, $field(LWChoicePeer, skipPostMessage)},
-	{}
-};
-
-$MethodInfo _LWChoicePeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Choice;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWChoicePeer, init$, void, $Choice*, $PlatformComponent*)},
-	{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, add, void, $String*, int32_t)},
-	{"createDelegate", "()Ljavax/swing/JComboBox;", "()Ljavax/swing/JComboBox<Ljava/lang/String;>;", 0, $virtualMethod(LWChoicePeer, createDelegate, $JComponent*)},
-	{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWChoicePeer, initializeImpl, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, itemStateChanged, void, $ItemEvent*)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, removeAll, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, select, void, int32_t)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LWChoicePeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWChoicePeer$JComboBoxDelegate", "sun.lwawt.LWChoicePeer", "JComboBoxDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWChoicePeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWChoicePeer",
-	"sun.lwawt.LWComponentPeer",
-	"java.awt.peer.ChoicePeer,java.awt.event.ItemListener",
-	_LWChoicePeer_FieldInfo_,
-	_LWChoicePeer_MethodInfo_,
-	"Lsun/lwawt/LWComponentPeer<Ljava/awt/Choice;Ljavax/swing/JComboBox<Ljava/lang/String;>;>;Ljava/awt/peer/ChoicePeer;Ljava/awt/event/ItemListener;",
-	nullptr,
-	_LWChoicePeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWChoicePeer$JComboBoxDelegate"
-};
-
-$Object* allocate$LWChoicePeer($Class* clazz) {
-	return $of($alloc(LWChoicePeer));
-}
 
 void LWChoicePeer::dispose() {
 	this->$LWComponentPeer::dispose();
@@ -320,7 +235,7 @@ $JComponent* LWChoicePeer::createDelegate() {
 }
 
 void LWChoicePeer::initializeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LWComponentPeer::initializeImpl();
 	$var($Choice, choice, $cast($Choice, getTarget()));
 	$var($JComboBox, combo, $cast($JComboBox, getDelegate()));
@@ -335,13 +250,13 @@ void LWChoicePeer::initializeImpl() {
 }
 
 void LWChoicePeer::itemStateChanged($ItemEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(e)->getStateChange() == $ItemEvent::SELECTED) {
 		$synchronized(getDelegateLock()) {
 			if (this->skipPostMessage) {
 				return;
 			}
-			$nc(($cast($Choice, $(getTarget()))))->select($nc(($cast($JComboBox, $(getDelegate()))))->getSelectedIndex());
+			$$sure($Choice, getTarget())->select($$sure($JComboBox, getDelegate())->getSelectedIndex());
 		}
 		$var($ItemSelectable, var$0, $cast($ItemSelectable, getTarget()));
 		postEvent($$new($ItemEvent, var$0, $ItemEvent::ITEM_STATE_CHANGED, $(e->getItem()), $ItemEvent::SELECTED));
@@ -350,30 +265,30 @@ void LWChoicePeer::itemStateChanged($ItemEvent* e) {
 
 void LWChoicePeer::add($String* item, int32_t index) {
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JComboBox, $(getDelegate()))))->insertItemAt(item, index);
+		$$sure($JComboBox, getDelegate())->insertItemAt(item, index);
 	}
 }
 
 void LWChoicePeer::remove(int32_t index) {
 	$synchronized(getDelegateLock()) {
 		this->skipPostMessage = true;
-		$nc(($cast($JComboBox, $(getDelegate()))))->removeItemAt(index);
+		$$sure($JComboBox, getDelegate())->removeItemAt(index);
 		this->skipPostMessage = false;
 	}
 }
 
 void LWChoicePeer::removeAll() {
 	$synchronized(getDelegateLock()) {
-		$nc(($cast($JComboBox, $(getDelegate()))))->removeAllItems();
+		$$sure($JComboBox, getDelegate())->removeAllItems();
 	}
 }
 
 void LWChoicePeer::select(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getDelegateLock()) {
-		if (index != $nc(($cast($JComboBox, $(getDelegate()))))->getSelectedIndex()) {
+		if (index != $$sure($JComboBox, getDelegate())->getSelectedIndex()) {
 			this->skipPostMessage = true;
-			$nc(($cast($JComboBox, $(getDelegate()))))->setSelectedIndex(index);
+			$$sure($JComboBox, getDelegate())->setSelectedIndex(index);
 			this->skipPostMessage = false;
 		}
 	}
@@ -387,7 +302,83 @@ LWChoicePeer::LWChoicePeer() {
 }
 
 $Class* LWChoicePeer::load$($String* name, bool initialize) {
-	$loadClass(LWChoicePeer, name, initialize, &_LWChoicePeer_ClassInfo_, allocate$LWChoicePeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"skipPostMessage", "Z", nullptr, $PRIVATE, $field(LWChoicePeer, skipPostMessage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC | $FINAL},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC | $FINAL},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC | $FINAL},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC | $FINAL},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $FINAL},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Choice;Lsun/lwawt/PlatformComponent;)V", nullptr, 0, $method(LWChoicePeer, init$, void, $Choice*, $PlatformComponent*)},
+		{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, add, void, $String*, int32_t)},
+		{"createDelegate", "()Ljavax/swing/JComboBox;", "()Ljavax/swing/JComboBox<Ljava/lang/String;>;", 0, $virtualMethod(LWChoicePeer, createDelegate, $JComponent*)},
+		{"initializeImpl", "()V", nullptr, 0, $virtualMethod(LWChoicePeer, initializeImpl, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, itemStateChanged, void, $ItemEvent*)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, removeAll, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(LWChoicePeer, select, void, int32_t)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWChoicePeer$JComboBoxDelegate", "sun.lwawt.LWChoicePeer", "JComboBoxDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWChoicePeer",
+		"sun.lwawt.LWComponentPeer",
+		"java.awt.peer.ChoicePeer,java.awt.event.ItemListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lsun/lwawt/LWComponentPeer<Ljava/awt/Choice;Ljavax/swing/JComboBox<Ljava/lang/String;>;>;Ljava/awt/peer/ChoicePeer;Ljava/awt/event/ItemListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWChoicePeer$JComboBoxDelegate"
+	};
+	$loadClass(LWChoicePeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWChoicePeer));
+	});
 	return class$;
 }
 

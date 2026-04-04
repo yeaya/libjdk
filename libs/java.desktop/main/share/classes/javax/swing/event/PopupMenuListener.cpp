@@ -1,5 +1,4 @@
 #include <javax/swing/event/PopupMenuListener.h>
-
 #include <javax/swing/event/PopupMenuEvent.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _PopupMenuListener_MethodInfo_[] = {
-	{"popupMenuCanceled", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PopupMenuListener, popupMenuCanceled, void, $PopupMenuEvent*)},
-	{"popupMenuWillBecomeInvisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PopupMenuListener, popupMenuWillBecomeInvisible, void, $PopupMenuEvent*)},
-	{"popupMenuWillBecomeVisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PopupMenuListener, popupMenuWillBecomeVisible, void, $PopupMenuEvent*)},
-	{}
-};
-
-$ClassInfo _PopupMenuListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.PopupMenuListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_PopupMenuListener_MethodInfo_
-};
-
-$Object* allocate$PopupMenuListener($Class* clazz) {
-	return $of($alloc(PopupMenuListener));
-}
-
 $Class* PopupMenuListener::load$($String* name, bool initialize) {
-	$loadClass(PopupMenuListener, name, initialize, &_PopupMenuListener_ClassInfo_, allocate$PopupMenuListener);
+	$MethodInfo methodInfos$$[] = {
+		{"popupMenuCanceled", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PopupMenuListener, popupMenuCanceled, void, $PopupMenuEvent*)},
+		{"popupMenuWillBecomeInvisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PopupMenuListener, popupMenuWillBecomeInvisible, void, $PopupMenuEvent*)},
+		{"popupMenuWillBecomeVisible", "(Ljavax/swing/event/PopupMenuEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PopupMenuListener, popupMenuWillBecomeVisible, void, $PopupMenuEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.PopupMenuListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PopupMenuListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupMenuListener);
+	});
 	return class$;
 }
 

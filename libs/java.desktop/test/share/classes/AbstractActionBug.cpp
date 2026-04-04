@@ -1,5 +1,4 @@
 #include <AbstractActionBug.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
@@ -8,35 +7,14 @@
 #undef NAME
 
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 
-$MethodInfo _AbstractActionBug_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AbstractActionBug, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractActionBug, actionPerformed, void, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(AbstractActionBug, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _AbstractActionBug_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"AbstractActionBug",
-	"javax.swing.AbstractAction",
-	nullptr,
-	nullptr,
-	_AbstractActionBug_MethodInfo_
-};
-
-$Object* allocate$AbstractActionBug($Class* clazz) {
-	return $of($alloc(AbstractActionBug));
-}
-
 void AbstractActionBug::main($StringArray* args) {
 	$init(AbstractActionBug);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(AbstractActionBug, a1, $new(AbstractActionBug, "a1"_s));
 	$assign(a1, $cast(AbstractActionBug, a1->clone()));
 	$nc($System::out)->println("a1 cloned ok"_s);
@@ -44,10 +22,10 @@ void AbstractActionBug::main($StringArray* args) {
 	$init($Action);
 	a2->putValue($Action::NAME, "null"_s);
 	$assign(a2, $cast(AbstractActionBug, a2->clone()));
-	$nc($System::out)->println("a2 cloned ok"_s);
+	$System::out->println("a2 cloned ok"_s);
 	$var(AbstractActionBug, a3, $new(AbstractActionBug, nullptr));
 	$assign(a3, $cast(AbstractActionBug, a3->clone()));
-	$nc($System::out)->println("a3 cloned ok"_s);
+	$System::out->println("a3 cloned ok"_s);
 }
 
 void AbstractActionBug::init$($String* name) {
@@ -63,7 +41,23 @@ AbstractActionBug::AbstractActionBug() {
 }
 
 $Class* AbstractActionBug::load$($String* name, bool initialize) {
-	$loadClass(AbstractActionBug, name, initialize, &_AbstractActionBug_ClassInfo_, allocate$AbstractActionBug);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AbstractActionBug, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AbstractActionBug, actionPerformed, void, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(AbstractActionBug, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"AbstractActionBug",
+		"javax.swing.AbstractAction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AbstractActionBug, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractActionBug));
+	});
 	return class$;
 }
 

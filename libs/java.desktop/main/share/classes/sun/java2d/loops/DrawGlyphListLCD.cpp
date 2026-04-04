@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawGlyphListLCD.h>
-
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -27,47 +26,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawGlyphListLCD_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphListLCD, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphListLCD, primTypeID)},
-	{}
-};
-
-$MethodInfo _DrawGlyphListLCD_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawGlyphListLCD, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawGlyphListLCD, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawGlyphListLCD", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawGlyphListLCD, DrawGlyphListLCD$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawGlyphListLCD;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawGlyphListLCD, locate, DrawGlyphListLCD*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListLCD, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_DrawGlyphListLCD$ 2
-
-$InnerClassInfo _DrawGlyphListLCD_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawGlyphListLCD$TraceDrawGlyphListLCD", "sun.java2d.loops.DrawGlyphListLCD", "TraceDrawGlyphListLCD", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawGlyphListLCD_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.DrawGlyphListLCD",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_DrawGlyphListLCD_FieldInfo_,
-	_DrawGlyphListLCD_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawGlyphListLCD_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawGlyphListLCD$TraceDrawGlyphListLCD"
-};
-
-$Object* allocate$DrawGlyphListLCD($Class* clazz) {
-	return $of($alloc(DrawGlyphListLCD));
-}
-
 $String* DrawGlyphListLCD::methodSignature = nullptr;
 int32_t DrawGlyphListLCD::primTypeID = 0;
 
@@ -85,7 +43,7 @@ void DrawGlyphListLCD::init$(int64_t pNativePrim, $SurfaceType* srctype, $Compos
 }
 
 void DrawGlyphListLCD::DrawGlyphListLCD$($SunGraphics2D* sg2d, $SurfaceData* dest, $GlyphList* srcData, int32_t fromGlyph, int32_t toGlyph) {
-	$prepareNative(DrawGlyphListLCD, DrawGlyphListLCD$, void, $SunGraphics2D* sg2d, $SurfaceData* dest, $GlyphList* srcData, int32_t fromGlyph, int32_t toGlyph);
+	$prepareNative(DrawGlyphListLCD, void, $SunGraphics2D* sg2d, $SurfaceData* dest, $GlyphList* srcData, int32_t fromGlyph, int32_t toGlyph);
 	$invokeNative(sg2d, dest, srcData, fromGlyph, toGlyph);
 	$finishNative();
 }
@@ -94,7 +52,7 @@ $GraphicsPrimitive* DrawGlyphListLCD::traceWrap() {
 	return $new($DrawGlyphListLCD$TraceDrawGlyphListLCD, this);
 }
 
-void clinit$DrawGlyphListLCD($Class* class$) {
+void DrawGlyphListLCD::clinit$($Class* clazz) {
 	$assignStatic(DrawGlyphListLCD::methodSignature, "DrawGlyphListLCD(...)"_s->toString());
 	DrawGlyphListLCD::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 }
@@ -103,7 +61,40 @@ DrawGlyphListLCD::DrawGlyphListLCD() {
 }
 
 $Class* DrawGlyphListLCD::load$($String* name, bool initialize) {
-	$loadClass(DrawGlyphListLCD, name, initialize, &_DrawGlyphListLCD_ClassInfo_, clinit$DrawGlyphListLCD, allocate$DrawGlyphListLCD);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphListLCD, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DrawGlyphListLCD, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(DrawGlyphListLCD, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawGlyphListLCD, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawGlyphListLCD", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(DrawGlyphListLCD, DrawGlyphListLCD$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/DrawGlyphListLCD;", nullptr, $PUBLIC | $STATIC, $staticMethod(DrawGlyphListLCD, locate, DrawGlyphListLCD*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListLCD, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawGlyphListLCD$TraceDrawGlyphListLCD", "sun.java2d.loops.DrawGlyphListLCD", "TraceDrawGlyphListLCD", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.DrawGlyphListLCD",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawGlyphListLCD$TraceDrawGlyphListLCD"
+	};
+	$loadClass(DrawGlyphListLCD, name, initialize, &classInfo$$, DrawGlyphListLCD::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGlyphListLCD);
+	});
 	return class$;
 }
 

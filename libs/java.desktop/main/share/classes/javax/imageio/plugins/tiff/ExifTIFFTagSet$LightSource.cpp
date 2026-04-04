@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$LightSource.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -15,36 +14,6 @@ namespace javax {
 	namespace imageio {
 		namespace plugins {
 			namespace tiff {
-
-$MethodInfo _ExifTIFFTagSet$LightSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$LightSource, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$LightSource_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$LightSource", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "LightSource", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$LightSource_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$LightSource",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$LightSource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$LightSource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$LightSource($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$LightSource));
-}
 
 void ExifTIFFTagSet$LightSource::init$() {
 	$TIFFTag::init$("LightSource"_s, 0x00009208, $sl(1, $TIFFTag::TIFF_SHORT), 1);
@@ -65,7 +34,32 @@ ExifTIFFTagSet$LightSource::ExifTIFFTagSet$LightSource() {
 }
 
 $Class* ExifTIFFTagSet$LightSource::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$LightSource, name, initialize, &_ExifTIFFTagSet$LightSource_ClassInfo_, allocate$ExifTIFFTagSet$LightSource);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$LightSource, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$LightSource", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "LightSource", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$LightSource",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$LightSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$LightSource);
+	});
 	return class$;
 }
 

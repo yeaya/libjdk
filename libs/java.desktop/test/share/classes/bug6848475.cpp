@@ -1,12 +1,10 @@
 #include <bug6848475.h>
-
 #include <bug6848475$1.h>
 #include <bug6848475$2.h>
 #include <bug6848475$3.h>
 #include <bug6848475$4.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/reflect/Field.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JSlider.h>
@@ -27,7 +25,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
 using $JFrame = ::javax::swing::JFrame;
@@ -35,48 +32,6 @@ using $JSlider = ::javax::swing::JSlider;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $SliderUI = ::javax::swing::plaf::SliderUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
-
-$FieldInfo _bug6848475_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6848475, frame)},
-	{"slider", "Ljavax/swing/JSlider;", nullptr, $PRIVATE | $STATIC, $staticField(bug6848475, slider)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6848475, robot)},
-	{"thumbRectX", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug6848475, thumbRectX)},
-	{}
-};
-
-$MethodInfo _bug6848475_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6848475, init$, void)},
-	{"getThumbRectField", "()Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6848475, getThumbRectField, $Rectangle*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6848475, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6848475_InnerClassesInfo_[] = {
-	{"bug6848475$4", nullptr, nullptr, 0},
-	{"bug6848475$3", nullptr, nullptr, 0},
-	{"bug6848475$2", nullptr, nullptr, 0},
-	{"bug6848475$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6848475_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6848475",
-	"java.lang.Object",
-	nullptr,
-	_bug6848475_FieldInfo_,
-	_bug6848475_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6848475_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6848475$4,bug6848475$3,bug6848475$2,bug6848475$1,bug6848475$1$1"
-};
-
-$Object* allocate$bug6848475($Class* clazz) {
-	return $of($alloc(bug6848475));
-}
 
 $JFrame* bug6848475::frame = nullptr;
 $JSlider* bug6848475::slider = nullptr;
@@ -87,10 +42,10 @@ void bug6848475::init$() {
 }
 
 void bug6848475::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug6848475);
 	$assignStatic(bug6848475::robot, $new($Robot));
-	$nc(bug6848475::robot)->setAutoDelay(100);
+	bug6848475::robot->setAutoDelay(100);
 	$SwingUtilities::invokeAndWait($$new($bug6848475$1));
 	$nc(bug6848475::robot)->waitForIdle();
 	$SwingUtilities::invokeAndWait($$new($bug6848475$2));
@@ -101,8 +56,8 @@ void bug6848475::main($StringArray* args) {
 }
 
 $Rectangle* bug6848475::getThumbRectField() {
+	$useLocalObjectStack();
 	$load(bug6848475);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	try {
 		$init(bug6848475);
@@ -112,7 +67,7 @@ $Rectangle* bug6848475::getThumbRectField() {
 		$nc(field)->setAccessible(true);
 		return $cast($Rectangle, field->get(ui));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -121,7 +76,43 @@ bug6848475::bug6848475() {
 }
 
 $Class* bug6848475::load$($String* name, bool initialize) {
-	$loadClass(bug6848475, name, initialize, &_bug6848475_ClassInfo_, allocate$bug6848475);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6848475, frame)},
+		{"slider", "Ljavax/swing/JSlider;", nullptr, $PRIVATE | $STATIC, $staticField(bug6848475, slider)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6848475, robot)},
+		{"thumbRectX", "I", nullptr, $PRIVATE | $STATIC, $staticField(bug6848475, thumbRectX)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6848475, init$, void)},
+		{"getThumbRectField", "()Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6848475, getThumbRectField, $Rectangle*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6848475, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6848475$4", nullptr, nullptr, 0},
+		{"bug6848475$3", nullptr, nullptr, 0},
+		{"bug6848475$2", nullptr, nullptr, 0},
+		{"bug6848475$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6848475",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6848475$4,bug6848475$3,bug6848475$2,bug6848475$1,bug6848475$1$1"
+	};
+	$loadClass(bug6848475, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6848475);
+	});
 	return class$;
 }
 

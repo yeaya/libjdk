@@ -15,6 +15,7 @@ class ModuleFinder$2 : public ::java::lang::Object {
 	$class(ModuleFinder$2, 0, ::java::lang::Object)
 public:
 	ModuleFinder$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$tools$StandardLocation;
 	static $ints* $SwitchMap$javax$tools$JavaFileObject$Kind;
 };

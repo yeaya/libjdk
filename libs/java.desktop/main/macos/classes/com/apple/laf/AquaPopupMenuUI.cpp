@@ -1,18 +1,15 @@
 #include <com/apple/laf/AquaPopupMenuUI.h>
-
 #include <com/apple/laf/ScreenPopupFactory.h>
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints$Key.h>
 #include <java/awt/RenderingHints.h>
-#include <java/awt/Stroke.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/JComponent.h>
@@ -31,13 +28,11 @@ using $ScreenPopupFactory = ::com::apple::laf::ScreenPopupFactory;
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Component = ::java::awt::Component;
-using $Composite = ::java::awt::Composite;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $RenderingHints = ::java::awt::RenderingHints;
-using $Stroke = ::java::awt::Stroke;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -45,7 +40,6 @@ using $Float = ::java::lang::Float;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
-using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $PopupFactory = ::javax::swing::PopupFactory;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicPopupMenuUI = ::javax::swing::plaf::basic::BasicPopupMenuUI;
@@ -53,34 +47,6 @@ using $BasicPopupMenuUI = ::javax::swing::plaf::basic::BasicPopupMenuUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaPopupMenuUI_FieldInfo_[] = {
-	{"OVERLAP_SLACK", "I", nullptr, $STATIC | $FINAL, $constField(AquaPopupMenuUI, OVERLAP_SLACK)},
-	{}
-};
-
-$MethodInfo _AquaPopupMenuUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaPopupMenuUI, init$, void)},
-	{"clipEdges", "(Ljava/awt/Graphics2D;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaPopupMenuUI, clipEdges, void, $Graphics2D*, $Rectangle*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaPopupMenuUI, createUI, $ComponentUI*, $JComponent*)},
-	{"isPopupTrigger", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $virtualMethod(AquaPopupMenuUI, isPopupTrigger, bool, $MouseEvent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaPopupMenuUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintRoundRect", "(Ljava/awt/Graphics2D;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaPopupMenuUI, paintRoundRect, void, $Graphics2D*, $Rectangle*)},
-	{}
-};
-
-$ClassInfo _AquaPopupMenuUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaPopupMenuUI",
-	"javax.swing.plaf.basic.BasicPopupMenuUI",
-	nullptr,
-	_AquaPopupMenuUI_FieldInfo_,
-	_AquaPopupMenuUI_MethodInfo_
-};
-
-$Object* allocate$AquaPopupMenuUI($Class* clazz) {
-	return $of($alloc(AquaPopupMenuUI));
-}
 
 void AquaPopupMenuUI::init$() {
 	$BasicPopupMenuUI::init$();
@@ -96,7 +62,7 @@ bool AquaPopupMenuUI::isPopupTrigger($MouseEvent* e) {
 }
 
 void AquaPopupMenuUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Graphics2D, g))) {
 		$BasicPopupMenuUI::paint(g, c);
 		return;
@@ -119,11 +85,11 @@ void AquaPopupMenuUI::paintRoundRect($Graphics2D* g2d, $Rectangle* popupBounds) 
 	$init($AlphaComposite);
 	g2d->setComposite($AlphaComposite::Clear);
 	g2d->setStroke($$new($BasicStroke, 3.0f));
-	g2d->drawRoundRect(-2, -2, $nc(popupBounds)->width + 3, popupBounds->height + 3, 12, 12);
+	g2d->drawRoundRect(-2, -2, $nc(popupBounds)->width + 3, $nc(popupBounds)->height + 3, 12, 12);
 }
 
 void AquaPopupMenuUI::clipEdges($Graphics2D* g2d, $Rectangle* popupBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, invoker, $nc(this->popupMenu)->getInvoker());
 	if (!($instanceOf($JMenu, invoker))) {
 		return;
@@ -168,7 +134,30 @@ AquaPopupMenuUI::AquaPopupMenuUI() {
 }
 
 $Class* AquaPopupMenuUI::load$($String* name, bool initialize) {
-	$loadClass(AquaPopupMenuUI, name, initialize, &_AquaPopupMenuUI_ClassInfo_, allocate$AquaPopupMenuUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"OVERLAP_SLACK", "I", nullptr, $STATIC | $FINAL, $constField(AquaPopupMenuUI, OVERLAP_SLACK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaPopupMenuUI, init$, void)},
+		{"clipEdges", "(Ljava/awt/Graphics2D;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaPopupMenuUI, clipEdges, void, $Graphics2D*, $Rectangle*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaPopupMenuUI, createUI, $ComponentUI*, $JComponent*)},
+		{"isPopupTrigger", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $virtualMethod(AquaPopupMenuUI, isPopupTrigger, bool, $MouseEvent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaPopupMenuUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintRoundRect", "(Ljava/awt/Graphics2D;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaPopupMenuUI, paintRoundRect, void, $Graphics2D*, $Rectangle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaPopupMenuUI",
+		"javax.swing.plaf.basic.BasicPopupMenuUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaPopupMenuUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaPopupMenuUI);
+	});
 	return class$;
 }
 

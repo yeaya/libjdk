@@ -1,5 +1,4 @@
 #include <bug6438430.h>
-
 #include <java/awt/Dimension.h>
 #include <javax/swing/JCheckBoxMenuItem.h>
 #include <javax/swing/JComponent.h>
@@ -7,7 +6,6 @@
 #include <javax/swing/JMenuItem.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
@@ -15,36 +13,17 @@ using $JCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuItem = ::javax::swing::JMenuItem;
 
-$MethodInfo _bug6438430_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6438430, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6438430, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _bug6438430_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6438430",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6438430_MethodInfo_
-};
-
-$Object* allocate$bug6438430($Class* clazz) {
-	return $of($alloc(bug6438430));
-}
-
 void bug6438430::init$() {
 }
 
 void bug6438430::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenu, subMenu1, $new($JMenu, "Long-titled Sub Menu"_s));
 	subMenu1->add($$new($JMenuItem, "SubMenu Item"_s));
 	$var($JMenuItem, checkBoxMenuItem1, $new($JCheckBoxMenuItem, "CheckBox"_s));
 	$var($JMenu, menu1, $new($JMenu, "It works always"_s));
 	menu1->add(checkBoxMenuItem1);
-	menu1->add(static_cast<$JMenuItem*>(subMenu1));
+	menu1->add(subMenu1);
 	checkBoxMenuItem1->getPreferredSize();
 	int32_t width1 = $nc($(subMenu1->getPreferredSize()))->width;
 	$nc($System::out)->println($$str({"width1 = "_s, $$str(width1)}));
@@ -52,22 +31,37 @@ void bug6438430::main($StringArray* args) {
 	subMenu2->add($$new($JMenuItem, "SubMenu Item"_s));
 	$var($JMenuItem, checkBoxMenuItem2, $new($JCheckBoxMenuItem, "CheckBox"_s));
 	$var($JMenu, menu2, $new($JMenu, "It did not work before the fix"_s));
-	menu2->add(static_cast<$JMenuItem*>(subMenu2));
+	menu2->add(subMenu2);
 	menu2->add(checkBoxMenuItem2);
 	subMenu2->getPreferredSize();
 	int32_t width2 = $nc($(checkBoxMenuItem2->getPreferredSize()))->width;
-	$nc($System::out)->println($$str({"width2 = "_s, $$str(width2)}));
+	$System::out->println($$str({"width2 = "_s, $$str(width2)}));
 	if (width1 != width2) {
 		$throwNew($RuntimeException, "Submenu title and submenu indicator overlap on JMenuItem!"_s);
 	}
-	$nc($System::out)->println("Test passed"_s);
+	$System::out->println("Test passed"_s);
 }
 
 bug6438430::bug6438430() {
 }
 
 $Class* bug6438430::load$($String* name, bool initialize) {
-	$loadClass(bug6438430, name, initialize, &_bug6438430_ClassInfo_, allocate$bug6438430);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6438430, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6438430, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6438430",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6438430, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6438430);
+	});
 	return class$;
 }
 

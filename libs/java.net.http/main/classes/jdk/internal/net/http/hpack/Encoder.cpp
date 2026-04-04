@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/Encoder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
@@ -44,7 +43,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -55,13 +53,10 @@ using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;
 using $Supplier = ::java::util::function::Supplier;
-using $BinaryRepresentationWriter = ::jdk::internal::net::http::hpack::BinaryRepresentationWriter;
 using $BulkSizeUpdateWriter = ::jdk::internal::net::http::hpack::BulkSizeUpdateWriter;
 using $HPACK = ::jdk::internal::net::http::hpack::HPACK;
-using $HPACK$Logger = ::jdk::internal::net::http::hpack::HPACK$Logger;
 using $HPACK$Logger$Level = ::jdk::internal::net::http::hpack::HPACK$Logger$Level;
 using $HeaderTable = ::jdk::internal::net::http::hpack::HeaderTable;
-using $IndexNameValueWriter = ::jdk::internal::net::http::hpack::IndexNameValueWriter;
 using $IndexedWriter = ::jdk::internal::net::http::hpack::IndexedWriter;
 using $LiteralNeverIndexedWriter = ::jdk::internal::net::http::hpack::LiteralNeverIndexedWriter;
 using $LiteralWithIndexingWriter = ::jdk::internal::net::http::hpack::LiteralWithIndexingWriter;
@@ -84,33 +79,29 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$new$0(maxCapacity));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$new$0>());
-	}
 	int32_t maxCapacity = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"maxCapacity", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$new$0, maxCapacity)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$new$0, init$, void, int32_t)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$new$0, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"maxCapacity", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$new$0, maxCapacity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$new$0, init$, void, int32_t)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$new$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$new$0::class$ = nullptr;
@@ -124,33 +115,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->lambda$new$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$new$1$1>());
-	}
 	Encoder* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$new$1$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$new$1$1, inst$)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$new$1$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/hpack/Encoder;)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$new$1$1, init$, void, Encoder*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$new$1$1, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$new$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$new$1$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$new$1$1::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$new$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$new$1$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/hpack/Encoder;)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$new$1$1, init$, void, Encoder*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$new$1$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$new$1$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$new$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$new$1$1);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$new$1$1::class$ = nullptr;
@@ -166,37 +153,33 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$header$2(name, value, sensitive));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$header$2$2>());
-	}
 	$CharSequence* name = nullptr;
 	$CharSequence* value = nullptr;
 	bool sensitive = false;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$header$2$2::fieldInfos[4] = {
-	{"name", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$header$2$2, name)},
-	{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$header$2$2, value)},
-	{"sensitive", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$header$2$2, sensitive)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$header$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$header$2$2, init$, void, $CharSequence*, $CharSequence*, bool)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$header$2$2, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$header$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$header$2$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$header$2$2::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$header$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$header$2$2, name)},
+		{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$header$2$2, value)},
+		{"sensitive", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$header$2$2, sensitive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$header$2$2, init$, void, $CharSequence*, $CharSequence*, bool)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$header$2$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$header$2$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$header$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$header$2$2);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$header$2$2::class$ = nullptr;
@@ -210,33 +193,29 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$setMaxCapacity$3(capacity));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$setMaxCapacity$3$3>());
-	}
 	int32_t capacity = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$setMaxCapacity$3$3::fieldInfos[2] = {
-	{"capacity", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$setMaxCapacity$3$3, capacity)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$setMaxCapacity$3$3::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$setMaxCapacity$3$3, init$, void, int32_t)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$setMaxCapacity$3$3, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$setMaxCapacity$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$setMaxCapacity$3$3",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$setMaxCapacity$3$3::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$setMaxCapacity$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"capacity", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$setMaxCapacity$3$3, capacity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$setMaxCapacity$3$3, init$, void, int32_t)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$setMaxCapacity$3$3, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$setMaxCapacity$3$3",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$setMaxCapacity$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$setMaxCapacity$3$3);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$setMaxCapacity$3$3::class$ = nullptr;
@@ -250,33 +229,29 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$setMaxCapacity0$4(calculated));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$setMaxCapacity0$4$4>());
-	}
 	int32_t calculated = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$setMaxCapacity0$4$4::fieldInfos[2] = {
-	{"calculated", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, calculated)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$setMaxCapacity0$4$4::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, init$, void, int32_t)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$setMaxCapacity0$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$setMaxCapacity0$4$4",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$setMaxCapacity0$4$4::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"calculated", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, calculated)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, init$, void, int32_t)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$setMaxCapacity0$4$4",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$setMaxCapacity0$4$4);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$setMaxCapacity0$4$4::class$ = nullptr;
@@ -290,33 +265,29 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$encode$5(headerBlock));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$encode$5$5>());
-	}
 	$ByteBuffer* headerBlock = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$encode$5$5::fieldInfos[2] = {
-	{"headerBlock", "Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$encode$5$5, headerBlock)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$encode$5$5::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$encode$5$5, init$, void, $ByteBuffer*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$encode$5$5, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$encode$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$encode$5$5",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$encode$5$5::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$encode$5$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"headerBlock", "Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$encode$5$5, headerBlock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$encode$5$5, init$, void, $ByteBuffer*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$encode$5$5, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$encode$5$5",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$encode$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$encode$5$5);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$encode$5$5::class$ = nullptr;
@@ -330,33 +301,29 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$indexed$6(index));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$indexed$6$6>());
-	}
 	int32_t index = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$indexed$6$6::fieldInfos[2] = {
-	{"index", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$indexed$6$6, index)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$indexed$6$6::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$indexed$6$6, init$, void, int32_t)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$indexed$6$6, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$indexed$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$indexed$6$6",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$indexed$6$6::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$indexed$6$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$indexed$6$6, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$indexed$6$6, init$, void, int32_t)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$indexed$6$6, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$indexed$6$6",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$indexed$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$indexed$6$6);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$indexed$6$6::class$ = nullptr;
@@ -372,37 +339,33 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$literal$7(index, value, useHuffman));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$literal$7$7>());
-	}
 	int32_t index = 0;
 	$CharSequence* value = nullptr;
 	bool useHuffman = false;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$literal$7$7::fieldInfos[4] = {
-	{"index", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$7$7, index)},
-	{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$7$7, value)},
-	{"useHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$7$7, useHuffman)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$literal$7$7::methodInfos[3] = {
-	{"<init>", "(ILjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literal$7$7, init$, void, int32_t, $CharSequence*, bool)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literal$7$7, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$literal$7$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literal$7$7",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$literal$7$7::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$literal$7$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$7$7, index)},
+		{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$7$7, value)},
+		{"useHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$7$7, useHuffman)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literal$7$7, init$, void, int32_t, $CharSequence*, bool)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literal$7$7, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literal$7$7",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$literal$7$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$literal$7$7);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$literal$7$7::class$ = nullptr;
@@ -419,39 +382,35 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$literal$8(name, nameHuffman, value, valueHuffman));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$literal$8$8>());
-	}
 	$CharSequence* name = nullptr;
 	bool nameHuffman = false;
 	$CharSequence* value = nullptr;
 	bool valueHuffman = false;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$literal$8$8::fieldInfos[5] = {
-	{"name", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$8$8, name)},
-	{"nameHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$8$8, nameHuffman)},
-	{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$8$8, value)},
-	{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$8$8, valueHuffman)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$literal$8$8::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literal$8$8, init$, void, $CharSequence*, bool, $CharSequence*, bool)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literal$8$8, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$literal$8$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literal$8$8",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$literal$8$8::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$literal$8$8, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$8$8, name)},
+		{"nameHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$8$8, nameHuffman)},
+		{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$8$8, value)},
+		{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literal$8$8, valueHuffman)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literal$8$8, init$, void, $CharSequence*, bool, $CharSequence*, bool)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literal$8$8, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literal$8$8",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$literal$8$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$literal$8$8);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$literal$8$8::class$ = nullptr;
@@ -467,37 +426,33 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$literalNeverIndexed$9(index, value, valueHuffman));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$literalNeverIndexed$9$9>());
-	}
 	int32_t index = 0;
 	$CharSequence* value = nullptr;
 	bool valueHuffman = false;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$literalNeverIndexed$9$9::fieldInfos[4] = {
-	{"index", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, index)},
-	{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, value)},
-	{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, valueHuffman)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$literalNeverIndexed$9$9::methodInfos[3] = {
-	{"<init>", "(ILjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, init$, void, int32_t, $CharSequence*, bool)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$literalNeverIndexed$9$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalNeverIndexed$9$9",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$literalNeverIndexed$9$9::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, index)},
+		{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, value)},
+		{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, valueHuffman)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, init$, void, int32_t, $CharSequence*, bool)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalNeverIndexed$9$9",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$literalNeverIndexed$9$9);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$literalNeverIndexed$9$9::class$ = nullptr;
@@ -514,39 +469,35 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$literalNeverIndexed$10(name, nameHuffman, value, valueHuffman));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$literalNeverIndexed$10$10>());
-	}
 	$CharSequence* name = nullptr;
 	bool nameHuffman = false;
 	$CharSequence* value = nullptr;
 	bool valueHuffman = false;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$literalNeverIndexed$10$10::fieldInfos[5] = {
-	{"name", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, name)},
-	{"nameHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, nameHuffman)},
-	{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, value)},
-	{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, valueHuffman)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$literalNeverIndexed$10$10::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, init$, void, $CharSequence*, bool, $CharSequence*, bool)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$literalNeverIndexed$10$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalNeverIndexed$10$10",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$literalNeverIndexed$10$10::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, name)},
+		{"nameHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, nameHuffman)},
+		{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, value)},
+		{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, valueHuffman)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, init$, void, $CharSequence*, bool, $CharSequence*, bool)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalNeverIndexed$10$10",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$literalNeverIndexed$10$10);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$literalNeverIndexed$10$10::class$ = nullptr;
@@ -562,37 +513,33 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$literalWithIndexing$11(index, value, valueHuffman));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$literalWithIndexing$11$11>());
-	}
 	int32_t index = 0;
 	$CharSequence* value = nullptr;
 	bool valueHuffman = false;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$literalWithIndexing$11$11::fieldInfos[4] = {
-	{"index", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$11$11, index)},
-	{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$11$11, value)},
-	{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$11$11, valueHuffman)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$literalWithIndexing$11$11::methodInfos[3] = {
-	{"<init>", "(ILjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literalWithIndexing$11$11, init$, void, int32_t, $CharSequence*, bool)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literalWithIndexing$11$11, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$literalWithIndexing$11$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalWithIndexing$11$11",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$literalWithIndexing$11$11::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$literalWithIndexing$11$11, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$11$11, index)},
+		{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$11$11, value)},
+		{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$11$11, valueHuffman)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literalWithIndexing$11$11, init$, void, int32_t, $CharSequence*, bool)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literalWithIndexing$11$11, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalWithIndexing$11$11",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$literalWithIndexing$11$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$literalWithIndexing$11$11);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$literalWithIndexing$11$11::class$ = nullptr;
@@ -609,39 +556,35 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$literalWithIndexing$12(name, nameHuffman, value, valueHuffman));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$literalWithIndexing$12$12>());
-	}
 	$CharSequence* name = nullptr;
 	bool nameHuffman = false;
 	$CharSequence* value = nullptr;
 	bool valueHuffman = false;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$literalWithIndexing$12$12::fieldInfos[5] = {
-	{"name", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$12$12, name)},
-	{"nameHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$12$12, nameHuffman)},
-	{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$12$12, value)},
-	{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$12$12, valueHuffman)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$literalWithIndexing$12$12::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literalWithIndexing$12$12, init$, void, $CharSequence*, bool, $CharSequence*, bool)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literalWithIndexing$12$12, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$literalWithIndexing$12$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalWithIndexing$12$12",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$literalWithIndexing$12$12::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$literalWithIndexing$12$12, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$12$12, name)},
+		{"nameHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$12$12, nameHuffman)},
+		{"value", "Ljava/lang/CharSequence;", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$12$12, value)},
+		{"valueHuffman", "Z", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$literalWithIndexing$12$12, valueHuffman)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$literalWithIndexing$12$12, init$, void, $CharSequence*, bool, $CharSequence*, bool)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$literalWithIndexing$12$12, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalWithIndexing$12$12",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$literalWithIndexing$12$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$literalWithIndexing$12$12);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$literalWithIndexing$12$12::class$ = nullptr;
@@ -655,115 +598,37 @@ public:
 	virtual $Object* get() override {
 		 return $of(Encoder::lambda$sizeUpdate$13(capacity));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Encoder$$Lambda$lambda$sizeUpdate$13$13>());
-	}
 	int32_t capacity = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Encoder$$Lambda$lambda$sizeUpdate$13$13::fieldInfos[2] = {
-	{"capacity", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$sizeUpdate$13$13, capacity)},
-	{}
-};
-$MethodInfo Encoder$$Lambda$lambda$sizeUpdate$13$13::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$sizeUpdate$13$13, init$, void, int32_t)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$sizeUpdate$13$13, get, $Object*)},
-	{}
-};
-$ClassInfo Encoder$$Lambda$lambda$sizeUpdate$13$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$sizeUpdate$13$13",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Encoder$$Lambda$lambda$sizeUpdate$13$13::load$($String* name, bool initialize) {
-	$loadClass(Encoder$$Lambda$lambda$sizeUpdate$13$13, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"capacity", "I", nullptr, $PUBLIC, $field(Encoder$$Lambda$lambda$sizeUpdate$13$13, capacity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder$$Lambda$lambda$sizeUpdate$13$13, init$, void, int32_t)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Encoder$$Lambda$lambda$sizeUpdate$13$13, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$sizeUpdate$13$13",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder$$Lambda$lambda$sizeUpdate$13$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder$$Lambda$lambda$sizeUpdate$13$13);
+	});
 	return class$;
 }
 $Class* Encoder$$Lambda$lambda$sizeUpdate$13$13::class$ = nullptr;
 
-$FieldInfo _Encoder_FieldInfo_[] = {
-	{"ENCODERS_IDS", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Encoder, ENCODERS_IDS)},
-	{"huffmanWriter", "Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PRIVATE | $FINAL, $field(Encoder, huffmanWriter)},
-	{"logger", "Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PRIVATE | $FINAL, $field(Encoder, logger)},
-	{"id", "J", nullptr, $PRIVATE | $FINAL, $field(Encoder, id)},
-	{"indexedWriter", "Ljdk/internal/net/http/hpack/IndexedWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, indexedWriter)},
-	{"literalWriter", "Ljdk/internal/net/http/hpack/LiteralWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, literalWriter)},
-	{"literalNeverIndexedWriter", "Ljdk/internal/net/http/hpack/LiteralNeverIndexedWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, literalNeverIndexedWriter)},
-	{"literalWithIndexingWriter", "Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, literalWithIndexingWriter)},
-	{"sizeUpdateWriter", "Ljdk/internal/net/http/hpack/SizeUpdateWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, sizeUpdateWriter)},
-	{"bulkSizeUpdateWriter", "Ljdk/internal/net/http/hpack/BulkSizeUpdateWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, bulkSizeUpdateWriter)},
-	{"writer", "Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PRIVATE, $field(Encoder, writer)},
-	{"headerTable", "Ljdk/internal/net/http/hpack/HeaderTable;", nullptr, $PRIVATE | $FINAL, $field(Encoder, headerTable)},
-	{"encoding", "Z", nullptr, $PRIVATE, $field(Encoder, encoding)},
-	{"maxCapacity", "I", nullptr, $PRIVATE, $field(Encoder, maxCapacity)},
-	{"currCapacity", "I", nullptr, $PRIVATE, $field(Encoder, currCapacity)},
-	{"lastCapacity", "I", nullptr, $PRIVATE, $field(Encoder, lastCapacity)},
-	{"minCapacity", "J", nullptr, $PRIVATE, $field(Encoder, minCapacity)},
-	{"capacityUpdate", "Z", nullptr, $PRIVATE, $field(Encoder, capacityUpdate)},
-	{"configuredCapacityUpdate", "Z", nullptr, $PRIVATE, $field(Encoder, configuredCapacityUpdate)},
-	{}
-};
-
-$MethodInfo _Encoder_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder, init$, void, int32_t)},
-	{"calculateCapacity", "(I)I", nullptr, $PROTECTED, $virtualMethod(Encoder, calculateCapacity, int32_t, int32_t)},
-	{"checkEncoding", "()V", nullptr, $PROTECTED | $FINAL, $method(Encoder, checkEncoding, void)},
-	{"encode", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $FINAL, $method(Encoder, encode, bool, $ByteBuffer*)},
-	{"getHeaderTable", "()Ljdk/internal/net/http/hpack/HeaderTable;", nullptr, $PROTECTED | $FINAL, $method(Encoder, getHeaderTable, $HeaderTable*)},
-	{"getMaxCapacity", "()I", nullptr, $PROTECTED | $FINAL, $method(Encoder, getMaxCapacity, int32_t)},
-	{"header", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Encoder, header, void, $CharSequence*, $CharSequence*), "java.lang.IllegalStateException"},
-	{"header", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(Encoder, header, void, $CharSequence*, $CharSequence*, bool), "java.lang.IllegalStateException"},
-	{"indexed", "(I)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, indexed, void, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{"isHuffmanBetterFor", "(Ljava/lang/CharSequence;)Z", nullptr, $PRIVATE, $method(Encoder, isHuffmanBetterFor, bool, $CharSequence*)},
-	{"lambda$encode$5", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$encode$5, $String*, $ByteBuffer*)},
-	{"lambda$header$2", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$header$2, $String*, $CharSequence*, $CharSequence*, bool)},
-	{"lambda$indexed$6", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$indexed$6, $String*, int32_t)},
-	{"lambda$literal$7", "(ILjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literal$7, $String*, int32_t, $CharSequence*, bool)},
-	{"lambda$literal$8", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literal$8, $String*, $CharSequence*, bool, $CharSequence*, bool)},
-	{"lambda$literalNeverIndexed$10", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literalNeverIndexed$10, $String*, $CharSequence*, bool, $CharSequence*, bool)},
-	{"lambda$literalNeverIndexed$9", "(ILjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literalNeverIndexed$9, $String*, int32_t, $CharSequence*, bool)},
-	{"lambda$literalWithIndexing$11", "(ILjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literalWithIndexing$11, $String*, int32_t, $CharSequence*, bool)},
-	{"lambda$literalWithIndexing$12", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literalWithIndexing$12, $String*, $CharSequence*, bool, $CharSequence*, bool)},
-	{"lambda$new$0", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$new$0, $String*, int32_t)},
-	{"lambda$new$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Encoder, lambda$new$1, $String*)},
-	{"lambda$setMaxCapacity$3", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$setMaxCapacity$3, $String*, int32_t)},
-	{"lambda$setMaxCapacity0$4", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$setMaxCapacity0$4, $String*, int32_t)},
-	{"lambda$sizeUpdate$13", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$sizeUpdate$13, $String*, int32_t)},
-	{"literal", "(ILjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literal, void, int32_t, $CharSequence*, bool), "java.lang.IndexOutOfBoundsException"},
-	{"literal", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literal, void, $CharSequence*, bool, $CharSequence*, bool)},
-	{"literalNeverIndexed", "(ILjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literalNeverIndexed, void, int32_t, $CharSequence*, bool), "java.lang.IndexOutOfBoundsException"},
-	{"literalNeverIndexed", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literalNeverIndexed, void, $CharSequence*, bool, $CharSequence*, bool)},
-	{"literalWithIndexing", "(ILjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literalWithIndexing, void, int32_t, $CharSequence*, bool), "java.lang.IndexOutOfBoundsException"},
-	{"literalWithIndexing", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literalWithIndexing, void, $CharSequence*, bool, $CharSequence*, bool)},
-	{"prependWithCapacityUpdate", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(Encoder, prependWithCapacityUpdate, bool, $ByteBuffer*)},
-	{"setMaxCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(Encoder, setMaxCapacity, void, int32_t)},
-	{"setMaxCapacity0", "(I)V", nullptr, $PRIVATE, $method(Encoder, setMaxCapacity0, void, int32_t)},
-	{"sizeUpdate", "(I)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, sizeUpdate, void, int32_t), "java.lang.IllegalArgumentException"},
-	{}
-};
-
-$ClassInfo _Encoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.Encoder",
-	"java.lang.Object",
-	nullptr,
-	_Encoder_FieldInfo_,
-	_Encoder_MethodInfo_
-};
-
-$Object* allocate$Encoder($Class* clazz) {
-	return $of($alloc(Encoder));
-}
-
 $AtomicLong* Encoder::ENCODERS_IDS = nullptr;
 
 void Encoder::init$(int32_t maxCapacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, huffmanWriter, $new($QuickHuffman$Writer));
 	$set(this, indexedWriter, $new($IndexedWriter));
 	$set(this, literalWriter, $new($LiteralWriter));
@@ -771,14 +636,14 @@ void Encoder::init$(int32_t maxCapacity) {
 	$set(this, literalWithIndexingWriter, $new($LiteralWithIndexingWriter));
 	$set(this, sizeUpdateWriter, $new($SizeUpdateWriter));
 	$set(this, bulkSizeUpdateWriter, $new($BulkSizeUpdateWriter));
-	this->id = $nc(Encoder::ENCODERS_IDS)->incrementAndGet();
-	$set(this, logger, $nc($($HPACK::getLogger()))->subLogger($$str({"Encoder#"_s, $$str(this->id)})));
+	this->id = Encoder::ENCODERS_IDS->incrementAndGet();
+	$set(this, logger, $$nc($HPACK::getLogger())->subLogger($$str({"Encoder#"_s, $$str(this->id)})));
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::NORMAL)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::NORMAL, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$new$0, maxCapacity)));
+		this->logger->log($HPACK$Logger$Level::NORMAL, $$new(Encoder$$Lambda$lambda$new$0, maxCapacity));
 	}
-	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$new$1$1, this)));
+	if (this->logger->isLoggable($HPACK$Logger$Level::EXTRA)) {
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$new$1$1, this));
 	}
 	if (maxCapacity < 0) {
 		$throwNew($IllegalArgumentException, $$str({"maxCapacity >= 0: "_s, $$str(maxCapacity)}));
@@ -786,7 +651,7 @@ void Encoder::init$(int32_t maxCapacity) {
 	this->minCapacity = $Long::MAX_VALUE;
 	this->currCapacity = -1;
 	setMaxCapacity0(maxCapacity);
-	$set(this, headerTable, $new($HeaderTable, this->lastCapacity, $($nc(this->logger)->subLogger("HeaderTable"_s))));
+	$set(this, headerTable, $new($HeaderTable, this->lastCapacity, $(this->logger->subLogger("HeaderTable"_s))));
 }
 
 void Encoder::header($CharSequence* name, $CharSequence* value) {
@@ -794,13 +659,13 @@ void Encoder::header($CharSequence* name, $CharSequence* value) {
 }
 
 void Encoder::header($CharSequence* name, $CharSequence* value, bool sensitive) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::NORMAL)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::NORMAL, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$header$2$2, name, value, sensitive)));
+		this->logger->log($HPACK$Logger$Level::NORMAL, $$new(Encoder$$Lambda$lambda$header$2$2, name, value, sensitive));
 	}
-	$Objects::requireNonNull($of(name), "name"_s);
-	$Objects::requireNonNull($of(value), "value"_s);
+	$Objects::requireNonNull(name, "name"_s);
+	$Objects::requireNonNull(value, "value"_s);
 	$var($HeaderTable, t, getHeaderTable());
 	int32_t index = $nc(t)->indexOf(name, value);
 	if (index > 0) {
@@ -825,20 +690,20 @@ void Encoder::header($CharSequence* name, $CharSequence* value, bool sensitive) 
 }
 
 bool Encoder::isHuffmanBetterFor($CharSequence* value) {
-	int32_t var$0 = $nc(this->huffmanWriter)->lengthOf(value);
+	int32_t var$0 = this->huffmanWriter->lengthOf(value);
 	return var$0 < $nc(value)->length();
 }
 
 void Encoder::setMaxCapacity(int32_t capacity) {
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::NORMAL)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::NORMAL, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$setMaxCapacity$3$3, capacity)));
+		this->logger->log($HPACK$Logger$Level::NORMAL, $$new(Encoder$$Lambda$lambda$setMaxCapacity$3$3, capacity));
 	}
 	setMaxCapacity0(capacity);
 }
 
 void Encoder::setMaxCapacity0(int32_t capacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkEncoding();
 	if (capacity < 0) {
 		$throwNew($IllegalArgumentException, $$str({"capacity >= 0: "_s, $$str(capacity)}));
@@ -846,12 +711,12 @@ void Encoder::setMaxCapacity0(int32_t capacity) {
 	int32_t calculated = calculateCapacity(capacity);
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::NORMAL)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::NORMAL, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, calculated)));
+		this->logger->log($HPACK$Logger$Level::NORMAL, $$new(Encoder$$Lambda$lambda$setMaxCapacity0$4$4, calculated));
 	}
 	if (calculated < 0 || calculated > capacity) {
 		$throwNew($IllegalArgumentException, $($String::format("0 <= calculated <= capacity: calculated=%s, capacity=%s"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(calculated))),
-			$($of($Integer::valueOf(capacity)))
+			$($Integer::valueOf(calculated)),
+			$($Integer::valueOf(capacity))
 		}))));
 	}
 	this->capacityUpdate = true;
@@ -870,7 +735,7 @@ bool Encoder::encode($ByteBuffer* headerBlock) {
 	}
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$encode$5$5, headerBlock)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$encode$5$5, headerBlock));
 	}
 	if (!prependWithCapacityUpdate(headerBlock)) {
 		return false;
@@ -884,7 +749,7 @@ bool Encoder::encode($ByteBuffer* headerBlock) {
 }
 
 bool Encoder::prependWithCapacityUpdate($ByteBuffer* headerBlock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->capacityUpdate) {
 		if (!this->configuredCapacityUpdate) {
 			$var($List, sizes, $new($LinkedList));
@@ -896,14 +761,14 @@ bool Encoder::prependWithCapacityUpdate($ByteBuffer* headerBlock) {
 			} else if (this->lastCapacity != this->currCapacity) {
 				sizes->add($($Integer::valueOf(this->lastCapacity)));
 			}
-			$nc(this->bulkSizeUpdateWriter)->maxHeaderTableSizes(sizes);
+			this->bulkSizeUpdateWriter->maxHeaderTableSizes(sizes);
 			this->configuredCapacityUpdate = true;
 		}
-		bool done = $nc(this->bulkSizeUpdateWriter)->write(this->headerTable, headerBlock);
+		bool done = this->bulkSizeUpdateWriter->write(this->headerTable, headerBlock);
 		if (done) {
 			this->minCapacity = this->lastCapacity;
 			this->currCapacity = this->lastCapacity;
-			$nc(this->bulkSizeUpdateWriter)->reset();
+			this->bulkSizeUpdateWriter->reset();
 			this->capacityUpdate = false;
 			this->configuredCapacityUpdate = false;
 		}
@@ -916,92 +781,92 @@ void Encoder::indexed(int32_t index) {
 	checkEncoding();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$indexed$6$6, index)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$indexed$6$6, index));
 	}
 	this->encoding = true;
-	$set(this, writer, $nc(this->indexedWriter)->index(index));
+	$set(this, writer, this->indexedWriter->index(index));
 }
 
 void Encoder::literal(int32_t index, $CharSequence* value, bool useHuffman) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$literal$7$7, index, value, useHuffman)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$literal$7$7, index, value, useHuffman));
 	}
 	checkEncoding();
 	this->encoding = true;
-	$set(this, writer, $nc($($nc(this->literalWriter)->index(index)))->value(value, useHuffman));
+	$set(this, writer, $$nc(this->literalWriter->index(index))->value(value, useHuffman));
 }
 
 void Encoder::literal($CharSequence* name, bool nameHuffman, $CharSequence* value, bool valueHuffman) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$literal$8$8, name, nameHuffman, value, valueHuffman)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$literal$8$8, name, nameHuffman, value, valueHuffman));
 	}
 	checkEncoding();
 	this->encoding = true;
-	$set(this, writer, $nc($($nc(this->literalWriter)->name(name, nameHuffman)))->value(value, valueHuffman));
+	$set(this, writer, $$nc(this->literalWriter->name(name, nameHuffman))->value(value, valueHuffman));
 }
 
 void Encoder::literalNeverIndexed(int32_t index, $CharSequence* value, bool valueHuffman) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, index, value, valueHuffman)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$literalNeverIndexed$9$9, index, value, valueHuffman));
 	}
 	checkEncoding();
 	this->encoding = true;
-	$set(this, writer, $nc($($nc(this->literalNeverIndexedWriter)->index(index)))->value(value, valueHuffman));
+	$set(this, writer, $$nc(this->literalNeverIndexedWriter->index(index))->value(value, valueHuffman));
 }
 
 void Encoder::literalNeverIndexed($CharSequence* name, bool nameHuffman, $CharSequence* value, bool valueHuffman) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, name, nameHuffman, value, valueHuffman)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$literalNeverIndexed$10$10, name, nameHuffman, value, valueHuffman));
 	}
 	checkEncoding();
 	this->encoding = true;
-	$set(this, writer, $nc($($nc(this->literalNeverIndexedWriter)->name(name, nameHuffman)))->value(value, valueHuffman));
+	$set(this, writer, $$nc(this->literalNeverIndexedWriter->name(name, nameHuffman))->value(value, valueHuffman));
 }
 
 void Encoder::literalWithIndexing(int32_t index, $CharSequence* value, bool valueHuffman) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$literalWithIndexing$11$11, index, value, valueHuffman)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$literalWithIndexing$11$11, index, value, valueHuffman));
 	}
 	checkEncoding();
 	this->encoding = true;
-	$set(this, writer, $nc($($nc(this->literalWithIndexingWriter)->index(index)))->value(value, valueHuffman));
+	$set(this, writer, $$nc(this->literalWithIndexingWriter->index(index))->value(value, valueHuffman));
 }
 
 void Encoder::literalWithIndexing($CharSequence* name, bool nameHuffman, $CharSequence* value, bool valueHuffman) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$literalWithIndexing$12$12, name, nameHuffman, value, valueHuffman)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$literalWithIndexing$12$12, name, nameHuffman, value, valueHuffman));
 	}
 	checkEncoding();
 	this->encoding = true;
-	$set(this, writer, $nc($($nc(this->literalWithIndexingWriter)->name(name, nameHuffman)))->value(value, valueHuffman));
+	$set(this, writer, $$nc(this->literalWithIndexingWriter->name(name, nameHuffman))->value(value, valueHuffman));
 }
 
 void Encoder::sizeUpdate(int32_t capacity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HPACK$Logger$Level);
 	if ($nc(this->logger)->isLoggable($HPACK$Logger$Level::EXTRA)) {
-		$nc(this->logger)->log($HPACK$Logger$Level::EXTRA, static_cast<$Supplier*>($$new(Encoder$$Lambda$lambda$sizeUpdate$13$13, capacity)));
+		this->logger->log($HPACK$Logger$Level::EXTRA, $$new(Encoder$$Lambda$lambda$sizeUpdate$13$13, capacity));
 	}
 	checkEncoding();
 	if (capacity > this->maxCapacity) {
 		$throwNew($IllegalArgumentException, $($String::format("capacity <= maxCapacity: capacity=%s, maxCapacity=%s"_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(capacity))),
-			$($of($Integer::valueOf(this->maxCapacity)))
+			$($Integer::valueOf(capacity)),
+			$($Integer::valueOf(this->maxCapacity))
 		}))));
 	}
-	$set(this, writer, $nc(this->sizeUpdateWriter)->maxHeaderTableSize(capacity));
+	$set(this, writer, this->sizeUpdateWriter->maxHeaderTableSize(capacity));
 }
 
 int32_t Encoder::getMaxCapacity() {
@@ -1020,123 +885,123 @@ void Encoder::checkEncoding() {
 
 $String* Encoder::lambda$sizeUpdate$13(int32_t capacity) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
-	return $String::format("dynamic table size update %s"_s, $$new($ObjectArray, {$($of($Integer::valueOf(capacity)))}));
+	$useLocalObjectStack();
+	return $String::format("dynamic table size update %s"_s, $$new($ObjectArray, {$($Integer::valueOf(capacity))}));
 }
 
 $String* Encoder::lambda$literalWithIndexing$12($CharSequence* name, bool nameHuffman, $CharSequence* value, bool valueHuffman) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("literal with incremental indexing (\'%s\', huffman=%b, \'%s\', huffman=%b)"_s, $$new($ObjectArray, {
-		$of(name),
-		$($of($Boolean::valueOf(nameHuffman))),
-		$of(value),
-		$($of($Boolean::valueOf(valueHuffman)))
+		name,
+		$($Boolean::valueOf(nameHuffman)),
+		value,
+		$($Boolean::valueOf(valueHuffman))
 	}));
 }
 
 $String* Encoder::lambda$literalWithIndexing$11(int32_t index, $CharSequence* value, bool valueHuffman) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("literal with incremental indexing (%s, \'%s\', huffman=%b)"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(index))),
-		$of(value),
-		$($of($Boolean::valueOf(valueHuffman)))
+		$($Integer::valueOf(index)),
+		value,
+		$($Boolean::valueOf(valueHuffman))
 	}));
 }
 
 $String* Encoder::lambda$literalNeverIndexed$10($CharSequence* name, bool nameHuffman, $CharSequence* value, bool valueHuffman) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("literal never indexed (\'%s\', huffman=%b, \'%s\', huffman=%b)"_s, $$new($ObjectArray, {
-		$of(name),
-		$($of($Boolean::valueOf(nameHuffman))),
-		$of(value),
-		$($of($Boolean::valueOf(valueHuffman)))
+		name,
+		$($Boolean::valueOf(nameHuffman)),
+		value,
+		$($Boolean::valueOf(valueHuffman))
 	}));
 }
 
 $String* Encoder::lambda$literalNeverIndexed$9(int32_t index, $CharSequence* value, bool valueHuffman) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("literal never indexed (%s, \'%s\', huffman=%b)"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(index))),
-		$of(value),
-		$($of($Boolean::valueOf(valueHuffman)))
+		$($Integer::valueOf(index)),
+		value,
+		$($Boolean::valueOf(valueHuffman))
 	}));
 }
 
 $String* Encoder::lambda$literal$8($CharSequence* name, bool nameHuffman, $CharSequence* value, bool valueHuffman) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("literal without indexing (\'%s\', huffman=%b, \'%s\', huffman=%b)"_s, $$new($ObjectArray, {
-		$of(name),
-		$($of($Boolean::valueOf(nameHuffman))),
-		$of(value),
-		$($of($Boolean::valueOf(valueHuffman)))
+		name,
+		$($Boolean::valueOf(nameHuffman)),
+		value,
+		$($Boolean::valueOf(valueHuffman))
 	}));
 }
 
 $String* Encoder::lambda$literal$7(int32_t index, $CharSequence* value, bool useHuffman) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("literal without indexing (%s, \'%s\', huffman=%b)"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(index))),
-		$of(value),
-		$($of($Boolean::valueOf(useHuffman)))
+		$($Integer::valueOf(index)),
+		value,
+		$($Boolean::valueOf(useHuffman))
 	}));
 }
 
 $String* Encoder::lambda$indexed$6(int32_t index) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
-	return $String::format("indexed %s"_s, $$new($ObjectArray, {$($of($Integer::valueOf(index)))}));
+	$useLocalObjectStack();
+	return $String::format("indexed %s"_s, $$new($ObjectArray, {$($Integer::valueOf(index))}));
 }
 
 $String* Encoder::lambda$encode$5($ByteBuffer* headerBlock) {
 	$init(Encoder);
-	return $String::format("writing to %s"_s, $$new($ObjectArray, {$of(headerBlock)}));
+	return $String::format("writing to %s"_s, $$new($ObjectArray, {headerBlock}));
 }
 
 $String* Encoder::lambda$setMaxCapacity0$4(int32_t calculated) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
-	return $String::format("actual maximum table size will be %s"_s, $$new($ObjectArray, {$($of($Integer::valueOf(calculated)))}));
+	$useLocalObjectStack();
+	return $String::format("actual maximum table size will be %s"_s, $$new($ObjectArray, {$($Integer::valueOf(calculated))}));
 }
 
 $String* Encoder::lambda$setMaxCapacity$3(int32_t capacity) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
-	return $String::format("setting maximum table size to %s"_s, $$new($ObjectArray, {$($of($Integer::valueOf(capacity)))}));
+	$useLocalObjectStack();
+	return $String::format("setting maximum table size to %s"_s, $$new($ObjectArray, {$($Integer::valueOf(capacity))}));
 }
 
 $String* Encoder::lambda$header$2($CharSequence* name, $CharSequence* value, bool sensitive) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("encoding (\'%s\', \'%s\'), sensitive: %s"_s, $$new($ObjectArray, {
-		$of(name),
-		$of(value),
-		$($of($Boolean::valueOf(sensitive)))
+		name,
+		value,
+		$($Boolean::valueOf(sensitive))
 	}));
 }
 
 $String* Encoder::lambda$new$1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hashCode, $Integer::toHexString($System::identityHashCode(this)));
 	return $String::format("toString=\'%s\', hashCode=%s, identityHashCode=%s"_s, $$new($ObjectArray, {
-		$($of(toString())),
-		$($of($Integer::valueOf(this->hashCode()))),
-		$of(hashCode)
+		$(toString()),
+		$($Integer::valueOf(this->hashCode())),
+		hashCode
 	}));
 }
 
 $String* Encoder::lambda$new$0(int32_t maxCapacity) {
 	$init(Encoder);
-	$useLocalCurrentObjectStackCache();
-	return $String::format("new encoder with maximum table size %s"_s, $$new($ObjectArray, {$($of($Integer::valueOf(maxCapacity)))}));
+	$useLocalObjectStack();
+	return $String::format("new encoder with maximum table size %s"_s, $$new($ObjectArray, {$($Integer::valueOf(maxCapacity))}));
 }
 
-void clinit$Encoder($Class* class$) {
+void Encoder::clinit$($Class* clazz) {
 	$assignStatic(Encoder::ENCODERS_IDS, $new($AtomicLong));
 }
 
@@ -1145,50 +1010,119 @@ Encoder::Encoder() {
 
 $Class* Encoder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Encoder$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$new$0")) {
 			return Encoder$$Lambda$lambda$new$0::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$new$1$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$new$1$1")) {
 			return Encoder$$Lambda$lambda$new$1$1::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$header$2$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$header$2$2")) {
 			return Encoder$$Lambda$lambda$header$2$2::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$setMaxCapacity$3$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$setMaxCapacity$3$3")) {
 			return Encoder$$Lambda$lambda$setMaxCapacity$3$3::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$setMaxCapacity0$4$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$setMaxCapacity0$4$4")) {
 			return Encoder$$Lambda$lambda$setMaxCapacity0$4$4::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$encode$5$5::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$encode$5$5")) {
 			return Encoder$$Lambda$lambda$encode$5$5::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$indexed$6$6::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$indexed$6$6")) {
 			return Encoder$$Lambda$lambda$indexed$6$6::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$literal$7$7::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literal$7$7")) {
 			return Encoder$$Lambda$lambda$literal$7$7::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$literal$8$8::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literal$8$8")) {
 			return Encoder$$Lambda$lambda$literal$8$8::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$literalNeverIndexed$9$9::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalNeverIndexed$9$9")) {
 			return Encoder$$Lambda$lambda$literalNeverIndexed$9$9::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$literalNeverIndexed$10$10::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalNeverIndexed$10$10")) {
 			return Encoder$$Lambda$lambda$literalNeverIndexed$10$10::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$literalWithIndexing$11$11::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalWithIndexing$11$11")) {
 			return Encoder$$Lambda$lambda$literalWithIndexing$11$11::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$literalWithIndexing$12$12::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$literalWithIndexing$12$12")) {
 			return Encoder$$Lambda$lambda$literalWithIndexing$12$12::load$(name, initialize);
 		}
-		if (name->equals(Encoder$$Lambda$lambda$sizeUpdate$13$13::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.hpack.Encoder$$Lambda$lambda$sizeUpdate$13$13")) {
 			return Encoder$$Lambda$lambda$sizeUpdate$13$13::load$(name, initialize);
 		}
 	}
-	$loadClass(Encoder, name, initialize, &_Encoder_ClassInfo_, clinit$Encoder, allocate$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"ENCODERS_IDS", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Encoder, ENCODERS_IDS)},
+		{"huffmanWriter", "Ljdk/internal/net/http/hpack/QuickHuffman$Writer;", nullptr, $PRIVATE | $FINAL, $field(Encoder, huffmanWriter)},
+		{"logger", "Ljdk/internal/net/http/hpack/HPACK$Logger;", nullptr, $PRIVATE | $FINAL, $field(Encoder, logger)},
+		{"id", "J", nullptr, $PRIVATE | $FINAL, $field(Encoder, id)},
+		{"indexedWriter", "Ljdk/internal/net/http/hpack/IndexedWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, indexedWriter)},
+		{"literalWriter", "Ljdk/internal/net/http/hpack/LiteralWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, literalWriter)},
+		{"literalNeverIndexedWriter", "Ljdk/internal/net/http/hpack/LiteralNeverIndexedWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, literalNeverIndexedWriter)},
+		{"literalWithIndexingWriter", "Ljdk/internal/net/http/hpack/LiteralWithIndexingWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, literalWithIndexingWriter)},
+		{"sizeUpdateWriter", "Ljdk/internal/net/http/hpack/SizeUpdateWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, sizeUpdateWriter)},
+		{"bulkSizeUpdateWriter", "Ljdk/internal/net/http/hpack/BulkSizeUpdateWriter;", nullptr, $PRIVATE | $FINAL, $field(Encoder, bulkSizeUpdateWriter)},
+		{"writer", "Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PRIVATE, $field(Encoder, writer)},
+		{"headerTable", "Ljdk/internal/net/http/hpack/HeaderTable;", nullptr, $PRIVATE | $FINAL, $field(Encoder, headerTable)},
+		{"encoding", "Z", nullptr, $PRIVATE, $field(Encoder, encoding)},
+		{"maxCapacity", "I", nullptr, $PRIVATE, $field(Encoder, maxCapacity)},
+		{"currCapacity", "I", nullptr, $PRIVATE, $field(Encoder, currCapacity)},
+		{"lastCapacity", "I", nullptr, $PRIVATE, $field(Encoder, lastCapacity)},
+		{"minCapacity", "J", nullptr, $PRIVATE, $field(Encoder, minCapacity)},
+		{"capacityUpdate", "Z", nullptr, $PRIVATE, $field(Encoder, capacityUpdate)},
+		{"configuredCapacityUpdate", "Z", nullptr, $PRIVATE, $field(Encoder, configuredCapacityUpdate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Encoder, init$, void, int32_t)},
+		{"calculateCapacity", "(I)I", nullptr, $PROTECTED, $virtualMethod(Encoder, calculateCapacity, int32_t, int32_t)},
+		{"checkEncoding", "()V", nullptr, $PROTECTED | $FINAL, $method(Encoder, checkEncoding, void)},
+		{"encode", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $FINAL, $method(Encoder, encode, bool, $ByteBuffer*)},
+		{"getHeaderTable", "()Ljdk/internal/net/http/hpack/HeaderTable;", nullptr, $PROTECTED | $FINAL, $method(Encoder, getHeaderTable, $HeaderTable*)},
+		{"getMaxCapacity", "()I", nullptr, $PROTECTED | $FINAL, $method(Encoder, getMaxCapacity, int32_t)},
+		{"header", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)V", nullptr, $PUBLIC, $virtualMethod(Encoder, header, void, $CharSequence*, $CharSequence*), "java.lang.IllegalStateException"},
+		{"header", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)V", nullptr, $PUBLIC, $virtualMethod(Encoder, header, void, $CharSequence*, $CharSequence*, bool), "java.lang.IllegalStateException"},
+		{"indexed", "(I)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, indexed, void, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{"isHuffmanBetterFor", "(Ljava/lang/CharSequence;)Z", nullptr, $PRIVATE, $method(Encoder, isHuffmanBetterFor, bool, $CharSequence*)},
+		{"lambda$encode$5", "(Ljava/nio/ByteBuffer;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$encode$5, $String*, $ByteBuffer*)},
+		{"lambda$header$2", "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$header$2, $String*, $CharSequence*, $CharSequence*, bool)},
+		{"lambda$indexed$6", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$indexed$6, $String*, int32_t)},
+		{"lambda$literal$7", "(ILjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literal$7, $String*, int32_t, $CharSequence*, bool)},
+		{"lambda$literal$8", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literal$8, $String*, $CharSequence*, bool, $CharSequence*, bool)},
+		{"lambda$literalNeverIndexed$10", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literalNeverIndexed$10, $String*, $CharSequence*, bool, $CharSequence*, bool)},
+		{"lambda$literalNeverIndexed$9", "(ILjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literalNeverIndexed$9, $String*, int32_t, $CharSequence*, bool)},
+		{"lambda$literalWithIndexing$11", "(ILjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literalWithIndexing$11, $String*, int32_t, $CharSequence*, bool)},
+		{"lambda$literalWithIndexing$12", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$literalWithIndexing$12, $String*, $CharSequence*, bool, $CharSequence*, bool)},
+		{"lambda$new$0", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$new$0, $String*, int32_t)},
+		{"lambda$new$1", "()Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Encoder, lambda$new$1, $String*)},
+		{"lambda$setMaxCapacity$3", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$setMaxCapacity$3, $String*, int32_t)},
+		{"lambda$setMaxCapacity0$4", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$setMaxCapacity0$4, $String*, int32_t)},
+		{"lambda$sizeUpdate$13", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Encoder, lambda$sizeUpdate$13, $String*, int32_t)},
+		{"literal", "(ILjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literal, void, int32_t, $CharSequence*, bool), "java.lang.IndexOutOfBoundsException"},
+		{"literal", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literal, void, $CharSequence*, bool, $CharSequence*, bool)},
+		{"literalNeverIndexed", "(ILjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literalNeverIndexed, void, int32_t, $CharSequence*, bool), "java.lang.IndexOutOfBoundsException"},
+		{"literalNeverIndexed", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literalNeverIndexed, void, $CharSequence*, bool, $CharSequence*, bool)},
+		{"literalWithIndexing", "(ILjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literalWithIndexing, void, int32_t, $CharSequence*, bool), "java.lang.IndexOutOfBoundsException"},
+		{"literalWithIndexing", "(Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Z)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, literalWithIndexing, void, $CharSequence*, bool, $CharSequence*, bool)},
+		{"prependWithCapacityUpdate", "(Ljava/nio/ByteBuffer;)Z", nullptr, $PRIVATE, $method(Encoder, prependWithCapacityUpdate, bool, $ByteBuffer*)},
+		{"setMaxCapacity", "(I)V", nullptr, $PUBLIC, $virtualMethod(Encoder, setMaxCapacity, void, int32_t)},
+		{"setMaxCapacity0", "(I)V", nullptr, $PRIVATE, $method(Encoder, setMaxCapacity0, void, int32_t)},
+		{"sizeUpdate", "(I)V", nullptr, $PROTECTED | $FINAL, $method(Encoder, sizeUpdate, void, int32_t), "java.lang.IllegalArgumentException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.Encoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Encoder, name, initialize, &classInfo$$, Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Encoder);
+	});
 	return class$;
 }
 

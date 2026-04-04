@@ -1,5 +1,4 @@
 #include <javax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink.h>
 #include <javax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport.h>
@@ -17,44 +16,6 @@ using $Element = ::javax::swing::text::Element;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport;", nullptr, $FINAL | $SYNTHETIC, $field(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector, this$1)},
-	{}
-};
-
-$MethodInfo _JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport;)V", nullptr, $PRIVATE, $method(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector, init$, void, $JEditorPane$JEditorPaneAccessibleHypertextSupport*)},
-	{"baseElementIndex", "(Ljavax/swing/text/Element;)I", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector, baseElementIndex, int32_t, $Element*)},
-	{}
-};
-
-$InnerClassInfo _JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector_InnerClassesInfo_[] = {
-	{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "javax.swing.JEditorPane", "JEditorPaneAccessibleHypertextSupport", $PROTECTED},
-	{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector", "javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "LinkVector", $PRIVATE},
-	{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink", "javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "HTMLLink", $PUBLIC},
-	{}
-};
-
-$ClassInfo _JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector",
-	"java.util.Vector",
-	nullptr,
-	_JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector_FieldInfo_,
-	_JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector_MethodInfo_,
-	"Ljava/util/Vector<Ljavax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink;>;",
-	nullptr,
-	_JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JEditorPane"
-};
-
-$Object* allocate$JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector($Class* clazz) {
-	return $of($alloc(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector));
-}
 
 void JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector::init$($JEditorPane$JEditorPaneAccessibleHypertextSupport* this$1) {
 	$set(this, this$1, this$1);
@@ -76,7 +37,39 @@ JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector::JEditorPane$JEdito
 }
 
 $Class* JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector::load$($String* name, bool initialize) {
-	$loadClass(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector, name, initialize, &_JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector_ClassInfo_, allocate$JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport;", nullptr, $FINAL | $SYNTHETIC, $field(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport;)V", nullptr, $PRIVATE, $method(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector, init$, void, $JEditorPane$JEditorPaneAccessibleHypertextSupport*)},
+		{"baseElementIndex", "(Ljavax/swing/text/Element;)I", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector, baseElementIndex, int32_t, $Element*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "javax.swing.JEditorPane", "JEditorPaneAccessibleHypertextSupport", $PROTECTED},
+		{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector", "javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "LinkVector", $PRIVATE},
+		{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink", "javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "HTMLLink", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector",
+		"java.util.Vector",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Vector<Ljavax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JEditorPane"
+	};
+	$loadClass(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector));
+	});
 	return class$;
 }
 

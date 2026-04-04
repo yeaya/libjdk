@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/PortMixer$FloatCtrl$FCT.h>
-
 #include <com/sun/media/sound/PortMixer$FloatCtrl.h>
 #include <javax/sound/sampled/FloatControl$Type.h>
 #include <jcpp.h>
@@ -14,38 +13,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _PortMixer$FloatCtrl$FCT_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$FloatCtrl$FCT, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _PortMixer$FloatCtrl$FCT_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.PortMixer$FloatCtrl", "com.sun.media.sound.PortMixer", "FloatCtrl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.media.sound.PortMixer$FloatCtrl$FCT", "com.sun.media.sound.PortMixer$FloatCtrl", "FCT", $PRIVATE | $STATIC | $FINAL},
-	{"javax.sound.sampled.FloatControl$Type", "javax.sound.sampled.FloatControl", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PortMixer$FloatCtrl$FCT_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.PortMixer$FloatCtrl$FCT",
-	"javax.sound.sampled.FloatControl$Type",
-	nullptr,
-	nullptr,
-	_PortMixer$FloatCtrl$FCT_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PortMixer$FloatCtrl$FCT_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.PortMixer"
-};
-
-$Object* allocate$PortMixer$FloatCtrl$FCT($Class* clazz) {
-	return $of($alloc(PortMixer$FloatCtrl$FCT));
-}
-
 void PortMixer$FloatCtrl$FCT::init$($String* name) {
 	$FloatControl$Type::init$(name);
 }
@@ -54,7 +21,34 @@ PortMixer$FloatCtrl$FCT::PortMixer$FloatCtrl$FCT() {
 }
 
 $Class* PortMixer$FloatCtrl$FCT::load$($String* name, bool initialize) {
-	$loadClass(PortMixer$FloatCtrl$FCT, name, initialize, &_PortMixer$FloatCtrl$FCT_ClassInfo_, allocate$PortMixer$FloatCtrl$FCT);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixer$FloatCtrl$FCT, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.PortMixer$FloatCtrl", "com.sun.media.sound.PortMixer", "FloatCtrl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.media.sound.PortMixer$FloatCtrl$FCT", "com.sun.media.sound.PortMixer$FloatCtrl", "FCT", $PRIVATE | $STATIC | $FINAL},
+		{"javax.sound.sampled.FloatControl$Type", "javax.sound.sampled.FloatControl", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.PortMixer$FloatCtrl$FCT",
+		"javax.sound.sampled.FloatControl$Type",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.PortMixer"
+	};
+	$loadClass(PortMixer$FloatCtrl$FCT, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PortMixer$FloatCtrl$FCT);
+	});
 	return class$;
 }
 

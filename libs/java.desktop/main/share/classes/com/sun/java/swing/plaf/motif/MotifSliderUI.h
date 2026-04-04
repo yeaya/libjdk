@@ -45,6 +45,7 @@ class $export MotifSliderUI : public ::javax::swing::plaf::basic::BasicSliderUI 
 	$class(MotifSliderUI, 0, ::javax::swing::plaf::basic::BasicSliderUI)
 public:
 	MotifSliderUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JSlider* b);
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* b);
 	virtual ::java::awt::Dimension* getMinimumHorizontalSize() override;

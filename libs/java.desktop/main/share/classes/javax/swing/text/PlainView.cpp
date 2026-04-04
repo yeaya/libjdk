@@ -1,5 +1,4 @@
 #include <javax/swing/text/PlainView.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -17,7 +16,6 @@
 #include <java/lang/ref/SoftReference.h>
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/Objects.h>
 #include <javax/swing/event/DocumentEvent$ElementChange.h>
@@ -39,7 +37,6 @@
 #include <javax/swing/text/Segment.h>
 #include <javax/swing/text/SegmentCache.h>
 #include <javax/swing/text/StateInvariantError.h>
-#include <javax/swing/text/TabExpander.h>
 #include <javax/swing/text/Utilities.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/ViewFactory.h>
@@ -62,7 +59,6 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -78,7 +74,6 @@ using $Module = ::java::lang::Module;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $Objects = ::java::util::Objects;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
@@ -100,7 +95,6 @@ using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $Segment = ::javax::swing::text::Segment;
 using $SegmentCache = ::javax::swing::text::SegmentCache;
 using $StateInvariantError = ::javax::swing::text::StateInvariantError;
-using $TabExpander = ::javax::swing::text::TabExpander;
 using $Utilities = ::javax::swing::text::Utilities;
 using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
@@ -108,126 +102,6 @@ using $ViewFactory = ::javax::swing::text::ViewFactory;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$NamedAttribute PlainView_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _PlainView_MethodAnnotations_drawLine9[] = {
-	{"Ljava/lang/Deprecated;", PlainView_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute PlainView_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _PlainView_MethodAnnotations_drawSelectedText12[] = {
-	{"Ljava/lang/Deprecated;", PlainView_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute PlainView_Attribute_var$2[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _PlainView_MethodAnnotations_drawUnselectedText15[] = {
-	{"Ljava/lang/Deprecated;", PlainView_Attribute_var$2},
-	{}
-};
-
-$FieldInfo _PlainView_FieldInfo_[] = {
-	{"metrics", "Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $field(PlainView, metrics)},
-	{"longLine", "Ljavax/swing/text/Element;", nullptr, 0, $field(PlainView, longLine)},
-	{"font", "Ljava/awt/Font;", nullptr, 0, $field(PlainView, font)},
-	{"lineBuffer", "Ljavax/swing/text/Segment;", nullptr, 0, $field(PlainView, lineBuffer)},
-	{"tabSize", "F", nullptr, 0, $field(PlainView, tabSize)},
-	{"tabBase", "I", nullptr, 0, $field(PlainView, tabBase)},
-	{"sel0", "I", nullptr, 0, $field(PlainView, sel0)},
-	{"sel1", "I", nullptr, 0, $field(PlainView, sel1)},
-	{"unselected", "Ljava/awt/Color;", nullptr, 0, $field(PlainView, unselected)},
-	{"selected", "Ljava/awt/Color;", nullptr, 0, $field(PlainView, selected)},
-	{"firstLineOffset", "I", nullptr, 0, $field(PlainView, firstLineOffset)},
-	{"methodsOverriddenMapRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/HashMap<Ljavax/swing/text/PlainView$FPMethodItem;Ljava/lang/Boolean;>;>;", $PRIVATE | $STATIC, $staticField(PlainView, methodsOverriddenMapRef)},
-	{"drawLineOverridden", "Z", nullptr, $FINAL, $field(PlainView, drawLineOverridden)},
-	{"drawSelectedTextOverridden", "Z", nullptr, $FINAL, $field(PlainView, drawSelectedTextOverridden)},
-	{"drawUnselectedTextOverridden", "Z", nullptr, $FINAL, $field(PlainView, drawUnselectedTextOverridden)},
-	{"useFloatingPointAPI", "Z", nullptr, $FINAL, $field(PlainView, useFloatingPointAPI)},
-	{}
-};
-
-$MethodInfo _PlainView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(PlainView, init$, void, $Element*)},
-	{"adjustPaintRegion", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, 0, $virtualMethod(PlainView, adjustPaintRegion, $Shape*, $Shape*)},
-	{"calculateLongestLine", "()V", nullptr, $PRIVATE, $method(PlainView, calculateLongestLine, void)},
-	{"callDrawSelectedText", "(Ljava/awt/Graphics;FFII)F", nullptr, 0, $virtualMethod(PlainView, callDrawSelectedText, float, $Graphics*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"callDrawUnselectedText", "(Ljava/awt/Graphics;FFII)F", nullptr, $PRIVATE, $method(PlainView, callDrawUnselectedText, float, $Graphics*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(PlainView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"checkFPMethodOverridden", "(Ljava/lang/Class;Ljava/lang/String;Ljavax/swing/text/PlainView$FPMethodArgs;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljavax/swing/text/PlainView$FPMethodArgs;)Z", $PRIVATE | $STATIC, $staticMethod(PlainView, checkFPMethodOverridden, bool, $Class*, $String*, $PlainView$FPMethodArgs*)},
-	{"damageLineRange", "(IILjava/awt/Shape;Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(PlainView, damageLineRange, void, int32_t, int32_t, $Shape*, $Component*)},
-	{"drawElement", "(ILjavax/swing/text/Element;Ljava/awt/Graphics;FF)F", nullptr, $PRIVATE, $method(PlainView, drawElement, float, int32_t, $Element*, $Graphics*, float, float), "javax.swing.text.BadLocationException"},
-	{"drawLine", "(ILjava/awt/Graphics;II)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(PlainView, drawLine, void, int32_t, $Graphics*, int32_t, int32_t), nullptr, nullptr, _PlainView_MethodAnnotations_drawLine9},
-	{"drawLine", "(ILjava/awt/Graphics2D;FF)V", nullptr, $PROTECTED, $virtualMethod(PlainView, drawLine, void, int32_t, $Graphics2D*, float, float)},
-	{"drawLineImpl", "(ILjava/awt/Graphics;FF)V", nullptr, $PRIVATE, $method(PlainView, drawLineImpl, void, int32_t, $Graphics*, float, float)},
-	{"drawSelectedText", "(Ljava/awt/Graphics;IIII)I", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(PlainView, drawSelectedText, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException", nullptr, _PlainView_MethodAnnotations_drawSelectedText12},
-	{"drawSelectedText", "(Ljava/awt/Graphics2D;FFII)F", nullptr, $PROTECTED, $virtualMethod(PlainView, drawSelectedText, float, $Graphics2D*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"drawSelectedTextImpl", "(Ljava/awt/Graphics;FFIIZ)F", nullptr, $PRIVATE, $method(PlainView, drawSelectedTextImpl, float, $Graphics*, float, float, int32_t, int32_t, bool), "javax.swing.text.BadLocationException"},
-	{"drawUnselectedText", "(Ljava/awt/Graphics;IIII)I", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(PlainView, drawUnselectedText, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException", nullptr, _PlainView_MethodAnnotations_drawUnselectedText15},
-	{"drawUnselectedText", "(Ljava/awt/Graphics2D;FFII)F", nullptr, $PROTECTED, $virtualMethod(PlainView, drawUnselectedText, float, $Graphics2D*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"drawUnselectedTextImpl", "(Ljava/awt/Graphics;FFIIZ)F", nullptr, $PRIVATE, $method(PlainView, drawUnselectedTextImpl, float, $Graphics*, float, float, int32_t, int32_t, bool), "javax.swing.text.BadLocationException"},
-	{"getFPMethodOverridden", "(Ljava/lang/Class;Ljava/lang/String;Ljavax/swing/text/PlainView$FPMethodArgs;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljavax/swing/text/PlainView$FPMethodArgs;)Z", $STATIC, $staticMethod(PlainView, getFPMethodOverridden, bool, $Class*, $String*, $PlainView$FPMethodArgs*)},
-	{"getLineBuffer", "()Ljavax/swing/text/Segment;", nullptr, $PROTECTED | $FINAL, $method(PlainView, getLineBuffer, $Segment*)},
-	{"getLineWidth", "(Ljavax/swing/text/Element;)I", nullptr, $PRIVATE, $method(PlainView, getLineWidth, int32_t, $Element*)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(PlainView, getPreferredSpan, float, int32_t)},
-	{"getTabSize", "()I", nullptr, $PROTECTED, $virtualMethod(PlainView, getTabSize, int32_t)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(PlainView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"isFPMethodOverridden", "(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Class;)Z", "(Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(PlainView, isFPMethodOverridden, bool, $String*, $Class*, $ClassArray*, $ClassArray*)},
-	{"lineToRect", "(Ljava/awt/Shape;I)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(PlainView, lineToRect, $Rectangle*, $Shape*, int32_t)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(PlainView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"nextTabStop", "(FI)F", nullptr, $PUBLIC, $virtualMethod(PlainView, nextTabStop, float, float, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PlainView, paint, void, $Graphics*, $Shape*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(PlainView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(PlainView, setSize, void, float, float)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateDamage", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(PlainView, updateDamage, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"updateMetrics", "()V", nullptr, $PROTECTED, $virtualMethod(PlainView, updateMetrics, void)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(PlainView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _PlainView_InnerClassesInfo_[] = {
-	{"javax.swing.text.PlainView$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.text.PlainView$FPMethodItem", "javax.swing.text.PlainView", "FPMethodItem", $PRIVATE | $STATIC},
-	{"javax.swing.text.PlainView$FPMethodArgs", "javax.swing.text.PlainView", "FPMethodArgs", $STATIC | $FINAL | $ENUM},
-	{"javax.swing.text.PlainView$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PlainView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.PlainView",
-	"javax.swing.text.View",
-	"javax.swing.text.TabExpander",
-	_PlainView_FieldInfo_,
-	_PlainView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PlainView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.PlainView$2,javax.swing.text.PlainView$FPMethodItem,javax.swing.text.PlainView$FPMethodArgs,javax.swing.text.PlainView$1"
-};
-
-$Object* allocate$PlainView($Class* clazz) {
-	return $of($alloc(PlainView));
-}
 
 int32_t PlainView::hashCode() {
 	 return this->$View::hashCode();
@@ -261,10 +135,10 @@ void PlainView::init$($Element* elem) {
 }
 
 int32_t PlainView::getTabSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlainDocument);
-	$var($Integer, i, $cast($Integer, $nc($(getDocument()))->getProperty($PlainDocument::tabSizeAttribute)));
-	int32_t size = (i != nullptr) ? $nc(i)->intValue() : 8;
+	$var($Integer, i, $cast($Integer, $$nc(getDocument())->getProperty($PlainDocument::tabSizeAttribute)));
+	int32_t size = (i != nullptr) ? i->intValue() : 8;
 	return size;
 }
 
@@ -273,8 +147,8 @@ void PlainView::drawLine(int32_t lineIndex, $Graphics* g, int32_t x, int32_t y) 
 }
 
 void PlainView::drawLineImpl(int32_t lineIndex, $Graphics* g, float x, float y) {
-	$useLocalCurrentObjectStackCache();
-	$var($Element, line, $nc($(getElement()))->getElement(lineIndex));
+	$useLocalObjectStack();
+	$var($Element, line, $$nc(getElement())->getElement(lineIndex));
 	$var($Element, elem, nullptr);
 	try {
 		if ($nc(line)->isLeaf()) {
@@ -296,22 +170,18 @@ void PlainView::drawLine(int32_t lineIndex, $Graphics2D* g, float x, float y) {
 }
 
 float PlainView::drawElement(int32_t lineIndex, $Element* elem, $Graphics* g, float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p0 = $nc(elem)->getStartOffset();
 	int32_t p1 = elem->getEndOffset();
-	p1 = $Math::min($nc($(getDocument()))->getLength(), p1);
+	p1 = $Math::min($$nc(getDocument())->getLength(), p1);
 	if (lineIndex == 0) {
 		x += this->firstLineOffset;
 	}
 	$var($AttributeSet, attr, elem->getAttributes());
 	if ($Utilities::isComposedTextAttributeDefined(attr)) {
 		$nc(g)->setColor(this->unselected);
-		$var($AttributeSet, var$0, attr);
-		$var($Graphics, var$1, g);
-		float var$2 = x;
-		float var$3 = y;
-		int32_t var$4 = p0 - elem->getStartOffset();
-		x = $Utilities::drawComposedText(static_cast<$View*>(this), var$0, var$1, var$2, var$3, var$4, p1 - elem->getStartOffset());
+		int32_t var$0 = p0 - elem->getStartOffset();
+		x = $Utilities::drawComposedText(this, attr, g, x, y, var$0, p1 - elem->getStartOffset());
 	} else if (this->sel0 == this->sel1 || this->selected == this->unselected) {
 		x = callDrawUnselectedText(g, x, y, p0, p1);
 	} else if ((p0 >= this->sel0 && p0 <= this->sel1) && (p1 >= this->sel0 && p1 <= this->sel1)) {
@@ -343,7 +213,7 @@ float PlainView::callDrawUnselectedText($Graphics* g, float x, float y, int32_t 
 }
 
 float PlainView::drawUnselectedTextImpl($Graphics* g, float x, float y, int32_t p0, int32_t p1, bool useFPAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setColor(this->unselected);
 	$var($Document, doc, getDocument());
 	$var($Segment, s, $SegmentCache::getSharedSegment());
@@ -366,7 +236,7 @@ float PlainView::callDrawSelectedText($Graphics* g, float x, float y, int32_t p0
 }
 
 float PlainView::drawSelectedTextImpl($Graphics* g, float x, float y, int32_t p0, int32_t p1, bool useFPAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setColor(this->selected);
 	$var($Document, doc, getDocument());
 	$var($Segment, s, $SegmentCache::getSharedSegment());
@@ -388,7 +258,7 @@ $Segment* PlainView::getLineBuffer() {
 }
 
 void PlainView::updateMetrics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, host, getContainer());
 	$var($Font, f, $nc(host)->getFont());
 	$var($FontMetrics, fm, (this->font == nullptr) ? ($FontMetrics*)nullptr : host->getFontMetrics(this->font));
@@ -396,7 +266,7 @@ void PlainView::updateMetrics() {
 		calculateLongestLine();
 		if (this->useFloatingPointAPI) {
 			$var($FontRenderContext, frc, $nc(this->metrics)->getFontRenderContext());
-			float tabWidth = (float)$nc($($nc(this->font)->getStringBounds("m"_s, frc)))->getWidth();
+			float tabWidth = (float)$$nc($nc(this->font)->getStringBounds("m"_s, frc))->getWidth();
 			this->tabSize = getTabSize() * tabWidth;
 		} else {
 			int32_t var$0 = getTabSize();
@@ -406,27 +276,23 @@ void PlainView::updateMetrics() {
 }
 
 float PlainView::getPreferredSpan(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateMetrics();
 	switch (axis) {
 	case $View::X_AXIS:
-		{
-			return (float)getLineWidth(this->longLine);
-		}
+		return (float)getLineWidth(this->longLine);
 	case $View::Y_AXIS:
 		{
-			int32_t var$0 = $nc($(getElement()))->getElementCount();
+			int32_t var$0 = $$nc(getElement())->getElementCount();
 			return (float)(var$0 * $nc(this->metrics)->getHeight());
 		}
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
 void PlainView::paint($Graphics* g, $Shape* a$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Shape, a, a$renamed);
 	$var($Shape, originalA, a);
 	$assign(a, adjustPaintRegion(a));
@@ -443,7 +309,7 @@ void PlainView::paint($Graphics* g, $Shape* a$renamed) {
 	updateMetrics();
 	$var($Rectangle, clip, g->getClipBounds());
 	int32_t fontHeight = $nc(this->metrics)->getHeight();
-	int32_t heightBelow = (alloc->y + alloc->height) - ($nc(clip)->y + clip->height);
+	int32_t heightBelow = (alloc->y + alloc->height) - ($nc(clip)->y + $nc(clip)->height);
 	int32_t heightAbove = clip->y - alloc->y;
 	int32_t linesBelow = 0;
 	int32_t linesAbove = 0;
@@ -470,13 +336,11 @@ void PlainView::paint($Graphics* g, $Shape* a$renamed) {
 		if (dh != nullptr) {
 			$var($Element, lineElement, map->getElement(line));
 			if (line == lineCount) {
-				$var($Graphics, var$0, g);
-				int32_t var$1 = $nc(lineElement)->getStartOffset();
-				dh->paintLayeredHighlights(var$0, var$1, lineElement->getEndOffset(), originalA, host, this);
+				int32_t var$0 = $nc(lineElement)->getStartOffset();
+				dh->paintLayeredHighlights(g, var$0, lineElement->getEndOffset(), originalA, host, this);
 			} else {
-				$var($Graphics, var$2, g);
-				int32_t var$3 = $nc(lineElement)->getStartOffset();
-				dh->paintLayeredHighlights(var$2, var$3, lineElement->getEndOffset() - 1, originalA, host, this);
+				int32_t var$1 = $nc(lineElement)->getStartOffset();
+				dh->paintLayeredHighlights(g, var$1, lineElement->getEndOffset() - 1, originalA, host, this);
 			}
 		}
 		if (this->drawLineOverridden && ($instanceOf($Graphics2D, g))) {
@@ -496,7 +360,7 @@ $Shape* PlainView::adjustPaintRegion($Shape* a) {
 }
 
 $Shape* PlainView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	$var($Element, map, getElement());
 	int32_t lineIndex = $nc(map)->getElementIndex(pos);
@@ -510,11 +374,11 @@ $Shape* PlainView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 	$var($Segment, s, $SegmentCache::getSharedSegment());
 	$nc(doc)->getText(p0, pos - p0, s);
 	if (this->useFloatingPointAPI) {
-		float xOffs = $Utilities::getTabbedTextWidth(s, this->metrics, (float)this->tabBase, static_cast<$TabExpander*>(this), p0);
+		float xOffs = $Utilities::getTabbedTextWidth(s, this->metrics, (float)this->tabBase, this, p0);
 		$SegmentCache::releaseSharedSegment(s);
-		return $new($Rectangle2D$Float, lineArea->x + xOffs, (float)lineArea->y, (float)1, (float)$nc(this->metrics)->getHeight());
+		return $new($Rectangle2D$Float, lineArea->x + xOffs, (float)lineArea->y, 1, (float)$nc(this->metrics)->getHeight());
 	}
-	int32_t xOffs = $Utilities::getTabbedTextWidth(s, this->metrics, this->tabBase, static_cast<$TabExpander*>(this), p0);
+	int32_t xOffs = $Utilities::getTabbedTextWidth(s, this->metrics, this->tabBase, this, p0);
 	$SegmentCache::releaseSharedSegment(s);
 	lineArea->x += xOffs;
 	lineArea->width = 1;
@@ -523,7 +387,7 @@ $Shape* PlainView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 }
 
 int32_t PlainView::viewToModel(float x, float y, $Shape* a, $Position$BiasArray* bias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Position$Bias);
 	$nc(bias)->set(0, $Position$Bias::Forward);
 	$var($Rectangle, alloc, $nc(a)->getBounds());
@@ -536,7 +400,7 @@ int32_t PlainView::viewToModel(float x, float y, $Shape* a, $Position$BiasArray*
 		$var($Element, map, $nc(doc)->getDefaultRootElement());
 		int32_t fontHeight = $nc(this->metrics)->getHeight();
 		int32_t lineIndex = (fontHeight > 0 ? $cast(int32_t, $Math::abs((y - alloc->y) / fontHeight)) : $nc(map)->getElementCount() - 1);
-		if (lineIndex >= map->getElementCount()) {
+		if (lineIndex >= $nc(map)->getElementCount()) {
 			return getEndOffset() - 1;
 		}
 		$var($Element, line, map->getElement(lineIndex));
@@ -556,7 +420,7 @@ int32_t PlainView::viewToModel(float x, float y, $Shape* a, $Position$BiasArray*
 				$var($Segment, s, $SegmentCache::getSharedSegment());
 				doc->getText(p0, p1 - p0, s);
 				this->tabBase = alloc->x;
-				int32_t offs = p0 + $Utilities::getTabbedTextOffset(s, this->metrics, (float)this->tabBase, x, static_cast<$TabExpander*>(this), p0, true);
+				int32_t offs = p0 + $Utilities::getTabbedTextOffset(s, this->metrics, (float)this->tabBase, x, this, p0, true);
 				$SegmentCache::releaseSharedSegment(s);
 				return offs;
 			} catch ($BadLocationException& e) {
@@ -593,12 +457,12 @@ float PlainView::nextTabStop(float x, int32_t tabOffset) {
 }
 
 void PlainView::updateDamage($DocumentEvent* changes, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, host, getContainer());
 	updateMetrics();
 	$var($Element, elem, getElement());
 	$var($DocumentEvent$ElementChange, ec, $nc(changes)->getChange(elem));
-	$var($ElementArray, added, (ec != nullptr) ? $nc(ec)->getChildrenAdded() : ($ElementArray*)nullptr);
+	$var($ElementArray, added, (ec != nullptr) ? ec->getChildrenAdded() : ($ElementArray*)nullptr);
 	$var($ElementArray, removed, (ec != nullptr) ? ec->getChildrenRemoved() : ($ElementArray*)nullptr);
 	if (((added != nullptr) && (added->length > 0)) || ((removed != nullptr) && (removed->length > 0))) {
 		if (added != nullptr) {
@@ -635,25 +499,23 @@ void PlainView::updateDamage($DocumentEvent* changes, $Shape* a, $ViewFactory* f
 				$set(this, longLine, e);
 				preferenceChanged(nullptr, true, false);
 			}
-		} else {
-			if (changes->getType() == $DocumentEvent$EventType::REMOVE) {
-				if (map->getElement(line) == this->longLine) {
-					calculateLongestLine();
-					preferenceChanged(nullptr, true, false);
-				}
+		} else if (changes->getType() == $DocumentEvent$EventType::REMOVE) {
+			if (map->getElement(line) == this->longLine) {
+				calculateLongestLine();
+				preferenceChanged(nullptr, true, false);
 			}
 		}
 	}
 }
 
 void PlainView::damageLineRange(int32_t line0, int32_t line1, $Shape* a, $Component* host) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a != nullptr) {
 		$var($Rectangle, area0, lineToRect(a, line0));
 		$var($Rectangle, area1, lineToRect(a, line1));
 		if ((area0 != nullptr) && (area1 != nullptr)) {
 			$var($Rectangle, damage, area0->union$(area1));
-			$nc(host)->repaint($nc(damage)->x, damage->y, damage->width, damage->height);
+			$nc(host)->repaint($nc(damage)->x, $nc(damage)->y, $nc(damage)->width, $nc(damage)->height);
 		} else {
 			$nc(host)->repaint();
 		}
@@ -661,7 +523,7 @@ void PlainView::damageLineRange(int32_t line0, int32_t line1, $Shape* a, $Compon
 }
 
 $Rectangle* PlainView::lineToRect($Shape* a, int32_t line) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, nullptr);
 	updateMetrics();
 	if (this->metrics != nullptr) {
@@ -673,13 +535,13 @@ $Rectangle* PlainView::lineToRect($Shape* a, int32_t line) {
 		int32_t var$0 = $nc(alloc)->x;
 		int32_t var$1 = alloc->y + (line * $nc(this->metrics)->getHeight());
 		int32_t var$2 = alloc->width;
-		$assign(r, $new($Rectangle, var$0, var$1, var$2, $nc(this->metrics)->getHeight()));
+		$assign(r, $new($Rectangle, var$0, var$1, var$2, this->metrics->getHeight()));
 	}
 	return r;
 }
 
 void PlainView::calculateLongestLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, getContainer());
 	$set(this, font, $nc(c)->getFont());
 	$set(this, metrics, c->getFontMetrics(this->font));
@@ -698,7 +560,7 @@ void PlainView::calculateLongestLine() {
 }
 
 int32_t PlainView::getLineWidth($Element* line) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (line == nullptr) {
 		return 0;
 	}
@@ -707,8 +569,8 @@ int32_t PlainView::getLineWidth($Element* line) {
 	int32_t w = 0;
 	$var($Segment, s, $SegmentCache::getSharedSegment());
 	try {
-		$nc($(line->getDocument()))->getText(p0, p1 - p0, s);
-		w = $Utilities::getTabbedTextWidth(s, this->metrics, this->tabBase, static_cast<$TabExpander*>(this), p0);
+		$$nc(line->getDocument())->getText(p0, p1 - p0, s);
+		w = $Utilities::getTabbedTextWidth(s, this->metrics, this->tabBase, this, p0);
 	} catch ($BadLocationException& ble) {
 		w = 0;
 	}
@@ -718,9 +580,9 @@ int32_t PlainView::getLineWidth($Element* line) {
 
 bool PlainView::getFPMethodOverridden($Class* cls, $String* method, $PlainView$FPMethodArgs* methodArgs) {
 	$init(PlainView);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap, map, nullptr);
-	bool initialized = PlainView::methodsOverriddenMapRef != nullptr && ($assign(map, $cast($HashMap, $nc(PlainView::methodsOverriddenMapRef)->get()))) != nullptr;
+	bool initialized = PlainView::methodsOverriddenMapRef != nullptr && ($assign(map, $cast($HashMap, PlainView::methodsOverriddenMapRef->get()))) != nullptr;
 	if (!initialized) {
 		$assign(map, $new($HashMap));
 		$assignStatic(PlainView::methodsOverriddenMapRef, $new($SoftReference, map));
@@ -736,26 +598,26 @@ bool PlainView::getFPMethodOverridden($Class* cls, $String* method, $PlainView$F
 
 bool PlainView::checkFPMethodOverridden($Class* className, $String* methodName, $PlainView$FPMethodArgs* methodArgs) {
 	$init(PlainView);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($PlainView$1, methodName, className, methodArgs)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($PlainView$1, methodName, className, methodArgs)))->booleanValue();
 }
 
 bool PlainView::isFPMethodOverridden($String* method, $Class* cls, $ClassArray* intTypes, $ClassArray* fpTypes) {
 	$init(PlainView);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Module, thisModule, PlainView::class$->getModule());
-	while (!$nc($of(thisModule))->equals($($nc(cls)->getModule()))) {
+	while (!$nc(thisModule)->equals($($nc(cls)->getModule()))) {
 		try {
-			$nc(cls)->getDeclaredMethod(method, fpTypes);
+			cls->getDeclaredMethod(method, fpTypes);
 			return true;
 		} catch ($Exception& e1) {
 			try {
-				$nc(cls)->getDeclaredMethod(method, intTypes);
+				cls->getDeclaredMethod(method, intTypes);
 				return false;
 			} catch ($Exception& e2) {
-				cls = $nc(cls)->getSuperclass();
+				cls = cls->getSuperclass();
 			}
 		}
 	}
@@ -766,7 +628,115 @@ PlainView::PlainView() {
 }
 
 $Class* PlainView::load$($String* name, bool initialize) {
-	$loadClass(PlainView, name, initialize, &_PlainView_ClassInfo_, allocate$PlainView);
+	$FieldInfo fieldInfos$$[] = {
+		{"metrics", "Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $field(PlainView, metrics)},
+		{"longLine", "Ljavax/swing/text/Element;", nullptr, 0, $field(PlainView, longLine)},
+		{"font", "Ljava/awt/Font;", nullptr, 0, $field(PlainView, font)},
+		{"lineBuffer", "Ljavax/swing/text/Segment;", nullptr, 0, $field(PlainView, lineBuffer)},
+		{"tabSize", "F", nullptr, 0, $field(PlainView, tabSize)},
+		{"tabBase", "I", nullptr, 0, $field(PlainView, tabBase)},
+		{"sel0", "I", nullptr, 0, $field(PlainView, sel0)},
+		{"sel1", "I", nullptr, 0, $field(PlainView, sel1)},
+		{"unselected", "Ljava/awt/Color;", nullptr, 0, $field(PlainView, unselected)},
+		{"selected", "Ljava/awt/Color;", nullptr, 0, $field(PlainView, selected)},
+		{"firstLineOffset", "I", nullptr, 0, $field(PlainView, firstLineOffset)},
+		{"methodsOverriddenMapRef", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/util/HashMap<Ljavax/swing/text/PlainView$FPMethodItem;Ljava/lang/Boolean;>;>;", $PRIVATE | $STATIC, $staticField(PlainView, methodsOverriddenMapRef)},
+		{"drawLineOverridden", "Z", nullptr, $FINAL, $field(PlainView, drawLineOverridden)},
+		{"drawSelectedTextOverridden", "Z", nullptr, $FINAL, $field(PlainView, drawSelectedTextOverridden)},
+		{"drawUnselectedTextOverridden", "Z", nullptr, $FINAL, $field(PlainView, drawUnselectedTextOverridden)},
+		{"useFloatingPointAPI", "Z", nullptr, $FINAL, $field(PlainView, useFloatingPointAPI)},
+		{}
+	};
+	$NamedAttribute drawLinemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute drawLinemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", drawLinemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute drawSelectedTextmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute drawSelectedTextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", drawSelectedTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute drawUnselectedTextmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute drawUnselectedTextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", drawUnselectedTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(PlainView, init$, void, $Element*)},
+		{"adjustPaintRegion", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, 0, $virtualMethod(PlainView, adjustPaintRegion, $Shape*, $Shape*)},
+		{"calculateLongestLine", "()V", nullptr, $PRIVATE, $method(PlainView, calculateLongestLine, void)},
+		{"callDrawSelectedText", "(Ljava/awt/Graphics;FFII)F", nullptr, 0, $virtualMethod(PlainView, callDrawSelectedText, float, $Graphics*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"callDrawUnselectedText", "(Ljava/awt/Graphics;FFII)F", nullptr, $PRIVATE, $method(PlainView, callDrawUnselectedText, float, $Graphics*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(PlainView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"checkFPMethodOverridden", "(Ljava/lang/Class;Ljava/lang/String;Ljavax/swing/text/PlainView$FPMethodArgs;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljavax/swing/text/PlainView$FPMethodArgs;)Z", $PRIVATE | $STATIC, $staticMethod(PlainView, checkFPMethodOverridden, bool, $Class*, $String*, $PlainView$FPMethodArgs*)},
+		{"damageLineRange", "(IILjava/awt/Shape;Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(PlainView, damageLineRange, void, int32_t, int32_t, $Shape*, $Component*)},
+		{"drawElement", "(ILjavax/swing/text/Element;Ljava/awt/Graphics;FF)F", nullptr, $PRIVATE, $method(PlainView, drawElement, float, int32_t, $Element*, $Graphics*, float, float), "javax.swing.text.BadLocationException"},
+		{"drawLine", "(ILjava/awt/Graphics;II)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(PlainView, drawLine, void, int32_t, $Graphics*, int32_t, int32_t), nullptr, nullptr, drawLinemethodAnnotations$$},
+		{"drawLine", "(ILjava/awt/Graphics2D;FF)V", nullptr, $PROTECTED, $virtualMethod(PlainView, drawLine, void, int32_t, $Graphics2D*, float, float)},
+		{"drawLineImpl", "(ILjava/awt/Graphics;FF)V", nullptr, $PRIVATE, $method(PlainView, drawLineImpl, void, int32_t, $Graphics*, float, float)},
+		{"drawSelectedText", "(Ljava/awt/Graphics;IIII)I", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(PlainView, drawSelectedText, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException", nullptr, drawSelectedTextmethodAnnotations$$},
+		{"drawSelectedText", "(Ljava/awt/Graphics2D;FFII)F", nullptr, $PROTECTED, $virtualMethod(PlainView, drawSelectedText, float, $Graphics2D*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"drawSelectedTextImpl", "(Ljava/awt/Graphics;FFIIZ)F", nullptr, $PRIVATE, $method(PlainView, drawSelectedTextImpl, float, $Graphics*, float, float, int32_t, int32_t, bool), "javax.swing.text.BadLocationException"},
+		{"drawUnselectedText", "(Ljava/awt/Graphics;IIII)I", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(PlainView, drawUnselectedText, int32_t, $Graphics*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException", nullptr, drawUnselectedTextmethodAnnotations$$},
+		{"drawUnselectedText", "(Ljava/awt/Graphics2D;FFII)F", nullptr, $PROTECTED, $virtualMethod(PlainView, drawUnselectedText, float, $Graphics2D*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"drawUnselectedTextImpl", "(Ljava/awt/Graphics;FFIIZ)F", nullptr, $PRIVATE, $method(PlainView, drawUnselectedTextImpl, float, $Graphics*, float, float, int32_t, int32_t, bool), "javax.swing.text.BadLocationException"},
+		{"getFPMethodOverridden", "(Ljava/lang/Class;Ljava/lang/String;Ljavax/swing/text/PlainView$FPMethodArgs;)Z", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljavax/swing/text/PlainView$FPMethodArgs;)Z", $STATIC, $staticMethod(PlainView, getFPMethodOverridden, bool, $Class*, $String*, $PlainView$FPMethodArgs*)},
+		{"getLineBuffer", "()Ljavax/swing/text/Segment;", nullptr, $PROTECTED | $FINAL, $method(PlainView, getLineBuffer, $Segment*)},
+		{"getLineWidth", "(Ljavax/swing/text/Element;)I", nullptr, $PRIVATE, $method(PlainView, getLineWidth, int32_t, $Element*)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(PlainView, getPreferredSpan, float, int32_t)},
+		{"getTabSize", "()I", nullptr, $PROTECTED, $virtualMethod(PlainView, getTabSize, int32_t)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(PlainView, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"isFPMethodOverridden", "(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/Class;[Ljava/lang/Class;)Z", "(Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/Class<*>;[Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(PlainView, isFPMethodOverridden, bool, $String*, $Class*, $ClassArray*, $ClassArray*)},
+		{"lineToRect", "(Ljava/awt/Shape;I)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(PlainView, lineToRect, $Rectangle*, $Shape*, int32_t)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(PlainView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"nextTabStop", "(FI)F", nullptr, $PUBLIC, $virtualMethod(PlainView, nextTabStop, float, float, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(PlainView, paint, void, $Graphics*, $Shape*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(PlainView, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(PlainView, setSize, void, float, float)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateDamage", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(PlainView, updateDamage, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"updateMetrics", "()V", nullptr, $PROTECTED, $virtualMethod(PlainView, updateMetrics, void)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(PlainView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.PlainView$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.text.PlainView$FPMethodItem", "javax.swing.text.PlainView", "FPMethodItem", $PRIVATE | $STATIC},
+		{"javax.swing.text.PlainView$FPMethodArgs", "javax.swing.text.PlainView", "FPMethodArgs", $STATIC | $FINAL | $ENUM},
+		{"javax.swing.text.PlainView$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.PlainView",
+		"javax.swing.text.View",
+		"javax.swing.text.TabExpander",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.PlainView$2,javax.swing.text.PlainView$FPMethodItem,javax.swing.text.PlainView$FPMethodArgs,javax.swing.text.PlainView$1"
+	};
+	$loadClass(PlainView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PlainView));
+	});
 	return class$;
 }
 

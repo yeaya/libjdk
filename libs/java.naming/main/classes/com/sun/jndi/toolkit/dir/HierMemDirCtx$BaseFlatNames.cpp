@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx$BaseFlatNames.h>
-
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx.h>
 #include <java/util/Enumeration.h>
 #include <java/util/NoSuchElementException.h>
@@ -21,47 +20,6 @@ namespace com {
 			namespace toolkit {
 				namespace dir {
 
-$FieldInfo _HierMemDirCtx$BaseFlatNames_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;", nullptr, $FINAL | $SYNTHETIC, $field(HierMemDirCtx$BaseFlatNames, this$0)},
-	{"names", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljavax/naming/Name;>;", 0, $field(HierMemDirCtx$BaseFlatNames, names)},
-	{}
-};
-
-$MethodInfo _HierMemDirCtx$BaseFlatNames_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljavax/naming/Name;>;)V", 0, $method(HierMemDirCtx$BaseFlatNames, init$, void, $HierMemDirCtx*, $Enumeration*)},
-	{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, close, void)},
-	{"hasMore", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, hasMore, bool), "javax.naming.NamingException"},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, hasMoreElements, bool)},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, nextElement, $Object*)},
-	{}
-};
-
-$InnerClassInfo _HierMemDirCtx$BaseFlatNames_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.dir.HierMemDirCtx$BaseFlatNames", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "BaseFlatNames", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HierMemDirCtx$BaseFlatNames_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.jndi.toolkit.dir.HierMemDirCtx$BaseFlatNames",
-	"java.lang.Object",
-	"javax.naming.NamingEnumeration",
-	_HierMemDirCtx$BaseFlatNames_FieldInfo_,
-	_HierMemDirCtx$BaseFlatNames_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/naming/NamingEnumeration<TT;>;",
-	nullptr,
-	_HierMemDirCtx$BaseFlatNames_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.dir.HierMemDirCtx"
-};
-
-$Object* allocate$HierMemDirCtx$BaseFlatNames($Class* clazz) {
-	return $of($alloc(HierMemDirCtx$BaseFlatNames));
-}
-
 void HierMemDirCtx$BaseFlatNames::init$($HierMemDirCtx* this$0, $Enumeration* names) {
 	$set(this, this$0, this$0);
 	$set(this, names, names);
@@ -82,7 +40,7 @@ bool HierMemDirCtx$BaseFlatNames::hasMore() {
 
 $Object* HierMemDirCtx$BaseFlatNames::nextElement() {
 	try {
-		return $of(next());
+		return next();
 	} catch ($NamingException& e) {
 		$throwNew($NoSuchElementException, $(e->toString()));
 	}
@@ -97,7 +55,42 @@ HierMemDirCtx$BaseFlatNames::HierMemDirCtx$BaseFlatNames() {
 }
 
 $Class* HierMemDirCtx$BaseFlatNames::load$($String* name, bool initialize) {
-	$loadClass(HierMemDirCtx$BaseFlatNames, name, initialize, &_HierMemDirCtx$BaseFlatNames_ClassInfo_, allocate$HierMemDirCtx$BaseFlatNames);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;", nullptr, $FINAL | $SYNTHETIC, $field(HierMemDirCtx$BaseFlatNames, this$0)},
+		{"names", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljavax/naming/Name;>;", 0, $field(HierMemDirCtx$BaseFlatNames, names)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljavax/naming/Name;>;)V", 0, $method(HierMemDirCtx$BaseFlatNames, init$, void, $HierMemDirCtx*, $Enumeration*)},
+		{"close", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, close, void)},
+		{"hasMore", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, hasMore, bool), "javax.naming.NamingException"},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, hasMoreElements, bool)},
+		{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"nextElement", "()Ljava/lang/Object;", "()TT;", $PUBLIC | $FINAL, $virtualMethod(HierMemDirCtx$BaseFlatNames, nextElement, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.dir.HierMemDirCtx$BaseFlatNames", "com.sun.jndi.toolkit.dir.HierMemDirCtx", "BaseFlatNames", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.jndi.toolkit.dir.HierMemDirCtx$BaseFlatNames",
+		"java.lang.Object",
+		"javax.naming.NamingEnumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/naming/NamingEnumeration<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.dir.HierMemDirCtx"
+	};
+	$loadClass(HierMemDirCtx$BaseFlatNames, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HierMemDirCtx$BaseFlatNames);
+	});
 	return class$;
 }
 

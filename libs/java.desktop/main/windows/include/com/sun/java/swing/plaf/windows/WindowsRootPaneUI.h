@@ -42,6 +42,7 @@ class $import WindowsRootPaneUI : public ::javax::swing::plaf::basic::BasicRootP
 	$class(WindowsRootPaneUI, 0, ::javax::swing::plaf::basic::BasicRootPaneUI)
 public:
 	WindowsRootPaneUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	static ::com::sun::java::swing::plaf::windows::WindowsRootPaneUI* windowsRootPaneUI;

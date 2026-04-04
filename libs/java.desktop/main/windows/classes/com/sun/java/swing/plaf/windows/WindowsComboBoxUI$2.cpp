@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$2.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$XPComboBoxButton.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI.h>
@@ -35,58 +34,21 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsComboBoxUI$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WindowsComboBoxUI$2, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI$2, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsComboBoxUI$2_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _WindowsComboBoxUI$2_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsComboBoxUI$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$2",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	_WindowsComboBoxUI$2_MethodInfo_,
-	nullptr,
-	&_WindowsComboBoxUI$2_EnclosingMethodInfo_,
-	_WindowsComboBoxUI$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
-};
-
-$Object* allocate$WindowsComboBoxUI$2($Class* clazz) {
-	return $of($alloc(WindowsComboBoxUI$2));
-}
-
 void WindowsComboBoxUI$2::init$() {
 }
 
 void WindowsComboBoxUI$2::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	$var($Object, source, nullptr);
 	bool var$0 = "componentOrientation"_s == propertyName && $instanceOf($JComboBox, $assign(source, e->getSource()));
-	if (var$0 && $instanceOf($WindowsComboBoxUI, $($cast($ComboBoxUI, $nc(($cast($JComboBox, source)))->getUI())))) {
+	if (var$0 && $instanceOf($WindowsComboBoxUI, $$cast($ComboBoxUI, $nc($cast($JComboBox, source))->getUI()))) {
 		$var($JComboBox, comboBox, $cast($JComboBox, source));
-		$var($WindowsComboBoxUI, comboBoxUI, $cast($WindowsComboBoxUI, $cast($ComboBoxUI, $nc(comboBox)->getUI())));
+		$var($WindowsComboBoxUI, comboBoxUI, $cast($WindowsComboBoxUI, $cast($ComboBoxUI, comboBox->getUI())));
 		if ($instanceOf($WindowsComboBoxUI$XPComboBoxButton, $($WindowsComboBoxUI::access$300(comboBoxUI)))) {
 			$init($ComponentOrientation);
 			$init($TMSchema$Part);
-			$nc(($cast($WindowsComboBoxUI$XPComboBoxButton, $($WindowsComboBoxUI::access$400(comboBoxUI)))))->setPart((comboBox->getComponentOrientation() == $ComponentOrientation::RIGHT_TO_LEFT) ? $TMSchema$Part::CP_DROPDOWNBUTTONLEFT : $TMSchema$Part::CP_DROPDOWNBUTTONRIGHT);
+			$$sure($WindowsComboBoxUI$XPComboBoxButton, $WindowsComboBoxUI::access$400(comboBoxUI))->setPart((comboBox->getComponentOrientation() == $ComponentOrientation::RIGHT_TO_LEFT) ? $TMSchema$Part::CP_DROPDOWNBUTTONLEFT : $TMSchema$Part::CP_DROPDOWNBUTTONRIGHT);
 		}
 	}
 }
@@ -95,7 +57,38 @@ WindowsComboBoxUI$2::WindowsComboBoxUI$2() {
 }
 
 $Class* WindowsComboBoxUI$2::load$($String* name, bool initialize) {
-	$loadClass(WindowsComboBoxUI$2, name, initialize, &_WindowsComboBoxUI$2_ClassInfo_, allocate$WindowsComboBoxUI$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WindowsComboBoxUI$2, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsComboBoxUI$2, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$2",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
+	};
+	$loadClass(WindowsComboBoxUI$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsComboBoxUI$2);
+	});
 	return class$;
 }
 

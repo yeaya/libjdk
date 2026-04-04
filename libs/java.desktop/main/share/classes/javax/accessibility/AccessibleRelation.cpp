@@ -1,5 +1,4 @@
 #include <javax/accessibility/AccessibleRelation.h>
-
 #include <javax/accessibility/AccessibleBundle.h>
 #include <jcpp.h>
 
@@ -35,59 +34,6 @@ using $AccessibleBundle = ::javax::accessibility::AccessibleBundle;
 
 namespace javax {
 	namespace accessibility {
-
-$FieldInfo _AccessibleRelation_FieldInfo_[] = {
-	{"target", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(AccessibleRelation, target)},
-	{"LABEL_FOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, LABEL_FOR)},
-	{"LABELED_BY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, LABELED_BY)},
-	{"MEMBER_OF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, MEMBER_OF)},
-	{"CONTROLLER_FOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CONTROLLER_FOR)},
-	{"CONTROLLED_BY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CONTROLLED_BY)},
-	{"FLOWS_TO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, FLOWS_TO)},
-	{"FLOWS_FROM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, FLOWS_FROM)},
-	{"SUBWINDOW_OF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, SUBWINDOW_OF)},
-	{"PARENT_WINDOW_OF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, PARENT_WINDOW_OF)},
-	{"EMBEDS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, EMBEDS)},
-	{"EMBEDDED_BY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, EMBEDDED_BY)},
-	{"CHILD_NODE_OF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CHILD_NODE_OF)},
-	{"LABEL_FOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, LABEL_FOR_PROPERTY)},
-	{"LABELED_BY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, LABELED_BY_PROPERTY)},
-	{"MEMBER_OF_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, MEMBER_OF_PROPERTY)},
-	{"CONTROLLER_FOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CONTROLLER_FOR_PROPERTY)},
-	{"CONTROLLED_BY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CONTROLLED_BY_PROPERTY)},
-	{"FLOWS_TO_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, FLOWS_TO_PROPERTY)},
-	{"FLOWS_FROM_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, FLOWS_FROM_PROPERTY)},
-	{"SUBWINDOW_OF_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, SUBWINDOW_OF_PROPERTY)},
-	{"PARENT_WINDOW_OF_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, PARENT_WINDOW_OF_PROPERTY)},
-	{"EMBEDS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, EMBEDS_PROPERTY)},
-	{"EMBEDDED_BY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, EMBEDDED_BY_PROPERTY)},
-	{"CHILD_NODE_OF_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CHILD_NODE_OF_PROPERTY)},
-	{}
-};
-
-$MethodInfo _AccessibleRelation_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessibleRelation, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AccessibleRelation, init$, void, $String*, Object$*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AccessibleRelation, init$, void, $String*, $ObjectArray*)},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleRelation, getKey, $String*)},
-	{"getTarget", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AccessibleRelation, getTarget, $ObjectArray*)},
-	{"setTarget", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleRelation, setTarget, void, Object$*)},
-	{"setTarget", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleRelation, setTarget, void, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _AccessibleRelation_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.accessibility.AccessibleRelation",
-	"javax.accessibility.AccessibleBundle",
-	nullptr,
-	_AccessibleRelation_FieldInfo_,
-	_AccessibleRelation_MethodInfo_
-};
-
-$Object* allocate$AccessibleRelation($Class* clazz) {
-	return $of($alloc(AccessibleRelation));
-}
 
 $String* AccessibleRelation::LABEL_FOR = nullptr;
 $String* AccessibleRelation::LABELED_BY = nullptr;
@@ -126,7 +72,7 @@ void AccessibleRelation::init$($String* key, Object$* target) {
 	$set(this, target, $new($ObjectArray, 0));
 	$set(this, key, key);
 	$set(this, target, $new($ObjectArray, 1));
-	$nc(this->target)->set(0, target);
+	this->target->set(0, target);
 }
 
 void AccessibleRelation::init$($String* key, $ObjectArray* target) {
@@ -145,22 +91,22 @@ $ObjectArray* AccessibleRelation::getTarget() {
 		$set(this, target, $new($ObjectArray, 0));
 	}
 	$var($ObjectArray, retval, $new($ObjectArray, $nc(this->target)->length));
-	for (int32_t i = 0; i < $nc(this->target)->length; ++i) {
-		retval->set(i, $nc(this->target)->get(i));
+	for (int32_t i = 0; i < this->target->length; ++i) {
+		retval->set(i, this->target->get(i));
 	}
 	return retval;
 }
 
 void AccessibleRelation::setTarget(Object$* target) {
 	$set(this, target, $new($ObjectArray, 1));
-	$nc(this->target)->set(0, target);
+	this->target->set(0, target);
 }
 
 void AccessibleRelation::setTarget($ObjectArray* target) {
 	$set(this, target, target);
 }
 
-void clinit$AccessibleRelation($Class* class$) {
+void AccessibleRelation::clinit$($Class* clazz) {
 	$assignStatic(AccessibleRelation::FLOWS_TO, "flowsTo"_s);
 	$assignStatic(AccessibleRelation::FLOWS_FROM, "flowsFrom"_s);
 	$assignStatic(AccessibleRelation::SUBWINDOW_OF, "subwindowOf"_s);
@@ -191,7 +137,55 @@ AccessibleRelation::AccessibleRelation() {
 }
 
 $Class* AccessibleRelation::load$($String* name, bool initialize) {
-	$loadClass(AccessibleRelation, name, initialize, &_AccessibleRelation_ClassInfo_, clinit$AccessibleRelation, allocate$AccessibleRelation);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(AccessibleRelation, target)},
+		{"LABEL_FOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, LABEL_FOR)},
+		{"LABELED_BY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, LABELED_BY)},
+		{"MEMBER_OF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, MEMBER_OF)},
+		{"CONTROLLER_FOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CONTROLLER_FOR)},
+		{"CONTROLLED_BY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CONTROLLED_BY)},
+		{"FLOWS_TO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, FLOWS_TO)},
+		{"FLOWS_FROM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, FLOWS_FROM)},
+		{"SUBWINDOW_OF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, SUBWINDOW_OF)},
+		{"PARENT_WINDOW_OF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, PARENT_WINDOW_OF)},
+		{"EMBEDS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, EMBEDS)},
+		{"EMBEDDED_BY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, EMBEDDED_BY)},
+		{"CHILD_NODE_OF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CHILD_NODE_OF)},
+		{"LABEL_FOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, LABEL_FOR_PROPERTY)},
+		{"LABELED_BY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, LABELED_BY_PROPERTY)},
+		{"MEMBER_OF_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, MEMBER_OF_PROPERTY)},
+		{"CONTROLLER_FOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CONTROLLER_FOR_PROPERTY)},
+		{"CONTROLLED_BY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CONTROLLED_BY_PROPERTY)},
+		{"FLOWS_TO_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, FLOWS_TO_PROPERTY)},
+		{"FLOWS_FROM_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, FLOWS_FROM_PROPERTY)},
+		{"SUBWINDOW_OF_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, SUBWINDOW_OF_PROPERTY)},
+		{"PARENT_WINDOW_OF_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, PARENT_WINDOW_OF_PROPERTY)},
+		{"EMBEDS_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, EMBEDS_PROPERTY)},
+		{"EMBEDDED_BY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, EMBEDDED_BY_PROPERTY)},
+		{"CHILD_NODE_OF_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRelation, CHILD_NODE_OF_PROPERTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AccessibleRelation, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AccessibleRelation, init$, void, $String*, Object$*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(AccessibleRelation, init$, void, $String*, $ObjectArray*)},
+		{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleRelation, getKey, $String*)},
+		{"getTarget", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AccessibleRelation, getTarget, $ObjectArray*)},
+		{"setTarget", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleRelation, setTarget, void, Object$*)},
+		{"setTarget", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleRelation, setTarget, void, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.accessibility.AccessibleRelation",
+		"javax.accessibility.AccessibleBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccessibleRelation, name, initialize, &classInfo$$, AccessibleRelation::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleRelation);
+	});
 	return class$;
 }
 

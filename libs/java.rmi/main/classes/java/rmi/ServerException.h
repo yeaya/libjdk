@@ -20,10 +20,13 @@ public:
 	ServerException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0xBDB8C9FDC1279006;
+	static const int64_t serialVersionUID = (int64_t)0xbdb8c9fdc1279006;
 	ServerException(const ServerException& e);
 	virtual void throw$() override;
-	inline ServerException* operator ->() {
+	inline ServerException* operator ->() const {
+		return (ServerException*)throwing$;
+	}
+	inline operator ServerException*() const {
 		return (ServerException*)throwing$;
 	}
 };

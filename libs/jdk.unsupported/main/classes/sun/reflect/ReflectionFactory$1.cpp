@@ -1,5 +1,4 @@
 #include <sun/reflect/ReflectionFactory$1.h>
-
 #include <jdk/internal/reflect/ReflectionFactory.h>
 #include <jcpp.h>
 
@@ -12,55 +11,49 @@ using $ReflectionFactory = ::jdk::internal::reflect::ReflectionFactory;
 namespace sun {
 	namespace reflect {
 
-$MethodInfo _ReflectionFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ReflectionFactory$1, init$, void)},
-	{"run", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ReflectionFactory$1_EnclosingMethodInfo_ = {
-	"sun.reflect.ReflectionFactory",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ReflectionFactory$1_InnerClassesInfo_[] = {
-	{"sun.reflect.ReflectionFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ReflectionFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.reflect.ReflectionFactory$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ReflectionFactory$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljdk/internal/reflect/ReflectionFactory;>;",
-	&_ReflectionFactory$1_EnclosingMethodInfo_,
-	_ReflectionFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.reflect.ReflectionFactory"
-};
-
-$Object* allocate$ReflectionFactory$1($Class* clazz) {
-	return $of($alloc(ReflectionFactory$1));
-}
-
 void ReflectionFactory$1::init$() {
 }
 
 $Object* ReflectionFactory$1::run() {
-	return $of($ReflectionFactory::getReflectionFactory());
+	return $ReflectionFactory::getReflectionFactory();
 }
 
 ReflectionFactory$1::ReflectionFactory$1() {
 }
 
 $Class* ReflectionFactory$1::load$($String* name, bool initialize) {
-	$loadClass(ReflectionFactory$1, name, initialize, &_ReflectionFactory$1_ClassInfo_, allocate$ReflectionFactory$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ReflectionFactory$1, init$, void)},
+		{"run", "()Ljdk/internal/reflect/ReflectionFactory;", nullptr, $PUBLIC, $virtualMethod(ReflectionFactory$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.reflect.ReflectionFactory",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.reflect.ReflectionFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.reflect.ReflectionFactory$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljdk/internal/reflect/ReflectionFactory;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.reflect.ReflectionFactory"
+	};
+	$loadClass(ReflectionFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReflectionFactory$1);
+	});
 	return class$;
 }
 

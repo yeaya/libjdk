@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/FilterIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
@@ -32,39 +31,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _FilterIterator_FieldInfo_[] = {
-	{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(FilterIterator, _source)},
-	{"_filter", "Lcom/sun/org/apache/xml/internal/dtm/DTMFilter;", nullptr, $PRIVATE | $FINAL, $field(FilterIterator, _filter)},
-	{"_isReverse", "Z", nullptr, $PRIVATE | $FINAL, $field(FilterIterator, _isReverse)},
-	{}
-};
-
-$MethodInfo _FilterIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/dtm/DTMFilter;)V", nullptr, $PUBLIC, $method(FilterIterator, init$, void, $DTMAxisIterator*, $DTMFilter*)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(FilterIterator, cloneIterator, $DTMAxisIterator*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(FilterIterator, gotoMark, void)},
-	{"isReverse", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterIterator, isReverse, bool)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(FilterIterator, next, int32_t)},
-	{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(FilterIterator, reset, $DTMAxisIterator*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(FilterIterator, setMark, void)},
-	{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FilterIterator, setRestartable, void, bool)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(FilterIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$ClassInfo _FilterIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.FilterIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_FilterIterator_FieldInfo_,
-	_FilterIterator_MethodInfo_
-};
-
-$Object* allocate$FilterIterator($Class* clazz) {
-	return $of($alloc(FilterIterator));
-}
-
 void FilterIterator::init$($DTMAxisIterator* source, $DTMFilter* filter) {
 	$DTMAxisIteratorBase::init$();
 	$set(this, _source, source);
@@ -82,7 +48,7 @@ void FilterIterator::setRestartable(bool isRestartable) {
 }
 
 $DTMAxisIterator* FilterIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(FilterIterator, clone, $cast(FilterIterator, $DTMAxisIteratorBase::clone()));
 		$set($nc(clone), _source, $nc(this->_source)->cloneIterator());
@@ -90,7 +56,7 @@ $DTMAxisIterator* FilterIterator::cloneIterator() {
 		return clone->reset();
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -131,7 +97,35 @@ FilterIterator::FilterIterator() {
 }
 
 $Class* FilterIterator::load$($String* name, bool initialize) {
-	$loadClass(FilterIterator, name, initialize, &_FilterIterator_ClassInfo_, allocate$FilterIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(FilterIterator, _source)},
+		{"_filter", "Lcom/sun/org/apache/xml/internal/dtm/DTMFilter;", nullptr, $PRIVATE | $FINAL, $field(FilterIterator, _filter)},
+		{"_isReverse", "Z", nullptr, $PRIVATE | $FINAL, $field(FilterIterator, _isReverse)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Lcom/sun/org/apache/xml/internal/dtm/DTMFilter;)V", nullptr, $PUBLIC, $method(FilterIterator, init$, void, $DTMAxisIterator*, $DTMFilter*)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(FilterIterator, cloneIterator, $DTMAxisIterator*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(FilterIterator, gotoMark, void)},
+		{"isReverse", "()Z", nullptr, $PUBLIC, $virtualMethod(FilterIterator, isReverse, bool)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(FilterIterator, next, int32_t)},
+		{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(FilterIterator, reset, $DTMAxisIterator*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(FilterIterator, setMark, void)},
+		{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(FilterIterator, setRestartable, void, bool)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(FilterIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.FilterIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilterIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilterIterator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/TransformingPathConsumer2D$PathTracer.h>
-
 #include <java/lang/InternalError.h>
 #include <sun/java2d/marlin/DPathConsumer2D.h>
 #include <sun/java2d/marlin/MarlinUtils.h>
@@ -18,51 +17,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _TransformingPathConsumer2D$PathTracer_FieldInfo_[] = {
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathTracer, prefix)},
-	{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathTracer, out)},
-	{}
-};
-
-$MethodInfo _TransformingPathConsumer2D$PathTracer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TransformingPathConsumer2D$PathTracer, init$, void, $String*)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, closePath, void)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, curveTo, void, double, double, double, double, double, double)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, getNativeConsumer, int64_t)},
-	{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, 0, $method(TransformingPathConsumer2D$PathTracer, init, TransformingPathConsumer2D$PathTracer*, $DPathConsumer2D*)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, lineTo, void, double, double)},
-	{"log", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$PathTracer, log, void, $String*)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, quadTo, void, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _TransformingPathConsumer2D$PathTracer_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.TransformingPathConsumer2D$PathTracer", "sun.java2d.marlin.TransformingPathConsumer2D", "PathTracer", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TransformingPathConsumer2D$PathTracer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.TransformingPathConsumer2D$PathTracer",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D",
-	_TransformingPathConsumer2D$PathTracer_FieldInfo_,
-	_TransformingPathConsumer2D$PathTracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformingPathConsumer2D$PathTracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.TransformingPathConsumer2D"
-};
-
-$Object* allocate$TransformingPathConsumer2D$PathTracer($Class* clazz) {
-	return $of($alloc(TransformingPathConsumer2D$PathTracer));
-}
-
 void TransformingPathConsumer2D$PathTracer::init$($String* name) {
 	$set(this, prefix, $str({name, ": "_s}));
 }
@@ -73,25 +27,25 @@ TransformingPathConsumer2D$PathTracer* TransformingPathConsumer2D$PathTracer::in
 }
 
 void TransformingPathConsumer2D$PathTracer::moveTo(double x0, double y0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	log($$str({"p.moveTo("_s, $$str(x0), ", "_s, $$str(y0), ");"_s}));
 	$nc(this->out)->moveTo(x0, y0);
 }
 
 void TransformingPathConsumer2D$PathTracer::lineTo(double x1, double y1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	log($$str({"p.lineTo("_s, $$str(x1), ", "_s, $$str(y1), ");"_s}));
 	$nc(this->out)->lineTo(x1, y1);
 }
 
 void TransformingPathConsumer2D$PathTracer::curveTo(double x1, double y1, double x2, double y2, double x3, double y3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	log($$str({"p.curveTo("_s, $$str(x1), ", "_s, $$str(y1), ", "_s, $$str(x2), ", "_s, $$str(y2), ", "_s, $$str(x3), ", "_s, $$str(y3), ");"_s}));
 	$nc(this->out)->curveTo(x1, y1, x2, y2, x3, y3);
 }
 
 void TransformingPathConsumer2D$PathTracer::quadTo(double x1, double y1, double x2, double y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	log($$str({"p.quadTo("_s, $$str(x1), ", "_s, $$str(y1), ", "_s, $$str(x2), ", "_s, $$str(y2), ");"_s}));
 	$nc(this->out)->quadTo(x1, y1, x2, y2);
 }
@@ -119,7 +73,46 @@ TransformingPathConsumer2D$PathTracer::TransformingPathConsumer2D$PathTracer() {
 }
 
 $Class* TransformingPathConsumer2D$PathTracer::load$($String* name, bool initialize) {
-	$loadClass(TransformingPathConsumer2D$PathTracer, name, initialize, &_TransformingPathConsumer2D$PathTracer_ClassInfo_, allocate$TransformingPathConsumer2D$PathTracer);
+	$FieldInfo fieldInfos$$[] = {
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$PathTracer, prefix)},
+		{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$PathTracer, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TransformingPathConsumer2D$PathTracer, init$, void, $String*)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, closePath, void)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, curveTo, void, double, double, double, double, double, double)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, getNativeConsumer, int64_t)},
+		{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/TransformingPathConsumer2D$PathTracer;", nullptr, 0, $method(TransformingPathConsumer2D$PathTracer, init, TransformingPathConsumer2D$PathTracer*, $DPathConsumer2D*)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, lineTo, void, double, double)},
+		{"log", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$PathTracer, log, void, $String*)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(TransformingPathConsumer2D$PathTracer, quadTo, void, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.TransformingPathConsumer2D$PathTracer", "sun.java2d.marlin.TransformingPathConsumer2D", "PathTracer", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.TransformingPathConsumer2D$PathTracer",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.TransformingPathConsumer2D"
+	};
+	$loadClass(TransformingPathConsumer2D$PathTracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformingPathConsumer2D$PathTracer);
+	});
 	return class$;
 }
 

@@ -29,6 +29,7 @@ class XTranslateCoordinates : public ::java::lang::Object {
 	$class(XTranslateCoordinates, 0, ::java::lang::Object)
 public:
 	XTranslateCoordinates();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t scr_w, int64_t dest_w, int32_t src_x, int32_t src_y);
 	virtual void dispose();
 	virtual int32_t execute();

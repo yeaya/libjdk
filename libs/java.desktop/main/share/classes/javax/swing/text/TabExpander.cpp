@@ -1,5 +1,4 @@
 #include <javax/swing/text/TabExpander.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _TabExpander_MethodInfo_[] = {
-	{"nextTabStop", "(FI)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TabExpander, nextTabStop, float, float, int32_t)},
-	{}
-};
-
-$ClassInfo _TabExpander_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.TabExpander",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TabExpander_MethodInfo_
-};
-
-$Object* allocate$TabExpander($Class* clazz) {
-	return $of($alloc(TabExpander));
-}
-
 $Class* TabExpander::load$($String* name, bool initialize) {
-	$loadClass(TabExpander, name, initialize, &_TabExpander_ClassInfo_, allocate$TabExpander);
+	$MethodInfo methodInfos$$[] = {
+		{"nextTabStop", "(FI)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TabExpander, nextTabStop, float, float, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.TabExpander",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TabExpander, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TabExpander);
+	});
 	return class$;
 }
 

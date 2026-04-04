@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/WGLGraphicsConfig$WGLBufferCaps.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/ImageCapabilities.h>
@@ -19,36 +18,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _WGLGraphicsConfig$WGLBufferCaps_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(WGLGraphicsConfig$WGLBufferCaps, init$, void, bool)},
-	{}
-};
-
-$InnerClassInfo _WGLGraphicsConfig$WGLBufferCaps_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.WGLGraphicsConfig$WGLBufferCaps", "sun.java2d.opengl.WGLGraphicsConfig", "WGLBufferCaps", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WGLGraphicsConfig$WGLBufferCaps_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.WGLGraphicsConfig$WGLBufferCaps",
-	"java.awt.BufferCapabilities",
-	nullptr,
-	nullptr,
-	_WGLGraphicsConfig$WGLBufferCaps_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WGLGraphicsConfig$WGLBufferCaps_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.WGLGraphicsConfig"
-};
-
-$Object* allocate$WGLGraphicsConfig$WGLBufferCaps($Class* clazz) {
-	return $of($alloc(WGLGraphicsConfig$WGLBufferCaps));
-}
-
 void WGLGraphicsConfig$WGLBufferCaps::init$(bool dblBuf) {
 	$init($WGLGraphicsConfig);
 	$init($BufferCapabilities$FlipContents);
@@ -59,7 +28,32 @@ WGLGraphicsConfig$WGLBufferCaps::WGLGraphicsConfig$WGLBufferCaps() {
 }
 
 $Class* WGLGraphicsConfig$WGLBufferCaps::load$($String* name, bool initialize) {
-	$loadClass(WGLGraphicsConfig$WGLBufferCaps, name, initialize, &_WGLGraphicsConfig$WGLBufferCaps_ClassInfo_, allocate$WGLGraphicsConfig$WGLBufferCaps);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(WGLGraphicsConfig$WGLBufferCaps, init$, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.WGLGraphicsConfig$WGLBufferCaps", "sun.java2d.opengl.WGLGraphicsConfig", "WGLBufferCaps", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.WGLGraphicsConfig$WGLBufferCaps",
+		"java.awt.BufferCapabilities",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.WGLGraphicsConfig"
+	};
+	$loadClass(WGLGraphicsConfig$WGLBufferCaps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WGLGraphicsConfig$WGLBufferCaps);
+	});
 	return class$;
 }
 

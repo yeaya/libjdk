@@ -42,6 +42,7 @@ class GradientPaintContext : public ::java::awt::PaintContext {
 	$class(GradientPaintContext, 0, ::java::awt::PaintContext)
 public:
 	GradientPaintContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::ColorModel* cm, ::java::awt::geom::Point2D* p1, ::java::awt::geom::Point2D* p2, ::java::awt::geom::AffineTransform* xform, ::java::awt::Color* c1, ::java::awt::Color* c2, bool cyclic);
 	virtual void clipFillRaster($ints* pixels, int32_t off, int32_t adjust, int32_t w, int32_t h, double rowrel, double dx, double dy);
 	virtual void cycleFillRaster($ints* pixels, int32_t off, int32_t adjust, int32_t w, int32_t h, double rowrel, double dx, double dy);

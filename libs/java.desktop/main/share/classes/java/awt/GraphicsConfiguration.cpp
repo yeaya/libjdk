@@ -1,5 +1,4 @@
 #include <java/awt/GraphicsConfiguration.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/GraphicsConfiguration$DefaultBufferCapabilities.h>
@@ -43,57 +42,6 @@ using $SunVolatileImage = ::sun::awt::image::SunVolatileImage;
 namespace java {
 	namespace awt {
 
-$FieldInfo _GraphicsConfiguration_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GraphicsConfiguration, $assertionsDisabled)},
-	{"defaultBufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsConfiguration, defaultBufferCaps)},
-	{"defaultImageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsConfiguration, defaultImageCaps)},
-	{}
-};
-
-$MethodInfo _GraphicsConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(GraphicsConfiguration, init$, void)},
-	{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
-	{"createCompatibleImage", "(III)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleImage, $BufferedImage*, int32_t, int32_t, int32_t)},
-	{"createCompatibleVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t)},
-	{"createCompatibleVolatileImage", "(III)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t)},
-	{"createCompatibleVolatileImage", "(IILjava/awt/ImageCapabilities;)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, $ImageCapabilities*), "java.awt.AWTException"},
-	{"createCompatibleVolatileImage", "(IILjava/awt/ImageCapabilities;I)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, $ImageCapabilities*, int32_t), "java.awt.AWTException"},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getBounds, $Rectangle*)},
-	{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, getBufferCapabilities, $BufferCapabilities*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getColorModel, $ColorModel*, int32_t)},
-	{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getDefaultTransform, $AffineTransform*)},
-	{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getDevice, $GraphicsDevice*)},
-	{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, getImageCapabilities, $ImageCapabilities*)},
-	{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getNormalizingTransform, $AffineTransform*)},
-	{"isTranslucencyCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, isTranslucencyCapable, bool)},
-	{}
-};
-
-$InnerClassInfo _GraphicsConfiguration_InnerClassesInfo_[] = {
-	{"java.awt.GraphicsConfiguration$DefaultBufferCapabilities", "java.awt.GraphicsConfiguration", "DefaultBufferCapabilities", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GraphicsConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.GraphicsConfiguration",
-	"java.lang.Object",
-	nullptr,
-	_GraphicsConfiguration_FieldInfo_,
-	_GraphicsConfiguration_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsConfiguration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.GraphicsConfiguration$DefaultBufferCapabilities"
-};
-
-$Object* allocate$GraphicsConfiguration($Class* clazz) {
-	return $of($alloc(GraphicsConfiguration));
-}
-
 bool GraphicsConfiguration::$assertionsDisabled = false;
 $BufferCapabilities* GraphicsConfiguration::defaultBufferCaps = nullptr;
 $ImageCapabilities* GraphicsConfiguration::defaultImageCaps = nullptr;
@@ -102,15 +50,15 @@ void GraphicsConfiguration::init$() {
 }
 
 $BufferedImage* GraphicsConfiguration::createCompatibleImage(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, model, getColorModel());
 	$var($WritableRaster, raster, $nc(model)->createCompatibleWritableRaster(width, height));
-	return $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), ($Hashtable*)nullptr);
+	return $new($BufferedImage, model, raster, model->isAlphaPremultiplied(), nullptr);
 }
 
 $BufferedImage* GraphicsConfiguration::createCompatibleImage(int32_t width, int32_t height, int32_t transparency) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getColorModel()))->getTransparency() == transparency) {
+	$useLocalObjectStack();
+	if ($$nc(getColorModel())->getTransparency() == transparency) {
 		return createCompatibleImage(width, height);
 	}
 	$var($ColorModel, cm, getColorModel(transparency));
@@ -118,7 +66,7 @@ $BufferedImage* GraphicsConfiguration::createCompatibleImage(int32_t width, int3
 		$throwNew($IllegalArgumentException, $$str({"Unknown transparency: "_s, $$str(transparency)}));
 	}
 	$var($WritableRaster, wr, $nc(cm)->createCompatibleWritableRaster(width, height));
-	return $new($BufferedImage, cm, wr, cm->isAlphaPremultiplied(), ($Hashtable*)nullptr);
+	return $new($BufferedImage, cm, wr, cm->isAlphaPremultiplied(), nullptr);
 }
 
 $VolatileImage* GraphicsConfiguration::createCompatibleVolatileImage(int32_t width, int32_t height) {
@@ -150,10 +98,10 @@ $VolatileImage* GraphicsConfiguration::createCompatibleVolatileImage(int32_t wid
 }
 
 $VolatileImage* GraphicsConfiguration::createCompatibleVolatileImage(int32_t width, int32_t height, $ImageCapabilities* caps, int32_t transparency) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($VolatileImage, vi, $new($SunVolatileImage, this, width, height, transparency, caps));
 	bool var$0 = caps != nullptr && caps->isAccelerated();
-	if (var$0 && !$nc($(vi->getCapabilities()))->isAccelerated()) {
+	if (var$0 && !$$nc(vi->getCapabilities())->isAccelerated()) {
 		$throwNew($AWTException, "Supplied image capabilities could not be met by this graphics configuration."_s);
 	}
 	return vi;
@@ -177,7 +125,7 @@ bool GraphicsConfiguration::isTranslucencyCapable() {
 	return false;
 }
 
-void clinit$GraphicsConfiguration($Class* class$) {
+void GraphicsConfiguration::clinit$($Class* clazz) {
 	GraphicsConfiguration::$assertionsDisabled = !GraphicsConfiguration::class$->desiredAssertionStatus();
 }
 
@@ -185,7 +133,52 @@ GraphicsConfiguration::GraphicsConfiguration() {
 }
 
 $Class* GraphicsConfiguration::load$($String* name, bool initialize) {
-	$loadClass(GraphicsConfiguration, name, initialize, &_GraphicsConfiguration_ClassInfo_, clinit$GraphicsConfiguration, allocate$GraphicsConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GraphicsConfiguration, $assertionsDisabled)},
+		{"defaultBufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsConfiguration, defaultBufferCaps)},
+		{"defaultImageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsConfiguration, defaultImageCaps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(GraphicsConfiguration, init$, void)},
+		{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
+		{"createCompatibleImage", "(III)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleImage, $BufferedImage*, int32_t, int32_t, int32_t)},
+		{"createCompatibleVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t)},
+		{"createCompatibleVolatileImage", "(III)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t)},
+		{"createCompatibleVolatileImage", "(IILjava/awt/ImageCapabilities;)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, $ImageCapabilities*), "java.awt.AWTException"},
+		{"createCompatibleVolatileImage", "(IILjava/awt/ImageCapabilities;I)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, $ImageCapabilities*, int32_t), "java.awt.AWTException"},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getBounds, $Rectangle*)},
+		{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, getBufferCapabilities, $BufferCapabilities*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getColorModel, $ColorModel*, int32_t)},
+		{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getDefaultTransform, $AffineTransform*)},
+		{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getDevice, $GraphicsDevice*)},
+		{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, getImageCapabilities, $ImageCapabilities*)},
+		{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsConfiguration, getNormalizingTransform, $AffineTransform*)},
+		{"isTranslucencyCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicsConfiguration, isTranslucencyCapable, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.GraphicsConfiguration$DefaultBufferCapabilities", "java.awt.GraphicsConfiguration", "DefaultBufferCapabilities", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.GraphicsConfiguration",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.GraphicsConfiguration$DefaultBufferCapabilities"
+	};
+	$loadClass(GraphicsConfiguration, name, initialize, &classInfo$$, GraphicsConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsConfiguration);
+	});
 	return class$;
 }
 

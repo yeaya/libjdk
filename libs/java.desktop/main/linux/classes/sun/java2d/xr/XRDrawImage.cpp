@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRDrawImage.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
@@ -38,40 +37,21 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$MethodInfo _XRDrawImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XRDrawImage, init$, void)},
-	{"renderImageXform", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(XRDrawImage, renderImageXform, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{}
-};
-
-$ClassInfo _XRDrawImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRDrawImage",
-	"sun.java2d.pipe.DrawImage",
-	nullptr,
-	nullptr,
-	_XRDrawImage_MethodInfo_
-};
-
-$Object* allocate$XRDrawImage($Class* clazz) {
-	return $of($alloc(XRDrawImage));
-}
-
 void XRDrawImage::init$() {
 	$DrawImage::init$();
 }
 
 void XRDrawImage::renderImageXform($SunGraphics2D* sg, $Image* img, $AffineTransform* tx, int32_t interpType, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, dstData, $nc(sg)->surfaceData);
 	$var($SurfaceData, srcData, $nc(dstData)->getSourceSurfaceData(img, $SunGraphics2D::TRANSFORM_GENERIC, sg->imageComp, bgColor));
 	if ($instanceOf($AlphaComposite, sg->composite)) {
-		int32_t compRule = $nc(($cast($AlphaComposite, sg->composite)))->getRule();
-		float extraAlpha = $nc(($cast($AlphaComposite, sg->composite)))->getAlpha();
+		int32_t compRule = $cast($AlphaComposite, sg->composite)->getRule();
+		float extraAlpha = $nc($cast($AlphaComposite, sg->composite))->getAlpha();
 		bool var$0 = srcData != nullptr && !isBgOperation(srcData, bgColor) && interpType <= $AffineTransformOp::TYPE_BILINEAR;
 		if (var$0) {
 			bool var$1 = $XRUtils::isMaskEvaluated($XRUtils::j2dAlphaCompToXR(compRule));
-			var$0 = (var$1 || ($XRUtils::isTransformQuadrantRotated(tx)) && extraAlpha == 1.0f);
+			var$0 = var$1 || ($XRUtils::isTransformQuadrantRotated(tx)) && extraAlpha == 1.0f;
 		}
 		if (var$0) {
 			$var($SurfaceType, srcType, $nc(srcData)->getSurfaceType());
@@ -90,7 +70,22 @@ XRDrawImage::XRDrawImage() {
 }
 
 $Class* XRDrawImage::load$($String* name, bool initialize) {
-	$loadClass(XRDrawImage, name, initialize, &_XRDrawImage_ClassInfo_, allocate$XRDrawImage);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XRDrawImage, init$, void)},
+		{"renderImageXform", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(XRDrawImage, renderImageXform, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRDrawImage",
+		"sun.java2d.pipe.DrawImage",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XRDrawImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XRDrawImage);
+	});
 	return class$;
 }
 

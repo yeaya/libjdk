@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelStandardIndexedDirector.h>
-
 #include <com/sun/media/sound/ModelConnectionBlock.h>
 #include <com/sun/media/sound/ModelDirectedPlayer.h>
 #include <com/sun/media/sound/ModelPerformer.h>
@@ -22,59 +21,20 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _ModelStandardIndexedDirector_FieldInfo_[] = {
-	{"performers", "[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PRIVATE | $FINAL, $field(ModelStandardIndexedDirector, performers)},
-	{"player", "Lcom/sun/media/sound/ModelDirectedPlayer;", nullptr, $PRIVATE | $FINAL, $field(ModelStandardIndexedDirector, player)},
-	{"noteOnUsed", "Z", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, noteOnUsed)},
-	{"noteOffUsed", "Z", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, noteOffUsed)},
-	{"trantables", "[[B", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, trantables)},
-	{"counters", "[I", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, counters)},
-	{"mat", "[[I", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, mat)},
-	{}
-};
-
-$MethodInfo _ModelStandardIndexedDirector_MethodInfo_[] = {
-	{"<init>", "([Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelDirectedPlayer;)V", nullptr, $PUBLIC, $method(ModelStandardIndexedDirector, init$, void, $ModelPerformerArray*, $ModelDirectedPlayer*)},
-	{"buildindex", "()V", nullptr, $PRIVATE, $method(ModelStandardIndexedDirector, buildindex, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModelStandardIndexedDirector, close, void)},
-	{"lookupIndex", "(II)[I", nullptr, $PRIVATE, $method(ModelStandardIndexedDirector, lookupIndex, $ints*, int32_t, int32_t)},
-	{"noteOff", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelStandardIndexedDirector, noteOff, void, int32_t, int32_t)},
-	{"noteOn", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelStandardIndexedDirector, noteOn, void, int32_t, int32_t)},
-	{"restrict", "(I)I", nullptr, $PRIVATE, $method(ModelStandardIndexedDirector, restrict, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ModelStandardIndexedDirector_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelStandardIndexedDirector",
-	"java.lang.Object",
-	"com.sun.media.sound.ModelDirector",
-	_ModelStandardIndexedDirector_FieldInfo_,
-	_ModelStandardIndexedDirector_MethodInfo_
-};
-
-$Object* allocate$ModelStandardIndexedDirector($Class* clazz) {
-	return $of($alloc(ModelStandardIndexedDirector));
-}
-
 void ModelStandardIndexedDirector::init$($ModelPerformerArray* performers, $ModelDirectedPlayer* player) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->noteOnUsed = false;
 	this->noteOffUsed = false;
-	$set(this, performers, $fcast($ModelPerformerArray, $Arrays::copyOf(performers, $nc(performers)->length)));
+	$set(this, performers, $cast($ModelPerformerArray, $Arrays::copyOf(performers, $nc(performers)->length)));
 	$set(this, player, player);
 	{
 		$var($ModelPerformerArray, arr$, this->performers);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModelPerformer, p, arr$->get(i$));
-			{
-				if ($nc(p)->isReleaseTriggered()) {
-					this->noteOffUsed = true;
-				} else {
-					this->noteOnUsed = true;
-				}
+			if ($nc(p)->isReleaseTriggered()) {
+				this->noteOffUsed = true;
+			} else {
+				this->noteOnUsed = true;
 			}
 		}
 	}
@@ -84,7 +44,7 @@ void ModelStandardIndexedDirector::init$($ModelPerformerArray* performers, $Mode
 $ints* ModelStandardIndexedDirector::lookupIndex(int32_t x, int32_t y) {
 	if ((x >= 0) && (x < 128) && (y >= 0) && (y < 128)) {
 		int32_t xt = $nc($nc(this->trantables)->get(0))->get(x);
-		int32_t yt = $nc($nc(this->trantables)->get(1))->get(y);
+		int32_t yt = $nc(this->trantables->get(1))->get(y);
 		if (xt != -1 && yt != -1) {
 			return $nc(this->mat)->get(xt + yt * $nc(this->counters)->get(0));
 		}
@@ -103,14 +63,12 @@ int32_t ModelStandardIndexedDirector::restrict(int32_t value) {
 }
 
 void ModelStandardIndexedDirector::buildindex() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, trantables, $new($byteArray2, 2, 129));
-	$set(this, counters, $new($ints, $nc(this->trantables)->length));
+	$set(this, counters, $new($ints, this->trantables->length));
 	{
 		$var($ModelPerformerArray, arr$, this->performers);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModelPerformer, performer, arr$->get(i$));
 			{
 				int32_t keyFrom = $nc(performer)->getKeyFrom();
@@ -127,22 +85,22 @@ void ModelStandardIndexedDirector::buildindex() {
 				keyTo = restrict(keyTo);
 				velFrom = restrict(velFrom);
 				velTo = restrict(velTo);
-				$nc($nc(this->trantables)->get(0))->set(keyFrom, (int8_t)1);
-				$nc($nc(this->trantables)->get(0))->set(keyTo + 1, (int8_t)1);
-				$nc($nc(this->trantables)->get(1))->set(velFrom, (int8_t)1);
-				$nc($nc(this->trantables)->get(1))->set(velTo + 1, (int8_t)1);
+				$nc($nc(this->trantables)->get(0))->set(keyFrom, 1);
+				$nc(this->trantables->get(0))->set(keyTo + 1, 1);
+				$nc(this->trantables->get(1))->set(velFrom, 1);
+				$nc(this->trantables->get(1))->set(velTo + 1, 1);
 			}
 		}
 	}
 	for (int32_t d = 0; d < $nc(this->trantables)->length; ++d) {
-		$var($bytes, trantable, $nc(this->trantables)->get(d));
+		$var($bytes, trantable, this->trantables->get(d));
 		int32_t transize = $nc(trantable)->length;
 		for (int32_t i = transize - 1; i >= 0; --i) {
 			if (trantable->get(i) == 1) {
-				trantable->set(i, (int8_t)-1);
+				trantable->set(i, -1);
 				break;
 			}
-			trantable->set(i, (int8_t)-1);
+			trantable->set(i, -1);
 		}
 		int32_t counter = -1;
 		for (int32_t i = 0; i < transize; ++i) {
@@ -160,9 +118,7 @@ void ModelStandardIndexedDirector::buildindex() {
 	int32_t ix = 0;
 	{
 		$var($ModelPerformerArray, arr$, this->performers);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ModelPerformer, performer, arr$->get(i$));
 			{
 				int32_t keyFrom = $nc(performer)->getKeyFrom();
@@ -180,9 +136,9 @@ void ModelStandardIndexedDirector::buildindex() {
 				velFrom = restrict(velFrom);
 				velTo = restrict(velTo);
 				int32_t x_from = $nc($nc(this->trantables)->get(0))->get(keyFrom);
-				int32_t x_to = $nc($nc(this->trantables)->get(0))->get(keyTo + 1);
-				int32_t y_from = $nc($nc(this->trantables)->get(1))->get(velFrom);
-				int32_t y_to = $nc($nc(this->trantables)->get(1))->get(velTo + 1);
+				int32_t x_to = $nc(this->trantables->get(0))->get(keyTo + 1);
+				int32_t y_from = $nc(this->trantables->get(1))->get(velFrom);
+				int32_t y_to = $nc(this->trantables->get(1))->get(velTo + 1);
 				if (x_to == -1) {
 					x_to = $nc(this->counters)->get(0);
 				}
@@ -194,14 +150,14 @@ void ModelStandardIndexedDirector::buildindex() {
 					for (int32_t x = x_from; x < x_to; ++x) {
 						$var($ints, mprev, $nc(this->mat)->get(i));
 						if (mprev == nullptr) {
-							$nc(this->mat)->set(i, $$new($ints, {ix}));
+							this->mat->set(i, $$new($ints, {ix}));
 						} else {
-							$var($ints, mnew, $new($ints, $nc(mprev)->length + 1));
+							$var($ints, mnew, $new($ints, mprev->length + 1));
 							mnew->set(mnew->length - 1, ix);
 							for (int32_t k = 0; k < mprev->length; ++k) {
 								mnew->set(k, mprev->get(k));
 							}
-							$nc(this->mat)->set(i, mnew);
+							this->mat->set(i, mnew);
 						}
 						++i;
 					}
@@ -216,7 +172,7 @@ void ModelStandardIndexedDirector::close() {
 }
 
 void ModelStandardIndexedDirector::noteOff(int32_t noteNumber, int32_t velocity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->noteOffUsed) {
 		return;
 	}
@@ -226,9 +182,7 @@ void ModelStandardIndexedDirector::noteOff(int32_t noteNumber, int32_t velocity)
 	}
 	{
 		$var($ints, arr$, plist);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t i = arr$->get(i$);
 			{
 				$var($ModelPerformer, p, $nc(this->performers)->get(i));
@@ -241,7 +195,7 @@ void ModelStandardIndexedDirector::noteOff(int32_t noteNumber, int32_t velocity)
 }
 
 void ModelStandardIndexedDirector::noteOn(int32_t noteNumber, int32_t velocity) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->noteOnUsed) {
 		return;
 	}
@@ -251,9 +205,7 @@ void ModelStandardIndexedDirector::noteOn(int32_t noteNumber, int32_t velocity) 
 	}
 	{
 		$var($ints, arr$, plist);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t i = arr$->get(i$);
 			{
 				$var($ModelPerformer, p, $nc(this->performers)->get(i));
@@ -269,7 +221,37 @@ ModelStandardIndexedDirector::ModelStandardIndexedDirector() {
 }
 
 $Class* ModelStandardIndexedDirector::load$($String* name, bool initialize) {
-	$loadClass(ModelStandardIndexedDirector, name, initialize, &_ModelStandardIndexedDirector_ClassInfo_, allocate$ModelStandardIndexedDirector);
+	$FieldInfo fieldInfos$$[] = {
+		{"performers", "[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PRIVATE | $FINAL, $field(ModelStandardIndexedDirector, performers)},
+		{"player", "Lcom/sun/media/sound/ModelDirectedPlayer;", nullptr, $PRIVATE | $FINAL, $field(ModelStandardIndexedDirector, player)},
+		{"noteOnUsed", "Z", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, noteOnUsed)},
+		{"noteOffUsed", "Z", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, noteOffUsed)},
+		{"trantables", "[[B", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, trantables)},
+		{"counters", "[I", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, counters)},
+		{"mat", "[[I", nullptr, $PRIVATE, $field(ModelStandardIndexedDirector, mat)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lcom/sun/media/sound/ModelPerformer;Lcom/sun/media/sound/ModelDirectedPlayer;)V", nullptr, $PUBLIC, $method(ModelStandardIndexedDirector, init$, void, $ModelPerformerArray*, $ModelDirectedPlayer*)},
+		{"buildindex", "()V", nullptr, $PRIVATE, $method(ModelStandardIndexedDirector, buildindex, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModelStandardIndexedDirector, close, void)},
+		{"lookupIndex", "(II)[I", nullptr, $PRIVATE, $method(ModelStandardIndexedDirector, lookupIndex, $ints*, int32_t, int32_t)},
+		{"noteOff", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelStandardIndexedDirector, noteOff, void, int32_t, int32_t)},
+		{"noteOn", "(II)V", nullptr, $PUBLIC, $virtualMethod(ModelStandardIndexedDirector, noteOn, void, int32_t, int32_t)},
+		{"restrict", "(I)I", nullptr, $PRIVATE, $method(ModelStandardIndexedDirector, restrict, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelStandardIndexedDirector",
+		"java.lang.Object",
+		"com.sun.media.sound.ModelDirector",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelStandardIndexedDirector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelStandardIndexedDirector);
+	});
 	return class$;
 }
 

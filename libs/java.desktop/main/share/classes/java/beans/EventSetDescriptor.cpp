@@ -1,5 +1,4 @@
 #include <java/beans/EventSetDescriptor.h>
-
 #include <com/sun/beans/introspect/EventSetInfo.h>
 #include <java/beans/FeatureDescriptor.h>
 #include <java/beans/IntrospectionException.h>
@@ -30,87 +29,25 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Reference = ::java::lang::ref::Reference;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
 
 namespace java {
 	namespace beans {
 
-$FieldInfo _EventSetDescriptor_FieldInfo_[] = {
-	{"listenerMethodDescriptors", "[Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $field(EventSetDescriptor, listenerMethodDescriptors)},
-	{"addMethodDescriptor", "Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $field(EventSetDescriptor, addMethodDescriptor)},
-	{"removeMethodDescriptor", "Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $field(EventSetDescriptor, removeMethodDescriptor)},
-	{"getMethodDescriptor", "Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $field(EventSetDescriptor, getMethodDescriptor)},
-	{"listenerMethodsRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<[Ljava/lang/reflect/Method;>;", $PRIVATE, $field(EventSetDescriptor, listenerMethodsRef)},
-	{"listenerTypeRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+Ljava/lang/Class<*>;>;", $PRIVATE, $field(EventSetDescriptor, listenerTypeRef)},
-	{"unicast", "Z", nullptr, $PRIVATE, $field(EventSetDescriptor, unicast)},
-	{"inDefaultEventSet", "Z", nullptr, $PRIVATE, $field(EventSetDescriptor, inDefaultEventSet)},
-	{}
-};
-
-$MethodInfo _EventSetDescriptor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $Class*, $String*, $Class*, $String*), "java.beans.IntrospectionException"},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $Class*, $String*, $Class*, $StringArray*, $String*, $String*), "java.beans.IntrospectionException"},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $Class*, $String*, $Class*, $StringArray*, $String*, $String*, $String*), "java.beans.IntrospectionException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $String*, $Class*, $MethodArray*, $Method*, $Method*), "java.beans.IntrospectionException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $String*, $Class*, $MethodArray*, $Method*, $Method*, $Method*), "java.beans.IntrospectionException"},
-	{"<init>", "(Ljava/lang/String;Lcom/sun/beans/introspect/EventSetInfo;[Ljava/lang/reflect/Method;)V", nullptr, $TRANSIENT, $method(EventSetDescriptor, init$, void, $String*, $EventSetInfo*, $MethodArray*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Class;[Ljava/beans/MethodDescriptor;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/beans/MethodDescriptor;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $String*, $Class*, $MethodDescriptorArray*, $Method*, $Method*), "java.beans.IntrospectionException"},
-	{"<init>", "(Ljava/beans/EventSetDescriptor;Ljava/beans/EventSetDescriptor;)V", nullptr, 0, $method(EventSetDescriptor, init$, void, EventSetDescriptor*, EventSetDescriptor*)},
-	{"<init>", "(Ljava/beans/EventSetDescriptor;)V", nullptr, 0, $method(EventSetDescriptor, init$, void, EventSetDescriptor*)},
-	{"appendTo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(EventSetDescriptor, appendTo, void, $StringBuilder*)},
-	{"getAddListenerMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getAddListenerMethod, $Method*)},
-	{"getGetListenerMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getGetListenerMethod, $Method*)},
-	{"getListenerClassName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(EventSetDescriptor, getListenerClassName, $String*, $Class*)},
-	{"getListenerMethodDescriptors", "()[Ljava/beans/MethodDescriptor;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getListenerMethodDescriptors, $MethodDescriptorArray*)},
-	{"getListenerMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getListenerMethods, $MethodArray*)},
-	{"getListenerMethods0", "()[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(EventSetDescriptor, getListenerMethods0, $MethodArray*)},
-	{"getListenerType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(EventSetDescriptor, getListenerType, $Class*)},
-	{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;I)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(EventSetDescriptor, getMethod, $Method*, $Class*, $String*, int32_t), "java.beans.IntrospectionException"},
-	{"getMethod", "(Ljava/beans/MethodDescriptor;)Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(EventSetDescriptor, getMethod, $Method*, $MethodDescriptor*)},
-	{"getRemoveListenerMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getRemoveListenerMethod, $Method*)},
-	{"isInDefaultEventSet", "()Z", nullptr, $PUBLIC, $virtualMethod(EventSetDescriptor, isInDefaultEventSet, bool)},
-	{"isUnicast", "()Z", nullptr, $PUBLIC, $virtualMethod(EventSetDescriptor, isUnicast, bool)},
-	{"setAddListenerMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventSetDescriptor, setAddListenerMethod, void, $Method*)},
-	{"setGetListenerMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventSetDescriptor, setGetListenerMethod, void, $Method*)},
-	{"setInDefaultEventSet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EventSetDescriptor, setInDefaultEventSet, void, bool)},
-	{"setListenerMethods", "([Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(EventSetDescriptor, setListenerMethods, void, $MethodArray*)},
-	{"setListenerType", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(EventSetDescriptor, setListenerType, void, $Class*)},
-	{"setRemoveListenerMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventSetDescriptor, setRemoveListenerMethod, void, $Method*)},
-	{"setUnicast", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EventSetDescriptor, setUnicast, void, bool)},
-	{}
-};
-
-$ClassInfo _EventSetDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.EventSetDescriptor",
-	"java.beans.FeatureDescriptor",
-	nullptr,
-	_EventSetDescriptor_FieldInfo_,
-	_EventSetDescriptor_MethodInfo_
-};
-
-$Object* allocate$EventSetDescriptor($Class* clazz) {
-	return $of($alloc(EventSetDescriptor));
-}
-
 void EventSetDescriptor::init$($Class* sourceClass, $String* eventSetName, $Class* listenerType, $String* listenerMethodName) {
-	$useLocalCurrentObjectStackCache();
-	$Class* var$0 = sourceClass;
-	$var($String, var$1, eventSetName);
-	$Class* var$2 = listenerType;
-	$var($StringArray, var$3, $new($StringArray, {listenerMethodName}));
+	$useLocalObjectStack();
+	$var($StringArray, var$0, $new($StringArray, {listenerMethodName}));
 	$init($Introspector);
-	$var($String, var$4, $str({$Introspector::ADD_PREFIX, $(getListenerClassName(listenerType))}));
-	$var($String, var$5, $str({$Introspector::REMOVE_PREFIX, $(getListenerClassName(listenerType))}));
-	EventSetDescriptor::init$(var$0, var$1, var$2, var$3, var$4, var$5, $$str({$Introspector::GET_PREFIX, $(getListenerClassName(listenerType)), "s"_s}));
+	$var($String, var$1, $str({$Introspector::ADD_PREFIX, $(getListenerClassName(listenerType))}));
+	$var($String, var$2, $str({$Introspector::REMOVE_PREFIX, $(getListenerClassName(listenerType))}));
+	EventSetDescriptor::init$(sourceClass, eventSetName, listenerType, var$0, var$1, var$2, $$str({$Introspector::GET_PREFIX, $(getListenerClassName(listenerType)), "s"_s}));
 	$var($String, eventName, $str({$($NameGenerator::capitalize(eventSetName)), "Event"_s}));
 	$var($MethodArray, listenerMethods, getListenerMethods());
 	if ($nc(listenerMethods)->length > 0) {
 		$var($ClassArray, args, getParameterTypes(getClass0(), listenerMethods->get(0)));
-		bool var$6 = !"vetoableChange"_s->equals(eventSetName);
-		if (var$6 && !$nc($($nc($nc(args)->get(0))->getName()))->endsWith(eventName)) {
+		bool var$3 = !"vetoableChange"_s->equals(eventSetName);
+		if (var$3 && !$$nc($nc($nc(args)->get(0))->getName())->endsWith(eventName)) {
 			$throwNew($IntrospectionException, $$str({"Method \""_s, listenerMethodName, "\" should have argument \""_s, eventName, "\""_s}));
 		}
 	}
@@ -119,7 +56,7 @@ void EventSetDescriptor::init$($Class* sourceClass, $String* eventSetName, $Clas
 $String* EventSetDescriptor::getListenerClassName($Class* cls) {
 	$init(EventSetDescriptor);
 	$var($String, className, $nc(cls)->getName());
-	return $nc(className)->substring(className->lastIndexOf((int32_t)u'.') + 1);
+	return $nc(className)->substring($nc(className)->lastIndexOf(u'.') + 1);
 }
 
 void EventSetDescriptor::init$($Class* sourceClass, $String* eventSetName, $Class* listenerType, $StringArray* listenerMethodNames, $String* addListenerMethodName, $String* removeListenerMethodName) {
@@ -127,7 +64,7 @@ void EventSetDescriptor::init$($Class* sourceClass, $String* eventSetName, $Clas
 }
 
 void EventSetDescriptor::init$($Class* sourceClass, $String* eventSetName, $Class* listenerType, $StringArray* listenerMethodNames, $String* addListenerMethodName, $String* removeListenerMethodName, $String* getListenerMethodName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FeatureDescriptor::init$();
 	this->inDefaultEventSet = true;
 	if (sourceClass == nullptr || eventSetName == nullptr || listenerType == nullptr) {
@@ -154,19 +91,19 @@ void EventSetDescriptor::init$($Class* sourceClass, $String* eventSetName, $Clas
 
 $Method* EventSetDescriptor::getMethod($Class* cls, $String* name, int32_t args) {
 	$init(EventSetDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		return nullptr;
 	}
 	$var($Method, method, $Introspector::findMethod(cls, name, args));
-	if ((method == nullptr) || $Modifier::isStatic($nc(method)->getModifiers())) {
+	if ((method == nullptr) || $Modifier::isStatic(method->getModifiers())) {
 		$throwNew($IntrospectionException, $$str({"Method not found: "_s, name, " on class "_s, $($nc(cls)->getName())}));
 	}
 	return method;
 }
 
 void EventSetDescriptor::init$($String* eventSetName, $Class* listenerType, $MethodArray* listenerMethods, $Method* addListenerMethod, $Method* removeListenerMethod) {
-	EventSetDescriptor::init$(eventSetName, listenerType, listenerMethods, addListenerMethod, removeListenerMethod, ($Method*)nullptr);
+	EventSetDescriptor::init$(eventSetName, listenerType, listenerMethods, addListenerMethod, removeListenerMethod, nullptr);
 }
 
 void EventSetDescriptor::init$($String* eventSetName, $Class* listenerType, $MethodArray* listenerMethods, $Method* addListenerMethod, $Method* removeListenerMethod, $Method* getListenerMethod) {
@@ -181,30 +118,30 @@ void EventSetDescriptor::init$($String* eventSetName, $Class* listenerType, $Met
 }
 
 void EventSetDescriptor::init$($String* base, $EventSetInfo* info, $MethodArray* methods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FeatureDescriptor::init$();
 	this->inDefaultEventSet = true;
 	setName($($Introspector::decapitalize(base)));
 	setListenerMethods(methods);
 	setAddListenerMethod($($nc(info)->getAddMethod()));
-	setRemoveListenerMethod($($nc(info)->getRemoveMethod()));
-	setGetListenerMethod($($nc(info)->getGetMethod()));
-	setListenerType($nc(info)->getListenerType());
-	setUnicast($nc(info)->isUnicast());
+	setRemoveListenerMethod($(info->getRemoveMethod()));
+	setGetListenerMethod($(info->getGetMethod()));
+	setListenerType(info->getListenerType());
+	setUnicast(info->isUnicast());
 }
 
 void EventSetDescriptor::init$($String* eventSetName, $Class* listenerType, $MethodDescriptorArray* listenerMethodDescriptors, $Method* addListenerMethod, $Method* removeListenerMethod) {
 	$FeatureDescriptor::init$();
 	this->inDefaultEventSet = true;
 	setName(eventSetName);
-	$set(this, listenerMethodDescriptors, (listenerMethodDescriptors != nullptr) ? $cast($MethodDescriptorArray, $nc(listenerMethodDescriptors)->clone()) : ($MethodDescriptorArray*)nullptr);
+	$set(this, listenerMethodDescriptors, (listenerMethodDescriptors != nullptr) ? $cast($MethodDescriptorArray, listenerMethodDescriptors->clone()) : ($MethodDescriptorArray*)nullptr);
 	setAddListenerMethod(addListenerMethod);
 	setRemoveListenerMethod(removeListenerMethod);
 	setListenerType(listenerType);
 }
 
 $Class* EventSetDescriptor::getListenerType() {
-	return (this->listenerTypeRef != nullptr) ? $cast($Class, $nc(this->listenerTypeRef)->get()) : ($Class*)nullptr;
+	return (this->listenerTypeRef != nullptr) ? $cast($Class, this->listenerTypeRef->get()) : ($Class*)nullptr;
 }
 
 void EventSetDescriptor::setListenerType($Class* cls) {
@@ -213,11 +150,11 @@ void EventSetDescriptor::setListenerType($Class* cls) {
 
 $MethodArray* EventSetDescriptor::getListenerMethods() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($MethodArray, methods, getListenerMethods0());
 		if (methods == nullptr) {
 			if (this->listenerMethodDescriptors != nullptr) {
-				$assign(methods, $new($MethodArray, $nc(this->listenerMethodDescriptors)->length));
+				$assign(methods, $new($MethodArray, this->listenerMethodDescriptors->length));
 				for (int32_t i = 0; i < methods->length; ++i) {
 					methods->set(i, $($nc($nc(this->listenerMethodDescriptors)->get(i))->getMethod()));
 				}
@@ -229,26 +166,26 @@ $MethodArray* EventSetDescriptor::getListenerMethods() {
 }
 
 void EventSetDescriptor::setListenerMethods($MethodArray* methods) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (methods == nullptr) {
 		return;
 	}
 	if (this->listenerMethodDescriptors == nullptr) {
 		$set(this, listenerMethodDescriptors, $new($MethodDescriptorArray, $nc(methods)->length));
 		for (int32_t i = 0; i < methods->length; ++i) {
-			$nc(this->listenerMethodDescriptors)->set(i, $$new($MethodDescriptor, methods->get(i)));
+			this->listenerMethodDescriptors->set(i, $$new($MethodDescriptor, methods->get(i)));
 		}
 	}
 	$set(this, listenerMethodsRef, getSoftReference(methods));
 }
 
 $MethodArray* EventSetDescriptor::getListenerMethods0() {
-	return (this->listenerMethodsRef != nullptr) ? $cast($MethodArray, $nc(this->listenerMethodsRef)->get()) : ($MethodArray*)nullptr;
+	return (this->listenerMethodsRef != nullptr) ? $cast($MethodArray, this->listenerMethodsRef->get()) : ($MethodArray*)nullptr;
 }
 
 $MethodDescriptorArray* EventSetDescriptor::getListenerMethodDescriptors() {
 	$synchronized(this) {
-		return (this->listenerMethodDescriptors != nullptr) ? $cast($MethodDescriptorArray, $nc(this->listenerMethodDescriptors)->clone()) : ($MethodDescriptorArray*)nullptr;
+		return (this->listenerMethodDescriptors != nullptr) ? $cast($MethodDescriptorArray, this->listenerMethodDescriptors->clone()) : ($MethodDescriptorArray*)nullptr;
 	}
 }
 
@@ -268,7 +205,7 @@ void EventSetDescriptor::setAddListenerMethod($Method* method) {
 		}
 		$set(this, addMethodDescriptor, $new($MethodDescriptor, method));
 		$load($Transient);
-		setTransient($cast($Transient, $($nc(method)->getAnnotation($Transient::class$))));
+		setTransient($$cast($Transient, $nc(method)->getAnnotation($Transient::class$)));
 	}
 }
 
@@ -288,7 +225,7 @@ void EventSetDescriptor::setRemoveListenerMethod($Method* method) {
 		}
 		$set(this, removeMethodDescriptor, $new($MethodDescriptor, method));
 		$load($Transient);
-		setTransient($cast($Transient, $($nc(method)->getAnnotation($Transient::class$))));
+		setTransient($$cast($Transient, $nc(method)->getAnnotation($Transient::class$)));
 	}
 }
 
@@ -308,7 +245,7 @@ void EventSetDescriptor::setGetListenerMethod($Method* method) {
 		}
 		$set(this, getMethodDescriptor, $new($MethodDescriptor, method));
 		$load($Transient);
-		setTransient($cast($Transient, $($nc(method)->getAnnotation($Transient::class$))));
+		setTransient($$cast($Transient, $nc(method)->getAnnotation($Transient::class$)));
 	}
 }
 
@@ -336,39 +273,39 @@ void EventSetDescriptor::init$(EventSetDescriptor* x, EventSetDescriptor* y) {
 		$set(this, listenerMethodDescriptors, y->listenerMethodDescriptors);
 	}
 	$set(this, listenerTypeRef, x->listenerTypeRef);
-	if ($nc(y)->listenerTypeRef != nullptr) {
+	if (y->listenerTypeRef != nullptr) {
 		$set(this, listenerTypeRef, y->listenerTypeRef);
 	}
 	$set(this, addMethodDescriptor, x->addMethodDescriptor);
-	if ($nc(y)->addMethodDescriptor != nullptr) {
+	if (y->addMethodDescriptor != nullptr) {
 		$set(this, addMethodDescriptor, y->addMethodDescriptor);
 	}
 	$set(this, removeMethodDescriptor, x->removeMethodDescriptor);
-	if ($nc(y)->removeMethodDescriptor != nullptr) {
+	if (y->removeMethodDescriptor != nullptr) {
 		$set(this, removeMethodDescriptor, y->removeMethodDescriptor);
 	}
 	$set(this, getMethodDescriptor, x->getMethodDescriptor);
-	if ($nc(y)->getMethodDescriptor != nullptr) {
+	if (y->getMethodDescriptor != nullptr) {
 		$set(this, getMethodDescriptor, y->getMethodDescriptor);
 	}
-	this->unicast = $nc(y)->unicast;
+	this->unicast = y->unicast;
 	if (!x->inDefaultEventSet || !y->inDefaultEventSet) {
 		this->inDefaultEventSet = false;
 	}
 }
 
 void EventSetDescriptor::init$(EventSetDescriptor* old) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FeatureDescriptor::init$(old);
 	this->inDefaultEventSet = true;
 	if ($nc(old)->listenerMethodDescriptors != nullptr) {
-		int32_t len = $nc(old->listenerMethodDescriptors)->length;
+		int32_t len = old->listenerMethodDescriptors->length;
 		$set(this, listenerMethodDescriptors, $new($MethodDescriptorArray, len));
 		for (int32_t i = 0; i < len; ++i) {
-			$nc(this->listenerMethodDescriptors)->set(i, $$new($MethodDescriptor, $nc(old->listenerMethodDescriptors)->get(i)));
+			this->listenerMethodDescriptors->set(i, $$new($MethodDescriptor, old->listenerMethodDescriptors->get(i)));
 		}
 	}
-	$set(this, listenerTypeRef, $nc(old)->listenerTypeRef);
+	$set(this, listenerTypeRef, old->listenerTypeRef);
 	$set(this, addMethodDescriptor, old->addMethodDescriptor);
 	$set(this, removeMethodDescriptor, old->removeMethodDescriptor);
 	$set(this, getMethodDescriptor, old->getMethodDescriptor);
@@ -377,25 +314,78 @@ void EventSetDescriptor::init$(EventSetDescriptor* old) {
 }
 
 void EventSetDescriptor::appendTo($StringBuilder* sb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FeatureDescriptor::appendTo(sb, "unicast"_s, this->unicast);
 	$FeatureDescriptor::appendTo(sb, "inDefaultEventSet"_s, this->inDefaultEventSet);
 	$FeatureDescriptor::appendTo(sb, "listenerType"_s, this->listenerTypeRef);
-	$FeatureDescriptor::appendTo(sb, "getListenerMethod"_s, $($of(getMethod(this->getMethodDescriptor))));
-	$FeatureDescriptor::appendTo(sb, "addListenerMethod"_s, $($of(getMethod(this->addMethodDescriptor))));
-	$FeatureDescriptor::appendTo(sb, "removeListenerMethod"_s, $($of(getMethod(this->removeMethodDescriptor))));
+	$FeatureDescriptor::appendTo(sb, "getListenerMethod"_s, $(getMethod(this->getMethodDescriptor)));
+	$FeatureDescriptor::appendTo(sb, "addListenerMethod"_s, $(getMethod(this->addMethodDescriptor)));
+	$FeatureDescriptor::appendTo(sb, "removeListenerMethod"_s, $(getMethod(this->removeMethodDescriptor)));
 }
 
 $Method* EventSetDescriptor::getMethod($MethodDescriptor* descriptor) {
 	$init(EventSetDescriptor);
-	return (descriptor != nullptr) ? $nc(descriptor)->getMethod() : ($Method*)nullptr;
+	return (descriptor != nullptr) ? descriptor->getMethod() : ($Method*)nullptr;
 }
 
 EventSetDescriptor::EventSetDescriptor() {
 }
 
 $Class* EventSetDescriptor::load$($String* name, bool initialize) {
-	$loadClass(EventSetDescriptor, name, initialize, &_EventSetDescriptor_ClassInfo_, allocate$EventSetDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"listenerMethodDescriptors", "[Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $field(EventSetDescriptor, listenerMethodDescriptors)},
+		{"addMethodDescriptor", "Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $field(EventSetDescriptor, addMethodDescriptor)},
+		{"removeMethodDescriptor", "Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $field(EventSetDescriptor, removeMethodDescriptor)},
+		{"getMethodDescriptor", "Ljava/beans/MethodDescriptor;", nullptr, $PRIVATE, $field(EventSetDescriptor, getMethodDescriptor)},
+		{"listenerMethodsRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<[Ljava/lang/reflect/Method;>;", $PRIVATE, $field(EventSetDescriptor, listenerMethodsRef)},
+		{"listenerTypeRef", "Ljava/lang/ref/Reference;", "Ljava/lang/ref/Reference<+Ljava/lang/Class<*>;>;", $PRIVATE, $field(EventSetDescriptor, listenerTypeRef)},
+		{"unicast", "Z", nullptr, $PRIVATE, $field(EventSetDescriptor, unicast)},
+		{"inDefaultEventSet", "Z", nullptr, $PRIVATE, $field(EventSetDescriptor, inDefaultEventSet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;Ljava/lang/String;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $Class*, $String*, $Class*, $String*), "java.beans.IntrospectionException"},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $Class*, $String*, $Class*, $StringArray*, $String*, $String*), "java.beans.IntrospectionException"},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $Class*, $String*, $Class*, $StringArray*, $String*, $String*, $String*), "java.beans.IntrospectionException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $String*, $Class*, $MethodArray*, $Method*, $Method*), "java.beans.IntrospectionException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Class;[Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $String*, $Class*, $MethodArray*, $Method*, $Method*, $Method*), "java.beans.IntrospectionException"},
+		{"<init>", "(Ljava/lang/String;Lcom/sun/beans/introspect/EventSetInfo;[Ljava/lang/reflect/Method;)V", nullptr, $TRANSIENT, $method(EventSetDescriptor, init$, void, $String*, $EventSetInfo*, $MethodArray*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Class;[Ljava/beans/MethodDescriptor;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;[Ljava/beans/MethodDescriptor;Ljava/lang/reflect/Method;Ljava/lang/reflect/Method;)V", $PUBLIC, $method(EventSetDescriptor, init$, void, $String*, $Class*, $MethodDescriptorArray*, $Method*, $Method*), "java.beans.IntrospectionException"},
+		{"<init>", "(Ljava/beans/EventSetDescriptor;Ljava/beans/EventSetDescriptor;)V", nullptr, 0, $method(EventSetDescriptor, init$, void, EventSetDescriptor*, EventSetDescriptor*)},
+		{"<init>", "(Ljava/beans/EventSetDescriptor;)V", nullptr, 0, $method(EventSetDescriptor, init$, void, EventSetDescriptor*)},
+		{"appendTo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(EventSetDescriptor, appendTo, void, $StringBuilder*)},
+		{"getAddListenerMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getAddListenerMethod, $Method*)},
+		{"getGetListenerMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getGetListenerMethod, $Method*)},
+		{"getListenerClassName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(EventSetDescriptor, getListenerClassName, $String*, $Class*)},
+		{"getListenerMethodDescriptors", "()[Ljava/beans/MethodDescriptor;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getListenerMethodDescriptors, $MethodDescriptorArray*)},
+		{"getListenerMethods", "()[Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getListenerMethods, $MethodArray*)},
+		{"getListenerMethods0", "()[Ljava/lang/reflect/Method;", nullptr, $PRIVATE, $method(EventSetDescriptor, getListenerMethods0, $MethodArray*)},
+		{"getListenerType", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(EventSetDescriptor, getListenerType, $Class*)},
+		{"getMethod", "(Ljava/lang/Class;Ljava/lang/String;I)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;I)Ljava/lang/reflect/Method;", $PRIVATE | $STATIC, $staticMethod(EventSetDescriptor, getMethod, $Method*, $Class*, $String*, int32_t), "java.beans.IntrospectionException"},
+		{"getMethod", "(Ljava/beans/MethodDescriptor;)Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(EventSetDescriptor, getMethod, $Method*, $MethodDescriptor*)},
+		{"getRemoveListenerMethod", "()Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(EventSetDescriptor, getRemoveListenerMethod, $Method*)},
+		{"isInDefaultEventSet", "()Z", nullptr, $PUBLIC, $virtualMethod(EventSetDescriptor, isInDefaultEventSet, bool)},
+		{"isUnicast", "()Z", nullptr, $PUBLIC, $virtualMethod(EventSetDescriptor, isUnicast, bool)},
+		{"setAddListenerMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventSetDescriptor, setAddListenerMethod, void, $Method*)},
+		{"setGetListenerMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventSetDescriptor, setGetListenerMethod, void, $Method*)},
+		{"setInDefaultEventSet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EventSetDescriptor, setInDefaultEventSet, void, bool)},
+		{"setListenerMethods", "([Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(EventSetDescriptor, setListenerMethods, void, $MethodArray*)},
+		{"setListenerType", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(EventSetDescriptor, setListenerType, void, $Class*)},
+		{"setRemoveListenerMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventSetDescriptor, setRemoveListenerMethod, void, $Method*)},
+		{"setUnicast", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EventSetDescriptor, setUnicast, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.EventSetDescriptor",
+		"java.beans.FeatureDescriptor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EventSetDescriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventSetDescriptor);
+	});
 	return class$;
 }
 

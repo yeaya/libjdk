@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapNameParser.h>
-
 #include <javax/naming/Name.h>
 #include <javax/naming/ldap/LdapName.h>
 #include <jcpp.h>
@@ -14,25 +13,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$MethodInfo _LdapNameParser_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapNameParser, init$, void)},
-	{"parse", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapNameParser, parse, $Name*, $String*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LdapNameParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.ldap.LdapNameParser",
-	"java.lang.Object",
-	"javax.naming.NameParser",
-	nullptr,
-	_LdapNameParser_MethodInfo_
-};
-
-$Object* allocate$LdapNameParser($Class* clazz) {
-	return $of($alloc(LdapNameParser));
-}
-
 void LdapNameParser::init$() {
 }
 
@@ -44,7 +24,22 @@ LdapNameParser::LdapNameParser() {
 }
 
 $Class* LdapNameParser::load$($String* name, bool initialize) {
-	$loadClass(LdapNameParser, name, initialize, &_LdapNameParser_ClassInfo_, allocate$LdapNameParser);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LdapNameParser, init$, void)},
+		{"parse", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapNameParser, parse, $Name*, $String*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.ldap.LdapNameParser",
+		"java.lang.Object",
+		"javax.naming.NameParser",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LdapNameParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapNameParser);
+	});
 	return class$;
 }
 

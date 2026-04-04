@@ -95,6 +95,7 @@ class Option : public ::java::lang::Enum {
 public:
 	Option();
 	static $Array<::com::sun::tools::sjavac::options::Option>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* arg, $String* description);
 	virtual ::java::nio::file::Path* getFileArg(::com::sun::tools::sjavac::options::ArgumentIterator* iter, ::com::sun::tools::sjavac::options::OptionHelper* helper, bool fileAcceptable, bool dirAcceptable);
 	virtual ::java::util::List* getFileListArg(::com::sun::tools::sjavac::options::ArgumentIterator* iter, ::com::sun::tools::sjavac::options::OptionHelper* helper);

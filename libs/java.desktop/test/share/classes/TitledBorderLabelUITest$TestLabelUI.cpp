@@ -1,5 +1,4 @@
 #include <TitledBorderLabelUITest$TestLabelUI.h>
-
 #include <TitledBorderLabelUITest.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
@@ -16,43 +15,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $MetalLabelUI = ::javax::swing::plaf::metal::MetalLabelUI;
-
-$MethodInfo _TitledBorderLabelUITest$TestLabelUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TitledBorderLabelUITest$TestLabelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(TitledBorderLabelUITest$TestLabelUI, createUI, $ComponentUI*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(TitledBorderLabelUITest$TestLabelUI, paint, void, $Graphics*, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TitledBorderLabelUITest$TestLabelUI_InnerClassesInfo_[] = {
-	{"TitledBorderLabelUITest$TestLabelUI", "TitledBorderLabelUITest", "TestLabelUI", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TitledBorderLabelUITest$TestLabelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TitledBorderLabelUITest$TestLabelUI",
-	"javax.swing.plaf.metal.MetalLabelUI",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_TitledBorderLabelUITest$TestLabelUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TitledBorderLabelUITest$TestLabelUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TitledBorderLabelUITest"
-};
-
-$Object* allocate$TitledBorderLabelUITest$TestLabelUI($Class* clazz) {
-	return $of($alloc(TitledBorderLabelUITest$TestLabelUI));
-}
 
 int32_t TitledBorderLabelUITest$TestLabelUI::hashCode() {
 	 return this->$MetalLabelUI::hashCode();
@@ -92,7 +54,39 @@ TitledBorderLabelUITest$TestLabelUI::TitledBorderLabelUITest$TestLabelUI() {
 }
 
 $Class* TitledBorderLabelUITest$TestLabelUI::load$($String* name, bool initialize) {
-	$loadClass(TitledBorderLabelUITest$TestLabelUI, name, initialize, &_TitledBorderLabelUITest$TestLabelUI_ClassInfo_, allocate$TitledBorderLabelUITest$TestLabelUI);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TitledBorderLabelUITest$TestLabelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(TitledBorderLabelUITest$TestLabelUI, createUI, $ComponentUI*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(TitledBorderLabelUITest$TestLabelUI, paint, void, $Graphics*, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TitledBorderLabelUITest$TestLabelUI", "TitledBorderLabelUITest", "TestLabelUI", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TitledBorderLabelUITest$TestLabelUI",
+		"javax.swing.plaf.metal.MetalLabelUI",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TitledBorderLabelUITest"
+	};
+	$loadClass(TitledBorderLabelUITest$TestLabelUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TitledBorderLabelUITest$TestLabelUI));
+	});
 	return class$;
 }
 

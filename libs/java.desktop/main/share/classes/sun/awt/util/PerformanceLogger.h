@@ -29,6 +29,7 @@ class PerformanceLogger : public ::java::lang::Object {
 	$class(PerformanceLogger, 0, ::java::lang::Object)
 public:
 	PerformanceLogger();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int64_t getCurrentTime();
 	static $String* getMessageAtIndex(int32_t index);

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicScrollBarUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -9,8 +8,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/ActionListener.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -28,7 +25,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/Timer.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/ScrollBarUI.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -68,17 +64,12 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusListener = ::java::awt::event::FocusListener;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
@@ -90,9 +81,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $InputMap = ::javax::swing::InputMap;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
@@ -102,7 +91,6 @@ using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -121,144 +109,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicScrollBarUI_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicScrollBarUI, $assertionsDisabled)},
-	{"POSITIVE_SCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, POSITIVE_SCROLL)},
-	{"NEGATIVE_SCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, NEGATIVE_SCROLL)},
-	{"MIN_SCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, MIN_SCROLL)},
-	{"MAX_SCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, MAX_SCROLL)},
-	{"minimumThumbSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicScrollBarUI, minimumThumbSize)},
-	{"maximumThumbSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicScrollBarUI, maximumThumbSize)},
-	{"thumbHighlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbHighlightColor)},
-	{"thumbLightShadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbLightShadowColor)},
-	{"thumbDarkShadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbDarkShadowColor)},
-	{"thumbColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbColor)},
-	{"trackColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackColor)},
-	{"trackHighlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackHighlightColor)},
-	{"scrollbar", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(BasicScrollBarUI, scrollbar)},
-	{"incrButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicScrollBarUI, incrButton)},
-	{"decrButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicScrollBarUI, decrButton)},
-	{"isDragging", "Z", nullptr, $PROTECTED, $field(BasicScrollBarUI, isDragging)},
-	{"trackListener", "Ljavax/swing/plaf/basic/BasicScrollBarUI$TrackListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackListener)},
-	{"buttonListener", "Ljavax/swing/plaf/basic/BasicScrollBarUI$ArrowButtonListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, buttonListener)},
-	{"modelListener", "Ljavax/swing/plaf/basic/BasicScrollBarUI$ModelListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, modelListener)},
-	{"thumbRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbRect)},
-	{"trackRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackRect)},
-	{"trackHighlight", "I", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackHighlight)},
-	{"NO_HIGHLIGHT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicScrollBarUI, NO_HIGHLIGHT)},
-	{"DECREASE_HIGHLIGHT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicScrollBarUI, DECREASE_HIGHLIGHT)},
-	{"INCREASE_HIGHLIGHT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicScrollBarUI, INCREASE_HIGHLIGHT)},
-	{"scrollListener", "Ljavax/swing/plaf/basic/BasicScrollBarUI$ScrollListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, scrollListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, propertyChangeListener)},
-	{"scrollTimer", "Ljavax/swing/Timer;", nullptr, $PROTECTED, $field(BasicScrollBarUI, scrollTimer)},
-	{"scrollSpeedThrottle", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, scrollSpeedThrottle)},
-	{"supportsAbsolutePositioning", "Z", nullptr, $PRIVATE, $field(BasicScrollBarUI, supportsAbsolutePositioning)},
-	{"scrollBarWidth", "I", nullptr, $PROTECTED, $field(BasicScrollBarUI, scrollBarWidth)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicScrollBarUI$Handler;", nullptr, $PRIVATE, $field(BasicScrollBarUI, handler)},
-	{"thumbActive", "Z", nullptr, $PRIVATE, $field(BasicScrollBarUI, thumbActive)},
-	{"useCachedValue", "Z", nullptr, $PRIVATE, $field(BasicScrollBarUI, useCachedValue)},
-	{"scrollBarValue", "I", nullptr, $PRIVATE, $field(BasicScrollBarUI, scrollBarValue)},
-	{"incrGap", "I", nullptr, $PROTECTED, $field(BasicScrollBarUI, incrGap)},
-	{"decrGap", "I", nullptr, $PROTECTED, $field(BasicScrollBarUI, decrGap)},
-	{}
-};
-
-$MethodInfo _BasicScrollBarUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicScrollBarUI, init$, void)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, addLayoutComponent, void, $String*, $Component*)},
-	{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, configureScrollBarColors, void)},
-	{"createArrowButtonListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$ArrowButtonListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createArrowButtonListener, $BasicScrollBarUI$ArrowButtonListener*)},
-	{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
-	{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
-	{"createModelListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$ModelListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createModelListener, $BasicScrollBarUI$ModelListener*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createScrollListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$ScrollListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createScrollListener, $BasicScrollBarUI$ScrollListener*)},
-	{"createTrackListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createTrackListener, $BasicScrollBarUI$TrackListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$Handler;", nullptr, $PRIVATE, $method(BasicScrollBarUI, getHandler, $BasicScrollBarUI$Handler*)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, $PRIVATE, $method(BasicScrollBarUI, getInputMap, $InputMap*, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMaximumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, getMaximumThumbSize, $Dimension*)},
-	{"getMinimumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, getMinimumThumbSize, $Dimension*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getSupportsAbsolutePositioning", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, getSupportsAbsolutePositioning, bool)},
-	{"getThumbBounds", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, getThumbBounds, $Rectangle*)},
-	{"getTrackBounds", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, getTrackBounds, $Rectangle*)},
-	{"getValue", "(Ljavax/swing/JScrollBar;)I", nullptr, $PRIVATE, $method(BasicScrollBarUI, getValue, int32_t, $JScrollBar*)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, installUI, void, $JComponent*)},
-	{"isMouseAfterThumb", "()Z", nullptr, $PRIVATE, $method(BasicScrollBarUI, isMouseAfterThumb, bool)},
-	{"isMouseBeforeThumb", "()Z", nullptr, $PRIVATE, $method(BasicScrollBarUI, isMouseBeforeThumb, bool)},
-	{"isMouseLeftOfThumb", "()Z", nullptr, $PRIVATE, $method(BasicScrollBarUI, isMouseLeftOfThumb, bool)},
-	{"isMouseRightOfThumb", "()Z", nullptr, $PRIVATE, $method(BasicScrollBarUI, isMouseRightOfThumb, bool)},
-	{"isThumbRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, isThumbRollover, bool)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, layoutContainer, void, $Container*)},
-	{"layoutHScrollbar", "(Ljavax/swing/JScrollBar;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, layoutHScrollbar, void, $JScrollBar*)},
-	{"layoutVScrollbar", "(Ljavax/swing/JScrollBar;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, layoutVScrollbar, void, $JScrollBar*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicScrollBarUI, loadActionMap, void, $LazyActionMap*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, minimumLayoutSize, $Dimension*, $Container*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintDecreaseHighlight", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, paintDecreaseHighlight, void, $Graphics*)},
-	{"paintIncreaseHighlight", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, paintIncreaseHighlight, void, $Graphics*)},
-	{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, paintTrack, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, removeLayoutComponent, void, $Component*)},
-	{"scrollByBlock", "(Ljavax/swing/JScrollBar;I)V", nullptr, $STATIC, $staticMethod(BasicScrollBarUI, scrollByBlock, void, $JScrollBar*, int32_t)},
-	{"scrollByBlock", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, scrollByBlock, void, int32_t)},
-	{"scrollByUnit", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, scrollByUnit, void, int32_t)},
-	{"scrollByUnits", "(Ljavax/swing/JScrollBar;IIZ)V", nullptr, $STATIC, $staticMethod(BasicScrollBarUI, scrollByUnits, void, $JScrollBar*, int32_t, int32_t, bool)},
-	{"setDragging", "(Z)V", nullptr, $PRIVATE, $method(BasicScrollBarUI, setDragging, void, bool)},
-	{"setThumbBounds", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, setThumbBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setThumbRollover", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, setThumbRollover, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, uninstallUI, void, $JComponent*)},
-	{"updateButtonDirections", "()V", nullptr, $PRIVATE, $method(BasicScrollBarUI, updateButtonDirections, void)},
-	{"updateThumbState", "(II)V", nullptr, $PRIVATE, $method(BasicScrollBarUI, updateThumbState, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicScrollBarUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicScrollBarUI$Handler", "javax.swing.plaf.basic.BasicScrollBarUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicScrollBarUI$Actions", "javax.swing.plaf.basic.BasicScrollBarUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicScrollBarUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicScrollBarUI", "PropertyChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicScrollBarUI$ScrollListener", "javax.swing.plaf.basic.BasicScrollBarUI", "ScrollListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicScrollBarUI$ArrowButtonListener", "javax.swing.plaf.basic.BasicScrollBarUI", "ArrowButtonListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicScrollBarUI$TrackListener", "javax.swing.plaf.basic.BasicScrollBarUI", "TrackListener", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicScrollBarUI$ModelListener", "javax.swing.plaf.basic.BasicScrollBarUI", "ModelListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicScrollBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicScrollBarUI",
-	"javax.swing.plaf.ScrollBarUI",
-	"java.awt.LayoutManager,javax.swing.SwingConstants",
-	_BasicScrollBarUI_FieldInfo_,
-	_BasicScrollBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicScrollBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicScrollBarUI$Handler,javax.swing.plaf.basic.BasicScrollBarUI$Actions,javax.swing.plaf.basic.BasicScrollBarUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicScrollBarUI$ScrollListener,javax.swing.plaf.basic.BasicScrollBarUI$ArrowButtonListener,javax.swing.plaf.basic.BasicScrollBarUI$TrackListener,javax.swing.plaf.basic.BasicScrollBarUI$ModelListener"
-};
-
-$Object* allocate$BasicScrollBarUI($Class* clazz) {
-	return $of($alloc(BasicScrollBarUI));
-}
 
 int32_t BasicScrollBarUI::hashCode() {
 	 return this->$ScrollBarUI::hashCode();
@@ -289,7 +139,7 @@ void BasicScrollBarUI::init$() {
 
 void BasicScrollBarUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicScrollBarUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicScrollBarUI$Actions);
 	$nc(map)->put($$new($BasicScrollBarUI$Actions, $BasicScrollBarUI$Actions::POSITIVE_UNIT_INCREMENT));
 	map->put($$new($BasicScrollBarUI$Actions, $BasicScrollBarUI$Actions::POSITIVE_BLOCK_INCREMENT));
@@ -337,7 +187,7 @@ void BasicScrollBarUI::uninstallUI($JComponent* c) {
 }
 
 void BasicScrollBarUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->scrollBarWidth = $UIManager::getInt("ScrollBar.width"_s);
 	if (this->scrollBarWidth <= 0) {
 		this->scrollBarWidth = 16;
@@ -345,10 +195,10 @@ void BasicScrollBarUI::installDefaults() {
 	$set(this, minimumThumbSize, $cast($Dimension, $UIManager::get("ScrollBar.minimumThumbSize"_s)));
 	$set(this, maximumThumbSize, $cast($Dimension, $UIManager::get("ScrollBar.maximumThumbSize"_s)));
 	$var($Boolean, absB, $cast($Boolean, $UIManager::get("ScrollBar.allowsAbsolutePositioning"_s)));
-	this->supportsAbsolutePositioning = (absB != nullptr) ? $nc(absB)->booleanValue() : false;
+	this->supportsAbsolutePositioning = (absB != nullptr) ? absB->booleanValue() : false;
 	this->trackHighlight = BasicScrollBarUI::NO_HIGHLIGHT;
 	bool var$0 = $nc(this->scrollbar)->getLayout() == nullptr;
-	if (var$0 || ($instanceOf($UIResource, $($nc(this->scrollbar)->getLayout())))) {
+	if (var$0 || ($instanceOf($UIResource, $(this->scrollbar->getLayout())))) {
 		$nc(this->scrollbar)->setLayout(this);
 	}
 	configureScrollBarColors();
@@ -378,53 +228,49 @@ void BasicScrollBarUI::installDefaults() {
 void BasicScrollBarUI::installComponents() {
 	switch ($nc(this->scrollbar)->getOrientation()) {
 	case $JScrollBar::VERTICAL:
-		{
-			$set(this, incrButton, createIncreaseButton($SwingConstants::SOUTH));
-			$set(this, decrButton, createDecreaseButton($SwingConstants::NORTH));
-			break;
-		}
+		$set(this, incrButton, createIncreaseButton($SwingConstants::SOUTH));
+		$set(this, decrButton, createDecreaseButton($SwingConstants::NORTH));
+		break;
 	case $JScrollBar::HORIZONTAL:
-		{
-			if ($nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight()) {
-				$set(this, incrButton, createIncreaseButton($SwingConstants::EAST));
-				$set(this, decrButton, createDecreaseButton($SwingConstants::WEST));
-			} else {
-				$set(this, incrButton, createIncreaseButton($SwingConstants::WEST));
-				$set(this, decrButton, createDecreaseButton($SwingConstants::EAST));
-			}
-			break;
+		if ($$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight()) {
+			$set(this, incrButton, createIncreaseButton($SwingConstants::EAST));
+			$set(this, decrButton, createDecreaseButton($SwingConstants::WEST));
+		} else {
+			$set(this, incrButton, createIncreaseButton($SwingConstants::WEST));
+			$set(this, decrButton, createDecreaseButton($SwingConstants::EAST));
 		}
+		break;
 	}
-	$nc(this->scrollbar)->add(static_cast<$Component*>(this->incrButton));
-	$nc(this->scrollbar)->add(static_cast<$Component*>(this->decrButton));
+	$nc(this->scrollbar)->add(this->incrButton);
+	$nc(this->scrollbar)->add(this->decrButton);
 	$nc(this->scrollbar)->setEnabled($nc(this->scrollbar)->isEnabled());
 }
 
 void BasicScrollBarUI::uninstallComponents() {
-	$nc(this->scrollbar)->remove(static_cast<$Component*>(this->incrButton));
-	$nc(this->scrollbar)->remove(static_cast<$Component*>(this->decrButton));
+	$nc(this->scrollbar)->remove(this->incrButton);
+	$nc(this->scrollbar)->remove(this->decrButton);
 }
 
 void BasicScrollBarUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, trackListener, createTrackListener());
 	$set(this, buttonListener, createArrowButtonListener());
 	$set(this, modelListener, createModelListener());
 	$set(this, propertyChangeListener, createPropertyChangeListener());
 	$nc(this->scrollbar)->addMouseListener(this->trackListener);
 	$nc(this->scrollbar)->addMouseMotionListener(this->trackListener);
-	$nc($($nc(this->scrollbar)->getModel()))->addChangeListener(this->modelListener);
+	$$nc($nc(this->scrollbar)->getModel())->addChangeListener(this->modelListener);
 	$nc(this->scrollbar)->addPropertyChangeListener(this->propertyChangeListener);
 	$nc(this->scrollbar)->addFocusListener($(getHandler()));
 	if (this->incrButton != nullptr) {
-		$nc(this->incrButton)->addMouseListener(this->buttonListener);
+		this->incrButton->addMouseListener(this->buttonListener);
 	}
 	if (this->decrButton != nullptr) {
-		$nc(this->decrButton)->addMouseListener(this->buttonListener);
+		this->decrButton->addMouseListener(this->buttonListener);
 	}
 	$set(this, scrollListener, createScrollListener());
 	$set(this, scrollTimer, $new($Timer, BasicScrollBarUI::scrollSpeedThrottle, this->scrollListener));
-	$nc(this->scrollTimer)->setInitialDelay(300);
+	this->scrollTimer->setInitialDelay(300);
 }
 
 void BasicScrollBarUI::installKeyboardActions() {
@@ -441,11 +287,11 @@ void BasicScrollBarUI::uninstallKeyboardActions() {
 }
 
 $InputMap* BasicScrollBarUI::getInputMap(int32_t condition) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (condition == $JComponent::WHEN_FOCUSED) {
 		$var($InputMap, keyMap, $cast($InputMap, $DefaultLookup::get(this->scrollbar, this, "ScrollBar.focusInputMap"_s)));
 		$var($InputMap, rtlKeyMap, nullptr);
-		bool var$0 = $nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight();
+		bool var$0 = $$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight();
 		if (var$0 || (($assign(rtlKeyMap, $cast($InputMap, $DefaultLookup::get(this->scrollbar, this, "ScrollBar.focusInputMap.RightToLeft"_s)))) == nullptr)) {
 			return keyMap;
 		} else {
@@ -455,7 +301,7 @@ $InputMap* BasicScrollBarUI::getInputMap(int32_t condition) {
 	} else if (condition == $JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT) {
 		$var($InputMap, keyMap, $cast($InputMap, $DefaultLookup::get(this->scrollbar, this, "ScrollBar.ancestorInputMap"_s)));
 		$var($InputMap, rtlKeyMap, nullptr);
-		bool var$1 = $nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight();
+		bool var$1 = $$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight();
 		if (var$1 || (($assign(rtlKeyMap, $cast($InputMap, $DefaultLookup::get(this->scrollbar, this, "ScrollBar.ancestorInputMap.RightToLeft"_s)))) == nullptr)) {
 			return keyMap;
 		} else {
@@ -467,16 +313,16 @@ $InputMap* BasicScrollBarUI::getInputMap(int32_t condition) {
 }
 
 void BasicScrollBarUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->scrollTimer)->stop();
 	$set(this, scrollTimer, nullptr);
 	if (this->decrButton != nullptr) {
-		$nc(this->decrButton)->removeMouseListener(this->buttonListener);
+		this->decrButton->removeMouseListener(this->buttonListener);
 	}
 	if (this->incrButton != nullptr) {
-		$nc(this->incrButton)->removeMouseListener(this->buttonListener);
+		this->incrButton->removeMouseListener(this->buttonListener);
 	}
-	$nc($($nc(this->scrollbar)->getModel()))->removeChangeListener(this->modelListener);
+	$$nc($nc(this->scrollbar)->getModel())->removeChangeListener(this->modelListener);
 	$nc(this->scrollbar)->removeMouseListener(this->trackListener);
 	$nc(this->scrollbar)->removeMouseMotionListener(this->trackListener);
 	$nc(this->scrollbar)->removePropertyChangeListener(this->propertyChangeListener);
@@ -535,7 +381,7 @@ bool BasicScrollBarUI::isThumbRollover() {
 }
 
 void BasicScrollBarUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	paintTrack(g, c, $(getTrackBounds()));
 	$var($Rectangle, thumbBounds, getThumbBounds());
 	if ($nc(thumbBounds)->intersects($($nc(g)->getClipBounds()))) {
@@ -552,25 +398,23 @@ $Dimension* BasicScrollBarUI::getMaximumSize($JComponent* c) {
 }
 
 $JButton* BasicScrollBarUI::createDecreaseButton(int32_t orientation) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = orientation;
-	$var($Color, var$1, $UIManager::getColor("ScrollBar.thumb"_s));
-	$var($Color, var$2, $UIManager::getColor("ScrollBar.thumbShadow"_s));
-	$var($Color, var$3, $UIManager::getColor("ScrollBar.thumbDarkShadow"_s));
-	return $new($BasicArrowButton, var$0, var$1, var$2, var$3, $($UIManager::getColor("ScrollBar.thumbHighlight"_s)));
+	$useLocalObjectStack();
+	$var($Color, var$0, $UIManager::getColor("ScrollBar.thumb"_s));
+	$var($Color, var$1, $UIManager::getColor("ScrollBar.thumbShadow"_s));
+	$var($Color, var$2, $UIManager::getColor("ScrollBar.thumbDarkShadow"_s));
+	return $new($BasicArrowButton, orientation, var$0, var$1, var$2, $($UIManager::getColor("ScrollBar.thumbHighlight"_s)));
 }
 
 $JButton* BasicScrollBarUI::createIncreaseButton(int32_t orientation) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = orientation;
-	$var($Color, var$1, $UIManager::getColor("ScrollBar.thumb"_s));
-	$var($Color, var$2, $UIManager::getColor("ScrollBar.thumbShadow"_s));
-	$var($Color, var$3, $UIManager::getColor("ScrollBar.thumbDarkShadow"_s));
-	return $new($BasicArrowButton, var$0, var$1, var$2, var$3, $($UIManager::getColor("ScrollBar.thumbHighlight"_s)));
+	$useLocalObjectStack();
+	$var($Color, var$0, $UIManager::getColor("ScrollBar.thumb"_s));
+	$var($Color, var$1, $UIManager::getColor("ScrollBar.thumbShadow"_s));
+	$var($Color, var$2, $UIManager::getColor("ScrollBar.thumbDarkShadow"_s));
+	return $new($BasicArrowButton, orientation, var$0, var$1, var$2, $($UIManager::getColor("ScrollBar.thumbHighlight"_s)));
 }
 
 void BasicScrollBarUI::paintDecreaseHighlight($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, $nc(this->scrollbar)->getInsets());
 	$var($Rectangle, thumbR, getThumbBounds());
 	$nc(g)->setColor(this->trackHighlightColor);
@@ -583,11 +427,11 @@ void BasicScrollBarUI::paintDecreaseHighlight($Graphics* g) {
 	} else {
 		int32_t x = 0;
 		int32_t w = 0;
-		if ($nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight()) {
 			x = $nc(this->trackRect)->x;
 			w = $nc(thumbR)->x - x;
 		} else {
-			x = $nc(thumbR)->x + thumbR->width;
+			x = $nc(thumbR)->x + $nc(thumbR)->width;
 			w = $nc(this->trackRect)->x + $nc(this->trackRect)->width - x;
 		}
 		int32_t y = $nc(insets)->top;
@@ -597,21 +441,21 @@ void BasicScrollBarUI::paintDecreaseHighlight($Graphics* g) {
 }
 
 void BasicScrollBarUI::paintIncreaseHighlight($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, $nc(this->scrollbar)->getInsets());
 	$var($Rectangle, thumbR, getThumbBounds());
 	$nc(g)->setColor(this->trackHighlightColor);
 	if ($nc(this->scrollbar)->getOrientation() == $JScrollBar::VERTICAL) {
 		int32_t x = $nc(insets)->left;
-		int32_t y = $nc(thumbR)->y + thumbR->height;
+		int32_t y = $nc(thumbR)->y + $nc(thumbR)->height;
 		int32_t w = $nc(this->scrollbar)->getWidth() - (insets->left + insets->right);
 		int32_t h = $nc(this->trackRect)->y + $nc(this->trackRect)->height - y;
 		g->fillRect(x, y, w, h);
 	} else {
 		int32_t x = 0;
 		int32_t w = 0;
-		if ($nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight()) {
-			x = $nc(thumbR)->x + thumbR->width;
+		if ($$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight()) {
+			x = $nc(thumbR)->x + $nc(thumbR)->width;
 			w = $nc(this->trackRect)->x + $nc(this->trackRect)->width - x;
 		} else {
 			x = $nc(this->trackRect)->x;
@@ -625,7 +469,7 @@ void BasicScrollBarUI::paintIncreaseHighlight($Graphics* g) {
 
 void BasicScrollBarUI::paintTrack($Graphics* g, $JComponent* c, $Rectangle* trackBounds) {
 	$nc(g)->setColor(this->trackColor);
-	g->fillRect($nc(trackBounds)->x, trackBounds->y, trackBounds->width, trackBounds->height);
+	g->fillRect($nc(trackBounds)->x, $nc(trackBounds)->y, $nc(trackBounds)->width, $nc(trackBounds)->height);
 	if (this->trackHighlight == BasicScrollBarUI::DECREASE_HIGHLIGHT) {
 		paintDecreaseHighlight(g);
 	} else if (this->trackHighlight == BasicScrollBarUI::INCREASE_HIGHLIGHT) {
@@ -638,7 +482,7 @@ void BasicScrollBarUI::paintThumb($Graphics* g, $JComponent* c, $Rectangle* thum
 	if (var$0 || !$nc(this->scrollbar)->isEnabled()) {
 		return;
 	}
-	int32_t w = $nc(thumbBounds)->width;
+	int32_t w = thumbBounds->width;
 	int32_t h = thumbBounds->height;
 	$nc(g)->translate(thumbBounds->x, thumbBounds->y);
 	g->setColor(this->thumbDarkShadowColor);
@@ -681,10 +525,10 @@ int32_t BasicScrollBarUI::getValue($JScrollBar* sb) {
 }
 
 void BasicScrollBarUI::layoutVScrollbar($JScrollBar* sb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, sbSize, $nc(sb)->getSize());
 	$var($Insets, sbInsets, sb->getInsets());
-	int32_t itemW = $nc(sbSize)->width - ($nc(sbInsets)->left + sbInsets->right);
+	int32_t itemW = $nc(sbSize)->width - ($nc(sbInsets)->left + $nc(sbInsets)->right);
 	int32_t itemX = sbInsets->left;
 	bool squareButtons = $DefaultLookup::getBoolean(this->scrollbar, this, "ScrollBar.squareButtons"_s, false);
 	int32_t decrButtonH = squareButtons ? itemW : $nc($($nc(this->decrButton)->getPreferredSize()))->height;
@@ -739,12 +583,12 @@ void BasicScrollBarUI::layoutVScrollbar($JScrollBar* sb) {
 }
 
 void BasicScrollBarUI::layoutHScrollbar($JScrollBar* sb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, sbSize, $nc(sb)->getSize());
 	$var($Insets, sbInsets, sb->getInsets());
-	int32_t itemH = $nc(sbSize)->height - ($nc(sbInsets)->top + sbInsets->bottom);
+	int32_t itemH = $nc(sbSize)->height - ($nc(sbInsets)->top + $nc(sbInsets)->bottom);
 	int32_t itemY = sbInsets->top;
-	bool ltr = $nc($(sb->getComponentOrientation()))->isLeftToRight();
+	bool ltr = $$nc(sb->getComponentOrientation())->isLeftToRight();
 	bool squareButtons = $DefaultLookup::getBoolean(this->scrollbar, this, "ScrollBar.squareButtons"_s, false);
 	int32_t leftButtonW = squareButtons ? itemH : $nc($($nc(this->decrButton)->getPreferredSize()))->width;
 	int32_t rightButtonW = squareButtons ? itemH : $nc($($nc(this->incrButton)->getPreferredSize()))->width;
@@ -812,27 +656,23 @@ void BasicScrollBarUI::layoutContainer($Container* scrollbarContainer) {
 	$var($JScrollBar, scrollbar, $cast($JScrollBar, scrollbarContainer));
 	switch ($nc(scrollbar)->getOrientation()) {
 	case $JScrollBar::VERTICAL:
-		{
-			layoutVScrollbar(scrollbar);
-			break;
-		}
+		layoutVScrollbar(scrollbar);
+		break;
 	case $JScrollBar::HORIZONTAL:
-		{
-			layoutHScrollbar(scrollbar);
-			break;
-		}
+		layoutHScrollbar(scrollbar);
+		break;
 	}
 }
 
 void BasicScrollBarUI::setThumbBounds(int32_t x, int32_t y, int32_t width, int32_t height) {
-	if (($nc(this->thumbRect)->x == x) && ($nc(this->thumbRect)->y == y) && ($nc(this->thumbRect)->width == width) && ($nc(this->thumbRect)->height == height)) {
+	if (($nc(this->thumbRect)->x == x) && (this->thumbRect->y == y) && (this->thumbRect->width == width) && (this->thumbRect->height == height)) {
 		return;
 	}
-	int32_t minX = $Math::min(x, $nc(this->thumbRect)->x);
-	int32_t minY = $Math::min(y, $nc(this->thumbRect)->y);
-	int32_t maxX = $Math::max(x + width, $nc(this->thumbRect)->x + $nc(this->thumbRect)->width);
-	int32_t maxY = $Math::max(y + height, $nc(this->thumbRect)->y + $nc(this->thumbRect)->height);
-	$nc(this->thumbRect)->setBounds(x, y, width, height);
+	int32_t minX = $Math::min(x, this->thumbRect->x);
+	int32_t minY = $Math::min(y, this->thumbRect->y);
+	int32_t maxX = $Math::max(x + width, this->thumbRect->x + this->thumbRect->width);
+	int32_t maxY = $Math::max(y + height, this->thumbRect->y + this->thumbRect->height);
+	this->thumbRect->setBounds(x, y, width, height);
 	$nc(this->scrollbar)->repaint(minX, minY, maxX - minX, maxY - minY);
 	setThumbRollover(false);
 }
@@ -863,7 +703,7 @@ void BasicScrollBarUI::scrollByBlock(int32_t direction) {
 	scrollByBlock(this->scrollbar, direction);
 	this->trackHighlight = direction > 0 ? BasicScrollBarUI::INCREASE_HIGHLIGHT : BasicScrollBarUI::DECREASE_HIGHLIGHT;
 	$var($Rectangle, dirtyRect, getTrackBounds());
-	$nc(this->scrollbar)->repaint($nc(dirtyRect)->x, dirtyRect->y, dirtyRect->width, dirtyRect->height);
+	$nc(this->scrollbar)->repaint($nc(dirtyRect)->x, $nc(dirtyRect)->y, $nc(dirtyRect)->width, $nc(dirtyRect)->height);
 }
 
 void BasicScrollBarUI::scrollByUnits($JScrollBar* scrollbar, int32_t direction, int32_t units, bool limitToBlock) {
@@ -921,32 +761,32 @@ bool BasicScrollBarUI::isMouseLeftOfThumb() {
 
 bool BasicScrollBarUI::isMouseRightOfThumb() {
 	$var($Rectangle, tb, getThumbBounds());
-	return $nc(this->trackListener)->currentMouseX > $nc(tb)->x + tb->width;
+	return $nc(this->trackListener)->currentMouseX > $nc(tb)->x + $nc(tb)->width;
 }
 
 bool BasicScrollBarUI::isMouseBeforeThumb() {
-	return $nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight() ? isMouseLeftOfThumb() : isMouseRightOfThumb();
+	return $$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight() ? isMouseLeftOfThumb() : isMouseRightOfThumb();
 }
 
 bool BasicScrollBarUI::isMouseAfterThumb() {
-	return $nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight() ? isMouseRightOfThumb() : isMouseLeftOfThumb();
+	return $$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight() ? isMouseRightOfThumb() : isMouseLeftOfThumb();
 }
 
 void BasicScrollBarUI::updateButtonDirections() {
 	int32_t orient = $nc(this->scrollbar)->getOrientation();
-	if ($nc($($nc(this->scrollbar)->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($nc(this->scrollbar)->getComponentOrientation())->isLeftToRight()) {
 		if ($instanceOf($BasicArrowButton, this->incrButton)) {
-			$nc(($cast($BasicArrowButton, this->incrButton)))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::EAST : $SwingConstants::SOUTH);
+			$cast($BasicArrowButton, this->incrButton)->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::EAST : $SwingConstants::SOUTH);
 		}
 		if ($instanceOf($BasicArrowButton, this->decrButton)) {
-			$nc(($cast($BasicArrowButton, this->decrButton)))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::WEST : $SwingConstants::NORTH);
+			$cast($BasicArrowButton, this->decrButton)->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::WEST : $SwingConstants::NORTH);
 		}
 	} else {
 		if ($instanceOf($BasicArrowButton, this->incrButton)) {
-			$nc(($cast($BasicArrowButton, this->incrButton)))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::WEST : $SwingConstants::SOUTH);
+			$cast($BasicArrowButton, this->incrButton)->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::WEST : $SwingConstants::SOUTH);
 		}
 		if ($instanceOf($BasicArrowButton, this->decrButton)) {
-			$nc(($cast($BasicArrowButton, this->decrButton)))->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::EAST : $SwingConstants::NORTH);
+			$cast($BasicArrowButton, this->decrButton)->setDirection(orient == $SwingConstants::HORIZONTAL ? $SwingConstants::EAST : $SwingConstants::NORTH);
 		}
 	}
 }
@@ -956,7 +796,7 @@ void BasicScrollBarUI::setDragging(bool dragging) {
 	$nc(this->scrollbar)->repaint($(getThumbBounds()));
 }
 
-void clinit$BasicScrollBarUI($Class* class$) {
+void BasicScrollBarUI::clinit$($Class* clazz) {
 	BasicScrollBarUI::$assertionsDisabled = !BasicScrollBarUI::class$->desiredAssertionStatus();
 }
 
@@ -964,7 +804,139 @@ BasicScrollBarUI::BasicScrollBarUI() {
 }
 
 $Class* BasicScrollBarUI::load$($String* name, bool initialize) {
-	$loadClass(BasicScrollBarUI, name, initialize, &_BasicScrollBarUI_ClassInfo_, clinit$BasicScrollBarUI, allocate$BasicScrollBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(BasicScrollBarUI, $assertionsDisabled)},
+		{"POSITIVE_SCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, POSITIVE_SCROLL)},
+		{"NEGATIVE_SCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, NEGATIVE_SCROLL)},
+		{"MIN_SCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, MIN_SCROLL)},
+		{"MAX_SCROLL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, MAX_SCROLL)},
+		{"minimumThumbSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicScrollBarUI, minimumThumbSize)},
+		{"maximumThumbSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicScrollBarUI, maximumThumbSize)},
+		{"thumbHighlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbHighlightColor)},
+		{"thumbLightShadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbLightShadowColor)},
+		{"thumbDarkShadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbDarkShadowColor)},
+		{"thumbColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbColor)},
+		{"trackColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackColor)},
+		{"trackHighlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackHighlightColor)},
+		{"scrollbar", "Ljavax/swing/JScrollBar;", nullptr, $PROTECTED, $field(BasicScrollBarUI, scrollbar)},
+		{"incrButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicScrollBarUI, incrButton)},
+		{"decrButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(BasicScrollBarUI, decrButton)},
+		{"isDragging", "Z", nullptr, $PROTECTED, $field(BasicScrollBarUI, isDragging)},
+		{"trackListener", "Ljavax/swing/plaf/basic/BasicScrollBarUI$TrackListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackListener)},
+		{"buttonListener", "Ljavax/swing/plaf/basic/BasicScrollBarUI$ArrowButtonListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, buttonListener)},
+		{"modelListener", "Ljavax/swing/plaf/basic/BasicScrollBarUI$ModelListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, modelListener)},
+		{"thumbRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicScrollBarUI, thumbRect)},
+		{"trackRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackRect)},
+		{"trackHighlight", "I", nullptr, $PROTECTED, $field(BasicScrollBarUI, trackHighlight)},
+		{"NO_HIGHLIGHT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicScrollBarUI, NO_HIGHLIGHT)},
+		{"DECREASE_HIGHLIGHT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicScrollBarUI, DECREASE_HIGHLIGHT)},
+		{"INCREASE_HIGHLIGHT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicScrollBarUI, INCREASE_HIGHLIGHT)},
+		{"scrollListener", "Ljavax/swing/plaf/basic/BasicScrollBarUI$ScrollListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, scrollListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicScrollBarUI, propertyChangeListener)},
+		{"scrollTimer", "Ljavax/swing/Timer;", nullptr, $PROTECTED, $field(BasicScrollBarUI, scrollTimer)},
+		{"scrollSpeedThrottle", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicScrollBarUI, scrollSpeedThrottle)},
+		{"supportsAbsolutePositioning", "Z", nullptr, $PRIVATE, $field(BasicScrollBarUI, supportsAbsolutePositioning)},
+		{"scrollBarWidth", "I", nullptr, $PROTECTED, $field(BasicScrollBarUI, scrollBarWidth)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicScrollBarUI$Handler;", nullptr, $PRIVATE, $field(BasicScrollBarUI, handler)},
+		{"thumbActive", "Z", nullptr, $PRIVATE, $field(BasicScrollBarUI, thumbActive)},
+		{"useCachedValue", "Z", nullptr, $PRIVATE, $field(BasicScrollBarUI, useCachedValue)},
+		{"scrollBarValue", "I", nullptr, $PRIVATE, $field(BasicScrollBarUI, scrollBarValue)},
+		{"incrGap", "I", nullptr, $PROTECTED, $field(BasicScrollBarUI, incrGap)},
+		{"decrGap", "I", nullptr, $PROTECTED, $field(BasicScrollBarUI, decrGap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicScrollBarUI, init$, void)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, addLayoutComponent, void, $String*, $Component*)},
+		{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, configureScrollBarColors, void)},
+		{"createArrowButtonListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$ArrowButtonListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createArrowButtonListener, $BasicScrollBarUI$ArrowButtonListener*)},
+		{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
+		{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
+		{"createModelListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$ModelListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createModelListener, $BasicScrollBarUI$ModelListener*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createScrollListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$ScrollListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createScrollListener, $BasicScrollBarUI$ScrollListener*)},
+		{"createTrackListener", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$TrackListener;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, createTrackListener, $BasicScrollBarUI$TrackListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicScrollBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicScrollBarUI$Handler;", nullptr, $PRIVATE, $method(BasicScrollBarUI, getHandler, $BasicScrollBarUI$Handler*)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, $PRIVATE, $method(BasicScrollBarUI, getInputMap, $InputMap*, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMaximumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, getMaximumThumbSize, $Dimension*)},
+		{"getMinimumThumbSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, getMinimumThumbSize, $Dimension*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getSupportsAbsolutePositioning", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, getSupportsAbsolutePositioning, bool)},
+		{"getThumbBounds", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, getThumbBounds, $Rectangle*)},
+		{"getTrackBounds", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, getTrackBounds, $Rectangle*)},
+		{"getValue", "(Ljavax/swing/JScrollBar;)I", nullptr, $PRIVATE, $method(BasicScrollBarUI, getValue, int32_t, $JScrollBar*)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, installUI, void, $JComponent*)},
+		{"isMouseAfterThumb", "()Z", nullptr, $PRIVATE, $method(BasicScrollBarUI, isMouseAfterThumb, bool)},
+		{"isMouseBeforeThumb", "()Z", nullptr, $PRIVATE, $method(BasicScrollBarUI, isMouseBeforeThumb, bool)},
+		{"isMouseLeftOfThumb", "()Z", nullptr, $PRIVATE, $method(BasicScrollBarUI, isMouseLeftOfThumb, bool)},
+		{"isMouseRightOfThumb", "()Z", nullptr, $PRIVATE, $method(BasicScrollBarUI, isMouseRightOfThumb, bool)},
+		{"isThumbRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, isThumbRollover, bool)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, layoutContainer, void, $Container*)},
+		{"layoutHScrollbar", "(Ljavax/swing/JScrollBar;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, layoutHScrollbar, void, $JScrollBar*)},
+		{"layoutVScrollbar", "(Ljavax/swing/JScrollBar;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, layoutVScrollbar, void, $JScrollBar*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicScrollBarUI, loadActionMap, void, $LazyActionMap*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, minimumLayoutSize, $Dimension*, $Container*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintDecreaseHighlight", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, paintDecreaseHighlight, void, $Graphics*)},
+		{"paintIncreaseHighlight", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, paintIncreaseHighlight, void, $Graphics*)},
+		{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"paintTrack", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, paintTrack, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, removeLayoutComponent, void, $Component*)},
+		{"scrollByBlock", "(Ljavax/swing/JScrollBar;I)V", nullptr, $STATIC, $staticMethod(BasicScrollBarUI, scrollByBlock, void, $JScrollBar*, int32_t)},
+		{"scrollByBlock", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, scrollByBlock, void, int32_t)},
+		{"scrollByUnit", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, scrollByUnit, void, int32_t)},
+		{"scrollByUnits", "(Ljavax/swing/JScrollBar;IIZ)V", nullptr, $STATIC, $staticMethod(BasicScrollBarUI, scrollByUnits, void, $JScrollBar*, int32_t, int32_t, bool)},
+		{"setDragging", "(Z)V", nullptr, $PRIVATE, $method(BasicScrollBarUI, setDragging, void, bool)},
+		{"setThumbBounds", "(IIII)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, setThumbBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setThumbRollover", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, setThumbRollover, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicScrollBarUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI, uninstallUI, void, $JComponent*)},
+		{"updateButtonDirections", "()V", nullptr, $PRIVATE, $method(BasicScrollBarUI, updateButtonDirections, void)},
+		{"updateThumbState", "(II)V", nullptr, $PRIVATE, $method(BasicScrollBarUI, updateThumbState, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicScrollBarUI$Handler", "javax.swing.plaf.basic.BasicScrollBarUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicScrollBarUI$Actions", "javax.swing.plaf.basic.BasicScrollBarUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicScrollBarUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicScrollBarUI", "PropertyChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicScrollBarUI$ScrollListener", "javax.swing.plaf.basic.BasicScrollBarUI", "ScrollListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicScrollBarUI$ArrowButtonListener", "javax.swing.plaf.basic.BasicScrollBarUI", "ArrowButtonListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicScrollBarUI$TrackListener", "javax.swing.plaf.basic.BasicScrollBarUI", "TrackListener", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicScrollBarUI$ModelListener", "javax.swing.plaf.basic.BasicScrollBarUI", "ModelListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicScrollBarUI",
+		"javax.swing.plaf.ScrollBarUI",
+		"java.awt.LayoutManager,javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicScrollBarUI$Handler,javax.swing.plaf.basic.BasicScrollBarUI$Actions,javax.swing.plaf.basic.BasicScrollBarUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicScrollBarUI$ScrollListener,javax.swing.plaf.basic.BasicScrollBarUI$ArrowButtonListener,javax.swing.plaf.basic.BasicScrollBarUI$TrackListener,javax.swing.plaf.basic.BasicScrollBarUI$ModelListener"
+	};
+	$loadClass(BasicScrollBarUI, name, initialize, &classInfo$$, BasicScrollBarUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicScrollBarUI));
+	});
 	return class$;
 }
 

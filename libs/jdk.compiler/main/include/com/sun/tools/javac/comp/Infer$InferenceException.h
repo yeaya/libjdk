@@ -34,7 +34,10 @@ public:
 	::com::sun::tools::javac::util::List* messages = nullptr;
 	Infer$InferenceException(const Infer$InferenceException& e);
 	virtual void throw$() override;
-	inline Infer$InferenceException* operator ->() {
+	inline Infer$InferenceException* operator ->() const {
+		return (Infer$InferenceException*)throwing$;
+	}
+	inline operator Infer$InferenceException*() const {
 		return (Infer$InferenceException*)throwing$;
 	}
 };

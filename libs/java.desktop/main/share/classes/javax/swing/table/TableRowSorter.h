@@ -30,6 +30,7 @@ class $export TableRowSorter : public ::javax::swing::DefaultRowSorter {
 	$class(TableRowSorter, 0, ::javax::swing::DefaultRowSorter)
 public:
 	TableRowSorter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::swing::table::TableModel* model);
 	virtual ::java::util::Comparator* getComparator(int32_t column) override;

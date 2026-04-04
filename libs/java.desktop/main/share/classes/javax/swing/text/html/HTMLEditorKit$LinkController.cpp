@@ -1,11 +1,9 @@
 #include <javax/swing/text/html/HTMLEditorKit$LinkController.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/net/MalformedURLException.h>
@@ -22,7 +20,6 @@
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/Position$Bias.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
@@ -47,7 +44,6 @@ using $Cursor = ::java::awt::Cursor;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -65,7 +61,6 @@ using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
@@ -79,59 +74,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLEditorKit$LinkController_FieldInfo_[] = {
-	{"curElem", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(HTMLEditorKit$LinkController, curElem)},
-	{"curElemImage", "Z", nullptr, $PRIVATE, $field(HTMLEditorKit$LinkController, curElemImage)},
-	{"href", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLEditorKit$LinkController, href)},
-	{"bias", "[Ljavax/swing/text/Position$Bias;", nullptr, $PRIVATE | $TRANSIENT, $field(HTMLEditorKit$LinkController, bias)},
-	{"curOffset", "I", nullptr, $PRIVATE, $field(HTMLEditorKit$LinkController, curOffset)},
-	{}
-};
-
-$MethodInfo _HTMLEditorKit$LinkController_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLEditorKit$LinkController, init$, void)},
-	{"activateLink", "(ILjavax/swing/JEditorPane;)V", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$LinkController, activateLink, void, int32_t, $JEditorPane*)},
-	{"activateLink", "(ILjavax/swing/JEditorPane;Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(HTMLEditorKit$LinkController, activateLink, void, int32_t, $JEditorPane*, $MouseEvent*)},
-	{"createHyperlinkEvent", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;Ljava/lang/String;Ljavax/swing/text/AttributeSet;Ljavax/swing/text/Element;Ljava/awt/event/MouseEvent;)Ljavax/swing/event/HyperlinkEvent;", nullptr, 0, $virtualMethod(HTMLEditorKit$LinkController, createHyperlinkEvent, $HyperlinkEvent*, $JEditorPane*, $HTMLDocument*, $String*, $AttributeSet*, $Element*, $MouseEvent*)},
-	{"doesElementContainLocation", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/Element;III)Z", nullptr, $PRIVATE, $method(HTMLEditorKit$LinkController, doesElementContainLocation, bool, $JEditorPane*, $Element*, int32_t, int32_t, int32_t)},
-	{"fireEvents", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;Ljava/lang/String;Ljavax/swing/text/Element;Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(HTMLEditorKit$LinkController, fireEvents, void, $JEditorPane*, $HTMLDocument*, $String*, $Element*, $MouseEvent*)},
-	{"getMapHREF", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;III)Ljava/lang/String;", nullptr, $PRIVATE, $method(HTMLEditorKit$LinkController, getMapHREF, $String*, $JEditorPane*, $HTMLDocument*, $Element*, $AttributeSet*, int32_t, int32_t, int32_t)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$LinkController, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$LinkController, mouseDragged, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$LinkController, mouseMoved, void, $MouseEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$LinkController_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$LinkController", "javax.swing.text.html.HTMLEditorKit", "LinkController", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$LinkController_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$LinkController",
-	"java.awt.event.MouseAdapter",
-	"java.io.Serializable",
-	_HTMLEditorKit$LinkController_FieldInfo_,
-	_HTMLEditorKit$LinkController_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$LinkController_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$LinkController($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$LinkController));
-}
 
 int32_t HTMLEditorKit$LinkController::hashCode() {
 	 return this->$MouseAdapter::hashCode();
@@ -162,7 +104,7 @@ void HTMLEditorKit$LinkController::init$() {
 }
 
 void HTMLEditorKit$LinkController::mouseClicked($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editor, $cast($JEditorPane, $nc(e)->getSource()));
 	bool var$1 = !$nc(editor)->isEditable();
 	bool var$0 = var$1 && editor->isEnabled();
@@ -180,18 +122,18 @@ void HTMLEditorKit$LinkController::mouseDragged($MouseEvent* e) {
 }
 
 void HTMLEditorKit$LinkController::mouseMoved($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JEditorPane, editor, $cast($JEditorPane, $nc(e)->getSource()));
 	if (!$nc(editor)->isEnabled()) {
 		return;
 	}
-	$var($HTMLEditorKit, kit, $cast($HTMLEditorKit, $nc(editor)->getEditorKit()));
+	$var($HTMLEditorKit, kit, $cast($HTMLEditorKit, editor->getEditorKit()));
 	bool adjustCursor = true;
 	$var($Cursor, newCursor, $nc(kit)->getDefaultCursor());
 	if (!editor->isEditable()) {
 		int32_t var$0 = e->getX();
 		$var($Point, pt, $new($Point, var$0, e->getY()));
-		int32_t pos = $nc($($cast($TextUI, editor->getUI())))->viewToModel(editor, pt, this->bias);
+		int32_t pos = $$sure($TextUI, editor->getUI())->viewToModel(editor, pt, this->bias);
 		$init($Position$Bias);
 		if ($nc(this->bias)->get(0) == $Position$Bias::Backward && pos > 0) {
 			--pos;
@@ -199,11 +141,8 @@ void HTMLEditorKit$LinkController::mouseMoved($MouseEvent* e) {
 		if (pos >= 0 && ($instanceOf($HTMLDocument, $(editor->getDocument())))) {
 			$var($HTMLDocument, hdoc, $cast($HTMLDocument, editor->getDocument()));
 			$var($Element, elem, $nc(hdoc)->getCharacterElement(pos));
-			$var($JEditorPane, var$1, editor);
-			$var($Element, var$2, elem);
-			int32_t var$3 = pos;
-			int32_t var$4 = e->getX();
-			if (!doesElementContainLocation(var$1, var$2, var$3, var$4, e->getY())) {
+			int32_t var$1 = e->getX();
+			if (!doesElementContainLocation(editor, elem, pos, var$1, e->getY())) {
 				$assign(elem, nullptr);
 			}
 			if (this->curElem != elem || this->curElemImage) {
@@ -219,17 +158,12 @@ void HTMLEditorKit$LinkController::mouseMoved($MouseEvent* e) {
 						$init($StyleConstants);
 						this->curElemImage = ($equals(a->getAttribute($StyleConstants::NameAttribute), $HTML$Tag::IMG));
 						if (this->curElemImage) {
-							$var($JEditorPane, var$5, editor);
-							$var($HTMLDocument, var$6, hdoc);
-							$var($Element, var$7, elem);
-							$var($AttributeSet, var$8, a);
-							int32_t var$9 = pos;
-							int32_t var$10 = e->getX();
-							$assign(href, getMapHREF(var$5, var$6, var$7, var$8, var$9, var$10, e->getY()));
+							int32_t var$2 = e->getX();
+							$assign(href, getMapHREF(editor, hdoc, elem, a, pos, var$2, e->getY()));
 						}
 					} else {
 						$init($HTML$Attribute);
-						$assign(href, $cast($String, $nc(anchor)->getAttribute($HTML$Attribute::HREF)));
+						$assign(href, $cast($String, anchor->getAttribute($HTML$Attribute::HREF)));
 					}
 				}
 				if (href != this->href) {
@@ -253,7 +187,7 @@ void HTMLEditorKit$LinkController::mouseMoved($MouseEvent* e) {
 }
 
 $String* HTMLEditorKit$LinkController::getMapHREF($JEditorPane* html, $HTMLDocument* hdoc, $Element* elem, $AttributeSet* attr, int32_t offset, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($HTML$Attribute);
 	$var($Object, useMap, $nc(attr)->getAttribute($HTML$Attribute::USEMAP));
 	if (useMap != nullptr && ($instanceOf($String, useMap))) {
@@ -282,7 +216,7 @@ $String* HTMLEditorKit$LinkController::getMapHREF($JEditorPane* html, $HTMLDocum
 }
 
 bool HTMLEditorKit$LinkController::doesElementContainLocation($JEditorPane* editor, $Element* e, int32_t offset, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e != nullptr && offset > 0 && e->getStartOffset() == offset) {
 		try {
 			$var($TextUI, ui, $cast($TextUI, $nc(editor)->getUI()));
@@ -309,11 +243,11 @@ void HTMLEditorKit$LinkController::activateLink(int32_t pos, $JEditorPane* edito
 }
 
 void HTMLEditorKit$LinkController::activateLink(int32_t pos, $JEditorPane* html, $MouseEvent* mouseEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(html)->getDocument());
 	if ($instanceOf($HTMLDocument, doc)) {
 		$var($HTMLDocument, hdoc, $cast($HTMLDocument, doc));
-		$var($Element, e, $nc(hdoc)->getCharacterElement(pos));
+		$var($Element, e, hdoc->getCharacterElement(pos));
 		$var($AttributeSet, a, $nc(e)->getAttributes());
 		$init($HTML$Tag);
 		$var($AttributeSet, anchor, $cast($AttributeSet, $nc(a)->getAttribute($HTML$Tag::A)));
@@ -329,7 +263,7 @@ void HTMLEditorKit$LinkController::activateLink(int32_t pos, $JEditorPane* html,
 			$set(this, href, getMapHREF(html, hdoc, e, a, pos, x, y));
 		} else {
 			$init($HTML$Attribute);
-			$set(this, href, $cast($String, $nc(anchor)->getAttribute($HTML$Attribute::HREF)));
+			$set(this, href, $cast($String, anchor->getAttribute($HTML$Attribute::HREF)));
 		}
 		if (this->href != nullptr) {
 			$assign(linkEvent, createHyperlinkEvent(html, hdoc, this->href, anchor, e, mouseEvent));
@@ -341,7 +275,7 @@ void HTMLEditorKit$LinkController::activateLink(int32_t pos, $JEditorPane* html,
 }
 
 $HyperlinkEvent* HTMLEditorKit$LinkController::createHyperlinkEvent($JEditorPane* html, $HTMLDocument* hdoc, $String* href, $AttributeSet* anchor, $Element* element, $MouseEvent* mouseEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($URL, u, nullptr);
 	try {
 		$var($URL, base, $nc(hdoc)->getBase());
@@ -363,11 +297,11 @@ $HyperlinkEvent* HTMLEditorKit$LinkController::createHyperlinkEvent($JEditorPane
 		$assign(linkEvent, $new($HyperlinkEvent, html, $HyperlinkEvent$EventType::ACTIVATED, u, href, element, mouseEvent));
 	} else {
 		$init($HTML$Attribute);
-		$var($String, target, (anchor != nullptr) ? $cast($String, $nc(anchor)->getAttribute($HTML$Attribute::TARGET)) : ($String*)nullptr);
-		if (target == nullptr || $nc(target)->isEmpty()) {
+		$var($String, target, (anchor != nullptr) ? $cast($String, anchor->getAttribute($HTML$Attribute::TARGET)) : ($String*)nullptr);
+		if (target == nullptr || target->isEmpty()) {
 			$assign(target, hdoc->getBaseTarget());
 		}
-		if (target == nullptr || $nc(target)->isEmpty()) {
+		if (target == nullptr || target->isEmpty()) {
 			$assign(target, "_self"_s);
 		}
 		$init($HyperlinkEvent$EventType);
@@ -377,7 +311,7 @@ $HyperlinkEvent* HTMLEditorKit$LinkController::createHyperlinkEvent($JEditorPane
 }
 
 void HTMLEditorKit$LinkController::fireEvents($JEditorPane* editor, $HTMLDocument* doc, $String* href, $Element* lastElem, $MouseEvent* mouseEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->href != nullptr) {
 		$var($URL, u, nullptr);
 		try {
@@ -406,7 +340,54 @@ HTMLEditorKit$LinkController::HTMLEditorKit$LinkController() {
 }
 
 $Class* HTMLEditorKit$LinkController::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$LinkController, name, initialize, &_HTMLEditorKit$LinkController_ClassInfo_, allocate$HTMLEditorKit$LinkController);
+	$FieldInfo fieldInfos$$[] = {
+		{"curElem", "Ljavax/swing/text/Element;", nullptr, $PRIVATE, $field(HTMLEditorKit$LinkController, curElem)},
+		{"curElemImage", "Z", nullptr, $PRIVATE, $field(HTMLEditorKit$LinkController, curElemImage)},
+		{"href", "Ljava/lang/String;", nullptr, $PRIVATE, $field(HTMLEditorKit$LinkController, href)},
+		{"bias", "[Ljavax/swing/text/Position$Bias;", nullptr, $PRIVATE | $TRANSIENT, $field(HTMLEditorKit$LinkController, bias)},
+		{"curOffset", "I", nullptr, $PRIVATE, $field(HTMLEditorKit$LinkController, curOffset)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLEditorKit$LinkController, init$, void)},
+		{"activateLink", "(ILjavax/swing/JEditorPane;)V", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$LinkController, activateLink, void, int32_t, $JEditorPane*)},
+		{"activateLink", "(ILjavax/swing/JEditorPane;Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(HTMLEditorKit$LinkController, activateLink, void, int32_t, $JEditorPane*, $MouseEvent*)},
+		{"createHyperlinkEvent", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;Ljava/lang/String;Ljavax/swing/text/AttributeSet;Ljavax/swing/text/Element;Ljava/awt/event/MouseEvent;)Ljavax/swing/event/HyperlinkEvent;", nullptr, 0, $virtualMethod(HTMLEditorKit$LinkController, createHyperlinkEvent, $HyperlinkEvent*, $JEditorPane*, $HTMLDocument*, $String*, $AttributeSet*, $Element*, $MouseEvent*)},
+		{"doesElementContainLocation", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/Element;III)Z", nullptr, $PRIVATE, $method(HTMLEditorKit$LinkController, doesElementContainLocation, bool, $JEditorPane*, $Element*, int32_t, int32_t, int32_t)},
+		{"fireEvents", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;Ljava/lang/String;Ljavax/swing/text/Element;Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(HTMLEditorKit$LinkController, fireEvents, void, $JEditorPane*, $HTMLDocument*, $String*, $Element*, $MouseEvent*)},
+		{"getMapHREF", "(Ljavax/swing/JEditorPane;Ljavax/swing/text/html/HTMLDocument;Ljavax/swing/text/Element;Ljavax/swing/text/AttributeSet;III)Ljava/lang/String;", nullptr, $PRIVATE, $method(HTMLEditorKit$LinkController, getMapHREF, $String*, $JEditorPane*, $HTMLDocument*, $Element*, $AttributeSet*, int32_t, int32_t, int32_t)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$LinkController, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$LinkController, mouseDragged, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$LinkController, mouseMoved, void, $MouseEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$LinkController", "javax.swing.text.html.HTMLEditorKit", "LinkController", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$LinkController",
+		"java.awt.event.MouseAdapter",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$LinkController, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLEditorKit$LinkController));
+	});
 	return class$;
 }
 

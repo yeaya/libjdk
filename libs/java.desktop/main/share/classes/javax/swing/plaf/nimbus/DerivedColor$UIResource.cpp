@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/DerivedColor$UIResource.h>
-
 #include <javax/swing/plaf/nimbus/DerivedColor.h>
 #include <jcpp.h>
 
@@ -12,41 +11,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$MethodInfo _DerivedColor$UIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;FFFI)V", nullptr, 0, $method(DerivedColor$UIResource, init$, void, $String*, float, float, float, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DerivedColor$UIResource, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DerivedColor$UIResource, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DerivedColor$UIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.DerivedColor$UIResource", "javax.swing.plaf.nimbus.DerivedColor", "UIResource", $STATIC},
-	{}
-};
-
-$ClassInfo _DerivedColor$UIResource_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.nimbus.DerivedColor$UIResource",
-	"javax.swing.plaf.nimbus.DerivedColor",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_DerivedColor$UIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DerivedColor$UIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.DerivedColor"
-};
-
-$Object* allocate$DerivedColor$UIResource($Class* clazz) {
-	return $of($alloc(DerivedColor$UIResource));
-}
 
 $String* DerivedColor$UIResource::toString() {
 	 return this->$DerivedColor::toString();
@@ -76,7 +40,37 @@ DerivedColor$UIResource::DerivedColor$UIResource() {
 }
 
 $Class* DerivedColor$UIResource::load$($String* name, bool initialize) {
-	$loadClass(DerivedColor$UIResource, name, initialize, &_DerivedColor$UIResource_ClassInfo_, allocate$DerivedColor$UIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;FFFI)V", nullptr, 0, $method(DerivedColor$UIResource, init$, void, $String*, float, float, float, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DerivedColor$UIResource, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DerivedColor$UIResource, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.DerivedColor$UIResource", "javax.swing.plaf.nimbus.DerivedColor", "UIResource", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.nimbus.DerivedColor$UIResource",
+		"javax.swing.plaf.nimbus.DerivedColor",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.DerivedColor"
+	};
+	$loadClass(DerivedColor$UIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DerivedColor$UIResource));
+	});
 	return class$;
 }
 

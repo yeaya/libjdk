@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLRenderer$Tracer$1.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
 #include <sun/java2d/metal/MTLRenderer$Tracer.h>
@@ -20,51 +19,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLRenderer$Tracer$1_FieldInfo_[] = {
-	{"this$1", "Lsun/java2d/metal/MTLRenderer$Tracer;", nullptr, $FINAL | $SYNTHETIC, $field(MTLRenderer$Tracer$1, this$1)},
-	{"val$realpipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $FINAL | $SYNTHETIC, $field(MTLRenderer$Tracer$1, val$realpipe)},
-	{}
-};
-
-$MethodInfo _MTLRenderer$Tracer$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/metal/MTLRenderer$Tracer;Lsun/java2d/pipe/ParallelogramPipe;)V", "()V", 0, $method(MTLRenderer$Tracer$1, init$, void, $MTLRenderer$Tracer*, $ParallelogramPipe*)},
-	{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer$1, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
-	{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer$1, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
-	{}
-};
-
-$EnclosingMethodInfo _MTLRenderer$Tracer$1_EnclosingMethodInfo_ = {
-	"sun.java2d.metal.MTLRenderer$Tracer",
-	"getAAParallelogramPipe",
-	"()Lsun/java2d/pipe/ParallelogramPipe;"
-};
-
-$InnerClassInfo _MTLRenderer$Tracer$1_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLRenderer$Tracer", "sun.java2d.metal.MTLRenderer", "Tracer", $PRIVATE},
-	{"sun.java2d.metal.MTLRenderer$Tracer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MTLRenderer$Tracer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLRenderer$Tracer$1",
-	"java.lang.Object",
-	"sun.java2d.pipe.ParallelogramPipe",
-	_MTLRenderer$Tracer$1_FieldInfo_,
-	_MTLRenderer$Tracer$1_MethodInfo_,
-	nullptr,
-	&_MTLRenderer$Tracer$1_EnclosingMethodInfo_,
-	_MTLRenderer$Tracer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLRenderer"
-};
-
-$Object* allocate$MTLRenderer$Tracer$1($Class* clazz) {
-	return $of($alloc(MTLRenderer$Tracer$1));
-}
-
 void MTLRenderer$Tracer$1::init$($MTLRenderer$Tracer* this$1, $ParallelogramPipe* val$realpipe) {
 	$set(this, this$1, this$1);
 	$set(this, val$realpipe, val$realpipe);
@@ -84,7 +38,45 @@ MTLRenderer$Tracer$1::MTLRenderer$Tracer$1() {
 }
 
 $Class* MTLRenderer$Tracer$1::load$($String* name, bool initialize) {
-	$loadClass(MTLRenderer$Tracer$1, name, initialize, &_MTLRenderer$Tracer$1_ClassInfo_, allocate$MTLRenderer$Tracer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/java2d/metal/MTLRenderer$Tracer;", nullptr, $FINAL | $SYNTHETIC, $field(MTLRenderer$Tracer$1, this$1)},
+		{"val$realpipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $FINAL | $SYNTHETIC, $field(MTLRenderer$Tracer$1, val$realpipe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/metal/MTLRenderer$Tracer;Lsun/java2d/pipe/ParallelogramPipe;)V", "()V", 0, $method(MTLRenderer$Tracer$1, init$, void, $MTLRenderer$Tracer*, $ParallelogramPipe*)},
+		{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer$1, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
+		{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer$1, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.metal.MTLRenderer$Tracer",
+		"getAAParallelogramPipe",
+		"()Lsun/java2d/pipe/ParallelogramPipe;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLRenderer$Tracer", "sun.java2d.metal.MTLRenderer", "Tracer", $PRIVATE},
+		{"sun.java2d.metal.MTLRenderer$Tracer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLRenderer$Tracer$1",
+		"java.lang.Object",
+		"sun.java2d.pipe.ParallelogramPipe",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLRenderer"
+	};
+	$loadClass(MTLRenderer$Tracer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLRenderer$Tracer$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/tools/DiagnosticCollector.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
@@ -19,32 +18,6 @@ using $Diagnostic = ::javax::tools::Diagnostic;
 namespace javax {
 	namespace tools {
 
-$FieldInfo _DiagnosticCollector_FieldInfo_[] = {
-	{"diagnostics", "Ljava/util/List;", "Ljava/util/List<Ljavax/tools/Diagnostic<+TS;>;>;", $PRIVATE, $field(DiagnosticCollector, diagnostics)},
-	{}
-};
-
-$MethodInfo _DiagnosticCollector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DiagnosticCollector, init$, void)},
-	{"getDiagnostics", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/tools/Diagnostic<+TS;>;>;", $PUBLIC, $method(DiagnosticCollector, getDiagnostics, $List*)},
-	{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TS;>;)V", $PUBLIC, $virtualMethod(DiagnosticCollector, report, void, $Diagnostic*)},
-	{}
-};
-
-$ClassInfo _DiagnosticCollector_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.tools.DiagnosticCollector",
-	"java.lang.Object",
-	"javax.tools.DiagnosticListener",
-	_DiagnosticCollector_FieldInfo_,
-	_DiagnosticCollector_MethodInfo_,
-	"<S:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/tools/DiagnosticListener<TS;>;"
-};
-
-$Object* allocate$DiagnosticCollector($Class* clazz) {
-	return $of($alloc(DiagnosticCollector));
-}
-
 void DiagnosticCollector::init$() {
 	$set(this, diagnostics, $Collections::synchronizedList($$new($ArrayList)));
 }
@@ -62,7 +35,28 @@ DiagnosticCollector::DiagnosticCollector() {
 }
 
 $Class* DiagnosticCollector::load$($String* name, bool initialize) {
-	$loadClass(DiagnosticCollector, name, initialize, &_DiagnosticCollector_ClassInfo_, allocate$DiagnosticCollector);
+	$FieldInfo fieldInfos$$[] = {
+		{"diagnostics", "Ljava/util/List;", "Ljava/util/List<Ljavax/tools/Diagnostic<+TS;>;>;", $PRIVATE, $field(DiagnosticCollector, diagnostics)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DiagnosticCollector, init$, void)},
+		{"getDiagnostics", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/tools/Diagnostic<+TS;>;>;", $PUBLIC, $method(DiagnosticCollector, getDiagnostics, $List*)},
+		{"report", "(Ljavax/tools/Diagnostic;)V", "(Ljavax/tools/Diagnostic<+TS;>;)V", $PUBLIC, $virtualMethod(DiagnosticCollector, report, void, $Diagnostic*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.tools.DiagnosticCollector",
+		"java.lang.Object",
+		"javax.tools.DiagnosticListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"<S:Ljava/lang/Object;>Ljava/lang/Object;Ljavax/tools/DiagnosticListener<TS;>;"
+	};
+	$loadClass(DiagnosticCollector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DiagnosticCollector);
+	});
 	return class$;
 }
 

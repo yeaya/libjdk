@@ -1,5 +1,4 @@
 #include <javax/management/NotificationFilter.h>
-
 #include <javax/management/Notification.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $Notification = ::javax::management::Notification;
 namespace javax {
 	namespace management {
 
-$MethodInfo _NotificationFilter_MethodInfo_[] = {
-	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationFilter, isNotificationEnabled, bool, $Notification*)},
-	{}
-};
-
-$ClassInfo _NotificationFilter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.NotificationFilter",
-	nullptr,
-	"java.io.Serializable",
-	nullptr,
-	_NotificationFilter_MethodInfo_
-};
-
-$Object* allocate$NotificationFilter($Class* clazz) {
-	return $of($alloc(NotificationFilter));
-}
-
 $Class* NotificationFilter::load$($String* name, bool initialize) {
-	$loadClass(NotificationFilter, name, initialize, &_NotificationFilter_ClassInfo_, allocate$NotificationFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationFilter, isNotificationEnabled, bool, $Notification*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.NotificationFilter",
+		nullptr,
+		"java.io.Serializable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NotificationFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationFilter);
+	});
 	return class$;
 }
 

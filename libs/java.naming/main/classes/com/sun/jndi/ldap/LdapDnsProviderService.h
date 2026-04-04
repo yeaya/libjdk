@@ -33,6 +33,7 @@ class LdapDnsProviderService : public ::java::lang::Object {
 	$class(LdapDnsProviderService, 0, ::java::lang::Object)
 public:
 	LdapDnsProviderService();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::jndi::ldap::LdapDnsProviderService* getInstance();
 	static bool lambda$lookupEndpoints$1(::javax::naming::ldap::spi::LdapDnsProviderResult* r);

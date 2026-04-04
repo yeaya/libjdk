@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/sasl/TlsChannelBinding.h>
-
 #include <com/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType.h>
 #include <java/lang/CharSequence.h>
 #include <java/security/GeneralSecurityException.h>
@@ -36,53 +35,12 @@ namespace com {
 			namespace ldap {
 				namespace sasl {
 
-$FieldInfo _TlsChannelBinding_FieldInfo_[] = {
-	{"CHANNEL_BINDING_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TlsChannelBinding, CHANNEL_BINDING_TYPE)},
-	{"CHANNEL_BINDING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TlsChannelBinding, CHANNEL_BINDING)},
-	{"cbType", "Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PRIVATE | $FINAL, $field(TlsChannelBinding, cbType)},
-	{"cbData", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsChannelBinding, cbData)},
-	{}
-};
-
-$MethodInfo _TlsChannelBinding_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;[B)V", nullptr, $PRIVATE, $method(TlsChannelBinding, init$, void, $TlsChannelBinding$TlsChannelBindingType*, $bytes*)},
-	{"create", "(Ljava/security/cert/X509Certificate;)Lcom/sun/jndi/ldap/sasl/TlsChannelBinding;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding, create, TlsChannelBinding*, $X509Certificate*), "javax.security.sasl.SaslException"},
-	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsChannelBinding, getData, $bytes*)},
-	{"getType", "()Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC, $virtualMethod(TlsChannelBinding, getType, $TlsChannelBinding$TlsChannelBindingType*)},
-	{"parseType", "(Ljava/lang/String;)Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding, parseType, $TlsChannelBinding$TlsChannelBindingType*, $String*), "javax.naming.NamingException"},
-	{}
-};
-
-$InnerClassInfo _TlsChannelBinding_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.sasl.TlsChannelBinding$TlsChannelBindingType", "com.sun.jndi.ldap.sasl.TlsChannelBinding", "TlsChannelBindingType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TlsChannelBinding_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jndi.ldap.sasl.TlsChannelBinding",
-	"java.lang.Object",
-	nullptr,
-	_TlsChannelBinding_FieldInfo_,
-	_TlsChannelBinding_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TlsChannelBinding_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.sasl.TlsChannelBinding$TlsChannelBindingType"
-};
-
-$Object* allocate$TlsChannelBinding($Class* clazz) {
-	return $of($alloc(TlsChannelBinding));
-}
-
 $String* TlsChannelBinding::CHANNEL_BINDING_TYPE = nullptr;
 $String* TlsChannelBinding::CHANNEL_BINDING = nullptr;
 
 $TlsChannelBinding$TlsChannelBindingType* TlsChannelBinding::parseType($String* cbType) {
 	$init(TlsChannelBinding);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cbType != nullptr) {
 		$init($TlsChannelBinding$TlsChannelBindingType);
 		if (cbType->equals($($TlsChannelBinding$TlsChannelBindingType::TLS_SERVER_END_POINT->getName()))) {
@@ -96,11 +54,11 @@ $TlsChannelBinding$TlsChannelBindingType* TlsChannelBinding::parseType($String* 
 
 TlsChannelBinding* TlsChannelBinding::create($X509Certificate* serverCertificate) {
 	$init(TlsChannelBinding);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($TlsChannelBinding$TlsChannelBindingType);
-		$var($bytes, prefix, $($nc($($TlsChannelBinding$TlsChannelBindingType::TLS_SERVER_END_POINT->getName()))->concat(":"_s))->getBytes());
-		$var($String, hashAlg, $($nc($($nc(serverCertificate)->getSigAlgName()))->replace(static_cast<$CharSequence*>("SHA"_s), static_cast<$CharSequence*>("SHA-"_s)))->toUpperCase());
+		$var($bytes, prefix, $($$nc($TlsChannelBinding$TlsChannelBindingType::TLS_SERVER_END_POINT->getName())->concat(":"_s))->getBytes());
+		$var($String, hashAlg, $($$nc($nc(serverCertificate)->getSigAlgName())->replace("SHA"_s, "SHA-"_s))->toUpperCase());
 		int32_t ind = hashAlg->indexOf("WITH"_s);
 		if (ind > 0) {
 			$assign(hashAlg, hashAlg->substring(0, ind));
@@ -114,7 +72,7 @@ TlsChannelBinding* TlsChannelBinding::create($X509Certificate* serverCertificate
 		$var($MessageDigest, md, $MessageDigest::getInstance(hashAlg));
 		$var($bytes, hash, $nc(md)->digest($(serverCertificate->getEncoded())));
 		$var($bytes, cbData, $Arrays::copyOf(prefix, prefix->length + $nc(hash)->length));
-		$System::arraycopy(hash, 0, cbData, prefix->length, $nc(hash)->length);
+		$System::arraycopy(hash, 0, cbData, prefix->length, hash->length);
 		return $new(TlsChannelBinding, $TlsChannelBinding$TlsChannelBindingType::TLS_SERVER_END_POINT, cbData);
 	} catch ($NoSuchAlgorithmException& e) {
 		$throwNew($SaslException, "Cannot create TLS channel binding data"_s, e);
@@ -140,13 +98,48 @@ $bytes* TlsChannelBinding::getData() {
 TlsChannelBinding::TlsChannelBinding() {
 }
 
-void clinit$TlsChannelBinding($Class* class$) {
+void TlsChannelBinding::clinit$($Class* clazz) {
 	$assignStatic(TlsChannelBinding::CHANNEL_BINDING_TYPE, "com.sun.jndi.ldap.tls.cbtype"_s);
 	$assignStatic(TlsChannelBinding::CHANNEL_BINDING, "jdk.internal.sasl.tlschannelbinding"_s);
 }
 
 $Class* TlsChannelBinding::load$($String* name, bool initialize) {
-	$loadClass(TlsChannelBinding, name, initialize, &_TlsChannelBinding_ClassInfo_, clinit$TlsChannelBinding, allocate$TlsChannelBinding);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHANNEL_BINDING_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TlsChannelBinding, CHANNEL_BINDING_TYPE)},
+		{"CHANNEL_BINDING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TlsChannelBinding, CHANNEL_BINDING)},
+		{"cbType", "Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PRIVATE | $FINAL, $field(TlsChannelBinding, cbType)},
+		{"cbData", "[B", nullptr, $PRIVATE | $FINAL, $field(TlsChannelBinding, cbData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;[B)V", nullptr, $PRIVATE, $method(TlsChannelBinding, init$, void, $TlsChannelBinding$TlsChannelBindingType*, $bytes*)},
+		{"create", "(Ljava/security/cert/X509Certificate;)Lcom/sun/jndi/ldap/sasl/TlsChannelBinding;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding, create, TlsChannelBinding*, $X509Certificate*), "javax.security.sasl.SaslException"},
+		{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(TlsChannelBinding, getData, $bytes*)},
+		{"getType", "()Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC, $virtualMethod(TlsChannelBinding, getType, $TlsChannelBinding$TlsChannelBindingType*)},
+		{"parseType", "(Ljava/lang/String;)Lcom/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType;", nullptr, $PUBLIC | $STATIC, $staticMethod(TlsChannelBinding, parseType, $TlsChannelBinding$TlsChannelBindingType*, $String*), "javax.naming.NamingException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.sasl.TlsChannelBinding$TlsChannelBindingType", "com.sun.jndi.ldap.sasl.TlsChannelBinding", "TlsChannelBindingType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jndi.ldap.sasl.TlsChannelBinding",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.sasl.TlsChannelBinding$TlsChannelBindingType"
+	};
+	$loadClass(TlsChannelBinding, name, initialize, &classInfo$$, TlsChannelBinding::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TlsChannelBinding);
+	});
 	return class$;
 }
 

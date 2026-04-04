@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
-
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
@@ -24,50 +23,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Symbol$CompletionFailure_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Symbol$CompletionFailure, serialVersionUID)},
-	{"dcfh", "Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $field(Symbol$CompletionFailure, dcfh)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $TRANSIENT, $field(Symbol$CompletionFailure, sym)},
-	{"diag", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $TRANSIENT, $field(Symbol$CompletionFailure, diag)},
-	{"diagSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE | $TRANSIENT, $field(Symbol$CompletionFailure, diagSupplier)},
-	{}
-};
-
-$MethodInfo _Symbol$CompletionFailure_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", "(Lcom/sun/tools/javac/code/Symbol;Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic;>;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", $PUBLIC, $method(Symbol$CompletionFailure, init$, void, $Symbol*, $Supplier*, $DeferredCompletionFailureHandler*)},
-	{"getDetailValue", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Symbol$CompletionFailure, getDetailValue, $JCDiagnostic*)},
-	{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Symbol$CompletionFailure, getDiagnostic, $JCDiagnostic*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$CompletionFailure, getMessage, $String*)},
-	{"initCause", "(Ljava/lang/Throwable;)Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", nullptr, $PUBLIC, $virtualMethod(Symbol$CompletionFailure, initCause, Symbol$CompletionFailure*, $Throwable*)},
-	{"resetDiagnostic", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $virtualMethod(Symbol$CompletionFailure, resetDiagnostic, void, $Supplier*)},
-	{}
-};
-
-$InnerClassInfo _Symbol$CompletionFailure_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$CompletionFailure", "com.sun.tools.javac.code.Symbol", "CompletionFailure", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Symbol$CompletionFailure_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$CompletionFailure",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Symbol$CompletionFailure_FieldInfo_,
-	_Symbol$CompletionFailure_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$CompletionFailure_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$CompletionFailure($Class* clazz) {
-	return $of($alloc(Symbol$CompletionFailure));
-}
-
 void Symbol$CompletionFailure::init$($Symbol* sym, $Supplier* diagSupplier, $DeferredCompletionFailureHandler* dcfh) {
 	$RuntimeException::init$();
 	$set(this, dcfh, dcfh);
@@ -77,13 +32,13 @@ void Symbol$CompletionFailure::init$($Symbol* sym, $Supplier* diagSupplier, $Def
 
 $JCDiagnostic* Symbol$CompletionFailure::getDiagnostic() {
 	if (this->diag == nullptr && this->diagSupplier != nullptr) {
-		$set(this, diag, $cast($JCDiagnostic, $nc(this->diagSupplier)->get()));
+		$set(this, diag, $cast($JCDiagnostic, this->diagSupplier->get()));
 	}
 	return this->diag;
 }
 
 $String* Symbol$CompletionFailure::getMessage() {
-	return $nc($(getDiagnostic()))->getMessage(nullptr);
+	return $$nc(getDiagnostic())->getMessage(nullptr);
 }
 
 $JCDiagnostic* Symbol$CompletionFailure::getDetailValue() {
@@ -111,7 +66,45 @@ void Symbol$CompletionFailure::throw$() {
 }
 
 $Class* Symbol$CompletionFailure::load$($String* name, bool initialize) {
-	$loadClass(Symbol$CompletionFailure, name, initialize, &_Symbol$CompletionFailure_ClassInfo_, allocate$Symbol$CompletionFailure);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Symbol$CompletionFailure, serialVersionUID)},
+		{"dcfh", "Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $PUBLIC | $FINAL | $TRANSIENT, $field(Symbol$CompletionFailure, dcfh)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC | $TRANSIENT, $field(Symbol$CompletionFailure, sym)},
+		{"diag", "Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PRIVATE | $TRANSIENT, $field(Symbol$CompletionFailure, diag)},
+		{"diagSupplier", "Ljava/util/function/Supplier;", "Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE | $TRANSIENT, $field(Symbol$CompletionFailure, diagSupplier)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;Ljava/util/function/Supplier;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", "(Lcom/sun/tools/javac/code/Symbol;Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic;>;Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;)V", $PUBLIC, $method(Symbol$CompletionFailure, init$, void, $Symbol*, $Supplier*, $DeferredCompletionFailureHandler*)},
+		{"getDetailValue", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Symbol$CompletionFailure, getDetailValue, $JCDiagnostic*)},
+		{"getDiagnostic", "()Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Symbol$CompletionFailure, getDiagnostic, $JCDiagnostic*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol$CompletionFailure, getMessage, $String*)},
+		{"initCause", "(Ljava/lang/Throwable;)Lcom/sun/tools/javac/code/Symbol$CompletionFailure;", nullptr, $PUBLIC, $virtualMethod(Symbol$CompletionFailure, initCause, Symbol$CompletionFailure*, $Throwable*)},
+		{"resetDiagnostic", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $virtualMethod(Symbol$CompletionFailure, resetDiagnostic, void, $Supplier*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$CompletionFailure", "com.sun.tools.javac.code.Symbol", "CompletionFailure", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$CompletionFailure",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$CompletionFailure, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symbol$CompletionFailure);
+	});
 	return class$;
 }
 

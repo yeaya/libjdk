@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCEnhancedForLoop.h>
-
-#include <com/sun/source/tree/EnhancedForLoopTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/StatementTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
@@ -17,7 +15,6 @@
 #undef ENHANCED_FOR_LOOP
 #undef FOREACHLOOP
 
-using $EnhancedForLoopTree = ::com::sun::source::tree::EnhancedForLoopTree;
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
@@ -38,56 +35,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCEnhancedForLoop_FieldInfo_[] = {
-	{"var", "Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $field(JCTree$JCEnhancedForLoop, var)},
-	{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCEnhancedForLoop, expr)},
-	{"body", "Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $field(JCTree$JCEnhancedForLoop, body)},
-	{}
-};
-
-$MethodInfo _JCTree$JCEnhancedForLoop_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)V", nullptr, $PROTECTED, $method(JCTree$JCEnhancedForLoop, init$, void, $JCTree$JCVariableDecl*, $JCTree$JCExpression*, $JCTree$JCStatement*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getExpression, $ExpressionTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getKind, $Tree$Kind*)},
-	{"getStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getStatement, $StatementTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getTag, $JCTree$Tag*)},
-	{"getVariable", "()Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getVariable, $VariableTree*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCEnhancedForLoop_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCEnhancedForLoop", "com.sun.tools.javac.tree.JCTree", "JCEnhancedForLoop", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCEnhancedForLoop_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCEnhancedForLoop",
-	"com.sun.tools.javac.tree.JCTree$JCStatement",
-	"com.sun.source.tree.EnhancedForLoopTree",
-	_JCTree$JCEnhancedForLoop_FieldInfo_,
-	_JCTree$JCEnhancedForLoop_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCEnhancedForLoop_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCEnhancedForLoop($Class* clazz) {
-	return $of($alloc(JCTree$JCEnhancedForLoop));
-}
 
 $String* JCTree$JCEnhancedForLoop::toString() {
 	 return this->$JCTree$JCStatement::toString();
@@ -138,7 +85,7 @@ $StatementTree* JCTree$JCEnhancedForLoop::getStatement() {
 }
 
 $Object* JCTree$JCEnhancedForLoop::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitEnhancedForLoop(this, d));
+	return $nc(v)->visitEnhancedForLoop(this, d);
 }
 
 $JCTree$Tag* JCTree$JCEnhancedForLoop::getTag() {
@@ -150,7 +97,51 @@ JCTree$JCEnhancedForLoop::JCTree$JCEnhancedForLoop() {
 }
 
 $Class* JCTree$JCEnhancedForLoop::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCEnhancedForLoop, name, initialize, &_JCTree$JCEnhancedForLoop_ClassInfo_, allocate$JCTree$JCEnhancedForLoop);
+	$FieldInfo fieldInfos$$[] = {
+		{"var", "Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $field(JCTree$JCEnhancedForLoop, var)},
+		{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCEnhancedForLoop, expr)},
+		{"body", "Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $field(JCTree$JCEnhancedForLoop, body)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCStatement;)V", nullptr, $PROTECTED, $method(JCTree$JCEnhancedForLoop, init$, void, $JCTree$JCVariableDecl*, $JCTree$JCExpression*, $JCTree$JCStatement*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getExpression", "()Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getExpression, $ExpressionTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getKind, $Tree$Kind*)},
+		{"getStatement", "()Lcom/sun/tools/javac/tree/JCTree$JCStatement;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getStatement, $StatementTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getTag, $JCTree$Tag*)},
+		{"getVariable", "()Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCEnhancedForLoop, getVariable, $VariableTree*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCEnhancedForLoop", "com.sun.tools.javac.tree.JCTree", "JCEnhancedForLoop", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCStatement", "com.sun.tools.javac.tree.JCTree", "JCStatement", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCEnhancedForLoop",
+		"com.sun.tools.javac.tree.JCTree$JCStatement",
+		"com.sun.source.tree.EnhancedForLoopTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCEnhancedForLoop, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCEnhancedForLoop));
+	});
 	return class$;
 }
 

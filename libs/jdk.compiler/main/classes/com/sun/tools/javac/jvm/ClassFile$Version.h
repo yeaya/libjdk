@@ -22,6 +22,7 @@ class $export ClassFile$Version : public ::java::lang::Enum {
 public:
 	ClassFile$Version();
 	static $Array<::com::sun::tools::javac::jvm::ClassFile$Version>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t major, int32_t minor);
 	static ::com::sun::tools::javac::jvm::ClassFile$Version* MAX();
 	static ::com::sun::tools::javac::jvm::ClassFile$Version* MIN();

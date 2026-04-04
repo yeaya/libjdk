@@ -1,5 +1,4 @@
 #include <jdk/security/jarsigner/JarSigner$SignatureFile.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/security/MessageDigest.h>
@@ -31,10 +30,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MessageDigest = ::java::security::MessageDigest;
 using $PrivateKey = ::java::security::PrivateKey;
 using $Base64 = ::java::util::Base64;
-using $Base64$Encoder = ::java::util::Base64$Encoder;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $Attributes = ::java::util::jar::Attributes;
 using $Attributes$Name = ::java::util::jar::Attributes$Name;
 using $Manifest = ::java::util::jar::Manifest;
@@ -46,82 +43,34 @@ namespace jdk {
 	namespace security {
 		namespace jarsigner {
 
-$FieldInfo _JarSigner$SignatureFile_FieldInfo_[] = {
-	{"sf", "Ljava/util/jar/Manifest;", nullptr, 0, $field(JarSigner$SignatureFile, sf)},
-	{"baseName", "Ljava/lang/String;", nullptr, 0, $field(JarSigner$SignatureFile, baseName)},
-	{}
-};
-
-$MethodInfo _JarSigner$SignatureFile_MethodInfo_[] = {
-	{"<init>", "([Ljava/security/MessageDigest;Ljava/util/jar/Manifest;Lsun/security/util/ManifestDigester;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JarSigner$SignatureFile, init$, void, $MessageDigestArray*, $Manifest*, $ManifestDigester*, $String*, bool)},
-	{"getBaseSignatureFilesName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JarSigner$SignatureFile, getBaseSignatureFilesName, $String*, $String*)},
-	{"getBlockName", "(Ljava/security/PrivateKey;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, getBlockName, $String*, $PrivateKey*)},
-	{"getMetaName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, getMetaName, $String*)},
-	{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, write, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JarSigner$SignatureFile_InnerClassesInfo_[] = {
-	{"jdk.security.jarsigner.JarSigner$SignatureFile", "jdk.security.jarsigner.JarSigner", "SignatureFile", $STATIC},
-	{}
-};
-
-$ClassInfo _JarSigner$SignatureFile_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.security.jarsigner.JarSigner$SignatureFile",
-	"java.lang.Object",
-	nullptr,
-	_JarSigner$SignatureFile_FieldInfo_,
-	_JarSigner$SignatureFile_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JarSigner$SignatureFile_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.security.jarsigner.JarSigner"
-};
-
-$Object* allocate$JarSigner$SignatureFile($Class* clazz) {
-	return $of($alloc(JarSigner$SignatureFile));
-}
-
 void JarSigner$SignatureFile::init$($MessageDigestArray* digests, $Manifest* mf, $ManifestDigester* md, $String* baseName, bool sectionsonly) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, baseName, baseName);
 	$var($String, version, $System::getProperty("java.version"_s));
 	$var($String, javaVendor, $System::getProperty("java.vendor"_s));
 	$set(this, sf, $new($Manifest));
-	$var($Attributes, mattr, $nc(this->sf)->getMainAttributes());
+	$var($Attributes, mattr, this->sf->getMainAttributes());
 	$init($Attributes$Name);
 	$nc(mattr)->putValue($($nc($Attributes$Name::SIGNATURE_VERSION)->toString()), "1.0"_s);
 	mattr->putValue("Created-By"_s, $$str({version, " ("_s, javaVendor, ")"_s}));
 	if (!sectionsonly) {
-		{
-			$var($MessageDigestArray, arr$, digests);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($MessageDigest, digest, arr$->get(i$));
-				{
-					$var($String, var$0, $str({$($nc(digest)->getAlgorithm()), "-Digest-Manifest"_s}));
-					mattr->putValue(var$0, $($nc($($Base64::getEncoder()))->encodeToString($($nc(md)->manifestDigest(digest)))));
-				}
+		$var($MessageDigestArray, arr$, digests);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($MessageDigest, digest, arr$->get(i$));
+			{
+				$var($String, var$0, $str({$($nc(digest)->getAlgorithm()), "-Digest-Manifest"_s}));
+				mattr->putValue(var$0, $($$nc($Base64::getEncoder())->encodeToString($($nc(md)->manifestDigest(digest)))));
 			}
 		}
 	}
 	$var($ManifestDigester$Entry, mde, $nc(md)->getMainAttsEntry(false));
 	if (mde != nullptr) {
-		{
-			$var($MessageDigestArray, arr$, digests);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($MessageDigest, digest, arr$->get(i$));
-				{
-					$var($String, var$1, $str({$($nc(digest)->getAlgorithm()), "-Digest-"_s, $ManifestDigester::MF_MAIN_ATTRS}));
-					mattr->putValue(var$1, $($nc($($Base64::getEncoder()))->encodeToString($(mde->digest(digest)))));
-				}
+		$var($MessageDigestArray, arr$, digests);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($MessageDigest, digest, arr$->get(i$));
+			{
+				$var($String, var$1, $str({$($nc(digest)->getAlgorithm()), "-Digest-"_s, $ManifestDigester::MF_MAIN_ATTRS}));
+				mattr->putValue(var$1, $($$nc($Base64::getEncoder())->encodeToString($(mde->digest(digest)))));
 			}
 		}
 	} else {
@@ -129,7 +78,7 @@ void JarSigner$SignatureFile::init$($MessageDigestArray* digests, $Manifest* mf,
 	}
 	$var($Map, entries, $nc(this->sf)->getEntries());
 	{
-		$var($Iterator, i$, $nc($($nc($($nc(mf)->getEntries()))->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($$nc($nc(mf)->getEntries())->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, name, $cast($String, i$->next()));
 			{
@@ -138,13 +87,11 @@ void JarSigner$SignatureFile::init$($MessageDigestArray* digests, $Manifest* mf,
 					$var($Attributes, attr, $new($Attributes));
 					{
 						$var($MessageDigestArray, arr$, digests);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 							$var($MessageDigest, digest, arr$->get(i$));
 							{
 								$var($String, var$2, $str({$($nc(digest)->getAlgorithm()), "-Digest"_s}));
-								attr->putValue(var$2, $($nc($($Base64::getEncoder()))->encodeToString($(mde->digest(digest)))));
+								attr->putValue(var$2, $($$nc($Base64::getEncoder())->encodeToString($(mde->digest(digest)))));
 							}
 						}
 					}
@@ -168,7 +115,7 @@ $String* JarSigner$SignatureFile::getMetaName() {
 }
 
 $String* JarSigner$SignatureFile::getBlockName($PrivateKey* privateKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, type, $SignatureFileVerifier::getBlockExtension(privateKey));
 	return $str({$(getBaseSignatureFilesName(this->baseName)), type});
 }
@@ -177,7 +124,41 @@ JarSigner$SignatureFile::JarSigner$SignatureFile() {
 }
 
 $Class* JarSigner$SignatureFile::load$($String* name, bool initialize) {
-	$loadClass(JarSigner$SignatureFile, name, initialize, &_JarSigner$SignatureFile_ClassInfo_, allocate$JarSigner$SignatureFile);
+	$FieldInfo fieldInfos$$[] = {
+		{"sf", "Ljava/util/jar/Manifest;", nullptr, 0, $field(JarSigner$SignatureFile, sf)},
+		{"baseName", "Ljava/lang/String;", nullptr, 0, $field(JarSigner$SignatureFile, baseName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/security/MessageDigest;Ljava/util/jar/Manifest;Lsun/security/util/ManifestDigester;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(JarSigner$SignatureFile, init$, void, $MessageDigestArray*, $Manifest*, $ManifestDigester*, $String*, bool)},
+		{"getBaseSignatureFilesName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JarSigner$SignatureFile, getBaseSignatureFilesName, $String*, $String*)},
+		{"getBlockName", "(Ljava/security/PrivateKey;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, getBlockName, $String*, $PrivateKey*)},
+		{"getMetaName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, getMetaName, $String*)},
+		{"write", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(JarSigner$SignatureFile, write, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.security.jarsigner.JarSigner$SignatureFile", "jdk.security.jarsigner.JarSigner", "SignatureFile", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.security.jarsigner.JarSigner$SignatureFile",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.security.jarsigner.JarSigner"
+	};
+	$loadClass(JarSigner$SignatureFile, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JarSigner$SignatureFile);
+	});
 	return class$;
 }
 

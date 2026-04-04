@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/AssertTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _AssertTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssertTree, getCondition, $ExpressionTree*)},
-	{"getDetail", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssertTree, getDetail, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _AssertTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.AssertTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_AssertTree_MethodInfo_
-};
-
-$Object* allocate$AssertTree($Class* clazz) {
-	return $of($alloc(AssertTree));
-}
-
 $Class* AssertTree::load$($String* name, bool initialize) {
-	$loadClass(AssertTree, name, initialize, &_AssertTree_ClassInfo_, allocate$AssertTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssertTree, getCondition, $ExpressionTree*)},
+		{"getDetail", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AssertTree, getDetail, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.AssertTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AssertTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AssertTree);
+	});
 	return class$;
 }
 

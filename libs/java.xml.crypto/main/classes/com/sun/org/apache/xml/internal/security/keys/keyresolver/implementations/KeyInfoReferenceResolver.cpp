@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/implementations/KeyInfoReferenceResolver.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/KeyInfo.h>
 #include <com/sun/org/apache/xml/internal/security/keys/content/KeyInfoReference.h>
@@ -61,38 +60,6 @@ namespace com {
 								namespace keyresolver {
 									namespace implementations {
 
-$FieldInfo _KeyInfoReferenceResolver_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyInfoReferenceResolver, LOG)},
-	{}
-};
-
-$MethodInfo _KeyInfoReferenceResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyInfoReferenceResolver, init$, void)},
-	{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(KeyInfoReferenceResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
-	{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReferenceResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(KeyInfoReferenceResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(KeyInfoReferenceResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(KeyInfoReferenceResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"obtainReferenceElement", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Z)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(KeyInfoReferenceResolver, obtainReferenceElement, $Element*, $XMLSignatureInput*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,javax.xml.parsers.ParserConfigurationException,java.io.IOException,org.xml.sax.SAXException,com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
-	{"resolveInput", "(Lorg/w3c/dom/Attr;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $method(KeyInfoReferenceResolver, resolveInput, $XMLSignatureInput*, $Attr*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"resolveReferentKeyInfo", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Lcom/sun/org/apache/xml/internal/security/keys/KeyInfo;", nullptr, $PRIVATE, $method(KeyInfoReferenceResolver, resolveReferentKeyInfo, $KeyInfo*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"validateReference", "(Lorg/w3c/dom/Element;Z)V", nullptr, $PRIVATE, $method(KeyInfoReferenceResolver, validateReference, void, $Element*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{}
-};
-
-$ClassInfo _KeyInfoReferenceResolver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.KeyInfoReferenceResolver",
-	"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
-	nullptr,
-	_KeyInfoReferenceResolver_FieldInfo_,
-	_KeyInfoReferenceResolver_MethodInfo_
-};
-
-$Object* allocate$KeyInfoReferenceResolver($Class* clazz) {
-	return $of($alloc(KeyInfoReferenceResolver));
-}
-
 $Logger* KeyInfoReferenceResolver::LOG = nullptr;
 
 void KeyInfoReferenceResolver::init$() {
@@ -111,7 +78,7 @@ $PublicKey* KeyInfoReferenceResolver::engineResolvePublicKey($Element* element, 
 			return referent->getPublicKey();
 		}
 	} catch ($XMLSecurityException& e) {
-		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(e));
+		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, e);
 	}
 	return nullptr;
 }
@@ -123,7 +90,7 @@ $X509Certificate* KeyInfoReferenceResolver::engineResolveX509Certificate($Elemen
 			return referent->getX509Certificate();
 		}
 	} catch ($XMLSecurityException& e) {
-		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(e));
+		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, e);
 	}
 	return nullptr;
 }
@@ -135,7 +102,7 @@ $SecretKey* KeyInfoReferenceResolver::engineResolveSecretKey($Element* element, 
 			return referent->getSecretKey();
 		}
 	} catch ($XMLSecurityException& e) {
-		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(e));
+		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, e);
 	}
 	return nullptr;
 }
@@ -147,13 +114,13 @@ $PrivateKey* KeyInfoReferenceResolver::engineResolvePrivateKey($Element* element
 			return referent->getPrivateKey();
 		}
 	} catch ($XMLSecurityException& e) {
-		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(e));
+		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, e);
 	}
 	return nullptr;
 }
 
 $KeyInfo* KeyInfoReferenceResolver::resolveReferentKeyInfo($Element* element, $String* baseURI, $StorageResolver* storage, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyInfoReference, reference, $new($KeyInfoReference, element, baseURI));
 	$var($Attr, uriAttr, reference->getURIAttr());
 	$var($XMLSignatureInput, resource, resolveInput(uriAttr, baseURI, secureValidation));
@@ -161,11 +128,11 @@ $KeyInfo* KeyInfoReferenceResolver::resolveReferentKeyInfo($Element* element, $S
 	try {
 		$assign(referentElement, obtainReferenceElement(resource, secureValidation));
 	} catch ($Exception& e) {
-		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, static_cast<$Throwable*>(e));
+		$nc(KeyInfoReferenceResolver::LOG)->debug("XMLSecurityException"_s, e);
 		return nullptr;
 	}
 	if (referentElement == nullptr) {
-		$nc(KeyInfoReferenceResolver::LOG)->debug("De-reference of KeyInfoReference URI returned null: {}"_s, $$new($ObjectArray, {$($of($nc(uriAttr)->getValue()))}));
+		$nc(KeyInfoReferenceResolver::LOG)->debug("De-reference of KeyInfoReference URI returned null: {}"_s, $$new($ObjectArray, {$($nc(uriAttr)->getValue())}));
 		return nullptr;
 	}
 	validateReference(referentElement, secureValidation);
@@ -175,11 +142,11 @@ $KeyInfo* KeyInfoReferenceResolver::resolveReferentKeyInfo($Element* element, $S
 }
 
 void KeyInfoReferenceResolver::validateReference($Element* referentElement, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	if (!$XMLUtils::elementIsInSignatureSpace(referentElement, $Constants::_TAG_KEYINFO)) {
 		$var($String, var$0, $nc(referentElement)->getNamespaceURI());
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of($$new($QName, var$0, $(referentElement->getLocalName())))}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {$$new($QName, var$0, $(referentElement->getLocalName()))}));
 		$throwNew($XMLSecurityException, "KeyInfoReferenceResolver.InvalidReferentElement.WrongType"_s, exArgs);
 	}
 	$var($KeyInfo, referent, $new($KeyInfo, referentElement, ""_s));
@@ -198,7 +165,7 @@ $XMLSignatureInput* KeyInfoReferenceResolver::resolveInput($Attr* uri, $String* 
 }
 
 $Element* KeyInfoReferenceResolver::obtainReferenceElement($XMLSignatureInput* resource, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, e, nullptr);
 	if ($nc(resource)->isElement()) {
 		$assign(e, $cast($Element, resource->getSubNode()));
@@ -212,7 +179,7 @@ $Element* KeyInfoReferenceResolver::obtainReferenceElement($XMLSignatureInput* r
 	return e;
 }
 
-void clinit$KeyInfoReferenceResolver($Class* class$) {
+void KeyInfoReferenceResolver::clinit$($Class* clazz) {
 	$assignStatic(KeyInfoReferenceResolver::LOG, $LoggerFactory::getLogger(KeyInfoReferenceResolver::class$));
 }
 
@@ -220,7 +187,34 @@ KeyInfoReferenceResolver::KeyInfoReferenceResolver() {
 }
 
 $Class* KeyInfoReferenceResolver::load$($String* name, bool initialize) {
-	$loadClass(KeyInfoReferenceResolver, name, initialize, &_KeyInfoReferenceResolver_ClassInfo_, clinit$KeyInfoReferenceResolver, allocate$KeyInfoReferenceResolver);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyInfoReferenceResolver, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyInfoReferenceResolver, init$, void)},
+		{"engineCanResolve", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;)Z", nullptr, $PROTECTED, $virtualMethod(KeyInfoReferenceResolver, engineCanResolve, bool, $Element*, $String*, $StorageResolver*)},
+		{"engineResolvePrivateKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PrivateKey;", nullptr, $PUBLIC, $virtualMethod(KeyInfoReferenceResolver, engineResolvePrivateKey, $PrivateKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolvePublicKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/PublicKey;", nullptr, $PROTECTED, $virtualMethod(KeyInfoReferenceResolver, engineResolvePublicKey, $PublicKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolveSecretKey", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljavax/crypto/SecretKey;", nullptr, $PROTECTED, $virtualMethod(KeyInfoReferenceResolver, engineResolveSecretKey, $SecretKey*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"engineResolveX509Certificate", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Ljava/security/cert/X509Certificate;", nullptr, $PROTECTED, $virtualMethod(KeyInfoReferenceResolver, engineResolveX509Certificate, $X509Certificate*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"obtainReferenceElement", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Z)Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $method(KeyInfoReferenceResolver, obtainReferenceElement, $Element*, $XMLSignatureInput*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,javax.xml.parsers.ParserConfigurationException,java.io.IOException,org.xml.sax.SAXException,com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverException"},
+		{"resolveInput", "(Lorg/w3c/dom/Attr;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $method(KeyInfoReferenceResolver, resolveInput, $XMLSignatureInput*, $Attr*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"resolveReferentKeyInfo", "(Lorg/w3c/dom/Element;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolver;Z)Lcom/sun/org/apache/xml/internal/security/keys/KeyInfo;", nullptr, $PRIVATE, $method(KeyInfoReferenceResolver, resolveReferentKeyInfo, $KeyInfo*, $Element*, $String*, $StorageResolver*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"validateReference", "(Lorg/w3c/dom/Element;Z)V", nullptr, $PRIVATE, $method(KeyInfoReferenceResolver, validateReference, void, $Element*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.implementations.KeyInfoReferenceResolver",
+		"com.sun.org.apache.xml.internal.security.keys.keyresolver.KeyResolverSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyInfoReferenceResolver, name, initialize, &classInfo$$, KeyInfoReferenceResolver::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyInfoReferenceResolver);
+	});
 	return class$;
 }
 

@@ -30,10 +30,13 @@ public:
 	bool read = false;
 	int32_t dataSize = 0;
 	int32_t transferSize = 0;
-	static const int64_t serialVersionUID = (int64_t)0x59B5CDAE7F4E5851;
+	static const int64_t serialVersionUID = (int64_t)0x59b5cdae7f4e5851;
 	DataTruncation(const DataTruncation& e);
 	virtual void throw$() override;
-	inline DataTruncation* operator ->() {
+	inline DataTruncation* operator ->() const {
+		return (DataTruncation*)throwing$;
+	}
+	inline operator DataTruncation*() const {
 		return (DataTruncation*)throwing$;
 	}
 };

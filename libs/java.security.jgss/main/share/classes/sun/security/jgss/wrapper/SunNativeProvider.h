@@ -35,9 +35,10 @@ public:
 	SunNativeProvider();
 	using ::java::security::Provider::load;
 	using ::java::security::Provider::getProperty;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void debug($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xFCAF370D531F25C4;
+	static const int64_t serialVersionUID = (int64_t)0xfcaf370d531f25c4;
 	static $String* NAME;
 	static $String* INFO;
 	static $String* MF_CLASS;

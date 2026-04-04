@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/UDPClient.h>
-
 #include <java/net/DatagramPacket.h>
 #include <java/net/DatagramSocket.h>
 #include <java/net/InetAddress.h>
@@ -23,44 +22,14 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _UDPClient_FieldInfo_[] = {
-	{"iaddr", "Ljava/net/InetAddress;", nullptr, 0, $field(UDPClient, iaddr)},
-	{"iport", "I", nullptr, 0, $field(UDPClient, iport)},
-	{"bufSize", "I", nullptr, 0, $field(UDPClient, bufSize)},
-	{"dgSocket", "Ljava/net/DatagramSocket;", nullptr, 0, $field(UDPClient, dgSocket)},
-	{"dgPacketIn", "Ljava/net/DatagramPacket;", nullptr, 0, $field(UDPClient, dgPacketIn)},
-	{}
-};
-
-$MethodInfo _UDPClient_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(UDPClient, init$, void, $String*, int32_t, int32_t), "java.net.UnknownHostException,java.net.SocketException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UDPClient, close, void)},
-	{"receive", "()[B", nullptr, $PUBLIC, $virtualMethod(UDPClient, receive, $bytes*), "java.io.IOException"},
-	{"send", "([B)V", nullptr, $PUBLIC, $virtualMethod(UDPClient, send, void, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UDPClient_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.internal.UDPClient",
-	"sun.security.krb5.internal.NetClient",
-	nullptr,
-	_UDPClient_FieldInfo_,
-	_UDPClient_MethodInfo_
-};
-
-$Object* allocate$UDPClient($Class* clazz) {
-	return $of($alloc(UDPClient));
-}
-
 void UDPClient::init$($String* hostname, int32_t port, int32_t timeout) {
 	$NetClient::init$();
-	this->bufSize = 0x0000FFE3;
+	this->bufSize = 0x0000ffe3;
 	$set(this, iaddr, $InetAddress::getByName(hostname));
 	this->iport = port;
 	$set(this, dgSocket, $new($DatagramSocket));
-	$nc(this->dgSocket)->setSoTimeout(timeout);
-	$nc(this->dgSocket)->connect(this->iaddr, this->iport);
+	this->dgSocket->setSoTimeout(timeout);
+	this->dgSocket->connect(this->iaddr, this->iport);
 }
 
 void UDPClient::send($bytes* data) {
@@ -69,7 +38,7 @@ void UDPClient::send($bytes* data) {
 }
 
 $bytes* UDPClient::receive() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, ibuf, $new($bytes, this->bufSize));
 	$set(this, dgPacketIn, $new($DatagramPacket, ibuf, ibuf->length));
 	try {
@@ -80,10 +49,9 @@ $bytes* UDPClient::receive() {
 		}
 		$nc(this->dgSocket)->receive(this->dgPacketIn);
 	}
-	$var($bytes, data, $new($bytes, $nc(this->dgPacketIn)->getLength()));
-	$var($Object, var$0, $of($nc(this->dgPacketIn)->getData()));
-	$var($Object, var$1, $of(data));
-	$System::arraycopy(var$0, 0, var$1, 0, $nc(this->dgPacketIn)->getLength());
+	$var($bytes, data, $new($bytes, this->dgPacketIn->getLength()));
+	$var($Object, var$0, this->dgPacketIn->getData());
+	$System::arraycopy(var$0, 0, data, 0, this->dgPacketIn->getLength());
 	return data;
 }
 
@@ -95,7 +63,32 @@ UDPClient::UDPClient() {
 }
 
 $Class* UDPClient::load$($String* name, bool initialize) {
-	$loadClass(UDPClient, name, initialize, &_UDPClient_ClassInfo_, allocate$UDPClient);
+	$FieldInfo fieldInfos$$[] = {
+		{"iaddr", "Ljava/net/InetAddress;", nullptr, 0, $field(UDPClient, iaddr)},
+		{"iport", "I", nullptr, 0, $field(UDPClient, iport)},
+		{"bufSize", "I", nullptr, 0, $field(UDPClient, bufSize)},
+		{"dgSocket", "Ljava/net/DatagramSocket;", nullptr, 0, $field(UDPClient, dgSocket)},
+		{"dgPacketIn", "Ljava/net/DatagramPacket;", nullptr, 0, $field(UDPClient, dgPacketIn)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, 0, $method(UDPClient, init$, void, $String*, int32_t, int32_t), "java.net.UnknownHostException,java.net.SocketException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UDPClient, close, void)},
+		{"receive", "()[B", nullptr, $PUBLIC, $virtualMethod(UDPClient, receive, $bytes*), "java.io.IOException"},
+		{"send", "([B)V", nullptr, $PUBLIC, $virtualMethod(UDPClient, send, void, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.internal.UDPClient",
+		"sun.security.krb5.internal.NetClient",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UDPClient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UDPClient);
+	});
 	return class$;
 }
 

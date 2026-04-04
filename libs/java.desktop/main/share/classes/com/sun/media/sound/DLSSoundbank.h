@@ -96,6 +96,7 @@ class DLSSoundbank : public ::javax::sound::midi::Soundbank {
 	$class(DLSSoundbank, 0, ::javax::sound::midi::Soundbank)
 public:
 	DLSSoundbank();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::net::URL* url);
 	void init$(::java::io::File* file);

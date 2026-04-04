@@ -33,6 +33,7 @@ class AquaNativeResources : public ::java::lang::Object {
 	$class(AquaNativeResources, 0, ::java::lang::Object)
 public:
 	AquaNativeResources();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::image::BufferedImage* getRadioButtonSizerImage();
 	static int64_t getWindowBackgroundColor();

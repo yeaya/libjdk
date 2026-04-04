@@ -1,5 +1,4 @@
 #include <PrintManualTest_FitWidthMultiple$1$4.h>
-
 #include <PrintManualTest_FitWidthMultiple$1.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/text/MessageFormat.h>
@@ -22,51 +21,6 @@ using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttribu
 using $JTable = ::javax::swing::JTable;
 using $JTable$PrintMode = ::javax::swing::JTable$PrintMode;
 
-$FieldInfo _PrintManualTest_FitWidthMultiple$1$4_FieldInfo_[] = {
-	{"this$1", "LPrintManualTest_FitWidthMultiple$1;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1$4, this$1)},
-	{"val$prattr", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1$4, val$prattr)},
-	{"val$table", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1$4, val$table)},
-	{}
-};
-
-$MethodInfo _PrintManualTest_FitWidthMultiple$1$4_MethodInfo_[] = {
-	{"<init>", "(LPrintManualTest_FitWidthMultiple$1;Ljavax/swing/JTable;Ljavax/print/attribute/PrintRequestAttributeSet;)V", "()V", 0, $method(PrintManualTest_FitWidthMultiple$1$4, init$, void, $PrintManualTest_FitWidthMultiple$1*, $JTable*, $PrintRequestAttributeSet*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple$1$4, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _PrintManualTest_FitWidthMultiple$1$4_EnclosingMethodInfo_ = {
-	"PrintManualTest_FitWidthMultiple$1",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _PrintManualTest_FitWidthMultiple$1$4_InnerClassesInfo_[] = {
-	{"PrintManualTest_FitWidthMultiple$1", nullptr, nullptr, 0},
-	{"PrintManualTest_FitWidthMultiple$1$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintManualTest_FitWidthMultiple$1$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"PrintManualTest_FitWidthMultiple$1$4",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_PrintManualTest_FitWidthMultiple$1$4_FieldInfo_,
-	_PrintManualTest_FitWidthMultiple$1$4_MethodInfo_,
-	nullptr,
-	&_PrintManualTest_FitWidthMultiple$1$4_EnclosingMethodInfo_,
-	_PrintManualTest_FitWidthMultiple$1$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"PrintManualTest_FitWidthMultiple"
-};
-
-$Object* allocate$PrintManualTest_FitWidthMultiple$1$4($Class* clazz) {
-	return $of($alloc(PrintManualTest_FitWidthMultiple$1$4));
-}
-
 void PrintManualTest_FitWidthMultiple$1$4::init$($PrintManualTest_FitWidthMultiple$1* this$1, $JTable* val$table, $PrintRequestAttributeSet* val$prattr) {
 	$set(this, this$1, this$1);
 	$set(this, val$table, val$table);
@@ -85,7 +39,45 @@ PrintManualTest_FitWidthMultiple$1$4::PrintManualTest_FitWidthMultiple$1$4() {
 }
 
 $Class* PrintManualTest_FitWidthMultiple$1$4::load$($String* name, bool initialize) {
-	$loadClass(PrintManualTest_FitWidthMultiple$1$4, name, initialize, &_PrintManualTest_FitWidthMultiple$1$4_ClassInfo_, allocate$PrintManualTest_FitWidthMultiple$1$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "LPrintManualTest_FitWidthMultiple$1;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1$4, this$1)},
+		{"val$prattr", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1$4, val$prattr)},
+		{"val$table", "Ljavax/swing/JTable;", nullptr, $FINAL | $SYNTHETIC, $field(PrintManualTest_FitWidthMultiple$1$4, val$table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LPrintManualTest_FitWidthMultiple$1;Ljavax/swing/JTable;Ljavax/print/attribute/PrintRequestAttributeSet;)V", "()V", 0, $method(PrintManualTest_FitWidthMultiple$1$4, init$, void, $PrintManualTest_FitWidthMultiple$1*, $JTable*, $PrintRequestAttributeSet*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(PrintManualTest_FitWidthMultiple$1$4, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"PrintManualTest_FitWidthMultiple$1",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PrintManualTest_FitWidthMultiple$1", nullptr, nullptr, 0},
+		{"PrintManualTest_FitWidthMultiple$1$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"PrintManualTest_FitWidthMultiple$1$4",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"PrintManualTest_FitWidthMultiple"
+	};
+	$loadClass(PrintManualTest_FitWidthMultiple$1$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintManualTest_FitWidthMultiple$1$4);
+	});
 	return class$;
 }
 

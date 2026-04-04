@@ -19,6 +19,7 @@ class TIFFCIELabColorConverter : public ::com::sun::imageio::plugins::tiff::TIFF
 	$class(TIFFCIELabColorConverter, 0, ::com::sun::imageio::plugins::tiff::TIFFColorConverter)
 public:
 	TIFFCIELabColorConverter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	float clamp(float x);
 	float clamp2(float x);

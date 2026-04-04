@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicButtonListener.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/MouseEvent.h>
@@ -44,7 +43,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $InputMap = ::javax::swing::InputMap;
@@ -55,7 +53,6 @@ using $KeyStroke = ::javax::swing::KeyStroke;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ComponentInputMapUIResource = ::javax::swing::plaf::ComponentInputMapUIResource;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicButtonListener$Actions = ::javax::swing::plaf::basic::BasicButtonListener$Actions;
 using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
@@ -68,63 +65,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicButtonListener_FieldInfo_[] = {
-	{"lastPressedTimestamp", "J", nullptr, $PRIVATE, $field(BasicButtonListener, lastPressedTimestamp)},
-	{"shouldDiscardRelease", "Z", nullptr, $PRIVATE, $field(BasicButtonListener, shouldDiscardRelease)},
-	{}
-};
-
-$MethodInfo _BasicButtonListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $method(BasicButtonListener, init$, void, $AbstractButton*)},
-	{"checkOpacity", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonListener, checkOpacity, void, $AbstractButton*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, focusLost, void, $FocusEvent*)},
-	{"getInputMap", "(ILjavax/swing/JComponent;)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicButtonListener, getInputMap, $InputMap*, int32_t, $JComponent*)},
-	{"installKeyboardActions", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, installKeyboardActions, void, $JComponent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicButtonListener, loadActionMap, void, $LazyActionMap*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseReleased, void, $MouseEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, propertyChange, void, $PropertyChangeEvent*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallKeyboardActions", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, uninstallKeyboardActions, void, $JComponent*)},
-	{"updateMnemonicBinding", "(Ljavax/swing/AbstractButton;)V", nullptr, 0, $virtualMethod(BasicButtonListener, updateMnemonicBinding, void, $AbstractButton*)},
-	{}
-};
-
-$InnerClassInfo _BasicButtonListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicButtonListener$Actions", "javax.swing.plaf.basic.BasicButtonListener", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicButtonListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicButtonListener",
-	"java.lang.Object",
-	"java.awt.event.MouseListener,java.awt.event.MouseMotionListener,java.awt.event.FocusListener,javax.swing.event.ChangeListener,java.beans.PropertyChangeListener",
-	_BasicButtonListener_FieldInfo_,
-	_BasicButtonListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicButtonListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicButtonListener$Actions"
-};
-
-$Object* allocate$BasicButtonListener($Class* clazz) {
-	return $of($alloc(BasicButtonListener));
-}
 
 int32_t BasicButtonListener::hashCode() {
 	 return this->$MouseListener::hashCode();
@@ -148,7 +88,7 @@ void BasicButtonListener::finalize() {
 
 void BasicButtonListener::loadActionMap($LazyActionMap* map) {
 	$init(BasicButtonListener);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicButtonListener$Actions);
 	$nc(map)->put($$new($BasicButtonListener$Actions, $BasicButtonListener$Actions::PRESS));
 	map->put($$new($BasicButtonListener$Actions, $BasicButtonListener$Actions::RELEASE));
@@ -160,29 +100,25 @@ void BasicButtonListener::init$($AbstractButton* b) {
 }
 
 void BasicButtonListener::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prop, $nc(e)->getPropertyName());
 	$init($AbstractButton);
 	if (prop == $AbstractButton::MNEMONIC_CHANGED_PROPERTY) {
-		updateMnemonicBinding($cast($AbstractButton, $(e->getSource())));
-	} else {
-		if (prop == $AbstractButton::CONTENT_AREA_FILLED_CHANGED_PROPERTY) {
-			checkOpacity($cast($AbstractButton, $(e->getSource())));
-		} else {
-			if (prop == $AbstractButton::TEXT_CHANGED_PROPERTY || "font"_s == prop || "foreground"_s == prop || $SwingUtilities2::isScaleChanged(e)) {
-				$var($AbstractButton, b, $cast($AbstractButton, e->getSource()));
-				$BasicHTML::updateRenderer(b, $($nc(b)->getText()));
-			}
-		}
+		updateMnemonicBinding($$cast($AbstractButton, e->getSource()));
+	} else if (prop == $AbstractButton::CONTENT_AREA_FILLED_CHANGED_PROPERTY) {
+		checkOpacity($$cast($AbstractButton, e->getSource()));
+	} else if (prop == $AbstractButton::TEXT_CHANGED_PROPERTY || "font"_s == prop || "foreground"_s == prop || $SwingUtilities2::isScaleChanged(e)) {
+		$var($AbstractButton, b, $cast($AbstractButton, e->getSource()));
+		$BasicHTML::updateRenderer(b, $($nc(b)->getText()));
 	}
 }
 
 void BasicButtonListener::checkOpacity($AbstractButton* b) {
-	$nc(b)->setOpaque(b->isContentAreaFilled());
+	$nc(b)->setOpaque($nc(b)->isContentAreaFilled());
 }
 
 void BasicButtonListener::installKeyboardActions($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	updateMnemonicBinding(b);
 	$LazyActionMap::installLazyActionMap(c, BasicButtonListener::class$, "Button.actionMap"_s);
@@ -197,10 +133,10 @@ void BasicButtonListener::uninstallKeyboardActions($JComponent* c) {
 }
 
 $InputMap* BasicButtonListener::getInputMap(int32_t condition, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (condition == $JComponent::WHEN_FOCUSED) {
 		$load($BasicButtonUI);
-		$var($BasicButtonUI, ui, $cast($BasicButtonUI, $BasicLookAndFeel::getUIOfType($($nc(($cast($AbstractButton, c)))->getUI()), $BasicButtonUI::class$)));
+		$var($BasicButtonUI, ui, $cast($BasicButtonUI, $BasicLookAndFeel::getUIOfType($($nc($cast($AbstractButton, c))->getUI()), $BasicButtonUI::class$)));
 		if (ui != nullptr) {
 			return $cast($InputMap, $DefaultLookup::get(c, ui, $$str({$(ui->getPropertyPrefix()), "focusInputMap"_s})));
 		}
@@ -209,7 +145,7 @@ $InputMap* BasicButtonListener::getInputMap(int32_t condition, $JComponent* c) {
 }
 
 void BasicButtonListener::updateMnemonicBinding($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t m = $nc(b)->getMnemonic();
 	if (m != 0) {
 		$var($InputMap, map, $SwingUtilities::getUIInputMap(b, $JComponent::WHEN_IN_FOCUSED_WINDOW));
@@ -237,10 +173,10 @@ void BasicButtonListener::stateChanged($ChangeEvent* e) {
 }
 
 void BasicButtonListener::focusGained($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, $nc(e)->getSource()));
-	if ($instanceOf($JButton, b) && $nc(($cast($JButton, b)))->isDefaultCapable()) {
-		$var($JRootPane, root, $nc(b)->getRootPane());
+	if ($instanceOf($JButton, b) && $cast($JButton, b)->isDefaultCapable()) {
+		$var($JRootPane, root, b->getRootPane());
 		if (root != nullptr) {
 			$load($BasicButtonUI);
 			$var($BasicButtonUI, ui, $cast($BasicButtonUI, $BasicLookAndFeel::getUIOfType($(b->getUI()), $BasicButtonUI::class$)));
@@ -255,7 +191,7 @@ void BasicButtonListener::focusGained($FocusEvent* e) {
 }
 
 void BasicButtonListener::focusLost($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, $nc(e)->getSource()));
 	$var($JRootPane, root, $nc(b)->getRootPane());
 	if (root != nullptr) {
@@ -284,7 +220,7 @@ void BasicButtonListener::mouseClicked($MouseEvent* e) {
 }
 
 void BasicButtonListener::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities::isLeftMouseButton(e)) {
 		$var($AbstractButton, b, $cast($AbstractButton, $nc(e)->getSource()));
 		int32_t var$0 = e->getX();
@@ -292,18 +228,18 @@ void BasicButtonListener::mousePressed($MouseEvent* e) {
 			int64_t lastTime = this->lastPressedTimestamp;
 			this->lastPressedTimestamp = e->getWhen();
 			int64_t timeSinceLastClick = this->lastPressedTimestamp - lastTime;
-			if (lastTime != -1 && timeSinceLastClick > 0 && timeSinceLastClick < b->getMultiClickThreshhold()) {
+			if (lastTime != -1 && timeSinceLastClick > 0 && timeSinceLastClick < $nc(b)->getMultiClickThreshhold()) {
 				this->shouldDiscardRelease = true;
 				return;
 			}
-			$var($ButtonModel, model, b->getModel());
+			$var($ButtonModel, model, $nc(b)->getModel());
 			if (!$nc(model)->isEnabled()) {
 				return;
 			}
-			if (!$nc(model)->isArmed()) {
+			if (!model->isArmed()) {
 				model->setArmed(true);
 			}
-			$nc(model)->setPressed(true);
+			model->setPressed(true);
 			bool var$1 = !b->hasFocus();
 			if (var$1 && b->isRequestFocusEnabled()) {
 				b->requestFocus();
@@ -313,7 +249,7 @@ void BasicButtonListener::mousePressed($MouseEvent* e) {
 }
 
 void BasicButtonListener::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities::isLeftMouseButton(e)) {
 		if (this->shouldDiscardRelease) {
 			this->shouldDiscardRelease = false;
@@ -327,7 +263,7 @@ void BasicButtonListener::mouseReleased($MouseEvent* e) {
 }
 
 void BasicButtonListener::mouseEntered($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, $nc(e)->getSource()));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	bool var$0 = b->isRolloverEnabled();
@@ -340,7 +276,7 @@ void BasicButtonListener::mouseEntered($MouseEvent* e) {
 }
 
 void BasicButtonListener::mouseExited($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, $nc(e)->getSource()));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	if (b->isRolloverEnabled()) {
@@ -353,7 +289,58 @@ BasicButtonListener::BasicButtonListener() {
 }
 
 $Class* BasicButtonListener::load$($String* name, bool initialize) {
-	$loadClass(BasicButtonListener, name, initialize, &_BasicButtonListener_ClassInfo_, allocate$BasicButtonListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"lastPressedTimestamp", "J", nullptr, $PRIVATE, $field(BasicButtonListener, lastPressedTimestamp)},
+		{"shouldDiscardRelease", "Z", nullptr, $PRIVATE, $field(BasicButtonListener, shouldDiscardRelease)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $method(BasicButtonListener, init$, void, $AbstractButton*)},
+		{"checkOpacity", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(BasicButtonListener, checkOpacity, void, $AbstractButton*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, focusLost, void, $FocusEvent*)},
+		{"getInputMap", "(ILjavax/swing/JComponent;)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicButtonListener, getInputMap, $InputMap*, int32_t, $JComponent*)},
+		{"installKeyboardActions", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, installKeyboardActions, void, $JComponent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicButtonListener, loadActionMap, void, $LazyActionMap*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, mouseReleased, void, $MouseEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, propertyChange, void, $PropertyChangeEvent*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallKeyboardActions", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicButtonListener, uninstallKeyboardActions, void, $JComponent*)},
+		{"updateMnemonicBinding", "(Ljavax/swing/AbstractButton;)V", nullptr, 0, $virtualMethod(BasicButtonListener, updateMnemonicBinding, void, $AbstractButton*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicButtonListener$Actions", "javax.swing.plaf.basic.BasicButtonListener", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicButtonListener",
+		"java.lang.Object",
+		"java.awt.event.MouseListener,java.awt.event.MouseMotionListener,java.awt.event.FocusListener,javax.swing.event.ChangeListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicButtonListener$Actions"
+	};
+	$loadClass(BasicButtonListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicButtonListener));
+	});
 	return class$;
 }
 

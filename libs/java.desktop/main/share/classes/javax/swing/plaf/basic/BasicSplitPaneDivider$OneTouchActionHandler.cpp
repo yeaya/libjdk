@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$OneTouchActionHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Insets.h>
 #include <java/awt/event/ActionEvent.h>
@@ -20,49 +19,11 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
-using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSplitPaneDivider$OneTouchActionHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$OneTouchActionHandler, this$0)},
-	{"toMinimum", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneDivider$OneTouchActionHandler, toMinimum)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneDivider$OneTouchActionHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;Z)V", nullptr, 0, $method(BasicSplitPaneDivider$OneTouchActionHandler, init$, void, $BasicSplitPaneDivider*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$OneTouchActionHandler, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneDivider$OneTouchActionHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$OneTouchActionHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "OneTouchActionHandler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneDivider$OneTouchActionHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$OneTouchActionHandler",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_BasicSplitPaneDivider$OneTouchActionHandler_FieldInfo_,
-	_BasicSplitPaneDivider$OneTouchActionHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneDivider$OneTouchActionHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider"
-};
-
-$Object* allocate$BasicSplitPaneDivider$OneTouchActionHandler($Class* clazz) {
-	return $of($alloc(BasicSplitPaneDivider$OneTouchActionHandler));
-}
 
 void BasicSplitPaneDivider$OneTouchActionHandler::init$($BasicSplitPaneDivider* this$0, bool toMinimum) {
 	$set(this, this$0, this$0);
@@ -88,10 +49,10 @@ void BasicSplitPaneDivider$OneTouchActionHandler::actionPerformed($ActionEvent* 
 				$nc(this->this$0->splitPaneUI)->setKeepHidden(true);
 			}
 		} else {
-			int32_t var$6 = currentLoc;
-			int32_t var$8 = $nc(this->this$0->splitPane)->getWidth() - $nc(insets)->right;
-			int32_t var$7 = (var$8 - this->this$0->getWidth());
-			if (var$6 >= var$7) {
+			int32_t var$3 = currentLoc;
+			int32_t var$5 = $nc(this->this$0->splitPane)->getWidth() - $nc(insets)->right;
+			int32_t var$4 = (var$5 - this->this$0->getWidth());
+			if (var$3 >= var$4) {
 				int32_t maxLoc = $nc(this->this$0->splitPane)->getMaximumDividerLocation();
 				newLoc = $Math::min(lastLoc, maxLoc);
 				$nc(this->this$0->splitPaneUI)->setKeepHidden(false);
@@ -106,8 +67,8 @@ void BasicSplitPaneDivider$OneTouchActionHandler::actionPerformed($ActionEvent* 
 			newLoc = $Math::min(lastLoc, maxLoc);
 			$nc(this->this$0->splitPaneUI)->setKeepHidden(false);
 		} else {
-			int32_t var$9 = $nc(this->this$0->splitPane)->getHeight();
-			newLoc = var$9 - this->this$0->getHeight() - insets->top;
+			int32_t var$6 = $nc(this->this$0->splitPane)->getHeight();
+			newLoc = var$6 - this->this$0->getHeight() - insets->top;
 			$nc(this->this$0->splitPaneUI)->setKeepHidden(true);
 		}
 	} else if (currentLoc == $nc(insets)->left) {
@@ -115,8 +76,8 @@ void BasicSplitPaneDivider$OneTouchActionHandler::actionPerformed($ActionEvent* 
 		newLoc = $Math::min(lastLoc, maxLoc);
 		$nc(this->this$0->splitPaneUI)->setKeepHidden(false);
 	} else {
-		int32_t var$10 = $nc(this->this$0->splitPane)->getWidth();
-		newLoc = var$10 - this->this$0->getWidth() - insets->left;
+		int32_t var$7 = $nc(this->this$0->splitPane)->getWidth();
+		newLoc = var$7 - this->this$0->getWidth() - insets->left;
 		$nc(this->this$0->splitPaneUI)->setKeepHidden(true);
 	}
 	if (currentLoc != newLoc) {
@@ -129,7 +90,38 @@ BasicSplitPaneDivider$OneTouchActionHandler::BasicSplitPaneDivider$OneTouchActio
 }
 
 $Class* BasicSplitPaneDivider$OneTouchActionHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneDivider$OneTouchActionHandler, name, initialize, &_BasicSplitPaneDivider$OneTouchActionHandler_ClassInfo_, allocate$BasicSplitPaneDivider$OneTouchActionHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$OneTouchActionHandler, this$0)},
+		{"toMinimum", "Z", nullptr, $PRIVATE, $field(BasicSplitPaneDivider$OneTouchActionHandler, toMinimum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;Z)V", nullptr, 0, $method(BasicSplitPaneDivider$OneTouchActionHandler, init$, void, $BasicSplitPaneDivider*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$OneTouchActionHandler, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$OneTouchActionHandler", "javax.swing.plaf.basic.BasicSplitPaneDivider", "OneTouchActionHandler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$OneTouchActionHandler",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider"
+	};
+	$loadClass(BasicSplitPaneDivider$OneTouchActionHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneDivider$OneTouchActionHandler);
+	});
 	return class$;
 }
 

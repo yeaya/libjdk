@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RealTimeSequencer$DataPump.h>
-
 #include <com/sun/media/sound/AbstractMidiDevice$TransmitterList.h>
 #include <com/sun/media/sound/MidiUtils$TempoCache.h>
 #include <com/sun/media/sound/MidiUtils.h>
@@ -24,9 +23,7 @@
 #undef PROGRAM_CHANGE
 
 using $byteArray2 = $Array<int8_t, 2>;
-using $AbstractMidiDevice$TransmitterList = ::com::sun::media::sound::AbstractMidiDevice$TransmitterList;
 using $MidiUtils = ::com::sun::media::sound::MidiUtils;
-using $MidiUtils$TempoCache = ::com::sun::media::sound::MidiUtils$TempoCache;
 using $Printer = ::com::sun::media::sound::Printer;
 using $RealTimeSequencer = ::com::sun::media::sound::RealTimeSequencer;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
@@ -47,80 +44,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _RealTimeSequencer$DataPump_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/RealTimeSequencer;", nullptr, $FINAL | $SYNTHETIC, $field(RealTimeSequencer$DataPump, this$0)},
-	{"currTempo", "F", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, currTempo)},
-	{"tempoFactor", "F", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, tempoFactor)},
-	{"inverseTempoFactor", "F", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, inverseTempoFactor)},
-	{"ignoreTempoEventAt", "J", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, ignoreTempoEventAt)},
-	{"resolution", "I", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, resolution)},
-	{"divisionType", "F", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, divisionType)},
-	{"checkPointMillis", "J", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, checkPointMillis)},
-	{"checkPointTick", "J", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, checkPointTick)},
-	{"noteOnCache", "[I", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, noteOnCache)},
-	{"tracks", "[Ljavax/sound/midi/Track;", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, tracks)},
-	{"trackDisabled", "[Z", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, trackDisabled)},
-	{"trackReadPos", "[I", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, trackReadPos)},
-	{"lastTick", "J", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, lastTick)},
-	{"needReindex", "Z", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, needReindex)},
-	{"currLoopCounter", "I", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, currLoopCounter)},
-	{}
-};
-
-$MethodInfo _RealTimeSequencer$DataPump_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/RealTimeSequencer;)V", nullptr, 0, $method(RealTimeSequencer$DataPump, init$, void, $RealTimeSequencer*)},
-	{"ReindexTrack", "(IJ)V", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, ReindexTrack, void, int32_t, int64_t)},
-	{"applyDisabledTracks", "([Z[Z)V", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, applyDisabledTracks, void, $booleans*, $booleans*)},
-	{"chaseEvents", "(JJ)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, chaseEvents, void, int64_t, int64_t)},
-	{"chaseTrackEvents", "(IJJZ[[B)V", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, chaseTrackEvents, void, int32_t, int64_t, int64_t, bool, $byteArray2*)},
-	{"clearNoteOnCache", "()V", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, clearNoteOnCache, void)},
-	{"dispatchMessage", "(ILjavax/sound/midi/MidiEvent;)Z", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, dispatchMessage, bool, int32_t, $MidiEvent*)},
-	{"getCurrentTimeMillis", "()J", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, getCurrentTimeMillis, int64_t)},
-	{"getTempoFactor", "()F", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, getTempoFactor, float)},
-	{"getTempoMPQ", "()F", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, getTempoMPQ, float)},
-	{"getTickPos", "()J", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, getTickPos, int64_t)},
-	{"hasCachedTempo", "()Z", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, hasCachedTempo, bool)},
-	{"init", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, init, void)},
-	{"makeDisabledArray", "()[Z", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, makeDisabledArray, $booleans*)},
-	{"millis2tick", "(J)J", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, millis2tick, int64_t, int64_t)},
-	{"muteSoloChanged", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, muteSoloChanged, void)},
-	{"notesOff", "(Z)V", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, notesOff, void, bool)},
-	{"pump", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, pump, bool)},
-	{"resetLoopCount", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, resetLoopCount, void)},
-	{"sendNoteOffIfOn", "(Ljavax/sound/midi/Track;J)V", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, sendNoteOffIfOn, void, $Track*, int64_t)},
-	{"setSequence", "(Ljavax/sound/midi/Sequence;)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, setSequence, void, $Sequence*)},
-	{"setTempoFactor", "(F)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, setTempoFactor, void, float)},
-	{"setTempoMPQ", "(F)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, setTempoMPQ, void, float)},
-	{"setTickPos", "(J)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, setTickPos, void, int64_t)},
-	{"tick2millis", "(J)J", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, tick2millis, int64_t, int64_t)},
-	{}
-};
-
-$InnerClassInfo _RealTimeSequencer$DataPump_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.RealTimeSequencer$DataPump", "com.sun.media.sound.RealTimeSequencer", "DataPump", $PRIVATE},
-	{}
-};
-
-$ClassInfo _RealTimeSequencer$DataPump_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.RealTimeSequencer$DataPump",
-	"java.lang.Object",
-	nullptr,
-	_RealTimeSequencer$DataPump_FieldInfo_,
-	_RealTimeSequencer$DataPump_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RealTimeSequencer$DataPump_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.RealTimeSequencer"
-};
-
-$Object* allocate$RealTimeSequencer$DataPump($Class* clazz) {
-	return $of($alloc(RealTimeSequencer$DataPump));
-}
 
 void RealTimeSequencer$DataPump::init$($RealTimeSequencer* this$0) {
 	$set(this, this$0, this$0);
@@ -153,7 +76,7 @@ void RealTimeSequencer$DataPump::setTickPos(int64_t tickPos) {
 			this->needReindex = true;
 		}
 		if (!hasCachedTempo()) {
-			setTempoMPQ($nc($(this->this$0->getTempoCache()))->getTempoMPQAt(this->lastTick, this->currTempo));
+			setTempoMPQ($$nc(this->this$0->getTempoCache())->getTempoMPQAt(this->lastTick, this->currTempo));
 			this->ignoreTempoEventAt = -1;
 		}
 		this->checkPointMillis = 0;
@@ -238,28 +161,28 @@ void RealTimeSequencer$DataPump::clearNoteOnCache() {
 }
 
 void RealTimeSequencer$DataPump::notesOff(bool doControllers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t done = 0;
 	for (int32_t ch = 0; ch < 16; ++ch) {
 		int32_t channelMask = ($sl(1, ch));
 		for (int32_t i = 0; i < 128; ++i) {
-			if (((int32_t)($nc(this->noteOnCache)->get(i) & (uint32_t)channelMask)) != 0) {
-				(*$nc(this->noteOnCache))[i] ^= channelMask;
-				$nc($(this->this$0->getTransmitterList()))->sendMessage(($ShortMessage::NOTE_ON | ch) | (i << 8), (int64_t)-1);
+			if (($nc(this->noteOnCache)->get(i) & channelMask) != 0) {
+				(*this->noteOnCache)[i] ^= channelMask;
+				$$nc(this->this$0->getTransmitterList())->sendMessage(($ShortMessage::NOTE_ON | ch) | (i << 8), -1);
 				++done;
 			}
 		}
-		$nc($(this->this$0->getTransmitterList()))->sendMessage(($ShortMessage::CONTROL_CHANGE | ch) | (123 << 8), (int64_t)-1);
-		$nc($(this->this$0->getTransmitterList()))->sendMessage(($ShortMessage::CONTROL_CHANGE | ch) | (64 << 8), (int64_t)-1);
+		$$nc(this->this$0->getTransmitterList())->sendMessage(($ShortMessage::CONTROL_CHANGE | ch) | (123 << 8), -1);
+		$$nc(this->this$0->getTransmitterList())->sendMessage(($ShortMessage::CONTROL_CHANGE | ch) | (64 << 8), -1);
 		if (doControllers) {
-			$nc($(this->this$0->getTransmitterList()))->sendMessage(($ShortMessage::CONTROL_CHANGE | ch) | (121 << 8), (int64_t)-1);
+			$$nc(this->this$0->getTransmitterList())->sendMessage(($ShortMessage::CONTROL_CHANGE | ch) | (121 << 8), -1);
 			++done;
 		}
 	}
 }
 
 $booleans* RealTimeSequencer$DataPump::makeDisabledArray() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tracks == nullptr) {
 		return nullptr;
 	}
@@ -281,7 +204,7 @@ $booleans* RealTimeSequencer$DataPump::makeDisabledArray() {
 	}
 	if (hasSolo) {
 		for (int32_t i = 0; i < newTrackDisabled->length; ++i) {
-			newTrackDisabled->set(i, (i >= $nc(solo)->length) || (!$nc(solo)->get(i)));
+			newTrackDisabled->set(i, (i >= $nc(solo)->length) || (!solo->get(i)));
 		}
 	} else {
 		for (int32_t i = 0; i < newTrackDisabled->length; ++i) {
@@ -292,7 +215,7 @@ $booleans* RealTimeSequencer$DataPump::makeDisabledArray() {
 }
 
 void RealTimeSequencer$DataPump::sendNoteOffIfOn($Track* track, int64_t endTick) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(track)->size();
 	int32_t done = 0;
 	try {
@@ -301,10 +224,10 @@ void RealTimeSequencer$DataPump::sendNoteOffIfOn($Track* track, int64_t endTick)
 			if ($nc(event)->getTick() > endTick) {
 				break;
 			}
-			$var($MidiMessage, msg, $nc(event)->getMessage());
+			$var($MidiMessage, msg, event->getMessage());
 			int32_t status = $nc(msg)->getStatus();
 			int32_t len = msg->getLength();
-			if (len == 3 && (((int32_t)(status & (uint32_t)240)) == $ShortMessage::NOTE_ON)) {
+			if (len == 3 && ((status & 0xf0) == $ShortMessage::NOTE_ON)) {
 				int32_t note = -1;
 				if ($instanceOf($ShortMessage, msg)) {
 					$var($ShortMessage, smsg, $cast($ShortMessage, msg));
@@ -313,15 +236,15 @@ void RealTimeSequencer$DataPump::sendNoteOffIfOn($Track* track, int64_t endTick)
 					}
 				} else {
 					$var($bytes, data, msg->getMessage());
-					if (((int32_t)($nc(data)->get(2) & (uint32_t)127)) > 0) {
-						note = (int32_t)(data->get(1) & (uint32_t)127);
+					if (($nc(data)->get(2) & 0x7f) > 0) {
+						note = data->get(1) & 0x7f;
 					}
 				}
 				if (note >= 0) {
-					int32_t bit = $sl(1, (int32_t)(status & (uint32_t)15));
-					if (((int32_t)($nc(this->noteOnCache)->get(note) & (uint32_t)bit)) != 0) {
-						$nc($(this->this$0->getTransmitterList()))->sendMessage(status | (note << 8), (int64_t)-1);
-						(*$nc(this->noteOnCache))[note] &= (uint32_t)(0x0000FFFF ^ bit);
+					int32_t bit = $sl(1, status & 0x0f);
+					if (($nc(this->noteOnCache)->get(note) & bit) != 0) {
+						$$nc(this->this$0->getTransmitterList())->sendMessage(status | (note << 8), -1);
+						(*$nc(this->noteOnCache))[note] &= (uint32_t)(0xffff ^ bit);
 						++done;
 					}
 				}
@@ -335,9 +258,9 @@ void RealTimeSequencer$DataPump::applyDisabledTracks($booleans* oldDisabled, $bo
 	$var($byteArray2, tempArray, nullptr);
 	$synchronized(this->this$0) {
 		for (int32_t i = 0; i < $nc(newDisabled)->length; ++i) {
-			if (((oldDisabled == nullptr) || (i >= $nc(oldDisabled)->length) || !$nc(oldDisabled)->get(i)) && newDisabled->get(i)) {
+			if (((oldDisabled == nullptr) || (i >= oldDisabled->length) || !oldDisabled->get(i)) && newDisabled->get(i)) {
 				if ($nc(this->tracks)->length > i) {
-					sendNoteOffIfOn($nc(this->tracks)->get(i), this->lastTick);
+					sendNoteOffIfOn(this->tracks->get(i), this->lastTick);
 				}
 			} else if ((oldDisabled != nullptr) && (i < oldDisabled->length) && oldDisabled->get(i) && !newDisabled->get(i)) {
 				if (tempArray == nullptr) {
@@ -350,15 +273,15 @@ void RealTimeSequencer$DataPump::applyDisabledTracks($booleans* oldDisabled, $bo
 }
 
 void RealTimeSequencer$DataPump::chaseTrackEvents(int32_t trackNum, int64_t startTick, int64_t endTick, bool doReindex, $byteArray2* tempArray) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (startTick > endTick) {
 		startTick = 0;
 	}
 	$var($bytes, progs, $new($bytes, 16));
 	for (int32_t ch = 0; ch < 16; ++ch) {
-		progs->set(ch, (int8_t)-1);
+		progs->set(ch, -1);
 		for (int32_t co = 0; co < 128; ++co) {
-			$nc($nc(tempArray)->get(co))->set(ch, (int8_t)-1);
+			$nc($nc(tempArray)->get(co))->set(ch, -1);
 		}
 	}
 	$var($Track, track, $nc(this->tracks)->get(trackNum));
@@ -368,29 +291,29 @@ void RealTimeSequencer$DataPump::chaseTrackEvents(int32_t trackNum, int64_t star
 			$var($MidiEvent, event, track->get(i));
 			if ($nc(event)->getTick() >= endTick) {
 				if (doReindex && (trackNum < $nc(this->trackReadPos)->length)) {
-					$nc(this->trackReadPos)->set(trackNum, (i > 0) ? (i - 1) : 0);
+					this->trackReadPos->set(trackNum, (i > 0) ? (i - 1) : 0);
 				}
 				break;
 			}
-			$var($MidiMessage, msg, $nc(event)->getMessage());
+			$var($MidiMessage, msg, event->getMessage());
 			int32_t status = $nc(msg)->getStatus();
 			int32_t len = msg->getLength();
-			if (len == 3 && (((int32_t)(status & (uint32_t)240)) == $ShortMessage::CONTROL_CHANGE)) {
+			if (len == 3 && ((status & 0xf0) == $ShortMessage::CONTROL_CHANGE)) {
 				if ($instanceOf($ShortMessage, msg)) {
 					$var($ShortMessage, smsg, $cast($ShortMessage, msg));
-					$nc($nc(tempArray)->get((int32_t)(smsg->getData1() & (uint32_t)127)))->set((int32_t)(status & (uint32_t)15), (int8_t)smsg->getData2());
+					$nc($nc(tempArray)->get(smsg->getData1() & 0x7f))->set(status & 0x0f, (int8_t)smsg->getData2());
 				} else {
 					$var($bytes, data, msg->getMessage());
-					$nc($nc(tempArray)->get((int32_t)($nc(data)->get(1) & (uint32_t)127)))->set((int32_t)(status & (uint32_t)15), data->get(2));
+					$nc($nc(tempArray)->get($nc(data)->get(1) & 0x7f))->set(status & 0x0f, $nc(data)->get(2));
 				}
 			}
-			if (len == 2 && (((int32_t)(status & (uint32_t)240)) == $ShortMessage::PROGRAM_CHANGE)) {
+			if (len == 2 && ((status & 0xf0) == $ShortMessage::PROGRAM_CHANGE)) {
 				if ($instanceOf($ShortMessage, msg)) {
 					$var($ShortMessage, smsg, $cast($ShortMessage, msg));
-					progs->set((int32_t)(status & (uint32_t)15), (int8_t)smsg->getData1());
+					progs->set(status & 0x0f, (int8_t)smsg->getData1());
 				} else {
 					$var($bytes, data, msg->getMessage());
-					progs->set((int32_t)(status & (uint32_t)15), $nc(data)->get(1));
+					progs->set(status & 0x0f, $nc(data)->get(1));
 				}
 			}
 		}
@@ -402,16 +325,16 @@ void RealTimeSequencer$DataPump::chaseTrackEvents(int32_t trackNum, int64_t star
 			int8_t controllerValue = $nc($nc(tempArray)->get(co))->get(ch);
 			if (controllerValue >= 0) {
 				int32_t packedMsg = (($ShortMessage::CONTROL_CHANGE | ch) | (co << 8)) | (controllerValue << 16);
-				$nc($(this->this$0->getTransmitterList()))->sendMessage(packedMsg, (int64_t)-1);
+				$$nc(this->this$0->getTransmitterList())->sendMessage(packedMsg, -1);
 				++numControllersSent;
 			}
 		}
 		if (progs->get(ch) >= 0) {
-			$nc($(this->this$0->getTransmitterList()))->sendMessage(($ShortMessage::PROGRAM_CHANGE | ch) | (progs->get(ch) << 8), (int64_t)-1);
+			$$nc(this->this$0->getTransmitterList())->sendMessage(($ShortMessage::PROGRAM_CHANGE | ch) | (progs->get(ch) << 8), -1);
 		}
 		if (progs->get(ch) >= 0 || startTick == 0 || endTick == 0) {
-			$nc($(this->this$0->getTransmitterList()))->sendMessage(($ShortMessage::PITCH_BEND | ch) | (64 << 16), (int64_t)-1);
-			$nc($(this->this$0->getTransmitterList()))->sendMessage(($ShortMessage::CONTROL_CHANGE | ch) | (64 << 8), (int64_t)-1);
+			$$nc(this->this$0->getTransmitterList())->sendMessage(($ShortMessage::PITCH_BEND | ch) | (64 << 16), -1);
+			$$nc(this->this$0->getTransmitterList())->sendMessage(($ShortMessage::CONTROL_CHANGE | ch) | (64 << 8), -1);
 		}
 	}
 }
@@ -420,7 +343,7 @@ void RealTimeSequencer$DataPump::chaseEvents(int64_t startTick, int64_t endTick)
 	$synchronized(this) {
 		$var($byteArray2, tempArray, $new($byteArray2, 128, 16));
 		for (int32_t t = 0; t < $nc(this->tracks)->length; ++t) {
-			if ((this->trackDisabled == nullptr) || ($nc(this->trackDisabled)->length <= t) || (!$nc(this->trackDisabled)->get(t))) {
+			if ((this->trackDisabled == nullptr) || (this->trackDisabled->length <= t) || (!this->trackDisabled->get(t))) {
 				chaseTrackEvents(t, startTick, endTick, true, tempArray);
 			}
 		}
@@ -451,12 +374,12 @@ int64_t RealTimeSequencer$DataPump::tick2millis(int64_t tick) {
 
 void RealTimeSequencer$DataPump::ReindexTrack(int32_t trackNum, int64_t tick) {
 	if (trackNum < $nc(this->trackReadPos)->length && trackNum < $nc(this->tracks)->length) {
-		$nc(this->trackReadPos)->set(trackNum, $MidiUtils::tick2index($nc(this->tracks)->get(trackNum), tick));
+		this->trackReadPos->set(trackNum, $MidiUtils::tick2index(this->tracks->get(trackNum), tick));
 	}
 }
 
 bool RealTimeSequencer$DataPump::dispatchMessage(int32_t trackNum, $MidiEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool changesPending = false;
 	$var($MidiMessage, message, $nc(event)->getMessage());
 	int32_t msgStatus = $nc(message)->getStatus();
@@ -474,35 +397,29 @@ bool RealTimeSequencer$DataPump::dispatchMessage(int32_t trackNum, $MidiEvent* e
 		}
 		this->this$0->sendMetaEvents(message);
 	} else {
-		$nc($(this->this$0->getTransmitterList()))->sendMessage(message, (int64_t)-1);
-		switch ((int32_t)(msgStatus & (uint32_t)240)) {
+		$$nc(this->this$0->getTransmitterList())->sendMessage(message, -1);
+		switch (msgStatus & 0xf0) {
 		case $ShortMessage::NOTE_OFF:
 			{
-				{
-					int32_t note = (int32_t)($nc(($cast($ShortMessage, message)))->getData1() & (uint32_t)127);
-					(*$nc(this->noteOnCache))[note] &= (uint32_t)(0x0000FFFF ^ ($sl(1, (int32_t)(msgStatus & (uint32_t)15))));
-					break;
-				}
+				int32_t note = $cast($ShortMessage, message)->getData1() & 0x7f;
+				(*$nc(this->noteOnCache))[note] &= (uint32_t)(0xffff ^ ($sl(1, msgStatus & 0x0f)));
+				break;
 			}
 		case $ShortMessage::NOTE_ON:
 			{
-				{
-					$var($ShortMessage, smsg, $cast($ShortMessage, message));
-					int32_t note = (int32_t)(smsg->getData1() & (uint32_t)127);
-					int32_t vel = (int32_t)(smsg->getData2() & (uint32_t)127);
-					if (vel > 0) {
-						(*$nc(this->noteOnCache))[note] |= $sl(1, (int32_t)(msgStatus & (uint32_t)15));
-					} else {
-						(*$nc(this->noteOnCache))[note] &= (uint32_t)(0x0000FFFF ^ ($sl(1, (int32_t)(msgStatus & (uint32_t)15))));
-					}
-					break;
+				$var($ShortMessage, smsg, $cast($ShortMessage, message));
+				int32_t note = smsg->getData1() & 0x7f;
+				int32_t vel = smsg->getData2() & 0x7f;
+				if (vel > 0) {
+					(*$nc(this->noteOnCache))[note] |= $sl(1, msgStatus & 0x0f);
+				} else {
+					(*$nc(this->noteOnCache))[note] &= (uint32_t)(0xffff ^ ($sl(1, msgStatus & 0x0f)));
 				}
-			}
-		case $ShortMessage::CONTROL_CHANGE:
-			{
-				this->this$0->sendControllerEvents(message);
 				break;
 			}
+		case $ShortMessage::CONTROL_CHANGE:
+			this->this$0->sendControllerEvents(message);
+			break;
 		}
 	}
 	return changesPending;
@@ -510,7 +427,7 @@ bool RealTimeSequencer$DataPump::dispatchMessage(int32_t trackNum, $MidiEvent* e
 
 bool RealTimeSequencer$DataPump::pump() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int64_t currMillis = 0;
 		int64_t targetTick = this->lastTick;
 		$var($MidiEvent, currEvent, nullptr);
@@ -523,7 +440,7 @@ bool RealTimeSequencer$DataPump::pump() {
 			changesPending = false;
 			if (this->needReindex) {
 				if ($nc(this->trackReadPos)->length < $nc(this->tracks)->length) {
-					$set(this, trackReadPos, $new($ints, $nc(this->tracks)->length));
+					$set(this, trackReadPos, $new($ints, this->tracks->length));
 				}
 				for (int32_t t = 0; t < $nc(this->tracks)->length; ++t) {
 					ReindexTrack(t, targetTick);
@@ -550,7 +467,7 @@ bool RealTimeSequencer$DataPump::pump() {
 			for (int32_t t = 0; t < $nc(this->tracks)->length; ++t) {
 				try {
 					bool disabled = $nc(this->trackDisabled)->get(t);
-					$var($Track, thisTrack, $nc(this->tracks)->get(t));
+					$var($Track, thisTrack, this->tracks->get(t));
 					int32_t readPos = $nc(this->trackReadPos)->get(t);
 					int32_t size = $nc(thisTrack)->size();
 					while (!changesPending && (readPos < size) && $nc(($assign(currEvent, thisTrack->get(readPos))))->getTick() <= targetTick) {
@@ -608,7 +525,75 @@ RealTimeSequencer$DataPump::RealTimeSequencer$DataPump() {
 }
 
 $Class* RealTimeSequencer$DataPump::load$($String* name, bool initialize) {
-	$loadClass(RealTimeSequencer$DataPump, name, initialize, &_RealTimeSequencer$DataPump_ClassInfo_, allocate$RealTimeSequencer$DataPump);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/RealTimeSequencer;", nullptr, $FINAL | $SYNTHETIC, $field(RealTimeSequencer$DataPump, this$0)},
+		{"currTempo", "F", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, currTempo)},
+		{"tempoFactor", "F", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, tempoFactor)},
+		{"inverseTempoFactor", "F", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, inverseTempoFactor)},
+		{"ignoreTempoEventAt", "J", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, ignoreTempoEventAt)},
+		{"resolution", "I", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, resolution)},
+		{"divisionType", "F", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, divisionType)},
+		{"checkPointMillis", "J", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, checkPointMillis)},
+		{"checkPointTick", "J", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, checkPointTick)},
+		{"noteOnCache", "[I", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, noteOnCache)},
+		{"tracks", "[Ljavax/sound/midi/Track;", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, tracks)},
+		{"trackDisabled", "[Z", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, trackDisabled)},
+		{"trackReadPos", "[I", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, trackReadPos)},
+		{"lastTick", "J", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, lastTick)},
+		{"needReindex", "Z", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, needReindex)},
+		{"currLoopCounter", "I", nullptr, $PRIVATE, $field(RealTimeSequencer$DataPump, currLoopCounter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/RealTimeSequencer;)V", nullptr, 0, $method(RealTimeSequencer$DataPump, init$, void, $RealTimeSequencer*)},
+		{"ReindexTrack", "(IJ)V", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, ReindexTrack, void, int32_t, int64_t)},
+		{"applyDisabledTracks", "([Z[Z)V", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, applyDisabledTracks, void, $booleans*, $booleans*)},
+		{"chaseEvents", "(JJ)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, chaseEvents, void, int64_t, int64_t)},
+		{"chaseTrackEvents", "(IJJZ[[B)V", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, chaseTrackEvents, void, int32_t, int64_t, int64_t, bool, $byteArray2*)},
+		{"clearNoteOnCache", "()V", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, clearNoteOnCache, void)},
+		{"dispatchMessage", "(ILjavax/sound/midi/MidiEvent;)Z", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, dispatchMessage, bool, int32_t, $MidiEvent*)},
+		{"getCurrentTimeMillis", "()J", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, getCurrentTimeMillis, int64_t)},
+		{"getTempoFactor", "()F", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, getTempoFactor, float)},
+		{"getTempoMPQ", "()F", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, getTempoMPQ, float)},
+		{"getTickPos", "()J", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, getTickPos, int64_t)},
+		{"hasCachedTempo", "()Z", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, hasCachedTempo, bool)},
+		{"init", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, init, void)},
+		{"makeDisabledArray", "()[Z", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, makeDisabledArray, $booleans*)},
+		{"millis2tick", "(J)J", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, millis2tick, int64_t, int64_t)},
+		{"muteSoloChanged", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, muteSoloChanged, void)},
+		{"notesOff", "(Z)V", nullptr, 0, $virtualMethod(RealTimeSequencer$DataPump, notesOff, void, bool)},
+		{"pump", "()Z", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, pump, bool)},
+		{"resetLoopCount", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, resetLoopCount, void)},
+		{"sendNoteOffIfOn", "(Ljavax/sound/midi/Track;J)V", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, sendNoteOffIfOn, void, $Track*, int64_t)},
+		{"setSequence", "(Ljavax/sound/midi/Sequence;)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, setSequence, void, $Sequence*)},
+		{"setTempoFactor", "(F)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, setTempoFactor, void, float)},
+		{"setTempoMPQ", "(F)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, setTempoMPQ, void, float)},
+		{"setTickPos", "(J)V", nullptr, $SYNCHRONIZED, $virtualMethod(RealTimeSequencer$DataPump, setTickPos, void, int64_t)},
+		{"tick2millis", "(J)J", nullptr, $PRIVATE, $method(RealTimeSequencer$DataPump, tick2millis, int64_t, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.RealTimeSequencer$DataPump", "com.sun.media.sound.RealTimeSequencer", "DataPump", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.RealTimeSequencer$DataPump",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.RealTimeSequencer"
+	};
+	$loadClass(RealTimeSequencer$DataPump, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RealTimeSequencer$DataPump);
+	});
 	return class$;
 }
 

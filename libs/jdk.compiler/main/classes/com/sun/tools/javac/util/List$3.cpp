@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/List$3.h>
-
 #include <com/sun/tools/javac/util/List.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/NoSuchElementException.h>
@@ -20,51 +19,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _List$3_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(List$3, this$0)},
-	{"elems", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<TA;>;", 0, $field(List$3, elems)},
-	{}
-};
-
-$MethodInfo _List$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(List$3, init$, void, $List*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(List$3, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TA;", $PUBLIC, $virtualMethod(List$3, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(List$3, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _List$3_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.List",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _List$3_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.List$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _List$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.List$3",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_List$3_FieldInfo_,
-	_List$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TA;>;",
-	&_List$3_EnclosingMethodInfo_,
-	_List$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.List"
-};
-
-$Object* allocate$List$3($Class* clazz) {
-	return $of($alloc(List$3));
-}
-
 void List$3::init$($List* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, elems, this->this$0);
@@ -78,9 +32,9 @@ $Object* List$3::next() {
 	if ($nc(this->elems)->tail == nullptr) {
 		$throwNew($NoSuchElementException);
 	}
-	$var($Object, result, $nc(this->elems)->head);
-	$set(this, elems, $nc(this->elems)->tail);
-	return $of(result);
+	$var($Object, result, this->elems->head);
+	$set(this, elems, this->elems->tail);
+	return result;
 }
 
 void List$3::remove() {
@@ -91,7 +45,45 @@ List$3::List$3() {
 }
 
 $Class* List$3::load$($String* name, bool initialize) {
-	$loadClass(List$3, name, initialize, &_List$3_ClassInfo_, allocate$List$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(List$3, this$0)},
+		{"elems", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<TA;>;", 0, $field(List$3, elems)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/List;)V", nullptr, 0, $method(List$3, init$, void, $List*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(List$3, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TA;", $PUBLIC, $virtualMethod(List$3, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(List$3, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.List",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.List$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.List$3",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TA;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.List"
+	};
+	$loadClass(List$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(List$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/JTree$DynamicUtilTreeNode.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Vector.h>
@@ -17,71 +16,23 @@ using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeNode = ::javax::swing::tree::TreeNode;
 
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JTree$DynamicUtilTreeNode_FieldInfo_[] = {
-	{"hasChildren", "Z", nullptr, $PROTECTED, $field(JTree$DynamicUtilTreeNode, hasChildren)},
-	{"childValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(JTree$DynamicUtilTreeNode, childValue)},
-	{"loadedChildren", "Z", nullptr, $PROTECTED, $field(JTree$DynamicUtilTreeNode, loadedChildren)},
-	{}
-};
-
-$MethodInfo _JTree$DynamicUtilTreeNode_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JTree$DynamicUtilTreeNode, init$, void, Object$*, Object$*)},
-	{"children", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(JTree$DynamicUtilTreeNode, children, $Enumeration*)},
-	{"createChildren", "(Ljavax/swing/tree/DefaultMutableTreeNode;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTree$DynamicUtilTreeNode, createChildren, void, $DefaultMutableTreeNode*, Object$*)},
-	{"getChildAt", "(I)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(JTree$DynamicUtilTreeNode, getChildAt, $TreeNode*, int32_t)},
-	{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$DynamicUtilTreeNode, getChildCount, int32_t)},
-	{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$DynamicUtilTreeNode, isLeaf, bool)},
-	{"loadChildren", "()V", nullptr, $PROTECTED, $virtualMethod(JTree$DynamicUtilTreeNode, loadChildren, void)},
-	{}
-};
-
-$InnerClassInfo _JTree$DynamicUtilTreeNode_InnerClassesInfo_[] = {
-	{"javax.swing.JTree$DynamicUtilTreeNode", "javax.swing.JTree", "DynamicUtilTreeNode", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JTree$DynamicUtilTreeNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTree$DynamicUtilTreeNode",
-	"javax.swing.tree.DefaultMutableTreeNode",
-	nullptr,
-	_JTree$DynamicUtilTreeNode_FieldInfo_,
-	_JTree$DynamicUtilTreeNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTree$DynamicUtilTreeNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTree"
-};
-
-$Object* allocate$JTree$DynamicUtilTreeNode($Class* clazz) {
-	return $of($alloc(JTree$DynamicUtilTreeNode));
-}
-
 void JTree$DynamicUtilTreeNode::createChildren($DefaultMutableTreeNode* parent, Object$* children) {
 	$init(JTree$DynamicUtilTreeNode);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Vector, children)) {
 		$var($Vector, childVector, $cast($Vector, children));
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = $nc(childVector)->size();
-			for (; counter < maxCounter; ++counter) {
-				$var($Object, var$0, childVector->elementAt(counter));
-				$nc(parent)->add($$new(JTree$DynamicUtilTreeNode, var$0, $(childVector->elementAt(counter))));
-			}
+		for (int32_t counter = 0, maxCounter = childVector->size(); counter < maxCounter; ++counter) {
+			$var($Object, var$0, childVector->elementAt(counter));
+			$nc(parent)->add($$new(JTree$DynamicUtilTreeNode, var$0, $(childVector->elementAt(counter))));
 		}
 	} else if ($instanceOf($Hashtable, children)) {
 		$var($Hashtable, childHT, $cast($Hashtable, children));
-		$var($Enumeration, keys, $nc(childHT)->keys());
+		$var($Enumeration, keys, childHT->keys());
 		$var($Object, aKey, nullptr);
 		while ($nc(keys)->hasMoreElements()) {
 			$assign(aKey, keys->nextElement());
@@ -89,12 +40,8 @@ void JTree$DynamicUtilTreeNode::createChildren($DefaultMutableTreeNode* parent, 
 		}
 	} else if ($instanceOf($ObjectArray, children)) {
 		$var($ObjectArray, childArray, $cast($ObjectArray, children));
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = $nc(childArray)->length;
-			for (; counter < maxCounter; ++counter) {
-				$nc(parent)->add($$new(JTree$DynamicUtilTreeNode, childArray->get(counter), childArray->get(counter)));
-			}
+		for (int32_t counter = 0, maxCounter = childArray->length; counter < maxCounter; ++counter) {
+			$nc(parent)->add($$new(JTree$DynamicUtilTreeNode, childArray->get(counter), childArray->get(counter)));
 		}
 	}
 }
@@ -152,7 +99,44 @@ JTree$DynamicUtilTreeNode::JTree$DynamicUtilTreeNode() {
 }
 
 $Class* JTree$DynamicUtilTreeNode::load$($String* name, bool initialize) {
-	$loadClass(JTree$DynamicUtilTreeNode, name, initialize, &_JTree$DynamicUtilTreeNode_ClassInfo_, allocate$JTree$DynamicUtilTreeNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"hasChildren", "Z", nullptr, $PROTECTED, $field(JTree$DynamicUtilTreeNode, hasChildren)},
+		{"childValue", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(JTree$DynamicUtilTreeNode, childValue)},
+		{"loadedChildren", "Z", nullptr, $PROTECTED, $field(JTree$DynamicUtilTreeNode, loadedChildren)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(JTree$DynamicUtilTreeNode, init$, void, Object$*, Object$*)},
+		{"children", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/swing/tree/TreeNode;>;", $PUBLIC, $virtualMethod(JTree$DynamicUtilTreeNode, children, $Enumeration*)},
+		{"createChildren", "(Ljavax/swing/tree/DefaultMutableTreeNode;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JTree$DynamicUtilTreeNode, createChildren, void, $DefaultMutableTreeNode*, Object$*)},
+		{"getChildAt", "(I)Ljavax/swing/tree/TreeNode;", nullptr, $PUBLIC, $virtualMethod(JTree$DynamicUtilTreeNode, getChildAt, $TreeNode*, int32_t)},
+		{"getChildCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTree$DynamicUtilTreeNode, getChildCount, int32_t)},
+		{"isLeaf", "()Z", nullptr, $PUBLIC, $virtualMethod(JTree$DynamicUtilTreeNode, isLeaf, bool)},
+		{"loadChildren", "()V", nullptr, $PROTECTED, $virtualMethod(JTree$DynamicUtilTreeNode, loadChildren, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTree$DynamicUtilTreeNode", "javax.swing.JTree", "DynamicUtilTreeNode", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTree$DynamicUtilTreeNode",
+		"javax.swing.tree.DefaultMutableTreeNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTree"
+	};
+	$loadClass(JTree$DynamicUtilTreeNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTree$DynamicUtilTreeNode));
+	});
 	return class$;
 }
 

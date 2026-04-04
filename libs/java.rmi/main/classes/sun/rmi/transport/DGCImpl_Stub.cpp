@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/DGCImpl_Stub.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectInputFilter$FilterInfo.h>
@@ -67,13 +66,11 @@ using $UnmarshalException = ::java::rmi::UnmarshalException;
 using $Lease = ::java::rmi::dgc::Lease;
 using $VMID = ::java::rmi::dgc::VMID;
 using $Operation = ::java::rmi::server::Operation;
-using $RemoteCall = ::java::rmi::server::RemoteCall;
 using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $RemoteStub = ::java::rmi::server::RemoteStub;
 using $UID = ::java::rmi::server::UID;
 using $ArrayList = ::java::util::ArrayList;
-using $Channel = ::sun::rmi::transport::Channel;
 using $Connection = ::sun::rmi::transport::Connection;
 using $StreamRemoteCall = ::sun::rmi::transport::StreamRemoteCall;
 using $TCPConnection = ::sun::rmi::transport::tcp::TCPConnection;
@@ -90,65 +87,27 @@ public:
 	virtual $ObjectInputFilter$Status* checkInput($ObjectInputFilter$FilterInfo* filterInfo) override {
 		 return DGCImpl_Stub::leaseFilter(filterInfo);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DGCImpl_Stub$$Lambda$leaseFilter>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DGCImpl_Stub$$Lambda$leaseFilter::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl_Stub$$Lambda$leaseFilter, init$, void)},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub$$Lambda$leaseFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
-	{}
-};
-$ClassInfo DGCImpl_Stub$$Lambda$leaseFilter::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.DGCImpl_Stub$$Lambda$leaseFilter",
-	"java.lang.Object",
-	"java.io.ObjectInputFilter",
-	nullptr,
-	methodInfos
 };
 $Class* DGCImpl_Stub$$Lambda$leaseFilter::load$($String* name, bool initialize) {
-	$loadClass(DGCImpl_Stub$$Lambda$leaseFilter, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl_Stub$$Lambda$leaseFilter, init$, void)},
+		{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub$$Lambda$leaseFilter, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.DGCImpl_Stub$$Lambda$leaseFilter",
+		"java.lang.Object",
+		"java.io.ObjectInputFilter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DGCImpl_Stub$$Lambda$leaseFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCImpl_Stub$$Lambda$leaseFilter);
+	});
 	return class$;
 }
 $Class* DGCImpl_Stub$$Lambda$leaseFilter::class$ = nullptr;
-
-$FieldInfo _DGCImpl_Stub_FieldInfo_[] = {
-	{"operations", "[Ljava/rmi/server/Operation;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl_Stub, operations)},
-	{"interfaceHash", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DGCImpl_Stub, interfaceHash)},
-	{"DGCCLIENT_MAX_DEPTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl_Stub, DGCCLIENT_MAX_DEPTH)},
-	{"DGCCLIENT_MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl_Stub, DGCCLIENT_MAX_ARRAY_SIZE)},
-	{}
-};
-
-$MethodInfo _DGCImpl_Stub_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl_Stub, init$, void)},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(DGCImpl_Stub, init$, void, $RemoteRef*)},
-	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub, clean, void, $ObjIDArray*, int64_t, $VMID*, bool), "java.rmi.RemoteException"},
-	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*), "java.rmi.RemoteException"},
-	{"leaseFilter", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl_Stub, leaseFilter, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DGCImpl_Stub_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.rmi.transport.DGCImpl_Stub",
-	"java.rmi.server.RemoteStub",
-	"java.rmi.dgc.DGC",
-	_DGCImpl_Stub_FieldInfo_,
-	_DGCImpl_Stub_MethodInfo_
-};
-
-$Object* allocate$DGCImpl_Stub($Class* clazz) {
-	return $of($alloc(DGCImpl_Stub));
-}
 
 int32_t DGCImpl_Stub::hashCode() {
 	 return this->$RemoteStub::hashCode();
@@ -183,10 +142,10 @@ void DGCImpl_Stub::init$($RemoteRef* ref) {
 }
 
 void DGCImpl_Stub::clean($ObjIDArray* $param_arrayOf_ObjID_1, int64_t $param_long_2, $VMID* $param_VMID_3, bool $param_boolean_4) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall(static_cast<$RemoteObject*>(this), DGCImpl_Stub::operations, 0, DGCImpl_Stub::interfaceHash)));
-		$nc(call)->setObjectInputFilter(static_cast<$ObjectInputFilter*>($$new(DGCImpl_Stub$$Lambda$leaseFilter)));
+		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall($cast($RemoteObject, this), DGCImpl_Stub::operations, 0, DGCImpl_Stub::interfaceHash)));
+		$nc(call)->setObjectInputFilter($$new(DGCImpl_Stub$$Lambda$leaseFilter));
 		try {
 			$var($ObjectOutput, out, call->getOutputStream());
 			$nc(out)->writeObject($param_arrayOf_ObjID_1);
@@ -208,10 +167,10 @@ void DGCImpl_Stub::clean($ObjIDArray* $param_arrayOf_ObjID_1, int64_t $param_lon
 }
 
 $Lease* DGCImpl_Stub::dirty($ObjIDArray* $param_arrayOf_ObjID_1, int64_t $param_long_2, $Lease* $param_Lease_3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall(static_cast<$RemoteObject*>(this), DGCImpl_Stub::operations, 1, DGCImpl_Stub::interfaceHash)));
-		$nc(call)->setObjectInputFilter(static_cast<$ObjectInputFilter*>($$new(DGCImpl_Stub$$Lambda$leaseFilter)));
+		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall($cast($RemoteObject, this), DGCImpl_Stub::operations, 1, DGCImpl_Stub::interfaceHash)));
+		$nc(call)->setObjectInputFilter($$new(DGCImpl_Stub$$Lambda$leaseFilter));
 		try {
 			$var($ObjectOutput, out, call->getOutputStream());
 			$nc(out)->writeObject($param_arrayOf_ObjID_1);
@@ -223,39 +182,37 @@ $Lease* DGCImpl_Stub::dirty($ObjIDArray* $param_arrayOf_ObjID_1, int64_t $param_
 		$nc(this->ref)->invoke(call);
 		$var($Lease, $result, nullptr);
 		$var($Connection, connection, call->getConnection());
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($ObjectInput, in, call->getInputStream());
-					$assign($result, $cast($Lease, $nc(in)->readObject()));
-				} catch ($ClassCastException& e) {
-					if ($instanceOf($TCPConnection, connection)) {
-						$nc($($nc(($cast($TCPConnection, connection)))->getChannel()))->free(connection, false);
-					}
-					call->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
-				} catch ($IOException& e) {
-					if ($instanceOf($TCPConnection, connection)) {
-						$nc($($nc(($cast($TCPConnection, connection)))->getChannel()))->free(connection, false);
-					}
-					call->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
-				} catch ($ClassNotFoundException& e) {
-					if ($instanceOf($TCPConnection, connection)) {
-						$nc($($nc(($cast($TCPConnection, connection)))->getChannel()))->free(connection, false);
-					}
-					call->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
+				$var($ObjectInput, in, call->getInputStream());
+				$assign($result, $cast($Lease, $nc(in)->readObject()));
+			} catch ($ClassCastException& e) {
+				if ($instanceOf($TCPConnection, connection)) {
+					$$nc($cast($TCPConnection, connection)->getChannel())->free(connection, false);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->ref)->done(call);
+				call->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
+			} catch ($IOException& e) {
+				if ($instanceOf($TCPConnection, connection)) {
+					$$nc($cast($TCPConnection, connection)->getChannel())->free(connection, false);
+				}
+				call->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
+			} catch ($ClassNotFoundException& e) {
+				if ($instanceOf($TCPConnection, connection)) {
+					$$nc($cast($TCPConnection, connection)->getChannel())->free(connection, false);
+				}
+				call->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->ref)->done(call);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		return $result;
 	} catch ($RuntimeException& e) {
@@ -274,7 +231,7 @@ $ObjectInputFilter$Status* DGCImpl_Stub::leaseFilter($ObjectInputFilter$FilterIn
 		$init($ObjectInputFilter$Status);
 		return $ObjectInputFilter$Status::REJECTED;
 	}
-	$Class* clazz = $nc(filterInfo)->serialClass();
+	$Class* clazz = filterInfo->serialClass();
 	if (clazz != nullptr) {
 		while ($nc(clazz)->isArray()) {
 			bool var$0 = filterInfo->arrayLength() >= 0;
@@ -295,27 +252,27 @@ $ObjectInputFilter$Status* DGCImpl_Stub::leaseFilter($ObjectInputFilter$FilterIn
 		if (!var$2) {
 			bool var$3 = $Throwable::class$->isAssignableFrom(clazz);
 			if (var$3) {
-				bool var$4 = $Object::class$->getModule() == $nc(clazz)->getModule();
+				bool var$4 = $Object::class$->getModule() == clazz->getModule();
 				if (!var$4) {
 					$load($RemoteException);
-					var$4 = $RemoteException::class$->getModule() == $nc(clazz)->getModule();
+					var$4 = $RemoteException::class$->getModule() == clazz->getModule();
 				}
-				var$3 = (var$4);
+				var$3 = var$4;
 			}
-			var$2 = (var$3);
+			var$2 = var$3;
 		}
 		$load($StackTraceElement);
 		$load($ArrayList);
 		bool var$1 = var$2 || clazz == $StackTraceElement::class$ || clazz == $ArrayList::class$ || clazz == $Object::class$;
 		$init($ObjectInputFilter$Status);
-		return (var$1 || $nc($($nc(clazz)->getName()))->equals("java.util.Collections$EmptyList"_s)) ? $ObjectInputFilter$Status::ALLOWED : $ObjectInputFilter$Status::REJECTED;
+		return (var$1 || $$nc(clazz->getName())->equals("java.util.Collections$EmptyList"_s)) ? $ObjectInputFilter$Status::ALLOWED : $ObjectInputFilter$Status::REJECTED;
 	}
 	$init($ObjectInputFilter$Status);
 	return $ObjectInputFilter$Status::UNDECIDED;
 }
 
-void clinit$DGCImpl_Stub($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DGCImpl_Stub::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DGCImpl_Stub::operations, $new($OperationArray, {
 		$$new($Operation, "void clean(java.rmi.server.ObjID[], long, java.rmi.dgc.VMID, boolean)"_s),
 		$$new($Operation, "java.rmi.dgc.Lease dirty(java.rmi.server.ObjID[], long, java.rmi.dgc.Lease)"_s)
@@ -329,11 +286,41 @@ DGCImpl_Stub::DGCImpl_Stub() {
 
 $Class* DGCImpl_Stub::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DGCImpl_Stub$$Lambda$leaseFilter::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.DGCImpl_Stub$$Lambda$leaseFilter")) {
 			return DGCImpl_Stub$$Lambda$leaseFilter::load$(name, initialize);
 		}
 	}
-	$loadClass(DGCImpl_Stub, name, initialize, &_DGCImpl_Stub_ClassInfo_, clinit$DGCImpl_Stub, allocate$DGCImpl_Stub);
+	$FieldInfo fieldInfos$$[] = {
+		{"operations", "[Ljava/rmi/server/Operation;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl_Stub, operations)},
+		{"interfaceHash", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DGCImpl_Stub, interfaceHash)},
+		{"DGCCLIENT_MAX_DEPTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl_Stub, DGCCLIENT_MAX_DEPTH)},
+		{"DGCCLIENT_MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl_Stub, DGCCLIENT_MAX_ARRAY_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl_Stub, init$, void)},
+		{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(DGCImpl_Stub, init$, void, $RemoteRef*)},
+		{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub, clean, void, $ObjIDArray*, int64_t, $VMID*, bool), "java.rmi.RemoteException"},
+		{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC, $virtualMethod(DGCImpl_Stub, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*), "java.rmi.RemoteException"},
+		{"leaseFilter", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl_Stub, leaseFilter, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.rmi.transport.DGCImpl_Stub",
+		"java.rmi.server.RemoteStub",
+		"java.rmi.dgc.DGC",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DGCImpl_Stub, name, initialize, &classInfo$$, DGCImpl_Stub::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DGCImpl_Stub));
+	});
 	return class$;
 }
 

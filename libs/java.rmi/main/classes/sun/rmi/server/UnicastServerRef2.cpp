@@ -1,5 +1,4 @@
 #include <sun/rmi/server/UnicastServerRef2.h>
-
 #include <java/io/ObjectInputFilter.h>
 #include <java/io/ObjectOutput.h>
 #include <java/rmi/server/RMIClientSocketFactory.h>
@@ -25,35 +24,6 @@ using $LiveRef = ::sun::rmi::transport::LiveRef;
 namespace sun {
 	namespace rmi {
 		namespace server {
-
-$FieldInfo _UnicastServerRef2_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnicastServerRef2, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnicastServerRef2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void)},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, $LiveRef*)},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, $LiveRef*, $ObjectInputFilter*)},
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
-	{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*)},
-	{"getClientRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef2, getClientRef, $RemoteRef*)},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef2, getRefClass, $String*, $ObjectOutput*)},
-	{}
-};
-
-$ClassInfo _UnicastServerRef2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.server.UnicastServerRef2",
-	"sun.rmi.server.UnicastServerRef",
-	nullptr,
-	_UnicastServerRef2_FieldInfo_,
-	_UnicastServerRef2_MethodInfo_
-};
-
-$Object* allocate$UnicastServerRef2($Class* clazz) {
-	return $of($alloc(UnicastServerRef2));
-}
 
 void UnicastServerRef2::init$() {
 	$UnicastServerRef::init$();
@@ -87,7 +57,31 @@ UnicastServerRef2::UnicastServerRef2() {
 }
 
 $Class* UnicastServerRef2::load$($String* name, bool initialize) {
-	$loadClass(UnicastServerRef2, name, initialize, &_UnicastServerRef2_ClassInfo_, allocate$UnicastServerRef2);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnicastServerRef2, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void)},
+		{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, $LiveRef*)},
+		{"<init>", "(Lsun/rmi/transport/LiveRef;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, $LiveRef*, $ObjectInputFilter*)},
+		{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*)},
+		{"<init>", "(ILjava/rmi/server/RMIClientSocketFactory;Ljava/rmi/server/RMIServerSocketFactory;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef2, init$, void, int32_t, $RMIClientSocketFactory*, $RMIServerSocketFactory*, $ObjectInputFilter*)},
+		{"getClientRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef2, getClientRef, $RemoteRef*)},
+		{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef2, getRefClass, $String*, $ObjectOutput*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.server.UnicastServerRef2",
+		"sun.rmi.server.UnicastServerRef",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnicastServerRef2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnicastServerRef2));
+	});
 	return class$;
 }
 

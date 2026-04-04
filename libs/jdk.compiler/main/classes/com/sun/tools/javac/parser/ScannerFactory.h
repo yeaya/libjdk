@@ -60,6 +60,7 @@ class $export ScannerFactory : public ::java::lang::Object {
 	$class(ScannerFactory, 0, ::java::lang::Object)
 public:
 	ScannerFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	static ::com::sun::tools::javac::parser::ScannerFactory* instance(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::parser::Scanner* newScanner(::java::lang::CharSequence* input, bool keepDocComments);

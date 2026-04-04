@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/platform/PlatformProvider.h>
-
 #include <com/sun/tools/javac/platform/PlatformDescription.h>
 #include <java/lang/Iterable.h>
 #include <jcpp.h>
@@ -16,38 +15,33 @@ namespace com {
 			namespace javac {
 				namespace platform {
 
-$MethodInfo _PlatformProvider_MethodInfo_[] = {
-	{"getPlatform", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformProvider, getPlatform, $PlatformDescription*, $String*, $String*), "com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported"},
-	{"getSupportedPlatformNames", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformProvider, getSupportedPlatformNames, $Iterable*)},
-	{}
-};
-
-$InnerClassInfo _PlatformProvider_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported", "com.sun.tools.javac.platform.PlatformProvider", "PlatformNotSupported", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PlatformProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.platform.PlatformProvider",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PlatformProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PlatformProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported"
-};
-
-$Object* allocate$PlatformProvider($Class* clazz) {
-	return $of($alloc(PlatformProvider));
-}
-
 $Class* PlatformProvider::load$($String* name, bool initialize) {
-	$loadClass(PlatformProvider, name, initialize, &_PlatformProvider_ClassInfo_, allocate$PlatformProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"getPlatform", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PlatformProvider, getPlatform, $PlatformDescription*, $String*, $String*), "com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported"},
+		{"getSupportedPlatformNames", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/lang/String;>;", $PUBLIC | $ABSTRACT, $virtualMethod(PlatformProvider, getSupportedPlatformNames, $Iterable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported", "com.sun.tools.javac.platform.PlatformProvider", "PlatformNotSupported", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.platform.PlatformProvider",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.platform.PlatformProvider$PlatformNotSupported"
+	};
+	$loadClass(PlatformProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformProvider);
+	});
 	return class$;
 }
 

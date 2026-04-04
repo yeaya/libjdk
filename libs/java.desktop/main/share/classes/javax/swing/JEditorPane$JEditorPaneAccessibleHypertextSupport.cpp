@@ -1,5 +1,4 @@
 #include <javax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <javax/accessibility/AccessibleHyperlink.h>
@@ -8,7 +7,6 @@
 #include <javax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink.h>
 #include <javax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector.h>
 #include <javax/swing/JEditorPane.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Document.h>
@@ -33,7 +31,6 @@ using $JEditorPane$AccessibleJEditorPane = ::javax::swing::JEditorPane$Accessibl
 using $JEditorPane$JEditorPaneAccessibleHypertextSupport$1 = ::javax::swing::JEditorPane$JEditorPaneAccessibleHypertextSupport$1;
 using $JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink = ::javax::swing::JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink;
 using $JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector = ::javax::swing::JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Document = ::javax::swing::text::Document;
@@ -44,68 +41,6 @@ using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JEditorPane$JEditorPaneAccessibleHypertextSupport_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JEditorPane;", nullptr, $FINAL | $SYNTHETIC, $field(JEditorPane$JEditorPaneAccessibleHypertextSupport, this$0)},
-	{"hyperlinks", "Ljavax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector;", nullptr, 0, $field(JEditorPane$JEditorPaneAccessibleHypertextSupport, hyperlinks)},
-	{"linksValid", "Z", nullptr, 0, $field(JEditorPane$JEditorPaneAccessibleHypertextSupport, linksValid)},
-	{}
-};
-
-$MethodInfo _JEditorPane$JEditorPaneAccessibleHypertextSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getCaretPosition", "()I", nullptr, $PUBLIC},
-	{"*getCharCount", "()I", nullptr, $PUBLIC},
-	{"*getCharacterAttribute", "(I)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC},
-	{"*getCharacterBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC},
-	{"*getIndexAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC},
-	{"*getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getSelectionEnd", "()I", nullptr, $PUBLIC},
-	{"*getSelectionStart", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $method(JEditorPane$JEditorPaneAccessibleHypertextSupport, init$, void, $JEditorPane*)},
-	{"buildLinkTable", "()V", nullptr, $PRIVATE, $method(JEditorPane$JEditorPaneAccessibleHypertextSupport, buildLinkTable, void)},
-	{"getLink", "(I)Ljavax/accessibility/AccessibleHyperlink;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport, getLink, $AccessibleHyperlink*, int32_t)},
-	{"getLinkCount", "()I", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport, getLinkCount, int32_t)},
-	{"getLinkIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport, getLinkIndex, int32_t, int32_t)},
-	{"getLinkText", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport, getLinkText, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JEditorPane$JEditorPaneAccessibleHypertextSupport_InnerClassesInfo_[] = {
-	{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "javax.swing.JEditorPane", "JEditorPaneAccessibleHypertextSupport", $PROTECTED},
-	{"javax.swing.JEditorPane$AccessibleJEditorPane", "javax.swing.JEditorPane", "AccessibleJEditorPane", $PROTECTED},
-	{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector", "javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "LinkVector", $PRIVATE},
-	{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink", "javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "HTMLLink", $PUBLIC},
-	{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JEditorPane$JEditorPaneAccessibleHypertextSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport",
-	"javax.swing.JEditorPane$AccessibleJEditorPane",
-	"javax.accessibility.AccessibleHypertext",
-	_JEditorPane$JEditorPaneAccessibleHypertextSupport_FieldInfo_,
-	_JEditorPane$JEditorPaneAccessibleHypertextSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JEditorPane$JEditorPaneAccessibleHypertextSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JEditorPane"
-};
-
-$Object* allocate$JEditorPane$JEditorPaneAccessibleHypertextSupport($Class* clazz) {
-	return $of($alloc(JEditorPane$JEditorPaneAccessibleHypertextSupport));
-}
 
 int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getIndexAtPoint($Point* p) {
 	 return this->$JEditorPane$AccessibleJEditorPane::getIndexAtPoint(p);
@@ -172,7 +107,7 @@ void JEditorPane$JEditorPaneAccessibleHypertextSupport::finalize() {
 }
 
 void JEditorPane$JEditorPaneAccessibleHypertextSupport::buildLinkTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->hyperlinks)->removeAllElements();
 	$var($Document, d, this->this$0->getDocument());
 	if (d != nullptr) {
@@ -187,7 +122,7 @@ void JEditorPane$JEditorPaneAccessibleHypertextSupport::buildLinkTable() {
 				$init($HTML$Tag);
 				$assign(anchor, $cast($AttributeSet, $nc(as)->getAttribute($HTML$Tag::A)));
 				$init($HTML$Attribute);
-				$assign(href, (anchor != nullptr) ? $cast($String, $nc(anchor)->getAttribute($HTML$Attribute::HREF)) : ($String*)nullptr);
+				$assign(href, (anchor != nullptr) ? $cast($String, anchor->getAttribute($HTML$Attribute::HREF)) : ($String*)nullptr);
 				if (href != nullptr) {
 					$nc(this->hyperlinks)->addElement($$new($JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink, this, e));
 				}
@@ -198,7 +133,7 @@ void JEditorPane$JEditorPaneAccessibleHypertextSupport::buildLinkTable() {
 }
 
 void JEditorPane$JEditorPaneAccessibleHypertextSupport::init$($JEditorPane* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JEditorPane$AccessibleJEditorPane::init$(this$0);
 	this->linksValid = false;
@@ -217,7 +152,7 @@ int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getLinkCount() {
 }
 
 int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getLinkIndex(int32_t charIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->linksValid == false) {
 		buildLinkTable();
 	}
@@ -225,7 +160,7 @@ int32_t JEditorPane$JEditorPaneAccessibleHypertextSupport::getLinkIndex(int32_t 
 	$var($Document, doc, this->this$0->getDocument());
 	if (doc != nullptr) {
 		for ($assign(e, doc->getDefaultRootElement()); !$nc(e)->isLeaf();) {
-			int32_t index = $nc(e)->getElementIndex(charIndex);
+			int32_t index = e->getElementIndex(charIndex);
 			$assign(e, e->getElement(index));
 		}
 	}
@@ -237,14 +172,14 @@ $AccessibleHyperlink* JEditorPane$JEditorPaneAccessibleHypertextSupport::getLink
 		buildLinkTable();
 	}
 	if (linkIndex >= 0 && linkIndex < $nc(this->hyperlinks)->size()) {
-		return $cast($AccessibleHyperlink, $nc(this->hyperlinks)->elementAt(linkIndex));
+		return $cast($AccessibleHyperlink, this->hyperlinks->elementAt(linkIndex));
 	} else {
 		return nullptr;
 	}
 }
 
 $String* JEditorPane$JEditorPaneAccessibleHypertextSupport::getLinkText(int32_t linkIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->linksValid == false) {
 		buildLinkTable();
 	}
@@ -268,7 +203,63 @@ JEditorPane$JEditorPaneAccessibleHypertextSupport::JEditorPane$JEditorPaneAccess
 }
 
 $Class* JEditorPane$JEditorPaneAccessibleHypertextSupport::load$($String* name, bool initialize) {
-	$loadClass(JEditorPane$JEditorPaneAccessibleHypertextSupport, name, initialize, &_JEditorPane$JEditorPaneAccessibleHypertextSupport_ClassInfo_, allocate$JEditorPane$JEditorPaneAccessibleHypertextSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JEditorPane;", nullptr, $FINAL | $SYNTHETIC, $field(JEditorPane$JEditorPaneAccessibleHypertextSupport, this$0)},
+		{"hyperlinks", "Ljavax/swing/JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector;", nullptr, 0, $field(JEditorPane$JEditorPaneAccessibleHypertextSupport, hyperlinks)},
+		{"linksValid", "Z", nullptr, 0, $field(JEditorPane$JEditorPaneAccessibleHypertextSupport, linksValid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getCaretPosition", "()I", nullptr, $PUBLIC},
+		{"*getCharCount", "()I", nullptr, $PUBLIC},
+		{"*getCharacterAttribute", "(I)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC},
+		{"*getCharacterBounds", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC},
+		{"*getIndexAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC},
+		{"*getSelectedText", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getSelectionEnd", "()I", nullptr, $PUBLIC},
+		{"*getSelectionStart", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JEditorPane;)V", nullptr, $PUBLIC, $method(JEditorPane$JEditorPaneAccessibleHypertextSupport, init$, void, $JEditorPane*)},
+		{"buildLinkTable", "()V", nullptr, $PRIVATE, $method(JEditorPane$JEditorPaneAccessibleHypertextSupport, buildLinkTable, void)},
+		{"getLink", "(I)Ljavax/accessibility/AccessibleHyperlink;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport, getLink, $AccessibleHyperlink*, int32_t)},
+		{"getLinkCount", "()I", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport, getLinkCount, int32_t)},
+		{"getLinkIndex", "(I)I", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport, getLinkIndex, int32_t, int32_t)},
+		{"getLinkText", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JEditorPane$JEditorPaneAccessibleHypertextSupport, getLinkText, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "javax.swing.JEditorPane", "JEditorPaneAccessibleHypertextSupport", $PROTECTED},
+		{"javax.swing.JEditorPane$AccessibleJEditorPane", "javax.swing.JEditorPane", "AccessibleJEditorPane", $PROTECTED},
+		{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$LinkVector", "javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "LinkVector", $PRIVATE},
+		{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$HTMLLink", "javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport", "HTMLLink", $PUBLIC},
+		{"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JEditorPane$JEditorPaneAccessibleHypertextSupport",
+		"javax.swing.JEditorPane$AccessibleJEditorPane",
+		"javax.accessibility.AccessibleHypertext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JEditorPane"
+	};
+	$loadClass(JEditorPane$JEditorPaneAccessibleHypertextSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JEditorPane$JEditorPaneAccessibleHypertextSupport));
+	});
 	return class$;
 }
 

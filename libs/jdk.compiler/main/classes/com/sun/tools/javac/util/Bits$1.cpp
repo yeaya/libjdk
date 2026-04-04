@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Bits$1.h>
-
 #include <com/sun/tools/javac/util/Bits$BitsState.h>
 #include <com/sun/tools/javac/util/Bits.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -21,53 +20,17 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Bits$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$util$Bits$BitsState", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Bits$1, $SwitchMap$com$sun$tools$javac$util$Bits$BitsState)},
-	{}
-};
-
-$EnclosingMethodInfo _Bits$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.Bits",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Bits$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Bits$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Bits$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.util.Bits$1",
-	"java.lang.Object",
-	nullptr,
-	_Bits$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Bits$1_EnclosingMethodInfo_,
-	_Bits$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Bits"
-};
-
-$Object* allocate$Bits$1($Class* clazz) {
-	return $of($alloc(Bits$1));
-}
-
 $ints* Bits$1::$SwitchMap$com$sun$tools$javac$util$Bits$BitsState = nullptr;
 
-void clinit$Bits$1($Class* class$) {
+void Bits$1::clinit$($Class* clazz) {
 	$assignStatic(Bits$1::$SwitchMap$com$sun$tools$javac$util$Bits$BitsState, $new($ints, $($Bits$BitsState::values())->length));
 	{
 		try {
-			$nc(Bits$1::$SwitchMap$com$sun$tools$javac$util$Bits$BitsState)->set($Bits$BitsState::UNKNOWN->ordinal(), 1);
+			Bits$1::$SwitchMap$com$sun$tools$javac$util$Bits$BitsState->set($Bits$BitsState::UNKNOWN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Bits$1::$SwitchMap$com$sun$tools$javac$util$Bits$BitsState)->set($Bits$BitsState::NORMAL->ordinal(), 2);
+			Bits$1::$SwitchMap$com$sun$tools$javac$util$Bits$BitsState->set($Bits$BitsState::NORMAL->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -77,7 +40,37 @@ Bits$1::Bits$1() {
 }
 
 $Class* Bits$1::load$($String* name, bool initialize) {
-	$loadClass(Bits$1, name, initialize, &_Bits$1_ClassInfo_, clinit$Bits$1, allocate$Bits$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$util$Bits$BitsState", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Bits$1, $SwitchMap$com$sun$tools$javac$util$Bits$BitsState)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.Bits",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Bits$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.util.Bits$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Bits"
+	};
+	$loadClass(Bits$1, name, initialize, &classInfo$$, Bits$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bits$1);
+	});
 	return class$;
 }
 

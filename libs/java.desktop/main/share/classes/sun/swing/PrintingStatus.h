@@ -55,6 +55,7 @@ class $export PrintingStatus : public ::java::lang::Object {
 	$class(PrintingStatus, 0, ::java::lang::Object)
 public:
 	PrintingStatus();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Component* parent, ::java::awt::print::PrinterJob* job);
 	virtual ::java::awt::print::Printable* createNotificationPrintable(::java::awt::print::Printable* printable);
 	static ::sun::swing::PrintingStatus* createPrintingStatus(::java::awt::Component* parent, ::java::awt::print::PrinterJob* job);

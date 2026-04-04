@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelSource.h>
-
 #include <com/sun/media/sound/ModelIdentifier.h>
 #include <com/sun/media/sound/ModelStandardTransform.h>
 #include <com/sun/media/sound/ModelTransform.h>
@@ -29,51 +28,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _ModelSource_FieldInfo_[] = {
-	{"SOURCE_NONE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_NONE)},
-	{"SOURCE_NOTEON_KEYNUMBER", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_NOTEON_KEYNUMBER)},
-	{"SOURCE_NOTEON_VELOCITY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_NOTEON_VELOCITY)},
-	{"SOURCE_EG1", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_EG1)},
-	{"SOURCE_EG2", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_EG2)},
-	{"SOURCE_LFO1", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_LFO1)},
-	{"SOURCE_LFO2", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_LFO2)},
-	{"SOURCE_MIDI_PITCH", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_PITCH)},
-	{"SOURCE_MIDI_CHANNEL_PRESSURE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_CHANNEL_PRESSURE)},
-	{"SOURCE_MIDI_POLY_PRESSURE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_POLY_PRESSURE)},
-	{"SOURCE_MIDI_CC_0", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_CC_0)},
-	{"SOURCE_MIDI_RPN_0", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_RPN_0)},
-	{"source", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PRIVATE, $field(ModelSource, source)},
-	{"transform", "Lcom/sun/media/sound/ModelTransform;", nullptr, $PRIVATE, $field(ModelSource, transform)},
-	{}
-};
-
-$MethodInfo _ModelSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModelSource, init$, void)},
-	{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*)},
-	{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;Z)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*, bool)},
-	{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;ZZ)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*, bool, bool)},
-	{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;ZZI)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*, bool, bool, int32_t)},
-	{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;Lcom/sun/media/sound/ModelTransform;)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*, $ModelTransform*)},
-	{"getIdentifier", "()Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC, $method(ModelSource, getIdentifier, $ModelIdentifier*)},
-	{"getTransform", "()Lcom/sun/media/sound/ModelTransform;", nullptr, $PUBLIC, $method(ModelSource, getTransform, $ModelTransform*)},
-	{"setIdentifier", "(Lcom/sun/media/sound/ModelIdentifier;)V", nullptr, $PUBLIC, $method(ModelSource, setIdentifier, void, $ModelIdentifier*)},
-	{"setTransform", "(Lcom/sun/media/sound/ModelTransform;)V", nullptr, $PUBLIC, $method(ModelSource, setTransform, void, $ModelTransform*)},
-	{}
-};
-
-$ClassInfo _ModelSource_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelSource",
-	"java.lang.Object",
-	nullptr,
-	_ModelSource_FieldInfo_,
-	_ModelSource_MethodInfo_
-};
-
-$Object* allocate$ModelSource($Class* clazz) {
-	return $of($alloc(ModelSource));
-}
 
 $ModelIdentifier* ModelSource::SOURCE_NONE = nullptr;
 $ModelIdentifier* ModelSource::SOURCE_NOTEON_KEYNUMBER = nullptr;
@@ -139,7 +93,7 @@ void ModelSource::setTransform($ModelTransform* transform) {
 	$set(this, transform, transform);
 }
 
-void clinit$ModelSource($Class* class$) {
+void ModelSource::clinit$($Class* clazz) {
 	$assignStatic(ModelSource::SOURCE_NONE, nullptr);
 	$assignStatic(ModelSource::SOURCE_NOTEON_KEYNUMBER, $new($ModelIdentifier, "noteon"_s, "keynumber"_s));
 	$assignStatic(ModelSource::SOURCE_NOTEON_VELOCITY, $new($ModelIdentifier, "noteon"_s, "velocity"_s));
@@ -158,7 +112,47 @@ ModelSource::ModelSource() {
 }
 
 $Class* ModelSource::load$($String* name, bool initialize) {
-	$loadClass(ModelSource, name, initialize, &_ModelSource_ClassInfo_, clinit$ModelSource, allocate$ModelSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"SOURCE_NONE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_NONE)},
+		{"SOURCE_NOTEON_KEYNUMBER", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_NOTEON_KEYNUMBER)},
+		{"SOURCE_NOTEON_VELOCITY", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_NOTEON_VELOCITY)},
+		{"SOURCE_EG1", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_EG1)},
+		{"SOURCE_EG2", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_EG2)},
+		{"SOURCE_LFO1", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_LFO1)},
+		{"SOURCE_LFO2", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_LFO2)},
+		{"SOURCE_MIDI_PITCH", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_PITCH)},
+		{"SOURCE_MIDI_CHANNEL_PRESSURE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_CHANNEL_PRESSURE)},
+		{"SOURCE_MIDI_POLY_PRESSURE", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_POLY_PRESSURE)},
+		{"SOURCE_MIDI_CC_0", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_CC_0)},
+		{"SOURCE_MIDI_RPN_0", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ModelSource, SOURCE_MIDI_RPN_0)},
+		{"source", "Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PRIVATE, $field(ModelSource, source)},
+		{"transform", "Lcom/sun/media/sound/ModelTransform;", nullptr, $PRIVATE, $field(ModelSource, transform)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModelSource, init$, void)},
+		{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*)},
+		{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;Z)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*, bool)},
+		{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;ZZ)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*, bool, bool)},
+		{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;ZZI)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*, bool, bool, int32_t)},
+		{"<init>", "(Lcom/sun/media/sound/ModelIdentifier;Lcom/sun/media/sound/ModelTransform;)V", nullptr, $PUBLIC, $method(ModelSource, init$, void, $ModelIdentifier*, $ModelTransform*)},
+		{"getIdentifier", "()Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PUBLIC, $method(ModelSource, getIdentifier, $ModelIdentifier*)},
+		{"getTransform", "()Lcom/sun/media/sound/ModelTransform;", nullptr, $PUBLIC, $method(ModelSource, getTransform, $ModelTransform*)},
+		{"setIdentifier", "(Lcom/sun/media/sound/ModelIdentifier;)V", nullptr, $PUBLIC, $method(ModelSource, setIdentifier, void, $ModelIdentifier*)},
+		{"setTransform", "(Lcom/sun/media/sound/ModelTransform;)V", nullptr, $PUBLIC, $method(ModelSource, setTransform, void, $ModelTransform*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelSource",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelSource, name, initialize, &classInfo$$, ModelSource::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelSource);
+	});
 	return class$;
 }
 

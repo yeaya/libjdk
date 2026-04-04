@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFocus$Drawable.h>
-
 #include <com/apple/laf/AquaFocus.h>
 #include <java/awt/Graphics2D.h>
 #include <jcpp.h>
@@ -13,38 +12,33 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaFocus$Drawable_MethodInfo_[] = {
-	{"draw", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AquaFocus$Drawable, draw, void, $Graphics2D*)},
-	{}
-};
-
-$InnerClassInfo _AquaFocus$Drawable_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFocus$Drawable", "com.apple.laf.AquaFocus", "Drawable", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaFocus$Drawable_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.apple.laf.AquaFocus$Drawable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AquaFocus$Drawable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFocus$Drawable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFocus"
-};
-
-$Object* allocate$AquaFocus$Drawable($Class* clazz) {
-	return $of($alloc(AquaFocus$Drawable));
-}
-
 $Class* AquaFocus$Drawable::load$($String* name, bool initialize) {
-	$loadClass(AquaFocus$Drawable, name, initialize, &_AquaFocus$Drawable_ClassInfo_, allocate$AquaFocus$Drawable);
+	$MethodInfo methodInfos$$[] = {
+		{"draw", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AquaFocus$Drawable, draw, void, $Graphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFocus$Drawable", "com.apple.laf.AquaFocus", "Drawable", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.apple.laf.AquaFocus$Drawable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFocus"
+	};
+	$loadClass(AquaFocus$Drawable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFocus$Drawable);
+	});
 	return class$;
 }
 

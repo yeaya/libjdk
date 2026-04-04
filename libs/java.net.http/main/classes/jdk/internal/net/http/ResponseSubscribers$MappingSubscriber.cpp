@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseSubscribers$MappingSubscriber.h>
-
 #include <java/net/http/HttpResponse$BodySubscriber.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
@@ -27,52 +26,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _ResponseSubscribers$MappingSubscriber_FieldInfo_[] = {
-	{"upstream", "Ljava/net/http/HttpResponse$BodySubscriber;", "Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$MappingSubscriber, upstream)},
-	{"mapper", "Ljava/util/function/Function;", "Ljava/util/function/Function<-TT;+TU;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$MappingSubscriber, mapper)},
-	{"trusted", "Z", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$MappingSubscriber, trusted)},
-	{}
-};
-
-$MethodInfo _ResponseSubscribers$MappingSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;)V", $PUBLIC, $method(ResponseSubscribers$MappingSubscriber, init$, void, $HttpResponse$BodySubscriber*, $Function*)},
-	{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;Z)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;Z)V", 0, $method(ResponseSubscribers$MappingSubscriber, init$, void, $HttpResponse$BodySubscriber*, $Function*, bool)},
-	{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, getBody, $CompletionStage*)},
-	{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, needsExecutor, bool)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _ResponseSubscribers$MappingSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseSubscribers$MappingSubscriber", "jdk.internal.net.http.ResponseSubscribers", "MappingSubscriber", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseSubscribers$MappingSubscriber_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.ResponseSubscribers$MappingSubscriber",
-	"java.lang.Object",
-	"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
-	_ResponseSubscribers$MappingSubscriber_FieldInfo_,
-	_ResponseSubscribers$MappingSubscriber_MethodInfo_,
-	"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<TU;>;",
-	nullptr,
-	_ResponseSubscribers$MappingSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseSubscribers"
-};
-
-$Object* allocate$ResponseSubscribers$MappingSubscriber($Class* clazz) {
-	return $of($alloc(ResponseSubscribers$MappingSubscriber));
-}
-
 void ResponseSubscribers$MappingSubscriber::init$($HttpResponse$BodySubscriber* upstream, $Function* mapper) {
 	ResponseSubscribers$MappingSubscriber::init$(upstream, mapper, false);
 }
@@ -88,7 +41,7 @@ bool ResponseSubscribers$MappingSubscriber::needsExecutor() {
 }
 
 $CompletionStage* ResponseSubscribers$MappingSubscriber::getBody() {
-	return $nc($($nc(this->upstream)->getBody()))->thenApply(this->mapper);
+	return $$nc($nc(this->upstream)->getBody())->thenApply(this->mapper);
 }
 
 void ResponseSubscribers$MappingSubscriber::onSubscribe($Flow$Subscription* subscription) {
@@ -115,7 +68,47 @@ ResponseSubscribers$MappingSubscriber::ResponseSubscribers$MappingSubscriber() {
 }
 
 $Class* ResponseSubscribers$MappingSubscriber::load$($String* name, bool initialize) {
-	$loadClass(ResponseSubscribers$MappingSubscriber, name, initialize, &_ResponseSubscribers$MappingSubscriber_ClassInfo_, allocate$ResponseSubscribers$MappingSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"upstream", "Ljava/net/http/HttpResponse$BodySubscriber;", "Ljava/net/http/HttpResponse$BodySubscriber<TT;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$MappingSubscriber, upstream)},
+		{"mapper", "Ljava/util/function/Function;", "Ljava/util/function/Function<-TT;+TU;>;", $PRIVATE | $FINAL, $field(ResponseSubscribers$MappingSubscriber, mapper)},
+		{"trusted", "Z", nullptr, $PRIVATE | $FINAL, $field(ResponseSubscribers$MappingSubscriber, trusted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;)V", $PUBLIC, $method(ResponseSubscribers$MappingSubscriber, init$, void, $HttpResponse$BodySubscriber*, $Function*)},
+		{"<init>", "(Ljava/net/http/HttpResponse$BodySubscriber;Ljava/util/function/Function;Z)V", "(Ljava/net/http/HttpResponse$BodySubscriber<TT;>;Ljava/util/function/Function<-TT;+TU;>;Z)V", 0, $method(ResponseSubscribers$MappingSubscriber, init$, void, $HttpResponse$BodySubscriber*, $Function*, bool)},
+		{"getBody", "()Ljava/util/concurrent/CompletionStage;", "()Ljava/util/concurrent/CompletionStage<TU;>;", $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, getBody, $CompletionStage*)},
+		{"needsExecutor", "()Z", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, needsExecutor, bool)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseSubscribers$MappingSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseSubscribers$MappingSubscriber", "jdk.internal.net.http.ResponseSubscribers", "MappingSubscriber", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber", "jdk.internal.net.http.ResponseSubscribers", "TrustedSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.ResponseSubscribers$MappingSubscriber",
+		"java.lang.Object",
+		"jdk.internal.net.http.ResponseSubscribers$TrustedSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/lang/Object;Ljdk/internal/net/http/ResponseSubscribers$TrustedSubscriber<TU;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseSubscribers"
+	};
+	$loadClass(ResponseSubscribers$MappingSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseSubscribers$MappingSubscriber);
+	});
 	return class$;
 }
 

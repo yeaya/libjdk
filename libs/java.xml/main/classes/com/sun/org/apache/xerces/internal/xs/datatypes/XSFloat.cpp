@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/datatypes/XSFloat.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,26 +13,22 @@ namespace com {
 						namespace xs {
 							namespace datatypes {
 
-$MethodInfo _XSFloat_MethodInfo_[] = {
-	{"getValue", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSFloat, getValue, float)},
-	{}
-};
-
-$ClassInfo _XSFloat_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.datatypes.XSFloat",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XSFloat_MethodInfo_
-};
-
-$Object* allocate$XSFloat($Class* clazz) {
-	return $of($alloc(XSFloat));
-}
-
 $Class* XSFloat::load$($String* name, bool initialize) {
-	$loadClass(XSFloat, name, initialize, &_XSFloat_ClassInfo_, allocate$XSFloat);
+	$MethodInfo methodInfos$$[] = {
+		{"getValue", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSFloat, getValue, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.datatypes.XSFloat",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSFloat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSFloat);
+	});
 	return class$;
 }
 

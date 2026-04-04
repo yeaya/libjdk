@@ -43,6 +43,7 @@ class StrikeCache : public ::java::lang::Object {
 	$class(StrikeCache, 0, ::java::lang::Object)
 public:
 	StrikeCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addGlyphDisposedListener(::sun::font::GlyphDisposedListener* listener);
 	static void disposeStrike(::sun::font::FontStrikeDisposer* disposer);

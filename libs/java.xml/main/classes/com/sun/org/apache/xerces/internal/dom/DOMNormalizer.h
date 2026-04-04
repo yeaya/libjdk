@@ -150,6 +150,7 @@ class DOMNormalizer : public ::com::sun::org::apache::xerces::internal::xni::XML
 	$class(DOMNormalizer, 0, ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler)
 public:
 	DOMNormalizer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addNamespaceDecl($String* prefix, $String* uri, ::com::sun::org::apache::xerces::internal::dom::ElementImpl* element);
 	virtual void characters(::com::sun::org::apache::xerces::internal::xni::XMLString* text, ::com::sun::org::apache::xerces::internal::xni::Augmentations* augs) override;

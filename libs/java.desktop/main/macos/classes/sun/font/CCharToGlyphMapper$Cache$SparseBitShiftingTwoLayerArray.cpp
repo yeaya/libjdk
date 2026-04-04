@@ -1,5 +1,4 @@
 #include <sun/font/CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray.h>
-
 #include <sun/font/CCharToGlyphMapper$Cache.h>
 #include <jcpp.h>
 
@@ -12,47 +11,6 @@ using $CCharToGlyphMapper$Cache = ::sun::font::CCharToGlyphMapper$Cache;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray_FieldInfo_[] = {
-	{"this$1", "Lsun/font/CCharToGlyphMapper$Cache;", nullptr, $FINAL | $SYNTHETIC, $field(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, this$1)},
-	{"cache", "[[I", nullptr, $FINAL, $field(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, cache)},
-	{"shift", "I", nullptr, $FINAL, $field(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, shift)},
-	{"secondLayerLength", "I", nullptr, $FINAL, $field(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, secondLayerLength)},
-	{}
-};
-
-$MethodInfo _CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/CCharToGlyphMapper$Cache;II)V", nullptr, $PUBLIC, $method(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, init$, void, $CCharToGlyphMapper$Cache*, int32_t, int32_t)},
-	{"get", "(I)I", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, get, int32_t, int32_t)},
-	{"put", "(II)V", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, put, void, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray_InnerClassesInfo_[] = {
-	{"sun.font.CCharToGlyphMapper$Cache", "sun.font.CCharToGlyphMapper", "Cache", $PRIVATE},
-	{"sun.font.CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray", "sun.font.CCharToGlyphMapper$Cache", "SparseBitShiftingTwoLayerArray", $PRIVATE},
-	{}
-};
-
-$ClassInfo _CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray",
-	"java.lang.Object",
-	nullptr,
-	_CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray_FieldInfo_,
-	_CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.CCharToGlyphMapper"
-};
-
-$Object* allocate$CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray($Class* clazz) {
-	return $of($alloc(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray));
-}
 
 void CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray::init$($CCharToGlyphMapper$Cache* this$1, int32_t size, int32_t shift) {
 	$set(this, this$1, this$1);
@@ -74,7 +32,7 @@ void CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray::put(int32_t index,
 	int32_t firstIndex = $sr(index, this->shift);
 	$var($ints, firstLayerRow, $nc(this->cache)->get(firstIndex));
 	if (firstLayerRow == nullptr) {
-		$nc(this->cache)->set(firstIndex, $assign(firstLayerRow, $new($ints, this->secondLayerLength)));
+		this->cache->set(firstIndex, $assign(firstLayerRow, $new($ints, this->secondLayerLength)));
 	}
 	$nc(firstLayerRow)->set(index - (firstIndex * ($sl(1, this->shift))), value);
 }
@@ -83,7 +41,42 @@ CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray::CCharToGlyphMapper$Cach
 }
 
 $Class* CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray::load$($String* name, bool initialize) {
-	$loadClass(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, name, initialize, &_CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray_ClassInfo_, allocate$CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/font/CCharToGlyphMapper$Cache;", nullptr, $FINAL | $SYNTHETIC, $field(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, this$1)},
+		{"cache", "[[I", nullptr, $FINAL, $field(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, cache)},
+		{"shift", "I", nullptr, $FINAL, $field(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, shift)},
+		{"secondLayerLength", "I", nullptr, $FINAL, $field(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, secondLayerLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/CCharToGlyphMapper$Cache;II)V", nullptr, $PUBLIC, $method(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, init$, void, $CCharToGlyphMapper$Cache*, int32_t, int32_t)},
+		{"get", "(I)I", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, get, int32_t, int32_t)},
+		{"put", "(II)V", nullptr, $PUBLIC, $virtualMethod(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, put, void, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.CCharToGlyphMapper$Cache", "sun.font.CCharToGlyphMapper", "Cache", $PRIVATE},
+		{"sun.font.CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray", "sun.font.CCharToGlyphMapper$Cache", "SparseBitShiftingTwoLayerArray", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.CCharToGlyphMapper"
+	};
+	$loadClass(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CCharToGlyphMapper$Cache$SparseBitShiftingTwoLayerArray);
+	});
 	return class$;
 }
 

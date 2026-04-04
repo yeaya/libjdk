@@ -1,5 +1,4 @@
 #include <bug4708809.h>
-
 #include <bug4708809$1.h>
 #include <bug4708809$2.h>
 #include <bug4708809$3.h>
@@ -32,8 +31,6 @@ using $bug4708809$1 = ::bug4708809$1;
 using $bug4708809$2 = ::bug4708809$2;
 using $bug4708809$3 = ::bug4708809$3;
 using $bug4708809$4 = ::bug4708809$4;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
@@ -61,75 +58,27 @@ public:
 	virtual void run() override {
 		bug4708809::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4708809$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug4708809$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4708809$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4708809$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug4708809$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4708809$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug4708809$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug4708809$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4708809$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4708809$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4708809$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug4708809$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4708809$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug4708809$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug4708809_FieldInfo_[] = {
-	{"do_test", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(bug4708809, do_test)},
-	{"passed", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(bug4708809, passed)},
-	{"spane", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug4708809, spane)},
-	{"sbar", "Ljavax/swing/JScrollBar;", nullptr, $PRIVATE | $STATIC, $staticField(bug4708809, sbar)},
-	{"fr", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4708809, fr)},
-	{}
-};
-
-$MethodInfo _bug4708809_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4708809, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4708809, createAndShowGUI, void)},
-	{"getClickPoint", "(DD)Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4708809, getClickPoint, $Point*, double, double), "java.lang.Exception"},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4708809, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4708809, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug4708809_InnerClassesInfo_[] = {
-	{"bug4708809$4", nullptr, nullptr, 0},
-	{"bug4708809$3", nullptr, nullptr, 0},
-	{"bug4708809$2", nullptr, nullptr, 0},
-	{"bug4708809$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4708809_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4708809",
-	"java.lang.Object",
-	nullptr,
-	_bug4708809_FieldInfo_,
-	_bug4708809_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4708809_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4708809$4,bug4708809$3,bug4708809$3$1,bug4708809$2,bug4708809$1"
-};
-
-$Object* allocate$bug4708809($Class* clazz) {
-	return $of($alloc(bug4708809));
-}
 
 $volatile(bool) bug4708809::do_test = false;
 $volatile(bool) bug4708809::passed = false;
@@ -142,45 +91,43 @@ void bug4708809::init$() {
 
 void bug4708809::main($StringArray* args) {
 	$init(bug4708809);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(350);
-			$SwingUtilities::invokeAndWait($$new($bug4708809$1));
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug4708809$2));
-			robot->waitForIdle();
-			$var($Point, point, getClickPoint(0.5, 0.5));
-			robot->mouseMove($nc(point)->x, point->y);
-			robot->mousePress($InputEvent::BUTTON1_MASK);
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug4708809$3));
-			robot->waitForIdle();
-			$assign(point, getClickPoint(0.5, 0.2));
-			robot->mouseMove($nc(point)->x, point->y);
-			robot->mouseRelease($InputEvent::BUTTON1_MASK);
-			robot->waitForIdle();
-			if (!bug4708809::do_test || !bug4708809::passed) {
-				$throwNew($Exception, "The scrollbar moved with incorrect direction"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (bug4708809::fr != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4708809$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(350);
+		$SwingUtilities::invokeAndWait($$new($bug4708809$1));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug4708809$2));
+		robot->waitForIdle();
+		$var($Point, point, getClickPoint(0.5, 0.5));
+		robot->mouseMove($nc(point)->x, $nc(point)->y);
+		robot->mousePress($InputEvent::BUTTON1_MASK);
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug4708809$3));
+		robot->waitForIdle();
+		$assign(point, getClickPoint(0.5, 0.2));
+		robot->mouseMove($nc(point)->x, $nc(point)->y);
+		robot->mouseRelease($InputEvent::BUTTON1_MASK);
+		robot->waitForIdle();
+		if (!bug4708809::do_test || !bug4708809::passed) {
+			$throwNew($Exception, "The scrollbar moved with incorrect direction"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (bug4708809::fr != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug4708809$$Lambda$lambda$main$0));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $Point* bug4708809::getClickPoint(double scaleX, double scaleY) {
 	$init(bug4708809);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, result, $new($PointArray, 1));
 	$SwingUtilities::invokeAndWait($$new($bug4708809$4, result, scaleX, scaleY));
 	return result->get(0);
@@ -188,12 +135,12 @@ $Point* bug4708809::getClickPoint(double scaleX, double scaleY) {
 
 void bug4708809::createAndShowGUI() {
 	$init(bug4708809);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(bug4708809::fr, $new($JFrame, "Test"_s));
 	$var($JLabel, label, $new($JLabel, "picture"_s));
 	label->setPreferredSize($$new($Dimension, 500, 500));
 	$assignStatic(bug4708809::spane, $new($JScrollPane, label));
-	$nc($($nc(bug4708809::fr)->getContentPane()))->add(static_cast<$Component*>(bug4708809::spane));
+	$$nc($nc(bug4708809::fr)->getContentPane())->add(bug4708809::spane);
 	$assignStatic(bug4708809::sbar, $nc(bug4708809::spane)->getVerticalScrollBar());
 	$nc(bug4708809::fr)->setSize(200, 200);
 	$nc(bug4708809::fr)->setVisible(true);
@@ -204,7 +151,7 @@ void bug4708809::lambda$main$0() {
 	$nc(bug4708809::fr)->dispose();
 }
 
-void clinit$bug4708809($Class* class$) {
+void bug4708809::clinit$($Class* clazz) {
 	bug4708809::do_test = false;
 	bug4708809::passed = true;
 }
@@ -214,11 +161,50 @@ bug4708809::bug4708809() {
 
 $Class* bug4708809::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4708809$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug4708809$$Lambda$lambda$main$0")) {
 			return bug4708809$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4708809, name, initialize, &_bug4708809_ClassInfo_, clinit$bug4708809, allocate$bug4708809);
+	$FieldInfo fieldInfos$$[] = {
+		{"do_test", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(bug4708809, do_test)},
+		{"passed", "Z", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(bug4708809, passed)},
+		{"spane", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug4708809, spane)},
+		{"sbar", "Ljavax/swing/JScrollBar;", nullptr, $PRIVATE | $STATIC, $staticField(bug4708809, sbar)},
+		{"fr", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4708809, fr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4708809, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4708809, createAndShowGUI, void)},
+		{"getClickPoint", "(DD)Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4708809, getClickPoint, $Point*, double, double), "java.lang.Exception"},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4708809, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4708809, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4708809$4", nullptr, nullptr, 0},
+		{"bug4708809$3", nullptr, nullptr, 0},
+		{"bug4708809$2", nullptr, nullptr, 0},
+		{"bug4708809$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4708809",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4708809$4,bug4708809$3,bug4708809$3$1,bug4708809$2,bug4708809$1"
+	};
+	$loadClass(bug4708809, name, initialize, &classInfo$$, bug4708809::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4708809);
+	});
 	return class$;
 }
 

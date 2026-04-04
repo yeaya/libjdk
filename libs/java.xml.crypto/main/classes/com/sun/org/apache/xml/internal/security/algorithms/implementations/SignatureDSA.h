@@ -52,6 +52,7 @@ class SignatureDSA : public ::com::sun::org::apache::xml::internal::security::al
 	$class(SignatureDSA, 0, ::com::sun::org::apache::xml::internal::security::algorithms::SignatureAlgorithmSpi)
 public:
 	SignatureDSA();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::security::Provider* provider);
 	virtual $String* engineGetJCEAlgorithmString() override;

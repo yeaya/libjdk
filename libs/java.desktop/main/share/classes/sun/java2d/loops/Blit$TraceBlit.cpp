@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/Blit$TraceBlit.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/Blit.h>
@@ -25,45 +24,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _Blit$TraceBlit_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$TraceBlit, target)},
-	{}
-};
-
-$MethodInfo _Blit$TraceBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/Blit;)V", nullptr, $PUBLIC, $method(Blit$TraceBlit, init$, void, $Blit*)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(Blit$TraceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(Blit$TraceBlit, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _Blit$TraceBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.Blit$TraceBlit", "sun.java2d.loops.Blit", "TraceBlit", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Blit$TraceBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.Blit$TraceBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_Blit$TraceBlit_FieldInfo_,
-	_Blit$TraceBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Blit$TraceBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.Blit"
-};
-
-$Object* allocate$Blit$TraceBlit($Class* clazz) {
-	return $of($alloc(Blit$TraceBlit));
-}
-
 void Blit$TraceBlit::init$($Blit* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$Blit::init$(var$0, var$1, $(target->getDestType()));
@@ -83,7 +45,38 @@ Blit$TraceBlit::Blit$TraceBlit() {
 }
 
 $Class* Blit$TraceBlit::load$($String* name, bool initialize) {
-	$loadClass(Blit$TraceBlit, name, initialize, &_Blit$TraceBlit_ClassInfo_, allocate$Blit$TraceBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/Blit;", nullptr, 0, $field(Blit$TraceBlit, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/Blit;)V", nullptr, $PUBLIC, $method(Blit$TraceBlit, init$, void, $Blit*)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(Blit$TraceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(Blit$TraceBlit, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.Blit$TraceBlit", "sun.java2d.loops.Blit", "TraceBlit", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.Blit$TraceBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.Blit"
+	};
+	$loadClass(Blit$TraceBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Blit$TraceBlit);
+	});
 	return class$;
 }
 

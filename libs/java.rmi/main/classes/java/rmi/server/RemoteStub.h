@@ -24,7 +24,7 @@ public:
 	void init$();
 	void init$(::java::rmi::server::RemoteRef* ref);
 	static void setRef(::java::rmi::server::RemoteStub* stub, ::java::rmi::server::RemoteRef* ref);
-	static const int64_t serialVersionUID = (int64_t)0xE9FEDCC98BE1651A;
+	static const int64_t serialVersionUID = (int64_t)0xe9fedcc98be1651a;
 };
 
 		} // server

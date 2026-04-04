@@ -1,5 +1,4 @@
 #include <javax/xml/parsers/FactoryConfigurationError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -12,36 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace xml {
 		namespace parsers {
-
-$FieldInfo _FactoryConfigurationError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FactoryConfigurationError, serialVersionUID)},
-	{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(FactoryConfigurationError, exception)},
-	{}
-};
-
-$MethodInfo _FactoryConfigurationError_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FactoryConfigurationError, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FactoryConfigurationError, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(FactoryConfigurationError, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FactoryConfigurationError, init$, void, $Exception*, $String*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(FactoryConfigurationError, getCause, $Throwable*)},
-	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(FactoryConfigurationError, getException, $Exception*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FactoryConfigurationError, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _FactoryConfigurationError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.parsers.FactoryConfigurationError",
-	"java.lang.Error",
-	nullptr,
-	_FactoryConfigurationError_FieldInfo_,
-	_FactoryConfigurationError_MethodInfo_
-};
-
-$Object* allocate$FactoryConfigurationError($Class* clazz) {
-	return $of($alloc(FactoryConfigurationError));
-}
 
 void FactoryConfigurationError::init$() {
 	$Error::init$();
@@ -66,7 +35,7 @@ void FactoryConfigurationError::init$($Exception* e, $String* msg) {
 $String* FactoryConfigurationError::getMessage() {
 	$var($String, message, $Error::getMessage());
 	if (message == nullptr && this->exception != nullptr) {
-		return $nc(this->exception)->getMessage();
+		return this->exception->getMessage();
 	}
 	return message;
 }
@@ -90,7 +59,32 @@ void FactoryConfigurationError::throw$() {
 }
 
 $Class* FactoryConfigurationError::load$($String* name, bool initialize) {
-	$loadClass(FactoryConfigurationError, name, initialize, &_FactoryConfigurationError_ClassInfo_, allocate$FactoryConfigurationError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FactoryConfigurationError, serialVersionUID)},
+		{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(FactoryConfigurationError, exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FactoryConfigurationError, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FactoryConfigurationError, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(FactoryConfigurationError, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FactoryConfigurationError, init$, void, $Exception*, $String*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(FactoryConfigurationError, getCause, $Throwable*)},
+		{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(FactoryConfigurationError, getException, $Exception*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FactoryConfigurationError, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.parsers.FactoryConfigurationError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FactoryConfigurationError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FactoryConfigurationError);
+	});
 	return class$;
 }
 

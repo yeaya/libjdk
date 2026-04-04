@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DBlitLoops.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Transparency.h>
@@ -43,7 +42,6 @@
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
 #include <sun/java2d/pipe/RenderQueue.h>
-#include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <jcpp.h>
 
 #undef OFFSET_HINT
@@ -104,57 +102,22 @@ using $D3DTextureToSurfaceScale = ::sun::java2d::d3d::D3DTextureToSurfaceScale;
 using $D3DTextureToSurfaceTransform = ::sun::java2d::d3d::D3DTextureToSurfaceTransform;
 using $Blit = ::sun::java2d::loops::Blit;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
-using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $TransformBlit = ::sun::java2d::loops::TransformBlit;
 using $Region = ::sun::java2d::pipe::Region;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
 using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DBlitLoops_FieldInfo_[] = {
-	{"OFFSET_SRCTYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_SRCTYPE)},
-	{"OFFSET_HINT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_HINT)},
-	{"OFFSET_TEXTURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_TEXTURE)},
-	{"OFFSET_RTT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_RTT)},
-	{"OFFSET_XFORM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_XFORM)},
-	{"OFFSET_ISOBLIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_ISOBLIT)},
-	{}
-};
-
-$MethodInfo _D3DBlitLoops_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DBlitLoops, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIDDDDIZ)V", nullptr, $STATIC, $staticMethod(D3DBlitLoops, Blit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double, int32_t, bool)},
-	{"IsoBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIDDDDZ)V", nullptr, $STATIC, $staticMethod(D3DBlitLoops, IsoBlit, void, $SurfaceData*, $SurfaceData*, $BufferedImage*, $BufferedImageOp*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double, bool)},
-	{"createPackedParams", "(ZZZZII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DBlitLoops, createPackedParams, int32_t, bool, bool, bool, bool, int32_t, int32_t)},
-	{"enqueueBlit", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;IIIIIDDDD)V", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DBlitLoops, enqueueBlit, void, $RenderQueue*, $SurfaceData*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{"register", "()V", nullptr, $STATIC, $staticMethod(D3DBlitLoops, register$, void)},
-	{}
-};
-
-$ClassInfo _D3DBlitLoops_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.d3d.D3DBlitLoops",
-	"java.lang.Object",
-	nullptr,
-	_D3DBlitLoops_FieldInfo_,
-	_D3DBlitLoops_MethodInfo_
-};
-
-$Object* allocate$D3DBlitLoops($Class* clazz) {
-	return $of($alloc(D3DBlitLoops));
-}
-
 void D3DBlitLoops::init$() {
 }
 
 void D3DBlitLoops::register$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SurfaceType);
 	$var($Blit, blitIntArgbPreToSurface, $new($D3DSwToSurfaceBlit, $SurfaceType::IntArgbPre, $D3DSurfaceData::ST_INT_ARGB_PRE));
 	$var($Blit, blitIntArgbPreToTexture, $new($D3DSwToTextureBlit, $SurfaceType::IntArgbPre, $D3DSurfaceData::ST_INT_ARGB_PRE));
@@ -162,54 +125,54 @@ void D3DBlitLoops::register$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
 	$var($GraphicsPrimitiveArray, primitives, $new($GraphicsPrimitiveArray, {
-		static_cast<$GraphicsPrimitive*>($$new($D3DSurfaceToGDIWindowSurfaceBlit)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSurfaceToGDIWindowSurfaceScale)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSurfaceToGDIWindowSurfaceTransform)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSurfaceToSurfaceBlit)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSurfaceToSurfaceScale)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSurfaceToSurfaceTransform)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DRTTSurfaceToSurfaceBlit)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DRTTSurfaceToSurfaceScale)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DRTTSurfaceToSurfaceTransform)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSurfaceToSwBlit, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB)),
-		static_cast<$GraphicsPrimitive*>(blitIntArgbPreToSurface),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceBlit, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceBlit, $SurfaceType::IntRgb, $D3DSurfaceData::ST_INT_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceBlit, $SurfaceType::IntBgr, $D3DSurfaceData::ST_INT_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceBlit, $SurfaceType::ThreeByteBgr, $D3DSurfaceData::ST_3BYTE_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceBlit, $SurfaceType::Ushort565Rgb, $D3DSurfaceData::ST_USHORT_565_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceBlit, $SurfaceType::Ushort555Rgb, $D3DSurfaceData::ST_USHORT_555_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceBlit, $SurfaceType::ByteIndexed, $D3DSurfaceData::ST_BYTE_INDEXED)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DGeneralBlit, $D3DSurfaceData::D3DSurface, $CompositeType::AnyAlpha, blitIntArgbPreToSurface)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceScale, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceScale, $SurfaceType::IntArgbPre, $D3DSurfaceData::ST_INT_ARGB_PRE)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceScale, $SurfaceType::IntRgb, $D3DSurfaceData::ST_INT_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceScale, $SurfaceType::IntBgr, $D3DSurfaceData::ST_INT_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceScale, $SurfaceType::ThreeByteBgr, $D3DSurfaceData::ST_3BYTE_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceScale, $SurfaceType::Ushort565Rgb, $D3DSurfaceData::ST_USHORT_565_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceScale, $SurfaceType::Ushort555Rgb, $D3DSurfaceData::ST_USHORT_555_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceScale, $SurfaceType::ByteIndexed, $D3DSurfaceData::ST_BYTE_INDEXED)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceTransform, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceTransform, $SurfaceType::IntRgb, $D3DSurfaceData::ST_INT_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceTransform, $SurfaceType::IntBgr, $D3DSurfaceData::ST_INT_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceTransform, $SurfaceType::ThreeByteBgr, $D3DSurfaceData::ST_3BYTE_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceTransform, $SurfaceType::Ushort565Rgb, $D3DSurfaceData::ST_USHORT_565_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceTransform, $SurfaceType::Ushort555Rgb, $D3DSurfaceData::ST_USHORT_555_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToSurfaceTransform, $SurfaceType::ByteIndexed, $D3DSurfaceData::ST_BYTE_INDEXED)),
-		static_cast<$GraphicsPrimitive*>(transformBlitIntArgbPreToSurface),
-		static_cast<$GraphicsPrimitive*>($$new($D3DGeneralTransformedBlit, transformBlitIntArgbPreToSurface)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DTextureToSurfaceBlit)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DTextureToSurfaceScale)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DTextureToSurfaceTransform)),
-		static_cast<$GraphicsPrimitive*>(blitIntArgbPreToTexture),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToTextureBlit, $SurfaceType::IntRgb, $D3DSurfaceData::ST_INT_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToTextureBlit, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToTextureBlit, $SurfaceType::IntBgr, $D3DSurfaceData::ST_INT_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToTextureBlit, $SurfaceType::ThreeByteBgr, $D3DSurfaceData::ST_3BYTE_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToTextureBlit, $SurfaceType::Ushort565Rgb, $D3DSurfaceData::ST_USHORT_565_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToTextureBlit, $SurfaceType::Ushort555Rgb, $D3DSurfaceData::ST_USHORT_555_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DSwToTextureBlit, $SurfaceType::ByteIndexed, $D3DSurfaceData::ST_BYTE_INDEXED)),
-		static_cast<$GraphicsPrimitive*>($$new($D3DGeneralBlit, $D3DSurfaceData::D3DTexture, $CompositeType::SrcNoEa, blitIntArgbPreToTexture))
+		$$new($D3DSurfaceToGDIWindowSurfaceBlit),
+		$$new($D3DSurfaceToGDIWindowSurfaceScale),
+		$$new($D3DSurfaceToGDIWindowSurfaceTransform),
+		$$new($D3DSurfaceToSurfaceBlit),
+		$$new($D3DSurfaceToSurfaceScale),
+		$$new($D3DSurfaceToSurfaceTransform),
+		$$new($D3DRTTSurfaceToSurfaceBlit),
+		$$new($D3DRTTSurfaceToSurfaceScale),
+		$$new($D3DRTTSurfaceToSurfaceTransform),
+		$$new($D3DSurfaceToSwBlit, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB),
+		blitIntArgbPreToSurface,
+		$$new($D3DSwToSurfaceBlit, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB),
+		$$new($D3DSwToSurfaceBlit, $SurfaceType::IntRgb, $D3DSurfaceData::ST_INT_RGB),
+		$$new($D3DSwToSurfaceBlit, $SurfaceType::IntBgr, $D3DSurfaceData::ST_INT_BGR),
+		$$new($D3DSwToSurfaceBlit, $SurfaceType::ThreeByteBgr, $D3DSurfaceData::ST_3BYTE_BGR),
+		$$new($D3DSwToSurfaceBlit, $SurfaceType::Ushort565Rgb, $D3DSurfaceData::ST_USHORT_565_RGB),
+		$$new($D3DSwToSurfaceBlit, $SurfaceType::Ushort555Rgb, $D3DSurfaceData::ST_USHORT_555_RGB),
+		$$new($D3DSwToSurfaceBlit, $SurfaceType::ByteIndexed, $D3DSurfaceData::ST_BYTE_INDEXED),
+		$$new($D3DGeneralBlit, $D3DSurfaceData::D3DSurface, $CompositeType::AnyAlpha, blitIntArgbPreToSurface),
+		$$new($D3DSwToSurfaceScale, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB),
+		$$new($D3DSwToSurfaceScale, $SurfaceType::IntArgbPre, $D3DSurfaceData::ST_INT_ARGB_PRE),
+		$$new($D3DSwToSurfaceScale, $SurfaceType::IntRgb, $D3DSurfaceData::ST_INT_RGB),
+		$$new($D3DSwToSurfaceScale, $SurfaceType::IntBgr, $D3DSurfaceData::ST_INT_BGR),
+		$$new($D3DSwToSurfaceScale, $SurfaceType::ThreeByteBgr, $D3DSurfaceData::ST_3BYTE_BGR),
+		$$new($D3DSwToSurfaceScale, $SurfaceType::Ushort565Rgb, $D3DSurfaceData::ST_USHORT_565_RGB),
+		$$new($D3DSwToSurfaceScale, $SurfaceType::Ushort555Rgb, $D3DSurfaceData::ST_USHORT_555_RGB),
+		$$new($D3DSwToSurfaceScale, $SurfaceType::ByteIndexed, $D3DSurfaceData::ST_BYTE_INDEXED),
+		$$new($D3DSwToSurfaceTransform, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB),
+		$$new($D3DSwToSurfaceTransform, $SurfaceType::IntRgb, $D3DSurfaceData::ST_INT_RGB),
+		$$new($D3DSwToSurfaceTransform, $SurfaceType::IntBgr, $D3DSurfaceData::ST_INT_BGR),
+		$$new($D3DSwToSurfaceTransform, $SurfaceType::ThreeByteBgr, $D3DSurfaceData::ST_3BYTE_BGR),
+		$$new($D3DSwToSurfaceTransform, $SurfaceType::Ushort565Rgb, $D3DSurfaceData::ST_USHORT_565_RGB),
+		$$new($D3DSwToSurfaceTransform, $SurfaceType::Ushort555Rgb, $D3DSurfaceData::ST_USHORT_555_RGB),
+		$$new($D3DSwToSurfaceTransform, $SurfaceType::ByteIndexed, $D3DSurfaceData::ST_BYTE_INDEXED),
+		transformBlitIntArgbPreToSurface,
+		$$new($D3DGeneralTransformedBlit, transformBlitIntArgbPreToSurface),
+		$$new($D3DTextureToSurfaceBlit),
+		$$new($D3DTextureToSurfaceScale),
+		$$new($D3DTextureToSurfaceTransform),
+		blitIntArgbPreToTexture,
+		$$new($D3DSwToTextureBlit, $SurfaceType::IntRgb, $D3DSurfaceData::ST_INT_RGB),
+		$$new($D3DSwToTextureBlit, $SurfaceType::IntArgb, $D3DSurfaceData::ST_INT_ARGB),
+		$$new($D3DSwToTextureBlit, $SurfaceType::IntBgr, $D3DSurfaceData::ST_INT_BGR),
+		$$new($D3DSwToTextureBlit, $SurfaceType::ThreeByteBgr, $D3DSurfaceData::ST_3BYTE_BGR),
+		$$new($D3DSwToTextureBlit, $SurfaceType::Ushort565Rgb, $D3DSurfaceData::ST_USHORT_565_RGB),
+		$$new($D3DSwToTextureBlit, $SurfaceType::Ushort555Rgb, $D3DSurfaceData::ST_USHORT_555_RGB),
+		$$new($D3DSwToTextureBlit, $SurfaceType::ByteIndexed, $D3DSurfaceData::ST_BYTE_INDEXED),
+		$$new($D3DGeneralBlit, $D3DSurfaceData::D3DTexture, $CompositeType::SrcNoEa, blitIntArgbPreToTexture)
 	}));
 	$GraphicsPrimitiveMgr::register$(primitives);
 }
@@ -219,21 +182,21 @@ int32_t D3DBlitLoops::createPackedParams(bool isoblit, bool texture, bool rtt, b
 }
 
 void D3DBlitLoops::enqueueBlit($RenderQueue* rq, $SurfaceData* src, $SurfaceData* dst, int32_t packedParams, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RenderBuffer, buf, $nc(rq)->getBuffer());
 	rq->ensureCapacityAndAlignment(72, 24);
 	$nc(buf)->putInt(31);
 	buf->putInt(packedParams);
-	$nc($(buf->putInt(sx1)))->putInt(sy1);
-	$nc($(buf->putInt(sx2)))->putInt(sy2);
-	$nc($(buf->putDouble(dx1)))->putDouble(dy1);
-	$nc($(buf->putDouble(dx2)))->putDouble(dy2);
+	$$nc(buf->putInt(sx1))->putInt(sy1);
+	$$nc(buf->putInt(sx2))->putInt(sy2);
+	$$nc(buf->putDouble(dx1))->putDouble(dy1);
+	$$nc(buf->putDouble(dx2))->putDouble(dy2);
 	buf->putLong($nc(src)->getNativeOps());
 	buf->putLong($nc(dst)->getNativeOps());
 }
 
 void D3DBlitLoops::Blit($SurfaceData* srcData, $SurfaceData* dstData, $Composite* comp, $Region* clip, $AffineTransform* xform, int32_t hint, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2, int32_t srctype, bool texture) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ctxflags = 0;
 	if ($nc(srcData)->getTransparency() == $Transparency::OPAQUE) {
 		ctxflags |= $D3DContext::SRC_IS_OPAQUE;
@@ -241,26 +204,24 @@ void D3DBlitLoops::Blit($SurfaceData* srcData, $SurfaceData* dstData, $Composite
 	$var($D3DSurfaceData, d3dDst, $cast($D3DSurfaceData, dstData));
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->addReference(srcData);
-			if (texture) {
-				$D3DContext::setScratchSurface($($cast($D3DContext, $nc(d3dDst)->getContext())));
-			} else {
-				$D3DContext::validateContext(d3dDst, d3dDst, clip, comp, xform, nullptr, nullptr, ctxflags);
-			}
-			int32_t packedParams = createPackedParams(false, texture, false, xform != nullptr, hint, srctype);
-			enqueueBlit(rq, srcData, dstData, packedParams, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->addReference(srcData);
+		if (texture) {
+			$D3DContext::setScratchSurface($$cast($D3DContext, $nc(d3dDst)->getContext()));
+		} else {
+			$D3DContext::validateContext(d3dDst, d3dDst, clip, comp, xform, nullptr, nullptr, ctxflags);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		int32_t packedParams = createPackedParams(false, texture, false, xform != nullptr, hint, srctype);
+		enqueueBlit(rq, srcData, dstData, packedParams, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if ($nc(d3dDst)->getType() == $D3DSurfaceData::WINDOW) {
 		$var($D3DScreenUpdateManager, mgr, $cast($D3DScreenUpdateManager, $ScreenUpdateManager::getInstance()));
@@ -269,7 +230,7 @@ void D3DBlitLoops::Blit($SurfaceData* srcData, $SurfaceData* dstData, $Composite
 }
 
 void D3DBlitLoops::IsoBlit($SurfaceData* srcData, $SurfaceData* dstData, $BufferedImage* srcImg, $BufferedImageOp* biop, $Composite* comp, $Region* clip, $AffineTransform* xform, int32_t hint, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2, bool texture) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ctxflags = 0;
 	if ($nc(srcData)->getTransparency() == $Transparency::OPAQUE) {
 		ctxflags |= $D3DContext::SRC_IS_OPAQUE;
@@ -278,34 +239,32 @@ void D3DBlitLoops::IsoBlit($SurfaceData* srcData, $SurfaceData* dstData, $Buffer
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	bool rtt = false;
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($D3DSurfaceData, d3dSrc, $cast($D3DSurfaceData, srcData));
-			int32_t srctype = $nc(d3dSrc)->getType();
-			$var($D3DSurfaceData, srcCtxData, d3dSrc);
-			if (srctype == $D3DSurfaceData::TEXTURE) {
-				rtt = false;
-			} else {
-				rtt = true;
-			}
-			$D3DContext::validateContext(srcCtxData, d3dDst, clip, comp, xform, nullptr, nullptr, ctxflags);
-			if (biop != nullptr) {
-				$D3DBufImgOps::enableBufImgOp(rq, d3dSrc, srcImg, biop);
-			}
-			int32_t packedParams = createPackedParams(true, texture, rtt, xform != nullptr, hint, 0);
-			enqueueBlit(rq, srcData, dstData, packedParams, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
-			if (biop != nullptr) {
-				$D3DBufImgOps::disableBufImgOp(rq, biop);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($D3DSurfaceData, d3dSrc, $cast($D3DSurfaceData, srcData));
+		int32_t srctype = d3dSrc->getType();
+		$var($D3DSurfaceData, srcCtxData, d3dSrc);
+		if (srctype == $D3DSurfaceData::TEXTURE) {
+			rtt = false;
+		} else {
+			rtt = true;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$D3DContext::validateContext(srcCtxData, d3dDst, clip, comp, xform, nullptr, nullptr, ctxflags);
+		if (biop != nullptr) {
+			$D3DBufImgOps::enableBufImgOp(rq, d3dSrc, srcImg, biop);
 		}
+		int32_t packedParams = createPackedParams(true, texture, rtt, xform != nullptr, hint, 0);
+		enqueueBlit(rq, srcData, dstData, packedParams, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
+		if (biop != nullptr) {
+			$D3DBufImgOps::disableBufImgOp(rq, biop);
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (rtt && ($nc(d3dDst)->getType() == $D3DSurfaceData::WINDOW)) {
 		$var($D3DScreenUpdateManager, mgr, $cast($D3DScreenUpdateManager, $ScreenUpdateManager::getInstance()));
@@ -317,7 +276,35 @@ D3DBlitLoops::D3DBlitLoops() {
 }
 
 $Class* D3DBlitLoops::load$($String* name, bool initialize) {
-	$loadClass(D3DBlitLoops, name, initialize, &_D3DBlitLoops_ClassInfo_, allocate$D3DBlitLoops);
+	$FieldInfo fieldInfos$$[] = {
+		{"OFFSET_SRCTYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_SRCTYPE)},
+		{"OFFSET_HINT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_HINT)},
+		{"OFFSET_TEXTURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_TEXTURE)},
+		{"OFFSET_RTT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_RTT)},
+		{"OFFSET_XFORM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_XFORM)},
+		{"OFFSET_ISOBLIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DBlitLoops, OFFSET_ISOBLIT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DBlitLoops, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIDDDDIZ)V", nullptr, $STATIC, $staticMethod(D3DBlitLoops, Blit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double, int32_t, bool)},
+		{"IsoBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIDDDDZ)V", nullptr, $STATIC, $staticMethod(D3DBlitLoops, IsoBlit, void, $SurfaceData*, $SurfaceData*, $BufferedImage*, $BufferedImageOp*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double, bool)},
+		{"createPackedParams", "(ZZZZII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DBlitLoops, createPackedParams, int32_t, bool, bool, bool, bool, int32_t, int32_t)},
+		{"enqueueBlit", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;IIIIIDDDD)V", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DBlitLoops, enqueueBlit, void, $RenderQueue*, $SurfaceData*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{"register", "()V", nullptr, $STATIC, $staticMethod(D3DBlitLoops, register$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.d3d.D3DBlitLoops",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DBlitLoops, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DBlitLoops);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$LambdaReturnScanner.h>
-
 #include <com/sun/tools/javac/comp/DeferredAttr$FilterScanner.h>
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
@@ -26,11 +25,9 @@ using $EnumArray = $Array<::java::lang::Enum>;
 using $DeferredAttr$FilterScanner = ::com::sun::tools::javac::comp::DeferredAttr$FilterScanner;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EnumSet = ::java::util::EnumSet;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
@@ -38,41 +35,10 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _DeferredAttr$LambdaReturnScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DeferredAttr$LambdaReturnScanner, init$, void)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$LambdaReturnScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$LambdaReturnScanner", "com.sun.tools.javac.comp.DeferredAttr", "LambdaReturnScanner", $STATIC},
-	{"com.sun.tools.javac.comp.DeferredAttr$FilterScanner", "com.sun.tools.javac.comp.DeferredAttr", "FilterScanner", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DeferredAttr$LambdaReturnScanner_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$LambdaReturnScanner",
-	"com.sun.tools.javac.comp.DeferredAttr$FilterScanner",
-	nullptr,
-	nullptr,
-	_DeferredAttr$LambdaReturnScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredAttr$LambdaReturnScanner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$LambdaReturnScanner($Class* clazz) {
-	return $of($alloc(DeferredAttr$LambdaReturnScanner));
-}
-
 void DeferredAttr$LambdaReturnScanner::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
-	$DeferredAttr$FilterScanner::init$($($EnumSet::of(static_cast<$Enum*>($JCTree$Tag::BLOCK), $fcast($EnumArray, $$new($JCTree$TagArray, {
+	$DeferredAttr$FilterScanner::init$($($EnumSet::of($JCTree$Tag::BLOCK, $$cast($EnumArray, $new($JCTree$TagArray, {
 		$JCTree$Tag::CASE,
 		$JCTree$Tag::CATCH,
 		$JCTree$Tag::DOLOOP,
@@ -91,7 +57,33 @@ DeferredAttr$LambdaReturnScanner::DeferredAttr$LambdaReturnScanner() {
 }
 
 $Class* DeferredAttr$LambdaReturnScanner::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$LambdaReturnScanner, name, initialize, &_DeferredAttr$LambdaReturnScanner_ClassInfo_, allocate$DeferredAttr$LambdaReturnScanner);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DeferredAttr$LambdaReturnScanner, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$LambdaReturnScanner", "com.sun.tools.javac.comp.DeferredAttr", "LambdaReturnScanner", $STATIC},
+		{"com.sun.tools.javac.comp.DeferredAttr$FilterScanner", "com.sun.tools.javac.comp.DeferredAttr", "FilterScanner", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$LambdaReturnScanner",
+		"com.sun.tools.javac.comp.DeferredAttr$FilterScanner",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$LambdaReturnScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$LambdaReturnScanner);
+	});
 	return class$;
 }
 

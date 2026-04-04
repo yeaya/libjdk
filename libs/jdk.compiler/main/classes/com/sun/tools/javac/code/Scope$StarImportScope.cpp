@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Scope$StarImportScope.h>
-
 #include <com/sun/tools/javac/code/Scope$CompoundScope.h>
 #include <com/sun/tools/javac/code/Scope$FilterImportScope.h>
 #include <com/sun/tools/javac/code/Scope$ImportFilter.h>
@@ -23,7 +22,6 @@ using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $JCTree$JCImport = ::com::sun::tools::javac::tree::JCTree$JCImport;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -37,45 +35,12 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Scope$StarImportScope_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$StarImportScope, init$, void, $Symbol*)},
-	{"importAll", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer;)V", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer<Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;>;)V", $PUBLIC, $virtualMethod(Scope$StarImportScope, importAll, void, $Types*, $Scope*, $Scope$ImportFilter*, $JCTree$JCImport*, $BiConsumer*)},
-	{"isFilled", "()Z", nullptr, $PUBLIC, $virtualMethod(Scope$StarImportScope, isFilled, bool)},
-	{}
-};
-
-$InnerClassInfo _Scope$StarImportScope_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Scope$StarImportScope", "com.sun.tools.javac.code.Scope", "StarImportScope", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Scope$ImportScope", "com.sun.tools.javac.code.Scope", "ImportScope", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Scope$StarImportScope_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Scope$StarImportScope",
-	"com.sun.tools.javac.code.Scope$ImportScope",
-	nullptr,
-	nullptr,
-	_Scope$StarImportScope_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Scope$StarImportScope_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Scope"
-};
-
-$Object* allocate$Scope$StarImportScope($Class* clazz) {
-	return $of($alloc(Scope$StarImportScope));
-}
-
 void Scope$StarImportScope::init$($Symbol* owner) {
 	$Scope$ImportScope::init$(owner);
 }
 
 void Scope$StarImportScope::importAll($Types* types, $Scope* origin, $Scope$ImportFilter* filter, $JCTree$JCImport* imp, $BiConsumer* cfHandler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(this->subScopes)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -100,7 +65,35 @@ Scope$StarImportScope::Scope$StarImportScope() {
 }
 
 $Class* Scope$StarImportScope::load$($String* name, bool initialize) {
-	$loadClass(Scope$StarImportScope, name, initialize, &_Scope$StarImportScope_ClassInfo_, allocate$Scope$StarImportScope);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Scope$StarImportScope, init$, void, $Symbol*)},
+		{"importAll", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer;)V", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Scope;Lcom/sun/tools/javac/code/Scope$ImportFilter;Lcom/sun/tools/javac/tree/JCTree$JCImport;Ljava/util/function/BiConsumer<Lcom/sun/tools/javac/tree/JCTree$JCImport;Lcom/sun/tools/javac/code/Symbol$CompletionFailure;>;)V", $PUBLIC, $virtualMethod(Scope$StarImportScope, importAll, void, $Types*, $Scope*, $Scope$ImportFilter*, $JCTree$JCImport*, $BiConsumer*)},
+		{"isFilled", "()Z", nullptr, $PUBLIC, $virtualMethod(Scope$StarImportScope, isFilled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Scope$StarImportScope", "com.sun.tools.javac.code.Scope", "StarImportScope", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Scope$ImportScope", "com.sun.tools.javac.code.Scope", "ImportScope", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Scope$StarImportScope",
+		"com.sun.tools.javac.code.Scope$ImportScope",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Scope"
+	};
+	$loadClass(Scope$StarImportScope, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Scope$StarImportScope));
+	});
 	return class$;
 }
 

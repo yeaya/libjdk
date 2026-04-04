@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$HTMLTextAction.h>
-
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/Document.h>
@@ -18,7 +17,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $Element = ::javax::swing::text::Element;
@@ -32,43 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$MethodInfo _HTMLEditorKit$HTMLTextAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$HTMLTextAction, init$, void, $String*)},
-	{"elementCountToTag", "(Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/html/HTML$Tag;)I", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, elementCountToTag, int32_t, $HTMLDocument*, int32_t, $HTML$Tag*)},
-	{"findElementMatchingTag", "(Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Element;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, findElementMatchingTag, $Element*, $HTMLDocument*, int32_t, $HTML$Tag*)},
-	{"getElementsAt", "(Ljavax/swing/text/html/HTMLDocument;I)[Ljavax/swing/text/Element;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, getElementsAt, $ElementArray*, $HTMLDocument*, int32_t)},
-	{"getElementsAt", "(Ljavax/swing/text/Element;II)[Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(HTMLEditorKit$HTMLTextAction, getElementsAt, $ElementArray*, $Element*, int32_t, int32_t)},
-	{"getHTMLDocument", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/html/HTMLDocument;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, getHTMLDocument, $HTMLDocument*, $JEditorPane*)},
-	{"getHTMLEditorKit", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/html/HTMLEditorKit;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, getHTMLEditorKit, $HTMLEditorKit*, $JEditorPane*)},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$HTMLTextAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$HTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "HTMLTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$HTMLTextAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.html.HTMLEditorKit$HTMLTextAction",
-	"javax.swing.text.StyledEditorKit$StyledTextAction",
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$HTMLTextAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$HTMLTextAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$HTMLTextAction($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$HTMLTextAction));
-}
 
 void HTMLEditorKit$HTMLTextAction::init$($String* name) {
 	$StyledEditorKit$StyledTextAction::init$(name);
@@ -95,23 +56,23 @@ $ElementArray* HTMLEditorKit$HTMLTextAction::getElementsAt($HTMLDocument* doc, i
 }
 
 $ElementArray* HTMLEditorKit$HTMLTextAction::getElementsAt($Element* parent, int32_t offset, int32_t depth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(parent)->isLeaf()) {
 		$var($ElementArray, retValue, $new($ElementArray, depth + 1));
 		retValue->set(depth, parent);
 		return retValue;
 	}
-	$var($ElementArray, retValue, getElementsAt($($nc(parent)->getElement(parent->getElementIndex(offset))), offset, depth + 1));
+	$var($ElementArray, retValue, getElementsAt($(parent->getElement(parent->getElementIndex(offset))), offset, depth + 1));
 	$nc(retValue)->set(depth, parent);
 	return retValue;
 }
 
 int32_t HTMLEditorKit$HTMLTextAction::elementCountToTag($HTMLDocument* doc, int32_t offset, $HTML$Tag* tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t depth = -1;
 	$var($Element, e, $nc(doc)->getCharacterElement(offset));
 	$init($StyleConstants);
-	while (e != nullptr && !$equals($nc($(e->getAttributes()))->getAttribute($StyleConstants::NameAttribute), tag)) {
+	while (e != nullptr && !$equals($$nc(e->getAttributes())->getAttribute($StyleConstants::NameAttribute), tag)) {
 		$assign(e, e->getParentElement());
 		++depth;
 	}
@@ -122,12 +83,12 @@ int32_t HTMLEditorKit$HTMLTextAction::elementCountToTag($HTMLDocument* doc, int3
 }
 
 $Element* HTMLEditorKit$HTMLTextAction::findElementMatchingTag($HTMLDocument* doc, int32_t offset, $HTML$Tag* tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, e, $nc(doc)->getDefaultRootElement());
 	$var($Element, lastMatch, nullptr);
 	while (e != nullptr) {
 		$init($StyleConstants);
-		if ($equals($nc($(e->getAttributes()))->getAttribute($StyleConstants::NameAttribute), tag)) {
+		if ($equals($$nc(e->getAttributes())->getAttribute($StyleConstants::NameAttribute), tag)) {
 			$assign(lastMatch, e);
 		}
 		$assign(e, e->getElement(e->getElementIndex(offset)));
@@ -139,7 +100,39 @@ HTMLEditorKit$HTMLTextAction::HTMLEditorKit$HTMLTextAction() {
 }
 
 $Class* HTMLEditorKit$HTMLTextAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$HTMLTextAction, name, initialize, &_HTMLEditorKit$HTMLTextAction_ClassInfo_, allocate$HTMLEditorKit$HTMLTextAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HTMLEditorKit$HTMLTextAction, init$, void, $String*)},
+		{"elementCountToTag", "(Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/html/HTML$Tag;)I", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, elementCountToTag, int32_t, $HTMLDocument*, int32_t, $HTML$Tag*)},
+		{"findElementMatchingTag", "(Ljavax/swing/text/html/HTMLDocument;ILjavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Element;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, findElementMatchingTag, $Element*, $HTMLDocument*, int32_t, $HTML$Tag*)},
+		{"getElementsAt", "(Ljavax/swing/text/html/HTMLDocument;I)[Ljavax/swing/text/Element;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, getElementsAt, $ElementArray*, $HTMLDocument*, int32_t)},
+		{"getElementsAt", "(Ljavax/swing/text/Element;II)[Ljavax/swing/text/Element;", nullptr, $PRIVATE, $method(HTMLEditorKit$HTMLTextAction, getElementsAt, $ElementArray*, $Element*, int32_t, int32_t)},
+		{"getHTMLDocument", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/html/HTMLDocument;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, getHTMLDocument, $HTMLDocument*, $JEditorPane*)},
+		{"getHTMLEditorKit", "(Ljavax/swing/JEditorPane;)Ljavax/swing/text/html/HTMLEditorKit;", nullptr, $PROTECTED, $virtualMethod(HTMLEditorKit$HTMLTextAction, getHTMLEditorKit, $HTMLEditorKit*, $JEditorPane*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$HTMLTextAction", "javax.swing.text.html.HTMLEditorKit", "HTMLTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.text.StyledEditorKit$StyledTextAction", "javax.swing.text.StyledEditorKit", "StyledTextAction", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.html.HTMLEditorKit$HTMLTextAction",
+		"javax.swing.text.StyledEditorKit$StyledTextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$HTMLTextAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HTMLEditorKit$HTMLTextAction));
+	});
 	return class$;
 }
 

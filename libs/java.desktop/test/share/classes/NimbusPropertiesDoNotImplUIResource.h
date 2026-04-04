@@ -9,6 +9,7 @@ class $export NimbusPropertiesDoNotImplUIResource : public ::java::lang::Object 
 	$class(NimbusPropertiesDoNotImplUIResource, 0, ::java::lang::Object)
 public:
 	NimbusPropertiesDoNotImplUIResource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static void verifyProperty($String* propertyKey);

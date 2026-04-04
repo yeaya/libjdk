@@ -130,6 +130,7 @@ class FunctionCall : public ::com::sun::org::apache::xalan::internal::xsltc::com
 	$class(FunctionCall, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression)
 public:
 	FunctionCall();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::compiler::QName* fname, ::java::util::List* arguments);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::compiler::QName* fname);
 	::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression* argument(int32_t i);

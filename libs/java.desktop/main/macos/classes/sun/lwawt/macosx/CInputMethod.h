@@ -58,6 +58,7 @@ class CInputMethod : public ::sun::awt::im::InputMethodAdapter {
 	$class(CInputMethod, 0, ::sun::awt::im::InputMethodAdapter)
 public:
 	CInputMethod();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void activate() override;
 	void addAttribute(bool isThickUnderline, bool isGray, int32_t start, int32_t length);

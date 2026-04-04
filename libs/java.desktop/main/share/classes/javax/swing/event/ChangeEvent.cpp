@@ -1,5 +1,4 @@
 #include <javax/swing/event/ChangeEvent.h>
-
 #include <java/util/EventObject.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _ChangeEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ChangeEvent, init$, void, Object$*)},
-	{}
-};
-
-$ClassInfo _ChangeEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.ChangeEvent",
-	"java.util.EventObject",
-	nullptr,
-	nullptr,
-	_ChangeEvent_MethodInfo_
-};
-
-$Object* allocate$ChangeEvent($Class* clazz) {
-	return $of($alloc(ChangeEvent));
-}
-
 void ChangeEvent::init$(Object$* source) {
 	$EventObject::init$(source);
 }
@@ -37,7 +18,21 @@ ChangeEvent::ChangeEvent() {
 }
 
 $Class* ChangeEvent::load$($String* name, bool initialize) {
-	$loadClass(ChangeEvent, name, initialize, &_ChangeEvent_ClassInfo_, allocate$ChangeEvent);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ChangeEvent, init$, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.ChangeEvent",
+		"java.util.EventObject",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ChangeEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChangeEvent);
+	});
 	return class$;
 }
 

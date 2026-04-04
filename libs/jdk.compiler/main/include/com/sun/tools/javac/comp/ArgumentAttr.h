@@ -98,6 +98,7 @@ class $import ArgumentAttr : public ::com::sun::tools::javac::tree::JCTree$Visit
 	$class(ArgumentAttr, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	ArgumentAttr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::code::Type* attribArg(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::comp::Env* env);
 	virtual ::com::sun::tools::javac::code::Type* checkSpeculative(::com::sun::tools::javac::tree::JCTree* expr, ::com::sun::tools::javac::comp::Attr$ResultInfo* resultInfo);

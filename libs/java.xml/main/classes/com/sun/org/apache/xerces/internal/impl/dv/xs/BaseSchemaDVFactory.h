@@ -107,6 +107,7 @@ class BaseSchemaDVFactory : public ::com::sun::org::apache::xerces::internal::im
 	$class(BaseSchemaDVFactory, 0, ::com::sun::org::apache::xerces::internal::impl::dv::SchemaDVFactory)
 public:
 	BaseSchemaDVFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createBuiltInTypes(::com::sun::org::apache::xerces::internal::util::SymbolHash* builtInTypes, ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl* baseAtomicType);
 	virtual ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* createTypeList($String* name, $String* targetNamespace, int16_t finalSet, ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* itemType, ::com::sun::org::apache::xerces::internal::xs::XSObjectList* annotations) override;

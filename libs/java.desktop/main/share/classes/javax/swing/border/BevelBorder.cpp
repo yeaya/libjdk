@@ -1,5 +1,4 @@
 #include <javax/swing/border/BevelBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -26,82 +25,15 @@ namespace javax {
 	namespace swing {
 		namespace border {
 
-$Attribute BevelBorder_Attribute_var$1[] = {
-	{'s', "bevelType"},
-	{'s', "highlightOuterColor"},
-	{'s', "highlightInnerColor"},
-	{'s', "shadowOuterColor"},
-	{'s', "shadowInnerColor"},
-	{'-'}
-};
-
-$NamedAttribute BevelBorder_Attribute_var$0[] = {
-	{"value", '[', BevelBorder_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _BevelBorder_MethodAnnotations_init$2[] = {
-	{"Ljava/beans/ConstructorProperties;", BevelBorder_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _BevelBorder_FieldInfo_[] = {
-	{"RAISED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BevelBorder, RAISED)},
-	{"LOWERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BevelBorder, LOWERED)},
-	{"bevelType", "I", nullptr, $PROTECTED, $field(BevelBorder, bevelType)},
-	{"highlightOuter", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BevelBorder, highlightOuter)},
-	{"highlightInner", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BevelBorder, highlightInner)},
-	{"shadowInner", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BevelBorder, shadowInner)},
-	{"shadowOuter", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BevelBorder, shadowOuter)},
-	{}
-};
-
-$MethodInfo _BevelBorder_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BevelBorder, init$, void, int32_t)},
-	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BevelBorder, init$, void, int32_t, $Color*, $Color*)},
-	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BevelBorder, init$, void, int32_t, $Color*, $Color*, $Color*, $Color*), nullptr, nullptr, _BevelBorder_MethodAnnotations_init$2},
-	{"getBevelType", "()I", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getBevelType, int32_t)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getHighlightInnerColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getHighlightInnerColor, $Color*, $Component*)},
-	{"getHighlightInnerColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getHighlightInnerColor, $Color*)},
-	{"getHighlightOuterColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getHighlightOuterColor, $Color*, $Component*)},
-	{"getHighlightOuterColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getHighlightOuterColor, $Color*)},
-	{"getShadowInnerColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getShadowInnerColor, $Color*, $Component*)},
-	{"getShadowInnerColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getShadowInnerColor, $Color*)},
-	{"getShadowOuterColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getShadowOuterColor, $Color*, $Component*)},
-	{"getShadowOuterColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getShadowOuterColor, $Color*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(BevelBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BevelBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintLoweredBevel", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(BevelBorder, paintLoweredBevel, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintRaisedBevel", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(BevelBorder, paintRaisedBevel, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _BevelBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.border.BevelBorder",
-	"javax.swing.border.AbstractBorder",
-	nullptr,
-	_BevelBorder_FieldInfo_,
-	_BevelBorder_MethodInfo_
-};
-
-$Object* allocate$BevelBorder($Class* clazz) {
-	return $of($alloc(BevelBorder));
-}
-
 void BevelBorder::init$(int32_t bevelType) {
 	$AbstractBorder::init$();
 	this->bevelType = bevelType;
 }
 
 void BevelBorder::init$(int32_t bevelType, $Color* highlight, $Color* shadow) {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = bevelType;
-	$var($Color, var$1, $nc(highlight)->brighter());
-	$var($Color, var$2, highlight);
-	$var($Color, var$3, shadow);
-	BevelBorder::init$(var$0, var$1, var$2, var$3, $($nc(shadow)->brighter()));
+	$useLocalObjectStack();
+	$var($Color, var$0, $nc(highlight)->brighter());
+	BevelBorder::init$(bevelType, var$0, highlight, shadow, $($nc(shadow)->brighter()));
 }
 
 void BevelBorder::init$(int32_t bevelType, $Color* highlightOuterColor, $Color* highlightInnerColor, $Color* shadowOuterColor, $Color* shadowInnerColor) {
@@ -126,27 +58,27 @@ $Insets* BevelBorder::getBorderInsets($Component* c, $Insets* insets) {
 }
 
 $Color* BevelBorder::getHighlightOuterColor($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, highlight, getHighlightOuterColor());
-	return highlight != nullptr ? highlight : $nc($($nc($($nc(c)->getBackground()))->brighter()))->brighter();
+	return highlight != nullptr ? highlight : $$nc($$nc($nc(c)->getBackground())->brighter())->brighter();
 }
 
 $Color* BevelBorder::getHighlightInnerColor($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, highlight, getHighlightInnerColor());
-	return highlight != nullptr ? highlight : $nc($($nc(c)->getBackground()))->brighter();
+	return highlight != nullptr ? highlight : $$nc($nc(c)->getBackground())->brighter();
 }
 
 $Color* BevelBorder::getShadowInnerColor($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, shadow, getShadowInnerColor());
-	return shadow != nullptr ? shadow : $nc($($nc(c)->getBackground()))->darker();
+	return shadow != nullptr ? shadow : $$nc($nc(c)->getBackground())->darker();
 }
 
 $Color* BevelBorder::getShadowOuterColor($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, shadow, getShadowOuterColor());
-	return shadow != nullptr ? shadow : $nc($($nc($($nc(c)->getBackground()))->darker()))->darker();
+	return shadow != nullptr ? shadow : $$nc($$nc($nc(c)->getBackground())->darker())->darker();
 }
 
 $Color* BevelBorder::getHighlightOuterColor() {
@@ -174,7 +106,7 @@ bool BevelBorder::isBorderOpaque() {
 }
 
 void BevelBorder::paintRaisedBevel($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, oldColor, $nc(g)->getColor());
 	int32_t h = height;
 	int32_t w = width;
@@ -196,7 +128,7 @@ void BevelBorder::paintRaisedBevel($Component* c, $Graphics* g, int32_t x, int32
 }
 
 void BevelBorder::paintLoweredBevel($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, oldColor, $nc(g)->getColor());
 	int32_t h = height;
 	int32_t w = width;
@@ -221,7 +153,63 @@ BevelBorder::BevelBorder() {
 }
 
 $Class* BevelBorder::load$($String* name, bool initialize) {
-	$loadClass(BevelBorder, name, initialize, &_BevelBorder_ClassInfo_, allocate$BevelBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"RAISED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BevelBorder, RAISED)},
+		{"LOWERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BevelBorder, LOWERED)},
+		{"bevelType", "I", nullptr, $PROTECTED, $field(BevelBorder, bevelType)},
+		{"highlightOuter", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BevelBorder, highlightOuter)},
+		{"highlightInner", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BevelBorder, highlightInner)},
+		{"shadowInner", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BevelBorder, shadowInner)},
+		{"shadowOuter", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(BevelBorder, shadowOuter)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "bevelType"},
+		{'s', "highlightOuterColor"},
+		{'s', "highlightInnerColor"},
+		{'s', "shadowOuterColor"},
+		{'s', "shadowInnerColor"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$2$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$2[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$2$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BevelBorder, init$, void, int32_t)},
+		{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BevelBorder, init$, void, int32_t, $Color*, $Color*)},
+		{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BevelBorder, init$, void, int32_t, $Color*, $Color*, $Color*, $Color*), nullptr, nullptr, init$methodAnnotations$$$2},
+		{"getBevelType", "()I", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getBevelType, int32_t)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getHighlightInnerColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getHighlightInnerColor, $Color*, $Component*)},
+		{"getHighlightInnerColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getHighlightInnerColor, $Color*)},
+		{"getHighlightOuterColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getHighlightOuterColor, $Color*, $Component*)},
+		{"getHighlightOuterColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getHighlightOuterColor, $Color*)},
+		{"getShadowInnerColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getShadowInnerColor, $Color*, $Component*)},
+		{"getShadowInnerColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getShadowInnerColor, $Color*)},
+		{"getShadowOuterColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getShadowOuterColor, $Color*, $Component*)},
+		{"getShadowOuterColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(BevelBorder, getShadowOuterColor, $Color*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(BevelBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BevelBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintLoweredBevel", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(BevelBorder, paintLoweredBevel, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintRaisedBevel", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(BevelBorder, paintRaisedBevel, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.border.BevelBorder",
+		"javax.swing.border.AbstractBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BevelBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BevelBorder));
+	});
 	return class$;
 }
 

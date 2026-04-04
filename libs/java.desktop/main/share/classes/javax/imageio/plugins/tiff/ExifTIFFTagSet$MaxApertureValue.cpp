@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$MaxApertureValue.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$MaxApertureValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$MaxApertureValue, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$MaxApertureValue_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$MaxApertureValue", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "MaxApertureValue", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$MaxApertureValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$MaxApertureValue",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$MaxApertureValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$MaxApertureValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$MaxApertureValue($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$MaxApertureValue));
-}
-
 void ExifTIFFTagSet$MaxApertureValue::init$() {
 	$TIFFTag::init$("MaxApertureValue"_s, 0x00009205, $sl(1, $TIFFTag::TIFF_RATIONAL), 1);
 }
@@ -54,7 +23,32 @@ ExifTIFFTagSet$MaxApertureValue::ExifTIFFTagSet$MaxApertureValue() {
 }
 
 $Class* ExifTIFFTagSet$MaxApertureValue::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$MaxApertureValue, name, initialize, &_ExifTIFFTagSet$MaxApertureValue_ClassInfo_, allocate$ExifTIFFTagSet$MaxApertureValue);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$MaxApertureValue, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$MaxApertureValue", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "MaxApertureValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$MaxApertureValue",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$MaxApertureValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$MaxApertureValue);
+	});
 	return class$;
 }
 

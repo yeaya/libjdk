@@ -1,5 +1,4 @@
 #include <com/apple/eawt/event/MagnificationEvent.h>
-
 #include <com/apple/eawt/event/GestureEvent.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 			namespace event {
-
-$FieldInfo _MagnificationEvent_FieldInfo_[] = {
-	{"magnification", "D", nullptr, $FINAL, $field(MagnificationEvent, magnification)},
-	{}
-};
-
-$MethodInfo _MagnificationEvent_MethodInfo_[] = {
-	{"<init>", "(D)V", nullptr, 0, $method(MagnificationEvent, init$, void, double)},
-	{"getMagnification", "()D", nullptr, $PUBLIC, $virtualMethod(MagnificationEvent, getMagnification, double)},
-	{}
-};
-
-$ClassInfo _MagnificationEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.eawt.event.MagnificationEvent",
-	"com.apple.eawt.event.GestureEvent",
-	nullptr,
-	_MagnificationEvent_FieldInfo_,
-	_MagnificationEvent_MethodInfo_
-};
-
-$Object* allocate$MagnificationEvent($Class* clazz) {
-	return $of($alloc(MagnificationEvent));
-}
 
 void MagnificationEvent::init$(double magnification) {
 	$GestureEvent::init$();
@@ -50,7 +25,26 @@ MagnificationEvent::MagnificationEvent() {
 }
 
 $Class* MagnificationEvent::load$($String* name, bool initialize) {
-	$loadClass(MagnificationEvent, name, initialize, &_MagnificationEvent_ClassInfo_, allocate$MagnificationEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"magnification", "D", nullptr, $FINAL, $field(MagnificationEvent, magnification)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(D)V", nullptr, 0, $method(MagnificationEvent, init$, void, double)},
+		{"getMagnification", "()D", nullptr, $PUBLIC, $virtualMethod(MagnificationEvent, getMagnification, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.eawt.event.MagnificationEvent",
+		"com.apple.eawt.event.GestureEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MagnificationEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MagnificationEvent);
+	});
 	return class$;
 }
 

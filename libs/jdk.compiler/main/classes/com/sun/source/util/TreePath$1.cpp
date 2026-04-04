@@ -1,5 +1,4 @@
 #include <com/sun/source/util/TreePath$1.h>
-
 #include <com/sun/source/tree/Tree.h>
 #include <com/sun/source/util/TreePath.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -21,51 +20,6 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$FieldInfo _TreePath$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/source/util/TreePath;", nullptr, $FINAL | $SYNTHETIC, $field(TreePath$1, this$0)},
-	{"next", "Lcom/sun/source/util/TreePath;", nullptr, $PRIVATE, $field(TreePath$1, next$)},
-	{}
-};
-
-$MethodInfo _TreePath$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/util/TreePath;)V", nullptr, 0, $method(TreePath$1, init$, void, $TreePath*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TreePath$1, hasNext, bool)},
-	{"next", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(TreePath$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreePath$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _TreePath$1_EnclosingMethodInfo_ = {
-	"com.sun.source.util.TreePath",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _TreePath$1_InnerClassesInfo_[] = {
-	{"com.sun.source.util.TreePath$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TreePath$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.source.util.TreePath$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_TreePath$1_FieldInfo_,
-	_TreePath$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Lcom/sun/source/tree/Tree;>;",
-	&_TreePath$1_EnclosingMethodInfo_,
-	_TreePath$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.util.TreePath"
-};
-
-$Object* allocate$TreePath$1($Class* clazz) {
-	return $of($alloc(TreePath$1));
-}
-
 void TreePath$1::init$($TreePath* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, next$, this->this$0);
@@ -80,8 +34,8 @@ $Object* TreePath$1::next() {
 		$throwNew($NoSuchElementException);
 	}
 	$var($Tree, t, $nc(this->next$)->leaf);
-	$set(this, next$, $nc(this->next$)->parent);
-	return $of(t);
+	$set(this, next$, this->next$->parent);
+	return t;
 }
 
 void TreePath$1::remove() {
@@ -92,7 +46,45 @@ TreePath$1::TreePath$1() {
 }
 
 $Class* TreePath$1::load$($String* name, bool initialize) {
-	$loadClass(TreePath$1, name, initialize, &_TreePath$1_ClassInfo_, allocate$TreePath$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/source/util/TreePath;", nullptr, $FINAL | $SYNTHETIC, $field(TreePath$1, this$0)},
+		{"next", "Lcom/sun/source/util/TreePath;", nullptr, $PRIVATE, $field(TreePath$1, next$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/source/util/TreePath;)V", nullptr, 0, $method(TreePath$1, init$, void, $TreePath*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TreePath$1, hasNext, bool)},
+		{"next", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(TreePath$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(TreePath$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.source.util.TreePath",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.util.TreePath$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.source.util.TreePath$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Lcom/sun/source/tree/Tree;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.util.TreePath"
+	};
+	$loadClass(TreePath$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreePath$1);
+	});
 	return class$;
 }
 

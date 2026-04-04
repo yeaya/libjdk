@@ -1,5 +1,4 @@
 #include <TestAbstractRegionPainter$UserAbstractRegionPainter.h>
-
 #include <TestAbstractRegionPainter.h>
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
@@ -18,39 +17,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $JComponent = ::javax::swing::JComponent;
 using $AbstractRegionPainter = ::javax::swing::plaf::nimbus::AbstractRegionPainter;
 using $AbstractRegionPainter$PaintContext = ::javax::swing::plaf::nimbus::AbstractRegionPainter$PaintContext;
-
-$MethodInfo _TestAbstractRegionPainter$UserAbstractRegionPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestAbstractRegionPainter$UserAbstractRegionPainter, init$, void)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(TestAbstractRegionPainter$UserAbstractRegionPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED, $virtualMethod(TestAbstractRegionPainter$UserAbstractRegionPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"getUserComponentColor", "(Ljavax/swing/JComponent;Ljava/lang/String;Ljava/awt/Color;FFI)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(TestAbstractRegionPainter$UserAbstractRegionPainter, getUserComponentColor, $Color*, $JComponent*, $String*, $Color*, float, float, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TestAbstractRegionPainter$UserAbstractRegionPainter_InnerClassesInfo_[] = {
-	{"TestAbstractRegionPainter$UserAbstractRegionPainter", "TestAbstractRegionPainter", "UserAbstractRegionPainter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestAbstractRegionPainter$UserAbstractRegionPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestAbstractRegionPainter$UserAbstractRegionPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	nullptr,
-	_TestAbstractRegionPainter$UserAbstractRegionPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestAbstractRegionPainter$UserAbstractRegionPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestAbstractRegionPainter"
-};
-
-$Object* allocate$TestAbstractRegionPainter$UserAbstractRegionPainter($Class* clazz) {
-	return $of($alloc(TestAbstractRegionPainter$UserAbstractRegionPainter));
-}
 
 void TestAbstractRegionPainter$UserAbstractRegionPainter::init$() {
 	$AbstractRegionPainter::init$();
@@ -73,7 +39,35 @@ TestAbstractRegionPainter$UserAbstractRegionPainter::TestAbstractRegionPainter$U
 }
 
 $Class* TestAbstractRegionPainter$UserAbstractRegionPainter::load$($String* name, bool initialize) {
-	$loadClass(TestAbstractRegionPainter$UserAbstractRegionPainter, name, initialize, &_TestAbstractRegionPainter$UserAbstractRegionPainter_ClassInfo_, allocate$TestAbstractRegionPainter$UserAbstractRegionPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestAbstractRegionPainter$UserAbstractRegionPainter, init$, void)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(TestAbstractRegionPainter$UserAbstractRegionPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED, $virtualMethod(TestAbstractRegionPainter$UserAbstractRegionPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"getUserComponentColor", "(Ljavax/swing/JComponent;Ljava/lang/String;Ljava/awt/Color;FFI)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(TestAbstractRegionPainter$UserAbstractRegionPainter, getUserComponentColor, $Color*, $JComponent*, $String*, $Color*, float, float, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestAbstractRegionPainter$UserAbstractRegionPainter", "TestAbstractRegionPainter", "UserAbstractRegionPainter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestAbstractRegionPainter$UserAbstractRegionPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestAbstractRegionPainter"
+	};
+	$loadClass(TestAbstractRegionPainter$UserAbstractRegionPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestAbstractRegionPainter$UserAbstractRegionPainter);
+	});
 	return class$;
 }
 

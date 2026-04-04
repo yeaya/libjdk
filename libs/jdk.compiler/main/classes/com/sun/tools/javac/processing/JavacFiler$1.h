@@ -15,6 +15,7 @@ class JavacFiler$1 : public ::java::lang::Object {
 	$class(JavacFiler$1, 0, ::java::lang::Object)
 public:
 	JavacFiler$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$tools$JavaFileObject$Kind;
 };
 

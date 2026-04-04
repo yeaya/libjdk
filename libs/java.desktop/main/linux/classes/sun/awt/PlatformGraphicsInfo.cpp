@@ -1,5 +1,4 @@
 #include <sun/awt/PlatformGraphicsInfo.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
 #include <java/io/Serializable.h>
@@ -37,53 +36,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(PlatformGraphicsInfo::lambda$getDefaultHeadlessProperty$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0, run, $Object*)},
-	{}
-};
-$ClassInfo PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0::load$($String* name, bool initialize) {
-	$loadClass(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0);
+	});
 	return class$;
 }
 $Class* PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0::class$ = nullptr;
-
-$MethodInfo _PlatformGraphicsInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformGraphicsInfo, init$, void)},
-	{"createGE", "()Ljava/awt/GraphicsEnvironment;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, createGE, $GraphicsEnvironment*)},
-	{"createToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, createToolkit, $Toolkit*)},
-	{"getDefaultHeadlessMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, getDefaultHeadlessMessage, $String*)},
-	{"getDefaultHeadlessProperty", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, getDefaultHeadlessProperty, bool)},
-	{"lambda$getDefaultHeadlessProperty$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformGraphicsInfo, lambda$getDefaultHeadlessProperty$0, $Boolean*)},
-	{}
-};
-
-$ClassInfo _PlatformGraphicsInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.PlatformGraphicsInfo",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_PlatformGraphicsInfo_MethodInfo_
-};
-
-$Object* allocate$PlatformGraphicsInfo($Class* clazz) {
-	return $of($alloc(PlatformGraphicsInfo));
-}
 
 void PlatformGraphicsInfo::init$() {
 }
@@ -97,10 +70,10 @@ $Toolkit* PlatformGraphicsInfo::createToolkit() {
 }
 
 bool PlatformGraphicsInfo::getDefaultHeadlessProperty() {
+	$useLocalObjectStack();
 	$load(PlatformGraphicsInfo);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0))))->booleanValue();
 }
 
 $String* PlatformGraphicsInfo::getDefaultHeadlessMessage() {
@@ -108,9 +81,9 @@ $String* PlatformGraphicsInfo::getDefaultHeadlessMessage() {
 }
 
 $Boolean* PlatformGraphicsInfo::lambda$getDefaultHeadlessProperty$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, display, $System::getenv("DISPLAY"_s));
-	return $Boolean::valueOf(display == nullptr || $($nc(display)->trim())->isEmpty());
+	return $Boolean::valueOf(display == nullptr || $(display->trim())->isEmpty());
 }
 
 PlatformGraphicsInfo::PlatformGraphicsInfo() {
@@ -118,11 +91,30 @@ PlatformGraphicsInfo::PlatformGraphicsInfo() {
 
 $Class* PlatformGraphicsInfo::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0::classInfo$.name)) {
+		if (name->equals("sun.awt.PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0")) {
 			return PlatformGraphicsInfo$$Lambda$lambda$getDefaultHeadlessProperty$0::load$(name, initialize);
 		}
 	}
-	$loadClass(PlatformGraphicsInfo, name, initialize, &_PlatformGraphicsInfo_ClassInfo_, allocate$PlatformGraphicsInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PlatformGraphicsInfo, init$, void)},
+		{"createGE", "()Ljava/awt/GraphicsEnvironment;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, createGE, $GraphicsEnvironment*)},
+		{"createToolkit", "()Ljava/awt/Toolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, createToolkit, $Toolkit*)},
+		{"getDefaultHeadlessMessage", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, getDefaultHeadlessMessage, $String*)},
+		{"getDefaultHeadlessProperty", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(PlatformGraphicsInfo, getDefaultHeadlessProperty, bool)},
+		{"lambda$getDefaultHeadlessProperty$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(PlatformGraphicsInfo, lambda$getDefaultHeadlessProperty$0, $Boolean*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.PlatformGraphicsInfo",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PlatformGraphicsInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlatformGraphicsInfo);
+	});
 	return class$;
 }
 

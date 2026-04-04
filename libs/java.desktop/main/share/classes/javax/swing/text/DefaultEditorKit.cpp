@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
@@ -70,7 +69,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
@@ -118,137 +116,6 @@ using $ViewFactory = ::javax::swing::text::ViewFactory;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _DefaultEditorKit_FieldInfo_[] = {
-	{"EndOfLineStringProperty", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, EndOfLineStringProperty)},
-	{"insertContentAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, insertContentAction)},
-	{"insertBreakAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, insertBreakAction)},
-	{"insertTabAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, insertTabAction)},
-	{"deletePrevCharAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, deletePrevCharAction)},
-	{"deleteNextCharAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, deleteNextCharAction)},
-	{"deleteNextWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, deleteNextWordAction)},
-	{"deletePrevWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, deletePrevWordAction)},
-	{"readOnlyAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, readOnlyAction)},
-	{"writableAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, writableAction)},
-	{"cutAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, cutAction)},
-	{"copyAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, copyAction)},
-	{"pasteAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, pasteAction)},
-	{"beepAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beepAction)},
-	{"pageUpAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, pageUpAction)},
-	{"pageDownAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, pageDownAction)},
-	{"selectionPageUpAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPageUpAction)},
-	{"selectionPageDownAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPageDownAction)},
-	{"selectionPageLeftAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPageLeftAction)},
-	{"selectionPageRightAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPageRightAction)},
-	{"forwardAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, forwardAction)},
-	{"backwardAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, backwardAction)},
-	{"selectionForwardAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionForwardAction)},
-	{"selectionBackwardAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBackwardAction)},
-	{"upAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, upAction)},
-	{"downAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, downAction)},
-	{"selectionUpAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionUpAction)},
-	{"selectionDownAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionDownAction)},
-	{"beginWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beginWordAction)},
-	{"endWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, endWordAction)},
-	{"selectionBeginWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBeginWordAction)},
-	{"selectionEndWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionEndWordAction)},
-	{"previousWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, previousWordAction)},
-	{"nextWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, nextWordAction)},
-	{"selectionPreviousWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPreviousWordAction)},
-	{"selectionNextWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionNextWordAction)},
-	{"beginLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beginLineAction)},
-	{"endLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, endLineAction)},
-	{"selectionBeginLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBeginLineAction)},
-	{"selectionEndLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionEndLineAction)},
-	{"beginParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beginParagraphAction)},
-	{"endParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, endParagraphAction)},
-	{"selectionBeginParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBeginParagraphAction)},
-	{"selectionEndParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionEndParagraphAction)},
-	{"beginAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beginAction)},
-	{"endAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, endAction)},
-	{"selectionBeginAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBeginAction)},
-	{"selectionEndAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionEndAction)},
-	{"selectWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectWordAction)},
-	{"selectLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectLineAction)},
-	{"selectParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectParagraphAction)},
-	{"selectAllAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectAllAction)},
-	{"unselectAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, unselectAction)},
-	{"toggleComponentOrientationAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, toggleComponentOrientationAction)},
-	{"defaultKeyTypedAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, defaultKeyTypedAction)},
-	{"defaultActions", "[Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultEditorKit, defaultActions)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultEditorKit, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, createCaret, $Caret*)},
-	{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, createDefaultDocument, $Document*)},
-	{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, getActions, $ActionArray*)},
-	{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, getContentType, $String*)},
-	{"getInputAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $virtualMethod(DefaultEditorKit, getInputAttributes, $MutableAttributeSet*)},
-	{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, getViewFactory, $ViewFactory*)},
-	{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, read, void, $InputStream*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"write", "(Ljava/io/OutputStream;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, write, void, $OutputStream*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$ToggleComponentOrientationAction", "javax.swing.text.DefaultEditorKit", "ToggleComponentOrientationAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$UnselectAction", "javax.swing.text.DefaultEditorKit", "UnselectAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$SelectAllAction", "javax.swing.text.DefaultEditorKit", "SelectAllAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$SelectParagraphAction", "javax.swing.text.DefaultEditorKit", "SelectParagraphAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$SelectLineAction", "javax.swing.text.DefaultEditorKit", "SelectLineAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$SelectWordAction", "javax.swing.text.DefaultEditorKit", "SelectWordAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$EndAction", "javax.swing.text.DefaultEditorKit", "EndAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$BeginAction", "javax.swing.text.DefaultEditorKit", "BeginAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$EndParagraphAction", "javax.swing.text.DefaultEditorKit", "EndParagraphAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$BeginParagraphAction", "javax.swing.text.DefaultEditorKit", "BeginParagraphAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$EndLineAction", "javax.swing.text.DefaultEditorKit", "EndLineAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$BeginLineAction", "javax.swing.text.DefaultEditorKit", "BeginLineAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$NextWordAction", "javax.swing.text.DefaultEditorKit", "NextWordAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$PreviousWordAction", "javax.swing.text.DefaultEditorKit", "PreviousWordAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$EndWordAction", "javax.swing.text.DefaultEditorKit", "EndWordAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$BeginWordAction", "javax.swing.text.DefaultEditorKit", "BeginWordAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$NextVisualPositionAction", "javax.swing.text.DefaultEditorKit", "NextVisualPositionAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$DumpModelAction", "javax.swing.text.DefaultEditorKit", "DumpModelAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$PageAction", "javax.swing.text.DefaultEditorKit", "PageAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$VerticalPageAction", "javax.swing.text.DefaultEditorKit", "VerticalPageAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$BeepAction", "javax.swing.text.DefaultEditorKit", "BeepAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultEditorKit$PasteAction", "javax.swing.text.DefaultEditorKit", "PasteAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultEditorKit$CopyAction", "javax.swing.text.DefaultEditorKit", "CopyAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultEditorKit$CutAction", "javax.swing.text.DefaultEditorKit", "CutAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultEditorKit$WritableAction", "javax.swing.text.DefaultEditorKit", "WritableAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$ReadOnlyAction", "javax.swing.text.DefaultEditorKit", "ReadOnlyAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$DeleteWordAction", "javax.swing.text.DefaultEditorKit", "DeleteWordAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$DeleteNextCharAction", "javax.swing.text.DefaultEditorKit", "DeleteNextCharAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$DeletePrevCharAction", "javax.swing.text.DefaultEditorKit", "DeletePrevCharAction", $STATIC},
-	{"javax.swing.text.DefaultEditorKit$InsertTabAction", "javax.swing.text.DefaultEditorKit", "InsertTabAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultEditorKit$InsertBreakAction", "javax.swing.text.DefaultEditorKit", "InsertBreakAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultEditorKit$InsertContentAction", "javax.swing.text.DefaultEditorKit", "InsertContentAction", $PUBLIC | $STATIC},
-	{"javax.swing.text.DefaultEditorKit$DefaultKeyTypedAction", "javax.swing.text.DefaultEditorKit", "DefaultKeyTypedAction", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit",
-	"javax.swing.text.EditorKit",
-	nullptr,
-	_DefaultEditorKit_FieldInfo_,
-	_DefaultEditorKit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit$ToggleComponentOrientationAction,javax.swing.text.DefaultEditorKit$UnselectAction,javax.swing.text.DefaultEditorKit$SelectAllAction,javax.swing.text.DefaultEditorKit$SelectParagraphAction,javax.swing.text.DefaultEditorKit$SelectLineAction,javax.swing.text.DefaultEditorKit$SelectWordAction,javax.swing.text.DefaultEditorKit$EndAction,javax.swing.text.DefaultEditorKit$BeginAction,javax.swing.text.DefaultEditorKit$EndParagraphAction,javax.swing.text.DefaultEditorKit$BeginParagraphAction,javax.swing.text.DefaultEditorKit$EndLineAction,javax.swing.text.DefaultEditorKit$BeginLineAction,javax.swing.text.DefaultEditorKit$NextWordAction,javax.swing.text.DefaultEditorKit$PreviousWordAction,javax.swing.text.DefaultEditorKit$EndWordAction,javax.swing.text.DefaultEditorKit$BeginWordAction,javax.swing.text.DefaultEditorKit$NextVisualPositionAction,javax.swing.text.DefaultEditorKit$DumpModelAction,javax.swing.text.DefaultEditorKit$PageAction,javax.swing.text.DefaultEditorKit$VerticalPageAction,javax.swing.text.DefaultEditorKit$BeepAction,javax.swing.text.DefaultEditorKit$PasteAction,javax.swing.text.DefaultEditorKit$CopyAction,javax.swing.text.DefaultEditorKit$CutAction,javax.swing.text.DefaultEditorKit$WritableAction,javax.swing.text.DefaultEditorKit$ReadOnlyAction,javax.swing.text.DefaultEditorKit$DeleteWordAction,javax.swing.text.DefaultEditorKit$DeleteNextCharAction,javax.swing.text.DefaultEditorKit$DeletePrevCharAction,javax.swing.text.DefaultEditorKit$InsertTabAction,javax.swing.text.DefaultEditorKit$InsertBreakAction,javax.swing.text.DefaultEditorKit$InsertContentAction,javax.swing.text.DefaultEditorKit$DefaultKeyTypedAction"
-};
-
-$Object* allocate$DefaultEditorKit($Class* clazz) {
-	return $of($alloc(DefaultEditorKit));
-}
 
 $String* DefaultEditorKit::EndOfLineStringProperty = nullptr;
 $String* DefaultEditorKit::insertContentAction = nullptr;
@@ -320,7 +187,7 @@ $ViewFactory* DefaultEditorKit::getViewFactory() {
 }
 
 $ActionArray* DefaultEditorKit::getActions() {
-	return $cast($ActionArray, $nc(DefaultEditorKit::defaultActions)->clone());
+	return $cast($ActionArray, DefaultEditorKit::defaultActions->clone());
 }
 
 $Caret* DefaultEditorKit::createCaret() {
@@ -332,12 +199,12 @@ $Document* DefaultEditorKit::createDefaultDocument() {
 }
 
 void DefaultEditorKit::read($InputStream* in, $Document* doc, int32_t pos) {
-	read(static_cast<$Reader*>($$new($InputStreamReader, in)), doc, pos);
+	read($$new($InputStreamReader, in), doc, pos);
 }
 
 void DefaultEditorKit::write($OutputStream* out, $Document* doc, int32_t pos, int32_t len) {
 	$var($OutputStreamWriter, osw, $new($OutputStreamWriter, out));
-	write(static_cast<$Writer*>(osw), doc, pos, len);
+	write(osw, doc, pos, len);
 	osw->flush();
 }
 
@@ -346,7 +213,7 @@ $MutableAttributeSet* DefaultEditorKit::getInputAttributes() {
 }
 
 void DefaultEditorKit::read($Reader* in, $Document* doc, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, buff, $new($chars, 4096));
 	int32_t nch = 0;
 	bool lastWasCR = false;
@@ -360,47 +227,41 @@ void DefaultEditorKit::read($Reader* in, $Document* doc, int32_t pos) {
 		for (int32_t counter = 0; counter < nch; ++counter) {
 			switch (buff->get(counter)) {
 			case u'\r':
-				{
-					if (lastWasCR) {
-						isCR = true;
-						if (counter == 0) {
-							doc->insertString(pos, "\n"_s, attr);
-							++pos;
-						} else {
-							buff->set(counter - 1, u'\n');
-						}
+				if (lastWasCR) {
+					isCR = true;
+					if (counter == 0) {
+						doc->insertString(pos, "\n"_s, attr);
+						++pos;
 					} else {
-						lastWasCR = true;
+						buff->set(counter - 1, u'\n');
 					}
-					break;
+				} else {
+					lastWasCR = true;
 				}
+				break;
 			case u'\n':
-				{
-					if (lastWasCR) {
-						if (counter > (last + 1)) {
-							doc->insertString(pos, $$new($String, buff, last, counter - last - 1), attr);
-							pos += (counter - last - 1);
-						}
-						lastWasCR = false;
-						last = counter;
-						isCRLF = true;
+				if (lastWasCR) {
+					if (counter > (last + 1)) {
+						doc->insertString(pos, $$new($String, buff, last, counter - last - 1), attr);
+						pos += (counter - last - 1);
 					}
-					break;
+					lastWasCR = false;
+					last = counter;
+					isCRLF = true;
 				}
+				break;
 			default:
-				{
-					if (lastWasCR) {
-						isCR = true;
-						if (counter == 0) {
-							doc->insertString(pos, "\n"_s, attr);
-							++pos;
-						} else {
-							buff->set(counter - 1, u'\n');
-						}
-						lastWasCR = false;
+				if (lastWasCR) {
+					isCR = true;
+					if (counter == 0) {
+						doc->insertString(pos, "\n"_s, attr);
+						++pos;
+					} else {
+						buff->set(counter - 1, u'\n');
 					}
-					break;
+					lastWasCR = false;
 				}
+				break;
 			}
 		}
 		if (last < nch) {
@@ -431,7 +292,7 @@ void DefaultEditorKit::read($Reader* in, $Document* doc, int32_t pos) {
 }
 
 void DefaultEditorKit::write($Writer* out, $Document* doc, int32_t pos, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((pos < 0) || ((pos + len) > $nc(doc)->getLength())) {
 		$throwNew($BadLocationException, "DefaultEditorKit.write"_s, pos);
 	}
@@ -482,8 +343,8 @@ void DefaultEditorKit::write($Writer* out, $Document* doc, int32_t pos, int32_t 
 	$nc(out)->flush();
 }
 
-void clinit$DefaultEditorKit($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DefaultEditorKit::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DefaultEditorKit::EndOfLineStringProperty, "__EndOfLine__"_s);
 	$assignStatic(DefaultEditorKit::insertContentAction, "insert-content"_s);
 	$assignStatic(DefaultEditorKit::insertBreakAction, "insert-break"_s);
@@ -540,61 +401,61 @@ void clinit$DefaultEditorKit($Class* class$) {
 	$assignStatic(DefaultEditorKit::toggleComponentOrientationAction, "toggle-componentOrientation"_s);
 	$assignStatic(DefaultEditorKit::defaultKeyTypedAction, "default-typed"_s);
 	$assignStatic(DefaultEditorKit::defaultActions, $new($ActionArray, {
-		static_cast<$Action*>($$new($DefaultEditorKit$InsertContentAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$DeletePrevCharAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$DeleteNextCharAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$ReadOnlyAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$DeleteWordAction, DefaultEditorKit::deletePrevWordAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$DeleteWordAction, DefaultEditorKit::deleteNextWordAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$WritableAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$CutAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$CopyAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$PasteAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$VerticalPageAction, DefaultEditorKit::pageUpAction, -1, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$VerticalPageAction, DefaultEditorKit::pageDownAction, 1, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$VerticalPageAction, DefaultEditorKit::selectionPageUpAction, -1, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$VerticalPageAction, DefaultEditorKit::selectionPageDownAction, 1, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$PageAction, DefaultEditorKit::selectionPageLeftAction, true, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$PageAction, DefaultEditorKit::selectionPageRightAction, false, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$InsertBreakAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeepAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::forwardAction, false, $SwingConstants::EAST)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::backwardAction, false, $SwingConstants::WEST)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::selectionForwardAction, true, $SwingConstants::EAST)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::selectionBackwardAction, true, $SwingConstants::WEST)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::upAction, false, $SwingConstants::NORTH)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::downAction, false, $SwingConstants::SOUTH)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::selectionUpAction, true, $SwingConstants::NORTH)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::selectionDownAction, true, $SwingConstants::SOUTH)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeginWordAction, DefaultEditorKit::beginWordAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$EndWordAction, DefaultEditorKit::endWordAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeginWordAction, DefaultEditorKit::selectionBeginWordAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$EndWordAction, DefaultEditorKit::selectionEndWordAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$PreviousWordAction, DefaultEditorKit::previousWordAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextWordAction, DefaultEditorKit::nextWordAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$PreviousWordAction, DefaultEditorKit::selectionPreviousWordAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$NextWordAction, DefaultEditorKit::selectionNextWordAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeginLineAction, DefaultEditorKit::beginLineAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$EndLineAction, DefaultEditorKit::endLineAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeginLineAction, DefaultEditorKit::selectionBeginLineAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$EndLineAction, DefaultEditorKit::selectionEndLineAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeginParagraphAction, DefaultEditorKit::beginParagraphAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$EndParagraphAction, DefaultEditorKit::endParagraphAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeginParagraphAction, DefaultEditorKit::selectionBeginParagraphAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$EndParagraphAction, DefaultEditorKit::selectionEndParagraphAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeginAction, DefaultEditorKit::beginAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$EndAction, DefaultEditorKit::endAction, false)),
-		static_cast<$Action*>($$new($DefaultEditorKit$BeginAction, DefaultEditorKit::selectionBeginAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$EndAction, DefaultEditorKit::selectionEndAction, true)),
-		static_cast<$Action*>($$new($DefaultEditorKit$DefaultKeyTypedAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$InsertTabAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$SelectWordAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$SelectLineAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$SelectParagraphAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$SelectAllAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$UnselectAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$ToggleComponentOrientationAction)),
-		static_cast<$Action*>($$new($DefaultEditorKit$DumpModelAction))
+		$$new($DefaultEditorKit$InsertContentAction),
+		$$new($DefaultEditorKit$DeletePrevCharAction),
+		$$new($DefaultEditorKit$DeleteNextCharAction),
+		$$new($DefaultEditorKit$ReadOnlyAction),
+		$$new($DefaultEditorKit$DeleteWordAction, DefaultEditorKit::deletePrevWordAction),
+		$$new($DefaultEditorKit$DeleteWordAction, DefaultEditorKit::deleteNextWordAction),
+		$$new($DefaultEditorKit$WritableAction),
+		$$new($DefaultEditorKit$CutAction),
+		$$new($DefaultEditorKit$CopyAction),
+		$$new($DefaultEditorKit$PasteAction),
+		$$new($DefaultEditorKit$VerticalPageAction, DefaultEditorKit::pageUpAction, -1, false),
+		$$new($DefaultEditorKit$VerticalPageAction, DefaultEditorKit::pageDownAction, 1, false),
+		$$new($DefaultEditorKit$VerticalPageAction, DefaultEditorKit::selectionPageUpAction, -1, true),
+		$$new($DefaultEditorKit$VerticalPageAction, DefaultEditorKit::selectionPageDownAction, 1, true),
+		$$new($DefaultEditorKit$PageAction, DefaultEditorKit::selectionPageLeftAction, true, true),
+		$$new($DefaultEditorKit$PageAction, DefaultEditorKit::selectionPageRightAction, false, true),
+		$$new($DefaultEditorKit$InsertBreakAction),
+		$$new($DefaultEditorKit$BeepAction),
+		$$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::forwardAction, false, $SwingConstants::EAST),
+		$$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::backwardAction, false, $SwingConstants::WEST),
+		$$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::selectionForwardAction, true, $SwingConstants::EAST),
+		$$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::selectionBackwardAction, true, $SwingConstants::WEST),
+		$$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::upAction, false, $SwingConstants::NORTH),
+		$$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::downAction, false, $SwingConstants::SOUTH),
+		$$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::selectionUpAction, true, $SwingConstants::NORTH),
+		$$new($DefaultEditorKit$NextVisualPositionAction, DefaultEditorKit::selectionDownAction, true, $SwingConstants::SOUTH),
+		$$new($DefaultEditorKit$BeginWordAction, DefaultEditorKit::beginWordAction, false),
+		$$new($DefaultEditorKit$EndWordAction, DefaultEditorKit::endWordAction, false),
+		$$new($DefaultEditorKit$BeginWordAction, DefaultEditorKit::selectionBeginWordAction, true),
+		$$new($DefaultEditorKit$EndWordAction, DefaultEditorKit::selectionEndWordAction, true),
+		$$new($DefaultEditorKit$PreviousWordAction, DefaultEditorKit::previousWordAction, false),
+		$$new($DefaultEditorKit$NextWordAction, DefaultEditorKit::nextWordAction, false),
+		$$new($DefaultEditorKit$PreviousWordAction, DefaultEditorKit::selectionPreviousWordAction, true),
+		$$new($DefaultEditorKit$NextWordAction, DefaultEditorKit::selectionNextWordAction, true),
+		$$new($DefaultEditorKit$BeginLineAction, DefaultEditorKit::beginLineAction, false),
+		$$new($DefaultEditorKit$EndLineAction, DefaultEditorKit::endLineAction, false),
+		$$new($DefaultEditorKit$BeginLineAction, DefaultEditorKit::selectionBeginLineAction, true),
+		$$new($DefaultEditorKit$EndLineAction, DefaultEditorKit::selectionEndLineAction, true),
+		$$new($DefaultEditorKit$BeginParagraphAction, DefaultEditorKit::beginParagraphAction, false),
+		$$new($DefaultEditorKit$EndParagraphAction, DefaultEditorKit::endParagraphAction, false),
+		$$new($DefaultEditorKit$BeginParagraphAction, DefaultEditorKit::selectionBeginParagraphAction, true),
+		$$new($DefaultEditorKit$EndParagraphAction, DefaultEditorKit::selectionEndParagraphAction, true),
+		$$new($DefaultEditorKit$BeginAction, DefaultEditorKit::beginAction, false),
+		$$new($DefaultEditorKit$EndAction, DefaultEditorKit::endAction, false),
+		$$new($DefaultEditorKit$BeginAction, DefaultEditorKit::selectionBeginAction, true),
+		$$new($DefaultEditorKit$EndAction, DefaultEditorKit::selectionEndAction, true),
+		$$new($DefaultEditorKit$DefaultKeyTypedAction),
+		$$new($DefaultEditorKit$InsertTabAction),
+		$$new($DefaultEditorKit$SelectWordAction),
+		$$new($DefaultEditorKit$SelectLineAction),
+		$$new($DefaultEditorKit$SelectParagraphAction),
+		$$new($DefaultEditorKit$SelectAllAction),
+		$$new($DefaultEditorKit$UnselectAction),
+		$$new($DefaultEditorKit$ToggleComponentOrientationAction),
+		$$new($DefaultEditorKit$DumpModelAction)
 	}));
 }
 
@@ -602,7 +463,132 @@ DefaultEditorKit::DefaultEditorKit() {
 }
 
 $Class* DefaultEditorKit::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit, name, initialize, &_DefaultEditorKit_ClassInfo_, clinit$DefaultEditorKit, allocate$DefaultEditorKit);
+	$FieldInfo fieldInfos$$[] = {
+		{"EndOfLineStringProperty", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, EndOfLineStringProperty)},
+		{"insertContentAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, insertContentAction)},
+		{"insertBreakAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, insertBreakAction)},
+		{"insertTabAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, insertTabAction)},
+		{"deletePrevCharAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, deletePrevCharAction)},
+		{"deleteNextCharAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, deleteNextCharAction)},
+		{"deleteNextWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, deleteNextWordAction)},
+		{"deletePrevWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, deletePrevWordAction)},
+		{"readOnlyAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, readOnlyAction)},
+		{"writableAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, writableAction)},
+		{"cutAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, cutAction)},
+		{"copyAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, copyAction)},
+		{"pasteAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, pasteAction)},
+		{"beepAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beepAction)},
+		{"pageUpAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, pageUpAction)},
+		{"pageDownAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, pageDownAction)},
+		{"selectionPageUpAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPageUpAction)},
+		{"selectionPageDownAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPageDownAction)},
+		{"selectionPageLeftAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPageLeftAction)},
+		{"selectionPageRightAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPageRightAction)},
+		{"forwardAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, forwardAction)},
+		{"backwardAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, backwardAction)},
+		{"selectionForwardAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionForwardAction)},
+		{"selectionBackwardAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBackwardAction)},
+		{"upAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, upAction)},
+		{"downAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, downAction)},
+		{"selectionUpAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionUpAction)},
+		{"selectionDownAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionDownAction)},
+		{"beginWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beginWordAction)},
+		{"endWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, endWordAction)},
+		{"selectionBeginWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBeginWordAction)},
+		{"selectionEndWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionEndWordAction)},
+		{"previousWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, previousWordAction)},
+		{"nextWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, nextWordAction)},
+		{"selectionPreviousWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionPreviousWordAction)},
+		{"selectionNextWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionNextWordAction)},
+		{"beginLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beginLineAction)},
+		{"endLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, endLineAction)},
+		{"selectionBeginLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBeginLineAction)},
+		{"selectionEndLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionEndLineAction)},
+		{"beginParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beginParagraphAction)},
+		{"endParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, endParagraphAction)},
+		{"selectionBeginParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBeginParagraphAction)},
+		{"selectionEndParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionEndParagraphAction)},
+		{"beginAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, beginAction)},
+		{"endAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, endAction)},
+		{"selectionBeginAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionBeginAction)},
+		{"selectionEndAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectionEndAction)},
+		{"selectWordAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectWordAction)},
+		{"selectLineAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectLineAction)},
+		{"selectParagraphAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectParagraphAction)},
+		{"selectAllAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, selectAllAction)},
+		{"unselectAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, unselectAction)},
+		{"toggleComponentOrientationAction", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DefaultEditorKit, toggleComponentOrientationAction)},
+		{"defaultKeyTypedAction", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultEditorKit, defaultKeyTypedAction)},
+		{"defaultActions", "[Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultEditorKit, defaultActions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultEditorKit, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, createCaret, $Caret*)},
+		{"createDefaultDocument", "()Ljavax/swing/text/Document;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, createDefaultDocument, $Document*)},
+		{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, getActions, $ActionArray*)},
+		{"getContentType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, getContentType, $String*)},
+		{"getInputAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $virtualMethod(DefaultEditorKit, getInputAttributes, $MutableAttributeSet*)},
+		{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, getViewFactory, $ViewFactory*)},
+		{"read", "(Ljava/io/InputStream;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, read, void, $InputStream*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"read", "(Ljava/io/Reader;Ljavax/swing/text/Document;I)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, read, void, $Reader*, $Document*, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"write", "(Ljava/io/OutputStream;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, write, void, $OutputStream*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{"write", "(Ljava/io/Writer;Ljavax/swing/text/Document;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit, write, void, $Writer*, $Document*, int32_t, int32_t), "java.io.IOException,javax.swing.text.BadLocationException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$ToggleComponentOrientationAction", "javax.swing.text.DefaultEditorKit", "ToggleComponentOrientationAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$UnselectAction", "javax.swing.text.DefaultEditorKit", "UnselectAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$SelectAllAction", "javax.swing.text.DefaultEditorKit", "SelectAllAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$SelectParagraphAction", "javax.swing.text.DefaultEditorKit", "SelectParagraphAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$SelectLineAction", "javax.swing.text.DefaultEditorKit", "SelectLineAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$SelectWordAction", "javax.swing.text.DefaultEditorKit", "SelectWordAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$EndAction", "javax.swing.text.DefaultEditorKit", "EndAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$BeginAction", "javax.swing.text.DefaultEditorKit", "BeginAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$EndParagraphAction", "javax.swing.text.DefaultEditorKit", "EndParagraphAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$BeginParagraphAction", "javax.swing.text.DefaultEditorKit", "BeginParagraphAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$EndLineAction", "javax.swing.text.DefaultEditorKit", "EndLineAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$BeginLineAction", "javax.swing.text.DefaultEditorKit", "BeginLineAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$NextWordAction", "javax.swing.text.DefaultEditorKit", "NextWordAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$PreviousWordAction", "javax.swing.text.DefaultEditorKit", "PreviousWordAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$EndWordAction", "javax.swing.text.DefaultEditorKit", "EndWordAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$BeginWordAction", "javax.swing.text.DefaultEditorKit", "BeginWordAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$NextVisualPositionAction", "javax.swing.text.DefaultEditorKit", "NextVisualPositionAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$DumpModelAction", "javax.swing.text.DefaultEditorKit", "DumpModelAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$PageAction", "javax.swing.text.DefaultEditorKit", "PageAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$VerticalPageAction", "javax.swing.text.DefaultEditorKit", "VerticalPageAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$BeepAction", "javax.swing.text.DefaultEditorKit", "BeepAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultEditorKit$PasteAction", "javax.swing.text.DefaultEditorKit", "PasteAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultEditorKit$CopyAction", "javax.swing.text.DefaultEditorKit", "CopyAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultEditorKit$CutAction", "javax.swing.text.DefaultEditorKit", "CutAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultEditorKit$WritableAction", "javax.swing.text.DefaultEditorKit", "WritableAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$ReadOnlyAction", "javax.swing.text.DefaultEditorKit", "ReadOnlyAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$DeleteWordAction", "javax.swing.text.DefaultEditorKit", "DeleteWordAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$DeleteNextCharAction", "javax.swing.text.DefaultEditorKit", "DeleteNextCharAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$DeletePrevCharAction", "javax.swing.text.DefaultEditorKit", "DeletePrevCharAction", $STATIC},
+		{"javax.swing.text.DefaultEditorKit$InsertTabAction", "javax.swing.text.DefaultEditorKit", "InsertTabAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultEditorKit$InsertBreakAction", "javax.swing.text.DefaultEditorKit", "InsertBreakAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultEditorKit$InsertContentAction", "javax.swing.text.DefaultEditorKit", "InsertContentAction", $PUBLIC | $STATIC},
+		{"javax.swing.text.DefaultEditorKit$DefaultKeyTypedAction", "javax.swing.text.DefaultEditorKit", "DefaultKeyTypedAction", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit",
+		"javax.swing.text.EditorKit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit$ToggleComponentOrientationAction,javax.swing.text.DefaultEditorKit$UnselectAction,javax.swing.text.DefaultEditorKit$SelectAllAction,javax.swing.text.DefaultEditorKit$SelectParagraphAction,javax.swing.text.DefaultEditorKit$SelectLineAction,javax.swing.text.DefaultEditorKit$SelectWordAction,javax.swing.text.DefaultEditorKit$EndAction,javax.swing.text.DefaultEditorKit$BeginAction,javax.swing.text.DefaultEditorKit$EndParagraphAction,javax.swing.text.DefaultEditorKit$BeginParagraphAction,javax.swing.text.DefaultEditorKit$EndLineAction,javax.swing.text.DefaultEditorKit$BeginLineAction,javax.swing.text.DefaultEditorKit$NextWordAction,javax.swing.text.DefaultEditorKit$PreviousWordAction,javax.swing.text.DefaultEditorKit$EndWordAction,javax.swing.text.DefaultEditorKit$BeginWordAction,javax.swing.text.DefaultEditorKit$NextVisualPositionAction,javax.swing.text.DefaultEditorKit$DumpModelAction,javax.swing.text.DefaultEditorKit$PageAction,javax.swing.text.DefaultEditorKit$VerticalPageAction,javax.swing.text.DefaultEditorKit$BeepAction,javax.swing.text.DefaultEditorKit$PasteAction,javax.swing.text.DefaultEditorKit$CopyAction,javax.swing.text.DefaultEditorKit$CutAction,javax.swing.text.DefaultEditorKit$WritableAction,javax.swing.text.DefaultEditorKit$ReadOnlyAction,javax.swing.text.DefaultEditorKit$DeleteWordAction,javax.swing.text.DefaultEditorKit$DeleteNextCharAction,javax.swing.text.DefaultEditorKit$DeletePrevCharAction,javax.swing.text.DefaultEditorKit$InsertTabAction,javax.swing.text.DefaultEditorKit$InsertBreakAction,javax.swing.text.DefaultEditorKit$InsertContentAction,javax.swing.text.DefaultEditorKit$DefaultKeyTypedAction"
+	};
+	$loadClass(DefaultEditorKit, name, initialize, &classInfo$$, DefaultEditorKit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/MarkerSegment.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
@@ -14,7 +13,6 @@
 #undef LENGTH_SIZE
 
 using $JPEGBuffer = ::com::sun::imageio::plugins::jpeg::JPEGBuffer;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $Cloneable = ::java::lang::Cloneable;
@@ -35,52 +33,14 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _MarkerSegment_FieldInfo_[] = {
-	{"LENGTH_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MarkerSegment, LENGTH_SIZE)},
-	{"tag", "I", nullptr, 0, $field(MarkerSegment, tag)},
-	{"length", "I", nullptr, 0, $field(MarkerSegment, length)},
-	{"data", "[B", nullptr, 0, $field(MarkerSegment, data)},
-	{"unknown", "Z", nullptr, 0, $field(MarkerSegment, unknown)},
-	{}
-};
-
-$MethodInfo _MarkerSegment_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(MarkerSegment, init$, void, $JPEGBuffer*), "java.io.IOException"},
-	{"<init>", "(I)V", nullptr, 0, $method(MarkerSegment, init$, void, int32_t)},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(MarkerSegment, init$, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MarkerSegment, clone, $Object*)},
-	{"getAttributeValue", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/NamedNodeMap;Ljava/lang/String;IIZ)I", nullptr, $STATIC, $staticMethod(MarkerSegment, getAttributeValue, int32_t, $Node*, $NamedNodeMap*, $String*, int32_t, int32_t, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(MarkerSegment, getNativeNode, $IIOMetadataNode*)},
-	{"loadData", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $virtualMethod(MarkerSegment, loadData, void, $JPEGBuffer*), "java.io.IOException"},
-	{"print", "()V", nullptr, 0, $virtualMethod(MarkerSegment, print, void)},
-	{"printTag", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(MarkerSegment, printTag, void, $String*)},
-	{"write", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(MarkerSegment, write, void, $ImageOutputStream*), "java.io.IOException"},
-	{"write2bytes", "(Ljavax/imageio/stream/ImageOutputStream;I)V", nullptr, $STATIC, $staticMethod(MarkerSegment, write2bytes, void, $ImageOutputStream*, int32_t), "java.io.IOException"},
-	{"writeTag", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(MarkerSegment, writeTag, void, $ImageOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _MarkerSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.MarkerSegment",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_MarkerSegment_FieldInfo_,
-	_MarkerSegment_MethodInfo_
-};
-
-$Object* allocate$MarkerSegment($Class* clazz) {
-	return $of($alloc(MarkerSegment));
-}
-
 void MarkerSegment::init$($JPEGBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, data, nullptr);
 	this->unknown = false;
 	$nc(buffer)->loadBuf(3);
-	this->tag = (int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255);
-	this->length = ((int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255)) << 8;
-	this->length |= (int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255);
+	this->tag = $nc(buffer->buf)->get(buffer->bufPtr++) & 0xff;
+	this->length = (buffer->buf->get(buffer->bufPtr++) & 0xff) << 8;
+	this->length |= buffer->buf->get(buffer->bufPtr++) & 0xff;
 	this->length -= 2;
 	if (this->length < 0) {
 		$throwNew($IIOException, $$str({"Invalid segment length: "_s, $$str(this->length)}));
@@ -97,7 +57,7 @@ void MarkerSegment::init$(int32_t tag) {
 }
 
 void MarkerSegment::init$($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, data, nullptr);
 	this->unknown = false;
 	this->tag = getAttributeValue(node, nullptr, "MarkerTag"_s, 0, 255, true);
@@ -105,7 +65,7 @@ void MarkerSegment::init$($Node* node) {
 	if ($instanceOf($IIOMetadataNode, node)) {
 		$var($IIOMetadataNode, iioNode, $cast($IIOMetadataNode, node));
 		try {
-			$set(this, data, $cast($bytes, $nc(iioNode)->getUserObject()));
+			$set(this, data, $cast($bytes, iioNode->getUserObject()));
 		} catch ($Exception& e) {
 			$var($IIOInvalidTreeException, newGuy, $new($IIOInvalidTreeException, "Can\'t get User Object"_s, node));
 			newGuy->initCause(e);
@@ -125,7 +85,7 @@ $Object* MarkerSegment::clone() {
 	if (this->data != nullptr) {
 		$set($nc(newGuy), data, $cast($bytes, $nc(this->data)->clone()));
 	}
-	return $of(newGuy);
+	return newGuy;
 }
 
 void MarkerSegment::loadData($JPEGBuffer* buffer) {
@@ -134,7 +94,7 @@ void MarkerSegment::loadData($JPEGBuffer* buffer) {
 }
 
 $IIOMetadataNode* MarkerSegment::getNativeNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "unknown"_s));
 	node->setAttribute("MarkerTag"_s, $($Integer::toString(this->tag)));
 	node->setUserObject(this->data);
@@ -143,12 +103,12 @@ $IIOMetadataNode* MarkerSegment::getNativeNode() {
 
 int32_t MarkerSegment::getAttributeValue($Node* node, $NamedNodeMap* attrs$renamed, $String* name, int32_t min, int32_t max, bool required) {
 	$init(MarkerSegment);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, attrs$renamed);
 	if (attrs == nullptr) {
 		$assign(attrs, $nc(node)->getAttributes());
 	}
-	$var($String, valueString, $nc($($nc(attrs)->getNamedItem(name)))->getNodeValue());
+	$var($String, valueString, $$nc($nc(attrs)->getNamedItem(name))->getNodeValue());
 	int32_t value = -1;
 	if (valueString == nullptr) {
 		if (required) {
@@ -170,7 +130,7 @@ void MarkerSegment::writeTag($ImageOutputStream* ios) {
 }
 
 void MarkerSegment::write($ImageOutputStream* ios) {
-	this->length = 2 + ((this->data != nullptr) ? $nc(this->data)->length : 0);
+	this->length = 2 + ((this->data != nullptr) ? this->data->length : 0);
 	writeTag(ios);
 	if (this->data != nullptr) {
 		$nc(ios)->write(this->data);
@@ -179,32 +139,32 @@ void MarkerSegment::write($ImageOutputStream* ios) {
 
 void MarkerSegment::write2bytes($ImageOutputStream* ios, int32_t value) {
 	$init(MarkerSegment);
-	$nc(ios)->write((int32_t)((value >> 8) & (uint32_t)255));
-	ios->write((int32_t)(value & (uint32_t)255));
+	$nc(ios)->write((value >> 8) & 0xff);
+	ios->write(value & 0xff);
 }
 
 void MarkerSegment::printTag($String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({prefix, " marker segment - marker = 0x"_s, $($Integer::toHexString(this->tag))}));
-	$nc($System::out)->println($$str({"length: "_s, $$str(this->length)}));
+	$System::out->println($$str({"length: "_s, $$str(this->length)}));
 }
 
 void MarkerSegment::print() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	printTag("Unknown"_s);
 	if (this->length > 10) {
 		$nc($System::out)->print("First 5 bytes:"_s);
 		for (int32_t i = 0; i < 5; ++i) {
-			$nc($System::out)->print($$str({" Ox"_s, $($Integer::toHexString((int32_t)$nc(this->data)->get(i)))}));
+			$System::out->print($$str({" Ox"_s, $($Integer::toHexString((int32_t)$nc(this->data)->get(i)))}));
 		}
-		$nc($System::out)->print("\nLast 5 bytes:"_s);
-		for (int32_t i = $nc(this->data)->length - 5; i < $nc(this->data)->length; ++i) {
-			$nc($System::out)->print($$str({" Ox"_s, $($Integer::toHexString((int32_t)$nc(this->data)->get(i)))}));
+		$System::out->print("\nLast 5 bytes:"_s);
+		for (int32_t i = $nc(this->data)->length - 5; i < this->data->length; ++i) {
+			$System::out->print($$str({" Ox"_s, $($Integer::toHexString((int32_t)this->data->get(i)))}));
 		}
 	} else {
 		$nc($System::out)->print("Data:"_s);
 		for (int32_t i = 0; i < $nc(this->data)->length; ++i) {
-			$nc($System::out)->print($$str({" Ox"_s, $($Integer::toHexString((int32_t)$nc(this->data)->get(i)))}));
+			$System::out->print($$str({" Ox"_s, $($Integer::toHexString((int32_t)this->data->get(i)))}));
 		}
 	}
 	$nc($System::out)->println();
@@ -214,7 +174,40 @@ MarkerSegment::MarkerSegment() {
 }
 
 $Class* MarkerSegment::load$($String* name, bool initialize) {
-	$loadClass(MarkerSegment, name, initialize, &_MarkerSegment_ClassInfo_, allocate$MarkerSegment);
+	$FieldInfo fieldInfos$$[] = {
+		{"LENGTH_SIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MarkerSegment, LENGTH_SIZE)},
+		{"tag", "I", nullptr, 0, $field(MarkerSegment, tag)},
+		{"length", "I", nullptr, 0, $field(MarkerSegment, length)},
+		{"data", "[B", nullptr, 0, $field(MarkerSegment, data)},
+		{"unknown", "Z", nullptr, 0, $field(MarkerSegment, unknown)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(MarkerSegment, init$, void, $JPEGBuffer*), "java.io.IOException"},
+		{"<init>", "(I)V", nullptr, 0, $method(MarkerSegment, init$, void, int32_t)},
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $method(MarkerSegment, init$, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MarkerSegment, clone, $Object*)},
+		{"getAttributeValue", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/NamedNodeMap;Ljava/lang/String;IIZ)I", nullptr, $STATIC, $staticMethod(MarkerSegment, getAttributeValue, int32_t, $Node*, $NamedNodeMap*, $String*, int32_t, int32_t, bool), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(MarkerSegment, getNativeNode, $IIOMetadataNode*)},
+		{"loadData", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $virtualMethod(MarkerSegment, loadData, void, $JPEGBuffer*), "java.io.IOException"},
+		{"print", "()V", nullptr, 0, $virtualMethod(MarkerSegment, print, void)},
+		{"printTag", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(MarkerSegment, printTag, void, $String*)},
+		{"write", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(MarkerSegment, write, void, $ImageOutputStream*), "java.io.IOException"},
+		{"write2bytes", "(Ljavax/imageio/stream/ImageOutputStream;I)V", nullptr, $STATIC, $staticMethod(MarkerSegment, write2bytes, void, $ImageOutputStream*, int32_t), "java.io.IOException"},
+		{"writeTag", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(MarkerSegment, writeTag, void, $ImageOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.MarkerSegment",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MarkerSegment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MarkerSegment);
+	});
 	return class$;
 }
 

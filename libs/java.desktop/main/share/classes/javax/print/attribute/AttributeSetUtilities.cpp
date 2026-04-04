@@ -1,5 +1,4 @@
 #include <javax/print/attribute/AttributeSetUtilities.h>
-
 #include <java/lang/ClassCastException.h>
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
@@ -45,57 +44,6 @@ using $PrintServiceAttributeSet = ::javax::print::attribute::PrintServiceAttribu
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$MethodInfo _AttributeSetUtilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AttributeSetUtilities, init$, void)},
-	{"synchronizedView", "(Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $AttributeSet*, $AttributeSet*)},
-	{"synchronizedView", "(Ljavax/print/attribute/DocAttributeSet;)Ljavax/print/attribute/DocAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $DocAttributeSet*, $DocAttributeSet*)},
-	{"synchronizedView", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $PrintRequestAttributeSet*, $PrintRequestAttributeSet*)},
-	{"synchronizedView", "(Ljavax/print/attribute/PrintJobAttributeSet;)Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $PrintJobAttributeSet*, $PrintJobAttributeSet*)},
-	{"synchronizedView", "(Ljavax/print/attribute/PrintServiceAttributeSet;)Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $PrintServiceAttributeSet*, $PrintServiceAttributeSet*)},
-	{"unmodifiableView", "(Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $AttributeSet*, $AttributeSet*)},
-	{"unmodifiableView", "(Ljavax/print/attribute/DocAttributeSet;)Ljavax/print/attribute/DocAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $DocAttributeSet*, $DocAttributeSet*)},
-	{"unmodifiableView", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $PrintRequestAttributeSet*, $PrintRequestAttributeSet*)},
-	{"unmodifiableView", "(Ljavax/print/attribute/PrintJobAttributeSet;)Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $PrintJobAttributeSet*, $PrintJobAttributeSet*)},
-	{"unmodifiableView", "(Ljavax/print/attribute/PrintServiceAttributeSet;)Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $PrintServiceAttributeSet*, $PrintServiceAttributeSet*)},
-	{"verifyAttributeCategory", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, verifyAttributeCategory, $Class*, Object$*, $Class*)},
-	{"verifyAttributeValue", "(Ljava/lang/Object;Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", "(Ljava/lang/Object;Ljava/lang/Class<*>;)Ljavax/print/attribute/Attribute;", $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, verifyAttributeValue, $Attribute*, Object$*, $Class*)},
-	{"verifyCategoryForValue", "(Ljava/lang/Class;Ljavax/print/attribute/Attribute;)V", "(Ljava/lang/Class<*>;Ljavax/print/attribute/Attribute;)V", $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, verifyCategoryForValue, void, $Class*, $Attribute*)},
-	{}
-};
-
-$InnerClassInfo _AttributeSetUtilities_InnerClassesInfo_[] = {
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintServiceAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintServiceAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintJobAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintJobAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintRequestAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintRequestAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedDocAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedDocAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintServiceAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintJobAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintJobAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintRequestAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintRequestAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiableDocAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableDocAttributeSet", $PRIVATE | $STATIC},
-	{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AttributeSetUtilities_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.AttributeSetUtilities",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_AttributeSetUtilities_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AttributeSetUtilities_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintServiceAttributeSet,javax.print.attribute.AttributeSetUtilities$SynchronizedPrintJobAttributeSet,javax.print.attribute.AttributeSetUtilities$SynchronizedPrintRequestAttributeSet,javax.print.attribute.AttributeSetUtilities$SynchronizedDocAttributeSet,javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintJobAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintRequestAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiableDocAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet"
-};
-
-$Object* allocate$AttributeSetUtilities($Class* clazz) {
-	return $of($alloc(AttributeSetUtilities));
-}
 
 void AttributeSetUtilities::init$() {
 }
@@ -199,7 +147,53 @@ AttributeSetUtilities::AttributeSetUtilities() {
 }
 
 $Class* AttributeSetUtilities::load$($String* name, bool initialize) {
-	$loadClass(AttributeSetUtilities, name, initialize, &_AttributeSetUtilities_ClassInfo_, allocate$AttributeSetUtilities);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AttributeSetUtilities, init$, void)},
+		{"synchronizedView", "(Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $AttributeSet*, $AttributeSet*)},
+		{"synchronizedView", "(Ljavax/print/attribute/DocAttributeSet;)Ljavax/print/attribute/DocAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $DocAttributeSet*, $DocAttributeSet*)},
+		{"synchronizedView", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $PrintRequestAttributeSet*, $PrintRequestAttributeSet*)},
+		{"synchronizedView", "(Ljavax/print/attribute/PrintJobAttributeSet;)Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $PrintJobAttributeSet*, $PrintJobAttributeSet*)},
+		{"synchronizedView", "(Ljavax/print/attribute/PrintServiceAttributeSet;)Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, synchronizedView, $PrintServiceAttributeSet*, $PrintServiceAttributeSet*)},
+		{"unmodifiableView", "(Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $AttributeSet*, $AttributeSet*)},
+		{"unmodifiableView", "(Ljavax/print/attribute/DocAttributeSet;)Ljavax/print/attribute/DocAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $DocAttributeSet*, $DocAttributeSet*)},
+		{"unmodifiableView", "(Ljavax/print/attribute/PrintRequestAttributeSet;)Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $PrintRequestAttributeSet*, $PrintRequestAttributeSet*)},
+		{"unmodifiableView", "(Ljavax/print/attribute/PrintJobAttributeSet;)Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $PrintJobAttributeSet*, $PrintJobAttributeSet*)},
+		{"unmodifiableView", "(Ljavax/print/attribute/PrintServiceAttributeSet;)Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, unmodifiableView, $PrintServiceAttributeSet*, $PrintServiceAttributeSet*)},
+		{"verifyAttributeCategory", "(Ljava/lang/Object;Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Object;Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, verifyAttributeCategory, $Class*, Object$*, $Class*)},
+		{"verifyAttributeValue", "(Ljava/lang/Object;Ljava/lang/Class;)Ljavax/print/attribute/Attribute;", "(Ljava/lang/Object;Ljava/lang/Class<*>;)Ljavax/print/attribute/Attribute;", $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, verifyAttributeValue, $Attribute*, Object$*, $Class*)},
+		{"verifyCategoryForValue", "(Ljava/lang/Class;Ljavax/print/attribute/Attribute;)V", "(Ljava/lang/Class<*>;Ljavax/print/attribute/Attribute;)V", $PUBLIC | $STATIC, $staticMethod(AttributeSetUtilities, verifyCategoryForValue, void, $Class*, $Attribute*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintServiceAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintServiceAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintJobAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintJobAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintRequestAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedPrintRequestAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedDocAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedDocAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet", "javax.print.attribute.AttributeSetUtilities", "SynchronizedAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintServiceAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintJobAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintJobAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintRequestAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiablePrintRequestAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiableDocAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableDocAttributeSet", $PRIVATE | $STATIC},
+		{"javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet", "javax.print.attribute.AttributeSetUtilities", "UnmodifiableAttributeSet", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.AttributeSetUtilities",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.AttributeSetUtilities$SynchronizedPrintServiceAttributeSet,javax.print.attribute.AttributeSetUtilities$SynchronizedPrintJobAttributeSet,javax.print.attribute.AttributeSetUtilities$SynchronizedPrintRequestAttributeSet,javax.print.attribute.AttributeSetUtilities$SynchronizedDocAttributeSet,javax.print.attribute.AttributeSetUtilities$SynchronizedAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintServiceAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintJobAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiablePrintRequestAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiableDocAttributeSet,javax.print.attribute.AttributeSetUtilities$UnmodifiableAttributeSet"
+	};
+	$loadClass(AttributeSetUtilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeSetUtilities);
+	});
 	return class$;
 }
 

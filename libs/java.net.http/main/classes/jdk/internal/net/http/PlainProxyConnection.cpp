@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/PlainProxyConnection.h>
-
 #include <java/net/InetSocketAddress.h>
 #include <jdk/internal/net/http/ConnectionPool$CacheKey.h>
 #include <jdk/internal/net/http/HttpClientImpl.h>
@@ -18,27 +17,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$MethodInfo _PlainProxyConnection_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(PlainProxyConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*)},
-	{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0, $virtualMethod(PlainProxyConnection, cacheKey, $ConnectionPool$CacheKey*)},
-	{"isProxied", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainProxyConnection, isProxied, bool)},
-	{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(PlainProxyConnection, proxy, $InetSocketAddress*)},
-	{}
-};
-
-$ClassInfo _PlainProxyConnection_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.PlainProxyConnection",
-	"jdk.internal.net.http.PlainHttpConnection",
-	nullptr,
-	nullptr,
-	_PlainProxyConnection_MethodInfo_
-};
-
-$Object* allocate$PlainProxyConnection($Class* clazz) {
-	return $of($alloc(PlainProxyConnection));
-}
 
 void PlainProxyConnection::init$($InetSocketAddress* proxy, $HttpClientImpl* client) {
 	$PlainHttpConnection::init$(proxy, client);
@@ -60,7 +38,24 @@ PlainProxyConnection::PlainProxyConnection() {
 }
 
 $Class* PlainProxyConnection::load$($String* name, bool initialize) {
-	$loadClass(PlainProxyConnection, name, initialize, &_PlainProxyConnection_ClassInfo_, allocate$PlainProxyConnection);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/InetSocketAddress;Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(PlainProxyConnection, init$, void, $InetSocketAddress*, $HttpClientImpl*)},
+		{"cacheKey", "()Ljdk/internal/net/http/ConnectionPool$CacheKey;", nullptr, 0, $virtualMethod(PlainProxyConnection, cacheKey, $ConnectionPool$CacheKey*)},
+		{"isProxied", "()Z", nullptr, $PUBLIC, $virtualMethod(PlainProxyConnection, isProxied, bool)},
+		{"proxy", "()Ljava/net/InetSocketAddress;", nullptr, 0, $virtualMethod(PlainProxyConnection, proxy, $InetSocketAddress*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.PlainProxyConnection",
+		"jdk.internal.net.http.PlainHttpConnection",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PlainProxyConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PlainProxyConnection);
+	});
 	return class$;
 }
 

@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaListUI.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Variant.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
@@ -13,7 +11,6 @@
 #include <com/apple/laf/AquaListUI$MouseInputHandler.h>
 #include <com/apple/laf/AquaPainter.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/FocusListener.h>
@@ -37,10 +34,8 @@
 #undef GRADIENT_SIDE_BAR_FOCUSED_SELECTION
 #undef GRADIENT_SIDE_BAR_SELECTION
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Variant = ::apple::laf::JRSUIConstants$Variant;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaBorder = ::com::apple::laf::AquaBorder;
 using $AquaComboBoxRenderer = ::com::apple::laf::AquaComboBoxRenderer;
 using $AquaListUI$AquaHomeEndAction = ::com::apple::laf::AquaListUI$AquaHomeEndAction;
@@ -49,17 +44,12 @@ using $AquaListUI$ComponentPainter = ::com::apple::laf::AquaListUI$ComponentPain
 using $AquaListUI$FocusHandler = ::com::apple::laf::AquaListUI$FocusHandler;
 using $AquaListUI$MouseInputHandler = ::com::apple::laf::AquaListUI$MouseInputHandler;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
-using $ActionMap = ::javax::swing::ActionMap;
-using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
@@ -71,51 +61,6 @@ using $BasicListUI = ::javax::swing::plaf::basic::BasicListUI;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaListUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaListUI, init$, void)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaListUI, createFocusListener, $FocusListener*)},
-	{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(AquaListUI, createMouseInputListener, $MouseInputListener*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaListUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponent", "()Ljavax/swing/JList;", "()Ljavax/swing/JList<Ljava/lang/Object;>;", 0, $virtualMethod(AquaListUI, getComponent, $JList*)},
-	{"getListEvenBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getListEvenBackgroundPainter, $Border*)},
-	{"getListOddBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getListOddBackgroundPainter, $Border*)},
-	{"getSourceListBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getSourceListBackgroundPainter, $Border*)},
-	{"getSourceListFocusedSelectionBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getSourceListFocusedSelectionBackgroundPainter, $Border*)},
-	{"getSourceListSelectionBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getSourceListSelectionBackgroundPainter, $Border*)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaListUI, installKeyboardActions, void)},
-	{"repaintCell", "(Ljava/lang/Object;IZ)V", nullptr, $PROTECTED, $virtualMethod(AquaListUI, repaintCell, void, Object$*, int32_t, bool)},
-	{}
-};
-
-$InnerClassInfo _AquaListUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaListUI$ComponentPainter", "com.apple.laf.AquaListUI", "ComponentPainter", $STATIC},
-	{"com.apple.laf.AquaListUI$MouseInputHandler", "com.apple.laf.AquaListUI", "MouseInputHandler", 0},
-	{"com.apple.laf.AquaListUI$AquaPropertyChangeHandler", "com.apple.laf.AquaListUI", "AquaPropertyChangeHandler", 0},
-	{"com.apple.laf.AquaListUI$FocusHandler", "com.apple.laf.AquaListUI", "FocusHandler", 0},
-	{"com.apple.laf.AquaListUI$AquaHomeEndAction", "com.apple.laf.AquaListUI", "AquaHomeEndAction", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaListUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaListUI",
-	"javax.swing.plaf.basic.BasicListUI",
-	nullptr,
-	nullptr,
-	_AquaListUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaListUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaListUI$ComponentPainter,com.apple.laf.AquaListUI$MouseInputHandler,com.apple.laf.AquaListUI$AquaPropertyChangeHandler,com.apple.laf.AquaListUI$FocusHandler,com.apple.laf.AquaListUI$AquaHomeEndAction"
-};
-
-$Object* allocate$AquaListUI($Class* clazz) {
-	return $of($alloc(AquaListUI));
-}
 
 void AquaListUI::init$() {
 	$BasicListUI::init$();
@@ -135,10 +80,10 @@ $MouseInputListener* AquaListUI::createMouseInputListener() {
 }
 
 void AquaListUI::installKeyboardActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicListUI::installKeyboardActions();
-	$nc($($nc(this->list)->getActionMap()))->put("aquaHome"_s, $$new($AquaListUI$AquaHomeEndAction, true));
-	$nc($($nc(this->list)->getActionMap()))->put("aquaEnd"_s, $$new($AquaListUI$AquaHomeEndAction, false));
+	$$nc($nc(this->list)->getActionMap())->put("aquaHome"_s, $$new($AquaListUI$AquaHomeEndAction, true));
+	$$nc($nc(this->list)->getActionMap())->put("aquaEnd"_s, $$new($AquaListUI$AquaHomeEndAction, false));
 }
 
 $PropertyChangeListener* AquaListUI::createPropertyChangeListener() {
@@ -150,7 +95,7 @@ $JList* AquaListUI::getComponent() {
 }
 
 void AquaListUI::repaintCell(Object$* value, int32_t selectedIndex, bool selected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, rowBounds, getCellBounds(this->list, selectedIndex, selectedIndex));
 	if (rowBounds == nullptr) {
 		return;
@@ -167,7 +112,7 @@ void AquaListUI::repaintCell(Object$* value, int32_t selectedIndex, bool selecte
 	if (aquaRenderer != nullptr) {
 		aquaRenderer->setDrawCheckedItem(false);
 	}
-	$nc(this->rendererPane)->paintComponent($($nc($($nc(this->list)->getGraphics()))->create()), rendererComponent, this->list, $nc(rowBounds)->x, rowBounds->y, rowBounds->width, rowBounds->height, true);
+	$nc(this->rendererPane)->paintComponent($($$nc($nc(this->list)->getGraphics())->create()), rendererComponent, this->list, $nc(rowBounds)->x, $nc(rowBounds)->y, $nc(rowBounds)->width, $nc(rowBounds)->height, true);
 	if (aquaRenderer != nullptr) {
 		aquaRenderer->setDrawCheckedItem(true);
 	}
@@ -179,7 +124,7 @@ $Border* AquaListUI::getSourceListBackgroundPainter() {
 	$init($JRSUIConstants$Widget);
 	$nc($nc(border->painter)->state)->set($JRSUIConstants$Widget::GRADIENT);
 	$init($JRSUIConstants$Variant);
-	$nc($nc(border->painter)->state)->set($JRSUIConstants$Variant::GRADIENT_SIDE_BAR);
+	$nc(border->painter->state)->set($JRSUIConstants$Variant::GRADIENT_SIDE_BAR);
 	return border;
 }
 
@@ -189,7 +134,7 @@ $Border* AquaListUI::getSourceListSelectionBackgroundPainter() {
 	$init($JRSUIConstants$Widget);
 	$nc($nc(border->painter)->state)->set($JRSUIConstants$Widget::GRADIENT);
 	$init($JRSUIConstants$Variant);
-	$nc($nc(border->painter)->state)->set($JRSUIConstants$Variant::GRADIENT_SIDE_BAR_SELECTION);
+	$nc(border->painter->state)->set($JRSUIConstants$Variant::GRADIENT_SIDE_BAR_SELECTION);
 	return border;
 }
 
@@ -199,7 +144,7 @@ $Border* AquaListUI::getSourceListFocusedSelectionBackgroundPainter() {
 	$init($JRSUIConstants$Widget);
 	$nc($nc(border->painter)->state)->set($JRSUIConstants$Widget::GRADIENT);
 	$init($JRSUIConstants$Variant);
-	$nc($nc(border->painter)->state)->set($JRSUIConstants$Variant::GRADIENT_SIDE_BAR_FOCUSED_SELECTION);
+	$nc(border->painter->state)->set($JRSUIConstants$Variant::GRADIENT_SIDE_BAR_FOCUSED_SELECTION);
 	return border;
 }
 
@@ -209,7 +154,7 @@ $Border* AquaListUI::getListEvenBackgroundPainter() {
 	$init($JRSUIConstants$Widget);
 	$nc($nc(border->painter)->state)->set($JRSUIConstants$Widget::GRADIENT);
 	$init($JRSUIConstants$Variant);
-	$nc($nc(border->painter)->state)->set($JRSUIConstants$Variant::GRADIENT_LIST_BACKGROUND_EVEN);
+	$nc(border->painter->state)->set($JRSUIConstants$Variant::GRADIENT_LIST_BACKGROUND_EVEN);
 	return border;
 }
 
@@ -219,7 +164,7 @@ $Border* AquaListUI::getListOddBackgroundPainter() {
 	$init($JRSUIConstants$Widget);
 	$nc($nc(border->painter)->state)->set($JRSUIConstants$Widget::GRADIENT);
 	$init($JRSUIConstants$Variant);
-	$nc($nc(border->painter)->state)->set($JRSUIConstants$Variant::GRADIENT_LIST_BACKGROUND_ODD);
+	$nc(border->painter->state)->set($JRSUIConstants$Variant::GRADIENT_LIST_BACKGROUND_ODD);
 	return border;
 }
 
@@ -227,7 +172,47 @@ AquaListUI::AquaListUI() {
 }
 
 $Class* AquaListUI::load$($String* name, bool initialize) {
-	$loadClass(AquaListUI, name, initialize, &_AquaListUI_ClassInfo_, allocate$AquaListUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaListUI, init$, void)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaListUI, createFocusListener, $FocusListener*)},
+		{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(AquaListUI, createMouseInputListener, $MouseInputListener*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaListUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponent", "()Ljavax/swing/JList;", "()Ljavax/swing/JList<Ljava/lang/Object;>;", 0, $virtualMethod(AquaListUI, getComponent, $JList*)},
+		{"getListEvenBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getListEvenBackgroundPainter, $Border*)},
+		{"getListOddBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getListOddBackgroundPainter, $Border*)},
+		{"getSourceListBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getSourceListBackgroundPainter, $Border*)},
+		{"getSourceListFocusedSelectionBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getSourceListFocusedSelectionBackgroundPainter, $Border*)},
+		{"getSourceListSelectionBackgroundPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaListUI, getSourceListSelectionBackgroundPainter, $Border*)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaListUI, installKeyboardActions, void)},
+		{"repaintCell", "(Ljava/lang/Object;IZ)V", nullptr, $PROTECTED, $virtualMethod(AquaListUI, repaintCell, void, Object$*, int32_t, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaListUI$ComponentPainter", "com.apple.laf.AquaListUI", "ComponentPainter", $STATIC},
+		{"com.apple.laf.AquaListUI$MouseInputHandler", "com.apple.laf.AquaListUI", "MouseInputHandler", 0},
+		{"com.apple.laf.AquaListUI$AquaPropertyChangeHandler", "com.apple.laf.AquaListUI", "AquaPropertyChangeHandler", 0},
+		{"com.apple.laf.AquaListUI$FocusHandler", "com.apple.laf.AquaListUI", "FocusHandler", 0},
+		{"com.apple.laf.AquaListUI$AquaHomeEndAction", "com.apple.laf.AquaListUI", "AquaHomeEndAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaListUI",
+		"javax.swing.plaf.basic.BasicListUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaListUI$ComponentPainter,com.apple.laf.AquaListUI$MouseInputHandler,com.apple.laf.AquaListUI$AquaPropertyChangeHandler,com.apple.laf.AquaListUI$FocusHandler,com.apple.laf.AquaListUI$AquaHomeEndAction"
+	};
+	$loadClass(AquaListUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaListUI);
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ class LeftOverInputStream : public ::java::io::FilterInputStream {
 	$class(LeftOverInputStream, 0, ::java::io::FilterInputStream)
 public:
 	LeftOverInputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::ExchangeImpl* t, ::java::io::InputStream* src);
 	virtual void close() override;
 	virtual bool drain(int64_t l);

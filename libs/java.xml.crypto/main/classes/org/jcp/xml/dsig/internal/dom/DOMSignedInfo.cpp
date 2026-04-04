@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignedInfo.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream.h>
@@ -17,7 +16,6 @@
 #include <java/security/spec/MGF1ParameterSpec.h>
 #include <java/security/spec/PSSParameterSpec.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -72,11 +70,9 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $MGF1ParameterSpec = ::java::security::spec::MGF1ParameterSpec;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Data = ::javax::xml::crypto::Data;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
@@ -107,52 +103,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMSignedInfo_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMSignedInfo, LOG)},
-	{"references", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PRIVATE, $field(DOMSignedInfo, references)},
-	{"canonicalizationMethod", "Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PRIVATE, $field(DOMSignedInfo, canonicalizationMethod)},
-	{"signatureMethod", "Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PRIVATE, $field(DOMSignedInfo, signatureMethod)},
-	{"id", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMSignedInfo, id)},
-	{"ownerDoc", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $field(DOMSignedInfo, ownerDoc)},
-	{"localSiElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMSignedInfo, localSiElem)},
-	{"canonData", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(DOMSignedInfo, canonData)},
-	{}
-};
-
-$MethodInfo _DOMSignedInfo_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;)V", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;)V", $PUBLIC, $method(DOMSignedInfo, init$, void, $CanonicalizationMethod*, $SignatureMethod*, $List*)},
-	{"<init>", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;Ljava/lang/String;)V", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;Ljava/lang/String;)V", $PUBLIC, $method(DOMSignedInfo, init$, void, $CanonicalizationMethod*, $SignatureMethod*, $List*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMSignedInfo, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
-	{"canonicalize", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/ByteArrayOutputStream;)V", nullptr, $PUBLIC, $method(DOMSignedInfo, canonicalize, void, $XMLCryptoContext*, $ByteArrayOutputStream*), "javax.xml.crypto.dsig.XMLSignatureException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, equals, bool, Object$*)},
-	{"getCanonicalizationMethod", "()Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, getCanonicalizationMethod, $CanonicalizationMethod*)},
-	{"getCanonicalizedData", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, getCanonicalizedData, $InputStream*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, getId, $String*)},
-	{"getReferences", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC, $virtualMethod(DOMSignedInfo, getReferences, $List*)},
-	{"getSignatureMethod", "()Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, getSignatureMethod, $SignatureMethod*)},
-	{"getSignedInfoReferences", "(Ljavax/xml/crypto/dsig/SignedInfo;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/SignedInfo;)Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC | $STATIC, $staticMethod(DOMSignedInfo, getSignedInfoReferences, $List*, $SignedInfo*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DOMSignedInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMSignedInfo",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.SignedInfo",
-	_DOMSignedInfo_FieldInfo_,
-	_DOMSignedInfo_MethodInfo_
-};
-
-$Object* allocate$DOMSignedInfo($Class* clazz) {
-	return $of($alloc(DOMSignedInfo));
-}
-
 bool DOMSignedInfo::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
 }
@@ -172,25 +122,21 @@ void DOMSignedInfo::finalize() {
 $Logger* DOMSignedInfo::LOG = nullptr;
 
 void DOMSignedInfo::init$($CanonicalizationMethod* cm, $SignatureMethod* sm, $List* references) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	if (cm == nullptr || sm == nullptr || references == nullptr) {
 		$throwNew($NullPointerException);
 	}
 	$set(this, canonicalizationMethod, cm);
 	$set(this, signatureMethod, sm);
-	$set(this, references, $Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(references))));
+	$set(this, references, $Collections::unmodifiableList($$new($ArrayList, references)));
 	if ($nc(this->references)->isEmpty()) {
 		$throwNew($IllegalArgumentException, "list of references must contain at least one entry"_s);
 	}
-	{
-		int32_t i = 0;
-		int32_t size = $nc(this->references)->size();
-		for (; i < size; ++i) {
-			$var($Object, obj, $nc(this->references)->get(i));
-			if (!($instanceOf($Reference, obj))) {
-				$throwNew($ClassCastException, "list of references contains an illegal type"_s);
-			}
+	for (int32_t i = 0, size = this->references->size(); i < size; ++i) {
+		$var($Object, obj, this->references->get(i));
+		if (!($instanceOf($Reference, obj))) {
+			$throwNew($ClassCastException, "list of references contains an illegal type"_s);
 		}
 	}
 }
@@ -201,7 +147,7 @@ void DOMSignedInfo::init$($CanonicalizationMethod* cm, $SignatureMethod* sm, $Li
 }
 
 void DOMSignedInfo::init$($Element* siElem, $XMLCryptoContext* context, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$set(this, localSiElem, siElem);
 	$set(this, ownerDoc, $nc(siElem)->getOwnerDocument());
@@ -217,17 +163,17 @@ void DOMSignedInfo::init$($Element* siElem, $XMLCryptoContext* context, $Provide
 		$throwNew($MarshalException, $$str({"It is forbidden to use algorithm "_s, signatureMethodAlgorithm, " when secure validation is enabled"_s}));
 	}
 	if (secVal && $instanceOf($DOMRSAPSSSignatureMethod$RSAPSS, this->signatureMethod)) {
-		$var($AlgorithmParameterSpec, spec, $nc(this->signatureMethod)->getParameterSpec());
+		$var($AlgorithmParameterSpec, spec, this->signatureMethod->getParameterSpec());
 		if ($instanceOf($RSAPSSParameterSpec, spec)) {
 			try {
-				$var($PSSParameterSpec, pspec, $nc(($cast($RSAPSSParameterSpec, spec)))->getPSSParameterSpec());
-				$var($String, da, $nc($($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromDigestAlgorithm($($nc(pspec)->getDigestAlgorithm()))))->getXmlDigestAlgorithm());
+				$var($PSSParameterSpec, pspec, $cast($RSAPSSParameterSpec, spec)->getPSSParameterSpec());
+				$var($String, da, $$nc($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromDigestAlgorithm($($nc(pspec)->getDigestAlgorithm())))->getXmlDigestAlgorithm());
 				if ($Policy::restrictAlg(da)) {
 					$throwNew($MarshalException, $$str({"It is forbidden to use algorithm "_s, da, " in PSS when secure validation is enabled"_s}));
 				}
-				$var($AlgorithmParameterSpec, mspec, $nc(pspec)->getMGFParameters());
+				$var($AlgorithmParameterSpec, mspec, pspec->getMGFParameters());
 				if ($instanceOf($MGF1ParameterSpec, mspec)) {
-					$var($String, da2, $nc($($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromDigestAlgorithm($($nc(($cast($MGF1ParameterSpec, mspec)))->getDigestAlgorithm()))))->getXmlDigestAlgorithm());
+					$var($String, da2, $$nc($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromDigestAlgorithm($($cast($MGF1ParameterSpec, mspec)->getDigestAlgorithm())))->getXmlDigestAlgorithm());
 					if ($Policy::restrictAlg(da2)) {
 						$throwNew($MarshalException, $$str({"It is forbidden to use algorithm "_s, da2, " in MGF1 when secure validation is enabled"_s}));
 					}
@@ -278,68 +224,66 @@ $InputStream* DOMSignedInfo::getCanonicalizedData() {
 }
 
 void DOMSignedInfo::canonicalize($XMLCryptoContext* context, $ByteArrayOutputStream* bos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (context == nullptr) {
 		$throwNew($NullPointerException, "context cannot be null"_s);
 	}
 	$var($DOMSubTreeData, subTree, $new($DOMSubTreeData, this->localSiElem, true));
 	try {
 		$var($OutputStream, os, $new($UnsyncBufferedOutputStream, bos));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(($cast($DOMCanonicalizationMethod, this->canonicalizationMethod)))->canonicalize(subTree, context, os);
-					os->flush();
-					$var($bytes, signedInfoBytes, $nc(bos)->toByteArray());
-					if ($nc(DOMSignedInfo::LOG)->isDebugEnabled()) {
-						$nc(DOMSignedInfo::LOG)->debug("Canonicalized SignedInfo:"_s);
-						$var($StringBuilder, sb, $new($StringBuilder, $nc(signedInfoBytes)->length));
-						for (int32_t i = 0; i < $nc(signedInfoBytes)->length; ++i) {
-							sb->append((char16_t)signedInfoBytes->get(i));
-						}
-						$nc(DOMSignedInfo::LOG)->debug($(sb->toString()));
-						$nc(DOMSignedInfo::LOG)->debug($$str({"Data to be signed/verified:"_s, $($XMLUtils::encodeToString(signedInfoBytes))}));
+				$nc($cast($DOMCanonicalizationMethod, this->canonicalizationMethod))->canonicalize(subTree, context, os);
+				os->flush();
+				$var($bytes, signedInfoBytes, $nc(bos)->toByteArray());
+				if ($nc(DOMSignedInfo::LOG)->isDebugEnabled()) {
+					DOMSignedInfo::LOG->debug("Canonicalized SignedInfo:"_s);
+					$var($StringBuilder, sb, $new($StringBuilder, $nc(signedInfoBytes)->length));
+					for (int32_t i = 0; i < signedInfoBytes->length; ++i) {
+						sb->append((char16_t)signedInfoBytes->get(i));
 					}
-					$set(this, canonData, $new($ByteArrayInputStream, signedInfoBytes));
-				} catch ($Throwable& t$) {
-					try {
-						os->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					DOMSignedInfo::LOG->debug($(sb->toString()));
+					DOMSignedInfo::LOG->debug($$str({"Data to be signed/verified:"_s, $($XMLUtils::encodeToString(signedInfoBytes))}));
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				os->close();
+				$set(this, canonData, $new($ByteArrayInputStream, signedInfoBytes));
+			} catch ($Throwable& t$) {
+				try {
+					os->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			os->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($TransformException& te) {
-		$throwNew($1XMLSignatureException, static_cast<$Throwable*>(te));
+		$throwNew($1XMLSignatureException, te);
 	} catch ($IOException& e) {
-		$nc(DOMSignedInfo::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+		$nc(DOMSignedInfo::LOG)->debug($(e->getMessage()), e);
 	}
 }
 
 void DOMSignedInfo::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($XMLSignature);
 	$var($Element, siElem, $DOMUtils::createElement(this->ownerDoc, "SignedInfo"_s, $XMLSignature::XMLNS, dsPrefix));
 	$var($DOMCanonicalizationMethod, dcm, $cast($DOMCanonicalizationMethod, this->canonicalizationMethod));
 	$nc(dcm)->marshal(siElem, dsPrefix, context);
-	$nc(($cast($DOMStructure, this->signatureMethod)))->marshal(siElem, dsPrefix, context);
+	$nc($cast($DOMStructure, this->signatureMethod))->marshal(siElem, dsPrefix, context);
 	{
 		$var($Iterator, i$, $nc(this->references)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Reference, reference, $cast($Reference, i$->next()));
 			{
-				$nc(($cast($DOMReference, reference)))->marshal(siElem, dsPrefix, context);
+				$nc($cast($DOMReference, reference))->marshal(siElem, dsPrefix, context);
 			}
 		}
 	}
@@ -349,7 +293,7 @@ void DOMSignedInfo::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext*
 }
 
 bool DOMSignedInfo::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -357,9 +301,9 @@ bool DOMSignedInfo::equals(Object$* o) {
 		return false;
 	}
 	$var($SignedInfo, osi, $cast($SignedInfo, o));
-	bool idEqual = this->id == nullptr ? $nc(osi)->getId() == nullptr : $nc(this->id)->equals($(osi->getId()));
-	bool var$1 = $nc($of(this->canonicalizationMethod))->equals($(osi->getCanonicalizationMethod()));
-	bool var$0 = var$1 && $nc($of(this->signatureMethod))->equals($(osi->getSignatureMethod()));
+	bool idEqual = this->id == nullptr ? $nc(osi)->getId() == nullptr : this->id->equals($($nc(osi)->getId()));
+	bool var$1 = $nc(this->canonicalizationMethod)->equals($($nc(osi)->getCanonicalizationMethod()));
+	bool var$0 = var$1 && $nc(this->signatureMethod)->equals($(osi->getSignatureMethod()));
 	return var$0 && $nc(this->references)->equals($(osi->getReferences())) && idEqual;
 }
 
@@ -371,15 +315,15 @@ $List* DOMSignedInfo::getSignedInfoReferences($SignedInfo* si) {
 int32_t DOMSignedInfo::hashCode() {
 	int32_t result = 17;
 	if (this->id != nullptr) {
-		result = 31 * result + $nc(this->id)->hashCode();
+		result = 31 * result + this->id->hashCode();
 	}
-	result = 31 * result + $nc($of(this->canonicalizationMethod))->hashCode();
-	result = 31 * result + $nc($of(this->signatureMethod))->hashCode();
+	result = 31 * result + $nc(this->canonicalizationMethod)->hashCode();
+	result = 31 * result + $nc(this->signatureMethod)->hashCode();
 	result = 31 * result + $nc(this->references)->hashCode();
 	return result;
 }
 
-void clinit$DOMSignedInfo($Class* class$) {
+void DOMSignedInfo::clinit$($Class* clazz) {
 	$assignStatic(DOMSignedInfo::LOG, $LoggerFactory::getLogger(DOMSignedInfo::class$));
 }
 
@@ -387,7 +331,48 @@ DOMSignedInfo::DOMSignedInfo() {
 }
 
 $Class* DOMSignedInfo::load$($String* name, bool initialize) {
-	$loadClass(DOMSignedInfo, name, initialize, &_DOMSignedInfo_ClassInfo_, clinit$DOMSignedInfo, allocate$DOMSignedInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMSignedInfo, LOG)},
+		{"references", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PRIVATE, $field(DOMSignedInfo, references)},
+		{"canonicalizationMethod", "Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PRIVATE, $field(DOMSignedInfo, canonicalizationMethod)},
+		{"signatureMethod", "Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PRIVATE, $field(DOMSignedInfo, signatureMethod)},
+		{"id", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMSignedInfo, id)},
+		{"ownerDoc", "Lorg/w3c/dom/Document;", nullptr, $PRIVATE, $field(DOMSignedInfo, ownerDoc)},
+		{"localSiElem", "Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(DOMSignedInfo, localSiElem)},
+		{"canonData", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(DOMSignedInfo, canonData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;)V", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;)V", $PUBLIC, $method(DOMSignedInfo, init$, void, $CanonicalizationMethod*, $SignatureMethod*, $List*)},
+		{"<init>", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;Ljava/lang/String;)V", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List<+Ljavax/xml/crypto/dsig/Reference;>;Ljava/lang/String;)V", $PUBLIC, $method(DOMSignedInfo, init$, void, $CanonicalizationMethod*, $SignatureMethod*, $List*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMSignedInfo, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+		{"canonicalize", "(Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/ByteArrayOutputStream;)V", nullptr, $PUBLIC, $method(DOMSignedInfo, canonicalize, void, $XMLCryptoContext*, $ByteArrayOutputStream*), "javax.xml.crypto.dsig.XMLSignatureException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, equals, bool, Object$*)},
+		{"getCanonicalizationMethod", "()Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, getCanonicalizationMethod, $CanonicalizationMethod*)},
+		{"getCanonicalizedData", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, getCanonicalizedData, $InputStream*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, getId, $String*)},
+		{"getReferences", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC, $virtualMethod(DOMSignedInfo, getReferences, $List*)},
+		{"getSignatureMethod", "()Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, getSignatureMethod, $SignatureMethod*)},
+		{"getSignedInfoReferences", "(Ljavax/xml/crypto/dsig/SignedInfo;)Ljava/util/List;", "(Ljavax/xml/crypto/dsig/SignedInfo;)Ljava/util/List<Ljavax/xml/crypto/dsig/Reference;>;", $PUBLIC | $STATIC, $staticMethod(DOMSignedInfo, getSignedInfoReferences, $List*, $SignedInfo*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMSignedInfo, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMSignedInfo",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.SignedInfo",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMSignedInfo, name, initialize, &classInfo$$, DOMSignedInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignedInfo));
+	});
 	return class$;
 }
 

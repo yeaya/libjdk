@@ -1,5 +1,4 @@
 #include <javax/swing/text/rtf/Constants.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,52 +9,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace rtf {
-
-$FieldInfo _Constants_FieldInfo_[] = {
-	{"Tabs", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Tabs)},
-	{"RTFCharacterSet", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, RTFCharacterSet)},
-	{"StyleType", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, StyleType)},
-	{"STSection", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, STSection)},
-	{"STParagraph", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, STParagraph)},
-	{"STCharacter", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, STCharacter)},
-	{"StyleNext", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, StyleNext)},
-	{"StyleAdditive", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, StyleAdditive)},
-	{"StyleHidden", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, StyleHidden)},
-	{"Caps", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Caps)},
-	{"Deleted", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Deleted)},
-	{"Outline", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Outline)},
-	{"SmallCaps", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, SmallCaps)},
-	{"Shadow", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Shadow)},
-	{"Strikethrough", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Strikethrough)},
-	{"Hidden", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Hidden)},
-	{"PaperWidth", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, PaperWidth)},
-	{"PaperHeight", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, PaperHeight)},
-	{"MarginLeft", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, MarginLeft)},
-	{"MarginRight", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, MarginRight)},
-	{"MarginTop", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, MarginTop)},
-	{"MarginBottom", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, MarginBottom)},
-	{"GutterWidth", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, GutterWidth)},
-	{"WidowControl", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, WidowControl)},
-	{}
-};
-
-$MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Constants, init$, void)},
-	{}
-};
-
-$ClassInfo _Constants_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.rtf.Constants",
-	"java.lang.Object",
-	nullptr,
-	_Constants_FieldInfo_,
-	_Constants_MethodInfo_
-};
-
-$Object* allocate$Constants($Class* clazz) {
-	return $of($alloc(Constants));
-}
 
 $String* Constants::Tabs = nullptr;
 $String* Constants::RTFCharacterSet = nullptr;
@@ -88,7 +41,7 @@ void Constants::init$() {
 Constants::Constants() {
 }
 
-void clinit$Constants($Class* class$) {
+void Constants::clinit$($Class* clazz) {
 	$assignStatic(Constants::Tabs, "tabs"_s);
 	$assignStatic(Constants::RTFCharacterSet, "rtfCharacterSet"_s);
 	$assignStatic(Constants::StyleType, "style:type"_s);
@@ -116,7 +69,48 @@ void clinit$Constants($Class* class$) {
 }
 
 $Class* Constants::load$($String* name, bool initialize) {
-	$loadClass(Constants, name, initialize, &_Constants_ClassInfo_, clinit$Constants, allocate$Constants);
+	$FieldInfo fieldInfos$$[] = {
+		{"Tabs", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Tabs)},
+		{"RTFCharacterSet", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, RTFCharacterSet)},
+		{"StyleType", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, StyleType)},
+		{"STSection", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, STSection)},
+		{"STParagraph", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, STParagraph)},
+		{"STCharacter", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, STCharacter)},
+		{"StyleNext", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, StyleNext)},
+		{"StyleAdditive", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, StyleAdditive)},
+		{"StyleHidden", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, StyleHidden)},
+		{"Caps", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Caps)},
+		{"Deleted", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Deleted)},
+		{"Outline", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Outline)},
+		{"SmallCaps", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, SmallCaps)},
+		{"Shadow", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Shadow)},
+		{"Strikethrough", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Strikethrough)},
+		{"Hidden", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, Hidden)},
+		{"PaperWidth", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, PaperWidth)},
+		{"PaperHeight", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, PaperHeight)},
+		{"MarginLeft", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, MarginLeft)},
+		{"MarginRight", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, MarginRight)},
+		{"MarginTop", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, MarginTop)},
+		{"MarginBottom", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, MarginBottom)},
+		{"GutterWidth", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, GutterWidth)},
+		{"WidowControl", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Constants, WidowControl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Constants, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.rtf.Constants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Constants, name, initialize, &classInfo$$, Constants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Constants);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode.h>
-
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode.h>
 #include <com/sun/tools/javac/comp/Infer$DependencyKind.h>
@@ -28,55 +27,12 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _DeferredAttr$DeferredAttrContext$StuckNode_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrContext$StuckNode, this$1)},
-	{"deps", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", 0, $field(DeferredAttr$DeferredAttrContext$StuckNode, deps)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$DeferredAttrContext$StuckNode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrContext$StuckNode, init$, void, $DeferredAttr$DeferredAttrContext*, $DeferredAttr$DeferredAttrNode*)},
-	{"getAllDependencies", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getAllDependencies, $Iterable*)},
-	{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getDependenciesByKind, $Collection*, $GraphUtils$DependencyKind*)},
-	{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getSupportedDependencyKinds, $GraphUtils$DependencyKindArray*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$DeferredAttrContext$StuckNode_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$StuckNode", "com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "StuckNode", 0},
-	{"com.sun.tools.javac.util.GraphUtils$TarjanNode", "com.sun.tools.javac.util.GraphUtils", "TarjanNode", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrNode", 0},
-	{}
-};
-
-$ClassInfo _DeferredAttr$DeferredAttrContext$StuckNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$StuckNode",
-	"com.sun.tools.javac.util.GraphUtils$TarjanNode",
-	nullptr,
-	_DeferredAttr$DeferredAttrContext$StuckNode_FieldInfo_,
-	_DeferredAttr$DeferredAttrContext$StuckNode_MethodInfo_,
-	"Lcom/sun/tools/javac/util/GraphUtils$TarjanNode<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;",
-	nullptr,
-	_DeferredAttr$DeferredAttrContext$StuckNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$DeferredAttrContext$StuckNode($Class* clazz) {
-	return $of($alloc(DeferredAttr$DeferredAttrContext$StuckNode));
-}
 
 void DeferredAttr$DeferredAttrContext$StuckNode::init$($DeferredAttr$DeferredAttrContext* this$1, $DeferredAttr$DeferredAttrNode* data) {
 	$set(this, this$1, this$1);
@@ -86,7 +42,7 @@ void DeferredAttr$DeferredAttrContext$StuckNode::init$($DeferredAttr$DeferredAtt
 
 $GraphUtils$DependencyKindArray* DeferredAttr$DeferredAttrContext$StuckNode::getSupportedDependencyKinds() {
 	$init($Infer$DependencyKind);
-	return $new($GraphUtils$DependencyKindArray, {static_cast<$GraphUtils$DependencyKind*>($Infer$DependencyKind::STUCK)});
+	return $new($GraphUtils$DependencyKindArray, {$Infer$DependencyKind::STUCK});
 }
 
 $Collection* DeferredAttr$DeferredAttrContext$StuckNode::getDependenciesByKind($GraphUtils$DependencyKind* dk) {
@@ -106,7 +62,43 @@ DeferredAttr$DeferredAttrContext$StuckNode::DeferredAttr$DeferredAttrContext$Stu
 }
 
 $Class* DeferredAttr$DeferredAttrContext$StuckNode::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredAttrContext$StuckNode, name, initialize, &_DeferredAttr$DeferredAttrContext$StuckNode_ClassInfo_, allocate$DeferredAttr$DeferredAttrContext$StuckNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrContext$StuckNode, this$1)},
+		{"deps", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", 0, $field(DeferredAttr$DeferredAttrContext$StuckNode, deps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrContext$StuckNode, init$, void, $DeferredAttr$DeferredAttrContext*, $DeferredAttr$DeferredAttrNode*)},
+		{"getAllDependencies", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<+Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getAllDependencies, $Iterable*)},
+		{"getDependenciesByKind", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/Collection<+Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;", $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getDependenciesByKind, $Collection*, $GraphUtils$DependencyKind*)},
+		{"getSupportedDependencyKinds", "()[Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrContext$StuckNode, getSupportedDependencyKinds, $GraphUtils$DependencyKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$StuckNode", "com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "StuckNode", 0},
+		{"com.sun.tools.javac.util.GraphUtils$TarjanNode", "com.sun.tools.javac.util.GraphUtils", "TarjanNode", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrNode", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext$StuckNode",
+		"com.sun.tools.javac.util.GraphUtils$TarjanNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/util/GraphUtils$TarjanNode<Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext$StuckNode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$DeferredAttrContext$StuckNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeferredAttr$DeferredAttrContext$StuckNode));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/EmptyImage.h>
-
 #include <com/sun/imageio/plugins/common/SimpleRenderedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/Raster.h>
@@ -18,25 +17,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$MethodInfo _EmptyImage_MethodInfo_[] = {
-	{"<init>", "(IIIIIIIILjava/awt/image/SampleModel;Ljava/awt/image/ColorModel;)V", nullptr, 0, $method(EmptyImage, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $SampleModel*, $ColorModel*)},
-	{"getTile", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(EmptyImage, getTile, $Raster*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _EmptyImage_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.EmptyImage",
-	"com.sun.imageio.plugins.common.SimpleRenderedImage",
-	nullptr,
-	nullptr,
-	_EmptyImage_MethodInfo_
-};
-
-$Object* allocate$EmptyImage($Class* clazz) {
-	return $of($alloc(EmptyImage));
-}
 
 void EmptyImage::init$(int32_t minX, int32_t minY, int32_t width, int32_t height, int32_t tileGridXOffset, int32_t tileGridYOffset, int32_t tileWidth, int32_t tileHeight, $SampleModel* sampleModel, $ColorModel* colorModel) {
 	$SimpleRenderedImage::init$();
@@ -60,7 +40,22 @@ EmptyImage::EmptyImage() {
 }
 
 $Class* EmptyImage::load$($String* name, bool initialize) {
-	$loadClass(EmptyImage, name, initialize, &_EmptyImage_ClassInfo_, allocate$EmptyImage);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIIIIIILjava/awt/image/SampleModel;Ljava/awt/image/ColorModel;)V", nullptr, 0, $method(EmptyImage, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $SampleModel*, $ColorModel*)},
+		{"getTile", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(EmptyImage, getTile, $Raster*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.EmptyImage",
+		"com.sun.imageio.plugins.common.SimpleRenderedImage",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EmptyImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyImage);
+	});
 	return class$;
 }
 

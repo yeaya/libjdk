@@ -1,9 +1,7 @@
 #include <sun/swing/FilePane$DetailsTableModel.h>
-
 #include <java/awt/Component.h>
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
-#include <java/lang/Runnable.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
@@ -14,7 +12,6 @@
 #include <javax/swing/RowSorter$SortKey.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/ListDataEvent.h>
-#include <javax/swing/event/ListDataListener.h>
 #include <javax/swing/filechooser/FileSystemView.h>
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
 #include <javax/swing/table/AbstractTableModel.h>
@@ -29,14 +26,12 @@
 #undef ERROR_MESSAGE
 
 using $ShellFolderColumnInfoArray = $Array<::sun::awt::shell::ShellFolderColumnInfo>;
-using $Component = ::java::awt::Component;
 using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $MessageFormat = ::java::text::MessageFormat;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
@@ -46,76 +41,16 @@ using $JOptionPane = ::javax::swing::JOptionPane;
 using $RowSorter$SortKey = ::javax::swing::RowSorter$SortKey;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ListDataEvent = ::javax::swing::event::ListDataEvent;
-using $ListDataListener = ::javax::swing::event::ListDataListener;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
-using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $ShellFolderColumnInfo = ::sun::awt::shell::ShellFolderColumnInfo;
 using $FilePane = ::sun::swing::FilePane;
 using $FilePane$DelayedSelectionUpdater = ::sun::swing::FilePane$DelayedSelectionUpdater;
 using $FilePane$DetailsTableModel$1 = ::sun::swing::FilePane$DetailsTableModel$1;
-using $FilePane$DetailsTableRowSorter = ::sun::swing::FilePane$DetailsTableRowSorter;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _FilePane$DetailsTableModel_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$DetailsTableModel, this$0)},
-	{"chooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $FINAL, $field(FilePane$DetailsTableModel, chooser)},
-	{"directoryModel", "Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PRIVATE | $FINAL, $field(FilePane$DetailsTableModel, directoryModel)},
-	{"columns", "[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, 0, $field(FilePane$DetailsTableModel, columns)},
-	{"columnMap", "[I", nullptr, 0, $field(FilePane$DetailsTableModel, columnMap)},
-	{}
-};
-
-$MethodInfo _FilePane$DetailsTableModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/swing/FilePane;Ljavax/swing/JFileChooser;)V", nullptr, 0, $method(FilePane$DetailsTableModel, init$, void, $FilePane*, $JFileChooser*)},
-	{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, contentsChanged, void, $ListDataEvent*)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, getColumnCount, int32_t)},
-	{"getColumns", "()[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, getColumns, $ShellFolderColumnInfoArray*)},
-	{"getFileColumnValue", "(Ljava/io/File;I)Ljava/lang/Object;", nullptr, $PRIVATE, $method(FilePane$DetailsTableModel, getFileColumnValue, $Object*, $File*, int32_t)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, getRowCount, int32_t)},
-	{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, getValueAt, $Object*, int32_t, int32_t)},
-	{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, intervalAdded, void, $ListDataEvent*)},
-	{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, intervalRemoved, void, $ListDataEvent*)},
-	{"isCellEditable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, isCellEditable, bool, int32_t, int32_t)},
-	{"restoreSortKeys", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljavax/swing/RowSorter$SortKey;>;)V", $PRIVATE, $method(FilePane$DetailsTableModel, restoreSortKeys, void, $List*)},
-	{"setValueAt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, setValueAt, void, Object$*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateColumnInfo", "()V", nullptr, 0, $virtualMethod(FilePane$DetailsTableModel, updateColumnInfo, void)},
-	{}
-};
-
-$InnerClassInfo _FilePane$DetailsTableModel_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$DetailsTableModel", "sun.swing.FilePane", "DetailsTableModel", 0},
-	{"sun.swing.FilePane$DetailsTableModel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FilePane$DetailsTableModel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$DetailsTableModel",
-	"javax.swing.table.AbstractTableModel",
-	"javax.swing.event.ListDataListener",
-	_FilePane$DetailsTableModel_FieldInfo_,
-	_FilePane$DetailsTableModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePane$DetailsTableModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$DetailsTableModel($Class* clazz) {
-	return $of($alloc(FilePane$DetailsTableModel));
-}
 
 int32_t FilePane$DetailsTableModel::hashCode() {
 	 return this->$AbstractTableModel::hashCode();
@@ -147,7 +82,7 @@ void FilePane$DetailsTableModel::init$($FilePane* this$0, $JFileChooser* fc) {
 }
 
 void FilePane$DetailsTableModel::updateColumnInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, dir, $nc(this->chooser)->getCurrentDirectory());
 	if (dir != nullptr && $FilePane::usesShellFolder(this->chooser)) {
 		try {
@@ -167,14 +102,14 @@ void FilePane$DetailsTableModel::updateColumnInfo() {
 	}
 	$set(this, columns, $new($ShellFolderColumnInfoArray, visibleColumns->size()));
 	visibleColumns->toArray(this->columns);
-	$set(this, columnMap, $Arrays::copyOf(this->columnMap, $nc(this->columns)->length));
-	$var($List, sortKeys, (this->this$0->rowSorter == nullptr) ? ($List*)nullptr : $nc(this->this$0->rowSorter)->getSortKeys());
+	$set(this, columnMap, $Arrays::copyOf(this->columnMap, this->columns->length));
+	$var($List, sortKeys, (this->this$0->rowSorter == nullptr) ? ($List*)nullptr : this->this$0->rowSorter->getSortKeys());
 	fireTableStructureChanged();
 	restoreSortKeys(sortKeys);
 }
 
 void FilePane$DetailsTableModel::restoreSortKeys($List* sortKeys$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, sortKeys, sortKeys$renamed);
 	if (sortKeys != nullptr) {
 		for (int32_t i = 0; i < $nc(sortKeys)->size(); ++i) {
@@ -199,22 +134,22 @@ int32_t FilePane$DetailsTableModel::getColumnCount() {
 }
 
 $Object* FilePane$DetailsTableModel::getValueAt(int32_t row, int32_t col) {
-	return $of(getFileColumnValue($cast($File, $($nc(this->directoryModel)->getElementAt(row))), col));
+	return getFileColumnValue($$cast($File, $nc(this->directoryModel)->getElementAt(row)), col);
 }
 
 $Object* FilePane$DetailsTableModel::getFileColumnValue($File* f, int32_t col) {
-	return $of((col == 0) ? $of(f) : $ShellFolder::getFolderColumnValue(f, $nc(this->columnMap)->get(col)));
+	return (col == 0) ? $of(f) : $ShellFolder::getFolderColumnValue(f, $nc(this->columnMap)->get(col));
 }
 
 void FilePane$DetailsTableModel::setValueAt(Object$* value, int32_t row, int32_t col) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (col == 0) {
 		$var($JFileChooser, chooser, this->this$0->getFileChooser());
 		$var($File, f, $cast($File, getValueAt(row, col)));
 		if (f != nullptr) {
 			$var($String, oldDisplayName, $nc(chooser)->getName(f));
 			$var($String, oldFileName, f->getName());
-			$var($String, newDisplayName, $nc(($cast($String, value)))->trim());
+			$var($String, newDisplayName, $nc($cast($String, value))->trim());
 			$var($String, newFileName, nullptr);
 			if (!newDisplayName->equals(oldDisplayName)) {
 				$assign(newFileName, newDisplayName);
@@ -226,14 +161,14 @@ void FilePane$DetailsTableModel::setValueAt(Object$* value, int32_t row, int32_t
 				$var($FileSystemView, fsv, chooser->getFileSystemView());
 				$var($File, f2, $nc(fsv)->createFileObject($(f->getParentFile()), newFileName));
 				if ($nc(f2)->exists()) {
-					$JOptionPane::showMessageDialog(chooser, $($MessageFormat::format(this->this$0->renameErrorFileExistsText, $$new($ObjectArray, {$of(oldFileName)}))), this->this$0->renameErrorTitleText, $JOptionPane::ERROR_MESSAGE);
+					$JOptionPane::showMessageDialog(chooser, $($MessageFormat::format(this->this$0->renameErrorFileExistsText, $$new($ObjectArray, {oldFileName}))), this->this$0->renameErrorTitleText, $JOptionPane::ERROR_MESSAGE);
 				} else if ($nc(this->directoryModel)->renameFile(f, f2)) {
 					if (fsv->isParent($(chooser->getCurrentDirectory()), f2)) {
 						$SwingUtilities::invokeLater($$new($FilePane$DetailsTableModel$1, this, chooser, f2));
 					} else {
 					}
 				} else {
-					$JOptionPane::showMessageDialog(chooser, $($MessageFormat::format(this->this$0->renameErrorText, $$new($ObjectArray, {$of(oldFileName)}))), this->this$0->renameErrorTitleText, $JOptionPane::ERROR_MESSAGE);
+					$JOptionPane::showMessageDialog(chooser, $($MessageFormat::format(this->this$0->renameErrorText, $$new($ObjectArray, {oldFileName}))), this->this$0->renameErrorTitleText, $JOptionPane::ERROR_MESSAGE);
 				}
 			}
 		}
@@ -241,8 +176,8 @@ void FilePane$DetailsTableModel::setValueAt(Object$* value, int32_t row, int32_t
 }
 
 bool FilePane$DetailsTableModel::isCellEditable(int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
-	$var($File, currentDirectory, $nc($(this->this$0->getFileChooser()))->getCurrentDirectory());
+	$useLocalObjectStack();
+	$var($File, currentDirectory, $$nc(this->this$0->getFileChooser())->getCurrentDirectory());
 	return (!this->this$0->readOnly && column == 0 && this->this$0->canWrite(currentDirectory));
 }
 
@@ -278,7 +213,58 @@ FilePane$DetailsTableModel::FilePane$DetailsTableModel() {
 }
 
 $Class* FilePane$DetailsTableModel::load$($String* name, bool initialize) {
-	$loadClass(FilePane$DetailsTableModel, name, initialize, &_FilePane$DetailsTableModel_ClassInfo_, allocate$FilePane$DetailsTableModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$DetailsTableModel, this$0)},
+		{"chooser", "Ljavax/swing/JFileChooser;", nullptr, $PRIVATE | $FINAL, $field(FilePane$DetailsTableModel, chooser)},
+		{"directoryModel", "Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PRIVATE | $FINAL, $field(FilePane$DetailsTableModel, directoryModel)},
+		{"columns", "[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, 0, $field(FilePane$DetailsTableModel, columns)},
+		{"columnMap", "[I", nullptr, 0, $field(FilePane$DetailsTableModel, columnMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/swing/FilePane;Ljavax/swing/JFileChooser;)V", nullptr, 0, $method(FilePane$DetailsTableModel, init$, void, $FilePane*, $JFileChooser*)},
+		{"contentsChanged", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, contentsChanged, void, $ListDataEvent*)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, getColumnCount, int32_t)},
+		{"getColumns", "()[Lsun/awt/shell/ShellFolderColumnInfo;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, getColumns, $ShellFolderColumnInfoArray*)},
+		{"getFileColumnValue", "(Ljava/io/File;I)Ljava/lang/Object;", nullptr, $PRIVATE, $method(FilePane$DetailsTableModel, getFileColumnValue, $Object*, $File*, int32_t)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, getRowCount, int32_t)},
+		{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, getValueAt, $Object*, int32_t, int32_t)},
+		{"intervalAdded", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, intervalAdded, void, $ListDataEvent*)},
+		{"intervalRemoved", "(Ljavax/swing/event/ListDataEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, intervalRemoved, void, $ListDataEvent*)},
+		{"isCellEditable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, isCellEditable, bool, int32_t, int32_t)},
+		{"restoreSortKeys", "(Ljava/util/List;)V", "(Ljava/util/List<+Ljavax/swing/RowSorter$SortKey;>;)V", $PRIVATE, $method(FilePane$DetailsTableModel, restoreSortKeys, void, $List*)},
+		{"setValueAt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableModel, setValueAt, void, Object$*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateColumnInfo", "()V", nullptr, 0, $virtualMethod(FilePane$DetailsTableModel, updateColumnInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$DetailsTableModel", "sun.swing.FilePane", "DetailsTableModel", 0},
+		{"sun.swing.FilePane$DetailsTableModel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$DetailsTableModel",
+		"javax.swing.table.AbstractTableModel",
+		"javax.swing.event.ListDataListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$DetailsTableModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilePane$DetailsTableModel));
+	});
 	return class$;
 }
 

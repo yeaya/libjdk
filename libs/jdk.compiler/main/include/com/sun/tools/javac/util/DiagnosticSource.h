@@ -53,6 +53,7 @@ class $import DiagnosticSource : public ::java::lang::Object {
 	$class(DiagnosticSource, 0, ::java::lang::Object)
 public:
 	DiagnosticSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::tools::JavaFileObject* fo, ::com::sun::tools::javac::util::AbstractLog* log);
 	void init$();
 	virtual bool findLine(int32_t pos);

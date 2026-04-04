@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DocumentTypeImpl.h>
-
-#include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDOMImplementationImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl.h>
@@ -27,7 +25,6 @@
 #undef TYPE
 
 using $ObjectStreamFieldArray = $Array<::java::io::ObjectStreamField>;
-using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDOMImplementationImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDOMImplementationImpl;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $NamedNodeMapImpl = ::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl;
@@ -59,96 +56,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _DocumentTypeImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DocumentTypeImpl, serialVersionUID)},
-	{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DocumentTypeImpl, name)},
-	{"entities", "Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;", nullptr, $PROTECTED, $field(DocumentTypeImpl, entities)},
-	{"notations", "Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;", nullptr, $PROTECTED, $field(DocumentTypeImpl, notations)},
-	{"elements", "Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;", nullptr, $PROTECTED, $field(DocumentTypeImpl, elements)},
-	{"publicID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DocumentTypeImpl, publicID)},
-	{"systemID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DocumentTypeImpl, systemID)},
-	{"internalSubset", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DocumentTypeImpl, internalSubset)},
-	{"doctypeNumber", "I", nullptr, $PRIVATE, $field(DocumentTypeImpl, doctypeNumber)},
-	{"userData", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;", $PRIVATE, $field(DocumentTypeImpl, userData)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentTypeImpl, serialPersistentFields)},
-	{}
-};
-
-$MethodInfo _DocumentTypeImpl_MethodInfo_[] = {
-	{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
-	{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
-	{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
-	{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*hasAttributes", "()Z", nullptr, $PUBLIC},
-	{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocumentTypeImpl, init$, void, $CoreDocumentImpl*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocumentTypeImpl, init$, void, $CoreDocumentImpl*, $String*, $String*, $String*)},
-	{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, cloneNode, $Node*, bool)},
-	{"getElements", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getElements, $NamedNodeMap*)},
-	{"getEntities", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getEntities, $NamedNodeMap*)},
-	{"getInternalSubset", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getInternalSubset, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getName, $String*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getNodeName, $String*)},
-	{"getNodeNumber", "()I", nullptr, $PROTECTED, $virtualMethod(DocumentTypeImpl, getNodeNumber, int32_t)},
-	{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getNodeType, int16_t)},
-	{"getNotations", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getNotations, $NamedNodeMap*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getSystemId, $String*)},
-	{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getTextContent, $String*), "org.w3c.dom.DOMException"},
-	{"getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getUserData, $Object*, $String*)},
-	{"getUserDataRecord", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;", $PROTECTED, $virtualMethod(DocumentTypeImpl, getUserDataRecord, $Map*)},
-	{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, isEqualNode, bool, $Node*)},
-	{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*normalize", "()V", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DocumentTypeImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"setInternalSubset", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, setInternalSubset, void, $String*)},
-	{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setOwnerDocument", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;)V", nullptr, $PROTECTED, $virtualMethod(DocumentTypeImpl, setOwnerDocument, void, $CoreDocumentImpl*)},
-	{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setReadOnly", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, setReadOnly, void, bool, bool)},
-	{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
-	{"setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, setUserData, $Object*, $String*, Object$*, $UserDataHandler*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DocumentTypeImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DocumentTypeImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DocumentTypeImpl",
-	"com.sun.org.apache.xerces.internal.dom.ParentNode",
-	"org.w3c.dom.DocumentType",
-	_DocumentTypeImpl_FieldInfo_,
-	_DocumentTypeImpl_MethodInfo_
-};
-
-$Object* allocate$DocumentTypeImpl($Class* clazz) {
-	return $of($alloc(DocumentTypeImpl));
-}
 
 $Document* DocumentTypeImpl::getOwnerDocument() {
 	 return this->$ParentNode::getOwnerDocument();
@@ -345,10 +252,10 @@ $String* DocumentTypeImpl::getNodeName() {
 
 $Node* DocumentTypeImpl::cloneNode(bool deep) {
 	$var(DocumentTypeImpl, newnode, $cast(DocumentTypeImpl, $ParentNode::cloneNode(deep)));
-	$set($nc(newnode), entities, $nc(this->entities)->cloneMap(static_cast<$NodeImpl*>(newnode)));
-	$set(newnode, notations, $nc(this->notations)->cloneMap(static_cast<$NodeImpl*>(newnode)));
-	$set(newnode, elements, $nc(this->elements)->cloneMap(static_cast<$NodeImpl*>(newnode)));
-	return static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(newnode))));
+	$set($nc(newnode), entities, $nc(this->entities)->cloneMap(newnode));
+	$set(newnode, notations, $nc(this->notations)->cloneMap(newnode));
+	$set(newnode, elements, $nc(this->elements)->cloneMap(newnode));
+	return $cast($ParentNode, newnode);
 }
 
 $String* DocumentTypeImpl::getTextContent() {
@@ -359,7 +266,7 @@ void DocumentTypeImpl::setTextContent($String* textContent) {
 }
 
 bool DocumentTypeImpl::isEqualNode($Node* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$ParentNode::isEqualNode(arg)) {
 		return false;
 	}
@@ -368,46 +275,46 @@ bool DocumentTypeImpl::isEqualNode($Node* arg) {
 	}
 	$var(DocumentTypeImpl, argDocType, $cast(DocumentTypeImpl, arg));
 	bool var$5 = getPublicId() == nullptr;
-	bool var$4 = (var$5 && $nc(argDocType)->getPublicId() != nullptr);
+	bool var$4 = var$5 && $nc(argDocType)->getPublicId() != nullptr;
 	if (!var$4) {
 		bool var$6 = getPublicId() != nullptr;
-		var$4 = (var$6 && $nc(argDocType)->getPublicId() == nullptr);
+		var$4 = var$6 && $nc(argDocType)->getPublicId() == nullptr;
 	}
 	bool var$3 = var$4;
 	if (!var$3) {
 		bool var$7 = getSystemId() == nullptr;
-		var$3 = (var$7 && $nc(argDocType)->getSystemId() != nullptr);
+		var$3 = var$7 && $nc(argDocType)->getSystemId() != nullptr;
 	}
 	bool var$2 = var$3;
 	if (!var$2) {
 		bool var$8 = getSystemId() != nullptr;
-		var$2 = (var$8 && $nc(argDocType)->getSystemId() == nullptr);
+		var$2 = var$8 && $nc(argDocType)->getSystemId() == nullptr;
 	}
 	bool var$1 = var$2;
 	if (!var$1) {
 		bool var$9 = getInternalSubset() == nullptr;
-		var$1 = (var$9 && $nc(argDocType)->getInternalSubset() != nullptr);
+		var$1 = var$9 && $nc(argDocType)->getInternalSubset() != nullptr;
 	}
 	bool var$0 = var$1;
 	if (!var$0) {
 		bool var$10 = getInternalSubset() != nullptr;
-		var$0 = (var$10 && $nc(argDocType)->getInternalSubset() == nullptr);
+		var$0 = var$10 && $nc(argDocType)->getInternalSubset() == nullptr;
 	}
 	if (var$0) {
 		return false;
 	}
 	if (getPublicId() != nullptr) {
-		if (!$nc($(getPublicId()))->equals($($nc(argDocType)->getPublicId()))) {
+		if (!$$nc(getPublicId())->equals($($nc(argDocType)->getPublicId()))) {
 			return false;
 		}
 	}
 	if (getSystemId() != nullptr) {
-		if (!$nc($(getSystemId()))->equals($($nc(argDocType)->getSystemId()))) {
+		if (!$$nc(getSystemId())->equals($($nc(argDocType)->getSystemId()))) {
 			return false;
 		}
 	}
 	if (getInternalSubset() != nullptr) {
-		if (!$nc($(getInternalSubset()))->equals($($nc(argDocType)->getInternalSubset()))) {
+		if (!$$nc(getInternalSubset())->equals($($nc(argDocType)->getInternalSubset()))) {
 			return false;
 		}
 	}
@@ -416,14 +323,14 @@ bool DocumentTypeImpl::isEqualNode($Node* arg) {
 		return false;
 	}
 	if (this->entities != nullptr && argEntities != nullptr) {
-		int32_t var$11 = $nc(this->entities)->getLength();
+		int32_t var$11 = this->entities->getLength();
 		if (var$11 != argEntities->getLength()) {
 			return false;
 		}
 		for (int32_t index = 0; $nc(this->entities)->item(index) != nullptr; ++index) {
-			$var($Node, entNode1, $nc(this->entities)->item(index));
+			$var($Node, entNode1, this->entities->item(index));
 			$var($Node, entNode2, argEntities->getNamedItem($($nc(entNode1)->getNodeName())));
-			if (!$nc(($cast($NodeImpl, entNode1)))->isEqualNode(entNode2)) {
+			if (!$cast($NodeImpl, entNode1)->isEqualNode(entNode2)) {
 				return false;
 			}
 		}
@@ -433,14 +340,14 @@ bool DocumentTypeImpl::isEqualNode($Node* arg) {
 		return false;
 	}
 	if (this->notations != nullptr && argNotations != nullptr) {
-		int32_t var$12 = $nc(this->notations)->getLength();
+		int32_t var$12 = this->notations->getLength();
 		if (var$12 != argNotations->getLength()) {
 			return false;
 		}
 		for (int32_t index = 0; $nc(this->notations)->item(index) != nullptr; ++index) {
-			$var($Node, noteNode1, $nc(this->notations)->item(index));
+			$var($Node, noteNode1, this->notations->item(index));
 			$var($Node, noteNode2, argNotations->getNamedItem($($nc(noteNode1)->getNodeName())));
-			if (!$nc(($cast($NodeImpl, noteNode1)))->isEqualNode(noteNode2)) {
+			if (!$cast($NodeImpl, noteNode1)->isEqualNode(noteNode2)) {
 				return false;
 			}
 		}
@@ -505,36 +412,36 @@ $NamedNodeMap* DocumentTypeImpl::getElements() {
 }
 
 $Object* DocumentTypeImpl::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->userData == nullptr) {
 		$set(this, userData, $new($HashMap));
 	}
 	if (data == nullptr) {
 		if (this->userData != nullptr) {
-			$var($ParentNode$UserDataRecord, udr, $cast($ParentNode$UserDataRecord, $nc(this->userData)->remove(key)));
+			$var($ParentNode$UserDataRecord, udr, $cast($ParentNode$UserDataRecord, this->userData->remove(key)));
 			if (udr != nullptr) {
-				return $of(udr->fData);
+				return udr->fData;
 			}
 		}
-		return $of(nullptr);
+		return nullptr;
 	} else {
 		$var($ParentNode$UserDataRecord, udr, $cast($ParentNode$UserDataRecord, $nc(this->userData)->put(key, $$new($ParentNode$UserDataRecord, this, data, handler))));
 		if (udr != nullptr) {
-			return $of(udr->fData);
+			return udr->fData;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* DocumentTypeImpl::getUserData($String* key) {
 	if (this->userData == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($ParentNode$UserDataRecord, udr, $cast($ParentNode$UserDataRecord, $nc(this->userData)->get(key)));
 	if (udr != nullptr) {
-		return $of(udr->fData);
+		return udr->fData;
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Map* DocumentTypeImpl::getUserDataRecord() {
@@ -542,42 +449,41 @@ $Map* DocumentTypeImpl::getUserDataRecord() {
 }
 
 void DocumentTypeImpl::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, ud, (this->userData == nullptr) ? ($Hashtable*)nullptr : $new($Hashtable, this->userData));
 	$var($ObjectOutputStream$PutField, pf, $nc(out)->putFields());
-	$nc(pf)->put("name"_s, $of(this->name));
-	pf->put("entities"_s, $of(this->entities));
-	pf->put("notations"_s, $of(this->notations));
-	pf->put("elements"_s, $of(this->elements));
-	pf->put("publicID"_s, $of(this->publicID));
-	pf->put("systemID"_s, $of(this->systemID));
-	pf->put("internalSubset"_s, $of(this->internalSubset));
+	$nc(pf)->put("name"_s, this->name);
+	pf->put("entities"_s, this->entities);
+	pf->put("notations"_s, this->notations);
+	pf->put("elements"_s, this->elements);
+	pf->put("publicID"_s, this->publicID);
+	pf->put("systemID"_s, this->systemID);
+	pf->put("internalSubset"_s, this->internalSubset);
 	pf->put("doctypeNumber"_s, this->doctypeNumber);
-	pf->put("userData"_s, $of(ud));
+	pf->put("userData"_s, ud);
 	out->writeFields();
 }
 
 void DocumentTypeImpl::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, gf, $nc(in)->readFields());
-	$set(this, name, $cast($String, $nc(gf)->get("name"_s, ($Object*)nullptr)));
-	$set(this, entities, $cast($NamedNodeMapImpl, gf->get("entities"_s, ($Object*)nullptr)));
-	$set(this, notations, $cast($NamedNodeMapImpl, gf->get("notations"_s, ($Object*)nullptr)));
-	$set(this, elements, $cast($NamedNodeMapImpl, gf->get("elements"_s, ($Object*)nullptr)));
-	$set(this, publicID, $cast($String, gf->get("publicID"_s, ($Object*)nullptr)));
-	$set(this, systemID, $cast($String, gf->get("systemID"_s, ($Object*)nullptr)));
-	$set(this, internalSubset, $cast($String, gf->get("internalSubset"_s, ($Object*)nullptr)));
+	$set(this, name, $cast($String, $nc(gf)->get("name"_s, nullptr)));
+	$set(this, entities, $cast($NamedNodeMapImpl, gf->get("entities"_s, nullptr)));
+	$set(this, notations, $cast($NamedNodeMapImpl, gf->get("notations"_s, nullptr)));
+	$set(this, elements, $cast($NamedNodeMapImpl, gf->get("elements"_s, nullptr)));
+	$set(this, publicID, $cast($String, gf->get("publicID"_s, nullptr)));
+	$set(this, systemID, $cast($String, gf->get("systemID"_s, nullptr)));
+	$set(this, internalSubset, $cast($String, gf->get("internalSubset"_s, nullptr)));
 	this->doctypeNumber = gf->get("doctypeNumber"_s, 0);
-	$var($Hashtable, ud, $cast($Hashtable, gf->get("userData"_s, ($Object*)nullptr)));
+	$var($Hashtable, ud, $cast($Hashtable, gf->get("userData"_s, nullptr)));
 	if (ud != nullptr) {
-		$set(this, userData, $new($HashMap, static_cast<$Map*>(ud)));
+		$set(this, userData, $new($HashMap, ud));
 	}
 }
 
-void clinit$DocumentTypeImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DocumentTypeImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($NamedNodeMapImpl);
-	$init($Integer);
 	$load($Hashtable);
 	$assignStatic(DocumentTypeImpl::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "name"_s, $String::class$),
@@ -596,7 +502,92 @@ DocumentTypeImpl::DocumentTypeImpl() {
 }
 
 $Class* DocumentTypeImpl::load$($String* name, bool initialize) {
-	$loadClass(DocumentTypeImpl, name, initialize, &_DocumentTypeImpl_ClassInfo_, clinit$DocumentTypeImpl, allocate$DocumentTypeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DocumentTypeImpl, serialVersionUID)},
+		{"name", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DocumentTypeImpl, name)},
+		{"entities", "Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;", nullptr, $PROTECTED, $field(DocumentTypeImpl, entities)},
+		{"notations", "Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;", nullptr, $PROTECTED, $field(DocumentTypeImpl, notations)},
+		{"elements", "Lcom/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl;", nullptr, $PROTECTED, $field(DocumentTypeImpl, elements)},
+		{"publicID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DocumentTypeImpl, publicID)},
+		{"systemID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DocumentTypeImpl, systemID)},
+		{"internalSubset", "Ljava/lang/String;", nullptr, $PROTECTED, $field(DocumentTypeImpl, internalSubset)},
+		{"doctypeNumber", "I", nullptr, $PRIVATE, $field(DocumentTypeImpl, doctypeNumber)},
+		{"userData", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;", $PRIVATE, $field(DocumentTypeImpl, userData)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DocumentTypeImpl, serialPersistentFields)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
+		{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
+		{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
+		{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*hasAttributes", "()Z", nullptr, $PUBLIC},
+		{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocumentTypeImpl, init$, void, $CoreDocumentImpl*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocumentTypeImpl, init$, void, $CoreDocumentImpl*, $String*, $String*, $String*)},
+		{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, cloneNode, $Node*, bool)},
+		{"getElements", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getElements, $NamedNodeMap*)},
+		{"getEntities", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getEntities, $NamedNodeMap*)},
+		{"getInternalSubset", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getInternalSubset, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getName, $String*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getNodeName, $String*)},
+		{"getNodeNumber", "()I", nullptr, $PROTECTED, $virtualMethod(DocumentTypeImpl, getNodeNumber, int32_t)},
+		{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getNodeType, int16_t)},
+		{"getNotations", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getNotations, $NamedNodeMap*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getSystemId, $String*)},
+		{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getTextContent, $String*), "org.w3c.dom.DOMException"},
+		{"getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, getUserData, $Object*, $String*)},
+		{"getUserDataRecord", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/dom/ParentNode$UserDataRecord;>;", $PROTECTED, $virtualMethod(DocumentTypeImpl, getUserDataRecord, $Map*)},
+		{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, isEqualNode, bool, $Node*)},
+		{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*normalize", "()V", nullptr, $PUBLIC},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DocumentTypeImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"setInternalSubset", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, setInternalSubset, void, $String*)},
+		{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setOwnerDocument", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;)V", nullptr, $PROTECTED, $virtualMethod(DocumentTypeImpl, setOwnerDocument, void, $CoreDocumentImpl*)},
+		{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setReadOnly", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, setReadOnly, void, bool, bool)},
+		{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
+		{"setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DocumentTypeImpl, setUserData, $Object*, $String*, Object$*, $UserDataHandler*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DocumentTypeImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DocumentTypeImpl",
+		"com.sun.org.apache.xerces.internal.dom.ParentNode",
+		"org.w3c.dom.DocumentType",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DocumentTypeImpl, name, initialize, &classInfo$$, DocumentTypeImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocumentTypeImpl));
+	});
 	return class$;
 }
 

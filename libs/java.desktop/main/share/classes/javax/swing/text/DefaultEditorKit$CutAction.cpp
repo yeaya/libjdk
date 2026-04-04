@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$CutAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -17,37 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$CutAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultEditorKit$CutAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$CutAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$CutAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$CutAction", "javax.swing.text.DefaultEditorKit", "CutAction", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$CutAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$CutAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$CutAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$CutAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$CutAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$CutAction));
-}
-
 void DefaultEditorKit$CutAction::init$() {
 	$TextAction::init$("cut-to-clipboard"_s);
 }
@@ -63,7 +31,33 @@ DefaultEditorKit$CutAction::DefaultEditorKit$CutAction() {
 }
 
 $Class* DefaultEditorKit$CutAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$CutAction, name, initialize, &_DefaultEditorKit$CutAction_ClassInfo_, allocate$DefaultEditorKit$CutAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultEditorKit$CutAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$CutAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$CutAction", "javax.swing.text.DefaultEditorKit", "CutAction", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$CutAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$CutAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$CutAction));
+	});
 	return class$;
 }
 

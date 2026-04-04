@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$JTableExtension.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -16,50 +15,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTable = ::javax::swing::JTable;
-using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$JTableExtension_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$JTableExtension, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$JTableExtension_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$JTableExtension, init$, void, $AquaFileChooserUI*)},
-	{"ensureIndexIsVisible", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$JTableExtension, ensureIndexIsVisible, void, int32_t)},
-	{"locationToIndex", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$JTableExtension, locationToIndex, int32_t, $Point*)},
-	{"removeSelectedIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$JTableExtension, removeSelectedIndex, void, int32_t)},
-	{"setSelectedIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$JTableExtension, setSelectedIndex, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$JTableExtension_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$JTableExtension", "com.apple.laf.AquaFileChooserUI", "JTableExtension", 0},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$JTableExtension_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$JTableExtension",
-	"javax.swing.JTable",
-	nullptr,
-	_AquaFileChooserUI$JTableExtension_FieldInfo_,
-	_AquaFileChooserUI$JTableExtension_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$JTableExtension_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$JTableExtension($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$JTableExtension));
-}
 
 void AquaFileChooserUI$JTableExtension::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -67,11 +26,11 @@ void AquaFileChooserUI$JTableExtension::init$($AquaFileChooserUI* this$0) {
 }
 
 void AquaFileChooserUI$JTableExtension::setSelectedIndex(int32_t index) {
-	$nc($(getSelectionModel()))->setSelectionInterval(index, index);
+	$$nc(getSelectionModel())->setSelectionInterval(index, index);
 }
 
 void AquaFileChooserUI$JTableExtension::removeSelectedIndex(int32_t index) {
-	$nc($(getSelectionModel()))->removeSelectionInterval(index, index);
+	$$nc(getSelectionModel())->removeSelectionInterval(index, index);
 }
 
 void AquaFileChooserUI$JTableExtension::ensureIndexIsVisible(int32_t index) {
@@ -89,7 +48,40 @@ AquaFileChooserUI$JTableExtension::AquaFileChooserUI$JTableExtension() {
 }
 
 $Class* AquaFileChooserUI$JTableExtension::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$JTableExtension, name, initialize, &_AquaFileChooserUI$JTableExtension_ClassInfo_, allocate$AquaFileChooserUI$JTableExtension);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$JTableExtension, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$JTableExtension, init$, void, $AquaFileChooserUI*)},
+		{"ensureIndexIsVisible", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$JTableExtension, ensureIndexIsVisible, void, int32_t)},
+		{"locationToIndex", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$JTableExtension, locationToIndex, int32_t, $Point*)},
+		{"removeSelectedIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$JTableExtension, removeSelectedIndex, void, int32_t)},
+		{"setSelectedIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$JTableExtension, setSelectedIndex, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$JTableExtension", "com.apple.laf.AquaFileChooserUI", "JTableExtension", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$JTableExtension",
+		"javax.swing.JTable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$JTableExtension, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$JTableExtension));
+	});
 	return class$;
 }
 

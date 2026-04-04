@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2$1.h>
-
 #include <sun/awt/shell/ShellFolder.h>
 #include <sun/awt/shell/Win32ShellFolder2$FolderDisposer.h>
 #include <sun/awt/shell/Win32ShellFolder2.h>
@@ -10,55 +9,11 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $Win32ShellFolder2 = ::sun::awt::shell::Win32ShellFolder2;
 
 namespace sun {
 	namespace awt {
 		namespace shell {
-
-$FieldInfo _Win32ShellFolder2$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$1, this$0)},
-	{"val$csidl", "I", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$1, val$csidl)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;I)V", "()V", 0, $method(Win32ShellFolder2$1, init$, void, $Win32ShellFolder2*, int32_t)},
-	{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$1, call, $Object*), "java.lang.InterruptedException"},
-	{}
-};
-
-$EnclosingMethodInfo _Win32ShellFolder2$1_EnclosingMethodInfo_ = {
-	"sun.awt.shell.Win32ShellFolder2",
-	"<init>",
-	"(I)V"
-};
-
-$InnerClassInfo _Win32ShellFolder2$1_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2$1",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_Win32ShellFolder2$1_FieldInfo_,
-	_Win32ShellFolder2$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Void;>;",
-	&_Win32ShellFolder2$1_EnclosingMethodInfo_,
-	_Win32ShellFolder2$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$1($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$1));
-}
 
 void Win32ShellFolder2$1::init$($Win32ShellFolder2* this$0, int32_t val$csidl) {
 	$set(this, this$0, this$0);
@@ -69,7 +24,7 @@ $Object* Win32ShellFolder2$1::call() {
 	if (this->val$csidl == 0) {
 		this->this$0->initDesktop();
 	} else {
-		this->this$0->initSpecial($nc($(this->this$0->getDesktop()))->getIShellFolder(), this->val$csidl);
+		this->this$0->initSpecial($$nc(this->this$0->getDesktop())->getIShellFolder(), this->val$csidl);
 		int64_t pIDL = $nc(this->this$0->disposer)->relativePIDL;
 		$set(this->this$0, parent, this->this$0->getDesktop());
 		while (pIDL != 0) {
@@ -86,14 +41,50 @@ $Object* Win32ShellFolder2$1::call() {
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 Win32ShellFolder2$1::Win32ShellFolder2$1() {
 }
 
 $Class* Win32ShellFolder2$1::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$1, name, initialize, &_Win32ShellFolder2$1_ClassInfo_, allocate$Win32ShellFolder2$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$1, this$0)},
+		{"val$csidl", "I", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$1, val$csidl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;I)V", "()V", 0, $method(Win32ShellFolder2$1, init$, void, $Win32ShellFolder2*, int32_t)},
+		{"call", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$1, call, $Object*), "java.lang.InterruptedException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.shell.Win32ShellFolder2",
+		"<init>",
+		"(I)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2$1",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFImageMetadataFormatResources.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,175 +13,156 @@ namespace com {
 			namespace plugins {
 				namespace gif {
 
-$MethodInfo _GIFImageMetadataFormatResources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GIFImageMetadataFormatResources, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(GIFImageMetadataFormatResources, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _GIFImageMetadataFormatResources_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFImageMetadataFormatResources",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_GIFImageMetadataFormatResources_MethodInfo_
-};
-
-$Object* allocate$GIFImageMetadataFormatResources($Class* clazz) {
-	return $of($alloc(GIFImageMetadataFormatResources));
-}
-
 void GIFImageMetadataFormatResources::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* GIFImageMetadataFormatResources::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ImageDescriptor"_s),
-			$of("The image descriptor"_s)
+			"ImageDescriptor"_s,
+			"The image descriptor"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LocalColorTable"_s),
-			$of("The local color table"_s)
+			"LocalColorTable"_s,
+			"The local color table"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorTableEntry"_s),
-			$of("A local color table entry"_s)
+			"ColorTableEntry"_s,
+			"A local color table entry"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GraphicControlExtension"_s),
-			$of("A graphic control extension"_s)
+			"GraphicControlExtension"_s,
+			"A graphic control extension"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension"_s),
-			$of("A plain text (text grid) extension"_s)
+			"PlainTextExtension"_s,
+			"A plain text (text grid) extension"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ApplicationExtensions"_s),
-			$of("A set of application extensions"_s)
+			"ApplicationExtensions"_s,
+			"A set of application extensions"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ApplicationExtension"_s),
-			$of("An application extension"_s)
+			"ApplicationExtension"_s,
+			"An application extension"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CommentExtensions"_s),
-			$of("A set of comments"_s)
+			"CommentExtensions"_s,
+			"A set of comments"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CommentExtension"_s),
-			$of("A comment"_s)
+			"CommentExtension"_s,
+			"A comment"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ImageDescriptor/imageLeftPosition"_s),
-			$of("The X offset of the image relative to the screen origin"_s)
+			"ImageDescriptor/imageLeftPosition"_s,
+			"The X offset of the image relative to the screen origin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ImageDescriptor/imageTopPosition"_s),
-			$of("The Y offset of the image relative to the screen origin"_s)
+			"ImageDescriptor/imageTopPosition"_s,
+			"The Y offset of the image relative to the screen origin"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ImageDescriptor/imageWidth"_s),
-			$of("The width of the image"_s)
+			"ImageDescriptor/imageWidth"_s,
+			"The width of the image"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ImageDescriptor/imageHeight"_s),
-			$of("The height of the image"_s)
+			"ImageDescriptor/imageHeight"_s,
+			"The height of the image"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ImageDescriptor/interlaceFlag"_s),
-			$of("True if the image is stored using interlacing"_s)
+			"ImageDescriptor/interlaceFlag"_s,
+			"True if the image is stored using interlacing"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LocalColorTable/sizeOfLocalColorTable"_s),
-			$of("The number of entries in the local color table"_s)
+			"LocalColorTable/sizeOfLocalColorTable"_s,
+			"The number of entries in the local color table"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LocalColorTable/sortFlag"_s),
-			$of("True if the local color table is sorted by frequency"_s)
+			"LocalColorTable/sortFlag"_s,
+			"True if the local color table is sorted by frequency"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorTableEntry/index"_s),
-			$of("The index of the color table entry"_s)
+			"ColorTableEntry/index"_s,
+			"The index of the color table entry"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorTableEntry/red"_s),
-			$of("The red value for the color table entry"_s)
+			"ColorTableEntry/red"_s,
+			"The red value for the color table entry"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorTableEntry/green"_s),
-			$of("The green value for the color table entry"_s)
+			"ColorTableEntry/green"_s,
+			"The green value for the color table entry"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ColorTableEntry/blue"_s),
-			$of("The blue value for the color table entry"_s)
+			"ColorTableEntry/blue"_s,
+			"The blue value for the color table entry"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GraphicControlExtension/disposalMethod"_s),
-			$of("The disposal method for this frame"_s)
+			"GraphicControlExtension/disposalMethod"_s,
+			"The disposal method for this frame"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GraphicControlExtension/userInputFlag"_s),
-			$of("True if the frame should be advanced based on user input"_s)
+			"GraphicControlExtension/userInputFlag"_s,
+			"True if the frame should be advanced based on user input"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GraphicControlExtension/transparentColorFlag"_s),
-			$of("True if a transparent color exists"_s)
+			"GraphicControlExtension/transparentColorFlag"_s,
+			"True if a transparent color exists"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GraphicControlExtension/delayTime"_s),
-			$of("The time to delay between frames, in hundredths of a second"_s)
+			"GraphicControlExtension/delayTime"_s,
+			"The time to delay between frames, in hundredths of a second"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GraphicControlExtension/transparentColorIndex"_s),
-			$of("The transparent color, if transparentColorFlag is true"_s)
+			"GraphicControlExtension/transparentColorIndex"_s,
+			"The transparent color, if transparentColorFlag is true"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension/textGridLeft"_s),
-			$of("The X offset of the text grid"_s)
+			"PlainTextExtension/textGridLeft"_s,
+			"The X offset of the text grid"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension/textGridTop"_s),
-			$of("The Y offset of the text grid"_s)
+			"PlainTextExtension/textGridTop"_s,
+			"The Y offset of the text grid"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension/textGridWidth"_s),
-			$of("The number of columns in the text grid"_s)
+			"PlainTextExtension/textGridWidth"_s,
+			"The number of columns in the text grid"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension/textGridHeight"_s),
-			$of("The number of rows in the text grid"_s)
+			"PlainTextExtension/textGridHeight"_s,
+			"The number of rows in the text grid"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension/characterCellWidth"_s),
-			$of("The width of a character cell"_s)
+			"PlainTextExtension/characterCellWidth"_s,
+			"The width of a character cell"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension/characterCellHeight"_s),
-			$of("The height of a character cell"_s)
+			"PlainTextExtension/characterCellHeight"_s,
+			"The height of a character cell"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension/textForegroundColor"_s),
-			$of("The text foreground color index"_s)
+			"PlainTextExtension/textForegroundColor"_s,
+			"The text foreground color index"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PlainTextExtension/textBackgroundColor"_s),
-			$of("The text background color index"_s)
+			"PlainTextExtension/textBackgroundColor"_s,
+			"The text background color index"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ApplicationExtension/applicationID"_s),
-			$of("The application ID"_s)
+			"ApplicationExtension/applicationID"_s,
+			"The application ID"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ApplicationExtension/authenticationCode"_s),
-			$of("The authentication code"_s)
+			"ApplicationExtension/authenticationCode"_s,
+			"The authentication code"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CommentExtension/value"_s),
-			$of("The comment"_s)
+			"CommentExtension/value"_s,
+			"The comment"_s
 		})
 	});
 }
@@ -191,7 +171,22 @@ GIFImageMetadataFormatResources::GIFImageMetadataFormatResources() {
 }
 
 $Class* GIFImageMetadataFormatResources::load$($String* name, bool initialize) {
-	$loadClass(GIFImageMetadataFormatResources, name, initialize, &_GIFImageMetadataFormatResources_ClassInfo_, allocate$GIFImageMetadataFormatResources);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GIFImageMetadataFormatResources, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(GIFImageMetadataFormatResources, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFImageMetadataFormatResources",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GIFImageMetadataFormatResources, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFImageMetadataFormatResources);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicScrollPaneUI$VSBChangeListener.h>
-
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/plaf/basic/BasicScrollPaneUI$Handler.h>
 #include <javax/swing/plaf/basic/BasicScrollPaneUI.h>
@@ -13,72 +12,63 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $BasicScrollPaneUI = ::javax::swing::plaf::basic::BasicScrollPaneUI;
-using $BasicScrollPaneUI$Handler = ::javax::swing::plaf::basic::BasicScrollPaneUI$Handler;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
 
-$NamedAttribute BasicScrollPaneUI$VSBChangeListener_Attribute_var$0[] = {
-	{"since", 's', "17"},
-	{}
-};
-
-$CompoundAttribute _BasicScrollPaneUI$VSBChangeListener_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", BasicScrollPaneUI$VSBChangeListener_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _BasicScrollPaneUI$VSBChangeListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicScrollPaneUI$VSBChangeListener, this$0)},
-	{}
-};
-
-$MethodInfo _BasicScrollPaneUI$VSBChangeListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicScrollPaneUI;)V", nullptr, $PUBLIC, $method(BasicScrollPaneUI$VSBChangeListener, init$, void, $BasicScrollPaneUI*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$VSBChangeListener, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicScrollPaneUI$VSBChangeListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicScrollPaneUI$VSBChangeListener", "javax.swing.plaf.basic.BasicScrollPaneUI", "VSBChangeListener", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicScrollPaneUI$VSBChangeListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicScrollPaneUI$VSBChangeListener",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	_BasicScrollPaneUI$VSBChangeListener_FieldInfo_,
-	_BasicScrollPaneUI$VSBChangeListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicScrollPaneUI$VSBChangeListener_InnerClassesInfo_,
-	_BasicScrollPaneUI$VSBChangeListener_Annotations_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicScrollPaneUI"
-};
-
-$Object* allocate$BasicScrollPaneUI$VSBChangeListener($Class* clazz) {
-	return $of($alloc(BasicScrollPaneUI$VSBChangeListener));
-}
-
 void BasicScrollPaneUI$VSBChangeListener::init$($BasicScrollPaneUI* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void BasicScrollPaneUI$VSBChangeListener::stateChanged($ChangeEvent* e) {
-	$nc($(this->this$0->getHandler()))->stateChanged(e);
+	$$nc(this->this$0->getHandler())->stateChanged(e);
 }
 
 BasicScrollPaneUI$VSBChangeListener::BasicScrollPaneUI$VSBChangeListener() {
 }
 
 $Class* BasicScrollPaneUI$VSBChangeListener::load$($String* name, bool initialize) {
-	$loadClass(BasicScrollPaneUI$VSBChangeListener, name, initialize, &_BasicScrollPaneUI$VSBChangeListener_ClassInfo_, allocate$BasicScrollPaneUI$VSBChangeListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicScrollPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicScrollPaneUI$VSBChangeListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicScrollPaneUI;)V", nullptr, $PUBLIC, $method(BasicScrollPaneUI$VSBChangeListener, init$, void, $BasicScrollPaneUI*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollPaneUI$VSBChangeListener, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicScrollPaneUI$VSBChangeListener", "javax.swing.plaf.basic.BasicScrollPaneUI", "VSBChangeListener", $PUBLIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "17"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicScrollPaneUI$VSBChangeListener",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicScrollPaneUI"
+	};
+	$loadClass(BasicScrollPaneUI$VSBChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicScrollPaneUI$VSBChangeListener);
+	});
 	return class$;
 }
 

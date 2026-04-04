@@ -19,6 +19,7 @@ class $import MouseInfo : public ::java::lang::Object {
 	$class(MouseInfo, 0, ::java::lang::Object)
 public:
 	MouseInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool areScreenDevicesIndependent($Array<::java::awt::GraphicsDevice>* gds);
 	static int32_t getNumberOfButtons();

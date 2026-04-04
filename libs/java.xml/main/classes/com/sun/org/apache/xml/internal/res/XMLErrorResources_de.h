@@ -177,6 +177,7 @@ class XMLErrorResources_de : public ::java::util::ListResourceBundle {
 	$class(XMLErrorResources_de, 0, ::java::util::ListResourceBundle)
 public:
 	XMLErrorResources_de();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Array<::java::lang::Object, 2>* getContents() override;
 	static const int32_t MAX_CODE = 61;

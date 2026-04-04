@@ -1,5 +1,4 @@
 #include <com/apple/eawt/MacQuitResponse.h>
-
 #include <com/apple/eawt/_AppEventHandler.h>
 #include <jcpp.h>
 
@@ -12,31 +11,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$FieldInfo _MacQuitResponse_FieldInfo_[] = {
-	{"appEventHandler", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL, $field(MacQuitResponse, appEventHandler)},
-	{}
-};
-
-$MethodInfo _MacQuitResponse_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(MacQuitResponse, init$, void, $_AppEventHandler*)},
-	{"cancelQuit", "()V", nullptr, $PUBLIC, $virtualMethod(MacQuitResponse, cancelQuit, void)},
-	{"performQuit", "()V", nullptr, $PUBLIC, $virtualMethod(MacQuitResponse, performQuit, void)},
-	{}
-};
-
-$ClassInfo _MacQuitResponse_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.eawt.MacQuitResponse",
-	"java.lang.Object",
-	"java.awt.desktop.QuitResponse",
-	_MacQuitResponse_FieldInfo_,
-	_MacQuitResponse_MethodInfo_
-};
-
-$Object* allocate$MacQuitResponse($Class* clazz) {
-	return $of($alloc(MacQuitResponse));
-}
-
 void MacQuitResponse::init$($_AppEventHandler* appEventHandler) {
 	$set(this, appEventHandler, appEventHandler);
 }
@@ -45,21 +19,41 @@ void MacQuitResponse::performQuit() {
 	if ($nc(this->appEventHandler)->currentQuitResponse != this) {
 		return;
 	}
-	$nc(this->appEventHandler)->performQuit();
+	this->appEventHandler->performQuit();
 }
 
 void MacQuitResponse::cancelQuit() {
 	if ($nc(this->appEventHandler)->currentQuitResponse != this) {
 		return;
 	}
-	$nc(this->appEventHandler)->cancelQuit();
+	this->appEventHandler->cancelQuit();
 }
 
 MacQuitResponse::MacQuitResponse() {
 }
 
 $Class* MacQuitResponse::load$($String* name, bool initialize) {
-	$loadClass(MacQuitResponse, name, initialize, &_MacQuitResponse_ClassInfo_, allocate$MacQuitResponse);
+	$FieldInfo fieldInfos$$[] = {
+		{"appEventHandler", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL, $field(MacQuitResponse, appEventHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(MacQuitResponse, init$, void, $_AppEventHandler*)},
+		{"cancelQuit", "()V", nullptr, $PUBLIC, $virtualMethod(MacQuitResponse, cancelQuit, void)},
+		{"performQuit", "()V", nullptr, $PUBLIC, $virtualMethod(MacQuitResponse, performQuit, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.eawt.MacQuitResponse",
+		"java.lang.Object",
+		"java.awt.desktop.QuitResponse",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MacQuitResponse, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacQuitResponse);
+	});
 	return class$;
 }
 

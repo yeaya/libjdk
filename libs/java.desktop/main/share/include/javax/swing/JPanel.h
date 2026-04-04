@@ -38,6 +38,7 @@ class $import JPanel : public ::javax::swing::JComponent, public ::javax::access
 	$class(JPanel, 0, ::javax::swing::JComponent, ::javax::accessibility::Accessible)
 public:
 	JPanel();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::enable;
 	using ::javax::swing::JComponent::getBounds;

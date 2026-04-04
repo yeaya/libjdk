@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$FocalLength.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,45 +15,40 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$FocalLength_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$FocalLength, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$FocalLength_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$FocalLength", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "FocalLength", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$FocalLength_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$FocalLength",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$FocalLength_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$FocalLength_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$FocalLength($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$FocalLength));
-}
-
 void ExifTIFFTagSet$FocalLength::init$() {
-	$TIFFTag::init$("FocalLength"_s, 0x0000920A, $sl(1, $TIFFTag::TIFF_RATIONAL), 1);
+	$TIFFTag::init$("FocalLength"_s, 0x0000920a, $sl(1, $TIFFTag::TIFF_RATIONAL), 1);
 }
 
 ExifTIFFTagSet$FocalLength::ExifTIFFTagSet$FocalLength() {
 }
 
 $Class* ExifTIFFTagSet$FocalLength::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$FocalLength, name, initialize, &_ExifTIFFTagSet$FocalLength_ClassInfo_, allocate$ExifTIFFTagSet$FocalLength);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$FocalLength, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$FocalLength", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "FocalLength", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$FocalLength",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$FocalLength, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$FocalLength);
+	});
 	return class$;
 }
 

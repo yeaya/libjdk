@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/DocCommentParser.h>
-
 #include <com/sun/source/doctree/AttributeTree$ValueKind.h>
 #include <com/sun/source/doctree/AttributeTree.h>
 #include <com/sun/source/doctree/CommentTree.h>
@@ -74,9 +73,7 @@
 #include <com/sun/tools/javac/util/Position.h>
 #include <com/sun/tools/javac/util/StringUtils.h>
 #include <java/util/HashMap.h>
-#include <java/util/List.h>
 #include <java/util/Map.h>
-#include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
 #undef AUTHOR
@@ -167,12 +164,10 @@ using $DCTree$DCReference = ::com::sun::tools::javac::tree::DCTree$DCReference;
 using $DCTree$DCStartElement = ::com::sun::tools::javac::tree::DCTree$DCStartElement;
 using $DCTree$DCText = ::com::sun::tools::javac::tree::DCTree$DCText;
 using $DCTree$DCUnknownInlineTag = ::com::sun::tools::javac::tree::DCTree$DCUnknownInlineTag;
-using $DocTreeMaker = ::com::sun::tools::javac::tree::DocTreeMaker;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $StringUtils = ::com::sun::tools::javac::util::StringUtils;
 using $Character = ::java::lang::Character;
@@ -181,131 +176,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $1List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $1Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _DocCommentParser_FieldInfo_[] = {
-	{"fac", "Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, fac)},
-	{"diagSource", "Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, diagSource)},
-	{"comment", "Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, comment)},
-	{"m", "Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, m)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, names)},
-	{"isFileContent", "Z", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, isFileContent)},
-	{"buf", "[C", nullptr, $PRIVATE, $field(DocCommentParser, buf)},
-	{"bp", "I", nullptr, $PRIVATE, $field(DocCommentParser, bp)},
-	{"buflen", "I", nullptr, $PRIVATE, $field(DocCommentParser, buflen)},
-	{"ch", "C", nullptr, $PRIVATE, $field(DocCommentParser, ch)},
-	{"textStart", "I", nullptr, $PRIVATE, $field(DocCommentParser, textStart)},
-	{"lastNonWhite", "I", nullptr, $PRIVATE, $field(DocCommentParser, lastNonWhite)},
-	{"newline", "Z", nullptr, $PRIVATE, $field(DocCommentParser, newline)},
-	{"tagParsers", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/parser/DocCommentParser$TagParser;>;", $PRIVATE | $FINAL, $field(DocCommentParser, tagParsers)},
-	{}
-};
-
-$MethodInfo _DocCommentParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/parser/Tokens$Comment;Z)V", nullptr, $PUBLIC, $method(DocCommentParser, init$, void, $ParserFactory*, $DiagnosticSource*, $Tokens$Comment*, bool)},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PUBLIC, $method(DocCommentParser, init$, void, $ParserFactory*, $DiagnosticSource*, $Tokens$Comment*)},
-	{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;)V", nullptr, $PUBLIC, $method(DocCommentParser, init$, void, $ParserFactory*)},
-	{"addPendingText", "(Lcom/sun/tools/javac/util/ListBuffer;I)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/DCTree;>;I)V", $PROTECTED, $virtualMethod(DocCommentParser, addPendingText, void, $ListBuffer*, int32_t)},
-	{"attrValueChar", "(Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/DCTree;>;)V", $PROTECTED, $virtualMethod(DocCommentParser, attrValueChar, void, $ListBuffer*)},
-	{"blockContent", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PROTECTED, $virtualMethod(DocCommentParser, blockContent, $List*)},
-	{"blockContent", "(Lcom/sun/tools/javac/parser/DocCommentParser$Phase;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/parser/DocCommentParser$Phase;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PROTECTED, $virtualMethod(DocCommentParser, blockContent, $List*, $DocCommentParser$Phase*)},
-	{"blockTag", "()Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, blockTag, $DCTree*)},
-	{"blockTags", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PROTECTED, $virtualMethod(DocCommentParser, blockTags, $List*)},
-	{"createTagParsers", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/parser/DocCommentParser$TagParser;>;", $PRIVATE, $method(DocCommentParser, createTagParsers, $Map*)},
-	{"entity", "(Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/DCTree;>;)V", $PROTECTED, $virtualMethod(DocCommentParser, entity, void, $ListBuffer*)},
-	{"entity", "()Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, entity, $DCTree*)},
-	{"erroneous", "(Ljava/lang/String;I)Lcom/sun/tools/javac/tree/DCTree$DCErroneous;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, erroneous, $DCTree$DCErroneous*, $String*, int32_t)},
-	{"html", "()Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PRIVATE, $method(DocCommentParser, html, $DCTree*)},
-	{"htmlAttrs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PROTECTED, $virtualMethod(DocCommentParser, htmlAttrs, $List*)},
-	{"identifier", "()Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, identifier, $DCTree$DCIdentifier*), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
-	{"inlineContent", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PRIVATE, $method(DocCommentParser, inlineContent, $List*)},
-	{"inlineTag", "(Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/DCTree;>;)V", $PROTECTED, $virtualMethod(DocCommentParser, inlineTag, void, $ListBuffer*)},
-	{"inlineTag", "()Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, inlineTag, $DCTree*)},
-	{"inlineText", "(Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;)Lcom/sun/tools/javac/tree/DCTree$DCText;", nullptr, $PRIVATE, $method(DocCommentParser, inlineText, $DCTree$DCText*, $DocCommentParser$WhitespaceRetentionPolicy*), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
-	{"inlineWord", "()Lcom/sun/tools/javac/tree/DCTree$DCText;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, inlineWord, $DCTree$DCText*)},
-	{"isDecimalDigit", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isDecimalDigit, bool, char16_t)},
-	{"isEndBody", "()Z", nullptr, 0, $virtualMethod(DocCommentParser, isEndBody, bool)},
-	{"isEndPreamble", "()Z", nullptr, 0, $virtualMethod(DocCommentParser, isEndPreamble, bool)},
-	{"isHexDigit", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isHexDigit, bool, char16_t)},
-	{"isIdentifierStart", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isIdentifierStart, bool, char16_t)},
-	{"isJavaIdentifierStart", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isJavaIdentifierStart, bool, char16_t)},
-	{"isUnquotedAttrValueTerminator", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isUnquotedAttrValueTerminator, bool, char16_t)},
-	{"isWhitespace", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isWhitespace, bool, char16_t)},
-	{"newString", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(DocCommentParser, newString, $String*, int32_t, int32_t)},
-	{"nextChar", "()V", nullptr, 0, $virtualMethod(DocCommentParser, nextChar, void)},
-	{"parse", "()Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", nullptr, $PUBLIC, $virtualMethod(DocCommentParser, parse, $DCTree$DCDocComment*)},
-	{"peek", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(DocCommentParser, peek, bool, $String*)},
-	{"quotedString", "()Lcom/sun/tools/javac/tree/DCTree$DCText;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, quotedString, $DCTree$DCText*)},
-	{"readAttributeName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readAttributeName, $Name*)},
-	{"readIdentifier", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readIdentifier, $Name*)},
-	{"readJavaIdentifier", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readJavaIdentifier, $Name*)},
-	{"readSystemPropertyName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readSystemPropertyName, $Name*)},
-	{"readTagName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readTagName, $Name*)},
-	{"reference", "(Z)Lcom/sun/tools/javac/tree/DCTree$DCReference;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, reference, $DCTree$DCReference*, bool), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
-	{"skipWhitespace", "()V", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, skipWhitespace, void)},
-	{}
-};
-
-$InnerClassInfo _DocCommentParser_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.DocCommentParser$26", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.parser.DocCommentParser$TagParser", "com.sun.tools.javac.parser.DocCommentParser", "TagParser", $PRIVATE | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.parser.DocCommentParser$WhitespaceRetentionPolicy", "com.sun.tools.javac.parser.DocCommentParser", "WhitespaceRetentionPolicy", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.parser.DocCommentParser$Phase", "com.sun.tools.javac.parser.DocCommentParser", "Phase", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.parser.DocCommentParser$ParseException", "com.sun.tools.javac.parser.DocCommentParser", "ParseException", $STATIC},
-	{"com.sun.tools.javac.parser.DocCommentParser$25", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$24", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$23", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$22", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$21", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$20", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$19", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$18", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$17", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$16", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$15", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$14", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$13", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$12", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$11", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$10", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$9", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$8", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$7", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$6", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$5", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DocCommentParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.DocCommentParser",
-	"java.lang.Object",
-	nullptr,
-	_DocCommentParser_FieldInfo_,
-	_DocCommentParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocCommentParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.DocCommentParser$26,com.sun.tools.javac.parser.DocCommentParser$TagParser,com.sun.tools.javac.parser.DocCommentParser$TagParser$Kind,com.sun.tools.javac.parser.DocCommentParser$WhitespaceRetentionPolicy,com.sun.tools.javac.parser.DocCommentParser$Phase,com.sun.tools.javac.parser.DocCommentParser$ParseException,com.sun.tools.javac.parser.DocCommentParser$25,com.sun.tools.javac.parser.DocCommentParser$24,com.sun.tools.javac.parser.DocCommentParser$23,com.sun.tools.javac.parser.DocCommentParser$22,com.sun.tools.javac.parser.DocCommentParser$21,com.sun.tools.javac.parser.DocCommentParser$20,com.sun.tools.javac.parser.DocCommentParser$19,com.sun.tools.javac.parser.DocCommentParser$18,com.sun.tools.javac.parser.DocCommentParser$17,com.sun.tools.javac.parser.DocCommentParser$16,com.sun.tools.javac.parser.DocCommentParser$15,com.sun.tools.javac.parser.DocCommentParser$14,com.sun.tools.javac.parser.DocCommentParser$13,com.sun.tools.javac.parser.DocCommentParser$12,com.sun.tools.javac.parser.DocCommentParser$11,com.sun.tools.javac.parser.DocCommentParser$10,com.sun.tools.javac.parser.DocCommentParser$9,com.sun.tools.javac.parser.DocCommentParser$8,com.sun.tools.javac.parser.DocCommentParser$7,com.sun.tools.javac.parser.DocCommentParser$6,com.sun.tools.javac.parser.DocCommentParser$5,com.sun.tools.javac.parser.DocCommentParser$4,com.sun.tools.javac.parser.DocCommentParser$3,com.sun.tools.javac.parser.DocCommentParser$2,com.sun.tools.javac.parser.DocCommentParser$1"
-};
-
-$Object* allocate$DocCommentParser($Class* clazz) {
-	return $of($alloc(DocCommentParser));
-}
 
 void DocCommentParser::init$($ParserFactory* fac, $DiagnosticSource* diagSource, $Tokens$Comment* comment, bool isFileContent) {
 	this->textStart = -1;
@@ -329,12 +206,12 @@ void DocCommentParser::init$($ParserFactory* fac) {
 }
 
 $DCTree$DCDocComment* DocCommentParser::parse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, c, $nc(this->comment)->getText());
 	$set(this, buf, $new($chars, $nc(c)->length() + 1));
 	c->getChars(0, c->length(), this->buf, 0);
-	$nc(this->buf)->set($nc(this->buf)->length - 1, (char16_t)26);
-	this->buflen = $nc(this->buf)->length - 1;
+	this->buf->set(this->buf->length - 1, 26);
+	this->buflen = this->buf->length - 1;
 	this->bp = -1;
 	nextChar();
 	$init($DocCommentParser$Phase);
@@ -352,7 +229,7 @@ $DCTree$DCDocComment* DocCommentParser::parse() {
 	} else if (!$nc(postamble)->isEmpty()) {
 		pos = $nc(($cast($DCTree, postamble->head)))->pos$;
 	}
-	$var($DCTree$DCDocComment, dc, $nc($($nc(this->m)->at(pos)))->newDocCommentTree(this->comment, body, tags, preamble, postamble));
+	$var($DCTree$DCDocComment, dc, $$nc($nc(this->m)->at(pos))->newDocCommentTree(this->comment, body, tags, preamble, postamble));
 	return dc;
 }
 
@@ -360,13 +237,9 @@ void DocCommentParser::nextChar() {
 	this->ch = $nc(this->buf)->get(this->bp < this->buflen ? ++this->bp : this->buflen);
 	switch (this->ch) {
 	case u'\f':
-		{}
 	case u'\n':
-		{}
 	case u'\r':
-		{
-			this->newline = true;
-		}
+		this->newline = true;
 	}
 }
 
@@ -376,107 +249,86 @@ $List* DocCommentParser::blockContent() {
 }
 
 $List* DocCommentParser::blockContent($DocCommentParser$Phase* phase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, trees, $new($ListBuffer));
 	this->textStart = -1;
 	bool loop$break = false;
 	while (this->bp < this->buflen) {
 		switch (this->ch) {
 		case u'\n':
-			{}
 		case u'\r':
-			{}
 		case u'\f':
-			{
-				this->newline = true;
-			}
+			this->newline = true;
 		case u' ':
-			{}
 		case u'\t':
-			{
-				nextChar();
-				break;
-			}
+			nextChar();
+			break;
 		case u'&':
-			{
-				entity(trees);
-				break;
-			}
+			entity(trees);
+			break;
 		case u'<':
-			{
-				this->newline = false;
-				if (this->isFileContent) {
-					$init($DocCommentParser$26);
-					switch ($nc($DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase)->get($nc((phase))->ordinal())) {
-					case 1:
-						{
-							if (isEndPreamble()) {
-								trees->add($(html()));
-								if (this->textStart == -1) {
-									this->textStart = this->bp;
-									this->lastNonWhite = -1;
-								}
-								this->newline = true;
-								loop$break = true;
-								break;
-							}
-							break;
+			this->newline = false;
+			if (this->isFileContent) {
+				$init($DocCommentParser$26);
+				switch ($nc($DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase)->get($nc((phase))->ordinal())) {
+				case 1:
+					if (isEndPreamble()) {
+						trees->add($(html()));
+						if (this->textStart == -1) {
+							this->textStart = this->bp;
+							this->lastNonWhite = -1;
 						}
-					case 2:
-						{
-							if (isEndBody()) {
-								addPendingText(trees, this->lastNonWhite);
-								loop$break = true;
-								break;
-							}
-							break;
-						}
-					default:
-						{}
-					}
-
-					if (loop$break) {
+						this->newline = true;
+						loop$break = true;
 						break;
-					}				}
-				addPendingText(trees, this->bp - 1);
-				trees->add($(html()));
-				$init($DocCommentParser$Phase);
-				if (phase == $DocCommentParser$Phase::PREAMBLE || phase == $DocCommentParser$Phase::POSTAMBLE) {
+					}
+					break;
+				case 2:
+					if (isEndBody()) {
+						addPendingText(trees, this->lastNonWhite);
+						loop$break = true;
+						break;
+					}
+					break;
+				default:
 					break;
 				}
-				if (this->textStart == -1) {
-					this->textStart = this->bp;
-					this->lastNonWhite = -1;
+				if (loop$break) {
+					break;
 				}
+			}
+			addPendingText(trees, this->bp - 1);
+			trees->add($(html()));
+			$init($DocCommentParser$Phase);
+			if (phase == $DocCommentParser$Phase::PREAMBLE || phase == $DocCommentParser$Phase::POSTAMBLE) {
 				break;
 			}
+			if (this->textStart == -1) {
+				this->textStart = this->bp;
+				this->lastNonWhite = -1;
+			}
+			break;
 		case u'{':
-			{
-				inlineTag(trees);
-				break;
-			}
+			inlineTag(trees);
+			break;
 		case u'@':
-			{
-				if (this->newline) {
-					addPendingText(trees, this->lastNonWhite);
-					loop$break = true;
-					break;
-				}
+			if (this->newline) {
+				addPendingText(trees, this->lastNonWhite);
+				loop$break = true;
+				break;
 			}
 		default:
-			{
-				this->newline = false;
-				if (this->textStart == -1) {
-					this->textStart = this->bp;
-				}
-				this->lastNonWhite = this->bp;
-				nextChar();
+			this->newline = false;
+			if (this->textStart == -1) {
+				this->textStart = this->bp;
 			}
+			this->lastNonWhite = this->bp;
+			nextChar();
 		}
-
 		if (loop$break) {
 			break;
-		}	}
+		}
+	}
 	if (this->lastNonWhite != -1) {
 		addPendingText(trees, this->lastNonWhite);
 	}
@@ -484,7 +336,7 @@ $List* DocCommentParser::blockContent($DocCommentParser$Phase* phase) {
 }
 
 $List* DocCommentParser::blockTags() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, tags, $new($ListBuffer));
 	while (this->bp < this->buflen && this->ch == u'@') {
 		tags->add($(blockTag()));
@@ -493,7 +345,7 @@ $List* DocCommentParser::blockTags() {
 }
 
 $DCTree* DocCommentParser::blockTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p = this->bp;
 	try {
 		nextChar();
@@ -502,8 +354,8 @@ $DCTree* DocCommentParser::blockTag() {
 			$var($DocCommentParser$TagParser, tp, $cast($DocCommentParser$TagParser, $nc(this->tagParsers)->get(name)));
 			if (tp == nullptr) {
 				$var($List, content, blockContent());
-				return $cast($DCTree, $nc($($nc(this->m)->at(p)))->newUnknownBlockTagTree(name, content));
-			} else if ($nc(tp)->allowsBlock()) {
+				return $cast($DCTree, $$nc($nc(this->m)->at(p))->newUnknownBlockTagTree(name, content));
+			} else if (tp->allowsBlock()) {
 				$init($DocCommentParser$TagParser$Kind);
 				return tp->parse(p, $DocCommentParser$TagParser$Kind::BLOCK);
 			} else {
@@ -536,7 +388,7 @@ void DocCommentParser::inlineTag($ListBuffer* list) {
 }
 
 $DCTree* DocCommentParser::inlineTag() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p = this->bp - 1;
 	try {
 		nextChar();
@@ -550,12 +402,12 @@ $DCTree* DocCommentParser::inlineTag() {
 			$init($DocCommentParser$WhitespaceRetentionPolicy);
 			$var($DCTree, text, inlineText($DocCommentParser$WhitespaceRetentionPolicy::REMOVE_ALL));
 			nextChar();
-			return $nc($($cast($DCTree$DCUnknownInlineTag, $nc($($nc(this->m)->at(p)))->newUnknownInlineTagTree(name, $($List::of(text))))))->setEndPos(this->bp);
+			return $$sure($DCTree$DCUnknownInlineTag, $$nc($nc(this->m)->at(p))->newUnknownInlineTagTree(name, $($List::of(text))))->setEndPos(this->bp);
 		} else {
-			if (!$nc(tp)->retainWhiteSpace) {
+			if (!tp->retainWhiteSpace) {
 				skipWhitespace();
 			}
-			if ($nc(tp)->allowsInline()) {
+			if (tp->allowsInline()) {
 				$init($DocCommentParser$TagParser$Kind);
 				$var($DCTree$DCEndPosTree, tree, $cast($DCTree$DCEndPosTree, tp->parse(p, $DocCommentParser$TagParser$Kind::INLINE)));
 				return $nc(tree)->setEndPos(this->bp);
@@ -563,7 +415,7 @@ $DCTree* DocCommentParser::inlineTag() {
 				$init($DocCommentParser$WhitespaceRetentionPolicy);
 				$var($DCTree, text, inlineText($DocCommentParser$WhitespaceRetentionPolicy::REMOVE_ALL));
 				nextChar();
-				return $nc($($cast($DCTree$DCUnknownInlineTag, $nc($($nc(this->m)->at(p)))->newUnknownInlineTagTree(name, $($List::of(text))))))->setEndPos(this->bp);
+				return $$sure($DCTree$DCUnknownInlineTag, $$nc($nc(this->m)->at(p))->newUnknownInlineTagTree(name, $($List::of(text))))->setEndPos(this->bp);
 			}
 		}
 	} catch ($DocCommentParser$ParseException& e) {
@@ -573,69 +425,49 @@ $DCTree* DocCommentParser::inlineTag() {
 }
 
 $DCTree$DCText* DocCommentParser::inlineText($DocCommentParser$WhitespaceRetentionPolicy* whitespacePolicy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocCommentParser$26);
 	switch ($nc($DocCommentParser$26::$SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy)->get($nc((whitespacePolicy))->ordinal())) {
 	case 1:
-		{
-			skipWhitespace();
-			break;
-		}
+		skipWhitespace();
+		break;
 	case 2:
-		{
-			if (this->ch == u' ') {
-				nextChar();
-			}
-			break;
+		if (this->ch == u' ') {
+			nextChar();
 		}
+		break;
 	case 3:
-		{}
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	int32_t pos = this->bp;
 	int32_t depth = 1;
 	while (this->bp < this->buflen) {
 		switch (this->ch) {
 		case u'\n':
-			{}
 		case u'\r':
-			{}
 		case u'\f':
-			{
-				this->newline = true;
-				break;
-			}
+			this->newline = true;
+			break;
 		case u' ':
-			{}
 		case u'\t':
-			{
-				break;
-			}
+			break;
 		case u'{':
-			{
-				this->newline = false;
-				this->lastNonWhite = this->bp;
-				++depth;
-				break;
-			}
+			this->newline = false;
+			this->lastNonWhite = this->bp;
+			++depth;
+			break;
 		case u'}':
-			{
-				if (--depth == 0) {
-					return $cast($DCTree$DCText, $nc($($nc(this->m)->at(pos)))->newTextTree($(newString(pos, this->bp))));
-				}
-				this->newline = false;
-				this->lastNonWhite = this->bp;
-				break;
+			if (--depth == 0) {
+				return $cast($DCTree$DCText, $$nc($nc(this->m)->at(pos))->newTextTree($(newString(pos, this->bp))));
 			}
+			this->newline = false;
+			this->lastNonWhite = this->bp;
+			break;
 		default:
-			{
-				this->newline = false;
-				this->lastNonWhite = this->bp;
-				break;
-			}
+			this->newline = false;
+			this->lastNonWhite = this->bp;
+			break;
 		}
 		nextChar();
 	}
@@ -643,71 +475,52 @@ $DCTree$DCText* DocCommentParser::inlineText($DocCommentParser$WhitespaceRetenti
 }
 
 $DCTree$DCReference* DocCommentParser::reference(bool allowMember) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = this->bp;
 	int32_t depth = 0;
 	bool loop$break = false;
 	while (this->bp < this->buflen) {
 		switch (this->ch) {
 		case u'\n':
-			{}
 		case u'\r':
-			{}
 		case u'\f':
-			{
-				this->newline = true;
-			}
+			this->newline = true;
 		case u' ':
-			{}
 		case u'\t':
-			{
-				if (depth == 0) {
-					loop$break = true;
-					break;
-				}
-				break;
-			}
-		case u'(':
-			{}
-		case u'<':
-			{
-				this->newline = false;
-				++depth;
-				break;
-			}
-		case u')':
-			{}
-		case u'>':
-			{
-				this->newline = false;
-				--depth;
-				break;
-			}
-		case u'}':
-			{
-				if (this->bp == pos) {
-					return nullptr;
-				}
-				this->newline = false;
+			if (depth == 0) {
 				loop$break = true;
 				break;
 			}
+			break;
+		case u'(':
+		case u'<':
+			this->newline = false;
+			++depth;
+			break;
+		case u')':
+		case u'>':
+			this->newline = false;
+			--depth;
+			break;
+		case u'}':
+			if (this->bp == pos) {
+				return nullptr;
+			}
+			this->newline = false;
+			loop$break = true;
+			break;
 		case u'@':
-			{
-				if (this->newline) {
-					loop$break = true;
-					break;
-				}
+			if (this->newline) {
+				loop$break = true;
+				break;
 			}
 		default:
-			{
-				this->newline = false;
-			}
+			this->newline = false;
 		}
-
 		if (loop$break) {
 			break;
-		}		nextChar();
+		}
+		nextChar();
 	}
 	if (depth > 0) {
 		$throwNew($DocCommentParser$ParseException, "dc.unterminated.signature"_s);
@@ -715,7 +528,7 @@ $DCTree$DCReference* DocCommentParser::reference(bool allowMember) {
 	$var($String, sig, newString(pos, this->bp));
 	try {
 		$var($ReferenceParser$Reference, ref, $$new($ReferenceParser, this->fac)->parse(sig));
-		return $cast($DCTree$DCReference, $nc($($nc($($nc(this->m)->at(pos)))->newReferenceTree(sig, $nc(ref)->moduleName, ref->qualExpr, ref->member, ref->paramTypes)))->setEndPos(this->bp));
+		return $cast($DCTree$DCReference, $$nc($$nc($nc(this->m)->at(pos))->newReferenceTree(sig, $nc(ref)->moduleName, $nc(ref)->qualExpr, $nc(ref)->member, $nc(ref)->paramTypes))->setEndPos(this->bp));
 	} catch ($ReferenceParser$ParseException& parseException) {
 		$throwNew($DocCommentParser$ParseException, $(parseException->getMessage()));
 	}
@@ -723,112 +536,90 @@ $DCTree$DCReference* DocCommentParser::reference(bool allowMember) {
 }
 
 $DCTree$DCIdentifier* DocCommentParser::identifier() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	skipWhitespace();
 	int32_t pos = this->bp;
 	if (isJavaIdentifierStart(this->ch)) {
 		$var($Name, name, readJavaIdentifier());
-		return $cast($DCTree$DCIdentifier, $nc($($nc(this->m)->at(pos)))->newIdentifierTree(name));
+		return $cast($DCTree$DCIdentifier, $$nc($nc(this->m)->at(pos))->newIdentifierTree(name));
 	}
 	$throwNew($DocCommentParser$ParseException, "dc.identifier.expected"_s);
 }
 
 $DCTree$DCText* DocCommentParser::quotedString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = this->bp;
 	nextChar();
 	bool loop$break = false;
 	while (this->bp < this->buflen) {
 		switch (this->ch) {
 		case u'\n':
-			{}
 		case u'\r':
-			{}
 		case u'\f':
-			{
-				this->newline = true;
-				break;
-			}
+			this->newline = true;
+			break;
 		case u' ':
-			{}
 		case u'\t':
-			{
-				break;
-			}
+			break;
 		case u'\"':
-			{
-				nextChar();
-				return $cast($DCTree$DCText, $nc($($nc(this->m)->at(pos)))->newTextTree($(newString(pos, this->bp))));
-			}
+			nextChar();
+			return $cast($DCTree$DCText, $$nc($nc(this->m)->at(pos))->newTextTree($(newString(pos, this->bp))));
 		case u'@':
-			{
-				if (this->newline) {
-					loop$break = true;
-					break;
-				}
+			if (this->newline) {
+				loop$break = true;
+				break;
 			}
 		}
-
 		if (loop$break) {
 			break;
-		}		nextChar();
+		}
+		nextChar();
 	}
 	return nullptr;
 }
 
 $DCTree$DCText* DocCommentParser::inlineWord() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pos = this->bp;
 	int32_t depth = 0;
 	bool loop$break = false;
 	while (this->bp < this->buflen) {
 		switch (this->ch) {
 		case u'\n':
-			{
-				this->newline = true;
-			}
+			this->newline = true;
 		case u'\r':
-			{}
 		case u'\f':
-			{}
 		case u' ':
-			{}
 		case u'\t':
-			{
-				return $cast($DCTree$DCText, $nc($($nc(this->m)->at(pos)))->newTextTree($(newString(pos, this->bp))));
-			}
+			return $cast($DCTree$DCText, $$nc($nc(this->m)->at(pos))->newTextTree($(newString(pos, this->bp))));
 		case u'@':
-			{
-				if (this->newline) {
-					loop$break = true;
-					break;
-				}
-			}
-		case u'{':
-			{
-				++depth;
+			if (this->newline) {
+				loop$break = true;
 				break;
 			}
+		case u'{':
+			++depth;
+			break;
 		case u'}':
 			{
 				bool var$0 = depth == 0;
 				if (var$0 || --depth == 0) {
-					return $cast($DCTree$DCText, $nc($($nc(this->m)->at(pos)))->newTextTree($(newString(pos, this->bp))));
+					return $cast($DCTree$DCText, $$nc($nc(this->m)->at(pos))->newTextTree($(newString(pos, this->bp))));
 				}
 				break;
 			}
 		}
-
 		if (loop$break) {
 			break;
-		}		this->newline = false;
+		}
+		this->newline = false;
 		nextChar();
 	}
 	return nullptr;
 }
 
 $List* DocCommentParser::inlineContent() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, trees, $new($ListBuffer));
 	skipWhitespace();
 	int32_t pos = this->bp;
@@ -838,82 +629,63 @@ $List* DocCommentParser::inlineContent() {
 	while (this->bp < this->buflen) {
 		switch (this->ch) {
 		case u'\n':
-			{}
 		case u'\r':
-			{}
 		case u'\f':
-			{
-				this->newline = true;
-			}
+			this->newline = true;
 		case u' ':
-			{}
 		case u'\t':
-			{
-				nextChar();
-				break;
-			}
+			nextChar();
+			break;
 		case u'&':
-			{
-				entity(trees);
-				break;
-			}
+			entity(trees);
+			break;
 		case u'<':
-			{
-				this->newline = false;
-				addPendingText(trees, this->bp - 1);
-				trees->add($(html()));
+			this->newline = false;
+			addPendingText(trees, this->bp - 1);
+			trees->add($(html()));
+			this->textStart = this->bp;
+			this->lastNonWhite = -1;
+			break;
+		case u'{':
+			if (this->textStart == -1) {
+				this->textStart = this->bp;
+			}
+			this->newline = false;
+			nextChar();
+			if (this->ch == u'@') {
+				addPendingText(trees, this->bp - 2);
+				trees->add($(inlineTag()));
 				this->textStart = this->bp;
 				this->lastNonWhite = -1;
-				break;
+			} else {
+				++depth;
 			}
-		case u'{':
-			{
-				if (this->textStart == -1) {
-					this->textStart = this->bp;
-				}
-				this->newline = false;
-				nextChar();
-				if (this->ch == u'@') {
-					addPendingText(trees, this->bp - 2);
-					trees->add($(inlineTag()));
-					this->textStart = this->bp;
-					this->lastNonWhite = -1;
-				} else {
-					++depth;
-				}
-				break;
-			}
+			break;
 		case u'}':
-			{
-				this->newline = false;
-				if (--depth == 0) {
-					addPendingText(trees, this->bp - 1);
-					nextChar();
-					return trees->toList();
-				}
+			this->newline = false;
+			if (--depth == 0) {
+				addPendingText(trees, this->bp - 1);
 				nextChar();
-				break;
+				return trees->toList();
 			}
+			nextChar();
+			break;
 		case u'@':
-			{
-				if (this->newline) {
-					loop$break = true;
-					break;
-				}
+			if (this->newline) {
+				loop$break = true;
+				break;
 			}
 		default:
-			{
-				if (this->textStart == -1) {
-					this->textStart = this->bp;
-				}
-				nextChar();
-				break;
+			if (this->textStart == -1) {
+				this->textStart = this->bp;
 			}
+			nextChar();
+			break;
 		}
-
 		if (loop$break) {
 			break;
-		}	}
+		}
+	}
 	return $List::of($(erroneous("dc.unterminated.inline.tag"_s, pos)));
 }
 
@@ -928,7 +700,7 @@ void DocCommentParser::entity($ListBuffer* list) {
 }
 
 $DCTree* DocCommentParser::entity() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p = this->bp;
 	nextChar();
 	$var($Name, name, nullptr);
@@ -961,212 +733,191 @@ $DCTree* DocCommentParser::entity() {
 			return erroneous("dc.missing.semicolon"_s, p);
 		}
 		nextChar();
-		return $cast($DCTree, $nc($($nc(this->m)->at(p)))->newEntityTree(name));
+		return $cast($DCTree, $$nc($nc(this->m)->at(p))->newEntityTree(name));
 	}
 }
 
 bool DocCommentParser::isEndPreamble() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t savedpos = this->bp;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if (this->ch == u'<') {
-				nextChar();
-			}
-			if (isIdentifierStart(this->ch)) {
-				$var($String, name, $StringUtils::toLowerCase($($nc($(readIdentifier()))->toString())));
-				{
-					$var($String, s22934$, name);
-					int32_t tmp22934$ = -1;
-					switch ($nc(s22934$)->hashCode()) {
-					case 0x002E39A2:
-						{
-							if (s22934$->equals("body"_s)) {
-								tmp22934$ = 0;
-							}
-							break;
-						}
-					case 0x003305B9:
-						{
-							if (s22934$->equals("main"_s)) {
-								tmp22934$ = 1;
-							}
-							break;
-						}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if (this->ch == u'<') {
+			nextChar();
+		}
+		if (isIdentifierStart(this->ch)) {
+			$var($String, name, $StringUtils::toLowerCase($($$nc(readIdentifier())->toString())));
+			{
+				$var($String, s22934$, name);
+				int32_t tmp22934$ = -1;
+				switch ($nc(s22934$)->hashCode()) {
+				case 0x002e39a2:
+					if (s22934$->equals("body"_s)) {
+						tmp22934$ = 0;
 					}
-					switch (tmp22934$) {
-					case 0:
-						{
-							while (this->bp < this->buflen && this->ch != u'>') {
-								nextChar();
-							}
-							if (this->ch == u'>') {
-								nextChar();
-							}
-							while (this->bp < this->buflen && isWhitespace(this->ch)) {
-								nextChar();
-							}
-							if (this->ch == u'<') {
-								nextChar();
-								if (isIdentifierStart(this->ch)) {
-									$assign(name, $StringUtils::toLowerCase($($nc($(readIdentifier()))->toString())));
-									if ($nc(name)->equals("main"_s)) {
-										var$2 = false;
-										return$1 = true;
-										goto $finally;
-									}
-								}
-							}
-							var$2 = true;
-							return$1 = true;
-							goto $finally;
-						}
-					case 1:
-						{
-							var$2 = true;
-							return$1 = true;
-							goto $finally;
-						}
+					break;
+				case 0x003305b9:
+					if (s22934$->equals("main"_s)) {
+						tmp22934$ = 1;
 					}
+					break;
 				}
-			}
-			var$2 = false;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			this->bp = savedpos;
-			this->ch = $nc(this->buf)->get(this->bp);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
-	}
-	$shouldNotReachHere();
-}
-
-bool DocCommentParser::isEndBody() {
-	$useLocalCurrentObjectStackCache();
-	int32_t savedpos = this->bp;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if (this->ch == u'<') {
-				nextChar();
-			}
-			if (this->ch == u'/') {
-				nextChar();
-				if (isIdentifierStart(this->ch)) {
-					$var($String, name, $StringUtils::toLowerCase($($nc($(readIdentifier()))->toString())));
-					{
-						$var($String, s25087$, name);
-						int32_t tmp25087$ = -1;
-						switch ($nc(s25087$)->hashCode()) {
-						case 0x002E39A2:
-							{
-								if (s25087$->equals("body"_s)) {
-									tmp25087$ = 0;
-								}
-								break;
-							}
-						case 0x003305B9:
-							{
-								if (s25087$->equals("main"_s)) {
-									tmp25087$ = 1;
-								}
-								break;
-							}
-						}
-						switch (tmp25087$) {
-						case 0:
-							{}
-						case 1:
-							{
-								var$2 = true;
+				switch (tmp22934$) {
+				case 0:
+					while (this->bp < this->buflen && this->ch != u'>') {
+						nextChar();
+					}
+					if (this->ch == u'>') {
+						nextChar();
+					}
+					while (this->bp < this->buflen && isWhitespace(this->ch)) {
+						nextChar();
+					}
+					if (this->ch == u'<') {
+						nextChar();
+						if (isIdentifierStart(this->ch)) {
+							$assign(name, $StringUtils::toLowerCase($($$nc(readIdentifier())->toString())));
+							if ($nc(name)->equals("main"_s)) {
+								var$2 = false;
 								return$1 = true;
 								goto $finally;
 							}
 						}
 					}
+					var$2 = true;
+					return$1 = true;
+					goto $finally;
+				case 1:
+					var$2 = true;
+					return$1 = true;
+					goto $finally;
 				}
 			}
-			var$2 = false;
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			this->bp = savedpos;
-			this->ch = $nc(this->buf)->get(this->bp);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		var$2 = false;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->bp = savedpos;
+		this->ch = $nc(this->buf)->get(this->bp);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	$shouldNotReachHere();
+}
+
+bool DocCommentParser::isEndBody() {
+	$useLocalObjectStack();
+	int32_t savedpos = this->bp;
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if (this->ch == u'<') {
+			nextChar();
 		}
-		if (return$1) {
-			return var$2;
+		if (this->ch == u'/') {
+			nextChar();
+			if (isIdentifierStart(this->ch)) {
+				$var($String, name, $StringUtils::toLowerCase($($$nc(readIdentifier())->toString())));
+				{
+					$var($String, s25087$, name);
+					int32_t tmp25087$ = -1;
+					switch ($nc(s25087$)->hashCode()) {
+					case 0x002e39a2:
+						if (s25087$->equals("body"_s)) {
+							tmp25087$ = 0;
+						}
+						break;
+					case 0x003305b9:
+						if (s25087$->equals("main"_s)) {
+							tmp25087$ = 1;
+						}
+						break;
+					}
+					switch (tmp25087$) {
+					case 0:
+					case 1:
+						var$2 = true;
+						return$1 = true;
+						goto $finally;
+					}
+				}
+			}
 		}
+		var$2 = false;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->bp = savedpos;
+		this->ch = $nc(this->buf)->get(this->bp);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool DocCommentParser::peek($String* s$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, s$renamed);
 	int32_t savedpos = this->bp;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if (this->ch == u'<') {
-				nextChar();
-			}
-			if (this->ch == u'/') {
-				if ($nc(s)->charAt(0) != this->ch) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				} else {
-					$assign(s, s->substring(1));
-					nextChar();
-				}
-			}
-			if (isIdentifierStart(this->ch)) {
-				$var($Name, name, readIdentifier());
-				var$2 = $nc($($StringUtils::toLowerCase($($nc(name)->toString()))))->equals(s);
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if (this->ch == u'<') {
+			nextChar();
+		}
+		if (this->ch == u'/') {
+			if ($nc(s)->charAt(0) != this->ch) {
+				var$2 = false;
 				return$1 = true;
 				goto $finally;
+			} else {
+				$assign(s, s->substring(1));
+				nextChar();
 			}
-			var$2 = false;
+		}
+		if (isIdentifierStart(this->ch)) {
+			$var($Name, name, readIdentifier());
+			var$2 = $$nc($StringUtils::toLowerCase($($nc(name)->toString())))->equals(s);
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			this->bp = savedpos;
-			this->ch = $nc(this->buf)->get(this->bp);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		var$2 = false;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		this->bp = savedpos;
+		this->ch = $nc(this->buf)->get(this->bp);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $DCTree* DocCommentParser::html() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p = this->bp;
 	nextChar();
 	if (isIdentifierStart(this->ch)) {
@@ -1180,7 +931,7 @@ $DCTree* DocCommentParser::html() {
 			}
 			if (this->ch == u'>') {
 				nextChar();
-				$var($DCTree, dctree, $nc($($cast($DCTree$DCStartElement, $nc($($nc(this->m)->at(p)))->newStartElementTree(name, attrs, selfClosing))))->setEndPos(this->bp));
+				$var($DCTree, dctree, $$sure($DCTree$DCStartElement, $$nc($nc(this->m)->at(p))->newStartElementTree(name, attrs, selfClosing))->setEndPos(this->bp));
 				return dctree;
 			}
 		}
@@ -1191,7 +942,7 @@ $DCTree* DocCommentParser::html() {
 			skipWhitespace();
 			if (this->ch == u'>') {
 				nextChar();
-				return $nc($($cast($DCTree$DCEndElement, $nc($($nc(this->m)->at(p)))->newEndElementTree(name))))->setEndPos(this->bp);
+				return $$sure($DCTree$DCEndElement, $$nc($nc(this->m)->at(p))->newEndElementTree(name))->setEndPos(this->bp);
 			}
 		}
 	} else if (this->ch == u'!') {
@@ -1208,14 +959,14 @@ $DCTree* DocCommentParser::html() {
 					}
 					if (dash >= 2 && this->ch == u'>') {
 						nextChar();
-						return $cast($DCTree, $nc($($nc(this->m)->at(p)))->newCommentTree($(newString(p, this->bp))));
+						return $cast($DCTree, $$nc($nc(this->m)->at(p))->newCommentTree($(newString(p, this->bp))));
 					}
 					nextChar();
 				}
 			}
 		} else {
-			bool var$1 = isIdentifierStart(this->ch);
-			if (var$1 && peek("doctype"_s)) {
+			bool var$0 = isIdentifierStart(this->ch);
+			if (var$0 && peek("doctype"_s)) {
 				readIdentifier();
 				nextChar();
 				skipWhitespace();
@@ -1224,7 +975,7 @@ $DCTree* DocCommentParser::html() {
 					if (this->ch == u'>') {
 						int32_t mark = this->bp;
 						nextChar();
-						return $cast($DCTree, $nc($($nc(this->m)->at(d)))->newDocTypeTree($(newString(d, mark))));
+						return $cast($DCTree, $$nc($nc(this->m)->at(d))->newDocTypeTree($(newString(d, mark))));
 					}
 					nextChar();
 				}
@@ -1237,7 +988,7 @@ $DCTree* DocCommentParser::html() {
 }
 
 $List* DocCommentParser::htmlAttrs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, attrs, $new($ListBuffer));
 	skipWhitespace();
 	bool loop$break = false;
@@ -1282,7 +1033,7 @@ $List* DocCommentParser::htmlAttrs() {
 			skipWhitespace();
 			$assign(value, v->toList());
 		}
-		$var($DCTree$DCAttribute, attr, $cast($DCTree$DCAttribute, $nc($($nc(this->m)->at(namePos)))->newAttributeTree(name, vkind, value)));
+		$var($DCTree$DCAttribute, attr, $cast($DCTree$DCAttribute, $$nc($nc(this->m)->at(namePos))->newAttributeTree(name, vkind, value)));
 		attrs->add(attr);
 	}
 	return attrs->toList();
@@ -1291,66 +1042,51 @@ $List* DocCommentParser::htmlAttrs() {
 void DocCommentParser::attrValueChar($ListBuffer* list) {
 	switch (this->ch) {
 	case u'&':
-		{
-			entity(list);
-			break;
-		}
+		entity(list);
+		break;
 	case u'{':
-		{
-			inlineTag(list);
-			break;
-		}
+		inlineTag(list);
+		break;
 	default:
-		{
-			nextChar();
-		}
+		nextChar();
 	}
 }
 
 void DocCommentParser::addPendingText($ListBuffer* list, int32_t textEnd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->textStart != -1) {
 		if (this->textStart <= textEnd) {
-			$nc(list)->add($($nc($($nc(this->m)->at(this->textStart)))->newTextTree($(newString(this->textStart, textEnd + 1)))));
+			$nc(list)->add($($$nc($nc(this->m)->at(this->textStart))->newTextTree($(newString(this->textStart, textEnd + 1)))));
 		}
 		this->textStart = -1;
 	}
 }
 
 $DCTree$DCErroneous* DocCommentParser::erroneous($String* code, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = this->bp - 1;
 	bool loop$break = false;
 	while (i > pos) {
 		switch ($nc(this->buf)->get(i)) {
 		case u'\f':
-			{}
 		case u'\n':
-			{}
 		case u'\r':
-			{
-				this->newline = true;
-				break;
-			}
+			this->newline = true;
+			break;
 		case u'\t':
-			{}
 		case u' ':
-			{
-				break;
-			}
+			break;
 		default:
-			{
-				loop$break = true;
-				break;
-			}
+			loop$break = true;
+			break;
 		}
-
 		if (loop$break) {
 			break;
-		}		--i;
+		}
+		--i;
 	}
 	this->textStart = -1;
-	return $nc($($nc(this->m)->at(pos)))->newErroneousTree($(newString(pos, i + 1)), this->diagSource, code, $$new($ObjectArray, 0));
+	return $$nc($nc(this->m)->at(pos))->newErroneousTree($(newString(pos, i + 1)), this->diagSource, code, $$new($ObjectArray, 0));
 }
 
 bool DocCommentParser::isIdentifierStart(char16_t ch) {
@@ -1417,33 +1153,19 @@ bool DocCommentParser::isHexDigit(char16_t ch) {
 bool DocCommentParser::isUnquotedAttrValueTerminator(char16_t ch) {
 	switch (ch) {
 	case u'\f':
-		{}
 	case u'\n':
-		{}
 	case u'\r':
-		{}
 	case u'\t':
-		{}
 	case u' ':
-		{}
 	case u'\"':
-		{}
 	case u'\'':
-		{}
 	case u'`':
-		{}
 	case u'=':
-		{}
 	case u'<':
-		{}
 	case u'>':
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -1462,42 +1184,40 @@ $String* DocCommentParser::newString(int32_t start, int32_t end) {
 }
 
 $Map* DocCommentParser::createTagParsers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocCommentParser$TagParser$Kind);
 	$init($DocTree$Kind);
 	$var($DocCommentParser$TagParserArray, parsers, $new($DocCommentParser$TagParserArray, {
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$1, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::AUTHOR)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$2, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::CODE, true)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$3, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::DEPRECATED)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$4, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::DOC_ROOT)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$5, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::EXCEPTION)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$6, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::HIDDEN)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$7, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::INDEX)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$8, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::INHERIT_DOC)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$9, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::LINK)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$10, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::LINK_PLAIN)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$11, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::LITERAL, true)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$12, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::PARAM)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$13, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::PROVIDES)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$14, this, $DocCommentParser$TagParser$Kind::EITHER, $DocTree$Kind::RETURN)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$15, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SEE)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$16, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SERIAL_DATA)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$17, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SERIAL_FIELD)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$18, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SERIAL)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$19, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SINCE)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$20, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::SUMMARY)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$21, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::SYSTEM_PROPERTY)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$22, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::THROWS)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$23, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::USES)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$24, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::VALUE)),
-		static_cast<$DocCommentParser$TagParser*>($$new($DocCommentParser$25, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::VERSION))
+		$$new($DocCommentParser$1, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::AUTHOR),
+		$$new($DocCommentParser$2, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::CODE, true),
+		$$new($DocCommentParser$3, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::DEPRECATED),
+		$$new($DocCommentParser$4, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::DOC_ROOT),
+		$$new($DocCommentParser$5, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::EXCEPTION),
+		$$new($DocCommentParser$6, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::HIDDEN),
+		$$new($DocCommentParser$7, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::INDEX),
+		$$new($DocCommentParser$8, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::INHERIT_DOC),
+		$$new($DocCommentParser$9, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::LINK),
+		$$new($DocCommentParser$10, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::LINK_PLAIN),
+		$$new($DocCommentParser$11, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::LITERAL, true),
+		$$new($DocCommentParser$12, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::PARAM),
+		$$new($DocCommentParser$13, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::PROVIDES),
+		$$new($DocCommentParser$14, this, $DocCommentParser$TagParser$Kind::EITHER, $DocTree$Kind::RETURN),
+		$$new($DocCommentParser$15, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SEE),
+		$$new($DocCommentParser$16, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SERIAL_DATA),
+		$$new($DocCommentParser$17, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SERIAL_FIELD),
+		$$new($DocCommentParser$18, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SERIAL),
+		$$new($DocCommentParser$19, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::SINCE),
+		$$new($DocCommentParser$20, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::SUMMARY),
+		$$new($DocCommentParser$21, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::SYSTEM_PROPERTY),
+		$$new($DocCommentParser$22, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::THROWS),
+		$$new($DocCommentParser$23, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::USES),
+		$$new($DocCommentParser$24, this, $DocCommentParser$TagParser$Kind::INLINE, $DocTree$Kind::VALUE),
+		$$new($DocCommentParser$25, this, $DocCommentParser$TagParser$Kind::BLOCK, $DocTree$Kind::VERSION)
 	}));
 	$var($Map, tagParsers, $new($HashMap));
 	{
 		$var($DocCommentParser$TagParserArray, arr$, parsers);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($DocCommentParser$TagParser, p, arr$->get(i$));
 			tagParsers->put($($nc(this->names)->fromString($nc($($nc(p)->getTreeKind()))->tagName)), p);
 		}
@@ -1509,7 +1229,117 @@ DocCommentParser::DocCommentParser() {
 }
 
 $Class* DocCommentParser::load$($String* name, bool initialize) {
-	$loadClass(DocCommentParser, name, initialize, &_DocCommentParser_ClassInfo_, allocate$DocCommentParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"fac", "Lcom/sun/tools/javac/parser/ParserFactory;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, fac)},
+		{"diagSource", "Lcom/sun/tools/javac/util/DiagnosticSource;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, diagSource)},
+		{"comment", "Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, comment)},
+		{"m", "Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, m)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, names)},
+		{"isFileContent", "Z", nullptr, $PRIVATE | $FINAL, $field(DocCommentParser, isFileContent)},
+		{"buf", "[C", nullptr, $PRIVATE, $field(DocCommentParser, buf)},
+		{"bp", "I", nullptr, $PRIVATE, $field(DocCommentParser, bp)},
+		{"buflen", "I", nullptr, $PRIVATE, $field(DocCommentParser, buflen)},
+		{"ch", "C", nullptr, $PRIVATE, $field(DocCommentParser, ch)},
+		{"textStart", "I", nullptr, $PRIVATE, $field(DocCommentParser, textStart)},
+		{"lastNonWhite", "I", nullptr, $PRIVATE, $field(DocCommentParser, lastNonWhite)},
+		{"newline", "Z", nullptr, $PRIVATE, $field(DocCommentParser, newline)},
+		{"tagParsers", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/parser/DocCommentParser$TagParser;>;", $PRIVATE | $FINAL, $field(DocCommentParser, tagParsers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/parser/Tokens$Comment;Z)V", nullptr, $PUBLIC, $method(DocCommentParser, init$, void, $ParserFactory*, $DiagnosticSource*, $Tokens$Comment*, bool)},
+		{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/parser/Tokens$Comment;)V", nullptr, $PUBLIC, $method(DocCommentParser, init$, void, $ParserFactory*, $DiagnosticSource*, $Tokens$Comment*)},
+		{"<init>", "(Lcom/sun/tools/javac/parser/ParserFactory;)V", nullptr, $PUBLIC, $method(DocCommentParser, init$, void, $ParserFactory*)},
+		{"addPendingText", "(Lcom/sun/tools/javac/util/ListBuffer;I)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/DCTree;>;I)V", $PROTECTED, $virtualMethod(DocCommentParser, addPendingText, void, $ListBuffer*, int32_t)},
+		{"attrValueChar", "(Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/DCTree;>;)V", $PROTECTED, $virtualMethod(DocCommentParser, attrValueChar, void, $ListBuffer*)},
+		{"blockContent", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PROTECTED, $virtualMethod(DocCommentParser, blockContent, $List*)},
+		{"blockContent", "(Lcom/sun/tools/javac/parser/DocCommentParser$Phase;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/parser/DocCommentParser$Phase;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PROTECTED, $virtualMethod(DocCommentParser, blockContent, $List*, $DocCommentParser$Phase*)},
+		{"blockTag", "()Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, blockTag, $DCTree*)},
+		{"blockTags", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PROTECTED, $virtualMethod(DocCommentParser, blockTags, $List*)},
+		{"createTagParsers", "()Ljava/util/Map;", "()Ljava/util/Map<Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/parser/DocCommentParser$TagParser;>;", $PRIVATE, $method(DocCommentParser, createTagParsers, $Map*)},
+		{"entity", "(Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/DCTree;>;)V", $PROTECTED, $virtualMethod(DocCommentParser, entity, void, $ListBuffer*)},
+		{"entity", "()Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, entity, $DCTree*)},
+		{"erroneous", "(Ljava/lang/String;I)Lcom/sun/tools/javac/tree/DCTree$DCErroneous;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, erroneous, $DCTree$DCErroneous*, $String*, int32_t)},
+		{"html", "()Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PRIVATE, $method(DocCommentParser, html, $DCTree*)},
+		{"htmlAttrs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PROTECTED, $virtualMethod(DocCommentParser, htmlAttrs, $List*)},
+		{"identifier", "()Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, identifier, $DCTree$DCIdentifier*), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
+		{"inlineContent", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PRIVATE, $method(DocCommentParser, inlineContent, $List*)},
+		{"inlineTag", "(Lcom/sun/tools/javac/util/ListBuffer;)V", "(Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/DCTree;>;)V", $PROTECTED, $virtualMethod(DocCommentParser, inlineTag, void, $ListBuffer*)},
+		{"inlineTag", "()Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, inlineTag, $DCTree*)},
+		{"inlineText", "(Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;)Lcom/sun/tools/javac/tree/DCTree$DCText;", nullptr, $PRIVATE, $method(DocCommentParser, inlineText, $DCTree$DCText*, $DocCommentParser$WhitespaceRetentionPolicy*), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
+		{"inlineWord", "()Lcom/sun/tools/javac/tree/DCTree$DCText;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, inlineWord, $DCTree$DCText*)},
+		{"isDecimalDigit", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isDecimalDigit, bool, char16_t)},
+		{"isEndBody", "()Z", nullptr, 0, $virtualMethod(DocCommentParser, isEndBody, bool)},
+		{"isEndPreamble", "()Z", nullptr, 0, $virtualMethod(DocCommentParser, isEndPreamble, bool)},
+		{"isHexDigit", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isHexDigit, bool, char16_t)},
+		{"isIdentifierStart", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isIdentifierStart, bool, char16_t)},
+		{"isJavaIdentifierStart", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isJavaIdentifierStart, bool, char16_t)},
+		{"isUnquotedAttrValueTerminator", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isUnquotedAttrValueTerminator, bool, char16_t)},
+		{"isWhitespace", "(C)Z", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, isWhitespace, bool, char16_t)},
+		{"newString", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(DocCommentParser, newString, $String*, int32_t, int32_t)},
+		{"nextChar", "()V", nullptr, 0, $virtualMethod(DocCommentParser, nextChar, void)},
+		{"parse", "()Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", nullptr, $PUBLIC, $virtualMethod(DocCommentParser, parse, $DCTree$DCDocComment*)},
+		{"peek", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(DocCommentParser, peek, bool, $String*)},
+		{"quotedString", "()Lcom/sun/tools/javac/tree/DCTree$DCText;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, quotedString, $DCTree$DCText*)},
+		{"readAttributeName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readAttributeName, $Name*)},
+		{"readIdentifier", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readIdentifier, $Name*)},
+		{"readJavaIdentifier", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readJavaIdentifier, $Name*)},
+		{"readSystemPropertyName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readSystemPropertyName, $Name*)},
+		{"readTagName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, readTagName, $Name*)},
+		{"reference", "(Z)Lcom/sun/tools/javac/tree/DCTree$DCReference;", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, reference, $DCTree$DCReference*, bool), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
+		{"skipWhitespace", "()V", nullptr, $PROTECTED, $virtualMethod(DocCommentParser, skipWhitespace, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.DocCommentParser$26", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.parser.DocCommentParser$TagParser", "com.sun.tools.javac.parser.DocCommentParser", "TagParser", $PRIVATE | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.parser.DocCommentParser$WhitespaceRetentionPolicy", "com.sun.tools.javac.parser.DocCommentParser", "WhitespaceRetentionPolicy", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.parser.DocCommentParser$Phase", "com.sun.tools.javac.parser.DocCommentParser", "Phase", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.parser.DocCommentParser$ParseException", "com.sun.tools.javac.parser.DocCommentParser", "ParseException", $STATIC},
+		{"com.sun.tools.javac.parser.DocCommentParser$25", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$24", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$23", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$22", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$21", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$20", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$19", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$18", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$17", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$16", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$15", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$14", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$13", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$12", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$11", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$10", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$9", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$8", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$7", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$6", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$5", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.DocCommentParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.DocCommentParser$26,com.sun.tools.javac.parser.DocCommentParser$TagParser,com.sun.tools.javac.parser.DocCommentParser$TagParser$Kind,com.sun.tools.javac.parser.DocCommentParser$WhitespaceRetentionPolicy,com.sun.tools.javac.parser.DocCommentParser$Phase,com.sun.tools.javac.parser.DocCommentParser$ParseException,com.sun.tools.javac.parser.DocCommentParser$25,com.sun.tools.javac.parser.DocCommentParser$24,com.sun.tools.javac.parser.DocCommentParser$23,com.sun.tools.javac.parser.DocCommentParser$22,com.sun.tools.javac.parser.DocCommentParser$21,com.sun.tools.javac.parser.DocCommentParser$20,com.sun.tools.javac.parser.DocCommentParser$19,com.sun.tools.javac.parser.DocCommentParser$18,com.sun.tools.javac.parser.DocCommentParser$17,com.sun.tools.javac.parser.DocCommentParser$16,com.sun.tools.javac.parser.DocCommentParser$15,com.sun.tools.javac.parser.DocCommentParser$14,com.sun.tools.javac.parser.DocCommentParser$13,com.sun.tools.javac.parser.DocCommentParser$12,com.sun.tools.javac.parser.DocCommentParser$11,com.sun.tools.javac.parser.DocCommentParser$10,com.sun.tools.javac.parser.DocCommentParser$9,com.sun.tools.javac.parser.DocCommentParser$8,com.sun.tools.javac.parser.DocCommentParser$7,com.sun.tools.javac.parser.DocCommentParser$6,com.sun.tools.javac.parser.DocCommentParser$5,com.sun.tools.javac.parser.DocCommentParser$4,com.sun.tools.javac.parser.DocCommentParser$3,com.sun.tools.javac.parser.DocCommentParser$2,com.sun.tools.javac.parser.DocCommentParser$1"
+	};
+	$loadClass(DocCommentParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocCommentParser);
+	});
 	return class$;
 }
 

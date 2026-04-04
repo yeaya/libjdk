@@ -36,6 +36,7 @@ class JISAutoDetect$Decoder : public ::java::nio::charset::CharsetDecoder {
 	$class(JISAutoDetect$Decoder, 0, ::java::nio::charset::CharsetDecoder)
 public:
 	JISAutoDetect$Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	static void copyLeadingASCII(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);
 	::java::nio::charset::CoderResult* decodeLoop(::sun::nio::cs::DelegatableDecoder* decoder, ::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);

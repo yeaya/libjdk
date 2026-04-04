@@ -1,12 +1,10 @@
 #include <com/sun/media/sound/JARSoundbankReader.h>
-
 #include <com/sun/media/sound/SimpleSoundbank.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ReflectiveOperationException.h>
 #include <java/net/URI.h>
@@ -27,12 +25,9 @@ using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $ClassLoader = ::java::lang::ClassLoader;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $ArrayList = ::java::util::ArrayList;
@@ -47,54 +42,30 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _JARSoundbankReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JARSoundbankReader, init$, void)},
-	{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(JARSoundbankReader, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(JARSoundbankReader, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(JARSoundbankReader, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
-	{"isZIP", "(Ljava/net/URL;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JARSoundbankReader, isZIP, bool, $URL*)},
-	{}
-};
-
-$ClassInfo _JARSoundbankReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.JARSoundbankReader",
-	"javax.sound.midi.spi.SoundbankReader",
-	nullptr,
-	nullptr,
-	_JARSoundbankReader_MethodInfo_
-};
-
-$Object* allocate$JARSoundbankReader($Class* clazz) {
-	return $of($alloc(JARSoundbankReader));
-}
-
 void JARSoundbankReader::init$() {
 	$SoundbankReader::init$();
 }
 
 bool JARSoundbankReader::isZIP($URL* url) {
 	$init(JARSoundbankReader);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ok = false;
 	try {
 		$var($InputStream, stream, $nc(url)->openStream());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$var($bytes, buff, $new($bytes, 4));
-				ok = $nc(stream)->read(buff) == 4;
-				if (ok) {
-					ok = (buff->get(0) == 80 && buff->get(1) == 75 && buff->get(2) == 3 && buff->get(3) == 4);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(stream)->close();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$var($bytes, buff, $new($bytes, 4));
+			ok = $nc(stream)->read(buff) == 4;
+			if (ok) {
+				ok = (buff->get(0) == 80 && buff->get(1) == 75 && buff->get(2) == 3 && buff->get(3) == 4);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(stream)->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($IOException& e) {
 	}
@@ -102,7 +73,7 @@ bool JARSoundbankReader::isZIP($URL* url) {
 }
 
 $Soundbank* JARSoundbankReader::getSoundbank($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!isZIP(url)) {
 		return nullptr;
@@ -113,34 +84,32 @@ $Soundbank* JARSoundbankReader::getSoundbank($URL* url) {
 	if (stream == nullptr) {
 		return nullptr;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($BufferedReader, r, $new($BufferedReader, $$new($InputStreamReader, stream)));
-			$var($String, line, r->readLine());
-			while (line != nullptr) {
-				if (!line->startsWith("#"_s)) {
-					try {
-						$Class* c = $Class::forName($(line->trim()), false, ucl);
-						$load($Soundbank);
-						if ($Soundbank::class$->isAssignableFrom(c)) {
-							$ReflectUtil::checkPackageAccess(c);
-							$var($Object, o, $nc(c)->newInstance());
-							soundbanks->add($cast($Soundbank, o));
-						}
-					} catch ($ReflectiveOperationException& ignored) {
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($BufferedReader, r, $new($BufferedReader, $$new($InputStreamReader, stream)));
+		$var($String, line, r->readLine());
+		while (line != nullptr) {
+			if (!line->startsWith("#"_s)) {
+				try {
+					$Class* c = $Class::forName($(line->trim()), false, ucl);
+					$load($Soundbank);
+					if ($Soundbank::class$->isAssignableFrom(c)) {
+						$ReflectUtil::checkPackageAccess(c);
+						$var($Object, o, c->newInstance());
+						soundbanks->add($cast($Soundbank, o));
 					}
+				} catch ($ReflectiveOperationException& ignored) {
 				}
-				$assign(line, r->readLine());
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(stream)->close();
+			$assign(line, r->readLine());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(stream)->close();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (soundbanks->size() == 0) {
 		return nullptr;
@@ -165,15 +134,33 @@ $Soundbank* JARSoundbankReader::getSoundbank($InputStream* stream) {
 }
 
 $Soundbank* JARSoundbankReader::getSoundbank($File* file) {
-	$useLocalCurrentObjectStackCache();
-	return getSoundbank($($nc($($nc(file)->toURI()))->toURL()));
+	$useLocalObjectStack();
+	return getSoundbank($($$nc($nc(file)->toURI())->toURL()));
 }
 
 JARSoundbankReader::JARSoundbankReader() {
 }
 
 $Class* JARSoundbankReader::load$($String* name, bool initialize) {
-	$loadClass(JARSoundbankReader, name, initialize, &_JARSoundbankReader_ClassInfo_, allocate$JARSoundbankReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JARSoundbankReader, init$, void)},
+		{"getSoundbank", "(Ljava/net/URL;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(JARSoundbankReader, getSoundbank, $Soundbank*, $URL*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/InputStream;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(JARSoundbankReader, getSoundbank, $Soundbank*, $InputStream*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"getSoundbank", "(Ljava/io/File;)Ljavax/sound/midi/Soundbank;", nullptr, $PUBLIC, $virtualMethod(JARSoundbankReader, getSoundbank, $Soundbank*, $File*), "javax.sound.midi.InvalidMidiDataException,java.io.IOException"},
+		{"isZIP", "(Ljava/net/URL;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JARSoundbankReader, isZIP, bool, $URL*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.JARSoundbankReader",
+		"javax.sound.midi.spi.SoundbankReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JARSoundbankReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JARSoundbankReader);
+	});
 	return class$;
 }
 

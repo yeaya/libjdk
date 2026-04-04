@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI.h>
-
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$Actions.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$CroppedEdge.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$Handler.h>
@@ -26,11 +25,8 @@
 #include <java/awt/Point.h>
 #include <java/awt/Polygon.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Shape.h>
-#include <java/awt/event/ContainerListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <java/util/Hashtable.h>
@@ -98,13 +94,10 @@
 
 using $RectangleArray = $Array<::java::awt::Rectangle>;
 using $AquaTabbedPaneCopyFromBasicUI$Actions = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$Actions;
-using $AquaTabbedPaneCopyFromBasicUI$CroppedEdge = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$CroppedEdge;
 using $AquaTabbedPaneCopyFromBasicUI$Handler = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$Handler;
 using $AquaTabbedPaneCopyFromBasicUI$LazyActionMap = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$LazyActionMap;
 using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton;
-using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel;
 using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport;
-using $AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport;
 using $AquaTabbedPaneCopyFromBasicUI$TabContainer = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$TabContainer;
 using $AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout;
 using $AquaTabbedPaneCopyFromBasicUI$TabbedPaneScrollLayout = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$TabbedPaneScrollLayout;
@@ -122,11 +115,8 @@ using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Polygon = ::java::awt::Polygon;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
-using $ContainerListener = ::java::awt::event::ContainerListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -139,7 +129,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Icon = ::javax::swing::Icon;
 using $InputMap = ::javax::swing::InputMap;
@@ -165,236 +154,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$CompoundAttribute _AquaTabbedPaneCopyFromBasicUI_FieldAnnotations_upKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _AquaTabbedPaneCopyFromBasicUI_FieldAnnotations_downKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _AquaTabbedPaneCopyFromBasicUI_FieldAnnotations_leftKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _AquaTabbedPaneCopyFromBasicUI_FieldAnnotations_rightKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _AquaTabbedPaneCopyFromBasicUI_FieldInfo_[] = {
-	{"tabPane", "Ljavax/swing/JTabbedPane;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabPane)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, highlight)},
-	{"lightHighlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, lightHighlight)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, shadow)},
-	{"darkShadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, darkShadow)},
-	{"focus", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, focus)},
-	{"selectedColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, selectedColor)},
-	{"textIconGap", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, textIconGap)},
-	{"tabRunOverlay", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabRunOverlay)},
-	{"tabInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabInsets)},
-	{"selectedTabPadInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, selectedTabPadInsets)},
-	{"tabAreaInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabAreaInsets)},
-	{"contentBorderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, contentBorderInsets)},
-	{"tabsOverlapBorder", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, tabsOverlapBorder)},
-	{"tabsOpaque", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, tabsOpaque)},
-	{"contentOpaque", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, contentOpaque)},
-	{"upKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(AquaTabbedPaneCopyFromBasicUI, upKey), _AquaTabbedPaneCopyFromBasicUI_FieldAnnotations_upKey},
-	{"downKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(AquaTabbedPaneCopyFromBasicUI, downKey), _AquaTabbedPaneCopyFromBasicUI_FieldAnnotations_downKey},
-	{"leftKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(AquaTabbedPaneCopyFromBasicUI, leftKey), _AquaTabbedPaneCopyFromBasicUI_FieldAnnotations_leftKey},
-	{"rightKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(AquaTabbedPaneCopyFromBasicUI, rightKey), _AquaTabbedPaneCopyFromBasicUI_FieldAnnotations_rightKey},
-	{"tabRuns", "[I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabRuns)},
-	{"runCount", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, runCount)},
-	{"selectedRun", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, selectedRun)},
-	{"rects", "[Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, rects)},
-	{"maxTabHeight", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, maxTabHeight)},
-	{"maxTabWidth", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, maxTabWidth)},
-	{"tabChangeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabChangeListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, propertyChangeListener)},
-	{"mouseListener", "Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, mouseListener)},
-	{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, focusListener)},
-	{"currentPadInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $FINAL, $field(AquaTabbedPaneCopyFromBasicUI, currentPadInsets)},
-	{"currentTabAreaInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $FINAL, $field(AquaTabbedPaneCopyFromBasicUI, currentTabAreaInsets)},
-	{"visibleComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, visibleComponent)},
-	{"htmlViews", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/View;>;", $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, htmlViews)},
-	{"mnemonicToIndexMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Integer;Ljava/lang/Integer;>;", $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, mnemonicToIndexMap)},
-	{"mnemonicInputMap", "Ljavax/swing/InputMap;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, mnemonicInputMap)},
-	{"tabScroller", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, tabScroller)},
-	{"tabContainer", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$TabContainer;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, tabContainer)},
-	{"calcRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED | $TRANSIENT, $field(AquaTabbedPaneCopyFromBasicUI, calcRect)},
-	{"focusIndex", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, focusIndex)},
-	{"handler", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$Handler;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, handler)},
-	{"rolloverTabIndex", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, rolloverTabIndex)},
-	{"isRunsDirty", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, isRunsDirty)},
-	{"calculatedBaseline", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, calculatedBaseline)},
-	{"baseline", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, baseline)},
-	{"xCropLen", "[I", nullptr, $PRIVATE | $STATIC, $staticField(AquaTabbedPaneCopyFromBasicUI, xCropLen)},
-	{"yCropLen", "[I", nullptr, $PRIVATE | $STATIC, $staticField(AquaTabbedPaneCopyFromBasicUI, yCropLen)},
-	{"CROP_SEGMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaTabbedPaneCopyFromBasicUI, CROP_SEGMENT)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneCopyFromBasicUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTabbedPaneCopyFromBasicUI, init$, void)},
-	{"addMnemonic", "(II)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, addMnemonic, void, int32_t, int32_t)},
-	{"assureRectsCreated", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, assureRectsCreated, void, int32_t)},
-	{"calculateBaseline", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, calculateBaseline, void)},
-	{"calculateBaselineIfNecessary", "()I", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, calculateBaselineIfNecessary, int32_t)},
-	{"calculateMaxTabHeight", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateMaxTabHeight, int32_t, int32_t)},
-	{"calculateMaxTabWidth", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateMaxTabWidth, int32_t, int32_t)},
-	{"calculateTabAreaHeight", "(III)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateTabAreaHeight, int32_t, int32_t, int32_t, int32_t)},
-	{"calculateTabAreaWidth", "(III)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateTabAreaWidth, int32_t, int32_t, int32_t, int32_t)},
-	{"calculateTabHeight", "(III)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateTabHeight, int32_t, int32_t, int32_t, int32_t)},
-	{"calculateTabWidth", "(IILjava/awt/FontMetrics;)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateTabWidth, int32_t, int32_t, int32_t, $FontMetrics*)},
-	{"createChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createChangeListener, $ChangeListener*)},
-	{"createCroppedTabShape", "(ILjava/awt/Rectangle;I)Ljava/awt/Polygon;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI, createCroppedTabShape, $Polygon*, int32_t, $Rectangle*, int32_t)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createFocusListener, $FocusListener*)},
-	{"createHTMLVector", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/swing/text/View;>;", $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, createHTMLVector, $Vector*)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createLayoutManager, $LayoutManager*)},
-	{"createMouseListener", "()Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createMouseListener, $MouseListener*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createScrollButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createScrollButton, $JButton*, int32_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI, createUI, $ComponentUI*, $JComponent*)},
-	{"ensureCurrentLayout", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, ensureCurrentLayout, void)},
-	{"expandTabRunsArray", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, expandTabRunsArray, void)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaseline", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getBaseline, int32_t, int32_t)},
-	{"getBaselineOffset", "()I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getBaselineOffset, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getClosestTab", "(II)I", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, getClosestTab, int32_t, int32_t, int32_t)},
-	{"getContentBorderInsets", "(I)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getContentBorderInsets, $Insets*, int32_t)},
-	{"getFocusIndex", "()I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getFocusIndex, int32_t)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getFontMetrics, $FontMetrics*)},
-	{"getHandler", "()Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$Handler;", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, getHandler, $AquaTabbedPaneCopyFromBasicUI$Handler*)},
-	{"getIconForTab", "(I)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getIconForTab, $Icon*, int32_t)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getInputMap, $InputMap*, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getNextTabIndex", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getNextTabIndex, int32_t, int32_t)},
-	{"getNextTabIndexInRun", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getNextTabIndexInRun, int32_t, int32_t, int32_t)},
-	{"getNextTabRun", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getNextTabRun, int32_t, int32_t)},
-	{"getPreviousTabIndex", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getPreviousTabIndex, int32_t, int32_t)},
-	{"getPreviousTabIndexInRun", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getPreviousTabIndexInRun, int32_t, int32_t, int32_t)},
-	{"getPreviousTabRun", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getPreviousTabRun, int32_t, int32_t)},
-	{"getRolloverTab", "()I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getRolloverTab, int32_t)},
-	{"getRunForTab", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getRunForTab, int32_t, int32_t, int32_t)},
-	{"getSelectedTabPadInsets", "(I)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getSelectedTabPadInsets, $Insets*, int32_t)},
-	{"getTabAreaInsets", "(I)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabAreaInsets, $Insets*, int32_t)},
-	{"getTabBounds", "(Ljavax/swing/JTabbedPane;I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabBounds, $Rectangle*, $JTabbedPane*, int32_t)},
-	{"getTabBounds", "(ILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabBounds, $Rectangle*, int32_t, $Rectangle*)},
-	{"getTabComponentAt", "(I)Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabComponentAt, $Component*, int32_t)},
-	{"getTabInsets", "(II)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabInsets, $Insets*, int32_t, int32_t)},
-	{"getTabLabelShiftX", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabLabelShiftX, int32_t, int32_t, int32_t, bool)},
-	{"getTabLabelShiftY", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabLabelShiftY, int32_t, int32_t, int32_t, bool)},
-	{"getTabRunCount", "(Ljavax/swing/JTabbedPane;)I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabRunCount, int32_t, $JTabbedPane*)},
-	{"getTabRunIndent", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabRunIndent, int32_t, int32_t, int32_t)},
-	{"getTabRunOffset", "(IIIZ)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabRunOffset, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"getTabRunOverlay", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabRunOverlay, int32_t, int32_t)},
-	{"getTextViewForTab", "(I)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTextViewForTab, $View*, int32_t)},
-	{"getVisibleComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getVisibleComponent, $Component*)},
-	{"initMnemonics", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, initMnemonics, void)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installListeners, void)},
-	{"installTabContainer", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, installTabContainer, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installUI, void, $JComponent*)},
-	{"isHorizontalTabPlacement", "()Z", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, isHorizontalTabPlacement, bool)},
-	{"lastTabInRun", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, lastTabInRun, int32_t, int32_t, int32_t)},
-	{"layoutLabel", "(ILjava/awt/FontMetrics;ILjava/lang/String;Ljavax/swing/Icon;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, layoutLabel, void, int32_t, $FontMetrics*, int32_t, $String*, $Icon*, $Rectangle*, $Rectangle*, $Rectangle*, bool)},
-	{"loadActionMap", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$LazyActionMap;)V", nullptr, $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI, loadActionMap, void, $AquaTabbedPaneCopyFromBasicUI$LazyActionMap*)},
-	{"navigateSelectedTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, navigateSelectedTab, void, int32_t)},
-	{"navigateTo", "(I)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, navigateTo, void, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintContentBorder", "(Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorder, void, $Graphics*, int32_t, int32_t)},
-	{"paintContentBorderBottomEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorderBottomEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintContentBorderLeftEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorderLeftEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintContentBorderRightEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorderRightEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintContentBorderTopEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorderTopEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"paintCroppedTabEdge", "(Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, paintCroppedTabEdge, void, $Graphics*)},
-	{"paintFocusIndicator", "(Ljava/awt/Graphics;I[Ljava/awt/Rectangle;ILjava/awt/Rectangle;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintFocusIndicator, void, $Graphics*, int32_t, $RectangleArray*, int32_t, $Rectangle*, $Rectangle*, bool)},
-	{"paintIcon", "(Ljava/awt/Graphics;IILjavax/swing/Icon;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintIcon, void, $Graphics*, int32_t, int32_t, $Icon*, $Rectangle*, bool)},
-	{"paintTab", "(Ljava/awt/Graphics;I[Ljava/awt/Rectangle;ILjava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintTab, void, $Graphics*, int32_t, $RectangleArray*, int32_t, $Rectangle*, $Rectangle*)},
-	{"paintTabArea", "(Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintTabArea, void, $Graphics*, int32_t, int32_t)},
-	{"paintTabBackground", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintTabBackground, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintTabBorder", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintTabBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"paintText", "(Ljava/awt/Graphics;ILjava/awt/Font;Ljava/awt/FontMetrics;ILjava/lang/String;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintText, void, $Graphics*, int32_t, $Font*, $FontMetrics*, int32_t, $String*, $Rectangle*, bool)},
-	{"repaintTab", "(I)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, repaintTab, void, int32_t)},
-	{"requestFocusForVisibleComponent", "()Z", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, requestFocusForVisibleComponent, bool)},
-	{"resetMnemonics", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, resetMnemonics, void)},
-	{"rotateInsets", "(Ljava/awt/Insets;Ljava/awt/Insets;I)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI, rotateInsets, void, $Insets*, $Insets*, int32_t)},
-	{"scrollableTabLayoutEnabled", "()Z", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, scrollableTabLayoutEnabled, bool)},
-	{"selectAdjacentRunTab", "(III)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectAdjacentRunTab, void, int32_t, int32_t, int32_t)},
-	{"selectNextTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectNextTab, void, int32_t)},
-	{"selectNextTabInRun", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectNextTabInRun, void, int32_t)},
-	{"selectPreviousTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectPreviousTab, void, int32_t)},
-	{"selectPreviousTabInRun", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectPreviousTabInRun, void, int32_t)},
-	{"setFocusIndex", "(IZ)V", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, setFocusIndex, void, int32_t, bool)},
-	{"setRolloverTab", "(II)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, setRolloverTab, void, int32_t, int32_t)},
-	{"setRolloverTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, setRolloverTab, void, int32_t)},
-	{"setVisibleComponent", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, setVisibleComponent, void, $Component*)},
-	{"shouldPadTabRun", "(II)Z", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, shouldPadTabRun, bool, int32_t, int32_t)},
-	{"shouldRotateTabRuns", "(I)Z", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, shouldRotateTabRuns, bool, int32_t)},
-	{"tabForCoordinate", "(Ljavax/swing/JTabbedPane;II)I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, tabForCoordinate, int32_t, $JTabbedPane*, int32_t, int32_t)},
-	{"tabForCoordinate", "(Ljavax/swing/JTabbedPane;IIZ)I", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, tabForCoordinate, int32_t, $JTabbedPane*, int32_t, int32_t, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"translatePointToTabPanel", "(IILjava/awt/Point;)Ljava/awt/Point;", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, translatePointToTabPanel, $Point*, int32_t, int32_t, $Point*)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallListeners, void)},
-	{"uninstallTabContainer", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, uninstallTabContainer, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallUI, void, $JComponent*)},
-	{"updateMnemonics", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, updateMnemonics, void)},
-	{"validateFocusIndex", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, validateFocusIndex, void)},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneCopyFromBasicUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$LazyActionMap", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "LazyActionMap", $STATIC},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$CroppedEdge", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "CroppedEdge", $PRIVATE},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabContainer", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabContainer", $PRIVATE},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$FocusHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "FocusHandler", $PUBLIC},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$MouseHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "MouseHandler", $PUBLIC},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabSelectionHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabSelectionHandler", $PUBLIC},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "PropertyChangeHandler", $PUBLIC},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Handler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "Handler", $PRIVATE},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabButton", $PRIVATE},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabPanel", $PRIVATE},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabViewport", $PRIVATE},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabSupport", $PRIVATE},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneScrollLayout", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabbedPaneScrollLayout", 0},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabbedPaneLayout", $PUBLIC},
-	{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Actions", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneCopyFromBasicUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI",
-	"javax.swing.plaf.TabbedPaneUI",
-	"javax.swing.SwingConstants",
-	_AquaTabbedPaneCopyFromBasicUI_FieldInfo_,
-	_AquaTabbedPaneCopyFromBasicUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneCopyFromBasicUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$LazyActionMap,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$CroppedEdge,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabContainer,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$FocusHandler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$MouseHandler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabSelectionHandler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Handler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneScrollLayout,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Actions"
-};
-
-$Object* allocate$AquaTabbedPaneCopyFromBasicUI($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneCopyFromBasicUI));
-}
 
 int32_t AquaTabbedPaneCopyFromBasicUI::hashCode() {
 	 return this->$TabbedPaneUI::hashCode();
@@ -443,7 +202,7 @@ $Component* AquaTabbedPaneCopyFromBasicUI::getTabComponentAt(int32_t i) {
 
 void AquaTabbedPaneCopyFromBasicUI::loadActionMap($AquaTabbedPaneCopyFromBasicUI$LazyActionMap* map) {
 	$init(AquaTabbedPaneCopyFromBasicUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AquaTabbedPaneCopyFromBasicUI$Actions);
 	$nc(map)->put($$new($AquaTabbedPaneCopyFromBasicUI$Actions, $AquaTabbedPaneCopyFromBasicUI$Actions::NEXT));
 	map->put($$new($AquaTabbedPaneCopyFromBasicUI$Actions, $AquaTabbedPaneCopyFromBasicUI$Actions::PREVIOUS));
@@ -498,16 +257,16 @@ void AquaTabbedPaneCopyFromBasicUI::installComponents() {
 	if (scrollableTabLayoutEnabled()) {
 		if (this->tabScroller == nullptr) {
 			$set(this, tabScroller, $new($AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport, this, $nc(this->tabPane)->getTabPlacement()));
-			$nc(this->tabPane)->add(static_cast<$Component*>($nc(this->tabScroller)->viewport));
+			$nc(this->tabPane)->add($nc(this->tabScroller)->viewport);
 		}
 	}
 	installTabContainer();
 }
 
 void AquaTabbedPaneCopyFromBasicUI::installTabContainer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(this->tabPane)->getTabCount(); ++i) {
-		$var($Component, tabComponent, $nc(this->tabPane)->getTabComponentAt(i));
+		$var($Component, tabComponent, this->tabPane->getTabComponentAt(i));
 		if (tabComponent != nullptr) {
 			if (this->tabContainer == nullptr) {
 				$set(this, tabContainer, $new($AquaTabbedPaneCopyFromBasicUI$TabContainer, this));
@@ -519,9 +278,9 @@ void AquaTabbedPaneCopyFromBasicUI::installTabContainer() {
 		return;
 	}
 	if (scrollableTabLayoutEnabled()) {
-		$nc($nc(this->tabScroller)->tabPanel)->add(static_cast<$Component*>(this->tabContainer));
+		$nc($nc(this->tabScroller)->tabPanel)->add(this->tabContainer);
 	} else {
-		$nc(this->tabPane)->add(static_cast<$Component*>(this->tabContainer));
+		$nc(this->tabPane)->add(this->tabContainer);
 	}
 }
 
@@ -535,9 +294,9 @@ $JButton* AquaTabbedPaneCopyFromBasicUI::createScrollButton(int32_t direction) {
 void AquaTabbedPaneCopyFromBasicUI::uninstallComponents() {
 	uninstallTabContainer();
 	if (scrollableTabLayoutEnabled()) {
-		$nc(this->tabPane)->remove(static_cast<$Component*>($nc(this->tabScroller)->viewport));
-		$nc(this->tabPane)->remove(static_cast<$Component*>($nc(this->tabScroller)->scrollForwardButton));
-		$nc(this->tabPane)->remove(static_cast<$Component*>($nc(this->tabScroller)->scrollBackwardButton));
+		$nc(this->tabPane)->remove($nc(this->tabScroller)->viewport);
+		$nc(this->tabPane)->remove($nc(this->tabScroller)->scrollForwardButton);
+		$nc(this->tabPane)->remove($nc(this->tabScroller)->scrollBackwardButton);
 		$set(this, tabScroller, nullptr);
 	}
 }
@@ -547,12 +306,12 @@ void AquaTabbedPaneCopyFromBasicUI::uninstallTabContainer() {
 		return;
 	}
 	$nc(this->tabContainer)->notifyTabbedPane = false;
-	$nc(this->tabContainer)->removeAll();
+	this->tabContainer->removeAll();
 	if (scrollableTabLayoutEnabled()) {
-		$nc(this->tabContainer)->remove(static_cast<$Component*>($nc(this->tabScroller)->croppedEdge));
-		$nc($nc(this->tabScroller)->tabPanel)->remove(static_cast<$Component*>(this->tabContainer));
+		$nc(this->tabContainer)->remove($nc(this->tabScroller)->croppedEdge);
+		$nc($nc(this->tabScroller)->tabPanel)->remove(this->tabContainer);
 	} else {
-		$nc(this->tabPane)->remove(static_cast<$Component*>(this->tabContainer));
+		$nc(this->tabPane)->remove(this->tabContainer);
 	}
 	$set(this, tabContainer, nullptr);
 }
@@ -576,7 +335,6 @@ void AquaTabbedPaneCopyFromBasicUI::installDefaults() {
 	this->contentOpaque = $UIManager::getBoolean("TabbedPane.contentOpaque"_s);
 	$var($Object, opaque, $UIManager::get("TabbedPane.opaque"_s));
 	if (opaque == nullptr) {
-		$init($Boolean);
 		$assign(opaque, $Boolean::FALSE);
 	}
 	$LookAndFeel::installProperty(this->tabPane, "opaque"_s, opaque);
@@ -595,7 +353,7 @@ void AquaTabbedPaneCopyFromBasicUI::uninstallDefaults() {
 }
 
 void AquaTabbedPaneCopyFromBasicUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (($set(this, propertyChangeListener, createPropertyChangeListener())) != nullptr) {
 		$nc(this->tabPane)->addPropertyChangeListener(this->propertyChangeListener);
 	}
@@ -616,7 +374,7 @@ void AquaTabbedPaneCopyFromBasicUI::installListeners() {
 }
 
 void AquaTabbedPaneCopyFromBasicUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mouseListener != nullptr) {
 		$nc(this->tabPane)->removeMouseListener(this->mouseListener);
 		$set(this, mouseListener, nullptr);
@@ -628,7 +386,7 @@ void AquaTabbedPaneCopyFromBasicUI::uninstallListeners() {
 	}
 	$nc(this->tabPane)->removeContainerListener($(getHandler()));
 	if (this->htmlViews != nullptr) {
-		$nc(this->htmlViews)->removeAllElements();
+		this->htmlViews->removeAllElements();
 		$set(this, htmlViews, nullptr);
 	}
 	if (this->tabChangeListener != nullptr) {
@@ -704,25 +462,25 @@ void AquaTabbedPaneCopyFromBasicUI::updateMnemonics() {
 
 void AquaTabbedPaneCopyFromBasicUI::resetMnemonics() {
 	if (this->mnemonicToIndexMap != nullptr) {
-		$nc(this->mnemonicToIndexMap)->clear();
+		this->mnemonicToIndexMap->clear();
 		$nc(this->mnemonicInputMap)->clear();
 	}
 }
 
 void AquaTabbedPaneCopyFromBasicUI::addMnemonic(int32_t index, int32_t mnemonic) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mnemonicToIndexMap == nullptr) {
 		initMnemonics();
 	}
 	$nc(this->mnemonicInputMap)->put($($KeyStroke::getKeyStroke(mnemonic, $Event::ALT_MASK | $Event::CTRL_MASK)), "setSelectedIndex"_s);
-	$var($Object, var$0, $of($Integer::valueOf(mnemonic)));
+	$var($Object, var$0, $Integer::valueOf(mnemonic));
 	$nc(this->mnemonicToIndexMap)->put(var$0, $($Integer::valueOf(index)));
 }
 
 void AquaTabbedPaneCopyFromBasicUI::initMnemonics() {
 	$set(this, mnemonicToIndexMap, $new($Hashtable));
 	$set(this, mnemonicInputMap, $new($ComponentInputMapUIResource, this->tabPane));
-	$nc(this->mnemonicInputMap)->setParent($($SwingUtilities::getUIInputMap(this->tabPane, $JComponent::WHEN_IN_FOCUSED_WINDOW)));
+	this->mnemonicInputMap->setParent($($SwingUtilities::getUIInputMap(this->tabPane, $JComponent::WHEN_IN_FOCUSED_WINDOW)));
 	$SwingUtilities::replaceUIInputMap(this->tabPane, $JComponent::WHEN_IN_FOCUSED_WINDOW, this->mnemonicInputMap);
 }
 
@@ -747,7 +505,7 @@ $Dimension* AquaTabbedPaneCopyFromBasicUI::getMaximumSize($JComponent* c) {
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TabbedPaneUI::getBaseline(c, width, height);
 	int32_t baseline = calculateBaselineIfNecessary();
 	if (baseline != -1) {
@@ -756,22 +514,15 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getBaseline($JComponent* c, int32_t width
 		$var($Insets, tabAreaInsets, getTabAreaInsets(placement));
 		switch (placement) {
 		case $SwingConstants::TOP:
-			{
-				baseline += $nc(insets)->top + $nc(tabAreaInsets)->top;
-				return baseline;
-			}
+			baseline += $nc(insets)->top + $nc(tabAreaInsets)->top;
+			return baseline;
 		case $SwingConstants::BOTTOM:
-			{
-				baseline = height - $nc(insets)->bottom - $nc(tabAreaInsets)->bottom - this->maxTabHeight + baseline;
-				return baseline;
-			}
+			baseline = height - $nc(insets)->bottom - $nc(tabAreaInsets)->bottom - this->maxTabHeight + baseline;
+			return baseline;
 		case $SwingConstants::LEFT:
-			{}
 		case $SwingConstants::RIGHT:
-			{
-				baseline += $nc(insets)->top + $nc(tabAreaInsets)->top;
-				return baseline;
-			}
+			baseline += $nc(insets)->top + $nc(tabAreaInsets)->top;
+			return baseline;
 		}
 	}
 	return -1;
@@ -781,26 +532,20 @@ $Component$BaselineResizeBehavior* AquaTabbedPaneCopyFromBasicUI::getBaselineRes
 	$TabbedPaneUI::getBaselineResizeBehavior(c);
 	switch ($nc(this->tabPane)->getTabPlacement()) {
 	case $SwingConstants::LEFT:
-		{}
 	case $SwingConstants::RIGHT:
-		{}
 	case $SwingConstants::TOP:
-		{
-			$init($Component$BaselineResizeBehavior);
-			return $Component$BaselineResizeBehavior::CONSTANT_ASCENT;
-		}
+		$init($Component$BaselineResizeBehavior);
+		return $Component$BaselineResizeBehavior::CONSTANT_ASCENT;
 	case $SwingConstants::BOTTOM:
-		{
-			$init($Component$BaselineResizeBehavior);
-			return $Component$BaselineResizeBehavior::CONSTANT_DESCENT;
-		}
+		$init($Component$BaselineResizeBehavior);
+		return $Component$BaselineResizeBehavior::CONSTANT_DESCENT;
 	}
 	$init($Component$BaselineResizeBehavior);
 	return $Component$BaselineResizeBehavior::OTHER;
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI::getBaseline(int32_t tab) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->tabPane)->getTabComponentAt(tab) != nullptr) {
 		int32_t offset = getBaselineOffset();
 		if (offset != 0) {
@@ -809,8 +554,8 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getBaseline(int32_t tab) {
 		$var($Component, c, $nc(this->tabPane)->getTabComponentAt(tab));
 		$var($Dimension, pref, $nc(c)->getPreferredSize());
 		$var($Insets, tabInsets, getTabInsets($nc(this->tabPane)->getTabPlacement(), tab));
-		int32_t cellHeight = this->maxTabHeight - $nc(tabInsets)->top - tabInsets->bottom;
-		return c->getBaseline($nc(pref)->width, pref->height) + (cellHeight - $nc(pref)->height) / 2 + tabInsets->top;
+		int32_t cellHeight = this->maxTabHeight - $nc(tabInsets)->top - $nc(tabInsets)->bottom;
+		return c->getBaseline($nc(pref)->width, $nc(pref)->height) + (cellHeight - $nc(pref)->height) / 2 + tabInsets->top;
 	} else {
 		$var($View, view, getTextViewForTab(tab));
 		if (view != nullptr) {
@@ -831,25 +576,19 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getBaseline(int32_t tab) {
 int32_t AquaTabbedPaneCopyFromBasicUI::getBaselineOffset() {
 	switch ($nc(this->tabPane)->getTabPlacement()) {
 	case $SwingConstants::TOP:
-		{
-			if ($nc(this->tabPane)->getTabCount() > 1) {
-				return 1;
-			} else {
-				return -1;
-			}
+		if ($nc(this->tabPane)->getTabCount() > 1) {
+			return 1;
+		} else {
+			return -1;
 		}
 	case $SwingConstants::BOTTOM:
-		{
-			if ($nc(this->tabPane)->getTabCount() > 1) {
-				return -1;
-			} else {
-				return 1;
-			}
+		if ($nc(this->tabPane)->getTabCount() > 1) {
+			return -1;
+		} else {
+			return 1;
 		}
 	default:
-		{
-			return (this->maxTabHeight % 2);
-		}
+		return (this->maxTabHeight % 2);
 	}
 }
 
@@ -906,14 +645,14 @@ void AquaTabbedPaneCopyFromBasicUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void AquaTabbedPaneCopyFromBasicUI::paintTabArea($Graphics* g, int32_t tabPlacement, int32_t selectedIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t tabCount = $nc(this->tabPane)->getTabCount();
 	$var($Rectangle, iconRect, $new($Rectangle));
 	$var($Rectangle, textRect, $new($Rectangle));
 	$var($Rectangle, clipRect, $nc(g)->getClipBounds());
 	for (int32_t i = this->runCount - 1; i >= 0; --i) {
 		int32_t start = $nc(this->tabRuns)->get(i);
-		int32_t next = $nc(this->tabRuns)->get((i == this->runCount - 1) ? 0 : i + 1);
+		int32_t next = this->tabRuns->get((i == this->runCount - 1) ? 0 : i + 1);
 		int32_t end = (next != 0 ? next - 1 : tabCount - 1);
 		for (int32_t j = start; j <= end; ++j) {
 			if (j != selectedIndex && $nc($nc(this->rects)->get(j))->intersects(clipRect)) {
@@ -927,14 +666,14 @@ void AquaTabbedPaneCopyFromBasicUI::paintTabArea($Graphics* g, int32_t tabPlacem
 }
 
 void AquaTabbedPaneCopyFromBasicUI::paintTab($Graphics* g, int32_t tabPlacement, $RectangleArray* rects, int32_t tabIndex, $Rectangle* iconRect, $Rectangle* textRect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, tabRect, $nc(rects)->get(tabIndex));
 	int32_t selectedIndex = $nc(this->tabPane)->getSelectedIndex();
 	bool isSelected = selectedIndex == tabIndex;
 	if (this->tabsOpaque || $nc(this->tabPane)->isOpaque()) {
-		paintTabBackground(g, tabPlacement, tabIndex, $nc(tabRect)->x, tabRect->y, tabRect->width, tabRect->height, isSelected);
+		paintTabBackground(g, tabPlacement, tabIndex, $nc(tabRect)->x, $nc(tabRect)->y, $nc(tabRect)->width, $nc(tabRect)->height, isSelected);
 	}
-	paintTabBorder(g, tabPlacement, tabIndex, $nc(tabRect)->x, tabRect->y, tabRect->width, tabRect->height, isSelected);
+	paintTabBorder(g, tabPlacement, tabIndex, $nc(tabRect)->x, $nc(tabRect)->y, $nc(tabRect)->width, $nc(tabRect)->height, isSelected);
 	$var($String, title, $nc(this->tabPane)->getTitleAt(tabIndex));
 	$var($Font, font, $nc(this->tabPane)->getFont());
 	$var($FontMetrics, metrics, $SwingUtilities2::getFontMetrics(this->tabPane, g, font));
@@ -944,10 +683,10 @@ void AquaTabbedPaneCopyFromBasicUI::paintTab($Graphics* g, int32_t tabPlacement,
 		$var($String, clippedTitle, title);
 		bool var$2 = scrollableTabLayoutEnabled();
 		bool var$1 = var$2 && $nc($nc(this->tabScroller)->croppedEdge)->isParamsSet();
-		bool var$0 = var$1 && $nc($nc(this->tabScroller)->croppedEdge)->getTabIndex() == tabIndex;
+		bool var$0 = var$1 && this->tabScroller->croppedEdge->getTabIndex() == tabIndex;
 		if (var$0 && isHorizontalTabPlacement()) {
-			int32_t var$3 = $nc($nc(this->tabScroller)->croppedEdge)->getCropline() - ($nc(textRect)->x - $nc(tabRect)->x);
-			int32_t availTextWidth = var$3 - $nc($nc(this->tabScroller)->croppedEdge)->getCroppedSideWidth();
+			int32_t var$3 = $nc($nc(this->tabScroller)->croppedEdge)->getCropline() - ($nc(textRect)->x - tabRect->x);
+			int32_t availTextWidth = var$3 - this->tabScroller->croppedEdge->getCroppedSideWidth();
 			$assign(clippedTitle, $SwingUtilities2::clipStringIfNecessary(nullptr, metrics, title, availTextWidth));
 		}
 		paintText(g, tabPlacement, font, metrics, tabIndex, clippedTitle, textRect, isSelected);
@@ -958,38 +697,31 @@ void AquaTabbedPaneCopyFromBasicUI::paintTab($Graphics* g, int32_t tabPlacement,
 
 bool AquaTabbedPaneCopyFromBasicUI::isHorizontalTabPlacement() {
 	bool var$0 = $nc(this->tabPane)->getTabPlacement() == $SwingConstants::TOP;
-	return var$0 || $nc(this->tabPane)->getTabPlacement() == $SwingConstants::BOTTOM;
+	return var$0 || this->tabPane->getTabPlacement() == $SwingConstants::BOTTOM;
 }
 
 $Polygon* AquaTabbedPaneCopyFromBasicUI::createCroppedTabShape(int32_t tabPlacement, $Rectangle* tabRect, int32_t cropline) {
 	$init(AquaTabbedPaneCopyFromBasicUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rlen = 0;
 	int32_t start = 0;
 	int32_t end = 0;
 	int32_t ostart = 0;
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{}
 	case $SwingConstants::RIGHT:
-		{
-			rlen = $nc(tabRect)->width;
-			start = $nc(tabRect)->x;
-			end = $nc(tabRect)->x + tabRect->width;
-			ostart = $nc(tabRect)->y + tabRect->height;
-			break;
-		}
+		rlen = $nc(tabRect)->width;
+		start = tabRect->x;
+		end = tabRect->x + tabRect->width;
+		ostart = tabRect->y + tabRect->height;
+		break;
 	case $SwingConstants::TOP:
-		{}
 	case $SwingConstants::BOTTOM:
-		{}
 	default:
-		{
-			rlen = $nc(tabRect)->height;
-			start = $nc(tabRect)->y;
-			end = $nc(tabRect)->y + tabRect->height;
-			ostart = $nc(tabRect)->x + tabRect->width;
-		}
+		rlen = $nc(tabRect)->height;
+		start = tabRect->y;
+		end = tabRect->y + tabRect->height;
+		ostart = tabRect->x + tabRect->width;
 	}
 	int32_t rcnt = $div(rlen, AquaTabbedPaneCopyFromBasicUI::CROP_SEGMENT);
 	if ($mod(rlen, AquaTabbedPaneCopyFromBasicUI::CROP_SEGMENT) > 0) {
@@ -1005,7 +737,7 @@ $Polygon* AquaTabbedPaneCopyFromBasicUI::createCroppedTabShape(int32_t tabPlacem
 	yp->set(pcnt++, start);
 	for (int32_t i = 0; i < rcnt; ++i) {
 		for (int32_t j = 0; j < $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->length; ++j) {
-			xp->set(pcnt, cropline - $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->get(j));
+			xp->set(pcnt, cropline - AquaTabbedPaneCopyFromBasicUI::xCropLen->get(j));
 			yp->set(pcnt, start + (i * AquaTabbedPaneCopyFromBasicUI::CROP_SEGMENT) + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(j));
 			if (yp->get(pcnt) >= end) {
 				yp->set(pcnt, end);
@@ -1032,44 +764,37 @@ void AquaTabbedPaneCopyFromBasicUI::paintCroppedTabEdge($Graphics* g) {
 		int32_t yy = 0;
 		switch ($nc(this->tabPane)->getTabPlacement()) {
 		case $SwingConstants::LEFT:
-			{}
 		case $SwingConstants::RIGHT:
-			{
-				x = $nc($nc(this->rects)->get(tabIndex))->x;
-				y = cropline;
-				xx = x;
-				$nc(g)->setColor(this->shadow);
-				while (xx <= x + $nc($nc(this->rects)->get(tabIndex))->width) {
-					for (int32_t i = 0; i < $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->length; i += 2) {
-						$nc(g)->drawLine(xx + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(i), y - $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->get(i), xx + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(i + 1) - 1, y - $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->get(i + 1));
-					}
-					xx += AquaTabbedPaneCopyFromBasicUI::CROP_SEGMENT;
+			x = $nc($nc(this->rects)->get(tabIndex))->x;
+			y = cropline;
+			xx = x;
+			$nc(g)->setColor(this->shadow);
+			while (xx <= x + $nc($nc(this->rects)->get(tabIndex))->width) {
+				for (int32_t i = 0; i < $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->length; i += 2) {
+					g->drawLine(xx + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(i), y - AquaTabbedPaneCopyFromBasicUI::xCropLen->get(i), xx + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(i + 1) - 1, y - AquaTabbedPaneCopyFromBasicUI::xCropLen->get(i + 1));
 				}
-				break;
+				xx += AquaTabbedPaneCopyFromBasicUI::CROP_SEGMENT;
 			}
+			break;
 		case $SwingConstants::TOP:
-			{}
 		case $SwingConstants::BOTTOM:
-			{}
 		default:
-			{
-				x = cropline;
-				y = $nc($nc(this->rects)->get(tabIndex))->y;
-				yy = y;
-				$nc(g)->setColor(this->shadow);
-				while (yy <= y + $nc($nc(this->rects)->get(tabIndex))->height) {
-					for (int32_t i = 0; i < $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->length; i += 2) {
-						$nc(g)->drawLine(x - $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->get(i), yy + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(i), x - $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->get(i + 1), yy + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(i + 1) - 1);
-					}
-					yy += AquaTabbedPaneCopyFromBasicUI::CROP_SEGMENT;
+			x = cropline;
+			y = $nc($nc(this->rects)->get(tabIndex))->y;
+			yy = y;
+			$nc(g)->setColor(this->shadow);
+			while (yy <= y + $nc($nc(this->rects)->get(tabIndex))->height) {
+				for (int32_t i = 0; i < $nc(AquaTabbedPaneCopyFromBasicUI::xCropLen)->length; i += 2) {
+					g->drawLine(x - AquaTabbedPaneCopyFromBasicUI::xCropLen->get(i), yy + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(i), x - AquaTabbedPaneCopyFromBasicUI::xCropLen->get(i + 1), yy + $nc(AquaTabbedPaneCopyFromBasicUI::yCropLen)->get(i + 1) - 1);
 				}
+				yy += AquaTabbedPaneCopyFromBasicUI::CROP_SEGMENT;
 			}
 		}
 	}
 }
 
 void AquaTabbedPaneCopyFromBasicUI::layoutLabel(int32_t tabPlacement, $FontMetrics* metrics, int32_t tabIndex, $String* title, $Icon* icon, $Rectangle* tabRect, $Rectangle* iconRect, $Rectangle* textRect, bool isSelected) {
-	$nc(textRect)->x = (textRect->y = ($nc(iconRect)->x = (iconRect->y = 0)));
+	$nc(textRect)->x = ($nc(textRect)->y = ($nc(iconRect)->x = ($nc(iconRect)->y = 0)));
 	$var($View, v, getTextViewForTab(tabIndex));
 	if (v != nullptr) {
 		$nc(this->tabPane)->putClientProperty("html"_s, v);
@@ -1086,12 +811,12 @@ void AquaTabbedPaneCopyFromBasicUI::layoutLabel(int32_t tabPlacement, $FontMetri
 
 void AquaTabbedPaneCopyFromBasicUI::paintIcon($Graphics* g, int32_t tabPlacement, int32_t tabIndex, $Icon* icon, $Rectangle* iconRect, bool isSelected) {
 	if (icon != nullptr) {
-		icon->paintIcon(this->tabPane, g, $nc(iconRect)->x, iconRect->y);
+		icon->paintIcon(this->tabPane, g, $nc(iconRect)->x, $nc(iconRect)->y);
 	}
 }
 
 void AquaTabbedPaneCopyFromBasicUI::paintText($Graphics* g, int32_t tabPlacement, $Font* font, $FontMetrics* metrics, int32_t tabIndex, $String* title, $Rectangle* textRect, bool isSelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setFont(font);
 	$var($View, v, getTextViewForTab(tabIndex));
 	if (v != nullptr) {
@@ -1099,7 +824,7 @@ void AquaTabbedPaneCopyFromBasicUI::paintText($Graphics* g, int32_t tabPlacement
 	} else {
 		int32_t mnemIndex = $nc(this->tabPane)->getDisplayedMnemonicIndexAt(tabIndex);
 		bool var$0 = $nc(this->tabPane)->isEnabled();
-		if (var$0 && $nc(this->tabPane)->isEnabledAt(tabIndex)) {
+		if (var$0 && this->tabPane->isEnabledAt(tabIndex)) {
 			$var($Color, fg, $nc(this->tabPane)->getForegroundAt(tabIndex));
 			if (isSelected && ($instanceOf($UIResource, fg))) {
 				$var($Color, selectedFG, $UIManager::getColor("TabbedPane.selectedForeground"_s));
@@ -1108,12 +833,12 @@ void AquaTabbedPaneCopyFromBasicUI::paintText($Graphics* g, int32_t tabPlacement
 				}
 			}
 			g->setColor(fg);
-			$SwingUtilities2::drawStringUnderlineCharAt(this->tabPane, g, title, mnemIndex, $nc(textRect)->x, textRect->y + $nc(metrics)->getAscent());
+			$SwingUtilities2::drawStringUnderlineCharAt(this->tabPane, g, title, mnemIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(metrics)->getAscent());
 		} else {
-			g->setColor($($nc($($nc(this->tabPane)->getBackgroundAt(tabIndex)))->brighter()));
-			$SwingUtilities2::drawStringUnderlineCharAt(this->tabPane, g, title, mnemIndex, $nc(textRect)->x, textRect->y + $nc(metrics)->getAscent());
-			g->setColor($($nc($($nc(this->tabPane)->getBackgroundAt(tabIndex)))->darker()));
-			$SwingUtilities2::drawStringUnderlineCharAt(this->tabPane, g, title, mnemIndex, $nc(textRect)->x - 1, textRect->y + $nc(metrics)->getAscent() - 1);
+			g->setColor($($$nc($nc(this->tabPane)->getBackgroundAt(tabIndex))->brighter()));
+			$SwingUtilities2::drawStringUnderlineCharAt(this->tabPane, g, title, mnemIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(metrics)->getAscent());
+			g->setColor($($$nc($nc(this->tabPane)->getBackgroundAt(tabIndex))->darker()));
+			$SwingUtilities2::drawStringUnderlineCharAt(this->tabPane, g, title, mnemIndex, textRect->x - 1, textRect->y + metrics->getAscent() - 1);
 		}
 	}
 }
@@ -1123,23 +848,15 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getTabLabelShiftX(int32_t tabPlacement, i
 	int32_t nudge = 0;
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{
-			nudge = isSelected ? -1 : 1;
-			break;
-		}
+		nudge = isSelected ? -1 : 1;
+		break;
 	case $SwingConstants::RIGHT:
-		{
-			nudge = isSelected ? 1 : -1;
-			break;
-		}
+		nudge = isSelected ? 1 : -1;
+		break;
 	case $SwingConstants::BOTTOM:
-		{}
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			nudge = $nc(tabRect)->width % 2;
-		}
+		nudge = $nc(tabRect)->width % 2;
 	}
 	return nudge;
 }
@@ -1149,23 +866,16 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getTabLabelShiftY(int32_t tabPlacement, i
 	int32_t nudge = 0;
 	switch (tabPlacement) {
 	case $SwingConstants::BOTTOM:
-		{
-			nudge = isSelected ? 1 : -1;
-			break;
-		}
+		nudge = isSelected ? 1 : -1;
+		break;
 	case $SwingConstants::LEFT:
-		{}
 	case $SwingConstants::RIGHT:
-		{
-			nudge = $nc(tabRect)->height % 2;
-			break;
-		}
+		nudge = $nc(tabRect)->height % 2;
+		break;
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			nudge = isSelected ? -1 : 1;
-		}
+		nudge = isSelected ? -1 : 1;
+		;
 	}
 	return nudge;
 }
@@ -1180,38 +890,29 @@ void AquaTabbedPaneCopyFromBasicUI::paintFocusIndicator($Graphics* g, int32_t ta
 		$nc(g)->setColor(this->focus);
 		switch (tabPlacement) {
 		case $SwingConstants::LEFT:
-			{
-				x = $nc(tabRect)->x + 3;
-				y = $nc(tabRect)->y + 3;
-				w = $nc(tabRect)->width - 5;
-				h = $nc(tabRect)->height - 6;
-				break;
-			}
+			x = $nc(tabRect)->x + 3;
+			y = tabRect->y + 3;
+			w = tabRect->width - 5;
+			h = tabRect->height - 6;
+			break;
 		case $SwingConstants::RIGHT:
-			{
-				x = $nc(tabRect)->x + 2;
-				y = $nc(tabRect)->y + 3;
-				w = $nc(tabRect)->width - 5;
-				h = $nc(tabRect)->height - 6;
-				break;
-			}
+			x = $nc(tabRect)->x + 2;
+			y = tabRect->y + 3;
+			w = tabRect->width - 5;
+			h = tabRect->height - 6;
+			break;
 		case $SwingConstants::BOTTOM:
-			{
-				x = $nc(tabRect)->x + 3;
-				y = $nc(tabRect)->y + 2;
-				w = $nc(tabRect)->width - 6;
-				h = $nc(tabRect)->height - 5;
-				break;
-			}
+			x = $nc(tabRect)->x + 3;
+			y = tabRect->y + 2;
+			w = tabRect->width - 6;
+			h = tabRect->height - 5;
+			break;
 		case $SwingConstants::TOP:
-			{}
 		default:
-			{
-				x = $nc(tabRect)->x + 3;
-				y = $nc(tabRect)->y + 3;
-				w = $nc(tabRect)->width - 6;
-				h = $nc(tabRect)->height - 5;
-			}
+			x = $nc(tabRect)->x + 3;
+			y = tabRect->y + 3;
+			w = tabRect->width - 6;
+			h = tabRect->height - 5;
 		}
 		$BasicGraphicsUtils::drawDashedRect(g, x, y, w, h);
 	}
@@ -1221,56 +922,47 @@ void AquaTabbedPaneCopyFromBasicUI::paintTabBorder($Graphics* g, int32_t tabPlac
 	$nc(g)->setColor(this->lightHighlight);
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{
-			g->drawLine(x + 1, y + h - 2, x + 1, y + h - 2);
-			g->drawLine(x, y + 2, x, y + h - 3);
-			g->drawLine(x + 1, y + 1, x + 1, y + 1);
-			g->drawLine(x + 2, y, x + w - 1, y);
-			g->setColor(this->shadow);
-			g->drawLine(x + 2, y + h - 2, x + w - 1, y + h - 2);
-			g->setColor(this->darkShadow);
-			g->drawLine(x + 2, y + h - 1, x + w - 1, y + h - 1);
-			break;
-		}
+		g->drawLine(x + 1, y + h - 2, x + 1, y + h - 2);
+		g->drawLine(x, y + 2, x, y + h - 3);
+		g->drawLine(x + 1, y + 1, x + 1, y + 1);
+		g->drawLine(x + 2, y, x + w - 1, y);
+		g->setColor(this->shadow);
+		g->drawLine(x + 2, y + h - 2, x + w - 1, y + h - 2);
+		g->setColor(this->darkShadow);
+		g->drawLine(x + 2, y + h - 1, x + w - 1, y + h - 1);
+		break;
 	case $SwingConstants::RIGHT:
-		{
-			g->drawLine(x, y, x + w - 3, y);
-			g->setColor(this->shadow);
-			g->drawLine(x, y + h - 2, x + w - 3, y + h - 2);
-			g->drawLine(x + w - 2, y + 2, x + w - 2, y + h - 3);
-			g->setColor(this->darkShadow);
-			g->drawLine(x + w - 2, y + 1, x + w - 2, y + 1);
-			g->drawLine(x + w - 2, y + h - 2, x + w - 2, y + h - 2);
-			g->drawLine(x + w - 1, y + 2, x + w - 1, y + h - 3);
-			g->drawLine(x, y + h - 1, x + w - 3, y + h - 1);
-			break;
-		}
+		g->drawLine(x, y, x + w - 3, y);
+		g->setColor(this->shadow);
+		g->drawLine(x, y + h - 2, x + w - 3, y + h - 2);
+		g->drawLine(x + w - 2, y + 2, x + w - 2, y + h - 3);
+		g->setColor(this->darkShadow);
+		g->drawLine(x + w - 2, y + 1, x + w - 2, y + 1);
+		g->drawLine(x + w - 2, y + h - 2, x + w - 2, y + h - 2);
+		g->drawLine(x + w - 1, y + 2, x + w - 1, y + h - 3);
+		g->drawLine(x, y + h - 1, x + w - 3, y + h - 1);
+		break;
 	case $SwingConstants::BOTTOM:
-		{
-			g->drawLine(x, y, x, y + h - 3);
-			g->drawLine(x + 1, y + h - 2, x + 1, y + h - 2);
-			g->setColor(this->shadow);
-			g->drawLine(x + 2, y + h - 2, x + w - 3, y + h - 2);
-			g->drawLine(x + w - 2, y, x + w - 2, y + h - 3);
-			g->setColor(this->darkShadow);
-			g->drawLine(x + 2, y + h - 1, x + w - 3, y + h - 1);
-			g->drawLine(x + w - 2, y + h - 2, x + w - 2, y + h - 2);
-			g->drawLine(x + w - 1, y, x + w - 1, y + h - 3);
-			break;
-		}
+		g->drawLine(x, y, x, y + h - 3);
+		g->drawLine(x + 1, y + h - 2, x + 1, y + h - 2);
+		g->setColor(this->shadow);
+		g->drawLine(x + 2, y + h - 2, x + w - 3, y + h - 2);
+		g->drawLine(x + w - 2, y, x + w - 2, y + h - 3);
+		g->setColor(this->darkShadow);
+		g->drawLine(x + 2, y + h - 1, x + w - 3, y + h - 1);
+		g->drawLine(x + w - 2, y + h - 2, x + w - 2, y + h - 2);
+		g->drawLine(x + w - 1, y, x + w - 1, y + h - 3);
+		break;
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			g->drawLine(x, y + 2, x, y + h - 1);
-			g->drawLine(x + 1, y + 1, x + 1, y + 1);
-			g->drawLine(x + 2, y, x + w - 3, y);
-			g->setColor(this->shadow);
-			g->drawLine(x + w - 2, y + 2, x + w - 2, y + h - 1);
-			g->setColor(this->darkShadow);
-			g->drawLine(x + w - 1, y + 2, x + w - 1, y + h - 1);
-			g->drawLine(x + w - 2, y + 1, x + w - 2, y + 1);
-		}
+		g->drawLine(x, y + 2, x, y + h - 1);
+		g->drawLine(x + 1, y + 1, x + 1, y + 1);
+		g->drawLine(x + 2, y, x + w - 3, y);
+		g->setColor(this->shadow);
+		g->drawLine(x + w - 2, y + 2, x + w - 2, y + h - 1);
+		g->setColor(this->darkShadow);
+		g->drawLine(x + w - 1, y + 2, x + w - 1, y + h - 1);
+		g->drawLine(x + w - 2, y + 1, x + w - 2, y + 1);
 	}
 }
 
@@ -1278,31 +970,22 @@ void AquaTabbedPaneCopyFromBasicUI::paintTabBackground($Graphics* g, int32_t tab
 	$nc(g)->setColor(!isSelected || this->selectedColor == nullptr ? $($nc(this->tabPane)->getBackgroundAt(tabIndex)) : this->selectedColor);
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{
-			g->fillRect(x + 1, y + 1, w - 1, h - 3);
-			break;
-		}
+		g->fillRect(x + 1, y + 1, w - 1, h - 3);
+		break;
 	case $SwingConstants::RIGHT:
-		{
-			g->fillRect(x, y + 1, w - 2, h - 3);
-			break;
-		}
+		g->fillRect(x, y + 1, w - 2, h - 3);
+		break;
 	case $SwingConstants::BOTTOM:
-		{
-			g->fillRect(x + 1, y, w - 3, h - 1);
-			break;
-		}
+		g->fillRect(x + 1, y, w - 3, h - 1);
+		break;
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			g->fillRect(x + 1, y + 1, w - 3, h - 1);
-		}
+		g->fillRect(x + 1, y + 1, w - 3, h - 1);
 	}
 }
 
 void AquaTabbedPaneCopyFromBasicUI::paintContentBorder($Graphics* g, int32_t tabPlacement, int32_t selectedIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = $nc(this->tabPane)->getWidth();
 	int32_t height = $nc(this->tabPane)->getHeight();
 	$var($Insets, insets, $nc(this->tabPane)->getInsets());
@@ -1313,43 +996,34 @@ void AquaTabbedPaneCopyFromBasicUI::paintContentBorder($Graphics* g, int32_t tab
 	int32_t h = height - insets->top - insets->bottom;
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{
-			x += calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
-			if (this->tabsOverlapBorder) {
-				x -= $nc(tabAreaInsets)->right;
-			}
-			w -= (x - insets->left);
-			break;
+		x += calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
+		if (this->tabsOverlapBorder) {
+			x -= $nc(tabAreaInsets)->right;
 		}
+		w -= (x - insets->left);
+		break;
 	case $SwingConstants::RIGHT:
-		{
-			w -= calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
-			if (this->tabsOverlapBorder) {
-				w += $nc(tabAreaInsets)->left;
-			}
-			break;
+		w -= calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth);
+		if (this->tabsOverlapBorder) {
+			w += $nc(tabAreaInsets)->left;
 		}
+		break;
 	case $SwingConstants::BOTTOM:
-		{
-			h -= calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
-			if (this->tabsOverlapBorder) {
-				h += $nc(tabAreaInsets)->top;
-			}
-			break;
+		h -= calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
+		if (this->tabsOverlapBorder) {
+			h += $nc(tabAreaInsets)->top;
 		}
+		break;
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			y += calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
-			if (this->tabsOverlapBorder) {
-				y -= $nc(tabAreaInsets)->bottom;
-			}
-			h -= (y - insets->top);
+		y += calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight);
+		if (this->tabsOverlapBorder) {
+			y -= $nc(tabAreaInsets)->bottom;
 		}
+		h -= (y - insets->top);
 	}
 	bool var$0 = $nc(this->tabPane)->getTabCount() > 0;
-	if (var$0 && (this->contentOpaque || $nc(this->tabPane)->isOpaque())) {
+	if (var$0 && (this->contentOpaque || this->tabPane->isOpaque())) {
 		$var($Color, color, $UIManager::getColor("TabbedPane.contentAreaColor"_s));
 		if (color != nullptr) {
 			$nc(g)->setColor(color);
@@ -1369,10 +1043,10 @@ void AquaTabbedPaneCopyFromBasicUI::paintContentBorder($Graphics* g, int32_t tab
 void AquaTabbedPaneCopyFromBasicUI::paintContentBorderTopEdge($Graphics* g, int32_t tabPlacement, int32_t selectedIndex, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$var($Rectangle, selRect, selectedIndex < 0 ? ($Rectangle*)nullptr : getTabBounds(selectedIndex, this->calcRect));
 	$nc(g)->setColor(this->lightHighlight);
-	if (tabPlacement != $SwingConstants::TOP || selectedIndex < 0 || ($nc(selRect)->y + selRect->height + 1 < y) || ($nc(selRect)->x < x || $nc(selRect)->x > x + w)) {
+	if (tabPlacement != $SwingConstants::TOP || selectedIndex < 0 || ($nc(selRect)->y + $nc(selRect)->height + 1 < y) || ($nc(selRect)->x < x || selRect->x > x + w)) {
 		g->drawLine(x, y, x + w - 2, y);
 	} else {
-		g->drawLine(x, y, selRect->x - 1, y);
+		g->drawLine(x, y, $nc(selRect)->x - 1, y);
 		if (selRect->x + selRect->width < x + w - 2) {
 			g->drawLine(selRect->x + selRect->width, y, x + w - 2, y);
 		} else {
@@ -1385,10 +1059,10 @@ void AquaTabbedPaneCopyFromBasicUI::paintContentBorderTopEdge($Graphics* g, int3
 void AquaTabbedPaneCopyFromBasicUI::paintContentBorderLeftEdge($Graphics* g, int32_t tabPlacement, int32_t selectedIndex, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$var($Rectangle, selRect, selectedIndex < 0 ? ($Rectangle*)nullptr : getTabBounds(selectedIndex, this->calcRect));
 	$nc(g)->setColor(this->lightHighlight);
-	if (tabPlacement != $SwingConstants::LEFT || selectedIndex < 0 || ($nc(selRect)->x + selRect->width + 1 < x) || ($nc(selRect)->y < y || $nc(selRect)->y > y + h)) {
+	if (tabPlacement != $SwingConstants::LEFT || selectedIndex < 0 || ($nc(selRect)->x + $nc(selRect)->width + 1 < x) || ($nc(selRect)->y < y || selRect->y > y + h)) {
 		g->drawLine(x, y, x, y + h - 2);
 	} else {
-		g->drawLine(x, y, x, selRect->y - 1);
+		g->drawLine(x, y, x, $nc(selRect)->y - 1);
 		if (selRect->y + selRect->height < y + h - 2) {
 			g->drawLine(x, selRect->y + selRect->height, x, y + h - 2);
 		}
@@ -1398,12 +1072,12 @@ void AquaTabbedPaneCopyFromBasicUI::paintContentBorderLeftEdge($Graphics* g, int
 void AquaTabbedPaneCopyFromBasicUI::paintContentBorderBottomEdge($Graphics* g, int32_t tabPlacement, int32_t selectedIndex, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$var($Rectangle, selRect, selectedIndex < 0 ? ($Rectangle*)nullptr : getTabBounds(selectedIndex, this->calcRect));
 	$nc(g)->setColor(this->shadow);
-	if (tabPlacement != $SwingConstants::BOTTOM || selectedIndex < 0 || ($nc(selRect)->y - 1 > h) || ($nc(selRect)->x < x || $nc(selRect)->x > x + w)) {
+	if (tabPlacement != $SwingConstants::BOTTOM || selectedIndex < 0 || ($nc(selRect)->y - 1 > h) || ($nc(selRect)->x < x || selRect->x > x + w)) {
 		g->drawLine(x + 1, y + h - 2, x + w - 2, y + h - 2);
 		g->setColor(this->darkShadow);
 		g->drawLine(x, y + h - 1, x + w - 1, y + h - 1);
 	} else {
-		g->drawLine(x + 1, y + h - 2, selRect->x - 1, y + h - 2);
+		g->drawLine(x + 1, y + h - 2, $nc(selRect)->x - 1, y + h - 2);
 		g->setColor(this->darkShadow);
 		g->drawLine(x, y + h - 1, selRect->x - 1, y + h - 1);
 		if (selRect->x + selRect->width < x + w - 2) {
@@ -1418,12 +1092,12 @@ void AquaTabbedPaneCopyFromBasicUI::paintContentBorderBottomEdge($Graphics* g, i
 void AquaTabbedPaneCopyFromBasicUI::paintContentBorderRightEdge($Graphics* g, int32_t tabPlacement, int32_t selectedIndex, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$var($Rectangle, selRect, selectedIndex < 0 ? ($Rectangle*)nullptr : getTabBounds(selectedIndex, this->calcRect));
 	$nc(g)->setColor(this->shadow);
-	if (tabPlacement != $SwingConstants::RIGHT || selectedIndex < 0 || ($nc(selRect)->x - 1 > w) || ($nc(selRect)->y < y || $nc(selRect)->y > y + h)) {
+	if (tabPlacement != $SwingConstants::RIGHT || selectedIndex < 0 || ($nc(selRect)->x - 1 > w) || ($nc(selRect)->y < y || selRect->y > y + h)) {
 		g->drawLine(x + w - 2, y + 1, x + w - 2, y + h - 3);
 		g->setColor(this->darkShadow);
 		g->drawLine(x + w - 1, y, x + w - 1, y + h - 1);
 	} else {
-		g->drawLine(x + w - 2, y + 1, x + w - 2, selRect->y - 1);
+		g->drawLine(x + w - 2, y + 1, x + w - 2, $nc(selRect)->y - 1);
 		g->setColor(this->darkShadow);
 		g->drawLine(x + w - 1, y, x + w - 1, selRect->y - 1);
 		if (selRect->y + selRect->height < y + h - 2) {
@@ -1461,7 +1135,7 @@ int32_t AquaTabbedPaneCopyFromBasicUI::tabForCoordinate($JTabbedPane* pane, int3
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI::tabForCoordinate($JTabbedPane* pane, int32_t x, int32_t y, bool validateIfNecessary) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (validateIfNecessary) {
 		ensureCurrentLayout();
 	}
@@ -1486,17 +1160,17 @@ int32_t AquaTabbedPaneCopyFromBasicUI::tabForCoordinate($JTabbedPane* pane, int3
 }
 
 $Rectangle* AquaTabbedPaneCopyFromBasicUI::getTabBounds(int32_t tabIndex, $Rectangle* dest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(dest)->width = $nc($nc(this->rects)->get(tabIndex))->width;
-	dest->height = $nc($nc(this->rects)->get(tabIndex))->height;
+	dest->height = $nc(this->rects->get(tabIndex))->height;
 	if (scrollableTabLayoutEnabled()) {
 		$var($Point, vpp, $nc($nc(this->tabScroller)->viewport)->getLocation());
 		$var($Point, viewp, $nc($nc(this->tabScroller)->viewport)->getViewPosition());
 		dest->x = $nc($nc(this->rects)->get(tabIndex))->x + $nc(vpp)->x - $nc(viewp)->x;
-		dest->y = $nc($nc(this->rects)->get(tabIndex))->y + vpp->y - viewp->y;
+		dest->y = $nc(this->rects->get(tabIndex))->y + vpp->y - viewp->y;
 	} else {
 		dest->x = $nc($nc(this->rects)->get(tabIndex))->x;
-		dest->y = $nc($nc(this->rects)->get(tabIndex))->y;
+		dest->y = $nc(this->rects->get(tabIndex))->y;
 	}
 	return dest;
 }
@@ -1514,10 +1188,10 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getClosestTab(int32_t x, int32_t y) {
 		int32_t maxLoc = 0;
 		if (useX) {
 			minLoc = $nc($nc(this->rects)->get(current))->x;
-			maxLoc = minLoc + $nc($nc(this->rects)->get(current))->width;
+			maxLoc = minLoc + $nc(this->rects->get(current))->width;
 		} else {
 			minLoc = $nc($nc(this->rects)->get(current))->y;
-			maxLoc = minLoc + $nc($nc(this->rects)->get(current))->height;
+			maxLoc = minLoc + $nc(this->rects->get(current))->height;
 		}
 		if (want < minLoc) {
 			max = current;
@@ -1537,7 +1211,7 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getClosestTab(int32_t x, int32_t y) {
 }
 
 $Point* AquaTabbedPaneCopyFromBasicUI::translatePointToTabPanel(int32_t srcx, int32_t srcy, $Point* dest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, vpp, $nc($nc(this->tabScroller)->viewport)->getLocation());
 	$var($Point, viewp, $nc($nc(this->tabScroller)->viewport)->getViewPosition());
 	$nc(dest)->x = srcx - $nc(vpp)->x + $nc(viewp)->x;
@@ -1550,9 +1224,9 @@ $Component* AquaTabbedPaneCopyFromBasicUI::getVisibleComponent() {
 }
 
 void AquaTabbedPaneCopyFromBasicUI::setVisibleComponent($Component* component) {
-	bool var$0 = this->visibleComponent != nullptr && this->visibleComponent != component && $equals($nc(this->visibleComponent)->getParent(), this->tabPane);
-	if (var$0 && $nc(this->visibleComponent)->isVisible()) {
-		$nc(this->visibleComponent)->setVisible(false);
+	bool var$0 = this->visibleComponent != nullptr && this->visibleComponent != component && $equals(this->visibleComponent->getParent(), this->tabPane);
+	if (var$0 && this->visibleComponent->isVisible()) {
+		this->visibleComponent->setVisible(false);
 	}
 	if (component != nullptr && !component->isVisible()) {
 		component->setVisible(true);
@@ -1561,14 +1235,14 @@ void AquaTabbedPaneCopyFromBasicUI::setVisibleComponent($Component* component) {
 }
 
 void AquaTabbedPaneCopyFromBasicUI::assureRectsCreated(int32_t tabCount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rectArrayLen = $nc(this->rects)->length;
 	if (tabCount != rectArrayLen) {
 		$var($RectangleArray, tempRectArray, $new($RectangleArray, tabCount));
 		$System::arraycopy(this->rects, 0, tempRectArray, 0, $Math::min(rectArrayLen, tabCount));
 		$set(this, rects, tempRectArray);
 		for (int32_t rectIndex = rectArrayLen; rectIndex < tabCount; ++rectIndex) {
-			$nc(this->rects)->set(rectIndex, $$new($Rectangle));
+			this->rects->set(rectIndex, $$new($Rectangle));
 		}
 	}
 }
@@ -1599,7 +1273,7 @@ int32_t AquaTabbedPaneCopyFromBasicUI::lastTabInRun(int32_t tabCount, int32_t ru
 	if ($nc(this->tabRuns)->get(nextRun) == 0) {
 		return tabCount - 1;
 	}
-	return $nc(this->tabRuns)->get(nextRun) - 1;
+	return this->tabRuns->get(nextRun) - 1;
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI::getTabRunOverlay(int32_t tabPlacement) {
@@ -1620,18 +1294,18 @@ bool AquaTabbedPaneCopyFromBasicUI::shouldRotateTabRuns(int32_t tabPlacement) {
 
 $Icon* AquaTabbedPaneCopyFromBasicUI::getIconForTab(int32_t tabIndex) {
 	bool var$0 = !$nc(this->tabPane)->isEnabled();
-	return (var$0 || !$nc(this->tabPane)->isEnabledAt(tabIndex)) ? $nc(this->tabPane)->getDisabledIconAt(tabIndex) : $nc(this->tabPane)->getIconAt(tabIndex);
+	return (var$0 || !this->tabPane->isEnabledAt(tabIndex)) ? this->tabPane->getDisabledIconAt(tabIndex) : this->tabPane->getIconAt(tabIndex);
 }
 
 $View* AquaTabbedPaneCopyFromBasicUI::getTextViewForTab(int32_t tabIndex) {
 	if (this->htmlViews != nullptr) {
-		return $cast($View, $nc(this->htmlViews)->elementAt(tabIndex));
+		return $cast($View, this->htmlViews->elementAt(tabIndex));
 	}
 	return nullptr;
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI::calculateTabHeight(int32_t tabPlacement, int32_t tabIndex, int32_t fontHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t height = 0;
 	$var($Component, c, $nc(this->tabPane)->getTabComponentAt(tabIndex));
 	if (c != nullptr) {
@@ -1649,7 +1323,7 @@ int32_t AquaTabbedPaneCopyFromBasicUI::calculateTabHeight(int32_t tabPlacement, 
 		}
 	}
 	$var($Insets, tabInsets, getTabInsets(tabPlacement, tabIndex));
-	height += $nc(tabInsets)->top + tabInsets->bottom + 2;
+	height += $nc(tabInsets)->top + $nc(tabInsets)->bottom + 2;
 	return height;
 }
 
@@ -1665,9 +1339,9 @@ int32_t AquaTabbedPaneCopyFromBasicUI::calculateMaxTabHeight(int32_t tabPlacemen
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI::calculateTabWidth(int32_t tabPlacement, int32_t tabIndex, $FontMetrics* metrics) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, tabInsets, getTabInsets(tabPlacement, tabIndex));
-	int32_t width = $nc(tabInsets)->left + tabInsets->right + 3;
+	int32_t width = $nc(tabInsets)->left + $nc(tabInsets)->right + 3;
 	$var($Component, tabComponent, $nc(this->tabPane)->getTabComponentAt(tabIndex));
 	if (tabComponent != nullptr) {
 		width += $nc($(tabComponent->getPreferredSize()))->width;
@@ -1700,13 +1374,13 @@ int32_t AquaTabbedPaneCopyFromBasicUI::calculateMaxTabWidth(int32_t tabPlacement
 int32_t AquaTabbedPaneCopyFromBasicUI::calculateTabAreaHeight(int32_t tabPlacement, int32_t horizRunCount, int32_t maxTabHeight) {
 	$var($Insets, tabAreaInsets, getTabAreaInsets(tabPlacement));
 	int32_t tabRunOverlay = getTabRunOverlay(tabPlacement);
-	return (horizRunCount > 0 ? horizRunCount * (maxTabHeight - tabRunOverlay) + tabRunOverlay + $nc(tabAreaInsets)->top + tabAreaInsets->bottom : 0);
+	return (horizRunCount > 0 ? horizRunCount * (maxTabHeight - tabRunOverlay) + tabRunOverlay + $nc(tabAreaInsets)->top + $nc(tabAreaInsets)->bottom : 0);
 }
 
 int32_t AquaTabbedPaneCopyFromBasicUI::calculateTabAreaWidth(int32_t tabPlacement, int32_t vertRunCount, int32_t maxTabWidth) {
 	$var($Insets, tabAreaInsets, getTabAreaInsets(tabPlacement));
 	int32_t tabRunOverlay = getTabRunOverlay(tabPlacement);
-	return (vertRunCount > 0 ? vertRunCount * (maxTabWidth - tabRunOverlay) + tabRunOverlay + $nc(tabAreaInsets)->left + tabAreaInsets->right : 0);
+	return (vertRunCount > 0 ? vertRunCount * (maxTabWidth - tabRunOverlay) + tabRunOverlay + $nc(tabAreaInsets)->left + $nc(tabAreaInsets)->right : 0);
 }
 
 $Insets* AquaTabbedPaneCopyFromBasicUI::getTabInsets(int32_t tabPlacement, int32_t tabIndex) {
@@ -1743,97 +1417,66 @@ void AquaTabbedPaneCopyFromBasicUI::navigateSelectedTab(int32_t direction) {
 	int32_t offset = 0;
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{}
 	case $SwingConstants::RIGHT:
-		{
-			switch (direction) {
-			case $SwingConstants::NEXT:
-				{
-					selectNextTab(current);
-					break;
-				}
-			case $SwingConstants::PREVIOUS:
-				{
-					selectPreviousTab(current);
-					break;
-				}
-			case $SwingConstants::NORTH:
-				{
-					selectPreviousTabInRun(current);
-					break;
-				}
-			case $SwingConstants::SOUTH:
-				{
-					selectNextTabInRun(current);
-					break;
-				}
-			case $SwingConstants::WEST:
-				{
-					offset = getTabRunOffset(tabPlacement, tabCount, current, false);
-					selectAdjacentRunTab(tabPlacement, current, offset);
-					break;
-				}
-			case $SwingConstants::EAST:
-				{
-					offset = getTabRunOffset(tabPlacement, tabCount, current, true);
-					selectAdjacentRunTab(tabPlacement, current, offset);
-					break;
-				}
-			default:
-				{}
-			}
+		switch (direction) {
+		case $SwingConstants::NEXT:
+			selectNextTab(current);
+			break;
+		case $SwingConstants::PREVIOUS:
+			selectPreviousTab(current);
+			break;
+		case $SwingConstants::NORTH:
+			selectPreviousTabInRun(current);
+			break;
+		case $SwingConstants::SOUTH:
+			selectNextTabInRun(current);
+			break;
+		case $SwingConstants::WEST:
+			offset = getTabRunOffset(tabPlacement, tabCount, current, false);
+			selectAdjacentRunTab(tabPlacement, current, offset);
+			break;
+		case $SwingConstants::EAST:
+			offset = getTabRunOffset(tabPlacement, tabCount, current, true);
+			selectAdjacentRunTab(tabPlacement, current, offset);
+			break;
+		default:
 			break;
 		}
+		break;
 	case $SwingConstants::BOTTOM:
-		{}
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			switch (direction) {
-			case $SwingConstants::NEXT:
-				{
-					selectNextTab(current);
-					break;
-				}
-			case $SwingConstants::PREVIOUS:
-				{
-					selectPreviousTab(current);
-					break;
-				}
-			case $SwingConstants::NORTH:
-				{
-					offset = getTabRunOffset(tabPlacement, tabCount, current, false);
-					selectAdjacentRunTab(tabPlacement, current, offset);
-					break;
-				}
-			case $SwingConstants::SOUTH:
-				{
-					offset = getTabRunOffset(tabPlacement, tabCount, current, true);
-					selectAdjacentRunTab(tabPlacement, current, offset);
-					break;
-				}
-			case $SwingConstants::EAST:
-				{
-					if (leftToRight) {
-						selectNextTabInRun(current);
-					} else {
-						selectPreviousTabInRun(current);
-					}
-					break;
-				}
-			case $SwingConstants::WEST:
-				{
-					if (leftToRight) {
-						selectPreviousTabInRun(current);
-					} else {
-						selectNextTabInRun(current);
-					}
-					break;
-				}
-			default:
-				{}
+		switch (direction) {
+		case $SwingConstants::NEXT:
+			selectNextTab(current);
+			break;
+		case $SwingConstants::PREVIOUS:
+			selectPreviousTab(current);
+			break;
+		case $SwingConstants::NORTH:
+			offset = getTabRunOffset(tabPlacement, tabCount, current, false);
+			selectAdjacentRunTab(tabPlacement, current, offset);
+			break;
+		case $SwingConstants::SOUTH:
+			offset = getTabRunOffset(tabPlacement, tabCount, current, true);
+			selectAdjacentRunTab(tabPlacement, current, offset);
+			break;
+		case $SwingConstants::EAST:
+			if (leftToRight) {
+				selectNextTabInRun(current);
+			} else {
+				selectPreviousTabInRun(current);
 			}
+			break;
+		case $SwingConstants::WEST:
+			if (leftToRight) {
+				selectPreviousTabInRun(current);
+			} else {
+				selectNextTabInRun(current);
+			}
+			break;
+		default:
+			break;
 		}
 	}
 }
@@ -1880,20 +1523,13 @@ void AquaTabbedPaneCopyFromBasicUI::selectAdjacentRunTab(int32_t tabPlacement, i
 	$var($Rectangle, r, $nc(this->rects)->get(tabIndex));
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
-		{}
 	case $SwingConstants::RIGHT:
-		{
-			newIndex = tabForCoordinate(this->tabPane, $nc(r)->x + r->width / 2 + offset, r->y + r->height / 2);
-			break;
-		}
+		newIndex = tabForCoordinate(this->tabPane, $nc(r)->x + $nc(r)->width / 2 + offset, $nc(r)->y + $nc(r)->height / 2);
+		break;
 	case $SwingConstants::BOTTOM:
-		{}
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			newIndex = tabForCoordinate(this->tabPane, $nc(r)->x + r->width / 2, r->y + r->height / 2 + offset);
-		}
+		newIndex = tabForCoordinate(this->tabPane, $nc(r)->x + $nc(r)->width / 2, $nc(r)->y + $nc(r)->height / 2 + offset);
 	}
 	if (newIndex != -1) {
 		while (!$nc(this->tabPane)->isEnabledAt(newIndex) && newIndex != tabIndex) {
@@ -1946,55 +1582,46 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getTabRunOffset(int32_t tabPlacement, int
 	switch (tabPlacement) {
 	case $SwingConstants::LEFT:
 		{
-			{
-				if (run == 0) {
-					offset = (forward ? -(calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth) - this->maxTabWidth) : -this->maxTabWidth);
-				} else if (run == this->runCount - 1) {
-					offset = (forward ? this->maxTabWidth : calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth) - this->maxTabWidth);
-				} else {
-					offset = (forward ? this->maxTabWidth : -this->maxTabWidth);
-				}
-				break;
+			if (run == 0) {
+				offset = (forward ? -(calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth) - this->maxTabWidth) : -this->maxTabWidth);
+			} else if (run == this->runCount - 1) {
+				offset = (forward ? this->maxTabWidth : calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth) - this->maxTabWidth);
+			} else {
+				offset = (forward ? this->maxTabWidth : -this->maxTabWidth);
 			}
+			break;
 		}
 	case $SwingConstants::RIGHT:
 		{
-			{
-				if (run == 0) {
-					offset = (forward ? this->maxTabWidth : calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth) - this->maxTabWidth);
-				} else if (run == this->runCount - 1) {
-					offset = (forward ? -(calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth) - this->maxTabWidth) : -this->maxTabWidth);
-				} else {
-					offset = (forward ? this->maxTabWidth : -this->maxTabWidth);
-				}
-				break;
+			if (run == 0) {
+				offset = (forward ? this->maxTabWidth : calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth) - this->maxTabWidth);
+			} else if (run == this->runCount - 1) {
+				offset = (forward ? -(calculateTabAreaWidth(tabPlacement, this->runCount, this->maxTabWidth) - this->maxTabWidth) : -this->maxTabWidth);
+			} else {
+				offset = (forward ? this->maxTabWidth : -this->maxTabWidth);
 			}
+			break;
 		}
 	case $SwingConstants::BOTTOM:
 		{
-			{
-				if (run == 0) {
-					offset = (forward ? this->maxTabHeight : calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight) - this->maxTabHeight);
-				} else if (run == this->runCount - 1) {
-					offset = (forward ? -(calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight) - this->maxTabHeight) : -this->maxTabHeight);
-				} else {
-					offset = (forward ? this->maxTabHeight : -this->maxTabHeight);
-				}
-				break;
+			if (run == 0) {
+				offset = (forward ? this->maxTabHeight : calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight) - this->maxTabHeight);
+			} else if (run == this->runCount - 1) {
+				offset = (forward ? -(calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight) - this->maxTabHeight) : -this->maxTabHeight);
+			} else {
+				offset = (forward ? this->maxTabHeight : -this->maxTabHeight);
 			}
+			break;
 		}
 	case $SwingConstants::TOP:
-		{}
 	default:
 		{
-			{
-				if (run == 0) {
-					offset = (forward ? -(calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight) - this->maxTabHeight) : -this->maxTabHeight);
-				} else if (run == this->runCount - 1) {
-					offset = (forward ? this->maxTabHeight : calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight) - this->maxTabHeight);
-				} else {
-					offset = (forward ? this->maxTabHeight : -this->maxTabHeight);
-				}
+			if (run == 0) {
+				offset = (forward ? -(calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight) - this->maxTabHeight) : -this->maxTabHeight);
+			} else if (run == this->runCount - 1) {
+				offset = (forward ? this->maxTabHeight : calculateTabAreaHeight(tabPlacement, this->runCount, this->maxTabHeight) - this->maxTabHeight);
+			} else {
+				offset = (forward ? this->maxTabHeight : -this->maxTabHeight);
 			}
 		}
 	}
@@ -2028,7 +1655,7 @@ int32_t AquaTabbedPaneCopyFromBasicUI::getPreviousTabIndexInRun(int32_t tabCount
 	}
 	int32_t currentRun = getRunForTab(tabCount, base);
 	if (base == $nc(this->tabRuns)->get(currentRun)) {
-		int32_t previous = $nc(this->tabRuns)->get(getNextTabRun(currentRun)) - 1;
+		int32_t previous = this->tabRuns->get(getNextTabRun(currentRun)) - 1;
 		return (previous != -1 ? previous : tabCount - 1);
 	}
 	return getPreviousTabIndex(base);
@@ -2047,38 +1674,29 @@ void AquaTabbedPaneCopyFromBasicUI::rotateInsets($Insets* topInsets, $Insets* ta
 	$init(AquaTabbedPaneCopyFromBasicUI);
 	switch (targetPlacement) {
 	case $SwingConstants::LEFT:
-		{
-			$nc(targetInsets)->top = $nc(topInsets)->left;
-			$nc(targetInsets)->left = $nc(topInsets)->top;
-			$nc(targetInsets)->bottom = $nc(topInsets)->right;
-			$nc(targetInsets)->right = $nc(topInsets)->bottom;
-			break;
-		}
+		$nc(targetInsets)->top = $nc(topInsets)->left;
+		targetInsets->left = topInsets->top;
+		targetInsets->bottom = topInsets->right;
+		targetInsets->right = topInsets->bottom;
+		break;
 	case $SwingConstants::BOTTOM:
-		{
-			$nc(targetInsets)->top = $nc(topInsets)->bottom;
-			$nc(targetInsets)->left = $nc(topInsets)->left;
-			$nc(targetInsets)->bottom = $nc(topInsets)->top;
-			$nc(targetInsets)->right = $nc(topInsets)->right;
-			break;
-		}
+		$nc(targetInsets)->top = $nc(topInsets)->bottom;
+		targetInsets->left = topInsets->left;
+		targetInsets->bottom = topInsets->top;
+		targetInsets->right = topInsets->right;
+		break;
 	case $SwingConstants::RIGHT:
-		{
-			$nc(targetInsets)->top = $nc(topInsets)->left;
-			$nc(targetInsets)->left = $nc(topInsets)->bottom;
-			$nc(targetInsets)->bottom = $nc(topInsets)->right;
-			$nc(targetInsets)->right = $nc(topInsets)->top;
-			break;
-		}
+		$nc(targetInsets)->top = $nc(topInsets)->left;
+		targetInsets->left = topInsets->bottom;
+		targetInsets->bottom = topInsets->right;
+		targetInsets->right = topInsets->top;
+		break;
 	case $SwingConstants::TOP:
-		{}
 	default:
-		{
-			$nc(targetInsets)->top = $nc(topInsets)->top;
-			$nc(targetInsets)->left = $nc(topInsets)->left;
-			$nc(targetInsets)->bottom = $nc(topInsets)->bottom;
-			$nc(targetInsets)->right = $nc(topInsets)->right;
-		}
+		$nc(targetInsets)->top = $nc(topInsets)->top;
+		targetInsets->left = topInsets->left;
+		targetInsets->bottom = topInsets->bottom;
+		targetInsets->right = topInsets->right;
 	}
 }
 
@@ -2087,7 +1705,7 @@ bool AquaTabbedPaneCopyFromBasicUI::requestFocusForVisibleComponent() {
 }
 
 $Vector* AquaTabbedPaneCopyFromBasicUI::createHTMLVector() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, htmlViews, $new($Vector));
 	int32_t count = $nc(this->tabPane)->getTabCount();
 	if (count > 0) {
@@ -2103,7 +1721,7 @@ $Vector* AquaTabbedPaneCopyFromBasicUI::createHTMLVector() {
 	return htmlViews;
 }
 
-void clinit$AquaTabbedPaneCopyFromBasicUI($Class* class$) {
+void AquaTabbedPaneCopyFromBasicUI::clinit$($Class* clazz) {
 	$assignStatic(AquaTabbedPaneCopyFromBasicUI::xCropLen, $new($ints, {
 		1,
 		1,
@@ -2130,7 +1748,227 @@ AquaTabbedPaneCopyFromBasicUI::AquaTabbedPaneCopyFromBasicUI() {
 }
 
 $Class* AquaTabbedPaneCopyFromBasicUI::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneCopyFromBasicUI, name, initialize, &_AquaTabbedPaneCopyFromBasicUI_ClassInfo_, clinit$AquaTabbedPaneCopyFromBasicUI, allocate$AquaTabbedPaneCopyFromBasicUI);
+	$CompoundAttribute upKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute downKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute leftKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute rightKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"tabPane", "Ljavax/swing/JTabbedPane;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabPane)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, highlight)},
+		{"lightHighlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, lightHighlight)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, shadow)},
+		{"darkShadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, darkShadow)},
+		{"focus", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, focus)},
+		{"selectedColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, selectedColor)},
+		{"textIconGap", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, textIconGap)},
+		{"tabRunOverlay", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabRunOverlay)},
+		{"tabInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabInsets)},
+		{"selectedTabPadInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, selectedTabPadInsets)},
+		{"tabAreaInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabAreaInsets)},
+		{"contentBorderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, contentBorderInsets)},
+		{"tabsOverlapBorder", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, tabsOverlapBorder)},
+		{"tabsOpaque", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, tabsOpaque)},
+		{"contentOpaque", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, contentOpaque)},
+		{"upKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(AquaTabbedPaneCopyFromBasicUI, upKey), upKeyfieldAnnotations$$},
+		{"downKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(AquaTabbedPaneCopyFromBasicUI, downKey), downKeyfieldAnnotations$$},
+		{"leftKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(AquaTabbedPaneCopyFromBasicUI, leftKey), leftKeyfieldAnnotations$$},
+		{"rightKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(AquaTabbedPaneCopyFromBasicUI, rightKey), rightKeyfieldAnnotations$$},
+		{"tabRuns", "[I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabRuns)},
+		{"runCount", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, runCount)},
+		{"selectedRun", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, selectedRun)},
+		{"rects", "[Ljava/awt/Rectangle;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, rects)},
+		{"maxTabHeight", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, maxTabHeight)},
+		{"maxTabWidth", "I", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, maxTabWidth)},
+		{"tabChangeListener", "Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, tabChangeListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, propertyChangeListener)},
+		{"mouseListener", "Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, mouseListener)},
+		{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(AquaTabbedPaneCopyFromBasicUI, focusListener)},
+		{"currentPadInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $FINAL, $field(AquaTabbedPaneCopyFromBasicUI, currentPadInsets)},
+		{"currentTabAreaInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $FINAL, $field(AquaTabbedPaneCopyFromBasicUI, currentTabAreaInsets)},
+		{"visibleComponent", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, visibleComponent)},
+		{"htmlViews", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/View;>;", $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, htmlViews)},
+		{"mnemonicToIndexMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Integer;Ljava/lang/Integer;>;", $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, mnemonicToIndexMap)},
+		{"mnemonicInputMap", "Ljavax/swing/InputMap;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, mnemonicInputMap)},
+		{"tabScroller", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, tabScroller)},
+		{"tabContainer", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$TabContainer;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, tabContainer)},
+		{"calcRect", "Ljava/awt/Rectangle;", nullptr, $PROTECTED | $TRANSIENT, $field(AquaTabbedPaneCopyFromBasicUI, calcRect)},
+		{"focusIndex", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, focusIndex)},
+		{"handler", "Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$Handler;", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, handler)},
+		{"rolloverTabIndex", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, rolloverTabIndex)},
+		{"isRunsDirty", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, isRunsDirty)},
+		{"calculatedBaseline", "Z", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, calculatedBaseline)},
+		{"baseline", "I", nullptr, $PRIVATE, $field(AquaTabbedPaneCopyFromBasicUI, baseline)},
+		{"xCropLen", "[I", nullptr, $PRIVATE | $STATIC, $staticField(AquaTabbedPaneCopyFromBasicUI, xCropLen)},
+		{"yCropLen", "[I", nullptr, $PRIVATE | $STATIC, $staticField(AquaTabbedPaneCopyFromBasicUI, yCropLen)},
+		{"CROP_SEGMENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaTabbedPaneCopyFromBasicUI, CROP_SEGMENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTabbedPaneCopyFromBasicUI, init$, void)},
+		{"addMnemonic", "(II)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, addMnemonic, void, int32_t, int32_t)},
+		{"assureRectsCreated", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, assureRectsCreated, void, int32_t)},
+		{"calculateBaseline", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, calculateBaseline, void)},
+		{"calculateBaselineIfNecessary", "()I", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, calculateBaselineIfNecessary, int32_t)},
+		{"calculateMaxTabHeight", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateMaxTabHeight, int32_t, int32_t)},
+		{"calculateMaxTabWidth", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateMaxTabWidth, int32_t, int32_t)},
+		{"calculateTabAreaHeight", "(III)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateTabAreaHeight, int32_t, int32_t, int32_t, int32_t)},
+		{"calculateTabAreaWidth", "(III)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateTabAreaWidth, int32_t, int32_t, int32_t, int32_t)},
+		{"calculateTabHeight", "(III)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateTabHeight, int32_t, int32_t, int32_t, int32_t)},
+		{"calculateTabWidth", "(IILjava/awt/FontMetrics;)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, calculateTabWidth, int32_t, int32_t, int32_t, $FontMetrics*)},
+		{"createChangeListener", "()Ljavax/swing/event/ChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createChangeListener, $ChangeListener*)},
+		{"createCroppedTabShape", "(ILjava/awt/Rectangle;I)Ljava/awt/Polygon;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI, createCroppedTabShape, $Polygon*, int32_t, $Rectangle*, int32_t)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createFocusListener, $FocusListener*)},
+		{"createHTMLVector", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljavax/swing/text/View;>;", $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, createHTMLVector, $Vector*)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createLayoutManager, $LayoutManager*)},
+		{"createMouseListener", "()Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createMouseListener, $MouseListener*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createScrollButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, createScrollButton, $JButton*, int32_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI, createUI, $ComponentUI*, $JComponent*)},
+		{"ensureCurrentLayout", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, ensureCurrentLayout, void)},
+		{"expandTabRunsArray", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, expandTabRunsArray, void)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaseline", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getBaseline, int32_t, int32_t)},
+		{"getBaselineOffset", "()I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getBaselineOffset, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getClosestTab", "(II)I", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, getClosestTab, int32_t, int32_t, int32_t)},
+		{"getContentBorderInsets", "(I)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getContentBorderInsets, $Insets*, int32_t)},
+		{"getFocusIndex", "()I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getFocusIndex, int32_t)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getFontMetrics, $FontMetrics*)},
+		{"getHandler", "()Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$Handler;", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, getHandler, $AquaTabbedPaneCopyFromBasicUI$Handler*)},
+		{"getIconForTab", "(I)Ljavax/swing/Icon;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getIconForTab, $Icon*, int32_t)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getInputMap, $InputMap*, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getNextTabIndex", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getNextTabIndex, int32_t, int32_t)},
+		{"getNextTabIndexInRun", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getNextTabIndexInRun, int32_t, int32_t, int32_t)},
+		{"getNextTabRun", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getNextTabRun, int32_t, int32_t)},
+		{"getPreviousTabIndex", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getPreviousTabIndex, int32_t, int32_t)},
+		{"getPreviousTabIndexInRun", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getPreviousTabIndexInRun, int32_t, int32_t, int32_t)},
+		{"getPreviousTabRun", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getPreviousTabRun, int32_t, int32_t)},
+		{"getRolloverTab", "()I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getRolloverTab, int32_t)},
+		{"getRunForTab", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getRunForTab, int32_t, int32_t, int32_t)},
+		{"getSelectedTabPadInsets", "(I)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getSelectedTabPadInsets, $Insets*, int32_t)},
+		{"getTabAreaInsets", "(I)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabAreaInsets, $Insets*, int32_t)},
+		{"getTabBounds", "(Ljavax/swing/JTabbedPane;I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabBounds, $Rectangle*, $JTabbedPane*, int32_t)},
+		{"getTabBounds", "(ILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabBounds, $Rectangle*, int32_t, $Rectangle*)},
+		{"getTabComponentAt", "(I)Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabComponentAt, $Component*, int32_t)},
+		{"getTabInsets", "(II)Ljava/awt/Insets;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabInsets, $Insets*, int32_t, int32_t)},
+		{"getTabLabelShiftX", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabLabelShiftX, int32_t, int32_t, int32_t, bool)},
+		{"getTabLabelShiftY", "(IIZ)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabLabelShiftY, int32_t, int32_t, int32_t, bool)},
+		{"getTabRunCount", "(Ljavax/swing/JTabbedPane;)I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabRunCount, int32_t, $JTabbedPane*)},
+		{"getTabRunIndent", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabRunIndent, int32_t, int32_t, int32_t)},
+		{"getTabRunOffset", "(IIIZ)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabRunOffset, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"getTabRunOverlay", "(I)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTabRunOverlay, int32_t, int32_t)},
+		{"getTextViewForTab", "(I)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getTextViewForTab, $View*, int32_t)},
+		{"getVisibleComponent", "()Ljava/awt/Component;", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, getVisibleComponent, $Component*)},
+		{"initMnemonics", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, initMnemonics, void)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installListeners, void)},
+		{"installTabContainer", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, installTabContainer, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, installUI, void, $JComponent*)},
+		{"isHorizontalTabPlacement", "()Z", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, isHorizontalTabPlacement, bool)},
+		{"lastTabInRun", "(II)I", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, lastTabInRun, int32_t, int32_t, int32_t)},
+		{"layoutLabel", "(ILjava/awt/FontMetrics;ILjava/lang/String;Ljavax/swing/Icon;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, layoutLabel, void, int32_t, $FontMetrics*, int32_t, $String*, $Icon*, $Rectangle*, $Rectangle*, $Rectangle*, bool)},
+		{"loadActionMap", "(Lcom/apple/laf/AquaTabbedPaneCopyFromBasicUI$LazyActionMap;)V", nullptr, $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI, loadActionMap, void, $AquaTabbedPaneCopyFromBasicUI$LazyActionMap*)},
+		{"navigateSelectedTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, navigateSelectedTab, void, int32_t)},
+		{"navigateTo", "(I)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, navigateTo, void, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintContentBorder", "(Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorder, void, $Graphics*, int32_t, int32_t)},
+		{"paintContentBorderBottomEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorderBottomEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintContentBorderLeftEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorderLeftEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintContentBorderRightEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorderRightEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintContentBorderTopEdge", "(Ljava/awt/Graphics;IIIIII)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintContentBorderTopEdge, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"paintCroppedTabEdge", "(Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, paintCroppedTabEdge, void, $Graphics*)},
+		{"paintFocusIndicator", "(Ljava/awt/Graphics;I[Ljava/awt/Rectangle;ILjava/awt/Rectangle;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintFocusIndicator, void, $Graphics*, int32_t, $RectangleArray*, int32_t, $Rectangle*, $Rectangle*, bool)},
+		{"paintIcon", "(Ljava/awt/Graphics;IILjavax/swing/Icon;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintIcon, void, $Graphics*, int32_t, int32_t, $Icon*, $Rectangle*, bool)},
+		{"paintTab", "(Ljava/awt/Graphics;I[Ljava/awt/Rectangle;ILjava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintTab, void, $Graphics*, int32_t, $RectangleArray*, int32_t, $Rectangle*, $Rectangle*)},
+		{"paintTabArea", "(Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintTabArea, void, $Graphics*, int32_t, int32_t)},
+		{"paintTabBackground", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintTabBackground, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintTabBorder", "(Ljava/awt/Graphics;IIIIIIZ)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintTabBorder, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"paintText", "(Ljava/awt/Graphics;ILjava/awt/Font;Ljava/awt/FontMetrics;ILjava/lang/String;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, paintText, void, $Graphics*, int32_t, $Font*, $FontMetrics*, int32_t, $String*, $Rectangle*, bool)},
+		{"repaintTab", "(I)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, repaintTab, void, int32_t)},
+		{"requestFocusForVisibleComponent", "()Z", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, requestFocusForVisibleComponent, bool)},
+		{"resetMnemonics", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, resetMnemonics, void)},
+		{"rotateInsets", "(Ljava/awt/Insets;Ljava/awt/Insets;I)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTabbedPaneCopyFromBasicUI, rotateInsets, void, $Insets*, $Insets*, int32_t)},
+		{"scrollableTabLayoutEnabled", "()Z", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, scrollableTabLayoutEnabled, bool)},
+		{"selectAdjacentRunTab", "(III)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectAdjacentRunTab, void, int32_t, int32_t, int32_t)},
+		{"selectNextTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectNextTab, void, int32_t)},
+		{"selectNextTabInRun", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectNextTabInRun, void, int32_t)},
+		{"selectPreviousTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectPreviousTab, void, int32_t)},
+		{"selectPreviousTabInRun", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, selectPreviousTabInRun, void, int32_t)},
+		{"setFocusIndex", "(IZ)V", nullptr, 0, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, setFocusIndex, void, int32_t, bool)},
+		{"setRolloverTab", "(II)V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, setRolloverTab, void, int32_t, int32_t)},
+		{"setRolloverTab", "(I)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, setRolloverTab, void, int32_t)},
+		{"setVisibleComponent", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, setVisibleComponent, void, $Component*)},
+		{"shouldPadTabRun", "(II)Z", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, shouldPadTabRun, bool, int32_t, int32_t)},
+		{"shouldRotateTabRuns", "(I)Z", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, shouldRotateTabRuns, bool, int32_t)},
+		{"tabForCoordinate", "(Ljavax/swing/JTabbedPane;II)I", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, tabForCoordinate, int32_t, $JTabbedPane*, int32_t, int32_t)},
+		{"tabForCoordinate", "(Ljavax/swing/JTabbedPane;IIZ)I", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, tabForCoordinate, int32_t, $JTabbedPane*, int32_t, int32_t, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"translatePointToTabPanel", "(IILjava/awt/Point;)Ljava/awt/Point;", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, translatePointToTabPanel, $Point*, int32_t, int32_t, $Point*)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallListeners, void)},
+		{"uninstallTabContainer", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, uninstallTabContainer, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneCopyFromBasicUI, uninstallUI, void, $JComponent*)},
+		{"updateMnemonics", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, updateMnemonics, void)},
+		{"validateFocusIndex", "()V", nullptr, $PRIVATE, $method(AquaTabbedPaneCopyFromBasicUI, validateFocusIndex, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$LazyActionMap", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "LazyActionMap", $STATIC},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$CroppedEdge", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "CroppedEdge", $PRIVATE},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabContainer", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabContainer", $PRIVATE},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$FocusHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "FocusHandler", $PUBLIC},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$MouseHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "MouseHandler", $PUBLIC},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabSelectionHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabSelectionHandler", $PUBLIC},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "PropertyChangeHandler", $PUBLIC},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Handler", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "Handler", $PRIVATE},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabButton", $PRIVATE},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabPanel", $PRIVATE},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabViewport", $PRIVATE},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "ScrollableTabSupport", $PRIVATE},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneScrollLayout", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabbedPaneScrollLayout", 0},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "TabbedPaneLayout", $PUBLIC},
+		{"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Actions", "com.apple.laf.AquaTabbedPaneCopyFromBasicUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI",
+		"javax.swing.plaf.TabbedPaneUI",
+		"javax.swing.SwingConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneCopyFromBasicUI$LazyActionMap,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$CroppedEdge,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabContainer,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$FocusHandler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$MouseHandler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabSelectionHandler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Handler,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabButton,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabPanel,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabViewport,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$ScrollableTabSupport,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneScrollLayout,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout,com.apple.laf.AquaTabbedPaneCopyFromBasicUI$Actions"
+	};
+	$loadClass(AquaTabbedPaneCopyFromBasicUI, name, initialize, &classInfo$$, AquaTabbedPaneCopyFromBasicUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneCopyFromBasicUI));
+	});
 	return class$;
 }
 

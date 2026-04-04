@@ -81,6 +81,7 @@ class $export StyleSheet : public ::javax::swing::text::StyleContext {
 public:
 	StyleSheet();
 	using ::javax::swing::text::StyleContext::getFont;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$String* _cleanSelectorString($String* selector);
 	virtual ::javax::swing::text::AttributeSet* addAttribute(::javax::swing::text::AttributeSet* old, Object$* key, Object$* value) override;

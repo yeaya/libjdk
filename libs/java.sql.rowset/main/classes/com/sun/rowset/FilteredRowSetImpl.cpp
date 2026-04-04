@@ -1,5 +1,4 @@
 #include <com/sun/rowset/FilteredRowSetImpl.h>
-
 #include <com/sun/rowset/CachedRowSetImpl.h>
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
 #include <com/sun/rowset/WebRowSetImpl.h>
@@ -103,411 +102,6 @@ using $SyncProvider = ::javax::sql::rowset::spi::SyncProvider;
 namespace com {
 	namespace sun {
 		namespace rowset {
-
-$FieldInfo _FilteredRowSetImpl_FieldInfo_[] = {
-	{"p", "Ljavax/sql/rowset/Predicate;", nullptr, $PRIVATE, $field(FilteredRowSetImpl, p)},
-	{"onInsertRow", "Z", nullptr, $PRIVATE, $field(FilteredRowSetImpl, onInsertRow)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FilteredRowSetImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FilteredRowSetImpl_MethodInfo_[] = {
-	{"*acceptChanges", "()V", nullptr, $PUBLIC},
-	{"*acceptChanges", "(Ljava/sql/Connection;)V", nullptr, $PUBLIC},
-	{"*addRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC},
-	{"*afterLast", "()V", nullptr, $PUBLIC},
-	{"*beforeFirst", "()V", nullptr, $PUBLIC},
-	{"*cancelRowUpdates", "()V", nullptr, $PUBLIC},
-	{"*clearParameters", "()V", nullptr, $PUBLIC},
-	{"*clearWarnings", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*close", "()V", nullptr, $PUBLIC},
-	{"*columnUpdated", "(I)Z", nullptr, $PUBLIC},
-	{"*columnUpdated", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*commit", "()V", nullptr, $PUBLIC},
-	{"*createCopy", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC},
-	{"*createCopyNoConstraints", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC},
-	{"*createCopySchema", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC},
-	{"*createShared", "()Ljavax/sql/RowSet;", nullptr, $PUBLIC},
-	{"*deleteRow", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*execute", "(Ljava/sql/Connection;)V", nullptr, $PUBLIC},
-	{"*execute", "()V", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*findColumn", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"*first", "()Z", nullptr, $PUBLIC},
-	{"*getArray", "(I)Ljava/sql/Array;", nullptr, $PUBLIC},
-	{"*getArray", "(Ljava/lang/String;)Ljava/sql/Array;", nullptr, $PUBLIC},
-	{"*getAsciiStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*getAsciiStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*getBigDecimal", "(II)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $DEPRECATED},
-	{"*getBigDecimal", "(Ljava/lang/String;I)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $DEPRECATED},
-	{"*getBigDecimal", "(I)Ljava/math/BigDecimal;", nullptr, $PUBLIC},
-	{"*getBigDecimal", "(Ljava/lang/String;)Ljava/math/BigDecimal;", nullptr, $PUBLIC},
-	{"*getBinaryStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*getBinaryStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*getBlob", "(I)Ljava/sql/Blob;", nullptr, $PUBLIC},
-	{"*getBlob", "(Ljava/lang/String;)Ljava/sql/Blob;", nullptr, $PUBLIC},
-	{"*getBoolean", "(I)Z", nullptr, $PUBLIC},
-	{"*getBoolean", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*getByte", "(I)B", nullptr, $PUBLIC},
-	{"*getByte", "(Ljava/lang/String;)B", nullptr, $PUBLIC},
-	{"*getBytes", "(I)[B", nullptr, $PUBLIC},
-	{"*getBytes", "(Ljava/lang/String;)[B", nullptr, $PUBLIC},
-	{"*getCharacterStream", "(I)Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"*getCharacterStream", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"*getClob", "(I)Ljava/sql/Clob;", nullptr, $PUBLIC},
-	{"*getClob", "(Ljava/lang/String;)Ljava/sql/Clob;", nullptr, $PUBLIC},
-	{"*getCommand", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getConcurrency", "()I", nullptr, $PUBLIC},
-	{"*getCursorName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getDataSourceName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getDate", "(I)Ljava/sql/Date;", nullptr, $PUBLIC},
-	{"*getDate", "(Ljava/lang/String;)Ljava/sql/Date;", nullptr, $PUBLIC},
-	{"*getDate", "(ILjava/util/Calendar;)Ljava/sql/Date;", nullptr, $PUBLIC},
-	{"*getDate", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Date;", nullptr, $PUBLIC},
-	{"*getDouble", "(I)D", nullptr, $PUBLIC},
-	{"*getDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC},
-	{"*getEscapeProcessing", "()Z", nullptr, $PUBLIC},
-	{"*getFetchDirection", "()I", nullptr, $PUBLIC},
-	{"*getFetchSize", "()I", nullptr, $PUBLIC},
-	{"*getFloat", "(I)F", nullptr, $PUBLIC},
-	{"*getFloat", "(Ljava/lang/String;)F", nullptr, $PUBLIC},
-	{"*getHoldability", "()I", nullptr, $PUBLIC},
-	{"*getInt", "(I)I", nullptr, $PUBLIC},
-	{"*getInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
-	{"*getKeyColumns", "()[I", nullptr, $PUBLIC},
-	{"*getLong", "(I)J", nullptr, $PUBLIC},
-	{"*getLong", "(Ljava/lang/String;)J", nullptr, $PUBLIC},
-	{"*getMatchColumnIndexes", "()[I", nullptr, $PUBLIC},
-	{"*getMatchColumnNames", "()[Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getMaxFieldSize", "()I", nullptr, $PUBLIC},
-	{"*getMaxRows", "()I", nullptr, $PUBLIC},
-	{"*getMetaData", "()Ljava/sql/ResultSetMetaData;", nullptr, $PUBLIC},
-	{"*getNCharacterStream", "(I)Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"*getNCharacterStream", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"*getNClob", "(I)Ljava/sql/NClob;", nullptr, $PUBLIC},
-	{"*getNClob", "(Ljava/lang/String;)Ljava/sql/NClob;", nullptr, $PUBLIC},
-	{"*getNString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getObject", "(ILjava/util/Map;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getObject", "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getObject", "(ILjava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getObject", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getOriginal", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC},
-	{"*getOriginalRow", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC},
-	{"*getPageSize", "()I", nullptr, $PUBLIC},
-	{"*getPassword", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getQueryTimeout", "()I", nullptr, $PUBLIC},
-	{"*getRef", "(I)Ljava/sql/Ref;", nullptr, $PUBLIC},
-	{"*getRef", "(Ljava/lang/String;)Ljava/sql/Ref;", nullptr, $PUBLIC},
-	{"*getRow", "()I", nullptr, $PUBLIC},
-	{"*getRowId", "(I)Ljava/sql/RowId;", nullptr, $PUBLIC},
-	{"*getRowId", "(Ljava/lang/String;)Ljava/sql/RowId;", nullptr, $PUBLIC},
-	{"*getRowSetWarnings", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC},
-	{"*getSQLXML", "(I)Ljava/sql/SQLXML;", nullptr, $PUBLIC},
-	{"*getSQLXML", "(Ljava/lang/String;)Ljava/sql/SQLXML;", nullptr, $PUBLIC},
-	{"*getShort", "(I)S", nullptr, $PUBLIC},
-	{"*getShort", "(Ljava/lang/String;)S", nullptr, $PUBLIC},
-	{"*getShowDeleted", "()Z", nullptr, $PUBLIC},
-	{"*getStatement", "()Ljava/sql/Statement;", nullptr, $PUBLIC},
-	{"*getString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getSyncProvider", "()Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PUBLIC},
-	{"*getTableName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getTime", "(I)Ljava/sql/Time;", nullptr, $PUBLIC},
-	{"*getTime", "(Ljava/lang/String;)Ljava/sql/Time;", nullptr, $PUBLIC},
-	{"*getTime", "(ILjava/util/Calendar;)Ljava/sql/Time;", nullptr, $PUBLIC},
-	{"*getTime", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Time;", nullptr, $PUBLIC},
-	{"*getTimestamp", "(I)Ljava/sql/Timestamp;", nullptr, $PUBLIC},
-	{"*getTimestamp", "(Ljava/lang/String;)Ljava/sql/Timestamp;", nullptr, $PUBLIC},
-	{"*getTimestamp", "(ILjava/util/Calendar;)Ljava/sql/Timestamp;", nullptr, $PUBLIC},
-	{"*getTimestamp", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Timestamp;", nullptr, $PUBLIC},
-	{"*getTransactionIsolation", "()I", nullptr, $PUBLIC},
-	{"*getType", "()I", nullptr, $PUBLIC},
-	{"*getTypeMap", "()Ljava/util/Map;", nullptr, $PUBLIC},
-	{"*getURL", "(I)Ljava/net/URL;", nullptr, $PUBLIC},
-	{"*getURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC},
-	{"*getUnicodeStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC | $DEPRECATED},
-	{"*getUnicodeStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $DEPRECATED},
-	{"*getUrl", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getWarnings", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FilteredRowSetImpl, init$, void), "java.sql.SQLException"},
-	{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PUBLIC, $method(FilteredRowSetImpl, init$, void, $Hashtable*), "java.sql.SQLException"},
-	{"absolute", "(I)Z", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, absolute, bool, int32_t), "java.sql.SQLException"},
-	{"getFilter", "()Ljavax/sql/rowset/Predicate;", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, getFilter, $Predicate*)},
-	{"insertRow", "()V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, insertRow, void), "java.sql.SQLException"},
-	{"internalFirst", "()Z", nullptr, $PROTECTED, $virtualMethod(FilteredRowSetImpl, internalFirst, bool), "java.sql.SQLException"},
-	{"internalLast", "()Z", nullptr, $PROTECTED, $virtualMethod(FilteredRowSetImpl, internalLast, bool), "java.sql.SQLException"},
-	{"internalNext", "()Z", nullptr, $PROTECTED, $virtualMethod(FilteredRowSetImpl, internalNext, bool), "java.sql.SQLException"},
-	{"internalPrevious", "()Z", nullptr, $PROTECTED, $virtualMethod(FilteredRowSetImpl, internalPrevious, bool), "java.sql.SQLException"},
-	{"*isAfterLast", "()Z", nullptr, $PUBLIC},
-	{"*isBeforeFirst", "()Z", nullptr, $PUBLIC},
-	{"*isClosed", "()Z", nullptr, $PUBLIC},
-	{"*isFirst", "()Z", nullptr, $PUBLIC},
-	{"*isLast", "()Z", nullptr, $PUBLIC},
-	{"*isReadOnly", "()Z", nullptr, $PUBLIC},
-	{"*isWrapperFor", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
-	{"*last", "()Z", nullptr, $PUBLIC},
-	{"*moveToCurrentRow", "()V", nullptr, $PUBLIC},
-	{"moveToInsertRow", "()V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, moveToInsertRow, void), "java.sql.SQLException"},
-	{"*next", "()Z", nullptr, $PUBLIC},
-	{"*nextPage", "()Z", nullptr, $PUBLIC},
-	{"*populate", "(Ljava/sql/ResultSet;)V", nullptr, $PUBLIC},
-	{"*populate", "(Ljava/sql/ResultSet;I)V", nullptr, $PUBLIC},
-	{"*previous", "()Z", nullptr, $PUBLIC},
-	{"*previousPage", "()Z", nullptr, $PUBLIC},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FilteredRowSetImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"*readXml", "(Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*readXml", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*refreshRow", "()V", nullptr, $PUBLIC},
-	{"relative", "(I)Z", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, relative, bool, int32_t), "java.sql.SQLException"},
-	{"*release", "()V", nullptr, $PUBLIC},
-	{"*removeRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC},
-	{"*restoreOriginal", "()V", nullptr, $PUBLIC},
-	{"*rollback", "()V", nullptr, $PUBLIC},
-	{"*rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC},
-	{"*rowDeleted", "()Z", nullptr, $PUBLIC},
-	{"*rowInserted", "()Z", nullptr, $PUBLIC},
-	{"*rowSetPopulated", "(Ljavax/sql/RowSetEvent;I)V", nullptr, $PUBLIC},
-	{"*rowUpdated", "()Z", nullptr, $PUBLIC},
-	{"*setArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC},
-	{"*setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC},
-	{"*setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*setAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC},
-	{"*setAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*setBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC},
-	{"*setBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC},
-	{"*setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC},
-	{"*setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*setBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC},
-	{"*setBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*setBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC},
-	{"*setBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*setBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC},
-	{"*setBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC},
-	{"*setBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*setBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC},
-	{"*setBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC},
-	{"*setBoolean", "(IZ)V", nullptr, $PUBLIC},
-	{"*setByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC},
-	{"*setByte", "(IB)V", nullptr, $PUBLIC},
-	{"*setBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC},
-	{"*setBytes", "(I[B)V", nullptr, $PUBLIC},
-	{"*setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC},
-	{"*setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*setCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC},
-	{"*setCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*setClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*setClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC},
-	{"*setClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*setClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*setClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*setClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC},
-	{"*setCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setConcurrency", "(I)V", nullptr, $PUBLIC},
-	{"*setDataSourceName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC},
-	{"*setDate", "(Ljava/lang/String;Ljava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"*setDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC},
-	{"*setDate", "(ILjava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"*setDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC},
-	{"*setDouble", "(ID)V", nullptr, $PUBLIC},
-	{"*setEscapeProcessing", "(Z)V", nullptr, $PUBLIC},
-	{"*setFetchDirection", "(I)V", nullptr, $PUBLIC},
-	{"*setFetchSize", "(I)V", nullptr, $PUBLIC},
-	{"setFilter", "(Ljavax/sql/rowset/Predicate;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, setFilter, void, $Predicate*), "java.sql.SQLException"},
-	{"*setFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC},
-	{"*setFloat", "(IF)V", nullptr, $PUBLIC},
-	{"*setInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC},
-	{"*setInt", "(II)V", nullptr, $PUBLIC},
-	{"*setKeyColumns", "([I)V", nullptr, $PUBLIC},
-	{"*setLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC},
-	{"*setLong", "(IJ)V", nullptr, $PUBLIC},
-	{"*setMatchColumn", "([I)V", nullptr, $PUBLIC},
-	{"*setMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setMatchColumn", "(I)V", nullptr, $PUBLIC},
-	{"*setMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setMaxFieldSize", "(I)V", nullptr, $PUBLIC},
-	{"*setMaxRows", "(I)V", nullptr, $PUBLIC},
-	{"*setMetaData", "(Ljavax/sql/RowSetMetaData;)V", nullptr, $PUBLIC},
-	{"*setNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*setNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*setNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC},
-	{"*setNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*setNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*setNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*setNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*setNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC},
-	{"*setNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setNull", "(Ljava/lang/String;I)V", nullptr, $PUBLIC},
-	{"*setNull", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setNull", "(II)V", nullptr, $PUBLIC},
-	{"*setNull", "(IILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setObject", "(Ljava/lang/String;Ljava/lang/Object;II)V", nullptr, $PUBLIC},
-	{"*setObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC},
-	{"*setObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*setObject", "(ILjava/lang/Object;II)V", nullptr, $PUBLIC},
-	{"*setObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC},
-	{"*setObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*setOriginalRow", "()V", nullptr, $PUBLIC},
-	{"*setPageSize", "(I)V", nullptr, $PUBLIC},
-	{"*setPassword", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setQueryTimeout", "(I)V", nullptr, $PUBLIC},
-	{"*setReadOnly", "(Z)V", nullptr, $PUBLIC},
-	{"*setRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC},
-	{"*setRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC},
-	{"*setRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC},
-	{"*setSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC},
-	{"*setSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC},
-	{"*setShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC},
-	{"*setShort", "(IS)V", nullptr, $PUBLIC},
-	{"*setShowDeleted", "(Z)V", nullptr, $PUBLIC},
-	{"*setString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setString", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setSyncProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setTableName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC},
-	{"*setTime", "(Ljava/lang/String;Ljava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"*setTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC},
-	{"*setTime", "(ILjava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"*setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"*setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC},
-	{"*setTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC},
-	{"*setTimestamp", "(ILjava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
-	{"*setTransactionIsolation", "(I)V", nullptr, $PUBLIC},
-	{"*setType", "(I)V", nullptr, $PUBLIC},
-	{"*setTypeMap", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
-	{"*setURL", "(ILjava/net/URL;)V", nullptr, $PUBLIC},
-	{"*setUrl", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setUsername", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*size", "()I", nullptr, $PUBLIC},
-	{"*toCollection", "()Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toCollection", "(I)Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toCollection", "(Ljava/lang/String;)Ljava/util/Collection;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*undoDelete", "()V", nullptr, $PUBLIC},
-	{"*undoInsert", "()V", nullptr, $PUBLIC},
-	{"*undoUpdate", "()V", nullptr, $PUBLIC},
-	{"*unsetMatchColumn", "([I)V", nullptr, $PUBLIC},
-	{"*unsetMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*unsetMatchColumn", "(I)V", nullptr, $PUBLIC},
-	{"*unsetMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*unwrap", "(Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*updateArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC},
-	{"*updateArray", "(Ljava/lang/String;Ljava/sql/Array;)V", nullptr, $PUBLIC},
-	{"*updateAsciiStream", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC},
-	{"*updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC},
-	{"*updateAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"updateAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateAsciiStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateAsciiStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"updateBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBigDecimal, void, int32_t, $BigDecimal*), "java.sql.SQLException"},
-	{"updateBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBigDecimal, void, $String*, $BigDecimal*), "java.sql.SQLException"},
-	{"*updateBinaryStream", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC},
-	{"*updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC},
-	{"*updateBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"updateBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBinaryStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBinaryStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
-	{"*updateBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC},
-	{"*updateBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC},
-	{"*updateBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC},
-	{"*updateBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC},
-	{"*updateBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"*updateBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
-	{"updateBoolean", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBoolean, void, int32_t, bool), "java.sql.SQLException"},
-	{"updateBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBoolean, void, $String*, bool), "java.sql.SQLException"},
-	{"updateByte", "(IB)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateByte, void, int32_t, int8_t), "java.sql.SQLException"},
-	{"updateByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateByte, void, $String*, int8_t), "java.sql.SQLException"},
-	{"updateBytes", "(I[B)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBytes, void, int32_t, $bytes*), "java.sql.SQLException"},
-	{"updateBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBytes, void, $String*, $bytes*), "java.sql.SQLException"},
-	{"*updateCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*updateCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"updateCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateCharacterStream, void, int32_t, $Reader*, int32_t), "java.sql.SQLException"},
-	{"updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateCharacterStream, void, $String*, $Reader*, int32_t), "java.sql.SQLException"},
-	{"*updateClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC},
-	{"*updateClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC},
-	{"*updateClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*updateClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*updateClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*updateClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"updateDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateDate, void, int32_t, $Date*), "java.sql.SQLException"},
-	{"updateDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateDate, void, $String*, $Date*), "java.sql.SQLException"},
-	{"updateDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateDouble, void, int32_t, double), "java.sql.SQLException"},
-	{"updateDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateDouble, void, $String*, double), "java.sql.SQLException"},
-	{"updateFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateFloat, void, int32_t, float), "java.sql.SQLException"},
-	{"updateFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateFloat, void, $String*, float), "java.sql.SQLException"},
-	{"updateInt", "(II)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateInt, void, int32_t, int32_t), "java.sql.SQLException"},
-	{"updateInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateInt, void, $String*, int32_t), "java.sql.SQLException"},
-	{"updateLong", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateLong, void, int32_t, int64_t), "java.sql.SQLException"},
-	{"updateLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateLong, void, $String*, int64_t), "java.sql.SQLException"},
-	{"*updateNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*updateNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*updateNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*updateNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*updateNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC},
-	{"*updateNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC},
-	{"*updateNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*updateNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
-	{"*updateNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*updateNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
-	{"*updateNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"*updateNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*updateNull", "(I)V", nullptr, $PUBLIC},
-	{"*updateNull", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*updateObject", "(ILjava/lang/Object;Ljava/sql/SQLType;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*updateObject", "(Ljava/lang/String;Ljava/lang/Object;Ljava/sql/SQLType;I)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*updateObject", "(ILjava/lang/Object;Ljava/sql/SQLType;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*updateObject", "(Ljava/lang/String;Ljava/lang/Object;Ljava/sql/SQLType;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"updateObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateObject, void, int32_t, Object$*), "java.sql.SQLException"},
-	{"updateObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateObject, void, $String*, Object$*), "java.sql.SQLException"},
-	{"updateObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateObject, void, int32_t, Object$*, int32_t), "java.sql.SQLException"},
-	{"updateObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateObject, void, $String*, Object$*, int32_t), "java.sql.SQLException"},
-	{"*updateRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC},
-	{"*updateRef", "(Ljava/lang/String;Ljava/sql/Ref;)V", nullptr, $PUBLIC},
-	{"*updateRow", "()V", nullptr, $PUBLIC},
-	{"*updateRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC},
-	{"*updateRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC},
-	{"*updateSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC},
-	{"*updateSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC},
-	{"updateShort", "(IS)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateShort, void, int32_t, int16_t), "java.sql.SQLException"},
-	{"updateShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateShort, void, $String*, int16_t), "java.sql.SQLException"},
-	{"updateString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateString, void, int32_t, $String*), "java.sql.SQLException"},
-	{"updateString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateString, void, $String*, $String*), "java.sql.SQLException"},
-	{"updateTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateTime, void, int32_t, $Time*), "java.sql.SQLException"},
-	{"updateTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateTime, void, $String*, $Time*), "java.sql.SQLException"},
-	{"updateTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateTimestamp, void, int32_t, $Timestamp*), "java.sql.SQLException"},
-	{"updateTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateTimestamp, void, $String*, $Timestamp*), "java.sql.SQLException"},
-	{"*writeXml", "(Ljava/sql/ResultSet;Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"*writeXml", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"*writeXml", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC},
-	{"*writeXml", "(Ljava/sql/ResultSet;Ljava/io/OutputStream;)V", nullptr, $PUBLIC},
-	{"*wasNull", "()Z", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _FilteredRowSetImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.FilteredRowSetImpl",
-	"com.sun.rowset.WebRowSetImpl",
-	"javax.sql.rowset.FilteredRowSet",
-	_FilteredRowSetImpl_FieldInfo_,
-	_FilteredRowSetImpl_MethodInfo_
-};
-
-$Object* allocate$FilteredRowSetImpl($Class* clazz) {
-	return $of($alloc(FilteredRowSetImpl));
-}
 
 void FilteredRowSetImpl::writeXml($ResultSet* rs, $Writer* writer) {
 	this->$WebRowSetImpl::writeXml(rs, writer);
@@ -1862,7 +1456,7 @@ bool FilteredRowSetImpl::internalNext() {
 		if (!bool$ || this->p == nullptr) {
 			return bool$;
 		}
-		if ($nc(this->p)->evaluate(static_cast<$RowSet*>(static_cast<$CachedRowSet*>(static_cast<$CachedRowSetImpl*>(static_cast<$WebRowSetImpl*>(this)))))) {
+		if ($nc(this->p)->evaluate($cast($CachedRowSetImpl, this))) {
 			break;
 		}
 	}
@@ -1876,7 +1470,7 @@ bool FilteredRowSetImpl::internalPrevious() {
 		if (this->p == nullptr) {
 			return bool$;
 		}
-		if ($nc(this->p)->evaluate(static_cast<$RowSet*>(static_cast<$CachedRowSet*>(static_cast<$CachedRowSetImpl*>(static_cast<$WebRowSetImpl*>(this)))))) {
+		if ($nc(this->p)->evaluate($cast($CachedRowSetImpl, this))) {
 			break;
 		}
 	}
@@ -1889,7 +1483,7 @@ bool FilteredRowSetImpl::internalFirst() {
 		return bool$;
 	}
 	while (bool$) {
-		if ($nc(this->p)->evaluate(static_cast<$RowSet*>(static_cast<$CachedRowSet*>(static_cast<$CachedRowSetImpl*>(static_cast<$WebRowSetImpl*>(this)))))) {
+		if ($nc(this->p)->evaluate($cast($CachedRowSetImpl, this))) {
 			break;
 		}
 		bool$ = $WebRowSetImpl::internalNext();
@@ -1903,7 +1497,7 @@ bool FilteredRowSetImpl::internalLast() {
 		return bool$;
 	}
 	while (bool$) {
-		if ($nc(this->p)->evaluate(static_cast<$RowSet*>(static_cast<$CachedRowSet*>(static_cast<$CachedRowSetImpl*>(static_cast<$WebRowSetImpl*>(this)))))) {
+		if ($nc(this->p)->evaluate($cast($CachedRowSetImpl, this))) {
 			break;
 		}
 		bool$ = $WebRowSetImpl::internalPrevious();
@@ -1912,12 +1506,12 @@ bool FilteredRowSetImpl::internalLast() {
 }
 
 bool FilteredRowSetImpl::relative(int32_t rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool retval = false;
 	bool bool$ = false;
 	bool boolval = false;
 	if (getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.relative"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.relative"_s))->toString()));
 	}
 	if (rows > 0) {
 		int32_t i = 0;
@@ -1947,11 +1541,11 @@ bool FilteredRowSetImpl::relative(int32_t rows) {
 }
 
 bool FilteredRowSetImpl::absolute(int32_t rows) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool retval = false;
 	bool bool$ = false;
 	if (rows == 0 || getType() == $ResultSet::TYPE_FORWARD_ONLY) {
-		$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.absolute"_s))))->toString()));
+		$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.absolute"_s))->toString()));
 	}
 	if (rows > 0) {
 		bool$ = internalFirst();
@@ -1986,13 +1580,13 @@ void FilteredRowSetImpl::moveToInsertRow() {
 }
 
 void FilteredRowSetImpl::updateInt(int32_t columnIndex, int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($($of($Integer::valueOf(x))), columnIndex);
+			bool$ = this->p->evaluate($($Integer::valueOf(x)), columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2004,13 +1598,13 @@ void FilteredRowSetImpl::updateInt($String* columnName, int32_t x) {
 }
 
 void FilteredRowSetImpl::updateBoolean(int32_t columnIndex, bool x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($($of($Boolean::valueOf(x))), columnIndex);
+			bool$ = this->p->evaluate($($Boolean::valueOf(x)), columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2022,13 +1616,13 @@ void FilteredRowSetImpl::updateBoolean($String* columnName, bool x) {
 }
 
 void FilteredRowSetImpl::updateByte(int32_t columnIndex, int8_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($($of($Byte::valueOf(x))), columnIndex);
+			bool$ = this->p->evaluate($($Byte::valueOf(x)), columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2040,13 +1634,13 @@ void FilteredRowSetImpl::updateByte($String* columnName, int8_t x) {
 }
 
 void FilteredRowSetImpl::updateShort(int32_t columnIndex, int16_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($($of($Short::valueOf(x))), columnIndex);
+			bool$ = this->p->evaluate($($Short::valueOf(x)), columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2058,13 +1652,13 @@ void FilteredRowSetImpl::updateShort($String* columnName, int16_t x) {
 }
 
 void FilteredRowSetImpl::updateLong(int32_t columnIndex, int64_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($($of($Long::valueOf(x))), columnIndex);
+			bool$ = this->p->evaluate($($Long::valueOf(x)), columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2076,13 +1670,13 @@ void FilteredRowSetImpl::updateLong($String* columnName, int64_t x) {
 }
 
 void FilteredRowSetImpl::updateFloat(int32_t columnIndex, float x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($($of($Float::valueOf(x))), columnIndex);
+			bool$ = this->p->evaluate($($Float::valueOf(x)), columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2094,13 +1688,13 @@ void FilteredRowSetImpl::updateFloat($String* columnName, float x) {
 }
 
 void FilteredRowSetImpl::updateDouble(int32_t columnIndex, double x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($($of($Double::valueOf(x))), columnIndex);
+			bool$ = this->p->evaluate($($Double::valueOf(x)), columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2112,13 +1706,13 @@ void FilteredRowSetImpl::updateDouble($String* columnName, double x) {
 }
 
 void FilteredRowSetImpl::updateBigDecimal(int32_t columnIndex, $BigDecimal* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(x), columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2130,13 +1724,13 @@ void FilteredRowSetImpl::updateBigDecimal($String* columnName, $BigDecimal* x) {
 }
 
 void FilteredRowSetImpl::updateString(int32_t columnIndex, $String* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(x), columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2148,7 +1742,7 @@ void FilteredRowSetImpl::updateString($String* columnName, $String* x) {
 }
 
 void FilteredRowSetImpl::updateBytes(int32_t columnIndex, $bytes* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	$var($String, val, ""_s);
 	$var($ByteArray, obj_arr, $new($ByteArray, $nc(x)->length));
@@ -2158,9 +1752,9 @@ void FilteredRowSetImpl::updateBytes(int32_t columnIndex, $bytes* x) {
 	}
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(val), columnIndex);
+			bool$ = this->p->evaluate(val, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2172,13 +1766,13 @@ void FilteredRowSetImpl::updateBytes($String* columnName, $bytes* x) {
 }
 
 void FilteredRowSetImpl::updateDate(int32_t columnIndex, $Date* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(x), columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2190,13 +1784,13 @@ void FilteredRowSetImpl::updateDate($String* columnName, $Date* x) {
 }
 
 void FilteredRowSetImpl::updateTime(int32_t columnIndex, $Time* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(x), columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2208,13 +1802,13 @@ void FilteredRowSetImpl::updateTime($String* columnName, $Time* x) {
 }
 
 void FilteredRowSetImpl::updateTimestamp(int32_t columnIndex, $Timestamp* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(x), columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2226,13 +1820,13 @@ void FilteredRowSetImpl::updateTimestamp($String* columnName, $Timestamp* x) {
 }
 
 void FilteredRowSetImpl::updateAsciiStream(int32_t columnIndex, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(x), columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2244,13 +1838,13 @@ void FilteredRowSetImpl::updateAsciiStream($String* columnName, $InputStream* x,
 }
 
 void FilteredRowSetImpl::updateCharacterStream(int32_t columnIndex, $Reader* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(x), columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2262,13 +1856,13 @@ void FilteredRowSetImpl::updateCharacterStream($String* columnName, $Reader* rea
 }
 
 void FilteredRowSetImpl::updateBinaryStream(int32_t columnIndex, $InputStream* x, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate($of(x), columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2280,13 +1874,13 @@ void FilteredRowSetImpl::updateBinaryStream($String* columnName, $InputStream* x
 }
 
 void FilteredRowSetImpl::updateObject(int32_t columnIndex, Object$* x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate(x, columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2298,13 +1892,13 @@ void FilteredRowSetImpl::updateObject($String* columnName, Object$* x) {
 }
 
 void FilteredRowSetImpl::updateObject(int32_t columnIndex, Object$* x, int32_t scale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool bool$ = false;
 	if (this->onInsertRow) {
 		if (this->p != nullptr) {
-			bool$ = $nc(this->p)->evaluate(x, columnIndex);
+			bool$ = this->p->evaluate(x, columnIndex);
 			if (!bool$) {
-				$throwNew($SQLException, $($nc($of($($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))))->toString()));
+				$throwNew($SQLException, $($$nc($nc(this->resBundle)->handleGetObject("filteredrowsetimpl.notallowed"_s))->toString()));
 			}
 		}
 	}
@@ -2325,7 +1919,7 @@ void FilteredRowSetImpl::readObject($ObjectInputStream* ois) {
 	try {
 		$set(this, resBundle, $JdbcRowSetResourceBundle::getJdbcRowSetResourceBundle());
 	} catch ($IOException& ioe) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+		$throwNew($RuntimeException, ioe);
 	}
 }
 
@@ -2333,7 +1927,407 @@ FilteredRowSetImpl::FilteredRowSetImpl() {
 }
 
 $Class* FilteredRowSetImpl::load$($String* name, bool initialize) {
-	$loadClass(FilteredRowSetImpl, name, initialize, &_FilteredRowSetImpl_ClassInfo_, allocate$FilteredRowSetImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"p", "Ljavax/sql/rowset/Predicate;", nullptr, $PRIVATE, $field(FilteredRowSetImpl, p)},
+		{"onInsertRow", "Z", nullptr, $PRIVATE, $field(FilteredRowSetImpl, onInsertRow)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FilteredRowSetImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*acceptChanges", "()V", nullptr, $PUBLIC},
+		{"*acceptChanges", "(Ljava/sql/Connection;)V", nullptr, $PUBLIC},
+		{"*addRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC},
+		{"*afterLast", "()V", nullptr, $PUBLIC},
+		{"*beforeFirst", "()V", nullptr, $PUBLIC},
+		{"*cancelRowUpdates", "()V", nullptr, $PUBLIC},
+		{"*clearParameters", "()V", nullptr, $PUBLIC},
+		{"*clearWarnings", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*close", "()V", nullptr, $PUBLIC},
+		{"*columnUpdated", "(I)Z", nullptr, $PUBLIC},
+		{"*columnUpdated", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*commit", "()V", nullptr, $PUBLIC},
+		{"*createCopy", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC},
+		{"*createCopyNoConstraints", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC},
+		{"*createCopySchema", "()Ljavax/sql/rowset/CachedRowSet;", nullptr, $PUBLIC},
+		{"*createShared", "()Ljavax/sql/RowSet;", nullptr, $PUBLIC},
+		{"*deleteRow", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*execute", "(Ljava/sql/Connection;)V", nullptr, $PUBLIC},
+		{"*execute", "()V", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*findColumn", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
+		{"*first", "()Z", nullptr, $PUBLIC},
+		{"*getArray", "(I)Ljava/sql/Array;", nullptr, $PUBLIC},
+		{"*getArray", "(Ljava/lang/String;)Ljava/sql/Array;", nullptr, $PUBLIC},
+		{"*getAsciiStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*getAsciiStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*getBigDecimal", "(II)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $DEPRECATED},
+		{"*getBigDecimal", "(Ljava/lang/String;I)Ljava/math/BigDecimal;", nullptr, $PUBLIC | $DEPRECATED},
+		{"*getBigDecimal", "(I)Ljava/math/BigDecimal;", nullptr, $PUBLIC},
+		{"*getBigDecimal", "(Ljava/lang/String;)Ljava/math/BigDecimal;", nullptr, $PUBLIC},
+		{"*getBinaryStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*getBinaryStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*getBlob", "(I)Ljava/sql/Blob;", nullptr, $PUBLIC},
+		{"*getBlob", "(Ljava/lang/String;)Ljava/sql/Blob;", nullptr, $PUBLIC},
+		{"*getBoolean", "(I)Z", nullptr, $PUBLIC},
+		{"*getBoolean", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*getByte", "(I)B", nullptr, $PUBLIC},
+		{"*getByte", "(Ljava/lang/String;)B", nullptr, $PUBLIC},
+		{"*getBytes", "(I)[B", nullptr, $PUBLIC},
+		{"*getBytes", "(Ljava/lang/String;)[B", nullptr, $PUBLIC},
+		{"*getCharacterStream", "(I)Ljava/io/Reader;", nullptr, $PUBLIC},
+		{"*getCharacterStream", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC},
+		{"*getClob", "(I)Ljava/sql/Clob;", nullptr, $PUBLIC},
+		{"*getClob", "(Ljava/lang/String;)Ljava/sql/Clob;", nullptr, $PUBLIC},
+		{"*getCommand", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getConcurrency", "()I", nullptr, $PUBLIC},
+		{"*getCursorName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getDataSourceName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getDate", "(I)Ljava/sql/Date;", nullptr, $PUBLIC},
+		{"*getDate", "(Ljava/lang/String;)Ljava/sql/Date;", nullptr, $PUBLIC},
+		{"*getDate", "(ILjava/util/Calendar;)Ljava/sql/Date;", nullptr, $PUBLIC},
+		{"*getDate", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Date;", nullptr, $PUBLIC},
+		{"*getDouble", "(I)D", nullptr, $PUBLIC},
+		{"*getDouble", "(Ljava/lang/String;)D", nullptr, $PUBLIC},
+		{"*getEscapeProcessing", "()Z", nullptr, $PUBLIC},
+		{"*getFetchDirection", "()I", nullptr, $PUBLIC},
+		{"*getFetchSize", "()I", nullptr, $PUBLIC},
+		{"*getFloat", "(I)F", nullptr, $PUBLIC},
+		{"*getFloat", "(Ljava/lang/String;)F", nullptr, $PUBLIC},
+		{"*getHoldability", "()I", nullptr, $PUBLIC},
+		{"*getInt", "(I)I", nullptr, $PUBLIC},
+		{"*getInt", "(Ljava/lang/String;)I", nullptr, $PUBLIC},
+		{"*getKeyColumns", "()[I", nullptr, $PUBLIC},
+		{"*getLong", "(I)J", nullptr, $PUBLIC},
+		{"*getLong", "(Ljava/lang/String;)J", nullptr, $PUBLIC},
+		{"*getMatchColumnIndexes", "()[I", nullptr, $PUBLIC},
+		{"*getMatchColumnNames", "()[Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getMaxFieldSize", "()I", nullptr, $PUBLIC},
+		{"*getMaxRows", "()I", nullptr, $PUBLIC},
+		{"*getMetaData", "()Ljava/sql/ResultSetMetaData;", nullptr, $PUBLIC},
+		{"*getNCharacterStream", "(I)Ljava/io/Reader;", nullptr, $PUBLIC},
+		{"*getNCharacterStream", "(Ljava/lang/String;)Ljava/io/Reader;", nullptr, $PUBLIC},
+		{"*getNClob", "(I)Ljava/sql/NClob;", nullptr, $PUBLIC},
+		{"*getNClob", "(Ljava/lang/String;)Ljava/sql/NClob;", nullptr, $PUBLIC},
+		{"*getNString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getObject", "(I)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getObject", "(ILjava/util/Map;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getObject", "(Ljava/lang/String;Ljava/util/Map;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getObject", "(ILjava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getObject", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getOriginal", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC},
+		{"*getOriginalRow", "()Ljava/sql/ResultSet;", nullptr, $PUBLIC},
+		{"*getPageSize", "()I", nullptr, $PUBLIC},
+		{"*getPassword", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getQueryTimeout", "()I", nullptr, $PUBLIC},
+		{"*getRef", "(I)Ljava/sql/Ref;", nullptr, $PUBLIC},
+		{"*getRef", "(Ljava/lang/String;)Ljava/sql/Ref;", nullptr, $PUBLIC},
+		{"*getRow", "()I", nullptr, $PUBLIC},
+		{"*getRowId", "(I)Ljava/sql/RowId;", nullptr, $PUBLIC},
+		{"*getRowId", "(Ljava/lang/String;)Ljava/sql/RowId;", nullptr, $PUBLIC},
+		{"*getRowSetWarnings", "()Ljavax/sql/rowset/RowSetWarning;", nullptr, $PUBLIC},
+		{"*getSQLXML", "(I)Ljava/sql/SQLXML;", nullptr, $PUBLIC},
+		{"*getSQLXML", "(Ljava/lang/String;)Ljava/sql/SQLXML;", nullptr, $PUBLIC},
+		{"*getShort", "(I)S", nullptr, $PUBLIC},
+		{"*getShort", "(Ljava/lang/String;)S", nullptr, $PUBLIC},
+		{"*getShowDeleted", "()Z", nullptr, $PUBLIC},
+		{"*getStatement", "()Ljava/sql/Statement;", nullptr, $PUBLIC},
+		{"*getString", "(I)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getSyncProvider", "()Ljavax/sql/rowset/spi/SyncProvider;", nullptr, $PUBLIC},
+		{"*getTableName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getTime", "(I)Ljava/sql/Time;", nullptr, $PUBLIC},
+		{"*getTime", "(Ljava/lang/String;)Ljava/sql/Time;", nullptr, $PUBLIC},
+		{"*getTime", "(ILjava/util/Calendar;)Ljava/sql/Time;", nullptr, $PUBLIC},
+		{"*getTime", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Time;", nullptr, $PUBLIC},
+		{"*getTimestamp", "(I)Ljava/sql/Timestamp;", nullptr, $PUBLIC},
+		{"*getTimestamp", "(Ljava/lang/String;)Ljava/sql/Timestamp;", nullptr, $PUBLIC},
+		{"*getTimestamp", "(ILjava/util/Calendar;)Ljava/sql/Timestamp;", nullptr, $PUBLIC},
+		{"*getTimestamp", "(Ljava/lang/String;Ljava/util/Calendar;)Ljava/sql/Timestamp;", nullptr, $PUBLIC},
+		{"*getTransactionIsolation", "()I", nullptr, $PUBLIC},
+		{"*getType", "()I", nullptr, $PUBLIC},
+		{"*getTypeMap", "()Ljava/util/Map;", nullptr, $PUBLIC},
+		{"*getURL", "(I)Ljava/net/URL;", nullptr, $PUBLIC},
+		{"*getURL", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC},
+		{"*getUnicodeStream", "(I)Ljava/io/InputStream;", nullptr, $PUBLIC | $DEPRECATED},
+		{"*getUnicodeStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $PUBLIC | $DEPRECATED},
+		{"*getUrl", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUsername", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getWarnings", "()Ljava/sql/SQLWarning;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FilteredRowSetImpl, init$, void), "java.sql.SQLException"},
+		{"<init>", "(Ljava/util/Hashtable;)V", nullptr, $PUBLIC, $method(FilteredRowSetImpl, init$, void, $Hashtable*), "java.sql.SQLException"},
+		{"absolute", "(I)Z", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, absolute, bool, int32_t), "java.sql.SQLException"},
+		{"getFilter", "()Ljavax/sql/rowset/Predicate;", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, getFilter, $Predicate*)},
+		{"insertRow", "()V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, insertRow, void), "java.sql.SQLException"},
+		{"internalFirst", "()Z", nullptr, $PROTECTED, $virtualMethod(FilteredRowSetImpl, internalFirst, bool), "java.sql.SQLException"},
+		{"internalLast", "()Z", nullptr, $PROTECTED, $virtualMethod(FilteredRowSetImpl, internalLast, bool), "java.sql.SQLException"},
+		{"internalNext", "()Z", nullptr, $PROTECTED, $virtualMethod(FilteredRowSetImpl, internalNext, bool), "java.sql.SQLException"},
+		{"internalPrevious", "()Z", nullptr, $PROTECTED, $virtualMethod(FilteredRowSetImpl, internalPrevious, bool), "java.sql.SQLException"},
+		{"*isAfterLast", "()Z", nullptr, $PUBLIC},
+		{"*isBeforeFirst", "()Z", nullptr, $PUBLIC},
+		{"*isClosed", "()Z", nullptr, $PUBLIC},
+		{"*isFirst", "()Z", nullptr, $PUBLIC},
+		{"*isLast", "()Z", nullptr, $PUBLIC},
+		{"*isReadOnly", "()Z", nullptr, $PUBLIC},
+		{"*isWrapperFor", "(Ljava/lang/Class;)Z", nullptr, $PUBLIC},
+		{"*last", "()Z", nullptr, $PUBLIC},
+		{"*moveToCurrentRow", "()V", nullptr, $PUBLIC},
+		{"moveToInsertRow", "()V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, moveToInsertRow, void), "java.sql.SQLException"},
+		{"*next", "()Z", nullptr, $PUBLIC},
+		{"*nextPage", "()Z", nullptr, $PUBLIC},
+		{"*populate", "(Ljava/sql/ResultSet;)V", nullptr, $PUBLIC},
+		{"*populate", "(Ljava/sql/ResultSet;I)V", nullptr, $PUBLIC},
+		{"*previous", "()Z", nullptr, $PUBLIC},
+		{"*previousPage", "()Z", nullptr, $PUBLIC},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(FilteredRowSetImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"*readXml", "(Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*readXml", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*refreshRow", "()V", nullptr, $PUBLIC},
+		{"relative", "(I)Z", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, relative, bool, int32_t), "java.sql.SQLException"},
+		{"*release", "()V", nullptr, $PUBLIC},
+		{"*removeRowSetListener", "(Ljavax/sql/RowSetListener;)V", nullptr, $PUBLIC},
+		{"*restoreOriginal", "()V", nullptr, $PUBLIC},
+		{"*rollback", "()V", nullptr, $PUBLIC},
+		{"*rollback", "(Ljava/sql/Savepoint;)V", nullptr, $PUBLIC},
+		{"*rowDeleted", "()Z", nullptr, $PUBLIC},
+		{"*rowInserted", "()Z", nullptr, $PUBLIC},
+		{"*rowSetPopulated", "(Ljavax/sql/RowSetEvent;I)V", nullptr, $PUBLIC},
+		{"*rowUpdated", "()Z", nullptr, $PUBLIC},
+		{"*setArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC},
+		{"*setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC},
+		{"*setAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*setAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC},
+		{"*setAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*setBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC},
+		{"*setBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC},
+		{"*setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC},
+		{"*setBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*setBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC},
+		{"*setBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*setBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC},
+		{"*setBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*setBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC},
+		{"*setBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC},
+		{"*setBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*setBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC},
+		{"*setBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC},
+		{"*setBoolean", "(IZ)V", nullptr, $PUBLIC},
+		{"*setByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC},
+		{"*setByte", "(IB)V", nullptr, $PUBLIC},
+		{"*setBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC},
+		{"*setBytes", "(I[B)V", nullptr, $PUBLIC},
+		{"*setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC},
+		{"*setCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*setCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC},
+		{"*setCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*setClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*setClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC},
+		{"*setClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*setClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*setClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*setClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC},
+		{"*setCommand", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setConcurrency", "(I)V", nullptr, $PUBLIC},
+		{"*setDataSourceName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC},
+		{"*setDate", "(Ljava/lang/String;Ljava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"*setDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC},
+		{"*setDate", "(ILjava/sql/Date;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"*setDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC},
+		{"*setDouble", "(ID)V", nullptr, $PUBLIC},
+		{"*setEscapeProcessing", "(Z)V", nullptr, $PUBLIC},
+		{"*setFetchDirection", "(I)V", nullptr, $PUBLIC},
+		{"*setFetchSize", "(I)V", nullptr, $PUBLIC},
+		{"setFilter", "(Ljavax/sql/rowset/Predicate;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, setFilter, void, $Predicate*), "java.sql.SQLException"},
+		{"*setFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC},
+		{"*setFloat", "(IF)V", nullptr, $PUBLIC},
+		{"*setInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC},
+		{"*setInt", "(II)V", nullptr, $PUBLIC},
+		{"*setKeyColumns", "([I)V", nullptr, $PUBLIC},
+		{"*setLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC},
+		{"*setLong", "(IJ)V", nullptr, $PUBLIC},
+		{"*setMatchColumn", "([I)V", nullptr, $PUBLIC},
+		{"*setMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setMatchColumn", "(I)V", nullptr, $PUBLIC},
+		{"*setMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setMaxFieldSize", "(I)V", nullptr, $PUBLIC},
+		{"*setMaxRows", "(I)V", nullptr, $PUBLIC},
+		{"*setMetaData", "(Ljavax/sql/RowSetMetaData;)V", nullptr, $PUBLIC},
+		{"*setNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*setNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*setNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*setNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC},
+		{"*setNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*setNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*setNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*setNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*setNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC},
+		{"*setNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setNull", "(Ljava/lang/String;I)V", nullptr, $PUBLIC},
+		{"*setNull", "(Ljava/lang/String;ILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setNull", "(II)V", nullptr, $PUBLIC},
+		{"*setNull", "(IILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setObject", "(Ljava/lang/String;Ljava/lang/Object;II)V", nullptr, $PUBLIC},
+		{"*setObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC},
+		{"*setObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*setObject", "(ILjava/lang/Object;II)V", nullptr, $PUBLIC},
+		{"*setObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC},
+		{"*setObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*setOriginalRow", "()V", nullptr, $PUBLIC},
+		{"*setPageSize", "(I)V", nullptr, $PUBLIC},
+		{"*setPassword", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setQueryTimeout", "(I)V", nullptr, $PUBLIC},
+		{"*setReadOnly", "(Z)V", nullptr, $PUBLIC},
+		{"*setRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC},
+		{"*setRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC},
+		{"*setRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC},
+		{"*setSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC},
+		{"*setSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC},
+		{"*setShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC},
+		{"*setShort", "(IS)V", nullptr, $PUBLIC},
+		{"*setShowDeleted", "(Z)V", nullptr, $PUBLIC},
+		{"*setString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setString", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setSyncProvider", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setTableName", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC},
+		{"*setTime", "(Ljava/lang/String;Ljava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"*setTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC},
+		{"*setTime", "(ILjava/sql/Time;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"*setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"*setTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC},
+		{"*setTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC},
+		{"*setTimestamp", "(ILjava/sql/Timestamp;Ljava/util/Calendar;)V", nullptr, $PUBLIC},
+		{"*setTransactionIsolation", "(I)V", nullptr, $PUBLIC},
+		{"*setType", "(I)V", nullptr, $PUBLIC},
+		{"*setTypeMap", "(Ljava/util/Map;)V", nullptr, $PUBLIC},
+		{"*setURL", "(ILjava/net/URL;)V", nullptr, $PUBLIC},
+		{"*setUrl", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setUsername", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*size", "()I", nullptr, $PUBLIC},
+		{"*toCollection", "()Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toCollection", "(I)Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toCollection", "(Ljava/lang/String;)Ljava/util/Collection;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*undoDelete", "()V", nullptr, $PUBLIC},
+		{"*undoInsert", "()V", nullptr, $PUBLIC},
+		{"*undoUpdate", "()V", nullptr, $PUBLIC},
+		{"*unsetMatchColumn", "([I)V", nullptr, $PUBLIC},
+		{"*unsetMatchColumn", "([Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*unsetMatchColumn", "(I)V", nullptr, $PUBLIC},
+		{"*unsetMatchColumn", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*unwrap", "(Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*updateArray", "(ILjava/sql/Array;)V", nullptr, $PUBLIC},
+		{"*updateArray", "(Ljava/lang/String;Ljava/sql/Array;)V", nullptr, $PUBLIC},
+		{"*updateAsciiStream", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC},
+		{"*updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC},
+		{"*updateAsciiStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"updateAsciiStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateAsciiStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"updateAsciiStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateAsciiStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"updateBigDecimal", "(ILjava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBigDecimal, void, int32_t, $BigDecimal*), "java.sql.SQLException"},
+		{"updateBigDecimal", "(Ljava/lang/String;Ljava/math/BigDecimal;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBigDecimal, void, $String*, $BigDecimal*), "java.sql.SQLException"},
+		{"*updateBinaryStream", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC},
+		{"*updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC},
+		{"*updateBinaryStream", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"updateBinaryStream", "(ILjava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBinaryStream, void, int32_t, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"updateBinaryStream", "(Ljava/lang/String;Ljava/io/InputStream;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBinaryStream, void, $String*, $InputStream*, int32_t), "java.sql.SQLException"},
+		{"*updateBlob", "(ILjava/sql/Blob;)V", nullptr, $PUBLIC},
+		{"*updateBlob", "(Ljava/lang/String;Ljava/sql/Blob;)V", nullptr, $PUBLIC},
+		{"*updateBlob", "(ILjava/io/InputStream;J)V", nullptr, $PUBLIC},
+		{"*updateBlob", "(Ljava/lang/String;Ljava/io/InputStream;J)V", nullptr, $PUBLIC},
+		{"*updateBlob", "(ILjava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"*updateBlob", "(Ljava/lang/String;Ljava/io/InputStream;)V", nullptr, $PUBLIC},
+		{"updateBoolean", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBoolean, void, int32_t, bool), "java.sql.SQLException"},
+		{"updateBoolean", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBoolean, void, $String*, bool), "java.sql.SQLException"},
+		{"updateByte", "(IB)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateByte, void, int32_t, int8_t), "java.sql.SQLException"},
+		{"updateByte", "(Ljava/lang/String;B)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateByte, void, $String*, int8_t), "java.sql.SQLException"},
+		{"updateBytes", "(I[B)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBytes, void, int32_t, $bytes*), "java.sql.SQLException"},
+		{"updateBytes", "(Ljava/lang/String;[B)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateBytes, void, $String*, $bytes*), "java.sql.SQLException"},
+		{"*updateCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*updateCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"updateCharacterStream", "(ILjava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateCharacterStream, void, int32_t, $Reader*, int32_t), "java.sql.SQLException"},
+		{"updateCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateCharacterStream, void, $String*, $Reader*, int32_t), "java.sql.SQLException"},
+		{"*updateClob", "(ILjava/sql/Clob;)V", nullptr, $PUBLIC},
+		{"*updateClob", "(Ljava/lang/String;Ljava/sql/Clob;)V", nullptr, $PUBLIC},
+		{"*updateClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*updateClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*updateClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*updateClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"updateDate", "(ILjava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateDate, void, int32_t, $Date*), "java.sql.SQLException"},
+		{"updateDate", "(Ljava/lang/String;Ljava/sql/Date;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateDate, void, $String*, $Date*), "java.sql.SQLException"},
+		{"updateDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateDouble, void, int32_t, double), "java.sql.SQLException"},
+		{"updateDouble", "(Ljava/lang/String;D)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateDouble, void, $String*, double), "java.sql.SQLException"},
+		{"updateFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateFloat, void, int32_t, float), "java.sql.SQLException"},
+		{"updateFloat", "(Ljava/lang/String;F)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateFloat, void, $String*, float), "java.sql.SQLException"},
+		{"updateInt", "(II)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateInt, void, int32_t, int32_t), "java.sql.SQLException"},
+		{"updateInt", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateInt, void, $String*, int32_t), "java.sql.SQLException"},
+		{"updateLong", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateLong, void, int32_t, int64_t), "java.sql.SQLException"},
+		{"updateLong", "(Ljava/lang/String;J)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateLong, void, $String*, int64_t), "java.sql.SQLException"},
+		{"*updateNCharacterStream", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*updateNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*updateNCharacterStream", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*updateNCharacterStream", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*updateNClob", "(ILjava/sql/NClob;)V", nullptr, $PUBLIC},
+		{"*updateNClob", "(Ljava/lang/String;Ljava/sql/NClob;)V", nullptr, $PUBLIC},
+		{"*updateNClob", "(ILjava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*updateNClob", "(Ljava/lang/String;Ljava/io/Reader;J)V", nullptr, $PUBLIC},
+		{"*updateNClob", "(ILjava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*updateNClob", "(Ljava/lang/String;Ljava/io/Reader;)V", nullptr, $PUBLIC},
+		{"*updateNString", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"*updateNString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*updateNull", "(I)V", nullptr, $PUBLIC},
+		{"*updateNull", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*updateObject", "(ILjava/lang/Object;Ljava/sql/SQLType;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*updateObject", "(Ljava/lang/String;Ljava/lang/Object;Ljava/sql/SQLType;I)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*updateObject", "(ILjava/lang/Object;Ljava/sql/SQLType;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*updateObject", "(Ljava/lang/String;Ljava/lang/Object;Ljava/sql/SQLType;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"updateObject", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateObject, void, int32_t, Object$*), "java.sql.SQLException"},
+		{"updateObject", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateObject, void, $String*, Object$*), "java.sql.SQLException"},
+		{"updateObject", "(ILjava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateObject, void, int32_t, Object$*, int32_t), "java.sql.SQLException"},
+		{"updateObject", "(Ljava/lang/String;Ljava/lang/Object;I)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateObject, void, $String*, Object$*, int32_t), "java.sql.SQLException"},
+		{"*updateRef", "(ILjava/sql/Ref;)V", nullptr, $PUBLIC},
+		{"*updateRef", "(Ljava/lang/String;Ljava/sql/Ref;)V", nullptr, $PUBLIC},
+		{"*updateRow", "()V", nullptr, $PUBLIC},
+		{"*updateRowId", "(ILjava/sql/RowId;)V", nullptr, $PUBLIC},
+		{"*updateRowId", "(Ljava/lang/String;Ljava/sql/RowId;)V", nullptr, $PUBLIC},
+		{"*updateSQLXML", "(ILjava/sql/SQLXML;)V", nullptr, $PUBLIC},
+		{"*updateSQLXML", "(Ljava/lang/String;Ljava/sql/SQLXML;)V", nullptr, $PUBLIC},
+		{"updateShort", "(IS)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateShort, void, int32_t, int16_t), "java.sql.SQLException"},
+		{"updateShort", "(Ljava/lang/String;S)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateShort, void, $String*, int16_t), "java.sql.SQLException"},
+		{"updateString", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateString, void, int32_t, $String*), "java.sql.SQLException"},
+		{"updateString", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateString, void, $String*, $String*), "java.sql.SQLException"},
+		{"updateTime", "(ILjava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateTime, void, int32_t, $Time*), "java.sql.SQLException"},
+		{"updateTime", "(Ljava/lang/String;Ljava/sql/Time;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateTime, void, $String*, $Time*), "java.sql.SQLException"},
+		{"updateTimestamp", "(ILjava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateTimestamp, void, int32_t, $Timestamp*), "java.sql.SQLException"},
+		{"updateTimestamp", "(Ljava/lang/String;Ljava/sql/Timestamp;)V", nullptr, $PUBLIC, $virtualMethod(FilteredRowSetImpl, updateTimestamp, void, $String*, $Timestamp*), "java.sql.SQLException"},
+		{"*writeXml", "(Ljava/sql/ResultSet;Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"*writeXml", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"*writeXml", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC},
+		{"*writeXml", "(Ljava/sql/ResultSet;Ljava/io/OutputStream;)V", nullptr, $PUBLIC},
+		{"*wasNull", "()Z", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.FilteredRowSetImpl",
+		"com.sun.rowset.WebRowSetImpl",
+		"javax.sql.rowset.FilteredRowSet",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilteredRowSetImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilteredRowSetImpl));
+	});
 	return class$;
 }
 

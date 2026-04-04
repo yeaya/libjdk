@@ -1,10 +1,6 @@
 #include <sun/swing/FilePane$DetailsTableRowSorter.h>
-
 #include <java/util/Comparator.h>
-#include <java/util/concurrent/Callable.h>
-#include <javax/swing/DefaultRowSorter$ModelWrapper.h>
 #include <javax/swing/DefaultRowSorter.h>
-#include <javax/swing/event/TableModelListener.h>
 #include <javax/swing/table/TableModel.h>
 #include <javax/swing/table/TableRowSorter.h>
 #include <sun/awt/shell/ShellFolder.h>
@@ -23,15 +19,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Comparator = ::java::util::Comparator;
-using $Callable = ::java::util::concurrent::Callable;
-using $DefaultRowSorter$ModelWrapper = ::javax::swing::DefaultRowSorter$ModelWrapper;
-using $TableModelListener = ::javax::swing::event::TableModelListener;
 using $TableModel = ::javax::swing::table::TableModel;
 using $TableRowSorter = ::javax::swing::table::TableRowSorter;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
-using $ShellFolderColumnInfo = ::sun::awt::shell::ShellFolderColumnInfo;
 using $FilePane = ::sun::swing::FilePane;
-using $FilePane$DetailsTableModel = ::sun::swing::FilePane$DetailsTableModel;
 using $FilePane$DetailsTableRowSorter$1 = ::sun::swing::FilePane$DetailsTableRowSorter$1;
 using $FilePane$DetailsTableRowSorter$2 = ::sun::swing::FilePane$DetailsTableRowSorter$2;
 using $FilePane$DetailsTableRowSorter$SorterModelWrapper = ::sun::swing::FilePane$DetailsTableRowSorter$SorterModelWrapper;
@@ -40,64 +31,22 @@ using $FilePane$DirectoriesFirstComparatorWrapper = ::sun::swing::FilePane$Direc
 namespace sun {
 	namespace swing {
 
-$FieldInfo _FilePane$DetailsTableRowSorter_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$DetailsTableRowSorter, this$0)},
-	{}
-};
-
-$MethodInfo _FilePane$DetailsTableRowSorter_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/FilePane;)V", nullptr, $PUBLIC, $method(FilePane$DetailsTableRowSorter, init$, void, $FilePane*)},
-	{"access$001", "(Lsun/swing/FilePane$DetailsTableRowSorter;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(FilePane$DetailsTableRowSorter, access$001, void, FilePane$DetailsTableRowSorter*)},
-	{"modelStructureChanged", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableRowSorter, modelStructureChanged, void)},
-	{"sort", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableRowSorter, sort, void)},
-	{"updateComparators", "([Lsun/awt/shell/ShellFolderColumnInfo;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableRowSorter, updateComparators, void, $ShellFolderColumnInfoArray*)},
-	{}
-};
-
-$InnerClassInfo _FilePane$DetailsTableRowSorter_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$DetailsTableRowSorter", "sun.swing.FilePane", "DetailsTableRowSorter", $PRIVATE},
-	{"sun.swing.FilePane$DetailsTableRowSorter$SorterModelWrapper", "sun.swing.FilePane$DetailsTableRowSorter", "SorterModelWrapper", $PRIVATE},
-	{"sun.swing.FilePane$DetailsTableRowSorter$2", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$DetailsTableRowSorter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FilePane$DetailsTableRowSorter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$DetailsTableRowSorter",
-	"javax.swing.table.TableRowSorter",
-	nullptr,
-	_FilePane$DetailsTableRowSorter_FieldInfo_,
-	_FilePane$DetailsTableRowSorter_MethodInfo_,
-	"Ljavax/swing/table/TableRowSorter<Ljavax/swing/table/TableModel;>;",
-	nullptr,
-	_FilePane$DetailsTableRowSorter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$DetailsTableRowSorter($Class* clazz) {
-	return $of($alloc(FilePane$DetailsTableRowSorter));
-}
-
 void FilePane$DetailsTableRowSorter::access$001(FilePane$DetailsTableRowSorter* x0) {
 	$init(FilePane$DetailsTableRowSorter);
 	$nc(x0)->$TableRowSorter::sort();
 }
 
 void FilePane$DetailsTableRowSorter::init$($FilePane* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$TableRowSorter::init$();
 	$var($FilePane$DetailsTableRowSorter$SorterModelWrapper, modelWrapper, $new($FilePane$DetailsTableRowSorter$SorterModelWrapper, this));
 	setModelWrapper(modelWrapper);
-	$nc($($cast($TableModel, modelWrapper->getModel())))->addTableModelListener($$new($FilePane$DetailsTableRowSorter$1, this, this$0));
+	$$sure($TableModel, modelWrapper->getModel())->addTableModelListener($$new($FilePane$DetailsTableRowSorter$1, this, this$0));
 }
 
 void FilePane$DetailsTableRowSorter::updateComparators($ShellFolderColumnInfoArray* columns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(columns)->length; ++i) {
 		$var($Comparator, c, $nc(columns->get(i))->getComparator());
 		if (c != nullptr) {
@@ -120,7 +69,43 @@ FilePane$DetailsTableRowSorter::FilePane$DetailsTableRowSorter() {
 }
 
 $Class* FilePane$DetailsTableRowSorter::load$($String* name, bool initialize) {
-	$loadClass(FilePane$DetailsTableRowSorter, name, initialize, &_FilePane$DetailsTableRowSorter_ClassInfo_, allocate$FilePane$DetailsTableRowSorter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$DetailsTableRowSorter, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/FilePane;)V", nullptr, $PUBLIC, $method(FilePane$DetailsTableRowSorter, init$, void, $FilePane*)},
+		{"access$001", "(Lsun/swing/FilePane$DetailsTableRowSorter;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(FilePane$DetailsTableRowSorter, access$001, void, FilePane$DetailsTableRowSorter*)},
+		{"modelStructureChanged", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableRowSorter, modelStructureChanged, void)},
+		{"sort", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableRowSorter, sort, void)},
+		{"updateComparators", "([Lsun/awt/shell/ShellFolderColumnInfo;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableRowSorter, updateComparators, void, $ShellFolderColumnInfoArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$DetailsTableRowSorter", "sun.swing.FilePane", "DetailsTableRowSorter", $PRIVATE},
+		{"sun.swing.FilePane$DetailsTableRowSorter$SorterModelWrapper", "sun.swing.FilePane$DetailsTableRowSorter", "SorterModelWrapper", $PRIVATE},
+		{"sun.swing.FilePane$DetailsTableRowSorter$2", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$DetailsTableRowSorter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$DetailsTableRowSorter",
+		"javax.swing.table.TableRowSorter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/table/TableRowSorter<Ljavax/swing/table/TableModel;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$DetailsTableRowSorter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePane$DetailsTableRowSorter);
+	});
 	return class$;
 }
 

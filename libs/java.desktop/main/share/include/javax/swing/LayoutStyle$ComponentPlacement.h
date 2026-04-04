@@ -21,6 +21,7 @@ class $import LayoutStyle$ComponentPlacement : public ::java::lang::Enum {
 public:
 	LayoutStyle$ComponentPlacement();
 	static $Array<::javax::swing::LayoutStyle$ComponentPlacement>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::LayoutStyle$ComponentPlacement* valueOf($String* name);
 	static $Array<::javax::swing::LayoutStyle$ComponentPlacement>* values();

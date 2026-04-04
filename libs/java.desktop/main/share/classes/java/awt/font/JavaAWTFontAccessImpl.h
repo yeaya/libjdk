@@ -14,6 +14,7 @@ class JavaAWTFontAccessImpl : public ::jdk::internal::access::JavaAWTFontAccess 
 	$class(JavaAWTFontAccessImpl, 0, ::jdk::internal::access::JavaAWTFontAccess)
 public:
 	JavaAWTFontAccessImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* getTextAttributeConstant($String* name) override;
 	virtual void shape(Object$* shaper, $chars* text, int32_t start, int32_t count) override;

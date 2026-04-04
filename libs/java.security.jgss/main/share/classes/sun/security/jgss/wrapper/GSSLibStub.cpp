@@ -1,5 +1,4 @@
 #include <sun/security/jgss/wrapper/GSSLibStub.h>
-
 #include <java/util/Hashtable.h>
 #include <org/ietf/jgss/ChannelBinding.h>
 #include <org/ietf/jgss/MessageProp.h>
@@ -24,323 +23,208 @@ namespace sun {
 		namespace jgss {
 			namespace wrapper {
 
-$FieldInfo _GSSLibStub_FieldInfo_[] = {
-	{"mech", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSLibStub, mech)},
-	{"pMech", "J", nullptr, $PRIVATE, $field(GSSLibStub, pMech)},
-	{"table", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lorg/ietf/jgss/Oid;Lsun/security/jgss/wrapper/GSSLibStub;>;", $PRIVATE | $STATIC, $staticField(GSSLibStub, table)},
-	{}
-};
-
-$MethodInfo _GSSLibStub_MethodInfo_[] = {
-	{"<init>", "(Lorg/ietf/jgss/Oid;)V", nullptr, $PRIVATE, $method(GSSLibStub, init$, void, $Oid*), "org.ietf.jgss.GSSException"},
-	{"acceptContext", "(JLorg/ietf/jgss/ChannelBinding;[BLsun/security/jgss/wrapper/NativeGSSContext;)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, acceptContext, $bytes*, int64_t, $ChannelBinding*, $bytes*, $NativeGSSContext*)},
-	{"acquireCred", "(JII)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, acquireCred, int64_t, int64_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"canonicalizeName", "(J)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, canonicalizeName, int64_t, int64_t)},
-	{"compareName", "(JJ)Z", nullptr, $NATIVE, $virtualMethod(GSSLibStub, compareName, bool, int64_t, int64_t)},
-	{"deleteContext", "(J)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, deleteContext, int64_t, int64_t)},
-	{"displayName", "(J)[Ljava/lang/Object;", nullptr, $NATIVE, $virtualMethod(GSSLibStub, displayName, $ObjectArray*, int64_t), "org.ietf.jgss.GSSException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSLibStub, equals, bool, Object$*)},
-	{"exportContext", "(J)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, exportContext, $bytes*, int64_t)},
-	{"exportName", "(J)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, exportName, $bytes*, int64_t), "org.ietf.jgss.GSSException"},
-	{"getContextMech", "(J)Lorg/ietf/jgss/Oid;", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getContextMech, $Oid*, int64_t)},
-	{"getContextName", "(JZ)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getContextName, int64_t, int64_t, bool)},
-	{"getContextTime", "(J)I", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getContextTime, int32_t, int64_t)},
-	{"getCredName", "(J)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getCredName, int64_t, int64_t)},
-	{"getCredTime", "(J)I", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getCredTime, int32_t, int64_t)},
-	{"getCredUsage", "(J)I", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getCredUsage, int32_t, int64_t)},
-	{"getInstance", "(Lorg/ietf/jgss/Oid;)Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, $STATIC, $staticMethod(GSSLibStub, getInstance, GSSLibStub*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, 0, $virtualMethod(GSSLibStub, getMech, $Oid*)},
-	{"getMechPtr", "([B)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GSSLibStub, getMechPtr, int64_t, $bytes*)},
-	{"getMic", "(JI[B)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getMic, $bytes*, int64_t, int32_t, $bytes*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSLibStub, hashCode, int32_t)},
-	{"importContext", "([B)Lsun/security/jgss/wrapper/NativeGSSContext;", nullptr, $NATIVE, $virtualMethod(GSSLibStub, importContext, $NativeGSSContext*, $bytes*)},
-	{"importName", "([BLorg/ietf/jgss/Oid;)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, importName, int64_t, $bytes*, $Oid*)},
-	{"indicateMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $NATIVE, $staticMethod(GSSLibStub, indicateMechs, $OidArray*)},
-	{"init", "(Ljava/lang/String;Z)Z", nullptr, $STATIC | $NATIVE, $staticMethod(GSSLibStub, init, bool, $String*, bool)},
-	{"initContext", "(JJLorg/ietf/jgss/ChannelBinding;[BLsun/security/jgss/wrapper/NativeGSSContext;)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, initContext, $bytes*, int64_t, int64_t, $ChannelBinding*, $bytes*, $NativeGSSContext*)},
-	{"inquireContext", "(J)[J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, inquireContext, $longs*, int64_t)},
-	{"inquireNamesForMech", "()[Lorg/ietf/jgss/Oid;", nullptr, $NATIVE, $virtualMethod(GSSLibStub, inquireNamesForMech, $OidArray*), "org.ietf.jgss.GSSException"},
-	{"releaseCred", "(J)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, releaseCred, int64_t, int64_t)},
-	{"releaseName", "(J)V", nullptr, $NATIVE, $virtualMethod(GSSLibStub, releaseName, void, int64_t)},
-	{"unwrap", "(J[BLorg/ietf/jgss/MessageProp;)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, unwrap, $bytes*, int64_t, $bytes*, $MessageProp*)},
-	{"verifyMic", "(J[B[BLorg/ietf/jgss/MessageProp;)V", nullptr, $NATIVE, $virtualMethod(GSSLibStub, verifyMic, void, int64_t, $bytes*, $bytes*, $MessageProp*)},
-	{"wrap", "(J[BLorg/ietf/jgss/MessageProp;)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, wrap, $bytes*, int64_t, $bytes*, $MessageProp*)},
-	{"wrapSizeLimit", "(JIII)I", nullptr, $NATIVE, $virtualMethod(GSSLibStub, wrapSizeLimit, int32_t, int64_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_acceptContext 1
-#define _METHOD_INDEX_acquireCred 2
-#define _METHOD_INDEX_canonicalizeName 3
-#define _METHOD_INDEX_compareName 4
-#define _METHOD_INDEX_deleteContext 5
-#define _METHOD_INDEX_displayName 6
-#define _METHOD_INDEX_exportContext 8
-#define _METHOD_INDEX_exportName 9
-#define _METHOD_INDEX_getContextMech 10
-#define _METHOD_INDEX_getContextName 11
-#define _METHOD_INDEX_getContextTime 12
-#define _METHOD_INDEX_getCredName 13
-#define _METHOD_INDEX_getCredTime 14
-#define _METHOD_INDEX_getCredUsage 15
-#define _METHOD_INDEX_getMechPtr 18
-#define _METHOD_INDEX_getMic 19
-#define _METHOD_INDEX_importContext 21
-#define _METHOD_INDEX_importName 22
-#define _METHOD_INDEX_indicateMechs 23
-#define _METHOD_INDEX_init 24
-#define _METHOD_INDEX_initContext 25
-#define _METHOD_INDEX_inquireContext 26
-#define _METHOD_INDEX_inquireNamesForMech 27
-#define _METHOD_INDEX_releaseCred 28
-#define _METHOD_INDEX_releaseName 29
-#define _METHOD_INDEX_unwrap 30
-#define _METHOD_INDEX_verifyMic 31
-#define _METHOD_INDEX_wrap 32
-#define _METHOD_INDEX_wrapSizeLimit 33
-
-$ClassInfo _GSSLibStub_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.wrapper.GSSLibStub",
-	"java.lang.Object",
-	nullptr,
-	_GSSLibStub_FieldInfo_,
-	_GSSLibStub_MethodInfo_
-};
-
-$Object* allocate$GSSLibStub($Class* clazz) {
-	return $of($alloc(GSSLibStub));
-}
-
 $Hashtable* GSSLibStub::table = nullptr;
 
 bool GSSLibStub::init($String* lib, bool debug) {
 	$init(GSSLibStub);
-	bool $ret = false;
-	$prepareNativeStatic(GSSLibStub, init, bool, $String* lib, bool debug);
-	$ret = $invokeNativeStatic(lib, debug);
+	$prepareNativeStatic(init, bool, $String* lib, bool debug);
+	bool $ret = $invokeNativeStatic(lib, debug);
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t GSSLibStub::getMechPtr($bytes* oidDerEncoding) {
 	$init(GSSLibStub);
-	int64_t $ret = 0;
-	$prepareNativeStatic(GSSLibStub, getMechPtr, int64_t, $bytes* oidDerEncoding);
-	$ret = $invokeNativeStatic(oidDerEncoding);
+	$prepareNativeStatic(getMechPtr, int64_t, $bytes* oidDerEncoding);
+	int64_t $ret = $invokeNativeStatic(oidDerEncoding);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $OidArray* GSSLibStub::indicateMechs() {
 	$init(GSSLibStub);
-	$var($OidArray, $ret, nullptr);
-	$prepareNativeStatic(GSSLibStub, indicateMechs, $OidArray*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(indicateMechs, $OidArray*);
+	$var($OidArray, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 $OidArray* GSSLibStub::inquireNamesForMech() {
-	$var($OidArray, $ret, nullptr);
-	$prepareNative(GSSLibStub, inquireNamesForMech, $OidArray*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(inquireNamesForMech, $OidArray*);
+	$var($OidArray, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 void GSSLibStub::releaseName(int64_t pName) {
-	$prepareNative(GSSLibStub, releaseName, void, int64_t pName);
+	$prepareNative(releaseName, void, int64_t pName);
 	$invokeNative(pName);
 	$finishNative();
 }
 
 int64_t GSSLibStub::importName($bytes* name, $Oid* type) {
-	int64_t $ret = 0;
-	$prepareNative(GSSLibStub, importName, int64_t, $bytes* name, $Oid* type);
-	$ret = $invokeNative(name, type);
+	$prepareNative(importName, int64_t, $bytes* name, $Oid* type);
+	int64_t $ret = $invokeNative(name, type);
 	$finishNative();
 	return $ret;
 }
 
 bool GSSLibStub::compareName(int64_t pName1, int64_t pName2) {
-	bool $ret = false;
-	$prepareNative(GSSLibStub, compareName, bool, int64_t pName1, int64_t pName2);
-	$ret = $invokeNative(pName1, pName2);
+	$prepareNative(compareName, bool, int64_t pName1, int64_t pName2);
+	bool $ret = $invokeNative(pName1, pName2);
 	$finishNative();
 	return $ret;
 }
 
 int64_t GSSLibStub::canonicalizeName(int64_t pName) {
-	int64_t $ret = 0;
-	$prepareNative(GSSLibStub, canonicalizeName, int64_t, int64_t pName);
-	$ret = $invokeNative(pName);
+	$prepareNative(canonicalizeName, int64_t, int64_t pName);
+	int64_t $ret = $invokeNative(pName);
 	$finishNative();
 	return $ret;
 }
 
 $bytes* GSSLibStub::exportName(int64_t pName) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(GSSLibStub, exportName, $bytes*, int64_t pName);
-	$assign($ret, $invokeNativeObject(pName));
+	$prepareNative(exportName, $bytes*, int64_t pName);
+	$var($bytes, $ret, $invokeNativeObject(pName));
 	$finishNative();
 	return $ret;
 }
 
 $ObjectArray* GSSLibStub::displayName(int64_t pName) {
-	$var($ObjectArray, $ret, nullptr);
-	$prepareNative(GSSLibStub, displayName, $ObjectArray*, int64_t pName);
-	$assign($ret, $invokeNativeObject(pName));
+	$prepareNative(displayName, $ObjectArray*, int64_t pName);
+	$var($ObjectArray, $ret, $invokeNativeObject(pName));
 	$finishNative();
 	return $ret;
 }
 
 int64_t GSSLibStub::acquireCred(int64_t pName, int32_t lifetime, int32_t usage) {
-	int64_t $ret = 0;
-	$prepareNative(GSSLibStub, acquireCred, int64_t, int64_t pName, int32_t lifetime, int32_t usage);
-	$ret = $invokeNative(pName, lifetime, usage);
+	$prepareNative(acquireCred, int64_t, int64_t pName, int32_t lifetime, int32_t usage);
+	int64_t $ret = $invokeNative(pName, lifetime, usage);
 	$finishNative();
 	return $ret;
 }
 
 int64_t GSSLibStub::releaseCred(int64_t pCred) {
-	int64_t $ret = 0;
-	$prepareNative(GSSLibStub, releaseCred, int64_t, int64_t pCred);
-	$ret = $invokeNative(pCred);
+	$prepareNative(releaseCred, int64_t, int64_t pCred);
+	int64_t $ret = $invokeNative(pCred);
 	$finishNative();
 	return $ret;
 }
 
 int64_t GSSLibStub::getCredName(int64_t pCred) {
-	int64_t $ret = 0;
-	$prepareNative(GSSLibStub, getCredName, int64_t, int64_t pCred);
-	$ret = $invokeNative(pCred);
+	$prepareNative(getCredName, int64_t, int64_t pCred);
+	int64_t $ret = $invokeNative(pCred);
 	$finishNative();
 	return $ret;
 }
 
 int32_t GSSLibStub::getCredTime(int64_t pCred) {
-	int32_t $ret = 0;
-	$prepareNative(GSSLibStub, getCredTime, int32_t, int64_t pCred);
-	$ret = $invokeNative(pCred);
+	$prepareNative(getCredTime, int32_t, int64_t pCred);
+	int32_t $ret = $invokeNative(pCred);
 	$finishNative();
 	return $ret;
 }
 
 int32_t GSSLibStub::getCredUsage(int64_t pCred) {
-	int32_t $ret = 0;
-	$prepareNative(GSSLibStub, getCredUsage, int32_t, int64_t pCred);
-	$ret = $invokeNative(pCred);
+	$prepareNative(getCredUsage, int32_t, int64_t pCred);
+	int32_t $ret = $invokeNative(pCred);
 	$finishNative();
 	return $ret;
 }
 
 $NativeGSSContext* GSSLibStub::importContext($bytes* interProcToken) {
-	$var($NativeGSSContext, $ret, nullptr);
-	$prepareNative(GSSLibStub, importContext, $NativeGSSContext*, $bytes* interProcToken);
-	$assign($ret, $invokeNativeObject(interProcToken));
+	$prepareNative(importContext, $NativeGSSContext*, $bytes* interProcToken);
+	$var($NativeGSSContext, $ret, $invokeNativeObject(interProcToken));
 	$finishNative();
 	return $ret;
 }
 
 $bytes* GSSLibStub::initContext(int64_t pCred, int64_t targetName, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(GSSLibStub, initContext, $bytes*, int64_t pCred, int64_t targetName, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context);
-	$assign($ret, $invokeNativeObject(pCred, targetName, cb, inToken, context));
+	$prepareNative(initContext, $bytes*, int64_t pCred, int64_t targetName, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context);
+	$var($bytes, $ret, $invokeNativeObject(pCred, targetName, cb, inToken, context));
 	$finishNative();
 	return $ret;
 }
 
 $bytes* GSSLibStub::acceptContext(int64_t pCred, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(GSSLibStub, acceptContext, $bytes*, int64_t pCred, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context);
-	$assign($ret, $invokeNativeObject(pCred, cb, inToken, context));
+	$prepareNative(acceptContext, $bytes*, int64_t pCred, $ChannelBinding* cb, $bytes* inToken, $NativeGSSContext* context);
+	$var($bytes, $ret, $invokeNativeObject(pCred, cb, inToken, context));
 	$finishNative();
 	return $ret;
 }
 
 $longs* GSSLibStub::inquireContext(int64_t pContext) {
-	$var($longs, $ret, nullptr);
-	$prepareNative(GSSLibStub, inquireContext, $longs*, int64_t pContext);
-	$assign($ret, $invokeNativeObject(pContext));
+	$prepareNative(inquireContext, $longs*, int64_t pContext);
+	$var($longs, $ret, $invokeNativeObject(pContext));
 	$finishNative();
 	return $ret;
 }
 
 $Oid* GSSLibStub::getContextMech(int64_t pContext) {
-	$var($Oid, $ret, nullptr);
-	$prepareNative(GSSLibStub, getContextMech, $Oid*, int64_t pContext);
-	$assign($ret, $invokeNativeObject(pContext));
+	$prepareNative(getContextMech, $Oid*, int64_t pContext);
+	$var($Oid, $ret, $invokeNativeObject(pContext));
 	$finishNative();
 	return $ret;
 }
 
 int64_t GSSLibStub::getContextName(int64_t pContext, bool isSrc) {
-	int64_t $ret = 0;
-	$prepareNative(GSSLibStub, getContextName, int64_t, int64_t pContext, bool isSrc);
-	$ret = $invokeNative(pContext, isSrc);
+	$prepareNative(getContextName, int64_t, int64_t pContext, bool isSrc);
+	int64_t $ret = $invokeNative(pContext, isSrc);
 	$finishNative();
 	return $ret;
 }
 
 int32_t GSSLibStub::getContextTime(int64_t pContext) {
-	int32_t $ret = 0;
-	$prepareNative(GSSLibStub, getContextTime, int32_t, int64_t pContext);
-	$ret = $invokeNative(pContext);
+	$prepareNative(getContextTime, int32_t, int64_t pContext);
+	int32_t $ret = $invokeNative(pContext);
 	$finishNative();
 	return $ret;
 }
 
 int64_t GSSLibStub::deleteContext(int64_t pContext) {
-	int64_t $ret = 0;
-	$prepareNative(GSSLibStub, deleteContext, int64_t, int64_t pContext);
-	$ret = $invokeNative(pContext);
+	$prepareNative(deleteContext, int64_t, int64_t pContext);
+	int64_t $ret = $invokeNative(pContext);
 	$finishNative();
 	return $ret;
 }
 
 int32_t GSSLibStub::wrapSizeLimit(int64_t pContext, int32_t flags, int32_t qop, int32_t outSize) {
-	int32_t $ret = 0;
-	$prepareNative(GSSLibStub, wrapSizeLimit, int32_t, int64_t pContext, int32_t flags, int32_t qop, int32_t outSize);
-	$ret = $invokeNative(pContext, flags, qop, outSize);
+	$prepareNative(wrapSizeLimit, int32_t, int64_t pContext, int32_t flags, int32_t qop, int32_t outSize);
+	int32_t $ret = $invokeNative(pContext, flags, qop, outSize);
 	$finishNative();
 	return $ret;
 }
 
 $bytes* GSSLibStub::exportContext(int64_t pContext) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(GSSLibStub, exportContext, $bytes*, int64_t pContext);
-	$assign($ret, $invokeNativeObject(pContext));
+	$prepareNative(exportContext, $bytes*, int64_t pContext);
+	$var($bytes, $ret, $invokeNativeObject(pContext));
 	$finishNative();
 	return $ret;
 }
 
 $bytes* GSSLibStub::getMic(int64_t pContext, int32_t qop, $bytes* msg) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(GSSLibStub, getMic, $bytes*, int64_t pContext, int32_t qop, $bytes* msg);
-	$assign($ret, $invokeNativeObject(pContext, qop, msg));
+	$prepareNative(getMic, $bytes*, int64_t pContext, int32_t qop, $bytes* msg);
+	$var($bytes, $ret, $invokeNativeObject(pContext, qop, msg));
 	$finishNative();
 	return $ret;
 }
 
 void GSSLibStub::verifyMic(int64_t pContext, $bytes* token, $bytes* msg, $MessageProp* prop) {
-	$prepareNative(GSSLibStub, verifyMic, void, int64_t pContext, $bytes* token, $bytes* msg, $MessageProp* prop);
+	$prepareNative(verifyMic, void, int64_t pContext, $bytes* token, $bytes* msg, $MessageProp* prop);
 	$invokeNative(pContext, token, msg, prop);
 	$finishNative();
 }
 
 $bytes* GSSLibStub::wrap(int64_t pContext, $bytes* msg, $MessageProp* prop) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(GSSLibStub, wrap, $bytes*, int64_t pContext, $bytes* msg, $MessageProp* prop);
-	$assign($ret, $invokeNativeObject(pContext, msg, prop));
+	$prepareNative(wrap, $bytes*, int64_t pContext, $bytes* msg, $MessageProp* prop);
+	$var($bytes, $ret, $invokeNativeObject(pContext, msg, prop));
 	$finishNative();
 	return $ret;
 }
 
 $bytes* GSSLibStub::unwrap(int64_t pContext, $bytes* msgToken, $MessageProp* prop) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(GSSLibStub, unwrap, $bytes*, int64_t pContext, $bytes* msgToken, $MessageProp* prop);
-	$assign($ret, $invokeNativeObject(pContext, msgToken, prop));
+	$prepareNative(unwrap, $bytes*, int64_t pContext, $bytes* msgToken, $MessageProp* prop);
+	$var($bytes, $ret, $invokeNativeObject(pContext, msgToken, prop));
 	$finishNative();
 	return $ret;
 }
@@ -350,13 +234,13 @@ GSSLibStub* GSSLibStub::getInstance($Oid* mech) {
 	$var(GSSLibStub, s, $cast(GSSLibStub, $nc(GSSLibStub::table)->get(mech)));
 	if (s == nullptr) {
 		$assign(s, $new(GSSLibStub, mech));
-		$nc(GSSLibStub::table)->put(mech, s);
+		GSSLibStub::table->put(mech, s);
 	}
 	return s;
 }
 
 void GSSLibStub::init$($Oid* mech) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SunNativeProvider::debug($$str({"Created GSSLibStub for mech "_s, mech}));
 	$set(this, mech, mech);
 	this->pMech = getMechPtr($($nc(mech)->getDER()));
@@ -369,7 +253,7 @@ bool GSSLibStub::equals(Object$* obj) {
 	if (!($instanceOf(GSSLibStub, obj))) {
 		return false;
 	}
-	return ($nc(this->mech)->equals($($nc(($cast(GSSLibStub, obj)))->getMech())));
+	return ($nc(this->mech)->equals($($nc($cast(GSSLibStub, obj))->getMech())));
 }
 
 int32_t GSSLibStub::hashCode() {
@@ -380,7 +264,7 @@ $Oid* GSSLibStub::getMech() {
 	return this->mech;
 }
 
-void clinit$GSSLibStub($Class* class$) {
+void GSSLibStub::clinit$($Class* clazz) {
 	$assignStatic(GSSLibStub::table, $new($Hashtable, 5));
 }
 
@@ -388,7 +272,60 @@ GSSLibStub::GSSLibStub() {
 }
 
 $Class* GSSLibStub::load$($String* name, bool initialize) {
-	$loadClass(GSSLibStub, name, initialize, &_GSSLibStub_ClassInfo_, clinit$GSSLibStub, allocate$GSSLibStub);
+	$FieldInfo fieldInfos$$[] = {
+		{"mech", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSLibStub, mech)},
+		{"pMech", "J", nullptr, $PRIVATE, $field(GSSLibStub, pMech)},
+		{"table", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lorg/ietf/jgss/Oid;Lsun/security/jgss/wrapper/GSSLibStub;>;", $PRIVATE | $STATIC, $staticField(GSSLibStub, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/ietf/jgss/Oid;)V", nullptr, $PRIVATE, $method(GSSLibStub, init$, void, $Oid*), "org.ietf.jgss.GSSException"},
+		{"acceptContext", "(JLorg/ietf/jgss/ChannelBinding;[BLsun/security/jgss/wrapper/NativeGSSContext;)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, acceptContext, $bytes*, int64_t, $ChannelBinding*, $bytes*, $NativeGSSContext*)},
+		{"acquireCred", "(JII)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, acquireCred, int64_t, int64_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"canonicalizeName", "(J)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, canonicalizeName, int64_t, int64_t)},
+		{"compareName", "(JJ)Z", nullptr, $NATIVE, $virtualMethod(GSSLibStub, compareName, bool, int64_t, int64_t)},
+		{"deleteContext", "(J)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, deleteContext, int64_t, int64_t)},
+		{"displayName", "(J)[Ljava/lang/Object;", nullptr, $NATIVE, $virtualMethod(GSSLibStub, displayName, $ObjectArray*, int64_t), "org.ietf.jgss.GSSException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSLibStub, equals, bool, Object$*)},
+		{"exportContext", "(J)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, exportContext, $bytes*, int64_t)},
+		{"exportName", "(J)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, exportName, $bytes*, int64_t), "org.ietf.jgss.GSSException"},
+		{"getContextMech", "(J)Lorg/ietf/jgss/Oid;", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getContextMech, $Oid*, int64_t)},
+		{"getContextName", "(JZ)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getContextName, int64_t, int64_t, bool)},
+		{"getContextTime", "(J)I", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getContextTime, int32_t, int64_t)},
+		{"getCredName", "(J)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getCredName, int64_t, int64_t)},
+		{"getCredTime", "(J)I", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getCredTime, int32_t, int64_t)},
+		{"getCredUsage", "(J)I", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getCredUsage, int32_t, int64_t)},
+		{"getInstance", "(Lorg/ietf/jgss/Oid;)Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, $STATIC, $staticMethod(GSSLibStub, getInstance, GSSLibStub*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, 0, $virtualMethod(GSSLibStub, getMech, $Oid*)},
+		{"getMechPtr", "([B)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(GSSLibStub, getMechPtr, int64_t, $bytes*)},
+		{"getMic", "(JI[B)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, getMic, $bytes*, int64_t, int32_t, $bytes*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSLibStub, hashCode, int32_t)},
+		{"importContext", "([B)Lsun/security/jgss/wrapper/NativeGSSContext;", nullptr, $NATIVE, $virtualMethod(GSSLibStub, importContext, $NativeGSSContext*, $bytes*)},
+		{"importName", "([BLorg/ietf/jgss/Oid;)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, importName, int64_t, $bytes*, $Oid*)},
+		{"indicateMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $NATIVE, $staticMethod(GSSLibStub, indicateMechs, $OidArray*)},
+		{"init", "(Ljava/lang/String;Z)Z", nullptr, $STATIC | $NATIVE, $staticMethod(GSSLibStub, init, bool, $String*, bool)},
+		{"initContext", "(JJLorg/ietf/jgss/ChannelBinding;[BLsun/security/jgss/wrapper/NativeGSSContext;)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, initContext, $bytes*, int64_t, int64_t, $ChannelBinding*, $bytes*, $NativeGSSContext*)},
+		{"inquireContext", "(J)[J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, inquireContext, $longs*, int64_t)},
+		{"inquireNamesForMech", "()[Lorg/ietf/jgss/Oid;", nullptr, $NATIVE, $virtualMethod(GSSLibStub, inquireNamesForMech, $OidArray*), "org.ietf.jgss.GSSException"},
+		{"releaseCred", "(J)J", nullptr, $NATIVE, $virtualMethod(GSSLibStub, releaseCred, int64_t, int64_t)},
+		{"releaseName", "(J)V", nullptr, $NATIVE, $virtualMethod(GSSLibStub, releaseName, void, int64_t)},
+		{"unwrap", "(J[BLorg/ietf/jgss/MessageProp;)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, unwrap, $bytes*, int64_t, $bytes*, $MessageProp*)},
+		{"verifyMic", "(J[B[BLorg/ietf/jgss/MessageProp;)V", nullptr, $NATIVE, $virtualMethod(GSSLibStub, verifyMic, void, int64_t, $bytes*, $bytes*, $MessageProp*)},
+		{"wrap", "(J[BLorg/ietf/jgss/MessageProp;)[B", nullptr, $NATIVE, $virtualMethod(GSSLibStub, wrap, $bytes*, int64_t, $bytes*, $MessageProp*)},
+		{"wrapSizeLimit", "(JIII)I", nullptr, $NATIVE, $virtualMethod(GSSLibStub, wrapSizeLimit, int32_t, int64_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.wrapper.GSSLibStub",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSLibStub, name, initialize, &classInfo$$, GSSLibStub::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSLibStub);
+	});
 	return class$;
 }
 

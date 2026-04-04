@@ -35,7 +35,7 @@ public:
 	void init$(::javax::print::DocPrintJob* source, int32_t reason);
 	virtual int32_t getPrintEventType();
 	virtual ::javax::print::DocPrintJob* getPrintJob();
-	static const int64_t serialVersionUID = (int64_t)0xE83EF91D6A42E55B;
+	static const int64_t serialVersionUID = (int64_t)0xe83ef91d6a42e55b;
 	int32_t reason = 0;
 	static const int32_t JOB_CANCELED = 101;
 	static const int32_t JOB_COMPLETE = 102;

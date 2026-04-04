@@ -26,7 +26,7 @@ public:
 	void init$(::java::awt::dnd::DragSourceContext* dsc);
 	virtual int32_t getDropAction();
 	virtual bool getDropSuccess();
-	static const int64_t serialVersionUID = (int64_t)0xB2AEB0DC23CC91FD;
+	static const int64_t serialVersionUID = (int64_t)0xb2aeb0dc23cc91fd;
 	bool dropSuccess = false;
 	int32_t dropAction = 0;
 };

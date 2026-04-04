@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/WaveFileReader.h>
-
 #include <com/sun/media/sound/StandardFileFormat.h>
 #include <com/sun/media/sound/SunFileReader.h>
 #include <com/sun/media/sound/WaveFileFormat.h>
@@ -48,32 +47,12 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _WaveFileReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WaveFileReader, init$, void)},
-	{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(WaveFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WaveFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WaveFileReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.WaveFileReader",
-	"com.sun.media.sound.SunFileReader",
-	nullptr,
-	nullptr,
-	_WaveFileReader_MethodInfo_
-};
-
-$Object* allocate$WaveFileReader($Class* clazz) {
-	return $of($alloc(WaveFileReader));
-}
-
 void WaveFileReader::init$() {
 	$SunFileReader::init$();
 }
 
 $StandardFileFormat* WaveFileReader::getAudioFileFormatImpl($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nread = 0;
 	int32_t fmt = 0;
 	int32_t length = 0;
@@ -86,7 +65,7 @@ $StandardFileFormat* WaveFileReader::getAudioFileFormatImpl($InputStream* stream
 	$var($AudioFormat$Encoding, encoding, nullptr);
 	$var($DataInputStream, dis, $new($DataInputStream, stream));
 	int32_t magic = dis->readInt();
-	int64_t fileLength = (int64_t)(rllong(dis) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t fileLength = rllong(dis) & (int64_t)0xffffffff;
 	int32_t waveMagic = dis->readInt();
 	int64_t totallength = 0;
 	if (fileLength <= 0) {
@@ -178,7 +157,7 @@ $StandardFileFormat* WaveFileReader::getAudioFileFormatImpl($InputStream* stream
 			$throwNew($UnsupportedAudioFileException, "Not a valid WAV file"_s);
 		}
 	}
-	int64_t dataLength = (int64_t)(rllong(dis) & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t dataLength = rllong(dis) & (int64_t)0xffffffff;
 	nread += 4;
 	int32_t frameSize = calculatePCMFrameSize(sampleSizeInBits, channels);
 	$var($AudioFormat, format, $new($AudioFormat, encoding, (float)sampleRate, sampleSizeInBits, channels, frameSize, (float)sampleRate, false));
@@ -195,7 +174,23 @@ WaveFileReader::WaveFileReader() {
 }
 
 $Class* WaveFileReader::load$($String* name, bool initialize) {
-	$loadClass(WaveFileReader, name, initialize, &_WaveFileReader_ClassInfo_, allocate$WaveFileReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WaveFileReader, init$, void)},
+		{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(WaveFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WaveFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.WaveFileReader",
+		"com.sun.media.sound.SunFileReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WaveFileReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WaveFileReader);
+	});
 	return class$;
 }
 

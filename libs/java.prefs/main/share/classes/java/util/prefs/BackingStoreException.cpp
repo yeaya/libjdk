@@ -1,5 +1,4 @@
 #include <java/util/prefs/BackingStoreException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace prefs {
-
-$FieldInfo _BackingStoreException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BackingStoreException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _BackingStoreException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BackingStoreException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BackingStoreException, init$, void, $Throwable*)},
-	{}
-};
-
-$ClassInfo _BackingStoreException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.prefs.BackingStoreException",
-	"java.lang.Exception",
-	nullptr,
-	_BackingStoreException_FieldInfo_,
-	_BackingStoreException_MethodInfo_
-};
-
-$Object* allocate$BackingStoreException($Class* clazz) {
-	return $of($alloc(BackingStoreException));
-}
 
 void BackingStoreException::init$($String* s) {
 	$Exception::init$(s);
@@ -54,7 +29,26 @@ void BackingStoreException::throw$() {
 }
 
 $Class* BackingStoreException::load$($String* name, bool initialize) {
-	$loadClass(BackingStoreException, name, initialize, &_BackingStoreException_ClassInfo_, allocate$BackingStoreException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BackingStoreException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BackingStoreException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(BackingStoreException, init$, void, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.prefs.BackingStoreException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BackingStoreException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BackingStoreException);
+	});
 	return class$;
 }
 

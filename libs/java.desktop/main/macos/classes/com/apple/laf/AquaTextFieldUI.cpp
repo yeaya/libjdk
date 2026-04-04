@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTextFieldUI.h>
-
 #include <com/apple/laf/AquaCaret.h>
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaHighlighter.h>
@@ -15,8 +14,6 @@
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/FocusListener.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
@@ -42,8 +39,6 @@ using $Graphics = ::java::awt::Graphics;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $FocusListener = ::java::awt::event::FocusListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -61,44 +56,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTextFieldUI_FieldInfo_[] = {
-	{"delegate", "Lcom/apple/laf/AquaUtils$JComponentPainter;", nullptr, $PROTECTED, $field(AquaTextFieldUI, delegate)},
-	{"handler", "Lcom/apple/laf/AquaFocusHandler;", nullptr, $PROTECTED, $field(AquaTextFieldUI, handler)},
-	{"oldDragState", "Z", nullptr, 0, $field(AquaTextFieldUI, oldDragState)},
-	{}
-};
-
-$MethodInfo _AquaTextFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextFieldUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, createCaret, $Caret*)},
-	{"createHighlighter", "()Ljavax/swing/text/Highlighter;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, createHighlighter, $Highlighter*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getVisibleEditorRect", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, getVisibleEditorRect, $Rectangle*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, installListeners, void)},
-	{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, paintBackground, void, $Graphics*)},
-	{"paintBackgroundSafely", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, paintBackgroundSafely, void, $Graphics*)},
-	{"paintSafely", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, paintSafely, void, $Graphics*)},
-	{"setPaintingDelegate", "(Lcom/apple/laf/AquaUtils$JComponentPainter;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, setPaintingDelegate, void, $AquaUtils$JComponentPainter*)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, uninstallListeners, void)},
-	{}
-};
-
-$ClassInfo _AquaTextFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTextFieldUI",
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	nullptr,
-	_AquaTextFieldUI_FieldInfo_,
-	_AquaTextFieldUI_MethodInfo_
-};
-
-$Object* allocate$AquaTextFieldUI($Class* clazz) {
-	return $of($alloc(AquaTextFieldUI));
-}
-
 void AquaTextFieldUI::init$() {
 	$BasicTextFieldUI::init$();
 	this->oldDragState = false;
@@ -110,7 +67,7 @@ $ComponentUI* AquaTextFieldUI::createUI($JComponent* c) {
 }
 
 void AquaTextFieldUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextFieldUI::installListeners();
 	$set(this, handler, $new($AquaFocusHandler));
 	$var($JTextComponent, c, getComponent());
@@ -132,10 +89,10 @@ void AquaTextFieldUI::uninstallListeners() {
 }
 
 void AquaTextFieldUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$GraphicsEnvironment::isHeadless()) {
-		this->oldDragState = $nc($(getComponent()))->getDragEnabled();
-		$nc($(getComponent()))->setDragEnabled(true);
+		this->oldDragState = $$nc(getComponent())->getDragEnabled();
+		$$nc(getComponent())->setDragEnabled(true);
 	}
 	$BasicTextFieldUI::installDefaults();
 }
@@ -143,23 +100,23 @@ void AquaTextFieldUI::installDefaults() {
 void AquaTextFieldUI::uninstallDefaults() {
 	$BasicTextFieldUI::uninstallDefaults();
 	if (!$GraphicsEnvironment::isHeadless()) {
-		$nc($(getComponent()))->setDragEnabled(this->oldDragState);
+		$$nc(getComponent())->setDragEnabled(this->oldDragState);
 	}
 }
 
 void AquaTextFieldUI::installKeyboardActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextFieldUI::installKeyboardActions();
-	$nc($($AquaKeyBindings::instance()))->setDefaultAction($(getKeymapName()));
+	$$nc($AquaKeyBindings::instance())->setDefaultAction($(getKeymapName()));
 }
 
 $Rectangle* AquaTextFieldUI::getVisibleEditorRect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, rect, $BasicTextFieldUI::getVisibleEditorRect());
 	if (rect == nullptr) {
 		return nullptr;
 	}
-	if (!$nc($(getComponent()))->isOpaque()) {
+	if (!$$nc(getComponent())->isOpaque()) {
 		$nc(rect)->y -= 3;
 		rect->height += 6;
 	}
@@ -172,12 +129,12 @@ void AquaTextFieldUI::paintSafely($Graphics* g) {
 }
 
 void AquaTextFieldUI::paintBackgroundSafely($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, c, getComponent());
 	int32_t width = $nc(c)->getWidth();
 	int32_t height = c->getHeight();
 	if (this->delegate != nullptr) {
-		$nc(this->delegate)->paint(c, g, 0, 0, width, height);
+		this->delegate->paint(c, g, 0, 0, width, height);
 		return;
 	}
 	bool isOpaque = c->isOpaque();
@@ -206,7 +163,7 @@ void AquaTextFieldUI::paintBackgroundSafely($Graphics* g) {
 		insets->right -= margin->right;
 	}
 	int32_t shrinkage = $AquaTextFieldBorder::getShrinkageFor(c, height);
-	g->fillRect($nc(insets)->left - 2, insets->top - shrinkage - 1, width - insets->right - insets->left + 4, height - insets->bottom - insets->top + shrinkage * 2 + 2);
+	g->fillRect($nc(insets)->left - 2, $nc(insets)->top - shrinkage - 1, width - $nc(insets)->right - $nc(insets)->left + 4, height - $nc(insets)->bottom - $nc(insets)->top + shrinkage * 2 + 2);
 }
 
 void AquaTextFieldUI::paintBackground($Graphics* g) {
@@ -228,7 +185,40 @@ AquaTextFieldUI::AquaTextFieldUI() {
 }
 
 $Class* AquaTextFieldUI::load$($String* name, bool initialize) {
-	$loadClass(AquaTextFieldUI, name, initialize, &_AquaTextFieldUI_ClassInfo_, allocate$AquaTextFieldUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Lcom/apple/laf/AquaUtils$JComponentPainter;", nullptr, $PROTECTED, $field(AquaTextFieldUI, delegate)},
+		{"handler", "Lcom/apple/laf/AquaFocusHandler;", nullptr, $PROTECTED, $field(AquaTextFieldUI, handler)},
+		{"oldDragState", "Z", nullptr, 0, $field(AquaTextFieldUI, oldDragState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextFieldUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, createCaret, $Caret*)},
+		{"createHighlighter", "()Ljavax/swing/text/Highlighter;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, createHighlighter, $Highlighter*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getVisibleEditorRect", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, getVisibleEditorRect, $Rectangle*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, installListeners, void)},
+		{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, paintBackground, void, $Graphics*)},
+		{"paintBackgroundSafely", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, paintBackgroundSafely, void, $Graphics*)},
+		{"paintSafely", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, paintSafely, void, $Graphics*)},
+		{"setPaintingDelegate", "(Lcom/apple/laf/AquaUtils$JComponentPainter;)V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, setPaintingDelegate, void, $AquaUtils$JComponentPainter*)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldUI, uninstallListeners, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTextFieldUI",
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaTextFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTextFieldUI));
+	});
 	return class$;
 }
 

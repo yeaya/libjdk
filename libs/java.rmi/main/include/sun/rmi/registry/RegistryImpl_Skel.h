@@ -28,11 +28,12 @@ class $import RegistryImpl_Skel : public ::java::rmi::server::Skeleton {
 	$class(RegistryImpl_Skel, 0, ::java::rmi::server::Skeleton)
 public:
 	RegistryImpl_Skel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void dispatch(::java::rmi::Remote* obj, ::java::rmi::server::RemoteCall* remoteCall, int32_t opnum, int64_t hash) override;
 	virtual $Array<::java::rmi::server::Operation>* getOperations() override;
 	static $Array<::java::rmi::server::Operation>* operations;
-	static const int64_t interfaceHash = (int64_t)0x44154DC9D4E63BDF;
+	static const int64_t interfaceHash = (int64_t)0x44154dc9d4e63bdf;
 };
 
 		} // registry

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameManager.h>
-
 #include <com/apple/laf/AquaInternalFramePaneUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -13,7 +12,6 @@
 
 #undef TRUE
 
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
@@ -29,41 +27,6 @@ using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaInternalFrameManager_FieldInfo_[] = {
-	{"fCurrentFrame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(AquaInternalFrameManager, fCurrentFrame)},
-	{"fInitialFrame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(AquaInternalFrameManager, fInitialFrame)},
-	{"fCurrentPaneUI", "Lcom/apple/laf/AquaInternalFramePaneUI;", nullptr, 0, $field(AquaInternalFrameManager, fCurrentPaneUI)},
-	{"fChildFrames", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/JInternalFrame;>;", 0, $field(AquaInternalFrameManager, fChildFrames)},
-	{}
-};
-
-$MethodInfo _AquaInternalFrameManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaInternalFrameManager, init$, void)},
-	{"activateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, activateFrame, void, $JInternalFrame*)},
-	{"activateNextFrame", "()V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, activateNextFrame, void)},
-	{"activateNextFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, activateNextFrame, void, $JInternalFrame*)},
-	{"activatePreviousFrame", "()V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, activatePreviousFrame, void)},
-	{"addIcon", "(Ljava/awt/Container;Ljavax/swing/JInternalFrame$JDesktopIcon;)V", nullptr, 0, $virtualMethod(AquaInternalFrameManager, addIcon, void, $Container*, $JInternalFrame$JDesktopIcon*)},
-	{"closeFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, closeFrame, void, $JInternalFrame*)},
-	{"deiconifyFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, deiconifyFrame, void, $JInternalFrame*)},
-	{"iconifyFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, iconifyFrame, void, $JInternalFrame*)},
-	{"switchFrame", "(Z)V", nullptr, $PRIVATE, $method(AquaInternalFrameManager, switchFrame, void, bool)},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameManager",
-	"javax.swing.DefaultDesktopManager",
-	nullptr,
-	_AquaInternalFrameManager_FieldInfo_,
-	_AquaInternalFrameManager_MethodInfo_
-};
-
-$Object* allocate$AquaInternalFrameManager($Class* clazz) {
-	return $of($alloc(AquaInternalFrameManager));
-}
 
 void AquaInternalFrameManager::init$() {
 	$DefaultDesktopManager::init$();
@@ -89,25 +52,24 @@ void AquaInternalFrameManager::deiconifyFrame($JInternalFrame* f) {
 }
 
 void AquaInternalFrameManager::addIcon($Container* c, $JInternalFrame$JDesktopIcon* desktopIcon) {
-	$nc(c)->add(static_cast<$Component*>(desktopIcon));
+	$nc(c)->add(desktopIcon);
 }
 
 void AquaInternalFrameManager::iconifyFrame($JInternalFrame* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame$JDesktopIcon, desktopIcon, nullptr);
 	$var($Container, c, nullptr);
 	$assign(desktopIcon, $nc(f)->getDesktopIcon());
 	$var($Rectangle, r, getBoundsForIconOf(f));
-	$nc(desktopIcon)->setBounds($nc(r)->x, r->y, r->width, r->height);
+	$nc(desktopIcon)->setBounds($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 	if (!wasIcon(f)) {
-		$init($Boolean);
 		setWasIcon(f, $Boolean::TRUE);
 	}
 	$assign(c, f->getParent());
 	if (c == nullptr) {
 		return;
 	}
-	$nc(c)->remove(static_cast<$Component*>(f));
+	$nc(c)->remove(f);
 	addIcon(c, desktopIcon);
 	int32_t var$0 = f->getX();
 	int32_t var$1 = f->getY();
@@ -121,10 +83,10 @@ void AquaInternalFrameManager::activateFrame($JInternalFrame* f) {
 			$DefaultDesktopManager::activateFrame(f);
 		}
 		if ($nc(this->fChildFrames)->indexOf(f) == -1) {
-			$nc(this->fChildFrames)->addElement(f);
+			this->fChildFrames->addElement(f);
 		}
 		if (this->fCurrentFrame != nullptr && f != this->fCurrentFrame) {
-			if ($nc(this->fCurrentFrame)->isSelected()) {
+			if (this->fCurrentFrame->isSelected()) {
 				$nc(this->fCurrentFrame)->setSelected(false);
 			}
 		}
@@ -147,7 +109,7 @@ void AquaInternalFrameManager::switchFrame(bool next) {
 	if (count <= 1) {
 		return;
 	}
-	int32_t currentIndex = $nc(this->fChildFrames)->indexOf(this->fCurrentFrame);
+	int32_t currentIndex = this->fChildFrames->indexOf(this->fCurrentFrame);
 	if (currentIndex == -1) {
 		$set(this, fCurrentFrame, nullptr);
 		return;
@@ -164,7 +126,7 @@ void AquaInternalFrameManager::switchFrame(bool next) {
 			nextIndex = count - 1;
 		}
 	}
-	$var($JInternalFrame, f, $cast($JInternalFrame, $nc(this->fChildFrames)->elementAt(nextIndex)));
+	$var($JInternalFrame, f, $cast($JInternalFrame, this->fChildFrames->elementAt(nextIndex)));
 	activateFrame(f);
 	$set(this, fCurrentFrame, f);
 }
@@ -186,7 +148,37 @@ AquaInternalFrameManager::AquaInternalFrameManager() {
 }
 
 $Class* AquaInternalFrameManager::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameManager, name, initialize, &_AquaInternalFrameManager_ClassInfo_, allocate$AquaInternalFrameManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"fCurrentFrame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(AquaInternalFrameManager, fCurrentFrame)},
+		{"fInitialFrame", "Ljavax/swing/JInternalFrame;", nullptr, 0, $field(AquaInternalFrameManager, fInitialFrame)},
+		{"fCurrentPaneUI", "Lcom/apple/laf/AquaInternalFramePaneUI;", nullptr, 0, $field(AquaInternalFrameManager, fCurrentPaneUI)},
+		{"fChildFrames", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/JInternalFrame;>;", 0, $field(AquaInternalFrameManager, fChildFrames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaInternalFrameManager, init$, void)},
+		{"activateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, activateFrame, void, $JInternalFrame*)},
+		{"activateNextFrame", "()V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, activateNextFrame, void)},
+		{"activateNextFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, activateNextFrame, void, $JInternalFrame*)},
+		{"activatePreviousFrame", "()V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, activatePreviousFrame, void)},
+		{"addIcon", "(Ljava/awt/Container;Ljavax/swing/JInternalFrame$JDesktopIcon;)V", nullptr, 0, $virtualMethod(AquaInternalFrameManager, addIcon, void, $Container*, $JInternalFrame$JDesktopIcon*)},
+		{"closeFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, closeFrame, void, $JInternalFrame*)},
+		{"deiconifyFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, deiconifyFrame, void, $JInternalFrame*)},
+		{"iconifyFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameManager, iconifyFrame, void, $JInternalFrame*)},
+		{"switchFrame", "(Z)V", nullptr, $PRIVATE, $method(AquaInternalFrameManager, switchFrame, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameManager",
+		"javax.swing.DefaultDesktopManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaInternalFrameManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFrameManager));
+	});
 	return class$;
 }
 

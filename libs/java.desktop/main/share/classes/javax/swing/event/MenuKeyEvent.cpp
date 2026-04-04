@@ -1,5 +1,4 @@
 #include <javax/swing/event/MenuKeyEvent.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/KeyEvent.h>
 #include <javax/swing/MenuElement.h>
@@ -17,32 +16,6 @@ using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 namespace javax {
 	namespace swing {
 		namespace event {
-
-$FieldInfo _MenuKeyEvent_FieldInfo_[] = {
-	{"path", "[Ljavax/swing/MenuElement;", nullptr, $PRIVATE, $field(MenuKeyEvent, path)},
-	{"manager", "Ljavax/swing/MenuSelectionManager;", nullptr, $PRIVATE, $field(MenuKeyEvent, manager)},
-	{}
-};
-
-$MethodInfo _MenuKeyEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;IJIIC[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $method(MenuKeyEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, char16_t, $MenuElementArray*, $MenuSelectionManager*)},
-	{"getMenuSelectionManager", "()Ljavax/swing/MenuSelectionManager;", nullptr, $PUBLIC, $virtualMethod(MenuKeyEvent, getMenuSelectionManager, $MenuSelectionManager*)},
-	{"getPath", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(MenuKeyEvent, getPath, $MenuElementArray*)},
-	{}
-};
-
-$ClassInfo _MenuKeyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.MenuKeyEvent",
-	"java.awt.event.KeyEvent",
-	nullptr,
-	_MenuKeyEvent_FieldInfo_,
-	_MenuKeyEvent_MethodInfo_
-};
-
-$Object* allocate$MenuKeyEvent($Class* clazz) {
-	return $of($alloc(MenuKeyEvent));
-}
 
 void MenuKeyEvent::init$($Component* source, int32_t id, int64_t when, int32_t modifiers, int32_t keyCode, char16_t keyChar, $MenuElementArray* p, $MenuSelectionManager* m) {
 	$KeyEvent::init$(source, id, when, modifiers, keyCode, keyChar);
@@ -62,7 +35,28 @@ MenuKeyEvent::MenuKeyEvent() {
 }
 
 $Class* MenuKeyEvent::load$($String* name, bool initialize) {
-	$loadClass(MenuKeyEvent, name, initialize, &_MenuKeyEvent_ClassInfo_, allocate$MenuKeyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"path", "[Ljavax/swing/MenuElement;", nullptr, $PRIVATE, $field(MenuKeyEvent, path)},
+		{"manager", "Ljavax/swing/MenuSelectionManager;", nullptr, $PRIVATE, $field(MenuKeyEvent, manager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;IJIIC[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $method(MenuKeyEvent, init$, void, $Component*, int32_t, int64_t, int32_t, int32_t, char16_t, $MenuElementArray*, $MenuSelectionManager*)},
+		{"getMenuSelectionManager", "()Ljavax/swing/MenuSelectionManager;", nullptr, $PUBLIC, $virtualMethod(MenuKeyEvent, getMenuSelectionManager, $MenuSelectionManager*)},
+		{"getPath", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(MenuKeyEvent, getPath, $MenuElementArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.MenuKeyEvent",
+		"java.awt.event.KeyEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MenuKeyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuKeyEvent);
+	});
 	return class$;
 }
 

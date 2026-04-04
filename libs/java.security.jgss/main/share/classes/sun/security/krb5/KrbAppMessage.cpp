@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbAppMessage.h>
-
 #include <sun/security/krb5/PrincipalName.h>
 #include <sun/security/krb5/internal/HostAddress.h>
 #include <sun/security/krb5/internal/KerberosTime.h>
@@ -15,7 +14,6 @@
 #undef KRB_AP_ERR_MODIFIED
 #undef KRB_AP_ERR_SKEW
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -31,30 +29,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KrbAppMessage_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KrbAppMessage, DEBUG)},
-	{}
-};
-
-$MethodInfo _KrbAppMessage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(KrbAppMessage, init$, void)},
-	{"check", "(Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;ZZLsun/security/krb5/PrincipalName;)V", nullptr, 0, $virtualMethod(KrbAppMessage, check, void, $KerberosTime*, $Integer*, $Integer*, $HostAddress*, $HostAddress*, $SeqNumber*, $HostAddress*, $HostAddress*, bool, bool, $PrincipalName*), "sun.security.krb5.internal.KrbApErrException"},
-	{}
-};
-
-$ClassInfo _KrbAppMessage_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.krb5.KrbAppMessage",
-	"java.lang.Object",
-	nullptr,
-	_KrbAppMessage_FieldInfo_,
-	_KrbAppMessage_MethodInfo_
-};
-
-$Object* allocate$KrbAppMessage($Class* clazz) {
-	return $of($alloc(KrbAppMessage));
-}
-
 bool KrbAppMessage::DEBUG = false;
 
 void KrbAppMessage::init$() {
@@ -63,7 +37,7 @@ void KrbAppMessage::init$() {
 void KrbAppMessage::check($KerberosTime* packetTimestamp$renamed, $Integer* packetUsec, $Integer* packetSeqNumber, $HostAddress* packetSAddress, $HostAddress* packetRAddress, $SeqNumber* seqNumber, $HostAddress* sAddress, $HostAddress* rAddress, bool timestampRequired, bool seqNumberRequired, $PrincipalName* packetPrincipal) {
 	$var($KerberosTime, packetTimestamp, packetTimestamp$renamed);
 	if (sAddress != nullptr) {
-		if (packetSAddress == nullptr || sAddress == nullptr || !$nc(packetSAddress)->equals(sAddress)) {
+		if (packetSAddress == nullptr || sAddress == nullptr || !packetSAddress->equals(sAddress)) {
 			if (KrbAppMessage::DEBUG && packetSAddress == nullptr) {
 				$nc($System::out)->println("packetSAddress is null"_s);
 			}
@@ -74,7 +48,7 @@ void KrbAppMessage::check($KerberosTime* packetTimestamp$renamed, $Integer* pack
 		}
 	}
 	if (rAddress != nullptr) {
-		if (packetRAddress == nullptr || rAddress == nullptr || !$nc(packetRAddress)->equals(rAddress)) {
+		if (packetRAddress == nullptr || rAddress == nullptr || !packetRAddress->equals(rAddress)) {
 			$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_BADADDR);
 		}
 	}
@@ -82,7 +56,7 @@ void KrbAppMessage::check($KerberosTime* packetTimestamp$renamed, $Integer* pack
 		if (packetUsec != nullptr) {
 			$assign(packetTimestamp, packetTimestamp->withMicroSeconds(packetUsec->intValue()));
 		}
-		if (!packetTimestamp->inClockSkew()) {
+		if (!$nc(packetTimestamp)->inClockSkew()) {
 			$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_SKEW);
 		}
 	} else if (timestampRequired) {
@@ -105,7 +79,7 @@ void KrbAppMessage::check($KerberosTime* packetTimestamp$renamed, $Integer* pack
 	}
 }
 
-void clinit$KrbAppMessage($Class* class$) {
+void KrbAppMessage::clinit$($Class* clazz) {
 	$init($Krb5);
 	KrbAppMessage::DEBUG = $Krb5::DEBUG;
 }
@@ -114,7 +88,26 @@ KrbAppMessage::KrbAppMessage() {
 }
 
 $Class* KrbAppMessage::load$($String* name, bool initialize) {
-	$loadClass(KrbAppMessage, name, initialize, &_KrbAppMessage_ClassInfo_, clinit$KrbAppMessage, allocate$KrbAppMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(KrbAppMessage, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(KrbAppMessage, init$, void)},
+		{"check", "(Lsun/security/krb5/internal/KerberosTime;Ljava/lang/Integer;Ljava/lang/Integer;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;ZZLsun/security/krb5/PrincipalName;)V", nullptr, 0, $virtualMethod(KrbAppMessage, check, void, $KerberosTime*, $Integer*, $Integer*, $HostAddress*, $HostAddress*, $SeqNumber*, $HostAddress*, $HostAddress*, bool, bool, $PrincipalName*), "sun.security.krb5.internal.KrbApErrException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.krb5.KrbAppMessage",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbAppMessage, name, initialize, &classInfo$$, KrbAppMessage::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbAppMessage);
+	});
 	return class$;
 }
 

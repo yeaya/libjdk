@@ -48,6 +48,7 @@ class XScrollbar : public ::java::lang::Object {
 	$class(XScrollbar, 0, ::java::lang::Object)
 public:
 	XScrollbar();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t alignment, ::sun::awt::X11::XScrollbarClient* sb);
 	virtual bool beforeThumb(int32_t x, int32_t y) {return false;}
 	virtual void calculateArrowWidth();

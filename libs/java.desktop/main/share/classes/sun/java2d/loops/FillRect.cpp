@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/FillRect.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -27,49 +26,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _FillRect_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillRect, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillRect, primTypeID)},
-	{}
-};
-
-$MethodInfo _FillRect_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(FillRect, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(FillRect, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"FillRect", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(FillRect, FillRect$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/FillRect;", nullptr, $PUBLIC | $STATIC, $staticMethod(FillRect, locate, FillRect*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(FillRect, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillRect, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_FillRect$ 2
-
-$InnerClassInfo _FillRect_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.FillRect$TraceFillRect", "sun.java2d.loops.FillRect", "TraceFillRect", $PRIVATE | $STATIC},
-	{"sun.java2d.loops.FillRect$General", "sun.java2d.loops.FillRect", "General", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _FillRect_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.FillRect",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_FillRect_FieldInfo_,
-	_FillRect_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FillRect_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.FillRect$TraceFillRect,sun.java2d.loops.FillRect$General"
-};
-
-$Object* allocate$FillRect($Class* clazz) {
-	return $of($alloc(FillRect));
-}
-
 $String* FillRect::methodSignature = nullptr;
 int32_t FillRect::primTypeID = 0;
 
@@ -87,7 +43,7 @@ void FillRect::init$(int64_t pNativePrim, $SurfaceType* srctype, $CompositeType*
 }
 
 void FillRect::FillRect$($SunGraphics2D* sg2d, $SurfaceData* dest, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$prepareNative(FillRect, FillRect$, void, $SunGraphics2D* sg2d, $SurfaceData* dest, int32_t x, int32_t y, int32_t w, int32_t h);
+	$prepareNative(FillRect, void, $SunGraphics2D* sg2d, $SurfaceData* dest, int32_t x, int32_t y, int32_t w, int32_t h);
 	$invokeNative(sg2d, dest, x, y, w, h);
 	$finishNative();
 }
@@ -100,7 +56,7 @@ $GraphicsPrimitive* FillRect::traceWrap() {
 	return $new($FillRect$TraceFillRect, this);
 }
 
-void clinit$FillRect($Class* class$) {
+void FillRect::clinit$($Class* clazz) {
 	$assignStatic(FillRect::methodSignature, "FillRect(...)"_s->toString());
 	FillRect::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 	{
@@ -112,7 +68,42 @@ FillRect::FillRect() {
 }
 
 $Class* FillRect::load$($String* name, bool initialize) {
-	$loadClass(FillRect, name, initialize, &_FillRect_ClassInfo_, clinit$FillRect, allocate$FillRect);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillRect, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FillRect, primTypeID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(FillRect, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(FillRect, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"FillRect", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(FillRect, FillRect$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/FillRect;", nullptr, $PUBLIC | $STATIC, $staticMethod(FillRect, locate, FillRect*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(FillRect, makePrimitive, $GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillRect, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.FillRect$TraceFillRect", "sun.java2d.loops.FillRect", "TraceFillRect", $PRIVATE | $STATIC},
+		{"sun.java2d.loops.FillRect$General", "sun.java2d.loops.FillRect", "General", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.FillRect",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.FillRect$TraceFillRect,sun.java2d.loops.FillRect$General"
+	};
+	$loadClass(FillRect, name, initialize, &classInfo$$, FillRect::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FillRect);
+	});
 	return class$;
 }
 

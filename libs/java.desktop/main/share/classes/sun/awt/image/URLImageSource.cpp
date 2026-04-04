@@ -1,5 +1,4 @@
 #include <sun/awt/image/URLImageSource.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/SecurityException.h>
@@ -32,40 +31,8 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _URLImageSource_FieldInfo_[] = {
-	{"url", "Ljava/net/URL;", nullptr, 0, $field(URLImageSource, url)},
-	{"conn", "Ljava/net/URLConnection;", nullptr, 0, $field(URLImageSource, conn)},
-	{"actualHost", "Ljava/lang/String;", nullptr, 0, $field(URLImageSource, actualHost)},
-	{"actualPort", "I", nullptr, 0, $field(URLImageSource, actualPort)},
-	{}
-};
-
-$MethodInfo _URLImageSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(URLImageSource, init$, void, $URL*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLImageSource, init$, void, $String*), "java.net.MalformedURLException"},
-	{"<init>", "(Ljava/net/URL;Ljava/net/URLConnection;)V", nullptr, $PUBLIC, $method(URLImageSource, init$, void, $URL*, $URLConnection*)},
-	{"<init>", "(Ljava/net/URLConnection;)V", nullptr, $PUBLIC, $method(URLImageSource, init$, void, $URLConnection*)},
-	{"checkSecurity", "(Ljava/lang/Object;Z)Z", nullptr, $FINAL, $virtualMethod(URLImageSource, checkSecurity, bool, Object$*, bool)},
-	{"getConnection", "()Ljava/net/URLConnection;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(URLImageSource, getConnection, $URLConnection*), "java.io.IOException"},
-	{"getDecoder", "()Lsun/awt/image/ImageDecoder;", nullptr, $PROTECTED, $virtualMethod(URLImageSource, getDecoder, $ImageDecoder*)},
-	{}
-};
-
-$ClassInfo _URLImageSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.URLImageSource",
-	"sun.awt.image.InputStreamImageSource",
-	nullptr,
-	_URLImageSource_FieldInfo_,
-	_URLImageSource_MethodInfo_
-};
-
-$Object* allocate$URLImageSource($Class* clazz) {
-	return $of($alloc(URLImageSource));
-}
-
 void URLImageSource::init$($URL* u) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$InputStreamImageSource::init$();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
@@ -126,7 +93,7 @@ $URLConnection* URLImageSource::getConnection() {
 }
 
 $ImageDecoder* URLImageSource::getDecoder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, is, nullptr);
 	$var($String, type, nullptr);
 	$var($URLConnection, c, nullptr);
@@ -137,23 +104,23 @@ $ImageDecoder* URLImageSource::getDecoder() {
 		$var($URL, u, c->getURL());
 		bool var$0 = u != this->url;
 		if (var$0) {
-			bool var$1 = !$nc($($nc(u)->getHost()))->equals($($nc(this->url)->getHost()));
+			bool var$1 = !$$nc($nc(u)->getHost())->equals($($nc(this->url)->getHost()));
 			if (!var$1) {
-				int32_t var$2 = $nc(u)->getPort();
-				var$1 = var$2 != $nc(this->url)->getPort();
+				int32_t var$2 = u->getPort();
+				var$1 = var$2 != this->url->getPort();
 			}
-			var$0 = (var$1);
+			var$0 = var$1;
 		}
 		if (var$0) {
 			bool var$3 = this->actualHost != nullptr;
 			if (var$3) {
-				bool var$4 = !$nc(this->actualHost)->equals($(u->getHost()));
-				var$3 = (var$4 || this->actualPort != u->getPort());
+				bool var$4 = !this->actualHost->equals($($nc(u)->getHost()));
+				var$3 = var$4 || this->actualPort != u->getPort();
 			}
 			if (var$3) {
 				$throwNew($SecurityException, "image moved!"_s);
 			}
-			$set(this, actualHost, u->getHost());
+			$set(this, actualHost, $nc(u)->getHost());
 			this->actualPort = u->getPort();
 		}
 	} catch ($IOException& e) {
@@ -163,7 +130,7 @@ $ImageDecoder* URLImageSource::getDecoder() {
 			} catch ($IOException& e2) {
 			}
 		} else if ($instanceOf($HttpURLConnection, c)) {
-			$nc(($cast($HttpURLConnection, c)))->disconnect();
+			$cast($HttpURLConnection, c)->disconnect();
 		}
 		return nullptr;
 	}
@@ -178,7 +145,7 @@ $ImageDecoder* URLImageSource::getDecoder() {
 			} catch ($IOException& e) {
 			}
 		} else if ($instanceOf($HttpURLConnection, c)) {
-			$nc(($cast($HttpURLConnection, c)))->disconnect();
+			$cast($HttpURLConnection, c)->disconnect();
 		}
 	}
 	return id;
@@ -188,7 +155,34 @@ URLImageSource::URLImageSource() {
 }
 
 $Class* URLImageSource::load$($String* name, bool initialize) {
-	$loadClass(URLImageSource, name, initialize, &_URLImageSource_ClassInfo_, allocate$URLImageSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"url", "Ljava/net/URL;", nullptr, 0, $field(URLImageSource, url)},
+		{"conn", "Ljava/net/URLConnection;", nullptr, 0, $field(URLImageSource, conn)},
+		{"actualHost", "Ljava/lang/String;", nullptr, 0, $field(URLImageSource, actualHost)},
+		{"actualPort", "I", nullptr, 0, $field(URLImageSource, actualPort)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(URLImageSource, init$, void, $URL*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URLImageSource, init$, void, $String*), "java.net.MalformedURLException"},
+		{"<init>", "(Ljava/net/URL;Ljava/net/URLConnection;)V", nullptr, $PUBLIC, $method(URLImageSource, init$, void, $URL*, $URLConnection*)},
+		{"<init>", "(Ljava/net/URLConnection;)V", nullptr, $PUBLIC, $method(URLImageSource, init$, void, $URLConnection*)},
+		{"checkSecurity", "(Ljava/lang/Object;Z)Z", nullptr, $FINAL, $virtualMethod(URLImageSource, checkSecurity, bool, Object$*, bool)},
+		{"getConnection", "()Ljava/net/URLConnection;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(URLImageSource, getConnection, $URLConnection*), "java.io.IOException"},
+		{"getDecoder", "()Lsun/awt/image/ImageDecoder;", nullptr, $PROTECTED, $virtualMethod(URLImageSource, getDecoder, $ImageDecoder*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.URLImageSource",
+		"sun.awt.image.InputStreamImageSource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(URLImageSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(URLImageSource));
+	});
 	return class$;
 }
 

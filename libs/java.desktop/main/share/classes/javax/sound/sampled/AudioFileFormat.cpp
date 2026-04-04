@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/AudioFileFormat.h>
-
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -24,53 +23,6 @@ using $AudioSystem = ::javax::sound::sampled::AudioSystem;
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _AudioFileFormat_FieldInfo_[] = {
-	{"type", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat, type)},
-	{"byteLength", "I", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat, byteLength)},
-	{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat, format)},
-	{"frameLength", "I", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat, frameLength)},
-	{"properties", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(AudioFileFormat, properties$)},
-	{}
-};
-
-$MethodInfo _AudioFileFormat_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;ILjavax/sound/sampled/AudioFormat;I)V", nullptr, $PROTECTED, $method(AudioFileFormat, init$, void, $AudioFileFormat$Type*, int32_t, $AudioFormat*, int32_t)},
-	{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $PUBLIC, $method(AudioFileFormat, init$, void, $AudioFileFormat$Type*, $AudioFormat*, int32_t)},
-	{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioFormat;ILjava/util/Map;)V", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioFormat;ILjava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $method(AudioFileFormat, init$, void, $AudioFileFormat$Type*, $AudioFormat*, int32_t, $Map*)},
-	{"getByteLength", "()I", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getByteLength, int32_t)},
-	{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getFormat, $AudioFormat*)},
-	{"getFrameLength", "()I", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getFrameLength, int32_t)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getProperty, $Object*, $String*)},
-	{"getType", "()Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getType, $AudioFileFormat$Type*)},
-	{"properties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AudioFileFormat, properties, $Map*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AudioFileFormat_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.AudioFileFormat$Type", "javax.sound.sampled.AudioFileFormat", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AudioFileFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.AudioFileFormat",
-	"java.lang.Object",
-	nullptr,
-	_AudioFileFormat_FieldInfo_,
-	_AudioFileFormat_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AudioFileFormat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.AudioFileFormat$Type"
-};
-
-$Object* allocate$AudioFileFormat($Class* clazz) {
-	return $of($alloc(AudioFileFormat));
-}
 
 void AudioFileFormat::init$($AudioFileFormat$Type* type, int32_t byteLength, $AudioFormat* format, int32_t frameLength) {
 	$set(this, type, type);
@@ -110,25 +62,28 @@ $Map* AudioFileFormat::properties() {
 	if (this->properties$ == nullptr) {
 		$assign(ret, $new($HashMap, 0));
 	} else {
-		$assign(ret, ($cast($Map, $nc(this->properties$)->clone())));
+		$assign(ret, $cast($Map, this->properties$->clone()));
 	}
 	return $Collections::unmodifiableMap(ret);
 }
 
 $Object* AudioFileFormat::getProperty($String* key) {
 	if (this->properties$ == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($nc(this->properties$)->get(key));
+	return $nc(this->properties$)->get(key);
 }
 
 $String* AudioFileFormat::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, "Unknown file format"_s);
 	if (getType() != nullptr) {
-		$var($String, var$1, $$str({$(getType()), " (."_s}));
-		$var($String, var$0, $$concat(var$1, $($nc($(getType()))->getExtension())));
-		$assign(str, $concat(var$0, ") file"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(getType()));
+		var$0->append(" (."_s);
+		var$0->append($($$nc(getType())->getExtension()));
+		var$0->append(") file"_s);
+		$assign(str, $str(var$0));
 	}
 	if (getByteLength() != $AudioSystem::NOT_SPECIFIED) {
 		$plusAssign(str, $$str({", byte length: "_s, $$str(getByteLength())}));
@@ -144,7 +99,48 @@ AudioFileFormat::AudioFileFormat() {
 }
 
 $Class* AudioFileFormat::load$($String* name, bool initialize) {
-	$loadClass(AudioFileFormat, name, initialize, &_AudioFileFormat_ClassInfo_, allocate$AudioFileFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat, type)},
+		{"byteLength", "I", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat, byteLength)},
+		{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat, format)},
+		{"frameLength", "I", nullptr, $PRIVATE | $FINAL, $field(AudioFileFormat, frameLength)},
+		{"properties", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(AudioFileFormat, properties$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;ILjavax/sound/sampled/AudioFormat;I)V", nullptr, $PROTECTED, $method(AudioFileFormat, init$, void, $AudioFileFormat$Type*, int32_t, $AudioFormat*, int32_t)},
+		{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioFormat;I)V", nullptr, $PUBLIC, $method(AudioFileFormat, init$, void, $AudioFileFormat$Type*, $AudioFormat*, int32_t)},
+		{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioFormat;ILjava/util/Map;)V", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioFormat;ILjava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PUBLIC, $method(AudioFileFormat, init$, void, $AudioFileFormat$Type*, $AudioFormat*, int32_t, $Map*)},
+		{"getByteLength", "()I", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getByteLength, int32_t)},
+		{"getFormat", "()Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getFormat, $AudioFormat*)},
+		{"getFrameLength", "()I", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getFrameLength, int32_t)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getProperty, $Object*, $String*)},
+		{"getType", "()Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, getType, $AudioFileFormat$Type*)},
+		{"properties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(AudioFileFormat, properties, $Map*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AudioFileFormat, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.AudioFileFormat$Type", "javax.sound.sampled.AudioFileFormat", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.AudioFileFormat",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.AudioFileFormat$Type"
+	};
+	$loadClass(AudioFileFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AudioFileFormat);
+	});
 	return class$;
 }
 

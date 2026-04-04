@@ -47,6 +47,7 @@ class $export ErrorFrame : public ::jdk::internal::net::http::frame::Http2Frame 
 	$class(ErrorFrame, 0, ::jdk::internal::net::http::frame::Http2Frame)
 public:
 	ErrorFrame();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t streamid, int32_t flags, int32_t errorCode);
 	virtual int32_t getErrorCode();
 	static $String* stringForCode(int32_t code);

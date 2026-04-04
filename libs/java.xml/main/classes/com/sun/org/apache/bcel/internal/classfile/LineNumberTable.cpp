@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/LineNumberTable.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -37,42 +36,8 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _LineNumberTable_FieldInfo_[] = {
-	{"MAX_LINE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberTable, MAX_LINE_LENGTH)},
-	{"lineNumberTable", "[Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;", nullptr, $PRIVATE, $field(LineNumberTable, lineNumberTable)},
-	{}
-};
-
-$MethodInfo _LineNumberTable_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/LineNumberTable;)V", nullptr, $PUBLIC, $method(LineNumberTable, init$, void, LineNumberTable*)},
-	{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(LineNumberTable, init$, void, int32_t, int32_t, $LineNumberArray*, $ConstantPool*)},
-	{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(LineNumberTable, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LineNumberTable, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(LineNumberTable, copy, $Attribute*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(LineNumberTable, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getLineNumberTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;", nullptr, $PUBLIC, $method(LineNumberTable, getLineNumberTable, $LineNumberArray*)},
-	{"getSourceLine", "(I)I", nullptr, $PUBLIC, $method(LineNumberTable, getSourceLine, int32_t, int32_t)},
-	{"getTableLength", "()I", nullptr, $PUBLIC, $method(LineNumberTable, getTableLength, int32_t)},
-	{"setLineNumberTable", "([Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;)V", nullptr, $PUBLIC, $method(LineNumberTable, setLineNumberTable, void, $LineNumberArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineNumberTable, toString, $String*)},
-	{}
-};
-
-$ClassInfo _LineNumberTable_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.LineNumberTable",
-	"com.sun.org.apache.bcel.internal.classfile.Attribute",
-	nullptr,
-	_LineNumberTable_FieldInfo_,
-	_LineNumberTable_MethodInfo_
-};
-
-$Object* allocate$LineNumberTable($Class* clazz) {
-	return $of($alloc(LineNumberTable));
-}
-
 void LineNumberTable::init$(LineNumberTable* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(c)->getNameIndex();
 	int32_t var$1 = c->getLength();
 	$var($LineNumberArray, var$2, c->getLineNumberTable());
@@ -85,12 +50,12 @@ void LineNumberTable::init$(int32_t name_index, int32_t length, $LineNumberArray
 }
 
 void LineNumberTable::init$(int32_t name_index, int32_t length, $DataInput* input, $ConstantPool* constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	LineNumberTable::init$(name_index, length, ($LineNumberArray*)nullptr, constant_pool);
 	int32_t line_number_table_length = $nc(input)->readUnsignedShort();
 	$set(this, lineNumberTable, $new($LineNumberArray, line_number_table_length));
 	for (int32_t i = 0; i < line_number_table_length; ++i) {
-		$nc(this->lineNumberTable)->set(i, $$new($LineNumber, input));
+		this->lineNumberTable->set(i, $$new($LineNumber, input));
 	}
 }
 
@@ -99,14 +64,12 @@ void LineNumberTable::accept($Visitor* v) {
 }
 
 void LineNumberTable::dump($DataOutputStream* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Attribute::dump(file);
 	$nc(file)->writeShort($nc(this->lineNumberTable)->length);
 	{
 		$var($LineNumberArray, arr$, this->lineNumberTable);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($LineNumber, lineNumber, arr$->get(i$));
 			{
 				$nc(lineNumber)->dump(file);
@@ -124,22 +87,22 @@ void LineNumberTable::setLineNumberTable($LineNumberArray* lineNumberTable) {
 }
 
 $String* LineNumberTable::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($StringBuilder, line, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(this->lineNumberTable)->length; ++i) {
-		line->append($($nc($nc(this->lineNumberTable)->get(i))->toString()));
+		line->append($($nc(this->lineNumberTable->get(i))->toString()));
 		if (i < $nc(this->lineNumberTable)->length - 1) {
 			line->append(", "_s);
 		}
-		if ((line->length() > LineNumberTable::MAX_LINE_LENGTH) && (i < $nc(this->lineNumberTable)->length - 1)) {
+		if ((line->length() > LineNumberTable::MAX_LINE_LENGTH) && (i < this->lineNumberTable->length - 1)) {
 			$init($SecuritySupport);
 			line->append($SecuritySupport::NEWLINE);
-			buf->append(static_cast<$CharSequence*>(line));
+			buf->append($cast($CharSequence, line));
 			line->setLength(0);
 		}
 	}
-	buf->append(static_cast<$CharSequence*>(line));
+	buf->append($cast($CharSequence, line));
 	return buf->toString();
 }
 
@@ -153,7 +116,7 @@ int32_t LineNumberTable::getSourceLine(int32_t pos) {
 	int32_t min = -1;
 	do {
 		int32_t i = (int32_t)((uint32_t)(l + r) >> 1);
-		int32_t j = $nc($nc(this->lineNumberTable)->get(i))->getStartPC();
+		int32_t j = $nc(this->lineNumberTable->get(i))->getStartPC();
 		if (j == pos) {
 			return $nc($nc(this->lineNumberTable)->get(i))->getLineNumber();
 		} else if (pos < j) {
@@ -173,25 +136,54 @@ int32_t LineNumberTable::getSourceLine(int32_t pos) {
 }
 
 $Attribute* LineNumberTable::copy($ConstantPool* _constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(LineNumberTable, c, $cast(LineNumberTable, clone()));
 	$set($nc(c), lineNumberTable, $new($LineNumberArray, $nc(this->lineNumberTable)->length));
 	for (int32_t i = 0; i < $nc(this->lineNumberTable)->length; ++i) {
-		$nc(c->lineNumberTable)->set(i, $($nc($nc(this->lineNumberTable)->get(i))->copy()));
+		$nc(c->lineNumberTable)->set(i, $($nc(this->lineNumberTable->get(i))->copy()));
 	}
 	c->setConstantPool(_constant_pool);
 	return c;
 }
 
 int32_t LineNumberTable::getTableLength() {
-	return this->lineNumberTable == nullptr ? 0 : $nc(this->lineNumberTable)->length;
+	return this->lineNumberTable == nullptr ? 0 : this->lineNumberTable->length;
 }
 
 LineNumberTable::LineNumberTable() {
 }
 
 $Class* LineNumberTable::load$($String* name, bool initialize) {
-	$loadClass(LineNumberTable, name, initialize, &_LineNumberTable_ClassInfo_, allocate$LineNumberTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAX_LINE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineNumberTable, MAX_LINE_LENGTH)},
+		{"lineNumberTable", "[Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;", nullptr, $PRIVATE, $field(LineNumberTable, lineNumberTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/LineNumberTable;)V", nullptr, $PUBLIC, $method(LineNumberTable, init$, void, LineNumberTable*)},
+		{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(LineNumberTable, init$, void, int32_t, int32_t, $LineNumberArray*, $ConstantPool*)},
+		{"<init>", "(IILjava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(LineNumberTable, init$, void, int32_t, int32_t, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(LineNumberTable, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(LineNumberTable, copy, $Attribute*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(LineNumberTable, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getLineNumberTable", "()[Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;", nullptr, $PUBLIC, $method(LineNumberTable, getLineNumberTable, $LineNumberArray*)},
+		{"getSourceLine", "(I)I", nullptr, $PUBLIC, $method(LineNumberTable, getSourceLine, int32_t, int32_t)},
+		{"getTableLength", "()I", nullptr, $PUBLIC, $method(LineNumberTable, getTableLength, int32_t)},
+		{"setLineNumberTable", "([Lcom/sun/org/apache/bcel/internal/classfile/LineNumber;)V", nullptr, $PUBLIC, $method(LineNumberTable, setLineNumberTable, void, $LineNumberArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LineNumberTable, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.LineNumberTable",
+		"com.sun.org.apache.bcel.internal.classfile.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineNumberTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LineNumberTable));
+	});
 	return class$;
 }
 

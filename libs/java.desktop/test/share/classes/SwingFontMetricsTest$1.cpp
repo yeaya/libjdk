@@ -1,5 +1,4 @@
 #include <SwingFontMetricsTest$1.h>
-
 #include <SwingFontMetricsTest.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -20,7 +19,6 @@
 
 using $SwingFontMetricsTest = ::SwingFontMetricsTest;
 using $Font = ::java::awt::Font;
-using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $RenderingHints = ::java::awt::RenderingHints;
@@ -29,51 +27,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
-
-$FieldInfo _SwingFontMetricsTest$1_FieldInfo_[] = {
-	{"val$frame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(SwingFontMetricsTest$1, val$frame)},
-	{}
-};
-
-$MethodInfo _SwingFontMetricsTest$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/JFrame;)V", nullptr, 0, $method(SwingFontMetricsTest$1, init$, void, $String*, $JFrame*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SwingFontMetricsTest$1, paint, void, $Graphics*)},
-	{}
-};
-
-$EnclosingMethodInfo _SwingFontMetricsTest$1_EnclosingMethodInfo_ = {
-	"SwingFontMetricsTest",
-	"createAndShowGUI",
-	"()V"
-};
-
-$InnerClassInfo _SwingFontMetricsTest$1_InnerClassesInfo_[] = {
-	{"SwingFontMetricsTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwingFontMetricsTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"SwingFontMetricsTest$1",
-	"javax.swing.JLabel",
-	nullptr,
-	_SwingFontMetricsTest$1_FieldInfo_,
-	_SwingFontMetricsTest$1_MethodInfo_,
-	nullptr,
-	&_SwingFontMetricsTest$1_EnclosingMethodInfo_,
-	_SwingFontMetricsTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"SwingFontMetricsTest"
-};
-
-$Object* allocate$SwingFontMetricsTest$1($Class* clazz) {
-	return $of($alloc(SwingFontMetricsTest$1));
-}
 
 void SwingFontMetricsTest$1::init$($String* arg0, $JFrame* val$frame) {
 	$set(this, val$frame, val$frame);
@@ -81,15 +36,15 @@ void SwingFontMetricsTest$1::init$($String* arg0, $JFrame* val$frame) {
 }
 
 void SwingFontMetricsTest$1::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JLabel::paint(g);
 	$var($Font, font, getFont());
 	$var($Graphics2D, g2d, $cast($Graphics2D, g));
 	$init($SwingFontMetricsTest);
-	int32_t width1 = $nc($(getFontMetrics(font)))->stringWidth($SwingFontMetricsTest::TEXT);
+	int32_t width1 = $$nc(getFontMetrics(font))->stringWidth($SwingFontMetricsTest::TEXT);
 	$init($RenderingHints);
 	$nc(g2d)->setRenderingHint($RenderingHints::KEY_TEXT_ANTIALIASING, $SwingFontMetricsTest::aaHint);
-	int32_t width2 = $nc($($nc(g)->getFontMetrics(font)))->stringWidth($SwingFontMetricsTest::TEXT);
+	int32_t width2 = $$nc($nc(g)->getFontMetrics(font))->stringWidth($SwingFontMetricsTest::TEXT);
 	$SwingFontMetricsTest::passed = (width1 == width2);
 	$nc($SwingFontMetricsTest::latch)->countDown();
 	$nc(this->val$frame)->dispose();
@@ -99,7 +54,42 @@ SwingFontMetricsTest$1::SwingFontMetricsTest$1() {
 }
 
 $Class* SwingFontMetricsTest$1::load$($String* name, bool initialize) {
-	$loadClass(SwingFontMetricsTest$1, name, initialize, &_SwingFontMetricsTest$1_ClassInfo_, allocate$SwingFontMetricsTest$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$frame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(SwingFontMetricsTest$1, val$frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/JFrame;)V", nullptr, 0, $method(SwingFontMetricsTest$1, init$, void, $String*, $JFrame*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(SwingFontMetricsTest$1, paint, void, $Graphics*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"SwingFontMetricsTest",
+		"createAndShowGUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SwingFontMetricsTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"SwingFontMetricsTest$1",
+		"javax.swing.JLabel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"SwingFontMetricsTest"
+	};
+	$loadClass(SwingFontMetricsTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SwingFontMetricsTest$1));
+	});
 	return class$;
 }
 

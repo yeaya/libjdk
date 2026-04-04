@@ -117,6 +117,7 @@ class $import XPath : public ::java::io::Serializable, public ::com::sun::org::a
 	$class(XPath, 0, ::java::io::Serializable, ::com::sun::org::apache::xpath::internal::ExpressionOwner)
 public:
 	XPath();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
@@ -140,7 +141,7 @@ public:
 	virtual void setExpression(::com::sun::org::apache::xpath::internal::Expression* exp) override;
 	virtual $String* toString() override;
 	virtual void warn(::com::sun::org::apache::xpath::internal::XPathContext* xctxt, int32_t sourceNode, $String* msg, $ObjectArray* args);
-	static const int64_t serialVersionUID = (int64_t)0x372F57BFF437E299;
+	static const int64_t serialVersionUID = (int64_t)0x372f57bff437e299;
 	::com::sun::org::apache::xpath::internal::Expression* m_mainExp = nullptr;
 	::com::sun::org::apache::xpath::internal::compiler::FunctionTable* m_funcTable = nullptr;
 	$String* m_patternString = nullptr;

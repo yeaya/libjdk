@@ -66,6 +66,7 @@ class XmlAttrStack : public ::java::lang::Object {
 	$class(XmlAttrStack, 0, ::java::lang::Object)
 public:
 	XmlAttrStack();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool c14n11);
 	virtual void addXmlnsAttr(::org::w3c::dom::Attr* n);
 	virtual void getXmlnsAttr(::java::util::Collection* col);

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftCubicResampler.h>
-
 #include <com/sun/media/sound/SoftAbstractResampler.h>
 #include <jcpp.h>
 
@@ -11,26 +10,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$MethodInfo _SoftCubicResampler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftCubicResampler, init$, void)},
-	{"getPadding", "()I", nullptr, $PUBLIC, $virtualMethod(SoftCubicResampler, getPadding, int32_t)},
-	{"interpolate", "([F[FF[FF[F[II)V", nullptr, $PUBLIC, $virtualMethod(SoftCubicResampler, interpolate, void, $floats*, $floats*, float, $floats*, float, $floats*, $ints*, int32_t)},
-	{}
-};
-
-$ClassInfo _SoftCubicResampler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftCubicResampler",
-	"com.sun.media.sound.SoftAbstractResampler",
-	nullptr,
-	nullptr,
-	_SoftCubicResampler_MethodInfo_
-};
-
-$Object* allocate$SoftCubicResampler($Class* clazz) {
-	return $of($alloc(SoftCubicResampler));
-}
 
 void SoftCubicResampler::init$() {
 	$SoftAbstractResampler::init$();
@@ -87,7 +66,23 @@ SoftCubicResampler::SoftCubicResampler() {
 }
 
 $Class* SoftCubicResampler::load$($String* name, bool initialize) {
-	$loadClass(SoftCubicResampler, name, initialize, &_SoftCubicResampler_ClassInfo_, allocate$SoftCubicResampler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftCubicResampler, init$, void)},
+		{"getPadding", "()I", nullptr, $PUBLIC, $virtualMethod(SoftCubicResampler, getPadding, int32_t)},
+		{"interpolate", "([F[FF[FF[F[II)V", nullptr, $PUBLIC, $virtualMethod(SoftCubicResampler, interpolate, void, $floats*, $floats*, float, $floats*, float, $floats*, $ints*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftCubicResampler",
+		"com.sun.media.sound.SoftAbstractResampler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftCubicResampler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftCubicResampler);
+	});
 	return class$;
 }
 

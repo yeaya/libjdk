@@ -1,5 +1,4 @@
 #include <sun/font/GraphicComponent.h>
-
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -14,7 +13,6 @@
 #include <java/lang/InternalError.h>
 #include <sun/font/BidiUtils.h>
 #include <sun/font/CoreMetrics.h>
-#include <sun/font/Decoration$Label.h>
 #include <sun/font/Decoration.h>
 #include <sun/font/TextLineComponent.h>
 #include <jcpp.h>
@@ -43,86 +41,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BidiUtils = ::sun::font::BidiUtils;
 using $CoreMetrics = ::sun::font::CoreMetrics;
 using $Decoration = ::sun::font::Decoration;
-using $Decoration$Label = ::sun::font::Decoration$Label;
 using $TextLineComponent = ::sun::font::TextLineComponent;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _GraphicComponent_FieldInfo_[] = {
-	{"GRAPHIC_LEADING", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GraphicComponent, GRAPHIC_LEADING)},
-	{"graphic", "Ljava/awt/font/GraphicAttribute;", nullptr, $PRIVATE, $field(GraphicComponent, graphic)},
-	{"graphicCount", "I", nullptr, $PRIVATE, $field(GraphicComponent, graphicCount)},
-	{"charsLtoV", "[I", nullptr, $PRIVATE, $field(GraphicComponent, charsLtoV)},
-	{"levels", "[B", nullptr, $PRIVATE, $field(GraphicComponent, levels)},
-	{"visualBounds", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(GraphicComponent, visualBounds)},
-	{"graphicAdvance", "F", nullptr, $PRIVATE, $field(GraphicComponent, graphicAdvance)},
-	{"baseTx", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(GraphicComponent, baseTx)},
-	{"cm", "Lsun/font/CoreMetrics;", nullptr, $PRIVATE, $field(GraphicComponent, cm)},
-	{"decorator", "Lsun/font/Decoration;", nullptr, $PRIVATE, $field(GraphicComponent, decorator)},
-	{}
-};
-
-$MethodInfo _GraphicComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/font/GraphicAttribute;Lsun/font/Decoration;[I[BIILjava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(GraphicComponent, init$, void, $GraphicAttribute*, $Decoration*, $ints*, $bytes*, int32_t, int32_t, $AffineTransform*)},
-	{"<init>", "(Lsun/font/GraphicComponent;III)V", nullptr, $PRIVATE, $method(GraphicComponent, init$, void, GraphicComponent*, int32_t, int32_t, int32_t)},
-	{"applyJustificationDeltas", "([FI[Z)Lsun/font/TextLineComponent;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, applyJustificationDeltas, $TextLineComponent*, $floats*, int32_t, $booleans*)},
-	{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, caretAtOffsetIsValid, bool, int32_t)},
-	{"createCoreMetrics", "(Ljava/awt/font/GraphicAttribute;)Lsun/font/CoreMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicComponent, createCoreMetrics, $CoreMetrics*, $GraphicAttribute*)},
-	{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, draw, void, $Graphics2D*, float, float)},
-	{"getAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getAdvance, float)},
-	{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getAdvanceBetween, float, int32_t, int32_t)},
-	{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getBaselineTransform, $AffineTransform*)},
-	{"getCharAdvance", "(I)F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCharAdvance, float, int32_t)},
-	{"getCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCharVisualBounds, $Rectangle2D*, int32_t)},
-	{"getCharX", "(I)F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCharX, float, int32_t)},
-	{"getCharY", "(I)F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCharY, float, int32_t)},
-	{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCoreMetrics, $CoreMetrics*)},
-	{"getItalicAngle", "()F", nullptr, $PUBLIC, $method(GraphicComponent, getItalicAngle, float)},
-	{"getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getItalicBounds, $Rectangle2D*)},
-	{"getJustificationInfos", "([Ljava/awt/font/GlyphJustificationInfo;III)V", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getJustificationInfos, void, $GlyphJustificationInfoArray*, int32_t, int32_t, int32_t)},
-	{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getLineBreakIndex, int32_t, int32_t, float)},
-	{"getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getLogicalBounds, $Rectangle2D*)},
-	{"getNumCharacters", "()I", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getNumCharacters, int32_t)},
-	{"getNumJustificationInfos", "()I", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getNumJustificationInfos, int32_t)},
-	{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getOutline, $Shape*, float, float)},
-	{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
-	{"getSubset", "(III)Lsun/font/TextLineComponent;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getSubset, $TextLineComponent*, int32_t, int32_t, int32_t)},
-	{"getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getVisualBounds, $Rectangle2D*)},
-	{"handleDraw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, handleDraw, void, $Graphics2D*, float, float)},
-	{"handleGetCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, handleGetCharVisualBounds, $Rectangle2D*, int32_t)},
-	{"handleGetOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, handleGetOutline, $Shape*, float, float)},
-	{"handleGetVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, handleGetVisualBounds, $Rectangle2D*)},
-	{"initLocalOrdering", "([I[BII)V", nullptr, $PRIVATE, $method(GraphicComponent, initLocalOrdering, void, $ints*, $bytes*, int32_t, int32_t)},
-	{"isSimple", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, isSimple, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _GraphicComponent_InnerClassesInfo_[] = {
-	{"sun.font.Decoration$Label", "sun.font.Decoration", "Label", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GraphicComponent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.GraphicComponent",
-	"java.lang.Object",
-	"sun.font.TextLineComponent,sun.font.Decoration$Label",
-	_GraphicComponent_FieldInfo_,
-	_GraphicComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicComponent_InnerClassesInfo_
-};
-
-$Object* allocate$GraphicComponent($Class* clazz) {
-	return $of($alloc(GraphicComponent));
-}
 
 int32_t GraphicComponent::hashCode() {
 	 return this->$TextLineComponent::hashCode();
@@ -156,7 +78,7 @@ void GraphicComponent::init$($GraphicAttribute* graphic, $Decoration* decorator,
 }
 
 void GraphicComponent::init$(GraphicComponent* parent, int32_t start, int32_t limit, int32_t dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, visualBounds, nullptr);
 	$set(this, graphic, $nc(parent)->graphic);
 	this->graphicAdvance = parent->graphicAdvance;
@@ -187,12 +109,12 @@ void GraphicComponent::init$(GraphicComponent* parent, int32_t start, int32_t li
 
 void GraphicComponent::initLocalOrdering($ints* charsLtoV, $bytes* levels, int32_t start, int32_t limit) {
 	this->graphicCount = limit - start;
-	if (charsLtoV == nullptr || $nc(charsLtoV)->length == this->graphicCount) {
+	if (charsLtoV == nullptr || charsLtoV->length == this->graphicCount) {
 		$set(this, charsLtoV, charsLtoV);
 	} else {
 		$set(this, charsLtoV, $BidiUtils::createNormalizedMap(charsLtoV, levels, start, limit));
 	}
-	if (levels == nullptr || $nc(levels)->length == this->graphicCount) {
+	if (levels == nullptr || levels->length == this->graphicCount) {
 		$set(this, levels, levels);
 	} else {
 		$set(this, levels, $new($bytes, this->graphicCount));
@@ -214,8 +136,7 @@ $Rectangle2D* GraphicComponent::handleGetVisualBounds() {
 	float width = (float)$nc(bounds)->getWidth() + this->graphicAdvance * (this->graphicCount - 1);
 	float var$0 = (float)bounds->getX();
 	float var$1 = (float)bounds->getY();
-	float var$2 = width;
-	return $new($Rectangle2D$Float, var$0, var$1, var$2, (float)bounds->getHeight());
+	return $new($Rectangle2D$Float, var$0, var$1, width, (float)bounds->getHeight());
 }
 
 $CoreMetrics* GraphicComponent::getCoreMetrics() {
@@ -231,18 +152,18 @@ $CoreMetrics* GraphicComponent::createCoreMetrics($GraphicAttribute* graphic) {
 	float var$3 = var$4 + graphic->getDescent() + GraphicComponent::GRAPHIC_LEADING;
 	int32_t var$5 = graphic->getAlignment();
 	$var($floats, var$6, $new($floats, {
-		(float)0,
+		0,
 		-graphic->getAscent() / 2,
 		-graphic->getAscent()
 	}));
 	float var$7 = -graphic->getAscent() / 2;
 	float var$8 = graphic->getAscent() / 12;
 	float var$9 = graphic->getDescent() / 3;
-	return $new($CoreMetrics, var$0, var$1, var$2, var$3, var$5, var$6, var$7, var$8, var$9, graphic->getAscent() / 12, (float)0, (float)0);
+	return $new($CoreMetrics, var$0, var$1, var$2, var$3, var$5, var$6, var$7, var$8, var$9, graphic->getAscent() / 12, 0, 0);
 }
 
 float GraphicComponent::getItalicAngle() {
-	return (float)0;
+	return 0;
 }
 
 $Rectangle2D* GraphicComponent::getVisualBounds() {
@@ -255,14 +176,14 @@ $Rectangle2D* GraphicComponent::getVisualBounds() {
 }
 
 $Shape* GraphicComponent::handleGetOutline(float x, float y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, matrix, $new($doubles, {
-		(double)1,
-		(double)0,
-		(double)0,
-		(double)1,
-		(double)x,
-		(double)y
+		1,
+		0,
+		0,
+		1,
+		x,
+		y
 	}));
 	if (this->graphicCount == 1) {
 		$var($AffineTransform, tx, $new($AffineTransform, matrix));
@@ -305,12 +226,12 @@ int32_t GraphicComponent::getNumCharacters() {
 }
 
 float GraphicComponent::getCharX(int32_t index) {
-	int32_t visIndex = this->charsLtoV == nullptr ? index : $nc(this->charsLtoV)->get(index);
+	int32_t visIndex = this->charsLtoV == nullptr ? index : this->charsLtoV->get(index);
 	return this->graphicAdvance * visIndex;
 }
 
 float GraphicComponent::getCharY(int32_t index) {
-	return (float)0;
+	return 0;
 }
 
 float GraphicComponent::getCharAdvance(int32_t index) {
@@ -322,7 +243,7 @@ bool GraphicComponent::caretAtOffsetIsValid(int32_t index) {
 }
 
 $Rectangle2D* GraphicComponent::handleGetCharVisualBounds(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(this->graphic)->getBounds());
 	$var($Rectangle2D$Float, charBounds, $new($Rectangle2D$Float));
 	charBounds->setRect(bounds);
@@ -343,10 +264,10 @@ float GraphicComponent::getAdvanceBetween(int32_t start, int32_t limit) {
 }
 
 $Rectangle2D* GraphicComponent::getLogicalBounds() {
-	float left = (float)0;
+	float left = 0;
 	float top = -$nc(this->cm)->ascent;
 	float width = this->graphicAdvance * this->graphicCount;
-	float height = $nc(this->cm)->descent - top;
+	float height = this->cm->descent - top;
 	return $new($Rectangle2D$Float, left, top, width, height);
 }
 
@@ -359,7 +280,7 @@ $Rectangle2D* GraphicComponent::getItalicBounds() {
 }
 
 $TextLineComponent* GraphicComponent::getSubset(int32_t start, int32_t limit, int32_t dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || limit > this->graphicCount || start >= limit) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid range.  start="_s, $$str(start), "; limit="_s, $$str(limit)}));
 	}
@@ -370,10 +291,13 @@ $TextLineComponent* GraphicComponent::getSubset(int32_t start, int32_t limit, in
 }
 
 $String* GraphicComponent::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"[graphic="_s, this->graphic, ":count="_s}));
-	$var($String, var$0, $$concat(var$1, $$str(getNumCharacters())));
-	return $concat(var$0, "]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("[graphic="_s);
+	var$0->append(this->graphic);
+	var$0->append(":count="_s);
+	var$0->append(getNumCharacters());
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 int32_t GraphicComponent::getNumJustificationInfos() {
@@ -390,12 +314,81 @@ $TextLineComponent* GraphicComponent::applyJustificationDeltas($floats* deltas, 
 GraphicComponent::GraphicComponent() {
 }
 
-void clinit$GraphicComponent($Class* class$) {
-	GraphicComponent::GRAPHIC_LEADING = (float)2;
+void GraphicComponent::clinit$($Class* clazz) {
+	GraphicComponent::GRAPHIC_LEADING = 2;
 }
 
 $Class* GraphicComponent::load$($String* name, bool initialize) {
-	$loadClass(GraphicComponent, name, initialize, &_GraphicComponent_ClassInfo_, clinit$GraphicComponent, allocate$GraphicComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"GRAPHIC_LEADING", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GraphicComponent, GRAPHIC_LEADING)},
+		{"graphic", "Ljava/awt/font/GraphicAttribute;", nullptr, $PRIVATE, $field(GraphicComponent, graphic)},
+		{"graphicCount", "I", nullptr, $PRIVATE, $field(GraphicComponent, graphicCount)},
+		{"charsLtoV", "[I", nullptr, $PRIVATE, $field(GraphicComponent, charsLtoV)},
+		{"levels", "[B", nullptr, $PRIVATE, $field(GraphicComponent, levels)},
+		{"visualBounds", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(GraphicComponent, visualBounds)},
+		{"graphicAdvance", "F", nullptr, $PRIVATE, $field(GraphicComponent, graphicAdvance)},
+		{"baseTx", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(GraphicComponent, baseTx)},
+		{"cm", "Lsun/font/CoreMetrics;", nullptr, $PRIVATE, $field(GraphicComponent, cm)},
+		{"decorator", "Lsun/font/Decoration;", nullptr, $PRIVATE, $field(GraphicComponent, decorator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/font/GraphicAttribute;Lsun/font/Decoration;[I[BIILjava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(GraphicComponent, init$, void, $GraphicAttribute*, $Decoration*, $ints*, $bytes*, int32_t, int32_t, $AffineTransform*)},
+		{"<init>", "(Lsun/font/GraphicComponent;III)V", nullptr, $PRIVATE, $method(GraphicComponent, init$, void, GraphicComponent*, int32_t, int32_t, int32_t)},
+		{"applyJustificationDeltas", "([FI[Z)Lsun/font/TextLineComponent;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, applyJustificationDeltas, $TextLineComponent*, $floats*, int32_t, $booleans*)},
+		{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, caretAtOffsetIsValid, bool, int32_t)},
+		{"createCoreMetrics", "(Ljava/awt/font/GraphicAttribute;)Lsun/font/CoreMetrics;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicComponent, createCoreMetrics, $CoreMetrics*, $GraphicAttribute*)},
+		{"draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, draw, void, $Graphics2D*, float, float)},
+		{"getAdvance", "()F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getAdvance, float)},
+		{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getAdvanceBetween, float, int32_t, int32_t)},
+		{"getBaselineTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getBaselineTransform, $AffineTransform*)},
+		{"getCharAdvance", "(I)F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCharAdvance, float, int32_t)},
+		{"getCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCharVisualBounds, $Rectangle2D*, int32_t)},
+		{"getCharX", "(I)F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCharX, float, int32_t)},
+		{"getCharY", "(I)F", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCharY, float, int32_t)},
+		{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getCoreMetrics, $CoreMetrics*)},
+		{"getItalicAngle", "()F", nullptr, $PUBLIC, $method(GraphicComponent, getItalicAngle, float)},
+		{"getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getItalicBounds, $Rectangle2D*)},
+		{"getJustificationInfos", "([Ljava/awt/font/GlyphJustificationInfo;III)V", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getJustificationInfos, void, $GlyphJustificationInfoArray*, int32_t, int32_t, int32_t)},
+		{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getLineBreakIndex, int32_t, int32_t, float)},
+		{"getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getLogicalBounds, $Rectangle2D*)},
+		{"getNumCharacters", "()I", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getNumCharacters, int32_t)},
+		{"getNumJustificationInfos", "()I", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getNumJustificationInfos, int32_t)},
+		{"getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getOutline, $Shape*, float, float)},
+		{"getPixelBounds", "(Ljava/awt/font/FontRenderContext;FF)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getPixelBounds, $Rectangle*, $FontRenderContext*, float, float)},
+		{"getSubset", "(III)Lsun/font/TextLineComponent;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getSubset, $TextLineComponent*, int32_t, int32_t, int32_t)},
+		{"getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, getVisualBounds, $Rectangle2D*)},
+		{"handleDraw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, handleDraw, void, $Graphics2D*, float, float)},
+		{"handleGetCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, handleGetCharVisualBounds, $Rectangle2D*, int32_t)},
+		{"handleGetOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, handleGetOutline, $Shape*, float, float)},
+		{"handleGetVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, handleGetVisualBounds, $Rectangle2D*)},
+		{"initLocalOrdering", "([I[BII)V", nullptr, $PRIVATE, $method(GraphicComponent, initLocalOrdering, void, $ints*, $bytes*, int32_t, int32_t)},
+		{"isSimple", "()Z", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, isSimple, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GraphicComponent, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.Decoration$Label", "sun.font.Decoration", "Label", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.GraphicComponent",
+		"java.lang.Object",
+		"sun.font.TextLineComponent,sun.font.Decoration$Label",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(GraphicComponent, name, initialize, &classInfo$$, GraphicComponent::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GraphicComponent));
+	});
 	return class$;
 }
 

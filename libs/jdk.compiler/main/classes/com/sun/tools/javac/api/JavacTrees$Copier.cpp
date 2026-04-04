@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/JavacTrees$Copier.h>
-
 #include <com/sun/source/tree/ClassTree.h>
 #include <com/sun/tools/javac/api/JavacTrees.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
@@ -22,53 +21,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _JavacTrees$Copier_FieldInfo_[] = {
-	{"leafCopy", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(JavacTrees$Copier, leafCopy)},
-	{"copiedClasses", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;", $PRIVATE, $field(JavacTrees$Copier, copiedClasses)},
-	{}
-};
-
-$MethodInfo _JavacTrees$Copier_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, $PROTECTED, $method(JavacTrees$Copier, init$, void, $TreeMaker*)},
-	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;Lcom/sun/tools/javac/tree/JCTree;)TT;", $PUBLIC, $virtualMethod(JavacTrees$Copier, copy, $JCTree*, $JCTree*, $JCTree*)},
-	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTrees$Copier, copy, $JCTree*, $JCTree*, Object$*)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$Copier, visitClass, $JCTree*, $ClassTree*, $JCTree*)},
-	{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTrees$Copier, visitClass, $Object*, $ClassTree*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _JavacTrees$Copier_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.JavacTrees$Copier", "com.sun.tools.javac.api.JavacTrees", "Copier", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _JavacTrees$Copier_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.api.JavacTrees$Copier",
-	"com.sun.tools.javac.tree.TreeCopier",
-	nullptr,
-	_JavacTrees$Copier_FieldInfo_,
-	_JavacTrees$Copier_MethodInfo_,
-	"Lcom/sun/tools/javac/tree/TreeCopier<Lcom/sun/tools/javac/tree/JCTree;>;",
-	nullptr,
-	_JavacTrees$Copier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.JavacTrees"
-};
-
-$Object* allocate$JavacTrees$Copier($Class* clazz) {
-	return $of($alloc(JavacTrees$Copier));
-}
 
 void JavacTrees$Copier::init$($TreeMaker* M) {
 	$TreeCopier::init$(M);
@@ -77,7 +35,7 @@ void JavacTrees$Copier::init$($TreeMaker* M) {
 }
 
 $JCTree* JavacTrees$Copier::copy($JCTree* t, $JCTree* leaf) {
-	$var($JCTree, t2, $TreeCopier::copy(t, $of(leaf)));
+	$var($JCTree, t2, $TreeCopier::copy(t, leaf));
 	if (t == leaf) {
 		$set(this, leafCopy, t2);
 	}
@@ -102,7 +60,41 @@ JavacTrees$Copier::JavacTrees$Copier() {
 }
 
 $Class* JavacTrees$Copier::load$($String* name, bool initialize) {
-	$loadClass(JavacTrees$Copier, name, initialize, &_JavacTrees$Copier_ClassInfo_, allocate$JavacTrees$Copier);
+	$FieldInfo fieldInfos$$[] = {
+		{"leafCopy", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(JavacTrees$Copier, leafCopy)},
+		{"copiedClasses", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;>;", $PRIVATE, $field(JavacTrees$Copier, copiedClasses)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/TreeMaker;)V", nullptr, $PROTECTED, $method(JavacTrees$Copier, init$, void, $TreeMaker*)},
+		{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;Lcom/sun/tools/javac/tree/JCTree;)TT;", $PUBLIC, $virtualMethod(JavacTrees$Copier, copy, $JCTree*, $JCTree*, $JCTree*)},
+		{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTrees$Copier, copy, $JCTree*, $JCTree*, Object$*)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JavacTrees$Copier, visitClass, $JCTree*, $ClassTree*, $JCTree*)},
+		{"visitClass", "(Lcom/sun/source/tree/ClassTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavacTrees$Copier, visitClass, $Object*, $ClassTree*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.JavacTrees$Copier", "com.sun.tools.javac.api.JavacTrees", "Copier", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.api.JavacTrees$Copier",
+		"com.sun.tools.javac.tree.TreeCopier",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/tree/TreeCopier<Lcom/sun/tools/javac/tree/JCTree;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.JavacTrees"
+	};
+	$loadClass(JavacTrees$Copier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacTrees$Copier);
+	});
 	return class$;
 }
 

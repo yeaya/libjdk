@@ -15,6 +15,7 @@ class $export bug8057893 : public ::java::lang::Object {
 	$class(bug8057893, 0, ::java::lang::Object)
 public:
 	bug8057893();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0();
 	static void lambda$main$1();

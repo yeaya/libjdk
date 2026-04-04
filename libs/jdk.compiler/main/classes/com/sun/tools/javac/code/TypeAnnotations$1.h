@@ -15,6 +15,7 @@ class TypeAnnotations$1 : public ::java::lang::Object {
 	$class(TypeAnnotations$1, 0, ::java::lang::Object)
 public:
 	TypeAnnotations$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$source$tree$Tree$Kind;
 	static $ints* $SwitchMap$javax$lang$model$element$ElementKind;
 	static $ints* $SwitchMap$com$sun$source$tree$MemberReferenceTree$ReferenceMode;

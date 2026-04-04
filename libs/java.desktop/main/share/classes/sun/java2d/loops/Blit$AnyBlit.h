@@ -31,6 +31,7 @@ class Blit$AnyBlit : public ::sun::java2d::loops::Blit {
 	$class(Blit$AnyBlit, 0, ::sun::java2d::loops::Blit)
 public:
 	Blit$AnyBlit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void Blit$(::sun::java2d::SurfaceData* srcData, ::sun::java2d::SurfaceData* dstData, ::java::awt::Composite* comp, ::sun::java2d::pipe::Region* clip, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height) override;
 	static ::sun::java2d::loops::Blit$AnyBlit* instance;

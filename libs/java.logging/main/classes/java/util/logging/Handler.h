@@ -31,6 +31,7 @@ class $export Handler : public ::java::lang::Object {
 	$class(Handler, 0, ::java::lang::Object)
 public:
 	Handler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::logging::Level* defaultLevel, ::java::util::logging::Formatter* defaultFormatter, ::java::util::logging::Formatter* specifiedFormatter);
 	virtual void checkPermission();

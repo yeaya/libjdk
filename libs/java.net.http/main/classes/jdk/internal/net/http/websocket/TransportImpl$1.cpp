@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TransportImpl$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <jdk/internal/net/http/websocket/TransportImpl$ChannelState.h>
 #include <jdk/internal/net/http/websocket/TransportImpl.h>
@@ -23,61 +22,25 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$FieldInfo _TransportImpl$1_FieldInfo_[] = {
-	{"$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TransportImpl$1, $SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState)},
-	{}
-};
-
-$EnclosingMethodInfo _TransportImpl$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.websocket.TransportImpl",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TransportImpl$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TransportImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TransportImpl$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.internal.net.http.websocket.TransportImpl$1",
-	"java.lang.Object",
-	nullptr,
-	_TransportImpl$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_TransportImpl$1_EnclosingMethodInfo_,
-	_TransportImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TransportImpl"
-};
-
-$Object* allocate$TransportImpl$1($Class* clazz) {
-	return $of($alloc(TransportImpl$1));
-}
-
 $ints* TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState = nullptr;
 
-void clinit$TransportImpl$1($Class* class$) {
+void TransportImpl$1::clinit$($Class* clazz) {
 	$assignStatic(TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState, $new($ints, $($TransportImpl$ChannelState::values())->length));
 	{
 		try {
-			$nc(TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState)->set($TransportImpl$ChannelState::WAITING->ordinal(), 1);
+			TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState->set($TransportImpl$ChannelState::WAITING->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState)->set($TransportImpl$ChannelState::UNREGISTERED->ordinal(), 2);
+			TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState->set($TransportImpl$ChannelState::UNREGISTERED->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState)->set($TransportImpl$ChannelState::AVAILABLE->ordinal(), 3);
+			TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState->set($TransportImpl$ChannelState::AVAILABLE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState)->set($TransportImpl$ChannelState::CLOSED->ordinal(), 4);
+			TransportImpl$1::$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState->set($TransportImpl$ChannelState::CLOSED->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -87,7 +50,37 @@ TransportImpl$1::TransportImpl$1() {
 }
 
 $Class* TransportImpl$1::load$($String* name, bool initialize) {
-	$loadClass(TransportImpl$1, name, initialize, &_TransportImpl$1_ClassInfo_, clinit$TransportImpl$1, allocate$TransportImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TransportImpl$1, $SwitchMap$jdk$internal$net$http$websocket$TransportImpl$ChannelState)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.websocket.TransportImpl",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TransportImpl$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.internal.net.http.websocket.TransportImpl$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TransportImpl"
+	};
+	$loadClass(TransportImpl$1, name, initialize, &classInfo$$, TransportImpl$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TransportImpl$1);
+	});
 	return class$;
 }
 

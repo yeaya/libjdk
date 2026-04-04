@@ -94,6 +94,7 @@ class $export Infer : public ::java::lang::Object {
 	$class(Infer, 0, ::java::lang::Object)
 public:
 	Infer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	::com::sun::tools::javac::code::Type* asSuper(::com::sun::tools::javac::code::Type* t, ::com::sun::tools::javac::code::Type* sup);
 	bool commonSuperWithDiffParameterization(::com::sun::tools::javac::code::Type* t, ::com::sun::tools::javac::code::Type* s);

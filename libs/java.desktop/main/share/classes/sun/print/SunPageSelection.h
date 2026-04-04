@@ -19,6 +19,7 @@ class SunPageSelection : public ::javax::print::attribute::PrintRequestAttribute
 	$class(SunPageSelection, 0, ::javax::print::attribute::PrintRequestAttribute)
 public:
 	SunPageSelection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Class* getCategory() override;
 	virtual $String* getName() override;

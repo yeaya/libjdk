@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode$1.h>
-
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
 #include <com/sun/tools/javac/comp/Check$NestedCheckContext.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
@@ -24,53 +23,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _DeferredAttr$DeferredAttrNode$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrNode$1, this$1)},
-	{"val$deferredAttrContext", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrNode$1, val$deferredAttrContext)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$DeferredAttrNode$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrNode$1, init$, void, $DeferredAttr$DeferredAttrNode*, $Check$CheckContext*, $DeferredAttr$DeferredAttrContext*)},
-	{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$1, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
-	{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$1, inferenceContext, $InferenceContext*)},
-	{}
-};
-
-$EnclosingMethodInfo _DeferredAttr$DeferredAttrNode$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode",
-	"process",
-	"(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Z"
-};
-
-$InnerClassInfo _DeferredAttr$DeferredAttrNode$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrNode", 0},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
-	{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
-	{}
-};
-
-$ClassInfo _DeferredAttr$DeferredAttrNode$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode$1",
-	"com.sun.tools.javac.comp.Check$NestedCheckContext",
-	nullptr,
-	_DeferredAttr$DeferredAttrNode$1_FieldInfo_,
-	_DeferredAttr$DeferredAttrNode$1_MethodInfo_,
-	nullptr,
-	&_DeferredAttr$DeferredAttrNode$1_EnclosingMethodInfo_,
-	_DeferredAttr$DeferredAttrNode$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$DeferredAttrNode$1($Class* clazz) {
-	return $of($alloc(DeferredAttr$DeferredAttrNode$1));
-}
-
 void DeferredAttr$DeferredAttrNode$1::init$($DeferredAttr$DeferredAttrNode* this$1, $Check$CheckContext* enclosingContext, $DeferredAttr$DeferredAttrContext* val$deferredAttrContext) {
 	$set(this, this$1, this$1);
 	$set(this, val$deferredAttrContext, val$deferredAttrContext);
@@ -89,7 +41,47 @@ DeferredAttr$DeferredAttrNode$1::DeferredAttr$DeferredAttrNode$1() {
 }
 
 $Class* DeferredAttr$DeferredAttrNode$1::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$DeferredAttrNode$1, name, initialize, &_DeferredAttr$DeferredAttrNode$1_ClassInfo_, allocate$DeferredAttr$DeferredAttrNode$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrNode$1, this$1)},
+		{"val$deferredAttrContext", "Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$DeferredAttrNode$1, val$deferredAttrContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode;Lcom/sun/tools/javac/comp/Check$CheckContext;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)V", nullptr, 0, $method(DeferredAttr$DeferredAttrNode$1, init$, void, $DeferredAttr$DeferredAttrNode*, $Check$CheckContext*, $DeferredAttr$DeferredAttrContext*)},
+		{"deferredAttrContext", "()Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$1, deferredAttrContext, $DeferredAttr$DeferredAttrContext*)},
+		{"inferenceContext", "()Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$DeferredAttrNode$1, inferenceContext, $InferenceContext*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode",
+		"process",
+		"(Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrNode", 0},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
+		{"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrContext", "com.sun.tools.javac.comp.DeferredAttr", "DeferredAttrContext", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$DeferredAttrNode$1",
+		"com.sun.tools.javac.comp.Check$NestedCheckContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$DeferredAttrNode$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredAttr$DeferredAttrNode$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jmx/interceptor/DefaultMBeanServerInterceptor$ListenerWrapper.h>
-
 #include <com/sun/jmx/interceptor/DefaultMBeanServerInterceptor.h>
 #include <javax/management/Notification.h>
 #include <javax/management/NotificationListener.h>
@@ -18,46 +17,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace interceptor {
-
-$FieldInfo _DefaultMBeanServerInterceptor$ListenerWrapper_FieldInfo_[] = {
-	{"listener", "Ljavax/management/NotificationListener;", nullptr, $PRIVATE, $field(DefaultMBeanServerInterceptor$ListenerWrapper, listener)},
-	{"name", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(DefaultMBeanServerInterceptor$ListenerWrapper, name)},
-	{"mbean", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(DefaultMBeanServerInterceptor$ListenerWrapper, mbean)},
-	{}
-};
-
-$MethodInfo _DefaultMBeanServerInterceptor$ListenerWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/NotificationListener;Ljavax/management/ObjectName;Ljava/lang/Object;)V", nullptr, 0, $method(DefaultMBeanServerInterceptor$ListenerWrapper, init$, void, $NotificationListener*, $ObjectName*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, equals, bool, Object$*)},
-	{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, handleNotification, void, $Notification*, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DefaultMBeanServerInterceptor$ListenerWrapper_InnerClassesInfo_[] = {
-	{"com.sun.jmx.interceptor.DefaultMBeanServerInterceptor$ListenerWrapper", "com.sun.jmx.interceptor.DefaultMBeanServerInterceptor", "ListenerWrapper", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultMBeanServerInterceptor$ListenerWrapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.interceptor.DefaultMBeanServerInterceptor$ListenerWrapper",
-	"java.lang.Object",
-	"javax.management.NotificationListener",
-	_DefaultMBeanServerInterceptor$ListenerWrapper_FieldInfo_,
-	_DefaultMBeanServerInterceptor$ListenerWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMBeanServerInterceptor$ListenerWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.interceptor.DefaultMBeanServerInterceptor"
-};
-
-$Object* allocate$DefaultMBeanServerInterceptor$ListenerWrapper($Class* clazz) {
-	return $of($alloc(DefaultMBeanServerInterceptor$ListenerWrapper));
-}
 
 void DefaultMBeanServerInterceptor$ListenerWrapper::init$($NotificationListener* l, $ObjectName* name, Object$* mbean) {
 	$set(this, listener, l);
@@ -91,7 +50,41 @@ DefaultMBeanServerInterceptor$ListenerWrapper::DefaultMBeanServerInterceptor$Lis
 }
 
 $Class* DefaultMBeanServerInterceptor$ListenerWrapper::load$($String* name, bool initialize) {
-	$loadClass(DefaultMBeanServerInterceptor$ListenerWrapper, name, initialize, &_DefaultMBeanServerInterceptor$ListenerWrapper_ClassInfo_, allocate$DefaultMBeanServerInterceptor$ListenerWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"listener", "Ljavax/management/NotificationListener;", nullptr, $PRIVATE, $field(DefaultMBeanServerInterceptor$ListenerWrapper, listener)},
+		{"name", "Ljavax/management/ObjectName;", nullptr, $PRIVATE, $field(DefaultMBeanServerInterceptor$ListenerWrapper, name)},
+		{"mbean", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(DefaultMBeanServerInterceptor$ListenerWrapper, mbean)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/NotificationListener;Ljavax/management/ObjectName;Ljava/lang/Object;)V", nullptr, 0, $method(DefaultMBeanServerInterceptor$ListenerWrapper, init$, void, $NotificationListener*, $ObjectName*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, equals, bool, Object$*)},
+		{"handleNotification", "(Ljavax/management/Notification;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, handleNotification, void, $Notification*, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultMBeanServerInterceptor$ListenerWrapper, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.interceptor.DefaultMBeanServerInterceptor$ListenerWrapper", "com.sun.jmx.interceptor.DefaultMBeanServerInterceptor", "ListenerWrapper", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.interceptor.DefaultMBeanServerInterceptor$ListenerWrapper",
+		"java.lang.Object",
+		"javax.management.NotificationListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.interceptor.DefaultMBeanServerInterceptor"
+	};
+	$loadClass(DefaultMBeanServerInterceptor$ListenerWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMBeanServerInterceptor$ListenerWrapper);
+	});
 	return class$;
 }
 

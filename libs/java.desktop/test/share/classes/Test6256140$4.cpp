@@ -1,5 +1,4 @@
 #include <Test6256140$4.h>
-
 #include <Test6256140.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
@@ -12,8 +11,6 @@
 
 using $Test6256140 = ::Test6256140;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -21,53 +18,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JToolTip = ::javax::swing::JToolTip;
 
-$MethodInfo _Test6256140$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Test6256140$4, init$, void)},
-	{"createToolTip", "()Ljavax/swing/JToolTip;", nullptr, $PUBLIC, $virtualMethod(Test6256140$4, createToolTip, $JToolTip*)},
-	{}
-};
-
-$EnclosingMethodInfo _Test6256140$4_EnclosingMethodInfo_ = {
-	"Test6256140",
-	"createAndShowGUI",
-	"()V"
-};
-
-$InnerClassInfo _Test6256140$4_InnerClassesInfo_[] = {
-	{"Test6256140$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test6256140$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test6256140$4",
-	"javax.swing.JFormattedTextField",
-	nullptr,
-	nullptr,
-	_Test6256140$4_MethodInfo_,
-	nullptr,
-	&_Test6256140$4_EnclosingMethodInfo_,
-	_Test6256140$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test6256140"
-};
-
-$Object* allocate$Test6256140$4($Class* clazz) {
-	return $of($alloc(Test6256140$4));
-}
-
 void Test6256140$4::init$() {
 	$JFormattedTextField::init$();
 }
 
 $JToolTip* Test6256140$4::createToolTip() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToolTip, toolTip, $JFormattedTextField::createToolTip());
 	$nc(toolTip)->setLayout($$new($BorderLayout));
 	$init($Test6256140);
-	toolTip->add(static_cast<$Component*>($Test6256140::toolTipLabel));
+	toolTip->add($Test6256140::toolTipLabel);
 	return toolTip;
 }
 
@@ -75,7 +35,38 @@ Test6256140$4::Test6256140$4() {
 }
 
 $Class* Test6256140$4::load$($String* name, bool initialize) {
-	$loadClass(Test6256140$4, name, initialize, &_Test6256140$4_ClassInfo_, allocate$Test6256140$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Test6256140$4, init$, void)},
+		{"createToolTip", "()Ljavax/swing/JToolTip;", nullptr, $PUBLIC, $virtualMethod(Test6256140$4, createToolTip, $JToolTip*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test6256140",
+		"createAndShowGUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6256140$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test6256140$4",
+		"javax.swing.JFormattedTextField",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test6256140"
+	};
+	$loadClass(Test6256140$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test6256140$4));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -26,64 +25,19 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _MultiValuedNodeHeapIterator$HeapNode_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator;", nullptr, $FINAL | $SYNTHETIC, $field(MultiValuedNodeHeapIterator$HeapNode, this$0)},
-	{"_node", "I", nullptr, $PROTECTED, $field(MultiValuedNodeHeapIterator$HeapNode, _node)},
-	{"_markedNode", "I", nullptr, $PROTECTED, $field(MultiValuedNodeHeapIterator$HeapNode, _markedNode)},
-	{"_isStartSet", "Z", nullptr, $PROTECTED, $field(MultiValuedNodeHeapIterator$HeapNode, _isStartSet)},
-	{}
-};
-
-$MethodInfo _MultiValuedNodeHeapIterator$HeapNode_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator;)V", nullptr, $PUBLIC, $method(MultiValuedNodeHeapIterator$HeapNode, init$, void, $MultiValuedNodeHeapIterator*)},
-	{"cloneHeapNode", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, cloneHeapNode, MultiValuedNodeHeapIterator$HeapNode*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, gotoMark, void)},
-	{"isLessThan", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, isLessThan, bool, MultiValuedNodeHeapIterator$HeapNode*)},
-	{"reset", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, reset, MultiValuedNodeHeapIterator$HeapNode*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, setMark, void)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, setStartNode, MultiValuedNodeHeapIterator$HeapNode*, int32_t)},
-	{"step", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, step, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MultiValuedNodeHeapIterator$HeapNode_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode", "com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator", "HeapNode", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MultiValuedNodeHeapIterator$HeapNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_MultiValuedNodeHeapIterator$HeapNode_FieldInfo_,
-	_MultiValuedNodeHeapIterator$HeapNode_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiValuedNodeHeapIterator$HeapNode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator"
-};
-
-$Object* allocate$MultiValuedNodeHeapIterator$HeapNode($Class* clazz) {
-	return $of($alloc(MultiValuedNodeHeapIterator$HeapNode));
-}
-
 void MultiValuedNodeHeapIterator$HeapNode::init$($MultiValuedNodeHeapIterator* this$0) {
 	$set(this, this$0, this$0);
 	this->_isStartSet = false;
 }
 
 MultiValuedNodeHeapIterator$HeapNode* MultiValuedNodeHeapIterator$HeapNode::cloneHeapNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MultiValuedNodeHeapIterator$HeapNode, clone, nullptr);
 	try {
 		$assign(clone, $cast(MultiValuedNodeHeapIterator$HeapNode, $Cloneable::clone()));
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$nc(clone)->_node = this->_node;
@@ -103,7 +57,46 @@ MultiValuedNodeHeapIterator$HeapNode::MultiValuedNodeHeapIterator$HeapNode() {
 }
 
 $Class* MultiValuedNodeHeapIterator$HeapNode::load$($String* name, bool initialize) {
-	$loadClass(MultiValuedNodeHeapIterator$HeapNode, name, initialize, &_MultiValuedNodeHeapIterator$HeapNode_ClassInfo_, allocate$MultiValuedNodeHeapIterator$HeapNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator;", nullptr, $FINAL | $SYNTHETIC, $field(MultiValuedNodeHeapIterator$HeapNode, this$0)},
+		{"_node", "I", nullptr, $PROTECTED, $field(MultiValuedNodeHeapIterator$HeapNode, _node)},
+		{"_markedNode", "I", nullptr, $PROTECTED, $field(MultiValuedNodeHeapIterator$HeapNode, _markedNode)},
+		{"_isStartSet", "Z", nullptr, $PROTECTED, $field(MultiValuedNodeHeapIterator$HeapNode, _isStartSet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator;)V", nullptr, $PUBLIC, $method(MultiValuedNodeHeapIterator$HeapNode, init$, void, $MultiValuedNodeHeapIterator*)},
+		{"cloneHeapNode", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, cloneHeapNode, MultiValuedNodeHeapIterator$HeapNode*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, gotoMark, void)},
+		{"isLessThan", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, isLessThan, bool, MultiValuedNodeHeapIterator$HeapNode*)},
+		{"reset", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, reset, MultiValuedNodeHeapIterator$HeapNode*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, setMark, void)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, setStartNode, MultiValuedNodeHeapIterator$HeapNode*, int32_t)},
+		{"step", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiValuedNodeHeapIterator$HeapNode, step, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode", "com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator", "HeapNode", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator"
+	};
+	$loadClass(MultiValuedNodeHeapIterator$HeapNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiValuedNodeHeapIterator$HeapNode);
+	});
 	return class$;
 }
 

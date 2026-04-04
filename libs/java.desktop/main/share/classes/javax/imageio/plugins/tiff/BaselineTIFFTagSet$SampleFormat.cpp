@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$SampleFormat.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$SampleFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$SampleFormat, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$SampleFormat_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$SampleFormat", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "SampleFormat", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$SampleFormat_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$SampleFormat",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$SampleFormat_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$SampleFormat_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$SampleFormat($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$SampleFormat));
-}
-
 void BaselineTIFFTagSet$SampleFormat::init$() {
 	$TIFFTag::init$("SampleFormat"_s, 339, $sl(1, $TIFFTag::TIFF_SHORT));
 	addValueName(1, "Unsigned Integer"_s);
@@ -58,7 +27,32 @@ BaselineTIFFTagSet$SampleFormat::BaselineTIFFTagSet$SampleFormat() {
 }
 
 $Class* BaselineTIFFTagSet$SampleFormat::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$SampleFormat, name, initialize, &_BaselineTIFFTagSet$SampleFormat_ClassInfo_, allocate$BaselineTIFFTagSet$SampleFormat);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$SampleFormat, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$SampleFormat", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "SampleFormat", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$SampleFormat",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$SampleFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$SampleFormat);
+	});
 	return class$;
 }
 

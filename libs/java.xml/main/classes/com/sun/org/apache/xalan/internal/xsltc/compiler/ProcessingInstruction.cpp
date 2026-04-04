@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ProcessingInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -46,7 +45,6 @@ using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
@@ -55,7 +53,6 @@ using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Co
 using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
-using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
@@ -75,47 +72,20 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _ProcessingInstruction_FieldInfo_[] = {
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PRIVATE, $field(ProcessingInstruction, _name)},
-	{"_isLiteral", "Z", nullptr, $PRIVATE, $field(ProcessingInstruction, _isLiteral)},
-	{}
-};
-
-$MethodInfo _ProcessingInstruction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ProcessingInstruction, init$, void)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ProcessingInstruction, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ProcessingInstruction, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ProcessingInstruction, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _ProcessingInstruction_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.ProcessingInstruction",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_ProcessingInstruction_FieldInfo_,
-	_ProcessingInstruction_MethodInfo_
-};
-
-$Object* allocate$ProcessingInstruction($Class* clazz) {
-	return $of($alloc(ProcessingInstruction));
-}
-
 void ProcessingInstruction::init$() {
 	$Instruction::init$();
 	this->_isLiteral = false;
 }
 
 void ProcessingInstruction::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, getAttribute("name"_s));
 	if ($nc(name)->length() > 0) {
 		this->_isLiteral = $Util::isLiteral(name);
 		if (this->_isLiteral) {
 			if (!$XML11Char::isXML11ValidNCName(name)) {
 				$init($ErrorMsg);
-				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_NCNAME_ERR, $of(name), static_cast<$SyntaxTreeNode*>(this)));
+				$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INVALID_NCNAME_ERR, name, this));
 				$nc(parser)->reportError($Constants::ERROR, err);
 			}
 		}
@@ -124,7 +94,7 @@ void ProcessingInstruction::parseContents($Parser* parser) {
 		$init($ErrorMsg);
 		reportError(this, parser, $ErrorMsg::REQUIRED_ATTR_ERR, "name"_s);
 	}
-	if ($nc(name)->equals("xml"_s)) {
+	if (name->equals("xml"_s)) {
 		$init($ErrorMsg);
 		reportError(this, parser, $ErrorMsg::ILLEGAL_PI_ERR, "xml"_s);
 	}
@@ -139,35 +109,35 @@ $Type* ProcessingInstruction::typeCheck($SymbolTable* stable) {
 }
 
 void ProcessingInstruction::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if (!this->_isLiteral) {
 		$init($Constants);
 		$var($LocalVariableGen, nameValue, methodGen->addLocalVariable2("nameValue"_s, $($Util::getJCRefType($Constants::STRING_SIG)), nullptr));
 		$nc(this->_name)->translate(classGen, methodGen);
-		$nc(nameValue)->setStart($($nc(il)->append(static_cast<$1Instruction*>($$new($ASTORE, nameValue->getIndex())))));
-		$nc(il)->append(static_cast<$1Instruction*>($$new($ALOAD, nameValue->getIndex())));
+		$nc(nameValue)->setStart($($nc(il)->append($$new($ASTORE, $nc(nameValue)->getIndex()))));
+		il->append($$new($ALOAD, nameValue->getIndex()));
 		int32_t check = $nc(cpg)->addMethodref($Constants::BASIS_LIBRARY_CLASS, "checkNCName"_s, $$str({"("_s, $Constants::STRING_SIG, ")V"_s}));
-		il->append(static_cast<$1Instruction*>($$new($INVOKESTATIC, check)));
+		il->append($$new($INVOKESTATIC, check));
 		il->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($Constants::DUP));
-		nameValue->setEnd($(il->append(static_cast<$1Instruction*>($$new($ALOAD, nameValue->getIndex())))));
+		il->append($Constants::DUP);
+		nameValue->setEnd($(il->append($$new($ALOAD, nameValue->getIndex()))));
 	} else {
 		$nc(il)->append($(methodGen->loadHandler()));
 		$init($Constants);
-		il->append(static_cast<$1Instruction*>($Constants::DUP));
+		il->append($Constants::DUP);
 		$nc(this->_name)->translate(classGen, methodGen);
 	}
 	$nc(il)->append($(classGen->loadTranslet()));
 	$init($Constants);
-	il->append(static_cast<$1Instruction*>($$new($GETFIELD, $nc(cpg)->addFieldref($Constants::TRANSLET_CLASS, "stringValueHandler"_s, $Constants::STRING_VALUE_HANDLER_SIG))));
-	il->append(static_cast<$1Instruction*>($Constants::DUP));
+	il->append($$new($GETFIELD, $nc(cpg)->addFieldref($Constants::TRANSLET_CLASS, "stringValueHandler"_s, $Constants::STRING_VALUE_HANDLER_SIG)));
+	il->append($Constants::DUP);
 	il->append($(methodGen->storeHandler()));
 	translateContents(classGen, methodGen);
-	il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::STRING_VALUE_HANDLER, "getValueOfPI"_s, $$str({"()"_s, $Constants::STRING_SIG})))));
-	int32_t processingInstruction = $nc(cpg)->addInterfaceMethodref($Constants::TRANSLET_OUTPUT_INTERFACE, "processingInstruction"_s, $$str({"("_s, $Constants::STRING_SIG, $Constants::STRING_SIG, ")V"_s}));
-	il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, processingInstruction, 3)));
+	il->append($$new($INVOKEVIRTUAL, cpg->addMethodref($Constants::STRING_VALUE_HANDLER, "getValueOfPI"_s, $$str({"()"_s, $Constants::STRING_SIG}))));
+	int32_t processingInstruction = cpg->addInterfaceMethodref($Constants::TRANSLET_OUTPUT_INTERFACE, "processingInstruction"_s, $$str({"("_s, $Constants::STRING_SIG, $Constants::STRING_SIG, ")V"_s}));
+	il->append($$new($INVOKEINTERFACE, processingInstruction, 3));
 	il->append($(methodGen->storeHandler()));
 }
 
@@ -175,7 +145,29 @@ ProcessingInstruction::ProcessingInstruction() {
 }
 
 $Class* ProcessingInstruction::load$($String* name, bool initialize) {
-	$loadClass(ProcessingInstruction, name, initialize, &_ProcessingInstruction_ClassInfo_, allocate$ProcessingInstruction);
+	$FieldInfo fieldInfos$$[] = {
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PRIVATE, $field(ProcessingInstruction, _name)},
+		{"_isLiteral", "Z", nullptr, $PRIVATE, $field(ProcessingInstruction, _isLiteral)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ProcessingInstruction, init$, void)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ProcessingInstruction, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ProcessingInstruction, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ProcessingInstruction, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.ProcessingInstruction",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProcessingInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProcessingInstruction);
+	});
 	return class$;
 }
 

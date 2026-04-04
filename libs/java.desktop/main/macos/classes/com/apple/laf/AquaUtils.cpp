@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtils.h>
-
 #include <com/apple/laf/AquaUtils$1.h>
 #include <com/apple/laf/AquaUtils$2.h>
 #include <com/apple/laf/AquaUtils$3.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -59,7 +57,6 @@ using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Composite = ::java::awt::Composite;
 using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -88,7 +85,6 @@ using $UIResource = ::javax::swing::plaf::UIResource;
 using $MultiResolutionCachedImage = ::sun::awt::image::MultiResolutionCachedImage;
 using $CPlatformWindow = ::sun::lwawt::macosx::CPlatformWindow;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$JComponentAccessor = ::sun::swing::SwingAccessor$JComponentAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace com {
@@ -102,105 +98,34 @@ public:
 		$set(this, filter, filter);
 	}
 	virtual $Object* apply(Object$* img) override {
-		 return $of(AquaUtils::lambda$map$0(filter, $cast($Image, img)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<AquaUtils$$Lambda$lambda$map$0>());
+		 return AquaUtils::lambda$map$0(filter, $cast($Image, img));
 	}
 	$ImageFilter* filter = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo AquaUtils$$Lambda$lambda$map$0::fieldInfos[2] = {
-	{"filter", "Ljava/awt/image/ImageFilter;", nullptr, $PUBLIC, $field(AquaUtils$$Lambda$lambda$map$0, filter)},
-	{}
-};
-$MethodInfo AquaUtils$$Lambda$lambda$map$0::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/image/ImageFilter;)V", nullptr, $PUBLIC, $method(AquaUtils$$Lambda$lambda$map$0, init$, void, $ImageFilter*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaUtils$$Lambda$lambda$map$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo AquaUtils$$Lambda$lambda$map$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.apple.laf.AquaUtils$$Lambda$lambda$map$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* AquaUtils$$Lambda$lambda$map$0::load$($String* name, bool initialize) {
-	$loadClass(AquaUtils$$Lambda$lambda$map$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"filter", "Ljava/awt/image/ImageFilter;", nullptr, $PUBLIC, $field(AquaUtils$$Lambda$lambda$map$0, filter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/ImageFilter;)V", nullptr, $PUBLIC, $method(AquaUtils$$Lambda$lambda$map$0, init$, void, $ImageFilter*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AquaUtils$$Lambda$lambda$map$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.apple.laf.AquaUtils$$Lambda$lambda$map$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaUtils$$Lambda$lambda$map$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtils$$Lambda$lambda$map$0);
+	});
 	return class$;
 }
 $Class* AquaUtils$$Lambda$lambda$map$0::class$ = nullptr;
-
-$FieldInfo _AquaUtils_FieldInfo_[] = {
-	{"ANIMATIONS_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaUtils, ANIMATIONS_PROPERTY)},
-	{"enableAnimations", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaUtils, enableAnimations)},
-	{"MENU_BLINK_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaUtils, MENU_BLINK_DELAY)},
-	{"getJComponentGetFlagMethod", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/lang/reflect/Method;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaUtils, getJComponentGetFlagMethod)},
-	{"OPAQUE_SET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaUtils, OPAQUE_SET_FLAG)},
-	{}
-};
-
-$MethodInfo _AquaUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AquaUtils, init$, void)},
-	{"animationsEnabled", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils, animationsEnabled, bool)},
-	{"blinkMenu", "(Lcom/apple/laf/AquaUtils$Selectable;)V", nullptr, $STATIC, $staticMethod(AquaUtils, blinkMenu, void, $AquaUtils$Selectable*)},
-	{"enforceComponentOrientation", "(Ljava/awt/Component;Ljava/awt/ComponentOrientation;)V", nullptr, $STATIC, $staticMethod(AquaUtils, enforceComponentOrientation, void, $Component*, $ComponentOrientation*)},
-	{"fillRect", "(Ljava/awt/Graphics;Ljava/awt/Component;)V", nullptr, $STATIC, $staticMethod(AquaUtils, fillRect, void, $Graphics*, $Component*)},
-	{"fillRect", "(Ljava/awt/Graphics;Ljava/awt/Component;Ljava/awt/Color;IIII)V", nullptr, $STATIC, $staticMethod(AquaUtils, fillRect, void, $Graphics*, $Component*, $Color*, int32_t, int32_t, int32_t, int32_t)},
-	{"generateDisabledImage", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(AquaUtils, generateDisabledImage, $Image*, $Image*)},
-	{"generateFilteredImage", "(Ljava/awt/Image;Ljava/awt/image/ImageFilter;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(AquaUtils, generateFilteredImage, $Image*, $Image*, $ImageFilter*)},
-	{"generateLightenedImage", "(Ljava/awt/Image;I)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(AquaUtils, generateLightenedImage, $Image*, $Image*, int32_t)},
-	{"generateSelectedDarkImage", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(AquaUtils, generateSelectedDarkImage, $Image*, $Image*)},
-	{"hasOpaqueBeenExplicitlySet", "(Ljavax/swing/JComponent;)Z", nullptr, $STATIC, $staticMethod(AquaUtils, hasOpaqueBeenExplicitlySet, bool, $JComponent*)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(AquaUtils, isLeftToRight, bool, $Component*)},
-	{"isWindowTextured", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils, isWindowTextured, bool, $Component*)},
-	{"lambda$map$0", "(Ljava/awt/image/ImageFilter;Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaUtils, lambda$map$0, $Image*, $ImageFilter*, $Image*)},
-	{"map", "(Ljava/awt/Image;Ljava/awt/image/ImageFilter;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils, map, $Image*, $Image*, $ImageFilter*)},
-	{"paintDropShadowText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Font;Ljava/awt/FontMetrics;IIIILjava/awt/Color;Ljava/awt/Color;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(AquaUtils, paintDropShadowText, void, $Graphics*, $JComponent*, $Font*, $FontMetrics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*, $String*)},
-	{"resetAlpha", "(Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils, resetAlpha, $Color*, $Color*)},
-	{}
-};
-
-$InnerClassInfo _AquaUtils_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtils$SlicedShadowBorder", "com.apple.laf.AquaUtils", "SlicedShadowBorder", $STATIC},
-	{"com.apple.laf.AquaUtils$ShadowBorder", "com.apple.laf.AquaUtils", "ShadowBorder", $STATIC},
-	{"com.apple.laf.AquaUtils$Painter", "com.apple.laf.AquaUtils", "Painter", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaUtils$JComponentPainter", "com.apple.laf.AquaUtils", "JComponentPainter", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaUtils$Selectable", "com.apple.laf.AquaUtils", "Selectable", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaUtils$LazyKeyedSingleton", "com.apple.laf.AquaUtils", "LazyKeyedSingleton", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaUtils$RecyclableSingletonFromDefaultConstructor", "com.apple.laf.AquaUtils", "RecyclableSingletonFromDefaultConstructor", $STATIC},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaUtils$RecyclableObject", "com.apple.laf.AquaUtils", "RecyclableObject", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaUtils$IconImageFilter", "com.apple.laf.AquaUtils", "IconImageFilter", $PRIVATE | $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaUtils$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaUtils_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.apple.laf.AquaUtils",
-	"java.lang.Object",
-	nullptr,
-	_AquaUtils_FieldInfo_,
-	_AquaUtils_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaUtils_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtils$SlicedShadowBorder,com.apple.laf.AquaUtils$ShadowBorder,com.apple.laf.AquaUtils$Painter,com.apple.laf.AquaUtils$JComponentPainter,com.apple.laf.AquaUtils$Selectable,com.apple.laf.AquaUtils$LazyKeyedSingleton,com.apple.laf.AquaUtils$RecyclableSingletonFromDefaultConstructor,com.apple.laf.AquaUtils$RecyclableSingleton,com.apple.laf.AquaUtils$RecyclableObject,com.apple.laf.AquaUtils$IconImageFilter,com.apple.laf.AquaUtils$4,com.apple.laf.AquaUtils$4$1,com.apple.laf.AquaUtils$3,com.apple.laf.AquaUtils$2,com.apple.laf.AquaUtils$1"
-};
-
-$Object* allocate$AquaUtils($Class* clazz) {
-	return $of($alloc(AquaUtils));
-}
 
 $String* AquaUtils::ANIMATIONS_PROPERTY = nullptr;
 $AquaUtils$RecyclableSingleton* AquaUtils::enableAnimations = nullptr;
@@ -211,23 +136,19 @@ void AquaUtils::init$() {
 
 bool AquaUtils::isLeftToRight($Component* c) {
 	$init(AquaUtils);
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 void AquaUtils::enforceComponentOrientation($Component* c, $ComponentOrientation* orientation) {
 	$init(AquaUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->setComponentOrientation(orientation);
 	if ($instanceOf($Container, c)) {
-		{
-			$var($ComponentArray, arr$, $nc(($cast($Container, c)))->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					enforceComponentOrientation(child, orientation);
-				}
+		$var($ComponentArray, arr$, $cast($Container, c)->getComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				enforceComponentOrientation(child, orientation);
 			}
 		}
 	}
@@ -253,22 +174,22 @@ $Image* AquaUtils::generateLightenedImage($Image* image, int32_t percent) {
 
 $Image* AquaUtils::generateFilteredImage($Image* image, $ImageFilter* filter) {
 	$init(AquaUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageProducer, prod, $new($FilteredImageSource, $($nc(image)->getSource()), filter));
-	return $nc($($Toolkit::getDefaultToolkit()))->createImage(prod);
+	return $$nc($Toolkit::getDefaultToolkit())->createImage(prod);
 }
 
 $Image* AquaUtils::map($Image* image, $ImageFilter* filter) {
 	$init(AquaUtils);
 	if ($instanceOf($MultiResolutionImage, image)) {
-		return $MultiResolutionCachedImage::map($cast($MultiResolutionImage, image), static_cast<$Function*>($$new(AquaUtils$$Lambda$lambda$map$0, filter)));
+		return $MultiResolutionCachedImage::map($cast($MultiResolutionImage, image), $$new(AquaUtils$$Lambda$lambda$map$0, filter));
 	}
 	return generateFilteredImage(image, filter);
 }
 
 bool AquaUtils::animationsEnabled() {
 	$init(AquaUtils);
-	return $nc(($cast($Boolean, $($nc(AquaUtils::enableAnimations)->get()))))->booleanValue();
+	return $$sure($Boolean, AquaUtils::enableAnimations->get())->booleanValue();
 }
 
 void AquaUtils::blinkMenu($AquaUtils$Selectable* selectable) {
@@ -291,28 +212,28 @@ void AquaUtils::paintDropShadowText($Graphics* g, $JComponent* c, $Font* font, $
 	g->setColor(shadowColor);
 	$SwingUtilities2::drawString(c, g, text, x + offsetX, y + offsetY + $nc(metrics)->getAscent());
 	g->setColor(textColor);
-	$SwingUtilities2::drawString(c, g, text, x, y + $nc(metrics)->getAscent());
+	$SwingUtilities2::drawString(c, g, text, x, y + metrics->getAscent());
 }
 
 bool AquaUtils::hasOpaqueBeenExplicitlySet($JComponent* c) {
 	$init(AquaUtils);
-	return $nc($($SwingAccessor::getJComponentAccessor()))->getFlag(c, AquaUtils::OPAQUE_SET_FLAG);
+	return $$nc($SwingAccessor::getJComponentAccessor())->getFlag(c, AquaUtils::OPAQUE_SET_FLAG);
 }
 
 bool AquaUtils::isWindowTextured($Component* c) {
 	$init(AquaUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JComponent, c))) {
 		return false;
 	}
-	$var($JRootPane, pane, $nc(($cast($JComponent, c)))->getRootPane());
+	$var($JRootPane, pane, $nc($cast($JComponent, c))->getRootPane());
 	if (pane == nullptr) {
 		return false;
 	}
 	$init($CPlatformWindow);
 	$var($Object, prop, $nc(pane)->getClientProperty($CPlatformWindow::WINDOW_BRUSH_METAL_LOOK));
 	if (prop != nullptr) {
-		return $Boolean::parseBoolean($($of(prop)->toString()));
+		return $Boolean::parseBoolean($(prop->toString()));
 	}
 	$assign(prop, pane->getClientProperty($CPlatformWindow::WINDOW_STYLE));
 	return prop != nullptr && "textured"_s->equals(prop);
@@ -327,42 +248,37 @@ $Color* AquaUtils::resetAlpha($Color* color) {
 
 void AquaUtils::fillRect($Graphics* g, $Component* c) {
 	$init(AquaUtils);
-	$useLocalCurrentObjectStackCache();
-	$var($Graphics, var$0, g);
-	$var($Component, var$1, c);
-	$var($Color, var$2, $nc(c)->getBackground());
-	int32_t var$3 = c->getWidth();
-	fillRect(var$0, var$1, var$2, 0, 0, var$3, c->getHeight());
+	$var($Color, var$0, $nc(c)->getBackground());
+	int32_t var$1 = c->getWidth();
+	fillRect(g, c, var$0, 0, 0, var$1, c->getHeight());
 }
 
 void AquaUtils::fillRect($Graphics* g, $Component* c, $Color* color, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$init(AquaUtils);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Graphics2D, g))) {
 		return;
 	}
 	$var($Graphics2D, cg, $cast($Graphics2D, $nc(g)->create()));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			bool var$1 = $instanceOf($UIResource, color) && isWindowTextured(c);
-			$init($SystemColor);
-			if (var$1 && $nc(color)->equals($SystemColor::window)) {
-				$init($AlphaComposite);
-				$nc(cg)->setComposite($AlphaComposite::Src);
-				cg->setColor($(resetAlpha(color)));
-			} else {
-				$nc(cg)->setColor(color);
-			}
-			$nc(cg)->fillRect(x, y, w, h);
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			$nc(cg)->dispose();
+	$var($Throwable, var$0, nullptr);
+	try {
+		bool var$1 = $instanceOf($UIResource, color) && isWindowTextured(c);
+		$init($SystemColor);
+		if (var$1 && color->equals($SystemColor::window)) {
+			$init($AlphaComposite);
+			$nc(cg)->setComposite($AlphaComposite::Src);
+			cg->setColor($(resetAlpha(color)));
+		} else {
+			$nc(cg)->setColor(color);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$nc(cg)->fillRect(x, y, w, h);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		$nc(cg)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -371,7 +287,7 @@ $Image* AquaUtils::lambda$map$0($ImageFilter* filter, $Image* img) {
 	return generateFilteredImage(img, filter);
 }
 
-void clinit$AquaUtils($Class* class$) {
+void AquaUtils::clinit$($Class* clazz) {
 	$assignStatic(AquaUtils::ANIMATIONS_PROPERTY, "swing.enableAnimations"_s);
 	$assignStatic(AquaUtils::enableAnimations, $new($AquaUtils$3));
 	$assignStatic(AquaUtils::getJComponentGetFlagMethod, $new($AquaUtils$4));
@@ -382,11 +298,72 @@ AquaUtils::AquaUtils() {
 
 $Class* AquaUtils::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(AquaUtils$$Lambda$lambda$map$0::classInfo$.name)) {
+		if (name->equals("com.apple.laf.AquaUtils$$Lambda$lambda$map$0")) {
 			return AquaUtils$$Lambda$lambda$map$0::load$(name, initialize);
 		}
 	}
-	$loadClass(AquaUtils, name, initialize, &_AquaUtils_ClassInfo_, clinit$AquaUtils, allocate$AquaUtils);
+	$FieldInfo fieldInfos$$[] = {
+		{"ANIMATIONS_PROPERTY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaUtils, ANIMATIONS_PROPERTY)},
+		{"enableAnimations", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaUtils, enableAnimations)},
+		{"MENU_BLINK_DELAY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaUtils, MENU_BLINK_DELAY)},
+		{"getJComponentGetFlagMethod", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/lang/reflect/Method;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaUtils, getJComponentGetFlagMethod)},
+		{"OPAQUE_SET_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaUtils, OPAQUE_SET_FLAG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AquaUtils, init$, void)},
+		{"animationsEnabled", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils, animationsEnabled, bool)},
+		{"blinkMenu", "(Lcom/apple/laf/AquaUtils$Selectable;)V", nullptr, $STATIC, $staticMethod(AquaUtils, blinkMenu, void, $AquaUtils$Selectable*)},
+		{"enforceComponentOrientation", "(Ljava/awt/Component;Ljava/awt/ComponentOrientation;)V", nullptr, $STATIC, $staticMethod(AquaUtils, enforceComponentOrientation, void, $Component*, $ComponentOrientation*)},
+		{"fillRect", "(Ljava/awt/Graphics;Ljava/awt/Component;)V", nullptr, $STATIC, $staticMethod(AquaUtils, fillRect, void, $Graphics*, $Component*)},
+		{"fillRect", "(Ljava/awt/Graphics;Ljava/awt/Component;Ljava/awt/Color;IIII)V", nullptr, $STATIC, $staticMethod(AquaUtils, fillRect, void, $Graphics*, $Component*, $Color*, int32_t, int32_t, int32_t, int32_t)},
+		{"generateDisabledImage", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(AquaUtils, generateDisabledImage, $Image*, $Image*)},
+		{"generateFilteredImage", "(Ljava/awt/Image;Ljava/awt/image/ImageFilter;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(AquaUtils, generateFilteredImage, $Image*, $Image*, $ImageFilter*)},
+		{"generateLightenedImage", "(Ljava/awt/Image;I)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(AquaUtils, generateLightenedImage, $Image*, $Image*, int32_t)},
+		{"generateSelectedDarkImage", "(Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(AquaUtils, generateSelectedDarkImage, $Image*, $Image*)},
+		{"hasOpaqueBeenExplicitlySet", "(Ljavax/swing/JComponent;)Z", nullptr, $STATIC, $staticMethod(AquaUtils, hasOpaqueBeenExplicitlySet, bool, $JComponent*)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(AquaUtils, isLeftToRight, bool, $Component*)},
+		{"isWindowTextured", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils, isWindowTextured, bool, $Component*)},
+		{"lambda$map$0", "(Ljava/awt/image/ImageFilter;Ljava/awt/Image;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AquaUtils, lambda$map$0, $Image*, $ImageFilter*, $Image*)},
+		{"map", "(Ljava/awt/Image;Ljava/awt/image/ImageFilter;)Ljava/awt/Image;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils, map, $Image*, $Image*, $ImageFilter*)},
+		{"paintDropShadowText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Font;Ljava/awt/FontMetrics;IIIILjava/awt/Color;Ljava/awt/Color;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(AquaUtils, paintDropShadowText, void, $Graphics*, $JComponent*, $Font*, $FontMetrics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*, $String*)},
+		{"resetAlpha", "(Ljava/awt/Color;)Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaUtils, resetAlpha, $Color*, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtils$SlicedShadowBorder", "com.apple.laf.AquaUtils", "SlicedShadowBorder", $STATIC},
+		{"com.apple.laf.AquaUtils$ShadowBorder", "com.apple.laf.AquaUtils", "ShadowBorder", $STATIC},
+		{"com.apple.laf.AquaUtils$Painter", "com.apple.laf.AquaUtils", "Painter", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaUtils$JComponentPainter", "com.apple.laf.AquaUtils", "JComponentPainter", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaUtils$Selectable", "com.apple.laf.AquaUtils", "Selectable", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaUtils$LazyKeyedSingleton", "com.apple.laf.AquaUtils", "LazyKeyedSingleton", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaUtils$RecyclableSingletonFromDefaultConstructor", "com.apple.laf.AquaUtils", "RecyclableSingletonFromDefaultConstructor", $STATIC},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaUtils$RecyclableObject", "com.apple.laf.AquaUtils", "RecyclableObject", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaUtils$IconImageFilter", "com.apple.laf.AquaUtils", "IconImageFilter", $PRIVATE | $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaUtils$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.apple.laf.AquaUtils",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtils$SlicedShadowBorder,com.apple.laf.AquaUtils$ShadowBorder,com.apple.laf.AquaUtils$Painter,com.apple.laf.AquaUtils$JComponentPainter,com.apple.laf.AquaUtils$Selectable,com.apple.laf.AquaUtils$LazyKeyedSingleton,com.apple.laf.AquaUtils$RecyclableSingletonFromDefaultConstructor,com.apple.laf.AquaUtils$RecyclableSingleton,com.apple.laf.AquaUtils$RecyclableObject,com.apple.laf.AquaUtils$IconImageFilter,com.apple.laf.AquaUtils$4,com.apple.laf.AquaUtils$4$1,com.apple.laf.AquaUtils$3,com.apple.laf.AquaUtils$2,com.apple.laf.AquaUtils$1"
+	};
+	$loadClass(AquaUtils, name, initialize, &classInfo$$, AquaUtils::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtils);
+	});
 	return class$;
 }
 

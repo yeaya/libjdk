@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/OutlineableChunkEnd.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/MarkerInstruction.h>
 #include <jcpp.h>
@@ -22,32 +21,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _OutlineableChunkEnd_FieldInfo_[] = {
-	{"OUTLINEABLECHUNKEND", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutlineableChunkEnd, OUTLINEABLECHUNKEND)},
-	{}
-};
-
-$MethodInfo _OutlineableChunkEnd_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OutlineableChunkEnd, init$, void)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OutlineableChunkEnd, getName, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OutlineableChunkEnd, toString, $String*)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OutlineableChunkEnd, toString, $String*, bool)},
-	{}
-};
-
-$ClassInfo _OutlineableChunkEnd_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.OutlineableChunkEnd",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MarkerInstruction",
-	nullptr,
-	_OutlineableChunkEnd_FieldInfo_,
-	_OutlineableChunkEnd_MethodInfo_
-};
-
-$Object* allocate$OutlineableChunkEnd($Class* clazz) {
-	return $of($alloc(OutlineableChunkEnd));
-}
-
 $Instruction* OutlineableChunkEnd::OUTLINEABLECHUNKEND = nullptr;
 
 void OutlineableChunkEnd::init$() {
@@ -66,7 +39,7 @@ $String* OutlineableChunkEnd::toString(bool verbose) {
 	return getName();
 }
 
-void clinit$OutlineableChunkEnd($Class* class$) {
+void OutlineableChunkEnd::clinit$($Class* clazz) {
 	$assignStatic(OutlineableChunkEnd::OUTLINEABLECHUNKEND, $new(OutlineableChunkEnd));
 }
 
@@ -74,7 +47,28 @@ OutlineableChunkEnd::OutlineableChunkEnd() {
 }
 
 $Class* OutlineableChunkEnd::load$($String* name, bool initialize) {
-	$loadClass(OutlineableChunkEnd, name, initialize, &_OutlineableChunkEnd_ClassInfo_, clinit$OutlineableChunkEnd, allocate$OutlineableChunkEnd);
+	$FieldInfo fieldInfos$$[] = {
+		{"OUTLINEABLECHUNKEND", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(OutlineableChunkEnd, OUTLINEABLECHUNKEND)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OutlineableChunkEnd, init$, void)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OutlineableChunkEnd, getName, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OutlineableChunkEnd, toString, $String*)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(OutlineableChunkEnd, toString, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.OutlineableChunkEnd",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MarkerInstruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OutlineableChunkEnd, name, initialize, &classInfo$$, OutlineableChunkEnd::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(OutlineableChunkEnd);
+	});
 	return class$;
 }
 

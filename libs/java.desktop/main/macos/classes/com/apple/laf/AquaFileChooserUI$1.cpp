@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$1.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/event/AncestorEvent.h>
@@ -17,56 +16,12 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaFileChooserUI$1_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$1, init$, void, $AquaFileChooserUI*)},
-	{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$1, ancestorAdded, void, $AncestorEvent*)},
-	{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$1, ancestorMoved, void, $AncestorEvent*)},
-	{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$1, ancestorRemoved, void, $AncestorEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaFileChooserUI$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaFileChooserUI",
-	"installListeners",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _AquaFileChooserUI$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$1",
-	"java.lang.Object",
-	"javax.swing.event.AncestorListener",
-	_AquaFileChooserUI$1_FieldInfo_,
-	_AquaFileChooserUI$1_MethodInfo_,
-	nullptr,
-	&_AquaFileChooserUI$1_EnclosingMethodInfo_,
-	_AquaFileChooserUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$1($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$1));
-}
-
 void AquaFileChooserUI$1::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void AquaFileChooserUI$1::ancestorAdded($AncestorEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->setFocusForMode($(this->this$0->getFileChooser()));
 	this->this$0->setDefaultButtonForMode($(this->this$0->getFileChooser()));
 }
@@ -81,7 +36,44 @@ AquaFileChooserUI$1::AquaFileChooserUI$1() {
 }
 
 $Class* AquaFileChooserUI$1::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$1, name, initialize, &_AquaFileChooserUI$1_ClassInfo_, allocate$AquaFileChooserUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, 0, $method(AquaFileChooserUI$1, init$, void, $AquaFileChooserUI*)},
+		{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$1, ancestorAdded, void, $AncestorEvent*)},
+		{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$1, ancestorMoved, void, $AncestorEvent*)},
+		{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$1, ancestorRemoved, void, $AncestorEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaFileChooserUI",
+		"installListeners",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$1",
+		"java.lang.Object",
+		"javax.swing.event.AncestorListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$1);
+	});
 	return class$;
 }
 

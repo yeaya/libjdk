@@ -1,5 +1,4 @@
 #include <MethodsTest$1.h>
-
 #include <MethodsTest.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -43,79 +42,27 @@ public:
 	virtual bool test(Object$* x, Object$* y) override {
 		 return MethodsTest$1::lambda$headers$0($cast($String, x), $cast($String, y));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MethodsTest$1$$Lambda$lambda$headers$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MethodsTest$1$$Lambda$lambda$headers$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodsTest$1$$Lambda$lambda$headers$0, init$, void)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1$$Lambda$lambda$headers$0, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo MethodsTest$1$$Lambda$lambda$headers$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MethodsTest$1$$Lambda$lambda$headers$0",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	nullptr,
-	methodInfos
 };
 $Class* MethodsTest$1$$Lambda$lambda$headers$0::load$($String* name, bool initialize) {
-	$loadClass(MethodsTest$1$$Lambda$lambda$headers$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodsTest$1$$Lambda$lambda$headers$0, init$, void)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1$$Lambda$lambda$headers$0, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MethodsTest$1$$Lambda$lambda$headers$0",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodsTest$1$$Lambda$lambda$headers$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodsTest$1$$Lambda$lambda$headers$0);
+	});
 	return class$;
 }
 $Class* MethodsTest$1$$Lambda$lambda$headers$0::class$ = nullptr;
-
-$FieldInfo _MethodsTest$1_FieldInfo_[] = {
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(MethodsTest$1, val$name)},
-	{}
-};
-
-$MethodInfo _MethodsTest$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MethodsTest$1, init$, void, $String*)},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(MethodsTest$1, bodyPublisher, $Optional*)},
-	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, expectContinue, bool)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, headers, $HttpHeaders*)},
-	{"lambda$headers$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodsTest$1, lambda$headers$0, bool, $String*, $String*)},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, method, $String*)},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(MethodsTest$1, timeout, $Optional*)},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, uri, $URI*)},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(MethodsTest$1, version, $Optional*)},
-	{}
-};
-
-$EnclosingMethodInfo _MethodsTest$1_EnclosingMethodInfo_ = {
-	"MethodsTest",
-	"bad",
-	"(Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _MethodsTest$1_InnerClassesInfo_[] = {
-	{"MethodsTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodsTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"MethodsTest$1",
-	"java.net.http.HttpRequest",
-	nullptr,
-	_MethodsTest$1_FieldInfo_,
-	_MethodsTest$1_MethodInfo_,
-	nullptr,
-	&_MethodsTest$1_EnclosingMethodInfo_,
-	_MethodsTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MethodsTest"
-};
-
-$Object* allocate$MethodsTest$1($Class* clazz) {
-	return $of($alloc(MethodsTest$1));
-}
 
 void MethodsTest$1::init$($String* val$name) {
 	$set(this, val$name, val$name);
@@ -148,9 +95,9 @@ $Optional* MethodsTest$1::version() {
 }
 
 $HttpHeaders* MethodsTest$1::headers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, var$0, $Map::of());
-	return $HttpHeaders::of(var$0, static_cast<$BiPredicate*>($$new(MethodsTest$1$$Lambda$lambda$headers$0)));
+	return $HttpHeaders::of(var$0, $$new(MethodsTest$1$$Lambda$lambda$headers$0));
 }
 
 bool MethodsTest$1::lambda$headers$0($String* x, $String* y) {
@@ -163,11 +110,53 @@ MethodsTest$1::MethodsTest$1() {
 
 $Class* MethodsTest$1::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MethodsTest$1$$Lambda$lambda$headers$0::classInfo$.name)) {
+		if (name->equals("MethodsTest$1$$Lambda$lambda$headers$0")) {
 			return MethodsTest$1$$Lambda$lambda$headers$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MethodsTest$1, name, initialize, &_MethodsTest$1_ClassInfo_, allocate$MethodsTest$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(MethodsTest$1, val$name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MethodsTest$1, init$, void, $String*)},
+		{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(MethodsTest$1, bodyPublisher, $Optional*)},
+		{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, expectContinue, bool)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, headers, $HttpHeaders*)},
+		{"lambda$headers$0", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MethodsTest$1, lambda$headers$0, bool, $String*, $String*)},
+		{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, method, $String*)},
+		{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(MethodsTest$1, timeout, $Optional*)},
+		{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(MethodsTest$1, uri, $URI*)},
+		{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(MethodsTest$1, version, $Optional*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"MethodsTest",
+		"bad",
+		"(Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MethodsTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MethodsTest$1",
+		"java.net.http.HttpRequest",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MethodsTest"
+	};
+	$loadClass(MethodsTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodsTest$1);
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class $export B4962064 : public ::com::sun::net::httpserver::HttpHandler {
 	$class(B4962064, 0, ::com::sun::net::httpserver::HttpHandler)
 public:
 	B4962064();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void client($String* u);
 	static void except($String* s);

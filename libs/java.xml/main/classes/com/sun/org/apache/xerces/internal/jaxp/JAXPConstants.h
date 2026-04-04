@@ -23,6 +23,7 @@ namespace com {
 class JAXPConstants : public ::java::lang::Object {
 	$interface(JAXPConstants, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static $String* JAXP_SCHEMA_LANGUAGE;
 	static $String* W3C_XML_SCHEMA;
 	static $String* JAXP_SCHEMA_SOURCE;

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/BaseFileManager.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager$1.h>
 #include <com/sun/tools/javac/file/BaseFileManager$2.h>
 #include <com/sun/tools/javac/file/BaseFileManager$3.h>
@@ -88,6 +87,7 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Constructor = ::java::lang::reflect::Constructor;
+using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
@@ -125,113 +125,32 @@ public:
 	virtual void accept(Object$* k) override {
 		$nc(inst$)->lambda$clear$0($cast($String, k));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<BaseFileManager$$Lambda$lambda$clear$0>());
-	}
 	BaseFileManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo BaseFileManager$$Lambda$lambda$clear$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BaseFileManager$$Lambda$lambda$clear$0, inst$)},
-	{}
-};
-$MethodInfo BaseFileManager$$Lambda$lambda$clear$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;)V", nullptr, $PUBLIC, $method(BaseFileManager$$Lambda$lambda$clear$0, init$, void, BaseFileManager*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$$Lambda$lambda$clear$0, accept, void, Object$*)},
-	{}
-};
-$ClassInfo BaseFileManager$$Lambda$lambda$clear$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.file.BaseFileManager$$Lambda$lambda$clear$0",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* BaseFileManager$$Lambda$lambda$clear$0::load$($String* name, bool initialize) {
-	$loadClass(BaseFileManager$$Lambda$lambda$clear$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(BaseFileManager$$Lambda$lambda$clear$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;)V", nullptr, $PUBLIC, $method(BaseFileManager$$Lambda$lambda$clear$0, init$, void, BaseFileManager*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$$Lambda$lambda$clear$0, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.file.BaseFileManager$$Lambda$lambda$clear$0",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BaseFileManager$$Lambda$lambda$clear$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseFileManager$$Lambda$lambda$clear$0);
+	});
 	return class$;
 }
 $Class* BaseFileManager$$Lambda$lambda$clear$0::class$ = nullptr;
-
-$FieldInfo _BaseFileManager_FieldInfo_[] = {
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $field(BaseFileManager, log)},
-	{"charset", "Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $field(BaseFileManager, charset)},
-	{"options", "Lcom/sun/tools/javac/util/Options;", nullptr, $PROTECTED, $field(BaseFileManager, options)},
-	{"classLoaderClass", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BaseFileManager, classLoaderClass)},
-	{"locations", "Lcom/sun/tools/javac/file/Locations;", nullptr, $PROTECTED | $FINAL, $field(BaseFileManager, locations)},
-	{"autoClose", "Z", nullptr, $PUBLIC, $field(BaseFileManager, autoClose)},
-	{"lastUsedTime", "J", nullptr, $PRIVATE, $field(BaseFileManager, lastUsedTime)},
-	{"deferredCloseTimeout", "J", nullptr, $PROTECTED, $field(BaseFileManager, deferredCloseTimeout)},
-	{"javacFileManagerOptions", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $PROTECTED | $STATIC | $FINAL, $staticField(BaseFileManager, javacFileManagerOptions)},
-	{"multiReleaseValue", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BaseFileManager, multiReleaseValue)},
-	{"encodingName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseFileManager, encodingName)},
-	{"defaultEncodingName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseFileManager, defaultEncodingName)},
-	{"byteBufferCache", "Lcom/sun/tools/javac/file/BaseFileManager$ByteBufferCache;", nullptr, $PRIVATE | $FINAL, $field(BaseFileManager, byteBufferCache)},
-	{"contentCache", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/file/BaseFileManager$ContentCacheEntry;>;", $PROTECTED | $FINAL, $field(BaseFileManager, contentCache)},
-	{}
-};
-
-$MethodInfo _BaseFileManager_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(BaseFileManager, init$, void, $Charset*)},
-	{"cache", "(Ljavax/tools/JavaFileObject;Ljava/nio/CharBuffer;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, cache, void, $JavaFileObject*, $CharBuffer*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, clear, void)},
-	{"createLocations", "()Lcom/sun/tools/javac/file/Locations;", nullptr, $PROTECTED, $virtualMethod(BaseFileManager, createLocations, $Locations*)},
-	{"decode", "(Ljava/nio/ByteBuffer;Z)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, decode, $CharBuffer*, $ByteBuffer*, bool)},
-	{"deferredClose", "()V", nullptr, $PROTECTED, $virtualMethod(BaseFileManager, deferredClose, void)},
-	{"flushCache", "(Ljavax/tools/JavaFileObject;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, flushCache, void, $JavaFileObject*)},
-	{"getCachedContent", "(Ljavax/tools/JavaFileObject;)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, getCachedContent, $CharBuffer*, $JavaFileObject*)},
-	{"getClassLoader", "([Ljava/net/URL;)Ljava/lang/ClassLoader;", nullptr, $PROTECTED, $virtualMethod(BaseFileManager, getClassLoader, $ClassLoader*, $URLArray*)},
-	{"getDecoder", "(Ljava/lang/String;Z)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, getDecoder, $CharsetDecoder*, $String*, bool)},
-	{"getDefaultEncodingName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(BaseFileManager, getDefaultEncodingName, $String*)},
-	{"getEncodingName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, getEncodingName, $String*)},
-	{"getKind", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseFileManager, getKind, $JavaFileObject$Kind*, $Path*)},
-	{"getKind", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseFileManager, getKind, $JavaFileObject$Kind*, $String*)},
-	{"handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", "(Ljava/lang/String;Ljava/util/Iterator<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(BaseFileManager, handleOption, bool, $String*, $Iterator*)},
-	{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, handleOption, bool, $Option*, $String*)},
-	{"handleOptions", "(Ljava/util/Map;)Z", "(Ljava/util/Map<Lcom/sun/tools/javac/main/Option;Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(BaseFileManager, handleOptions, bool, $Map*)},
-	{"isDefaultBootClassPath", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, isDefaultBootClassPath, bool)},
-	{"isDefaultSystemModulesPath", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, isDefaultSystemModulesPath, bool)},
-	{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, isSupportedOption, int32_t, $String*)},
-	{"lambda$clear$0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(BaseFileManager, lambda$clear$0, void, $String*)},
-	{"makeByteBuffer", "(Ljava/io/InputStream;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, makeByteBuffer, $ByteBuffer*, $InputStream*), "java.io.IOException"},
-	{"nullCheck", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;)TT;", $PROTECTED | $STATIC, $staticMethod(BaseFileManager, nullCheck, $Object*, Object$*)},
-	{"nullCheck", "(Ljava/util/Collection;)Ljava/util/Collection;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/util/Collection<TT;>;", $PROTECTED | $STATIC, $staticMethod(BaseFileManager, nullCheck, $Collection*, $Collection*)},
-	{"recycleByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, recycleByteBuffer, void, $ByteBuffer*)},
-	{"setContext", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, setContext, void, $Context*)},
-	{"updateLastUsedTime", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(BaseFileManager, updateLastUsedTime, void)},
-	{}
-};
-
-$InnerClassInfo _BaseFileManager_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.BaseFileManager$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.file.BaseFileManager$ContentCacheEntry", "com.sun.tools.javac.file.BaseFileManager", "ContentCacheEntry", $PROTECTED | $STATIC},
-	{"com.sun.tools.javac.file.BaseFileManager$ByteBufferCache", "com.sun.tools.javac.file.BaseFileManager", "ByteBufferCache", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.file.BaseFileManager$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.file.BaseFileManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BaseFileManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.file.BaseFileManager",
-	"java.lang.Object",
-	"javax.tools.JavaFileManager",
-	_BaseFileManager_FieldInfo_,
-	_BaseFileManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaseFileManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.BaseFileManager$3,com.sun.tools.javac.file.BaseFileManager$ContentCacheEntry,com.sun.tools.javac.file.BaseFileManager$ByteBufferCache,com.sun.tools.javac.file.BaseFileManager$2,com.sun.tools.javac.file.BaseFileManager$1"
-};
-
-$Object* allocate$BaseFileManager($Class* clazz) {
-	return $of($alloc(BaseFileManager));
-}
 
 $Set* BaseFileManager::javacFileManagerOptions = nullptr;
 
@@ -245,7 +164,7 @@ void BaseFileManager::init$($Charset* charset) {
 }
 
 void BaseFileManager::setContext($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, log, $Log::instance(context));
 	$set(this, options, $Options::instance(context));
 	$set(this, classLoaderClass, $nc(this->options)->get("procloader"_s));
@@ -266,7 +185,7 @@ $Locations* BaseFileManager::createLocations() {
 }
 
 void BaseFileManager::deferredClose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Thread, t, $new($BaseFileManager$1, this, $$str({$($of(this)->getClass()->getName()), " DeferredClose"_s})));
 	t->setDaemon(true);
 	t->start();
@@ -281,27 +200,27 @@ void BaseFileManager::updateLastUsedTime() {
 }
 
 void BaseFileManager::clear() {
-	$useLocalCurrentObjectStackCache();
-	$$new($HashSet, $(static_cast<$Collection*>($nc(this->options)->keySet())))->forEach(static_cast<$Consumer*>($$new(BaseFileManager$$Lambda$lambda$clear$0, this)));
+	$useLocalObjectStack();
+	$$new($HashSet, $($nc(this->options)->keySet()))->forEach($$new(BaseFileManager$$Lambda$lambda$clear$0, this));
 }
 
 $ClassLoader* BaseFileManager::getClassLoader($URLArray* urls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, thisClassLoader, $of(this)->getClass()->getClassLoader());
 	if (this->classLoaderClass != nullptr) {
 		try {
 			$load($ClassLoader);
 			$Class* loader = $Class::forName(this->classLoaderClass)->asSubclass($ClassLoader::class$);
-			$load($URLArray);
+			$load($URL);
 			$var($ClassArray, constrArgTypes, $new($ClassArray, {
 				$getClass($URLArray),
 				$ClassLoader::class$
 			}));
 			$var($Constructor, constr, $nc(loader)->getConstructor(constrArgTypes));
 			return $cast($ClassLoader, $nc(constr)->newInstance($$new($ObjectArray, {
-				$of(urls),
-				$of(thisClassLoader)
+				urls,
+				thisClassLoader
 			})));
 		} catch ($ReflectiveOperationException& t) {
 		}
@@ -318,7 +237,7 @@ bool BaseFileManager::isDefaultSystemModulesPath() {
 }
 
 bool BaseFileManager::handleOption($String* current, $Iterator* remaining) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OptionHelper, helper, $new($BaseFileManager$2, this, this->log));
 	$Option* o = $Option::lookup(current, BaseFileManager::javacFileManagerOptions);
 	if (o == nullptr) {
@@ -334,48 +253,40 @@ bool BaseFileManager::handleOption($String* current, $Iterator* remaining) {
 
 int32_t BaseFileManager::isSupportedOption($String* option) {
 	$Option* o = $Option::lookup(option, BaseFileManager::javacFileManagerOptions);
-	return (o == nullptr) ? -1 : $nc(o)->hasArg() ? 1 : 0;
+	return (o == nullptr) ? -1 : o->hasArg() ? 1 : 0;
 }
 
 bool BaseFileManager::handleOption($Option* option, $String* value) {
 	$init($BaseFileManager$3);
 	switch ($nc($BaseFileManager$3::$SwitchMap$com$sun$tools$javac$main$Option)->get($nc((option))->ordinal())) {
 	case 1:
-		{
-			$set(this, encodingName, value);
-			return true;
-		}
+		$set(this, encodingName, value);
+		return true;
 	case 2:
-		{
-			$set(this, multiReleaseValue, value);
-			$nc(this->locations)->setMultiReleaseValue(value);
-			return true;
-		}
+		$set(this, multiReleaseValue, value);
+		$nc(this->locations)->setMultiReleaseValue(value);
+		return true;
 	default:
-		{
-			return $nc(this->locations)->handleOption(option, value);
-		}
+		return $nc(this->locations)->handleOption(option, value);
 	}
 }
 
 bool BaseFileManager::handleOptions($Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ok = true;
 	{
-		$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(map)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
-			{
-				try {
-					bool var$0 = ok;
-					$var($Option, var$2, $cast($Option, $nc(e)->getKey()));
-					bool var$1 = handleOption(var$2, $cast($String, $(e->getValue())));
-					ok = var$0 & var$1;
-				} catch ($IllegalArgumentException& ex) {
-					$var($String, var$3, $nc(($cast($Option, $($nc(e)->getKey()))))->getPrimaryName());
-					$nc(this->log)->error($($CompilerProperties$Errors::IllegalArgumentForOption(var$3, $(ex->getMessage()))));
-					ok = false;
-				}
+			try {
+				bool var$0 = ok;
+				$var($Option, var$2, $cast($Option, $nc(e)->getKey()));
+				bool var$1 = handleOption(var$2, $$cast($String, e->getValue()));
+				ok = var$0 & var$1;
+			} catch ($IllegalArgumentException& ex) {
+				$var($String, var$3, $$sure($Option, $nc(e)->getKey())->getPrimaryName());
+				$nc(this->log)->error($($CompilerProperties$Errors::IllegalArgumentForOption(var$3, $(ex->getMessage()))));
+				ok = false;
 			}
 		}
 	}
@@ -384,7 +295,7 @@ bool BaseFileManager::handleOptions($Map* map) {
 
 $String* BaseFileManager::getDefaultEncodingName() {
 	if (this->defaultEncodingName == nullptr) {
-		$set(this, defaultEncodingName, $nc($($Charset::defaultCharset()))->name());
+		$set(this, defaultEncodingName, $$nc($Charset::defaultCharset())->name());
 	}
 	return this->defaultEncodingName;
 }
@@ -394,17 +305,17 @@ $String* BaseFileManager::getEncodingName() {
 }
 
 $CharBuffer* BaseFileManager::decode($ByteBuffer* inbuf, bool ignoreEncodingErrors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, encName, getEncodingName());
 	$var($CharsetDecoder, decoder, nullptr);
 	try {
 		$assign(decoder, getDecoder(encName, ignoreEncodingErrors));
 	} catch ($IllegalCharsetNameException& e) {
 		$nc(this->log)->error($($CompilerProperties$Errors::UnsupportedEncoding(encName)));
-		return $nc($($CharBuffer::allocate(1)))->flip();
+		return $$nc($CharBuffer::allocate(1))->flip();
 	} catch ($UnsupportedCharsetException& e) {
 		$nc(this->log)->error($($CompilerProperties$Errors::UnsupportedEncoding(encName)));
-		return $nc($($CharBuffer::allocate(1)))->flip();
+		return $$nc($CharBuffer::allocate(1))->flip();
 	}
 	float var$0 = $nc(decoder)->averageCharsPerByte() * 0.8f;
 	float factor = var$0 + decoder->maxCharsPerByte() * 0.2f;
@@ -415,39 +326,39 @@ $CharBuffer* BaseFileManager::decode($ByteBuffer* inbuf, bool ignoreEncodingErro
 		if ($nc(result)->isUnderflow()) {
 			int32_t var$1 = dest->limit();
 			if (var$1 == dest->capacity()) {
-				$assign(dest, $nc($($CharBuffer::allocate(dest->capacity() + 1)))->put(dest));
+				$assign(dest, $$nc($CharBuffer::allocate(dest->capacity() + 1))->put(dest));
 				$nc(dest)->flip();
 			}
 			return dest;
 		} else if (result->isOverflow()) {
 			int32_t var$2 = 10 + dest->capacity();
-			int32_t var$4 = $nc(inbuf)->remaining();
+			int32_t var$4 = inbuf->remaining();
 			int32_t var$3 = $cast(int32_t, (var$4 * decoder->maxCharsPerByte()));
 			int32_t newCapacity = var$2 + var$3;
-			$assign(dest, $nc($($CharBuffer::allocate(newCapacity)))->put(dest));
+			$assign(dest, $$nc($CharBuffer::allocate(newCapacity))->put(dest));
 		} else {
-			bool var$6 = result->isMalformed();
-			if (var$6 || result->isUnmappable()) {
+			bool var$5 = result->isMalformed();
+			if (var$5 || result->isUnmappable()) {
 				$var($StringBuilder, unmappable, $new($StringBuilder));
 				int32_t len = result->length();
 				for (int32_t i = 0; i < len; ++i) {
-					unmappable->append($($String::format("%02X"_s, $$new($ObjectArray, {$($of($Byte::valueOf($nc(inbuf)->get())))}))));
+					unmappable->append($($String::format("%02X"_s, $$new($ObjectArray, {$($Byte::valueOf(inbuf->get()))}))));
 				}
-				$var($String, charsetName, this->charset == nullptr ? encName : $nc(this->charset)->name());
-				int32_t var$7 = dest->limit();
-				$nc(this->log)->error(var$7, $($CompilerProperties$Errors::IllegalCharForEncoding($(unmappable->toString()), charsetName)));
+				$var($String, charsetName, this->charset == nullptr ? encName : this->charset->name());
+				int32_t var$6 = dest->limit();
+				$nc(this->log)->error(var$6, $($CompilerProperties$Errors::IllegalCharForEncoding($(unmappable->toString()), charsetName)));
 				dest->position(dest->limit());
 				dest->limit(dest->capacity());
-				dest->put((char16_t)0x0000FFFD);
+				dest->put((char16_t)0x0000fffd);
 			} else {
-				$throwNew($AssertionError, $of(result));
+				$throwNew($AssertionError, result);
 			}
 		}
 	}
 }
 
 $CharsetDecoder* BaseFileManager::getDecoder($String* encodingName, bool ignoreEncodingErrors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Charset, cs, (this->charset == nullptr) ? $Charset::forName(encodingName) : this->charset);
 	$var($CharsetDecoder, decoder, $nc(cs)->newDecoder());
 	$var($CodingErrorAction, action, nullptr);
@@ -458,58 +369,58 @@ $CharsetDecoder* BaseFileManager::getDecoder($String* encodingName, bool ignoreE
 		$init($CodingErrorAction);
 		$assign(action, $CodingErrorAction::REPORT);
 	}
-	return $nc($($nc(decoder)->onMalformedInput(action)))->onUnmappableCharacter(action);
+	return $$nc($nc(decoder)->onMalformedInput(action))->onUnmappableCharacter(action);
 }
 
 $ByteBuffer* BaseFileManager::makeByteBuffer($InputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t limit = $nc(in)->available();
 	if (limit < 1024) {
 		limit = 1024;
 	}
-	$var($ByteBuffer, result, $nc(this->byteBufferCache)->get(limit));
+	$var($ByteBuffer, result, this->byteBufferCache->get(limit));
 	int32_t position = 0;
 	while (in->available() != 0) {
 		if (position >= limit) {
-			$assign(result, $nc($($ByteBuffer::allocate(limit <<= 1)))->put($($nc(result)->flip())));
+			$assign(result, $$nc($ByteBuffer::allocate(limit <<= 1))->put($($nc(result)->flip())));
 		}
-		int32_t count = in->read($($cast($bytes, $nc(result)->array())), position, limit - position);
+		int32_t count = in->read($$cast($bytes, $nc(result)->array()), position, limit - position);
 		if (count < 0) {
 			break;
 		}
-		$nc(result)->position(position += count);
+		result->position(position += count);
 	}
 	return $nc(result)->flip();
 }
 
 void BaseFileManager::recycleByteBuffer($ByteBuffer* bb) {
-	$nc(this->byteBufferCache)->put(bb);
+	this->byteBufferCache->put(bb);
 }
 
 $CharBuffer* BaseFileManager::getCachedContent($JavaFileObject* file) {
-	$var($BaseFileManager$ContentCacheEntry, e, $cast($BaseFileManager$ContentCacheEntry, $nc(this->contentCache)->get(file)));
+	$var($BaseFileManager$ContentCacheEntry, e, $cast($BaseFileManager$ContentCacheEntry, this->contentCache->get(file)));
 	if (e == nullptr) {
 		return nullptr;
 	}
 	if (!$nc(e)->isValid(file)) {
-		$nc(this->contentCache)->remove(file);
+		this->contentCache->remove(file);
 		return nullptr;
 	}
-	return $nc(e)->getValue();
+	return e->getValue();
 }
 
 void BaseFileManager::cache($JavaFileObject* file, $CharBuffer* cb) {
-	$nc(this->contentCache)->put(file, $$new($BaseFileManager$ContentCacheEntry, file, cb));
+	this->contentCache->put(file, $$new($BaseFileManager$ContentCacheEntry, file, cb));
 }
 
 void BaseFileManager::flushCache($JavaFileObject* file) {
-	$nc(this->contentCache)->remove(file);
+	this->contentCache->remove(file);
 }
 
 $JavaFileObject$Kind* BaseFileManager::getKind($Path* path) {
 	$init(BaseFileManager);
-	$useLocalCurrentObjectStackCache();
-	return getKind($($nc($($nc(path)->getFileName()))->toString()));
+	$useLocalObjectStack();
+	return getKind($($$nc($nc(path)->getFileName())->toString()));
 }
 
 $JavaFileObject$Kind* BaseFileManager::getKind($String* name) {
@@ -517,27 +428,23 @@ $JavaFileObject$Kind* BaseFileManager::getKind($String* name) {
 	$init($JavaFileObject$Kind);
 	if ($nc(name)->endsWith($JavaFileObject$Kind::CLASS->extension)) {
 		return $JavaFileObject$Kind::CLASS;
+	} else if (name->endsWith($JavaFileObject$Kind::SOURCE->extension)) {
+		return $JavaFileObject$Kind::SOURCE;
+	} else if (name->endsWith($JavaFileObject$Kind::HTML->extension)) {
+		return $JavaFileObject$Kind::HTML;
 	} else {
-		if (name->endsWith($JavaFileObject$Kind::SOURCE->extension)) {
-			return $JavaFileObject$Kind::SOURCE;
-		} else {
-			if (name->endsWith($JavaFileObject$Kind::HTML->extension)) {
-				return $JavaFileObject$Kind::HTML;
-			} else {
-				return $JavaFileObject$Kind::OTHER;
-			}
-		}
+		return $JavaFileObject$Kind::OTHER;
 	}
 }
 
 $Object* BaseFileManager::nullCheck(Object$* o) {
 	$init(BaseFileManager);
-	return $of($Objects::requireNonNull(o));
+	return $Objects::requireNonNull(o);
 }
 
 $Collection* BaseFileManager::nullCheck($Collection* it) {
 	$init(BaseFileManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(it)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -552,7 +459,7 @@ void BaseFileManager::lambda$clear$0($String* k) {
 	$nc(this->options)->remove(k);
 }
 
-void clinit$BaseFileManager($Class* class$) {
+void BaseFileManager::clinit$($Class* clazz) {
 	$assignStatic(BaseFileManager::javacFileManagerOptions, $Option::getJavacFileManagerOptions());
 }
 
@@ -561,11 +468,82 @@ BaseFileManager::BaseFileManager() {
 
 $Class* BaseFileManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(BaseFileManager$$Lambda$lambda$clear$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.file.BaseFileManager$$Lambda$lambda$clear$0")) {
 			return BaseFileManager$$Lambda$lambda$clear$0::load$(name, initialize);
 		}
 	}
-	$loadClass(BaseFileManager, name, initialize, &_BaseFileManager_ClassInfo_, clinit$BaseFileManager, allocate$BaseFileManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $field(BaseFileManager, log)},
+		{"charset", "Ljava/nio/charset/Charset;", nullptr, $PROTECTED, $field(BaseFileManager, charset)},
+		{"options", "Lcom/sun/tools/javac/util/Options;", nullptr, $PROTECTED, $field(BaseFileManager, options)},
+		{"classLoaderClass", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BaseFileManager, classLoaderClass)},
+		{"locations", "Lcom/sun/tools/javac/file/Locations;", nullptr, $PROTECTED | $FINAL, $field(BaseFileManager, locations)},
+		{"autoClose", "Z", nullptr, $PUBLIC, $field(BaseFileManager, autoClose)},
+		{"lastUsedTime", "J", nullptr, $PRIVATE, $field(BaseFileManager, lastUsedTime)},
+		{"deferredCloseTimeout", "J", nullptr, $PROTECTED, $field(BaseFileManager, deferredCloseTimeout)},
+		{"javacFileManagerOptions", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $PROTECTED | $STATIC | $FINAL, $staticField(BaseFileManager, javacFileManagerOptions)},
+		{"multiReleaseValue", "Ljava/lang/String;", nullptr, $PROTECTED, $field(BaseFileManager, multiReleaseValue)},
+		{"encodingName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseFileManager, encodingName)},
+		{"defaultEncodingName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BaseFileManager, defaultEncodingName)},
+		{"byteBufferCache", "Lcom/sun/tools/javac/file/BaseFileManager$ByteBufferCache;", nullptr, $PRIVATE | $FINAL, $field(BaseFileManager, byteBufferCache)},
+		{"contentCache", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/file/BaseFileManager$ContentCacheEntry;>;", $PROTECTED | $FINAL, $field(BaseFileManager, contentCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PROTECTED, $method(BaseFileManager, init$, void, $Charset*)},
+		{"cache", "(Ljavax/tools/JavaFileObject;Ljava/nio/CharBuffer;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, cache, void, $JavaFileObject*, $CharBuffer*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, clear, void)},
+		{"createLocations", "()Lcom/sun/tools/javac/file/Locations;", nullptr, $PROTECTED, $virtualMethod(BaseFileManager, createLocations, $Locations*)},
+		{"decode", "(Ljava/nio/ByteBuffer;Z)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, decode, $CharBuffer*, $ByteBuffer*, bool)},
+		{"deferredClose", "()V", nullptr, $PROTECTED, $virtualMethod(BaseFileManager, deferredClose, void)},
+		{"flushCache", "(Ljavax/tools/JavaFileObject;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, flushCache, void, $JavaFileObject*)},
+		{"getCachedContent", "(Ljavax/tools/JavaFileObject;)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, getCachedContent, $CharBuffer*, $JavaFileObject*)},
+		{"getClassLoader", "([Ljava/net/URL;)Ljava/lang/ClassLoader;", nullptr, $PROTECTED, $virtualMethod(BaseFileManager, getClassLoader, $ClassLoader*, $URLArray*)},
+		{"getDecoder", "(Ljava/lang/String;Z)Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, getDecoder, $CharsetDecoder*, $String*, bool)},
+		{"getDefaultEncodingName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(BaseFileManager, getDefaultEncodingName, $String*)},
+		{"getEncodingName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, getEncodingName, $String*)},
+		{"getKind", "(Ljava/nio/file/Path;)Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseFileManager, getKind, $JavaFileObject$Kind*, $Path*)},
+		{"getKind", "(Ljava/lang/String;)Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BaseFileManager, getKind, $JavaFileObject$Kind*, $String*)},
+		{"handleOption", "(Ljava/lang/String;Ljava/util/Iterator;)Z", "(Ljava/lang/String;Ljava/util/Iterator<Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(BaseFileManager, handleOption, bool, $String*, $Iterator*)},
+		{"handleOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, handleOption, bool, $Option*, $String*)},
+		{"handleOptions", "(Ljava/util/Map;)Z", "(Ljava/util/Map<Lcom/sun/tools/javac/main/Option;Ljava/lang/String;>;)Z", $PUBLIC, $virtualMethod(BaseFileManager, handleOptions, bool, $Map*)},
+		{"isDefaultBootClassPath", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, isDefaultBootClassPath, bool)},
+		{"isDefaultSystemModulesPath", "()Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, isDefaultSystemModulesPath, bool)},
+		{"isSupportedOption", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, isSupportedOption, int32_t, $String*)},
+		{"lambda$clear$0", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(BaseFileManager, lambda$clear$0, void, $String*)},
+		{"makeByteBuffer", "(Ljava/io/InputStream;)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, makeByteBuffer, $ByteBuffer*, $InputStream*), "java.io.IOException"},
+		{"nullCheck", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(TT;)TT;", $PROTECTED | $STATIC, $staticMethod(BaseFileManager, nullCheck, $Object*, Object$*)},
+		{"nullCheck", "(Ljava/util/Collection;)Ljava/util/Collection;", "<T:Ljava/lang/Object;>(Ljava/util/Collection<TT;>;)Ljava/util/Collection<TT;>;", $PROTECTED | $STATIC, $staticMethod(BaseFileManager, nullCheck, $Collection*, $Collection*)},
+		{"recycleByteBuffer", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, recycleByteBuffer, void, $ByteBuffer*)},
+		{"setContext", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager, setContext, void, $Context*)},
+		{"updateLastUsedTime", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(BaseFileManager, updateLastUsedTime, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.BaseFileManager$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.file.BaseFileManager$ContentCacheEntry", "com.sun.tools.javac.file.BaseFileManager", "ContentCacheEntry", $PROTECTED | $STATIC},
+		{"com.sun.tools.javac.file.BaseFileManager$ByteBufferCache", "com.sun.tools.javac.file.BaseFileManager", "ByteBufferCache", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.file.BaseFileManager$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.file.BaseFileManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.file.BaseFileManager",
+		"java.lang.Object",
+		"javax.tools.JavaFileManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.BaseFileManager$3,com.sun.tools.javac.file.BaseFileManager$ContentCacheEntry,com.sun.tools.javac.file.BaseFileManager$ByteBufferCache,com.sun.tools.javac.file.BaseFileManager$2,com.sun.tools.javac.file.BaseFileManager$1"
+	};
+	$loadClass(BaseFileManager, name, initialize, &classInfo$$, BaseFileManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BaseFileManager));
+	});
 	return class$;
 }
 

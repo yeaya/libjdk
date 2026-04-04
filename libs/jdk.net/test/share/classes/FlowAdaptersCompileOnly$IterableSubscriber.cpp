@@ -1,5 +1,4 @@
 #include <FlowAdaptersCompileOnly$IterableSubscriber.h>
-
 #include <FlowAdaptersCompileOnly.h>
 #include <java/lang/Iterable.h>
 #include <java/util/concurrent/Flow$Subscription.h>
@@ -10,42 +9,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
-
-$MethodInfo _FlowAdaptersCompileOnly$IterableSubscriber_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$IterableSubscriber, init$, void)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onNext, void, $Iterable*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _FlowAdaptersCompileOnly$IterableSubscriber_InnerClassesInfo_[] = {
-	{"FlowAdaptersCompileOnly$IterableSubscriber", "FlowAdaptersCompileOnly", "IterableSubscriber", $STATIC},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FlowAdaptersCompileOnly$IterableSubscriber_ClassInfo_ = {
-	$ACC_SUPER,
-	"FlowAdaptersCompileOnly$IterableSubscriber",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscriber",
-	nullptr,
-	_FlowAdaptersCompileOnly$IterableSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;>;",
-	nullptr,
-	_FlowAdaptersCompileOnly$IterableSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FlowAdaptersCompileOnly"
-};
-
-$Object* allocate$FlowAdaptersCompileOnly$IterableSubscriber($Class* clazz) {
-	return $of($alloc(FlowAdaptersCompileOnly$IterableSubscriber));
-}
 
 void FlowAdaptersCompileOnly$IterableSubscriber::init$() {
 }
@@ -70,7 +33,38 @@ FlowAdaptersCompileOnly$IterableSubscriber::FlowAdaptersCompileOnly$IterableSubs
 }
 
 $Class* FlowAdaptersCompileOnly$IterableSubscriber::load$($String* name, bool initialize) {
-	$loadClass(FlowAdaptersCompileOnly$IterableSubscriber, name, initialize, &_FlowAdaptersCompileOnly$IterableSubscriber_ClassInfo_, allocate$FlowAdaptersCompileOnly$IterableSubscriber);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FlowAdaptersCompileOnly$IterableSubscriber, init$, void)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onNext, void, $Iterable*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowAdaptersCompileOnly$IterableSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FlowAdaptersCompileOnly$IterableSubscriber", "FlowAdaptersCompileOnly", "IterableSubscriber", $STATIC},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FlowAdaptersCompileOnly$IterableSubscriber",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscriber",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/lang/Iterable<Ljava/nio/ByteBuffer;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FlowAdaptersCompileOnly"
+	};
+	$loadClass(FlowAdaptersCompileOnly$IterableSubscriber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowAdaptersCompileOnly$IterableSubscriber);
+	});
 	return class$;
 }
 

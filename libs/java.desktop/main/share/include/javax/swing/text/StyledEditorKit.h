@@ -32,6 +32,7 @@ class $import StyledEditorKit : public ::javax::swing::text::DefaultEditorKit {
 	$class(StyledEditorKit, 0, ::javax::swing::text::DefaultEditorKit)
 public:
 	StyledEditorKit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	virtual ::javax::swing::text::Document* createDefaultDocument() override;

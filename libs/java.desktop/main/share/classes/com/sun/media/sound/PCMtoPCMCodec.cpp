@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/PCMtoPCMCodec.h>
-
 #include <com/sun/media/sound/PCMtoPCMCodec$PCMtoPCMCodecStream.h>
 #include <java/util/Objects.h>
 #include <java/util/Vector.h>
@@ -31,43 +30,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _PCMtoPCMCodec_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PCMtoPCMCodec, init$, void)},
-	{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getAudioInputStream, $AudioInputStream*, $AudioFormat$Encoding*, $AudioInputStream*)},
-	{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getAudioInputStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
-	{"getConvertedStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $method(PCMtoPCMCodec, getConvertedStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
-	{"getOutputFormats", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $method(PCMtoPCMCodec, getOutputFormats, $AudioFormatArray*, $AudioFormat*)},
-	{"getSourceEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getSourceEncodings, $AudioFormat$EncodingArray*)},
-	{"getTargetEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getTargetEncodings, $AudioFormat$EncodingArray*)},
-	{"getTargetEncodings", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getTargetEncodings, $AudioFormat$EncodingArray*, $AudioFormat*)},
-	{"getTargetFormats", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getTargetFormats, $AudioFormatArray*, $AudioFormat$Encoding*, $AudioFormat*)},
-	{}
-};
-
-$InnerClassInfo _PCMtoPCMCodec_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.PCMtoPCMCodec$PCMtoPCMCodecStream", "com.sun.media.sound.PCMtoPCMCodec", "PCMtoPCMCodecStream", 0},
-	{}
-};
-
-$ClassInfo _PCMtoPCMCodec_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.PCMtoPCMCodec",
-	"javax.sound.sampled.spi.FormatConversionProvider",
-	nullptr,
-	nullptr,
-	_PCMtoPCMCodec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PCMtoPCMCodec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.PCMtoPCMCodec$PCMtoPCMCodecStream"
-};
-
-$Object* allocate$PCMtoPCMCodec($Class* clazz) {
-	return $of($alloc(PCMtoPCMCodec));
-}
-
 void PCMtoPCMCodec::init$() {
 	$FormatConversionProvider::init$();
 }
@@ -92,13 +54,13 @@ $AudioFormat$EncodingArray* PCMtoPCMCodec::getTargetEncodings($AudioFormat* sour
 		if ($nc(encoding)->equals($AudioFormat$Encoding::PCM_SIGNED)) {
 			return $new($AudioFormat$EncodingArray, {$AudioFormat$Encoding::PCM_UNSIGNED});
 		}
-		if ($nc(encoding)->equals($AudioFormat$Encoding::PCM_UNSIGNED)) {
+		if (encoding->equals($AudioFormat$Encoding::PCM_UNSIGNED)) {
 			return $new($AudioFormat$EncodingArray, {$AudioFormat$Encoding::PCM_SIGNED});
 		}
 	} else if (sampleSize == 16) {
 		$init($AudioFormat$Encoding);
 		bool var$0 = $nc(encoding)->equals($AudioFormat$Encoding::PCM_SIGNED);
-		if (var$0 || $nc(encoding)->equals($AudioFormat$Encoding::PCM_UNSIGNED)) {
+		if (var$0 || encoding->equals($AudioFormat$Encoding::PCM_UNSIGNED)) {
 			return $new($AudioFormat$EncodingArray, {
 				$AudioFormat$Encoding::PCM_UNSIGNED,
 				$AudioFormat$Encoding::PCM_SIGNED
@@ -109,51 +71,58 @@ $AudioFormat$EncodingArray* PCMtoPCMCodec::getTargetEncodings($AudioFormat* sour
 }
 
 $AudioFormatArray* PCMtoPCMCodec::getTargetFormats($AudioFormat$Encoding* targetEncoding, $AudioFormat* sourceFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(targetEncoding);
 	$var($AudioFormatArray, formats, getOutputFormats(sourceFormat));
 	$var($Vector, newFormats, $new($Vector));
 	for (int32_t i = 0; i < $nc(formats)->length; ++i) {
-		if ($nc($($nc(formats->get(i))->getEncoding()))->equals(targetEncoding)) {
+		if ($$nc($nc(formats->get(i))->getEncoding())->equals(targetEncoding)) {
 			newFormats->addElement(formats->get(i));
 		}
 	}
 	$var($AudioFormatArray, formatArray, $new($AudioFormatArray, newFormats->size()));
 	for (int32_t i = 0; i < formatArray->length; ++i) {
-		formatArray->set(i, $cast($AudioFormat, $(newFormats->elementAt(i))));
+		formatArray->set(i, $$cast($AudioFormat, newFormats->elementAt(i)));
 	}
 	return formatArray;
 }
 
 $AudioInputStream* PCMtoPCMCodec::getAudioInputStream($AudioFormat$Encoding* targetEncoding, $AudioInputStream* sourceStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isConversionSupported(targetEncoding, $($nc(sourceStream)->getFormat()))) {
-		$var($AudioFormat, sourceFormat, $nc(sourceStream)->getFormat());
-		$var($AudioFormat$Encoding, var$0, targetEncoding);
-		float var$1 = $nc(sourceFormat)->getSampleRate();
-		int32_t var$2 = sourceFormat->getSampleSizeInBits();
-		int32_t var$3 = sourceFormat->getChannels();
-		int32_t var$4 = sourceFormat->getFrameSize();
-		float var$5 = sourceFormat->getFrameRate();
-		$var($AudioFormat, targetFormat, $new($AudioFormat, var$0, var$1, var$2, var$3, var$4, var$5, sourceFormat->isBigEndian()));
+		$var($AudioFormat, sourceFormat, sourceStream->getFormat());
+		float var$0 = $nc(sourceFormat)->getSampleRate();
+		int32_t var$1 = sourceFormat->getSampleSizeInBits();
+		int32_t var$2 = sourceFormat->getChannels();
+		int32_t var$3 = sourceFormat->getFrameSize();
+		float var$4 = sourceFormat->getFrameRate();
+		$var($AudioFormat, targetFormat, $new($AudioFormat, targetEncoding, var$0, var$1, var$2, var$3, var$4, sourceFormat->isBigEndian()));
 		return getConvertedStream(targetFormat, sourceStream);
 	} else {
-		$var($String, var$6, $$str({"Unsupported conversion: "_s, $($nc($($nc(sourceStream)->getFormat()))->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$6, $($nc(targetEncoding)->toString())));
+		$var($StringBuilder, var$5, $new($StringBuilder));
+		var$5->append("Unsupported conversion: "_s);
+		var$5->append($($$nc(sourceStream->getFormat())->toString()));
+		var$5->append(" to "_s);
+		var$5->append($($nc(targetEncoding)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$5));
 	}
 }
 
 $AudioInputStream* PCMtoPCMCodec::getAudioInputStream($AudioFormat* targetFormat, $AudioInputStream* sourceStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isConversionSupported(targetFormat, $($nc(sourceStream)->getFormat()))) {
-		$var($String, var$0, $$str({"Unsupported conversion: "_s, $($nc($($nc(sourceStream)->getFormat()))->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(targetFormat)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unsupported conversion: "_s);
+		var$0->append($($$nc(sourceStream->getFormat())->toString()));
+		var$0->append(" to "_s);
+		var$0->append($($nc(targetFormat)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
 	return getConvertedStream(targetFormat, sourceStream);
 }
 
 $AudioInputStream* PCMtoPCMCodec::getConvertedStream($AudioFormat* outputFormat, $AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioInputStream, cs, nullptr);
 	$var($AudioFormat, inputFormat, $nc(stream)->getFormat());
 	if ($nc(inputFormat)->matches(outputFormat)) {
@@ -165,7 +134,7 @@ $AudioInputStream* PCMtoPCMCodec::getConvertedStream($AudioFormat* outputFormat,
 }
 
 $AudioFormatArray* PCMtoPCMCodec::getOutputFormats($AudioFormat* inputFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, formats, $new($Vector));
 	$var($AudioFormat, format, nullptr);
 	int32_t sampleSize = $nc(inputFormat)->getSampleSizeInBits();
@@ -238,7 +207,7 @@ $AudioFormatArray* PCMtoPCMCodec::getOutputFormats($AudioFormat* inputFormat) {
 			$assign(format, $new($AudioFormat, var$35, var$36, var$37, var$38, var$39, inputFormat->getFrameRate(), false));
 			formats->addElement(format);
 		}
-		if ($nc($AudioFormat$Encoding::PCM_SIGNED)->equals($(inputFormat->getEncoding())) && !isBigEndian) {
+		if ($AudioFormat$Encoding::PCM_SIGNED->equals($(inputFormat->getEncoding())) && !isBigEndian) {
 			$var($AudioFormat$Encoding, var$40, $AudioFormat$Encoding::PCM_UNSIGNED);
 			float var$41 = inputFormat->getSampleRate();
 			int32_t var$42 = inputFormat->getSampleSizeInBits();
@@ -261,7 +230,7 @@ $AudioFormatArray* PCMtoPCMCodec::getOutputFormats($AudioFormat* inputFormat) {
 			$assign(format, $new($AudioFormat, var$50, var$51, var$52, var$53, var$54, inputFormat->getFrameRate(), true));
 			formats->addElement(format);
 		}
-		if ($nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals($(inputFormat->getEncoding())) && !isBigEndian) {
+		if ($AudioFormat$Encoding::PCM_UNSIGNED->equals($(inputFormat->getEncoding())) && !isBigEndian) {
 			$var($AudioFormat$Encoding, var$55, $AudioFormat$Encoding::PCM_SIGNED);
 			float var$56 = inputFormat->getSampleRate();
 			int32_t var$57 = inputFormat->getSampleSizeInBits();
@@ -289,7 +258,7 @@ $AudioFormatArray* PCMtoPCMCodec::getOutputFormats($AudioFormat* inputFormat) {
 	$synchronized(formats) {
 		$assign(formatArray, $new($AudioFormatArray, formats->size()));
 		for (int32_t i = 0; i < formatArray->length; ++i) {
-			formatArray->set(i, $cast($AudioFormat, $(formats->elementAt(i))));
+			formatArray->set(i, $$cast($AudioFormat, formats->elementAt(i)));
 		}
 	}
 	return formatArray;
@@ -299,7 +268,39 @@ PCMtoPCMCodec::PCMtoPCMCodec() {
 }
 
 $Class* PCMtoPCMCodec::load$($String* name, bool initialize) {
-	$loadClass(PCMtoPCMCodec, name, initialize, &_PCMtoPCMCodec_ClassInfo_, allocate$PCMtoPCMCodec);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PCMtoPCMCodec, init$, void)},
+		{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getAudioInputStream, $AudioInputStream*, $AudioFormat$Encoding*, $AudioInputStream*)},
+		{"getAudioInputStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getAudioInputStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
+		{"getConvertedStream", "(Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $method(PCMtoPCMCodec, getConvertedStream, $AudioInputStream*, $AudioFormat*, $AudioInputStream*)},
+		{"getOutputFormats", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE, $method(PCMtoPCMCodec, getOutputFormats, $AudioFormatArray*, $AudioFormat*)},
+		{"getSourceEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getSourceEncodings, $AudioFormat$EncodingArray*)},
+		{"getTargetEncodings", "()[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getTargetEncodings, $AudioFormat$EncodingArray*)},
+		{"getTargetEncodings", "(Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat$Encoding;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getTargetEncodings, $AudioFormat$EncodingArray*, $AudioFormat*)},
+		{"getTargetFormats", "(Ljavax/sound/sampled/AudioFormat$Encoding;Ljavax/sound/sampled/AudioFormat;)[Ljavax/sound/sampled/AudioFormat;", nullptr, $PUBLIC, $virtualMethod(PCMtoPCMCodec, getTargetFormats, $AudioFormatArray*, $AudioFormat$Encoding*, $AudioFormat*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.PCMtoPCMCodec$PCMtoPCMCodecStream", "com.sun.media.sound.PCMtoPCMCodec", "PCMtoPCMCodecStream", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.PCMtoPCMCodec",
+		"javax.sound.sampled.spi.FormatConversionProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.PCMtoPCMCodec$PCMtoPCMCodecStream"
+	};
+	$loadClass(PCMtoPCMCodec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PCMtoPCMCodec);
+	});
 	return class$;
 }
 

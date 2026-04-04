@@ -27,6 +27,7 @@ class $export ExifInteroperabilityTagSet : public ::javax::imageio::plugins::tif
 	$class(ExifInteroperabilityTagSet, 0, ::javax::imageio::plugins::tiff::TIFFTagSet)
 public:
 	ExifInteroperabilityTagSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::imageio::plugins::tiff::ExifInteroperabilityTagSet* getInstance();
 	static void initTags();

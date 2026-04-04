@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/serial/SerialException.h>
-
 #include <java/sql/SQLException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace javax {
 	namespace sql {
 		namespace rowset {
 			namespace serial {
-
-$FieldInfo _SerialException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SerialException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SerialException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerialException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _SerialException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.serial.SerialException",
-	"java.sql.SQLException",
-	nullptr,
-	_SerialException_FieldInfo_,
-	_SerialException_MethodInfo_
-};
-
-$Object* allocate$SerialException($Class* clazz) {
-	return $of($alloc(SerialException));
-}
 
 void SerialException::init$() {
 	$SQLException::init$();
@@ -56,7 +31,26 @@ void SerialException::throw$() {
 }
 
 $Class* SerialException::load$($String* name, bool initialize) {
-	$loadClass(SerialException, name, initialize, &_SerialException_ClassInfo_, allocate$SerialException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SerialException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SerialException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.serial.SerialException",
+		"java.sql.SQLException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerialException));
+	});
 	return class$;
 }
 

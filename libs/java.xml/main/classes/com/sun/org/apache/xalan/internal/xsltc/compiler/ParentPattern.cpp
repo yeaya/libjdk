@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ParentPattern.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ILOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -45,7 +44,6 @@ using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::Instr
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
 using $AncestorPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::AncestorPattern;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $1Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Pattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Pattern;
@@ -70,37 +68,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _ParentPattern_FieldInfo_[] = {
-	{"_left", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE | $FINAL, $field(ParentPattern, _left)},
-	{"_right", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern;", nullptr, $PRIVATE | $FINAL, $field(ParentPattern, _right)},
-	{}
-};
-
-$MethodInfo _ParentPattern_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern;)V", nullptr, $PUBLIC, $method(ParentPattern, init$, void, $Pattern*, $RelativePathPattern*)},
-	{"getKernelPattern", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/StepPattern;", nullptr, $PUBLIC, $virtualMethod(ParentPattern, getKernelPattern, $StepPattern*)},
-	{"isWildcard", "()Z", nullptr, $PUBLIC, $virtualMethod(ParentPattern, isWildcard, bool)},
-	{"reduceKernelPattern", "()V", nullptr, $PUBLIC, $virtualMethod(ParentPattern, reduceKernelPattern, void)},
-	{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ParentPattern, setParser, void, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParentPattern, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ParentPattern, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ParentPattern, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _ParentPattern_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.ParentPattern",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativePathPattern",
-	nullptr,
-	_ParentPattern_FieldInfo_,
-	_ParentPattern_MethodInfo_
-};
-
-$Object* allocate$ParentPattern($Class* clazz) {
-	return $of($alloc(ParentPattern));
-}
 
 void ParentPattern::init$($Pattern* left, $RelativePathPattern* right) {
 	$RelativePathPattern::init$();
@@ -132,51 +99,51 @@ $Type* ParentPattern::typeCheck($SymbolTable* stable) {
 }
 
 void ParentPattern::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
 	$var($LocalVariableGen, local, methodGen->addLocalVariable2("ppt"_s, $($Util::getJCRefType($Constants::NODE_SIG)), nullptr));
 	$var($Instruction, loadLocal, $new($ILOAD, $nc(local)->getIndex()));
-	$var($Instruction, storeLocal, $new($ISTORE, $nc(local)->getIndex()));
+	$var($Instruction, storeLocal, $new($ISTORE, local->getIndex()));
 	if ($nc(this->_right)->isWildcard()) {
 		$nc(il)->append($(methodGen->loadDOM()));
-		il->append(static_cast<$Instruction*>($Constants::SWAP));
+		il->append($Constants::SWAP);
 	} else if ($instanceOf($StepPattern, this->_right)) {
-		$nc(il)->append(static_cast<$Instruction*>($Constants::DUP));
-		$nc(local)->setStart($(il->append(storeLocal)));
-		$nc(this->_right)->translate(classGen, methodGen);
+		$nc(il)->append($Constants::DUP);
+		local->setStart($(il->append(storeLocal)));
+		this->_right->translate(classGen, methodGen);
 		il->append($(methodGen->loadDOM()));
 		local->setEnd($(il->append(loadLocal)));
 	} else {
-		$nc(this->_right)->translate(classGen, methodGen);
+		this->_right->translate(classGen, methodGen);
 		if ($instanceOf($AncestorPattern, this->_right)) {
 			$nc(il)->append($(methodGen->loadDOM()));
-			il->append(static_cast<$Instruction*>($Constants::SWAP));
+			il->append($Constants::SWAP);
 		}
 	}
 	int32_t getParent = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, $Constants::GET_PARENT, $Constants::GET_PARENT_SIG);
-	$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, getParent, 2)));
+	$nc(il)->append($$new($INVOKEINTERFACE, getParent, 2));
 	$var($SyntaxTreeNode, p, this->getParent());
 	if (p == nullptr || $instanceOf($1Instruction, p) || $instanceOf($TopLevelElement, p)) {
 		$nc(this->_left)->translate(classGen, methodGen);
 	} else {
-		il->append(static_cast<$Instruction*>($Constants::DUP));
+		il->append($Constants::DUP);
 		$var($InstructionHandle, storeInst, il->append(storeLocal));
-		if ($nc(local)->getStart() == nullptr) {
+		if (local->getStart() == nullptr) {
 			local->setStart(storeInst);
 		}
 		$nc(this->_left)->translate(classGen, methodGen);
 		il->append($(methodGen->loadDOM()));
-		$nc(local)->setEnd($(il->append(loadLocal)));
+		local->setEnd($(il->append(loadLocal)));
 	}
 	methodGen->removeLocalVariable(local);
 	if ($instanceOf($AncestorPattern, this->_right)) {
 		$var($AncestorPattern, ancestor, $cast($AncestorPattern, this->_right));
 		$nc(this->_left)->backPatchFalseList($($nc(ancestor)->getLoopHandle()));
 	}
-	$nc(this->_trueList)->append($($nc($nc(this->_right)->_trueList)->append($nc(this->_left)->_trueList)));
-	$nc(this->_falseList)->append($($nc($nc(this->_right)->_falseList)->append($nc(this->_left)->_falseList)));
+	$nc(this->_trueList)->append($($nc(this->_right->_trueList)->append($nc(this->_left)->_trueList)));
+	$nc(this->_falseList)->append($($nc(this->_right->_falseList)->append(this->_left->_falseList)));
 }
 
 $String* ParentPattern::toString() {
@@ -187,7 +154,33 @@ ParentPattern::ParentPattern() {
 }
 
 $Class* ParentPattern::load$($String* name, bool initialize) {
-	$loadClass(ParentPattern, name, initialize, &_ParentPattern_ClassInfo_, allocate$ParentPattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"_left", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE | $FINAL, $field(ParentPattern, _left)},
+		{"_right", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern;", nullptr, $PRIVATE | $FINAL, $field(ParentPattern, _right)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern;)V", nullptr, $PUBLIC, $method(ParentPattern, init$, void, $Pattern*, $RelativePathPattern*)},
+		{"getKernelPattern", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/StepPattern;", nullptr, $PUBLIC, $virtualMethod(ParentPattern, getKernelPattern, $StepPattern*)},
+		{"isWildcard", "()Z", nullptr, $PUBLIC, $virtualMethod(ParentPattern, isWildcard, bool)},
+		{"reduceKernelPattern", "()V", nullptr, $PUBLIC, $virtualMethod(ParentPattern, reduceKernelPattern, void)},
+		{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ParentPattern, setParser, void, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParentPattern, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ParentPattern, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ParentPattern, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.ParentPattern",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.RelativePathPattern",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ParentPattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParentPattern);
+	});
 	return class$;
 }
 

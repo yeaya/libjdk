@@ -17,6 +17,7 @@ class LineSeparator : public ::java::lang::Object {
 	$class(LineSeparator, 0, ::java::lang::Object)
 public:
 	LineSeparator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* Unix;
 	static $String* Windows;

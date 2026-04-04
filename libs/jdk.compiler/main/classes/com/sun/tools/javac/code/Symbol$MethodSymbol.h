@@ -99,6 +99,7 @@ public:
 	virtual $Array<::java::lang::annotation::Annotation>* getAnnotationsByType($Class* annoType) override;
 	virtual ::java::util::List* getEnclosedElements() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t flags, ::com::sun::tools::javac::util::Name* name, ::com::sun::tools::javac::code::Type* type, ::com::sun::tools::javac::code::Symbol* owner);
 	virtual $Object* accept(::javax::lang::model::element::ElementVisitor* v, Object$* p) override;
 	virtual $Object* accept(::com::sun::tools::javac::code::Symbol$Visitor* v, Object$* p) override;

@@ -1,5 +1,4 @@
 #include <com/sun/rowset/internal/XmlErrorHandler.h>
-
 #include <org/xml/sax/SAXParseException.h>
 #include <org/xml/sax/helpers/DefaultHandler.h>
 #include <jcpp.h>
@@ -14,32 +13,6 @@ namespace com {
 	namespace sun {
 		namespace rowset {
 			namespace internal {
-
-$FieldInfo _XmlErrorHandler_FieldInfo_[] = {
-	{"errorCounter", "I", nullptr, $PUBLIC, $field(XmlErrorHandler, errorCounter)},
-	{}
-};
-
-$MethodInfo _XmlErrorHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XmlErrorHandler, init$, void)},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _XmlErrorHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.internal.XmlErrorHandler",
-	"org.xml.sax.helpers.DefaultHandler",
-	nullptr,
-	_XmlErrorHandler_FieldInfo_,
-	_XmlErrorHandler_MethodInfo_
-};
-
-$Object* allocate$XmlErrorHandler($Class* clazz) {
-	return $of($alloc(XmlErrorHandler));
-}
 
 void XmlErrorHandler::init$() {
 	$DefaultHandler::init$();
@@ -61,7 +34,28 @@ XmlErrorHandler::XmlErrorHandler() {
 }
 
 $Class* XmlErrorHandler::load$($String* name, bool initialize) {
-	$loadClass(XmlErrorHandler, name, initialize, &_XmlErrorHandler_ClassInfo_, allocate$XmlErrorHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"errorCounter", "I", nullptr, $PUBLIC, $field(XmlErrorHandler, errorCounter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XmlErrorHandler, init$, void)},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(XmlErrorHandler, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.internal.XmlErrorHandler",
+		"org.xml.sax.helpers.DefaultHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XmlErrorHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XmlErrorHandler));
+	});
 	return class$;
 }
 

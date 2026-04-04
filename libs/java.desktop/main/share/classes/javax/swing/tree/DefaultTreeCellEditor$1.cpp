@@ -1,5 +1,4 @@
 #include <javax/swing/tree/DefaultTreeCellEditor$1.h>
-
 #include <java/util/EventObject.h>
 #include <javax/swing/DefaultCellEditor.h>
 #include <javax/swing/JTextField.h>
@@ -20,48 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace tree {
 
-$FieldInfo _DefaultTreeCellEditor$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/tree/DefaultTreeCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultTreeCellEditor$1, this$0)},
-	{}
-};
-
-$MethodInfo _DefaultTreeCellEditor$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/DefaultTreeCellEditor;Ljavax/swing/JTextField;)V", nullptr, 0, $method(DefaultTreeCellEditor$1, init$, void, $DefaultTreeCellEditor*, $JTextField*)},
-	{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$1, shouldSelectCell, bool, $EventObject*)},
-	{}
-};
-
-$EnclosingMethodInfo _DefaultTreeCellEditor$1_EnclosingMethodInfo_ = {
-	"javax.swing.tree.DefaultTreeCellEditor",
-	"createTreeCellEditor",
-	"()Ljavax/swing/tree/TreeCellEditor;"
-};
-
-$InnerClassInfo _DefaultTreeCellEditor$1_InnerClassesInfo_[] = {
-	{"javax.swing.tree.DefaultTreeCellEditor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultTreeCellEditor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.tree.DefaultTreeCellEditor$1",
-	"javax.swing.DefaultCellEditor",
-	nullptr,
-	_DefaultTreeCellEditor$1_FieldInfo_,
-	_DefaultTreeCellEditor$1_MethodInfo_,
-	nullptr,
-	&_DefaultTreeCellEditor$1_EnclosingMethodInfo_,
-	_DefaultTreeCellEditor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.DefaultTreeCellEditor"
-};
-
-$Object* allocate$DefaultTreeCellEditor$1($Class* clazz) {
-	return $of($alloc(DefaultTreeCellEditor$1));
-}
-
 void DefaultTreeCellEditor$1::init$($DefaultTreeCellEditor* this$0, $JTextField* textField) {
 	$set(this, this$0, this$0);
 	$DefaultCellEditor::init$(textField);
@@ -76,7 +33,42 @@ DefaultTreeCellEditor$1::DefaultTreeCellEditor$1() {
 }
 
 $Class* DefaultTreeCellEditor$1::load$($String* name, bool initialize) {
-	$loadClass(DefaultTreeCellEditor$1, name, initialize, &_DefaultTreeCellEditor$1_ClassInfo_, allocate$DefaultTreeCellEditor$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/tree/DefaultTreeCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultTreeCellEditor$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/DefaultTreeCellEditor;Ljavax/swing/JTextField;)V", nullptr, 0, $method(DefaultTreeCellEditor$1, init$, void, $DefaultTreeCellEditor*, $JTextField*)},
+		{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTreeCellEditor$1, shouldSelectCell, bool, $EventObject*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.tree.DefaultTreeCellEditor",
+		"createTreeCellEditor",
+		"()Ljavax/swing/tree/TreeCellEditor;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.DefaultTreeCellEditor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.tree.DefaultTreeCellEditor$1",
+		"javax.swing.DefaultCellEditor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.DefaultTreeCellEditor"
+	};
+	$loadClass(DefaultTreeCellEditor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTreeCellEditor$1));
+	});
 	return class$;
 }
 

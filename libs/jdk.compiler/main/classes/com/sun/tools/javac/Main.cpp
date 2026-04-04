@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/Main.h>
-
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <com/sun/tools/javac/main/Main.h>
 #include <java/io/PrintWriter.h>
@@ -17,38 +16,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 
-$NamedAttribute Main_Attribute_var$0[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _Main_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", Main_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(Main, init$, void), nullptr, nullptr, _Main_MethodAnnotations_init$0},
-	{"compile", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, compile, int32_t, $StringArray*)},
-	{"compile", "([Ljava/lang/String;Ljava/io/PrintWriter;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, compile, int32_t, $StringArray*, $PrintWriter*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Main_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.Main",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Main_MethodInfo_
-};
-
-$Object* allocate$Main($Class* clazz) {
-	return $of($alloc(Main));
-}
-
 void Main::init$() {
 }
 
@@ -57,13 +24,13 @@ void Main::main($StringArray* args) {
 }
 
 int32_t Main::compile($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Main, compiler, $new($Main, "javac"_s));
 	return $nc($(compiler->compile(args)))->exitCode;
 }
 
 int32_t Main::compile($StringArray* args, $PrintWriter* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Main, compiler, $new($Main, "javac"_s, out));
 	return $nc($(compiler->compile(args)))->exitCode;
 }
@@ -72,7 +39,33 @@ Main::Main() {
 }
 
 $Class* Main::load$($String* name, bool initialize) {
-	$loadClass(Main, name, initialize, &_Main_ClassInfo_, allocate$Main);
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(Main, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"compile", "([Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, compile, int32_t, $StringArray*)},
+		{"compile", "([Ljava/lang/String;Ljava/io/PrintWriter;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, compile, int32_t, $StringArray*, $PrintWriter*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.Main",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Main, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main);
+	});
 	return class$;
 }
 

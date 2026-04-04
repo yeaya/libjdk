@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory$CheckBoxIcon.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifIconFactory.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -31,56 +30,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifIconFactory$CheckBoxIcon_FieldInfo_[] = {
-	{"csize", "I", nullptr, $STATIC | $FINAL, $constField(MotifIconFactory$CheckBoxIcon, csize)},
-	{"control", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, control)},
-	{"foreground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, foreground)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, shadow)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, highlight)},
-	{"lightShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, lightShadow)},
-	{}
-};
-
-$MethodInfo _MotifIconFactory$CheckBoxIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MotifIconFactory$CheckBoxIcon, init$, void)},
-	{"drawCheckBezel", "(Ljava/awt/Graphics;IIIZZZZ)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, drawCheckBezel, void, $Graphics*, int32_t, int32_t, int32_t, bool, bool, bool, bool)},
-	{"drawCheckBezelOut", "(Ljava/awt/Graphics;III)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, drawCheckBezelOut, void, $Graphics*, int32_t, int32_t, int32_t)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifIconFactory$CheckBoxIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifIconFactory$CheckBoxIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifIconFactory$CheckBoxIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory$CheckBoxIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	_MotifIconFactory$CheckBoxIcon_FieldInfo_,
-	_MotifIconFactory$CheckBoxIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifIconFactory$CheckBoxIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifIconFactory"
-};
-
-$Object* allocate$MotifIconFactory$CheckBoxIcon($Class* clazz) {
-	return $of($alloc(MotifIconFactory$CheckBoxIcon));
-}
-
 int32_t MotifIconFactory$CheckBoxIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -110,12 +59,12 @@ void MotifIconFactory$CheckBoxIcon::init$() {
 }
 
 void MotifIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	bool flat = false;
 	if ($instanceOf($JCheckBox, b)) {
-		flat = $nc(($cast($JCheckBox, b)))->isBorderPaintedFlat();
+		flat = $cast($JCheckBox, b)->isBorderPaintedFlat();
 	}
 	bool isPressed = $nc(model)->isPressed();
 	bool isArmed = model->isArmed();
@@ -152,7 +101,7 @@ int32_t MotifIconFactory$CheckBoxIcon::getIconHeight() {
 }
 
 void MotifIconFactory$CheckBoxIcon::drawCheckBezelOut($Graphics* g, int32_t x, int32_t y, int32_t csize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, controlShadow, $UIManager::getColor("controlShadow"_s));
 	int32_t w = csize;
 	int32_t h = csize;
@@ -169,7 +118,7 @@ void MotifIconFactory$CheckBoxIcon::drawCheckBezelOut($Graphics* g, int32_t x, i
 }
 
 void MotifIconFactory$CheckBoxIcon::drawCheckBezel($Graphics* g, int32_t x, int32_t y, int32_t csize, bool shade, bool out, bool check, bool flat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, oldColor, $nc(g)->getColor());
 	g->translate(x, y);
 	if (!flat) {
@@ -242,7 +191,51 @@ MotifIconFactory$CheckBoxIcon::MotifIconFactory$CheckBoxIcon() {
 }
 
 $Class* MotifIconFactory$CheckBoxIcon::load$($String* name, bool initialize) {
-	$loadClass(MotifIconFactory$CheckBoxIcon, name, initialize, &_MotifIconFactory$CheckBoxIcon_ClassInfo_, allocate$MotifIconFactory$CheckBoxIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"csize", "I", nullptr, $STATIC | $FINAL, $constField(MotifIconFactory$CheckBoxIcon, csize)},
+		{"control", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, control)},
+		{"foreground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, foreground)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, shadow)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, highlight)},
+		{"lightShadow", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(MotifIconFactory$CheckBoxIcon, lightShadow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MotifIconFactory$CheckBoxIcon, init$, void)},
+		{"drawCheckBezel", "(Ljava/awt/Graphics;IIIZZZZ)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, drawCheckBezel, void, $Graphics*, int32_t, int32_t, int32_t, bool, bool, bool, bool)},
+		{"drawCheckBezelOut", "(Ljava/awt/Graphics;III)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, drawCheckBezelOut, void, $Graphics*, int32_t, int32_t, int32_t)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MotifIconFactory$CheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifIconFactory$CheckBoxIcon", "com.sun.java.swing.plaf.motif.MotifIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory$CheckBoxIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifIconFactory"
+	};
+	$loadClass(MotifIconFactory$CheckBoxIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifIconFactory$CheckBoxIcon));
+	});
 	return class$;
 }
 

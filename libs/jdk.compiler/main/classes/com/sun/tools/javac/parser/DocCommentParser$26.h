@@ -15,6 +15,7 @@ class DocCommentParser$26 : public ::java::lang::Object {
 	$class(DocCommentParser$26, 0, ::java::lang::Object)
 public:
 	DocCommentParser$26();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$TagParser$Kind;
 	static $ints* $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$WhitespaceRetentionPolicy;
 	static $ints* $SwitchMap$com$sun$tools$javac$parser$DocCommentParser$Phase;

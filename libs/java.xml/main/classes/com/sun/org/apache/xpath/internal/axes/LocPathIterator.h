@@ -184,7 +184,7 @@ public:
 	virtual void setShouldCacheNodes(bool b) override;
 	virtual int32_t size();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xC020B82355E20206;
+	static const int64_t serialVersionUID = (int64_t)0xc020b82355e20206;
 	bool m_allowDetach = false;
 	::com::sun::org::apache::xpath::internal::axes::IteratorPool* m_clones = nullptr;
 	::com::sun::org::apache::xml::internal::dtm::DTM* m_cdtm = nullptr;

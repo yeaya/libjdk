@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapRequest.h>
-
 #include <com/sun/jndi/ldap/BerDecoder.h>
 #include <com/sun/jndi/ldap/LdapClient.h>
 #include <java/io/IOException.h>
@@ -26,7 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $LinkedBlockingQueue = ::java::util::concurrent::LinkedBlockingQueue;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $CommunicationException = ::javax::naming::CommunicationException;
@@ -36,44 +34,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _LdapRequest_FieldInfo_[] = {
-	{"EOF", "Lcom/sun/jndi/ldap/BerDecoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapRequest, EOF)},
-	{"CLOSE_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapRequest, CLOSE_MSG)},
-	{"TIMEOUT_MSG_FMT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapRequest, TIMEOUT_MSG_FMT)},
-	{"next", "Lcom/sun/jndi/ldap/LdapRequest;", nullptr, 0, $field(LdapRequest, next)},
-	{"msgId", "I", nullptr, $FINAL, $field(LdapRequest, msgId)},
-	{"replies", "Ljava/util/concurrent/BlockingQueue;", "Ljava/util/concurrent/BlockingQueue<Lcom/sun/jndi/ldap/BerDecoder;>;", $PRIVATE | $FINAL, $field(LdapRequest, replies)},
-	{"cancelled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LdapRequest, cancelled)},
-	{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LdapRequest, closed)},
-	{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LdapRequest, completed)},
-	{"pauseAfterReceipt", "Z", nullptr, $PRIVATE | $FINAL, $field(LdapRequest, pauseAfterReceipt)},
-	{}
-};
-
-$MethodInfo _LdapRequest_MethodInfo_[] = {
-	{"<init>", "(IZI)V", nullptr, 0, $method(LdapRequest, init$, void, int32_t, bool, int32_t)},
-	{"addReplyBer", "(Lcom/sun/jndi/ldap/BerDecoder;)Z", nullptr, $SYNCHRONIZED, $method(LdapRequest, addReplyBer, bool, $BerDecoder*)},
-	{"cancel", "()V", nullptr, 0, $method(LdapRequest, cancel, void)},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $method(LdapRequest, close, void)},
-	{"getReplyBer", "(J)Lcom/sun/jndi/ldap/BerDecoder;", nullptr, 0, $method(LdapRequest, getReplyBer, $BerDecoder*, int64_t), "javax.naming.NamingException,java.lang.InterruptedException"},
-	{"hasSearchCompleted", "()Z", nullptr, 0, $method(LdapRequest, hasSearchCompleted, bool)},
-	{"isClosed", "()Z", nullptr, $PRIVATE, $method(LdapRequest, isClosed, bool)},
-	{}
-};
-
-$ClassInfo _LdapRequest_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapRequest",
-	"java.lang.Object",
-	nullptr,
-	_LdapRequest_FieldInfo_,
-	_LdapRequest_MethodInfo_
-};
-
-$Object* allocate$LdapRequest($Class* clazz) {
-	return $of($alloc(LdapRequest));
-}
 
 $BerDecoder* LdapRequest::EOF = nullptr;
 $String* LdapRequest::CLOSE_MSG = nullptr;
@@ -105,7 +65,7 @@ bool LdapRequest::isClosed() {
 	bool var$0 = this->closed;
 	if (var$0) {
 		bool var$1 = $nc(this->replies)->size() == 0;
-		var$0 = (var$1 || $equals($nc(this->replies)->peek(), LdapRequest::EOF));
+		var$0 = var$1 || $equals(this->replies->peek(), LdapRequest::EOF);
 	}
 	return var$0;
 }
@@ -131,7 +91,7 @@ bool LdapRequest::addReplyBer($BerDecoder* ber) {
 }
 
 $BerDecoder* LdapRequest::getReplyBer(int64_t millis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cancelled) {
 		$throwNew($CommunicationException, $$str({"Request: "_s, $$str(this->msgId), " cancelled"_s}));
 	}
@@ -144,7 +104,7 @@ $BerDecoder* LdapRequest::getReplyBer(int64_t millis) {
 		$throwNew($CommunicationException, $$str({"Request: "_s, $$str(this->msgId), " cancelled"_s}));
 	}
 	if (result == nullptr) {
-		$throwNew($NamingException, $($String::format(LdapRequest::TIMEOUT_MSG_FMT, $$new($ObjectArray, {$($of($Long::valueOf(millis)))}))));
+		$throwNew($NamingException, $($String::format(LdapRequest::TIMEOUT_MSG_FMT, $$new($ObjectArray, {$($Long::valueOf(millis))}))));
 	}
 	if (result == LdapRequest::EOF) {
 		$throwNew($NamingException, LdapRequest::CLOSE_MSG);
@@ -156,7 +116,7 @@ bool LdapRequest::hasSearchCompleted() {
 	return this->completed;
 }
 
-void clinit$LdapRequest($Class* class$) {
+void LdapRequest::clinit$($Class* clazz) {
 	$assignStatic(LdapRequest::CLOSE_MSG, "LDAP connection has been closed"_s);
 	$assignStatic(LdapRequest::TIMEOUT_MSG_FMT, "LDAP response read timed out, timeout used: %d ms."_s);
 	$assignStatic(LdapRequest::EOF, $new($BerDecoder, $$new($bytes, 0), -1, 0));
@@ -166,7 +126,40 @@ LdapRequest::LdapRequest() {
 }
 
 $Class* LdapRequest::load$($String* name, bool initialize) {
-	$loadClass(LdapRequest, name, initialize, &_LdapRequest_ClassInfo_, clinit$LdapRequest, allocate$LdapRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"EOF", "Lcom/sun/jndi/ldap/BerDecoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapRequest, EOF)},
+		{"CLOSE_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapRequest, CLOSE_MSG)},
+		{"TIMEOUT_MSG_FMT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapRequest, TIMEOUT_MSG_FMT)},
+		{"next", "Lcom/sun/jndi/ldap/LdapRequest;", nullptr, 0, $field(LdapRequest, next)},
+		{"msgId", "I", nullptr, $FINAL, $field(LdapRequest, msgId)},
+		{"replies", "Ljava/util/concurrent/BlockingQueue;", "Ljava/util/concurrent/BlockingQueue<Lcom/sun/jndi/ldap/BerDecoder;>;", $PRIVATE | $FINAL, $field(LdapRequest, replies)},
+		{"cancelled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LdapRequest, cancelled)},
+		{"closed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LdapRequest, closed)},
+		{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LdapRequest, completed)},
+		{"pauseAfterReceipt", "Z", nullptr, $PRIVATE | $FINAL, $field(LdapRequest, pauseAfterReceipt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZI)V", nullptr, 0, $method(LdapRequest, init$, void, int32_t, bool, int32_t)},
+		{"addReplyBer", "(Lcom/sun/jndi/ldap/BerDecoder;)Z", nullptr, $SYNCHRONIZED, $method(LdapRequest, addReplyBer, bool, $BerDecoder*)},
+		{"cancel", "()V", nullptr, 0, $method(LdapRequest, cancel, void)},
+		{"close", "()V", nullptr, $SYNCHRONIZED, $method(LdapRequest, close, void)},
+		{"getReplyBer", "(J)Lcom/sun/jndi/ldap/BerDecoder;", nullptr, 0, $method(LdapRequest, getReplyBer, $BerDecoder*, int64_t), "javax.naming.NamingException,java.lang.InterruptedException"},
+		{"hasSearchCompleted", "()Z", nullptr, 0, $method(LdapRequest, hasSearchCompleted, bool)},
+		{"isClosed", "()Z", nullptr, $PRIVATE, $method(LdapRequest, isClosed, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapRequest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapRequest, name, initialize, &classInfo$$, LdapRequest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapRequest);
+	});
 	return class$;
 }
 

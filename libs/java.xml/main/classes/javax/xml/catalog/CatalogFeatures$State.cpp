@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/CatalogFeatures$State.h>
-
 #include <java/lang/Enum.h>
 #include <javax/xml/catalog/CatalogFeatures.h>
 #include <jcpp.h>
@@ -20,51 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _CatalogFeatures$State_FieldInfo_[] = {
-	{"DEFAULT", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, DEFAULT)},
-	{"JAXPDOTPROPERTIES", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, JAXPDOTPROPERTIES)},
-	{"SYSTEMPROPERTY", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, SYSTEMPROPERTY)},
-	{"APIPROPERTY", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, APIPROPERTY)},
-	{"CATALOGATTRIBUTE", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, CATALOGATTRIBUTE)},
-	{"$VALUES", "[Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CatalogFeatures$State, $VALUES)},
-	{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(CatalogFeatures$State, literal$)},
-	{}
-};
-
-$MethodInfo _CatalogFeatures$State_MethodInfo_[] = {
-	{"$values", "()[Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CatalogFeatures$State, $values, $CatalogFeatures$StateArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(CatalogFeatures$State, init$, void, $String*, int32_t, $String*)},
-	{"literal", "()Ljava/lang/String;", nullptr, 0, $method(CatalogFeatures$State, literal, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CatalogFeatures$State, valueOf, CatalogFeatures$State*, $String*)},
-	{"values", "()[Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CatalogFeatures$State, values, $CatalogFeatures$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _CatalogFeatures$State_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.CatalogFeatures$State", "javax.xml.catalog.CatalogFeatures", "State", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CatalogFeatures$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"javax.xml.catalog.CatalogFeatures$State",
-	"java.lang.Enum",
-	nullptr,
-	_CatalogFeatures$State_FieldInfo_,
-	_CatalogFeatures$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/xml/catalog/CatalogFeatures$State;>;",
-	nullptr,
-	_CatalogFeatures$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.CatalogFeatures"
-};
-
-$Object* allocate$CatalogFeatures$State($Class* clazz) {
-	return $of($alloc(CatalogFeatures$State));
-}
 
 CatalogFeatures$State* CatalogFeatures$State::DEFAULT = nullptr;
 CatalogFeatures$State* CatalogFeatures$State::JAXPDOTPROPERTIES = nullptr;
@@ -103,7 +57,7 @@ $String* CatalogFeatures$State::literal() {
 	return this->literal$;
 }
 
-void clinit$CatalogFeatures$State($Class* class$) {
+void CatalogFeatures$State::clinit$($Class* clazz) {
 	$assignStatic(CatalogFeatures$State::DEFAULT, $new(CatalogFeatures$State, "DEFAULT"_s, 0, "default"_s));
 	$assignStatic(CatalogFeatures$State::JAXPDOTPROPERTIES, $new(CatalogFeatures$State, "JAXPDOTPROPERTIES"_s, 1, "jaxp.properties"_s));
 	$assignStatic(CatalogFeatures$State::SYSTEMPROPERTY, $new(CatalogFeatures$State, "SYSTEMPROPERTY"_s, 2, "system property"_s));
@@ -116,7 +70,46 @@ CatalogFeatures$State::CatalogFeatures$State() {
 }
 
 $Class* CatalogFeatures$State::load$($String* name, bool initialize) {
-	$loadClass(CatalogFeatures$State, name, initialize, &_CatalogFeatures$State_ClassInfo_, clinit$CatalogFeatures$State, allocate$CatalogFeatures$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, DEFAULT)},
+		{"JAXPDOTPROPERTIES", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, JAXPDOTPROPERTIES)},
+		{"SYSTEMPROPERTY", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, SYSTEMPROPERTY)},
+		{"APIPROPERTY", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, APIPROPERTY)},
+		{"CATALOGATTRIBUTE", "Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CatalogFeatures$State, CATALOGATTRIBUTE)},
+		{"$VALUES", "[Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CatalogFeatures$State, $VALUES)},
+		{"literal", "Ljava/lang/String;", nullptr, $FINAL, $field(CatalogFeatures$State, literal$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CatalogFeatures$State, $values, $CatalogFeatures$StateArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(CatalogFeatures$State, init$, void, $String*, int32_t, $String*)},
+		{"literal", "()Ljava/lang/String;", nullptr, 0, $method(CatalogFeatures$State, literal, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CatalogFeatures$State, valueOf, CatalogFeatures$State*, $String*)},
+		{"values", "()[Ljavax/xml/catalog/CatalogFeatures$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(CatalogFeatures$State, values, $CatalogFeatures$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.CatalogFeatures$State", "javax.xml.catalog.CatalogFeatures", "State", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"javax.xml.catalog.CatalogFeatures$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/xml/catalog/CatalogFeatures$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.CatalogFeatures"
+	};
+	$loadClass(CatalogFeatures$State, name, initialize, &classInfo$$, CatalogFeatures$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CatalogFeatures$State));
+	});
 	return class$;
 }
 

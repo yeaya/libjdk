@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSurfaceData.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -18,7 +17,6 @@
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/SampleModel.h>
 #include <java/awt/image/SinglePixelPackedSampleModel.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/SunHints.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/image/PixelConverter$ArgbPre.h>
@@ -62,7 +60,6 @@
 #include <sun/java2d/pipe/PixelToParallelogramConverter.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
-#include <sun/java2d/pipe/RenderQueue.h>
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
 #include <sun/java2d/pipe/TextPipe.h>
 #include <sun/java2d/pipe/hw/AccelSurface.h>
@@ -130,7 +127,6 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SunHints = ::sun::awt::SunHints;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $PixelConverter$ArgbPre = ::sun::awt::image::PixelConverter$ArgbPre;
@@ -146,7 +142,6 @@ using $SurfaceDataProxy = ::sun::java2d::SurfaceDataProxy;
 using $D3DBlitLoops = ::sun::java2d::d3d::D3DBlitLoops;
 using $D3DDrawImage = ::sun::java2d::d3d::D3DDrawImage;
 using $D3DGraphicsConfig = ::sun::java2d::d3d::D3DGraphicsConfig;
-using $D3DGraphicsDevice = ::sun::java2d::d3d::D3DGraphicsDevice;
 using $D3DMaskBlit = ::sun::java2d::d3d::D3DMaskBlit;
 using $D3DMaskFill = ::sun::java2d::d3d::D3DMaskFill;
 using $D3DPaints = ::sun::java2d::d3d::D3DPaints;
@@ -165,15 +160,10 @@ using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $MaskFill = ::sun::java2d::loops::MaskFill;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
-using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
 using $ParallelogramPipe = ::sun::java2d::pipe::ParallelogramPipe;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToParallelogramConverter = ::sun::java2d::pipe::PixelToParallelogramConverter;
 using $Region = ::sun::java2d::pipe::Region;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $TextPipe = ::sun::java2d::pipe::TextPipe;
 using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 using $ExtendedBufferCapabilities = ::sun::java2d::pipe::hw::ExtendedBufferCapabilities;
@@ -182,138 +172,6 @@ using $ExtendedBufferCapabilities$VSyncType = ::sun::java2d::pipe::hw::ExtendedB
 namespace sun {
 	namespace java2d {
 		namespace d3d {
-
-$FieldInfo _D3DSurfaceData_FieldInfo_[] = {
-	{"D3D_DEVICE_RESOURCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, D3D_DEVICE_RESOURCE)},
-	{"ST_INT_ARGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_ARGB)},
-	{"ST_INT_ARGB_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_ARGB_PRE)},
-	{"ST_INT_ARGB_BM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_ARGB_BM)},
-	{"ST_INT_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_RGB)},
-	{"ST_INT_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_BGR)},
-	{"ST_USHORT_565_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_USHORT_565_RGB)},
-	{"ST_USHORT_555_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_USHORT_555_RGB)},
-	{"ST_BYTE_INDEXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_BYTE_INDEXED)},
-	{"ST_BYTE_INDEXED_BM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_BYTE_INDEXED_BM)},
-	{"ST_3BYTE_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_3BYTE_BGR)},
-	{"SWAP_DISCARD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, SWAP_DISCARD)},
-	{"SWAP_FLIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, SWAP_FLIP)},
-	{"SWAP_COPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, SWAP_COPY)},
-	{"DESC_D3D_SURFACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(D3DSurfaceData, DESC_D3D_SURFACE)},
-	{"DESC_D3D_SURFACE_RTT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(D3DSurfaceData, DESC_D3D_SURFACE_RTT)},
-	{"DESC_D3D_TEXTURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(D3DSurfaceData, DESC_D3D_TEXTURE)},
-	{"D3DSurface", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(D3DSurfaceData, D3DSurface)},
-	{"D3DSurfaceRTT", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(D3DSurfaceData, D3DSurfaceRTT)},
-	{"D3DTexture", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(D3DSurfaceData, D3DTexture)},
-	{"type", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, type)},
-	{"width", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, height)},
-	{"scaleX", "D", nullptr, $PRIVATE | $FINAL, $field(D3DSurfaceData, scaleX)},
-	{"scaleY", "D", nullptr, $PRIVATE | $FINAL, $field(D3DSurfaceData, scaleY)},
-	{"nativeWidth", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, nativeWidth)},
-	{"nativeHeight", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, nativeHeight)},
-	{"peer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PROTECTED, $field(D3DSurfaceData, peer)},
-	{"offscreenImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(D3DSurfaceData, offscreenImage)},
-	{"graphicsDevice", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $PROTECTED, $field(D3DSurfaceData, graphicsDevice)},
-	{"swapEffect", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, swapEffect)},
-	{"syncType", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PRIVATE, $field(D3DSurfaceData, syncType)},
-	{"backBuffersNum", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, backBuffersNum)},
-	{"wrn", "Lsun/awt/image/WritableRasterNative;", nullptr, $PRIVATE, $field(D3DSurfaceData, wrn)},
-	{"d3dRenderPipe", "Lsun/java2d/d3d/D3DRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dRenderPipe)},
-	{"d3dTxRenderPipe", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dTxRenderPipe)},
-	{"d3dAAPgramPipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dAAPgramPipe)},
-	{"d3dTextPipe", "Lsun/java2d/d3d/D3DTextRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dTextPipe)},
-	{"d3dImagePipe", "Lsun/java2d/d3d/D3DDrawImage;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dImagePipe)},
-	{}
-};
-
-$MethodInfo _D3DSurfaceData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getNativeOps", "()J", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/d3d/D3DGraphicsConfig;IILjava/awt/Image;Ljava/awt/image/ColorModel;IILsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;I)V", nullptr, $PROTECTED, $method(D3DSurfaceData, init$, void, $WComponentPeer*, $D3DGraphicsConfig*, int32_t, int32_t, $Image*, $ColorModel*, int32_t, int32_t, $ExtendedBufferCapabilities$VSyncType*, int32_t)},
-	{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createData", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Image;)Lsun/java2d/d3d/D3DSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DSurfaceData, createData, D3DSurfaceData*, $WComponentPeer*, $Image*)},
-	{"createData", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/d3d/D3DSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DSurfaceData, createData, D3DSurfaceData*, $WComponentPeer*)},
-	{"createData", "(Lsun/java2d/d3d/D3DGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;I)Lsun/java2d/d3d/D3DSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DSurfaceData, createData, D3DSurfaceData*, $D3DGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int32_t)},
-	{"dbGetPixelNative", "(JII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DSurfaceData, dbGetPixelNative, int32_t, int64_t, int32_t, int32_t)},
-	{"dbSetPixelNative", "(JIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DSurfaceData, dbSetPixelNative, void, int64_t, int32_t, int32_t, int32_t)},
-	{"disableAccelerationForSurface", "()V", nullptr, 0, $virtualMethod(D3DSurfaceData, disableAccelerationForSurface, void)},
-	{"dispose", "(J)V", nullptr, $STATIC, $staticMethod(D3DSurfaceData, dispose, void, int64_t)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, flush, void)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getBounds, $Rectangle*)},
-	{"getContext", "()Lsun/java2d/d3d/D3DContext;", nullptr, $PUBLIC | $FINAL, $virtualMethod(D3DSurfaceData, getContext, $BufferedContext*)},
-	{"getCustomSurfaceType", "(I)Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DSurfaceData, getCustomSurfaceType, $SurfaceType*, int32_t)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getDefaultScaleY, double)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getDestination, $Object*)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getGC", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/d3d/D3DGraphicsConfig;", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DSurfaceData, getGC, $D3DGraphicsConfig*, $WComponentPeer*)},
-	{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(D3DSurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
-	{"getNativeBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getNativeBounds, $Rectangle*)},
-	{"getNativeResource", "(I)J", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getNativeResource, int64_t, int32_t)},
-	{"getNativeResourceNative", "(JI)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DSurfaceData, getNativeResourceNative, int64_t, int64_t, int32_t)},
-	{"getPeer", "()Lsun/awt/windows/WComponentPeer;", nullptr, 0, $virtualMethod(D3DSurfaceData, getPeer, $WComponentPeer*)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getReplacement, $SurfaceData*)},
-	{"getType", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(D3DSurfaceData, getType, int32_t)},
-	{"initFlipBackbuffer", "(JJIII)Z", nullptr, $PRIVATE | $NATIVE, $method(D3DSurfaceData, initFlipBackbuffer, bool, int64_t, int64_t, int32_t, int32_t, int32_t)},
-	{"initOps", "(III)V", nullptr, $PRIVATE | $NATIVE, $method(D3DSurfaceData, initOps, void, int32_t, int32_t, int32_t)},
-	{"initRTSurface", "(JZ)Z", nullptr, $PRIVATE | $NATIVE, $method(D3DSurfaceData, initRTSurface, bool, int64_t, bool)},
-	{"initSurface", "()V", nullptr, $PROTECTED, $virtualMethod(D3DSurfaceData, initSurface, void)},
-	{"initSurfaceNow", "()Z", nullptr, $PRIVATE, $method(D3DSurfaceData, initSurfaceNow, bool)},
-	{"initTexture", "(JZZ)Z", nullptr, $PRIVATE | $NATIVE, $method(D3DSurfaceData, initTexture, bool, int64_t, bool, bool)},
-	{"*isSurfaceLost", "()Z", nullptr, $PUBLIC},
-	{"*isValid", "()Z", nullptr, $PUBLIC | $FINAL},
-	{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
-	{"*markDirty", "()V", nullptr, $PUBLIC | $FINAL},
-	{"restoreSurface", "()V", nullptr, 0, $virtualMethod(D3DSurfaceData, restoreSurface, void)},
-	{"setSurfaceLost", "(Z)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, setSurfaceLost, void, bool)},
-	{"swapBuffers", "(Lsun/java2d/d3d/D3DSurfaceData;IIII)V", nullptr, $STATIC, $staticMethod(D3DSurfaceData, swapBuffers, void, D3DSurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateWindowAccelImpl", "(JJII)Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(D3DSurfaceData, updateWindowAccelImpl, bool, int64_t, int64_t, int32_t, int32_t)},
-	{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, validatePipe, void, $SunGraphics2D*)},
-	{}
-};
-
-#define _METHOD_INDEX_dbGetPixelNative 11
-#define _METHOD_INDEX_dbSetPixelNative 12
-#define _METHOD_INDEX_getNativeResourceNative 27
-#define _METHOD_INDEX_initFlipBackbuffer 32
-#define _METHOD_INDEX_initOps 33
-#define _METHOD_INDEX_initRTSurface 34
-#define _METHOD_INDEX_initTexture 37
-#define _METHOD_INDEX_updateWindowAccelImpl 46
-
-$InnerClassInfo _D3DSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DSurfaceData$D3DWindowSurfaceData", "sun.java2d.d3d.D3DSurfaceData", "D3DWindowSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.d3d.D3DSurfaceData$D3DDataBufferNative", "sun.java2d.d3d.D3DSurfaceData", "D3DDataBufferNative", $STATIC},
-	{"sun.java2d.d3d.D3DSurfaceData$2", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DSurfaceData$1", nullptr, nullptr, 0},
-	{"sun.java2d.d3d.D3DSurfaceData$1Status", nullptr, "Status", 0},
-	{}
-};
-
-$ClassInfo _D3DSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.d3d.D3DSurfaceData",
-	"sun.java2d.SurfaceData",
-	"sun.java2d.pipe.hw.AccelSurface",
-	_D3DSurfaceData_FieldInfo_,
-	_D3DSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DSurfaceData$D3DWindowSurfaceData,sun.java2d.d3d.D3DSurfaceData$D3DDataBufferNative,sun.java2d.d3d.D3DSurfaceData$D3DDataBufferNative$2,sun.java2d.d3d.D3DSurfaceData$D3DDataBufferNative$1,sun.java2d.d3d.D3DSurfaceData$2,sun.java2d.d3d.D3DSurfaceData$1,sun.java2d.d3d.D3DSurfaceData$1Status"
-};
-
-$Object* allocate$D3DSurfaceData($Class* clazz) {
-	return $of($alloc(D3DSurfaceData));
-}
 
 void D3DSurfaceData::markDirty() {
 	this->$SurfaceData::markDirty();
@@ -364,48 +222,45 @@ $D3DTextRenderer* D3DSurfaceData::d3dTextPipe = nullptr;
 $D3DDrawImage* D3DSurfaceData::d3dImagePipe = nullptr;
 
 bool D3DSurfaceData::initTexture(int64_t pData, bool isRTT, bool isOpaque) {
-	bool $ret = false;
-	$prepareNative(D3DSurfaceData, initTexture, bool, int64_t pData, bool isRTT, bool isOpaque);
-	$ret = $invokeNative(pData, isRTT, isOpaque);
+	$prepareNative(initTexture, bool, int64_t pData, bool isRTT, bool isOpaque);
+	bool $ret = $invokeNative(pData, isRTT, isOpaque);
 	$finishNative();
 	return $ret;
 }
 
 bool D3DSurfaceData::initFlipBackbuffer(int64_t pData, int64_t pPeerData, int32_t numbuffers, int32_t swapEffect, int32_t syncType) {
-	bool $ret = false;
-	$prepareNative(D3DSurfaceData, initFlipBackbuffer, bool, int64_t pData, int64_t pPeerData, int32_t numbuffers, int32_t swapEffect, int32_t syncType);
-	$ret = $invokeNative(pData, pPeerData, numbuffers, swapEffect, syncType);
+	$prepareNative(initFlipBackbuffer, bool, int64_t pData, int64_t pPeerData, int32_t numbuffers, int32_t swapEffect, int32_t syncType);
+	bool $ret = $invokeNative(pData, pPeerData, numbuffers, swapEffect, syncType);
 	$finishNative();
 	return $ret;
 }
 
 bool D3DSurfaceData::initRTSurface(int64_t pData, bool isOpaque) {
-	bool $ret = false;
-	$prepareNative(D3DSurfaceData, initRTSurface, bool, int64_t pData, bool isOpaque);
-	$ret = $invokeNative(pData, isOpaque);
+	$prepareNative(initRTSurface, bool, int64_t pData, bool isOpaque);
+	bool $ret = $invokeNative(pData, isOpaque);
 	$finishNative();
 	return $ret;
 }
 
 void D3DSurfaceData::initOps(int32_t screen, int32_t width, int32_t height) {
-	$prepareNative(D3DSurfaceData, initOps, void, int32_t screen, int32_t width, int32_t height);
+	$prepareNative(initOps, void, int32_t screen, int32_t width, int32_t height);
 	$invokeNative(screen, width, height);
 	$finishNative();
 }
 
 void D3DSurfaceData::init$($WComponentPeer* peer, $D3DGraphicsConfig* gc, int32_t width, int32_t height, $Image* image, $ColorModel* cm, int32_t numBackBuffers, int32_t swapEffect, $ExtendedBufferCapabilities$VSyncType* vSyncType, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SurfaceData::init$($(getCustomSurfaceType(type)), cm);
 	$set(this, graphicsDevice, $nc(gc)->getD3DDevice());
-	this->scaleX = type == $AccelSurface::TEXTURE ? (float)1 : $nc(this->graphicsDevice)->getDefaultScaleX();
-	this->scaleY = type == $AccelSurface::TEXTURE ? (float)1 : $nc(this->graphicsDevice)->getDefaultScaleY();
+	this->scaleX = type == $AccelSurface::TEXTURE ? 1 : $nc(this->graphicsDevice)->getDefaultScaleX();
+	this->scaleY = type == $AccelSurface::TEXTURE ? 1 : $nc(this->graphicsDevice)->getDefaultScaleY();
 	$set(this, peer, peer);
 	this->type = type;
 	if (this->scaleX == 1 && this->scaleY == 1) {
 		this->width = width;
 		this->height = height;
 	} else if ($instanceOf($WWindowPeer, peer)) {
-		$var($Dimension, scaledSize, $nc(($cast($WWindowPeer, peer)))->getScaledWindowSize());
+		$var($Dimension, scaledSize, $cast($WWindowPeer, peer)->getScaledWindowSize());
 		this->width = $nc(scaledSize)->width;
 		this->height = scaledSize->height;
 	} else {
@@ -434,12 +289,12 @@ double D3DSurfaceData::getDefaultScaleY() {
 }
 
 $SurfaceDataProxy* D3DSurfaceData::makeProxyFor($SurfaceData* srcData) {
-	return $D3DSurfaceDataProxy::createProxy(srcData, $cast($D3DGraphicsConfig, $($nc(this->graphicsDevice)->getDefaultConfiguration())));
+	return $D3DSurfaceDataProxy::createProxy(srcData, $$cast($D3DGraphicsConfig, $nc(this->graphicsDevice)->getDefaultConfiguration()));
 }
 
 D3DSurfaceData* D3DSurfaceData::createData($WComponentPeer* peer, $Image* image) {
 	$init(D3DSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DGraphicsConfig, gc, getGC(peer));
 	if (gc == nullptr || !$nc(peer)->isAccelCapable()) {
 		return nullptr;
@@ -448,7 +303,7 @@ D3DSurfaceData* D3DSurfaceData::createData($WComponentPeer* peer, $Image* image)
 	$init($ExtendedBufferCapabilities$VSyncType);
 	$ExtendedBufferCapabilities$VSyncType* vSyncType = $ExtendedBufferCapabilities$VSyncType::VSYNC_DEFAULT;
 	if ($instanceOf($ExtendedBufferCapabilities, caps)) {
-		vSyncType = $nc(($cast($ExtendedBufferCapabilities, caps)))->getVSync();
+		vSyncType = $cast($ExtendedBufferCapabilities, caps)->getVSync();
 	}
 	$var($Rectangle, r, peer->getBounds());
 	$var($BufferCapabilities$FlipContents, flip, $nc(caps)->getFlipContents());
@@ -456,20 +311,15 @@ D3DSurfaceData* D3DSurfaceData::createData($WComponentPeer* peer, $Image* image)
 	$init($BufferCapabilities$FlipContents);
 	if (flip == $BufferCapabilities$FlipContents::COPIED) {
 		swapEffect = D3DSurfaceData::SWAP_COPY;
+	} else if (flip == $BufferCapabilities$FlipContents::PRIOR) {
+		swapEffect = D3DSurfaceData::SWAP_FLIP;
 	} else {
-		if (flip == $BufferCapabilities$FlipContents::PRIOR) {
-			swapEffect = D3DSurfaceData::SWAP_FLIP;
-		} else {
-			swapEffect = D3DSurfaceData::SWAP_DISCARD;
-		}
+		swapEffect = D3DSurfaceData::SWAP_DISCARD;
 	}
-	$var($WComponentPeer, var$0, peer);
-	$var($D3DGraphicsConfig, var$1, gc);
-	int32_t var$2 = $nc(r)->width;
-	int32_t var$3 = r->height;
-	$var($Image, var$4, image);
-	$var($ColorModel, var$5, peer->getColorModel());
-	return $new(D3DSurfaceData, var$0, var$1, var$2, var$3, var$4, var$5, peer->getBackBuffersNum(), swapEffect, vSyncType, $AccelSurface::FLIP_BACKBUFFER);
+	int32_t var$0 = $nc(r)->width;
+	int32_t var$1 = r->height;
+	$var($ColorModel, var$2, peer->getColorModel());
+	return $new(D3DSurfaceData, peer, gc, var$0, var$1, image, var$2, peer->getBackBuffersNum(), swapEffect, vSyncType, $AccelSurface::FLIP_BACKBUFFER);
 }
 
 D3DSurfaceData* D3DSurfaceData::createData($WComponentPeer* peer) {
@@ -483,11 +333,11 @@ D3DSurfaceData* D3DSurfaceData::createData($WComponentPeer* peer) {
 
 D3DSurfaceData* D3DSurfaceData::createData($D3DGraphicsConfig* gc, int32_t width, int32_t height, $ColorModel* cm, $Image* image, int32_t type) {
 	$init(D3DSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type == $AccelSurface::RT_TEXTURE) {
 		bool isOpaque = $nc(cm)->getTransparency() == $Transparency::OPAQUE;
 		int32_t cap = isOpaque ? 8 : 4;
-		if (!$nc($($nc(gc)->getD3DDevice()))->isCapPresent(cap)) {
+		if (!$$nc($nc(gc)->getD3DDevice())->isCapPresent(cap)) {
 			type = $AccelSurface::RT_PLAIN;
 		}
 	}
@@ -497,7 +347,7 @@ D3DSurfaceData* D3DSurfaceData::createData($D3DGraphicsConfig* gc, int32_t width
 		$assign(ret, $new(D3DSurfaceData, nullptr, gc, width, height, image, cm, 0, D3DSurfaceData::SWAP_DISCARD, $ExtendedBufferCapabilities$VSyncType::VSYNC_DEFAULT, type));
 	} catch ($InvalidPipeException& ipe) {
 		if (type == $AccelSurface::RT_TEXTURE) {
-			if ($nc(($cast($SunVolatileImage, image)))->getForcedAccelSurfaceType() != $AccelSurface::RT_TEXTURE) {
+			if ($nc($cast($SunVolatileImage, image))->getForcedAccelSurfaceType() != $AccelSurface::RT_TEXTURE) {
 				type = $AccelSurface::RT_PLAIN;
 				$init($ExtendedBufferCapabilities$VSyncType);
 				$assign(ret, $new(D3DSurfaceData, nullptr, gc, width, height, image, cm, 0, D3DSurfaceData::SWAP_DISCARD, $ExtendedBufferCapabilities$VSyncType::VSYNC_DEFAULT, type));
@@ -511,17 +361,11 @@ $SurfaceType* D3DSurfaceData::getCustomSurfaceType(int32_t d3dType) {
 	$init(D3DSurfaceData);
 	switch (d3dType) {
 	case $AccelSurface::TEXTURE:
-		{
-			return D3DSurfaceData::D3DTexture;
-		}
+		return D3DSurfaceData::D3DTexture;
 	case $AccelSurface::RT_TEXTURE:
-		{
-			return D3DSurfaceData::D3DSurfaceRTT;
-		}
+		return D3DSurfaceData::D3DSurfaceRTT;
 	default:
-		{
-			return D3DSurfaceData::D3DSurface;
-		}
+		return D3DSurfaceData::D3DSurface;
 	}
 }
 
@@ -529,19 +373,12 @@ bool D3DSurfaceData::initSurfaceNow() {
 	bool isOpaque = (getTransparency() == $Transparency::OPAQUE);
 	switch (this->type) {
 	case $AccelSurface::RT_PLAIN:
-		{
-			return initRTSurface(getNativeOps(), isOpaque);
-		}
+		return initRTSurface(getNativeOps(), isOpaque);
 	case $AccelSurface::TEXTURE:
-		{
-			return initTexture(getNativeOps(), false, isOpaque);
-		}
+		return initTexture(getNativeOps(), false, isOpaque);
 	case $AccelSurface::RT_TEXTURE:
-		{
-			return initTexture(getNativeOps(), true, isOpaque);
-		}
+		return initTexture(getNativeOps(), true, isOpaque);
 	case $AccelSurface::WINDOW:
-		{}
 	case $AccelSurface::FLIP_BACKBUFFER:
 		{
 			int64_t var$0 = getNativeOps();
@@ -551,37 +388,34 @@ bool D3DSurfaceData::initSurfaceNow() {
 			return initFlipBackbuffer(var$0, var$1, var$2, var$3, $nc(this->syncType)->id());
 		}
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 void D3DSurfaceData::initSurface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
 		$set(this, wrn, nullptr);
 	}
 	{
 	}
+	;
 	$var($D3DSurfaceData$1Status, status, $new($D3DSurfaceData$1Status, this));
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->flushAndInvokeNow($$new($D3DSurfaceData$1, this, status));
-			if (!status->success) {
-				$throwNew($InvalidPipeException, "Error creating D3DSurface"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->flushAndInvokeNow($$new($D3DSurfaceData$1, this, status));
+		if (!status->success) {
+			$throwNew($InvalidPipeException, "Error creating D3DSurface"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -595,23 +429,22 @@ int32_t D3DSurfaceData::getType() {
 
 int32_t D3DSurfaceData::dbGetPixelNative(int64_t pData, int32_t x, int32_t y) {
 	$init(D3DSurfaceData);
-	int32_t $ret = 0;
-	$prepareNativeStatic(D3DSurfaceData, dbGetPixelNative, int32_t, int64_t pData, int32_t x, int32_t y);
-	$ret = $invokeNativeStatic(pData, x, y);
+	$prepareNativeStatic(dbGetPixelNative, int32_t, int64_t pData, int32_t x, int32_t y);
+	int32_t $ret = $invokeNativeStatic(pData, x, y);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void D3DSurfaceData::dbSetPixelNative(int64_t pData, int32_t x, int32_t y, int32_t pixel) {
 	$init(D3DSurfaceData);
-	$prepareNativeStatic(D3DSurfaceData, dbSetPixelNative, void, int64_t pData, int32_t x, int32_t y, int32_t pixel);
+	$prepareNativeStatic(dbSetPixelNative, void, int64_t pData, int32_t x, int32_t y, int32_t pixel);
 	$invokeNativeStatic(pData, x, y, pixel);
 	$finishNativeStatic();
 }
 
 $Raster* D3DSurfaceData::getRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->wrn == nullptr) {
 			$var($DirectColorModel, dcm, $cast($DirectColorModel, getColorModel()));
 			$var($SampleModel, smHw, nullptr);
@@ -622,7 +455,7 @@ $Raster* D3DSurfaceData::getRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
 			} else {
 				dataType = $DataBuffer::TYPE_USHORT;
 			}
-			$assign(smHw, $new($SinglePixelPackedSampleModel, dataType, this->width, this->height, scanStride, $($nc(dcm)->getMasks())));
+			$assign(smHw, $new($SinglePixelPackedSampleModel, dataType, this->width, this->height, scanStride, $(dcm->getMasks())));
 			$var($DataBuffer, dbn, $new($D3DSurfaceData$D3DDataBufferNative, this, dataType, this->width, this->height));
 			$set(this, wrn, $WritableRasterNative::createNativeRaster(smHw, dbn));
 		}
@@ -640,13 +473,13 @@ void D3DSurfaceData::disableAccelerationForSurface() {
 		$var($SurfaceManager, sm, $SurfaceManager::getManager(this->offscreenImage));
 		if ($instanceOf($D3DVolatileSurfaceManager, sm)) {
 			setSurfaceLost(true);
-			$nc(($cast($D3DVolatileSurfaceManager, sm)))->setAccelerationEnabled(false);
+			$cast($D3DVolatileSurfaceManager, sm)->setAccelerationEnabled(false);
 		}
 	}
 }
 
 void D3DSurfaceData::validatePipe($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextPipe, textpipe, nullptr);
 	bool validated = false;
 	if ($nc(sg2d)->compositeState >= $SunGraphics2D::COMP_XOR) {
@@ -655,7 +488,7 @@ void D3DSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 		disableAccelerationForSurface();
 		return;
 	}
-	if (($nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ISCOPY && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) || ($nc(sg2d)->compositeState == $SunGraphics2D::COMP_ALPHA && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && ($nc(($cast($AlphaComposite, sg2d->composite)))->getRule() == $AlphaComposite::SRC_OVER)) || ($nc(sg2d)->compositeState == $SunGraphics2D::COMP_XOR && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR)) {
+	if ((sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) || (sg2d->compositeState == $SunGraphics2D::COMP_ALPHA && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && ($nc($cast($AlphaComposite, sg2d->composite))->getRule() == $AlphaComposite::SRC_OVER)) || (sg2d->compositeState == $SunGraphics2D::COMP_XOR && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR)) {
 		$assign(textpipe, D3DSurfaceData::d3dTextPipe);
 	} else {
 		$SurfaceData::validatePipe(sg2d);
@@ -664,7 +497,7 @@ void D3DSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 	}
 	$var($PixelToParallelogramConverter, txPipe, nullptr);
 	$var($D3DRenderer, nonTxPipe, nullptr);
-	if ($nc(sg2d)->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON) {
+	if (sg2d->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON) {
 		if (sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR) {
 			if (sg2d->compositeState <= $SunGraphics2D::COMP_XOR) {
 				$assign(txPipe, D3DSurfaceData::d3dTxRenderPipe);
@@ -693,7 +526,7 @@ void D3DSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 		}
 	}
 	if (txPipe != nullptr) {
-		if ($nc(sg2d)->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
+		if (sg2d->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
 			$set(sg2d, drawpipe, txPipe);
 			$set(sg2d, fillpipe, txPipe);
 		} else if (sg2d->strokeState != $SunGraphics2D::STROKE_THIN) {
@@ -703,11 +536,11 @@ void D3DSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 			$set(sg2d, drawpipe, nonTxPipe);
 			$set(sg2d, fillpipe, nonTxPipe);
 		}
-		$set($nc(sg2d), shapepipe, txPipe);
+		$set(sg2d, shapepipe, txPipe);
 	} else if (!validated) {
 		$SurfaceData::validatePipe(sg2d);
 	}
-	$set($nc(sg2d), textpipe, textpipe);
+	$set(sg2d, textpipe, textpipe);
 	$set(sg2d, imagepipe, D3DSurfaceData::d3dImagePipe);
 }
 
@@ -730,91 +563,85 @@ bool D3DSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_
 }
 
 void D3DSurfaceData::flush() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($RenderBuffer, buf, rq->getBuffer());
-			rq->ensureCapacityAndAlignment(12, 4);
-			$nc(buf)->putInt(72);
-			buf->putLong(getNativeOps());
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($RenderBuffer, buf, rq->getBuffer());
+		rq->ensureCapacityAndAlignment(12, 4);
+		$nc(buf)->putInt(72);
+		buf->putLong(getNativeOps());
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void D3DSurfaceData::dispose(int64_t pData) {
 	$init(D3DSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($RenderBuffer, buf, rq->getBuffer());
-			rq->ensureCapacityAndAlignment(12, 4);
-			$nc(buf)->putInt(73);
-			buf->putLong(pData);
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($RenderBuffer, buf, rq->getBuffer());
+		rq->ensureCapacityAndAlignment(12, 4);
+		$nc(buf)->putInt(73);
+		buf->putLong(pData);
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void D3DSurfaceData::swapBuffers(D3DSurfaceData* sd, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
 	$init(D3DSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t pData = $nc(sd)->getNativeOps();
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	if ($D3DRenderQueue::isRenderQueueThread()) {
 		if (!$nc(rq)->tryLock()) {
-			$var($Component, target, $cast($Component, $nc($(sd->getPeer()))->getTarget()));
+			$var($Component, target, $cast($Component, $$nc(sd->getPeer())->getTarget()));
 			$SunToolkit::executeOnEventHandlerThread(target, $$new($D3DSurfaceData$2, sd, x1, y1, x2, y2, target));
 			return;
 		}
 	} else {
 		$nc(rq)->lock();
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($RenderBuffer, buf, $nc(rq)->getBuffer());
-			rq->ensureCapacityAndAlignment(28, 4);
-			$nc(buf)->putInt(80);
-			buf->putLong(pData);
-			buf->putInt(x1);
-			buf->putInt(y1);
-			buf->putInt(x2);
-			buf->putInt(y2);
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(rq)->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($RenderBuffer, buf, $nc(rq)->getBuffer());
+		rq->ensureCapacityAndAlignment(28, 4);
+		$nc(buf)->putInt(80);
+		buf->putLong(pData);
+		buf->putInt(x1);
+		buf->putInt(y1);
+		buf->putInt(x2);
+		buf->putInt(y2);
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(rq)->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $Object* D3DSurfaceData::getDestination() {
-	return $of(this->offscreenImage);
+	return this->offscreenImage;
 }
 
 $Rectangle* D3DSurfaceData::getBounds() {
@@ -822,7 +649,7 @@ $Rectangle* D3DSurfaceData::getBounds() {
 		double scaleX = getDefaultScaleX();
 		double scaleY = getDefaultScaleY();
 		$var($Rectangle, r, $nc(this->peer)->getBounds());
-		$nc(r)->x = (r->y = 0);
+		$nc(r)->x = ($nc(r)->y = 0);
 		r->width = $Region::clipRound(r->width * scaleX);
 		r->height = $Region::clipRound(r->height * scaleY);
 		return r;
@@ -832,28 +659,26 @@ $Rectangle* D3DSurfaceData::getBounds() {
 }
 
 $Rectangle* D3DSurfaceData::getNativeBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Rectangle, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $new($Rectangle, this->nativeWidth, this->nativeHeight));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Rectangle, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $new($Rectangle, this->nativeWidth, this->nativeHeight));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -868,7 +693,7 @@ $SurfaceData* D3DSurfaceData::getReplacement() {
 
 $D3DGraphicsConfig* D3DSurfaceData::getGC($WComponentPeer* peer) {
 	$init(D3DSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, nullptr);
 	if (peer != nullptr) {
 		$assign(gc, peer->getGraphicsConfiguration());
@@ -898,9 +723,8 @@ void D3DSurfaceData::setSurfaceLost(bool lost) {
 
 int64_t D3DSurfaceData::getNativeResourceNative(int64_t sdops, int32_t resType) {
 	$init(D3DSurfaceData);
-	int64_t $ret = 0;
-	$prepareNativeStatic(D3DSurfaceData, getNativeResourceNative, int64_t, int64_t sdops, int32_t resType);
-	$ret = $invokeNativeStatic(sdops, resType);
+	$prepareNativeStatic(getNativeResourceNative, int64_t, int64_t sdops, int32_t resType);
+	int64_t $ret = $invokeNativeStatic(sdops, resType);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -911,14 +735,13 @@ int64_t D3DSurfaceData::getNativeResource(int32_t resType) {
 
 bool D3DSurfaceData::updateWindowAccelImpl(int64_t pd3dsd, int64_t pData, int32_t w, int32_t h) {
 	$init(D3DSurfaceData);
-	bool $ret = false;
-	$prepareNativeStatic(D3DSurfaceData, updateWindowAccelImpl, bool, int64_t pd3dsd, int64_t pData, int32_t w, int32_t h);
-	$ret = $invokeNativeStatic(pd3dsd, pData, w, h);
+	$prepareNativeStatic(updateWindowAccelImpl, bool, int64_t pd3dsd, int64_t pData, int32_t w, int32_t h);
+	bool $ret = $invokeNativeStatic(pd3dsd, pData, w, h);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$D3DSurfaceData($Class* class$) {
+void D3DSurfaceData::clinit$($Class* clazz) {
 	$assignStatic(D3DSurfaceData::DESC_D3D_SURFACE, "D3D Surface"_s);
 	$assignStatic(D3DSurfaceData::DESC_D3D_SURFACE_RTT, "D3D Surface (render-to-texture)"_s);
 	$assignStatic(D3DSurfaceData::DESC_D3D_TEXTURE, "D3D Texture"_s);
@@ -926,7 +749,7 @@ void clinit$D3DSurfaceData($Class* class$) {
 	$init($PixelConverter$ArgbPre);
 	$assignStatic(D3DSurfaceData::D3DSurface, $nc($SurfaceType::Any)->deriveSubType(D3DSurfaceData::DESC_D3D_SURFACE, $PixelConverter$ArgbPre::instance));
 	$assignStatic(D3DSurfaceData::D3DSurfaceRTT, $nc(D3DSurfaceData::D3DSurface)->deriveSubType(D3DSurfaceData::DESC_D3D_SURFACE_RTT));
-	$assignStatic(D3DSurfaceData::D3DTexture, $nc($SurfaceType::Any)->deriveSubType(D3DSurfaceData::DESC_D3D_TEXTURE));
+	$assignStatic(D3DSurfaceData::D3DTexture, $SurfaceType::Any->deriveSubType(D3DSurfaceData::DESC_D3D_TEXTURE));
 	{
 		$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 		$assignStatic(D3DSurfaceData::d3dImagePipe, $new($D3DDrawImage));
@@ -948,7 +771,124 @@ D3DSurfaceData::D3DSurfaceData() {
 }
 
 $Class* D3DSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(D3DSurfaceData, name, initialize, &_D3DSurfaceData_ClassInfo_, clinit$D3DSurfaceData, allocate$D3DSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"D3D_DEVICE_RESOURCE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, D3D_DEVICE_RESOURCE)},
+		{"ST_INT_ARGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_ARGB)},
+		{"ST_INT_ARGB_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_ARGB_PRE)},
+		{"ST_INT_ARGB_BM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_ARGB_BM)},
+		{"ST_INT_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_RGB)},
+		{"ST_INT_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_INT_BGR)},
+		{"ST_USHORT_565_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_USHORT_565_RGB)},
+		{"ST_USHORT_555_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_USHORT_555_RGB)},
+		{"ST_BYTE_INDEXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_BYTE_INDEXED)},
+		{"ST_BYTE_INDEXED_BM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_BYTE_INDEXED_BM)},
+		{"ST_3BYTE_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, ST_3BYTE_BGR)},
+		{"SWAP_DISCARD", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, SWAP_DISCARD)},
+		{"SWAP_FLIP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, SWAP_FLIP)},
+		{"SWAP_COPY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(D3DSurfaceData, SWAP_COPY)},
+		{"DESC_D3D_SURFACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(D3DSurfaceData, DESC_D3D_SURFACE)},
+		{"DESC_D3D_SURFACE_RTT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(D3DSurfaceData, DESC_D3D_SURFACE_RTT)},
+		{"DESC_D3D_TEXTURE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(D3DSurfaceData, DESC_D3D_TEXTURE)},
+		{"D3DSurface", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(D3DSurfaceData, D3DSurface)},
+		{"D3DSurfaceRTT", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(D3DSurfaceData, D3DSurfaceRTT)},
+		{"D3DTexture", "Lsun/java2d/loops/SurfaceType;", nullptr, $STATIC | $FINAL, $staticField(D3DSurfaceData, D3DTexture)},
+		{"type", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, type)},
+		{"width", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, height)},
+		{"scaleX", "D", nullptr, $PRIVATE | $FINAL, $field(D3DSurfaceData, scaleX)},
+		{"scaleY", "D", nullptr, $PRIVATE | $FINAL, $field(D3DSurfaceData, scaleY)},
+		{"nativeWidth", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, nativeWidth)},
+		{"nativeHeight", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, nativeHeight)},
+		{"peer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PROTECTED, $field(D3DSurfaceData, peer)},
+		{"offscreenImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(D3DSurfaceData, offscreenImage)},
+		{"graphicsDevice", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $PROTECTED, $field(D3DSurfaceData, graphicsDevice)},
+		{"swapEffect", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, swapEffect)},
+		{"syncType", "Lsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;", nullptr, $PRIVATE, $field(D3DSurfaceData, syncType)},
+		{"backBuffersNum", "I", nullptr, $PRIVATE, $field(D3DSurfaceData, backBuffersNum)},
+		{"wrn", "Lsun/awt/image/WritableRasterNative;", nullptr, $PRIVATE, $field(D3DSurfaceData, wrn)},
+		{"d3dRenderPipe", "Lsun/java2d/d3d/D3DRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dRenderPipe)},
+		{"d3dTxRenderPipe", "Lsun/java2d/pipe/PixelToParallelogramConverter;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dTxRenderPipe)},
+		{"d3dAAPgramPipe", "Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dAAPgramPipe)},
+		{"d3dTextPipe", "Lsun/java2d/d3d/D3DTextRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dTextPipe)},
+		{"d3dImagePipe", "Lsun/java2d/d3d/D3DDrawImage;", nullptr, $PROTECTED | $STATIC, $staticField(D3DSurfaceData, d3dImagePipe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getNativeOps", "()J", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/d3d/D3DGraphicsConfig;IILjava/awt/Image;Ljava/awt/image/ColorModel;IILsun/java2d/pipe/hw/ExtendedBufferCapabilities$VSyncType;I)V", nullptr, $PROTECTED, $method(D3DSurfaceData, init$, void, $WComponentPeer*, $D3DGraphicsConfig*, int32_t, int32_t, $Image*, $ColorModel*, int32_t, int32_t, $ExtendedBufferCapabilities$VSyncType*, int32_t)},
+		{"canRenderLCDText", "(Lsun/java2d/SunGraphics2D;)Z", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, canRenderLCDText, bool, $SunGraphics2D*)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createData", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Image;)Lsun/java2d/d3d/D3DSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DSurfaceData, createData, D3DSurfaceData*, $WComponentPeer*, $Image*)},
+		{"createData", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/d3d/D3DSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DSurfaceData, createData, D3DSurfaceData*, $WComponentPeer*)},
+		{"createData", "(Lsun/java2d/d3d/D3DGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;I)Lsun/java2d/d3d/D3DSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DSurfaceData, createData, D3DSurfaceData*, $D3DGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int32_t)},
+		{"dbGetPixelNative", "(JII)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DSurfaceData, dbGetPixelNative, int32_t, int64_t, int32_t, int32_t)},
+		{"dbSetPixelNative", "(JIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DSurfaceData, dbSetPixelNative, void, int64_t, int32_t, int32_t, int32_t)},
+		{"disableAccelerationForSurface", "()V", nullptr, 0, $virtualMethod(D3DSurfaceData, disableAccelerationForSurface, void)},
+		{"dispose", "(J)V", nullptr, $STATIC, $staticMethod(D3DSurfaceData, dispose, void, int64_t)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, flush, void)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getBounds, $Rectangle*)},
+		{"getContext", "()Lsun/java2d/d3d/D3DContext;", nullptr, $PUBLIC | $FINAL, $virtualMethod(D3DSurfaceData, getContext, $BufferedContext*)},
+		{"getCustomSurfaceType", "(I)Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DSurfaceData, getCustomSurfaceType, $SurfaceType*, int32_t)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getDefaultScaleY, double)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getDestination, $Object*)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getGC", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/d3d/D3DGraphicsConfig;", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DSurfaceData, getGC, $D3DGraphicsConfig*, $WComponentPeer*)},
+		{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(D3DSurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
+		{"getNativeBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getNativeBounds, $Rectangle*)},
+		{"getNativeResource", "(I)J", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getNativeResource, int64_t, int32_t)},
+		{"getNativeResourceNative", "(JI)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(D3DSurfaceData, getNativeResourceNative, int64_t, int64_t, int32_t)},
+		{"getPeer", "()Lsun/awt/windows/WComponentPeer;", nullptr, 0, $virtualMethod(D3DSurfaceData, getPeer, $WComponentPeer*)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, getReplacement, $SurfaceData*)},
+		{"getType", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(D3DSurfaceData, getType, int32_t)},
+		{"initFlipBackbuffer", "(JJIII)Z", nullptr, $PRIVATE | $NATIVE, $method(D3DSurfaceData, initFlipBackbuffer, bool, int64_t, int64_t, int32_t, int32_t, int32_t)},
+		{"initOps", "(III)V", nullptr, $PRIVATE | $NATIVE, $method(D3DSurfaceData, initOps, void, int32_t, int32_t, int32_t)},
+		{"initRTSurface", "(JZ)Z", nullptr, $PRIVATE | $NATIVE, $method(D3DSurfaceData, initRTSurface, bool, int64_t, bool)},
+		{"initSurface", "()V", nullptr, $PROTECTED, $virtualMethod(D3DSurfaceData, initSurface, void)},
+		{"initSurfaceNow", "()Z", nullptr, $PRIVATE, $method(D3DSurfaceData, initSurfaceNow, bool)},
+		{"initTexture", "(JZZ)Z", nullptr, $PRIVATE | $NATIVE, $method(D3DSurfaceData, initTexture, bool, int64_t, bool, bool)},
+		{"*isSurfaceLost", "()Z", nullptr, $PUBLIC},
+		{"*isValid", "()Z", nullptr, $PUBLIC | $FINAL},
+		{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
+		{"*markDirty", "()V", nullptr, $PUBLIC | $FINAL},
+		{"restoreSurface", "()V", nullptr, 0, $virtualMethod(D3DSurfaceData, restoreSurface, void)},
+		{"setSurfaceLost", "(Z)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, setSurfaceLost, void, bool)},
+		{"swapBuffers", "(Lsun/java2d/d3d/D3DSurfaceData;IIII)V", nullptr, $STATIC, $staticMethod(D3DSurfaceData, swapBuffers, void, D3DSurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateWindowAccelImpl", "(JJII)Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(D3DSurfaceData, updateWindowAccelImpl, bool, int64_t, int64_t, int32_t, int32_t)},
+		{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceData, validatePipe, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DSurfaceData$D3DWindowSurfaceData", "sun.java2d.d3d.D3DSurfaceData", "D3DWindowSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.d3d.D3DSurfaceData$D3DDataBufferNative", "sun.java2d.d3d.D3DSurfaceData", "D3DDataBufferNative", $STATIC},
+		{"sun.java2d.d3d.D3DSurfaceData$2", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DSurfaceData$1", nullptr, nullptr, 0},
+		{"sun.java2d.d3d.D3DSurfaceData$1Status", nullptr, "Status", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.d3d.D3DSurfaceData",
+		"sun.java2d.SurfaceData",
+		"sun.java2d.pipe.hw.AccelSurface",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DSurfaceData$D3DWindowSurfaceData,sun.java2d.d3d.D3DSurfaceData$D3DDataBufferNative,sun.java2d.d3d.D3DSurfaceData$D3DDataBufferNative$2,sun.java2d.d3d.D3DSurfaceData$D3DDataBufferNative$1,sun.java2d.d3d.D3DSurfaceData$2,sun.java2d.d3d.D3DSurfaceData$1,sun.java2d.d3d.D3DSurfaceData$1Status"
+	};
+	$loadClass(D3DSurfaceData, name, initialize, &classInfo$$, D3DSurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(D3DSurfaceData));
+	});
 	return class$;
 }
 

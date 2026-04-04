@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XCrossingEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,84 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XCrossingEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XCrossingEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XCrossingEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XCrossingEvent, pData)},
-	{}
-};
-
-$MethodInfo _XCrossingEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XCrossingEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XCrossingEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCrossingEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XCrossingEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XCrossingEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XCrossingEvent, getSize, int32_t)},
-	{"get_detail", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_detail, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_display, int64_t)},
-	{"get_focus", "()Z", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_focus, bool)},
-	{"get_mode", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_mode, int32_t)},
-	{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_root, int64_t)},
-	{"get_same_screen", "()Z", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_same_screen, bool)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_serial, int64_t)},
-	{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_state, int32_t)},
-	{"get_subwindow", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_subwindow, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_window, int64_t)},
-	{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_x, int32_t)},
-	{"get_x_root", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_x_root, int32_t)},
-	{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_y, int32_t)},
-	{"get_y_root", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_y_root, int32_t)},
-	{"set_detail", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_detail, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_display, void, int64_t)},
-	{"set_focus", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_focus, void, bool)},
-	{"set_mode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_mode, void, int32_t)},
-	{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_root, void, int64_t)},
-	{"set_same_screen", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_same_screen, void, bool)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_serial, void, int64_t)},
-	{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_state, void, int32_t)},
-	{"set_subwindow", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_subwindow, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_window, void, int64_t)},
-	{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_x, void, int32_t)},
-	{"set_x_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_x_root, void, int32_t)},
-	{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_y, void, int32_t)},
-	{"set_y_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_y_root, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCrossingEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCrossingEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XCrossingEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XCrossingEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XCrossingEvent_FieldInfo_,
-	_XCrossingEvent_MethodInfo_
-};
-
-$Object* allocate$XCrossingEvent($Class* clazz) {
-	return $of($alloc(XCrossingEvent));
-}
 
 int32_t XCrossingEvent::getSize() {
 	$init(XCrossingEvent);
@@ -127,7 +55,7 @@ void XCrossingEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -341,7 +269,7 @@ $String* XCrossingEvent::getName() {
 }
 
 $String* XCrossingEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 680));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -365,7 +293,7 @@ $String* XCrossingEvent::getFieldsAsString() {
 }
 
 $Object* XCrossingEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XCrossingEvent::zero() {
@@ -380,7 +308,71 @@ XCrossingEvent::XCrossingEvent() {
 }
 
 $Class* XCrossingEvent::load$($String* name, bool initialize) {
-	$loadClass(XCrossingEvent, name, initialize, &_XCrossingEvent_ClassInfo_, allocate$XCrossingEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XCrossingEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XCrossingEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XCrossingEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XCrossingEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XCrossingEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCrossingEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XCrossingEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XCrossingEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XCrossingEvent, getSize, int32_t)},
+		{"get_detail", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_detail, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_display, int64_t)},
+		{"get_focus", "()Z", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_focus, bool)},
+		{"get_mode", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_mode, int32_t)},
+		{"get_root", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_root, int64_t)},
+		{"get_same_screen", "()Z", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_same_screen, bool)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_serial, int64_t)},
+		{"get_state", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_state, int32_t)},
+		{"get_subwindow", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_subwindow, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_window, int64_t)},
+		{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_x, int32_t)},
+		{"get_x_root", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_x_root, int32_t)},
+		{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_y, int32_t)},
+		{"get_y_root", "()I", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, get_y_root, int32_t)},
+		{"set_detail", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_detail, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_display, void, int64_t)},
+		{"set_focus", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_focus, void, bool)},
+		{"set_mode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_mode, void, int32_t)},
+		{"set_root", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_root, void, int64_t)},
+		{"set_same_screen", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_same_screen, void, bool)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_serial, void, int64_t)},
+		{"set_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_state, void, int32_t)},
+		{"set_subwindow", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_subwindow, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_window, void, int64_t)},
+		{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_x, void, int32_t)},
+		{"set_x_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_x_root, void, int32_t)},
+		{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_y, void, int32_t)},
+		{"set_y_root", "(I)V", nullptr, $PUBLIC, $virtualMethod(XCrossingEvent, set_y_root, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCrossingEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XCrossingEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XCrossingEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XCrossingEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XCrossingEvent);
+	});
 	return class$;
 }
 

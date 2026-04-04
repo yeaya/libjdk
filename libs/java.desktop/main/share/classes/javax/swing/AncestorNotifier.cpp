@@ -1,12 +1,10 @@
 #include <javax/swing/AncestorNotifier.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/EventListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/event/AncestorEvent.h>
@@ -25,11 +23,9 @@ using $Window = ::java::awt::Window;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $JComponent = ::javax::swing::JComponent;
 using $AncestorEvent = ::javax::swing::event::AncestorEvent;
 using $AncestorListener = ::javax::swing::event::AncestorListener;
@@ -37,50 +33,6 @@ using $EventListenerList = ::javax::swing::event::EventListenerList;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _AncestorNotifier_FieldInfo_[] = {
-	{"firstInvisibleAncestor", "Ljava/awt/Component;", nullptr, $TRANSIENT, $field(AncestorNotifier, firstInvisibleAncestor)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, 0, $field(AncestorNotifier, listenerList)},
-	{"root", "Ljavax/swing/JComponent;", nullptr, 0, $field(AncestorNotifier, root)},
-	{}
-};
-
-$MethodInfo _AncestorNotifier_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, 0, $method(AncestorNotifier, init$, void, $JComponent*)},
-	{"addAncestorListener", "(Ljavax/swing/event/AncestorListener;)V", nullptr, 0, $virtualMethod(AncestorNotifier, addAncestorListener, void, $AncestorListener*)},
-	{"addListeners", "(Ljava/awt/Component;Z)V", nullptr, 0, $virtualMethod(AncestorNotifier, addListeners, void, $Component*, bool)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, componentMoved, void, $ComponentEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, componentShown, void, $ComponentEvent*)},
-	{"fireAncestorAdded", "(Ljavax/swing/JComponent;ILjava/awt/Container;Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(AncestorNotifier, fireAncestorAdded, void, $JComponent*, int32_t, $Container*, $Container*)},
-	{"fireAncestorMoved", "(Ljavax/swing/JComponent;ILjava/awt/Container;Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(AncestorNotifier, fireAncestorMoved, void, $JComponent*, int32_t, $Container*, $Container*)},
-	{"fireAncestorRemoved", "(Ljavax/swing/JComponent;ILjava/awt/Container;Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(AncestorNotifier, fireAncestorRemoved, void, $JComponent*, int32_t, $Container*, $Container*)},
-	{"getAncestorListeners", "()[Ljavax/swing/event/AncestorListener;", nullptr, 0, $virtualMethod(AncestorNotifier, getAncestorListeners, $AncestorListenerArray*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeAllListeners", "()V", nullptr, 0, $virtualMethod(AncestorNotifier, removeAllListeners, void)},
-	{"removeAncestorListener", "(Ljavax/swing/event/AncestorListener;)V", nullptr, 0, $virtualMethod(AncestorNotifier, removeAncestorListener, void, $AncestorListener*)},
-	{"removeListeners", "(Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(AncestorNotifier, removeListeners, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AncestorNotifier_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.AncestorNotifier",
-	"java.lang.Object",
-	"java.awt.event.ComponentListener,java.beans.PropertyChangeListener,java.io.Serializable",
-	_AncestorNotifier_FieldInfo_,
-	_AncestorNotifier_MethodInfo_
-};
-
-$Object* allocate$AncestorNotifier($Class* clazz) {
-	return $of($alloc(AncestorNotifier));
-}
 
 int32_t AncestorNotifier::hashCode() {
 	 return this->$ComponentListener::hashCode();
@@ -120,41 +72,41 @@ void AncestorNotifier::removeAncestorListener($AncestorListener* l) {
 
 $AncestorListenerArray* AncestorNotifier::getAncestorListeners() {
 	$load($AncestorListener);
-	return $fcast($AncestorListenerArray, $nc(this->listenerList)->getListeners($AncestorListener::class$));
+	return $cast($AncestorListenerArray, $nc(this->listenerList)->getListeners($AncestorListener::class$));
 }
 
 void AncestorNotifier::fireAncestorAdded($JComponent* source, int32_t id, $Container* ancestor, $Container* ancestorParent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($AncestorListener);
 		if ($equals(listeners->get(i), $AncestorListener::class$)) {
 			$var($AncestorEvent, ancestorEvent, $new($AncestorEvent, source, id, ancestor, ancestorParent));
-			$nc(($cast($AncestorListener, listeners->get(i + 1))))->ancestorAdded(ancestorEvent);
+			$nc($cast($AncestorListener, listeners->get(i + 1)))->ancestorAdded(ancestorEvent);
 		}
 	}
 }
 
 void AncestorNotifier::fireAncestorRemoved($JComponent* source, int32_t id, $Container* ancestor, $Container* ancestorParent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($AncestorListener);
 		if ($equals(listeners->get(i), $AncestorListener::class$)) {
 			$var($AncestorEvent, ancestorEvent, $new($AncestorEvent, source, id, ancestor, ancestorParent));
-			$nc(($cast($AncestorListener, listeners->get(i + 1))))->ancestorRemoved(ancestorEvent);
+			$nc($cast($AncestorListener, listeners->get(i + 1)))->ancestorRemoved(ancestorEvent);
 		}
 	}
 }
 
 void AncestorNotifier::fireAncestorMoved($JComponent* source, int32_t id, $Container* ancestor, $Container* ancestorParent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($AncestorListener);
 		if ($equals(listeners->get(i), $AncestorListener::class$)) {
 			$var($AncestorEvent, ancestorEvent, $new($AncestorEvent, source, id, ancestor, ancestorParent));
-			$nc(($cast($AncestorListener, listeners->get(i + 1))))->ancestorMoved(ancestorEvent);
+			$nc($cast($AncestorListener, listeners->get(i + 1)))->ancestorMoved(ancestorEvent);
 		}
 	}
 }
@@ -164,31 +116,31 @@ void AncestorNotifier::removeAllListeners() {
 }
 
 void AncestorNotifier::addListeners($Component* ancestor, bool addToFirst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, a, nullptr);
 	$set(this, firstInvisibleAncestor, nullptr);
 	for ($assign(a, ancestor); this->firstInvisibleAncestor == nullptr; $assign(a, $nc(a)->getParent())) {
 		if (addToFirst || a != ancestor) {
-			a->addComponentListener(this);
+			$nc(a)->addComponentListener(this);
 			if ($instanceOf($JComponent, a)) {
 				$var($JComponent, jAncestor, $cast($JComponent, a));
 				jAncestor->addPropertyChangeListener(this);
 			}
 		}
-		bool var$0 = !a->isVisible();
+		bool var$0 = !$nc(a)->isVisible();
 		if (var$0 || a->getParent() == nullptr || $instanceOf($Window, a)) {
 			$set(this, firstInvisibleAncestor, a);
 		}
 	}
-	if ($instanceOf($Window, this->firstInvisibleAncestor) && $nc(this->firstInvisibleAncestor)->isVisible()) {
+	if ($instanceOf($Window, this->firstInvisibleAncestor) && this->firstInvisibleAncestor->isVisible()) {
 		$set(this, firstInvisibleAncestor, nullptr);
 	}
 }
 
 void AncestorNotifier::removeListeners($Component* ancestor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, a, nullptr);
-	for ($assign(a, ancestor); a != nullptr; $assign(a, $nc(a)->getParent())) {
+	for ($assign(a, ancestor); a != nullptr; $assign(a, a->getParent())) {
 		a->removeComponentListener(this);
 		if ($instanceOf($JComponent, a)) {
 			$var($JComponent, jAncestor, $cast($JComponent, a));
@@ -204,13 +156,13 @@ void AncestorNotifier::componentResized($ComponentEvent* e) {
 }
 
 void AncestorNotifier::componentMoved($ComponentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, source, $nc(e)->getComponent());
 	fireAncestorMoved(this->root, $AncestorEvent::ANCESTOR_MOVED, $cast($Container, source), $($nc(source)->getParent()));
 }
 
 void AncestorNotifier::componentShown($ComponentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, ancestor, $nc(e)->getComponent());
 	if (ancestor == this->firstInvisibleAncestor) {
 		addListeners(ancestor, false);
@@ -221,7 +173,7 @@ void AncestorNotifier::componentShown($ComponentEvent* e) {
 }
 
 void AncestorNotifier::componentHidden($ComponentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, ancestor, $nc(e)->getComponent());
 	bool needsNotify = this->firstInvisibleAncestor == nullptr;
 	if (!($instanceOf($Window, ancestor))) {
@@ -234,12 +186,12 @@ void AncestorNotifier::componentHidden($ComponentEvent* e) {
 }
 
 void AncestorNotifier::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $nc(evt)->getPropertyName());
 	bool var$0 = s != nullptr;
 	if (var$0) {
 		bool var$1 = s->equals("parent"_s);
-		var$0 = (var$1 || s->equals("ancestor"_s));
+		var$0 = var$1 || s->equals("ancestor"_s);
 	}
 	if (var$0) {
 		$var($JComponent, component, $cast($JComponent, evt->getSource()));
@@ -266,7 +218,46 @@ AncestorNotifier::AncestorNotifier() {
 }
 
 $Class* AncestorNotifier::load$($String* name, bool initialize) {
-	$loadClass(AncestorNotifier, name, initialize, &_AncestorNotifier_ClassInfo_, allocate$AncestorNotifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"firstInvisibleAncestor", "Ljava/awt/Component;", nullptr, $TRANSIENT, $field(AncestorNotifier, firstInvisibleAncestor)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, 0, $field(AncestorNotifier, listenerList)},
+		{"root", "Ljavax/swing/JComponent;", nullptr, 0, $field(AncestorNotifier, root)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, 0, $method(AncestorNotifier, init$, void, $JComponent*)},
+		{"addAncestorListener", "(Ljavax/swing/event/AncestorListener;)V", nullptr, 0, $virtualMethod(AncestorNotifier, addAncestorListener, void, $AncestorListener*)},
+		{"addListeners", "(Ljava/awt/Component;Z)V", nullptr, 0, $virtualMethod(AncestorNotifier, addListeners, void, $Component*, bool)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, componentMoved, void, $ComponentEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, componentShown, void, $ComponentEvent*)},
+		{"fireAncestorAdded", "(Ljavax/swing/JComponent;ILjava/awt/Container;Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(AncestorNotifier, fireAncestorAdded, void, $JComponent*, int32_t, $Container*, $Container*)},
+		{"fireAncestorMoved", "(Ljavax/swing/JComponent;ILjava/awt/Container;Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(AncestorNotifier, fireAncestorMoved, void, $JComponent*, int32_t, $Container*, $Container*)},
+		{"fireAncestorRemoved", "(Ljavax/swing/JComponent;ILjava/awt/Container;Ljava/awt/Container;)V", nullptr, $PROTECTED, $virtualMethod(AncestorNotifier, fireAncestorRemoved, void, $JComponent*, int32_t, $Container*, $Container*)},
+		{"getAncestorListeners", "()[Ljavax/swing/event/AncestorListener;", nullptr, 0, $virtualMethod(AncestorNotifier, getAncestorListeners, $AncestorListenerArray*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AncestorNotifier, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeAllListeners", "()V", nullptr, 0, $virtualMethod(AncestorNotifier, removeAllListeners, void)},
+		{"removeAncestorListener", "(Ljavax/swing/event/AncestorListener;)V", nullptr, 0, $virtualMethod(AncestorNotifier, removeAncestorListener, void, $AncestorListener*)},
+		{"removeListeners", "(Ljava/awt/Component;)V", nullptr, 0, $virtualMethod(AncestorNotifier, removeListeners, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.AncestorNotifier",
+		"java.lang.Object",
+		"java.awt.event.ComponentListener,java.beans.PropertyChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AncestorNotifier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AncestorNotifier));
+	});
 	return class$;
 }
 

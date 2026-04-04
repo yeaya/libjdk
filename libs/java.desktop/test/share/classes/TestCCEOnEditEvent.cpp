@@ -1,5 +1,4 @@
 #include <TestCCEOnEditEvent.h>
-
 #include <TestCCEOnEditEvent$1.h>
 #include <TestCCEOnEditEvent$2.h>
 #include <TestCCEOnEditEvent$3.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
@@ -27,65 +25,16 @@ using $TestCCEOnEditEvent$1 = ::TestCCEOnEditEvent$1;
 using $TestCCEOnEditEvent$2 = ::TestCCEOnEditEvent$2;
 using $TestCCEOnEditEvent$3 = ::TestCCEOnEditEvent$3;
 using $TestCCEOnEditEvent$4 = ::TestCCEOnEditEvent$4;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
-using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $UndoableEditListener = ::javax::swing::event::UndoableEditListener;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $Document = ::javax::swing::text::Document;
-
-$FieldInfo _TestCCEOnEditEvent_FieldInfo_[] = {
-	{"contentPane", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(TestCCEOnEditEvent, contentPane)},
-	{"textArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE, $field(TestCCEOnEditEvent, textArea)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestCCEOnEditEvent, robot)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestCCEOnEditEvent, frame)},
-	{}
-};
-
-$MethodInfo _TestCCEOnEditEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestCCEOnEditEvent, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PUBLIC, $virtualMethod(TestCCEOnEditEvent, createAndShowGUI, void)},
-	{"createTextArea", "()V", nullptr, $PRIVATE, $method(TestCCEOnEditEvent, createTextArea, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestCCEOnEditEvent, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TestCCEOnEditEvent_InnerClassesInfo_[] = {
-	{"TestCCEOnEditEvent$4", nullptr, nullptr, 0},
-	{"TestCCEOnEditEvent$3", nullptr, nullptr, 0},
-	{"TestCCEOnEditEvent$2", nullptr, nullptr, 0},
-	{"TestCCEOnEditEvent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestCCEOnEditEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestCCEOnEditEvent",
-	"java.lang.Object",
-	nullptr,
-	_TestCCEOnEditEvent_FieldInfo_,
-	_TestCCEOnEditEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestCCEOnEditEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestCCEOnEditEvent$4,TestCCEOnEditEvent$3,TestCCEOnEditEvent$3$1,TestCCEOnEditEvent$2,TestCCEOnEditEvent$1"
-};
-
-$Object* allocate$TestCCEOnEditEvent($Class* clazz) {
-	return $of($alloc(TestCCEOnEditEvent));
-}
 
 $Robot* TestCCEOnEditEvent::robot = nullptr;
 $JFrame* TestCCEOnEditEvent::frame = nullptr;
@@ -96,54 +45,89 @@ void TestCCEOnEditEvent::init$() {
 }
 
 void TestCCEOnEditEvent::main($StringArray* arguments) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$init(TestCCEOnEditEvent);
-			$assignStatic(TestCCEOnEditEvent::robot, $new($Robot));
-			$nc(TestCCEOnEditEvent::robot)->setAutoDelay(50);
-			$var(TestCCEOnEditEvent, test, $new(TestCCEOnEditEvent));
-			$SwingUtilities::invokeAndWait($$new($TestCCEOnEditEvent$1, test));
-			$nc(TestCCEOnEditEvent::robot)->keyPress($KeyEvent::VK_ENTER);
-			$nc(TestCCEOnEditEvent::robot)->keyRelease($KeyEvent::VK_ENTER);
-			$nc(TestCCEOnEditEvent::robot)->waitForIdle();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SwingUtilities::invokeLater($$new($TestCCEOnEditEvent$2));
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init(TestCCEOnEditEvent);
+		$assignStatic(TestCCEOnEditEvent::robot, $new($Robot));
+		TestCCEOnEditEvent::robot->setAutoDelay(50);
+		$var(TestCCEOnEditEvent, test, $new(TestCCEOnEditEvent));
+		$SwingUtilities::invokeAndWait($$new($TestCCEOnEditEvent$1, test));
+		$nc(TestCCEOnEditEvent::robot)->keyPress($KeyEvent::VK_ENTER);
+		$nc(TestCCEOnEditEvent::robot)->keyRelease($KeyEvent::VK_ENTER);
+		$nc(TestCCEOnEditEvent::robot)->waitForIdle();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SwingUtilities::invokeLater($$new($TestCCEOnEditEvent$2));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void TestCCEOnEditEvent::createAndShowGUI() {
 	$assignStatic(TestCCEOnEditEvent::frame, $new($JFrame));
-	$set(this, contentPane, $nc(TestCCEOnEditEvent::frame)->getContentPane());
+	$set(this, contentPane, TestCCEOnEditEvent::frame->getContentPane());
 	createTextArea();
 	$nc(TestCCEOnEditEvent::frame)->setSize(200, 200);
 	$nc(TestCCEOnEditEvent::frame)->setVisible(true);
 }
 
 void TestCCEOnEditEvent::createTextArea() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, textArea, $new($TestCCEOnEditEvent$3, this, "Text Area"_s));
-	$nc($($nc(this->textArea)->getDocument()))->addUndoableEditListener($$new($TestCCEOnEditEvent$4, this));
+	$$nc(this->textArea->getDocument())->addUndoableEditListener($$new($TestCCEOnEditEvent$4, this));
 	try {
 		$nc(this->textArea)->setSelectionStart($nc(this->textArea)->getLineEndOffset(0));
 	} catch ($BadLocationException& exception) {
 	}
 	$var($JScrollPane, scrollPane, $new($JScrollPane, this->textArea, $JScrollPane::VERTICAL_SCROLLBAR_ALWAYS, $JScrollPane::HORIZONTAL_SCROLLBAR_ALWAYS));
-	$nc(this->contentPane)->add(static_cast<$Component*>(scrollPane));
+	$nc(this->contentPane)->add(scrollPane);
 }
 
 TestCCEOnEditEvent::TestCCEOnEditEvent() {
 }
 
 $Class* TestCCEOnEditEvent::load$($String* name, bool initialize) {
-	$loadClass(TestCCEOnEditEvent, name, initialize, &_TestCCEOnEditEvent_ClassInfo_, allocate$TestCCEOnEditEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"contentPane", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(TestCCEOnEditEvent, contentPane)},
+		{"textArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE, $field(TestCCEOnEditEvent, textArea)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestCCEOnEditEvent, robot)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestCCEOnEditEvent, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestCCEOnEditEvent, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PUBLIC, $virtualMethod(TestCCEOnEditEvent, createAndShowGUI, void)},
+		{"createTextArea", "()V", nullptr, $PRIVATE, $method(TestCCEOnEditEvent, createTextArea, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestCCEOnEditEvent, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestCCEOnEditEvent$4", nullptr, nullptr, 0},
+		{"TestCCEOnEditEvent$3", nullptr, nullptr, 0},
+		{"TestCCEOnEditEvent$2", nullptr, nullptr, 0},
+		{"TestCCEOnEditEvent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestCCEOnEditEvent",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestCCEOnEditEvent$4,TestCCEOnEditEvent$3,TestCCEOnEditEvent$3$1,TestCCEOnEditEvent$2,TestCCEOnEditEvent$1"
+	};
+	$loadClass(TestCCEOnEditEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestCCEOnEditEvent);
+	});
 	return class$;
 }
 

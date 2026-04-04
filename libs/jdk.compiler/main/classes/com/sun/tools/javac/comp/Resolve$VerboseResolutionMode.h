@@ -51,6 +51,7 @@ class $export Resolve$VerboseResolutionMode : public ::java::lang::Enum {
 public:
 	Resolve$VerboseResolutionMode();
 	static $Array<::com::sun::tools::javac::comp::Resolve$VerboseResolutionMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* opt);
 	static ::java::util::EnumSet* getVerboseResolutionMode(::com::sun::tools::javac::util::Options* opts);
 	static ::com::sun::tools::javac::comp::Resolve$VerboseResolutionMode* valueOf($String* name);

@@ -19,12 +19,13 @@ class ClassAttributeValueExp : public ::javax::management::AttributeValueExp {
 	$class(ClassAttributeValueExp, 0, ::javax::management::AttributeValueExp)
 public:
 	ClassAttributeValueExp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::management::ValueExp* apply(::javax::management::ObjectName* name) override;
 	virtual $Object* getValue(::javax::management::ObjectName* name);
 	virtual $String* toString() override;
-	static const int64_t oldSerialVersionUID = (int64_t)0xE14ACC0398CEB0DF;
-	static const int64_t newSerialVersionUID = (int64_t)0xF0FC58E41492EA31;
+	static const int64_t oldSerialVersionUID = (int64_t)0xe14acc0398ceb0df;
+	static const int64_t newSerialVersionUID = (int64_t)0xf0fc58e41492ea31;
 	static int64_t serialVersionUID;
 	$String* attr = nullptr;
 };

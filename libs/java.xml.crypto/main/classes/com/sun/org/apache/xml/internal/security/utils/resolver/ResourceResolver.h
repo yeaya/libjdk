@@ -85,6 +85,7 @@ class ResourceResolver : public ::java::lang::Object {
 	$class(ResourceResolver, 0, ::java::lang::Object)
 public:
 	ResourceResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void register$($String* className);
 	static void register$(::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverSpi* resourceResolverSpi, bool start);

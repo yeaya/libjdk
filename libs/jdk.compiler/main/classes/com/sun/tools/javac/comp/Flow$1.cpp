@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$1.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Kinds.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
@@ -38,112 +37,74 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Flow$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{"$SwitchMap$com$sun$tools$javac$code$Kinds$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$1, $SwitchMap$com$sun$tools$javac$code$Kinds$Kind)},
-	{}
-};
-
-$EnclosingMethodInfo _Flow$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Flow",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Flow$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Flow$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.comp.Flow$1",
-	"java.lang.Object",
-	nullptr,
-	_Flow$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_Flow$1_EnclosingMethodInfo_,
-	_Flow$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$1($Class* clazz) {
-	return $of($alloc(Flow$1));
-}
-
 $ints* Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag = nullptr;
 $ints* Flow$1::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 $ints* Flow$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind = nullptr;
 
-void clinit$Flow$1($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Flow$1::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag, $new($ints, $($JCTree$Tag::values())->length));
 	{
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::NOT->ordinal(), 1);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::NOT->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PREINC->ordinal(), 2);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PREINC->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POSTINC->ordinal(), 3);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POSTINC->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::PREDEC->ordinal(), 4);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::PREDEC->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::POSTDEC->ordinal(), 5);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::POSTDEC->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::AND->ordinal(), 6);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::AND->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::OR->ordinal(), 7);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::OR->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::CLASSDEF->ordinal(), 8);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::CLASSDEF->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::GUARDPATTERN->ordinal(), 9);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::GUARDPATTERN->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::LAMBDA->ordinal(), 10);
+			Flow$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::LAMBDA->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Flow$1::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CLASS->ordinal(), 1);
+			Flow$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CLASS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::TYPEVAR->ordinal(), 2);
+			Flow$1::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::TYPEVAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(Flow$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind, $new($ints, $($Kinds$Kind::values())->length));
 	{
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->set($Kinds$Kind::VAR->ordinal(), 1);
+			Flow$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind->set($Kinds$Kind::VAR->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(Flow$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->set($Kinds$Kind::TYP->ordinal(), 2);
+			Flow$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind->set($Kinds$Kind::TYP->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -153,7 +114,39 @@ Flow$1::Flow$1() {
 }
 
 $Class* Flow$1::load$($String* name, bool initialize) {
-	$loadClass(Flow$1, name, initialize, &_Flow$1_ClassInfo_, clinit$Flow$1, allocate$Flow$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$1, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{"$SwitchMap$com$sun$tools$javac$code$Kinds$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$1, $SwitchMap$com$sun$tools$javac$code$Kinds$Kind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Flow",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.comp.Flow$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$1, name, initialize, &classInfo$$, Flow$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$1);
+	});
 	return class$;
 }
 

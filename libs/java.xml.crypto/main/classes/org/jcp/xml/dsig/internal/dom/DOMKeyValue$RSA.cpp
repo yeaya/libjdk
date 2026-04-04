@@ -1,11 +1,9 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue$RSA.h>
-
 #include <java/math/BigInteger.h>
 #include <java/security/KeyFactory.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PublicKey.h>
 #include <java/security/interfaces/RSAPublicKey.h>
-#include <java/security/spec/KeySpec.h>
 #include <java/security/spec/RSAPublicKeySpec.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dsig/XMLSignature.h>
@@ -29,7 +27,6 @@ using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PublicKey = ::java::security::PublicKey;
 using $RSAPublicKey = ::java::security::interfaces::RSAPublicKey;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $RSAPublicKeySpec = ::java::security::spec::RSAPublicKeySpec;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
@@ -47,52 +44,12 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMKeyValue$RSA_FieldInfo_[] = {
-	{"modulus", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$RSA, modulus)},
-	{"exponent", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$RSA, exponent)},
-	{"rsakf", "Ljava/security/KeyFactory;", nullptr, $PRIVATE, $field(DOMKeyValue$RSA, rsakf)},
-	{}
-};
-
-$MethodInfo _DOMKeyValue$RSA_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/interfaces/RSAPublicKey;)V", nullptr, 0, $method(DOMKeyValue$RSA, init$, void, $RSAPublicKey*), "java.security.KeyException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$RSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$RSA, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/interfaces/RSAPublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$RSA, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$InnerClassInfo _DOMKeyValue$RSA_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$RSA", "org.jcp.xml.dsig.internal.dom.DOMKeyValue", "RSA", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMKeyValue$RSA_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue$RSA",
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue",
-	nullptr,
-	_DOMKeyValue$RSA_FieldInfo_,
-	_DOMKeyValue$RSA_MethodInfo_,
-	"Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue<Ljava/security/interfaces/RSAPublicKey;>;",
-	nullptr,
-	_DOMKeyValue$RSA_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMKeyValue"
-};
-
-$Object* allocate$DOMKeyValue$RSA($Class* clazz) {
-	return $of($alloc(DOMKeyValue$RSA));
-}
-
 void DOMKeyValue$RSA::init$($RSAPublicKey* key) {
-	$useLocalCurrentObjectStackCache();
-	$DOMKeyValue::init$(static_cast<$PublicKey*>(key));
+	$useLocalObjectStack();
+	$DOMKeyValue::init$(key);
 	$var($RSAPublicKey, rkey, key);
 	$set(this, exponent, $new($DOMCryptoBinary, $($nc(rkey)->getPublicExponent())));
-	$set(this, modulus, $new($DOMCryptoBinary, $($nc(rkey)->getModulus())));
+	$set(this, modulus, $new($DOMCryptoBinary, $(rkey->getModulus())));
 }
 
 void DOMKeyValue$RSA::init$($Element* elem) {
@@ -100,7 +57,7 @@ void DOMKeyValue$RSA::init$($Element* elem) {
 }
 
 void DOMKeyValue$RSA::marshalPublicKey($Node* parent, $Document* doc, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XMLSignature);
 	$var($Element, rsaElem, $DOMUtils::createElement(doc, "RSAKeyValue"_s, $XMLSignature::XMLNS, dsPrefix));
 	$var($Element, modulusElem, $DOMUtils::createElement(doc, "Modulus"_s, $XMLSignature::XMLNS, dsPrefix));
@@ -113,7 +70,7 @@ void DOMKeyValue$RSA::marshalPublicKey($Node* parent, $Document* doc, $String* d
 }
 
 $PublicKey* DOMKeyValue$RSA::unmarshalKeyValue($Element* kvtElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->rsakf == nullptr) {
 		try {
 			$set(this, rsakf, $KeyFactory::getInstance("RSA"_s));
@@ -134,7 +91,41 @@ DOMKeyValue$RSA::DOMKeyValue$RSA() {
 }
 
 $Class* DOMKeyValue$RSA::load$($String* name, bool initialize) {
-	$loadClass(DOMKeyValue$RSA, name, initialize, &_DOMKeyValue$RSA_ClassInfo_, allocate$DOMKeyValue$RSA);
+	$FieldInfo fieldInfos$$[] = {
+		{"modulus", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$RSA, modulus)},
+		{"exponent", "Lorg/jcp/xml/dsig/internal/dom/DOMCryptoBinary;", nullptr, $PRIVATE, $field(DOMKeyValue$RSA, exponent)},
+		{"rsakf", "Ljava/security/KeyFactory;", nullptr, $PRIVATE, $field(DOMKeyValue$RSA, rsakf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/interfaces/RSAPublicKey;)V", nullptr, 0, $method(DOMKeyValue$RSA, init$, void, $RSAPublicKey*), "java.security.KeyException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMKeyValue$RSA, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"marshalPublicKey", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Document;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, 0, $virtualMethod(DOMKeyValue$RSA, marshalPublicKey, void, $Node*, $Document*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalKeyValue", "(Lorg/w3c/dom/Element;)Ljava/security/interfaces/RSAPublicKey;", nullptr, 0, $virtualMethod(DOMKeyValue$RSA, unmarshalKeyValue, $PublicKey*, $Element*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMKeyValue$RSA", "org.jcp.xml.dsig.internal.dom.DOMKeyValue", "RSA", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue$RSA",
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lorg/jcp/xml/dsig/internal/dom/DOMKeyValue<Ljava/security/interfaces/RSAPublicKey;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMKeyValue"
+	};
+	$loadClass(DOMKeyValue$RSA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMKeyValue$RSA));
+	});
 	return class$;
 }
 

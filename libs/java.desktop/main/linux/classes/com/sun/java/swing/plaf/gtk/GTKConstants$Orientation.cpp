@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$Orientation.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,46 +19,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKConstants$Orientation_FieldInfo_[] = {
-	{"HORIZONTAL", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$Orientation, HORIZONTAL)},
-	{"VERTICAL", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$Orientation, VERTICAL)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$Orientation, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKConstants$Orientation_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$Orientation, $values, $GTKConstants$OrientationArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$Orientation, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$Orientation, valueOf, GTKConstants$Orientation*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$Orientation, values, $GTKConstants$OrientationArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKConstants$Orientation_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKConstants$Orientation", "com.sun.java.swing.plaf.gtk.GTKConstants", "Orientation", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKConstants$Orientation_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKConstants$Orientation",
-	"java.lang.Enum",
-	nullptr,
-	_GTKConstants$Orientation_FieldInfo_,
-	_GTKConstants$Orientation_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;>;",
-	nullptr,
-	_GTKConstants$Orientation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKConstants"
-};
-
-$Object* allocate$GTKConstants$Orientation($Class* clazz) {
-	return $of($alloc(GTKConstants$Orientation));
-}
 
 GTKConstants$Orientation* GTKConstants$Orientation::HORIZONTAL = nullptr;
 GTKConstants$Orientation* GTKConstants$Orientation::VERTICAL = nullptr;
@@ -87,7 +46,7 @@ void GTKConstants$Orientation::init$($String* $enum$name, int32_t $enum$ordinal)
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKConstants$Orientation($Class* class$) {
+void GTKConstants$Orientation::clinit$($Class* clazz) {
 	$assignStatic(GTKConstants$Orientation::HORIZONTAL, $new(GTKConstants$Orientation, "HORIZONTAL"_s, 0));
 	$assignStatic(GTKConstants$Orientation::VERTICAL, $new(GTKConstants$Orientation, "VERTICAL"_s, 1));
 	$assignStatic(GTKConstants$Orientation::$VALUES, GTKConstants$Orientation::$values());
@@ -97,7 +56,41 @@ GTKConstants$Orientation::GTKConstants$Orientation() {
 }
 
 $Class* GTKConstants$Orientation::load$($String* name, bool initialize) {
-	$loadClass(GTKConstants$Orientation, name, initialize, &_GTKConstants$Orientation_ClassInfo_, clinit$GTKConstants$Orientation, allocate$GTKConstants$Orientation);
+	$FieldInfo fieldInfos$$[] = {
+		{"HORIZONTAL", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$Orientation, HORIZONTAL)},
+		{"VERTICAL", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$Orientation, VERTICAL)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$Orientation, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$Orientation, $values, $GTKConstants$OrientationArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$Orientation, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$Orientation, valueOf, GTKConstants$Orientation*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$Orientation, values, $GTKConstants$OrientationArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKConstants$Orientation", "com.sun.java.swing.plaf.gtk.GTKConstants", "Orientation", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKConstants$Orientation",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$Orientation;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKConstants"
+	};
+	$loadClass(GTKConstants$Orientation, name, initialize, &classInfo$$, GTKConstants$Orientation::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKConstants$Orientation));
+	});
 	return class$;
 }
 

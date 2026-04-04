@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DragSourceDragEvent.h>
-
 #include <java/awt/dnd/DnDConstants.h>
 #include <java/awt/dnd/DragSourceContext.h>
 #include <java/awt/dnd/DragSourceEvent.h>
@@ -34,43 +33,6 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$FieldInfo _DragSourceDragEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DragSourceDragEvent, serialVersionUID)},
-	{"JDK_1_3_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DragSourceDragEvent, JDK_1_3_MODIFIERS)},
-	{"JDK_1_4_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DragSourceDragEvent, JDK_1_4_MODIFIERS)},
-	{"targetActions", "I", nullptr, $PRIVATE, $field(DragSourceDragEvent, targetActions)},
-	{"dropAction", "I", nullptr, $PRIVATE, $field(DragSourceDragEvent, dropAction)},
-	{"gestureModifiers", "I", nullptr, $PRIVATE, $field(DragSourceDragEvent, gestureModifiers)},
-	{"invalidModifiers", "Z", nullptr, $PRIVATE, $field(DragSourceDragEvent, invalidModifiers)},
-	{}
-};
-
-$MethodInfo _DragSourceDragEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/dnd/DragSourceContext;III)V", nullptr, $PUBLIC, $method(DragSourceDragEvent, init$, void, $DragSourceContext*, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/dnd/DragSourceContext;IIIII)V", nullptr, $PUBLIC, $method(DragSourceDragEvent, init$, void, $DragSourceContext*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getDropAction", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getDropAction, int32_t)},
-	{"getGestureModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getGestureModifiers, int32_t)},
-	{"getGestureModifiersEx", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getGestureModifiersEx, int32_t)},
-	{"getTargetActions", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getTargetActions, int32_t)},
-	{"getUserAction", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getUserAction, int32_t)},
-	{"setNewModifiers", "()V", nullptr, $PRIVATE, $method(DragSourceDragEvent, setNewModifiers, void)},
-	{"setOldModifiers", "()V", nullptr, $PRIVATE, $method(DragSourceDragEvent, setOldModifiers, void)},
-	{}
-};
-
-$ClassInfo _DragSourceDragEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.dnd.DragSourceDragEvent",
-	"java.awt.dnd.DragSourceEvent",
-	nullptr,
-	_DragSourceDragEvent_FieldInfo_,
-	_DragSourceDragEvent_MethodInfo_
-};
-
-$Object* allocate$DragSourceDragEvent($Class* clazz) {
-	return $of($alloc(DragSourceDragEvent));
-}
-
 void DragSourceDragEvent::init$($DragSourceContext* dsc, int32_t dropAction, int32_t action, int32_t modifiers) {
 	$DragSourceEvent::init$(dsc);
 	this->targetActions = $DnDConstants::ACTION_NONE;
@@ -79,15 +41,15 @@ void DragSourceDragEvent::init$($DragSourceContext* dsc, int32_t dropAction, int
 	this->targetActions = action;
 	this->gestureModifiers = modifiers;
 	this->dropAction = dropAction;
-	if (((int32_t)(modifiers & (uint32_t)~(DragSourceDragEvent::JDK_1_3_MODIFIERS | DragSourceDragEvent::JDK_1_4_MODIFIERS))) != 0) {
+	if ((modifiers & ~(DragSourceDragEvent::JDK_1_3_MODIFIERS | DragSourceDragEvent::JDK_1_4_MODIFIERS)) != 0) {
 		this->invalidModifiers = true;
 	} else {
-		bool var$1 = (getGestureModifiers() != 0);
-		if (var$1 && (getGestureModifiersEx() == 0)) {
+		bool var$0 = getGestureModifiers() != 0;
+		if (var$0 && (getGestureModifiersEx() == 0)) {
 			setNewModifiers();
 		} else {
-			bool var$3 = (getGestureModifiers() == 0);
-			if (var$3 && (getGestureModifiersEx() != 0)) {
+			bool var$1 = getGestureModifiers() == 0;
+			if (var$1 && (getGestureModifiersEx() != 0)) {
 				setOldModifiers();
 			} else {
 				this->invalidModifiers = true;
@@ -104,15 +66,15 @@ void DragSourceDragEvent::init$($DragSourceContext* dsc, int32_t dropAction, int
 	this->targetActions = action;
 	this->gestureModifiers = modifiers;
 	this->dropAction = dropAction;
-	if (((int32_t)(modifiers & (uint32_t)~(DragSourceDragEvent::JDK_1_3_MODIFIERS | DragSourceDragEvent::JDK_1_4_MODIFIERS))) != 0) {
+	if ((modifiers & ~(DragSourceDragEvent::JDK_1_3_MODIFIERS | DragSourceDragEvent::JDK_1_4_MODIFIERS)) != 0) {
 		this->invalidModifiers = true;
 	} else {
-		bool var$1 = (getGestureModifiers() != 0);
-		if (var$1 && (getGestureModifiersEx() == 0)) {
+		bool var$0 = getGestureModifiers() != 0;
+		if (var$0 && (getGestureModifiersEx() == 0)) {
 			setNewModifiers();
 		} else {
-			bool var$3 = (getGestureModifiers() == 0);
-			if (var$3 && (getGestureModifiersEx() != 0)) {
+			bool var$1 = getGestureModifiers() == 0;
+			if (var$1 && (getGestureModifiersEx() != 0)) {
 				setOldModifiers();
 			} else {
 				this->invalidModifiers = true;
@@ -126,11 +88,11 @@ int32_t DragSourceDragEvent::getTargetActions() {
 }
 
 int32_t DragSourceDragEvent::getGestureModifiers() {
-	return this->invalidModifiers ? this->gestureModifiers : (int32_t)(this->gestureModifiers & (uint32_t)DragSourceDragEvent::JDK_1_3_MODIFIERS);
+	return this->invalidModifiers ? this->gestureModifiers : this->gestureModifiers & DragSourceDragEvent::JDK_1_3_MODIFIERS;
 }
 
 int32_t DragSourceDragEvent::getGestureModifiersEx() {
-	return this->invalidModifiers ? this->gestureModifiers : (int32_t)(this->gestureModifiers & (uint32_t)DragSourceDragEvent::JDK_1_4_MODIFIERS);
+	return this->invalidModifiers ? this->gestureModifiers : this->gestureModifiers & DragSourceDragEvent::JDK_1_4_MODIFIERS;
 }
 
 int32_t DragSourceDragEvent::getUserAction() {
@@ -138,47 +100,47 @@ int32_t DragSourceDragEvent::getUserAction() {
 }
 
 int32_t DragSourceDragEvent::getDropAction() {
-	return (int32_t)(this->targetActions & (uint32_t)$nc($(getDragSourceContext()))->getSourceActions());
+	return this->targetActions & $$nc(getDragSourceContext())->getSourceActions();
 }
 
 void DragSourceDragEvent::setNewModifiers() {
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::BUTTON1_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::BUTTON1_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::BUTTON1_DOWN_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::BUTTON2_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::BUTTON2_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::BUTTON2_DOWN_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::BUTTON3_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::BUTTON3_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::BUTTON3_DOWN_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::SHIFT_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::SHIFT_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::SHIFT_DOWN_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::CTRL_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::CTRL_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::CTRL_DOWN_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::ALT_GRAPH_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::ALT_GRAPH_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::ALT_GRAPH_DOWN_MASK;
 	}
 }
 
 void DragSourceDragEvent::setOldModifiers() {
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::BUTTON1_DOWN_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::BUTTON1_DOWN_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::BUTTON1_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::BUTTON2_DOWN_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::BUTTON2_DOWN_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::BUTTON2_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::BUTTON3_DOWN_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::BUTTON3_DOWN_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::BUTTON3_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::SHIFT_DOWN_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::SHIFT_DOWN_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::SHIFT_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::CTRL_DOWN_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::CTRL_DOWN_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::CTRL_MASK;
 	}
-	if (((int32_t)(this->gestureModifiers & (uint32_t)$InputEvent::ALT_GRAPH_DOWN_MASK)) != 0) {
+	if ((this->gestureModifiers & $InputEvent::ALT_GRAPH_DOWN_MASK) != 0) {
 		this->gestureModifiers |= $InputEvent::ALT_GRAPH_MASK;
 	}
 }
@@ -187,7 +149,39 @@ DragSourceDragEvent::DragSourceDragEvent() {
 }
 
 $Class* DragSourceDragEvent::load$($String* name, bool initialize) {
-	$loadClass(DragSourceDragEvent, name, initialize, &_DragSourceDragEvent_ClassInfo_, allocate$DragSourceDragEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DragSourceDragEvent, serialVersionUID)},
+		{"JDK_1_3_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DragSourceDragEvent, JDK_1_3_MODIFIERS)},
+		{"JDK_1_4_MODIFIERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DragSourceDragEvent, JDK_1_4_MODIFIERS)},
+		{"targetActions", "I", nullptr, $PRIVATE, $field(DragSourceDragEvent, targetActions)},
+		{"dropAction", "I", nullptr, $PRIVATE, $field(DragSourceDragEvent, dropAction)},
+		{"gestureModifiers", "I", nullptr, $PRIVATE, $field(DragSourceDragEvent, gestureModifiers)},
+		{"invalidModifiers", "Z", nullptr, $PRIVATE, $field(DragSourceDragEvent, invalidModifiers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/dnd/DragSourceContext;III)V", nullptr, $PUBLIC, $method(DragSourceDragEvent, init$, void, $DragSourceContext*, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/dnd/DragSourceContext;IIIII)V", nullptr, $PUBLIC, $method(DragSourceDragEvent, init$, void, $DragSourceContext*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getDropAction", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getDropAction, int32_t)},
+		{"getGestureModifiers", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getGestureModifiers, int32_t)},
+		{"getGestureModifiersEx", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getGestureModifiersEx, int32_t)},
+		{"getTargetActions", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getTargetActions, int32_t)},
+		{"getUserAction", "()I", nullptr, $PUBLIC, $virtualMethod(DragSourceDragEvent, getUserAction, int32_t)},
+		{"setNewModifiers", "()V", nullptr, $PRIVATE, $method(DragSourceDragEvent, setNewModifiers, void)},
+		{"setOldModifiers", "()V", nullptr, $PRIVATE, $method(DragSourceDragEvent, setOldModifiers, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.dnd.DragSourceDragEvent",
+		"java.awt.dnd.DragSourceEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DragSourceDragEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DragSourceDragEvent);
+	});
 	return class$;
 }
 

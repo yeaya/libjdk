@@ -1,5 +1,4 @@
 #include <javax/swing/SpinnerDateModel.h>
-
 #include <java/lang/Comparable.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -34,83 +33,26 @@ using $AbstractSpinnerModel = ::javax::swing::AbstractSpinnerModel;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _SpinnerDateModel_FieldInfo_[] = {
-	{"start", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<Ljava/util/Date;>;", $PRIVATE, $field(SpinnerDateModel, start)},
-	{"end", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<Ljava/util/Date;>;", $PRIVATE, $field(SpinnerDateModel, end)},
-	{"value", "Ljava/util/Calendar;", nullptr, $PRIVATE, $field(SpinnerDateModel, value)},
-	{"calendarField", "I", nullptr, $PRIVATE, $field(SpinnerDateModel, calendarField)},
-	{}
-};
-
-$MethodInfo _SpinnerDateModel_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Date;Ljava/lang/Comparable;Ljava/lang/Comparable;I)V", "(Ljava/util/Date;Ljava/lang/Comparable<Ljava/util/Date;>;Ljava/lang/Comparable<Ljava/util/Date;>;I)V", $PUBLIC, $method(SpinnerDateModel, init$, void, $Date*, $Comparable*, $Comparable*, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerDateModel, init$, void)},
-	{"calendarFieldOK", "(I)Z", nullptr, $PRIVATE, $method(SpinnerDateModel, calendarFieldOK, bool, int32_t)},
-	{"getCalendarField", "()I", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getCalendarField, int32_t)},
-	{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getDate, $Date*)},
-	{"getEnd", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<Ljava/util/Date;>;", $PUBLIC, $virtualMethod(SpinnerDateModel, getEnd, $Comparable*)},
-	{"getNextValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getNextValue, $Object*)},
-	{"getPreviousValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getPreviousValue, $Object*)},
-	{"getStart", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<Ljava/util/Date;>;", $PUBLIC, $virtualMethod(SpinnerDateModel, getStart, $Comparable*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getValue, $Object*)},
-	{"setCalendarField", "(I)V", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, setCalendarField, void, int32_t)},
-	{"setEnd", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<Ljava/util/Date;>;)V", $PUBLIC, $virtualMethod(SpinnerDateModel, setEnd, void, $Comparable*)},
-	{"setStart", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<Ljava/util/Date;>;)V", $PUBLIC, $virtualMethod(SpinnerDateModel, setStart, void, $Comparable*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, setValue, void, Object$*)},
-	{}
-};
-
-$ClassInfo _SpinnerDateModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.SpinnerDateModel",
-	"javax.swing.AbstractSpinnerModel",
-	nullptr,
-	_SpinnerDateModel_FieldInfo_,
-	_SpinnerDateModel_MethodInfo_
-};
-
-$Object* allocate$SpinnerDateModel($Class* clazz) {
-	return $of($alloc(SpinnerDateModel));
-}
-
 bool SpinnerDateModel::calendarFieldOK(int32_t calendarField) {
 	switch (calendarField) {
 	case $Calendar::ERA:
-		{}
 	case $Calendar::YEAR:
-		{}
 	case $Calendar::MONTH:
-		{}
 	case $Calendar::WEEK_OF_YEAR:
-		{}
 	case $Calendar::WEEK_OF_MONTH:
-		{}
 	case $Calendar::DAY_OF_MONTH:
-		{}
 	case $Calendar::DAY_OF_YEAR:
-		{}
 	case $Calendar::DAY_OF_WEEK:
-		{}
 	case $Calendar::DAY_OF_WEEK_IN_MONTH:
-		{}
 	case $Calendar::AM_PM:
-		{}
 	case $Calendar::HOUR:
-		{}
 	case $Calendar::HOUR_OF_DAY:
-		{}
 	case $Calendar::MINUTE:
-		{}
 	case $Calendar::SECOND:
-		{}
 	case $Calendar::MILLISECOND:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
@@ -122,8 +64,8 @@ void SpinnerDateModel::init$($Date* value, $Comparable* start, $Comparable* end,
 	if (!calendarFieldOK(calendarField)) {
 		$throwNew($IllegalArgumentException, "invalid calendarField"_s);
 	}
-	bool var$0 = ((start == nullptr) || ($nc(start)->compareTo(value) <= 0));
-	if (!(var$0 && ((end == nullptr) || ($nc(end)->compareTo(value) >= 0)))) {
+	bool var$0 = (start == nullptr) || (start->compareTo(value) <= 0);
+	if (!(var$0 && ((end == nullptr) || (end->compareTo(value) >= 0)))) {
 		$throwNew($IllegalArgumentException, "(start <= value <= end) is false"_s);
 	}
 	$set(this, value, $Calendar::getInstance());
@@ -138,7 +80,7 @@ void SpinnerDateModel::init$() {
 }
 
 void SpinnerDateModel::setStart($Comparable* start) {
-	if ((start == nullptr) ? (this->start != nullptr) : !$nc($of(start))->equals(this->start)) {
+	if ((start == nullptr) ? (this->start != nullptr) : !$of(start)->equals(this->start)) {
 		$set(this, start, start);
 		fireStateChanged();
 	}
@@ -149,7 +91,7 @@ $Comparable* SpinnerDateModel::getStart() {
 }
 
 void SpinnerDateModel::setEnd($Comparable* end) {
-	if ((end == nullptr) ? (this->end != nullptr) : !$nc($of(end))->equals(this->end)) {
+	if ((end == nullptr) ? (this->end != nullptr) : !$of(end)->equals(this->end)) {
 		$set(this, end, end);
 		fireStateChanged();
 	}
@@ -174,21 +116,21 @@ int32_t SpinnerDateModel::getCalendarField() {
 }
 
 $Object* SpinnerDateModel::getNextValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Calendar, cal, $Calendar::getInstance());
 	$nc(cal)->setTime($($nc(this->value)->getTime()));
 	cal->add(this->calendarField, 1);
 	$var($Date, next, cal->getTime());
-	return $of(((this->end == nullptr) || ($nc(this->end)->compareTo(next) >= 0)) ? $of(next) : ($Object*)nullptr);
+	return ((this->end == nullptr) || (this->end->compareTo(next) >= 0)) ? $of(next) : ($Object*)nullptr;
 }
 
 $Object* SpinnerDateModel::getPreviousValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Calendar, cal, $Calendar::getInstance());
 	$nc(cal)->setTime($($nc(this->value)->getTime()));
 	cal->add(this->calendarField, -1);
 	$var($Date, prev, cal->getTime());
-	return $of(((this->start == nullptr) || ($nc(this->start)->compareTo(prev) <= 0)) ? $of(prev) : ($Object*)nullptr);
+	return ((this->start == nullptr) || (this->start->compareTo(prev) <= 0)) ? $of(prev) : ($Object*)nullptr;
 }
 
 $Date* SpinnerDateModel::getDate() {
@@ -204,7 +146,7 @@ void SpinnerDateModel::setValue(Object$* value) {
 		$throwNew($IllegalArgumentException, "illegal value"_s);
 	}
 	if (!$nc($of(value))->equals($($nc(this->value)->getTime()))) {
-		$nc(this->value)->setTime($cast($Date, value));
+		this->value->setTime($cast($Date, value));
 		fireStateChanged();
 	}
 }
@@ -213,7 +155,41 @@ SpinnerDateModel::SpinnerDateModel() {
 }
 
 $Class* SpinnerDateModel::load$($String* name, bool initialize) {
-	$loadClass(SpinnerDateModel, name, initialize, &_SpinnerDateModel_ClassInfo_, allocate$SpinnerDateModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"start", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<Ljava/util/Date;>;", $PRIVATE, $field(SpinnerDateModel, start)},
+		{"end", "Ljava/lang/Comparable;", "Ljava/lang/Comparable<Ljava/util/Date;>;", $PRIVATE, $field(SpinnerDateModel, end)},
+		{"value", "Ljava/util/Calendar;", nullptr, $PRIVATE, $field(SpinnerDateModel, value)},
+		{"calendarField", "I", nullptr, $PRIVATE, $field(SpinnerDateModel, calendarField)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Date;Ljava/lang/Comparable;Ljava/lang/Comparable;I)V", "(Ljava/util/Date;Ljava/lang/Comparable<Ljava/util/Date;>;Ljava/lang/Comparable<Ljava/util/Date;>;I)V", $PUBLIC, $method(SpinnerDateModel, init$, void, $Date*, $Comparable*, $Comparable*, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpinnerDateModel, init$, void)},
+		{"calendarFieldOK", "(I)Z", nullptr, $PRIVATE, $method(SpinnerDateModel, calendarFieldOK, bool, int32_t)},
+		{"getCalendarField", "()I", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getCalendarField, int32_t)},
+		{"getDate", "()Ljava/util/Date;", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getDate, $Date*)},
+		{"getEnd", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<Ljava/util/Date;>;", $PUBLIC, $virtualMethod(SpinnerDateModel, getEnd, $Comparable*)},
+		{"getNextValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getNextValue, $Object*)},
+		{"getPreviousValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getPreviousValue, $Object*)},
+		{"getStart", "()Ljava/lang/Comparable;", "()Ljava/lang/Comparable<Ljava/util/Date;>;", $PUBLIC, $virtualMethod(SpinnerDateModel, getStart, $Comparable*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, getValue, $Object*)},
+		{"setCalendarField", "(I)V", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, setCalendarField, void, int32_t)},
+		{"setEnd", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<Ljava/util/Date;>;)V", $PUBLIC, $virtualMethod(SpinnerDateModel, setEnd, void, $Comparable*)},
+		{"setStart", "(Ljava/lang/Comparable;)V", "(Ljava/lang/Comparable<Ljava/util/Date;>;)V", $PUBLIC, $virtualMethod(SpinnerDateModel, setStart, void, $Comparable*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpinnerDateModel, setValue, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.SpinnerDateModel",
+		"javax.swing.AbstractSpinnerModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SpinnerDateModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SpinnerDateModel));
+	});
 	return class$;
 }
 

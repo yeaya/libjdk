@@ -1,5 +1,4 @@
 #include <javax/management/monitor/CounterMonitor$CounterMonitorObservedObject.h>
-
 #include <java/lang/Number.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/monitor/CounterMonitor.h>
@@ -19,62 +18,6 @@ using $Monitor$ObservedObject = ::javax::management::monitor::Monitor$ObservedOb
 namespace javax {
 	namespace management {
 		namespace monitor {
-
-$FieldInfo _CounterMonitor$CounterMonitorObservedObject_FieldInfo_[] = {
-	{"threshold", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, threshold)},
-	{"previousScanCounter", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, previousScanCounter)},
-	{"modulusExceeded", "Z", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, modulusExceeded)},
-	{"derivedGaugeExceeded", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, derivedGaugeExceeded)},
-	{"derivedGaugeValid", "Z", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, derivedGaugeValid)},
-	{"eventAlreadyNotified", "Z", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, eventAlreadyNotified)},
-	{"type", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, type)},
-	{}
-};
-
-$MethodInfo _CounterMonitor$CounterMonitorObservedObject_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(CounterMonitor$CounterMonitorObservedObject, init$, void, $ObjectName*)},
-	{"getDerivedGaugeExceeded", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getDerivedGaugeExceeded, $Number*)},
-	{"getDerivedGaugeValid", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getDerivedGaugeValid, bool)},
-	{"getEventAlreadyNotified", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getEventAlreadyNotified, bool)},
-	{"getModulusExceeded", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getModulusExceeded, bool)},
-	{"getPreviousScanCounter", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getPreviousScanCounter, $Number*)},
-	{"getThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getThreshold, $Number*)},
-	{"getType", "()Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getType, $Monitor$NumericalType*)},
-	{"setDerivedGaugeExceeded", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setDerivedGaugeExceeded, void, $Number*)},
-	{"setDerivedGaugeValid", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setDerivedGaugeValid, void, bool)},
-	{"setEventAlreadyNotified", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setEventAlreadyNotified, void, bool)},
-	{"setModulusExceeded", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setModulusExceeded, void, bool)},
-	{"setPreviousScanCounter", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setPreviousScanCounter, void, $Number*)},
-	{"setThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setThreshold, void, $Number*)},
-	{"setType", "(Ljavax/management/monitor/Monitor$NumericalType;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setType, void, $Monitor$NumericalType*)},
-	{}
-};
-
-$InnerClassInfo _CounterMonitor$CounterMonitorObservedObject_InnerClassesInfo_[] = {
-	{"javax.management.monitor.CounterMonitor$CounterMonitorObservedObject", "javax.management.monitor.CounterMonitor", "CounterMonitorObservedObject", $STATIC},
-	{"javax.management.monitor.Monitor$ObservedObject", "javax.management.monitor.Monitor", "ObservedObject", $STATIC},
-	{}
-};
-
-$ClassInfo _CounterMonitor$CounterMonitorObservedObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.monitor.CounterMonitor$CounterMonitorObservedObject",
-	"javax.management.monitor.Monitor$ObservedObject",
-	nullptr,
-	_CounterMonitor$CounterMonitorObservedObject_FieldInfo_,
-	_CounterMonitor$CounterMonitorObservedObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CounterMonitor$CounterMonitorObservedObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.CounterMonitor"
-};
-
-$Object* allocate$CounterMonitor$CounterMonitorObservedObject($Class* clazz) {
-	return $of($alloc(CounterMonitor$CounterMonitorObservedObject));
-}
 
 void CounterMonitor$CounterMonitorObservedObject::init$($ObjectName* observedObject) {
 	$Monitor$ObservedObject::init$(observedObject);
@@ -168,7 +111,57 @@ CounterMonitor$CounterMonitorObservedObject::CounterMonitor$CounterMonitorObserv
 }
 
 $Class* CounterMonitor$CounterMonitorObservedObject::load$($String* name, bool initialize) {
-	$loadClass(CounterMonitor$CounterMonitorObservedObject, name, initialize, &_CounterMonitor$CounterMonitorObservedObject_ClassInfo_, allocate$CounterMonitor$CounterMonitorObservedObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"threshold", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, threshold)},
+		{"previousScanCounter", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, previousScanCounter)},
+		{"modulusExceeded", "Z", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, modulusExceeded)},
+		{"derivedGaugeExceeded", "Ljava/lang/Number;", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, derivedGaugeExceeded)},
+		{"derivedGaugeValid", "Z", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, derivedGaugeValid)},
+		{"eventAlreadyNotified", "Z", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, eventAlreadyNotified)},
+		{"type", "Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PRIVATE, $field(CounterMonitor$CounterMonitorObservedObject, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $method(CounterMonitor$CounterMonitorObservedObject, init$, void, $ObjectName*)},
+		{"getDerivedGaugeExceeded", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getDerivedGaugeExceeded, $Number*)},
+		{"getDerivedGaugeValid", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getDerivedGaugeValid, bool)},
+		{"getEventAlreadyNotified", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getEventAlreadyNotified, bool)},
+		{"getModulusExceeded", "()Z", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getModulusExceeded, bool)},
+		{"getPreviousScanCounter", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getPreviousScanCounter, $Number*)},
+		{"getThreshold", "()Ljava/lang/Number;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getThreshold, $Number*)},
+		{"getType", "()Ljavax/management/monitor/Monitor$NumericalType;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, getType, $Monitor$NumericalType*)},
+		{"setDerivedGaugeExceeded", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setDerivedGaugeExceeded, void, $Number*)},
+		{"setDerivedGaugeValid", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setDerivedGaugeValid, void, bool)},
+		{"setEventAlreadyNotified", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setEventAlreadyNotified, void, bool)},
+		{"setModulusExceeded", "(Z)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setModulusExceeded, void, bool)},
+		{"setPreviousScanCounter", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setPreviousScanCounter, void, $Number*)},
+		{"setThreshold", "(Ljava/lang/Number;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setThreshold, void, $Number*)},
+		{"setType", "(Ljavax/management/monitor/Monitor$NumericalType;)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(CounterMonitor$CounterMonitorObservedObject, setType, void, $Monitor$NumericalType*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.CounterMonitor$CounterMonitorObservedObject", "javax.management.monitor.CounterMonitor", "CounterMonitorObservedObject", $STATIC},
+		{"javax.management.monitor.Monitor$ObservedObject", "javax.management.monitor.Monitor", "ObservedObject", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.monitor.CounterMonitor$CounterMonitorObservedObject",
+		"javax.management.monitor.Monitor$ObservedObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.CounterMonitor"
+	};
+	$loadClass(CounterMonitor$CounterMonitorObservedObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CounterMonitor$CounterMonitorObservedObject);
+	});
 	return class$;
 }
 

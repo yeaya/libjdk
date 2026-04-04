@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMTransform.h>
-
 #include <java/io/OutputStream.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -9,7 +8,6 @@
 #include <javax/xml/crypto/Data.h>
 #include <javax/xml/crypto/MarshalException.h>
 #include <javax/xml/crypto/XMLCryptoContext.h>
-#include <javax/xml/crypto/XMLStructure.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dom/DOMStructure.h>
 #include <javax/xml/crypto/dsig/Transform.h>
@@ -36,7 +34,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $Data = ::javax::xml::crypto::Data;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
-using $XMLStructure = ::javax::xml::crypto::XMLStructure;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $1DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $Transform = ::javax::xml::crypto::dsig::Transform;
@@ -55,42 +52,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _DOMTransform_FieldInfo_[] = {
-	{"spi", "Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PROTECTED, $field(DOMTransform, spi)},
-	{}
-};
-
-$MethodInfo _DOMTransform_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/xml/crypto/dsig/TransformService;)V", nullptr, $PUBLIC, $method(DOMTransform, init$, void, $TransformService*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMTransform, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMTransform, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMTransform, getAlgorithm, $String*)},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMTransform, getParameterSpec, $AlgorithmParameterSpec*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMTransform, hashCode, int32_t)},
-	{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMTransform, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljavax/xml/crypto/dsig/dom/DOMSignContext;)Ljavax/xml/crypto/Data;", nullptr, 0, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $DOMSignContext*), "javax.xml.crypto.MarshalException,javax.xml.crypto.dsig.TransformException"},
-	{}
-};
-
-$ClassInfo _DOMTransform_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMTransform",
-	"org.jcp.xml.dsig.internal.dom.DOMStructure",
-	"javax.xml.crypto.dsig.Transform",
-	_DOMTransform_FieldInfo_,
-	_DOMTransform_MethodInfo_
-};
-
-$Object* allocate$DOMTransform($Class* clazz) {
-	return $of($alloc(DOMTransform));
-}
 
 bool DOMTransform::isFeatureSupported($String* feature) {
 	 return this->$DOMStructure::isFeatureSupported(feature);
@@ -114,14 +75,14 @@ void DOMTransform::init$($TransformService* spi) {
 }
 
 void DOMTransform::init$($Element* transElem, $XMLCryptoContext* context, $Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DOMStructure::init$();
 	$var($String, algorithm, $DOMUtils::getAttributeValue(transElem, "Algorithm"_s));
 	if (provider == nullptr) {
 		try {
 			$set(this, spi, $TransformService::getInstance(algorithm, "DOM"_s));
 		} catch ($NoSuchAlgorithmException& e1) {
-			$throwNew($MarshalException, static_cast<$Throwable*>(e1));
+			$throwNew($MarshalException, e1);
 		}
 	} else {
 		try {
@@ -130,14 +91,14 @@ void DOMTransform::init$($Element* transElem, $XMLCryptoContext* context, $Provi
 			try {
 				$set(this, spi, $TransformService::getInstance(algorithm, "DOM"_s));
 			} catch ($NoSuchAlgorithmException& e2) {
-				$throwNew($MarshalException, static_cast<$Throwable*>(e2));
+				$throwNew($MarshalException, e2);
 			}
 		}
 	}
 	try {
 		$nc(this->spi)->init($$new($1DOMStructure, transElem), context);
 	} catch ($InvalidAlgorithmParameterException& iape) {
-		$throwNew($MarshalException, static_cast<$Throwable*>(iape));
+		$throwNew($MarshalException, iape);
 	}
 }
 
@@ -150,10 +111,10 @@ $String* DOMTransform::getAlgorithm() {
 }
 
 void DOMTransform::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$var($Element, transformElem, nullptr);
-	if ($nc($($nc(parent)->getLocalName()))->equals("Transforms"_s)) {
+	if ($$nc($nc(parent)->getLocalName())->equals("Transforms"_s)) {
 		$init($XMLSignature);
 		$assign(transformElem, $DOMUtils::createElement(ownerDoc, "Transform"_s, $XMLSignature::XMLNS, dsPrefix));
 	} else {
@@ -162,7 +123,7 @@ void DOMTransform::marshal($Node* parent, $String* dsPrefix, $DOMCryptoContext* 
 	}
 	$DOMUtils::setAttribute(transformElem, "Algorithm"_s, $(getAlgorithm()));
 	$nc(this->spi)->marshalParams($$new($1DOMStructure, transformElem), context);
-	$nc(parent)->appendChild(transformElem);
+	parent->appendChild(transformElem);
 }
 
 $Data* DOMTransform::transform($Data* data, $XMLCryptoContext* xc) {
@@ -174,7 +135,7 @@ $Data* DOMTransform::transform($Data* data, $XMLCryptoContext* xc, $OutputStream
 }
 
 bool DOMTransform::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, o)) {
 		return true;
 	}
@@ -182,29 +143,29 @@ bool DOMTransform::equals(Object$* o) {
 		return false;
 	}
 	$var($Transform, otransform, $cast($Transform, o));
-	bool var$0 = $nc($(getAlgorithm()))->equals($($nc(otransform)->getAlgorithm()));
+	bool var$0 = $$nc(getAlgorithm())->equals($($nc(otransform)->getAlgorithm()));
 	if (var$0) {
 		$var($AlgorithmParameterSpec, var$1, getParameterSpec());
-		var$0 = $DOMUtils::paramsEqual(var$1, $($nc(otransform)->getParameterSpec()));
+		var$0 = $DOMUtils::paramsEqual(var$1, $(otransform->getParameterSpec()));
 	}
 	return var$0;
 }
 
 int32_t DOMTransform::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 17;
-	result = 31 * result + $nc($(getAlgorithm()))->hashCode();
+	result = 31 * result + $$nc(getAlgorithm())->hashCode();
 	$var($AlgorithmParameterSpec, spec, getParameterSpec());
 	if (spec != nullptr) {
-		result = 31 * result + $of(spec)->hashCode();
+		result = 31 * result + spec->hashCode();
 	}
 	return result;
 }
 
 $Data* DOMTransform::transform($Data* data, $XMLCryptoContext* xc, $DOMSignContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, var$0, $nc(context)->getParent());
-	marshal(var$0, $($DOMUtils::getSignaturePrefix(static_cast<$XMLCryptoContext*>(static_cast<$DOMCryptoContext*>(context)))), context);
+	marshal(var$0, $($DOMUtils::getSignaturePrefix($cast($DOMCryptoContext, context))), context);
 	return transform(data, xc);
 }
 
@@ -212,7 +173,38 @@ DOMTransform::DOMTransform() {
 }
 
 $Class* DOMTransform::load$($String* name, bool initialize) {
-	$loadClass(DOMTransform, name, initialize, &_DOMTransform_ClassInfo_, allocate$DOMTransform);
+	$FieldInfo fieldInfos$$[] = {
+		{"spi", "Ljavax/xml/crypto/dsig/TransformService;", nullptr, $PROTECTED, $field(DOMTransform, spi)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljavax/xml/crypto/dsig/TransformService;)V", nullptr, $PUBLIC, $method(DOMTransform, init$, void, $TransformService*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljavax/xml/crypto/XMLCryptoContext;Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(DOMTransform, init$, void, $Element*, $XMLCryptoContext*, $Provider*), "javax.xml.crypto.MarshalException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DOMTransform, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMTransform, getAlgorithm, $String*)},
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMTransform, getParameterSpec, $AlgorithmParameterSpec*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DOMTransform, hashCode, int32_t)},
+		{"*isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(DOMTransform, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljavax/xml/crypto/dsig/dom/DOMSignContext;)Ljavax/xml/crypto/Data;", nullptr, 0, $virtualMethod(DOMTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $DOMSignContext*), "javax.xml.crypto.MarshalException,javax.xml.crypto.dsig.TransformException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMTransform",
+		"org.jcp.xml.dsig.internal.dom.DOMStructure",
+		"javax.xml.crypto.dsig.Transform",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMTransform));
+	});
 	return class$;
 }
 

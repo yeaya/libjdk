@@ -1,5 +1,4 @@
 #include <bug7010561$1.h>
-
 #include <bug7010561.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -17,8 +16,6 @@
 #undef TYPE
 
 using $bug7010561 = ::bug7010561;
-using $Component = ::java::awt::Component;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -33,48 +30,11 @@ using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
 
-$MethodInfo _bug7010561$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug7010561$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7010561$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug7010561$1_EnclosingMethodInfo_ = {
-	"bug7010561",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug7010561$1_InnerClassesInfo_[] = {
-	{"bug7010561$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7010561$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7010561$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug7010561$1_MethodInfo_,
-	nullptr,
-	&_bug7010561$1_EnclosingMethodInfo_,
-	_bug7010561$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7010561"
-};
-
-$Object* allocate$bug7010561$1($Class* clazz) {
-	return $of($alloc(bug7010561$1));
-}
-
 void bug7010561$1::init$() {
 }
 
 void bug7010561$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($JTabbedPane, tabbedPane, $new($JTabbedPane));
 	tabbedPane->addTab("Tab 1"_s, $$new($JLabel, "Tab 1"_s));
@@ -82,8 +42,6 @@ void bug7010561$1::run() {
 	$var($BasicTabbedPaneUI, basicTabbedPaneUI, $cast($BasicTabbedPaneUI, $cast($TabbedPaneUI, tabbedPane->getUI())));
 	try {
 		$load($BasicTabbedPaneUI);
-		$init($Integer);
-		$init($Boolean);
 		$var($Method, method, $BasicTabbedPaneUI::class$->getDeclaredMethod("getTabLabelShiftY"_s, $$new($ClassArray, {
 			$Integer::TYPE,
 			$Integer::TYPE,
@@ -92,17 +50,17 @@ void bug7010561$1::run() {
 		$nc(method)->setAccessible(true);
 		for (int32_t i = 0; i < 4; ++i) {
 			$init($bug7010561);
-			int32_t res = $nc(($cast($Integer, $(method->invoke(basicTabbedPaneUI, $$new($ObjectArray, {
-				$($of($Integer::valueOf($nc($bug7010561::TAB_PLACEMENT)->get(i)))),
-				$($of($Integer::valueOf(0))),
-				$($of($Boolean::valueOf($nc($bug7010561::IS_SELECTED)->get(i))))
-			}))))))->intValue();
+			int32_t res = $$sure($Integer, method->invoke(basicTabbedPaneUI, $$new($ObjectArray, {
+				$($Integer::valueOf($nc($bug7010561::TAB_PLACEMENT)->get(i))),
+				$($Integer::valueOf(0)),
+				$($Boolean::valueOf($nc($bug7010561::IS_SELECTED)->get(i)))
+			})))->intValue();
 			if (res != $nc($bug7010561::RETURN_VALUE)->get(i)) {
 				$throwNew($RuntimeException, $$str({"Test bug7010561 failed on index "_s, $$str(i)}));
 			}
 		}
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	$nc($System::out)->println("Test bug7010561 passed"_s);
 }
@@ -111,7 +69,38 @@ bug7010561$1::bug7010561$1() {
 }
 
 $Class* bug7010561$1::load$($String* name, bool initialize) {
-	$loadClass(bug7010561$1, name, initialize, &_bug7010561$1_ClassInfo_, allocate$bug7010561$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug7010561$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7010561$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug7010561",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7010561$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7010561$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7010561"
+	};
+	$loadClass(bug7010561$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7010561$1);
+	});
 	return class$;
 }
 

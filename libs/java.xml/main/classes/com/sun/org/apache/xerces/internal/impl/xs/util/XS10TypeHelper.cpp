@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XS10TypeHelper.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition.h>
@@ -23,34 +22,15 @@ namespace com {
 							namespace xs {
 								namespace util {
 
-$MethodInfo _XS10TypeHelper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XS10TypeHelper, init$, void)},
-	{"getSchemaTypeName", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XS10TypeHelper, getSchemaTypeName, $String*, $XSTypeDefinition*)},
-	{}
-};
-
-$ClassInfo _XS10TypeHelper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.util.XS10TypeHelper",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_XS10TypeHelper_MethodInfo_
-};
-
-$Object* allocate$XS10TypeHelper($Class* clazz) {
-	return $of($alloc(XS10TypeHelper));
-}
-
 void XS10TypeHelper::init$() {
 }
 
 $String* XS10TypeHelper::getSchemaTypeName($XSTypeDefinition* typeDefn) {
 	$var($String, typeNameStr, nullptr);
 	if ($instanceOf($XSSimpleTypeDefinition, typeDefn)) {
-		$assign(typeNameStr, $nc(($cast($XSSimpleTypeDecl, typeDefn)))->getTypeName());
+		$assign(typeNameStr, $cast($XSSimpleTypeDecl, typeDefn)->getTypeName());
 	} else {
-		$assign(typeNameStr, $nc(($cast($XSComplexTypeDecl, typeDefn)))->getTypeName());
+		$assign(typeNameStr, $nc($cast($XSComplexTypeDecl, typeDefn))->getTypeName());
 	}
 	return typeNameStr;
 }
@@ -59,7 +39,22 @@ XS10TypeHelper::XS10TypeHelper() {
 }
 
 $Class* XS10TypeHelper::load$($String* name, bool initialize) {
-	$loadClass(XS10TypeHelper, name, initialize, &_XS10TypeHelper_ClassInfo_, allocate$XS10TypeHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XS10TypeHelper, init$, void)},
+		{"getSchemaTypeName", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XS10TypeHelper, getSchemaTypeName, $String*, $XSTypeDefinition*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.util.XS10TypeHelper",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XS10TypeHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XS10TypeHelper);
+	});
 	return class$;
 }
 

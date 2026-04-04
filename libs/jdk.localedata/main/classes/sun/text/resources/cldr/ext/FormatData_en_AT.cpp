@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_en_AT.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,35 +13,16 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_en_AT_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_en_AT, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_en_AT, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_en_AT_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_en_AT",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_en_AT_MethodInfo_
-};
-
-$Object* allocate$FormatData_en_AT($Class* clazz) {
-	return $of($alloc(FormatData_en_AT));
-}
-
 void FormatData_en_AT::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_en_AT::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of($$new($StringArray, {
+			"latn.NumberElements"_s,
+			$$new($StringArray, {
 				","_s,
 				"."_s,
 				";"_s,
@@ -56,16 +36,16 @@ $ObjectArray2* FormatData_en_AT::getContents() {
 				"NaN"_s,
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"latn.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"¤ #,##0.00"_s,
 				u"#,##0 %"_s,
 				u"¤ #,##0.00"_s
-			}))
+			})
 		})
 	}));
 	return data;
@@ -75,7 +55,22 @@ FormatData_en_AT::FormatData_en_AT() {
 }
 
 $Class* FormatData_en_AT::load$($String* name, bool initialize) {
-	$loadClass(FormatData_en_AT, name, initialize, &_FormatData_en_AT_ClassInfo_, allocate$FormatData_en_AT);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_en_AT, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_en_AT, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_en_AT",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_en_AT, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_en_AT);
+	});
 	return class$;
 }
 

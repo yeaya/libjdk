@@ -1,5 +1,4 @@
 #include <bug8057791$1.h>
-
 #include <bug8057791.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -24,62 +23,24 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JFrame = ::javax::swing::JFrame;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
-
-$MethodInfo _bug8057791$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8057791$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8057791$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8057791$1_EnclosingMethodInfo_ = {
-	"bug8057791",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _bug8057791$1_InnerClassesInfo_[] = {
-	{"bug8057791$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8057791$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8057791$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug8057791$1_MethodInfo_,
-	nullptr,
-	&_bug8057791$1_EnclosingMethodInfo_,
-	_bug8057791$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8057791"
-};
-
-$Object* allocate$bug8057791$1($Class* clazz) {
-	return $of($alloc(bug8057791$1));
-}
 
 void bug8057791$1::init$() {
 }
 
 void bug8057791$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($bug8057791);
 	$assignStatic($bug8057791::frame, $new($JFrame));
-	$nc($bug8057791::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	$bug8057791::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$assignStatic($bug8057791::list, $new($JList));
 	$assignStatic($bug8057791::model, $new($DefaultListModel));
-	$nc($bug8057791::model)->add(0, "@@"_s);
+	$bug8057791::model->add(0, "@@"_s);
 	$var($Font, font, $nc($bug8057791::list)->getFont());
 	$var($String, var$0, $nc(font)->getFontName());
 	$nc($bug8057791::list)->setFont($$new($Font, var$0, $Font::BOLD, $cast(int32_t, (font->getSize2D() * 2))));
 	$nc($bug8057791::list)->setModel($bug8057791::model);
 	$nc($bug8057791::list)->setSelectedIndex(0);
-	$nc($bug8057791::frame)->add(static_cast<$Component*>($bug8057791::list));
+	$nc($bug8057791::frame)->add($bug8057791::list);
 	$nc($bug8057791::frame)->pack();
 	$nc($bug8057791::frame)->setLocationRelativeTo(nullptr);
 	$nc($bug8057791::frame)->setVisible(true);
@@ -89,7 +50,38 @@ bug8057791$1::bug8057791$1() {
 }
 
 $Class* bug8057791$1::load$($String* name, bool initialize) {
-	$loadClass(bug8057791$1, name, initialize, &_bug8057791$1_ClassInfo_, allocate$bug8057791$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8057791$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8057791$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8057791",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8057791$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8057791$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8057791"
+	};
+	$loadClass(bug8057791$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8057791$1);
+	});
 	return class$;
 }
 

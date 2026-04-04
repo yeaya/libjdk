@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/Policy.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -59,74 +58,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(Policy::lambda$initialize$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Policy$$Lambda$lambda$initialize$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Policy$$Lambda$lambda$initialize$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Policy$$Lambda$lambda$initialize$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Policy$$Lambda$lambda$initialize$0, run, $Object*)},
-	{}
-};
-$ClassInfo Policy$$Lambda$lambda$initialize$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"org.jcp.xml.dsig.internal.dom.Policy$$Lambda$lambda$initialize$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Policy$$Lambda$lambda$initialize$0::load$($String* name, bool initialize) {
-	$loadClass(Policy$$Lambda$lambda$initialize$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Policy$$Lambda$lambda$initialize$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Policy$$Lambda$lambda$initialize$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"org.jcp.xml.dsig.internal.dom.Policy$$Lambda$lambda$initialize$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Policy$$Lambda$lambda$initialize$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Policy$$Lambda$lambda$initialize$0);
+	});
 	return class$;
 }
 $Class* Policy$$Lambda$lambda$initialize$0::class$ = nullptr;
-
-$FieldInfo _Policy_FieldInfo_[] = {
-	{"disallowedAlgs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/URI;>;", $PRIVATE | $STATIC, $staticField(Policy, disallowedAlgs)},
-	{"maxTrans", "I", nullptr, $PRIVATE | $STATIC, $staticField(Policy, maxTrans)},
-	{"maxRefs", "I", nullptr, $PRIVATE | $STATIC, $staticField(Policy, maxRefs)},
-	{"disallowedRefUriSchemes", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Policy, disallowedRefUriSchemes)},
-	{"minKeyMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(Policy, minKeyMap)},
-	{"noDuplicateIds", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Policy, noDuplicateIds)},
-	{"noRMLoops", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Policy, noRMLoops)},
-	{}
-};
-
-$MethodInfo _Policy_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Policy, init$, void)},
-	{"disabledAlgs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/URI;>;", $PUBLIC | $STATIC, $staticMethod(Policy, disabledAlgs, $Set*)},
-	{"disabledReferenceUriSchemes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Policy, disabledReferenceUriSchemes, $Set*)},
-	{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Policy, error, void, $String*)},
-	{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Policy, initialize, void)},
-	{"lambda$initialize$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Policy, lambda$initialize$0, $String*)},
-	{"maxReferences", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, maxReferences, int32_t)},
-	{"maxTransforms", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, maxTransforms, int32_t)},
-	{"minKeySize", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, minKeySize, int32_t, $String*)},
-	{"restrictAlg", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictAlg, bool, $String*)},
-	{"restrictDuplicateIds", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictDuplicateIds, bool)},
-	{"restrictKey", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictKey, bool, $String*, int32_t)},
-	{"restrictNumReferences", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictNumReferences, bool, int32_t)},
-	{"restrictNumTransforms", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictNumTransforms, bool, int32_t)},
-	{"restrictReferenceUriScheme", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictReferenceUriScheme, bool, $String*)},
-	{"restrictRetrievalMethodLoops", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictRetrievalMethodLoops, bool)},
-	{}
-};
-
-$ClassInfo _Policy_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.Policy",
-	"java.lang.Object",
-	nullptr,
-	_Policy_FieldInfo_,
-	_Policy_MethodInfo_
-};
-
-$Object* allocate$Policy($Class* clazz) {
-	return $of($alloc(Policy));
-}
 
 $Set* Policy::disallowedAlgs = nullptr;
 int32_t Policy::maxTrans = 0;
@@ -141,18 +93,16 @@ void Policy::init$() {
 
 void Policy::initialize() {
 	$init(Policy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Policy$$Lambda$lambda$initialize$0)))));
-	if (prop == nullptr || $nc(prop)->isEmpty()) {
+	$var($String, prop, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Policy$$Lambda$lambda$initialize$0)))));
+	if (prop == nullptr || prop->isEmpty()) {
 		return;
 	}
 	$var($StringArray, entries, $nc(prop)->split(","_s));
 	{
 		$var($StringArray, arr$, entries);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, entry, arr$->get(i$));
 			{
 				$var($StringArray, tokens, $nc(entry)->split("\\s"_s));
@@ -161,121 +111,91 @@ void Policy::initialize() {
 					$var($String, s3042$, type);
 					int32_t tmp3042$ = -1;
 					switch ($nc(s3042$)->hashCode()) {
-					case 0x6244C421:
-						{
-							if (s3042$->equals("disallowAlg"_s)) {
-								tmp3042$ = 0;
-							}
-							break;
+					case 0x6244c421:
+						if (s3042$->equals("disallowAlg"_s)) {
+							tmp3042$ = 0;
 						}
-					case 0x532E170B:
-						{
-							if (s3042$->equals("maxTransforms"_s)) {
-								tmp3042$ = 1;
-							}
-							break;
+						break;
+					case 0x532e170b:
+						if (s3042$->equals("maxTransforms"_s)) {
+							tmp3042$ = 1;
 						}
-					case 0x0CABBF0C:
-						{
-							if (s3042$->equals("maxReferences"_s)) {
-								tmp3042$ = 2;
-							}
-							break;
+						break;
+					case 0x0cabbf0c:
+						if (s3042$->equals("maxReferences"_s)) {
+							tmp3042$ = 2;
 						}
-					case (int32_t)0xAC7DFA92:
-						{
-							if (s3042$->equals("disallowReferenceUriSchemes"_s)) {
-								tmp3042$ = 3;
-							}
-							break;
+						break;
+					case (int32_t)0xac7dfa92:
+						if (s3042$->equals("disallowReferenceUriSchemes"_s)) {
+							tmp3042$ = 3;
 						}
-					case (int32_t)0xA8B53C4E:
-						{
-							if (s3042$->equals("minKeySize"_s)) {
-								tmp3042$ = 4;
-							}
-							break;
+						break;
+					case (int32_t)0xa8b53c4e:
+						if (s3042$->equals("minKeySize"_s)) {
+							tmp3042$ = 4;
 						}
-					case (int32_t)0xB94E7A0E:
-						{
-							if (s3042$->equals("noDuplicateIds"_s)) {
-								tmp3042$ = 5;
-							}
-							break;
+						break;
+					case (int32_t)0xb94e7a0e:
+						if (s3042$->equals("noDuplicateIds"_s)) {
+							tmp3042$ = 5;
 						}
-					case 0x75E9A17B:
-						{
-							if (s3042$->equals("noRetrievalMethodLoops"_s)) {
-								tmp3042$ = 6;
-							}
-							break;
+						break;
+					case 0x75e9a17b:
+						if (s3042$->equals("noRetrievalMethodLoops"_s)) {
+							tmp3042$ = 6;
 						}
+						break;
 					}
 					switch (tmp3042$) {
 					case 0:
-						{
-							if (tokens->length != 2) {
-								error(entry);
-							}
-							$nc(Policy::disallowedAlgs)->add($($URI::create(tokens->get(1))));
-							break;
-						}
-					case 1:
-						{
-							if (tokens->length != 2) {
-								error(entry);
-							}
-							Policy::maxTrans = $Integer::parseUnsignedInt(tokens->get(1));
-							break;
-						}
-					case 2:
-						{
-							if (tokens->length != 2) {
-								error(entry);
-							}
-							Policy::maxRefs = $Integer::parseUnsignedInt(tokens->get(1));
-							break;
-						}
-					case 3:
-						{
-							if (tokens->length == 1) {
-								error(entry);
-							}
-							for (int32_t i = 1; i < tokens->length; ++i) {
-								$var($String, scheme, tokens->get(i));
-								$init($Locale);
-								$nc(Policy::disallowedRefUriSchemes)->add($($nc(scheme)->toLowerCase($Locale::ROOT)));
-							}
-							break;
-						}
-					case 4:
-						{
-							if (tokens->length != 3) {
-								error(entry);
-							}
-							$nc(Policy::minKeyMap)->put(tokens->get(1), $($Integer::valueOf($Integer::parseUnsignedInt(tokens->get(2)))));
-							break;
-						}
-					case 5:
-						{
-							if (tokens->length != 1) {
-								error(entry);
-							}
-							Policy::noDuplicateIds = true;
-							break;
-						}
-					case 6:
-						{
-							if (tokens->length != 1) {
-								error(entry);
-							}
-							Policy::noRMLoops = true;
-							break;
-						}
-					default:
-						{
+						if (tokens->length != 2) {
 							error(entry);
 						}
+						$nc(Policy::disallowedAlgs)->add($($URI::create(tokens->get(1))));
+						break;
+					case 1:
+						if (tokens->length != 2) {
+							error(entry);
+						}
+						Policy::maxTrans = $Integer::parseUnsignedInt(tokens->get(1));
+						break;
+					case 2:
+						if (tokens->length != 2) {
+							error(entry);
+						}
+						Policy::maxRefs = $Integer::parseUnsignedInt(tokens->get(1));
+						break;
+					case 3:
+						if (tokens->length == 1) {
+							error(entry);
+						}
+						for (int32_t i = 1; i < tokens->length; ++i) {
+							$var($String, scheme, tokens->get(i));
+							$init($Locale);
+							$nc(Policy::disallowedRefUriSchemes)->add($($nc(scheme)->toLowerCase($Locale::ROOT)));
+						}
+						break;
+					case 4:
+						if (tokens->length != 3) {
+							error(entry);
+						}
+						$nc(Policy::minKeyMap)->put(tokens->get(1), $($Integer::valueOf($Integer::parseUnsignedInt(tokens->get(2)))));
+						break;
+					case 5:
+						if (tokens->length != 1) {
+							error(entry);
+						}
+						Policy::noDuplicateIds = true;
+						break;
+					case 6:
+						if (tokens->length != 1) {
+							error(entry);
+						}
+						Policy::noRMLoops = true;
+						break;
+					default:
+						error(entry);
 					}
 				}
 			}
@@ -306,9 +226,9 @@ bool Policy::restrictNumReferences(int32_t numRefs) {
 
 bool Policy::restrictReferenceUriScheme($String* uri) {
 	$init(Policy);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (uri != nullptr) {
-		$var($String, scheme, $nc($($URI::create(uri)))->getScheme());
+		$var($String, scheme, $$nc($URI::create(uri))->getScheme());
 		if (scheme != nullptr) {
 			$init($Locale);
 			return $nc(Policy::disallowedRefUriSchemes)->contains($(scheme->toLowerCase($Locale::ROOT)));
@@ -319,8 +239,8 @@ bool Policy::restrictReferenceUriScheme($String* uri) {
 
 bool Policy::restrictKey($String* type, int32_t size) {
 	$init(Policy);
-	$useLocalCurrentObjectStackCache();
-	return (size < $nc(($cast($Integer, $($nc(Policy::minKeyMap)->getOrDefault(type, $($Integer::valueOf(0)))))))->intValue());
+	$useLocalObjectStack();
+	return (size < $$sure($Integer, $nc(Policy::minKeyMap)->getOrDefault(type, $($Integer::valueOf(0))))->intValue());
 }
 
 bool Policy::restrictDuplicateIds() {
@@ -355,8 +275,8 @@ $Set* Policy::disabledReferenceUriSchemes() {
 
 int32_t Policy::minKeySize($String* type) {
 	$init(Policy);
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($Integer, $($nc(Policy::minKeyMap)->getOrDefault(type, $($Integer::valueOf(0)))))))->intValue();
+	$useLocalObjectStack();
+	return $$sure($Integer, $nc(Policy::minKeyMap)->getOrDefault(type, $($Integer::valueOf(0))))->intValue();
 }
 
 void Policy::error($String* entry) {
@@ -369,7 +289,7 @@ $String* Policy::lambda$initialize$0() {
 	return $Security::getProperty("jdk.xml.dsig.secureValidationPolicy"_s);
 }
 
-void clinit$Policy($Class* class$) {
+void Policy::clinit$($Class* clazz) {
 	$assignStatic(Policy::disallowedAlgs, $new($HashSet));
 	Policy::maxTrans = $Integer::MAX_VALUE;
 	Policy::maxRefs = $Integer::MAX_VALUE;
@@ -391,11 +311,50 @@ Policy::Policy() {
 
 $Class* Policy::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Policy$$Lambda$lambda$initialize$0::classInfo$.name)) {
+		if (name->equals("org.jcp.xml.dsig.internal.dom.Policy$$Lambda$lambda$initialize$0")) {
 			return Policy$$Lambda$lambda$initialize$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Policy, name, initialize, &_Policy_ClassInfo_, clinit$Policy, allocate$Policy);
+	$FieldInfo fieldInfos$$[] = {
+		{"disallowedAlgs", "Ljava/util/Set;", "Ljava/util/Set<Ljava/net/URI;>;", $PRIVATE | $STATIC, $staticField(Policy, disallowedAlgs)},
+		{"maxTrans", "I", nullptr, $PRIVATE | $STATIC, $staticField(Policy, maxTrans)},
+		{"maxRefs", "I", nullptr, $PRIVATE | $STATIC, $staticField(Policy, maxRefs)},
+		{"disallowedRefUriSchemes", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Policy, disallowedRefUriSchemes)},
+		{"minKeyMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC, $staticField(Policy, minKeyMap)},
+		{"noDuplicateIds", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Policy, noDuplicateIds)},
+		{"noRMLoops", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Policy, noRMLoops)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Policy, init$, void)},
+		{"disabledAlgs", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/net/URI;>;", $PUBLIC | $STATIC, $staticMethod(Policy, disabledAlgs, $Set*)},
+		{"disabledReferenceUriSchemes", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC | $STATIC, $staticMethod(Policy, disabledReferenceUriSchemes, $Set*)},
+		{"error", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Policy, error, void, $String*)},
+		{"initialize", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Policy, initialize, void)},
+		{"lambda$initialize$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Policy, lambda$initialize$0, $String*)},
+		{"maxReferences", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, maxReferences, int32_t)},
+		{"maxTransforms", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, maxTransforms, int32_t)},
+		{"minKeySize", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, minKeySize, int32_t, $String*)},
+		{"restrictAlg", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictAlg, bool, $String*)},
+		{"restrictDuplicateIds", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictDuplicateIds, bool)},
+		{"restrictKey", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictKey, bool, $String*, int32_t)},
+		{"restrictNumReferences", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictNumReferences, bool, int32_t)},
+		{"restrictNumTransforms", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictNumTransforms, bool, int32_t)},
+		{"restrictReferenceUriScheme", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictReferenceUriScheme, bool, $String*)},
+		{"restrictRetrievalMethodLoops", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Policy, restrictRetrievalMethodLoops, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.Policy",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Policy, name, initialize, &classInfo$$, Policy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Policy);
+	});
 	return class$;
 }
 

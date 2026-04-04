@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Iterators.h>
-
 #include <com/sun/tools/javac/util/Iterators$1.h>
 #include <com/sun/tools/javac/util/Iterators$2.h>
 #include <com/sun/tools/javac/util/Iterators$CompoundIterator.h>
@@ -29,44 +28,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Iterators_FieldInfo_[] = {
-	{"EMPTY", "Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Iterators, EMPTY)},
-	{}
-};
-
-$MethodInfo _Iterators_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Iterators, init$, void)},
-	{"createCompoundIterator", "(Ljava/lang/Iterable;Ljava/util/function/Function;)Ljava/util/Iterator;", "<I:Ljava/lang/Object;O:Ljava/lang/Object;>(Ljava/lang/Iterable<TI;>;Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;)Ljava/util/Iterator<TO;>;", $PUBLIC | $STATIC, $staticMethod(Iterators, createCompoundIterator, $Iterator*, $Iterable*, $Function*)},
-	{"createFilterIterator", "(Ljava/util/Iterator;Ljava/util/function/Predicate;)Ljava/util/Iterator;", "<E:Ljava/lang/Object;>(Ljava/util/Iterator<TE;>;Ljava/util/function/Predicate<TE;>;)Ljava/util/Iterator<TE;>;", $PUBLIC | $STATIC, $staticMethod(Iterators, createFilterIterator, $Iterator*, $Iterator*, $Predicate*)},
-	{}
-};
-
-$InnerClassInfo _Iterators_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Iterators$CompoundIterator", "com.sun.tools.javac.util.Iterators", "CompoundIterator", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.util.Iterators$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.util.Iterators$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Iterators_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Iterators",
-	"java.lang.Object",
-	nullptr,
-	_Iterators_FieldInfo_,
-	_Iterators_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Iterators_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Iterators$CompoundIterator,com.sun.tools.javac.util.Iterators$2,com.sun.tools.javac.util.Iterators$1"
-};
-
-$Object* allocate$Iterators($Class* clazz) {
-	return $of($alloc(Iterators));
-}
-
 $Iterator* Iterators::EMPTY = nullptr;
 
 void Iterators::init$() {
@@ -82,7 +43,7 @@ $Iterator* Iterators::createFilterIterator($Iterator* input, $Predicate* test) {
 	return $new($Iterators$2, input, test);
 }
 
-void clinit$Iterators($Class* class$) {
+void Iterators::clinit$($Class* clazz) {
 	$assignStatic(Iterators::EMPTY, $new($Iterators$1));
 }
 
@@ -90,7 +51,39 @@ Iterators::Iterators() {
 }
 
 $Class* Iterators::load$($String* name, bool initialize) {
-	$loadClass(Iterators, name, initialize, &_Iterators_ClassInfo_, clinit$Iterators, allocate$Iterators);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "Ljava/util/Iterator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Iterators, EMPTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Iterators, init$, void)},
+		{"createCompoundIterator", "(Ljava/lang/Iterable;Ljava/util/function/Function;)Ljava/util/Iterator;", "<I:Ljava/lang/Object;O:Ljava/lang/Object;>(Ljava/lang/Iterable<TI;>;Ljava/util/function/Function<TI;Ljava/util/Iterator<TO;>;>;)Ljava/util/Iterator<TO;>;", $PUBLIC | $STATIC, $staticMethod(Iterators, createCompoundIterator, $Iterator*, $Iterable*, $Function*)},
+		{"createFilterIterator", "(Ljava/util/Iterator;Ljava/util/function/Predicate;)Ljava/util/Iterator;", "<E:Ljava/lang/Object;>(Ljava/util/Iterator<TE;>;Ljava/util/function/Predicate<TE;>;)Ljava/util/Iterator<TE;>;", $PUBLIC | $STATIC, $staticMethod(Iterators, createFilterIterator, $Iterator*, $Iterator*, $Predicate*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Iterators$CompoundIterator", "com.sun.tools.javac.util.Iterators", "CompoundIterator", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.util.Iterators$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.util.Iterators$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Iterators",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Iterators$CompoundIterator,com.sun.tools.javac.util.Iterators$2,com.sun.tools.javac.util.Iterators$1"
+	};
+	$loadClass(Iterators, name, initialize, &classInfo$$, Iterators::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Iterators);
+	});
 	return class$;
 }
 

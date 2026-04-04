@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/BreakTree.h>
-
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _BreakTree_MethodInfo_[] = {
-	{"getLabel", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakTree, getLabel, $Name*)},
-	{}
-};
-
-$ClassInfo _BreakTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.BreakTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_BreakTree_MethodInfo_
-};
-
-$Object* allocate$BreakTree($Class* clazz) {
-	return $of($alloc(BreakTree));
-}
-
 $Class* BreakTree::load$($String* name, bool initialize) {
-	$loadClass(BreakTree, name, initialize, &_BreakTree_ClassInfo_, allocate$BreakTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getLabel", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BreakTree, getLabel, $Name*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.BreakTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BreakTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BreakTree);
+	});
 	return class$;
 }
 

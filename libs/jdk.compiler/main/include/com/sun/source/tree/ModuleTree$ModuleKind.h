@@ -21,6 +21,7 @@ class $import ModuleTree$ModuleKind : public ::java::lang::Enum {
 public:
 	ModuleTree$ModuleKind();
 	static $Array<::com::sun::source::tree::ModuleTree$ModuleKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::source::tree::ModuleTree$ModuleKind* valueOf($String* name);
 	static $Array<::com::sun::source::tree::ModuleTree$ModuleKind>* values();

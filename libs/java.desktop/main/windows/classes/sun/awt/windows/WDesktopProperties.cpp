@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WDesktopProperties.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/awt/RenderingHints$Key.h>
@@ -49,7 +48,6 @@ using $Runnable = ::java::lang::Runnable;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $ThemeReader = ::sun::awt::windows::ThemeReader;
 using $WDesktopProperties$WinPlaySound = ::sun::awt::windows::WDesktopProperties$WinPlaySound;
@@ -61,67 +59,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WDesktopProperties_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WDesktopProperties, $assertionsDisabled)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopProperties, log)},
-	{"PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopProperties, PREFIX)},
-	{"FILE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopProperties, FILE_PREFIX)},
-	{"PROP_NAMES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopProperties, PROP_NAMES)},
-	{"pData", "J", nullptr, $PRIVATE, $field(WDesktopProperties, pData)},
-	{"wToolkit", "Lsun/awt/windows/WToolkit;", nullptr, $PRIVATE, $field(WDesktopProperties, wToolkit)},
-	{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(WDesktopProperties, map)},
-	{"fontNameMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $STATIC, $staticField(WDesktopProperties, fontNameMap)},
-	{}
-};
-
-$MethodInfo _WDesktopProperties_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WToolkit;)V", nullptr, 0, $method(WDesktopProperties, init$, void, $WToolkit*)},
-	{"getDesktopAAHints", "()Ljava/awt/RenderingHints;", nullptr, $SYNCHRONIZED, $method(WDesktopProperties, getDesktopAAHints, $RenderingHints*)},
-	{"getKeyNames", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(WDesktopProperties, getKeyNames, $StringArray*)},
-	{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $SYNCHRONIZED, $method(WDesktopProperties, getProperties, $Map*)},
-	{"getWindowsParameters", "()V", nullptr, $PRIVATE | $NATIVE, $method(WDesktopProperties, getWindowsParameters, void)},
-	{"init", "()V", nullptr, $PRIVATE | $NATIVE, $method(WDesktopProperties, init, void)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopProperties, initIDs, void)},
-	{"isWindowsProperty", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(WDesktopProperties, isWindowsProperty, bool, $String*)},
-	{"playWindowsSound", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(WDesktopProperties, playWindowsSound, void, $String*)},
-	{"setBooleanProperty", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setBooleanProperty, void, $String*, bool)},
-	{"setColorProperty", "(Ljava/lang/String;III)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setColorProperty, void, $String*, int32_t, int32_t, int32_t)},
-	{"setFontProperty", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setFontProperty, void, $String*, $String*, int32_t, int32_t)},
-	{"setIntegerProperty", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setIntegerProperty, void, $String*, int32_t)},
-	{"setSoundProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setSoundProperty, void, $String*, $String*)},
-	{"setStringProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setStringProperty, void, $String*, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getWindowsParameters 4
-#define _METHOD_INDEX_init 5
-#define _METHOD_INDEX_initIDs 6
-#define _METHOD_INDEX_playWindowsSound 8
-
-$InnerClassInfo _WDesktopProperties_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WDesktopProperties$WinPlaySound", "sun.awt.windows.WDesktopProperties", "WinPlaySound", 0},
-	{}
-};
-
-$ClassInfo _WDesktopProperties_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WDesktopProperties",
-	"java.lang.Object",
-	nullptr,
-	_WDesktopProperties_FieldInfo_,
-	_WDesktopProperties_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WDesktopProperties_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WDesktopProperties$WinPlaySound"
-};
-
-$Object* allocate$WDesktopProperties($Class* clazz) {
-	return $of($alloc(WDesktopProperties));
-}
-
 bool WDesktopProperties::$assertionsDisabled = false;
 $PlatformLogger* WDesktopProperties::log = nullptr;
 $String* WDesktopProperties::PREFIX = nullptr;
@@ -131,7 +68,7 @@ $HashMap* WDesktopProperties::fontNameMap = nullptr;
 
 void WDesktopProperties::initIDs() {
 	$init(WDesktopProperties);
-	$prepareNativeStatic(WDesktopProperties, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -139,9 +76,9 @@ void WDesktopProperties::initIDs() {
 bool WDesktopProperties::isWindowsProperty($String* name) {
 	$init(WDesktopProperties);
 	bool var$1 = $nc(name)->startsWith(WDesktopProperties::PREFIX);
-	bool var$0 = var$1 || $nc(name)->startsWith(WDesktopProperties::FILE_PREFIX);
+	bool var$0 = var$1 || name->startsWith(WDesktopProperties::FILE_PREFIX);
 	$init($SunToolkit);
-	return var$0 || $nc(name)->equals($SunToolkit::DESKTOPFONTHINTS);
+	return var$0 || name->equals($SunToolkit::DESKTOPFONTHINTS);
 }
 
 void WDesktopProperties::init$($WToolkit* wToolkit) {
@@ -151,37 +88,37 @@ void WDesktopProperties::init$($WToolkit* wToolkit) {
 }
 
 void WDesktopProperties::init() {
-	$prepareNative(WDesktopProperties, init, void);
+	$prepareNative(init, void);
 	$invokeNative();
 	$finishNative();
 }
 
 $StringArray* WDesktopProperties::getKeyNames() {
-	$useLocalCurrentObjectStackCache();
-	$var($ObjectArray, keys, $nc($($nc(this->map)->keySet()))->toArray());
+	$useLocalObjectStack();
+	$var($ObjectArray, keys, $$nc($nc(this->map)->keySet())->toArray());
 	$var($StringArray, sortedKeys, $new($StringArray, $nc(keys)->length));
 	for (int32_t nkey = 0; nkey < keys->length; ++nkey) {
-		sortedKeys->set(nkey, $($nc($of(keys->get(nkey)))->toString()));
+		sortedKeys->set(nkey, $($nc(keys->get(nkey))->toString()));
 	}
 	$Arrays::sort(sortedKeys);
 	return sortedKeys;
 }
 
 void WDesktopProperties::getWindowsParameters() {
-	$prepareNative(WDesktopProperties, getWindowsParameters, void);
+	$prepareNative(getWindowsParameters, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WDesktopProperties::setBooleanProperty($String* key, bool value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!WDesktopProperties::$assertionsDisabled && !(key != nullptr)) {
 			$throwNew($AssertionError);
 		}
 		$init($PlatformLogger$Level);
 		if ($nc(WDesktopProperties::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(WDesktopProperties::log)->fine($$str({key, "="_s, $($String::valueOf(value))}));
+			WDesktopProperties::log->fine($$str({key, "="_s, $($String::valueOf(value))}));
 		}
 		$nc(this->map)->put(key, $($Boolean::valueOf(value)));
 	}
@@ -189,13 +126,13 @@ void WDesktopProperties::setBooleanProperty($String* key, bool value) {
 
 void WDesktopProperties::setIntegerProperty($String* key, int32_t value) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!WDesktopProperties::$assertionsDisabled && !(key != nullptr)) {
 			$throwNew($AssertionError);
 		}
 		$init($PlatformLogger$Level);
 		if ($nc(WDesktopProperties::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(WDesktopProperties::log)->fine($$str({key, "="_s, $($String::valueOf(value))}));
+			WDesktopProperties::log->fine($$str({key, "="_s, $($String::valueOf(value))}));
 		}
 		$nc(this->map)->put(key, $($Integer::valueOf(value)));
 	}
@@ -208,7 +145,7 @@ void WDesktopProperties::setStringProperty($String* key, $String* value) {
 		}
 		$init($PlatformLogger$Level);
 		if ($nc(WDesktopProperties::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(WDesktopProperties::log)->fine($$str({key, "="_s, value}));
+			WDesktopProperties::log->fine($$str({key, "="_s, value}));
 		}
 		$nc(this->map)->put(key, value);
 	}
@@ -216,14 +153,14 @@ void WDesktopProperties::setStringProperty($String* key, $String* value) {
 
 void WDesktopProperties::setColorProperty($String* key, int32_t r, int32_t g, int32_t b) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!WDesktopProperties::$assertionsDisabled && !(key != nullptr && r <= 255 && g <= 255 && b <= 255)) {
 			$throwNew($AssertionError);
 		}
 		$var($Color, color, $new($Color, r, g, b));
 		$init($PlatformLogger$Level);
 		if ($nc(WDesktopProperties::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(WDesktopProperties::log)->fine($$str({key, "="_s, color}));
+			WDesktopProperties::log->fine($$str({key, "="_s, color}));
 		}
 		$nc(this->map)->put(key, color);
 	}
@@ -231,7 +168,7 @@ void WDesktopProperties::setColorProperty($String* key, int32_t r, int32_t g, in
 
 void WDesktopProperties::setFontProperty($String* key, $String* name$renamed, int32_t style, int32_t size) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, name, name$renamed);
 		if (!WDesktopProperties::$assertionsDisabled && !(key != nullptr && style <= ($Font::BOLD | $Font::ITALIC) && size >= 0)) {
 			$throwNew($AssertionError);
@@ -243,13 +180,13 @@ void WDesktopProperties::setFontProperty($String* key, $String* name$renamed, in
 		$var($Font, font, $new($Font, name, style, size));
 		$init($PlatformLogger$Level);
 		if ($nc(WDesktopProperties::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(WDesktopProperties::log)->fine($$str({key, "="_s, font}));
+			WDesktopProperties::log->fine($$str({key, "="_s, font}));
 		}
 		$nc(this->map)->put(key, font);
 		$var($String, sizeKey, $str({key, ".height"_s}));
 		$var($Integer, iSize, $Integer::valueOf(size));
-		if ($nc(WDesktopProperties::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(WDesktopProperties::log)->fine($$str({sizeKey, "="_s, iSize}));
+		if (WDesktopProperties::log->isLoggable($PlatformLogger$Level::FINE)) {
+			WDesktopProperties::log->fine($$str({sizeKey, "="_s, iSize}));
 		}
 		$nc(this->map)->put(sizeKey, iSize);
 	}
@@ -257,28 +194,28 @@ void WDesktopProperties::setFontProperty($String* key, $String* name$renamed, in
 
 void WDesktopProperties::setSoundProperty($String* key, $String* winEventName) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!WDesktopProperties::$assertionsDisabled && !(key != nullptr && winEventName != nullptr)) {
 			$throwNew($AssertionError);
 		}
 		$var($Runnable, soundRunnable, $new($WDesktopProperties$WinPlaySound, this, winEventName));
 		$init($PlatformLogger$Level);
 		if ($nc(WDesktopProperties::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(WDesktopProperties::log)->fine($$str({key, "="_s, soundRunnable}));
+			WDesktopProperties::log->fine($$str({key, "="_s, soundRunnable}));
 		}
 		$nc(this->map)->put(key, soundRunnable);
 	}
 }
 
 void WDesktopProperties::playWindowsSound($String* winEventName) {
-	$prepareNative(WDesktopProperties, playWindowsSound, void, $String* winEventName);
+	$prepareNative(playWindowsSound, void, $String* winEventName);
 	$invokeNative(winEventName);
 	$finishNative();
 }
 
 $Map* WDesktopProperties::getProperties() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$ThemeReader::flush();
 		$set(this, map, $new($HashMap));
 		getWindowsParameters();
@@ -286,35 +223,34 @@ $Map* WDesktopProperties::getProperties() {
 		$nc(this->map)->put($SunToolkit::DESKTOPFONTHINTS, $($SunToolkit::getDesktopFontHints()));
 		$nc(this->map)->put(WDesktopProperties::PROP_NAMES, $(getKeyNames()));
 		$nc(this->map)->put("DnD.Autoscroll.cursorHysteresis"_s, $($nc(this->map)->get("win.drag.x"_s)));
-		return $cast($Map, $nc(this->map)->clone());
+		return $cast($Map, this->map->clone());
 	}
 }
 
 $RenderingHints* WDesktopProperties::getDesktopAAHints() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$init($RenderingHints);
 		$var($Object, fontSmoothingHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_DEFAULT);
 		$var($Integer, fontSmoothingContrast, nullptr);
 		$var($Boolean, smoothingOn, $cast($Boolean, $nc(this->map)->get("win.text.fontSmoothingOn"_s)));
-		$init($Boolean);
 		if (smoothingOn != nullptr && smoothingOn->equals($Boolean::TRUE)) {
-			$var($Integer, typeID, $cast($Integer, $nc(this->map)->get("win.text.fontSmoothingType"_s)));
-			bool var$0 = typeID == nullptr || $nc(typeID)->intValue() <= 1;
-			if (var$0 || $nc(typeID)->intValue() > 2) {
+			$var($Integer, typeID, $cast($Integer, this->map->get("win.text.fontSmoothingType"_s)));
+			bool var$0 = typeID == nullptr || typeID->intValue() <= 1;
+			if (var$0 || typeID->intValue() > 2) {
 				$assign(fontSmoothingHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_GASP);
 			} else {
-				$var($Integer, orientID, $cast($Integer, $nc(this->map)->get("win.text.fontSmoothingOrientation"_s)));
-				if (orientID == nullptr || $nc(orientID)->intValue() != 0) {
+				$var($Integer, orientID, $cast($Integer, this->map->get("win.text.fontSmoothingOrientation"_s)));
+				if (orientID == nullptr || orientID->intValue() != 0) {
 					$assign(fontSmoothingHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_LCD_HRGB);
 				} else {
 					$assign(fontSmoothingHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_LCD_HBGR);
 				}
-				$assign(fontSmoothingContrast, $cast($Integer, $nc(this->map)->get("win.text.fontSmoothingContrast"_s)));
+				$assign(fontSmoothingContrast, $cast($Integer, this->map->get("win.text.fontSmoothingContrast"_s)));
 				if (fontSmoothingContrast == nullptr) {
 					$assign(fontSmoothingContrast, $Integer::valueOf(140));
 				} else {
-					$assign(fontSmoothingContrast, $Integer::valueOf($nc(fontSmoothingContrast)->intValue() / 10));
+					$assign(fontSmoothingContrast, $Integer::valueOf(fontSmoothingContrast->intValue() / 10));
 				}
 			}
 		}
@@ -327,7 +263,7 @@ $RenderingHints* WDesktopProperties::getDesktopAAHints() {
 	}
 }
 
-void clinit$WDesktopProperties($Class* class$) {
+void WDesktopProperties::clinit$($Class* clazz) {
 	$assignStatic(WDesktopProperties::PREFIX, "win."_s);
 	$assignStatic(WDesktopProperties::FILE_PREFIX, "awt.file."_s);
 	$assignStatic(WDesktopProperties::PROP_NAMES, "win.propNames"_s);
@@ -339,12 +275,12 @@ void clinit$WDesktopProperties($Class* class$) {
 	{
 		$assignStatic(WDesktopProperties::fontNameMap, $new($HashMap));
 		$init($Font);
-		$nc(WDesktopProperties::fontNameMap)->put("Courier"_s, $Font::MONOSPACED);
-		$nc(WDesktopProperties::fontNameMap)->put("MS Serif"_s, "Microsoft Serif"_s);
-		$nc(WDesktopProperties::fontNameMap)->put("MS Sans Serif"_s, "Microsoft Sans Serif"_s);
-		$nc(WDesktopProperties::fontNameMap)->put("Terminal"_s, $Font::DIALOG);
-		$nc(WDesktopProperties::fontNameMap)->put("FixedSys"_s, $Font::MONOSPACED);
-		$nc(WDesktopProperties::fontNameMap)->put("System"_s, $Font::DIALOG);
+		WDesktopProperties::fontNameMap->put("Courier"_s, $Font::MONOSPACED);
+		WDesktopProperties::fontNameMap->put("MS Serif"_s, "Microsoft Serif"_s);
+		WDesktopProperties::fontNameMap->put("MS Sans Serif"_s, "Microsoft Sans Serif"_s);
+		WDesktopProperties::fontNameMap->put("Terminal"_s, $Font::DIALOG);
+		WDesktopProperties::fontNameMap->put("FixedSys"_s, $Font::MONOSPACED);
+		WDesktopProperties::fontNameMap->put("System"_s, $Font::DIALOG);
 	}
 }
 
@@ -352,7 +288,57 @@ WDesktopProperties::WDesktopProperties() {
 }
 
 $Class* WDesktopProperties::load$($String* name, bool initialize) {
-	$loadClass(WDesktopProperties, name, initialize, &_WDesktopProperties_ClassInfo_, clinit$WDesktopProperties, allocate$WDesktopProperties);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WDesktopProperties, $assertionsDisabled)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopProperties, log)},
+		{"PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopProperties, PREFIX)},
+		{"FILE_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopProperties, FILE_PREFIX)},
+		{"PROP_NAMES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDesktopProperties, PROP_NAMES)},
+		{"pData", "J", nullptr, $PRIVATE, $field(WDesktopProperties, pData)},
+		{"wToolkit", "Lsun/awt/windows/WToolkit;", nullptr, $PRIVATE, $field(WDesktopProperties, wToolkit)},
+		{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(WDesktopProperties, map)},
+		{"fontNameMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $STATIC, $staticField(WDesktopProperties, fontNameMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WToolkit;)V", nullptr, 0, $method(WDesktopProperties, init$, void, $WToolkit*)},
+		{"getDesktopAAHints", "()Ljava/awt/RenderingHints;", nullptr, $SYNCHRONIZED, $method(WDesktopProperties, getDesktopAAHints, $RenderingHints*)},
+		{"getKeyNames", "()[Ljava/lang/String;", nullptr, $PRIVATE, $method(WDesktopProperties, getKeyNames, $StringArray*)},
+		{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $SYNCHRONIZED, $method(WDesktopProperties, getProperties, $Map*)},
+		{"getWindowsParameters", "()V", nullptr, $PRIVATE | $NATIVE, $method(WDesktopProperties, getWindowsParameters, void)},
+		{"init", "()V", nullptr, $PRIVATE | $NATIVE, $method(WDesktopProperties, init, void)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WDesktopProperties, initIDs, void)},
+		{"isWindowsProperty", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(WDesktopProperties, isWindowsProperty, bool, $String*)},
+		{"playWindowsSound", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $NATIVE, $method(WDesktopProperties, playWindowsSound, void, $String*)},
+		{"setBooleanProperty", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setBooleanProperty, void, $String*, bool)},
+		{"setColorProperty", "(Ljava/lang/String;III)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setColorProperty, void, $String*, int32_t, int32_t, int32_t)},
+		{"setFontProperty", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setFontProperty, void, $String*, $String*, int32_t, int32_t)},
+		{"setIntegerProperty", "(Ljava/lang/String;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setIntegerProperty, void, $String*, int32_t)},
+		{"setSoundProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setSoundProperty, void, $String*, $String*)},
+		{"setStringProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WDesktopProperties, setStringProperty, void, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WDesktopProperties$WinPlaySound", "sun.awt.windows.WDesktopProperties", "WinPlaySound", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WDesktopProperties",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WDesktopProperties$WinPlaySound"
+	};
+	$loadClass(WDesktopProperties, name, initialize, &classInfo$$, WDesktopProperties::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WDesktopProperties);
+	});
 	return class$;
 }
 

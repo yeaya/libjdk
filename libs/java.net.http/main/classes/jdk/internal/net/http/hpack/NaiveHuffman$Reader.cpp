@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/NaiveHuffman$Reader.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/IllegalStateException.h>
@@ -27,48 +26,6 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$FieldInfo _NaiveHuffman$Reader_FieldInfo_[] = {
-	{"curr", "Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, $PRIVATE, $field(NaiveHuffman$Reader, curr)},
-	{"len", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Reader, len)},
-	{"p", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Reader, p)},
-	{}
-};
-
-$MethodInfo _NaiveHuffman$Reader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Reader, init$, void)},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool), "java.io.IOException"},
-	{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;ZZ)V", nullptr, 0, $method(NaiveHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool, bool), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Reader, reset, void)},
-	{"resetProbe", "()V", nullptr, $PRIVATE, $method(NaiveHuffman$Reader, resetProbe, void)},
-	{}
-};
-
-$InnerClassInfo _NaiveHuffman$Reader_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Reader", "jdk.internal.net.http.hpack.NaiveHuffman", "Reader", $STATIC | $FINAL},
-	{"jdk.internal.net.http.hpack.Huffman$Reader", "jdk.internal.net.http.hpack.Huffman", "Reader", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _NaiveHuffman$Reader_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.NaiveHuffman$Reader",
-	"java.lang.Object",
-	"jdk.internal.net.http.hpack.Huffman$Reader",
-	_NaiveHuffman$Reader_FieldInfo_,
-	_NaiveHuffman$Reader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NaiveHuffman$Reader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.NaiveHuffman"
-};
-
-$Object* allocate$NaiveHuffman$Reader($Class* clazz) {
-	return $of($alloc(NaiveHuffman$Reader));
-}
-
 void NaiveHuffman$Reader::init$() {
 	{
 		reset();
@@ -80,16 +37,16 @@ void NaiveHuffman$Reader::read($ByteBuffer* source, $Appendable* destination, bo
 }
 
 void NaiveHuffman$Reader::read($ByteBuffer* source, $Appendable* destination, bool reportEOS, bool isLast) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NaiveHuffman$Node, c, this->curr);
 	int32_t l = this->len;
 	int32_t pos = $nc(source)->position();
 	while (source->hasRemaining()) {
 		int32_t d = source->get();
 		for (; this->p != 0; this->p >>= 1) {
-			$assign(c, $nc(c)->getChild((int32_t)(this->p & (uint32_t)d)));
+			$assign(c, $nc(c)->getChild(this->p & d));
 			++l;
-			if (c->isLeaf()) {
+			if ($nc(c)->isLeaf()) {
 				if (reportEOS && c->isEOSPath) {
 					$throwNew($IOException, "Encountered EOS"_s);
 				}
@@ -98,7 +55,7 @@ void NaiveHuffman$Reader::read($ByteBuffer* source, $Appendable* destination, bo
 					ch = c->getChar();
 				} catch ($IllegalStateException& e) {
 					source->position(pos);
-					$throwNew($IOException, static_cast<$Throwable*>(e));
+					$throwNew($IOException, e);
 				}
 				try {
 					$nc(destination)->append(ch);
@@ -122,10 +79,10 @@ void NaiveHuffman$Reader::read($ByteBuffer* source, $Appendable* destination, bo
 	if ($nc(c)->isLeaf()) {
 		return;
 	}
-	if ($nc(c)->isEOSPath && this->len <= 7) {
+	if (c->isEOSPath && this->len <= 7) {
 		return;
 	}
-	if ($nc(c)->isEOSPath) {
+	if (c->isEOSPath) {
 		$throwNew($IOException, $$str({"Padding is too long (len="_s, $$str(this->len), ") or unexpected end of data"_s}));
 	}
 	$throwNew($IOException, "Not a EOS prefix padding or unexpected end of data"_s);
@@ -146,7 +103,43 @@ NaiveHuffman$Reader::NaiveHuffman$Reader() {
 }
 
 $Class* NaiveHuffman$Reader::load$($String* name, bool initialize) {
-	$loadClass(NaiveHuffman$Reader, name, initialize, &_NaiveHuffman$Reader_ClassInfo_, allocate$NaiveHuffman$Reader);
+	$FieldInfo fieldInfos$$[] = {
+		{"curr", "Ljdk/internal/net/http/hpack/NaiveHuffman$Node;", nullptr, $PRIVATE, $field(NaiveHuffman$Reader, curr)},
+		{"len", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Reader, len)},
+		{"p", "I", nullptr, $PRIVATE, $field(NaiveHuffman$Reader, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NaiveHuffman$Reader, init$, void)},
+		{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;Z)V", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool), "java.io.IOException"},
+		{"read", "(Ljava/nio/ByteBuffer;Ljava/lang/Appendable;ZZ)V", nullptr, 0, $method(NaiveHuffman$Reader, read, void, $ByteBuffer*, $Appendable*, bool, bool), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Reader, reset, void)},
+		{"resetProbe", "()V", nullptr, $PRIVATE, $method(NaiveHuffman$Reader, resetProbe, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Reader", "jdk.internal.net.http.hpack.NaiveHuffman", "Reader", $STATIC | $FINAL},
+		{"jdk.internal.net.http.hpack.Huffman$Reader", "jdk.internal.net.http.hpack.Huffman", "Reader", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.NaiveHuffman$Reader",
+		"java.lang.Object",
+		"jdk.internal.net.http.hpack.Huffman$Reader",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.NaiveHuffman"
+	};
+	$loadClass(NaiveHuffman$Reader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NaiveHuffman$Reader);
+	});
 	return class$;
 }
 

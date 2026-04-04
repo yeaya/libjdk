@@ -1,5 +1,4 @@
 #include <bug6953396$1$1.h>
-
 #include <bug6953396$1.h>
 #include <bug6953396.h>
 #include <javax/swing/JComponent.h>
@@ -15,50 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $BasicViewportUI = ::javax::swing::plaf::basic::BasicViewportUI;
-
-$FieldInfo _bug6953396$1$1_FieldInfo_[] = {
-	{"this$0", "Lbug6953396$1;", nullptr, $FINAL | $SYNTHETIC, $field(bug6953396$1$1, this$0)},
-	{}
-};
-
-$MethodInfo _bug6953396$1$1_MethodInfo_[] = {
-	{"<init>", "(Lbug6953396$1;)V", nullptr, 0, $method(bug6953396$1$1, init$, void, $bug6953396$1*)},
-	{"installDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(bug6953396$1$1, installDefaults, void, $JComponent*)},
-	{"uninstallDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(bug6953396$1$1, uninstallDefaults, void, $JComponent*)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6953396$1$1_EnclosingMethodInfo_ = {
-	"bug6953396$1",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _bug6953396$1$1_InnerClassesInfo_[] = {
-	{"bug6953396$1", nullptr, nullptr, 0},
-	{"bug6953396$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6953396$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6953396$1$1",
-	"javax.swing.plaf.basic.BasicViewportUI",
-	nullptr,
-	_bug6953396$1$1_FieldInfo_,
-	_bug6953396$1$1_MethodInfo_,
-	nullptr,
-	&_bug6953396$1$1_EnclosingMethodInfo_,
-	_bug6953396$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6953396"
-};
-
-$Object* allocate$bug6953396$1$1($Class* clazz) {
-	return $of($alloc(bug6953396$1$1));
-}
 
 void bug6953396$1$1::init$($bug6953396$1* this$0) {
 	$set(this, this$0, this$0);
@@ -81,7 +36,44 @@ bug6953396$1$1::bug6953396$1$1() {
 }
 
 $Class* bug6953396$1$1::load$($String* name, bool initialize) {
-	$loadClass(bug6953396$1$1, name, initialize, &_bug6953396$1$1_ClassInfo_, allocate$bug6953396$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug6953396$1;", nullptr, $FINAL | $SYNTHETIC, $field(bug6953396$1$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6953396$1;)V", nullptr, 0, $method(bug6953396$1$1, init$, void, $bug6953396$1*)},
+		{"installDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(bug6953396$1$1, installDefaults, void, $JComponent*)},
+		{"uninstallDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(bug6953396$1$1, uninstallDefaults, void, $JComponent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6953396$1",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6953396$1", nullptr, nullptr, 0},
+		{"bug6953396$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6953396$1$1",
+		"javax.swing.plaf.basic.BasicViewportUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6953396"
+	};
+	$loadClass(bug6953396$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6953396$1$1);
+	});
 	return class$;
 }
 

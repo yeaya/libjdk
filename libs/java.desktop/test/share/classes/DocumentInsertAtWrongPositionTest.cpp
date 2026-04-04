@@ -1,5 +1,4 @@
 #include <DocumentInsertAtWrongPositionTest.h>
-
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/JTextPane.h>
@@ -16,35 +15,14 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JTextField = ::javax::swing::JTextField;
 using $JTextPane = ::javax::swing::JTextPane;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $Document = ::javax::swing::text::Document;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
-
-$MethodInfo _DocumentInsertAtWrongPositionTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DocumentInsertAtWrongPositionTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DocumentInsertAtWrongPositionTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _DocumentInsertAtWrongPositionTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DocumentInsertAtWrongPositionTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_DocumentInsertAtWrongPositionTest_MethodInfo_
-};
-
-$Object* allocate$DocumentInsertAtWrongPositionTest($Class* clazz) {
-	return $of($alloc(DocumentInsertAtWrongPositionTest));
-}
 
 void DocumentInsertAtWrongPositionTest::init$() {
 }
 
 void DocumentInsertAtWrongPositionTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextField, te, $new($JTextField, "1234567890"_s));
 	$var($JTextPane, tp, $new($JTextPane));
 	tp->setText("1234567890"_s);
@@ -55,12 +33,12 @@ void DocumentInsertAtWrongPositionTest::main($StringArray* args) {
 	} catch ($IllegalArgumentException& e) {
 	}
 	try {
-		$nc($(te->getDocument()))->insertString(11, "abc"_s, $$new($SimpleAttributeSet));
+		$$nc(te->getDocument())->insertString(11, "abc"_s, $$new($SimpleAttributeSet));
 		$throwNew($RuntimeException, "failed"_s);
 	} catch ($BadLocationException& e) {
 	}
 	try {
-		$nc($(tp->getDocument()))->insertString(11, "abc"_s, $$new($SimpleAttributeSet));
+		$$nc(tp->getDocument())->insertString(11, "abc"_s, $$new($SimpleAttributeSet));
 		$throwNew($RuntimeException, "failed"_s);
 	} catch ($BadLocationException& e) {
 	}
@@ -70,7 +48,22 @@ DocumentInsertAtWrongPositionTest::DocumentInsertAtWrongPositionTest() {
 }
 
 $Class* DocumentInsertAtWrongPositionTest::load$($String* name, bool initialize) {
-	$loadClass(DocumentInsertAtWrongPositionTest, name, initialize, &_DocumentInsertAtWrongPositionTest_ClassInfo_, allocate$DocumentInsertAtWrongPositionTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DocumentInsertAtWrongPositionTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DocumentInsertAtWrongPositionTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DocumentInsertAtWrongPositionTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DocumentInsertAtWrongPositionTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocumentInsertAtWrongPositionTest);
+	});
 	return class$;
 }
 

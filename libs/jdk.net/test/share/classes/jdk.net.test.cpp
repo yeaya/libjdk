@@ -1,5 +1,4 @@
 #include <jdk.net.test.h>
-
 #include <java.net.http.h>
 #include <jdk.httpserver.h>
 #include <jdk.net.h>

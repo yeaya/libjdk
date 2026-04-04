@@ -34,6 +34,7 @@ class $export PressedIconTest : public ::java::lang::Object {
 	$class(PressedIconTest, 0, ::java::lang::Object)
 public:
 	PressedIconTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static ::java::awt::image::BufferedImage* generateImage(int32_t scale, ::java::awt::Color* c);

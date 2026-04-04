@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_el.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_el_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_el, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_el, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_el_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_el",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_el_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_el($Class* clazz) {
-	return $of($alloc(LocaleNames_el));
-}
-
 void LocaleNames_el::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_el::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_FJ, u"Φίτζι"_s);
 	$var($String, metaValue_NU, u"Νιούε"_s);
 	$var($String, metaValue_TK, u"Τοκελάου"_s);
@@ -58,4368 +38,4368 @@ $ObjectArray2* LocaleNames_el::getContents() {
 	$var($String, metaValue_zbl, u"Σύμβολα Bliss"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ksh"_s),
-			$of(u"Κολωνικά"_s)
+			"ksh"_s,
+			u"Κολωνικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ogam"_s),
-			$of(u"Όγκχαμ"_s)
+			"Ogam"_s,
+			u"Όγκχαμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwl"_s),
-			$of(u"Μιραντεζικά"_s)
+			"mwl"_s,
+			u"Μιραντεζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsym"_s),
-			$of(u"Σύμβολα"_s)
+			"Zsym"_s,
+			u"Σύμβολα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cch"_s),
-			$of(u"Ατσάμ"_s)
+			"cch"_s,
+			u"Ατσάμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwr"_s),
-			$of(u"Μαργουάρι"_s)
+			"mwr"_s,
+			u"Μαργουάρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tagb"_s),
-			$of(u"Ταγκμάνγουα"_s)
+			"Tagb"_s,
+			u"Ταγκμάνγουα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsye"_s),
-			$of("Emoji"_s)
+			"Zsye"_s,
+			"Emoji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NJIVA"_s),
-			$of(u"Διάλεκτος Γκνιβά/Ντζιβά"_s)
+			"%%NJIVA"_s,
+			u"Διάλεκτος Γκνιβά/Ντζιβά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ccp"_s),
-			$of(metaValue_ccp)
+			"ccp"_s,
+			metaValue_ccp
 		}),
 		$$new($ObjectArray, {
-			$of("egy"_s),
-			$of(u"Αρχαία Αιγυπτιακά"_s)
+			"egy"_s,
+			u"Αρχαία Αιγυπτιακά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("raj"_s),
-			$of(u"Ραζασθάνι"_s)
+			"raj"_s,
+			u"Ραζασθάνι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phag"_s),
-			$of(u"Παγκς-πα"_s)
+			"Phag"_s,
+			u"Παγκς-πα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tem"_s),
-			$of(u"Τίμνε"_s)
+			"tem"_s,
+			u"Τίμνε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("teo"_s),
-			$of(u"Τέσο"_s)
+			"teo"_s,
+			u"Τέσο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rap"_s),
-			$of(u"Ραπανούι"_s)
+			"rap"_s,
+			u"Ραπανούι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ter"_s),
-			$of(u"Τερένο"_s)
+			"ter"_s,
+			u"Τερένο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of(u"Νήσος Ασενσιόν"_s)
+			"AC"_s,
+			u"Νήσος Ασενσιόν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rar"_s),
-			$of(u"Ραροτονγκάν"_s)
+			"rar"_s,
+			u"Ραροτονγκάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of(u"Τέτουμ"_s)
+			"tet"_s,
+			u"Τέτουμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"Ανδόρα"_s)
+			"AD"_s,
+			u"Ανδόρα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"Ηνωμένα Αραβικά Εμιράτα"_s)
+			"AE"_s,
+			u"Ηνωμένα Αραβικά Εμιράτα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl_BE"_s),
-			$of(u"Φλαμανδικά"_s)
+			"nl_BE"_s,
+			u"Φλαμανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"Αφγανιστάν"_s)
+			"AF"_s,
+			u"Αφγανιστάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"Αντίγκουα και Μπαρμπούντα"_s)
+			"AG"_s,
+			u"Αντίγκουα και Μπαρμπούντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic"_s),
-			$of(u"Αιθιοπικό ημερολόγιο"_s)
+			"type.ca.ethiopic"_s,
+			u"Αιθιοπικό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of(u"Ανγκουίλα"_s)
+			"AI"_s,
+			u"Ανγκουίλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.tz"_s),
-			$of(u"Ζώνη ώρας"_s)
+			"key.tz"_s,
+			u"Ζώνη ώρας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"Αλβανία"_s)
+			"AL"_s,
+			u"Αλβανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"Αρμενία"_s)
+			"AM"_s,
+			u"Αρμενία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Teng"_s),
-			$of(u"Τεγνγουάρ"_s)
+			"Teng"_s,
+			u"Τεγνγουάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"Αγκόλα"_s)
+			"AO"_s,
+			u"Αγκόλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of(u"Ανταρκτική"_s)
+			"AQ"_s,
+			u"Ανταρκτική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"Αργεντινή"_s)
+			"AR"_s,
+			u"Αργεντινή"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prti"_s),
-			$of(u"Επιγραφικό Παρθιάν"_s)
+			"Prti"_s,
+			u"Επιγραφικό Παρθιάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"Αμερικανική Σαμόα"_s)
+			"AS"_s,
+			u"Αμερικανική Σαμόα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"Αυστρία"_s)
+			"AT"_s,
+			u"Αυστρία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"Αυστραλία"_s)
+			"AU"_s,
+			u"Αυστραλία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"Αρούμπα"_s)
+			"AW"_s,
+			u"Αρούμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_US"_s),
-			$of(u"Αγγλικά Αμερικής"_s)
+			"en_US"_s,
+			u"Αγγλικά Αμερικής"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"Νήσοι Όλαντ"_s)
+			"AX"_s,
+			u"Νήσοι Όλαντ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mye"_s),
-			$of(u"Μιένε"_s)
+			"mye"_s,
+			u"Μιένε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"Αζερμπαϊτζάν"_s)
+			"AZ"_s,
+			u"Αζερμπαϊτζάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%AREVELA"_s),
-			$of(u"Ανατολικά Αρμενικά"_s)
+			"%%AREVELA"_s,
+			u"Ανατολικά Αρμενικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"Βοσνία - Ερζεγοβίνη"_s)
+			"BA"_s,
+			u"Βοσνία - Ερζεγοβίνη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"Μπαρμπέιντος"_s)
+			"BB"_s,
+			u"Μπαρμπέιντος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of(u"Σεμπουάνο"_s)
+			"ceb"_s,
+			u"Σεμπουάνο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(u"Μπανγκλαντές"_s)
+			"BD"_s,
+			u"Μπανγκλαντές"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of(u"Κουμγιούκ"_s)
+			"kum"_s,
+			u"Κουμγιούκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"Βέλγιο"_s)
+			"BE"_s,
+			u"Βέλγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmh"_s),
-			$of(u"Μέσα Άνω Γερμανικά"_s)
+			"gmh"_s,
+			u"Μέσα Άνω Γερμανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"Μπουρκίνα Φάσο"_s)
+			"BF"_s,
+			u"Μπουρκίνα Φάσο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"Βουλγαρία"_s)
+			"BG"_s,
+			u"Βουλγαρία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"Μπαχρέιν"_s)
+			"BH"_s,
+			u"Μπαχρέιν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"Μπουρούντι"_s)
+			"BI"_s,
+			u"Μπουρούντι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"Μπενίν"_s)
+			"BJ"_s,
+			u"Μπενίν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of(u"Άγιος Βαρθολομαίος"_s)
+			"BL"_s,
+			u"Άγιος Βαρθολομαίος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"Βερμούδες"_s)
+			"BM"_s,
+			u"Βερμούδες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kut"_s),
-			$of(u"Κουτενάι"_s)
+			"kut"_s,
+			u"Κουτενάι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myv"_s),
-			$of(u"Έρζια"_s)
+			"myv"_s,
+			u"Έρζια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"Μπρουνέι"_s)
+			"BN"_s,
+			u"Μπρουνέι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"Βολιβία"_s)
+			"BO"_s,
+			u"Βολιβία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of(u"Ολλανδία Καραϊβικής"_s)
+			"BQ"_s,
+			u"Ολλανδία Καραϊβικής"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"Βραζιλία"_s)
+			"BR"_s,
+			u"Βραζιλία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"Μπαχάμες"_s)
+			"BS"_s,
+			u"Μπαχάμες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xog"_s),
-			$of(u"Σόγκα"_s)
+			"xog"_s,
+			u"Σόγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"Μπουτάν"_s)
+			"BT"_s,
+			u"Μπουτάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"Νήσος Μπουβέ"_s)
+			"BV"_s,
+			u"Νήσος Μπουβέ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"Μποτσουάνα"_s)
+			"BW"_s,
+			u"Μποτσουάνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"Λευκορωσία"_s)
+			"BY"_s,
+			u"Λευκορωσία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"Μπελίζ"_s)
+			"BZ"_s,
+			u"Μπελίζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Visp"_s),
-			$of(u"Ορατή ομιλία"_s)
+			"Visp"_s,
+			u"Ορατή ομιλία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.persian"_s),
-			$of(u"Περσικό ημερολόγιο"_s)
+			"type.ca.persian"_s,
+			u"Περσικό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hebr"_s),
-			$of(u"Εβραϊκά αριθμητικά"_s)
+			"type.nu.hebr"_s,
+			u"Εβραϊκά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"Καναδάς"_s)
+			"CA"_s,
+			u"Καναδάς"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"Νήσοι Κόκος (Κίλινγκ)"_s)
+			"CC"_s,
+			u"Νήσοι Κόκος (Κίλινγκ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzn"_s),
-			$of(u"Μαζαντεράνι"_s)
+			"mzn"_s,
+			u"Μαζαντεράνι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"Κονγκό - Κινσάσα"_s)
+			"CD"_s,
+			u"Κονγκό - Κινσάσα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"Κεντροαφρικανική Δημοκρατία"_s)
+			"CF"_s,
+			u"Κεντροαφρικανική Δημοκρατία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"Κονγκό - Μπραζαβίλ"_s)
+			"CG"_s,
+			u"Κονγκό - Μπραζαβίλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"Ελβετία"_s)
+			"CH"_s,
+			u"Ελβετία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"Ακτή Ελεφαντοστού"_s)
+			"CI"_s,
+			u"Ακτή Ελεφαντοστού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"Νήσοι Κουκ"_s)
+			"CK"_s,
+			u"Νήσοι Κουκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"Χιλή"_s)
+			"CL"_s,
+			u"Χιλή"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kthi"_s),
-			$of(u"Καϊθί"_s)
+			"Kthi"_s,
+			u"Καϊθί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"Καμερούν"_s)
+			"CM"_s,
+			u"Καμερούν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"Κίνα"_s)
+			"CN"_s,
+			u"Κίνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"Κολομβία"_s)
+			"CO"_s,
+			u"Κολομβία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of(u"Νήσος Κλίπερτον"_s)
+			"CP"_s,
+			u"Νήσος Κλίπερτον"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"Κόστα Ρίκα"_s)
+			"CR"_s,
+			u"Κόστα Ρίκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"Κούβα"_s)
+			"CU"_s,
+			u"Κούβα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"Πράσινο Ακρωτήριο"_s)
+			"CV"_s,
+			u"Πράσινο Ακρωτήριο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of(u"Κουρασάο"_s)
+			"CW"_s,
+			u"Κουρασάο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"Νήσος των Χριστουγέννων"_s)
+			"CX"_s,
+			u"Νήσος των Χριστουγέννων"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(u"Κύπρος"_s)
+			"CY"_s,
+			u"Κύπρος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"Τσεχία"_s)
+			"CZ"_s,
+			u"Τσεχία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eka"_s),
-			$of(u"Εκατζούκ"_s)
+			"eka"_s,
+			u"Εκατζούκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"Γερμανία"_s)
+			"DE"_s,
+			u"Γερμανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("goh"_s),
-			$of(u"Παλαιά Άνω Γερμανικά"_s)
+			"goh"_s,
+			u"Παλαιά Άνω Γερμανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"Ατσινιζικά"_s)
+			"ace"_s,
+			u"Ατσινιζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cgg"_s),
-			$of(u"Τσίγκα"_s)
+			"cgg"_s,
+			u"Τσίγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of(u"Ντιέγκο Γκαρσία"_s)
+			"DG"_s,
+			u"Ντιέγκο Γκαρσία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.deva"_s),
-			$of(u"Ψηφία Ντεβαναγκάρι"_s)
+			"type.nu.deva"_s,
+			u"Ψηφία Ντεβαναγκάρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"Τζιμπουτί"_s)
+			"DJ"_s,
+			u"Τζιμπουτί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"Δανία"_s)
+			"DK"_s,
+			u"Δανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ach"_s),
-			$of(u"Ακολί"_s)
+			"ach"_s,
+			u"Ακολί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gon"_s),
-			$of(u"Γκόντι"_s)
+			"gon"_s,
+			u"Γκόντι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brai"_s),
-			$of(u"Μπράιγ"_s)
+			"Brai"_s,
+			u"Μπράιγ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brah"_s),
-			$of(u"Μπραχμί"_s)
+			"Brah"_s,
+			u"Μπραχμί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"Ντομίνικα"_s)
+			"DM"_s,
+			u"Ντομίνικα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armnlow"_s),
-			$of(u"Πεζά αρμενικά αριθμητικά"_s)
+			"type.nu.armnlow"_s,
+			u"Πεζά αρμενικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"Δομινικανή Δημοκρατία"_s)
+			"DO"_s,
+			u"Δομινικανή Δημοκρατία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gor"_s),
-			$of(u"Γκοροντάλο"_s)
+			"gor"_s,
+			u"Γκοροντάλο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("got"_s),
-			$of(u"Γοτθικά"_s)
+			"got"_s,
+			u"Γοτθικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mtei"_s),
-			$of(u"Μεϊτέι Μάγεκ"_s)
+			"Mtei"_s,
+			u"Μεϊτέι Μάγεκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zun"_s),
-			$of(u"Ζούνι"_s)
+			"zun"_s,
+			u"Ζούνι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tig"_s),
-			$of(u"Τίγκρε"_s)
+			"tig"_s,
+			u"Τίγκρε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"Αλγερία"_s)
+			"DZ"_s,
+			u"Αλγερία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pag"_s),
-			$of(u"Πανγκασινάν"_s)
+			"pag"_s,
+			u"Πανγκασινάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.hwidth"_s),
-			$of(u"Μισού πλάτους"_s)
+			"type.d0.hwidth"_s,
+			u"Μισού πλάτους"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pal"_s),
-			$of(u"Παχλάβι"_s)
+			"pal"_s,
+			u"Παχλάβι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of(u"Θέουτα και Μελίγια"_s)
+			"EA"_s,
+			u"Θέουτα και Μελίγια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chb"_s),
-			$of(u"Τσίμπτσα"_s)
+			"chb"_s,
+			u"Τσίμπτσα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pam"_s),
-			$of(u"Παμπάνγκα"_s)
+			"pam"_s,
+			u"Παμπάνγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"Ισημερινός"_s)
+			"EC"_s,
+			u"Ισημερινός"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pap"_s),
-			$of(u"Παπιαμέντο"_s)
+			"pap"_s,
+			u"Παπιαμέντο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ada"_s),
-			$of(u"Αντάνγκμε"_s)
+			"ada"_s,
+			u"Αντάνγκμε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"Εσθονία"_s)
+			"EE"_s,
+			u"Εσθονία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tiv"_s),
-			$of(u"Τιβ"_s)
+			"tiv"_s,
+			u"Τιβ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"Αίγυπτος"_s)
+			"EG"_s,
+			u"Αίγυπτος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"Δυτική Σαχάρα"_s)
+			"EH"_s,
+			u"Δυτική Σαχάρα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chg"_s),
-			$of(u"Τσαγκατάι"_s)
+			"chg"_s,
+			u"Τσαγκατάι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pau"_s),
-			$of(u"Παλάουαν"_s)
+			"pau"_s,
+			u"Παλάουαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chk"_s),
-			$of(u"Τσουκίζι"_s)
+			"chk"_s,
+			u"Τσουκίζι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chn"_s),
-			$of(u"Ιδιωματικά Σινούκ"_s)
+			"chn"_s,
+			u"Ιδιωματικά Σινούκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chm"_s),
-			$of(u"Μάρι"_s)
+			"chm"_s,
+			u"Μάρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chp"_s),
-			$of(u"Τσίπιουαν"_s)
+			"chp"_s,
+			u"Τσίπιουαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cho"_s),
-			$of(u"Τσόκτο"_s)
+			"cho"_s,
+			u"Τσόκτο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chr"_s),
-			$of(metaValue_chr)
+			"chr"_s,
+			metaValue_chr
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"Ερυθραία"_s)
+			"ER"_s,
+			u"Ερυθραία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"Ισπανία"_s)
+			"ES"_s,
+			u"Ισπανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"Αιθιοπία"_s)
+			"ET"_s,
+			u"Αιθιοπία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EU"_s),
-			$of(u"Ευρωπαϊκή Ένωση"_s)
+			"EU"_s,
+			u"Ευρωπαϊκή Ένωση"_s
 		}),
 		$$new($ObjectArray, {
-			$of("elx"_s),
-			$of(u"Ελαμάιτ"_s)
+			"elx"_s,
+			u"Ελαμάιτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of(u"Γρηγοριανό ημερολόγιο"_s)
+			"type.ca.gregorian"_s,
+			u"Γρηγοριανό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EZ"_s),
-			$of(u"Ευρωζώνη"_s)
+			"EZ"_s,
+			u"Ευρωζώνη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chy"_s),
-			$of(u"Τσεγιέν"_s)
+			"chy"_s,
+			u"Τσεγιέν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gujr"_s),
-			$of(u"Γκουτζαρατικά ψηφία"_s)
+			"type.nu.gujr"_s,
+			u"Γκουτζαρατικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Inds"_s),
-			$of(u"Ίνδους"_s)
+			"Inds"_s,
+			u"Ίνδους"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ady"_s),
-			$of(u"Αντιγκέα"_s)
+			"ady"_s,
+			u"Αντιγκέα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"Φινλανδία"_s)
+			"FI"_s,
+			u"Φινλανδία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(metaValue_FJ)
+			"FJ"_s,
+			metaValue_FJ
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"Νήσοι Φόκλαντ"_s)
+			"FK"_s,
+			u"Νήσοι Φόκλαντ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"Μικρονησία"_s)
+			"FM"_s,
+			u"Μικρονησία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.va"_s),
-			$of(u"Παραλλαγή τοπικών ρυθμίσεων"_s)
+			"key.va"_s,
+			u"Παραλλαγή τοπικών ρυθμίσεων"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"Νήσοι Φερόες"_s)
+			"FO"_s,
+			u"Νήσοι Φερόες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Taml"_s),
-			$of(u"Ταμίλ"_s)
+			"Taml"_s,
+			u"Ταμίλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"Γαλλία"_s)
+			"FR"_s,
+			u"Γαλλία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tkl"_s),
-			$of(metaValue_TK)
+			"tkl"_s,
+			metaValue_TK
 		}),
 		$$new($ObjectArray, {
-			$of("grb"_s),
-			$of(u"Γκρίμπο"_s)
+			"grb"_s,
+			u"Γκρίμπο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.indian"_s),
-			$of(u"Ινδικό εθνικό ημερολόγιο"_s)
+			"type.ca.indian"_s,
+			u"Ινδικό εθνικό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of(u"Αρχαία Ελληνικά"_s)
+			"grc"_s,
+			u"Αρχαία Ελληνικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"Γκαμπόν"_s)
+			"GA"_s,
+			u"Γκαμπόν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vot"_s),
-			$of(u"Βότικ"_s)
+			"vot"_s,
+			u"Βότικ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"Ηνωμένο Βασίλειο"_s)
+			"GB"_s,
+			u"Ηνωμένο Βασίλειο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pcm"_s),
-			$of(u"Πίτζιν Νιγηρίας"_s)
+			"pcm"_s,
+			u"Πίτζιν Νιγηρίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"Γρενάδα"_s)
+			"GD"_s,
+			u"Γρενάδα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"Γεωργία"_s)
+			"GE"_s,
+			u"Γεωργία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"Γαλλική Γουιάνα"_s)
+			"GF"_s,
+			u"Γαλλική Γουιάνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of(u"Γκέρνζι"_s)
+			"GG"_s,
+			u"Γκέρνζι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"Γκάνα"_s)
+			"GH"_s,
+			u"Γκάνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tale"_s),
-			$of(u"Τάι Λε"_s)
+			"Tale"_s,
+			u"Τάι Λε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"Γιβραλτάρ"_s)
+			"GI"_s,
+			u"Γιβραλτάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afh"_s),
-			$of(u"Αφριχίλι"_s)
+			"afh"_s,
+			u"Αφριχίλι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"Γροιλανδία"_s)
+			"GL"_s,
+			u"Γροιλανδία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enm"_s),
-			$of(u"Μέσα Αγγλικά"_s)
+			"enm"_s,
+			u"Μέσα Αγγλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"Γκάμπια"_s)
+			"GM"_s,
+			u"Γκάμπια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"Γουινέα"_s)
+			"GN"_s,
+			u"Γουινέα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"Γουαδελούπη"_s)
+			"GP"_s,
+			u"Γουαδελούπη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"Ισημερινή Γουινέα"_s)
+			"GQ"_s,
+			u"Ισημερινή Γουινέα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"Ελλάδα"_s)
+			"GR"_s,
+			u"Ελλάδα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"Νήσοι Νότια Γεωργία και Νότιες Σάντουιτς"_s)
+			"GS"_s,
+			u"Νήσοι Νότια Γεωργία και Νότιες Σάντουιτς"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"Γουατεμάλα"_s)
+			"GT"_s,
+			u"Γουατεμάλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"Γκουάμ"_s)
+			"GU"_s,
+			u"Γκουάμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"Γουινέα Μπισάου"_s)
+			"GW"_s,
+			u"Γουινέα Μπισάου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tli"_s),
-			$of(u"Τλίνγκιτ"_s)
+			"tli"_s,
+			u"Τλίνγκιτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of(u"Κλίνγκον"_s)
+			"tlh"_s,
+			u"Κλίνγκον"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Talu"_s),
-			$of(u"Νέο Τάι Λούε"_s)
+			"Talu"_s,
+			u"Νέο Τάι Λούε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"Γουιάνα"_s)
+			"GY"_s,
+			u"Γουιάνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ckb"_s),
-			$of(u"Κουρδικά Σοράνι"_s)
+			"ckb"_s,
+			u"Κουρδικά Σοράνι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zxx"_s),
-			$of(u"Χωρίς γλωσσολογικό περιεχόμενο"_s)
+			"zxx"_s,
+			u"Χωρίς γλωσσολογικό περιεχόμενο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_AT"_s),
-			$of(u"Γερμανικά Αυστρίας"_s)
+			"de_AT"_s,
+			u"Γερμανικά Αυστρίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Vaii"_s),
-			$of(metaValue_vai)
+			"Vaii"_s,
+			metaValue_vai
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"Χονγκ Κονγκ ΕΔΠ Κίνας"_s)
+			"HK"_s,
+			u"Χονγκ Κονγκ ΕΔΠ Κίνας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"Νήσοι Χερντ και Μακντόναλντ"_s)
+			"HM"_s,
+			u"Νήσοι Χερντ και Μακντόναλντ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"Ονδούρα"_s)
+			"HN"_s,
+			u"Ονδούρα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"Κροατία"_s)
+			"HR"_s,
+			u"Κροατία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("agq"_s),
-			$of(u"Αγκέμ"_s)
+			"agq"_s,
+			u"Αγκέμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of(u"Γερμανικά Ελβετίας"_s)
+			"gsw"_s,
+			u"Γερμανικά Ελβετίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-umalqura"_s),
-			$of(u"Ισλαμικό ημερολόγιο (Umm al-Qura)"_s)
+			"type.ca.islamic-umalqura"_s,
+			u"Ισλαμικό ημερολόγιο (Umm al-Qura)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"Αϊτή"_s)
+			"HT"_s,
+			u"Αϊτή"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"Ουγγαρία"_s)
+			"HU"_s,
+			u"Ουγγαρία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tmh"_s),
-			$of(u"Ταμασέκ"_s)
+			"tmh"_s,
+			u"Ταμασέκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of(u"Κανάριοι Νήσοι"_s)
+			"IC"_s,
+			u"Κανάριοι Νήσοι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"Ινδονησία"_s)
+			"ID"_s,
+			u"Ινδονησία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("peo"_s),
-			$of(u"Αρχαία Περσικά"_s)
+			"peo"_s,
+			u"Αρχαία Περσικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"Ιρλανδία"_s)
+			"IE"_s,
+			u"Ιρλανδία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nap"_s),
-			$of(u"Ναπολιτανικά"_s)
+			"nap"_s,
+			u"Ναπολιτανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("naq"_s),
-			$of(u"Νάμα"_s)
+			"naq"_s,
+			u"Νάμα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zza"_s),
-			$of(u"Ζάζα"_s)
+			"zza"_s,
+			u"Ζάζα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"Ισραήλ"_s)
+			"IL"_s,
+			u"Ισραήλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of(u"Νήσος του Μαν"_s)
+			"IM"_s,
+			u"Νήσος του Μαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"Ινδία"_s)
+			"IN"_s,
+			u"Ινδία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.eor"_s),
-			$of(u"Ευρωπαϊκοί κανόνες ταξινόμησης"_s)
+			"type.co.eor"_s,
+			u"Ευρωπαϊκοί κανόνες ταξινόμησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"Βρετανικά Εδάφη Ινδικού Ωκεανού"_s)
+			"IO"_s,
+			u"Βρετανικά Εδάφη Ινδικού Ωκεανού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"Ιράκ"_s)
+			"IQ"_s,
+			u"Ιράκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"Ιράν"_s)
+			"IR"_s,
+			u"Ιράν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"Ισλανδία"_s)
+			"IS"_s,
+			u"Ισλανδία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"Ιταλία"_s)
+			"IT"_s,
+			u"Ιταλία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zmth"_s),
-			$of(u"Μαθηματική σημειογραφία"_s)
+			"Zmth"_s,
+			u"Μαθηματική σημειογραφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.thai"_s),
-			$of(u"Ταϊλανδικά ψηφία"_s)
+			"type.nu.thai"_s,
+			u"Ταϊλανδικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%POSIX"_s),
-			$of(u"Υπολογιστής"_s)
+			"%%POSIX"_s,
+			u"Υπολογιστής"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.beng"_s),
-			$of(u"Βεγγαλικά ψηφία"_s)
+			"type.nu.beng"_s,
+			u"Βεγγαλικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of(u"Τζέρζι"_s)
+			"JE"_s,
+			u"Τζέρζι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic"_s),
-			$of(u"Ισλαμικό ημερολόγιο"_s)
+			"type.ca.islamic"_s,
+			u"Ισλαμικό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"Τζαμάικα"_s)
+			"JM"_s,
+			u"Τζαμάικα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Beng"_s),
-			$of(u"Μπενγκάλι"_s)
+			"Beng"_s,
+			u"Μπενγκάλι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"Ιορδανία"_s)
+			"JO"_s,
+			u"Ιορδανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"Ιαπωνία"_s)
+			"JP"_s,
+			u"Ιαπωνία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1606NICT"_s),
-			$of(u"Νεότερα Μέσα Γαλλικά του 1606"_s)
+			"%%1606NICT"_s,
+			u"Νεότερα Μέσα Γαλλικά του 1606"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ain"_s),
-			$of(u"Αϊνού"_s)
+			"ain"_s,
+			u"Αϊνού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("guz"_s),
-			$of(u"Γκούσι"_s)
+			"guz"_s,
+			u"Γκούσι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tog"_s),
-			$of(u"Νιάσα Τόνγκα"_s)
+			"tog"_s,
+			u"Νιάσα Τόνγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.knda"_s),
-			$of(u"Ψηφία Κανάντα"_s)
+			"type.nu.knda"_s,
+			u"Ψηφία Κανάντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kali"_s),
-			$of(u"Καγιάχ Λι"_s)
+			"Kali"_s,
+			u"Καγιάχ Λι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_CH"_s),
-			$of(u"Υψηλά Γερμανικά Ελβετίας"_s)
+			"de_CH"_s,
+			u"Υψηλά Γερμανικά Ελβετίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonetic"_s),
-			$of(u"Φωνητική σειρά ταξινόμησης"_s)
+			"type.co.phonetic"_s,
+			u"Φωνητική σειρά ταξινόμησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.buddhist"_s),
-			$of(u"Βουδιστικό ημερολόγιο"_s)
+			"type.ca.buddhist"_s,
+			u"Βουδιστικό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"Κένυα"_s)
+			"KE"_s,
+			u"Κένυα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of(u"Λατινική Αμερική"_s)
+			"419"_s,
+			u"Λατινική Αμερική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"Κιργιστάν"_s)
+			"KG"_s,
+			u"Κιργιστάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"Καμπότζη"_s)
+			"KH"_s,
+			u"Καμπότζη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"Κιριμπάτι"_s)
+			"KI"_s,
+			u"Κιριμπάτι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"Κομόρες"_s)
+			"KM"_s,
+			u"Κομόρες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Knda"_s),
-			$of(metaValue_kn)
+			"Knda"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"Σεν Κιτς και Νέβις"_s)
+			"KN"_s,
+			u"Σεν Κιτς και Νέβις"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zinh"_s),
-			$of(u"Κληρονομημένο"_s)
+			"Zinh"_s,
+			u"Κληρονομημένο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CA"_s),
-			$of(u"Γαλλικά Καναδά"_s)
+			"fr_CA"_s,
+			u"Γαλλικά Καναδά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"Βόρεια Κορέα"_s)
+			"KP"_s,
+			u"Βόρεια Κορέα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"Νότια Κορέα"_s)
+			"KR"_s,
+			u"Νότια Κορέα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Plrd"_s),
-			$of(u"Φωνητικό Πόλαρντ"_s)
+			"Plrd"_s,
+			u"Φωνητικό Πόλαρντ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CH"_s),
-			$of(u"Γαλλικά Ελβετίας"_s)
+			"fr_CH"_s,
+			u"Γαλλικά Ελβετίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"Κουβέιτ"_s)
+			"KW"_s,
+			u"Κουβέιτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tpi"_s),
-			$of(u"Τοκ Πισίν"_s)
+			"tpi"_s,
+			u"Τοκ Πισίν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"Νήσοι Κέιμαν"_s)
+			"KY"_s,
+			u"Νήσοι Κέιμαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"Καζακστάν"_s)
+			"KZ"_s,
+			u"Καζακστάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of(u"Κυριλλικό"_s)
+			"Cyrl"_s,
+			u"Κυριλλικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"Λάος"_s)
+			"LA"_s,
+			u"Λάος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"Λίβανος"_s)
+			"LB"_s,
+			u"Λίβανος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"Αγία Λουκία"_s)
+			"LC"_s,
+			u"Αγία Λουκία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("phn"_s),
-			$of(u"Φοινικικά"_s)
+			"phn"_s,
+			u"Φοινικικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrs"_s),
-			$of(u"Παλαιό Εκκλησιαστικό Σλαβικό Κυριλλικό"_s)
+			"Cyrs"_s,
+			u"Παλαιό Εκκλησιαστικό Σλαβικό Κυριλλικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gwi"_s),
-			$of(u"Γκουίτσιν"_s)
+			"gwi"_s,
+			u"Γκουίτσιν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds"_s),
-			$of(u"Κάτω Γερμανικά"_s)
+			"nds"_s,
+			u"Κάτω Γερμανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"Λιχτενστάιν"_s)
+			"LI"_s,
+			u"Λιχτενστάιν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"Σρι Λάνκα"_s)
+			"LK"_s,
+			u"Σρι Λάνκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("akk"_s),
-			$of(u"Ακάντιαν"_s)
+			"akk"_s,
+			u"Ακάντιαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cop"_s),
-			$of(u"Κοπτικά"_s)
+			"cop"_s,
+			u"Κοπτικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"Λιβερία"_s)
+			"LR"_s,
+			u"Λιβερία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"Λεσότο"_s)
+			"LS"_s,
+			u"Λεσότο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlv"_s),
-			$of(u"Μπουκ Παχλαβί"_s)
+			"Phlv"_s,
+			u"Μπουκ Παχλαβί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"Λιθουανία"_s)
+			"LT"_s,
+			u"Λιθουανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"Λουξεμβούργο"_s)
+			"LU"_s,
+			u"Λουξεμβούργο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"Λετονία"_s)
+			"LV"_s,
+			u"Λετονία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kana"_s),
-			$of(u"Κατακάνα"_s)
+			"Kana"_s,
+			u"Κατακάνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"Λιβύη"_s)
+			"LY"_s,
+			u"Λιβύη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lad"_s),
-			$of(u"Λαδίνο"_s)
+			"lad"_s,
+			u"Λαδίνο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vun"_s),
-			$of(u"Βούντζο"_s)
+			"vun"_s,
+			u"Βούντζο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lah"_s),
-			$of(u"Λάχδα"_s)
+			"lah"_s,
+			u"Λάχδα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lag"_s),
-			$of(u"Λάνγκι"_s)
+			"lag"_s,
+			u"Λάνγκι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thaa"_s),
-			$of(u"Θαανά"_s)
+			"Thaa"_s,
+			u"Θαανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"Μαρόκο"_s)
+			"MA"_s,
+			u"Μαρόκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"Μονακό"_s)
+			"MC"_s,
+			u"Μονακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"Μολδαβία"_s)
+			"MD"_s,
+			u"Μολδαβία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of(u"Μαυροβούνιο"_s)
+			"ME"_s,
+			u"Μαυροβούνιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of(u"Άγιος Μαρτίνος (Γαλλικό τμήμα)"_s)
+			"MF"_s,
+			u"Άγιος Μαρτίνος (Γαλλικό τμήμα)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lam"_s),
-			$of(u"Λάμπα"_s)
+			"lam"_s,
+			u"Λάμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"Μαδαγασκάρη"_s)
+			"MG"_s,
+			u"Μαδαγασκάρη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"Νήσοι Μάρσαλ"_s)
+			"MH"_s,
+			u"Νήσοι Μάρσαλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ale"_s),
-			$of(u"Αλεούτ"_s)
+			"ale"_s,
+			u"Αλεούτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thai"_s),
-			$of(u"Ταϊλανδικό"_s)
+			"Thai"_s,
+			u"Ταϊλανδικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.vaii"_s),
-			$of(u"Ψηφία Βάι"_s)
+			"type.nu.vaii"_s,
+			u"Ψηφία Βάι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"Βόρεια Μακεδονία"_s)
+			"MK"_s,
+			u"Βόρεια Μακεδονία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"Μάλι"_s)
+			"ML"_s,
+			u"Μάλι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"Μιανμάρ (Βιρμανία)"_s)
+			"MM"_s,
+			u"Μιανμάρ (Βιρμανία)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"Μογγολία"_s)
+			"MN"_s,
+			u"Μογγολία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new"_s),
-			$of(u"Νεγουάρι"_s)
+			"new"_s,
+			u"Νεγουάρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"Μακάο ΕΔΠ Κίνας"_s)
+			"MO"_s,
+			u"Μακάο ΕΔΠ Κίνας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"Νήσοι Βόρειες Μαριάνες"_s)
+			"MP"_s,
+			u"Νήσοι Βόρειες Μαριάνες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"Μαρτινίκα"_s)
+			"MQ"_s,
+			u"Μαρτινίκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"Μαυριτανία"_s)
+			"MR"_s,
+			u"Μαυριτανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"Μονσεράτ"_s)
+			"MS"_s,
+			u"Μονσεράτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"Μάλτα"_s)
+			"MT"_s,
+			u"Μάλτα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.ungegn"_s),
-			$of(u"Μεταγραφή GEGN ΟΗΕ"_s)
+			"type.m0.ungegn"_s,
+			u"Μεταγραφή GEGN ΟΗΕ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"Μαυρίκιος"_s)
+			"MU"_s,
+			u"Μαυρίκιος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alt"_s),
-			$of(u"Νότια Αλτάι"_s)
+			"alt"_s,
+			u"Νότια Αλτάι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"Μαλδίβες"_s)
+			"MV"_s,
+			u"Μαλδίβες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"Μαλάουι"_s)
+			"MW"_s,
+			u"Μαλάουι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"Μεξικό"_s)
+			"MX"_s,
+			u"Μεξικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.japanese"_s),
-			$of(u"Ιαπωνικό ημερολόγιο"_s)
+			"type.ca.japanese"_s,
+			u"Ιαπωνικό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"Μαλαισία"_s)
+			"MY"_s,
+			u"Μαλαισία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"Μοζαμβίκη"_s)
+			"MZ"_s,
+			u"Μοζαμβίκη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phli"_s),
-			$of(u"Επιγραφικό Παχλάβι"_s)
+			"Phli"_s,
+			u"Επιγραφικό Παχλάβι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"Ναμίμπια"_s)
+			"NA"_s,
+			u"Ναμίμπια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("202"_s),
-			$of(u"Υποσαχάρια Αφρική"_s)
+			"202"_s,
+			u"Υποσαχάρια Αφρική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.hebrew"_s),
-			$of(u"Εβραϊκό ημερολόγιο"_s)
+			"type.ca.hebrew"_s,
+			u"Εβραϊκό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.dictionary"_s),
-			$of(u"Σειρά ταξινόμησης ημερολογίου"_s)
+			"type.co.dictionary"_s,
+			u"Σειρά ταξινόμησης ημερολογίου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"Νέα Καληδονία"_s)
+			"NC"_s,
+			u"Νέα Καληδονία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%WADEGILE"_s),
-			$of(u"Εκλατινισμένα Γουάντ-Γκιλς"_s)
+			"%%WADEGILE"_s,
+			u"Εκλατινισμένα Γουάντ-Γκιλς"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%UCRCOR"_s),
-			$of(u"Ενωποιημένη αναθεωρημένη ορθογραφία"_s)
+			"%%UCRCOR"_s,
+			u"Ενωποιημένη αναθεωρημένη ορθογραφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"Νίγηρας"_s)
+			"NE"_s,
+			u"Νίγηρας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"Νήσος Νόρφολκ"_s)
+			"NF"_s,
+			u"Νήσος Νόρφολκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"Νιγηρία"_s)
+			"NG"_s,
+			u"Νιγηρία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trv"_s),
-			$of(u"Ταρόκο"_s)
+			"trv"_s,
+			u"Ταρόκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlp"_s),
-			$of(u"Ψάλτερ Παχλάβι"_s)
+			"Phlp"_s,
+			u"Ψάλτερ Παχλάβι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"Νικαράγουα"_s)
+			"NI"_s,
+			u"Νικαράγουα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hmng"_s),
-			$of(u"Παχάχ Χμονγκ"_s)
+			"Hmng"_s,
+			u"Παχάχ Χμονγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"Ολλανδία"_s)
+			"NL"_s,
+			u"Ολλανδία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"Νορβηγία"_s)
+			"NO"_s,
+			u"Νορβηγία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(u"Νεπάλ"_s)
+			"NP"_s,
+			u"Νεπάλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(u"Ναουρού"_s)
+			"NR"_s,
+			u"Ναουρού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(metaValue_NU)
+			"NU"_s,
+			metaValue_NU
 		}),
 		$$new($ObjectArray, {
-			$of("Phnx"_s),
-			$of(u"Φοινικικό"_s)
+			"Phnx"_s,
+			u"Φοινικικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rof"_s),
-			$of(u"Ρόμπο"_s)
+			"rof"_s,
+			u"Ρόμπο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tsi"_s),
-			$of(u"Τσίμσιαν"_s)
+			"tsi"_s,
+			u"Τσίμσιαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"Νέα Ζηλανδία"_s)
+			"NZ"_s,
+			u"Νέα Ζηλανδία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rom"_s),
-			$of(u"Ρομανί"_s)
+			"rom"_s,
+			u"Ρομανί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mero"_s),
-			$of(u"Μεροϊτικό"_s)
+			"Mero"_s,
+			u"Μεροϊτικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crh"_s),
-			$of(u"Τουρκικά Κριμαίας"_s)
+			"crh"_s,
+			u"Τουρκικά Κριμαίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ang"_s),
-			$of(u"Παλαιά Αγγλικά"_s)
+			"ang"_s,
+			u"Παλαιά Αγγλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"Ομάν"_s)
+			"OM"_s,
+			u"Ομάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("anp"_s),
-			$of(u"Ανγκικά"_s)
+			"anp"_s,
+			u"Ανγκικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crs"_s),
-			$of(u"Κρεολικά Γαλλικά Σεϋχελλών"_s)
+			"crs"_s,
+			u"Κρεολικά Γαλλικά Σεϋχελλών"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xpeo"_s),
-			$of(u"Παλαιό Περσικό"_s)
+			"Xpeo"_s,
+			u"Παλαιό Περσικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"Παναμάς"_s)
+			"PA"_s,
+			u"Παναμάς"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-civil"_s),
-			$of(u"Ισλαμικό ημερολόγιο (σε μορφή πίνακα, αστικό εποχής)"_s)
+			"type.ca.islamic-civil"_s,
+			u"Ισλαμικό ημερολόγιο (σε μορφή πίνακα, αστικό εποχής)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("csb"_s),
-			$of(u"Κασούμπιαν"_s)
+			"csb"_s,
+			u"Κασούμπιαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_GB"_s),
-			$of(u"Αγγλικά Βρετανίας"_s)
+			"en_GB"_s,
+			u"Αγγλικά Βρετανίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"Περού"_s)
+			"PE"_s,
+			u"Περού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"Γαλλική Πολυνησία"_s)
+			"PF"_s,
+			u"Γαλλική Πολυνησία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"Παπούα Νέα Γουινέα"_s)
+			"PG"_s,
+			u"Παπούα Νέα Γουινέα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"Φιλιππίνες"_s)
+			"PH"_s,
+			u"Φιλιππίνες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"Πακιστάν"_s)
+			"PK"_s,
+			u"Πακιστάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"Πολωνία"_s)
+			"PL"_s,
+			u"Πολωνία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewo"_s),
-			$of(u"Εγουόντο"_s)
+			"ewo"_s,
+			u"Εγουόντο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"Σεν Πιερ και Μικελόν"_s)
+			"PM"_s,
+			u"Σεν Πιερ και Μικελόν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"Νήσοι Πίτκερν"_s)
+			"PN"_s,
+			u"Νήσοι Πίτκερν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"Πουέρτο Ρίκο"_s)
+			"PR"_s,
+			u"Πουέρτο Ρίκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bali"_s),
-			$of(metaValue_ban)
+			"Bali"_s,
+			metaValue_ban
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"Παλαιστινιακά Εδάφη"_s)
+			"PS"_s,
+			u"Παλαιστινιακά Εδάφη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"Πορτογαλία"_s)
+			"PT"_s,
+			u"Πορτογαλία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"Παλάου"_s)
+			"PW"_s,
+			u"Παλάου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nia"_s),
-			$of(u"Νίας"_s)
+			"nia"_s,
+			u"Νίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.greklow"_s),
-			$of(u"Ελληνικά αριθμητικά πεζά"_s)
+			"type.nu.greklow"_s,
+			u"Ελληνικά αριθμητικά πεζά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"Παραγουάη"_s)
+			"PY"_s,
+			u"Παραγουάη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tum"_s),
-			$of(u"Τουμπούκα"_s)
+			"tum"_s,
+			u"Τουμπούκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hebr"_s),
-			$of(u"Εβραϊκό"_s)
+			"Hebr"_s,
+			u"Εβραϊκό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"Κατάρ"_s)
+			"QA"_s,
+			u"Κατάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SCOTLAND"_s),
-			$of(u"Σκοτσεζικά τυποποιημένα Αγγλικά"_s)
+			"%%SCOTLAND"_s,
+			u"Σκοτσεζικά τυποποιημένα Αγγλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("niu"_s),
-			$of(metaValue_NU)
+			"niu"_s,
+			metaValue_NU
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of(u"Περιφερειακή Ωκεανία"_s)
+			"QO"_s,
+			u"Περιφερειακή Ωκεανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lez"_s),
-			$of(u"Λεζγκικά"_s)
+			"lez"_s,
+			u"Λεζγκικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%FONUPA"_s),
-			$of(u"Ουραλική φωνητική αλφάβητος"_s)
+			"%%FONUPA"_s,
+			u"Ουραλική φωνητική αλφάβητος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tvl"_s),
-			$of(metaValue_TV)
+			"tvl"_s,
+			metaValue_TV
 		}),
 		$$new($ObjectArray, {
-			$of("Tavt"_s),
-			$of(u"Τάι Βιέτ"_s)
+			"Tavt"_s,
+			u"Τάι Βιέτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of(u"Κόσμος"_s)
+			"001"_s,
+			u"Κόσμος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of(u"Αφρική"_s)
+			"002"_s,
+			u"Αφρική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of(u"Βόρεια Αμερική"_s)
+			"003"_s,
+			u"Βόρεια Αμερική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"Ρεϊνιόν"_s)
+			"RE"_s,
+			u"Ρεϊνιόν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of(u"Νότια Αμερική"_s)
+			"005"_s,
+			u"Νότια Αμερική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jbo"_s),
-			$of(u"Λόζμπαν"_s)
+			"jbo"_s,
+			u"Λόζμπαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Rjng"_s),
-			$of(u"Ρετζάνγκ"_s)
+			"Rjng"_s,
+			u"Ρετζάνγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of(u"Ωκεανία"_s)
+			"009"_s,
+			u"Ωκεανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"Ρουμανία"_s)
+			"RO"_s,
+			u"Ρουμανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of(u"Σερβία"_s)
+			"RS"_s,
+			u"Σερβία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"Ρωσία"_s)
+			"RU"_s,
+			u"Ρωσία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"Ρουάντα"_s)
+			"RW"_s,
+			u"Ρουάντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mani"_s),
-			$of(u"Μανιχαϊκό"_s)
+			"Mani"_s,
+			u"Μανιχαϊκό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ugar"_s),
-			$of(u"Ουγκαριτικό"_s)
+			"Ugar"_s,
+			u"Ουγκαριτικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khar"_s),
-			$of(u"Καρόσθι"_s)
+			"Khar"_s,
+			u"Καρόσθι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"Σαουδική Αραβία"_s)
+			"SA"_s,
+			u"Σαουδική Αραβία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pon"_s),
-			$of(u"Πομπηικά"_s)
+			"pon"_s,
+			u"Πομπηικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mand"_s),
-			$of(u"Μανδαϊκό"_s)
+			"Mand"_s,
+			u"Μανδαϊκό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"Νήσοι Σολομώντος"_s)
+			"SB"_s,
+			u"Νήσοι Σολομώντος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twq"_s),
-			$of(u"Τασαβάκ"_s)
+			"twq"_s,
+			u"Τασαβάκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"Δυτική Αφρική"_s)
+			"011"_s,
+			u"Δυτική Αφρική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"Σεϋχέλλες"_s)
+			"SC"_s,
+			u"Σεϋχέλλες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"Σουδάν"_s)
+			"SD"_s,
+			u"Σουδάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of(u"Κεντρική Αμερική"_s)
+			"013"_s,
+			u"Κεντρική Αμερική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"Σουηδία"_s)
+			"SE"_s,
+			u"Σουηδία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"Ανατολική Αφρική"_s)
+			"014"_s,
+			u"Ανατολική Αφρική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arc"_s),
-			$of(u"Αραμαϊκά"_s)
+			"arc"_s,
+			u"Αραμαϊκά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"Βόρεια Αφρική"_s)
+			"015"_s,
+			u"Βόρεια Αφρική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"Σιγκαπούρη"_s)
+			"SG"_s,
+			u"Σιγκαπούρη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"Αγία Ελένη"_s)
+			"SH"_s,
+			u"Αγία Ελένη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.strict"_s),
-			$of(u"Στενό στιλ αλλαγής γραμμών"_s)
+			"type.lb.strict"_s,
+			u"Στενό στιλ αλλαγής γραμμών"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of(u"Μέση Αφρική"_s)
+			"017"_s,
+			u"Μέση Αφρική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"Σλοβενία"_s)
+			"SI"_s,
+			u"Σλοβενία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"Νότιος Αφρική"_s)
+			"018"_s,
+			u"Νότιος Αφρική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"Σβάλμπαρντ και Γιαν Μαγιέν"_s)
+			"SJ"_s,
+			u"Σβάλμπαρντ και Γιαν Μαγιέν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of(u"Αμερική"_s)
+			"019"_s,
+			u"Αμερική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"Σλοβακία"_s)
+			"SK"_s,
+			u"Σλοβακία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"Σιέρα Λεόνε"_s)
+			"SL"_s,
+			u"Σιέρα Λεόνε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"Άγιος Μαρίνος"_s)
+			"SM"_s,
+			u"Άγιος Μαρίνος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"Σενεγάλη"_s)
+			"SN"_s,
+			u"Σενεγάλη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"Σομαλία"_s)
+			"SO"_s,
+			u"Σομαλία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of(u"Αραουκανικά"_s)
+			"arn"_s,
+			u"Αραουκανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of(u"Αραπάχο"_s)
+			"arp"_s,
+			u"Αραπάχο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.taml"_s),
-			$of(u"Ταμιλικά αριθμητικά"_s)
+			"type.nu.taml"_s,
+			u"Ταμιλικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"Σουρινάμ"_s)
+			"SR"_s,
+			u"Σουρινάμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of(u"Νότιο Σουδάν"_s)
+			"SS"_s,
+			u"Νότιο Σουδάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"Σάο Τομέ και Πρίνσιπε"_s)
+			"ST"_s,
+			u"Σάο Τομέ και Πρίνσιπε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"Ελ Σαλβαδόρ"_s)
+			"SV"_s,
+			u"Ελ Σαλβαδόρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ars"_s),
-			$of(u"Αραβικά Νάτζντι"_s)
+			"ars"_s,
+			u"Αραβικά Νάτζντι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of(u"Άγιος Μαρτίνος (Ολλανδικό τμήμα)"_s)
+			"SX"_s,
+			u"Άγιος Μαρτίνος (Ολλανδικό τμήμα)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"Συρία"_s)
+			"SY"_s,
+			u"Συρία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yao"_s),
-			$of(u"Γιάο"_s)
+			"yao"_s,
+			u"Γιάο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"Εσουατίνι"_s)
+			"SZ"_s,
+			u"Εσουατίνι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arw"_s),
-			$of(u"Αραγουάκ"_s)
+			"arw"_s,
+			u"Αραγουάκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yap"_s),
-			$of(u"Γιαπίζ"_s)
+			"yap"_s,
+			u"Γιαπίζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of(u"Τριστάν ντα Κούνια"_s)
+			"TA"_s,
+			u"Τριστάν ντα Κούνια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("asa"_s),
-			$of(u"Άσου"_s)
+			"asa"_s,
+			u"Άσου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.ussystem"_s),
-			$of(u"Αμερικανικό σύστημα μέτρησης"_s)
+			"type.ms.ussystem"_s,
+			u"Αμερικανικό σύστημα μέτρησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of(u"Βόρειος Αμερική"_s)
+			"021"_s,
+			u"Βόρειος Αμερική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"Νήσοι Τερκς και Κάικος"_s)
+			"TC"_s,
+			u"Νήσοι Τερκς και Κάικος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yav"_s),
-			$of(u"Γιανγκμπέν"_s)
+			"yav"_s,
+			u"Γιανγκμπέν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"Τσαντ"_s)
+			"TD"_s,
+			u"Τσαντ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"Γαλλικά Νότια Εδάφη"_s)
+			"TF"_s,
+			u"Γαλλικά Νότια Εδάφη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"Τόγκο"_s)
+			"TG"_s,
+			u"Τόγκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"Ταϊλάνδη"_s)
+			"TH"_s,
+			u"Ταϊλάνδη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"Τατζικιστάν"_s)
+			"TJ"_s,
+			u"Τατζικιστάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(metaValue_TK)
+			"TK"_s,
+			metaValue_TK
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of(u"Καραϊβική"_s)
+			"029"_s,
+			u"Καραϊβική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"Τιμόρ-Λέστε"_s)
+			"TL"_s,
+			u"Τιμόρ-Λέστε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ybb"_s),
-			$of(u"Γιέμπα"_s)
+			"ybb"_s,
+			u"Γιέμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.searchjl"_s),
-			$of(u"Αναζήτηση κατά αρχικό σύμφωνο Χανγκούλ"_s)
+			"type.co.searchjl"_s,
+			u"Αναζήτηση κατά αρχικό σύμφωνο Χανγκούλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"Τουρκμενιστάν"_s)
+			"TM"_s,
+			u"Τουρκμενιστάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BOONT"_s),
-			$of(u"Μπούντλινγκ"_s)
+			"%%BOONT"_s,
+			u"Μπούντλινγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"Τυνησία"_s)
+			"TN"_s,
+			u"Τυνησία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"Τόνγκα"_s)
+			"TO"_s,
+			u"Τόνγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"Τουρκία"_s)
+			"TR"_s,
+			u"Τουρκία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"Τρινιντάντ και Τομπάγκο"_s)
+			"TT"_s,
+			u"Τρινιντάντ και Τομπάγκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(metaValue_TV)
+			"TV"_s,
+			metaValue_TV
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"Ταϊβάν"_s)
+			"TW"_s,
+			u"Ταϊβάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ast"_s),
-			$of(u"Αστουριανά"_s)
+			"ast"_s,
+			u"Αστουριανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orkh"_s),
-			$of(u"Όρκχον"_s)
+			"Orkh"_s,
+			u"Όρκχον"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"Τανζανία"_s)
+			"TZ"_s,
+			u"Τανζανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nmg"_s),
-			$of(u"Κβάσιο"_s)
+			"nmg"_s,
+			u"Κβάσιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of(u"Άγνωστη γραφή"_s)
+			"Zzzz"_s,
+			u"Άγνωστη γραφή"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"Ουκρανία"_s)
+			"UA"_s,
+			u"Ουκρανία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rup"_s),
-			$of(u"Αρομανικά"_s)
+			"rup"_s,
+			u"Αρομανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of(u"Ανατολική Ασία"_s)
+			"030"_s,
+			u"Ανατολική Ασία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of(u"Τουβινικά"_s)
+			"tyv"_s,
+			u"Τουβινικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw_CD"_s),
-			$of(u"Κονγκό Σουαχίλι"_s)
+			"sw_CD"_s,
+			u"Κονγκό Σουαχίλι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of(u"Νότια Ασία"_s)
+			"034"_s,
+			u"Νότια Ασία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hai"_s),
-			$of(u"Χάιντα"_s)
+			"hai"_s,
+			u"Χάιντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of(u"Νοτιοανατολική Ασία"_s)
+			"035"_s,
+			u"Νοτιοανατολική Ασία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"Ουγκάντα"_s)
+			"UG"_s,
+			u"Ουγκάντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.pinyin"_s),
-			$of(u"Σειρά ταξινόμησης Πινγίν"_s)
+			"type.co.pinyin"_s,
+			u"Σειρά ταξινόμησης Πινγίν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of(u"Νότια Ευρώπη"_s)
+			"039"_s,
+			u"Νότια Ευρώπη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sinh"_s),
-			$of(u"Σινχάλα"_s)
+			"Sinh"_s,
+			u"Σινχάλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"Απομακρυσμένες Νησίδες ΗΠΑ"_s)
+			"UM"_s,
+			u"Απομακρυσμένες Νησίδες ΗΠΑ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UN"_s),
-			$of(u"Ηνωμένα Έθνη"_s)
+			"UN"_s,
+			u"Ηνωμένα Έθνη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"Ηνωμένες Πολιτείες"_s)
+			"US"_s,
+			u"Ηνωμένες Πολιτείες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("haw"_s),
-			$of(u"Χαβαϊκά"_s)
+			"haw"_s,
+			u"Χαβαϊκά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1959ACAD"_s),
-			$of(u"Ακαδημαϊκά"_s)
+			"%%1959ACAD"_s,
+			u"Ακαδημαϊκά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.gb2312han"_s),
-			$of(u"Σειρά ταξινόμησης Απλουστευμένων Κινεζικών - GB2312"_s)
+			"type.co.gb2312han"_s,
+			u"Σειρά ταξινόμησης Απλουστευμένων Κινεζικών - GB2312"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"Ουρουγουάη"_s)
+			"UY"_s,
+			u"Ουρουγουάη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("prg"_s),
-			$of(u"Πρωσικά"_s)
+			"prg"_s,
+			u"Πρωσικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"Ουζμπεκιστάν"_s)
+			"UZ"_s,
+			u"Ουζμπεκιστάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of(u"Ταμαζίτ Κεντρικού Μαρόκο"_s)
+			"tzm"_s,
+			u"Ταμαζίτ Κεντρικού Μαρόκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.stroke"_s),
-			$of(u"Σειρά ταξινόμησης κινήσεων"_s)
+			"type.co.stroke"_s,
+			u"Σειρά ταξινόμησης κινήσεων"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nnh"_s),
-			$of(u"Νγκιεμπούν"_s)
+			"nnh"_s,
+			u"Νγκιεμπούν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"Βατικανό"_s)
+			"VA"_s,
+			u"Βατικανό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pro"_s),
-			$of(u"Παλαιά Προβανσάλ"_s)
+			"pro"_s,
+			u"Παλαιά Προβανσάλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"Άγιος Βικέντιος και Γρεναδίνες"_s)
+			"VC"_s,
+			u"Άγιος Βικέντιος και Γρεναδίνες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"Βενεζουέλα"_s)
+			"VE"_s,
+			u"Βενεζουέλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"Βρετανικές Παρθένες Νήσοι"_s)
+			"VG"_s,
+			u"Βρετανικές Παρθένες Νήσοι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"Αμερικανικές Παρθένες Νήσοι"_s)
+			"VI"_s,
+			u"Αμερικανικές Παρθένες Νήσοι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"Βιετνάμ"_s)
+			"VN"_s,
+			u"Βιετνάμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"Βανουάτου"_s)
+			"VU"_s,
+			u"Βανουάτου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nog"_s),
-			$of(u"Νογκάι"_s)
+			"nog"_s,
+			u"Νογκάι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwk"_s),
-			$of(u"Ρουά"_s)
+			"rwk"_s,
+			u"Ρουά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("non"_s),
-			$of(u"Παλαιά Νορβηγικά"_s)
+			"non"_s,
+			u"Παλαιά Νορβηγικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of(u"Αυστραλασία"_s)
+			"053"_s,
+			u"Αυστραλασία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%AREVMDA"_s),
-			$of(u"Δυτικά Αρμενικά"_s)
+			"%%AREVMDA"_s,
+			u"Δυτικά Αρμενικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of(u"Μελανησία"_s)
+			"054"_s,
+			u"Μελανησία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"Γουάλις και Φουτούνα"_s)
+			"WF"_s,
+			u"Γουάλις και Φουτούνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.traditional"_s),
-			$of(u"Παραδοσιακή σειρά ταξινόμησης"_s)
+			"type.co.traditional"_s,
+			u"Παραδοσιακή σειρά ταξινόμησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of(u"Περιοχή Μικρονησίας"_s)
+			"057"_s,
+			u"Περιοχή Μικρονησίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jgo"_s),
-			$of(u"Νγκόμπα"_s)
+			"jgo"_s,
+			u"Νγκόμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lkt"_s),
-			$of(u"Λακότα"_s)
+			"lkt"_s,
+			u"Λακότα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.finance"_s),
-			$of(u"Οικονομικά αριθμητικά"_s)
+			"type.nu.finance"_s,
+			u"Οικονομικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.compat"_s),
-			$of(u"Προηγούμενη σειρά ταξινόμησης, για συμβατότητα"_s)
+			"type.co.compat"_s,
+			u"Προηγούμενη σειρά ταξινόμησης, για συμβατότητα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wae"_s),
-			$of(u"Βάλσερ"_s)
+			"wae"_s,
+			u"Βάλσερ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"Σαμόα"_s)
+			"WS"_s,
+			u"Σαμόα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of(u"Γουολάιτα"_s)
+			"wal"_s,
+			u"Γουολάιτα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("was"_s),
-			$of(u"Γουασό"_s)
+			"was"_s,
+			u"Γουασό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XA"_s),
-			$of(u"Ψευδο-προφορές"_s)
+			"XA"_s,
+			u"Ψευδο-προφορές"_s
 		}),
 		$$new($ObjectArray, {
-			$of("war"_s),
-			$of(u"Γουάραϊ"_s)
+			"war"_s,
+			u"Γουάραϊ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XB"_s),
-			$of(u"Ψευδο-αμφικατευθυντικό"_s)
+			"XB"_s,
+			u"Ψευδο-αμφικατευθυντικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awa"_s),
-			$of(u"Αγουαντί"_s)
+			"awa"_s,
+			u"Αγουαντί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of(u"Πολυνησία"_s)
+			"061"_s,
+			u"Πολυνησία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of(u"Κοσσυφοπέδιο"_s)
+			"XK"_s,
+			u"Κοσσυφοπέδιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gujr"_s),
-			$of(metaValue_gu)
+			"Gujr"_s,
+			metaValue_gu
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of(u"Άγραφο"_s)
+			"Zxxx"_s,
+			u"Άγραφο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Olck"_s),
-			$of(u"Ολ Τσίκι"_s)
+			"Olck"_s,
+			u"Ολ Τσίκι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wbp"_s),
-			$of(u"Γουαρλπίρι"_s)
+			"wbp"_s,
+			u"Γουαρλπίρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Batk"_s),
-			$of(u"Μπατάκ"_s)
+			"Batk"_s,
+			u"Μπατάκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Blis"_s),
-			$of(metaValue_zbl)
+			"Blis"_s,
+			metaValue_zbl
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"Υεμένη"_s)
+			"YE"_s,
+			u"Υεμένη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(metaValue_nqo)
+			"nqo"_s,
+			metaValue_nqo
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of(u"Τυπική σειρά ταξινόμησης"_s)
+			"type.co.standard"_s,
+			u"Τυπική σειρά ταξινόμησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fan"_s),
-			$of(u"Φανγκ"_s)
+			"fan"_s,
+			u"Φανγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%ROZAJ"_s),
-			$of(u"Ρεσιάν"_s)
+			"%%ROZAJ"_s,
+			u"Ρεσιάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fat"_s),
-			$of(u"Φάντι"_s)
+			"fat"_s,
+			u"Φάντι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sgnw"_s),
-			$of(u"Νοηματική γραφή"_s)
+			"Sgnw"_s,
+			u"Νοηματική γραφή"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"Μαγιότ"_s)
+			"YT"_s,
+			u"Μαγιότ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"Νότια Αφρική"_s)
+			"ZA"_s,
+			u"Νότια Αφρική"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.loose"_s),
-			$of(u"Χαλαρό στιλ αλλαγής γραμμών"_s)
+			"type.lb.loose"_s,
+			u"Χαλαρό στιλ αλλαγής γραμμών"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deva"_s),
-			$of(u"Ντεβαναγκάρι"_s)
+			"Deva"_s,
+			u"Ντεβαναγκάρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.geor"_s),
-			$of(u"Γεωργιανά αριθμητικά"_s)
+			"type.nu.geor"_s,
+			u"Γεωργιανά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hira"_s),
-			$of(u"Χιραγκάνα"_s)
+			"Hira"_s,
+			u"Χιραγκάνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"Ζάμπια"_s)
+			"ZM"_s,
+			u"Ζάμπια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%PINYIN"_s),
-			$of(u"Εκλατινισμένα Πινγίν"_s)
+			"%%PINYIN"_s,
+			u"Εκλατινισμένα Πινγίν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"Ζιμπάμπουε"_s)
+			"ZW"_s,
+			u"Ζιμπάμπουε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of(u"Άγνωστη περιοχή"_s)
+			"ZZ"_s,
+			u"Άγνωστη περιοχή"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Runr"_s),
-			$of(u"Ρουνίκ"_s)
+			"Runr"_s,
+			u"Ρουνίκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.metric"_s),
-			$of(u"Μετρικό σύστημα"_s)
+			"type.ms.metric"_s,
+			u"Μετρικό σύστημα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.iso8601"_s),
-			$of(u"Ημερολόγιο ISO-8601"_s)
+			"type.ca.iso8601"_s,
+			u"Ημερολόγιο ISO-8601"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lol"_s),
-			$of(u"Μόνγκο"_s)
+			"lol"_s,
+			u"Μόνγκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of(u"Βόρεια Σόθο"_s)
+			"nso"_s,
+			u"Βόρεια Σόθο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.telu"_s),
-			$of(u"Τελουγκουϊκά ψηφία"_s)
+			"type.nu.telu"_s,
+			u"Τελουγκουϊκά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lou"_s),
-			$of(u"Κρεολικά (Λουιζιάνα)"_s)
+			"lou"_s,
+			u"Κρεολικά (Λουιζιάνα)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("loz"_s),
-			$of(u"Λόζι"_s)
+			"loz"_s,
+			u"Λόζι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jmc"_s),
-			$of(u"Ματσάμε"_s)
+			"jmc"_s,
+			u"Ματσάμε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hansfin"_s),
-			$of(u"Απλοποιημένα κινεζικά οικονομικά αριθμητικά"_s)
+			"type.nu.hansfin"_s,
+			u"Απλοποιημένα κινεζικά οικονομικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of(u"Χιλιγκαϊνόν"_s)
+			"hil"_s,
+			u"Χιλιγκαϊνόν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arabext"_s),
-			$of(u"Εκτεταμένα αραβικο-ινδικά ψηφία"_s)
+			"type.nu.arabext"_s,
+			u"Εκτεταμένα αραβικο-ινδικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nus"_s),
-			$of(u"Νούερ"_s)
+			"nus"_s,
+			u"Νούερ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dak"_s),
-			$of(u"Ντακότα"_s)
+			"dak"_s,
+			u"Ντακότα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.fullwide"_s),
-			$of(u"Ψηφία πλήρους πλάτους"_s)
+			"type.nu.fullwide"_s,
+			u"Ψηφία πλήρους πλάτους"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hit"_s),
-			$of(u"Χιτίτε"_s)
+			"hit"_s,
+			u"Χιτίτε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dar"_s),
-			$of(u"Ντάργκουα"_s)
+			"dar"_s,
+			u"Ντάργκουα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dav"_s),
-			$of(u"Τάιτα"_s)
+			"dav"_s,
+			u"Τάιτα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Maya"_s),
-			$of(u"Ιερογλυφικά Μάγια"_s)
+			"Maya"_s,
+			u"Ιερογλυφικά Μάγια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrc"_s),
-			$of(u"Βόρεια Λούρι"_s)
+			"lrc"_s,
+			u"Βόρεια Λούρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Copt"_s),
-			$of(u"Κοπτικό"_s)
+			"Copt"_s,
+			u"Κοπτικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nwc"_s),
-			$of(u"Κλασικά Νεουάρι"_s)
+			"nwc"_s,
+			u"Κλασικά Νεουάρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("udm"_s),
-			$of(u"Ουντμούρτ"_s)
+			"udm"_s,
+			u"Ουντμούρτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khmr"_s),
-			$of(metaValue_km)
+			"Khmr"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-rgsa"_s),
-			$of(u"Ισλαμικό ημερολόγιο (Σαουδική Αραβία, θέαση)"_s)
+			"type.ca.islamic-rgsa"_s,
+			u"Ισλαμικό ημερολόγιο (Σαουδική Αραβία, θέαση)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Limb"_s),
-			$of(u"Λιμπού"_s)
+			"Limb"_s,
+			u"Λιμπού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sad"_s),
-			$of(u"Σαντάγουε"_s)
+			"sad"_s,
+			u"Σαντάγουε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.roman"_s),
-			$of(u"Λατινικά αριθμητικά"_s)
+			"type.nu.roman"_s,
+			u"Λατινικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sah"_s),
-			$of(u"Σαχά"_s)
+			"sah"_s,
+			u"Σαχά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sam"_s),
-			$of(u"Σαμαρίτικα Αραμαϊκά"_s)
+			"sam"_s,
+			u"Σαμαρίτικα Αραμαϊκά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SCOUSE"_s),
-			$of(u"Σκουζ"_s)
+			"%%SCOUSE"_s,
+			u"Σκουζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("saq"_s),
-			$of(u"Σαμπούρου"_s)
+			"saq"_s,
+			u"Σαμπούρου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sas"_s),
-			$of(u"Σασάκ"_s)
+			"sas"_s,
+			u"Σασάκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sat"_s),
-			$of(u"Σαντάλι"_s)
+			"sat"_s,
+			u"Σαντάλι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tfng"_s),
-			$of(u"Τιφινάγκ"_s)
+			"Tfng"_s,
+			u"Τιφινάγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpr"_s),
-			$of(u"Ιουδαϊκά-Περσικά"_s)
+			"jpr"_s,
+			u"Ιουδαϊκά-Περσικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.npinyin"_s),
-			$of(u"Αριθμητικό"_s)
+			"type.d0.npinyin"_s,
+			u"Αριθμητικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.native"_s),
-			$of(u"Εγγενή ψηφία"_s)
+			"type.nu.native"_s,
+			u"Εγγενή ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sba"_s),
-			$of(u"Νγκαμπέι"_s)
+			"sba"_s,
+			u"Νγκαμπέι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Guru"_s),
-			$of(u"Γκουρμουκχί"_s)
+			"Guru"_s,
+			u"Γκουρμουκχί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lua"_s),
-			$of(u"Λούμπα-Λουλούα"_s)
+			"lua"_s,
+			u"Λούμπα-Λουλούα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.d0.fwidth"_s),
-			$of(u"Πλήρους πλάτους"_s)
+			"type.d0.fwidth"_s,
+			u"Πλήρους πλάτους"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sbp"_s),
-			$of(u"Σάνγκου"_s)
+			"sbp"_s,
+			u"Σάνγκου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lui"_s),
-			$of(u"Λουισένο"_s)
+			"lui"_s,
+			u"Λουισένο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyn"_s),
-			$of(u"Νιανκόλε"_s)
+			"nyn"_s,
+			u"Νιανκόλε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nym"_s),
-			$of(u"Νιαμγουέζι"_s)
+			"nym"_s,
+			u"Νιαμγουέζι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lun"_s),
-			$of(u"Λούντα"_s)
+			"lun"_s,
+			u"Λούντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyo"_s),
-			$of(u"Νιόρο"_s)
+			"nyo"_s,
+			u"Νιόρο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luo"_s),
-			$of(u"Λούο"_s)
+			"luo"_s,
+			u"Λούο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of(u"Φιλιππινικά"_s)
+			"fil"_s,
+			u"Φιλιππινικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmn"_s),
-			$of(u"Χμονγκ"_s)
+			"hmn"_s,
+			u"Χμονγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("del"_s),
-			$of(u"Ντέλαγουερ"_s)
+			"del"_s,
+			u"Ντέλαγουερ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of(u"Μίζο"_s)
+			"lus"_s,
+			u"Μίζο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bal"_s),
-			$of(u"Μπαλούτσι"_s)
+			"bal"_s,
+			u"Μπαλούτσι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("den"_s),
-			$of(u"Σλαβικά"_s)
+			"den"_s,
+			u"Σλαβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ban"_s),
-			$of(metaValue_ban)
+			"ban"_s,
+			metaValue_ban
 		}),
 		$$new($ObjectArray, {
-			$of("uga"_s),
-			$of(u"Ουγκαριτικά"_s)
+			"uga"_s,
+			u"Ουγκαριτικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luy"_s),
-			$of(u"Λούχια"_s)
+			"luy"_s,
+			u"Λούχια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of(u"Μπάσα"_s)
+			"bas"_s,
+			u"Μπάσα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bax"_s),
-			$of(u"Μπαμούν"_s)
+			"bax"_s,
+			u"Μπαμούν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jrb"_s),
-			$of(u"Ιουδαϊκά-Αραβικά"_s)
+			"jrb"_s,
+			u"Ιουδαϊκά-Αραβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of(u"Ισπανικά Ευρώπης"_s)
+			"es_ES"_s,
+			u"Ισπανικά Ευρώπης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nzi"_s),
-			$of(u"Νζίμα"_s)
+			"nzi"_s,
+			u"Νζίμα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sco"_s),
-			$of(u"Σκωτικά"_s)
+			"sco"_s,
+			u"Σκωτικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scn"_s),
-			$of(u"Σικελικά"_s)
+			"scn"_s,
+			u"Σικελικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aa"_s),
-			$of(u"Αφάρ"_s)
+			"aa"_s,
+			u"Αφάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of(u"Αμπχαζικά"_s)
+			"ab"_s,
+			u"Αμπχαζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Aran"_s),
-			$of(u"Νασταλίκ"_s)
+			"Aran"_s,
+			u"Νασταλίκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ae"_s),
-			$of(metaValue_ae)
+			"ae"_s,
+			metaValue_ae
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"Αφρικάανς"_s)
+			"af"_s,
+			u"Αφρικάανς"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of(u"Ακάν"_s)
+			"ak"_s,
+			u"Ακάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bbj"_s),
-			$of(u"Γκομάλα"_s)
+			"bbj"_s,
+			u"Γκομάλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"Αμχαρικά"_s)
+			"am"_s,
+			u"Αμχαρικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("an"_s),
-			$of(u"Αραγονικά"_s)
+			"an"_s,
+			u"Αραγονικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of(u"Αραβικό"_s)
+			"Arab"_s,
+			u"Αραβικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SOLBA"_s),
-			$of(u"Διάλεκτος Στολβιτζά/Σολμπικά"_s)
+			"%%SOLBA"_s,
+			u"Διάλεκτος Στολβιτζά/Σολμπικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(u"Ιαπωνικό"_s)
+			"Jpan"_s,
+			u"Ιαπωνικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(u"Αραβικά"_s)
+			"ar"_s,
+			u"Αραβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hrkt"_s),
-			$of(u"Κατακάνα ή Χιραγκάνα"_s)
+			"Hrkt"_s,
+			u"Κατακάνα ή Χιραγκάνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of(u"Ασαμικά"_s)
+			"as"_s,
+			u"Ασαμικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lina"_s),
-			$of(u"Γραμμικό Α"_s)
+			"Lina"_s,
+			u"Γραμμικό Α"_s
 		}),
 		$$new($ObjectArray, {
-			$of("av"_s),
-			$of(u"Αβαρικά"_s)
+			"av"_s,
+			u"Αβαρικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Linb"_s),
-			$of(u"Γραμμικό Β"_s)
+			"Linb"_s,
+			u"Γραμμικό Β"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdh"_s),
-			$of(u"Νότια Κουρδικά"_s)
+			"sdh"_s,
+			u"Νότια Κουρδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ay"_s),
-			$of(u"Αϊμάρα"_s)
+			"ay"_s,
+			u"Αϊμάρα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(u"Αζερμπαϊτζανικά"_s)
+			"az"_s,
+			u"Αζερμπαϊτζανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%OSOJS"_s),
-			$of(u"Διάλεκτος Οσεακό/Οσοτζάν"_s)
+			"%%OSOJS"_s,
+			u"Διάλεκτος Οσεακό/Οσοτζάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of(u"Μπασκίρ"_s)
+			"ba"_s,
+			u"Μπασκίρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.unihan"_s),
-			$of(u"Σειρά ταξινόμησης ριζικής αρίθμησης"_s)
+			"type.co.unihan"_s,
+			u"Σειρά ταξινόμησης ριζικής αρίθμησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"Λευκορωσικά"_s)
+			"be"_s,
+			u"Λευκορωσικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"Βουλγαρικά"_s)
+			"bg"_s,
+			u"Βουλγαρικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bi"_s),
-			$of(u"Μπισλάμα"_s)
+			"bi"_s,
+			u"Μπισλάμα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of(u"Μπαμπάρα"_s)
+			"bm"_s,
+			u"Μπαμπάρα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"Βεγγαλικά"_s)
+			"bn"_s,
+			u"Βεγγαλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(u"Θιβετιανά"_s)
+			"bo"_s,
+			u"Θιβετιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dgr"_s),
-			$of(u"Ντόγκριμπ"_s)
+			"dgr"_s,
+			u"Ντόγκριμπ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"Βρετονικά"_s)
+			"br"_s,
+			u"Βρετονικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of(u"Βοσνιακά"_s)
+			"bs"_s,
+			u"Βοσνιακά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("see"_s),
-			$of(u"Σένεκα"_s)
+			"see"_s,
+			u"Σένεκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mymr"_s),
-			$of(u"Μιανμάρ"_s)
+			"Mymr"_s,
+			u"Μιανμάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.laoo"_s),
-			$of(u"Λαοϊκά ψηφία"_s)
+			"type.nu.laoo"_s,
+			u"Λαοϊκά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("seh"_s),
-			$of(u"Σένα"_s)
+			"seh"_s,
+			u"Σένα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkoo"_s),
-			$of(metaValue_nqo)
+			"Nkoo"_s,
+			metaValue_nqo
 		}),
 		$$new($ObjectArray, {
-			$of("sel"_s),
-			$of(u"Σελκούπ"_s)
+			"sel"_s,
+			u"Σελκούπ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"Καταλανικά"_s)
+			"ca"_s,
+			u"Καταλανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ses"_s),
-			$of(u"Κοϊραμπόρο Σένι"_s)
+			"ses"_s,
+			u"Κοϊραμπόρο Σένι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of(u"Τσετσενικά"_s)
+			"ce"_s,
+			u"Τσετσενικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ch"_s),
-			$of(u"Τσαμόρο"_s)
+			"ch"_s,
+			u"Τσαμόρο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%REVISED"_s),
-			$of(u"Αναθεωρημένη ορθογραφία"_s)
+			"%%REVISED"_s,
+			u"Αναθεωρημένη ορθογραφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of(u"Κορσικανικά"_s)
+			"co"_s,
+			u"Κορσικανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orya"_s),
-			$of(metaValue_or)
+			"Orya"_s,
+			metaValue_or
 		}),
 		$$new($ObjectArray, {
-			$of("cr"_s),
-			$of(u"Κρι"_s)
+			"cr"_s,
+			u"Κρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"Τσεχικά"_s)
+			"cs"_s,
+			u"Τσεχικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of(u"Εκκλησιαστικά Σλαβικά"_s)
+			"cu"_s,
+			u"Εκκλησιαστικά Σλαβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of(u"Τσουβασικά"_s)
+			"cv"_s,
+			u"Τσουβασικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of(u"Ουαλικά"_s)
+			"cy"_s,
+			u"Ουαλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.ethi"_s),
-			$of(u"Αιθιοπικά αριθμητικά"_s)
+			"type.nu.ethi"_s,
+			u"Αιθιοπικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Yiii"_s),
-			$of(u"Γι"_s)
+			"Yiii"_s,
+			u"Γι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"Δανικά"_s)
+			"da"_s,
+			u"Δανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of(u"Πορτογαλικά Ευρώπης"_s)
+			"pt_PT"_s,
+			u"Πορτογαλικά Ευρώπης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"Γερμανικά"_s)
+			"de"_s,
+			u"Γερμανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.standard"_s),
-			$of(u"Τυπική μορφή νομίσματος"_s)
+			"type.cf.standard"_s,
+			u"Τυπική μορφή νομίσματος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bej"_s),
-			$of(u"Μπέζα"_s)
+			"bej"_s,
+			u"Μπέζα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("din"_s),
-			$of(u"Ντίνκα"_s)
+			"din"_s,
+			u"Ντίνκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bugi"_s),
-			$of(u"Μπούγκις"_s)
+			"Bugi"_s,
+			u"Μπούγκις"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bem"_s),
-			$of(u"Μπέμπα"_s)
+			"bem"_s,
+			u"Μπέμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sga"_s),
-			$of(u"Παλαιά Ιρλανδικά"_s)
+			"sga"_s,
+			u"Παλαιά Ιρλανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mong"_s),
-			$of(u"Μογγολικά ψηφία"_s)
+			"type.nu.mong"_s,
+			u"Μογγολικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dv"_s),
-			$of(u"Ντιβέχι"_s)
+			"dv"_s,
+			u"Ντιβέχι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of(u"Ισπανικά Λατινικής Αμερικής"_s)
+			"es_419"_s,
+			u"Ισπανικά Λατινικής Αμερικής"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dz"_s),
-			$of(u"Ντζόνγκχα"_s)
+			"dz"_s,
+			u"Ντζόνγκχα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bez"_s),
-			$of(u"Μπένα"_s)
+			"bez"_s,
+			u"Μπένα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.chinese"_s),
-			$of(u"Κινεζικό ημερολόγιο"_s)
+			"type.ca.chinese"_s,
+			u"Κινεζικό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dje"_s),
-			$of(u"Ζάρμα"_s)
+			"dje"_s,
+			u"Ζάρμα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.grek"_s),
-			$of(u"Ελληνικά αριθμητικά"_s)
+			"type.nu.grek"_s,
+			u"Ελληνικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ee"_s),
-			$of(u"Έουε"_s)
+			"ee"_s,
+			u"Έουε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bfd"_s),
-			$of(u"Μπαφούτ"_s)
+			"bfd"_s,
+			u"Μπαφούτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.lb.normal"_s),
-			$of(u"Κανονικό στιλ αλλαγής γραμμών"_s)
+			"type.lb.normal"_s,
+			u"Κανονικό στιλ αλλαγής γραμμών"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro_MD"_s),
-			$of(u"Μολδαβικά"_s)
+			"ro_MD"_s,
+			u"Μολδαβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(u"Ελληνικά"_s)
+			"el"_s,
+			u"Ελληνικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"Αγγλικά"_s)
+			"en"_s,
+			u"Αγγλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"Εσπεράντο"_s)
+			"eo"_s,
+			u"Εσπεράντο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.big5han"_s),
-			$of(u"Σειρά ταξινόμησης Παραδοσιακών Κινεζικών - Big5"_s)
+			"type.co.big5han"_s,
+			u"Σειρά ταξινόμησης Παραδοσιακών Κινεζικών - Big5"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"Ισπανικά"_s)
+			"es"_s,
+			u"Ισπανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"Εσθονικά"_s)
+			"et"_s,
+			u"Εσθονικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hanb"_s),
-			$of(u"Χανμπ"_s)
+			"Hanb"_s,
+			u"Χανμπ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"Βασκικά"_s)
+			"eu"_s,
+			u"Βασκικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Buhd"_s),
-			$of(u"Μπουχίντ"_s)
+			"Buhd"_s,
+			u"Μπουχίντ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hang"_s),
-			$of(u"Χανγκούλ"_s)
+			"Hang"_s,
+			u"Χανγκούλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Samr"_s),
-			$of(u"Σαμαριτικό"_s)
+			"Samr"_s,
+			u"Σαμαριτικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of(u"Τασελχίτ"_s)
+			"shi"_s,
+			u"Τασελχίτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsb"_s),
-			$of(u"Άνω Σορβικά"_s)
+			"hsb"_s,
+			u"Άνω Σορβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hani"_s),
-			$of(u"Χαν"_s)
+			"Hani"_s,
+			u"Χαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shn"_s),
-			$of(u"Σαν"_s)
+			"shn"_s,
+			u"Σαν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hano"_s),
-			$of(u"Χανούνου"_s)
+			"Hano"_s,
+			u"Χανούνου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"Περσικά"_s)
+			"fa"_s,
+			u"Περσικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of(u"Απλοποιημένο"_s)
+			"Hans"_s,
+			u"Απλοποιημένο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of(u"Ψηφία της Δύσης"_s)
+			"type.nu.latn"_s,
+			u"Ψηφία της Δύσης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of(u"Παραδοσιακό"_s)
+			"Hant"_s,
+			u"Παραδοσιακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of(u"Φουλά"_s)
+			"ff"_s,
+			u"Φουλά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shu"_s),
-			$of(u"Αραβικά του Τσαντ"_s)
+			"shu"_s,
+			u"Αραβικά του Τσαντ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"Φινλανδικά"_s)
+			"fi"_s,
+			u"Φινλανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of(metaValue_FJ)
+			"fj"_s,
+			metaValue_FJ
 		}),
 		$$new($ObjectArray, {
-			$of("fon"_s),
-			$of(u"Φον"_s)
+			"fon"_s,
+			u"Φον"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bgn"_s),
-			$of(u"Δυτικά Μπαλοχικά"_s)
+			"bgn"_s,
+			u"Δυτικά Μπαλοχικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yue"_s),
-			$of(u"Καντονέζικα"_s)
+			"yue"_s,
+			u"Καντονέζικα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"Φεροϊκά"_s)
+			"fo"_s,
+			u"Φεροϊκά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.m0.bgn"_s),
-			$of(u"Μεταγραφή BGN ΗΠΑ"_s)
+			"type.m0.bgn"_s,
+			u"Μεταγραφή BGN ΗΠΑ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("umb"_s),
-			$of(u"Ουμπούντου"_s)
+			"umb"_s,
+			u"Ουμπούντου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"Γαλλικά"_s)
+			"fr"_s,
+			u"Γαλλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sid"_s),
-			$of(u"Σιντάμο"_s)
+			"sid"_s,
+			u"Σιντάμο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of(u"Δυτικά Φριζικά"_s)
+			"fy"_s,
+			u"Δυτικά Φριζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"Ιρλανδικά"_s)
+			"ga"_s,
+			u"Ιρλανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of(u"Σκωτικά Κελτικά"_s)
+			"gd"_s,
+			u"Σκωτικά Κελτικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of(u"Γαλικιανά"_s)
+			"gl"_s,
+			u"Γαλικιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of(u"Γκουαρανί"_s)
+			"gn"_s,
+			u"Γκουαρανί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of(u"Μπότζπουρι"_s)
+			"bho"_s,
+			u"Μπότζπουρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of(u"Άγνωστη γλώσσα"_s)
+			"und"_s,
+			u"Άγνωστη γλώσσα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic-amete-alem"_s),
-			$of(u"Αιθιοπικό ημερολόγιο Άμετ Άλεμ"_s)
+			"type.ca.ethiopic-amete-alem"_s,
+			u"Αιθιοπικό ημερολόγιο Άμετ Άλεμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(metaValue_gu)
+			"gu"_s,
+			metaValue_gu
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-tbla"_s),
-			$of(u"Ισλαμικό ημερολόγιο (δομημένο, αστρονομική εποχή)"_s)
+			"type.ca.islamic-tbla"_s,
+			u"Ισλαμικό ημερολόγιο (δομημένο, αστρονομική εποχή)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of(u"Μανξ"_s)
+			"gv"_s,
+			u"Μανξ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of(u"Χάουσα"_s)
+			"ha"_s,
+			u"Χάουσα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(u"Εβραϊκά"_s)
+			"he"_s,
+			u"Εβραϊκά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"Χίντι"_s)
+			"hi"_s,
+			u"Χίντι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hup"_s),
-			$of(u"Χούπα"_s)
+			"hup"_s,
+			u"Χούπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bik"_s),
-			$of(u"Μπικόλ"_s)
+			"bik"_s,
+			u"Μπικόλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bin"_s),
-			$of(u"Μπίνι"_s)
+			"bin"_s,
+			u"Μπίνι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ho"_s),
-			$of(u"Χίρι Μότου"_s)
+			"ho"_s,
+			u"Χίρι Μότου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"Κροατικά"_s)
+			"hr"_s,
+			u"Κροατικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"Αϊτιανά"_s)
+			"ht"_s,
+			u"Αϊτιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"Ουγγρικά"_s)
+			"hu"_s,
+			u"Ουγγρικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(u"Αρμενικά"_s)
+			"hy"_s,
+			u"Αρμενικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hz"_s),
-			$of(u"Χερέρο"_s)
+			"hz"_s,
+			u"Χερέρο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frc"_s),
-			$of(u"Γαλλικά (Λουιζιάνα)"_s)
+			"frc"_s,
+			u"Γαλλικά (Λουιζιάνα)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%FONIPA"_s),
-			$of(u"Διεθνής φωνητική αλφάβητος"_s)
+			"%%FONIPA"_s,
+			u"Διεθνής φωνητική αλφάβητος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of(u"Ιντερλίνγκουα"_s)
+			"ia"_s,
+			u"Ιντερλίνγκουα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jamo"_s),
-			$of(u"Τζάμο"_s)
+			"Jamo"_s,
+			u"Τζάμο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"Ινδονησιακά"_s)
+			"id"_s,
+			u"Ινδονησιακά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tibt"_s),
-			$of(u"Θιβετανικά ψηφία"_s)
+			"type.nu.tibt"_s,
+			u"Θιβετανικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ie"_s),
-			$of(u"Ιντερλίνγκουε"_s)
+			"ie"_s,
+			u"Ιντερλίνγκουε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of(u"Ίγκμπο"_s)
+			"ig"_s,
+			u"Ίγκμπο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ii"_s),
-			$of(u"Σίτσουαν Γι"_s)
+			"ii"_s,
+			u"Σίτσουαν Γι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frm"_s),
-			$of(u"Μέσα Γαλλικά"_s)
+			"frm"_s,
+			u"Μέσα Γαλλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ik"_s),
-			$of(u"Ινουπιάκ"_s)
+			"ik"_s,
+			u"Ινουπιάκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fro"_s),
-			$of(u"Παλαιά Γαλλικά"_s)
+			"fro"_s,
+			u"Παλαιά Γαλλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("io"_s),
-			$of(u"Ίντο"_s)
+			"io"_s,
+			u"Ίντο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frs"_s),
-			$of(u"Ανατολικά Φριζιανά"_s)
+			"frs"_s,
+			u"Ανατολικά Φριζιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frr"_s),
-			$of(u"Βόρεια Φριζιανά"_s)
+			"frr"_s,
+			u"Βόρεια Φριζιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"Ισλανδικά"_s)
+			"is"_s,
+			u"Ισλανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"Ιταλικά"_s)
+			"it"_s,
+			u"Ιταλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of(u"Ινούκτιτουτ"_s)
+			"iu"_s,
+			u"Ινούκτιτουτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(u"Ιαπωνικά"_s)
+			"ja"_s,
+			u"Ιαπωνικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of(u"Μαλαγιάλαμ"_s)
+			"Mlym"_s,
+			u"Μαλαγιάλαμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sara"_s),
-			$of(u"Σαράθι"_s)
+			"Sara"_s,
+			u"Σαράθι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("doi"_s),
-			$of(u"Ντόγκρι"_s)
+			"doi"_s,
+			u"Ντόγκρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bkm"_s),
-			$of(u"Κομ"_s)
+			"bkm"_s,
+			u"Κομ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sma"_s),
-			$of(u"Νότια Σάμι"_s)
+			"sma"_s,
+			u"Νότια Σάμι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(u"Ιαβανικά"_s)
+			"jv"_s,
+			u"Ιαβανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Shaw"_s),
-			$of(u"Σαβιανό"_s)
+			"Shaw"_s,
+			u"Σαβιανό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of(u"Μαντουρίζ"_s)
+			"mad"_s,
+			u"Μαντουρίζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smj"_s),
-			$of(u"Λούλε Σάμι"_s)
+			"smj"_s,
+			u"Λούλε Σάμι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mag"_s),
-			$of(u"Μαγκάχι"_s)
+			"mag"_s,
+			u"Μαγκάχι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("maf"_s),
-			$of(u"Μάφα"_s)
+			"maf"_s,
+			u"Μάφα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mai"_s),
-			$of(u"Μαϊτχίλι"_s)
+			"mai"_s,
+			u"Μαϊτχίλι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smn"_s),
-			$of(u"Ινάρι Σάμι"_s)
+			"smn"_s,
+			u"Ινάρι Σάμι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(u"Γεωργιανά"_s)
+			"ka"_s,
+			u"Γεωργιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of(u"Σικσίκα"_s)
+			"bla"_s,
+			u"Σικσίκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mak"_s),
-			$of(u"Μακασάρ"_s)
+			"mak"_s,
+			u"Μακασάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wuu"_s),
-			$of(u"Κινεζικά Γου"_s)
+			"wuu"_s,
+			u"Κινεζικά Γου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sms"_s),
-			$of(u"Σκολτ Σάμι"_s)
+			"sms"_s,
+			u"Σκολτ Σάμι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("man"_s),
-			$of(u"Μαντίνγκο"_s)
+			"man"_s,
+			u"Μαντίνγκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kg"_s),
-			$of(u"Κονγκό"_s)
+			"kg"_s,
+			u"Κονγκό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Goth"_s),
-			$of(u"Γοτθικό"_s)
+			"Goth"_s,
+			u"Γοτθικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ki"_s),
-			$of(u"Κικούγιου"_s)
+			"ki"_s,
+			u"Κικούγιου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mas"_s),
-			$of(u"Μασάι"_s)
+			"mas"_s,
+			u"Μασάι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kj"_s),
-			$of(u"Κουανιάμα"_s)
+			"kj"_s,
+			u"Κουανιάμα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of(u"Καζακικά"_s)
+			"kk"_s,
+			u"Καζακικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of(u"Καλαάλισουτ"_s)
+			"kl"_s,
+			u"Καλαάλισουτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(metaValue_km)
+			"km"_s,
+			metaValue_km
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(metaValue_kn)
+			"kn"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(u"Κορεατικά"_s)
+			"ko"_s,
+			u"Κορεατικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kr"_s),
-			$of(u"Κανούρι"_s)
+			"kr"_s,
+			u"Κανούρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of(u"Κασμιρικά"_s)
+			"ks"_s,
+			u"Κασμιρικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cirt"_s),
-			$of(u"Σερθ"_s)
+			"Cirt"_s,
+			u"Σερθ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lepc"_s),
-			$of(u"Λέπτσα"_s)
+			"Lepc"_s,
+			u"Λέπτσα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Avst"_s),
-			$of(metaValue_ae)
+			"Avst"_s,
+			metaValue_ae
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"Κουρδικά"_s)
+			"ku"_s,
+			u"Κουρδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kv"_s),
-			$of(u"Κόμι"_s)
+			"kv"_s,
+			u"Κόμι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of(u"Κορνουαλικά"_s)
+			"kw"_s,
+			u"Κορνουαλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(u"Κιργιζικά"_s)
+			"ky"_s,
+			u"Κιργιζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("snk"_s),
-			$of(u"Σονίνκε"_s)
+			"snk"_s,
+			u"Σονίνκε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(u"Λατινικά"_s)
+			"la"_s,
+			u"Λατινικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of(u"Λουξεμβουργιανά"_s)
+			"lb"_s,
+			u"Λουξεμβουργιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mlym"_s),
-			$of(u"Μαλαγιαλαμικά ψηφία"_s)
+			"type.nu.mlym"_s,
+			u"Μαλαγιαλαμικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lg"_s),
-			$of(u"Γκάντα"_s)
+			"lg"_s,
+			u"Γκάντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Roro"_s),
-			$of(u"Ρονγκορόνγκο"_s)
+			"Roro"_s,
+			u"Ρονγκορόνγκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("li"_s),
-			$of(u"Λιμβουργιανά"_s)
+			"li"_s,
+			u"Λιμβουργιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tibt"_s),
-			$of(u"Θιβετιανό"_s)
+			"Tibt"_s,
+			u"Θιβετιανό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ln"_s),
-			$of(u"Λινγκάλα"_s)
+			"ln"_s,
+			u"Λινγκάλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fur"_s),
-			$of(u"Φριουλανικά"_s)
+			"fur"_s,
+			u"Φριουλανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(u"Λαοτινά"_s)
+			"lo"_s,
+			u"Λαοτινά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ms.uksystem"_s),
-			$of(u"Αγγλοσαξονικό σύστημα μέτρησης"_s)
+			"type.ms.uksystem"_s,
+			u"Αγγλοσαξονικό σύστημα μέτρησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"Λιθουανικά"_s)
+			"lt"_s,
+			u"Λιθουανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lu"_s),
-			$of(u"Λούμπα-Κατάνγκα"_s)
+			"lu"_s,
+			u"Λούμπα-Κατάνγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"Λετονικά"_s)
+			"lv"_s,
+			u"Λετονικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sog"_s),
-			$of(u"Σογκντιέν"_s)
+			"sog"_s,
+			u"Σογκντιέν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of(u"Μαλγασικά"_s)
+			"mg"_s,
+			u"Μαλγασικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mh"_s),
-			$of(u"Μαρσαλέζικα"_s)
+			"mh"_s,
+			u"Μαρσαλέζικα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.ducet"_s),
-			$of(u"Προεπιλεγμένη σειρά ταξινόμησης Unicode"_s)
+			"type.co.ducet"_s,
+			u"Προεπιλεγμένη σειρά ταξινόμησης Unicode"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of(u"Μαορί"_s)
+			"mi"_s,
+			u"Μαορί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"Σλαβομακεδονικά"_s)
+			"mk"_s,
+			u"Σλαβομακεδονικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(u"Μαλαγιαλαμικά"_s)
+			"ml"_s,
+			u"Μαλαγιαλαμικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(u"Μογγολικά"_s)
+			"mn"_s,
+			u"Μογγολικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of(u"Μαραθικά"_s)
+			"mr"_s,
+			u"Μαραθικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"Μαλαισιανά"_s)
+			"ms"_s,
+			u"Μαλαισιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of(u"Μαλτεζικά"_s)
+			"mt"_s,
+			u"Μαλτεζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(u"Βιρμανικά"_s)
+			"my"_s,
+			u"Βιρμανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Saur"_s),
-			$of(u"Σαουράστρα"_s)
+			"Saur"_s,
+			u"Σαουράστρα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armn"_s),
-			$of(u"Αρμενικό"_s)
+			"Armn"_s,
+			u"Αρμενικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdf"_s),
-			$of(u"Μόκσα"_s)
+			"mdf"_s,
+			u"Μόκσα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mde"_s),
-			$of(u"Μάμπα"_s)
+			"mde"_s,
+			u"Μάμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dsb"_s),
-			$of(u"Κάτω Σορβικά"_s)
+			"dsb"_s,
+			u"Κάτω Σορβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armi"_s),
-			$of(u"Αυτοκρατορικό Αραμαϊκό"_s)
+			"Armi"_s,
+			u"Αυτοκρατορικό Αραμαϊκό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of(u"Ναούρου"_s)
+			"na"_s,
+			u"Ναούρου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.search"_s),
-			$of(u"Αναζήτηση γενικού τύπου"_s)
+			"type.co.search"_s,
+			u"Αναζήτηση γενικού τύπου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of(u"Νορβηγικά Μποκμάλ"_s)
+			"nb"_s,
+			u"Νορβηγικά Μποκμάλ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nd"_s),
-			$of(u"Βόρεια Ντεμπέλε"_s)
+			"nd"_s,
+			u"Βόρεια Ντεμπέλε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(u"Νεπαλικά"_s)
+			"ne"_s,
+			u"Νεπαλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ng"_s),
-			$of(u"Ντόνγκα"_s)
+			"ng"_s,
+			u"Ντόνγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdr"_s),
-			$of(u"Μανδάρ"_s)
+			"mdr"_s,
+			u"Μανδάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"Ολλανδικά"_s)
+			"nl"_s,
+			u"Ολλανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of(u"Νορβηγικά Νινόρσκ"_s)
+			"nn"_s,
+			u"Νορβηγικά Νινόρσκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"Νορβηγικά"_s)
+			"no"_s,
+			u"Νορβηγικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of(u"Νότια Ντεμπέλε"_s)
+			"nr"_s,
+			u"Νότια Ντεμπέλε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of(u"Νάβαχο"_s)
+			"nv"_s,
+			u"Νάβαχο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaa"_s),
-			$of(u"Κάρα-Καλπάκ"_s)
+			"kaa"_s,
+			u"Κάρα-Καλπάκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ny"_s),
-			$of(u"Νιάντζα"_s)
+			"ny"_s,
+			u"Νιάντζα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kac"_s),
-			$of(u"Κατσίν"_s)
+			"kac"_s,
+			u"Κατσίν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kab"_s),
-			$of(u"Καμπίλε"_s)
+			"kab"_s,
+			u"Καμπίλε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%POLYTON"_s),
-			$of(u"Πολυτονικό"_s)
+			"%%POLYTON"_s,
+			u"Πολυτονικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"Οξιτανικά"_s)
+			"oc"_s,
+			u"Οξιτανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaj"_s),
-			$of(u"Τζου"_s)
+			"kaj"_s,
+			u"Τζου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kam"_s),
-			$of(u"Κάμπα"_s)
+			"kam"_s,
+			u"Κάμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("men"_s),
-			$of(u"Μέντε"_s)
+			"men"_s,
+			u"Μέντε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oj"_s),
-			$of(u"Οζιβίγουα"_s)
+			"oj"_s,
+			u"Οζιβίγουα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mer"_s),
-			$of(u"Μέρου"_s)
+			"mer"_s,
+			u"Μέρου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armn"_s),
-			$of(u"Αρμενικά αριθμητικά"_s)
+			"type.nu.armn"_s,
+			u"Αρμενικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("om"_s),
-			$of(u"Ορόμο"_s)
+			"om"_s,
+			u"Ορόμο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaw"_s),
-			$of(u"Κάουι"_s)
+			"kaw"_s,
+			u"Κάουι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(metaValue_or)
+			"or"_s,
+			metaValue_or
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of(u"Οσετικά"_s)
+			"os"_s,
+			u"Οσετικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of(u"Καμπαρντιανά"_s)
+			"kbd"_s,
+			u"Καμπαρντιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mfe"_s),
-			$of(u"Μορισιέν"_s)
+			"mfe"_s,
+			u"Μορισιέν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srn"_s),
-			$of(u"Σρανάν Τόνγκο"_s)
+			"srn"_s,
+			u"Σρανάν Τόνγκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"Παντζαπικά"_s)
+			"pa"_s,
+			u"Παντζαπικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dua"_s),
-			$of(u"Ντουάλα"_s)
+			"dua"_s,
+			u"Ντουάλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srr"_s),
-			$of(u"Σερέρ"_s)
+			"srr"_s,
+			u"Σερέρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%LIPAW"_s),
-			$of(u"Διάλεκτος Λιποβάζ της Ρεσιάν"_s)
+			"%%LIPAW"_s,
+			u"Διάλεκτος Λιποβάζ της Ρεσιάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbl"_s),
-			$of(u"Κανέμπου"_s)
+			"kbl"_s,
+			u"Κανέμπου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pi"_s),
-			$of(u"Πάλι"_s)
+			"pi"_s,
+			u"Πάλι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"Πολωνικά"_s)
+			"pl"_s,
+			u"Πολωνικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dum"_s),
-			$of(u"Μέσα Ολλανδικά"_s)
+			"dum"_s,
+			u"Μέσα Ολλανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.dangi"_s),
-			$of(u"Κορεατικό ημερολόγιο ντάνγκι"_s)
+			"type.ca.dangi"_s,
+			u"Κορεατικό ημερολόγιο ντάνγκι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of(u"Πάστο"_s)
+			"ps"_s,
+			u"Πάστο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"Πορτογαλικά"_s)
+			"pt"_s,
+			u"Πορτογαλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"Μέσα Ιρλανδικά"_s)
+			"mga"_s,
+			u"Μέσα Ιρλανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.co"_s),
-			$of(u"Σειρά ταξινόμησης"_s)
+			"key.co"_s,
+			u"Σειρά ταξινόμησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of(u"Πορτογαλικά Βραζιλίας"_s)
+			"pt_BR"_s,
+			u"Πορτογαλικά Βραζιλίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kcg"_s),
-			$of(u"Τιάπ"_s)
+			"kcg"_s,
+			u"Τιάπ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgh"_s),
-			$of(u"Μακούβα-Μέτο"_s)
+			"mgh"_s,
+			u"Μακούβα-Μέτο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cf"_s),
-			$of(u"Μορφή νομίσματος"_s)
+			"key.cf"_s,
+			u"Μορφή νομίσματος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bra"_s),
-			$of(u"Μπρατζ"_s)
+			"bra"_s,
+			u"Μπρατζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ca"_s),
-			$of(u"Ημερολόγιο"_s)
+			"key.ca"_s,
+			u"Ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Laoo"_s),
-			$of(u"Λαοτινό"_s)
+			"Laoo"_s,
+			u"Λαοτινό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgo"_s),
-			$of(u"Μέτα"_s)
+			"mgo"_s,
+			u"Μέτα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h23"_s),
-			$of(u"24ωρο σύστημα (0–23)"_s)
+			"type.hc.h23"_s,
+			u"24ωρο σύστημα (0–23)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h24"_s),
-			$of(u"24ωρο σύστημα (1–24)"_s)
+			"type.hc.h24"_s,
+			u"24ωρο σύστημα (1–24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssy"_s),
-			$of(metaValue_ssy)
+			"ssy"_s,
+			metaValue_ssy
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymr"_s),
-			$of(u"Ψηφία Μιανμάρ"_s)
+			"type.nu.mymr"_s,
+			u"Ψηφία Μιανμάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of(u"Κέτσουα"_s)
+			"qu"_s,
+			u"Κέτσουα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zap"_s),
-			$of(u"Ζάποτεκ"_s)
+			"zap"_s,
+			u"Ζάποτεκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brx"_s),
-			$of(u"Μπόντο"_s)
+			"brx"_s,
+			u"Μπόντο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lana"_s),
-			$of(u"Λάννα"_s)
+			"Lana"_s,
+			u"Λάννα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kde"_s),
-			$of(u"Μακόντε"_s)
+			"kde"_s,
+			u"Μακόντε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of(u"Αιθιοπικό"_s)
+			"Ethi"_s,
+			u"Αιθιοπικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h12"_s),
-			$of(u"12ωρο σύστημα (1–12)"_s)
+			"type.hc.h12"_s,
+			u"12ωρο σύστημα (1–12)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.hc.h11"_s),
-			$of(u"12ωρο σύστημα (0–11)"_s)
+			"type.hc.h11"_s,
+			u"12ωρο σύστημα (0–11)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of(u"Ρομανικά"_s)
+			"rm"_s,
+			u"Ρομανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rn"_s),
-			$of(u"Ρούντι"_s)
+			"rn"_s,
+			u"Ρούντι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cu"_s),
-			$of(u"Νόμισμα"_s)
+			"key.cu"_s,
+			u"Νόμισμα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"Ρουμανικά"_s)
+			"ro"_s,
+			u"Ρουμανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SAAHO"_s),
-			$of(metaValue_ssy)
+			"%%SAAHO"_s,
+			metaValue_ssy
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.orya"_s),
-			$of(u"Οριγικά ψηφία"_s)
+			"type.nu.orya"_s,
+			u"Οριγικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hanidec"_s),
-			$of(u"Κινεζικά δεκαδικά αριθμητικά"_s)
+			"type.nu.hanidec"_s,
+			u"Κινεζικά δεκαδικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"Ρωσικά"_s)
+			"ru"_s,
+			u"Ρωσικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bss"_s),
-			$of(u"Ακόσι"_s)
+			"bss"_s,
+			u"Ακόσι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zbl"_s),
-			$of(metaValue_zbl)
+			"zbl"_s,
+			metaValue_zbl
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of(u"Κινιαρουάντα"_s)
+			"rw"_s,
+			u"Κινιαρουάντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kea"_s),
-			$of(u"Γλώσσα του Πράσινου Ακρωτηρίου"_s)
+			"kea"_s,
+			u"Γλώσσα του Πράσινου Ακρωτηρίου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mic"_s),
-			$of(u"Μικμάκ"_s)
+			"mic"_s,
+			u"Μικμάκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("suk"_s),
-			$of(u"Σουκούμα"_s)
+			"suk"_s,
+			u"Σουκούμα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_AU"_s),
-			$of(u"Αγγλικά Αυστραλίας"_s)
+			"en_AU"_s,
+			u"Αγγλικά Αυστραλίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of(u"Σανσκριτικά"_s)
+			"sa"_s,
+			u"Σανσκριτικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%UCCOR"_s),
-			$of(u"Ενωποιημένη ορθογραφία"_s)
+			"%%UCCOR"_s,
+			u"Ενωποιημένη ορθογραφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of(u"Σαρδηνιακά"_s)
+			"sc"_s,
+			u"Σαρδηνιακά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sus"_s),
-			$of(u"Σούσου"_s)
+			"sus"_s,
+			u"Σούσου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of(u"Σίντι"_s)
+			"sd"_s,
+			u"Σίντι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of(u"Βόρεια Σάμι"_s)
+			"se"_s,
+			u"Βόρεια Σάμι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("min"_s),
-			$of(u"Μινανγκαμπάου"_s)
+			"min"_s,
+			u"Μινανγκαμπάου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sg"_s),
-			$of(u"Σάνγκο"_s)
+			"sg"_s,
+			u"Σάνγκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sh"_s),
-			$of(u"Σερβοκροατικά"_s)
+			"sh"_s,
+			u"Σερβοκροατικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(u"Σινχαλεζικά"_s)
+			"si"_s,
+			u"Σινχαλεζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sux"_s),
-			$of(u"Σουμερικά"_s)
+			"sux"_s,
+			u"Σουμερικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"Σλοβακικά"_s)
+			"sk"_s,
+			u"Σλοβακικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"Σλοβενικά"_s)
+			"sl"_s,
+			u"Σλοβενικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of(u"Σαμοανά"_s)
+			"sm"_s,
+			u"Σαμοανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sn"_s),
-			$of(u"Σόνα"_s)
+			"sn"_s,
+			u"Σόνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(u"Σομαλικά"_s)
+			"so"_s,
+			u"Σομαλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arab"_s),
-			$of(u"Αραβικο-ινδικά ψηφία"_s)
+			"type.nu.arab"_s,
+			u"Αραβικο-ινδικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"Αλβανικά"_s)
+			"sq"_s,
+			u"Αλβανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"Σερβικά"_s)
+			"sr"_s,
+			u"Σερβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of(u"Σουάτι"_s)
+			"ss"_s,
+			u"Σουάτι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.cf.account"_s),
-			$of(u"Λογιστική μορφή νομίσματος"_s)
+			"type.cf.account"_s,
+			u"Λογιστική μορφή νομίσματος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of(u"Νότια Σόθο"_s)
+			"st"_s,
+			u"Νότια Σόθο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Java"_s),
-			$of(u"Ιαβανεζικό"_s)
+			"Java"_s,
+			u"Ιαβανεζικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of(u"Σουνδανικά"_s)
+			"su"_s,
+			u"Σουνδανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NEDIS"_s),
-			$of(u"Διάλεκτος Νατισόνε"_s)
+			"%%NEDIS"_s,
+			u"Διάλεκτος Νατισόνε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"Σουηδικά"_s)
+			"sv"_s,
+			u"Σουηδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"Σουαχίλι"_s)
+			"sw"_s,
+			u"Σουαχίλι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hantfin"_s),
-			$of(u"Παραδοσιακά κινεζικά οικονομικά αριθμητικά"_s)
+			"type.nu.hantfin"_s,
+			u"Παραδοσιακά κινεζικά οικονομικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ibb"_s),
-			$of(u"Ιμπίμπιο"_s)
+			"ibb"_s,
+			u"Ιμπίμπιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iba"_s),
-			$of(u"Ιμπάν"_s)
+			"iba"_s,
+			u"Ιμπάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(u"Ταμιλικά"_s)
+			"ta"_s,
+			u"Ταμιλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of(u"Ασία"_s)
+			"142"_s,
+			u"Ασία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bua"_s),
-			$of(u"Μπουριάτ"_s)
+			"bua"_s,
+			u"Μπουριάτ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of(u"Κεντρική Ασία"_s)
+			"143"_s,
+			u"Κεντρική Ασία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(metaValue_te)
+			"te"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of(u"Δυτική Ασία"_s)
+			"145"_s,
+			u"Δυτική Ασία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tg"_s),
-			$of(u"Τατζικικά"_s)
+			"tg"_s,
+			u"Τατζικικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(u"Ταϊλανδικά"_s)
+			"th"_s,
+			u"Ταϊλανδικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of(u"Τιγκρινικά"_s)
+			"ti"_s,
+			u"Τιγκρινικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bug"_s),
-			$of(u"Μπουγκίζ"_s)
+			"bug"_s,
+			u"Μπουγκίζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kfo"_s),
-			$of(u"Κόρο"_s)
+			"kfo"_s,
+			u"Κόρο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_CA"_s),
-			$of(u"Αγγλικά Καναδά"_s)
+			"en_CA"_s,
+			u"Αγγλικά Καναδά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of(u"Τουρκμενικά"_s)
+			"tk"_s,
+			u"Τουρκμενικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tl"_s),
-			$of(u"Τάγκαλογκ"_s)
+			"tl"_s,
+			u"Τάγκαλογκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of(u"Τσουάνα"_s)
+			"tn"_s,
+			u"Τσουάνα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("to"_s),
-			$of(u"Τονγκανικά"_s)
+			"to"_s,
+			u"Τονγκανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bum"_s),
-			$of(u"Μπουλού"_s)
+			"bum"_s,
+			u"Μπουλού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyo"_s),
-			$of(u"Τζόλα-Φόνι"_s)
+			"dyo"_s,
+			u"Τζόλα-Φόνι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpan"_s),
-			$of(u"Ιαπωνικά αριθμητικά"_s)
+			"type.nu.jpan"_s,
+			u"Ιαπωνικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"Τουρκικά"_s)
+			"tr"_s,
+			u"Τουρκικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cakm"_s),
-			$of(metaValue_ccp)
+			"Cakm"_s,
+			metaValue_ccp
 		}),
 		$$new($ObjectArray, {
-			$of("ts"_s),
-			$of(u"Τσόνγκα"_s)
+			"ts"_s,
+			u"Τσόνγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swb"_s),
-			$of(u"Κομοριανά"_s)
+			"swb"_s,
+			u"Κομοριανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of(u"Ταταρικά"_s)
+			"tt"_s,
+			u"Ταταρικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyu"_s),
-			$of(u"Ντογιούλα"_s)
+			"dyu"_s,
+			u"Ντογιούλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tw"_s),
-			$of(u"Τούι"_s)
+			"tw"_s,
+			u"Τούι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of(u"Ταϊτιανά"_s)
+			"ty"_s,
+			u"Ταϊτιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BISKE"_s),
-			$of(u"Διάλεκτος Σαν Τζιόρτζιο/Βίλα"_s)
+			"%%BISKE"_s,
+			u"Διάλεκτος Σαν Τζιόρτζιο/Βίλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of(u"Ευρώπη"_s)
+			"150"_s,
+			u"Ευρώπη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of(u"Ανατολική Ευρώπη"_s)
+			"151"_s,
+			u"Ανατολική Ευρώπη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of(u"Βόρεια Ευρώπη"_s)
+			"154"_s,
+			u"Βόρεια Ευρώπη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzg"_s),
-			$of(u"Νταζάγκα"_s)
+			"dzg"_s,
+			u"Νταζάγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of(u"Δυτική Ευρώπη"_s)
+			"155"_s,
+			u"Δυτική Ευρώπη"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ug"_s),
-			$of(u"Ουιγουρικά"_s)
+			"ug"_s,
+			u"Ουιγουρικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ital"_s),
-			$of(u"Παλαιό Ιταλικό"_s)
+			"Ital"_s,
+			u"Παλαιό Ιταλικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(u"Κορεατικό"_s)
+			"Kore"_s,
+			u"Κορεατικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zyyy"_s),
-			$of(u"Κοινό"_s)
+			"Zyyy"_s,
+			u"Κοινό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"Ουκρανικά"_s)
+			"uk"_s,
+			u"Ουκρανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.coptic"_s),
-			$of(u"Κοπτικό ημερολόγιο"_s)
+			"type.ca.coptic"_s,
+			u"Κοπτικό ημερολόγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"Ουρντού"_s)
+			"ur"_s,
+			u"Ουρντού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1994"_s),
-			$of(u"Τυποποιημένη ορθογραφία Ρεσιάν"_s)
+			"%%1994"_s,
+			u"Τυποποιημένη ορθογραφία Ρεσιάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of(u"Καλμίκ"_s)
+			"xal"_s,
+			u"Καλμίκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zen"_s),
-			$of(u"Ζενάγκα"_s)
+			"zen"_s,
+			u"Ζενάγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"Ουζμπεκικά"_s)
+			"uz"_s,
+			u"Ουζμπεκικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kha"_s),
-			$of(u"Κάσι"_s)
+			"kha"_s,
+			u"Κάσι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1996"_s),
-			$of(u"Γερμανική ορθογραφία του 1996"_s)
+			"%%1996"_s,
+			u"Γερμανική ορθογραφία του 1996"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds_NL"_s),
-			$of(u"Κάτω Γερμανικά Ολλανδίας"_s)
+			"nds_NL"_s,
+			u"Κάτω Γερμανικά Ολλανδίας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sylo"_s),
-			$of(u"Συλότι Νάγκρι"_s)
+			"Sylo"_s,
+			u"Συλότι Νάγκρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ve"_s),
-			$of(u"Βέντα"_s)
+			"ve"_s,
+			u"Βέντα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.roc"_s),
-			$of(u"Ημερολόγιο της Δημοκρατίας της Κίνας"_s)
+			"type.ca.roc"_s,
+			u"Ημερολόγιο της Δημοκρατίας της Κίνας"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"Βιετναμικά"_s)
+			"vi"_s,
+			u"Βιετναμικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kho"_s),
-			$of(u"Κοτανικά"_s)
+			"kho"_s,
+			u"Κοτανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khq"_s),
-			$of(u"Κόιρα Τσίνι"_s)
+			"khq"_s,
+			u"Κόιρα Τσίνι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.hc"_s),
-			$of(u"Κύκλος ωρών (12 ή 24)"_s)
+			"key.hc"_s,
+			u"Κύκλος ωρών (12 ή 24)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%TARASK"_s),
-			$of(u"Ταρασκιεβική ορθογραφία"_s)
+			"%%TARASK"_s,
+			u"Ταρασκιεβική ορθογραφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vo"_s),
-			$of(u"Βολαπιούκ"_s)
+			"vo"_s,
+			u"Βολαπιούκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syc"_s),
-			$of(u"Κλασικά Συριακά"_s)
+			"syc"_s,
+			u"Κλασικά Συριακά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Osma"_s),
-			$of(u"Οσμάνγια"_s)
+			"Osma"_s,
+			u"Οσμάνγια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("quc"_s),
-			$of(u"Κιτσέ"_s)
+			"quc"_s,
+			u"Κιτσέ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gaa"_s),
-			$of(u"Γκα"_s)
+			"gaa"_s,
+			u"Γκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of(u"Βαλλωνικά"_s)
+			"wa"_s,
+			u"Βαλλωνικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gag"_s),
-			$of(u"Γκαγκάουζ"_s)
+			"gag"_s,
+			u"Γκαγκάουζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of(u"Συριακά"_s)
+			"syr"_s,
+			u"Συριακά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Grek"_s),
-			$of(u"Ελληνικό"_s)
+			"Grek"_s,
+			u"Ελληνικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lydi"_s),
-			$of(u"Λυδιανικό"_s)
+			"Lydi"_s,
+			u"Λυδιανικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xsux"_s),
-			$of(u"Σούμερο-Ακάντιαν Κουνεϊφόρμ"_s)
+			"Xsux"_s,
+			u"Σούμερο-Ακάντιαν Κουνεϊφόρμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of(u"Γουόλοφ"_s)
+			"wo"_s,
+			u"Γουόλοφ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"Τυπικά Ταμαζίτ Μαρόκου"_s)
+			"zgh"_s,
+			u"Τυπικά Ταμαζίτ Μαρόκου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar_001"_s),
-			$of(u"Σύγχρονα Τυπικά Αραβικά"_s)
+			"ar_001"_s,
+			u"Σύγχρονα Τυπικά Αραβικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cans"_s),
-			$of(u"Ενοποιημένοι Καναδεζικοί Συλλαβισμοί Ιθαγενών"_s)
+			"Cans"_s,
+			u"Ενοποιημένοι Καναδεζικοί Συλλαβισμοί Ιθαγενών"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gay"_s),
-			$of(u"Γκάγιο"_s)
+			"gay"_s,
+			u"Γκάγιο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mong"_s),
-			$of(u"Μογγολικό"_s)
+			"Mong"_s,
+			u"Μογγολικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mnc"_s),
-			$of(u"Μαντσού"_s)
+			"mnc"_s,
+			u"Μαντσού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latf"_s),
-			$of(u"Φράκτουρ Λατινικό"_s)
+			"Latf"_s,
+			u"Φράκτουρ Λατινικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gba"_s),
-			$of(u"Γκμπάγια"_s)
+			"gba"_s,
+			u"Γκμπάγια"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mni"_s),
-			$of(u"Μανιπούρι"_s)
+			"mni"_s,
+			u"Μανιπούρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(u"Λατινικό"_s)
+			"Latn"_s,
+			u"Λατινικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latg"_s),
-			$of(u"Γαελικό Λατινικό"_s)
+			"Latg"_s,
+			u"Γαελικό Λατινικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hans"_s),
-			$of(u"Απλοποιημένα κινεζικά αριθμητικά"_s)
+			"type.nu.hans"_s,
+			u"Απλοποιημένα κινεζικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hant"_s),
-			$of(u"Παραδοσιακά κινεζικά αριθμητικά"_s)
+			"type.nu.hant"_s,
+			u"Παραδοσιακά κινεζικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"Κόσα"_s)
+			"xh"_s,
+			u"Κόσα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.romanlow"_s),
-			$of(u"Πεζά λατινικά αριθμητικά"_s)
+			"type.nu.romanlow"_s,
+			u"Πεζά λατινικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of(u"Μπλιν"_s)
+			"byn"_s,
+			u"Μπλιν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lyci"_s),
-			$of(u"Λυκιανικό"_s)
+			"Lyci"_s,
+			u"Λυκιανικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("osa"_s),
-			$of(u"Οσάζ"_s)
+			"osa"_s,
+			u"Οσάζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byv"_s),
-			$of(u"Μεντούμπα"_s)
+			"byv"_s,
+			u"Μεντούμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Moon"_s),
-			$of(u"Μουν"_s)
+			"Moon"_s,
+			u"Μουν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of(u"Μοχόκ"_s)
+			"moh"_s,
+			u"Μοχόκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kkj"_s),
-			$of(u"Κάκο"_s)
+			"kkj"_s,
+			u"Κάκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1694ACAD"_s),
-			$of(u"Πρώιμα Σύγχρονα Γαλλικά"_s)
+			"%%1694ACAD"_s,
+			u"Πρώιμα Σύγχρονα Γαλλικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"Γίντις"_s)
+			"yi"_s,
+			u"Γίντις"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mos"_s),
-			$of(u"Μόσι"_s)
+			"mos"_s,
+			u"Μόσι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrc"_s),
-			$of(u"Συριακό"_s)
+			"Syrc"_s,
+			u"Συριακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dsrt"_s),
-			$of(u"Ντεσερέ"_s)
+			"Dsrt"_s,
+			u"Ντεσερέ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of(u"Γιορούμπα"_s)
+			"yo"_s,
+			u"Γιορούμπα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.traditional"_s),
-			$of(u"Παραδοσιακά αριθμητικά"_s)
+			"type.nu.traditional"_s,
+			u"Παραδοσιακά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_MX"_s),
-			$of(u"Ισπανικά Μεξικού"_s)
+			"es_MX"_s,
+			u"Ισπανικά Μεξικού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrj"_s),
-			$of(u"Δυτικό Συριακό"_s)
+			"Syrj"_s,
+			u"Δυτικό Συριακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ota"_s),
-			$of(u"Οθωμανικά Τουρκικά"_s)
+			"ota"_s,
+			u"Οθωμανικά Τουρκικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syre"_s),
-			$of(u"Εστραντζέλο Συριακό"_s)
+			"Syre"_s,
+			u"Εστραντζέλο Συριακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vai"_s),
-			$of(metaValue_vai)
+			"vai"_s,
+			metaValue_vai
 		}),
 		$$new($ObjectArray, {
-			$of("za"_s),
-			$of(u"Ζουάνγκ"_s)
+			"za"_s,
+			u"Ζουάνγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cari"_s),
-			$of(u"Καριάν"_s)
+			"Cari"_s,
+			u"Καριάν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kln"_s),
-			$of(u"Καλεντζίν"_s)
+			"kln"_s,
+			u"Καλεντζίν"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"Κινεζικά"_s)
+			"zh"_s,
+			u"Κινεζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bopo"_s),
-			$of(u"Μποπομόφο"_s)
+			"Bopo"_s,
+			u"Μποπομόφο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Perm"_s),
-			$of(u"Παλαιό Περμικό"_s)
+			"Perm"_s,
+			u"Παλαιό Περμικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.lb"_s),
-			$of(u"Στιλ αλλαγής γραμμών"_s)
+			"key.lb"_s,
+			u"Στιλ αλλαγής γραμμών"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"Ζουλού"_s)
+			"zu"_s,
+			u"Ζουλού"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonebook"_s),
-			$of(u"Σειρά ταξινόμησης τηλεφωνικού καταλόγου"_s)
+			"type.co.phonebook"_s,
+			u"Σειρά ταξινόμησης τηλεφωνικού καταλόγου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%MONOTON"_s),
-			$of(u"Μονοτονικό"_s)
+			"%%MONOTON"_s,
+			u"Μονοτονικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geor"_s),
-			$of(u"Γεωργιανό"_s)
+			"Geor"_s,
+			u"Γεωργιανό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmb"_s),
-			$of(u"Κιμπούντου"_s)
+			"kmb"_s,
+			u"Κιμπούντου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpanfin"_s),
-			$of(u"Ιαπωνικά οικονομικά αριθμητικά"_s)
+			"type.nu.jpanfin"_s,
+			u"Ιαπωνικά οικονομικά αριθμητικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cham"_s),
-			$of(u"Τσαμ"_s)
+			"Cham"_s,
+			u"Τσαμ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gez"_s),
-			$of(u"Γκιζ"_s)
+			"gez"_s,
+			u"Γκιζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrn"_s),
-			$of(u"Ανατολικό Συριακό"_s)
+			"Syrn"_s,
+			u"Ανατολικό Συριακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.reformed"_s),
-			$of(u"Ανασχηματισμένη σειρά ταξινόμησης"_s)
+			"type.co.reformed"_s,
+			u"Ανασχηματισμένη σειρά ταξινόμησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tglg"_s),
-			$of(u"Ταγκαλόγκ"_s)
+			"Tglg"_s,
+			u"Ταγκαλόγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyd"_s),
-			$of(u"Λαϊκό Αιγυπτιακό"_s)
+			"Egyd"_s,
+			u"Λαϊκό Αιγυπτιακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyh"_s),
-			$of(u"Ιερατικό Αιγυπτιακό"_s)
+			"Egyh"_s,
+			u"Ιερατικό Αιγυπτιακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ebu"_s),
-			$of(u"Έμπου"_s)
+			"ebu"_s,
+			u"Έμπου"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyp"_s),
-			$of(u"Αιγυπτιακά Ιερογλυφικά"_s)
+			"Egyp"_s,
+			u"Αιγυπτιακά Ιερογλυφικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geok"_s),
-			$of(u"Γεωργιανό Κχουτσούρι"_s)
+			"Geok"_s,
+			u"Γεωργιανό Κχουτσούρι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hans"_s),
-			$of(u"Απλοποιημένα Κινεζικά"_s)
+			"zh_Hans"_s,
+			u"Απλοποιημένα Κινεζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("koi"_s),
-			$of(u"Κόμι-Περμιάκ"_s)
+			"koi"_s,
+			u"Κόμι-Περμιάκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hung"_s),
-			$of(u"Παλαιό Ουγγρικό"_s)
+			"Hung"_s,
+			u"Παλαιό Ουγγρικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kok"_s),
-			$of(u"Κονκανικά"_s)
+			"kok"_s,
+			u"Κονκανικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1901"_s),
-			$of(u"Παραδοσιακή γερμανική ορθογραφία"_s)
+			"%%1901"_s,
+			u"Παραδοσιακή γερμανική ορθογραφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kos"_s),
-			$of(u"Κοσραενικά"_s)
+			"kos"_s,
+			u"Κοσραενικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hant"_s),
-			$of(u"Παραδοσιακά Κινεζικά"_s)
+			"zh_Hant"_s,
+			u"Παραδοσιακά Κινεζικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sund"_s),
-			$of(u"Σουνδανικό"_s)
+			"Sund"_s,
+			u"Σουνδανικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kpe"_s),
-			$of(u"Κπέλε"_s)
+			"kpe"_s,
+			u"Κπέλε"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.khmr"_s),
-			$of(u"Ψηφία Χμερ"_s)
+			"type.nu.khmr"_s,
+			u"Ψηφία Χμερ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ilo"_s),
-			$of(u"Ιλόκο"_s)
+			"ilo"_s,
+			u"Ιλόκο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%VALENCIA"_s),
-			$of(u"Βαλενθιανά"_s)
+			"%%VALENCIA"_s,
+			u"Βαλενθιανά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cprt"_s),
-			$of(u"Κυπριακό"_s)
+			"Cprt"_s,
+			u"Κυπριακό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BAKU1926"_s),
-			$of(u"Ενοποιημένη τουρκική λατινική αλφάβητος"_s)
+			"%%BAKU1926"_s,
+			u"Ενοποιημένη τουρκική λατινική αλφάβητος"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mua"_s),
-			$of(u"Μουντάνγκ"_s)
+			"mua"_s,
+			u"Μουντάνγκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.guru"_s),
-			$of(u"Ψηφία Γκουρμούκι"_s)
+			"type.nu.guru"_s,
+			u"Ψηφία Γκουρμούκι"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mul"_s),
-			$of(u"Πολλαπλές γλώσσες"_s)
+			"mul"_s,
+			u"Πολλαπλές γλώσσες"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of(u"Κάντο"_s)
+			"cad"_s,
+			u"Κάντο"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ms"_s),
-			$of(u"Σύστημα μέτρησης"_s)
+			"key.ms"_s,
+			u"Σύστημα μέτρησης"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mus"_s),
-			$of(u"Κρικ"_s)
+			"mus"_s,
+			u"Κρικ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Glag"_s),
-			$of(u"Γκλαγκολιτικό"_s)
+			"Glag"_s,
+			u"Γκλαγκολιτικό"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gil"_s),
-			$of(u"Γκιλμπερτίζ"_s)
+			"gil"_s,
+			u"Γκιλμπερτίζ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%KKCOR"_s),
-			$of(u"Κοινή ορθογραφία"_s)
+			"%%KKCOR"_s,
+			u"Κοινή ορθογραφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cher"_s),
-			$of(metaValue_chr)
+			"Cher"_s,
+			metaValue_chr
 		}),
 		$$new($ObjectArray, {
-			$of("car"_s),
-			$of(u"Καρίμπ"_s)
+			"car"_s,
+			u"Καρίμπ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cay"_s),
-			$of(u"Καγιούγκα"_s)
+			"cay"_s,
+			u"Καγιούγκα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tamldec"_s),
-			$of(u"Ταμιλικά ψηφία"_s)
+			"type.nu.tamldec"_s,
+			u"Ταμιλικά ψηφία"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of(u"Καρατσάι-Μπαλκάρ"_s)
+			"krc"_s,
+			u"Καρατσάι-Μπαλκάρ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of(u"Ινγκούς"_s)
+			"inh"_s,
+			u"Ινγκούς"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa_AF"_s),
-			$of(u"Νταρί"_s)
+			"fa_AF"_s,
+			u"Νταρί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krl"_s),
-			$of(u"Καρελικά"_s)
+			"krl"_s,
+			u"Καρελικά"_s
 		}),
 		$$new($ObjectArray, {
-			$of("efi"_s),
-			$of(u"Εφίκ"_s)
+			"efi"_s,
+			u"Εφίκ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.nu"_s),
-			$of(u"Αριθμοί"_s)
+			"key.nu"_s,
+			u"Αριθμοί"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kru"_s),
-			$of(u"Κουρούχ"_s)
+			"kru"_s,
+			u"Κουρούχ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksb"_s),
-			$of(u"Σαμπάλα"_s)
+			"ksb"_s,
+			u"Σαμπάλα"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Telu"_s),
-			$of(metaValue_te)
+			"Telu"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("ksf"_s),
-			$of(u"Μπάφια"_s)
+			"ksf"_s,
+			u"Μπάφια"_s
 		})
 	}));
 	return data;
@@ -4429,7 +4409,22 @@ LocaleNames_el::LocaleNames_el() {
 }
 
 $Class* LocaleNames_el::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_el, name, initialize, &_LocaleNames_el_ClassInfo_, allocate$LocaleNames_el);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_el, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_el, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_el",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_el, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_el);
+	});
 	return class$;
 }
 

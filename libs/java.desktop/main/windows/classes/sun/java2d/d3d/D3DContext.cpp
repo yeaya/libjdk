@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DContext.h>
-
 #include <sun/java2d/d3d/D3DGraphicsDevice.h>
 #include <sun/java2d/d3d/D3DRenderQueue.h>
 #include <sun/java2d/pipe/BufferedContext.h>
@@ -21,43 +20,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DContext_FieldInfo_[] = {
-	{"device", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(D3DContext, device)},
-	{}
-};
-
-$MethodInfo _D3DContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/d3d/D3DGraphicsDevice;)V", nullptr, 0, $method(D3DContext, init$, void, $RenderQueue*, $D3DGraphicsDevice*)},
-	{"getDevice", "()Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, 0, $method(D3DContext, getDevice, $D3DGraphicsDevice*)},
-	{"invalidateCurrentContext", "()V", nullptr, $STATIC, $staticMethod(D3DContext, invalidateCurrentContext, void)},
-	{"setScratchSurface", "(Lsun/java2d/d3d/D3DContext;)V", nullptr, $STATIC, $staticMethod(D3DContext, setScratchSurface, void, D3DContext*)},
-	{}
-};
-
-$InnerClassInfo _D3DContext_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DContext$D3DContextCaps", "sun.java2d.d3d.D3DContext", "D3DContextCaps", $STATIC},
-	{}
-};
-
-$ClassInfo _D3DContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.d3d.D3DContext",
-	"sun.java2d.pipe.BufferedContext",
-	nullptr,
-	_D3DContext_FieldInfo_,
-	_D3DContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DContext$D3DContextCaps"
-};
-
-$Object* allocate$D3DContext($Class* clazz) {
-	return $of($alloc(D3DContext));
-}
-
 void D3DContext::init$($RenderQueue* rq, $D3DGraphicsDevice* device) {
 	$BufferedContext::init$(rq);
 	$set(this, device, device);
@@ -65,21 +27,21 @@ void D3DContext::init$($RenderQueue* rq, $D3DGraphicsDevice* device) {
 
 void D3DContext::invalidateCurrentContext() {
 	$init(D3DContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BufferedContext);
 	if ($BufferedContext::currentContext != nullptr) {
-		$nc($BufferedContext::currentContext)->invalidateContext();
+		$BufferedContext::currentContext->invalidateContext();
 		$assignStatic($BufferedContext::currentContext, nullptr);
 	}
 	$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 	$nc(rq)->ensureCapacity(4);
-	$nc($(rq->getBuffer()))->putInt(75);
+	$$nc(rq->getBuffer())->putInt(75);
 	rq->flushNow();
 }
 
 void D3DContext::setScratchSurface(D3DContext* d3dc) {
 	$init(D3DContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BufferedContext);
 	if (!$equals(d3dc, $BufferedContext::currentContext)) {
 		$assignStatic($BufferedContext::currentContext, nullptr);
@@ -88,7 +50,7 @@ void D3DContext::setScratchSurface(D3DContext* d3dc) {
 	$var($RenderBuffer, buf, $nc(rq)->getBuffer());
 	rq->ensureCapacity(8);
 	$nc(buf)->putInt(71);
-	buf->putInt($nc($($nc(d3dc)->getDevice()))->getScreen());
+	buf->putInt($$nc($nc(d3dc)->getDevice())->getScreen());
 }
 
 $D3DGraphicsDevice* D3DContext::getDevice() {
@@ -99,7 +61,38 @@ D3DContext::D3DContext() {
 }
 
 $Class* D3DContext::load$($String* name, bool initialize) {
-	$loadClass(D3DContext, name, initialize, &_D3DContext_ClassInfo_, allocate$D3DContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(D3DContext, device)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/d3d/D3DGraphicsDevice;)V", nullptr, 0, $method(D3DContext, init$, void, $RenderQueue*, $D3DGraphicsDevice*)},
+		{"getDevice", "()Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, 0, $method(D3DContext, getDevice, $D3DGraphicsDevice*)},
+		{"invalidateCurrentContext", "()V", nullptr, $STATIC, $staticMethod(D3DContext, invalidateCurrentContext, void)},
+		{"setScratchSurface", "(Lsun/java2d/d3d/D3DContext;)V", nullptr, $STATIC, $staticMethod(D3DContext, setScratchSurface, void, D3DContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DContext$D3DContextCaps", "sun.java2d.d3d.D3DContext", "D3DContextCaps", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.d3d.D3DContext",
+		"sun.java2d.pipe.BufferedContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DContext$D3DContextCaps"
+	};
+	$loadClass(D3DContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DContext);
+	});
 	return class$;
 }
 

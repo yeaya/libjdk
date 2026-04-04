@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapSchemaCtx$SchemaInfo.h>
-
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <com/sun/jndi/ldap/LdapSchemaCtx.h>
 #include <com/sun/jndi/ldap/LdapSchemaParser.h>
@@ -24,50 +23,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapSchemaCtx$SchemaInfo_FieldInfo_[] = {
-	{"schemaEntry", "Lcom/sun/jndi/ldap/LdapCtx;", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, schemaEntry)},
-	{"schemaEntryName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, schemaEntryName)},
-	{"parser", "Lcom/sun/jndi/ldap/LdapSchemaParser;", nullptr, 0, $field(LdapSchemaCtx$SchemaInfo, parser)},
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, host)},
-	{"port", "I", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, port)},
-	{"hasLdapsScheme", "Z", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, hasLdapsScheme)},
-	{}
-};
-
-$MethodInfo _LdapSchemaCtx$SchemaInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapSchemaParser;)V", nullptr, 0, $method(LdapSchemaCtx$SchemaInfo, init$, void, $String*, $LdapCtx*, $LdapSchemaParser*)},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, close, void), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/util/Hashtable;[Ljavax/naming/directory/ModificationItem;)V", "(Ljava/util/Hashtable<**>;[Ljavax/naming/directory/ModificationItem;)V", $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, modifyAttributes, void, $Hashtable*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/util/Hashtable;ILjavax/naming/directory/Attributes;)V", "(Ljava/util/Hashtable<**>;ILjavax/naming/directory/Attributes;)V", $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, modifyAttributes, void, $Hashtable*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"reopenEntry", "(Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapCtx;", "(Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapCtx;", $PRIVATE, $method(LdapSchemaCtx$SchemaInfo, reopenEntry, $LdapCtx*, $Hashtable*), "javax.naming.NamingException"},
-	{}
-};
-
-$InnerClassInfo _LdapSchemaCtx$SchemaInfo_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.LdapSchemaCtx$SchemaInfo", "com.sun.jndi.ldap.LdapSchemaCtx", "SchemaInfo", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LdapSchemaCtx$SchemaInfo_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapSchemaCtx$SchemaInfo",
-	"java.lang.Object",
-	nullptr,
-	_LdapSchemaCtx$SchemaInfo_FieldInfo_,
-	_LdapSchemaCtx$SchemaInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LdapSchemaCtx$SchemaInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.LdapSchemaCtx"
-};
-
-$Object* allocate$LdapSchemaCtx$SchemaInfo($Class* clazz) {
-	return $of($alloc(LdapSchemaCtx$SchemaInfo));
-}
-
 void LdapSchemaCtx$SchemaInfo::init$($String* schemaEntryName, $LdapCtx* schemaEntry, $LdapSchemaParser* parser) {
 	$set(this, schemaEntryName, schemaEntryName);
 	$set(this, schemaEntry, schemaEntry);
@@ -80,7 +35,7 @@ void LdapSchemaCtx$SchemaInfo::init$($String* schemaEntryName, $LdapCtx* schemaE
 void LdapSchemaCtx$SchemaInfo::close() {
 	$synchronized(this) {
 		if (this->schemaEntry != nullptr) {
-			$nc(this->schemaEntry)->close();
+			this->schemaEntry->close();
 			$set(this, schemaEntry, nullptr);
 		}
 	}
@@ -112,7 +67,45 @@ LdapSchemaCtx$SchemaInfo::LdapSchemaCtx$SchemaInfo() {
 }
 
 $Class* LdapSchemaCtx$SchemaInfo::load$($String* name, bool initialize) {
-	$loadClass(LdapSchemaCtx$SchemaInfo, name, initialize, &_LdapSchemaCtx$SchemaInfo_ClassInfo_, allocate$LdapSchemaCtx$SchemaInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"schemaEntry", "Lcom/sun/jndi/ldap/LdapCtx;", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, schemaEntry)},
+		{"schemaEntryName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, schemaEntryName)},
+		{"parser", "Lcom/sun/jndi/ldap/LdapSchemaParser;", nullptr, 0, $field(LdapSchemaCtx$SchemaInfo, parser)},
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, host)},
+		{"port", "I", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, port)},
+		{"hasLdapsScheme", "Z", nullptr, $PRIVATE, $field(LdapSchemaCtx$SchemaInfo, hasLdapsScheme)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/jndi/ldap/LdapCtx;Lcom/sun/jndi/ldap/LdapSchemaParser;)V", nullptr, 0, $method(LdapSchemaCtx$SchemaInfo, init$, void, $String*, $LdapCtx*, $LdapSchemaParser*)},
+		{"close", "()V", nullptr, $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, close, void), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/util/Hashtable;[Ljavax/naming/directory/ModificationItem;)V", "(Ljava/util/Hashtable<**>;[Ljavax/naming/directory/ModificationItem;)V", $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, modifyAttributes, void, $Hashtable*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/util/Hashtable;ILjavax/naming/directory/Attributes;)V", "(Ljava/util/Hashtable<**>;ILjavax/naming/directory/Attributes;)V", $SYNCHRONIZED, $method(LdapSchemaCtx$SchemaInfo, modifyAttributes, void, $Hashtable*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"reopenEntry", "(Ljava/util/Hashtable;)Lcom/sun/jndi/ldap/LdapCtx;", "(Ljava/util/Hashtable<**>;)Lcom/sun/jndi/ldap/LdapCtx;", $PRIVATE, $method(LdapSchemaCtx$SchemaInfo, reopenEntry, $LdapCtx*, $Hashtable*), "javax.naming.NamingException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.LdapSchemaCtx$SchemaInfo", "com.sun.jndi.ldap.LdapSchemaCtx", "SchemaInfo", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapSchemaCtx$SchemaInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.LdapSchemaCtx"
+	};
+	$loadClass(LdapSchemaCtx$SchemaInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapSchemaCtx$SchemaInfo);
+	});
 	return class$;
 }
 

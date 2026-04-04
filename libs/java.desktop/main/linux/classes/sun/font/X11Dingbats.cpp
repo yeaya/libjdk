@@ -1,5 +1,4 @@
 #include <sun/font/X11Dingbats.h>
-
 #include <java/lang/Error.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -18,38 +17,6 @@ using $X11Dingbats$Encoder = ::sun::font::X11Dingbats$Encoder;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _X11Dingbats_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11Dingbats, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11Dingbats, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11Dingbats, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11Dingbats, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _X11Dingbats_InnerClassesInfo_[] = {
-	{"sun.font.X11Dingbats$Encoder", "sun.font.X11Dingbats", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X11Dingbats_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.X11Dingbats",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_X11Dingbats_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11Dingbats_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.X11Dingbats$Encoder"
-};
-
-$Object* allocate$X11Dingbats($Class* clazz) {
-	return $of($alloc(X11Dingbats));
-}
 
 void X11Dingbats::init$() {
 	$Charset::init$("X11Dingbats"_s, nullptr);
@@ -72,7 +39,34 @@ X11Dingbats::X11Dingbats() {
 }
 
 $Class* X11Dingbats::load$($String* name, bool initialize) {
-	$loadClass(X11Dingbats, name, initialize, &_X11Dingbats_ClassInfo_, allocate$X11Dingbats);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11Dingbats, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(X11Dingbats, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(X11Dingbats, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(X11Dingbats, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.X11Dingbats$Encoder", "sun.font.X11Dingbats", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.X11Dingbats",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.X11Dingbats$Encoder"
+	};
+	$loadClass(X11Dingbats, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11Dingbats);
+	});
 	return class$;
 }
 

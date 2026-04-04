@@ -35,6 +35,7 @@ class DrawPath : public ::sun::java2d::loops::GraphicsPrimitive {
 	$class(DrawPath, 0, ::sun::java2d::loops::GraphicsPrimitive)
 public:
 	DrawPath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	void init$(int64_t pNativePrim, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	virtual void DrawPath$(::sun::java2d::SunGraphics2D* sg2d, ::sun::java2d::SurfaceData* sData, int32_t transX, int32_t transY, ::java::awt::geom::Path2D$Float* p2df);

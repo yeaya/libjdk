@@ -49,6 +49,7 @@ class XmlSupport : public ::java::lang::Object {
 	$class(XmlSupport, 0, ::java::lang::Object)
 public:
 	XmlSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void ImportPrefs(::java::util::prefs::Preferences* prefsNode, ::org::w3c::dom::Element* map);
 	static void ImportSubtree(::java::util::prefs::Preferences* prefsNode, ::org::w3c::dom::Element* xmlNode);

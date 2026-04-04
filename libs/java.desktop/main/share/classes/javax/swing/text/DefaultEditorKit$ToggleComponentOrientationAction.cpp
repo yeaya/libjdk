@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$ToggleComponentOrientationAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/event/ActionEvent.h>
@@ -23,43 +22,12 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$ToggleComponentOrientationAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$ToggleComponentOrientationAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$ToggleComponentOrientationAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$ToggleComponentOrientationAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$ToggleComponentOrientationAction", "javax.swing.text.DefaultEditorKit", "ToggleComponentOrientationAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$ToggleComponentOrientationAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$ToggleComponentOrientationAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$ToggleComponentOrientationAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$ToggleComponentOrientationAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$ToggleComponentOrientationAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$ToggleComponentOrientationAction));
-}
-
 void DefaultEditorKit$ToggleComponentOrientationAction::init$() {
 	$TextAction::init$("toggle-componentOrientation"_s);
 }
 
 void DefaultEditorKit$ToggleComponentOrientationAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		$var($ComponentOrientation, last, target->getComponentOrientation());
@@ -79,7 +47,33 @@ DefaultEditorKit$ToggleComponentOrientationAction::DefaultEditorKit$ToggleCompon
 }
 
 $Class* DefaultEditorKit$ToggleComponentOrientationAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$ToggleComponentOrientationAction, name, initialize, &_DefaultEditorKit$ToggleComponentOrientationAction_ClassInfo_, allocate$DefaultEditorKit$ToggleComponentOrientationAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$ToggleComponentOrientationAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$ToggleComponentOrientationAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$ToggleComponentOrientationAction", "javax.swing.text.DefaultEditorKit", "ToggleComponentOrientationAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$ToggleComponentOrientationAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$ToggleComponentOrientationAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$ToggleComponentOrientationAction));
+	});
 	return class$;
 }
 

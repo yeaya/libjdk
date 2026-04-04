@@ -28,7 +28,7 @@ public:
 	virtual ::java::util::Date* getValue();
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xEC8F4A780274977A;
+	static const int64_t serialVersionUID = (int64_t)0xec8f4a780274977a;
 	::java::util::Date* value = nullptr;
 };
 

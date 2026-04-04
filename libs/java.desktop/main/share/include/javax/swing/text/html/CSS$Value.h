@@ -65,6 +65,7 @@ class $import CSS$Value : public ::java::lang::Object {
 	$class(CSS$Value, 0, ::java::lang::Object)
 public:
 	CSS$Value();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual $String* toString() override;
 	static ::javax::swing::text::html::CSS$Value* INHERITED;

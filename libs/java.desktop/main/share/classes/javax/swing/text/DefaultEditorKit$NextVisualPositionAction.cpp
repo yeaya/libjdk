@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$NextVisualPositionAction.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
@@ -41,43 +40,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultEditorKit$NextVisualPositionAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$NextVisualPositionAction, select)},
-	{"direction", "I", nullptr, $PRIVATE, $field(DefaultEditorKit$NextVisualPositionAction, direction)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$NextVisualPositionAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ZI)V", nullptr, 0, $method(DefaultEditorKit$NextVisualPositionAction, init$, void, $String*, bool, int32_t)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$NextVisualPositionAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$NextVisualPositionAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$NextVisualPositionAction", "javax.swing.text.DefaultEditorKit", "NextVisualPositionAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$NextVisualPositionAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$NextVisualPositionAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$NextVisualPositionAction_FieldInfo_,
-	_DefaultEditorKit$NextVisualPositionAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$NextVisualPositionAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$NextVisualPositionAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$NextVisualPositionAction));
-}
-
 void DefaultEditorKit$NextVisualPositionAction::init$($String* nm, bool select, int32_t direction) {
 	$TextAction::init$(nm);
 	this->select = select;
@@ -85,7 +47,7 @@ void DefaultEditorKit$NextVisualPositionAction::init$($String* nm, bool select, 
 }
 
 void DefaultEditorKit$NextVisualPositionAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		$var($Caret, caret, target->getCaret());
@@ -95,19 +57,16 @@ void DefaultEditorKit$NextVisualPositionAction::actionPerformed($ActionEvent* e)
 		$var($Point, magicPosition, caret->getMagicCaretPosition());
 		try {
 			if (magicPosition == nullptr && (this->direction == $SwingConstants::NORTH || this->direction == $SwingConstants::SOUTH)) {
-				$var($Rectangle, r, (bidiCaret != nullptr) ? $nc($($cast($TextUI, target->getUI())))->modelToView(target, dot, $($nc(bidiCaret)->getDotBias())) : target->modelToView(dot));
-				$assign(magicPosition, $new($Point, $nc(r)->x, r->y));
+				$var($Rectangle, r, (bidiCaret != nullptr) ? $$sure($TextUI, target->getUI())->modelToView(target, dot, $(bidiCaret->getDotBias())) : target->modelToView(dot));
+				$assign(magicPosition, $new($Point, $nc(r)->x, $nc(r)->y));
 			}
 			$var($NavigationFilter, filter, target->getNavigationFilter());
 			if (filter != nullptr) {
-				$init($Position$Bias);
-				dot = filter->getNextVisualPositionFrom(target, dot, (bidiCaret != nullptr) ? $($nc(bidiCaret)->getDotBias()) : $Position$Bias::Forward, this->direction, bias);
+				dot = filter->getNextVisualPositionFrom(target, dot, (bidiCaret != nullptr) ? $(bidiCaret->getDotBias()) : $Position$Bias::Forward, this->direction, bias);
 			} else {
-				$init($Position$Bias);
-				dot = $nc($($cast($TextUI, target->getUI())))->getNextVisualPositionFrom(target, dot, (bidiCaret != nullptr) ? $($nc(bidiCaret)->getDotBias()) : $Position$Bias::Forward, this->direction, bias);
+				dot = $$sure($TextUI, target->getUI())->getNextVisualPositionFrom(target, dot, (bidiCaret != nullptr) ? $(bidiCaret->getDotBias()) : $Position$Bias::Forward, this->direction, bias);
 			}
 			if (bias->get(0) == nullptr) {
-				$init($Position$Bias);
 				bias->set(0, $Position$Bias::Forward);
 			}
 			if (bidiCaret != nullptr) {
@@ -122,7 +81,7 @@ void DefaultEditorKit$NextVisualPositionAction::actionPerformed($ActionEvent* e)
 				caret->setDot(dot);
 			}
 			if (magicPosition != nullptr && (this->direction == $SwingConstants::NORTH || this->direction == $SwingConstants::SOUTH)) {
-				$nc($(target->getCaret()))->setMagicCaretPosition(magicPosition);
+				$$nc(target->getCaret())->setMagicCaretPosition(magicPosition);
 			}
 		} catch ($BadLocationException& ex) {
 		}
@@ -133,7 +92,38 @@ DefaultEditorKit$NextVisualPositionAction::DefaultEditorKit$NextVisualPositionAc
 }
 
 $Class* DefaultEditorKit$NextVisualPositionAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$NextVisualPositionAction, name, initialize, &_DefaultEditorKit$NextVisualPositionAction_ClassInfo_, allocate$DefaultEditorKit$NextVisualPositionAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$NextVisualPositionAction, select)},
+		{"direction", "I", nullptr, $PRIVATE, $field(DefaultEditorKit$NextVisualPositionAction, direction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ZI)V", nullptr, 0, $method(DefaultEditorKit$NextVisualPositionAction, init$, void, $String*, bool, int32_t)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$NextVisualPositionAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$NextVisualPositionAction", "javax.swing.text.DefaultEditorKit", "NextVisualPositionAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$NextVisualPositionAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$NextVisualPositionAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$NextVisualPositionAction));
+	});
 	return class$;
 }
 

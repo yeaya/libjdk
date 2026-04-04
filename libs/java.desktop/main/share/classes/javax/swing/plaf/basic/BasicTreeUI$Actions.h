@@ -117,6 +117,7 @@ class BasicTreeUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicTreeUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicTreeUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* key);
 	virtual bool accept(Object$* o) override;

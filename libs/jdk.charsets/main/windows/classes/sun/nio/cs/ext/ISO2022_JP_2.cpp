@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022_JP_2.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -31,39 +30,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$MethodInfo _ISO2022_JP_2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_JP_2, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP_2, contains, bool, $Charset*)},
-	{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP_2, historicalName, $String*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP_2, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP_2, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _ISO2022_JP_2_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022_JP_2$CoderHolder", "sun.nio.cs.ext.ISO2022_JP_2", "CoderHolder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022_JP_2_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022_JP_2",
-	"sun.nio.cs.ext.ISO2022_JP",
-	nullptr,
-	nullptr,
-	_ISO2022_JP_2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022_JP_2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022_JP_2$CoderHolder"
-};
-
-$Object* allocate$ISO2022_JP_2($Class* clazz) {
-	return $of($alloc(ISO2022_JP_2));
-}
-
 void ISO2022_JP_2::init$() {
 	$ISO2022_JP::init$("ISO-2022-JP-2"_s, $($ExtendedCharsets::aliasesFor("ISO-2022-JP-2"_s)));
 }
@@ -92,7 +58,35 @@ ISO2022_JP_2::ISO2022_JP_2() {
 }
 
 $Class* ISO2022_JP_2::load$($String* name, bool initialize) {
-	$loadClass(ISO2022_JP_2, name, initialize, &_ISO2022_JP_2_ClassInfo_, allocate$ISO2022_JP_2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISO2022_JP_2, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP_2, contains, bool, $Charset*)},
+		{"historicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP_2, historicalName, $String*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP_2, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(ISO2022_JP_2, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022_JP_2$CoderHolder", "sun.nio.cs.ext.ISO2022_JP_2", "CoderHolder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022_JP_2",
+		"sun.nio.cs.ext.ISO2022_JP",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022_JP_2$CoderHolder"
+	};
+	$loadClass(ISO2022_JP_2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ISO2022_JP_2));
+	});
 	return class$;
 }
 

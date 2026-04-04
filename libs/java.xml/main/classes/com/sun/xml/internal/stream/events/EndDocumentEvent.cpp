@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/EndDocumentEvent.h>
-
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
 #include <javax/xml/namespace/QName.h>
@@ -29,47 +28,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$MethodInfo _EndDocumentEvent_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EndDocumentEvent, init$, void)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(EndDocumentEvent, init, void)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EndDocumentEvent, toString, $String*)},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(EndDocumentEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _EndDocumentEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.EndDocumentEvent",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.EndDocument",
-	nullptr,
-	_EndDocumentEvent_MethodInfo_
-};
-
-$Object* allocate$EndDocumentEvent($Class* clazz) {
-	return $of($alloc(EndDocumentEvent));
-}
 
 int32_t EndDocumentEvent::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -171,7 +129,44 @@ EndDocumentEvent::EndDocumentEvent() {
 }
 
 $Class* EndDocumentEvent::load$($String* name, bool initialize) {
-	$loadClass(EndDocumentEvent, name, initialize, &_EndDocumentEvent_ClassInfo_, allocate$EndDocumentEvent);
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EndDocumentEvent, init$, void)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(EndDocumentEvent, init, void)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EndDocumentEvent, toString, $String*)},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(EndDocumentEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.EndDocumentEvent",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.EndDocument",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EndDocumentEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EndDocumentEvent));
+	});
 	return class$;
 }
 

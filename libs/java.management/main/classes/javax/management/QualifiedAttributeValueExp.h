@@ -24,7 +24,7 @@ public:
 	virtual ::javax::management::ValueExp* apply(::javax::management::ObjectName* name) override;
 	virtual $String* getAttrClassName();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x7A9367AAC8943A06;
+	static const int64_t serialVersionUID = (int64_t)0x7a9367aac8943a06;
 	$String* className = nullptr;
 };
 

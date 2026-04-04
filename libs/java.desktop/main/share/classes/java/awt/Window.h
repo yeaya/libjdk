@@ -152,6 +152,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::GraphicsConfiguration* gc);
 	void init$();
 	void init$(::java::awt::Frame* owner);
@@ -336,7 +337,7 @@ public:
 	::java::awt::Shape* shape = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x3E6B84DD1D08FA6E;
+	static const int64_t serialVersionUID = (int64_t)0x3e6b84dd1d08fa6e;
 	static ::sun::util::logging::PlatformLogger* log;
 	static bool locationByPlatformProp;
 	bool isTrayIconWindow = false;

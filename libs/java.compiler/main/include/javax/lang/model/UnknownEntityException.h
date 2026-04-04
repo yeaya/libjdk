@@ -17,7 +17,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)269;
 	UnknownEntityException(const UnknownEntityException& e);
 	virtual void throw$() override;
-	inline UnknownEntityException* operator ->() {
+	inline UnknownEntityException* operator ->() const {
+		return (UnknownEntityException*)throwing$;
+	}
+	inline operator UnknownEntityException*() const {
 		return (UnknownEntityException*)throwing$;
 	}
 };

@@ -36,6 +36,7 @@ class FreetypeFontScaler : public ::sun::font::FontScaler {
 	$class(FreetypeFontScaler, 0, ::sun::font::FontScaler)
 public:
 	FreetypeFontScaler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::font::Font2D* font, int32_t indexInCollection, bool supportsCJK, int32_t filesize);
 	virtual int64_t createScalerContext($doubles* matrix, int32_t aa, int32_t fm, float boldness, float italic) override;
 	int64_t createScalerContextNative(int64_t pScaler, $doubles* matrix, int32_t aa, int32_t fm, float boldness, float italic);

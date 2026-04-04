@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/IIORegistry.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPImageReaderSpi.h>
 #include <com/sun/imageio/plugins/bmp/BMPImageWriterSpi.h>
 #include <com/sun/imageio/plugins/gif/GIFImageReaderSpi.h>
@@ -80,55 +79,17 @@ namespace javax {
 	namespace imageio {
 		namespace spi {
 
-$FieldInfo _IIORegistry_FieldInfo_[] = {
-	{"initialCategories", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(IIORegistry, initialCategories)},
-	{}
-};
-
-$MethodInfo _IIORegistry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IIORegistry, init$, void)},
-	{"getDefaultInstance", "()Ljavax/imageio/spi/IIORegistry;", nullptr, $PUBLIC | $STATIC, $staticMethod(IIORegistry, getDefaultInstance, IIORegistry*)},
-	{"registerApplicationClasspathSpis", "()V", nullptr, $PUBLIC, $method(IIORegistry, registerApplicationClasspathSpis, void)},
-	{"registerInstalledProviders", "()V", nullptr, $PRIVATE, $method(IIORegistry, registerInstalledProviders, void)},
-	{"registerStandardSpis", "()V", nullptr, $PRIVATE, $method(IIORegistry, registerStandardSpis, void)},
-	{}
-};
-
-$InnerClassInfo _IIORegistry_InnerClassesInfo_[] = {
-	{"javax.imageio.spi.IIORegistry$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _IIORegistry_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.imageio.spi.IIORegistry",
-	"javax.imageio.spi.ServiceRegistry",
-	nullptr,
-	_IIORegistry_FieldInfo_,
-	_IIORegistry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IIORegistry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.spi.IIORegistry$1"
-};
-
-$Object* allocate$IIORegistry($Class* clazz) {
-	return $of($alloc(IIORegistry));
-}
-
 $Vector* IIORegistry::initialCategories = nullptr;
 
 void IIORegistry::init$() {
-	$ServiceRegistry::init$($($nc(IIORegistry::initialCategories)->iterator()));
+	$ServiceRegistry::init$($(IIORegistry::initialCategories->iterator()));
 	registerStandardSpis();
 	registerApplicationClasspathSpis();
 }
 
 IIORegistry* IIORegistry::getDefaultInstance() {
 	$init(IIORegistry);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, context, $AppContext::getAppContext());
 	$var(IIORegistry, registry, $cast(IIORegistry, $nc(context)->get(IIORegistry::class$)));
 	if (registry == nullptr) {
@@ -139,7 +100,7 @@ IIORegistry* IIORegistry::getDefaultInstance() {
 }
 
 void IIORegistry::registerStandardSpis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	registerServiceProvider($$new($GIFImageReaderSpi));
 	registerServiceProvider($$new($GIFImageWriterSpi));
 	registerServiceProvider($$new($BMPImageReaderSpi));
@@ -162,13 +123,13 @@ void IIORegistry::registerStandardSpis() {
 }
 
 void IIORegistry::registerApplicationClasspathSpis() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, loader, $($Thread::currentThread())->getContextClassLoader());
 	$var($Iterator, categories, getCategories());
 	while ($nc(categories)->hasNext()) {
 		$Class* c = $cast($Class, categories->next());
-		$var($Iterator, riter, $nc($($ServiceLoader::load(c, loader)))->iterator());
+		$var($Iterator, riter, $$nc($ServiceLoader::load(c, loader))->iterator());
 		while ($nc(riter)->hasNext()) {
 			try {
 				$var($IIOServiceProvider, r, $cast($IIOServiceProvider, riter->next()));
@@ -190,19 +151,19 @@ void IIORegistry::registerInstalledProviders() {
 	$AccessController::doPrivileged(doRegistration);
 }
 
-void clinit$IIORegistry($Class* class$) {
+void IIORegistry::clinit$($Class* clazz) {
 	$assignStatic(IIORegistry::initialCategories, $new($Vector, 5));
 	{
 		$load($ImageReaderSpi);
-		$nc(IIORegistry::initialCategories)->add($ImageReaderSpi::class$);
+		IIORegistry::initialCategories->add($ImageReaderSpi::class$);
 		$load($ImageWriterSpi);
-		$nc(IIORegistry::initialCategories)->add($ImageWriterSpi::class$);
+		IIORegistry::initialCategories->add($ImageWriterSpi::class$);
 		$load($ImageTranscoderSpi);
-		$nc(IIORegistry::initialCategories)->add($ImageTranscoderSpi::class$);
+		IIORegistry::initialCategories->add($ImageTranscoderSpi::class$);
 		$load($ImageInputStreamSpi);
-		$nc(IIORegistry::initialCategories)->add($ImageInputStreamSpi::class$);
+		IIORegistry::initialCategories->add($ImageInputStreamSpi::class$);
 		$load($ImageOutputStreamSpi);
-		$nc(IIORegistry::initialCategories)->add($ImageOutputStreamSpi::class$);
+		IIORegistry::initialCategories->add($ImageOutputStreamSpi::class$);
 	}
 }
 
@@ -210,7 +171,39 @@ IIORegistry::IIORegistry() {
 }
 
 $Class* IIORegistry::load$($String* name, bool initialize) {
-	$loadClass(IIORegistry, name, initialize, &_IIORegistry_ClassInfo_, clinit$IIORegistry, allocate$IIORegistry);
+	$FieldInfo fieldInfos$$[] = {
+		{"initialCategories", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(IIORegistry, initialCategories)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IIORegistry, init$, void)},
+		{"getDefaultInstance", "()Ljavax/imageio/spi/IIORegistry;", nullptr, $PUBLIC | $STATIC, $staticMethod(IIORegistry, getDefaultInstance, IIORegistry*)},
+		{"registerApplicationClasspathSpis", "()V", nullptr, $PUBLIC, $method(IIORegistry, registerApplicationClasspathSpis, void)},
+		{"registerInstalledProviders", "()V", nullptr, $PRIVATE, $method(IIORegistry, registerInstalledProviders, void)},
+		{"registerStandardSpis", "()V", nullptr, $PRIVATE, $method(IIORegistry, registerStandardSpis, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.spi.IIORegistry$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.imageio.spi.IIORegistry",
+		"javax.imageio.spi.ServiceRegistry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.spi.IIORegistry$1"
+	};
+	$loadClass(IIORegistry, name, initialize, &classInfo$$, IIORegistry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IIORegistry);
+	});
 	return class$;
 }
 

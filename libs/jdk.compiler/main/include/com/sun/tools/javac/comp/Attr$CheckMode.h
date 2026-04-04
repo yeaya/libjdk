@@ -24,6 +24,7 @@ class $import Attr$CheckMode : public ::java::lang::Enum {
 public:
 	Attr$CheckMode();
 	static $Array<::com::sun::tools::javac::comp::Attr$CheckMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool installPostInferenceHook();
 	virtual bool updateTreeType();

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelMappedInstrument.h>
-
 #include <com/sun/media/sound/ModelChannelMixer.h>
 #include <com/sun/media/sound/ModelDirectedPlayer.h>
 #include <com/sun/media/sound/ModelDirector.h>
@@ -30,44 +29,16 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _ModelMappedInstrument_FieldInfo_[] = {
-	{"ins", "Lcom/sun/media/sound/ModelInstrument;", nullptr, $PRIVATE | $FINAL, $field(ModelMappedInstrument, ins)},
-	{}
-};
-
-$MethodInfo _ModelMappedInstrument_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/ModelInstrument;Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $method(ModelMappedInstrument, init$, void, $ModelInstrument*, $Patch*)},
-	{"getChannelMixer", "(Ljavax/sound/midi/MidiChannel;Ljavax/sound/sampled/AudioFormat;)Lcom/sun/media/sound/ModelChannelMixer;", nullptr, $PUBLIC, $virtualMethod(ModelMappedInstrument, getChannelMixer, $ModelChannelMixer*, $MidiChannel*, $AudioFormat*)},
-	{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModelMappedInstrument, getData, $Object*)},
-	{"getDirector", "([Lcom/sun/media/sound/ModelPerformer;Ljavax/sound/midi/MidiChannel;Lcom/sun/media/sound/ModelDirectedPlayer;)Lcom/sun/media/sound/ModelDirector;", nullptr, $PUBLIC, $virtualMethod(ModelMappedInstrument, getDirector, $ModelDirector*, $ModelPerformerArray*, $MidiChannel*, $ModelDirectedPlayer*)},
-	{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(ModelMappedInstrument, getPerformers, $ModelPerformerArray*)},
-	{}
-};
-
-$ClassInfo _ModelMappedInstrument_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelMappedInstrument",
-	"com.sun.media.sound.ModelInstrument",
-	nullptr,
-	_ModelMappedInstrument_FieldInfo_,
-	_ModelMappedInstrument_MethodInfo_
-};
-
-$Object* allocate$ModelMappedInstrument($Class* clazz) {
-	return $of($alloc(ModelMappedInstrument));
-}
-
 void ModelMappedInstrument::init$($ModelInstrument* ins, $Patch* patch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Soundbank, var$0, $nc(ins)->getSoundbank());
-	$var($Patch, var$1, patch);
-	$var($String, var$2, ins->getName());
-	$ModelInstrument::init$(var$0, var$1, var$2, ins->getDataClass());
+	$var($String, var$1, ins->getName());
+	$ModelInstrument::init$(var$0, patch, var$1, ins->getDataClass());
 	$set(this, ins, ins);
 }
 
 $Object* ModelMappedInstrument::getData() {
-	return $of($nc(this->ins)->getData());
+	return $nc(this->ins)->getData();
 }
 
 $ModelPerformerArray* ModelMappedInstrument::getPerformers() {
@@ -86,7 +57,29 @@ ModelMappedInstrument::ModelMappedInstrument() {
 }
 
 $Class* ModelMappedInstrument::load$($String* name, bool initialize) {
-	$loadClass(ModelMappedInstrument, name, initialize, &_ModelMappedInstrument_ClassInfo_, allocate$ModelMappedInstrument);
+	$FieldInfo fieldInfos$$[] = {
+		{"ins", "Lcom/sun/media/sound/ModelInstrument;", nullptr, $PRIVATE | $FINAL, $field(ModelMappedInstrument, ins)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/ModelInstrument;Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $method(ModelMappedInstrument, init$, void, $ModelInstrument*, $Patch*)},
+		{"getChannelMixer", "(Ljavax/sound/midi/MidiChannel;Ljavax/sound/sampled/AudioFormat;)Lcom/sun/media/sound/ModelChannelMixer;", nullptr, $PUBLIC, $virtualMethod(ModelMappedInstrument, getChannelMixer, $ModelChannelMixer*, $MidiChannel*, $AudioFormat*)},
+		{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ModelMappedInstrument, getData, $Object*)},
+		{"getDirector", "([Lcom/sun/media/sound/ModelPerformer;Ljavax/sound/midi/MidiChannel;Lcom/sun/media/sound/ModelDirectedPlayer;)Lcom/sun/media/sound/ModelDirector;", nullptr, $PUBLIC, $virtualMethod(ModelMappedInstrument, getDirector, $ModelDirector*, $ModelPerformerArray*, $MidiChannel*, $ModelDirectedPlayer*)},
+		{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(ModelMappedInstrument, getPerformers, $ModelPerformerArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelMappedInstrument",
+		"com.sun.media.sound.ModelInstrument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelMappedInstrument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelMappedInstrument);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Stream$RequestSubscriber.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
@@ -42,15 +41,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $ConcurrentLinkedDeque = ::java::util::concurrent::ConcurrentLinkedDeque;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $Supplier = ::java::util::function::Supplier;
-using $Http2Connection = ::jdk::internal::net::http::Http2Connection;
-using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
 using $Stream = ::jdk::internal::net::http::Stream;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 using $DataFrame = ::jdk::internal::net::http::frame::DataFrame;
 using $ResetFrame = ::jdk::internal::net::http::frame::ResetFrame;
@@ -69,33 +64,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->trySend();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Stream$RequestSubscriber$$Lambda$trySend>());
-	}
 	Stream$RequestSubscriber* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Stream$RequestSubscriber$$Lambda$trySend::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Stream$RequestSubscriber$$Lambda$trySend, inst$)},
-	{}
-};
-$MethodInfo Stream$RequestSubscriber$$Lambda$trySend::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream$RequestSubscriber;)V", nullptr, $PUBLIC, $method(Stream$RequestSubscriber$$Lambda$trySend, init$, void, Stream$RequestSubscriber*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber$$Lambda$trySend, run, void)},
-	{}
-};
-$ClassInfo Stream$RequestSubscriber$$Lambda$trySend::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Stream$RequestSubscriber$$Lambda$trySend",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Stream$RequestSubscriber$$Lambda$trySend::load$($String* name, bool initialize) {
-	$loadClass(Stream$RequestSubscriber$$Lambda$trySend, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Stream$RequestSubscriber$$Lambda$trySend, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Stream$RequestSubscriber;)V", nullptr, $PUBLIC, $method(Stream$RequestSubscriber$$Lambda$trySend, init$, void, Stream$RequestSubscriber*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber$$Lambda$trySend, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Stream$RequestSubscriber$$Lambda$trySend",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Stream$RequestSubscriber$$Lambda$trySend, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$RequestSubscriber$$Lambda$trySend);
+	});
 	return class$;
 }
 $Class* Stream$RequestSubscriber$$Lambda$trySend::class$ = nullptr;
@@ -109,88 +100,32 @@ public:
 	virtual $Object* get() override {
 		 return $of(Stream$RequestSubscriber::lambda$onError$0(throwable));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Stream$RequestSubscriber$$Lambda$lambda$onError$0$1>());
-	}
 	$Throwable* throwable = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::fieldInfos[2] = {
-	{"throwable", "Ljava/lang/Throwable;", nullptr, $PUBLIC, $field(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, throwable)},
-	{}
-};
-$MethodInfo Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, init$, void, $Throwable*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, get, $Object*)},
-	{}
-};
-$ClassInfo Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.Stream$RequestSubscriber$$Lambda$lambda$onError$0$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::load$($String* name, bool initialize) {
-	$loadClass(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"throwable", "Ljava/lang/Throwable;", nullptr, $PUBLIC, $field(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, throwable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, init$, void, $Throwable*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.Stream$RequestSubscriber$$Lambda$lambda$onError$0$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1);
+	});
 	return class$;
 }
 $Class* Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::class$ = nullptr;
-
-$FieldInfo _Stream$RequestSubscriber_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/Stream;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$RequestSubscriber, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Stream$RequestSubscriber, $assertionsDisabled)},
-	{"contentLength", "J", nullptr, $PRIVATE | $FINAL, $field(Stream$RequestSubscriber, contentLength)},
-	{"remainingContentLength", "J", nullptr, $PRIVATE | $VOLATILE, $field(Stream$RequestSubscriber, remainingContentLength)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(Stream$RequestSubscriber, subscription)},
-	{"outgoing", "Ljava/util/concurrent/ConcurrentLinkedDeque;", "Ljava/util/concurrent/ConcurrentLinkedDeque<Ljava/nio/ByteBuffer;>;", $FINAL, $field(Stream$RequestSubscriber, outgoing)},
-	{"errorRef", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/Throwable;>;", $PRIVATE | $FINAL, $field(Stream$RequestSubscriber, errorRef)},
-	{"sendScheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(Stream$RequestSubscriber, sendScheduler)},
-	{}
-};
-
-$MethodInfo _Stream$RequestSubscriber_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Stream;J)V", nullptr, 0, $method(Stream$RequestSubscriber, init$, void, $Stream*, int64_t)},
-	{"complete", "()V", nullptr, $PRIVATE, $method(Stream$RequestSubscriber, complete, void), "java.io.IOException"},
-	{"lambda$onError$0", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream$RequestSubscriber, lambda$onError$0, $String*, $Throwable*)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onNext, void, $ByteBuffer*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Stream$RequestSubscriber, onNext, void, Object$*)},
-	{"onNextImpl", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Stream$RequestSubscriber, onNextImpl, void, $ByteBuffer*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onSubscribe, void, $Flow$Subscription*)},
-	{"trySend", "()V", nullptr, 0, $virtualMethod(Stream$RequestSubscriber, trySend, void)},
-	{}
-};
-
-$InnerClassInfo _Stream$RequestSubscriber_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Stream$RequestSubscriber", "jdk.internal.net.http.Stream", "RequestSubscriber", 0},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Stream$RequestSubscriber_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.Stream$RequestSubscriber",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscriber",
-	_Stream$RequestSubscriber_FieldInfo_,
-	_Stream$RequestSubscriber_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/nio/ByteBuffer;>;",
-	nullptr,
-	_Stream$RequestSubscriber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Stream"
-};
-
-$Object* allocate$Stream$RequestSubscriber($Class* clazz) {
-	return $of($alloc(Stream$RequestSubscriber));
-}
 
 bool Stream$RequestSubscriber::$assertionsDisabled = false;
 
@@ -200,7 +135,7 @@ void Stream$RequestSubscriber::init$($Stream* this$0, int64_t contentLen) {
 	$set(this, errorRef, $new($AtomicReference));
 	this->contentLength = contentLen;
 	this->remainingContentLength = contentLen;
-	$set(this, sendScheduler, $SequentialScheduler::lockingScheduler(static_cast<$Runnable*>($$new(Stream$RequestSubscriber$$Lambda$trySend, this))));
+	$set(this, sendScheduler, $SequentialScheduler::lockingScheduler($$new(Stream$RequestSubscriber$$Lambda$trySend, this)));
 }
 
 void Stream$RequestSubscriber::onSubscribe($Flow$Subscription* subscription) {
@@ -209,19 +144,19 @@ void Stream$RequestSubscriber::onSubscribe($Flow$Subscription* subscription) {
 	}
 	$set(this, subscription, subscription);
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("RequestSubscriber: onSubscribe, request 1"_s);
+		this->this$0->debug->log("RequestSubscriber: onSubscribe, request 1"_s);
 	}
 	$nc(subscription)->request(1);
 }
 
 void Stream$RequestSubscriber::onNext($ByteBuffer* item) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("RequestSubscriber: onNext(%d)"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(item)->remaining())))}));
+		this->this$0->debug->log("RequestSubscriber: onNext(%d)"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(item)->remaining()))}));
 	}
-	int32_t size = $nc(this->outgoing)->size();
+	int32_t size = this->outgoing->size();
 	if (!Stream$RequestSubscriber::$assertionsDisabled && !(size == 0)) {
-		$throwNew($AssertionError, $of($$str({"non-zero size: "_s, $$str(size)})));
+		$throwNew($AssertionError, $$of($str({"non-zero size: "_s, $$str(size)})));
 	}
 	onNextImpl(item);
 }
@@ -232,79 +167,81 @@ void Stream$RequestSubscriber::onNextImpl($ByteBuffer* item) {
 		$nc(this->subscription)->cancel();
 		return;
 	}
-	$nc(this->outgoing)->add(item);
+	this->outgoing->add(item);
 	$nc(this->sendScheduler)->runOrSchedule();
 }
 
 void Stream$RequestSubscriber::onError($Throwable* throwable) {
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log(static_cast<$Supplier*>($$new(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, throwable)));
+		this->this$0->debug->log($$new(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1, throwable));
 	}
-	if ($nc(this->errorRef)->compareAndSet(nullptr, throwable)) {
+	if (this->errorRef->compareAndSet(nullptr, throwable)) {
 		$nc(this->sendScheduler)->runOrSchedule();
 	}
 }
 
 void Stream$RequestSubscriber::onComplete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("RequestSubscriber: onComplete"_s);
+		this->this$0->debug->log("RequestSubscriber: onComplete"_s);
 	}
-	int32_t size = $nc(this->outgoing)->size();
+	int32_t size = this->outgoing->size();
 	if (!Stream$RequestSubscriber::$assertionsDisabled && !(size == 0 || size == 1)) {
-		$throwNew($AssertionError, $of($$str({"non-zero or one size: "_s, $$str(size)})));
+		$throwNew($AssertionError, $$of($str({"non-zero or one size: "_s, $$str(size)})));
 	}
-	$init($Stream);
 	onNextImpl($Stream::COMPLETED);
 }
 
 void Stream$RequestSubscriber::trySend() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Throwable, t, $cast($Throwable, $nc(this->errorRef)->get()));
+		$var($Throwable, t, $cast($Throwable, this->errorRef->get()));
 		if (t != nullptr) {
 			$nc(this->sendScheduler)->stop();
 			if ($nc(this->this$0->requestBodyCF)->isDone()) {
 				return;
 			}
 			$nc(this->subscription)->cancel();
-			$nc(this->this$0->requestBodyCF)->completeExceptionally(t);
+			this->this$0->requestBodyCF->completeExceptionally(t);
 			this->this$0->cancelImpl(t);
 			return;
 		}
 		int32_t state = this->this$0->streamState;
 		do {
-			$var($ByteBuffer, item, $cast($ByteBuffer, $nc(this->outgoing)->peekFirst()));
+			$var($ByteBuffer, item, $cast($ByteBuffer, this->outgoing->peekFirst()));
 			if (item == nullptr) {
 				return;
-			} else {
-				$init($Stream);
-				if (item == $Stream::COMPLETED) {
-					$nc(this->sendScheduler)->stop();
-					complete();
-					return;
-				}
+			} else if (item == $Stream::COMPLETED) {
+				$nc(this->sendScheduler)->stop();
+				complete();
+				return;
 			}
 			while ($nc(item)->hasRemaining() && state == 0) {
 				if ($nc(this->this$0->debug)->on()) {
-					$nc(this->this$0->debug)->log("trySend: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(item->remaining())))}));
+					this->this$0->debug->log("trySend: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(item->remaining()))}));
 				}
 				$var($DataFrame, df, this->this$0->getDataFrame(item));
 				if (df == nullptr) {
-					if ($nc(this->this$0->debug)->on()) {
-						$nc(this->this$0->debug)->log("trySend: can\'t send yet: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(item->remaining())))}));
+					if (this->this$0->debug->on()) {
+						this->this$0->debug->log("trySend: can\'t send yet: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(item->remaining()))}));
 					}
 					return;
 				}
 				if (this->contentLength > 0) {
 					this->remainingContentLength -= $nc(df)->getDataLength();
 					if (this->remainingContentLength < 0) {
-						$var($String, var$4, $$str({$($nc($(this->this$0->connection()))->getConnectionFlow()), " stream="_s, $$str(this->this$0->streamid), " ["_s}));
-						$var($String, var$3, $$concat(var$4, $($($Thread::currentThread())->getName())));
-						$var($String, var$2, $$concat(var$3, "] Too many bytes in request body. Expected: "_s));
-						$var($String, var$1, $$concat(var$2, $$str(this->contentLength)));
-						$var($String, var$0, $$concat(var$1, ", got: "_s));
-						$var($String, msg, $concat(var$0, $$str((this->contentLength - this->remainingContentLength))));
+						$var($StringBuilder, var$0, $new($StringBuilder));
+						var$0->append($($$nc(this->this$0->connection())->getConnectionFlow()));
+						var$0->append(" stream="_s);
+						var$0->append(this->this$0->streamid);
+						var$0->append(" ["_s);
+						var$0->append($($($Thread::currentThread())->getName()));
+						var$0->append("] Too many bytes in request body. Expected: "_s);
+						var$0->append(this->contentLength);
+						var$0->append(", got: "_s);
+						var$0->append(this->contentLength);
+						var$0->append(this->remainingContentLength);
+						$var($String, msg, $str(var$0));
 						if (!Stream$RequestSubscriber::$assertionsDisabled && !(this->this$0->streamid > 0)) {
 							$throwNew($AssertionError);
 						}
@@ -321,41 +258,41 @@ void Stream$RequestSubscriber::trySend() {
 					$throwNew($AssertionError, $of("internal error, send data after END_STREAM flag"_s));
 				}
 				if ((state = this->this$0->streamState) != 0) {
-					if ($nc(this->this$0->debug)->on()) {
-						$nc(this->this$0->debug)->log("trySend: cancelled: %s"_s, $$new($ObjectArray, {$($of($String::valueOf($of(t))))}));
+					if (this->this$0->debug->on()) {
+						this->this$0->debug->log("trySend: cancelled: %s"_s, $$new($ObjectArray, {$($String::valueOf(t))}));
 					}
 					break;
 				}
-				if ($nc(this->this$0->debug)->on()) {
-					$nc(this->this$0->debug)->log("trySend: sending: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(df)->getDataLength())))}));
+				if (this->this$0->debug->on()) {
+					this->this$0->debug->log("trySend: sending: %d"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(df)->getDataLength()))}));
 				}
 				this->this$0->sendDataFrame(df);
 			}
 			if (state != 0) {
 				break;
 			}
-			if (!Stream$RequestSubscriber::$assertionsDisabled && ! !$nc(item)->hasRemaining()) {
+			if (!Stream$RequestSubscriber::$assertionsDisabled && ! !item->hasRemaining()) {
 				$throwNew($AssertionError);
 			}
-			$var($ByteBuffer, b, $cast($ByteBuffer, $nc(this->outgoing)->removeFirst()));
+			$var($ByteBuffer, b, $cast($ByteBuffer, this->outgoing->removeFirst()));
 			if (!Stream$RequestSubscriber::$assertionsDisabled && !(b == item)) {
 				$throwNew($AssertionError);
 			}
-		} while ($nc(this->outgoing)->peekFirst() != nullptr);
+		} while (this->outgoing->peekFirst() != nullptr);
 		if (state != 0) {
-			$assign(t, $cast($Throwable, $nc(this->errorRef)->get()));
+			$assign(t, $cast($Throwable, this->errorRef->get()));
 			if (t == nullptr) {
 				$assign(t, $new($IOException, $($ResetFrame::stringForCode(this->this$0->streamState))));
 			}
 			$throw(t);
 		}
 		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log("trySend: request 1"_s);
+			this->this$0->debug->log("trySend: request 1"_s);
 		}
 		$nc(this->subscription)->request(1);
 	} catch ($Throwable& ex) {
 		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log("trySend: "_s, $cast($Throwable, ex));
+			this->this$0->debug->log("trySend: "_s, ex);
 		}
 		$nc(this->sendScheduler)->stop();
 		$nc(this->subscription)->cancel();
@@ -365,18 +302,23 @@ void Stream$RequestSubscriber::trySend() {
 }
 
 void Stream$RequestSubscriber::complete() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t remaining = this->remainingContentLength;
 	int64_t written = this->contentLength - remaining;
 	if (remaining > 0) {
 		$nc(this->this$0->connection$)->resetStream(this->this$0->streamid, $ResetFrame::PROTOCOL_ERROR);
-		$var($String, var$5, $$str({$($nc($(this->this$0->connection()))->getConnectionFlow()), " stream="_s, $$str(this->this$0->streamid), " ["_s}));
-		$var($String, var$4, $$concat(var$5, $($($Thread::currentThread())->getName())));
-		$var($String, var$3, $$concat(var$4, "] Too few bytes returned by the publisher ("_s));
-		$var($String, var$2, $$concat(var$3, $$str(written)));
-		$var($String, var$1, $$concat(var$2, "/"_s));
-		$var($String, var$0, $$concat(var$1, $$str(this->contentLength)));
-		$throwNew($IOException, $$concat(var$0, ")"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($$nc(this->this$0->connection())->getConnectionFlow()));
+		var$0->append(" stream="_s);
+		var$0->append(this->this$0->streamid);
+		var$0->append(" ["_s);
+		var$0->append($($($Thread::currentThread())->getName()));
+		var$0->append("] Too few bytes returned by the publisher ("_s);
+		var$0->append(written);
+		var$0->append("/"_s);
+		var$0->append(this->contentLength);
+		var$0->append(")"_s);
+		$throwNew($IOException, $$str(var$0));
 	}
 	if (!this->this$0->endStreamSent) {
 		this->this$0->endStreamSent = true;
@@ -394,7 +336,7 @@ $String* Stream$RequestSubscriber::lambda$onError$0($Throwable* throwable) {
 	return $str({"RequestSubscriber: onError: "_s, throwable});
 }
 
-void clinit$Stream$RequestSubscriber($Class* class$) {
+void Stream$RequestSubscriber::clinit$($Class* clazz) {
 	$load($Stream);
 	Stream$RequestSubscriber::$assertionsDisabled = !$Stream::class$->desiredAssertionStatus();
 }
@@ -404,14 +346,60 @@ Stream$RequestSubscriber::Stream$RequestSubscriber() {
 
 $Class* Stream$RequestSubscriber::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Stream$RequestSubscriber$$Lambda$trySend::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Stream$RequestSubscriber$$Lambda$trySend")) {
 			return Stream$RequestSubscriber$$Lambda$trySend::load$(name, initialize);
 		}
-		if (name->equals(Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.Stream$RequestSubscriber$$Lambda$lambda$onError$0$1")) {
 			return Stream$RequestSubscriber$$Lambda$lambda$onError$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Stream$RequestSubscriber, name, initialize, &_Stream$RequestSubscriber_ClassInfo_, clinit$Stream$RequestSubscriber, allocate$Stream$RequestSubscriber);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/Stream;", nullptr, $FINAL | $SYNTHETIC, $field(Stream$RequestSubscriber, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Stream$RequestSubscriber, $assertionsDisabled)},
+		{"contentLength", "J", nullptr, $PRIVATE | $FINAL, $field(Stream$RequestSubscriber, contentLength)},
+		{"remainingContentLength", "J", nullptr, $PRIVATE | $VOLATILE, $field(Stream$RequestSubscriber, remainingContentLength)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $PRIVATE | $VOLATILE, $field(Stream$RequestSubscriber, subscription)},
+		{"outgoing", "Ljava/util/concurrent/ConcurrentLinkedDeque;", "Ljava/util/concurrent/ConcurrentLinkedDeque<Ljava/nio/ByteBuffer;>;", $FINAL, $field(Stream$RequestSubscriber, outgoing)},
+		{"errorRef", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/Throwable;>;", $PRIVATE | $FINAL, $field(Stream$RequestSubscriber, errorRef)},
+		{"sendScheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(Stream$RequestSubscriber, sendScheduler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Stream;J)V", nullptr, 0, $method(Stream$RequestSubscriber, init$, void, $Stream*, int64_t)},
+		{"complete", "()V", nullptr, $PRIVATE, $method(Stream$RequestSubscriber, complete, void), "java.io.IOException"},
+		{"lambda$onError$0", "(Ljava/lang/Throwable;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Stream$RequestSubscriber, lambda$onError$0, $String*, $Throwable*)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onNext, void, $ByteBuffer*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Stream$RequestSubscriber, onNext, void, Object$*)},
+		{"onNextImpl", "(Ljava/nio/ByteBuffer;)V", nullptr, $PRIVATE, $method(Stream$RequestSubscriber, onNextImpl, void, $ByteBuffer*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(Stream$RequestSubscriber, onSubscribe, void, $Flow$Subscription*)},
+		{"trySend", "()V", nullptr, 0, $virtualMethod(Stream$RequestSubscriber, trySend, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Stream$RequestSubscriber", "jdk.internal.net.http.Stream", "RequestSubscriber", 0},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.Stream$RequestSubscriber",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscriber<Ljava/nio/ByteBuffer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Stream"
+	};
+	$loadClass(Stream$RequestSubscriber, name, initialize, &classInfo$$, Stream$RequestSubscriber::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Stream$RequestSubscriber);
+	});
 	return class$;
 }
 

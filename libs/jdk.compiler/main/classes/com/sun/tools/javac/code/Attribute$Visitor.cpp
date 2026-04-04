@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
-
 #include <com/sun/tools/javac/code/Attribute$Array.h>
 #include <com/sun/tools/javac/code/Attribute$Class.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
@@ -24,43 +23,38 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Attribute$Visitor_MethodInfo_[] = {
-	{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitArray, void, $Attribute$Array*)},
-	{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitClass, void, $Attribute$Class*)},
-	{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitCompound, void, $Attribute$Compound*)},
-	{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitConstant, void, $Attribute$Constant*)},
-	{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitEnum, void, $Attribute$Enum*)},
-	{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitError, void, $Attribute$Error*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$Visitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$Visitor", "com.sun.tools.javac.code.Attribute", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Attribute$Visitor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.code.Attribute$Visitor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Attribute$Visitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$Visitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$Visitor($Class* clazz) {
-	return $of($alloc(Attribute$Visitor));
-}
-
 $Class* Attribute$Visitor::load$($String* name, bool initialize) {
-	$loadClass(Attribute$Visitor, name, initialize, &_Attribute$Visitor_ClassInfo_, allocate$Attribute$Visitor);
+	$MethodInfo methodInfos$$[] = {
+		{"visitArray", "(Lcom/sun/tools/javac/code/Attribute$Array;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitArray, void, $Attribute$Array*)},
+		{"visitClass", "(Lcom/sun/tools/javac/code/Attribute$Class;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitClass, void, $Attribute$Class*)},
+		{"visitCompound", "(Lcom/sun/tools/javac/code/Attribute$Compound;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitCompound, void, $Attribute$Compound*)},
+		{"visitConstant", "(Lcom/sun/tools/javac/code/Attribute$Constant;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitConstant, void, $Attribute$Constant*)},
+		{"visitEnum", "(Lcom/sun/tools/javac/code/Attribute$Enum;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitEnum, void, $Attribute$Enum*)},
+		{"visitError", "(Lcom/sun/tools/javac/code/Attribute$Error;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Attribute$Visitor, visitError, void, $Attribute$Error*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$Visitor", "com.sun.tools.javac.code.Attribute", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.code.Attribute$Visitor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$Visitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$Visitor);
+	});
 	return class$;
 }
 

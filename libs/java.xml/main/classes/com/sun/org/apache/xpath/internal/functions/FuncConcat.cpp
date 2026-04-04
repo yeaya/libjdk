@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncConcat.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
@@ -14,7 +13,6 @@
 #include <jcpp.h>
 
 using $XSLMessages = ::com::sun::org::apache::xalan::internal::res::XSLMessages;
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $FunctionMultiArgs = ::com::sun::org::apache::xpath::internal::functions::FunctionMultiArgs;
 using $WrongNumberArgsException = ::com::sun::org::apache::xpath::internal::functions::WrongNumberArgsException;
@@ -33,47 +31,21 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncConcat_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncConcat, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncConcat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncConcat, init$, void)},
-	{"checkNumberArgs", "(I)V", nullptr, $PUBLIC, $virtualMethod(FuncConcat, checkNumberArgs, void, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncConcat, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"reportWrongNumberArgs", "()V", nullptr, $PROTECTED, $virtualMethod(FuncConcat, reportWrongNumberArgs, void), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
-	{}
-};
-
-$ClassInfo _FuncConcat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncConcat",
-	"com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs",
-	nullptr,
-	_FuncConcat_FieldInfo_,
-	_FuncConcat_MethodInfo_
-};
-
-$Object* allocate$FuncConcat($Class* clazz) {
-	return $of($alloc(FuncConcat));
-}
-
 void FuncConcat::init$() {
 	$FunctionMultiArgs::init$();
 }
 
 $XObject* FuncConcat::execute($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
-	sb->append($($nc($($nc(this->m_arg0)->execute(xctxt)))->str()));
-	sb->append($($nc($($nc(this->m_arg1)->execute(xctxt)))->str()));
+	sb->append($($$nc($nc(this->m_arg0)->execute(xctxt))->str()));
+	sb->append($($$nc($nc(this->m_arg1)->execute(xctxt))->str()));
 	if (nullptr != this->m_arg2) {
-		sb->append($($nc($($nc(this->m_arg2)->execute(xctxt)))->str()));
+		sb->append($($$nc(this->m_arg2->execute(xctxt))->str()));
 	}
 	if (nullptr != this->m_args) {
 		for (int32_t i = 0; i < $nc(this->m_args)->length; ++i) {
-			sb->append($($nc($($nc($nc(this->m_args)->get(i))->execute(xctxt)))->str()));
+			sb->append($($$nc($nc(this->m_args->get(i))->execute(xctxt))->str()));
 		}
 	}
 	return $new($XString, $(sb->toString()));
@@ -93,7 +65,28 @@ FuncConcat::FuncConcat() {
 }
 
 $Class* FuncConcat::load$($String* name, bool initialize) {
-	$loadClass(FuncConcat, name, initialize, &_FuncConcat_ClassInfo_, allocate$FuncConcat);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncConcat, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncConcat, init$, void)},
+		{"checkNumberArgs", "(I)V", nullptr, $PUBLIC, $virtualMethod(FuncConcat, checkNumberArgs, void, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncConcat, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"reportWrongNumberArgs", "()V", nullptr, $PROTECTED, $virtualMethod(FuncConcat, reportWrongNumberArgs, void), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncConcat",
+		"com.sun.org.apache.xpath.internal.functions.FunctionMultiArgs",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncConcat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncConcat));
+	});
 	return class$;
 }
 

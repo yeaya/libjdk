@@ -119,6 +119,7 @@ class $import Source$Feature : public ::java::lang::Enum {
 public:
 	Source$Feature();
 	static $Array<::com::sun::tools::javac::code::Source$Feature>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::code::Source* minLevel);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::code::Source* minLevel, ::com::sun::tools::javac::util::JCDiagnostic$Fragment* optFragment, ::com::sun::tools::javac::code::Source$Feature$DiagKind* optKind);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::tools::javac::code::Source* minLevel, ::com::sun::tools::javac::code::Source* maxLevel);

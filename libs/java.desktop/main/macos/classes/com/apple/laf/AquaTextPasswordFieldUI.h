@@ -49,6 +49,7 @@ class AquaTextPasswordFieldUI : public ::com::apple::laf::AquaTextFieldUI {
 public:
 	AquaTextPasswordFieldUI();
 	using ::com::apple::laf::AquaTextFieldUI::create;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::text::JTextComponent* access$000(::com::apple::laf::AquaTextPasswordFieldUI* x0);
 	virtual ::javax::swing::text::View* create(::javax::swing::text::Element* elem) override;

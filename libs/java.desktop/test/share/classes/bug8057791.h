@@ -27,6 +27,7 @@ class $export bug8057791 : public ::java::lang::Object {
 	$class(bug8057791, 0, ::java::lang::Object)
 public:
 	bug8057791();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkColor(::java::awt::Color* colorCheck, ::java::awt::Rectangle* bounds);
 	static void checkNotColor(::java::awt::Color* colorCheck, ::java::awt::Rectangle* bounds);

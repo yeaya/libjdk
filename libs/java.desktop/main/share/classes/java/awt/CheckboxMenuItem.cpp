@@ -1,12 +1,10 @@
 #include <java/awt/CheckboxMenuItem.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/CheckboxMenuItem$1.h>
 #include <java/awt/CheckboxMenuItem$AccessibleAWTCheckboxMenuItem.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/GraphicsEnvironment.h>
-#include <java/awt/ItemSelectable.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/Toolkit.h>
@@ -18,7 +16,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/EventListener.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <sun/awt/AWTAccessor$CheckboxMenuItemAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/ComponentFactory.h>
 #include <jcpp.h>
@@ -34,16 +31,13 @@ using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTEventMulticaster = ::java::awt::AWTEventMulticaster;
 using $CheckboxMenuItem$1 = ::java::awt::CheckboxMenuItem$1;
 using $CheckboxMenuItem$AccessibleAWTCheckboxMenuItem = ::java::awt::CheckboxMenuItem$AccessibleAWTCheckboxMenuItem;
-using $EventQueue = ::java::awt::EventQueue;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
-using $ItemSelectable = ::java::awt::ItemSelectable;
 using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuItem = ::java::awt::MenuItem;
 using $Toolkit = ::java::awt::Toolkit;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ItemListener = ::java::awt::event::ItemListener;
 using $CheckboxMenuItemPeer = ::java::awt::peer::CheckboxMenuItemPeer;
-using $MenuComponentPeer = ::java::awt::peer::MenuComponentPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,78 +47,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$CheckboxMenuItemAccessor = ::sun::awt::AWTAccessor$CheckboxMenuItemAccessor;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _CheckboxMenuItem_FieldInfo_[] = {
-	{"state", "Z", nullptr, $PRIVATE | $VOLATILE, $field(CheckboxMenuItem, state)},
-	{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(CheckboxMenuItem, itemListener)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckboxMenuItem, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(CheckboxMenuItem, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CheckboxMenuItem, serialVersionUID)},
-	{"checkboxMenuItemSerializedDataVersion", "I", nullptr, $PRIVATE, $field(CheckboxMenuItem, checkboxMenuItemSerializedDataVersion)},
-	{}
-};
-
-$MethodInfo _CheckboxMenuItem_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckboxMenuItem, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CheckboxMenuItem, init$, void, $String*), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(CheckboxMenuItem, init$, void, $String*, bool), "java.awt.HeadlessException"},
-	{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, addItemListener, void, $ItemListener*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem, addNotify, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CheckboxMenuItem, constructComponentName, $String*)},
-	{"doMenuEvent", "(JI)V", nullptr, 0, $virtualMethod(CheckboxMenuItem, doMenuEvent, void, int64_t, int32_t)},
-	{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(CheckboxMenuItem, eventEnabled, bool, $AWTEvent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem, getAccessibleContext, $AccessibleContext*)},
-	{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, getItemListeners, $ItemListenerArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(CheckboxMenuItem, getListeners, $EventListenerArray*, $Class*)},
-	{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, getSelectedObjects, $ObjectArray*)},
-	{"getState", "()Z", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem, getState, bool)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CheckboxMenuItem, initIDs, void)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem, paramString, $String*)},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(CheckboxMenuItem, processEvent, void, $AWTEvent*)},
-	{"processItemEvent", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(CheckboxMenuItem, processItemEvent, void, $ItemEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CheckboxMenuItem, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, removeItemListener, void, $ItemListener*)},
-	{"setState", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, setState, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CheckboxMenuItem, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 17
-
-$InnerClassInfo _CheckboxMenuItem_InnerClassesInfo_[] = {
-	{"java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem", "java.awt.CheckboxMenuItem", "AccessibleAWTCheckboxMenuItem", $PROTECTED},
-	{"java.awt.CheckboxMenuItem$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CheckboxMenuItem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.CheckboxMenuItem",
-	"java.awt.MenuItem",
-	"java.awt.ItemSelectable",
-	_CheckboxMenuItem_FieldInfo_,
-	_CheckboxMenuItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckboxMenuItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem,java.awt.CheckboxMenuItem$1"
-};
-
-$Object* allocate$CheckboxMenuItem($Class* clazz) {
-	return $of($alloc(CheckboxMenuItem));
-}
 
 $String* CheckboxMenuItem::toString() {
 	 return this->$MenuItem::toString();
@@ -164,17 +89,18 @@ void CheckboxMenuItem::init$($String* label, bool state) {
 }
 
 $String* CheckboxMenuItem::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(CheckboxMenuItem::class$) {
-		$var($String, var$0, CheckboxMenuItem::base);
-		return $concat(var$0, $$str(CheckboxMenuItem::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(CheckboxMenuItem::base);
+		var$0->append(CheckboxMenuItem::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void CheckboxMenuItem::addNotify() {
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createCheckboxMenuItem(this));
+			$set(this, peer, $$nc(getComponentFactory())->createCheckboxMenuItem(this));
 		}
 		$MenuItem::addNotify();
 	}
@@ -227,7 +153,7 @@ void CheckboxMenuItem::removeItemListener($ItemListener* l) {
 $ItemListenerArray* CheckboxMenuItem::getItemListeners() {
 	$synchronized(this) {
 		$load($ItemListener);
-		return $fcast($ItemListenerArray, getListeners($ItemListener::class$));
+		return $cast($ItemListenerArray, getListeners($ItemListener::class$));
 	}
 }
 
@@ -244,7 +170,7 @@ $EventListenerArray* CheckboxMenuItem::getListeners($Class* listenerType) {
 
 bool CheckboxMenuItem::eventEnabled($AWTEvent* e) {
 	if ($nc(e)->id == $ItemEvent::ITEM_STATE_CHANGED) {
-		if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::ITEM_EVENT_MASK)) != 0 || this->itemListener != nullptr) {
+		if ((this->eventMask & $AWTEvent::ITEM_EVENT_MASK) != 0 || this->itemListener != nullptr) {
 			return true;
 		}
 		return false;
@@ -268,13 +194,13 @@ void CheckboxMenuItem::processItemEvent($ItemEvent* e) {
 }
 
 void CheckboxMenuItem::doMenuEvent(int64_t when, int32_t modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setState(!this->state);
-	$nc($($Toolkit::getEventQueue()))->postEvent($$new($ItemEvent, this, $ItemEvent::ITEM_STATE_CHANGED, $(getLabel()), this->state ? $ItemEvent::SELECTED : $ItemEvent::DESELECTED));
+	$$nc($Toolkit::getEventQueue())->postEvent($$new($ItemEvent, this, $ItemEvent::ITEM_STATE_CHANGED, $(getLabel()), this->state ? $ItemEvent::SELECTED : $ItemEvent::DESELECTED));
 }
 
 $String* CheckboxMenuItem::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($MenuItem::paramString()), ",state="_s, $$str(this->state)});
 }
 
@@ -286,14 +212,14 @@ void CheckboxMenuItem::writeObject($ObjectOutputStream* s) {
 }
 
 void CheckboxMenuItem::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	$var($Object, keyOrNull, nullptr);
 	while (nullptr != ($assign(keyOrNull, s->readObject()))) {
-		$var($String, key, $nc(($cast($String, keyOrNull)))->intern());
+		$var($String, key, $nc($cast($String, keyOrNull))->intern());
 		$init($MenuComponent);
 		if ($MenuComponent::itemListenerK == key) {
-			addItemListener(($cast($ItemListener, $(s->readObject()))));
+			addItemListener($$cast($ItemListener, s->readObject()));
 		} else {
 			s->readObject();
 		}
@@ -302,7 +228,7 @@ void CheckboxMenuItem::readObject($ObjectInputStream* s) {
 
 void CheckboxMenuItem::initIDs() {
 	$init(CheckboxMenuItem);
-	$prepareNativeStatic(CheckboxMenuItem, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -314,7 +240,7 @@ $AccessibleContext* CheckboxMenuItem::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$CheckboxMenuItem($Class* class$) {
+void CheckboxMenuItem::clinit$($Class* clazz) {
 	$assignStatic(CheckboxMenuItem::base, "chkmenuitem"_s);
 	{
 		$Toolkit::loadLibraries();
@@ -330,7 +256,66 @@ CheckboxMenuItem::CheckboxMenuItem() {
 }
 
 $Class* CheckboxMenuItem::load$($String* name, bool initialize) {
-	$loadClass(CheckboxMenuItem, name, initialize, &_CheckboxMenuItem_ClassInfo_, clinit$CheckboxMenuItem, allocate$CheckboxMenuItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"state", "Z", nullptr, $PRIVATE | $VOLATILE, $field(CheckboxMenuItem, state)},
+		{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(CheckboxMenuItem, itemListener)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CheckboxMenuItem, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(CheckboxMenuItem, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CheckboxMenuItem, serialVersionUID)},
+		{"checkboxMenuItemSerializedDataVersion", "I", nullptr, $PRIVATE, $field(CheckboxMenuItem, checkboxMenuItemSerializedDataVersion)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CheckboxMenuItem, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CheckboxMenuItem, init$, void, $String*), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(CheckboxMenuItem, init$, void, $String*, bool), "java.awt.HeadlessException"},
+		{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, addItemListener, void, $ItemListener*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem, addNotify, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(CheckboxMenuItem, constructComponentName, $String*)},
+		{"doMenuEvent", "(JI)V", nullptr, 0, $virtualMethod(CheckboxMenuItem, doMenuEvent, void, int64_t, int32_t)},
+		{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(CheckboxMenuItem, eventEnabled, bool, $AWTEvent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem, getAccessibleContext, $AccessibleContext*)},
+		{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, getItemListeners, $ItemListenerArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(CheckboxMenuItem, getListeners, $EventListenerArray*, $Class*)},
+		{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, getSelectedObjects, $ObjectArray*)},
+		{"getState", "()Z", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem, getState, bool)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CheckboxMenuItem, initIDs, void)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CheckboxMenuItem, paramString, $String*)},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(CheckboxMenuItem, processEvent, void, $AWTEvent*)},
+		{"processItemEvent", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(CheckboxMenuItem, processItemEvent, void, $ItemEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(CheckboxMenuItem, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, removeItemListener, void, $ItemListener*)},
+		{"setState", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CheckboxMenuItem, setState, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(CheckboxMenuItem, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem", "java.awt.CheckboxMenuItem", "AccessibleAWTCheckboxMenuItem", $PROTECTED},
+		{"java.awt.CheckboxMenuItem$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.CheckboxMenuItem",
+		"java.awt.MenuItem",
+		"java.awt.ItemSelectable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem,java.awt.CheckboxMenuItem$1"
+	};
+	$loadClass(CheckboxMenuItem, name, initialize, &classInfo$$, CheckboxMenuItem::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CheckboxMenuItem));
+	});
 	return class$;
 }
 

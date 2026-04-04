@@ -1,5 +1,4 @@
 #include <javax/imageio/stream/MemoryCacheImageInputStream$StreamDisposerRecord.h>
-
 #include <javax/imageio/stream/MemoryCache.h>
 #include <javax/imageio/stream/MemoryCacheImageInputStream.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ namespace javax {
 	namespace imageio {
 		namespace stream {
 
-$FieldInfo _MemoryCacheImageInputStream$StreamDisposerRecord_FieldInfo_[] = {
-	{"cache", "Ljavax/imageio/stream/MemoryCache;", nullptr, $PRIVATE, $field(MemoryCacheImageInputStream$StreamDisposerRecord, cache)},
-	{}
-};
-
-$MethodInfo _MemoryCacheImageInputStream$StreamDisposerRecord_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/stream/MemoryCache;)V", nullptr, $PUBLIC, $method(MemoryCacheImageInputStream$StreamDisposerRecord, init$, void, $MemoryCache*)},
-	{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCacheImageInputStream$StreamDisposerRecord, dispose, void)},
-	{}
-};
-
-$InnerClassInfo _MemoryCacheImageInputStream$StreamDisposerRecord_InnerClassesInfo_[] = {
-	{"javax.imageio.stream.MemoryCacheImageInputStream$StreamDisposerRecord", "javax.imageio.stream.MemoryCacheImageInputStream", "StreamDisposerRecord", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MemoryCacheImageInputStream$StreamDisposerRecord_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.stream.MemoryCacheImageInputStream$StreamDisposerRecord",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	_MemoryCacheImageInputStream$StreamDisposerRecord_FieldInfo_,
-	_MemoryCacheImageInputStream$StreamDisposerRecord_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MemoryCacheImageInputStream$StreamDisposerRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.stream.MemoryCacheImageInputStream"
-};
-
-$Object* allocate$MemoryCacheImageInputStream$StreamDisposerRecord($Class* clazz) {
-	return $of($alloc(MemoryCacheImageInputStream$StreamDisposerRecord));
-}
-
 void MemoryCacheImageInputStream$StreamDisposerRecord::init$($MemoryCache* cache) {
 	$set(this, cache, cache);
 }
@@ -57,7 +20,7 @@ void MemoryCacheImageInputStream$StreamDisposerRecord::init$($MemoryCache* cache
 void MemoryCacheImageInputStream$StreamDisposerRecord::dispose() {
 	$synchronized(this) {
 		if (this->cache != nullptr) {
-			$nc(this->cache)->reset();
+			this->cache->reset();
 			$set(this, cache, nullptr);
 		}
 	}
@@ -67,7 +30,37 @@ MemoryCacheImageInputStream$StreamDisposerRecord::MemoryCacheImageInputStream$St
 }
 
 $Class* MemoryCacheImageInputStream$StreamDisposerRecord::load$($String* name, bool initialize) {
-	$loadClass(MemoryCacheImageInputStream$StreamDisposerRecord, name, initialize, &_MemoryCacheImageInputStream$StreamDisposerRecord_ClassInfo_, allocate$MemoryCacheImageInputStream$StreamDisposerRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"cache", "Ljavax/imageio/stream/MemoryCache;", nullptr, $PRIVATE, $field(MemoryCacheImageInputStream$StreamDisposerRecord, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/stream/MemoryCache;)V", nullptr, $PUBLIC, $method(MemoryCacheImageInputStream$StreamDisposerRecord, init$, void, $MemoryCache*)},
+		{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MemoryCacheImageInputStream$StreamDisposerRecord, dispose, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.stream.MemoryCacheImageInputStream$StreamDisposerRecord", "javax.imageio.stream.MemoryCacheImageInputStream", "StreamDisposerRecord", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.stream.MemoryCacheImageInputStream$StreamDisposerRecord",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.stream.MemoryCacheImageInputStream"
+	};
+	$loadClass(MemoryCacheImageInputStream$StreamDisposerRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryCacheImageInputStream$StreamDisposerRecord);
+	});
 	return class$;
 }
 

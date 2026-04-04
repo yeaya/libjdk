@@ -49,10 +49,11 @@ class Encodings : public ::java::lang::Object {
 	$class(Encodings, 0, ::java::lang::Object)
 public:
 	Encodings();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::xml::internal::serialize::EncodingInfo* getEncodingInfo($String* encoding, bool allowJavaNames);
 	static const int32_t DEFAULT_LAST_PRINTABLE = 127;
-	static const int32_t LAST_PRINTABLE_UNICODE = 0x0000FFFF;
+	static const int32_t LAST_PRINTABLE_UNICODE = 0x0000ffff;
 	static $StringArray* UNICODE_ENCODINGS;
 	static $String* DEFAULT_ENCODING;
 	static ::java::util::Map* _encodings;

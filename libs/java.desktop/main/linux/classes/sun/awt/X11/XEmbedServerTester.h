@@ -57,6 +57,7 @@ class XEmbedServerTester : public ::sun::awt::X11::XEventDispatcher {
 	$class(XEmbedServerTester, 0, ::sun::awt::X11::XEventDispatcher)
 public:
 	XEmbedServerTester();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::java::awt::Rectangle>* serverBounds, int64_t parent);
 	int32_t activateServer(int32_t prev);
 	int32_t activateServerNoWait(int32_t prev);

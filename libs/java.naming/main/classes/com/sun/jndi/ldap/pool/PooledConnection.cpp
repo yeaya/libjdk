@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/pool/PooledConnection.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,26 +10,22 @@ namespace com {
 			namespace ldap {
 				namespace pool {
 
-$MethodInfo _PooledConnection_MethodInfo_[] = {
-	{"closeConnection", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, closeConnection, void)},
-	{}
-};
-
-$ClassInfo _PooledConnection_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.jndi.ldap.pool.PooledConnection",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PooledConnection_MethodInfo_
-};
-
-$Object* allocate$PooledConnection($Class* clazz) {
-	return $of($alloc(PooledConnection));
-}
-
 $Class* PooledConnection::load$($String* name, bool initialize) {
-	$loadClass(PooledConnection, name, initialize, &_PooledConnection_ClassInfo_, allocate$PooledConnection);
+	$MethodInfo methodInfos$$[] = {
+		{"closeConnection", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, closeConnection, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.jndi.ldap.pool.PooledConnection",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PooledConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PooledConnection);
+	});
 	return class$;
 }
 

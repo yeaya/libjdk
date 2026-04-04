@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$CheckBoxMenuItemIcon.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -14,7 +13,6 @@
 #include <javax/swing/plaf/metal/MetalUtils.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -32,46 +30,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalIconFactory$CheckBoxMenuItemIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$CheckBoxMenuItemIcon, init$, void)},
-	{"drawCheck", "(Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(MetalIconFactory$CheckBoxMenuItemIcon, drawCheck, void, $Graphics*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxMenuItemIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxMenuItemIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxMenuItemIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"paintOceanIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxMenuItemIcon, paintOceanIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$CheckBoxMenuItemIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$CheckBoxMenuItemIcon", "javax.swing.plaf.metal.MetalIconFactory", "CheckBoxMenuItemIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$CheckBoxMenuItemIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$CheckBoxMenuItemIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_MetalIconFactory$CheckBoxMenuItemIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$CheckBoxMenuItemIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$CheckBoxMenuItemIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$CheckBoxMenuItemIcon));
-}
 
 int32_t MetalIconFactory$CheckBoxMenuItemIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -97,8 +55,8 @@ void MetalIconFactory$CheckBoxMenuItemIcon::init$() {
 }
 
 void MetalIconFactory$CheckBoxMenuItemIcon::paintOceanIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	$var($ButtonModel, model, $nc(($cast($JMenuItem, c)))->getModel());
+	$useLocalObjectStack();
+	$var($ButtonModel, model, $nc($cast($JMenuItem, c))->getModel());
 	bool isSelected = $nc(model)->isSelected();
 	bool isEnabled = model->isEnabled();
 	bool isPressed = model->isPressed();
@@ -145,7 +103,7 @@ void MetalIconFactory$CheckBoxMenuItemIcon::paintOceanIcon($Component* c, $Graph
 }
 
 void MetalIconFactory$CheckBoxMenuItemIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MetalLookAndFeel::usingOcean()) {
 		paintOceanIcon(c, g, x, y);
 		return;
@@ -202,7 +160,7 @@ void MetalIconFactory$CheckBoxMenuItemIcon::paintIcon($Component* c, $Graphics* 
 }
 
 void MetalIconFactory$CheckBoxMenuItemIcon::drawCheck($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, xPoints, $new($ints, {
 		2,
 		3,
@@ -238,7 +196,42 @@ MetalIconFactory$CheckBoxMenuItemIcon::MetalIconFactory$CheckBoxMenuItemIcon() {
 }
 
 $Class* MetalIconFactory$CheckBoxMenuItemIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$CheckBoxMenuItemIcon, name, initialize, &_MetalIconFactory$CheckBoxMenuItemIcon_ClassInfo_, allocate$MetalIconFactory$CheckBoxMenuItemIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$CheckBoxMenuItemIcon, init$, void)},
+		{"drawCheck", "(Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(MetalIconFactory$CheckBoxMenuItemIcon, drawCheck, void, $Graphics*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxMenuItemIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxMenuItemIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxMenuItemIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"paintOceanIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxMenuItemIcon, paintOceanIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$CheckBoxMenuItemIcon", "javax.swing.plaf.metal.MetalIconFactory", "CheckBoxMenuItemIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$CheckBoxMenuItemIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$CheckBoxMenuItemIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$CheckBoxMenuItemIcon));
+	});
 	return class$;
 }
 

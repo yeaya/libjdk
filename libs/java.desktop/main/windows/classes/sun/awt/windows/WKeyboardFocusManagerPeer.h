@@ -34,6 +34,7 @@ class WKeyboardFocusManagerPeer : public ::sun::awt::KeyboardFocusManagerPeerImp
 	$class(WKeyboardFocusManagerPeer, 0, ::sun::awt::KeyboardFocusManagerPeerImpl)
 public:
 	WKeyboardFocusManagerPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool deliverFocus(::java::awt::Component* lightweightChild, ::java::awt::Component* target, bool temporary, bool focusedWindowChangeAllowed, int64_t time, ::java::awt::event::FocusEvent$Cause* cause);
 	virtual ::java::awt::Component* getCurrentFocusOwner() override;

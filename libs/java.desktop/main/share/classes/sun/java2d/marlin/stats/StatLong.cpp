@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/stats/StatLong.h>
-
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -15,39 +14,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 			namespace stats {
-
-$FieldInfo _StatLong_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(StatLong, name)},
-	{"count", "J", nullptr, $PUBLIC, $field(StatLong, count)},
-	{"sum", "J", nullptr, $PUBLIC, $field(StatLong, sum)},
-	{"min", "J", nullptr, $PUBLIC, $field(StatLong, min)},
-	{"max", "J", nullptr, $PUBLIC, $field(StatLong, max)},
-	{}
-};
-
-$MethodInfo _StatLong_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StatLong, init$, void, $String*)},
-	{"add", "(I)V", nullptr, $PUBLIC, $virtualMethod(StatLong, add, void, int32_t)},
-	{"add", "(J)V", nullptr, $PUBLIC, $virtualMethod(StatLong, add, void, int64_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(StatLong, reset, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StatLong, toString, $String*)},
-	{"toString", "(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $FINAL, $method(StatLong, toString, $StringBuilder*, $StringBuilder*)},
-	{"trimTo3Digits", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StatLong, trimTo3Digits, double, double)},
-	{}
-};
-
-$ClassInfo _StatLong_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.marlin.stats.StatLong",
-	"java.lang.Object",
-	nullptr,
-	_StatLong_FieldInfo_,
-	_StatLong_MethodInfo_
-};
-
-$Object* allocate$StatLong($Class* clazz) {
-	return $of($alloc(StatLong));
-}
 
 void StatLong::init$($String* name) {
 	this->count = 0;
@@ -87,8 +53,8 @@ void StatLong::add(int64_t val) {
 }
 
 $String* StatLong::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(toString($$new($StringBuilder, 128))))->toString();
+	$useLocalObjectStack();
+	return $$nc(toString($$new($StringBuilder, 128)))->toString();
 }
 
 $StringBuilder* StatLong::toString($StringBuilder* sb) {
@@ -107,7 +73,35 @@ StatLong::StatLong() {
 }
 
 $Class* StatLong::load$($String* name, bool initialize) {
-	$loadClass(StatLong, name, initialize, &_StatLong_ClassInfo_, allocate$StatLong);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(StatLong, name)},
+		{"count", "J", nullptr, $PUBLIC, $field(StatLong, count)},
+		{"sum", "J", nullptr, $PUBLIC, $field(StatLong, sum)},
+		{"min", "J", nullptr, $PUBLIC, $field(StatLong, min)},
+		{"max", "J", nullptr, $PUBLIC, $field(StatLong, max)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StatLong, init$, void, $String*)},
+		{"add", "(I)V", nullptr, $PUBLIC, $virtualMethod(StatLong, add, void, int32_t)},
+		{"add", "(J)V", nullptr, $PUBLIC, $virtualMethod(StatLong, add, void, int64_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(StatLong, reset, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StatLong, toString, $String*)},
+		{"toString", "(Ljava/lang/StringBuilder;)Ljava/lang/StringBuilder;", nullptr, $PUBLIC | $FINAL, $method(StatLong, toString, $StringBuilder*, $StringBuilder*)},
+		{"trimTo3Digits", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(StatLong, trimTo3Digits, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.marlin.stats.StatLong",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StatLong, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StatLong);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/font/SunFontManager.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/FontFormatException.h>
 #include <java/io/File.h>
@@ -19,7 +18,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -29,7 +27,6 @@
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <java/util/Map$Entry.h>
-#include <java/util/Map.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Optional.h>
 #include <java/util/Set.h>
@@ -125,7 +122,6 @@ using $FontFormatException = ::java::awt::FontFormatException;
 using $File = ::java::io::File;
 using $FilenameFilter = ::java::io::FilenameFilter;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -143,27 +139,21 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $Optional = ::java::util::Optional;
-using $Set = ::java::util::Set;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $TreeMap = ::java::util::TreeMap;
 using $Vector = ::java::util::Vector;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ConcurrentHashMap$KeySetView = ::java::util::concurrent::ConcurrentHashMap$KeySetView;
 using $Supplier = ::java::util::function::Supplier;
-using $Stream = ::java::util::stream::Stream;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $FontConfiguration = ::sun::awt::FontConfiguration;
 using $SunToolkit = ::sun::awt::SunToolkit;
@@ -213,29 +203,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(SunFontManager::lambda$getDefaultPhysicalFont$0());
+		 return SunFontManager::lambda$getDefaultPhysicalFont$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0, get, $Object*)},
-	{}
-};
-$ClassInfo SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.font.SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0::load$($String* name, bool initialize) {
-	$loadClass(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.font.SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0);
+	});
 	return class$;
 }
 $Class* SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0::class$ = nullptr;
@@ -248,264 +235,36 @@ public:
 		$set(this, fileCloserRunnable, fileCloserRunnable);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$createFont2D$1(fileCloserRunnable));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SunFontManager$$Lambda$lambda$createFont2D$1$1>());
+		 return $nc(inst$)->lambda$createFont2D$1(fileCloserRunnable);
 	}
 	SunFontManager* inst$ = nullptr;
 	$Runnable* fileCloserRunnable = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SunFontManager$$Lambda$lambda$createFont2D$1$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SunFontManager$$Lambda$lambda$createFont2D$1$1, inst$)},
-	{"fileCloserRunnable", "Ljava/lang/Runnable;", nullptr, $PUBLIC, $field(SunFontManager$$Lambda$lambda$createFont2D$1$1, fileCloserRunnable)},
-	{}
-};
-$MethodInfo SunFontManager$$Lambda$lambda$createFont2D$1$1::methodInfos[3] = {
-	{"<init>", "(Lsun/font/SunFontManager;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SunFontManager$$Lambda$lambda$createFont2D$1$1, init$, void, SunFontManager*, $Runnable*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunFontManager$$Lambda$lambda$createFont2D$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo SunFontManager$$Lambda$lambda$createFont2D$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.font.SunFontManager$$Lambda$lambda$createFont2D$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* SunFontManager$$Lambda$lambda$createFont2D$1$1::load$($String* name, bool initialize) {
-	$loadClass(SunFontManager$$Lambda$lambda$createFont2D$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SunFontManager$$Lambda$lambda$createFont2D$1$1, inst$)},
+		{"fileCloserRunnable", "Ljava/lang/Runnable;", nullptr, $PUBLIC, $field(SunFontManager$$Lambda$lambda$createFont2D$1$1, fileCloserRunnable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/SunFontManager;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $method(SunFontManager$$Lambda$lambda$createFont2D$1$1, init$, void, SunFontManager*, $Runnable*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SunFontManager$$Lambda$lambda$createFont2D$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.font.SunFontManager$$Lambda$lambda$createFont2D$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunFontManager$$Lambda$lambda$createFont2D$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunFontManager$$Lambda$lambda$createFont2D$1$1);
+	});
 	return class$;
 }
 $Class* SunFontManager$$Lambda$lambda$createFont2D$1$1::class$ = nullptr;
-
-$FieldInfo _SunFontManager_FieldInfo_[] = {
-	{"FONT_HANDLE_NULL", "Lsun/font/Font2DHandle;", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, FONT_HANDLE_NULL)},
-	{"FONTFORMAT_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_NONE)},
-	{"FONTFORMAT_TRUETYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_TRUETYPE)},
-	{"FONTFORMAT_TYPE1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_TYPE1)},
-	{"FONTFORMAT_TTC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_TTC)},
-	{"FONTFORMAT_COMPOSITE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_COMPOSITE)},
-	{"FONTFORMAT_NATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_NATIVE)},
-	{"CHANNELPOOLSIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunFontManager, CHANNELPOOLSIZE)},
-	{"fontFileCache", "[Lsun/font/FileFont;", nullptr, $PROTECTED, $field(SunFontManager, fontFileCache)},
-	{"lastPoolIndex", "I", nullptr, $PRIVATE, $field(SunFontManager, lastPoolIndex)},
-	{"maxCompFont", "I", nullptr, $PRIVATE, $field(SunFontManager, maxCompFont)},
-	{"compFonts", "[Lsun/font/CompositeFont;", nullptr, $PRIVATE, $field(SunFontManager, compFonts)},
-	{"compositeFonts", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/CompositeFont;>;", $PRIVATE, $field(SunFontManager, compositeFonts)},
-	{"physicalFonts", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/PhysicalFont;>;", $PRIVATE, $field(SunFontManager, physicalFonts)},
-	{"registeredFonts", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/PhysicalFont;>;", $PRIVATE, $field(SunFontManager, registeredFonts)},
-	{"fullNameToFont", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;", $PROTECTED, $field(SunFontManager, fullNameToFont)},
-	{"localeFullNamesToFont", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/font/TrueTypeFont;>;", $PRIVATE, $field(SunFontManager, localeFullNamesToFont)},
-	{"defaultPhysicalFont", "Lsun/font/PhysicalFont;", nullptr, $PRIVATE, $field(SunFontManager, defaultPhysicalFont)},
-	{"longAddresses", "Z", nullptr, $STATIC, $staticField(SunFontManager, longAddresses)},
-	{"loaded1dot0Fonts", "Z", nullptr, $PRIVATE, $field(SunFontManager, loaded1dot0Fonts)},
-	{"loadedAllFonts", "Z", nullptr, 0, $field(SunFontManager, loadedAllFonts)},
-	{"loadedAllFontFiles", "Z", nullptr, 0, $field(SunFontManager, loadedAllFontFiles)},
-	{"jreOtherFontFiles", "[Ljava/lang/String;", nullptr, 0, $field(SunFontManager, jreOtherFontFiles)},
-	{"noOtherJREFontFiles", "Z", nullptr, 0, $field(SunFontManager, noOtherJREFontFiles)},
-	{"jreLibDirName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticField(SunFontManager, jreLibDirName)},
-	{"jreFontDirName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticField(SunFontManager, jreFontDirName)},
-	{"missingFontFiles", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(SunFontManager, missingFontFiles)},
-	{"defaultFontName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SunFontManager, defaultFontName)},
-	{"defaultFontFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SunFontManager, defaultFontFileName)},
-	{"registeredFontFiles", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PROTECTED, $field(SunFontManager, registeredFontFiles)},
-	{"badFonts", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $field(SunFontManager, badFonts)},
-	{"fontPath", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SunFontManager, fontPath)},
-	{"fontConfig", "Lsun/awt/FontConfiguration;", nullptr, $PRIVATE, $field(SunFontManager, fontConfig)},
-	{"discoveredAllFonts", "Z", nullptr, $PRIVATE, $field(SunFontManager, discoveredAllFonts)},
-	{"ttFilter", "Ljava/io/FilenameFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunFontManager, ttFilter)},
-	{"t1Filter", "Ljava/io/FilenameFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunFontManager, t1Filter)},
-	{"allFonts", "[Ljava/awt/Font;", nullptr, $PRIVATE, $field(SunFontManager, allFonts)},
-	{"allFamilies", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SunFontManager, allFamilies)},
-	{"lastDefaultLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(SunFontManager, lastDefaultLocale)},
-	{"noType1Font", "Z", nullptr, $PUBLIC | $STATIC, $staticField(SunFontManager, noType1Font)},
-	{"STR_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, STR_ARRAY)},
-	{"usePlatformFontMetrics", "Z", nullptr, $PRIVATE, $field(SunFontManager, usePlatformFontMetrics$)},
-	{"maxSoftRefCnt", "I", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, maxSoftRefCnt)},
-	{"deferredFontFiles", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/SunFontManager$FontRegistrationInfo;>;", $PRIVATE | $FINAL, $field(SunFontManager, deferredFontFiles)},
-	{"initialisedFonts", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2DHandle;>;", $PRIVATE | $FINAL, $field(SunFontManager, initialisedFonts)},
-	{"fontToFileMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SunFontManager, fontToFileMap)},
-	{"fontToFamilyNameMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SunFontManager, fontToFamilyNameMap)},
-	{"familyToFontListMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;", $PRIVATE, $field(SunFontManager, familyToFontListMap)},
-	{"pathDirs", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SunFontManager, pathDirs)},
-	{"haveCheckedUnreferencedFontFiles", "Z", nullptr, $PRIVATE, $field(SunFontManager, haveCheckedUnreferencedFontFiles)},
-	{"platformFontMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/font/SunFontManager$FamilyDescription;>;", $STATIC | $VOLATILE, $staticField(SunFontManager, platformFontMap)},
-	{"fontNameCache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;", $PRIVATE, $field(SunFontManager, fontNameCache)},
-	{"fileCloser", "Ljava/lang/Thread;", nullptr, 0, $field(SunFontManager, fileCloser)},
-	{"tmpFontFiles", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", 0, $field(SunFontManager, tmpFontFiles)},
-	{"createdFontCount", "I", nullptr, $PRIVATE, $field(SunFontManager, createdFontCount)},
-	{"_usingAlternateComposites", "Z", nullptr, $PRIVATE, $field(SunFontManager, _usingAlternateComposites)},
-	{"gAltJAFont", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, gAltJAFont)},
-	{"gLocalePref", "Z", nullptr, $PRIVATE, $field(SunFontManager, gLocalePref)},
-	{"gPropPref", "Z", nullptr, $PRIVATE, $field(SunFontManager, gPropPref)},
-	{"installedNames", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(SunFontManager, installedNames)},
-	{"regFamilyLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunFontManager, regFamilyLock)},
-	{"createdByFamilyName", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Lsun/font/FontFamily;>;", $PRIVATE, $field(SunFontManager, createdByFamilyName)},
-	{"createdByFullName", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Lsun/font/Font2D;>;", $PRIVATE, $field(SunFontManager, createdByFullName)},
-	{"fontsAreRegistered", "Z", nullptr, $PRIVATE, $field(SunFontManager, fontsAreRegistered)},
-	{"systemLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, systemLocale)},
-	{}
-};
-
-$MethodInfo _SunFontManager_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(SunFontManager, init$, void)},
-	{"addCompositeToFontList", "(Lsun/font/CompositeFont;I)V", nullptr, $PRIVATE, $method(SunFontManager, addCompositeToFontList, void, $CompositeFont*, int32_t)},
-	{"addDirFonts", "(Ljava/lang/String;Ljava/io/File;Ljava/io/FilenameFilter;IZIZZ)V", nullptr, $PRIVATE, $method(SunFontManager, addDirFonts, void, $String*, $File*, $FilenameFilter*, int32_t, bool, int32_t, bool, bool)},
-	{"addFontToPlatformFontPath", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, addFontToPlatformFontPath, void, $String*)},
-	{"addNativeFontFamilyNames", "(Ljava/util/TreeMap;Ljava/util/Locale;)V", "(Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(SunFontManager, addNativeFontFamilyNames, void, $TreeMap*, $Locale*)},
-	{"addToFontList", "(Lsun/font/PhysicalFont;I)Lsun/font/PhysicalFont;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, addToFontList, $PhysicalFont*, $PhysicalFont*, int32_t)},
-	{"addToMissingFontFileList", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, addToMissingFontFileList, void, $String*)},
-	{"addToPool", "(Lsun/font/FileFont;)V", nullptr, 0, $virtualMethod(SunFontManager, addToPool, void, $FileFont*)},
-	{"checkForUnreferencedFontFiles", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SunFontManager, checkForUnreferencedFontFiles, void)},
-	{"createCompositeFonts", "(Ljava/util/concurrent/ConcurrentHashMap;ZZ)V", "(Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;ZZ)V", $PUBLIC, $virtualMethod(SunFontManager, createCompositeFonts, void, $ConcurrentHashMap*, bool, bool)},
-	{"createFont2D", "(Ljava/io/File;IZZLsun/font/CreatedFontTracker;)[Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, createFont2D, $Font2DArray*, $File*, int32_t, bool, bool, $CreatedFontTracker*), "java.awt.FontFormatException"},
-	{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunFontManager, createFontConfiguration, $FontConfiguration*)},
-	{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunFontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
-	{"deRegisterBadFont", "(Lsun/font/Font2D;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, deRegisterBadFont, void, $Font2D*)},
-	{"dotStyleStr", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFontManager, dotStyleStr, $String*, int32_t)},
-	{"findDeferredFont", "(Ljava/lang/String;I)Lsun/font/PhysicalFont;", nullptr, $PRIVATE, $method(SunFontManager, findDeferredFont, $PhysicalFont*, $String*, int32_t)},
-	{"findFont2D", "(Ljava/lang/String;II)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, findFont2D, $Font2D*, $String*, int32_t, int32_t)},
-	{"findFont2DAllLocales", "(Ljava/lang/String;I)Lsun/font/Font2D;", nullptr, $PRIVATE, $method(SunFontManager, findFont2DAllLocales, $Font2D*, $String*, int32_t)},
-	{"findFontFromPlatform", "(Ljava/lang/String;I)Lsun/font/Font2D;", nullptr, $PRIVATE, $method(SunFontManager, findFontFromPlatform, $Font2D*, $String*, int32_t)},
-	{"findFontFromPlatformMap", "(Ljava/lang/String;I)Lsun/font/Font2D;", nullptr, 0, $virtualMethod(SunFontManager, findFontFromPlatformMap, $Font2D*, $String*, int32_t)},
-	{"findJREDeferredFont", "(Ljava/lang/String;I)Lsun/font/PhysicalFont;", nullptr, 0, $virtualMethod(SunFontManager, findJREDeferredFont, $PhysicalFont*, $String*, int32_t)},
-	{"findOtherDeferredFont", "(Ljava/lang/String;I)Lsun/font/PhysicalFont;", nullptr, $PRIVATE, $method(SunFontManager, findOtherDeferredFont, $PhysicalFont*, $String*, int32_t)},
-	{"fontSupportsEncoding", "(Ljava/awt/Font;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFontManager, fontSupportsEncoding, bool, $Font*, $String*)},
-	{"getAllInstalledFonts", "()[Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getAllInstalledFonts, $FontArray*)},
-	{"getCreatedFontFamilyNames", "()Ljava/util/TreeMap;", "()Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SunFontManager, getCreatedFontFamilyNames, $TreeMap*)},
-	{"getCreatedFonts", "()[Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getCreatedFonts, $FontArray*)},
-	{"getDefaultFontFaceName", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, getDefaultFontFaceName, $String*)},
-	{"getDefaultFontFile", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, getDefaultFontFile, $String*)},
-	{"getDefaultLogicalFont", "(I)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getDefaultLogicalFont, $Font2D*, int32_t)},
-	{"getDefaultPhysicalFont", "()Lsun/font/PhysicalFont;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getDefaultPhysicalFont, $PhysicalFont*)},
-	{"getDefaultPlatformFont", "()[Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunFontManager, getDefaultPlatformFont, $StringArray*)},
-	{"getEUDCFont", "()Lsun/font/TrueTypeFont;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getEUDCFont, $TrueTypeFont*)},
-	{"getFamilyNamesFromPlatform", "(Ljava/util/TreeMap;Ljava/util/Locale;)Z", "(Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Locale;)Z", $PUBLIC, $virtualMethod(SunFontManager, getFamilyNamesFromPlatform, bool, $TreeMap*, $Locale*)},
-	{"getFileNameForFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getFileNameForFontName, $String*, $String*)},
-	{"getFileNameFromPlatformName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getFileNameFromPlatformName, $String*, $String*)},
-	{"getFontConfigFUIR", "(Ljava/lang/String;II)Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getFontConfigFUIR, $FontUIResource*, $String*, int32_t, int32_t)},
-	{"getFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getFontConfiguration, $FontConfiguration*)},
-	{"getFontFilesFromPath", "(Z)[Ljava/lang/String;", nullptr, $PRIVATE, $method(SunFontManager, getFontFilesFromPath, $StringArray*, bool)},
-	{"getFontNamesFromPlatform", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getFontNamesFromPlatform, $StringArray*)},
-	{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunFontManager, getFontPath, $String*, bool)},
-	{"getFullNameByFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, getFullNameByFileName, $String*, $String*)},
-	{"getFullNameToFileMap", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $SYNCHRONIZED, $method(SunFontManager, getFullNameToFileMap, $HashMap*)},
-	{"getInstalledFontFamilyNames", "(Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getInstalledFontFamilyNames, $StringArray*, $Locale*)},
-	{"getInstalledNames", "()Ljava/util/HashSet;", "()Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SunFontManager, getInstalledNames, $HashSet*)},
-	{"getInstance", "()Lsun/font/SunFontManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunFontManager, getInstance, SunFontManager*)},
-	{"getJDKFontDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunFontManager, getJDKFontDir, $String*)},
-	{"getJREFontFamilyNames", "(Ljava/util/TreeMap;Ljava/util/Locale;)V", "(Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(SunFontManager, getJREFontFamilyNames, void, $TreeMap*, $Locale*)},
-	{"getNativeNames", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getNativeNames, $StringArray*, $String*, $String*)},
-	{"getNewComposite", "(Ljava/lang/String;ILsun/font/Font2DHandle;)Lsun/font/Font2DHandle;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getNewComposite, $Font2DHandle*, $String*, int32_t, $Font2DHandle*)},
-	{"getNumFonts", "()I", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getNumFonts, int32_t)},
-	{"getPathName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SunFontManager, getPathName, $String*, $String*)},
-	{"getPhysicalFonts", "()[Lsun/font/PhysicalFont;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getPhysicalFonts, $PhysicalFontArray*)},
-	{"getPlatformFontDirs", "(Z)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getPlatformFontDirs, $StringArray*, bool)},
-	{"getPlatformFontPath", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getPlatformFontPath, $String*, bool)},
-	{"getRegisteredFontFile", "(Ljava/lang/String;)Lsun/font/PhysicalFont;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getRegisteredFontFile, $PhysicalFont*, $String*)},
-	{"getRegisteredFonts", "()[Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getRegisteredFonts, $Font2DArray*)},
-	{"getSystemStartupLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFontManager, getSystemStartupLocale, $Locale*)},
-	{"getTrueTypeFilter", "()Ljava/io/FilenameFilter;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getTrueTypeFilter, $FilenameFilter*)},
-	{"getType1Filter", "()Ljava/io/FilenameFilter;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getType1Filter, $FilenameFilter*)},
-	{"gotFontsFromPlatform", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, gotFontsFromPlatform, bool)},
-	{"initCompositeFonts", "(Lsun/awt/FontConfiguration;Ljava/util/concurrent/ConcurrentHashMap;)V", "(Lsun/awt/FontConfiguration;Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;)V", $PRIVATE, $method(SunFontManager, initCompositeFonts, void, $FontConfiguration*, $ConcurrentHashMap*)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SunFontManager, initIDs, void)},
-	{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFontManager, initStatic, void)},
-	{"initialiseDeferredFont", "(Ljava/lang/String;)Lsun/font/PhysicalFont;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, initialiseDeferredFont, $PhysicalFont*, $String*)},
-	{"initialiseDeferredFonts", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(SunFontManager, initialiseDeferredFonts, void)},
-	{"isDeferredFont", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, isDeferredFont, bool, $String*)},
-	{"isNameForRegisteredFile", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SunFontManager, isNameForRegisteredFile, bool, $String*)},
-	{"isRegisteredFontFile", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, isRegisteredFontFile, bool, $String*)},
-	{"lambda$createFont2D$1", "(Ljava/lang/Runnable;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(SunFontManager, lambda$createFont2D$1, $Void*, $Runnable*)},
-	{"lambda$getDefaultPhysicalFont$0", "()Ljava/lang/Error;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SunFontManager, lambda$getDefaultPhysicalFont$0, $Error*)},
-	{"loadFontFiles", "()V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, loadFontFiles, void)},
-	{"loadFonts", "()V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, loadFonts, void)},
-	{"loadLocaleNames", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SunFontManager, loadLocaleNames, void)},
-	{"logPlatformFontInfo", "()V", nullptr, $PRIVATE, $method(SunFontManager, logPlatformFontInfo, void)},
-	{"populateFontFileNameMap", "(Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/Locale;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(SunFontManager, populateFontFileNameMap, void, $HashMap*, $HashMap*, $HashMap*, $Locale*)},
-	{"populateHardcodedFileNameMap", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/font/SunFontManager$FamilyDescription;>;", $PUBLIC, $virtualMethod(SunFontManager, populateHardcodedFileNameMap, $HashMap*)},
-	{"preferLocaleFonts", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, preferLocaleFonts, void)},
-	{"preferProportionalFonts", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, preferProportionalFonts, void)},
-	{"register1dot0Fonts", "()V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, register1dot0Fonts, void)},
-	{"registerCompositeFont", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;I[I[IZ)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerCompositeFont, void, $String*, $StringArray*, $StringArray*, int32_t, $ints*, $ints*, bool)},
-	{"registerCompositeFont", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;I[I[IZLjava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;I[I[IZLjava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;)V", $PROTECTED | $STATIC, $staticMethod(SunFontManager, registerCompositeFont, void, $String*, $StringArray*, $StringArray*, int32_t, $ints*, $ints*, bool, $ConcurrentHashMap*)},
-	{"registerDeferredFont", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;IZI)V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerDeferredFont, void, $String*, $String*, $StringArray*, int32_t, bool, int32_t)},
-	{"registerDeferredJREFonts", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(SunFontManager, registerDeferredJREFonts, void, $String*)},
-	{"registerFont", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerFont, bool, $Font*)},
-	{"registerFontDir", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerFontDir, void, $String*)},
-	{"registerFontDirs", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerFontDirs, void, $String*)},
-	{"registerFontFile", "(Ljava/lang/String;[Ljava/lang/String;IZI)Lsun/font/PhysicalFont;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerFontFile, $PhysicalFont*, $String*, $StringArray*, int32_t, bool, int32_t)},
-	{"registerFontFile", "(Ljava/lang/String;)Lsun/font/PhysicalFont;", nullptr, $PRIVATE, $method(SunFontManager, registerFontFile, $PhysicalFont*, $String*)},
-	{"registerFontFile", "(Ljava/lang/String;[Ljava/lang/String;IZ)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerFontFile, void, $String*, $StringArray*, int32_t, bool)},
-	{"registerFonts", "([Ljava/lang/String;[[Ljava/lang/String;IIZIZ)V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerFonts, void, $StringArray*, $StringArray2*, int32_t, int32_t, bool, int32_t, bool)},
-	{"registerFontsInDir", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerFontsInDir, void, $String*)},
-	{"registerFontsInDir", "(Ljava/lang/String;ZIZZ)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerFontsInDir, void, $String*, bool, int32_t, bool, bool)},
-	{"registerFontsOnPath", "(Ljava/lang/String;ZIZZ)V", nullptr, $PRIVATE, $method(SunFontManager, registerFontsOnPath, void, $String*, bool, int32_t, bool, bool)},
-	{"registerOtherFontFiles", "(Ljava/util/HashSet;)V", "(Ljava/util/HashSet<Ljava/lang/String;>;)V", $PROTECTED, $virtualMethod(SunFontManager, registerOtherFontFiles, void, $HashSet*)},
-	{"registerPlatformFontsUsedByFontConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerPlatformFontsUsedByFontConfiguration, void)},
-	{"removeFromCache", "(Lsun/font/Font2D;)V", nullptr, $PRIVATE, $method(SunFontManager, removeFromCache, void, $Font2D*)},
-	{"replaceFont", "(Lsun/font/PhysicalFont;Lsun/font/PhysicalFont;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, replaceFont, void, $PhysicalFont*, $PhysicalFont*)},
-	{"resolveFontFiles", "(Ljava/util/HashSet;Ljava/util/ArrayList;)V", "(Ljava/util/HashSet<Ljava/lang/String;>;Ljava/util/ArrayList<Ljava/lang/String;>;)V", $PRIVATE, $method(SunFontManager, resolveFontFiles, void, $HashSet*, $ArrayList*)},
-	{"resolveWindowsFonts", "()V", nullptr, $PRIVATE, $method(SunFontManager, resolveWindowsFonts, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"useAbsoluteFontFileNames", "()Z", nullptr, $PROTECTED, $virtualMethod(SunFontManager, useAbsoluteFontFileNames, bool)},
-	{"useAlternateFontforJALocales", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, useAlternateFontforJALocales, void)},
-	{"usePlatformFontMetrics", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, usePlatformFontMetrics, bool)},
-	{"usingAlternateCompositeFonts", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, usingAlternateCompositeFonts, bool)},
-	{"usingAlternateFontforJALocales", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, usingAlternateFontforJALocales, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 65
-
-$InnerClassInfo _SunFontManager_InnerClassesInfo_[] = {
-	{"sun.font.SunFontManager$FamilyDescription", "sun.font.SunFontManager", "FamilyDescription", $PUBLIC | $STATIC},
-	{"sun.font.SunFontManager$FontRegistrationInfo", "sun.font.SunFontManager", "FontRegistrationInfo", $PRIVATE | $STATIC | $FINAL},
-	{"sun.font.SunFontManager$TTorT1Filter", "sun.font.SunFontManager", "TTorT1Filter", $PRIVATE | $STATIC},
-	{"sun.font.SunFontManager$T1Filter", "sun.font.SunFontManager", "T1Filter", $PRIVATE | $STATIC},
-	{"sun.font.SunFontManager$TTFilter", "sun.font.SunFontManager", "TTFilter", $PRIVATE | $STATIC},
-	{"sun.font.SunFontManager$12", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$11", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$10", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$9", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$8", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$7", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$6", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$5", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$4", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$3", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$2", nullptr, nullptr, 0},
-	{"sun.font.SunFontManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SunFontManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.font.SunFontManager",
-	"java.lang.Object",
-	"sun.java2d.FontSupport,sun.font.FontManagerForSGE",
-	_SunFontManager_FieldInfo_,
-	_SunFontManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunFontManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.font.SunFontManager$FamilyDescription,sun.font.SunFontManager$FontRegistrationInfo,sun.font.SunFontManager$TTorT1Filter,sun.font.SunFontManager$T1Filter,sun.font.SunFontManager$TTFilter,sun.font.SunFontManager$12,sun.font.SunFontManager$11,sun.font.SunFontManager$10,sun.font.SunFontManager$9,sun.font.SunFontManager$8,sun.font.SunFontManager$8$1,sun.font.SunFontManager$7,sun.font.SunFontManager$6,sun.font.SunFontManager$5,sun.font.SunFontManager$4,sun.font.SunFontManager$3,sun.font.SunFontManager$2,sun.font.SunFontManager$1"
-};
-
-$Object* allocate$SunFontManager($Class* clazz) {
-	return $of($alloc(SunFontManager));
-}
 
 int32_t SunFontManager::hashCode() {
 	 return this->$FontSupport::hashCode();
@@ -560,7 +319,7 @@ $FilenameFilter* SunFontManager::getType1Filter() {
 void SunFontManager::initStatic() {
 	$init(SunFontManager);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$1)));
+	$AccessController::doPrivileged($$new($SunFontManager$1));
 }
 
 $String* SunFontManager::getJDKFontDir() {
@@ -574,13 +333,13 @@ $TrueTypeFont* SunFontManager::getEUDCFont() {
 
 void SunFontManager::initIDs() {
 	$init(SunFontManager);
-	$prepareNativeStatic(SunFontManager, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void SunFontManager::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, fontFileCache, $new($FileFontArray, SunFontManager::CHANNELPOOLSIZE));
 	this->lastPoolIndex = 0;
@@ -611,24 +370,24 @@ void SunFontManager::init$() {
 	this->gLocalePref = false;
 	this->gPropPref = false;
 	this->fontsAreRegistered = false;
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$2, this)));
-	bool platformFont = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$3, this)))))))->booleanValue();
+	$AccessController::doPrivileged($$new($SunFontManager$2, this));
+	bool platformFont = $$sure($Boolean, $AccessController::doPrivileged($$new($SunFontManager$3, this)))->booleanValue();
 	if (platformFont) {
 		this->usePlatformFontMetrics$ = true;
 		$nc($System::out)->println("Enabling platform font metrics for win32. This is an unsupported option."_s);
-		$nc($System::out)->println("This yields incorrect composite font metrics as reported by 1.1.x releases."_s);
-		$nc($System::out)->println("It is appropriate only for use by applications which do not use any Java 2"_s);
-		$nc($System::out)->println("functionality. This property will be removed in a later release."_s);
+		$System::out->println("This yields incorrect composite font metrics as reported by 1.1.x releases."_s);
+		$System::out->println("It is appropriate only for use by applications which do not use any Java 2"_s);
+		$System::out->println("functionality. This property will be removed in a later release."_s);
 	}
 }
 
 $Font2DHandle* SunFontManager::getNewComposite($String* family$renamed, int32_t style, $Font2DHandle* handle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, family, family$renamed);
 	if (!($instanceOf($CompositeFont, $nc(handle)->font2D))) {
 		return handle;
 	}
-	$var($CompositeFont, oldComp, $cast($CompositeFont, $nc(handle)->font2D));
+	$var($CompositeFont, oldComp, $cast($CompositeFont, handle->font2D));
 	$var($PhysicalFont, oldFont, $nc(oldComp)->getSlotFont(0));
 	if (family == nullptr) {
 		$assign(family, $nc(oldFont)->getFamilyName(nullptr));
@@ -654,26 +413,26 @@ void SunFontManager::registerCompositeFont($String* compositeName, $StringArray*
 	$var($CompositeFont, cf, $new($CompositeFont, compositeName, componentFileNames, componentNames, numMetricsSlots, exclusionRanges, exclusionMaxIndex, defer, this));
 	addCompositeToFontList(cf, $Font2D::FONT_CONFIG_RANK);
 	$synchronized(this->compFonts) {
-		$nc(this->compFonts)->set(this->maxCompFont++, cf);
+		this->compFonts->set(this->maxCompFont++, cf);
 	}
 }
 
 void SunFontManager::registerCompositeFont($String* compositeName, $StringArray* componentFileNames, $StringArray* componentNames, int32_t numMetricsSlots, $ints* exclusionRanges, $ints* exclusionMaxIndex, bool defer, $ConcurrentHashMap* altNameCache) {
 	$init(SunFontManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompositeFont, cf, $new($CompositeFont, compositeName, componentFileNames, componentNames, numMetricsSlots, exclusionRanges, exclusionMaxIndex, defer, $(SunFontManager::getInstance())));
 	$init($Locale);
 	$var($Font2D, oldFont, $cast($Font2D, $nc(altNameCache)->get($($nc(compositeName)->toLowerCase($Locale::ENGLISH)))));
 	if ($instanceOf($CompositeFont, oldFont)) {
-		$set($nc($nc(oldFont)->handle), font2D, cf);
+		$set($nc(oldFont->handle), font2D, cf);
 	}
-	altNameCache->put($($nc(compositeName)->toLowerCase($Locale::ENGLISH)), cf);
+	altNameCache->put($(compositeName->toLowerCase($Locale::ENGLISH)), cf);
 }
 
 void SunFontManager::addCompositeToFontList($CompositeFont* f, int32_t rank) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($FontUtilities::isLogging()) {
-		$FontUtilities::logInfo($$str({"Add to Family "_s, $nc(f)->familyName, ", Font "_s, f->fullName, " rank="_s, $$str(rank)}));
+		$FontUtilities::logInfo($$str({"Add to Family "_s, $nc(f)->familyName, ", Font "_s, $nc(f)->fullName, " rank="_s, $$str(rank)}));
 	}
 	$nc(f)->setRank(rank);
 	$nc(this->compositeFonts)->put(f->fullName, f);
@@ -687,10 +446,10 @@ void SunFontManager::addCompositeToFontList($CompositeFont* f, int32_t rank) {
 }
 
 $PhysicalFont* SunFontManager::addToFontList($PhysicalFont* f, int32_t rank) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, fontName, $nc(f)->fullName);
 	$var($String, familyName, f->familyName);
-	if (fontName == nullptr || $nc(fontName)->isEmpty()) {
+	if (fontName == nullptr || fontName->isEmpty()) {
 		return nullptr;
 	}
 	if ($nc(this->compositeFonts)->containsKey(fontName)) {
@@ -707,7 +466,7 @@ $PhysicalFont* SunFontManager::addToFontList($PhysicalFont* f, int32_t rank) {
 			$assign(family, $new($FontFamily, familyName, false, rank));
 			family->setFont(f, f->style);
 		} else {
-			$nc(family)->setFont(f, f->style);
+			family->setFont(f, f->style);
 		}
 		$init($Locale);
 		$nc(this->fullNameToFont)->put($($nc(fontName)->toLowerCase($Locale::ENGLISH)), f);
@@ -751,7 +510,7 @@ $PhysicalFont* SunFontManager::addToFontList($PhysicalFont* f, int32_t rank) {
 				$assign(family, $new($FontFamily, familyName, false, rank));
 				family->setFont(newFont, newFont->style);
 			} else {
-				$nc(family)->setFont(newFont, newFont->style);
+				family->setFont(newFont, newFont->style);
 			}
 			return newFont;
 		} else {
@@ -761,7 +520,7 @@ $PhysicalFont* SunFontManager::addToFontList($PhysicalFont* f, int32_t rank) {
 }
 
 $Font2DArray* SunFontManager::getRegisteredFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PhysicalFontArray, physFonts, getPhysicalFonts());
 	int32_t mcf = this->maxCompFont;
 	$var($Font2DArray, regFonts, $new($Font2DArray, $nc(physFonts)->length + mcf));
@@ -771,20 +530,18 @@ $Font2DArray* SunFontManager::getRegisteredFonts() {
 }
 
 $PhysicalFontArray* SunFontManager::getPhysicalFonts() {
-	$useLocalCurrentObjectStackCache();
-	return $fcast($PhysicalFontArray, $nc($($nc(this->physicalFonts)->values()))->toArray($$new($PhysicalFontArray, 0)));
+	$useLocalObjectStack();
+	return $cast($PhysicalFontArray, $$nc($nc(this->physicalFonts)->values())->toArray($$new($PhysicalFontArray, 0)));
 }
 
 void SunFontManager::initialiseDeferredFonts() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		{
-			$var($Iterator, i$, $nc($($cast($ConcurrentHashMap$KeySetView, $nc(this->deferredFontFiles)->keySet())))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($String, fileName, $cast($String, i$->next()));
-				{
-					initialiseDeferredFont(fileName);
-				}
+		$useLocalObjectStack();
+		$var($Iterator, i$, $$sure($ConcurrentHashMap$KeySetView, this->deferredFontFiles->keySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($String, fileName, $cast($String, i$->next()));
+			{
+				initialiseDeferredFont(fileName);
 			}
 		}
 	}
@@ -792,27 +549,23 @@ void SunFontManager::initialiseDeferredFonts() {
 
 void SunFontManager::registerDeferredJREFonts($String* jreDir) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		{
-			$var($Iterator, i$, $nc($($nc(this->deferredFontFiles)->values()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($SunFontManager$FontRegistrationInfo, info, $cast($SunFontManager$FontRegistrationInfo, i$->next()));
-				{
-					if ($nc(info)->fontFilePath != nullptr && $nc(info->fontFilePath)->startsWith(jreDir)) {
-						initialiseDeferredFont(info->fontFilePath);
-					}
-				}
+		$useLocalObjectStack();
+		$var($Iterator, i$, $$nc(this->deferredFontFiles->values())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($SunFontManager$FontRegistrationInfo, info, $cast($SunFontManager$FontRegistrationInfo, i$->next()));
+			if ($nc(info)->fontFilePath != nullptr && info->fontFilePath->startsWith(jreDir)) {
+				initialiseDeferredFont(info->fontFilePath);
 			}
 		}
 	}
 }
 
 bool SunFontManager::isDeferredFont($String* fileName) {
-	return $nc(this->deferredFontFiles)->containsKey(fileName);
+	return this->deferredFontFiles->containsKey(fileName);
 }
 
 $PhysicalFont* SunFontManager::findJREDeferredFont($String* name, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->noOtherJREFontFiles) {
 		return nullptr;
 	}
@@ -820,35 +573,35 @@ $PhysicalFont* SunFontManager::findJREDeferredFont($String* name, int32_t style)
 		if (this->jreOtherFontFiles == nullptr) {
 			$var($HashSet, otherFontFiles, $new($HashSet));
 			{
-				$var($Iterator, i$, $nc($($cast($ConcurrentHashMap$KeySetView, $nc(this->deferredFontFiles)->keySet())))->iterator());
+				$var($Iterator, i$, $$sure($ConcurrentHashMap$KeySetView, this->deferredFontFiles->keySet())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($String, deferredFile, $cast($String, i$->next()));
 					{
 						$var($File, file, $new($File, deferredFile));
 						$var($String, dir, file->getParent());
-						if (dir == nullptr || !$nc(dir)->equals(SunFontManager::jreFontDirName)) {
+						if (dir == nullptr || !dir->equals(SunFontManager::jreFontDirName)) {
 							continue;
 						}
 						otherFontFiles->add(deferredFile);
 					}
 				}
 			}
-			$set(this, jreOtherFontFiles, $fcast($StringArray, otherFontFiles->toArray(SunFontManager::STR_ARRAY)));
+			$set(this, jreOtherFontFiles, $cast($StringArray, otherFontFiles->toArray(SunFontManager::STR_ARRAY)));
 			if ($nc(this->jreOtherFontFiles)->length == 0) {
 				this->noOtherJREFontFiles = true;
 			}
 		}
 		for (int32_t i = 0; i < $nc(this->jreOtherFontFiles)->length; ++i) {
-			$var($String, fileName, $nc(this->jreOtherFontFiles)->get(i));
+			$var($String, fileName, this->jreOtherFontFiles->get(i));
 			if (fileName == nullptr) {
 				continue;
 			}
-			$nc(this->jreOtherFontFiles)->set(i, nullptr);
+			this->jreOtherFontFiles->set(i, nullptr);
 			$var($PhysicalFont, physicalFont, initialiseDeferredFont(fileName));
 			bool var$0 = physicalFont != nullptr;
 			if (var$0) {
-				bool var$1 = $nc($(physicalFont->getFontName(nullptr)))->equalsIgnoreCase(name);
-				var$0 = (var$1 || $nc($(physicalFont->getFamilyName(nullptr)))->equalsIgnoreCase(name));
+				bool var$1 = $$nc(physicalFont->getFontName(nullptr))->equalsIgnoreCase(name);
+				var$0 = var$1 || $$nc(physicalFont->getFamilyName(nullptr))->equalsIgnoreCase(name);
 			}
 			if (var$0 && $nc(physicalFont)->style == style) {
 				return physicalFont;
@@ -859,21 +612,19 @@ $PhysicalFont* SunFontManager::findJREDeferredFont($String* name, int32_t style)
 }
 
 $PhysicalFont* SunFontManager::findOtherDeferredFont($String* name, int32_t style) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($cast($ConcurrentHashMap$KeySetView, $nc(this->deferredFontFiles)->keySet())))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($String, fileName, $cast($String, i$->next()));
-			{
-				$var($PhysicalFont, physicalFont, initialiseDeferredFont(fileName));
-				bool var$0 = physicalFont != nullptr;
-				if (var$0) {
-					bool var$1 = $nc($(physicalFont->getFontName(nullptr)))->equalsIgnoreCase(name);
-					var$0 = (var$1 || $nc($(physicalFont->getFamilyName(nullptr)))->equalsIgnoreCase(name));
-				}
-				if (var$0 && $nc(physicalFont)->style == style) {
-					return physicalFont;
-				}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$sure($ConcurrentHashMap$KeySetView, this->deferredFontFiles->keySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($String, fileName, $cast($String, i$->next()));
+		{
+			$var($PhysicalFont, physicalFont, initialiseDeferredFont(fileName));
+			bool var$0 = physicalFont != nullptr;
+			if (var$0) {
+				bool var$1 = $$nc(physicalFont->getFontName(nullptr))->equalsIgnoreCase(name);
+				var$0 = var$1 || $$nc(physicalFont->getFamilyName(nullptr))->equalsIgnoreCase(name);
+			}
+			if (var$0 && $nc(physicalFont)->style == style) {
+				return physicalFont;
 			}
 		}
 	}
@@ -891,12 +642,12 @@ $PhysicalFont* SunFontManager::findDeferredFont($String* name, int32_t style) {
 
 void SunFontManager::registerDeferredFont($String* fileNameKey, $String* fullPathName, $StringArray* nativeNames, int32_t fontFormat, bool useJavaRasterizer, int32_t fontRank) {
 	$var($SunFontManager$FontRegistrationInfo, regInfo, $new($SunFontManager$FontRegistrationInfo, fullPathName, nativeNames, fontFormat, useJavaRasterizer, fontRank));
-	$nc(this->deferredFontFiles)->put(fileNameKey, regInfo);
+	this->deferredFontFiles->put(fileNameKey, regInfo);
 }
 
 $PhysicalFont* SunFontManager::initialiseDeferredFont($String* fileNameKey) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (fileNameKey == nullptr) {
 			return nullptr;
 		}
@@ -904,21 +655,21 @@ $PhysicalFont* SunFontManager::initialiseDeferredFont($String* fileNameKey) {
 			$FontUtilities::logInfo($$str({"Opening deferred font file "_s, fileNameKey}));
 		}
 		$var($PhysicalFont, physicalFont, nullptr);
-		$var($SunFontManager$FontRegistrationInfo, regInfo, $cast($SunFontManager$FontRegistrationInfo, $nc(this->deferredFontFiles)->get(fileNameKey)));
+		$var($SunFontManager$FontRegistrationInfo, regInfo, $cast($SunFontManager$FontRegistrationInfo, this->deferredFontFiles->get(fileNameKey)));
 		if (regInfo != nullptr) {
-			$nc(this->deferredFontFiles)->remove(fileNameKey);
+			this->deferredFontFiles->remove(fileNameKey);
 			$assign(physicalFont, registerFontFile(regInfo->fontFilePath, regInfo->nativeNames, regInfo->fontFormat, regInfo->javaRasterizer, regInfo->fontRank));
 			if (physicalFont != nullptr) {
-				$nc(this->initialisedFonts)->put(fileNameKey, physicalFont->handle);
+				this->initialisedFonts->put(fileNameKey, physicalFont->handle);
 			} else {
-				$nc(this->initialisedFonts)->put(fileNameKey, SunFontManager::FONT_HANDLE_NULL);
+				this->initialisedFonts->put(fileNameKey, SunFontManager::FONT_HANDLE_NULL);
 			}
 		} else {
-			$var($Font2DHandle, handle, $cast($Font2DHandle, $nc(this->initialisedFonts)->get(fileNameKey)));
+			$var($Font2DHandle, handle, $cast($Font2DHandle, this->initialisedFonts->get(fileNameKey)));
 			if (handle == nullptr) {
-				$nc(this->initialisedFonts)->put(fileNameKey, SunFontManager::FONT_HANDLE_NULL);
+				this->initialisedFonts->put(fileNameKey, SunFontManager::FONT_HANDLE_NULL);
 			} else {
-				$assign(physicalFont, ($cast($PhysicalFont, $nc(handle)->font2D)));
+				$assign(physicalFont, $cast($PhysicalFont, handle->font2D));
 			}
 		}
 		return physicalFont;
@@ -934,7 +685,7 @@ $PhysicalFont* SunFontManager::getRegisteredFontFile($String* name) {
 }
 
 $PhysicalFont* SunFontManager::registerFontFile($String* fileName, $StringArray* nativeNames, int32_t fontFormat, bool useJavaRasterizer, int32_t fontRank) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PhysicalFont, regFont, $cast($PhysicalFont, $nc(this->registeredFonts)->get(fileName)));
 	if (regFont != nullptr) {
 		return regFont;
@@ -943,36 +694,30 @@ $PhysicalFont* SunFontManager::registerFontFile($String* fileName, $StringArray*
 	try {
 		{
 			int32_t fn = 0;
-			$var($TrueTypeFont, ttf, nullptr)
-			$var($Type1Font, t1f, nullptr)
-			$var($NativeFont, nf, nullptr)
+			$var($TrueTypeFont, ttf, nullptr);
+			$var($Type1Font, t1f, nullptr);
+			$var($NativeFont, nf, nullptr);
 			switch (fontFormat) {
 			case SunFontManager::FONTFORMAT_TRUETYPE:
-				{
-					fn = 0;
-					do {
-						$assign(ttf, $new($TrueTypeFont, fileName, nativeNames, fn++, useJavaRasterizer));
-						$var($PhysicalFont, pf, addToFontList(ttf, fontRank));
-						if (physicalFont == nullptr) {
-							$assign(physicalFont, pf);
-						}
-					} while (fn < $nc(ttf)->getFontCount());
-					break;
-				}
+				fn = 0;
+				do {
+					$assign(ttf, $new($TrueTypeFont, fileName, nativeNames, fn++, useJavaRasterizer));
+					$var($PhysicalFont, pf, addToFontList(ttf, fontRank));
+					if (physicalFont == nullptr) {
+						$assign(physicalFont, pf);
+					}
+				} while (fn < $nc(ttf)->getFontCount());
+				break;
 			case SunFontManager::FONTFORMAT_TYPE1:
-				{
-					$assign(t1f, $new($Type1Font, fileName, nativeNames));
-					$assign(physicalFont, addToFontList(t1f, fontRank));
-					break;
-				}
+				$assign(t1f, $new($Type1Font, fileName, nativeNames));
+				$assign(physicalFont, addToFontList(t1f, fontRank));
+				break;
 			case SunFontManager::FONTFORMAT_NATIVE:
-				{
-					$assign(nf, $new($NativeFont, fileName, false));
-					$assign(physicalFont, addToFontList(nf, fontRank));
-					break;
-				}
+				$assign(nf, $new($NativeFont, fileName, false));
+				$assign(physicalFont, addToFontList(nf, fontRank));
+				break;
 			default:
-				{}
+				break;
 			}
 		}
 		if ($FontUtilities::isLogging()) {
@@ -992,7 +737,7 @@ $PhysicalFont* SunFontManager::registerFontFile($String* fileName, $StringArray*
 void SunFontManager::registerFonts($StringArray* fileNames, $StringArray2* nativeNames, int32_t fontCount, int32_t fontFormat, bool useJavaRasterizer, int32_t fontRank, bool defer) {
 	for (int32_t i = 0; i < fontCount; ++i) {
 		if (defer) {
-			registerDeferredFont($nc(fileNames)->get(i), fileNames->get(i), $nc(nativeNames)->get(i), fontFormat, useJavaRasterizer, fontRank);
+			registerDeferredFont($nc(fileNames)->get(i), $nc(fileNames)->get(i), $nc(nativeNames)->get(i), fontFormat, useJavaRasterizer, fontRank);
 		} else {
 			registerFontFile($nc(fileNames)->get(i), $nc(nativeNames)->get(i), fontFormat, useJavaRasterizer, fontRank);
 		}
@@ -1000,7 +745,7 @@ void SunFontManager::registerFonts($StringArray* fileNames, $StringArray2* nativ
 }
 
 $PhysicalFont* SunFontManager::getDefaultPhysicalFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->defaultPhysicalFont == nullptr) {
 		$var($String, defaultFontName, getDefaultFontFaceName());
 		$var($Font2D, font2d, findFont2D(defaultFontName, $Font::PLAIN, $FontManager::NO_FALLBACK));
@@ -1012,7 +757,7 @@ $PhysicalFont* SunFontManager::getDefaultPhysicalFont() {
 			}
 		}
 		if (this->defaultPhysicalFont == nullptr) {
-			$set(this, defaultPhysicalFont, $cast($PhysicalFont, $nc($($nc($($nc($($nc(this->physicalFonts)->values()))->stream()))->findFirst()))->orElseThrow(static_cast<$Supplier*>($$new(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0)))));
+			$set(this, defaultPhysicalFont, $cast($PhysicalFont, $$nc($$nc($$nc($nc(this->physicalFonts)->values())->stream())->findFirst())->orElseThrow($$new(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0))));
 		}
 	}
 	return this->defaultPhysicalFont;
@@ -1037,24 +782,16 @@ $String* SunFontManager::dotStyleStr(int32_t num) {
 		goto case$3;
 case$0:
 		// Font.BOLD
-		{
-			return ".bold"_s;
-		}
+		return ".bold"_s;
 case$1:
 		// Font.ITALIC
-		{
-			return ".italic"_s;
-		}
+		return ".italic"_s;
 case$2:
 		// Font.ITALIC | Font.BOLD
-		{
-			return ".bolditalic"_s;
-		}
+		return ".bolditalic"_s;
 case$3:
 		// default
-		{
-			return ".plain"_s;
-		}
+		return ".plain"_s;
 	} while (false);
 }
 
@@ -1062,7 +799,7 @@ void SunFontManager::populateFontFileNameMap($HashMap* fontToFileMap, $HashMap* 
 }
 
 $StringArray* SunFontManager::getFontFilesFromPath(bool noType1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($FilenameFilter, filter, nullptr);
 	if (noType1) {
@@ -1070,14 +807,14 @@ $StringArray* SunFontManager::getFontFilesFromPath(bool noType1) {
 	} else {
 		$assign(filter, $new($SunFontManager$TTorT1Filter));
 	}
-	return $cast($StringArray, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$4, this, filter))));
+	return $cast($StringArray, $AccessController::doPrivileged($$new($SunFontManager$4, this, filter)));
 }
 
 void SunFontManager::resolveWindowsFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, unmappedFontNames, nullptr);
 	{
-		$var($Iterator, i$, $nc($($nc(this->fontToFamilyNameMap)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->fontToFamilyNameMap)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, font, $cast($String, i$->next()));
 			{
@@ -1085,18 +822,18 @@ void SunFontManager::resolveWindowsFonts() {
 				if (file == nullptr) {
 					if ($nc(font)->indexOf("  "_s) > 0) {
 						$var($String, newName, font->replaceFirst("  "_s, " "_s));
-						$assign(file, $cast($String, $nc(this->fontToFileMap)->get(newName)));
-						if (file != nullptr && !$nc(this->fontToFamilyNameMap)->containsKey(newName)) {
-							$nc(this->fontToFileMap)->remove(newName);
-							$nc(this->fontToFileMap)->put(font, file);
+						$assign(file, $cast($String, this->fontToFileMap->get(newName)));
+						if (file != nullptr && !this->fontToFamilyNameMap->containsKey(newName)) {
+							this->fontToFileMap->remove(newName);
+							this->fontToFileMap->put(font, file);
 						}
 					} else if (font->equals("marlett"_s)) {
-						$nc(this->fontToFileMap)->put(font, "marlett.ttf"_s);
+						this->fontToFileMap->put(font, "marlett.ttf"_s);
 					} else if (font->equals("david"_s)) {
-						$assign(file, $cast($String, $nc(this->fontToFileMap)->get("david regular"_s)));
+						$assign(file, $cast($String, this->fontToFileMap->get("david regular"_s)));
 						if (file != nullptr) {
-							$nc(this->fontToFileMap)->remove("david regular"_s);
-							$nc(this->fontToFileMap)->put("david"_s, file);
+							this->fontToFileMap->remove("david regular"_s);
+							this->fontToFileMap->put("david"_s, file);
 						}
 					} else {
 						if (unmappedFontNames == nullptr) {
@@ -1110,9 +847,9 @@ void SunFontManager::resolveWindowsFonts() {
 	}
 	if (unmappedFontNames != nullptr) {
 		$var($HashSet, unmappedFontFiles, $new($HashSet));
-		$var($HashMap, ffmapCopy, ($cast($HashMap, $nc(this->fontToFileMap)->clone())));
+		$var($HashMap, ffmapCopy, $cast($HashMap, $nc(this->fontToFileMap)->clone()));
 		{
-			$var($Iterator, i$, $nc($($nc(this->fontToFamilyNameMap)->keySet()))->iterator());
+			$var($Iterator, i$, $$nc(this->fontToFamilyNameMap->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, key, $cast($String, i$->next()));
 				{
@@ -1121,12 +858,12 @@ void SunFontManager::resolveWindowsFonts() {
 			}
 		}
 		{
-			$var($Iterator, i$, $nc($($nc(ffmapCopy)->keySet()))->iterator());
+			$var($Iterator, i$, $$nc($nc(ffmapCopy)->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, key, $cast($String, i$->next()));
 				{
-					unmappedFontFiles->add($cast($String, $(ffmapCopy->get(key))));
-					$nc(this->fontToFileMap)->remove(key);
+					unmappedFontFiles->add($$cast($String, ffmapCopy->get(key)));
+					this->fontToFileMap->remove(key);
 				}
 			}
 		}
@@ -1134,7 +871,7 @@ void SunFontManager::resolveWindowsFonts() {
 		if (unmappedFontNames->size() > 0) {
 			$var($ArrayList, registryFiles, $new($ArrayList));
 			{
-				$var($Iterator, i$, $nc($($nc(this->fontToFileMap)->values()))->iterator());
+				$var($Iterator, i$, $$nc($nc(this->fontToFileMap)->values())->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($String, regFile, $cast($String, i$->next()));
 					{
@@ -1144,14 +881,10 @@ void SunFontManager::resolveWindowsFonts() {
 			}
 			{
 				$var($StringArray, arr$, getFontFilesFromPath(true));
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($String, pathFile, arr$->get(i$));
-					{
-						if (!registryFiles->contains(pathFile)) {
-							unmappedFontFiles->add(pathFile);
-						}
+					if (!registryFiles->contains(pathFile)) {
+						unmappedFontFiles->add(pathFile);
 					}
 				}
 			}
@@ -1166,11 +899,11 @@ void SunFontManager::resolveWindowsFonts() {
 					$var($ArrayList, family, $cast($ArrayList, $nc(this->familyToFontListMap)->get(familyName)));
 					if (family != nullptr) {
 						if (family->size() <= 1) {
-							$nc(this->familyToFontListMap)->remove(familyName);
+							this->familyToFontListMap->remove(familyName);
 						}
 					}
 				}
-				$nc(this->fontToFamilyNameMap)->remove(name);
+				this->fontToFamilyNameMap->remove(name);
 				if ($FontUtilities::isLogging()) {
 					$FontUtilities::logInfo($$str({"No file for font:"_s, name}));
 				}
@@ -1181,7 +914,7 @@ void SunFontManager::resolveWindowsFonts() {
 
 void SunFontManager::checkForUnreferencedFontFiles() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->haveCheckedUnreferencedFontFiles) {
 			return;
 		}
@@ -1192,7 +925,7 @@ void SunFontManager::checkForUnreferencedFontFiles() {
 		}
 		$var($ArrayList, registryFiles, $new($ArrayList));
 		{
-			$var($Iterator, i$, $nc($($nc(this->fontToFileMap)->values()))->iterator());
+			$var($Iterator, i$, $$nc($nc(this->fontToFileMap)->values())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, regFile, $cast($String, i$->next()));
 				{
@@ -1203,40 +936,37 @@ void SunFontManager::checkForUnreferencedFontFiles() {
 		$var($HashMap, fontToFileMap2, nullptr);
 		$var($HashMap, fontToFamilyNameMap2, nullptr);
 		$var($HashMap, familyToFontListMap2, nullptr);
+		;
 		{
 			$var($StringArray, arr$, getFontFilesFromPath(false));
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, pathFile, arr$->get(i$));
-				{
-					if (!registryFiles->contains(pathFile)) {
-						if ($FontUtilities::isLogging()) {
-							$FontUtilities::logInfo($$str({"Found non-registry file : "_s, pathFile}));
-						}
-						$var($PhysicalFont, f, registerFontFile($(getPathName(pathFile))));
-						if (f == nullptr) {
-							continue;
-						}
-						if (fontToFileMap2 == nullptr) {
-							$assign(fontToFileMap2, $new($HashMap, static_cast<$Map*>(this->fontToFileMap)));
-							$assign(fontToFamilyNameMap2, $new($HashMap, static_cast<$Map*>(this->fontToFamilyNameMap)));
-							$assign(familyToFontListMap2, $new($HashMap, static_cast<$Map*>(this->familyToFontListMap)));
-						}
-						$var($String, fontName, $nc(f)->getFontName(nullptr));
-						$var($String, family, f->getFamilyName(nullptr));
-						$var($String, familyLC, $nc(family)->toLowerCase());
-						$nc(fontToFamilyNameMap2)->put(fontName, family);
-						$nc(fontToFileMap2)->put(fontName, pathFile);
-						$var($ArrayList, fonts, $cast($ArrayList, $nc(familyToFontListMap2)->get(familyLC)));
-						if (fonts == nullptr) {
-							$assign(fonts, $new($ArrayList));
-						} else {
-							$assign(fonts, $new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractList*>(fonts)))));
-						}
-						$nc(fonts)->add(fontName);
-						familyToFontListMap2->put(familyLC, fonts);
+				if (!registryFiles->contains(pathFile)) {
+					if ($FontUtilities::isLogging()) {
+						$FontUtilities::logInfo($$str({"Found non-registry file : "_s, pathFile}));
 					}
+					$var($PhysicalFont, f, registerFontFile($(getPathName(pathFile))));
+					if (f == nullptr) {
+						continue;
+					}
+					if (fontToFileMap2 == nullptr) {
+						$assign(fontToFileMap2, $new($HashMap, this->fontToFileMap));
+						$assign(fontToFamilyNameMap2, $new($HashMap, this->fontToFamilyNameMap));
+						$assign(familyToFontListMap2, $new($HashMap, this->familyToFontListMap));
+					}
+					$var($String, fontName, $nc(f)->getFontName(nullptr));
+					$var($String, family, f->getFamilyName(nullptr));
+					$var($String, familyLC, $nc(family)->toLowerCase());
+					$nc(fontToFamilyNameMap2)->put(fontName, family);
+					$nc(fontToFileMap2)->put(fontName, pathFile);
+					$var($ArrayList, fonts, $cast($ArrayList, $nc(familyToFontListMap2)->get(familyLC)));
+					if (fonts == nullptr) {
+						$assign(fonts, $new($ArrayList));
+					} else {
+						$assign(fonts, $new($ArrayList, $cast($AbstractCollection, fonts)));
+					}
+					$nc(fonts)->add(fontName);
+					familyToFontListMap2->put(familyLC, fonts);
 				}
 			}
 		}
@@ -1249,33 +979,31 @@ void SunFontManager::checkForUnreferencedFontFiles() {
 }
 
 void SunFontManager::resolveFontFiles($HashSet* unmappedFiles, $ArrayList* unmappedFonts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, l, $SunToolkit::getStartupLocale());
 	{
 		$var($Iterator, i$, $nc(unmappedFiles)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, file, $cast($String, i$->next()));
-			{
-				try {
-					int32_t fn = 0;
-					$var($TrueTypeFont, ttf, nullptr);
-					$var($String, fullPath, getPathName(file));
-					if ($FontUtilities::isLogging()) {
-						$FontUtilities::logInfo($$str({"Trying to resolve file "_s, fullPath}));
-					}
-					do {
-						$assign(ttf, $new($TrueTypeFont, fullPath, nullptr, fn++, false));
-						$var($String, fontName, $nc($(ttf->getFontName(l)))->toLowerCase());
-						if ($nc(unmappedFonts)->contains(fontName)) {
-							$nc(this->fontToFileMap)->put(fontName, file);
-							unmappedFonts->remove($of(fontName));
-							if ($FontUtilities::isLogging()) {
-								$FontUtilities::logInfo($$str({"Resolved absent registry entry for "_s, fontName, " located in "_s, fullPath}));
-							}
-						}
-					} while (fn < $nc(ttf)->getFontCount());
-				} catch ($Exception& e) {
+			try {
+				int32_t fn = 0;
+				$var($TrueTypeFont, ttf, nullptr);
+				$var($String, fullPath, getPathName(file));
+				if ($FontUtilities::isLogging()) {
+					$FontUtilities::logInfo($$str({"Trying to resolve file "_s, fullPath}));
 				}
+				do {
+					$assign(ttf, $new($TrueTypeFont, fullPath, nullptr, fn++, false));
+					$var($String, fontName, $$nc(ttf->getFontName(l))->toLowerCase());
+					if ($nc(unmappedFonts)->contains(fontName)) {
+						$nc(this->fontToFileMap)->put(fontName, file);
+						unmappedFonts->remove(fontName);
+						if ($FontUtilities::isLogging()) {
+							$FontUtilities::logInfo($$str({"Resolved absent registry entry for "_s, fontName, " located in "_s, fullPath}));
+						}
+					}
+				} while (fn < $nc(ttf)->getFontCount());
+			} catch ($Exception& e) {
 			}
 		}
 	}
@@ -1286,36 +1014,36 @@ $HashMap* SunFontManager::populateHardcodedFileNameMap() {
 }
 
 $Font2D* SunFontManager::findFontFromPlatformMap($String* lcName, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($HashMap, platformFontMap, SunFontManager::platformFontMap);
 	if (platformFontMap == nullptr) {
 		$assign(platformFontMap, populateHardcodedFileNameMap());
 		$assignStatic(SunFontManager::platformFontMap, platformFontMap);
 	}
-	if (platformFontMap == nullptr || $nc(platformFontMap)->size() == 0) {
+	if (platformFontMap == nullptr || platformFontMap->size() == 0) {
 		return nullptr;
 	}
-	int32_t spaceIndex = $nc(lcName)->indexOf((int32_t)u' ');
+	int32_t spaceIndex = $nc(lcName)->indexOf(u' ');
 	$var($String, firstWord, lcName);
 	if (spaceIndex > 0) {
 		$assign(firstWord, lcName->substring(0, spaceIndex));
 	}
 	$var($SunFontManager$FamilyDescription, fd, $cast($SunFontManager$FamilyDescription, $nc(platformFontMap)->get(firstWord)));
-	if (fd == nullptr || $nc(fd)->failed) {
+	if (fd == nullptr || fd->failed) {
 		return nullptr;
 	}
 	int32_t styleIndex = -1;
 	if (lcName->equalsIgnoreCase($nc(fd)->plainFullName)) {
 		styleIndex = 0;
-	} else if (lcName->equalsIgnoreCase($nc(fd)->boldFullName)) {
+	} else if (lcName->equalsIgnoreCase(fd->boldFullName)) {
 		styleIndex = 1;
-	} else if (lcName->equalsIgnoreCase($nc(fd)->italicFullName)) {
+	} else if (lcName->equalsIgnoreCase(fd->italicFullName)) {
 		styleIndex = 2;
-	} else if (lcName->equalsIgnoreCase($nc(fd)->boldItalicFullName)) {
+	} else if (lcName->equalsIgnoreCase(fd->boldItalicFullName)) {
 		styleIndex = 3;
 	}
-	if (styleIndex == -1 && !lcName->equalsIgnoreCase($nc(fd)->familyName)) {
+	if (styleIndex == -1 && !lcName->equalsIgnoreCase(fd->familyName)) {
 		return nullptr;
 	}
 	$var($String, plainFile, nullptr);
@@ -1324,25 +1052,25 @@ $Font2D* SunFontManager::findFontFromPlatformMap($String* lcName, int32_t style)
 	$var($String, boldItalicFile, nullptr);
 	bool failure = false;
 	getPlatformFontDirs(SunFontManager::noType1Font);
-	if ($nc(fd)->plainFileName != nullptr) {
+	if (fd->plainFileName != nullptr) {
 		$assign(plainFile, getPathName(fd->plainFileName));
 		if (plainFile == nullptr) {
 			failure = true;
 		}
 	}
-	if ($nc(fd)->boldFileName != nullptr) {
+	if (fd->boldFileName != nullptr) {
 		$assign(boldFile, getPathName(fd->boldFileName));
 		if (boldFile == nullptr) {
 			failure = true;
 		}
 	}
-	if ($nc(fd)->italicFileName != nullptr) {
+	if (fd->italicFileName != nullptr) {
 		$assign(italicFile, getPathName(fd->italicFileName));
 		if (italicFile == nullptr) {
 			failure = true;
 		}
 	}
-	if ($nc(fd)->boldItalicFileName != nullptr) {
+	if (fd->boldItalicFileName != nullptr) {
 		$assign(boldItalicFile, getPathName(fd->boldItalicFileName));
 		if (boldItalicFile == nullptr) {
 			failure = true;
@@ -1352,7 +1080,7 @@ $Font2D* SunFontManager::findFontFromPlatformMap($String* lcName, int32_t style)
 		if ($FontUtilities::isLogging()) {
 			$FontUtilities::logInfo($$str({"Hardcoded file missing looking for "_s, lcName}));
 		}
-		$nc(fd)->failed = true;
+		fd->failed = true;
 		return nullptr;
 	}
 	$var($StringArray, files, $new($StringArray, {
@@ -1361,12 +1089,12 @@ $Font2D* SunFontManager::findFontFromPlatformMap($String* lcName, int32_t style)
 		italicFile,
 		boldItalicFile
 	}));
-	failure = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$5, this, files)))))))->booleanValue();
+	failure = $$sure($Boolean, $AccessController::doPrivileged($$new($SunFontManager$5, this, files)))->booleanValue();
 	if (failure) {
 		if ($FontUtilities::isLogging()) {
 			$FontUtilities::logInfo($$str({"Hardcoded file missing looking for "_s, lcName}));
 		}
-		$nc(fd)->failed = true;
+		fd->failed = true;
 		return nullptr;
 	}
 	$var($Font2D, font, nullptr);
@@ -1379,14 +1107,14 @@ $Font2D* SunFontManager::findFontFromPlatformMap($String* lcName, int32_t style)
 			$assign(font, pf);
 		}
 	}
-	$var($FontFamily, fontFamily, $FontFamily::getFamily($nc(fd)->familyName));
+	$var($FontFamily, fontFamily, $FontFamily::getFamily(fd->familyName));
 	if (fontFamily != nullptr) {
 		if (font == nullptr) {
 			$assign(font, fontFamily->getFont(style));
 			if (font == nullptr) {
 				$assign(font, fontFamily->getClosestStyle(style));
 			}
-		} else if (style > 0 && style != $nc(font)->style) {
+		} else if (style > 0 && style != font->style) {
 			style |= font->style;
 			$assign(font, fontFamily->getFont(style));
 			if (font == nullptr) {
@@ -1419,31 +1147,31 @@ $HashMap* SunFontManager::getFullNameToFileMap() {
 }
 
 void SunFontManager::logPlatformFontInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PlatformLogger, logger, $FontUtilities::getLogger());
 	for (int32_t i = 0; i < $nc(this->pathDirs)->length; ++i) {
-		$nc(logger)->info($$str({"fontdir="_s, $nc(this->pathDirs)->get(i)}));
+		$nc(logger)->info($$str({"fontdir="_s, this->pathDirs->get(i)}));
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->fontToFileMap)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->fontToFileMap)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, keyName, $cast($String, i$->next()));
 			{
-				$nc(logger)->info($$str({"font="_s, keyName, " file="_s, $cast($String, $($nc(this->fontToFileMap)->get(keyName)))}));
+				$nc(logger)->info($$str({"font="_s, keyName, " file="_s, $$cast($String, $nc(this->fontToFileMap)->get(keyName))}));
 			}
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->fontToFamilyNameMap)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->fontToFamilyNameMap)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, keyName, $cast($String, i$->next()));
 			{
-				$nc(logger)->info($$str({"font="_s, keyName, " family="_s, $cast($String, $($nc(this->fontToFamilyNameMap)->get(keyName)))}));
+				$nc(logger)->info($$str({"font="_s, keyName, " family="_s, $$cast($String, $nc(this->fontToFamilyNameMap)->get(keyName))}));
 			}
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->familyToFontListMap)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->familyToFontListMap)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, keyName, $cast($String, i$->next()));
 			{
@@ -1454,34 +1182,32 @@ void SunFontManager::logPlatformFontInfo() {
 }
 
 $StringArray* SunFontManager::getFontNamesFromPlatform() {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getFullNameToFileMap()))->size() == 0) {
+	$useLocalObjectStack();
+	if ($$nc(getFullNameToFileMap())->size() == 0) {
 		return nullptr;
 	}
 	checkForUnreferencedFontFiles();
 	$var($ArrayList, fontNames, $new($ArrayList));
 	{
-		$var($Iterator, i$, $nc($($nc(this->familyToFontListMap)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->familyToFontListMap)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ArrayList, a, $cast($ArrayList, i$->next()));
 			{
-				{
-					$var($Iterator, i$, $nc(a)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($String, s, $cast($String, i$->next()));
-						{
-							fontNames->add(s);
-						}
+				$var($Iterator, i$, $nc(a)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($String, s, $cast($String, i$->next()));
+					{
+						fontNames->add(s);
 					}
 				}
 			}
 		}
 	}
-	return $fcast($StringArray, fontNames->toArray(SunFontManager::STR_ARRAY));
+	return $cast($StringArray, fontNames->toArray(SunFontManager::STR_ARRAY));
 }
 
 bool SunFontManager::gotFontsFromPlatform() {
-	return $nc($(getFullNameToFileMap()))->size() != 0;
+	return $$nc(getFullNameToFileMap())->size() != 0;
 }
 
 $String* SunFontManager::getFileNameForFontName($String* fontName) {
@@ -1495,10 +1221,10 @@ $PhysicalFont* SunFontManager::registerFontFile($String* file) {
 	if (var$0 && !$nc(this->registeredFonts)->containsKey(file)) {
 		int32_t fontFormat = SunFontManager::FONTFORMAT_NONE;
 		int32_t fontRank = $Font2D::UNKNOWN_RANK;
-		if ($nc(SunFontManager::ttFilter)->accept(nullptr, file)) {
+		if (SunFontManager::ttFilter->accept(nullptr, file)) {
 			fontFormat = SunFontManager::FONTFORMAT_TRUETYPE;
 			fontRank = $Font2D::TTF_RANK;
-		} else if ($nc(SunFontManager::t1Filter)->accept(nullptr, file)) {
+		} else if (SunFontManager::t1Filter->accept(nullptr, file)) {
 			fontFormat = SunFontManager::FONTFORMAT_TYPE1;
 			fontRank = $Font2D::TYPE1_RANK;
 		}
@@ -1511,12 +1237,12 @@ $PhysicalFont* SunFontManager::registerFontFile($String* file) {
 }
 
 void SunFontManager::registerOtherFontFiles($HashSet* registeredFontFiles) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getFullNameToFileMap()))->size() == 0) {
+	$useLocalObjectStack();
+	if ($$nc(getFullNameToFileMap())->size() == 0) {
 		return;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->fontToFileMap)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->fontToFileMap)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, file, $cast($String, i$->next()));
 			{
@@ -1527,13 +1253,13 @@ void SunFontManager::registerOtherFontFiles($HashSet* registeredFontFiles) {
 }
 
 bool SunFontManager::getFamilyNamesFromPlatform($TreeMap* familyNames, $Locale* requestedLocale) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getFullNameToFileMap()))->size() == 0) {
+	$useLocalObjectStack();
+	if ($$nc(getFullNameToFileMap())->size() == 0) {
 		return false;
 	}
 	checkForUnreferencedFontFiles();
 	{
-		$var($Iterator, i$, $nc($($nc(this->fontToFamilyNameMap)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->fontToFamilyNameMap)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, name, $cast($String, i$->next()));
 			{
@@ -1545,16 +1271,15 @@ bool SunFontManager::getFamilyNamesFromPlatform($TreeMap* familyNames, $Locale* 
 }
 
 $String* SunFontManager::getPathName($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($File, f, $new($File, s));
 	if (f->isAbsolute()) {
 		return s;
 	} else if ($nc(this->pathDirs)->length == 1) {
-		$init($File);
-		return $str({$nc(this->pathDirs)->get(0), $File::separator, s});
+		return $str({this->pathDirs->get(0), $File::separator, s});
 	} else {
-		$var($String, path, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$6, this, s)))));
+		$var($String, path, $cast($String, $AccessController::doPrivileged($$new($SunFontManager$6, this, s))));
 		if (path != nullptr) {
 			return path;
 		}
@@ -1563,8 +1288,8 @@ $String* SunFontManager::getPathName($String* s) {
 }
 
 $Font2D* SunFontManager::findFontFromPlatform($String* lcName, int32_t style) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getFullNameToFileMap()))->size() == 0) {
+	$useLocalObjectStack();
+	if ($$nc(getFullNameToFileMap())->size() == 0) {
 		return nullptr;
 	}
 	$var($ArrayList, family, nullptr);
@@ -1578,20 +1303,20 @@ $Font2D* SunFontManager::findFontFromPlatform($String* lcName, int32_t style) {
 		$assign(family, $cast($ArrayList, $nc(this->familyToFontListMap)->get(lcName)));
 		if (family != nullptr && family->size() > 0) {
 			$init($Locale);
-			$var($String, lcFontName, $nc(($cast($String, $(family->get(0)))))->toLowerCase($Locale::ENGLISH));
+			$var($String, lcFontName, $$sure($String, family->get(0))->toLowerCase($Locale::ENGLISH));
 			if (lcFontName != nullptr) {
-				$assign(familyName, $cast($String, $nc(this->fontToFamilyNameMap)->get(lcFontName)));
+				$assign(familyName, $cast($String, this->fontToFamilyNameMap->get(lcFontName)));
 			}
 		}
 	}
 	if (family == nullptr || familyName == nullptr) {
 		return nullptr;
 	}
-	$var($StringArray, fontList, $fcast($StringArray, $nc(family)->toArray(SunFontManager::STR_ARRAY)));
+	$var($StringArray, fontList, $cast($StringArray, $nc(family)->toArray(SunFontManager::STR_ARRAY)));
 	if ($nc(fontList)->length == 0) {
 		return nullptr;
 	}
-	for (int32_t f = 0; f < $nc(fontList)->length; ++f) {
+	for (int32_t f = 0; f < fontList->length; ++f) {
 		$init($Locale);
 		$var($String, fontNameLC, $nc(fontList->get(f))->toLowerCase($Locale::ENGLISH));
 		$var($String, fileName, $cast($String, $nc(this->fontToFileMap)->get(fontNameLC)));
@@ -1606,7 +1331,7 @@ $Font2D* SunFontManager::findFontFromPlatform($String* lcName, int32_t style) {
 	if (fontFile != nullptr) {
 		$assign(physicalFont, registerFontFile($(getPathName(fontFile)), nullptr, SunFontManager::FONTFORMAT_TRUETYPE, false, $Font2D::TTF_RANK));
 	}
-	for (int32_t f = 0; f < $nc(fontList)->length; ++f) {
+	for (int32_t f = 0; f < fontList->length; ++f) {
 		$init($Locale);
 		$var($String, fontNameLC, $nc(fontList->get(f))->toLowerCase($Locale::ENGLISH));
 		$var($String, fileName, $cast($String, $nc(this->fontToFileMap)->get(fontNameLC)));
@@ -1630,7 +1355,7 @@ $Font2D* SunFontManager::findFontFromPlatform($String* lcName, int32_t style) {
 }
 
 $Font2D* SunFontManager::findFont2D($String* name$renamed, int32_t style, int32_t fallback) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	if (name == nullptr) {
 		return nullptr;
@@ -1708,7 +1433,7 @@ $Font2D* SunFontManager::findFont2D($String* name$renamed, int32_t style, int32_
 			$nc(this->fontNameCache)->put(mapName, font);
 			return font;
 		}
-		if ($nc(this->deferredFontFiles)->size() > 0) {
+		if (this->deferredFontFiles->size() > 0) {
 			$assign(font, findJREDeferredFont(lowerCaseName, style));
 			if (font != nullptr) {
 				$nc(this->fontNameCache)->put(mapName, font);
@@ -1724,7 +1449,7 @@ $Font2D* SunFontManager::findFont2D($String* name$renamed, int32_t style, int32_
 			return font;
 		}
 	}
-	if ($nc(this->deferredFontFiles)->size() > 0) {
+	if (this->deferredFontFiles->size() > 0) {
 		$assign(font, findDeferredFont(name, style));
 		if (font != nullptr) {
 			$nc(this->fontNameCache)->put(mapName, font);
@@ -1779,7 +1504,7 @@ $Font2D* SunFontManager::findFont2D($String* name$renamed, int32_t style, int32_
 		return font;
 	}
 	if ($FontUtilities::isWindows) {
-		$var($String, compatName, $nc($(getFontConfiguration()))->getFallbackFamilyName(name, nullptr));
+		$var($String, compatName, $$nc(getFontConfiguration())->getFallbackFamilyName(name, nullptr));
 		if (compatName != nullptr) {
 			$assign(font, findFont2D(compatName, style, fallback));
 			$nc(this->fontNameCache)->put(mapName, font);
@@ -1803,17 +1528,11 @@ $Font2D* SunFontManager::findFont2D($String* name$renamed, int32_t style, int32_
 	}
 	switch (fallback) {
 	case $FontManager::PHYSICAL_FALLBACK:
-		{
-			return getDefaultPhysicalFont();
-		}
+		return getDefaultPhysicalFont();
 	case $FontManager::LOGICAL_FALLBACK:
-		{
-			return getDefaultLogicalFont(style);
-		}
+		return getDefaultLogicalFont(style);
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
@@ -1827,11 +1546,11 @@ int32_t SunFontManager::getNumFonts() {
 
 bool SunFontManager::fontSupportsEncoding($Font* font, $String* encoding) {
 	$init(SunFontManager);
-	return $nc($($FontUtilities::getFont2D(font)))->supportsEncoding(encoding);
+	return $$nc($FontUtilities::getFont2D(font))->supportsEncoding(encoding);
 }
 
 $Font2DArray* SunFontManager::createFont2D($File* fontFile, int32_t fontFormat, bool all, bool isCopy, $CreatedFontTracker* tracker) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($List, fList, $new($ArrayList));
 	int32_t cnt = 1;
@@ -1850,42 +1569,34 @@ $Font2DArray* SunFontManager::createFont2D($File* fontFile, int32_t fontFormat, 
 		}
 	}
 	try {
-		{
-			int32_t index = 0;
-			switch (fontFormat) {
-			case $Font::TRUETYPE_FONT:
-				{
-					$assign(font2D, $new($TrueTypeFont, fontFilePath, nullptr, 0, true));
-					$nc(font2D)->setUseWeakRefs(weakRefs, maxStrikes);
-					fList->add(font2D);
-					if (!all) {
-						break;
-					}
-					cnt = $nc(($cast($TrueTypeFont, font2D)))->getFontCount();
-					index = 1;
-					while (index < cnt) {
-						$assign(font2D, $new($TrueTypeFont, fontFilePath, nullptr, index++, true));
-						font2D->setUseWeakRefs(weakRefs, maxStrikes);
-						fList->add(font2D);
-					}
-					break;
-				}
-			case $Font::TYPE1_FONT:
-				{
-					$assign(font2D, $new($Type1Font, fontFilePath, nullptr, isCopy));
-					$nc(font2D)->setUseWeakRefs(weakRefs, maxStrikes);
-					fList->add(font2D);
-					break;
-				}
-			default:
-				{
-					$throwNew($FontFormatException, "Unrecognised Font Format"_s);
-				}
+		int32_t index = 0;
+		switch (fontFormat) {
+		case $Font::TRUETYPE_FONT:
+			$assign(font2D, $new($TrueTypeFont, fontFilePath, nullptr, 0, true));
+			font2D->setUseWeakRefs(weakRefs, maxStrikes);
+			fList->add(font2D);
+			if (!all) {
+				break;
 			}
+			cnt = $cast($TrueTypeFont, font2D)->getFontCount();
+			index = 1;
+			while (index < cnt) {
+				$assign(font2D, $new($TrueTypeFont, fontFilePath, nullptr, index++, true));
+				font2D->setUseWeakRefs(weakRefs, maxStrikes);
+				fList->add(font2D);
+			}
+			break;
+		case $Font::TYPE1_FONT:
+			$assign(font2D, $new($Type1Font, fontFilePath, nullptr, isCopy));
+			font2D->setUseWeakRefs(weakRefs, maxStrikes);
+			fList->add(font2D);
+			break;
+		default:
+			$throwNew($FontFormatException, "Unrecognised Font Format"_s);
 		}
 	} catch ($FontFormatException& e) {
 		if (isCopy) {
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$7, this, _tracker, fFile)));
+			$AccessController::doPrivileged($$new($SunFontManager$7, this, _tracker, fFile));
 		}
 		$throw(e);
 	}
@@ -1899,11 +1610,11 @@ $Font2DArray* SunFontManager::createFont2D($File* fontFile, int32_t fontFormat, 
 			$nc(this->tmpFontFiles)->add(fontFile);
 			if (this->fileCloser == nullptr) {
 				$var($Runnable, fileCloserRunnable, $new($SunFontManager$8, this));
-				$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(SunFontManager$$Lambda$lambda$createFont2D$1$1, this, fileCloserRunnable)));
+				$AccessController::doPrivileged($cast($PrivilegedAction, $$new(SunFontManager$$Lambda$lambda$createFont2D$1$1, this, fileCloserRunnable)));
 			}
 		}
 	}
-	return $fcast($Font2DArray, fList->toArray($$new($Font2DArray, 0)));
+	return $cast($Font2DArray, fList->toArray($$new($Font2DArray, 0)));
 }
 
 $String* SunFontManager::getFullNameByFileName($String* fileName) {
@@ -1920,7 +1631,7 @@ $String* SunFontManager::getFullNameByFileName($String* fileName) {
 
 void SunFontManager::deRegisterBadFont($Font2D* font2D) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (!($instanceOf($PhysicalFont, font2D))) {
 			return;
 		} else {
@@ -1934,7 +1645,7 @@ void SunFontManager::deRegisterBadFont($Font2D* font2D) {
 
 void SunFontManager::replaceFont($PhysicalFont* oldFont, $PhysicalFont* newFont$renamed) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($PhysicalFont, newFont, newFont$renamed);
 		if (!$equals($nc($nc(oldFont)->handle)->font2D, oldFont)) {
 			return;
@@ -1957,20 +1668,20 @@ void SunFontManager::replaceFont($PhysicalFont* oldFont, $PhysicalFont* newFont$
 				return;
 			}
 		}
-		$set($nc($nc(oldFont)->handle), font2D, newFont);
+		$set($nc(oldFont->handle), font2D, newFont);
 		$nc(this->physicalFonts)->remove(oldFont->fullName);
 		$init($Locale);
 		$nc(this->fullNameToFont)->remove($($nc(oldFont->fullName)->toLowerCase($Locale::ENGLISH)));
 		$FontFamily::remove(oldFont);
 		if (this->localeFullNamesToFont != nullptr) {
-			$var($Map$EntryArray, mapEntries, $fcast($Map$EntryArray, $nc($($nc(this->localeFullNamesToFont)->entrySet()))->toArray($$new($Map$EntryArray, 0))));
+			$var($Map$EntryArray, mapEntries, $cast($Map$EntryArray, $$nc(this->localeFullNamesToFont->entrySet())->toArray($$new($Map$EntryArray, 0))));
 			for (int32_t i = 0; i < $nc(mapEntries)->length; ++i) {
 				if ($equals($nc(mapEntries->get(i))->getValue(), oldFont)) {
 					try {
 						$var($Map$Entry, tmp, mapEntries->get(i));
 						$nc(tmp)->setValue(newFont);
 					} catch ($Exception& e) {
-						$nc(this->localeFullNamesToFont)->remove($($nc(mapEntries->get(i))->getKey()));
+						this->localeFullNamesToFont->remove($($nc(mapEntries->get(i))->getKey()));
 					}
 				}
 			}
@@ -1985,7 +1696,7 @@ void SunFontManager::replaceFont($PhysicalFont* oldFont, $PhysicalFont* newFont$
 
 void SunFontManager::loadLocaleNames() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->localeFullNamesToFont != nullptr) {
 			return;
 		}
@@ -2008,7 +1719,7 @@ void SunFontManager::loadLocaleNames() {
 }
 
 $Font2D* SunFontManager::findFont2DAllLocales($String* name, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($FontUtilities::isLogging()) {
 		$FontUtilities::logInfo($$str({"Searching localised font names for:"_s, name}));
 	}
@@ -2110,7 +1821,7 @@ void SunFontManager::preferProportionalFonts() {
 
 $HashSet* SunFontManager::getInstalledNames() {
 	$init(SunFontManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (SunFontManager::installedNames == nullptr) {
 		$var($Locale, l, getSystemStartupLocale());
 		$var(SunFontManager, fontManager, SunFontManager::getInstance());
@@ -2121,7 +1832,7 @@ $HashSet* SunFontManager::getInstalledNames() {
 			names->add($($nc(installedFamilies->get(i))->toLowerCase(l)));
 		}
 		for (int32_t i = 0; i < $nc(installedFonts)->length; ++i) {
-			names->add($($nc($($nc(installedFonts->get(i))->getFontName(l)))->toLowerCase(l)));
+			names->add($($$nc($nc(installedFonts->get(i))->getFontName(l))->toLowerCase(l)));
 		}
 		$assignStatic(SunFontManager::installedNames, names);
 	}
@@ -2129,7 +1840,7 @@ $HashSet* SunFontManager::getInstalledNames() {
 }
 
 bool SunFontManager::registerFont($Font* font) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (font == nullptr) {
 		return false;
 	}
@@ -2139,15 +1850,15 @@ bool SunFontManager::registerFont($Font* font) {
 			$set(this, createdByFullName, $new($Hashtable));
 		}
 	}
-	if (!$nc($($FontAccess::getFontAccess()))->isCreatedFont(font)) {
+	if (!$$nc($FontAccess::getFontAccess())->isCreatedFont(font)) {
 		return false;
 	}
 	$var($HashSet, names, getInstalledNames());
 	$var($Locale, l, getSystemStartupLocale());
-	$var($String, familyName, $nc($($nc(font)->getFamily(l)))->toLowerCase());
-	$var($String, fullName, $nc($(font->getFontName(l)))->toLowerCase());
+	$var($String, familyName, $$nc($nc(font)->getFamily(l))->toLowerCase());
+	$var($String, fullName, $$nc(font->getFontName(l))->toLowerCase());
 	bool var$0 = $nc(names)->contains(familyName);
-	if (var$0 || $nc(names)->contains(fullName)) {
+	if (var$0 || names->contains(fullName)) {
 		return false;
 	}
 	$var($Hashtable, familyTable, this->createdByFamilyName);
@@ -2162,10 +1873,10 @@ bool SunFontManager::registerFont($Font* font) {
 	}
 	if (this->fontsAreRegistered) {
 		removeFromCache($($nc(family)->getFont($Font::PLAIN)));
-		removeFromCache($($nc(family)->getFont($Font::BOLD)));
-		removeFromCache($($nc(family)->getFont($Font::ITALIC)));
-		removeFromCache($($nc(family)->getFont($Font::BOLD | $Font::ITALIC)));
-		removeFromCache($cast($Font2D, $($nc(fullNameTable)->get(fullName))));
+		removeFromCache($(family->getFont($Font::BOLD)));
+		removeFromCache($(family->getFont($Font::ITALIC)));
+		removeFromCache($(family->getFont($Font::BOLD | $Font::ITALIC)));
+		removeFromCache($$cast($Font2D, $nc(fullNameTable)->get(fullName)));
 	}
 	$nc(family)->setFont(font2D, style);
 	$nc(fullNameTable)->put(fullName, font2D);
@@ -2173,11 +1884,11 @@ bool SunFontManager::registerFont($Font* font) {
 }
 
 void SunFontManager::removeFromCache($Font2D* font) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (font == nullptr) {
 		return;
 	}
-	$var($StringArray, keys, $fcast($StringArray, $nc($($cast($ConcurrentHashMap$KeySetView, $nc(this->fontNameCache)->keySet())))->toArray(SunFontManager::STR_ARRAY)));
+	$var($StringArray, keys, $cast($StringArray, $$sure($ConcurrentHashMap$KeySetView, $nc(this->fontNameCache)->keySet())->toArray(SunFontManager::STR_ARRAY)));
 	for (int32_t k = 0; k < $nc(keys)->length; ++k) {
 		if ($equals($nc(this->fontNameCache)->get(keys->get(k)), font)) {
 			$nc(this->fontNameCache)->remove(keys->get(k));
@@ -2186,7 +1897,7 @@ void SunFontManager::removeFromCache($Font2D* font) {
 }
 
 $TreeMap* SunFontManager::getCreatedFontFamilyNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, familyTable, nullptr);
 	if (this->fontsAreRegistered) {
 		$assign(familyTable, this->createdByFamilyName);
@@ -2197,7 +1908,7 @@ $TreeMap* SunFontManager::getCreatedFontFamilyNames() {
 	$synchronized(familyTable) {
 		$var($TreeMap, map, $new($TreeMap));
 		{
-			$var($Iterator, i$, $nc($($nc(familyTable)->values()))->iterator());
+			$var($Iterator, i$, $$nc(familyTable->values())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($FontFamily, f, $cast($FontFamily, i$->next()));
 				{
@@ -2215,7 +1926,7 @@ $TreeMap* SunFontManager::getCreatedFontFamilyNames() {
 }
 
 $FontArray* SunFontManager::getCreatedFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, nameTable, nullptr);
 	if (this->fontsAreRegistered) {
 		$assign(nameTable, this->createdByFullName);
@@ -2224,10 +1935,10 @@ $FontArray* SunFontManager::getCreatedFonts() {
 	}
 	$var($Locale, l, getSystemStartupLocale());
 	$synchronized(nameTable) {
-		$var($FontArray, fonts, $new($FontArray, $nc(nameTable)->size()));
+		$var($FontArray, fonts, $new($FontArray, nameTable->size()));
 		int32_t i = 0;
 		{
-			$var($Iterator, i$, $nc($(nameTable->values()))->iterator());
+			$var($Iterator, i$, $$nc(nameTable->values())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Font2D, font2D, $cast($Font2D, i$->next()));
 				{
@@ -2240,7 +1951,7 @@ $FontArray* SunFontManager::getCreatedFonts() {
 }
 
 $StringArray* SunFontManager::getPlatformFontDirs(bool noType1Fonts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pathDirs != nullptr) {
 		return this->pathDirs;
 	}
@@ -2254,14 +1965,14 @@ $StringArray* SunFontManager::getPlatformFontDirs(bool noType1Fonts) {
 		}
 	} catch ($NoSuchElementException& e) {
 	}
-	$set(this, pathDirs, $fcast($StringArray, pathList->toArray($$new($StringArray, 0))));
+	$set(this, pathDirs, $cast($StringArray, pathList->toArray($$new($StringArray, 0))));
 	return this->pathDirs;
 }
 
 void SunFontManager::addDirFonts($String* dirName, $File* dirFile, $FilenameFilter* filter, int32_t fontFormat, bool useJavaRasterizer, int32_t fontRank, bool defer, bool resolveSymLinks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, ls, $nc(dirFile)->list(filter));
-	if (ls == nullptr || $nc(ls)->length == 0) {
+	if (ls == nullptr || ls->length == 0) {
 		return;
 	}
 	$var($StringArray, fontNames, $new($StringArray, $nc(ls)->length));
@@ -2282,7 +1993,7 @@ void SunFontManager::addDirFonts($String* dirName, $File* dirFile, $FilenameFilt
 		if ($nc(this->registeredFontFiles)->contains(fullName)) {
 			continue;
 		}
-		if (this->badFonts != nullptr && $nc(this->badFonts)->contains(fullName)) {
+		if (this->badFonts != nullptr && this->badFonts->contains(fullName)) {
 			if ($FontUtilities::debugFonts()) {
 				$FontUtilities::logWarning($$str({"skip bad font "_s, fullName}));
 			}
@@ -2291,13 +2002,13 @@ void SunFontManager::addDirFonts($String* dirName, $File* dirFile, $FilenameFilt
 		$nc(this->registeredFontFiles)->add(fullName);
 		bool var$0 = $FontUtilities::debugFonts();
 		$init($PlatformLogger$Level);
-		if (var$0 && $nc($($FontUtilities::getLogger()))->isLoggable($PlatformLogger$Level::INFO)) {
+		if (var$0 && $$nc($FontUtilities::getLogger())->isLoggable($PlatformLogger$Level::INFO)) {
 			$var($String, message, $str({"Registering font "_s, fullName}));
 			$var($StringArray, natNames, getNativeNames(fullName, nullptr));
 			if (natNames == nullptr) {
 				$plusAssign(message, " with no native name"_s);
 			} else {
-				$plusAssign(message, $$str({" with native name(s) "_s, $nc(natNames)->get(0)}));
+				$plusAssign(message, $$str({" with native name(s) "_s, natNames->get(0)}));
 				for (int32_t nn = 1; nn < natNames->length; ++nn) {
 					$plusAssign(message, $$str({", "_s, natNames->get(nn)}));
 				}
@@ -2341,7 +2052,7 @@ void SunFontManager::loadFonts() {
 			$FontUtilities::logInfo("SunGraphicsEnvironment.loadFonts() called"_s);
 		}
 		initialiseDeferredFonts();
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$9, this)));
+		$AccessController::doPrivileged($$new($SunFontManager$9, this));
 	}
 }
 
@@ -2350,7 +2061,7 @@ void SunFontManager::registerFontDirs($String* pathName) {
 }
 
 void SunFontManager::registerFontsOnPath($String* pathName, bool useJavaRasterizer, int32_t fontRank, bool defer, bool resolveSymLinks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($StringTokenizer, parser, $new($StringTokenizer, pathName, $File::pathSeparator));
 	try {
@@ -2401,12 +2112,12 @@ void SunFontManager::loadFontFiles() {
 			$Thread::dumpStack();
 			$FontUtilities::logInfo("loadAllFontFiles() called"_s);
 		}
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$10, this)));
+		$AccessController::doPrivileged($$new($SunFontManager$10, this));
 	}
 }
 
 void SunFontManager::initCompositeFonts($FontConfiguration* fontConfig, $ConcurrentHashMap* altNameCache) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($FontUtilities::isLogging()) {
 		$FontUtilities::logInfo("Initialising composite fonts"_s);
 	}
@@ -2416,7 +2127,7 @@ void SunFontManager::initCompositeFonts($FontConfiguration* fontConfig, $Concurr
 		$var($String, platformFontName, fcFonts->get(f));
 		$var($String, fontFileName, getFileNameFromPlatformName(platformFontName));
 		$var($StringArray, nativeNames, nullptr);
-		if (fontFileName == nullptr || $nc(fontFileName)->equals(platformFontName)) {
+		if (fontFileName == nullptr || fontFileName->equals(platformFontName)) {
 			$assign(fontFileName, platformFontName);
 		} else {
 			if (f < numCoreFonts) {
@@ -2442,18 +2153,14 @@ void SunFontManager::initCompositeFonts($FontConfiguration* fontConfig, $Concurr
 		}
 		if (altNameCache != nullptr) {
 			$var($String, var$0, descriptor->getFaceName());
-			$var($StringArray, var$1, componentFileNames);
-			$var($StringArray, var$2, componentFaceNames);
-			int32_t var$3 = descriptor->getCoreComponentCount();
-			$var($ints, var$4, descriptor->getExclusionRanges());
-			SunFontManager::registerCompositeFont(var$0, var$1, var$2, var$3, var$4, $(descriptor->getExclusionRangeLimits()), true, altNameCache);
+			int32_t var$1 = descriptor->getCoreComponentCount();
+			$var($ints, var$2, descriptor->getExclusionRanges());
+			SunFontManager::registerCompositeFont(var$0, componentFileNames, componentFaceNames, var$1, var$2, $(descriptor->getExclusionRangeLimits()), true, altNameCache);
 		} else {
-			$var($String, var$5, descriptor->getFaceName());
-			$var($StringArray, var$6, componentFileNames);
-			$var($StringArray, var$7, componentFaceNames);
-			int32_t var$8 = descriptor->getCoreComponentCount();
-			$var($ints, var$9, descriptor->getExclusionRanges());
-			registerCompositeFont(var$5, var$6, var$7, var$8, var$9, $(descriptor->getExclusionRangeLimits()), true);
+			$var($String, var$3, descriptor->getFaceName());
+			int32_t var$4 = descriptor->getCoreComponentCount();
+			$var($ints, var$5, descriptor->getExclusionRanges());
+			registerCompositeFont(var$3, componentFileNames, componentFaceNames, var$4, var$5, $(descriptor->getExclusionRangeLimits()), true);
 		}
 		if ($FontUtilities::debugFonts()) {
 			$FontUtilities::logInfo($$str({"registered "_s, $(descriptor->getFaceName())}));
@@ -2469,14 +2176,14 @@ void SunFontManager::registerFontFile($String* fontFileName, $StringArray* nativ
 		return;
 	}
 	int32_t fontFormat = 0;
-	if ($nc(SunFontManager::ttFilter)->accept(nullptr, fontFileName)) {
+	if (SunFontManager::ttFilter->accept(nullptr, fontFileName)) {
 		fontFormat = SunFontManager::FONTFORMAT_TRUETYPE;
-	} else if ($nc(SunFontManager::t1Filter)->accept(nullptr, fontFileName)) {
+	} else if (SunFontManager::t1Filter->accept(nullptr, fontFileName)) {
 		fontFormat = SunFontManager::FONTFORMAT_TYPE1;
 	} else {
 		fontFormat = SunFontManager::FONTFORMAT_NATIVE;
 	}
-	$nc(this->registeredFontFiles)->add(fontFileName);
+	this->registeredFontFiles->add(fontFileName);
 	if (defer) {
 		registerDeferredFont(fontFileName, fontFileName, nativeNames, fontFormat, false, fontRank);
 	} else {
@@ -2508,7 +2215,7 @@ void SunFontManager::createCompositeFonts($ConcurrentHashMap* altNameCache, bool
 }
 
 $FontArray* SunFontManager::getAllInstalledFonts() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->allFonts == nullptr) {
 		loadFonts();
 		$var($TreeMap, fontMapNames, $new($TreeMap));
@@ -2529,7 +2236,7 @@ $FontArray* SunFontManager::getAllInstalledFonts() {
 		$var($StringArray, fontNames, nullptr);
 		if (fontMapNames->size() > 0) {
 			$assign(fontNames, $new($StringArray, fontMapNames->size()));
-			$var($ObjectArray, keyNames, $nc($(fontMapNames->keySet()))->toArray());
+			$var($ObjectArray, keyNames, $$nc(fontMapNames->keySet())->toArray());
 			for (int32_t i = 0; i < $nc(keyNames)->length; ++i) {
 				fontNames->set(i, $cast($String, keyNames->get(i)));
 			}
@@ -2539,25 +2246,25 @@ $FontArray* SunFontManager::getAllInstalledFonts() {
 			fonts->set(i, $$new($Font, fontNames->get(i), $Font::PLAIN, 1));
 			$var($Font2D, f2d, $cast($Font2D, fontMapNames->get(fontNames->get(i))));
 			if (f2d != nullptr) {
-				$nc($($FontAccess::getFontAccess()))->setFont2D(fonts->get(i), f2d->handle);
+				$$nc($FontAccess::getFontAccess())->setFont2D(fonts->get(i), f2d->handle);
 			}
 		}
 		$set(this, allFonts, fonts);
 	}
 	$var($FontArray, copyFonts, $new($FontArray, $nc(this->allFonts)->length));
-	$System::arraycopy(this->allFonts, 0, copyFonts, 0, $nc(this->allFonts)->length);
+	$System::arraycopy(this->allFonts, 0, copyFonts, 0, this->allFonts->length);
 	return copyFonts;
 }
 
 $StringArray* SunFontManager::getInstalledFontFamilyNames($Locale* requestedLocale$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, requestedLocale, requestedLocale$renamed);
 	if (requestedLocale == nullptr) {
 		$assign(requestedLocale, $Locale::getDefault());
 	}
 	if (this->allFamilies != nullptr && this->lastDefaultLocale != nullptr && $nc(requestedLocale)->equals(this->lastDefaultLocale)) {
-		$var($StringArray, copyFamilies, $new($StringArray, $nc(this->allFamilies)->length));
-		$System::arraycopy(this->allFamilies, 0, copyFamilies, 0, $nc(this->allFamilies)->length);
+		$var($StringArray, copyFamilies, $new($StringArray, this->allFamilies->length));
+		$System::arraycopy(this->allFamilies, 0, copyFamilies, 0, this->allFamilies->length);
 		return copyFamilies;
 	}
 	$var($TreeMap, familyNames, $new($TreeMap));
@@ -2578,7 +2285,7 @@ $StringArray* SunFontManager::getInstalledFontFamilyNames($Locale* requestedLoca
 		getJREFontFamilyNames(familyNames, requestedLocale);
 	} else {
 		loadFontFiles();
-		$var($Font2DArray, physicalfonts, $fcast($Font2DArray, getPhysicalFonts()));
+		$var($Font2DArray, physicalfonts, $cast($Font2DArray, getPhysicalFonts()));
 		for (int32_t i = 0; i < $nc(physicalfonts)->length; ++i) {
 			if (!($instanceOf($NativeFont, physicalfonts->get(i)))) {
 				$var($String, name, $nc(physicalfonts->get(i))->getFamilyName(requestedLocale));
@@ -2588,14 +2295,14 @@ $StringArray* SunFontManager::getInstalledFontFamilyNames($Locale* requestedLoca
 	}
 	addNativeFontFamilyNames(familyNames, requestedLocale);
 	$var($StringArray, retval, $new($StringArray, familyNames->size()));
-	$var($ObjectArray, keyNames, $nc($(familyNames->keySet()))->toArray());
+	$var($ObjectArray, keyNames, $$nc(familyNames->keySet())->toArray());
 	for (int32_t i = 0; i < $nc(keyNames)->length; ++i) {
-		retval->set(i, $cast($String, $(familyNames->get(keyNames->get(i)))));
+		retval->set(i, $$cast($String, familyNames->get(keyNames->get(i))));
 	}
-	if ($nc(requestedLocale)->equals($($Locale::getDefault()))) {
+	if (requestedLocale->equals($($Locale::getDefault()))) {
 		$set(this, lastDefaultLocale, requestedLocale);
 		$set(this, allFamilies, $new($StringArray, retval->length));
-		$System::arraycopy(retval, 0, this->allFamilies, 0, $nc(this->allFamilies)->length);
+		$System::arraycopy(retval, 0, this->allFamilies, 0, this->allFamilies->length);
 	}
 	return retval;
 }
@@ -2605,13 +2312,13 @@ void SunFontManager::addNativeFontFamilyNames($TreeMap* familyNames, $Locale* re
 
 void SunFontManager::register1dot0Fonts() {
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$11, this)));
+	$AccessController::doPrivileged($$new($SunFontManager$11, this));
 }
 
 void SunFontManager::getJREFontFamilyNames($TreeMap* familyNames, $Locale* requestedLocale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	registerDeferredJREFonts(SunFontManager::jreFontDirName);
-	$var($Font2DArray, physicalfonts, $fcast($Font2DArray, getPhysicalFonts()));
+	$var($Font2DArray, physicalfonts, $cast($Font2DArray, getPhysicalFonts()));
 	for (int32_t i = 0; i < $nc(physicalfonts)->length; ++i) {
 		if (!($instanceOf($NativeFont, physicalfonts->get(i)))) {
 			$var($String, name, $nc(physicalfonts->get(i))->getFamilyName(requestedLocale));
@@ -2624,7 +2331,7 @@ $Locale* SunFontManager::getSystemStartupLocale() {
 	$init(SunFontManager);
 	$beforeCallerSensitive();
 	if (SunFontManager::systemLocale == nullptr) {
-		$assignStatic(SunFontManager::systemLocale, $cast($Locale, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SunFontManager$12)))));
+		$assignStatic(SunFontManager::systemLocale, $cast($Locale, $AccessController::doPrivileged($$new($SunFontManager$12))));
 	}
 	return SunFontManager::systemLocale;
 }
@@ -2634,19 +2341,19 @@ void SunFontManager::addToPool($FileFont* font) {
 	int32_t freeSlot = -1;
 	$synchronized(this->fontFileCache) {
 		for (int32_t i = 0; i < SunFontManager::CHANNELPOOLSIZE; ++i) {
-			if ($nc(this->fontFileCache)->get(i) == font) {
+			if (this->fontFileCache->get(i) == font) {
 				return;
 			}
-			if ($nc(this->fontFileCache)->get(i) == nullptr && freeSlot < 0) {
+			if (this->fontFileCache->get(i) == nullptr && freeSlot < 0) {
 				freeSlot = i;
 			}
 		}
 		if (freeSlot >= 0) {
-			$nc(this->fontFileCache)->set(freeSlot, font);
+			this->fontFileCache->set(freeSlot, font);
 			return;
 		} else {
-			$assign(fontFileToClose, $nc(this->fontFileCache)->get(this->lastPoolIndex));
-			$nc(this->fontFileCache)->set(this->lastPoolIndex, font);
+			$assign(fontFileToClose, this->fontFileCache->get(this->lastPoolIndex));
+			this->fontFileCache->set(this->lastPoolIndex, font);
 			this->lastPoolIndex = $mod((this->lastPoolIndex + 1), SunFontManager::CHANNELPOOLSIZE);
 		}
 	}
@@ -2660,11 +2367,11 @@ $FontUIResource* SunFontManager::getFontConfigFUIR($String* family, int32_t styl
 }
 
 $Void* SunFontManager::lambda$createFont2D$1($Runnable* fileCloserRunnable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, rootTG, $ThreadGroupUtils::getRootThreadGroup());
 	$set(this, fileCloser, $new($Thread, rootTG, fileCloserRunnable, "FileCloser"_s, 0, false));
-	$nc(this->fileCloser)->setContextClassLoader(nullptr);
-	$nc($($Runtime::getRuntime()))->addShutdownHook(this->fileCloser);
+	this->fileCloser->setContextClassLoader(nullptr);
+	$$nc($Runtime::getRuntime())->addShutdownHook(this->fileCloser);
 	return nullptr;
 }
 
@@ -2673,7 +2380,7 @@ $Error* SunFontManager::lambda$getDefaultPhysicalFont$0() {
 	return $new($Error, "Probable fatal error: No physical fonts found."_s);
 }
 
-void clinit$SunFontManager($Class* class$) {
+void SunFontManager::clinit$($Class* clazz) {
 	$assignStatic(SunFontManager::FONT_HANDLE_NULL, $new($Font2DHandle, nullptr));
 	$assignStatic(SunFontManager::missingFontFiles, nullptr);
 	$assignStatic(SunFontManager::ttFilter, $new($SunFontManager$TTFilter));
@@ -2694,14 +2401,230 @@ SunFontManager::SunFontManager() {
 
 $Class* SunFontManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0::classInfo$.name)) {
+		if (name->equals("sun.font.SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0")) {
 			return SunFontManager$$Lambda$lambda$getDefaultPhysicalFont$0::load$(name, initialize);
 		}
-		if (name->equals(SunFontManager$$Lambda$lambda$createFont2D$1$1::classInfo$.name)) {
+		if (name->equals("sun.font.SunFontManager$$Lambda$lambda$createFont2D$1$1")) {
 			return SunFontManager$$Lambda$lambda$createFont2D$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(SunFontManager, name, initialize, &_SunFontManager_ClassInfo_, clinit$SunFontManager, allocate$SunFontManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"FONT_HANDLE_NULL", "Lsun/font/Font2DHandle;", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, FONT_HANDLE_NULL)},
+		{"FONTFORMAT_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_NONE)},
+		{"FONTFORMAT_TRUETYPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_TRUETYPE)},
+		{"FONTFORMAT_TYPE1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_TYPE1)},
+		{"FONTFORMAT_TTC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_TTC)},
+		{"FONTFORMAT_COMPOSITE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_COMPOSITE)},
+		{"FONTFORMAT_NATIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunFontManager, FONTFORMAT_NATIVE)},
+		{"CHANNELPOOLSIZE", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(SunFontManager, CHANNELPOOLSIZE)},
+		{"fontFileCache", "[Lsun/font/FileFont;", nullptr, $PROTECTED, $field(SunFontManager, fontFileCache)},
+		{"lastPoolIndex", "I", nullptr, $PRIVATE, $field(SunFontManager, lastPoolIndex)},
+		{"maxCompFont", "I", nullptr, $PRIVATE, $field(SunFontManager, maxCompFont)},
+		{"compFonts", "[Lsun/font/CompositeFont;", nullptr, $PRIVATE, $field(SunFontManager, compFonts)},
+		{"compositeFonts", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/CompositeFont;>;", $PRIVATE, $field(SunFontManager, compositeFonts)},
+		{"physicalFonts", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/PhysicalFont;>;", $PRIVATE, $field(SunFontManager, physicalFonts)},
+		{"registeredFonts", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/PhysicalFont;>;", $PRIVATE, $field(SunFontManager, registeredFonts)},
+		{"fullNameToFont", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;", $PROTECTED, $field(SunFontManager, fullNameToFont)},
+		{"localeFullNamesToFont", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/font/TrueTypeFont;>;", $PRIVATE, $field(SunFontManager, localeFullNamesToFont)},
+		{"defaultPhysicalFont", "Lsun/font/PhysicalFont;", nullptr, $PRIVATE, $field(SunFontManager, defaultPhysicalFont)},
+		{"longAddresses", "Z", nullptr, $STATIC, $staticField(SunFontManager, longAddresses)},
+		{"loaded1dot0Fonts", "Z", nullptr, $PRIVATE, $field(SunFontManager, loaded1dot0Fonts)},
+		{"loadedAllFonts", "Z", nullptr, 0, $field(SunFontManager, loadedAllFonts)},
+		{"loadedAllFontFiles", "Z", nullptr, 0, $field(SunFontManager, loadedAllFontFiles)},
+		{"jreOtherFontFiles", "[Ljava/lang/String;", nullptr, 0, $field(SunFontManager, jreOtherFontFiles)},
+		{"noOtherJREFontFiles", "Z", nullptr, 0, $field(SunFontManager, noOtherJREFontFiles)},
+		{"jreLibDirName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticField(SunFontManager, jreLibDirName)},
+		{"jreFontDirName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticField(SunFontManager, jreFontDirName)},
+		{"missingFontFiles", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(SunFontManager, missingFontFiles)},
+		{"defaultFontName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SunFontManager, defaultFontName)},
+		{"defaultFontFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SunFontManager, defaultFontFileName)},
+		{"registeredFontFiles", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PROTECTED, $field(SunFontManager, registeredFontFiles)},
+		{"badFonts", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $field(SunFontManager, badFonts)},
+		{"fontPath", "Ljava/lang/String;", nullptr, $PROTECTED, $field(SunFontManager, fontPath)},
+		{"fontConfig", "Lsun/awt/FontConfiguration;", nullptr, $PRIVATE, $field(SunFontManager, fontConfig)},
+		{"discoveredAllFonts", "Z", nullptr, $PRIVATE, $field(SunFontManager, discoveredAllFonts)},
+		{"ttFilter", "Ljava/io/FilenameFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunFontManager, ttFilter)},
+		{"t1Filter", "Ljava/io/FilenameFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunFontManager, t1Filter)},
+		{"allFonts", "[Ljava/awt/Font;", nullptr, $PRIVATE, $field(SunFontManager, allFonts)},
+		{"allFamilies", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SunFontManager, allFamilies)},
+		{"lastDefaultLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(SunFontManager, lastDefaultLocale)},
+		{"noType1Font", "Z", nullptr, $PUBLIC | $STATIC, $staticField(SunFontManager, noType1Font)},
+		{"STR_ARRAY", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, STR_ARRAY)},
+		{"usePlatformFontMetrics", "Z", nullptr, $PRIVATE, $field(SunFontManager, usePlatformFontMetrics$)},
+		{"maxSoftRefCnt", "I", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, maxSoftRefCnt)},
+		{"deferredFontFiles", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/SunFontManager$FontRegistrationInfo;>;", $PRIVATE | $FINAL, $field(SunFontManager, deferredFontFiles)},
+		{"initialisedFonts", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2DHandle;>;", $PRIVATE | $FINAL, $field(SunFontManager, initialisedFonts)},
+		{"fontToFileMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SunFontManager, fontToFileMap)},
+		{"fontToFamilyNameMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SunFontManager, fontToFamilyNameMap)},
+		{"familyToFontListMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;", $PRIVATE, $field(SunFontManager, familyToFontListMap)},
+		{"pathDirs", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SunFontManager, pathDirs)},
+		{"haveCheckedUnreferencedFontFiles", "Z", nullptr, $PRIVATE, $field(SunFontManager, haveCheckedUnreferencedFontFiles)},
+		{"platformFontMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lsun/font/SunFontManager$FamilyDescription;>;", $STATIC | $VOLATILE, $staticField(SunFontManager, platformFontMap)},
+		{"fontNameCache", "Ljava/util/concurrent/ConcurrentHashMap;", "Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;", $PRIVATE, $field(SunFontManager, fontNameCache)},
+		{"fileCloser", "Ljava/lang/Thread;", nullptr, 0, $field(SunFontManager, fileCloser)},
+		{"tmpFontFiles", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/io/File;>;", 0, $field(SunFontManager, tmpFontFiles)},
+		{"createdFontCount", "I", nullptr, $PRIVATE, $field(SunFontManager, createdFontCount)},
+		{"_usingAlternateComposites", "Z", nullptr, $PRIVATE, $field(SunFontManager, _usingAlternateComposites)},
+		{"gAltJAFont", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, gAltJAFont)},
+		{"gLocalePref", "Z", nullptr, $PRIVATE, $field(SunFontManager, gLocalePref)},
+		{"gPropPref", "Z", nullptr, $PRIVATE, $field(SunFontManager, gPropPref)},
+		{"installedNames", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(SunFontManager, installedNames)},
+		{"regFamilyLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SunFontManager, regFamilyLock)},
+		{"createdByFamilyName", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Lsun/font/FontFamily;>;", $PRIVATE, $field(SunFontManager, createdByFamilyName)},
+		{"createdByFullName", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Lsun/font/Font2D;>;", $PRIVATE, $field(SunFontManager, createdByFullName)},
+		{"fontsAreRegistered", "Z", nullptr, $PRIVATE, $field(SunFontManager, fontsAreRegistered)},
+		{"systemLocale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(SunFontManager, systemLocale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(SunFontManager, init$, void)},
+		{"addCompositeToFontList", "(Lsun/font/CompositeFont;I)V", nullptr, $PRIVATE, $method(SunFontManager, addCompositeToFontList, void, $CompositeFont*, int32_t)},
+		{"addDirFonts", "(Ljava/lang/String;Ljava/io/File;Ljava/io/FilenameFilter;IZIZZ)V", nullptr, $PRIVATE, $method(SunFontManager, addDirFonts, void, $String*, $File*, $FilenameFilter*, int32_t, bool, int32_t, bool, bool)},
+		{"addFontToPlatformFontPath", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, addFontToPlatformFontPath, void, $String*)},
+		{"addNativeFontFamilyNames", "(Ljava/util/TreeMap;Ljava/util/Locale;)V", "(Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(SunFontManager, addNativeFontFamilyNames, void, $TreeMap*, $Locale*)},
+		{"addToFontList", "(Lsun/font/PhysicalFont;I)Lsun/font/PhysicalFont;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, addToFontList, $PhysicalFont*, $PhysicalFont*, int32_t)},
+		{"addToMissingFontFileList", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, addToMissingFontFileList, void, $String*)},
+		{"addToPool", "(Lsun/font/FileFont;)V", nullptr, 0, $virtualMethod(SunFontManager, addToPool, void, $FileFont*)},
+		{"checkForUnreferencedFontFiles", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SunFontManager, checkForUnreferencedFontFiles, void)},
+		{"createCompositeFonts", "(Ljava/util/concurrent/ConcurrentHashMap;ZZ)V", "(Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;ZZ)V", $PUBLIC, $virtualMethod(SunFontManager, createCompositeFonts, void, $ConcurrentHashMap*, bool, bool)},
+		{"createFont2D", "(Ljava/io/File;IZZLsun/font/CreatedFontTracker;)[Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, createFont2D, $Font2DArray*, $File*, int32_t, bool, bool, $CreatedFontTracker*), "java.awt.FontFormatException"},
+		{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunFontManager, createFontConfiguration, $FontConfiguration*)},
+		{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunFontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
+		{"deRegisterBadFont", "(Lsun/font/Font2D;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, deRegisterBadFont, void, $Font2D*)},
+		{"dotStyleStr", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFontManager, dotStyleStr, $String*, int32_t)},
+		{"findDeferredFont", "(Ljava/lang/String;I)Lsun/font/PhysicalFont;", nullptr, $PRIVATE, $method(SunFontManager, findDeferredFont, $PhysicalFont*, $String*, int32_t)},
+		{"findFont2D", "(Ljava/lang/String;II)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, findFont2D, $Font2D*, $String*, int32_t, int32_t)},
+		{"findFont2DAllLocales", "(Ljava/lang/String;I)Lsun/font/Font2D;", nullptr, $PRIVATE, $method(SunFontManager, findFont2DAllLocales, $Font2D*, $String*, int32_t)},
+		{"findFontFromPlatform", "(Ljava/lang/String;I)Lsun/font/Font2D;", nullptr, $PRIVATE, $method(SunFontManager, findFontFromPlatform, $Font2D*, $String*, int32_t)},
+		{"findFontFromPlatformMap", "(Ljava/lang/String;I)Lsun/font/Font2D;", nullptr, 0, $virtualMethod(SunFontManager, findFontFromPlatformMap, $Font2D*, $String*, int32_t)},
+		{"findJREDeferredFont", "(Ljava/lang/String;I)Lsun/font/PhysicalFont;", nullptr, 0, $virtualMethod(SunFontManager, findJREDeferredFont, $PhysicalFont*, $String*, int32_t)},
+		{"findOtherDeferredFont", "(Ljava/lang/String;I)Lsun/font/PhysicalFont;", nullptr, $PRIVATE, $method(SunFontManager, findOtherDeferredFont, $PhysicalFont*, $String*, int32_t)},
+		{"fontSupportsEncoding", "(Ljava/awt/Font;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFontManager, fontSupportsEncoding, bool, $Font*, $String*)},
+		{"getAllInstalledFonts", "()[Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getAllInstalledFonts, $FontArray*)},
+		{"getCreatedFontFamilyNames", "()Ljava/util/TreeMap;", "()Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SunFontManager, getCreatedFontFamilyNames, $TreeMap*)},
+		{"getCreatedFonts", "()[Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getCreatedFonts, $FontArray*)},
+		{"getDefaultFontFaceName", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, getDefaultFontFaceName, $String*)},
+		{"getDefaultFontFile", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, getDefaultFontFile, $String*)},
+		{"getDefaultLogicalFont", "(I)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getDefaultLogicalFont, $Font2D*, int32_t)},
+		{"getDefaultPhysicalFont", "()Lsun/font/PhysicalFont;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getDefaultPhysicalFont, $PhysicalFont*)},
+		{"getDefaultPlatformFont", "()[Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunFontManager, getDefaultPlatformFont, $StringArray*)},
+		{"getEUDCFont", "()Lsun/font/TrueTypeFont;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getEUDCFont, $TrueTypeFont*)},
+		{"getFamilyNamesFromPlatform", "(Ljava/util/TreeMap;Ljava/util/Locale;)Z", "(Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Locale;)Z", $PUBLIC, $virtualMethod(SunFontManager, getFamilyNamesFromPlatform, bool, $TreeMap*, $Locale*)},
+		{"getFileNameForFontName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getFileNameForFontName, $String*, $String*)},
+		{"getFileNameFromPlatformName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getFileNameFromPlatformName, $String*, $String*)},
+		{"getFontConfigFUIR", "(Ljava/lang/String;II)Ljavax/swing/plaf/FontUIResource;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getFontConfigFUIR, $FontUIResource*, $String*, int32_t, int32_t)},
+		{"getFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getFontConfiguration, $FontConfiguration*)},
+		{"getFontFilesFromPath", "(Z)[Ljava/lang/String;", nullptr, $PRIVATE, $method(SunFontManager, getFontFilesFromPath, $StringArray*, bool)},
+		{"getFontNamesFromPlatform", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getFontNamesFromPlatform, $StringArray*)},
+		{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SunFontManager, getFontPath, $String*, bool)},
+		{"getFullNameByFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, getFullNameByFileName, $String*, $String*)},
+		{"getFullNameToFileMap", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $SYNCHRONIZED, $method(SunFontManager, getFullNameToFileMap, $HashMap*)},
+		{"getInstalledFontFamilyNames", "(Ljava/util/Locale;)[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getInstalledFontFamilyNames, $StringArray*, $Locale*)},
+		{"getInstalledNames", "()Ljava/util/HashSet;", "()Ljava/util/HashSet<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SunFontManager, getInstalledNames, $HashSet*)},
+		{"getInstance", "()Lsun/font/SunFontManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(SunFontManager, getInstance, SunFontManager*)},
+		{"getJDKFontDir", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(SunFontManager, getJDKFontDir, $String*)},
+		{"getJREFontFamilyNames", "(Ljava/util/TreeMap;Ljava/util/Locale;)V", "(Ljava/util/TreeMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(SunFontManager, getJREFontFamilyNames, void, $TreeMap*, $Locale*)},
+		{"getNativeNames", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getNativeNames, $StringArray*, $String*, $String*)},
+		{"getNewComposite", "(Ljava/lang/String;ILsun/font/Font2DHandle;)Lsun/font/Font2DHandle;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getNewComposite, $Font2DHandle*, $String*, int32_t, $Font2DHandle*)},
+		{"getNumFonts", "()I", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getNumFonts, int32_t)},
+		{"getPathName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SunFontManager, getPathName, $String*, $String*)},
+		{"getPhysicalFonts", "()[Lsun/font/PhysicalFont;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getPhysicalFonts, $PhysicalFontArray*)},
+		{"getPlatformFontDirs", "(Z)[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SunFontManager, getPlatformFontDirs, $StringArray*, bool)},
+		{"getPlatformFontPath", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getPlatformFontPath, $String*, bool)},
+		{"getRegisteredFontFile", "(Ljava/lang/String;)Lsun/font/PhysicalFont;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getRegisteredFontFile, $PhysicalFont*, $String*)},
+		{"getRegisteredFonts", "()[Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getRegisteredFonts, $Font2DArray*)},
+		{"getSystemStartupLocale", "()Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFontManager, getSystemStartupLocale, $Locale*)},
+		{"getTrueTypeFilter", "()Ljava/io/FilenameFilter;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getTrueTypeFilter, $FilenameFilter*)},
+		{"getType1Filter", "()Ljava/io/FilenameFilter;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, getType1Filter, $FilenameFilter*)},
+		{"gotFontsFromPlatform", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, gotFontsFromPlatform, bool)},
+		{"initCompositeFonts", "(Lsun/awt/FontConfiguration;Ljava/util/concurrent/ConcurrentHashMap;)V", "(Lsun/awt/FontConfiguration;Ljava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;)V", $PRIVATE, $method(SunFontManager, initCompositeFonts, void, $FontConfiguration*, $ConcurrentHashMap*)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SunFontManager, initIDs, void)},
+		{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SunFontManager, initStatic, void)},
+		{"initialiseDeferredFont", "(Ljava/lang/String;)Lsun/font/PhysicalFont;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, initialiseDeferredFont, $PhysicalFont*, $String*)},
+		{"initialiseDeferredFonts", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(SunFontManager, initialiseDeferredFonts, void)},
+		{"isDeferredFont", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, isDeferredFont, bool, $String*)},
+		{"isNameForRegisteredFile", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(SunFontManager, isNameForRegisteredFile, bool, $String*)},
+		{"isRegisteredFontFile", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, isRegisteredFontFile, bool, $String*)},
+		{"lambda$createFont2D$1", "(Ljava/lang/Runnable;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(SunFontManager, lambda$createFont2D$1, $Void*, $Runnable*)},
+		{"lambda$getDefaultPhysicalFont$0", "()Ljava/lang/Error;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SunFontManager, lambda$getDefaultPhysicalFont$0, $Error*)},
+		{"loadFontFiles", "()V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, loadFontFiles, void)},
+		{"loadFonts", "()V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, loadFonts, void)},
+		{"loadLocaleNames", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SunFontManager, loadLocaleNames, void)},
+		{"logPlatformFontInfo", "()V", nullptr, $PRIVATE, $method(SunFontManager, logPlatformFontInfo, void)},
+		{"populateFontFileNameMap", "(Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/HashMap;Ljava/util/Locale;)V", "(Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/HashMap<Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/String;>;>;Ljava/util/Locale;)V", $PROTECTED, $virtualMethod(SunFontManager, populateFontFileNameMap, void, $HashMap*, $HashMap*, $HashMap*, $Locale*)},
+		{"populateHardcodedFileNameMap", "()Ljava/util/HashMap;", "()Ljava/util/HashMap<Ljava/lang/String;Lsun/font/SunFontManager$FamilyDescription;>;", $PUBLIC, $virtualMethod(SunFontManager, populateHardcodedFileNameMap, $HashMap*)},
+		{"preferLocaleFonts", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, preferLocaleFonts, void)},
+		{"preferProportionalFonts", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, preferProportionalFonts, void)},
+		{"register1dot0Fonts", "()V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, register1dot0Fonts, void)},
+		{"registerCompositeFont", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;I[I[IZ)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerCompositeFont, void, $String*, $StringArray*, $StringArray*, int32_t, $ints*, $ints*, bool)},
+		{"registerCompositeFont", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;I[I[IZLjava/util/concurrent/ConcurrentHashMap;)V", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;I[I[IZLjava/util/concurrent/ConcurrentHashMap<Ljava/lang/String;Lsun/font/Font2D;>;)V", $PROTECTED | $STATIC, $staticMethod(SunFontManager, registerCompositeFont, void, $String*, $StringArray*, $StringArray*, int32_t, $ints*, $ints*, bool, $ConcurrentHashMap*)},
+		{"registerDeferredFont", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;IZI)V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerDeferredFont, void, $String*, $String*, $StringArray*, int32_t, bool, int32_t)},
+		{"registerDeferredJREFonts", "(Ljava/lang/String;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(SunFontManager, registerDeferredJREFonts, void, $String*)},
+		{"registerFont", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerFont, bool, $Font*)},
+		{"registerFontDir", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerFontDir, void, $String*)},
+		{"registerFontDirs", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerFontDirs, void, $String*)},
+		{"registerFontFile", "(Ljava/lang/String;[Ljava/lang/String;IZI)Lsun/font/PhysicalFont;", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerFontFile, $PhysicalFont*, $String*, $StringArray*, int32_t, bool, int32_t)},
+		{"registerFontFile", "(Ljava/lang/String;)Lsun/font/PhysicalFont;", nullptr, $PRIVATE, $method(SunFontManager, registerFontFile, $PhysicalFont*, $String*)},
+		{"registerFontFile", "(Ljava/lang/String;[Ljava/lang/String;IZ)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerFontFile, void, $String*, $StringArray*, int32_t, bool)},
+		{"registerFonts", "([Ljava/lang/String;[[Ljava/lang/String;IIZIZ)V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerFonts, void, $StringArray*, $StringArray2*, int32_t, int32_t, bool, int32_t, bool)},
+		{"registerFontsInDir", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SunFontManager, registerFontsInDir, void, $String*)},
+		{"registerFontsInDir", "(Ljava/lang/String;ZIZZ)V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerFontsInDir, void, $String*, bool, int32_t, bool, bool)},
+		{"registerFontsOnPath", "(Ljava/lang/String;ZIZZ)V", nullptr, $PRIVATE, $method(SunFontManager, registerFontsOnPath, void, $String*, bool, int32_t, bool, bool)},
+		{"registerOtherFontFiles", "(Ljava/util/HashSet;)V", "(Ljava/util/HashSet<Ljava/lang/String;>;)V", $PROTECTED, $virtualMethod(SunFontManager, registerOtherFontFiles, void, $HashSet*)},
+		{"registerPlatformFontsUsedByFontConfiguration", "()V", nullptr, $PROTECTED, $virtualMethod(SunFontManager, registerPlatformFontsUsedByFontConfiguration, void)},
+		{"removeFromCache", "(Lsun/font/Font2D;)V", nullptr, $PRIVATE, $method(SunFontManager, removeFromCache, void, $Font2D*)},
+		{"replaceFont", "(Lsun/font/PhysicalFont;Lsun/font/PhysicalFont;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, replaceFont, void, $PhysicalFont*, $PhysicalFont*)},
+		{"resolveFontFiles", "(Ljava/util/HashSet;Ljava/util/ArrayList;)V", "(Ljava/util/HashSet<Ljava/lang/String;>;Ljava/util/ArrayList<Ljava/lang/String;>;)V", $PRIVATE, $method(SunFontManager, resolveFontFiles, void, $HashSet*, $ArrayList*)},
+		{"resolveWindowsFonts", "()V", nullptr, $PRIVATE, $method(SunFontManager, resolveWindowsFonts, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"useAbsoluteFontFileNames", "()Z", nullptr, $PROTECTED, $virtualMethod(SunFontManager, useAbsoluteFontFileNames, bool)},
+		{"useAlternateFontforJALocales", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SunFontManager, useAlternateFontforJALocales, void)},
+		{"usePlatformFontMetrics", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, usePlatformFontMetrics, bool)},
+		{"usingAlternateCompositeFonts", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, usingAlternateCompositeFonts, bool)},
+		{"usingAlternateFontforJALocales", "()Z", nullptr, $PUBLIC, $virtualMethod(SunFontManager, usingAlternateFontforJALocales, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.SunFontManager$FamilyDescription", "sun.font.SunFontManager", "FamilyDescription", $PUBLIC | $STATIC},
+		{"sun.font.SunFontManager$FontRegistrationInfo", "sun.font.SunFontManager", "FontRegistrationInfo", $PRIVATE | $STATIC | $FINAL},
+		{"sun.font.SunFontManager$TTorT1Filter", "sun.font.SunFontManager", "TTorT1Filter", $PRIVATE | $STATIC},
+		{"sun.font.SunFontManager$T1Filter", "sun.font.SunFontManager", "T1Filter", $PRIVATE | $STATIC},
+		{"sun.font.SunFontManager$TTFilter", "sun.font.SunFontManager", "TTFilter", $PRIVATE | $STATIC},
+		{"sun.font.SunFontManager$12", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$11", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$10", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$9", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$8", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$7", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$6", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$5", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$4", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$3", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$2", nullptr, nullptr, 0},
+		{"sun.font.SunFontManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.font.SunFontManager",
+		"java.lang.Object",
+		"sun.java2d.FontSupport,sun.font.FontManagerForSGE",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.font.SunFontManager$FamilyDescription,sun.font.SunFontManager$FontRegistrationInfo,sun.font.SunFontManager$TTorT1Filter,sun.font.SunFontManager$T1Filter,sun.font.SunFontManager$TTFilter,sun.font.SunFontManager$12,sun.font.SunFontManager$11,sun.font.SunFontManager$10,sun.font.SunFontManager$9,sun.font.SunFontManager$8,sun.font.SunFontManager$8$1,sun.font.SunFontManager$7,sun.font.SunFontManager$6,sun.font.SunFontManager$5,sun.font.SunFontManager$4,sun.font.SunFontManager$3,sun.font.SunFontManager$2,sun.font.SunFontManager$1"
+	};
+	$loadClass(SunFontManager, name, initialize, &classInfo$$, SunFontManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SunFontManager));
+	});
 	return class$;
 }
 

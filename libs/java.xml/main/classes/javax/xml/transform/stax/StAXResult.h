@@ -26,6 +26,7 @@ class $export StAXResult : public ::javax::xml::transform::Result {
 	$class(StAXResult, 0, ::javax::xml::transform::Result)
 public:
 	StAXResult();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::xml::stream::XMLEventWriter* xmlEventWriter);
 	void init$(::javax::xml::stream::XMLStreamWriter* xmlStreamWriter);
 	virtual $String* getSystemId() override;

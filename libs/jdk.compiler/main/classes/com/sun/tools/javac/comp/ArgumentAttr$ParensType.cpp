@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$ParensType.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/ArgumentAttr$ArgumentType.h>
 #include <com/sun/tools/javac/comp/ArgumentAttr.h>
@@ -19,7 +18,6 @@ using $ArgumentAttr$ArgumentType = ::com::sun::tools::javac::comp::ArgumentAttr$
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,47 +32,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _ArgumentAttr$ParensType_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ParensType, this$0)},
-	{}
-};
-
-$MethodInfo _ArgumentAttr$ParensType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", 0, $method(ArgumentAttr$ParensType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCParens*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCParens;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCParens;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(ArgumentAttr$ParensType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCParens*, $Map*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCParens;>;", 0, $virtualMethod(ArgumentAttr$ParensType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCParens*, $Env*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$ParensType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
-	{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ParensType, overloadCheck, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
-	{}
-};
-
-$InnerClassInfo _ArgumentAttr$ParensType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$ParensType", "com.sun.tools.javac.comp.ArgumentAttr", "ParensType", 0},
-	{"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType", "com.sun.tools.javac.comp.ArgumentAttr", "ArgumentType", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCParens", "com.sun.tools.javac.tree.JCTree", "JCParens", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$ParensType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.ArgumentAttr$ParensType",
-	"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType",
-	nullptr,
-	_ArgumentAttr$ParensType_FieldInfo_,
-	_ArgumentAttr$ParensType_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCParens;>;",
-	nullptr,
-	_ArgumentAttr$ParensType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$ParensType($Class* clazz) {
-	return $of($alloc(ArgumentAttr$ParensType));
-}
 
 void ArgumentAttr$ParensType::init$($ArgumentAttr* this$0, $JCTree$JCExpression* tree, $Env* env, $JCTree$JCParens* speculativeParens) {
 	ArgumentAttr$ParensType::init$(this$0, tree, env, speculativeParens, $$new($HashMap));
@@ -101,7 +58,42 @@ ArgumentAttr$ParensType::ArgumentAttr$ParensType() {
 }
 
 $Class* ArgumentAttr$ParensType::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$ParensType, name, initialize, &_ArgumentAttr$ParensType_ClassInfo_, allocate$ArgumentAttr$ParensType);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ParensType, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", 0, $method(ArgumentAttr$ParensType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCParens*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCParens;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCParens;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", 0, $method(ArgumentAttr$ParensType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCParens*, $Map*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCParens;>;", 0, $virtualMethod(ArgumentAttr$ParensType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCParens*, $Env*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$ParensType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
+		{"overloadCheck", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ParensType, overloadCheck, $Type*, $Attr$ResultInfo*, $DeferredAttr$DeferredAttrContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$ParensType", "com.sun.tools.javac.comp.ArgumentAttr", "ParensType", 0},
+		{"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType", "com.sun.tools.javac.comp.ArgumentAttr", "ArgumentType", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCParens", "com.sun.tools.javac.tree.JCTree", "JCParens", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.ArgumentAttr$ParensType",
+		"com.sun.tools.javac.comp.ArgumentAttr$ArgumentType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCParens;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$ParensType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArgumentAttr$ParensType));
+	});
 	return class$;
 }
 

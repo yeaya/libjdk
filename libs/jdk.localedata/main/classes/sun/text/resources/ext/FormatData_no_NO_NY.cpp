@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_no_NO_NY.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,35 +12,16 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_no_NO_NY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_no_NO_NY, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_no_NO_NY, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_no_NO_NY_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_no_NO_NY",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_no_NO_NY_MethodInfo_
-};
-
-$Object* allocate$FormatData_no_NO_NY($Class* clazz) {
-	return $of($alloc(FormatData_no_NO_NY));
-}
-
 void FormatData_no_NO_NY::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_no_NO_NY::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of($$new($StringArray, {
+			"MonthNames"_s,
+			$$new($StringArray, {
 				"januar"_s,
 				"februar"_s,
 				"mars"_s,
@@ -55,11 +35,11 @@ $ObjectArray2* FormatData_no_NO_NY::getContents() {
 				"november"_s,
 				"desember"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"MonthAbbreviations"_s,
+			$$new($StringArray, {
 				"jan"_s,
 				"feb"_s,
 				"mar"_s,
@@ -73,11 +53,11 @@ $ObjectArray2* FormatData_no_NO_NY::getContents() {
 				"nov"_s,
 				"des"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of($$new($StringArray, {
+			"DayNames"_s,
+			$$new($StringArray, {
 				"sundag"_s,
 				u"måndag"_s,
 				"tysdag"_s,
@@ -85,11 +65,11 @@ $ObjectArray2* FormatData_no_NO_NY::getContents() {
 				"torsdag"_s,
 				"fredag"_s,
 				"laurdag"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"DayAbbreviations"_s,
+			$$new($StringArray, {
 				"su"_s,
 				u"må"_s,
 				"ty"_s,
@@ -97,11 +77,11 @@ $ObjectArray2* FormatData_no_NO_NY::getContents() {
 				"to"_s,
 				"fr"_s,
 				"lau"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("NumberElements"_s),
-			$of($$new($StringArray, {
+			"NumberElements"_s,
+			$$new($StringArray, {
 				","_s,
 				u" "_s,
 				";"_s,
@@ -113,33 +93,33 @@ $ObjectArray2* FormatData_no_NO_NY::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				u"�"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				"\'kl \'HH.mm z"_s,
 				"HH:mm:ss z"_s,
 				"HH:mm:ss"_s,
 				"HH:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"d. MMMM yyyy"_s,
 				"d. MMMM yyyy"_s,
 				"dd.MMM.yyyy"_s,
 				"dd.MM.yy"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1} {0}"_s}))
+			"DateTimePatterns"_s,
+			$$new($StringArray, {"{1} {0}"_s})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatternChars"_s),
-			$of("GyMdkHmsSEDFwWahKzZ"_s)
+			"DateTimePatternChars"_s,
+			"GyMdkHmsSEDFwWahKzZ"_s
 		})
 	});
 }
@@ -148,7 +128,22 @@ FormatData_no_NO_NY::FormatData_no_NO_NY() {
 }
 
 $Class* FormatData_no_NO_NY::load$($String* name, bool initialize) {
-	$loadClass(FormatData_no_NO_NY, name, initialize, &_FormatData_no_NO_NY_ClassInfo_, allocate$FormatData_no_NO_NY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_no_NO_NY, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_no_NO_NY, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_no_NO_NY",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_no_NO_NY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_no_NO_NY);
+	});
 	return class$;
 }
 

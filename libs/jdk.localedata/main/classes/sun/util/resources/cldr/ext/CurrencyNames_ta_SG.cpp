@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_ta_SG.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,43 +13,24 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_ta_SG_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_ta_SG, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_ta_SG, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_ta_SG_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_ta_SG",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_ta_SG_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_ta_SG($Class* clazz) {
-	return $of($alloc(CurrencyNames_ta_SG));
-}
-
 void CurrencyNames_ta_SG::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_ta_SG::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MYR"_s),
-			$of("RM"_s)
+			"MYR"_s,
+			"RM"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SGD"_s),
-			$of("$"_s)
+			"SGD"_s,
+			"$"_s
 		}),
 		$$new($ObjectArray, {
-			$of("USD"_s),
-			$of("US$"_s)
+			"USD"_s,
+			"US$"_s
 		})
 	}));
 	return data;
@@ -60,7 +40,22 @@ CurrencyNames_ta_SG::CurrencyNames_ta_SG() {
 }
 
 $Class* CurrencyNames_ta_SG::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_ta_SG, name, initialize, &_CurrencyNames_ta_SG_ClassInfo_, allocate$CurrencyNames_ta_SG);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_ta_SG, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_ta_SG, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_ta_SG",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_ta_SG, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_ta_SG);
+	});
 	return class$;
 }
 

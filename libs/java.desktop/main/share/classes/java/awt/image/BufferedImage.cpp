@@ -1,5 +1,4 @@
 #include <java/awt/image/BufferedImage.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -124,128 +123,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _BufferedImage_FieldInfo_[] = {
-	{"imageType", "I", nullptr, $PRIVATE, $field(BufferedImage, imageType)},
-	{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(BufferedImage, colorModel)},
-	{"raster", "Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE | $FINAL, $field(BufferedImage, raster)},
-	{"osis", "Lsun/awt/image/OffScreenImageSource;", nullptr, $PRIVATE, $field(BufferedImage, osis)},
-	{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(BufferedImage, properties)},
-	{"TYPE_CUSTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_CUSTOM)},
-	{"TYPE_INT_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_INT_RGB)},
-	{"TYPE_INT_ARGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_INT_ARGB)},
-	{"TYPE_INT_ARGB_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_INT_ARGB_PRE)},
-	{"TYPE_INT_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_INT_BGR)},
-	{"TYPE_3BYTE_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_3BYTE_BGR)},
-	{"TYPE_4BYTE_ABGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_4BYTE_ABGR)},
-	{"TYPE_4BYTE_ABGR_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_4BYTE_ABGR_PRE)},
-	{"TYPE_USHORT_565_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_USHORT_565_RGB)},
-	{"TYPE_USHORT_555_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_USHORT_555_RGB)},
-	{"TYPE_BYTE_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_BYTE_GRAY)},
-	{"TYPE_USHORT_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_USHORT_GRAY)},
-	{"TYPE_BYTE_BINARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_BYTE_BINARY)},
-	{"TYPE_BYTE_INDEXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_BYTE_INDEXED)},
-	{"DCM_RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_RED_MASK)},
-	{"DCM_GREEN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_GREEN_MASK)},
-	{"DCM_BLUE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_BLUE_MASK)},
-	{"DCM_ALPHA_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_ALPHA_MASK)},
-	{"DCM_565_RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_565_RED_MASK)},
-	{"DCM_565_GRN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_565_GRN_MASK)},
-	{"DCM_565_BLU_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_565_BLU_MASK)},
-	{"DCM_555_RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_555_RED_MASK)},
-	{"DCM_555_GRN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_555_GRN_MASK)},
-	{"DCM_555_BLU_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_555_BLU_MASK)},
-	{"DCM_BGR_RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_BGR_RED_MASK)},
-	{"DCM_BGR_GRN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_BGR_GRN_MASK)},
-	{"DCM_BGR_BLU_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_BGR_BLU_MASK)},
-	{}
-};
-
-$MethodInfo _BufferedImage_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(BufferedImage, init$, void, int32_t, int32_t, int32_t)},
-	{"<init>", "(IIILjava/awt/image/IndexColorModel;)V", nullptr, $PUBLIC, $method(BufferedImage, init$, void, int32_t, int32_t, int32_t, $IndexColorModel*)},
-	{"<init>", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;ZLjava/util/Hashtable;)V", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;ZLjava/util/Hashtable<**>;)V", $PUBLIC, $method(BufferedImage, init$, void, $ColorModel*, $WritableRaster*, bool, $Hashtable*)},
-	{"addTileObserver", "(Ljava/awt/image/TileObserver;)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, addTileObserver, void, $TileObserver*)},
-	{"coerceData", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, coerceData, void, bool)},
-	{"copyData", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, copyData, $WritableRaster*, $WritableRaster*)},
-	{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, createGraphics, $Graphics2D*)},
-	{"getAlphaRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getAlphaRaster, $WritableRaster*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getColorModel, $ColorModel*)},
-	{"getData", "()Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getData, $Raster*)},
-	{"getData", "(Ljava/awt/Rectangle;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getData, $Raster*, $Rectangle*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getGraphics, $Graphics*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getHeight, int32_t)},
-	{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getHeight, int32_t, $ImageObserver*)},
-	{"getMinTileX", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getMinTileX, int32_t)},
-	{"getMinTileY", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getMinTileY, int32_t)},
-	{"getMinX", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getMinX, int32_t)},
-	{"getMinY", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getMinY, int32_t)},
-	{"getNumXTiles", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getNumXTiles, int32_t)},
-	{"getNumYTiles", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getNumYTiles, int32_t)},
-	{"getProperty", "(Ljava/lang/String;Ljava/awt/image/ImageObserver;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getProperty, $Object*, $String*, $ImageObserver*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getProperty, $Object*, $String*)},
-	{"getPropertyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getPropertyNames, $StringArray*)},
-	{"getRGB", "(II)I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getRGB, int32_t, int32_t, int32_t)},
-	{"getRGB", "(IIII[III)[I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getRGB, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"getRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getRaster, $WritableRaster*)},
-	{"getSampleModel", "()Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getSampleModel, $SampleModel*)},
-	{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getSource, $ImageProducer*)},
-	{"getSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/RenderedImage;>;", $PUBLIC, $virtualMethod(BufferedImage, getSources, $Vector*)},
-	{"getSubimage", "(IIII)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getSubimage, BufferedImage*, int32_t, int32_t, int32_t, int32_t)},
-	{"getTile", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTile, $Raster*, int32_t, int32_t)},
-	{"getTileGridXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTileGridXOffset, int32_t)},
-	{"getTileGridYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTileGridYOffset, int32_t)},
-	{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTileHeight, int32_t)},
-	{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTileWidth, int32_t)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTransparency, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getType, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getWidth, int32_t)},
-	{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getWidth, int32_t, $ImageObserver*)},
-	{"getWritableTile", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getWritableTile, $WritableRaster*, int32_t, int32_t)},
-	{"getWritableTileIndices", "()[Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getWritableTileIndices, $PointArray*)},
-	{"hasTileWriters", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedImage, hasTileWriters, bool)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(BufferedImage, initIDs, void)},
-	{"isAlphaPremultiplied", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedImage, isAlphaPremultiplied, bool)},
-	{"isStandard", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedImage, isStandard, bool, $ColorModel*, $WritableRaster*)},
-	{"isTileWritable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(BufferedImage, isTileWritable, bool, int32_t, int32_t)},
-	{"releaseWritableTile", "(II)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, releaseWritableTile, void, int32_t, int32_t)},
-	{"removeTileObserver", "(Ljava/awt/image/TileObserver;)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, removeTileObserver, void, $TileObserver*)},
-	{"setData", "(Ljava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, setData, void, $Raster*)},
-	{"setRGB", "(III)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, setRGB, void, int32_t, int32_t, int32_t)},
-	{"setRGB", "(IIII[III)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, setRGB, void, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 46
-
-$InnerClassInfo _BufferedImage_InnerClassesInfo_[] = {
-	{"java.awt.image.BufferedImage$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BufferedImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.BufferedImage",
-	"java.awt.Image",
-	"java.awt.image.WritableRenderedImage,java.awt.Transparency",
-	_BufferedImage_FieldInfo_,
-	_BufferedImage_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BufferedImage_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.image.BufferedImage$1"
-};
-
-$Object* allocate$BufferedImage($Class* clazz) {
-	return $of($alloc(BufferedImage));
-}
-
 int32_t BufferedImage::hashCode() {
 	 return this->$Image::hashCode();
 }
@@ -264,190 +141,162 @@ void BufferedImage::finalize() {
 
 void BufferedImage::initIDs() {
 	$init(BufferedImage);
-	$prepareNativeStatic(BufferedImage, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void BufferedImage::init$(int32_t width, int32_t height, int32_t imageType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Image::init$();
 	this->imageType = BufferedImage::TYPE_CUSTOM;
 	switch (imageType) {
 	case BufferedImage::TYPE_INT_RGB:
 		{
-			{
-				$set(this, colorModel, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255, 0));
-				$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
-			}
-			break;
+			$set(this, colorModel, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255, 0));
+			$set(this, raster, this->colorModel->createCompatibleWritableRaster(width, height));
 		}
+		break;
 	case BufferedImage::TYPE_INT_ARGB:
 		{
-			{
-				$set(this, colorModel, $ColorModel::getRGBdefault());
-				$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
-			}
-			break;
+			$set(this, colorModel, $ColorModel::getRGBdefault());
+			$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
 		}
+		break;
 	case BufferedImage::TYPE_INT_ARGB_PRE:
 		{
-			{
-				$set(this, colorModel, $new($DirectColorModel, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), 32, 0x00FF0000, 0x0000FF00, 255, (int32_t)0xFF000000, true, $DataBuffer::TYPE_INT));
-				$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
-			}
-			break;
+			$set(this, colorModel, $new($DirectColorModel, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), 32, 0x00ff0000, 0x0000ff00, 255, (int32_t)0xff000000, true, $DataBuffer::TYPE_INT));
+			$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
 		}
+		break;
 	case BufferedImage::TYPE_INT_BGR:
 		{
-			{
-				$set(this, colorModel, $new($DirectColorModel, 24, 255, 0x0000FF00, 0x00FF0000));
-				$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
-			}
-			break;
+			$set(this, colorModel, $new($DirectColorModel, 24, 255, 0x0000ff00, 0x00ff0000));
+			$set(this, raster, this->colorModel->createCompatibleWritableRaster(width, height));
 		}
+		break;
 	case BufferedImage::TYPE_3BYTE_BGR:
 		{
-			{
-				$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-				$var($ints, nBits, $new($ints, {
-					8,
-					8,
-					8
-				}));
-				$var($ints, bOffs, $new($ints, {
-					2,
-					1,
-					0
-				}));
-				$set(this, colorModel, $new($ComponentColorModel, cs, nBits, false, false, $Transparency::OPAQUE, $DataBuffer::TYPE_BYTE));
-				$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, width * 3, 3, bOffs, ($Point*)nullptr));
-			}
-			break;
+			$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+			$var($ints, nBits, $new($ints, {
+				8,
+				8,
+				8
+			}));
+			$var($ints, bOffs, $new($ints, {
+				2,
+				1,
+				0
+			}));
+			$set(this, colorModel, $new($ComponentColorModel, cs, nBits, false, false, $Transparency::OPAQUE, $DataBuffer::TYPE_BYTE));
+			$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, width * 3, 3, bOffs, nullptr));
 		}
+		break;
 	case BufferedImage::TYPE_4BYTE_ABGR:
 		{
-			{
-				$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-				$var($ints, nBits, $new($ints, {
-					8,
-					8,
-					8,
-					8
-				}));
-				$var($ints, bOffs, $new($ints, {
-					3,
-					2,
-					1,
-					0
-				}));
-				$set(this, colorModel, $new($ComponentColorModel, cs, nBits, true, false, $Transparency::TRANSLUCENT, $DataBuffer::TYPE_BYTE));
-				$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, width * 4, 4, bOffs, ($Point*)nullptr));
-			}
-			break;
+			$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+			$var($ints, nBits, $new($ints, {
+				8,
+				8,
+				8,
+				8
+			}));
+			$var($ints, bOffs, $new($ints, {
+				3,
+				2,
+				1,
+				0
+			}));
+			$set(this, colorModel, $new($ComponentColorModel, cs, nBits, true, false, $Transparency::TRANSLUCENT, $DataBuffer::TYPE_BYTE));
+			$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, width * 4, 4, bOffs, nullptr));
 		}
+		break;
 	case BufferedImage::TYPE_4BYTE_ABGR_PRE:
 		{
-			{
-				$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-				$var($ints, nBits, $new($ints, {
-					8,
-					8,
-					8,
-					8
-				}));
-				$var($ints, bOffs, $new($ints, {
-					3,
-					2,
-					1,
-					0
-				}));
-				$set(this, colorModel, $new($ComponentColorModel, cs, nBits, true, true, $Transparency::TRANSLUCENT, $DataBuffer::TYPE_BYTE));
-				$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, width * 4, 4, bOffs, ($Point*)nullptr));
-			}
-			break;
+			$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+			$var($ints, nBits, $new($ints, {
+				8,
+				8,
+				8,
+				8
+			}));
+			$var($ints, bOffs, $new($ints, {
+				3,
+				2,
+				1,
+				0
+			}));
+			$set(this, colorModel, $new($ComponentColorModel, cs, nBits, true, true, $Transparency::TRANSLUCENT, $DataBuffer::TYPE_BYTE));
+			$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, width * 4, 4, bOffs, nullptr));
 		}
+		break;
 	case BufferedImage::TYPE_BYTE_GRAY:
 		{
-			{
-				$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
-				$var($ints, nBits, $new($ints, {8}));
-				$set(this, colorModel, $new($ComponentColorModel, cs, nBits, false, true, $Transparency::OPAQUE, $DataBuffer::TYPE_BYTE));
-				$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
-			}
-			break;
+			$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
+			$var($ints, nBits, $new($ints, {8}));
+			$set(this, colorModel, $new($ComponentColorModel, cs, nBits, false, true, $Transparency::OPAQUE, $DataBuffer::TYPE_BYTE));
+			$set(this, raster, this->colorModel->createCompatibleWritableRaster(width, height));
 		}
+		break;
 	case BufferedImage::TYPE_USHORT_GRAY:
 		{
-			{
-				$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
-				$var($ints, nBits, $new($ints, {16}));
-				$set(this, colorModel, $new($ComponentColorModel, cs, nBits, false, true, $Transparency::OPAQUE, $DataBuffer::TYPE_USHORT));
-				$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
-			}
-			break;
+			$var($ColorSpace, cs, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
+			$var($ints, nBits, $new($ints, {16}));
+			$set(this, colorModel, $new($ComponentColorModel, cs, nBits, false, true, $Transparency::OPAQUE, $DataBuffer::TYPE_USHORT));
+			$set(this, raster, this->colorModel->createCompatibleWritableRaster(width, height));
 		}
+		break;
 	case BufferedImage::TYPE_BYTE_BINARY:
 		{
-			{
-				$var($bytes, arr, $new($bytes, {
-					(int8_t)0,
-					(int8_t)255
-				}));
-				$set(this, colorModel, $new($IndexColorModel, 1, 2, arr, arr, arr));
-				$set(this, raster, $Raster::createPackedRaster($DataBuffer::TYPE_BYTE, width, height, 1, 1, ($Point*)nullptr));
-			}
-			break;
+			$var($bytes, arr, $new($bytes, {
+				(int8_t)0,
+				(int8_t)255
+			}));
+			$set(this, colorModel, $new($IndexColorModel, 1, 2, arr, arr, arr));
+			$set(this, raster, $Raster::createPackedRaster($DataBuffer::TYPE_BYTE, width, height, 1, 1, nullptr));
 		}
+		break;
 	case BufferedImage::TYPE_BYTE_INDEXED:
 		{
-			{
-				$var($ints, cmap, $new($ints, 256));
-				int32_t i = 0;
-				for (int32_t r = 0; r < 256; r += 51) {
-					for (int32_t g = 0; g < 256; g += 51) {
-						for (int32_t b = 0; b < 256; b += 51) {
-							cmap->set(i++, ((r << 16) | (g << 8)) | b);
-						}
+			$var($ints, cmap, $new($ints, 256));
+			int32_t i = 0;
+			for (int32_t r = 0; r < 256; r += 51) {
+				for (int32_t g = 0; g < 256; g += 51) {
+					for (int32_t b = 0; b < 256; b += 51) {
+						cmap->set(i++, ((r << 16) | (g << 8)) | b);
 					}
 				}
-				int32_t grayIncr = $div(256, (256 - i));
-				int32_t gray = grayIncr * 3;
-				for (; i < 256; ++i) {
-					cmap->set(i, ((gray << 16) | (gray << 8)) | gray);
-					gray += grayIncr;
-				}
-				$set(this, colorModel, $new($IndexColorModel, 8, 256, cmap, 0, false, -1, $DataBuffer::TYPE_BYTE));
-				$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, 1, nullptr));
 			}
-			break;
+			int32_t grayIncr = $div(256, (256 - i));
+			int32_t gray = grayIncr * 3;
+			for (; i < 256; ++i) {
+				cmap->set(i, ((gray << 16) | (gray << 8)) | gray);
+				gray += grayIncr;
+			}
+			$set(this, colorModel, $new($IndexColorModel, 8, 256, cmap, 0, false, -1, $DataBuffer::TYPE_BYTE));
+			$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, 1, nullptr));
 		}
+		break;
 	case BufferedImage::TYPE_USHORT_565_RGB:
 		{
-			{
-				$set(this, colorModel, $new($DirectColorModel, 16, BufferedImage::DCM_565_RED_MASK, BufferedImage::DCM_565_GRN_MASK, BufferedImage::DCM_565_BLU_MASK));
-				$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
-			}
-			break;
+			$set(this, colorModel, $new($DirectColorModel, 16, BufferedImage::DCM_565_RED_MASK, BufferedImage::DCM_565_GRN_MASK, BufferedImage::DCM_565_BLU_MASK));
+			$set(this, raster, this->colorModel->createCompatibleWritableRaster(width, height));
 		}
+		break;
 	case BufferedImage::TYPE_USHORT_555_RGB:
 		{
-			{
-				$set(this, colorModel, $new($DirectColorModel, 15, BufferedImage::DCM_555_RED_MASK, BufferedImage::DCM_555_GRN_MASK, BufferedImage::DCM_555_BLU_MASK));
-				$set(this, raster, $nc(this->colorModel)->createCompatibleWritableRaster(width, height));
-			}
-			break;
+			$set(this, colorModel, $new($DirectColorModel, 15, BufferedImage::DCM_555_RED_MASK, BufferedImage::DCM_555_GRN_MASK, BufferedImage::DCM_555_BLU_MASK));
+			$set(this, raster, this->colorModel->createCompatibleWritableRaster(width, height));
 		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unknown image type "_s, $$str(imageType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unknown image type "_s, $$str(imageType)}));
 	}
 	this->imageType = imageType;
 }
 
 void BufferedImage::init$(int32_t width, int32_t height, int32_t imageType, $IndexColorModel* cm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Image::init$();
 	this->imageType = BufferedImage::TYPE_CUSTOM;
 	bool var$0 = $nc(cm)->hasAlpha();
@@ -459,32 +308,26 @@ void BufferedImage::init$(int32_t width, int32_t height, int32_t imageType, $Ind
 		int32_t mapSize = 0;
 		switch (imageType) {
 		case BufferedImage::TYPE_BYTE_BINARY:
-			{
-				mapSize = $nc(cm)->getMapSize();
-				if (mapSize <= 2) {
-					bits = 1;
-				} else if (mapSize <= 4) {
-					bits = 2;
-				} else if (mapSize <= 16) {
-					bits = 4;
-				} else {
-					$throwNew($IllegalArgumentException, "Color map for TYPE_BYTE_BINARY must have no more than 16 entries"_s);
-				}
-				$set(this, raster, $Raster::createPackedRaster($DataBuffer::TYPE_BYTE, width, height, 1, bits, ($Point*)nullptr));
-				break;
+			mapSize = cm->getMapSize();
+			if (mapSize <= 2) {
+				bits = 1;
+			} else if (mapSize <= 4) {
+				bits = 2;
+			} else if (mapSize <= 16) {
+				bits = 4;
+			} else {
+				$throwNew($IllegalArgumentException, "Color map for TYPE_BYTE_BINARY must have no more than 16 entries"_s);
 			}
+			$set(this, raster, $Raster::createPackedRaster($DataBuffer::TYPE_BYTE, width, height, 1, bits, nullptr));
+			break;
 		case BufferedImage::TYPE_BYTE_INDEXED:
-			{
-				$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, 1, nullptr));
-				break;
-			}
+			$set(this, raster, $Raster::createInterleavedRaster($DataBuffer::TYPE_BYTE, width, height, 1, nullptr));
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Invalid image type ("_s, $$str(imageType), ").  Image type must be either TYPE_BYTE_BINARY or  TYPE_BYTE_INDEXED"_s}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Invalid image type ("_s, $$str(imageType), ").  Image type must be either TYPE_BYTE_BINARY or  TYPE_BYTE_INDEXED"_s}));
 		}
 	}
-	if (!$nc(cm)->isCompatibleRaster(this->raster)) {
+	if (!cm->isCompatibleRaster(this->raster)) {
 		$throwNew($IllegalArgumentException, "Incompatible image type and IndexColorModel"_s);
 	}
 	$set(this, colorModel, cm);
@@ -492,13 +335,13 @@ void BufferedImage::init$(int32_t width, int32_t height, int32_t imageType, $Ind
 }
 
 void BufferedImage::init$($ColorModel* cm, $WritableRaster* raster, bool isRasterPremultiplied, $Hashtable* properties) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Image::init$();
 	this->imageType = BufferedImage::TYPE_CUSTOM;
 	if (!$nc(cm)->isCompatibleRaster(raster)) {
 		$throwNew($IllegalArgumentException, $$str({"Raster "_s, raster, " is incompatible with ColorModel "_s, cm}));
 	}
-	if (($nc(raster)->minX != 0) || ($nc(raster)->minY != 0)) {
+	if (($nc(raster)->minX != 0) || (raster->minY != 0)) {
 		$throwNew($IllegalArgumentException, $$str({"Raster "_s, raster, " has minX or minY not equal to zero: "_s, $$str(raster->minX), " "_s, $$str(raster->minY)}));
 	}
 	$set(this, colorModel, cm);
@@ -506,19 +349,17 @@ void BufferedImage::init$($ColorModel* cm, $WritableRaster* raster, bool isRaste
 	if (properties != nullptr && !properties->isEmpty()) {
 		$set(this, properties, $new($Hashtable));
 		{
-			$var($Iterator, i$, $nc($(properties->keySet()))->iterator());
+			$var($Iterator, i$, $$nc(properties->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Object, key, i$->next());
-				{
-					if ($instanceOf($String, key)) {
-						$nc(this->properties)->put($cast($String, key), $(properties->get(key)));
-					}
+				if ($instanceOf($String, key)) {
+					this->properties->put($cast($String, key), $(properties->get(key)));
 				}
 			}
 		}
 	}
-	int32_t numBands = $nc(raster)->getNumBands();
-	bool isAlphaPre = $nc(cm)->isAlphaPremultiplied();
+	int32_t numBands = raster->getNumBands();
+	bool isAlphaPre = cm->isAlphaPremultiplied();
 	bool isStandard = BufferedImage::isStandard(cm, raster);
 	$var($ColorSpace, cs, nullptr);
 	coerceData(isRasterPremultiplied);
@@ -527,17 +368,17 @@ void BufferedImage::init$($ColorModel* cm, $WritableRaster* raster, bool isRaste
 	int32_t csType = $nc(cs)->getType();
 	if (csType != $ColorSpace::TYPE_RGB) {
 		if (csType == $ColorSpace::TYPE_GRAY && isStandard && $instanceOf($ComponentColorModel, cm)) {
-			if ($instanceOf($ComponentSampleModel, sm) && $nc(($cast($ComponentSampleModel, sm)))->getPixelStride() != numBands) {
+			if ($instanceOf($ComponentSampleModel, sm) && $cast($ComponentSampleModel, sm)->getPixelStride() != numBands) {
 				this->imageType = BufferedImage::TYPE_CUSTOM;
 			} else {
-				bool var$3 = $instanceOf($ByteComponentRaster, raster) && raster->getNumBands() == 1;
-				bool var$2 = var$3 && cm->getComponentSize(0) == 8;
-				if (var$2 && $nc(($cast($ByteComponentRaster, raster)))->getPixelStride() == 1) {
+				bool var$1 = $instanceOf($ByteComponentRaster, raster) && raster->getNumBands() == 1;
+				bool var$0 = var$1 && cm->getComponentSize(0) == 8;
+				if (var$0 && $cast($ByteComponentRaster, raster)->getPixelStride() == 1) {
 					this->imageType = BufferedImage::TYPE_BYTE_GRAY;
 				} else {
-					bool var$7 = $instanceOf($ShortComponentRaster, raster) && raster->getNumBands() == 1;
-					bool var$6 = var$7 && cm->getComponentSize(0) == 16;
-					if (var$6 && $nc(($cast($ShortComponentRaster, raster)))->getPixelStride() == 1) {
+					bool var$3 = $instanceOf($ShortComponentRaster, raster) && raster->getNumBands() == 1;
+					bool var$2 = var$3 && cm->getComponentSize(0) == 16;
+					if (var$2 && $cast($ShortComponentRaster, raster)->getPixelStride() == 1) {
 						this->imageType = BufferedImage::TYPE_USHORT_GRAY;
 					}
 				}
@@ -581,13 +422,13 @@ void BufferedImage::init$($ColorModel* cm, $WritableRaster* raster, bool isRaste
 	} else if (($instanceOf($ShortComponentRaster, raster)) && ($instanceOf($DirectColorModel, cm)) && isStandard && (numBands == 3) && !cm->hasAlpha()) {
 		$var($DirectColorModel, dcm, $cast($DirectColorModel, cm));
 		if (dcm->getRedMask() == BufferedImage::DCM_565_RED_MASK) {
-			bool var$8 = dcm->getGreenMask() == BufferedImage::DCM_565_GRN_MASK;
-			if (var$8 && dcm->getBlueMask() == BufferedImage::DCM_565_BLU_MASK) {
+			bool var$4 = dcm->getGreenMask() == BufferedImage::DCM_565_GRN_MASK;
+			if (var$4 && dcm->getBlueMask() == BufferedImage::DCM_565_BLU_MASK) {
 				this->imageType = BufferedImage::TYPE_USHORT_565_RGB;
 			}
 		} else if (dcm->getRedMask() == BufferedImage::DCM_555_RED_MASK) {
-			bool var$9 = dcm->getGreenMask() == BufferedImage::DCM_555_GRN_MASK;
-			if (var$9 && dcm->getBlueMask() == BufferedImage::DCM_555_BLU_MASK) {
+			bool var$5 = dcm->getGreenMask() == BufferedImage::DCM_555_GRN_MASK;
+			if (var$5 && dcm->getBlueMask() == BufferedImage::DCM_555_BLU_MASK) {
 				this->imageType = BufferedImage::TYPE_USHORT_555_RGB;
 			}
 		}
@@ -619,13 +460,13 @@ void BufferedImage::init$($ColorModel* cm, $WritableRaster* raster, bool isRaste
 
 bool BufferedImage::isStandard($ColorModel* cm, $WritableRaster* wr) {
 	$init(BufferedImage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* cmClass = $nc($of(cm))->getClass();
 	$Class* wrClass = $nc($of(wr))->getClass();
-	$Class* smClass = $nc($of($(wr->getSampleModel())))->getClass();
+	$Class* smClass = $$nc(wr->getSampleModel())->getClass();
 	$var($PrivilegedAction, checkClassLoadersAction, $new($BufferedImage$1, cmClass, smClass, wrClass));
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(checkClassLoadersAction)))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged(checkClassLoadersAction))->booleanValue();
 }
 
 int32_t BufferedImage::getType() {
@@ -649,43 +490,31 @@ int32_t BufferedImage::getRGB(int32_t x, int32_t y) {
 }
 
 $ints* BufferedImage::getRGB(int32_t startX, int32_t startY, int32_t w, int32_t h, $ints* rgbArray$renamed, int32_t offset, int32_t scansize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, rgbArray, rgbArray$renamed);
 	int32_t yoff = offset;
 	int32_t off = 0;
 	$var($Object, data, nullptr);
 	int32_t nbands = $nc(this->raster)->getNumBands();
-	int32_t dataType = $nc($($nc(this->raster)->getDataBuffer()))->getDataType();
+	int32_t dataType = $$nc(this->raster->getDataBuffer())->getDataType();
 	switch (dataType) {
 	case $DataBuffer::TYPE_BYTE:
-		{
-			$assign(data, $new($bytes, nbands));
-			break;
-		}
+		$assign(data, $new($bytes, nbands));
+		break;
 	case $DataBuffer::TYPE_USHORT:
-		{
-			$assign(data, $new($shorts, nbands));
-			break;
-		}
+		$assign(data, $new($shorts, nbands));
+		break;
 	case $DataBuffer::TYPE_INT:
-		{
-			$assign(data, $new($ints, nbands));
-			break;
-		}
+		$assign(data, $new($ints, nbands));
+		break;
 	case $DataBuffer::TYPE_FLOAT:
-		{
-			$assign(data, $new($floats, nbands));
-			break;
-		}
+		$assign(data, $new($floats, nbands));
+		break;
 	case $DataBuffer::TYPE_DOUBLE:
-		{
-			$assign(data, $new($doubles, nbands));
-			break;
-		}
+		$assign(data, $new($doubles, nbands));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unknown data buffer type: "_s, $$str(dataType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unknown data buffer type: "_s, $$str(dataType)}));
 	}
 	if (rgbArray == nullptr) {
 		$assign(rgbArray, $new($ints, offset + h * scansize));
@@ -693,7 +522,7 @@ $ints* BufferedImage::getRGB(int32_t startX, int32_t startY, int32_t w, int32_t 
 	for (int32_t y = startY; y < startY + h; ++y, yoff += scansize) {
 		off = yoff;
 		for (int32_t x = startX; x < startX + w; ++x) {
-			$nc(rgbArray)->set(off++, $nc(this->colorModel)->getRGB($($nc(this->raster)->getDataElements(x, y, data))));
+			$nc(rgbArray)->set(off++, $nc(this->colorModel)->getRGB($(this->raster->getDataElements(x, y, data))));
 		}
 	}
 	return rgbArray;
@@ -743,7 +572,7 @@ $ImageProducer* BufferedImage::getSource() {
 }
 
 $Object* BufferedImage::getProperty($String* name, $ImageObserver* observer) {
-	return $of(getProperty(name));
+	return getProperty(name);
 }
 
 $Object* BufferedImage::getProperty($String* name) {
@@ -752,14 +581,14 @@ $Object* BufferedImage::getProperty($String* name) {
 	}
 	if (this->properties == nullptr) {
 		$init($Image);
-		return $of($Image::UndefinedProperty);
+		return $Image::UndefinedProperty;
 	}
 	$var($Object, o, $nc(this->properties)->get(name));
 	if (o == nullptr) {
 		$init($Image);
 		$assign(o, $Image::UndefinedProperty);
 	}
-	return $of(o);
+	return o;
 }
 
 $Graphics* BufferedImage::getGraphics() {
@@ -772,7 +601,7 @@ $Graphics2D* BufferedImage::createGraphics() {
 }
 
 BufferedImage* BufferedImage::getSubimage(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, var$0, this->colorModel);
 	$var($WritableRaster, var$1, $nc(this->raster)->createWritableChild(x, y, w, h, 0, 0, nullptr));
 	return $new(BufferedImage, var$0, var$1, $nc(this->colorModel)->isAlphaPremultiplied(), this->properties);
@@ -784,13 +613,13 @@ bool BufferedImage::isAlphaPremultiplied() {
 
 void BufferedImage::coerceData(bool isAlphaPremultiplied) {
 	bool var$0 = $nc(this->colorModel)->hasAlpha();
-	if (var$0 && $nc(this->colorModel)->isAlphaPremultiplied() != isAlphaPremultiplied) {
+	if (var$0 && this->colorModel->isAlphaPremultiplied() != isAlphaPremultiplied) {
 		$set(this, colorModel, $nc(this->colorModel)->coerceData(this->raster, isAlphaPremultiplied));
 	}
 }
 
 $String* BufferedImage::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"BufferedImage@"_s, $($Integer::toHexString(hashCode())), ": type = "_s, $$str(this->imageType), " "_s, this->colorModel, " "_s, this->raster});
 }
 
@@ -799,12 +628,12 @@ $Vector* BufferedImage::getSources() {
 }
 
 $StringArray* BufferedImage::getPropertyNames() {
-	$useLocalCurrentObjectStackCache();
-	if (this->properties == nullptr || $nc(this->properties)->isEmpty()) {
+	$useLocalObjectStack();
+	if (this->properties == nullptr || this->properties->isEmpty()) {
 		return nullptr;
 	}
 	$var($Set, keys, $nc(this->properties)->keySet());
-	return $fcast($StringArray, $nc(keys)->toArray($$new($StringArray, keys->size())));
+	return $cast($StringArray, $nc(keys)->toArray($$new($StringArray, $nc(keys)->size())));
 }
 
 int32_t BufferedImage::getMinX() {
@@ -859,34 +688,34 @@ $Raster* BufferedImage::getTile(int32_t tileX, int32_t tileY) {
 }
 
 $Raster* BufferedImage::getData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = $nc(this->raster)->getWidth();
-	int32_t height = $nc(this->raster)->getHeight();
-	int32_t startX = $nc(this->raster)->getMinX();
-	int32_t startY = $nc(this->raster)->getMinY();
-	$var($SampleModel, var$0, $nc(this->raster)->getSampleModel());
-	int32_t var$1 = $nc(this->raster)->getSampleModelTranslateX();
-	$var($WritableRaster, wr, $Raster::createWritableRaster(var$0, $$new($Point, var$1, $nc(this->raster)->getSampleModelTranslateY())));
+	int32_t height = this->raster->getHeight();
+	int32_t startX = this->raster->getMinX();
+	int32_t startY = this->raster->getMinY();
+	$var($SampleModel, var$0, this->raster->getSampleModel());
+	int32_t var$1 = this->raster->getSampleModelTranslateX();
+	$var($WritableRaster, wr, $Raster::createWritableRaster(var$0, $$new($Point, var$1, this->raster->getSampleModelTranslateY())));
 	$var($Object, tdata, nullptr);
 	for (int32_t i = startY; i < startY + height; ++i) {
-		$assign(tdata, $nc(this->raster)->getDataElements(startX, i, width, 1, tdata));
+		$assign(tdata, this->raster->getDataElements(startX, i, width, 1, tdata));
 		$nc(wr)->setDataElements(startX, i, width, 1, tdata);
 	}
 	return wr;
 }
 
 $Raster* BufferedImage::getData($Rectangle* rect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SampleModel, sm, $nc(this->raster)->getSampleModel());
-	$var($SampleModel, nsm, $nc(sm)->createCompatibleSampleModel($nc(rect)->width, rect->height));
-	$var($WritableRaster, wr, $Raster::createWritableRaster(nsm, $($nc(rect)->getLocation())));
-	int32_t width = $nc(rect)->width;
+	$var($SampleModel, nsm, $nc(sm)->createCompatibleSampleModel($nc(rect)->width, $nc(rect)->height));
+	$var($WritableRaster, wr, $Raster::createWritableRaster(nsm, $(rect->getLocation())));
+	int32_t width = rect->width;
 	int32_t height = rect->height;
 	int32_t startX = rect->x;
 	int32_t startY = rect->y;
 	$var($Object, tdata, nullptr);
 	for (int32_t i = startY; i < startY + height; ++i) {
-		$assign(tdata, $nc(this->raster)->getDataElements(startX, i, width, 1, tdata));
+		$assign(tdata, this->raster->getDataElements(startX, i, width, 1, tdata));
 		$nc(wr)->setDataElements(startX, i, width, 1, tdata);
 	}
 	return wr;
@@ -909,7 +738,7 @@ $WritableRaster* BufferedImage::copyData($WritableRaster* outRaster) {
 }
 
 void BufferedImage::setData($Raster* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = $nc(r)->getWidth();
 	int32_t height = r->getHeight();
 	int32_t startX = r->getMinX();
@@ -921,13 +750,13 @@ void BufferedImage::setData($Raster* r) {
 	if ($nc(intersect)->isEmpty()) {
 		return;
 	}
-	width = $nc(intersect)->width;
+	width = intersect->width;
 	height = intersect->height;
 	startX = intersect->x;
 	startY = intersect->y;
 	for (int32_t i = startY; i < startY + height; ++i) {
 		$assign(tdata, r->getPixels(startX, i, width, 1, tdata));
-		$nc(this->raster)->setPixels(startX, i, width, 1, tdata);
+		this->raster->setPixels(startX, i, width, 1, tdata);
 	}
 }
 
@@ -945,7 +774,7 @@ bool BufferedImage::isTileWritable(int32_t tileX, int32_t tileY) {
 }
 
 $PointArray* BufferedImage::getWritableTileIndices() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, p, $new($PointArray, 1));
 	p->set(0, $$new($Point, 0, 0));
 	return p;
@@ -966,7 +795,7 @@ int32_t BufferedImage::getTransparency() {
 	return $nc(this->colorModel)->getTransparency();
 }
 
-void clinit$BufferedImage($Class* class$) {
+void BufferedImage::clinit$($Class* clazz) {
 	{
 		$ColorModel::loadLibraries();
 		BufferedImage::initIDs();
@@ -977,7 +806,121 @@ BufferedImage::BufferedImage() {
 }
 
 $Class* BufferedImage::load$($String* name, bool initialize) {
-	$loadClass(BufferedImage, name, initialize, &_BufferedImage_ClassInfo_, clinit$BufferedImage, allocate$BufferedImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"imageType", "I", nullptr, $PRIVATE, $field(BufferedImage, imageType)},
+		{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(BufferedImage, colorModel)},
+		{"raster", "Ljava/awt/image/WritableRaster;", nullptr, $PRIVATE | $FINAL, $field(BufferedImage, raster)},
+		{"osis", "Lsun/awt/image/OffScreenImageSource;", nullptr, $PRIVATE, $field(BufferedImage, osis)},
+		{"properties", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(BufferedImage, properties)},
+		{"TYPE_CUSTOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_CUSTOM)},
+		{"TYPE_INT_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_INT_RGB)},
+		{"TYPE_INT_ARGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_INT_ARGB)},
+		{"TYPE_INT_ARGB_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_INT_ARGB_PRE)},
+		{"TYPE_INT_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_INT_BGR)},
+		{"TYPE_3BYTE_BGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_3BYTE_BGR)},
+		{"TYPE_4BYTE_ABGR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_4BYTE_ABGR)},
+		{"TYPE_4BYTE_ABGR_PRE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_4BYTE_ABGR_PRE)},
+		{"TYPE_USHORT_565_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_USHORT_565_RGB)},
+		{"TYPE_USHORT_555_RGB", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_USHORT_555_RGB)},
+		{"TYPE_BYTE_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_BYTE_GRAY)},
+		{"TYPE_USHORT_GRAY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_USHORT_GRAY)},
+		{"TYPE_BYTE_BINARY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_BYTE_BINARY)},
+		{"TYPE_BYTE_INDEXED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BufferedImage, TYPE_BYTE_INDEXED)},
+		{"DCM_RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_RED_MASK)},
+		{"DCM_GREEN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_GREEN_MASK)},
+		{"DCM_BLUE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_BLUE_MASK)},
+		{"DCM_ALPHA_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_ALPHA_MASK)},
+		{"DCM_565_RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_565_RED_MASK)},
+		{"DCM_565_GRN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_565_GRN_MASK)},
+		{"DCM_565_BLU_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_565_BLU_MASK)},
+		{"DCM_555_RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_555_RED_MASK)},
+		{"DCM_555_GRN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_555_GRN_MASK)},
+		{"DCM_555_BLU_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_555_BLU_MASK)},
+		{"DCM_BGR_RED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_BGR_RED_MASK)},
+		{"DCM_BGR_GRN_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_BGR_GRN_MASK)},
+		{"DCM_BGR_BLU_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BufferedImage, DCM_BGR_BLU_MASK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(BufferedImage, init$, void, int32_t, int32_t, int32_t)},
+		{"<init>", "(IIILjava/awt/image/IndexColorModel;)V", nullptr, $PUBLIC, $method(BufferedImage, init$, void, int32_t, int32_t, int32_t, $IndexColorModel*)},
+		{"<init>", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;ZLjava/util/Hashtable;)V", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;ZLjava/util/Hashtable<**>;)V", $PUBLIC, $method(BufferedImage, init$, void, $ColorModel*, $WritableRaster*, bool, $Hashtable*)},
+		{"addTileObserver", "(Ljava/awt/image/TileObserver;)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, addTileObserver, void, $TileObserver*)},
+		{"coerceData", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, coerceData, void, bool)},
+		{"copyData", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, copyData, $WritableRaster*, $WritableRaster*)},
+		{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, createGraphics, $Graphics2D*)},
+		{"getAlphaRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getAlphaRaster, $WritableRaster*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getColorModel, $ColorModel*)},
+		{"getData", "()Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getData, $Raster*)},
+		{"getData", "(Ljava/awt/Rectangle;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getData, $Raster*, $Rectangle*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getGraphics, $Graphics*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getHeight, int32_t)},
+		{"getHeight", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getHeight, int32_t, $ImageObserver*)},
+		{"getMinTileX", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getMinTileX, int32_t)},
+		{"getMinTileY", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getMinTileY, int32_t)},
+		{"getMinX", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getMinX, int32_t)},
+		{"getMinY", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getMinY, int32_t)},
+		{"getNumXTiles", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getNumXTiles, int32_t)},
+		{"getNumYTiles", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getNumYTiles, int32_t)},
+		{"getProperty", "(Ljava/lang/String;Ljava/awt/image/ImageObserver;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getProperty, $Object*, $String*, $ImageObserver*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getProperty, $Object*, $String*)},
+		{"getPropertyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getPropertyNames, $StringArray*)},
+		{"getRGB", "(II)I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getRGB, int32_t, int32_t, int32_t)},
+		{"getRGB", "(IIII[III)[I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getRGB, $ints*, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"getRaster", "()Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getRaster, $WritableRaster*)},
+		{"getSampleModel", "()Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getSampleModel, $SampleModel*)},
+		{"getSource", "()Ljava/awt/image/ImageProducer;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getSource, $ImageProducer*)},
+		{"getSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/RenderedImage;>;", $PUBLIC, $virtualMethod(BufferedImage, getSources, $Vector*)},
+		{"getSubimage", "(IIII)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getSubimage, BufferedImage*, int32_t, int32_t, int32_t, int32_t)},
+		{"getTile", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTile, $Raster*, int32_t, int32_t)},
+		{"getTileGridXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTileGridXOffset, int32_t)},
+		{"getTileGridYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTileGridYOffset, int32_t)},
+		{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTileHeight, int32_t)},
+		{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTileWidth, int32_t)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getTransparency, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getType, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getWidth, int32_t)},
+		{"getWidth", "(Ljava/awt/image/ImageObserver;)I", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getWidth, int32_t, $ImageObserver*)},
+		{"getWritableTile", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getWritableTile, $WritableRaster*, int32_t, int32_t)},
+		{"getWritableTileIndices", "()[Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, getWritableTileIndices, $PointArray*)},
+		{"hasTileWriters", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedImage, hasTileWriters, bool)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(BufferedImage, initIDs, void)},
+		{"isAlphaPremultiplied", "()Z", nullptr, $PUBLIC, $virtualMethod(BufferedImage, isAlphaPremultiplied, bool)},
+		{"isStandard", "(Ljava/awt/image/ColorModel;Ljava/awt/image/WritableRaster;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(BufferedImage, isStandard, bool, $ColorModel*, $WritableRaster*)},
+		{"isTileWritable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(BufferedImage, isTileWritable, bool, int32_t, int32_t)},
+		{"releaseWritableTile", "(II)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, releaseWritableTile, void, int32_t, int32_t)},
+		{"removeTileObserver", "(Ljava/awt/image/TileObserver;)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, removeTileObserver, void, $TileObserver*)},
+		{"setData", "(Ljava/awt/image/Raster;)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, setData, void, $Raster*)},
+		{"setRGB", "(III)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, setRGB, void, int32_t, int32_t, int32_t)},
+		{"setRGB", "(IIII[III)V", nullptr, $PUBLIC, $virtualMethod(BufferedImage, setRGB, void, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BufferedImage, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.image.BufferedImage$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.BufferedImage",
+		"java.awt.Image",
+		"java.awt.image.WritableRenderedImage,java.awt.Transparency",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.image.BufferedImage$1"
+	};
+	$loadClass(BufferedImage, name, initialize, &classInfo$$, BufferedImage::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BufferedImage));
+	});
 	return class$;
 }
 

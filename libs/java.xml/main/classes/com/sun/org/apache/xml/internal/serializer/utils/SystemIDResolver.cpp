@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/SystemIDResolver.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/utils/URI$MalformedURIException.h>
 #include <com/sun/org/apache/xml/internal/serializer/utils/URI.h>
 #include <java/io/File.h>
@@ -27,38 +26,12 @@ namespace com {
 						namespace serializer {
 							namespace utils {
 
-$MethodInfo _SystemIDResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemIDResolver, init$, void)},
-	{"getAbsolutePathFromRelativePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemIDResolver, getAbsolutePathFromRelativePath, $String*, $String*)},
-	{"getAbsoluteURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, getAbsoluteURI, $String*, $String*)},
-	{"getAbsoluteURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, getAbsoluteURI, $String*, $String*, $String*), "javax.xml.transform.TransformerException"},
-	{"getAbsoluteURIFromRelative", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, getAbsoluteURIFromRelative, $String*, $String*)},
-	{"isAbsolutePath", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, isAbsolutePath, bool, $String*)},
-	{"isAbsoluteURI", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, isAbsoluteURI, bool, $String*)},
-	{"isWindowsAbsolutePath", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemIDResolver, isWindowsAbsolutePath, bool, $String*)},
-	{"replaceChars", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemIDResolver, replaceChars, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _SystemIDResolver_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.utils.SystemIDResolver",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SystemIDResolver_MethodInfo_
-};
-
-$Object* allocate$SystemIDResolver($Class* clazz) {
-	return $of($alloc(SystemIDResolver));
-}
-
 void SystemIDResolver::init$() {
 }
 
 $String* SystemIDResolver::getAbsoluteURIFromRelative($String* localPath) {
-	$useLocalCurrentObjectStackCache();
-	if (localPath == nullptr || $nc(localPath)->length() == 0) {
+	$useLocalObjectStack();
+	if (localPath == nullptr || localPath->length() == 0) {
 		return ""_s;
 	}
 	$var($String, absolutePath, localPath);
@@ -91,10 +64,10 @@ bool SystemIDResolver::isAbsoluteURI($String* systemId) {
 	if (isWindowsAbsolutePath(systemId)) {
 		return false;
 	}
-	int32_t fragmentIndex = $nc(systemId)->indexOf((int32_t)u'#');
-	int32_t queryIndex = systemId->indexOf((int32_t)u'?');
-	int32_t slashIndex = systemId->indexOf((int32_t)u'/');
-	int32_t colonIndex = systemId->indexOf((int32_t)u':');
+	int32_t fragmentIndex = $nc(systemId)->indexOf(u'#');
+	int32_t queryIndex = systemId->indexOf(u'?');
+	int32_t slashIndex = systemId->indexOf(u'/');
+	int32_t colonIndex = systemId->indexOf(u':');
 	int32_t index = systemId->length() - 1;
 	if (fragmentIndex > 0) {
 		index = fragmentIndex;
@@ -125,7 +98,7 @@ bool SystemIDResolver::isWindowsAbsolutePath($String* systemId) {
 	bool var$0 = var$1 && $Character::isLetter(systemId->charAt(0));
 	if (var$0) {
 		bool var$3 = systemId->charAt(2) == u'\\';
-		var$0 = (var$3 || systemId->charAt(2) == u'/');
+		var$0 = var$3 || systemId->charAt(2) == u'/';
 	}
 	if (var$0) {
 		return true;
@@ -152,7 +125,7 @@ $String* SystemIDResolver::replaceChars($String* str) {
 }
 
 $String* SystemIDResolver::getAbsoluteURI($String* systemId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, absoluteURI, systemId);
 	if (isAbsoluteURI(systemId)) {
 		if ($nc(systemId)->startsWith("file:"_s)) {
@@ -160,13 +133,15 @@ $String* SystemIDResolver::getAbsoluteURI($String* systemId) {
 			if (str != nullptr && str->startsWith("/"_s)) {
 				bool var$0 = str->startsWith("///"_s);
 				if (var$0 || !str->startsWith("//"_s)) {
-					int32_t secondColonIndex = systemId->indexOf((int32_t)u':', 5);
+					int32_t secondColonIndex = systemId->indexOf(u':', 5);
 					if (secondColonIndex > 0) {
 						$var($String, localPath, systemId->substring(secondColonIndex - 1));
 						try {
 							if (!isAbsolutePath(localPath)) {
-								$var($String, var$1, $(systemId->substring(0, secondColonIndex - 1)));
-								$assign(absoluteURI, $concat(var$1, $(getAbsolutePathFromRelativePath(localPath))));
+								$var($StringBuilder, var$1, $new($StringBuilder));
+								var$1->append($(systemId->substring(0, secondColonIndex - 1)));
+								var$1->append($(getAbsolutePathFromRelativePath(localPath)));
+								$assign(absoluteURI, $str(var$1));
 							}
 						} catch ($SecurityException& se) {
 							return systemId;
@@ -186,7 +161,7 @@ $String* SystemIDResolver::getAbsoluteURI($String* systemId) {
 }
 
 $String* SystemIDResolver::getAbsoluteURI($String* urlString, $String* base) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (base == nullptr) {
 		return getAbsoluteURI(urlString);
 	}
@@ -196,7 +171,7 @@ $String* SystemIDResolver::getAbsoluteURI($String* urlString, $String* base) {
 		$var($URI, baseURI, $new($URI, absoluteBase));
 		$assign(uri, $new($URI, baseURI, urlString));
 	} catch ($URI$MalformedURIException& mue) {
-		$throwNew($TransformerException, static_cast<$Throwable*>(mue));
+		$throwNew($TransformerException, mue);
 	}
 	return replaceChars($($nc(uri)->toString()));
 }
@@ -205,7 +180,29 @@ SystemIDResolver::SystemIDResolver() {
 }
 
 $Class* SystemIDResolver::load$($String* name, bool initialize) {
-	$loadClass(SystemIDResolver, name, initialize, &_SystemIDResolver_ClassInfo_, allocate$SystemIDResolver);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SystemIDResolver, init$, void)},
+		{"getAbsolutePathFromRelativePath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemIDResolver, getAbsolutePathFromRelativePath, $String*, $String*)},
+		{"getAbsoluteURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, getAbsoluteURI, $String*, $String*)},
+		{"getAbsoluteURI", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, getAbsoluteURI, $String*, $String*, $String*), "javax.xml.transform.TransformerException"},
+		{"getAbsoluteURIFromRelative", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, getAbsoluteURIFromRelative, $String*, $String*)},
+		{"isAbsolutePath", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, isAbsolutePath, bool, $String*)},
+		{"isAbsoluteURI", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(SystemIDResolver, isAbsoluteURI, bool, $String*)},
+		{"isWindowsAbsolutePath", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemIDResolver, isWindowsAbsolutePath, bool, $String*)},
+		{"replaceChars", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemIDResolver, replaceChars, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.utils.SystemIDResolver",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SystemIDResolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemIDResolver);
+	});
 	return class$;
 }
 

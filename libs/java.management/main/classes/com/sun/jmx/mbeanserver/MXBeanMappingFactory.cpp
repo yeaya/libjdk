@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MXBeanMappingFactory.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
 #include <java/lang/reflect/Type.h>
@@ -19,36 +18,12 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _MXBeanMappingFactory_FieldInfo_[] = {
-	{"DEFAULT", "Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MXBeanMappingFactory, DEFAULT)},
-	{}
-};
-
-$MethodInfo _MXBeanMappingFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(MXBeanMappingFactory, init$, void)},
-	{"mappingForType", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBeanMappingFactory, mappingForType, $MXBeanMapping*, $Type*, MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$ClassInfo _MXBeanMappingFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.jmx.mbeanserver.MXBeanMappingFactory",
-	"java.lang.Object",
-	nullptr,
-	_MXBeanMappingFactory_FieldInfo_,
-	_MXBeanMappingFactory_MethodInfo_
-};
-
-$Object* allocate$MXBeanMappingFactory($Class* clazz) {
-	return $of($alloc(MXBeanMappingFactory));
-}
-
 MXBeanMappingFactory* MXBeanMappingFactory::DEFAULT = nullptr;
 
 void MXBeanMappingFactory::init$() {
 }
 
-void clinit$MXBeanMappingFactory($Class* class$) {
+void MXBeanMappingFactory::clinit$($Class* clazz) {
 	$assignStatic(MXBeanMappingFactory::DEFAULT, $new($DefaultMXBeanMappingFactory));
 }
 
@@ -56,7 +31,26 @@ MXBeanMappingFactory::MXBeanMappingFactory() {
 }
 
 $Class* MXBeanMappingFactory::load$($String* name, bool initialize) {
-	$loadClass(MXBeanMappingFactory, name, initialize, &_MXBeanMappingFactory_ClassInfo_, clinit$MXBeanMappingFactory, allocate$MXBeanMappingFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MXBeanMappingFactory, DEFAULT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(MXBeanMappingFactory, init$, void)},
+		{"mappingForType", "(Ljava/lang/reflect/Type;Lcom/sun/jmx/mbeanserver/MXBeanMappingFactory;)Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MXBeanMappingFactory, mappingForType, $MXBeanMapping*, $Type*, MXBeanMappingFactory*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.jmx.mbeanserver.MXBeanMappingFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MXBeanMappingFactory, name, initialize, &classInfo$$, MXBeanMappingFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MXBeanMappingFactory);
+	});
 	return class$;
 }
 

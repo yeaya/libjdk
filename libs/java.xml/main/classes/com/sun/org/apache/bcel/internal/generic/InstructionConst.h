@@ -282,6 +282,7 @@ class InstructionConst : public ::java::lang::Object {
 	$class(InstructionConst, 0, ::java::lang::Object)
 public:
 	InstructionConst();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::bcel::internal::generic::Instruction* getInstruction(int32_t index);
 	static ::com::sun::org::apache::bcel::internal::generic::Instruction* NOP;

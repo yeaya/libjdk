@@ -1,5 +1,4 @@
 #include <com/apple/eawt/_AppEventHandler$_QueuingAppEventDispatcher.h>
-
 #include <com/apple/eawt/_AppEventHandler$_AppEventDispatcher.h>
 #include <com/apple/eawt/_AppEventHandler$_NativeEvent.h>
 #include <com/apple/eawt/_AppEventHandler.h>
@@ -25,45 +24,6 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$FieldInfo __AppEventHandler$_QueuingAppEventDispatcher_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_QueuingAppEventDispatcher, this$0)},
-	{"queuedEvents", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/_AppEventHandler$_NativeEvent;>;", 0, $field(_AppEventHandler$_QueuingAppEventDispatcher, queuedEvents)},
-	{}
-};
-
-$MethodInfo __AppEventHandler$_QueuingAppEventDispatcher_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_QueuingAppEventDispatcher, init$, void, $_AppEventHandler*)},
-	{"dispatch", "(Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_QueuingAppEventDispatcher, dispatch, void, $_AppEventHandler$_NativeEvent*)},
-	{"setHandler", "(Ljava/lang/Object;)V", "(TH;)V", $SYNCHRONIZED, $virtualMethod(_AppEventHandler$_QueuingAppEventDispatcher, setHandler, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo __AppEventHandler$_QueuingAppEventDispatcher_InnerClassesInfo_[] = {
-	{"com.apple.eawt._AppEventHandler$_QueuingAppEventDispatcher", "com.apple.eawt._AppEventHandler", "_QueuingAppEventDispatcher", $ABSTRACT},
-	{"com.apple.eawt._AppEventHandler$_AppEventDispatcher", "com.apple.eawt._AppEventHandler", "_AppEventDispatcher", $ABSTRACT},
-	{}
-};
-
-$ClassInfo __AppEventHandler$_QueuingAppEventDispatcher_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.apple.eawt._AppEventHandler$_QueuingAppEventDispatcher",
-	"com.apple.eawt._AppEventHandler$_AppEventDispatcher",
-	nullptr,
-	__AppEventHandler$_QueuingAppEventDispatcher_FieldInfo_,
-	__AppEventHandler$_QueuingAppEventDispatcher_MethodInfo_,
-	"<H:Ljava/lang/Object;>Lcom/apple/eawt/_AppEventHandler$_AppEventDispatcher<TH;>;",
-	nullptr,
-	__AppEventHandler$_QueuingAppEventDispatcher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.eawt._AppEventHandler"
-};
-
-$Object* allocate$_AppEventHandler$_QueuingAppEventDispatcher($Class* clazz) {
-	return $of($alloc(_AppEventHandler$_QueuingAppEventDispatcher));
-}
-
 void _AppEventHandler$_QueuingAppEventDispatcher::init$($_AppEventHandler* this$0) {
 	$set(this, this$0, this$0);
 	$_AppEventHandler$_AppEventDispatcher::init$(this$0);
@@ -73,7 +33,7 @@ void _AppEventHandler$_QueuingAppEventDispatcher::init$($_AppEventHandler* this$
 void _AppEventHandler$_QueuingAppEventDispatcher::dispatch($_AppEventHandler$_NativeEvent* event) {
 	$synchronized(this) {
 		if (this->queuedEvents != nullptr) {
-			$nc(this->queuedEvents)->add(event);
+			this->queuedEvents->add(event);
 			return;
 		}
 	}
@@ -82,20 +42,18 @@ void _AppEventHandler$_QueuingAppEventDispatcher::dispatch($_AppEventHandler$_Na
 
 void _AppEventHandler$_QueuingAppEventDispatcher::setHandler(Object$* handler) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$set(this, _handler, handler);
 		setHandlerContext($($AppContext::getAppContext()));
 		if (this->queuedEvents != nullptr) {
 			$var($List, localQueuedEvents, this->queuedEvents);
 			$set(this, queuedEvents, nullptr);
 			if ($nc(localQueuedEvents)->size() != 0) {
-				{
-					$var($Iterator, i$, localQueuedEvents->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($_AppEventHandler$_NativeEvent, arg, $cast($_AppEventHandler$_NativeEvent, i$->next()));
-						{
-							dispatch(arg);
-						}
+				$var($Iterator, i$, localQueuedEvents->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($_AppEventHandler$_NativeEvent, arg, $cast($_AppEventHandler$_NativeEvent, i$->next()));
+					{
+						dispatch(arg);
 					}
 				}
 			}
@@ -107,7 +65,40 @@ _AppEventHandler$_QueuingAppEventDispatcher::_AppEventHandler$_QueuingAppEventDi
 }
 
 $Class* _AppEventHandler$_QueuingAppEventDispatcher::load$($String* name, bool initialize) {
-	$loadClass(_AppEventHandler$_QueuingAppEventDispatcher, name, initialize, &__AppEventHandler$_QueuingAppEventDispatcher_ClassInfo_, allocate$_AppEventHandler$_QueuingAppEventDispatcher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/eawt/_AppEventHandler;", nullptr, $FINAL | $SYNTHETIC, $field(_AppEventHandler$_QueuingAppEventDispatcher, this$0)},
+		{"queuedEvents", "Ljava/util/List;", "Ljava/util/List<Lcom/apple/eawt/_AppEventHandler$_NativeEvent;>;", 0, $field(_AppEventHandler$_QueuingAppEventDispatcher, queuedEvents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/eawt/_AppEventHandler;)V", nullptr, 0, $method(_AppEventHandler$_QueuingAppEventDispatcher, init$, void, $_AppEventHandler*)},
+		{"dispatch", "(Lcom/apple/eawt/_AppEventHandler$_NativeEvent;)V", nullptr, 0, $virtualMethod(_AppEventHandler$_QueuingAppEventDispatcher, dispatch, void, $_AppEventHandler$_NativeEvent*)},
+		{"setHandler", "(Ljava/lang/Object;)V", "(TH;)V", $SYNCHRONIZED, $virtualMethod(_AppEventHandler$_QueuingAppEventDispatcher, setHandler, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.eawt._AppEventHandler$_QueuingAppEventDispatcher", "com.apple.eawt._AppEventHandler", "_QueuingAppEventDispatcher", $ABSTRACT},
+		{"com.apple.eawt._AppEventHandler$_AppEventDispatcher", "com.apple.eawt._AppEventHandler", "_AppEventDispatcher", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.apple.eawt._AppEventHandler$_QueuingAppEventDispatcher",
+		"com.apple.eawt._AppEventHandler$_AppEventDispatcher",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<H:Ljava/lang/Object;>Lcom/apple/eawt/_AppEventHandler$_AppEventDispatcher<TH;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.eawt._AppEventHandler"
+	};
+	$loadClass(_AppEventHandler$_QueuingAppEventDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(_AppEventHandler$_QueuingAppEventDispatcher);
+	});
 	return class$;
 }
 

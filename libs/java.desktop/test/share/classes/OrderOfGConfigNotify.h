@@ -29,6 +29,7 @@ class $export OrderOfGConfigNotify : public ::java::lang::Object {
 	$class(OrderOfGConfigNotify, 0, ::java::lang::Object)
 public:
 	OrderOfGConfigNotify();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void lambda$main$0(::java::util::concurrent::atomic::AtomicBoolean* childCalled, ::java::util::concurrent::atomic::AtomicBoolean* parentCalled, ::javax::swing::JPanel* parent, ::java::beans::PropertyChangeEvent* evt);
 	static void lambda$main$1(::java::util::concurrent::atomic::AtomicBoolean* childCalled, ::javax::swing::JPanel* child, ::java::beans::PropertyChangeEvent* evt);

@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WPageDialog.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Frame.h>
@@ -8,14 +7,10 @@
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Printable.h>
 #include <java/awt/print/PrinterJob.h>
-#include <sun/awt/windows/WCanvasPeer.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WPageDialogPeer.h>
-#include <sun/awt/windows/WPanelPeer.h>
 #include <sun/awt/windows/WPrintDialog.h>
-#include <sun/awt/windows/WPrintDialogPeer.h>
 #include <sun/awt/windows/WToolkit.h>
-#include <sun/awt/windows/WWindowPeer.h>
 #include <jcpp.h>
 
 using $Container = ::java::awt::Container;
@@ -29,46 +24,13 @@ using $PrinterJob = ::java::awt::print::PrinterJob;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $WCanvasPeer = ::sun::awt::windows::WCanvasPeer;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
-using $WPanelPeer = ::sun::awt::windows::WPanelPeer;
 using $WPrintDialog = ::sun::awt::windows::WPrintDialog;
-using $WPrintDialogPeer = ::sun::awt::windows::WPrintDialogPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;
-using $WWindowPeer = ::sun::awt::windows::WWindowPeer;
 
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WPageDialog_FieldInfo_[] = {
-	{"page", "Ljava/awt/print/PageFormat;", nullptr, 0, $field(WPageDialog, page)},
-	{"painter", "Ljava/awt/print/Printable;", nullptr, 0, $field(WPageDialog, painter)},
-	{}
-};
-
-$MethodInfo _WPageDialog_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Frame;Ljava/awt/print/PrinterJob;Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)V", nullptr, 0, $method(WPageDialog, init$, void, $Frame*, $PrinterJob*, $PageFormat*, $Printable*)},
-	{"<init>", "(Ljava/awt/Dialog;Ljava/awt/print/PrinterJob;Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)V", nullptr, 0, $method(WPageDialog, init$, void, $Dialog*, $PrinterJob*, $PageFormat*, $Printable*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(WPageDialog, addNotify, void)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WPageDialog, initIDs, void)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 3
-
-$ClassInfo _WPageDialog_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WPageDialog",
-	"sun.awt.windows.WPrintDialog",
-	nullptr,
-	_WPageDialog_FieldInfo_,
-	_WPageDialog_MethodInfo_
-};
-
-$Object* allocate$WPageDialog($Class* clazz) {
-	return $of($alloc(WPageDialog));
-}
 
 void WPageDialog::init$($Frame* parent, $PrinterJob* control, $PageFormat* page, $Printable* painter) {
 	$WPrintDialog::init$(parent, control);
@@ -83,14 +45,14 @@ void WPageDialog::init$($Dialog* parent, $PrinterJob* control, $PageFormat* page
 }
 
 void WPageDialog::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		$var($Container, parent, getParent());
 		if (parent != nullptr && !parent->isDisplayable()) {
 			parent->addNotify();
 		}
 		if (!isDisplayable()) {
-			$var($ComponentPeer, peer, static_cast<$ComponentPeer*>(static_cast<$WComponentPeer*>(static_cast<$WCanvasPeer*>(static_cast<$WPanelPeer*>(static_cast<$WWindowPeer*>(static_cast<$WPrintDialogPeer*>($nc(($cast($WToolkit, $($Toolkit::getDefaultToolkit()))))->createWPageDialog(this))))))));
+			$var($ComponentPeer, peer, $cast($WComponentPeer, $$sure($WToolkit, $Toolkit::getDefaultToolkit())->createWPageDialog(this)));
 			setPeer(peer);
 		}
 		$WPrintDialog::addNotify();
@@ -99,12 +61,12 @@ void WPageDialog::addNotify() {
 
 void WPageDialog::initIDs() {
 	$init(WPageDialog);
-	$prepareNativeStatic(WPageDialog, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
-void clinit$WPageDialog($Class* class$) {
+void WPageDialog::clinit$($Class* clazz) {
 	{
 		WPageDialog::initIDs();
 	}
@@ -114,7 +76,29 @@ WPageDialog::WPageDialog() {
 }
 
 $Class* WPageDialog::load$($String* name, bool initialize) {
-	$loadClass(WPageDialog, name, initialize, &_WPageDialog_ClassInfo_, clinit$WPageDialog, allocate$WPageDialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"page", "Ljava/awt/print/PageFormat;", nullptr, 0, $field(WPageDialog, page)},
+		{"painter", "Ljava/awt/print/Printable;", nullptr, 0, $field(WPageDialog, painter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Frame;Ljava/awt/print/PrinterJob;Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)V", nullptr, 0, $method(WPageDialog, init$, void, $Frame*, $PrinterJob*, $PageFormat*, $Printable*)},
+		{"<init>", "(Ljava/awt/Dialog;Ljava/awt/print/PrinterJob;Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)V", nullptr, 0, $method(WPageDialog, init$, void, $Dialog*, $PrinterJob*, $PageFormat*, $Printable*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(WPageDialog, addNotify, void)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WPageDialog, initIDs, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WPageDialog",
+		"sun.awt.windows.WPrintDialog",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WPageDialog, name, initialize, &classInfo$$, WPageDialog::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WPageDialog));
+	});
 	return class$;
 }
 

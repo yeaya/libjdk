@@ -20,10 +20,13 @@ public:
 	ConnectIOException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x8FC25414C01EC3B8;
+	static const int64_t serialVersionUID = (int64_t)0x8fc25414c01ec3b8;
 	ConnectIOException(const ConnectIOException& e);
 	virtual void throw$() override;
-	inline ConnectIOException* operator ->() {
+	inline ConnectIOException* operator ->() const {
+		return (ConnectIOException*)throwing$;
+	}
+	inline operator ConnectIOException*() const {
 		return (ConnectIOException*)throwing$;
 	}
 };

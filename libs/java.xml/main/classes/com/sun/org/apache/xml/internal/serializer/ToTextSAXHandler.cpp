@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ToTextSAXHandler.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/SerializerBase.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializerTrace.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToSAXHandler.h>
@@ -32,64 +31,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$MethodInfo _ToTextSAXHandler_MethodInfo_[] = {
-	{"<init>", "(Lorg/xml/sax/ContentHandler;Lorg/xml/sax/ext/LexicalHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToTextSAXHandler, init$, void, $ContentHandler*, $LexicalHandler*, $String*)},
-	{"<init>", "(Lorg/xml/sax/ContentHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToTextSAXHandler, init$, void, $ContentHandler*, $String*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, addAttribute, void, $String*, $String*)},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, characters, void, $String*), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"comment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, comment, void, $String*), "org.xml.sax.SAXException"},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, getOutputFormat, $Properties*)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, getOutputStream, $OutputStream*)},
-	{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, getWriter, $Writer*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"indent", "(I)V", nullptr, $PUBLIC, $method(ToTextSAXHandler, indent, void, int32_t), "org.xml.sax.SAXException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, reset, bool)},
-	{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, serialize, void, $Node*), "java.io.IOException"},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setDocumentLocator, void, $Locator*)},
-	{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setEscaping, bool, bool)},
-	{"setIndent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setIndent, void, bool)},
-	{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setOutputFormat, void, $Properties*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setOutputStream, void, $OutputStream*)},
-	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setWriter, void, $Writer*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startElement, void, $String*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _ToTextSAXHandler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.ToTextSAXHandler",
-	"com.sun.org.apache.xml.internal.serializer.ToSAXHandler",
-	nullptr,
-	nullptr,
-	_ToTextSAXHandler_MethodInfo_
-};
-
-$Object* allocate$ToTextSAXHandler($Class* clazz) {
-	return $of($alloc(ToTextSAXHandler));
-}
 
 void ToTextSAXHandler::endElement($String* elemName) {
 	if (this->m_tracer != nullptr) {
@@ -264,7 +205,61 @@ ToTextSAXHandler::ToTextSAXHandler() {
 }
 
 $Class* ToTextSAXHandler::load$($String* name, bool initialize) {
-	$loadClass(ToTextSAXHandler, name, initialize, &_ToTextSAXHandler_ClassInfo_, allocate$ToTextSAXHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/xml/sax/ContentHandler;Lorg/xml/sax/ext/LexicalHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToTextSAXHandler, init$, void, $ContentHandler*, $LexicalHandler*, $String*)},
+		{"<init>", "(Lorg/xml/sax/ContentHandler;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ToTextSAXHandler, init$, void, $ContentHandler*, $String*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, addAttribute, void, $String*, $String*)},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, characters, void, $String*), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"comment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, comment, void, $String*), "org.xml.sax.SAXException"},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, getOutputFormat, $Properties*)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, getOutputStream, $OutputStream*)},
+		{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, getWriter, $Writer*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"indent", "(I)V", nullptr, $PUBLIC, $method(ToTextSAXHandler, indent, void, int32_t), "org.xml.sax.SAXException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, reset, bool)},
+		{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, serialize, void, $Node*), "java.io.IOException"},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setDocumentLocator, void, $Locator*)},
+		{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setEscaping, bool, bool)},
+		{"setIndent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setIndent, void, bool)},
+		{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setOutputFormat, void, $Properties*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setOutputStream, void, $OutputStream*)},
+		{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, setWriter, void, $Writer*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startElement, void, $String*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ToTextSAXHandler, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.ToTextSAXHandler",
+		"com.sun.org.apache.xml.internal.serializer.ToSAXHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ToTextSAXHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ToTextSAXHandler));
+	});
 	return class$;
 }
 

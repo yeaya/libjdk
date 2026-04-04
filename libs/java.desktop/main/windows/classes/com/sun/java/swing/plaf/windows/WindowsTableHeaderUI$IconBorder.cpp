@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTableHeaderUI$IconBorder.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTableHeaderUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -24,53 +23,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsTableHeaderUI$IconBorder_FieldInfo_[] = {
-	{"icon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, icon)},
-	{"top", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, top)},
-	{"left", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, left)},
-	{"bottom", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, bottom)},
-	{"right", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, right)},
-	{}
-};
-
-$MethodInfo _WindowsTableHeaderUI$IconBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/Icon;IIII)V", nullptr, $PUBLIC, $method(WindowsTableHeaderUI$IconBorder, init$, void, $Icon*, int32_t, int32_t, int32_t, int32_t)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$IconBorder, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$IconBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$IconBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsTableHeaderUI$IconBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI$IconBorder", "com.sun.java.swing.plaf.windows.WindowsTableHeaderUI", "IconBorder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsTableHeaderUI$IconBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI$IconBorder",
-	"java.lang.Object",
-	"javax.swing.border.Border,javax.swing.plaf.UIResource",
-	_WindowsTableHeaderUI$IconBorder_FieldInfo_,
-	_WindowsTableHeaderUI$IconBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTableHeaderUI$IconBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI"
-};
-
-$Object* allocate$WindowsTableHeaderUI$IconBorder($Class* clazz) {
-	return $of($alloc(WindowsTableHeaderUI$IconBorder));
-}
 
 int32_t WindowsTableHeaderUI$IconBorder::hashCode() {
 	 return this->$Border::hashCode();
@@ -116,7 +68,48 @@ WindowsTableHeaderUI$IconBorder::WindowsTableHeaderUI$IconBorder() {
 }
 
 $Class* WindowsTableHeaderUI$IconBorder::load$($String* name, bool initialize) {
-	$loadClass(WindowsTableHeaderUI$IconBorder, name, initialize, &_WindowsTableHeaderUI$IconBorder_ClassInfo_, allocate$WindowsTableHeaderUI$IconBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"icon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, icon)},
+		{"top", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, top)},
+		{"left", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, left)},
+		{"bottom", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, bottom)},
+		{"right", "I", nullptr, $PRIVATE | $FINAL, $field(WindowsTableHeaderUI$IconBorder, right)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/Icon;IIII)V", nullptr, $PUBLIC, $method(WindowsTableHeaderUI$IconBorder, init$, void, $Icon*, int32_t, int32_t, int32_t, int32_t)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$IconBorder, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$IconBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsTableHeaderUI$IconBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI$IconBorder", "com.sun.java.swing.plaf.windows.WindowsTableHeaderUI", "IconBorder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI$IconBorder",
+		"java.lang.Object",
+		"javax.swing.border.Border,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTableHeaderUI"
+	};
+	$loadClass(WindowsTableHeaderUI$IconBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTableHeaderUI$IconBorder));
+	});
 	return class$;
 }
 

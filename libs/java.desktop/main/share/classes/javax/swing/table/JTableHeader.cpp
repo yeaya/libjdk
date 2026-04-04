@@ -1,5 +1,4 @@
 #include <javax/swing/table/JTableHeader.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -17,7 +16,6 @@
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ListSelectionEvent.h>
 #include <javax/swing/event/TableColumnModelEvent.h>
-#include <javax/swing/event/TableColumnModelListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TableHeaderUI.h>
 #include <javax/swing/table/DefaultTableColumnModel.h>
@@ -34,7 +32,6 @@
 #undef NOBUTTON
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -56,7 +53,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
 using $TableColumnModelEvent = ::javax::swing::event::TableColumnModelEvent;
-using $TableColumnModelListener = ::javax::swing::event::TableColumnModelListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $TableHeaderUI = ::javax::swing::plaf::TableHeaderUI;
 using $DefaultTableColumnModel = ::javax::swing::table::DefaultTableColumnModel;
@@ -71,140 +67,6 @@ using $DefaultTableCellHeaderRenderer = ::sun::swing::table::DefaultTableCellHea
 namespace javax {
 	namespace swing {
 		namespace table {
-
-$CompoundAttribute _JTableHeader_MethodAnnotations_getDefaultRenderer12[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$NamedAttribute JTableHeader_Attribute_var$0[] = {
-	{"description", 's', "The object governing the way columns appear in the view."},
-	{}
-};
-
-$CompoundAttribute _JTableHeader_MethodAnnotations_setColumnModel29[] = {
-	{"Ljava/beans/BeanProperty;", JTableHeader_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JTableHeader_Attribute_var$1[] = {
-	{"description", 's', "Whether the user can drag column headers to reorder columns."},
-	{}
-};
-
-$CompoundAttribute _JTableHeader_MethodAnnotations_setReorderingAllowed33[] = {
-	{"Ljava/beans/BeanProperty;", JTableHeader_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JTableHeader_Attribute_var$2[] = {
-	{"description", 's', "Whether the user can resize columns by dragging between headers."},
-	{}
-};
-
-$CompoundAttribute _JTableHeader_MethodAnnotations_setResizingAllowed34[] = {
-	{"Ljava/beans/BeanProperty;", JTableHeader_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JTableHeader_Attribute_var$3[] = {
-	{"description", 's', "The table associated with this header."},
-	{}
-};
-
-$CompoundAttribute _JTableHeader_MethodAnnotations_setTable36[] = {
-	{"Ljava/beans/BeanProperty;", JTableHeader_Attribute_var$3},
-	{}
-};
-
-$FieldInfo _JTableHeader_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTableHeader, uiClassID)},
-	{"table", "Ljavax/swing/JTable;", nullptr, $PROTECTED, $field(JTableHeader, table)},
-	{"columnModel", "Ljavax/swing/table/TableColumnModel;", nullptr, $PROTECTED, $field(JTableHeader, columnModel)},
-	{"reorderingAllowed", "Z", nullptr, $PROTECTED, $field(JTableHeader, reorderingAllowed)},
-	{"resizingAllowed", "Z", nullptr, $PROTECTED, $field(JTableHeader, resizingAllowed)},
-	{"updateTableInRealTime", "Z", nullptr, $PROTECTED, $field(JTableHeader, updateTableInRealTime)},
-	{"resizingColumn", "Ljavax/swing/table/TableColumn;", nullptr, $PROTECTED | $TRANSIENT, $field(JTableHeader, resizingColumn)},
-	{"draggedColumn", "Ljavax/swing/table/TableColumn;", nullptr, $PROTECTED | $TRANSIENT, $field(JTableHeader, draggedColumn)},
-	{"draggedDistance", "I", nullptr, $PROTECTED | $TRANSIENT, $field(JTableHeader, draggedDistance)},
-	{"defaultRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(JTableHeader, defaultRenderer)},
-	{"updateInProgress", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JTableHeader, updateInProgress)},
-	{}
-};
-
-$MethodInfo _JTableHeader_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTableHeader, init$, void)},
-	{"<init>", "(Ljavax/swing/table/TableColumnModel;)V", nullptr, $PUBLIC, $method(JTableHeader, init$, void, $TableColumnModel*)},
-	{"columnAdded", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnAdded, void, $TableColumnModelEvent*)},
-	{"columnAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnAtPoint, int32_t, $Point*)},
-	{"columnMarginChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnMarginChanged, void, $ChangeEvent*)},
-	{"columnMoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnMoved, void, $TableColumnModelEvent*)},
-	{"columnRemoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnRemoved, void, $TableColumnModelEvent*)},
-	{"columnSelectionChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnSelectionChanged, void, $ListSelectionEvent*)},
-	{"createDefaultColumnModel", "()Ljavax/swing/table/TableColumnModel;", nullptr, $PROTECTED, $virtualMethod(JTableHeader, createDefaultColumnModel, $TableColumnModel*)},
-	{"createDefaultRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PROTECTED, $virtualMethod(JTableHeader, createDefaultRenderer, $TableCellRenderer*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getAccessibleContext, $AccessibleContext*)},
-	{"getColumnModel", "()Ljavax/swing/table/TableColumnModel;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getColumnModel, $TableColumnModel*)},
-	{"getDefaultRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getDefaultRenderer, $TableCellRenderer*), nullptr, nullptr, _JTableHeader_MethodAnnotations_getDefaultRenderer12},
-	{"getDraggedColumn", "()Ljavax/swing/table/TableColumn;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getDraggedColumn, $TableColumn*)},
-	{"getDraggedDistance", "()I", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getDraggedDistance, int32_t)},
-	{"getHeaderRect", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getHeaderRect, $Rectangle*, int32_t)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getPreferredSize, $Dimension*)},
-	{"getReorderingAllowed", "()Z", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getReorderingAllowed, bool)},
-	{"getResizingAllowed", "()Z", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getResizingAllowed, bool)},
-	{"getResizingColumn", "()Ljavax/swing/table/TableColumn;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getResizingColumn, $TableColumn*)},
-	{"getTable", "()Ljavax/swing/JTable;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getTable, $JTable*)},
-	{"getToolTipText", "(Ljava/awt/event/MouseEvent;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getToolTipText, $String*, $MouseEvent*)},
-	{"getUI", "()Ljavax/swing/plaf/TableHeaderUI;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getUIClassID, $String*)},
-	{"getUpdateTableInRealTime", "()Z", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getUpdateTableInRealTime, bool)},
-	{"getWidthInRightToLeft", "()I", nullptr, $PRIVATE, $method(JTableHeader, getWidthInRightToLeft, int32_t)},
-	{"initializeLocalVars", "()V", nullptr, $PROTECTED, $virtualMethod(JTableHeader, initializeLocalVars, void)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTableHeader, paramString, $String*)},
-	{"resizeAndRepaint", "()V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, resizeAndRepaint, void)},
-	{"setColumnModel", "(Ljavax/swing/table/TableColumnModel;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setColumnModel, void, $TableColumnModel*), nullptr, nullptr, _JTableHeader_MethodAnnotations_setColumnModel29},
-	{"setDefaultRenderer", "(Ljavax/swing/table/TableCellRenderer;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setDefaultRenderer, void, $TableCellRenderer*)},
-	{"setDraggedColumn", "(Ljavax/swing/table/TableColumn;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setDraggedColumn, void, $TableColumn*)},
-	{"setDraggedDistance", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setDraggedDistance, void, int32_t)},
-	{"setReorderingAllowed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setReorderingAllowed, void, bool), nullptr, nullptr, _JTableHeader_MethodAnnotations_setReorderingAllowed33},
-	{"setResizingAllowed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setResizingAllowed, void, bool), nullptr, nullptr, _JTableHeader_MethodAnnotations_setResizingAllowed34},
-	{"setResizingColumn", "(Ljavax/swing/table/TableColumn;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setResizingColumn, void, $TableColumn*)},
-	{"setTable", "(Ljavax/swing/JTable;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setTable, void, $JTable*), nullptr, nullptr, _JTableHeader_MethodAnnotations_setTable36},
-	{"setUI", "(Ljavax/swing/plaf/TableHeaderUI;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setUI, void, $TableHeaderUI*)},
-	{"setUpdateTableInRealTime", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setUpdateTableInRealTime, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTableHeader, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JTableHeader_InnerClassesInfo_[] = {
-	{"javax.swing.table.JTableHeader$AccessibleJTableHeader", "javax.swing.table.JTableHeader", "AccessibleJTableHeader", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTableHeader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.table.JTableHeader",
-	"javax.swing.JComponent",
-	"javax.swing.event.TableColumnModelListener,javax.accessibility.Accessible",
-	_JTableHeader_FieldInfo_,
-	_JTableHeader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTableHeader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.table.JTableHeader$AccessibleJTableHeader,javax.swing.table.JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry"
-};
-
-$Object* allocate$JTableHeader($Class* clazz) {
-	return $of($alloc(JTableHeader));
-}
 
 $String* JTableHeader::toString() {
 	 return this->$JComponent::toString();
@@ -246,7 +108,7 @@ void JTableHeader::init$($TableColumnModel* cm$renamed) {
 void JTableHeader::setTable($JTable* table) {
 	$var($JTable, old, this->table);
 	$set(this, table, table);
-	firePropertyChange("table"_s, $of(old), $of(table));
+	firePropertyChange("table"_s, old, table);
 }
 
 $JTable* JTableHeader::getTable() {
@@ -302,42 +164,42 @@ $TableCellRenderer* JTableHeader::getDefaultRenderer() {
 }
 
 int32_t JTableHeader::columnAtPoint($Point* point) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = $nc(point)->x;
-	if (!$nc($(getComponentOrientation()))->isLeftToRight()) {
+	if (!$$nc(getComponentOrientation())->isLeftToRight()) {
 		x = getWidthInRightToLeft() - x - 1;
 	}
-	return $nc($(getColumnModel()))->getColumnIndexAtX(x);
+	return $$nc(getColumnModel())->getColumnIndexAtX(x);
 }
 
 $Rectangle* JTableHeader::getHeaderRect(int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, $new($Rectangle));
 	$var($TableColumnModel, cm, getColumnModel());
 	r->height = getHeight();
 	if (column < 0) {
-		if (!$nc($(getComponentOrientation()))->isLeftToRight()) {
+		if (!$$nc(getComponentOrientation())->isLeftToRight()) {
 			r->x = getWidthInRightToLeft();
 		}
 	} else if (column >= $nc(cm)->getColumnCount()) {
-		if ($nc($(getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc(getComponentOrientation())->isLeftToRight()) {
 			r->x = getWidth();
 		}
 	} else {
 		for (int32_t i = 0; i < column; ++i) {
-			r->x += $nc($(cm->getColumn(i)))->getWidth();
+			r->x += $$nc(cm->getColumn(i))->getWidth();
 		}
-		if (!$nc($(getComponentOrientation()))->isLeftToRight()) {
+		if (!$$nc(getComponentOrientation())->isLeftToRight()) {
 			int32_t var$0 = getWidthInRightToLeft() - r->x;
-			r->x = var$0 - $nc($(cm->getColumn(column)))->getWidth();
+			r->x = var$0 - $$nc(cm->getColumn(column))->getWidth();
 		}
-		r->width = $nc($(cm->getColumn(column)))->getWidth();
+		r->width = $$nc(cm->getColumn(column))->getWidth();
 	}
 	return r;
 }
 
 $String* JTableHeader::getToolTipText($MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, tip, nullptr);
 	$var($Point, p, $nc(event)->getPoint());
 	int32_t column = 0;
@@ -352,20 +214,19 @@ $String* JTableHeader::getToolTipText($MouseEvent* event) {
 		if ($instanceOf($JComponent, component)) {
 			$var($MouseEvent, newEvent, nullptr);
 			$var($Rectangle, cellRect, getHeaderRect(column));
-			$nc(p)->translate(-$nc(cellRect)->x, -cellRect->y);
-			$var($Component, var$1, component);
-			int32_t var$2 = event->getID();
-			int64_t var$3 = event->getWhen();
-			int32_t var$4 = event->getModifiers();
-			int32_t var$5 = p->x;
-			int32_t var$6 = p->y;
-			int32_t var$7 = event->getXOnScreen();
-			int32_t var$8 = event->getYOnScreen();
-			int32_t var$9 = event->getClickCount();
-			$assign(newEvent, $new($MouseEvent, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
+			$nc(p)->translate(-$nc(cellRect)->x, -$nc(cellRect)->y);
+			int32_t var$1 = event->getID();
+			int64_t var$2 = event->getWhen();
+			int32_t var$3 = event->getModifiers();
+			int32_t var$4 = p->x;
+			int32_t var$5 = p->y;
+			int32_t var$6 = event->getXOnScreen();
+			int32_t var$7 = event->getYOnScreen();
+			int32_t var$8 = event->getClickCount();
+			$assign(newEvent, $new($MouseEvent, component, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, event->isPopupTrigger(), $MouseEvent::NOBUTTON));
 			$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-			$nc(meAccessor)->setCausedByTouchEvent(newEvent, meAccessor->isCausedByTouchEvent(event));
-			$assign(tip, $nc(($cast($JComponent, component)))->getToolTipText(newEvent));
+			$nc(meAccessor)->setCausedByTouchEvent(newEvent, $nc(meAccessor)->isCausedByTouchEvent(event));
+			$assign(tip, $cast($JComponent, component)->getToolTipText(newEvent));
 		}
 	}
 	if (tip == nullptr) {
@@ -375,10 +236,10 @@ $String* JTableHeader::getToolTipText($MouseEvent* event) {
 }
 
 $Dimension* JTableHeader::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, preferredSize, $JComponent::getPreferredSize());
 	if (isPreferredSizeSet() && this->ui != nullptr) {
-		$var($Dimension, size, $nc(this->ui)->getPreferredSize(this));
+		$var($Dimension, size, this->ui->getPreferredSize(this));
 		if (size != nullptr) {
 			$nc(preferredSize)->width = size->width;
 		}
@@ -398,25 +259,23 @@ void JTableHeader::setUI($TableHeaderUI* ui) {
 }
 
 void JTableHeader::updateUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->updateInProgress) {
 		this->updateInProgress = true;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				setUI($cast($TableHeaderUI, $($UIManager::getUI(this))));
-				$var($TableCellRenderer, renderer, getDefaultRenderer());
-				if ($instanceOf($Component, renderer)) {
-					$SwingUtilities::updateComponentTreeUI($cast($Component, renderer));
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->updateInProgress = false;
+		$var($Throwable, var$0, nullptr);
+		try {
+			setUI($$cast($TableHeaderUI, $UIManager::getUI(this)));
+			$var($TableCellRenderer, renderer, getDefaultRenderer());
+			if ($instanceOf($Component, renderer)) {
+				$SwingUtilities::updateComponentTreeUI($cast($Component, renderer));
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->updateInProgress = false;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
@@ -436,7 +295,7 @@ void JTableHeader::setColumnModel($TableColumnModel* columnModel) {
 		}
 		$set(this, columnModel, columnModel);
 		$nc(columnModel)->addColumnModelListener(this);
-		firePropertyChange("columnModel"_s, $of(old), $of(columnModel));
+		firePropertyChange("columnModel"_s, old, columnModel);
 		resizeAndRepaint();
 	}
 }
@@ -473,7 +332,7 @@ $TableCellRenderer* JTableHeader::createDefaultRenderer() {
 }
 
 void JTableHeader::initializeLocalVars() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setOpaque(true);
 	$set(this, table, nullptr);
 	this->reorderingAllowed = true;
@@ -506,20 +365,20 @@ void JTableHeader::setResizingColumn($TableColumn* aColumn) {
 
 void JTableHeader::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ((this->ui != nullptr) && ($nc($(getUIClassID()))->equals(JTableHeader::uiClassID))) {
-		$nc(this->ui)->installUI(this);
+	if ((this->ui != nullptr) && ($$nc(getUIClassID())->equals(JTableHeader::uiClassID))) {
+		this->ui->installUI(this);
 	}
 }
 
 int32_t JTableHeader::getWidthInRightToLeft() {
-	if ((this->table != nullptr) && ($nc(this->table)->getAutoResizeMode() != $JTable::AUTO_RESIZE_OFF)) {
-		return $nc(this->table)->getWidth();
+	if ((this->table != nullptr) && (this->table->getAutoResizeMode() != $JTable::AUTO_RESIZE_OFF)) {
+		return this->table->getWidth();
 	}
 	return $JComponent::getWidth();
 }
 
 $String* JTableHeader::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, reorderingAllowedString, this->reorderingAllowed ? "true"_s : "false"_s);
 	$var($String, resizingAllowedString, this->resizingAllowed ? "true"_s : "false"_s);
 	$var($String, updateTableInRealTimeString, this->updateTableInRealTime ? "true"_s : "false"_s);
@@ -536,12 +395,131 @@ $AccessibleContext* JTableHeader::getAccessibleContext() {
 JTableHeader::JTableHeader() {
 }
 
-void clinit$JTableHeader($Class* class$) {
+void JTableHeader::clinit$($Class* clazz) {
 	$assignStatic(JTableHeader::uiClassID, "TableHeaderUI"_s);
 }
 
 $Class* JTableHeader::load$($String* name, bool initialize) {
-	$loadClass(JTableHeader, name, initialize, &_JTableHeader_ClassInfo_, clinit$JTableHeader, allocate$JTableHeader);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTableHeader, uiClassID)},
+		{"table", "Ljavax/swing/JTable;", nullptr, $PROTECTED, $field(JTableHeader, table)},
+		{"columnModel", "Ljavax/swing/table/TableColumnModel;", nullptr, $PROTECTED, $field(JTableHeader, columnModel)},
+		{"reorderingAllowed", "Z", nullptr, $PROTECTED, $field(JTableHeader, reorderingAllowed)},
+		{"resizingAllowed", "Z", nullptr, $PROTECTED, $field(JTableHeader, resizingAllowed)},
+		{"updateTableInRealTime", "Z", nullptr, $PROTECTED, $field(JTableHeader, updateTableInRealTime)},
+		{"resizingColumn", "Ljavax/swing/table/TableColumn;", nullptr, $PROTECTED | $TRANSIENT, $field(JTableHeader, resizingColumn)},
+		{"draggedColumn", "Ljavax/swing/table/TableColumn;", nullptr, $PROTECTED | $TRANSIENT, $field(JTableHeader, draggedColumn)},
+		{"draggedDistance", "I", nullptr, $PROTECTED | $TRANSIENT, $field(JTableHeader, draggedDistance)},
+		{"defaultRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, $PRIVATE, $field(JTableHeader, defaultRenderer)},
+		{"updateInProgress", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(JTableHeader, updateInProgress)},
+		{}
+	};
+	$CompoundAttribute getDefaultRenderermethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$NamedAttribute setColumnModelmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The object governing the way columns appear in the view."},
+		{}
+	};
+	$CompoundAttribute setColumnModelmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setColumnModelmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setReorderingAllowedmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Whether the user can drag column headers to reorder columns."},
+		{}
+	};
+	$CompoundAttribute setReorderingAllowedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setReorderingAllowedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setResizingAllowedmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Whether the user can resize columns by dragging between headers."},
+		{}
+	};
+	$CompoundAttribute setResizingAllowedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setResizingAllowedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTablemethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The table associated with this header."},
+		{}
+	};
+	$CompoundAttribute setTablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTableHeader, init$, void)},
+		{"<init>", "(Ljavax/swing/table/TableColumnModel;)V", nullptr, $PUBLIC, $method(JTableHeader, init$, void, $TableColumnModel*)},
+		{"columnAdded", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnAdded, void, $TableColumnModelEvent*)},
+		{"columnAtPoint", "(Ljava/awt/Point;)I", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnAtPoint, int32_t, $Point*)},
+		{"columnMarginChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnMarginChanged, void, $ChangeEvent*)},
+		{"columnMoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnMoved, void, $TableColumnModelEvent*)},
+		{"columnRemoved", "(Ljavax/swing/event/TableColumnModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnRemoved, void, $TableColumnModelEvent*)},
+		{"columnSelectionChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, columnSelectionChanged, void, $ListSelectionEvent*)},
+		{"createDefaultColumnModel", "()Ljavax/swing/table/TableColumnModel;", nullptr, $PROTECTED, $virtualMethod(JTableHeader, createDefaultColumnModel, $TableColumnModel*)},
+		{"createDefaultRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PROTECTED, $virtualMethod(JTableHeader, createDefaultRenderer, $TableCellRenderer*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getAccessibleContext, $AccessibleContext*)},
+		{"getColumnModel", "()Ljavax/swing/table/TableColumnModel;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getColumnModel, $TableColumnModel*)},
+		{"getDefaultRenderer", "()Ljavax/swing/table/TableCellRenderer;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getDefaultRenderer, $TableCellRenderer*), nullptr, nullptr, getDefaultRenderermethodAnnotations$$},
+		{"getDraggedColumn", "()Ljavax/swing/table/TableColumn;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getDraggedColumn, $TableColumn*)},
+		{"getDraggedDistance", "()I", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getDraggedDistance, int32_t)},
+		{"getHeaderRect", "(I)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getHeaderRect, $Rectangle*, int32_t)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getPreferredSize, $Dimension*)},
+		{"getReorderingAllowed", "()Z", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getReorderingAllowed, bool)},
+		{"getResizingAllowed", "()Z", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getResizingAllowed, bool)},
+		{"getResizingColumn", "()Ljavax/swing/table/TableColumn;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getResizingColumn, $TableColumn*)},
+		{"getTable", "()Ljavax/swing/JTable;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getTable, $JTable*)},
+		{"getToolTipText", "(Ljava/awt/event/MouseEvent;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getToolTipText, $String*, $MouseEvent*)},
+		{"getUI", "()Ljavax/swing/plaf/TableHeaderUI;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getUIClassID, $String*)},
+		{"getUpdateTableInRealTime", "()Z", nullptr, $PUBLIC, $virtualMethod(JTableHeader, getUpdateTableInRealTime, bool)},
+		{"getWidthInRightToLeft", "()I", nullptr, $PRIVATE, $method(JTableHeader, getWidthInRightToLeft, int32_t)},
+		{"initializeLocalVars", "()V", nullptr, $PROTECTED, $virtualMethod(JTableHeader, initializeLocalVars, void)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTableHeader, paramString, $String*)},
+		{"resizeAndRepaint", "()V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, resizeAndRepaint, void)},
+		{"setColumnModel", "(Ljavax/swing/table/TableColumnModel;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setColumnModel, void, $TableColumnModel*), nullptr, nullptr, setColumnModelmethodAnnotations$$},
+		{"setDefaultRenderer", "(Ljavax/swing/table/TableCellRenderer;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setDefaultRenderer, void, $TableCellRenderer*)},
+		{"setDraggedColumn", "(Ljavax/swing/table/TableColumn;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setDraggedColumn, void, $TableColumn*)},
+		{"setDraggedDistance", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setDraggedDistance, void, int32_t)},
+		{"setReorderingAllowed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setReorderingAllowed, void, bool), nullptr, nullptr, setReorderingAllowedmethodAnnotations$$},
+		{"setResizingAllowed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setResizingAllowed, void, bool), nullptr, nullptr, setResizingAllowedmethodAnnotations$$},
+		{"setResizingColumn", "(Ljavax/swing/table/TableColumn;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setResizingColumn, void, $TableColumn*)},
+		{"setTable", "(Ljavax/swing/JTable;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setTable, void, $JTable*), nullptr, nullptr, setTablemethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/TableHeaderUI;)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setUI, void, $TableHeaderUI*)},
+		{"setUpdateTableInRealTime", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, setUpdateTableInRealTime, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JTableHeader, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTableHeader, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.table.JTableHeader$AccessibleJTableHeader", "javax.swing.table.JTableHeader", "AccessibleJTableHeader", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.table.JTableHeader",
+		"javax.swing.JComponent",
+		"javax.swing.event.TableColumnModelListener,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.table.JTableHeader$AccessibleJTableHeader,javax.swing.table.JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry"
+	};
+	$loadClass(JTableHeader, name, initialize, &classInfo$$, JTableHeader::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTableHeader));
+	});
 	return class$;
 }
 

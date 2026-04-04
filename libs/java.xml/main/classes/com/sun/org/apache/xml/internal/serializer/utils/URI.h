@@ -31,6 +31,7 @@ class URI : public ::java::lang::Object {
 	$class(URI, 0, ::java::lang::Object)
 public:
 	URI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xml::internal::serializer::utils::URI* p_other);
 	void init$($String* p_uriSpec);

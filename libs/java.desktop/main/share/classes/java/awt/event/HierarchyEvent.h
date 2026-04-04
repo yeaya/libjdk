@@ -44,7 +44,7 @@ public:
 	virtual ::java::awt::Container* getChangedParent();
 	virtual ::java::awt::Component* getComponent();
 	virtual $String* paramString() override;
-	static const int64_t serialVersionUID = (int64_t)0xB5ED1E0683939AAA;
+	static const int64_t serialVersionUID = (int64_t)0xb5ed1e0683939aaa;
 	static const int32_t HIERARCHY_FIRST = 1400;
 	static const int32_t HIERARCHY_CHANGED = HIERARCHY_FIRST;
 	static const int32_t ANCESTOR_MOVED = 1401; // 1 + HIERARCHY_FIRST

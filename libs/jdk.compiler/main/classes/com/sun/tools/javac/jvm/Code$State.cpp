@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Code$State.h>
-
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -24,8 +23,6 @@
 using $TypeArray = $Array<::com::sun::tools::javac::code::Type>;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Code = ::com::sun::tools::javac::jvm::Code;
 using $Code$1 = ::com::sun::tools::javac::jvm::Code$1;
 using $Code$LocalVar = ::com::sun::tools::javac::jvm::Code$LocalVar;
@@ -33,7 +30,6 @@ using $UninitializedType = ::com::sun::tools::javac::jvm::UninitializedType;
 using $ArrayUtils = ::com::sun::tools::javac::util::ArrayUtils;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Bits = ::com::sun::tools::javac::util::Bits;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
@@ -48,61 +44,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _Code$State_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Code;", nullptr, $FINAL | $SYNTHETIC, $field(Code$State, this$0)},
-	{"defined", "Lcom/sun/tools/javac/util/Bits;", nullptr, 0, $field(Code$State, defined)},
-	{"stack", "[Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Code$State, stack)},
-	{"stacksize", "I", nullptr, 0, $field(Code$State, stacksize)},
-	{"locks", "[I", nullptr, 0, $field(Code$State, locks)},
-	{"nlocks", "I", nullptr, 0, $field(Code$State, nlocks)},
-	{}
-};
-
-$MethodInfo _Code$State_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $method(Code$State, init$, void, $Code*)},
-	{"dump", "()V", nullptr, 0, $virtualMethod(Code$State, dump, void)},
-	{"dump", "(I)V", nullptr, 0, $virtualMethod(Code$State, dump, void, int32_t)},
-	{"dup", "()Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0, $virtualMethod(Code$State, dup, Code$State*)},
-	{"error", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, error, $Type*)},
-	{"forceStackTop", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, forceStackTop, void, $Type*)},
-	{"join", "(Lcom/sun/tools/javac/jvm/Code$State;)Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0, $virtualMethod(Code$State, join, Code$State*, Code$State*)},
-	{"lock", "(I)V", nullptr, 0, $virtualMethod(Code$State, lock, void, int32_t)},
-	{"markInitialized", "(Lcom/sun/tools/javac/jvm/UninitializedType;)V", nullptr, 0, $virtualMethod(Code$State, markInitialized, void, $UninitializedType*)},
-	{"peek", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, peek, $Type*)},
-	{"pop", "(I)V", nullptr, 0, $virtualMethod(Code$State, pop, void, int32_t)},
-	{"pop", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, pop, void, $Type*)},
-	{"pop1", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, pop1, $Type*)},
-	{"pop2", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, pop2, $Type*)},
-	{"push", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, push, void, $Type*)},
-	{"unlock", "(I)V", nullptr, 0, $virtualMethod(Code$State, unlock, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Code$State_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Code$State", "com.sun.tools.javac.jvm.Code", "State", 0},
-	{}
-};
-
-$ClassInfo _Code$State_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Code$State",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_Code$State_FieldInfo_,
-	_Code$State_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Code$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Code"
-};
-
-$Object* allocate$Code$State($Class* clazz) {
-	return $of($alloc(Code$State));
-}
-
 void Code$State::init$($Code* this$0) {
 	$set(this, this$0, this$0);
 	$set(this, defined, $new($Bits));
@@ -110,13 +51,13 @@ void Code$State::init$($Code* this$0) {
 }
 
 Code$State* Code$State::dup() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(Code$State, state, $cast(Code$State, $Cloneable::clone()));
 		$set($nc(state), defined, $new($Bits, this->defined));
 		$set(state, stack, $cast($TypeArray, $nc(this->stack)->clone()));
 		if (this->locks != nullptr) {
-			$set(state, locks, $cast($ints, $nc(this->locks)->clone()));
+			$set(state, locks, $cast($ints, this->locks->clone()));
 		}
 		if (this->this$0->debugCode) {
 			$nc($System::err)->println($$str({"duping state "_s, this}));
@@ -146,49 +87,34 @@ void Code$State::unlock(int32_t register$) {
 }
 
 void Code$State::push($Type* t$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, t, t$renamed);
 	if (this->this$0->debugCode) {
 		$nc($System::err)->println($$str({"   pushing "_s, t}));
 	}
 	$init($Code$1);
-	switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+	switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 	case 9:
-		{
-			return;
-		}
+		return;
 	case 1:
-		{}
 	case 3:
-		{}
 	case 2:
-		{}
 	case 8:
-		{
-			$assign(t, $nc(this->this$0->syms)->intType);
-			break;
-		}
+		$assign(t, $nc(this->this$0->syms)->intType);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
-	$set(this, stack, $fcast($TypeArray, $ArrayUtils::ensureCapacity(this->stack, this->stacksize + 2)));
+	$set(this, stack, $cast($TypeArray, $ArrayUtils::ensureCapacity(this->stack, this->stacksize + 2)));
 	$nc(this->stack)->set(this->stacksize++, t);
 	switch ($Code::width(t)) {
 	case 1:
-		{
-			break;
-		}
+		break;
 	case 2:
-		{
-			$nc(this->stack)->set(this->stacksize++, nullptr);
-			break;
-		}
+		this->stack->set(this->stacksize++, nullptr);
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of(t));
-		}
+		$throwNew($AssertionError, t);
 	}
 	if (this->stacksize > this->this$0->max_stack) {
 		this->this$0->max_stack = this->stacksize;
@@ -196,13 +122,13 @@ void Code$State::push($Type* t$renamed) {
 }
 
 $Type* Code$State::pop1() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->debugCode) {
 		$nc($System::err)->println($$str({"   popping "_s, $$str(1)}));
 	}
 	--this->stacksize;
 	$var($Type, result, $nc(this->stack)->get(this->stacksize));
-	$nc(this->stack)->set(this->stacksize, nullptr);
+	this->stack->set(this->stacksize, nullptr);
 	$Assert::check(result != nullptr && $Code::width(result) == 1);
 	return result;
 }
@@ -212,19 +138,19 @@ $Type* Code$State::peek() {
 }
 
 $Type* Code$State::pop2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->debugCode) {
 		$nc($System::err)->println($$str({"   popping "_s, $$str(2)}));
 	}
 	this->stacksize -= 2;
 	$var($Type, result, $nc(this->stack)->get(this->stacksize));
-	$nc(this->stack)->set(this->stacksize, nullptr);
-	$Assert::check($nc(this->stack)->get(this->stacksize + 1) == nullptr && result != nullptr && $Code::width(result) == 2);
+	this->stack->set(this->stacksize, nullptr);
+	$Assert::check(this->stack->get(this->stacksize + 1) == nullptr && result != nullptr && $Code::width(result) == 2);
 	return result;
 }
 
 void Code$State::pop(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->debugCode) {
 		$nc($System::err)->println($$str({"   popping "_s, $$str(n)}));
 	}
@@ -239,46 +165,45 @@ void Code$State::pop($Type* t) {
 }
 
 void Code$State::forceStackTop($Type* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->this$0->alive) {
 		return;
 	}
-	$init($Code$1);
 	{
+		$init($Code$1);
 		int32_t width = 0;
-		$var($Type, old, nullptr)
-		switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(t)->getTag())))->ordinal())) {
+		$var($Type, old, nullptr);
+		switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(t)->getTag()))->ordinal())) {
 		case 10:
-			{}
 		case 11:
 			{
 				width = $Code::width(t);
 				$assign(old, $nc(this->stack)->get(this->stacksize - width));
 				$var($Type, var$0, $nc(this->this$0->types)->erasure(old));
-				$Assert::check($nc(this->this$0->types)->isSubtype(var$0, $($nc(this->this$0->types)->erasure(t))));
+				$Assert::check($nc(this->this$0->types)->isSubtype(var$0, $(this->this$0->types->erasure(t))));
 				$nc(this->stack)->set(this->stacksize - width, t);
 				break;
 			}
 		default:
-			{}
+			break;
 		}
 	}
 }
 
 void Code$State::markInitialized($UninitializedType* old) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, newtype, $nc(old)->initializedType());
 	for (int32_t i = 0; i < this->stacksize; ++i) {
 		if ($equals($nc(this->stack)->get(i), old)) {
-			$nc(this->stack)->set(i, newtype);
+			this->stack->set(i, newtype);
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->this$0->lvar)->length; ++i) {
-		$var($Code$LocalVar, lv, $nc(this->this$0->lvar)->get(i));
+		$var($Code$LocalVar, lv, this->this$0->lvar->get(i));
 		if (lv != nullptr && $equals($nc(lv->sym)->type, old)) {
 			$var($Symbol$VarSymbol, sym, lv->sym);
-			$assign(sym, $nc(sym)->clone(sym->owner));
-			$set(sym, type, newtype);
+			$assign(sym, $nc(sym)->clone($nc(sym)->owner));
+			$set($nc(sym), type, newtype);
 			$var($Code$LocalVar, newlv, $nc(this->this$0->lvar)->set(i, $$new($Code$LocalVar, sym)));
 			$set($nc(newlv), aliveRanges, lv->aliveRanges);
 		}
@@ -286,17 +211,17 @@ void Code$State::markInitialized($UninitializedType* old) {
 }
 
 Code$State* Code$State::join(Code$State* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->defined)->andSet($nc(other)->defined);
-	$Assert::check(this->stacksize == $nc(other)->stacksize && this->nlocks == other->nlocks);
+	$Assert::check(this->stacksize == other->stacksize && this->nlocks == other->nlocks);
 	for (int32_t i = 0; i < this->stacksize;) {
 		$var($Type, t, $nc(this->stack)->get(i));
-		$var($Type, tother, $nc($nc(other)->stack)->get(i));
-		$var($Type, result, t == tother ? t : $nc(this->this$0->types)->isSubtype(t, tother) ? tother : $nc(this->this$0->types)->isSubtype(tother, t) ? t : error());
+		$var($Type, tother, $nc(other->stack)->get(i));
+		$var($Type, result, t == tother ? t : $nc(this->this$0->types)->isSubtype(t, tother) ? tother : this->this$0->types->isSubtype(tother, t) ? t : error());
 		int32_t w = $Code::width(result);
 		$nc(this->stack)->set(i, result);
 		if (w == 2) {
-			$Assert::checkNull($nc(this->stack)->get(i + 1));
+			$Assert::checkNull(this->stack->get(i + 1));
 		}
 		i += w;
 	}
@@ -313,16 +238,16 @@ void Code$State::dump() {
 }
 
 void Code$State::dump(int32_t pc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->print($$str({"stackMap for "_s, $nc(this->this$0->meth)->owner, "."_s, this->this$0->meth}));
 	if (pc == -1) {
 		$nc($System::out)->println();
 	} else {
 		$nc($System::out)->println($$str({" at "_s, $$str(pc)}));
 	}
-	$nc($System::err)->println(" stack (from bottom):"_s);
+	$System::err->println(" stack (from bottom):"_s);
 	for (int32_t i = 0; i < this->stacksize; ++i) {
-		$nc($System::err)->println($$str({"  "_s, $$str(i), ": "_s, $nc(this->stack)->get(i)}));
+		$System::err->println($$str({"  "_s, $$str(i), ": "_s, $nc(this->stack)->get(i)}));
 	}
 	int32_t lastLocal = 0;
 	for (int32_t i = this->this$0->max_locals - 1; i >= 0; --i) {
@@ -332,30 +257,34 @@ void Code$State::dump(int32_t pc) {
 		}
 	}
 	if (lastLocal >= 0) {
-		$nc($System::err)->println(" locals:"_s);
+		$System::err->println(" locals:"_s);
 	}
 	for (int32_t i = 0; i <= lastLocal; ++i) {
-		$nc($System::err)->print($$str({"  "_s, $$str(i), ": "_s}));
+		$System::err->print($$str({"  "_s, $$str(i), ": "_s}));
 		if ($nc(this->defined)->isMember(i)) {
 			$var($Code$LocalVar, var, $nc(this->this$0->lvar)->get(i));
 			if (var == nullptr) {
-				$nc($System::err)->println("(none)"_s);
-			} else if ($nc(var)->sym == nullptr) {
-				$nc($System::err)->println("UNKNOWN!"_s);
+				$System::err->println("(none)"_s);
+			} else if (var->sym == nullptr) {
+				$System::err->println("UNKNOWN!"_s);
 			} else {
-				$var($String, var$0, $$str({""_s, var->sym, " of type "_s}));
-				$nc($System::err)->println($$concat(var$0, $($nc(var->sym)->erasure(this->this$0->types))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append(""_s);
+				var$0->append(var->sym);
+				var$0->append(" of type "_s);
+				var$0->append($(var->sym->erasure(this->this$0->types)));
+				$System::err->println($$str(var$0));
 			}
 		} else {
-			$nc($System::err)->println("undefined"_s);
+			$System::err->println("undefined"_s);
 		}
 	}
 	if (this->nlocks != 0) {
-		$nc($System::err)->print(" locks:"_s);
+		$System::err->print(" locks:"_s);
 		for (int32_t i = 0; i < this->nlocks; ++i) {
-			$nc($System::err)->print($$str({" "_s, $$str($nc(this->locks)->get(i))}));
+			$System::err->print($$str({" "_s, $$str($nc(this->locks)->get(i))}));
 		}
-		$nc($System::err)->println();
+		$System::err->println();
 	}
 }
 
@@ -363,7 +292,56 @@ Code$State::Code$State() {
 }
 
 $Class* Code$State::load$($String* name, bool initialize) {
-	$loadClass(Code$State, name, initialize, &_Code$State_ClassInfo_, allocate$Code$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Code;", nullptr, $FINAL | $SYNTHETIC, $field(Code$State, this$0)},
+		{"defined", "Lcom/sun/tools/javac/util/Bits;", nullptr, 0, $field(Code$State, defined)},
+		{"stack", "[Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Code$State, stack)},
+		{"stacksize", "I", nullptr, 0, $field(Code$State, stacksize)},
+		{"locks", "[I", nullptr, 0, $field(Code$State, locks)},
+		{"nlocks", "I", nullptr, 0, $field(Code$State, nlocks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Code;)V", nullptr, 0, $method(Code$State, init$, void, $Code*)},
+		{"dump", "()V", nullptr, 0, $virtualMethod(Code$State, dump, void)},
+		{"dump", "(I)V", nullptr, 0, $virtualMethod(Code$State, dump, void, int32_t)},
+		{"dup", "()Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0, $virtualMethod(Code$State, dup, Code$State*)},
+		{"error", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, error, $Type*)},
+		{"forceStackTop", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, forceStackTop, void, $Type*)},
+		{"join", "(Lcom/sun/tools/javac/jvm/Code$State;)Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0, $virtualMethod(Code$State, join, Code$State*, Code$State*)},
+		{"lock", "(I)V", nullptr, 0, $virtualMethod(Code$State, lock, void, int32_t)},
+		{"markInitialized", "(Lcom/sun/tools/javac/jvm/UninitializedType;)V", nullptr, 0, $virtualMethod(Code$State, markInitialized, void, $UninitializedType*)},
+		{"peek", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, peek, $Type*)},
+		{"pop", "(I)V", nullptr, 0, $virtualMethod(Code$State, pop, void, int32_t)},
+		{"pop", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, pop, void, $Type*)},
+		{"pop1", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, pop1, $Type*)},
+		{"pop2", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Code$State, pop2, $Type*)},
+		{"push", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Code$State, push, void, $Type*)},
+		{"unlock", "(I)V", nullptr, 0, $virtualMethod(Code$State, unlock, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Code$State", "com.sun.tools.javac.jvm.Code", "State", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Code$State",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Code"
+	};
+	$loadClass(Code$State, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$State);
+	});
 	return class$;
 }
 

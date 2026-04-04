@@ -23,10 +23,13 @@ public:
 	void init$($String* s);
 	void init$(int32_t i, $String* s);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x81B4EFDD32906DA0;
+	static const int64_t serialVersionUID = (int64_t)0x81b4efdd32906da0;
 	RealmException(const RealmException& e);
 	virtual void throw$() override;
-	inline RealmException* operator ->() {
+	inline RealmException* operator ->() const {
+		return (RealmException*)throwing$;
+	}
+	inline operator RealmException*() const {
 		return (RealmException*)throwing$;
 	}
 };

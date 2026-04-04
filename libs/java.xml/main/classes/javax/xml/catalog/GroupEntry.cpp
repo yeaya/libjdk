@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/GroupEntry.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -59,12 +58,9 @@ using $URI = ::java::net::URI;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 using $AltCatalog = ::javax::xml::catalog::AltCatalog;
 using $BaseEntry = ::javax::xml::catalog::BaseEntry;
 using $BaseEntry$CatalogEntryType = ::javax::xml::catalog::BaseEntry$CatalogEntryType;
@@ -97,27 +93,24 @@ public:
 	virtual bool test(Object$* entry) override {
 		 return GroupEntry::lambda$loadDelegateCatalogs$0($cast($BaseEntry, entry));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0::load$($String* name, bool initialize) {
-	$loadClass(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0);
+	});
 	return class$;
 }
 $Class* GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0::class$ = nullptr;
@@ -128,29 +121,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* entry) override {
-		 return $of(GroupEntry::lambda$loadDelegateCatalogs$1($cast($BaseEntry, entry)));
+		 return GroupEntry::lambda$loadDelegateCatalogs$1($cast($BaseEntry, entry));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1::load$($String* name, bool initialize) {
-	$loadClass(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1);
+	});
 	return class$;
 }
 $Class* GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1::class$ = nullptr;
@@ -165,109 +155,34 @@ public:
 	virtual void accept(Object$* altCatalog) override {
 		$nc(inst$)->lambda$loadDelegateCatalogs$2(parent, $cast($AltCatalog, altCatalog));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2>());
-	}
 	GroupEntry* inst$ = nullptr;
 	$CatalogImpl* parent = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, inst$)},
-	{"parent", "Ljavax/xml/catalog/CatalogImpl;", nullptr, $PUBLIC, $field(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, parent)},
-	{}
-};
-$MethodInfo GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2::methodInfos[3] = {
-	{"<init>", "(Ljavax/xml/catalog/GroupEntry;Ljavax/xml/catalog/CatalogImpl;)V", nullptr, $PUBLIC, $method(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, init$, void, GroupEntry*, $CatalogImpl*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, accept, void, Object$*)},
-	{}
-};
-$ClassInfo GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2::load$($String* name, bool initialize) {
-	$loadClass(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, inst$)},
+		{"parent", "Ljavax/xml/catalog/CatalogImpl;", nullptr, $PUBLIC, $field(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/catalog/GroupEntry;Ljavax/xml/catalog/CatalogImpl;)V", nullptr, $PUBLIC, $method(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, init$, void, GroupEntry*, $CatalogImpl*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2);
+	});
 	return class$;
 }
 $Class* GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2::class$ = nullptr;
-
-$FieldInfo _GroupEntry_FieldInfo_[] = {
-	{"ATTRIBUTE_PREFER", "I", nullptr, $STATIC | $FINAL, $constField(GroupEntry, ATTRIBUTE_PREFER)},
-	{"ATTRIBUTE_DEFFER", "I", nullptr, $STATIC | $FINAL, $constField(GroupEntry, ATTRIBUTE_DEFFER)},
-	{"ATTRIBUTE_RESOLUTION", "I", nullptr, $STATIC | $FINAL, $constField(GroupEntry, ATTRIBUTE_RESOLUTION)},
-	{"features", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, 0, $field(GroupEntry, features)},
-	{"isPreferPublic", "Z", nullptr, 0, $field(GroupEntry, isPreferPublic$)},
-	{"parent", "Ljavax/xml/catalog/CatalogImpl;", nullptr, 0, $field(GroupEntry, parent)},
-	{"catalog", "Ljavax/xml/catalog/CatalogImpl;", nullptr, 0, $field(GroupEntry, catalog)},
-	{"entries", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/catalog/BaseEntry;>;", 0, $field(GroupEntry, entries)},
-	{"delegateCatalogs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/xml/catalog/CatalogImpl;>;", 0, $field(GroupEntry, delegateCatalogs)},
-	{"loadedCatalogs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/xml/catalog/CatalogImpl;>;", 0, $field(GroupEntry, loadedCatalogs)},
-	{"catalogsSearched", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(GroupEntry, catalogsSearched)},
-	{"isInstantMatch", "Z", nullptr, 0, $field(GroupEntry, isInstantMatch)},
-	{"rewriteMatch", "Ljava/lang/String;", nullptr, 0, $field(GroupEntry, rewriteMatch)},
-	{"longestRewriteMatch", "I", nullptr, 0, $field(GroupEntry, longestRewriteMatch)},
-	{"suffixMatch", "Ljava/lang/String;", nullptr, 0, $field(GroupEntry, suffixMatch)},
-	{"longestSuffixMatch", "I", nullptr, 0, $field(GroupEntry, longestSuffixMatch)},
-	{"systemEntrySearched", "Z", nullptr, 0, $field(GroupEntry, systemEntrySearched)},
-	{}
-};
-
-$MethodInfo _GroupEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;Ljavax/xml/catalog/CatalogImpl;)V", nullptr, $PUBLIC, $method(GroupEntry, init$, void, $BaseEntry$CatalogEntryType*, $CatalogImpl*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(GroupEntry, init$, void, $String*, $StringArray*)},
-	{"<init>", "(Ljavax/xml/catalog/CatalogImpl;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(GroupEntry, init$, void, $CatalogImpl*, $String*, $StringArray*)},
-	{"addEntry", "(Ljavax/xml/catalog/BaseEntry;)V", nullptr, $PUBLIC, $virtualMethod(GroupEntry, addEntry, void, $BaseEntry*)},
-	{"getLoadedCatalog", "(Ljava/lang/String;)Ljavax/xml/catalog/CatalogImpl;", nullptr, 0, $virtualMethod(GroupEntry, getLoadedCatalog, $CatalogImpl*, $String*)},
-	{"isCircular", "(Ljavax/xml/catalog/CatalogImpl;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(GroupEntry, isCircular, bool, $CatalogImpl*, $String*)},
-	{"isPreferPublic", "()Z", nullptr, $PUBLIC, $virtualMethod(GroupEntry, isPreferPublic, bool)},
-	{"lambda$loadDelegateCatalogs$0", "(Ljavax/xml/catalog/BaseEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GroupEntry, lambda$loadDelegateCatalogs$0, bool, $BaseEntry*)},
-	{"lambda$loadDelegateCatalogs$1", "(Ljavax/xml/catalog/BaseEntry;)Ljavax/xml/catalog/AltCatalog;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GroupEntry, lambda$loadDelegateCatalogs$1, $AltCatalog*, $BaseEntry*)},
-	{"lambda$loadDelegateCatalogs$2", "(Ljavax/xml/catalog/CatalogImpl;Ljavax/xml/catalog/AltCatalog;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(GroupEntry, lambda$loadDelegateCatalogs$2, void, $CatalogImpl*, $AltCatalog*)},
-	{"loadDelegateCatalog", "(Ljavax/xml/catalog/CatalogImpl;Ljava/net/URI;)Ljavax/xml/catalog/Catalog;", nullptr, 0, $virtualMethod(GroupEntry, loadDelegateCatalog, $Catalog*, $CatalogImpl*, $URI*)},
-	{"loadDelegateCatalogs", "(Ljavax/xml/catalog/CatalogImpl;)V", nullptr, 0, $virtualMethod(GroupEntry, loadDelegateCatalogs, void, $CatalogImpl*)},
-	{"matchDelegate", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(GroupEntry, matchDelegate, $String*, $BaseEntry$CatalogEntryType*, $String*)},
-	{"matchPublic", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GroupEntry, matchPublic, $String*, $String*)},
-	{"matchSystem", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GroupEntry, matchSystem, $String*, $String*)},
-	{"matchURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GroupEntry, matchURI, $String*, $String*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GroupEntry, reset, void)},
-	{"setCatalog", "(Ljavax/xml/catalog/CatalogImpl;)V", nullptr, 0, $virtualMethod(GroupEntry, setCatalog, void, $CatalogImpl*)},
-	{"setPrefer", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(GroupEntry, setPrefer, void, $String*)},
-	{"verifyCatalogFile", "(Ljavax/xml/catalog/CatalogImpl;Ljava/net/URI;)Z", nullptr, $FINAL, $method(GroupEntry, verifyCatalogFile, bool, $CatalogImpl*, $URI*)},
-	{}
-};
-
-$InnerClassInfo _GroupEntry_InnerClassesInfo_[] = {
-	{"javax.xml.catalog.GroupEntry$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.xml.catalog.GroupEntry$ResolveType", "javax.xml.catalog.GroupEntry", "ResolveType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"javax.xml.catalog.GroupEntry$PreferType", "javax.xml.catalog.GroupEntry", "PreferType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GroupEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.xml.catalog.GroupEntry",
-	"javax.xml.catalog.BaseEntry",
-	nullptr,
-	_GroupEntry_FieldInfo_,
-	_GroupEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GroupEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.xml.catalog.GroupEntry$1,javax.xml.catalog.GroupEntry$ResolveType,javax.xml.catalog.GroupEntry$PreferType"
-};
-
-$Object* allocate$GroupEntry($Class* clazz) {
-	return $of($alloc(GroupEntry));
-}
 
 void GroupEntry::init$($BaseEntry$CatalogEntryType* type, $CatalogImpl* parent) {
 	$BaseEntry::init$(type);
@@ -336,7 +251,7 @@ bool GroupEntry::isPreferPublic() {
 }
 
 $String* GroupEntry::matchSystem($String* systemId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->systemEntrySearched = true;
 	$var($String, match, nullptr);
 	{
@@ -345,52 +260,42 @@ $String* GroupEntry::matchSystem($String* systemId) {
 			$var($BaseEntry, entry, $cast($BaseEntry, i$->next()));
 			{
 				$init($GroupEntry$1);
-				{
-					$var(GroupEntry, grpEntry, nullptr)
-					switch ($nc($GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->get($nc(($nc(entry)->type))->ordinal())) {
-					case 1:
-						{
-							$assign(match, $nc(($cast($SystemEntry, entry)))->match(systemId));
-							if (match != nullptr) {
-								this->isInstantMatch = true;
-								return match;
-							}
-							break;
-						}
-					case 2:
-						{
-							$assign(match, $nc(($cast($RewriteSystem, entry)))->match(systemId, this->longestRewriteMatch));
-							if (match != nullptr) {
-								$set(this, rewriteMatch, match);
-								this->longestRewriteMatch = $nc($($nc(($cast($RewriteSystem, entry)))->getSystemIdStartString()))->length();
-							}
-							break;
-						}
-					case 3:
-						{
-							$assign(match, $nc(($cast($SystemSuffix, entry)))->match(systemId, this->longestSuffixMatch));
-							if (match != nullptr) {
-								$set(this, suffixMatch, match);
-								this->longestSuffixMatch = $nc($($nc(($cast($SystemSuffix, entry)))->getSystemIdSuffix()))->length();
-							}
-							break;
-						}
-					case 4:
-						{
-							$assign(grpEntry, $cast(GroupEntry, entry));
-							$assign(match, $nc(grpEntry)->matchSystem(systemId));
-							if ($nc(grpEntry)->isInstantMatch) {
-								return match;
-							} else if (grpEntry->longestRewriteMatch > this->longestRewriteMatch) {
-								this->longestRewriteMatch = grpEntry->longestRewriteMatch;
-								$set(this, rewriteMatch, match);
-							} else if (grpEntry->longestSuffixMatch > this->longestSuffixMatch) {
-								this->longestSuffixMatch = grpEntry->longestSuffixMatch;
-								$set(this, suffixMatch, match);
-							}
-							break;
-						}
+				$var(GroupEntry, grpEntry, nullptr);
+				switch ($nc($GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->get($nc(($nc(entry)->type))->ordinal())) {
+				case 1:
+					$assign(match, $cast($SystemEntry, entry)->match(systemId));
+					if (match != nullptr) {
+						this->isInstantMatch = true;
+						return match;
 					}
+					break;
+				case 2:
+					$assign(match, $cast($RewriteSystem, entry)->match(systemId, this->longestRewriteMatch));
+					if (match != nullptr) {
+						$set(this, rewriteMatch, match);
+						this->longestRewriteMatch = $$nc($cast($RewriteSystem, entry)->getSystemIdStartString())->length();
+					}
+					break;
+				case 3:
+					$assign(match, $cast($SystemSuffix, entry)->match(systemId, this->longestSuffixMatch));
+					if (match != nullptr) {
+						$set(this, suffixMatch, match);
+						this->longestSuffixMatch = $$nc($cast($SystemSuffix, entry)->getSystemIdSuffix())->length();
+					}
+					break;
+				case 4:
+					$assign(grpEntry, $cast(GroupEntry, entry));
+					$assign(match, $nc(grpEntry)->matchSystem(systemId));
+					if (grpEntry->isInstantMatch) {
+						return match;
+					} else if (grpEntry->longestRewriteMatch > this->longestRewriteMatch) {
+						this->longestRewriteMatch = grpEntry->longestRewriteMatch;
+						$set(this, rewriteMatch, match);
+					} else if (grpEntry->longestSuffixMatch > this->longestSuffixMatch) {
+						this->longestSuffixMatch = grpEntry->longestSuffixMatch;
+						$set(this, suffixMatch, match);
+					}
+					break;
 				}
 			}
 		}
@@ -405,7 +310,7 @@ $String* GroupEntry::matchSystem($String* systemId) {
 }
 
 $String* GroupEntry::matchPublic($String* publicId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isPreferPublic$ && this->systemEntrySearched) {
 		return nullptr;
 	}
@@ -418,20 +323,14 @@ $String* GroupEntry::matchPublic($String* publicId) {
 				$init($GroupEntry$1);
 				switch ($nc($GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->get($nc(($nc(entry)->type))->ordinal())) {
 				case 5:
-					{
-						$assign(match, $nc(($cast($PublicEntry, entry)))->match(publicId));
-						break;
-					}
+					$assign(match, $cast($PublicEntry, entry)->match(publicId));
+					break;
 				case 6:
-					{
-						$assign(match, $nc(($cast($UriEntry, entry)))->match(publicId));
-						break;
-					}
+					$assign(match, $cast($UriEntry, entry)->match(publicId));
+					break;
 				case 4:
-					{
-						$assign(match, $nc(($cast(GroupEntry, entry)))->matchPublic(publicId));
-						break;
-					}
+					$assign(match, $cast(GroupEntry, entry)->matchPublic(publicId));
+					break;
 				}
 				if (match != nullptr) {
 					return match;
@@ -444,7 +343,7 @@ $String* GroupEntry::matchPublic($String* publicId) {
 }
 
 $String* GroupEntry::matchURI($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, match, nullptr);
 	{
 		$var($Iterator, i$, $nc(this->entries)->iterator());
@@ -452,52 +351,42 @@ $String* GroupEntry::matchURI($String* uri) {
 			$var($BaseEntry, entry, $cast($BaseEntry, i$->next()));
 			{
 				$init($GroupEntry$1);
-				{
-					$var(GroupEntry, grpEntry, nullptr)
-					switch ($nc($GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->get($nc(($nc(entry)->type))->ordinal())) {
-					case 6:
-						{
-							$assign(match, $nc(($cast($UriEntry, entry)))->match(uri));
-							if (match != nullptr) {
-								this->isInstantMatch = true;
-								return match;
-							}
-							break;
-						}
-					case 7:
-						{
-							$assign(match, $nc(($cast($RewriteUri, entry)))->match(uri, this->longestRewriteMatch));
-							if (match != nullptr) {
-								$set(this, rewriteMatch, match);
-								this->longestRewriteMatch = $nc($($nc(($cast($RewriteUri, entry)))->getURIStartString()))->length();
-							}
-							break;
-						}
-					case 8:
-						{
-							$assign(match, $nc(($cast($UriSuffix, entry)))->match(uri, this->longestSuffixMatch));
-							if (match != nullptr) {
-								$set(this, suffixMatch, match);
-								this->longestSuffixMatch = $nc($($nc(($cast($UriSuffix, entry)))->getURISuffix()))->length();
-							}
-							break;
-						}
-					case 4:
-						{
-							$assign(grpEntry, $cast(GroupEntry, entry));
-							$assign(match, $nc(grpEntry)->matchURI(uri));
-							if ($nc(grpEntry)->isInstantMatch) {
-								return match;
-							} else if (grpEntry->longestRewriteMatch > this->longestRewriteMatch) {
-								$set(this, rewriteMatch, match);
-								this->longestRewriteMatch = grpEntry->longestRewriteMatch;
-							} else if (grpEntry->longestSuffixMatch > this->longestSuffixMatch) {
-								$set(this, suffixMatch, match);
-								this->longestSuffixMatch = grpEntry->longestSuffixMatch;
-							}
-							break;
-						}
+				$var(GroupEntry, grpEntry, nullptr);
+				switch ($nc($GroupEntry$1::$SwitchMap$javax$xml$catalog$BaseEntry$CatalogEntryType)->get($nc(($nc(entry)->type))->ordinal())) {
+				case 6:
+					$assign(match, $cast($UriEntry, entry)->match(uri));
+					if (match != nullptr) {
+						this->isInstantMatch = true;
+						return match;
 					}
+					break;
+				case 7:
+					$assign(match, $cast($RewriteUri, entry)->match(uri, this->longestRewriteMatch));
+					if (match != nullptr) {
+						$set(this, rewriteMatch, match);
+						this->longestRewriteMatch = $$nc($cast($RewriteUri, entry)->getURIStartString())->length();
+					}
+					break;
+				case 8:
+					$assign(match, $cast($UriSuffix, entry)->match(uri, this->longestSuffixMatch));
+					if (match != nullptr) {
+						$set(this, suffixMatch, match);
+						this->longestSuffixMatch = $$nc($cast($UriSuffix, entry)->getURISuffix())->length();
+					}
+					break;
+				case 4:
+					$assign(grpEntry, $cast(GroupEntry, entry));
+					$assign(match, $nc(grpEntry)->matchURI(uri));
+					if (grpEntry->isInstantMatch) {
+						return match;
+					} else if (grpEntry->longestRewriteMatch > this->longestRewriteMatch) {
+						$set(this, rewriteMatch, match);
+						this->longestRewriteMatch = grpEntry->longestRewriteMatch;
+					} else if (grpEntry->longestSuffixMatch > this->longestSuffixMatch) {
+						$set(this, suffixMatch, match);
+						this->longestSuffixMatch = grpEntry->longestSuffixMatch;
+					}
+					break;
 				}
 			}
 		}
@@ -512,7 +401,7 @@ $String* GroupEntry::matchURI($String* uri) {
 }
 
 $String* GroupEntry::matchDelegate($BaseEntry$CatalogEntryType* type, $String* id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, match, nullptr);
 	int32_t longestMatch = 0;
 	$var($URI, catalogId, nullptr);
@@ -521,22 +410,18 @@ $String* GroupEntry::matchDelegate($BaseEntry$CatalogEntryType* type, $String* i
 		$var($Iterator, i$, $nc(this->entries)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($BaseEntry, entry, $cast($BaseEntry, i$->next()));
-			{
-				if ($nc(entry)->type == type) {
-					$init($BaseEntry$CatalogEntryType);
-					if (type == $BaseEntry$CatalogEntryType::DELEGATESYSTEM) {
-						$assign(temp, $nc(($cast($DelegateSystem, entry)))->matchURI(id, longestMatch));
-					} else {
-						if (type == $BaseEntry$CatalogEntryType::DELEGATEPUBLIC) {
-							$assign(temp, $nc(($cast($DelegatePublic, entry)))->matchURI(id, longestMatch));
-						} else {
-							$assign(temp, $nc(($cast($DelegateUri, entry)))->matchURI(id, longestMatch));
-						}
-					}
-					if (temp != nullptr) {
-						longestMatch = $nc($(entry->getMatchId()))->length();
-						$assign(catalogId, temp);
-					}
+			if ($nc(entry)->type == type) {
+				$init($BaseEntry$CatalogEntryType);
+				if (type == $BaseEntry$CatalogEntryType::DELEGATESYSTEM) {
+					$assign(temp, $cast($DelegateSystem, entry)->matchURI(id, longestMatch));
+				} else if (type == $BaseEntry$CatalogEntryType::DELEGATEPUBLIC) {
+					$assign(temp, $cast($DelegatePublic, entry)->matchURI(id, longestMatch));
+				} else {
+					$assign(temp, $cast($DelegateUri, entry)->matchURI(id, longestMatch));
+				}
+				if (temp != nullptr) {
+					longestMatch = $$nc(entry->getMatchId())->length();
+					$assign(catalogId, temp);
 				}
 			}
 		}
@@ -547,12 +432,10 @@ $String* GroupEntry::matchDelegate($BaseEntry$CatalogEntryType* type, $String* i
 			$init($BaseEntry$CatalogEntryType);
 			if (type == $BaseEntry$CatalogEntryType::DELEGATESYSTEM) {
 				$assign(match, delegateCatalog->matchSystem(id));
+			} else if (type == $BaseEntry$CatalogEntryType::DELEGATEPUBLIC) {
+				$assign(match, delegateCatalog->matchPublic(id));
 			} else {
-				if (type == $BaseEntry$CatalogEntryType::DELEGATEPUBLIC) {
-					$assign(match, delegateCatalog->matchPublic(id));
-				} else {
-					$assign(match, delegateCatalog->matchURI(id));
-				}
+				$assign(match, delegateCatalog->matchURI(id));
 			}
 		}
 	}
@@ -560,12 +443,12 @@ $String* GroupEntry::matchDelegate($BaseEntry$CatalogEntryType* type, $String* i
 }
 
 void GroupEntry::loadDelegateCatalogs($CatalogImpl* parent) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc($($nc($($nc(this->entries)->stream()))->filter(static_cast<$Predicate*>($$new(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0)))))->map(static_cast<$Function*>($$new(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1)))))->forEach(static_cast<$Consumer*>($$new(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, this, parent)));
+	$useLocalObjectStack();
+	$$nc($$nc($$nc($nc(this->entries)->stream())->filter($$new(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0)))->map($$new(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1)))->forEach($$new(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2, this, parent));
 }
 
 $Catalog* GroupEntry::loadDelegateCatalog($CatalogImpl* parent, $URI* catalogURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CatalogImpl, delegateCatalog, nullptr);
 	if (catalogURI != nullptr) {
 		$var($String, catalogId, catalogURI->toASCIIString());
@@ -591,7 +474,7 @@ $CatalogImpl* GroupEntry::getLoadedCatalog($String* catalogId) {
 }
 
 bool GroupEntry::verifyCatalogFile($CatalogImpl* parent, $URI* catalogURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (catalogURI == nullptr) {
 		return false;
 	}
@@ -603,7 +486,7 @@ bool GroupEntry::verifyCatalogFile($CatalogImpl* parent, $URI* catalogURI) {
 	bool var$1 = $nc(this->catalogsSearched)->contains(catalogId);
 	if (var$1 || isCircular(parent, catalogId)) {
 		$init($CatalogMessages);
-		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_CIRCULAR_REFERENCE, $$new($ObjectArray, {$($of($CatalogMessages::sanitize(catalogId)))}));
+		$CatalogMessages::reportRunTimeError($CatalogMessages::ERR_CIRCULAR_REFERENCE, $$new($ObjectArray, {$($CatalogMessages::sanitize(catalogId))}));
 	}
 	return true;
 }
@@ -615,7 +498,7 @@ bool GroupEntry::isCircular($CatalogImpl* parent, $String* systemId) {
 	if ($nc($nc(parent)->systemId)->equals(systemId)) {
 		return true;
 	}
-	return $nc(parent)->isCircular(parent->parent, systemId);
+	return parent->isCircular(parent->parent, systemId);
 }
 
 void GroupEntry::lambda$loadDelegateCatalogs$2($CatalogImpl* parent, $AltCatalog* altCatalog) {
@@ -630,7 +513,7 @@ $AltCatalog* GroupEntry::lambda$loadDelegateCatalogs$1($BaseEntry* entry) {
 bool GroupEntry::lambda$loadDelegateCatalogs$0($BaseEntry* entry) {
 	$init(GroupEntry);
 	$init($BaseEntry$CatalogEntryType);
-	return ($nc(entry)->type == $BaseEntry$CatalogEntryType::DELEGATESYSTEM || $nc(entry)->type == $BaseEntry$CatalogEntryType::DELEGATEPUBLIC || $nc(entry)->type == $BaseEntry$CatalogEntryType::DELEGATEURI);
+	return ($nc(entry)->type == $BaseEntry$CatalogEntryType::DELEGATESYSTEM || entry->type == $BaseEntry$CatalogEntryType::DELEGATEPUBLIC || entry->type == $BaseEntry$CatalogEntryType::DELEGATEURI);
 }
 
 GroupEntry::GroupEntry() {
@@ -638,17 +521,82 @@ GroupEntry::GroupEntry() {
 
 $Class* GroupEntry::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0::classInfo$.name)) {
+		if (name->equals("javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0")) {
 			return GroupEntry$$Lambda$lambda$loadDelegateCatalogs$0::load$(name, initialize);
 		}
-		if (name->equals(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1::classInfo$.name)) {
+		if (name->equals("javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1")) {
 			return GroupEntry$$Lambda$lambda$loadDelegateCatalogs$1$1::load$(name, initialize);
 		}
-		if (name->equals(GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2::classInfo$.name)) {
+		if (name->equals("javax.xml.catalog.GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2")) {
 			return GroupEntry$$Lambda$lambda$loadDelegateCatalogs$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(GroupEntry, name, initialize, &_GroupEntry_ClassInfo_, allocate$GroupEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"ATTRIBUTE_PREFER", "I", nullptr, $STATIC | $FINAL, $constField(GroupEntry, ATTRIBUTE_PREFER)},
+		{"ATTRIBUTE_DEFFER", "I", nullptr, $STATIC | $FINAL, $constField(GroupEntry, ATTRIBUTE_DEFFER)},
+		{"ATTRIBUTE_RESOLUTION", "I", nullptr, $STATIC | $FINAL, $constField(GroupEntry, ATTRIBUTE_RESOLUTION)},
+		{"features", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, 0, $field(GroupEntry, features)},
+		{"isPreferPublic", "Z", nullptr, 0, $field(GroupEntry, isPreferPublic$)},
+		{"parent", "Ljavax/xml/catalog/CatalogImpl;", nullptr, 0, $field(GroupEntry, parent)},
+		{"catalog", "Ljavax/xml/catalog/CatalogImpl;", nullptr, 0, $field(GroupEntry, catalog)},
+		{"entries", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/catalog/BaseEntry;>;", 0, $field(GroupEntry, entries)},
+		{"delegateCatalogs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/xml/catalog/CatalogImpl;>;", 0, $field(GroupEntry, delegateCatalogs)},
+		{"loadedCatalogs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/xml/catalog/CatalogImpl;>;", 0, $field(GroupEntry, loadedCatalogs)},
+		{"catalogsSearched", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(GroupEntry, catalogsSearched)},
+		{"isInstantMatch", "Z", nullptr, 0, $field(GroupEntry, isInstantMatch)},
+		{"rewriteMatch", "Ljava/lang/String;", nullptr, 0, $field(GroupEntry, rewriteMatch)},
+		{"longestRewriteMatch", "I", nullptr, 0, $field(GroupEntry, longestRewriteMatch)},
+		{"suffixMatch", "Ljava/lang/String;", nullptr, 0, $field(GroupEntry, suffixMatch)},
+		{"longestSuffixMatch", "I", nullptr, 0, $field(GroupEntry, longestSuffixMatch)},
+		{"systemEntrySearched", "Z", nullptr, 0, $field(GroupEntry, systemEntrySearched)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;Ljavax/xml/catalog/CatalogImpl;)V", nullptr, $PUBLIC, $method(GroupEntry, init$, void, $BaseEntry$CatalogEntryType*, $CatalogImpl*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(GroupEntry, init$, void, $String*, $StringArray*)},
+		{"<init>", "(Ljavax/xml/catalog/CatalogImpl;Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(GroupEntry, init$, void, $CatalogImpl*, $String*, $StringArray*)},
+		{"addEntry", "(Ljavax/xml/catalog/BaseEntry;)V", nullptr, $PUBLIC, $virtualMethod(GroupEntry, addEntry, void, $BaseEntry*)},
+		{"getLoadedCatalog", "(Ljava/lang/String;)Ljavax/xml/catalog/CatalogImpl;", nullptr, 0, $virtualMethod(GroupEntry, getLoadedCatalog, $CatalogImpl*, $String*)},
+		{"isCircular", "(Ljavax/xml/catalog/CatalogImpl;Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(GroupEntry, isCircular, bool, $CatalogImpl*, $String*)},
+		{"isPreferPublic", "()Z", nullptr, $PUBLIC, $virtualMethod(GroupEntry, isPreferPublic, bool)},
+		{"lambda$loadDelegateCatalogs$0", "(Ljavax/xml/catalog/BaseEntry;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GroupEntry, lambda$loadDelegateCatalogs$0, bool, $BaseEntry*)},
+		{"lambda$loadDelegateCatalogs$1", "(Ljavax/xml/catalog/BaseEntry;)Ljavax/xml/catalog/AltCatalog;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GroupEntry, lambda$loadDelegateCatalogs$1, $AltCatalog*, $BaseEntry*)},
+		{"lambda$loadDelegateCatalogs$2", "(Ljavax/xml/catalog/CatalogImpl;Ljavax/xml/catalog/AltCatalog;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(GroupEntry, lambda$loadDelegateCatalogs$2, void, $CatalogImpl*, $AltCatalog*)},
+		{"loadDelegateCatalog", "(Ljavax/xml/catalog/CatalogImpl;Ljava/net/URI;)Ljavax/xml/catalog/Catalog;", nullptr, 0, $virtualMethod(GroupEntry, loadDelegateCatalog, $Catalog*, $CatalogImpl*, $URI*)},
+		{"loadDelegateCatalogs", "(Ljavax/xml/catalog/CatalogImpl;)V", nullptr, 0, $virtualMethod(GroupEntry, loadDelegateCatalogs, void, $CatalogImpl*)},
+		{"matchDelegate", "(Ljavax/xml/catalog/BaseEntry$CatalogEntryType;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(GroupEntry, matchDelegate, $String*, $BaseEntry$CatalogEntryType*, $String*)},
+		{"matchPublic", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GroupEntry, matchPublic, $String*, $String*)},
+		{"matchSystem", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GroupEntry, matchSystem, $String*, $String*)},
+		{"matchURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GroupEntry, matchURI, $String*, $String*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GroupEntry, reset, void)},
+		{"setCatalog", "(Ljavax/xml/catalog/CatalogImpl;)V", nullptr, 0, $virtualMethod(GroupEntry, setCatalog, void, $CatalogImpl*)},
+		{"setPrefer", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $FINAL, $method(GroupEntry, setPrefer, void, $String*)},
+		{"verifyCatalogFile", "(Ljavax/xml/catalog/CatalogImpl;Ljava/net/URI;)Z", nullptr, $FINAL, $method(GroupEntry, verifyCatalogFile, bool, $CatalogImpl*, $URI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.catalog.GroupEntry$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.xml.catalog.GroupEntry$ResolveType", "javax.xml.catalog.GroupEntry", "ResolveType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"javax.xml.catalog.GroupEntry$PreferType", "javax.xml.catalog.GroupEntry", "PreferType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.xml.catalog.GroupEntry",
+		"javax.xml.catalog.BaseEntry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.xml.catalog.GroupEntry$1,javax.xml.catalog.GroupEntry$ResolveType,javax.xml.catalog.GroupEntry$PreferType"
+	};
+	$loadClass(GroupEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupEntry);
+	});
 	return class$;
 }
 

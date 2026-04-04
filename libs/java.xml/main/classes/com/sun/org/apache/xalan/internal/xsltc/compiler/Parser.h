@@ -93,6 +93,7 @@ class Parser : public ::com::sun::org::apache::xalan::internal::xsltc::compiler:
 	$class(Parser, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants, ::org::xml::sax::ContentHandler)
 public:
 	Parser();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

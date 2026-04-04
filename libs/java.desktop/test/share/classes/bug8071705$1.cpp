@@ -1,5 +1,4 @@
 #include <bug8071705$1.h>
-
 #include <bug8071705$FrameListener.h>
 #include <bug8071705.h>
 #include <java/awt/Component.h>
@@ -14,7 +13,6 @@ using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $bug8071705 = ::bug8071705;
 using $bug8071705$FrameListener = ::bug8071705$FrameListener;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,56 +21,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JFrame = ::javax::swing::JFrame;
 
-$FieldInfo _bug8071705$1_FieldInfo_[] = {
-	{"val$latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(bug8071705$1, val$latch)},
-	{"val$result", "[Z", nullptr, $FINAL | $SYNTHETIC, $field(bug8071705$1, val$result)},
-	{}
-};
-
-$MethodInfo _bug8071705$1_MethodInfo_[] = {
-	{"<init>", "([ZLjava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(bug8071705$1, init$, void, $booleans*, $CountDownLatch*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8071705$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8071705$1_EnclosingMethodInfo_ = {
-	"bug8071705",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug8071705$1_InnerClassesInfo_[] = {
-	{"bug8071705$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8071705$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8071705$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug8071705$1_FieldInfo_,
-	_bug8071705$1_MethodInfo_,
-	nullptr,
-	&_bug8071705$1_EnclosingMethodInfo_,
-	_bug8071705$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8071705"
-};
-
-$Object* allocate$bug8071705$1($Class* clazz) {
-	return $of($alloc(bug8071705$1));
-}
-
 void bug8071705$1::init$($booleans* val$result, $CountDownLatch* val$latch) {
 	$set(this, val$result, val$result);
 	$set(this, val$latch, val$latch);
 }
 
 void bug8071705$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, frame, $bug8071705::createGUI());
 	$var($GraphicsDeviceArray, devices, $bug8071705::checkScreens());
 	$var($GraphicsDevice, device, $bug8071705::checkConfigs(devices));
@@ -91,7 +46,43 @@ bug8071705$1::bug8071705$1() {
 }
 
 $Class* bug8071705$1::load$($String* name, bool initialize) {
-	$loadClass(bug8071705$1, name, initialize, &_bug8071705$1_ClassInfo_, allocate$bug8071705$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $FINAL | $SYNTHETIC, $field(bug8071705$1, val$latch)},
+		{"val$result", "[Z", nullptr, $FINAL | $SYNTHETIC, $field(bug8071705$1, val$result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([ZLjava/util/concurrent/CountDownLatch;)V", "()V", 0, $method(bug8071705$1, init$, void, $booleans*, $CountDownLatch*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8071705$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8071705",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8071705$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8071705$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8071705"
+	};
+	$loadClass(bug8071705$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8071705$1);
+	});
 	return class$;
 }
 

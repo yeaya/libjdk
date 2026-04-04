@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ccache/CCacheOutputStream.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
@@ -31,11 +30,7 @@
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
-using $AuthorizationData = ::sun::security::krb5::internal::AuthorizationData;
-using $HostAddresses = ::sun::security::krb5::internal::HostAddresses;
-using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;
 using $Ticket = ::sun::security::krb5::internal::Ticket;
 using $TicketFlags = ::sun::security::krb5::internal::TicketFlags;
 using $Credentials = ::sun::security::krb5::internal::ccache::Credentials;
@@ -48,34 +43,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace ccache {
-
-$MethodInfo _CCacheOutputStream_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(CCacheOutputStream, init$, void, $OutputStream*)},
-	{"addConfigEntry", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, addConfigEntry, void, $PrincipalName*, $CredentialsCache$ConfigEntry*), "java.io.IOException"},
-	{"addCreds", "(Lsun/security/krb5/internal/ccache/Credentials;)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, addCreds, void, $Credentials*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeFlags", "(Lsun/security/krb5/internal/TicketFlags;)V", nullptr, 0, $virtualMethod(CCacheOutputStream, writeFlags, void, $TicketFlags*), "java.io.IOException"},
-	{"writeHeader", "(Lsun/security/krb5/PrincipalName;I)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, writeHeader, void, $PrincipalName*, int32_t), "java.io.IOException"},
-	{"writeTicket", "(Lsun/security/krb5/internal/Ticket;)V", nullptr, 0, $virtualMethod(CCacheOutputStream, writeTicket, void, $Ticket*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{}
-};
-
-$ClassInfo _CCacheOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ccache.CCacheOutputStream",
-	"sun.security.krb5.internal.util.KrbDataOutputStream",
-	"sun.security.krb5.internal.ccache.FileCCacheConstants",
-	nullptr,
-	_CCacheOutputStream_MethodInfo_
-};
-
-$Object* allocate$CCacheOutputStream($Class* clazz) {
-	return $of($alloc(CCacheOutputStream));
-}
 
 int32_t CCacheOutputStream::hashCode() {
 	 return this->$KrbDataOutputStream::hashCode();
@@ -102,8 +69,8 @@ void CCacheOutputStream::init$($OutputStream* os) {
 }
 
 void CCacheOutputStream::writeHeader($PrincipalName* p, int32_t version) {
-	write(((int32_t)(version & (uint32_t)0x0000FF00)) >> 8);
-	write((int32_t)(version & (uint32_t)255));
+	write((version & 0xff00) >> 8);
+	write(version & 0xff);
 	$nc(p)->writePrincipal(this);
 }
 
@@ -113,13 +80,13 @@ void CCacheOutputStream::addCreds($Credentials* creds) {
 	$nc(creds->key)->writeKey(this);
 	write32((int32_t)($nc(creds->authtime)->getTime() / 1000));
 	if (creds->starttime != nullptr) {
-		write32((int32_t)($nc(creds->starttime)->getTime() / 1000));
+		write32((int32_t)(creds->starttime->getTime() / 1000));
 	} else {
 		write32(0);
 	}
 	write32((int32_t)($nc(creds->endtime)->getTime() / 1000));
 	if (creds->renewTill != nullptr) {
-		write32((int32_t)($nc(creds->renewTill)->getTime() / 1000));
+		write32((int32_t)(creds->renewTill->getTime() / 1000));
 	} else {
 		write32(0);
 	}
@@ -132,21 +99,21 @@ void CCacheOutputStream::addCreds($Credentials* creds) {
 	if (creds->caddr == nullptr) {
 		write32(0);
 	} else {
-		$nc(creds->caddr)->writeAddrs(this);
+		creds->caddr->writeAddrs(this);
 	}
 	if (creds->authorizationData == nullptr) {
 		write32(0);
 	} else {
-		$nc(creds->authorizationData)->writeAuth(this);
+		creds->authorizationData->writeAuth(this);
 	}
 	writeTicket(creds->ticket);
 	writeTicket(creds->secondTicket);
 }
 
 void CCacheOutputStream::addConfigEntry($PrincipalName* cname, $CredentialsCache$ConfigEntry* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(cname)->writePrincipal(this);
-	$nc($($nc(e)->getSName()))->writePrincipal(this);
+	$$nc($nc(e)->getSName())->writePrincipal(this);
 	write16(0);
 	write16(0);
 	write32(0);
@@ -167,9 +134,9 @@ void CCacheOutputStream::writeTicket($Ticket* t) {
 	if (t == nullptr) {
 		write32(0);
 	} else {
-		$var($bytes, bytes, $nc(t)->asn1Encode());
+		$var($bytes, bytes, t->asn1Encode());
 		write32($nc(bytes)->length);
-		write(bytes, 0, $nc(bytes)->length);
+		write(bytes, 0, bytes->length);
 	}
 }
 
@@ -179,34 +146,34 @@ void CCacheOutputStream::writeFlags($TicketFlags* flags) {
 	if ($nc(f)->get(1) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_FORWARDABLE;
 	}
-	if ($nc(f)->get(2) == true) {
+	if (f->get(2) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_FORWARDED;
 	}
-	if ($nc(f)->get(3) == true) {
+	if (f->get(3) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_PROXIABLE;
 	}
-	if ($nc(f)->get(4) == true) {
+	if (f->get(4) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_PROXY;
 	}
-	if ($nc(f)->get(5) == true) {
+	if (f->get(5) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_MAY_POSTDATE;
 	}
-	if ($nc(f)->get(6) == true) {
+	if (f->get(6) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_POSTDATED;
 	}
-	if ($nc(f)->get(7) == true) {
+	if (f->get(7) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_INVALID;
 	}
-	if ($nc(f)->get(8) == true) {
+	if (f->get(8) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_RENEWABLE;
 	}
-	if ($nc(f)->get(9) == true) {
+	if (f->get(9) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_INITIAL;
 	}
-	if ($nc(f)->get(10) == true) {
+	if (f->get(10) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_PRE_AUTH;
 	}
-	if ($nc(f)->get(11) == true) {
+	if (f->get(11) == true) {
 		tFlags |= $FileCCacheConstants::TKT_FLG_HW_AUTH;
 	}
 	write32(tFlags);
@@ -216,7 +183,31 @@ CCacheOutputStream::CCacheOutputStream() {
 }
 
 $Class* CCacheOutputStream::load$($String* name, bool initialize) {
-	$loadClass(CCacheOutputStream, name, initialize, &_CCacheOutputStream_ClassInfo_, allocate$CCacheOutputStream);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(CCacheOutputStream, init$, void, $OutputStream*)},
+		{"addConfigEntry", "(Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/ccache/CredentialsCache$ConfigEntry;)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, addConfigEntry, void, $PrincipalName*, $CredentialsCache$ConfigEntry*), "java.io.IOException"},
+		{"addCreds", "(Lsun/security/krb5/internal/ccache/Credentials;)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, addCreds, void, $Credentials*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeFlags", "(Lsun/security/krb5/internal/TicketFlags;)V", nullptr, 0, $virtualMethod(CCacheOutputStream, writeFlags, void, $TicketFlags*), "java.io.IOException"},
+		{"writeHeader", "(Lsun/security/krb5/PrincipalName;I)V", nullptr, $PUBLIC, $virtualMethod(CCacheOutputStream, writeHeader, void, $PrincipalName*, int32_t), "java.io.IOException"},
+		{"writeTicket", "(Lsun/security/krb5/internal/Ticket;)V", nullptr, 0, $virtualMethod(CCacheOutputStream, writeTicket, void, $Ticket*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ccache.CCacheOutputStream",
+		"sun.security.krb5.internal.util.KrbDataOutputStream",
+		"sun.security.krb5.internal.ccache.FileCCacheConstants",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CCacheOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CCacheOutputStream));
+	});
 	return class$;
 }
 

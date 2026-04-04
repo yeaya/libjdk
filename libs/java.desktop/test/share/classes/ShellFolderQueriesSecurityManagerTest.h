@@ -17,6 +17,7 @@ class $export ShellFolderQueriesSecurityManagerTest : public ::java::lang::Objec
 	$class(ShellFolderQueriesSecurityManagerTest, 0, ::java::lang::Object)
 public:
 	ShellFolderQueriesSecurityManagerTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::javax::swing::filechooser::FileSystemView* fsv;

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XLabelPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -62,80 +61,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XLabelPeer_FieldInfo_[] = {
-	{"TEXT_XPAD", "I", nullptr, $STATIC | $FINAL, $constField(XLabelPeer, TEXT_XPAD)},
-	{"TEXT_YPAD", "I", nullptr, $STATIC | $FINAL, $constField(XLabelPeer, TEXT_YPAD)},
-	{"label", "Ljava/lang/String;", nullptr, 0, $field(XLabelPeer, label)},
-	{"alignment", "I", nullptr, 0, $field(XLabelPeer, alignment)},
-	{"cachedFontMetrics", "Ljava/awt/FontMetrics;", nullptr, 0, $field(XLabelPeer, cachedFontMetrics)},
-	{"oldfont", "Ljava/awt/Font;", nullptr, 0, $field(XLabelPeer, oldfont)},
-	{}
-};
-
-$MethodInfo _XLabelPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Label;)V", nullptr, 0, $method(XLabelPeer, init$, void, $Label*)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, 0, $virtualMethod(XLabelPeer, getFontMetrics, $FontMetrics*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XLabelPeer, getMinimumSize, $Dimension*)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XLabelPeer, paintPeer, void, $Graphics*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XLabelPeer, preInit, void, $XCreateWindowParams*)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"setAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(XLabelPeer, setAlignment, void, int32_t)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XLabelPeer, setText, void, $String*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XLabelPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XLabelPeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.LabelPeer",
-	_XLabelPeer_FieldInfo_,
-	_XLabelPeer_MethodInfo_
-};
-
-$Object* allocate$XLabelPeer($Class* clazz) {
-	return $of($alloc(XLabelPeer));
-}
 
 void XLabelPeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -316,7 +241,7 @@ void XLabelPeer::preInit($XCreateWindowParams* params) {
 }
 
 void XLabelPeer::init$($Label* target) {
-	$XComponentPeer::init$(static_cast<$Component*>(target));
+	$XComponentPeer::init$(target);
 }
 
 $Dimension* XLabelPeer::getMinimumSize() {
@@ -332,7 +257,7 @@ $Dimension* XLabelPeer::getMinimumSize() {
 }
 
 void XLabelPeer::paintPeer($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t textX = 0;
 	int32_t textY = 0;
 	$nc(g)->setColor($(getPeerBackground()));
@@ -356,14 +281,14 @@ void XLabelPeer::paintPeer($Graphics* g) {
 	case $Label::RIGHT:
 		{
 			textX = this->width - ($nc(fm)->stringWidth(this->label) + 2);
-			int32_t var$1 = this->height + $nc(fm)->getMaxAscent();
+			int32_t var$1 = this->height + fm->getMaxAscent();
 			textY = (var$1 - fm->getMaxDescent()) / 2;
 			break;
 		}
 	case $Label::CENTER:
 		{
 			textX = (this->width - $nc(fm)->stringWidth(this->label)) / 2;
-			int32_t var$2 = this->height + $nc(fm)->getMaxAscent();
+			int32_t var$2 = this->height + fm->getMaxAscent();
 			textY = (var$2 - fm->getMaxDescent()) / 2;
 			break;
 		}
@@ -372,9 +297,9 @@ void XLabelPeer::paintPeer($Graphics* g) {
 		g->setColor($(getPeerForeground()));
 		g->drawString(this->label, textX, textY);
 	} else {
-		g->setColor($($nc($(getPeerBackground()))->brighter()));
+		g->setColor($($$nc(getPeerBackground())->brighter()));
 		g->drawString(this->label, textX, textY);
-		g->setColor($($nc($(getPeerBackground()))->darker()));
+		g->setColor($($$nc(getPeerBackground())->darker()));
 		g->drawString(this->label, textX - 1, textY - 1);
 	}
 }
@@ -401,7 +326,76 @@ XLabelPeer::XLabelPeer() {
 }
 
 $Class* XLabelPeer::load$($String* name, bool initialize) {
-	$loadClass(XLabelPeer, name, initialize, &_XLabelPeer_ClassInfo_, allocate$XLabelPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEXT_XPAD", "I", nullptr, $STATIC | $FINAL, $constField(XLabelPeer, TEXT_XPAD)},
+		{"TEXT_YPAD", "I", nullptr, $STATIC | $FINAL, $constField(XLabelPeer, TEXT_YPAD)},
+		{"label", "Ljava/lang/String;", nullptr, 0, $field(XLabelPeer, label)},
+		{"alignment", "I", nullptr, 0, $field(XLabelPeer, alignment)},
+		{"cachedFontMetrics", "Ljava/awt/FontMetrics;", nullptr, 0, $field(XLabelPeer, cachedFontMetrics)},
+		{"oldfont", "Ljava/awt/Font;", nullptr, 0, $field(XLabelPeer, oldfont)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Label;)V", nullptr, 0, $method(XLabelPeer, init$, void, $Label*)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, 0, $virtualMethod(XLabelPeer, getFontMetrics, $FontMetrics*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XLabelPeer, getMinimumSize, $Dimension*)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XLabelPeer, paintPeer, void, $Graphics*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XLabelPeer, preInit, void, $XCreateWindowParams*)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"setAlignment", "(I)V", nullptr, $PUBLIC, $virtualMethod(XLabelPeer, setAlignment, void, int32_t)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XLabelPeer, setText, void, $String*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XLabelPeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.LabelPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XLabelPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XLabelPeer));
+	});
 	return class$;
 }
 

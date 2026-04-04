@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalButtonUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -23,7 +22,6 @@
 #undef METAL_BUTTON_UI_KEY
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -48,43 +46,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalButtonUI_FieldInfo_[] = {
-	{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalButtonUI, focusColor)},
-	{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalButtonUI, selectColor)},
-	{"disabledTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalButtonUI, disabledTextColor)},
-	{"METAL_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalButtonUI, METAL_BUTTON_UI_KEY)},
-	{}
-};
-
-$MethodInfo _MetalButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalButtonUI, init$, void)},
-	{"createButtonListener", "(Ljavax/swing/AbstractButton;)Ljavax/swing/plaf/basic/BasicButtonListener;", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, createButtonListener, $BasicButtonListener*, $AbstractButton*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getDisabledTextColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, getDisabledTextColor, $Color*)},
-	{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, getFocusColor, $Color*)},
-	{"getSelectColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, getSelectColor, $Color*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalButtonUI, installDefaults, void, $AbstractButton*)},
-	{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
-	{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, paintText, void, $Graphics*, $JComponent*, $Rectangle*, $String*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalButtonUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MetalButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalButtonUI",
-	"javax.swing.plaf.basic.BasicButtonUI",
-	nullptr,
-	_MetalButtonUI_FieldInfo_,
-	_MetalButtonUI_MethodInfo_
-};
-
-$Object* allocate$MetalButtonUI($Class* clazz) {
-	return $of($alloc(MetalButtonUI));
-}
-
 $Object* MetalButtonUI::METAL_BUTTON_UI_KEY = nullptr;
 
 void MetalButtonUI::init$() {
@@ -93,7 +54,7 @@ void MetalButtonUI::init$() {
 
 $ComponentUI* MetalButtonUI::createUI($JComponent* c) {
 	$init(MetalButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(MetalButtonUI, metalButtonUI, $cast(MetalButtonUI, $nc(appContext)->get(MetalButtonUI::METAL_BUTTON_UI_KEY)));
 	if (metalButtonUI == nullptr) {
@@ -116,27 +77,27 @@ $BasicButtonListener* MetalButtonUI::createButtonListener($AbstractButton* b) {
 }
 
 $Color* MetalButtonUI::getSelectColor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, selectColor, $UIManager::getColor($$str({$(getPropertyPrefix()), "select"_s})));
 	return this->selectColor;
 }
 
 $Color* MetalButtonUI::getDisabledTextColor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, disabledTextColor, $UIManager::getColor($$str({$(getPropertyPrefix()), "disabledText"_s})));
 	return this->disabledTextColor;
 }
 
 $Color* MetalButtonUI::getFocusColor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, focusColor, $UIManager::getColor($$str({$(getPropertyPrefix()), "focus"_s})));
 	return this->focusColor;
 }
 
 void MetalButtonUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, button, $cast($AbstractButton, c));
-	bool var$1 = ($instanceOf($UIResource, $($nc(c)->getBackground())));
+	bool var$1 = $instanceOf($UIResource, $($nc(c)->getBackground()));
 	bool var$0 = var$1 && $nc(button)->isContentAreaFilled();
 	if (var$0 && c->isEnabled()) {
 		$var($ButtonModel, model, button->getModel());
@@ -144,26 +105,22 @@ void MetalButtonUI::update($Graphics* g, $JComponent* c) {
 			bool var$3 = !$nc(model)->isArmed();
 			bool var$2 = var$3 && !model->isPressed();
 			if (var$2) {
-				$var($Component, var$4, static_cast<$Component*>(c));
-				$var($Graphics, var$5, g);
-				$var($String, var$6, "Button.gradient"_s);
-				int32_t var$7 = c->getWidth();
-				var$2 = $MetalUtils::drawGradient(var$4, var$5, var$6, 0, 0, var$7, c->getHeight(), true);
+				$var($String, var$4, "Button.gradient"_s);
+				int32_t var$5 = c->getWidth();
+				var$2 = $MetalUtils::drawGradient(c, g, var$4, 0, 0, var$5, c->getHeight(), true);
 			}
 			if (var$2) {
 				paint(g, c);
 				return;
 			}
 		} else {
-			bool var$13 = $nc(model)->isRollover();
-			if (var$13) {
-				$var($Component, var$14, static_cast<$Component*>(c));
-				$var($Graphics, var$15, g);
-				$var($String, var$16, "Button.gradient"_s);
-				int32_t var$17 = c->getWidth();
-				var$13 = $MetalUtils::drawGradient(var$14, var$15, var$16, 0, 0, var$17, c->getHeight(), true);
+			bool var$6 = $nc(model)->isRollover();
+			if (var$6) {
+				$var($String, var$7, "Button.gradient"_s);
+				int32_t var$8 = c->getWidth();
+				var$6 = $MetalUtils::drawGradient(c, g, var$7, 0, 0, var$8, c->getHeight(), true);
 			}
-			if (var$13) {
+			if (var$6) {
 				paint(g, c);
 				return;
 			}
@@ -173,16 +130,16 @@ void MetalButtonUI::update($Graphics* g, $JComponent* c) {
 }
 
 void MetalButtonUI::paintButtonPressed($Graphics* g, $AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(b)->isContentAreaFilled()) {
 		$var($Dimension, size, b->getSize());
 		$nc(g)->setColor($(getSelectColor()));
-		g->fillRect(0, 0, $nc(size)->width, size->height);
+		g->fillRect(0, 0, $nc(size)->width, $nc(size)->height);
 	}
 }
 
 void MetalButtonUI::paintFocus($Graphics* g, $AbstractButton* b, $Rectangle* viewRect, $Rectangle* textRect, $Rectangle* iconRect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, focusRect, $new($Rectangle));
 	$var($String, text, $nc(b)->getText());
 	bool isIcon = b->getIcon() != nullptr;
@@ -200,7 +157,7 @@ void MetalButtonUI::paintFocus($Graphics* g, $AbstractButton* b, $Rectangle* vie
 }
 
 void MetalButtonUI::paintText($Graphics* g, $JComponent* c, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(c, g));
@@ -210,10 +167,10 @@ void MetalButtonUI::paintText($Graphics* g, $JComponent* c, $Rectangle* textRect
 	} else {
 		$nc(g)->setColor($(getDisabledTextColor()));
 	}
-	$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemIndex, $nc(textRect)->x, textRect->y + $nc(fm)->getAscent());
+	$SwingUtilities2::drawStringUnderlineCharAt(c, g, text, mnemIndex, $nc(textRect)->x, $nc(textRect)->y + $nc(fm)->getAscent());
 }
 
-void clinit$MetalButtonUI($Class* class$) {
+void MetalButtonUI::clinit$($Class* clazz) {
 	$assignStatic(MetalButtonUI::METAL_BUTTON_UI_KEY, $new($Object));
 }
 
@@ -221,7 +178,39 @@ MetalButtonUI::MetalButtonUI() {
 }
 
 $Class* MetalButtonUI::load$($String* name, bool initialize) {
-	$loadClass(MetalButtonUI, name, initialize, &_MetalButtonUI_ClassInfo_, clinit$MetalButtonUI, allocate$MetalButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalButtonUI, focusColor)},
+		{"selectColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalButtonUI, selectColor)},
+		{"disabledTextColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MetalButtonUI, disabledTextColor)},
+		{"METAL_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalButtonUI, METAL_BUTTON_UI_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalButtonUI, init$, void)},
+		{"createButtonListener", "(Ljavax/swing/AbstractButton;)Ljavax/swing/plaf/basic/BasicButtonListener;", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, createButtonListener, $BasicButtonListener*, $AbstractButton*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getDisabledTextColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, getDisabledTextColor, $Color*)},
+		{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, getFocusColor, $Color*)},
+		{"getSelectColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, getSelectColor, $Color*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalButtonUI, installDefaults, void, $AbstractButton*)},
+		{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
+		{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MetalButtonUI, paintText, void, $Graphics*, $JComponent*, $Rectangle*, $String*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalButtonUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalButtonUI",
+		"javax.swing.plaf.basic.BasicButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalButtonUI, name, initialize, &classInfo$$, MetalButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalButtonUI);
+	});
 	return class$;
 }
 

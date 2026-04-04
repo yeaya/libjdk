@@ -1,5 +1,4 @@
 #include <HeadlessJPanel.h>
-
 #include <HeadlessJPanel$1.h>
 #include <HeadlessJPanel$2.h>
 #include <HeadlessJPanel$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JPanel = ::javax::swing::JPanel;
 
-$MethodInfo _HeadlessJPanel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJPanel, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJPanel, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJPanel_InnerClassesInfo_[] = {
-	{"HeadlessJPanel$3", nullptr, nullptr, 0},
-	{"HeadlessJPanel$2", nullptr, nullptr, 0},
-	{"HeadlessJPanel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJPanel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJPanel",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJPanel$3,HeadlessJPanel$2,HeadlessJPanel$1"
-};
-
-$Object* allocate$HeadlessJPanel($Class* clazz) {
-	return $of($alloc(HeadlessJPanel));
-}
-
 void HeadlessJPanel::init$() {
 }
 
 void HeadlessJPanel::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, p, $new($JPanel));
 	p->getAccessibleContext();
 	p->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJPanel::main($StringArray* args) {
 	p->getMaximumSize();
 	p->getMinimumSize();
 	p->contains(1, 2);
-	$var($Component, c1, p->add(static_cast<$Component*>($$new($HeadlessJPanel$1))));
-	$var($Component, c2, p->add(static_cast<$Component*>($$new($HeadlessJPanel$2))));
-	$var($Component, c3, p->add(static_cast<$Component*>($$new($HeadlessJPanel$3))));
+	$var($Component, c1, p->add($$new($HeadlessJPanel$1)));
+	$var($Component, c2, p->add($$new($HeadlessJPanel$2)));
+	$var($Component, c3, p->add($$new($HeadlessJPanel$3)));
 	$var($Insets, ins, p->getInsets());
 	p->getAlignmentY();
 	p->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJPanel::main($StringArray* args) {
 	p->setForeground($Color::red);
 	p->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					p->setFont(f1);
-					p->setFont(f2);
-					p->setFont(f3);
-					p->setFont(f4);
-					p->getFontMetrics(f1);
-					p->getFontMetrics(f2);
-					p->getFontMetrics(f3);
-					p->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				p->setFont(f1);
+				p->setFont(f2);
+				p->setFont(f3);
+				p->setFont(f4);
+				p->getFontMetrics(f1);
+				p->getFontMetrics(f2);
+				p->getFontMetrics(f3);
+				p->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJPanel::main($StringArray* args) {
 	p->getFont();
 	p->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(p));
+	c->add(p);
 	p->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			p->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJPanel::HeadlessJPanel() {
 }
 
 $Class* HeadlessJPanel::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJPanel, name, initialize, &_HeadlessJPanel_ClassInfo_, allocate$HeadlessJPanel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJPanel, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJPanel, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJPanel$3", nullptr, nullptr, 0},
+		{"HeadlessJPanel$2", nullptr, nullptr, 0},
+		{"HeadlessJPanel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJPanel",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJPanel$3,HeadlessJPanel$2,HeadlessJPanel$1"
+	};
+	$loadClass(HeadlessJPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJPanel);
+	});
 	return class$;
 }
 

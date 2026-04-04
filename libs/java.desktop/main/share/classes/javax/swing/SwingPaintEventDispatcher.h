@@ -35,6 +35,7 @@ class SwingPaintEventDispatcher : public ::sun::awt::PaintEventDispatcher {
 	$class(SwingPaintEventDispatcher, 0, ::sun::awt::PaintEventDispatcher)
 public:
 	SwingPaintEventDispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::event::PaintEvent* createPaintEvent(::java::awt::Component* component, int32_t x, int32_t y, int32_t w, int32_t h) override;
 	virtual bool queueSurfaceDataReplacing(::java::awt::Component* c, ::java::lang::Runnable* r) override;

@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/tcp/TCPDirectSocketFactory.h>
-
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <java/rmi/server/RMISocketFactory.h>
@@ -15,26 +14,6 @@ namespace sun {
 	namespace rmi {
 		namespace transport {
 			namespace tcp {
-
-$MethodInfo _TCPDirectSocketFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TCPDirectSocketFactory, init$, void)},
-	{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(TCPDirectSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
-	{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(TCPDirectSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TCPDirectSocketFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.transport.tcp.TCPDirectSocketFactory",
-	"java.rmi.server.RMISocketFactory",
-	nullptr,
-	nullptr,
-	_TCPDirectSocketFactory_MethodInfo_
-};
-
-$Object* allocate$TCPDirectSocketFactory($Class* clazz) {
-	return $of($alloc(TCPDirectSocketFactory));
-}
 
 void TCPDirectSocketFactory::init$() {
 	$RMISocketFactory::init$();
@@ -52,7 +31,23 @@ TCPDirectSocketFactory::TCPDirectSocketFactory() {
 }
 
 $Class* TCPDirectSocketFactory::load$($String* name, bool initialize) {
-	$loadClass(TCPDirectSocketFactory, name, initialize, &_TCPDirectSocketFactory_ClassInfo_, allocate$TCPDirectSocketFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TCPDirectSocketFactory, init$, void)},
+		{"createServerSocket", "(I)Ljava/net/ServerSocket;", nullptr, $PUBLIC, $virtualMethod(TCPDirectSocketFactory, createServerSocket, $ServerSocket*, int32_t), "java.io.IOException"},
+		{"createSocket", "(Ljava/lang/String;I)Ljava/net/Socket;", nullptr, $PUBLIC, $virtualMethod(TCPDirectSocketFactory, createSocket, $Socket*, $String*, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.transport.tcp.TCPDirectSocketFactory",
+		"java.rmi.server.RMISocketFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TCPDirectSocketFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TCPDirectSocketFactory));
+	});
 	return class$;
 }
 

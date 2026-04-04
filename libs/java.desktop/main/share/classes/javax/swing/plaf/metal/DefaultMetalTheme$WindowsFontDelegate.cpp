@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/DefaultMetalTheme$WindowsFontDelegate.h>
-
 #include <java/awt/Font.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/plaf/FontUIResource.h>
@@ -24,44 +23,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _DefaultMetalTheme$WindowsFontDelegate_FieldInfo_[] = {
-	{"props", "[Ljavax/swing/plaf/metal/MetalFontDesktopProperty;", nullptr, $PRIVATE, $field(DefaultMetalTheme$WindowsFontDelegate, props)},
-	{"checkedPriviledged", "[Z", nullptr, $PRIVATE, $field(DefaultMetalTheme$WindowsFontDelegate, checkedPriviledged)},
-	{}
-};
-
-$MethodInfo _DefaultMetalTheme$WindowsFontDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMetalTheme$WindowsFontDelegate, init$, void)},
-	{"getFont", "(I)Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme$WindowsFontDelegate, getFont, $FontUIResource*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DefaultMetalTheme$WindowsFontDelegate_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.DefaultMetalTheme$WindowsFontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "WindowsFontDelegate", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "FontDelegate", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultMetalTheme$WindowsFontDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.DefaultMetalTheme$WindowsFontDelegate",
-	"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate",
-	nullptr,
-	_DefaultMetalTheme$WindowsFontDelegate_FieldInfo_,
-	_DefaultMetalTheme$WindowsFontDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMetalTheme$WindowsFontDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.DefaultMetalTheme"
-};
-
-$Object* allocate$DefaultMetalTheme$WindowsFontDelegate($Class* clazz) {
-	return $of($alloc(DefaultMetalTheme$WindowsFontDelegate));
-}
-
 void DefaultMetalTheme$WindowsFontDelegate::init$() {
 	$DefaultMetalTheme$FontDelegate::init$();
 	$set(this, props, $new($MetalFontDesktopPropertyArray, 6));
@@ -69,29 +30,61 @@ void DefaultMetalTheme$WindowsFontDelegate::init$() {
 }
 
 $FontUIResource* DefaultMetalTheme$WindowsFontDelegate::getFont(int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fonts)->get(type) != nullptr) {
-		return $nc(this->fonts)->get(type);
+		return this->fonts->get(type);
 	}
 	if (!$nc(this->checkedPriviledged)->get(type)) {
 		$var($Font, f, getPrivilegedFont(type));
 		$nc(this->checkedPriviledged)->set(type, true);
 		if (f != nullptr) {
 			$nc(this->fonts)->set(type, $$new($FontUIResource, f));
-			return $nc(this->fonts)->get(type);
+			return this->fonts->get(type);
 		}
 	}
 	if ($nc(this->props)->get(type) == nullptr) {
-		$nc(this->props)->set(type, $$new($MetalFontDesktopProperty, type));
+		this->props->set(type, $$new($MetalFontDesktopProperty, type));
 	}
-	return $cast($FontUIResource, $nc($nc(this->props)->get(type))->createValue(nullptr));
+	return $cast($FontUIResource, $nc(this->props->get(type))->createValue(nullptr));
 }
 
 DefaultMetalTheme$WindowsFontDelegate::DefaultMetalTheme$WindowsFontDelegate() {
 }
 
 $Class* DefaultMetalTheme$WindowsFontDelegate::load$($String* name, bool initialize) {
-	$loadClass(DefaultMetalTheme$WindowsFontDelegate, name, initialize, &_DefaultMetalTheme$WindowsFontDelegate_ClassInfo_, allocate$DefaultMetalTheme$WindowsFontDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"props", "[Ljavax/swing/plaf/metal/MetalFontDesktopProperty;", nullptr, $PRIVATE, $field(DefaultMetalTheme$WindowsFontDelegate, props)},
+		{"checkedPriviledged", "[Z", nullptr, $PRIVATE, $field(DefaultMetalTheme$WindowsFontDelegate, checkedPriviledged)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMetalTheme$WindowsFontDelegate, init$, void)},
+		{"getFont", "(I)Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme$WindowsFontDelegate, getFont, $FontUIResource*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.DefaultMetalTheme$WindowsFontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "WindowsFontDelegate", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "FontDelegate", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.DefaultMetalTheme$WindowsFontDelegate",
+		"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.DefaultMetalTheme"
+	};
+	$loadClass(DefaultMetalTheme$WindowsFontDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMetalTheme$WindowsFontDelegate);
+	});
 	return class$;
 }
 

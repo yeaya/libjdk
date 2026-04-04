@@ -1,5 +1,4 @@
 #include <com/sun/beans/introspect/ClassInfo$1.h>
-
 #include <com/sun/beans/introspect/ClassInfo.h>
 #include <com/sun/beans/util/Cache$Kind.h>
 #include <com/sun/beans/util/Cache.h>
@@ -18,44 +17,6 @@ namespace com {
 		namespace beans {
 			namespace introspect {
 
-$MethodInfo _ClassInfo$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;)V", nullptr, 0, $method(ClassInfo$1, init$, void, $Cache$Kind*, $Cache$Kind*)},
-	{"create", "(Ljava/lang/Class;)Lcom/sun/beans/introspect/ClassInfo;", "(Ljava/lang/Class<*>;)Lcom/sun/beans/introspect/ClassInfo;", $PUBLIC, $virtualMethod(ClassInfo$1, create, $ClassInfo*, $Class*)},
-	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ClassInfo$1, create, $Object*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _ClassInfo$1_EnclosingMethodInfo_ = {
-	"com.sun.beans.introspect.ClassInfo",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ClassInfo$1_InnerClassesInfo_[] = {
-	{"com.sun.beans.introspect.ClassInfo$1", nullptr, nullptr, 0},
-	{}
-};
-
-$1ClassInfo _ClassInfo$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.beans.introspect.ClassInfo$1",
-	"com.sun.beans.util.Cache",
-	nullptr,
-	nullptr,
-	_ClassInfo$1_MethodInfo_,
-	"Lcom/sun/beans/util/Cache<Ljava/lang/Class<*>;Lcom/sun/beans/introspect/ClassInfo;>;",
-	&_ClassInfo$1_EnclosingMethodInfo_,
-	_ClassInfo$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.beans.introspect.ClassInfo"
-};
-
-$Object* allocate$ClassInfo$1($Class* clazz) {
-	return $of($alloc(ClassInfo$1));
-}
-
 void ClassInfo$1::init$($Cache$Kind* keyKind, $Cache$Kind* valueKind) {
 	$Cache::init$(keyKind, valueKind);
 }
@@ -65,14 +26,46 @@ $ClassInfo* ClassInfo$1::create($Class* type) {
 }
 
 $Object* ClassInfo$1::create(Object$* type) {
-	return $of(this->create($cast($Class, type)));
+	return this->create($cast($Class, type));
 }
 
 ClassInfo$1::ClassInfo$1() {
 }
 
 $Class* ClassInfo$1::load$($String* name, bool initialize) {
-	$loadClass(ClassInfo$1, name, initialize, &_ClassInfo$1_ClassInfo_, allocate$ClassInfo$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;)V", nullptr, 0, $method(ClassInfo$1, init$, void, $Cache$Kind*, $Cache$Kind*)},
+		{"create", "(Ljava/lang/Class;)Lcom/sun/beans/introspect/ClassInfo;", "(Ljava/lang/Class<*>;)Lcom/sun/beans/introspect/ClassInfo;", $PUBLIC, $virtualMethod(ClassInfo$1, create, $ClassInfo*, $Class*)},
+		{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ClassInfo$1, create, $Object*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.beans.introspect.ClassInfo",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.introspect.ClassInfo$1", nullptr, nullptr, 0},
+		{}
+	};
+	$1ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.beans.introspect.ClassInfo$1",
+		"com.sun.beans.util.Cache",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/sun/beans/util/Cache<Ljava/lang/Class<*>;Lcom/sun/beans/introspect/ClassInfo;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.beans.introspect.ClassInfo"
+	};
+	$loadClass(ClassInfo$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassInfo$1);
+	});
 	return class$;
 }
 

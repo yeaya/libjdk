@@ -22,10 +22,13 @@ public:
 	void init$();
 	void init$($String* detail);
 	void init$($String* detail, $Throwable* ex);
-	static const int64_t serialVersionUID = (int64_t)0xCE5251D8228ACEA1;
+	static const int64_t serialVersionUID = (int64_t)0xce5251d8228acea1;
 	AuthenticationException(const AuthenticationException& e);
 	virtual void throw$() override;
-	inline AuthenticationException* operator ->() {
+	inline AuthenticationException* operator ->() const {
+		return (AuthenticationException*)throwing$;
+	}
+	inline operator AuthenticationException*() const {
 		return (AuthenticationException*)throwing$;
 	}
 };

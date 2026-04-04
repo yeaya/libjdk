@@ -1,5 +1,4 @@
 #include <java/awt/desktop/OpenFilesEvent.h>
-
 #include <java/awt/desktop/FilesEvent.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,31 +13,6 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$FieldInfo _OpenFilesEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OpenFilesEvent, serialVersionUID)},
-	{"searchTerm", "Ljava/lang/String;", nullptr, $FINAL, $field(OpenFilesEvent, searchTerm)},
-	{}
-};
-
-$MethodInfo _OpenFilesEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/io/File;>;Ljava/lang/String;)V", $PUBLIC, $method(OpenFilesEvent, init$, void, $List*, $String*)},
-	{"getSearchTerm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(OpenFilesEvent, getSearchTerm, $String*)},
-	{}
-};
-
-$ClassInfo _OpenFilesEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.desktop.OpenFilesEvent",
-	"java.awt.desktop.FilesEvent",
-	nullptr,
-	_OpenFilesEvent_FieldInfo_,
-	_OpenFilesEvent_MethodInfo_
-};
-
-$Object* allocate$OpenFilesEvent($Class* clazz) {
-	return $of($alloc(OpenFilesEvent));
-}
-
 void OpenFilesEvent::init$($List* files, $String* searchTerm) {
 	$FilesEvent::init$(files);
 	$set(this, searchTerm, searchTerm == nullptr ? ""_s : searchTerm);
@@ -52,7 +26,27 @@ OpenFilesEvent::OpenFilesEvent() {
 }
 
 $Class* OpenFilesEvent::load$($String* name, bool initialize) {
-	$loadClass(OpenFilesEvent, name, initialize, &_OpenFilesEvent_ClassInfo_, allocate$OpenFilesEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OpenFilesEvent, serialVersionUID)},
+		{"searchTerm", "Ljava/lang/String;", nullptr, $FINAL, $field(OpenFilesEvent, searchTerm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/lang/String;)V", "(Ljava/util/List<Ljava/io/File;>;Ljava/lang/String;)V", $PUBLIC, $method(OpenFilesEvent, init$, void, $List*, $String*)},
+		{"getSearchTerm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(OpenFilesEvent, getSearchTerm, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.desktop.OpenFilesEvent",
+		"java.awt.desktop.FilesEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpenFilesEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenFilesEvent);
+	});
 	return class$;
 }
 

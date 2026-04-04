@@ -1,5 +1,4 @@
 #include <java/awt/image/RasterOp.h>
-
 #include <java/awt/RenderingHints.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -19,30 +18,26 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$MethodInfo _RasterOp_MethodInfo_[] = {
-	{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
-	{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
-	{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, getBounds2D, $Rectangle2D*, $Raster*)},
-	{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, getRenderingHints, $RenderingHints*)},
-	{}
-};
-
-$ClassInfo _RasterOp_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.image.RasterOp",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RasterOp_MethodInfo_
-};
-
-$Object* allocate$RasterOp($Class* clazz) {
-	return $of($alloc(RasterOp));
-}
-
 $Class* RasterOp::load$($String* name, bool initialize) {
-	$loadClass(RasterOp, name, initialize, &_RasterOp_ClassInfo_, allocate$RasterOp);
+	$MethodInfo methodInfos$$[] = {
+		{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
+		{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
+		{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, getBounds2D, $Rectangle2D*, $Raster*)},
+		{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RasterOp, getRenderingHints, $RenderingHints*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.image.RasterOp",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RasterOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RasterOp);
+	});
 	return class$;
 }
 

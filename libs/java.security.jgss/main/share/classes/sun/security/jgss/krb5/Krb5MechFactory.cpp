@@ -1,8 +1,6 @@
 #include <sun/security/jgss/krb5/Krb5MechFactory.h>
-
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/Permission.h>
 #include <java/security/Provider.h>
 #include <java/util/Vector.h>
 #include <javax/security/auth/kerberos/ServicePermission.h>
@@ -41,13 +39,11 @@
 #undef PROVIDER
 
 using $OidArray = $Array<::org::ietf::jgss::Oid>;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $Provider = ::java::security::Provider;
 using $Vector = ::java::util::Vector;
 using $ServicePermission = ::javax::security::auth::kerberos::ServicePermission;
@@ -68,54 +64,11 @@ using $Krb5Util = ::sun::security::jgss::krb5::Krb5Util;
 using $GSSContextSpi = ::sun::security::jgss::spi::GSSContextSpi;
 using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
-using $PrincipalName = ::sun::security::krb5::PrincipalName;
 
 namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
-
-$FieldInfo _Krb5MechFactory_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Krb5MechFactory, DEBUG)},
-	{"PROVIDER", "Ljava/security/Provider;", nullptr, $STATIC | $FINAL, $staticField(Krb5MechFactory, PROVIDER)},
-	{"GSS_KRB5_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $FINAL, $staticField(Krb5MechFactory, GSS_KRB5_MECH_OID)},
-	{"NT_GSS_KRB5_PRINCIPAL", "Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $FINAL, $staticField(Krb5MechFactory, NT_GSS_KRB5_PRINCIPAL)},
-	{"nameTypes", "[Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticField(Krb5MechFactory, nameTypes)},
-	{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(Krb5MechFactory, caller)},
-	{}
-};
-
-$MethodInfo _Krb5MechFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Krb5MechFactory, init$, void)},
-	{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(Krb5MechFactory, init$, void, $GSSCaller*)},
-	{"checkAcceptCredPermission", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/jgss/spi/GSSNameSpi;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5MechFactory, checkAcceptCredPermission, void, $Krb5NameElement*, $GSSNameSpi*)},
-	{"checkInitCredPermission", "(Lsun/security/jgss/krb5/Krb5NameElement;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5MechFactory, checkInitCredPermission, void, $Krb5NameElement*)},
-	{"createOid", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5MechFactory, createOid, $Oid*, $String*)},
-	{"getCredFromSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Z)Lsun/security/jgss/krb5/Krb5CredElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5MechFactory, getCredFromSubject, $Krb5CredElement*, $GSSNameSpi*, bool), "org.ietf.jgss.GSSException"},
-	{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5MechFactory, getMechanismOid, $Oid*)},
-	{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getNameElement, $GSSNameSpi*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getNameElement, $GSSNameSpi*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getNameTypes, $OidArray*)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getProvider, $Provider*)},
-	{}
-};
-
-$ClassInfo _Krb5MechFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.jgss.krb5.Krb5MechFactory",
-	"java.lang.Object",
-	"sun.security.jgss.spi.MechanismFactory",
-	_Krb5MechFactory_FieldInfo_,
-	_Krb5MechFactory_MethodInfo_
-};
-
-$Object* allocate$Krb5MechFactory($Class* clazz) {
-	return $of($alloc(Krb5MechFactory));
-}
 
 bool Krb5MechFactory::DEBUG = false;
 $Provider* Krb5MechFactory::PROVIDER = nullptr;
@@ -125,16 +78,16 @@ $OidArray* Krb5MechFactory::nameTypes = nullptr;
 
 $Krb5CredElement* Krb5MechFactory::getCredFromSubject($GSSNameSpi* name, bool initiate) {
 	$init(Krb5MechFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Krb5InitCredential);
 	$load($Krb5AcceptCredential);
 	$var($Vector, creds, $GSSUtil::searchSubject(name, Krb5MechFactory::GSS_KRB5_MECH_OID, initiate, (initiate ? $Krb5InitCredential::class$ : $Krb5AcceptCredential::class$)));
-	$var($Krb5CredElement, result, (creds == nullptr || $nc(creds)->isEmpty()) ? ($Krb5CredElement*)nullptr : $cast($Krb5CredElement, $nc(creds)->firstElement()));
+	$var($Krb5CredElement, result, (creds == nullptr || creds->isEmpty()) ? ($Krb5CredElement*)nullptr : $cast($Krb5CredElement, creds->firstElement()));
 	if (result != nullptr) {
 		if (initiate) {
-			checkInitCredPermission($cast($Krb5NameElement, $(result->getName())));
+			checkInitCredPermission($$cast($Krb5NameElement, result->getName()));
 		} else {
-			checkAcceptCredPermission($cast($Krb5NameElement, $(result->getName())), name);
+			checkAcceptCredPermission($$cast($Krb5NameElement, result->getName()), name);
 		}
 	}
 	return result;
@@ -158,7 +111,7 @@ $GSSNameSpi* Krb5MechFactory::getNameElement($bytes* name, $Oid* nameType) {
 }
 
 $GSSCredentialSpi* Krb5MechFactory::getCredentialElement($GSSNameSpi* name$renamed, int32_t initLifetime, int32_t acceptLifetime, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GSSNameSpi, name, name$renamed);
 	if (name != nullptr && !($instanceOf($Krb5NameElement, name))) {
 		$var($String, var$0, name->toString());
@@ -169,10 +122,10 @@ $GSSCredentialSpi* Krb5MechFactory::getCredentialElement($GSSNameSpi* name$renam
 		if (usage == $GSSCredential::INITIATE_ONLY || usage == $GSSCredential::INITIATE_AND_ACCEPT) {
 			$assign(credElement, $Krb5InitCredential::getInstance(this->caller, $cast($Krb5NameElement, name), initLifetime));
 			$assign(credElement, $Krb5ProxyCredential::tryImpersonation(this->caller, $cast($Krb5InitCredential, credElement)));
-			checkInitCredPermission($cast($Krb5NameElement, $($nc(credElement)->getName())));
+			checkInitCredPermission($$cast($Krb5NameElement, $nc(credElement)->getName()));
 		} else if (usage == $GSSCredential::ACCEPT_ONLY) {
 			$assign(credElement, $Krb5AcceptCredential::getInstance(this->caller, $cast($Krb5NameElement, name)));
-			checkAcceptCredPermission($cast($Krb5NameElement, $($nc(credElement)->getName())), name);
+			checkAcceptCredPermission($$cast($Krb5NameElement, $nc(credElement)->getName()), name);
 		} else {
 			$throwNew($GSSException, $GSSException::FAILURE, -1, "Unknown usage mode requested"_s);
 		}
@@ -182,10 +135,10 @@ $GSSCredentialSpi* Krb5MechFactory::getCredentialElement($GSSNameSpi* name$renam
 
 void Krb5MechFactory::checkInitCredPermission($Krb5NameElement* name) {
 	$init(Krb5MechFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
-		$var($String, realm, $nc(($($nc(name)->getKrb5PrincipalName())))->getRealmAsString());
+		$var($String, realm, ($$nc($nc(name)->getKrb5PrincipalName()))->getRealmAsString());
 		$var($String, tgsPrincipal, $new($String, $$str({"krbtgt/"_s, realm, $$str(u'@'), realm})));
 		$var($ServicePermission, perm, $new($ServicePermission, tgsPrincipal, "initiate"_s));
 		try {
@@ -201,10 +154,10 @@ void Krb5MechFactory::checkInitCredPermission($Krb5NameElement* name) {
 
 void Krb5MechFactory::checkAcceptCredPermission($Krb5NameElement* name, $GSSNameSpi* originalName) {
 	$init(Krb5MechFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr && name != nullptr) {
-		$var($ServicePermission, perm, $new($ServicePermission, $($nc($(name->getKrb5PrincipalName()))->getName()), "accept"_s));
+		$var($ServicePermission, perm, $new($ServicePermission, $($$nc(name->getKrb5PrincipalName())->getName()), "accept"_s));
 		try {
 			sm->checkPermission(perm);
 		} catch ($SecurityException& e) {
@@ -217,7 +170,7 @@ void Krb5MechFactory::checkAcceptCredPermission($Krb5NameElement* name, $GSSName
 }
 
 $GSSContextSpi* Krb5MechFactory::getMechanismContext($GSSNameSpi* peer$renamed, $GSSCredentialSpi* myInitiatorCred$renamed, int32_t lifetime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GSSNameSpi, peer, peer$renamed);
 	$var($GSSCredentialSpi, myInitiatorCred, myInitiatorCred$renamed);
 	if (peer != nullptr && !($instanceOf($Krb5NameElement, peer))) {
@@ -264,7 +217,7 @@ $Oid* Krb5MechFactory::createOid($String* oidStr) {
 	return retVal;
 }
 
-void clinit$Krb5MechFactory($Class* class$) {
+void Krb5MechFactory::clinit$($Class* clazz) {
 	$init($Krb5Util);
 	Krb5MechFactory::DEBUG = $Krb5Util::DEBUG;
 	$assignStatic(Krb5MechFactory::PROVIDER, $new($SunProvider));
@@ -283,7 +236,44 @@ Krb5MechFactory::Krb5MechFactory() {
 }
 
 $Class* Krb5MechFactory::load$($String* name, bool initialize) {
-	$loadClass(Krb5MechFactory, name, initialize, &_Krb5MechFactory_ClassInfo_, clinit$Krb5MechFactory, allocate$Krb5MechFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Krb5MechFactory, DEBUG)},
+		{"PROVIDER", "Ljava/security/Provider;", nullptr, $STATIC | $FINAL, $staticField(Krb5MechFactory, PROVIDER)},
+		{"GSS_KRB5_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $FINAL, $staticField(Krb5MechFactory, GSS_KRB5_MECH_OID)},
+		{"NT_GSS_KRB5_PRINCIPAL", "Lorg/ietf/jgss/Oid;", nullptr, $STATIC | $FINAL, $staticField(Krb5MechFactory, NT_GSS_KRB5_PRINCIPAL)},
+		{"nameTypes", "[Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticField(Krb5MechFactory, nameTypes)},
+		{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(Krb5MechFactory, caller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Krb5MechFactory, init$, void)},
+		{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(Krb5MechFactory, init$, void, $GSSCaller*)},
+		{"checkAcceptCredPermission", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/jgss/spi/GSSNameSpi;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5MechFactory, checkAcceptCredPermission, void, $Krb5NameElement*, $GSSNameSpi*)},
+		{"checkInitCredPermission", "(Lsun/security/jgss/krb5/Krb5NameElement;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Krb5MechFactory, checkInitCredPermission, void, $Krb5NameElement*)},
+		{"createOid", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5MechFactory, createOid, $Oid*, $String*)},
+		{"getCredFromSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Z)Lsun/security/jgss/krb5/Krb5CredElement;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5MechFactory, getCredFromSubject, $Krb5CredElement*, $GSSNameSpi*, bool), "org.ietf.jgss.GSSException"},
+		{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5MechFactory, getMechanismOid, $Oid*)},
+		{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getNameElement, $GSSNameSpi*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getNameElement, $GSSNameSpi*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getNameTypes, $OidArray*)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(Krb5MechFactory, getProvider, $Provider*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.jgss.krb5.Krb5MechFactory",
+		"java.lang.Object",
+		"sun.security.jgss.spi.MechanismFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Krb5MechFactory, name, initialize, &classInfo$$, Krb5MechFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Krb5MechFactory);
+	});
 	return class$;
 }
 

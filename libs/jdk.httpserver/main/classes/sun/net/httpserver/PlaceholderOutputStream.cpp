@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/PlaceholderOutputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _PlaceholderOutputStream_FieldInfo_[] = {
-	{"wrapped", "Ljava/io/OutputStream;", nullptr, 0, $field(PlaceholderOutputStream, wrapped)},
-	{}
-};
-
-$MethodInfo _PlaceholderOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(PlaceholderOutputStream, init$, void, $OutputStream*)},
-	{"checkWrap", "()V", nullptr, $PRIVATE, $method(PlaceholderOutputStream, checkWrap, void), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, flush, void), "java.io.IOException"},
-	{"isWrapped", "()Z", nullptr, 0, $virtualMethod(PlaceholderOutputStream, isWrapped, bool)},
-	{"setWrappedStream", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(PlaceholderOutputStream, setWrappedStream, void, $OutputStream*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _PlaceholderOutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.PlaceholderOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_PlaceholderOutputStream_FieldInfo_,
-	_PlaceholderOutputStream_MethodInfo_
-};
-
-$Object* allocate$PlaceholderOutputStream($Class* clazz) {
-	return $of($alloc(PlaceholderOutputStream));
-}
 
 void PlaceholderOutputStream::init$($OutputStream* os) {
 	$OutputStream::init$();
@@ -93,7 +61,33 @@ PlaceholderOutputStream::PlaceholderOutputStream() {
 }
 
 $Class* PlaceholderOutputStream::load$($String* name, bool initialize) {
-	$loadClass(PlaceholderOutputStream, name, initialize, &_PlaceholderOutputStream_ClassInfo_, allocate$PlaceholderOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"wrapped", "Ljava/io/OutputStream;", nullptr, 0, $field(PlaceholderOutputStream, wrapped)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(PlaceholderOutputStream, init$, void, $OutputStream*)},
+		{"checkWrap", "()V", nullptr, $PRIVATE, $method(PlaceholderOutputStream, checkWrap, void), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, flush, void), "java.io.IOException"},
+		{"isWrapped", "()Z", nullptr, 0, $virtualMethod(PlaceholderOutputStream, isWrapped, bool)},
+		{"setWrappedStream", "(Ljava/io/OutputStream;)V", nullptr, 0, $virtualMethod(PlaceholderOutputStream, setWrappedStream, void, $OutputStream*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(PlaceholderOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.PlaceholderOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PlaceholderOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PlaceholderOutputStream));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/naming/AuthenticationException.h>
-
 #include <javax/naming/NamingSecurityException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingSecurityException = ::javax::naming::NamingSecurityException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _AuthenticationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthenticationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AuthenticationException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void)},
-	{}
-};
-
-$ClassInfo _AuthenticationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.AuthenticationException",
-	"javax.naming.NamingSecurityException",
-	nullptr,
-	_AuthenticationException_FieldInfo_,
-	_AuthenticationException_MethodInfo_
-};
-
-$Object* allocate$AuthenticationException($Class* clazz) {
-	return $of($alloc(AuthenticationException));
-}
 
 void AuthenticationException::init$($String* explanation) {
 	$NamingSecurityException::init$(explanation);
@@ -54,7 +29,26 @@ void AuthenticationException::throw$() {
 }
 
 $Class* AuthenticationException::load$($String* name, bool initialize) {
-	$loadClass(AuthenticationException, name, initialize, &_AuthenticationException_ClassInfo_, allocate$AuthenticationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthenticationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuthenticationException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.AuthenticationException",
+		"javax.naming.NamingSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthenticationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthenticationException);
+	});
 	return class$;
 }
 

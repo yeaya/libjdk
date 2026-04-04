@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/Pair.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,33 +10,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _Pair_FieldInfo_[] = {
-	{"first", "Ljava/lang/Object;", "TT;", $PUBLIC | $FINAL, $field(Pair, first)},
-	{"second", "Ljava/lang/Object;", "TU;", $PUBLIC | $FINAL, $field(Pair, second)},
-	{}
-};
-
-$MethodInfo _Pair_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TU;)V", $PUBLIC, $method(Pair, init$, void, Object$*, Object$*)},
-	{"pair", "(Ljava/lang/Object;Ljava/lang/Object;)Ljdk/internal/net/http/common/Pair;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(TT;TU;)Ljdk/internal/net/http/common/Pair<TT;TU;>;", $PUBLIC | $STATIC, $staticMethod(Pair, pair, Pair*, Object$*, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Pair_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.Pair",
-	"java.lang.Object",
-	nullptr,
-	_Pair_FieldInfo_,
-	_Pair_MethodInfo_,
-	"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/lang/Object;"
-};
-
-$Object* allocate$Pair($Class* clazz) {
-	return $of($alloc(Pair));
-}
 
 void Pair::init$(Object$* first, Object$* second) {
 	$set(this, second, second);
@@ -56,7 +28,29 @@ Pair::Pair() {
 }
 
 $Class* Pair::load$($String* name, bool initialize) {
-	$loadClass(Pair, name, initialize, &_Pair_ClassInfo_, allocate$Pair);
+	$FieldInfo fieldInfos$$[] = {
+		{"first", "Ljava/lang/Object;", "TT;", $PUBLIC | $FINAL, $field(Pair, first)},
+		{"second", "Ljava/lang/Object;", "TU;", $PUBLIC | $FINAL, $field(Pair, second)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", "(TT;TU;)V", $PUBLIC, $method(Pair, init$, void, Object$*, Object$*)},
+		{"pair", "(Ljava/lang/Object;Ljava/lang/Object;)Ljdk/internal/net/http/common/Pair;", "<T:Ljava/lang/Object;U:Ljava/lang/Object;>(TT;TU;)Ljdk/internal/net/http/common/Pair<TT;TU;>;", $PUBLIC | $STATIC, $staticMethod(Pair, pair, Pair*, Object$*, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Pair, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.Pair",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;U:Ljava/lang/Object;>Ljava/lang/Object;"
+	};
+	$loadClass(Pair, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Pair);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class ArrayNodeListIterator : public ::com::sun::org::apache::xml::internal::dtm
 	$class(ArrayNodeListIterator, 0, ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator)
 public:
 	ArrayNodeListIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($ints* nodes);
 	virtual ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* cloneIterator() override;
 	virtual int32_t getLast() override;

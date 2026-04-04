@@ -22,6 +22,7 @@ class $export Flow$FlowKind : public ::java::lang::Enum {
 public:
 	Flow$FlowKind();
 	static $Array<::com::sun::tools::javac::comp::Flow$FlowKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* errKey, bool isFinal);
 	virtual bool isFinal();
 	static ::com::sun::tools::javac::comp::Flow$FlowKind* valueOf($String* name);

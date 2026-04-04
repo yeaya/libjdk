@@ -1,5 +1,4 @@
 #include <jdk/net/NetworkPermission.h>
-
 #include <java/security/BasicPermission.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $BasicPermission = ::java::security::BasicPermission;
 
 namespace jdk {
 	namespace net {
-
-$FieldInfo _NetworkPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NetworkPermission, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NetworkPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetworkPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetworkPermission, init$, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _NetworkPermission_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.net.NetworkPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_NetworkPermission_FieldInfo_,
-	_NetworkPermission_MethodInfo_
-};
-
-$Object* allocate$NetworkPermission($Class* clazz) {
-	return $of($alloc(NetworkPermission));
-}
 
 void NetworkPermission::init$($String* name) {
 	$BasicPermission::init$(name);
@@ -47,7 +22,26 @@ NetworkPermission::NetworkPermission() {
 }
 
 $Class* NetworkPermission::load$($String* name, bool initialize) {
-	$loadClass(NetworkPermission, name, initialize, &_NetworkPermission_ClassInfo_, allocate$NetworkPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NetworkPermission, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetworkPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NetworkPermission, init$, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.net.NetworkPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NetworkPermission, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NetworkPermission));
+	});
 	return class$;
 }
 

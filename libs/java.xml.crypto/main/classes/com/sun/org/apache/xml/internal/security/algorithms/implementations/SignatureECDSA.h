@@ -50,6 +50,7 @@ class SignatureECDSA : public ::com::sun::org::apache::xml::internal::security::
 	$class(SignatureECDSA, 0, ::com::sun::org::apache::xml::internal::security::algorithms::SignatureAlgorithmSpi)
 public:
 	SignatureECDSA();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::security::Provider* provider);
 	static $bytes* convertASN1toXMLDSIG($bytes* asn1Bytes, int32_t rawLen);

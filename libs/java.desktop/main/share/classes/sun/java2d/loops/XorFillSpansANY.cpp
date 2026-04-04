@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/XorFillSpansANY.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -25,25 +24,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _XorFillSpansANY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XorFillSpansANY, init$, void)},
-	{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(XorFillSpansANY, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, $SpanIterator*)},
-	{}
-};
-
-$ClassInfo _XorFillSpansANY_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.XorFillSpansANY",
-	"sun.java2d.loops.FillSpans",
-	nullptr,
-	nullptr,
-	_XorFillSpansANY_MethodInfo_
-};
-
-$Object* allocate$XorFillSpansANY($Class* clazz) {
-	return $of($alloc(XorFillSpansANY));
-}
-
 void XorFillSpansANY::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -51,7 +31,7 @@ void XorFillSpansANY::init$() {
 }
 
 void XorFillSpansANY::FillSpans$($SunGraphics2D* sg2d, $SurfaceData* sData, $SpanIterator* si) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PixelWriter, pw, $GeneralRenderer::createXorPixelWriter(sg2d, sData));
 	$var($ints, span, $new($ints, 4));
 	while ($nc(si)->nextSpan(span)) {
@@ -63,7 +43,22 @@ XorFillSpansANY::XorFillSpansANY() {
 }
 
 $Class* XorFillSpansANY::load$($String* name, bool initialize) {
-	$loadClass(XorFillSpansANY, name, initialize, &_XorFillSpansANY_ClassInfo_, allocate$XorFillSpansANY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XorFillSpansANY, init$, void)},
+		{"FillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $virtualMethod(XorFillSpansANY, FillSpans$, void, $SunGraphics2D*, $SurfaceData*, $SpanIterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.XorFillSpansANY",
+		"sun.java2d.loops.FillSpans",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XorFillSpansANY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XorFillSpansANY);
+	});
 	return class$;
 }
 

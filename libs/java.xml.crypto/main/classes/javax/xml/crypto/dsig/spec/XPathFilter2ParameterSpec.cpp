@@ -1,7 +1,5 @@
 #include <javax/xml/crypto/dsig/spec/XPathFilter2ParameterSpec.h>
-
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <javax/xml/crypto/dsig/spec/XPathType.h>
@@ -13,7 +11,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
 using $XPathType = ::javax::xml::crypto::dsig::spec::XPathType;
@@ -24,32 +21,8 @@ namespace javax {
 			namespace dsig {
 				namespace spec {
 
-$FieldInfo _XPathFilter2ParameterSpec_FieldInfo_[] = {
-	{"xPathList", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;", $PRIVATE | $FINAL, $field(XPathFilter2ParameterSpec, xPathList)},
-	{}
-};
-
-$MethodInfo _XPathFilter2ParameterSpec_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;)V", $PUBLIC, $method(XPathFilter2ParameterSpec, init$, void, $List*)},
-	{"getXPathList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;", $PUBLIC, $method(XPathFilter2ParameterSpec, getXPathList, $List*)},
-	{}
-};
-
-$ClassInfo _XPathFilter2ParameterSpec_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec",
-	"java.lang.Object",
-	"javax.xml.crypto.dsig.spec.TransformParameterSpec",
-	_XPathFilter2ParameterSpec_FieldInfo_,
-	_XPathFilter2ParameterSpec_MethodInfo_
-};
-
-$Object* allocate$XPathFilter2ParameterSpec($Class* clazz) {
-	return $of($alloc(XPathFilter2ParameterSpec));
-}
-
 void XPathFilter2ParameterSpec::init$($List* xPathList) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (xPathList == nullptr) {
 		$throwNew($NullPointerException, "xPathList cannot be null"_s);
 	}
@@ -70,7 +43,26 @@ XPathFilter2ParameterSpec::XPathFilter2ParameterSpec() {
 }
 
 $Class* XPathFilter2ParameterSpec::load$($String* name, bool initialize) {
-	$loadClass(XPathFilter2ParameterSpec, name, initialize, &_XPathFilter2ParameterSpec_ClassInfo_, allocate$XPathFilter2ParameterSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"xPathList", "Ljava/util/List;", "Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;", $PRIVATE | $FINAL, $field(XPathFilter2ParameterSpec, xPathList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;)V", $PUBLIC, $method(XPathFilter2ParameterSpec, init$, void, $List*)},
+		{"getXPathList", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/xml/crypto/dsig/spec/XPathType;>;", $PUBLIC, $method(XPathFilter2ParameterSpec, getXPathList, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.xml.crypto.dsig.spec.XPathFilter2ParameterSpec",
+		"java.lang.Object",
+		"javax.xml.crypto.dsig.spec.TransformParameterSpec",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathFilter2ParameterSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathFilter2ParameterSpec);
+	});
 	return class$;
 }
 

@@ -69,6 +69,7 @@ public:
 	SoftReferenceGrammarPool();
 	using ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool::hashCode;
 	using ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t initialCapacity);
 	virtual void cacheGrammars($String* grammarType, $Array<::com::sun::org::apache::xerces::internal::xni::grammars::Grammar>* grammars) override;

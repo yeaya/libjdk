@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthSpinnerUI$SpinnerLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -11,7 +10,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
@@ -26,55 +24,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthSpinnerUI$SpinnerLayout_FieldInfo_[] = {
-	{"nextButton", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(SynthSpinnerUI$SpinnerLayout, nextButton)},
-	{"previousButton", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(SynthSpinnerUI$SpinnerLayout, previousButton)},
-	{"editor", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(SynthSpinnerUI$SpinnerLayout, editor)},
-	{}
-};
-
-$MethodInfo _SynthSpinnerUI$SpinnerLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SynthSpinnerUI$SpinnerLayout, init$, void)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"preferredSize", "(Ljava/awt/Component;)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(SynthSpinnerUI$SpinnerLayout, preferredSize, $Dimension*, $Component*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, removeLayoutComponent, void, $Component*)},
-	{"setBounds", "(Ljava/awt/Component;IIII)V", nullptr, $PRIVATE, $method(SynthSpinnerUI$SpinnerLayout, setBounds, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthSpinnerUI$SpinnerLayout_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthSpinnerUI$SpinnerLayout", "javax.swing.plaf.synth.SynthSpinnerUI", "SpinnerLayout", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SynthSpinnerUI$SpinnerLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthSpinnerUI$SpinnerLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager,javax.swing.plaf.UIResource",
-	_SynthSpinnerUI$SpinnerLayout_FieldInfo_,
-	_SynthSpinnerUI$SpinnerLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthSpinnerUI$SpinnerLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthSpinnerUI"
-};
-
-$Object* allocate$SynthSpinnerUI$SpinnerLayout($Class* clazz) {
-	return $of($alloc(SynthSpinnerUI$SpinnerLayout));
-}
 
 int32_t SynthSpinnerUI$SpinnerLayout::hashCode() {
 	 return this->$LayoutManager::hashCode();
@@ -123,19 +72,19 @@ void SynthSpinnerUI$SpinnerLayout::removeLayoutComponent($Component* c) {
 }
 
 $Dimension* SynthSpinnerUI$SpinnerLayout::preferredSize($Component* c) {
-	return (c == nullptr) ? $new($Dimension, 0, 0) : $nc(c)->getPreferredSize();
+	return (c == nullptr) ? $new($Dimension, 0, 0) : c->getPreferredSize();
 }
 
 $Dimension* SynthSpinnerUI$SpinnerLayout::preferredLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, nextD, preferredSize(this->nextButton));
 	$var($Dimension, previousD, preferredSize(this->previousButton));
 	$var($Dimension, editorD, preferredSize(this->editor));
-	$nc(editorD)->height = ((editorD->height + 1) / 2) * 2;
+	$nc(editorD)->height = (($nc(editorD)->height + 1) / 2) * 2;
 	$var($Dimension, size, $new($Dimension, editorD->width, editorD->height));
 	size->width += $Math::max($nc(nextD)->width, $nc(previousD)->width);
 	$var($Insets, insets, $nc(parent)->getInsets());
-	size->width += $nc(insets)->left + insets->right;
+	size->width += $nc(insets)->left + $nc(insets)->right;
 	size->height += insets->top + insets->bottom;
 	return size;
 }
@@ -151,9 +100,9 @@ void SynthSpinnerUI$SpinnerLayout::setBounds($Component* c, int32_t x, int32_t y
 }
 
 void SynthSpinnerUI$SpinnerLayout::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, $nc(parent)->getInsets());
-	int32_t availWidth = parent->getWidth() - ($nc(insets)->left + insets->right);
+	int32_t availWidth = parent->getWidth() - ($nc(insets)->left + $nc(insets)->right);
 	int32_t availHeight = parent->getHeight() - (insets->top + insets->bottom);
 	$var($Dimension, nextD, preferredSize(this->nextButton));
 	$var($Dimension, previousD, preferredSize(this->previousButton));
@@ -163,7 +112,7 @@ void SynthSpinnerUI$SpinnerLayout::layoutContainer($Container* parent) {
 	int32_t editorWidth = availWidth - buttonsWidth;
 	int32_t editorX = 0;
 	int32_t buttonsX = 0;
-	if ($nc($(parent->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc(parent->getComponentOrientation())->isLeftToRight()) {
 		editorX = insets->left;
 		buttonsX = editorX + editorWidth;
 	} else {
@@ -180,7 +129,50 @@ SynthSpinnerUI$SpinnerLayout::SynthSpinnerUI$SpinnerLayout() {
 }
 
 $Class* SynthSpinnerUI$SpinnerLayout::load$($String* name, bool initialize) {
-	$loadClass(SynthSpinnerUI$SpinnerLayout, name, initialize, &_SynthSpinnerUI$SpinnerLayout_ClassInfo_, allocate$SynthSpinnerUI$SpinnerLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"nextButton", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(SynthSpinnerUI$SpinnerLayout, nextButton)},
+		{"previousButton", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(SynthSpinnerUI$SpinnerLayout, previousButton)},
+		{"editor", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(SynthSpinnerUI$SpinnerLayout, editor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SynthSpinnerUI$SpinnerLayout, init$, void)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"preferredSize", "(Ljava/awt/Component;)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(SynthSpinnerUI$SpinnerLayout, preferredSize, $Dimension*, $Component*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SynthSpinnerUI$SpinnerLayout, removeLayoutComponent, void, $Component*)},
+		{"setBounds", "(Ljava/awt/Component;IIII)V", nullptr, $PRIVATE, $method(SynthSpinnerUI$SpinnerLayout, setBounds, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthSpinnerUI$SpinnerLayout", "javax.swing.plaf.synth.SynthSpinnerUI", "SpinnerLayout", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthSpinnerUI$SpinnerLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthSpinnerUI"
+	};
+	$loadClass(SynthSpinnerUI$SpinnerLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthSpinnerUI$SpinnerLayout));
+	});
 	return class$;
 }
 

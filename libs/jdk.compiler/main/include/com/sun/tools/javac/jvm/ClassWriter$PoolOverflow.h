@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	ClassWriter$PoolOverflow(const ClassWriter$PoolOverflow& e);
 	virtual void throw$() override;
-	inline ClassWriter$PoolOverflow* operator ->() {
+	inline ClassWriter$PoolOverflow* operator ->() const {
+		return (ClassWriter$PoolOverflow*)throwing$;
+	}
+	inline operator ClassWriter$PoolOverflow*() const {
 		return (ClassWriter$PoolOverflow*)throwing$;
 	}
 };

@@ -50,6 +50,7 @@ class LDAPCertStore : public ::java::security::cert::CertStoreSpi {
 	$class(LDAPCertStore, 0, ::java::security::cert::CertStoreSpi)
 public:
 	LDAPCertStore();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::security::cert::CertStoreParameters* params);
 	virtual ::java::util::Collection* engineGetCRLs(::java::security::cert::CRLSelector* selector) override;
 	virtual ::java::util::Collection* engineGetCertificates(::java::security::cert::CertSelector* selector) override;

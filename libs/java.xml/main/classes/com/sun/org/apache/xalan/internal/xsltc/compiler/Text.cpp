@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Text.h>
-
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETSTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -28,11 +26,9 @@
 #undef STRING_SIG
 #undef SWAP
 
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GETSTATIC = ::com::sun::org::apache::bcel::internal::generic::GETSTATIC;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
@@ -56,45 +52,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _Text_FieldInfo_[] = {
-	{"_text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Text, _text)},
-	{"_escaping", "Z", nullptr, $PRIVATE, $field(Text, _escaping)},
-	{"_ignore", "Z", nullptr, $PRIVATE, $field(Text, _ignore)},
-	{"_textElement", "Z", nullptr, $PRIVATE, $field(Text, _textElement)},
-	{}
-};
-
-$MethodInfo _Text_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Text, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Text, init$, void, $String*)},
-	{"canLoadAsArrayOffsetLength", "()Z", nullptr, $PUBLIC, $method(Text, canLoadAsArrayOffsetLength, bool)},
-	{"contextDependent", "()Z", nullptr, $PROTECTED, $virtualMethod(Text, contextDependent, bool)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Text, display, void, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PROTECTED, $method(Text, getText, $String*)},
-	{"ignore", "()V", nullptr, $PUBLIC, $method(Text, ignore, void)},
-	{"isIgnore", "()Z", nullptr, $PUBLIC, $method(Text, isIgnore, bool)},
-	{"isTextElement", "()Z", nullptr, $PUBLIC, $method(Text, isTextElement, bool)},
-	{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Text, isWhitespace, bool, char16_t)},
-	{"loadAsArrayOffsetLength", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(Text, loadAsArrayOffsetLength, void, $ClassGenerator*, $MethodGenerator*)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Text, parseContents, void, $Parser*)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Text, setText, void, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Text, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _Text_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Text",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_Text_FieldInfo_,
-	_Text_MethodInfo_
-};
-
-$Object* allocate$Text($Class* clazz) {
-	return $of($alloc(Text));
-}
 
 void Text::init$() {
 	$Instruction::init$();
@@ -132,7 +89,7 @@ void Text::display(int32_t indent) {
 }
 
 void Text::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, getAttribute("disable-output-escaping"_s));
 	if ((str != nullptr) && (str->equals("yes"_s))) {
 		this->_escaping = false;
@@ -146,13 +103,13 @@ void Text::parseContents($Parser* parser) {
 			this->_ignore = true;
 		}
 	} else if (this->_textElement) {
-		if ($nc(this->_text)->length() == 0) {
+		if (this->_text->length() == 0) {
 			this->_ignore = true;
 		}
 	} else if ($instanceOf($LiteralElement, $(getParent()))) {
 		$var($LiteralElement, element, $cast($LiteralElement, getParent()));
 		$var($String, space, $nc(element)->getAttribute("xml:space"_s));
-		if ((space == nullptr) || (!$nc(space)->equals("preserve"_s))) {
+		if ((space == nullptr) || (!space->equals("preserve"_s))) {
 			int32_t i = 0;
 			int32_t textLength = $nc(this->_text)->length();
 			for (i = 0; i < textLength; ++i) {
@@ -202,7 +159,7 @@ bool Text::isWhitespace(char16_t c) {
 }
 
 void Text::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if (!this->_ignore) {
@@ -210,24 +167,24 @@ void Text::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 		int32_t esc = $nc(cpg)->addInterfaceMethodref($Constants::OUTPUT_HANDLER, "setEscaping"_s, "(Z)Z"_s);
 		if (!this->_escaping) {
 			$nc(il)->append($(methodGen->loadHandler()));
-			il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, false)));
-			il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, esc, 2)));
+			il->append($$new($PUSH, cpg, false));
+			il->append($$new($INVOKEINTERFACE, esc, 2));
 		}
 		$nc(il)->append($(methodGen->loadHandler()));
 		if (!canLoadAsArrayOffsetLength()) {
 			int32_t characters = cpg->addInterfaceMethodref($Constants::OUTPUT_HANDLER, "characters"_s, $$str({"("_s, $Constants::STRING_SIG, ")V"_s}));
-			il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_text)));
-			il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, characters, 2)));
+			il->append($$new($PUSH, cpg, this->_text));
+			il->append($$new($INVOKEINTERFACE, characters, 2));
 		} else {
 			int32_t characters = cpg->addInterfaceMethodref($Constants::OUTPUT_HANDLER, "characters"_s, "([CII)V"_s);
 			loadAsArrayOffsetLength(classGen, methodGen);
-			il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, characters, 4)));
+			il->append($$new($INVOKEINTERFACE, characters, 4));
 		}
 		if (!this->_escaping) {
 			il->append($(methodGen->loadHandler()));
-			il->append(static_cast<$1Instruction*>($Constants::SWAP));
-			il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, esc, 2)));
-			il->append(static_cast<$1Instruction*>($Constants::POP));
+			il->append($Constants::SWAP);
+			il->append($$new($INVOKEINTERFACE, esc, 2));
+			il->append($Constants::POP);
 		}
 	}
 	translateContents(classGen, methodGen);
@@ -238,24 +195,58 @@ bool Text::canLoadAsArrayOffsetLength() {
 }
 
 void Text::loadAsArrayOffsetLength($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$var($XSLTC, xsltc, $nc($(classGen->getParser()))->getXSLTC());
+	$var($XSLTC, xsltc, $$nc(classGen->getParser())->getXSLTC());
 	int32_t offset = $nc(xsltc)->addCharacterData(this->_text);
 	int32_t length = $nc(this->_text)->length();
 	$init($Constants);
 	$var($String, charDataFieldName, $str({$Constants::STATIC_CHAR_DATA_FIELD, $$str((xsltc->getCharacterDataCount() - 1))}));
-	$nc(il)->append(static_cast<$1Instruction*>($$new($GETSTATIC, $nc(cpg)->addFieldref($(xsltc->getClassName()), charDataFieldName, $Constants::STATIC_CHAR_DATA_FIELD_SIG))));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, offset)));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $nc(this->_text)->length())));
+	$nc(il)->append($$new($GETSTATIC, $nc(cpg)->addFieldref($(xsltc->getClassName()), charDataFieldName, $Constants::STATIC_CHAR_DATA_FIELD_SIG)));
+	il->append($$new($PUSH, cpg, offset));
+	il->append($$new($PUSH, cpg, $nc(this->_text)->length()));
 }
 
 Text::Text() {
 }
 
 $Class* Text::load$($String* name, bool initialize) {
-	$loadClass(Text, name, initialize, &_Text_ClassInfo_, allocate$Text);
+	$FieldInfo fieldInfos$$[] = {
+		{"_text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Text, _text)},
+		{"_escaping", "Z", nullptr, $PRIVATE, $field(Text, _escaping)},
+		{"_ignore", "Z", nullptr, $PRIVATE, $field(Text, _ignore)},
+		{"_textElement", "Z", nullptr, $PRIVATE, $field(Text, _textElement)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Text, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Text, init$, void, $String*)},
+		{"canLoadAsArrayOffsetLength", "()Z", nullptr, $PUBLIC, $method(Text, canLoadAsArrayOffsetLength, bool)},
+		{"contextDependent", "()Z", nullptr, $PROTECTED, $virtualMethod(Text, contextDependent, bool)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(Text, display, void, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PROTECTED, $method(Text, getText, $String*)},
+		{"ignore", "()V", nullptr, $PUBLIC, $method(Text, ignore, void)},
+		{"isIgnore", "()Z", nullptr, $PUBLIC, $method(Text, isIgnore, bool)},
+		{"isTextElement", "()Z", nullptr, $PUBLIC, $method(Text, isTextElement, bool)},
+		{"isWhitespace", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Text, isWhitespace, bool, char16_t)},
+		{"loadAsArrayOffsetLength", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $method(Text, loadAsArrayOffsetLength, void, $ClassGenerator*, $MethodGenerator*)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Text, parseContents, void, $Parser*)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(Text, setText, void, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Text, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Text",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Text, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Text);
+	});
 	return class$;
 }
 

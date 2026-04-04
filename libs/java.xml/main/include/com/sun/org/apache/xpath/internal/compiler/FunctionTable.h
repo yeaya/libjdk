@@ -120,6 +120,7 @@ class $import FunctionTable : public ::java::lang::Object {
 	$class(FunctionTable, 0, ::java::lang::Object)
 public:
 	FunctionTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool functionAvailable($String* methName);
 	virtual ::com::sun::org::apache::xpath::internal::functions::Function* getFunction(int32_t which);

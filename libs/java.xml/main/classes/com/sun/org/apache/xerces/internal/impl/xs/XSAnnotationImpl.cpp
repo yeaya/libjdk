@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
 #include <com/sun/org/apache/xerces/internal/parsers/DOMParser.h>
@@ -8,7 +7,6 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSNamespaceItem.h>
 #include <java/io/IOException.h>
-#include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
@@ -31,7 +29,6 @@ using $XSAnnotation = ::com::sun::org::apache::xerces::internal::xs::XSAnnotatio
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSNamespaceItem = ::com::sun::org::apache::xerces::internal::xs::XSNamespaceItem;
 using $IOException = ::java::io::IOException;
-using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -51,38 +48,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace xs {
-
-$FieldInfo _XSAnnotationImpl_FieldInfo_[] = {
-	{"fData", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSAnnotationImpl, fData)},
-	{"fGrammar", "Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE, $field(XSAnnotationImpl, fGrammar)},
-	{}
-};
-
-$MethodInfo _XSAnnotationImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PUBLIC, $method(XSAnnotationImpl, init$, void, $String*, $SchemaGrammar*)},
-	{"getAnnotationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getAnnotationString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getNamespaceItem, $XSNamespaceItem*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getType, int16_t)},
-	{"writeAnnotation", "(Ljava/lang/Object;S)Z", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, writeAnnotation, bool, Object$*, int16_t)},
-	{"writeToDOM", "(Lorg/w3c/dom/Node;S)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(XSAnnotationImpl, writeToDOM, void, $Node*, int16_t)},
-	{"writeToSAX", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(XSAnnotationImpl, writeToSAX, void, $ContentHandler*)},
-	{}
-};
-
-$ClassInfo _XSAnnotationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSAnnotationImpl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSAnnotation",
-	_XSAnnotationImpl_FieldInfo_,
-	_XSAnnotationImpl_MethodInfo_
-};
-
-$Object* allocate$XSAnnotationImpl($Class* clazz) {
-	return $of($alloc(XSAnnotationImpl));
-}
 
 void XSAnnotationImpl::init$($String* contents, $SchemaGrammar* grammar) {
 	$set(this, fData, nullptr);
@@ -124,10 +89,10 @@ $XSNamespaceItem* XSAnnotationImpl::getNamespaceItem() {
 
 void XSAnnotationImpl::writeToSAX($ContentHandler* handler) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($SAXParser, parser, $nc(this->fGrammar)->getSAXParser());
 		$var($StringReader, aReader, $new($StringReader, this->fData));
-		$var($InputSource, aSource, $new($InputSource, static_cast<$Reader*>(aReader)));
+		$var($InputSource, aSource, $new($InputSource, aReader));
 		$nc(parser)->setContentHandler(handler);
 		try {
 			parser->parse(aSource);
@@ -140,11 +105,11 @@ void XSAnnotationImpl::writeToSAX($ContentHandler* handler) {
 
 void XSAnnotationImpl::writeToDOM($Node* target, int16_t type) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Document, futureOwner, (type == $XSAnnotation::W3C_DOM_ELEMENT) ? $nc(target)->getOwnerDocument() : $cast($Document, target));
 		$var($DOMParser, parser, $nc(this->fGrammar)->getDOMParser());
 		$var($StringReader, aReader, $new($StringReader, this->fData));
-		$var($InputSource, aSource, $new($InputSource, static_cast<$Reader*>(aReader)));
+		$var($InputSource, aSource, $new($InputSource, aReader));
 		try {
 			$nc(parser)->parse(aSource);
 		} catch ($SAXException& e) {
@@ -155,14 +120,14 @@ void XSAnnotationImpl::writeToDOM($Node* target, int16_t type) {
 		$var($Element, annotation, $nc(aDocument)->getDocumentElement());
 		$var($Node, newElem, nullptr);
 		if ($instanceOf($CoreDocumentImpl, futureOwner)) {
-			$assign(newElem, $nc(futureOwner)->adoptNode(annotation));
+			$assign(newElem, futureOwner->adoptNode(annotation));
 			if (newElem == nullptr) {
 				$assign(newElem, futureOwner->importNode(annotation, true));
 			}
 		} else {
 			$assign(newElem, $nc(futureOwner)->importNode(annotation, true));
 		}
-		target->insertBefore(newElem, $(target->getFirstChild()));
+		$nc(target)->insertBefore(newElem, $($nc(target)->getFirstChild()));
 	}
 }
 
@@ -170,7 +135,34 @@ XSAnnotationImpl::XSAnnotationImpl() {
 }
 
 $Class* XSAnnotationImpl::load$($String* name, bool initialize) {
-	$loadClass(XSAnnotationImpl, name, initialize, &_XSAnnotationImpl_ClassInfo_, allocate$XSAnnotationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fData", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSAnnotationImpl, fData)},
+		{"fGrammar", "Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;", nullptr, $PRIVATE, $field(XSAnnotationImpl, fGrammar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PUBLIC, $method(XSAnnotationImpl, init$, void, $String*, $SchemaGrammar*)},
+		{"getAnnotationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getAnnotationString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getNamespaceItem, $XSNamespaceItem*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, getType, int16_t)},
+		{"writeAnnotation", "(Ljava/lang/Object;S)Z", nullptr, $PUBLIC, $virtualMethod(XSAnnotationImpl, writeAnnotation, bool, Object$*, int16_t)},
+		{"writeToDOM", "(Lorg/w3c/dom/Node;S)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(XSAnnotationImpl, writeToDOM, void, $Node*, int16_t)},
+		{"writeToSAX", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(XSAnnotationImpl, writeToSAX, void, $ContentHandler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSAnnotationImpl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSAnnotation",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSAnnotationImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSAnnotationImpl);
+	});
 	return class$;
 }
 

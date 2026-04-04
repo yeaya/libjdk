@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/AccessibleHTML$TableElementInfo$TableAccessibleContext.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dimension.h>
@@ -53,9 +52,7 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AccessibleTable = ::javax::accessibility::AccessibleTable;
-using $JEditorPane = ::javax::swing::JEditorPane;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $View = ::javax::swing::text::View;
 using $AccessibleHTML$ElementInfo = ::javax::swing::text::html::AccessibleHTML$ElementInfo;
@@ -68,116 +65,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _AccessibleHTML$TableElementInfo$TableAccessibleContext_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$TableElementInfo$TableAccessibleContext, this$1)},
-	{"rowHeadersTable", "Ljavax/swing/text/html/AccessibleHTML$TableElementInfo$TableAccessibleContext$AccessibleHeadersTable;", nullptr, $PRIVATE, $field(AccessibleHTML$TableElementInfo$TableAccessibleContext, rowHeadersTable)},
-	{}
-};
-
-$MethodInfo _AccessibleHTML$TableElementInfo$TableAccessibleContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, $PUBLIC, $method(AccessibleHTML$TableElementInfo$TableAccessibleContext, init$, void, $AccessibleHTML$TableElementInfo*, $AccessibleHTML$ElementInfo*)},
-	{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, addFocusListener, void, $FocusListener*)},
-	{"addRowHeader", "(Ljavax/swing/text/html/AccessibleHTML$TableElementInfo$TableCellElementInfo;I)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, addRowHeader, void, $AccessibleHTML$TableElementInfo$TableCellElementInfo*, int32_t)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, contains, bool, $Point*)},
-	{"getAccessibleAt", "(II)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleAt, $Accessible*, int32_t, int32_t)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleCaption", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleCaption, $Accessible*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleColumn", "(I)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumn, int32_t, int32_t)},
-	{"getAccessibleColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnCount, int32_t)},
-	{"getAccessibleColumnDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnDescription, $Accessible*, int32_t)},
-	{"getAccessibleColumnExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnExtentAt, int32_t, int32_t, int32_t)},
-	{"getAccessibleColumnHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnHeader, $AccessibleTable*)},
-	{"getAccessibleColumnHeader", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnHeader, $String*, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleContext, $AccessibleContext*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleDescription, $String*)},
-	{"getAccessibleIndex", "(II)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleIndex, int32_t, int32_t, int32_t)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleName, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleRow", "(I)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRow, int32_t, int32_t)},
-	{"getAccessibleRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowCount, int32_t)},
-	{"getAccessibleRowDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowDescription, $Accessible*, int32_t)},
-	{"getAccessibleRowExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowExtentAt, int32_t, int32_t, int32_t)},
-	{"getAccessibleRowHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowHeader, $AccessibleTable*)},
-	{"getAccessibleRowHeader", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowHeader, $String*, int32_t)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleSummary", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleSummary, $Accessible*)},
-	{"getAccessibleTable", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleTable, $AccessibleTable*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getBackground, $Color*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getBounds, $Rectangle*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getCursor, $Cursor*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getForeground, $Color*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getLocationOnScreen, $Point*)},
-	{"getSelectedAccessibleColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getSelectedAccessibleColumns, $ints*)},
-	{"getSelectedAccessibleRows", "()[I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getSelectedAccessibleRows, $ints*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getSize, $Dimension*)},
-	{"isAccessibleColumnSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isAccessibleColumnSelected, bool, int32_t)},
-	{"isAccessibleRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isAccessibleRowSelected, bool, int32_t)},
-	{"isAccessibleSelected", "(II)Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isAccessibleSelected, bool, int32_t, int32_t)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isEnabled, bool)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isFocusTraversable, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isShowing, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isVisible, bool)},
-	{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, removeFocusListener, void, $FocusListener*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, requestFocus, void)},
-	{"setAccessibleCaption", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleCaption, void, $Accessible*)},
-	{"setAccessibleColumnDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleColumnDescription, void, int32_t, $Accessible*)},
-	{"setAccessibleColumnHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleColumnHeader, void, $AccessibleTable*)},
-	{"setAccessibleRowDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleRowDescription, void, int32_t, $Accessible*)},
-	{"setAccessibleRowHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleRowHeader, void, $AccessibleTable*)},
-	{"setAccessibleSummary", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleSummary, void, $Accessible*)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setBackground, void, $Color*)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setBounds, void, $Rectangle*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setCursor, void, $Cursor*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setForeground, void, $Color*)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setLocation, void, $Point*)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setSize, void, $Dimension*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AccessibleHTML$TableElementInfo$TableAccessibleContext_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.AccessibleHTML$TableElementInfo", "javax.swing.text.html.AccessibleHTML", "TableElementInfo", $PRIVATE},
-	{"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableAccessibleContext", "javax.swing.text.html.AccessibleHTML$TableElementInfo", "TableAccessibleContext", $PUBLIC},
-	{"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext", "javax.swing.text.html.AccessibleHTML", "HTMLAccessibleContext", $PROTECTED | $ABSTRACT},
-	{"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableAccessibleContext$AccessibleHeadersTable", "javax.swing.text.html.AccessibleHTML$TableElementInfo$TableAccessibleContext", "AccessibleHeadersTable", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AccessibleHTML$TableElementInfo$TableAccessibleContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableAccessibleContext",
-	"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext",
-	"javax.accessibility.AccessibleTable",
-	_AccessibleHTML$TableElementInfo$TableAccessibleContext_FieldInfo_,
-	_AccessibleHTML$TableElementInfo$TableAccessibleContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleHTML$TableElementInfo$TableAccessibleContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.AccessibleHTML"
-};
-
-$Object* allocate$AccessibleHTML$TableElementInfo$TableAccessibleContext($Class* clazz) {
-	return $of($alloc(AccessibleHTML$TableElementInfo$TableAccessibleContext));
-}
 
 int32_t AccessibleHTML$TableElementInfo$TableAccessibleContext::hashCode() {
 	 return this->$AccessibleHTML$HTMLAccessibleContext::hashCode();
@@ -205,7 +92,7 @@ void AccessibleHTML$TableElementInfo$TableAccessibleContext::init$($AccessibleHT
 }
 
 $String* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleName() {
-	return $nc($(getAccessibleRole()))->toString();
+	return $$nc(getAccessibleRole())->toString();
 }
 
 $String* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleDescription() {
@@ -222,13 +109,13 @@ int32_t AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleInd
 }
 
 int32_t AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleChildrenCount() {
-	int32_t var$0 = $nc(($cast($AccessibleHTML$TableElementInfo, this->elementInfo)))->getRowCount();
-	return var$0 * $nc(($cast($AccessibleHTML$TableElementInfo, this->elementInfo)))->getColumnCount();
+	int32_t var$0 = $nc($cast($AccessibleHTML$TableElementInfo, this->elementInfo))->getRowCount();
+	return var$0 * $cast($AccessibleHTML$TableElementInfo, this->elementInfo)->getColumnCount();
 }
 
 $Accessible* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleChild(int32_t i) {
-	int32_t rowCount = $nc(($cast($AccessibleHTML$TableElementInfo, this->elementInfo)))->getRowCount();
-	int32_t columnCount = $nc(($cast($AccessibleHTML$TableElementInfo, this->elementInfo)))->getColumnCount();
+	int32_t rowCount = $nc($cast($AccessibleHTML$TableElementInfo, this->elementInfo))->getRowCount();
+	int32_t columnCount = $nc($cast($AccessibleHTML$TableElementInfo, this->elementInfo))->getColumnCount();
 	int32_t r = $div(i, rowCount);
 	int32_t c = $mod(i, columnCount);
 	if (r < 0 || r >= rowCount || c < 0 || c >= columnCount) {
@@ -262,11 +149,11 @@ void AccessibleHTML$TableElementInfo$TableAccessibleContext::setAccessibleSummar
 }
 
 int32_t AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleRowCount() {
-	return $nc(($cast($AccessibleHTML$TableElementInfo, this->elementInfo)))->getRowCount();
+	return $nc($cast($AccessibleHTML$TableElementInfo, this->elementInfo))->getRowCount();
 }
 
 int32_t AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleColumnCount() {
-	return $nc(($cast($AccessibleHTML$TableElementInfo, this->elementInfo)))->getColumnCount();
+	return $nc($cast($AccessibleHTML$TableElementInfo, this->elementInfo))->getColumnCount();
 }
 
 $Accessible* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleAt(int32_t r, int32_t c) {
@@ -279,11 +166,11 @@ $Accessible* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessib
 }
 
 int32_t AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleRowExtentAt(int32_t r, int32_t c) {
-	return $nc(($cast($AccessibleHTML$TableElementInfo, this->elementInfo)))->getRowExtentAt(r, c);
+	return $nc($cast($AccessibleHTML$TableElementInfo, this->elementInfo))->getRowExtentAt(r, c);
 }
 
 int32_t AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleColumnExtentAt(int32_t r, int32_t c) {
-	return $nc(($cast($AccessibleHTML$TableElementInfo, this->elementInfo)))->getColumnExtentAt(r, c);
+	return $nc($cast($AccessibleHTML$TableElementInfo, this->elementInfo))->getColumnExtentAt(r, c);
 }
 
 $AccessibleTable* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleRowHeader() {
@@ -315,7 +202,7 @@ void AccessibleHTML$TableElementInfo$TableAccessibleContext::setAccessibleColumn
 }
 
 bool AccessibleHTML$TableElementInfo$TableAccessibleContext::isAccessibleSelected(int32_t r, int32_t c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->validateIfNecessary()) {
 		bool var$0 = r < 0 || r >= getAccessibleRowCount() || c < 0;
 		if (var$0 || c >= getAccessibleColumnCount()) {
@@ -327,14 +214,14 @@ bool AccessibleHTML$TableElementInfo$TableAccessibleContext::isAccessibleSelecte
 			int32_t start = $nc(elem)->getStartOffset();
 			int32_t end = elem->getEndOffset();
 			bool var$1 = start >= $nc($nc(this->this$1->this$0)->editor)->getSelectionStart();
-			return var$1 && end <= $nc($nc(this->this$1->this$0)->editor)->getSelectionEnd();
+			return var$1 && end <= this->this$1->this$0->editor->getSelectionEnd();
 		}
 	}
 	return false;
 }
 
 bool AccessibleHTML$TableElementInfo$TableAccessibleContext::isAccessibleRowSelected(int32_t r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->validateIfNecessary()) {
 		if (r < 0 || r >= getAccessibleRowCount()) {
 			return false;
@@ -344,20 +231,20 @@ bool AccessibleHTML$TableElementInfo$TableAccessibleContext::isAccessibleRowSele
 		if (startCell == nullptr) {
 			return false;
 		}
-		int32_t start = $nc($($nc(startCell)->getElement()))->getStartOffset();
+		int32_t start = $$nc($nc(startCell)->getElement())->getStartOffset();
 		$var($AccessibleHTML$TableElementInfo$TableCellElementInfo, endCell, this->this$1->getCell(r, nColumns - 1));
 		if (endCell == nullptr) {
 			return false;
 		}
-		int32_t end = $nc($($nc(endCell)->getElement()))->getEndOffset();
+		int32_t end = $$nc($nc(endCell)->getElement())->getEndOffset();
 		bool var$0 = start >= $nc($nc(this->this$1->this$0)->editor)->getSelectionStart();
-		return var$0 && end <= $nc($nc(this->this$1->this$0)->editor)->getSelectionEnd();
+		return var$0 && end <= this->this$1->this$0->editor->getSelectionEnd();
 	}
 	return false;
 }
 
 bool AccessibleHTML$TableElementInfo$TableAccessibleContext::isAccessibleColumnSelected(int32_t c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->validateIfNecessary()) {
 		if (c < 0 || c >= getAccessibleColumnCount()) {
 			return false;
@@ -367,20 +254,20 @@ bool AccessibleHTML$TableElementInfo$TableAccessibleContext::isAccessibleColumnS
 		if (startCell == nullptr) {
 			return false;
 		}
-		int32_t start = $nc($($nc(startCell)->getElement()))->getStartOffset();
+		int32_t start = $$nc($nc(startCell)->getElement())->getStartOffset();
 		$var($AccessibleHTML$TableElementInfo$TableCellElementInfo, endCell, this->this$1->getCell(nRows - 1, c));
 		if (endCell == nullptr) {
 			return false;
 		}
-		int32_t end = $nc($($nc(endCell)->getElement()))->getEndOffset();
+		int32_t end = $$nc($nc(endCell)->getElement())->getEndOffset();
 		bool var$0 = start >= $nc($nc(this->this$1->this$0)->editor)->getSelectionStart();
-		return var$0 && end <= $nc($nc(this->this$1->this$0)->editor)->getSelectionEnd();
+		return var$0 && end <= this->this$1->this$0->editor->getSelectionEnd();
 	}
 	return false;
 }
 
 $ints* AccessibleHTML$TableElementInfo$TableAccessibleContext::getSelectedAccessibleRows() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->validateIfNecessary()) {
 		int32_t nRows = getAccessibleRowCount();
 		$var($Vector, vec, $new($Vector));
@@ -391,7 +278,7 @@ $ints* AccessibleHTML$TableElementInfo$TableAccessibleContext::getSelectedAccess
 		}
 		$var($ints, retval, $new($ints, vec->size()));
 		for (int32_t i = 0; i < retval->length; ++i) {
-			retval->set(i, $nc(($cast($Integer, $(vec->elementAt(i)))))->intValue());
+			retval->set(i, $$sure($Integer, vec->elementAt(i))->intValue());
 		}
 		return retval;
 	}
@@ -399,7 +286,7 @@ $ints* AccessibleHTML$TableElementInfo$TableAccessibleContext::getSelectedAccess
 }
 
 $ints* AccessibleHTML$TableElementInfo$TableAccessibleContext::getSelectedAccessibleColumns() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->validateIfNecessary()) {
 		int32_t nColumns = getAccessibleRowCount();
 		$var($Vector, vec, $new($Vector));
@@ -410,7 +297,7 @@ $ints* AccessibleHTML$TableElementInfo$TableAccessibleContext::getSelectedAccess
 		}
 		$var($ints, retval, $new($ints, vec->size()));
 		for (int32_t i = 0; i < retval->length; ++i) {
-			retval->set(i, $nc(($cast($Integer, $(vec->elementAt(i)))))->intValue());
+			retval->set(i, $$sure($Integer, vec->elementAt(i))->intValue());
 		}
 		return retval;
 	}
@@ -456,7 +343,7 @@ int32_t AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleInd
 }
 
 $String* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleRowHeader(int32_t r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->validateIfNecessary()) {
 		$var($AccessibleHTML$TableElementInfo$TableCellElementInfo, cellInfo, this->this$1->getCell(r, 0));
 		if ($nc(cellInfo)->isHeaderCell()) {
@@ -465,7 +352,7 @@ $String* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleRo
 				try {
 					int32_t var$0 = v->getStartOffset();
 					int32_t var$1 = v->getEndOffset();
-					return $nc($nc(this->this$1->this$0)->model)->getText(var$0, var$1 - v->getStartOffset());
+					return this->this$1->this$0->model->getText(var$0, var$1 - v->getStartOffset());
 				} catch ($BadLocationException& e) {
 					return nullptr;
 				}
@@ -476,7 +363,7 @@ $String* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleRo
 }
 
 $String* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleColumnHeader(int32_t c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$1->validateIfNecessary()) {
 		$var($AccessibleHTML$TableElementInfo$TableCellElementInfo, cellInfo, this->this$1->getCell(0, c));
 		if ($nc(cellInfo)->isHeaderCell()) {
@@ -485,7 +372,7 @@ $String* AccessibleHTML$TableElementInfo$TableAccessibleContext::getAccessibleCo
 				try {
 					int32_t var$0 = v->getStartOffset();
 					int32_t var$1 = v->getEndOffset();
-					return $nc($nc(this->this$1->this$0)->model)->getText(var$0, var$1 - v->getStartOffset());
+					return this->this$1->this$0->model->getText(var$0, var$1 - v->getStartOffset());
 				} catch ($BadLocationException& e) {
 					return nullptr;
 				}
@@ -630,7 +517,111 @@ AccessibleHTML$TableElementInfo$TableAccessibleContext::AccessibleHTML$TableElem
 }
 
 $Class* AccessibleHTML$TableElementInfo$TableAccessibleContext::load$($String* name, bool initialize) {
-	$loadClass(AccessibleHTML$TableElementInfo$TableAccessibleContext, name, initialize, &_AccessibleHTML$TableElementInfo$TableAccessibleContext_ClassInfo_, allocate$AccessibleHTML$TableElementInfo$TableAccessibleContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;", nullptr, $FINAL | $SYNTHETIC, $field(AccessibleHTML$TableElementInfo$TableAccessibleContext, this$1)},
+		{"rowHeadersTable", "Ljavax/swing/text/html/AccessibleHTML$TableElementInfo$TableAccessibleContext$AccessibleHeadersTable;", nullptr, $PRIVATE, $field(AccessibleHTML$TableElementInfo$TableAccessibleContext, rowHeadersTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/html/AccessibleHTML$TableElementInfo;Ljavax/swing/text/html/AccessibleHTML$ElementInfo;)V", nullptr, $PUBLIC, $method(AccessibleHTML$TableElementInfo$TableAccessibleContext, init$, void, $AccessibleHTML$TableElementInfo*, $AccessibleHTML$ElementInfo*)},
+		{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, addFocusListener, void, $FocusListener*)},
+		{"addRowHeader", "(Ljavax/swing/text/html/AccessibleHTML$TableElementInfo$TableCellElementInfo;I)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, addRowHeader, void, $AccessibleHTML$TableElementInfo$TableCellElementInfo*, int32_t)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, contains, bool, $Point*)},
+		{"getAccessibleAt", "(II)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleAt, $Accessible*, int32_t, int32_t)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleCaption", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleCaption, $Accessible*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleColumn", "(I)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumn, int32_t, int32_t)},
+		{"getAccessibleColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnCount, int32_t)},
+		{"getAccessibleColumnDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnDescription, $Accessible*, int32_t)},
+		{"getAccessibleColumnExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnExtentAt, int32_t, int32_t, int32_t)},
+		{"getAccessibleColumnHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnHeader, $AccessibleTable*)},
+		{"getAccessibleColumnHeader", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleColumnHeader, $String*, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleContext, $AccessibleContext*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleDescription, $String*)},
+		{"getAccessibleIndex", "(II)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleIndex, int32_t, int32_t, int32_t)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleName, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleRow", "(I)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRow, int32_t, int32_t)},
+		{"getAccessibleRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowCount, int32_t)},
+		{"getAccessibleRowDescription", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowDescription, $Accessible*, int32_t)},
+		{"getAccessibleRowExtentAt", "(II)I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowExtentAt, int32_t, int32_t, int32_t)},
+		{"getAccessibleRowHeader", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowHeader, $AccessibleTable*)},
+		{"getAccessibleRowHeader", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleRowHeader, $String*, int32_t)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleSummary", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleSummary, $Accessible*)},
+		{"getAccessibleTable", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getAccessibleTable, $AccessibleTable*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getBackground, $Color*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getBounds, $Rectangle*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getCursor, $Cursor*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getForeground, $Color*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getLocationOnScreen, $Point*)},
+		{"getSelectedAccessibleColumns", "()[I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getSelectedAccessibleColumns, $ints*)},
+		{"getSelectedAccessibleRows", "()[I", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getSelectedAccessibleRows, $ints*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, getSize, $Dimension*)},
+		{"isAccessibleColumnSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isAccessibleColumnSelected, bool, int32_t)},
+		{"isAccessibleRowSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isAccessibleRowSelected, bool, int32_t)},
+		{"isAccessibleSelected", "(II)Z", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isAccessibleSelected, bool, int32_t, int32_t)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isEnabled, bool)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isFocusTraversable, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isShowing, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, isVisible, bool)},
+		{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, removeFocusListener, void, $FocusListener*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, requestFocus, void)},
+		{"setAccessibleCaption", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleCaption, void, $Accessible*)},
+		{"setAccessibleColumnDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleColumnDescription, void, int32_t, $Accessible*)},
+		{"setAccessibleColumnHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleColumnHeader, void, $AccessibleTable*)},
+		{"setAccessibleRowDescription", "(ILjavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleRowDescription, void, int32_t, $Accessible*)},
+		{"setAccessibleRowHeader", "(Ljavax/accessibility/AccessibleTable;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleRowHeader, void, $AccessibleTable*)},
+		{"setAccessibleSummary", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setAccessibleSummary, void, $Accessible*)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setBackground, void, $Color*)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setBounds, void, $Rectangle*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setCursor, void, $Cursor*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setForeground, void, $Color*)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setLocation, void, $Point*)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setSize, void, $Dimension*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AccessibleHTML$TableElementInfo$TableAccessibleContext, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.AccessibleHTML$TableElementInfo", "javax.swing.text.html.AccessibleHTML", "TableElementInfo", $PRIVATE},
+		{"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableAccessibleContext", "javax.swing.text.html.AccessibleHTML$TableElementInfo", "TableAccessibleContext", $PUBLIC},
+		{"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext", "javax.swing.text.html.AccessibleHTML", "HTMLAccessibleContext", $PROTECTED | $ABSTRACT},
+		{"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableAccessibleContext$AccessibleHeadersTable", "javax.swing.text.html.AccessibleHTML$TableElementInfo$TableAccessibleContext", "AccessibleHeadersTable", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.AccessibleHTML$TableElementInfo$TableAccessibleContext",
+		"javax.swing.text.html.AccessibleHTML$HTMLAccessibleContext",
+		"javax.accessibility.AccessibleTable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.AccessibleHTML"
+	};
+	$loadClass(AccessibleHTML$TableElementInfo$TableAccessibleContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AccessibleHTML$TableElementInfo$TableAccessibleContext));
+	});
 	return class$;
 }
 

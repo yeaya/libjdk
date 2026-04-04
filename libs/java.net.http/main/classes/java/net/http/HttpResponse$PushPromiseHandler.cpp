@@ -1,5 +1,4 @@
 #include <java/net/http/HttpResponse$PushPromiseHandler.h>
-
 #include <java/net/http/HttpRequest.h>
 #include <java/net/http/HttpResponse.h>
 #include <java/util/concurrent/ConcurrentMap.h>
@@ -19,43 +18,38 @@ namespace java {
 	namespace net {
 		namespace http {
 
-$MethodInfo _HttpResponse$PushPromiseHandler_MethodInfo_[] = {
-	{"applyPushPromise", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function<Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$PushPromiseHandler, applyPushPromise, void, $HttpRequest*, $HttpRequest*, $Function*)},
-	{"of", "(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)Ljava/net/http/HttpResponse$PushPromiseHandler;", "<T:Ljava/lang/Object;>(Ljava/util/function/Function<Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;>;Ljava/util/concurrent/ConcurrentMap<Ljava/net/http/HttpRequest;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$PushPromiseHandler, of, HttpResponse$PushPromiseHandler*, $Function*, $ConcurrentMap*)},
-	{}
-};
-
-$InnerClassInfo _HttpResponse$PushPromiseHandler_InnerClassesInfo_[] = {
-	{"java.net.http.HttpResponse$PushPromiseHandler", "java.net.http.HttpResponse", "PushPromiseHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpResponse$PushPromiseHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.net.http.HttpResponse$PushPromiseHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HttpResponse$PushPromiseHandler_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_HttpResponse$PushPromiseHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpResponse"
-};
-
-$Object* allocate$HttpResponse$PushPromiseHandler($Class* clazz) {
-	return $of($alloc(HttpResponse$PushPromiseHandler));
-}
-
 HttpResponse$PushPromiseHandler* HttpResponse$PushPromiseHandler::of($Function* pushPromiseHandler, $ConcurrentMap* pushPromisesMap) {
 	return $new($ResponseBodyHandlers$PushPromisesHandlerWithMap, pushPromiseHandler, pushPromisesMap);
 }
 
 $Class* HttpResponse$PushPromiseHandler::load$($String* name, bool initialize) {
-	$loadClass(HttpResponse$PushPromiseHandler, name, initialize, &_HttpResponse$PushPromiseHandler_ClassInfo_, allocate$HttpResponse$PushPromiseHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"applyPushPromise", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function;)V", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpRequest;Ljava/util/function/Function<Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)V", $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$PushPromiseHandler, applyPushPromise, void, $HttpRequest*, $HttpRequest*, $Function*)},
+		{"of", "(Ljava/util/function/Function;Ljava/util/concurrent/ConcurrentMap;)Ljava/net/http/HttpResponse$PushPromiseHandler;", "<T:Ljava/lang/Object;>(Ljava/util/function/Function<Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;>;Ljava/util/concurrent/ConcurrentMap<Ljava/net/http/HttpRequest;Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;>;)Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;", $PUBLIC | $STATIC, $staticMethod(HttpResponse$PushPromiseHandler, of, HttpResponse$PushPromiseHandler*, $Function*, $ConcurrentMap*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpResponse$PushPromiseHandler", "java.net.http.HttpResponse", "PushPromiseHandler", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.net.http.HttpResponse$PushPromiseHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpResponse"
+	};
+	$loadClass(HttpResponse$PushPromiseHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpResponse$PushPromiseHandler);
+	});
 	return class$;
 }
 

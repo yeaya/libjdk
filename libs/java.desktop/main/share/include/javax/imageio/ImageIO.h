@@ -69,6 +69,7 @@ class $import ImageIO : public ::java::lang::Object {
 	$class(ImageIO, 0, ::java::lang::Object)
 public:
 	ImageIO();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool contains($StringArray* names, $String* name);
 	static ::javax::imageio::stream::ImageInputStream* createImageInputStream(Object$* input);

@@ -1,5 +1,4 @@
 #include <javax/swing/text/ZoneView$Zone.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Shape.h>
 #include <java/lang/Math.h>
@@ -43,59 +42,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _ZoneView$Zone_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/ZoneView;", nullptr, $FINAL | $SYNTHETIC, $field(ZoneView$Zone, this$0)},
-	{"start", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(ZoneView$Zone, start)},
-	{"end", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(ZoneView$Zone, end)},
-	{}
-};
-
-$MethodInfo _ZoneView$Zone_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/ZoneView;Ljavax/swing/text/Element;Ljavax/swing/text/Position;Ljavax/swing/text/Position;)V", nullptr, $PUBLIC, $method(ZoneView$Zone, init$, void, $ZoneView*, $Element*, $Position*, $Position*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"flushRequirementChanges", "()V", nullptr, $PROTECTED, $virtualMethod(ZoneView$Zone, flushRequirementChanges, void)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, getAttributes, $AttributeSet*)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, getEndOffset, int32_t)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, getStartOffset, int32_t)},
-	{"getViewIndex", "(ILjavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, getViewIndex, int32_t, int32_t, $Position$Bias*)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"isLoaded", "()Z", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, isLoaded, bool)},
-	{"load", "()V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, load, void)},
-	{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(ZoneView$Zone, loadChildren, void, $ViewFactory*)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, paint, void, $Graphics*, $Shape*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"unload", "()V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, unload, void)},
-	{"updateChildren", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljavax/swing/text/ViewFactory;)Z", nullptr, $PROTECTED, $virtualMethod(ZoneView$Zone, updateChildren, bool, $DocumentEvent$ElementChange*, $DocumentEvent*, $ViewFactory*)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _ZoneView$Zone_InnerClassesInfo_[] = {
-	{"javax.swing.text.ZoneView$Zone", "javax.swing.text.ZoneView", "Zone", 0},
-	{}
-};
-
-$ClassInfo _ZoneView$Zone_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.ZoneView$Zone",
-	"javax.swing.text.AsyncBoxView",
-	nullptr,
-	_ZoneView$Zone_FieldInfo_,
-	_ZoneView$Zone_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZoneView$Zone_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.ZoneView"
-};
-
-$Object* allocate$ZoneView$Zone($Class* clazz) {
-	return $of($alloc(ZoneView$Zone));
-}
-
 void ZoneView$Zone::init$($ZoneView* this$0, $Element* elem, $Position* start, $Position* end) {
 	$set(this, this$0, this$0);
 	$AsyncBoxView::init$(elem, this$0->getAxis());
@@ -104,7 +50,7 @@ void ZoneView$Zone::init$($ZoneView* this$0, $Element* elem, $Position* start, $
 }
 
 void ZoneView$Zone::load() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isLoaded()) {
 		setEstimatedMajorSpan(true);
 		$var($Element, e, getElement());
@@ -130,7 +76,7 @@ bool ZoneView$Zone::isLoaded() {
 }
 
 void ZoneView$Zone::loadChildren($ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setEstimatedMajorSpan(true);
 	$var($Element, elem, getElement());
 	int32_t index0 = $nc(elem)->getElementIndex(getStartOffset());
@@ -165,7 +111,7 @@ int32_t ZoneView$Zone::getViewIndex(int32_t pos, $Position$Bias* b) {
 }
 
 bool ZoneView$Zone::updateChildren($DocumentEvent$ElementChange* ec, $DocumentEvent* e, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementArray, removedElems, $nc(ec)->getChildrenRemoved());
 	$var($ElementArray, addedElems, ec->getChildrenAdded());
 	$var($Element, elem, getElement());
@@ -178,7 +124,7 @@ bool ZoneView$Zone::updateChildren($DocumentEvent$ElementChange* ec, $DocumentEv
 		int32_t nremove = $Math::min(index1 - index0 + 1, $nc(removedElems)->length);
 		$var($ViewArray, added, $new($ViewArray, nadd));
 		for (int32_t i = 0; i < nadd; ++i) {
-			added->set(i, $($nc(f)->create($nc(addedElems)->get(i))));
+			added->set(i, $($nc(f)->create(addedElems->get(i))));
 		}
 		replace(replaceIndex, nremove, added);
 	}
@@ -234,7 +180,54 @@ ZoneView$Zone::ZoneView$Zone() {
 }
 
 $Class* ZoneView$Zone::load$($String* name, bool initialize) {
-	$loadClass(ZoneView$Zone, name, initialize, &_ZoneView$Zone_ClassInfo_, allocate$ZoneView$Zone);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/ZoneView;", nullptr, $FINAL | $SYNTHETIC, $field(ZoneView$Zone, this$0)},
+		{"start", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(ZoneView$Zone, start)},
+		{"end", "Ljavax/swing/text/Position;", nullptr, $PRIVATE, $field(ZoneView$Zone, end)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/ZoneView;Ljavax/swing/text/Element;Ljavax/swing/text/Position;Ljavax/swing/text/Position;)V", nullptr, $PUBLIC, $method(ZoneView$Zone, init$, void, $ZoneView*, $Element*, $Position*, $Position*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"flushRequirementChanges", "()V", nullptr, $PROTECTED, $virtualMethod(ZoneView$Zone, flushRequirementChanges, void)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, getAttributes, $AttributeSet*)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, getEndOffset, int32_t)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, getStartOffset, int32_t)},
+		{"getViewIndex", "(ILjavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, getViewIndex, int32_t, int32_t, $Position$Bias*)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, insertUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"isLoaded", "()Z", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, isLoaded, bool)},
+		{"load", "()V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, load, void)},
+		{"loadChildren", "(Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(ZoneView$Zone, loadChildren, void, $ViewFactory*)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, paint, void, $Graphics*, $Shape*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, removeUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"unload", "()V", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, unload, void)},
+		{"updateChildren", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljavax/swing/text/ViewFactory;)Z", nullptr, $PROTECTED, $virtualMethod(ZoneView$Zone, updateChildren, bool, $DocumentEvent$ElementChange*, $DocumentEvent*, $ViewFactory*)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(ZoneView$Zone, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.ZoneView$Zone", "javax.swing.text.ZoneView", "Zone", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.ZoneView$Zone",
+		"javax.swing.text.AsyncBoxView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.ZoneView"
+	};
+	$loadClass(ZoneView$Zone, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZoneView$Zone);
+	});
 	return class$;
 }
 

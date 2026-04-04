@@ -1,5 +1,4 @@
 #include <javax/swing/RowFilter$NotFilter.h>
-
 #include <javax/swing/RowFilter$Entry.h>
 #include <javax/swing/RowFilter.h>
 #include <jcpp.h>
@@ -14,42 +13,6 @@ using $RowFilter$Entry = ::javax::swing::RowFilter$Entry;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _RowFilter$NotFilter_FieldInfo_[] = {
-	{"filter", "Ljavax/swing/RowFilter;", "Ljavax/swing/RowFilter<TM;TI;>;", $PRIVATE, $field(RowFilter$NotFilter, filter)},
-	{}
-};
-
-$MethodInfo _RowFilter$NotFilter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/RowFilter;)V", "(Ljavax/swing/RowFilter<TM;TI;>;)V", 0, $method(RowFilter$NotFilter, init$, void, $RowFilter*)},
-	{"include", "(Ljavax/swing/RowFilter$Entry;)Z", "(Ljavax/swing/RowFilter$Entry<+TM;+TI;>;)Z", $PUBLIC, $virtualMethod(RowFilter$NotFilter, include, bool, $RowFilter$Entry*)},
-	{}
-};
-
-$InnerClassInfo _RowFilter$NotFilter_InnerClassesInfo_[] = {
-	{"javax.swing.RowFilter$NotFilter", "javax.swing.RowFilter", "NotFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _RowFilter$NotFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.RowFilter$NotFilter",
-	"javax.swing.RowFilter",
-	nullptr,
-	_RowFilter$NotFilter_FieldInfo_,
-	_RowFilter$NotFilter_MethodInfo_,
-	"<M:Ljava/lang/Object;I:Ljava/lang/Object;>Ljavax/swing/RowFilter<TM;TI;>;",
-	nullptr,
-	_RowFilter$NotFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.RowFilter"
-};
-
-$Object* allocate$RowFilter$NotFilter($Class* clazz) {
-	return $of($alloc(RowFilter$NotFilter));
-}
 
 void RowFilter$NotFilter::init$($RowFilter* filter) {
 	$RowFilter::init$();
@@ -67,7 +30,37 @@ RowFilter$NotFilter::RowFilter$NotFilter() {
 }
 
 $Class* RowFilter$NotFilter::load$($String* name, bool initialize) {
-	$loadClass(RowFilter$NotFilter, name, initialize, &_RowFilter$NotFilter_ClassInfo_, allocate$RowFilter$NotFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"filter", "Ljavax/swing/RowFilter;", "Ljavax/swing/RowFilter<TM;TI;>;", $PRIVATE, $field(RowFilter$NotFilter, filter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/RowFilter;)V", "(Ljavax/swing/RowFilter<TM;TI;>;)V", 0, $method(RowFilter$NotFilter, init$, void, $RowFilter*)},
+		{"include", "(Ljavax/swing/RowFilter$Entry;)Z", "(Ljavax/swing/RowFilter$Entry<+TM;+TI;>;)Z", $PUBLIC, $virtualMethod(RowFilter$NotFilter, include, bool, $RowFilter$Entry*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RowFilter$NotFilter", "javax.swing.RowFilter", "NotFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.RowFilter$NotFilter",
+		"javax.swing.RowFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<M:Ljava/lang/Object;I:Ljava/lang/Object;>Ljavax/swing/RowFilter<TM;TI;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.RowFilter"
+	};
+	$loadClass(RowFilter$NotFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowFilter$NotFilter);
+	});
 	return class$;
 }
 

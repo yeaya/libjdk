@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWarningWindow$3.h>
-
 #include <sun/awt/X11/XWarningWindow.h>
 #include <jcpp.h>
 
@@ -14,48 +13,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XWarningWindow$3_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XWarningWindow;", nullptr, $FINAL | $SYNTHETIC, $field(XWarningWindow$3, this$0)},
-	{}
-};
-
-$MethodInfo _XWarningWindow$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XWarningWindow;)V", nullptr, 0, $method(XWarningWindow$3, init$, void, $XWarningWindow*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _XWarningWindow$3_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XWarningWindow",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _XWarningWindow$3_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XWarningWindow$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XWarningWindow$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XWarningWindow$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_XWarningWindow$3_FieldInfo_,
-	_XWarningWindow$3_MethodInfo_,
-	nullptr,
-	&_XWarningWindow$3_EnclosingMethodInfo_,
-	_XWarningWindow$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XWarningWindow"
-};
-
-$Object* allocate$XWarningWindow$3($Class* clazz) {
-	return $of($alloc(XWarningWindow$3));
-}
-
 void XWarningWindow$3::init$($XWarningWindow* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -68,7 +25,42 @@ XWarningWindow$3::XWarningWindow$3() {
 }
 
 $Class* XWarningWindow$3::load$($String* name, bool initialize) {
-	$loadClass(XWarningWindow$3, name, initialize, &_XWarningWindow$3_ClassInfo_, allocate$XWarningWindow$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XWarningWindow;", nullptr, $FINAL | $SYNTHETIC, $field(XWarningWindow$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XWarningWindow;)V", nullptr, 0, $method(XWarningWindow$3, init$, void, $XWarningWindow*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XWarningWindow$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XWarningWindow",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XWarningWindow$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XWarningWindow$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XWarningWindow"
+	};
+	$loadClass(XWarningWindow$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XWarningWindow$3);
+	});
 	return class$;
 }
 

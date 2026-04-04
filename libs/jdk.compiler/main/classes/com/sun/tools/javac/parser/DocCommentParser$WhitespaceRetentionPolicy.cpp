@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy.h>
-
 #include <com/sun/tools/javac/parser/DocCommentParser.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,47 +19,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _DocCommentParser$WhitespaceRetentionPolicy_FieldInfo_[] = {
-	{"RETAIN_ALL", "Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$WhitespaceRetentionPolicy, RETAIN_ALL)},
-	{"REMOVE_FIRST_SPACE", "Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$WhitespaceRetentionPolicy, REMOVE_FIRST_SPACE)},
-	{"REMOVE_ALL", "Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$WhitespaceRetentionPolicy, REMOVE_ALL)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$WhitespaceRetentionPolicy, $VALUES)},
-	{}
-};
-
-$MethodInfo _DocCommentParser$WhitespaceRetentionPolicy_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, $values, $DocCommentParser$WhitespaceRetentionPolicyArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocCommentParser$WhitespaceRetentionPolicy, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, valueOf, DocCommentParser$WhitespaceRetentionPolicy*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, values, $DocCommentParser$WhitespaceRetentionPolicyArray*)},
-	{}
-};
-
-$InnerClassInfo _DocCommentParser$WhitespaceRetentionPolicy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.DocCommentParser$WhitespaceRetentionPolicy", "com.sun.tools.javac.parser.DocCommentParser", "WhitespaceRetentionPolicy", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DocCommentParser$WhitespaceRetentionPolicy_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.DocCommentParser$WhitespaceRetentionPolicy",
-	"java.lang.Enum",
-	nullptr,
-	_DocCommentParser$WhitespaceRetentionPolicy_FieldInfo_,
-	_DocCommentParser$WhitespaceRetentionPolicy_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;>;",
-	nullptr,
-	_DocCommentParser$WhitespaceRetentionPolicy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.DocCommentParser"
-};
-
-$Object* allocate$DocCommentParser$WhitespaceRetentionPolicy($Class* clazz) {
-	return $of($alloc(DocCommentParser$WhitespaceRetentionPolicy));
-}
 
 DocCommentParser$WhitespaceRetentionPolicy* DocCommentParser$WhitespaceRetentionPolicy::RETAIN_ALL = nullptr;
 DocCommentParser$WhitespaceRetentionPolicy* DocCommentParser$WhitespaceRetentionPolicy::REMOVE_FIRST_SPACE = nullptr;
@@ -90,7 +48,7 @@ void DocCommentParser$WhitespaceRetentionPolicy::init$($String* $enum$name, int3
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$DocCommentParser$WhitespaceRetentionPolicy($Class* class$) {
+void DocCommentParser$WhitespaceRetentionPolicy::clinit$($Class* clazz) {
 	$assignStatic(DocCommentParser$WhitespaceRetentionPolicy::RETAIN_ALL, $new(DocCommentParser$WhitespaceRetentionPolicy, "RETAIN_ALL"_s, 0));
 	$assignStatic(DocCommentParser$WhitespaceRetentionPolicy::REMOVE_FIRST_SPACE, $new(DocCommentParser$WhitespaceRetentionPolicy, "REMOVE_FIRST_SPACE"_s, 1));
 	$assignStatic(DocCommentParser$WhitespaceRetentionPolicy::REMOVE_ALL, $new(DocCommentParser$WhitespaceRetentionPolicy, "REMOVE_ALL"_s, 2));
@@ -101,7 +59,42 @@ DocCommentParser$WhitespaceRetentionPolicy::DocCommentParser$WhitespaceRetention
 }
 
 $Class* DocCommentParser$WhitespaceRetentionPolicy::load$($String* name, bool initialize) {
-	$loadClass(DocCommentParser$WhitespaceRetentionPolicy, name, initialize, &_DocCommentParser$WhitespaceRetentionPolicy_ClassInfo_, clinit$DocCommentParser$WhitespaceRetentionPolicy, allocate$DocCommentParser$WhitespaceRetentionPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"RETAIN_ALL", "Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$WhitespaceRetentionPolicy, RETAIN_ALL)},
+		{"REMOVE_FIRST_SPACE", "Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$WhitespaceRetentionPolicy, REMOVE_FIRST_SPACE)},
+		{"REMOVE_ALL", "Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DocCommentParser$WhitespaceRetentionPolicy, REMOVE_ALL)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DocCommentParser$WhitespaceRetentionPolicy, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, $values, $DocCommentParser$WhitespaceRetentionPolicyArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DocCommentParser$WhitespaceRetentionPolicy, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, valueOf, DocCommentParser$WhitespaceRetentionPolicy*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocCommentParser$WhitespaceRetentionPolicy, values, $DocCommentParser$WhitespaceRetentionPolicyArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.DocCommentParser$WhitespaceRetentionPolicy", "com.sun.tools.javac.parser.DocCommentParser", "WhitespaceRetentionPolicy", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.DocCommentParser$WhitespaceRetentionPolicy",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/DocCommentParser$WhitespaceRetentionPolicy;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.DocCommentParser"
+	};
+	$loadClass(DocCommentParser$WhitespaceRetentionPolicy, name, initialize, &classInfo$$, DocCommentParser$WhitespaceRetentionPolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocCommentParser$WhitespaceRetentionPolicy));
+	});
 	return class$;
 }
 

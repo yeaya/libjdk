@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$VerticalDragController.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
@@ -24,53 +23,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneDivider$DragController = ::javax::swing::plaf::basic::BasicSplitPaneDivider$DragController;
-using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicSplitPaneDivider$VerticalDragController_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$VerticalDragController, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneDivider$VerticalDragController_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $method(BasicSplitPaneDivider$VerticalDragController, init$, void, $BasicSplitPaneDivider*, $MouseEvent*)},
-	{"getNeededLocation", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$VerticalDragController, getNeededLocation, int32_t, int32_t, int32_t)},
-	{"positionForMouseEvent", "(Ljava/awt/event/MouseEvent;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$VerticalDragController, positionForMouseEvent, int32_t, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneDivider$VerticalDragController_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$VerticalDragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "VerticalDragController", $PROTECTED},
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DragController", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneDivider$VerticalDragController_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$VerticalDragController",
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController",
-	nullptr,
-	_BasicSplitPaneDivider$VerticalDragController_FieldInfo_,
-	_BasicSplitPaneDivider$VerticalDragController_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneDivider$VerticalDragController_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider"
-};
-
-$Object* allocate$BasicSplitPaneDivider$VerticalDragController($Class* clazz) {
-	return $of($alloc(BasicSplitPaneDivider$VerticalDragController));
-}
-
 void BasicSplitPaneDivider$VerticalDragController::init$($BasicSplitPaneDivider* this$0, $MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$BasicSplitPaneDivider$DragController::init$(this$0, e);
 	$var($JSplitPane, splitPane, $nc(this$0->splitPaneUI)->getSplitPane());
@@ -86,7 +46,7 @@ void BasicSplitPaneDivider$VerticalDragController::init$($BasicSplitPaneDivider*
 		this->maxX = -1;
 	} else {
 		$var($Insets, insets, splitPane->getInsets());
-		if ($nc(leftC)->isVisible()) {
+		if (leftC->isVisible()) {
 			this->minX = $nc($(leftC->getMinimumSize()))->height;
 			if (insets != nullptr) {
 				this->minX += insets->top;
@@ -94,13 +54,13 @@ void BasicSplitPaneDivider$VerticalDragController::init$($BasicSplitPaneDivider*
 		} else {
 			this->minX = 0;
 		}
-		if ($nc(rightC)->isVisible()) {
-			int32_t bottom = (insets != nullptr) ? $nc(insets)->bottom : 0;
+		if (rightC->isVisible()) {
+			int32_t bottom = (insets != nullptr) ? insets->bottom : 0;
 			int32_t var$1 = $nc($(splitPane->getSize()))->height;
 			int32_t var$0 = var$1 - ($nc($(this$0->getSize()))->height + bottom);
 			this->maxX = $Math::max(0, var$0 - $nc($(rightC->getMinimumSize()))->height);
 		} else {
-			int32_t bottom = (insets != nullptr) ? $nc(insets)->bottom : 0;
+			int32_t bottom = (insets != nullptr) ? insets->bottom : 0;
 			int32_t var$2 = $nc($(splitPane->getSize()))->height;
 			this->maxX = $Math::max(0, var$2 - ($nc($(this$0->getSize()))->height + bottom));
 		}
@@ -133,7 +93,39 @@ BasicSplitPaneDivider$VerticalDragController::BasicSplitPaneDivider$VerticalDrag
 }
 
 $Class* BasicSplitPaneDivider$VerticalDragController::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneDivider$VerticalDragController, name, initialize, &_BasicSplitPaneDivider$VerticalDragController_ClassInfo_, allocate$BasicSplitPaneDivider$VerticalDragController);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$VerticalDragController, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $method(BasicSplitPaneDivider$VerticalDragController, init$, void, $BasicSplitPaneDivider*, $MouseEvent*)},
+		{"getNeededLocation", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$VerticalDragController, getNeededLocation, int32_t, int32_t, int32_t)},
+		{"positionForMouseEvent", "(Ljava/awt/event/MouseEvent;)I", nullptr, $PROTECTED, $virtualMethod(BasicSplitPaneDivider$VerticalDragController, positionForMouseEvent, int32_t, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$VerticalDragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "VerticalDragController", $PROTECTED},
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DragController", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$VerticalDragController",
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$DragController",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider"
+	};
+	$loadClass(BasicSplitPaneDivider$VerticalDragController, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneDivider$VerticalDragController);
+	});
 	return class$;
 }
 

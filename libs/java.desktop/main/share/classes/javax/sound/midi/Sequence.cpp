@@ -1,5 +1,4 @@
 #include <javax/sound/midi/Sequence.h>
-
 #include <com/sun/media/sound/MidiUtils$TempoCache.h>
 #include <com/sun/media/sound/MidiUtils.h>
 #include <java/util/Vector.h>
@@ -30,45 +29,6 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$FieldInfo _Sequence_FieldInfo_[] = {
-	{"PPQ", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, PPQ)},
-	{"SMPTE_24", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, SMPTE_24)},
-	{"SMPTE_25", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, SMPTE_25)},
-	{"SMPTE_30DROP", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, SMPTE_30DROP)},
-	{"SMPTE_30", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, SMPTE_30)},
-	{"divisionType", "F", nullptr, $PROTECTED, $field(Sequence, divisionType)},
-	{"resolution", "I", nullptr, $PROTECTED, $field(Sequence, resolution)},
-	{"tracks", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sound/midi/Track;>;", $PROTECTED, $field(Sequence, tracks)},
-	{}
-};
-
-$MethodInfo _Sequence_MethodInfo_[] = {
-	{"<init>", "(FI)V", nullptr, $PUBLIC, $method(Sequence, init$, void, float, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"<init>", "(FII)V", nullptr, $PUBLIC, $method(Sequence, init$, void, float, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"createTrack", "()Ljavax/sound/midi/Track;", nullptr, $PUBLIC, $virtualMethod(Sequence, createTrack, $Track*)},
-	{"deleteTrack", "(Ljavax/sound/midi/Track;)Z", nullptr, $PUBLIC, $virtualMethod(Sequence, deleteTrack, bool, $Track*)},
-	{"getDivisionType", "()F", nullptr, $PUBLIC, $virtualMethod(Sequence, getDivisionType, float)},
-	{"getMicrosecondLength", "()J", nullptr, $PUBLIC, $virtualMethod(Sequence, getMicrosecondLength, int64_t)},
-	{"getPatchList", "()[Ljavax/sound/midi/Patch;", nullptr, $PUBLIC, $virtualMethod(Sequence, getPatchList, $PatchArray*)},
-	{"getResolution", "()I", nullptr, $PUBLIC, $virtualMethod(Sequence, getResolution, int32_t)},
-	{"getTickLength", "()J", nullptr, $PUBLIC, $virtualMethod(Sequence, getTickLength, int64_t)},
-	{"getTracks", "()[Ljavax/sound/midi/Track;", nullptr, $PUBLIC, $virtualMethod(Sequence, getTracks, $TrackArray*)},
-	{}
-};
-
-$ClassInfo _Sequence_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.midi.Sequence",
-	"java.lang.Object",
-	nullptr,
-	_Sequence_FieldInfo_,
-	_Sequence_MethodInfo_
-};
-
-$Object* allocate$Sequence($Class* clazz) {
-	return $of($alloc(Sequence));
-}
-
 float Sequence::PPQ = 0.0;
 float Sequence::SMPTE_24 = 0.0;
 float Sequence::SMPTE_25 = 0.0;
@@ -76,7 +36,7 @@ float Sequence::SMPTE_30DROP = 0.0;
 float Sequence::SMPTE_30 = 0.0;
 
 void Sequence::init$(float divisionType, int32_t resolution) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, tracks, $new($Vector));
 	if (divisionType == Sequence::PPQ) {
 		this->divisionType = Sequence::PPQ;
@@ -95,7 +55,7 @@ void Sequence::init$(float divisionType, int32_t resolution) {
 }
 
 void Sequence::init$(float divisionType, int32_t resolution, int32_t numTracks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, tracks, $new($Vector));
 	if (divisionType == Sequence::PPQ) {
 		this->divisionType = Sequence::PPQ;
@@ -112,7 +72,7 @@ void Sequence::init$(float divisionType, int32_t resolution, int32_t numTracks) 
 	}
 	this->resolution = resolution;
 	for (int32_t i = 0; i < numTracks; ++i) {
-		$nc(this->tracks)->addElement($$new($Track));
+		this->tracks->addElement($$new($Track));
 	}
 }
 
@@ -135,7 +95,7 @@ bool Sequence::deleteTrack($Track* track) {
 }
 
 $TrackArray* Sequence::getTracks() {
-	return $fcast($TrackArray, $nc(this->tracks)->toArray($$new($TrackArray, 0)));
+	return $cast($TrackArray, $nc(this->tracks)->toArray($$new($TrackArray, 0)));
 }
 
 int64_t Sequence::getMicrosecondLength() {
@@ -143,11 +103,11 @@ int64_t Sequence::getMicrosecondLength() {
 }
 
 int64_t Sequence::getTickLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t length = 0;
 	$synchronized(this->tracks) {
 		for (int32_t i = 0; i < $nc(this->tracks)->size(); ++i) {
-			int64_t temp = $nc(($cast($Track, $($nc(this->tracks)->elementAt(i)))))->ticks();
+			int64_t temp = $$sure($Track, this->tracks->elementAt(i))->ticks();
 			if (temp > length) {
 				length = temp;
 			}
@@ -163,7 +123,7 @@ $PatchArray* Sequence::getPatchList() {
 Sequence::Sequence() {
 }
 
-void clinit$Sequence($Class* class$) {
+void Sequence::clinit$($Class* clazz) {
 	Sequence::PPQ = 0.0f;
 	Sequence::SMPTE_24 = 24.0f;
 	Sequence::SMPTE_25 = 25.0f;
@@ -172,7 +132,41 @@ void clinit$Sequence($Class* class$) {
 }
 
 $Class* Sequence::load$($String* name, bool initialize) {
-	$loadClass(Sequence, name, initialize, &_Sequence_ClassInfo_, clinit$Sequence, allocate$Sequence);
+	$FieldInfo fieldInfos$$[] = {
+		{"PPQ", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, PPQ)},
+		{"SMPTE_24", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, SMPTE_24)},
+		{"SMPTE_25", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, SMPTE_25)},
+		{"SMPTE_30DROP", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, SMPTE_30DROP)},
+		{"SMPTE_30", "F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sequence, SMPTE_30)},
+		{"divisionType", "F", nullptr, $PROTECTED, $field(Sequence, divisionType)},
+		{"resolution", "I", nullptr, $PROTECTED, $field(Sequence, resolution)},
+		{"tracks", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/sound/midi/Track;>;", $PROTECTED, $field(Sequence, tracks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FI)V", nullptr, $PUBLIC, $method(Sequence, init$, void, float, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"<init>", "(FII)V", nullptr, $PUBLIC, $method(Sequence, init$, void, float, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"createTrack", "()Ljavax/sound/midi/Track;", nullptr, $PUBLIC, $virtualMethod(Sequence, createTrack, $Track*)},
+		{"deleteTrack", "(Ljavax/sound/midi/Track;)Z", nullptr, $PUBLIC, $virtualMethod(Sequence, deleteTrack, bool, $Track*)},
+		{"getDivisionType", "()F", nullptr, $PUBLIC, $virtualMethod(Sequence, getDivisionType, float)},
+		{"getMicrosecondLength", "()J", nullptr, $PUBLIC, $virtualMethod(Sequence, getMicrosecondLength, int64_t)},
+		{"getPatchList", "()[Ljavax/sound/midi/Patch;", nullptr, $PUBLIC, $virtualMethod(Sequence, getPatchList, $PatchArray*)},
+		{"getResolution", "()I", nullptr, $PUBLIC, $virtualMethod(Sequence, getResolution, int32_t)},
+		{"getTickLength", "()J", nullptr, $PUBLIC, $virtualMethod(Sequence, getTickLength, int64_t)},
+		{"getTracks", "()[Ljavax/sound/midi/Track;", nullptr, $PUBLIC, $virtualMethod(Sequence, getTracks, $TrackArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.midi.Sequence",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Sequence, name, initialize, &classInfo$$, Sequence::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Sequence);
+	});
 	return class$;
 }
 

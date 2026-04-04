@@ -25,7 +25,7 @@ public:
 	void init$();
 	::java::lang::Void* lambda$new$0(::java::security::Provider* p);
 	using ::java::security::Provider::load;
-	static const int64_t serialVersionUID = (int64_t)0xE05CBB6D5F2E6BEE;
+	static const int64_t serialVersionUID = (int64_t)0xe05cbb6d5f2e6bee;
 };
 
 				} // ldap

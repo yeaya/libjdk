@@ -1,5 +1,4 @@
 #include <java/awt/image/DataBufferInt.h>
-
 #include <java/awt/image/DataBuffer.h>
 #include <sun/java2d/StateTrackable$State.h>
 #include <sun/java2d/StateTrackableDelegate.h>
@@ -15,65 +14,28 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StateTrackable$State = ::sun::java2d::StateTrackable$State;
-using $StateTrackableDelegate = ::sun::java2d::StateTrackableDelegate;
 
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _DataBufferInt_FieldInfo_[] = {
-	{"data", "[I", nullptr, 0, $field(DataBufferInt, data)},
-	{"bankdata", "[[I", nullptr, 0, $field(DataBufferInt, bankdata)},
-	{}
-};
-
-$MethodInfo _DataBufferInt_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, int32_t, int32_t)},
-	{"<init>", "([II)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, $ints*, int32_t)},
-	{"<init>", "([III)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, $ints*, int32_t, int32_t)},
-	{"<init>", "([[II)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, $intArray2*, int32_t)},
-	{"<init>", "([[II[I)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, $intArray2*, int32_t, $ints*)},
-	{"getBankData", "()[[I", nullptr, $PUBLIC, $method(DataBufferInt, getBankData, $intArray2*)},
-	{"getData", "()[I", nullptr, $PUBLIC, $method(DataBufferInt, getData, $ints*)},
-	{"getData", "(I)[I", nullptr, $PUBLIC, $method(DataBufferInt, getData, $ints*, int32_t)},
-	{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBufferInt, getElem, int32_t, int32_t)},
-	{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferInt, getElem, int32_t, int32_t, int32_t)},
-	{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBufferInt, setElem, void, int32_t, int32_t)},
-	{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferInt, setElem, void, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DataBufferInt_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.image.DataBufferInt",
-	"java.awt.image.DataBuffer",
-	nullptr,
-	_DataBufferInt_FieldInfo_,
-	_DataBufferInt_MethodInfo_
-};
-
-$Object* allocate$DataBufferInt($Class* clazz) {
-	return $of($alloc(DataBufferInt));
-}
 
 void DataBufferInt::init$(int32_t size) {
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::STABLE, $DataBuffer::TYPE_INT, size);
 	$set(this, data, $new($ints, size));
 	$set(this, bankdata, $new($intArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferInt::init$(int32_t size, int32_t numBanks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::STABLE, $DataBuffer::TYPE_INT, size, numBanks);
 	$set(this, bankdata, $new($intArray2, numBanks));
 	for (int32_t i = 0; i < numBanks; ++i) {
-		$nc(this->bankdata)->set(i, $$new($ints, size));
+		this->bankdata->set(i, $$new($ints, size));
 	}
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, data, this->bankdata->get(0));
 }
 
 void DataBufferInt::init$($ints* dataArray, int32_t size) {
@@ -81,7 +43,7 @@ void DataBufferInt::init$($ints* dataArray, int32_t size) {
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_INT, size);
 	$set(this, data, dataArray);
 	$set(this, bankdata, $new($intArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferInt::init$($ints* dataArray, int32_t size, int32_t offset) {
@@ -89,21 +51,21 @@ void DataBufferInt::init$($ints* dataArray, int32_t size, int32_t offset) {
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_INT, size, 1, offset);
 	$set(this, data, dataArray);
 	$set(this, bankdata, $new($intArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferInt::init$($intArray2* dataArray, int32_t size) {
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_INT, size, $nc(dataArray)->length);
-	$set(this, bankdata, $cast($intArray2, $nc(dataArray)->clone()));
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, bankdata, $cast($intArray2, dataArray->clone()));
+	$set(this, data, this->bankdata->get(0));
 }
 
 void DataBufferInt::init$($intArray2* dataArray, int32_t size, $ints* offsets) {
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_INT, size, $nc(dataArray)->length, offsets);
-	$set(this, bankdata, $cast($intArray2, $nc(dataArray)->clone()));
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, bankdata, $cast($intArray2, dataArray->clone()));
+	$set(this, data, this->bankdata->get(0));
 }
 
 $ints* DataBufferInt::getData() {
@@ -143,7 +105,38 @@ DataBufferInt::DataBufferInt() {
 }
 
 $Class* DataBufferInt::load$($String* name, bool initialize) {
-	$loadClass(DataBufferInt, name, initialize, &_DataBufferInt_ClassInfo_, allocate$DataBufferInt);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "[I", nullptr, 0, $field(DataBufferInt, data)},
+		{"bankdata", "[[I", nullptr, 0, $field(DataBufferInt, bankdata)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, int32_t, int32_t)},
+		{"<init>", "([II)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, $ints*, int32_t)},
+		{"<init>", "([III)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, $ints*, int32_t, int32_t)},
+		{"<init>", "([[II)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, $intArray2*, int32_t)},
+		{"<init>", "([[II[I)V", nullptr, $PUBLIC, $method(DataBufferInt, init$, void, $intArray2*, int32_t, $ints*)},
+		{"getBankData", "()[[I", nullptr, $PUBLIC, $method(DataBufferInt, getBankData, $intArray2*)},
+		{"getData", "()[I", nullptr, $PUBLIC, $method(DataBufferInt, getData, $ints*)},
+		{"getData", "(I)[I", nullptr, $PUBLIC, $method(DataBufferInt, getData, $ints*, int32_t)},
+		{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBufferInt, getElem, int32_t, int32_t)},
+		{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferInt, getElem, int32_t, int32_t, int32_t)},
+		{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBufferInt, setElem, void, int32_t, int32_t)},
+		{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferInt, setElem, void, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.image.DataBufferInt",
+		"java.awt.image.DataBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataBufferInt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataBufferInt);
+	});
 	return class$;
 }
 

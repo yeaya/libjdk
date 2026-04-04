@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/CollinearSimplifier$SimplifierState.h>
-
 #include <java/lang/Enum.h>
 #include <sun/java2d/marlin/CollinearSimplifier.h>
 #include <jcpp.h>
@@ -14,47 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _CollinearSimplifier$SimplifierState_FieldInfo_[] = {
-	{"Empty", "Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CollinearSimplifier$SimplifierState, Empty)},
-	{"PreviousPoint", "Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CollinearSimplifier$SimplifierState, PreviousPoint)},
-	{"PreviousLine", "Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CollinearSimplifier$SimplifierState, PreviousLine)},
-	{"$VALUES", "[Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CollinearSimplifier$SimplifierState, $VALUES)},
-	{}
-};
-
-$MethodInfo _CollinearSimplifier$SimplifierState_MethodInfo_[] = {
-	{"$values", "()[Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CollinearSimplifier$SimplifierState, $values, $CollinearSimplifier$SimplifierStateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CollinearSimplifier$SimplifierState, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CollinearSimplifier$SimplifierState, valueOf, CollinearSimplifier$SimplifierState*, $String*)},
-	{"values", "()[Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CollinearSimplifier$SimplifierState, values, $CollinearSimplifier$SimplifierStateArray*)},
-	{}
-};
-
-$InnerClassInfo _CollinearSimplifier$SimplifierState_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.CollinearSimplifier$SimplifierState", "sun.java2d.marlin.CollinearSimplifier", "SimplifierState", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CollinearSimplifier$SimplifierState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.java2d.marlin.CollinearSimplifier$SimplifierState",
-	"java.lang.Enum",
-	nullptr,
-	_CollinearSimplifier$SimplifierState_FieldInfo_,
-	_CollinearSimplifier$SimplifierState_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;>;",
-	nullptr,
-	_CollinearSimplifier$SimplifierState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.CollinearSimplifier"
-};
-
-$Object* allocate$CollinearSimplifier$SimplifierState($Class* clazz) {
-	return $of($alloc(CollinearSimplifier$SimplifierState));
-}
 
 CollinearSimplifier$SimplifierState* CollinearSimplifier$SimplifierState::Empty = nullptr;
 CollinearSimplifier$SimplifierState* CollinearSimplifier$SimplifierState::PreviousPoint = nullptr;
@@ -84,7 +42,7 @@ void CollinearSimplifier$SimplifierState::init$($String* $enum$name, int32_t $en
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CollinearSimplifier$SimplifierState($Class* class$) {
+void CollinearSimplifier$SimplifierState::clinit$($Class* clazz) {
 	$assignStatic(CollinearSimplifier$SimplifierState::Empty, $new(CollinearSimplifier$SimplifierState, "Empty"_s, 0));
 	$assignStatic(CollinearSimplifier$SimplifierState::PreviousPoint, $new(CollinearSimplifier$SimplifierState, "PreviousPoint"_s, 1));
 	$assignStatic(CollinearSimplifier$SimplifierState::PreviousLine, $new(CollinearSimplifier$SimplifierState, "PreviousLine"_s, 2));
@@ -95,7 +53,42 @@ CollinearSimplifier$SimplifierState::CollinearSimplifier$SimplifierState() {
 }
 
 $Class* CollinearSimplifier$SimplifierState::load$($String* name, bool initialize) {
-	$loadClass(CollinearSimplifier$SimplifierState, name, initialize, &_CollinearSimplifier$SimplifierState_ClassInfo_, clinit$CollinearSimplifier$SimplifierState, allocate$CollinearSimplifier$SimplifierState);
+	$FieldInfo fieldInfos$$[] = {
+		{"Empty", "Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CollinearSimplifier$SimplifierState, Empty)},
+		{"PreviousPoint", "Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CollinearSimplifier$SimplifierState, PreviousPoint)},
+		{"PreviousLine", "Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CollinearSimplifier$SimplifierState, PreviousLine)},
+		{"$VALUES", "[Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CollinearSimplifier$SimplifierState, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CollinearSimplifier$SimplifierState, $values, $CollinearSimplifier$SimplifierStateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CollinearSimplifier$SimplifierState, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CollinearSimplifier$SimplifierState, valueOf, CollinearSimplifier$SimplifierState*, $String*)},
+		{"values", "()[Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, $PUBLIC | $STATIC, $staticMethod(CollinearSimplifier$SimplifierState, values, $CollinearSimplifier$SimplifierStateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.CollinearSimplifier$SimplifierState", "sun.java2d.marlin.CollinearSimplifier", "SimplifierState", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.java2d.marlin.CollinearSimplifier$SimplifierState",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.CollinearSimplifier"
+	};
+	$loadClass(CollinearSimplifier$SimplifierState, name, initialize, &classInfo$$, CollinearSimplifier$SimplifierState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CollinearSimplifier$SimplifierState));
+	});
 	return class$;
 }
 

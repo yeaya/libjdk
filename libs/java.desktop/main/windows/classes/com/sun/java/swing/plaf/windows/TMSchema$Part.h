@@ -220,6 +220,7 @@ class $export TMSchema$Part : public ::java::lang::Enum {
 public:
 	TMSchema$Part();
 	static $Array<::com::sun::java::swing::plaf::windows::TMSchema$Part>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::com::sun::java::swing::plaf::windows::TMSchema$Control* control, int32_t value);
 	virtual $String* getControlName(::java::awt::Component* component);
 	virtual int32_t getValue();

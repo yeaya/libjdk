@@ -1,5 +1,4 @@
 #include <org/reactivestreams/tck/flow/support/Optional$Some.h>
-
 #include <org/reactivestreams/tck/flow/support/Optional.h>
 #include <jcpp.h>
 
@@ -15,51 +14,13 @@ namespace org {
 			namespace flow {
 				namespace support {
 
-$FieldInfo _Optional$Some_FieldInfo_[] = {
-	{"value", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(Optional$Some, value)},
-	{}
-};
-
-$MethodInfo _Optional$Some_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(Optional$Some, init$, void, Object$*)},
-	{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Optional$Some, get, $Object*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Optional$Some, isEmpty, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Optional$Some, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Optional$Some_InnerClassesInfo_[] = {
-	{"org.reactivestreams.tck.flow.support.Optional$Some", "org.reactivestreams.tck.flow.support.Optional", "Some", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Optional$Some_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.reactivestreams.tck.flow.support.Optional$Some",
-	"org.reactivestreams.tck.flow.support.Optional",
-	nullptr,
-	_Optional$Some_FieldInfo_,
-	_Optional$Some_MethodInfo_,
-	"<T:Ljava/lang/Object;>Lorg/reactivestreams/tck/flow/support/Optional<TT;>;",
-	nullptr,
-	_Optional$Some_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.reactivestreams.tck.flow.support.Optional"
-};
-
-$Object* allocate$Optional$Some($Class* clazz) {
-	return $of($alloc(Optional$Some));
-}
-
 void Optional$Some::init$(Object$* value) {
 	$Optional::init$();
 	$set(this, value, value);
 }
 
 $Object* Optional$Some::get() {
-	return $of(this->value);
+	return this->value;
 }
 
 bool Optional$Some::isEmpty() {
@@ -74,7 +35,39 @@ Optional$Some::Optional$Some() {
 }
 
 $Class* Optional$Some::load$($String* name, bool initialize) {
-	$loadClass(Optional$Some, name, initialize, &_Optional$Some_ClassInfo_, allocate$Optional$Some);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/Object;", "TT;", $PRIVATE | $FINAL, $field(Optional$Some, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", "(TT;)V", 0, $method(Optional$Some, init$, void, Object$*)},
+		{"get", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Optional$Some, get, $Object*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Optional$Some, isEmpty, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Optional$Some, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.reactivestreams.tck.flow.support.Optional$Some", "org.reactivestreams.tck.flow.support.Optional", "Some", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.reactivestreams.tck.flow.support.Optional$Some",
+		"org.reactivestreams.tck.flow.support.Optional",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Lorg/reactivestreams/tck/flow/support/Optional<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.reactivestreams.tck.flow.support.Optional"
+	};
+	$loadClass(Optional$Some, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Optional$Some);
+	});
 	return class$;
 }
 

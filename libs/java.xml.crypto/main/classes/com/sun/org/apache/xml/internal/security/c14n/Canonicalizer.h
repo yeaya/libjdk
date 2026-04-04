@@ -69,6 +69,7 @@ class Canonicalizer : public ::java::lang::Object {
 	$class(Canonicalizer, 0, ::java::lang::Object)
 public:
 	Canonicalizer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* algorithmURI);
 	void canonicalize($bytes* inputBytes, ::java::io::OutputStream* writer, bool secureValidation);
 	void canonicalizeSubtree(::org::w3c::dom::Node* node, ::java::io::OutputStream* writer);

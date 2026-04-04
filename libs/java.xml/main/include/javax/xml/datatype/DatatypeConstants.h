@@ -101,6 +101,7 @@ class $import DatatypeConstants : public ::java::lang::Object {
 	$class(DatatypeConstants, 0, ::java::lang::Object)
 public:
 	DatatypeConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t JANUARY = 1;
 	static const int32_t FEBRUARY = 2;

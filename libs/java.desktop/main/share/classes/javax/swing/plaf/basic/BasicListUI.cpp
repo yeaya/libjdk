@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/basic/BasicListUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
@@ -15,9 +13,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/dnd/DropTarget.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/KeyListener.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
@@ -97,8 +92,6 @@
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $Graphics = ::java::awt::Graphics;
@@ -109,9 +102,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $DropTarget = ::java::awt::dnd::DropTarget;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $KeyListener = ::java::awt::event::KeyListener;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $Point2D = ::java::awt::geom::Point2D;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -156,133 +146,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicListUI_FieldInfo_[] = {
-	{"BASELINE_COMPONENT_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI, BASELINE_COMPONENT_KEY)},
-	{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/lang/Object;>;", $PROTECTED, $field(BasicListUI, list)},
-	{"rendererPane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $field(BasicListUI, rendererPane)},
-	{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicListUI, focusListener)},
-	{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicListUI, mouseInputListener)},
-	{"listSelectionListener", "Ljavax/swing/event/ListSelectionListener;", nullptr, $PROTECTED, $field(BasicListUI, listSelectionListener)},
-	{"listDataListener", "Ljavax/swing/event/ListDataListener;", nullptr, $PROTECTED, $field(BasicListUI, listDataListener)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicListUI, propertyChangeListener)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicListUI$Handler;", nullptr, $PRIVATE, $field(BasicListUI, handler)},
-	{"cellHeights", "[I", nullptr, $PROTECTED, $field(BasicListUI, cellHeights)},
-	{"cellHeight", "I", nullptr, $PROTECTED, $field(BasicListUI, cellHeight)},
-	{"cellWidth", "I", nullptr, $PROTECTED, $field(BasicListUI, cellWidth)},
-	{"updateLayoutStateNeeded", "I", nullptr, $PROTECTED, $field(BasicListUI, updateLayoutStateNeeded)},
-	{"listHeight", "I", nullptr, $PRIVATE, $field(BasicListUI, listHeight)},
-	{"listWidth", "I", nullptr, $PRIVATE, $field(BasicListUI, listWidth)},
-	{"layoutOrientation", "I", nullptr, $PRIVATE, $field(BasicListUI, layoutOrientation)},
-	{"columnCount", "I", nullptr, $PRIVATE, $field(BasicListUI, columnCount)},
-	{"preferredHeight", "I", nullptr, $PRIVATE, $field(BasicListUI, preferredHeight)},
-	{"rowsPerColumn", "I", nullptr, $PRIVATE, $field(BasicListUI, rowsPerColumn)},
-	{"timeFactor", "J", nullptr, $PRIVATE, $field(BasicListUI, timeFactor)},
-	{"isFileList", "Z", nullptr, $PRIVATE, $field(BasicListUI, isFileList)},
-	{"isLeftToRight", "Z", nullptr, $PRIVATE, $field(BasicListUI, isLeftToRight)},
-	{"modelChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, modelChanged)},
-	{"selectionModelChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, selectionModelChanged)},
-	{"fontChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, fontChanged)},
-	{"fixedCellWidthChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, fixedCellWidthChanged)},
-	{"fixedCellHeightChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, fixedCellHeightChanged)},
-	{"prototypeCellValueChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, prototypeCellValueChanged)},
-	{"cellRendererChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, cellRendererChanged)},
-	{"layoutOrientationChanged", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, layoutOrientationChanged)},
-	{"heightChanged", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, heightChanged)},
-	{"widthChanged", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, widthChanged)},
-	{"componentOrientationChanged", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, componentOrientationChanged)},
-	{"DROP_LINE_THICKNESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, DROP_LINE_THICKNESS)},
-	{"CHANGE_LEAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, CHANGE_LEAD)},
-	{"CHANGE_SELECTION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, CHANGE_SELECTION)},
-	{"EXTEND_SELECTION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, EXTEND_SELECTION)},
-	{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI, defaultTransferHandler)},
-	{}
-};
-
-$MethodInfo _BasicListUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicListUI, init$, void)},
-	{"adjustIndex", "(ILjavax/swing/JList;)I", "(ILjavax/swing/JList<*>;)I", $PRIVATE | $STATIC, $staticMethod(BasicListUI, adjustIndex, int32_t, int32_t, $JList*)},
-	{"convertLocationToColumn", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, convertLocationToColumn, int32_t, int32_t, int32_t)},
-	{"convertLocationToModel", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, convertLocationToModel, int32_t, int32_t, int32_t)},
-	{"convertLocationToRow", "(IIZ)I", nullptr, $PRIVATE, $method(BasicListUI, convertLocationToRow, int32_t, int32_t, int32_t, bool)},
-	{"convertLocationToRowInColumn", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, convertLocationToRowInColumn, int32_t, int32_t, int32_t)},
-	{"convertModelToColumn", "(I)I", nullptr, $PRIVATE, $method(BasicListUI, convertModelToColumn, int32_t, int32_t)},
-	{"convertModelToRow", "(I)I", nullptr, $PRIVATE, $method(BasicListUI, convertModelToRow, int32_t, int32_t)},
-	{"convertRowToY", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicListUI, convertRowToY, int32_t, int32_t)},
-	{"convertYToRow", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicListUI, convertYToRow, int32_t, int32_t)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createFocusListener, $FocusListener*)},
-	{"createListDataListener", "()Ljavax/swing/event/ListDataListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createListDataListener, $ListDataListener*)},
-	{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createListSelectionListener, $ListSelectionListener*)},
-	{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createMouseInputListener, $MouseInputListener*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicListUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicListUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicListUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getCellBounds", "(Ljavax/swing/JList;II)Ljava/awt/Rectangle;", "(Ljavax/swing/JList<*>;II)Ljava/awt/Rectangle;", $PUBLIC, $virtualMethod(BasicListUI, getCellBounds, $Rectangle*, $JList*, int32_t, int32_t)},
-	{"getCellBounds", "(Ljavax/swing/JList;I)Ljava/awt/Rectangle;", "(Ljavax/swing/JList<*>;I)Ljava/awt/Rectangle;", $PRIVATE, $method(BasicListUI, getCellBounds, $Rectangle*, $JList*, int32_t)},
-	{"getDropLineRect", "(Ljavax/swing/JList$DropLocation;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(BasicListUI, getDropLineRect, $Rectangle*, $JList$DropLocation*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicListUI$Handler;", nullptr, $PRIVATE, $method(BasicListUI, getHandler, $BasicListUI$Handler*)},
-	{"getHeight", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, getHeight, int32_t, int32_t, int32_t)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicListUI, getInputMap, $InputMap*, int32_t)},
-	{"getModelIndex", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, getModelIndex, int32_t, int32_t, int32_t)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicListUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getRowCount", "(I)I", nullptr, $PRIVATE, $method(BasicListUI, getRowCount, int32_t, int32_t)},
-	{"getRowHeight", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicListUI, getRowHeight, int32_t, int32_t)},
-	{"indexToLocation", "(Ljavax/swing/JList;I)Ljava/awt/Point;", "(Ljavax/swing/JList<*>;I)Ljava/awt/Point;", $PUBLIC, $virtualMethod(BasicListUI, indexToLocation, $Point*, $JList*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI, installUI, void, $JComponent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicListUI, loadActionMap, void, $LazyActionMap*)},
-	{"locationToIndex", "(Ljavax/swing/JList;Ljava/awt/Point;)I", "(Ljavax/swing/JList<*>;Ljava/awt/Point;)I", $PUBLIC, $virtualMethod(BasicListUI, locationToIndex, int32_t, $JList*, $Point*)},
-	{"maybeUpdateLayoutState", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, maybeUpdateLayoutState, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintCell", "(Ljava/awt/Graphics;ILjava/awt/Rectangle;Ljavax/swing/ListCellRenderer;Ljavax/swing/ListModel;Ljavax/swing/ListSelectionModel;I)V", "(Ljava/awt/Graphics;ILjava/awt/Rectangle;Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;Ljavax/swing/ListModel<Ljava/lang/Object;>;Ljavax/swing/ListSelectionModel;I)V", $PROTECTED, $virtualMethod(BasicListUI, paintCell, void, $Graphics*, int32_t, $Rectangle*, $ListCellRenderer*, $ListModel*, $ListSelectionModel*, int32_t)},
-	{"paintDropLine", "(Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(BasicListUI, paintDropLine, void, $Graphics*)},
-	{"paintImpl", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicListUI, paintImpl, void, $Graphics*, $JComponent*)},
-	{"redrawList", "()V", nullptr, $PRIVATE, $method(BasicListUI, redrawList, void)},
-	{"selectNextIndex", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, selectNextIndex, void)},
-	{"selectPreviousIndex", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, selectPreviousIndex, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI, uninstallUI, void, $JComponent*)},
-	{"updateHorizontalLayoutState", "(II)V", nullptr, $PRIVATE, $method(BasicListUI, updateHorizontalLayoutState, void, int32_t, int32_t)},
-	{"updateIsFileList", "()V", nullptr, $PRIVATE, $method(BasicListUI, updateIsFileList, void)},
-	{"updateLayoutState", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, updateLayoutState, void)},
-	{}
-};
-
-$InnerClassInfo _BasicListUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicListUI$ListTransferHandler", "javax.swing.plaf.basic.BasicListUI", "ListTransferHandler", $STATIC},
-	{"javax.swing.plaf.basic.BasicListUI$Handler", "javax.swing.plaf.basic.BasicListUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicListUI$Actions", "javax.swing.plaf.basic.BasicListUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicListUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicListUI", "PropertyChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicListUI$ListDataHandler", "javax.swing.plaf.basic.BasicListUI", "ListDataHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicListUI$ListSelectionHandler", "javax.swing.plaf.basic.BasicListUI", "ListSelectionHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicListUI$FocusHandler", "javax.swing.plaf.basic.BasicListUI", "FocusHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicListUI$MouseInputHandler", "javax.swing.plaf.basic.BasicListUI", "MouseInputHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicListUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicListUI",
-	"javax.swing.plaf.ListUI",
-	nullptr,
-	_BasicListUI_FieldInfo_,
-	_BasicListUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicListUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicListUI$ListTransferHandler,javax.swing.plaf.basic.BasicListUI$Handler,javax.swing.plaf.basic.BasicListUI$Actions,javax.swing.plaf.basic.BasicListUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicListUI$ListDataHandler,javax.swing.plaf.basic.BasicListUI$ListSelectionHandler,javax.swing.plaf.basic.BasicListUI$FocusHandler,javax.swing.plaf.basic.BasicListUI$MouseInputHandler"
-};
-
-$Object* allocate$BasicListUI($Class* clazz) {
-	return $of($alloc(BasicListUI));
-}
-
 $StringBuilder* BasicListUI::BASELINE_COMPONENT_KEY = nullptr;
 $TransferHandler* BasicListUI::defaultTransferHandler = nullptr;
 
@@ -300,7 +163,7 @@ void BasicListUI::init$() {
 
 void BasicListUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicListUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicListUI$Actions);
 	$nc(map)->put($$new($BasicListUI$Actions, $BasicListUI$Actions::SELECT_PREVIOUS_COLUMN));
 	map->put($$new($BasicListUI$Actions, $BasicListUI$Actions::SELECT_PREVIOUS_COLUMN_EXTEND));
@@ -333,16 +196,16 @@ void BasicListUI::loadActionMap($LazyActionMap* map) {
 	map->put($$new($BasicListUI$Actions, $BasicListUI$Actions::EXTEND_TO));
 	map->put($$new($BasicListUI$Actions, $BasicListUI$Actions::MOVE_SELECTION_TO));
 	$init($Action);
-	$var($Object, var$0, $nc($($TransferHandler::getCutAction()))->getValue($Action::NAME));
+	$var($Object, var$0, $$nc($TransferHandler::getCutAction())->getValue($Action::NAME));
 	map->put(var$0, $($TransferHandler::getCutAction()));
-	$var($Object, var$1, $nc($($TransferHandler::getCopyAction()))->getValue($Action::NAME));
+	$var($Object, var$1, $$nc($TransferHandler::getCopyAction())->getValue($Action::NAME));
 	map->put(var$1, $($TransferHandler::getCopyAction()));
-	$var($Object, var$2, $nc($($TransferHandler::getPasteAction()))->getValue($Action::NAME));
+	$var($Object, var$2, $$nc($TransferHandler::getPasteAction())->getValue($Action::NAME));
 	map->put(var$2, $($TransferHandler::getPasteAction()));
 }
 
 void BasicListUI::paintCell($Graphics* g, int32_t row, $Rectangle* rowBounds, $ListCellRenderer* cellRenderer, $ListModel* dataModel, $ListSelectionModel* selModel, int32_t leadIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $nc(dataModel)->getElementAt(row));
 	bool cellHasFocus = $nc(this->list)->hasFocus() && (row == leadIndex);
 	bool isSelected = $nc(selModel)->isSelectedIndex(row);
@@ -369,28 +232,22 @@ void BasicListUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void BasicListUI::paintImpl($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->layoutOrientation) {
 	case $JList::VERTICAL_WRAP:
-		{
-			if ($nc(this->list)->getHeight() != this->listHeight) {
-				this->updateLayoutStateNeeded |= BasicListUI::heightChanged;
-				redrawList();
-			}
-			break;
+		if ($nc(this->list)->getHeight() != this->listHeight) {
+			this->updateLayoutStateNeeded |= BasicListUI::heightChanged;
+			redrawList();
 		}
+		break;
 	case $JList::HORIZONTAL_WRAP:
-		{
-			if ($nc(this->list)->getWidth() != this->listWidth) {
-				this->updateLayoutStateNeeded |= BasicListUI::widthChanged;
-				redrawList();
-			}
-			break;
+		if ($nc(this->list)->getWidth() != this->listWidth) {
+			this->updateLayoutStateNeeded |= BasicListUI::widthChanged;
+			redrawList();
 		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	maybeUpdateLayoutState();
 	$var($ListCellRenderer, renderer, $nc(this->list)->getCellRenderer());
@@ -403,14 +260,14 @@ void BasicListUI::paintImpl($Graphics* g, $JComponent* c) {
 	$var($Rectangle, paintBounds, $nc(g)->getClipBounds());
 	int32_t startColumn = 0;
 	int32_t endColumn = 0;
-	if ($nc($($nc(c)->getComponentOrientation()))->isLeftToRight()) {
-		startColumn = convertLocationToColumn($nc(paintBounds)->x, paintBounds->y);
-		endColumn = convertLocationToColumn($nc(paintBounds)->x + paintBounds->width, paintBounds->y);
+	if ($$nc($nc(c)->getComponentOrientation())->isLeftToRight()) {
+		startColumn = convertLocationToColumn($nc(paintBounds)->x, $nc(paintBounds)->y);
+		endColumn = convertLocationToColumn(paintBounds->x + paintBounds->width, paintBounds->y);
 	} else {
-		startColumn = convertLocationToColumn($nc(paintBounds)->x + paintBounds->width, paintBounds->y);
-		endColumn = convertLocationToColumn($nc(paintBounds)->x, paintBounds->y);
+		startColumn = convertLocationToColumn($nc(paintBounds)->x + $nc(paintBounds)->width, $nc(paintBounds)->y);
+		endColumn = convertLocationToColumn(paintBounds->x, paintBounds->y);
 	}
-	int32_t maxY = $nc(paintBounds)->y + paintBounds->height;
+	int32_t maxY = $nc(paintBounds)->y + $nc(paintBounds)->height;
 	int32_t leadIndex = adjustIndex($nc(this->list)->getLeadSelectionIndex(), this->list);
 	int32_t rowIncrement = (this->layoutOrientation == $JList::HORIZONTAL_WRAP) ? this->columnCount : 1;
 	for (int32_t colCounter = startColumn; colCounter <= endColumn; ++colCounter) {
@@ -435,32 +292,32 @@ void BasicListUI::paintImpl($Graphics* g, $JComponent* c) {
 }
 
 void BasicListUI::paintDropLine($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JList$DropLocation, loc, $nc(this->list)->getDropLocation());
-	if (loc == nullptr || !$nc(loc)->isInsert()) {
+	if (loc == nullptr || !loc->isInsert()) {
 		return;
 	}
 	$var($Color, c, $DefaultLookup::getColor(this->list, this, "List.dropLineColor"_s, nullptr));
 	if (c != nullptr) {
 		$nc(g)->setColor(c);
 		$var($Rectangle, rect, getDropLineRect(loc));
-		g->fillRect($nc(rect)->x, rect->y, rect->width, rect->height);
+		g->fillRect($nc(rect)->x, $nc(rect)->y, $nc(rect)->width, $nc(rect)->height);
 	}
 }
 
 $Rectangle* BasicListUI::getDropLineRect($JList$DropLocation* loc) {
-	$useLocalCurrentObjectStackCache();
-	int32_t size = $nc($($nc(this->list)->getModel()))->getSize();
+	$useLocalObjectStack();
+	int32_t size = $$nc($nc(this->list)->getModel())->getSize();
 	if (size == 0) {
 		$var($Insets, insets, $nc(this->list)->getInsets());
 		if (this->layoutOrientation == $JList::HORIZONTAL_WRAP) {
 			if (this->isLeftToRight) {
-				return $new($Rectangle, $nc(insets)->left, insets->top, BasicListUI::DROP_LINE_THICKNESS, 20);
+				return $new($Rectangle, $nc(insets)->left, $nc(insets)->top, BasicListUI::DROP_LINE_THICKNESS, 20);
 			} else {
-				return $new($Rectangle, $nc(this->list)->getWidth() - BasicListUI::DROP_LINE_THICKNESS - $nc(insets)->right, insets->top, BasicListUI::DROP_LINE_THICKNESS, 20);
+				return $new($Rectangle, $nc(this->list)->getWidth() - BasicListUI::DROP_LINE_THICKNESS - $nc(insets)->right, $nc(insets)->top, BasicListUI::DROP_LINE_THICKNESS, 20);
 			}
 		} else {
-			return $new($Rectangle, $nc(insets)->left, insets->top, $nc(this->list)->getWidth() - insets->left - insets->right, BasicListUI::DROP_LINE_THICKNESS);
+			return $new($Rectangle, $nc(insets)->left, $nc(insets)->top, $nc(this->list)->getWidth() - $nc(insets)->left - $nc(insets)->right, BasicListUI::DROP_LINE_THICKNESS);
 		}
 	}
 	$var($Rectangle, rect, nullptr);
@@ -470,21 +327,21 @@ $Rectangle* BasicListUI::getDropLineRect($JList$DropLocation* loc) {
 		if (index == size) {
 			decr = true;
 		} else {
-			bool var$2 = index != 0;
-			if (var$2) {
-				int32_t var$3 = convertModelToRow(index);
-				var$2 = var$3 != convertModelToRow(index - 1);
+			bool var$0 = index != 0;
+			if (var$0) {
+				int32_t var$1 = convertModelToRow(index);
+				var$0 = var$1 != convertModelToRow(index - 1);
 			}
-			if (var$2) {
+			if (var$0) {
 				$var($Rectangle, prev, getCellBounds(this->list, index - 1));
 				$var($Rectangle, me, getCellBounds(this->list, index));
 				$var($Point, p, loc->getDropPoint());
 				if (this->isLeftToRight) {
-					double var$4 = $Point2D::distance((double)($nc(prev)->x + prev->width), (double)(prev->y + $cast(int32_t, (prev->height / 2.0))), (double)$nc(p)->x, (double)p->y);
-					decr = var$4 < $Point2D::distance((double)$nc(me)->x, (double)(me->y + $cast(int32_t, (me->height / 2.0))), (double)$nc(p)->x, (double)p->y);
+					double var$2 = $Point2D::distance((double)($nc(prev)->x + $nc(prev)->width), (double)($nc(prev)->y + $cast(int32_t, ($nc(prev)->height / 2.0))), (double)$nc(p)->x, (double)$nc(p)->y);
+					decr = var$2 < $Point2D::distance((double)$nc(me)->x, (double)($nc(me)->y + $cast(int32_t, ($nc(me)->height / 2.0))), (double)p->x, (double)p->y);
 				} else {
-					double var$5 = $Point2D::distance((double)$nc(prev)->x, (double)(prev->y + $cast(int32_t, (prev->height / 2.0))), (double)$nc(p)->x, (double)p->y);
-					decr = var$5 < $Point2D::distance((double)($nc(me)->x + me->width), (double)(me->y + $cast(int32_t, ($nc(prev)->height / 2.0))), (double)$nc(p)->x, (double)p->y);
+					double var$3 = $Point2D::distance((double)$nc(prev)->x, (double)($nc(prev)->y + $cast(int32_t, ($nc(prev)->height / 2.0))), (double)$nc(p)->x, (double)$nc(p)->y);
+					decr = var$3 < $Point2D::distance((double)($nc(me)->x + $nc(me)->width), (double)($nc(me)->y + $cast(int32_t, (prev->height / 2.0))), (double)p->x, (double)p->y);
 				}
 			}
 		}
@@ -492,14 +349,14 @@ $Rectangle* BasicListUI::getDropLineRect($JList$DropLocation* loc) {
 			--index;
 			$assign(rect, getCellBounds(this->list, index));
 			if (this->isLeftToRight) {
-				$nc(rect)->x += rect->width;
+				$nc(rect)->x += $nc(rect)->width;
 			} else {
 				$nc(rect)->x -= BasicListUI::DROP_LINE_THICKNESS;
 			}
 		} else {
 			$assign(rect, getCellBounds(this->list, index));
 			if (!this->isLeftToRight) {
-				$nc(rect)->x += rect->width - BasicListUI::DROP_LINE_THICKNESS;
+				$nc(rect)->x += $nc(rect)->width - BasicListUI::DROP_LINE_THICKNESS;
 			}
 		}
 		if ($nc(rect)->x >= $nc(this->list)->getWidth()) {
@@ -507,27 +364,27 @@ $Rectangle* BasicListUI::getDropLineRect($JList$DropLocation* loc) {
 		} else if (rect->x < 0) {
 			rect->x = 0;
 		}
-		$nc(rect)->width = BasicListUI::DROP_LINE_THICKNESS;
+		rect->width = BasicListUI::DROP_LINE_THICKNESS;
 	} else if (this->layoutOrientation == $JList::VERTICAL_WRAP) {
 		if (index == size) {
 			--index;
 			$assign(rect, getCellBounds(this->list, index));
-			$nc(rect)->y += rect->height;
+			$nc(rect)->y += $nc(rect)->height;
 		} else {
-			bool var$8 = index != 0;
-			if (var$8) {
-				int32_t var$9 = convertModelToColumn(index);
-				var$8 = var$9 != convertModelToColumn(index - 1);
+			bool var$4 = index != 0;
+			if (var$4) {
+				int32_t var$5 = convertModelToColumn(index);
+				var$4 = var$5 != convertModelToColumn(index - 1);
 			}
-			if (var$8) {
+			if (var$4) {
 				$var($Rectangle, prev, getCellBounds(this->list, index - 1));
 				$var($Rectangle, me, getCellBounds(this->list, index));
 				$var($Point, p, loc->getDropPoint());
-				double var$10 = $Point2D::distance((double)($nc(prev)->x + $cast(int32_t, (prev->width / 2.0))), (double)(prev->y + prev->height), (double)$nc(p)->x, (double)p->y);
-				if (var$10 < $Point2D::distance((double)($nc(me)->x + $cast(int32_t, (me->width / 2.0))), (double)me->y, (double)$nc(p)->x, (double)p->y)) {
+				double var$6 = $Point2D::distance((double)($nc(prev)->x + $cast(int32_t, ($nc(prev)->width / 2.0))), (double)($nc(prev)->y + $nc(prev)->height), (double)$nc(p)->x, (double)$nc(p)->y);
+				if (var$6 < $Point2D::distance((double)($nc(me)->x + $cast(int32_t, ($nc(me)->width / 2.0))), (double)$nc(me)->y, (double)p->x, (double)p->y)) {
 					--index;
 					$assign(rect, getCellBounds(this->list, index));
-					$nc(rect)->y += rect->height;
+					$nc(rect)->y += $nc(rect)->height;
 				} else {
 					$assign(rect, getCellBounds(this->list, index));
 				}
@@ -538,25 +395,25 @@ $Rectangle* BasicListUI::getDropLineRect($JList$DropLocation* loc) {
 		if ($nc(rect)->y >= $nc(this->list)->getHeight()) {
 			rect->y = $nc(this->list)->getHeight() - BasicListUI::DROP_LINE_THICKNESS;
 		}
-		$nc(rect)->height = BasicListUI::DROP_LINE_THICKNESS;
+		rect->height = BasicListUI::DROP_LINE_THICKNESS;
 	} else {
 		if (index == size) {
 			--index;
 			$assign(rect, getCellBounds(this->list, index));
-			$nc(rect)->y += rect->height;
+			$nc(rect)->y += $nc(rect)->height;
 		} else {
 			$assign(rect, getCellBounds(this->list, index));
 		}
 		if ($nc(rect)->y >= $nc(this->list)->getHeight()) {
 			rect->y = $nc(this->list)->getHeight() - BasicListUI::DROP_LINE_THICKNESS;
 		}
-		$nc(rect)->height = BasicListUI::DROP_LINE_THICKNESS;
+		rect->height = BasicListUI::DROP_LINE_THICKNESS;
 	}
 	return rect;
 }
 
 int32_t BasicListUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ListUI::getBaseline(c, width, height);
 	int32_t rowHeight = $nc(this->list)->getFixedCellHeight();
 	$var($UIDefaults, lafDefaults, $UIManager::getLookAndFeelDefaults());
@@ -584,14 +441,14 @@ $Component$BaselineResizeBehavior* BasicListUI::getBaselineResizeBehavior($JComp
 }
 
 $Dimension* BasicListUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	maybeUpdateLayoutState();
-	int32_t lastRow = $nc($($nc(this->list)->getModel()))->getSize() - 1;
+	int32_t lastRow = $$nc($nc(this->list)->getModel())->getSize() - 1;
 	if (lastRow < 0) {
 		return $new($Dimension, 0, 0);
 	}
 	$var($Insets, insets, $nc(this->list)->getInsets());
-	int32_t width = this->cellWidth * this->columnCount + $nc(insets)->left + insets->right;
+	int32_t width = this->cellWidth * this->columnCount + $nc(insets)->left + $nc(insets)->right;
 	int32_t height = 0;
 	if (this->layoutOrientation != $JList::VERTICAL) {
 		height = this->preferredHeight;
@@ -617,7 +474,7 @@ void BasicListUI::selectPreviousIndex() {
 
 void BasicListUI::selectNextIndex() {
 	int32_t s = $nc(this->list)->getSelectedIndex();
-	if ((s + 1) < $nc($($nc(this->list)->getModel()))->getSize()) {
+	if ((s + 1) < $$nc($nc(this->list)->getModel())->getSize()) {
 		s += 1;
 		$nc(this->list)->setSelectedIndex(s);
 		$nc(this->list)->ensureIndexIsVisible(s);
@@ -631,7 +488,7 @@ void BasicListUI::installKeyboardActions() {
 }
 
 $InputMap* BasicListUI::getInputMap(int32_t condition) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (condition == $JComponent::WHEN_FOCUSED) {
 		$var($InputMap, keyMap, $cast($InputMap, $DefaultLookup::get(this->list, this, "List.focusInputMap"_s)));
 		$var($InputMap, rtlKeyMap, nullptr);
@@ -651,7 +508,7 @@ void BasicListUI::uninstallKeyboardActions() {
 }
 
 void BasicListUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransferHandler, th, $nc(this->list)->getTransferHandler());
 	if (th == nullptr || $instanceOf($UIResource, th)) {
 		$nc(this->list)->setTransferHandler(BasicListUI::defaultTransferHandler);
@@ -680,7 +537,7 @@ void BasicListUI::installListeners() {
 }
 
 void BasicListUI::uninstallListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->list)->removeFocusListener(this->focusListener);
 	$nc(this->list)->removeMouseListener(this->mouseInputListener);
 	$nc(this->list)->removeMouseMotionListener(this->mouseInputListener);
@@ -703,14 +560,13 @@ void BasicListUI::uninstallListeners() {
 }
 
 void BasicListUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->list)->setLayout(nullptr);
 	$LookAndFeel::installBorder(this->list, "List.border"_s);
 	$LookAndFeel::installColorsAndFont(this->list, "List.background"_s, "List.foreground"_s, "List.font"_s);
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->list, "opaque"_s, $Boolean::TRUE);
 	if ($nc(this->list)->getCellRenderer() == nullptr) {
-		$var($ListCellRenderer, tmp, ($cast($ListCellRenderer, $UIManager::get("List.cellRenderer"_s))));
+		$var($ListCellRenderer, tmp, $cast($ListCellRenderer, $UIManager::get("List.cellRenderer"_s)));
 		$nc(this->list)->setCellRenderer(tmp);
 	}
 	$var($Color, sbg, $nc(this->list)->getSelectionBackground());
@@ -722,19 +578,18 @@ void BasicListUI::installDefaults() {
 		$nc(this->list)->setSelectionForeground($($UIManager::getColor("List.selectionForeground"_s)));
 	}
 	$var($Long, l, $cast($Long, $UIManager::get("List.timeFactor"_s)));
-	this->timeFactor = (l != nullptr) ? $nc(l)->longValue() : (int64_t)1000;
+	this->timeFactor = (l != nullptr) ? l->longValue() : 1000;
 	updateIsFileList();
 }
 
 void BasicListUI::updateIsFileList() {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	bool b = $nc($Boolean::TRUE)->equals($($nc(this->list)->getClientProperty("List.isFileList"_s)));
 	if (b != this->isFileList) {
 		this->isFileList = b;
 		$var($Font, oldFont, $nc(this->list)->getFont());
 		if (oldFont == nullptr || $instanceOf($UIResource, oldFont)) {
-			$var($Font, newFont, $UIManager::getFont(b ? $of("FileChooser.listFont"_s) : $of("List.font"_s)));
+			$var($Font, newFont, $UIManager::getFont(b ? "FileChooser.listFont"_s : "List.font"_s));
 			if (newFont != nullptr && newFont != oldFont) {
 				$nc(this->list)->setFont(newFont);
 			}
@@ -743,7 +598,7 @@ void BasicListUI::updateIsFileList() {
 }
 
 void BasicListUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$LookAndFeel::uninstallBorder(this->list);
 	if ($instanceOf($UIResource, $($nc(this->list)->getFont()))) {
 		$nc(this->list)->setFont(nullptr);
@@ -769,15 +624,15 @@ void BasicListUI::uninstallDefaults() {
 }
 
 void BasicListUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JList, tmp, $cast($JList, c));
 	$set(this, list, tmp);
 	this->layoutOrientation = $nc(this->list)->getLayoutOrientation();
 	$set(this, rendererPane, $new($CellRendererPane));
-	$nc(this->list)->add(static_cast<$Component*>(this->rendererPane));
+	$nc(this->list)->add(this->rendererPane);
 	this->columnCount = 1;
 	this->updateLayoutStateNeeded = BasicListUI::modelChanged;
-	this->isLeftToRight = $nc($($nc(this->list)->getComponentOrientation()))->isLeftToRight();
+	this->isLeftToRight = $$nc($nc(this->list)->getComponentOrientation())->isLeftToRight();
 	installDefaults();
 	installListeners();
 	installKeyboardActions();
@@ -790,7 +645,7 @@ void BasicListUI::uninstallUI($JComponent* c) {
 	this->cellWidth = (this->cellHeight = -1);
 	$set(this, cellHeights, nullptr);
 	this->listWidth = (this->listHeight = -1);
-	$nc(this->list)->remove(static_cast<$Component*>(this->rendererPane));
+	$nc(this->list)->remove(this->rendererPane);
 	$set(this, rendererPane, nullptr);
 	$set(this, list, nullptr);
 }
@@ -802,7 +657,7 @@ $ComponentUI* BasicListUI::createUI($JComponent* list) {
 
 int32_t BasicListUI::locationToIndex($JList* list, $Point* location) {
 	maybeUpdateLayoutState();
-	return convertLocationToModel($nc(location)->x, location->y);
+	return convertLocationToModel($nc(location)->x, $nc(location)->y);
 }
 
 $Point* BasicListUI::indexToLocation($JList* list, int32_t index) {
@@ -815,11 +670,11 @@ $Point* BasicListUI::indexToLocation($JList* list, int32_t index) {
 }
 
 $Rectangle* BasicListUI::getCellBounds($JList* list, int32_t index1, int32_t index2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	maybeUpdateLayoutState();
 	int32_t minIndex = $Math::min(index1, index2);
 	int32_t maxIndex = $Math::max(index1, index2);
-	if (minIndex >= $nc($($nc(list)->getModel()))->getSize()) {
+	if (minIndex >= $$nc($nc(list)->getModel())->getSize()) {
 		return nullptr;
 	}
 	$var($Rectangle, minBounds, getCellBounds(list, minIndex));
@@ -836,11 +691,11 @@ $Rectangle* BasicListUI::getCellBounds($JList* list, int32_t index1, int32_t ind
 			int32_t maxRow = convertModelToRow(maxIndex);
 			if (minRow != maxRow) {
 				$nc(minBounds)->x = 0;
-				minBounds->width = $nc(list)->getWidth();
+				minBounds->width = list->getWidth();
 			}
 		} else if ($nc(minBounds)->x != maxBounds->x) {
 			minBounds->y = 0;
-			minBounds->height = $nc(list)->getHeight();
+			minBounds->height = list->getHeight();
 		}
 		$nc(minBounds)->add(maxBounds);
 	}
@@ -861,34 +716,29 @@ $Rectangle* BasicListUI::getCellBounds($JList* list, int32_t index) {
 	int32_t h = 0;
 	switch (this->layoutOrientation) {
 	case $JList::VERTICAL_WRAP:
-		{}
 	case $JList::HORIZONTAL_WRAP:
-		{
-			if (this->isLeftToRight) {
-				x = insets->left + column * this->cellWidth;
-			} else {
-				x = list->getWidth() - insets->right - (column + 1) * this->cellWidth;
-			}
-			y += this->cellHeight * row;
-			h = this->cellHeight;
-			break;
+		if (this->isLeftToRight) {
+			x = insets->left + column * this->cellWidth;
+		} else {
+			x = list->getWidth() - insets->right - (column + 1) * this->cellWidth;
 		}
+		y += this->cellHeight * row;
+		h = this->cellHeight;
+		break;
 	default:
-		{
-			x = insets->left;
-			if (this->cellHeights == nullptr) {
-				y += (this->cellHeight * row);
-			} else if (row >= $nc(this->cellHeights)->length) {
-				y = 0;
-			} else {
-				for (int32_t i = 0; i < row; ++i) {
-					y += $nc(this->cellHeights)->get(i);
-				}
+		x = insets->left;
+		if (this->cellHeights == nullptr) {
+			y += (this->cellHeight * row);
+		} else if (row >= this->cellHeights->length) {
+			y = 0;
+		} else {
+			for (int32_t i = 0; i < row; ++i) {
+				y += this->cellHeights->get(i);
 			}
-			w = list->getWidth() - (insets->left + insets->right);
-			h = getRowHeight(index);
-			break;
 		}
+		w = list->getWidth() - (insets->left + insets->right);
+		h = getRowHeight(index);
+		break;
 	}
 	return $new($Rectangle, x, y, w, h);
 }
@@ -916,15 +766,15 @@ int32_t BasicListUI::getHeight(int32_t column, int32_t row) {
 	if (this->layoutOrientation != $JList::VERTICAL) {
 		return this->cellHeight;
 	}
-	if (row >= $nc($($nc(this->list)->getModel()))->getSize()) {
+	if (row >= $$nc($nc(this->list)->getModel())->getSize()) {
 		return -1;
 	}
-	return (this->cellHeights == nullptr) ? this->cellHeight : ((row < $nc(this->cellHeights)->length) ? $nc(this->cellHeights)->get(row) : -1);
+	return (this->cellHeights == nullptr) ? this->cellHeight : ((row < this->cellHeights->length) ? this->cellHeights->get(row) : -1);
 }
 
 int32_t BasicListUI::convertLocationToRow(int32_t x, int32_t y0, bool closest) {
-	$useLocalCurrentObjectStackCache();
-	int32_t size = $nc($($nc(this->list)->getModel()))->getSize();
+	$useLocalObjectStack();
+	int32_t size = $$nc($nc(this->list)->getModel())->getSize();
 	if (size <= 0) {
 		return -1;
 	}
@@ -939,7 +789,7 @@ int32_t BasicListUI::convertLocationToRow(int32_t x, int32_t y0, bool closest) {
 			}
 		}
 		return row;
-	} else if (size > $nc(this->cellHeights)->length) {
+	} else if (size > this->cellHeights->length) {
 		return -1;
 	} else {
 		int32_t y = $nc(insets)->top;
@@ -949,10 +799,10 @@ int32_t BasicListUI::convertLocationToRow(int32_t x, int32_t y0, bool closest) {
 		}
 		int32_t i = 0;
 		for (i = 0; i < size; ++i) {
-			if ((y0 >= y) && (y0 < y + $nc(this->cellHeights)->get(i))) {
+			if ((y0 >= y) && (y0 < y + this->cellHeights->get(i))) {
 				return row;
 			}
-			y += $nc(this->cellHeights)->get(i);
+			y += this->cellHeights->get(i);
 			row += 1;
 		}
 		return i - 1;
@@ -966,7 +816,7 @@ int32_t BasicListUI::convertLocationToRowInColumn(int32_t y, int32_t column) {
 			x = column * this->cellWidth;
 		} else {
 			int32_t var$0 = $nc(this->list)->getWidth() - (column + 1) * this->cellWidth;
-			x = var$0 - $nc($($nc(this->list)->getInsets()))->right;
+			x = var$0 - $nc($(this->list->getInsets()))->right;
 		}
 	}
 	return convertLocationToRow(x, y, true);
@@ -982,12 +832,12 @@ int32_t BasicListUI::convertLocationToModel(int32_t x, int32_t y) {
 }
 
 int32_t BasicListUI::getRowCount(int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (column < 0 || column >= this->columnCount) {
 		return -1;
 	}
 	if (this->layoutOrientation == $JList::VERTICAL || (column == 0 && this->columnCount == 1)) {
-		return $nc($($nc(this->list)->getModel()))->getSize();
+		return $$nc($nc(this->list)->getModel())->getSize();
 	}
 	if (column >= this->columnCount) {
 		return -1;
@@ -996,9 +846,9 @@ int32_t BasicListUI::getRowCount(int32_t column) {
 		if (column < (this->columnCount - 1)) {
 			return this->rowsPerColumn;
 		}
-		return $nc($($nc(this->list)->getModel()))->getSize() - (this->columnCount - 1) * this->rowsPerColumn;
+		return $$nc($nc(this->list)->getModel())->getSize() - (this->columnCount - 1) * this->rowsPerColumn;
 	}
-	int32_t diff = this->columnCount - (this->columnCount * this->rowsPerColumn - $nc($($nc(this->list)->getModel()))->getSize());
+	int32_t diff = this->columnCount - (this->columnCount * this->rowsPerColumn - $$nc($nc(this->list)->getModel())->getSize());
 	if (column >= diff) {
 		return $Math::max(0, this->rowsPerColumn - 1);
 	}
@@ -1006,21 +856,17 @@ int32_t BasicListUI::getRowCount(int32_t column) {
 }
 
 int32_t BasicListUI::getModelIndex(int32_t column, int32_t row) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (this->layoutOrientation) {
 	case $JList::VERTICAL_WRAP:
 		{
-			int32_t var$0 = $nc($($nc(this->list)->getModel()))->getSize() - 1;
+			int32_t var$0 = $$nc($nc(this->list)->getModel())->getSize() - 1;
 			return $Math::min(var$0, this->rowsPerColumn * column + $Math::min(row, this->rowsPerColumn - 1));
 		}
 	case $JList::HORIZONTAL_WRAP:
-		{
-			return $Math::min($nc($($nc(this->list)->getModel()))->getSize() - 1, row * this->columnCount + column);
-		}
+		return $Math::min($$nc($nc(this->list)->getModel())->getSize() - 1, row * this->columnCount + column);
 	default:
-		{
-			return row;
-		}
+		return row;
 	}
 }
 
@@ -1047,7 +893,7 @@ int32_t BasicListUI::convertLocationToColumn(int32_t x, int32_t y) {
 }
 
 int32_t BasicListUI::convertModelToRow(int32_t index) {
-	int32_t size = $nc($($nc(this->list)->getModel()))->getSize();
+	int32_t size = $$nc($nc(this->list)->getModel())->getSize();
 	if ((index < 0) || (index >= size)) {
 		return -1;
 	}
@@ -1061,7 +907,7 @@ int32_t BasicListUI::convertModelToRow(int32_t index) {
 }
 
 int32_t BasicListUI::convertModelToColumn(int32_t index) {
-	int32_t size = $nc($($nc(this->list)->getModel()))->getSize();
+	int32_t size = $$nc($nc(this->list)->getModel())->getSize();
 	if ((index < 0) || (index >= size)) {
 		return -1;
 	}
@@ -1082,7 +928,7 @@ void BasicListUI::maybeUpdateLayoutState() {
 }
 
 void BasicListUI::updateLayoutState() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t fixedCellHeight = $nc(this->list)->getFixedCellHeight();
 	int32_t fixedCellWidth = $nc(this->list)->getFixedCellWidth();
 	this->cellWidth = (fixedCellWidth != -1) ? fixedCellWidth : -1;
@@ -1091,7 +937,7 @@ void BasicListUI::updateLayoutState() {
 		$set(this, cellHeights, nullptr);
 	} else {
 		this->cellHeight = -1;
-		$set(this, cellHeights, $new($ints, $nc($($nc(this->list)->getModel()))->getSize()));
+		$set(this, cellHeights, $new($ints, $$nc($nc(this->list)->getModel())->getSize()));
 	}
 	if ((fixedCellWidth == -1) || (fixedCellHeight == -1)) {
 		$var($ListModel, dataModel, $nc(this->list)->getModel());
@@ -1129,15 +975,15 @@ void BasicListUI::updateLayoutState() {
 }
 
 void BasicListUI::updateHorizontalLayoutState(int32_t fixedCellWidth, int32_t fixedCellHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t visRows = $nc(this->list)->getVisibleRowCount();
-	int32_t dataModelSize = $nc($($nc(this->list)->getModel()))->getSize();
+	int32_t dataModelSize = $$nc($nc(this->list)->getModel())->getSize();
 	$var($Insets, insets, $nc(this->list)->getInsets());
 	this->listHeight = $nc(this->list)->getHeight();
 	this->listWidth = $nc(this->list)->getWidth();
 	if (dataModelSize == 0) {
 		this->rowsPerColumn = (this->columnCount = 0);
-		this->preferredHeight = $nc(insets)->top + insets->bottom;
+		this->preferredHeight = $nc(insets)->top + $nc(insets)->bottom;
 		return;
 	}
 	int32_t height = 0;
@@ -1146,9 +992,9 @@ void BasicListUI::updateHorizontalLayoutState(int32_t fixedCellWidth, int32_t fi
 	} else {
 		int32_t maxHeight = 0;
 		if ($nc(this->cellHeights)->length > 0) {
-			maxHeight = $nc(this->cellHeights)->get($nc(this->cellHeights)->length - 1);
-			for (int32_t counter = $nc(this->cellHeights)->length - 2; counter >= 0; --counter) {
-				maxHeight = $Math::max(maxHeight, $nc(this->cellHeights)->get(counter));
+			maxHeight = this->cellHeights->get(this->cellHeights->length - 1);
+			for (int32_t counter = this->cellHeights->length - 2; counter >= 0; --counter) {
+				maxHeight = $Math::max(maxHeight, this->cellHeights->get(counter));
 			}
 		}
 		height = (this->cellHeight = maxHeight);
@@ -1168,19 +1014,19 @@ void BasicListUI::updateHorizontalLayoutState(int32_t fixedCellWidth, int32_t fi
 			}
 		}
 	} else if (this->layoutOrientation == $JList::VERTICAL_WRAP && height != 0) {
-		this->rowsPerColumn = $Math::max(1, $div((this->listHeight - $nc(insets)->top - insets->bottom), height));
+		this->rowsPerColumn = $Math::max(1, $div((this->listHeight - $nc(insets)->top - $nc(insets)->bottom), height));
 		this->columnCount = $Math::max(1, $div(dataModelSize, this->rowsPerColumn));
 		if (dataModelSize > 0 && dataModelSize > this->rowsPerColumn && $mod(dataModelSize, this->rowsPerColumn) != 0) {
 			++this->columnCount;
 		}
 	} else if (this->layoutOrientation == $JList::HORIZONTAL_WRAP && this->cellWidth > 0 && this->listWidth > 0) {
-		this->columnCount = $Math::max(1, $div((this->listWidth - $nc(insets)->left - insets->right), this->cellWidth));
+		this->columnCount = $Math::max(1, $div((this->listWidth - $nc(insets)->left - $nc(insets)->right), this->cellWidth));
 		this->rowsPerColumn = $div(dataModelSize, this->columnCount);
 		if ($mod(dataModelSize, this->columnCount) > 0) {
 			++this->rowsPerColumn;
 		}
 	}
-	this->preferredHeight = this->rowsPerColumn * this->cellHeight + $nc(insets)->top + insets->bottom;
+	this->preferredHeight = this->rowsPerColumn * this->cellHeight + $nc(insets)->top + $nc(insets)->bottom;
 }
 
 $BasicListUI$Handler* BasicListUI::getHandler() {
@@ -1217,10 +1063,10 @@ $PropertyChangeListener* BasicListUI::createPropertyChangeListener() {
 
 int32_t BasicListUI::adjustIndex(int32_t index, $JList* list) {
 	$init(BasicListUI);
-	return index < $nc($($nc(list)->getModel()))->getSize() ? index : -1;
+	return index < $$nc($nc(list)->getModel())->getSize() ? index : -1;
 }
 
-void clinit$BasicListUI($Class* class$) {
+void BasicListUI::clinit$($Class* clazz) {
 	$assignStatic(BasicListUI::BASELINE_COMPONENT_KEY, $new($StringBuilder, "List.baselineComponent"_s));
 	$assignStatic(BasicListUI::defaultTransferHandler, $new($BasicListUI$ListTransferHandler));
 }
@@ -1229,7 +1075,128 @@ BasicListUI::BasicListUI() {
 }
 
 $Class* BasicListUI::load$($String* name, bool initialize) {
-	$loadClass(BasicListUI, name, initialize, &_BasicListUI_ClassInfo_, clinit$BasicListUI, allocate$BasicListUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASELINE_COMPONENT_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI, BASELINE_COMPONENT_KEY)},
+		{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/lang/Object;>;", $PROTECTED, $field(BasicListUI, list)},
+		{"rendererPane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $field(BasicListUI, rendererPane)},
+		{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $field(BasicListUI, focusListener)},
+		{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $field(BasicListUI, mouseInputListener)},
+		{"listSelectionListener", "Ljavax/swing/event/ListSelectionListener;", nullptr, $PROTECTED, $field(BasicListUI, listSelectionListener)},
+		{"listDataListener", "Ljavax/swing/event/ListDataListener;", nullptr, $PROTECTED, $field(BasicListUI, listDataListener)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(BasicListUI, propertyChangeListener)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicListUI$Handler;", nullptr, $PRIVATE, $field(BasicListUI, handler)},
+		{"cellHeights", "[I", nullptr, $PROTECTED, $field(BasicListUI, cellHeights)},
+		{"cellHeight", "I", nullptr, $PROTECTED, $field(BasicListUI, cellHeight)},
+		{"cellWidth", "I", nullptr, $PROTECTED, $field(BasicListUI, cellWidth)},
+		{"updateLayoutStateNeeded", "I", nullptr, $PROTECTED, $field(BasicListUI, updateLayoutStateNeeded)},
+		{"listHeight", "I", nullptr, $PRIVATE, $field(BasicListUI, listHeight)},
+		{"listWidth", "I", nullptr, $PRIVATE, $field(BasicListUI, listWidth)},
+		{"layoutOrientation", "I", nullptr, $PRIVATE, $field(BasicListUI, layoutOrientation)},
+		{"columnCount", "I", nullptr, $PRIVATE, $field(BasicListUI, columnCount)},
+		{"preferredHeight", "I", nullptr, $PRIVATE, $field(BasicListUI, preferredHeight)},
+		{"rowsPerColumn", "I", nullptr, $PRIVATE, $field(BasicListUI, rowsPerColumn)},
+		{"timeFactor", "J", nullptr, $PRIVATE, $field(BasicListUI, timeFactor)},
+		{"isFileList", "Z", nullptr, $PRIVATE, $field(BasicListUI, isFileList)},
+		{"isLeftToRight", "Z", nullptr, $PRIVATE, $field(BasicListUI, isLeftToRight)},
+		{"modelChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, modelChanged)},
+		{"selectionModelChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, selectionModelChanged)},
+		{"fontChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, fontChanged)},
+		{"fixedCellWidthChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, fixedCellWidthChanged)},
+		{"fixedCellHeightChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, fixedCellHeightChanged)},
+		{"prototypeCellValueChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, prototypeCellValueChanged)},
+		{"cellRendererChanged", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(BasicListUI, cellRendererChanged)},
+		{"layoutOrientationChanged", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, layoutOrientationChanged)},
+		{"heightChanged", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, heightChanged)},
+		{"widthChanged", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, widthChanged)},
+		{"componentOrientationChanged", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, componentOrientationChanged)},
+		{"DROP_LINE_THICKNESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, DROP_LINE_THICKNESS)},
+		{"CHANGE_LEAD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, CHANGE_LEAD)},
+		{"CHANGE_SELECTION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, CHANGE_SELECTION)},
+		{"EXTEND_SELECTION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BasicListUI, EXTEND_SELECTION)},
+		{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicListUI, defaultTransferHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicListUI, init$, void)},
+		{"adjustIndex", "(ILjavax/swing/JList;)I", "(ILjavax/swing/JList<*>;)I", $PRIVATE | $STATIC, $staticMethod(BasicListUI, adjustIndex, int32_t, int32_t, $JList*)},
+		{"convertLocationToColumn", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, convertLocationToColumn, int32_t, int32_t, int32_t)},
+		{"convertLocationToModel", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, convertLocationToModel, int32_t, int32_t, int32_t)},
+		{"convertLocationToRow", "(IIZ)I", nullptr, $PRIVATE, $method(BasicListUI, convertLocationToRow, int32_t, int32_t, int32_t, bool)},
+		{"convertLocationToRowInColumn", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, convertLocationToRowInColumn, int32_t, int32_t, int32_t)},
+		{"convertModelToColumn", "(I)I", nullptr, $PRIVATE, $method(BasicListUI, convertModelToColumn, int32_t, int32_t)},
+		{"convertModelToRow", "(I)I", nullptr, $PRIVATE, $method(BasicListUI, convertModelToRow, int32_t, int32_t)},
+		{"convertRowToY", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicListUI, convertRowToY, int32_t, int32_t)},
+		{"convertYToRow", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicListUI, convertYToRow, int32_t, int32_t)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createFocusListener, $FocusListener*)},
+		{"createListDataListener", "()Ljavax/swing/event/ListDataListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createListDataListener, $ListDataListener*)},
+		{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createListSelectionListener, $ListSelectionListener*)},
+		{"createMouseInputListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createMouseInputListener, $MouseInputListener*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicListUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicListUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicListUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicListUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getCellBounds", "(Ljavax/swing/JList;II)Ljava/awt/Rectangle;", "(Ljavax/swing/JList<*>;II)Ljava/awt/Rectangle;", $PUBLIC, $virtualMethod(BasicListUI, getCellBounds, $Rectangle*, $JList*, int32_t, int32_t)},
+		{"getCellBounds", "(Ljavax/swing/JList;I)Ljava/awt/Rectangle;", "(Ljavax/swing/JList<*>;I)Ljava/awt/Rectangle;", $PRIVATE, $method(BasicListUI, getCellBounds, $Rectangle*, $JList*, int32_t)},
+		{"getDropLineRect", "(Ljavax/swing/JList$DropLocation;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(BasicListUI, getDropLineRect, $Rectangle*, $JList$DropLocation*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicListUI$Handler;", nullptr, $PRIVATE, $method(BasicListUI, getHandler, $BasicListUI$Handler*)},
+		{"getHeight", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, getHeight, int32_t, int32_t, int32_t)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicListUI, getInputMap, $InputMap*, int32_t)},
+		{"getModelIndex", "(II)I", nullptr, $PRIVATE, $method(BasicListUI, getModelIndex, int32_t, int32_t, int32_t)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicListUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getRowCount", "(I)I", nullptr, $PRIVATE, $method(BasicListUI, getRowCount, int32_t, int32_t)},
+		{"getRowHeight", "(I)I", nullptr, $PROTECTED, $virtualMethod(BasicListUI, getRowHeight, int32_t, int32_t)},
+		{"indexToLocation", "(Ljavax/swing/JList;I)Ljava/awt/Point;", "(Ljavax/swing/JList<*>;I)Ljava/awt/Point;", $PUBLIC, $virtualMethod(BasicListUI, indexToLocation, $Point*, $JList*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI, installUI, void, $JComponent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicListUI, loadActionMap, void, $LazyActionMap*)},
+		{"locationToIndex", "(Ljavax/swing/JList;Ljava/awt/Point;)I", "(Ljavax/swing/JList<*>;Ljava/awt/Point;)I", $PUBLIC, $virtualMethod(BasicListUI, locationToIndex, int32_t, $JList*, $Point*)},
+		{"maybeUpdateLayoutState", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, maybeUpdateLayoutState, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintCell", "(Ljava/awt/Graphics;ILjava/awt/Rectangle;Ljavax/swing/ListCellRenderer;Ljavax/swing/ListModel;Ljavax/swing/ListSelectionModel;I)V", "(Ljava/awt/Graphics;ILjava/awt/Rectangle;Ljavax/swing/ListCellRenderer<Ljava/lang/Object;>;Ljavax/swing/ListModel<Ljava/lang/Object;>;Ljavax/swing/ListSelectionModel;I)V", $PROTECTED, $virtualMethod(BasicListUI, paintCell, void, $Graphics*, int32_t, $Rectangle*, $ListCellRenderer*, $ListModel*, $ListSelectionModel*, int32_t)},
+		{"paintDropLine", "(Ljava/awt/Graphics;)V", nullptr, $PRIVATE, $method(BasicListUI, paintDropLine, void, $Graphics*)},
+		{"paintImpl", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(BasicListUI, paintImpl, void, $Graphics*, $JComponent*)},
+		{"redrawList", "()V", nullptr, $PRIVATE, $method(BasicListUI, redrawList, void)},
+		{"selectNextIndex", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, selectNextIndex, void)},
+		{"selectPreviousIndex", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, selectPreviousIndex, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicListUI, uninstallUI, void, $JComponent*)},
+		{"updateHorizontalLayoutState", "(II)V", nullptr, $PRIVATE, $method(BasicListUI, updateHorizontalLayoutState, void, int32_t, int32_t)},
+		{"updateIsFileList", "()V", nullptr, $PRIVATE, $method(BasicListUI, updateIsFileList, void)},
+		{"updateLayoutState", "()V", nullptr, $PROTECTED, $virtualMethod(BasicListUI, updateLayoutState, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicListUI$ListTransferHandler", "javax.swing.plaf.basic.BasicListUI", "ListTransferHandler", $STATIC},
+		{"javax.swing.plaf.basic.BasicListUI$Handler", "javax.swing.plaf.basic.BasicListUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicListUI$Actions", "javax.swing.plaf.basic.BasicListUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicListUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicListUI", "PropertyChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicListUI$ListDataHandler", "javax.swing.plaf.basic.BasicListUI", "ListDataHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicListUI$ListSelectionHandler", "javax.swing.plaf.basic.BasicListUI", "ListSelectionHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicListUI$FocusHandler", "javax.swing.plaf.basic.BasicListUI", "FocusHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicListUI$MouseInputHandler", "javax.swing.plaf.basic.BasicListUI", "MouseInputHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicListUI",
+		"javax.swing.plaf.ListUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicListUI$ListTransferHandler,javax.swing.plaf.basic.BasicListUI$Handler,javax.swing.plaf.basic.BasicListUI$Actions,javax.swing.plaf.basic.BasicListUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicListUI$ListDataHandler,javax.swing.plaf.basic.BasicListUI$ListSelectionHandler,javax.swing.plaf.basic.BasicListUI$FocusHandler,javax.swing.plaf.basic.BasicListUI$MouseInputHandler"
+	};
+	$loadClass(BasicListUI, name, initialize, &classInfo$$, BasicListUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicListUI);
+	});
 	return class$;
 }
 

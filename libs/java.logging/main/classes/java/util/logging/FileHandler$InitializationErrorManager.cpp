@@ -1,5 +1,4 @@
 #include <java/util/logging/FileHandler$InitializationErrorManager.h>
-
 #include <java/util/logging/ErrorManager.h>
 #include <java/util/logging/FileHandler.h>
 #include <jcpp.h>
@@ -15,42 +14,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _FileHandler$InitializationErrorManager_FieldInfo_[] = {
-	{"lastException", "Ljava/lang/Exception;", nullptr, 0, $field(FileHandler$InitializationErrorManager, lastException)},
-	{}
-};
-
-$MethodInfo _FileHandler$InitializationErrorManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(FileHandler$InitializationErrorManager, init$, void)},
-	{"error", "(Ljava/lang/String;Ljava/lang/Exception;I)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$InitializationErrorManager, error, void, $String*, $Exception*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _FileHandler$InitializationErrorManager_InnerClassesInfo_[] = {
-	{"java.util.logging.FileHandler$InitializationErrorManager", "java.util.logging.FileHandler", "InitializationErrorManager", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FileHandler$InitializationErrorManager_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.logging.FileHandler$InitializationErrorManager",
-	"java.util.logging.ErrorManager",
-	nullptr,
-	_FileHandler$InitializationErrorManager_FieldInfo_,
-	_FileHandler$InitializationErrorManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileHandler$InitializationErrorManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.FileHandler"
-};
-
-$Object* allocate$FileHandler$InitializationErrorManager($Class* clazz) {
-	return $of($alloc(FileHandler$InitializationErrorManager));
-}
-
 void FileHandler$InitializationErrorManager::init$() {
 	$ErrorManager::init$();
 }
@@ -63,7 +26,37 @@ FileHandler$InitializationErrorManager::FileHandler$InitializationErrorManager()
 }
 
 $Class* FileHandler$InitializationErrorManager::load$($String* name, bool initialize) {
-	$loadClass(FileHandler$InitializationErrorManager, name, initialize, &_FileHandler$InitializationErrorManager_ClassInfo_, allocate$FileHandler$InitializationErrorManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"lastException", "Ljava/lang/Exception;", nullptr, 0, $field(FileHandler$InitializationErrorManager, lastException)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(FileHandler$InitializationErrorManager, init$, void)},
+		{"error", "(Ljava/lang/String;Ljava/lang/Exception;I)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$InitializationErrorManager, error, void, $String*, $Exception*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.FileHandler$InitializationErrorManager", "java.util.logging.FileHandler", "InitializationErrorManager", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.logging.FileHandler$InitializationErrorManager",
+		"java.util.logging.ErrorManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.FileHandler"
+	};
+	$loadClass(FileHandler$InitializationErrorManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileHandler$InitializationErrorManager);
+	});
 	return class$;
 }
 

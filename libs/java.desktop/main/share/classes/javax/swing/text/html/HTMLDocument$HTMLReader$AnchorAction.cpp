@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$HTMLReader$AnchorAction.h>
-
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/html/HTML$Tag.h>
 #include <javax/swing/text/html/HTMLDocument$HTMLReader$CharacterAction.h>
@@ -19,45 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _HTMLDocument$HTMLReader$AnchorAction_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$AnchorAction, this$1)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$HTMLReader$AnchorAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, 0, $method(HTMLDocument$HTMLReader$AnchorAction, init$, void, $HTMLDocument$HTMLReader*)},
-	{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$AnchorAction, end, void, $HTML$Tag*)},
-	{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$AnchorAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$HTMLReader$AnchorAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$AnchorAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "AnchorAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$CharacterAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "CharacterAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$HTMLReader$AnchorAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$HTMLReader$AnchorAction",
-	"javax.swing.text.html.HTMLDocument$HTMLReader$CharacterAction",
-	nullptr,
-	_HTMLDocument$HTMLReader$AnchorAction_FieldInfo_,
-	_HTMLDocument$HTMLReader$AnchorAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$HTMLReader$AnchorAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$HTMLReader$AnchorAction($Class* clazz) {
-	return $of($alloc(HTMLDocument$HTMLReader$AnchorAction));
-}
 
 void HTMLDocument$HTMLReader$AnchorAction::init$($HTMLDocument$HTMLReader* this$1) {
 	$set(this, this$1, this$1);
@@ -82,7 +42,40 @@ HTMLDocument$HTMLReader$AnchorAction::HTMLDocument$HTMLReader$AnchorAction() {
 }
 
 $Class* HTMLDocument$HTMLReader$AnchorAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$HTMLReader$AnchorAction, name, initialize, &_HTMLDocument$HTMLReader$AnchorAction_ClassInfo_, allocate$HTMLDocument$HTMLReader$AnchorAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$AnchorAction, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, 0, $method(HTMLDocument$HTMLReader$AnchorAction, init$, void, $HTMLDocument$HTMLReader*)},
+		{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$AnchorAction, end, void, $HTML$Tag*)},
+		{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$AnchorAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$AnchorAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "AnchorAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$CharacterAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "CharacterAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$HTMLReader$AnchorAction",
+		"javax.swing.text.html.HTMLDocument$HTMLReader$CharacterAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$HTMLReader$AnchorAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLDocument$HTMLReader$AnchorAction);
+	});
 	return class$;
 }
 

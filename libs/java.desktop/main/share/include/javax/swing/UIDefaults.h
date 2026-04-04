@@ -69,6 +69,7 @@ class $import UIDefaults : public ::java::util::Hashtable {
 	$class(UIDefaults, 0, ::java::util::Hashtable)
 public:
 	UIDefaults();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t initialCapacity, float loadFactor);
 	void init$($ObjectArray* keyValueList);

@@ -74,7 +74,7 @@ public:
 	static const int32_t STANDARD_FMT_CHUNK_SIZE = 16;
 	static const int32_t RIFF_MAGIC = 0x52494646;
 	static const int32_t WAVE_MAGIC = 0x57415645;
-	static const int32_t FMT_MAGIC = 0x666D7420;
+	static const int32_t FMT_MAGIC = 0x666d7420;
 	static const int32_t DATA_MAGIC = 0x64617461;
 	static const int32_t WAVE_FORMAT_UNKNOWN = 0;
 	static const int32_t WAVE_FORMAT_PCM = 1;
@@ -90,7 +90,7 @@ public:
 	static const int32_t WAVE_IBM_FORMAT_ADPCM = 259;
 	static const int32_t WAVE_FORMAT_DVI_ADPCM = 17;
 	static const int32_t WAVE_FORMAT_SX7383 = 7175;
-	static const int32_t WAVE_FORMAT_EXTENSIBLE = 0x0000FFFE;
+	static const int32_t WAVE_FORMAT_EXTENSIBLE = 0x0000fffe;
 };
 
 			} // sound

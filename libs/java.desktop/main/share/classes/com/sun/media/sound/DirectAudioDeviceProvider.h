@@ -34,6 +34,7 @@ class DirectAudioDeviceProvider : public ::javax::sound::sampled::spi::MixerProv
 	$class(DirectAudioDeviceProvider, 0, ::javax::sound::sampled::spi::MixerProvider)
 public:
 	DirectAudioDeviceProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::sound::sampled::Mixer* getDevice(::com::sun::media::sound::DirectAudioDeviceProvider$DirectAudioDeviceInfo* info);
 	virtual ::javax::sound::sampled::Mixer* getMixer(::javax::sound::sampled::Mixer$Info* info) override;

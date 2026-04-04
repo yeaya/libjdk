@@ -28,6 +28,7 @@ class $import PullPublisher : public ::java::util::concurrent::Flow$Publisher {
 	$class(PullPublisher, 0, ::java::util::concurrent::Flow$Publisher)
 public:
 	PullPublisher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Iterable* iterable, $Throwable* throwable);
 	void init$(::java::lang::Iterable* iterable);
 	virtual void subscribe(::java::util::concurrent::Flow$Subscriber* subscriber) override;

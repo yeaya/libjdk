@@ -1,5 +1,4 @@
 #include <java/awt/Menu$1.h>
-
 #include <java/awt/Menu.h>
 #include <java/util/Vector.h>
 #include <jcpp.h>
@@ -14,44 +13,6 @@ using $Vector = ::java::util::Vector;
 namespace java {
 	namespace awt {
 
-$MethodInfo _Menu$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Menu$1, init$, void)},
-	{"getItems", "(Ljava/awt/Menu;)Ljava/util/Vector;", "(Ljava/awt/Menu;)Ljava/util/Vector<Ljava/awt/MenuItem;>;", $PUBLIC, $virtualMethod(Menu$1, getItems, $Vector*, $Menu*)},
-	{}
-};
-
-$EnclosingMethodInfo _Menu$1_EnclosingMethodInfo_ = {
-	"java.awt.Menu",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Menu$1_InnerClassesInfo_[] = {
-	{"java.awt.Menu$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$MenuAccessor", "sun.awt.AWTAccessor", "MenuAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Menu$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Menu$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$MenuAccessor",
-	nullptr,
-	_Menu$1_MethodInfo_,
-	nullptr,
-	&_Menu$1_EnclosingMethodInfo_,
-	_Menu$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Menu"
-};
-
-$Object* allocate$Menu$1($Class* clazz) {
-	return $of($alloc(Menu$1));
-}
-
 void Menu$1::init$() {
 }
 
@@ -63,7 +24,39 @@ Menu$1::Menu$1() {
 }
 
 $Class* Menu$1::load$($String* name, bool initialize) {
-	$loadClass(Menu$1, name, initialize, &_Menu$1_ClassInfo_, allocate$Menu$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Menu$1, init$, void)},
+		{"getItems", "(Ljava/awt/Menu;)Ljava/util/Vector;", "(Ljava/awt/Menu;)Ljava/util/Vector<Ljava/awt/MenuItem;>;", $PUBLIC, $virtualMethod(Menu$1, getItems, $Vector*, $Menu*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.Menu",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Menu$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$MenuAccessor", "sun.awt.AWTAccessor", "MenuAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Menu$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$MenuAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Menu"
+	};
+	$loadClass(Menu$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Menu$1);
+	});
 	return class$;
 }
 

@@ -78,6 +78,7 @@ class CAccessibility : public ::java::beans::PropertyChangeListener {
 	$class(CAccessibility, 0, ::java::beans::PropertyChangeListener)
 public:
 	CAccessibility();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void _addChildren(::javax::accessibility::Accessible* a, int32_t whichChildren, bool allowIgnored, ::java::util::ArrayList* childrenAndRoles);
 	static ::javax::accessibility::Accessible* accessibilityHitTest(::java::awt::Container* parent, float hitPointX, float hitPointY);

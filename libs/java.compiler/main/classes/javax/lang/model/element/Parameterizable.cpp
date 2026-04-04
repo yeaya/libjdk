@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/Parameterizable.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace javax {
 		namespace model {
 			namespace element {
 
-$MethodInfo _Parameterizable_MethodInfo_[] = {
-	{"getTypeParameters", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/TypeParameterElement;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Parameterizable, getTypeParameters, $List*)},
-	{}
-};
-
-$ClassInfo _Parameterizable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.element.Parameterizable",
-	nullptr,
-	"javax.lang.model.element.Element",
-	nullptr,
-	_Parameterizable_MethodInfo_
-};
-
-$Object* allocate$Parameterizable($Class* clazz) {
-	return $of($alloc(Parameterizable));
-}
-
 $Class* Parameterizable::load$($String* name, bool initialize) {
-	$loadClass(Parameterizable, name, initialize, &_Parameterizable_ClassInfo_, allocate$Parameterizable);
+	$MethodInfo methodInfos$$[] = {
+		{"getTypeParameters", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/TypeParameterElement;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Parameterizable, getTypeParameters, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.element.Parameterizable",
+		nullptr,
+		"javax.lang.model.element.Element",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Parameterizable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Parameterizable);
+	});
 	return class$;
 }
 

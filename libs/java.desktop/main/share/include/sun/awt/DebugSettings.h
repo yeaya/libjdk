@@ -37,6 +37,7 @@ class $import DebugSettings : public ::java::lang::Object {
 	$class(DebugSettings, 0, ::java::lang::Object)
 public:
 	DebugSettings();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool getBoolean($String* key, bool defval);
 	static ::sun::awt::DebugSettings* getInstance();

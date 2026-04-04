@@ -1,5 +1,4 @@
 #include <java/awt/geom/Arc2D$Float.h>
-
 #include <java/awt/geom/Arc2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -26,68 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Arc2D$Float_FieldInfo_[] = {
-	{"x", "F", nullptr, $PUBLIC, $field(Arc2D$Float, x)},
-	{"y", "F", nullptr, $PUBLIC, $field(Arc2D$Float, y)},
-	{"width", "F", nullptr, $PUBLIC, $field(Arc2D$Float, width)},
-	{"height", "F", nullptr, $PUBLIC, $field(Arc2D$Float, height)},
-	{"start", "F", nullptr, $PUBLIC, $field(Arc2D$Float, start)},
-	{"extent", "F", nullptr, $PUBLIC, $field(Arc2D$Float, extent)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Arc2D$Float, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Arc2D$Float_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Arc2D$Float, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Arc2D$Float, init$, void, int32_t)},
-	{"<init>", "(FFFFFFI)V", nullptr, $PUBLIC, $method(Arc2D$Float, init$, void, float, float, float, float, float, float, int32_t)},
-	{"<init>", "(Ljava/awt/geom/Rectangle2D;FFI)V", nullptr, $PUBLIC, $method(Arc2D$Float, init$, void, $Rectangle2D*, float, float, int32_t)},
-	{"getAngleExtent", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getAngleExtent, double)},
-	{"getAngleStart", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getAngleStart, double)},
-	{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getHeight, double)},
-	{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getWidth, double)},
-	{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getY, double)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, isEmpty, bool)},
-	{"makeBounds", "(DDDD)Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(Arc2D$Float, makeBounds, $Rectangle2D*, double, double, double, double)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Arc2D$Float, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"setAngleExtent", "(D)V", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, setAngleExtent, void, double)},
-	{"setAngleStart", "(D)V", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, setAngleStart, void, double)},
-	{"setArc", "(DDDDDDI)V", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, setArc, void, double, double, double, double, double, double, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Arc2D$Float, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Arc2D$Float_InnerClassesInfo_[] = {
-	{"java.awt.geom.Arc2D$Float", "java.awt.geom.Arc2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Arc2D$Float_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.Arc2D$Float",
-	"java.awt.geom.Arc2D",
-	"java.io.Serializable",
-	_Arc2D$Float_FieldInfo_,
-	_Arc2D$Float_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Arc2D$Float_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Arc2D"
-};
-
-$Object* allocate$Arc2D$Float($Class* clazz) {
-	return $of($alloc(Arc2D$Float));
-}
 
 int32_t Arc2D$Float::hashCode() {
 	 return this->$Arc2D::hashCode();
@@ -205,7 +142,63 @@ Arc2D$Float::Arc2D$Float() {
 }
 
 $Class* Arc2D$Float::load$($String* name, bool initialize) {
-	$loadClass(Arc2D$Float, name, initialize, &_Arc2D$Float_ClassInfo_, allocate$Arc2D$Float);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "F", nullptr, $PUBLIC, $field(Arc2D$Float, x)},
+		{"y", "F", nullptr, $PUBLIC, $field(Arc2D$Float, y)},
+		{"width", "F", nullptr, $PUBLIC, $field(Arc2D$Float, width)},
+		{"height", "F", nullptr, $PUBLIC, $field(Arc2D$Float, height)},
+		{"start", "F", nullptr, $PUBLIC, $field(Arc2D$Float, start)},
+		{"extent", "F", nullptr, $PUBLIC, $field(Arc2D$Float, extent)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Arc2D$Float, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Arc2D$Float, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Arc2D$Float, init$, void, int32_t)},
+		{"<init>", "(FFFFFFI)V", nullptr, $PUBLIC, $method(Arc2D$Float, init$, void, float, float, float, float, float, float, int32_t)},
+		{"<init>", "(Ljava/awt/geom/Rectangle2D;FFI)V", nullptr, $PUBLIC, $method(Arc2D$Float, init$, void, $Rectangle2D*, float, float, int32_t)},
+		{"getAngleExtent", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getAngleExtent, double)},
+		{"getAngleStart", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getAngleStart, double)},
+		{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getHeight, double)},
+		{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getWidth, double)},
+		{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, getY, double)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, isEmpty, bool)},
+		{"makeBounds", "(DDDD)Ljava/awt/geom/Rectangle2D;", nullptr, $PROTECTED, $virtualMethod(Arc2D$Float, makeBounds, $Rectangle2D*, double, double, double, double)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Arc2D$Float, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"setAngleExtent", "(D)V", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, setAngleExtent, void, double)},
+		{"setAngleStart", "(D)V", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, setAngleStart, void, double)},
+		{"setArc", "(DDDDDDI)V", nullptr, $PUBLIC, $virtualMethod(Arc2D$Float, setArc, void, double, double, double, double, double, double, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Arc2D$Float, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Arc2D$Float", "java.awt.geom.Arc2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.Arc2D$Float",
+		"java.awt.geom.Arc2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Arc2D"
+	};
+	$loadClass(Arc2D$Float, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Arc2D$Float));
+	});
 	return class$;
 }
 

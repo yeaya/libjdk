@@ -1,5 +1,4 @@
 #include <java/awt/SystemColor.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
@@ -64,113 +63,27 @@ public:
 	virtual void updateSystemColors() override {
 		SystemColor::updateSystemColors();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SystemColor$$Lambda$updateSystemColors>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SystemColor$$Lambda$updateSystemColors::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SystemColor$$Lambda$updateSystemColors, init$, void)},
-	{"updateSystemColors", "()V", nullptr, $PUBLIC, $virtualMethod(SystemColor$$Lambda$updateSystemColors, updateSystemColors, void)},
-	{}
-};
-$ClassInfo SystemColor$$Lambda$updateSystemColors::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.awt.SystemColor$$Lambda$updateSystemColors",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$SystemColorAccessor",
-	nullptr,
-	methodInfos
 };
 $Class* SystemColor$$Lambda$updateSystemColors::load$($String* name, bool initialize) {
-	$loadClass(SystemColor$$Lambda$updateSystemColors, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SystemColor$$Lambda$updateSystemColors, init$, void)},
+		{"updateSystemColors", "()V", nullptr, $PUBLIC, $virtualMethod(SystemColor$$Lambda$updateSystemColors, updateSystemColors, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.awt.SystemColor$$Lambda$updateSystemColors",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$SystemColorAccessor",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SystemColor$$Lambda$updateSystemColors, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemColor$$Lambda$updateSystemColors);
+	});
 	return class$;
 }
 $Class* SystemColor$$Lambda$updateSystemColors::class$ = nullptr;
-
-$FieldInfo _SystemColor_FieldInfo_[] = {
-	{"DESKTOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, DESKTOP)},
-	{"ACTIVE_CAPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, ACTIVE_CAPTION)},
-	{"ACTIVE_CAPTION_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, ACTIVE_CAPTION_TEXT)},
-	{"ACTIVE_CAPTION_BORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, ACTIVE_CAPTION_BORDER)},
-	{"INACTIVE_CAPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INACTIVE_CAPTION)},
-	{"INACTIVE_CAPTION_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INACTIVE_CAPTION_TEXT)},
-	{"INACTIVE_CAPTION_BORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INACTIVE_CAPTION_BORDER)},
-	{"WINDOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, WINDOW)},
-	{"WINDOW_BORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, WINDOW_BORDER)},
-	{"WINDOW_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, WINDOW_TEXT)},
-	{"MENU", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, MENU)},
-	{"MENU_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, MENU_TEXT)},
-	{"TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT)},
-	{"TEXT_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT_TEXT)},
-	{"TEXT_HIGHLIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT_HIGHLIGHT)},
-	{"TEXT_HIGHLIGHT_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT_HIGHLIGHT_TEXT)},
-	{"TEXT_INACTIVE_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT_INACTIVE_TEXT)},
-	{"CONTROL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL)},
-	{"CONTROL_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_TEXT)},
-	{"CONTROL_HIGHLIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_HIGHLIGHT)},
-	{"CONTROL_LT_HIGHLIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_LT_HIGHLIGHT)},
-	{"CONTROL_SHADOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_SHADOW)},
-	{"CONTROL_DK_SHADOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_DK_SHADOW)},
-	{"SCROLLBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, SCROLLBAR)},
-	{"INFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INFO)},
-	{"INFO_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INFO_TEXT)},
-	{"NUM_COLORS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, NUM_COLORS)},
-	{"systemColors", "[I", nullptr, $PRIVATE | $STATIC, $staticField(SystemColor, systemColors)},
-	{"desktop", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, desktop)},
-	{"activeCaption", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, activeCaption)},
-	{"activeCaptionText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, activeCaptionText)},
-	{"activeCaptionBorder", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, activeCaptionBorder)},
-	{"inactiveCaption", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, inactiveCaption)},
-	{"inactiveCaptionText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, inactiveCaptionText)},
-	{"inactiveCaptionBorder", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, inactiveCaptionBorder)},
-	{"window", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, window)},
-	{"windowBorder", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, windowBorder)},
-	{"windowText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, windowText)},
-	{"menu", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, menu)},
-	{"menuText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, menuText)},
-	{"text", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, text)},
-	{"textText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, textText)},
-	{"textHighlight", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, textHighlight)},
-	{"textHighlightText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, textHighlightText)},
-	{"textInactiveText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, textInactiveText)},
-	{"control", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, control)},
-	{"controlText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlText)},
-	{"controlHighlight", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlHighlight)},
-	{"controlLtHighlight", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlLtHighlight)},
-	{"controlShadow", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlShadow)},
-	{"controlDkShadow", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlDkShadow)},
-	{"scrollbar", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, scrollbar)},
-	{"info", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, info)},
-	{"infoText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, infoText)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SystemColor, serialVersionUID)},
-	{"index", "I", nullptr, $PRIVATE | $TRANSIENT, $field(SystemColor, index)},
-	{"systemColorObjects", "[Ljava/awt/SystemColor;", nullptr, $PRIVATE | $STATIC, $staticField(SystemColor, systemColorObjects)},
-	{}
-};
-
-$MethodInfo _SystemColor_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, $PRIVATE, $method(SystemColor, init$, void, int8_t)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(SystemColor, readResolve, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SystemColor, toString, $String*)},
-	{"updateSystemColors", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemColor, updateSystemColors, void)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(SystemColor, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _SystemColor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.SystemColor",
-	"java.awt.Color",
-	nullptr,
-	_SystemColor_FieldInfo_,
-	_SystemColor_MethodInfo_
-};
-
-$Object* allocate$SystemColor($Class* clazz) {
-	return $of($alloc(SystemColor));
-}
 
 $ints* SystemColor::systemColors = nullptr;
 SystemColor* SystemColor::desktop = nullptr;
@@ -204,10 +117,10 @@ $SystemColorArray* SystemColor::systemColorObjects = nullptr;
 void SystemColor::updateSystemColors() {
 	$init(SystemColor);
 	if (!$GraphicsEnvironment::isHeadless()) {
-		$nc($($Toolkit::getDefaultToolkit()))->loadSystemColors(SystemColor::systemColors);
+		$$nc($Toolkit::getDefaultToolkit())->loadSystemColors(SystemColor::systemColors);
 	}
 	for (int32_t i = 0; i < $nc(SystemColor::systemColors)->length; ++i) {
-		$nc($nc(SystemColor::systemColorObjects)->get(i))->value = $nc(SystemColor::systemColors)->get(i);
+		$nc($nc(SystemColor::systemColorObjects)->get(i))->value = SystemColor::systemColors->get(i);
 	}
 }
 
@@ -217,7 +130,7 @@ void SystemColor::init$(int8_t index) {
 }
 
 $String* SystemColor::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($of(this)->getClass()->getName()), "[i="_s, $$str((this->index)), "]"_s});
 }
 
@@ -231,34 +144,34 @@ $Object* SystemColor::writeReplace() {
 	return $of(color);
 }
 
-void clinit$SystemColor($Class* class$) {
+void SystemColor::clinit$($Class* clazz) {
 	$assignStatic(SystemColor::systemColors, $new($ints, {
-		(int32_t)0xFF005C5C,
-		(int32_t)0xFF000080,
-		-1,
-		(int32_t)0xFFC0C0C0,
-		(int32_t)0xFF808080,
-		(int32_t)0xFFC0C0C0,
-		(int32_t)0xFFC0C0C0,
-		-1,
-		(int32_t)0xFF000000,
-		(int32_t)0xFF000000,
-		(int32_t)0xFFC0C0C0,
-		(int32_t)0xFF000000,
-		(int32_t)0xFFC0C0C0,
-		(int32_t)0xFF000000,
-		(int32_t)0xFF000080,
-		-1,
-		(int32_t)0xFF808080,
-		(int32_t)0xFFC0C0C0,
-		(int32_t)0xFF000000,
-		-1,
-		(int32_t)0xFFE0E0E0,
-		(int32_t)0xFF808080,
-		(int32_t)0xFF000000,
-		(int32_t)0xFFE0E0E0,
-		(int32_t)0xFFE0E000,
-		(int32_t)0xFF000000
+		(int32_t)0xff005c5c,
+		(int32_t)0xff000080,
+		(int32_t)0xffffffff,
+		(int32_t)0xffc0c0c0,
+		(int32_t)0xff808080,
+		(int32_t)0xffc0c0c0,
+		(int32_t)0xffc0c0c0,
+		(int32_t)0xffffffff,
+		(int32_t)0xff000000,
+		(int32_t)0xff000000,
+		(int32_t)0xffc0c0c0,
+		(int32_t)0xff000000,
+		(int32_t)0xffc0c0c0,
+		(int32_t)0xff000000,
+		(int32_t)0xff000080,
+		(int32_t)0xffffffff,
+		(int32_t)0xff808080,
+		(int32_t)0xffc0c0c0,
+		(int32_t)0xff000000,
+		(int32_t)0xffffffff,
+		(int32_t)0xffe0e0e0,
+		(int32_t)0xff808080,
+		(int32_t)0xff000000,
+		(int32_t)0xffe0e0e0,
+		(int32_t)0xffe0e000,
+		(int32_t)0xff000000
 	}));
 	$assignStatic(SystemColor::desktop, $new(SystemColor, (int8_t)SystemColor::DESKTOP));
 	$assignStatic(SystemColor::activeCaption, $new(SystemColor, (int8_t)SystemColor::ACTIVE_CAPTION));
@@ -315,7 +228,7 @@ void clinit$SystemColor($Class* class$) {
 		SystemColor::infoText
 	}));
 	{
-		$AWTAccessor::setSystemColorAccessor(static_cast<$AWTAccessor$SystemColorAccessor*>($$new(SystemColor$$Lambda$updateSystemColors)));
+		$AWTAccessor::setSystemColorAccessor($$new(SystemColor$$Lambda$updateSystemColors));
 		SystemColor::updateSystemColors();
 	}
 }
@@ -325,11 +238,89 @@ SystemColor::SystemColor() {
 
 $Class* SystemColor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SystemColor$$Lambda$updateSystemColors::classInfo$.name)) {
+		if (name->equals("java.awt.SystemColor$$Lambda$updateSystemColors")) {
 			return SystemColor$$Lambda$updateSystemColors::load$(name, initialize);
 		}
 	}
-	$loadClass(SystemColor, name, initialize, &_SystemColor_ClassInfo_, clinit$SystemColor, allocate$SystemColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"DESKTOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, DESKTOP)},
+		{"ACTIVE_CAPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, ACTIVE_CAPTION)},
+		{"ACTIVE_CAPTION_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, ACTIVE_CAPTION_TEXT)},
+		{"ACTIVE_CAPTION_BORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, ACTIVE_CAPTION_BORDER)},
+		{"INACTIVE_CAPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INACTIVE_CAPTION)},
+		{"INACTIVE_CAPTION_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INACTIVE_CAPTION_TEXT)},
+		{"INACTIVE_CAPTION_BORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INACTIVE_CAPTION_BORDER)},
+		{"WINDOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, WINDOW)},
+		{"WINDOW_BORDER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, WINDOW_BORDER)},
+		{"WINDOW_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, WINDOW_TEXT)},
+		{"MENU", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, MENU)},
+		{"MENU_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, MENU_TEXT)},
+		{"TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT)},
+		{"TEXT_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT_TEXT)},
+		{"TEXT_HIGHLIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT_HIGHLIGHT)},
+		{"TEXT_HIGHLIGHT_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT_HIGHLIGHT_TEXT)},
+		{"TEXT_INACTIVE_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, TEXT_INACTIVE_TEXT)},
+		{"CONTROL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL)},
+		{"CONTROL_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_TEXT)},
+		{"CONTROL_HIGHLIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_HIGHLIGHT)},
+		{"CONTROL_LT_HIGHLIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_LT_HIGHLIGHT)},
+		{"CONTROL_SHADOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_SHADOW)},
+		{"CONTROL_DK_SHADOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, CONTROL_DK_SHADOW)},
+		{"SCROLLBAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, SCROLLBAR)},
+		{"INFO", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INFO)},
+		{"INFO_TEXT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, INFO_TEXT)},
+		{"NUM_COLORS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SystemColor, NUM_COLORS)},
+		{"systemColors", "[I", nullptr, $PRIVATE | $STATIC, $staticField(SystemColor, systemColors)},
+		{"desktop", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, desktop)},
+		{"activeCaption", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, activeCaption)},
+		{"activeCaptionText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, activeCaptionText)},
+		{"activeCaptionBorder", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, activeCaptionBorder)},
+		{"inactiveCaption", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, inactiveCaption)},
+		{"inactiveCaptionText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, inactiveCaptionText)},
+		{"inactiveCaptionBorder", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, inactiveCaptionBorder)},
+		{"window", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, window)},
+		{"windowBorder", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, windowBorder)},
+		{"windowText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, windowText)},
+		{"menu", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, menu)},
+		{"menuText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, menuText)},
+		{"text", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, text)},
+		{"textText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, textText)},
+		{"textHighlight", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, textHighlight)},
+		{"textHighlightText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, textHighlightText)},
+		{"textInactiveText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, textInactiveText)},
+		{"control", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, control)},
+		{"controlText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlText)},
+		{"controlHighlight", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlHighlight)},
+		{"controlLtHighlight", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlLtHighlight)},
+		{"controlShadow", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlShadow)},
+		{"controlDkShadow", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, controlDkShadow)},
+		{"scrollbar", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, scrollbar)},
+		{"info", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, info)},
+		{"infoText", "Ljava/awt/SystemColor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SystemColor, infoText)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SystemColor, serialVersionUID)},
+		{"index", "I", nullptr, $PRIVATE | $TRANSIENT, $field(SystemColor, index)},
+		{"systemColorObjects", "[Ljava/awt/SystemColor;", nullptr, $PRIVATE | $STATIC, $staticField(SystemColor, systemColorObjects)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B)V", nullptr, $PRIVATE, $method(SystemColor, init$, void, int8_t)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(SystemColor, readResolve, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SystemColor, toString, $String*)},
+		{"updateSystemColors", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SystemColor, updateSystemColors, void)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(SystemColor, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.SystemColor",
+		"java.awt.Color",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SystemColor, name, initialize, &classInfo$$, SystemColor::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SystemColor));
+	});
 	return class$;
 }
 

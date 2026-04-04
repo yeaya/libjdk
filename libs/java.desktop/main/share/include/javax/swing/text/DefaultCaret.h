@@ -100,6 +100,7 @@ public:
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool _contains(int32_t X, int32_t Y, int32_t W, int32_t H);
 	virtual void addChangeListener(::javax::swing::event::ChangeListener* l) override;

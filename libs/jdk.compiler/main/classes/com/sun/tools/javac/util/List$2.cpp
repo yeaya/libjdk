@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/List$2.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/NoSuchElementException.h>
 #include <jcpp.h>
@@ -16,45 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$MethodInfo _List$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(List$2, init$, void)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(List$2, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$2, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(List$2, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _List$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.util.List",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _List$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.List$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _List$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.util.List$2",
-	"java.lang.Object",
-	"java.util.Iterator",
-	nullptr,
-	_List$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/Object;>;",
-	&_List$2_EnclosingMethodInfo_,
-	_List$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.List"
-};
-
-$Object* allocate$List$2($Class* clazz) {
-	return $of($alloc(List$2));
-}
 
 void List$2::init$() {
 }
@@ -76,7 +36,40 @@ List$2::List$2() {
 }
 
 $Class* List$2::load$($String* name, bool initialize) {
-	$loadClass(List$2, name, initialize, &_List$2_ClassInfo_, allocate$List$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(List$2, init$, void)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(List$2, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$2, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(List$2, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.util.List",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.List$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.util.List$2",
+		"java.lang.Object",
+		"java.util.Iterator",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.List"
+	};
+	$loadClass(List$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(List$2);
+	});
 	return class$;
 }
 

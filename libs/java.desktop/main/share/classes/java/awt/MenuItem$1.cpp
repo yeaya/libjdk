@@ -1,5 +1,4 @@
 #include <java/awt/MenuItem$1.h>
-
 #include <java/awt/MenuItem.h>
 #include <java/awt/MenuShortcut.h>
 #include <jcpp.h>
@@ -13,48 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$MethodInfo _MenuItem$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MenuItem$1, init$, void)},
-	{"getActionCommandImpl", "(Ljava/awt/MenuItem;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, getActionCommandImpl, $String*, $MenuItem*)},
-	{"getLabel", "(Ljava/awt/MenuItem;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, getLabel, $String*, $MenuItem*)},
-	{"getShortcut", "(Ljava/awt/MenuItem;)Ljava/awt/MenuShortcut;", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, getShortcut, $MenuShortcut*, $MenuItem*)},
-	{"isEnabled", "(Ljava/awt/MenuItem;)Z", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, isEnabled, bool, $MenuItem*)},
-	{"isItemEnabled", "(Ljava/awt/MenuItem;)Z", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, isItemEnabled, bool, $MenuItem*)},
-	{}
-};
-
-$EnclosingMethodInfo _MenuItem$1_EnclosingMethodInfo_ = {
-	"java.awt.MenuItem",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _MenuItem$1_InnerClassesInfo_[] = {
-	{"java.awt.MenuItem$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$MenuItemAccessor", "sun.awt.AWTAccessor", "MenuItemAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MenuItem$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.MenuItem$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$MenuItemAccessor",
-	nullptr,
-	_MenuItem$1_MethodInfo_,
-	nullptr,
-	&_MenuItem$1_EnclosingMethodInfo_,
-	_MenuItem$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.MenuItem"
-};
-
-$Object* allocate$MenuItem$1($Class* clazz) {
-	return $of($alloc(MenuItem$1));
-}
 
 void MenuItem$1::init$() {
 }
@@ -83,7 +40,43 @@ MenuItem$1::MenuItem$1() {
 }
 
 $Class* MenuItem$1::load$($String* name, bool initialize) {
-	$loadClass(MenuItem$1, name, initialize, &_MenuItem$1_ClassInfo_, allocate$MenuItem$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MenuItem$1, init$, void)},
+		{"getActionCommandImpl", "(Ljava/awt/MenuItem;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, getActionCommandImpl, $String*, $MenuItem*)},
+		{"getLabel", "(Ljava/awt/MenuItem;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, getLabel, $String*, $MenuItem*)},
+		{"getShortcut", "(Ljava/awt/MenuItem;)Ljava/awt/MenuShortcut;", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, getShortcut, $MenuShortcut*, $MenuItem*)},
+		{"isEnabled", "(Ljava/awt/MenuItem;)Z", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, isEnabled, bool, $MenuItem*)},
+		{"isItemEnabled", "(Ljava/awt/MenuItem;)Z", nullptr, $PUBLIC, $virtualMethod(MenuItem$1, isItemEnabled, bool, $MenuItem*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.MenuItem",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.MenuItem$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$MenuItemAccessor", "sun.awt.AWTAccessor", "MenuItemAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.MenuItem$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$MenuItemAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.MenuItem"
+	};
+	$loadClass(MenuItem$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MenuItem$1);
+	});
 	return class$;
 }
 

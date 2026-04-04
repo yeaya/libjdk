@@ -1,5 +1,4 @@
 #include <java/awt/Font$FontAccessImpl.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/peer/FontPeer.h>
 #include <sun/font/Font2D.h>
@@ -18,41 +17,6 @@ using $FontAccess = ::sun::font::FontAccess;
 
 namespace java {
 	namespace awt {
-
-$MethodInfo _Font$FontAccessImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Font$FontAccessImpl, init$, void)},
-	{"getFont2D", "(Ljava/awt/Font;)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, getFont2D, $Font2D*, $Font*)},
-	{"getFontPeer", "(Ljava/awt/Font;)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, getFontPeer, $FontPeer*, $Font*)},
-	{"isCreatedFont", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, isCreatedFont, bool, $Font*)},
-	{"setCreatedFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, setCreatedFont, void, $Font*)},
-	{"setFont2D", "(Ljava/awt/Font;Lsun/font/Font2DHandle;)V", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, setFont2D, void, $Font*, $Font2DHandle*)},
-	{}
-};
-
-$InnerClassInfo _Font$FontAccessImpl_InnerClassesInfo_[] = {
-	{"java.awt.Font$FontAccessImpl", "java.awt.Font", "FontAccessImpl", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Font$FontAccessImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Font$FontAccessImpl",
-	"sun.font.FontAccess",
-	nullptr,
-	nullptr,
-	_Font$FontAccessImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Font$FontAccessImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Font"
-};
-
-$Object* allocate$Font$FontAccessImpl($Class* clazz) {
-	return $of($alloc(Font$FontAccessImpl));
-}
 
 void Font$FontAccessImpl::init$() {
 	$FontAccess::init$();
@@ -82,7 +46,37 @@ Font$FontAccessImpl::Font$FontAccessImpl() {
 }
 
 $Class* Font$FontAccessImpl::load$($String* name, bool initialize) {
-	$loadClass(Font$FontAccessImpl, name, initialize, &_Font$FontAccessImpl_ClassInfo_, allocate$Font$FontAccessImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Font$FontAccessImpl, init$, void)},
+		{"getFont2D", "(Ljava/awt/Font;)Lsun/font/Font2D;", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, getFont2D, $Font2D*, $Font*)},
+		{"getFontPeer", "(Ljava/awt/Font;)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, getFontPeer, $FontPeer*, $Font*)},
+		{"isCreatedFont", "(Ljava/awt/Font;)Z", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, isCreatedFont, bool, $Font*)},
+		{"setCreatedFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, setCreatedFont, void, $Font*)},
+		{"setFont2D", "(Ljava/awt/Font;Lsun/font/Font2DHandle;)V", nullptr, $PUBLIC, $virtualMethod(Font$FontAccessImpl, setFont2D, void, $Font*, $Font2DHandle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Font$FontAccessImpl", "java.awt.Font", "FontAccessImpl", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Font$FontAccessImpl",
+		"sun.font.FontAccess",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Font"
+	};
+	$loadClass(Font$FontAccessImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Font$FontAccessImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <CheckCommonUseCases.h>
-
 #include <CheckCommonUseCases$1.h>
 #include <java/awt/EventQueue.h>
 #include <java/io/Serializable.h>
@@ -12,14 +11,12 @@
 #include <java/util/Arrays.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
 #include <javax/swing/JPasswordField.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $CheckCommonUseCases$1 = ::CheckCommonUseCases$1;
 using $EventQueue = ::java::awt::EventQueue;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -30,8 +27,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
 using $JPasswordField = ::javax::swing::JPasswordField;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $Document = ::javax::swing::text::Document;
 
 class CheckCommonUseCases$$Lambda$lambda$main$0 : public $Runnable {
 	$class(CheckCommonUseCases$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)
@@ -41,84 +36,48 @@ public:
 	virtual void run() override {
 		CheckCommonUseCases::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CheckCommonUseCases$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CheckCommonUseCases$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckCommonUseCases$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CheckCommonUseCases$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo CheckCommonUseCases$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"CheckCommonUseCases$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* CheckCommonUseCases$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(CheckCommonUseCases$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CheckCommonUseCases$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CheckCommonUseCases$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"CheckCommonUseCases$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CheckCommonUseCases$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckCommonUseCases$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* CheckCommonUseCases$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _CheckCommonUseCases_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CheckCommonUseCases, init$, void)},
-	{"checkDifferentTextLength", "(Ljavax/swing/JPasswordField;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckCommonUseCases, checkDifferentTextLength, void, $JPasswordField*)},
-	{"countListeners", "(Ljavax/swing/JPasswordField;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckCommonUseCases, countListeners, void, $JPasswordField*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckCommonUseCases, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckCommonUseCases, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _CheckCommonUseCases_InnerClassesInfo_[] = {
-	{"CheckCommonUseCases$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CheckCommonUseCases_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"CheckCommonUseCases",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CheckCommonUseCases_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CheckCommonUseCases_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"CheckCommonUseCases$1"
-};
-
-$Object* allocate$CheckCommonUseCases($Class* clazz) {
-	return $of($alloc(CheckCommonUseCases));
-}
 
 void CheckCommonUseCases::init$() {
 }
 
 void CheckCommonUseCases::main($StringArray* args) {
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(CheckCommonUseCases$$Lambda$lambda$main$0)));
+	$EventQueue::invokeAndWait($$new(CheckCommonUseCases$$Lambda$lambda$main$0));
 }
 
 void CheckCommonUseCases::countListeners($JPasswordField* pf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AtomicInteger, insert, $new($AtomicInteger));
 	$var($AtomicInteger, update, $new($AtomicInteger));
 	$var($AtomicInteger, remove, $new($AtomicInteger));
-	$nc($($nc(pf)->getDocument()))->addDocumentListener($$new($CheckCommonUseCases$1, insert, remove, update));
+	$$nc($nc(pf)->getDocument())->addDocumentListener($$new($CheckCommonUseCases$1, insert, remove, update));
 	pf->setText("aaa"_s);
 	bool var$1 = remove->get() != 0;
 	bool var$0 = var$1 || update->get() != 0;
 	if (var$0 || insert->get() > 1) {
 		$nc($System::err)->println($$str({"remove = "_s, remove}));
-		$nc($System::err)->println($$str({"update = "_s, update}));
-		$nc($System::err)->println($$str({"insert = "_s, insert}));
+		$System::err->println($$str({"update = "_s, update}));
+		$System::err->println($$str({"insert = "_s, insert}));
 		$throwNew($RuntimeException, "Unexpected number of listeners"_s);
 	}
 	insert->set(0);
@@ -129,8 +88,8 @@ void CheckCommonUseCases::countListeners($JPasswordField* pf) {
 	bool var$2 = var$3 || update->get() > 1;
 	if (var$2 || insert->get() > 1) {
 		$nc($System::err)->println($$str({"remove = "_s, remove}));
-		$nc($System::err)->println($$str({"update = "_s, update}));
-		$nc($System::err)->println($$str({"insert = "_s, insert}));
+		$System::err->println($$str({"update = "_s, update}));
+		$System::err->println($$str({"insert = "_s, insert}));
 		$throwNew($RuntimeException, "Unexpected number of listeners"_s);
 	}
 	insert->set(0);
@@ -141,21 +100,21 @@ void CheckCommonUseCases::countListeners($JPasswordField* pf) {
 	bool var$4 = var$5 || update->get() > 0;
 	if (var$4 || insert->get() > 0) {
 		$nc($System::err)->println($$str({"remove = "_s, remove}));
-		$nc($System::err)->println($$str({"update = "_s, update}));
-		$nc($System::err)->println($$str({"insert = "_s, insert}));
+		$System::err->println($$str({"update = "_s, update}));
+		$System::err->println($$str({"insert = "_s, insert}));
 		$throwNew($RuntimeException, "Unexpected number of listeners"_s);
 	}
 }
 
 void CheckCommonUseCases::checkDifferentTextLength($JPasswordField* pf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < 100; ++i) {
 		$var($String, expected, $nc(($$str({""_s, $$str(i)})))->repeat(i));
 		$nc(pf)->setText(expected);
 		$var($String, actual, $Arrays::toString($(pf->getPassword())));
 		if ($nc(actual)->equals(expected)) {
 			$nc($System::err)->println($$str({"Expected: "_s, expected}));
-			$nc($System::err)->println($$str({"Actual: "_s, actual}));
+			$System::err->println($$str({"Actual: "_s, actual}));
 			$throwNew($RuntimeException);
 		}
 	}
@@ -165,7 +124,7 @@ void CheckCommonUseCases::checkDifferentTextLength($JPasswordField* pf) {
 		$var($String, actual, $Arrays::toString($(pf->getPassword())));
 		if ($nc(actual)->equals(expected)) {
 			$nc($System::err)->println($$str({"Expected: "_s, expected}));
-			$nc($System::err)->println($$str({"Actual: "_s, actual}));
+			$System::err->println($$str({"Actual: "_s, actual}));
 			$throwNew($RuntimeException);
 		}
 	}
@@ -182,11 +141,39 @@ CheckCommonUseCases::CheckCommonUseCases() {
 
 $Class* CheckCommonUseCases::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CheckCommonUseCases$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("CheckCommonUseCases$$Lambda$lambda$main$0")) {
 			return CheckCommonUseCases$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CheckCommonUseCases, name, initialize, &_CheckCommonUseCases_ClassInfo_, allocate$CheckCommonUseCases);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CheckCommonUseCases, init$, void)},
+		{"checkDifferentTextLength", "(Ljavax/swing/JPasswordField;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckCommonUseCases, checkDifferentTextLength, void, $JPasswordField*)},
+		{"countListeners", "(Ljavax/swing/JPasswordField;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CheckCommonUseCases, countListeners, void, $JPasswordField*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CheckCommonUseCases, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CheckCommonUseCases, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CheckCommonUseCases$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"CheckCommonUseCases",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"CheckCommonUseCases$1"
+	};
+	$loadClass(CheckCommonUseCases, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CheckCommonUseCases);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DupFilterIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/KeyIndex.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/util/IntegerArray.h>
@@ -32,41 +31,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _DupFilterIterator_FieldInfo_[] = {
-	{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(DupFilterIterator, _source)},
-	{"_nodes", "Lcom/sun/org/apache/xalan/internal/xsltc/util/IntegerArray;", nullptr, $PRIVATE, $field(DupFilterIterator, _nodes)},
-	{"_current", "I", nullptr, $PRIVATE, $field(DupFilterIterator, _current)},
-	{"_nodesSize", "I", nullptr, $PRIVATE, $field(DupFilterIterator, _nodesSize)},
-	{"_lastNext", "I", nullptr, $PRIVATE, $field(DupFilterIterator, _lastNext)},
-	{"_markedLastNext", "I", nullptr, $PRIVATE, $field(DupFilterIterator, _markedLastNext)},
-	{}
-};
-
-$MethodInfo _DupFilterIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(DupFilterIterator, init$, void, $DTMAxisIterator*)},
-	{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, cloneIterator, $DTMAxisIterator*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, gotoMark, void)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, next, int32_t)},
-	{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, reset, $DTMAxisIterator*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, setMark, void)},
-	{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, setRestartable, void, bool)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$ClassInfo _DupFilterIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.DupFilterIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_DupFilterIterator_FieldInfo_,
-	_DupFilterIterator_MethodInfo_
-};
-
-$Object* allocate$DupFilterIterator($Class* clazz) {
-	return $of($alloc(DupFilterIterator));
-}
 
 void DupFilterIterator::init$($DTMAxisIterator* source) {
 	$DTMAxisIteratorBase::init$();
@@ -116,7 +80,7 @@ int32_t DupFilterIterator::next() {
 }
 
 $DTMAxisIterator* DupFilterIterator::cloneIterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(DupFilterIterator, clone, $cast(DupFilterIterator, $DTMAxisIteratorBase::clone()));
 		$set($nc(clone), _nodes, $cast($IntegerArray, $nc(this->_nodes)->clone()));
@@ -125,7 +89,7 @@ $DTMAxisIterator* DupFilterIterator::cloneIterator() {
 		return clone->reset();
 	} catch ($CloneNotSupportedException& e) {
 		$init($BasisLibrary);
-		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $($of(e->toString())));
+		$BasisLibrary::runTimeError($BasisLibrary::ITERATOR_CLONE_ERR, $(e->toString()));
 		return nullptr;
 	}
 	$shouldNotReachHere();
@@ -156,7 +120,37 @@ DupFilterIterator::DupFilterIterator() {
 }
 
 $Class* DupFilterIterator::load$($String* name, bool initialize) {
-	$loadClass(DupFilterIterator, name, initialize, &_DupFilterIterator_ClassInfo_, allocate$DupFilterIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"_source", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PRIVATE, $field(DupFilterIterator, _source)},
+		{"_nodes", "Lcom/sun/org/apache/xalan/internal/xsltc/util/IntegerArray;", nullptr, $PRIVATE, $field(DupFilterIterator, _nodes)},
+		{"_current", "I", nullptr, $PRIVATE, $field(DupFilterIterator, _current)},
+		{"_nodesSize", "I", nullptr, $PRIVATE, $field(DupFilterIterator, _nodesSize)},
+		{"_lastNext", "I", nullptr, $PRIVATE, $field(DupFilterIterator, _lastNext)},
+		{"_markedLastNext", "I", nullptr, $PRIVATE, $field(DupFilterIterator, _markedLastNext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(DupFilterIterator, init$, void, $DTMAxisIterator*)},
+		{"cloneIterator", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, cloneIterator, $DTMAxisIterator*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, gotoMark, void)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, next, int32_t)},
+		{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, reset, $DTMAxisIterator*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, setMark, void)},
+		{"setRestartable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, setRestartable, void, bool)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(DupFilterIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.DupFilterIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DupFilterIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DupFilterIterator);
+	});
 	return class$;
 }
 

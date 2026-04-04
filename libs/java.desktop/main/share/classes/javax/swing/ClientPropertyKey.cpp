@@ -1,8 +1,6 @@
 #include <javax/swing/ClientPropertyKey.h>
-
 #include <java/lang/Enum.h>
 #include <javax/swing/ClientPropertyKey$1.h>
-#include <sun/awt/AWTAccessor$ClientPropertyKeyAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <jcpp.h>
 
@@ -14,54 +12,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ClientPropertyKey$1 = ::javax::swing::ClientPropertyKey$1;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ClientPropertyKey_FieldInfo_[] = {
-	{"JComponent_INPUT_VERIFIER", "Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientPropertyKey, JComponent_INPUT_VERIFIER)},
-	{"JComponent_TRANSFER_HANDLER", "Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientPropertyKey, JComponent_TRANSFER_HANDLER)},
-	{"JComponent_ANCESTOR_NOTIFIER", "Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientPropertyKey, JComponent_ANCESTOR_NOTIFIER)},
-	{"PopupFactory_FORCE_HEAVYWEIGHT_POPUP", "Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientPropertyKey, PopupFactory_FORCE_HEAVYWEIGHT_POPUP)},
-	{"$VALUES", "[Ljavax/swing/ClientPropertyKey;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClientPropertyKey, $VALUES)},
-	{"reportValueNotSerializable", "Z", nullptr, $PRIVATE | $FINAL, $field(ClientPropertyKey, reportValueNotSerializable)},
-	{}
-};
-
-$MethodInfo _ClientPropertyKey_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/ClientPropertyKey;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClientPropertyKey, $values, $ClientPropertyKeyArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClientPropertyKey, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;IZ)V", "(Z)V", $PRIVATE, $method(ClientPropertyKey, init$, void, $String*, int32_t, bool)},
-	{"getReportValueNotSerializable", "()Z", nullptr, $PUBLIC, $method(ClientPropertyKey, getReportValueNotSerializable, bool)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientPropertyKey, valueOf, ClientPropertyKey*, $String*)},
-	{"values", "()[Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientPropertyKey, values, $ClientPropertyKeyArray*)},
-	{}
-};
-
-$InnerClassInfo _ClientPropertyKey_InnerClassesInfo_[] = {
-	{"javax.swing.ClientPropertyKey$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ClientPropertyKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.ClientPropertyKey",
-	"java.lang.Enum",
-	nullptr,
-	_ClientPropertyKey_FieldInfo_,
-	_ClientPropertyKey_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/ClientPropertyKey;>;",
-	nullptr,
-	_ClientPropertyKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.ClientPropertyKey$1"
-};
-
-$Object* allocate$ClientPropertyKey($Class* clazz) {
-	return $of($alloc(ClientPropertyKey));
-}
 
 ClientPropertyKey* ClientPropertyKey::JComponent_INPUT_VERIFIER = nullptr;
 ClientPropertyKey* ClientPropertyKey::JComponent_TRANSFER_HANDLER = nullptr;
@@ -102,7 +55,7 @@ bool ClientPropertyKey::getReportValueNotSerializable() {
 	return this->reportValueNotSerializable;
 }
 
-void clinit$ClientPropertyKey($Class* class$) {
+void ClientPropertyKey::clinit$($Class* clazz) {
 	$assignStatic(ClientPropertyKey::JComponent_INPUT_VERIFIER, $new(ClientPropertyKey, "JComponent_INPUT_VERIFIER"_s, 0, true));
 	$assignStatic(ClientPropertyKey::JComponent_TRANSFER_HANDLER, $new(ClientPropertyKey, "JComponent_TRANSFER_HANDLER"_s, 1, true));
 	$assignStatic(ClientPropertyKey::JComponent_ANCESTOR_NOTIFIER, $new(ClientPropertyKey, "JComponent_ANCESTOR_NOTIFIER"_s, 2, true));
@@ -117,7 +70,45 @@ ClientPropertyKey::ClientPropertyKey() {
 }
 
 $Class* ClientPropertyKey::load$($String* name, bool initialize) {
-	$loadClass(ClientPropertyKey, name, initialize, &_ClientPropertyKey_ClassInfo_, clinit$ClientPropertyKey, allocate$ClientPropertyKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"JComponent_INPUT_VERIFIER", "Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientPropertyKey, JComponent_INPUT_VERIFIER)},
+		{"JComponent_TRANSFER_HANDLER", "Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientPropertyKey, JComponent_TRANSFER_HANDLER)},
+		{"JComponent_ANCESTOR_NOTIFIER", "Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientPropertyKey, JComponent_ANCESTOR_NOTIFIER)},
+		{"PopupFactory_FORCE_HEAVYWEIGHT_POPUP", "Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ClientPropertyKey, PopupFactory_FORCE_HEAVYWEIGHT_POPUP)},
+		{"$VALUES", "[Ljavax/swing/ClientPropertyKey;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ClientPropertyKey, $VALUES)},
+		{"reportValueNotSerializable", "Z", nullptr, $PRIVATE | $FINAL, $field(ClientPropertyKey, reportValueNotSerializable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/ClientPropertyKey;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClientPropertyKey, $values, $ClientPropertyKeyArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ClientPropertyKey, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;IZ)V", "(Z)V", $PRIVATE, $method(ClientPropertyKey, init$, void, $String*, int32_t, bool)},
+		{"getReportValueNotSerializable", "()Z", nullptr, $PUBLIC, $method(ClientPropertyKey, getReportValueNotSerializable, bool)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientPropertyKey, valueOf, ClientPropertyKey*, $String*)},
+		{"values", "()[Ljavax/swing/ClientPropertyKey;", nullptr, $PUBLIC | $STATIC, $staticMethod(ClientPropertyKey, values, $ClientPropertyKeyArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ClientPropertyKey$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.ClientPropertyKey",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/ClientPropertyKey;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.ClientPropertyKey$1"
+	};
+	$loadClass(ClientPropertyKey, name, initialize, &classInfo$$, ClientPropertyKey::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClientPropertyKey));
+	});
 	return class$;
 }
 

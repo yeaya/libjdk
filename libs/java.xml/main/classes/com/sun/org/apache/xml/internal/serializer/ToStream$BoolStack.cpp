@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ToStream$BoolStack.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/ToStream.h>
 #include <jcpp.h>
 
@@ -15,55 +14,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _ToStream$BoolStack_FieldInfo_[] = {
-	{"m_values", "[Z", nullptr, $PRIVATE, $field(ToStream$BoolStack, m_values)},
-	{"m_allocatedSize", "I", nullptr, $PRIVATE, $field(ToStream$BoolStack, m_allocatedSize)},
-	{"m_index", "I", nullptr, $PRIVATE, $field(ToStream$BoolStack, m_index)},
-	{}
-};
-
-$MethodInfo _ToStream$BoolStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ToStream$BoolStack, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ToStream$BoolStack, init$, void, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, clear, void)},
-	{"grow", "()V", nullptr, $PRIVATE, $method(ToStream$BoolStack, grow, void)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(ToStream$BoolStack, isEmpty, bool)},
-	{"peek", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, peek, bool)},
-	{"peekOrFalse", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, peekOrFalse, bool)},
-	{"peekOrTrue", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, peekOrTrue, bool)},
-	{"pop", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, pop, bool)},
-	{"popAndTop", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, popAndTop, bool)},
-	{"push", "(Z)Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, push, bool, bool)},
-	{"setTop", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, setTop, void, bool)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ToStream$BoolStack_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.ToStream$BoolStack", "com.sun.org.apache.xml.internal.serializer.ToStream", "BoolStack", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ToStream$BoolStack_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.ToStream$BoolStack",
-	"java.lang.Object",
-	nullptr,
-	_ToStream$BoolStack_FieldInfo_,
-	_ToStream$BoolStack_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ToStream$BoolStack_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.ToStream"
-};
-
-$Object* allocate$ToStream$BoolStack($Class* clazz) {
-	return $of($alloc(ToStream$BoolStack));
-}
 
 void ToStream$BoolStack::init$() {
 	ToStream$BoolStack::init$(32);
@@ -130,7 +80,50 @@ ToStream$BoolStack::ToStream$BoolStack() {
 }
 
 $Class* ToStream$BoolStack::load$($String* name, bool initialize) {
-	$loadClass(ToStream$BoolStack, name, initialize, &_ToStream$BoolStack_ClassInfo_, allocate$ToStream$BoolStack);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_values", "[Z", nullptr, $PRIVATE, $field(ToStream$BoolStack, m_values)},
+		{"m_allocatedSize", "I", nullptr, $PRIVATE, $field(ToStream$BoolStack, m_allocatedSize)},
+		{"m_index", "I", nullptr, $PRIVATE, $field(ToStream$BoolStack, m_index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ToStream$BoolStack, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ToStream$BoolStack, init$, void, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, clear, void)},
+		{"grow", "()V", nullptr, $PRIVATE, $method(ToStream$BoolStack, grow, void)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(ToStream$BoolStack, isEmpty, bool)},
+		{"peek", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, peek, bool)},
+		{"peekOrFalse", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, peekOrFalse, bool)},
+		{"peekOrTrue", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, peekOrTrue, bool)},
+		{"pop", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, pop, bool)},
+		{"popAndTop", "()Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, popAndTop, bool)},
+		{"push", "(Z)Z", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, push, bool, bool)},
+		{"setTop", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, setTop, void, bool)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(ToStream$BoolStack, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.ToStream$BoolStack", "com.sun.org.apache.xml.internal.serializer.ToStream", "BoolStack", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.ToStream$BoolStack",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.ToStream"
+	};
+	$loadClass(ToStream$BoolStack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToStream$BoolStack);
+	});
 	return class$;
 }
 

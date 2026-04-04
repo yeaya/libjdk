@@ -1,9 +1,6 @@
 #include <com/sun/org/apache/xpath/internal/functions/FunctionOneArg.h>
-
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function.h>
 #include <com/sun/org/apache/xpath/internal/functions/WrongNumberArgsException.h>
@@ -12,8 +9,6 @@
 
 using $XSLMessages = ::com::sun::org::apache::xalan::internal::res::XSLMessages;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
-using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
 using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;
 using $WrongNumberArgsException = ::com::sun::org::apache::xpath::internal::functions::WrongNumberArgsException;
@@ -29,45 +24,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace functions {
-
-$FieldInfo _FunctionOneArg_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FunctionOneArg, serialVersionUID)},
-	{"m_arg0", "Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, 0, $field(FunctionOneArg, m_arg0)},
-	{}
-};
-
-$MethodInfo _FunctionOneArg_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FunctionOneArg, init$, void)},
-	{"callArgVisitors", "(Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, callArgVisitors, void, $XPathVisitor*)},
-	{"canTraverseOutsideSubtree", "()Z", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, canTraverseOutsideSubtree, bool)},
-	{"checkNumberArgs", "(I)V", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, checkNumberArgs, void, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
-	{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, deepEquals, bool, $Expression*)},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FunctionOneArg, fixupVariables, void, $List*, int32_t)},
-	{"getArg0", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, getArg0, $Expression*)},
-	{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, getExpression, $Expression*)},
-	{"reportWrongNumberArgs", "()V", nullptr, $PROTECTED, $virtualMethod(FunctionOneArg, reportWrongNumberArgs, void), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
-	{"setArg", "(Lcom/sun/org/apache/xpath/internal/Expression;I)V", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, setArg, void, $Expression*, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
-	{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, setExpression, void, $Expression*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _FunctionOneArg_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FunctionOneArg",
-	"com.sun.org.apache.xpath.internal.functions.Function",
-	"com.sun.org.apache.xpath.internal.ExpressionOwner",
-	_FunctionOneArg_FieldInfo_,
-	_FunctionOneArg_MethodInfo_
-};
-
-$Object* allocate$FunctionOneArg($Class* clazz) {
-	return $of($alloc(FunctionOneArg));
-}
 
 int32_t FunctionOneArg::hashCode() {
 	 return this->$Function::hashCode();
@@ -122,13 +78,13 @@ bool FunctionOneArg::canTraverseOutsideSubtree() {
 
 void FunctionOneArg::fixupVariables($List* vars, int32_t globalsSize) {
 	if (nullptr != this->m_arg0) {
-		$nc(this->m_arg0)->fixupVariables(vars, globalsSize);
+		this->m_arg0->fixupVariables(vars, globalsSize);
 	}
 }
 
 void FunctionOneArg::callArgVisitors($XPathVisitor* visitor) {
 	if (nullptr != this->m_arg0) {
-		$nc(this->m_arg0)->callVisitors(this, visitor);
+		this->m_arg0->callVisitors(this, visitor);
 	}
 }
 
@@ -146,13 +102,13 @@ bool FunctionOneArg::deepEquals($Expression* expr) {
 		return false;
 	}
 	if (nullptr != this->m_arg0) {
-		if (nullptr == $nc(($cast(FunctionOneArg, expr)))->m_arg0) {
+		if (nullptr == $nc($cast(FunctionOneArg, expr))->m_arg0) {
 			return false;
 		}
-		if (!$nc(this->m_arg0)->deepEquals($nc(($cast(FunctionOneArg, expr)))->m_arg0)) {
+		if (!this->m_arg0->deepEquals($cast(FunctionOneArg, expr)->m_arg0)) {
 			return false;
 		}
-	} else if (nullptr != $nc(($cast(FunctionOneArg, expr)))->m_arg0) {
+	} else if (nullptr != $nc($cast(FunctionOneArg, expr))->m_arg0) {
 		return false;
 	}
 	return true;
@@ -162,7 +118,41 @@ FunctionOneArg::FunctionOneArg() {
 }
 
 $Class* FunctionOneArg::load$($String* name, bool initialize) {
-	$loadClass(FunctionOneArg, name, initialize, &_FunctionOneArg_ClassInfo_, allocate$FunctionOneArg);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FunctionOneArg, serialVersionUID)},
+		{"m_arg0", "Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, 0, $field(FunctionOneArg, m_arg0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FunctionOneArg, init$, void)},
+		{"callArgVisitors", "(Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, callArgVisitors, void, $XPathVisitor*)},
+		{"canTraverseOutsideSubtree", "()Z", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, canTraverseOutsideSubtree, bool)},
+		{"checkNumberArgs", "(I)V", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, checkNumberArgs, void, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
+		{"deepEquals", "(Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, deepEquals, bool, $Expression*)},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FunctionOneArg, fixupVariables, void, $List*, int32_t)},
+		{"getArg0", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, getArg0, $Expression*)},
+		{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, getExpression, $Expression*)},
+		{"reportWrongNumberArgs", "()V", nullptr, $PROTECTED, $virtualMethod(FunctionOneArg, reportWrongNumberArgs, void), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
+		{"setArg", "(Lcom/sun/org/apache/xpath/internal/Expression;I)V", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, setArg, void, $Expression*, int32_t), "com.sun.org.apache.xpath.internal.functions.WrongNumberArgsException"},
+		{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC, $virtualMethod(FunctionOneArg, setExpression, void, $Expression*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FunctionOneArg",
+		"com.sun.org.apache.xpath.internal.functions.Function",
+		"com.sun.org.apache.xpath.internal.ExpressionOwner",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FunctionOneArg, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FunctionOneArg));
+	});
 	return class$;
 }
 

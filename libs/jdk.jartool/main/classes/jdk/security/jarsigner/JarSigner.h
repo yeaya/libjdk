@@ -95,6 +95,7 @@ class $export JarSigner : public ::java::lang::Object {
 	$class(JarSigner, 0, ::java::lang::Object)
 public:
 	JarSigner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::security::jarsigner::JarSigner$Builder* builder);
 	$String* getDigestAlgorithm();
 	::java::util::jar::Attributes* getDigestAttributes(::java::util::zip::ZipEntry* ze, ::java::util::zip::ZipFile* zf, $Array<::java::security::MessageDigest>* digests);

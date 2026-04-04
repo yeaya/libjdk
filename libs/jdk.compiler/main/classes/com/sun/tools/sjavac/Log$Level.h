@@ -27,6 +27,7 @@ class Log$Level : public ::java::lang::Enum {
 public:
 	Log$Level();
 	static $Array<::com::sun::tools::sjavac::Log$Level>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::sjavac::Log$Level* valueOf($String* name);
 	static $Array<::com::sun::tools::sjavac::Log$Level>* values();

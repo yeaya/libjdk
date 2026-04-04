@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$RecordCompositeBuilder.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilder.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
@@ -22,8 +21,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $RecordComponent = ::java::lang::reflect::RecordComponent;
-using $Type = ::java::lang::reflect::Type;
 using $Arrays = ::java::util::Arrays;
 using $Set = ::java::util::Set;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
@@ -33,62 +30,22 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _DefaultMXBeanMappingFactory$RecordCompositeBuilder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$RecordCompositeBuilder, init$, void, $Class*, $StringArray*)},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, applicable, $String*, $MethodArray*), "java.io.InvalidObjectException"},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*), "java.io.InvalidObjectException"},
-	{"getConstPropValues", "(Ljava/lang/reflect/Constructor;)[Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)[Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, getConstPropValues, $StringArray*, $Constructor*)},
-	{"matchingMechanism", "(Ljava/lang/reflect/Constructor;)Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, matchingMechanism, $String*, $Constructor*)},
-	{"referenceMechannism", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, referenceMechannism, $String*, $String*)},
-	{"reportConstructorsAmbiguousFor", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportConstructorsAmbiguousFor, $String*, $Set*)},
-	{"reportMultipleConstructorsFoundFor", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $TRANSIENT, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportMultipleConstructorsFoundFor, $String*, $StringArray*)},
-	{"reportNoConstructor", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportNoConstructor, $String*)},
-	{"reportNoConstructorFoundFor", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportNoConstructorFoundFor, $String*, $Set*)},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$RecordCompositeBuilder_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$RecordCompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "RecordCompositeBuilder", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaConstructor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$RecordCompositeBuilder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$RecordCompositeBuilder",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor",
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$RecordCompositeBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$RecordCompositeBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$RecordCompositeBuilder($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$RecordCompositeBuilder));
-}
-
 void DefaultMXBeanMappingFactory$RecordCompositeBuilder::init$($Class* targetClass, $StringArray* itemNames) {
 	$DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor::init$(targetClass, itemNames);
 }
 
 $StringArray* DefaultMXBeanMappingFactory$RecordCompositeBuilder::getConstPropValues($Constructor* ctor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($RecordComponentArray, components, $nc(getTargetClass())->getRecordComponents());
 	$var($TypeArray, ptypes, $nc(ctor)->getGenericParameterTypes());
 	if ($nc(components)->length != $nc(ptypes)->length) {
 		return $DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor::getConstPropValues(ctor);
 	}
-	int32_t len = $nc(components)->length;
+	int32_t len = components->length;
 	$var($StringArray, res, $new($StringArray, len));
 	for (int32_t i = 0; i < len; ++i) {
-		if (!$nc($of($nc(ptypes)->get(i)))->equals($($nc(components->get(i))->getGenericType()))) {
+		if (!$nc(ptypes->get(i))->equals($($nc(components->get(i))->getGenericType()))) {
 			return $DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor::getConstPropValues(ctor);
 		}
 		res->set(i, $($nc(components->get(i))->getName()));
@@ -105,7 +62,7 @@ $String* DefaultMXBeanMappingFactory$RecordCompositeBuilder::applicable($MethodA
 }
 
 $Object* DefaultMXBeanMappingFactory$RecordCompositeBuilder::fromCompositeData($CompositeData* cd, $StringArray* itemNames, $MXBeanMappingArray* mappings) {
-	return $of($DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor::fromCompositeData(cd, itemNames, mappings));
+	return $DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor::fromCompositeData(cd, itemNames, mappings);
 }
 
 $String* DefaultMXBeanMappingFactory$RecordCompositeBuilder::reportNoConstructor() {
@@ -136,7 +93,42 @@ DefaultMXBeanMappingFactory$RecordCompositeBuilder::DefaultMXBeanMappingFactory$
 }
 
 $Class* DefaultMXBeanMappingFactory$RecordCompositeBuilder::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$RecordCompositeBuilder, name, initialize, &_DefaultMXBeanMappingFactory$RecordCompositeBuilder_ClassInfo_, allocate$DefaultMXBeanMappingFactory$RecordCompositeBuilder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;)V", 0, $method(DefaultMXBeanMappingFactory$RecordCompositeBuilder, init$, void, $Class*, $StringArray*)},
+		{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, applicable, $String*, $MethodArray*), "java.io.InvalidObjectException"},
+		{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*), "java.io.InvalidObjectException"},
+		{"getConstPropValues", "(Ljava/lang/reflect/Constructor;)[Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)[Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, getConstPropValues, $StringArray*, $Constructor*)},
+		{"matchingMechanism", "(Ljava/lang/reflect/Constructor;)Ljava/lang/String;", "(Ljava/lang/reflect/Constructor<*>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, matchingMechanism, $String*, $Constructor*)},
+		{"referenceMechannism", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, referenceMechannism, $String*, $String*)},
+		{"reportConstructorsAmbiguousFor", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportConstructorsAmbiguousFor, $String*, $Set*)},
+		{"reportMultipleConstructorsFoundFor", "([Ljava/lang/String;)Ljava/lang/String;", nullptr, $TRANSIENT, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportMultipleConstructorsFoundFor, $String*, $StringArray*)},
+		{"reportNoConstructor", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportNoConstructor, $String*)},
+		{"reportNoConstructorFoundFor", "(Ljava/util/Set;)Ljava/lang/String;", "(Ljava/util/Set<Ljava/lang/String;>;)Ljava/lang/String;", 0, $virtualMethod(DefaultMXBeanMappingFactory$RecordCompositeBuilder, reportNoConstructorFoundFor, $String*, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$RecordCompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "RecordCompositeBuilder", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderViaConstructor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$RecordCompositeBuilder",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderViaConstructor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$RecordCompositeBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$RecordCompositeBuilder);
+	});
 	return class$;
 }
 

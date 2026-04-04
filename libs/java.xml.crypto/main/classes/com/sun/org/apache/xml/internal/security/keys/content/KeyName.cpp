@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/KeyName.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
@@ -25,32 +24,6 @@ namespace com {
 						namespace security {
 							namespace keys {
 								namespace content {
-
-$MethodInfo _KeyName_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyName, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyName, init$, void, $Document*, $String*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyName, getBaseLocalName, $String*)},
-	{"getKeyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyName, getKeyName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _KeyName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyName",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
-	nullptr,
-	_KeyName_MethodInfo_
-};
-
-$Object* allocate$KeyName($Class* clazz) {
-	return $of($alloc(KeyName));
-}
 
 int32_t KeyName::hashCode() {
 	 return this->$SignatureElementProxy::hashCode();
@@ -94,7 +67,29 @@ KeyName::KeyName() {
 }
 
 $Class* KeyName::load$($String* name, bool initialize) {
-	$loadClass(KeyName, name, initialize, &_KeyName_ClassInfo_, allocate$KeyName);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyName, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyName, init$, void, $Document*, $String*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyName, getBaseLocalName, $String*)},
+		{"getKeyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyName, getKeyName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyName",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeyName));
+	});
 	return class$;
 }
 

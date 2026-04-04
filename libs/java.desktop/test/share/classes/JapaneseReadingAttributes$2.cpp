@@ -1,5 +1,4 @@
 #include <JapaneseReadingAttributes$2.h>
-
 #include <JapaneseReadingAttributes.h>
 #include <java/awt/event/InputMethodEvent.h>
 #include <java/text/Annotation.h>
@@ -20,45 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::text::Annotation;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
-using $JTextField = ::javax::swing::JTextField;
-
-$MethodInfo _JapaneseReadingAttributes$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JapaneseReadingAttributes$2, init$, void)},
-	{"caretPositionChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$2, caretPositionChanged, void, $InputMethodEvent*)},
-	{"inputMethodTextChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$2, inputMethodTextChanged, void, $InputMethodEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _JapaneseReadingAttributes$2_EnclosingMethodInfo_ = {
-	"JapaneseReadingAttributes",
-	"setupUI",
-	"()V"
-};
-
-$InnerClassInfo _JapaneseReadingAttributes$2_InnerClassesInfo_[] = {
-	{"JapaneseReadingAttributes$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JapaneseReadingAttributes$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"JapaneseReadingAttributes$2",
-	"java.lang.Object",
-	"java.awt.event.InputMethodListener",
-	nullptr,
-	_JapaneseReadingAttributes$2_MethodInfo_,
-	nullptr,
-	&_JapaneseReadingAttributes$2_EnclosingMethodInfo_,
-	_JapaneseReadingAttributes$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JapaneseReadingAttributes"
-};
-
-$Object* allocate$JapaneseReadingAttributes$2($Class* clazz) {
-	return $of($alloc(JapaneseReadingAttributes$2));
-}
 
 void JapaneseReadingAttributes$2::init$() {
 }
@@ -67,7 +27,7 @@ void JapaneseReadingAttributes$2::caretPositionChanged($InputMethodEvent* event)
 }
 
 void JapaneseReadingAttributes$2::inputMethodTextChanged($InputMethodEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributedCharacterIterator, itr, $nc(event)->getText());
 	if (itr != nullptr) {
 		int32_t toCopy = event->getCommittedCharacterCount();
@@ -93,7 +53,39 @@ JapaneseReadingAttributes$2::JapaneseReadingAttributes$2() {
 }
 
 $Class* JapaneseReadingAttributes$2::load$($String* name, bool initialize) {
-	$loadClass(JapaneseReadingAttributes$2, name, initialize, &_JapaneseReadingAttributes$2_ClassInfo_, allocate$JapaneseReadingAttributes$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JapaneseReadingAttributes$2, init$, void)},
+		{"caretPositionChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$2, caretPositionChanged, void, $InputMethodEvent*)},
+		{"inputMethodTextChanged", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, $PUBLIC, $virtualMethod(JapaneseReadingAttributes$2, inputMethodTextChanged, void, $InputMethodEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"JapaneseReadingAttributes",
+		"setupUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JapaneseReadingAttributes$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JapaneseReadingAttributes$2",
+		"java.lang.Object",
+		"java.awt.event.InputMethodListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JapaneseReadingAttributes"
+	};
+	$loadClass(JapaneseReadingAttributes$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JapaneseReadingAttributes$2);
+	});
 	return class$;
 }
 

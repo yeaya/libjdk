@@ -64,6 +64,7 @@ class DecimalFormatting : public ::com::sun::org::apache::xalan::internal::xsltc
 	$class(DecimalFormatting, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::TopLevelElement)
 public:
 	DecimalFormatting();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void parseContents(::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser* parser) override;
 	virtual void translate(::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator* classGen, ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator* methodGen) override;

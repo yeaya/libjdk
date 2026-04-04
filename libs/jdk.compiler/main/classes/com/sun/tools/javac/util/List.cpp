@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/List.h>
-
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/List$1.h>
 #include <com/sun/tools/javac/util/List$2.h>
@@ -16,7 +15,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Array.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractQueue.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -58,7 +56,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $1Array = ::java::lang::reflect::Array;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractQueue = ::java::util::AbstractQueue;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -90,27 +87,24 @@ public:
 	virtual $Object* get() override {
 		 return $of($new($ListBuffer));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<List$$Lambda$ListBuffer>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo List$$Lambda$ListBuffer::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(List$$Lambda$ListBuffer, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$$Lambda$ListBuffer, get, $Object*)},
-	{}
-};
-$ClassInfo List$$Lambda$ListBuffer::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.util.List$$Lambda$ListBuffer",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* List$$Lambda$ListBuffer::load$($String* name, bool initialize) {
-	$loadClass(List$$Lambda$ListBuffer, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(List$$Lambda$ListBuffer, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$$Lambda$ListBuffer, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.util.List$$Lambda$ListBuffer",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(List$$Lambda$ListBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(List$$Lambda$ListBuffer);
+	});
 	return class$;
 }
 $Class* List$$Lambda$ListBuffer::class$ = nullptr;
@@ -123,27 +117,24 @@ public:
 	virtual void accept(Object$* inst$, Object$* a) override {
 		$sure($ListBuffer, inst$)->add(a);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<List$$Lambda$add$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo List$$Lambda$add$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(List$$Lambda$add$1, init$, void)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(List$$Lambda$add$1, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo List$$Lambda$add$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.util.List$$Lambda$add$1",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	nullptr,
-	methodInfos
 };
 $Class* List$$Lambda$add$1::load$($String* name, bool initialize) {
-	$loadClass(List$$Lambda$add$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(List$$Lambda$add$1, init$, void)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(List$$Lambda$add$1, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.util.List$$Lambda$add$1",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(List$$Lambda$add$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(List$$Lambda$add$1);
+	});
 	return class$;
 }
 $Class* List$$Lambda$add$1::class$ = nullptr;
@@ -156,27 +147,24 @@ public:
 	virtual $Object* apply(Object$* buf1, Object$* buf2) override {
 		 return $of(List::lambda$collector$0($cast($ListBuffer, buf1), $cast($ListBuffer, buf2)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<List$$Lambda$lambda$collector$0$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo List$$Lambda$lambda$collector$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(List$$Lambda$lambda$collector$0$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$$Lambda$lambda$collector$0$2, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo List$$Lambda$lambda$collector$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.util.List$$Lambda$lambda$collector$0$2",
-	"java.lang.Object",
-	"java.util.function.BinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* List$$Lambda$lambda$collector$0$2::load$($String* name, bool initialize) {
-	$loadClass(List$$Lambda$lambda$collector$0$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(List$$Lambda$lambda$collector$0$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$$Lambda$lambda$collector$0$2, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.util.List$$Lambda$lambda$collector$0$2",
+		"java.lang.Object",
+		"java.util.function.BinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(List$$Lambda$lambda$collector$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(List$$Lambda$lambda$collector$0$2);
+	});
 	return class$;
 }
 $Class* List$$Lambda$lambda$collector$0$2::class$ = nullptr;
@@ -189,137 +177,27 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($ListBuffer, inst$)->toList());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<List$$Lambda$toList$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo List$$Lambda$toList$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(List$$Lambda$toList$3, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$$Lambda$toList$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo List$$Lambda$toList$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.util.List$$Lambda$toList$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* List$$Lambda$toList$3::load$($String* name, bool initialize) {
-	$loadClass(List$$Lambda$toList$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(List$$Lambda$toList$3, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List$$Lambda$toList$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.util.List$$Lambda$toList$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(List$$Lambda$toList$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(List$$Lambda$toList$3);
+	});
 	return class$;
 }
 $Class* List$$Lambda$toList$3::class$ = nullptr;
-
-$CompoundAttribute _List_MethodAnnotations_fill13[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _List_FieldInfo_[] = {
-	{"head", "Ljava/lang/Object;", "TA;", $PUBLIC, $field(List, head)},
-	{"tail", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $field(List, tail)},
-	{"EMPTY_LIST", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(List, EMPTY_LIST)},
-	{"EMPTYITERATOR", "Ljava/util/Iterator;", "Ljava/util/Iterator<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(List, EMPTYITERATOR)},
-	{}
-};
-
-$MethodInfo _List_MethodInfo_[] = {
-	{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*clear", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)V", "(TA;Lcom/sun/tools/javac/util/List<TA;>;)V", 0, $method(List, init$, void, Object$*, List*)},
-	{"add", "(ILjava/lang/Object;)V", "(ITA;)V", $PUBLIC, $virtualMethod(List, add, void, int32_t, Object$*)},
-	{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TA;>;)Z", $PUBLIC, $virtualMethod(List, addAll, bool, int32_t, $Collection*)},
-	{"append", "(Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "(TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, append, List*, Object$*)},
-	{"appendList", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, appendList, List*, List*)},
-	{"appendList", "(Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/ListBuffer<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, appendList, List*, $ListBuffer*)},
-	{"collector", "()Ljava/util/stream/Collector;", "<Z:Ljava/lang/Object;>()Ljava/util/stream/Collector<TZ;Lcom/sun/tools/javac/util/ListBuffer<TZ;>;Lcom/sun/tools/javac/util/List<TZ;>;>;", $PUBLIC | $STATIC, $staticMethod(List, collector, $Collector*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(List, contains, bool, Object$*)},
-	{"convert", "(Ljava/lang/Class;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Lcom/sun/tools/javac/util/List<*>;)Lcom/sun/tools/javac/util/List<TT;>;", $PUBLIC | $STATIC, $staticMethod(List, convert, List*, $Class*, List*)},
-	{"diff", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, diff, List*, List*)},
-	{"emptyIterator", "()Ljava/util/Iterator;", "<A:Ljava/lang/Object;>()Ljava/util/Iterator<TA;>;", $PRIVATE | $STATIC, $staticMethod(List, emptyIterator, $Iterator*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(List, equals, bool, Object$*)},
-	{"equals", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<*>;Lcom/sun/tools/javac/util/List<*>;)Z", $PUBLIC | $STATIC, $staticMethod(List, equals, bool, List*, List*)},
-	{"fill", "(ILjava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(ITA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(List, fill, List*, int32_t, Object$*), nullptr, nullptr, _List_MethodAnnotations_fill13},
-	{"filter", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/List<TA;>;TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, filter, List*, List*, Object$*)},
-	{"from", "([Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>([TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, from, List*, $ObjectArray*)},
-	{"from", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(Ljava/lang/Iterable<+TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, from, List*, $Iterable*)},
-	{"get", "(I)Ljava/lang/Object;", "(I)TA;", $PUBLIC, $virtualMethod(List, get, $Object*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(List, hashCode, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(List, indexOf, int32_t, Object$*)},
-	{"intersect", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, intersect, List*, List*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(List, isEmpty, bool)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TA;>;", $PUBLIC, $virtualMethod(List, iterator, $Iterator*)},
-	{"lambda$collector$0", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/util/ListBuffer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(List, lambda$collector$0, $ListBuffer*, $ListBuffer*, $ListBuffer*)},
-	{"last", "()Ljava/lang/Object;", "()TA;", $PUBLIC, $virtualMethod(List, last, $Object*)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(List, lastIndexOf, int32_t, Object$*)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(List, length, int32_t)},
-	{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TA;>;", $PUBLIC, $virtualMethod(List, listIterator, $ListIterator*)},
-	{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TA;>;", $PUBLIC, $virtualMethod(List, listIterator, $ListIterator*, int32_t)},
-	{"map", "(Ljava/util/function/Function;)Lcom/sun/tools/javac/util/List;", "<Z:Ljava/lang/Object;>(Ljava/util/function/Function<TA;TZ;>;)Lcom/sun/tools/javac/util/List<TZ;>;", $PUBLIC, $virtualMethod(List, map, List*, $Function*)},
-	{"nil", "()Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>()Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, nil, List*)},
-	{"nonEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(List, nonEmpty, bool)},
-	{"of", "(Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(TA;TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(TA;TA;TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*)},
-	{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(TA;TA;TA;[TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, $ObjectArray*)},
-	{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"prepend", "(Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "(TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, prepend, List*, Object$*)},
-	{"prependList", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, prependList, List*, List*)},
-	{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"remove", "(I)Ljava/lang/Object;", "(I)TA;", $PUBLIC, $virtualMethod(List, remove, $Object*, int32_t)},
-	{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
-	{"reverse", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, reverse, List*)},
-	{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITA;)TA;", $PUBLIC, $virtualMethod(List, set, $Object*, int32_t, Object$*)},
-	{"setTail", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, setTail, List*, List*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(List, size, int32_t)},
-	{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
-	{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TA;>;", $PUBLIC, $virtualMethod(List, subList, $List*, int32_t, int32_t)},
-	{"take", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, take, List*, int32_t)},
-	{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(List, toArray, $ObjectArray*, $ObjectArray*)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List, toArray, $ObjectArray*)},
-	{"toString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(List, toString, $String*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(List, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _List_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.List$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.util.List$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.util.List$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _List_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.List",
-	"java.util.AbstractCollection",
-	"java.util.List",
-	_List_FieldInfo_,
-	_List_MethodInfo_,
-	"<A:Ljava/lang/Object;>Ljava/util/AbstractCollection<TA;>;Ljava/util/List<TA;>;",
-	nullptr,
-	_List_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.List$3,com.sun.tools.javac.util.List$2,com.sun.tools.javac.util.List$1"
-};
-
-$Object* allocate$List($Class* clazz) {
-	return $of($alloc(List));
-}
 
 bool List::add(Object$* arg0) {
 	 return this->$AbstractCollection::add(arg0);
@@ -397,17 +275,15 @@ List* List::nil() {
 
 List* List::filter(List* l, Object$* elem) {
 	$init(List);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull(elem);
 	$var(List, res, List::nil());
 	{
 		$var($Iterator, i$, $nc(l)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, a, i$->next());
-			{
-				if (a != nullptr && !$of(a)->equals(elem)) {
-					$assign(res, $nc(res)->prepend(a));
-				}
+			if (a != nullptr && !a->equals(elem)) {
+				$assign(res, $nc(res)->prepend(a));
 			}
 		}
 	}
@@ -415,16 +291,14 @@ List* List::filter(List* l, Object$* elem) {
 }
 
 List* List::intersect(List* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, this->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, el, i$->next());
-			{
-				if ($nc(that)->contains(el)) {
-					buf->append(el);
-				}
+			if ($nc(that)->contains(el)) {
+				buf->append(el);
 			}
 		}
 	}
@@ -432,16 +306,14 @@ List* List::intersect(List* that) {
 }
 
 List* List::diff(List* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, this->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, el, i$->next());
-			{
-				if (!$nc(that)->contains(el)) {
-					buf->append(el);
-				}
+			if (!$nc(that)->contains(el)) {
+				buf->append(el);
 			}
 		}
 	}
@@ -449,7 +321,7 @@ List* List::diff(List* that) {
 }
 
 List* List::take(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	int32_t count = 0;
 	{
@@ -484,7 +356,7 @@ List* List::of(Object$* x1, Object$* x2, Object$* x3) {
 
 List* List::of(Object$* x1, Object$* x2, Object$* x3, $ObjectArray* rest) {
 	$init(List);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new(List, x1, $$new(List, x2, $$new(List, x3, $(from(rest)))));
 }
 
@@ -501,7 +373,7 @@ List* List::from($ObjectArray* array) {
 
 List* List::from($Iterable* coll) {
 	$init(List);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, xs, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(coll)->iterator());
@@ -556,18 +428,18 @@ List* List::prepend(Object$* x) {
 }
 
 List* List::prependList(List* xs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isEmpty()) {
 		return xs;
 	}
 	if ($nc(xs)->isEmpty()) {
 		return this;
 	}
-	if ($nc($nc(xs)->tail)->isEmpty()) {
+	if ($nc(xs->tail)->isEmpty()) {
 		return prepend(xs->head);
 	}
 	$var(List, result, this);
-	$var(List, rev, $nc(xs)->reverse());
+	$var(List, rev, xs->reverse());
 	$Assert::check(rev != xs);
 	while ($nc(rev)->nonEmpty()) {
 		$var(List, h, rev);
@@ -579,7 +451,7 @@ List* List::prependList(List* xs) {
 }
 
 List* List::reverse() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isEmpty();
 	if (var$0 || $nc(this->tail)->isEmpty()) {
 		return this;
@@ -587,15 +459,15 @@ List* List::reverse() {
 	$var(List, rev, nil());
 	{
 		$var(List, l, this);
-		for (; l->nonEmpty(); $assign(l, l->tail)) {
-			$assign(rev, $new(List, $nc(l)->head, rev));
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			$assign(rev, $new(List, l->head, rev));
 		}
 	}
 	return rev;
 }
 
 List* List::append(Object$* x) {
-	return $nc($(of(x)))->prependList(this);
+	return $$nc(of(x))->prependList(this);
 }
 
 List* List::appendList(List* x) {
@@ -607,7 +479,7 @@ List* List::appendList($ListBuffer* x) {
 }
 
 $ObjectArray* List::toArray($ObjectArray* vec$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, vec, vec$renamed);
 	int32_t i = 0;
 	$var(List, l, this);
@@ -633,7 +505,7 @@ $ObjectArray* List::toArray() {
 }
 
 $String* List::toString($String* sep) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isEmpty()) {
 		return ""_s;
 	} else {
@@ -641,7 +513,7 @@ $String* List::toString($String* sep) {
 		buf->append(this->head);
 		{
 			$var(List, l, this->tail);
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 				buf->append(sep);
 				buf->append(l->head);
 			}
@@ -658,14 +530,14 @@ int32_t List::hashCode() {
 	$var(List, l, this);
 	int32_t h = 1;
 	while ($nc(l)->tail != nullptr) {
-		h = h * 31 + (l->head == nullptr ? 0 : $nc($of(l->head))->hashCode());
+		h = h * 31 + (l->head == nullptr ? 0 : l->head->hashCode());
 		$assign(l, l->tail);
 	}
 	return h;
 }
 
 bool List::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var(List, javacList, nullptr);
 		bool var$0 = $instanceOf(List, other);
@@ -689,7 +561,7 @@ bool List::equals(Object$* other) {
 			$var($Iterator, oIter, $nc(javaUtilList)->iterator());
 			while ($nc(t)->tail != nullptr && $nc(oIter)->hasNext()) {
 				$var($Object, o, oIter->next());
-				if (!(t->head == nullptr ? o == nullptr : $nc($of(t->head))->equals(o))) {
+				if (!(t->head == nullptr ? o == nullptr : t->head->equals(o))) {
 					return false;
 				}
 				$assign(t, t->tail);
@@ -703,7 +575,7 @@ bool List::equals(Object$* other) {
 
 bool List::equals(List* xs$renamed, List* ys$renamed) {
 	$init(List);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(List, ys, ys$renamed);
 	$var(List, xs, xs$renamed);
 	while ($nc(xs)->tail != nullptr && $nc(ys)->tail != nullptr) {
@@ -711,7 +583,7 @@ bool List::equals(List* xs$renamed, List* ys$renamed) {
 			if (ys->head != nullptr) {
 				return false;
 			}
-		} else if (!$nc($of(xs->head))->equals(ys->head)) {
+		} else if (!xs->head->equals(ys->head)) {
 			return false;
 		}
 		$assign(xs, xs->tail);
@@ -727,7 +599,7 @@ bool List::contains(Object$* x) {
 			if (l->head == nullptr) {
 				return true;
 			}
-		} else if ($nc($of(l->head))->equals(x)) {
+		} else if ($nc(l->head)->equals(x)) {
 			return true;
 		}
 		$assign(l, l->tail);
@@ -736,18 +608,18 @@ bool List::contains(Object$* x) {
 }
 
 $Object* List::last() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, last, nullptr);
 	$var(List, t, this);
 	while ($nc(t)->tail != nullptr) {
 		$assign(last, t->head);
 		$assign(t, t->tail);
 	}
-	return $of(last);
+	return last;
 }
 
 List* List::map($Function* mapper) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool changed = false;
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
@@ -766,7 +638,7 @@ List* List::map($Function* mapper) {
 
 List* List::convert($Class* klass, List* list) {
 	$init(List);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (list == nullptr) {
 		return nullptr;
 	}
@@ -793,17 +665,18 @@ $Iterator* List::iterator() {
 }
 
 $Object* List::get(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0) {
 		$throwNew($IndexOutOfBoundsException, $($String::valueOf(index)));
 	}
 	$var(List, l, this);
-	for (int32_t i = index; i-- > 0 && !$nc(l)->isEmpty(); $assign(l, $nc(l)->tail)) {
+	for (int32_t i = index; i-- > 0 && !$nc(l)->isEmpty(); $assign(l, l->tail)) {
+		;
 	}
-	if (l->isEmpty()) {
+	if ($nc(l)->isEmpty()) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Index: "_s, $$str(index), ", Size: "_s, $$str(size())}));
 	}
-	return $of(l->head);
+	return l->head;
 }
 
 bool List::addAll(int32_t index, $Collection* c) {
@@ -831,8 +704,8 @@ int32_t List::indexOf(Object$* o) {
 	int32_t i = 0;
 	{
 		$var(List, l, this);
-		for (; l->tail != nullptr; $assign(l, l->tail), ++i) {
-			if ($nc(l)->head == nullptr ? o == nullptr : $nc($of($nc(l)->head))->equals(o)) {
+		for (; $nc(l)->tail != nullptr; $assign(l, l->tail), ++i) {
+			if (l->head == nullptr ? o == nullptr : l->head->equals(o)) {
 				return i;
 			}
 		}
@@ -845,8 +718,8 @@ int32_t List::lastIndexOf(Object$* o) {
 	int32_t i = 0;
 	{
 		$var(List, l, this);
-		for (; l->tail != nullptr; $assign(l, l->tail), ++i) {
-			if ($nc(l)->head == nullptr ? o == nullptr : $nc($of($nc(l)->head))->equals(o)) {
+		for (; $nc(l)->tail != nullptr; $assign(l, l->tail), ++i) {
+			if (l->head == nullptr ? o == nullptr : l->head->equals(o)) {
 				last = i;
 			}
 		}
@@ -855,17 +728,17 @@ int32_t List::lastIndexOf(Object$* o) {
 }
 
 $ListIterator* List::listIterator() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(this))))))->listIterator();
+	$useLocalObjectStack();
+	return $$nc($Collections::unmodifiableList($$new($ArrayList, $cast($AbstractCollection, this))))->listIterator();
 }
 
 $ListIterator* List::listIterator(int32_t index) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($Collections::unmodifiableList($$new($ArrayList, static_cast<$Collection*>(static_cast<$AbstractCollection*>(this))))))->listIterator(index);
+	$useLocalObjectStack();
+	return $$nc($Collections::unmodifiableList($$new($ArrayList, $cast($AbstractCollection, this))))->listIterator(index);
 }
 
 $List* List::subList(int32_t fromIndex, int32_t toIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fromIndex < 0 || toIndex > size() || fromIndex > toIndex) {
 		$throwNew($IllegalArgumentException);
 	}
@@ -873,12 +746,12 @@ $List* List::subList(int32_t fromIndex, int32_t toIndex) {
 	int32_t i = 0;
 	{
 		$var(List, l, this);
-		for (; l->tail != nullptr; $assign(l, l->tail), ++i) {
+		for (; $nc(l)->tail != nullptr; $assign(l, l->tail), ++i) {
 			if (i == toIndex) {
 				break;
 			}
 			if (i >= fromIndex) {
-				a->add($nc(l)->head);
+				a->add(l->head);
 			}
 		}
 	}
@@ -887,20 +760,20 @@ $List* List::subList(int32_t fromIndex, int32_t toIndex) {
 
 $Collector* List::collector() {
 	$init(List);
-	$useLocalCurrentObjectStackCache();
-	$var($Supplier, var$0, static_cast<$Supplier*>($new(List$$Lambda$ListBuffer)));
-	$var($BiConsumer, var$1, static_cast<$BiConsumer*>($new(List$$Lambda$add$1)));
-	$var($BinaryOperator, var$2, static_cast<$BinaryOperator*>($new(List$$Lambda$lambda$collector$0$2)));
-	return $Collector::of(var$0, var$1, var$2, static_cast<$Function*>($$new(List$$Lambda$toList$3)), $$new($Collector$CharacteristicsArray, 0));
+	$useLocalObjectStack();
+	$var($Supplier, var$0, $new(List$$Lambda$ListBuffer));
+	$var($BiConsumer, var$1, $new(List$$Lambda$add$1));
+	$var($BinaryOperator, var$2, $new(List$$Lambda$lambda$collector$0$2));
+	return $Collector::of(var$0, var$1, var$2, $$new(List$$Lambda$toList$3), $$new($Collector$CharacteristicsArray, 0));
 }
 
 $ListBuffer* List::lambda$collector$0($ListBuffer* buf1, $ListBuffer* buf2) {
 	$init(List);
-	$nc(buf1)->addAll(static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractQueue*>(buf2))));
+	$nc(buf1)->addAll($cast($AbstractCollection, buf2));
 	return buf1;
 }
 
-void clinit$List($Class* class$) {
+void List::clinit$($Class* clazz) {
 	$assignStatic(List::EMPTY_LIST, $new($List$1, nullptr, nullptr));
 	$assignStatic(List::EMPTYITERATOR, $new($List$2));
 }
@@ -910,20 +783,120 @@ List::List() {
 
 $Class* List::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(List$$Lambda$ListBuffer::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.util.List$$Lambda$ListBuffer")) {
 			return List$$Lambda$ListBuffer::load$(name, initialize);
 		}
-		if (name->equals(List$$Lambda$add$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.util.List$$Lambda$add$1")) {
 			return List$$Lambda$add$1::load$(name, initialize);
 		}
-		if (name->equals(List$$Lambda$lambda$collector$0$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.util.List$$Lambda$lambda$collector$0$2")) {
 			return List$$Lambda$lambda$collector$0$2::load$(name, initialize);
 		}
-		if (name->equals(List$$Lambda$toList$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.util.List$$Lambda$toList$3")) {
 			return List$$Lambda$toList$3::load$(name, initialize);
 		}
 	}
-	$loadClass(List, name, initialize, &_List_ClassInfo_, clinit$List, allocate$List);
+	$FieldInfo fieldInfos$$[] = {
+		{"head", "Ljava/lang/Object;", "TA;", $PUBLIC, $field(List, head)},
+		{"tail", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $field(List, tail)},
+		{"EMPTY_LIST", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(List, EMPTY_LIST)},
+		{"EMPTYITERATOR", "Ljava/util/Iterator;", "Ljava/util/Iterator<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(List, EMPTYITERATOR)},
+		{}
+	};
+	$CompoundAttribute fillmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*add", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*addAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*clear", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*containsAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*forEach", "(Ljava/util/function/Consumer;)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)V", "(TA;Lcom/sun/tools/javac/util/List<TA;>;)V", 0, $method(List, init$, void, Object$*, List*)},
+		{"add", "(ILjava/lang/Object;)V", "(ITA;)V", $PUBLIC, $virtualMethod(List, add, void, int32_t, Object$*)},
+		{"addAll", "(ILjava/util/Collection;)Z", "(ILjava/util/Collection<+TA;>;)Z", $PUBLIC, $virtualMethod(List, addAll, bool, int32_t, $Collection*)},
+		{"append", "(Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "(TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, append, List*, Object$*)},
+		{"appendList", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, appendList, List*, List*)},
+		{"appendList", "(Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/ListBuffer<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, appendList, List*, $ListBuffer*)},
+		{"collector", "()Ljava/util/stream/Collector;", "<Z:Ljava/lang/Object;>()Ljava/util/stream/Collector<TZ;Lcom/sun/tools/javac/util/ListBuffer<TZ;>;Lcom/sun/tools/javac/util/List<TZ;>;>;", $PUBLIC | $STATIC, $staticMethod(List, collector, $Collector*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(List, contains, bool, Object$*)},
+		{"convert", "(Ljava/lang/Class;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Lcom/sun/tools/javac/util/List<*>;)Lcom/sun/tools/javac/util/List<TT;>;", $PUBLIC | $STATIC, $staticMethod(List, convert, List*, $Class*, List*)},
+		{"diff", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, diff, List*, List*)},
+		{"emptyIterator", "()Ljava/util/Iterator;", "<A:Ljava/lang/Object;>()Ljava/util/Iterator<TA;>;", $PRIVATE | $STATIC, $staticMethod(List, emptyIterator, $Iterator*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(List, equals, bool, Object$*)},
+		{"equals", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/List<*>;Lcom/sun/tools/javac/util/List<*>;)Z", $PUBLIC | $STATIC, $staticMethod(List, equals, bool, List*, List*)},
+		{"fill", "(ILjava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(ITA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC | $DEPRECATED, $staticMethod(List, fill, List*, int32_t, Object$*), nullptr, nullptr, fillmethodAnnotations$$},
+		{"filter", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/List<TA;>;TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, filter, List*, List*, Object$*)},
+		{"from", "([Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>([TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, from, List*, $ObjectArray*)},
+		{"from", "(Ljava/lang/Iterable;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(Ljava/lang/Iterable<+TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, from, List*, $Iterable*)},
+		{"get", "(I)Ljava/lang/Object;", "(I)TA;", $PUBLIC, $virtualMethod(List, get, $Object*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(List, hashCode, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(List, indexOf, int32_t, Object$*)},
+		{"intersect", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, intersect, List*, List*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(List, isEmpty, bool)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<TA;>;", $PUBLIC, $virtualMethod(List, iterator, $Iterator*)},
+		{"lambda$collector$0", "(Lcom/sun/tools/javac/util/ListBuffer;Lcom/sun/tools/javac/util/ListBuffer;)Lcom/sun/tools/javac/util/ListBuffer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(List, lambda$collector$0, $ListBuffer*, $ListBuffer*, $ListBuffer*)},
+		{"last", "()Ljava/lang/Object;", "()TA;", $PUBLIC, $virtualMethod(List, last, $Object*)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(List, lastIndexOf, int32_t, Object$*)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(List, length, int32_t)},
+		{"listIterator", "()Ljava/util/ListIterator;", "()Ljava/util/ListIterator<TA;>;", $PUBLIC, $virtualMethod(List, listIterator, $ListIterator*)},
+		{"listIterator", "(I)Ljava/util/ListIterator;", "(I)Ljava/util/ListIterator<TA;>;", $PUBLIC, $virtualMethod(List, listIterator, $ListIterator*, int32_t)},
+		{"map", "(Ljava/util/function/Function;)Lcom/sun/tools/javac/util/List;", "<Z:Ljava/lang/Object;>(Ljava/util/function/Function<TA;TZ;>;)Lcom/sun/tools/javac/util/List<TZ;>;", $PUBLIC, $virtualMethod(List, map, List*, $Function*)},
+		{"nil", "()Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>()Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, nil, List*)},
+		{"nonEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(List, nonEmpty, bool)},
+		{"of", "(Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(TA;TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(TA;TA;TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC, $staticMethod(List, of, List*, Object$*, Object$*, Object$*)},
+		{"of", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "<A:Ljava/lang/Object;>(TA;TA;TA;[TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(List, of, List*, Object$*, Object$*, Object$*, $ObjectArray*)},
+		{"*parallelStream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"prepend", "(Ljava/lang/Object;)Lcom/sun/tools/javac/util/List;", "(TA;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, prepend, List*, Object$*)},
+		{"prependList", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, prependList, List*, List*)},
+		{"*remove", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"remove", "(I)Ljava/lang/Object;", "(I)TA;", $PUBLIC, $virtualMethod(List, remove, $Object*, int32_t)},
+		{"*removeAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"*removeIf", "(Ljava/util/function/Predicate;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*retainAll", "(Ljava/util/Collection;)Z", nullptr, $PUBLIC},
+		{"reverse", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, reverse, List*)},
+		{"set", "(ILjava/lang/Object;)Ljava/lang/Object;", "(ITA;)TA;", $PUBLIC, $virtualMethod(List, set, $Object*, int32_t, Object$*)},
+		{"setTail", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<TA;>;)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, setTail, List*, List*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(List, size, int32_t)},
+		{"*spliterator", "()Ljava/util/Spliterator;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*stream", "()Ljava/util/stream/Stream;", nullptr, $PUBLIC | $ABSTRACT},
+		{"subList", "(II)Ljava/util/List;", "(II)Ljava/util/List<TA;>;", $PUBLIC, $virtualMethod(List, subList, $List*, int32_t, int32_t)},
+		{"take", "(I)Lcom/sun/tools/javac/util/List;", "(I)Lcom/sun/tools/javac/util/List<TA;>;", $PUBLIC, $virtualMethod(List, take, List*, int32_t)},
+		{"*toArray", "(Ljava/util/function/IntFunction;)[Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"toArray", "([Ljava/lang/Object;)[Ljava/lang/Object;", "<T:Ljava/lang/Object;>([TT;)[TT;", $PUBLIC, $virtualMethod(List, toArray, $ObjectArray*, $ObjectArray*)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List, toArray, $ObjectArray*)},
+		{"toString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(List, toString, $String*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(List, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.List$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.util.List$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.util.List$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.List",
+		"java.util.AbstractCollection",
+		"java.util.List",
+		fieldInfos$$,
+		methodInfos$$,
+		"<A:Ljava/lang/Object;>Ljava/util/AbstractCollection<TA;>;Ljava/util/List<TA;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.List$3,com.sun.tools.javac.util.List$2,com.sun.tools.javac.util.List$1"
+	};
+	$loadClass(List, name, initialize, &classInfo$$, List::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(List));
+	});
 	return class$;
 }
 

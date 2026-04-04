@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/XMLStringFactoryImpl.h>
-
 #include <com/sun/org/apache/xml/internal/utils/FastStringBuffer.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLStringFactory.h>
@@ -27,34 +26,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace objects {
-
-$FieldInfo _XMLStringFactoryImpl_FieldInfo_[] = {
-	{"m_xstringfactory", "Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;", nullptr, $PRIVATE | $STATIC, $staticField(XMLStringFactoryImpl, m_xstringfactory)},
-	{}
-};
-
-$MethodInfo _XMLStringFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStringFactoryImpl, init$, void)},
-	{"emptystr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryImpl, emptystr, $XMLString*)},
-	{"getFactory", "()Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLStringFactoryImpl, getFactory, $XMLStringFactory*)},
-	{"newstr", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryImpl, newstr, $XMLString*, $String*)},
-	{"newstr", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;II)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryImpl, newstr, $XMLString*, $FastStringBuffer*, int32_t, int32_t)},
-	{"newstr", "([CII)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryImpl, newstr, $XMLString*, $chars*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XMLStringFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.XMLStringFactoryImpl",
-	"com.sun.org.apache.xml.internal.utils.XMLStringFactory",
-	nullptr,
-	_XMLStringFactoryImpl_FieldInfo_,
-	_XMLStringFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$XMLStringFactoryImpl($Class* clazz) {
-	return $of($alloc(XMLStringFactoryImpl));
-}
 
 $XMLStringFactory* XMLStringFactoryImpl::m_xstringfactory = nullptr;
 
@@ -84,7 +55,7 @@ $XMLString* XMLStringFactoryImpl::emptystr() {
 	return $XString::EMPTYSTRING;
 }
 
-void clinit$XMLStringFactoryImpl($Class* class$) {
+void XMLStringFactoryImpl::clinit$($Class* clazz) {
 	$assignStatic(XMLStringFactoryImpl::m_xstringfactory, $new(XMLStringFactoryImpl));
 }
 
@@ -92,7 +63,30 @@ XMLStringFactoryImpl::XMLStringFactoryImpl() {
 }
 
 $Class* XMLStringFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(XMLStringFactoryImpl, name, initialize, &_XMLStringFactoryImpl_ClassInfo_, clinit$XMLStringFactoryImpl, allocate$XMLStringFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_xstringfactory", "Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;", nullptr, $PRIVATE | $STATIC, $staticField(XMLStringFactoryImpl, m_xstringfactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLStringFactoryImpl, init$, void)},
+		{"emptystr", "()Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryImpl, emptystr, $XMLString*)},
+		{"getFactory", "()Lcom/sun/org/apache/xml/internal/utils/XMLStringFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLStringFactoryImpl, getFactory, $XMLStringFactory*)},
+		{"newstr", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryImpl, newstr, $XMLString*, $String*)},
+		{"newstr", "(Lcom/sun/org/apache/xml/internal/utils/FastStringBuffer;II)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryImpl, newstr, $XMLString*, $FastStringBuffer*, int32_t, int32_t)},
+		{"newstr", "([CII)Lcom/sun/org/apache/xml/internal/utils/XMLString;", nullptr, $PUBLIC, $virtualMethod(XMLStringFactoryImpl, newstr, $XMLString*, $chars*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.XMLStringFactoryImpl",
+		"com.sun.org.apache.xml.internal.utils.XMLStringFactory",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLStringFactoryImpl, name, initialize, &classInfo$$, XMLStringFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStringFactoryImpl);
+	});
 	return class$;
 }
 

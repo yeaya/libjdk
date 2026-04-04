@@ -24,6 +24,7 @@ class $import AudioFileFormat$Type : public ::java::lang::Object {
 	$class(AudioFileFormat$Type, 0, ::java::lang::Object)
 public:
 	AudioFileFormat$Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* extension);
 	virtual bool equals(Object$* obj) override;
 	virtual $String* getExtension();

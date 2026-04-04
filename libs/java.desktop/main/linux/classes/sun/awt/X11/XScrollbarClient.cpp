@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XScrollbarClient.h>
-
 #include <java/awt/Component.h>
 #include <sun/awt/X11/XScrollbar.h>
 #include <jcpp.h>
@@ -13,28 +12,24 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XScrollbarClient_MethodInfo_[] = {
-	{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XScrollbarClient, getEventSource, $Component*)},
-	{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XScrollbarClient, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
-	{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XScrollbarClient, repaintScrollbarRequest, void, $XScrollbar*)},
-	{}
-};
-
-$ClassInfo _XScrollbarClient_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"sun.awt.X11.XScrollbarClient",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XScrollbarClient_MethodInfo_
-};
-
-$Object* allocate$XScrollbarClient($Class* clazz) {
-	return $of($alloc(XScrollbarClient));
-}
-
 $Class* XScrollbarClient::load$($String* name, bool initialize) {
-	$loadClass(XScrollbarClient, name, initialize, &_XScrollbarClient_ClassInfo_, allocate$XScrollbarClient);
+	$MethodInfo methodInfos$$[] = {
+		{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XScrollbarClient, getEventSource, $Component*)},
+		{"notifyValue", "(Lsun/awt/X11/XScrollbar;IIZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XScrollbarClient, notifyValue, void, $XScrollbar*, int32_t, int32_t, bool)},
+		{"repaintScrollbarRequest", "(Lsun/awt/X11/XScrollbar;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XScrollbarClient, repaintScrollbarRequest, void, $XScrollbar*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"sun.awt.X11.XScrollbarClient",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XScrollbarClient, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XScrollbarClient);
+	});
 	return class$;
 }
 

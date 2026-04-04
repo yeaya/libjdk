@@ -1,5 +1,4 @@
 #include <java/lang/management/ThreadInfo$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/lang/Thread$State.h>
 #include <java/lang/management/ThreadInfo.h>
@@ -20,57 +19,21 @@ namespace java {
 	namespace lang {
 		namespace management {
 
-$FieldInfo _ThreadInfo$1_FieldInfo_[] = {
-	{"$SwitchMap$java$lang$Thread$State", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ThreadInfo$1, $SwitchMap$java$lang$Thread$State)},
-	{}
-};
-
-$EnclosingMethodInfo _ThreadInfo$1_EnclosingMethodInfo_ = {
-	"java.lang.management.ThreadInfo",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ThreadInfo$1_InnerClassesInfo_[] = {
-	{"java.lang.management.ThreadInfo$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _ThreadInfo$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"java.lang.management.ThreadInfo$1",
-	"java.lang.Object",
-	nullptr,
-	_ThreadInfo$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_ThreadInfo$1_EnclosingMethodInfo_,
-	_ThreadInfo$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.lang.management.ThreadInfo"
-};
-
-$Object* allocate$ThreadInfo$1($Class* clazz) {
-	return $of($alloc(ThreadInfo$1));
-}
-
 $ints* ThreadInfo$1::$SwitchMap$java$lang$Thread$State = nullptr;
 
-void clinit$ThreadInfo$1($Class* class$) {
+void ThreadInfo$1::clinit$($Class* clazz) {
 	$assignStatic(ThreadInfo$1::$SwitchMap$java$lang$Thread$State, $new($ints, $($Thread$State::values())->length));
 	{
 		try {
-			$nc(ThreadInfo$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::BLOCKED->ordinal(), 1);
+			ThreadInfo$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::BLOCKED->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ThreadInfo$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::WAITING->ordinal(), 2);
+			ThreadInfo$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::WAITING->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(ThreadInfo$1::$SwitchMap$java$lang$Thread$State)->set($Thread$State::TIMED_WAITING->ordinal(), 3);
+			ThreadInfo$1::$SwitchMap$java$lang$Thread$State->set($Thread$State::TIMED_WAITING->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -80,7 +43,37 @@ ThreadInfo$1::ThreadInfo$1() {
 }
 
 $Class* ThreadInfo$1::load$($String* name, bool initialize) {
-	$loadClass(ThreadInfo$1, name, initialize, &_ThreadInfo$1_ClassInfo_, clinit$ThreadInfo$1, allocate$ThreadInfo$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$lang$Thread$State", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ThreadInfo$1, $SwitchMap$java$lang$Thread$State)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.lang.management.ThreadInfo",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.management.ThreadInfo$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"java.lang.management.ThreadInfo$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.lang.management.ThreadInfo"
+	};
+	$loadClass(ThreadInfo$1, name, initialize, &classInfo$$, ThreadInfo$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadInfo$1);
+	});
 	return class$;
 }
 

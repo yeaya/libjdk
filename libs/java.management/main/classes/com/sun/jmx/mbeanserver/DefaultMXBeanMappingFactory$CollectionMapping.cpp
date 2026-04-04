@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CollectionMapping.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$NonNullMXBeanMapping.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
@@ -20,7 +19,6 @@
 #include <java/util/TreeSet.h>
 #include <javax/management/openmbean/ArrayType.h>
 #include <javax/management/openmbean/OpenDataException.h>
-#include <javax/management/openmbean/OpenType.h>
 #include <jcpp.h>
 
 using $DefaultMXBeanMappingFactory = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory;
@@ -48,60 +46,18 @@ using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;
 using $ArrayType = ::javax::management::openmbean::ArrayType;
-using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _DefaultMXBeanMappingFactory$CollectionMapping_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DefaultMXBeanMappingFactory$CollectionMapping, $assertionsDisabled)},
-	{"collectionClass", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/util/Collection<*>;>;", $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$CollectionMapping, collectionClass)},
-	{"elementMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$CollectionMapping, elementMapping)},
-	{}
-};
-
-$MethodInfo _DefaultMXBeanMappingFactory$CollectionMapping_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType;Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType<*>;Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(DefaultMXBeanMappingFactory$CollectionMapping, init$, void, $Type*, $ArrayType*, $Class*, $MXBeanMapping*)},
-	{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$CollectionMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
-	{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CollectionMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
-	{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CollectionMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$CollectionMapping_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CollectionMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CollectionMapping", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$CollectionMapping_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CollectionMapping",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping",
-	nullptr,
-	_DefaultMXBeanMappingFactory$CollectionMapping_FieldInfo_,
-	_DefaultMXBeanMappingFactory$CollectionMapping_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$CollectionMapping_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$CollectionMapping($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$CollectionMapping));
-}
-
 bool DefaultMXBeanMappingFactory$CollectionMapping::$assertionsDisabled = false;
 
 void DefaultMXBeanMappingFactory$CollectionMapping::init$($Type* targetType, $ArrayType* openArrayType, $Class* openArrayClass, $MXBeanMapping* elementMapping) {
 	$DefaultMXBeanMappingFactory$NonNullMXBeanMapping::init$(targetType, openArrayType);
 	$set(this, elementMapping, elementMapping);
-	$var($Type, raw, $nc(($cast($ParameterizedType, targetType)))->getRawType());
+	$var($Type, raw, $nc($cast($ParameterizedType, targetType))->getRawType());
 	$Class* c = $cast($Class, raw);
 	$Class* collC = nullptr;
 	$load($List);
@@ -130,10 +86,10 @@ void DefaultMXBeanMappingFactory$CollectionMapping::init$($Type* targetType, $Ar
 }
 
 $Object* DefaultMXBeanMappingFactory$CollectionMapping::toNonNullOpenValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, valueCollection, $cast($Collection, value));
 	if ($instanceOf($SortedSet, valueCollection)) {
-		$var($Comparator, comparator, $nc(($cast($SortedSet, valueCollection)))->comparator());
+		$var($Comparator, comparator, $cast($SortedSet, valueCollection)->comparator());
 		if (comparator != nullptr) {
 			$var($String, msg, $str({"Cannot convert SortedSet with non-null comparator: "_s, comparator}));
 			$throw($($DefaultMXBeanMappingFactory::openDataException(msg, $$new($IllegalArgumentException, msg))));
@@ -143,17 +99,17 @@ $Object* DefaultMXBeanMappingFactory$CollectionMapping::toNonNullOpenValue(Objec
 	$var($ObjectArray, openArray, $cast($ObjectArray, $1Array::newInstance(var$0, $nc(valueCollection)->size())));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc(valueCollection)->iterator());
+		$var($Iterator, i$, valueCollection->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, o, i$->next());
 			openArray->set(i++, $($nc(this->elementMapping)->toOpenValue(o)));
 		}
 	}
-	return $of(openArray);
+	return openArray;
 }
 
 $Object* DefaultMXBeanMappingFactory$CollectionMapping::fromNonNullOpenValue(Object$* openValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ObjectArray, openArray, $cast($ObjectArray, openValue));
 	$var($Collection, valueCollection, nullptr);
@@ -165,29 +121,31 @@ $Object* DefaultMXBeanMappingFactory$CollectionMapping::fromNonNullOpenValue(Obj
 	}
 	{
 		$var($ObjectArray, arr$, openArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
 			{
 				$var($Object, value, $nc(this->elementMapping)->fromOpenValue(o));
 				if (!$nc(valueCollection)->add(value)) {
-					$var($String, var$1, $$str({"Could not add "_s, o, " to "_s}));
-					$var($String, var$0, $$concat(var$1, $($nc(this->collectionClass)->getName())));
-					$var($String, msg, $concat(var$0, " (duplicate set element?)"_s));
+					$var($StringBuilder, var$0, $new($StringBuilder));
+					var$0->append("Could not add "_s);
+					var$0->append(o);
+					var$0->append(" to "_s);
+					var$0->append($($nc(this->collectionClass)->getName()));
+					var$0->append(" (duplicate set element?)"_s);
+					$var($String, msg, $str(var$0));
 					$throwNew($InvalidObjectException, msg);
 				}
 			}
 		}
 	}
-	return $of(valueCollection);
+	return valueCollection;
 }
 
 void DefaultMXBeanMappingFactory$CollectionMapping::checkReconstructible() {
 	$nc(this->elementMapping)->checkReconstructible();
 }
 
-void clinit$DefaultMXBeanMappingFactory$CollectionMapping($Class* class$) {
+void DefaultMXBeanMappingFactory$CollectionMapping::clinit$($Class* clazz) {
 	$load($DefaultMXBeanMappingFactory);
 	DefaultMXBeanMappingFactory$CollectionMapping::$assertionsDisabled = !$DefaultMXBeanMappingFactory::class$->desiredAssertionStatus();
 }
@@ -196,7 +154,42 @@ DefaultMXBeanMappingFactory$CollectionMapping::DefaultMXBeanMappingFactory$Colle
 }
 
 $Class* DefaultMXBeanMappingFactory$CollectionMapping::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$CollectionMapping, name, initialize, &_DefaultMXBeanMappingFactory$CollectionMapping_ClassInfo_, clinit$DefaultMXBeanMappingFactory$CollectionMapping, allocate$DefaultMXBeanMappingFactory$CollectionMapping);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(DefaultMXBeanMappingFactory$CollectionMapping, $assertionsDisabled)},
+		{"collectionClass", "Ljava/lang/Class;", "Ljava/lang/Class<+Ljava/util/Collection<*>;>;", $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$CollectionMapping, collectionClass)},
+		{"elementMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$CollectionMapping, elementMapping)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType;Ljava/lang/Class;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/reflect/Type;Ljavax/management/openmbean/ArrayType<*>;Ljava/lang/Class<*>;Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(DefaultMXBeanMappingFactory$CollectionMapping, init$, void, $Type*, $ArrayType*, $Class*, $MXBeanMapping*)},
+		{"checkReconstructible", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultMXBeanMappingFactory$CollectionMapping, checkReconstructible, void), "java.io.InvalidObjectException"},
+		{"fromNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CollectionMapping, fromNonNullOpenValue, $Object*, Object$*), "java.io.InvalidObjectException"},
+		{"toNonNullOpenValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CollectionMapping, toNonNullOpenValue, $Object*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CollectionMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CollectionMapping", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "NonNullMXBeanMapping", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CollectionMapping",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$NonNullMXBeanMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$CollectionMapping, name, initialize, &classInfo$$, DefaultMXBeanMappingFactory$CollectionMapping::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$CollectionMapping);
+	});
 	return class$;
 }
 

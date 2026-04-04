@@ -1,5 +1,4 @@
 #include <com/sun/beans/finder/MethodFinder.h>
-
 #include <com/sun/beans/TypeResolver.h>
 #include <com/sun/beans/finder/AbstractFinder.h>
 #include <com/sun/beans/finder/FinderUtils.h>
@@ -52,61 +51,19 @@ namespace com {
 		namespace beans {
 			namespace finder {
 
-$FieldInfo _MethodFinder_FieldInfo_[] = {
-	{"CACHE", "Lcom/sun/beans/util/Cache;", "Lcom/sun/beans/util/Cache<Lcom/sun/beans/finder/Signature;Ljava/lang/reflect/Method;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MethodFinder, CACHE)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodFinder, name)},
-	{}
-};
-
-$MethodInfo _MethodFinder_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Class;)V", "(Ljava/lang/String;[Ljava/lang/Class<*>;)V", $PRIVATE, $method(MethodFinder, init$, void, $String*, $ClassArray*)},
-	{"findAccessibleMethod", "(Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodFinder, findAccessibleMethod, $Method*, $Method*), "java.lang.NoSuchMethodException"},
-	{"findAccessibleMethod", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodFinder, findAccessibleMethod, $Method*, $Method*, $Type*), "java.lang.NoSuchMethodException"},
-	{"findInstanceMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodFinder, findInstanceMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
-	{"findMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodFinder, findMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
-	{"findStaticMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodFinder, findStaticMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
-	{"isValid", "(Ljava/lang/reflect/Method;)Z", nullptr, $PROTECTED, $method(MethodFinder, isValid, bool, $Method*)},
-	{"isValid", "(Ljava/lang/reflect/Executable;)Z", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodFinder, isValid, bool, $Executable*)},
-	{}
-};
-
-$InnerClassInfo _MethodFinder_InnerClassesInfo_[] = {
-	{"com.sun.beans.finder.MethodFinder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodFinder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.finder.MethodFinder",
-	"com.sun.beans.finder.AbstractFinder",
-	nullptr,
-	_MethodFinder_FieldInfo_,
-	_MethodFinder_MethodInfo_,
-	"Lcom/sun/beans/finder/AbstractFinder<Ljava/lang/reflect/Method;>;",
-	nullptr,
-	_MethodFinder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.beans.finder.MethodFinder$1"
-};
-
-$Object* allocate$MethodFinder($Class* clazz) {
-	return $of($alloc(MethodFinder));
-}
-
 $Cache* MethodFinder::CACHE = nullptr;
 
 $Method* MethodFinder::findMethod($Class* type, $String* name, $ClassArray* args) {
 	$init(MethodFinder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($IllegalArgumentException, "Method name is not set"_s);
 	}
 	$PrimitiveWrapperMap::replacePrimitivesWithWrappers(args);
 	$var($Signature, signature, $new($Signature, type, name, args));
 	try {
-		$var($Method, method, $cast($Method, $nc(MethodFinder::CACHE)->get(signature)));
-		return (method == nullptr) || $ReflectUtil::isPackageAccessible($nc(method)->getDeclaringClass()) ? method : $cast($Method, $nc(MethodFinder::CACHE)->create(signature));
+		$var($Method, method, $cast($Method, MethodFinder::CACHE->get(signature)));
+		return (method == nullptr) || $ReflectUtil::isPackageAccessible(method->getDeclaringClass()) ? method : $cast($Method, MethodFinder::CACHE->create(signature));
 	} catch ($SignatureException& exception) {
 		$throw($(exception->toNoSuchMethodException($$str({"Method \'"_s, name, "\' is not found"_s}))));
 	}
@@ -115,7 +72,7 @@ $Method* MethodFinder::findMethod($Class* type, $String* name, $ClassArray* args
 
 $Method* MethodFinder::findInstanceMethod($Class* type, $String* name, $ClassArray* args) {
 	$init(MethodFinder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Method, method, findMethod(type, name, args));
 	if ($Modifier::isStatic($nc(method)->getModifiers())) {
 		$throwNew($NoSuchMethodException, $$str({"Method \'"_s, name, "\' is static"_s}));
@@ -125,7 +82,7 @@ $Method* MethodFinder::findInstanceMethod($Class* type, $String* name, $ClassArr
 
 $Method* MethodFinder::findStaticMethod($Class* type, $String* name, $ClassArray* args) {
 	$init(MethodFinder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Method, method, findMethod(type, name, args));
 	if (!$Modifier::isStatic($nc(method)->getModifiers())) {
 		$throwNew($NoSuchMethodException, $$str({"Method \'"_s, name, "\' is not static"_s}));
@@ -135,7 +92,7 @@ $Method* MethodFinder::findStaticMethod($Class* type, $String* name, $ClassArray
 
 $Method* MethodFinder::findAccessibleMethod($Method* method) {
 	$init(MethodFinder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* type = $nc(method)->getDeclaringClass();
 	if (!$FinderUtils::isExported(type)) {
 		$throwNew($NoSuchMethodException, $$str({"Method \'"_s, $(method->getName()), "\' is not accessible"_s}));
@@ -148,16 +105,12 @@ $Method* MethodFinder::findAccessibleMethod($Method* method) {
 		$throwNew($NoSuchMethodException, $$str({"Method \'"_s, $(method->getName()), "\' is not accessible"_s}));
 	}
 	{
-		$var($TypeArray, arr$, $nc(type)->getGenericInterfaces());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($TypeArray, arr$, type->getGenericInterfaces());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Type, generic, arr$->get(i$));
-			{
-				try {
-					return findAccessibleMethod(method, generic);
-				} catch ($NoSuchMethodException& exception) {
-				}
+			try {
+				return findAccessibleMethod(method, generic);
+			} catch ($NoSuchMethodException& exception) {
 			}
 		}
 	}
@@ -166,35 +119,31 @@ $Method* MethodFinder::findAccessibleMethod($Method* method) {
 
 $Method* MethodFinder::findAccessibleMethod($Method* method, $Type* generic) {
 	$init(MethodFinder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, name, $nc(method)->getName());
 	$var($ClassArray, params, method->getParameterTypes());
 	if ($instanceOf($Class, generic)) {
 		$Class* type = $cast($Class, generic);
-		return findAccessibleMethod($($nc(type)->getMethod(name, params)));
+		return findAccessibleMethod($(type->getMethod(name, params)));
 	}
 	if ($instanceOf($ParameterizedType, generic)) {
 		$var($ParameterizedType, pt, $cast($ParameterizedType, generic));
-		$Class* type = $cast($Class, $nc(pt)->getRawType());
+		$Class* type = $cast($Class, pt->getRawType());
 		{
 			$var($MethodArray, arr$, $nc(type)->getMethods());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Method, m, arr$->get(i$));
-				{
-					if ($nc($($nc(m)->getName()))->equals(name)) {
-						$var($ClassArray, pts, m->getParameterTypes());
-						if ($nc(pts)->length == $nc(params)->length) {
-							if ($Arrays::equals(params, pts)) {
+				if ($$nc($nc(m)->getName())->equals(name)) {
+					$var($ClassArray, pts, m->getParameterTypes());
+					if ($nc(pts)->length == $nc(params)->length) {
+						if ($Arrays::equals(params, pts)) {
+							return findAccessibleMethod(m);
+						}
+						$var($TypeArray, gpts, m->getGenericParameterTypes());
+						if (params->length == $nc(gpts)->length) {
+							if ($Arrays::equals(params, $($TypeResolver::erase($($TypeResolver::resolve(pt, gpts)))))) {
 								return findAccessibleMethod(m);
-							}
-							$var($TypeArray, gpts, m->getGenericParameterTypes());
-							if (params->length == $nc(gpts)->length) {
-								if ($Arrays::equals(params, $($TypeResolver::erase($($TypeResolver::resolve(static_cast<$Type*>(pt), gpts)))))) {
-									return findAccessibleMethod(m);
-								}
 							}
 						}
 					}
@@ -212,14 +161,14 @@ void MethodFinder::init$($String* name, $ClassArray* args) {
 
 bool MethodFinder::isValid($Method* method) {
 	bool var$0 = $AbstractFinder::isValid(method);
-	return var$0 && $nc($($nc(method)->getName()))->equals(this->name);
+	return var$0 && $$nc($nc(method)->getName())->equals(this->name);
 }
 
 bool MethodFinder::isValid($Executable* method) {
 	return this->isValid($cast($Method, method));
 }
 
-void clinit$MethodFinder($Class* class$) {
+void MethodFinder::clinit$($Class* clazz) {
 	$init($Cache$Kind);
 	$assignStatic(MethodFinder::CACHE, $new($MethodFinder$1, $Cache$Kind::SOFT, $Cache$Kind::SOFT));
 }
@@ -228,7 +177,43 @@ MethodFinder::MethodFinder() {
 }
 
 $Class* MethodFinder::load$($String* name, bool initialize) {
-	$loadClass(MethodFinder, name, initialize, &_MethodFinder_ClassInfo_, clinit$MethodFinder, allocate$MethodFinder);
+	$FieldInfo fieldInfos$$[] = {
+		{"CACHE", "Lcom/sun/beans/util/Cache;", "Lcom/sun/beans/util/Cache<Lcom/sun/beans/finder/Signature;Ljava/lang/reflect/Method;>;", $PRIVATE | $STATIC | $FINAL, $staticField(MethodFinder, CACHE)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MethodFinder, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Class;)V", "(Ljava/lang/String;[Ljava/lang/Class<*>;)V", $PRIVATE, $method(MethodFinder, init$, void, $String*, $ClassArray*)},
+		{"findAccessibleMethod", "(Ljava/lang/reflect/Method;)Ljava/lang/reflect/Method;", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodFinder, findAccessibleMethod, $Method*, $Method*), "java.lang.NoSuchMethodException"},
+		{"findAccessibleMethod", "(Ljava/lang/reflect/Method;Ljava/lang/reflect/Type;)Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodFinder, findAccessibleMethod, $Method*, $Method*, $Type*), "java.lang.NoSuchMethodException"},
+		{"findInstanceMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodFinder, findInstanceMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
+		{"findMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodFinder, findMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
+		{"findStaticMethod", "(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;", "(Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Ljava/lang/reflect/Method;", $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(MethodFinder, findStaticMethod, $Method*, $Class*, $String*, $ClassArray*), "java.lang.NoSuchMethodException"},
+		{"isValid", "(Ljava/lang/reflect/Method;)Z", nullptr, $PROTECTED, $method(MethodFinder, isValid, bool, $Method*)},
+		{"isValid", "(Ljava/lang/reflect/Executable;)Z", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(MethodFinder, isValid, bool, $Executable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.finder.MethodFinder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.finder.MethodFinder",
+		"com.sun.beans.finder.AbstractFinder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/beans/finder/AbstractFinder<Ljava/lang/reflect/Method;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.beans.finder.MethodFinder$1"
+	};
+	$loadClass(MethodFinder, name, initialize, &classInfo$$, MethodFinder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodFinder);
+	});
 	return class$;
 }
 

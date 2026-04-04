@@ -67,6 +67,7 @@ class $import SyncFactory : public ::java::lang::Object {
 	$class(SyncFactory, 0, ::java::lang::Object)
 public:
 	SyncFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void enumerateBindings(::javax::naming::NamingEnumeration* bindings, ::java::util::Properties* properties);
 	static ::javax::sql::rowset::spi::SyncProvider* getInstance($String* providerID);

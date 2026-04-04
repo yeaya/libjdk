@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIServer.h>
-
 #include <javax/management/remote/rmi/RMIConnection.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$MethodInfo _RMIServer_MethodInfo_[] = {
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServer, getVersion, $String*), "java.rmi.RemoteException"},
-	{"newClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServer, newClient, $RMIConnection*, Object$*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RMIServer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.remote.rmi.RMIServer",
-	nullptr,
-	"java.rmi.Remote",
-	nullptr,
-	_RMIServer_MethodInfo_
-};
-
-$Object* allocate$RMIServer($Class* clazz) {
-	return $of($alloc(RMIServer));
-}
-
 $Class* RMIServer::load$($String* name, bool initialize) {
-	$loadClass(RMIServer, name, initialize, &_RMIServer_ClassInfo_, allocate$RMIServer);
+	$MethodInfo methodInfos$$[] = {
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServer, getVersion, $String*), "java.rmi.RemoteException"},
+		{"newClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RMIServer, newClient, $RMIConnection*, Object$*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.remote.rmi.RMIServer",
+		nullptr,
+		"java.rmi.Remote",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RMIServer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIServer);
+	});
 	return class$;
 }
 

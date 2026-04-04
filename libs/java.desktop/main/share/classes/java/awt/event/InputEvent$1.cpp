@@ -1,5 +1,4 @@
 #include <java/awt/event/InputEvent$1.h>
-
 #include <java/awt/event/InputEvent.h>
 #include <jcpp.h>
 
@@ -12,46 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace event {
-
-$MethodInfo _InputEvent$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InputEvent$1, init$, void)},
-	{"canAccessSystemClipboard", "(Ljava/awt/event/InputEvent;)Z", nullptr, $PUBLIC, $virtualMethod(InputEvent$1, canAccessSystemClipboard, bool, $InputEvent*)},
-	{"getButtonDownMasks", "()[I", nullptr, $PUBLIC, $virtualMethod(InputEvent$1, getButtonDownMasks, $ints*)},
-	{"setCanAccessSystemClipboard", "(Ljava/awt/event/InputEvent;Z)V", nullptr, $PUBLIC, $virtualMethod(InputEvent$1, setCanAccessSystemClipboard, void, $InputEvent*, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _InputEvent$1_EnclosingMethodInfo_ = {
-	"java.awt.event.InputEvent",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _InputEvent$1_InnerClassesInfo_[] = {
-	{"java.awt.event.InputEvent$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$InputEventAccessor", "sun.awt.AWTAccessor", "InputEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _InputEvent$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.event.InputEvent$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$InputEventAccessor",
-	nullptr,
-	_InputEvent$1_MethodInfo_,
-	nullptr,
-	&_InputEvent$1_EnclosingMethodInfo_,
-	_InputEvent$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.event.InputEvent"
-};
-
-$Object* allocate$InputEvent$1($Class* clazz) {
-	return $of($alloc(InputEvent$1));
-}
 
 void InputEvent$1::init$() {
 }
@@ -72,7 +31,41 @@ InputEvent$1::InputEvent$1() {
 }
 
 $Class* InputEvent$1::load$($String* name, bool initialize) {
-	$loadClass(InputEvent$1, name, initialize, &_InputEvent$1_ClassInfo_, allocate$InputEvent$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InputEvent$1, init$, void)},
+		{"canAccessSystemClipboard", "(Ljava/awt/event/InputEvent;)Z", nullptr, $PUBLIC, $virtualMethod(InputEvent$1, canAccessSystemClipboard, bool, $InputEvent*)},
+		{"getButtonDownMasks", "()[I", nullptr, $PUBLIC, $virtualMethod(InputEvent$1, getButtonDownMasks, $ints*)},
+		{"setCanAccessSystemClipboard", "(Ljava/awt/event/InputEvent;Z)V", nullptr, $PUBLIC, $virtualMethod(InputEvent$1, setCanAccessSystemClipboard, void, $InputEvent*, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.event.InputEvent",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.event.InputEvent$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$InputEventAccessor", "sun.awt.AWTAccessor", "InputEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.event.InputEvent$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$InputEventAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.event.InputEvent"
+	};
+	$loadClass(InputEvent$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputEvent$1);
+	});
 	return class$;
 }
 

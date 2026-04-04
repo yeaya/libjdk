@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/IIORegistry$1.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/ServiceLoader.h>
 #include <javax/imageio/spi/IIORegistry.h>
@@ -20,60 +19,18 @@ namespace javax {
 	namespace imageio {
 		namespace spi {
 
-$FieldInfo _IIORegistry$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/imageio/spi/IIORegistry;", nullptr, $FINAL | $SYNTHETIC, $field(IIORegistry$1, this$0)},
-	{}
-};
-
-$MethodInfo _IIORegistry$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/IIORegistry;)V", nullptr, 0, $method(IIORegistry$1, init$, void, $IIORegistry*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIORegistry$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _IIORegistry$1_EnclosingMethodInfo_ = {
-	"javax.imageio.spi.IIORegistry",
-	"registerInstalledProviders",
-	"()V"
-};
-
-$InnerClassInfo _IIORegistry$1_InnerClassesInfo_[] = {
-	{"javax.imageio.spi.IIORegistry$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _IIORegistry$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.spi.IIORegistry$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_IIORegistry$1_FieldInfo_,
-	_IIORegistry$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_IIORegistry$1_EnclosingMethodInfo_,
-	_IIORegistry$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.spi.IIORegistry"
-};
-
-$Object* allocate$IIORegistry$1($Class* clazz) {
-	return $of($alloc(IIORegistry$1));
-}
-
 void IIORegistry$1::init$($IIORegistry* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* IIORegistry$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Iterator, categories, this->this$0->getCategories());
 	while ($nc(categories)->hasNext()) {
 		$Class* c = $cast($Class, categories->next());
 		{
-			$var($Iterator, i$, $nc($($ServiceLoader::loadInstalled(c)))->iterator());
+			$var($Iterator, i$, $$nc($ServiceLoader::loadInstalled(c))->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($IIOServiceProvider, p, $cast($IIOServiceProvider, i$->next()));
 				{
@@ -82,14 +39,49 @@ $Object* IIORegistry$1::run() {
 			}
 		}
 	}
-	return $of(this);
+	return this;
 }
 
 IIORegistry$1::IIORegistry$1() {
 }
 
 $Class* IIORegistry$1::load$($String* name, bool initialize) {
-	$loadClass(IIORegistry$1, name, initialize, &_IIORegistry$1_ClassInfo_, allocate$IIORegistry$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/imageio/spi/IIORegistry;", nullptr, $FINAL | $SYNTHETIC, $field(IIORegistry$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/IIORegistry;)V", nullptr, 0, $method(IIORegistry$1, init$, void, $IIORegistry*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIORegistry$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.imageio.spi.IIORegistry",
+		"registerInstalledProviders",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.spi.IIORegistry$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.spi.IIORegistry$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.spi.IIORegistry"
+	};
+	$loadClass(IIORegistry$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIORegistry$1);
+	});
 	return class$;
 }
 

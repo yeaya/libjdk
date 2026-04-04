@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/DrawGlyphListLCD$TraceDrawGlyphListLCD.h>
-
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -25,45 +24,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawGlyphListLCD$TraceDrawGlyphListLCD_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/DrawGlyphListLCD;", nullptr, 0, $field(DrawGlyphListLCD$TraceDrawGlyphListLCD, target)},
-	{}
-};
-
-$MethodInfo _DrawGlyphListLCD$TraceDrawGlyphListLCD_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/DrawGlyphListLCD;)V", nullptr, $PUBLIC, $method(DrawGlyphListLCD$TraceDrawGlyphListLCD, init$, void, $DrawGlyphListLCD*)},
-	{"DrawGlyphListLCD", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListLCD$TraceDrawGlyphListLCD, DrawGlyphListLCD$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListLCD$TraceDrawGlyphListLCD, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _DrawGlyphListLCD$TraceDrawGlyphListLCD_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawGlyphListLCD$TraceDrawGlyphListLCD", "sun.java2d.loops.DrawGlyphListLCD", "TraceDrawGlyphListLCD", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawGlyphListLCD$TraceDrawGlyphListLCD_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.DrawGlyphListLCD$TraceDrawGlyphListLCD",
-	"sun.java2d.loops.DrawGlyphListLCD",
-	nullptr,
-	_DrawGlyphListLCD$TraceDrawGlyphListLCD_FieldInfo_,
-	_DrawGlyphListLCD$TraceDrawGlyphListLCD_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawGlyphListLCD$TraceDrawGlyphListLCD_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawGlyphListLCD"
-};
-
-$Object* allocate$DrawGlyphListLCD$TraceDrawGlyphListLCD($Class* clazz) {
-	return $of($alloc(DrawGlyphListLCD$TraceDrawGlyphListLCD));
-}
-
 void DrawGlyphListLCD$TraceDrawGlyphListLCD::init$($DrawGlyphListLCD* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$DrawGlyphListLCD::init$(var$0, var$1, $(target->getDestType()));
@@ -83,7 +45,38 @@ DrawGlyphListLCD$TraceDrawGlyphListLCD::DrawGlyphListLCD$TraceDrawGlyphListLCD()
 }
 
 $Class* DrawGlyphListLCD$TraceDrawGlyphListLCD::load$($String* name, bool initialize) {
-	$loadClass(DrawGlyphListLCD$TraceDrawGlyphListLCD, name, initialize, &_DrawGlyphListLCD$TraceDrawGlyphListLCD_ClassInfo_, allocate$DrawGlyphListLCD$TraceDrawGlyphListLCD);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/DrawGlyphListLCD;", nullptr, 0, $field(DrawGlyphListLCD$TraceDrawGlyphListLCD, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/DrawGlyphListLCD;)V", nullptr, $PUBLIC, $method(DrawGlyphListLCD$TraceDrawGlyphListLCD, init$, void, $DrawGlyphListLCD*)},
+		{"DrawGlyphListLCD", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListLCD$TraceDrawGlyphListLCD, DrawGlyphListLCD$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListLCD$TraceDrawGlyphListLCD, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawGlyphListLCD$TraceDrawGlyphListLCD", "sun.java2d.loops.DrawGlyphListLCD", "TraceDrawGlyphListLCD", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.DrawGlyphListLCD$TraceDrawGlyphListLCD",
+		"sun.java2d.loops.DrawGlyphListLCD",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawGlyphListLCD"
+	};
+	$loadClass(DrawGlyphListLCD$TraceDrawGlyphListLCD, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGlyphListLCD$TraceDrawGlyphListLCD);
+	});
 	return class$;
 }
 

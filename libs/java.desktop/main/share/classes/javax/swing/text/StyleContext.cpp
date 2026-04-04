@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyleContext.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -60,8 +59,6 @@ using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
@@ -78,95 +75,6 @@ using $FontUtilities = ::sun::font::FontUtilities;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _StyleContext_FieldInfo_[] = {
-	{"defaultContext", "Ljavax/swing/text/StyleContext;", nullptr, $PRIVATE | $STATIC, $staticField(StyleContext, defaultContext)},
-	{"DEFAULT_STYLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleContext, DEFAULT_STYLE)},
-	{"freezeKeyMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(StyleContext, freezeKeyMap)},
-	{"thawKeyMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(StyleContext, thawKeyMap)},
-	{"styles", "Ljavax/swing/text/Style;", nullptr, $PRIVATE, $field(StyleContext, styles)},
-	{"fontSearch", "Ljavax/swing/text/StyleContext$FontKey;", nullptr, $PRIVATE | $TRANSIENT, $field(StyleContext, fontSearch)},
-	{"fontTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/text/StyleContext$FontKey;Ljava/awt/Font;>;", $PRIVATE | $TRANSIENT, $field(StyleContext, fontTable)},
-	{"attributesPool", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/text/StyleContext$SmallAttributeSet;Ljava/lang/ref/WeakReference<Ljavax/swing/text/StyleContext$SmallAttributeSet;>;>;", $PRIVATE | $TRANSIENT, $field(StyleContext, attributesPool)},
-	{"search", "Ljavax/swing/text/MutableAttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(StyleContext, search)},
-	{"unusedSets", "I", nullptr, $PRIVATE, $field(StyleContext, unusedSets)},
-	{"THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(StyleContext, THRESHOLD)},
-	{}
-};
-
-$MethodInfo _StyleContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StyleContext, init$, void)},
-	{"addAttribute", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, addAttribute, $AttributeSet*, $AttributeSet*, Object$*, Object$*)},
-	{"addAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, addAttributes, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, addChangeListener, void, $ChangeListener*)},
-	{"addStyle", "(Ljava/lang/String;Ljavax/swing/text/Style;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(StyleContext, addStyle, $Style*, $String*, $Style*)},
-	{"createLargeAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(StyleContext, createLargeAttributeSet, $MutableAttributeSet*, $AttributeSet*)},
-	{"createSmallAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/StyleContext$SmallAttributeSet;", nullptr, $PROTECTED, $virtualMethod(StyleContext, createSmallAttributeSet, $StyleContext$SmallAttributeSet*, $AttributeSet*)},
-	{"getBackground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getBackground, $Color*, $AttributeSet*)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getChangeListeners, $ChangeListenerArray*)},
-	{"getCompressionThreshold", "()I", nullptr, $PROTECTED, $virtualMethod(StyleContext, getCompressionThreshold, int32_t)},
-	{"getDefaultStyleContext", "()Ljavax/swing/text/StyleContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(StyleContext, getDefaultStyleContext, StyleContext*)},
-	{"getEmptySet", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getEmptySet, $AttributeSet*)},
-	{"getFont", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getFont, $Font*, $AttributeSet*)},
-	{"getFont", "(Ljava/lang/String;II)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getFont, $Font*, $String*, int32_t, int32_t)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getForeground, $Color*, $AttributeSet*)},
-	{"getImmutableUniqueSet", "()Ljavax/swing/text/AttributeSet;", nullptr, 0, $virtualMethod(StyleContext, getImmutableUniqueSet, $AttributeSet*)},
-	{"getMutableAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $virtualMethod(StyleContext, getMutableAttributeSet, $MutableAttributeSet*, $AttributeSet*)},
-	{"getStaticAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, getStaticAttribute, $Object*, Object$*)},
-	{"getStaticAttributeKey", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, getStaticAttributeKey, $Object*, Object$*)},
-	{"getStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getStyle, $Style*, $String*)},
-	{"getStyleNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(StyleContext, getStyleNames, $Enumeration*)},
-	{"readAttributeSet", "(Ljava/io/ObjectInputStream;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, readAttributeSet, void, $ObjectInputStream*, $MutableAttributeSet*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"readAttributes", "(Ljava/io/ObjectInputStream;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, readAttributes, void, $ObjectInputStream*, $MutableAttributeSet*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(StyleContext, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"reclaim", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, reclaim, void, $AttributeSet*)},
-	{"registerStaticAttributeKey", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, registerStaticAttributeKey, void, Object$*)},
-	{"removeAttribute", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, removeAttribute, $AttributeSet*, $AttributeSet*, Object$*)},
-	{"removeAttributes", "(Ljavax/swing/text/AttributeSet;Ljava/util/Enumeration;)Ljavax/swing/text/AttributeSet;", "(Ljavax/swing/text/AttributeSet;Ljava/util/Enumeration<*>;)Ljavax/swing/text/AttributeSet;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, removeAttributes, $AttributeSet*, $AttributeSet*, $Enumeration*)},
-	{"removeAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, removeAttributes, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, removeChangeListener, void, $ChangeListener*)},
-	{"removeStyle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, removeStyle, void, $String*)},
-	{"removeUnusedSets", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleContext, removeUnusedSets, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleContext, toString, $String*)},
-	{"writeAttributeSet", "(Ljava/io/ObjectOutputStream;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, writeAttributeSet, void, $ObjectOutputStream*, $AttributeSet*), "java.io.IOException"},
-	{"writeAttributes", "(Ljava/io/ObjectOutputStream;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, writeAttributes, void, $ObjectOutputStream*, $AttributeSet*), "java.io.IOException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(StyleContext, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _StyleContext_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$AttributeContext", "javax.swing.text.AbstractDocument", "AttributeContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.text.StyleContext$NamedStyle", "javax.swing.text.StyleContext", "NamedStyle", $PUBLIC},
-	{"javax.swing.text.StyleContext$FontKey", "javax.swing.text.StyleContext", "FontKey", $STATIC},
-	{"javax.swing.text.StyleContext$KeyBuilder", "javax.swing.text.StyleContext", "KeyBuilder", 0},
-	{"javax.swing.text.StyleContext$KeyEnumeration", "javax.swing.text.StyleContext", "KeyEnumeration", 0},
-	{"javax.swing.text.StyleContext$SmallAttributeSet", "javax.swing.text.StyleContext", "SmallAttributeSet", $PUBLIC},
-	{}
-};
-
-$ClassInfo _StyleContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyleContext",
-	"java.lang.Object",
-	"java.io.Serializable,javax.swing.text.AbstractDocument$AttributeContext",
-	_StyleContext_FieldInfo_,
-	_StyleContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyleContext$NamedStyle,javax.swing.text.StyleContext$FontKey,javax.swing.text.StyleContext$KeyBuilder,javax.swing.text.StyleContext$KeyEnumeration,javax.swing.text.StyleContext$SmallAttributeSet"
-};
-
-$Object* allocate$StyleContext($Class* clazz) {
-	return $of($alloc(StyleContext));
-}
 
 int32_t StyleContext::hashCode() {
 	 return this->$Serializable::hashCode();
@@ -235,7 +143,7 @@ void StyleContext::removeChangeListener($ChangeListener* l) {
 }
 
 $ChangeListenerArray* StyleContext::getChangeListeners() {
-	return $nc(($cast($StyleContext$NamedStyle, this->styles)))->getChangeListeners();
+	return $nc($cast($StyleContext$NamedStyle, this->styles))->getChangeListeners();
 }
 
 $Font* StyleContext::getFont($AttributeSet* attr) {
@@ -264,7 +172,7 @@ $Color* StyleContext::getBackground($AttributeSet* attr) {
 }
 
 $Font* StyleContext::getFont($String* family, int32_t style, int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->fontSearch)->setValue(family, style, size);
 	$var($Font, f, $cast($Font, $nc(this->fontTable)->get(this->fontSearch)));
 	if (f == nullptr) {
@@ -272,7 +180,7 @@ $Font* StyleContext::getFont($String* family, int32_t style, int32_t size) {
 		if (defaultStyle != nullptr) {
 			$var($String, FONT_ATTRIBUTE_KEY, "FONT_ATTRIBUTE_KEY"_s);
 			$var($Font, defaultFont, $cast($Font, defaultStyle->getAttribute(FONT_ATTRIBUTE_KEY)));
-			if (defaultFont != nullptr && $nc($(defaultFont->getFamily()))->equalsIgnoreCase(family)) {
+			if (defaultFont != nullptr && $$nc(defaultFont->getFamily())->equalsIgnoreCase(family)) {
 				$assign(f, defaultFont->deriveFont(style, (float)size));
 			}
 		}
@@ -289,14 +197,14 @@ $Font* StyleContext::getFont($String* family, int32_t style, int32_t size) {
 }
 
 $FontMetrics* StyleContext::getFontMetrics($Font* f) {
-	return $nc($($Toolkit::getDefaultToolkit()))->getFontMetrics(f);
+	return $$nc($Toolkit::getDefaultToolkit())->getFontMetrics(f);
 }
 
 $AttributeSet* StyleContext::addAttribute($AttributeSet* old, Object$* name, Object$* value) {
 	$synchronized(this) {
-		int32_t var$0 = ($nc(old)->getAttributeCount() + 1);
+		int32_t var$0 = $nc(old)->getAttributeCount() + 1;
 		if (var$0 <= getCompressionThreshold()) {
-			$nc(this->search)->removeAttributes(static_cast<$AttributeSet*>(this->search));
+			$nc(this->search)->removeAttributes(this->search);
 			$nc(this->search)->addAttributes(old);
 			$nc(this->search)->addAttribute(name, value);
 			reclaim(old);
@@ -311,9 +219,9 @@ $AttributeSet* StyleContext::addAttribute($AttributeSet* old, Object$* name, Obj
 $AttributeSet* StyleContext::addAttributes($AttributeSet* old, $AttributeSet* attr) {
 	$synchronized(this) {
 		int32_t var$1 = $nc(old)->getAttributeCount();
-		int32_t var$0 = (var$1 + $nc(attr)->getAttributeCount());
+		int32_t var$0 = var$1 + $nc(attr)->getAttributeCount();
 		if (var$0 <= getCompressionThreshold()) {
-			$nc(this->search)->removeAttributes(static_cast<$AttributeSet*>(this->search));
+			$nc(this->search)->removeAttributes(this->search);
 			$nc(this->search)->addAttributes(old);
 			$nc(this->search)->addAttributes(attr);
 			reclaim(old);
@@ -327,9 +235,9 @@ $AttributeSet* StyleContext::addAttributes($AttributeSet* old, $AttributeSet* at
 
 $AttributeSet* StyleContext::removeAttribute($AttributeSet* old, Object$* name) {
 	$synchronized(this) {
-		int32_t var$0 = ($nc(old)->getAttributeCount() - 1);
+		int32_t var$0 = $nc(old)->getAttributeCount() - 1;
 		if (var$0 <= getCompressionThreshold()) {
-			$nc(this->search)->removeAttributes(static_cast<$AttributeSet*>(this->search));
+			$nc(this->search)->removeAttributes(this->search);
 			$nc(this->search)->addAttributes(old);
 			$nc(this->search)->removeAttribute(name);
 			reclaim(old);
@@ -345,7 +253,7 @@ $AttributeSet* StyleContext::removeAttributes($AttributeSet* old, $Enumeration* 
 	$synchronized(this) {
 		int32_t var$0 = $nc(old)->getAttributeCount();
 		if (var$0 <= getCompressionThreshold()) {
-			$nc(this->search)->removeAttributes(static_cast<$AttributeSet*>(this->search));
+			$nc(this->search)->removeAttributes(this->search);
 			$nc(this->search)->addAttributes(old);
 			$nc(this->search)->removeAttributes(names);
 			reclaim(old);
@@ -361,7 +269,7 @@ $AttributeSet* StyleContext::removeAttributes($AttributeSet* old, $AttributeSet*
 	$synchronized(this) {
 		int32_t var$0 = $nc(old)->getAttributeCount();
 		if (var$0 <= getCompressionThreshold()) {
-			$nc(this->search)->removeAttributes(static_cast<$AttributeSet*>(this->search));
+			$nc(this->search)->removeAttributes(this->search);
 			$nc(this->search)->addAttributes(old);
 			$nc(this->search)->removeAttributes(attrs);
 			reclaim(old);
@@ -403,11 +311,11 @@ void StyleContext::removeUnusedSets() {
 }
 
 $AttributeSet* StyleContext::getImmutableUniqueSet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleContext$SmallAttributeSet, key, createSmallAttributeSet(this->search));
 	$var($WeakReference, reference, $cast($WeakReference, $nc(this->attributesPool)->get(key)));
 	$var($StyleContext$SmallAttributeSet, a, nullptr);
-	if (reference == nullptr || ($assign(a, $cast($StyleContext$SmallAttributeSet, $nc(reference)->get()))) == nullptr) {
+	if (reference == nullptr || ($assign(a, $cast($StyleContext$SmallAttributeSet, reference->get()))) == nullptr) {
 		$assign(a, key);
 		$nc(this->attributesPool)->put(a, $$new($WeakReference, a));
 	}
@@ -423,11 +331,11 @@ $MutableAttributeSet* StyleContext::getMutableAttributeSet($AttributeSet* a) {
 }
 
 $String* StyleContext::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	removeUnusedSets();
 	$var($String, s, ""_s);
 	{
-		$var($Iterator, i$, $nc($($nc(this->attributesPool)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->attributesPool)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($StyleContext$SmallAttributeSet, set, $cast($StyleContext$SmallAttributeSet, i$->next()));
 			{
@@ -448,7 +356,7 @@ void StyleContext::readAttributes($ObjectInputStream* in, $MutableAttributeSet* 
 
 void StyleContext::writeAttributeSet($ObjectOutputStream* out, $AttributeSet* a) {
 	$init(StyleContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(a)->getAttributeCount();
 	$nc(out)->writeInt(n);
 	$var($Enumeration, keys, a->getAttributeNames());
@@ -459,7 +367,7 @@ void StyleContext::writeAttributeSet($ObjectOutputStream* out, $AttributeSet* a)
 		} else {
 			$var($Object, ioFmt, $nc(StyleContext::freezeKeyMap)->get(key));
 			if (ioFmt == nullptr) {
-				$throwNew($NotSerializableException, $$str({$($nc($of(key))->getClass()->getName()), " is not serializable as a key in an AttributeSet"_s}));
+				$throwNew($NotSerializableException, $$str({$($nc(key)->getClass()->getName()), " is not serializable as a key in an AttributeSet"_s}));
 			}
 			out->writeObject(ioFmt);
 		}
@@ -469,7 +377,7 @@ void StyleContext::writeAttributeSet($ObjectOutputStream* out, $AttributeSet* a)
 			out->writeObject((ioFmt != nullptr) ? ioFmt : value);
 		} else {
 			if (ioFmt == nullptr) {
-				$throwNew($NotSerializableException, $$str({$($nc($of(value))->getClass()->getName()), " is not serializable as a value in an AttributeSet"_s}));
+				$throwNew($NotSerializableException, $$str({$($nc(value)->getClass()->getName()), " is not serializable as a value in an AttributeSet"_s}));
 			}
 			out->writeObject(ioFmt);
 		}
@@ -478,17 +386,17 @@ void StyleContext::writeAttributeSet($ObjectOutputStream* out, $AttributeSet* a)
 
 void StyleContext::readAttributeSet($ObjectInputStream* in, $MutableAttributeSet* a) {
 	$init(StyleContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(in)->readInt();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Object, key, in->readObject());
 		$var($Object, value, in->readObject());
 		if (StyleContext::thawKeyMap != nullptr) {
-			$var($Object, staticKey, $nc(StyleContext::thawKeyMap)->get(key));
+			$var($Object, staticKey, StyleContext::thawKeyMap->get(key));
 			if (staticKey != nullptr) {
 				$assign(key, staticKey);
 			}
-			$var($Object, staticValue, $nc(StyleContext::thawKeyMap)->get(value));
+			$var($Object, staticValue, StyleContext::thawKeyMap->get(value));
 			if (staticValue != nullptr) {
 				$assign(value, staticValue);
 			}
@@ -499,9 +407,12 @@ void StyleContext::readAttributeSet($ObjectInputStream* in, $MutableAttributeSet
 
 void StyleContext::registerStaticAttributeKey(Object$* key) {
 	$init(StyleContext);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($nc($of(key))->getClass()->getName()), "."_s}));
-	$var($String, ioFmt, $concat(var$0, $($of(key)->toString())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc($of(key))->getClass()->getName()));
+	var$0->append("."_s);
+	var$0->append($($of(key)->toString()));
+	$var($String, ioFmt, $str(var$0));
 	if (StyleContext::freezeKeyMap == nullptr) {
 		$assignStatic(StyleContext::freezeKeyMap, $new($Hashtable));
 		$assignStatic(StyleContext::thawKeyMap, $new($Hashtable));
@@ -513,16 +424,19 @@ void StyleContext::registerStaticAttributeKey(Object$* key) {
 $Object* StyleContext::getStaticAttribute(Object$* key) {
 	$init(StyleContext);
 	if (StyleContext::thawKeyMap == nullptr || key == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($nc(StyleContext::thawKeyMap)->get(key));
+	return $nc(StyleContext::thawKeyMap)->get(key);
 }
 
 $Object* StyleContext::getStaticAttributeKey(Object$* key) {
 	$init(StyleContext);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($nc($of(key))->getClass()->getName()), "."_s}));
-	return $of($concat(var$0, $($of(key)->toString())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($nc($of(key))->getClass()->getName()));
+	var$0->append("."_s);
+	var$0->append($($of(key)->toString()));
+	return $of($str(var$0));
 }
 
 void StyleContext::writeObject($ObjectOutputStream* s) {
@@ -531,13 +445,13 @@ void StyleContext::writeObject($ObjectOutputStream* s) {
 }
 
 void StyleContext::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fontSearch, $new($StyleContext$FontKey, nullptr, 0, 0));
 	$set(this, fontTable, $new($Hashtable));
 	$set(this, search, $new($SimpleAttributeSet));
 	$set(this, attributesPool, $Collections::synchronizedMap($$new($WeakHashMap)));
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$var($Style, newStyles, $cast($Style, $nc(f)->get("styles"_s, ($Object*)nullptr)));
+	$var($Style, newStyles, $cast($Style, $nc(f)->get("styles"_s, nullptr)));
 	if (newStyles == nullptr) {
 		$throwNew($InvalidObjectException, "Null styles"_s);
 	}
@@ -545,7 +459,7 @@ void StyleContext::readObject($ObjectInputStream* s) {
 	this->unusedSets = f->get("unusedSets"_s, 0);
 }
 
-void clinit$StyleContext($Class* class$) {
+void StyleContext::clinit$($Class* clazz) {
 	$assignStatic(StyleContext::DEFAULT_STYLE, "default"_s);
 	{
 		try {
@@ -564,7 +478,90 @@ StyleContext::StyleContext() {
 }
 
 $Class* StyleContext::load$($String* name, bool initialize) {
-	$loadClass(StyleContext, name, initialize, &_StyleContext_ClassInfo_, clinit$StyleContext, allocate$StyleContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultContext", "Ljavax/swing/text/StyleContext;", nullptr, $PRIVATE | $STATIC, $staticField(StyleContext, defaultContext)},
+		{"DEFAULT_STYLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StyleContext, DEFAULT_STYLE)},
+		{"freezeKeyMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(StyleContext, freezeKeyMap)},
+		{"thawKeyMap", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticField(StyleContext, thawKeyMap)},
+		{"styles", "Ljavax/swing/text/Style;", nullptr, $PRIVATE, $field(StyleContext, styles)},
+		{"fontSearch", "Ljavax/swing/text/StyleContext$FontKey;", nullptr, $PRIVATE | $TRANSIENT, $field(StyleContext, fontSearch)},
+		{"fontTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/text/StyleContext$FontKey;Ljava/awt/Font;>;", $PRIVATE | $TRANSIENT, $field(StyleContext, fontTable)},
+		{"attributesPool", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/text/StyleContext$SmallAttributeSet;Ljava/lang/ref/WeakReference<Ljavax/swing/text/StyleContext$SmallAttributeSet;>;>;", $PRIVATE | $TRANSIENT, $field(StyleContext, attributesPool)},
+		{"search", "Ljavax/swing/text/MutableAttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(StyleContext, search)},
+		{"unusedSets", "I", nullptr, $PRIVATE, $field(StyleContext, unusedSets)},
+		{"THRESHOLD", "I", nullptr, $STATIC | $FINAL, $constField(StyleContext, THRESHOLD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StyleContext, init$, void)},
+		{"addAttribute", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, addAttribute, $AttributeSet*, $AttributeSet*, Object$*, Object$*)},
+		{"addAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, addAttributes, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, addChangeListener, void, $ChangeListener*)},
+		{"addStyle", "(Ljava/lang/String;Ljavax/swing/text/Style;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(StyleContext, addStyle, $Style*, $String*, $Style*)},
+		{"createLargeAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(StyleContext, createLargeAttributeSet, $MutableAttributeSet*, $AttributeSet*)},
+		{"createSmallAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/StyleContext$SmallAttributeSet;", nullptr, $PROTECTED, $virtualMethod(StyleContext, createSmallAttributeSet, $StyleContext$SmallAttributeSet*, $AttributeSet*)},
+		{"getBackground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getBackground, $Color*, $AttributeSet*)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getChangeListeners, $ChangeListenerArray*)},
+		{"getCompressionThreshold", "()I", nullptr, $PROTECTED, $virtualMethod(StyleContext, getCompressionThreshold, int32_t)},
+		{"getDefaultStyleContext", "()Ljavax/swing/text/StyleContext;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(StyleContext, getDefaultStyleContext, StyleContext*)},
+		{"getEmptySet", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getEmptySet, $AttributeSet*)},
+		{"getFont", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getFont, $Font*, $AttributeSet*)},
+		{"getFont", "(Ljava/lang/String;II)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getFont, $Font*, $String*, int32_t, int32_t)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getForeground, $Color*, $AttributeSet*)},
+		{"getImmutableUniqueSet", "()Ljavax/swing/text/AttributeSet;", nullptr, 0, $virtualMethod(StyleContext, getImmutableUniqueSet, $AttributeSet*)},
+		{"getMutableAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/MutableAttributeSet;", nullptr, 0, $virtualMethod(StyleContext, getMutableAttributeSet, $MutableAttributeSet*, $AttributeSet*)},
+		{"getStaticAttribute", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, getStaticAttribute, $Object*, Object$*)},
+		{"getStaticAttributeKey", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, getStaticAttributeKey, $Object*, Object$*)},
+		{"getStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(StyleContext, getStyle, $Style*, $String*)},
+		{"getStyleNames", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $virtualMethod(StyleContext, getStyleNames, $Enumeration*)},
+		{"readAttributeSet", "(Ljava/io/ObjectInputStream;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, readAttributeSet, void, $ObjectInputStream*, $MutableAttributeSet*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"readAttributes", "(Ljava/io/ObjectInputStream;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, readAttributes, void, $ObjectInputStream*, $MutableAttributeSet*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(StyleContext, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"reclaim", "(Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, reclaim, void, $AttributeSet*)},
+		{"registerStaticAttributeKey", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, registerStaticAttributeKey, void, Object$*)},
+		{"removeAttribute", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, removeAttribute, $AttributeSet*, $AttributeSet*, Object$*)},
+		{"removeAttributes", "(Ljavax/swing/text/AttributeSet;Ljava/util/Enumeration;)Ljavax/swing/text/AttributeSet;", "(Ljavax/swing/text/AttributeSet;Ljava/util/Enumeration<*>;)Ljavax/swing/text/AttributeSet;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, removeAttributes, $AttributeSet*, $AttributeSet*, $Enumeration*)},
+		{"removeAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(StyleContext, removeAttributes, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, removeChangeListener, void, $ChangeListener*)},
+		{"removeStyle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, removeStyle, void, $String*)},
+		{"removeUnusedSets", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(StyleContext, removeUnusedSets, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StyleContext, toString, $String*)},
+		{"writeAttributeSet", "(Ljava/io/ObjectOutputStream;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleContext, writeAttributeSet, void, $ObjectOutputStream*, $AttributeSet*), "java.io.IOException"},
+		{"writeAttributes", "(Ljava/io/ObjectOutputStream;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(StyleContext, writeAttributes, void, $ObjectOutputStream*, $AttributeSet*), "java.io.IOException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(StyleContext, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$AttributeContext", "javax.swing.text.AbstractDocument", "AttributeContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.text.StyleContext$NamedStyle", "javax.swing.text.StyleContext", "NamedStyle", $PUBLIC},
+		{"javax.swing.text.StyleContext$FontKey", "javax.swing.text.StyleContext", "FontKey", $STATIC},
+		{"javax.swing.text.StyleContext$KeyBuilder", "javax.swing.text.StyleContext", "KeyBuilder", 0},
+		{"javax.swing.text.StyleContext$KeyEnumeration", "javax.swing.text.StyleContext", "KeyEnumeration", 0},
+		{"javax.swing.text.StyleContext$SmallAttributeSet", "javax.swing.text.StyleContext", "SmallAttributeSet", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyleContext",
+		"java.lang.Object",
+		"java.io.Serializable,javax.swing.text.AbstractDocument$AttributeContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyleContext$NamedStyle,javax.swing.text.StyleContext$FontKey,javax.swing.text.StyleContext$KeyBuilder,javax.swing.text.StyleContext$KeyEnumeration,javax.swing.text.StyleContext$SmallAttributeSet"
+	};
+	$loadClass(StyleContext, name, initialize, &classInfo$$, StyleContext::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyleContext));
+	});
 	return class$;
 }
 

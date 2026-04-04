@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$FilterComboBoxRenderer.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/awt/Component.h>
 #include <javax/swing/DefaultListCellRenderer.h>
@@ -25,43 +24,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKFileChooserUI$FilterComboBoxRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$FilterComboBoxRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$FilterComboBoxRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI$FilterComboBoxRenderer, init$, void, $GTKFileChooserUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxRenderer, getName, $String*)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$FilterComboBoxRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$FilterComboBoxRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_GTKFileChooserUI$FilterComboBoxRenderer_FieldInfo_,
-	_GTKFileChooserUI$FilterComboBoxRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI$FilterComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$FilterComboBoxRenderer($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$FilterComboBoxRenderer));
-}
-
 void GTKFileChooserUI$FilterComboBoxRenderer::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer::init$();
@@ -80,7 +42,7 @@ $Component* GTKFileChooserUI$FilterComboBoxRenderer::getListCellRendererComponen
 	setName("ComboBox.listRenderer"_s);
 	if (value != nullptr) {
 		if ($instanceOf($FileFilter, value)) {
-			setText($($nc(($cast($FileFilter, value)))->getDescription()));
+			setText($($cast($FileFilter, value)->getDescription()));
 		}
 	} else {
 		setText(""_s);
@@ -92,7 +54,38 @@ GTKFileChooserUI$FilterComboBoxRenderer::GTKFileChooserUI$FilterComboBoxRenderer
 }
 
 $Class* GTKFileChooserUI$FilterComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$FilterComboBoxRenderer, name, initialize, &_GTKFileChooserUI$FilterComboBoxRenderer_ClassInfo_, allocate$GTKFileChooserUI$FilterComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$FilterComboBoxRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI$FilterComboBoxRenderer, init$, void, $GTKFileChooserUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$FilterComboBoxRenderer, getName, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$FilterComboBoxRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$FilterComboBoxRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKFileChooserUI$FilterComboBoxRenderer));
+	});
 	return class$;
 }
 

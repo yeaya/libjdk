@@ -34,6 +34,7 @@ class $export SunDropTargetContextPeer$EventDispatcher : public ::java::lang::Ob
 	$class(SunDropTargetContextPeer$EventDispatcher, 0, ::java::lang::Object)
 public:
 	SunDropTargetContextPeer$EventDispatcher();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::dnd::SunDropTargetContextPeer* peer, int32_t dropAction, int32_t actions, $longs* formats, int64_t nativeCtxt, bool dispatchType);
 	void dispatchDropEvent(::sun::awt::dnd::SunDropTargetEvent* e);
 	void dispatchEnterEvent(::sun::awt::dnd::SunDropTargetEvent* e);

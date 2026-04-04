@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValueTemplate.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
@@ -24,25 +23,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _AttributeValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AttributeValue, init$, void)},
-	{"create", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(AttributeValue, create, AttributeValue*, $SyntaxTreeNode*, $String*, $Parser*)},
-	{}
-};
-
-$ClassInfo _AttributeValue_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.AttributeValue",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	nullptr,
-	nullptr,
-	_AttributeValue_MethodInfo_
-};
-
-$Object* allocate$AttributeValue($Class* clazz) {
-	return $of($alloc(AttributeValue));
-}
-
 void AttributeValue::init$() {
 	$Expression::init$();
 }
@@ -50,9 +30,9 @@ void AttributeValue::init$() {
 AttributeValue* AttributeValue::create($SyntaxTreeNode* parent, $String* text, $Parser* parser) {
 	$init(AttributeValue);
 	$var(AttributeValue, result, nullptr);
-	if ($nc(text)->indexOf((int32_t)u'{') != -1) {
+	if ($nc(text)->indexOf(u'{') != -1) {
 		$assign(result, $new($AttributeValueTemplate, text, parser, parent));
-	} else if (text->indexOf((int32_t)u'}') != -1) {
+	} else if (text->indexOf(u'}') != -1) {
 		$assign(result, $new($AttributeValueTemplate, text, parser, parent));
 	} else {
 		$assign(result, $new($SimpleAttributeValue, text));
@@ -66,7 +46,22 @@ AttributeValue::AttributeValue() {
 }
 
 $Class* AttributeValue::load$($String* name, bool initialize) {
-	$loadClass(AttributeValue, name, initialize, &_AttributeValue_ClassInfo_, allocate$AttributeValue);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AttributeValue, init$, void)},
+		{"create", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(AttributeValue, create, AttributeValue*, $SyntaxTreeNode*, $String*, $Parser*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.AttributeValue",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AttributeValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeValue);
+	});
 	return class$;
 }
 

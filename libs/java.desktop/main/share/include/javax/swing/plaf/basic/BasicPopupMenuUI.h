@@ -71,6 +71,7 @@ class $import BasicPopupMenuUI : public ::javax::swing::plaf::PopupMenuUI {
 	$class(BasicPopupMenuUI, 0, ::javax::swing::plaf::PopupMenuUI)
 public:
 	BasicPopupMenuUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool checkInvokerEqual(::javax::swing::MenuElement* present, ::javax::swing::MenuElement* last);
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* x);

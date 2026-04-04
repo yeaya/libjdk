@@ -1,9 +1,7 @@
 #include <javax/swing/GroupLayout$LinkInfo.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <javax/swing/GroupLayout$ComponentInfo.h>
@@ -18,58 +16,13 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $GroupLayout = ::javax::swing::GroupLayout;
 using $GroupLayout$ComponentInfo = ::javax::swing::GroupLayout$ComponentInfo;
 using $GroupLayout$ComponentSpring = ::javax::swing::GroupLayout$ComponentSpring;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _GroupLayout$LinkInfo_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GroupLayout$LinkInfo, $assertionsDisabled)},
-	{"axis", "I", nullptr, $PRIVATE | $FINAL, $field(GroupLayout$LinkInfo, axis)},
-	{"linked", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/GroupLayout$ComponentInfo;>;", $PRIVATE | $FINAL, $field(GroupLayout$LinkInfo, linked)},
-	{"size", "I", nullptr, $PRIVATE, $field(GroupLayout$LinkInfo, size)},
-	{}
-};
-
-$MethodInfo _GroupLayout$LinkInfo_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(GroupLayout$LinkInfo, init$, void, int32_t)},
-	{"add", "(Ljavax/swing/GroupLayout$ComponentInfo;)V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$LinkInfo, add, void, $GroupLayout$ComponentInfo*)},
-	{"calculateLinkedSize", "(I)I", nullptr, $PRIVATE, $method(GroupLayout$LinkInfo, calculateLinkedSize, int32_t, int32_t)},
-	{"clearCachedSize", "()V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$LinkInfo, clearCachedSize, void)},
-	{"getSize", "(I)I", nullptr, $PUBLIC, $virtualMethod(GroupLayout$LinkInfo, getSize, int32_t, int32_t)},
-	{"remove", "(Ljavax/swing/GroupLayout$ComponentInfo;)V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$LinkInfo, remove, void, $GroupLayout$ComponentInfo*)},
-	{}
-};
-
-$InnerClassInfo _GroupLayout$LinkInfo_InnerClassesInfo_[] = {
-	{"javax.swing.GroupLayout$LinkInfo", "javax.swing.GroupLayout", "LinkInfo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _GroupLayout$LinkInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.GroupLayout$LinkInfo",
-	"java.lang.Object",
-	nullptr,
-	_GroupLayout$LinkInfo_FieldInfo_,
-	_GroupLayout$LinkInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GroupLayout$LinkInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.GroupLayout"
-};
-
-$Object* allocate$GroupLayout$LinkInfo($Class* clazz) {
-	return $of($alloc(GroupLayout$LinkInfo));
-}
 
 bool GroupLayout$LinkInfo::$assertionsDisabled = false;
 
@@ -80,15 +33,15 @@ void GroupLayout$LinkInfo::init$(int32_t axis) {
 }
 
 void GroupLayout$LinkInfo::add($GroupLayout$ComponentInfo* child) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(GroupLayout$LinkInfo, childMaster, $nc(child)->getLinkInfo(this->axis, false));
 	if (childMaster == nullptr) {
-		$nc(this->linked)->add(child);
+		this->linked->add(child);
 		child->setLinkInfo(this->axis, this);
 	} else if (childMaster != this) {
-		$nc(this->linked)->addAll($nc(childMaster)->linked);
+		this->linked->addAll(childMaster->linked);
 		{
-			$var($Iterator, i$, $nc($nc(childMaster)->linked)->iterator());
+			$var($Iterator, i$, $nc(childMaster->linked)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($GroupLayout$ComponentInfo, childInfo, $cast($GroupLayout$ComponentInfo, i$->next()));
 				{
@@ -101,10 +54,10 @@ void GroupLayout$LinkInfo::add($GroupLayout$ComponentInfo* child) {
 }
 
 void GroupLayout$LinkInfo::remove($GroupLayout$ComponentInfo* info) {
-	$nc(this->linked)->remove($of(info));
+	this->linked->remove(info);
 	$nc(info)->setLinkInfo(this->axis, nullptr);
-	if ($nc(this->linked)->size() == 1) {
-		$nc(($cast($GroupLayout$ComponentInfo, $($nc(this->linked)->get(0)))))->setLinkInfo(this->axis, nullptr);
+	if (this->linked->size() == 1) {
+		$$sure($GroupLayout$ComponentInfo, this->linked->get(0))->setLinkInfo(this->axis, nullptr);
 	}
 	clearCachedSize();
 }
@@ -121,10 +74,10 @@ int32_t GroupLayout$LinkInfo::getSize(int32_t axis) {
 }
 
 int32_t GroupLayout$LinkInfo::calculateLinkedSize(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 0;
 	{
-		$var($Iterator, i$, $nc(this->linked)->iterator());
+		$var($Iterator, i$, this->linked->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($GroupLayout$ComponentInfo, info, $cast($GroupLayout$ComponentInfo, i$->next()));
 			{
@@ -144,7 +97,7 @@ int32_t GroupLayout$LinkInfo::calculateLinkedSize(int32_t axis) {
 	return size;
 }
 
-void clinit$GroupLayout$LinkInfo($Class* class$) {
+void GroupLayout$LinkInfo::clinit$($Class* clazz) {
 	$load($GroupLayout);
 	GroupLayout$LinkInfo::$assertionsDisabled = !$GroupLayout::class$->desiredAssertionStatus();
 }
@@ -153,7 +106,44 @@ GroupLayout$LinkInfo::GroupLayout$LinkInfo() {
 }
 
 $Class* GroupLayout$LinkInfo::load$($String* name, bool initialize) {
-	$loadClass(GroupLayout$LinkInfo, name, initialize, &_GroupLayout$LinkInfo_ClassInfo_, clinit$GroupLayout$LinkInfo, allocate$GroupLayout$LinkInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GroupLayout$LinkInfo, $assertionsDisabled)},
+		{"axis", "I", nullptr, $PRIVATE | $FINAL, $field(GroupLayout$LinkInfo, axis)},
+		{"linked", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/GroupLayout$ComponentInfo;>;", $PRIVATE | $FINAL, $field(GroupLayout$LinkInfo, linked)},
+		{"size", "I", nullptr, $PRIVATE, $field(GroupLayout$LinkInfo, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(GroupLayout$LinkInfo, init$, void, int32_t)},
+		{"add", "(Ljavax/swing/GroupLayout$ComponentInfo;)V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$LinkInfo, add, void, $GroupLayout$ComponentInfo*)},
+		{"calculateLinkedSize", "(I)I", nullptr, $PRIVATE, $method(GroupLayout$LinkInfo, calculateLinkedSize, int32_t, int32_t)},
+		{"clearCachedSize", "()V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$LinkInfo, clearCachedSize, void)},
+		{"getSize", "(I)I", nullptr, $PUBLIC, $virtualMethod(GroupLayout$LinkInfo, getSize, int32_t, int32_t)},
+		{"remove", "(Ljavax/swing/GroupLayout$ComponentInfo;)V", nullptr, $PUBLIC, $virtualMethod(GroupLayout$LinkInfo, remove, void, $GroupLayout$ComponentInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.GroupLayout$LinkInfo", "javax.swing.GroupLayout", "LinkInfo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.GroupLayout$LinkInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.GroupLayout"
+	};
+	$loadClass(GroupLayout$LinkInfo, name, initialize, &classInfo$$, GroupLayout$LinkInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GroupLayout$LinkInfo);
+	});
 	return class$;
 }
 

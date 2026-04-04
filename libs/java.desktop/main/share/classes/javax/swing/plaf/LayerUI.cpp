@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/LayerUI.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
@@ -62,65 +61,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$FieldInfo _LayerUI_FieldInfo_[] = {
-	{"propertyChangeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE | $FINAL, $field(LayerUI, propertyChangeSupport)},
-	{}
-};
-
-$MethodInfo _LayerUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LayerUI, init$, void)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"applyPropertyChange", "(Ljava/beans/PropertyChangeEvent;Ljavax/swing/JLayer;)V", "(Ljava/beans/PropertyChangeEvent;Ljavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, applyPropertyChange, void, $PropertyChangeEvent*, $JLayer*)},
-	{"doLayout", "(Ljavax/swing/JLayer;)V", "(Ljavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, doLayout, void, $JLayer*)},
-	{"eventDispatched", "(Ljava/awt/AWTEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/AWTEvent;Ljavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, eventDispatched, void, $AWTEvent*, $JLayer*)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(LayerUI, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(LayerUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getPropertyChangeListeners", "(Ljava/lang/String;)[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getPropertyChangeListeners, $PropertyChangeListenerArray*, $String*)},
-	{"imageUpdate", "(Ljava/awt/Image;IIIIILjavax/swing/JLayer;)Z", "(Ljava/awt/Image;IIIIILjavax/swing/JLayer<+TV;>;)Z", $PUBLIC, $virtualMethod(LayerUI, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, $JLayer*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, installUI, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintImmediately", "(IIIILjavax/swing/JLayer;)V", "(IIIILjavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, paintImmediately, void, int32_t, int32_t, int32_t, int32_t, $JLayer*)},
-	{"processComponentEvent", "(Ljava/awt/event/ComponentEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/ComponentEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processComponentEvent, void, $ComponentEvent*, $JLayer*)},
-	{"processFocusEvent", "(Ljava/awt/event/FocusEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/FocusEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processFocusEvent, void, $FocusEvent*, $JLayer*)},
-	{"processHierarchyBoundsEvent", "(Ljava/awt/event/HierarchyEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/HierarchyEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processHierarchyBoundsEvent, void, $HierarchyEvent*, $JLayer*)},
-	{"processHierarchyEvent", "(Ljava/awt/event/HierarchyEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/HierarchyEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processHierarchyEvent, void, $HierarchyEvent*, $JLayer*)},
-	{"processInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/InputMethodEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processInputMethodEvent, void, $InputMethodEvent*, $JLayer*)},
-	{"processKeyEvent", "(Ljava/awt/event/KeyEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/KeyEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processKeyEvent, void, $KeyEvent*, $JLayer*)},
-	{"processMouseEvent", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processMouseEvent, void, $MouseEvent*, $JLayer*)},
-	{"processMouseMotionEvent", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processMouseMotionEvent, void, $MouseEvent*, $JLayer*)},
-	{"processMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/MouseWheelEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processMouseWheelEvent, void, $MouseWheelEvent*, $JLayer*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, uninstallUI, void, $JComponent*)},
-	{"updateUI", "(Ljavax/swing/JLayer;)V", "(Ljavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, updateUI, void, $JLayer*)},
-	{}
-};
-
-$ClassInfo _LayerUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.LayerUI",
-	"javax.swing.plaf.ComponentUI",
-	"java.io.Serializable",
-	_LayerUI_FieldInfo_,
-	_LayerUI_MethodInfo_,
-	"<V:Ljava/awt/Component;>Ljavax/swing/plaf/ComponentUI;Ljava/io/Serializable;"
-};
-
-$Object* allocate$LayerUI($Class* clazz) {
-	return $of($alloc(LayerUI));
-}
-
 int32_t LayerUI::hashCode() {
 	 return this->$ComponentUI::hashCode();
 }
@@ -154,32 +94,21 @@ void LayerUI::eventDispatched($AWTEvent* e, $JLayer* l) {
 	if ($instanceOf($FocusEvent, e)) {
 		processFocusEvent($cast($FocusEvent, e), l);
 	} else if ($instanceOf($MouseEvent, e)) {
-		switch ($nc(e)->getID()) {
+		switch (e->getID()) {
 		case $MouseEvent::MOUSE_PRESSED:
-			{}
 		case $MouseEvent::MOUSE_RELEASED:
-			{}
 		case $MouseEvent::MOUSE_CLICKED:
-			{}
 		case $MouseEvent::MOUSE_ENTERED:
-			{}
 		case $MouseEvent::MOUSE_EXITED:
-			{
-				processMouseEvent($cast($MouseEvent, e), l);
-				break;
-			}
+			processMouseEvent($cast($MouseEvent, e), l);
+			break;
 		case $MouseEvent::MOUSE_MOVED:
-			{}
 		case $MouseEvent::MOUSE_DRAGGED:
-			{
-				processMouseMotionEvent($cast($MouseEvent, e), l);
-				break;
-			}
+			processMouseMotionEvent($cast($MouseEvent, e), l);
+			break;
 		case $MouseEvent::MOUSE_WHEEL:
-			{
-				processMouseWheelEvent($cast($MouseWheelEvent, e), l);
-				break;
-			}
+			processMouseWheelEvent($cast($MouseWheelEvent, e), l);
+			break;
 		}
 	} else if ($instanceOf($KeyEvent, e)) {
 		processKeyEvent($cast($KeyEvent, e), l);
@@ -188,19 +117,14 @@ void LayerUI::eventDispatched($AWTEvent* e, $JLayer* l) {
 	} else if ($instanceOf($InputMethodEvent, e)) {
 		processInputMethodEvent($cast($InputMethodEvent, e), l);
 	} else if ($instanceOf($HierarchyEvent, e)) {
-		switch ($nc(e)->getID()) {
+		switch (e->getID()) {
 		case $HierarchyEvent::HIERARCHY_CHANGED:
-			{
-				processHierarchyEvent($cast($HierarchyEvent, e), l);
-				break;
-			}
+			processHierarchyEvent($cast($HierarchyEvent, e), l);
+			break;
 		case $HierarchyEvent::ANCESTOR_MOVED:
-			{}
 		case $HierarchyEvent::ANCESTOR_RESIZED:
-			{
-				processHierarchyBoundsEvent($cast($HierarchyEvent, e), l);
-				break;
-			}
+			processHierarchyBoundsEvent($cast($HierarchyEvent, e), l);
+			break;
 		}
 	}
 }
@@ -244,56 +168,56 @@ void LayerUI::uninstallUI($JComponent* c) {
 }
 
 void LayerUI::addPropertyChangeListener($PropertyChangeListener* listener) {
-	$nc(this->propertyChangeSupport)->addPropertyChangeListener(listener);
+	this->propertyChangeSupport->addPropertyChangeListener(listener);
 }
 
 void LayerUI::removePropertyChangeListener($PropertyChangeListener* listener) {
-	$nc(this->propertyChangeSupport)->removePropertyChangeListener(listener);
+	this->propertyChangeSupport->removePropertyChangeListener(listener);
 }
 
 $PropertyChangeListenerArray* LayerUI::getPropertyChangeListeners() {
-	return $nc(this->propertyChangeSupport)->getPropertyChangeListeners();
+	return this->propertyChangeSupport->getPropertyChangeListeners();
 }
 
 void LayerUI::addPropertyChangeListener($String* propertyName, $PropertyChangeListener* listener) {
-	$nc(this->propertyChangeSupport)->addPropertyChangeListener(propertyName, listener);
+	this->propertyChangeSupport->addPropertyChangeListener(propertyName, listener);
 }
 
 void LayerUI::removePropertyChangeListener($String* propertyName, $PropertyChangeListener* listener) {
-	$nc(this->propertyChangeSupport)->removePropertyChangeListener(propertyName, listener);
+	this->propertyChangeSupport->removePropertyChangeListener(propertyName, listener);
 }
 
 $PropertyChangeListenerArray* LayerUI::getPropertyChangeListeners($String* propertyName) {
-	return $nc(this->propertyChangeSupport)->getPropertyChangeListeners(propertyName);
+	return this->propertyChangeSupport->getPropertyChangeListeners(propertyName);
 }
 
 void LayerUI::firePropertyChange($String* propertyName, Object$* oldValue, Object$* newValue) {
-	$nc(this->propertyChangeSupport)->firePropertyChange(propertyName, oldValue, newValue);
+	this->propertyChangeSupport->firePropertyChange(propertyName, oldValue, newValue);
 }
 
 void LayerUI::applyPropertyChange($PropertyChangeEvent* evt, $JLayer* l) {
 }
 
 int32_t LayerUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLayer, l, $cast($JLayer, c));
 	if ($nc(l)->getView() != nullptr) {
-		return $nc($(l->getView()))->getBaseline(width, height);
+		return $$nc(l->getView())->getBaseline(width, height);
 	}
 	return $ComponentUI::getBaseline(c, width, height);
 }
 
 $Component$BaselineResizeBehavior* LayerUI::getBaselineResizeBehavior($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLayer, l, $cast($JLayer, c));
 	if ($nc(l)->getView() != nullptr) {
-		return $nc($(l->getView()))->getBaselineResizeBehavior();
+		return $$nc(l->getView())->getBaselineResizeBehavior();
 	}
 	return $ComponentUI::getBaselineResizeBehavior(c);
 }
 
 void LayerUI::doLayout($JLayer* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, view, $nc(l)->getView());
 	if (view != nullptr) {
 		int32_t var$0 = l->getWidth();
@@ -307,7 +231,7 @@ void LayerUI::doLayout($JLayer* l) {
 }
 
 $Dimension* LayerUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLayer, l, $cast($JLayer, c));
 	$var($Component, view, $nc(l)->getView());
 	if (view != nullptr) {
@@ -317,7 +241,7 @@ $Dimension* LayerUI::getPreferredSize($JComponent* c) {
 }
 
 $Dimension* LayerUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLayer, l, $cast($JLayer, c));
 	$var($Component, view, $nc(l)->getView());
 	if (view != nullptr) {
@@ -327,7 +251,7 @@ $Dimension* LayerUI::getMinimumSize($JComponent* c) {
 }
 
 $Dimension* LayerUI::getMaximumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLayer, l, $cast($JLayer, c));
 	$var($Component, view, $nc(l)->getView());
 	if (view != nullptr) {
@@ -348,7 +272,61 @@ LayerUI::LayerUI() {
 }
 
 $Class* LayerUI::load$($String* name, bool initialize) {
-	$loadClass(LayerUI, name, initialize, &_LayerUI_ClassInfo_, allocate$LayerUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"propertyChangeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE | $FINAL, $field(LayerUI, propertyChangeSupport)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LayerUI, init$, void)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"applyPropertyChange", "(Ljava/beans/PropertyChangeEvent;Ljavax/swing/JLayer;)V", "(Ljava/beans/PropertyChangeEvent;Ljavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, applyPropertyChange, void, $PropertyChangeEvent*, $JLayer*)},
+		{"doLayout", "(Ljavax/swing/JLayer;)V", "(Ljavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, doLayout, void, $JLayer*)},
+		{"eventDispatched", "(Ljava/awt/AWTEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/AWTEvent;Ljavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, eventDispatched, void, $AWTEvent*, $JLayer*)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(LayerUI, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(LayerUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getPropertyChangeListeners", "(Ljava/lang/String;)[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(LayerUI, getPropertyChangeListeners, $PropertyChangeListenerArray*, $String*)},
+		{"imageUpdate", "(Ljava/awt/Image;IIIIILjavax/swing/JLayer;)Z", "(Ljava/awt/Image;IIIIILjavax/swing/JLayer<+TV;>;)Z", $PUBLIC, $virtualMethod(LayerUI, imageUpdate, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, $JLayer*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, installUI, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintImmediately", "(IIIILjavax/swing/JLayer;)V", "(IIIILjavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, paintImmediately, void, int32_t, int32_t, int32_t, int32_t, $JLayer*)},
+		{"processComponentEvent", "(Ljava/awt/event/ComponentEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/ComponentEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processComponentEvent, void, $ComponentEvent*, $JLayer*)},
+		{"processFocusEvent", "(Ljava/awt/event/FocusEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/FocusEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processFocusEvent, void, $FocusEvent*, $JLayer*)},
+		{"processHierarchyBoundsEvent", "(Ljava/awt/event/HierarchyEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/HierarchyEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processHierarchyBoundsEvent, void, $HierarchyEvent*, $JLayer*)},
+		{"processHierarchyEvent", "(Ljava/awt/event/HierarchyEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/HierarchyEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processHierarchyEvent, void, $HierarchyEvent*, $JLayer*)},
+		{"processInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/InputMethodEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processInputMethodEvent, void, $InputMethodEvent*, $JLayer*)},
+		{"processKeyEvent", "(Ljava/awt/event/KeyEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/KeyEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processKeyEvent, void, $KeyEvent*, $JLayer*)},
+		{"processMouseEvent", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processMouseEvent, void, $MouseEvent*, $JLayer*)},
+		{"processMouseMotionEvent", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/MouseEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processMouseMotionEvent, void, $MouseEvent*, $JLayer*)},
+		{"processMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;Ljavax/swing/JLayer;)V", "(Ljava/awt/event/MouseWheelEvent;Ljavax/swing/JLayer<+TV;>;)V", $PROTECTED, $virtualMethod(LayerUI, processMouseWheelEvent, void, $MouseWheelEvent*, $JLayer*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(LayerUI, uninstallUI, void, $JComponent*)},
+		{"updateUI", "(Ljavax/swing/JLayer;)V", "(Ljavax/swing/JLayer<+TV;>;)V", $PUBLIC, $virtualMethod(LayerUI, updateUI, void, $JLayer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.LayerUI",
+		"javax.swing.plaf.ComponentUI",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<V:Ljava/awt/Component;>Ljavax/swing/plaf/ComponentUI;Ljava/io/Serializable;"
+	};
+	$loadClass(LayerUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LayerUI));
+	});
 	return class$;
 }
 

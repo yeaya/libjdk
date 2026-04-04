@@ -64,6 +64,7 @@ class $import Names : public ::java::lang::Object {
 	$class(Names, 0, ::java::lang::Object)
 public:
 	Names();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::util::Name$Table* createTable(::com::sun::tools::javac::util::Options* options);
 	virtual void dispose();

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/XML11DTDDVFactoryImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/DTDDVFactoryImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/ListDatatypeValidator.h>
@@ -36,31 +35,6 @@ namespace com {
 							namespace dv {
 								namespace dtd {
 
-$FieldInfo _XML11DTDDVFactoryImpl_FieldInfo_[] = {
-	{"XML11BUILTINTYPES", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;>;", $STATIC, $staticField(XML11DTDDVFactoryImpl, XML11BUILTINTYPES)},
-	{}
-};
-
-$MethodInfo _XML11DTDDVFactoryImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DTDDVFactoryImpl, init$, void)},
-	{"getBuiltInDV", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;", nullptr, $PUBLIC, $virtualMethod(XML11DTDDVFactoryImpl, getBuiltInDV, $DatatypeValidator*, $String*)},
-	{"getBuiltInTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;>;", $PUBLIC, $virtualMethod(XML11DTDDVFactoryImpl, getBuiltInTypes, $Map*)},
-	{}
-};
-
-$ClassInfo _XML11DTDDVFactoryImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.XML11DTDDVFactoryImpl",
-	"com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl",
-	nullptr,
-	_XML11DTDDVFactoryImpl_FieldInfo_,
-	_XML11DTDDVFactoryImpl_MethodInfo_
-};
-
-$Object* allocate$XML11DTDDVFactoryImpl($Class* clazz) {
-	return $of($alloc(XML11DTDDVFactoryImpl));
-}
-
 $Map* XML11DTDDVFactoryImpl::XML11BUILTINTYPES = nullptr;
 
 void XML11DTDDVFactoryImpl::init$() {
@@ -69,7 +43,7 @@ void XML11DTDDVFactoryImpl::init$() {
 
 $DatatypeValidator* XML11DTDDVFactoryImpl::getBuiltInDV($String* name) {
 	if ($nc(XML11DTDDVFactoryImpl::XML11BUILTINTYPES)->get(name) != nullptr) {
-		return $cast($DatatypeValidator, $nc(XML11DTDDVFactoryImpl::XML11BUILTINTYPES)->get(name));
+		return $cast($DatatypeValidator, XML11DTDDVFactoryImpl::XML11BUILTINTYPES->get(name));
 	}
 	$init($DTDDVFactoryImpl);
 	return $cast($DatatypeValidator, $nc($DTDDVFactoryImpl::fBuiltInTypes)->get(name));
@@ -82,8 +56,8 @@ $Map* XML11DTDDVFactoryImpl::getBuiltInTypes() {
 	return toReturn;
 }
 
-void clinit$XML11DTDDVFactoryImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XML11DTDDVFactoryImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Map, xml11BuiltInTypes, $new($HashMap));
 		xml11BuiltInTypes->put("XML11ID"_s, $$new($XML11IDDatatypeValidator));
@@ -101,7 +75,27 @@ XML11DTDDVFactoryImpl::XML11DTDDVFactoryImpl() {
 }
 
 $Class* XML11DTDDVFactoryImpl::load$($String* name, bool initialize) {
-	$loadClass(XML11DTDDVFactoryImpl, name, initialize, &_XML11DTDDVFactoryImpl_ClassInfo_, clinit$XML11DTDDVFactoryImpl, allocate$XML11DTDDVFactoryImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"XML11BUILTINTYPES", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;>;", $STATIC, $staticField(XML11DTDDVFactoryImpl, XML11BUILTINTYPES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XML11DTDDVFactoryImpl, init$, void)},
+		{"getBuiltInDV", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;", nullptr, $PUBLIC, $virtualMethod(XML11DTDDVFactoryImpl, getBuiltInDV, $DatatypeValidator*, $String*)},
+		{"getBuiltInTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator;>;", $PUBLIC, $virtualMethod(XML11DTDDVFactoryImpl, getBuiltInTypes, $Map*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.XML11DTDDVFactoryImpl",
+		"com.sun.org.apache.xerces.internal.impl.dv.dtd.DTDDVFactoryImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XML11DTDDVFactoryImpl, name, initialize, &classInfo$$, XML11DTDDVFactoryImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XML11DTDDVFactoryImpl);
+	});
 	return class$;
 }
 

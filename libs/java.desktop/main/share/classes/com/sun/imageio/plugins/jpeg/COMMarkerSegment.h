@@ -51,6 +51,7 @@ class COMMarkerSegment : public ::com::sun::imageio::plugins::jpeg::MarkerSegmen
 	$class(COMMarkerSegment, 0, ::com::sun::imageio::plugins::jpeg::MarkerSegment)
 public:
 	COMMarkerSegment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::imageio::plugins::jpeg::JPEGBuffer* buffer);
 	void init$($String* comment);
 	void init$(::org::w3c::dom::Node* node);

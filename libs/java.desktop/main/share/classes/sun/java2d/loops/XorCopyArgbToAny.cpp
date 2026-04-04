@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/XorCopyArgbToAny.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
 #include <java/awt/image/ColorModel.h>
@@ -25,7 +24,6 @@
 #undef TYPE_SHORT
 #undef TYPE_USHORT
 
-using $Color = ::java::awt::Color;
 using $Composite = ::java::awt::Composite;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
@@ -50,25 +48,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _XorCopyArgbToAny_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XorCopyArgbToAny, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(XorCopyArgbToAny, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _XorCopyArgbToAny_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.XorCopyArgbToAny",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	nullptr,
-	_XorCopyArgbToAny_MethodInfo_
-};
-
-$Object* allocate$XorCopyArgbToAny($Class* clazz) {
-	return $of($alloc(XorCopyArgbToAny));
-}
-
 void XorCopyArgbToAny::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -76,7 +55,7 @@ void XorCopyArgbToAny::init$() {
 }
 
 void XorCopyArgbToAny::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Raster, srcRast, $nc(src)->getRaster(srcx, srcy, w, h));
 	$var($IntegerComponentRaster, icr, $cast($IntegerComponentRaster, srcRast));
 	$var($ints, srcPix, $nc(icr)->getDataStorage());
@@ -84,7 +63,7 @@ void XorCopyArgbToAny::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite* c
 	$var($ColorModel, dstCM, dst->getColorModel());
 	$var($Region, roi, $CustomComponent::getRegionOfInterest(src, dst, clip, srcx, srcy, dstx, dsty, w, h));
 	$var($SpanIterator, si, $nc(roi)->getSpanIterator());
-	int32_t xorrgb = $nc($($nc(($cast($XORComposite, comp)))->getXorColor()))->getRGB();
+	int32_t xorrgb = $$nc($nc($cast($XORComposite, comp))->getXorColor())->getRGB();
 	$var($Object, xorPixel, $nc(dstCM)->getDataElements(xorrgb, nullptr));
 	$var($Object, srcPixel, nullptr);
 	$var($Object, dstPixel, nullptr);
@@ -100,84 +79,71 @@ void XorCopyArgbToAny::Blit$($SurfaceData* src, $SurfaceData* dst, $Composite* c
 				$assign(srcPixel, dstCM->getDataElements($nc(srcPix)->get(off++), srcPixel));
 				$assign(dstPixel, $nc(dstRast)->getDataElements(x, y, dstPixel));
 				{
-					$var($bytes, bytesrcarr, nullptr)
-					$var($bytes, bytedstarr, nullptr)
-					$var($bytes, bytexorarr, nullptr)
-					$var($shorts, shortsrcarr, nullptr)
-					$var($shorts, shortdstarr, nullptr)
-					$var($shorts, shortxorarr, nullptr)
-					$var($ints, intsrcarr, nullptr)
-					$var($ints, intdstarr, nullptr)
-					$var($ints, intxorarr, nullptr)
-					$var($floats, floatsrcarr, nullptr)
-					$var($floats, floatdstarr, nullptr)
-					$var($floats, floatxorarr, nullptr)
-					$var($doubles, doublesrcarr, nullptr)
-					$var($doubles, doubledstarr, nullptr)
-					$var($doubles, doublexorarr, nullptr)
+					$var($bytes, bytesrcarr, nullptr);
+					$var($bytes, bytedstarr, nullptr);
+					$var($bytes, bytexorarr, nullptr);
+					$var($shorts, shortsrcarr, nullptr);
+					$var($shorts, shortdstarr, nullptr);
+					$var($shorts, shortxorarr, nullptr);
+					$var($ints, intsrcarr, nullptr);
+					$var($ints, intdstarr, nullptr);
+					$var($ints, intxorarr, nullptr);
+					$var($floats, floatsrcarr, nullptr);
+					$var($floats, floatdstarr, nullptr);
+					$var($floats, floatxorarr, nullptr);
+					$var($doubles, doublesrcarr, nullptr);
+					$var($doubles, doubledstarr, nullptr);
+					$var($doubles, doublexorarr, nullptr);
 					switch (dstCM->getTransferType()) {
 					case $DataBuffer::TYPE_BYTE:
-						{
-							$assign(bytesrcarr, $cast($bytes, srcPixel));
-							$assign(bytedstarr, $cast($bytes, dstPixel));
-							$assign(bytexorarr, $cast($bytes, xorPixel));
-							for (int32_t i = 0; i < $nc(bytedstarr)->length; ++i) {
-								(*bytedstarr)[i] ^= $nc(bytesrcarr)->get(i) ^ $nc(bytexorarr)->get(i);
-							}
-							break;
+						$assign(bytesrcarr, $cast($bytes, srcPixel));
+						$assign(bytedstarr, $cast($bytes, dstPixel));
+						$assign(bytexorarr, $cast($bytes, xorPixel));
+						for (int32_t i = 0; i < $nc(bytedstarr)->length; ++i) {
+							(*bytedstarr)[i] ^= $nc(bytesrcarr)->get(i) ^ $nc(bytexorarr)->get(i);
 						}
+						break;
 					case $DataBuffer::TYPE_SHORT:
-						{}
 					case $DataBuffer::TYPE_USHORT:
-						{
-							$assign(shortsrcarr, $cast($shorts, srcPixel));
-							$assign(shortdstarr, $cast($shorts, dstPixel));
-							$assign(shortxorarr, $cast($shorts, xorPixel));
-							for (int32_t i = 0; i < $nc(shortdstarr)->length; ++i) {
-								(*shortdstarr)[i] ^= $nc(shortsrcarr)->get(i) ^ $nc(shortxorarr)->get(i);
-							}
-							break;
+						$assign(shortsrcarr, $cast($shorts, srcPixel));
+						$assign(shortdstarr, $cast($shorts, dstPixel));
+						$assign(shortxorarr, $cast($shorts, xorPixel));
+						for (int32_t i = 0; i < $nc(shortdstarr)->length; ++i) {
+							(*shortdstarr)[i] ^= $nc(shortsrcarr)->get(i) ^ $nc(shortxorarr)->get(i);
 						}
+						break;
 					case $DataBuffer::TYPE_INT:
-						{
-							$assign(intsrcarr, $cast($ints, srcPixel));
-							$assign(intdstarr, $cast($ints, dstPixel));
-							$assign(intxorarr, $cast($ints, xorPixel));
-							for (int32_t i = 0; i < $nc(intdstarr)->length; ++i) {
-								(*intdstarr)[i] ^= $nc(intsrcarr)->get(i) ^ $nc(intxorarr)->get(i);
-							}
-							break;
+						$assign(intsrcarr, $cast($ints, srcPixel));
+						$assign(intdstarr, $cast($ints, dstPixel));
+						$assign(intxorarr, $cast($ints, xorPixel));
+						for (int32_t i = 0; i < $nc(intdstarr)->length; ++i) {
+							(*intdstarr)[i] ^= $nc(intsrcarr)->get(i) ^ $nc(intxorarr)->get(i);
 						}
+						break;
 					case $DataBuffer::TYPE_FLOAT:
-						{
-							$assign(floatsrcarr, $cast($floats, srcPixel));
-							$assign(floatdstarr, $cast($floats, dstPixel));
-							$assign(floatxorarr, $cast($floats, xorPixel));
-							for (int32_t i = 0; i < $nc(floatdstarr)->length; ++i) {
-								int32_t var$1 = $Float::floatToIntBits(floatdstarr->get(i));
-								int32_t var$0 = var$1 ^ $Float::floatToIntBits($nc(floatsrcarr)->get(i));
-								int32_t v = (var$0 ^ $Float::floatToIntBits($nc(floatxorarr)->get(i)));
-								floatdstarr->set(i, $Float::intBitsToFloat(v));
-							}
-							break;
+						$assign(floatsrcarr, $cast($floats, srcPixel));
+						$assign(floatdstarr, $cast($floats, dstPixel));
+						$assign(floatxorarr, $cast($floats, xorPixel));
+						for (int32_t i = 0; i < $nc(floatdstarr)->length; ++i) {
+							int32_t var$1 = $Float::floatToIntBits(floatdstarr->get(i));
+							int32_t var$0 = var$1 ^ $Float::floatToIntBits($nc(floatsrcarr)->get(i));
+							int32_t v = (var$0 ^ $Float::floatToIntBits($nc(floatxorarr)->get(i)));
+							floatdstarr->set(i, $Float::intBitsToFloat(v));
 						}
+						break;
 					case $DataBuffer::TYPE_DOUBLE:
-						{
-							$assign(doublesrcarr, $cast($doubles, srcPixel));
-							$assign(doubledstarr, $cast($doubles, dstPixel));
-							$assign(doublexorarr, $cast($doubles, xorPixel));
-							for (int32_t i = 0; i < $nc(doubledstarr)->length; ++i) {
-								int64_t var$3 = $Double::doubleToLongBits(doubledstarr->get(i));
-								int64_t var$2 = var$3 ^ $Double::doubleToLongBits($nc(doublesrcarr)->get(i));
-								int64_t v = (var$2 ^ $Double::doubleToLongBits($nc(doublexorarr)->get(i)));
-								doubledstarr->set(i, $Double::longBitsToDouble(v));
-							}
-							break;
+						$assign(doublesrcarr, $cast($doubles, srcPixel));
+						$assign(doubledstarr, $cast($doubles, dstPixel));
+						$assign(doublexorarr, $cast($doubles, xorPixel));
+						for (int32_t i = 0; i < $nc(doubledstarr)->length; ++i) {
+							int64_t var$3 = $Double::doubleToLongBits(doubledstarr->get(i));
+							int64_t var$2 = var$3 ^ $Double::doubleToLongBits($nc(doublesrcarr)->get(i));
+							int64_t v = (var$2 ^ $Double::doubleToLongBits($nc(doublexorarr)->get(i)));
+							doubledstarr->set(i, $Double::longBitsToDouble(v));
 						}
+						break;
 					default:
-						{
-							$throwNew($InternalError, "Unsupported XOR pixel type"_s);
-						}
+						$throwNew($InternalError, "Unsupported XOR pixel type"_s);
 					}
 				}
 				dstRast->setDataElements(x, y, dstPixel);
@@ -191,7 +157,22 @@ XorCopyArgbToAny::XorCopyArgbToAny() {
 }
 
 $Class* XorCopyArgbToAny::load$($String* name, bool initialize) {
-	$loadClass(XorCopyArgbToAny, name, initialize, &_XorCopyArgbToAny_ClassInfo_, allocate$XorCopyArgbToAny);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XorCopyArgbToAny, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(XorCopyArgbToAny, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.XorCopyArgbToAny",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XorCopyArgbToAny, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XorCopyArgbToAny);
+	});
 	return class$;
 }
 

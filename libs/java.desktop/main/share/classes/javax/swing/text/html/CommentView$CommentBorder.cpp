@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CommentView$CommentBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -21,39 +20,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$MethodInfo _CommentView$CommentBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CommentView$CommentBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CommentView$CommentBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(CommentView$CommentBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(CommentView$CommentBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CommentView$CommentBorder_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CommentView$CommentBorder", "javax.swing.text.html.CommentView", "CommentBorder", $STATIC},
-	{}
-};
-
-$ClassInfo _CommentView$CommentBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CommentView$CommentBorder",
-	"javax.swing.border.LineBorder",
-	nullptr,
-	nullptr,
-	_CommentView$CommentBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CommentView$CommentBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CommentView"
-};
-
-$Object* allocate$CommentView$CommentBorder($Class* clazz) {
-	return $of($alloc(CommentView$CommentBorder));
-}
 
 void CommentView$CommentBorder::init$() {
 	$init($Color);
@@ -79,7 +45,35 @@ CommentView$CommentBorder::CommentView$CommentBorder() {
 }
 
 $Class* CommentView$CommentBorder::load$($String* name, bool initialize) {
-	$loadClass(CommentView$CommentBorder, name, initialize, &_CommentView$CommentBorder_ClassInfo_, allocate$CommentView$CommentBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CommentView$CommentBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CommentView$CommentBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(CommentView$CommentBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(CommentView$CommentBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CommentView$CommentBorder", "javax.swing.text.html.CommentView", "CommentBorder", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CommentView$CommentBorder",
+		"javax.swing.border.LineBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CommentView"
+	};
+	$loadClass(CommentView$CommentBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CommentView$CommentBorder));
+	});
 	return class$;
 }
 

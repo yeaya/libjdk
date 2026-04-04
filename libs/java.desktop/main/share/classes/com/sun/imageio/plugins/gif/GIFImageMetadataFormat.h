@@ -28,6 +28,7 @@ class GIFImageMetadataFormat : public ::javax::imageio::metadata::IIOMetadataFor
 	$class(GIFImageMetadataFormat, 0, ::javax::imageio::metadata::IIOMetadataFormatImpl)
 public:
 	GIFImageMetadataFormat();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool canNodeAppear($String* elementName, ::javax::imageio::ImageTypeSpecifier* imageType) override;
 	static ::javax::imageio::metadata::IIOMetadataFormat* getInstance();

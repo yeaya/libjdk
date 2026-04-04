@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/Request$ReadStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/AssertionError.h>
@@ -32,61 +31,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _Request$ReadStream_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Request$ReadStream, $assertionsDisabled)},
-	{"channel", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(Request$ReadStream, channel)},
-	{"chanbuf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(Request$ReadStream, chanbuf)},
-	{"one", "[B", nullptr, 0, $field(Request$ReadStream, one)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(Request$ReadStream, closed)},
-	{"eof", "Z", nullptr, $PRIVATE, $field(Request$ReadStream, eof)},
-	{"markBuf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(Request$ReadStream, markBuf)},
-	{"marked", "Z", nullptr, 0, $field(Request$ReadStream, marked)},
-	{"reset", "Z", nullptr, 0, $field(Request$ReadStream, reset$)},
-	{"readlimit", "I", nullptr, 0, $field(Request$ReadStream, readlimit)},
-	{"readTimeout", "J", nullptr, $STATIC, $staticField(Request$ReadStream, readTimeout)},
-	{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, 0, $field(Request$ReadStream, server)},
-	{"BUFSIZE", "I", nullptr, $STATIC | $FINAL, $constField(Request$ReadStream, BUFSIZE)},
-	{}
-};
-
-$MethodInfo _Request$ReadStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(Request$ReadStream, init$, void, $ServerImpl*, $SocketChannel*), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Request$ReadStream, close, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Request$ReadStream, markSupported, bool)},
-	{"read", "([B)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, reset, void), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Request$ReadStream_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.Request$ReadStream", "sun.net.httpserver.Request", "ReadStream", $STATIC},
-	{}
-};
-
-$ClassInfo _Request$ReadStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.Request$ReadStream",
-	"java.io.InputStream",
-	nullptr,
-	_Request$ReadStream_FieldInfo_,
-	_Request$ReadStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Request$ReadStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.Request"
-};
-
-$Object* allocate$Request$ReadStream($Class* clazz) {
-	return $of($alloc(Request$ReadStream));
-}
-
 bool Request$ReadStream::$assertionsDisabled = false;
 int64_t Request$ReadStream::readTimeout = 0;
 
@@ -112,7 +56,7 @@ int32_t Request$ReadStream::read() {
 	$synchronized(this) {
 		int32_t result = read(this->one, 0, 1);
 		if (result == 1) {
-			return (int32_t)($nc(this->one)->get(0) & (uint32_t)255);
+			return $nc(this->one)->get(0) & 0xff;
 		} else {
 			return -1;
 		}
@@ -221,7 +165,7 @@ void Request$ReadStream::reset() {
 	}
 }
 
-void clinit$Request$ReadStream($Class* class$) {
+void Request$ReadStream::clinit$($Class* clazz) {
 	$load($Request);
 	Request$ReadStream::$assertionsDisabled = !$Request::class$->desiredAssertionStatus();
 }
@@ -230,7 +174,56 @@ Request$ReadStream::Request$ReadStream() {
 }
 
 $Class* Request$ReadStream::load$($String* name, bool initialize) {
-	$loadClass(Request$ReadStream, name, initialize, &_Request$ReadStream_ClassInfo_, clinit$Request$ReadStream, allocate$Request$ReadStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Request$ReadStream, $assertionsDisabled)},
+		{"channel", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(Request$ReadStream, channel)},
+		{"chanbuf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(Request$ReadStream, chanbuf)},
+		{"one", "[B", nullptr, 0, $field(Request$ReadStream, one)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(Request$ReadStream, closed)},
+		{"eof", "Z", nullptr, $PRIVATE, $field(Request$ReadStream, eof)},
+		{"markBuf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(Request$ReadStream, markBuf)},
+		{"marked", "Z", nullptr, 0, $field(Request$ReadStream, marked)},
+		{"reset", "Z", nullptr, 0, $field(Request$ReadStream, reset$)},
+		{"readlimit", "I", nullptr, 0, $field(Request$ReadStream, readlimit)},
+		{"readTimeout", "J", nullptr, $STATIC, $staticField(Request$ReadStream, readTimeout)},
+		{"server", "Lsun/net/httpserver/ServerImpl;", nullptr, 0, $field(Request$ReadStream, server)},
+		{"BUFSIZE", "I", nullptr, $STATIC | $FINAL, $constField(Request$ReadStream, BUFSIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ServerImpl;Ljava/nio/channels/SocketChannel;)V", nullptr, $PUBLIC, $method(Request$ReadStream, init$, void, $ServerImpl*, $SocketChannel*), "java.io.IOException"},
+		{"available", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Request$ReadStream, close, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(Request$ReadStream, markSupported, bool)},
+		{"read", "([B)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Request$ReadStream, reset, void), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.Request$ReadStream", "sun.net.httpserver.Request", "ReadStream", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.Request$ReadStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.Request"
+	};
+	$loadClass(Request$ReadStream, name, initialize, &classInfo$$, Request$ReadStream::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Request$ReadStream);
+	});
 	return class$;
 }
 

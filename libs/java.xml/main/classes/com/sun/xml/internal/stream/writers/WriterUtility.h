@@ -60,6 +60,7 @@ class WriterUtility : public ::java::lang::Object {
 	$class(WriterUtility, 0, ::java::lang::Object)
 public:
 	WriterUtility();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::io::Writer* writer);
 	::java::nio::charset::CharsetEncoder* getDefaultEncoder();

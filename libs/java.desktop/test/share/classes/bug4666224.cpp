@@ -1,5 +1,4 @@
 #include <bug4666224.h>
-
 #include <Sysout4bug4666224.h>
 #include <bug4666224$1.h>
 #include <bug4666224$ChangeLayoutAction.h>
@@ -44,11 +43,8 @@ using $bug4666224$1 = ::bug4666224$1;
 using $bug4666224$ChangeLayoutAction = ::bug4666224$ChangeLayoutAction;
 using $bug4666224$DumpAction = ::bug4666224$DumpAction;
 using $bug4666224$RotateAction = ::bug4666224$RotateAction;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $EventQueue = ::java::awt::EventQueue;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -57,7 +53,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
 using $JApplet = ::javax::swing::JApplet;
@@ -77,91 +72,42 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$new$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4666224$$Lambda$lambda$new$0>());
-	}
 	bug4666224* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug4666224$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4666224$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo bug4666224$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lbug4666224;)V", nullptr, $PUBLIC, $method(bug4666224$$Lambda$lambda$new$0, init$, void, bug4666224*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4666224$$Lambda$lambda$new$0, run, void)},
-	{}
-};
-$ClassInfo bug4666224$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4666224$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug4666224$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(bug4666224$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4666224$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4666224;)V", nullptr, $PUBLIC, $method(bug4666224$$Lambda$lambda$new$0, init$, void, bug4666224*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4666224$$Lambda$lambda$new$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4666224$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4666224$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4666224$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* bug4666224$$Lambda$lambda$new$0::class$ = nullptr;
-
-$FieldInfo _bug4666224_FieldInfo_[] = {
-	{"placements", "[I", nullptr, $STATIC | $FINAL, $staticField(bug4666224, placements)},
-	{"tabPane", "Ljavax/swing/JTabbedPane;", nullptr, $PRIVATE, $field(bug4666224, tabPane)},
-	{"mainPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(bug4666224, mainPanel)},
-	{}
-};
-
-$MethodInfo _bug4666224_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4666224, init$, void), "java.lang.Exception"},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(bug4666224, createActionMap, $ActionMap*)},
-	{"createInputMap", "()Ljavax/swing/InputMap;", nullptr, $PROTECTED, $virtualMethod(bug4666224, createInputMap, $InputMap*)},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(bug4666224, destroy, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4666224, init, void)},
-	{"lambda$new$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug4666224, lambda$new$0, void)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(bug4666224, start, void)},
-	{}
-};
-
-$InnerClassInfo _bug4666224_InnerClassesInfo_[] = {
-	{"bug4666224$DumpAction", "bug4666224", "DumpAction", $PRIVATE},
-	{"bug4666224$ChangeLayoutAction", "bug4666224", "ChangeLayoutAction", $PRIVATE},
-	{"bug4666224$RotateAction", "bug4666224", "RotateAction", $PRIVATE},
-	{"bug4666224$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4666224_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4666224",
-	"javax.swing.JApplet",
-	nullptr,
-	_bug4666224_FieldInfo_,
-	_bug4666224_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4666224_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4666224$DumpAction,bug4666224$ChangeLayoutAction,bug4666224$RotateAction,bug4666224$1"
-};
-
-$Object* allocate$bug4666224($Class* clazz) {
-	return $of($alloc(bug4666224));
-}
 
 $ints* bug4666224::placements = nullptr;
 
 void bug4666224::init$() {
 	$JApplet::init$();
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(bug4666224$$Lambda$lambda$new$0, this)));
+	$EventQueue::invokeAndWait($$new(bug4666224$$Lambda$lambda$new$0, this));
 }
 
 void bug4666224::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray2, instructionsSet, $new($StringArray2, {
 		$$new($StringArray, {
 			" Note : Incase of Assertion failure,user can enter"_s,
@@ -301,25 +247,25 @@ void bug4666224::destroy() {
 }
 
 $InputMap* bug4666224::createInputMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $LookAndFeel::makeComponentInputMap($(getRootPane()), $$new($ObjectArray, {
-		$of("R"_s),
-		$of("right"_s),
-		$of("L"_s),
-		$of("left"_s),
-		$of("T"_s),
-		$of("top"_s),
-		$of("B"_s),
-		$of("bottom"_s),
-		$of("C"_s),
-		$of("changeLayout"_s),
-		$of("D"_s),
-		$of("dump"_s)
+		"R"_s,
+		"right"_s,
+		"L"_s,
+		"left"_s,
+		"T"_s,
+		"top"_s,
+		"B"_s,
+		"bottom"_s,
+		"C"_s,
+		"changeLayout"_s,
+		"D"_s,
+		"dump"_s
 	}));
 }
 
 $ActionMap* bug4666224::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMap));
 	map->put("right"_s, $$new($bug4666224$RotateAction, this, $JTabbedPane::RIGHT));
 	map->put("left"_s, $$new($bug4666224$RotateAction, this, $JTabbedPane::LEFT));
@@ -331,9 +277,9 @@ $ActionMap* bug4666224::createActionMap() {
 }
 
 void bug4666224::lambda$new$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, tabPane, $new($JTabbedPane));
-	$nc(this->tabPane)->addMouseListener($$new($bug4666224$1, this));
+	this->tabPane->addMouseListener($$new($bug4666224$1, this));
 	$var($InputMap, inputMap, createInputMap());
 	$SwingUtilities::replaceUIInputMap($(getRootPane()), $JComponent::WHEN_IN_FOCUSED_WINDOW, inputMap);
 	$var($ActionMap, actionMap, createActionMap());
@@ -374,12 +320,12 @@ void bug4666224::lambda$new$0() {
 	panel->setPreferredSize($$new($Dimension, 200, 300));
 	$nc(this->tabPane)->addTab("Number Ten"_s, panel);
 	$set(this, mainPanel, $new($JPanel));
-	$nc(this->mainPanel)->add(static_cast<$Component*>(this->tabPane));
-	$nc($(getContentPane()))->add(static_cast<$Component*>(this->mainPanel));
+	this->mainPanel->add(this->tabPane);
+	$$nc(getContentPane())->add(this->mainPanel);
 	$nc(this->tabPane)->requestFocus();
 }
 
-void clinit$bug4666224($Class* class$) {
+void bug4666224::clinit$($Class* clazz) {
 	$assignStatic(bug4666224::placements, $new($ints, {
 		$JTabbedPane::LEFT,
 		$JTabbedPane::RIGHT,
@@ -393,11 +339,50 @@ bug4666224::bug4666224() {
 
 $Class* bug4666224::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4666224$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("bug4666224$$Lambda$lambda$new$0")) {
 			return bug4666224$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4666224, name, initialize, &_bug4666224_ClassInfo_, clinit$bug4666224, allocate$bug4666224);
+	$FieldInfo fieldInfos$$[] = {
+		{"placements", "[I", nullptr, $STATIC | $FINAL, $staticField(bug4666224, placements)},
+		{"tabPane", "Ljavax/swing/JTabbedPane;", nullptr, $PRIVATE, $field(bug4666224, tabPane)},
+		{"mainPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(bug4666224, mainPanel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4666224, init$, void), "java.lang.Exception"},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(bug4666224, createActionMap, $ActionMap*)},
+		{"createInputMap", "()Ljavax/swing/InputMap;", nullptr, $PROTECTED, $virtualMethod(bug4666224, createInputMap, $InputMap*)},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(bug4666224, destroy, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4666224, init, void)},
+		{"lambda$new$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug4666224, lambda$new$0, void)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(bug4666224, start, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4666224$DumpAction", "bug4666224", "DumpAction", $PRIVATE},
+		{"bug4666224$ChangeLayoutAction", "bug4666224", "ChangeLayoutAction", $PRIVATE},
+		{"bug4666224$RotateAction", "bug4666224", "RotateAction", $PRIVATE},
+		{"bug4666224$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4666224",
+		"javax.swing.JApplet",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4666224$DumpAction,bug4666224$ChangeLayoutAction,bug4666224$RotateAction,bug4666224$1"
+	};
+	$loadClass(bug4666224, name, initialize, &classInfo$$, bug4666224::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4666224));
+	});
 	return class$;
 }
 

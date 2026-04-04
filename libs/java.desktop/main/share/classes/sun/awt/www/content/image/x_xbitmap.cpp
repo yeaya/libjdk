@@ -1,5 +1,4 @@
 #include <sun/awt/www/content/image/x_xbitmap.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/image/ImageProducer.h>
@@ -10,7 +9,6 @@
 
 using $Image = ::java::awt::Image;
 using $Toolkit = ::java::awt::Toolkit;
-using $ImageProducer = ::java::awt::image::ImageProducer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ContentHandler = ::java::net::ContentHandler;
@@ -23,26 +21,6 @@ namespace sun {
 			namespace content {
 				namespace image {
 
-$MethodInfo _x_xbitmap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(x_xbitmap, init$, void)},
-	{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(x_xbitmap, getContent, $Object*, $URLConnection*), "java.io.IOException"},
-	{"getContent", "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(x_xbitmap, getContent, $Object*, $URLConnection*, $ClassArray*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _x_xbitmap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.www.content.image.x_xbitmap",
-	"java.net.ContentHandler",
-	nullptr,
-	nullptr,
-	_x_xbitmap_MethodInfo_
-};
-
-$Object* allocate$x_xbitmap($Class* clazz) {
-	return $of($alloc(x_xbitmap));
-}
-
 void x_xbitmap::init$() {
 	$ContentHandler::init$();
 }
@@ -52,7 +30,7 @@ $Object* x_xbitmap::getContent($URLConnection* urlc) {
 }
 
 $Object* x_xbitmap::getContent($URLConnection* urlc, $ClassArray* classes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassArray, cls, classes);
 	for (int32_t i = 0; i < $nc(cls)->length; ++i) {
 		$load($URLImageSource);
@@ -62,17 +40,33 @@ $Object* x_xbitmap::getContent($URLConnection* urlc, $ClassArray* classes) {
 		$load($Image);
 		if ($nc(cls->get(i))->isAssignableFrom($Image::class$)) {
 			$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
-			return $of($nc(tk)->createImage(static_cast<$ImageProducer*>($$new($URLImageSource, urlc))));
+			return $nc(tk)->createImage($$new($URLImageSource, urlc));
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 x_xbitmap::x_xbitmap() {
 }
 
 $Class* x_xbitmap::load$($String* name, bool initialize) {
-	$loadClass(x_xbitmap, name, initialize, &_x_xbitmap_ClassInfo_, allocate$x_xbitmap);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(x_xbitmap, init$, void)},
+		{"getContent", "(Ljava/net/URLConnection;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(x_xbitmap, getContent, $Object*, $URLConnection*), "java.io.IOException"},
+		{"getContent", "(Ljava/net/URLConnection;[Ljava/lang/Class;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(x_xbitmap, getContent, $Object*, $URLConnection*, $ClassArray*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.www.content.image.x_xbitmap",
+		"java.net.ContentHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(x_xbitmap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(x_xbitmap);
+	});
 	return class$;
 }
 

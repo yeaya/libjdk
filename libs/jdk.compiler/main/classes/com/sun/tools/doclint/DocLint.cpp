@@ -1,5 +1,4 @@
 #include <com/sun/tools/doclint/DocLint.h>
-
 #include <com/sun/tools/doclint/DocLint$1.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
@@ -27,11 +26,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Optional = ::java::util::Optional;
 using $ServiceLoader = ::java::util::ServiceLoader;
 using $ServiceLoader$Provider = ::java::util::ServiceLoader$Provider;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -46,71 +43,27 @@ public:
 	virtual bool test(Object$* p_) override {
 		 return DocLint::lambda$newDocLint$0($cast($ServiceLoader$Provider, p_));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DocLint$$Lambda$lambda$newDocLint$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DocLint$$Lambda$lambda$newDocLint$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DocLint$$Lambda$lambda$newDocLint$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DocLint$$Lambda$lambda$newDocLint$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo DocLint$$Lambda$lambda$newDocLint$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.doclint.DocLint$$Lambda$lambda$newDocLint$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* DocLint$$Lambda$lambda$newDocLint$0::load$($String* name, bool initialize) {
-	$loadClass(DocLint$$Lambda$lambda$newDocLint$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DocLint$$Lambda$lambda$newDocLint$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DocLint$$Lambda$lambda$newDocLint$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.doclint.DocLint$$Lambda$lambda$newDocLint$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DocLint$$Lambda$lambda$newDocLint$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocLint$$Lambda$lambda$newDocLint$0);
+	});
 	return class$;
 }
 $Class* DocLint$$Lambda$lambda$newDocLint$0::class$ = nullptr;
-
-$FieldInfo _DocLint_FieldInfo_[] = {
-	{"XMSGS_OPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocLint, XMSGS_OPTION)},
-	{"XMSGS_CUSTOM_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocLint, XMSGS_CUSTOM_PREFIX)},
-	{"XCHECK_PACKAGE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocLint, XCHECK_PACKAGE)},
-	{"docLintProvider", "Ljava/util/ServiceLoader$Provider;", "Ljava/util/ServiceLoader$Provider<Lcom/sun/tools/doclint/DocLint;>;", $PRIVATE | $STATIC, $staticField(DocLint, docLintProvider)},
-	{}
-};
-
-$MethodInfo _DocLint_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DocLint, init$, void)},
-	{"isValidOption", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocLint, isValidOption, bool, $String*)},
-	{"lambda$newDocLint$0", "(Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocLint, lambda$newDocLint$0, bool, $ServiceLoader$Provider*)},
-	{"newDocLint", "()Lcom/sun/tools/doclint/DocLint;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(DocLint, newDocLint, DocLint*)},
-	{}
-};
-
-$InnerClassInfo _DocLint_InnerClassesInfo_[] = {
-	{"com.sun.tools.doclint.DocLint$NoDocLint", "com.sun.tools.doclint.DocLint", "NoDocLint", $PRIVATE | $STATIC},
-	{"com.sun.tools.doclint.DocLint$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DocLint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.doclint.DocLint",
-	"java.lang.Object",
-	"com.sun.source.util.Plugin",
-	_DocLint_FieldInfo_,
-	_DocLint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocLint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.doclint.DocLint$NoDocLint,com.sun.tools.doclint.DocLint$1"
-};
-
-$Object* allocate$DocLint($Class* clazz) {
-	return $of($alloc(DocLint));
-}
 
 $String* DocLint::XMSGS_OPTION = nullptr;
 $String* DocLint::XMSGS_CUSTOM_PREFIX = nullptr;
@@ -121,13 +74,12 @@ void DocLint::init$() {
 }
 
 DocLint* DocLint::newDocLint() {
-	$load(DocLint);
+	$init(DocLint);
 	$synchronized(class$) {
-		$init(DocLint);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		if (DocLint::docLintProvider == nullptr) {
-			$assignStatic(DocLint::docLintProvider, $cast($ServiceLoader$Provider, $nc($($nc($($nc($($nc($($ServiceLoader::load(DocLint::class$, $($ClassLoader::getSystemClassLoader()))))->stream()))->filter(static_cast<$Predicate*>($$new(DocLint$$Lambda$lambda$newDocLint$0)))))->findFirst()))->orElse($$new($DocLint$1))));
+			$assignStatic(DocLint::docLintProvider, $cast($ServiceLoader$Provider, $$nc($$nc($$nc($$nc($ServiceLoader::load(DocLint::class$, $($ClassLoader::getSystemClassLoader())))->stream())->filter($$new(DocLint$$Lambda$lambda$newDocLint$0)))->findFirst())->orElse($$new($DocLint$1))));
 		}
 		return $cast(DocLint, $nc(DocLint::docLintProvider)->get());
 	}
@@ -135,14 +87,14 @@ DocLint* DocLint::newDocLint() {
 
 bool DocLint::lambda$newDocLint$0($ServiceLoader$Provider* p_) {
 	$init(DocLint);
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc(($cast(DocLint, $($nc(p_)->get()))))->getName()))->equals("doclint"_s);
+	$useLocalObjectStack();
+	return $$nc($$sure(DocLint, $nc(p_)->get())->getName())->equals("doclint"_s);
 }
 
 DocLint::DocLint() {
 }
 
-void clinit$DocLint($Class* class$) {
+void DocLint::clinit$($Class* clazz) {
 	$assignStatic(DocLint::XMSGS_OPTION, "-Xmsgs"_s);
 	$assignStatic(DocLint::XMSGS_CUSTOM_PREFIX, "-Xmsgs:"_s);
 	$assignStatic(DocLint::XCHECK_PACKAGE, "-XcheckPackage:"_s);
@@ -150,11 +102,46 @@ void clinit$DocLint($Class* class$) {
 
 $Class* DocLint::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DocLint$$Lambda$lambda$newDocLint$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.doclint.DocLint$$Lambda$lambda$newDocLint$0")) {
 			return DocLint$$Lambda$lambda$newDocLint$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DocLint, name, initialize, &_DocLint_ClassInfo_, clinit$DocLint, allocate$DocLint);
+	$FieldInfo fieldInfos$$[] = {
+		{"XMSGS_OPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocLint, XMSGS_OPTION)},
+		{"XMSGS_CUSTOM_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocLint, XMSGS_CUSTOM_PREFIX)},
+		{"XCHECK_PACKAGE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocLint, XCHECK_PACKAGE)},
+		{"docLintProvider", "Ljava/util/ServiceLoader$Provider;", "Ljava/util/ServiceLoader$Provider<Lcom/sun/tools/doclint/DocLint;>;", $PRIVATE | $STATIC, $staticField(DocLint, docLintProvider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DocLint, init$, void)},
+		{"isValidOption", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DocLint, isValidOption, bool, $String*)},
+		{"lambda$newDocLint$0", "(Ljava/util/ServiceLoader$Provider;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DocLint, lambda$newDocLint$0, bool, $ServiceLoader$Provider*)},
+		{"newDocLint", "()Lcom/sun/tools/doclint/DocLint;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(DocLint, newDocLint, DocLint*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.doclint.DocLint$NoDocLint", "com.sun.tools.doclint.DocLint", "NoDocLint", $PRIVATE | $STATIC},
+		{"com.sun.tools.doclint.DocLint$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.doclint.DocLint",
+		"java.lang.Object",
+		"com.sun.source.util.Plugin",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.doclint.DocLint$NoDocLint,com.sun.tools.doclint.DocLint$1"
+	};
+	$loadClass(DocLint, name, initialize, &classInfo$$, DocLint::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DocLint);
+	});
 	return class$;
 }
 

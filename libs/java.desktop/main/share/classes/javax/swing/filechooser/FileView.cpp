@@ -1,5 +1,4 @@
 #include <javax/swing/filechooser/FileView.h>
-
 #include <java/io/File.h>
 #include <javax/swing/Icon.h>
 #include <jcpp.h>
@@ -13,29 +12,6 @@ using $Icon = ::javax::swing::Icon;
 namespace javax {
 	namespace swing {
 		namespace filechooser {
-
-$MethodInfo _FileView_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(FileView, init$, void)},
-	{"getDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileView, getDescription, $String*, $File*)},
-	{"getIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(FileView, getIcon, $Icon*, $File*)},
-	{"getName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileView, getName, $String*, $File*)},
-	{"getTypeDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileView, getTypeDescription, $String*, $File*)},
-	{"isTraversable", "(Ljava/io/File;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(FileView, isTraversable, $Boolean*, $File*)},
-	{}
-};
-
-$ClassInfo _FileView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.filechooser.FileView",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FileView_MethodInfo_
-};
-
-$Object* allocate$FileView($Class* clazz) {
-	return $of($alloc(FileView));
-}
 
 void FileView::init$() {
 }
@@ -64,7 +40,26 @@ FileView::FileView() {
 }
 
 $Class* FileView::load$($String* name, bool initialize) {
-	$loadClass(FileView, name, initialize, &_FileView_ClassInfo_, allocate$FileView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(FileView, init$, void)},
+		{"getDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileView, getDescription, $String*, $File*)},
+		{"getIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(FileView, getIcon, $Icon*, $File*)},
+		{"getName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileView, getName, $String*, $File*)},
+		{"getTypeDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileView, getTypeDescription, $String*, $File*)},
+		{"isTraversable", "(Ljava/io/File;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(FileView, isTraversable, $Boolean*, $File*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.filechooser.FileView",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FileView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileView);
+	});
 	return class$;
 }
 

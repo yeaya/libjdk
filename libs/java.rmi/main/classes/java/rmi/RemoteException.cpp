@@ -1,5 +1,4 @@
 #include <java/rmi/RemoteException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -10,34 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _RemoteException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RemoteException, serialVersionUID)},
-	{"detail", "Ljava/lang/Throwable;", nullptr, $PUBLIC, $field(RemoteException, detail)},
-	{}
-};
-
-$MethodInfo _RemoteException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RemoteException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RemoteException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RemoteException, init$, void, $String*, $Throwable*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(RemoteException, getCause, $Throwable*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RemoteException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _RemoteException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.RemoteException",
-	"java.io.IOException",
-	nullptr,
-	_RemoteException_FieldInfo_,
-	_RemoteException_MethodInfo_
-};
-
-$Object* allocate$RemoteException($Class* clazz) {
-	return $of($alloc(RemoteException));
-}
 
 void RemoteException::init$() {
 	$IOException::init$();
@@ -56,12 +27,15 @@ void RemoteException::init$($String* s, $Throwable* cause) {
 }
 
 $String* RemoteException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->detail == nullptr) {
 		return $IOException::getMessage();
 	} else {
-		$var($String, var$0, $$str({$($IOException::getMessage()), "; nested exception is: \n\t"_s}));
-		return $concat(var$0, $($nc(this->detail)->toString()));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($IOException::getMessage()));
+		var$0->append("; nested exception is: \n\t"_s);
+		var$0->append($(this->detail->toString()));
+		return $str(var$0);
 	}
 }
 
@@ -80,7 +54,30 @@ void RemoteException::throw$() {
 }
 
 $Class* RemoteException::load$($String* name, bool initialize) {
-	$loadClass(RemoteException, name, initialize, &_RemoteException_ClassInfo_, allocate$RemoteException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RemoteException, serialVersionUID)},
+		{"detail", "Ljava/lang/Throwable;", nullptr, $PUBLIC, $field(RemoteException, detail)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RemoteException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RemoteException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(RemoteException, init$, void, $String*, $Throwable*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(RemoteException, getCause, $Throwable*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RemoteException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.RemoteException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RemoteException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RemoteException);
+	});
 	return class$;
 }
 

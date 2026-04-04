@@ -38,6 +38,7 @@ class UtfHelpper : public ::java::lang::Object {
 	$class(UtfHelpper, 0, ::java::lang::Object)
 public:
 	UtfHelpper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* getStringInUtf8($String* str);
 	static ::java::lang::Boolean* lambda$static$0();

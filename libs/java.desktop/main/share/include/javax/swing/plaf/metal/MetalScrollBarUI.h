@@ -54,6 +54,7 @@ class $import MetalScrollBarUI : public ::javax::swing::plaf::basic::BasicScroll
 	$class(MetalScrollBarUI, 0, ::javax::swing::plaf::basic::BasicScrollBarUI)
 public:
 	MetalScrollBarUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void configureScrollBarColors() override;
 	virtual ::javax::swing::JButton* createDecreaseButton(int32_t orientation) override;

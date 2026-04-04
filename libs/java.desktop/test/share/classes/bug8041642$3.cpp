@@ -1,5 +1,4 @@
 #include <bug8041642$3.h>
-
 #include <bug8041642.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JFrame.h>
@@ -10,44 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFrame = ::javax::swing::JFrame;
-
-$MethodInfo _bug8041642$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8041642$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8041642$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8041642$3_EnclosingMethodInfo_ = {
-	"bug8041642",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug8041642$3_InnerClassesInfo_[] = {
-	{"bug8041642$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8041642$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8041642$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug8041642$3_MethodInfo_,
-	nullptr,
-	&_bug8041642$3_EnclosingMethodInfo_,
-	_bug8041642$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8041642"
-};
-
-$Object* allocate$bug8041642$3($Class* clazz) {
-	return $of($alloc(bug8041642$3));
-}
 
 void bug8041642$3::init$() {
 }
@@ -61,7 +22,38 @@ bug8041642$3::bug8041642$3() {
 }
 
 $Class* bug8041642$3::load$($String* name, bool initialize) {
-	$loadClass(bug8041642$3, name, initialize, &_bug8041642$3_ClassInfo_, allocate$bug8041642$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8041642$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8041642$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8041642",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8041642$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8041642$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8041642"
+	};
+	$loadClass(bug8041642$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8041642$3);
+	});
 	return class$;
 }
 

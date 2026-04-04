@@ -32,6 +32,7 @@ class $export bug8031573 : public ::java::lang::Object {
 	$class(bug8031573, 0, ::java::lang::Object)
 public:
 	bug8031573();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createTestGUI();
 	static void lambda$createTestGUI$2(::java::awt::event::ActionEvent* e);

@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/nimbus/ToolBarToggleButtonPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
@@ -36,7 +34,6 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
@@ -57,115 +54,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ToolBarToggleButtonPainter_FieldInfo_[] = {
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_MOUSEOVER)},
-	{"BACKGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_MOUSEOVER_FOCUSED)},
-	{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_PRESSED)},
-	{"BACKGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_PRESSED_FOCUSED)},
-	{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_SELECTED)},
-	{"BACKGROUND_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_SELECTED_FOCUSED)},
-	{"BACKGROUND_PRESSED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_PRESSED_SELECTED)},
-	{"BACKGROUND_PRESSED_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_PRESSED_SELECTED_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_MOUSEOVER_SELECTED)},
-	{"BACKGROUND_MOUSEOVER_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_MOUSEOVER_SELECTED_FOCUSED)},
-	{"BACKGROUND_DISABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_DISABLED_SELECTED)},
-	{"state", "I", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color28)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _ToolBarToggleButtonPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ToolBarToggleButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodePath1, $Path2D*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect2, $RoundRectangle2D*)},
-	{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect3, $RoundRectangle2D*)},
-	{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect4, $RoundRectangle2D*)},
-	{"decodeRoundRect5", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect5, $RoundRectangle2D*)},
-	{"decodeRoundRect6", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect6, $RoundRectangle2D*)},
-	{"decodeRoundRect7", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect7, $RoundRectangle2D*)},
-	{"decodeRoundRect8", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect8, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ToolBarToggleButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ToolBarToggleButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundDisabledAndSelected, void, $Graphics2D*)},
-	{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundFocused, void, $Graphics2D*)},
-	{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundMouseOverAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundMouseOverAndSelected, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundMouseOverAndSelectedAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundPressedAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundPressedAndSelected, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundPressedAndSelectedAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundSelected, void, $Graphics2D*)},
-	{"paintBackgroundSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundSelectedAndFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _ToolBarToggleButtonPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.ToolBarToggleButtonPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_ToolBarToggleButtonPainter_FieldInfo_,
-	_ToolBarToggleButtonPainter_MethodInfo_
-};
-
-$Object* allocate$ToolBarToggleButtonPainter($Class* clazz) {
-	return $of($alloc(ToolBarToggleButtonPainter));
-}
-
 void ToolBarToggleButtonPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusFocus"_s, 0.0f, 0.0f, 0.0f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, -0.027777791f, -0.06885965f, -0.36862746f, -153));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.020974077f, -0.21960783f, 0));
@@ -202,65 +96,41 @@ void ToolBarToggleButtonPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case ToolBarToggleButtonPainter::BACKGROUND_FOCUSED:
-		{
-			paintBackgroundFocused(g);
-			break;
-		}
+		paintBackgroundFocused(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_MOUSEOVER:
-		{
-			paintBackgroundMouseOver(g);
-			break;
-		}
+		paintBackgroundMouseOver(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_MOUSEOVER_FOCUSED:
-		{
-			paintBackgroundMouseOverAndFocused(g);
-			break;
-		}
+		paintBackgroundMouseOverAndFocused(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_PRESSED:
-		{
-			paintBackgroundPressed(g);
-			break;
-		}
+		paintBackgroundPressed(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_PRESSED_FOCUSED:
-		{
-			paintBackgroundPressedAndFocused(g);
-			break;
-		}
+		paintBackgroundPressedAndFocused(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_SELECTED:
-		{
-			paintBackgroundSelected(g);
-			break;
-		}
+		paintBackgroundSelected(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_SELECTED_FOCUSED:
-		{
-			paintBackgroundSelectedAndFocused(g);
-			break;
-		}
+		paintBackgroundSelectedAndFocused(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_PRESSED_SELECTED:
-		{
-			paintBackgroundPressedAndSelected(g);
-			break;
-		}
+		paintBackgroundPressedAndSelected(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_PRESSED_SELECTED_FOCUSED:
-		{
-			paintBackgroundPressedAndSelectedAndFocused(g);
-			break;
-		}
+		paintBackgroundPressedAndSelectedAndFocused(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_MOUSEOVER_SELECTED:
-		{
-			paintBackgroundMouseOverAndSelected(g);
-			break;
-		}
+		paintBackgroundMouseOverAndSelected(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_MOUSEOVER_SELECTED_FOCUSED:
-		{
-			paintBackgroundMouseOverAndSelectedAndFocused(g);
-			break;
-		}
+		paintBackgroundMouseOverAndSelectedAndFocused(g);
+		break;
 	case ToolBarToggleButtonPainter::BACKGROUND_DISABLED_SELECTED:
-		{
-			paintBackgroundDisabledAndSelected(g);
-			break;
-		}
+		paintBackgroundDisabledAndSelected(g);
+		break;
 	}
 }
 
@@ -275,7 +145,7 @@ void ToolBarToggleButtonPainter::paintBackgroundFocused($Graphics2D* g) {
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color2);
 	g->fill(this->roundRect);
@@ -288,7 +158,7 @@ void ToolBarToggleButtonPainter::paintBackgroundMouseOver($Graphics2D* g) {
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundMouseOverAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->roundRect);
@@ -301,7 +171,7 @@ void ToolBarToggleButtonPainter::paintBackgroundMouseOverAndFocused($Graphics2D*
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->roundRect);
@@ -314,7 +184,7 @@ void ToolBarToggleButtonPainter::paintBackgroundPressed($Graphics2D* g) {
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundPressedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect8());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->roundRect);
@@ -327,7 +197,7 @@ void ToolBarToggleButtonPainter::paintBackgroundPressedAndFocused($Graphics2D* g
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->roundRect);
@@ -340,7 +210,7 @@ void ToolBarToggleButtonPainter::paintBackgroundSelected($Graphics2D* g) {
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect8());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->roundRect);
@@ -353,7 +223,7 @@ void ToolBarToggleButtonPainter::paintBackgroundSelectedAndFocused($Graphics2D* 
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundPressedAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->roundRect);
@@ -366,7 +236,7 @@ void ToolBarToggleButtonPainter::paintBackgroundPressedAndSelected($Graphics2D* 
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundPressedAndSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect8());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->roundRect);
@@ -379,7 +249,7 @@ void ToolBarToggleButtonPainter::paintBackgroundPressedAndSelectedAndFocused($Gr
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundMouseOverAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->roundRect);
@@ -392,7 +262,7 @@ void ToolBarToggleButtonPainter::paintBackgroundMouseOverAndSelected($Graphics2D
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundMouseOverAndSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect8());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->roundRect);
@@ -405,7 +275,7 @@ void ToolBarToggleButtonPainter::paintBackgroundMouseOverAndSelectedAndFocused($
 }
 
 void ToolBarToggleButtonPainter::paintBackgroundDisabledAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color25);
 	g->fill(this->roundRect);
@@ -419,166 +289,166 @@ void ToolBarToggleButtonPainter::paintBackgroundDisabledAndSelected($Graphics2D*
 
 $Path2D* ToolBarToggleButtonPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.4133738f);
+	double var$0 = decodeX(1.4133738f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.120000005f));
-	double var$1 = (double)decodeX(1.9893618f);
+	double var$1 = decodeX(1.9893618f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.120000005f));
-	double var$2 = (double)decodeAnchorX(1.9893618f, 3.0f);
-	double var$3 = (double)decodeAnchorY(0.120000005f, 0.0f);
-	double var$4 = (double)decodeAnchorX(2.8857148f, 0.0f);
-	double var$5 = (double)decodeAnchorY(1.0416666f, -3.0f);
-	double var$6 = (double)decodeX(2.8857148f);
+	double var$2 = decodeAnchorX(1.9893618f, 3.0f);
+	double var$3 = decodeAnchorY(0.120000005f, 0.0f);
+	double var$4 = decodeAnchorX(2.8857148f, 0.0f);
+	double var$5 = decodeAnchorY(1.0416666f, -3.0f);
+	double var$6 = decodeX(2.8857148f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(1.0416666f));
-	double var$7 = (double)decodeX(2.9f);
+	double var$7 = decodeX(2.9f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.9166667f));
-	double var$8 = (double)decodeAnchorX(2.9f, 0.0f);
-	double var$9 = (double)decodeAnchorY(1.9166667f, 3.0f);
-	double var$10 = (double)decodeAnchorX(1.9893618f, 3.0f);
-	double var$11 = (double)decodeAnchorY(2.6714287f, 0.0f);
-	double var$12 = (double)decodeX(1.9893618f);
+	double var$8 = decodeAnchorX(2.9f, 0.0f);
+	double var$9 = decodeAnchorY(1.9166667f, 3.0f);
+	double var$10 = decodeAnchorX(1.9893618f, 3.0f);
+	double var$11 = decodeAnchorY(2.6714287f, 0.0f);
+	double var$12 = decodeX(1.9893618f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(2.6714287f));
-	double var$13 = (double)decodeX(1.0106384f);
+	double var$13 = decodeX(1.0106384f);
 	$nc(this->path)->lineTo(var$13, decodeY(2.6714287f));
-	double var$14 = (double)decodeAnchorX(1.0106384f, -3.0f);
-	double var$15 = (double)decodeAnchorY(2.6714287f, 0.0f);
-	double var$16 = (double)decodeAnchorX(0.120000005f, 0.0f);
-	double var$17 = (double)decodeAnchorY(1.9166667f, 3.0f);
-	double var$18 = (double)decodeX(0.120000005f);
+	double var$14 = decodeAnchorX(1.0106384f, -3.0f);
+	double var$15 = decodeAnchorY(2.6714287f, 0.0f);
+	double var$16 = decodeAnchorX(0.120000005f, 0.0f);
+	double var$17 = decodeAnchorY(1.9166667f, 3.0f);
+	double var$18 = decodeX(0.120000005f);
 	$nc(this->path)->curveTo(var$14, var$15, var$16, var$17, var$18, decodeY(1.9166667f));
-	double var$19 = (double)decodeX(0.120000005f);
+	double var$19 = decodeX(0.120000005f);
 	$nc(this->path)->lineTo(var$19, decodeY(1.0446429f));
-	double var$20 = (double)decodeAnchorX(0.120000005f, 0.0f);
-	double var$21 = (double)decodeAnchorY(1.0446429f, -3.0f);
-	double var$22 = (double)decodeAnchorX(1.0106384f, -3.0f);
-	double var$23 = (double)decodeAnchorY(0.120000005f, 0.0f);
-	double var$24 = (double)decodeX(1.0106384f);
+	double var$20 = decodeAnchorX(0.120000005f, 0.0f);
+	double var$21 = decodeAnchorY(1.0446429f, -3.0f);
+	double var$22 = decodeAnchorX(1.0106384f, -3.0f);
+	double var$23 = decodeAnchorY(0.120000005f, 0.0f);
+	double var$24 = decodeX(1.0106384f);
 	$nc(this->path)->curveTo(var$20, var$21, var$22, var$23, var$24, decodeY(0.120000005f));
-	double var$25 = (double)decodeX(1.4148936f);
+	double var$25 = decodeX(1.4148936f);
 	$nc(this->path)->lineTo(var$25, decodeY(0.120000005f));
-	double var$26 = (double)decodeX(1.4148936f);
+	double var$26 = decodeX(1.4148936f);
 	$nc(this->path)->lineTo(var$26, decodeY(0.4857143f));
-	double var$27 = (double)decodeX(1.0106384f);
+	double var$27 = decodeX(1.0106384f);
 	$nc(this->path)->lineTo(var$27, decodeY(0.4857143f));
-	double var$28 = (double)decodeAnchorX(1.0106384f, -1.9285715f);
-	double var$29 = (double)decodeAnchorY(0.4857143f, 0.0f);
-	double var$30 = (double)decodeAnchorX(0.47142857f, -0.044279482f);
-	double var$31 = (double)decodeAnchorY(1.0386904f, -2.429218f);
-	double var$32 = (double)decodeX(0.47142857f);
+	double var$28 = decodeAnchorX(1.0106384f, -1.9285715f);
+	double var$29 = decodeAnchorY(0.4857143f, 0.0f);
+	double var$30 = decodeAnchorX(0.47142857f, -0.044279482f);
+	double var$31 = decodeAnchorY(1.0386904f, -2.429218f);
+	double var$32 = decodeX(0.47142857f);
 	$nc(this->path)->curveTo(var$28, var$29, var$30, var$31, var$32, decodeY(1.0386904f));
-	double var$33 = (double)decodeX(0.47142857f);
+	double var$33 = decodeX(0.47142857f);
 	$nc(this->path)->lineTo(var$33, decodeY(1.9166667f));
-	double var$34 = (double)decodeAnchorX(0.47142857f, 0.0f);
-	double var$35 = (double)decodeAnchorY(1.9166667f, 2.2142856f);
-	double var$36 = (double)decodeAnchorX(1.0106384f, -1.7857143f);
-	double var$37 = (double)decodeAnchorY(2.3142858f, 0.0f);
-	double var$38 = (double)decodeX(1.0106384f);
+	double var$34 = decodeAnchorX(0.47142857f, 0.0f);
+	double var$35 = decodeAnchorY(1.9166667f, 2.2142856f);
+	double var$36 = decodeAnchorX(1.0106384f, -1.7857143f);
+	double var$37 = decodeAnchorY(2.3142858f, 0.0f);
+	double var$38 = decodeX(1.0106384f);
 	$nc(this->path)->curveTo(var$34, var$35, var$36, var$37, var$38, decodeY(2.3142858f));
-	double var$39 = (double)decodeX(1.9893618f);
+	double var$39 = decodeX(1.9893618f);
 	$nc(this->path)->lineTo(var$39, decodeY(2.3142858f));
-	double var$40 = (double)decodeAnchorX(1.9893618f, 2.0714285f);
-	double var$41 = (double)decodeAnchorY(2.3142858f, 0.0f);
-	double var$42 = (double)decodeAnchorX(2.5f, 0.0f);
-	double var$43 = (double)decodeAnchorY(1.9166667f, 2.2142856f);
-	double var$44 = (double)decodeX(2.5f);
+	double var$40 = decodeAnchorX(1.9893618f, 2.0714285f);
+	double var$41 = decodeAnchorY(2.3142858f, 0.0f);
+	double var$42 = decodeAnchorX(2.5f, 0.0f);
+	double var$43 = decodeAnchorY(1.9166667f, 2.2142856f);
+	double var$44 = decodeX(2.5f);
 	$nc(this->path)->curveTo(var$40, var$41, var$42, var$43, var$44, decodeY(1.9166667f));
-	double var$45 = (double)decodeX(2.5142853f);
+	double var$45 = decodeX(2.5142853f);
 	$nc(this->path)->lineTo(var$45, decodeY(1.0416666f));
-	double var$46 = (double)decodeAnchorX(2.5142853f, 0.0f);
-	double var$47 = (double)decodeAnchorY(1.0416666f, -2.142857f);
-	double var$48 = (double)decodeAnchorX(1.9901216f, 2.142857f);
-	double var$49 = (double)decodeAnchorY(0.47142857f, 0.0f);
-	double var$50 = (double)decodeX(1.9901216f);
+	double var$46 = decodeAnchorX(2.5142853f, 0.0f);
+	double var$47 = decodeAnchorY(1.0416666f, -2.142857f);
+	double var$48 = decodeAnchorX(1.9901216f, 2.142857f);
+	double var$49 = decodeAnchorY(0.47142857f, 0.0f);
+	double var$50 = decodeX(1.9901216f);
 	$nc(this->path)->curveTo(var$46, var$47, var$48, var$49, var$50, decodeY(0.47142857f));
-	double var$51 = (double)decodeX(1.4148936f);
+	double var$51 = decodeX(1.4148936f);
 	$nc(this->path)->lineTo(var$51, decodeY(0.4857143f));
-	double var$52 = (double)decodeX(1.4133738f);
+	double var$52 = decodeX(1.4133738f);
 	$nc(this->path)->lineTo(var$52, decodeY(0.120000005f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $RoundRectangle2D* ToolBarToggleButtonPainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.6f), 12.0f, 12.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToolBarToggleButtonPainter::decodeRoundRect2() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.4f), 12.0f, 12.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToolBarToggleButtonPainter::decodeRoundRect3() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.6f), 9.0f, 9.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToolBarToggleButtonPainter::decodeRoundRect4() {
-	double var$0 = (double)decodeX(0.120000005f);
-	double var$1 = (double)decodeY(0.120000005f);
+	double var$0 = decodeX(0.120000005f);
+	double var$1 = decodeY(0.120000005f);
 	float var$3 = decodeX(2.8800004f);
-	double var$2 = (double)(var$3 - decodeX(0.120000005f));
+	double var$2 = var$3 - decodeX(0.120000005f);
 	float var$4 = decodeY(2.6800003f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.120000005f), 13.0f, 13.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToolBarToggleButtonPainter::decodeRoundRect5() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.6f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.6f), 10.0f, 10.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToolBarToggleButtonPainter::decodeRoundRect6() {
-	double var$0 = (double)decodeX(0.4f);
-	double var$1 = (double)decodeY(0.4f);
+	double var$0 = decodeX(0.4f);
+	double var$1 = decodeY(0.4f);
 	float var$3 = decodeX(2.6f);
-	double var$2 = (double)(var$3 - decodeX(0.4f));
+	double var$2 = var$3 - decodeX(0.4f);
 	float var$4 = decodeY(2.4f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.4f), 10.0f, 10.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToolBarToggleButtonPainter::decodeRoundRect7() {
-	double var$0 = (double)decodeX(0.6f);
-	double var$1 = (double)decodeY(0.6f);
+	double var$0 = decodeX(0.6f);
+	double var$1 = decodeY(0.6f);
 	float var$3 = decodeX(2.4f);
-	double var$2 = (double)(var$3 - decodeX(0.6f));
+	double var$2 = var$3 - decodeX(0.6f);
 	float var$4 = decodeY(2.2f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.6f), 8.0f, 8.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToolBarToggleButtonPainter::decodeRoundRect8() {
-	double var$0 = (double)decodeX(0.120000005f);
-	double var$1 = (double)decodeY(0.120000005f);
+	double var$0 = decodeX(0.120000005f);
+	double var$1 = decodeY(0.120000005f);
 	float var$3 = decodeX(2.8800004f);
-	double var$2 = (double)(var$3 - decodeX(0.120000005f));
+	double var$2 = var$3 - decodeX(0.120000005f);
 	float var$4 = decodeY(2.6799998f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.120000005f), 13.0f, 13.0f);
 	return this->roundRect;
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -596,7 +466,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -630,7 +500,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -648,7 +518,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -670,7 +540,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -688,7 +558,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -710,7 +580,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -728,7 +598,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -750,7 +620,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -768,7 +638,7 @@ $Paint* ToolBarToggleButtonPainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* ToolBarToggleButtonPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -793,7 +663,105 @@ ToolBarToggleButtonPainter::ToolBarToggleButtonPainter() {
 }
 
 $Class* ToolBarToggleButtonPainter::load$($String* name, bool initialize) {
-	$loadClass(ToolBarToggleButtonPainter, name, initialize, &_ToolBarToggleButtonPainter_ClassInfo_, allocate$ToolBarToggleButtonPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_MOUSEOVER)},
+		{"BACKGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_MOUSEOVER_FOCUSED)},
+		{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_PRESSED)},
+		{"BACKGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_PRESSED_FOCUSED)},
+		{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_SELECTED)},
+		{"BACKGROUND_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_SELECTED_FOCUSED)},
+		{"BACKGROUND_PRESSED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_PRESSED_SELECTED)},
+		{"BACKGROUND_PRESSED_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_PRESSED_SELECTED_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_MOUSEOVER_SELECTED)},
+		{"BACKGROUND_MOUSEOVER_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_MOUSEOVER_SELECTED_FOCUSED)},
+		{"BACKGROUND_DISABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToolBarToggleButtonPainter, BACKGROUND_DISABLED_SELECTED)},
+		{"state", "I", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, color28)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ToolBarToggleButtonPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ToolBarToggleButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodePath1, $Path2D*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect2, $RoundRectangle2D*)},
+		{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect3, $RoundRectangle2D*)},
+		{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect4, $RoundRectangle2D*)},
+		{"decodeRoundRect5", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect5, $RoundRectangle2D*)},
+		{"decodeRoundRect6", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect6, $RoundRectangle2D*)},
+		{"decodeRoundRect7", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect7, $RoundRectangle2D*)},
+		{"decodeRoundRect8", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, decodeRoundRect8, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ToolBarToggleButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ToolBarToggleButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundDisabledAndSelected, void, $Graphics2D*)},
+		{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundFocused, void, $Graphics2D*)},
+		{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundMouseOverAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundMouseOverAndSelected, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundMouseOverAndSelectedAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundPressedAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundPressedAndSelected, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundPressedAndSelectedAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundSelected, void, $Graphics2D*)},
+		{"paintBackgroundSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToolBarToggleButtonPainter, paintBackgroundSelectedAndFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.ToolBarToggleButtonPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ToolBarToggleButtonPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToolBarToggleButtonPainter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeScanner.h>
-
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotatedType.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCArrayAccess.h>
@@ -159,102 +158,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$MethodInfo _TreeScanner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeScanner, init$, void)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, scan, void, $JCTree*)},
-	{"scan", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PUBLIC, $virtualMethod(TreeScanner, scan, void, $List*)},
-	{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
-	{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAnnotation, void, $JCTree$JCAnnotation*)},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitApply, void, $JCTree$JCMethodInvocation*)},
-	{"visitAssert", "(Lcom/sun/tools/javac/tree/JCTree$JCAssert;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAssert, void, $JCTree$JCAssert*)},
-	{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAssign, void, $JCTree$JCAssign*)},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAssignop, void, $JCTree$JCAssignOp*)},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitBinary, void, $JCTree$JCBinary*)},
-	{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitBlock, void, $JCTree$JCBlock*)},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitBreak, void, $JCTree$JCBreak*)},
-	{"visitCase", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitCase, void, $JCTree$JCCase*)},
-	{"visitCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitCatch, void, $JCTree$JCCatch*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitConditional, void, $JCTree$JCConditional*)},
-	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitContinue, void, $JCTree$JCContinue*)},
-	{"visitDefaultCaseLabel", "(Lcom/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitDefaultCaseLabel, void, $JCTree$JCDefaultCaseLabel*)},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
-	{"visitErroneous", "(Lcom/sun/tools/javac/tree/JCTree$JCErroneous;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitErroneous, void, $JCTree$JCErroneous*)},
-	{"visitExec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitExec, void, $JCTree$JCExpressionStatement*)},
-	{"visitExports", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitExports, void, $JCTree$JCExports*)},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitForLoop, void, $JCTree$JCForLoop*)},
-	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
-	{"visitGuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitGuardPattern, void, $JCTree$JCGuardPattern*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitIf, void, $JCTree$JCIf*)},
-	{"visitImport", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitImport, void, $JCTree$JCImport*)},
-	{"visitIndexed", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitIndexed, void, $JCTree$JCArrayAccess*)},
-	{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitLabelled, void, $JCTree$JCLabeledStatement*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitLetExpr", "(Lcom/sun/tools/javac/tree/JCTree$LetExpr;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitLetExpr, void, $JCTree$LetExpr*)},
-	{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitLiteral, void, $JCTree$JCLiteral*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitModifiers", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitModifiers, void, $JCTree$JCModifiers*)},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitModuleDef, void, $JCTree$JCModuleDecl*)},
-	{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitNewArray, void, $JCTree$JCNewArray*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitOpens", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitOpens, void, $JCTree$JCOpens*)},
-	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitPackageDef, void, $JCTree$JCPackageDecl*)},
-	{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitParens, void, $JCTree$JCParens*)},
-	{"visitParenthesizedPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCParenthesizedPattern;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitParenthesizedPattern, void, $JCTree$JCParenthesizedPattern*)},
-	{"visitProvides", "(Lcom/sun/tools/javac/tree/JCTree$JCProvides;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitProvides, void, $JCTree$JCProvides*)},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitReference, void, $JCTree$JCMemberReference*)},
-	{"visitRequires", "(Lcom/sun/tools/javac/tree/JCTree$JCRequires;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitRequires, void, $JCTree$JCRequires*)},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitReturn, void, $JCTree$JCReturn*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitSkip", "(Lcom/sun/tools/javac/tree/JCTree$JCSkip;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSkip, void, $JCTree$JCSkip*)},
-	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSwitch, void, $JCTree$JCSwitch*)},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
-	{"visitSynchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSynchronized, void, $JCTree$JCSynchronized*)},
-	{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitThrow, void, $JCTree$JCThrow*)},
-	{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTree, void, $JCTree*)},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTry, void, $JCTree$JCTry*)},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeApply, void, $JCTree$JCTypeApply*)},
-	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
-	{"visitTypeBoundKind", "(Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeBoundKind, void, $JCTree$TypeBoundKind*)},
-	{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeCast, void, $JCTree$JCTypeCast*)},
-	{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
-	{"visitTypeIntersection", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeIntersection;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeIntersection, void, $JCTree$JCTypeIntersection*)},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
-	{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeTest, void, $JCTree$JCInstanceOf*)},
-	{"visitTypeUnion", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeUnion, void, $JCTree$JCTypeUnion*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitUnary, void, $JCTree$JCUnary*)},
-	{"visitUses", "(Lcom/sun/tools/javac/tree/JCTree$JCUses;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitUses, void, $JCTree$JCUses*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
-	{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitWildcard, void, $JCTree$JCWildcard*)},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitYield, void, $JCTree$JCYield*)},
-	{}
-};
-
-$InnerClassInfo _TreeScanner_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TreeScanner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeScanner",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	nullptr,
-	_TreeScanner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeScanner_InnerClassesInfo_
-};
-
-$Object* allocate$TreeScanner($Class* clazz) {
-	return $of($alloc(TreeScanner));
-}
-
 void TreeScanner::init$() {
 	$JCTree$Visitor::init$();
 }
@@ -267,11 +170,9 @@ void TreeScanner::scan($JCTree* tree) {
 
 void TreeScanner::scan($List* trees) {
 	if (trees != nullptr) {
-		{
-			$var($List, l, trees);
-			for (; l->nonEmpty(); $assign(l, l->tail)) {
-				scan($cast($JCTree, $nc(l)->head));
-			}
+		$var($List, l, trees);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			scan($cast($JCTree, l->head));
 		}
 	}
 }
@@ -282,36 +183,36 @@ void TreeScanner::visitTopLevel($JCTree$JCCompilationUnit* tree) {
 
 void TreeScanner::visitPackageDef($JCTree$JCPackageDecl* tree) {
 	scan($nc(tree)->annotations);
-	scan(static_cast<$JCTree*>($nc(tree)->pid));
+	scan(tree->pid);
 }
 
 void TreeScanner::visitModuleDef($JCTree$JCModuleDecl* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->mods));
-	scan(static_cast<$JCTree*>($nc(tree)->qualId));
-	scan($nc(tree)->directives);
+	scan($nc(tree)->mods);
+	scan(tree->qualId);
+	scan(tree->directives);
 }
 
 void TreeScanner::visitExports($JCTree$JCExports* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->qualid));
-	scan($nc(tree)->moduleNames);
+	scan($nc(tree)->qualid);
+	scan(tree->moduleNames);
 }
 
 void TreeScanner::visitOpens($JCTree$JCOpens* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->qualid));
-	scan($nc(tree)->moduleNames);
+	scan($nc(tree)->qualid);
+	scan(tree->moduleNames);
 }
 
 void TreeScanner::visitProvides($JCTree$JCProvides* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->serviceName));
-	scan($nc(tree)->implNames);
+	scan($nc(tree)->serviceName);
+	scan(tree->implNames);
 }
 
 void TreeScanner::visitRequires($JCTree$JCRequires* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->moduleName));
+	scan($nc(tree)->moduleName);
 }
 
 void TreeScanner::visitUses($JCTree$JCUses* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->qualid));
+	scan($nc(tree)->qualid);
 }
 
 void TreeScanner::visitImport($JCTree$JCImport* tree) {
@@ -319,30 +220,30 @@ void TreeScanner::visitImport($JCTree$JCImport* tree) {
 }
 
 void TreeScanner::visitClassDef($JCTree$JCClassDecl* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->mods));
-	scan($nc(tree)->typarams);
-	scan(static_cast<$JCTree*>($nc(tree)->extending));
-	scan($nc(tree)->implementing);
-	scan($nc(tree)->permitting);
-	scan($nc(tree)->defs);
+	scan($nc(tree)->mods);
+	scan(tree->typarams);
+	scan(tree->extending);
+	scan(tree->implementing);
+	scan(tree->permitting);
+	scan(tree->defs);
 }
 
 void TreeScanner::visitMethodDef($JCTree$JCMethodDecl* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->mods));
-	scan(static_cast<$JCTree*>($nc(tree)->restype));
-	scan($nc(tree)->typarams);
-	scan(static_cast<$JCTree*>($nc(tree)->recvparam));
-	scan($nc(tree)->params);
-	scan($nc(tree)->thrown);
-	scan(static_cast<$JCTree*>($nc(tree)->defaultValue));
-	scan(static_cast<$JCTree*>($nc(tree)->body));
+	scan($nc(tree)->mods);
+	scan(tree->restype);
+	scan(tree->typarams);
+	scan(tree->recvparam);
+	scan(tree->params);
+	scan(tree->thrown);
+	scan(tree->defaultValue);
+	scan(tree->body);
 }
 
 void TreeScanner::visitVarDef($JCTree$JCVariableDecl* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->mods));
-	scan(static_cast<$JCTree*>($nc(tree)->vartype));
-	scan(static_cast<$JCTree*>($nc(tree)->nameexpr));
-	scan(static_cast<$JCTree*>($nc(tree)->init));
+	scan($nc(tree)->mods);
+	scan(tree->vartype);
+	scan(tree->nameexpr);
+	scan(tree->init);
 }
 
 void TreeScanner::visitSkip($JCTree$JCSkip* tree) {
@@ -353,124 +254,124 @@ void TreeScanner::visitBlock($JCTree$JCBlock* tree) {
 }
 
 void TreeScanner::visitDoLoop($JCTree$JCDoWhileLoop* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->body));
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
+	scan($nc(tree)->body);
+	scan(tree->cond);
 }
 
 void TreeScanner::visitWhileLoop($JCTree$JCWhileLoop* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
-	scan(static_cast<$JCTree*>($nc(tree)->body));
+	scan($nc(tree)->cond);
+	scan(tree->body);
 }
 
 void TreeScanner::visitForLoop($JCTree$JCForLoop* tree) {
 	scan($nc(tree)->init);
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
-	scan($nc(tree)->step);
-	scan(static_cast<$JCTree*>($nc(tree)->body));
+	scan(tree->cond);
+	scan(tree->step);
+	scan(tree->body);
 }
 
 void TreeScanner::visitForeachLoop($JCTree$JCEnhancedForLoop* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->var));
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
-	scan(static_cast<$JCTree*>($nc(tree)->body));
+	scan($nc(tree)->var);
+	scan(tree->expr);
+	scan(tree->body);
 }
 
 void TreeScanner::visitLabelled($JCTree$JCLabeledStatement* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->body));
+	scan($nc(tree)->body);
 }
 
 void TreeScanner::visitSwitch($JCTree$JCSwitch* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->selector));
-	scan($nc(tree)->cases);
+	scan($nc(tree)->selector);
+	scan(tree->cases);
 }
 
 void TreeScanner::visitCase($JCTree$JCCase* tree) {
 	scan($nc(tree)->labels);
-	scan($nc(tree)->stats);
+	scan(tree->stats);
 }
 
 void TreeScanner::visitSwitchExpression($JCTree$JCSwitchExpression* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->selector));
-	scan($nc(tree)->cases);
+	scan($nc(tree)->selector);
+	scan(tree->cases);
 }
 
 void TreeScanner::visitSynchronized($JCTree$JCSynchronized* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->lock));
-	scan(static_cast<$JCTree*>($nc(tree)->body));
+	scan($nc(tree)->lock);
+	scan(tree->body);
 }
 
 void TreeScanner::visitTry($JCTree$JCTry* tree) {
 	scan($nc(tree)->resources);
-	scan(static_cast<$JCTree*>($nc(tree)->body));
-	scan($nc(tree)->catchers);
-	scan(static_cast<$JCTree*>($nc(tree)->finalizer));
+	scan(tree->body);
+	scan(tree->catchers);
+	scan(tree->finalizer);
 }
 
 void TreeScanner::visitCatch($JCTree$JCCatch* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->param));
-	scan(static_cast<$JCTree*>($nc(tree)->body));
+	scan($nc(tree)->param);
+	scan(tree->body);
 }
 
 void TreeScanner::visitConditional($JCTree$JCConditional* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
-	scan(static_cast<$JCTree*>($nc(tree)->truepart));
-	scan(static_cast<$JCTree*>($nc(tree)->falsepart));
+	scan($nc(tree)->cond);
+	scan(tree->truepart);
+	scan(tree->falsepart);
 }
 
 void TreeScanner::visitIf($JCTree$JCIf* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
-	scan(static_cast<$JCTree*>($nc(tree)->thenpart));
-	scan(static_cast<$JCTree*>($nc(tree)->elsepart));
+	scan($nc(tree)->cond);
+	scan(tree->thenpart);
+	scan(tree->elsepart);
 }
 
 void TreeScanner::visitExec($JCTree$JCExpressionStatement* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan($nc(tree)->expr);
 }
 
 void TreeScanner::visitBreak($JCTree$JCBreak* tree) {
 }
 
 void TreeScanner::visitYield($JCTree$JCYield* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->value));
+	scan($nc(tree)->value);
 }
 
 void TreeScanner::visitContinue($JCTree$JCContinue* tree) {
 }
 
 void TreeScanner::visitReturn($JCTree$JCReturn* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan($nc(tree)->expr);
 }
 
 void TreeScanner::visitThrow($JCTree$JCThrow* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan($nc(tree)->expr);
 }
 
 void TreeScanner::visitAssert($JCTree$JCAssert* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
-	scan(static_cast<$JCTree*>($nc(tree)->detail));
+	scan($nc(tree)->cond);
+	scan(tree->detail);
 }
 
 void TreeScanner::visitApply($JCTree$JCMethodInvocation* tree) {
 	scan($nc(tree)->typeargs);
-	scan(static_cast<$JCTree*>($nc(tree)->meth));
-	scan($nc(tree)->args);
+	scan(tree->meth);
+	scan(tree->args);
 }
 
 void TreeScanner::visitNewClass($JCTree$JCNewClass* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->encl));
-	scan($nc(tree)->typeargs);
-	scan(static_cast<$JCTree*>($nc(tree)->clazz));
-	scan($nc(tree)->args);
-	scan(static_cast<$JCTree*>($nc(tree)->def));
+	scan($nc(tree)->encl);
+	scan(tree->typeargs);
+	scan(tree->clazz);
+	scan(tree->args);
+	scan(tree->def);
 }
 
 void TreeScanner::visitNewArray($JCTree$JCNewArray* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	scan($nc(tree)->annotations);
-	scan(static_cast<$JCTree*>($nc(tree)->elemtype));
-	scan($nc(tree)->dims);
+	scan(tree->elemtype);
+	scan(tree->dims);
 	{
-		$var($Iterator, i$, $nc($nc(tree)->dimAnnotations)->iterator());
+		$var($Iterator, i$, $nc(tree->dimAnnotations)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($List, annos, $cast($List, i$->next()));
 			scan(annos);
@@ -481,70 +382,70 @@ void TreeScanner::visitNewArray($JCTree$JCNewArray* tree) {
 
 void TreeScanner::visitLambda($JCTree$JCLambda* tree) {
 	scan($nc(tree)->body);
-	scan($nc(tree)->params);
+	scan(tree->params);
 }
 
 void TreeScanner::visitParens($JCTree$JCParens* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan($nc(tree)->expr);
 }
 
 void TreeScanner::visitAssign($JCTree$JCAssign* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->lhs));
-	scan(static_cast<$JCTree*>($nc(tree)->rhs));
+	scan($nc(tree)->lhs);
+	scan(tree->rhs);
 }
 
 void TreeScanner::visitAssignop($JCTree$JCAssignOp* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->lhs));
-	scan(static_cast<$JCTree*>($nc(tree)->rhs));
+	scan($nc(tree)->lhs);
+	scan(tree->rhs);
 }
 
 void TreeScanner::visitUnary($JCTree$JCUnary* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->arg));
+	scan($nc(tree)->arg);
 }
 
 void TreeScanner::visitBinary($JCTree$JCBinary* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->lhs));
-	scan(static_cast<$JCTree*>($nc(tree)->rhs));
+	scan($nc(tree)->lhs);
+	scan(tree->rhs);
 }
 
 void TreeScanner::visitTypeCast($JCTree$JCTypeCast* tree) {
 	scan($nc(tree)->clazz);
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan(tree->expr);
 }
 
 void TreeScanner::visitTypeTest($JCTree$JCInstanceOf* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
-	scan($nc(tree)->pattern);
+	scan($nc(tree)->expr);
+	scan(tree->pattern);
 }
 
 void TreeScanner::visitBindingPattern($JCTree$JCBindingPattern* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->var));
+	scan($nc(tree)->var);
 }
 
 void TreeScanner::visitDefaultCaseLabel($JCTree$JCDefaultCaseLabel* tree) {
 }
 
 void TreeScanner::visitParenthesizedPattern($JCTree$JCParenthesizedPattern* that) {
-	scan(static_cast<$JCTree*>($nc(that)->pattern));
+	scan($nc(that)->pattern);
 }
 
 void TreeScanner::visitGuardPattern($JCTree$JCGuardPattern* that) {
-	scan(static_cast<$JCTree*>($nc(that)->patt));
-	scan(static_cast<$JCTree*>($nc(that)->expr));
+	scan($nc(that)->patt);
+	scan(that->expr);
 }
 
 void TreeScanner::visitIndexed($JCTree$JCArrayAccess* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->indexed));
-	scan(static_cast<$JCTree*>($nc(tree)->index));
+	scan($nc(tree)->indexed);
+	scan(tree->index);
 }
 
 void TreeScanner::visitSelect($JCTree$JCFieldAccess* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->selected));
+	scan($nc(tree)->selected);
 }
 
 void TreeScanner::visitReference($JCTree$JCMemberReference* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
-	scan($nc(tree)->typeargs);
+	scan($nc(tree)->expr);
+	scan(tree->typeargs);
 }
 
 void TreeScanner::visitIdent($JCTree$JCIdent* tree) {
@@ -557,12 +458,12 @@ void TreeScanner::visitTypeIdent($JCTree$JCPrimitiveTypeTree* tree) {
 }
 
 void TreeScanner::visitTypeArray($JCTree$JCArrayTypeTree* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->elemtype));
+	scan($nc(tree)->elemtype);
 }
 
 void TreeScanner::visitTypeApply($JCTree$JCTypeApply* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->clazz));
-	scan($nc(tree)->arguments);
+	scan($nc(tree)->clazz);
+	scan(tree->arguments);
 }
 
 void TreeScanner::visitTypeUnion($JCTree$JCTypeUnion* tree) {
@@ -575,12 +476,12 @@ void TreeScanner::visitTypeIntersection($JCTree$JCTypeIntersection* tree) {
 
 void TreeScanner::visitTypeParameter($JCTree$JCTypeParameter* tree) {
 	scan($nc(tree)->annotations);
-	scan($nc(tree)->bounds);
+	scan(tree->bounds);
 }
 
 void TreeScanner::visitWildcard($JCTree$JCWildcard* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->kind));
-	if ($nc(tree)->inner != nullptr) {
+	scan($nc(tree)->kind);
+	if (tree->inner != nullptr) {
 		scan(tree->inner);
 	}
 }
@@ -594,12 +495,12 @@ void TreeScanner::visitModifiers($JCTree$JCModifiers* tree) {
 
 void TreeScanner::visitAnnotation($JCTree$JCAnnotation* tree) {
 	scan($nc(tree)->annotationType);
-	scan($nc(tree)->args);
+	scan(tree->args);
 }
 
 void TreeScanner::visitAnnotatedType($JCTree$JCAnnotatedType* tree) {
 	scan($nc(tree)->annotations);
-	scan(static_cast<$JCTree*>($nc(tree)->underlyingType));
+	scan(tree->underlyingType);
 }
 
 void TreeScanner::visitErroneous($JCTree$JCErroneous* tree) {
@@ -607,7 +508,7 @@ void TreeScanner::visitErroneous($JCTree$JCErroneous* tree) {
 
 void TreeScanner::visitLetExpr($JCTree$LetExpr* tree) {
 	scan($nc(tree)->defs);
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan(tree->expr);
 }
 
 void TreeScanner::visitTree($JCTree* tree) {
@@ -618,7 +519,98 @@ TreeScanner::TreeScanner() {
 }
 
 $Class* TreeScanner::load$($String* name, bool initialize) {
-	$loadClass(TreeScanner, name, initialize, &_TreeScanner_ClassInfo_, allocate$TreeScanner);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeScanner, init$, void)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, scan, void, $JCTree*)},
+		{"scan", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;)V", $PUBLIC, $virtualMethod(TreeScanner, scan, void, $List*)},
+		{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
+		{"visitAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAnnotation, void, $JCTree$JCAnnotation*)},
+		{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitApply, void, $JCTree$JCMethodInvocation*)},
+		{"visitAssert", "(Lcom/sun/tools/javac/tree/JCTree$JCAssert;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAssert, void, $JCTree$JCAssert*)},
+		{"visitAssign", "(Lcom/sun/tools/javac/tree/JCTree$JCAssign;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAssign, void, $JCTree$JCAssign*)},
+		{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitAssignop, void, $JCTree$JCAssignOp*)},
+		{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitBinary, void, $JCTree$JCBinary*)},
+		{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
+		{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitBlock, void, $JCTree$JCBlock*)},
+		{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitBreak, void, $JCTree$JCBreak*)},
+		{"visitCase", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitCase, void, $JCTree$JCCase*)},
+		{"visitCatch", "(Lcom/sun/tools/javac/tree/JCTree$JCCatch;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitCatch, void, $JCTree$JCCatch*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitConditional", "(Lcom/sun/tools/javac/tree/JCTree$JCConditional;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitConditional, void, $JCTree$JCConditional*)},
+		{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitContinue, void, $JCTree$JCContinue*)},
+		{"visitDefaultCaseLabel", "(Lcom/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitDefaultCaseLabel, void, $JCTree$JCDefaultCaseLabel*)},
+		{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+		{"visitErroneous", "(Lcom/sun/tools/javac/tree/JCTree$JCErroneous;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitErroneous, void, $JCTree$JCErroneous*)},
+		{"visitExec", "(Lcom/sun/tools/javac/tree/JCTree$JCExpressionStatement;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitExec, void, $JCTree$JCExpressionStatement*)},
+		{"visitExports", "(Lcom/sun/tools/javac/tree/JCTree$JCExports;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitExports, void, $JCTree$JCExports*)},
+		{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitForLoop, void, $JCTree$JCForLoop*)},
+		{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
+		{"visitGuardPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCGuardPattern;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitGuardPattern, void, $JCTree$JCGuardPattern*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitIf, void, $JCTree$JCIf*)},
+		{"visitImport", "(Lcom/sun/tools/javac/tree/JCTree$JCImport;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitImport, void, $JCTree$JCImport*)},
+		{"visitIndexed", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitIndexed, void, $JCTree$JCArrayAccess*)},
+		{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitLabelled, void, $JCTree$JCLabeledStatement*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitLetExpr", "(Lcom/sun/tools/javac/tree/JCTree$LetExpr;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitLetExpr, void, $JCTree$LetExpr*)},
+		{"visitLiteral", "(Lcom/sun/tools/javac/tree/JCTree$JCLiteral;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitLiteral, void, $JCTree$JCLiteral*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitModifiers", "(Lcom/sun/tools/javac/tree/JCTree$JCModifiers;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitModifiers, void, $JCTree$JCModifiers*)},
+		{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+		{"visitNewArray", "(Lcom/sun/tools/javac/tree/JCTree$JCNewArray;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitNewArray, void, $JCTree$JCNewArray*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitOpens", "(Lcom/sun/tools/javac/tree/JCTree$JCOpens;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitOpens, void, $JCTree$JCOpens*)},
+		{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitPackageDef, void, $JCTree$JCPackageDecl*)},
+		{"visitParens", "(Lcom/sun/tools/javac/tree/JCTree$JCParens;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitParens, void, $JCTree$JCParens*)},
+		{"visitParenthesizedPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCParenthesizedPattern;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitParenthesizedPattern, void, $JCTree$JCParenthesizedPattern*)},
+		{"visitProvides", "(Lcom/sun/tools/javac/tree/JCTree$JCProvides;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitProvides, void, $JCTree$JCProvides*)},
+		{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitReference, void, $JCTree$JCMemberReference*)},
+		{"visitRequires", "(Lcom/sun/tools/javac/tree/JCTree$JCRequires;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitRequires, void, $JCTree$JCRequires*)},
+		{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitReturn, void, $JCTree$JCReturn*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitSkip", "(Lcom/sun/tools/javac/tree/JCTree$JCSkip;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSkip, void, $JCTree$JCSkip*)},
+		{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSwitch, void, $JCTree$JCSwitch*)},
+		{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+		{"visitSynchronized", "(Lcom/sun/tools/javac/tree/JCTree$JCSynchronized;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitSynchronized, void, $JCTree$JCSynchronized*)},
+		{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitThrow, void, $JCTree$JCThrow*)},
+		{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
+		{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTree, void, $JCTree*)},
+		{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTry, void, $JCTree$JCTry*)},
+		{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeApply, void, $JCTree$JCTypeApply*)},
+		{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
+		{"visitTypeBoundKind", "(Lcom/sun/tools/javac/tree/JCTree$TypeBoundKind;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeBoundKind, void, $JCTree$TypeBoundKind*)},
+		{"visitTypeCast", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeCast, void, $JCTree$JCTypeCast*)},
+		{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
+		{"visitTypeIntersection", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeIntersection;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeIntersection, void, $JCTree$JCTypeIntersection*)},
+		{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+		{"visitTypeTest", "(Lcom/sun/tools/javac/tree/JCTree$JCInstanceOf;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeTest, void, $JCTree$JCInstanceOf*)},
+		{"visitTypeUnion", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeUnion;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitTypeUnion, void, $JCTree$JCTypeUnion*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitUnary, void, $JCTree$JCUnary*)},
+		{"visitUses", "(Lcom/sun/tools/javac/tree/JCTree$JCUses;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitUses, void, $JCTree$JCUses*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
+		{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitWildcard, void, $JCTree$JCWildcard*)},
+		{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(TreeScanner, visitYield, void, $JCTree$JCYield*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeScanner",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(TreeScanner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeScanner);
+	});
 	return class$;
 }
 

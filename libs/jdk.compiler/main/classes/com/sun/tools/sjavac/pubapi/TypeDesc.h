@@ -32,7 +32,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	static ::com::sun::tools::sjavac::pubapi::TypeDesc* fromType(::javax::lang::model::type::TypeMirror* type);
 	virtual int32_t hashCode() override;
-	static const int64_t serialVersionUID = (int64_t)0x8E2DF1334233533C;
+	static const int64_t serialVersionUID = (int64_t)0x8e2df1334233533c;
 	::javax::lang::model::type::TypeKind* typeKind = nullptr;
 };
 

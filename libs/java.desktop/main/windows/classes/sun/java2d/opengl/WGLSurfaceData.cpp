@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/WGLSurfaceData.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -48,74 +47,23 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _WGLSurfaceData_FieldInfo_[] = {
-	{"peer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PROTECTED, $field(WGLSurfaceData, peer)},
-	{"graphicsConfig", "Lsun/java2d/opengl/WGLGraphicsConfig;", nullptr, $PRIVATE, $field(WGLSurfaceData, graphicsConfig)},
-	{"scaleX", "D", nullptr, $PROTECTED, $field(WGLSurfaceData, scaleX)},
-	{"scaleY", "D", nullptr, $PROTECTED, $field(WGLSurfaceData, scaleY)},
-	{}
-};
-
-$MethodInfo _WGLSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/opengl/WGLGraphicsConfig;Ljava/awt/image/ColorModel;I)V", nullptr, $PROTECTED, $method(WGLSurfaceData, init$, void, $WComponentPeer*, $WGLGraphicsConfig*, $ColorModel*, int32_t)},
-	{"createData", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/opengl/WGLSurfaceData$WGLWindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(WGLSurfaceData, createData, $WGLSurfaceData$WGLWindowSurfaceData*, $WComponentPeer*)},
-	{"createData", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Image;I)Lsun/java2d/opengl/WGLSurfaceData$WGLOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(WGLSurfaceData, createData, $WGLSurfaceData$WGLOffScreenSurfaceData*, $WComponentPeer*, $Image*, int32_t)},
-	{"createData", "(Lsun/java2d/opengl/WGLGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;I)Lsun/java2d/opengl/WGLSurfaceData$WGLOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(WGLSurfaceData, createData, $WGLSurfaceData$WGLOffScreenSurfaceData*, $WGLGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int32_t)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData, getDefaultScaleY, double)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getGC", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/opengl/WGLGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(WGLSurfaceData, getGC, $WGLGraphicsConfig*, $WComponentPeer*)},
-	{"initOps", "(Lsun/java2d/opengl/OGLGraphicsConfig;JLsun/awt/windows/WComponentPeer;J)V", nullptr, $PRIVATE | $NATIVE, $method(WGLSurfaceData, initOps, void, $OGLGraphicsConfig*, int64_t, $WComponentPeer*, int64_t)},
-	{"updateWindowAccelImpl", "(JLsun/awt/windows/WComponentPeer;II)Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(WGLSurfaceData, updateWindowAccelImpl, bool, int64_t, $WComponentPeer*, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX_initOps 8
-#define _METHOD_INDEX_updateWindowAccelImpl 9
-
-$InnerClassInfo _WGLSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.WGLSurfaceData$WGLOffScreenSurfaceData", "sun.java2d.opengl.WGLSurfaceData", "WGLOffScreenSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.opengl.WGLSurfaceData$WGLVSyncOffScreenSurfaceData", "sun.java2d.opengl.WGLSurfaceData", "WGLVSyncOffScreenSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.opengl.WGLSurfaceData$WGLWindowSurfaceData", "sun.java2d.opengl.WGLSurfaceData", "WGLWindowSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WGLSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.opengl.WGLSurfaceData",
-	"sun.java2d.opengl.OGLSurfaceData",
-	nullptr,
-	_WGLSurfaceData_FieldInfo_,
-	_WGLSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WGLSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.WGLSurfaceData$WGLOffScreenSurfaceData,sun.java2d.opengl.WGLSurfaceData$WGLVSyncOffScreenSurfaceData,sun.java2d.opengl.WGLSurfaceData$WGLWindowSurfaceData"
-};
-
-$Object* allocate$WGLSurfaceData($Class* clazz) {
-	return $of($alloc(WGLSurfaceData));
-}
-
 void WGLSurfaceData::initOps($OGLGraphicsConfig* gc, int64_t pConfigInfo, $WComponentPeer* peer, int64_t hwnd) {
-	$prepareNative(WGLSurfaceData, initOps, void, $OGLGraphicsConfig* gc, int64_t pConfigInfo, $WComponentPeer* peer, int64_t hwnd);
+	$prepareNative(initOps, void, $OGLGraphicsConfig* gc, int64_t pConfigInfo, $WComponentPeer* peer, int64_t hwnd);
 	$invokeNative(gc, pConfigInfo, peer, hwnd);
 	$finishNative();
 }
 
 void WGLSurfaceData::init$($WComponentPeer* peer, $WGLGraphicsConfig* gc, $ColorModel* cm, int32_t type) {
 	$OGLSurfaceData::init$(gc, cm, type);
-	this->scaleX = (double)1;
-	this->scaleY = (double)1;
+	this->scaleX = 1;
+	this->scaleY = 1;
 	$set(this, peer, peer);
 	$set(this, graphicsConfig, gc);
 	$var($Win32GraphicsDevice, device, $cast($Win32GraphicsDevice, $nc(gc)->getDevice()));
-	this->scaleX = type == $AccelSurface::TEXTURE ? (float)1 : $nc(device)->getDefaultScaleX();
-	this->scaleY = type == $AccelSurface::TEXTURE ? (float)1 : device->getDefaultScaleY();
+	this->scaleX = type == $AccelSurface::TEXTURE ? 1 : $nc(device)->getDefaultScaleX();
+	this->scaleY = type == $AccelSurface::TEXTURE ? 1 : $nc(device)->getDefaultScaleY();
 	int64_t pConfigInfo = gc->getNativeConfigInfo();
-	int64_t hwnd = peer != nullptr ? $nc(peer)->getHWnd() : (int64_t)0;
+	int64_t hwnd = peer != nullptr ? peer->getHWnd() : 0;
 	initOps(gc, pConfigInfo, peer, hwnd);
 }
 
@@ -133,9 +81,9 @@ $GraphicsConfiguration* WGLSurfaceData::getDeviceConfiguration() {
 
 $WGLSurfaceData$WGLWindowSurfaceData* WGLSurfaceData::createData($WComponentPeer* peer) {
 	$init(WGLSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(peer)->isAccelCapable();
-	if (var$0 || !$SunToolkit::isContainingTopLevelOpaque($cast($Component, $($nc(peer)->getTarget())))) {
+	if (var$0 || !$SunToolkit::isContainingTopLevelOpaque($$cast($Component, peer->getTarget()))) {
 		return nullptr;
 	}
 	$var($WGLGraphicsConfig, gc, getGC(peer));
@@ -144,17 +92,17 @@ $WGLSurfaceData$WGLWindowSurfaceData* WGLSurfaceData::createData($WComponentPeer
 
 $WGLSurfaceData$WGLOffScreenSurfaceData* WGLSurfaceData::createData($WComponentPeer* peer, $Image* image, int32_t type) {
 	$init(WGLSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(peer)->isAccelCapable();
-	if (var$0 || !$SunToolkit::isContainingTopLevelOpaque($cast($Component, $($nc(peer)->getTarget())))) {
+	if (var$0 || !$SunToolkit::isContainingTopLevelOpaque($$cast($Component, peer->getTarget()))) {
 		return nullptr;
 	}
 	$var($WGLGraphicsConfig, gc, getGC(peer));
-	$var($Rectangle, r, $nc(peer)->getBounds());
+	$var($Rectangle, r, peer->getBounds());
 	if (type == $AccelSurface::FLIP_BACKBUFFER) {
-		return $new($WGLSurfaceData$WGLOffScreenSurfaceData, peer, gc, $nc(r)->width, r->height, image, $(peer->getColorModel()), type);
+		return $new($WGLSurfaceData$WGLOffScreenSurfaceData, peer, gc, $nc(r)->width, $nc(r)->height, image, $(peer->getColorModel()), type);
 	} else {
-		return $new($WGLSurfaceData$WGLVSyncOffScreenSurfaceData, peer, gc, $nc(r)->width, r->height, image, $(peer->getColorModel()), type);
+		return $new($WGLSurfaceData$WGLVSyncOffScreenSurfaceData, peer, gc, $nc(r)->width, $nc(r)->height, image, $(peer->getColorModel()), type);
 	}
 }
 
@@ -165,7 +113,7 @@ $WGLSurfaceData$WGLOffScreenSurfaceData* WGLSurfaceData::createData($WGLGraphics
 
 $WGLGraphicsConfig* WGLSurfaceData::getGC($WComponentPeer* peer) {
 	$init(WGLSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (peer != nullptr) {
 		return $cast($WGLGraphicsConfig, peer->getGraphicsConfiguration());
 	} else {
@@ -177,9 +125,8 @@ $WGLGraphicsConfig* WGLSurfaceData::getGC($WComponentPeer* peer) {
 
 bool WGLSurfaceData::updateWindowAccelImpl(int64_t psdops, $WComponentPeer* peer, int32_t w, int32_t h) {
 	$init(WGLSurfaceData);
-	bool $ret = false;
-	$prepareNativeStatic(WGLSurfaceData, updateWindowAccelImpl, bool, int64_t psdops, $WComponentPeer* peer, int32_t w, int32_t h);
-	$ret = $invokeNativeStatic(psdops, peer, w, h);
+	$prepareNativeStatic(updateWindowAccelImpl, bool, int64_t psdops, $WComponentPeer* peer, int32_t w, int32_t h);
+	bool $ret = $invokeNativeStatic(psdops, peer, w, h);
 	$finishNativeStatic();
 	return $ret;
 }
@@ -188,7 +135,49 @@ WGLSurfaceData::WGLSurfaceData() {
 }
 
 $Class* WGLSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(WGLSurfaceData, name, initialize, &_WGLSurfaceData_ClassInfo_, allocate$WGLSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"peer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PROTECTED, $field(WGLSurfaceData, peer)},
+		{"graphicsConfig", "Lsun/java2d/opengl/WGLGraphicsConfig;", nullptr, $PRIVATE, $field(WGLSurfaceData, graphicsConfig)},
+		{"scaleX", "D", nullptr, $PROTECTED, $field(WGLSurfaceData, scaleX)},
+		{"scaleY", "D", nullptr, $PROTECTED, $field(WGLSurfaceData, scaleY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/opengl/WGLGraphicsConfig;Ljava/awt/image/ColorModel;I)V", nullptr, $PROTECTED, $method(WGLSurfaceData, init$, void, $WComponentPeer*, $WGLGraphicsConfig*, $ColorModel*, int32_t)},
+		{"createData", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/opengl/WGLSurfaceData$WGLWindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(WGLSurfaceData, createData, $WGLSurfaceData$WGLWindowSurfaceData*, $WComponentPeer*)},
+		{"createData", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Image;I)Lsun/java2d/opengl/WGLSurfaceData$WGLOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(WGLSurfaceData, createData, $WGLSurfaceData$WGLOffScreenSurfaceData*, $WComponentPeer*, $Image*, int32_t)},
+		{"createData", "(Lsun/java2d/opengl/WGLGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;I)Lsun/java2d/opengl/WGLSurfaceData$WGLOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(WGLSurfaceData, createData, $WGLSurfaceData$WGLOffScreenSurfaceData*, $WGLGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int32_t)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData, getDefaultScaleY, double)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(WGLSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getGC", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/opengl/WGLGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(WGLSurfaceData, getGC, $WGLGraphicsConfig*, $WComponentPeer*)},
+		{"initOps", "(Lsun/java2d/opengl/OGLGraphicsConfig;JLsun/awt/windows/WComponentPeer;J)V", nullptr, $PRIVATE | $NATIVE, $method(WGLSurfaceData, initOps, void, $OGLGraphicsConfig*, int64_t, $WComponentPeer*, int64_t)},
+		{"updateWindowAccelImpl", "(JLsun/awt/windows/WComponentPeer;II)Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(WGLSurfaceData, updateWindowAccelImpl, bool, int64_t, $WComponentPeer*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.WGLSurfaceData$WGLOffScreenSurfaceData", "sun.java2d.opengl.WGLSurfaceData", "WGLOffScreenSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.opengl.WGLSurfaceData$WGLVSyncOffScreenSurfaceData", "sun.java2d.opengl.WGLSurfaceData", "WGLVSyncOffScreenSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.opengl.WGLSurfaceData$WGLWindowSurfaceData", "sun.java2d.opengl.WGLSurfaceData", "WGLWindowSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.opengl.WGLSurfaceData",
+		"sun.java2d.opengl.OGLSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.WGLSurfaceData$WGLOffScreenSurfaceData,sun.java2d.opengl.WGLSurfaceData$WGLVSyncOffScreenSurfaceData,sun.java2d.opengl.WGLSurfaceData$WGLWindowSurfaceData"
+	};
+	$loadClass(WGLSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WGLSurfaceData));
+	});
 	return class$;
 }
 

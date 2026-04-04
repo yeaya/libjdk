@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLString.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,39 +12,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace xni {
-
-$FieldInfo _XMLString_FieldInfo_[] = {
-	{"ch", "[C", nullptr, $PUBLIC, $field(XMLString, ch)},
-	{"offset", "I", nullptr, $PUBLIC, $field(XMLString, offset)},
-	{"length", "I", nullptr, $PUBLIC, $field(XMLString, length)},
-	{}
-};
-
-$MethodInfo _XMLString_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLString, init$, void)},
-	{"<init>", "([CII)V", nullptr, $PUBLIC, $method(XMLString, init$, void, $chars*, int32_t, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PUBLIC, $method(XMLString, init$, void, XMLString*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLString, clear, void)},
-	{"equals", "([CII)Z", nullptr, $PUBLIC, $virtualMethod(XMLString, equals, bool, $chars*, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLString, equals, bool, $String*)},
-	{"setValues", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLString, setValues, void, $chars*, int32_t, int32_t)},
-	{"setValues", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PUBLIC, $virtualMethod(XMLString, setValues, void, XMLString*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLString, toString, $String*)},
-	{}
-};
-
-$ClassInfo _XMLString_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xni.XMLString",
-	"java.lang.Object",
-	nullptr,
-	_XMLString_FieldInfo_,
-	_XMLString_MethodInfo_
-};
-
-$Object* allocate$XMLString($Class* clazz) {
-	return $of($alloc(XMLString));
-}
 
 void XMLString::init$() {
 }
@@ -65,7 +31,7 @@ void XMLString::setValues($chars* ch, int32_t offset, int32_t length) {
 }
 
 void XMLString::setValues(XMLString* s) {
-	setValues($nc(s)->ch, s->offset, s->length);
+	setValues($nc(s)->ch, $nc(s)->offset, $nc(s)->length);
 }
 
 void XMLString::clear() {
@@ -97,7 +63,7 @@ bool XMLString::equals($String* s) {
 		return false;
 	}
 	for (int32_t i = 0; i < this->length; ++i) {
-		if ($nc(this->ch)->get(this->offset + i) != $nc(s)->charAt(i)) {
+		if ($nc(this->ch)->get(this->offset + i) != s->charAt(i)) {
 			return false;
 		}
 	}
@@ -112,7 +78,35 @@ XMLString::XMLString() {
 }
 
 $Class* XMLString::load$($String* name, bool initialize) {
-	$loadClass(XMLString, name, initialize, &_XMLString_ClassInfo_, allocate$XMLString);
+	$FieldInfo fieldInfos$$[] = {
+		{"ch", "[C", nullptr, $PUBLIC, $field(XMLString, ch)},
+		{"offset", "I", nullptr, $PUBLIC, $field(XMLString, offset)},
+		{"length", "I", nullptr, $PUBLIC, $field(XMLString, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLString, init$, void)},
+		{"<init>", "([CII)V", nullptr, $PUBLIC, $method(XMLString, init$, void, $chars*, int32_t, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PUBLIC, $method(XMLString, init$, void, XMLString*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLString, clear, void)},
+		{"equals", "([CII)Z", nullptr, $PUBLIC, $virtualMethod(XMLString, equals, bool, $chars*, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XMLString, equals, bool, $String*)},
+		{"setValues", "([CII)V", nullptr, $PUBLIC, $virtualMethod(XMLString, setValues, void, $chars*, int32_t, int32_t)},
+		{"setValues", "(Lcom/sun/org/apache/xerces/internal/xni/XMLString;)V", nullptr, $PUBLIC, $virtualMethod(XMLString, setValues, void, XMLString*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLString, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xni.XMLString",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLString);
+	});
 	return class$;
 }
 

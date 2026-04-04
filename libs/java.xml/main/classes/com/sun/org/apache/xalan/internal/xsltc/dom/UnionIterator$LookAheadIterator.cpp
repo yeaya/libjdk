@@ -1,14 +1,10 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/UnionIterator$LookAheadIterator.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/UnionIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <jcpp.h>
 
-using $DOM = ::com::sun::org::apache::xalan::internal::xsltc::DOM;
-using $MultiValuedNodeHeapIterator = ::com::sun::org::apache::xalan::internal::xsltc::dom::MultiValuedNodeHeapIterator;
 using $MultiValuedNodeHeapIterator$HeapNode = ::com::sun::org::apache::xalan::internal::xsltc::dom::MultiValuedNodeHeapIterator$HeapNode;
 using $UnionIterator = ::com::sun::org::apache::xalan::internal::xsltc::dom::UnionIterator;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
@@ -25,50 +21,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _UnionIterator$LookAheadIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/UnionIterator;", nullptr, $FINAL | $SYNTHETIC, $field(UnionIterator$LookAheadIterator, this$0)},
-	{"iterator", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $field(UnionIterator$LookAheadIterator, iterator)},
-	{}
-};
-
-$MethodInfo _UnionIterator$LookAheadIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/UnionIterator;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(UnionIterator$LookAheadIterator, init$, void, $UnionIterator*, $DTMAxisIterator*)},
-	{"cloneHeapNode", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, cloneHeapNode, $MultiValuedNodeHeapIterator$HeapNode*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, gotoMark, void)},
-	{"isLessThan", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;)Z", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, isLessThan, bool, $MultiValuedNodeHeapIterator$HeapNode*)},
-	{"reset", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, reset, $MultiValuedNodeHeapIterator$HeapNode*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, setMark, void)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, setStartNode, $MultiValuedNodeHeapIterator$HeapNode*, int32_t)},
-	{"step", "()I", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, step, int32_t)},
-	{}
-};
-
-$InnerClassInfo _UnionIterator$LookAheadIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator$LookAheadIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator", "LookAheadIterator", $PRIVATE | $FINAL},
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode", "com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator", "HeapNode", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _UnionIterator$LookAheadIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator$LookAheadIterator",
-	"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode",
-	nullptr,
-	_UnionIterator$LookAheadIterator_FieldInfo_,
-	_UnionIterator$LookAheadIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnionIterator$LookAheadIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator"
-};
-
-$Object* allocate$UnionIterator$LookAheadIterator($Class* clazz) {
-	return $of($alloc(UnionIterator$LookAheadIterator));
-}
 
 void UnionIterator$LookAheadIterator::init$($UnionIterator* this$0, $DTMAxisIterator* iterator) {
 	$set(this, this$0, this$0);
@@ -116,7 +68,45 @@ UnionIterator$LookAheadIterator::UnionIterator$LookAheadIterator() {
 }
 
 $Class* UnionIterator$LookAheadIterator::load$($String* name, bool initialize) {
-	$loadClass(UnionIterator$LookAheadIterator, name, initialize, &_UnionIterator$LookAheadIterator_ClassInfo_, allocate$UnionIterator$LookAheadIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xalan/internal/xsltc/dom/UnionIterator;", nullptr, $FINAL | $SYNTHETIC, $field(UnionIterator$LookAheadIterator, this$0)},
+		{"iterator", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $field(UnionIterator$LookAheadIterator, iterator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/UnionIterator;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(UnionIterator$LookAheadIterator, init$, void, $UnionIterator*, $DTMAxisIterator*)},
+		{"cloneHeapNode", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, cloneHeapNode, $MultiValuedNodeHeapIterator$HeapNode*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, gotoMark, void)},
+		{"isLessThan", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;)Z", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, isLessThan, bool, $MultiValuedNodeHeapIterator$HeapNode*)},
+		{"reset", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, reset, $MultiValuedNodeHeapIterator$HeapNode*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, setMark, void)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator$HeapNode;", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, setStartNode, $MultiValuedNodeHeapIterator$HeapNode*, int32_t)},
+		{"step", "()I", nullptr, $PUBLIC, $virtualMethod(UnionIterator$LookAheadIterator, step, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator$LookAheadIterator", "com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator", "LookAheadIterator", $PRIVATE | $FINAL},
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode", "com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator", "HeapNode", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator$LookAheadIterator",
+		"com.sun.org.apache.xalan.internal.xsltc.dom.MultiValuedNodeHeapIterator$HeapNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.UnionIterator"
+	};
+	$loadClass(UnionIterator$LookAheadIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnionIterator$LookAheadIterator);
+	});
 	return class$;
 }
 

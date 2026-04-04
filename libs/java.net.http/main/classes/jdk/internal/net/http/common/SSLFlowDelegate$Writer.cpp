@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate$Writer.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -8,7 +7,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -51,25 +49,19 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Supplier = ::java::util::function::Supplier;
-using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLEngineResult = ::javax::net::ssl::SSLEngineResult;
 using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
 using $SSLEngineResult$Status = ::javax::net::ssl::SSLEngineResult$Status;
-using $SSLSession = ::javax::net::ssl::SSLSession;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
 using $SSLFlowDelegate$1 = ::jdk::internal::net::http::common::SSLFlowDelegate$1;
 using $SSLFlowDelegate$EngineResult = ::jdk::internal::net::http::common::SSLFlowDelegate$EngineResult;
 using $SSLFlowDelegate$Writer$WriterDownstreamPusher = ::jdk::internal::net::http::common::SSLFlowDelegate$Writer$WriterDownstreamPusher;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 using $SubscriberWrapper = ::jdk::internal::net::http::common::SubscriberWrapper;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
@@ -88,110 +80,47 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->dbgString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$Writer$$Lambda$dbgString>());
-	}
 	SSLFlowDelegate$Writer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SSLFlowDelegate$Writer$$Lambda$dbgString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$Writer$$Lambda$dbgString, inst$)},
-	{}
-};
-$MethodInfo SSLFlowDelegate$Writer$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Writer;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$Writer$$Lambda$dbgString, init$, void, SSLFlowDelegate$Writer*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer$$Lambda$dbgString, get, $Object*)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$Writer$$Lambda$dbgString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$Writer$$Lambda$dbgString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* SSLFlowDelegate$Writer$$Lambda$dbgString::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$Writer$$Lambda$dbgString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$Writer$$Lambda$dbgString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Writer;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$Writer$$Lambda$dbgString, init$, void, SSLFlowDelegate$Writer*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer$$Lambda$dbgString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$Writer$$Lambda$dbgString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$Writer$$Lambda$dbgString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$Writer$$Lambda$dbgString);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$Writer$$Lambda$dbgString::class$ = nullptr;
 
-$FieldInfo _SSLFlowDelegate$Writer_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/common/SSLFlowDelegate;", nullptr, $FINAL | $SYNTHETIC, $field(SSLFlowDelegate$Writer, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLFlowDelegate$Writer, $assertionsDisabled)},
-	{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(SSLFlowDelegate$Writer, scheduler)},
-	{"writeList", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $FINAL, $field(SSLFlowDelegate$Writer, writeList)},
-	{"debugw", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(SSLFlowDelegate$Writer, debugw)},
-	{"completing", "Z", nullptr, $VOLATILE, $field(SSLFlowDelegate$Writer, completing)},
-	{"completed", "Z", nullptr, 0, $field(SSLFlowDelegate$Writer, completed)},
-	{"writeBuffer", "Ljava/nio/ByteBuffer;", nullptr, $VOLATILE, $field(SSLFlowDelegate$Writer, writeBuffer)},
-	{"lastWrappedStatus", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $VOLATILE, $field(SSLFlowDelegate$Writer, lastWrappedStatus)},
-	{}
-};
-
-$MethodInfo _SSLFlowDelegate$Writer_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, 0, $method(SSLFlowDelegate$Writer, init$, void, $SSLFlowDelegate*)},
-	{"closing", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer, closing, bool)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SSLFlowDelegate$Writer, dbgString, $String*)},
-	{"hsTriggered", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, hsTriggered, bool)},
-	{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, incoming, void, $List*, bool)},
-	{"isCompleting", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, isCompleting, bool)},
-	{"needWrap", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, needWrap, bool)},
-	{"onSubscribe", "()V", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, onSubscribe, void)},
-	{"processData", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, processData, void)},
-	{"schedule", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, schedule, void)},
-	{"sendResultBytes", "(Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;)V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, sendResultBytes, void, $SSLFlowDelegate$EngineResult*)},
-	{"stop", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, stop, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer, toString, $String*)},
-	{"triggerWrite", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, triggerWrite, void)},
-	{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
-	{"wrapBuffers", "([Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, wrapBuffers, $SSLFlowDelegate$EngineResult*, $ByteBufferArray*), "javax.net.ssl.SSLException"},
-	{}
-};
-
-$InnerClassInfo _SSLFlowDelegate$Writer_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Writer", "jdk.internal.net.http.common.SSLFlowDelegate", "Writer", 0},
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Writer$WriterDownstreamPusher", "jdk.internal.net.http.common.SSLFlowDelegate$Writer", "WriterDownstreamPusher", 0},
-	{}
-};
-
-$ClassInfo _SSLFlowDelegate$Writer_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.common.SSLFlowDelegate$Writer",
-	"jdk.internal.net.http.common.SubscriberWrapper",
-	nullptr,
-	_SSLFlowDelegate$Writer_FieldInfo_,
-	_SSLFlowDelegate$Writer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLFlowDelegate$Writer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SSLFlowDelegate"
-};
-
-$Object* allocate$SSLFlowDelegate$Writer($Class* clazz) {
-	return $of($alloc(SSLFlowDelegate$Writer));
-}
-
 bool SSLFlowDelegate$Writer::$assertionsDisabled = false;
 
 void SSLFlowDelegate$Writer::init$($SSLFlowDelegate* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$SubscriberWrapper::init$();
 	$init($Utils);
-	$set(this, debugw, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(SSLFlowDelegate$Writer$$Lambda$dbgString, this)), $Utils::DEBUG));
+	$set(this, debugw, $Utils::getDebugLogger($$new(SSLFlowDelegate$Writer$$Lambda$dbgString, this), $Utils::DEBUG));
 	$set(this, writeList, $Collections::synchronizedList($$new($LinkedList)));
 	$set(this, scheduler, $new($SequentialScheduler, $$new($SSLFlowDelegate$Writer$WriterDownstreamPusher, this)));
 }
 
 void SSLFlowDelegate$Writer::incoming($List* buffers, bool complete) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Utils);
 	if (!SSLFlowDelegate$Writer::$assertionsDisabled && !(complete ? buffers == $Utils::EMPTY_BB_LIST : true)) {
 		$throwNew($AssertionError);
@@ -201,7 +130,7 @@ void SSLFlowDelegate$Writer::incoming($List* buffers, bool complete) {
 	}
 	if (complete) {
 		if ($nc(this->debugw)->on()) {
-			$nc(this->debugw)->log("adding SENTINEL"_s);
+			this->debugw->log("adding SENTINEL"_s);
 		}
 		this->completing = true;
 		$init($SSLFlowDelegate);
@@ -210,11 +139,15 @@ void SSLFlowDelegate$Writer::incoming($List* buffers, bool complete) {
 		$nc(this->writeList)->addAll(buffers);
 	}
 	if ($nc(this->debugw)->on()) {
-		$var($String, var$1, $$str({"added "_s, $$str($nc(buffers)->size()), " ("_s}));
-		$var($String, var$0, $$concat(var$1, $$str($Utils::remaining(buffers))));
-		$nc(this->debugw)->log($$concat(var$0, " bytes) to the writeList"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("added "_s);
+		var$0->append($nc(buffers)->size());
+		var$0->append(" ("_s);
+		var$0->append($Utils::remaining(buffers));
+		var$0->append(" bytes) to the writeList"_s);
+		this->debugw->log($$str(var$0));
 	}
-	$nc(this->scheduler)->runOrSchedule();
+	this->scheduler->runOrSchedule();
 }
 
 $String* SSLFlowDelegate$Writer::dbgString() {
@@ -223,21 +156,21 @@ $String* SSLFlowDelegate$Writer::dbgString() {
 
 void SSLFlowDelegate$Writer::onSubscribe() {
 	if ($nc(this->debugw)->on()) {
-		$nc(this->debugw)->log("onSubscribe initiating handshaking"_s);
+		this->debugw->log("onSubscribe initiating handshaking"_s);
 	}
 	$init($SSLFlowDelegate);
 	addData($SSLFlowDelegate::HS_TRIGGER);
 }
 
 void SSLFlowDelegate$Writer::schedule() {
-	$nc(this->scheduler)->runOrSchedule();
+	this->scheduler->runOrSchedule();
 }
 
 void SSLFlowDelegate$Writer::stop() {
 	if ($nc(this->debugw)->on()) {
-		$nc(this->debugw)->log("stop"_s);
+		this->debugw->log("stop"_s);
 	}
-	$nc(this->scheduler)->stop();
+	this->scheduler->stop();
 }
 
 bool SSLFlowDelegate$Writer::closing() {
@@ -257,16 +190,14 @@ int64_t SSLFlowDelegate$Writer::upstreamWindowUpdate(int64_t currentWindow, int6
 }
 
 bool SSLFlowDelegate$Writer::hsTriggered() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->writeList) {
-		{
-			$var($Iterator, i$, $nc(this->writeList)->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($ByteBuffer, b, $cast($ByteBuffer, i$->next()));
-				$init($SSLFlowDelegate);
-				if (b == $SSLFlowDelegate::HS_TRIGGER) {
-					return true;
-				}
+		$var($Iterator, i$, this->writeList->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($ByteBuffer, b, $cast($ByteBuffer, i$->next()));
+			$init($SSLFlowDelegate);
+			if (b == $SSLFlowDelegate::HS_TRIGGER) {
+				return true;
 			}
 		}
 		return false;
@@ -275,35 +206,39 @@ bool SSLFlowDelegate$Writer::hsTriggered() {
 
 void SSLFlowDelegate$Writer::triggerWrite() {
 	$synchronized(this->writeList) {
-		if ($nc(this->writeList)->isEmpty()) {
+		if (this->writeList->isEmpty()) {
 			$init($SSLFlowDelegate);
-			$nc(this->writeList)->add($SSLFlowDelegate::HS_TRIGGER);
+			this->writeList->add($SSLFlowDelegate::HS_TRIGGER);
 		}
 	}
-	$nc(this->scheduler)->runOrSchedule();
+	this->scheduler->runOrSchedule();
 }
 
 void SSLFlowDelegate$Writer::processData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool completing = isCompleting();
 	try {
 		if ($nc(this->debugw)->on()) {
-			$var($String, var$2, $$str({"processData, writeList remaining:"_s, $$str($Utils::synchronizedRemaining(this->writeList)), ", hsTriggered:"_s}));
-			$var($String, var$1, $$concat(var$2, $$str(hsTriggered())));
-			$var($String, var$0, $$concat(var$1, ", needWrap:"_s));
-			$nc(this->debugw)->log($$concat(var$0, $$str(needWrap())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("processData, writeList remaining:"_s);
+			var$0->append($Utils::synchronizedRemaining(this->writeList));
+			var$0->append(", hsTriggered:"_s);
+			var$0->append(hsTriggered());
+			var$0->append(", needWrap:"_s);
+			var$0->append(needWrap());
+			this->debugw->log($$str(var$0));
 		}
 		while (true) {
-			bool var$4 = $Utils::synchronizedRemaining(this->writeList) > 0;
-			bool var$3 = var$4 || hsTriggered();
-			if (!(var$3 || needWrap())) {
+			bool var$2 = $Utils::synchronizedRemaining(this->writeList) > 0;
+			bool var$1 = var$2 || hsTriggered();
+			if (!(var$1 || needWrap())) {
 				break;
 			}
 			{
-				$var($ByteBufferArray, outbufs, $fcast($ByteBufferArray, $nc(this->writeList)->toArray($Utils::EMPTY_BB_ARRAY)));
+				$var($ByteBufferArray, outbufs, $cast($ByteBufferArray, $nc(this->writeList)->toArray($Utils::EMPTY_BB_ARRAY)));
 				$var($SSLFlowDelegate$EngineResult, result, wrapBuffers(outbufs));
-				if ($nc(this->debugw)->on()) {
-					$nc(this->debugw)->log("wrapBuffer returned %s"_s, $$new($ObjectArray, {$of($nc(result)->result)}));
+				if (this->debugw->on()) {
+					this->debugw->log("wrapBuffer returned %s"_s, $$new($ObjectArray, {$nc(result)->result}));
 				}
 				$init($SSLEngineResult$Status);
 				if ($nc(result)->status() == $SSLEngineResult$Status::CLOSED) {
@@ -318,13 +253,13 @@ void SSLFlowDelegate$Writer::processData() {
 					if (!completing && !this->completed) {
 						completing = (this->completing = true);
 						$init($SSLFlowDelegate);
-						$nc(this->writeList)->add($SSLFlowDelegate::SENTINEL);
+						this->writeList->add($SSLFlowDelegate::SENTINEL);
 					}
 				}
 				bool handshaking = false;
-				if ($nc(result)->handshaking()) {
-					if ($nc(this->debugw)->on()) {
-						$nc(this->debugw)->log("handshaking"_s);
+				if (result->handshaking()) {
+					if (this->debugw->on()) {
+						this->debugw->log("handshaking"_s);
 					}
 					this->this$0->doHandshake(result, 2);
 					handshaking = true;
@@ -346,13 +281,12 @@ void SSLFlowDelegate$Writer::processData() {
 			if (!this->completed) {
 				this->completed = true;
 				$nc(this->writeList)->clear();
-				$init($Utils);
 				outgoing($Utils::EMPTY_BB_LIST, true);
 			}
 			return;
 		}
-		bool var$5 = $nc(this->writeList)->isEmpty();
-		if (var$5 && needWrap()) {
+		bool var$3 = $nc(this->writeList)->isEmpty();
+		if (var$3 && needWrap()) {
 			$init($SSLFlowDelegate);
 			$nc(this->this$0->writer)->addData($SSLFlowDelegate::HS_TRIGGER);
 		}
@@ -364,91 +298,80 @@ void SSLFlowDelegate$Writer::processData() {
 }
 
 $SSLFlowDelegate$EngineResult* SSLFlowDelegate$Writer::wrapBuffers($ByteBufferArray* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t len = $Utils::remaining(src);
 	if ($nc(this->debugw)->on()) {
-		$nc(this->debugw)->log($$str({"wrapping "_s, $$str(len), " bytes"_s}));
+		this->debugw->log($$str({"wrapping "_s, $$str(len), " bytes"_s}));
 	}
 	$var($ByteBuffer, dst, this->writeBuffer);
 	if (dst == nullptr) {
-		$assign(dst, ($set(this, writeBuffer, this->this$0->getNetBuffer())));
+		$assign(dst, $set(this, writeBuffer, this->this$0->getNetBuffer()));
 	}
 	if (!SSLFlowDelegate$Writer::$assertionsDisabled && !($nc(dst)->position() == 0)) {
-		$throwNew($AssertionError, $of($$str({"buffer position is "_s, $$str(dst->position())})));
+		$throwNew($AssertionError, $$of($str({"buffer position is "_s, $$str(dst->position())})));
 	}
 	if (!SSLFlowDelegate$Writer::$assertionsDisabled && !$nc(dst)->hasRemaining()) {
-		$throwNew($AssertionError, $of($$str({"buffer has no remaining space: capacity="_s, $$str(dst->capacity())})));
+		$throwNew($AssertionError, $$of($str({"buffer has no remaining space: capacity="_s, $$str(dst->capacity())})));
 	}
 	while (true) {
 		$var($SSLEngineResult, sslResult, $nc(this->this$0->engine)->wrap(src, dst));
-		if ($nc(this->debugw)->on()) {
-			$nc(this->debugw)->log($$str({"SSLResult: "_s, sslResult}));
+		if (this->debugw->on()) {
+			this->debugw->log($$str({"SSLResult: "_s, sslResult}));
 		}
-		$init($SSLFlowDelegate$1);
 		{
+			$init($SSLFlowDelegate$1);
 			int32_t netSize = 0;
-			$var($ByteBuffer, b, nullptr)
-			$var($ByteBuffer, dest, nullptr)
+			$var($ByteBuffer, b, nullptr);
+			$var($ByteBuffer, dest, nullptr);
 			switch ($nc($SSLFlowDelegate$1::$SwitchMap$javax$net$ssl$SSLEngineResult$Status)->get($nc(($set(this, lastWrappedStatus, $nc(sslResult)->getStatus())))->ordinal())) {
 			case 1:
-				{
-					if ($nc(this->debugw)->on()) {
-						$nc(this->debugw)->log("BUFFER_OVERFLOW"_s);
-					}
-					netSize = (this->this$0->packetBufferSize = $nc($($nc(this->this$0->engine)->getSession()))->getPacketBufferSize());
-					$assign(b, ($set(this, writeBuffer, $ByteBuffer::allocate(netSize + $nc(dst)->position()))));
-					$nc(dst)->flip();
-					$nc(b)->put(dst);
-					$assign(dst, b);
-					break;
+				if (this->debugw->on()) {
+					this->debugw->log("BUFFER_OVERFLOW"_s);
 				}
+				netSize = (this->this$0->packetBufferSize = $$nc(this->this$0->engine->getSession())->getPacketBufferSize());
+				$assign(b, ($set(this, writeBuffer, $ByteBuffer::allocate(netSize + $nc(dst)->position()))));
+				dst->flip();
+				$nc(b)->put(dst);
+				$assign(dst, b);
+				break;
 			case 2:
-				{
-					if ($nc(this->debugw)->on()) {
-						$nc(this->debugw)->log("CLOSED"_s);
-					}
+				if (this->debugw->on()) {
+					this->debugw->log("CLOSED"_s);
 				}
 			case 4:
-				{
-					if ($nc(dst)->position() == 0) {
-						$init($SSLFlowDelegate);
-						$assign(dest, $SSLFlowDelegate::NOTHING);
+				if ($nc(dst)->position() == 0) {
+					$assign(dest, $SSLFlowDelegate::NOTHING);
+				} else {
+					int32_t var$0 = dst->position();
+					if (var$0 < dst->capacity() / 2) {
+						dst->flip();
+						$assign(dest, $Utils::copyAligned(dst));
+						dst->clear();
 					} else {
-						int32_t var$1 = dst->position();
-						if (var$1 < dst->capacity() / 2) {
-							dst->flip();
-							$assign(dest, $Utils::copyAligned(dst));
-							dst->clear();
-						} else {
-							dst->flip();
-							$assign(dest, dst);
-							$set(this, writeBuffer, nullptr);
-						}
+						dst->flip();
+						$assign(dest, dst);
+						$set(this, writeBuffer, nullptr);
 					}
-					if ($nc(this->debugw)->on()) {
-						$nc(this->debugw)->log("OK => produced: %d bytes into %d, not wrapped: %d"_s, $$new($ObjectArray, {
-							$($of($Integer::valueOf($nc(dest)->remaining()))),
-							$($of($Integer::valueOf($nc(dest)->capacity()))),
-							$($of($Long::valueOf($Utils::remaining(src))))
-						}));
-					}
-					return $new($SSLFlowDelegate$EngineResult, sslResult, dest);
 				}
+				if (this->debugw->on()) {
+					this->debugw->log("OK => produced: %d bytes into %d, not wrapped: %d"_s, $$new($ObjectArray, {
+						$($Integer::valueOf($nc(dest)->remaining())),
+						$($Integer::valueOf($nc(dest)->capacity())),
+						$($Long::valueOf($Utils::remaining(src)))
+					}));
+				}
+				return $new($SSLFlowDelegate$EngineResult, sslResult, dest);
 			case 3:
-				{
-					if ($nc(this->debug)->on()) {
-						$nc(this->debug)->log("BUFFER_UNDERFLOW"_s);
-					}
-					return $new($SSLFlowDelegate$EngineResult, sslResult);
+				if ($nc(this->debug)->on()) {
+					this->debug->log("BUFFER_UNDERFLOW"_s);
 				}
+				return $new($SSLFlowDelegate$EngineResult, sslResult);
 			default:
-				{
-					if ($nc(this->debugw)->on()) {
-						$nc(this->debugw)->log("result: %s"_s, $$new($ObjectArray, {$($of(sslResult->getStatus()))}));
-					}
-					if (!SSLFlowDelegate$Writer::$assertionsDisabled) {
-						$throwNew($AssertionError, $of($$str({"result:"_s, $(sslResult->getStatus())})));
-					}
+				if (this->debugw->on()) {
+					this->debugw->log("result: %s"_s, $$new($ObjectArray, {$(sslResult->getStatus())}));
+				}
+				if (!SSLFlowDelegate$Writer::$assertionsDisabled) {
+					$throwNew($AssertionError, $$of($str({"result:"_s, $(sslResult->getStatus())})));
 				}
 			}
 		}
@@ -461,26 +384,30 @@ bool SSLFlowDelegate$Writer::needWrap() {
 }
 
 void SSLFlowDelegate$Writer::sendResultBytes($SSLFlowDelegate$EngineResult* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(result)->bytesProduced() > 0) {
 		if ($nc(this->debugw)->on()) {
-			$nc(this->debugw)->log("Sending %d bytes downstream"_s, $$new($ObjectArray, {$($of($Integer::valueOf(result->bytesProduced())))}));
+			this->debugw->log("Sending %d bytes downstream"_s, $$new($ObjectArray, {$($Integer::valueOf(result->bytesProduced()))}));
 		}
 		outgoing(result->destBuffer, false);
 	}
 }
 
 $String* SSLFlowDelegate$Writer::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$4, $$str({"WRITER: "_s, $($SubscriberWrapper::toString()), ", writeList size: "_s}));
-	$var($String, var$3, $$concat(var$4, $($Integer::toString($nc(this->writeList)->size()))));
-	$var($String, var$2, $$concat(var$3, ", scheduler: "_s));
-	$var($String, var$1, $$concat(var$2, ($nc(this->scheduler)->isStopped() ? "stopped"_s : "running"_s)));
-	$var($String, var$0, $$concat(var$1, ", status: "_s));
-	return $concat(var$0, this->lastWrappedStatus);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("WRITER: "_s);
+	var$0->append($($SubscriberWrapper::toString()));
+	var$0->append(", writeList size: "_s);
+	var$0->append($($Integer::toString($nc(this->writeList)->size())));
+	var$0->append(", scheduler: "_s);
+	var$0->append(this->scheduler->isStopped() ? "stopped"_s : "running"_s);
+	var$0->append(", status: "_s);
+	var$0->append(this->lastWrappedStatus);
+	return $str(var$0);
 }
 
-void clinit$SSLFlowDelegate$Writer($Class* class$) {
+void SSLFlowDelegate$Writer::clinit$($Class* clazz) {
 	$load($SSLFlowDelegate);
 	SSLFlowDelegate$Writer::$assertionsDisabled = !$SSLFlowDelegate::class$->desiredAssertionStatus();
 }
@@ -490,11 +417,64 @@ SSLFlowDelegate$Writer::SSLFlowDelegate$Writer() {
 
 $Class* SSLFlowDelegate$Writer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SSLFlowDelegate$Writer$$Lambda$dbgString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$Writer$$Lambda$dbgString")) {
 			return SSLFlowDelegate$Writer$$Lambda$dbgString::load$(name, initialize);
 		}
 	}
-	$loadClass(SSLFlowDelegate$Writer, name, initialize, &_SSLFlowDelegate$Writer_ClassInfo_, clinit$SSLFlowDelegate$Writer, allocate$SSLFlowDelegate$Writer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/common/SSLFlowDelegate;", nullptr, $FINAL | $SYNTHETIC, $field(SSLFlowDelegate$Writer, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLFlowDelegate$Writer, $assertionsDisabled)},
+		{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(SSLFlowDelegate$Writer, scheduler)},
+		{"writeList", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $FINAL, $field(SSLFlowDelegate$Writer, writeList)},
+		{"debugw", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(SSLFlowDelegate$Writer, debugw)},
+		{"completing", "Z", nullptr, $VOLATILE, $field(SSLFlowDelegate$Writer, completing)},
+		{"completed", "Z", nullptr, 0, $field(SSLFlowDelegate$Writer, completed)},
+		{"writeBuffer", "Ljava/nio/ByteBuffer;", nullptr, $VOLATILE, $field(SSLFlowDelegate$Writer, writeBuffer)},
+		{"lastWrappedStatus", "Ljavax/net/ssl/SSLEngineResult$Status;", nullptr, $PRIVATE | $VOLATILE, $field(SSLFlowDelegate$Writer, lastWrappedStatus)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, 0, $method(SSLFlowDelegate$Writer, init$, void, $SSLFlowDelegate*)},
+		{"closing", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer, closing, bool)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SSLFlowDelegate$Writer, dbgString, $String*)},
+		{"hsTriggered", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, hsTriggered, bool)},
+		{"incoming", "(Ljava/util/List;Z)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;Z)V", $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, incoming, void, $List*, bool)},
+		{"isCompleting", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, isCompleting, bool)},
+		{"needWrap", "()Z", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, needWrap, bool)},
+		{"onSubscribe", "()V", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, onSubscribe, void)},
+		{"processData", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, processData, void)},
+		{"schedule", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, schedule, void)},
+		{"sendResultBytes", "(Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;)V", nullptr, $PRIVATE, $method(SSLFlowDelegate$Writer, sendResultBytes, void, $SSLFlowDelegate$EngineResult*)},
+		{"stop", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, stop, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Writer, toString, $String*)},
+		{"triggerWrite", "()V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, triggerWrite, void)},
+		{"upstreamWindowUpdate", "(JJ)J", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate$Writer, upstreamWindowUpdate, int64_t, int64_t, int64_t)},
+		{"wrapBuffers", "([Ljava/nio/ByteBuffer;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $virtualMethod(SSLFlowDelegate$Writer, wrapBuffers, $SSLFlowDelegate$EngineResult*, $ByteBufferArray*), "javax.net.ssl.SSLException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Writer", "jdk.internal.net.http.common.SSLFlowDelegate", "Writer", 0},
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Writer$WriterDownstreamPusher", "jdk.internal.net.http.common.SSLFlowDelegate$Writer", "WriterDownstreamPusher", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.common.SSLFlowDelegate$Writer",
+		"jdk.internal.net.http.common.SubscriberWrapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SSLFlowDelegate"
+	};
+	$loadClass(SSLFlowDelegate$Writer, name, initialize, &classInfo$$, SSLFlowDelegate$Writer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLFlowDelegate$Writer));
+	});
 	return class$;
 }
 

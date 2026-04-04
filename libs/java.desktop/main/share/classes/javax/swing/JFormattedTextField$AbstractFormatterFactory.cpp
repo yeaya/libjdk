@@ -1,5 +1,4 @@
 #include <javax/swing/JFormattedTextField$AbstractFormatterFactory.h>
-
 #include <javax/swing/JFormattedTextField$AbstractFormatter.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextFie
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JFormattedTextField$AbstractFormatterFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(JFormattedTextField$AbstractFormatterFactory, init$, void)},
-	{"getFormatter", "(Ljavax/swing/JFormattedTextField;)Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JFormattedTextField$AbstractFormatterFactory, getFormatter, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField*)},
-	{}
-};
-
-$InnerClassInfo _JFormattedTextField$AbstractFormatterFactory_InnerClassesInfo_[] = {
-	{"javax.swing.JFormattedTextField$AbstractFormatterFactory", "javax.swing.JFormattedTextField", "AbstractFormatterFactory", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JFormattedTextField$AbstractFormatterFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.JFormattedTextField$AbstractFormatterFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JFormattedTextField$AbstractFormatterFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFormattedTextField$AbstractFormatterFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JFormattedTextField"
-};
-
-$Object* allocate$JFormattedTextField$AbstractFormatterFactory($Class* clazz) {
-	return $of($alloc(JFormattedTextField$AbstractFormatterFactory));
-}
-
 void JFormattedTextField$AbstractFormatterFactory::init$() {
 }
 
@@ -51,7 +19,33 @@ JFormattedTextField$AbstractFormatterFactory::JFormattedTextField$AbstractFormat
 }
 
 $Class* JFormattedTextField$AbstractFormatterFactory::load$($String* name, bool initialize) {
-	$loadClass(JFormattedTextField$AbstractFormatterFactory, name, initialize, &_JFormattedTextField$AbstractFormatterFactory_ClassInfo_, allocate$JFormattedTextField$AbstractFormatterFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(JFormattedTextField$AbstractFormatterFactory, init$, void)},
+		{"getFormatter", "(Ljavax/swing/JFormattedTextField;)Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JFormattedTextField$AbstractFormatterFactory, getFormatter, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JFormattedTextField$AbstractFormatterFactory", "javax.swing.JFormattedTextField", "AbstractFormatterFactory", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.JFormattedTextField$AbstractFormatterFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JFormattedTextField"
+	};
+	$loadClass(JFormattedTextField$AbstractFormatterFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFormattedTextField$AbstractFormatterFactory);
+	});
 	return class$;
 }
 

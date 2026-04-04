@@ -1,5 +1,4 @@
 #include <javax/swing/ComponentInputMap.h>
-
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/KeyStroke.h>
@@ -15,34 +14,6 @@ using $KeyStroke = ::javax::swing::KeyStroke;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ComponentInputMap_FieldInfo_[] = {
-	{"component", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(ComponentInputMap, component)},
-	{}
-};
-
-$MethodInfo _ComponentInputMap_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(ComponentInputMap, init$, void, $JComponent*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, clear, void)},
-	{"getComponent", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, getComponent, $JComponent*)},
-	{"put", "(Ljavax/swing/KeyStroke;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, put, void, $KeyStroke*, Object$*)},
-	{"remove", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, remove, void, $KeyStroke*)},
-	{"setParent", "(Ljavax/swing/InputMap;)V", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, setParent, void, $InputMap*)},
-	{}
-};
-
-$ClassInfo _ComponentInputMap_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ComponentInputMap",
-	"javax.swing.InputMap",
-	nullptr,
-	_ComponentInputMap_FieldInfo_,
-	_ComponentInputMap_MethodInfo_
-};
-
-$Object* allocate$ComponentInputMap($Class* clazz) {
-	return $of($alloc(ComponentInputMap));
-}
 
 void ComponentInputMap::init$($JComponent* component) {
 	$InputMap::init$();
@@ -60,15 +31,15 @@ void ComponentInputMap::setParent($InputMap* map) {
 	if (var$0) {
 		bool var$1 = !($instanceOf(ComponentInputMap, map));
 		if (!var$1) {
-			var$1 = $nc(($cast(ComponentInputMap, map)))->getComponent() != getComponent();
+			var$1 = $cast(ComponentInputMap, map)->getComponent() != getComponent();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		$throwNew($IllegalArgumentException, "ComponentInputMaps must have a parent ComponentInputMap associated with the same component"_s);
 	}
 	$InputMap::setParent(map);
-	$nc($(getComponent()))->componentInputMapChanged(this);
+	$$nc(getComponent())->componentInputMapChanged(this);
 }
 
 $JComponent* ComponentInputMap::getComponent() {
@@ -78,14 +49,14 @@ $JComponent* ComponentInputMap::getComponent() {
 void ComponentInputMap::put($KeyStroke* keyStroke, Object$* actionMapKey) {
 	$InputMap::put(keyStroke, actionMapKey);
 	if (getComponent() != nullptr) {
-		$nc($(getComponent()))->componentInputMapChanged(this);
+		$$nc(getComponent())->componentInputMapChanged(this);
 	}
 }
 
 void ComponentInputMap::remove($KeyStroke* key) {
 	$InputMap::remove(key);
 	if (getComponent() != nullptr) {
-		$nc($(getComponent()))->componentInputMapChanged(this);
+		$$nc(getComponent())->componentInputMapChanged(this);
 	}
 }
 
@@ -93,7 +64,7 @@ void ComponentInputMap::clear() {
 	int32_t oldSize = size();
 	$InputMap::clear();
 	if (oldSize > 0 && getComponent() != nullptr) {
-		$nc($(getComponent()))->componentInputMapChanged(this);
+		$$nc(getComponent())->componentInputMapChanged(this);
 	}
 }
 
@@ -101,7 +72,30 @@ ComponentInputMap::ComponentInputMap() {
 }
 
 $Class* ComponentInputMap::load$($String* name, bool initialize) {
-	$loadClass(ComponentInputMap, name, initialize, &_ComponentInputMap_ClassInfo_, allocate$ComponentInputMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"component", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(ComponentInputMap, component)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(ComponentInputMap, init$, void, $JComponent*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, clear, void)},
+		{"getComponent", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, getComponent, $JComponent*)},
+		{"put", "(Ljavax/swing/KeyStroke;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, put, void, $KeyStroke*, Object$*)},
+		{"remove", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, remove, void, $KeyStroke*)},
+		{"setParent", "(Ljavax/swing/InputMap;)V", nullptr, $PUBLIC, $virtualMethod(ComponentInputMap, setParent, void, $InputMap*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ComponentInputMap",
+		"javax.swing.InputMap",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComponentInputMap, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComponentInputMap);
+	});
 	return class$;
 }
 

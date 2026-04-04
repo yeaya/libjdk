@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$9.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
@@ -18,11 +17,9 @@ using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
-using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -37,60 +34,13 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$9_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$9, this$0)},
-	{}
-};
-
-$MethodInfo _Attr$9_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$9, init$, void, $Attr*)},
-	{"makeNotionalInterface", "(Lcom/sun/tools/javac/code/Type$IntersectionClassType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PRIVATE, $method(Attr$9, makeNotionalInterface, $Symbol$TypeSymbol*, $Type$IntersectionClassType*, $JCDiagnostic$DiagnosticPosition*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Attr$9, visitClassType, $Type*, $Type$ClassType*, $JCDiagnostic$DiagnosticPosition*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Attr$9, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitIntersectionClassType", "(Lcom/sun/tools/javac/code/Type$IntersectionClassType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Attr$9, visitIntersectionClassType, $Type*, $Type$IntersectionClassType*, $JCDiagnostic$DiagnosticPosition*)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$9_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Attr$9_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$9", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$MapVisitor", "com.sun.tools.javac.code.Types", "MapVisitor", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Attr$9_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$9",
-	"com.sun.tools.javac.code.Types$MapVisitor",
-	nullptr,
-	_Attr$9_FieldInfo_,
-	_Attr$9_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$MapVisitor<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;",
-	&_Attr$9_EnclosingMethodInfo_,
-	_Attr$9_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$9($Class* clazz) {
-	return $of($alloc(Attr$9));
-}
-
 void Attr$9::init$($Attr* this$0) {
 	$set(this, this$0, this$0);
 	$Types$MapVisitor::init$();
 }
 
 $Type* Attr$9::visitClassType($Type$ClassType* t, $JCDiagnostic$DiagnosticPosition* pos) {
-	return $nc(t)->isIntersection() ? visitIntersectionClassType($cast($Type$IntersectionClassType, t), pos) : static_cast<$Type*>(t);
+	return $nc(t)->isIntersection() ? visitIntersectionClassType($cast($Type$IntersectionClassType, t), pos) : $cast($Type, t);
 }
 
 $Type* Attr$9::visitIntersectionClassType($Type$IntersectionClassType* ict, $JCDiagnostic$DiagnosticPosition* pos) {
@@ -99,7 +49,7 @@ $Type* Attr$9::visitIntersectionClassType($Type$IntersectionClassType* ict, $JCD
 }
 
 $Symbol$TypeSymbol* Attr$9::makeNotionalInterface($Type$IntersectionClassType* ict, $JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, targs, $new($ListBuffer));
 	$var($ListBuffer, supertypes, $new($ListBuffer));
 	{
@@ -110,7 +60,7 @@ $Symbol$TypeSymbol* Attr$9::makeNotionalInterface($Type$IntersectionClassType* i
 				if ($nc(i)->isParameterized()) {
 					targs->appendList($($nc($nc(i->tsym)->type)->allparams()));
 				}
-				supertypes->append($nc($nc(i)->tsym)->type);
+				supertypes->append($nc(i->tsym)->type);
 			}
 		}
 	}
@@ -128,7 +78,47 @@ Attr$9::Attr$9() {
 }
 
 $Class* Attr$9::load$($String* name, bool initialize) {
-	$loadClass(Attr$9, name, initialize, &_Attr$9_ClassInfo_, allocate$Attr$9);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$9, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$9, init$, void, $Attr*)},
+		{"makeNotionalInterface", "(Lcom/sun/tools/javac/code/Type$IntersectionClassType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PRIVATE, $method(Attr$9, makeNotionalInterface, $Symbol$TypeSymbol*, $Type$IntersectionClassType*, $JCDiagnostic$DiagnosticPosition*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Attr$9, visitClassType, $Type*, $Type$ClassType*, $JCDiagnostic$DiagnosticPosition*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Attr$9, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitIntersectionClassType", "(Lcom/sun/tools/javac/code/Type$IntersectionClassType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Attr$9, visitIntersectionClassType, $Type*, $Type$IntersectionClassType*, $JCDiagnostic$DiagnosticPosition*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$9", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$MapVisitor", "com.sun.tools.javac.code.Types", "MapVisitor", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$9",
+		"com.sun.tools.javac.code.Types$MapVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$MapVisitor<Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$9);
+	});
 	return class$;
 }
 

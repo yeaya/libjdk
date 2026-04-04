@@ -1,5 +1,4 @@
 #include <sun/awt/ModalExclude.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,17 +6,14 @@ using $ClassInfo = ::java::lang::ClassInfo;
 namespace sun {
 	namespace awt {
 
-$ClassInfo _ModalExclude_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.ModalExclude"
-};
-
-$Object* allocate$ModalExclude($Class* clazz) {
-	return $of($alloc(ModalExclude));
-}
-
 $Class* ModalExclude::load$($String* name, bool initialize) {
-	$loadClass(ModalExclude, name, initialize, &_ModalExclude_ClassInfo_, allocate$ModalExclude);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.ModalExclude"
+	};
+	$loadClass(ModalExclude, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModalExclude);
+	});
 	return class$;
 }
 

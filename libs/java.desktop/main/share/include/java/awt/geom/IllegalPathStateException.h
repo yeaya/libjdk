@@ -15,10 +15,13 @@ public:
 	IllegalPathStateException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xB86ACDBE7A47B7BA;
+	static const int64_t serialVersionUID = (int64_t)0xb86acdbe7a47b7ba;
 	IllegalPathStateException(const IllegalPathStateException& e);
 	virtual void throw$() override;
-	inline IllegalPathStateException* operator ->() {
+	inline IllegalPathStateException* operator ->() const {
+		return (IllegalPathStateException*)throwing$;
+	}
+	inline operator IllegalPathStateException*() const {
 		return (IllegalPathStateException*)throwing$;
 	}
 };

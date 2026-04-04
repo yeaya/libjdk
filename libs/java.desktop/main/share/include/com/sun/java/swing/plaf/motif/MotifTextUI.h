@@ -25,6 +25,7 @@ class $import MotifTextUI : public ::java::lang::Object {
 	$class(MotifTextUI, 0, ::java::lang::Object)
 public:
 	MotifTextUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::text::Caret* createCaret();
 	static $Array<::javax::swing::text::JTextComponent$KeyBinding>* defaultBindings;

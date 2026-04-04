@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/parser/ParserDelegator.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/IOException.h>
@@ -7,7 +6,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Reader.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/text/html/HTMLEditorKit$Parser.h>
 #include <javax/swing/text/html/HTMLEditorKit$ParserCallback.h>
 #include <javax/swing/text/html/parser/DTD.h>
@@ -23,7 +21,6 @@ using $DataInputStream = ::java::io::DataInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -31,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HTMLEditorKit$Parser = ::javax::swing::text::html::HTMLEditorKit$Parser;
 using $HTMLEditorKit$ParserCallback = ::javax::swing::text::html::HTMLEditorKit$ParserCallback;
 using $DTD = ::javax::swing::text::html::parser::DTD;
@@ -44,52 +40,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 				namespace parser {
-
-$FieldInfo _ParserDelegator_FieldInfo_[] = {
-	{"DTD_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ParserDelegator, DTD_KEY)},
-	{}
-};
-
-$MethodInfo _ParserDelegator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParserDelegator, init$, void)},
-	{"createDTD", "(Ljavax/swing/text/html/parser/DTD;Ljava/lang/String;)Ljavax/swing/text/html/parser/DTD;", nullptr, $PROTECTED | $STATIC, $staticMethod(ParserDelegator, createDTD, $DTD*, $DTD*, $String*)},
-	{"getDefaultDTD", "()Ljavax/swing/text/html/parser/DTD;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(ParserDelegator, getDefaultDTD, $DTD*)},
-	{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(ParserDelegator, getResourceAsStream, $InputStream*, $String*)},
-	{"parse", "(Ljava/io/Reader;Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;Z)V", nullptr, $PUBLIC, $virtualMethod(ParserDelegator, parse, void, $Reader*, $HTMLEditorKit$ParserCallback*, bool), "java.io.IOException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ParserDelegator, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"setDefaultDTD", "()V", nullptr, $PROTECTED | $STATIC, $staticMethod(ParserDelegator, setDefaultDTD, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ParserDelegator_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$Parser", "javax.swing.text.html.HTMLEditorKit", "Parser", $PUBLIC | $STATIC | $ABSTRACT},
-	{"javax.swing.text.html.parser.ParserDelegator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ParserDelegator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.parser.ParserDelegator",
-	"javax.swing.text.html.HTMLEditorKit$Parser",
-	"java.io.Serializable",
-	_ParserDelegator_FieldInfo_,
-	_ParserDelegator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ParserDelegator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.parser.ParserDelegator$1"
-};
-
-$Object* allocate$ParserDelegator($Class* clazz) {
-	return $of($alloc(ParserDelegator));
-}
 
 int32_t ParserDelegator::hashCode() {
 	 return this->$HTMLEditorKit$Parser::hashCode();
@@ -119,10 +69,9 @@ void ParserDelegator::setDefaultDTD() {
 }
 
 $DTD* ParserDelegator::getDefaultDTD() {
-	$load(ParserDelegator);
+	$init(ParserDelegator);
 	$synchronized(class$) {
-		$init(ParserDelegator);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AppContext, appContext, $AppContext::getAppContext());
 		$var($DTD, dtd, $cast($DTD, $nc(appContext)->get(ParserDelegator::DTD_KEY)));
 		if (dtd == nullptr) {
@@ -142,7 +91,7 @@ $DTD* ParserDelegator::getDefaultDTD() {
 
 $DTD* ParserDelegator::createDTD($DTD* dtd, $String* name) {
 	$init(ParserDelegator);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, in, nullptr);
 	bool debug = true;
 	try {
@@ -164,14 +113,14 @@ void ParserDelegator::init$() {
 }
 
 void ParserDelegator::parse($Reader* r, $HTMLEditorKit$ParserCallback* cb, bool ignoreCharSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$$new($DocumentParser, $(getDefaultDTD()))->parse(r, cb, ignoreCharSet);
 }
 
 $InputStream* ParserDelegator::getResourceAsStream($String* name) {
 	$init(ParserDelegator);
 	$beforeCallerSensitive();
-	return $cast($InputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ParserDelegator$1, name))));
+	return $cast($InputStream, $AccessController::doPrivileged($$new($ParserDelegator$1, name)));
 }
 
 void ParserDelegator::readObject($ObjectInputStream* s) {
@@ -179,7 +128,7 @@ void ParserDelegator::readObject($ObjectInputStream* s) {
 	setDefaultDTD();
 }
 
-void clinit$ParserDelegator($Class* class$) {
+void ParserDelegator::clinit$($Class* clazz) {
 	$assignStatic(ParserDelegator::DTD_KEY, $new($Object));
 }
 
@@ -187,7 +136,47 @@ ParserDelegator::ParserDelegator() {
 }
 
 $Class* ParserDelegator::load$($String* name, bool initialize) {
-	$loadClass(ParserDelegator, name, initialize, &_ParserDelegator_ClassInfo_, clinit$ParserDelegator, allocate$ParserDelegator);
+	$FieldInfo fieldInfos$$[] = {
+		{"DTD_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ParserDelegator, DTD_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParserDelegator, init$, void)},
+		{"createDTD", "(Ljavax/swing/text/html/parser/DTD;Ljava/lang/String;)Ljavax/swing/text/html/parser/DTD;", nullptr, $PROTECTED | $STATIC, $staticMethod(ParserDelegator, createDTD, $DTD*, $DTD*, $String*)},
+		{"getDefaultDTD", "()Ljavax/swing/text/html/parser/DTD;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(ParserDelegator, getDefaultDTD, $DTD*)},
+		{"getResourceAsStream", "(Ljava/lang/String;)Ljava/io/InputStream;", nullptr, $STATIC, $staticMethod(ParserDelegator, getResourceAsStream, $InputStream*, $String*)},
+		{"parse", "(Ljava/io/Reader;Ljavax/swing/text/html/HTMLEditorKit$ParserCallback;Z)V", nullptr, $PUBLIC, $virtualMethod(ParserDelegator, parse, void, $Reader*, $HTMLEditorKit$ParserCallback*, bool), "java.io.IOException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ParserDelegator, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"setDefaultDTD", "()V", nullptr, $PROTECTED | $STATIC, $staticMethod(ParserDelegator, setDefaultDTD, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$Parser", "javax.swing.text.html.HTMLEditorKit", "Parser", $PUBLIC | $STATIC | $ABSTRACT},
+		{"javax.swing.text.html.parser.ParserDelegator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.parser.ParserDelegator",
+		"javax.swing.text.html.HTMLEditorKit$Parser",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.parser.ParserDelegator$1"
+	};
+	$loadClass(ParserDelegator, name, initialize, &classInfo$$, ParserDelegator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ParserDelegator));
+	});
 	return class$;
 }
 

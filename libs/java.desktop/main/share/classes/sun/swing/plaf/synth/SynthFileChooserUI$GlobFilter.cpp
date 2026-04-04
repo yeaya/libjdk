@@ -1,7 +1,5 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUI$GlobFilter.h>
-
 #include <java/io/File.h>
-#include <java/lang/CharSequence.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
 #include <javax/swing/filechooser/FileFilter.h>
@@ -11,13 +9,11 @@
 #undef CASE_INSENSITIVE
 
 using $File = ::java::io::File;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
 using $SynthFileChooserUI = ::sun::swing::plaf::synth::SynthFileChooserUI;
@@ -27,53 +23,13 @@ namespace sun {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthFileChooserUI$GlobFilter_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUI$GlobFilter, this$0)},
-	{"pattern", "Ljava/util/regex/Pattern;", nullptr, 0, $field(SynthFileChooserUI$GlobFilter, pattern)},
-	{"globPattern", "Ljava/lang/String;", nullptr, 0, $field(SynthFileChooserUI$GlobFilter, globPattern)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUI$GlobFilter_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUI;)V", nullptr, 0, $method(SynthFileChooserUI$GlobFilter, init$, void, $SynthFileChooserUI*)},
-	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$GlobFilter, accept, bool, $File*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$GlobFilter, getDescription, $String*)},
-	{"setPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$GlobFilter, setPattern, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _SynthFileChooserUI$GlobFilter_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUI$GlobFilter", "sun.swing.plaf.synth.SynthFileChooserUI", "GlobFilter", 0},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUI$GlobFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.plaf.synth.SynthFileChooserUI$GlobFilter",
-	"javax.swing.filechooser.FileFilter",
-	nullptr,
-	_SynthFileChooserUI$GlobFilter_FieldInfo_,
-	_SynthFileChooserUI$GlobFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthFileChooserUI$GlobFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUI"
-};
-
-$Object* allocate$SynthFileChooserUI$GlobFilter($Class* clazz) {
-	return $of($alloc(SynthFileChooserUI$GlobFilter));
-}
-
 void SynthFileChooserUI$GlobFilter::init$($SynthFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$FileFilter::init$();
 }
 
 void SynthFileChooserUI$GlobFilter::setPattern($String* globPattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, gPat, $nc(globPattern)->toCharArray());
 	$var($chars, rPat, $new($chars, gPat->length * 2));
 	$init($File);
@@ -96,69 +52,52 @@ void SynthFileChooserUI$GlobFilter::setPattern($String* globPattern) {
 		for (int32_t i = 0; i < gPat->length; ++i) {
 			switch (gPat->get(i)) {
 			case u'*':
-				{
-					if (!inBrackets) {
-						rPat->set(j++, u'.');
-					}
-					rPat->set(j++, u'*');
-					break;
+				if (!inBrackets) {
+					rPat->set(j++, u'.');
 				}
+				rPat->set(j++, u'*');
+				break;
 			case u'?':
-				{
-					rPat->set(j++, inBrackets ? u'?' : u'.');
-					break;
-				}
+				rPat->set(j++, inBrackets ? u'?' : u'.');
+				break;
 			case u'[':
-				{
-					inBrackets = true;
-					rPat->set(j++, gPat->get(i));
-					if (i < gPat->length - 1) {
-						switch (gPat->get(i + 1)) {
-						case u'!':
-							{}
-						case u'^':
-							{
-								rPat->set(j++, u'^');
-								++i;
-								break;
-							}
-						case u']':
-							{
-								rPat->set(j++, gPat->get(++i));
-								break;
-							}
-						}
+				inBrackets = true;
+				rPat->set(j++, gPat->get(i));
+				if (i < gPat->length - 1) {
+					switch (gPat->get(i + 1)) {
+					case u'!':
+					case u'^':
+						rPat->set(j++, u'^');
+						++i;
+						break;
+					case u']':
+						rPat->set(j++, gPat->get(++i));
+						break;
 					}
-					break;
 				}
+				break;
 			case u']':
-				{
-					rPat->set(j++, gPat->get(i));
-					inBrackets = false;
-					break;
-				}
+				rPat->set(j++, gPat->get(i));
+				inBrackets = false;
+				break;
 			case u'\\':
-				{
-					if (i == 0 && gPat->length > 1 && gPat->get(1) == u'~') {
+				if (i == 0 && gPat->length > 1 && gPat->get(1) == u'~') {
+					rPat->set(j++, gPat->get(++i));
+				} else {
+					rPat->set(j++, u'\\');
+					if (i < gPat->length - 1 && "*?[]"_s->indexOf(gPat->get(i + 1)) >= 0) {
 						rPat->set(j++, gPat->get(++i));
 					} else {
 						rPat->set(j++, u'\\');
-						if (i < gPat->length - 1 && "*?[]"_s->indexOf((int32_t)gPat->get(i + 1)) >= 0) {
-							rPat->set(j++, gPat->get(++i));
-						} else {
-							rPat->set(j++, u'\\');
-						}
 					}
-					break;
 				}
+				break;
 			default:
-				{
-					if (!$Character::isLetterOrDigit(gPat->get(i))) {
-						rPat->set(j++, u'\\');
-					}
-					rPat->set(j++, gPat->get(i));
-					break;
+				if (!$Character::isLetterOrDigit(gPat->get(i))) {
+					rPat->set(j++, u'\\');
 				}
+				rPat->set(j++, gPat->get(i));
+				break;
 			}
 		}
 	}
@@ -166,14 +105,14 @@ void SynthFileChooserUI$GlobFilter::setPattern($String* globPattern) {
 }
 
 bool SynthFileChooserUI$GlobFilter::accept($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (f == nullptr) {
 		return false;
 	}
 	if ($nc(f)->isDirectory()) {
 		return true;
 	}
-	return $nc($($nc(this->pattern)->matcher($($nc(f)->getName()))))->matches();
+	return $$nc($nc(this->pattern)->matcher($(f->getName())))->matches();
 }
 
 $String* SynthFileChooserUI$GlobFilter::getDescription() {
@@ -184,7 +123,41 @@ SynthFileChooserUI$GlobFilter::SynthFileChooserUI$GlobFilter() {
 }
 
 $Class* SynthFileChooserUI$GlobFilter::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUI$GlobFilter, name, initialize, &_SynthFileChooserUI$GlobFilter_ClassInfo_, allocate$SynthFileChooserUI$GlobFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/plaf/synth/SynthFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthFileChooserUI$GlobFilter, this$0)},
+		{"pattern", "Ljava/util/regex/Pattern;", nullptr, 0, $field(SynthFileChooserUI$GlobFilter, pattern)},
+		{"globPattern", "Ljava/lang/String;", nullptr, 0, $field(SynthFileChooserUI$GlobFilter, globPattern)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/plaf/synth/SynthFileChooserUI;)V", nullptr, 0, $method(SynthFileChooserUI$GlobFilter, init$, void, $SynthFileChooserUI*)},
+		{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$GlobFilter, accept, bool, $File*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$GlobFilter, getDescription, $String*)},
+		{"setPattern", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUI$GlobFilter, setPattern, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUI$GlobFilter", "sun.swing.plaf.synth.SynthFileChooserUI", "GlobFilter", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.plaf.synth.SynthFileChooserUI$GlobFilter",
+		"javax.swing.filechooser.FileFilter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUI"
+	};
+	$loadClass(SynthFileChooserUI$GlobFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthFileChooserUI$GlobFilter);
+	});
 	return class$;
 }
 

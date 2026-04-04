@@ -38,6 +38,7 @@ class NaiveHuffman : public ::java::lang::Object {
 	$class(NaiveHuffman, 0, ::java::lang::Object)
 public:
 	NaiveHuffman();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addChar(int32_t c, int32_t code, int32_t bitLength);
 	void addEOS(int32_t c, int32_t code, int32_t bitLength);

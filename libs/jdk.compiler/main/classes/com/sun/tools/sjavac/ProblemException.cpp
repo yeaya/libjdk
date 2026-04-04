@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/ProblemException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,29 +10,6 @@ namespace com {
 	namespace sun {
 		namespace tools {
 			namespace sjavac {
-
-$FieldInfo _ProblemException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ProblemException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ProblemException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProblemException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ProblemException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.ProblemException",
-	"java.lang.Exception",
-	nullptr,
-	_ProblemException_FieldInfo_,
-	_ProblemException_MethodInfo_
-};
-
-$Object* allocate$ProblemException($Class* clazz) {
-	return $of($alloc(ProblemException));
-}
 
 void ProblemException::init$($String* s) {
 	$Exception::init$(s);
@@ -50,7 +26,25 @@ void ProblemException::throw$() {
 }
 
 $Class* ProblemException::load$($String* name, bool initialize) {
-	$loadClass(ProblemException, name, initialize, &_ProblemException_ClassInfo_, allocate$ProblemException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ProblemException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProblemException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.ProblemException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProblemException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProblemException);
+	});
 	return class$;
 }
 

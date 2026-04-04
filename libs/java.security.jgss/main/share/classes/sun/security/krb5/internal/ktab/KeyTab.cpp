@@ -1,16 +1,12 @@
 #include <sun/security/krb5/internal/ktab/KeyTab.h>
-
 #include <java/io/BufferedInputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileOutputStream.h>
 #include <java/io/FilterOutputStream.h>
-#include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Comparator.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/StringTokenizer.h>
@@ -41,9 +37,6 @@ using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -52,7 +45,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Comparator = ::java::util::Comparator;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -78,75 +70,12 @@ namespace sun {
 			namespace internal {
 				namespace ktab {
 
-$FieldInfo _KeyTab_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyTab, DEBUG)},
-	{"defaultTabName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(KeyTab, defaultTabName)},
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/krb5/internal/ktab/KeyTab;>;", $PRIVATE | $STATIC, $staticField(KeyTab, map)},
-	{"isMissing", "Z", nullptr, $PRIVATE, $field(KeyTab, isMissing$)},
-	{"isValid", "Z", nullptr, $PRIVATE, $field(KeyTab, isValid$)},
-	{"tabName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyTab, tabName$)},
-	{"lastModified", "J", nullptr, $PRIVATE, $field(KeyTab, lastModified)},
-	{"kt_vno", "I", nullptr, $PRIVATE, $field(KeyTab, kt_vno)},
-	{"entries", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/security/krb5/internal/ktab/KeyTabEntry;>;", $PRIVATE, $field(KeyTab, entries)},
-	{}
-};
-
-$MethodInfo _KeyTab_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeyTab, init$, void, $String*)},
-	{"addEntry", "(Lsun/security/krb5/PrincipalName;[CIZ)V", nullptr, $PUBLIC, $virtualMethod(KeyTab, addEntry, void, $PrincipalName*, $chars*, int32_t, bool), "sun.security.krb5.KrbException"},
-	{"addEntry", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;[CIZ)V", nullptr, $PUBLIC, $virtualMethod(KeyTab, addEntry, void, $PrincipalName*, $String*, $chars*, int32_t, bool), "sun.security.krb5.KrbException"},
-	{"create", "()Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(KeyTab, create, KeyTab*), "java.io.IOException,sun.security.krb5.RealmException"},
-	{"create", "(Ljava/lang/String;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(KeyTab, create, KeyTab*, $String*), "java.io.IOException,sun.security.krb5.RealmException"},
-	{"createVersion", "(Ljava/io/File;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyTab, createVersion, void, $File*), "java.io.IOException"},
-	{"deleteEntries", "(Lsun/security/krb5/PrincipalName;II)I", nullptr, $PUBLIC, $virtualMethod(KeyTab, deleteEntries, int32_t, $PrincipalName*, int32_t, int32_t)},
-	{"findServiceEntry", "(Lsun/security/krb5/PrincipalName;)Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, findServiceEntry, bool, $PrincipalName*)},
-	{"getDefaultTabName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyTab, getDefaultTabName, $String*)},
-	{"getEntries", "()[Lsun/security/krb5/internal/ktab/KeyTabEntry;", nullptr, $PUBLIC, $virtualMethod(KeyTab, getEntries, $KeyTabEntryArray*)},
-	{"getInstance", "(Ljava/lang/String;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $String*)},
-	{"getInstance", "(Ljava/io/File;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $File*)},
-	{"getInstance", "()Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*)},
-	{"getInstance0", "(Ljava/lang/String;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(KeyTab, getInstance0, KeyTab*, $String*)},
-	{"getOneName", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(KeyTab, getOneName, $PrincipalName*)},
-	{"isMissing", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, isMissing, bool)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, isValid, bool)},
-	{"load", "(Lsun/security/krb5/internal/ktab/KeyTabInputStream;)V", nullptr, $PRIVATE, $method(KeyTab, load, void, $KeyTabInputStream*), "java.io.IOException,sun.security.krb5.RealmException"},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, normalize, $String*, $String*)},
-	{"readServiceKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(KeyTab, readServiceKeys, $EncryptionKeyArray*, $PrincipalName*)},
-	{"save", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyTab, save, void), "java.io.IOException"},
-	{"tabName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyTab, tabName, $String*)},
-	{}
-};
-
-$InnerClassInfo _KeyTab_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.ktab.KeyTab$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _KeyTab_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.ktab.KeyTab",
-	"java.lang.Object",
-	"sun.security.krb5.internal.ktab.KeyTabConstants",
-	_KeyTab_FieldInfo_,
-	_KeyTab_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyTab_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.ktab.KeyTab$1"
-};
-
-$Object* allocate$KeyTab($Class* clazz) {
-	return $of($alloc(KeyTab));
-}
-
 bool KeyTab::DEBUG = false;
 $String* KeyTab::defaultTabName = nullptr;
 $Map* KeyTab::map = nullptr;
 
 void KeyTab::init$($String* filename) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->isMissing$ = false;
 	this->isValid$ = true;
 	this->kt_vno = $KeyTabConstants::KRB5_KT_VNO;
@@ -156,27 +85,25 @@ void KeyTab::init$($String* filename) {
 		this->lastModified = $$new($File, this->tabName$)->lastModified();
 		{
 			$var($KeyTabInputStream, kis, $new($KeyTabInputStream, $$new($FileInputStream, filename)));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
+					load(kis);
+				} catch ($Throwable& t$) {
 					try {
-						load(kis);
-					} catch ($Throwable& t$) {
-						try {
-							kis->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						kis->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					kis->close();
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				kis->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	} catch ($FileNotFoundException& e) {
@@ -189,10 +116,9 @@ void KeyTab::init$($String* filename) {
 }
 
 KeyTab* KeyTab::getInstance0($String* s) {
-	$load(KeyTab);
+	$init(KeyTab);
 	$synchronized(class$) {
-		$init(KeyTab);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int64_t lm = $$new($File, s)->lastModified();
 		$var(KeyTab, old, $cast(KeyTab, $nc(KeyTab::map)->get(s)));
 		if (old != nullptr && old->isValid() && old->lastModified == lm) {
@@ -224,7 +150,7 @@ KeyTab* KeyTab::getInstance($File* file) {
 	if (file == nullptr) {
 		return getInstance();
 	} else {
-		return getInstance0($($nc(file)->getPath()));
+		return getInstance0($(file->getPath()));
 	}
 }
 
@@ -243,13 +169,13 @@ bool KeyTab::isValid() {
 
 $String* KeyTab::getDefaultTabName() {
 	$init(KeyTab);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (KeyTab::defaultTabName != nullptr) {
 		return KeyTab::defaultTabName;
 	} else {
 		$var($String, kname, nullptr);
 		try {
-			$var($String, keytab_names, $nc($($Config::getInstance()))->get($$new($StringArray, {
+			$var($String, keytab_names, $$nc($Config::getInstance())->get($$new($StringArray, {
 				"libdefaults"_s,
 				"default_keytab_name"_s
 			})));
@@ -280,18 +206,18 @@ $String* KeyTab::getDefaultTabName() {
 
 $String* KeyTab::normalize($String* name) {
 	$init(KeyTab);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, kname, nullptr);
-	bool var$0 = ($nc(name)->length() >= 5);
+	bool var$0 = $nc(name)->length() >= 5;
 	if (var$0 && ($(name->substring(0, 5))->equalsIgnoreCase("FILE:"_s))) {
 		$assign(kname, name->substring(5));
 	} else {
-		bool var$2 = (name->length() >= 9);
-		if (var$2 && ($(name->substring(0, 9))->equalsIgnoreCase("ANY:FILE:"_s))) {
+		bool var$1 = name->length() >= 9;
+		if (var$1 && ($(name->substring(0, 9))->equalsIgnoreCase("ANY:FILE:"_s))) {
 			$assign(kname, name->substring(9));
 		} else {
-			bool var$4 = (name->length() >= 7);
-			if (var$4 && ($(name->substring(0, 7))->equalsIgnoreCase("SRVTAB:"_s))) {
+			bool var$2 = name->length() >= 7;
+			if (var$2 && ($(name->substring(0, 7))->equalsIgnoreCase("SRVTAB:"_s))) {
 				$assign(kname, name->substring(7));
 			} else {
 				$assign(kname, name);
@@ -302,7 +228,7 @@ $String* KeyTab::normalize($String* name) {
 }
 
 void KeyTab::load($KeyTabInputStream* kis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->entries)->clear();
 	this->kt_vno = $nc(kis)->readVersion();
 	if (this->kt_vno == $KeyTabConstants::KRB5_KT_VNO_1) {
@@ -314,7 +240,7 @@ void KeyTab::load($KeyTabInputStream* kis) {
 		entryLength = kis->readEntryLength();
 		$assign(entry, kis->readEntry(entryLength, this->kt_vno));
 		if (KeyTab::DEBUG) {
-			$nc($System::out)->println($$str({">>> KeyTab: load() entry length: "_s, $$str(entryLength), "; type: "_s, $$str((entry != nullptr ? $nc(entry)->keyType : 0))}));
+			$nc($System::out)->println($$str({">>> KeyTab: load() entry length: "_s, $$str(entryLength), "; type: "_s, $$str((entry != nullptr ? entry->keyType : 0))}));
 		}
 		if (entry != nullptr) {
 			$nc(this->entries)->addElement(entry);
@@ -324,11 +250,11 @@ void KeyTab::load($KeyTabInputStream* kis) {
 
 $PrincipalName* KeyTab::getOneName() {
 	int32_t size = $nc(this->entries)->size();
-	return size > 0 ? $nc(($cast($KeyTabEntry, $($nc(this->entries)->elementAt(size - 1)))))->service : ($PrincipalName*)nullptr;
+	return size > 0 ? $nc(($$cast($KeyTabEntry, this->entries->elementAt(size - 1))))->service : ($PrincipalName*)nullptr;
 }
 
 $EncryptionKeyArray* KeyTab::readServiceKeys($PrincipalName* service) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyTabEntry, entry, nullptr);
 	$var($EncryptionKey, key, nullptr);
 	int32_t size = $nc(this->entries)->size();
@@ -351,16 +277,16 @@ $EncryptionKeyArray* KeyTab::readServiceKeys($PrincipalName* service) {
 		}
 	}
 	size = keys->size();
-	$var($EncryptionKeyArray, retVal, $fcast($EncryptionKeyArray, keys->toArray($$new($EncryptionKeyArray, size))));
+	$var($EncryptionKeyArray, retVal, $cast($EncryptionKeyArray, keys->toArray($$new($EncryptionKeyArray, size))));
 	$Arrays::sort(retVal, $$new($KeyTab$1, this));
 	return retVal;
 }
 
 bool KeyTab::findServiceEntry($PrincipalName* service) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyTabEntry, entry, nullptr);
 	for (int32_t i = 0; i < $nc(this->entries)->size(); ++i) {
-		$assign(entry, $cast($KeyTabEntry, $nc(this->entries)->elementAt(i)));
+		$assign(entry, $cast($KeyTabEntry, this->entries->elementAt(i)));
 		if ($nc($nc(entry)->service)->match(service)) {
 			if ($EType::isSupported(entry->keyType)) {
 				return true;
@@ -381,7 +307,7 @@ void KeyTab::addEntry($PrincipalName* service, $chars* psswd, int32_t kvno, bool
 }
 
 void KeyTab::addEntry($PrincipalName* service, $String* salt, $chars* psswd, int32_t kvno, bool append) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EncryptionKeyArray, encKeys, $EncryptionKey::acquireSecretKeys(psswd, salt));
 	int32_t maxKvno = 0;
 	for (int32_t i = $nc(this->entries)->size() - 1; i >= 0; --i) {
@@ -401,59 +327,54 @@ void KeyTab::addEntry($PrincipalName* service, $String* salt, $chars* psswd, int
 	for (int32_t i = 0; encKeys != nullptr && i < encKeys->length; ++i) {
 		int32_t keyType = $nc(encKeys->get(i))->getEType();
 		$var($bytes, keyValue, $nc(encKeys->get(i))->getBytes());
-		$var($PrincipalName, var$0, service);
-		$var($Realm, var$1, $nc(service)->getRealm());
-		$var($KeyTabEntry, newEntry, $new($KeyTabEntry, var$0, var$1, $$new($KerberosTime, $System::currentTimeMillis()), kvno, keyType, keyValue));
+		$var($Realm, var$0, $nc(service)->getRealm());
+		$var($KeyTabEntry, newEntry, $new($KeyTabEntry, service, var$0, $$new($KerberosTime, $System::currentTimeMillis()), kvno, keyType, keyValue));
 		$nc(this->entries)->addElement(newEntry);
 	}
 }
 
 $KeyTabEntryArray* KeyTab::getEntries() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyTabEntryArray, kentries, $new($KeyTabEntryArray, $nc(this->entries)->size()));
 	for (int32_t i = 0; i < kentries->length; ++i) {
-		kentries->set(i, $cast($KeyTabEntry, $($nc(this->entries)->elementAt(i))));
+		kentries->set(i, $$cast($KeyTabEntry, this->entries->elementAt(i)));
 	}
 	return kentries;
 }
 
 KeyTab* KeyTab::create() {
-	$load(KeyTab);
+	$init(KeyTab);
 	$synchronized(class$) {
-		$init(KeyTab);
 		$var($String, dname, getDefaultTabName());
 		return create(dname);
 	}
 }
 
 KeyTab* KeyTab::create($String* name) {
-	$load(KeyTab);
+	$init(KeyTab);
 	$synchronized(class$) {
-		$init(KeyTab);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		{
 			$var($KeyTabOutputStream, kos, $new($KeyTabOutputStream, $$new($FileOutputStream, name)));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
+					kos->writeVersion($KeyTabConstants::KRB5_KT_VNO);
+				} catch ($Throwable& t$) {
 					try {
-						kos->writeVersion($KeyTabConstants::KRB5_KT_VNO);
-					} catch ($Throwable& t$) {
-						try {
-							kos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						kos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					kos->close();
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				kos->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		return $new(KeyTab, name);
@@ -462,55 +383,53 @@ KeyTab* KeyTab::create($String* name) {
 
 void KeyTab::save() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		{
 			$var($KeyTabOutputStream, kos, $new($KeyTabOutputStream, $$new($FileOutputStream, this->tabName$)));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						kos->writeVersion(this->kt_vno);
-						for (int32_t i = 0; i < $nc(this->entries)->size(); ++i) {
-							kos->writeEntry($cast($KeyTabEntry, $($nc(this->entries)->elementAt(i))));
-						}
-					} catch ($Throwable& t$) {
-						try {
-							kos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+					kos->writeVersion(this->kt_vno);
+					for (int32_t i = 0; i < $nc(this->entries)->size(); ++i) {
+						kos->writeEntry($$cast($KeyTabEntry, this->entries->elementAt(i)));
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					kos->close();
+				} catch ($Throwable& t$) {
+					try {
+						kos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				kos->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
 }
 
 int32_t KeyTab::deleteEntries($PrincipalName* service, int32_t etype, int32_t kvno) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	$var($Map, highest, $new($HashMap));
 	for (int32_t i = $nc(this->entries)->size() - 1; i >= 0; --i) {
 		$var($KeyTabEntry, e, $cast($KeyTabEntry, $nc(this->entries)->get(i)));
 		if ($nc(service)->match($($nc(e)->getService()))) {
-			if (etype == -1 || $nc(e)->keyType == etype) {
+			if (etype == -1 || e->keyType == etype) {
 				if (kvno == -2) {
 					if (highest->containsKey($($Integer::valueOf(e->keyType)))) {
-						int32_t n = $nc(($cast($Integer, $(highest->get($($Integer::valueOf(e->keyType)))))))->intValue();
+						int32_t n = $$sure($Integer, highest->get($($Integer::valueOf(e->keyType))))->intValue();
 						if (e->keyVersion > n) {
-							$var($Object, var$0, $of($Integer::valueOf(e->keyType)));
+							$var($Object, var$0, $Integer::valueOf(e->keyType));
 							highest->put(var$0, $($Integer::valueOf(e->keyVersion)));
 						}
 					} else {
-						$var($Object, var$1, $of($Integer::valueOf(e->keyType)));
+						$var($Object, var$1, $Integer::valueOf(e->keyType));
 						highest->put(var$1, $($Integer::valueOf(e->keyVersion)));
 					}
 				} else if (kvno == -1 || e->keyVersion == kvno) {
@@ -524,8 +443,8 @@ int32_t KeyTab::deleteEntries($PrincipalName* service, int32_t etype, int32_t kv
 		for (int32_t i = $nc(this->entries)->size() - 1; i >= 0; --i) {
 			$var($KeyTabEntry, e, $cast($KeyTabEntry, $nc(this->entries)->get(i)));
 			if ($nc(service)->match($($nc(e)->getService()))) {
-				if (etype == -1 || $nc(e)->keyType == etype) {
-					int32_t n = $nc(($cast($Integer, $(highest->get($($Integer::valueOf(e->keyType)))))))->intValue();
+				if (etype == -1 || e->keyType == etype) {
+					int32_t n = $$sure($Integer, highest->get($($Integer::valueOf(e->keyType))))->intValue();
 					if (e->keyVersion != n) {
 						$nc(this->entries)->removeElementAt(i);
 						++count;
@@ -539,36 +458,34 @@ int32_t KeyTab::deleteEntries($PrincipalName* service, int32_t etype, int32_t kv
 
 void KeyTab::createVersion($File* file) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		{
 			$var($KeyTabOutputStream, kos, $new($KeyTabOutputStream, $$new($FileOutputStream, file)));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
+					kos->write16($KeyTabConstants::KRB5_KT_VNO);
+				} catch ($Throwable& t$) {
 					try {
-						kos->write16($KeyTabConstants::KRB5_KT_VNO);
-					} catch ($Throwable& t$) {
-						try {
-							kos->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						kos->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					kos->close();
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				kos->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
 }
 
-void clinit$KeyTab($Class* class$) {
+void KeyTab::clinit$($Class* clazz) {
 	$init($Krb5);
 	KeyTab::DEBUG = $Krb5::DEBUG;
 	$assignStatic(KeyTab::defaultTabName, nullptr);
@@ -579,7 +496,64 @@ KeyTab::KeyTab() {
 }
 
 $Class* KeyTab::load$($String* name, bool initialize) {
-	$loadClass(KeyTab, name, initialize, &_KeyTab_ClassInfo_, clinit$KeyTab, allocate$KeyTab);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(KeyTab, DEBUG)},
+		{"defaultTabName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(KeyTab, defaultTabName)},
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lsun/security/krb5/internal/ktab/KeyTab;>;", $PRIVATE | $STATIC, $staticField(KeyTab, map)},
+		{"isMissing", "Z", nullptr, $PRIVATE, $field(KeyTab, isMissing$)},
+		{"isValid", "Z", nullptr, $PRIVATE, $field(KeyTab, isValid$)},
+		{"tabName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(KeyTab, tabName$)},
+		{"lastModified", "J", nullptr, $PRIVATE, $field(KeyTab, lastModified)},
+		{"kt_vno", "I", nullptr, $PRIVATE, $field(KeyTab, kt_vno)},
+		{"entries", "Ljava/util/Vector;", "Ljava/util/Vector<Lsun/security/krb5/internal/ktab/KeyTabEntry;>;", $PRIVATE, $field(KeyTab, entries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(KeyTab, init$, void, $String*)},
+		{"addEntry", "(Lsun/security/krb5/PrincipalName;[CIZ)V", nullptr, $PUBLIC, $virtualMethod(KeyTab, addEntry, void, $PrincipalName*, $chars*, int32_t, bool), "sun.security.krb5.KrbException"},
+		{"addEntry", "(Lsun/security/krb5/PrincipalName;Ljava/lang/String;[CIZ)V", nullptr, $PUBLIC, $virtualMethod(KeyTab, addEntry, void, $PrincipalName*, $String*, $chars*, int32_t, bool), "sun.security.krb5.KrbException"},
+		{"create", "()Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(KeyTab, create, KeyTab*), "java.io.IOException,sun.security.krb5.RealmException"},
+		{"create", "(Ljava/lang/String;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(KeyTab, create, KeyTab*, $String*), "java.io.IOException,sun.security.krb5.RealmException"},
+		{"createVersion", "(Ljava/io/File;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyTab, createVersion, void, $File*), "java.io.IOException"},
+		{"deleteEntries", "(Lsun/security/krb5/PrincipalName;II)I", nullptr, $PUBLIC, $virtualMethod(KeyTab, deleteEntries, int32_t, $PrincipalName*, int32_t, int32_t)},
+		{"findServiceEntry", "(Lsun/security/krb5/PrincipalName;)Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, findServiceEntry, bool, $PrincipalName*)},
+		{"getDefaultTabName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(KeyTab, getDefaultTabName, $String*)},
+		{"getEntries", "()[Lsun/security/krb5/internal/ktab/KeyTabEntry;", nullptr, $PUBLIC, $virtualMethod(KeyTab, getEntries, $KeyTabEntryArray*)},
+		{"getInstance", "(Ljava/lang/String;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $String*)},
+		{"getInstance", "(Ljava/io/File;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*, $File*)},
+		{"getInstance", "()Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, getInstance, KeyTab*)},
+		{"getInstance0", "(Ljava/lang/String;)Lsun/security/krb5/internal/ktab/KeyTab;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(KeyTab, getInstance0, KeyTab*, $String*)},
+		{"getOneName", "()Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $virtualMethod(KeyTab, getOneName, $PrincipalName*)},
+		{"isMissing", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, isMissing, bool)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyTab, isValid, bool)},
+		{"load", "(Lsun/security/krb5/internal/ktab/KeyTabInputStream;)V", nullptr, $PRIVATE, $method(KeyTab, load, void, $KeyTabInputStream*), "java.io.IOException,sun.security.krb5.RealmException"},
+		{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KeyTab, normalize, $String*, $String*)},
+		{"readServiceKeys", "(Lsun/security/krb5/PrincipalName;)[Lsun/security/krb5/EncryptionKey;", nullptr, $PUBLIC, $virtualMethod(KeyTab, readServiceKeys, $EncryptionKeyArray*, $PrincipalName*)},
+		{"save", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(KeyTab, save, void), "java.io.IOException"},
+		{"tabName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyTab, tabName, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.ktab.KeyTab$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.ktab.KeyTab",
+		"java.lang.Object",
+		"sun.security.krb5.internal.ktab.KeyTabConstants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.ktab.KeyTab$1"
+	};
+	$loadClass(KeyTab, name, initialize, &classInfo$$, KeyTab::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyTab);
+	});
 	return class$;
 }
 

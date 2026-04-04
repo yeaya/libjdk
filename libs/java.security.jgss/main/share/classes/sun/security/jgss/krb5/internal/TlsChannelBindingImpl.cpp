@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/internal/TlsChannelBindingImpl.h>
-
 #include <org/ietf/jgss/ChannelBinding.h>
 #include <jcpp.h>
 
@@ -13,24 +12,6 @@ namespace sun {
 			namespace krb5 {
 				namespace internal {
 
-$MethodInfo _TlsChannelBindingImpl_MethodInfo_[] = {
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(TlsChannelBindingImpl, init$, void, $bytes*)},
-	{}
-};
-
-$ClassInfo _TlsChannelBindingImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.krb5.internal.TlsChannelBindingImpl",
-	"org.ietf.jgss.ChannelBinding",
-	nullptr,
-	nullptr,
-	_TlsChannelBindingImpl_MethodInfo_
-};
-
-$Object* allocate$TlsChannelBindingImpl($Class* clazz) {
-	return $of($alloc(TlsChannelBindingImpl));
-}
-
 void TlsChannelBindingImpl::init$($bytes* appData) {
 	$ChannelBinding::init$(appData);
 }
@@ -39,7 +20,21 @@ TlsChannelBindingImpl::TlsChannelBindingImpl() {
 }
 
 $Class* TlsChannelBindingImpl::load$($String* name, bool initialize) {
-	$loadClass(TlsChannelBindingImpl, name, initialize, &_TlsChannelBindingImpl_ClassInfo_, allocate$TlsChannelBindingImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(TlsChannelBindingImpl, init$, void, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.krb5.internal.TlsChannelBindingImpl",
+		"org.ietf.jgss.ChannelBinding",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TlsChannelBindingImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TlsChannelBindingImpl);
+	});
 	return class$;
 }
 

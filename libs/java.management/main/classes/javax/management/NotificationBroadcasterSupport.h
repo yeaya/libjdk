@@ -48,6 +48,7 @@ class $export NotificationBroadcasterSupport : public ::javax::management::Notif
 	$class(NotificationBroadcasterSupport, 0, ::javax::management::NotificationEmitter)
 public:
 	NotificationBroadcasterSupport();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::util::concurrent::Executor* executor);
 	void init$($Array<::javax::management::MBeanNotificationInfo>* info);

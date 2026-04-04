@@ -157,6 +157,7 @@ class $export HTML$Tag : public ::java::lang::Object {
 	$class(HTML$Tag, 0, ::java::lang::Object)
 public:
 	HTML$Tag();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* id);
 	void init$($String* id, bool causesBreak, bool isBlock);

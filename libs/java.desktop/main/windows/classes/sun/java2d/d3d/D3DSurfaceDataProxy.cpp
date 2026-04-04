@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSurfaceDataProxy.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Transparency.h>
 #include <sun/java2d/InvalidPipeException.h>
@@ -31,33 +30,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DSurfaceDataProxy_FieldInfo_[] = {
-	{"d3dgc", "Lsun/java2d/d3d/D3DGraphicsConfig;", nullptr, 0, $field(D3DSurfaceDataProxy, d3dgc)},
-	{"transparency", "I", nullptr, 0, $field(D3DSurfaceDataProxy, transparency)},
-	{}
-};
-
-$MethodInfo _D3DSurfaceDataProxy_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/d3d/D3DGraphicsConfig;I)V", nullptr, $PUBLIC, $method(D3DSurfaceDataProxy, init$, void, $D3DGraphicsConfig*, int32_t)},
-	{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/java2d/d3d/D3DGraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DSurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $D3DGraphicsConfig*)},
-	{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DSurfaceDataProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.d3d.D3DSurfaceDataProxy",
-	"sun.java2d.SurfaceDataProxy",
-	nullptr,
-	_D3DSurfaceDataProxy_FieldInfo_,
-	_D3DSurfaceDataProxy_MethodInfo_
-};
-
-$Object* allocate$D3DSurfaceDataProxy($Class* clazz) {
-	return $of($alloc(D3DSurfaceDataProxy));
-}
-
 $SurfaceDataProxy* D3DSurfaceDataProxy::createProxy($SurfaceData* srcData, $D3DGraphicsConfig* dstConfig) {
 	$init(D3DSurfaceDataProxy);
 	if ($instanceOf($D3DSurfaceData, srcData)) {
@@ -76,7 +48,7 @@ void D3DSurfaceDataProxy::init$($D3DGraphicsConfig* d3dgc, int32_t transparency)
 
 $SurfaceData* D3DSurfaceDataProxy::validateSurfaceData($SurfaceData* srcData, $SurfaceData* cachedData$renamed, int32_t w, int32_t h) {
 	$var($SurfaceData, cachedData, cachedData$renamed);
-	if (cachedData == nullptr || $nc(cachedData)->isSurfaceLost()) {
+	if (cachedData == nullptr || cachedData->isSurfaceLost()) {
 		try {
 			$assign(cachedData, $nc(this->d3dgc)->createManagedSurface(w, h, this->transparency));
 		} catch ($InvalidPipeException& e) {
@@ -98,7 +70,29 @@ D3DSurfaceDataProxy::D3DSurfaceDataProxy() {
 }
 
 $Class* D3DSurfaceDataProxy::load$($String* name, bool initialize) {
-	$loadClass(D3DSurfaceDataProxy, name, initialize, &_D3DSurfaceDataProxy_ClassInfo_, allocate$D3DSurfaceDataProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"d3dgc", "Lsun/java2d/d3d/D3DGraphicsConfig;", nullptr, 0, $field(D3DSurfaceDataProxy, d3dgc)},
+		{"transparency", "I", nullptr, 0, $field(D3DSurfaceDataProxy, transparency)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/d3d/D3DGraphicsConfig;I)V", nullptr, $PUBLIC, $method(D3DSurfaceDataProxy, init$, void, $D3DGraphicsConfig*, int32_t)},
+		{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/java2d/d3d/D3DGraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DSurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $D3DGraphicsConfig*)},
+		{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.d3d.D3DSurfaceDataProxy",
+		"sun.java2d.SurfaceDataProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DSurfaceDataProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(D3DSurfaceDataProxy));
+	});
 	return class$;
 }
 

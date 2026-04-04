@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalUtils$OceanToolBarImageFilter.h>
-
 #include <java/awt/image/RGBImageFilter.h>
 #include <java/lang/Math.h>
 #include <javax/swing/plaf/metal/MetalUtils.h>
@@ -16,55 +15,50 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalUtils$OceanToolBarImageFilter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetalUtils$OceanToolBarImageFilter, init$, void)},
-	{"filterRGB", "(III)I", nullptr, $PUBLIC, $virtualMethod(MetalUtils$OceanToolBarImageFilter, filterRGB, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalUtils$OceanToolBarImageFilter_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalUtils$OceanToolBarImageFilter", "javax.swing.plaf.metal.MetalUtils", "OceanToolBarImageFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalUtils$OceanToolBarImageFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalUtils$OceanToolBarImageFilter",
-	"java.awt.image.RGBImageFilter",
-	nullptr,
-	nullptr,
-	_MetalUtils$OceanToolBarImageFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalUtils$OceanToolBarImageFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalUtils"
-};
-
-$Object* allocate$MetalUtils$OceanToolBarImageFilter($Class* clazz) {
-	return $of($alloc(MetalUtils$OceanToolBarImageFilter));
-}
-
 void MetalUtils$OceanToolBarImageFilter::init$() {
 	$RGBImageFilter::init$();
 	this->canFilterIndexColorModel = true;
 }
 
 int32_t MetalUtils$OceanToolBarImageFilter::filterRGB(int32_t x, int32_t y, int32_t rgb) {
-	int32_t r = ((int32_t)((rgb >> 16) & (uint32_t)255));
-	int32_t g = ((int32_t)((rgb >> 8) & (uint32_t)255));
-	int32_t b = ((int32_t)(rgb & (uint32_t)255));
+	int32_t r = ((rgb >> 16) & 0xff);
+	int32_t g = ((rgb >> 8) & 0xff);
+	int32_t b = (rgb & 0xff);
 	int32_t gray = $Math::max($Math::max(r, g), b);
-	return ((((int32_t)(rgb & (uint32_t)(int32_t)0xFF000000)) | (gray << 16)) | (gray << 8)) | (gray << 0);
+	return (((rgb & (int32_t)0xff000000) | (gray << 16)) | (gray << 8)) | (gray << 0);
 }
 
 MetalUtils$OceanToolBarImageFilter::MetalUtils$OceanToolBarImageFilter() {
 }
 
 $Class* MetalUtils$OceanToolBarImageFilter::load$($String* name, bool initialize) {
-	$loadClass(MetalUtils$OceanToolBarImageFilter, name, initialize, &_MetalUtils$OceanToolBarImageFilter_ClassInfo_, allocate$MetalUtils$OceanToolBarImageFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetalUtils$OceanToolBarImageFilter, init$, void)},
+		{"filterRGB", "(III)I", nullptr, $PUBLIC, $virtualMethod(MetalUtils$OceanToolBarImageFilter, filterRGB, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalUtils$OceanToolBarImageFilter", "javax.swing.plaf.metal.MetalUtils", "OceanToolBarImageFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalUtils$OceanToolBarImageFilter",
+		"java.awt.image.RGBImageFilter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalUtils"
+	};
+	$loadClass(MetalUtils$OceanToolBarImageFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalUtils$OceanToolBarImageFilter));
+	});
 	return class$;
 }
 

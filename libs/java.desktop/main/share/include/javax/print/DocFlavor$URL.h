@@ -51,8 +51,9 @@ class $import DocFlavor$URL : public ::javax::print::DocFlavor {
 	$class(DocFlavor$URL, 0, ::javax::print::DocFlavor)
 public:
 	DocFlavor$URL();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mimeType);
-	static const int64_t serialVersionUID = (int64_t)0x28C1588B7D1B1FAE;
+	static const int64_t serialVersionUID = (int64_t)0x28c1588b7d1b1fae;
 	static ::javax::print::DocFlavor$URL* TEXT_PLAIN_HOST;
 	static ::javax::print::DocFlavor$URL* TEXT_PLAIN_UTF_8;
 	static ::javax::print::DocFlavor$URL* TEXT_PLAIN_UTF_16;

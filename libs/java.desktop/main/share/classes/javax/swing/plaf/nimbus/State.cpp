@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/State.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/swing/JComponent.h>
@@ -30,54 +29,6 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _State_FieldInfo_[] = {
-	{"standardStates", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/swing/plaf/nimbus/State$StandardState;>;", $STATIC | $FINAL, $staticField(State, standardStates)},
-	{"Enabled", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Enabled)},
-	{"MouseOver", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, MouseOver)},
-	{"Pressed", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Pressed)},
-	{"Disabled", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Disabled)},
-	{"Focused", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Focused)},
-	{"Selected", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Selected)},
-	{"Default", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Default)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(State, name)},
-	{}
-};
-
-$MethodInfo _State_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(State, init$, void, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(State, getName, $String*)},
-	{"getStandardState", "(Ljava/lang/String;)Ljavax/swing/plaf/nimbus/State$StandardState;", nullptr, $STATIC, $staticMethod(State, getStandardState, $State$StandardState*, $String*)},
-	{"isInState", "(Ljavax/swing/JComponent;I)Z", "(TT;I)Z", 0, $virtualMethod(State, isInState, bool, $JComponent*, int32_t)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", "(TT;)Z", $PROTECTED | $ABSTRACT, $virtualMethod(State, isInState, bool, $JComponent*)},
-	{"isStandardStateName", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(State, isStandardStateName, bool, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(State, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _State_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.State$StandardState", "javax.swing.plaf.nimbus.State", "StandardState", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _State_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.nimbus.State",
-	"java.lang.Object",
-	nullptr,
-	_State_FieldInfo_,
-	_State_MethodInfo_,
-	"<T:Ljavax/swing/JComponent;>Ljava/lang/Object;",
-	nullptr,
-	_State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.State$StandardState"
-};
-
-$Object* allocate$State($Class* clazz) {
-	return $of($alloc(State));
-}
-
 $Map* State::standardStates = nullptr;
 State* State::Enabled = nullptr;
 State* State::MouseOver = nullptr;
@@ -105,15 +56,15 @@ $String* State::getName() {
 
 bool State::isStandardStateName($String* name) {
 	$init(State);
-	return $nc(State::standardStates)->containsKey(name);
+	return State::standardStates->containsKey(name);
 }
 
 $State$StandardState* State::getStandardState($String* name) {
 	$init(State);
-	return $cast($State$StandardState, $nc(State::standardStates)->get(name));
+	return $cast($State$StandardState, State::standardStates->get(name));
 }
 
-void clinit$State($Class* class$) {
+void State::clinit$($Class* clazz) {
 	$assignStatic(State::standardStates, $new($HashMap, 7));
 	$assignStatic(State::Enabled, $new($State$StandardState, $SynthConstants::ENABLED));
 	$assignStatic(State::MouseOver, $new($State$StandardState, $SynthConstants::MOUSE_OVER));
@@ -128,7 +79,49 @@ State::State() {
 }
 
 $Class* State::load$($String* name, bool initialize) {
-	$loadClass(State, name, initialize, &_State_ClassInfo_, clinit$State, allocate$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"standardStates", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/swing/plaf/nimbus/State$StandardState;>;", $STATIC | $FINAL, $staticField(State, standardStates)},
+		{"Enabled", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Enabled)},
+		{"MouseOver", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, MouseOver)},
+		{"Pressed", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Pressed)},
+		{"Disabled", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Disabled)},
+		{"Focused", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Focused)},
+		{"Selected", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Selected)},
+		{"Default", "Ljavax/swing/plaf/nimbus/State;", "Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;", $STATIC | $FINAL, $staticField(State, Default)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(State, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(State, init$, void, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(State, getName, $String*)},
+		{"getStandardState", "(Ljava/lang/String;)Ljavax/swing/plaf/nimbus/State$StandardState;", nullptr, $STATIC, $staticMethod(State, getStandardState, $State$StandardState*, $String*)},
+		{"isInState", "(Ljavax/swing/JComponent;I)Z", "(TT;I)Z", 0, $virtualMethod(State, isInState, bool, $JComponent*, int32_t)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", "(TT;)Z", $PROTECTED | $ABSTRACT, $virtualMethod(State, isInState, bool, $JComponent*)},
+		{"isStandardStateName", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(State, isStandardStateName, bool, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(State, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.State$StandardState", "javax.swing.plaf.nimbus.State", "StandardState", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.nimbus.State",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljavax/swing/JComponent;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.State$StandardState"
+	};
+	$loadClass(State, name, initialize, &classInfo$$, State::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(State);
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class Logger$SystemLoggerHelper : public ::java::lang::Object {
 	$class(Logger$SystemLoggerHelper, 0, ::java::lang::Object)
 public:
 	Logger$SystemLoggerHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool getBooleanProperty($String* key);
 	static bool disableCallerCheck;

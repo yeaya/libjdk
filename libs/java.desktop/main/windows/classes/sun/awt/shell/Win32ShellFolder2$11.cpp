@@ -1,5 +1,4 @@
 #include <sun/awt/shell/Win32ShellFolder2$11.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/InterruptedException.h>
 #include <sun/awt/shell/Win32ShellFolder2.h>
@@ -20,58 +19,15 @@ namespace sun {
 	namespace awt {
 		namespace shell {
 
-$FieldInfo _Win32ShellFolder2$11_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$11, this$0)},
-	{"val$resolve", "Z", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$11, val$resolve)},
-	{}
-};
-
-$MethodInfo _Win32ShellFolder2$11_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;Z)V", "()V", 0, $method(Win32ShellFolder2$11, init$, void, $Win32ShellFolder2*, bool)},
-	{"call", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$11, call, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _Win32ShellFolder2$11_EnclosingMethodInfo_ = {
-	"sun.awt.shell.Win32ShellFolder2",
-	"getLinkLocation",
-	"(Z)Lsun/awt/shell/Win32ShellFolder2;"
-};
-
-$InnerClassInfo _Win32ShellFolder2$11_InnerClassesInfo_[] = {
-	{"sun.awt.shell.Win32ShellFolder2$11", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Win32ShellFolder2$11_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.shell.Win32ShellFolder2$11",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_Win32ShellFolder2$11_FieldInfo_,
-	_Win32ShellFolder2$11_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Lsun/awt/shell/Win32ShellFolder2;>;",
-	&_Win32ShellFolder2$11_EnclosingMethodInfo_,
-	_Win32ShellFolder2$11_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.shell.Win32ShellFolder2"
-};
-
-$Object* allocate$Win32ShellFolder2$11($Class* clazz) {
-	return $of($alloc(Win32ShellFolder2$11));
-}
-
 void Win32ShellFolder2$11::init$($Win32ShellFolder2* this$0, bool val$resolve) {
 	$set(this, this$0, this$0);
 	this->val$resolve = val$resolve;
 }
 
 $Object* Win32ShellFolder2$11::call() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->this$0->isLink()) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($Win32ShellFolder2, location, nullptr);
 	int64_t var$0 = this->this$0->getParentIShellFolder();
@@ -90,7 +46,43 @@ Win32ShellFolder2$11::Win32ShellFolder2$11() {
 }
 
 $Class* Win32ShellFolder2$11::load$($String* name, bool initialize) {
-	$loadClass(Win32ShellFolder2$11, name, initialize, &_Win32ShellFolder2$11_ClassInfo_, allocate$Win32ShellFolder2$11);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/shell/Win32ShellFolder2;", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$11, this$0)},
+		{"val$resolve", "Z", nullptr, $FINAL | $SYNTHETIC, $field(Win32ShellFolder2$11, val$resolve)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/shell/Win32ShellFolder2;Z)V", "()V", 0, $method(Win32ShellFolder2$11, init$, void, $Win32ShellFolder2*, bool)},
+		{"call", "()Lsun/awt/shell/Win32ShellFolder2;", nullptr, $PUBLIC, $virtualMethod(Win32ShellFolder2$11, call, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.shell.Win32ShellFolder2",
+		"getLinkLocation",
+		"(Z)Lsun/awt/shell/Win32ShellFolder2;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.shell.Win32ShellFolder2$11", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.shell.Win32ShellFolder2$11",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Lsun/awt/shell/Win32ShellFolder2;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.shell.Win32ShellFolder2"
+	};
+	$loadClass(Win32ShellFolder2$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Win32ShellFolder2$11);
+	});
 	return class$;
 }
 

@@ -22,6 +22,7 @@ class MBeanAnalyzer$MethodOrder : public ::java::util::Comparator {
 	$class(MBeanAnalyzer$MethodOrder, 0, ::java::util::Comparator)
 public:
 	MBeanAnalyzer$MethodOrder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t compare(::java::lang::reflect::Method* a, ::java::lang::reflect::Method* b);
 	virtual int32_t compare(Object$* a, Object$* b) override;

@@ -1,5 +1,4 @@
 #include <sun/awt/X11GraphicsConfig$XDBECapabilities.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/ImageCapabilities.h>
@@ -18,36 +17,6 @@ using $X11GraphicsConfig = ::sun::awt::X11GraphicsConfig;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _X11GraphicsConfig$XDBECapabilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11GraphicsConfig$XDBECapabilities, init$, void)},
-	{}
-};
-
-$InnerClassInfo _X11GraphicsConfig$XDBECapabilities_InnerClassesInfo_[] = {
-	{"sun.awt.X11GraphicsConfig$XDBECapabilities", "sun.awt.X11GraphicsConfig", "XDBECapabilities", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _X11GraphicsConfig$XDBECapabilities_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11GraphicsConfig$XDBECapabilities",
-	"java.awt.BufferCapabilities",
-	nullptr,
-	nullptr,
-	_X11GraphicsConfig$XDBECapabilities_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11GraphicsConfig$XDBECapabilities_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11GraphicsConfig"
-};
-
-$Object* allocate$X11GraphicsConfig$XDBECapabilities($Class* clazz) {
-	return $of($alloc(X11GraphicsConfig$XDBECapabilities));
-}
-
 void X11GraphicsConfig$XDBECapabilities::init$() {
 	$init($X11GraphicsConfig);
 	$init($BufferCapabilities$FlipContents);
@@ -58,7 +27,32 @@ X11GraphicsConfig$XDBECapabilities::X11GraphicsConfig$XDBECapabilities() {
 }
 
 $Class* X11GraphicsConfig$XDBECapabilities::load$($String* name, bool initialize) {
-	$loadClass(X11GraphicsConfig$XDBECapabilities, name, initialize, &_X11GraphicsConfig$XDBECapabilities_ClassInfo_, allocate$X11GraphicsConfig$XDBECapabilities);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11GraphicsConfig$XDBECapabilities, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11GraphicsConfig$XDBECapabilities", "sun.awt.X11GraphicsConfig", "XDBECapabilities", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11GraphicsConfig$XDBECapabilities",
+		"java.awt.BufferCapabilities",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11GraphicsConfig"
+	};
+	$loadClass(X11GraphicsConfig$XDBECapabilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11GraphicsConfig$XDBECapabilities);
+	});
 	return class$;
 }
 

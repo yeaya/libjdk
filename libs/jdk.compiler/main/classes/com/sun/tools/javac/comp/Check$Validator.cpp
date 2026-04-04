@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Check$Validator.h>
-
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -34,7 +33,6 @@
 #undef VOID
 
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Check = ::com::sun::tools::javac::comp::Check;
@@ -43,7 +41,6 @@ using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::Compiler
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotatedType = ::com::sun::tools::javac::tree::JCTree$JCAnnotatedType;
 using $JCTree$JCArrayTypeTree = ::com::sun::tools::javac::tree::JCTree$JCArrayTypeTree;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCPrimitiveTypeTree = ::com::sun::tools::javac::tree::JCTree$JCPrimitiveTypeTree;
 using $JCTree$JCTypeApply = ::com::sun::tools::javac::tree::JCTree$JCTypeApply;
@@ -51,9 +48,7 @@ using $JCTree$JCTypeParameter = ::com::sun::tools::javac::tree::JCTree$JCTypePar
 using $JCTree$JCWildcard = ::com::sun::tools::javac::tree::JCTree$JCWildcard;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -66,56 +61,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Check$Validator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$Validator, this$0)},
-	{"checkRaw", "Z", nullptr, 0, $field(Check$Validator, checkRaw)},
-	{"isOuter", "Z", nullptr, 0, $field(Check$Validator, isOuter)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $field(Check$Validator, env)},
-	{}
-};
-
-$MethodInfo _Check$Validator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Check$Validator, init$, void, $Check*, $Env*)},
-	{"validateTree", "(Lcom/sun/tools/javac/tree/JCTree;ZZ)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, validateTree, void, $JCTree*, bool, bool)},
-	{"validateTrees", "(Lcom/sun/tools/javac/util/List;ZZ)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;ZZ)V", $PUBLIC, $virtualMethod(Check$Validator, validateTrees, void, $List*, bool, bool)},
-	{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitSelectInternal", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitSelectInternal, void, $JCTree$JCFieldAccess*)},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTree, void, $JCTree*)},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeApply, void, $JCTree$JCTypeApply*)},
-	{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
-	{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
-	{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitWildcard, void, $JCTree$JCWildcard*)},
-	{}
-};
-
-$InnerClassInfo _Check$Validator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Check$Validator", "com.sun.tools.javac.comp.Check", "Validator", 0},
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Check$Validator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Check$Validator",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_Check$Validator_FieldInfo_,
-	_Check$Validator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Check$Validator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Check"
-};
-
-$Object* allocate$Check$Validator($Class* clazz) {
-	return $of($alloc(Check$Validator));
-}
-
 void Check$Validator::init$($Check* this$0, $Env* env) {
 	$set(this, this$0, this$0);
 	$JCTree$Visitor::init$();
@@ -127,23 +72,21 @@ void Check$Validator::visitTypeArray($JCTree$JCArrayTypeTree* tree) {
 }
 
 void Check$Validator::visitTypeApply($JCTree$JCTypeApply* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc($nc(tree)->type)->hasTag($TypeTag::CLASS)) {
 		$var($List, args, tree->arguments);
 		$var($List, forms, $nc($nc($nc(tree->type)->tsym)->type)->getTypeArguments());
 		$var($Type, incompatibleArg, this->this$0->firstIncompatibleTypeArg(tree->type));
 		if (incompatibleArg != nullptr) {
-			{
-				$var($Iterator, i$, $nc(tree->arguments)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($JCTree, arg, $cast($JCTree, i$->next()));
-					{
-						if ($nc(arg)->type == incompatibleArg) {
-							$nc(this->this$0->log)->error(static_cast<$JCDiagnostic$DiagnosticPosition*>(arg), $($CompilerProperties$Errors::NotWithinBounds(incompatibleArg, $cast($Type, $nc(forms)->head))));
-						}
-						$assign(forms, $nc(forms)->tail);
+			$var($Iterator, i$, $nc(tree->arguments)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($JCTree, arg, $cast($JCTree, i$->next()));
+				{
+					if ($nc(arg)->type == incompatibleArg) {
+						$nc(this->this$0->log)->error(arg, $($CompilerProperties$Errors::NotWithinBounds(incompatibleArg, $cast($Type, $nc(forms)->head))));
 					}
+					$assign(forms, $nc(forms)->tail);
 				}
 			}
 		}
@@ -157,10 +100,10 @@ void Check$Validator::visitTypeApply($JCTree$JCTypeApply* tree) {
 			{
 				validateTree($cast($JCTree, args->head), !(this->isOuter && is_java_lang_Class), false);
 				$assign(args, args->tail);
-				$assign(forms, forms->tail);
+				$assign(forms, $nc(forms)->tail);
 			}
 		}
-		if ($nc($($nc(tree->type)->getEnclosingType()))->isRaw()) {
+		if ($$nc($nc(tree->type)->getEnclosingType())->isRaw()) {
 			$init($CompilerProperties$Errors);
 			$nc(this->this$0->log)->error($(tree->pos()), $CompilerProperties$Errors::ImproperlyFormedTypeInnerRawParam);
 		}
@@ -173,7 +116,7 @@ void Check$Validator::visitTypeApply($JCTree$JCTypeApply* tree) {
 
 void Check$Validator::visitTypeParameter($JCTree$JCTypeParameter* tree) {
 	validateTrees($nc(tree)->bounds, true, this->isOuter);
-	this->this$0->checkClassBounds($($nc(tree)->pos()), tree->type);
+	this->this$0->checkClassBounds($(tree->pos()), tree->type);
 }
 
 void Check$Validator::visitWildcard($JCTree$JCWildcard* tree) {
@@ -183,12 +126,12 @@ void Check$Validator::visitWildcard($JCTree$JCWildcard* tree) {
 }
 
 void Check$Validator::visitSelect($JCTree$JCFieldAccess* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc($nc(tree)->type)->hasTag($TypeTag::CLASS)) {
 		visitSelectInternal(tree);
 		bool var$0 = $nc($nc(tree->selected)->type)->isParameterized();
-		if (var$0 && $nc($($nc($nc($nc(tree->type)->tsym)->type)->getTypeArguments()))->nonEmpty()) {
+		if (var$0 && $$nc($nc($nc($nc(tree->type)->tsym)->type)->getTypeArguments())->nonEmpty()) {
 			$init($CompilerProperties$Errors);
 			$nc(this->this$0->log)->error($(tree->pos()), $CompilerProperties$Errors::ImproperlyFormedTypeParamMissing);
 		}
@@ -222,40 +165,36 @@ void Check$Validator::visitTree($JCTree* tree) {
 }
 
 void Check$Validator::validateTree($JCTree* tree, bool checkRaw, bool isOuter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree != nullptr) {
 		bool prevCheckRaw = this->checkRaw;
 		this->checkRaw = checkRaw;
 		this->isOuter = isOuter;
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					tree->accept(this);
-					if (checkRaw) {
-						this->this$0->checkRaw(tree, this->env);
-					}
-				} catch ($Symbol$CompletionFailure& ex) {
-					this->this$0->completionError($(tree->pos()), ex);
+				tree->accept(this);
+				if (checkRaw) {
+					this->this$0->checkRaw(tree, this->env);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				this->checkRaw = prevCheckRaw;
+			} catch ($Symbol$CompletionFailure& ex) {
+				this->this$0->completionError($(tree->pos()), ex);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			this->checkRaw = prevCheckRaw;
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void Check$Validator::validateTrees($List* trees, bool checkRaw, bool isOuter) {
-	{
-		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-			validateTree($cast($JCTree, l->head), checkRaw, isOuter);
-		}
+	$var($List, l, trees);
+	for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+		validateTree($cast($JCTree, l->head), checkRaw, isOuter);
 	}
 }
 
@@ -263,7 +202,51 @@ Check$Validator::Check$Validator() {
 }
 
 $Class* Check$Validator::load$($String* name, bool initialize) {
-	$loadClass(Check$Validator, name, initialize, &_Check$Validator_ClassInfo_, allocate$Check$Validator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Check;", nullptr, $FINAL | $SYNTHETIC, $field(Check$Validator, this$0)},
+		{"checkRaw", "Z", nullptr, 0, $field(Check$Validator, checkRaw)},
+		{"isOuter", "Z", nullptr, 0, $field(Check$Validator, isOuter)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $field(Check$Validator, env)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Check;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Check$Validator, init$, void, $Check*, $Env*)},
+		{"validateTree", "(Lcom/sun/tools/javac/tree/JCTree;ZZ)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, validateTree, void, $JCTree*, bool, bool)},
+		{"validateTrees", "(Lcom/sun/tools/javac/util/List;ZZ)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree;>;ZZ)V", $PUBLIC, $virtualMethod(Check$Validator, validateTrees, void, $List*, bool, bool)},
+		{"visitAnnotatedType", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotatedType;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitAnnotatedType, void, $JCTree$JCAnnotatedType*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitSelectInternal", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitSelectInternal, void, $JCTree$JCFieldAccess*)},
+		{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTree, void, $JCTree*)},
+		{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeApply, void, $JCTree$JCTypeApply*)},
+		{"visitTypeArray", "(Lcom/sun/tools/javac/tree/JCTree$JCArrayTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeArray, void, $JCTree$JCArrayTypeTree*)},
+		{"visitTypeIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeIdent, void, $JCTree$JCPrimitiveTypeTree*)},
+		{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+		{"visitWildcard", "(Lcom/sun/tools/javac/tree/JCTree$JCWildcard;)V", nullptr, $PUBLIC, $virtualMethod(Check$Validator, visitWildcard, void, $JCTree$JCWildcard*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Check$Validator", "com.sun.tools.javac.comp.Check", "Validator", 0},
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Check$Validator",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Check"
+	};
+	$loadClass(Check$Validator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Check$Validator);
+	});
 	return class$;
 }
 

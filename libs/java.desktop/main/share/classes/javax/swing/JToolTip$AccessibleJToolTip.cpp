@@ -1,9 +1,7 @@
 #include <javax/swing/JToolTip$AccessibleJToolTip.h>
-
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JToolTip.h>
 #include <jcpp.h>
 
@@ -16,50 +14,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JToolTip = ::javax::swing::JToolTip;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JToolTip$AccessibleJToolTip_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JToolTip;", nullptr, $FINAL | $SYNTHETIC, $field(JToolTip$AccessibleJToolTip, this$0)},
-	{}
-};
-
-$MethodInfo _JToolTip$AccessibleJToolTip_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JToolTip;)V", nullptr, $PROTECTED, $method(JToolTip$AccessibleJToolTip, init$, void, $JToolTip*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JToolTip$AccessibleJToolTip, getAccessibleDescription, $String*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JToolTip$AccessibleJToolTip, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _JToolTip$AccessibleJToolTip_InnerClassesInfo_[] = {
-	{"javax.swing.JToolTip$AccessibleJToolTip", "javax.swing.JToolTip", "AccessibleJToolTip", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JToolTip$AccessibleJToolTip_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JToolTip$AccessibleJToolTip",
-	"javax.swing.JComponent$AccessibleJComponent",
-	nullptr,
-	_JToolTip$AccessibleJToolTip_FieldInfo_,
-	_JToolTip$AccessibleJToolTip_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JToolTip$AccessibleJToolTip_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JToolTip"
-};
-
-$Object* allocate$JToolTip$AccessibleJToolTip($Class* clazz) {
-	return $of($alloc(JToolTip$AccessibleJToolTip));
-}
 
 void JToolTip$AccessibleJToolTip::init$($JToolTip* this$0) {
 	$set(this, this$0, this$0);
@@ -87,7 +46,39 @@ JToolTip$AccessibleJToolTip::JToolTip$AccessibleJToolTip() {
 }
 
 $Class* JToolTip$AccessibleJToolTip::load$($String* name, bool initialize) {
-	$loadClass(JToolTip$AccessibleJToolTip, name, initialize, &_JToolTip$AccessibleJToolTip_ClassInfo_, allocate$JToolTip$AccessibleJToolTip);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JToolTip;", nullptr, $FINAL | $SYNTHETIC, $field(JToolTip$AccessibleJToolTip, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JToolTip;)V", nullptr, $PROTECTED, $method(JToolTip$AccessibleJToolTip, init$, void, $JToolTip*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JToolTip$AccessibleJToolTip, getAccessibleDescription, $String*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JToolTip$AccessibleJToolTip, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JToolTip$AccessibleJToolTip", "javax.swing.JToolTip", "AccessibleJToolTip", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JToolTip$AccessibleJToolTip",
+		"javax.swing.JComponent$AccessibleJComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JToolTip"
+	};
+	$loadClass(JToolTip$AccessibleJToolTip, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JToolTip$AccessibleJToolTip));
+	});
 	return class$;
 }
 

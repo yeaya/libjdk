@@ -14,6 +14,7 @@ namespace java {
 class $import DesignMode : public ::java::lang::Object {
 	$interface(DesignMode, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual bool isDesignTime() {return false;}
 	virtual void setDesignTime(bool designTime) {}
 	static $String* PROPERTYNAME;

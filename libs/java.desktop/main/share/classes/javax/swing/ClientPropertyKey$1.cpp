@@ -1,5 +1,4 @@
 #include <javax/swing/ClientPropertyKey$1.h>
-
 #include <javax/swing/ClientPropertyKey.h>
 #include <jcpp.h>
 
@@ -11,44 +10,6 @@ using $ClientPropertyKey = ::javax::swing::ClientPropertyKey;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _ClientPropertyKey$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ClientPropertyKey$1, init$, void)},
-	{"getJComponent_TRANSFER_HANDLER", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClientPropertyKey$1, getJComponent_TRANSFER_HANDLER, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ClientPropertyKey$1_EnclosingMethodInfo_ = {
-	"javax.swing.ClientPropertyKey",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _ClientPropertyKey$1_InnerClassesInfo_[] = {
-	{"javax.swing.ClientPropertyKey$1", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$ClientPropertyKeyAccessor", "sun.awt.AWTAccessor", "ClientPropertyKeyAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ClientPropertyKey$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ClientPropertyKey$1",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$ClientPropertyKeyAccessor",
-	nullptr,
-	_ClientPropertyKey$1_MethodInfo_,
-	nullptr,
-	&_ClientPropertyKey$1_EnclosingMethodInfo_,
-	_ClientPropertyKey$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ClientPropertyKey"
-};
-
-$Object* allocate$ClientPropertyKey$1($Class* clazz) {
-	return $of($alloc(ClientPropertyKey$1));
-}
 
 void ClientPropertyKey$1::init$() {
 }
@@ -62,7 +23,39 @@ ClientPropertyKey$1::ClientPropertyKey$1() {
 }
 
 $Class* ClientPropertyKey$1::load$($String* name, bool initialize) {
-	$loadClass(ClientPropertyKey$1, name, initialize, &_ClientPropertyKey$1_ClassInfo_, allocate$ClientPropertyKey$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ClientPropertyKey$1, init$, void)},
+		{"getJComponent_TRANSFER_HANDLER", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ClientPropertyKey$1, getJComponent_TRANSFER_HANDLER, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.ClientPropertyKey",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ClientPropertyKey$1", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$ClientPropertyKeyAccessor", "sun.awt.AWTAccessor", "ClientPropertyKeyAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ClientPropertyKey$1",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$ClientPropertyKeyAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ClientPropertyKey"
+	};
+	$loadClass(ClientPropertyKey$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientPropertyKey$1);
+	});
 	return class$;
 }
 

@@ -1,16 +1,12 @@
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst$EXCS.h>
 #include <com/sun/org/apache/bcel/internal/ExceptionConst.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
 #include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadClass.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
-#include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
 #include <java/io/DataOutputStream.h>
 #include <jcpp.h>
@@ -25,14 +21,7 @@
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ExceptionConst = ::com::sun::org::apache::bcel::internal::ExceptionConst;
 using $ExceptionConst$EXCS = ::com::sun::org::apache::bcel::internal::ExceptionConst$EXCS;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
-using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
-using $LoadClass = ::com::sun::org::apache::bcel::internal::generic::LoadClass;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -45,28 +34,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _INVOKESPECIAL_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(INVOKESPECIAL, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(INVOKESPECIAL, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(INVOKESPECIAL, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(INVOKESPECIAL, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(INVOKESPECIAL, getExceptions, $ClassArray*)},
-	{}
-};
-
-$ClassInfo _INVOKESPECIAL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.INVOKESPECIAL",
-	"com.sun.org.apache.bcel.internal.generic.InvokeInstruction",
-	nullptr,
-	nullptr,
-	_INVOKESPECIAL_MethodInfo_
-};
-
-$Object* allocate$INVOKESPECIAL($Class* clazz) {
-	return $of($alloc(INVOKESPECIAL));
-}
 
 void INVOKESPECIAL::init$() {
 	$InvokeInstruction::init$();
@@ -108,7 +75,25 @@ INVOKESPECIAL::INVOKESPECIAL() {
 }
 
 $Class* INVOKESPECIAL::load$($String* name, bool initialize) {
-	$loadClass(INVOKESPECIAL, name, initialize, &_INVOKESPECIAL_ClassInfo_, allocate$INVOKESPECIAL);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(INVOKESPECIAL, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(INVOKESPECIAL, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(INVOKESPECIAL, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(INVOKESPECIAL, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getExceptions", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(INVOKESPECIAL, getExceptions, $ClassArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.INVOKESPECIAL",
+		"com.sun.org.apache.bcel.internal.generic.InvokeInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(INVOKESPECIAL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(INVOKESPECIAL));
+	});
 	return class$;
 }
 

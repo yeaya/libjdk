@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/KeySelectorResult.h>
-
 #include <java/security/Key.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace xml {
 		namespace crypto {
 
-$MethodInfo _KeySelectorResult_MethodInfo_[] = {
-	{"getKey", "()Ljava/security/Key;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeySelectorResult, getKey, $Key*)},
-	{}
-};
-
-$ClassInfo _KeySelectorResult_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.crypto.KeySelectorResult",
-	nullptr,
-	nullptr,
-	nullptr,
-	_KeySelectorResult_MethodInfo_
-};
-
-$Object* allocate$KeySelectorResult($Class* clazz) {
-	return $of($alloc(KeySelectorResult));
-}
-
 $Class* KeySelectorResult::load$($String* name, bool initialize) {
-	$loadClass(KeySelectorResult, name, initialize, &_KeySelectorResult_ClassInfo_, allocate$KeySelectorResult);
+	$MethodInfo methodInfos$$[] = {
+		{"getKey", "()Ljava/security/Key;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeySelectorResult, getKey, $Key*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.crypto.KeySelectorResult",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeySelectorResult, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeySelectorResult);
+	});
 	return class$;
 }
 

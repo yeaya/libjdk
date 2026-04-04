@@ -41,6 +41,7 @@ class $export TypeMetadata$Annotations : public ::com::sun::tools::javac::code::
 	$class(TypeMetadata$Annotations, 0, ::com::sun::tools::javac::code::TypeMetadata$Entry)
 public:
 	TypeMetadata$Annotations();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::List* annos);
 	virtual ::com::sun::tools::javac::code::TypeMetadata$Annotations* combine(::com::sun::tools::javac::code::TypeMetadata$Entry* other) override;
 	virtual ::com::sun::tools::javac::util::List* getAnnotations();

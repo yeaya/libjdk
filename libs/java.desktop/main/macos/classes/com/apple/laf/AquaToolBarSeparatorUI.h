@@ -40,6 +40,7 @@ class AquaToolBarSeparatorUI : public ::javax::swing::plaf::basic::BasicToolBarS
 	$class(AquaToolBarSeparatorUI, 0, ::javax::swing::plaf::basic::BasicToolBarSeparatorUI)
 public:
 	AquaToolBarSeparatorUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual ::java::awt::Dimension* getMaximumSize(::javax::swing::JComponent* c) override;

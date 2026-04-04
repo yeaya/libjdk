@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/PullPublisher$Subscription.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <jdk/internal/net/http/PullPublisher$Subscription$PullTask.h>
@@ -20,58 +19,11 @@ using $PullPublisher = ::jdk::internal::net::http::PullPublisher;
 using $PullPublisher$Subscription$PullTask = ::jdk::internal::net::http::PullPublisher$Subscription$PullTask;
 using $Demand = ::jdk::internal::net::http::common::Demand;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 
 namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _PullPublisher$Subscription_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/PullPublisher;", nullptr, $FINAL | $SYNTHETIC, $field(PullPublisher$Subscription, this$0)},
-	{"subscriber", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-TT;>;", $PRIVATE | $FINAL, $field(PullPublisher$Subscription, subscriber)},
-	{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<TT;>;", $PRIVATE | $FINAL, $field(PullPublisher$Subscription, iter)},
-	{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PullPublisher$Subscription, completed)},
-	{"cancelled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PullPublisher$Subscription, cancelled)},
-	{"error", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(PullPublisher$Subscription, error)},
-	{"pullScheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(PullPublisher$Subscription, pullScheduler)},
-	{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $PRIVATE | $FINAL, $field(PullPublisher$Subscription, demand)},
-	{}
-};
-
-$MethodInfo _PullPublisher$Subscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/PullPublisher;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/Iterator;Ljava/lang/Throwable;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;Ljava/util/Iterator<TT;>;Ljava/lang/Throwable;)V", 0, $method(PullPublisher$Subscription, init$, void, $PullPublisher*, $Flow$Subscriber*, $Iterator*, $Throwable*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(PullPublisher$Subscription, cancel, void)},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(PullPublisher$Subscription, request, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _PullPublisher$Subscription_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.PullPublisher$Subscription", "jdk.internal.net.http.PullPublisher", "Subscription", $PRIVATE},
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.PullPublisher$Subscription$PullTask", "jdk.internal.net.http.PullPublisher$Subscription", "PullTask", $FINAL},
-	{}
-};
-
-$ClassInfo _PullPublisher$Subscription_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.PullPublisher$Subscription",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription",
-	_PullPublisher$Subscription_FieldInfo_,
-	_PullPublisher$Subscription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PullPublisher$Subscription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.PullPublisher"
-};
-
-$Object* allocate$PullPublisher$Subscription($Class* clazz) {
-	return $of($alloc(PullPublisher$Subscription));
-}
 
 void PullPublisher$Subscription::init$($PullPublisher* this$0, $Flow$Subscriber* subscriber, $Iterator* iter, $Throwable* throwable) {
 	$set(this, this$0, this$0);
@@ -83,16 +35,16 @@ void PullPublisher$Subscription::init$($PullPublisher* this$0, $Flow$Subscriber*
 }
 
 void PullPublisher$Subscription::request(int64_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cancelled) {
 		return;
 	}
 	if (n <= 0) {
 		$set(this, error, $new($IllegalArgumentException, $$str({"non-positive subscription request: "_s, $$str(n)})));
 	} else {
-		$nc(this->demand)->increase(n);
+		this->demand->increase(n);
 	}
-	$nc(this->pullScheduler)->runOrSchedule();
+	this->pullScheduler->runOrSchedule();
 }
 
 void PullPublisher$Subscription::cancel() {
@@ -103,7 +55,47 @@ PullPublisher$Subscription::PullPublisher$Subscription() {
 }
 
 $Class* PullPublisher$Subscription::load$($String* name, bool initialize) {
-	$loadClass(PullPublisher$Subscription, name, initialize, &_PullPublisher$Subscription_ClassInfo_, allocate$PullPublisher$Subscription);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/PullPublisher;", nullptr, $FINAL | $SYNTHETIC, $field(PullPublisher$Subscription, this$0)},
+		{"subscriber", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-TT;>;", $PRIVATE | $FINAL, $field(PullPublisher$Subscription, subscriber)},
+		{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<TT;>;", $PRIVATE | $FINAL, $field(PullPublisher$Subscription, iter)},
+		{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PullPublisher$Subscription, completed)},
+		{"cancelled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PullPublisher$Subscription, cancelled)},
+		{"error", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $VOLATILE, $field(PullPublisher$Subscription, error)},
+		{"pullScheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(PullPublisher$Subscription, pullScheduler)},
+		{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $PRIVATE | $FINAL, $field(PullPublisher$Subscription, demand)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/PullPublisher;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/Iterator;Ljava/lang/Throwable;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;Ljava/util/Iterator<TT;>;Ljava/lang/Throwable;)V", 0, $method(PullPublisher$Subscription, init$, void, $PullPublisher*, $Flow$Subscriber*, $Iterator*, $Throwable*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(PullPublisher$Subscription, cancel, void)},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(PullPublisher$Subscription, request, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.PullPublisher$Subscription", "jdk.internal.net.http.PullPublisher", "Subscription", $PRIVATE},
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.PullPublisher$Subscription$PullTask", "jdk.internal.net.http.PullPublisher$Subscription", "PullTask", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.PullPublisher$Subscription",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.PullPublisher"
+	};
+	$loadClass(PullPublisher$Subscription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PullPublisher$Subscription);
+	});
 	return class$;
 }
 

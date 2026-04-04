@@ -28,7 +28,7 @@ public:
 	virtual $String* toString() override;
 	double x = 0.0;
 	double y = 0.0;
-	static const int64_t serialVersionUID = (int64_t)0x555BF8CA09A31D5F;
+	static const int64_t serialVersionUID = (int64_t)0x555bf8ca09a31d5f;
 };
 
 		} // geom

@@ -13,6 +13,7 @@ class ServerImpl$2 : public ::java::lang::Object {
 	$class(ServerImpl$2, 0, ::java::lang::Object)
 public:
 	ServerImpl$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$net$httpserver$HttpConnection$State;
 };
 

@@ -18,6 +18,7 @@ class $export JRTIndex$CtSym : public ::java::lang::Object {
 	$class(JRTIndex$CtSym, 0, ::java::lang::Object)
 public:
 	JRTIndex$CtSym();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool hidden, bool proprietary, $String* minProfile);
 	virtual $String* toString() override;
 	bool hidden = false;

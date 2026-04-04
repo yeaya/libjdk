@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/RegionClipSpanIterator.h>
-
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RegionIterator.h>
 #include <sun/java2d/pipe/SpanIterator.h>
@@ -9,64 +8,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Region = ::sun::java2d::pipe::Region;
-using $RegionIterator = ::sun::java2d::pipe::RegionIterator;
 using $SpanIterator = ::sun::java2d::pipe::SpanIterator;
 
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$FieldInfo _RegionClipSpanIterator_FieldInfo_[] = {
-	{"rgn", "Lsun/java2d/pipe/Region;", nullptr, 0, $field(RegionClipSpanIterator, rgn)},
-	{"spanIter", "Lsun/java2d/pipe/SpanIterator;", nullptr, 0, $field(RegionClipSpanIterator, spanIter)},
-	{"resetState", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionClipSpanIterator, resetState)},
-	{"lwm", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionClipSpanIterator, lwm)},
-	{"row", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionClipSpanIterator, row)},
-	{"box", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionClipSpanIterator, box)},
-	{"spanlox", "I", nullptr, 0, $field(RegionClipSpanIterator, spanlox)},
-	{"spanhix", "I", nullptr, 0, $field(RegionClipSpanIterator, spanhix)},
-	{"spanloy", "I", nullptr, 0, $field(RegionClipSpanIterator, spanloy)},
-	{"spanhiy", "I", nullptr, 0, $field(RegionClipSpanIterator, spanhiy)},
-	{"lwmloy", "I", nullptr, 0, $field(RegionClipSpanIterator, lwmloy)},
-	{"lwmhiy", "I", nullptr, 0, $field(RegionClipSpanIterator, lwmhiy)},
-	{"rgnlox", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnlox)},
-	{"rgnloy", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnloy)},
-	{"rgnhix", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnhix)},
-	{"rgnhiy", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnhiy)},
-	{"rgnbndslox", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnbndslox)},
-	{"rgnbndsloy", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnbndsloy)},
-	{"rgnbndshix", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnbndshix)},
-	{"rgnbndshiy", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnbndshiy)},
-	{"rgnbox", "[I", nullptr, 0, $field(RegionClipSpanIterator, rgnbox)},
-	{"spanbox", "[I", nullptr, 0, $field(RegionClipSpanIterator, spanbox)},
-	{"doNextSpan", "Z", nullptr, 0, $field(RegionClipSpanIterator, doNextSpan)},
-	{"doNextBox", "Z", nullptr, 0, $field(RegionClipSpanIterator, doNextBox)},
-	{"done", "Z", nullptr, 0, $field(RegionClipSpanIterator, done)},
-	{}
-};
-
-$MethodInfo _RegionClipSpanIterator_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/Region;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $method(RegionClipSpanIterator, init$, void, $Region*, $SpanIterator*)},
-	{"getNativeIterator", "()J", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, getNativeIterator, int64_t)},
-	{"getPathBox", "([I)V", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, getPathBox, void, $ints*)},
-	{"intersectClipBox", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, intersectClipBox, void, int32_t, int32_t, int32_t, int32_t)},
-	{"nextSpan", "([I)Z", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, nextSpan, bool, $ints*)},
-	{"skipDownTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, skipDownTo, void, int32_t)},
-	{}
-};
-
-$ClassInfo _RegionClipSpanIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.RegionClipSpanIterator",
-	"java.lang.Object",
-	"sun.java2d.pipe.SpanIterator",
-	_RegionClipSpanIterator_FieldInfo_,
-	_RegionClipSpanIterator_MethodInfo_
-};
-
-$Object* allocate$RegionClipSpanIterator($Class* clazz) {
-	return $of($alloc(RegionClipSpanIterator));
-}
 
 void RegionClipSpanIterator::init$($Region* rgn, $SpanIterator* spanIter) {
 	$set(this, rgnbox, $new($ints, 4));
@@ -80,12 +26,12 @@ void RegionClipSpanIterator::init$($Region* rgn, $SpanIterator* spanIter) {
 		return;
 	}
 	this->rgnloy = (this->lwmloy = $nc(this->rgnbox)->get(1));
-	this->rgnhiy = (this->lwmhiy = $nc(this->rgnbox)->get(3));
+	this->rgnhiy = (this->lwmhiy = this->rgnbox->get(3));
 	rgn->getBounds(this->rgnbox);
 	this->rgnbndslox = $nc(this->rgnbox)->get(0);
-	this->rgnbndsloy = $nc(this->rgnbox)->get(1);
-	this->rgnbndshix = $nc(this->rgnbox)->get(2);
-	this->rgnbndshiy = $nc(this->rgnbox)->get(3);
+	this->rgnbndsloy = this->rgnbox->get(1);
+	this->rgnbndshix = this->rgnbox->get(2);
+	this->rgnbndshiy = this->rgnbox->get(3);
 	if (this->rgnbndslox >= this->rgnbndshix || this->rgnbndsloy >= this->rgnbndshiy) {
 		this->done = true;
 		return;
@@ -104,13 +50,13 @@ void RegionClipSpanIterator::getPathBox($ints* pathbox) {
 	if ($nc(pathbox)->get(0) < rgnbox->get(0)) {
 		pathbox->set(0, rgnbox->get(0));
 	}
-	if ($nc(pathbox)->get(1) < rgnbox->get(1)) {
+	if (pathbox->get(1) < rgnbox->get(1)) {
 		pathbox->set(1, rgnbox->get(1));
 	}
-	if ($nc(pathbox)->get(2) > rgnbox->get(2)) {
+	if (pathbox->get(2) > rgnbox->get(2)) {
 		pathbox->set(2, rgnbox->get(2));
 	}
-	if ($nc(pathbox)->get(3) > rgnbox->get(3)) {
+	if (pathbox->get(3) > rgnbox->get(3)) {
 		pathbox->set(3, rgnbox->get(3));
 	}
 }
@@ -138,15 +84,15 @@ bool RegionClipSpanIterator::nextSpan($ints* resultbox) {
 				if (this->spanlox >= this->rgnbndshix) {
 					continue;
 				}
-				this->spanloy = $nc(this->spanbox)->get(1);
+				this->spanloy = this->spanbox->get(1);
 				if (this->spanloy >= this->rgnbndshiy) {
 					continue;
 				}
-				this->spanhix = $nc(this->spanbox)->get(2);
+				this->spanhix = this->spanbox->get(2);
 				if (this->spanhix <= this->rgnbndslox) {
 					continue;
 				}
-				this->spanhiy = $nc(this->spanbox)->get(3);
+				this->spanhiy = this->spanbox->get(3);
 				if (this->spanhiy <= this->rgnbndsloy) {
 					continue;
 				}
@@ -155,14 +101,14 @@ bool RegionClipSpanIterator::nextSpan($ints* resultbox) {
 				$nc(this->lwm)->copyStateFrom(this->resetState);
 				$nc(this->lwm)->nextYRange(this->rgnbox);
 				this->lwmloy = $nc(this->rgnbox)->get(1);
-				this->lwmhiy = $nc(this->rgnbox)->get(3);
+				this->lwmhiy = this->rgnbox->get(3);
 			}
 			while (this->lwmhiy <= this->spanloy) {
 				if (!$nc(this->lwm)->nextYRange(this->rgnbox)) {
 					break;
 				}
 				this->lwmloy = $nc(this->rgnbox)->get(1);
-				this->lwmhiy = $nc(this->rgnbox)->get(3);
+				this->lwmhiy = this->rgnbox->get(3);
 			}
 			if (this->lwmhiy > this->spanloy && this->lwmloy < this->spanhiy) {
 				if (this->rgnloy != this->lwmloy) {
@@ -181,7 +127,7 @@ bool RegionClipSpanIterator::nextSpan($ints* resultbox) {
 			bool ok = $nc(this->row)->nextYRange(this->rgnbox);
 			if (ok) {
 				this->rgnloy = $nc(this->rgnbox)->get(1);
-				this->rgnhiy = $nc(this->rgnbox)->get(3);
+				this->rgnhiy = this->rgnbox->get(3);
 			}
 			if (!ok || this->rgnloy >= this->spanhiy) {
 				this->doNextSpan = true;
@@ -195,7 +141,7 @@ bool RegionClipSpanIterator::nextSpan($ints* resultbox) {
 			bool ok = $nc(this->box)->nextXBand(this->rgnbox);
 			if (ok) {
 				this->rgnlox = $nc(this->rgnbox)->get(0);
-				this->rgnhix = $nc(this->rgnbox)->get(2);
+				this->rgnhix = this->rgnbox->get(2);
 			}
 			if (!ok || this->rgnlox >= this->spanhix) {
 				this->doNextBox = false;
@@ -255,7 +201,54 @@ RegionClipSpanIterator::RegionClipSpanIterator() {
 }
 
 $Class* RegionClipSpanIterator::load$($String* name, bool initialize) {
-	$loadClass(RegionClipSpanIterator, name, initialize, &_RegionClipSpanIterator_ClassInfo_, allocate$RegionClipSpanIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"rgn", "Lsun/java2d/pipe/Region;", nullptr, 0, $field(RegionClipSpanIterator, rgn)},
+		{"spanIter", "Lsun/java2d/pipe/SpanIterator;", nullptr, 0, $field(RegionClipSpanIterator, spanIter)},
+		{"resetState", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionClipSpanIterator, resetState)},
+		{"lwm", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionClipSpanIterator, lwm)},
+		{"row", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionClipSpanIterator, row)},
+		{"box", "Lsun/java2d/pipe/RegionIterator;", nullptr, 0, $field(RegionClipSpanIterator, box)},
+		{"spanlox", "I", nullptr, 0, $field(RegionClipSpanIterator, spanlox)},
+		{"spanhix", "I", nullptr, 0, $field(RegionClipSpanIterator, spanhix)},
+		{"spanloy", "I", nullptr, 0, $field(RegionClipSpanIterator, spanloy)},
+		{"spanhiy", "I", nullptr, 0, $field(RegionClipSpanIterator, spanhiy)},
+		{"lwmloy", "I", nullptr, 0, $field(RegionClipSpanIterator, lwmloy)},
+		{"lwmhiy", "I", nullptr, 0, $field(RegionClipSpanIterator, lwmhiy)},
+		{"rgnlox", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnlox)},
+		{"rgnloy", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnloy)},
+		{"rgnhix", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnhix)},
+		{"rgnhiy", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnhiy)},
+		{"rgnbndslox", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnbndslox)},
+		{"rgnbndsloy", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnbndsloy)},
+		{"rgnbndshix", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnbndshix)},
+		{"rgnbndshiy", "I", nullptr, 0, $field(RegionClipSpanIterator, rgnbndshiy)},
+		{"rgnbox", "[I", nullptr, 0, $field(RegionClipSpanIterator, rgnbox)},
+		{"spanbox", "[I", nullptr, 0, $field(RegionClipSpanIterator, spanbox)},
+		{"doNextSpan", "Z", nullptr, 0, $field(RegionClipSpanIterator, doNextSpan)},
+		{"doNextBox", "Z", nullptr, 0, $field(RegionClipSpanIterator, doNextBox)},
+		{"done", "Z", nullptr, 0, $field(RegionClipSpanIterator, done)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/Region;Lsun/java2d/pipe/SpanIterator;)V", nullptr, $PUBLIC, $method(RegionClipSpanIterator, init$, void, $Region*, $SpanIterator*)},
+		{"getNativeIterator", "()J", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, getNativeIterator, int64_t)},
+		{"getPathBox", "([I)V", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, getPathBox, void, $ints*)},
+		{"intersectClipBox", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, intersectClipBox, void, int32_t, int32_t, int32_t, int32_t)},
+		{"nextSpan", "([I)Z", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, nextSpan, bool, $ints*)},
+		{"skipDownTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(RegionClipSpanIterator, skipDownTo, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.RegionClipSpanIterator",
+		"java.lang.Object",
+		"sun.java2d.pipe.SpanIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RegionClipSpanIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegionClipSpanIterator);
+	});
 	return class$;
 }
 

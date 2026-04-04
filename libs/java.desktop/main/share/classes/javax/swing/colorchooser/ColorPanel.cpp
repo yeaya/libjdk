@@ -1,15 +1,11 @@
 #include <javax/swing/colorchooser/ColorPanel.h>
-
 #include <java/awt/Color.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/lang/NumberFormatException.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/AbstractButton.h>
@@ -33,14 +29,10 @@
 
 using $SlidingSpinnerArray = $Array<::javax::swing::colorchooser::SlidingSpinner>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -48,18 +40,11 @@ using $Float = ::java::lang::Float;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $JComponent = ::javax::swing::JComponent;
-using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
-using $JSlider = ::javax::swing::JSlider;
-using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ColorChooserPanel = ::javax::swing::colorchooser::ColorChooserPanel;
 using $ColorModel = ::javax::swing::colorchooser::ColorModel;
@@ -68,56 +53,6 @@ using $SlidingSpinner = ::javax::swing::colorchooser::SlidingSpinner;
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$FieldInfo _ColorPanel_FieldInfo_[] = {
-	{"spinners", "[Ljavax/swing/colorchooser/SlidingSpinner;", nullptr, $PRIVATE | $FINAL, $field(ColorPanel, spinners)},
-	{"values", "[F", nullptr, $PRIVATE | $FINAL, $field(ColorPanel, values)},
-	{"model", "Ljavax/swing/colorchooser/ColorModel;", nullptr, $PRIVATE | $FINAL, $field(ColorPanel, model)},
-	{"color", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ColorPanel, color)},
-	{"x", "I", nullptr, $PRIVATE, $field(ColorPanel, x)},
-	{"y", "I", nullptr, $PRIVATE, $field(ColorPanel, y)},
-	{"z", "I", nullptr, $PRIVATE, $field(ColorPanel, z)},
-	{}
-};
-
-$MethodInfo _ColorPanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/colorchooser/ColorModel;)V", nullptr, 0, $method(ColorPanel, init$, void, $ColorModel*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ColorPanel, actionPerformed, void, $ActionEvent*)},
-	{"buildPanel", "()V", nullptr, 0, $method(ColorPanel, buildPanel, void)},
-	{"colorChanged", "()V", nullptr, 0, $method(ColorPanel, colorChanged, void)},
-	{"getColor", "(F)I", nullptr, 0, $method(ColorPanel, getColor, int32_t, float)},
-	{"getColor", "(FF)I", nullptr, 0, $method(ColorPanel, getColor, int32_t, float, float)},
-	{"getColor", "(I)I", nullptr, $PRIVATE, $method(ColorPanel, getColor, int32_t, int32_t)},
-	{"getValueX", "()F", nullptr, 0, $method(ColorPanel, getValueX, float)},
-	{"getValueY", "()F", nullptr, 0, $method(ColorPanel, getValueY, float)},
-	{"getValueZ", "()F", nullptr, 0, $method(ColorPanel, getValueZ, float)},
-	{"isColorTransparencySelectionEnabled", "()Z", nullptr, 0, $method(ColorPanel, isColorTransparencySelectionEnabled, bool)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, 0, $method(ColorPanel, setColor, void, $Color*)},
-	{"setColorTransparencySelectionEnabled", "(Z)V", nullptr, 0, $method(ColorPanel, setColorTransparencySelectionEnabled, void, bool)},
-	{"setDefaultValue", "(I)V", nullptr, $PRIVATE, $method(ColorPanel, setDefaultValue, void, int32_t)},
-	{"setValue", "(F)V", nullptr, 0, $method(ColorPanel, setValue, void, float)},
-	{"setValue", "(FF)V", nullptr, 0, $method(ColorPanel, setValue, void, float, float)},
-	{"setValue", "(I)V", nullptr, $PRIVATE, $method(ColorPanel, setValue, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ColorPanel_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.colorchooser.ColorPanel",
-	"javax.swing.JPanel",
-	"java.awt.event.ActionListener",
-	_ColorPanel_FieldInfo_,
-	_ColorPanel_MethodInfo_
-};
-
-$Object* allocate$ColorPanel($Class* clazz) {
-	return $of($alloc(ColorPanel));
-}
 
 $String* ColorPanel::toString() {
 	 return this->$JPanel::toString();
@@ -140,8 +75,8 @@ void ColorPanel::finalize() {
 }
 
 void ColorPanel::init$($ColorModel* model) {
-	$useLocalCurrentObjectStackCache();
-	$JPanel::init$(static_cast<$LayoutManager*>($$new($GridBagLayout)));
+	$useLocalObjectStack();
+	$JPanel::init$($$new($GridBagLayout));
 	$set(this, spinners, $new($SlidingSpinnerArray, 5));
 	$set(this, values, $new($floats, $nc(this->spinners)->length));
 	this->x = 1;
@@ -151,7 +86,7 @@ void ColorPanel::init$($ColorModel* model) {
 	gbc->gridx = 1;
 	$var($ButtonGroup, group, $new($ButtonGroup));
 	$var($EmptyBorder, border, nullptr);
-	for (int32_t i = 0; i < $nc(this->spinners)->length; ++i) {
+	for (int32_t i = 0; i < this->spinners->length; ++i) {
 		if (i < 3) {
 			$var($JRadioButton, button, $new($JRadioButton));
 			if (i == 0) {
@@ -161,31 +96,29 @@ void ColorPanel::init$($ColorModel* model) {
 				button->setSelected(true);
 				$nc(gbc->insets)->top = 5;
 			}
-			add(static_cast<$Component*>(button), $of(gbc));
+			add(button, gbc);
 			group->add(button);
 			button->setActionCommand($($Integer::toString(i)));
 			button->addActionListener(this);
-			$nc(this->spinners)->set(i, $$new($SlidingSpinner, this, button));
+			this->spinners->set(i, $$new($SlidingSpinner, this, button));
 		} else {
 			$var($JLabel, label, $new($JLabel));
-			add(static_cast<$Component*>(label), $of(gbc));
+			add(label, gbc);
 			label->setBorder(border);
 			label->setFocusable(false);
-			$nc(this->spinners)->set(i, $$new($SlidingSpinner, this, label));
+			this->spinners->set(i, $$new($SlidingSpinner, this, label));
 		}
 	}
 	gbc->gridx = 2;
 	gbc->weightx = 1.0;
 	$nc(gbc->insets)->top = 0;
-	$nc(gbc->insets)->left = 5;
+	gbc->insets->left = 5;
 	{
 		$var($SlidingSpinnerArray, arr$, this->spinners);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($SlidingSpinner, spinner, arr$->get(i$));
 			{
-				add($(static_cast<$Component*>($nc(spinner)->getSlider())), $of(gbc));
+				add($($nc(spinner)->getSlider()), gbc);
 				$nc(gbc->insets)->top = 5;
 			}
 		}
@@ -195,12 +128,10 @@ void ColorPanel::init$($ColorModel* model) {
 	$nc(gbc->insets)->top = 0;
 	{
 		$var($SlidingSpinnerArray, arr$, this->spinners);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($SlidingSpinner, spinner, arr$->get(i$));
 			{
-				add($(static_cast<$Component*>($nc(spinner)->getSpinner())), $of(gbc));
+				add($($nc(spinner)->getSpinner()), gbc);
 				$nc(gbc->insets)->top = 5;
 			}
 		}
@@ -210,52 +141,52 @@ void ColorPanel::init$($ColorModel* model) {
 }
 
 void ColorPanel::actionPerformed($ActionEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		this->z = $Integer::parseInt($($nc(event)->getActionCommand()));
 		this->y = (this->z != 2) ? 2 : 1;
 		this->x = (this->z != 0) ? 0 : 1;
-		$nc($(getParent()))->repaint();
+		$$nc(getParent())->repaint();
 	} catch ($NumberFormatException& exception) {
 	}
 }
 
 void ColorPanel::buildPanel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->model)->getCount();
 	$nc($nc(this->spinners)->get(4))->setVisible(count > 4);
 	for (int32_t i = 0; i < count; ++i) {
-		$var($String, text, $nc(this->model)->getLabel(this, i));
-		$var($Object, object, $nc($nc(this->spinners)->get(i))->getLabel());
+		$var($String, text, this->model->getLabel(this, i));
+		$var($Object, object, $nc(this->spinners->get(i))->getLabel());
 		if ($instanceOf($JRadioButton, object)) {
 			$var($JRadioButton, button, $cast($JRadioButton, object));
-			$nc(button)->setText(text);
-			$nc($(button->getAccessibleContext()))->setAccessibleDescription(text);
+			button->setText(text);
+			$$nc(button->getAccessibleContext())->setAccessibleDescription(text);
 		} else if ($instanceOf($JLabel, object)) {
 			$var($JLabel, label, $cast($JLabel, object));
-			$nc(label)->setText(text);
+			label->setText(text);
 		}
-		int32_t var$0 = $nc(this->model)->getMinimum(i);
-		$nc($nc(this->spinners)->get(i))->setRange(var$0, $nc(this->model)->getMaximum(i));
-		$nc($nc(this->spinners)->get(i))->setValue($nc(this->values)->get(i));
-		$nc($($nc($($nc($nc(this->spinners)->get(i))->getSlider()))->getAccessibleContext()))->setAccessibleName(text);
-		$nc($($nc($($nc($nc(this->spinners)->get(i))->getSpinner()))->getAccessibleContext()))->setAccessibleName(text);
-		$var($JSpinner$DefaultEditor, editor, $cast($JSpinner$DefaultEditor, $nc($($nc($nc(this->spinners)->get(i))->getSpinner()))->getEditor()));
-		$nc($($nc($($nc(editor)->getTextField()))->getAccessibleContext()))->setAccessibleName(text);
-		$nc($($nc($($nc($nc(this->spinners)->get(i))->getSlider()))->getAccessibleContext()))->setAccessibleDescription(text);
-		$nc($($nc($($nc($nc(this->spinners)->get(i))->getSpinner()))->getAccessibleContext()))->setAccessibleDescription(text);
-		$nc($($nc($(editor->getTextField()))->getAccessibleContext()))->setAccessibleDescription(text);
+		int32_t var$0 = this->model->getMinimum(i);
+		$nc(this->spinners->get(i))->setRange(var$0, this->model->getMaximum(i));
+		$nc(this->spinners->get(i))->setValue($nc(this->values)->get(i));
+		$$nc($$nc($nc(this->spinners->get(i))->getSlider())->getAccessibleContext())->setAccessibleName(text);
+		$$nc($$nc($nc(this->spinners->get(i))->getSpinner())->getAccessibleContext())->setAccessibleName(text);
+		$var($JSpinner$DefaultEditor, editor, $cast($JSpinner$DefaultEditor, $$nc($nc(this->spinners->get(i))->getSpinner())->getEditor()));
+		$$nc($$nc($nc(editor)->getTextField())->getAccessibleContext())->setAccessibleName(text);
+		$$nc($$nc($nc(this->spinners->get(i))->getSlider())->getAccessibleContext())->setAccessibleDescription(text);
+		$$nc($$nc($nc(this->spinners->get(i))->getSpinner())->getAccessibleContext())->setAccessibleDescription(text);
+		$$nc($$nc(editor->getTextField())->getAccessibleContext())->setAccessibleDescription(text);
 	}
 }
 
 void ColorPanel::colorChanged() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = getColor(0);
 	$set(this, color, $new($Color, var$0, isColorTransparencySelectionEnabled()));
 	$var($Object, parent, getParent());
 	if ($instanceOf($ColorChooserPanel, parent)) {
 		$var($ColorChooserPanel, chooser, $cast($ColorChooserPanel, parent));
-		$nc(chooser)->setSelectedColor(this->color);
+		chooser->setSelectedColor(this->color);
 		chooser->repaint();
 	}
 }
@@ -279,7 +210,7 @@ void ColorPanel::setValue(float z) {
 
 void ColorPanel::setValue(float x, float y) {
 	$nc($nc(this->spinners)->get(this->x))->setValue(x);
-	$nc($nc(this->spinners)->get(this->y))->setValue(1.0f - y);
+	$nc(this->spinners->get(this->y))->setValue(1.0f - y);
 	colorChanged();
 }
 
@@ -292,7 +223,7 @@ int32_t ColorPanel::getColor(float z) {
 
 int32_t ColorPanel::getColor(float x, float y) {
 	$nc(this->values)->set(this->x, x);
-	$nc(this->values)->set(this->y, 1.0f - y);
+	this->values->set(this->y, 1.0f - y);
 	setValue(this->z);
 	return getColor(3);
 }
@@ -301,7 +232,7 @@ void ColorPanel::setColor($Color* color) {
 	if (!$nc(color)->equals(this->color)) {
 		$set(this, color, color);
 		$nc(this->model)->setColor(color->getRGB(), this->values);
-		for (int32_t i = 0; i < $nc(this->model)->getCount(); ++i) {
+		for (int32_t i = 0; i < this->model->getCount(); ++i) {
 			$nc($nc(this->spinners)->get(i))->setValue($nc(this->values)->get(i));
 		}
 	}
@@ -311,18 +242,18 @@ int32_t ColorPanel::getColor(int32_t index) {
 	while (index < $nc(this->model)->getCount()) {
 		setValue(index++);
 	}
-	return $nc(this->model)->getColor(this->values);
+	return this->model->getColor(this->values);
 }
 
 void ColorPanel::setColorTransparencySelectionEnabled(bool b) {
-	if ($nc($nc(this->spinners)->get($nc(this->model)->getCount() - 1))->isVisible() != b) {
-		$nc($nc(this->spinners)->get($nc(this->model)->getCount() - 1))->setVisible(b);
+	if ($nc(this->spinners->get($nc(this->model)->getCount() - 1))->isVisible() != b) {
+		$nc(this->spinners->get(this->model->getCount() - 1))->setVisible(b);
 		colorChanged();
 	}
 }
 
 bool ColorPanel::isColorTransparencySelectionEnabled() {
-	return $nc($nc(this->spinners)->get($nc(this->model)->getCount() - 1))->isVisible();
+	return $nc(this->spinners->get($nc(this->model)->getCount() - 1))->isVisible();
 }
 
 void ColorPanel::setValue(int32_t index) {
@@ -338,7 +269,52 @@ ColorPanel::ColorPanel() {
 }
 
 $Class* ColorPanel::load$($String* name, bool initialize) {
-	$loadClass(ColorPanel, name, initialize, &_ColorPanel_ClassInfo_, allocate$ColorPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"spinners", "[Ljavax/swing/colorchooser/SlidingSpinner;", nullptr, $PRIVATE | $FINAL, $field(ColorPanel, spinners)},
+		{"values", "[F", nullptr, $PRIVATE | $FINAL, $field(ColorPanel, values)},
+		{"model", "Ljavax/swing/colorchooser/ColorModel;", nullptr, $PRIVATE | $FINAL, $field(ColorPanel, model)},
+		{"color", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ColorPanel, color)},
+		{"x", "I", nullptr, $PRIVATE, $field(ColorPanel, x)},
+		{"y", "I", nullptr, $PRIVATE, $field(ColorPanel, y)},
+		{"z", "I", nullptr, $PRIVATE, $field(ColorPanel, z)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/colorchooser/ColorModel;)V", nullptr, 0, $method(ColorPanel, init$, void, $ColorModel*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ColorPanel, actionPerformed, void, $ActionEvent*)},
+		{"buildPanel", "()V", nullptr, 0, $method(ColorPanel, buildPanel, void)},
+		{"colorChanged", "()V", nullptr, 0, $method(ColorPanel, colorChanged, void)},
+		{"getColor", "(F)I", nullptr, 0, $method(ColorPanel, getColor, int32_t, float)},
+		{"getColor", "(FF)I", nullptr, 0, $method(ColorPanel, getColor, int32_t, float, float)},
+		{"getColor", "(I)I", nullptr, $PRIVATE, $method(ColorPanel, getColor, int32_t, int32_t)},
+		{"getValueX", "()F", nullptr, 0, $method(ColorPanel, getValueX, float)},
+		{"getValueY", "()F", nullptr, 0, $method(ColorPanel, getValueY, float)},
+		{"getValueZ", "()F", nullptr, 0, $method(ColorPanel, getValueZ, float)},
+		{"isColorTransparencySelectionEnabled", "()Z", nullptr, 0, $method(ColorPanel, isColorTransparencySelectionEnabled, bool)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, 0, $method(ColorPanel, setColor, void, $Color*)},
+		{"setColorTransparencySelectionEnabled", "(Z)V", nullptr, 0, $method(ColorPanel, setColorTransparencySelectionEnabled, void, bool)},
+		{"setDefaultValue", "(I)V", nullptr, $PRIVATE, $method(ColorPanel, setDefaultValue, void, int32_t)},
+		{"setValue", "(F)V", nullptr, 0, $method(ColorPanel, setValue, void, float)},
+		{"setValue", "(FF)V", nullptr, 0, $method(ColorPanel, setValue, void, float, float)},
+		{"setValue", "(I)V", nullptr, $PRIVATE, $method(ColorPanel, setValue, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.colorchooser.ColorPanel",
+		"javax.swing.JPanel",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ColorPanel));
+	});
 	return class$;
 }
 

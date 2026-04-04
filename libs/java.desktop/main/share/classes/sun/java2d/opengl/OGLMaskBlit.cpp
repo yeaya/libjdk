@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLMaskBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/Paint.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -14,8 +13,6 @@
 #include <sun/java2d/opengl/OGLSurfaceData.h>
 #include <sun/java2d/pipe/BufferedMaskBlit.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/pipe/RenderQueue.h>
-#include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <jcpp.h>
 
 #undef NO_CONTEXT_FLAGS
@@ -29,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
-using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $OGLContext = ::sun::java2d::opengl::OGLContext;
@@ -37,45 +33,23 @@ using $OGLRenderQueue = ::sun::java2d::opengl::OGLRenderQueue;
 using $OGLSurfaceData = ::sun::java2d::opengl::OGLSurfaceData;
 using $BufferedMaskBlit = ::sun::java2d::pipe::BufferedMaskBlit;
 using $Region = ::sun::java2d::pipe::Region;
-using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLMaskBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;)V", nullptr, $PRIVATE, $method(OGLMaskBlit, init$, void, $SurfaceType*, $CompositeType*)},
-	{"register", "()V", nullptr, $STATIC, $staticMethod(OGLMaskBlit, register$, void)},
-	{"validateContext", "(Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;)V", nullptr, $PROTECTED, $virtualMethod(OGLMaskBlit, validateContext, void, $SurfaceData*, $Composite*, $Region*)},
-	{}
-};
-
-$ClassInfo _OGLMaskBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLMaskBlit",
-	"sun.java2d.pipe.BufferedMaskBlit",
-	nullptr,
-	nullptr,
-	_OGLMaskBlit_MethodInfo_
-};
-
-$Object* allocate$OGLMaskBlit($Class* clazz) {
-	return $of($alloc(OGLMaskBlit));
-}
-
 void OGLMaskBlit::register$() {
 	$init(OGLMaskBlit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SurfaceType);
 	$init($CompositeType);
 	$var($GraphicsPrimitiveArray, primitives, $new($GraphicsPrimitiveArray, {
-		static_cast<$GraphicsPrimitive*>($$new(OGLMaskBlit, $SurfaceType::IntArgb, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(OGLMaskBlit, $SurfaceType::IntArgbPre, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(OGLMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(OGLMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcNoEa)),
-		static_cast<$GraphicsPrimitive*>($$new(OGLMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcOver)),
-		static_cast<$GraphicsPrimitive*>($$new(OGLMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcNoEa))
+		$$new(OGLMaskBlit, $SurfaceType::IntArgb, $CompositeType::SrcOver),
+		$$new(OGLMaskBlit, $SurfaceType::IntArgbPre, $CompositeType::SrcOver),
+		$$new(OGLMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcOver),
+		$$new(OGLMaskBlit, $SurfaceType::IntRgb, $CompositeType::SrcNoEa),
+		$$new(OGLMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcOver),
+		$$new(OGLMaskBlit, $SurfaceType::IntBgr, $CompositeType::SrcNoEa)
 	}));
 	$GraphicsPrimitiveMgr::register$(primitives);
 }
@@ -94,7 +68,23 @@ OGLMaskBlit::OGLMaskBlit() {
 }
 
 $Class* OGLMaskBlit::load$($String* name, bool initialize) {
-	$loadClass(OGLMaskBlit, name, initialize, &_OGLMaskBlit_ClassInfo_, allocate$OGLMaskBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;)V", nullptr, $PRIVATE, $method(OGLMaskBlit, init$, void, $SurfaceType*, $CompositeType*)},
+		{"register", "()V", nullptr, $STATIC, $staticMethod(OGLMaskBlit, register$, void)},
+		{"validateContext", "(Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;)V", nullptr, $PROTECTED, $virtualMethod(OGLMaskBlit, validateContext, void, $SurfaceData*, $Composite*, $Region*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLMaskBlit",
+		"sun.java2d.pipe.BufferedMaskBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OGLMaskBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLMaskBlit);
+	});
 	return class$;
 }
 

@@ -34,7 +34,7 @@ public:
 	$String* relOpString();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xB106BA45756C7588;
+	static const int64_t serialVersionUID = (int64_t)0xb106ba45756c7588;
 	int32_t relOp = 0;
 	::javax::management::ValueExp* exp1 = nullptr;
 	::javax::management::ValueExp* exp2 = nullptr;

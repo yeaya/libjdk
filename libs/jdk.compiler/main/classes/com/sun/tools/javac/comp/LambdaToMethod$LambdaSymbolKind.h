@@ -28,6 +28,7 @@ class $export LambdaToMethod$LambdaSymbolKind : public ::java::lang::Enum {
 public:
 	LambdaToMethod$LambdaSymbolKind();
 	static $Array<::com::sun::tools::javac::comp::LambdaToMethod$LambdaSymbolKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool propagateAnnotations();
 	static ::com::sun::tools::javac::comp::LambdaToMethod$LambdaSymbolKind* valueOf($String* name);

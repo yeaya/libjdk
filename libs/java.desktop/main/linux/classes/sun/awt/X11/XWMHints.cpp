@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XWMHints.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,69 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XWMHints_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XWMHints, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XWMHints, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XWMHints, pData)},
-	{}
-};
-
-$MethodInfo _XWMHints_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XWMHints, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XWMHints, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWMHints, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XWMHints, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XWMHints, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWMHints, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWMHints, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XWMHints, getSize, int32_t)},
-	{"get_flags", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_flags, int64_t)},
-	{"get_icon_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_mask, int64_t)},
-	{"get_icon_pixmap", "(I)J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_pixmap, int64_t, int32_t)},
-	{"get_icon_pixmap", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_pixmap, int64_t)},
-	{"get_icon_window", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_window, int64_t)},
-	{"get_icon_x", "()I", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_x, int32_t)},
-	{"get_icon_y", "()I", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_y, int32_t)},
-	{"get_initial_state", "()I", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_initial_state, int32_t)},
-	{"get_input", "()Z", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_input, bool)},
-	{"get_window_group", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_window_group, int64_t)},
-	{"set_flags", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_flags, void, int64_t)},
-	{"set_icon_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_mask, void, int64_t)},
-	{"set_icon_pixmap", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_pixmap, void, int64_t)},
-	{"set_icon_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_window, void, int64_t)},
-	{"set_icon_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_x, void, int32_t)},
-	{"set_icon_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_y, void, int32_t)},
-	{"set_initial_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_initial_state, void, int32_t)},
-	{"set_input", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_input, void, bool)},
-	{"set_window_group", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_window_group, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWMHints, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWMHints, zero, void)},
-	{}
-};
-
-$ClassInfo _XWMHints_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XWMHints",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XWMHints_FieldInfo_,
-	_XWMHints_MethodInfo_
-};
-
-$Object* allocate$XWMHints($Class* clazz) {
-	return $of($alloc(XWMHints));
-}
 
 int32_t XWMHints::getSize() {
 	$init(XWMHints);
@@ -112,7 +55,7 @@ void XWMHints::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -251,7 +194,7 @@ $String* XWMHints::getFieldsAsString() {
 }
 
 $Object* XWMHints::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XWMHints::zero() {
@@ -266,7 +209,56 @@ XWMHints::XWMHints() {
 }
 
 $Class* XWMHints::load$($String* name, bool initialize) {
-	$loadClass(XWMHints, name, initialize, &_XWMHints_ClassInfo_, allocate$XWMHints);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XWMHints, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XWMHints, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XWMHints, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XWMHints, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XWMHints, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWMHints, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XWMHints, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XWMHints, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWMHints, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XWMHints, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XWMHints, getSize, int32_t)},
+		{"get_flags", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_flags, int64_t)},
+		{"get_icon_mask", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_mask, int64_t)},
+		{"get_icon_pixmap", "(I)J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_pixmap, int64_t, int32_t)},
+		{"get_icon_pixmap", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_pixmap, int64_t)},
+		{"get_icon_window", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_window, int64_t)},
+		{"get_icon_x", "()I", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_x, int32_t)},
+		{"get_icon_y", "()I", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_icon_y, int32_t)},
+		{"get_initial_state", "()I", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_initial_state, int32_t)},
+		{"get_input", "()Z", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_input, bool)},
+		{"get_window_group", "()J", nullptr, $PUBLIC, $virtualMethod(XWMHints, get_window_group, int64_t)},
+		{"set_flags", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_flags, void, int64_t)},
+		{"set_icon_mask", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_mask, void, int64_t)},
+		{"set_icon_pixmap", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_pixmap, void, int64_t)},
+		{"set_icon_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_window, void, int64_t)},
+		{"set_icon_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_x, void, int32_t)},
+		{"set_icon_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_icon_y, void, int32_t)},
+		{"set_initial_state", "(I)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_initial_state, void, int32_t)},
+		{"set_input", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_input, void, bool)},
+		{"set_window_group", "(J)V", nullptr, $PUBLIC, $virtualMethod(XWMHints, set_window_group, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWMHints, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XWMHints, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XWMHints",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XWMHints, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XWMHints);
+	});
 	return class$;
 }
 

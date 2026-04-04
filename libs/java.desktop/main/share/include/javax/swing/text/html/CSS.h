@@ -70,6 +70,7 @@ class $import CSS : public ::java::io::Serializable {
 	$class(CSS, 0, ::java::io::Serializable)
 public:
 	CSS();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addInternalCSSValue(::javax::swing::text::MutableAttributeSet* attr, ::javax::swing::text::html::CSS$Attribute* key, $String* value);
 	static void calculateTiledLayout(::javax::swing::text::html::CSS$LayoutIterator* iter, int32_t targetSpan);

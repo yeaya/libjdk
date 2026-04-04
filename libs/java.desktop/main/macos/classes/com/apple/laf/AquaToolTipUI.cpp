@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaToolTipUI.h>
-
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -18,42 +17,18 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaToolTipUI_FieldInfo_[] = {
-	{"sharedAquaInstance", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<Lcom/apple/laf/AquaToolTipUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaToolTipUI, sharedAquaInstance)},
-	{}
-};
-
-$MethodInfo _AquaToolTipUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaToolTipUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaToolTipUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _AquaToolTipUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaToolTipUI",
-	"javax.swing.plaf.basic.BasicToolTipUI",
-	nullptr,
-	_AquaToolTipUI_FieldInfo_,
-	_AquaToolTipUI_MethodInfo_
-};
-
-$Object* allocate$AquaToolTipUI($Class* clazz) {
-	return $of($alloc(AquaToolTipUI));
-}
-
 $AquaUtils$RecyclableSingletonFromDefaultConstructor* AquaToolTipUI::sharedAquaInstance = nullptr;
 
 $ComponentUI* AquaToolTipUI::createUI($JComponent* c) {
 	$init(AquaToolTipUI);
-	return $cast($ComponentUI, $nc(AquaToolTipUI::sharedAquaInstance)->get());
+	return $cast($ComponentUI, AquaToolTipUI::sharedAquaInstance->get());
 }
 
 void AquaToolTipUI::init$() {
 	$BasicToolTipUI::init$();
 }
 
-void clinit$AquaToolTipUI($Class* class$) {
+void AquaToolTipUI::clinit$($Class* clazz) {
 	$assignStatic(AquaToolTipUI::sharedAquaInstance, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaToolTipUI::class$));
 }
 
@@ -61,7 +36,26 @@ AquaToolTipUI::AquaToolTipUI() {
 }
 
 $Class* AquaToolTipUI::load$($String* name, bool initialize) {
-	$loadClass(AquaToolTipUI, name, initialize, &_AquaToolTipUI_ClassInfo_, clinit$AquaToolTipUI, allocate$AquaToolTipUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"sharedAquaInstance", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor;", "Lcom/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor<Lcom/apple/laf/AquaToolTipUI;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaToolTipUI, sharedAquaInstance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaToolTipUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaToolTipUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaToolTipUI",
+		"javax.swing.plaf.basic.BasicToolTipUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaToolTipUI, name, initialize, &classInfo$$, AquaToolTipUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaToolTipUI);
+	});
 	return class$;
 }
 

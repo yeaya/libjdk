@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/writers/XMLStreamWriterBase.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,26 +11,22 @@ namespace com {
 				namespace stream {
 					namespace writers {
 
-$MethodInfo _XMLStreamWriterBase_MethodInfo_[] = {
-	{"writeStartDocument", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriterBase, writeStartDocument, void, $String*, $String*, bool, bool), "javax.xml.stream.XMLStreamException"},
-	{}
-};
-
-$ClassInfo _XMLStreamWriterBase_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.xml.internal.stream.writers.XMLStreamWriterBase",
-	nullptr,
-	"javax.xml.stream.XMLStreamWriter",
-	nullptr,
-	_XMLStreamWriterBase_MethodInfo_
-};
-
-$Object* allocate$XMLStreamWriterBase($Class* clazz) {
-	return $of($alloc(XMLStreamWriterBase));
-}
-
 $Class* XMLStreamWriterBase::load$($String* name, bool initialize) {
-	$loadClass(XMLStreamWriterBase, name, initialize, &_XMLStreamWriterBase_ClassInfo_, allocate$XMLStreamWriterBase);
+	$MethodInfo methodInfos$$[] = {
+		{"writeStartDocument", "(Ljava/lang/String;Ljava/lang/String;ZZ)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLStreamWriterBase, writeStartDocument, void, $String*, $String*, bool, bool), "javax.xml.stream.XMLStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.xml.internal.stream.writers.XMLStreamWriterBase",
+		nullptr,
+		"javax.xml.stream.XMLStreamWriter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLStreamWriterBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStreamWriterBase);
+	});
 	return class$;
 }
 

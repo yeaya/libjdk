@@ -1,5 +1,4 @@
 #include <java/awt/geom/Path2D$Iterator.h>
-
 #include <java/awt/geom/Path2D.h>
 #include <jcpp.h>
 
@@ -12,47 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _Path2D$Iterator_FieldInfo_[] = {
-	{"typeIdx", "I", nullptr, 0, $field(Path2D$Iterator, typeIdx)},
-	{"pointIdx", "I", nullptr, 0, $field(Path2D$Iterator, pointIdx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, 0, $field(Path2D$Iterator, path)},
-	{"curvecoords", "[I", nullptr, $STATIC | $FINAL, $staticField(Path2D$Iterator, curvecoords)},
-	{}
-};
-
-$MethodInfo _Path2D$Iterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/Path2D;)V", nullptr, 0, $method(Path2D$Iterator, init$, void, $Path2D*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(Path2D$Iterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(Path2D$Iterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(Path2D$Iterator, next, void)},
-	{}
-};
-
-$InnerClassInfo _Path2D$Iterator_InnerClassesInfo_[] = {
-	{"java.awt.geom.Path2D$Iterator", "java.awt.geom.Path2D", "Iterator", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Path2D$Iterator_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.Path2D$Iterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_Path2D$Iterator_FieldInfo_,
-	_Path2D$Iterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Path2D$Iterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Path2D"
-};
-
-$Object* allocate$Path2D$Iterator($Class* clazz) {
-	return $of($alloc(Path2D$Iterator));
-}
 
 $ints* Path2D$Iterator::curvecoords = nullptr;
 
@@ -70,10 +28,10 @@ bool Path2D$Iterator::isDone() {
 
 void Path2D$Iterator::next() {
 	int32_t type = $nc($nc(this->path)->pointTypes)->get(this->typeIdx++);
-	this->pointIdx += $nc(Path2D$Iterator::curvecoords)->get(type);
+	this->pointIdx += Path2D$Iterator::curvecoords->get(type);
 }
 
-void clinit$Path2D$Iterator($Class* class$) {
+void Path2D$Iterator::clinit$($Class* clazz) {
 	$assignStatic(Path2D$Iterator::curvecoords, $new($ints, {
 		2,
 		2,
@@ -87,7 +45,42 @@ Path2D$Iterator::Path2D$Iterator() {
 }
 
 $Class* Path2D$Iterator::load$($String* name, bool initialize) {
-	$loadClass(Path2D$Iterator, name, initialize, &_Path2D$Iterator_ClassInfo_, clinit$Path2D$Iterator, allocate$Path2D$Iterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeIdx", "I", nullptr, 0, $field(Path2D$Iterator, typeIdx)},
+		{"pointIdx", "I", nullptr, 0, $field(Path2D$Iterator, pointIdx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, 0, $field(Path2D$Iterator, path)},
+		{"curvecoords", "[I", nullptr, $STATIC | $FINAL, $staticField(Path2D$Iterator, curvecoords)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/Path2D;)V", nullptr, 0, $method(Path2D$Iterator, init$, void, $Path2D*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(Path2D$Iterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(Path2D$Iterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(Path2D$Iterator, next, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Path2D$Iterator", "java.awt.geom.Path2D", "Iterator", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.Path2D$Iterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Path2D"
+	};
+	$loadClass(Path2D$Iterator, name, initialize, &classInfo$$, Path2D$Iterator::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Path2D$Iterator);
+	});
 	return class$;
 }
 

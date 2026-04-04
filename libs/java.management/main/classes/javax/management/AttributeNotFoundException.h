@@ -14,10 +14,13 @@ public:
 	AttributeNotFoundException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x5A5DCB5E38FD7F6E;
+	static const int64_t serialVersionUID = (int64_t)0x5a5dcb5e38fd7f6e;
 	AttributeNotFoundException(const AttributeNotFoundException& e);
 	virtual void throw$() override;
-	inline AttributeNotFoundException* operator ->() {
+	inline AttributeNotFoundException* operator ->() const {
+		return (AttributeNotFoundException*)throwing$;
+	}
+	inline operator AttributeNotFoundException*() const {
 		return (AttributeNotFoundException*)throwing$;
 	}
 };

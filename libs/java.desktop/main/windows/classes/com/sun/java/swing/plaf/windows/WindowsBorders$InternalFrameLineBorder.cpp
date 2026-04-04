@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$InternalFrameLineBorder.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsBorders.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -26,48 +25,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsBorders$InternalFrameLineBorder_FieldInfo_[] = {
-	{"activeColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$InternalFrameLineBorder, activeColor)},
-	{"inactiveColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$InternalFrameLineBorder, inactiveColor)},
-	{}
-};
-
-$MethodInfo _WindowsBorders$InternalFrameLineBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $method(WindowsBorders$InternalFrameLineBorder, init$, void, $Color*, $Color*, int32_t)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$InternalFrameLineBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsBorders$InternalFrameLineBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsBorders$InternalFrameLineBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "InternalFrameLineBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsBorders$InternalFrameLineBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsBorders$InternalFrameLineBorder",
-	"javax.swing.border.LineBorder",
-	"javax.swing.plaf.UIResource",
-	_WindowsBorders$InternalFrameLineBorder_FieldInfo_,
-	_WindowsBorders$InternalFrameLineBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsBorders$InternalFrameLineBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsBorders"
-};
-
-$Object* allocate$WindowsBorders$InternalFrameLineBorder($Class* clazz) {
-	return $of($alloc(WindowsBorders$InternalFrameLineBorder));
-}
 
 int32_t WindowsBorders$InternalFrameLineBorder::hashCode() {
 	 return this->$LineBorder::hashCode();
@@ -100,7 +57,7 @@ void WindowsBorders$InternalFrameLineBorder::paintBorder($Component* c, $Graphic
 	if ($instanceOf($JInternalFrame, c)) {
 		$assign(jif, $cast($JInternalFrame, c));
 	} else if ($instanceOf($JInternalFrame$JDesktopIcon, c)) {
-		$assign(jif, $nc(($cast($JInternalFrame$JDesktopIcon, c)))->getInternalFrame());
+		$assign(jif, $cast($JInternalFrame$JDesktopIcon, c)->getInternalFrame());
 	} else {
 		return;
 	}
@@ -117,7 +74,43 @@ WindowsBorders$InternalFrameLineBorder::WindowsBorders$InternalFrameLineBorder()
 }
 
 $Class* WindowsBorders$InternalFrameLineBorder::load$($String* name, bool initialize) {
-	$loadClass(WindowsBorders$InternalFrameLineBorder, name, initialize, &_WindowsBorders$InternalFrameLineBorder_ClassInfo_, allocate$WindowsBorders$InternalFrameLineBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"activeColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$InternalFrameLineBorder, activeColor)},
+		{"inactiveColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsBorders$InternalFrameLineBorder, inactiveColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $method(WindowsBorders$InternalFrameLineBorder, init$, void, $Color*, $Color*, int32_t)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsBorders$InternalFrameLineBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsBorders$InternalFrameLineBorder", "com.sun.java.swing.plaf.windows.WindowsBorders", "InternalFrameLineBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsBorders$InternalFrameLineBorder",
+		"javax.swing.border.LineBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsBorders"
+	};
+	$loadClass(WindowsBorders$InternalFrameLineBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsBorders$InternalFrameLineBorder));
+	});
 	return class$;
 }
 

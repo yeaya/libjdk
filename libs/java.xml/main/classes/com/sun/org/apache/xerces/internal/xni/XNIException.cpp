@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -15,34 +14,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace xni {
-
-$FieldInfo _XNIException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XNIException, serialVersionUID)},
-	{"fException", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(XNIException, fException)},
-	{}
-};
-
-$MethodInfo _XNIException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XNIException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XNIException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XNIException, init$, void, $String*, $Exception*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XNIException, getCause, $Throwable*)},
-	{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(XNIException, getException, $Exception*)},
-	{}
-};
-
-$ClassInfo _XNIException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.xni.XNIException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_XNIException_FieldInfo_,
-	_XNIException_MethodInfo_
-};
-
-$Object* allocate$XNIException($Class* clazz) {
-	return $of($alloc(XNIException));
-}
 
 void XNIException::init$($String* message) {
 	$RuntimeException::init$(message);
@@ -77,7 +48,30 @@ void XNIException::throw$() {
 }
 
 $Class* XNIException::load$($String* name, bool initialize) {
-	$loadClass(XNIException, name, initialize, &_XNIException_ClassInfo_, allocate$XNIException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XNIException, serialVersionUID)},
+		{"fException", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(XNIException, fException)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XNIException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XNIException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XNIException, init$, void, $String*, $Exception*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(XNIException, getCause, $Throwable*)},
+		{"getException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(XNIException, getException, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.xni.XNIException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XNIException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XNIException);
+	});
 	return class$;
 }
 

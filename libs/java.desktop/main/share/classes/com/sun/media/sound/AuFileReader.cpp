@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AuFileReader.h>
-
 #include <com/sun/media/sound/AuFileFormat.h>
 #include <com/sun/media/sound/StandardFileFormat.h>
 #include <com/sun/media/sound/SunFileReader.h>
@@ -50,32 +49,12 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _AuFileReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AuFileReader, init$, void)},
-	{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(AuFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AuFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AuFileReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.AuFileReader",
-	"com.sun.media.sound.SunFileReader",
-	nullptr,
-	nullptr,
-	_AuFileReader_MethodInfo_
-};
-
-$Object* allocate$AuFileReader($Class* clazz) {
-	return $of($alloc(AuFileReader));
-}
-
 void AuFileReader::init$() {
 	$SunFileReader::init$();
 }
 
 $StandardFileFormat* AuFileReader::getAudioFileFormatImpl($InputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DataInputStream, dis, $new($DataInputStream, stream));
 	int32_t magic = dis->readInt();
 	if (magic != $AuFileFormat::AU_SUN_MAGIC) {
@@ -85,7 +64,7 @@ $StandardFileFormat* AuFileReader::getAudioFileFormatImpl($InputStream* stream) 
 	if (headerSize < $AuFileFormat::AU_HEADERSIZE) {
 		$throwNew($UnsupportedAudioFileException, "Invalid header size"_s);
 	}
-	int64_t dataSize = (int64_t)(dis->readInt() & (uint64_t)(int64_t)0x00000000FFFFFFFF);
+	int64_t dataSize = dis->readInt() & (int64_t)0xffffffff;
 	int32_t auType = dis->readInt();
 	int32_t sampleRate = dis->readInt();
 	if (sampleRate <= 0) {
@@ -99,65 +78,47 @@ $StandardFileFormat* AuFileReader::getAudioFileFormatImpl($InputStream* stream) 
 	$var($AudioFormat$Encoding, encoding, nullptr);
 	switch (auType) {
 	case $AuFileFormat::AU_ULAW_8:
-		{
-			$init($AudioFormat$Encoding);
-			$assign(encoding, $AudioFormat$Encoding::ULAW);
-			sampleSizeInBits = 8;
-			break;
-		}
+		$init($AudioFormat$Encoding);
+		$assign(encoding, $AudioFormat$Encoding::ULAW);
+		sampleSizeInBits = 8;
+		break;
 	case $AuFileFormat::AU_ALAW_8:
-		{
-			$init($AudioFormat$Encoding);
-			$assign(encoding, $AudioFormat$Encoding::ALAW);
-			sampleSizeInBits = 8;
-			break;
-		}
+		$init($AudioFormat$Encoding);
+		$assign(encoding, $AudioFormat$Encoding::ALAW);
+		sampleSizeInBits = 8;
+		break;
 	case $AuFileFormat::AU_LINEAR_8:
-		{
-			$init($AudioFormat$Encoding);
-			$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
-			sampleSizeInBits = 8;
-			break;
-		}
+		$init($AudioFormat$Encoding);
+		$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
+		sampleSizeInBits = 8;
+		break;
 	case $AuFileFormat::AU_LINEAR_16:
-		{
-			$init($AudioFormat$Encoding);
-			$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
-			sampleSizeInBits = 16;
-			break;
-		}
+		$init($AudioFormat$Encoding);
+		$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
+		sampleSizeInBits = 16;
+		break;
 	case $AuFileFormat::AU_LINEAR_24:
-		{
-			$init($AudioFormat$Encoding);
-			$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
-			sampleSizeInBits = 24;
-			break;
-		}
+		$init($AudioFormat$Encoding);
+		$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
+		sampleSizeInBits = 24;
+		break;
 	case $AuFileFormat::AU_LINEAR_32:
-		{
-			$init($AudioFormat$Encoding);
-			$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
-			sampleSizeInBits = 32;
-			break;
-		}
+		$init($AudioFormat$Encoding);
+		$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
+		sampleSizeInBits = 32;
+		break;
 	case $AuFileFormat::AU_FLOAT:
-		{
-			$init($AudioFormat$Encoding);
-			$assign(encoding, $AudioFormat$Encoding::PCM_FLOAT);
-			sampleSizeInBits = 32;
-			break;
-		}
+		$init($AudioFormat$Encoding);
+		$assign(encoding, $AudioFormat$Encoding::PCM_FLOAT);
+		sampleSizeInBits = 32;
+		break;
 	case $AuFileFormat::AU_DOUBLE:
-		{
-			$init($AudioFormat$Encoding);
-			$assign(encoding, $AudioFormat$Encoding::PCM_FLOAT);
-			sampleSizeInBits = 64;
-			break;
-		}
+		$init($AudioFormat$Encoding);
+		$assign(encoding, $AudioFormat$Encoding::PCM_FLOAT);
+		sampleSizeInBits = 64;
+		break;
 	default:
-		{
-			$throwNew($UnsupportedAudioFileException, "not a valid AU file"_s);
-		}
+		$throwNew($UnsupportedAudioFileException, "not a valid AU file"_s);
 	}
 	dis->skipBytes(headerSize - $AuFileFormat::AU_HEADERSIZE);
 	int32_t frameSize = calculatePCMFrameSize(sampleSizeInBits, channels);
@@ -183,7 +144,23 @@ AuFileReader::AuFileReader() {
 }
 
 $Class* AuFileReader::load$($String* name, bool initialize) {
-	$loadClass(AuFileReader, name, initialize, &_AuFileReader_ClassInfo_, allocate$AuFileReader);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AuFileReader, init$, void)},
+		{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(AuFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AuFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.AuFileReader",
+		"com.sun.media.sound.SunFileReader",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AuFileReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuFileReader);
+	});
 	return class$;
 }
 

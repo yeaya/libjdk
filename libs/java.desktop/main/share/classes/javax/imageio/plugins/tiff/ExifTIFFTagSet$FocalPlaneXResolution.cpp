@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$FocalPlaneXResolution.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,45 +15,40 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$FocalPlaneXResolution_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$FocalPlaneXResolution, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$FocalPlaneXResolution_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$FocalPlaneXResolution", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "FocalPlaneXResolution", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$FocalPlaneXResolution_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$FocalPlaneXResolution",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$FocalPlaneXResolution_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$FocalPlaneXResolution_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$FocalPlaneXResolution($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$FocalPlaneXResolution));
-}
-
 void ExifTIFFTagSet$FocalPlaneXResolution::init$() {
-	$TIFFTag::init$("FocalPlaneXResolution"_s, 0x0000A20E, $sl(1, $TIFFTag::TIFF_RATIONAL), 1);
+	$TIFFTag::init$("FocalPlaneXResolution"_s, 0x0000a20e, $sl(1, $TIFFTag::TIFF_RATIONAL), 1);
 }
 
 ExifTIFFTagSet$FocalPlaneXResolution::ExifTIFFTagSet$FocalPlaneXResolution() {
 }
 
 $Class* ExifTIFFTagSet$FocalPlaneXResolution::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$FocalPlaneXResolution, name, initialize, &_ExifTIFFTagSet$FocalPlaneXResolution_ClassInfo_, allocate$ExifTIFFTagSet$FocalPlaneXResolution);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$FocalPlaneXResolution, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$FocalPlaneXResolution", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "FocalPlaneXResolution", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$FocalPlaneXResolution",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$FocalPlaneXResolution, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$FocalPlaneXResolution);
+	});
 	return class$;
 }
 

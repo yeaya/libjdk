@@ -70,6 +70,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::source::tree::CaseTree$CaseKind* caseKind, ::com::sun::tools::javac::util::List* labels, ::com::sun::tools::javac::util::List* stats, ::com::sun::tools::javac::tree::JCTree* body);
 	virtual void accept(::com::sun::tools::javac::tree::JCTree$Visitor* v) override;
 	virtual $Object* accept(::com::sun::source::tree::TreeVisitor* v, Object$* d) override;

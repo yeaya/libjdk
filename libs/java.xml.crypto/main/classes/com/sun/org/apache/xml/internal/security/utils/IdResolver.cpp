@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/IdResolver.h>
-
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
@@ -21,35 +20,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$CompoundAttribute _IdResolver_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _IdResolver_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(IdResolver, init$, void)},
-	{"getElementById", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(IdResolver, getElementById, $Element*, $Document*, $String*)},
-	{"registerElementById", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Attr;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IdResolver, registerElementById, void, $Element*, $Attr*)},
-	{}
-};
-
-$ClassInfo _IdResolver_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.IdResolver",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_IdResolver_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_IdResolver_Annotations_
-};
-
-$Object* allocate$IdResolver($Class* clazz) {
-	return $of($alloc(IdResolver));
-}
-
 void IdResolver::init$() {
 }
 
@@ -65,7 +35,31 @@ IdResolver::IdResolver() {
 }
 
 $Class* IdResolver::load$($String* name, bool initialize) {
-	$loadClass(IdResolver, name, initialize, &_IdResolver_ClassInfo_, allocate$IdResolver);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(IdResolver, init$, void)},
+		{"getElementById", "(Lorg/w3c/dom/Document;Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC | $STATIC, $staticMethod(IdResolver, getElementById, $Element*, $Document*, $String*)},
+		{"registerElementById", "(Lorg/w3c/dom/Element;Lorg/w3c/dom/Attr;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(IdResolver, registerElementById, void, $Element*, $Attr*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.IdResolver",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(IdResolver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IdResolver);
+	});
 	return class$;
 }
 

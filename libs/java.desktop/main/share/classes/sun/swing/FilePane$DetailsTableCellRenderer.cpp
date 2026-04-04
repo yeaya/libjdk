@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane$DetailsTableCellRenderer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
@@ -46,50 +45,9 @@ using $SwingConstants = ::javax::swing::SwingConstants;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $ShellFolderColumnInfo = ::sun::awt::shell::ShellFolderColumnInfo;
 using $FilePane = ::sun::swing::FilePane;
-using $FilePane$DetailsTableModel = ::sun::swing::FilePane$DetailsTableModel;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _FilePane$DetailsTableCellRenderer_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$DetailsTableCellRenderer, this$0)},
-	{"chooser", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(FilePane$DetailsTableCellRenderer, chooser)},
-	{"df", "Ljava/text/DateFormat;", nullptr, 0, $field(FilePane$DetailsTableCellRenderer, df)},
-	{}
-};
-
-$MethodInfo _FilePane$DetailsTableCellRenderer_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/FilePane;Ljavax/swing/JFileChooser;)V", nullptr, 0, $method(FilePane$DetailsTableCellRenderer, init$, void, $FilePane*, $JFileChooser*)},
-	{"getInsets", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableCellRenderer, getInsets, $Insets*, $Insets*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableCellRenderer, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _FilePane$DetailsTableCellRenderer_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$DetailsTableCellRenderer", "sun.swing.FilePane", "DetailsTableCellRenderer", 0},
-	{}
-};
-
-$ClassInfo _FilePane$DetailsTableCellRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$DetailsTableCellRenderer",
-	"javax.swing.table.DefaultTableCellRenderer",
-	nullptr,
-	_FilePane$DetailsTableCellRenderer_FieldInfo_,
-	_FilePane$DetailsTableCellRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePane$DetailsTableCellRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$DetailsTableCellRenderer($Class* clazz) {
-	return $of($alloc(FilePane$DetailsTableCellRenderer));
-}
 
 void FilePane$DetailsTableCellRenderer::init$($FilePane* this$0, $JFileChooser* chooser) {
 	$set(this, this$0, this$0);
@@ -116,14 +74,14 @@ $Insets* FilePane$DetailsTableCellRenderer::getInsets($Insets* i$renamed) {
 }
 
 $Component* FilePane$DetailsTableCellRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(table)->convertColumnIndexToModel(column) != 0;
-	if ((var$0 || (this->this$0->listViewWindowsStyle && !$nc(table)->isFocusOwner())) && !this->this$0->fullRowSelection) {
+	if ((var$0 || (this->this$0->listViewWindowsStyle && !table->isFocusOwner())) && !this->this$0->fullRowSelection) {
 		isSelected = false;
 	}
 	$DefaultTableCellRenderer::getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 	setIcon(nullptr);
-	int32_t modelColumn = $nc(table)->convertColumnIndexToModel(column);
+	int32_t modelColumn = table->convertColumnIndexToModel(column);
 	$var($ShellFolderColumnInfo, columnInfo, $nc($($nc(this->this$0->detailsTableModel)->getColumns()))->get(modelColumn));
 	$var($Integer, alignment, $nc(columnInfo)->getAlignment());
 	if (alignment == nullptr) {
@@ -139,24 +97,24 @@ $Component* FilePane$DetailsTableCellRenderer::getTableCellRendererComponent($JT
 		$var($Icon, icon, $nc(this->chooser)->getIcon(file));
 		setIcon(icon);
 	} else if ($instanceOf($Long, value)) {
-		int64_t len = $div($nc(($cast($Long, value)))->longValue(), (int64_t)1024);
+		int64_t len = $div($cast($Long, value)->longValue(), (int64_t)1024);
 		if (this->this$0->listViewWindowsStyle) {
-			$assign(text, $MessageFormat::format(this->this$0->kiloByteString, $$new($ObjectArray, {$($of($Long::valueOf(len + 1)))})));
-		} else if (len < (int64_t)1024) {
-			$assign(text, $MessageFormat::format(this->this$0->kiloByteString, $$new($ObjectArray, {$($of($Long::valueOf((len == (int64_t)0) ? (int64_t)1 : len)))})));
+			$assign(text, $MessageFormat::format(this->this$0->kiloByteString, $$new($ObjectArray, {$($Long::valueOf(len + 1))})));
+		} else if (len < 1024) {
+			$assign(text, $MessageFormat::format(this->this$0->kiloByteString, $$new($ObjectArray, {$($Long::valueOf((len == 0) ? 1 : len))})));
 		} else {
 			len /= 1024;
-			if (len < (int64_t)1024) {
-				$assign(text, $MessageFormat::format(this->this$0->megaByteString, $$new($ObjectArray, {$($of($Long::valueOf(len)))})));
+			if (len < 1024) {
+				$assign(text, $MessageFormat::format(this->this$0->megaByteString, $$new($ObjectArray, {$($Long::valueOf(len))})));
 			} else {
 				len /= 1024;
-				$assign(text, $MessageFormat::format(this->this$0->gigaByteString, $$new($ObjectArray, {$($of($Long::valueOf(len)))})));
+				$assign(text, $MessageFormat::format(this->this$0->gigaByteString, $$new($ObjectArray, {$($Long::valueOf(len))})));
 			}
 		}
 	} else if ($instanceOf($Date, value)) {
 		$assign(text, $nc(this->df)->format($cast($Date, value)));
 	} else {
-		$assign(text, $nc($of(value))->toString());
+		$assign(text, $of(value)->toString());
 	}
 	setText(text);
 	return this;
@@ -166,7 +124,41 @@ FilePane$DetailsTableCellRenderer::FilePane$DetailsTableCellRenderer() {
 }
 
 $Class* FilePane$DetailsTableCellRenderer::load$($String* name, bool initialize) {
-	$loadClass(FilePane$DetailsTableCellRenderer, name, initialize, &_FilePane$DetailsTableCellRenderer_ClassInfo_, allocate$FilePane$DetailsTableCellRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$DetailsTableCellRenderer, this$0)},
+		{"chooser", "Ljavax/swing/JFileChooser;", nullptr, 0, $field(FilePane$DetailsTableCellRenderer, chooser)},
+		{"df", "Ljava/text/DateFormat;", nullptr, 0, $field(FilePane$DetailsTableCellRenderer, df)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/FilePane;Ljavax/swing/JFileChooser;)V", nullptr, 0, $method(FilePane$DetailsTableCellRenderer, init$, void, $FilePane*, $JFileChooser*)},
+		{"getInsets", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableCellRenderer, getInsets, $Insets*, $Insets*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableCellRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(FilePane$DetailsTableCellRenderer, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$DetailsTableCellRenderer", "sun.swing.FilePane", "DetailsTableCellRenderer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$DetailsTableCellRenderer",
+		"javax.swing.table.DefaultTableCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$DetailsTableCellRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilePane$DetailsTableCellRenderer));
+	});
 	return class$;
 }
 

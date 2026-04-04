@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneUI$1.h>
-
 #include <java/awt/Canvas.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -27,48 +26,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicSplitPaneUI$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$1, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneUI$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, 0, $method(BasicSplitPaneUI$1, init$, void, $BasicSplitPaneUI*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$1, paint, void, $Graphics*)},
-	{}
-};
-
-$EnclosingMethodInfo _BasicSplitPaneUI$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.basic.BasicSplitPaneUI",
-	"createDefaultNonContinuousLayoutDivider",
-	"()Ljava/awt/Component;"
-};
-
-$InnerClassInfo _BasicSplitPaneUI$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneUI$1",
-	"java.awt.Canvas",
-	nullptr,
-	_BasicSplitPaneUI$1_FieldInfo_,
-	_BasicSplitPaneUI$1_MethodInfo_,
-	nullptr,
-	&_BasicSplitPaneUI$1_EnclosingMethodInfo_,
-	_BasicSplitPaneUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneUI"
-};
-
-$Object* allocate$BasicSplitPaneUI$1($Class* clazz) {
-	return $of($alloc(BasicSplitPaneUI$1));
-}
-
 void BasicSplitPaneUI$1::init$($BasicSplitPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$Canvas::init$();
@@ -91,7 +48,42 @@ BasicSplitPaneUI$1::BasicSplitPaneUI$1() {
 }
 
 $Class* BasicSplitPaneUI$1::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneUI$1, name, initialize, &_BasicSplitPaneUI$1_ClassInfo_, allocate$BasicSplitPaneUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, 0, $method(BasicSplitPaneUI$1, init$, void, $BasicSplitPaneUI*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$1, paint, void, $Graphics*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.basic.BasicSplitPaneUI",
+		"createDefaultNonContinuousLayoutDivider",
+		"()Ljava/awt/Component;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneUI$1",
+		"java.awt.Canvas",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneUI"
+	};
+	$loadClass(BasicSplitPaneUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicSplitPaneUI$1));
+	});
 	return class$;
 }
 

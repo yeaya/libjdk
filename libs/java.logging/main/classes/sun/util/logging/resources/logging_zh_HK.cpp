@@ -1,5 +1,4 @@
 #include <sun/util/logging/resources/logging_zh_HK.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,67 +12,48 @@ namespace sun {
 		namespace logging {
 			namespace resources {
 
-$MethodInfo _logging_zh_HK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(logging_zh_HK, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(logging_zh_HK, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _logging_zh_HK_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.logging.resources.logging_zh_HK",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_logging_zh_HK_MethodInfo_
-};
-
-$Object* allocate$logging_zh_HK($Class* clazz) {
-	return $of($alloc(logging_zh_HK));
-}
-
 void logging_zh_HK::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* logging_zh_HK::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ALL"_s),
-			$of(u"所有"_s)
+			"ALL"_s,
+			u"所有"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CONFIG"_s),
-			$of(u"組態"_s)
+			"CONFIG"_s,
+			u"組態"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINE"_s),
-			$of(u"詳細"_s)
+			"FINE"_s,
+			u"詳細"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINER"_s),
-			$of(u"較詳細"_s)
+			"FINER"_s,
+			u"較詳細"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FINEST"_s),
-			$of(u"最詳細"_s)
+			"FINEST"_s,
+			u"最詳細"_s
 		}),
 		$$new($ObjectArray, {
-			$of("INFO"_s),
-			$of(u"資訊"_s)
+			"INFO"_s,
+			u"資訊"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OFF"_s),
-			$of(u"關閉"_s)
+			"OFF"_s,
+			u"關閉"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SEVERE"_s),
-			$of(u"嚴重"_s)
+			"SEVERE"_s,
+			u"嚴重"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WARNING"_s),
-			$of(u"警告"_s)
+			"WARNING"_s,
+			u"警告"_s
 		})
 	});
 }
@@ -82,7 +62,22 @@ logging_zh_HK::logging_zh_HK() {
 }
 
 $Class* logging_zh_HK::load$($String* name, bool initialize) {
-	$loadClass(logging_zh_HK, name, initialize, &_logging_zh_HK_ClassInfo_, allocate$logging_zh_HK);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(logging_zh_HK, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(logging_zh_HK, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.logging.resources.logging_zh_HK",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(logging_zh_HK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(logging_zh_HK);
+	});
 	return class$;
 }
 

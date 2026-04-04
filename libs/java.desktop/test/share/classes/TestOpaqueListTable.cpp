@@ -1,5 +1,4 @@
 #include <TestOpaqueListTable.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -7,7 +6,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/JToolTip.h>
@@ -23,7 +21,6 @@
 #undef LF
 
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -31,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JTable = ::javax::swing::JTable;
 using $JToolTip = ::javax::swing::JToolTip;
@@ -51,78 +47,51 @@ public:
 	virtual void run() override {
 		TestOpaqueListTable::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestOpaqueListTable$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestOpaqueListTable$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestOpaqueListTable$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestOpaqueListTable$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestOpaqueListTable$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestOpaqueListTable$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestOpaqueListTable$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestOpaqueListTable$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestOpaqueListTable$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestOpaqueListTable$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestOpaqueListTable$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestOpaqueListTable$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestOpaqueListTable$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestOpaqueListTable$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _TestOpaqueListTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestOpaqueListTable, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestOpaqueListTable, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestOpaqueListTable, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TestOpaqueListTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestOpaqueListTable",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestOpaqueListTable_MethodInfo_
-};
-
-$Object* allocate$TestOpaqueListTable($Class* clazz) {
-	return $of($alloc(TestOpaqueListTable));
-}
 
 void TestOpaqueListTable::init$() {
 }
 
 void TestOpaqueListTable::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIManager$LookAndFeelInfoArray, installedLookAndFeels, nullptr);
 	$assign(installedLookAndFeels, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, installedLookAndFeels);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, LF, arr$->get(i$));
-			{
-				try {
-					$UIManager::setLookAndFeel($($nc(LF)->getClassName()));
-					$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestOpaqueListTable$$Lambda$lambda$main$0)));
-				} catch ($UnsupportedLookAndFeelException& e) {
-					$nc($System::out)->println($$str({"Note: LookAndFeel "_s, $($nc(LF)->getClassName()), " is not supported on this configuration"_s}));
-				}
+			try {
+				$UIManager::setLookAndFeel($($nc(LF)->getClassName()));
+				$SwingUtilities::invokeAndWait($$new(TestOpaqueListTable$$Lambda$lambda$main$0));
+			} catch ($UnsupportedLookAndFeelException& e) {
+				$nc($System::out)->println($$str({"Note: LookAndFeel "_s, $($nc(LF)->getClassName()), " is not supported on this configuration"_s}));
 			}
 		}
 	}
 }
 
 void TestOpaqueListTable::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JList, list, $new($JList));
 	$var($JTable, table, $new($JTable));
 	$var($JTree, tree, $new($JTree));
@@ -207,11 +176,27 @@ TestOpaqueListTable::TestOpaqueListTable() {
 
 $Class* TestOpaqueListTable::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestOpaqueListTable$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestOpaqueListTable$$Lambda$lambda$main$0")) {
 			return TestOpaqueListTable$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(TestOpaqueListTable, name, initialize, &_TestOpaqueListTable_ClassInfo_, allocate$TestOpaqueListTable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestOpaqueListTable, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestOpaqueListTable, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestOpaqueListTable, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestOpaqueListTable",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestOpaqueListTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestOpaqueListTable);
+	});
 	return class$;
 }
 

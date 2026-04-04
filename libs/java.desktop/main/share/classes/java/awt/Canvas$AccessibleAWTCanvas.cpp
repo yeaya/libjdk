@@ -1,15 +1,12 @@
 #include <java/awt/Canvas$AccessibleAWTCanvas.h>
-
 #include <java/awt/Canvas.h>
 #include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <jcpp.h>
 
 #undef CANVAS
 
 using $Canvas = ::java::awt::Canvas;
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -19,44 +16,6 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Canvas$AccessibleAWTCanvas_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Canvas;", nullptr, $FINAL | $SYNTHETIC, $field(Canvas$AccessibleAWTCanvas, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Canvas$AccessibleAWTCanvas, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Canvas$AccessibleAWTCanvas_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Canvas;)V", nullptr, $PROTECTED, $method(Canvas$AccessibleAWTCanvas, init$, void, $Canvas*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Canvas$AccessibleAWTCanvas, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _Canvas$AccessibleAWTCanvas_InnerClassesInfo_[] = {
-	{"java.awt.Canvas$AccessibleAWTCanvas", "java.awt.Canvas", "AccessibleAWTCanvas", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Canvas$AccessibleAWTCanvas_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Canvas$AccessibleAWTCanvas",
-	"java.awt.Component$AccessibleAWTComponent",
-	nullptr,
-	_Canvas$AccessibleAWTCanvas_FieldInfo_,
-	_Canvas$AccessibleAWTCanvas_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Canvas$AccessibleAWTCanvas_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Canvas"
-};
-
-$Object* allocate$Canvas$AccessibleAWTCanvas($Class* clazz) {
-	return $of($alloc(Canvas$AccessibleAWTCanvas));
-}
 
 void Canvas$AccessibleAWTCanvas::init$($Canvas* this$0) {
 	$set(this, this$0, this$0);
@@ -72,7 +31,39 @@ Canvas$AccessibleAWTCanvas::Canvas$AccessibleAWTCanvas() {
 }
 
 $Class* Canvas$AccessibleAWTCanvas::load$($String* name, bool initialize) {
-	$loadClass(Canvas$AccessibleAWTCanvas, name, initialize, &_Canvas$AccessibleAWTCanvas_ClassInfo_, allocate$Canvas$AccessibleAWTCanvas);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Canvas;", nullptr, $FINAL | $SYNTHETIC, $field(Canvas$AccessibleAWTCanvas, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Canvas$AccessibleAWTCanvas, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Canvas;)V", nullptr, $PROTECTED, $method(Canvas$AccessibleAWTCanvas, init$, void, $Canvas*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Canvas$AccessibleAWTCanvas, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Canvas$AccessibleAWTCanvas", "java.awt.Canvas", "AccessibleAWTCanvas", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Canvas$AccessibleAWTCanvas",
+		"java.awt.Component$AccessibleAWTComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Canvas"
+	};
+	$loadClass(Canvas$AccessibleAWTCanvas, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Canvas$AccessibleAWTCanvas));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ArrayAccessTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ArrayAccessTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayAccessTree, getExpression, $ExpressionTree*)},
-	{"getIndex", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayAccessTree, getIndex, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _ArrayAccessTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ArrayAccessTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_ArrayAccessTree_MethodInfo_
-};
-
-$Object* allocate$ArrayAccessTree($Class* clazz) {
-	return $of($alloc(ArrayAccessTree));
-}
-
 $Class* ArrayAccessTree::load$($String* name, bool initialize) {
-	$loadClass(ArrayAccessTree, name, initialize, &_ArrayAccessTree_ClassInfo_, allocate$ArrayAccessTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayAccessTree, getExpression, $ExpressionTree*)},
+		{"getIndex", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ArrayAccessTree, getIndex, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ArrayAccessTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArrayAccessTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayAccessTree);
+	});
 	return class$;
 }
 

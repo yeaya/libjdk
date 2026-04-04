@@ -1,5 +1,4 @@
 #include <org/w3c/dom/ls/LSLoadEvent.h>
-
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/ls/LSInput.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace org {
 		namespace dom {
 			namespace ls {
 
-$MethodInfo _LSLoadEvent_MethodInfo_[] = {
-	{"getInput", "()Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSLoadEvent, getInput, $LSInput*)},
-	{"getNewDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSLoadEvent, getNewDocument, $Document*)},
-	{}
-};
-
-$ClassInfo _LSLoadEvent_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.w3c.dom.ls.LSLoadEvent",
-	nullptr,
-	"org.w3c.dom.events.Event",
-	nullptr,
-	_LSLoadEvent_MethodInfo_
-};
-
-$Object* allocate$LSLoadEvent($Class* clazz) {
-	return $of($alloc(LSLoadEvent));
-}
-
 $Class* LSLoadEvent::load$($String* name, bool initialize) {
-	$loadClass(LSLoadEvent, name, initialize, &_LSLoadEvent_ClassInfo_, allocate$LSLoadEvent);
+	$MethodInfo methodInfos$$[] = {
+		{"getInput", "()Lorg/w3c/dom/ls/LSInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSLoadEvent, getInput, $LSInput*)},
+		{"getNewDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LSLoadEvent, getNewDocument, $Document*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.w3c.dom.ls.LSLoadEvent",
+		nullptr,
+		"org.w3c.dom.events.Event",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LSLoadEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LSLoadEvent);
+	});
 	return class$;
 }
 

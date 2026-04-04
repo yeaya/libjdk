@@ -1,5 +1,4 @@
 #include <org/ietf/jgss/MessageProp.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,49 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace org {
 	namespace ietf {
 		namespace jgss {
-
-$FieldInfo _MessageProp_FieldInfo_[] = {
-	{"privacyState", "Z", nullptr, $PRIVATE, $field(MessageProp, privacyState)},
-	{"qop", "I", nullptr, $PRIVATE, $field(MessageProp, qop)},
-	{"dupToken", "Z", nullptr, $PRIVATE, $field(MessageProp, dupToken)},
-	{"oldToken", "Z", nullptr, $PRIVATE, $field(MessageProp, oldToken)},
-	{"unseqToken", "Z", nullptr, $PRIVATE, $field(MessageProp, unseqToken)},
-	{"gapToken", "Z", nullptr, $PRIVATE, $field(MessageProp, gapToken)},
-	{"minorStatus", "I", nullptr, $PRIVATE, $field(MessageProp, minorStatus)},
-	{"minorString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MessageProp, minorString)},
-	{}
-};
-
-$MethodInfo _MessageProp_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(MessageProp, init$, void, bool)},
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(MessageProp, init$, void, int32_t, bool)},
-	{"getMinorStatus", "()I", nullptr, $PUBLIC, $virtualMethod(MessageProp, getMinorStatus, int32_t)},
-	{"getMinorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageProp, getMinorString, $String*)},
-	{"getPrivacy", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, getPrivacy, bool)},
-	{"getQOP", "()I", nullptr, $PUBLIC, $virtualMethod(MessageProp, getQOP, int32_t)},
-	{"isDuplicateToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isDuplicateToken, bool)},
-	{"isGapToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isGapToken, bool)},
-	{"isOldToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isOldToken, bool)},
-	{"isUnseqToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isUnseqToken, bool)},
-	{"resetStatusValues", "()V", nullptr, $PRIVATE, $method(MessageProp, resetStatusValues, void)},
-	{"setPrivacy", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setPrivacy, void, bool)},
-	{"setQOP", "(I)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setQOP, void, int32_t)},
-	{"setSupplementaryStates", "(ZZZZILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setSupplementaryStates, void, bool, bool, bool, bool, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _MessageProp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.ietf.jgss.MessageProp",
-	"java.lang.Object",
-	nullptr,
-	_MessageProp_FieldInfo_,
-	_MessageProp_MethodInfo_
-};
-
-$Object* allocate$MessageProp($Class* clazz) {
-	return $of($alloc(MessageProp));
-}
 
 void MessageProp::init$(bool privState) {
 	MessageProp::init$(0, privState);
@@ -125,7 +81,45 @@ MessageProp::MessageProp() {
 }
 
 $Class* MessageProp::load$($String* name, bool initialize) {
-	$loadClass(MessageProp, name, initialize, &_MessageProp_ClassInfo_, allocate$MessageProp);
+	$FieldInfo fieldInfos$$[] = {
+		{"privacyState", "Z", nullptr, $PRIVATE, $field(MessageProp, privacyState)},
+		{"qop", "I", nullptr, $PRIVATE, $field(MessageProp, qop)},
+		{"dupToken", "Z", nullptr, $PRIVATE, $field(MessageProp, dupToken)},
+		{"oldToken", "Z", nullptr, $PRIVATE, $field(MessageProp, oldToken)},
+		{"unseqToken", "Z", nullptr, $PRIVATE, $field(MessageProp, unseqToken)},
+		{"gapToken", "Z", nullptr, $PRIVATE, $field(MessageProp, gapToken)},
+		{"minorStatus", "I", nullptr, $PRIVATE, $field(MessageProp, minorStatus)},
+		{"minorString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MessageProp, minorString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(MessageProp, init$, void, bool)},
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(MessageProp, init$, void, int32_t, bool)},
+		{"getMinorStatus", "()I", nullptr, $PUBLIC, $virtualMethod(MessageProp, getMinorStatus, int32_t)},
+		{"getMinorString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MessageProp, getMinorString, $String*)},
+		{"getPrivacy", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, getPrivacy, bool)},
+		{"getQOP", "()I", nullptr, $PUBLIC, $virtualMethod(MessageProp, getQOP, int32_t)},
+		{"isDuplicateToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isDuplicateToken, bool)},
+		{"isGapToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isGapToken, bool)},
+		{"isOldToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isOldToken, bool)},
+		{"isUnseqToken", "()Z", nullptr, $PUBLIC, $virtualMethod(MessageProp, isUnseqToken, bool)},
+		{"resetStatusValues", "()V", nullptr, $PRIVATE, $method(MessageProp, resetStatusValues, void)},
+		{"setPrivacy", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setPrivacy, void, bool)},
+		{"setQOP", "(I)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setQOP, void, int32_t)},
+		{"setSupplementaryStates", "(ZZZZILjava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MessageProp, setSupplementaryStates, void, bool, bool, bool, bool, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.ietf.jgss.MessageProp",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MessageProp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageProp);
+	});
 	return class$;
 }
 

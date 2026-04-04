@@ -1,5 +1,4 @@
 #include <sun/font/StandardTextSource.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/font/LineMetrics.h>
@@ -30,53 +29,8 @@ using $TextSource = ::sun::font::TextSource;
 namespace sun {
 	namespace font {
 
-$FieldInfo _StandardTextSource_FieldInfo_[] = {
-	{"chars", "[C", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, chars)},
-	{"start", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, start)},
-	{"len", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, len)},
-	{"cstart", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, cstart)},
-	{"clen", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, clen)},
-	{"level", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, level)},
-	{"flags", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, flags)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, font)},
-	{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, frc)},
-	{"cm", "Lsun/font/CoreMetrics;", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, cm)},
-	{}
-};
-
-$MethodInfo _StandardTextSource_MethodInfo_[] = {
-	{"<init>", "([CIIIIIILjava/awt/Font;Ljava/awt/font/FontRenderContext;Lsun/font/CoreMetrics;)V", nullptr, 0, $method(StandardTextSource, init$, void, $chars*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Font*, $FontRenderContext*, $CoreMetrics*)},
-	{"getBidiLevel", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getBidiLevel, int32_t)},
-	{"getChars", "()[C", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getChars, $chars*)},
-	{"getContextLength", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getContextLength, int32_t)},
-	{"getContextStart", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getContextStart, int32_t)},
-	{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getCoreMetrics, $CoreMetrics*)},
-	{"getFRC", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getFRC, $FontRenderContext*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getFont, $Font*)},
-	{"getLayoutFlags", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getLayoutFlags, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getLength, int32_t)},
-	{"getStart", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getStart, int32_t)},
-	{"getSubSource", "(III)Lsun/font/TextSource;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getSubSource, $TextSource*, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, toString, $String*)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, toString, $String*, bool)},
-	{}
-};
-
-$ClassInfo _StandardTextSource_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.font.StandardTextSource",
-	"sun.font.TextSource",
-	nullptr,
-	_StandardTextSource_FieldInfo_,
-	_StandardTextSource_MethodInfo_
-};
-
-$Object* allocate$StandardTextSource($Class* clazz) {
-	return $of($alloc(StandardTextSource));
-}
-
 void StandardTextSource::init$($chars* chars, int32_t start, int32_t len, int32_t cstart, int32_t clen, int32_t level, int32_t flags, $Font* font, $FontRenderContext* frc, $CoreMetrics* cm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TextSource::init$();
 	if (chars == nullptr) {
 		$throwNew($IllegalArgumentException, "bad chars: null"_s);
@@ -118,7 +72,7 @@ void StandardTextSource::init$($chars* chars, int32_t start, int32_t len, int32_
 		$set(this, cm, cm);
 	} else {
 		$var($LineMetrics, metrics, $nc(font)->getLineMetrics(chars, cstart, clen, frc));
-		$set(this, cm, $nc(($cast($FontLineMetrics, metrics)))->cm);
+		$set(this, cm, $nc($cast($FontLineMetrics, metrics))->cm);
 	}
 }
 
@@ -163,13 +117,13 @@ $CoreMetrics* StandardTextSource::getCoreMetrics() {
 }
 
 $TextSource* StandardTextSource::getSubSource(int32_t start, int32_t length, int32_t dir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0 || length < 0 || (start + length) > this->len) {
 		$throwNew($IllegalArgumentException, $$str({"bad start ("_s, $$str(start), ") or length ("_s, $$str(length), ")"_s}));
 	}
 	int32_t level = this->level;
 	if (dir != $TextLineComponent::UNCHANGED) {
-		bool ltr = ((int32_t)(this->flags & (uint32_t)8)) == 0;
+		bool ltr = (this->flags & 8) == 0;
 		if (!(dir == $TextLineComponent::LEFT_TO_RIGHT && ltr) && !(dir == $TextLineComponent::RIGHT_TO_LEFT && !ltr)) {
 			$throwNew($IllegalArgumentException, "direction flag is invalid"_s);
 		}
@@ -183,7 +137,7 @@ $String* StandardTextSource::toString() {
 }
 
 $String* StandardTextSource::toString(bool withContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, $($TextSource::toString())));
 	sb->append("[start:"_s);
 	sb->append(this->start);
@@ -215,11 +169,11 @@ $String* StandardTextSource::toString(bool withContext) {
 	sb->append(", flags:"_s);
 	sb->append(this->flags);
 	sb->append(", font:"_s);
-	sb->append($of(this->font));
+	sb->append(this->font);
 	sb->append(", frc:"_s);
-	sb->append($of(this->frc));
+	sb->append(this->frc);
 	sb->append(", cm:"_s);
-	sb->append($of(this->cm));
+	sb->append(this->cm);
 	sb->append("]"_s);
 	return sb->toString();
 }
@@ -228,7 +182,47 @@ StandardTextSource::StandardTextSource() {
 }
 
 $Class* StandardTextSource::load$($String* name, bool initialize) {
-	$loadClass(StandardTextSource, name, initialize, &_StandardTextSource_ClassInfo_, allocate$StandardTextSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"chars", "[C", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, chars)},
+		{"start", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, start)},
+		{"len", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, len)},
+		{"cstart", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, cstart)},
+		{"clen", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, clen)},
+		{"level", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, level)},
+		{"flags", "I", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, flags)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, font)},
+		{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, frc)},
+		{"cm", "Lsun/font/CoreMetrics;", nullptr, $PRIVATE | $FINAL, $field(StandardTextSource, cm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([CIIIIIILjava/awt/Font;Ljava/awt/font/FontRenderContext;Lsun/font/CoreMetrics;)V", nullptr, 0, $method(StandardTextSource, init$, void, $chars*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Font*, $FontRenderContext*, $CoreMetrics*)},
+		{"getBidiLevel", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getBidiLevel, int32_t)},
+		{"getChars", "()[C", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getChars, $chars*)},
+		{"getContextLength", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getContextLength, int32_t)},
+		{"getContextStart", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getContextStart, int32_t)},
+		{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getCoreMetrics, $CoreMetrics*)},
+		{"getFRC", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getFRC, $FontRenderContext*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getFont, $Font*)},
+		{"getLayoutFlags", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getLayoutFlags, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getLength, int32_t)},
+		{"getStart", "()I", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getStart, int32_t)},
+		{"getSubSource", "(III)Lsun/font/TextSource;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, getSubSource, $TextSource*, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, toString, $String*)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StandardTextSource, toString, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.font.StandardTextSource",
+		"sun.font.TextSource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StandardTextSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardTextSource);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthTreeUI$SynthTreeCellEditor.h>
-
 #include <java/awt/Color.h>
 #include <javax/swing/DefaultCellEditor.h>
 #include <javax/swing/JTextField.h>
@@ -28,45 +27,13 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$MethodInfo _SynthTreeUI$SynthTreeCellEditor_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JTree;Ljavax/swing/tree/DefaultTreeCellRenderer;)V", nullptr, $PUBLIC, $method(SynthTreeUI$SynthTreeCellEditor, init$, void, $JTree*, $DefaultTreeCellRenderer*)},
-	{"createTreeCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $virtualMethod(SynthTreeUI$SynthTreeCellEditor, createTreeCellEditor, $TreeCellEditor*)},
-	{}
-};
-
-$InnerClassInfo _SynthTreeUI$SynthTreeCellEditor_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellEditor", "javax.swing.plaf.synth.SynthTreeUI", "SynthTreeCellEditor", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellEditor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthTreeUI$SynthTreeCellEditor_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellEditor",
-	"javax.swing.tree.DefaultTreeCellEditor",
-	nullptr,
-	nullptr,
-	_SynthTreeUI$SynthTreeCellEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthTreeUI$SynthTreeCellEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTreeUI"
-};
-
-$Object* allocate$SynthTreeUI$SynthTreeCellEditor($Class* clazz) {
-	return $of($alloc(SynthTreeUI$SynthTreeCellEditor));
-}
-
 void SynthTreeUI$SynthTreeCellEditor::init$($JTree* tree, $DefaultTreeCellRenderer* renderer) {
 	$DefaultTreeCellEditor::init$(tree, renderer);
 	setBorderSelectionColor(nullptr);
 }
 
 $TreeCellEditor* SynthTreeUI$SynthTreeCellEditor::createTreeCellEditor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextField, tf, $new($SynthTreeUI$SynthTreeCellEditor$1, this));
 	$var($DefaultCellEditor, editor, $new($DefaultCellEditor, tf));
 	editor->setClickCountToStart(1);
@@ -77,7 +44,34 @@ SynthTreeUI$SynthTreeCellEditor::SynthTreeUI$SynthTreeCellEditor() {
 }
 
 $Class* SynthTreeUI$SynthTreeCellEditor::load$($String* name, bool initialize) {
-	$loadClass(SynthTreeUI$SynthTreeCellEditor, name, initialize, &_SynthTreeUI$SynthTreeCellEditor_ClassInfo_, allocate$SynthTreeUI$SynthTreeCellEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JTree;Ljavax/swing/tree/DefaultTreeCellRenderer;)V", nullptr, $PUBLIC, $method(SynthTreeUI$SynthTreeCellEditor, init$, void, $JTree*, $DefaultTreeCellRenderer*)},
+		{"createTreeCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $virtualMethod(SynthTreeUI$SynthTreeCellEditor, createTreeCellEditor, $TreeCellEditor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellEditor", "javax.swing.plaf.synth.SynthTreeUI", "SynthTreeCellEditor", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellEditor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTreeUI$SynthTreeCellEditor",
+		"javax.swing.tree.DefaultTreeCellEditor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTreeUI"
+	};
+	$loadClass(SynthTreeUI$SynthTreeCellEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthTreeUI$SynthTreeCellEditor));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalComboBoxEditor$1.h>
-
 #include <java/awt/Dimension.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextField.h>
@@ -21,57 +20,13 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalComboBoxEditor$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalComboBoxEditor;", nullptr, $FINAL | $SYNTHETIC, $field(MetalComboBoxEditor$1, this$0)},
-	{}
-};
-
-$MethodInfo _MetalComboBoxEditor$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalComboBoxEditor;Ljava/lang/String;I)V", nullptr, 0, $method(MetalComboBoxEditor$1, init$, void, $MetalComboBoxEditor*, $String*, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxEditor$1, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxEditor$1, getPreferredSize, $Dimension*)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxEditor$1, setText, void, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _MetalComboBoxEditor$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.metal.MetalComboBoxEditor",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _MetalComboBoxEditor$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalComboBoxEditor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalComboBoxEditor$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalComboBoxEditor$1",
-	"javax.swing.JTextField",
-	nullptr,
-	_MetalComboBoxEditor$1_FieldInfo_,
-	_MetalComboBoxEditor$1_MethodInfo_,
-	nullptr,
-	&_MetalComboBoxEditor$1_EnclosingMethodInfo_,
-	_MetalComboBoxEditor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalComboBoxEditor"
-};
-
-$Object* allocate$MetalComboBoxEditor$1($Class* clazz) {
-	return $of($alloc(MetalComboBoxEditor$1));
-}
-
 void MetalComboBoxEditor$1::init$($MetalComboBoxEditor* this$0, $String* text, int32_t columns) {
 	$set(this, this$0, this$0);
 	$JTextField::init$(text, columns);
 }
 
 void MetalComboBoxEditor$1::setText($String* s) {
-	if ($nc($(getText()))->equals(s)) {
+	if ($$nc(getText())->equals(s)) {
 		return;
 	}
 	$JTextField::setText(s);
@@ -93,7 +48,44 @@ MetalComboBoxEditor$1::MetalComboBoxEditor$1() {
 }
 
 $Class* MetalComboBoxEditor$1::load$($String* name, bool initialize) {
-	$loadClass(MetalComboBoxEditor$1, name, initialize, &_MetalComboBoxEditor$1_ClassInfo_, allocate$MetalComboBoxEditor$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalComboBoxEditor;", nullptr, $FINAL | $SYNTHETIC, $field(MetalComboBoxEditor$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalComboBoxEditor;Ljava/lang/String;I)V", nullptr, 0, $method(MetalComboBoxEditor$1, init$, void, $MetalComboBoxEditor*, $String*, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxEditor$1, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxEditor$1, getPreferredSize, $Dimension*)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxEditor$1, setText, void, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.metal.MetalComboBoxEditor",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalComboBoxEditor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalComboBoxEditor$1",
+		"javax.swing.JTextField",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalComboBoxEditor"
+	};
+	$loadClass(MetalComboBoxEditor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalComboBoxEditor$1));
+	});
 	return class$;
 }
 

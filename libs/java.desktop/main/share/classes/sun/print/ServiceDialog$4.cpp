@@ -1,5 +1,4 @@
 #include <sun/print/ServiceDialog$4.h>
-
 #include <java/lang/Error.h>
 #include <java/util/MissingResourceException.h>
 #include <java/util/ResourceBundle.h>
@@ -18,43 +17,6 @@ using $ServiceDialog = ::sun::print::ServiceDialog;
 namespace sun {
 	namespace print {
 
-$MethodInfo _ServiceDialog$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ServiceDialog$4, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$4, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ServiceDialog$4_EnclosingMethodInfo_ = {
-	"sun.print.ServiceDialog",
-	"initResource",
-	"()V"
-};
-
-$InnerClassInfo _ServiceDialog$4_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServiceDialog$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ServiceDialog$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
-	&_ServiceDialog$4_EnclosingMethodInfo_,
-	_ServiceDialog$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$4($Class* clazz) {
-	return $of($alloc(ServiceDialog$4));
-}
-
 void ServiceDialog$4::init$() {
 }
 
@@ -63,7 +25,7 @@ $Object* ServiceDialog$4::run() {
 	try {
 		$init($ServiceDialog);
 		$assignStatic($ServiceDialog::messageRB, $ResourceBundle::getBundle("sun.print.resources.serviceui"_s));
-		return $of(nullptr);
+		return nullptr;
 	} catch ($MissingResourceException& e) {
 		$throwNew($Error, "Fatal: Resource for ServiceUI is missing"_s);
 	}
@@ -74,7 +36,38 @@ ServiceDialog$4::ServiceDialog$4() {
 }
 
 $Class* ServiceDialog$4::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$4, name, initialize, &_ServiceDialog$4_ClassInfo_, allocate$ServiceDialog$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ServiceDialog$4, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$4, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.print.ServiceDialog",
+		"initResource",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Object;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceDialog$4);
+	});
 	return class$;
 }
 

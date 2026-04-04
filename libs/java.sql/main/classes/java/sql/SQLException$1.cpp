@@ -1,5 +1,4 @@
 #include <java/sql/SQLException$1.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/sql/SQLException.h>
 #include <java/util/NoSuchElementException.h>
@@ -16,53 +15,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _SQLException$1_FieldInfo_[] = {
-	{"this$0", "Ljava/sql/SQLException;", nullptr, $FINAL | $SYNTHETIC, $field(SQLException$1, this$0)},
-	{"firstException", "Ljava/sql/SQLException;", nullptr, 0, $field(SQLException$1, firstException)},
-	{"nextException", "Ljava/sql/SQLException;", nullptr, 0, $field(SQLException$1, nextException)},
-	{"cause", "Ljava/lang/Throwable;", nullptr, 0, $field(SQLException$1, cause)},
-	{}
-};
-
-$MethodInfo _SQLException$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/sql/SQLException;)V", nullptr, 0, $method(SQLException$1, init$, void, $SQLException*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SQLException$1, hasNext, bool)},
-	{"next", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(SQLException$1, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SQLException$1, remove, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SQLException$1_EnclosingMethodInfo_ = {
-	"java.sql.SQLException",
-	"iterator",
-	"()Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _SQLException$1_InnerClassesInfo_[] = {
-	{"java.sql.SQLException$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SQLException$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.sql.SQLException$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_SQLException$1_FieldInfo_,
-	_SQLException$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/Throwable;>;",
-	&_SQLException$1_EnclosingMethodInfo_,
-	_SQLException$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.sql.SQLException"
-};
-
-$Object* allocate$SQLException$1($Class* clazz) {
-	return $of($alloc(SQLException$1));
-}
 
 void SQLException$1::init$($SQLException* this$0) {
 	$set(this, this$0, this$0);
@@ -85,15 +37,15 @@ $Object* SQLException$1::next() {
 		$set(this, firstException, nullptr);
 	} else if (this->cause != nullptr) {
 		$assign(throwable, this->cause);
-		$set(this, cause, $nc(this->cause)->getCause());
+		$set(this, cause, this->cause->getCause());
 	} else if (this->nextException != nullptr) {
 		$assign(throwable, this->nextException);
-		$set(this, cause, $nc(this->nextException)->getCause());
-		$set(this, nextException, $nc(this->nextException)->getNextException());
+		$set(this, cause, this->nextException->getCause());
+		$set(this, nextException, this->nextException->getNextException());
 	} else {
 		$throwNew($NoSuchElementException);
 	}
-	return $of(throwable);
+	return throwable;
 }
 
 void SQLException$1::remove() {
@@ -104,7 +56,47 @@ SQLException$1::SQLException$1() {
 }
 
 $Class* SQLException$1::load$($String* name, bool initialize) {
-	$loadClass(SQLException$1, name, initialize, &_SQLException$1_ClassInfo_, allocate$SQLException$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/sql/SQLException;", nullptr, $FINAL | $SYNTHETIC, $field(SQLException$1, this$0)},
+		{"firstException", "Ljava/sql/SQLException;", nullptr, 0, $field(SQLException$1, firstException)},
+		{"nextException", "Ljava/sql/SQLException;", nullptr, 0, $field(SQLException$1, nextException)},
+		{"cause", "Ljava/lang/Throwable;", nullptr, 0, $field(SQLException$1, cause)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/sql/SQLException;)V", nullptr, 0, $method(SQLException$1, init$, void, $SQLException*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(SQLException$1, hasNext, bool)},
+		{"next", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(SQLException$1, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(SQLException$1, remove, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.sql.SQLException",
+		"iterator",
+		"()Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.sql.SQLException$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.sql.SQLException$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/lang/Throwable;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.sql.SQLException"
+	};
+	$loadClass(SQLException$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SQLException$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/geom/AreaOp$NZWindOp.h>
-
 #include <sun/awt/geom/AreaOp.h>
 #include <sun/awt/geom/Curve.h>
 #include <sun/awt/geom/Edge.h>
@@ -16,50 +15,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AreaOp = ::sun::awt::geom::AreaOp;
-using $Curve = ::sun::awt::geom::Curve;
 using $Edge = ::sun::awt::geom::Edge;
 
 namespace sun {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _AreaOp$NZWindOp_FieldInfo_[] = {
-	{"count", "I", nullptr, $PRIVATE, $field(AreaOp$NZWindOp, count)},
-	{}
-};
-
-$MethodInfo _AreaOp$NZWindOp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AreaOp$NZWindOp, init$, void)},
-	{"classify", "(Lsun/awt/geom/Edge;)I", nullptr, $PUBLIC, $virtualMethod(AreaOp$NZWindOp, classify, int32_t, $Edge*)},
-	{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(AreaOp$NZWindOp, getState, int32_t)},
-	{"newRow", "()V", nullptr, $PUBLIC, $virtualMethod(AreaOp$NZWindOp, newRow, void)},
-	{}
-};
-
-$InnerClassInfo _AreaOp$NZWindOp_InnerClassesInfo_[] = {
-	{"sun.awt.geom.AreaOp$NZWindOp", "sun.awt.geom.AreaOp", "NZWindOp", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AreaOp$NZWindOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.geom.AreaOp$NZWindOp",
-	"sun.awt.geom.AreaOp",
-	nullptr,
-	_AreaOp$NZWindOp_FieldInfo_,
-	_AreaOp$NZWindOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AreaOp$NZWindOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.geom.AreaOp"
-};
-
-$Object* allocate$AreaOp$NZWindOp($Class* clazz) {
-	return $of($alloc(AreaOp$NZWindOp));
-}
 
 void AreaOp$NZWindOp::init$() {
 	$AreaOp::init$();
@@ -72,7 +32,7 @@ void AreaOp$NZWindOp::newRow() {
 int32_t AreaOp$NZWindOp::classify($Edge* e) {
 	int32_t newCount = this->count;
 	int32_t type = (newCount == 0 ? $AreaOp::ETAG_ENTER : $AreaOp::ETAG_IGNORE);
-	newCount += $nc($($nc(e)->getCurve()))->getDirection();
+	newCount += $$nc($nc(e)->getCurve())->getDirection();
 	this->count = newCount;
 	return (newCount == 0 ? $AreaOp::ETAG_EXIT : type);
 }
@@ -85,7 +45,39 @@ AreaOp$NZWindOp::AreaOp$NZWindOp() {
 }
 
 $Class* AreaOp$NZWindOp::load$($String* name, bool initialize) {
-	$loadClass(AreaOp$NZWindOp, name, initialize, &_AreaOp$NZWindOp_ClassInfo_, allocate$AreaOp$NZWindOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "I", nullptr, $PRIVATE, $field(AreaOp$NZWindOp, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AreaOp$NZWindOp, init$, void)},
+		{"classify", "(Lsun/awt/geom/Edge;)I", nullptr, $PUBLIC, $virtualMethod(AreaOp$NZWindOp, classify, int32_t, $Edge*)},
+		{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(AreaOp$NZWindOp, getState, int32_t)},
+		{"newRow", "()V", nullptr, $PUBLIC, $virtualMethod(AreaOp$NZWindOp, newRow, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.geom.AreaOp$NZWindOp", "sun.awt.geom.AreaOp", "NZWindOp", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.geom.AreaOp$NZWindOp",
+		"sun.awt.geom.AreaOp",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.geom.AreaOp"
+	};
+	$loadClass(AreaOp$NZWindOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AreaOp$NZWindOp);
+	});
 	return class$;
 }
 

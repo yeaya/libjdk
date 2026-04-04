@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/ColorModelHSV.h>
-
 #include <javax/swing/colorchooser/ColorModel.h>
 #include <javax/swing/colorchooser/ColorModelHSL.h>
 #include <jcpp.h>
@@ -14,30 +13,6 @@ namespace javax {
 	namespace swing {
 		namespace colorchooser {
 
-$MethodInfo _ColorModelHSV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ColorModelHSV, init$, void)},
-	{"HSVtoRGB", "([F[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSV, HSVtoRGB, $floats*, $floats*, $floats*)},
-	{"RGBtoHSV", "([F[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSV, RGBtoHSV, $floats*, $floats*, $floats*)},
-	{"getColor", "([F)I", nullptr, 0, $virtualMethod(ColorModelHSV, getColor, int32_t, $floats*)},
-	{"getDefault", "(I)F", nullptr, 0, $virtualMethod(ColorModelHSV, getDefault, float, int32_t)},
-	{"getMaximum", "(I)I", nullptr, 0, $virtualMethod(ColorModelHSV, getMaximum, int32_t, int32_t)},
-	{"setColor", "(I[F)V", nullptr, 0, $virtualMethod(ColorModelHSV, setColor, void, int32_t, $floats*)},
-	{}
-};
-
-$ClassInfo _ColorModelHSV_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.colorchooser.ColorModelHSV",
-	"javax.swing.colorchooser.ColorModel",
-	nullptr,
-	nullptr,
-	_ColorModelHSV_MethodInfo_
-};
-
-$Object* allocate$ColorModelHSV($Class* clazz) {
-	return $of($alloc(ColorModelHSV));
-}
-
 void ColorModelHSV::init$() {
 	$ColorModel::init$("hsv"_s, $$new($StringArray, {
 		"Hue"_s,
@@ -50,11 +25,11 @@ void ColorModelHSV::init$() {
 void ColorModelHSV::setColor(int32_t color, $floats* space) {
 	$ColorModel::setColor(color, space);
 	RGBtoHSV(space, space);
-	$nc(space)->set(3, 1.0f - space->get(3));
+	$nc(space)->set(3, 1.0f - $nc(space)->get(3));
 }
 
 int32_t ColorModelHSV::getColor($floats* space) {
-	$nc(space)->set(3, 1.0f - space->get(3));
+	$nc(space)->set(3, 1.0f - $nc(space)->get(3));
 	HSVtoRGB(space, space);
 	return $ColorModel::getColor(space);
 }
@@ -85,41 +60,29 @@ $floats* ColorModelHSV::HSVtoRGB($floats* hsv, $floats* rgb$renamed) {
 		float f = hue - (float)integer;
 		switch (integer) {
 		case 0:
-			{
-				(*rgb)[1] *= 1.0f - saturation * (1.0f - f);
-				(*rgb)[2] *= 1.0f - saturation;
-				break;
-			}
+			(*rgb)[1] *= 1.0f - saturation * (1.0f - f);
+			(*rgb)[2] *= 1.0f - saturation;
+			break;
 		case 1:
-			{
-				(*rgb)[0] *= 1.0f - saturation * f;
-				(*rgb)[2] *= 1.0f - saturation;
-				break;
-			}
+			(*rgb)[0] *= 1.0f - saturation * f;
+			(*rgb)[2] *= 1.0f - saturation;
+			break;
 		case 2:
-			{
-				(*rgb)[0] *= 1.0f - saturation;
-				(*rgb)[2] *= 1.0f - saturation * (1.0f - f);
-				break;
-			}
+			(*rgb)[0] *= 1.0f - saturation;
+			(*rgb)[2] *= 1.0f - saturation * (1.0f - f);
+			break;
 		case 3:
-			{
-				(*rgb)[0] *= 1.0f - saturation;
-				(*rgb)[1] *= 1.0f - saturation * f;
-				break;
-			}
+			(*rgb)[0] *= 1.0f - saturation;
+			(*rgb)[1] *= 1.0f - saturation * f;
+			break;
 		case 4:
-			{
-				(*rgb)[0] *= 1.0f - saturation * (1.0f - f);
-				(*rgb)[1] *= 1.0f - saturation;
-				break;
-			}
+			(*rgb)[0] *= 1.0f - saturation * (1.0f - f);
+			(*rgb)[1] *= 1.0f - saturation;
+			break;
 		case 5:
-			{
-				(*rgb)[1] *= 1.0f - saturation;
-				(*rgb)[2] *= 1.0f - saturation * f;
-				break;
-			}
+			(*rgb)[1] *= 1.0f - saturation;
+			(*rgb)[2] *= 1.0f - saturation * f;
+			break;
 		}
 	}
 	return rgb;
@@ -131,13 +94,13 @@ $floats* ColorModelHSV::RGBtoHSV($floats* rgb, $floats* hsv$renamed) {
 	if (hsv == nullptr) {
 		$assign(hsv, $new($floats, 3));
 	}
-	float max = $ColorModelHSL::max($nc(rgb)->get(0), rgb->get(1), rgb->get(2));
-	float min = $ColorModelHSL::min($nc(rgb)->get(0), rgb->get(1), rgb->get(2));
+	float max = $ColorModelHSL::max($nc(rgb)->get(0), $nc(rgb)->get(1), $nc(rgb)->get(2));
+	float min = $ColorModelHSL::min(rgb->get(0), rgb->get(1), rgb->get(2));
 	float saturation = max - min;
 	if (saturation > 0.0f) {
 		saturation /= max;
 	}
-	$nc(hsv)->set(0, $ColorModelHSL::getHue($nc(rgb)->get(0), rgb->get(1), rgb->get(2), max, min));
+	$nc(hsv)->set(0, $ColorModelHSL::getHue(rgb->get(0), rgb->get(1), rgb->get(2), max, min));
 	hsv->set(1, saturation);
 	hsv->set(2, max);
 	return hsv;
@@ -147,7 +110,27 @@ ColorModelHSV::ColorModelHSV() {
 }
 
 $Class* ColorModelHSV::load$($String* name, bool initialize) {
-	$loadClass(ColorModelHSV, name, initialize, &_ColorModelHSV_ClassInfo_, allocate$ColorModelHSV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ColorModelHSV, init$, void)},
+		{"HSVtoRGB", "([F[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSV, HSVtoRGB, $floats*, $floats*, $floats*)},
+		{"RGBtoHSV", "([F[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(ColorModelHSV, RGBtoHSV, $floats*, $floats*, $floats*)},
+		{"getColor", "([F)I", nullptr, 0, $virtualMethod(ColorModelHSV, getColor, int32_t, $floats*)},
+		{"getDefault", "(I)F", nullptr, 0, $virtualMethod(ColorModelHSV, getDefault, float, int32_t)},
+		{"getMaximum", "(I)I", nullptr, 0, $virtualMethod(ColorModelHSV, getMaximum, int32_t, int32_t)},
+		{"setColor", "(I[F)V", nullptr, 0, $virtualMethod(ColorModelHSV, setColor, void, int32_t, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.colorchooser.ColorModelHSV",
+		"javax.swing.colorchooser.ColorModel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ColorModelHSV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorModelHSV);
+	});
 	return class$;
 }
 

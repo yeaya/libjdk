@@ -14,6 +14,7 @@ class $import JPEGQTable : public ::java::lang::Object {
 	$class(JPEGQTable, 0, ::java::lang::Object)
 public:
 	JPEGQTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($ints* table, bool copy);
 	void init$($ints* table);
 	virtual ::javax::imageio::plugins::jpeg::JPEGQTable* getScaledInstance(float scaleFactor, bool forceBaseline);

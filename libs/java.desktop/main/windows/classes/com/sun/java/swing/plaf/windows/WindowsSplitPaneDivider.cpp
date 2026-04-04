@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsSplitPaneDivider.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -15,7 +14,6 @@ using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JSplitPane = ::javax::swing::JSplitPane;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
@@ -27,36 +25,17 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsSplitPaneDivider_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(WindowsSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsSplitPaneDivider, paint, void, $Graphics*)},
-	{}
-};
-
-$ClassInfo _WindowsSplitPaneDivider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsSplitPaneDivider",
-	"javax.swing.plaf.basic.BasicSplitPaneDivider",
-	nullptr,
-	nullptr,
-	_WindowsSplitPaneDivider_MethodInfo_
-};
-
-$Object* allocate$WindowsSplitPaneDivider($Class* clazz) {
-	return $of($alloc(WindowsSplitPaneDivider));
-}
-
 void WindowsSplitPaneDivider::init$($BasicSplitPaneUI* ui) {
 	$BasicSplitPaneDivider::init$(ui);
 }
 
 void WindowsSplitPaneDivider::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, bgColor, ($nc(this->splitPane)->hasFocus()) ? $UIManager::getColor("SplitPane.shadow"_s) : getBackground());
 	$var($Dimension, size, getSize());
 	if (bgColor != nullptr) {
 		$nc(g)->setColor(bgColor);
-		g->fillRect(0, 0, $nc(size)->width, size->height);
+		g->fillRect(0, 0, $nc(size)->width, $nc(size)->height);
 	}
 	$BasicSplitPaneDivider::paint(g);
 }
@@ -65,7 +44,22 @@ WindowsSplitPaneDivider::WindowsSplitPaneDivider() {
 }
 
 $Class* WindowsSplitPaneDivider::load$($String* name, bool initialize) {
-	$loadClass(WindowsSplitPaneDivider, name, initialize, &_WindowsSplitPaneDivider_ClassInfo_, allocate$WindowsSplitPaneDivider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PUBLIC, $method(WindowsSplitPaneDivider, init$, void, $BasicSplitPaneUI*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsSplitPaneDivider, paint, void, $Graphics*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsSplitPaneDivider",
+		"javax.swing.plaf.basic.BasicSplitPaneDivider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsSplitPaneDivider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsSplitPaneDivider));
+	});
 	return class$;
 }
 

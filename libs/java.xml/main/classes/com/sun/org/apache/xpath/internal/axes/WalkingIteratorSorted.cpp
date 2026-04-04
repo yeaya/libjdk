@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/WalkingIteratorSorted.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/utils/PrefixResolver.h>
 #include <com/sun/org/apache/xpath/internal/axes/AxesWalker.h>
@@ -36,34 +35,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace axes {
-
-$FieldInfo _WalkingIteratorSorted_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WalkingIteratorSorted, serialVersionUID)},
-	{"m_inNaturalOrderStatic", "Z", nullptr, $PROTECTED, $field(WalkingIteratorSorted, m_inNaturalOrderStatic)},
-	{}
-};
-
-$MethodInfo _WalkingIteratorSorted_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $method(WalkingIteratorSorted, init$, void, $PrefixResolver*)},
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;IIZ)V", nullptr, 0, $method(WalkingIteratorSorted, init$, void, $Compiler*, int32_t, int32_t, bool), "javax.xml.transform.TransformerException"},
-	{"canBeWalkedInNaturalDocOrderStatic", "()Z", nullptr, 0, $virtualMethod(WalkingIteratorSorted, canBeWalkedInNaturalDocOrderStatic, bool)},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(WalkingIteratorSorted, fixupVariables, void, $List*, int32_t)},
-	{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(WalkingIteratorSorted, isDocOrdered, bool)},
-	{}
-};
-
-$ClassInfo _WalkingIteratorSorted_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.WalkingIteratorSorted",
-	"com.sun.org.apache.xpath.internal.axes.WalkingIterator",
-	nullptr,
-	_WalkingIteratorSorted_FieldInfo_,
-	_WalkingIteratorSorted_MethodInfo_
-};
-
-$Object* allocate$WalkingIteratorSorted($Class* clazz) {
-	return $of($alloc(WalkingIteratorSorted));
-}
 
 void WalkingIteratorSorted::init$($PrefixResolver* nscontext) {
 	$WalkingIterator::init$(nscontext);
@@ -122,7 +93,30 @@ WalkingIteratorSorted::WalkingIteratorSorted() {
 }
 
 $Class* WalkingIteratorSorted::load$($String* name, bool initialize) {
-	$loadClass(WalkingIteratorSorted, name, initialize, &_WalkingIteratorSorted_ClassInfo_, allocate$WalkingIteratorSorted);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(WalkingIteratorSorted, serialVersionUID)},
+		{"m_inNaturalOrderStatic", "Z", nullptr, $PROTECTED, $field(WalkingIteratorSorted, m_inNaturalOrderStatic)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/PrefixResolver;)V", nullptr, $PUBLIC, $method(WalkingIteratorSorted, init$, void, $PrefixResolver*)},
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;IIZ)V", nullptr, 0, $method(WalkingIteratorSorted, init$, void, $Compiler*, int32_t, int32_t, bool), "javax.xml.transform.TransformerException"},
+		{"canBeWalkedInNaturalDocOrderStatic", "()Z", nullptr, 0, $virtualMethod(WalkingIteratorSorted, canBeWalkedInNaturalDocOrderStatic, bool)},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(WalkingIteratorSorted, fixupVariables, void, $List*, int32_t)},
+		{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(WalkingIteratorSorted, isDocOrdered, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.WalkingIteratorSorted",
+		"com.sun.org.apache.xpath.internal.axes.WalkingIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WalkingIteratorSorted, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WalkingIteratorSorted));
+	});
 	return class$;
 }
 

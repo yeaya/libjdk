@@ -14,10 +14,13 @@ class $import FilerException : public ::java::io::IOException {
 public:
 	FilerException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x74F0AB2B9348CD1D;
+	static const int64_t serialVersionUID = (int64_t)0x74f0ab2b9348cd1d;
 	FilerException(const FilerException& e);
 	virtual void throw$() override;
-	inline FilerException* operator ->() {
+	inline FilerException* operator ->() const {
+		return (FilerException*)throwing$;
+	}
+	inline operator FilerException*() const {
 		return (FilerException*)throwing$;
 	}
 };

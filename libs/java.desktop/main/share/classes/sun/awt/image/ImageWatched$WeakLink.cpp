@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImageWatched$WeakLink.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/io/Serializable.h>
@@ -52,9 +51,6 @@ public:
 	virtual $Object* run() override {
 		 return $of(ImageWatched$WeakLink::lambda$update$0(iw, img, info, x, y, w, h));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ImageWatched$WeakLink$$Lambda$lambda$update$0>());
-	}
 	$ImageObserver* iw = nullptr;
 	$Image* img = nullptr;
 	int32_t info = 0;
@@ -62,80 +58,37 @@ public:
 	int32_t y = 0;
 	int32_t w = 0;
 	int32_t h = 0;
-	static $FieldInfo fieldInfos[8];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ImageWatched$WeakLink$$Lambda$lambda$update$0::fieldInfos[8] = {
-	{"iw", "Ljava/awt/image/ImageObserver;", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, iw)},
-	{"img", "Ljava/awt/Image;", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, img)},
-	{"info", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, info)},
-	{"x", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, x)},
-	{"y", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, y)},
-	{"w", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, w)},
-	{"h", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, h)},
-	{}
-};
-$MethodInfo ImageWatched$WeakLink$$Lambda$lambda$update$0::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/image/ImageObserver;Ljava/awt/Image;IIIII)V", nullptr, $PUBLIC, $method(ImageWatched$WeakLink$$Lambda$lambda$update$0, init$, void, $ImageObserver*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageWatched$WeakLink$$Lambda$lambda$update$0, run, $Object*)},
-	{}
-};
-$ClassInfo ImageWatched$WeakLink$$Lambda$lambda$update$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.image.ImageWatched$WeakLink$$Lambda$lambda$update$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ImageWatched$WeakLink$$Lambda$lambda$update$0::load$($String* name, bool initialize) {
-	$loadClass(ImageWatched$WeakLink$$Lambda$lambda$update$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"iw", "Ljava/awt/image/ImageObserver;", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, iw)},
+		{"img", "Ljava/awt/Image;", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, img)},
+		{"info", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, info)},
+		{"x", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, x)},
+		{"y", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, y)},
+		{"w", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, w)},
+		{"h", "I", nullptr, $PUBLIC, $field(ImageWatched$WeakLink$$Lambda$lambda$update$0, h)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/ImageObserver;Ljava/awt/Image;IIIII)V", nullptr, $PUBLIC, $method(ImageWatched$WeakLink$$Lambda$lambda$update$0, init$, void, $ImageObserver*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageWatched$WeakLink$$Lambda$lambda$update$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.image.ImageWatched$WeakLink$$Lambda$lambda$update$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageWatched$WeakLink$$Lambda$lambda$update$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageWatched$WeakLink$$Lambda$lambda$update$0);
+	});
 	return class$;
 }
 $Class* ImageWatched$WeakLink$$Lambda$lambda$update$0::class$ = nullptr;
-
-$FieldInfo _ImageWatched$WeakLink_FieldInfo_[] = {
-	{"myref", "Lsun/awt/image/ImageWatched$AccWeakReference;", "Lsun/awt/image/ImageWatched$AccWeakReference<Ljava/awt/image/ImageObserver;>;", $PRIVATE | $FINAL, $field(ImageWatched$WeakLink, myref)},
-	{"next", "Lsun/awt/image/ImageWatched$Link;", nullptr, $PRIVATE, $field(ImageWatched$WeakLink, next)},
-	{}
-};
-
-$MethodInfo _ImageWatched$WeakLink_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/ImageObserver;Lsun/awt/image/ImageWatched$Link;)V", nullptr, $PUBLIC, $method(ImageWatched$WeakLink, init$, void, $ImageObserver*, $ImageWatched$Link*)},
-	{"isWatcher", "(Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageWatched$WeakLink, isWatcher, bool, $ImageObserver*)},
-	{"lambda$update$0", "(Ljava/awt/image/ImageObserver;Ljava/awt/Image;IIIII)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ImageWatched$WeakLink, lambda$update$0, $Boolean*, $ImageObserver*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"newInfo", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(ImageWatched$WeakLink, newInfo, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"removeWatcher", "(Ljava/awt/image/ImageObserver;)Lsun/awt/image/ImageWatched$Link;", nullptr, $PUBLIC, $virtualMethod(ImageWatched$WeakLink, removeWatcher, $ImageWatched$Link*, $ImageObserver*)},
-	{"update", "(Ljava/awt/image/ImageObserver;Ljava/security/AccessControlContext;Ljava/awt/Image;IIIII)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageWatched$WeakLink, update, bool, $ImageObserver*, $AccessControlContext*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ImageWatched$WeakLink_InnerClassesInfo_[] = {
-	{"sun.awt.image.ImageWatched$WeakLink", "sun.awt.image.ImageWatched", "WeakLink", $PUBLIC | $STATIC},
-	{"sun.awt.image.ImageWatched$Link", "sun.awt.image.ImageWatched", "Link", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ImageWatched$WeakLink_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ImageWatched$WeakLink",
-	"sun.awt.image.ImageWatched$Link",
-	nullptr,
-	_ImageWatched$WeakLink_FieldInfo_,
-	_ImageWatched$WeakLink_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageWatched$WeakLink_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.ImageWatched"
-};
-
-$Object* allocate$ImageWatched$WeakLink($Class* clazz) {
-	return $of($alloc(ImageWatched$WeakLink));
-}
 
 void ImageWatched$WeakLink::init$($ImageObserver* obs, $ImageWatched$Link* next) {
 	$ImageWatched$Link::init$();
@@ -144,12 +97,12 @@ void ImageWatched$WeakLink::init$($ImageObserver* obs, $ImageWatched$Link* next)
 }
 
 bool ImageWatched$WeakLink::isWatcher($ImageObserver* iw) {
-	bool var$0 = $equals($nc(this->myref)->get(), iw);
+	bool var$0 = $equals(this->myref->get(), iw);
 	return (var$0 || $nc(this->next)->isWatcher(iw));
 }
 
 $ImageWatched$Link* ImageWatched$WeakLink::removeWatcher($ImageObserver* iw) {
-	$var($ImageObserver, myiw, $cast($ImageObserver, $nc(this->myref)->get()));
+	$var($ImageObserver, myiw, $cast($ImageObserver, this->myref->get()));
 	if (myiw == nullptr) {
 		return $nc(this->next)->removeWatcher(iw);
 	}
@@ -162,21 +115,21 @@ $ImageWatched$Link* ImageWatched$WeakLink::removeWatcher($ImageObserver* iw) {
 
 bool ImageWatched$WeakLink::update($ImageObserver* iw, $AccessControlContext* acc, $Image* img, int32_t info, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$init(ImageWatched$WeakLink);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (acc != nullptr || $System::getSecurityManager() != nullptr) {
-		return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(ImageWatched$WeakLink$$Lambda$lambda$update$0, iw, img, info, x, y, w, h)), acc)))))->booleanValue();
+		return $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(ImageWatched$WeakLink$$Lambda$lambda$update$0, iw, img, info, x, y, w, h)), acc))->booleanValue();
 	}
 	return false;
 }
 
 bool ImageWatched$WeakLink::newInfo($Image* img, int32_t info, int32_t x, int32_t y, int32_t w, int32_t h) {
 	bool ret = $nc(this->next)->newInfo(img, info, x, y, w, h);
-	$var($ImageObserver, myiw, $cast($ImageObserver, $nc(this->myref)->get()));
+	$var($ImageObserver, myiw, $cast($ImageObserver, this->myref->get()));
 	if (myiw == nullptr) {
 		ret = true;
-	} else if (update(myiw, $nc(this->myref)->acc, img, info, x, y, w, h) == false) {
-		$nc(this->myref)->clear();
+	} else if (update(myiw, this->myref->acc, img, info, x, y, w, h) == false) {
+		this->myref->clear();
 		ret = true;
 	}
 	return ret;
@@ -192,11 +145,47 @@ ImageWatched$WeakLink::ImageWatched$WeakLink() {
 
 $Class* ImageWatched$WeakLink::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ImageWatched$WeakLink$$Lambda$lambda$update$0::classInfo$.name)) {
+		if (name->equals("sun.awt.image.ImageWatched$WeakLink$$Lambda$lambda$update$0")) {
 			return ImageWatched$WeakLink$$Lambda$lambda$update$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ImageWatched$WeakLink, name, initialize, &_ImageWatched$WeakLink_ClassInfo_, allocate$ImageWatched$WeakLink);
+	$FieldInfo fieldInfos$$[] = {
+		{"myref", "Lsun/awt/image/ImageWatched$AccWeakReference;", "Lsun/awt/image/ImageWatched$AccWeakReference<Ljava/awt/image/ImageObserver;>;", $PRIVATE | $FINAL, $field(ImageWatched$WeakLink, myref)},
+		{"next", "Lsun/awt/image/ImageWatched$Link;", nullptr, $PRIVATE, $field(ImageWatched$WeakLink, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/ImageObserver;Lsun/awt/image/ImageWatched$Link;)V", nullptr, $PUBLIC, $method(ImageWatched$WeakLink, init$, void, $ImageObserver*, $ImageWatched$Link*)},
+		{"isWatcher", "(Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ImageWatched$WeakLink, isWatcher, bool, $ImageObserver*)},
+		{"lambda$update$0", "(Ljava/awt/image/ImageObserver;Ljava/awt/Image;IIIII)Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ImageWatched$WeakLink, lambda$update$0, $Boolean*, $ImageObserver*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"newInfo", "(Ljava/awt/Image;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(ImageWatched$WeakLink, newInfo, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"removeWatcher", "(Ljava/awt/image/ImageObserver;)Lsun/awt/image/ImageWatched$Link;", nullptr, $PUBLIC, $virtualMethod(ImageWatched$WeakLink, removeWatcher, $ImageWatched$Link*, $ImageObserver*)},
+		{"update", "(Ljava/awt/image/ImageObserver;Ljava/security/AccessControlContext;Ljava/awt/Image;IIIII)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageWatched$WeakLink, update, bool, $ImageObserver*, $AccessControlContext*, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.ImageWatched$WeakLink", "sun.awt.image.ImageWatched", "WeakLink", $PUBLIC | $STATIC},
+		{"sun.awt.image.ImageWatched$Link", "sun.awt.image.ImageWatched", "Link", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ImageWatched$WeakLink",
+		"sun.awt.image.ImageWatched$Link",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.ImageWatched"
+	};
+	$loadClass(ImageWatched$WeakLink, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageWatched$WeakLink);
+	});
 	return class$;
 }
 

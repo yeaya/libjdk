@@ -33,7 +33,7 @@ public:
 	virtual void dispatch() override;
 	void dispose();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xFAAD1FF71E6C44FD;
+	static const int64_t serialVersionUID = (int64_t)0xfaad1ff71e6c44fd;
 	static const int32_t ID = 1007; // java.awt.event.FocusEvent.FOCUS_LAST + 2
 	bool dispatched$ = false;
 	::java::awt::AWTEvent* nested = nullptr;

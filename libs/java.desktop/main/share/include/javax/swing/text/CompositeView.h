@@ -35,6 +35,7 @@ class $import CompositeView : public ::javax::swing::text::View {
 public:
 	CompositeView();
 	using ::javax::swing::text::View::getViewIndex;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::Element* elem);
 	virtual void childAllocation(int32_t index, ::java::awt::Rectangle* a) {}
 	virtual bool flipEastAndWestAtEnds(int32_t position, ::javax::swing::text::Position$Bias* bias);

@@ -1,5 +1,4 @@
 #include <ShortRequestBody$StringRequestBody.h>
-
 #include <ShortRequestBody$AbstractDelegateRequestBody.h>
 #include <ShortRequestBody.h>
 #include <java/net/http/HttpRequest$BodyPublisher.h>
@@ -18,39 +17,8 @@ using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
-$MethodInfo _ShortRequestBody$StringRequestBody_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(ShortRequestBody$StringRequestBody, init$, void, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ShortRequestBody$StringRequestBody_InnerClassesInfo_[] = {
-	{"ShortRequestBody$StringRequestBody", "ShortRequestBody", "StringRequestBody", $STATIC},
-	{"ShortRequestBody$AbstractDelegateRequestBody", "ShortRequestBody", "AbstractDelegateRequestBody", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ShortRequestBody$StringRequestBody_ClassInfo_ = {
-	$ACC_SUPER,
-	"ShortRequestBody$StringRequestBody",
-	"ShortRequestBody$AbstractDelegateRequestBody",
-	nullptr,
-	nullptr,
-	_ShortRequestBody$StringRequestBody_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ShortRequestBody$StringRequestBody_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ShortRequestBody"
-};
-
-$Object* allocate$ShortRequestBody$StringRequestBody($Class* clazz) {
-	return $of($alloc(ShortRequestBody$StringRequestBody));
-}
-
 void ShortRequestBody$StringRequestBody::init$($String* body, int32_t additionalLength) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$BodyPublisher, var$0, $HttpRequest$BodyPublishers::ofString(body));
 	$init($StandardCharsets);
 	$ShortRequestBody$AbstractDelegateRequestBody::init$(var$0, $($nc(body)->getBytes($StandardCharsets::UTF_8))->length + additionalLength);
@@ -60,7 +28,33 @@ ShortRequestBody$StringRequestBody::ShortRequestBody$StringRequestBody() {
 }
 
 $Class* ShortRequestBody$StringRequestBody::load$($String* name, bool initialize) {
-	$loadClass(ShortRequestBody$StringRequestBody, name, initialize, &_ShortRequestBody$StringRequestBody_ClassInfo_, allocate$ShortRequestBody$StringRequestBody);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(ShortRequestBody$StringRequestBody, init$, void, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ShortRequestBody$StringRequestBody", "ShortRequestBody", "StringRequestBody", $STATIC},
+		{"ShortRequestBody$AbstractDelegateRequestBody", "ShortRequestBody", "AbstractDelegateRequestBody", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ShortRequestBody$StringRequestBody",
+		"ShortRequestBody$AbstractDelegateRequestBody",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ShortRequestBody"
+	};
+	$loadClass(ShortRequestBody$StringRequestBody, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortRequestBody$StringRequestBody);
+	});
 	return class$;
 }
 

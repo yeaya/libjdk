@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel$Handler.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/synth/ColorType.h>
@@ -22,7 +20,6 @@
 using $Color = ::java::awt::Color;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -42,49 +39,12 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthLookAndFeel$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(SynthLookAndFeel$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _SynthLookAndFeel$Handler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthLookAndFeel;)V", nullptr, $PRIVATE, $method(SynthLookAndFeel$Handler, init$, void, $SynthLookAndFeel*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"repaintIfBackgroundsDiffer", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthLookAndFeel$Handler, repaintIfBackgroundsDiffer, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _SynthLookAndFeel$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthLookAndFeel$Handler", "javax.swing.plaf.synth.SynthLookAndFeel", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SynthLookAndFeel$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthLookAndFeel$Handler",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_SynthLookAndFeel$Handler_FieldInfo_,
-	_SynthLookAndFeel$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthLookAndFeel$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthLookAndFeel"
-};
-
-$Object* allocate$SynthLookAndFeel$Handler($Class* clazz) {
-	return $of($alloc(SynthLookAndFeel$Handler));
-}
-
 void SynthLookAndFeel$Handler::init$($SynthLookAndFeel* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void SynthLookAndFeel$Handler::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(evt)->getPropertyName());
 	$var($Object, newValue, evt->getNewValue());
 	$var($Object, oldValue, evt->getOldValue());
@@ -97,8 +57,7 @@ void SynthLookAndFeel$Handler::propertyChange($PropertyChangeEvent* evt) {
 		}
 	} else if ("managingFocus"_s == propertyName) {
 		$var($KeyboardFocusManager, manager, $cast($KeyboardFocusManager, evt->getSource()));
-		$init($Boolean);
-		if ($nc($of(newValue))->equals($Boolean::FALSE)) {
+		if ($nc(newValue)->equals($Boolean::FALSE)) {
 			$nc(manager)->removePropertyChangeListener(this->this$0->_handler);
 		} else {
 			$nc(manager)->addPropertyChangeListener(this->this$0->_handler);
@@ -107,11 +66,11 @@ void SynthLookAndFeel$Handler::propertyChange($PropertyChangeEvent* evt) {
 }
 
 void SynthLookAndFeel$Handler::repaintIfBackgroundsDiffer($JComponent* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentUI, ui, $nc(comp)->getUI());
 	if ($instanceOf($SynthUI, ui)) {
 		$var($SynthUI, synthUI, $cast($SynthUI, ui));
-		$var($SynthContext, context, $nc(synthUI)->getContext(comp));
+		$var($SynthContext, context, synthUI->getContext(comp));
 		$var($SynthStyle, style, $nc(context)->getStyle());
 		int32_t state = context->getComponentState();
 		$init($ColorType);
@@ -131,7 +90,38 @@ SynthLookAndFeel$Handler::SynthLookAndFeel$Handler() {
 }
 
 $Class* SynthLookAndFeel$Handler::load$($String* name, bool initialize) {
-	$loadClass(SynthLookAndFeel$Handler, name, initialize, &_SynthLookAndFeel$Handler_ClassInfo_, allocate$SynthLookAndFeel$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(SynthLookAndFeel$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthLookAndFeel;)V", nullptr, $PRIVATE, $method(SynthLookAndFeel$Handler, init$, void, $SynthLookAndFeel*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthLookAndFeel$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"repaintIfBackgroundsDiffer", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthLookAndFeel$Handler, repaintIfBackgroundsDiffer, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthLookAndFeel$Handler", "javax.swing.plaf.synth.SynthLookAndFeel", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthLookAndFeel$Handler",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthLookAndFeel"
+	};
+	$loadClass(SynthLookAndFeel$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthLookAndFeel$Handler);
+	});
 	return class$;
 }
 

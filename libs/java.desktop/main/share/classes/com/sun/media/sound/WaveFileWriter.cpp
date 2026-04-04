@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/WaveFileWriter.h>
-
 #include <com/sun/media/sound/SunFileWriter$NoCloseInputStream.h>
 #include <com/sun/media/sound/SunFileWriter.h>
 #include <com/sun/media/sound/WaveFileFormat.h>
@@ -69,39 +68,15 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _WaveFileWriter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WaveFileWriter, init$, void)},
-	{"getAudioFileFormat", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioFileFormat;", nullptr, $PRIVATE, $method(WaveFileWriter, getAudioFileFormat, $AudioFileFormat*, $AudioFileFormat$Type*, $AudioInputStream*)},
-	{"getAudioFileTypes", "(Ljavax/sound/sampled/AudioInputStream;)[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(WaveFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*, $AudioInputStream*)},
-	{"getFileStream", "(Lcom/sun/media/sound/WaveFileFormat;Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(WaveFileWriter, getFileStream, $InputStream*, $WaveFileFormat*, $InputStream*), "java.io.IOException"},
-	{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(WaveFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $OutputStream*), "java.io.IOException"},
-	{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(WaveFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $File*), "java.io.IOException"},
-	{"writeWaveFile", "(Ljava/io/InputStream;Lcom/sun/media/sound/WaveFileFormat;Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(WaveFileWriter, writeWaveFile, int32_t, $InputStream*, $WaveFileFormat*, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WaveFileWriter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.WaveFileWriter",
-	"com.sun.media.sound.SunFileWriter",
-	nullptr,
-	nullptr,
-	_WaveFileWriter_MethodInfo_
-};
-
-$Object* allocate$WaveFileWriter($Class* clazz) {
-	return $of($alloc(WaveFileWriter));
-}
-
 void WaveFileWriter::init$() {
 	$init($AudioFileFormat$Type);
 	$SunFileWriter::init$($$new($AudioFileFormat$TypeArray, {$AudioFileFormat$Type::WAVE}));
 }
 
 $AudioFileFormat$TypeArray* WaveFileWriter::getAudioFileTypes($AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFileFormat$TypeArray, filetypes, $new($AudioFileFormat$TypeArray, $nc(this->types)->length));
-	$System::arraycopy(this->types, 0, filetypes, 0, $nc(this->types)->length);
+	$System::arraycopy(this->types, 0, filetypes, 0, this->types->length);
 	$var($AudioFormat, format, $nc(stream)->getFormat());
 	$var($AudioFormat$Encoding, encoding, $nc(format)->getEncoding());
 	$init($AudioFormat$Encoding);
@@ -126,7 +101,7 @@ int32_t WaveFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* 
 }
 
 int32_t WaveFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* fileType, $File* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(stream);
 	$Objects::requireNonNull(fileType);
 	$Objects::requireNonNull(out);
@@ -134,49 +109,45 @@ int32_t WaveFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* 
 	int32_t bytesWritten = 0;
 	{
 		$var($FileOutputStream, fos, $new($FileOutputStream, out));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
+				$var($BufferedOutputStream, bos, $new($BufferedOutputStream, fos));
+				$var($Throwable, var$1, nullptr);
 				try {
-					$var($BufferedOutputStream, bos, $new($BufferedOutputStream, fos));
-					{
-						$var($Throwable, var$1, nullptr);
-						try {
-							try {
-								bytesWritten = writeWaveFile(stream, waveFileFormat, bos);
-							} catch ($Throwable& t$) {
-								try {
-									bos->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$2) {
-							$assign(var$1, var$2);
-						} /*finally*/ {
-							bos->close();
-						}
-						if (var$1 != nullptr) {
-							$throw(var$1);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						fos->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						bytesWritten = writeWaveFile(stream, waveFileFormat, bos);
+					} catch ($Throwable& t$) {
+						try {
+							bos->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$2) {
+					$assign(var$1, var$2);
+				} /*finally*/ {
+					bos->close();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
-				fos->close();
+				if (var$1 != nullptr) {
+					$throw(var$1);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					fos->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			fos->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	if ($nc(waveFileFormat)->getByteLength() == $AudioSystem::NOT_SPECIFIED) {
@@ -184,30 +155,28 @@ int32_t WaveFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* 
 		int32_t riffLength = dataLength + waveFileFormat->getHeaderSize() - 8;
 		{
 			$var($RandomAccessFile, raf, $new($RandomAccessFile, out, "rw"_s));
-			{
-				$var($Throwable, var$4, nullptr);
+			$var($Throwable, var$4, nullptr);
+			try {
 				try {
+					raf->skipBytes(4);
+					raf->writeInt(big2little(riffLength));
+					raf->skipBytes(4 + 4 + 4 + $WaveFileFormat::getFmtChunkSize(waveFileFormat->getWaveType()) + 4);
+					raf->writeInt(big2little(dataLength));
+				} catch ($Throwable& t$) {
 					try {
-						raf->skipBytes(4);
-						raf->writeInt(big2little(riffLength));
-						raf->skipBytes(4 + 4 + 4 + $WaveFileFormat::getFmtChunkSize(waveFileFormat->getWaveType()) + 4);
-						raf->writeInt(big2little(dataLength));
-					} catch ($Throwable& t$) {
-						try {
-							raf->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						raf->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-				} catch ($Throwable& var$5) {
-					$assign(var$4, var$5);
-				} /*finally*/ {
-					raf->close();
+					$throw(t$);
 				}
-				if (var$4 != nullptr) {
-					$throw(var$4);
-				}
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
+			} /*finally*/ {
+				raf->close();
+			}
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
 	}
@@ -215,7 +184,7 @@ int32_t WaveFileWriter::write($AudioInputStream* stream, $AudioFileFormat$Type* 
 }
 
 $AudioFileFormat* WaveFileWriter::getAudioFileFormat($AudioFileFormat$Type* type, $AudioInputStream* stream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isFileTypeSupported(type, stream)) {
 		$throwNew($IllegalArgumentException, $$str({"File type "_s, type, " not supported."_s}));
 	}
@@ -248,16 +217,14 @@ $AudioFileFormat* WaveFileWriter::getAudioFileFormat($AudioFileFormat$Type* type
 		$assign(encoding, $AudioFormat$Encoding::PCM_SIGNED);
 		sampleSizeInBits = streamFormat->getSampleSizeInBits();
 	}
-	$var($AudioFormat$Encoding, var$1, encoding);
-	float var$2 = streamFormat->getSampleRate();
-	int32_t var$3 = sampleSizeInBits;
-	int32_t var$4 = streamFormat->getChannels();
-	int32_t var$5 = streamFormat->getFrameSize();
-	$assign(format, $new($AudioFormat, var$1, var$2, var$3, var$4, var$5, streamFormat->getFrameRate(), false));
+	float var$1 = streamFormat->getSampleRate();
+	int32_t var$2 = streamFormat->getChannels();
+	int32_t var$3 = streamFormat->getFrameSize();
+	$assign(format, $new($AudioFormat, encoding, var$1, sampleSizeInBits, var$2, var$3, streamFormat->getFrameRate(), false));
 	if (stream->getFrameLength() != $AudioSystem::NOT_SPECIFIED) {
-		int32_t var$7 = (int32_t)stream->getFrameLength();
-		int32_t var$6 = var$7 * streamFormat->getFrameSize();
-		fileSize = var$6 + $WaveFileFormat::getHeaderSize(waveType);
+		int32_t var$5 = (int32_t)stream->getFrameLength();
+		int32_t var$4 = var$5 * streamFormat->getFrameSize();
+		fileSize = var$4 + $WaveFileFormat::getHeaderSize(waveType);
 	} else {
 		fileSize = $AudioSystem::NOT_SPECIFIED;
 	}
@@ -267,7 +234,7 @@ $AudioFileFormat* WaveFileWriter::getAudioFileFormat($AudioFileFormat$Type* type
 }
 
 int32_t WaveFileWriter::writeWaveFile($InputStream* in, $WaveFileFormat* waveFileFormat, $OutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bytesRead = 0;
 	int32_t bytesWritten = 0;
 	$var($InputStream, fileStream, getFileStream(waveFileFormat, in));
@@ -294,7 +261,7 @@ int32_t WaveFileWriter::writeWaveFile($InputStream* in, $WaveFileFormat* waveFil
 }
 
 $InputStream* WaveFileWriter::getFileStream($WaveFileFormat* waveFileFormat, $InputStream* audioStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioFormat, audioFormat, $nc(waveFileFormat)->getFormat());
 	int32_t headerLength = waveFileFormat->getHeaderSize();
 	int32_t riffMagic = $WaveFileFormat::RIFF_MAGIC;
@@ -317,7 +284,7 @@ $InputStream* WaveFileWriter::getFileStream($WaveFileFormat* waveFileFormat, $In
 	$var($AudioFormat$Encoding, encoding, nullptr);
 	$var($InputStream, codedAudioStream, audioStream);
 	if ($instanceOf($AudioInputStream, audioStream)) {
-		$assign(audioStreamFormat, $nc(($cast($AudioInputStream, audioStream)))->getFormat());
+		$assign(audioStreamFormat, $cast($AudioInputStream, audioStream)->getFormat());
 		$assign(encoding, $nc(audioStreamFormat)->getEncoding());
 		$init($AudioFormat$Encoding);
 		if ($nc($AudioFormat$Encoding::PCM_SIGNED)->equals(encoding)) {
@@ -331,16 +298,16 @@ $InputStream* WaveFileWriter::getFileStream($WaveFileFormat* waveFileFormat, $In
 				$assign(codedAudioStream, $AudioSystem::getAudioInputStream($$new($AudioFormat, var$0, var$1, var$2, var$3, var$4, audioStreamFormat->getFrameRate(), false), $cast($AudioInputStream, audioStream)));
 			}
 		}
-		bool var$7 = $nc($AudioFormat$Encoding::PCM_SIGNED)->equals(encoding);
-		bool var$6 = (var$7 && audioStreamFormat->isBigEndian());
+		bool var$7 = $AudioFormat$Encoding::PCM_SIGNED->equals(encoding);
+		bool var$6 = var$7 && audioStreamFormat->isBigEndian();
 		if (!var$6) {
 			bool var$8 = $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(encoding);
-			var$6 = (var$8 && !audioStreamFormat->isBigEndian());
+			var$6 = var$8 && !audioStreamFormat->isBigEndian();
 		}
 		bool var$5 = var$6;
 		if (!var$5) {
 			bool var$9 = $nc($AudioFormat$Encoding::PCM_UNSIGNED)->equals(encoding);
-			var$5 = (var$9 && audioStreamFormat->isBigEndian());
+			var$5 = var$9 && audioStreamFormat->isBigEndian();
 		}
 		if (var$5) {
 			if (sampleSizeInBits != 8) {
@@ -357,68 +324,64 @@ $InputStream* WaveFileWriter::getFileStream($WaveFileFormat* waveFileFormat, $In
 	$var($bytes, header, nullptr);
 	{
 		$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream));
-		{
-			$var($Throwable, var$15, nullptr);
+		$var($Throwable, var$15, nullptr);
+		try {
 			try {
+				$var($DataOutputStream, dos, $new($DataOutputStream, baos));
+				$var($Throwable, var$16, nullptr);
 				try {
-					$var($DataOutputStream, dos, $new($DataOutputStream, baos));
-					{
-						$var($Throwable, var$16, nullptr);
-						try {
-							try {
-								dos->writeInt(riffMagic);
-								dos->writeInt(big2little(riffLength));
-								dos->writeInt(waveMagic);
-								dos->writeInt(fmtMagic);
-								dos->writeInt(big2little(fmtLength));
-								dos->writeShort(big2littleShort(wav_type));
-								dos->writeShort(big2littleShort(channels));
-								dos->writeInt(big2little(sampleRate));
-								dos->writeInt(big2little(avgBytesPerSec));
-								dos->writeShort(big2littleShort(blockAlign));
-								dos->writeShort(big2littleShort(sampleSizeInBits));
-								if (wav_type != $WaveFileFormat::WAVE_FORMAT_PCM) {
-									dos->writeShort(0);
-								}
-								dos->writeInt(dataMagic);
-								dos->writeInt(big2little(dataLength));
-								$assign(header, baos->toByteArray());
-							} catch ($Throwable& t$) {
-								try {
-									dos->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
-								$throw(t$);
-							}
-						} catch ($Throwable& var$17) {
-							$assign(var$16, var$17);
-						} /*finally*/ {
-							dos->close();
-						}
-						if (var$16 != nullptr) {
-							$throw(var$16);
-						}
-					}
-				} catch ($Throwable& t$) {
 					try {
-						baos->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
+						dos->writeInt(riffMagic);
+						dos->writeInt(big2little(riffLength));
+						dos->writeInt(waveMagic);
+						dos->writeInt(fmtMagic);
+						dos->writeInt(big2little(fmtLength));
+						dos->writeShort(big2littleShort(wav_type));
+						dos->writeShort(big2littleShort(channels));
+						dos->writeInt(big2little(sampleRate));
+						dos->writeInt(big2little(avgBytesPerSec));
+						dos->writeShort(big2littleShort(blockAlign));
+						dos->writeShort(big2littleShort(sampleSizeInBits));
+						if (wav_type != $WaveFileFormat::WAVE_FORMAT_PCM) {
+							dos->writeShort(0);
+						}
+						dos->writeInt(dataMagic);
+						dos->writeInt(big2little(dataLength));
+						$assign(header, baos->toByteArray());
+					} catch ($Throwable& t$) {
+						try {
+							dos->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
+						$throw(t$);
 					}
-					$throw(t$);
+				} catch ($Throwable& var$17) {
+					$assign(var$16, var$17);
+				} /*finally*/ {
+					dos->close();
 				}
-			} catch ($Throwable& var$18) {
-				$assign(var$15, var$18);
-			} /*finally*/ {
-				baos->close();
+				if (var$16 != nullptr) {
+					$throw(var$16);
+				}
+			} catch ($Throwable& t$) {
+				try {
+					baos->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$15 != nullptr) {
-				$throw(var$15);
-			}
+		} catch ($Throwable& var$18) {
+			$assign(var$15, var$18);
+		} /*finally*/ {
+			baos->close();
+		}
+		if (var$15 != nullptr) {
+			$throw(var$15);
 		}
 	}
-	$var($InputStream, var$19, static_cast<$InputStream*>($new($ByteArrayInputStream, header)));
+	$var($InputStream, var$19, $new($ByteArrayInputStream, header));
 	return $new($SequenceInputStream, var$19, $$new($SunFileWriter$NoCloseInputStream, this, codedAudioStream));
 }
 
@@ -426,7 +389,27 @@ WaveFileWriter::WaveFileWriter() {
 }
 
 $Class* WaveFileWriter::load$($String* name, bool initialize) {
-	$loadClass(WaveFileWriter, name, initialize, &_WaveFileWriter_ClassInfo_, allocate$WaveFileWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WaveFileWriter, init$, void)},
+		{"getAudioFileFormat", "(Ljavax/sound/sampled/AudioFileFormat$Type;Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioFileFormat;", nullptr, $PRIVATE, $method(WaveFileWriter, getAudioFileFormat, $AudioFileFormat*, $AudioFileFormat$Type*, $AudioInputStream*)},
+		{"getAudioFileTypes", "(Ljavax/sound/sampled/AudioInputStream;)[Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PUBLIC, $virtualMethod(WaveFileWriter, getAudioFileTypes, $AudioFileFormat$TypeArray*, $AudioInputStream*)},
+		{"getFileStream", "(Lcom/sun/media/sound/WaveFileFormat;Ljava/io/InputStream;)Ljava/io/InputStream;", nullptr, $PRIVATE, $method(WaveFileWriter, getFileStream, $InputStream*, $WaveFileFormat*, $InputStream*), "java.io.IOException"},
+		{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/OutputStream;)I", nullptr, $PUBLIC, $virtualMethod(WaveFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $OutputStream*), "java.io.IOException"},
+		{"write", "(Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFileFormat$Type;Ljava/io/File;)I", nullptr, $PUBLIC, $virtualMethod(WaveFileWriter, write, int32_t, $AudioInputStream*, $AudioFileFormat$Type*, $File*), "java.io.IOException"},
+		{"writeWaveFile", "(Ljava/io/InputStream;Lcom/sun/media/sound/WaveFileFormat;Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(WaveFileWriter, writeWaveFile, int32_t, $InputStream*, $WaveFileFormat*, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.WaveFileWriter",
+		"com.sun.media.sound.SunFileWriter",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WaveFileWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WaveFileWriter);
+	});
 	return class$;
 }
 

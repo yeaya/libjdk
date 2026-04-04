@@ -1,5 +1,4 @@
 #include <java/sql/SQLException.h>
-
 #include <java/io/PrintWriter.h>
 #include <java/sql/DriverManager.h>
 #include <java/sql/SQLException$1.h>
@@ -21,61 +20,6 @@ using $AtomicReferenceFieldUpdater = ::java::util::concurrent::atomic::AtomicRef
 
 namespace java {
 	namespace sql {
-
-$FieldInfo _SQLException_FieldInfo_[] = {
-	{"SQLState", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SQLException, SQLState)},
-	{"vendorCode", "I", nullptr, $PRIVATE, $field(SQLException, vendorCode)},
-	{"next", "Ljava/sql/SQLException;", nullptr, $PRIVATE | $VOLATILE, $field(SQLException, next)},
-	{"nextUpdater", "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;", "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<Ljava/sql/SQLException;Ljava/sql/SQLException;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SQLException, nextUpdater)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SQLException_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SQLException, init$, void)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $String*, int32_t, $Throwable*)},
-	{"getErrorCode", "()I", nullptr, $PUBLIC, $virtualMethod(SQLException, getErrorCode, int32_t)},
-	{"getNextException", "()Ljava/sql/SQLException;", nullptr, $PUBLIC, $virtualMethod(SQLException, getNextException, SQLException*)},
-	{"getSQLState", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SQLException, getSQLState, $String*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Throwable;>;", $PUBLIC, $virtualMethod(SQLException, iterator, $Iterator*)},
-	{"setNextException", "(Ljava/sql/SQLException;)V", nullptr, $PUBLIC, $virtualMethod(SQLException, setNextException, void, SQLException*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SQLException_InnerClassesInfo_[] = {
-	{"java.sql.SQLException$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SQLException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.SQLException",
-	"java.lang.Exception",
-	"java.lang.Iterable",
-	_SQLException_FieldInfo_,
-	_SQLException_MethodInfo_,
-	"Ljava/lang/Exception;Ljava/lang/Iterable<Ljava/lang/Throwable;>;",
-	nullptr,
-	_SQLException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.sql.SQLException$1"
-};
-
-$Object* allocate$SQLException($Class* clazz) {
-	return $of($alloc(SQLException));
-}
 
 $String* SQLException::toString() {
 	 return this->$Exception::toString();
@@ -100,7 +44,7 @@ void SQLException::finalize() {
 $AtomicReferenceFieldUpdater* SQLException::nextUpdater = nullptr;
 
 void SQLException::init$($String* reason, $String* SQLState, int32_t vendorCode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Exception::init$(reason);
 	$set(this, SQLState, SQLState);
 	this->vendorCode = vendorCode;
@@ -113,7 +57,7 @@ void SQLException::init$($String* reason, $String* SQLState, int32_t vendorCode)
 }
 
 void SQLException::init$($String* reason, $String* SQLState) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Exception::init$(reason);
 	$set(this, SQLState, SQLState);
 	this->vendorCode = 0;
@@ -166,7 +110,7 @@ void SQLException::init$($String* reason, $Throwable* cause) {
 }
 
 void SQLException::init$($String* reason, $String* sqlState, $Throwable* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Exception::init$(reason, cause);
 	$set(this, SQLState, sqlState);
 	this->vendorCode = 0;
@@ -179,7 +123,7 @@ void SQLException::init$($String* reason, $String* sqlState, $Throwable* cause) 
 }
 
 void SQLException::init$($String* reason, $String* sqlState, int32_t vendorCode, $Throwable* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Exception::init$(reason, cause);
 	$set(this, SQLState, sqlState);
 	this->vendorCode = vendorCode;
@@ -204,10 +148,10 @@ SQLException* SQLException::getNextException() {
 }
 
 void SQLException::setNextException(SQLException* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(SQLException, current, this);
 	for (;;) {
-		$var(SQLException, next, current->next);
+		$var(SQLException, next, $nc(current)->next);
 		if (next != nullptr) {
 			$assign(current, next);
 			continue;
@@ -223,7 +167,7 @@ $Iterator* SQLException::iterator() {
 	return $new($SQLException$1, this);
 }
 
-void clinit$SQLException($Class* class$) {
+void SQLException::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(SQLException::nextUpdater, $AtomicReferenceFieldUpdater::newUpdater(SQLException::class$, SQLException::class$, "next"_s));
 }
@@ -239,7 +183,56 @@ void SQLException::throw$() {
 }
 
 $Class* SQLException::load$($String* name, bool initialize) {
-	$loadClass(SQLException, name, initialize, &_SQLException_ClassInfo_, clinit$SQLException, allocate$SQLException);
+	$FieldInfo fieldInfos$$[] = {
+		{"SQLState", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SQLException, SQLState)},
+		{"vendorCode", "I", nullptr, $PRIVATE, $field(SQLException, vendorCode)},
+		{"next", "Ljava/sql/SQLException;", nullptr, $PRIVATE | $VOLATILE, $field(SQLException, next)},
+		{"nextUpdater", "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;", "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<Ljava/sql/SQLException;Ljava/sql/SQLException;>;", $PRIVATE | $STATIC | $FINAL, $staticField(SQLException, nextUpdater)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SQLException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SQLException, init$, void)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/Throwable;)V", nullptr, $PUBLIC, $method(SQLException, init$, void, $String*, $String*, int32_t, $Throwable*)},
+		{"getErrorCode", "()I", nullptr, $PUBLIC, $virtualMethod(SQLException, getErrorCode, int32_t)},
+		{"getNextException", "()Ljava/sql/SQLException;", nullptr, $PUBLIC, $virtualMethod(SQLException, getNextException, SQLException*)},
+		{"getSQLState", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SQLException, getSQLState, $String*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/lang/Throwable;>;", $PUBLIC, $virtualMethod(SQLException, iterator, $Iterator*)},
+		{"setNextException", "(Ljava/sql/SQLException;)V", nullptr, $PUBLIC, $virtualMethod(SQLException, setNextException, void, SQLException*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.sql.SQLException$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.SQLException",
+		"java.lang.Exception",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Exception;Ljava/lang/Iterable<Ljava/lang/Throwable;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.sql.SQLException$1"
+	};
+	$loadClass(SQLException, name, initialize, &classInfo$$, SQLException::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SQLException));
+	});
 	return class$;
 }
 

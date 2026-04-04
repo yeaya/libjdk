@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$LogResolveHelper.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Resolve$ResolveError.h>
@@ -23,39 +22,34 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Resolve$LogResolveHelper_MethodInfo_[] = {
-	{"getArgumentTypes", "(Lcom/sun/tools/javac/comp/Resolve$ResolveError;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/comp/Resolve$ResolveError;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$LogResolveHelper, getArgumentTypes, $List*, $Resolve$ResolveError*, $Symbol*, $Name*, $List*)},
-	{"resolveDiagnosticNeeded", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$LogResolveHelper, resolveDiagnosticNeeded, bool, $Type*, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$LogResolveHelper_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$LogResolveHelper", "com.sun.tools.javac.comp.Resolve", "LogResolveHelper", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$LogResolveHelper_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.Resolve$LogResolveHelper",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Resolve$LogResolveHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$LogResolveHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$LogResolveHelper($Class* clazz) {
-	return $of($alloc(Resolve$LogResolveHelper));
-}
-
 $Class* Resolve$LogResolveHelper::load$($String* name, bool initialize) {
-	$loadClass(Resolve$LogResolveHelper, name, initialize, &_Resolve$LogResolveHelper_ClassInfo_, allocate$Resolve$LogResolveHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"getArgumentTypes", "(Lcom/sun/tools/javac/comp/Resolve$ResolveError;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/comp/Resolve$ResolveError;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$LogResolveHelper, getArgumentTypes, $List*, $Resolve$ResolveError*, $Symbol*, $Name*, $List*)},
+		{"resolveDiagnosticNeeded", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", $PUBLIC | $ABSTRACT, $virtualMethod(Resolve$LogResolveHelper, resolveDiagnosticNeeded, bool, $Type*, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$LogResolveHelper", "com.sun.tools.javac.comp.Resolve", "LogResolveHelper", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.Resolve$LogResolveHelper",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$LogResolveHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$LogResolveHelper);
+	});
 	return class$;
 }
 

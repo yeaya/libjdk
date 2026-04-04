@@ -1,5 +1,4 @@
 #include <java/awt/PrintGraphics.h>
-
 #include <java/awt/PrintJob.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$MethodInfo _PrintGraphics_MethodInfo_[] = {
-	{"getPrintJob", "()Ljava/awt/PrintJob;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintGraphics, getPrintJob, $PrintJob*)},
-	{}
-};
-
-$ClassInfo _PrintGraphics_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.PrintGraphics",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PrintGraphics_MethodInfo_
-};
-
-$Object* allocate$PrintGraphics($Class* clazz) {
-	return $of($alloc(PrintGraphics));
-}
-
 $Class* PrintGraphics::load$($String* name, bool initialize) {
-	$loadClass(PrintGraphics, name, initialize, &_PrintGraphics_ClassInfo_, allocate$PrintGraphics);
+	$MethodInfo methodInfos$$[] = {
+		{"getPrintJob", "()Ljava/awt/PrintJob;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintGraphics, getPrintJob, $PrintJob*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.PrintGraphics",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PrintGraphics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintGraphics);
+	});
 	return class$;
 }
 

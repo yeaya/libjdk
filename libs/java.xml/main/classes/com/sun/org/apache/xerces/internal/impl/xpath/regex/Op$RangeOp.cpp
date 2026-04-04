@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Op$RangeOp.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Op.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token.h>
@@ -23,42 +22,6 @@ namespace com {
 							namespace xpath {
 								namespace regex {
 
-$FieldInfo _Op$RangeOp_FieldInfo_[] = {
-	{"tok", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $FINAL, $field(Op$RangeOp, tok)},
-	{}
-};
-
-$MethodInfo _Op$RangeOp_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $method(Op$RangeOp, init$, void, int32_t, $Token*)},
-	{"getToken", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, 0, $virtualMethod(Op$RangeOp, getToken, $RangeToken*)},
-	{}
-};
-
-$InnerClassInfo _Op$RangeOp_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$RangeOp", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Op", "RangeOp", $STATIC},
-	{}
-};
-
-$ClassInfo _Op$RangeOp_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$RangeOp",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op",
-	nullptr,
-	_Op$RangeOp_FieldInfo_,
-	_Op$RangeOp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Op$RangeOp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op"
-};
-
-$Object* allocate$Op$RangeOp($Class* clazz) {
-	return $of($alloc(Op$RangeOp));
-}
-
 void Op$RangeOp::init$(int32_t type, $Token* tok) {
 	$Op::init$(type);
 	$set(this, tok, tok);
@@ -72,7 +35,37 @@ Op$RangeOp::Op$RangeOp() {
 }
 
 $Class* Op$RangeOp::load$($String* name, bool initialize) {
-	$loadClass(Op$RangeOp, name, initialize, &_Op$RangeOp_ClassInfo_, allocate$Op$RangeOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"tok", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $FINAL, $field(Op$RangeOp, tok)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $method(Op$RangeOp, init$, void, int32_t, $Token*)},
+		{"getToken", "()Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RangeToken;", nullptr, 0, $virtualMethod(Op$RangeOp, getToken, $RangeToken*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$RangeOp", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Op", "RangeOp", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op$RangeOp",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Op"
+	};
+	$loadClass(Op$RangeOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Op$RangeOp);
+	});
 	return class$;
 }
 

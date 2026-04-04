@@ -1,5 +1,4 @@
 #include <java/awt/TexturePaintContext.h>
-
 #include <java/awt/PaintContext.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints$Key.h>
@@ -61,83 +60,6 @@ using $SunWritableRaster = ::sun::awt::image::SunWritableRaster;
 namespace java {
 	namespace awt {
 
-$FieldInfo _TexturePaintContext_FieldInfo_[] = {
-	{"xrgbmodel", "Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $STATIC, $staticField(TexturePaintContext, xrgbmodel)},
-	{"argbmodel", "Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $STATIC, $staticField(TexturePaintContext, argbmodel)},
-	{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(TexturePaintContext, colorModel)},
-	{"bWidth", "I", nullptr, 0, $field(TexturePaintContext, bWidth)},
-	{"bHeight", "I", nullptr, 0, $field(TexturePaintContext, bHeight)},
-	{"maxWidth", "I", nullptr, 0, $field(TexturePaintContext, maxWidth)},
-	{"outRas", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(TexturePaintContext, outRas)},
-	{"xOrg", "D", nullptr, 0, $field(TexturePaintContext, xOrg)},
-	{"yOrg", "D", nullptr, 0, $field(TexturePaintContext, yOrg)},
-	{"incXAcross", "D", nullptr, 0, $field(TexturePaintContext, incXAcross)},
-	{"incYAcross", "D", nullptr, 0, $field(TexturePaintContext, incYAcross)},
-	{"incXDown", "D", nullptr, 0, $field(TexturePaintContext, incXDown)},
-	{"incYDown", "D", nullptr, 0, $field(TexturePaintContext, incYDown)},
-	{"colincx", "I", nullptr, 0, $field(TexturePaintContext, colincx)},
-	{"colincy", "I", nullptr, 0, $field(TexturePaintContext, colincy)},
-	{"colincxerr", "I", nullptr, 0, $field(TexturePaintContext, colincxerr)},
-	{"colincyerr", "I", nullptr, 0, $field(TexturePaintContext, colincyerr)},
-	{"rowincx", "I", nullptr, 0, $field(TexturePaintContext, rowincx)},
-	{"rowincy", "I", nullptr, 0, $field(TexturePaintContext, rowincy)},
-	{"rowincxerr", "I", nullptr, 0, $field(TexturePaintContext, rowincxerr)},
-	{"rowincyerr", "I", nullptr, 0, $field(TexturePaintContext, rowincyerr)},
-	{"xrgbRasRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", $PRIVATE | $STATIC, $staticField(TexturePaintContext, xrgbRasRef)},
-	{"argbRasRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", $PRIVATE | $STATIC, $staticField(TexturePaintContext, argbRasRef)},
-	{"byteRasRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", $PRIVATE | $STATIC, $staticField(TexturePaintContext, byteRasRef)},
-	{}
-};
-
-$MethodInfo _TexturePaintContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/ColorModel;Ljava/awt/geom/AffineTransform;III)V", nullptr, 0, $method(TexturePaintContext, init$, void, $ColorModel*, $AffineTransform*, int32_t, int32_t, int32_t)},
-	{"blend", "([III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, blend, int32_t, $ints*, int32_t, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext, dispose, void)},
-	{"dropByteRaster", "(Ljava/awt/image/Raster;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(TexturePaintContext, dropByteRaster, void, $Raster*)},
-	{"dropRaster", "(Ljava/awt/image/ColorModel;Ljava/awt/image/Raster;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(TexturePaintContext, dropRaster, void, $ColorModel*, $Raster*)},
-	{"fractAsInt", "(D)I", nullptr, $STATIC, $staticMethod(TexturePaintContext, fractAsInt, int32_t, double)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext, getColorModel, $ColorModel*)},
-	{"getContext", "(Ljava/awt/image/BufferedImage;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;Ljava/awt/Rectangle;)Ljava/awt/PaintContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, getContext, $PaintContext*, $BufferedImage*, $AffineTransform*, $RenderingHints*, $Rectangle*)},
-	{"getInternedColorModel", "(Ljava/awt/image/ColorModel;)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, getInternedColorModel, $ColorModel*, $ColorModel*)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"isFilterableDCM", "(Ljava/awt/image/ColorModel;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, isFilterableDCM, bool, $ColorModel*)},
-	{"isFilterableICM", "(Ljava/awt/image/ColorModel;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, isFilterableICM, bool, $ColorModel*)},
-	{"isMaskOK", "(IZ)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, isMaskOK, bool, int32_t, bool)},
-	{"makeByteRaster", "(Ljava/awt/image/Raster;II)Ljava/awt/image/WritableRaster;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(TexturePaintContext, makeByteRaster, $WritableRaster*, $Raster*, int32_t, int32_t)},
-	{"makeRaster", "(Ljava/awt/image/ColorModel;Ljava/awt/image/Raster;II)Ljava/awt/image/WritableRaster;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(TexturePaintContext, makeRaster, $WritableRaster*, $ColorModel*, $Raster*, int32_t, int32_t)},
-	{"makeRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TexturePaintContext, makeRaster, $WritableRaster*, int32_t, int32_t)},
-	{"mod", "(DD)D", nullptr, $STATIC, $staticMethod(TexturePaintContext, mod, double, double, double)},
-	{"setRaster", "(IIIIIIIIIIIIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TexturePaintContext, setRaster, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TexturePaintContext_InnerClassesInfo_[] = {
-	{"java.awt.TexturePaintContext$Any", "java.awt.TexturePaintContext", "Any", $STATIC},
-	{"java.awt.TexturePaintContext$ByteFilter", "java.awt.TexturePaintContext", "ByteFilter", $STATIC},
-	{"java.awt.TexturePaintContext$Byte", "java.awt.TexturePaintContext", "Byte", $STATIC},
-	{"java.awt.TexturePaintContext$Int", "java.awt.TexturePaintContext", "Int", $STATIC},
-	{}
-};
-
-$ClassInfo _TexturePaintContext_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"java.awt.TexturePaintContext",
-	"java.lang.Object",
-	"java.awt.PaintContext",
-	_TexturePaintContext_FieldInfo_,
-	_TexturePaintContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TexturePaintContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.TexturePaintContext$Any,java.awt.TexturePaintContext$ByteFilter,java.awt.TexturePaintContext$Byte,java.awt.TexturePaintContext$Int"
-};
-
-$Object* allocate$TexturePaintContext($Class* clazz) {
-	return $of($alloc(TexturePaintContext));
-}
-
 $ColorModel* TexturePaintContext::xrgbmodel = nullptr;
 $ColorModel* TexturePaintContext::argbmodel = nullptr;
 $WeakReference* TexturePaintContext::xrgbRasRef = nullptr;
@@ -146,7 +68,7 @@ $WeakReference* TexturePaintContext::byteRasRef = nullptr;
 
 $PaintContext* TexturePaintContext::getContext($BufferedImage* bufImg, $AffineTransform* xform, $RenderingHints* hints, $Rectangle* devBounds) {
 	$init(TexturePaintContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, raster, $nc(bufImg)->getRaster());
 	$var($ColorModel, cm, bufImg->getColorModel());
 	int32_t maxw = $nc(devBounds)->width;
@@ -155,13 +77,13 @@ $PaintContext* TexturePaintContext::getContext($BufferedImage* bufImg, $AffineTr
 	bool filter = (val == nullptr ? ($equals(hints->get($RenderingHints::KEY_RENDERING), $RenderingHints::VALUE_RENDER_QUALITY)) : (!$equals(val, $RenderingHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR)));
 	if ($instanceOf($IntegerInterleavedRaster, raster) && (!filter || isFilterableDCM(cm))) {
 		$var($IntegerInterleavedRaster, iir, $cast($IntegerInterleavedRaster, raster));
-		bool var$0 = $nc(iir)->getNumDataElements() == 1;
+		bool var$0 = iir->getNumDataElements() == 1;
 		if (var$0 && iir->getPixelStride() == 1) {
 			return $new($TexturePaintContext$Int, iir, cm, xform, maxw, filter);
 		}
 	} else if ($instanceOf($ByteInterleavedRaster, raster)) {
 		$var($ByteInterleavedRaster, bir, $cast($ByteInterleavedRaster, raster));
-		bool var$1 = $nc(bir)->getNumDataElements() == 1;
+		bool var$1 = bir->getNumDataElements() == 1;
 		if (var$1 && bir->getPixelStride() == 1) {
 			if (filter) {
 				if (isFilterableICM(cm)) {
@@ -179,7 +101,7 @@ bool TexturePaintContext::isFilterableICM($ColorModel* cm) {
 	$init(TexturePaintContext);
 	if ($instanceOf($IndexColorModel, cm)) {
 		$var($IndexColorModel, icm, $cast($IndexColorModel, cm));
-		if ($nc(icm)->getMapSize() <= 256) {
+		if (icm->getMapSize() <= 256) {
 			return true;
 		}
 	}
@@ -190,10 +112,10 @@ bool TexturePaintContext::isFilterableDCM($ColorModel* cm) {
 	$init(TexturePaintContext);
 	if ($instanceOf($DirectColorModel, cm)) {
 		$var($DirectColorModel, dcm, $cast($DirectColorModel, cm));
-		bool var$2 = isMaskOK($nc(dcm)->getAlphaMask(), true);
-		bool var$1 = var$2 && isMaskOK($nc(dcm)->getRedMask(), false);
-		bool var$0 = var$1 && isMaskOK($nc(dcm)->getGreenMask(), false);
-		return (var$0 && isMaskOK($nc(dcm)->getBlueMask(), false));
+		bool var$2 = isMaskOK(dcm->getAlphaMask(), true);
+		bool var$1 = var$2 && isMaskOK(dcm->getRedMask(), false);
+		bool var$0 = var$1 && isMaskOK(dcm->getGreenMask(), false);
+		return (var$0 && isMaskOK(dcm->getBlueMask(), false));
 	}
 	return false;
 }
@@ -203,7 +125,7 @@ bool TexturePaintContext::isMaskOK(int32_t mask, bool canbezero) {
 	if (canbezero && mask == 0) {
 		return true;
 	}
-	return (mask == 255 || mask == 0x0000FF00 || mask == 0x00FF0000 || mask == (int32_t)0xFF000000);
+	return (mask == 255 || mask == 0x0000ff00 || mask == 0x00ff0000 || mask == (int32_t)0xff000000);
 }
 
 $ColorModel* TexturePaintContext::getInternedColorModel($ColorModel* cm) {
@@ -226,13 +148,13 @@ void TexturePaintContext::init$($ColorModel* cm, $AffineTransform* xform$renamed
 	try {
 		$assign(xform, $nc(xform)->createInverse());
 	} catch ($NoninvertibleTransformException& e) {
-		$nc(xform)->setToScale((double)0, (double)0);
+		$nc(xform)->setToScale(0, 0);
 	}
 	this->incXAcross = mod($nc(xform)->getScaleX(), (double)bWidth);
-	this->incYAcross = mod($nc(xform)->getShearY(), (double)bHeight);
-	this->incXDown = mod($nc(xform)->getShearX(), (double)bWidth);
-	this->incYDown = mod($nc(xform)->getScaleY(), (double)bHeight);
-	this->xOrg = $nc(xform)->getTranslateX();
+	this->incYAcross = mod(xform->getShearY(), (double)bHeight);
+	this->incXDown = mod(xform->getShearX(), (double)bWidth);
+	this->incYDown = mod(xform->getScaleY(), (double)bHeight);
+	this->xOrg = xform->getTranslateX();
 	this->yOrg = xform->getTranslateY();
 	this->colincx = $cast(int32_t, this->incXAcross);
 	this->colincy = $cast(int32_t, this->incYAcross);
@@ -255,7 +177,7 @@ double TexturePaintContext::mod(double num, double den) {
 	if (num < 0) {
 		num += den;
 		if (num >= den) {
-			num = (double)0;
+			num = 0;
 		}
 	}
 	return num;
@@ -270,28 +192,25 @@ $ColorModel* TexturePaintContext::getColorModel() {
 }
 
 $Raster* TexturePaintContext::getRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
-	bool var$0 = this->outRas == nullptr || $nc(this->outRas)->getWidth() < w;
-	if (var$0 || $nc(this->outRas)->getHeight() < h) {
+	bool var$0 = this->outRas == nullptr || this->outRas->getWidth() < w;
+	if (var$0 || this->outRas->getHeight() < h) {
 		$set(this, outRas, makeRaster((h == 1 ? $Math::max(w, this->maxWidth) : w), h));
 	}
 	double X = mod(this->xOrg + x * this->incXAcross + y * this->incXDown, (double)this->bWidth);
 	double Y = mod(this->yOrg + x * this->incYAcross + y * this->incYDown, (double)this->bHeight);
-	int32_t var$1 = $cast(int32_t, X);
-	int32_t var$2 = $cast(int32_t, Y);
-	int32_t var$3 = fractAsInt(X);
-	setRaster(var$1, var$2, var$3, fractAsInt(Y), w, h, this->bWidth, this->bHeight, this->colincx, this->colincxerr, this->colincy, this->colincyerr, this->rowincx, this->rowincxerr, this->rowincy, this->rowincyerr);
+	int32_t var$1 = fractAsInt(X);
+	setRaster($cast(int32_t, X), $cast(int32_t, Y), var$1, fractAsInt(Y), w, h, this->bWidth, this->bHeight, this->colincx, this->colincxerr, this->colincy, this->colincyerr, this->rowincx, this->rowincxerr, this->rowincy, this->rowincyerr);
 	$SunWritableRaster::markDirty(this->outRas);
 	return this->outRas;
 }
 
 $WritableRaster* TexturePaintContext::makeRaster($ColorModel* cm, $Raster* srcRas, int32_t w, int32_t h) {
-	$load(TexturePaintContext);
+	$init(TexturePaintContext);
 	$synchronized(class$) {
-		$init(TexturePaintContext);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (TexturePaintContext::xrgbmodel == cm) {
 			if (TexturePaintContext::xrgbRasRef != nullptr) {
-				$var($WritableRaster, wr, $cast($WritableRaster, $nc(TexturePaintContext::xrgbRasRef)->get()));
+				$var($WritableRaster, wr, $cast($WritableRaster, TexturePaintContext::xrgbRasRef->get()));
 				bool var$0 = wr != nullptr && wr->getWidth() >= w;
 				if (var$0 && wr->getHeight() >= h) {
 					$assignStatic(TexturePaintContext::xrgbRasRef, nullptr);
@@ -301,19 +220,17 @@ $WritableRaster* TexturePaintContext::makeRaster($ColorModel* cm, $Raster* srcRa
 			if (w <= 32 && h <= 32) {
 				w = (h = 32);
 			}
-		} else {
-			if (TexturePaintContext::argbmodel == cm) {
-				if (TexturePaintContext::argbRasRef != nullptr) {
-					$var($WritableRaster, wr, $cast($WritableRaster, $nc(TexturePaintContext::argbRasRef)->get()));
-					bool var$1 = wr != nullptr && wr->getWidth() >= w;
-					if (var$1 && wr->getHeight() >= h) {
-						$assignStatic(TexturePaintContext::argbRasRef, nullptr);
-						return wr;
-					}
+		} else if (TexturePaintContext::argbmodel == cm) {
+			if (TexturePaintContext::argbRasRef != nullptr) {
+				$var($WritableRaster, wr, $cast($WritableRaster, TexturePaintContext::argbRasRef->get()));
+				bool var$1 = wr != nullptr && wr->getWidth() >= w;
+				if (var$1 && wr->getHeight() >= h) {
+					$assignStatic(TexturePaintContext::argbRasRef, nullptr);
+					return wr;
 				}
-				if (w <= 32 && h <= 32) {
-					w = (h = 32);
-				}
+			}
+			if (w <= 32 && h <= 32) {
+				w = (h = 32);
 			}
 		}
 		if (srcRas != nullptr) {
@@ -325,28 +242,24 @@ $WritableRaster* TexturePaintContext::makeRaster($ColorModel* cm, $Raster* srcRa
 }
 
 void TexturePaintContext::dropRaster($ColorModel* cm, $Raster* outRas) {
-	$load(TexturePaintContext);
+	$init(TexturePaintContext);
 	$synchronized(class$) {
-		$init(TexturePaintContext);
 		if (outRas == nullptr) {
 			return;
 		}
 		if (TexturePaintContext::xrgbmodel == cm) {
 			$assignStatic(TexturePaintContext::xrgbRasRef, $new($WeakReference, outRas));
-		} else {
-			if (TexturePaintContext::argbmodel == cm) {
-				$assignStatic(TexturePaintContext::argbRasRef, $new($WeakReference, outRas));
-			}
+		} else if (TexturePaintContext::argbmodel == cm) {
+			$assignStatic(TexturePaintContext::argbRasRef, $new($WeakReference, outRas));
 		}
 	}
 }
 
 $WritableRaster* TexturePaintContext::makeByteRaster($Raster* srcRas, int32_t w, int32_t h) {
-	$load(TexturePaintContext);
+	$init(TexturePaintContext);
 	$synchronized(class$) {
-		$init(TexturePaintContext);
 		if (TexturePaintContext::byteRasRef != nullptr) {
-			$var($WritableRaster, wr, $cast($WritableRaster, $nc(TexturePaintContext::byteRasRef)->get()));
+			$var($WritableRaster, wr, $cast($WritableRaster, TexturePaintContext::byteRasRef->get()));
 			bool var$0 = wr != nullptr && wr->getWidth() >= w;
 			if (var$0 && wr->getHeight() >= h) {
 				$assignStatic(TexturePaintContext::byteRasRef, nullptr);
@@ -361,9 +274,8 @@ $WritableRaster* TexturePaintContext::makeByteRaster($Raster* srcRas, int32_t w,
 }
 
 void TexturePaintContext::dropByteRaster($Raster* outRas) {
-	$load(TexturePaintContext);
+	$init(TexturePaintContext);
 	$synchronized(class$) {
-		$init(TexturePaintContext);
 		if (outRas == nullptr) {
 			return;
 		}
@@ -383,22 +295,22 @@ int32_t TexturePaintContext::blend($ints* rgbs, int32_t xmul, int32_t ymul) {
 	for (int32_t i = 0; i < 4; ++i) {
 		int32_t rgb = $nc(rgbs)->get(i);
 		xmul = (1 << 12) - xmul;
-		if (((int32_t)(i & (uint32_t)1)) == 0) {
+		if ((i & 1) == 0) {
 			ymul = (1 << 12) - ymul;
 		}
 		int32_t factor = xmul * ymul;
 		if (factor != 0) {
 			accumA += (((int32_t)((uint32_t)rgb >> 24)) * factor);
-			accumR += (((int32_t)(((int32_t)((uint32_t)rgb >> 16)) & (uint32_t)255)) * factor);
-			accumG += (((int32_t)(((int32_t)((uint32_t)rgb >> 8)) & (uint32_t)255)) * factor);
-			accumB += (((int32_t)((rgb) & (uint32_t)255)) * factor);
+			accumR += ((((int32_t)((uint32_t)rgb >> 16)) & 0xff) * factor);
+			accumG += ((((int32_t)((uint32_t)rgb >> 8)) & 0xff) * factor);
+			accumB += (((rgb) & 0xff) * factor);
 		}
 	}
 	return ((((((int32_t)((uint32_t)(accumA + (1 << 23)) >> 24)) << 24) | (((int32_t)((uint32_t)(accumR + (1 << 23)) >> 24)) << 16)) | (((int32_t)((uint32_t)(accumG + (1 << 23)) >> 24)) << 8)) | ((int32_t)((uint32_t)(accumB + (1 << 23)) >> 24)));
 }
 
-void clinit$TexturePaintContext($Class* class$) {
-	$assignStatic(TexturePaintContext::xrgbmodel, $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+void TexturePaintContext::clinit$($Class* clazz) {
+	$assignStatic(TexturePaintContext::xrgbmodel, $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 	$assignStatic(TexturePaintContext::argbmodel, $ColorModel::getRGBdefault());
 }
 
@@ -406,7 +318,78 @@ TexturePaintContext::TexturePaintContext() {
 }
 
 $Class* TexturePaintContext::load$($String* name, bool initialize) {
-	$loadClass(TexturePaintContext, name, initialize, &_TexturePaintContext_ClassInfo_, clinit$TexturePaintContext, allocate$TexturePaintContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"xrgbmodel", "Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $STATIC, $staticField(TexturePaintContext, xrgbmodel)},
+		{"argbmodel", "Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $STATIC, $staticField(TexturePaintContext, argbmodel)},
+		{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(TexturePaintContext, colorModel)},
+		{"bWidth", "I", nullptr, 0, $field(TexturePaintContext, bWidth)},
+		{"bHeight", "I", nullptr, 0, $field(TexturePaintContext, bHeight)},
+		{"maxWidth", "I", nullptr, 0, $field(TexturePaintContext, maxWidth)},
+		{"outRas", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(TexturePaintContext, outRas)},
+		{"xOrg", "D", nullptr, 0, $field(TexturePaintContext, xOrg)},
+		{"yOrg", "D", nullptr, 0, $field(TexturePaintContext, yOrg)},
+		{"incXAcross", "D", nullptr, 0, $field(TexturePaintContext, incXAcross)},
+		{"incYAcross", "D", nullptr, 0, $field(TexturePaintContext, incYAcross)},
+		{"incXDown", "D", nullptr, 0, $field(TexturePaintContext, incXDown)},
+		{"incYDown", "D", nullptr, 0, $field(TexturePaintContext, incYDown)},
+		{"colincx", "I", nullptr, 0, $field(TexturePaintContext, colincx)},
+		{"colincy", "I", nullptr, 0, $field(TexturePaintContext, colincy)},
+		{"colincxerr", "I", nullptr, 0, $field(TexturePaintContext, colincxerr)},
+		{"colincyerr", "I", nullptr, 0, $field(TexturePaintContext, colincyerr)},
+		{"rowincx", "I", nullptr, 0, $field(TexturePaintContext, rowincx)},
+		{"rowincy", "I", nullptr, 0, $field(TexturePaintContext, rowincy)},
+		{"rowincxerr", "I", nullptr, 0, $field(TexturePaintContext, rowincxerr)},
+		{"rowincyerr", "I", nullptr, 0, $field(TexturePaintContext, rowincyerr)},
+		{"xrgbRasRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", $PRIVATE | $STATIC, $staticField(TexturePaintContext, xrgbRasRef)},
+		{"argbRasRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", $PRIVATE | $STATIC, $staticField(TexturePaintContext, argbRasRef)},
+		{"byteRasRef", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/image/Raster;>;", $PRIVATE | $STATIC, $staticField(TexturePaintContext, byteRasRef)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/ColorModel;Ljava/awt/geom/AffineTransform;III)V", nullptr, 0, $method(TexturePaintContext, init$, void, $ColorModel*, $AffineTransform*, int32_t, int32_t, int32_t)},
+		{"blend", "([III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, blend, int32_t, $ints*, int32_t, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext, dispose, void)},
+		{"dropByteRaster", "(Ljava/awt/image/Raster;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(TexturePaintContext, dropByteRaster, void, $Raster*)},
+		{"dropRaster", "(Ljava/awt/image/ColorModel;Ljava/awt/image/Raster;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(TexturePaintContext, dropRaster, void, $ColorModel*, $Raster*)},
+		{"fractAsInt", "(D)I", nullptr, $STATIC, $staticMethod(TexturePaintContext, fractAsInt, int32_t, double)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext, getColorModel, $ColorModel*)},
+		{"getContext", "(Ljava/awt/image/BufferedImage;Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;Ljava/awt/Rectangle;)Ljava/awt/PaintContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, getContext, $PaintContext*, $BufferedImage*, $AffineTransform*, $RenderingHints*, $Rectangle*)},
+		{"getInternedColorModel", "(Ljava/awt/image/ColorModel;)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, getInternedColorModel, $ColorModel*, $ColorModel*)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"isFilterableDCM", "(Ljava/awt/image/ColorModel;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, isFilterableDCM, bool, $ColorModel*)},
+		{"isFilterableICM", "(Ljava/awt/image/ColorModel;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, isFilterableICM, bool, $ColorModel*)},
+		{"isMaskOK", "(IZ)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(TexturePaintContext, isMaskOK, bool, int32_t, bool)},
+		{"makeByteRaster", "(Ljava/awt/image/Raster;II)Ljava/awt/image/WritableRaster;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(TexturePaintContext, makeByteRaster, $WritableRaster*, $Raster*, int32_t, int32_t)},
+		{"makeRaster", "(Ljava/awt/image/ColorModel;Ljava/awt/image/Raster;II)Ljava/awt/image/WritableRaster;", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(TexturePaintContext, makeRaster, $WritableRaster*, $ColorModel*, $Raster*, int32_t, int32_t)},
+		{"makeRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TexturePaintContext, makeRaster, $WritableRaster*, int32_t, int32_t)},
+		{"mod", "(DD)D", nullptr, $STATIC, $staticMethod(TexturePaintContext, mod, double, double, double)},
+		{"setRaster", "(IIIIIIIIIIIIIIII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TexturePaintContext, setRaster, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TexturePaintContext$Any", "java.awt.TexturePaintContext", "Any", $STATIC},
+		{"java.awt.TexturePaintContext$ByteFilter", "java.awt.TexturePaintContext", "ByteFilter", $STATIC},
+		{"java.awt.TexturePaintContext$Byte", "java.awt.TexturePaintContext", "Byte", $STATIC},
+		{"java.awt.TexturePaintContext$Int", "java.awt.TexturePaintContext", "Int", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"java.awt.TexturePaintContext",
+		"java.lang.Object",
+		"java.awt.PaintContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.TexturePaintContext$Any,java.awt.TexturePaintContext$ByteFilter,java.awt.TexturePaintContext$Byte,java.awt.TexturePaintContext$Int"
+	};
+	$loadClass(TexturePaintContext, name, initialize, &classInfo$$, TexturePaintContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TexturePaintContext);
+	});
 	return class$;
 }
 

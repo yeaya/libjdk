@@ -28,11 +28,12 @@ class $export DGCImpl_Skel : public ::java::rmi::server::Skeleton {
 	$class(DGCImpl_Skel, 0, ::java::rmi::server::Skeleton)
 public:
 	DGCImpl_Skel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void dispatch(::java::rmi::Remote* obj, ::java::rmi::server::RemoteCall* remoteCall, int32_t opnum, int64_t hash) override;
 	virtual $Array<::java::rmi::server::Operation>* getOperations() override;
 	static $Array<::java::rmi::server::Operation>* operations;
-	static const int64_t interfaceHash = (int64_t)0xF6B6898D8BF28643;
+	static const int64_t interfaceHash = (int64_t)0xf6b6898d8bf28643;
 };
 
 		} // transport

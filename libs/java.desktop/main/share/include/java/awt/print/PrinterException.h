@@ -15,10 +15,13 @@ public:
 	PrinterException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xCBDA5BD2197EAC25;
+	static const int64_t serialVersionUID = (int64_t)0xcbda5bd2197eac25;
 	PrinterException(const PrinterException& e);
 	virtual void throw$() override;
-	inline PrinterException* operator ->() {
+	inline PrinterException* operator ->() const {
+		return (PrinterException*)throwing$;
+	}
+	inline operator PrinterException*() const {
 		return (PrinterException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/parser/XMLParser.h>
-
 #include <java/io/InputStream.h>
 #include <org/w3c/dom/Document.h>
 #include <jcpp.h>
@@ -18,26 +17,22 @@ namespace com {
 						namespace security {
 							namespace parser {
 
-$MethodInfo _XMLParser_MethodInfo_[] = {
-	{"parse", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLParser, parse, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
-	{}
-};
-
-$ClassInfo _XMLParser_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.parser.XMLParser",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XMLParser_MethodInfo_
-};
-
-$Object* allocate$XMLParser($Class* clazz) {
-	return $of($alloc(XMLParser));
-}
-
 $Class* XMLParser::load$($String* name, bool initialize) {
-	$loadClass(XMLParser, name, initialize, &_XMLParser_ClassInfo_, allocate$XMLParser);
+	$MethodInfo methodInfos$$[] = {
+		{"parse", "(Ljava/io/InputStream;Z)Lorg/w3c/dom/Document;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLParser, parse, $Document*, $InputStream*, bool), "com.sun.org.apache.xml.internal.security.parser.XMLParserException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.parser.XMLParser",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLParser);
+	});
 	return class$;
 }
 

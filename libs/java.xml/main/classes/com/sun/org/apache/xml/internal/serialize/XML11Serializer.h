@@ -61,6 +61,7 @@ class XML11Serializer : public ::com::sun::org::apache::xml::internal::serialize
 	$class(XML11Serializer, 0, ::com::sun::org::apache::xml::internal::serialize::XMLSerializer)
 public:
 	XML11Serializer();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::com::sun::org::apache::xml::internal::serialize::XMLSerializer::characters;
 	void init$();
 	void init$(::com::sun::org::apache::xml::internal::serialize::OutputFormat* format);

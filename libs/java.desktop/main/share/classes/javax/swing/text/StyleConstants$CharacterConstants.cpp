@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyleConstants$CharacterConstants.h>
-
 #include <javax/swing/text/StyleConstants.h>
 #include <jcpp.h>
 
@@ -11,42 +10,6 @@ using $StyleConstants = ::javax::swing::text::StyleConstants;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$MethodInfo _StyleConstants$CharacterConstants_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(StyleConstants$CharacterConstants, init$, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _StyleConstants$CharacterConstants_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyleConstants$CharacterConstants", "javax.swing.text.StyleConstants", "CharacterConstants", $PUBLIC | $STATIC},
-	{"javax.swing.text.AttributeSet$CharacterAttribute", "javax.swing.text.AttributeSet", "CharacterAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _StyleConstants$CharacterConstants_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.StyleConstants$CharacterConstants",
-	"javax.swing.text.StyleConstants",
-	"javax.swing.text.AttributeSet$CharacterAttribute",
-	nullptr,
-	_StyleConstants$CharacterConstants_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleConstants$CharacterConstants_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyleConstants"
-};
-
-$Object* allocate$StyleConstants$CharacterConstants($Class* clazz) {
-	return $of($alloc(StyleConstants$CharacterConstants));
-}
 
 $String* StyleConstants$CharacterConstants::toString() {
 	 return this->$StyleConstants::toString();
@@ -76,7 +39,38 @@ StyleConstants$CharacterConstants::StyleConstants$CharacterConstants() {
 }
 
 $Class* StyleConstants$CharacterConstants::load$($String* name, bool initialize) {
-	$loadClass(StyleConstants$CharacterConstants, name, initialize, &_StyleConstants$CharacterConstants_ClassInfo_, allocate$StyleConstants$CharacterConstants);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(StyleConstants$CharacterConstants, init$, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyleConstants$CharacterConstants", "javax.swing.text.StyleConstants", "CharacterConstants", $PUBLIC | $STATIC},
+		{"javax.swing.text.AttributeSet$CharacterAttribute", "javax.swing.text.AttributeSet", "CharacterAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.StyleConstants$CharacterConstants",
+		"javax.swing.text.StyleConstants",
+		"javax.swing.text.AttributeSet$CharacterAttribute",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyleConstants"
+	};
+	$loadClass(StyleConstants$CharacterConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyleConstants$CharacterConstants));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/DirectiveTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$ClassInfo _DirectiveTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.DirectiveTree",
-	nullptr,
-	"com.sun.source.tree.Tree"
-};
-
-$Object* allocate$DirectiveTree($Class* clazz) {
-	return $of($alloc(DirectiveTree));
-}
-
 $Class* DirectiveTree::load$($String* name, bool initialize) {
-	$loadClass(DirectiveTree, name, initialize, &_DirectiveTree_ClassInfo_, allocate$DirectiveTree);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.DirectiveTree",
+		nullptr,
+		"com.sun.source.tree.Tree"
+	};
+	$loadClass(DirectiveTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectiveTree);
+	});
 	return class$;
 }
 

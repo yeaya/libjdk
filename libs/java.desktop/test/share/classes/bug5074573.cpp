@@ -1,5 +1,4 @@
 #include <bug5074573.h>
-
 #include <bug5074573$1.h>
 #include <bug5074573$2.h>
 #include <bug5074573$3.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Arrays.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -42,13 +40,11 @@ using $bug5074573$4 = ::bug5074573$4;
 using $Component = ::java::awt::Component;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
@@ -60,58 +56,11 @@ using $JPasswordField = ::javax::swing::JPasswordField;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JTextField = ::javax::swing::JTextField;
 using $JTextPane = ::javax::swing::JTextPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $Caret = ::javax::swing::text::Caret;
-using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-
-$FieldInfo _bug5074573_FieldInfo_[] = {
-	{"textComponent", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE | $STATIC, $staticField(bug5074573, textComponent)},
-	{"testString", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(bug5074573, testString)},
-	{"resultString", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(bug5074573, resultString)},
-	{"textClasses", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Class<+Ljavax/swing/text/JTextComponent;>;>;", $STATIC | $FINAL, $staticField(bug5074573, textClasses)},
-	{}
-};
-
-$MethodInfo _bug5074573_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug5074573, init$, void)},
-	{"getCtrlKey", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(bug5074573, getCtrlKey, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug5074573, getText, $String*), "java.lang.Exception"},
-	{"initialize", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljavax/swing/text/JTextComponent;>;)V", $PRIVATE | $STATIC, $staticMethod(bug5074573, initialize, void, $Class*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug5074573, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/swing/text/JTextComponent;>;)Z", $STATIC, $staticMethod(bug5074573, test, bool, $Class*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug5074573_InnerClassesInfo_[] = {
-	{"bug5074573$4", nullptr, nullptr, 0},
-	{"bug5074573$3", nullptr, nullptr, 0},
-	{"bug5074573$2", nullptr, nullptr, 0},
-	{"bug5074573$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug5074573_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug5074573",
-	"java.lang.Object",
-	nullptr,
-	_bug5074573_FieldInfo_,
-	_bug5074573_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug5074573_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug5074573$4,bug5074573$3,bug5074573$2,bug5074573$1"
-};
-
-$Object* allocate$bug5074573($Class* clazz) {
-	return $of($alloc(bug5074573));
-}
 
 $JTextComponent* bug5074573::textComponent = nullptr;
 $String* bug5074573::testString = nullptr;
@@ -123,26 +72,24 @@ void bug5074573::init$() {
 
 void bug5074573::main($StringArray* args) {
 	$init(bug5074573);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	int32_t len$ = $nc(arr$)->length;
+	int32_t i$ = 0;
+	for (; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
+		{
+			$UIManager::setLookAndFeel($($nc(info)->getClassName()));
+			$nc($System::out)->println(info);
 			{
-				$UIManager::setLookAndFeel($($nc(info)->getClassName()));
-				$nc($System::out)->println($of(info));
-				{
-					$var($Iterator, i$, $nc(bug5074573::textClasses)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$Class* clazz = $cast($Class, i$->next());
-						{
-							bool res = test(clazz);
-							$load($JPasswordField);
-							if (!res && clazz != $JPasswordField::class$) {
-								$throwNew($RuntimeException, "failed"_s);
-							}
+				$var($Iterator, i$, $nc(bug5074573::textClasses)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$Class* clazz = $cast($Class, i$->next());
+					{
+						bool res = test(clazz);
+						$load($JPasswordField);
+						if (!res && clazz != $JPasswordField::class$) {
+							$throwNew($RuntimeException, "failed"_s);
 						}
 					}
 				}
@@ -153,13 +100,13 @@ void bug5074573::main($StringArray* args) {
 
 bool bug5074573::test($Class* textComponentClass) {
 	$init(bug5074573);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoWaitForIdle(true);
 	robot->setAutoDelay(50);
 	$SwingUtilities::invokeAndWait($$new($bug5074573$1, textComponentClass));
 	robot->waitForIdle();
-	if ($instanceOf($JTextField, bug5074573::textComponent) && "Aqua"_s->equals($($nc($($UIManager::getLookAndFeel()))->getID()))) {
+	if ($instanceOf($JTextField, bug5074573::textComponent) && "Aqua"_s->equals($($$nc($UIManager::getLookAndFeel())->getID()))) {
 		$SwingUtilities::invokeAndWait($$new($bug5074573$2));
 		robot->waitForIdle();
 	}
@@ -175,12 +122,12 @@ bool bug5074573::test($Class* textComponentClass) {
 	robot->keyRelease($KeyEvent::VK_DELETE);
 	robot->keyRelease(getCtrlKey());
 	robot->waitForIdle();
-	return $nc(bug5074573::resultString)->equals($(getText()));
+	return bug5074573::resultString->equals($(getText()));
 }
 
 $String* bug5074573::getText() {
 	$init(bug5074573);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, result, $new($StringArray, 1));
 	$SwingUtilities::invokeAndWait($$new($bug5074573$4, result));
 	return result->get(0);
@@ -188,8 +135,8 @@ $String* bug5074573::getText() {
 
 int32_t bug5074573::getCtrlKey() {
 	$init(bug5074573);
-	$useLocalCurrentObjectStackCache();
-	if ("Aqua"_s->equals($($nc($($UIManager::getLookAndFeel()))->getID()))) {
+	$useLocalObjectStack();
+	if ("Aqua"_s->equals($($$nc($UIManager::getLookAndFeel())->getID()))) {
 		return $KeyEvent::VK_ALT;
 	}
 	return $KeyEvent::VK_CONTROL;
@@ -197,25 +144,25 @@ int32_t bug5074573::getCtrlKey() {
 
 void bug5074573::initialize($Class* textComponentClass) {
 	$init(bug5074573);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($JFrame, frame, $new($JFrame));
 		$assignStatic(bug5074573::textComponent, $cast($JTextComponent, $nc(textComponentClass)->newInstance()));
 		$nc(bug5074573::textComponent)->setText(bug5074573::testString);
-		frame->add(static_cast<$Component*>(bug5074573::textComponent));
+		frame->add(bug5074573::textComponent);
 		frame->pack();
 		frame->setLocationRelativeTo(nullptr);
 		frame->setVisible(true);
 		$nc(bug5074573::textComponent)->requestFocus();
 		$var($Caret, caret, $nc(bug5074573::textComponent)->getCaret());
-		$nc(caret)->setDot($nc($($nc(bug5074573::textComponent)->getDocument()))->getLength());
+		$nc(caret)->setDot($$nc($nc(bug5074573::textComponent)->getDocument())->getLength());
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
-void clinit$bug5074573($Class* class$) {
+void bug5074573::clinit$($Class* clazz) {
 	$assignStatic(bug5074573::testString, "123 456 789"_s);
 	$assignStatic(bug5074573::resultString, "456 "_s);
 	$load($JTextArea);
@@ -238,7 +185,46 @@ bug5074573::bug5074573() {
 }
 
 $Class* bug5074573::load$($String* name, bool initialize) {
-	$loadClass(bug5074573, name, initialize, &_bug5074573_ClassInfo_, clinit$bug5074573, allocate$bug5074573);
+	$FieldInfo fieldInfos$$[] = {
+		{"textComponent", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE | $STATIC, $staticField(bug5074573, textComponent)},
+		{"testString", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(bug5074573, testString)},
+		{"resultString", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(bug5074573, resultString)},
+		{"textClasses", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Class<+Ljavax/swing/text/JTextComponent;>;>;", $STATIC | $FINAL, $staticField(bug5074573, textClasses)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug5074573, init$, void)},
+		{"getCtrlKey", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(bug5074573, getCtrlKey, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug5074573, getText, $String*), "java.lang.Exception"},
+		{"initialize", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<+Ljavax/swing/text/JTextComponent;>;)V", $PRIVATE | $STATIC, $staticMethod(bug5074573, initialize, void, $Class*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug5074573, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/swing/text/JTextComponent;>;)Z", $STATIC, $staticMethod(bug5074573, test, bool, $Class*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug5074573$4", nullptr, nullptr, 0},
+		{"bug5074573$3", nullptr, nullptr, 0},
+		{"bug5074573$2", nullptr, nullptr, 0},
+		{"bug5074573$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug5074573",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug5074573$4,bug5074573$3,bug5074573$2,bug5074573$1"
+	};
+	$loadClass(bug5074573, name, initialize, &classInfo$$, bug5074573::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug5074573);
+	});
 	return class$;
 }
 

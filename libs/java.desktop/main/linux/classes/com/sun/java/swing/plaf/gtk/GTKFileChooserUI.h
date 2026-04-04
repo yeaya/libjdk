@@ -120,6 +120,7 @@ class GTKFileChooserUI : public ::sun::swing::plaf::synth::SynthFileChooserUI {
 	$class(GTKFileChooserUI, 0, ::sun::swing::plaf::synth::SynthFileChooserUI)
 public:
 	GTKFileChooserUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFileChooser* filechooser);
 	static ::javax::swing::Icon* access$000(::com::sun::java::swing::plaf::gtk::GTKFileChooserUI* x0);
 	static ::javax::swing::Icon* access$100(::com::sun::java::swing::plaf::gtk::GTKFileChooserUI* x0);

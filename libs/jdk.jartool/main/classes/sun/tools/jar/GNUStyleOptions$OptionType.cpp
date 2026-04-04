@@ -1,5 +1,4 @@
 #include <sun/tools/jar/GNUStyleOptions$OptionType.h>
-
 #include <java/lang/Enum.h>
 #include <sun/tools/jar/GNUStyleOptions.h>
 #include <jcpp.h>
@@ -21,51 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace tools {
 		namespace jar {
-
-$FieldInfo _GNUStyleOptions$OptionType_FieldInfo_[] = {
-	{"MAIN_OPERATION", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, MAIN_OPERATION)},
-	{"ANY", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, ANY)},
-	{"CREATE", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, CREATE)},
-	{"CREATE_UPDATE", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, CREATE_UPDATE)},
-	{"CREATE_UPDATE_INDEX", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, CREATE_UPDATE_INDEX)},
-	{"OTHER", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, OTHER)},
-	{"$VALUES", "[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GNUStyleOptions$OptionType, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(GNUStyleOptions$OptionType, name$)},
-	{}
-};
-
-$MethodInfo _GNUStyleOptions$OptionType_MethodInfo_[] = {
-	{"$values", "()[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GNUStyleOptions$OptionType, $values, $GNUStyleOptions$OptionTypeArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(GNUStyleOptions$OptionType, init$, void, $String*, int32_t, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GNUStyleOptions$OptionType, valueOf, GNUStyleOptions$OptionType*, $String*)},
-	{"values", "()[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GNUStyleOptions$OptionType, values, $GNUStyleOptions$OptionTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _GNUStyleOptions$OptionType_InnerClassesInfo_[] = {
-	{"sun.tools.jar.GNUStyleOptions$OptionType", "sun.tools.jar.GNUStyleOptions", "OptionType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GNUStyleOptions$OptionType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.tools.jar.GNUStyleOptions$OptionType",
-	"java.lang.Enum",
-	nullptr,
-	_GNUStyleOptions$OptionType_FieldInfo_,
-	_GNUStyleOptions$OptionType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/tools/jar/GNUStyleOptions$OptionType;>;",
-	nullptr,
-	_GNUStyleOptions$OptionType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.GNUStyleOptions"
-};
-
-$Object* allocate$GNUStyleOptions$OptionType($Class* clazz) {
-	return $of($alloc(GNUStyleOptions$OptionType));
-}
 
 GNUStyleOptions$OptionType* GNUStyleOptions$OptionType::MAIN_OPERATION = nullptr;
 GNUStyleOptions$OptionType* GNUStyleOptions$OptionType::ANY = nullptr;
@@ -102,7 +56,7 @@ void GNUStyleOptions$OptionType::init$($String* $enum$name, int32_t $enum$ordina
 	$set(this, name$, name);
 }
 
-void clinit$GNUStyleOptions$OptionType($Class* class$) {
+void GNUStyleOptions$OptionType::clinit$($Class* clazz) {
 	$assignStatic(GNUStyleOptions$OptionType::MAIN_OPERATION, $new(GNUStyleOptions$OptionType, "MAIN_OPERATION"_s, 0, "main"_s));
 	$assignStatic(GNUStyleOptions$OptionType::ANY, $new(GNUStyleOptions$OptionType, "ANY"_s, 1, "any"_s));
 	$assignStatic(GNUStyleOptions$OptionType::CREATE, $new(GNUStyleOptions$OptionType, "CREATE"_s, 2, "create"_s));
@@ -116,7 +70,46 @@ GNUStyleOptions$OptionType::GNUStyleOptions$OptionType() {
 }
 
 $Class* GNUStyleOptions$OptionType::load$($String* name, bool initialize) {
-	$loadClass(GNUStyleOptions$OptionType, name, initialize, &_GNUStyleOptions$OptionType_ClassInfo_, clinit$GNUStyleOptions$OptionType, allocate$GNUStyleOptions$OptionType);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAIN_OPERATION", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, MAIN_OPERATION)},
+		{"ANY", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, ANY)},
+		{"CREATE", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, CREATE)},
+		{"CREATE_UPDATE", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, CREATE_UPDATE)},
+		{"CREATE_UPDATE_INDEX", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, CREATE_UPDATE_INDEX)},
+		{"OTHER", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GNUStyleOptions$OptionType, OTHER)},
+		{"$VALUES", "[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GNUStyleOptions$OptionType, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(GNUStyleOptions$OptionType, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GNUStyleOptions$OptionType, $values, $GNUStyleOptions$OptionTypeArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(GNUStyleOptions$OptionType, init$, void, $String*, int32_t, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GNUStyleOptions$OptionType, valueOf, GNUStyleOptions$OptionType*, $String*)},
+		{"values", "()[Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GNUStyleOptions$OptionType, values, $GNUStyleOptions$OptionTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.GNUStyleOptions$OptionType", "sun.tools.jar.GNUStyleOptions", "OptionType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.tools.jar.GNUStyleOptions$OptionType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/tools/jar/GNUStyleOptions$OptionType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.GNUStyleOptions"
+	};
+	$loadClass(GNUStyleOptions$OptionType, name, initialize, &classInfo$$, GNUStyleOptions$OptionType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GNUStyleOptions$OptionType));
+	});
 	return class$;
 }
 

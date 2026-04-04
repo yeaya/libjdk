@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DScreenUpdateManager.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -97,35 +96,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$new$1());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<D3DScreenUpdateManager$$Lambda$lambda$new$1>());
+		 return $nc(inst$)->lambda$new$1();
 	}
 	D3DScreenUpdateManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo D3DScreenUpdateManager$$Lambda$lambda$new$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(D3DScreenUpdateManager$$Lambda$lambda$new$1, inst$)},
-	{}
-};
-$MethodInfo D3DScreenUpdateManager$$Lambda$lambda$new$1::methodInfos[3] = {
-	{"<init>", "(Lsun/java2d/d3d/D3DScreenUpdateManager;)V", nullptr, $PUBLIC, $method(D3DScreenUpdateManager$$Lambda$lambda$new$1, init$, void, D3DScreenUpdateManager*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager$$Lambda$lambda$new$1, run, $Object*)},
-	{}
-};
-$ClassInfo D3DScreenUpdateManager$$Lambda$lambda$new$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$new$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* D3DScreenUpdateManager$$Lambda$lambda$new$1::load$($String* name, bool initialize) {
-	$loadClass(D3DScreenUpdateManager$$Lambda$lambda$new$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(D3DScreenUpdateManager$$Lambda$lambda$new$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/d3d/D3DScreenUpdateManager;)V", nullptr, $PUBLIC, $method(D3DScreenUpdateManager$$Lambda$lambda$new$1, init$, void, D3DScreenUpdateManager*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager$$Lambda$lambda$new$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$new$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DScreenUpdateManager$$Lambda$lambda$new$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DScreenUpdateManager$$Lambda$lambda$new$1);
+	});
 	return class$;
 }
 $Class* D3DScreenUpdateManager$$Lambda$lambda$new$1::class$ = nullptr;
@@ -137,35 +132,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$startUpdateThread$2());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1>());
+		 return $nc(inst$)->lambda$startUpdateThread$2();
 	}
 	D3DScreenUpdateManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, inst$)},
-	{}
-};
-$MethodInfo D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1::methodInfos[3] = {
-	{"<init>", "(Lsun/java2d/d3d/D3DScreenUpdateManager;)V", nullptr, $PUBLIC, $method(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, init$, void, D3DScreenUpdateManager*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, run, $Object*)},
-	{}
-};
-$ClassInfo D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1::load$($String* name, bool initialize) {
-	$loadClass(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/d3d/D3DScreenUpdateManager;)V", nullptr, $PUBLIC, $method(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, init$, void, D3DScreenUpdateManager*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1);
+	});
 	return class$;
 }
 $Class* D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1::class$ = nullptr;
@@ -179,88 +170,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$new$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<D3DScreenUpdateManager$$Lambda$lambda$new$0$2>());
-	}
 	D3DScreenUpdateManager* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo D3DScreenUpdateManager$$Lambda$lambda$new$0$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, inst$)},
-	{}
-};
-$MethodInfo D3DScreenUpdateManager$$Lambda$lambda$new$0$2::methodInfos[3] = {
-	{"<init>", "(Lsun/java2d/d3d/D3DScreenUpdateManager;)V", nullptr, $PUBLIC, $method(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, init$, void, D3DScreenUpdateManager*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, run, void)},
-	{}
-};
-$ClassInfo D3DScreenUpdateManager$$Lambda$lambda$new$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$new$0$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* D3DScreenUpdateManager$$Lambda$lambda$new$0$2::load$($String* name, bool initialize) {
-	$loadClass(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/d3d/D3DScreenUpdateManager;)V", nullptr, $PUBLIC, $method(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, init$, void, D3DScreenUpdateManager*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$new$0$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DScreenUpdateManager$$Lambda$lambda$new$0$2);
+	});
 	return class$;
 }
 $Class* D3DScreenUpdateManager$$Lambda$lambda$new$0$2::class$ = nullptr;
-
-$FieldInfo _D3DScreenUpdateManager_FieldInfo_[] = {
-	{"MIN_WIN_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DScreenUpdateManager, MIN_WIN_SIZE)},
-	{"done", "Z", nullptr, $PRIVATE | $VOLATILE, $field(D3DScreenUpdateManager, done)},
-	{"screenUpdater", "Ljava/lang/Thread;", nullptr, $PRIVATE | $VOLATILE, $field(D3DScreenUpdateManager, screenUpdater)},
-	{"needsUpdateNow", "Z", nullptr, $PRIVATE, $field(D3DScreenUpdateManager, needsUpdateNow)},
-	{"runLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(D3DScreenUpdateManager, runLock)},
-	{"d3dwSurfaces", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;>;", $PRIVATE, $field(D3DScreenUpdateManager, d3dwSurfaces)},
-	{"gdiSurfaces", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;Lsun/java2d/windows/GDIWindowSurfaceData;>;", $PRIVATE, $field(D3DScreenUpdateManager, gdiSurfaces)},
-	{}
-};
-
-$MethodInfo _D3DScreenUpdateManager_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(D3DScreenUpdateManager, init$, void)},
-	{"canUseD3DOnScreen", "(Lsun/awt/windows/WComponentPeer;Lsun/awt/Win32GraphicsConfig;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DScreenUpdateManager, canUseD3DOnScreen, bool, $WComponentPeer*, $Win32GraphicsConfig*, int32_t)},
-	{"createGraphics", "(Lsun/java2d/SurfaceData;Lsun/awt/windows/WComponentPeer;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Font;)Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, createGraphics, $Graphics2D*, $SurfaceData*, $WComponentPeer*, $Color*, $Color*, $Font*)},
-	{"createScreenSurface", "(Lsun/awt/Win32GraphicsConfig;Lsun/awt/windows/WComponentPeer;IZ)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, createScreenSurface, $SurfaceData*, $Win32GraphicsConfig*, $WComponentPeer*, int32_t, bool)},
-	{"dropScreenSurface", "(Lsun/java2d/SurfaceData;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DScreenUpdateManager, dropScreenSurface, void, $SurfaceData*)},
-	{"getGdiSurface", "(Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;)Lsun/java2d/SurfaceData;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(D3DScreenUpdateManager, getGdiSurface, $SurfaceData*, $D3DSurfaceData$D3DWindowSurfaceData*)},
-	{"getReplacementScreenSurface", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, getReplacementScreenSurface, $SurfaceData*, $WComponentPeer*, $SurfaceData*)},
-	{"hasHWChildren", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DScreenUpdateManager, hasHWChildren, bool, $Component*)},
-	{"lambda$new$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(D3DScreenUpdateManager, lambda$new$0, void)},
-	{"lambda$new$1", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(D3DScreenUpdateManager, lambda$new$1, $Void*)},
-	{"lambda$startUpdateThread$2", "()Ljava/lang/Thread;", nullptr, $PRIVATE | $SYNTHETIC, $method(D3DScreenUpdateManager, lambda$startUpdateThread$2, $Thread*)},
-	{"removeGdiSurface", "(Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;)V", nullptr, $PRIVATE, $method(D3DScreenUpdateManager, removeGdiSurface, void, $D3DSurfaceData$D3DWindowSurfaceData*)},
-	{"repaintPeerTarget", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $PRIVATE, $method(D3DScreenUpdateManager, repaintPeerTarget, void, $WComponentPeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, run, void)},
-	{"runUpdateNow", "()V", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, runUpdateNow, void)},
-	{"startUpdateThread", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(D3DScreenUpdateManager, startUpdateThread, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"trackScreenSurface", "(Lsun/java2d/SurfaceData;)V", nullptr, $PRIVATE, $method(D3DScreenUpdateManager, trackScreenSurface, void, $SurfaceData*)},
-	{"validate", "(Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;)Z", nullptr, $PRIVATE, $method(D3DScreenUpdateManager, validate, bool, $D3DSurfaceData$D3DWindowSurfaceData*)},
-	{"wakeUpUpdateThread", "()V", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, wakeUpUpdateThread, void)},
-	{}
-};
-
-$ClassInfo _D3DScreenUpdateManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.d3d.D3DScreenUpdateManager",
-	"sun.java2d.ScreenUpdateManager",
-	"java.lang.Runnable",
-	_D3DScreenUpdateManager_FieldInfo_,
-	_D3DScreenUpdateManager_MethodInfo_
-};
-
-$Object* allocate$D3DScreenUpdateManager($Class* clazz) {
-	return $of($alloc(D3DScreenUpdateManager));
-}
 
 int32_t D3DScreenUpdateManager::hashCode() {
 	 return this->$ScreenUpdateManager::hashCode();
@@ -287,7 +222,7 @@ void D3DScreenUpdateManager::init$() {
 	$ScreenUpdateManager::init$();
 	$set(this, runLock, $new($Object));
 	this->done = false;
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(D3DScreenUpdateManager$$Lambda$lambda$new$1, this)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(D3DScreenUpdateManager$$Lambda$lambda$new$1, this)));
 }
 
 $SurfaceData* D3DScreenUpdateManager::createScreenSurface($Win32GraphicsConfig* gc, $WComponentPeer* peer, int32_t bbNum, bool isResize) {
@@ -313,7 +248,7 @@ $SurfaceData* D3DScreenUpdateManager::createScreenSurface($Win32GraphicsConfig* 
 
 bool D3DScreenUpdateManager::canUseD3DOnScreen($WComponentPeer* peer, $Win32GraphicsConfig* gc, int32_t bbNum) {
 	$init(D3DScreenUpdateManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($D3DGraphicsConfig, gc))) {
 		return false;
 	}
@@ -325,25 +260,25 @@ bool D3DScreenUpdateManager::canUseD3DOnScreen($WComponentPeer* peer, $Win32Grap
 	$var($Window, fsw, $nc(d3dgd)->getFullScreenWindow());
 	bool var$3 = $WindowsFlags::isD3DOnScreenEnabled();
 	bool var$2 = var$3 && d3dgd->isD3DEnabledOnDevice();
-	bool var$1 = var$2 && peer->isAccelCapable() && ($nc(r)->width > D3DScreenUpdateManager::MIN_WIN_SIZE || $nc(r)->height > D3DScreenUpdateManager::MIN_WIN_SIZE) && bbNum == 0;
+	bool var$1 = var$2 && peer->isAccelCapable() && ($nc(r)->width > D3DScreenUpdateManager::MIN_WIN_SIZE || r->height > D3DScreenUpdateManager::MIN_WIN_SIZE) && bbNum == 0;
 	bool var$0 = var$1 && (fsw == nullptr || ($equals(fsw, target) && !hasHWChildren(target)));
 	if (var$0) {
 		bool var$8 = $nc(peerName)->equals("sun.awt.windows.WCanvasPeer"_s);
-		bool var$7 = var$8 || $nc(peerName)->equals("sun.awt.windows.WDialogPeer"_s);
-		bool var$6 = var$7 || $nc(peerName)->equals("sun.awt.windows.WPanelPeer"_s);
-		bool var$5 = var$6 || $nc(peerName)->equals("sun.awt.windows.WWindowPeer"_s);
-		bool var$4 = var$5 || $nc(peerName)->equals("sun.awt.windows.WFramePeer"_s);
-		var$0 = (var$4 || $nc(peerName)->equals("sun.awt.windows.WEmbeddedFramePeer"_s));
+		bool var$7 = var$8 || peerName->equals("sun.awt.windows.WDialogPeer"_s);
+		bool var$6 = var$7 || peerName->equals("sun.awt.windows.WPanelPeer"_s);
+		bool var$5 = var$6 || peerName->equals("sun.awt.windows.WWindowPeer"_s);
+		bool var$4 = var$5 || peerName->equals("sun.awt.windows.WFramePeer"_s);
+		var$0 = var$4 || peerName->equals("sun.awt.windows.WEmbeddedFramePeer"_s);
 	}
 	return var$0;
 }
 
 $Graphics2D* D3DScreenUpdateManager::createGraphics($SurfaceData* sd$renamed, $WComponentPeer* peer, $Color* fgColor, $Color* bgColor, $Font* font) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, sd, sd$renamed);
 	if (!this->done && $instanceOf($D3DSurfaceData$D3DWindowSurfaceData, sd)) {
 		$var($D3DSurfaceData$D3DWindowSurfaceData, d3dw, $cast($D3DSurfaceData$D3DWindowSurfaceData, sd));
-		bool var$0 = !$nc(d3dw)->isSurfaceLost();
+		bool var$0 = !d3dw->isSurfaceLost();
 		if (var$0 || validate(d3dw)) {
 			trackScreenSurface(d3dw);
 			return $new($SunGraphics2D, sd, fgColor, bgColor, font);
@@ -354,10 +289,10 @@ $Graphics2D* D3DScreenUpdateManager::createGraphics($SurfaceData* sd$renamed, $W
 }
 
 void D3DScreenUpdateManager::repaintPeerTarget($WComponentPeer* peer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, target, $cast($Component, $nc(peer)->getTarget()));
-	$var($Rectangle, bounds, $nc($($AWTAccessor::getComponentAccessor()))->getBounds(target));
-	peer->handlePaint(0, 0, $nc(bounds)->width, bounds->height);
+	$var($Rectangle, bounds, $$nc($AWTAccessor::getComponentAccessor())->getBounds(target));
+	peer->handlePaint(0, 0, $nc(bounds)->width, $nc(bounds)->height);
 }
 
 void D3DScreenUpdateManager::trackScreenSurface($SurfaceData* sd) {
@@ -368,7 +303,7 @@ void D3DScreenUpdateManager::trackScreenSurface($SurfaceData* sd) {
 			}
 			$var($D3DSurfaceData$D3DWindowSurfaceData, d3dw, $cast($D3DSurfaceData$D3DWindowSurfaceData, sd));
 			if (!$nc(this->d3dwSurfaces)->contains(d3dw)) {
-				$nc(this->d3dwSurfaces)->add(d3dw);
+				this->d3dwSurfaces->add(d3dw);
 			}
 		}
 		startUpdateThread();
@@ -380,7 +315,7 @@ void D3DScreenUpdateManager::dropScreenSurface($SurfaceData* sd) {
 		if (this->d3dwSurfaces != nullptr && $instanceOf($D3DSurfaceData$D3DWindowSurfaceData, sd)) {
 			$var($D3DSurfaceData$D3DWindowSurfaceData, d3dw, $cast($D3DSurfaceData$D3DWindowSurfaceData, sd));
 			removeGdiSurface(d3dw);
-			$nc(this->d3dwSurfaces)->remove($of(d3dw));
+			$nc(this->d3dwSurfaces)->remove(d3dw);
 		}
 	}
 }
@@ -393,7 +328,7 @@ $SurfaceData* D3DScreenUpdateManager::getReplacementScreenSurface($WComponentPee
 
 void D3DScreenUpdateManager::removeGdiSurface($D3DSurfaceData$D3DWindowSurfaceData* d3dw) {
 	if (this->gdiSurfaces != nullptr) {
-		$var($GDIWindowSurfaceData, gdisd, $cast($GDIWindowSurfaceData, $nc(this->gdiSurfaces)->get(d3dw)));
+		$var($GDIWindowSurfaceData, gdisd, $cast($GDIWindowSurfaceData, this->gdiSurfaces->get(d3dw)));
 		if (gdisd != nullptr) {
 			gdisd->invalidate();
 			$nc(this->gdiSurfaces)->remove(d3dw);
@@ -405,7 +340,7 @@ void D3DScreenUpdateManager::startUpdateThread() {
 	$synchronized(this) {
 		$beforeCallerSensitive();
 		if (this->screenUpdater == nullptr) {
-			$set(this, screenUpdater, $cast($Thread, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, this)))));
+			$set(this, screenUpdater, $cast($Thread, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1, this)))));
 			$nc(this->screenUpdater)->start();
 		} else {
 			wakeUpUpdateThread();
@@ -415,22 +350,22 @@ void D3DScreenUpdateManager::startUpdateThread() {
 
 void D3DScreenUpdateManager::wakeUpUpdateThread() {
 	$synchronized(this->runLock) {
-		$nc($of(this->runLock))->notifyAll();
+		this->runLock->notifyAll();
 	}
 }
 
 void D3DScreenUpdateManager::runUpdateNow() {
 	$synchronized(this) {
-		if (this->done || this->screenUpdater == nullptr || this->d3dwSurfaces == nullptr || $nc(this->d3dwSurfaces)->size() == 0) {
+		if (this->done || this->screenUpdater == nullptr || this->d3dwSurfaces == nullptr || this->d3dwSurfaces->size() == 0) {
 			return;
 		}
 	}
 	$synchronized(this->runLock) {
 		this->needsUpdateNow = true;
-		$nc($of(this->runLock))->notifyAll();
+		this->runLock->notifyAll();
 		while (this->needsUpdateNow) {
 			try {
-				$nc($of(this->runLock))->wait();
+				this->runLock->wait();
 			} catch ($InterruptedException& e) {
 			}
 		}
@@ -438,54 +373,50 @@ void D3DScreenUpdateManager::runUpdateNow() {
 }
 
 void D3DScreenUpdateManager::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (!this->done) {
 		$synchronized(this->runLock) {
 			int64_t timeout = $nc(this->d3dwSurfaces)->size() > 0 ? 100 : 0;
 			if (!this->needsUpdateNow) {
 				try {
-					$nc($of(this->runLock))->wait(timeout);
+					this->runLock->wait(timeout);
 				} catch ($InterruptedException& e) {
 				}
 			}
 		}
 		$var($D3DSurfaceData$D3DWindowSurfaceDataArray, surfaces, $new($D3DSurfaceData$D3DWindowSurfaceDataArray, 0));
 		$synchronized(this) {
-			$assign(surfaces, $fcast($D3DSurfaceData$D3DWindowSurfaceDataArray, $nc(this->d3dwSurfaces)->toArray(surfaces)));
+			$assign(surfaces, $cast($D3DSurfaceData$D3DWindowSurfaceDataArray, $nc(this->d3dwSurfaces)->toArray(surfaces)));
 		}
 		{
 			$var($D3DSurfaceData$D3DWindowSurfaceDataArray, arr$, surfaces);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($D3DSurfaceData$D3DWindowSurfaceData, sd, arr$->get(i$));
 				{
 					bool var$0 = $nc(sd)->isValid();
 					if (var$0) {
 						bool var$1 = sd->isDirty();
-						var$0 = (var$1 || sd->isSurfaceLost());
+						var$0 = var$1 || sd->isSurfaceLost();
 					}
 					if (var$0) {
-						if (!$nc(sd)->isSurfaceLost()) {
+						if (!sd->isSurfaceLost()) {
 							$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 							$nc(rq)->lock();
-							{
-								$var($Throwable, var$2, nullptr);
-								try {
-									$var($Rectangle, r, sd->getBounds());
-									$D3DSurfaceData::swapBuffers(sd, 0, 0, $nc(r)->width, r->height);
-									sd->markClean();
-								} catch ($Throwable& var$3) {
-									$assign(var$2, var$3);
-								} /*finally*/ {
-									rq->unlock();
-								}
-								if (var$2 != nullptr) {
-									$throw(var$2);
-								}
+							$var($Throwable, var$2, nullptr);
+							try {
+								$var($Rectangle, r, sd->getBounds());
+								$D3DSurfaceData::swapBuffers(sd, 0, 0, $nc(r)->width, $nc(r)->height);
+								sd->markClean();
+							} catch ($Throwable& var$3) {
+								$assign(var$2, var$3);
+							} /*finally*/ {
+								rq->unlock();
+							}
+							if (var$2 != nullptr) {
+								$throw(var$2);
 							}
 						} else if (!validate(sd)) {
-							$nc($(sd->getPeer()))->replaceSurfaceDataLater();
+							$$nc(sd->getPeer())->replaceSurfaceDataLater();
 						}
 					}
 				}
@@ -493,17 +424,17 @@ void D3DScreenUpdateManager::run() {
 		}
 		$synchronized(this->runLock) {
 			this->needsUpdateNow = false;
-			$nc($of(this->runLock))->notifyAll();
+			this->runLock->notifyAll();
 		}
 	}
 }
 
 bool D3DScreenUpdateManager::validate($D3DSurfaceData$D3DWindowSurfaceData* sd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(sd)->isSurfaceLost()) {
 		try {
 			sd->restoreSurface();
-			$var($Color, bg, $nc($(sd->getPeer()))->getBackgroundNoSync());
+			$var($Color, bg, $$nc(sd->getPeer())->getBackgroundNoSync());
 			$var($SunGraphics2D, sg2d, $new($SunGraphics2D, sd, bg, bg, nullptr));
 			int32_t var$0 = $nc($(sd->getBounds()))->width;
 			sg2d->fillRect(0, 0, var$0, $nc($(sd->getBounds()))->height);
@@ -519,7 +450,7 @@ bool D3DScreenUpdateManager::validate($D3DSurfaceData$D3DWindowSurfaceData* sd) 
 
 $SurfaceData* D3DScreenUpdateManager::getGdiSurface($D3DSurfaceData$D3DWindowSurfaceData* d3dw) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->gdiSurfaces == nullptr) {
 			$set(this, gdiSurfaces, $new($HashMap));
 		}
@@ -534,20 +465,16 @@ $SurfaceData* D3DScreenUpdateManager::getGdiSurface($D3DSurfaceData$D3DWindowSur
 
 bool D3DScreenUpdateManager::hasHWChildren($Component* comp) {
 	$init(D3DScreenUpdateManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 	if ($instanceOf($Container, comp)) {
-		{
-			$var($ComponentArray, arr$, $nc(($cast($Container, comp)))->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, c, arr$->get(i$));
-				{
-					bool var$0 = $instanceOf($WComponentPeer, $($nc(acc)->getPeer(c)));
-					if (var$0 || hasHWChildren(c)) {
-						return true;
-					}
+		$var($ComponentArray, arr$, $cast($Container, comp)->getComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, c, arr$->get(i$));
+			{
+				bool var$0 = $instanceOf($WComponentPeer, $($nc(acc)->getPeer(c)));
+				if (var$0 || hasHWChildren(c)) {
+					return true;
 				}
 			}
 		}
@@ -556,7 +483,7 @@ bool D3DScreenUpdateManager::hasHWChildren($Component* comp) {
 }
 
 $Thread* D3DScreenUpdateManager::lambda$startUpdateThread$2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, "D3D Screen Updater"_s);
 	$var($Thread, t, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), this, name, 0, false));
 	t->setPriority($Thread::NORM_PRIORITY + 2);
@@ -565,12 +492,12 @@ $Thread* D3DScreenUpdateManager::lambda$startUpdateThread$2() {
 }
 
 $Void* D3DScreenUpdateManager::lambda$new$1() {
-	$useLocalCurrentObjectStackCache();
-	$var($Runnable, shutdownRunnable, static_cast<$Runnable*>($new(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, this)));
+	$useLocalObjectStack();
+	$var($Runnable, shutdownRunnable, $new(D3DScreenUpdateManager$$Lambda$lambda$new$0$2, this));
 	$var($Thread, shutdown, $new($Thread, $($ThreadGroupUtils::getRootThreadGroup()), shutdownRunnable, "ScreenUpdater"_s, 0, false));
 	shutdown->setContextClassLoader(nullptr);
 	try {
-		$nc($($Runtime::getRuntime()))->addShutdownHook(shutdown);
+		$$nc($Runtime::getRuntime())->addShutdownHook(shutdown);
 	} catch ($Exception& e) {
 		this->done = true;
 	}
@@ -587,17 +514,64 @@ D3DScreenUpdateManager::D3DScreenUpdateManager() {
 
 $Class* D3DScreenUpdateManager::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(D3DScreenUpdateManager$$Lambda$lambda$new$1::classInfo$.name)) {
+		if (name->equals("sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$new$1")) {
 			return D3DScreenUpdateManager$$Lambda$lambda$new$1::load$(name, initialize);
 		}
-		if (name->equals(D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1::classInfo$.name)) {
+		if (name->equals("sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1")) {
 			return D3DScreenUpdateManager$$Lambda$lambda$startUpdateThread$2$1::load$(name, initialize);
 		}
-		if (name->equals(D3DScreenUpdateManager$$Lambda$lambda$new$0$2::classInfo$.name)) {
+		if (name->equals("sun.java2d.d3d.D3DScreenUpdateManager$$Lambda$lambda$new$0$2")) {
 			return D3DScreenUpdateManager$$Lambda$lambda$new$0$2::load$(name, initialize);
 		}
 	}
-	$loadClass(D3DScreenUpdateManager, name, initialize, &_D3DScreenUpdateManager_ClassInfo_, allocate$D3DScreenUpdateManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIN_WIN_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(D3DScreenUpdateManager, MIN_WIN_SIZE)},
+		{"done", "Z", nullptr, $PRIVATE | $VOLATILE, $field(D3DScreenUpdateManager, done)},
+		{"screenUpdater", "Ljava/lang/Thread;", nullptr, $PRIVATE | $VOLATILE, $field(D3DScreenUpdateManager, screenUpdater)},
+		{"needsUpdateNow", "Z", nullptr, $PRIVATE, $field(D3DScreenUpdateManager, needsUpdateNow)},
+		{"runLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(D3DScreenUpdateManager, runLock)},
+		{"d3dwSurfaces", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;>;", $PRIVATE, $field(D3DScreenUpdateManager, d3dwSurfaces)},
+		{"gdiSurfaces", "Ljava/util/HashMap;", "Ljava/util/HashMap<Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;Lsun/java2d/windows/GDIWindowSurfaceData;>;", $PRIVATE, $field(D3DScreenUpdateManager, gdiSurfaces)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(D3DScreenUpdateManager, init$, void)},
+		{"canUseD3DOnScreen", "(Lsun/awt/windows/WComponentPeer;Lsun/awt/Win32GraphicsConfig;I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(D3DScreenUpdateManager, canUseD3DOnScreen, bool, $WComponentPeer*, $Win32GraphicsConfig*, int32_t)},
+		{"createGraphics", "(Lsun/java2d/SurfaceData;Lsun/awt/windows/WComponentPeer;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Font;)Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, createGraphics, $Graphics2D*, $SurfaceData*, $WComponentPeer*, $Color*, $Color*, $Font*)},
+		{"createScreenSurface", "(Lsun/awt/Win32GraphicsConfig;Lsun/awt/windows/WComponentPeer;IZ)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, createScreenSurface, $SurfaceData*, $Win32GraphicsConfig*, $WComponentPeer*, int32_t, bool)},
+		{"dropScreenSurface", "(Lsun/java2d/SurfaceData;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DScreenUpdateManager, dropScreenSurface, void, $SurfaceData*)},
+		{"getGdiSurface", "(Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;)Lsun/java2d/SurfaceData;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(D3DScreenUpdateManager, getGdiSurface, $SurfaceData*, $D3DSurfaceData$D3DWindowSurfaceData*)},
+		{"getReplacementScreenSurface", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, getReplacementScreenSurface, $SurfaceData*, $WComponentPeer*, $SurfaceData*)},
+		{"hasHWChildren", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(D3DScreenUpdateManager, hasHWChildren, bool, $Component*)},
+		{"lambda$new$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(D3DScreenUpdateManager, lambda$new$0, void)},
+		{"lambda$new$1", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(D3DScreenUpdateManager, lambda$new$1, $Void*)},
+		{"lambda$startUpdateThread$2", "()Ljava/lang/Thread;", nullptr, $PRIVATE | $SYNTHETIC, $method(D3DScreenUpdateManager, lambda$startUpdateThread$2, $Thread*)},
+		{"removeGdiSurface", "(Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;)V", nullptr, $PRIVATE, $method(D3DScreenUpdateManager, removeGdiSurface, void, $D3DSurfaceData$D3DWindowSurfaceData*)},
+		{"repaintPeerTarget", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $PRIVATE, $method(D3DScreenUpdateManager, repaintPeerTarget, void, $WComponentPeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, run, void)},
+		{"runUpdateNow", "()V", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, runUpdateNow, void)},
+		{"startUpdateThread", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(D3DScreenUpdateManager, startUpdateThread, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"trackScreenSurface", "(Lsun/java2d/SurfaceData;)V", nullptr, $PRIVATE, $method(D3DScreenUpdateManager, trackScreenSurface, void, $SurfaceData*)},
+		{"validate", "(Lsun/java2d/d3d/D3DSurfaceData$D3DWindowSurfaceData;)Z", nullptr, $PRIVATE, $method(D3DScreenUpdateManager, validate, bool, $D3DSurfaceData$D3DWindowSurfaceData*)},
+		{"wakeUpUpdateThread", "()V", nullptr, $PUBLIC, $virtualMethod(D3DScreenUpdateManager, wakeUpUpdateThread, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.d3d.D3DScreenUpdateManager",
+		"sun.java2d.ScreenUpdateManager",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(D3DScreenUpdateManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(D3DScreenUpdateManager));
+	});
 	return class$;
 }
 

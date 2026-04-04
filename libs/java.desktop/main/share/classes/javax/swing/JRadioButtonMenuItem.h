@@ -29,6 +29,7 @@ class $export JRadioButtonMenuItem : public ::javax::swing::JMenuItem {
 	$class(JRadioButtonMenuItem, 0, ::javax::swing::JMenuItem)
 public:
 	JRadioButtonMenuItem();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JMenuItem::getComponent;
 	using ::javax::swing::JMenuItem::contains;
 	using ::javax::swing::JMenuItem::enable;

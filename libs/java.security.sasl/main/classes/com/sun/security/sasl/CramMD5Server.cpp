@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/CramMD5Server.h>
-
 #include <com/sun/security/sasl/CramMD5Base.h>
 #include <java/io/IOException.h>
 #include <java/lang/IllegalStateException.h>
@@ -34,8 +33,6 @@ using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Map = ::java::util::Map;
 using $Random = ::java::util::Random;
 using $Level = ::java::util::logging::Level;
-using $Logger = ::java::util::logging::Logger;
-using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
@@ -47,45 +44,6 @@ namespace com {
 	namespace sun {
 		namespace security {
 			namespace sasl {
-
-$FieldInfo _CramMD5Server_FieldInfo_[] = {
-	{"fqdn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CramMD5Server, fqdn)},
-	{"challengeData", "[B", nullptr, $PRIVATE, $field(CramMD5Server, challengeData)},
-	{"authzid", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CramMD5Server, authzid)},
-	{"cbh", "Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PRIVATE, $field(CramMD5Server, cbh)},
-	{}
-};
-
-$MethodInfo _CramMD5Server_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*dispose", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED},
-	{"*getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)V", 0, $method(CramMD5Server, init$, void, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"evaluateResponse", "([B)[B", nullptr, $PUBLIC, $virtualMethod(CramMD5Server, evaluateResponse, $bytes*, $bytes*), "javax.security.sasl.SaslException"},
-	{"getAuthorizationID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CramMD5Server, getAuthorizationID, $String*)},
-	{"*isComplete", "()Z", nullptr, $PUBLIC},
-	{"*unwrap", "([BII)[B", nullptr, $PUBLIC},
-	{"*wrap", "([BII)[B", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CramMD5Server_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.CramMD5Server",
-	"com.sun.security.sasl.CramMD5Base",
-	"javax.security.sasl.SaslServer",
-	_CramMD5Server_FieldInfo_,
-	_CramMD5Server_MethodInfo_
-};
-
-$Object* allocate$CramMD5Server($Class* clazz) {
-	return $of($alloc(CramMD5Server));
-}
 
 $String* CramMD5Server::getMechanismName() {
 	 return this->$CramMD5Base::getMechanismName();
@@ -142,7 +100,7 @@ void CramMD5Server::init$($String* protocol, $String* serverFqdn, $Map* props, $
 }
 
 $bytes* CramMD5Server::evaluateResponse($bytes* responseData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->completed) {
 		$throwNew($IllegalStateException, "CRAM-MD5 authentication already completed"_s);
 	}
@@ -169,16 +127,16 @@ $bytes* CramMD5Server::evaluateResponse($bytes* responseData) {
 			$var($String, challengeStr, sb->toString());
 			$init($CramMD5Base);
 			$init($Level);
-			$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV01:Generated challenge: {0}"_s, $of(challengeStr));
+			$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV01:Generated challenge: {0}"_s, challengeStr);
 			$init($StandardCharsets);
-			$set(this, challengeData, $nc(challengeStr)->getBytes($StandardCharsets::UTF_8));
-			return $cast($bytes, $nc(this->challengeData)->clone());
+			$set(this, challengeData, challengeStr->getBytes($StandardCharsets::UTF_8));
+			return $cast($bytes, this->challengeData->clone());
 		} else {
 			$init($CramMD5Base);
 			$init($Level);
 			if ($nc($CramMD5Base::logger)->isLoggable($Level::FINE)) {
 				$init($StandardCharsets);
-				$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV02:Received response: {0}"_s, $of($$new($String, responseData, $StandardCharsets::UTF_8)));
+				$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV02:Received response: {0}"_s, $$new($String, responseData, $StandardCharsets::UTF_8));
 			}
 			int32_t ulen = 0;
 			for (int32_t i = 0; i < $nc(responseData)->length; ++i) {
@@ -193,29 +151,29 @@ $bytes* CramMD5Server::evaluateResponse($bytes* responseData) {
 			}
 			$init($StandardCharsets);
 			$var($String, username, $new($String, responseData, 0, ulen, $StandardCharsets::UTF_8));
-			$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV03:Extracted username: {0}"_s, $of(username));
+			$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV03:Extracted username: {0}"_s, username);
 			$var($NameCallback, ncb, $new($NameCallback, "CRAM-MD5 authentication ID: "_s, username));
 			$var($PasswordCallback, pcb, $new($PasswordCallback, "CRAM-MD5 password: "_s, false));
 			$nc(this->cbh)->handle($$new($CallbackArray, {
-				static_cast<$Callback*>(ncb),
-				static_cast<$Callback*>(pcb)
+				ncb,
+				pcb
 			}));
 			$var($chars, pwChars, pcb->getPassword());
-			if (pwChars == nullptr || $nc(pwChars)->length == 0) {
+			if (pwChars == nullptr || pwChars->length == 0) {
 				this->aborted = true;
 				$throwNew($SaslException, $$str({"CRAM-MD5: username not found: "_s, username}));
 			}
 			pcb->clearPassword();
 			$var($String, pwStr, $new($String, pwChars));
 			for (int32_t i = 0; i < $nc(pwChars)->length; ++i) {
-				pwChars->set(i, (char16_t)0);
+				pwChars->set(i, 0);
 			}
 			$set(this, pw, pwStr->getBytes($StandardCharsets::UTF_8));
 			$var($String, digest, HMAC_MD5(this->pw, this->challengeData));
-			$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV04:Expecting digest: {0}"_s, $of(digest));
+			$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV04:Expecting digest: {0}"_s, digest);
 			clearPassword();
 			$var($bytes, expectedDigest, $nc(digest)->getBytes($StandardCharsets::UTF_8));
-			int32_t digestLen = $nc(responseData)->length - ulen - 1;
+			int32_t digestLen = responseData->length - ulen - 1;
 			if (expectedDigest->length != digestLen) {
 				this->aborted = true;
 				$throwNew($SaslException, "Invalid response"_s);
@@ -228,14 +186,14 @@ $bytes* CramMD5Server::evaluateResponse($bytes* responseData) {
 				}
 			}
 			$var($AuthorizeCallback, acb, $new($AuthorizeCallback, username, username));
-			$nc(this->cbh)->handle($$new($CallbackArray, {static_cast<$Callback*>(acb)}));
+			$nc(this->cbh)->handle($$new($CallbackArray, {acb}));
 			if (acb->isAuthorized()) {
 				$set(this, authzid, acb->getAuthorizedID());
 			} else {
 				this->aborted = true;
 				$throwNew($SaslException, $$str({"CRAM-MD5: user not authorized: "_s, username}));
 			}
-			$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV05:Authorization id: {0}"_s, $of(this->authzid));
+			$nc($CramMD5Base::logger)->log($Level::FINE, "CRAMSRV05:Authorization id: {0}"_s, this->authzid);
 			this->completed = true;
 			return nullptr;
 		}
@@ -266,7 +224,41 @@ CramMD5Server::CramMD5Server() {
 }
 
 $Class* CramMD5Server::load$($String* name, bool initialize) {
-	$loadClass(CramMD5Server, name, initialize, &_CramMD5Server_ClassInfo_, allocate$CramMD5Server);
+	$FieldInfo fieldInfos$$[] = {
+		{"fqdn", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CramMD5Server, fqdn)},
+		{"challengeData", "[B", nullptr, $PRIVATE, $field(CramMD5Server, challengeData)},
+		{"authzid", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CramMD5Server, authzid)},
+		{"cbh", "Ljavax/security/auth/callback/CallbackHandler;", nullptr, $PRIVATE, $field(CramMD5Server, cbh)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*dispose", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED},
+		{"*getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)V", 0, $method(CramMD5Server, init$, void, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"evaluateResponse", "([B)[B", nullptr, $PUBLIC, $virtualMethod(CramMD5Server, evaluateResponse, $bytes*, $bytes*), "javax.security.sasl.SaslException"},
+		{"getAuthorizationID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CramMD5Server, getAuthorizationID, $String*)},
+		{"*isComplete", "()Z", nullptr, $PUBLIC},
+		{"*unwrap", "([BII)[B", nullptr, $PUBLIC},
+		{"*wrap", "([BII)[B", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.CramMD5Server",
+		"com.sun.security.sasl.CramMD5Base",
+		"javax.security.sasl.SaslServer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CramMD5Server, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CramMD5Server));
+	});
 	return class$;
 }
 

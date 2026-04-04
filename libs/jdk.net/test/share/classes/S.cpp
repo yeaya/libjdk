@@ -1,5 +1,4 @@
 #include <S.h>
-
 #include <S$1.h>
 #include <S$2.h>
 #include <S$3.h>
@@ -17,12 +16,10 @@
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/SecureRandom.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Random.h>
 #include <java/util/concurrent/Flow$Publisher.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
-#include <java/util/concurrent/Flow$Subscription.h>
 #include <java/util/stream/Stream.h>
 #include <jcpp.h>
 
@@ -47,12 +44,10 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $SecureRandom = ::java::security::SecureRandom;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Random = ::java::util::Random;
 using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Stream = ::java::util::stream::Stream;
 
 class S$$Lambda$lambda$newErroredPublisher$0 : public $Flow$Publisher {
@@ -63,79 +58,27 @@ public:
 	virtual void subscribe($Flow$Subscriber* subscriber) override {
 		S::lambda$newErroredPublisher$0(subscriber);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<S$$Lambda$lambda$newErroredPublisher$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo S$$Lambda$lambda$newErroredPublisher$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(S$$Lambda$lambda$newErroredPublisher$0, init$, void)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC, $virtualMethod(S$$Lambda$lambda$newErroredPublisher$0, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-$ClassInfo S$$Lambda$lambda$newErroredPublisher$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"S$$Lambda$lambda$newErroredPublisher$0",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Publisher",
-	nullptr,
-	methodInfos
 };
 $Class* S$$Lambda$lambda$newErroredPublisher$0::load$($String* name, bool initialize) {
-	$loadClass(S$$Lambda$lambda$newErroredPublisher$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(S$$Lambda$lambda$newErroredPublisher$0, init$, void)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC, $virtualMethod(S$$Lambda$lambda$newErroredPublisher$0, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"S$$Lambda$lambda$newErroredPublisher$0",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Publisher",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(S$$Lambda$lambda$newErroredPublisher$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(S$$Lambda$lambda$newErroredPublisher$0);
+	});
 	return class$;
 }
 $Class* S$$Lambda$lambda$newErroredPublisher$0::class$ = nullptr;
-
-$FieldInfo _S_FieldInfo_[] = {
-	{"RANDOM", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(S, RANDOM)},
-	{}
-};
-
-$MethodInfo _S_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(S, init$, void)},
-	{"arrayOfNRandomBytes", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(S, arrayOfNRandomBytes, $bytes*, int32_t)},
-	{"arrayOfNRandomBytes", "(J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(S, arrayOfNRandomBytes, $bytes*, int64_t)},
-	{"bufferOfNRandomASCIIBytes", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, bufferOfNRandomASCIIBytes, $ByteBuffer*, int32_t)},
-	{"bufferOfNRandomBytes", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, bufferOfNRandomBytes, $ByteBuffer*, int32_t)},
-	{"inputStreamOfNReads", "(J)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, inputStreamOfNReads, $InputStream*, int64_t)},
-	{"lambda$newErroredPublisher$0", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(S, lambda$newErroredPublisher$0, void, $Flow$Subscriber*)},
-	{"listOfBuffersFromBufferOfNBytes", "(I)Ljava/util/List;", "(I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(S, listOfBuffersFromBufferOfNBytes, $List*, int32_t)},
-	{"newErroredPublisher", "()Ljava/util/concurrent/Flow$Publisher;", "<T:Ljava/lang/Object;>()Ljava/util/concurrent/Flow$Publisher<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, newErroredPublisher, $Flow$Publisher*)},
-	{"nonCompliantSubscriber", "()Ljava/util/concurrent/Flow$Subscriber;", "<T:Ljava/lang/Object;>()Ljava/util/concurrent/Flow$Subscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, nonCompliantSubscriber, $Flow$Subscriber*)},
-	{"publisherOfStream", "(Ljava/util/stream/Stream;)Ljava/util/concurrent/Flow$Publisher;", "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<+TT;>;)Ljava/util/concurrent/Flow$Publisher<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, publisherOfStream, $Flow$Publisher*, $Stream*)},
-	{"randomIntUpTo", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(S, randomIntUpTo, int32_t, int32_t)},
-	{"scatterBuffer", "(Ljava/nio/ByteBuffer;)Ljava/util/List;", "(Ljava/nio/ByteBuffer;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(S, scatterBuffer, $List*, $ByteBuffer*)},
-	{}
-};
-
-$InnerClassInfo _S_InnerClassesInfo_[] = {
-	{"S$NReadsInputStream", "S", "NReadsInputStream", $STATIC | $FINAL},
-	{"S$2", nullptr, nullptr, 0},
-	{"S$3", nullptr, nullptr, 0},
-	{"S$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _S_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"S",
-	"java.lang.Object",
-	nullptr,
-	_S_FieldInfo_,
-	_S_MethodInfo_,
-	nullptr,
-	nullptr,
-	_S_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"S$NReadsInputStream,S$2,S$3,S$3$1,S$1"
-};
-
-$Object* allocate$S($Class* clazz) {
-	return $of($alloc(S));
-}
 
 $Random* S::RANDOM = nullptr;
 
@@ -149,10 +92,10 @@ $List* S::listOfBuffersFromBufferOfNBytes(int32_t nBytes) {
 
 $List* S::scatterBuffer($ByteBuffer* src) {
 	$init(S);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, buffers, $new($ArrayList));
 	while ($nc(src)->hasRemaining()) {
-		int32_t capacity = $nc(S::RANDOM)->nextInt(src->remaining()) + 1;
+		int32_t capacity = S::RANDOM->nextInt(src->remaining()) + 1;
 		$var($ByteBuffer, b, $ByteBuffer::allocate(capacity));
 		for (int32_t i = 0; i < capacity; ++i) {
 			$nc(b)->put(src->get());
@@ -171,7 +114,7 @@ $ByteBuffer* S::bufferOfNRandomBytes(int32_t capacity) {
 $bytes* S::arrayOfNRandomBytes(int32_t nBytes) {
 	$init(S);
 	$var($bytes, contents, $new($bytes, nBytes));
-	$nc(S::RANDOM)->nextBytes(contents);
+	S::RANDOM->nextBytes(contents);
 	return contents;
 }
 
@@ -187,15 +130,15 @@ $bytes* S::arrayOfNRandomBytes(int64_t nBytes) {
 
 $ByteBuffer* S::bufferOfNRandomASCIIBytes(int32_t capacity) {
 	$init(S);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, alphaNumeric, "abcdefghijklmnopqrstuvwxyz1234567890"_s);
 	$var($StringBuilder, builder, $new($StringBuilder, capacity));
 	for (int32_t i = 0; i < capacity; ++i) {
-		int32_t idx = $nc(S::RANDOM)->nextInt(alphaNumeric->length());
+		int32_t idx = S::RANDOM->nextInt(alphaNumeric->length());
 		builder->append(alphaNumeric->charAt(idx));
 	}
 	$init($StandardCharsets);
-	return $ByteBuffer::wrap($($nc($(builder->toString()))->getBytes($StandardCharsets::US_ASCII)));
+	return $ByteBuffer::wrap($($(builder->toString())->getBytes($StandardCharsets::US_ASCII)));
 }
 
 $Flow$Subscriber* S::nonCompliantSubscriber() {
@@ -205,12 +148,12 @@ $Flow$Subscriber* S::nonCompliantSubscriber() {
 
 int32_t S::randomIntUpTo(int32_t bound) {
 	$init(S);
-	return $nc(S::RANDOM)->nextInt(bound);
+	return S::RANDOM->nextInt(bound);
 }
 
 $Flow$Publisher* S::newErroredPublisher() {
 	$init(S);
-	return static_cast<$Flow$Publisher*>($new(S$$Lambda$lambda$newErroredPublisher$0));
+	return $new(S$$Lambda$lambda$newErroredPublisher$0);
 }
 
 $Flow$Publisher* S::publisherOfStream($Stream* stream) {
@@ -223,12 +166,12 @@ $Flow$Publisher* S::publisherOfStream($Stream* stream) {
 
 void S::lambda$newErroredPublisher$0($Flow$Subscriber* subscriber) {
 	$init(S);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(subscriber)->onSubscribe($$new($S$2));
 	subscriber->onError($$new($IOException));
 }
 
-void clinit$S($Class* class$) {
+void S::clinit$($Class* clazz) {
 	$assignStatic(S::RANDOM, $new($SecureRandom));
 }
 
@@ -237,11 +180,54 @@ S::S() {
 
 $Class* S::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(S$$Lambda$lambda$newErroredPublisher$0::classInfo$.name)) {
+		if (name->equals("S$$Lambda$lambda$newErroredPublisher$0")) {
 			return S$$Lambda$lambda$newErroredPublisher$0::load$(name, initialize);
 		}
 	}
-	$loadClass(S, name, initialize, &_S_ClassInfo_, clinit$S, allocate$S);
+	$FieldInfo fieldInfos$$[] = {
+		{"RANDOM", "Ljava/util/Random;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(S, RANDOM)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(S, init$, void)},
+		{"arrayOfNRandomBytes", "(I)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(S, arrayOfNRandomBytes, $bytes*, int32_t)},
+		{"arrayOfNRandomBytes", "(J)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(S, arrayOfNRandomBytes, $bytes*, int64_t)},
+		{"bufferOfNRandomASCIIBytes", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, bufferOfNRandomASCIIBytes, $ByteBuffer*, int32_t)},
+		{"bufferOfNRandomBytes", "(I)Ljava/nio/ByteBuffer;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, bufferOfNRandomBytes, $ByteBuffer*, int32_t)},
+		{"inputStreamOfNReads", "(J)Ljava/io/InputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(S, inputStreamOfNReads, $InputStream*, int64_t)},
+		{"lambda$newErroredPublisher$0", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(S, lambda$newErroredPublisher$0, void, $Flow$Subscriber*)},
+		{"listOfBuffersFromBufferOfNBytes", "(I)Ljava/util/List;", "(I)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(S, listOfBuffersFromBufferOfNBytes, $List*, int32_t)},
+		{"newErroredPublisher", "()Ljava/util/concurrent/Flow$Publisher;", "<T:Ljava/lang/Object;>()Ljava/util/concurrent/Flow$Publisher<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, newErroredPublisher, $Flow$Publisher*)},
+		{"nonCompliantSubscriber", "()Ljava/util/concurrent/Flow$Subscriber;", "<T:Ljava/lang/Object;>()Ljava/util/concurrent/Flow$Subscriber<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, nonCompliantSubscriber, $Flow$Subscriber*)},
+		{"publisherOfStream", "(Ljava/util/stream/Stream;)Ljava/util/concurrent/Flow$Publisher;", "<T:Ljava/lang/Object;>(Ljava/util/stream/Stream<+TT;>;)Ljava/util/concurrent/Flow$Publisher<TT;>;", $PUBLIC | $STATIC, $staticMethod(S, publisherOfStream, $Flow$Publisher*, $Stream*)},
+		{"randomIntUpTo", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(S, randomIntUpTo, int32_t, int32_t)},
+		{"scatterBuffer", "(Ljava/nio/ByteBuffer;)Ljava/util/List;", "(Ljava/nio/ByteBuffer;)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PUBLIC | $STATIC, $staticMethod(S, scatterBuffer, $List*, $ByteBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"S$NReadsInputStream", "S", "NReadsInputStream", $STATIC | $FINAL},
+		{"S$2", nullptr, nullptr, 0},
+		{"S$3", nullptr, nullptr, 0},
+		{"S$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"S",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"S$NReadsInputStream,S$2,S$3,S$3$1,S$1"
+	};
+	$loadClass(S, name, initialize, &classInfo$$, S::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(S);
+	});
 	return class$;
 }
 

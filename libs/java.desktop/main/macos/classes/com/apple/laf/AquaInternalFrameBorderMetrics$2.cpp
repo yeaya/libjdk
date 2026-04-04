@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameBorderMetrics$2.h>
-
 #include <com/apple/laf/AquaInternalFrameBorderMetrics$2$1.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <jcpp.h>
@@ -15,58 +14,52 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaInternalFrameBorderMetrics$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaInternalFrameBorderMetrics$2, init$, void)},
-	{"getInstance", "()Lcom/apple/laf/AquaInternalFrameBorderMetrics;", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorderMetrics$2, getInstance, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaInternalFrameBorderMetrics$2_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaInternalFrameBorderMetrics",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaInternalFrameBorderMetrics$2_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameBorderMetrics$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaInternalFrameBorderMetrics$2$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameBorderMetrics$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameBorderMetrics$2",
-	"com.apple.laf.AquaUtils$RecyclableSingleton",
-	nullptr,
-	nullptr,
-	_AquaInternalFrameBorderMetrics$2_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaInternalFrameBorderMetrics;>;",
-	&_AquaInternalFrameBorderMetrics$2_EnclosingMethodInfo_,
-	_AquaInternalFrameBorderMetrics$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameBorderMetrics"
-};
-
-$Object* allocate$AquaInternalFrameBorderMetrics$2($Class* clazz) {
-	return $of($alloc(AquaInternalFrameBorderMetrics$2));
-}
-
 void AquaInternalFrameBorderMetrics$2::init$() {
 	$AquaUtils$RecyclableSingleton::init$();
 }
 
 $Object* AquaInternalFrameBorderMetrics$2::getInstance() {
-	return $of($new($AquaInternalFrameBorderMetrics$2$1, this));
+	return $new($AquaInternalFrameBorderMetrics$2$1, this);
 }
 
 AquaInternalFrameBorderMetrics$2::AquaInternalFrameBorderMetrics$2() {
 }
 
 $Class* AquaInternalFrameBorderMetrics$2::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameBorderMetrics$2, name, initialize, &_AquaInternalFrameBorderMetrics$2_ClassInfo_, allocate$AquaInternalFrameBorderMetrics$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaInternalFrameBorderMetrics$2, init$, void)},
+		{"getInstance", "()Lcom/apple/laf/AquaInternalFrameBorderMetrics;", nullptr, $PROTECTED, $virtualMethod(AquaInternalFrameBorderMetrics$2, getInstance, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaInternalFrameBorderMetrics",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameBorderMetrics$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$RecyclableSingleton", "com.apple.laf.AquaUtils", "RecyclableSingleton", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaInternalFrameBorderMetrics$2$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameBorderMetrics$2",
+		"com.apple.laf.AquaUtils$RecyclableSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaInternalFrameBorderMetrics;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameBorderMetrics"
+	};
+	$loadClass(AquaInternalFrameBorderMetrics$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaInternalFrameBorderMetrics$2);
+	});
 	return class$;
 }
 

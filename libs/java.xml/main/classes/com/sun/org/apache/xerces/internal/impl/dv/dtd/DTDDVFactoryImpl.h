@@ -42,6 +42,7 @@ class DTDDVFactoryImpl : public ::com::sun::org::apache::xerces::internal::impl:
 	$class(DTDDVFactoryImpl, 0, ::com::sun::org::apache::xerces::internal::impl::dv::DTDDVFactory)
 public:
 	DTDDVFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::impl::dv::DatatypeValidator* getBuiltInDV($String* name) override;
 	virtual ::java::util::Map* getBuiltInTypes() override;

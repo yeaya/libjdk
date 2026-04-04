@@ -1,9 +1,7 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMXMLSignatureFactory.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider.h>
-#include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/util/List.h>
 #include <javax/xml/crypto/Data.h>
 #include <javax/xml/crypto/MarshalException.h>
@@ -126,7 +124,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $List = ::java::util::List;
 using $Data = ::javax::xml::crypto::Data;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
@@ -218,59 +215,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMXMLSignatureFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXMLSignatureFactory, init$, void)},
-	{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, getURIDereferencer, $URIDereferencer*)},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, isFeatureSupported, bool, $String*)},
-	{"newCanonicalizationMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/C14NMethodParameterSpec;)Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newCanonicalizationMethod, $CanonicalizationMethod*, $String*, $C14NMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newCanonicalizationMethod", "(Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newCanonicalizationMethod, $CanonicalizationMethod*, $String*, $XMLStructure*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newDigestMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;)Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newDigestMethod, $DigestMethod*, $String*, $DigestMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newManifest", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/Manifest;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newManifest, $Manifest*, $List*)},
-	{"newManifest", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Manifest;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newManifest, $Manifest*, $List*, $String*)},
-	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*)},
-	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $String*, $String*)},
-	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljavax/xml/crypto/Data;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $Data*, $List*, $String*, $String*)},
-	{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;[B)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $String*, $String*, $bytes*)},
-	{"newSignatureMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;)Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignatureMethod, $SignatureMethod*, $String*, $SignatureMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newSignatureProperties", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperties;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignatureProperties, $SignatureProperties*, $List*, $String*)},
-	{"newSignatureProperty", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperty;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignatureProperty, $SignatureProperty*, $List*, $String*, $String*)},
-	{"newSignedInfo", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;)Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignedInfo, $SignedInfo*, $CanonicalizationMethod*, $SignatureMethod*, $List*)},
-	{"newSignedInfo", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignedInfo, $SignedInfo*, $CanonicalizationMethod*, $SignatureMethod*, $List*, $String*)},
-	{"newTransform", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)Ljavax/xml/crypto/dsig/Transform;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newTransform, $Transform*, $String*, $TransformParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newTransform", "(Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/Transform;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newTransform, $Transform*, $String*, $XMLStructure*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
-	{"newXMLObject", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLObject;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newXMLObject, $XMLObject*, $List*, $String*, $String*, $String*)},
-	{"newXMLSignature", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newXMLSignature, $XMLSignature*, $SignedInfo*, $KeyInfo*)},
-	{"newXMLSignature", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newXMLSignature, $XMLSignature*, $SignedInfo*, $KeyInfo*, $List*, $String*, $String*)},
-	{"unmarshal", "(Lorg/w3c/dom/Node;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PRIVATE, $method(DOMXMLSignatureFactory, unmarshal, $XMLSignature*, $Node*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalXMLSignature", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, unmarshalXMLSignature, $XMLSignature*, $XMLValidateContext*), "javax.xml.crypto.MarshalException"},
-	{"unmarshalXMLSignature", "(Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, unmarshalXMLSignature, $XMLSignature*, $XMLStructure*), "javax.xml.crypto.MarshalException"},
-	{}
-};
-
-$InnerClassInfo _DOMXMLSignatureFactory_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory$UnmarshalContext", "org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory", "UnmarshalContext", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DOMXMLSignatureFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory",
-	"javax.xml.crypto.dsig.XMLSignatureFactory",
-	nullptr,
-	nullptr,
-	_DOMXMLSignatureFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMXMLSignatureFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory$UnmarshalContext"
-};
-
-$Object* allocate$DOMXMLSignatureFactory($Class* clazz) {
-	return $of($alloc(DOMXMLSignatureFactory));
-}
-
 void DOMXMLSignatureFactory::init$() {
 	$XMLSignatureFactory::init$();
 }
@@ -343,27 +287,27 @@ $XMLSignature* DOMXMLSignatureFactory::unmarshalXMLSignature($XMLValidateContext
 	if (context == nullptr) {
 		$throwNew($NullPointerException, "context cannot be null"_s);
 	}
-	return unmarshal($($nc(($cast($DOMValidateContext, context)))->getNode()), context);
+	return unmarshal($($nc($cast($DOMValidateContext, context))->getNode()), context);
 }
 
 $XMLSignature* DOMXMLSignatureFactory::unmarshalXMLSignature($XMLStructure* xmlStructure) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (xmlStructure == nullptr) {
 		$throwNew($NullPointerException, "xmlStructure cannot be null"_s);
 	}
 	if (!($instanceOf($DOMStructure, xmlStructure))) {
 		$throwNew($ClassCastException, "xmlStructure must be of type DOMStructure"_s);
 	}
-	$var($Node, var$0, $nc(($cast($DOMStructure, xmlStructure)))->getNode());
+	$var($Node, var$0, $nc($cast($DOMStructure, xmlStructure))->getNode());
 	return unmarshal(var$0, $$new($DOMXMLSignatureFactory$UnmarshalContext));
 }
 
 $XMLSignature* DOMXMLSignatureFactory::unmarshal($Node* node, $XMLCryptoContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(node)->normalize();
 	$var($Element, element, nullptr);
 	if (node->getNodeType() == $Node::DOCUMENT_NODE) {
-		$assign(element, $nc(($cast($Document, node)))->getDocumentElement());
+		$assign(element, $cast($Document, node)->getDocumentElement());
 	} else if (node->getNodeType() == $Node::ELEMENT_NODE) {
 		$assign(element, $cast($Element, node));
 	} else {
@@ -382,7 +326,7 @@ $XMLSignature* DOMXMLSignatureFactory::unmarshal($Node* node, $XMLCryptoContext*
 		} catch ($MarshalException& me) {
 			$throw(me);
 		} catch ($Exception& e) {
-			$throwNew($MarshalException, static_cast<$Throwable*>(e));
+			$throwNew($MarshalException, e);
 		}
 	} else {
 		$throwNew($MarshalException, $$str({"Invalid Signature tag: "_s, namespace$, ":"_s, tag}));
@@ -404,49 +348,31 @@ $DigestMethod* DOMXMLSignatureFactory::newDigestMethod($String* algorithm, $Dige
 	}
 	$init($DigestMethod);
 	if ($nc(algorithm)->equals($DigestMethod::SHA1)) {
-		return $new($DOMDigestMethod$SHA1, static_cast<$AlgorithmParameterSpec*>(params));
+		return $new($DOMDigestMethod$SHA1, params);
 	} else {
 		$init($DOMDigestMethod);
 		if (algorithm->equals($DOMDigestMethod::SHA224)) {
-			return $new($DOMDigestMethod$SHA224, static_cast<$AlgorithmParameterSpec*>(params));
+			return $new($DOMDigestMethod$SHA224, params);
+		} else if (algorithm->equals($DigestMethod::SHA256)) {
+			return $new($DOMDigestMethod$SHA256, params);
+		} else if (algorithm->equals($DOMDigestMethod::SHA384)) {
+			return $new($DOMDigestMethod$SHA384, params);
+		} else if (algorithm->equals($DigestMethod::SHA512)) {
+			return $new($DOMDigestMethod$SHA512, params);
+		} else if (algorithm->equals($DigestMethod::RIPEMD160)) {
+			return $new($DOMDigestMethod$RIPEMD160, params);
+		} else if (algorithm->equals($DOMDigestMethod::WHIRLPOOL)) {
+			return $new($DOMDigestMethod$WHIRLPOOL, params);
+		} else if (algorithm->equals($DOMDigestMethod::SHA3_224)) {
+			return $new($DOMDigestMethod$SHA3_224, params);
+		} else if (algorithm->equals($DOMDigestMethod::SHA3_256)) {
+			return $new($DOMDigestMethod$SHA3_256, params);
+		} else if (algorithm->equals($DOMDigestMethod::SHA3_384)) {
+			return $new($DOMDigestMethod$SHA3_384, params);
+		} else if (algorithm->equals($DOMDigestMethod::SHA3_512)) {
+			return $new($DOMDigestMethod$SHA3_512, params);
 		} else {
-			if (algorithm->equals($DigestMethod::SHA256)) {
-				return $new($DOMDigestMethod$SHA256, static_cast<$AlgorithmParameterSpec*>(params));
-			} else {
-				if (algorithm->equals($DOMDigestMethod::SHA384)) {
-					return $new($DOMDigestMethod$SHA384, static_cast<$AlgorithmParameterSpec*>(params));
-				} else {
-					if (algorithm->equals($DigestMethod::SHA512)) {
-						return $new($DOMDigestMethod$SHA512, static_cast<$AlgorithmParameterSpec*>(params));
-					} else {
-						if (algorithm->equals($DigestMethod::RIPEMD160)) {
-							return $new($DOMDigestMethod$RIPEMD160, static_cast<$AlgorithmParameterSpec*>(params));
-						} else {
-							if (algorithm->equals($DOMDigestMethod::WHIRLPOOL)) {
-								return $new($DOMDigestMethod$WHIRLPOOL, static_cast<$AlgorithmParameterSpec*>(params));
-							} else {
-								if (algorithm->equals($DOMDigestMethod::SHA3_224)) {
-									return $new($DOMDigestMethod$SHA3_224, static_cast<$AlgorithmParameterSpec*>(params));
-								} else {
-									if (algorithm->equals($DOMDigestMethod::SHA3_256)) {
-										return $new($DOMDigestMethod$SHA3_256, static_cast<$AlgorithmParameterSpec*>(params));
-									} else {
-										if (algorithm->equals($DOMDigestMethod::SHA3_384)) {
-											return $new($DOMDigestMethod$SHA3_384, static_cast<$AlgorithmParameterSpec*>(params));
-										} else {
-											if (algorithm->equals($DOMDigestMethod::SHA3_512)) {
-												return $new($DOMDigestMethod$SHA3_512, static_cast<$AlgorithmParameterSpec*>(params));
-											} else {
-												$throwNew($NoSuchAlgorithmException, "unsupported algorithm"_s);
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+			$throwNew($NoSuchAlgorithmException, "unsupported algorithm"_s);
 		}
 	}
 }
@@ -457,113 +383,67 @@ $SignatureMethod* DOMXMLSignatureFactory::newSignatureMethod($String* algorithm,
 	}
 	$init($SignatureMethod);
 	if ($nc(algorithm)->equals($SignatureMethod::RSA_SHA1)) {
-		return $new($DOMSignatureMethod$SHA1withRSA, static_cast<$AlgorithmParameterSpec*>(params));
+		return $new($DOMSignatureMethod$SHA1withRSA, params);
 	} else {
 		$init($DOMSignatureMethod);
 		if (algorithm->equals($DOMSignatureMethod::RSA_SHA224)) {
-			return $new($DOMSignatureMethod$SHA224withRSA, static_cast<$AlgorithmParameterSpec*>(params));
+			return $new($DOMSignatureMethod$SHA224withRSA, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_SHA256)) {
+			return $new($DOMSignatureMethod$SHA256withRSA, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_SHA384)) {
+			return $new($DOMSignatureMethod$SHA384withRSA, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_SHA512)) {
+			return $new($DOMSignatureMethod$SHA512withRSA, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_RIPEMD160)) {
+			return $new($DOMSignatureMethod$RIPEMD160withRSA, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_SHA1_MGF1)) {
+			return $new($DOMSignatureMethod$SHA1withRSAandMGF1, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_SHA224_MGF1)) {
+			return $new($DOMSignatureMethod$SHA224withRSAandMGF1, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_SHA256_MGF1)) {
+			return $new($DOMSignatureMethod$SHA256withRSAandMGF1, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_SHA384_MGF1)) {
+			return $new($DOMSignatureMethod$SHA384withRSAandMGF1, params);
+		} else if (algorithm->equals($DOMSignatureMethod::RSA_SHA512_MGF1)) {
+			return $new($DOMSignatureMethod$SHA512withRSAandMGF1, params);
 		} else {
-			if (algorithm->equals($DOMSignatureMethod::RSA_SHA256)) {
-				return $new($DOMSignatureMethod$SHA256withRSA, static_cast<$AlgorithmParameterSpec*>(params));
+			$init($DOMRSAPSSSignatureMethod);
+			if (algorithm->equals($DOMRSAPSSSignatureMethod::RSA_PSS)) {
+				return $new($DOMRSAPSSSignatureMethod$RSAPSS, params);
+			} else if (algorithm->equals($DOMSignatureMethod::RSA_RIPEMD160_MGF1)) {
+				return $new($DOMSignatureMethod$RIPEMD160withRSAandMGF1, params);
+			} else if (algorithm->equals($SignatureMethod::DSA_SHA1)) {
+				return $new($DOMSignatureMethod$SHA1withDSA, params);
+			} else if (algorithm->equals($DOMSignatureMethod::DSA_SHA256)) {
+				return $new($DOMSignatureMethod$SHA256withDSA, params);
+			} else if (algorithm->equals($SignatureMethod::HMAC_SHA1)) {
+				return $new($DOMHMACSignatureMethod$SHA1, params);
 			} else {
-				if (algorithm->equals($DOMSignatureMethod::RSA_SHA384)) {
-					return $new($DOMSignatureMethod$SHA384withRSA, static_cast<$AlgorithmParameterSpec*>(params));
+				$init($DOMHMACSignatureMethod);
+				if (algorithm->equals($DOMHMACSignatureMethod::HMAC_SHA224)) {
+					return $new($DOMHMACSignatureMethod$SHA224, params);
+				} else if (algorithm->equals($DOMHMACSignatureMethod::HMAC_SHA256)) {
+					return $new($DOMHMACSignatureMethod$SHA256, params);
+				} else if (algorithm->equals($DOMHMACSignatureMethod::HMAC_SHA384)) {
+					return $new($DOMHMACSignatureMethod$SHA384, params);
+				} else if (algorithm->equals($DOMHMACSignatureMethod::HMAC_SHA512)) {
+					return $new($DOMHMACSignatureMethod$SHA512, params);
+				} else if (algorithm->equals($DOMHMACSignatureMethod::HMAC_RIPEMD160)) {
+					return $new($DOMHMACSignatureMethod$RIPEMD160, params);
+				} else if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA1)) {
+					return $new($DOMSignatureMethod$SHA1withECDSA, params);
+				} else if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA224)) {
+					return $new($DOMSignatureMethod$SHA224withECDSA, params);
+				} else if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA256)) {
+					return $new($DOMSignatureMethod$SHA256withECDSA, params);
+				} else if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA384)) {
+					return $new($DOMSignatureMethod$SHA384withECDSA, params);
+				} else if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA512)) {
+					return $new($DOMSignatureMethod$SHA512withECDSA, params);
+				} else if (algorithm->equals($DOMSignatureMethod::ECDSA_RIPEMD160)) {
+					return $new($DOMSignatureMethod$RIPEMD160withECDSA, params);
 				} else {
-					if (algorithm->equals($DOMSignatureMethod::RSA_SHA512)) {
-						return $new($DOMSignatureMethod$SHA512withRSA, static_cast<$AlgorithmParameterSpec*>(params));
-					} else {
-						if (algorithm->equals($DOMSignatureMethod::RSA_RIPEMD160)) {
-							return $new($DOMSignatureMethod$RIPEMD160withRSA, static_cast<$AlgorithmParameterSpec*>(params));
-						} else {
-							if (algorithm->equals($DOMSignatureMethod::RSA_SHA1_MGF1)) {
-								return $new($DOMSignatureMethod$SHA1withRSAandMGF1, static_cast<$AlgorithmParameterSpec*>(params));
-							} else {
-								if (algorithm->equals($DOMSignatureMethod::RSA_SHA224_MGF1)) {
-									return $new($DOMSignatureMethod$SHA224withRSAandMGF1, static_cast<$AlgorithmParameterSpec*>(params));
-								} else {
-									if (algorithm->equals($DOMSignatureMethod::RSA_SHA256_MGF1)) {
-										return $new($DOMSignatureMethod$SHA256withRSAandMGF1, static_cast<$AlgorithmParameterSpec*>(params));
-									} else {
-										if (algorithm->equals($DOMSignatureMethod::RSA_SHA384_MGF1)) {
-											return $new($DOMSignatureMethod$SHA384withRSAandMGF1, static_cast<$AlgorithmParameterSpec*>(params));
-										} else {
-											if (algorithm->equals($DOMSignatureMethod::RSA_SHA512_MGF1)) {
-												return $new($DOMSignatureMethod$SHA512withRSAandMGF1, static_cast<$AlgorithmParameterSpec*>(params));
-											} else {
-												$init($DOMRSAPSSSignatureMethod);
-												if (algorithm->equals($DOMRSAPSSSignatureMethod::RSA_PSS)) {
-													return $new($DOMRSAPSSSignatureMethod$RSAPSS, static_cast<$AlgorithmParameterSpec*>(params));
-												} else {
-													if (algorithm->equals($DOMSignatureMethod::RSA_RIPEMD160_MGF1)) {
-														return $new($DOMSignatureMethod$RIPEMD160withRSAandMGF1, static_cast<$AlgorithmParameterSpec*>(params));
-													} else {
-														if (algorithm->equals($SignatureMethod::DSA_SHA1)) {
-															return $new($DOMSignatureMethod$SHA1withDSA, static_cast<$AlgorithmParameterSpec*>(params));
-														} else {
-															if (algorithm->equals($DOMSignatureMethod::DSA_SHA256)) {
-																return $new($DOMSignatureMethod$SHA256withDSA, static_cast<$AlgorithmParameterSpec*>(params));
-															} else {
-																if (algorithm->equals($SignatureMethod::HMAC_SHA1)) {
-																	return $new($DOMHMACSignatureMethod$SHA1, static_cast<$AlgorithmParameterSpec*>(params));
-																} else {
-																	$init($DOMHMACSignatureMethod);
-																	if (algorithm->equals($DOMHMACSignatureMethod::HMAC_SHA224)) {
-																		return $new($DOMHMACSignatureMethod$SHA224, static_cast<$AlgorithmParameterSpec*>(params));
-																	} else {
-																		if (algorithm->equals($DOMHMACSignatureMethod::HMAC_SHA256)) {
-																			return $new($DOMHMACSignatureMethod$SHA256, static_cast<$AlgorithmParameterSpec*>(params));
-																		} else {
-																			if (algorithm->equals($DOMHMACSignatureMethod::HMAC_SHA384)) {
-																				return $new($DOMHMACSignatureMethod$SHA384, static_cast<$AlgorithmParameterSpec*>(params));
-																			} else {
-																				if (algorithm->equals($DOMHMACSignatureMethod::HMAC_SHA512)) {
-																					return $new($DOMHMACSignatureMethod$SHA512, static_cast<$AlgorithmParameterSpec*>(params));
-																				} else {
-																					if (algorithm->equals($DOMHMACSignatureMethod::HMAC_RIPEMD160)) {
-																						return $new($DOMHMACSignatureMethod$RIPEMD160, static_cast<$AlgorithmParameterSpec*>(params));
-																					} else {
-																						if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA1)) {
-																							return $new($DOMSignatureMethod$SHA1withECDSA, static_cast<$AlgorithmParameterSpec*>(params));
-																						} else {
-																							if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA224)) {
-																								return $new($DOMSignatureMethod$SHA224withECDSA, static_cast<$AlgorithmParameterSpec*>(params));
-																							} else {
-																								if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA256)) {
-																									return $new($DOMSignatureMethod$SHA256withECDSA, static_cast<$AlgorithmParameterSpec*>(params));
-																								} else {
-																									if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA384)) {
-																										return $new($DOMSignatureMethod$SHA384withECDSA, static_cast<$AlgorithmParameterSpec*>(params));
-																									} else {
-																										if (algorithm->equals($DOMSignatureMethod::ECDSA_SHA512)) {
-																											return $new($DOMSignatureMethod$SHA512withECDSA, static_cast<$AlgorithmParameterSpec*>(params));
-																										} else {
-																											if (algorithm->equals($DOMSignatureMethod::ECDSA_RIPEMD160)) {
-																												return $new($DOMSignatureMethod$RIPEMD160withECDSA, static_cast<$AlgorithmParameterSpec*>(params));
-																											} else {
-																												$throwNew($NoSuchAlgorithmException, "unsupported algorithm"_s);
-																											}
-																										}
-																									}
-																								}
-																							}
-																						}
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
+					$throwNew($NoSuchAlgorithmException, "unsupported algorithm"_s);
 				}
 			}
 		}
@@ -571,7 +451,7 @@ $SignatureMethod* DOMXMLSignatureFactory::newSignatureMethod($String* algorithm,
 }
 
 $Transform* DOMXMLSignatureFactory::newTransform($String* algorithm, $TransformParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransformService, spi, nullptr);
 	if (getProvider() == nullptr) {
 		$assign(spi, $TransformService::getInstance(algorithm, "DOM"_s));
@@ -587,7 +467,7 @@ $Transform* DOMXMLSignatureFactory::newTransform($String* algorithm, $TransformP
 }
 
 $Transform* DOMXMLSignatureFactory::newTransform($String* algorithm, $XMLStructure* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransformService, spi, nullptr);
 	if (getProvider() == nullptr) {
 		$assign(spi, $TransformService::getInstance(algorithm, "DOM"_s));
@@ -607,7 +487,7 @@ $Transform* DOMXMLSignatureFactory::newTransform($String* algorithm, $XMLStructu
 }
 
 $CanonicalizationMethod* DOMXMLSignatureFactory::newCanonicalizationMethod($String* algorithm, $C14NMethodParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransformService, spi, nullptr);
 	if (getProvider() == nullptr) {
 		$assign(spi, $TransformService::getInstance(algorithm, "DOM"_s));
@@ -623,7 +503,7 @@ $CanonicalizationMethod* DOMXMLSignatureFactory::newCanonicalizationMethod($Stri
 }
 
 $CanonicalizationMethod* DOMXMLSignatureFactory::newCanonicalizationMethod($String* algorithm, $XMLStructure* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransformService, spi, nullptr);
 	if (getProvider() == nullptr) {
 		$assign(spi, $TransformService::getInstance(algorithm, "DOM"_s));
@@ -651,7 +531,55 @@ DOMXMLSignatureFactory::DOMXMLSignatureFactory() {
 }
 
 $Class* DOMXMLSignatureFactory::load$($String* name, bool initialize) {
-	$loadClass(DOMXMLSignatureFactory, name, initialize, &_DOMXMLSignatureFactory_ClassInfo_, allocate$DOMXMLSignatureFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMXMLSignatureFactory, init$, void)},
+		{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, getURIDereferencer, $URIDereferencer*)},
+		{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, isFeatureSupported, bool, $String*)},
+		{"newCanonicalizationMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/C14NMethodParameterSpec;)Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newCanonicalizationMethod, $CanonicalizationMethod*, $String*, $C14NMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+		{"newCanonicalizationMethod", "(Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/CanonicalizationMethod;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newCanonicalizationMethod, $CanonicalizationMethod*, $String*, $XMLStructure*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+		{"newDigestMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/DigestMethodParameterSpec;)Ljavax/xml/crypto/dsig/DigestMethod;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newDigestMethod, $DigestMethod*, $String*, $DigestMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+		{"newManifest", "(Ljava/util/List;)Ljavax/xml/crypto/dsig/Manifest;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newManifest, $Manifest*, $List*)},
+		{"newManifest", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Manifest;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newManifest, $Manifest*, $List*, $String*)},
+		{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*)},
+		{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $String*, $String*)},
+		{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljavax/xml/crypto/Data;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $Data*, $List*, $String*, $String*)},
+		{"newReference", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/DigestMethod;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;[B)Ljavax/xml/crypto/dsig/Reference;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newReference, $Reference*, $String*, $DigestMethod*, $List*, $String*, $String*, $bytes*)},
+		{"newSignatureMethod", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;)Ljavax/xml/crypto/dsig/SignatureMethod;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignatureMethod, $SignatureMethod*, $String*, $SignatureMethodParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+		{"newSignatureProperties", "(Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperties;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignatureProperties, $SignatureProperties*, $List*, $String*)},
+		{"newSignatureProperty", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignatureProperty;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignatureProperty, $SignatureProperty*, $List*, $String*, $String*)},
+		{"newSignedInfo", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;)Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignedInfo, $SignedInfo*, $CanonicalizationMethod*, $SignatureMethod*, $List*)},
+		{"newSignedInfo", "(Ljavax/xml/crypto/dsig/CanonicalizationMethod;Ljavax/xml/crypto/dsig/SignatureMethod;Ljava/util/List;Ljava/lang/String;)Ljavax/xml/crypto/dsig/SignedInfo;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newSignedInfo, $SignedInfo*, $CanonicalizationMethod*, $SignatureMethod*, $List*, $String*)},
+		{"newTransform", "(Ljava/lang/String;Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)Ljavax/xml/crypto/dsig/Transform;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newTransform, $Transform*, $String*, $TransformParameterSpec*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+		{"newTransform", "(Ljava/lang/String;Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/Transform;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newTransform, $Transform*, $String*, $XMLStructure*), "java.security.NoSuchAlgorithmException,java.security.InvalidAlgorithmParameterException"},
+		{"newXMLObject", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLObject;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newXMLObject, $XMLObject*, $List*, $String*, $String*, $String*)},
+		{"newXMLSignature", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newXMLSignature, $XMLSignature*, $SignedInfo*, $KeyInfo*)},
+		{"newXMLSignature", "(Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, newXMLSignature, $XMLSignature*, $SignedInfo*, $KeyInfo*, $List*, $String*, $String*)},
+		{"unmarshal", "(Lorg/w3c/dom/Node;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PRIVATE, $method(DOMXMLSignatureFactory, unmarshal, $XMLSignature*, $Node*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalXMLSignature", "(Ljavax/xml/crypto/dsig/XMLValidateContext;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, unmarshalXMLSignature, $XMLSignature*, $XMLValidateContext*), "javax.xml.crypto.MarshalException"},
+		{"unmarshalXMLSignature", "(Ljavax/xml/crypto/XMLStructure;)Ljavax/xml/crypto/dsig/XMLSignature;", nullptr, $PUBLIC, $virtualMethod(DOMXMLSignatureFactory, unmarshalXMLSignature, $XMLSignature*, $XMLStructure*), "javax.xml.crypto.MarshalException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory$UnmarshalContext", "org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory", "UnmarshalContext", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory",
+		"javax.xml.crypto.dsig.XMLSignatureFactory",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory$UnmarshalContext"
+	};
+	$loadClass(DOMXMLSignatureFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMXMLSignatureFactory);
+	});
 	return class$;
 }
 

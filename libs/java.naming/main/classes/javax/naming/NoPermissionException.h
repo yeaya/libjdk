@@ -14,10 +14,13 @@ public:
 	NoPermissionException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x7482369E4144455F;
+	static const int64_t serialVersionUID = (int64_t)0x7482369e4144455f;
 	NoPermissionException(const NoPermissionException& e);
 	virtual void throw$() override;
-	inline NoPermissionException* operator ->() {
+	inline NoPermissionException* operator ->() const {
+		return (NoPermissionException*)throwing$;
+	}
+	inline operator NoPermissionException*() const {
 		return (NoPermissionException*)throwing$;
 	}
 };

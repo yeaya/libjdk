@@ -1,5 +1,4 @@
 #include <java/awt/Component$BaselineResizeBehavior.h>
-
 #include <java/awt/Component.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,48 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Component$BaselineResizeBehavior_FieldInfo_[] = {
-	{"CONSTANT_ASCENT", "Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Component$BaselineResizeBehavior, CONSTANT_ASCENT)},
-	{"CONSTANT_DESCENT", "Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Component$BaselineResizeBehavior, CONSTANT_DESCENT)},
-	{"CENTER_OFFSET", "Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Component$BaselineResizeBehavior, CENTER_OFFSET)},
-	{"OTHER", "Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Component$BaselineResizeBehavior, OTHER)},
-	{"$VALUES", "[Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Component$BaselineResizeBehavior, $VALUES)},
-	{}
-};
-
-$MethodInfo _Component$BaselineResizeBehavior_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Component$BaselineResizeBehavior, $values, $Component$BaselineResizeBehaviorArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Component$BaselineResizeBehavior, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC, $staticMethod(Component$BaselineResizeBehavior, valueOf, Component$BaselineResizeBehavior*, $String*)},
-	{"values", "()[Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC, $staticMethod(Component$BaselineResizeBehavior, values, $Component$BaselineResizeBehaviorArray*)},
-	{}
-};
-
-$InnerClassInfo _Component$BaselineResizeBehavior_InnerClassesInfo_[] = {
-	{"java.awt.Component$BaselineResizeBehavior", "java.awt.Component", "BaselineResizeBehavior", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Component$BaselineResizeBehavior_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.Component$BaselineResizeBehavior",
-	"java.lang.Enum",
-	nullptr,
-	_Component$BaselineResizeBehavior_FieldInfo_,
-	_Component$BaselineResizeBehavior_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/Component$BaselineResizeBehavior;>;",
-	nullptr,
-	_Component$BaselineResizeBehavior_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$BaselineResizeBehavior($Class* clazz) {
-	return $of($alloc(Component$BaselineResizeBehavior));
-}
 
 Component$BaselineResizeBehavior* Component$BaselineResizeBehavior::CONSTANT_ASCENT = nullptr;
 Component$BaselineResizeBehavior* Component$BaselineResizeBehavior::CONSTANT_DESCENT = nullptr;
@@ -91,7 +48,7 @@ void Component$BaselineResizeBehavior::init$($String* $enum$name, int32_t $enum$
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Component$BaselineResizeBehavior($Class* class$) {
+void Component$BaselineResizeBehavior::clinit$($Class* clazz) {
 	$assignStatic(Component$BaselineResizeBehavior::CONSTANT_ASCENT, $new(Component$BaselineResizeBehavior, "CONSTANT_ASCENT"_s, 0));
 	$assignStatic(Component$BaselineResizeBehavior::CONSTANT_DESCENT, $new(Component$BaselineResizeBehavior, "CONSTANT_DESCENT"_s, 1));
 	$assignStatic(Component$BaselineResizeBehavior::CENTER_OFFSET, $new(Component$BaselineResizeBehavior, "CENTER_OFFSET"_s, 2));
@@ -103,7 +60,43 @@ Component$BaselineResizeBehavior::Component$BaselineResizeBehavior() {
 }
 
 $Class* Component$BaselineResizeBehavior::load$($String* name, bool initialize) {
-	$loadClass(Component$BaselineResizeBehavior, name, initialize, &_Component$BaselineResizeBehavior_ClassInfo_, clinit$Component$BaselineResizeBehavior, allocate$Component$BaselineResizeBehavior);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONSTANT_ASCENT", "Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Component$BaselineResizeBehavior, CONSTANT_ASCENT)},
+		{"CONSTANT_DESCENT", "Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Component$BaselineResizeBehavior, CONSTANT_DESCENT)},
+		{"CENTER_OFFSET", "Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Component$BaselineResizeBehavior, CENTER_OFFSET)},
+		{"OTHER", "Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Component$BaselineResizeBehavior, OTHER)},
+		{"$VALUES", "[Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Component$BaselineResizeBehavior, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Component$BaselineResizeBehavior, $values, $Component$BaselineResizeBehaviorArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Component$BaselineResizeBehavior, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC, $staticMethod(Component$BaselineResizeBehavior, valueOf, Component$BaselineResizeBehavior*, $String*)},
+		{"values", "()[Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC | $STATIC, $staticMethod(Component$BaselineResizeBehavior, values, $Component$BaselineResizeBehaviorArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$BaselineResizeBehavior", "java.awt.Component", "BaselineResizeBehavior", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.Component$BaselineResizeBehavior",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/Component$BaselineResizeBehavior;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$BaselineResizeBehavior, name, initialize, &classInfo$$, Component$BaselineResizeBehavior::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Component$BaselineResizeBehavior));
+	});
 	return class$;
 }
 

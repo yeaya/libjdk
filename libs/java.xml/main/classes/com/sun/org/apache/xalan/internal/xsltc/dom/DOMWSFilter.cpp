@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMWSFilter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/StripFilter.h>
@@ -24,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -35,34 +33,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _DOMWSFilter_FieldInfo_[] = {
-	{"m_translet", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;", nullptr, $PRIVATE, $field(DOMWSFilter, m_translet)},
-	{"m_filter", "Lcom/sun/org/apache/xalan/internal/xsltc/StripFilter;", nullptr, $PRIVATE, $field(DOMWSFilter, m_filter)},
-	{"m_mappings", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xml/internal/dtm/DTM;[S>;", $PRIVATE, $field(DOMWSFilter, m_mappings)},
-	{"m_currentDTM", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PRIVATE, $field(DOMWSFilter, m_currentDTM)},
-	{"m_currentMapping", "[S", nullptr, $PRIVATE, $field(DOMWSFilter, m_currentMapping)},
-	{}
-};
-
-$MethodInfo _DOMWSFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;)V", nullptr, $PUBLIC, $method(DOMWSFilter, init$, void, $AbstractTranslet*)},
-	{"getShouldStripSpace", "(ILcom/sun/org/apache/xml/internal/dtm/DTM;)S", nullptr, $PUBLIC, $virtualMethod(DOMWSFilter, getShouldStripSpace, int16_t, int32_t, $DTM*)},
-	{}
-};
-
-$ClassInfo _DOMWSFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.DOMWSFilter",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.dtm.DTMWSFilter",
-	_DOMWSFilter_FieldInfo_,
-	_DOMWSFilter_MethodInfo_
-};
-
-$Object* allocate$DOMWSFilter($Class* clazz) {
-	return $of($alloc(DOMWSFilter));
-}
-
 void DOMWSFilter::init$($AbstractTranslet* translet) {
 	$set(this, m_translet, translet);
 	$set(this, m_mappings, $new($HashMap));
@@ -72,7 +42,7 @@ void DOMWSFilter::init$($AbstractTranslet* translet) {
 }
 
 int16_t DOMWSFilter::getShouldStripSpace(int32_t node, $DTM* dtm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->m_filter != nullptr && $instanceOf($DOM, dtm)) {
 		$var($DOM, dom, $cast($DOM, dtm));
 		int32_t type = 0;
@@ -85,14 +55,14 @@ int16_t DOMWSFilter::getShouldStripSpace(int32_t node, $DTM* dtm) {
 				$assign(mapping, $cast($shorts, $nc(this->m_mappings)->get(dtm)));
 				if (mapping == nullptr) {
 					$var($StringArray, var$0, $nc(this->m_translet)->getNamesArray());
-					$var($StringArray, var$1, $nc(this->m_translet)->getUrisArray());
-					$assign(mapping, $nc(mappableDOM)->getMapping(var$0, var$1, $($nc(this->m_translet)->getTypesArray())));
+					$var($StringArray, var$1, this->m_translet->getUrisArray());
+					$assign(mapping, mappableDOM->getMapping(var$0, var$1, $(this->m_translet->getTypesArray())));
 					$nc(this->m_mappings)->put(dtm, mapping);
 					$set(this, m_currentDTM, dtm);
 					$set(this, m_currentMapping, mapping);
 				}
 			}
-			int32_t expType = $nc(mappableDOM)->getExpandedTypeID(node);
+			int32_t expType = mappableDOM->getExpandedTypeID(node);
 			if (expType >= 0 && expType < $nc(mapping)->length) {
 				type = mapping->get(expType);
 			} else {
@@ -115,7 +85,30 @@ DOMWSFilter::DOMWSFilter() {
 }
 
 $Class* DOMWSFilter::load$($String* name, bool initialize) {
-	$loadClass(DOMWSFilter, name, initialize, &_DOMWSFilter_ClassInfo_, allocate$DOMWSFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_translet", "Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;", nullptr, $PRIVATE, $field(DOMWSFilter, m_translet)},
+		{"m_filter", "Lcom/sun/org/apache/xalan/internal/xsltc/StripFilter;", nullptr, $PRIVATE, $field(DOMWSFilter, m_filter)},
+		{"m_mappings", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xml/internal/dtm/DTM;[S>;", $PRIVATE, $field(DOMWSFilter, m_mappings)},
+		{"m_currentDTM", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PRIVATE, $field(DOMWSFilter, m_currentDTM)},
+		{"m_currentMapping", "[S", nullptr, $PRIVATE, $field(DOMWSFilter, m_currentMapping)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;)V", nullptr, $PUBLIC, $method(DOMWSFilter, init$, void, $AbstractTranslet*)},
+		{"getShouldStripSpace", "(ILcom/sun/org/apache/xml/internal/dtm/DTM;)S", nullptr, $PUBLIC, $virtualMethod(DOMWSFilter, getShouldStripSpace, int16_t, int32_t, $DTM*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.DOMWSFilter",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.dtm.DTMWSFilter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMWSFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMWSFilter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonUI$AquaButtonListener.h>
-
 #include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaButtonExtendedTypes.h>
 #include <com/apple/laf/AquaButtonUI.h>
@@ -34,7 +33,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JRootPane = ::javax::swing::JRootPane;
 using $Border = ::javax::swing::border::Border;
@@ -45,54 +43,6 @@ using $BasicButtonListener = ::javax::swing::plaf::basic::BasicButtonListener;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaButtonUI$AquaButtonListener_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaButtonUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaButtonUI$AquaButtonListener, this$0)},
-	{"b", "Ljavax/swing/AbstractButton;", nullptr, $PROTECTED | $FINAL, $field(AquaButtonUI$AquaButtonListener, b)},
-	{}
-};
-
-$MethodInfo _AquaButtonUI$AquaButtonListener_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/apple/laf/AquaButtonUI;Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $method(AquaButtonUI$AquaButtonListener, init$, void, $AquaButtonUI*, $AbstractButton*)},
-	{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, ancestorAdded, void, $AncestorEvent*)},
-	{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, ancestorMoved, void, $AncestorEvent*)},
-	{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, ancestorRemoved, void, $AncestorEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, focusLost, void, $FocusEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateDefaultButton", "()V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI$AquaButtonListener, updateDefaultButton, void)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonUI$AquaButtonListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonUI$AquaButtonListener", "com.apple.laf.AquaButtonUI", "AquaButtonListener", 0},
-	{}
-};
-
-$ClassInfo _AquaButtonUI$AquaButtonListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaButtonUI$AquaButtonListener",
-	"javax.swing.plaf.basic.BasicButtonListener",
-	"javax.swing.event.AncestorListener",
-	_AquaButtonUI$AquaButtonListener_FieldInfo_,
-	_AquaButtonUI$AquaButtonListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonUI$AquaButtonListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonUI"
-};
-
-$Object* allocate$AquaButtonUI$AquaButtonListener($Class* clazz) {
-	return $of($alloc(AquaButtonUI$AquaButtonListener));
-}
 
 int32_t AquaButtonUI$AquaButtonListener::hashCode() {
 	 return this->$BasicButtonListener::hashCode();
@@ -121,17 +71,17 @@ void AquaButtonUI$AquaButtonListener::init$($AquaButtonUI* this$0, $AbstractButt
 }
 
 void AquaButtonUI$AquaButtonListener::focusGained($FocusEvent* e) {
-	$nc(($cast($Component, $($nc(e)->getSource()))))->repaint();
+	$$sure($Component, $nc(e)->getSource())->repaint();
 }
 
 void AquaButtonUI$AquaButtonListener::focusLost($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($nc(this->b)->getModel()))->setPressed(false);
-	$nc(($cast($Component, $($nc(e)->getSource()))))->repaint();
+	$useLocalObjectStack();
+	$$nc($nc(this->b)->getModel())->setPressed(false);
+	$$sure($Component, $nc(e)->getSource())->repaint();
 }
 
 void AquaButtonUI$AquaButtonListener::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicButtonListener::propertyChange(e);
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	$init($AquaFocusHandler);
@@ -148,7 +98,7 @@ void AquaButtonUI$AquaButtonListener::propertyChange($PropertyChangeEvent* e) {
 		$var($String, value, $cast($String, e->getNewValue()));
 		$var($Border, border, $AquaButtonExtendedTypes::getBorderForPosition(this->b, value, $($nc(this->b)->getClientProperty("JButton.segmentPosition"_s))));
 		if (border != nullptr) {
-			$nc(this->b)->setBorder(border);
+			this->b->setBorder(border);
 		}
 		return;
 	}
@@ -158,18 +108,18 @@ void AquaButtonUI$AquaButtonListener::propertyChange($PropertyChangeEvent* e) {
 			return;
 		}
 		$var($AbstractButton, var$1, this->b);
-		$var($Object, var$2, $nc(this->b)->getClientProperty("JButton.buttonType"_s));
-		$nc(this->b)->setBorder($($AquaButtonExtendedTypes::getBorderForPosition(var$1, var$2, $(e->getNewValue()))));
+		$var($Object, var$2, this->b->getClientProperty("JButton.buttonType"_s));
+		this->b->setBorder($($AquaButtonExtendedTypes::getBorderForPosition(var$1, var$2, $(e->getNewValue()))));
 	}
 	if ("componentOrientation"_s->equals(propertyName)) {
 		$var($Border, border, $nc(this->b)->getBorder());
 		if (!($instanceOf($AquaBorder, border))) {
 			return;
 		}
-		$var($Object, buttonType, $nc(this->b)->getClientProperty("JButton.buttonType"_s));
-		$var($Object, buttonPosition, $nc(this->b)->getClientProperty("JButton.segmentPosition"_s));
+		$var($Object, buttonType, this->b->getClientProperty("JButton.buttonType"_s));
+		$var($Object, buttonPosition, this->b->getClientProperty("JButton.segmentPosition"_s));
 		if (buttonType != nullptr && buttonPosition != nullptr) {
-			$nc(this->b)->setBorder($($AquaButtonExtendedTypes::getBorderForPosition(this->b, buttonType, buttonPosition)));
+			this->b->setBorder($($AquaButtonExtendedTypes::getBorderForPosition(this->b, buttonType, buttonPosition)));
 		}
 	}
 }
@@ -186,14 +136,14 @@ void AquaButtonUI$AquaButtonListener::ancestorRemoved($AncestorEvent* e) {
 }
 
 void AquaButtonUI$AquaButtonListener::updateDefaultButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JButton, this->b))) {
 		return;
 	}
-	if (!$nc(($cast($JButton, this->b)))->isDefaultButton()) {
+	if (!$nc($cast($JButton, this->b))->isDefaultButton()) {
 		return;
 	}
-	$var($JRootPane, rootPane, $nc(this->b)->getRootPane());
+	$var($JRootPane, rootPane, this->b->getRootPane());
 	if (rootPane == nullptr) {
 		return;
 	}
@@ -201,14 +151,56 @@ void AquaButtonUI$AquaButtonListener::updateDefaultButton() {
 	if (!($instanceOf($AquaRootPaneUI, ui))) {
 		return;
 	}
-	$nc(($cast($AquaRootPaneUI, ui)))->updateDefaultButton(rootPane);
+	$nc($cast($AquaRootPaneUI, ui))->updateDefaultButton(rootPane);
 }
 
 AquaButtonUI$AquaButtonListener::AquaButtonUI$AquaButtonListener() {
 }
 
 $Class* AquaButtonUI$AquaButtonListener::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonUI$AquaButtonListener, name, initialize, &_AquaButtonUI$AquaButtonListener_ClassInfo_, allocate$AquaButtonUI$AquaButtonListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaButtonUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaButtonUI$AquaButtonListener, this$0)},
+		{"b", "Ljavax/swing/AbstractButton;", nullptr, $PROTECTED | $FINAL, $field(AquaButtonUI$AquaButtonListener, b)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/apple/laf/AquaButtonUI;Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $method(AquaButtonUI$AquaButtonListener, init$, void, $AquaButtonUI*, $AbstractButton*)},
+		{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, ancestorAdded, void, $AncestorEvent*)},
+		{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, ancestorMoved, void, $AncestorEvent*)},
+		{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, ancestorRemoved, void, $AncestorEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, focusLost, void, $FocusEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonUI$AquaButtonListener, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateDefaultButton", "()V", nullptr, $PROTECTED, $virtualMethod(AquaButtonUI$AquaButtonListener, updateDefaultButton, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonUI$AquaButtonListener", "com.apple.laf.AquaButtonUI", "AquaButtonListener", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaButtonUI$AquaButtonListener",
+		"javax.swing.plaf.basic.BasicButtonListener",
+		"javax.swing.event.AncestorListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonUI"
+	};
+	$loadClass(AquaButtonUI$AquaButtonListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonUI$AquaButtonListener));
+	});
 	return class$;
 }
 

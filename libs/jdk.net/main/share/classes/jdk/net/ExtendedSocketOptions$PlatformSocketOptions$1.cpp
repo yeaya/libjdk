@@ -1,5 +1,4 @@
 #include <jdk/net/ExtendedSocketOptions$PlatformSocketOptions$1.h>
-
 #include <jdk/net/ExtendedSocketOptions$PlatformSocketOptions.h>
 #include <jcpp.h>
 
@@ -10,44 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace jdk {
 	namespace net {
-
-$MethodInfo _ExtendedSocketOptions$PlatformSocketOptions$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ExtendedSocketOptions$PlatformSocketOptions$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$PlatformSocketOptions$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ExtendedSocketOptions$PlatformSocketOptions$1_EnclosingMethodInfo_ = {
-	"jdk.net.ExtendedSocketOptions$PlatformSocketOptions",
-	"create",
-	"()Ljdk/net/ExtendedSocketOptions$PlatformSocketOptions;"
-};
-
-$InnerClassInfo _ExtendedSocketOptions$PlatformSocketOptions$1_InnerClassesInfo_[] = {
-	{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions", "jdk.net.ExtendedSocketOptions", "PlatformSocketOptions", $STATIC},
-	{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ExtendedSocketOptions$PlatformSocketOptions$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.net.ExtendedSocketOptions$PlatformSocketOptions$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_ExtendedSocketOptions$PlatformSocketOptions$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_ExtendedSocketOptions$PlatformSocketOptions$1_EnclosingMethodInfo_,
-	_ExtendedSocketOptions$PlatformSocketOptions$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.net.ExtendedSocketOptions"
-};
-
-$Object* allocate$ExtendedSocketOptions$PlatformSocketOptions$1($Class* clazz) {
-	return $of($alloc(ExtendedSocketOptions$PlatformSocketOptions$1));
-}
 
 void ExtendedSocketOptions$PlatformSocketOptions$1::init$() {
 }
@@ -60,7 +21,39 @@ ExtendedSocketOptions$PlatformSocketOptions$1::ExtendedSocketOptions$PlatformSoc
 }
 
 $Class* ExtendedSocketOptions$PlatformSocketOptions$1::load$($String* name, bool initialize) {
-	$loadClass(ExtendedSocketOptions$PlatformSocketOptions$1, name, initialize, &_ExtendedSocketOptions$PlatformSocketOptions$1_ClassInfo_, allocate$ExtendedSocketOptions$PlatformSocketOptions$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ExtendedSocketOptions$PlatformSocketOptions$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ExtendedSocketOptions$PlatformSocketOptions$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.net.ExtendedSocketOptions$PlatformSocketOptions",
+		"create",
+		"()Ljdk/net/ExtendedSocketOptions$PlatformSocketOptions;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions", "jdk.net.ExtendedSocketOptions", "PlatformSocketOptions", $STATIC},
+		{"jdk.net.ExtendedSocketOptions$PlatformSocketOptions$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.net.ExtendedSocketOptions$PlatformSocketOptions$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.net.ExtendedSocketOptions"
+	};
+	$loadClass(ExtendedSocketOptions$PlatformSocketOptions$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExtendedSocketOptions$PlatformSocketOptions$1);
+	});
 	return class$;
 }
 

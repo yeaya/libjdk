@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPrinterJob.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/Font.h>
@@ -31,9 +30,7 @@
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/net/URI.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/print/DocFlavor$SERVICE_FORMATTED.h>
-#include <javax/print/DocFlavor.h>
 #include <javax/print/PrintService.h>
 #include <javax/print/PrintServiceLookup.h>
 #include <javax/print/StreamPrintService.h>
@@ -110,8 +107,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $URI = ::java::net::URI;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$SERVICE_FORMATTED = ::javax::print::DocFlavor$SERVICE_FORMATTED;
 using $PrintService = ::javax::print::PrintService;
 using $PrintServiceLookup = ::javax::print::PrintServiceLookup;
@@ -159,151 +154,34 @@ public:
 	virtual void run() override {
 		CPrinterJob::lambda$detachPrintLoop$0(target, arg);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CPrinterJob$$Lambda$lambda$detachPrintLoop$0>());
-	}
 	int64_t target = 0;
 	int64_t arg = 0;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CPrinterJob$$Lambda$lambda$detachPrintLoop$0::fieldInfos[3] = {
-	{"target", "J", nullptr, $PUBLIC, $field(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, target)},
-	{"arg", "J", nullptr, $PUBLIC, $field(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, arg)},
-	{}
-};
-$MethodInfo CPrinterJob$$Lambda$lambda$detachPrintLoop$0::methodInfos[3] = {
-	{"<init>", "(JJ)V", nullptr, $PUBLIC, $method(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, init$, void, int64_t, int64_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, run, void)},
-	{}
-};
-$ClassInfo CPrinterJob$$Lambda$lambda$detachPrintLoop$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CPrinterJob$$Lambda$lambda$detachPrintLoop$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CPrinterJob$$Lambda$lambda$detachPrintLoop$0::load$($String* name, bool initialize) {
-	$loadClass(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "J", nullptr, $PUBLIC, $field(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, target)},
+		{"arg", "J", nullptr, $PUBLIC, $field(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, arg)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JJ)V", nullptr, $PUBLIC, $method(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, init$, void, int64_t, int64_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CPrinterJob$$Lambda$lambda$detachPrintLoop$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPrinterJob$$Lambda$lambda$detachPrintLoop$0);
+	});
 	return class$;
 }
 $Class* CPrinterJob$$Lambda$lambda$detachPrintLoop$0::class$ = nullptr;
-
-$FieldInfo _CPrinterJob_FieldInfo_[] = {
-	{"sShouldNotReachHere", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CPrinterJob, sShouldNotReachHere)},
-	{"printingLoop", "Ljava/awt/SecondaryLoop;", nullptr, $PRIVATE | $VOLATILE, $field(CPrinterJob, printingLoop)},
-	{"noDefaultPrinter", "Z", nullptr, $PRIVATE, $field(CPrinterJob, noDefaultPrinter)},
-	{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(CPrinterJob, defaultFont)},
-	{"tray", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CPrinterJob, tray)},
-	{"fNSPrintInfo", "J", nullptr, $PRIVATE, $field(CPrinterJob, fNSPrintInfo)},
-	{"fNSPrintInfoLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(CPrinterJob, fNSPrintInfoLock)},
-	{"onEventThread", "Z", nullptr, $VOLATILE, $field(CPrinterJob, onEventThread)},
-	{"isPrintToFile", "Z", nullptr, 0, $field(CPrinterJob, isPrintToFile)},
-	{}
-};
-
-$MethodInfo _CPrinterJob_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CPrinterJob, init$, void)},
-	{"_safePrintLoop", "(JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CPrinterJob, _safePrintLoop, void, int64_t, int64_t)},
-	{"abortDoc", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CPrinterJob, abortDoc, void)},
-	{"access$002", "(Lsun/lwawt/macosx/CPrinterJob;Z)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$002, bool, CPrinterJob*, bool)},
-	{"access$100", "(Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/Graphics2D;Ljava/awt/geom/Rectangle2D;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$100, void, CPrinterJob*, $Graphics2D*, $Rectangle2D*)},
-	{"access$200", "(Lsun/lwawt/macosx/CPrinterJob;)Ljava/awt/print/Pageable;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$200, $Pageable*, CPrinterJob*)},
-	{"access$300", "(Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;)Lsun/print/PeekGraphics;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$300, $PeekGraphics*, CPrinterJob*, $Graphics2D*, $PrinterJob*)},
-	{"access$400", "(Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/Graphics2D;Ljava/awt/geom/Rectangle2D;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$400, void, CPrinterJob*, $Graphics2D*, $Rectangle2D*)},
-	{"cancelCheck", "()Z", nullptr, $PRIVATE, $method(CPrinterJob, cancelCheck, bool)},
-	{"cancelDoc", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, cancelDoc, void), "java.awt.print.PrinterAbortException"},
-	{"completePrintLoop", "()V", nullptr, $PRIVATE, $method(CPrinterJob, completePrintLoop, void)},
-	{"createFirstPassGraphics", "(Ljava/awt/print/PrinterJob;Ljava/awt/print/PageFormat;)Lsun/print/PeekGraphics;", nullptr, $PRIVATE, $method(CPrinterJob, createFirstPassGraphics, $PeekGraphics*, $PrinterJob*, $PageFormat*)},
-	{"createNSPrintInfo", "()J", nullptr, $PRIVATE | $NATIVE, $method(CPrinterJob, createNSPrintInfo, int64_t)},
-	{"defaultPage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(CPrinterJob, defaultPage, $PageFormat*, $PageFormat*)},
-	{"detachPrintLoop", "(JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CPrinterJob, detachPrintLoop, void, int64_t, int64_t)},
-	{"dispose", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CPrinterJob, dispose, void, int64_t)},
-	{"endDoc", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, endDoc, void), "java.awt.print.PrinterException"},
-	{"endPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;I)V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, endPage, void, $PageFormat*, $Printable*, int32_t), "java.awt.print.PrinterException"},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, finalize, void)},
-	{"getDefaultMediaSize", "(Ljava/awt/print/PageFormat;)Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE, $method(CPrinterJob, getDefaultMediaSize, $MediaSize*, $PageFormat*)},
-	{"getDefaultPage", "(Ljava/awt/print/PageFormat;)V", nullptr, $PRIVATE | $NATIVE, $method(CPrinterJob, getDefaultPage, void, $PageFormat*)},
-	{"getDefaultPrintableArea", "(Ljava/awt/print/PageFormat;DD)Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getDefaultPrintableArea, $MediaPrintableArea*, $PageFormat*, double, double)},
-	{"getDestinationFile", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(CPrinterJob, getDestinationFile, $String*)},
-	{"getMediaSize", "(Ljavax/print/attribute/standard/Media;Ljavax/print/PrintService;Ljava/awt/print/PageFormat;)Ljavax/print/attribute/standard/MediaSize;", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getMediaSize, $MediaSize*, $Media*, $PrintService*, $PageFormat*)},
-	{"getNSPrintInfo", "()J", nullptr, $PRIVATE, $method(CPrinterJob, getNSPrintInfo, int64_t)},
-	{"getPageFormat", "(I)Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $method(CPrinterJob, getPageFormat, $PageFormat*, int32_t)},
-	{"getPageFormatArea", "(Ljava/awt/print/PageFormat;)Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(CPrinterJob, getPageFormatArea, $Rectangle2D*, $PageFormat*)},
-	{"getPageformatPrintablePeekgraphics", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(CPrinterJob, getPageformatPrintablePeekgraphics, $ObjectArray*, int32_t)},
-	{"getPhysicalPageHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPageHeight, double, $Paper*)},
-	{"getPhysicalPageWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPageWidth, double, $Paper*)},
-	{"getPhysicalPrintableHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPrintableHeight, double, $Paper*)},
-	{"getPhysicalPrintableWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPrintableWidth, double, $Paper*)},
-	{"getPhysicalPrintableX", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPrintableX, double, $Paper*)},
-	{"getPhysicalPrintableY", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPrintableY, double, $Paper*)},
-	{"getPrintable", "(I)Ljava/awt/print/Printable;", nullptr, $PRIVATE, $method(CPrinterJob, getPrintable, $Printable*, int32_t)},
-	{"getPrinterName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(CPrinterJob, getPrinterName, $String*)},
-	{"getPrinterTray", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(CPrinterJob, getPrinterTray, $String*)},
-	{"getXRes", "()D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getXRes, double)},
-	{"getYRes", "()D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getYRes, double)},
-	{"jobSetup", "(Ljava/awt/print/Pageable;Z)Z", nullptr, $PRIVATE, $method(CPrinterJob, jobSetup, bool, $Pageable*, bool)},
-	{"lambda$detachPrintLoop$0", "(JJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, lambda$detachPrintLoop$0, void, int64_t, int64_t)},
-	{"pageDialog", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(CPrinterJob, pageDialog, $PageFormat*, $PageFormat*), "java.awt.HeadlessException"},
-	{"pageSetup", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)Z", nullptr, $PUBLIC, $method(CPrinterJob, pageSetup, bool, $PageFormat*, $Printable*)},
-	{"print", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob, print, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
-	{"printAndGetPageFormatArea", "(Ljava/awt/print/Printable;Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(CPrinterJob, printAndGetPageFormatArea, $Rectangle2D*, $Printable*, $Graphics*, $PageFormat*, int32_t)},
-	{"printBand", "([BIIII)V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, printBand, void, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.awt.print.PrinterException"},
-	{"printDialog", "()Z", nullptr, $PUBLIC, $virtualMethod(CPrinterJob, printDialog, bool), "java.awt.HeadlessException"},
-	{"printLoop", "(ZII)Z", nullptr, $PRIVATE | $NATIVE, $method(CPrinterJob, printLoop, bool, bool, int32_t, int32_t), "java.awt.print.PrinterException"},
-	{"printToPathGraphics", "(Lsun/print/PeekGraphics;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;IJ)V", nullptr, $PRIVATE, $method(CPrinterJob, printToPathGraphics, void, $PeekGraphics*, $PrinterJob*, $Printable*, $PageFormat*, int32_t, int64_t), "java.awt.print.PrinterException"},
-	{"setAttributes", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, setAttributes, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
-	{"setCopiesAttribute", "(I)V", nullptr, $PRIVATE, $method(CPrinterJob, setCopiesAttribute, void, int32_t)},
-	{"setDestinationFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CPrinterJob, setDestinationFile, void, $String*)},
-	{"setPageRangeAttribute", "(IIZ)V", nullptr, $PRIVATE, $method(CPrinterJob, setPageRangeAttribute, void, int32_t, int32_t, bool)},
-	{"setPrintToFile", "(Z)V", nullptr, $PRIVATE, $method(CPrinterJob, setPrintToFile, void, bool)},
-	{"setPrinterServiceFromNative", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CPrinterJob, setPrinterServiceFromNative, void, $String*)},
-	{"startDoc", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, startDoc, void), "java.awt.print.PrinterException"},
-	{"startPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;I)V", nullptr, $PROTECTED, $method(CPrinterJob, startPage, void, $PageFormat*, $Printable*, int32_t), "java.awt.print.PrinterException"},
-	{"startPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;IZ)V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, startPage, void, $PageFormat*, $Printable*, int32_t, bool), "java.awt.print.PrinterException"},
-	{"validatePaper", "(Ljava/awt/print/Paper;Ljava/awt/print/Paper;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CPrinterJob, validatePaper, void, $Paper*, $Paper*)},
-	{}
-};
-
-#define _METHOD_INDEX__safePrintLoop 1
-#define _METHOD_INDEX_abortDoc 2
-#define _METHOD_INDEX_createNSPrintInfo 12
-#define _METHOD_INDEX_dispose 15
-#define _METHOD_INDEX_getDefaultPage 20
-#define _METHOD_INDEX_printLoop 47
-#define _METHOD_INDEX_validatePaper 58
-
-$InnerClassInfo _CPrinterJob_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CPrinterJob$6", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CPrinterJob$5", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CPrinterJob$4", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CPrinterJob$3", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CPrinterJob$2", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CPrinterJob$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CPrinterJob_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterJob",
-	"sun.print.RasterPrinterJob",
-	nullptr,
-	_CPrinterJob_FieldInfo_,
-	_CPrinterJob_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CPrinterJob_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CPrinterJob$6,sun.lwawt.macosx.CPrinterJob$5,sun.lwawt.macosx.CPrinterJob$4,sun.lwawt.macosx.CPrinterJob$3,sun.lwawt.macosx.CPrinterJob$2,sun.lwawt.macosx.CPrinterJob$1"
-};
-
-$Object* allocate$CPrinterJob($Class* clazz) {
-	return $of($alloc(CPrinterJob));
-}
 
 $String* CPrinterJob::sShouldNotReachHere = nullptr;
 $Font* CPrinterJob::defaultFont = nullptr;
@@ -343,7 +221,7 @@ void CPrinterJob::init$() {
 }
 
 bool CPrinterJob::printDialog() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
 	}
@@ -361,7 +239,7 @@ bool CPrinterJob::printDialog() {
 }
 
 $PageFormat* CPrinterJob::pageDialog($PageFormat* page) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($GraphicsEnvironment::isHeadless()) {
 		$throwNew($HeadlessException);
 	}
@@ -383,7 +261,7 @@ $PageFormat* CPrinterJob::defaultPage($PageFormat* page) {
 }
 
 void CPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RasterPrinterJob::setAttributes(attributes);
 	if (attributes == nullptr) {
 		return;
@@ -392,17 +270,17 @@ void CPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 	$var($Attribute, attr, $nc(attributes)->get($Media::class$));
 	if ($instanceOf($CustomMediaTray, attr)) {
 		$var($CustomMediaTray, customTray, $cast($CustomMediaTray, attr));
-		$set(this, tray, $nc(customTray)->getChoiceName());
+		$set(this, tray, customTray->getChoiceName());
 	}
 	$load($PageRanges);
 	$var($PageRanges, pageRangesAttr, $cast($PageRanges, attributes->get($PageRanges::class$)));
-	if (isSupportedValue(static_cast<$Attribute*>(static_cast<$DocAttribute*>(pageRangesAttr)), attributes)) {
+	if (isSupportedValue($cast($DocAttribute, pageRangesAttr), attributes)) {
 		$load($SunPageSelection);
 		$var($SunPageSelection, rangeSelect, $cast($SunPageSelection, attributes->get($SunPageSelection::class$)));
 		$init($SunPageSelection);
 		if (rangeSelect == nullptr || rangeSelect == $SunPageSelection::RANGE) {
 			$var($intArray2, range, $nc(pageRangesAttr)->getMembers());
-			setPageRange($nc($nc(range)->get(0))->get(0) - 1, $nc(range->get(0))->get(1) - 1);
+			setPageRange($nc($nc(range)->get(0))->get(0) - 1, $nc($nc(range)->get(0))->get(1) - 1);
 		} else {
 			setPageRange(-1, -1);
 		}
@@ -412,7 +290,7 @@ void CPrinterJob::setAttributes($PrintRequestAttributeSet* attributes) {
 void CPrinterJob::setPageRangeAttribute(int32_t from, int32_t to, bool isRangeSet) {
 	if (this->attributes != nullptr) {
 		if (isRangeSet) {
-			$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>($$new($PageRanges, from + 1, to + 1))));
+			this->attributes->add($$cast($DocAttribute, $new($PageRanges, from + 1, to + 1)));
 			$init($SunPageSelection);
 			$nc(this->attributes)->add($SunPageSelection::RANGE);
 			setPageRange(from, to);
@@ -425,7 +303,7 @@ void CPrinterJob::setPageRangeAttribute(int32_t from, int32_t to, bool isRangeSe
 
 void CPrinterJob::setCopiesAttribute(int32_t copies) {
 	if (this->attributes != nullptr) {
-		$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>($$new($Copies, copies))));
+		this->attributes->add($$cast($PrintRequestAttribute, $new($Copies, copies)));
 		$RasterPrinterJob::setCopies(copies);
 	}
 }
@@ -455,11 +333,11 @@ void CPrinterJob::setPrintToFile(bool printToFile) {
 }
 
 void CPrinterJob::setDestinationFile($String* dest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->attributes != nullptr && dest != nullptr) {
 		try {
 			$var($URI, destURI, $new($URI, dest));
-			$nc(this->attributes)->add(static_cast<$Attribute*>(static_cast<$PrintJobAttribute*>($$new($Destination, destURI))));
+			this->attributes->add($$cast($PrintJobAttribute, $new($Destination, destURI)));
 			$set(this, destinationAttr, $str({""_s, $(destURI->getSchemeSpecificPart())}));
 		} catch ($Exception& e) {
 		}
@@ -471,7 +349,7 @@ $String* CPrinterJob::getDestinationFile() {
 }
 
 void CPrinterJob::print($PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($PrintService, psvc, getPrintService());
 	if (psvc == nullptr && !this->isPrintToFile) {
@@ -493,88 +371,86 @@ void CPrinterJob::print($PrintRequestAttributeSet* attributes) {
 			lastPage = $nc(this->mDocument)->getNumberOfPages() - 1;
 		}
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$synchronized(this) {
-				this->performingPrinting = true;
-				this->userCancelled = false;
-			}
-			$load($PageRanges);
-			$var($PageRanges, pr, (attributes == nullptr) ? ($PageRanges*)nullptr : $cast($PageRanges, $nc(attributes)->get($PageRanges::class$)));
-			$var($intArray2, prMembers, (pr == nullptr) ? $new($intArray2, 0, 0) : $nc(pr)->getMembers());
-			int32_t loopi = 0;
-			do {
-				if ($EventQueue::isDispatchThread()) {
-					this->onEventThread = true;
-					$set(this, printingLoop, $cast($SecondaryLoop, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CPrinterJob$2, this)))));
-					try {
-						if (printLoop(false, firstPage, lastPage)) {
-							$nc(this->printingLoop)->enter();
-						}
-					} catch ($Exception& e) {
-						e->printStackTrace();
-					}
-				} else {
-					this->onEventThread = false;
-					try {
-						printLoop(true, firstPage, lastPage);
-					} catch ($Exception& e) {
-						e->printStackTrace();
-					}
-				}
-				if (++loopi < $nc(prMembers)->length) {
-					firstPage = $nc(prMembers->get(loopi))->get(0) - 1;
-					lastPage = $nc(prMembers->get(loopi))->get(1) - 1;
-				}
-			} while (loopi < $nc(prMembers)->length);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$synchronized(this) {
-				this->performingPrinting = false;
-				$of(this)->notify();
-			}
-			if (this->printingLoop != nullptr) {
-				$nc(this->printingLoop)->exit();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$synchronized(this) {
+			this->performingPrinting = true;
+			this->userCancelled = false;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$load($PageRanges);
+		$var($PageRanges, pr, (attributes == nullptr) ? ($PageRanges*)nullptr : $cast($PageRanges, attributes->get($PageRanges::class$)));
+		$var($intArray2, prMembers, (pr == nullptr) ? $new($intArray2, 0, 0) : pr->getMembers());
+		int32_t loopi = 0;
+		do {
+			if ($EventQueue::isDispatchThread()) {
+				this->onEventThread = true;
+				$set(this, printingLoop, $cast($SecondaryLoop, $AccessController::doPrivileged($$new($CPrinterJob$2, this))));
+				try {
+					if (printLoop(false, firstPage, lastPage)) {
+						$nc(this->printingLoop)->enter();
+					}
+				} catch ($Exception& e) {
+					e->printStackTrace();
+				}
+			} else {
+				this->onEventThread = false;
+				try {
+					printLoop(true, firstPage, lastPage);
+				} catch ($Exception& e) {
+					e->printStackTrace();
+				}
+			}
+			if (++loopi < $nc(prMembers)->length) {
+				firstPage = $nc(prMembers->get(loopi))->get(0) - 1;
+				lastPage = $nc(prMembers->get(loopi))->get(1) - 1;
+			}
+		} while (loopi < $nc(prMembers)->length);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$synchronized(this) {
+			this->performingPrinting = false;
+			$of(this)->notify();
 		}
+		if (this->printingLoop != nullptr) {
+			$nc(this->printingLoop)->exit();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 double CPrinterJob::getXRes() {
-	return (double)0;
+	return 0;
 }
 
 double CPrinterJob::getYRes() {
-	return (double)0;
+	return 0;
 }
 
 double CPrinterJob::getPhysicalPrintableX($Paper* p) {
-	return (double)0;
+	return 0;
 }
 
 double CPrinterJob::getPhysicalPrintableY($Paper* p) {
-	return (double)0;
+	return 0;
 }
 
 double CPrinterJob::getPhysicalPrintableWidth($Paper* p) {
-	return (double)0;
+	return 0;
 }
 
 double CPrinterJob::getPhysicalPrintableHeight($Paper* p) {
-	return (double)0;
+	return 0;
 }
 
 double CPrinterJob::getPhysicalPageWidth($Paper* p) {
-	return (double)0;
+	return 0;
 }
 
 double CPrinterJob::getPhysicalPageHeight($Paper* p) {
-	return (double)0;
+	return 0;
 }
 
 void CPrinterJob::startPage($PageFormat* format, $Printable* painter, int32_t index) {
@@ -598,7 +474,7 @@ void CPrinterJob::endDoc() {
 }
 
 void CPrinterJob::abortDoc() {
-	$prepareNative(CPrinterJob, abortDoc, void);
+	$prepareNative(abortDoc, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -620,13 +496,13 @@ bool CPrinterJob::jobSetup($Pageable* doc, bool allowPrintToFile) {
 }
 
 void CPrinterJob::getDefaultPage($PageFormat* page) {
-	$prepareNative(CPrinterJob, getDefaultPage, void, $PageFormat* page);
+	$prepareNative(getDefaultPage, void, $PageFormat* page);
 	$invokeNative(page);
 	$finishNative();
 }
 
 void CPrinterJob::validatePaper($Paper* origPaper, $Paper* newPaper) {
-	$prepareNative(CPrinterJob, validatePaper, void, $Paper* origPaper, $Paper* newPaper);
+	$prepareNative(validatePaper, void, $Paper* origPaper, $Paper* newPaper);
 	$invokeNative(origPaper, newPaper);
 	$finishNative();
 }
@@ -641,15 +517,14 @@ void CPrinterJob::finalize() {
 }
 
 int64_t CPrinterJob::createNSPrintInfo() {
-	int64_t $ret = 0;
-	$prepareNative(CPrinterJob, createNSPrintInfo, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(createNSPrintInfo, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void CPrinterJob::dispose(int64_t printInfo) {
-	$prepareNative(CPrinterJob, dispose, void, int64_t printInfo);
+	$prepareNative(dispose, void, int64_t printInfo);
 	$invokeNative(printInfo);
 	$finishNative();
 }
@@ -664,18 +539,17 @@ int64_t CPrinterJob::getNSPrintInfo() {
 }
 
 bool CPrinterJob::printLoop(bool waitUntilDone, int32_t firstPage, int32_t lastPage) {
-	bool $ret = false;
-	$prepareNative(CPrinterJob, printLoop, bool, bool waitUntilDone, int32_t firstPage, int32_t lastPage);
-	$ret = $invokeNative(waitUntilDone, firstPage, lastPage);
+	$prepareNative(printLoop, bool, bool waitUntilDone, int32_t firstPage, int32_t lastPage);
+	bool $ret = $invokeNative(waitUntilDone, firstPage, lastPage);
 	$finishNative();
 	return $ret;
 }
 
 $PageFormat* CPrinterJob::getPageFormat(int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PageFormat, page, nullptr);
 	try {
-		$assign(page, $nc($(getPageable()))->getPageFormat(pageIndex));
+		$assign(page, $$nc(getPageable())->getPageFormat(pageIndex));
 	} catch ($Exception& e) {
 		return nullptr;
 	}
@@ -683,10 +557,10 @@ $PageFormat* CPrinterJob::getPageFormat(int32_t pageIndex) {
 }
 
 $Printable* CPrinterJob::getPrintable(int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Printable, painter, nullptr);
 	try {
-		$assign(painter, $nc($(getPageable()))->getPrintable(pageIndex));
+		$assign(painter, $$nc(getPageable())->getPrintable(pageIndex));
 	} catch ($Exception& e) {
 		return nullptr;
 	}
@@ -706,7 +580,7 @@ $String* CPrinterJob::getPrinterTray() {
 }
 
 void CPrinterJob::setPrinterServiceFromNative($String* printerName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocFlavor$SERVICE_FORMATTED);
 	$var($PrintServiceArray, services, $PrintServiceLookup::lookupPrintServices($DocFlavor$SERVICE_FORMATTED::PAGEABLE, nullptr));
 	for (int32_t i = 0; i < $nc(services)->length; ++i) {
@@ -741,9 +615,9 @@ bool CPrinterJob::cancelCheck() {
 }
 
 $PeekGraphics* CPrinterJob::createFirstPassGraphics($PrinterJob* printerJob, $PageFormat* page) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = (int32_t)$Math::round($nc(page)->getWidth());
-	$var($BufferedImage, bimg, $new($BufferedImage, var$0, (int32_t)$Math::round($nc(page)->getHeight()), $BufferedImage::TYPE_INT_ARGB_PRE));
+	$var($BufferedImage, bimg, $new($BufferedImage, var$0, (int32_t)$Math::round(page->getHeight()), $BufferedImage::TYPE_INT_ARGB_PRE));
 	$var($PeekGraphics, peekGraphics, createPeekGraphics($(bimg->createGraphics()), printerJob));
 	$var($Rectangle2D, pageFormatArea, getPageFormatArea(page));
 	initPrinterGraphics(peekGraphics, pageFormatArea);
@@ -751,7 +625,7 @@ $PeekGraphics* CPrinterJob::createFirstPassGraphics($PrinterJob* printerJob, $Pa
 }
 
 void CPrinterJob::printToPathGraphics($PeekGraphics* graphics, $PrinterJob* printerJob, $Printable* painter, $PageFormat* page, int32_t pageIndex, int64_t context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runnable, r, $new($CPrinterJob$4, this, page, context, printerJob, painter, pageIndex));
 	if (this->onEventThread) {
 		try {
@@ -772,7 +646,7 @@ void CPrinterJob::printToPathGraphics($PeekGraphics* graphics, $PrinterJob* prin
 }
 
 $ObjectArray* CPrinterJob::getPageformatPrintablePeekgraphics(int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, ret, $new($ObjectArray, 3));
 	$var($PrinterJob, printerJob, this);
 	$var($Runnable, r, $new($CPrinterJob$5, this, ret, pageIndex, printerJob));
@@ -794,7 +668,7 @@ $ObjectArray* CPrinterJob::getPageformatPrintablePeekgraphics(int32_t pageIndex)
 }
 
 $Rectangle2D* CPrinterJob::printAndGetPageFormatArea($Printable* printable, $Graphics* graphics, $PageFormat* pageFormat, int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2DArray, ret, $new($Rectangle2DArray, 1));
 	$var($Runnable, r, $new($CPrinterJob$6, this, ret, printable, graphics, pageFormat, pageIndex));
 	if (this->onEventThread) {
@@ -813,13 +687,13 @@ $Rectangle2D* CPrinterJob::printAndGetPageFormatArea($Printable* printable, $Gra
 
 void CPrinterJob::detachPrintLoop(int64_t target, int64_t arg) {
 	$init(CPrinterJob);
-	$useLocalCurrentObjectStackCache();
-	$$new($Thread, nullptr, static_cast<$Runnable*>($$new(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, target, arg)), "PrintLoop"_s, 0, false)->start();
+	$useLocalObjectStack();
+	$$new($Thread, nullptr, $$new(CPrinterJob$$Lambda$lambda$detachPrintLoop$0, target, arg), "PrintLoop"_s, 0, false)->start();
 }
 
 void CPrinterJob::_safePrintLoop(int64_t target, int64_t arg) {
 	$init(CPrinterJob);
-	$prepareNativeStatic(CPrinterJob, _safePrintLoop, void, int64_t target, int64_t arg);
+	$prepareNativeStatic(_safePrintLoop, void, int64_t target, int64_t arg);
 	$invokeNativeStatic(target, arg);
 	$finishNativeStatic();
 }
@@ -857,7 +731,7 @@ void CPrinterJob::lambda$detachPrintLoop$0(int64_t target, int64_t arg) {
 	_safePrintLoop(target, arg);
 }
 
-void clinit$CPrinterJob($Class* class$) {
+void CPrinterJob::clinit$($Class* clazz) {
 	$assignStatic(CPrinterJob::sShouldNotReachHere, "Should not reach here."_s);
 	{
 		$Toolkit::getDefaultToolkit();
@@ -869,11 +743,110 @@ CPrinterJob::CPrinterJob() {
 
 $Class* CPrinterJob::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CPrinterJob$$Lambda$lambda$detachPrintLoop$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CPrinterJob$$Lambda$lambda$detachPrintLoop$0")) {
 			return CPrinterJob$$Lambda$lambda$detachPrintLoop$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CPrinterJob, name, initialize, &_CPrinterJob_ClassInfo_, clinit$CPrinterJob, allocate$CPrinterJob);
+	$FieldInfo fieldInfos$$[] = {
+		{"sShouldNotReachHere", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CPrinterJob, sShouldNotReachHere)},
+		{"printingLoop", "Ljava/awt/SecondaryLoop;", nullptr, $PRIVATE | $VOLATILE, $field(CPrinterJob, printingLoop)},
+		{"noDefaultPrinter", "Z", nullptr, $PRIVATE, $field(CPrinterJob, noDefaultPrinter)},
+		{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(CPrinterJob, defaultFont)},
+		{"tray", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CPrinterJob, tray)},
+		{"fNSPrintInfo", "J", nullptr, $PRIVATE, $field(CPrinterJob, fNSPrintInfo)},
+		{"fNSPrintInfoLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(CPrinterJob, fNSPrintInfoLock)},
+		{"onEventThread", "Z", nullptr, $VOLATILE, $field(CPrinterJob, onEventThread)},
+		{"isPrintToFile", "Z", nullptr, 0, $field(CPrinterJob, isPrintToFile)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CPrinterJob, init$, void)},
+		{"_safePrintLoop", "(JJ)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CPrinterJob, _safePrintLoop, void, int64_t, int64_t)},
+		{"abortDoc", "()V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CPrinterJob, abortDoc, void)},
+		{"access$002", "(Lsun/lwawt/macosx/CPrinterJob;Z)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$002, bool, CPrinterJob*, bool)},
+		{"access$100", "(Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/Graphics2D;Ljava/awt/geom/Rectangle2D;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$100, void, CPrinterJob*, $Graphics2D*, $Rectangle2D*)},
+		{"access$200", "(Lsun/lwawt/macosx/CPrinterJob;)Ljava/awt/print/Pageable;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$200, $Pageable*, CPrinterJob*)},
+		{"access$300", "(Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;)Lsun/print/PeekGraphics;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$300, $PeekGraphics*, CPrinterJob*, $Graphics2D*, $PrinterJob*)},
+		{"access$400", "(Lsun/lwawt/macosx/CPrinterJob;Ljava/awt/Graphics2D;Ljava/awt/geom/Rectangle2D;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, access$400, void, CPrinterJob*, $Graphics2D*, $Rectangle2D*)},
+		{"cancelCheck", "()Z", nullptr, $PRIVATE, $method(CPrinterJob, cancelCheck, bool)},
+		{"cancelDoc", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, cancelDoc, void), "java.awt.print.PrinterAbortException"},
+		{"completePrintLoop", "()V", nullptr, $PRIVATE, $method(CPrinterJob, completePrintLoop, void)},
+		{"createFirstPassGraphics", "(Ljava/awt/print/PrinterJob;Ljava/awt/print/PageFormat;)Lsun/print/PeekGraphics;", nullptr, $PRIVATE, $method(CPrinterJob, createFirstPassGraphics, $PeekGraphics*, $PrinterJob*, $PageFormat*)},
+		{"createNSPrintInfo", "()J", nullptr, $PRIVATE | $NATIVE, $method(CPrinterJob, createNSPrintInfo, int64_t)},
+		{"defaultPage", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(CPrinterJob, defaultPage, $PageFormat*, $PageFormat*)},
+		{"detachPrintLoop", "(JJ)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CPrinterJob, detachPrintLoop, void, int64_t, int64_t)},
+		{"dispose", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CPrinterJob, dispose, void, int64_t)},
+		{"endDoc", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, endDoc, void), "java.awt.print.PrinterException"},
+		{"endPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;I)V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, endPage, void, $PageFormat*, $Printable*, int32_t), "java.awt.print.PrinterException"},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, finalize, void)},
+		{"getDefaultMediaSize", "(Ljava/awt/print/PageFormat;)Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE, $method(CPrinterJob, getDefaultMediaSize, $MediaSize*, $PageFormat*)},
+		{"getDefaultPage", "(Ljava/awt/print/PageFormat;)V", nullptr, $PRIVATE | $NATIVE, $method(CPrinterJob, getDefaultPage, void, $PageFormat*)},
+		{"getDefaultPrintableArea", "(Ljava/awt/print/PageFormat;DD)Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getDefaultPrintableArea, $MediaPrintableArea*, $PageFormat*, double, double)},
+		{"getDestinationFile", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(CPrinterJob, getDestinationFile, $String*)},
+		{"getMediaSize", "(Ljavax/print/attribute/standard/Media;Ljavax/print/PrintService;Ljava/awt/print/PageFormat;)Ljavax/print/attribute/standard/MediaSize;", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getMediaSize, $MediaSize*, $Media*, $PrintService*, $PageFormat*)},
+		{"getNSPrintInfo", "()J", nullptr, $PRIVATE, $method(CPrinterJob, getNSPrintInfo, int64_t)},
+		{"getPageFormat", "(I)Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $method(CPrinterJob, getPageFormat, $PageFormat*, int32_t)},
+		{"getPageFormatArea", "(Ljava/awt/print/PageFormat;)Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(CPrinterJob, getPageFormatArea, $Rectangle2D*, $PageFormat*)},
+		{"getPageformatPrintablePeekgraphics", "(I)[Ljava/lang/Object;", nullptr, $PRIVATE, $method(CPrinterJob, getPageformatPrintablePeekgraphics, $ObjectArray*, int32_t)},
+		{"getPhysicalPageHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPageHeight, double, $Paper*)},
+		{"getPhysicalPageWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPageWidth, double, $Paper*)},
+		{"getPhysicalPrintableHeight", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPrintableHeight, double, $Paper*)},
+		{"getPhysicalPrintableWidth", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPrintableWidth, double, $Paper*)},
+		{"getPhysicalPrintableX", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPrintableX, double, $Paper*)},
+		{"getPhysicalPrintableY", "(Ljava/awt/print/Paper;)D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getPhysicalPrintableY, double, $Paper*)},
+		{"getPrintable", "(I)Ljava/awt/print/Printable;", nullptr, $PRIVATE, $method(CPrinterJob, getPrintable, $Printable*, int32_t)},
+		{"getPrinterName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(CPrinterJob, getPrinterName, $String*)},
+		{"getPrinterTray", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(CPrinterJob, getPrinterTray, $String*)},
+		{"getXRes", "()D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getXRes, double)},
+		{"getYRes", "()D", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, getYRes, double)},
+		{"jobSetup", "(Ljava/awt/print/Pageable;Z)Z", nullptr, $PRIVATE, $method(CPrinterJob, jobSetup, bool, $Pageable*, bool)},
+		{"lambda$detachPrintLoop$0", "(JJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CPrinterJob, lambda$detachPrintLoop$0, void, int64_t, int64_t)},
+		{"pageDialog", "(Ljava/awt/print/PageFormat;)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(CPrinterJob, pageDialog, $PageFormat*, $PageFormat*), "java.awt.HeadlessException"},
+		{"pageSetup", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)Z", nullptr, $PUBLIC, $method(CPrinterJob, pageSetup, bool, $PageFormat*, $Printable*)},
+		{"print", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(CPrinterJob, print, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
+		{"printAndGetPageFormatArea", "(Ljava/awt/print/Printable;Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(CPrinterJob, printAndGetPageFormatArea, $Rectangle2D*, $Printable*, $Graphics*, $PageFormat*, int32_t)},
+		{"printBand", "([BIIII)V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, printBand, void, $bytes*, int32_t, int32_t, int32_t, int32_t), "java.awt.print.PrinterException"},
+		{"printDialog", "()Z", nullptr, $PUBLIC, $virtualMethod(CPrinterJob, printDialog, bool), "java.awt.HeadlessException"},
+		{"printLoop", "(ZII)Z", nullptr, $PRIVATE | $NATIVE, $method(CPrinterJob, printLoop, bool, bool, int32_t, int32_t), "java.awt.print.PrinterException"},
+		{"printToPathGraphics", "(Lsun/print/PeekGraphics;Ljava/awt/print/PrinterJob;Ljava/awt/print/Printable;Ljava/awt/print/PageFormat;IJ)V", nullptr, $PRIVATE, $method(CPrinterJob, printToPathGraphics, void, $PeekGraphics*, $PrinterJob*, $Printable*, $PageFormat*, int32_t, int64_t), "java.awt.print.PrinterException"},
+		{"setAttributes", "(Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, setAttributes, void, $PrintRequestAttributeSet*), "java.awt.print.PrinterException"},
+		{"setCopiesAttribute", "(I)V", nullptr, $PRIVATE, $method(CPrinterJob, setCopiesAttribute, void, int32_t)},
+		{"setDestinationFile", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CPrinterJob, setDestinationFile, void, $String*)},
+		{"setPageRangeAttribute", "(IIZ)V", nullptr, $PRIVATE, $method(CPrinterJob, setPageRangeAttribute, void, int32_t, int32_t, bool)},
+		{"setPrintToFile", "(Z)V", nullptr, $PRIVATE, $method(CPrinterJob, setPrintToFile, void, bool)},
+		{"setPrinterServiceFromNative", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(CPrinterJob, setPrinterServiceFromNative, void, $String*)},
+		{"startDoc", "()V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, startDoc, void), "java.awt.print.PrinterException"},
+		{"startPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;I)V", nullptr, $PROTECTED, $method(CPrinterJob, startPage, void, $PageFormat*, $Printable*, int32_t), "java.awt.print.PrinterException"},
+		{"startPage", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;IZ)V", nullptr, $PROTECTED, $virtualMethod(CPrinterJob, startPage, void, $PageFormat*, $Printable*, int32_t, bool), "java.awt.print.PrinterException"},
+		{"validatePaper", "(Ljava/awt/print/Paper;Ljava/awt/print/Paper;)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CPrinterJob, validatePaper, void, $Paper*, $Paper*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CPrinterJob$6", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CPrinterJob$5", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CPrinterJob$4", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CPrinterJob$3", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CPrinterJob$2", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CPrinterJob$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterJob",
+		"sun.print.RasterPrinterJob",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CPrinterJob$6,sun.lwawt.macosx.CPrinterJob$5,sun.lwawt.macosx.CPrinterJob$4,sun.lwawt.macosx.CPrinterJob$3,sun.lwawt.macosx.CPrinterJob$2,sun.lwawt.macosx.CPrinterJob$1"
+	};
+	$loadClass(CPrinterJob, name, initialize, &classInfo$$, CPrinterJob::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CPrinterJob);
+	});
 	return class$;
 }
 

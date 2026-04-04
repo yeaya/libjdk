@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageIO$ImageReaderIterator.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Iterator.h>
@@ -18,49 +17,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $Iterator = ::java::util::Iterator;
 using $ImageIO = ::javax::imageio::ImageIO;
-using $IIORegistry = ::javax::imageio::spi::IIORegistry;
 using $ImageReaderSpi = ::javax::imageio::spi::ImageReaderSpi;
 
 namespace javax {
 	namespace imageio {
-
-$FieldInfo _ImageIO$ImageReaderIterator_FieldInfo_[] = {
-	{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljavax/imageio/spi/ImageReaderSpi;>;", $PRIVATE, $field(ImageIO$ImageReaderIterator, iter)},
-	{}
-};
-
-$MethodInfo _ImageIO$ImageReaderIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljavax/imageio/spi/ImageReaderSpi;>;)V", $PUBLIC, $method(ImageIO$ImageReaderIterator, init$, void, $Iterator*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageReaderIterator, hasNext, bool)},
-	{"next", "()Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageReaderIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageReaderIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _ImageIO$ImageReaderIterator_InnerClassesInfo_[] = {
-	{"javax.imageio.ImageIO$ImageReaderIterator", "javax.imageio.ImageIO", "ImageReaderIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _ImageIO$ImageReaderIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.ImageIO$ImageReaderIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_ImageIO$ImageReaderIterator_FieldInfo_,
-	_ImageIO$ImageReaderIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;",
-	nullptr,
-	_ImageIO$ImageReaderIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.ImageIO"
-};
-
-$Object* allocate$ImageIO$ImageReaderIterator($Class* clazz) {
-	return $of($alloc(ImageIO$ImageReaderIterator));
-}
 
 void ImageIO$ImageReaderIterator::init$($Iterator* iter) {
 	$set(this, iter, iter);
@@ -74,13 +34,13 @@ $Object* ImageIO$ImageReaderIterator::next() {
 	$var($ImageReaderSpi, spi, nullptr);
 	try {
 		$assign(spi, $cast($ImageReaderSpi, $nc(this->iter)->next()));
-		return $of($nc(spi)->createReaderInstance());
+		return $nc(spi)->createReaderInstance();
 	} catch ($IOException& e) {
 		$init($ImageIO);
 		$load($ImageReaderSpi);
 		$nc($ImageIO::theRegistry)->deregisterServiceProvider(spi, $ImageReaderSpi::class$);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void ImageIO$ImageReaderIterator::remove() {
@@ -91,7 +51,39 @@ ImageIO$ImageReaderIterator::ImageIO$ImageReaderIterator() {
 }
 
 $Class* ImageIO$ImageReaderIterator::load$($String* name, bool initialize) {
-	$loadClass(ImageIO$ImageReaderIterator, name, initialize, &_ImageIO$ImageReaderIterator_ClassInfo_, allocate$ImageIO$ImageReaderIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljavax/imageio/spi/ImageReaderSpi;>;", $PRIVATE, $field(ImageIO$ImageReaderIterator, iter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Ljavax/imageio/spi/ImageReaderSpi;>;)V", $PUBLIC, $method(ImageIO$ImageReaderIterator, init$, void, $Iterator*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageReaderIterator, hasNext, bool)},
+		{"next", "()Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageReaderIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(ImageIO$ImageReaderIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.ImageIO$ImageReaderIterator", "javax.imageio.ImageIO", "ImageReaderIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.ImageIO$ImageReaderIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/imageio/ImageReader;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.ImageIO"
+	};
+	$loadClass(ImageIO$ImageReaderIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageIO$ImageReaderIterator);
+	});
 	return class$;
 }
 

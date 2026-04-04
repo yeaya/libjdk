@@ -1,5 +1,4 @@
 #include <sun/awt/X11CustomCursor.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Point.h>
 #include <java/util/Arrays.h>
@@ -20,56 +19,25 @@ using $X11CustomCursor$1CCount = ::sun::awt::X11CustomCursor$1CCount;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _X11CustomCursor_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X11CustomCursor, init$, void, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException"},
-	{"createCursor", "([B[BIIIIII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11CustomCursor, createCursor, void, $bytes*, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createNativeCursor", "(Ljava/awt/Image;[IIIII)V", nullptr, $PROTECTED, $virtualMethod(X11CustomCursor, createNativeCursor, void, $Image*, $ints*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _X11CustomCursor_InnerClassesInfo_[] = {
-	{"sun.awt.X11CustomCursor$1CCount", nullptr, "CCount", 0},
-	{}
-};
-
-$ClassInfo _X11CustomCursor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.X11CustomCursor",
-	"sun.awt.CustomCursor",
-	nullptr,
-	nullptr,
-	_X11CustomCursor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11CustomCursor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11CustomCursor$1CCount"
-};
-
-$Object* allocate$X11CustomCursor($Class* clazz) {
-	return $of($alloc(X11CustomCursor));
-}
-
 void X11CustomCursor::init$($Image* cursor, $Point* hotSpot, $String* name) {
 	$CustomCursor::init$(cursor, hotSpot, name);
 }
 
 void X11CustomCursor::createNativeCursor($Image* im, $ints* pixels, int32_t width, int32_t height, int32_t xHotSpot, int32_t yHotSpot) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 	}
 	$var($ints, tmp, $new($ints, $nc(pixels)->length));
 	for (int32_t i = 0; i < pixels->length; ++i) {
-		if (((int32_t)(pixels->get(i) & (uint32_t)(int32_t)0xFF000000)) == 0) {
+		if ((pixels->get(i) & (int32_t)0xff000000) == 0) {
 			tmp->set(i, -1);
 		} else {
-			tmp->set(i, (int32_t)(pixels->get(i) & (uint32_t)0x00FFFFFF));
+			tmp->set(i, pixels->get(i) & 0x00ffffff);
 		}
 	}
 	$Arrays::sort(tmp);
 	int32_t fc = 0;
-	int32_t bc = 0x00FFFFFF;
+	int32_t bc = 0x00ffffff;
 	$var($X11CustomCursor$1CCountArray, cols, $new($X11CustomCursor$1CCountArray, pixels->length));
 	int32_t is = 0;
 	int32_t numColors = 0;
@@ -91,16 +59,16 @@ void X11CustomCursor::createNativeCursor($Image* im, $ints* pixels, int32_t widt
 	if (numColors > 0) {
 		fc = $nc(cols->get(0))->color;
 	}
-	int32_t fcr = (int32_t)((fc >> 16) & (uint32_t)255);
-	int32_t fcg = (int32_t)((fc >> 8) & (uint32_t)255);
-	int32_t fcb = (int32_t)((fc >> 0) & (uint32_t)255);
+	int32_t fcr = (fc >> 16) & 0xff;
+	int32_t fcg = (fc >> 8) & 0xff;
+	int32_t fcb = (fc >> 0) & 0xff;
 	int32_t rdis = 0;
 	int32_t gdis = 0;
 	int32_t bdis = 0;
 	for (int32_t j = 1; j < numColors; ++j) {
-		int32_t rr = (int32_t)(($nc(cols->get(j))->color >> 16) & (uint32_t)255);
-		int32_t gg = (int32_t)(($nc(cols->get(j))->color >> 8) & (uint32_t)255);
-		int32_t bb = (int32_t)(($nc(cols->get(j))->color >> 0) & (uint32_t)255);
+		int32_t rr = ($nc(cols->get(j))->color >> 16) & 0xff;
+		int32_t gg = ($nc(cols->get(j))->color >> 8) & 0xff;
+		int32_t bb = ($nc(cols->get(j))->color >> 0) & 0xff;
 		rdis = rdis + $nc(cols->get(j))->count * rr;
 		gdis = gdis + $nc(cols->get(j))->count * gg;
 		bdis = bdis + $nc(cols->get(j))->count * bb;
@@ -113,17 +81,17 @@ void X11CustomCursor::createNativeCursor($Image* im, $ints* pixels, int32_t widt
 	}
 	rdis = (rdis * rdis + gdis * gdis + bdis * bdis) / 2;
 	for (int32_t j = 1; j < numColors; ++j) {
-		int32_t rr = (int32_t)(($nc(cols->get(j))->color >> 16) & (uint32_t)255);
-		int32_t gg = (int32_t)(($nc(cols->get(j))->color >> 8) & (uint32_t)255);
-		int32_t bb = (int32_t)(($nc(cols->get(j))->color >> 0) & (uint32_t)255);
+		int32_t rr = ($nc(cols->get(j))->color >> 16) & 0xff;
+		int32_t gg = ($nc(cols->get(j))->color >> 8) & 0xff;
+		int32_t bb = ($nc(cols->get(j))->color >> 0) & 0xff;
 		if ((rr - fcr) * (rr - fcr) + (gg - fcg) * (gg - fcg) + (bb - fcb) * (bb - fcb) >= rdis) {
 			bc = $nc(cols->get(j))->color;
 			break;
 		}
 	}
-	int32_t bcr = (int32_t)((bc >> 16) & (uint32_t)255);
-	int32_t bcg = (int32_t)((bc >> 8) & (uint32_t)255);
-	int32_t bcb = (int32_t)((bc >> 0) & (uint32_t)255);
+	int32_t bcr = (bc >> 16) & 0xff;
+	int32_t bcg = (bc >> 8) & 0xff;
+	int32_t bcb = (bc >> 0) & 0xff;
 	int32_t wNByte = (width + 7) / 8;
 	int32_t tNByte = wNByte * height;
 	$var($bytes, xorMask, $new($bytes, tNByte));
@@ -133,12 +101,12 @@ void X11CustomCursor::createNativeCursor($Image* im, $ints* pixels, int32_t widt
 		for (int32_t j = 0; j < height; ++j) {
 			int32_t ip = j * width + i;
 			int32_t ibyte = j * wNByte + i / 8;
-			if (((int32_t)(pixels->get(ip) & (uint32_t)(int32_t)0xFF000000)) != 0) {
+			if ((pixels->get(ip) & (int32_t)0xff000000) != 0) {
 				(*andMask)[ibyte] |= omask;
 			}
-			int32_t pr = (int32_t)((pixels->get(ip) >> 16) & (uint32_t)255);
-			int32_t pg = (int32_t)((pixels->get(ip) >> 8) & (uint32_t)255);
-			int32_t pb = (int32_t)((pixels->get(ip) >> 0) & (uint32_t)255);
+			int32_t pr = (pixels->get(ip) >> 16) & 0xff;
+			int32_t pg = (pixels->get(ip) >> 8) & 0xff;
+			int32_t pb = (pixels->get(ip) >> 0) & 0xff;
 			if ((pr - fcr) * (pr - fcr) + (pg - fcg) * (pg - fcg) + (pb - fcb) * (pb - fcb) <= (pr - bcr) * (pr - bcr) + (pg - bcg) * (pg - bcg) + (pb - bcb) * (pb - bcb)) {
 				(*xorMask)[ibyte] |= omask;
 			}
@@ -151,7 +119,33 @@ X11CustomCursor::X11CustomCursor() {
 }
 
 $Class* X11CustomCursor::load$($String* name, bool initialize) {
-	$loadClass(X11CustomCursor, name, initialize, &_X11CustomCursor_ClassInfo_, allocate$X11CustomCursor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(X11CustomCursor, init$, void, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException"},
+		{"createCursor", "([B[BIIIIII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(X11CustomCursor, createCursor, void, $bytes*, $bytes*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createNativeCursor", "(Ljava/awt/Image;[IIIII)V", nullptr, $PROTECTED, $virtualMethod(X11CustomCursor, createNativeCursor, void, $Image*, $ints*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11CustomCursor$1CCount", nullptr, "CCount", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.X11CustomCursor",
+		"sun.awt.CustomCursor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11CustomCursor$1CCount"
+	};
+	$loadClass(X11CustomCursor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11CustomCursor);
+	});
 	return class$;
 }
 

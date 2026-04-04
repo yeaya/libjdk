@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$BadRestrictedTypeError.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -26,9 +25,7 @@ using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveErr
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -41,44 +38,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$BadRestrictedTypeError_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$BadRestrictedTypeError, this$0)},
-	{"typeName", "Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $FINAL, $field(Resolve$BadRestrictedTypeError, typeName)},
-	{}
-};
-
-$MethodInfo _Resolve$BadRestrictedTypeError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/util/Name;)V", nullptr, 0, $method(Resolve$BadRestrictedTypeError, init$, void, $Resolve*, $Name*)},
-	{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$BadRestrictedTypeError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$BadRestrictedTypeError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$BadRestrictedTypeError", "com.sun.tools.javac.comp.Resolve", "BadRestrictedTypeError", 0},
-	{"com.sun.tools.javac.comp.Resolve$ResolveError", "com.sun.tools.javac.comp.Resolve", "ResolveError", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$BadRestrictedTypeError_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$BadRestrictedTypeError",
-	"com.sun.tools.javac.comp.Resolve$ResolveError",
-	nullptr,
-	_Resolve$BadRestrictedTypeError_FieldInfo_,
-	_Resolve$BadRestrictedTypeError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$BadRestrictedTypeError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$BadRestrictedTypeError($Class* clazz) {
-	return $of($alloc(Resolve$BadRestrictedTypeError));
-}
-
 void Resolve$BadRestrictedTypeError::init$($Resolve* this$0, $Name* typeName) {
 	$set(this, this$0, this$0);
 	$init($Kinds$Kind);
@@ -87,15 +46,47 @@ void Resolve$BadRestrictedTypeError::init$($Resolve* this$0, $Name* typeName) {
 }
 
 $JCDiagnostic* Resolve$BadRestrictedTypeError::getDiagnostic($JCDiagnostic$DiagnosticType* dkind, $JCDiagnostic$DiagnosticPosition* pos, $Symbol* location, $Type* site, $Name* name, $List* argtypes, $List* typeargtypes) {
-	$useLocalCurrentObjectStackCache();
-	return $nc(this->this$0->diags)->create(dkind, $($nc(this->this$0->log)->currentSource()), pos, "illegal.ref.to.restricted.type"_s, $$new($ObjectArray, {$of(this->typeName)}));
+	$useLocalObjectStack();
+	return $nc(this->this$0->diags)->create(dkind, $($nc(this->this$0->log)->currentSource()), pos, "illegal.ref.to.restricted.type"_s, $$new($ObjectArray, {this->typeName}));
 }
 
 Resolve$BadRestrictedTypeError::Resolve$BadRestrictedTypeError() {
 }
 
 $Class* Resolve$BadRestrictedTypeError::load$($String* name, bool initialize) {
-	$loadClass(Resolve$BadRestrictedTypeError, name, initialize, &_Resolve$BadRestrictedTypeError_ClassInfo_, allocate$Resolve$BadRestrictedTypeError);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$BadRestrictedTypeError, this$0)},
+		{"typeName", "Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $FINAL, $field(Resolve$BadRestrictedTypeError, typeName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/util/Name;)V", nullptr, 0, $method(Resolve$BadRestrictedTypeError, init$, void, $Resolve*, $Name*)},
+		{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$BadRestrictedTypeError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$BadRestrictedTypeError", "com.sun.tools.javac.comp.Resolve", "BadRestrictedTypeError", 0},
+		{"com.sun.tools.javac.comp.Resolve$ResolveError", "com.sun.tools.javac.comp.Resolve", "ResolveError", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$BadRestrictedTypeError",
+		"com.sun.tools.javac.comp.Resolve$ResolveError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$BadRestrictedTypeError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$BadRestrictedTypeError));
+	});
 	return class$;
 }
 

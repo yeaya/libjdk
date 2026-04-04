@@ -15,10 +15,13 @@ public:
 	InvalidKeyException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x3A9F9EAD99F5188E;
+	static const int64_t serialVersionUID = (int64_t)0x3a9f9ead99f5188e;
 	InvalidKeyException(const InvalidKeyException& e);
 	virtual void throw$() override;
-	inline InvalidKeyException* operator ->() {
+	inline InvalidKeyException* operator ->() const {
+		return (InvalidKeyException*)throwing$;
+	}
+	inline operator InvalidKeyException*() const {
 		return (InvalidKeyException*)throwing$;
 	}
 };

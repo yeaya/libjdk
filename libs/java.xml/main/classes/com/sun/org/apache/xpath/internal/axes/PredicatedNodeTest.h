@@ -110,7 +110,7 @@ public:
 	virtual void setLocPathIterator(::com::sun::org::apache::xpath::internal::axes::LocPathIterator* li);
 	virtual void setPredicateCount(int32_t count);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xAA0C289749E4B1F9;
+	static const int64_t serialVersionUID = (int64_t)0xaa0c289749e4b1f9;
 	int32_t m_predCount = 0;
 	bool m_foundLast = false;
 	::com::sun::org::apache::xpath::internal::axes::LocPathIterator* m_lpi = nullptr;

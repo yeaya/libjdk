@@ -1,10 +1,8 @@
 #include <com/sun/jndi/ldap/EventQueue.h>
-
 #include <com/sun/jndi/ldap/EventQueue$QueueElement.h>
 #include <com/sun/jndi/ldap/Obj.h>
 #include <com/sun/jndi/ldap/VersionHelper.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/util/EventObject.h>
 #include <java/util/Vector.h>
 #include <javax/naming/event/NamingEvent.h>
@@ -16,13 +14,11 @@
 
 using $EventQueue$QueueElement = ::com::sun::jndi::ldap::EventQueue$QueueElement;
 using $Obj = ::com::sun::jndi::ldap::Obj;
-using $VersionHelper = ::com::sun::jndi::ldap::VersionHelper;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $EventObject = ::java::util::EventObject;
 using $Vector = ::java::util::Vector;
 using $NamingEvent = ::javax::naming::event::NamingEvent;
@@ -36,54 +32,13 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _EventQueue_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EventQueue, debug)},
-	{"head", "Lcom/sun/jndi/ldap/EventQueue$QueueElement;", nullptr, $PRIVATE, $field(EventQueue, head)},
-	{"tail", "Lcom/sun/jndi/ldap/EventQueue$QueueElement;", nullptr, $PRIVATE, $field(EventQueue, tail)},
-	{"qThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(EventQueue, qThread)},
-	{}
-};
-
-$MethodInfo _EventQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EventQueue, init$, void)},
-	{"dequeue", "()Lcom/sun/jndi/ldap/EventQueue$QueueElement;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventQueue, dequeue, $EventQueue$QueueElement*), "java.lang.InterruptedException"},
-	{"enqueue", "(Ljava/util/EventObject;Ljava/util/Vector;)V", "(Ljava/util/EventObject;Ljava/util/Vector<Ljavax/naming/event/NamingListener;>;)V", $SYNCHRONIZED, $method(EventQueue, enqueue, void, $EventObject*, $Vector*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EventQueue, run, void)},
-	{"stop", "()V", nullptr, 0, $method(EventQueue, stop, void)},
-	{}
-};
-
-$InnerClassInfo _EventQueue_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.EventQueue$QueueElement", "com.sun.jndi.ldap.EventQueue", "QueueElement", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _EventQueue_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.EventQueue",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_EventQueue_FieldInfo_,
-	_EventQueue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EventQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.EventQueue$QueueElement"
-};
-
-$Object* allocate$EventQueue($Class* clazz) {
-	return $of($alloc(EventQueue));
-}
-
 void EventQueue::init$() {
 	$set(this, head, nullptr);
 	$set(this, tail, nullptr);
 	$init($Obj);
 	$set(this, qThread, $nc($Obj::helper)->createThread(this));
 	$nc(this->qThread)->setDaemon(true);
-	$nc(this->qThread)->start();
+	this->qThread->start();
 }
 
 void EventQueue::enqueue($EventObject* event, $Vector* vector) {
@@ -94,7 +49,7 @@ void EventQueue::enqueue($EventObject* event, $Vector* vector) {
 			$set(this, tail, newElt);
 		} else {
 			$set(newElt, next, this->head);
-			$set($nc(this->head), prev, newElt);
+			$set(this->head, prev, newElt);
 			$set(this, head, newElt);
 		}
 		$of(this)->notify();
@@ -111,15 +66,15 @@ $EventQueue$QueueElement* EventQueue::dequeue() {
 		if (this->tail == nullptr) {
 			$set(this, head, nullptr);
 		} else {
-			$set($nc(this->tail), next, nullptr);
+			$set(this->tail, next, nullptr);
 		}
-		$set(elt, prev, ($set(elt, next, nullptr)));
+		$set(elt, prev, $set(elt, next, nullptr));
 		return elt;
 	}
 }
 
 void EventQueue::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EventQueue$QueueElement, qe, nullptr);
 	try {
 		while (($assign(qe, dequeue())) != nullptr) {
@@ -127,11 +82,11 @@ void EventQueue::run() {
 			$var($Vector, v, qe->vector);
 			for (int32_t i = 0; i < $nc(v)->size(); ++i) {
 				if ($instanceOf($NamingEvent, e)) {
-					$nc(($cast($NamingEvent, e)))->dispatch($cast($NamingListener, $(v->elementAt(i))));
+					$cast($NamingEvent, e)->dispatch($$cast($NamingListener, v->elementAt(i)));
 				} else if ($instanceOf($NamingExceptionEvent, e)) {
-					$nc(($cast($NamingExceptionEvent, e)))->dispatch($cast($NamingListener, $(v->elementAt(i))));
+					$cast($NamingExceptionEvent, e)->dispatch($$cast($NamingListener, v->elementAt(i)));
 				} else if ($instanceOf($UnsolicitedNotificationEvent, e)) {
-					$nc(($cast($UnsolicitedNotificationEvent, e)))->dispatch($cast($UnsolicitedNotificationListener, $(v->elementAt(i))));
+					$cast($UnsolicitedNotificationEvent, e)->dispatch($$cast($UnsolicitedNotificationListener, v->elementAt(i)));
 				}
 			}
 			$assign(qe, nullptr);
@@ -143,8 +98,9 @@ void EventQueue::run() {
 }
 
 void EventQueue::stop() {
+	;
 	if (this->qThread != nullptr) {
-		$nc(this->qThread)->interrupt();
+		this->qThread->interrupt();
 		$set(this, qThread, nullptr);
 	}
 }
@@ -153,7 +109,42 @@ EventQueue::EventQueue() {
 }
 
 $Class* EventQueue::load$($String* name, bool initialize) {
-	$loadClass(EventQueue, name, initialize, &_EventQueue_ClassInfo_, allocate$EventQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EventQueue, debug)},
+		{"head", "Lcom/sun/jndi/ldap/EventQueue$QueueElement;", nullptr, $PRIVATE, $field(EventQueue, head)},
+		{"tail", "Lcom/sun/jndi/ldap/EventQueue$QueueElement;", nullptr, $PRIVATE, $field(EventQueue, tail)},
+		{"qThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(EventQueue, qThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EventQueue, init$, void)},
+		{"dequeue", "()Lcom/sun/jndi/ldap/EventQueue$QueueElement;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(EventQueue, dequeue, $EventQueue$QueueElement*), "java.lang.InterruptedException"},
+		{"enqueue", "(Ljava/util/EventObject;Ljava/util/Vector;)V", "(Ljava/util/EventObject;Ljava/util/Vector<Ljavax/naming/event/NamingListener;>;)V", $SYNCHRONIZED, $method(EventQueue, enqueue, void, $EventObject*, $Vector*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(EventQueue, run, void)},
+		{"stop", "()V", nullptr, 0, $method(EventQueue, stop, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.EventQueue$QueueElement", "com.sun.jndi.ldap.EventQueue", "QueueElement", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.EventQueue",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.EventQueue$QueueElement"
+	};
+	$loadClass(EventQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventQueue);
+	});
 	return class$;
 }
 

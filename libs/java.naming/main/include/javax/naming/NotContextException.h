@@ -14,10 +14,13 @@ public:
 	NotContextException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x0BCAED718BC12E01;
+	static const int64_t serialVersionUID = (int64_t)0x0bcaed718bc12e01;
 	NotContextException(const NotContextException& e);
 	virtual void throw$() override;
-	inline NotContextException* operator ->() {
+	inline NotContextException* operator ->() const {
+		return (NotContextException*)throwing$;
+	}
+	inline operator NotContextException*() const {
 		return (NotContextException*)throwing$;
 	}
 };

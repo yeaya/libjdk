@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template.h>
-
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <jcpp.h>
@@ -17,54 +16,16 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$MethodResolutionDiagHelper$Template_FieldInfo_[] = {
-	{"regex", "Ljava/lang/String;", nullptr, 0, $field(Resolve$MethodResolutionDiagHelper$Template, regex)},
-	{"subTemplates", "[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;", nullptr, 0, $field(Resolve$MethodResolutionDiagHelper$Template, subTemplates)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodResolutionDiagHelper$Template_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$Template, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
-	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$Template, matches, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$MethodResolutionDiagHelper$Template_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "com.sun.tools.javac.comp.Resolve", "MethodResolutionDiagHelper", $STATIC},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "Template", $STATIC},
-	{}
-};
-
-$ClassInfo _Resolve$MethodResolutionDiagHelper$Template_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template",
-	"java.lang.Object",
-	nullptr,
-	_Resolve$MethodResolutionDiagHelper$Template_FieldInfo_,
-	_Resolve$MethodResolutionDiagHelper$Template_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$MethodResolutionDiagHelper$Template_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodResolutionDiagHelper$Template($Class* clazz) {
-	return $of($alloc(Resolve$MethodResolutionDiagHelper$Template));
-}
-
 void Resolve$MethodResolutionDiagHelper$Template::init$($String* key, $Resolve$MethodResolutionDiagHelper$TemplateArray* subTemplates) {
 	$set(this, regex, key);
 	$set(this, subTemplates, subTemplates);
 }
 
 bool Resolve$MethodResolutionDiagHelper$Template::matches(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCDiagnostic, d, $cast($JCDiagnostic, o));
 	$var($ObjectArray, args, $nc(d)->getArgs());
-	bool var$0 = !$nc($(d->getCode()))->matches(this->regex);
+	bool var$0 = !$$nc(d->getCode())->matches(this->regex);
 	if (var$0 || $nc(this->subTemplates)->length != $nc($(d->getArgs()))->length) {
 		return false;
 	}
@@ -80,7 +41,39 @@ Resolve$MethodResolutionDiagHelper$Template::Resolve$MethodResolutionDiagHelper$
 }
 
 $Class* Resolve$MethodResolutionDiagHelper$Template::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodResolutionDiagHelper$Template, name, initialize, &_Resolve$MethodResolutionDiagHelper$Template_ClassInfo_, allocate$Resolve$MethodResolutionDiagHelper$Template);
+	$FieldInfo fieldInfos$$[] = {
+		{"regex", "Ljava/lang/String;", nullptr, 0, $field(Resolve$MethodResolutionDiagHelper$Template, regex)},
+		{"subTemplates", "[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;", nullptr, 0, $field(Resolve$MethodResolutionDiagHelper$Template, subTemplates)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$Template, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
+		{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$Template, matches, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "com.sun.tools.javac.comp.Resolve", "MethodResolutionDiagHelper", $STATIC},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "Template", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodResolutionDiagHelper$Template, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResolutionDiagHelper$Template);
+	});
 	return class$;
 }
 

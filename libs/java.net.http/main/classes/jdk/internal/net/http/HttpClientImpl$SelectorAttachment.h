@@ -60,6 +60,7 @@ class $export HttpClientImpl$SelectorAttachment : public ::java::lang::Object {
 	$class(HttpClientImpl$SelectorAttachment, 0, ::java::lang::Object)
 public:
 	HttpClientImpl$SelectorAttachment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::channels::SelectableChannel* chan, ::java::nio::channels::Selector* selector);
 	virtual void abortPending($Throwable* x);
 	virtual ::java::util::stream::Stream* events(int32_t interestOps);

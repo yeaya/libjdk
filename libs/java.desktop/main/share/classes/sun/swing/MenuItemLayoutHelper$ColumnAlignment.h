@@ -17,6 +17,7 @@ class $export MenuItemLayoutHelper$ColumnAlignment : public ::java::lang::Object
 	$class(MenuItemLayoutHelper$ColumnAlignment, 0, ::java::lang::Object)
 public:
 	MenuItemLayoutHelper$ColumnAlignment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t checkAlignment, int32_t iconAlignment, int32_t textAlignment, int32_t accAlignment, int32_t arrowAlignment);
 	virtual int32_t getAccAlignment();
 	virtual int32_t getArrowAlignment();

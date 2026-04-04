@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$CheckBoxIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory.h>
@@ -29,7 +28,6 @@
 using $TMSchema$Part = ::com::sun::java::swing::plaf::windows::TMSchema$Part;
 using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
-using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -48,49 +46,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsIconFactory$CheckBoxIcon_FieldInfo_[] = {
-	{"csize", "I", nullptr, $STATIC | $FINAL, $constField(WindowsIconFactory$CheckBoxIcon, csize)},
-	{}
-};
-
-$MethodInfo _WindowsIconFactory$CheckBoxIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$CheckBoxIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory$CheckBoxIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory$CheckBoxIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_WindowsIconFactory$CheckBoxIcon_FieldInfo_,
-	_WindowsIconFactory$CheckBoxIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory$CheckBoxIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory"
-};
-
-$Object* allocate$WindowsIconFactory$CheckBoxIcon($Class* clazz) {
-	return $of($alloc(WindowsIconFactory$CheckBoxIcon));
-}
 
 int32_t WindowsIconFactory$CheckBoxIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -116,7 +71,7 @@ void WindowsIconFactory$CheckBoxIcon::init$() {
 }
 
 void WindowsIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCheckBox, cb, $cast($JCheckBox, c));
 	$var($ButtonModel, model, $nc(cb)->getModel());
 	$var($XPStyle, xp, $XPStyle::getXP());
@@ -128,8 +83,8 @@ void WindowsIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int
 			if (!model->isEnabled()) {
 				state = $TMSchema$State::CHECKEDDISABLED;
 			} else {
-				bool var$1 = model->isPressed();
-				if (var$1 && model->isArmed()) {
+				bool var$0 = model->isPressed();
+				if (var$0 && model->isArmed()) {
 					state = $TMSchema$State::CHECKEDPRESSED;
 				} else if (model->isRollover()) {
 					state = $TMSchema$State::CHECKEDHOT;
@@ -141,8 +96,8 @@ void WindowsIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int
 			if (!model->isEnabled()) {
 				state = $TMSchema$State::UNCHECKEDDISABLED;
 			} else {
-				bool var$3 = model->isPressed();
-				if (var$3 && model->isArmed()) {
+				bool var$1 = model->isPressed();
+				if (var$1 && model->isArmed()) {
 					state = $TMSchema$State::UNCHECKEDPRESSED;
 				} else if (model->isRollover()) {
 					state = $TMSchema$State::UNCHECKEDHOT;
@@ -151,7 +106,7 @@ void WindowsIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int
 		}
 		$init($TMSchema$Part);
 		$TMSchema$Part* part = $TMSchema$Part::BP_CHECKBOX;
-		$nc($(xp->getSkin(c, part)))->paintSkin(g, x, y, state);
+		$$nc(xp->getSkin(c, part))->paintSkin(g, x, y, state);
 	} else {
 		if (!cb->isBorderPaintedFlat()) {
 			$nc(g)->setColor($($UIManager::getColor("CheckBox.shadow"_s)));
@@ -166,9 +121,9 @@ void WindowsIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int
 			g->setColor($($UIManager::getColor("CheckBox.light"_s)));
 			g->drawLine(x + 1, y + 11, x + 11, y + 11);
 			g->drawLine(x + 11, y + 1, x + 11, y + 10);
-			bool var$5 = $nc(model)->isPressed();
-			bool var$4 = (var$5 && model->isArmed());
-			if (var$4 || !$nc(model)->isEnabled()) {
+			bool var$3 = $nc(model)->isPressed();
+			bool var$2 = var$3 && model->isArmed();
+			if (var$2 || !model->isEnabled()) {
 				g->setColor($($UIManager::getColor("CheckBox.background"_s)));
 			} else {
 				g->setColor($($UIManager::getColor("CheckBox.interiorBackground"_s)));
@@ -177,9 +132,9 @@ void WindowsIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int
 		} else {
 			$nc(g)->setColor($($UIManager::getColor("CheckBox.shadow"_s)));
 			g->drawRect(x + 1, y + 1, WindowsIconFactory$CheckBoxIcon::csize - 3, WindowsIconFactory$CheckBoxIcon::csize - 3);
-			bool var$7 = $nc(model)->isPressed();
-			bool var$6 = (var$7 && model->isArmed());
-			if (var$6 || !$nc(model)->isEnabled()) {
+			bool var$5 = $nc(model)->isPressed();
+			bool var$4 = var$5 && model->isArmed();
+			if (var$4 || !model->isEnabled()) {
 				g->setColor($($UIManager::getColor("CheckBox.background"_s)));
 			} else {
 				g->setColor($($UIManager::getColor("CheckBox.interiorBackground"_s)));
@@ -191,7 +146,7 @@ void WindowsIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int
 		} else {
 			$nc(g)->setColor($($UIManager::getColor("CheckBox.shadow"_s)));
 		}
-		if ($nc(model)->isSelected()) {
+		if (model->isSelected()) {
 			if ($SwingUtilities2::isScaledGraphics(g)) {
 				$var($ints, xPoints, $new($ints, {
 					3,
@@ -229,22 +184,22 @@ void WindowsIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int
 }
 
 int32_t WindowsIconFactory$CheckBoxIcon::getIconWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
-		return $nc($(xp->getSkin(nullptr, $TMSchema$Part::BP_CHECKBOX)))->getWidth();
+		return $$nc(xp->getSkin(nullptr, $TMSchema$Part::BP_CHECKBOX))->getWidth();
 	} else {
 		return WindowsIconFactory$CheckBoxIcon::csize;
 	}
 }
 
 int32_t WindowsIconFactory$CheckBoxIcon::getIconHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
-		return $nc($(xp->getSkin(nullptr, $TMSchema$Part::BP_CHECKBOX)))->getHeight();
+		return $$nc(xp->getSkin(nullptr, $TMSchema$Part::BP_CHECKBOX))->getHeight();
 	} else {
 		return WindowsIconFactory$CheckBoxIcon::csize;
 	}
@@ -254,7 +209,44 @@ WindowsIconFactory$CheckBoxIcon::WindowsIconFactory$CheckBoxIcon() {
 }
 
 $Class* WindowsIconFactory$CheckBoxIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory$CheckBoxIcon, name, initialize, &_WindowsIconFactory$CheckBoxIcon_ClassInfo_, allocate$WindowsIconFactory$CheckBoxIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"csize", "I", nullptr, $STATIC | $FINAL, $constField(WindowsIconFactory$CheckBoxIcon, csize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$CheckBoxIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$CheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$CheckBoxIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory"
+	};
+	$loadClass(WindowsIconFactory$CheckBoxIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsIconFactory$CheckBoxIcon));
+	});
 	return class$;
 }
 

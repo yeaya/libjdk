@@ -1,5 +1,4 @@
 #include <java/awt/datatransfer/DataFlavor.h>
-
 #include <java/awt/datatransfer/MimeType.h>
 #include <java/awt/datatransfer/MimeTypeParameterList.h>
 #include <java/awt/datatransfer/MimeTypeParseException.h>
@@ -67,7 +66,6 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
-using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -75,119 +73,11 @@ using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $DataFlavorUtil = ::sun::datatransfer::DataFlavorUtil;
 using $DataFlavorUtil$RMI = ::sun::datatransfer::DataFlavorUtil$RMI;
-using $DesktopDatatransferService = ::sun::datatransfer::DesktopDatatransferService;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 
 namespace java {
 	namespace awt {
 		namespace datatransfer {
-
-$CompoundAttribute _DataFlavor_FieldAnnotations_plainTextFlavor[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DataFlavor_MethodAnnotations_equals11[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DataFlavor_MethodAnnotations_normalizeMimeType41[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _DataFlavor_MethodAnnotations_normalizeMimeTypeParameter42[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _DataFlavor_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataFlavor, serialVersionUID)},
-	{"stringFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, stringFlavor)},
-	{"imageFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, imageFlavor)},
-	{"plainTextFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(DataFlavor, plainTextFlavor), _DataFlavor_FieldAnnotations_plainTextFlavor},
-	{"javaSerializedObjectMimeType", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, javaSerializedObjectMimeType)},
-	{"javaFileListFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, javaFileListFlavor)},
-	{"javaJVMLocalObjectMimeType", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, javaJVMLocalObjectMimeType)},
-	{"javaRemoteObjectMimeType", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, javaRemoteObjectMimeType)},
-	{"selectionHtmlFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, selectionHtmlFlavor)},
-	{"fragmentHtmlFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, fragmentHtmlFlavor)},
-	{"allHtmlFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, allHtmlFlavor)},
-	{"atom", "I", nullptr, $TRANSIENT, $field(DataFlavor, atom)},
-	{"mimeType", "Ljava/awt/datatransfer/MimeType;", nullptr, 0, $field(DataFlavor, mimeType)},
-	{"humanPresentableName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DataFlavor, humanPresentableName)},
-	{"representationClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(DataFlavor, representationClass)},
-	{}
-};
-
-$MethodInfo _DataFlavor_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DataFlavor, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/datatransfer/MimeTypeParameterList;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/datatransfer/MimeTypeParameterList;Ljava/lang/Class<*>;Ljava/lang/String;)V", $PRIVATE, $method(DataFlavor, init$, void, $String*, $String*, $MimeTypeParameterList*, $Class*, $String*)},
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $PUBLIC, $method(DataFlavor, init$, void, $Class*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DataFlavor, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(DataFlavor, init$, void, $String*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DataFlavor, init$, void, $String*), "java.lang.ClassNotFoundException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"createConstant", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", $PRIVATE | $STATIC, $staticMethod(DataFlavor, createConstant, DataFlavor*, $Class*, $String*)},
-	{"createConstant", "(Ljava/lang/String;Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataFlavor, createConstant, DataFlavor*, $String*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, equals, bool, Object$*)},
-	{"equals", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, equals, bool, DataFlavor*)},
-	{"equals", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DataFlavor, equals, bool, $String*), nullptr, nullptr, _DataFlavor_MethodAnnotations_equals11},
-	{"getDefaultRepresentationClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $method(DataFlavor, getDefaultRepresentationClass, $Class*)},
-	{"getDefaultRepresentationClassAsString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(DataFlavor, getDefaultRepresentationClassAsString, $String*)},
-	{"getHumanPresentableName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getHumanPresentableName, $String*)},
-	{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getMimeType, $String*)},
-	{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getParameter, $String*, $String*)},
-	{"getPrimaryType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getPrimaryType, $String*)},
-	{"getReaderForText", "(Ljava/awt/datatransfer/Transferable;)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getReaderForText, $Reader*, $Transferable*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
-	{"getRepresentationClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(DataFlavor, getRepresentationClass, $Class*)},
-	{"getSubType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getSubType, $String*)},
-	{"getTextPlainUnicodeFlavor", "()Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DataFlavor, getTextPlainUnicodeFlavor, DataFlavor*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DataFlavor, hashCode, int32_t)},
-	{"initHtml", "(Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataFlavor, initHtml, DataFlavor*, $String*)},
-	{"initialize", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(DataFlavor, initialize, void, $String*, $String*, $ClassLoader*), "java.awt.datatransfer.MimeTypeParseException,java.lang.ClassNotFoundException"},
-	{"isFlavorJavaFileListType", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isFlavorJavaFileListType, bool)},
-	{"isFlavorRemoteObjectType", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isFlavorRemoteObjectType, bool)},
-	{"isFlavorSerializedObjectType", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isFlavorSerializedObjectType, bool)},
-	{"isFlavorTextType", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isFlavorTextType, bool)},
-	{"isMimeTypeEqual", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isMimeTypeEqual, bool, $String*)},
-	{"isMimeTypeEqual", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $FINAL, $method(DataFlavor, isMimeTypeEqual, bool, DataFlavor*)},
-	{"isMimeTypeEqual", "(Ljava/awt/datatransfer/MimeType;)Z", nullptr, $PRIVATE, $method(DataFlavor, isMimeTypeEqual, bool, $MimeType*)},
-	{"isMimeTypeSerializedObject", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isMimeTypeSerializedObject, bool)},
-	{"isRepresentationClassByteBuffer", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassByteBuffer, bool)},
-	{"isRepresentationClassCharBuffer", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassCharBuffer, bool)},
-	{"isRepresentationClassInputStream", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassInputStream, bool)},
-	{"isRepresentationClassReader", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassReader, bool)},
-	{"isRepresentationClassRemote", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassRemote, bool)},
-	{"isRepresentationClassSerializable", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassSerializable, bool)},
-	{"isStandardTextRepresentationClass", "()Z", nullptr, $PRIVATE, $method(DataFlavor, isStandardTextRepresentationClass, bool)},
-	{"match", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, match, bool, DataFlavor*)},
-	{"normalizeMimeType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(DataFlavor, normalizeMimeType, $String*, $String*), nullptr, nullptr, _DataFlavor_MethodAnnotations_normalizeMimeType41},
-	{"normalizeMimeTypeParameter", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(DataFlavor, normalizeMimeTypeParameter, $String*, $String*, $String*), nullptr, nullptr, _DataFlavor_MethodAnnotations_normalizeMimeTypeParameter42},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DataFlavor, paramString, $String*)},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DataFlavor, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"selectBestTextFlavor", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DataFlavor, selectBestTextFlavor, DataFlavor*, $DataFlavorArray*)},
-	{"setHumanPresentableName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DataFlavor, setHumanPresentableName, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, toString, $String*)},
-	{"tryToLoadClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PROTECTED | $STATIC | $FINAL, $staticMethod(DataFlavor, tryToLoadClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DataFlavor, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DataFlavor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.datatransfer.DataFlavor",
-	"java.lang.Object",
-	"java.io.Externalizable,java.lang.Cloneable",
-	_DataFlavor_FieldInfo_,
-	_DataFlavor_MethodInfo_
-};
-
-$Object* allocate$DataFlavor($Class* clazz) {
-	return $of($alloc(DataFlavor));
-}
 
 void DataFlavor::finalize() {
 	this->$Externalizable::finalize();
@@ -206,7 +96,7 @@ DataFlavor* DataFlavor::allHtmlFlavor = nullptr;
 
 $Class* DataFlavor::tryToLoadClass($String* className, $ClassLoader* fallback) {
 	$init(DataFlavor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$ReflectUtil::checkPackageAccess(className);
 	try {
@@ -265,7 +155,7 @@ void DataFlavor::init$() {
 }
 
 void DataFlavor::init$($String* primaryType, $String* subType, $MimeTypeParameterList* params$renamed, $Class* representationClass, $String* humanPresentableName$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, humanPresentableName, humanPresentableName$renamed);
 	$var($MimeTypeParameterList, params, params$renamed);
 	if (primaryType == nullptr) {
@@ -305,7 +195,7 @@ void DataFlavor::init$($Class* representationClass, $String* humanPresentableNam
 }
 
 void DataFlavor::init$($String* mimeType, $String* humanPresentableName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (mimeType == nullptr) {
 		$throwNew($NullPointerException, "mimeType"_s);
@@ -331,7 +221,7 @@ void DataFlavor::init$($String* mimeType, $String* humanPresentableName, $ClassL
 }
 
 void DataFlavor::init$($String* mimeType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (mimeType == nullptr) {
 		$throwNew($NullPointerException, "mimeType"_s);
@@ -344,7 +234,7 @@ void DataFlavor::init$($String* mimeType) {
 }
 
 void DataFlavor::initialize($String* mimeType, $String* humanPresentableName$renamed, $ClassLoader* classLoader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, humanPresentableName, humanPresentableName$renamed);
 	if (mimeType == nullptr) {
 		$throwNew($NullPointerException, "mimeType"_s);
@@ -365,8 +255,11 @@ void DataFlavor::initialize($String* mimeType, $String* humanPresentableName$ren
 	if (humanPresentableName == nullptr) {
 		$assign(humanPresentableName, $nc(this->mimeType)->getParameter("humanPresentableName"_s));
 		if (humanPresentableName == nullptr) {
-			$var($String, var$0, $$str({$($nc(this->mimeType)->getPrimaryType()), "/"_s}));
-			$assign(humanPresentableName, $concat(var$0, $($nc(this->mimeType)->getSubType())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($nc(this->mimeType)->getPrimaryType()));
+			var$0->append("/"_s);
+			var$0->append($(this->mimeType->getSubType()));
+			$assign(humanPresentableName, $str(var$0));
 		}
 	}
 	$set(this, humanPresentableName, humanPresentableName);
@@ -374,33 +267,32 @@ void DataFlavor::initialize($String* mimeType, $String* humanPresentableName$ren
 }
 
 $String* DataFlavor::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, string, $of(this)->getClass()->getName());
 	$plusAssign(string, $$str({"["_s, $(paramString()), "]"_s}));
 	return string;
 }
 
 $String* DataFlavor::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, params, ""_s);
 	$plusAssign(params, "mimetype="_s);
 	if (this->mimeType == nullptr) {
 		$plusAssign(params, "null"_s);
 	} else {
-		$plusAssign(params, $($nc(this->mimeType)->getBaseType()));
+		$plusAssign(params, $(this->mimeType->getBaseType()));
 	}
 	$plusAssign(params, ";representationclass="_s);
 	if (this->representationClass == nullptr) {
 		$plusAssign(params, "null"_s);
 	} else {
-		$plusAssign(params, $($nc(this->representationClass)->getName()));
+		$plusAssign(params, $(this->representationClass->getName()));
 	}
 	bool var$0 = $DataFlavorUtil::isFlavorCharsetTextType(this);
 	if (var$0) {
 		bool var$2 = isRepresentationClassInputStream();
 		bool var$1 = var$2 || isRepresentationClassByteBuffer();
-		$load($bytes);
-		var$0 = (var$1 || $of($getClass($bytes))->equals(this->representationClass));
+		var$0 = var$1 || $getClass($bytes)->equals(this->representationClass);
 	}
 	if (var$0) {
 		$plusAssign(params, $$str({";charset="_s, $($DataFlavorUtil::getTextCharset(this))}));
@@ -410,17 +302,17 @@ $String* DataFlavor::paramString() {
 
 DataFlavor* DataFlavor::getTextPlainUnicodeFlavor() {
 	$init(DataFlavor);
-	$useLocalCurrentObjectStackCache();
-	return $new(DataFlavor, $$str({"text/plain;charset="_s, $($nc($($DataFlavorUtil::getDesktopService()))->getDefaultUnicodeEncoding()), ";class=java.io.InputStream"_s}), "Plain Text"_s);
+	$useLocalObjectStack();
+	return $new(DataFlavor, $$str({"text/plain;charset="_s, $($$nc($DataFlavorUtil::getDesktopService())->getDefaultUnicodeEncoding()), ";class=java.io.InputStream"_s}), "Plain Text"_s);
 }
 
 DataFlavor* DataFlavor::selectBestTextFlavor($DataFlavorArray* availableFlavors) {
 	$init(DataFlavor);
-	$useLocalCurrentObjectStackCache();
-	if (availableFlavors == nullptr || $nc(availableFlavors)->length == 0) {
+	$useLocalObjectStack();
+	if (availableFlavors == nullptr || availableFlavors->length == 0) {
 		return nullptr;
 	}
-	$var($Collection, var$0, static_cast<$Collection*>($Arrays::asList(availableFlavors)));
+	$var($Collection, var$0, $Arrays::asList(availableFlavors));
 	$var(DataFlavor, bestFlavor, $cast(DataFlavor, $Collections::max(var$0, $($DataFlavorUtil::getTextFlavorComparator()))));
 	if (!$nc(bestFlavor)->isFlavorTextType()) {
 		return nullptr;
@@ -429,7 +321,7 @@ DataFlavor* DataFlavor::selectBestTextFlavor($DataFlavorArray* availableFlavors)
 }
 
 $Reader* DataFlavor::getReaderForText($Transferable* transferable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, transferObject, $nc(transferable)->getTransferData(this));
 	if (transferObject == nullptr) {
 		$throwNew($IllegalArgumentException, "getTransferData() returned null"_s);
@@ -440,7 +332,7 @@ $Reader* DataFlavor::getReaderForText($Transferable* transferable) {
 		return $new($StringReader, $cast($String, transferObject));
 	} else if ($instanceOf($CharBuffer, transferObject)) {
 		$var($CharBuffer, buffer, $cast($CharBuffer, transferObject));
-		int32_t size = $nc(buffer)->remaining();
+		int32_t size = buffer->remaining();
 		$var($chars, chars, $new($chars, size));
 		buffer->get(chars, 0, size);
 		return $new($CharArrayReader, chars);
@@ -452,7 +344,7 @@ $Reader* DataFlavor::getReaderForText($Transferable* transferable) {
 		$assign(stream, $cast($InputStream, transferObject));
 	} else if ($instanceOf($ByteBuffer, transferObject)) {
 		$var($ByteBuffer, buffer, $cast($ByteBuffer, transferObject));
-		int32_t size = $nc(buffer)->remaining();
+		int32_t size = buffer->remaining();
 		$var($bytes, bytes, $new($bytes, size));
 		buffer->get(bytes, 0, size);
 		$assign(stream, $new($ByteArrayInputStream, bytes));
@@ -463,11 +355,11 @@ $Reader* DataFlavor::getReaderForText($Transferable* transferable) {
 		$throwNew($IllegalArgumentException, "transfer data is not Reader, String, CharBuffer, char array, InputStream, ByteBuffer, or byte array"_s);
 	}
 	$var($String, encoding, getParameter("charset"_s));
-	return (encoding == nullptr) ? static_cast<$Reader*>($new($InputStreamReader, stream)) : static_cast<$Reader*>($new($InputStreamReader, stream, encoding));
+	return (encoding == nullptr) ? $new($InputStreamReader, stream) : $new($InputStreamReader, stream, encoding);
 }
 
 $String* DataFlavor::getMimeType() {
-	return (this->mimeType != nullptr) ? $nc(this->mimeType)->toString() : ($String*)nullptr;
+	return (this->mimeType != nullptr) ? this->mimeType->toString() : ($String*)nullptr;
 }
 
 $Class* DataFlavor::getRepresentationClass() {
@@ -479,18 +371,18 @@ $String* DataFlavor::getHumanPresentableName() {
 }
 
 $String* DataFlavor::getPrimaryType() {
-	return (this->mimeType != nullptr) ? $nc(this->mimeType)->getPrimaryType() : ($String*)nullptr;
+	return (this->mimeType != nullptr) ? this->mimeType->getPrimaryType() : ($String*)nullptr;
 }
 
 $String* DataFlavor::getSubType() {
-	return (this->mimeType != nullptr) ? $nc(this->mimeType)->getSubType() : ($String*)nullptr;
+	return (this->mimeType != nullptr) ? this->mimeType->getSubType() : ($String*)nullptr;
 }
 
 $String* DataFlavor::getParameter($String* paramName) {
 	if ($nc(paramName)->equals("humanPresentableName"_s)) {
 		return this->humanPresentableName;
 	} else {
-		return (this->mimeType != nullptr) ? $nc(this->mimeType)->getParameter(paramName) : ($String*)nullptr;
+		return (this->mimeType != nullptr) ? this->mimeType->getParameter(paramName) : ($String*)nullptr;
 	}
 }
 
@@ -503,37 +395,37 @@ bool DataFlavor::equals(Object$* o) {
 }
 
 bool DataFlavor::equals(DataFlavor* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (that == nullptr) {
 		return false;
 	}
 	if (this == that) {
 		return true;
 	}
-	$var($Object, var$0, $of(this->getRepresentationClass()));
+	$var($Object, var$0, this->getRepresentationClass());
 	if (!$Objects::equals(var$0, $nc(that)->getRepresentationClass())) {
 		return false;
 	}
 	if (this->mimeType == nullptr) {
-		if ($nc(that)->mimeType != nullptr) {
+		if (that->mimeType != nullptr) {
 			return false;
 		}
 	} else {
-		if (!$nc(this->mimeType)->match($nc(that)->mimeType)) {
+		if (!this->mimeType->match(that->mimeType)) {
 			return false;
 		}
 		if ("text"_s->equals($(getPrimaryType()))) {
 			bool var$1 = $DataFlavorUtil::doesSubtypeSupportCharset(this) && this->representationClass != nullptr;
 			if (var$1 && !isStandardTextRepresentationClass()) {
 				$var($String, thisCharset, $DataFlavorUtil::canonicalName($(this->getParameter("charset"_s))));
-				$var($String, thatCharset, $DataFlavorUtil::canonicalName($($nc(that)->getParameter("charset"_s))));
+				$var($String, thatCharset, $DataFlavorUtil::canonicalName($(that->getParameter("charset"_s))));
 				if (!$Objects::equals(thisCharset, thatCharset)) {
 					return false;
 				}
 			}
 			if ("html"_s->equals($(getSubType()))) {
 				$var($String, thisDocument, this->getParameter("document"_s));
-				$var($String, thatDocument, $nc(that)->getParameter("document"_s));
+				$var($String, thatDocument, that->getParameter("document"_s));
 				if (!$Objects::equals(thisDocument, thatDocument)) {
 					return false;
 				}
@@ -551,13 +443,13 @@ bool DataFlavor::equals($String* s) {
 }
 
 int32_t DataFlavor::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t total = 0;
 	if (this->representationClass != nullptr) {
-		total += $nc($of(this->representationClass))->hashCode();
+		total += this->representationClass->hashCode();
 	}
 	if (this->mimeType != nullptr) {
-		$var($String, primaryType, $nc(this->mimeType)->getPrimaryType());
+		$var($String, primaryType, this->mimeType->getPrimaryType());
 		if (primaryType != nullptr) {
 			total += primaryType->hashCode();
 		}
@@ -612,10 +504,9 @@ bool DataFlavor::isMimeTypeEqual($MimeType* mtype) {
 
 bool DataFlavor::isStandardTextRepresentationClass() {
 	bool var$2 = isRepresentationClassReader();
-	bool var$1 = var$2 || $of($String::class$)->equals(this->representationClass);
+	bool var$1 = var$2 || $String::class$->equals(this->representationClass);
 	bool var$0 = var$1 || isRepresentationClassCharBuffer();
-	$load($chars);
-	return var$0 || $of($getClass($chars))->equals(this->representationClass);
+	return var$0 || $getClass($chars)->equals(this->representationClass);
 }
 
 bool DataFlavor::isMimeTypeSerializedObject() {
@@ -688,7 +579,7 @@ bool DataFlavor::isFlavorTextType() {
 void DataFlavor::writeExternal($ObjectOutput* os) {
 	$synchronized(this) {
 		if (this->mimeType != nullptr) {
-			$nc(this->mimeType)->setParameter("humanPresentableName"_s, this->humanPresentableName);
+			this->mimeType->setParameter("humanPresentableName"_s, this->humanPresentableName);
 			$nc(os)->writeObject(this->mimeType);
 			$nc(this->mimeType)->removeParameter("humanPresentableName"_s);
 		} else {
@@ -700,12 +591,12 @@ void DataFlavor::writeExternal($ObjectOutput* os) {
 
 void DataFlavor::readExternal($ObjectInput* is) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
 		$var($String, rcn, nullptr);
 		$set(this, mimeType, $cast($MimeType, $nc(is)->readObject()));
 		if (this->mimeType != nullptr) {
-			$set(this, humanPresentableName, $nc(this->mimeType)->getParameter("humanPresentableName"_s));
+			$set(this, humanPresentableName, this->mimeType->getParameter("humanPresentableName"_s));
 			$nc(this->mimeType)->removeParameter("humanPresentableName"_s);
 			$assign(rcn, $nc(this->mimeType)->getParameter("class"_s));
 			if (rcn == nullptr) {
@@ -728,9 +619,9 @@ void DataFlavor::readExternal($ObjectInput* is) {
 $Object* DataFlavor::clone() {
 	$var($Object, newObj, $Externalizable::clone());
 	if (this->mimeType != nullptr) {
-		$set($nc($cast(DataFlavor, newObj)), mimeType, $cast($MimeType, $nc(this->mimeType)->clone()));
+		$set($nc($cast(DataFlavor, newObj)), mimeType, $cast($MimeType, this->mimeType->clone()));
 	}
-	return $of(newObj);
+	return newObj;
 }
 
 $String* DataFlavor::normalizeMimeTypeParameter($String* parameterName, $String* parameterValue) {
@@ -741,14 +632,14 @@ $String* DataFlavor::normalizeMimeType($String* mimeType) {
 	return mimeType;
 }
 
-void clinit$DataFlavor($Class* class$) {
+void DataFlavor::clinit$($Class* clazz) {
 	$assignStatic(DataFlavor::javaSerializedObjectMimeType, "application/x-java-serialized-object"_s);
 	$assignStatic(DataFlavor::javaJVMLocalObjectMimeType, "application/x-java-jvm-local-objectref"_s);
 	$assignStatic(DataFlavor::javaRemoteObjectMimeType, "application/x-java-remote-object"_s);
 	$assignStatic(DataFlavor::stringFlavor, DataFlavor::createConstant($String::class$, "Unicode String"_s));
 	$assignStatic(DataFlavor::imageFlavor, DataFlavor::createConstant("image/x-java-image; class=java.awt.Image"_s, "Image"_s));
 	$assignStatic(DataFlavor::plainTextFlavor, DataFlavor::createConstant("text/plain; charset=unicode; class=java.io.InputStream"_s, "Plain Text"_s));
-	$assignStatic(DataFlavor::javaFileListFlavor, DataFlavor::createConstant("application/x-java-file-list;class=java.util.List"_s, ($String*)nullptr));
+	$assignStatic(DataFlavor::javaFileListFlavor, DataFlavor::createConstant("application/x-java-file-list;class=java.util.List"_s, nullptr));
 	$assignStatic(DataFlavor::selectionHtmlFlavor, DataFlavor::initHtml("selection"_s));
 	$assignStatic(DataFlavor::fragmentHtmlFlavor, DataFlavor::initHtml("fragment"_s));
 	$assignStatic(DataFlavor::allHtmlFlavor, DataFlavor::initHtml("all"_s));
@@ -758,7 +649,105 @@ DataFlavor::DataFlavor() {
 }
 
 $Class* DataFlavor::load$($String* name, bool initialize) {
-	$loadClass(DataFlavor, name, initialize, &_DataFlavor_ClassInfo_, clinit$DataFlavor, allocate$DataFlavor);
+	$CompoundAttribute plainTextFlavorfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataFlavor, serialVersionUID)},
+		{"stringFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, stringFlavor)},
+		{"imageFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, imageFlavor)},
+		{"plainTextFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticField(DataFlavor, plainTextFlavor), plainTextFlavorfieldAnnotations$$},
+		{"javaSerializedObjectMimeType", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, javaSerializedObjectMimeType)},
+		{"javaFileListFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, javaFileListFlavor)},
+		{"javaJVMLocalObjectMimeType", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, javaJVMLocalObjectMimeType)},
+		{"javaRemoteObjectMimeType", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, javaRemoteObjectMimeType)},
+		{"selectionHtmlFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, selectionHtmlFlavor)},
+		{"fragmentHtmlFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, fragmentHtmlFlavor)},
+		{"allHtmlFlavor", "Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DataFlavor, allHtmlFlavor)},
+		{"atom", "I", nullptr, $TRANSIENT, $field(DataFlavor, atom)},
+		{"mimeType", "Ljava/awt/datatransfer/MimeType;", nullptr, 0, $field(DataFlavor, mimeType)},
+		{"humanPresentableName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DataFlavor, humanPresentableName)},
+		{"representationClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE, $field(DataFlavor, representationClass)},
+		{}
+	};
+	$CompoundAttribute equalsmethodAnnotations$$$2[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute normalizeMimeTypemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute normalizeMimeTypeParametermethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DataFlavor, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/datatransfer/MimeTypeParameterList;Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/awt/datatransfer/MimeTypeParameterList;Ljava/lang/Class<*>;Ljava/lang/String;)V", $PRIVATE, $method(DataFlavor, init$, void, $String*, $String*, $MimeTypeParameterList*, $Class*, $String*)},
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/String;)V", "(Ljava/lang/Class<*>;Ljava/lang/String;)V", $PUBLIC, $method(DataFlavor, init$, void, $Class*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DataFlavor, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(DataFlavor, init$, void, $String*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DataFlavor, init$, void, $String*), "java.lang.ClassNotFoundException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"createConstant", "(Ljava/lang/Class;Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", "(Ljava/lang/Class<*>;Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", $PRIVATE | $STATIC, $staticMethod(DataFlavor, createConstant, DataFlavor*, $Class*, $String*)},
+		{"createConstant", "(Ljava/lang/String;Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataFlavor, createConstant, DataFlavor*, $String*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, equals, bool, Object$*)},
+		{"equals", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, equals, bool, DataFlavor*)},
+		{"equals", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(DataFlavor, equals, bool, $String*), nullptr, nullptr, equalsmethodAnnotations$$$2},
+		{"getDefaultRepresentationClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $method(DataFlavor, getDefaultRepresentationClass, $Class*)},
+		{"getDefaultRepresentationClassAsString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(DataFlavor, getDefaultRepresentationClassAsString, $String*)},
+		{"getHumanPresentableName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getHumanPresentableName, $String*)},
+		{"getMimeType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getMimeType, $String*)},
+		{"getParameter", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getParameter, $String*, $String*)},
+		{"getPrimaryType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getPrimaryType, $String*)},
+		{"getReaderForText", "(Ljava/awt/datatransfer/Transferable;)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getReaderForText, $Reader*, $Transferable*), "java.awt.datatransfer.UnsupportedFlavorException,java.io.IOException"},
+		{"getRepresentationClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(DataFlavor, getRepresentationClass, $Class*)},
+		{"getSubType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, getSubType, $String*)},
+		{"getTextPlainUnicodeFlavor", "()Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DataFlavor, getTextPlainUnicodeFlavor, DataFlavor*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(DataFlavor, hashCode, int32_t)},
+		{"initHtml", "(Ljava/lang/String;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DataFlavor, initHtml, DataFlavor*, $String*)},
+		{"initialize", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V", nullptr, $PRIVATE, $method(DataFlavor, initialize, void, $String*, $String*, $ClassLoader*), "java.awt.datatransfer.MimeTypeParseException,java.lang.ClassNotFoundException"},
+		{"isFlavorJavaFileListType", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isFlavorJavaFileListType, bool)},
+		{"isFlavorRemoteObjectType", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isFlavorRemoteObjectType, bool)},
+		{"isFlavorSerializedObjectType", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isFlavorSerializedObjectType, bool)},
+		{"isFlavorTextType", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isFlavorTextType, bool)},
+		{"isMimeTypeEqual", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isMimeTypeEqual, bool, $String*)},
+		{"isMimeTypeEqual", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC | $FINAL, $method(DataFlavor, isMimeTypeEqual, bool, DataFlavor*)},
+		{"isMimeTypeEqual", "(Ljava/awt/datatransfer/MimeType;)Z", nullptr, $PRIVATE, $method(DataFlavor, isMimeTypeEqual, bool, $MimeType*)},
+		{"isMimeTypeSerializedObject", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isMimeTypeSerializedObject, bool)},
+		{"isRepresentationClassByteBuffer", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassByteBuffer, bool)},
+		{"isRepresentationClassCharBuffer", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassCharBuffer, bool)},
+		{"isRepresentationClassInputStream", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassInputStream, bool)},
+		{"isRepresentationClassReader", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassReader, bool)},
+		{"isRepresentationClassRemote", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassRemote, bool)},
+		{"isRepresentationClassSerializable", "()Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, isRepresentationClassSerializable, bool)},
+		{"isStandardTextRepresentationClass", "()Z", nullptr, $PRIVATE, $method(DataFlavor, isStandardTextRepresentationClass, bool)},
+		{"match", "(Ljava/awt/datatransfer/DataFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(DataFlavor, match, bool, DataFlavor*)},
+		{"normalizeMimeType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(DataFlavor, normalizeMimeType, $String*, $String*), nullptr, nullptr, normalizeMimeTypemethodAnnotations$$},
+		{"normalizeMimeTypeParameter", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(DataFlavor, normalizeMimeTypeParameter, $String*, $String*, $String*), nullptr, nullptr, normalizeMimeTypeParametermethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(DataFlavor, paramString, $String*)},
+		{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DataFlavor, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"selectBestTextFlavor", "([Ljava/awt/datatransfer/DataFlavor;)Ljava/awt/datatransfer/DataFlavor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(DataFlavor, selectBestTextFlavor, DataFlavor*, $DataFlavorArray*)},
+		{"setHumanPresentableName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DataFlavor, setHumanPresentableName, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DataFlavor, toString, $String*)},
+		{"tryToLoadClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PROTECTED | $STATIC | $FINAL, $staticMethod(DataFlavor, tryToLoadClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
+		{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(DataFlavor, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.datatransfer.DataFlavor",
+		"java.lang.Object",
+		"java.io.Externalizable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataFlavor, name, initialize, &classInfo$$, DataFlavor::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DataFlavor));
+	});
 	return class$;
 }
 

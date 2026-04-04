@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Directive$ExportsFlag.h>
-
 #include <com/sun/tools/javac/code/Directive.h>
 #include <java/lang/Enum.h>
 #include <java/util/Iterator.h>
@@ -23,48 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Directive$ExportsFlag_FieldInfo_[] = {
-	{"SYNTHETIC", "Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$ExportsFlag, SYNTHETIC)},
-	{"MANDATED", "Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$ExportsFlag, MANDATED)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Directive$ExportsFlag, $VALUES)},
-	{"value", "I", nullptr, $PUBLIC | $FINAL, $field(Directive$ExportsFlag, value$)},
-	{}
-};
-
-$MethodInfo _Directive$ExportsFlag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Directive$ExportsFlag, $values, $Directive$ExportsFlagArray*)},
-	{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Directive$ExportsFlag, init$, void, $String*, int32_t, int32_t)},
-	{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;)I", $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, value, int32_t, $Set*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, valueOf, Directive$ExportsFlag*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, values, $Directive$ExportsFlagArray*)},
-	{}
-};
-
-$InnerClassInfo _Directive$ExportsFlag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Directive$ExportsFlag", "com.sun.tools.javac.code.Directive", "ExportsFlag", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Directive$ExportsFlag_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Directive$ExportsFlag",
-	"java.lang.Enum",
-	nullptr,
-	_Directive$ExportsFlag_FieldInfo_,
-	_Directive$ExportsFlag_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;",
-	nullptr,
-	_Directive$ExportsFlag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Directive"
-};
-
-$Object* allocate$Directive$ExportsFlag($Class* clazz) {
-	return $of($alloc(Directive$ExportsFlag));
-}
 
 Directive$ExportsFlag* Directive$ExportsFlag::SYNTHETIC = nullptr;
 Directive$ExportsFlag* Directive$ExportsFlag::MANDATED = nullptr;
@@ -106,9 +63,9 @@ void Directive$ExportsFlag::init$($String* $enum$name, int32_t $enum$ordinal, in
 	this->value$ = value;
 }
 
-void clinit$Directive$ExportsFlag($Class* class$) {
+void Directive$ExportsFlag::clinit$($Class* clazz) {
 	$assignStatic(Directive$ExportsFlag::SYNTHETIC, $new(Directive$ExportsFlag, "SYNTHETIC"_s, 0, 4096));
-	$assignStatic(Directive$ExportsFlag::MANDATED, $new(Directive$ExportsFlag, "MANDATED"_s, 1, 32768));
+	$assignStatic(Directive$ExportsFlag::MANDATED, $new(Directive$ExportsFlag, "MANDATED"_s, 1, 0x00008000));
 	$assignStatic(Directive$ExportsFlag::$VALUES, Directive$ExportsFlag::$values());
 }
 
@@ -116,7 +73,43 @@ Directive$ExportsFlag::Directive$ExportsFlag() {
 }
 
 $Class* Directive$ExportsFlag::load$($String* name, bool initialize) {
-	$loadClass(Directive$ExportsFlag, name, initialize, &_Directive$ExportsFlag_ClassInfo_, clinit$Directive$ExportsFlag, allocate$Directive$ExportsFlag);
+	$FieldInfo fieldInfos$$[] = {
+		{"SYNTHETIC", "Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$ExportsFlag, SYNTHETIC)},
+		{"MANDATED", "Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Directive$ExportsFlag, MANDATED)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Directive$ExportsFlag, $VALUES)},
+		{"value", "I", nullptr, $PUBLIC | $FINAL, $field(Directive$ExportsFlag, value$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Directive$ExportsFlag, $values, $Directive$ExportsFlagArray*)},
+		{"<init>", "(Ljava/lang/String;II)V", "(I)V", $PRIVATE, $method(Directive$ExportsFlag, init$, void, $String*, int32_t, int32_t)},
+		{"value", "(Ljava/util/Set;)I", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;)I", $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, value, int32_t, $Set*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, valueOf, Directive$ExportsFlag*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Directive$ExportsFlag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Directive$ExportsFlag, values, $Directive$ExportsFlagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Directive$ExportsFlag", "com.sun.tools.javac.code.Directive", "ExportsFlag", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Directive$ExportsFlag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Directive$ExportsFlag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Directive"
+	};
+	$loadClass(Directive$ExportsFlag, name, initialize, &classInfo$$, Directive$ExportsFlag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Directive$ExportsFlag));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/SSLStreams$EngineWrapper.h>
-
 #include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
@@ -28,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
-using $SSLEngineResult = ::javax::net::ssl::SSLEngineResult;
 using $SSLEngineResult$Status = ::javax::net::ssl::SSLEngineResult$Status;
 using $SSLStreams = ::sun::net::httpserver::SSLStreams;
 using $SSLStreams$BufType = ::sun::net::httpserver::SSLStreams$BufType;
@@ -37,54 +35,6 @@ using $SSLStreams$WrapperResult = ::sun::net::httpserver::SSLStreams$WrapperResu
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _SSLStreams$EngineWrapper_FieldInfo_[] = {
-	{"this$0", "Lsun/net/httpserver/SSLStreams;", nullptr, $FINAL | $SYNTHETIC, $field(SSLStreams$EngineWrapper, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLStreams$EngineWrapper, $assertionsDisabled)},
-	{"chan", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(SSLStreams$EngineWrapper, chan)},
-	{"engine", "Ljavax/net/ssl/SSLEngine;", nullptr, 0, $field(SSLStreams$EngineWrapper, engine)},
-	{"wrapLock", "Ljava/lang/Object;", nullptr, 0, $field(SSLStreams$EngineWrapper, wrapLock)},
-	{"unwrapLock", "Ljava/lang/Object;", nullptr, 0, $field(SSLStreams$EngineWrapper, unwrapLock)},
-	{"unwrap_src", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(SSLStreams$EngineWrapper, unwrap_src)},
-	{"wrap_dst", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(SSLStreams$EngineWrapper, wrap_dst)},
-	{"closed", "Z", nullptr, 0, $field(SSLStreams$EngineWrapper, closed)},
-	{"u_remaining", "I", nullptr, 0, $field(SSLStreams$EngineWrapper, u_remaining)},
-	{}
-};
-
-$MethodInfo _SSLStreams$EngineWrapper_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;Ljava/nio/channels/SocketChannel;Ljavax/net/ssl/SSLEngine;)V", nullptr, 0, $method(SSLStreams$EngineWrapper, init$, void, $SSLStreams*, $SocketChannel*, $SSLEngine*), "java.io.IOException"},
-	{"close", "()V", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, close, void), "java.io.IOException"},
-	{"recvAndUnwrap", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, recvAndUnwrap, $SSLStreams$WrapperResult*, $ByteBuffer*), "java.io.IOException"},
-	{"wrapAndSend", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, wrapAndSend, $SSLStreams$WrapperResult*, $ByteBuffer*), "java.io.IOException"},
-	{"wrapAndSendX", "(Ljava/nio/ByteBuffer;Z)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, wrapAndSendX, $SSLStreams$WrapperResult*, $ByteBuffer*, bool), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SSLStreams$EngineWrapper_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.SSLStreams$EngineWrapper", "sun.net.httpserver.SSLStreams", "EngineWrapper", 0},
-	{}
-};
-
-$ClassInfo _SSLStreams$EngineWrapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.SSLStreams$EngineWrapper",
-	"java.lang.Object",
-	nullptr,
-	_SSLStreams$EngineWrapper_FieldInfo_,
-	_SSLStreams$EngineWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLStreams$EngineWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.SSLStreams"
-};
-
-$Object* allocate$SSLStreams$EngineWrapper($Class* clazz) {
-	return $of($alloc(SSLStreams$EngineWrapper));
-}
 
 bool SSLStreams$EngineWrapper::$assertionsDisabled = false;
 
@@ -115,6 +65,7 @@ $SSLStreams$WrapperResult* SSLStreams$EngineWrapper::wrapAndSendX($ByteBuffer* s
 	$var($SSLStreams$WrapperResult, r, $new($SSLStreams$WrapperResult, this->this$0));
 	$synchronized(this->wrapLock) {
 		$nc(this->wrap_dst)->clear();
+		$init($SSLEngineResult$Status);
 		do {
 			$set(r, result, $nc(this->engine)->wrap(src, this->wrap_dst));
 			status = $nc(r->result)->getStatus();
@@ -123,9 +74,7 @@ $SSLStreams$WrapperResult* SSLStreams$EngineWrapper::wrapAndSendX($ByteBuffer* s
 				$init($SSLStreams$BufType);
 				$set(this, wrap_dst, this->this$0->realloc(this->wrap_dst, true, $SSLStreams$BufType::PACKET));
 			}
-		$init($SSLEngineResult$Status);
 		} while (status == $SSLEngineResult$Status::BUFFER_OVERFLOW);
-		$init($SSLEngineResult$Status);
 		if (status == $SSLEngineResult$Status::CLOSED && !ignoreClose) {
 			this->closed = true;
 			return r;
@@ -177,7 +126,7 @@ $SSLStreams$WrapperResult* SSLStreams$EngineWrapper::recvAndUnwrap($ByteBuffer* 
 			status = $nc(r->result)->getStatus();
 			if (status == $SSLEngineResult$Status::BUFFER_UNDERFLOW) {
 				int32_t var$0 = $nc(this->unwrap_src)->limit();
-				if (var$0 == $nc(this->unwrap_src)->capacity()) {
+				if (var$0 == this->unwrap_src->capacity()) {
 					$init($SSLStreams$BufType);
 					$set(this, unwrap_src, this->this$0->realloc(this->unwrap_src, false, $SSLStreams$BufType::PACKET));
 				} else {
@@ -185,18 +134,14 @@ $SSLStreams$WrapperResult* SSLStreams$EngineWrapper::recvAndUnwrap($ByteBuffer* 
 					$nc(this->unwrap_src)->limit($nc(this->unwrap_src)->capacity());
 				}
 				needData = true;
-			} else {
-				if (status == $SSLEngineResult$Status::BUFFER_OVERFLOW) {
-					$init($SSLStreams$BufType);
-					$set(r, buf, this->this$0->realloc(r->buf, true, $SSLStreams$BufType::APPLICATION));
-					needData = false;
-				} else {
-					if (status == $SSLEngineResult$Status::CLOSED) {
-						this->closed = true;
-						$nc(r->buf)->flip();
-						return r;
-					}
-				}
+			} else if (status == $SSLEngineResult$Status::BUFFER_OVERFLOW) {
+				$init($SSLStreams$BufType);
+				$set(r, buf, this->this$0->realloc(r->buf, true, $SSLStreams$BufType::APPLICATION));
+				needData = false;
+			} else if (status == $SSLEngineResult$Status::CLOSED) {
+				this->closed = true;
+				$nc(r->buf)->flip();
+				return r;
 			}
 		} while (status != $SSLEngineResult$Status::OK);
 	}
@@ -204,7 +149,7 @@ $SSLStreams$WrapperResult* SSLStreams$EngineWrapper::recvAndUnwrap($ByteBuffer* 
 	return r;
 }
 
-void clinit$SSLStreams$EngineWrapper($Class* class$) {
+void SSLStreams$EngineWrapper::clinit$($Class* clazz) {
 	$load($SSLStreams);
 	SSLStreams$EngineWrapper::$assertionsDisabled = !$SSLStreams::class$->desiredAssertionStatus();
 }
@@ -213,7 +158,49 @@ SSLStreams$EngineWrapper::SSLStreams$EngineWrapper() {
 }
 
 $Class* SSLStreams$EngineWrapper::load$($String* name, bool initialize) {
-	$loadClass(SSLStreams$EngineWrapper, name, initialize, &_SSLStreams$EngineWrapper_ClassInfo_, clinit$SSLStreams$EngineWrapper, allocate$SSLStreams$EngineWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/httpserver/SSLStreams;", nullptr, $FINAL | $SYNTHETIC, $field(SSLStreams$EngineWrapper, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLStreams$EngineWrapper, $assertionsDisabled)},
+		{"chan", "Ljava/nio/channels/SocketChannel;", nullptr, 0, $field(SSLStreams$EngineWrapper, chan)},
+		{"engine", "Ljavax/net/ssl/SSLEngine;", nullptr, 0, $field(SSLStreams$EngineWrapper, engine)},
+		{"wrapLock", "Ljava/lang/Object;", nullptr, 0, $field(SSLStreams$EngineWrapper, wrapLock)},
+		{"unwrapLock", "Ljava/lang/Object;", nullptr, 0, $field(SSLStreams$EngineWrapper, unwrapLock)},
+		{"unwrap_src", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(SSLStreams$EngineWrapper, unwrap_src)},
+		{"wrap_dst", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(SSLStreams$EngineWrapper, wrap_dst)},
+		{"closed", "Z", nullptr, 0, $field(SSLStreams$EngineWrapper, closed)},
+		{"u_remaining", "I", nullptr, 0, $field(SSLStreams$EngineWrapper, u_remaining)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/SSLStreams;Ljava/nio/channels/SocketChannel;Ljavax/net/ssl/SSLEngine;)V", nullptr, 0, $method(SSLStreams$EngineWrapper, init$, void, $SSLStreams*, $SocketChannel*, $SSLEngine*), "java.io.IOException"},
+		{"close", "()V", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, close, void), "java.io.IOException"},
+		{"recvAndUnwrap", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, recvAndUnwrap, $SSLStreams$WrapperResult*, $ByteBuffer*), "java.io.IOException"},
+		{"wrapAndSend", "(Ljava/nio/ByteBuffer;)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, wrapAndSend, $SSLStreams$WrapperResult*, $ByteBuffer*), "java.io.IOException"},
+		{"wrapAndSendX", "(Ljava/nio/ByteBuffer;Z)Lsun/net/httpserver/SSLStreams$WrapperResult;", nullptr, 0, $virtualMethod(SSLStreams$EngineWrapper, wrapAndSendX, $SSLStreams$WrapperResult*, $ByteBuffer*, bool), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.SSLStreams$EngineWrapper", "sun.net.httpserver.SSLStreams", "EngineWrapper", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.SSLStreams$EngineWrapper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.SSLStreams"
+	};
+	$loadClass(SSLStreams$EngineWrapper, name, initialize, &classInfo$$, SSLStreams$EngineWrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLStreams$EngineWrapper);
+	});
 	return class$;
 }
 

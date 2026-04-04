@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_vi.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,35 +12,16 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_vi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_vi, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_vi, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_vi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_vi",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_vi_MethodInfo_
-};
-
-$Object* allocate$FormatData_vi($Class* clazz) {
-	return $of($alloc(FormatData_vi));
-}
-
 void FormatData_vi::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_vi::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of($$new($StringArray, {
+			"MonthNames"_s,
+			$$new($StringArray, {
 				u"tháng một"_s,
 				u"tháng hai"_s,
 				u"tháng ba"_s,
@@ -55,11 +35,11 @@ $ObjectArray2* FormatData_vi::getContents() {
 				u"tháng mười một"_s,
 				u"tháng mười hai"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of($$new($StringArray, {
+			"MonthAbbreviations"_s,
+			$$new($StringArray, {
 				"thg 1"_s,
 				"thg 2"_s,
 				"thg 3"_s,
@@ -73,11 +53,11 @@ $ObjectArray2* FormatData_vi::getContents() {
 				"thg 11"_s,
 				"thg 12"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of($$new($StringArray, {
+			"MonthNarrows"_s,
+			$$new($StringArray, {
 				"1"_s,
 				"2"_s,
 				"3"_s,
@@ -91,11 +71,11 @@ $ObjectArray2* FormatData_vi::getContents() {
 				"11"_s,
 				"12"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of($$new($StringArray, {
+			"DayNames"_s,
+			$$new($StringArray, {
 				u"Chủ nhật"_s,
 				u"Thứ hai"_s,
 				u"Thứ ba"_s,
@@ -103,11 +83,11 @@ $ObjectArray2* FormatData_vi::getContents() {
 				u"Thứ năm"_s,
 				u"Thứ sáu"_s,
 				u"Thứ bảy"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"DayAbbreviations"_s,
+			$$new($StringArray, {
 				"CN"_s,
 				"Th 2"_s,
 				"Th 3"_s,
@@ -115,11 +95,11 @@ $ObjectArray2* FormatData_vi::getContents() {
 				"Th 5"_s,
 				"Th 6"_s,
 				"Th 7"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNarrows"_s),
-			$of($$new($StringArray, {
+			"DayNarrows"_s,
+			$$new($StringArray, {
 				"CN"_s,
 				"T2"_s,
 				"T3"_s,
@@ -127,11 +107,11 @@ $ObjectArray2* FormatData_vi::getContents() {
 				"T5"_s,
 				"T6"_s,
 				"T7"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNarrows"_s),
-			$of($$new($StringArray, {
+			"standalone.DayNarrows"_s,
+			$$new($StringArray, {
 				"CN"_s,
 				"T2"_s,
 				"T3"_s,
@@ -139,25 +119,25 @@ $ObjectArray2* FormatData_vi::getContents() {
 				"T5"_s,
 				"T6"_s,
 				"T7"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of($$new($StringArray, {
+			"AmPmMarkers"_s,
+			$$new($StringArray, {
 				"SA"_s,
 				"CH"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of($$new($StringArray, {
+			"Eras"_s,
+			$$new($StringArray, {
 				"tr. CN"_s,
 				"sau CN"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("NumberElements"_s),
-			$of($$new($StringArray, {
+			"NumberElements"_s,
+			$$new($StringArray, {
 				","_s,
 				"."_s,
 				";"_s,
@@ -169,29 +149,29 @@ $ObjectArray2* FormatData_vi::getContents() {
 				u"‰"_s,
 				u"∞"_s,
 				u"�"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				"HH:mm:ss z"_s,
 				"HH:mm:ss z"_s,
 				"HH:mm:ss"_s,
 				"HH:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				u"EEEE, \'ngày\' dd MMMM \'năm\' yyyy"_s,
 				u"\'Ngày\' dd \'tháng\' M \'năm\' yyyy"_s,
 				"dd-MM-yyyy"_s,
 				"dd/MM/yyyy"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {"{0} {1}"_s}))
+			"DateTimePatterns"_s,
+			$$new($StringArray, {"{0} {1}"_s})
 		})
 	});
 }
@@ -200,7 +180,22 @@ FormatData_vi::FormatData_vi() {
 }
 
 $Class* FormatData_vi::load$($String* name, bool initialize) {
-	$loadClass(FormatData_vi, name, initialize, &_FormatData_vi_ClassInfo_, allocate$FormatData_vi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_vi, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_vi, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_vi",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_vi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_vi);
+	});
 	return class$;
 }
 

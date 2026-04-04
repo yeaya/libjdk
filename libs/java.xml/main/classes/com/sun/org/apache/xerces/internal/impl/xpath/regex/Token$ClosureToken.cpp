@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ClosureToken.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token.h>
 #include <jcpp.h>
 
@@ -21,51 +20,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _Token$ClosureToken_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token$ClosureToken, serialVersionUID)},
-	{"min", "I", nullptr, 0, $field(Token$ClosureToken, min)},
-	{"max", "I", nullptr, 0, $field(Token$ClosureToken, max)},
-	{"child", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $FINAL, $field(Token$ClosureToken, child)},
-	{}
-};
-
-$MethodInfo _Token$ClosureToken_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $method(Token$ClosureToken, init$, void, int32_t, $Token*)},
-	{"getChild", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $virtualMethod(Token$ClosureToken, getChild, $Token*, int32_t)},
-	{"getMax", "()I", nullptr, $FINAL, $virtualMethod(Token$ClosureToken, getMax, int32_t)},
-	{"getMin", "()I", nullptr, $FINAL, $virtualMethod(Token$ClosureToken, getMin, int32_t)},
-	{"setMax", "(I)V", nullptr, $FINAL, $virtualMethod(Token$ClosureToken, setMax, void, int32_t)},
-	{"setMin", "(I)V", nullptr, $FINAL, $virtualMethod(Token$ClosureToken, setMin, void, int32_t)},
-	{"size", "()I", nullptr, 0, $virtualMethod(Token$ClosureToken, size, int32_t)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token$ClosureToken, toString, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Token$ClosureToken_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ClosureToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ClosureToken", $STATIC},
-	{}
-};
-
-$ClassInfo _Token$ClosureToken_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ClosureToken",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
-	nullptr,
-	_Token$ClosureToken_FieldInfo_,
-	_Token$ClosureToken_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Token$ClosureToken_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token"
-};
-
-$Object* allocate$Token$ClosureToken($Class* clazz) {
-	return $of($alloc(Token$ClosureToken));
-}
 
 void Token$ClosureToken::init$(int32_t type, $Token* tok) {
 	$Token::init$(type);
@@ -99,66 +53,92 @@ int32_t Token$ClosureToken::getMax() {
 }
 
 $String* Token$ClosureToken::toString(int32_t options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ret, nullptr);
 	if (this->type == $Token::CLOSURE) {
 		bool var$0 = this->getMin() < 0;
 		if (var$0 && this->getMax() < 0) {
 			$assign(ret, $str({$($nc(this->child)->toString(options)), "*"_s}));
 		} else {
-			int32_t var$2 = this->getMin();
-			if (var$2 == this->getMax()) {
-				$var($String, var$4, $$str({$($nc(this->child)->toString(options)), "{"_s}));
-				$var($String, var$3, $$concat(var$4, $$str(this->getMin())));
-				$assign(ret, $concat(var$3, "}"_s));
+			int32_t var$1 = this->getMin();
+			if (var$1 == this->getMax()) {
+				$var($StringBuilder, var$2, $new($StringBuilder));
+				var$2->append($($nc(this->child)->toString(options)));
+				var$2->append("{"_s);
+				var$2->append(this->getMin());
+				var$2->append("}"_s);
+				$assign(ret, $str(var$2));
 			} else {
-				bool var$6 = this->getMin() >= 0;
-				if (var$6 && this->getMax() >= 0) {
-					$var($String, var$10, $$str({$($nc(this->child)->toString(options)), "{"_s}));
-					$var($String, var$9, $$concat(var$10, $$str(this->getMin())));
-					$var($String, var$8, $$concat(var$9, ","_s));
-					$var($String, var$7, $$concat(var$8, $$str(this->getMax())));
-					$assign(ret, $concat(var$7, "}"_s));
+				bool var$3 = this->getMin() >= 0;
+				if (var$3 && this->getMax() >= 0) {
+					$var($StringBuilder, var$4, $new($StringBuilder));
+					var$4->append($($nc(this->child)->toString(options)));
+					var$4->append("{"_s);
+					var$4->append(this->getMin());
+					var$4->append(","_s);
+					var$4->append(this->getMax());
+					var$4->append("}"_s);
+					$assign(ret, $str(var$4));
 				} else {
-					bool var$12 = this->getMin() >= 0;
-					if (var$12 && this->getMax() < 0) {
-						$var($String, var$14, $$str({$($nc(this->child)->toString(options)), "{"_s}));
-						$var($String, var$13, $$concat(var$14, $$str(this->getMin())));
-						$assign(ret, $concat(var$13, ",}"_s));
+					bool var$5 = this->getMin() >= 0;
+					if (var$5 && this->getMax() < 0) {
+						$var($StringBuilder, var$6, $new($StringBuilder));
+						var$6->append($($nc(this->child)->toString(options)));
+						var$6->append("{"_s);
+						var$6->append(this->getMin());
+						var$6->append(",}"_s);
+						$assign(ret, $str(var$6));
 					} else {
-						$var($String, var$15, $$str({"Token#toString(): CLOSURE "_s, $$str(this->getMin()), ", "_s}));
-						$throwNew($RuntimeException, $$concat(var$15, $$str(this->getMax())));
+						$var($StringBuilder, var$7, $new($StringBuilder));
+						var$7->append("Token#toString(): CLOSURE "_s);
+						var$7->append(this->getMin());
+						var$7->append(", "_s);
+						var$7->append(this->getMax());
+						$throwNew($RuntimeException, $$str(var$7));
 					}
 				}
 			}
 		}
 	} else {
-		bool var$17 = this->getMin() < 0;
-		if (var$17 && this->getMax() < 0) {
+		bool var$8 = this->getMin() < 0;
+		if (var$8 && this->getMax() < 0) {
 			$assign(ret, $str({$($nc(this->child)->toString(options)), "*?"_s}));
 		} else {
-			int32_t var$19 = this->getMin();
-			if (var$19 == this->getMax()) {
-				$var($String, var$21, $$str({$($nc(this->child)->toString(options)), "{"_s}));
-				$var($String, var$20, $$concat(var$21, $$str(this->getMin())));
-				$assign(ret, $concat(var$20, "}?"_s));
+			int32_t var$9 = this->getMin();
+			if (var$9 == this->getMax()) {
+				$var($StringBuilder, var$10, $new($StringBuilder));
+				var$10->append($($nc(this->child)->toString(options)));
+				var$10->append("{"_s);
+				var$10->append(this->getMin());
+				var$10->append("}?"_s);
+				$assign(ret, $str(var$10));
 			} else {
-				bool var$23 = this->getMin() >= 0;
-				if (var$23 && this->getMax() >= 0) {
-					$var($String, var$27, $$str({$($nc(this->child)->toString(options)), "{"_s}));
-					$var($String, var$26, $$concat(var$27, $$str(this->getMin())));
-					$var($String, var$25, $$concat(var$26, ","_s));
-					$var($String, var$24, $$concat(var$25, $$str(this->getMax())));
-					$assign(ret, $concat(var$24, "}?"_s));
+				bool var$11 = this->getMin() >= 0;
+				if (var$11 && this->getMax() >= 0) {
+					$var($StringBuilder, var$12, $new($StringBuilder));
+					var$12->append($($nc(this->child)->toString(options)));
+					var$12->append("{"_s);
+					var$12->append(this->getMin());
+					var$12->append(","_s);
+					var$12->append(this->getMax());
+					var$12->append("}?"_s);
+					$assign(ret, $str(var$12));
 				} else {
-					bool var$29 = this->getMin() >= 0;
-					if (var$29 && this->getMax() < 0) {
-						$var($String, var$31, $$str({$($nc(this->child)->toString(options)), "{"_s}));
-						$var($String, var$30, $$concat(var$31, $$str(this->getMin())));
-						$assign(ret, $concat(var$30, ",}?"_s));
+					bool var$13 = this->getMin() >= 0;
+					if (var$13 && this->getMax() < 0) {
+						$var($StringBuilder, var$14, $new($StringBuilder));
+						var$14->append($($nc(this->child)->toString(options)));
+						var$14->append("{"_s);
+						var$14->append(this->getMin());
+						var$14->append(",}?"_s);
+						$assign(ret, $str(var$14));
 					} else {
-						$var($String, var$32, $$str({"Token#toString(): NONGREEDYCLOSURE "_s, $$str(this->getMin()), ", "_s}));
-						$throwNew($RuntimeException, $$concat(var$32, $$str(this->getMax())));
+						$var($StringBuilder, var$15, $new($StringBuilder));
+						var$15->append("Token#toString(): NONGREEDYCLOSURE "_s);
+						var$15->append(this->getMin());
+						var$15->append(", "_s);
+						var$15->append(this->getMax());
+						$throwNew($RuntimeException, $$str(var$15));
 					}
 				}
 			}
@@ -171,7 +151,46 @@ Token$ClosureToken::Token$ClosureToken() {
 }
 
 $Class* Token$ClosureToken::load$($String* name, bool initialize) {
-	$loadClass(Token$ClosureToken, name, initialize, &_Token$ClosureToken_ClassInfo_, allocate$Token$ClosureToken);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Token$ClosureToken, serialVersionUID)},
+		{"min", "I", nullptr, 0, $field(Token$ClosureToken, min)},
+		{"max", "I", nullptr, 0, $field(Token$ClosureToken, max)},
+		{"child", "Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, $FINAL, $field(Token$ClosureToken, child)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;)V", nullptr, 0, $method(Token$ClosureToken, init$, void, int32_t, $Token*)},
+		{"getChild", "(I)Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/Token;", nullptr, 0, $virtualMethod(Token$ClosureToken, getChild, $Token*, int32_t)},
+		{"getMax", "()I", nullptr, $FINAL, $virtualMethod(Token$ClosureToken, getMax, int32_t)},
+		{"getMin", "()I", nullptr, $FINAL, $virtualMethod(Token$ClosureToken, getMin, int32_t)},
+		{"setMax", "(I)V", nullptr, $FINAL, $virtualMethod(Token$ClosureToken, setMax, void, int32_t)},
+		{"setMin", "(I)V", nullptr, $FINAL, $virtualMethod(Token$ClosureToken, setMin, void, int32_t)},
+		{"size", "()I", nullptr, 0, $virtualMethod(Token$ClosureToken, size, int32_t)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Token$ClosureToken, toString, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ClosureToken", "com.sun.org.apache.xerces.internal.impl.xpath.regex.Token", "ClosureToken", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token$ClosureToken",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Token"
+	};
+	$loadClass(Token$ClosureToken, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Token$ClosureToken);
+	});
 	return class$;
 }
 

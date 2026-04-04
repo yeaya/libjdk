@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaTextFieldSearch$SearchFieldBorder.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaBorder.h>
@@ -20,9 +18,7 @@
 
 #undef FRAME_TEXT_FIELD_ROUND
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaTextFieldBorder = ::com::apple::laf::AquaTextFieldBorder;
 using $AquaTextFieldSearch = ::com::apple::laf::AquaTextFieldSearch;
 using $AquaTextFieldSearch$SearchFieldBorder$1 = ::com::apple::laf::AquaTextFieldSearch$SearchFieldBorder$1;
@@ -42,54 +38,6 @@ using $JTextComponent = ::javax::swing::text::JTextComponent;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaTextFieldSearch$SearchFieldBorder_FieldInfo_[] = {
-	{"reallyPaintBorder", "Z", nullptr, $PROTECTED, $field(AquaTextFieldSearch$SearchFieldBorder, reallyPaintBorder)},
-	{"doingLayout", "Z", nullptr, $PROTECTED, $field(AquaTextFieldSearch$SearchFieldBorder, doingLayout)},
-	{}
-};
-
-$MethodInfo _AquaTextFieldSearch$SearchFieldBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextFieldSearch$SearchFieldBorder, init$, void)},
-	{"<init>", "(Lcom/apple/laf/AquaTextFieldSearch$SearchFieldBorder;)V", nullptr, $PUBLIC, $method(AquaTextFieldSearch$SearchFieldBorder, init$, void, AquaTextFieldSearch$SearchFieldBorder*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$SearchFieldBorder, getBorderInsets, $Insets*, $Component*)},
-	{"getCustomLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldSearch$SearchFieldBorder, getCustomLayout, $LayoutManager*)},
-	{"paint", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$SearchFieldBorder, paint, void, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$SearchFieldBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaTextFieldSearch$SearchFieldBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder", "com.apple.laf.AquaTextFieldSearch", "SearchFieldBorder", $STATIC},
-	{"com.apple.laf.AquaUtils$JComponentPainter", "com.apple.laf.AquaUtils", "JComponentPainter", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaTextFieldSearch$SearchFieldBorder_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder",
-	"com.apple.laf.AquaTextFieldBorder",
-	"com.apple.laf.AquaUtils$JComponentPainter",
-	_AquaTextFieldSearch$SearchFieldBorder_FieldInfo_,
-	_AquaTextFieldSearch$SearchFieldBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTextFieldSearch$SearchFieldBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTextFieldSearch"
-};
-
-$Object* allocate$AquaTextFieldSearch$SearchFieldBorder($Class* clazz) {
-	return $of($alloc(AquaTextFieldSearch$SearchFieldBorder));
-}
 
 int32_t AquaTextFieldSearch$SearchFieldBorder::hashCode() {
 	 return this->$AquaTextFieldBorder::hashCode();
@@ -112,14 +60,14 @@ void AquaTextFieldSearch$SearchFieldBorder::finalize() {
 }
 
 void AquaTextFieldSearch$SearchFieldBorder::init$() {
-	$useLocalCurrentObjectStackCache();
-	$AquaTextFieldBorder::init$($$new($AquaUtilControlSize$SizeDescriptor, $($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 31, 6, 24)))->alterInsets(3, 3, 3, 3))));
+	$useLocalObjectStack();
+	$AquaTextFieldBorder::init$($$new($AquaUtilControlSize$SizeDescriptor, $($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 31, 6, 24))->alterInsets(3, 3, 3, 3))));
 	$init($JRSUIConstants$Widget);
 	$nc($nc(this->painter)->state)->set($JRSUIConstants$Widget::FRAME_TEXT_FIELD_ROUND);
 }
 
 void AquaTextFieldSearch$SearchFieldBorder::init$(AquaTextFieldSearch$SearchFieldBorder* other) {
-	$AquaTextFieldBorder::init$(static_cast<$AquaTextFieldBorder*>(other));
+	$AquaTextFieldBorder::init$(other);
 }
 
 void AquaTextFieldSearch$SearchFieldBorder::paint($JComponent* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -153,7 +101,49 @@ AquaTextFieldSearch$SearchFieldBorder::AquaTextFieldSearch$SearchFieldBorder() {
 }
 
 $Class* AquaTextFieldSearch$SearchFieldBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaTextFieldSearch$SearchFieldBorder, name, initialize, &_AquaTextFieldSearch$SearchFieldBorder_ClassInfo_, allocate$AquaTextFieldSearch$SearchFieldBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"reallyPaintBorder", "Z", nullptr, $PROTECTED, $field(AquaTextFieldSearch$SearchFieldBorder, reallyPaintBorder)},
+		{"doingLayout", "Z", nullptr, $PROTECTED, $field(AquaTextFieldSearch$SearchFieldBorder, doingLayout)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTextFieldSearch$SearchFieldBorder, init$, void)},
+		{"<init>", "(Lcom/apple/laf/AquaTextFieldSearch$SearchFieldBorder;)V", nullptr, $PUBLIC, $method(AquaTextFieldSearch$SearchFieldBorder, init$, void, AquaTextFieldSearch$SearchFieldBorder*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$SearchFieldBorder, getBorderInsets, $Insets*, $Component*)},
+		{"getCustomLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(AquaTextFieldSearch$SearchFieldBorder, getCustomLayout, $LayoutManager*)},
+		{"paint", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$SearchFieldBorder, paint, void, $JComponent*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaTextFieldSearch$SearchFieldBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder", "com.apple.laf.AquaTextFieldSearch", "SearchFieldBorder", $STATIC},
+		{"com.apple.laf.AquaUtils$JComponentPainter", "com.apple.laf.AquaUtils", "JComponentPainter", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTextFieldSearch$SearchFieldBorder",
+		"com.apple.laf.AquaTextFieldBorder",
+		"com.apple.laf.AquaUtils$JComponentPainter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTextFieldSearch"
+	};
+	$loadClass(AquaTextFieldSearch$SearchFieldBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTextFieldSearch$SearchFieldBorder));
+	});
 	return class$;
 }
 

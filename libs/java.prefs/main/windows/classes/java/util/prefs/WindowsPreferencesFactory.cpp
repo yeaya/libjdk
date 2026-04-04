@@ -1,5 +1,4 @@
 #include <java/util/prefs/WindowsPreferencesFactory.h>
-
 #include <java/util/prefs/Preferences.h>
 #include <java/util/prefs/WindowsPreferences.h>
 #include <jcpp.h>
@@ -12,26 +11,6 @@ using $WindowsPreferences = ::java::util::prefs::WindowsPreferences;
 namespace java {
 	namespace util {
 		namespace prefs {
-
-$MethodInfo _WindowsPreferencesFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WindowsPreferencesFactory, init$, void)},
-	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(WindowsPreferencesFactory, systemRoot, $Preferences*)},
-	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(WindowsPreferencesFactory, userRoot, $Preferences*)},
-	{}
-};
-
-$ClassInfo _WindowsPreferencesFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.WindowsPreferencesFactory",
-	"java.lang.Object",
-	"java.util.prefs.PreferencesFactory",
-	nullptr,
-	_WindowsPreferencesFactory_MethodInfo_
-};
-
-$Object* allocate$WindowsPreferencesFactory($Class* clazz) {
-	return $of($alloc(WindowsPreferencesFactory));
-}
 
 void WindowsPreferencesFactory::init$() {
 }
@@ -48,7 +27,23 @@ WindowsPreferencesFactory::WindowsPreferencesFactory() {
 }
 
 $Class* WindowsPreferencesFactory::load$($String* name, bool initialize) {
-	$loadClass(WindowsPreferencesFactory, name, initialize, &_WindowsPreferencesFactory_ClassInfo_, allocate$WindowsPreferencesFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WindowsPreferencesFactory, init$, void)},
+		{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(WindowsPreferencesFactory, systemRoot, $Preferences*)},
+		{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(WindowsPreferencesFactory, userRoot, $Preferences*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.WindowsPreferencesFactory",
+		"java.lang.Object",
+		"java.util.prefs.PreferencesFactory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsPreferencesFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsPreferencesFactory);
+	});
 	return class$;
 }
 

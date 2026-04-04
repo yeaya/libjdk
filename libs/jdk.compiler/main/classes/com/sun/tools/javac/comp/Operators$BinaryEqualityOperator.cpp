@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Operators$BinaryEqualityOperator.h>
-
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -30,46 +29,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Operators$BinaryEqualityOperator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $FINAL | $SYNTHETIC, $field(Operators$BinaryEqualityOperator, this$0)},
-	{}
-};
-
-$MethodInfo _Operators$BinaryEqualityOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryEqualityOperator, init$, void, $Operators*, $JCTree$Tag*)},
-	{"getKind", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PRIVATE, $method(Operators$BinaryEqualityOperator, getKind, $Operators$ComparisonKind*, $Type*, $Type*)},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryEqualityOperator, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
-	{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryEqualityOperator, test, bool, $Type*, $Type*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$BinaryEqualityOperator, test, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Operators$BinaryEqualityOperator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Operators$BinaryEqualityOperator", "com.sun.tools.javac.comp.Operators", "BinaryEqualityOperator", 0},
-	{"com.sun.tools.javac.comp.Operators$BinaryOperatorHelper", "com.sun.tools.javac.comp.Operators", "BinaryOperatorHelper", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Operators$BinaryEqualityOperator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Operators$BinaryEqualityOperator",
-	"com.sun.tools.javac.comp.Operators$BinaryOperatorHelper",
-	nullptr,
-	_Operators$BinaryEqualityOperator_FieldInfo_,
-	_Operators$BinaryEqualityOperator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Operators$BinaryEqualityOperator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Operators"
-};
-
-$Object* allocate$Operators$BinaryEqualityOperator($Class* clazz) {
-	return $of($alloc(Operators$BinaryEqualityOperator));
-}
-
 void Operators$BinaryEqualityOperator::init$($Operators* this$0, $JCTree$Tag* tag) {
 	$set(this, this$0, this$0);
 	$Operators$BinaryOperatorHelper::init$(this$0, tag);
@@ -88,7 +47,7 @@ $Symbol$OperatorSymbol* Operators$BinaryEqualityOperator::resolve($Type* t1, $Ty
 }
 
 $Operators$ComparisonKind* Operators$BinaryEqualityOperator::getKind($Type* arg1, $Type* arg2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool arg1Primitive = $nc(arg1)->isPrimitive();
 	bool arg2Primitive = $nc(arg2)->isPrimitive();
 	if (arg1Primitive && arg2Primitive) {
@@ -96,10 +55,10 @@ $Operators$ComparisonKind* Operators$BinaryEqualityOperator::getKind($Type* arg1
 		return $Operators$ComparisonKind::NUMERIC_OR_BOOLEAN;
 	} else if (arg1Primitive) {
 		$init($Operators$ComparisonKind);
-		return $nc($(this->this$0->unaryPromotion(arg2)))->isPrimitive() ? $Operators$ComparisonKind::NUMERIC_OR_BOOLEAN : $Operators$ComparisonKind::INVALID;
+		return $$nc(this->this$0->unaryPromotion(arg2))->isPrimitive() ? $Operators$ComparisonKind::NUMERIC_OR_BOOLEAN : $Operators$ComparisonKind::INVALID;
 	} else if (arg2Primitive) {
 		$init($Operators$ComparisonKind);
-		return $nc($(this->this$0->unaryPromotion(arg1)))->isPrimitive() ? $Operators$ComparisonKind::NUMERIC_OR_BOOLEAN : $Operators$ComparisonKind::INVALID;
+		return $$nc(this->this$0->unaryPromotion(arg1))->isPrimitive() ? $Operators$ComparisonKind::NUMERIC_OR_BOOLEAN : $Operators$ComparisonKind::INVALID;
 	} else {
 		bool var$0 = arg1->isNullOrReference();
 		$init($Operators$ComparisonKind);
@@ -115,7 +74,41 @@ Operators$BinaryEqualityOperator::Operators$BinaryEqualityOperator() {
 }
 
 $Class* Operators$BinaryEqualityOperator::load$($String* name, bool initialize) {
-	$loadClass(Operators$BinaryEqualityOperator, name, initialize, &_Operators$BinaryEqualityOperator_ClassInfo_, allocate$Operators$BinaryEqualityOperator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $FINAL | $SYNTHETIC, $field(Operators$BinaryEqualityOperator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$BinaryEqualityOperator, init$, void, $Operators*, $JCTree$Tag*)},
+		{"getKind", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Operators$ComparisonKind;", nullptr, $PRIVATE, $method(Operators$BinaryEqualityOperator, getKind, $Operators$ComparisonKind*, $Type*, $Type*)},
+		{"resolve", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryEqualityOperator, resolve, $Symbol$OperatorSymbol*, $Type*, $Type*)},
+		{"test", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Operators$BinaryEqualityOperator, test, bool, $Type*, $Type*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Operators$BinaryEqualityOperator, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Operators$BinaryEqualityOperator", "com.sun.tools.javac.comp.Operators", "BinaryEqualityOperator", 0},
+		{"com.sun.tools.javac.comp.Operators$BinaryOperatorHelper", "com.sun.tools.javac.comp.Operators", "BinaryOperatorHelper", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Operators$BinaryEqualityOperator",
+		"com.sun.tools.javac.comp.Operators$BinaryOperatorHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Operators"
+	};
+	$loadClass(Operators$BinaryEqualityOperator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Operators$BinaryEqualityOperator));
+	});
 	return class$;
 }
 

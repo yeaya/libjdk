@@ -47,17 +47,17 @@ public:
 	virtual int32_t getMissingGlyphCode();
 	virtual int32_t getNumGlyphs() {return 0;}
 	static bool isVariationSelector(int32_t charCode);
-	static const int32_t HI_SURROGATE_START = 0x0000D800;
-	static const int32_t HI_SURROGATE_END = 0x0000DBFF;
-	static const int32_t LO_SURROGATE_START = 0x0000DC00;
-	static const int32_t LO_SURROGATE_END = 0x0000DFFF;
-	static const int32_t VS_START = 0x0000FE00;
-	static const int32_t VS_END = 0x0000FE0F;
-	static const int32_t VSS_START = 0x000E0100;
-	static const int32_t VSS_END = 0x000E01FF;
+	static const int32_t HI_SURROGATE_START = 0x0000d800;
+	static const int32_t HI_SURROGATE_END = 0x0000dbff;
+	static const int32_t LO_SURROGATE_START = 0x0000dc00;
+	static const int32_t LO_SURROGATE_END = 0x0000dfff;
+	static const int32_t VS_START = 0x0000fe00;
+	static const int32_t VS_END = 0x0000fe0f;
+	static const int32_t VSS_START = 0x000e0100;
+	static const int32_t VSS_END = 0x000e01ff;
 	static const int32_t UNINITIALIZED_GLYPH = (-1);
-	static const int32_t INVISIBLE_GLYPH_ID = 0x0000FFFF;
-	static const int32_t INVISIBLE_GLYPHS = 0x0000FFFE;
+	static const int32_t INVISIBLE_GLYPH_ID = 0x0000ffff;
+	static const int32_t INVISIBLE_GLYPHS = 0x0000fffe;
 	int32_t missingGlyph = 0;
 };
 

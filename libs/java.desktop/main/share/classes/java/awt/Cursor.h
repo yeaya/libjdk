@@ -80,6 +80,7 @@ class $export Cursor : public ::java::io::Serializable {
 	$class(Cursor, 0, ::java::io::Serializable)
 public:
 	Cursor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	void init$($String* name);
 	static void finalizeImpl(int64_t pData);
@@ -121,7 +122,7 @@ public:
 	static $String* DOT_FILE_SUFFIX;
 	static $String* DOT_HOTSPOT_SUFFIX;
 	static $String* DOT_NAME_SUFFIX;
-	static const int64_t serialVersionUID = (int64_t)0x6F6A0777F71201A0;
+	static const int64_t serialVersionUID = (int64_t)0x6f6a0777f71201a0;
 	static ::sun::util::logging::PlatformLogger* log;
 	int64_t pData = 0;
 	$Object* anchor = nullptr;

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$BackgroundPosition.h>
-
 #include <javax/swing/text/html/CSS$CssValue.h>
 #include <javax/swing/text/html/CSS$LengthUnit.h>
 #include <javax/swing/text/html/CSS.h>
@@ -19,64 +18,19 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$BackgroundPosition_FieldInfo_[] = {
-	{"horizontalPosition", "F", nullptr, 0, $field(CSS$BackgroundPosition, horizontalPosition)},
-	{"verticalPosition", "F", nullptr, 0, $field(CSS$BackgroundPosition, verticalPosition)},
-	{"relative", "S", nullptr, 0, $field(CSS$BackgroundPosition, relative)},
-	{}
-};
-
-$MethodInfo _CSS$BackgroundPosition_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CSS$BackgroundPosition, init$, void)},
-	{"getHorizontalPosition", "()F", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, getHorizontalPosition, float)},
-	{"getVerticalPosition", "()F", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, getVerticalPosition, float)},
-	{"isHorizontalPositionRelativeToFontSize", "()Z", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, isHorizontalPositionRelativeToFontSize, bool)},
-	{"isHorizontalPositionRelativeToSize", "()Z", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, isHorizontalPositionRelativeToSize, bool)},
-	{"isVerticalPositionRelativeToFontSize", "()Z", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, isVerticalPositionRelativeToFontSize, bool)},
-	{"isVerticalPositionRelativeToSize", "()Z", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, isVerticalPositionRelativeToSize, bool)},
-	{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, parseCssValue, $Object*, $String*)},
-	{}
-};
-
-$InnerClassInfo _CSS$BackgroundPosition_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$BackgroundPosition", "javax.swing.text.html.CSS", "BackgroundPosition", $STATIC},
-	{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
-	{}
-};
-
-$ClassInfo _CSS$BackgroundPosition_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSS$BackgroundPosition",
-	"javax.swing.text.html.CSS$CssValue",
-	nullptr,
-	_CSS$BackgroundPosition_FieldInfo_,
-	_CSS$BackgroundPosition_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$BackgroundPosition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$BackgroundPosition($Class* clazz) {
-	return $of($alloc(CSS$BackgroundPosition));
-}
-
 void CSS$BackgroundPosition::init$() {
 	$CSS$CssValue::init$();
 }
 
 $Object* CSS$BackgroundPosition::parseCssValue($String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, strings, $CSS::parseStrings(value));
 	int32_t count = $nc(strings)->length;
 	$var(CSS$BackgroundPosition, bp, $new(CSS$BackgroundPosition));
-	bp->relative = (int16_t)5;
+	bp->relative = 5;
 	$set(bp, svalue, value);
 	if (count > 0) {
-		int16_t found = (int16_t)0;
+		int16_t found = 0;
 		int32_t index = 0;
 		while (index < count) {
 			$var($String, string, strings->get(index++));
@@ -84,32 +38,32 @@ $Object* CSS$BackgroundPosition::parseCssValue($String* value) {
 				found |= 4;
 				continue;
 			} else {
-				if (((int32_t)(found & (uint32_t)1)) == 0) {
+				if ((found & 1) == 0) {
 					if (string->equals("top"_s)) {
 						found |= 1;
 					} else if (string->equals("bottom"_s)) {
 						found |= 1;
-						bp->verticalPosition = (float)1;
+						bp->verticalPosition = 1;
 						continue;
 					}
 				}
-				if (((int32_t)(found & (uint32_t)2)) == 0) {
+				if ((found & 2) == 0) {
 					if (string->equals("left"_s)) {
 						found |= 2;
-						bp->horizontalPosition = (float)0;
+						bp->horizontalPosition = 0;
 					} else if (string->equals("right"_s)) {
 						found |= 2;
-						bp->horizontalPosition = (float)1;
+						bp->horizontalPosition = 1;
 					}
 				}
 			}
 		}
 		if (found != 0) {
-			if (((int32_t)(found & (uint32_t)1)) == 1) {
-				if (((int32_t)(found & (uint32_t)2)) == 0) {
+			if ((found & 1) == 1) {
+				if ((found & 2) == 0) {
 					bp->horizontalPosition = 0.5f;
 				}
-			} else if (((int32_t)(found & (uint32_t)2)) == 2) {
+			} else if ((found & 2) == 2) {
 				bp->verticalPosition = 0.5f;
 			} else {
 				bp->horizontalPosition = (bp->verticalPosition = 0.5f);
@@ -141,15 +95,15 @@ $Object* CSS$BackgroundPosition::parseCssValue($String* value) {
 			}
 		}
 	}
-	return $of(bp);
+	return bp;
 }
 
 bool CSS$BackgroundPosition::isHorizontalPositionRelativeToSize() {
-	return (((int32_t)(this->relative & (uint32_t)1)) == 1);
+	return ((this->relative & 1) == 1);
 }
 
 bool CSS$BackgroundPosition::isHorizontalPositionRelativeToFontSize() {
-	return (((int32_t)(this->relative & (uint32_t)2)) == 2);
+	return ((this->relative & 2) == 2);
 }
 
 float CSS$BackgroundPosition::getHorizontalPosition() {
@@ -157,11 +111,11 @@ float CSS$BackgroundPosition::getHorizontalPosition() {
 }
 
 bool CSS$BackgroundPosition::isVerticalPositionRelativeToSize() {
-	return (((int32_t)(this->relative & (uint32_t)4)) == 4);
+	return ((this->relative & 4) == 4);
 }
 
 bool CSS$BackgroundPosition::isVerticalPositionRelativeToFontSize() {
-	return (((int32_t)(this->relative & (uint32_t)8)) == 8);
+	return ((this->relative & 8) == 8);
 }
 
 float CSS$BackgroundPosition::getVerticalPosition() {
@@ -172,7 +126,46 @@ CSS$BackgroundPosition::CSS$BackgroundPosition() {
 }
 
 $Class* CSS$BackgroundPosition::load$($String* name, bool initialize) {
-	$loadClass(CSS$BackgroundPosition, name, initialize, &_CSS$BackgroundPosition_ClassInfo_, allocate$CSS$BackgroundPosition);
+	$FieldInfo fieldInfos$$[] = {
+		{"horizontalPosition", "F", nullptr, 0, $field(CSS$BackgroundPosition, horizontalPosition)},
+		{"verticalPosition", "F", nullptr, 0, $field(CSS$BackgroundPosition, verticalPosition)},
+		{"relative", "S", nullptr, 0, $field(CSS$BackgroundPosition, relative)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CSS$BackgroundPosition, init$, void)},
+		{"getHorizontalPosition", "()F", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, getHorizontalPosition, float)},
+		{"getVerticalPosition", "()F", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, getVerticalPosition, float)},
+		{"isHorizontalPositionRelativeToFontSize", "()Z", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, isHorizontalPositionRelativeToFontSize, bool)},
+		{"isHorizontalPositionRelativeToSize", "()Z", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, isHorizontalPositionRelativeToSize, bool)},
+		{"isVerticalPositionRelativeToFontSize", "()Z", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, isVerticalPositionRelativeToFontSize, bool)},
+		{"isVerticalPositionRelativeToSize", "()Z", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, isVerticalPositionRelativeToSize, bool)},
+		{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$BackgroundPosition, parseCssValue, $Object*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$BackgroundPosition", "javax.swing.text.html.CSS", "BackgroundPosition", $STATIC},
+		{"javax.swing.text.html.CSS$CssValue", "javax.swing.text.html.CSS", "CssValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSS$BackgroundPosition",
+		"javax.swing.text.html.CSS$CssValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$BackgroundPosition, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$BackgroundPosition);
+	});
 	return class$;
 }
 

@@ -74,6 +74,7 @@ class $import XMLInputFactory : public ::java::lang::Object {
 	$class(XMLInputFactory, 0, ::java::lang::Object)
 public:
 	XMLInputFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::xml::stream::XMLStreamReader* createFilteredReader(::javax::xml::stream::XMLStreamReader* reader, ::javax::xml::stream::StreamFilter* filter) {return nullptr;}
 	virtual ::javax::xml::stream::XMLEventReader* createFilteredReader(::javax::xml::stream::XMLEventReader* reader, ::javax::xml::stream::EventFilter* filter) {return nullptr;}

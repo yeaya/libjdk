@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ArrayNotificationBuffer$NamedNotification.h>
-
 #include <com/sun/jmx/remote/internal/ArrayNotificationBuffer.h>
 #include <javax/management/Notification.h>
 #include <javax/management/ObjectName.h>
@@ -17,45 +16,6 @@ namespace com {
 		namespace jmx {
 			namespace remote {
 				namespace internal {
-
-$FieldInfo _ArrayNotificationBuffer$NamedNotification_FieldInfo_[] = {
-	{"sender", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $FINAL, $field(ArrayNotificationBuffer$NamedNotification, sender)},
-	{"notification", "Ljavax/management/Notification;", nullptr, $PRIVATE | $FINAL, $field(ArrayNotificationBuffer$NamedNotification, notification)},
-	{}
-};
-
-$MethodInfo _ArrayNotificationBuffer$NamedNotification_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/ObjectName;Ljavax/management/Notification;)V", nullptr, 0, $method(ArrayNotificationBuffer$NamedNotification, init$, void, $ObjectName*, $Notification*)},
-	{"getNotification", "()Ljavax/management/Notification;", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$NamedNotification, getNotification, $Notification*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$NamedNotification, getObjectName, $ObjectName*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$NamedNotification, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ArrayNotificationBuffer$NamedNotification_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.internal.ArrayNotificationBuffer$NamedNotification", "com.sun.jmx.remote.internal.ArrayNotificationBuffer", "NamedNotification", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ArrayNotificationBuffer$NamedNotification_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.internal.ArrayNotificationBuffer$NamedNotification",
-	"java.lang.Object",
-	nullptr,
-	_ArrayNotificationBuffer$NamedNotification_FieldInfo_,
-	_ArrayNotificationBuffer$NamedNotification_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ArrayNotificationBuffer$NamedNotification_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.internal.ArrayNotificationBuffer"
-};
-
-$Object* allocate$ArrayNotificationBuffer$NamedNotification($Class* clazz) {
-	return $of($alloc(ArrayNotificationBuffer$NamedNotification));
-}
 
 void ArrayNotificationBuffer$NamedNotification::init$($ObjectName* sender, $Notification* notif) {
 	$set(this, sender, sender);
@@ -78,7 +38,40 @@ ArrayNotificationBuffer$NamedNotification::ArrayNotificationBuffer$NamedNotifica
 }
 
 $Class* ArrayNotificationBuffer$NamedNotification::load$($String* name, bool initialize) {
-	$loadClass(ArrayNotificationBuffer$NamedNotification, name, initialize, &_ArrayNotificationBuffer$NamedNotification_ClassInfo_, allocate$ArrayNotificationBuffer$NamedNotification);
+	$FieldInfo fieldInfos$$[] = {
+		{"sender", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $FINAL, $field(ArrayNotificationBuffer$NamedNotification, sender)},
+		{"notification", "Ljavax/management/Notification;", nullptr, $PRIVATE | $FINAL, $field(ArrayNotificationBuffer$NamedNotification, notification)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/ObjectName;Ljavax/management/Notification;)V", nullptr, 0, $method(ArrayNotificationBuffer$NamedNotification, init$, void, $ObjectName*, $Notification*)},
+		{"getNotification", "()Ljavax/management/Notification;", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$NamedNotification, getNotification, $Notification*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, 0, $virtualMethod(ArrayNotificationBuffer$NamedNotification, getObjectName, $ObjectName*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayNotificationBuffer$NamedNotification, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.internal.ArrayNotificationBuffer$NamedNotification", "com.sun.jmx.remote.internal.ArrayNotificationBuffer", "NamedNotification", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.internal.ArrayNotificationBuffer$NamedNotification",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.internal.ArrayNotificationBuffer"
+	};
+	$loadClass(ArrayNotificationBuffer$NamedNotification, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayNotificationBuffer$NamedNotification);
+	});
 	return class$;
 }
 

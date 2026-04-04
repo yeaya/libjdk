@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsPopupWindow.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JWindow.h>
@@ -25,40 +24,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsPopupWindow_FieldInfo_[] = {
-	{"UNDEFINED_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, UNDEFINED_WINDOW_TYPE)},
-	{"TOOLTIP_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, TOOLTIP_WINDOW_TYPE)},
-	{"MENU_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, MENU_WINDOW_TYPE)},
-	{"SUBMENU_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, SUBMENU_WINDOW_TYPE)},
-	{"POPUPMENU_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, POPUPMENU_WINDOW_TYPE)},
-	{"COMBOBOX_POPUP_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, COMBOBOX_POPUP_WINDOW_TYPE)},
-	{"windowType", "I", nullptr, $PRIVATE, $field(WindowsPopupWindow, windowType)},
-	{}
-};
-
-$MethodInfo _WindowsPopupWindow_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(WindowsPopupWindow, init$, void, $Window*)},
-	{"getWindowType", "()I", nullptr, 0, $virtualMethod(WindowsPopupWindow, getWindowType, int32_t)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupWindow, hide, void)},
-	{"setWindowType", "(I)V", nullptr, 0, $virtualMethod(WindowsPopupWindow, setWindowType, void, int32_t)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupWindow, show, void)},
-	{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupWindow, update, void, $Graphics*)},
-	{}
-};
-
-$ClassInfo _WindowsPopupWindow_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsPopupWindow",
-	"javax.swing.JWindow",
-	nullptr,
-	_WindowsPopupWindow_FieldInfo_,
-	_WindowsPopupWindow_MethodInfo_
-};
-
-$Object* allocate$WindowsPopupWindow($Class* clazz) {
-	return $of($alloc(WindowsPopupWindow));
-}
 
 void WindowsPopupWindow::init$($Window* parent) {
 	$JWindow::init$(parent);
@@ -91,7 +56,36 @@ WindowsPopupWindow::WindowsPopupWindow() {
 }
 
 $Class* WindowsPopupWindow::load$($String* name, bool initialize) {
-	$loadClass(WindowsPopupWindow, name, initialize, &_WindowsPopupWindow_ClassInfo_, allocate$WindowsPopupWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNDEFINED_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, UNDEFINED_WINDOW_TYPE)},
+		{"TOOLTIP_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, TOOLTIP_WINDOW_TYPE)},
+		{"MENU_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, MENU_WINDOW_TYPE)},
+		{"SUBMENU_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, SUBMENU_WINDOW_TYPE)},
+		{"POPUPMENU_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, POPUPMENU_WINDOW_TYPE)},
+		{"COMBOBOX_POPUP_WINDOW_TYPE", "I", nullptr, $STATIC | $FINAL, $constField(WindowsPopupWindow, COMBOBOX_POPUP_WINDOW_TYPE)},
+		{"windowType", "I", nullptr, $PRIVATE, $field(WindowsPopupWindow, windowType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(WindowsPopupWindow, init$, void, $Window*)},
+		{"getWindowType", "()I", nullptr, 0, $virtualMethod(WindowsPopupWindow, getWindowType, int32_t)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupWindow, hide, void)},
+		{"setWindowType", "(I)V", nullptr, 0, $virtualMethod(WindowsPopupWindow, setWindowType, void, int32_t)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupWindow, show, void)},
+		{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupWindow, update, void, $Graphics*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsPopupWindow",
+		"javax.swing.JWindow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsPopupWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsPopupWindow));
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class $export SSLFlowDelegate$1 : public ::java::lang::Object {
 	$class(SSLFlowDelegate$1, 0, ::java::lang::Object)
 public:
 	SSLFlowDelegate$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus;
 	static $ints* $SwitchMap$javax$net$ssl$SSLEngineResult$Status;
 };

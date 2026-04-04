@@ -1,5 +1,4 @@
 #include <javax/swing/event/AncestorListener.h>
-
 #include <javax/swing/event/AncestorEvent.h>
 #include <jcpp.h>
 
@@ -11,28 +10,24 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _AncestorListener_MethodInfo_[] = {
-	{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AncestorListener, ancestorAdded, void, $AncestorEvent*)},
-	{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AncestorListener, ancestorMoved, void, $AncestorEvent*)},
-	{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AncestorListener, ancestorRemoved, void, $AncestorEvent*)},
-	{}
-};
-
-$ClassInfo _AncestorListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.AncestorListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_AncestorListener_MethodInfo_
-};
-
-$Object* allocate$AncestorListener($Class* clazz) {
-	return $of($alloc(AncestorListener));
-}
-
 $Class* AncestorListener::load$($String* name, bool initialize) {
-	$loadClass(AncestorListener, name, initialize, &_AncestorListener_ClassInfo_, allocate$AncestorListener);
+	$MethodInfo methodInfos$$[] = {
+		{"ancestorAdded", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AncestorListener, ancestorAdded, void, $AncestorEvent*)},
+		{"ancestorMoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AncestorListener, ancestorMoved, void, $AncestorEvent*)},
+		{"ancestorRemoved", "(Ljavax/swing/event/AncestorEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AncestorListener, ancestorRemoved, void, $AncestorEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.AncestorListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AncestorListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AncestorListener);
+	});
 	return class$;
 }
 

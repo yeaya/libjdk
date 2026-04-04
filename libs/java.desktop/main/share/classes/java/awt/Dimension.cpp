@@ -1,5 +1,4 @@
 #include <java/awt/Dimension.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/geom/Dimension2D.h>
@@ -18,52 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$CompoundAttribute _Dimension_MethodAnnotations_getSize5[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$FieldInfo _Dimension_FieldInfo_[] = {
-	{"width", "I", nullptr, $PUBLIC, $field(Dimension, width)},
-	{"height", "I", nullptr, $PUBLIC, $field(Dimension, height)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Dimension, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Dimension_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Dimension, init$, void)},
-	{"<init>", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $method(Dimension, init$, void, Dimension*)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Dimension, init$, void, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Dimension, equals, bool, Object$*)},
-	{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Dimension, getHeight, double)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Dimension, getSize, Dimension*), nullptr, nullptr, _Dimension_MethodAnnotations_getSize5},
-	{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Dimension, getWidth, double)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Dimension, hashCode, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Dimension, initIDs, void)},
-	{"setSize", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Dimension, setSize, void, double, double)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Dimension, setSize, void, Dimension*)},
-	{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(Dimension, setSize, void, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Dimension, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 10
-
-$ClassInfo _Dimension_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Dimension",
-	"java.awt.geom.Dimension2D",
-	"java.io.Serializable",
-	_Dimension_FieldInfo_,
-	_Dimension_MethodInfo_
-};
-
-$Object* allocate$Dimension($Class* clazz) {
-	return $of($alloc(Dimension));
-}
-
 $Object* Dimension::clone() {
 	 return this->$Dimension2D::clone();
 }
@@ -74,7 +27,7 @@ void Dimension::finalize() {
 
 void Dimension::initIDs() {
 	$init(Dimension);
-	$prepareNativeStatic(Dimension, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -84,7 +37,7 @@ void Dimension::init$() {
 }
 
 void Dimension::init$(Dimension* d) {
-	Dimension::init$($nc(d)->width, d->height);
+	Dimension::init$($nc(d)->width, $nc(d)->height);
 }
 
 void Dimension::init$(int32_t width, int32_t height) {
@@ -111,7 +64,7 @@ Dimension* Dimension::getSize() {
 }
 
 void Dimension::setSize(Dimension* d) {
-	setSize($nc(d)->width, d->height);
+	setSize($nc(d)->width, $nc(d)->height);
 }
 
 void Dimension::setSize(int32_t width, int32_t height) {
@@ -122,7 +75,7 @@ void Dimension::setSize(int32_t width, int32_t height) {
 bool Dimension::equals(Object$* obj) {
 	if ($instanceOf(Dimension, obj)) {
 		$var(Dimension, d, $cast(Dimension, obj));
-		return (this->width == $nc(d)->width) && (this->height == d->height);
+		return (this->width == d->width) && (this->height == d->height);
 	}
 	return false;
 }
@@ -133,11 +86,11 @@ int32_t Dimension::hashCode() {
 }
 
 $String* Dimension::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($of(this)->getClass()->getName()), "[width="_s, $$str(this->width), ",height="_s, $$str(this->height), "]"_s});
 }
 
-void clinit$Dimension($Class* class$) {
+void Dimension::clinit$($Class* clazz) {
 	{
 		$Toolkit::loadLibraries();
 		if (!$GraphicsEnvironment::isHeadless()) {
@@ -150,7 +103,45 @@ Dimension::Dimension() {
 }
 
 $Class* Dimension::load$($String* name, bool initialize) {
-	$loadClass(Dimension, name, initialize, &_Dimension_ClassInfo_, clinit$Dimension, allocate$Dimension);
+	$FieldInfo fieldInfos$$[] = {
+		{"width", "I", nullptr, $PUBLIC, $field(Dimension, width)},
+		{"height", "I", nullptr, $PUBLIC, $field(Dimension, height)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Dimension, serialVersionUID)},
+		{}
+	};
+	$CompoundAttribute getSizemethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Dimension, init$, void)},
+		{"<init>", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $method(Dimension, init$, void, Dimension*)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Dimension, init$, void, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Dimension, equals, bool, Object$*)},
+		{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(Dimension, getHeight, double)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Dimension, getSize, Dimension*), nullptr, nullptr, getSizemethodAnnotations$$},
+		{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(Dimension, getWidth, double)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Dimension, hashCode, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(Dimension, initIDs, void)},
+		{"setSize", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Dimension, setSize, void, double, double)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(Dimension, setSize, void, Dimension*)},
+		{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(Dimension, setSize, void, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Dimension, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Dimension",
+		"java.awt.geom.Dimension2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Dimension, name, initialize, &classInfo$$, Dimension::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Dimension));
+	});
 	return class$;
 }
 

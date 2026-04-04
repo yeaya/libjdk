@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/resources/windows_pt_BR.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,139 +15,120 @@ namespace com {
 					namespace windows {
 						namespace resources {
 
-$MethodInfo _windows_pt_BR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(windows_pt_BR, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(windows_pt_BR, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _windows_pt_BR_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.resources.windows_pt_BR",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_windows_pt_BR_MethodInfo_
-};
-
-$Object* allocate$windows_pt_BR($Class* clazz) {
-	return $of($alloc(windows_pt_BR));
-}
-
 void windows_pt_BR::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* windows_pt_BR::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewActionLabel.textAndMnemonic"_s),
-			$of("Detalhes"_s)
+			"FileChooser.detailsViewActionLabel.textAndMnemonic"_s,
+			"Detalhes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonAccessibleName"_s),
-			$of("Detalhes"_s)
+			"FileChooser.detailsViewButtonAccessibleName"_s,
+			"Detalhes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s),
-			$of("Detalhes"_s)
+			"FileChooser.detailsViewButtonToolTip.textAndMnemonic"_s,
+			"Detalhes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileAttrHeader.textAndMnemonic"_s),
-			$of("Atributos"_s)
+			"FileChooser.fileAttrHeader.textAndMnemonic"_s,
+			"Atributos"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileDateHeader.textAndMnemonic"_s),
-			$of("Modificado"_s)
+			"FileChooser.fileDateHeader.textAndMnemonic"_s,
+			"Modificado"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameHeader.textAndMnemonic"_s),
-			$of("Nome"_s)
+			"FileChooser.fileNameHeader.textAndMnemonic"_s,
+			"Nome"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileNameLabel.textAndMnemonic"_s),
-			$of("&Nome do arquivo:"_s)
+			"FileChooser.fileNameLabel.textAndMnemonic"_s,
+			"&Nome do arquivo:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileSizeHeader.textAndMnemonic"_s),
-			$of("Tamanho"_s)
+			"FileChooser.fileSizeHeader.textAndMnemonic"_s,
+			"Tamanho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.fileTypeHeader.textAndMnemonic"_s),
-			$of("Tipo"_s)
+			"FileChooser.fileTypeHeader.textAndMnemonic"_s,
+			"Tipo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesOfTypeLabel.textAndMnemonic"_s),
-			$of("Arquivos do &tipo:"_s)
+			"FileChooser.filesOfTypeLabel.textAndMnemonic"_s,
+			"Arquivos do &tipo:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.folderNameLabel.textAndMnemonic"_s),
-			$of("&Nome da pasta:"_s)
+			"FileChooser.folderNameLabel.textAndMnemonic"_s,
+			"&Nome da pasta:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderAccessibleName"_s),
-			$of(u"Início"_s)
+			"FileChooser.homeFolderAccessibleName"_s,
+			u"Início"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.homeFolderToolTip.textAndMnemonic"_s),
-			$of(u"Início"_s)
+			"FileChooser.homeFolderToolTip.textAndMnemonic"_s,
+			u"Início"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewActionLabel.textAndMnemonic"_s),
-			$of("Lista"_s)
+			"FileChooser.listViewActionLabel.textAndMnemonic"_s,
+			"Lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonAccessibleName"_s),
-			$of("Lista"_s)
+			"FileChooser.listViewButtonAccessibleName"_s,
+			"Lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.listViewButtonToolTip.textAndMnemonic"_s),
-			$of("Lista"_s)
+			"FileChooser.listViewButtonToolTip.textAndMnemonic"_s,
+			"Lista"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.lookInLabel.textAndMnemonic"_s),
-			$of("Pesquisar &em:"_s)
+			"FileChooser.lookInLabel.textAndMnemonic"_s,
+			"Pesquisar &em:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderAccessibleName"_s),
-			$of("Nova Pasta"_s)
+			"FileChooser.newFolderAccessibleName"_s,
+			"Nova Pasta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderActionLabel.textAndMnemonic"_s),
-			$of("Nova Pasta"_s)
+			"FileChooser.newFolderActionLabel.textAndMnemonic"_s,
+			"Nova Pasta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderToolTip.textAndMnemonic"_s),
-			$of("Criar Nova Pasta"_s)
+			"FileChooser.newFolderToolTip.textAndMnemonic"_s,
+			"Criar Nova Pasta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.refreshActionLabel.textAndMnemonic"_s),
-			$of("Atualizar"_s)
+			"FileChooser.refreshActionLabel.textAndMnemonic"_s,
+			"Atualizar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveInLabel.textAndMnemonic"_s),
-			$of("Salvar em:"_s)
+			"FileChooser.saveInLabel.textAndMnemonic"_s,
+			"Salvar em:"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderAccessibleName"_s),
-			$of("Acima"_s)
+			"FileChooser.upFolderAccessibleName"_s,
+			"Acima"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.upFolderToolTip.textAndMnemonic"_s),
-			$of(u"Um Nível Acima"_s)
+			"FileChooser.upFolderToolTip.textAndMnemonic"_s,
+			u"Um Nível Acima"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuButtonAccessibleName"_s),
-			$of("Exibir Menu"_s)
+			"FileChooser.viewMenuButtonAccessibleName"_s,
+			"Exibir Menu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuButtonToolTipText"_s),
-			$of("Exibir Menu"_s)
+			"FileChooser.viewMenuButtonToolTipText"_s,
+			"Exibir Menu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.viewMenuLabel.textAndMnemonic"_s),
-			$of("Exibir"_s)
+			"FileChooser.viewMenuLabel.textAndMnemonic"_s,
+			"Exibir"_s
 		})
 	});
 }
@@ -157,7 +137,22 @@ windows_pt_BR::windows_pt_BR() {
 }
 
 $Class* windows_pt_BR::load$($String* name, bool initialize) {
-	$loadClass(windows_pt_BR, name, initialize, &_windows_pt_BR_ClassInfo_, allocate$windows_pt_BR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(windows_pt_BR, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(windows_pt_BR, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.resources.windows_pt_BR",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(windows_pt_BR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(windows_pt_BR);
+	});
 	return class$;
 }
 

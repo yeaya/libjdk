@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
-
 #include <java/awt/Shape.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <jcpp.h>
@@ -13,27 +12,23 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$MethodInfo _ShapeDrawPipe_MethodInfo_[] = {
-	{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShapeDrawPipe, draw, void, $SunGraphics2D*, $Shape*)},
-	{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShapeDrawPipe, fill, void, $SunGraphics2D*, $Shape*)},
-	{}
-};
-
-$ClassInfo _ShapeDrawPipe_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.java2d.pipe.ShapeDrawPipe",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ShapeDrawPipe_MethodInfo_
-};
-
-$Object* allocate$ShapeDrawPipe($Class* clazz) {
-	return $of($alloc(ShapeDrawPipe));
-}
-
 $Class* ShapeDrawPipe::load$($String* name, bool initialize) {
-	$loadClass(ShapeDrawPipe, name, initialize, &_ShapeDrawPipe_ClassInfo_, allocate$ShapeDrawPipe);
+	$MethodInfo methodInfos$$[] = {
+		{"draw", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShapeDrawPipe, draw, void, $SunGraphics2D*, $Shape*)},
+		{"fill", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Shape;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ShapeDrawPipe, fill, void, $SunGraphics2D*, $Shape*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.java2d.pipe.ShapeDrawPipe",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ShapeDrawPipe, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShapeDrawPipe);
+	});
 	return class$;
 }
 

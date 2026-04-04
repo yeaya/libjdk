@@ -1,5 +1,4 @@
 #include <java/util/logging/FileHandler$MeteredStream.h>
-
 #include <java/io/OutputStream.h>
 #include <java/util/logging/FileHandler.h>
 #include <jcpp.h>
@@ -13,47 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace util {
 		namespace logging {
-
-$FieldInfo _FileHandler$MeteredStream_FieldInfo_[] = {
-	{"out", "Ljava/io/OutputStream;", nullptr, $FINAL, $field(FileHandler$MeteredStream, out)},
-	{"written", "J", nullptr, 0, $field(FileHandler$MeteredStream, written)},
-	{}
-};
-
-$MethodInfo _FileHandler$MeteredStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;J)V", nullptr, 0, $method(FileHandler$MeteredStream, init$, void, $OutputStream*, int64_t)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FileHandler$MeteredStream_InnerClassesInfo_[] = {
-	{"java.util.logging.FileHandler$MeteredStream", "java.util.logging.FileHandler", "MeteredStream", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _FileHandler$MeteredStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.FileHandler$MeteredStream",
-	"java.io.OutputStream",
-	nullptr,
-	_FileHandler$MeteredStream_FieldInfo_,
-	_FileHandler$MeteredStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileHandler$MeteredStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.FileHandler"
-};
-
-$Object* allocate$FileHandler$MeteredStream($Class* clazz) {
-	return $of($alloc(FileHandler$MeteredStream));
-}
 
 void FileHandler$MeteredStream::init$($OutputStream* out, int64_t written) {
 	$OutputStream::init$();
@@ -88,7 +46,42 @@ FileHandler$MeteredStream::FileHandler$MeteredStream() {
 }
 
 $Class* FileHandler$MeteredStream::load$($String* name, bool initialize) {
-	$loadClass(FileHandler$MeteredStream, name, initialize, &_FileHandler$MeteredStream_ClassInfo_, allocate$FileHandler$MeteredStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/OutputStream;", nullptr, $FINAL, $field(FileHandler$MeteredStream, out)},
+		{"written", "J", nullptr, 0, $field(FileHandler$MeteredStream, written)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;J)V", nullptr, 0, $method(FileHandler$MeteredStream, init$, void, $OutputStream*, int64_t)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FileHandler$MeteredStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.FileHandler$MeteredStream", "java.util.logging.FileHandler", "MeteredStream", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.FileHandler$MeteredStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.FileHandler"
+	};
+	$loadClass(FileHandler$MeteredStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileHandler$MeteredStream));
+	});
 	return class$;
 }
 

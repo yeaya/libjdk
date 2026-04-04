@@ -44,6 +44,7 @@ class $export Test8007563 : public ::java::lang::Runnable {
 	$class(Test8007563, 0, ::java::lang::Runnable)
 public:
 	Test8007563();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addOpaqueError(bool opaque);
 	static void main($StringArray* args);

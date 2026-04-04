@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$MenuBarBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -14,7 +13,6 @@
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -33,48 +31,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalBorders$MenuBarBorder_FieldInfo_[] = {
-	{"borderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticField(MetalBorders$MenuBarBorder, borderInsets)},
-	{}
-};
-
-$MethodInfo _MetalBorders$MenuBarBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$MenuBarBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$MenuBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$MenuBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$MenuBarBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$MenuBarBorder", "javax.swing.plaf.metal.MetalBorders", "MenuBarBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$MenuBarBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$MenuBarBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_MetalBorders$MenuBarBorder_FieldInfo_,
-	_MetalBorders$MenuBarBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$MenuBarBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$MenuBarBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$MenuBarBorder));
-}
 
 int32_t MetalBorders$MenuBarBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -103,7 +59,7 @@ void MetalBorders$MenuBarBorder::init$() {
 }
 
 void MetalBorders$MenuBarBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->translate(x, y);
 	if ($MetalLookAndFeel::usingOcean()) {
 		if ($instanceOf($JMenuBar, c) && !$MetalToolBarUI::doesMenuBarBorderToolBar($cast($JMenuBar, c))) {
@@ -128,7 +84,7 @@ $Insets* MetalBorders$MenuBarBorder::getBorderInsets($Component* c, $Insets* new
 	return newInsets;
 }
 
-void clinit$MetalBorders$MenuBarBorder($Class* class$) {
+void MetalBorders$MenuBarBorder::clinit$($Class* clazz) {
 	$assignStatic(MetalBorders$MenuBarBorder::borderInsets, $new($Insets, 1, 0, 1, 0));
 }
 
@@ -136,7 +92,43 @@ MetalBorders$MenuBarBorder::MetalBorders$MenuBarBorder() {
 }
 
 $Class* MetalBorders$MenuBarBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$MenuBarBorder, name, initialize, &_MetalBorders$MenuBarBorder_ClassInfo_, clinit$MetalBorders$MenuBarBorder, allocate$MetalBorders$MenuBarBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"borderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticField(MetalBorders$MenuBarBorder, borderInsets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$MenuBarBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$MenuBarBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$MenuBarBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$MenuBarBorder", "javax.swing.plaf.metal.MetalBorders", "MenuBarBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$MenuBarBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$MenuBarBorder, name, initialize, &classInfo$$, MetalBorders$MenuBarBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$MenuBarBorder));
+	});
 	return class$;
 }
 

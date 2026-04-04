@@ -1,5 +1,4 @@
 #include <sun/management/counter/StringCounter.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,26 +8,22 @@ namespace sun {
 	namespace management {
 		namespace counter {
 
-$MethodInfo _StringCounter_MethodInfo_[] = {
-	{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringCounter, stringValue, $String*)},
-	{}
-};
-
-$ClassInfo _StringCounter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.management.counter.StringCounter",
-	nullptr,
-	"sun.management.counter.Counter",
-	nullptr,
-	_StringCounter_MethodInfo_
-};
-
-$Object* allocate$StringCounter($Class* clazz) {
-	return $of($alloc(StringCounter));
-}
-
 $Class* StringCounter::load$($String* name, bool initialize) {
-	$loadClass(StringCounter, name, initialize, &_StringCounter_ClassInfo_, allocate$StringCounter);
+	$MethodInfo methodInfos$$[] = {
+		{"stringValue", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(StringCounter, stringValue, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.management.counter.StringCounter",
+		nullptr,
+		"sun.management.counter.Counter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StringCounter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringCounter);
+	});
 	return class$;
 }
 

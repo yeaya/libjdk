@@ -1,5 +1,4 @@
 #include <sun/awt/geom/Order2.h>
-
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/lang/Math.h>
@@ -25,72 +24,6 @@ namespace sun {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _Order2_FieldInfo_[] = {
-	{"x0", "D", nullptr, $PRIVATE, $field(Order2, x0)},
-	{"y0", "D", nullptr, $PRIVATE, $field(Order2, y0)},
-	{"cx0", "D", nullptr, $PRIVATE, $field(Order2, cx0)},
-	{"cy0", "D", nullptr, $PRIVATE, $field(Order2, cy0)},
-	{"x1", "D", nullptr, $PRIVATE, $field(Order2, x1)},
-	{"y1", "D", nullptr, $PRIVATE, $field(Order2, y1)},
-	{"xmin", "D", nullptr, $PRIVATE, $field(Order2, xmin)},
-	{"xmax", "D", nullptr, $PRIVATE, $field(Order2, xmax)},
-	{"xcoeff0", "D", nullptr, $PRIVATE, $field(Order2, xcoeff0)},
-	{"xcoeff1", "D", nullptr, $PRIVATE, $field(Order2, xcoeff1)},
-	{"xcoeff2", "D", nullptr, $PRIVATE, $field(Order2, xcoeff2)},
-	{"ycoeff0", "D", nullptr, $PRIVATE, $field(Order2, ycoeff0)},
-	{"ycoeff1", "D", nullptr, $PRIVATE, $field(Order2, ycoeff1)},
-	{"ycoeff2", "D", nullptr, $PRIVATE, $field(Order2, ycoeff2)},
-	{}
-};
-
-$MethodInfo _Order2_MethodInfo_[] = {
-	{"<init>", "(DDDDDDI)V", nullptr, $PUBLIC, $method(Order2, init$, void, double, double, double, double, double, double, int32_t)},
-	{"TforY", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order2, TforY, double, double)},
-	{"TforY", "(DDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Order2, TforY, double, double, double, double, double)},
-	{"XforT", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order2, XforT, double, double)},
-	{"XforY", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order2, XforY, double, double)},
-	{"YforT", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order2, YforT, double, double)},
-	{"addInstance", "(Ljava/util/Vector;DDDDDDI)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DDDDDDI)V", $PUBLIC | $STATIC, $staticMethod(Order2, addInstance, void, $Vector*, double, double, double, double, double, double, int32_t)},
-	{"controlPointString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Order2, controlPointString, $String*)},
-	{"dXforT", "(DI)D", nullptr, $PUBLIC, $virtualMethod(Order2, dXforT, double, double, int32_t)},
-	{"dYforT", "(DI)D", nullptr, $PUBLIC, $virtualMethod(Order2, dYforT, double, double, int32_t)},
-	{"enlarge", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(Order2, enlarge, void, $Rectangle2D*)},
-	{"getCX0", "()D", nullptr, $PUBLIC, $method(Order2, getCX0, double)},
-	{"getCY0", "()D", nullptr, $PUBLIC, $method(Order2, getCY0, double)},
-	{"getHorizontalParams", "(DDD[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Order2, getHorizontalParams, int32_t, double, double, double, $doubles*)},
-	{"getOrder", "()I", nullptr, $PUBLIC, $virtualMethod(Order2, getOrder, int32_t)},
-	{"getReversedCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Order2, getReversedCurve, $Curve*)},
-	{"getSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(Order2, getSegment, int32_t, $doubles*)},
-	{"getSubCurve", "(DDI)Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Order2, getSubCurve, $Curve*, double, double, int32_t)},
-	{"getX0", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getX0, double)},
-	{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getX1, double)},
-	{"getXBot", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getXBot, double)},
-	{"getXMax", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getXMax, double)},
-	{"getXMin", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getXMin, double)},
-	{"getXTop", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getXTop, double)},
-	{"getY0", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getY0, double)},
-	{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getY1, double)},
-	{"getYBot", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getYBot, double)},
-	{"getYTop", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getYTop, double)},
-	{"insert", "(Ljava/util/Vector;[DDDDDDDI)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;[DDDDDDDI)V", $PUBLIC | $STATIC, $staticMethod(Order2, insert, void, $Vector*, $doubles*, double, double, double, double, double, double, int32_t)},
-	{"nextVertical", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Order2, nextVertical, double, double, double)},
-	{"split", "([DID)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Order2, split, void, $doubles*, int32_t, double)},
-	{}
-};
-
-$ClassInfo _Order2_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.geom.Order2",
-	"sun.awt.geom.Curve",
-	nullptr,
-	_Order2_FieldInfo_,
-	_Order2_MethodInfo_
-};
-
-$Object* allocate$Order2($Class* clazz) {
-	return $of($alloc(Order2));
-}
-
 void Order2::insert($Vector* curves, $doubles* tmp, double x0, double y0, double cx0, double cy0, double x1, double y1, int32_t direction) {
 	$init(Order2);
 	int32_t numparams = getHorizontalParams(y0, cy0, y1, tmp);
@@ -114,7 +47,7 @@ void Order2::insert($Vector* curves, $doubles* tmp, double x0, double y0, double
 
 void Order2::addInstance($Vector* curves, double x0, double y0, double cx0, double cy0, double x1, double y1, int32_t direction) {
 	$init(Order2);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (y0 > y1) {
 		$nc(curves)->add($$new(Order2, x1, y1, cx0, cy0, x0, y0, -direction));
 	} else if (y1 > y0) {
@@ -149,7 +82,7 @@ void Order2::split($doubles* coords, int32_t pos, double t) {
 	double cy = 0.0;
 	double x1 = 0.0;
 	double y1 = 0.0;
-	$nc(coords)->set(pos + 8, x1 = coords->get(pos + 4));
+	$nc(coords)->set(pos + 8, x1 = $nc(coords)->get(pos + 4));
 	coords->set(pos + 9, y1 = coords->get(pos + 5));
 	cx = coords->get(pos + 2);
 	cy = coords->get(pos + 3);
@@ -256,10 +189,10 @@ double Order2::XforY(double y) {
 
 double Order2::TforY(double y) {
 	if (y <= this->y0) {
-		return (double)0;
+		return 0;
 	}
 	if (y >= this->y1) {
-		return (double)1;
+		return 1;
 	}
 	return TforY(y, this->ycoeff0, this->ycoeff1, this->ycoeff2);
 }
@@ -308,42 +241,26 @@ double Order2::YforT(double t) {
 double Order2::dXforT(double t, int32_t deriv) {
 	switch (deriv) {
 	case 0:
-		{
-			return (this->xcoeff2 * t + this->xcoeff1) * t + this->xcoeff0;
-		}
+		return (this->xcoeff2 * t + this->xcoeff1) * t + this->xcoeff0;
 	case 1:
-		{
-			return 2 * this->xcoeff2 * t + this->xcoeff1;
-		}
+		return 2 * this->xcoeff2 * t + this->xcoeff1;
 	case 2:
-		{
-			return 2 * this->xcoeff2;
-		}
+		return 2 * this->xcoeff2;
 	default:
-		{
-			return (double)0;
-		}
+		return 0;
 	}
 }
 
 double Order2::dYforT(double t, int32_t deriv) {
 	switch (deriv) {
 	case 0:
-		{
-			return (this->ycoeff2 * t + this->ycoeff1) * t + this->ycoeff0;
-		}
+		return (this->ycoeff2 * t + this->ycoeff1) * t + this->ycoeff0;
 	case 1:
-		{
-			return 2 * this->ycoeff2 * t + this->ycoeff1;
-		}
+		return 2 * this->ycoeff2 * t + this->ycoeff1;
 	case 2:
-		{
-			return 2 * this->ycoeff2;
-		}
+		return 2 * this->ycoeff2;
 	default:
-		{
-			return (double)0;
-		}
+		return 0;
 	}
 }
 
@@ -372,12 +289,12 @@ $Curve* Order2::getSubCurve(double ystart, double yend, int32_t dir) {
 		if (yend >= this->y1) {
 			return getWithDirection(dir);
 		}
-		t0 = (double)0;
+		t0 = 0;
 	} else {
 		t0 = TforY(ystart, this->ycoeff0, this->ycoeff1, this->ycoeff2);
 	}
 	if (yend >= this->y1) {
-		t1 = (double)1;
+		t1 = 1;
 	} else {
 		t1 = TforY(yend, this->ycoeff0, this->ycoeff1, this->ycoeff2);
 	}
@@ -419,17 +336,81 @@ int32_t Order2::getSegment($doubles* coords) {
 }
 
 $String* Order2::controlPointString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"("_s, $$str(round(this->cx0)), ", "_s}));
-	$var($String, var$0, $$concat(var$1, $$str(round(this->cy0))));
-	return ($concat(var$0, "), "_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("("_s);
+	var$0->append(round(this->cx0));
+	var$0->append(", "_s);
+	var$0->append(round(this->cy0));
+	var$0->append("), "_s);
+	return ($str(var$0));
 }
 
 Order2::Order2() {
 }
 
 $Class* Order2::load$($String* name, bool initialize) {
-	$loadClass(Order2, name, initialize, &_Order2_ClassInfo_, allocate$Order2);
+	$FieldInfo fieldInfos$$[] = {
+		{"x0", "D", nullptr, $PRIVATE, $field(Order2, x0)},
+		{"y0", "D", nullptr, $PRIVATE, $field(Order2, y0)},
+		{"cx0", "D", nullptr, $PRIVATE, $field(Order2, cx0)},
+		{"cy0", "D", nullptr, $PRIVATE, $field(Order2, cy0)},
+		{"x1", "D", nullptr, $PRIVATE, $field(Order2, x1)},
+		{"y1", "D", nullptr, $PRIVATE, $field(Order2, y1)},
+		{"xmin", "D", nullptr, $PRIVATE, $field(Order2, xmin)},
+		{"xmax", "D", nullptr, $PRIVATE, $field(Order2, xmax)},
+		{"xcoeff0", "D", nullptr, $PRIVATE, $field(Order2, xcoeff0)},
+		{"xcoeff1", "D", nullptr, $PRIVATE, $field(Order2, xcoeff1)},
+		{"xcoeff2", "D", nullptr, $PRIVATE, $field(Order2, xcoeff2)},
+		{"ycoeff0", "D", nullptr, $PRIVATE, $field(Order2, ycoeff0)},
+		{"ycoeff1", "D", nullptr, $PRIVATE, $field(Order2, ycoeff1)},
+		{"ycoeff2", "D", nullptr, $PRIVATE, $field(Order2, ycoeff2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(DDDDDDI)V", nullptr, $PUBLIC, $method(Order2, init$, void, double, double, double, double, double, double, int32_t)},
+		{"TforY", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order2, TforY, double, double)},
+		{"TforY", "(DDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Order2, TforY, double, double, double, double, double)},
+		{"XforT", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order2, XforT, double, double)},
+		{"XforY", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order2, XforY, double, double)},
+		{"YforT", "(D)D", nullptr, $PUBLIC, $virtualMethod(Order2, YforT, double, double)},
+		{"addInstance", "(Ljava/util/Vector;DDDDDDI)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DDDDDDI)V", $PUBLIC | $STATIC, $staticMethod(Order2, addInstance, void, $Vector*, double, double, double, double, double, double, int32_t)},
+		{"controlPointString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Order2, controlPointString, $String*)},
+		{"dXforT", "(DI)D", nullptr, $PUBLIC, $virtualMethod(Order2, dXforT, double, double, int32_t)},
+		{"dYforT", "(DI)D", nullptr, $PUBLIC, $virtualMethod(Order2, dYforT, double, double, int32_t)},
+		{"enlarge", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(Order2, enlarge, void, $Rectangle2D*)},
+		{"getCX0", "()D", nullptr, $PUBLIC, $method(Order2, getCX0, double)},
+		{"getCY0", "()D", nullptr, $PUBLIC, $method(Order2, getCY0, double)},
+		{"getHorizontalParams", "(DDD[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Order2, getHorizontalParams, int32_t, double, double, double, $doubles*)},
+		{"getOrder", "()I", nullptr, $PUBLIC, $virtualMethod(Order2, getOrder, int32_t)},
+		{"getReversedCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Order2, getReversedCurve, $Curve*)},
+		{"getSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(Order2, getSegment, int32_t, $doubles*)},
+		{"getSubCurve", "(DDI)Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Order2, getSubCurve, $Curve*, double, double, int32_t)},
+		{"getX0", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getX0, double)},
+		{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getX1, double)},
+		{"getXBot", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getXBot, double)},
+		{"getXMax", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getXMax, double)},
+		{"getXMin", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getXMin, double)},
+		{"getXTop", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getXTop, double)},
+		{"getY0", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getY0, double)},
+		{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getY1, double)},
+		{"getYBot", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getYBot, double)},
+		{"getYTop", "()D", nullptr, $PUBLIC, $virtualMethod(Order2, getYTop, double)},
+		{"insert", "(Ljava/util/Vector;[DDDDDDDI)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;[DDDDDDDI)V", $PUBLIC | $STATIC, $staticMethod(Order2, insert, void, $Vector*, $doubles*, double, double, double, double, double, double, int32_t)},
+		{"nextVertical", "(DD)D", nullptr, $PUBLIC, $virtualMethod(Order2, nextVertical, double, double, double)},
+		{"split", "([DID)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Order2, split, void, $doubles*, int32_t, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.geom.Order2",
+		"sun.awt.geom.Curve",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Order2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Order2);
+	});
 	return class$;
 }
 

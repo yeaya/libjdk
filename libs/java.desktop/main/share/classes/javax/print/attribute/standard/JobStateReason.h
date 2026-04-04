@@ -80,13 +80,14 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t value);
 	virtual $Class* getCategory() override;
 	virtual $Array<::javax::print::attribute::EnumSyntax>* getEnumValueTable() override;
 	virtual $String* getName() override;
 	virtual $StringArray* getStringTable() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x86594977E28EE1F0;
+	static const int64_t serialVersionUID = (int64_t)0x86594977e28ee1f0;
 	static ::javax::print::attribute::standard::JobStateReason* JOB_INCOMING;
 	static ::javax::print::attribute::standard::JobStateReason* JOB_DATA_INSUFFICIENT;
 	static ::javax::print::attribute::standard::JobStateReason* DOCUMENT_ACCESS_ERROR;

@@ -31,6 +31,7 @@ class Logging : public ::java::util::logging::LoggingMXBean {
 	$class(Logging, 0, ::java::util::logging::LoggingMXBean)
 public:
 	Logging();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::logging::Logging* getInstance();
 	virtual $String* getLoggerLevel($String* loggerName) override;

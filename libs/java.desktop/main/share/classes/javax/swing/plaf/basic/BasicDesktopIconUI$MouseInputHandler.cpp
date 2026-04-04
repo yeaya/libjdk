@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicDesktopIconUI$MouseInputHandler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -21,7 +20,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
@@ -35,8 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
@@ -47,58 +43,13 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicDesktopIconUI$MouseInputHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopIconUI$MouseInputHandler, this$0)},
-	{"_x", "I", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, _x)},
-	{"_y", "I", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, _y)},
-	{"__x", "I", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, __x)},
-	{"__y", "I", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, __y)},
-	{"startingBounds", "Ljava/awt/Rectangle;", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, startingBounds)},
-	{}
-};
-
-$MethodInfo _BasicDesktopIconUI$MouseInputHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopIconUI;)V", nullptr, $PUBLIC, $method(BasicDesktopIconUI$MouseInputHandler, init$, void, $BasicDesktopIconUI*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
-	{"moveAndRepaint", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, moveAndRepaint, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicDesktopIconUI$MouseInputHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicDesktopIconUI$MouseInputHandler", "javax.swing.plaf.basic.BasicDesktopIconUI", "MouseInputHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicDesktopIconUI$MouseInputHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicDesktopIconUI$MouseInputHandler",
-	"javax.swing.event.MouseInputAdapter",
-	nullptr,
-	_BasicDesktopIconUI$MouseInputHandler_FieldInfo_,
-	_BasicDesktopIconUI$MouseInputHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicDesktopIconUI$MouseInputHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicDesktopIconUI"
-};
-
-$Object* allocate$BasicDesktopIconUI$MouseInputHandler($Class* clazz) {
-	return $of($alloc(BasicDesktopIconUI$MouseInputHandler));
-}
-
 void BasicDesktopIconUI$MouseInputHandler::init$($BasicDesktopIconUI* this$0) {
 	$set(this, this$0, this$0);
 	$MouseInputAdapter::init$();
 }
 
 void BasicDesktopIconUI$MouseInputHandler::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->_x = 0;
 	this->_y = 0;
 	this->__x = 0;
@@ -112,11 +63,11 @@ void BasicDesktopIconUI$MouseInputHandler::mouseReleased($MouseEvent* e) {
 }
 
 void BasicDesktopIconUI$MouseInputHandler::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, var$0, $cast($Component, $nc(e)->getSource()));
 	int32_t var$1 = e->getX();
 	$var($Point, p, $SwingUtilities::convertPoint(var$0, var$1, e->getY(), nullptr));
-	this->__x = $nc(e)->getX();
+	this->__x = e->getX();
 	this->__y = e->getY();
 	this->_x = $nc(p)->x;
 	this->_y = p->y;
@@ -131,11 +82,11 @@ void BasicDesktopIconUI$MouseInputHandler::mousePressed($MouseEvent* e) {
 	} catch ($PropertyVetoException& e1) {
 	}
 	if ($instanceOf($JLayeredPane, $($nc(this->this$0->desktopIcon)->getParent()))) {
-		$nc(($cast($JLayeredPane, $($nc(this->this$0->desktopIcon)->getParent()))))->moveToFront(this->this$0->desktopIcon);
+		$$sure($JLayeredPane, $nc(this->this$0->desktopIcon)->getParent())->moveToFront(this->this$0->desktopIcon);
 	}
 	if (e->getClickCount() > 1) {
 		bool var$2 = $nc(this->this$0->frame)->isIconifiable();
-		if (var$2 && $nc(this->this$0->frame)->isIcon()) {
+		if (var$2 && this->this$0->frame->isIcon()) {
 			this->this$0->deiconize();
 		}
 	}
@@ -145,7 +96,7 @@ void BasicDesktopIconUI$MouseInputHandler::mouseMoved($MouseEvent* e) {
 }
 
 void BasicDesktopIconUI$MouseInputHandler::mouseDragged($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, p, nullptr);
 	int32_t newX = 0;
 	int32_t newY = 0;
@@ -161,23 +112,23 @@ void BasicDesktopIconUI$MouseInputHandler::mouseDragged($MouseEvent* e) {
 	$var($Insets, i, $nc(this->this$0->desktopIcon)->getInsets());
 	int32_t pWidth = 0;
 	int32_t pHeight = 0;
-	pWidth = $nc(($cast($JComponent, $($nc(this->this$0->desktopIcon)->getParent()))))->getWidth();
-	pHeight = $nc(($cast($JComponent, $($nc(this->this$0->desktopIcon)->getParent()))))->getHeight();
+	pWidth = $$sure($JComponent, $nc(this->this$0->desktopIcon)->getParent())->getWidth();
+	pHeight = $$sure($JComponent, $nc(this->this$0->desktopIcon)->getParent())->getHeight();
 	if (this->startingBounds == nullptr) {
 		return;
 	}
 	newX = $nc(this->startingBounds)->x - (this->_x - $nc(p)->x);
-	newY = $nc(this->startingBounds)->y - (this->_y - p->y);
+	newY = this->startingBounds->y - (this->_y - p->y);
 	if (newX + $nc(i)->left <= -this->__x) {
 		newX = -this->__x - i->left;
 	}
-	if (newY + $nc(i)->top <= -this->__y) {
+	if (newY + i->top <= -this->__y) {
 		newY = -this->__y - i->top;
 	}
-	if (newX + this->__x + $nc(i)->right > pWidth) {
+	if (newX + this->__x + i->right > pWidth) {
 		newX = pWidth - this->__x - i->right;
 	}
-	if (newY + this->__y + $nc(i)->bottom > pHeight) {
+	if (newY + this->__y + i->bottom > pHeight) {
 		newY = pHeight - this->__y - i->bottom;
 	}
 	$var($JDesktopPane, d, nullptr);
@@ -185,28 +136,65 @@ void BasicDesktopIconUI$MouseInputHandler::mouseDragged($MouseEvent* e) {
 		$var($DesktopManager, dm, $nc(d)->getDesktopManager());
 		$nc(dm)->dragFrame(this->this$0->desktopIcon, newX, newY);
 	} else {
-		$var($JComponent, var$2, static_cast<$JComponent*>(this->this$0->desktopIcon));
-		int32_t var$3 = newX;
-		int32_t var$4 = newY;
-		int32_t var$5 = $nc(this->this$0->desktopIcon)->getWidth();
-		moveAndRepaint(var$2, var$3, var$4, var$5, $nc(this->this$0->desktopIcon)->getHeight());
+		$var($JComponent, var$2, this->this$0->desktopIcon);
+		int32_t var$3 = $nc(this->this$0->desktopIcon)->getWidth();
+		moveAndRepaint(var$2, newX, newY, var$3, this->this$0->desktopIcon->getHeight());
 	}
 	return;
 }
 
 void BasicDesktopIconUI$MouseInputHandler::moveAndRepaint($JComponent* f, int32_t newX, int32_t newY, int32_t newWidth, int32_t newHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, $nc(f)->getBounds());
 	f->setBounds(newX, newY, newWidth, newHeight);
 	$SwingUtilities::computeUnion(newX, newY, newWidth, newHeight, r);
-	$nc($(f->getParent()))->repaint($nc(r)->x, r->y, r->width, r->height);
+	$$nc(f->getParent())->repaint($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 BasicDesktopIconUI$MouseInputHandler::BasicDesktopIconUI$MouseInputHandler() {
 }
 
 $Class* BasicDesktopIconUI$MouseInputHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicDesktopIconUI$MouseInputHandler, name, initialize, &_BasicDesktopIconUI$MouseInputHandler_ClassInfo_, allocate$BasicDesktopIconUI$MouseInputHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicDesktopIconUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicDesktopIconUI$MouseInputHandler, this$0)},
+		{"_x", "I", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, _x)},
+		{"_y", "I", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, _y)},
+		{"__x", "I", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, __x)},
+		{"__y", "I", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, __y)},
+		{"startingBounds", "Ljava/awt/Rectangle;", nullptr, 0, $field(BasicDesktopIconUI$MouseInputHandler, startingBounds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicDesktopIconUI;)V", nullptr, $PUBLIC, $method(BasicDesktopIconUI$MouseInputHandler, init$, void, $BasicDesktopIconUI*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
+		{"moveAndRepaint", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicDesktopIconUI$MouseInputHandler, moveAndRepaint, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicDesktopIconUI$MouseInputHandler", "javax.swing.plaf.basic.BasicDesktopIconUI", "MouseInputHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicDesktopIconUI$MouseInputHandler",
+		"javax.swing.event.MouseInputAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicDesktopIconUI"
+	};
+	$loadClass(BasicDesktopIconUI$MouseInputHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicDesktopIconUI$MouseInputHandler));
+	});
 	return class$;
 }
 

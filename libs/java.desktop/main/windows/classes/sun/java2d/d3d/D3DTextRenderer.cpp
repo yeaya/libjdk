@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DTextRenderer.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/Paint.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -11,7 +10,6 @@
 #include <sun/java2d/pipe/BufferedTextPipe.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RenderQueue.h>
-#include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <jcpp.h>
 
 #undef NO_CONTEXT_FLAGS
@@ -27,46 +25,10 @@ using $D3DSurfaceData = ::sun::java2d::d3d::D3DSurfaceData;
 using $D3DTextRenderer$Tracer = ::sun::java2d::d3d::D3DTextRenderer$Tracer;
 using $BufferedTextPipe = ::sun::java2d::pipe::BufferedTextPipe;
 using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace d3d {
-
-$MethodInfo _D3DTextRenderer_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, 0, $method(D3DTextRenderer, init$, void, $RenderQueue*)},
-	{"access$000", "(Lsun/java2d/d3d/D3DTextRenderer;)Lsun/java2d/pipe/RenderQueue;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(D3DTextRenderer, access$000, $RenderQueue*, D3DTextRenderer*)},
-	{"drawGlyphList", "(IZZZIFF[J[F)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(D3DTextRenderer, drawGlyphList, void, int32_t, bool, bool, bool, int32_t, float, float, $longs*, $floats*)},
-	{"traceWrap", "()Lsun/java2d/d3d/D3DTextRenderer;", nullptr, 0, $virtualMethod(D3DTextRenderer, traceWrap, D3DTextRenderer*)},
-	{"validateContext", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Composite;)V", nullptr, $PROTECTED, $virtualMethod(D3DTextRenderer, validateContext, void, $SunGraphics2D*, $Composite*)},
-	{}
-};
-
-#define _METHOD_INDEX_drawGlyphList 2
-
-$InnerClassInfo _D3DTextRenderer_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DTextRenderer$Tracer", "sun.java2d.d3d.D3DTextRenderer", "Tracer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _D3DTextRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DTextRenderer",
-	"sun.java2d.pipe.BufferedTextPipe",
-	nullptr,
-	nullptr,
-	_D3DTextRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DTextRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DTextRenderer$Tracer"
-};
-
-$Object* allocate$D3DTextRenderer($Class* clazz) {
-	return $of($alloc(D3DTextRenderer));
-}
 
 $RenderQueue* D3DTextRenderer::access$000(D3DTextRenderer* x0) {
 	$init(D3DTextRenderer);
@@ -78,13 +40,13 @@ void D3DTextRenderer::init$($RenderQueue* rq) {
 }
 
 void D3DTextRenderer::drawGlyphList(int32_t numGlyphs, bool usePositions, bool subPixPos, bool rgbOrder, int32_t lcdContrast, float glOrigX, float glOrigY, $longs* images, $floats* positions) {
-	$prepareNative(D3DTextRenderer, drawGlyphList, void, int32_t numGlyphs, bool usePositions, bool subPixPos, bool rgbOrder, int32_t lcdContrast, float glOrigX, float glOrigY, $longs* images, $floats* positions);
+	$prepareNative(drawGlyphList, void, int32_t numGlyphs, bool usePositions, bool subPixPos, bool rgbOrder, int32_t lcdContrast, float glOrigX, float glOrigY, $longs* images, $floats* positions);
 	$invokeNative(numGlyphs, usePositions, subPixPos, rgbOrder, lcdContrast, glOrigX, glOrigY, images, positions);
 	$finishNative();
 }
 
 void D3DTextRenderer::validateContext($SunGraphics2D* sg2d, $Composite* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($D3DSurfaceData, d3dDst, $cast($D3DSurfaceData, $nc(sg2d)->surfaceData));
 	$D3DContext::validateContext(d3dDst, d3dDst, $(sg2d->getCompClip()), comp, nullptr, sg2d->paint, sg2d, $D3DContext::NO_CONTEXT_FLAGS);
 }
@@ -97,7 +59,35 @@ D3DTextRenderer::D3DTextRenderer() {
 }
 
 $Class* D3DTextRenderer::load$($String* name, bool initialize) {
-	$loadClass(D3DTextRenderer, name, initialize, &_D3DTextRenderer_ClassInfo_, allocate$D3DTextRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, 0, $method(D3DTextRenderer, init$, void, $RenderQueue*)},
+		{"access$000", "(Lsun/java2d/d3d/D3DTextRenderer;)Lsun/java2d/pipe/RenderQueue;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(D3DTextRenderer, access$000, $RenderQueue*, D3DTextRenderer*)},
+		{"drawGlyphList", "(IZZZIFF[J[F)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(D3DTextRenderer, drawGlyphList, void, int32_t, bool, bool, bool, int32_t, float, float, $longs*, $floats*)},
+		{"traceWrap", "()Lsun/java2d/d3d/D3DTextRenderer;", nullptr, 0, $virtualMethod(D3DTextRenderer, traceWrap, D3DTextRenderer*)},
+		{"validateContext", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Composite;)V", nullptr, $PROTECTED, $virtualMethod(D3DTextRenderer, validateContext, void, $SunGraphics2D*, $Composite*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DTextRenderer$Tracer", "sun.java2d.d3d.D3DTextRenderer", "Tracer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DTextRenderer",
+		"sun.java2d.pipe.BufferedTextPipe",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DTextRenderer$Tracer"
+	};
+	$loadClass(D3DTextRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DTextRenderer);
+	});
 	return class$;
 }
 

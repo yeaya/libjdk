@@ -61,6 +61,7 @@ class TablePrintable : public ::java::awt::print::Printable {
 	$class(TablePrintable, 0, ::java::awt::print::Printable)
 public:
 	TablePrintable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JTable* table, ::javax::swing::JTable$PrintMode* printMode, ::java::text::MessageFormat* headerFormat, ::java::text::MessageFormat* footerFormat);
 	void findNextClip(int32_t pw, int32_t ph);
 	virtual int32_t print(::java::awt::Graphics* graphics, ::java::awt::print::PageFormat* pageFormat, int32_t pageIndex) override;

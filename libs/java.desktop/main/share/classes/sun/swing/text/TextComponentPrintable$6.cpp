@@ -1,5 +1,4 @@
 #include <sun/swing/text/TextComponentPrintable$6.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/font/FontRenderContext.h>
@@ -21,7 +20,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $JTextPane = ::javax::swing::JTextPane;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
@@ -32,50 +30,6 @@ namespace sun {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _TextComponentPrintable$6_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/text/TextComponentPrintable;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$6, this$0)},
-	{"val$textComponent", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$6, val$textComponent)},
-	{}
-};
-
-$MethodInfo _TextComponentPrintable$6_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/text/TextComponentPrintable;Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $method(TextComponentPrintable$6, init$, void, $TextComponentPrintable*, $JTextComponent*)},
-	{"getEditorKit", "()Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$6, getEditorKit, $EditorKit*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$6, getFontMetrics, $FontMetrics*, $Font*)},
-	{}
-};
-
-$EnclosingMethodInfo _TextComponentPrintable$6_EnclosingMethodInfo_ = {
-	"sun.swing.text.TextComponentPrintable",
-	"createPrintShellOnEDT",
-	"(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/JTextComponent;"
-};
-
-$InnerClassInfo _TextComponentPrintable$6_InnerClassesInfo_[] = {
-	{"sun.swing.text.TextComponentPrintable$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TextComponentPrintable$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.text.TextComponentPrintable$6",
-	"javax.swing.JTextPane",
-	nullptr,
-	_TextComponentPrintable$6_FieldInfo_,
-	_TextComponentPrintable$6_MethodInfo_,
-	nullptr,
-	&_TextComponentPrintable$6_EnclosingMethodInfo_,
-	_TextComponentPrintable$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.text.TextComponentPrintable"
-};
-
-$Object* allocate$TextComponentPrintable$6($Class* clazz) {
-	return $of($alloc(TextComponentPrintable$6));
-}
-
 void TextComponentPrintable$6::init$($TextComponentPrintable* this$0, $JTextComponent* val$textComponent) {
 	$set(this, this$0, this$0);
 	$set(this, val$textComponent, val$textComponent);
@@ -83,12 +37,12 @@ void TextComponentPrintable$6::init$($TextComponentPrintable* this$0, $JTextComp
 }
 
 $FontMetrics* TextComponentPrintable$6::getFontMetrics($Font* font) {
-	return ($nc(this->this$0->frc)->get() == nullptr) ? $JTextPane::getFontMetrics(font) : static_cast<$FontMetrics*>($FontDesignMetrics::getMetrics(font, $cast($FontRenderContext, $($nc(this->this$0->frc)->get()))));
+	return ($nc(this->this$0->frc)->get() == nullptr) ? $JTextPane::getFontMetrics(font) : $cast($FontMetrics, $FontDesignMetrics::getMetrics(font, $$cast($FontRenderContext, this->this$0->frc->get())));
 }
 
 $EditorKit* TextComponentPrintable$6::getEditorKit() {
 	if (getDocument() == $nc(this->val$textComponent)->getDocument()) {
-		return $nc(($cast($JTextPane, this->val$textComponent)))->getEditorKit();
+		return $cast($JTextPane, this->val$textComponent)->getEditorKit();
 	} else {
 		return $JTextPane::getEditorKit();
 	}
@@ -98,7 +52,44 @@ TextComponentPrintable$6::TextComponentPrintable$6() {
 }
 
 $Class* TextComponentPrintable$6::load$($String* name, bool initialize) {
-	$loadClass(TextComponentPrintable$6, name, initialize, &_TextComponentPrintable$6_ClassInfo_, allocate$TextComponentPrintable$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/text/TextComponentPrintable;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$6, this$0)},
+		{"val$textComponent", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$6, val$textComponent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/text/TextComponentPrintable;Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $method(TextComponentPrintable$6, init$, void, $TextComponentPrintable*, $JTextComponent*)},
+		{"getEditorKit", "()Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$6, getEditorKit, $EditorKit*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$6, getFontMetrics, $FontMetrics*, $Font*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.text.TextComponentPrintable",
+		"createPrintShellOnEDT",
+		"(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/JTextComponent;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.text.TextComponentPrintable$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.text.TextComponentPrintable$6",
+		"javax.swing.JTextPane",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.text.TextComponentPrintable"
+	};
+	$loadClass(TextComponentPrintable$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextComponentPrintable$6));
+	});
 	return class$;
 }
 

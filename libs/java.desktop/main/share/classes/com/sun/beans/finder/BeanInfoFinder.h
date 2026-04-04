@@ -28,6 +28,7 @@ class BeanInfoFinder : public ::com::sun::beans::finder::InstanceFinder {
 	$class(BeanInfoFinder, 0, ::com::sun::beans::finder::InstanceFinder)
 public:
 	BeanInfoFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* find($Class* type) override;
 	virtual $StringArray* getPackages() override;

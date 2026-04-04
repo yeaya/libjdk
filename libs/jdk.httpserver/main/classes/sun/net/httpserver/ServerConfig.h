@@ -36,6 +36,7 @@ class ServerConfig : public ::java::lang::Object {
 	$class(ServerConfig, 0, ::java::lang::Object)
 public:
 	ServerConfig();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkLegacyProperties(::java::lang::System$Logger* logger);
 	static bool debugEnabled();

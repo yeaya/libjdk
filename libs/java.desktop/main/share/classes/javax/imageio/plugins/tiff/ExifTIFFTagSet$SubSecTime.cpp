@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$SubSecTime.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$SubSecTime_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SubSecTime, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$SubSecTime_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubSecTime", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SubSecTime", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$SubSecTime_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubSecTime",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SubSecTime_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SubSecTime_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$SubSecTime($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$SubSecTime));
-}
-
 void ExifTIFFTagSet$SubSecTime::init$() {
 	$TIFFTag::init$("SubSecTime"_s, 0x00009290, $sl(1, $TIFFTag::TIFF_ASCII));
 }
@@ -54,7 +23,32 @@ ExifTIFFTagSet$SubSecTime::ExifTIFFTagSet$SubSecTime() {
 }
 
 $Class* ExifTIFFTagSet$SubSecTime::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$SubSecTime, name, initialize, &_ExifTIFFTagSet$SubSecTime_ClassInfo_, allocate$ExifTIFFTagSet$SubSecTime);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SubSecTime, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubSecTime", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SubSecTime", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubSecTime",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$SubSecTime, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$SubSecTime);
+	});
 	return class$;
 }
 

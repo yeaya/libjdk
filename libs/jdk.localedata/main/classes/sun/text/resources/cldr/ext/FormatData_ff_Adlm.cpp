@@ -1,5 +1,4 @@
 #include <sun/text/resources/cldr/ext/FormatData_ff_Adlm.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,103 +13,84 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _FormatData_ff_Adlm_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ff_Adlm, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ff_Adlm, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_ff_Adlm_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.cldr.ext.FormatData_ff_Adlm",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_ff_Adlm_MethodInfo_
-};
-
-$Object* allocate$FormatData_ff_Adlm($Class* clazz) {
-	return $of($alloc(FormatData_ff_Adlm));
-}
-
 void FormatData_ff_Adlm::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_ff_Adlm::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, metaValue_MonthNames, $new($StringArray, {
-		$cstr({0x1E905, 0x1E92D, 0x1E945, 0x1E924, 0x1E92E}),
-		$cstr({0x1E915, 0x1E92E, 0x1E924, 0x1E93C, 0x1E92E}),
-		$cstr({0x1E910, 0x1E926, 0x1E92E, 0x1E945, 0x1E934, 0x1E92E}),
-		$cstr({0x1E905, 0x1E92B, 0x1E945, 0x1E93C, 0x1E92E}),
-		$cstr({0x1E901, 0x1E935, 0x1E945, 0x1E936, 0x1E92E}),
-		$cstr({0x1E911, 0x1E92E, 0x1E92A, 0x1E927, 0x1E92E}),
-		$cstr({0x1E903, 0x1E92E, 0x1E92A, 0x1E927, 0x1E92E}),
-		$cstr({0x1E914, 0x1E935, 0x1E933, 0x1E92E}),
-		$cstr({0x1E905, 0x1E92D, 0x1E924, 0x1E93C, 0x1E92E}),
-		$cstr({0x1E912, 0x1E922, 0x1E92A, 0x1E933, 0x1E92E}),
-		$cstr({0x1E914, 0x1E92E, 0x1E924, 0x1E92E}),
-		$cstr({0x1E910, 0x1E926, 0x1E92E, 0x1E931, 0x1E93C, 0x1E92E}),
+		$cstr({0x0001e905, 0x0001e92d, 0x0001e945, 0x0001e924, 0x0001e92e}),
+		$cstr({0x0001e915, 0x0001e92e, 0x0001e924, 0x0001e93c, 0x0001e92e}),
+		$cstr({0x0001e910, 0x0001e926, 0x0001e92e, 0x0001e945, 0x0001e934, 0x0001e92e}),
+		$cstr({0x0001e905, 0x0001e92b, 0x0001e945, 0x0001e93c, 0x0001e92e}),
+		$cstr({0x0001e901, 0x0001e935, 0x0001e945, 0x0001e936, 0x0001e92e}),
+		$cstr({0x0001e911, 0x0001e92e, 0x0001e92a, 0x0001e927, 0x0001e92e}),
+		$cstr({0x0001e903, 0x0001e92e, 0x0001e92a, 0x0001e927, 0x0001e92e}),
+		$cstr({0x0001e914, 0x0001e935, 0x0001e933, 0x0001e92e}),
+		$cstr({0x0001e905, 0x0001e92d, 0x0001e924, 0x0001e93c, 0x0001e92e}),
+		$cstr({0x0001e912, 0x0001e922, 0x0001e92a, 0x0001e933, 0x0001e92e}),
+		$cstr({0x0001e914, 0x0001e92e, 0x0001e924, 0x0001e92e}),
+		$cstr({0x0001e910, 0x0001e926, 0x0001e92e, 0x0001e931, 0x0001e93c, 0x0001e92e}),
 		""_s
 	}));
 	$var($StringArray, metaValue_MonthNarrows, $new($StringArray, {
-		$cstr({0x1E905}),
-		$cstr({0x1E915}),
-		$cstr({0x1E904}),
-		$cstr({0x1E905}),
-		$cstr({0x1E901}),
-		$cstr({0x1E911}),
-		$cstr({0x1E903}),
-		$cstr({0x1E914}),
-		$cstr({0x1E905}),
-		$cstr({0x1E912}),
-		$cstr({0x1E914}),
-		$cstr({0x1E904}),
+		$cstr({0x0001e905}),
+		$cstr({0x0001e915}),
+		$cstr({0x0001e904}),
+		$cstr({0x0001e905}),
+		$cstr({0x0001e901}),
+		$cstr({0x0001e911}),
+		$cstr({0x0001e903}),
+		$cstr({0x0001e914}),
+		$cstr({0x0001e905}),
+		$cstr({0x0001e912}),
+		$cstr({0x0001e914}),
+		$cstr({0x0001e904}),
 		""_s
 	}));
 	$var($StringArray, metaValue_DayNames, $new($StringArray, {
-		$cstr({0x1E908, 0x1E92B, 0x1E92C, 0x1E926, 0x1E92D, 0x1E92A, 0x1E946, 0x1E92B}),
-		$cstr({0x1E900, 0x1E944, 0x1E929, 0x1E935, 0x1E932, 0x1E94B, 0x1E923, 0x1E92B}),
-		$cstr({0x1E903, 0x1E922, 0x1E931, 0x1E926, 0x1E922, 0x1E944, 0x1E92A, 0x1E92B}),
-		$cstr({0x1E910, 0x1E936, 0x1E92B, 0x1E927, 0x1E924, 0x1E922, 0x1E944, 0x1E92A, 0x1E92B}),
-		$cstr({0x1E910, 0x1E922, 0x1E944, 0x1E927, 0x1E922, 0x1E944, 0x1E932, 0x1E923, 0x1E92B}),
-		$cstr({0x1E903, 0x1E922, 0x1E931, 0x1E932, 0x1E923, 0x1E92B}),
-		$cstr({0x1E916, 0x1E92E, 0x1E92A, 0x1E926, 0x1E92D, 0x1E92A, 0x1E946, 0x1E92B})
+		$cstr({0x0001e908, 0x0001e92b, 0x0001e92c, 0x0001e926, 0x0001e92d, 0x0001e92a, 0x0001e946, 0x0001e92b}),
+		$cstr({0x0001e900, 0x0001e944, 0x0001e929, 0x0001e935, 0x0001e932, 0x0001e94b, 0x0001e923, 0x0001e92b}),
+		$cstr({0x0001e903, 0x0001e922, 0x0001e931, 0x0001e926, 0x0001e922, 0x0001e944, 0x0001e92a, 0x0001e92b}),
+		$cstr({0x0001e910, 0x0001e936, 0x0001e92b, 0x0001e927, 0x0001e924, 0x0001e922, 0x0001e944, 0x0001e92a, 0x0001e92b}),
+		$cstr({0x0001e910, 0x0001e922, 0x0001e944, 0x0001e927, 0x0001e922, 0x0001e944, 0x0001e932, 0x0001e923, 0x0001e92b}),
+		$cstr({0x0001e903, 0x0001e922, 0x0001e931, 0x0001e932, 0x0001e923, 0x0001e92b}),
+		$cstr({0x0001e916, 0x0001e92e, 0x0001e92a, 0x0001e926, 0x0001e92d, 0x0001e92a, 0x0001e946, 0x0001e92b})
 	}));
 	$var($StringArray, metaValue_DayAbbreviations, $new($StringArray, {
-		$cstr({0x1E908, 0x1E92B, 0x1E92C}),
-		$cstr({0x1E900, 0x1E944, 0x1E929, 0x1E935}),
-		$cstr({0x1E903, 0x1E922, 0x1E926}),
-		$cstr({0x1E914, 0x1E92B, 0x1E927}),
-		$cstr({0x1E910, 0x1E922, 0x1E944, 0x1E927}),
-		$cstr({0x1E903, 0x1E922, 0x1E923}),
-		$cstr({0x1E916, 0x1E92E, 0x1E92A})
+		$cstr({0x0001e908, 0x0001e92b, 0x0001e92c}),
+		$cstr({0x0001e900, 0x0001e944, 0x0001e929, 0x0001e935}),
+		$cstr({0x0001e903, 0x0001e922, 0x0001e926}),
+		$cstr({0x0001e914, 0x0001e92b, 0x0001e927}),
+		$cstr({0x0001e910, 0x0001e922, 0x0001e944, 0x0001e927}),
+		$cstr({0x0001e903, 0x0001e922, 0x0001e923}),
+		$cstr({0x0001e916, 0x0001e92e, 0x0001e92a})
 	}));
 	$var($StringArray, metaValue_DayNarrows, $new($StringArray, {
-		$cstr({0x1E908}),
-		$cstr({0x1E900, 0x1E944}),
-		$cstr({0x1E903}),
-		$cstr({0x1E914}),
-		$cstr({0x1E910}),
-		$cstr({0x1E903}),
-		$cstr({0x1E916})
+		$cstr({0x0001e908}),
+		$cstr({0x0001e900, 0x0001e944}),
+		$cstr({0x0001e903}),
+		$cstr({0x0001e914}),
+		$cstr({0x0001e910}),
+		$cstr({0x0001e903}),
+		$cstr({0x0001e916})
 	}));
 	$var($StringArray, metaValue_QuarterNames, $new($StringArray, {
-		$cstr({0x1E910, 0x1E951}),
-		$cstr({0x1E910, 0x1E952}),
-		$cstr({0x1E910, 0x1E953}),
-		$cstr({0x1E910, 0x1E954})
+		$cstr({0x0001e910, 0x0001e951}),
+		$cstr({0x0001e910, 0x0001e952}),
+		$cstr({0x0001e910, 0x0001e953}),
+		$cstr({0x0001e910, 0x0001e954})
 	}));
 	$var($StringArray, metaValue_QuarterNarrows, $new($StringArray, {
-		$cstr({0x1E951}),
-		$cstr({0x1E952}),
-		$cstr({0x1E953}),
-		$cstr({0x1E954})
+		$cstr({0x0001e951}),
+		$cstr({0x0001e952}),
+		$cstr({0x0001e953}),
+		$cstr({0x0001e954})
 	}));
 	$var($StringArray, metaValue_AmPmMarkers, $new($StringArray, {
-		$cstr({0x1E900, 0x1E90E}),
-		$cstr({0x1E907, 0x1E90E}),
+		$cstr({0x0001e900, 0x0001e90e}),
+		$cstr({0x0001e907, 0x0001e90e}),
 		""_s,
 		""_s,
 		""_s,
@@ -123,8 +103,8 @@ $ObjectArray2* FormatData_ff_Adlm::getContents() {
 		""_s
 	}));
 	$var($StringArray, metaValue_narrow_AmPmMarkers, $new($StringArray, {
-		$cstr({0x1E922}),
-		$cstr({0x1E929}),
+		$cstr({0x0001e922}),
+		$cstr({0x0001e929}),
 		""_s,
 		""_s,
 		""_s,
@@ -137,8 +117,8 @@ $ObjectArray2* FormatData_ff_Adlm::getContents() {
 		""_s
 	}));
 	$var($StringArray, metaValue_Eras, $new($StringArray, {
-		$cstr({0x1E900, 0x1E900, 0x1E90B}),
-		$cstr({0x1E907, 0x1E900, 0x1E90B})
+		$cstr({0x0001e900, 0x0001e900, 0x0001e90b}),
+		$cstr({0x0001e907, 0x0001e900, 0x0001e90b})
 	}));
 	$var($StringArray, metaValue_TimePatterns, $new($StringArray, {
 		"HH:mm:ss zzzz"_s,
@@ -148,137 +128,137 @@ $ObjectArray2* FormatData_ff_Adlm::getContents() {
 	}));
 	$var($StringArray, metaValue_java_time_islamic_long_Eras, $new($StringArray, {
 		""_s,
-		$cstr({0x1E907, 0x1E90A})
+		$cstr({0x0001e907, 0x0001e90a})
 	}));
-	$var($String, metaValue_calendarname_gregorian, $cstr({0x1E919, 0x1E922, 0x1E924, 0x1E92F, 0x1E92D, 0x1E925, 0x1E92B, 0x1E92A, 0x1E92B, ' ', 0x1E918, 0x1E92B, 0x1E92A, 0x1E93A, 0x1E92E, 0x1E92A, 0x1E92D, 0x1E934, 0x1E922, 0x1E932, 0x1E933, 0x1E92E}));
+	$var($String, metaValue_calendarname_gregorian, $cstr({0x0001e919, 0x0001e922, 0x0001e924, 0x0001e92f, 0x0001e92d, 0x0001e925, 0x0001e92b, 0x0001e92a, 0x0001e92b, ' ', 0x0001e918, 0x0001e92b, 0x0001e92a, 0x0001e93a, 0x0001e92e, 0x0001e92a, 0x0001e92d, 0x0001e934, 0x0001e922, 0x0001e932, 0x0001e933, 0x0001e92e}));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("field.year"_s),
-			$of($cstr({0x1E938, 0x1E92D, 0x1E93C, 0x1E922, 0x1E944, 0x1E932, 0x1E923, 0x1E92B}))
+			"field.year"_s,
+			$cstr({0x0001e938, 0x0001e92d, 0x0001e93c, 0x0001e922, 0x0001e944, 0x0001e932, 0x0001e923, 0x0001e92b})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"japanese.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.gmtFormat"_s),
-			$of($cstr({0x1E911, 0x1E916, 0x1E918, '{', '0', '}'}))
+			"timezone.gmtFormat"_s,
+			$cstr({0x0001e911, 0x0001e916, 0x0001e918, '{', '0', '}'})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterNames)
+			"standalone.QuarterAbbreviations"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"roc.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"roc.MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.islamic-civil"_s),
-			$of($cstr({0x1E919, 0x1E922, 0x1E924, 0x1E92F, 0x1E92D, 0x1E925, 0x1E92B, 0x1E92A, 0x1E92B, ' ', 0x1E902, 0x1E92D, 0x1E927, 0x1E924, 0x1E922, 0x1E944, 0x1E925, 0x1E934, 0x1E922, 0x1E932, 0x1E933, 0x1E92E, ' ', '(', 0x1E922, 0x1E924, 0x1E946, 0x1E935, 0x1E931, 0x1E922, 0x1E924, ',', ' ', 0x1E92C, 0x1E92B, 0x1E931, 0x1E932, 0x1E94B, 0x1E923, 0x1E92E, ' ', 0x1E932, 0x1E94B, 0x1E926, 0x1E92B, 0x1E92F, 0x1E946, 0x1E922, 0x1E944, 0x1E933, 0x1E935, ')'}))
+			"calendarname.islamic-civil"_s,
+			$cstr({0x0001e919, 0x0001e922, 0x0001e924, 0x0001e92f, 0x0001e92d, 0x0001e925, 0x0001e92b, 0x0001e92a, 0x0001e92b, ' ', 0x0001e902, 0x0001e92d, 0x0001e927, 0x0001e924, 0x0001e922, 0x0001e944, 0x0001e925, 0x0001e934, 0x0001e922, 0x0001e932, 0x0001e933, 0x0001e92e, ' ', '(', 0x0001e922, 0x0001e924, 0x0001e946, 0x0001e935, 0x0001e931, 0x0001e922, 0x0001e924, ',', ' ', 0x0001e92c, 0x0001e92b, 0x0001e931, 0x0001e932, 0x0001e94b, 0x0001e923, 0x0001e92e, ' ', 0x0001e932, 0x0001e94b, 0x0001e926, 0x0001e92b, 0x0001e92f, 0x0001e946, 0x0001e922, 0x0001e944, 0x0001e933, 0x0001e935, ')'})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"islamic.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"japanese.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.Eras"_s),
-			$of(metaValue_Eras)
+			"narrow.Eras"_s,
+			metaValue_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.regionFormat.standard"_s),
-			$of($cstr({'{', '0', '}', ' ', 0x1E911, 0x1E92D, 0x1E936, 0x1E92E, 0x1E945, 0x1E92A, 0x1E92B, ' ', 0x1E916, 0x1E922, 0x1E931, 0x1E92A, 0x1E92D, 0x1E93C, 0x1E935, 0x1E932, 0x1E94B, 0x1E923, 0x1E92B}))
+			"timezone.regionFormat.standard"_s,
+			$cstr({'{', '0', '}', ' ', 0x0001e911, 0x0001e92d, 0x0001e936, 0x0001e92e, 0x0001e945, 0x0001e92a, 0x0001e92b, ' ', 0x0001e916, 0x0001e922, 0x0001e931, 0x0001e92a, 0x0001e92d, 0x0001e93c, 0x0001e935, 0x0001e932, 0x0001e94b, 0x0001e923, 0x0001e92b})
 		}),
 		$$new($ObjectArray, {
-			$of("DefaultNumberingSystem"_s),
-			$of("adlm"_s)
+			"DefaultNumberingSystem"_s,
+			"adlm"_s
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"japanese.abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.japanese"_s),
-			$of($cstr({0x1E919, 0x1E922, 0x1E924, 0x1E92F, 0x1E92D, 0x1E925, 0x1E92B, 0x1E92A, 0x1E92B, ' ', 0x1E914, 0x1E922, 0x1E944, 0x1E928, 0x1E92E, 0x1E932, 0x1E92D, 0x1E932, 0x1E933, 0x1E92E}))
+			"calendarname.japanese"_s,
+			$cstr({0x0001e919, 0x0001e922, 0x0001e924, 0x0001e92f, 0x0001e92d, 0x0001e925, 0x0001e92b, 0x0001e92a, 0x0001e92b, ' ', 0x0001e914, 0x0001e922, 0x0001e944, 0x0001e928, 0x0001e92e, 0x0001e932, 0x0001e92d, 0x0001e932, 0x0001e933, 0x0001e92e})
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.gmtZeroFormat"_s),
-			$of($cstr({0x1E911, 0x1E916, 0x1E918}))
+			"timezone.gmtZeroFormat"_s,
+			$cstr({0x0001e911, 0x0001e916, 0x0001e918})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"japanese.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"standalone.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthAbbreviations"_s),
-			$of(metaValue_MonthNames)
+			"roc.MonthAbbreviations"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.narrow.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"java.time.islamic.narrow.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("long.Eras"_s),
-			$of($$new($StringArray, {
-				$cstr({0x1E900, 0x1E923, 0x1E92E, ' ', 0x1E900, 0x1E932, 0x1E946, 0x1E922, 0x1E926, 0x1E92D, ' ', 0x1E90B, 0x1E945, 0x1E927, 0x1E922, 0x1E944}),
-				$cstr({0x1E907, 0x1E922, 0x1E944, 0x1E931, 0x1E92E, ' ', 0x1E900, 0x1E932, 0x1E946, 0x1E922, 0x1E926, 0x1E92D, ' ', 0x1E90B, 0x1E945, 0x1E927, 0x1E922, 0x1E944})
-			}))
+			"long.Eras"_s,
+			$$new($StringArray, {
+				$cstr({0x0001e900, 0x0001e923, 0x0001e92e, ' ', 0x0001e900, 0x0001e932, 0x0001e946, 0x0001e922, 0x0001e926, 0x0001e92d, ' ', 0x0001e90b, 0x0001e945, 0x0001e927, 0x0001e922, 0x0001e944}),
+				$cstr({0x0001e907, 0x0001e922, 0x0001e944, 0x0001e931, 0x0001e92e, ' ', 0x0001e900, 0x0001e932, 0x0001e946, 0x0001e922, 0x0001e926, 0x0001e92d, ' ', 0x0001e90b, 0x0001e945, 0x0001e927, 0x0001e922, 0x0001e944})
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterNarrows"_s),
-			$of(metaValue_QuarterNarrows)
+			"roc.QuarterNarrows"_s,
+			metaValue_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayNames"_s),
-			$of(metaValue_DayNames)
+			"islamic.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthAbbreviations"_s),
-			$of(metaValue_MonthNames)
+			"buddhist.MonthAbbreviations"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"buddhist.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {
+			"DateTimePatterns"_s,
+			$$new($StringArray, {
 				"{1}{0}"_s,
 				"{1} {0}"_s,
 				"{1} {0}"_s,
 				"{1} {0}"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberElements"_s),
-			$of($$new($StringArray, {
+			"latn.NumberElements"_s,
+			$$new($StringArray, {
 				"."_s,
 				u"⹁"_s,
 				";"_s,
@@ -289,415 +269,415 @@ $ObjectArray2* FormatData_ff_Adlm::getContents() {
 				"E"_s,
 				u"‰"_s,
 				u"∞"_s,
-				$cstr({0x1E90F, 0x1E92E, 0x1E908}),
+				$cstr({0x0001e90f, 0x0001e92e, 0x0001e908}),
 				""_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayNames"_s),
-			$of(metaValue_DayNames)
+			"buddhist.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("field.minute"_s),
-			$of($cstr({0x1E938, 0x1E92E, 0x1E936, 0x1E92E, 0x1E925, 0x1E922, 0x1E944, 0x1E92A, 0x1E92B}))
+			"field.minute"_s,
+			$cstr({0x0001e938, 0x0001e92e, 0x0001e936, 0x0001e92e, 0x0001e925, 0x0001e922, 0x0001e944, 0x0001e92a, 0x0001e92b})
 		}),
 		$$new($ObjectArray, {
-			$of("field.era"_s),
-			$of($cstr({0x1E93A, 0x1E92D, 0x1E92A, 0x1E922, 0x1E924}))
+			"field.era"_s,
+			$cstr({0x0001e93a, 0x0001e92d, 0x0001e92a, 0x0001e922, 0x0001e924})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"buddhist.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("field.dayperiod"_s),
-			$of($cstr({0x1E900, 0x1E90E, '/', 0x1E907, 0x1E90E}))
+			"field.dayperiod"_s,
+			$cstr({0x0001e900, 0x0001e90e, '/', 0x0001e907, 0x0001e90e})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNarrows"_s),
-			$of($$new($StringArray, {
-				$cstr({0x1E905}),
-				$cstr({0x1E915}),
-				$cstr({0x1E904}),
-				$cstr({0x1E905}),
-				$cstr({0x1E901}),
-				$cstr({0x1E911}),
-				$cstr({0x1E903}),
-				$cstr({0x1E914}),
-				$cstr({0x1E905}),
-				$cstr({0x1E912}),
-				$cstr({0x1E904}),
-				$cstr({0x1E904}),
+			"standalone.MonthNarrows"_s,
+			$$new($StringArray, {
+				$cstr({0x0001e905}),
+				$cstr({0x0001e915}),
+				$cstr({0x0001e904}),
+				$cstr({0x0001e905}),
+				$cstr({0x0001e901}),
+				$cstr({0x0001e911}),
+				$cstr({0x0001e903}),
+				$cstr({0x0001e914}),
+				$cstr({0x0001e905}),
+				$cstr({0x0001e912}),
+				$cstr({0x0001e904}),
+				$cstr({0x0001e904}),
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.MonthNames"_s),
-			$of($$new($StringArray, {
-				$cstr({0x1E914, 0x1E92E, 0x1E925, 0x1E926, 0x1E92B, 0x1E932, 0x1E93C, 0x1E92B}),
-				$cstr({0x1E905, 0x1E922, 0x1E926, 0x1E946, 0x1E92E, 0x1E92A, 0x1E923, 0x1E935, '-', 0x1E906, 0x1E922, 0x1E92A, 0x1E922, 0x1E932}),
-				$cstr({0x1E906, 0x1E922, 0x1E92A, 0x1E922, 0x1E932}),
-				$cstr({0x1E903, 0x1E92D, 0x1E925, 0x1E928, 0x1E922, 0x1E92A, 0x1E922, 0x1E932}),
-				$cstr({0x1E904, 0x1E922, 0x1E928, 0x1E946, 0x1E922, 0x1E92A, 0x1E922, 0x1E932}),
-				$cstr({0x1E905, 0x1E922, 0x1E926, 0x1E946, 0x1E92E, 0x1E92A, 0x1E923, 0x1E935, '-', 0x1E908, 0x1E922, 0x1E944, 0x1E936, 0x1E92D, 0x1E926, 0x1E92D}),
-				$cstr({0x1E908, 0x1E922, 0x1E944, 0x1E936, 0x1E92D, 0x1E926, 0x1E92D}),
-				$cstr({0x1E905, 0x1E922, 0x1E926, 0x1E946, 0x1E92E, 0x1E92A, 0x1E923, 0x1E935, '-', 0x1E905, 0x1E935, 0x1E945, 0x1E925, 0x1E922, 0x1E934, 0x1E92B, 0x1E945}),
-				$cstr({0x1E905, 0x1E935, 0x1E945, 0x1E925, 0x1E922, 0x1E934, 0x1E92B, 0x1E945}),
-				$cstr({0x1E914, 0x1E935, 0x1E945, 0x1E924, 0x1E923, 0x1E922, 0x1E944, 0x1E932, 0x1E94B, 0x1E923, 0x1E935}),
-				$cstr({0x1E905, 0x1E922, 0x1E926, 0x1E946, 0x1E92E, 0x1E92A, 0x1E923, 0x1E935, '-', 0x1E901, 0x1E92E, 0x1E932, 0x1E933, 0x1E92D, 0x1E932}),
-				$cstr({0x1E901, 0x1E935, 0x1E932, 0x1E933, 0x1E92D, 0x1E932}),
+			"islamic.MonthNames"_s,
+			$$new($StringArray, {
+				$cstr({0x0001e914, 0x0001e92e, 0x0001e925, 0x0001e926, 0x0001e92b, 0x0001e932, 0x0001e93c, 0x0001e92b}),
+				$cstr({0x0001e905, 0x0001e922, 0x0001e926, 0x0001e946, 0x0001e92e, 0x0001e92a, 0x0001e923, 0x0001e935, '-', 0x0001e906, 0x0001e922, 0x0001e92a, 0x0001e922, 0x0001e932}),
+				$cstr({0x0001e906, 0x0001e922, 0x0001e92a, 0x0001e922, 0x0001e932}),
+				$cstr({0x0001e903, 0x0001e92d, 0x0001e925, 0x0001e928, 0x0001e922, 0x0001e92a, 0x0001e922, 0x0001e932}),
+				$cstr({0x0001e904, 0x0001e922, 0x0001e928, 0x0001e946, 0x0001e922, 0x0001e92a, 0x0001e922, 0x0001e932}),
+				$cstr({0x0001e905, 0x0001e922, 0x0001e926, 0x0001e946, 0x0001e92e, 0x0001e92a, 0x0001e923, 0x0001e935, '-', 0x0001e908, 0x0001e922, 0x0001e944, 0x0001e936, 0x0001e92d, 0x0001e926, 0x0001e92d}),
+				$cstr({0x0001e908, 0x0001e922, 0x0001e944, 0x0001e936, 0x0001e92d, 0x0001e926, 0x0001e92d}),
+				$cstr({0x0001e905, 0x0001e922, 0x0001e926, 0x0001e946, 0x0001e92e, 0x0001e92a, 0x0001e923, 0x0001e935, '-', 0x0001e905, 0x0001e935, 0x0001e945, 0x0001e925, 0x0001e922, 0x0001e934, 0x0001e92b, 0x0001e945}),
+				$cstr({0x0001e905, 0x0001e935, 0x0001e945, 0x0001e925, 0x0001e922, 0x0001e934, 0x0001e92b, 0x0001e945}),
+				$cstr({0x0001e914, 0x0001e935, 0x0001e945, 0x0001e924, 0x0001e923, 0x0001e922, 0x0001e944, 0x0001e932, 0x0001e94b, 0x0001e923, 0x0001e935}),
+				$cstr({0x0001e905, 0x0001e922, 0x0001e926, 0x0001e946, 0x0001e92e, 0x0001e92a, 0x0001e923, 0x0001e935, '-', 0x0001e901, 0x0001e92e, 0x0001e932, 0x0001e933, 0x0001e92d, 0x0001e932}),
+				$cstr({0x0001e901, 0x0001e935, 0x0001e932, 0x0001e933, 0x0001e92d, 0x0001e932}),
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterNarrows"_s),
-			$of(metaValue_QuarterNarrows)
+			"japanese.QuarterNarrows"_s,
+			metaValue_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.roc"_s),
-			$of($cstr({0x1E919, 0x1E922, 0x1E924, 0x1E92F, 0x1E92D, 0x1E925, 0x1E92B, 0x1E92A, 0x1E92B, ' ', 0x1E918, 0x1E92B, 0x1E932, 0x1E923, 0x1E92D, 0x1E934, 0x1E922, 0x1E932, 0x1E933, 0x1E92E, ' ', 0x1E905, 0x1E92D, 0x1E945, 0x1E932}))
+			"calendarname.roc"_s,
+			$cstr({0x0001e919, 0x0001e922, 0x0001e924, 0x0001e92f, 0x0001e92d, 0x0001e925, 0x0001e92b, 0x0001e92a, 0x0001e92b, ' ', 0x0001e918, 0x0001e92b, 0x0001e932, 0x0001e923, 0x0001e92d, 0x0001e934, 0x0001e922, 0x0001e932, 0x0001e933, 0x0001e92e, ' ', 0x0001e905, 0x0001e92d, 0x0001e945, 0x0001e932})
 		}),
 		$$new($ObjectArray, {
-			$of("roc.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterNames)
+			"roc.QuarterAbbreviations"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"islamic.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("field.month"_s),
-			$of($cstr({0x1E924, 0x1E92B, 0x1E931, 0x1E92A, 0x1E935}))
+			"field.month"_s,
+			$cstr({0x0001e924, 0x0001e92b, 0x0001e931, 0x0001e92a, 0x0001e935})
 		}),
 		$$new($ObjectArray, {
-			$of("field.second"_s),
-			$of($cstr({0x1E933, 0x1E92D, 0x1E932, 0x1E930, 0x1E92B, 0x1E92A, 0x1E92B}))
+			"field.second"_s,
+			$cstr({0x0001e933, 0x0001e92d, 0x0001e932, 0x0001e930, 0x0001e92b, 0x0001e92a, 0x0001e92b})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.MonthNarrows"_s),
-			$of($$new($StringArray, {
-				$cstr({0x1E951}),
-				$cstr({0x1E952}),
-				$cstr({0x1E953}),
-				$cstr({0x1E954}),
-				$cstr({0x1E955}),
-				$cstr({0x1E956}),
-				$cstr({0x1E957}),
-				$cstr({0x1E958}),
-				$cstr({0x1E959}),
-				$cstr({0x1E951, 0x1E950}),
-				$cstr({0x1E951, 0x1E951}),
-				$cstr({0x1E951, 0x1E952}),
+			"islamic.MonthNarrows"_s,
+			$$new($StringArray, {
+				$cstr({0x0001e951}),
+				$cstr({0x0001e952}),
+				$cstr({0x0001e953}),
+				$cstr({0x0001e954}),
+				$cstr({0x0001e955}),
+				$cstr({0x0001e956}),
+				$cstr({0x0001e957}),
+				$cstr({0x0001e958}),
+				$cstr({0x0001e959}),
+				$cstr({0x0001e951, 0x0001e950}),
+				$cstr({0x0001e951, 0x0001e951}),
+				$cstr({0x0001e951, 0x0001e952}),
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.islamic"_s),
-			$of($cstr({0x1E919, 0x1E922, 0x1E924, 0x1E925, 0x1E92B, 0x1E92A, 0x1E92B, ' ', 0x1E902, 0x1E92D, 0x1E927, 0x1E924, 0x1E922, 0x1E944, 0x1E925, 0x1E934, 0x1E922, 0x1E932, 0x1E933, 0x1E92E}))
+			"calendarname.islamic"_s,
+			$cstr({0x0001e919, 0x0001e922, 0x0001e924, 0x0001e925, 0x0001e92b, 0x0001e92a, 0x0001e92b, ' ', 0x0001e902, 0x0001e92d, 0x0001e927, 0x0001e924, 0x0001e922, 0x0001e944, 0x0001e925, 0x0001e934, 0x0001e922, 0x0001e932, 0x0001e933, 0x0001e92e})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"japanese.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"buddhist.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
-				$cstr({0x1E905, 0x1E92D, 0x1E945, 0x1E924}),
-				$cstr({0x1E915, 0x1E92E, 0x1E924}),
-				$cstr({0x1E904, 0x1E92E, 0x1E945, 0x1E934}),
-				$cstr({0x1E905, 0x1E92B, 0x1E945, 0x1E93C}),
-				$cstr({0x1E901, 0x1E935, 0x1E945, 0x1E936}),
-				$cstr({0x1E911, 0x1E92E, 0x1E92A}),
-				$cstr({0x1E903, 0x1E92E, 0x1E92A}),
-				$cstr({0x1E914, 0x1E935, 0x1E933}),
-				$cstr({0x1E905, 0x1E92D, 0x1E924}),
-				$cstr({0x1E912, 0x1E922, 0x1E92A}),
-				$cstr({0x1E914, 0x1E92E, 0x1E924}),
-				$cstr({0x1E904, 0x1E92E, 0x1E931}),
+			"standalone.MonthAbbreviations"_s,
+			$$new($StringArray, {
+				$cstr({0x0001e905, 0x0001e92d, 0x0001e945, 0x0001e924}),
+				$cstr({0x0001e915, 0x0001e92e, 0x0001e924}),
+				$cstr({0x0001e904, 0x0001e92e, 0x0001e945, 0x0001e934}),
+				$cstr({0x0001e905, 0x0001e92b, 0x0001e945, 0x0001e93c}),
+				$cstr({0x0001e901, 0x0001e935, 0x0001e945, 0x0001e936}),
+				$cstr({0x0001e911, 0x0001e92e, 0x0001e92a}),
+				$cstr({0x0001e903, 0x0001e92e, 0x0001e92a}),
+				$cstr({0x0001e914, 0x0001e935, 0x0001e933}),
+				$cstr({0x0001e905, 0x0001e92d, 0x0001e924}),
+				$cstr({0x0001e912, 0x0001e922, 0x0001e92a}),
+				$cstr({0x0001e914, 0x0001e92e, 0x0001e924}),
+				$cstr({0x0001e904, 0x0001e92e, 0x0001e931}),
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.regionFormat"_s),
-			$of($cstr({'{', '0', '}', ' ', 0x1E911, 0x1E92D, 0x1E936, 0x1E92E, 0x1E945, 0x1E92A, 0x1E92B}))
+			"timezone.regionFormat"_s,
+			$cstr({'{', '0', '}', ' ', 0x0001e911, 0x0001e92d, 0x0001e936, 0x0001e92e, 0x0001e945, 0x0001e92a, 0x0001e92b})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterNarrows"_s),
-			$of(metaValue_QuarterNarrows)
+			"buddhist.QuarterNarrows"_s,
+			metaValue_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("roc.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"roc.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.QuarterNames"_s),
-			$of($$new($StringArray, {
-				$cstr({0x1E910, 0x1E922, 0x1E934, 0x1E929, 0x1E92D, 0x1E945, 0x1E92A, 0x1E92B, ' ', 0x1E951, 0x1E92A, 0x1E92B}),
-				$cstr({0x1E910, 0x1E922, 0x1E934, 0x1E929, 0x1E92D, 0x1E945, 0x1E92A, 0x1E92B, ' ', 0x1E952, 0x1E92A, 0x1E92B}),
-				$cstr({0x1E910, 0x1E922, 0x1E934, 0x1E929, 0x1E92D, 0x1E945, 0x1E92A, 0x1E92B, ' ', 0x1E953, 0x1E92A, 0x1E92B}),
-				$cstr({0x1E910, 0x1E922, 0x1E934, 0x1E929, 0x1E92D, 0x1E945, 0x1E92A, 0x1E92B, ' ', 0x1E954, 0x1E92A, 0x1E92B})
-			}))
+			"standalone.QuarterNames"_s,
+			$$new($StringArray, {
+				$cstr({0x0001e910, 0x0001e922, 0x0001e934, 0x0001e929, 0x0001e92d, 0x0001e945, 0x0001e92a, 0x0001e92b, ' ', 0x0001e951, 0x0001e92a, 0x0001e92b}),
+				$cstr({0x0001e910, 0x0001e922, 0x0001e934, 0x0001e929, 0x0001e92d, 0x0001e945, 0x0001e92a, 0x0001e92b, ' ', 0x0001e952, 0x0001e92a, 0x0001e92b}),
+				$cstr({0x0001e910, 0x0001e922, 0x0001e934, 0x0001e929, 0x0001e92d, 0x0001e945, 0x0001e92a, 0x0001e92b, ' ', 0x0001e953, 0x0001e92a, 0x0001e92b}),
+				$cstr({0x0001e910, 0x0001e922, 0x0001e934, 0x0001e929, 0x0001e92d, 0x0001e945, 0x0001e92a, 0x0001e92b, ' ', 0x0001e954, 0x0001e92a, 0x0001e92b})
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"japanese.MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterNames)
+			"islamic.QuarterAbbreviations"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"roc.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"standalone.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"islamic.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"islamic.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("field.zone"_s),
-			$of($cstr({0x1E933, 0x1E92D, 0x1E936, 0x1E92E, 0x1E945, 0x1E92A, 0x1E92B, ' ', 0x1E932, 0x1E92E, 0x1E933, 0x1E946, 0x1E935, 0x1E945, 0x1E92A, 0x1E92B}))
+			"field.zone"_s,
+			$cstr({0x0001e933, 0x0001e92d, 0x0001e936, 0x0001e92e, 0x0001e945, 0x0001e92a, 0x0001e92b, ' ', 0x0001e932, 0x0001e92e, 0x0001e933, 0x0001e946, 0x0001e935, 0x0001e945, 0x0001e92a, 0x0001e92b})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterNames)
+			"japanese.QuarterAbbreviations"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.narrow.AmPmMarkers"_s),
-			$of(metaValue_narrow_AmPmMarkers)
+			"buddhist.narrow.AmPmMarkers"_s,
+			metaValue_narrow_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"buddhist.abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("Eras"_s),
-			$of(metaValue_Eras)
+			"Eras"_s,
+			metaValue_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayNames"_s),
-			$of(metaValue_DayNames)
+			"roc.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"islamic.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterNarrows"_s),
-			$of(metaValue_QuarterNarrows)
+			"QuarterNarrows"_s,
+			metaValue_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"islamic.abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.QuarterNarrows"_s),
-			$of(metaValue_QuarterNarrows)
+			"standalone.QuarterNarrows"_s,
+			metaValue_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("field.weekday"_s),
-			$of($cstr({0x1E93B, 0x1E922, 0x1E924, 0x1E946, 0x1E922, 0x1E924, ' ', 0x1E933, 0x1E922, ' ', 0x1E934, 0x1E92E, 0x1E932, 0x1E93C, 0x1E92B, 0x1E92A, 0x1E92B}))
+			"field.weekday"_s,
+			$cstr({0x0001e93b, 0x0001e922, 0x0001e924, 0x0001e946, 0x0001e922, 0x0001e924, ' ', 0x0001e933, 0x0001e922, ' ', 0x0001e934, 0x0001e92e, 0x0001e932, 0x0001e93c, 0x0001e92b, 0x0001e92a, 0x0001e92b})
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.MonthAbbreviations"_s),
-			$of(metaValue_MonthNames)
+			"japanese.MonthAbbreviations"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"islamic.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.long.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"islamic.long.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"java.time.islamic.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"japanese.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterAbbreviations"_s),
-			$of(metaValue_QuarterNames)
+			"buddhist.QuarterAbbreviations"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayNames"_s),
-			$of(metaValue_DayNames)
+			"japanese.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"japanese.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of(metaValue_DayNames)
+			"DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"roc.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("field.week"_s),
-			$of($cstr({0x1E934, 0x1E92E, 0x1E932, 0x1E93C, 0x1E92B, 0x1E92A, 0x1E92B}))
+			"field.week"_s,
+			$cstr({0x0001e934, 0x0001e92e, 0x0001e932, 0x0001e93c, 0x0001e92b, 0x0001e92a, 0x0001e92b})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.MonthNarrows"_s),
-			$of(metaValue_MonthNarrows)
+			"buddhist.MonthNarrows"_s,
+			metaValue_MonthNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"buddhist.QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.QuarterNarrows"_s),
-			$of(metaValue_QuarterNarrows)
+			"islamic.QuarterNarrows"_s,
+			metaValue_QuarterNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("roc.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"roc.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("roc.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"roc.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.gregorian"_s),
-			$of(metaValue_calendarname_gregorian)
+			"calendarname.gregorian"_s,
+			metaValue_calendarname_gregorian
 		}),
 		$$new($ObjectArray, {
-			$of("timezone.regionFormat.daylight"_s),
-			$of($cstr({'{', '0', '}', ' ', 0x1E910, 0x1E936, 0x1E922, 0x1E925, 0x1E932, 0x1E923, 0x1E92D, ' ', 0x1E915, 0x1E92B, 0x1E945, 0x1E92F, 0x1E935}))
+			"timezone.regionFormat.daylight"_s,
+			$cstr({'{', '0', '}', ' ', 0x0001e910, 0x0001e936, 0x0001e922, 0x0001e925, 0x0001e932, 0x0001e923, 0x0001e92d, ' ', 0x0001e915, 0x0001e92b, 0x0001e945, 0x0001e92f, 0x0001e935})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"y MMMM d, EEEE"_s,
 				"y MMMM d"_s,
 				"y MMM d"_s,
 				"y-MM-dd"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayAbbreviations"_s),
-			$of(metaValue_DayAbbreviations)
+			"buddhist.DayAbbreviations"_s,
+			metaValue_DayAbbreviations
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"islamic.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("MonthAbbreviations"_s),
-			$of(metaValue_MonthNames)
+			"MonthAbbreviations"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.DayNames"_s),
-			$of(metaValue_DayNames)
+			"standalone.DayNames"_s,
+			metaValue_DayNames
 		}),
 		$$new($ObjectArray, {
-			$of("field.hour"_s),
-			$of($cstr({0x1E932, 0x1E94B, 0x1E936, 0x1E922, 0x1E925, 0x1E932, 0x1E94B, 0x1E923, 0x1E92D}))
+			"field.hour"_s,
+			$cstr({0x0001e932, 0x0001e94b, 0x0001e936, 0x0001e922, 0x0001e925, 0x0001e932, 0x0001e94b, 0x0001e923, 0x0001e92d})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.MonthAbbreviations"_s),
-			$of($$new($StringArray, {
-				$cstr({0x1E914, 0x1E92E, 0x1E926, '.'}),
-				$cstr({0x1E905, 0x1E922, 0x1E928, '.'}),
-				$cstr({0x1E906, 0x1E922, 0x1E92A, '.'}),
-				$cstr({0x1E903, 0x1E92D, 0x1E928, '.'}),
-				$cstr({0x1E904, 0x1E922, 0x1E928, '.'}),
-				$cstr({0x1E905, 0x1E922, 0x1E92A, '.'}),
-				$cstr({0x1E908, 0x1E922, 0x1E936, '.'}),
-				$cstr({0x1E905, 0x1E922, 0x1E927, '.'}),
-				$cstr({0x1E905, 0x1E935, 0x1E925, '.'}),
-				$cstr({0x1E914, 0x1E935, 0x1E924, '.'}),
-				$cstr({0x1E905, 0x1E922, 0x1E923, '.'}),
-				$cstr({0x1E901, 0x1E92E, 0x1E932, '.'}),
+			"islamic.MonthAbbreviations"_s,
+			$$new($StringArray, {
+				$cstr({0x0001e914, 0x0001e92e, 0x0001e926, '.'}),
+				$cstr({0x0001e905, 0x0001e922, 0x0001e928, '.'}),
+				$cstr({0x0001e906, 0x0001e922, 0x0001e92a, '.'}),
+				$cstr({0x0001e903, 0x0001e92d, 0x0001e928, '.'}),
+				$cstr({0x0001e904, 0x0001e922, 0x0001e928, '.'}),
+				$cstr({0x0001e905, 0x0001e922, 0x0001e92a, '.'}),
+				$cstr({0x0001e908, 0x0001e922, 0x0001e936, '.'}),
+				$cstr({0x0001e905, 0x0001e922, 0x0001e927, '.'}),
+				$cstr({0x0001e905, 0x0001e935, 0x0001e925, '.'}),
+				$cstr({0x0001e914, 0x0001e935, 0x0001e924, '.'}),
+				$cstr({0x0001e905, 0x0001e922, 0x0001e923, '.'}),
+				$cstr({0x0001e901, 0x0001e92e, 0x0001e932, '.'}),
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("islamic.narrow.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"islamic.narrow.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.buddhist"_s),
-			$of($cstr({0x1E919, 0x1E922, 0x1E924, 0x1E92F, 0x1E92D, 0x1E925, 0x1E92B, 0x1E92A, 0x1E92B, ' ', 0x1E904, 0x1E935, 0x1E945, 0x1E923, 0x1E922, 0x1E934, 0x1E922, 0x1E932, 0x1E933, 0x1E92E}))
+			"calendarname.buddhist"_s,
+			$cstr({0x0001e919, 0x0001e922, 0x0001e924, 0x0001e92f, 0x0001e92d, 0x0001e925, 0x0001e92b, 0x0001e92a, 0x0001e92b, ' ', 0x0001e904, 0x0001e935, 0x0001e945, 0x0001e923, 0x0001e922, 0x0001e934, 0x0001e922, 0x0001e932, 0x0001e933, 0x0001e92e})
 		}),
 		$$new($ObjectArray, {
-			$of("standalone.MonthNames"_s),
-			$of(metaValue_MonthNames)
+			"standalone.MonthNames"_s,
+			metaValue_MonthNames
 		}),
 		$$new($ObjectArray, {
-			$of("latn.NumberPatterns"_s),
-			$of($$new($StringArray, {
+			"latn.NumberPatterns"_s,
+			$$new($StringArray, {
 				"#,##0.###"_s,
 				u"¤ #,##0.00"_s,
 				"#,##0%"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("buddhist.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"buddhist.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("java.time.islamic.long.Eras"_s),
-			$of(metaValue_java_time_islamic_long_Eras)
+			"java.time.islamic.long.Eras"_s,
+			metaValue_java_time_islamic_long_Eras
 		}),
 		$$new($ObjectArray, {
-			$of("japanese.DayNarrows"_s),
-			$of(metaValue_DayNarrows)
+			"japanese.DayNarrows"_s,
+			metaValue_DayNarrows
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterNames"_s),
-			$of(metaValue_QuarterNames)
+			"QuarterNames"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.TimePatterns"_s),
-			$of(metaValue_TimePatterns)
+			"roc.TimePatterns"_s,
+			metaValue_TimePatterns
 		}),
 		$$new($ObjectArray, {
-			$of("QuarterAbbreviations"_s),
-			$of(metaValue_QuarterNames)
+			"QuarterAbbreviations"_s,
+			metaValue_QuarterNames
 		}),
 		$$new($ObjectArray, {
-			$of("roc.abbreviated.AmPmMarkers"_s),
-			$of(metaValue_AmPmMarkers)
+			"roc.abbreviated.AmPmMarkers"_s,
+			metaValue_AmPmMarkers
 		}),
 		$$new($ObjectArray, {
-			$of("calendarname.gregory"_s),
-			$of(metaValue_calendarname_gregorian)
+			"calendarname.gregory"_s,
+			metaValue_calendarname_gregorian
 		})
 	}));
 	return data;
@@ -707,7 +687,22 @@ FormatData_ff_Adlm::FormatData_ff_Adlm() {
 }
 
 $Class* FormatData_ff_Adlm::load$($String* name, bool initialize) {
-	$loadClass(FormatData_ff_Adlm, name, initialize, &_FormatData_ff_Adlm_ClassInfo_, allocate$FormatData_ff_Adlm);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ff_Adlm, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ff_Adlm, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.cldr.ext.FormatData_ff_Adlm",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_ff_Adlm, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_ff_Adlm);
+	});
 	return class$;
 }
 

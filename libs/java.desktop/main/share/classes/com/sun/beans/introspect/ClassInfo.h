@@ -35,6 +35,7 @@ class ClassInfo : public ::java::lang::Object {
 	$class(ClassInfo, 0, ::java::lang::Object)
 public:
 	ClassInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* type);
 	static void clear();
 	static ::com::sun::beans::introspect::ClassInfo* get($Class* type);

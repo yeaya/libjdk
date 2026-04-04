@@ -44,6 +44,7 @@ class $import SymbolMetadata : public ::java::lang::Object {
 	$class(SymbolMetadata, 0, ::java::lang::Object)
 public:
 	SymbolMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::code::Symbol* sym);
 	virtual ::com::sun::tools::javac::code::SymbolMetadata* append(::com::sun::tools::javac::util::List* l);
 	virtual ::com::sun::tools::javac::code::SymbolMetadata* appendClassInitTypeAttributes(::com::sun::tools::javac::util::List* l);

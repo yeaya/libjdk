@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/operations/Mod.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
@@ -7,7 +6,6 @@
 #include <com/sun/org/apache/xpath/internal/operations/Operation.h>
 #include <jcpp.h>
 
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
@@ -25,31 +23,6 @@ namespace com {
 					namespace internal {
 						namespace operations {
 
-$FieldInfo _Mod_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Mod, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Mod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Mod, init$, void)},
-	{"num", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)D", nullptr, $PUBLIC, $virtualMethod(Mod, num, double, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Mod, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _Mod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.operations.Mod",
-	"com.sun.org.apache.xpath.internal.operations.Operation",
-	nullptr,
-	_Mod_FieldInfo_,
-	_Mod_MethodInfo_
-};
-
-$Object* allocate$Mod($Class* clazz) {
-	return $of($alloc(Mod));
-}
-
 void Mod::init$() {
 	$Operation::init$();
 }
@@ -66,7 +39,27 @@ Mod::Mod() {
 }
 
 $Class* Mod::load$($String* name, bool initialize) {
-	$loadClass(Mod, name, initialize, &_Mod_ClassInfo_, allocate$Mod);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Mod, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Mod, init$, void)},
+		{"num", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)D", nullptr, $PUBLIC, $virtualMethod(Mod, num, double, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Mod, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.operations.Mod",
+		"com.sun.org.apache.xpath.internal.operations.Operation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Mod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Mod));
+	});
 	return class$;
 }
 

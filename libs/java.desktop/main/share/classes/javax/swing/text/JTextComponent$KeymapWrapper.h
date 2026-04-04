@@ -27,6 +27,7 @@ class $export JTextComponent$KeymapWrapper : public ::javax::swing::InputMap {
 	$class(JTextComponent$KeymapWrapper, 0, ::javax::swing::InputMap)
 public:
 	JTextComponent$KeymapWrapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::Keymap* keymap);
 	virtual $Object* get(::javax::swing::KeyStroke* keyStroke) override;
 	virtual $Array<::javax::swing::KeyStroke>* keys() override;

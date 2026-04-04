@@ -1,5 +1,4 @@
 #include <javax/naming/InvalidNameException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _InvalidNameException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidNameException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InvalidNameException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidNameException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidNameException, init$, void)},
-	{}
-};
-
-$ClassInfo _InvalidNameException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.InvalidNameException",
-	"javax.naming.NamingException",
-	nullptr,
-	_InvalidNameException_FieldInfo_,
-	_InvalidNameException_MethodInfo_
-};
-
-$Object* allocate$InvalidNameException($Class* clazz) {
-	return $of($alloc(InvalidNameException));
-}
 
 void InvalidNameException::init$($String* explanation) {
 	$NamingException::init$(explanation);
@@ -54,7 +29,26 @@ void InvalidNameException::throw$() {
 }
 
 $Class* InvalidNameException::load$($String* name, bool initialize) {
-	$loadClass(InvalidNameException, name, initialize, &_InvalidNameException_ClassInfo_, allocate$InvalidNameException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InvalidNameException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InvalidNameException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InvalidNameException, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.InvalidNameException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InvalidNameException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InvalidNameException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$MetalFileChooserUIAccessor.h>
-
 #include <java/awt/event/MouseListener.h>
 #include <java/io/File.h>
 #include <javax/swing/Action.h>
@@ -29,53 +28,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalFileChooserUI$MetalFileChooserUIAccessor_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$MetalFileChooserUIAccessor, this$0)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$MetalFileChooserUIAccessor_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI$MetalFileChooserUIAccessor, init$, void, $MetalFileChooserUI*)},
-	{"createDetailsView", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, createDetailsView, $JPanel*)},
-	{"createDoubleClickListener", "(Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, createDoubleClickListener, $MouseListener*, $JList*)},
-	{"createList", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, createList, $JPanel*)},
-	{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, createListSelectionListener, $ListSelectionListener*)},
-	{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getApproveSelectionAction, $Action*)},
-	{"getChangeToParentDirectoryAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getChangeToParentDirectoryAction, $Action*)},
-	{"getDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getDirectory, $File*)},
-	{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getFileChooser, $JFileChooser*)},
-	{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getModel, $BasicDirectoryModel*)},
-	{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getNewFolderAction, $Action*)},
-	{"isDirectorySelected", "()Z", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, isDirectorySelected, bool)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$MetalFileChooserUIAccessor_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$MetalFileChooserUIAccessor", "javax.swing.plaf.metal.MetalFileChooserUI", "MetalFileChooserUIAccessor", $PRIVATE},
-	{"sun.swing.FilePane$FileChooserUIAccessor", "sun.swing.FilePane", "FileChooserUIAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$MetalFileChooserUIAccessor_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$MetalFileChooserUIAccessor",
-	"java.lang.Object",
-	"sun.swing.FilePane$FileChooserUIAccessor",
-	_MetalFileChooserUI$MetalFileChooserUIAccessor_FieldInfo_,
-	_MetalFileChooserUI$MetalFileChooserUIAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$MetalFileChooserUIAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$MetalFileChooserUIAccessor($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$MetalFileChooserUIAccessor));
-}
 
 void MetalFileChooserUI$MetalFileChooserUIAccessor::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -129,7 +81,48 @@ MetalFileChooserUI$MetalFileChooserUIAccessor::MetalFileChooserUI$MetalFileChoos
 }
 
 $Class* MetalFileChooserUI$MetalFileChooserUIAccessor::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$MetalFileChooserUIAccessor, name, initialize, &_MetalFileChooserUI$MetalFileChooserUIAccessor_ClassInfo_, allocate$MetalFileChooserUI$MetalFileChooserUIAccessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$MetalFileChooserUIAccessor, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, $PRIVATE, $method(MetalFileChooserUI$MetalFileChooserUIAccessor, init$, void, $MetalFileChooserUI*)},
+		{"createDetailsView", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, createDetailsView, $JPanel*)},
+		{"createDoubleClickListener", "(Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", "(Ljavax/swing/JList<*>;)Ljava/awt/event/MouseListener;", $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, createDoubleClickListener, $MouseListener*, $JList*)},
+		{"createList", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, createList, $JPanel*)},
+		{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, createListSelectionListener, $ListSelectionListener*)},
+		{"getApproveSelectionAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getApproveSelectionAction, $Action*)},
+		{"getChangeToParentDirectoryAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getChangeToParentDirectoryAction, $Action*)},
+		{"getDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getDirectory, $File*)},
+		{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getFileChooser, $JFileChooser*)},
+		{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getModel, $BasicDirectoryModel*)},
+		{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, getNewFolderAction, $Action*)},
+		{"isDirectorySelected", "()Z", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$MetalFileChooserUIAccessor, isDirectorySelected, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$MetalFileChooserUIAccessor", "javax.swing.plaf.metal.MetalFileChooserUI", "MetalFileChooserUIAccessor", $PRIVATE},
+		{"sun.swing.FilePane$FileChooserUIAccessor", "sun.swing.FilePane", "FileChooserUIAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$MetalFileChooserUIAccessor",
+		"java.lang.Object",
+		"sun.swing.FilePane$FileChooserUIAccessor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$MetalFileChooserUIAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalFileChooserUI$MetalFileChooserUIAccessor);
+	});
 	return class$;
 }
 

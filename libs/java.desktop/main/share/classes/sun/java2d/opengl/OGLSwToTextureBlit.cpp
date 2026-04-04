@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLSwToTextureBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -32,30 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _OGLSwToTextureBlit_FieldInfo_[] = {
-	{"typeval", "I", nullptr, $PRIVATE, $field(OGLSwToTextureBlit, typeval)},
-	{}
-};
-
-$MethodInfo _OGLSwToTextureBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(OGLSwToTextureBlit, init$, void, $SurfaceType*, int32_t)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLSwToTextureBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLSwToTextureBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLSwToTextureBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_OGLSwToTextureBlit_FieldInfo_,
-	_OGLSwToTextureBlit_MethodInfo_
-};
-
-$Object* allocate$OGLSwToTextureBlit($Class* clazz) {
-	return $of($alloc(OGLSwToTextureBlit));
-}
-
 void OGLSwToTextureBlit::init$($SurfaceType* srcType, int32_t typeval) {
 	$init($CompositeType);
 	$init($OGLSurfaceData);
@@ -71,7 +46,26 @@ OGLSwToTextureBlit::OGLSwToTextureBlit() {
 }
 
 $Class* OGLSwToTextureBlit::load$($String* name, bool initialize) {
-	$loadClass(OGLSwToTextureBlit, name, initialize, &_OGLSwToTextureBlit_ClassInfo_, allocate$OGLSwToTextureBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeval", "I", nullptr, $PRIVATE, $field(OGLSwToTextureBlit, typeval)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;I)V", nullptr, 0, $method(OGLSwToTextureBlit, init$, void, $SurfaceType*, int32_t)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(OGLSwToTextureBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLSwToTextureBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OGLSwToTextureBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLSwToTextureBlit);
+	});
 	return class$;
 }
 

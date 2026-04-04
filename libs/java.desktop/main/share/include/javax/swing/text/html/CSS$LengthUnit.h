@@ -28,6 +28,7 @@ class $import CSS$LengthUnit : public ::java::io::Serializable {
 	$class(CSS$LengthUnit, 0, ::java::io::Serializable)
 public:
 	CSS$LengthUnit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* value, int16_t defaultType, float defaultValue);
 	virtual float getValue(bool w3cLengthUnits);
 	static float getValue(float value, $String* units, ::java::lang::Boolean* w3cLengthUnits);

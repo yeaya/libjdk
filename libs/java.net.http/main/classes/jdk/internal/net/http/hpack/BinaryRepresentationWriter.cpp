@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/BinaryRepresentationWriter.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <jdk/internal/net/http/hpack/HeaderTable.h>
 #include <jcpp.h>
@@ -15,27 +14,23 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$MethodInfo _BinaryRepresentationWriter_MethodInfo_[] = {
-	{"reset", "()Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryRepresentationWriter, reset, BinaryRepresentationWriter*)},
-	{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryRepresentationWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _BinaryRepresentationWriter_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.hpack.BinaryRepresentationWriter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_BinaryRepresentationWriter_MethodInfo_
-};
-
-$Object* allocate$BinaryRepresentationWriter($Class* clazz) {
-	return $of($alloc(BinaryRepresentationWriter));
-}
-
 $Class* BinaryRepresentationWriter::load$($String* name, bool initialize) {
-	$loadClass(BinaryRepresentationWriter, name, initialize, &_BinaryRepresentationWriter_ClassInfo_, allocate$BinaryRepresentationWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"reset", "()Ljdk/internal/net/http/hpack/BinaryRepresentationWriter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryRepresentationWriter, reset, BinaryRepresentationWriter*)},
+		{"write", "(Ljdk/internal/net/http/hpack/HeaderTable;Ljava/nio/ByteBuffer;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryRepresentationWriter, write, bool, $HeaderTable*, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.hpack.BinaryRepresentationWriter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BinaryRepresentationWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BinaryRepresentationWriter);
+	});
 	return class$;
 }
 

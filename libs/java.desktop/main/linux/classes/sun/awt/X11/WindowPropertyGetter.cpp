@@ -1,8 +1,6 @@
 #include <sun/awt/X11/WindowPropertyGetter.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -20,7 +18,6 @@
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11/XlibWrapper.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <jcpp.h>
 
 using $XAtomArray = $Array<::sun::awt::X11::XAtom>;
@@ -30,7 +27,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
@@ -46,76 +42,21 @@ using $XPropertyCache$PropertyCacheEntry = ::sun::awt::X11::XPropertyCache$Prope
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _WindowPropertyGetter_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(WindowPropertyGetter, unsafe)},
-	{"actual_type", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, actual_type)},
-	{"actual_format", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, actual_format)},
-	{"nitems_ptr", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, nitems_ptr)},
-	{"bytes_after", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, bytes_after)},
-	{"data", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, data)},
-	{"window", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, window)},
-	{"property", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, property)},
-	{"offset", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, offset)},
-	{"length", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, length)},
-	{"auto_delete", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, auto_delete)},
-	{"type", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, type)},
-	{"executed", "Z", nullptr, $PRIVATE, $field(WindowPropertyGetter, executed)},
-	{"disposer", "Lsun/awt/X11/UnsafeXDisposerRecord;", nullptr, 0, $field(WindowPropertyGetter, disposer)},
-	{"cacheableProperties", "Ljava/util/Set;", "Ljava/util/Set<Lsun/awt/X11/XAtom;>;", $STATIC, $staticField(WindowPropertyGetter, cacheableProperties)},
-	{}
-};
-
-$MethodInfo _WindowPropertyGetter_MethodInfo_[] = {
-	{"<init>", "(JLsun/awt/X11/XAtom;JJZJ)V", nullptr, $PUBLIC, $method(WindowPropertyGetter, init$, void, int64_t, $XAtom*, int64_t, int64_t, bool, int64_t)},
-	{"<init>", "(JLsun/awt/X11/XAtom;JJZLsun/awt/X11/XAtom;)V", nullptr, $PUBLIC, $method(WindowPropertyGetter, init$, void, int64_t, $XAtom*, int64_t, int64_t, bool, $XAtom*)},
-	{"cacheProperty", "()V", nullptr, 0, $virtualMethod(WindowPropertyGetter, cacheProperty, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, dispose, void)},
-	{"execute", "()I", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, execute, int32_t)},
-	{"execute", "(Lsun/awt/X11/XErrorHandler;)I", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, execute, int32_t, $XErrorHandler*)},
-	{"getActualFormat", "()I", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getActualFormat, int32_t)},
-	{"getActualType", "()J", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getActualType, int64_t)},
-	{"getBytesAfter", "()J", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getBytesAfter, int64_t)},
-	{"getData", "()J", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getData, int64_t)},
-	{"getDataLength", "()I", nullptr, 0, $virtualMethod(WindowPropertyGetter, getDataLength, int32_t)},
-	{"getNumberOfItems", "()I", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getNumberOfItems, int32_t)},
-	{"isCacheableProperty", "(Lsun/awt/X11/XAtom;)Z", nullptr, $STATIC, $staticMethod(WindowPropertyGetter, isCacheableProperty, bool, $XAtom*)},
-	{"isCached", "()Z", nullptr, 0, $virtualMethod(WindowPropertyGetter, isCached, bool)},
-	{"isCachingSupported", "()Z", nullptr, $STATIC, $staticMethod(WindowPropertyGetter, isCachingSupported, bool)},
-	{"isDisposed", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, isDisposed, bool)},
-	{"isExecuted", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, isExecuted, bool)},
-	{"readFromCache", "()V", nullptr, 0, $virtualMethod(WindowPropertyGetter, readFromCache, void)},
-	{}
-};
-
-$ClassInfo _WindowPropertyGetter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.WindowPropertyGetter",
-	"java.lang.Object",
-	nullptr,
-	_WindowPropertyGetter_FieldInfo_,
-	_WindowPropertyGetter_MethodInfo_
-};
-
-$Object* allocate$WindowPropertyGetter($Class* clazz) {
-	return $of($alloc(WindowPropertyGetter));
-}
-
 $Unsafe* WindowPropertyGetter::unsafe = nullptr;
 $Set* WindowPropertyGetter::cacheableProperties = nullptr;
 
 void WindowPropertyGetter::init$(int64_t window, $XAtom* property, int64_t offset, int64_t length, bool auto_delete, int64_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->actual_type = $nc(WindowPropertyGetter::unsafe)->allocateMemory(8);
-	this->actual_format = $nc(WindowPropertyGetter::unsafe)->allocateMemory(4);
-	this->nitems_ptr = $nc(WindowPropertyGetter::unsafe)->allocateMemory(8);
-	this->bytes_after = $nc(WindowPropertyGetter::unsafe)->allocateMemory(8);
-	this->data = $nc(WindowPropertyGetter::unsafe)->allocateMemory(8);
+	this->actual_format = WindowPropertyGetter::unsafe->allocateMemory(4);
+	this->nitems_ptr = WindowPropertyGetter::unsafe->allocateMemory(8);
+	this->bytes_after = WindowPropertyGetter::unsafe->allocateMemory(8);
+	this->data = WindowPropertyGetter::unsafe->allocateMemory(8);
 	this->executed = false;
 	if ($nc(property)->getAtom() == 0) {
 		$throwNew($IllegalArgumentException, $$str({"Property ATOM should be initialized first:"_s, property}));
@@ -130,12 +71,12 @@ void WindowPropertyGetter::init$(int64_t window, $XAtom* property, int64_t offse
 	this->auto_delete = auto_delete;
 	this->type = type;
 	$Native::putLong(this->data, (int64_t)0);
-	$Disposer::addRecord(this, ($set(this, disposer, $new($UnsafeXDisposerRecord, "WindowPropertyGetter"_s, $$new($longs, {
+	$Disposer::addRecord(this, $set(this, disposer, $new($UnsafeXDisposerRecord, "WindowPropertyGetter"_s, $$new($longs, {
 		this->actual_type,
 		this->actual_format,
 		this->nitems_ptr,
 		this->bytes_after
-	}), $$new($longs, {this->data})))));
+	}), $$new($longs, {this->data}))));
 }
 
 void WindowPropertyGetter::init$(int64_t window, $XAtom* property, int64_t offset, int64_t length, bool auto_delete, $XAtom* type) {
@@ -147,60 +88,58 @@ int32_t WindowPropertyGetter::execute() {
 }
 
 int32_t WindowPropertyGetter::execute($XErrorHandler* errorHandler$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XErrorHandler, errorHandler, errorHandler$renamed);
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		int32_t var$2 = 0;
-		bool return$1 = false;
-		try {
-			if (isDisposed()) {
-				$throwNew($IllegalStateException, "Disposed"_s);
-			}
-			if (this->executed) {
-				$throwNew($IllegalStateException, "Already executed"_s);
-			}
-			this->executed = true;
-			bool var$3 = isCachingSupported();
-			if (var$3 && isCached()) {
-				readFromCache();
-				var$2 = $XConstants::Success;
-				return$1 = true;
-				goto $finally;
-			}
-			if ($instanceOf($XErrorHandler$IgnoreBadWindowHandler, errorHandler)) {
-				$assign(errorHandler, nullptr);
-			}
-			if (errorHandler != nullptr) {
-				$XErrorHandlerUtil::WITH_XERROR_HANDLER(errorHandler);
-			}
-			$Native::putLong(this->data, (int64_t)0);
-			int64_t var$4 = $XToolkit::getDisplay();
-			int64_t var$5 = this->window;
-			int32_t status = $XlibWrapper::XGetWindowProperty(var$4, var$5, $nc(this->property)->getAtom(), this->offset, this->length, (this->auto_delete ? 1 : 0), this->type, this->actual_type, this->actual_format, this->nitems_ptr, this->bytes_after, this->data);
-			bool var$7 = isCachingSupported() && status == $XConstants::Success;
-			bool var$6 = var$7 && getData() != 0;
-			if (var$6 && isCacheableProperty(this->property)) {
-				cacheProperty();
-			}
-			if (errorHandler != nullptr) {
-				$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-			}
-			var$2 = status;
+	$var($Throwable, var$0, nullptr);
+	int32_t var$2 = 0;
+	bool return$1 = false;
+	try {
+		if (isDisposed()) {
+			$throwNew($IllegalStateException, "Disposed"_s);
+		}
+		if (this->executed) {
+			$throwNew($IllegalStateException, "Already executed"_s);
+		}
+		this->executed = true;
+		bool var$3 = isCachingSupported();
+		if (var$3 && isCached()) {
+			readFromCache();
+			var$2 = $XConstants::Success;
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$8) {
-			$assign(var$0, var$8);
-		} $finally: {
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if ($instanceOf($XErrorHandler$IgnoreBadWindowHandler, errorHandler)) {
+			$assign(errorHandler, nullptr);
 		}
-		if (return$1) {
-			return var$2;
+		if (errorHandler != nullptr) {
+			$XErrorHandlerUtil::WITH_XERROR_HANDLER(errorHandler);
 		}
+		$Native::putLong(this->data, (int64_t)0);
+		int64_t var$4 = $XToolkit::getDisplay();
+		int64_t var$5 = this->window;
+		int32_t status = $XlibWrapper::XGetWindowProperty(var$4, var$5, $nc(this->property)->getAtom(), this->offset, this->length, (this->auto_delete ? 1 : 0), this->type, this->actual_type, this->actual_format, this->nitems_ptr, this->bytes_after, this->data);
+		bool var$7 = isCachingSupported() && status == $XConstants::Success;
+		bool var$6 = var$7 && getData() != 0;
+		if (var$6 && isCacheableProperty(this->property)) {
+			cacheProperty();
+		}
+		if (errorHandler != nullptr) {
+			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+		}
+		var$2 = status;
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$8) {
+		$assign(var$0, var$8);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -262,26 +201,24 @@ int64_t WindowPropertyGetter::getBytesAfter() {
 
 void WindowPropertyGetter::dispose() {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			if (isDisposed()) {
-				return$1 = true;
-				goto $finally;
-			}
-			$nc(this->disposer)->dispose();
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		if (isDisposed()) {
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+		$nc(this->disposer)->dispose();
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -308,11 +245,11 @@ void WindowPropertyGetter::readFromCache() {
 	$nc(this->property)->putAtom(this->actual_type);
 	$var($XPropertyCache$PropertyCacheEntry, entry, $XPropertyCache::getCacheEntry(this->window, this->property));
 	$Native::putInt(this->actual_format, $nc(entry)->getFormat());
-	$Native::putLong(this->nitems_ptr, (int64_t)$nc(entry)->getNumberOfItems());
-	$Native::putLong(this->bytes_after, $nc(entry)->getBytesAfter());
+	$Native::putLong(this->nitems_ptr, entry->getNumberOfItems());
+	$Native::putLong(this->bytes_after, entry->getBytesAfter());
 	$Native::putLong(this->data, $nc(WindowPropertyGetter::unsafe)->allocateMemory(getDataLength()));
 	int64_t var$0 = getData();
-	int64_t var$1 = $nc(entry)->getData();
+	int64_t var$1 = entry->getData();
 	$XlibWrapper::memcpy(var$0, var$1, getDataLength());
 }
 
@@ -324,22 +261,71 @@ void WindowPropertyGetter::cacheProperty() {
 	$XPropertyCache::storeCache($$new($XPropertyCache$PropertyCacheEntry, var$0, var$1, var$2, var$3, getDataLength()), this->window, this->property);
 }
 
-void clinit$WindowPropertyGetter($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void WindowPropertyGetter::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($XlibWrapper);
 	$assignStatic(WindowPropertyGetter::unsafe, $XlibWrapper::unsafe);
-	$assignStatic(WindowPropertyGetter::cacheableProperties, $new($HashSet, $(static_cast<$Collection*>($Arrays::asList($$new($XAtomArray, {
+	$assignStatic(WindowPropertyGetter::cacheableProperties, $new($HashSet, $($Arrays::asList($$new($XAtomArray, {
 		$($XAtom::get("_NET_WM_STATE"_s)),
 		$($XAtom::get("WM_STATE"_s)),
 		$($XAtom::get("_MOTIF_WM_HINTS"_s))
-	}))))));
+	})))));
 }
 
 WindowPropertyGetter::WindowPropertyGetter() {
 }
 
 $Class* WindowPropertyGetter::load$($String* name, bool initialize) {
-	$loadClass(WindowPropertyGetter, name, initialize, &_WindowPropertyGetter_ClassInfo_, clinit$WindowPropertyGetter, allocate$WindowPropertyGetter);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE | $STATIC, $staticField(WindowPropertyGetter, unsafe)},
+		{"actual_type", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, actual_type)},
+		{"actual_format", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, actual_format)},
+		{"nitems_ptr", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, nitems_ptr)},
+		{"bytes_after", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, bytes_after)},
+		{"data", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, data)},
+		{"window", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, window)},
+		{"property", "Lsun/awt/X11/XAtom;", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, property)},
+		{"offset", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, offset)},
+		{"length", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, length)},
+		{"auto_delete", "Z", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, auto_delete)},
+		{"type", "J", nullptr, $PRIVATE | $FINAL, $field(WindowPropertyGetter, type)},
+		{"executed", "Z", nullptr, $PRIVATE, $field(WindowPropertyGetter, executed)},
+		{"disposer", "Lsun/awt/X11/UnsafeXDisposerRecord;", nullptr, 0, $field(WindowPropertyGetter, disposer)},
+		{"cacheableProperties", "Ljava/util/Set;", "Ljava/util/Set<Lsun/awt/X11/XAtom;>;", $STATIC, $staticField(WindowPropertyGetter, cacheableProperties)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLsun/awt/X11/XAtom;JJZJ)V", nullptr, $PUBLIC, $method(WindowPropertyGetter, init$, void, int64_t, $XAtom*, int64_t, int64_t, bool, int64_t)},
+		{"<init>", "(JLsun/awt/X11/XAtom;JJZLsun/awt/X11/XAtom;)V", nullptr, $PUBLIC, $method(WindowPropertyGetter, init$, void, int64_t, $XAtom*, int64_t, int64_t, bool, $XAtom*)},
+		{"cacheProperty", "()V", nullptr, 0, $virtualMethod(WindowPropertyGetter, cacheProperty, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, dispose, void)},
+		{"execute", "()I", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, execute, int32_t)},
+		{"execute", "(Lsun/awt/X11/XErrorHandler;)I", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, execute, int32_t, $XErrorHandler*)},
+		{"getActualFormat", "()I", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getActualFormat, int32_t)},
+		{"getActualType", "()J", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getActualType, int64_t)},
+		{"getBytesAfter", "()J", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getBytesAfter, int64_t)},
+		{"getData", "()J", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getData, int64_t)},
+		{"getDataLength", "()I", nullptr, 0, $virtualMethod(WindowPropertyGetter, getDataLength, int32_t)},
+		{"getNumberOfItems", "()I", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, getNumberOfItems, int32_t)},
+		{"isCacheableProperty", "(Lsun/awt/X11/XAtom;)Z", nullptr, $STATIC, $staticMethod(WindowPropertyGetter, isCacheableProperty, bool, $XAtom*)},
+		{"isCached", "()Z", nullptr, 0, $virtualMethod(WindowPropertyGetter, isCached, bool)},
+		{"isCachingSupported", "()Z", nullptr, $STATIC, $staticMethod(WindowPropertyGetter, isCachingSupported, bool)},
+		{"isDisposed", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, isDisposed, bool)},
+		{"isExecuted", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowPropertyGetter, isExecuted, bool)},
+		{"readFromCache", "()V", nullptr, 0, $virtualMethod(WindowPropertyGetter, readFromCache, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.WindowPropertyGetter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowPropertyGetter, name, initialize, &classInfo$$, WindowPropertyGetter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowPropertyGetter);
+	});
 	return class$;
 }
 

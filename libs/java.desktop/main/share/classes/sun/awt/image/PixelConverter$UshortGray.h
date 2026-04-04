@@ -37,6 +37,7 @@ class PixelConverter$UshortGray : public ::sun::awt::image::PixelConverter$ByteG
 	$class(PixelConverter$UshortGray, 0, ::sun::awt::image::PixelConverter$ByteGray)
 public:
 	PixelConverter$UshortGray();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t pixelToRgb(int32_t pixel, ::java::awt::image::ColorModel* cm) override;
 	virtual int32_t rgbToPixel(int32_t rgb, ::java::awt::image::ColorModel* cm) override;

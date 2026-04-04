@@ -33,6 +33,7 @@ class ImageWatched : public ::java::lang::Object {
 	$class(ImageWatched, 0, ::java::lang::Object)
 public:
 	ImageWatched();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addWatcher(::java::awt::image::ImageObserver* iw);
 	virtual bool isWatcher(::java::awt::image::ImageObserver* iw);

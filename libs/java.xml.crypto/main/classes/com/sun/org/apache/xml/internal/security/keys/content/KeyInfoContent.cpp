@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/KeyInfoContent.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,17 +13,14 @@ namespace com {
 							namespace keys {
 								namespace content {
 
-$ClassInfo _KeyInfoContent_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent"
-};
-
-$Object* allocate$KeyInfoContent($Class* clazz) {
-	return $of($alloc(KeyInfoContent));
-}
-
 $Class* KeyInfoContent::load$($String* name, bool initialize) {
-	$loadClass(KeyInfoContent, name, initialize, &_KeyInfoContent_ClassInfo_, allocate$KeyInfoContent);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.keys.content.KeyInfoContent"
+	};
+	$loadClass(KeyInfoContent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyInfoContent);
+	});
 	return class$;
 }
 

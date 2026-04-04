@@ -21,6 +21,7 @@ class $import GraphicsDevice$WindowTranslucency : public ::java::lang::Enum {
 public:
 	GraphicsDevice$WindowTranslucency();
 	static $Array<::java::awt::GraphicsDevice$WindowTranslucency>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::GraphicsDevice$WindowTranslucency* valueOf($String* name);
 	static $Array<::java::awt::GraphicsDevice$WindowTranslucency>* values();

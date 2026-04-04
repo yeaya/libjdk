@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/operations/Plus.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
@@ -7,7 +6,6 @@
 #include <com/sun/org/apache/xpath/internal/operations/Operation.h>
 #include <jcpp.h>
 
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
@@ -23,31 +21,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace operations {
-
-$FieldInfo _Plus_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Plus, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Plus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Plus, init$, void)},
-	{"num", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)D", nullptr, $PUBLIC, $virtualMethod(Plus, num, double, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Plus, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _Plus_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.operations.Plus",
-	"com.sun.org.apache.xpath.internal.operations.Operation",
-	nullptr,
-	_Plus_FieldInfo_,
-	_Plus_MethodInfo_
-};
-
-$Object* allocate$Plus($Class* clazz) {
-	return $of($alloc(Plus));
-}
 
 void Plus::init$() {
 	$Operation::init$();
@@ -67,7 +40,27 @@ Plus::Plus() {
 }
 
 $Class* Plus::load$($String* name, bool initialize) {
-	$loadClass(Plus, name, initialize, &_Plus_ClassInfo_, allocate$Plus);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Plus, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Plus, init$, void)},
+		{"num", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)D", nullptr, $PUBLIC, $virtualMethod(Plus, num, double, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(Plus, operate, $XObject*, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.operations.Plus",
+		"com.sun.org.apache.xpath.internal.operations.Operation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Plus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Plus));
+	});
 	return class$;
 }
 

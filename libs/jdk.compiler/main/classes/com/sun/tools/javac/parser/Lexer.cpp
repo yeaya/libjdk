@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Lexer.h>
-
 #include <com/sun/tools/javac/parser/Tokens$Token.h>
 #include <com/sun/tools/javac/util/Position$LineMap.h>
 #include <jcpp.h>
@@ -15,33 +14,29 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$MethodInfo _Lexer_MethodInfo_[] = {
-	{"errPos", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, errPos, int32_t)},
-	{"errPos", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, errPos, void, int32_t)},
-	{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, getLineMap, $Position$LineMap*)},
-	{"nextToken", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, nextToken, void)},
-	{"prevToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, prevToken, $Tokens$Token*)},
-	{"split", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, split, $Tokens$Token*)},
-	{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, token, $Tokens$Token*)},
-	{"token", "(I)Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, token, $Tokens$Token*, int32_t)},
-	{}
-};
-
-$ClassInfo _Lexer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.parser.Lexer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Lexer_MethodInfo_
-};
-
-$Object* allocate$Lexer($Class* clazz) {
-	return $of($alloc(Lexer));
-}
-
 $Class* Lexer::load$($String* name, bool initialize) {
-	$loadClass(Lexer, name, initialize, &_Lexer_ClassInfo_, allocate$Lexer);
+	$MethodInfo methodInfos$$[] = {
+		{"errPos", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, errPos, int32_t)},
+		{"errPos", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, errPos, void, int32_t)},
+		{"getLineMap", "()Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, getLineMap, $Position$LineMap*)},
+		{"nextToken", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, nextToken, void)},
+		{"prevToken", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, prevToken, $Tokens$Token*)},
+		{"split", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, split, $Tokens$Token*)},
+		{"token", "()Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, token, $Tokens$Token*)},
+		{"token", "(I)Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lexer, token, $Tokens$Token*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.parser.Lexer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Lexer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lexer);
+	});
 	return class$;
 }
 

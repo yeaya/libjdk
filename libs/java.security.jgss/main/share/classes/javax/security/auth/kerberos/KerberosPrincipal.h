@@ -50,7 +50,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* oos);
-	static const int64_t serialVersionUID = (int64_t)0x99A77D5D0F1E3329;
+	static const int64_t serialVersionUID = (int64_t)0x99a77d5d0f1e3329;
 	static const int32_t KRB_NT_UNKNOWN = 0;
 	static const int32_t KRB_NT_PRINCIPAL = 1;
 	static const int32_t KRB_NT_SRV_INST = 2;

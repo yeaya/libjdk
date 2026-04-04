@@ -1,5 +1,4 @@
 #include <com/sun/jmx/defaults/ServiceName.h>
-
 #include <jcpp.h>
 
 #undef DELEGATE
@@ -20,36 +19,6 @@ namespace com {
 		namespace jmx {
 			namespace defaults {
 
-$FieldInfo _ServiceName_FieldInfo_[] = {
-	{"DELEGATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, DELEGATE)},
-	{"MLET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, MLET)},
-	{"DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, DOMAIN)},
-	{"JMX_SPEC_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_SPEC_NAME)},
-	{"JMX_SPEC_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_SPEC_VERSION)},
-	{"JMX_SPEC_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_SPEC_VENDOR)},
-	{"JMX_IMPL_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_IMPL_NAME)},
-	{"JMX_IMPL_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_IMPL_VENDOR)},
-	{}
-};
-
-$MethodInfo _ServiceName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceName, init$, void)},
-	{}
-};
-
-$ClassInfo _ServiceName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.defaults.ServiceName",
-	"java.lang.Object",
-	nullptr,
-	_ServiceName_FieldInfo_,
-	_ServiceName_MethodInfo_
-};
-
-$Object* allocate$ServiceName($Class* clazz) {
-	return $of($alloc(ServiceName));
-}
-
 $String* ServiceName::DELEGATE = nullptr;
 $String* ServiceName::MLET = nullptr;
 $String* ServiceName::DOMAIN = nullptr;
@@ -65,7 +34,7 @@ void ServiceName::init$() {
 ServiceName::ServiceName() {
 }
 
-void clinit$ServiceName($Class* class$) {
+void ServiceName::clinit$($Class* clazz) {
 	$assignStatic(ServiceName::DELEGATE, "JMImplementation:type=MBeanServerDelegate"_s);
 	$assignStatic(ServiceName::MLET, "type=MLet"_s);
 	$assignStatic(ServiceName::DOMAIN, "DefaultDomain"_s);
@@ -77,7 +46,32 @@ void clinit$ServiceName($Class* class$) {
 }
 
 $Class* ServiceName::load$($String* name, bool initialize) {
-	$loadClass(ServiceName, name, initialize, &_ServiceName_ClassInfo_, clinit$ServiceName, allocate$ServiceName);
+	$FieldInfo fieldInfos$$[] = {
+		{"DELEGATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, DELEGATE)},
+		{"MLET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, MLET)},
+		{"DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, DOMAIN)},
+		{"JMX_SPEC_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_SPEC_NAME)},
+		{"JMX_SPEC_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_SPEC_VERSION)},
+		{"JMX_SPEC_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_SPEC_VENDOR)},
+		{"JMX_IMPL_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_IMPL_NAME)},
+		{"JMX_IMPL_VENDOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ServiceName, JMX_IMPL_VENDOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ServiceName, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.defaults.ServiceName",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ServiceName, name, initialize, &classInfo$$, ServiceName::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceName);
+	});
 	return class$;
 }
 

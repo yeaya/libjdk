@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPlatformEmbeddedFrame.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/GraphicsDevice.h>
@@ -42,72 +41,11 @@ using $CGLLayer = ::sun::java2d::opengl::CGLLayer;
 using $LWWindowPeer = ::sun::lwawt::LWWindowPeer;
 using $PlatformWindow = ::sun::lwawt::PlatformWindow;
 using $CEmbeddedFrame = ::sun::lwawt::macosx::CEmbeddedFrame;
-using $CFLayer = ::sun::lwawt::macosx::CFLayer;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CPlatformEmbeddedFrame_FieldInfo_[] = {
-	{"focusLogger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CPlatformEmbeddedFrame, focusLogger)},
-	{"windowLayer", "Lsun/lwawt/macosx/CFLayer;", nullptr, $PRIVATE, $field(CPlatformEmbeddedFrame, windowLayer)},
-	{"peer", "Lsun/lwawt/LWWindowPeer;", nullptr, $PRIVATE, $field(CPlatformEmbeddedFrame, peer)},
-	{"target", "Lsun/lwawt/macosx/CEmbeddedFrame;", nullptr, $PRIVATE, $field(CPlatformEmbeddedFrame, target)},
-	{"screenX", "I", nullptr, $PRIVATE | $VOLATILE, $field(CPlatformEmbeddedFrame, screenX)},
-	{"screenY", "I", nullptr, $PRIVATE | $VOLATILE, $field(CPlatformEmbeddedFrame, screenY)},
-	{}
-};
-
-$MethodInfo _CPlatformEmbeddedFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CPlatformEmbeddedFrame, init$, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, dispose, void)},
-	{"enterFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, enterFullScreenMode, void)},
-	{"exitFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, exitFullScreenMode, void)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphicsDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getGraphicsDevice, $GraphicsDevice*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getInsets, $Insets*)},
-	{"getLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getLayerPtr, int64_t)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getLocationOnScreen, $Point*)},
-	{"getPeer", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getPeer, $LWWindowPeer*)},
-	{"getScreenSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getScreenSurface, $SurfaceData*)},
-	{"initialize", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, initialize, void, $Window*, $LWWindowPeer*, $PlatformWindow*)},
-	{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, isActive, bool)},
-	{"isFullScreenMode", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, isFullScreenMode, bool)},
-	{"isUnderMouse", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, isUnderMouse, bool)},
-	{"rejectFocusRequest", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, rejectFocusRequest, bool, $FocusEvent$Cause*)},
-	{"replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, replaceSurfaceData, $SurfaceData*)},
-	{"requestWindowFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, requestWindowFocus, bool)},
-	{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setAlwaysOnTop, void, bool)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setMenuBar, void, $MenuBar*)},
-	{"setModalBlocked", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setModalBlocked, void, bool)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setOpaque, void, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setResizable, void, bool)},
-	{"setSizeConstraints", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setSizeConstraints, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setTitle, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setVisible, void, bool)},
-	{"setWindowState", "(I)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setWindowState, void, int32_t)},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, toFront, void)},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, updateFocusableWindowState, void)},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, updateIconImages, void)},
-	{}
-};
-
-$ClassInfo _CPlatformEmbeddedFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CPlatformEmbeddedFrame",
-	"java.lang.Object",
-	"sun.lwawt.PlatformWindow",
-	_CPlatformEmbeddedFrame_FieldInfo_,
-	_CPlatformEmbeddedFrame_MethodInfo_
-};
-
-$Object* allocate$CPlatformEmbeddedFrame($Class* clazz) {
-	return $of($alloc(CPlatformEmbeddedFrame));
-}
 
 $PlatformLogger* CPlatformEmbeddedFrame::focusLogger = nullptr;
 
@@ -246,7 +184,7 @@ bool CPlatformEmbeddedFrame::isUnderMouse() {
 	$shouldNotReachHere();
 }
 
-void clinit$CPlatformEmbeddedFrame($Class* class$) {
+void CPlatformEmbeddedFrame::clinit$($Class* clazz) {
 	$assignStatic(CPlatformEmbeddedFrame::focusLogger, $PlatformLogger::getLogger("sun.lwawt.macosx.focus.CPlatformEmbeddedFrame"_s));
 }
 
@@ -254,7 +192,62 @@ CPlatformEmbeddedFrame::CPlatformEmbeddedFrame() {
 }
 
 $Class* CPlatformEmbeddedFrame::load$($String* name, bool initialize) {
-	$loadClass(CPlatformEmbeddedFrame, name, initialize, &_CPlatformEmbeddedFrame_ClassInfo_, clinit$CPlatformEmbeddedFrame, allocate$CPlatformEmbeddedFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"focusLogger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CPlatformEmbeddedFrame, focusLogger)},
+		{"windowLayer", "Lsun/lwawt/macosx/CFLayer;", nullptr, $PRIVATE, $field(CPlatformEmbeddedFrame, windowLayer)},
+		{"peer", "Lsun/lwawt/LWWindowPeer;", nullptr, $PRIVATE, $field(CPlatformEmbeddedFrame, peer)},
+		{"target", "Lsun/lwawt/macosx/CEmbeddedFrame;", nullptr, $PRIVATE, $field(CPlatformEmbeddedFrame, target)},
+		{"screenX", "I", nullptr, $PRIVATE | $VOLATILE, $field(CPlatformEmbeddedFrame, screenX)},
+		{"screenY", "I", nullptr, $PRIVATE | $VOLATILE, $field(CPlatformEmbeddedFrame, screenY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CPlatformEmbeddedFrame, init$, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, dispose, void)},
+		{"enterFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, enterFullScreenMode, void)},
+		{"exitFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, exitFullScreenMode, void)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphicsDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getGraphicsDevice, $GraphicsDevice*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getInsets, $Insets*)},
+		{"getLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getLayerPtr, int64_t)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getLocationOnScreen, $Point*)},
+		{"getPeer", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getPeer, $LWWindowPeer*)},
+		{"getScreenSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, getScreenSurface, $SurfaceData*)},
+		{"initialize", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, initialize, void, $Window*, $LWWindowPeer*, $PlatformWindow*)},
+		{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, isActive, bool)},
+		{"isFullScreenMode", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, isFullScreenMode, bool)},
+		{"isUnderMouse", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, isUnderMouse, bool)},
+		{"rejectFocusRequest", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, rejectFocusRequest, bool, $FocusEvent$Cause*)},
+		{"replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, replaceSurfaceData, $SurfaceData*)},
+		{"requestWindowFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, requestWindowFocus, bool)},
+		{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setAlwaysOnTop, void, bool)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setMenuBar, void, $MenuBar*)},
+		{"setModalBlocked", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setModalBlocked, void, bool)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setOpaque, void, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setResizable, void, bool)},
+		{"setSizeConstraints", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setSizeConstraints, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setTitle, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setVisible, void, bool)},
+		{"setWindowState", "(I)V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, setWindowState, void, int32_t)},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, toFront, void)},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, updateFocusableWindowState, void)},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(CPlatformEmbeddedFrame, updateIconImages, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CPlatformEmbeddedFrame",
+		"java.lang.Object",
+		"sun.lwawt.PlatformWindow",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPlatformEmbeddedFrame, name, initialize, &classInfo$$, CPlatformEmbeddedFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CPlatformEmbeddedFrame);
+	});
 	return class$;
 }
 

@@ -66,6 +66,7 @@ class $import ExchangeImpl : public ::java::lang::Object {
 	$class(ExchangeImpl, 0, ::java::lang::Object)
 public:
 	ExchangeImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Exchange* e);
 	virtual void cancel() {}
 	virtual void cancel(::java::io::IOException* cause) {}

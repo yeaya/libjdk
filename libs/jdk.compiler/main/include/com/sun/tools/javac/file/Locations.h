@@ -92,6 +92,7 @@ class $import Locations : public ::java::lang::Object {
 	$class(Locations, 0, ::java::lang::Object)
 public:
 	Locations();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void close();
 	bool contains(::java::util::Collection* searchPath, ::java::nio::file::Path* file);

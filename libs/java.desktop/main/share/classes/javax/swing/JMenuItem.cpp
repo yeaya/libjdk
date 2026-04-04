@@ -1,10 +1,8 @@
 #include <javax/swing/JMenuItem.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/io/ObjectInputStream.h>
@@ -31,7 +29,6 @@
 #include <javax/swing/event/MenuDragMouseListener.h>
 #include <javax/swing/event/MenuKeyEvent.h>
 #include <javax/swing/event/MenuKeyListener.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/MenuItemUI.h>
 #include <jcpp.h>
@@ -56,7 +53,6 @@ using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $MenuDragMouseListenerArray = $Array<::javax::swing::event::MenuDragMouseListener>;
 using $MenuKeyListenerArray = $Array<::javax::swing::event::MenuKeyListener>;
 using $Component = ::java::awt::Component;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -68,7 +64,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
@@ -84,222 +79,14 @@ using $KeyStroke = ::javax::swing::KeyStroke;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $MenuDragMouseEvent = ::javax::swing::event::MenuDragMouseEvent;
 using $MenuDragMouseListener = ::javax::swing::event::MenuDragMouseListener;
 using $MenuKeyEvent = ::javax::swing::event::MenuKeyEvent;
 using $MenuKeyListener = ::javax::swing::event::MenuKeyListener;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JMenuItem_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UIClassID"},
-	{"description", 's', "An item which can be selected in a menu."},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JMenuItem_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JMenuItem_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_getAccessibleContext20[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_getMenuDragMouseListeners22[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_getMenuKeyListeners23[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_getSubElements24[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_getUIClassID25[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$7[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The keystroke combination which will invoke the JMenuItem\'s actionlisteners without navigating the menu hierarchy"},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_setAccelerator39[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$8[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "Mouse release will fire an action event"},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_setArmed40[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$9[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The enabled state of the component."},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_setEnabled41[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JMenuItem_Attribute_var$10[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JMenuItem_MethodAnnotations_setUI44[] = {
-	{"Ljava/beans/BeanProperty;", JMenuItem_Attribute_var$10},
-	{}
-};
-
-$FieldInfo _JMenuItem_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMenuItem, uiClassID)},
-	{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMenuItem, TRACE)},
-	{"VERBOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMenuItem, VERBOSE)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMenuItem, DEBUG)},
-	{"isMouseDragged", "Z", nullptr, $PRIVATE, $field(JMenuItem, isMouseDragged)},
-	{"accelerator", "Ljavax/swing/KeyStroke;", nullptr, $PRIVATE, $field(JMenuItem, accelerator)},
-	{}
-};
-
-$MethodInfo _JMenuItem_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JMenuItem, init$, void)},
-	{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $Icon*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $String*)},
-	{"<init>", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $Action*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $String*, $Icon*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $String*, int32_t)},
-	{"actionPropertyChanged", "(Ljavax/swing/Action;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, actionPropertyChanged, void, $Action*, $String*)},
-	{"addMenuDragMouseListener", "(Ljavax/swing/event/MenuDragMouseListener;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, addMenuDragMouseListener, void, $MenuDragMouseListener*)},
-	{"addMenuKeyListener", "(Ljavax/swing/event/MenuKeyListener;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, addMenuKeyListener, void, $MenuKeyListener*)},
-	{"alwaysOnTop", "()Z", nullptr, 0, $virtualMethod(JMenuItem, alwaysOnTop, bool)},
-	{"configureAcceleratorFromAction", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JMenuItem, configureAcceleratorFromAction, void, $Action*)},
-	{"configurePropertiesFromAction", "(Ljavax/swing/Action;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, configurePropertiesFromAction, void, $Action*)},
-	{"fireMenuDragMouseDragged", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuDragMouseDragged, void, $MenuDragMouseEvent*)},
-	{"fireMenuDragMouseEntered", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuDragMouseEntered, void, $MenuDragMouseEvent*)},
-	{"fireMenuDragMouseExited", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuDragMouseExited, void, $MenuDragMouseEvent*)},
-	{"fireMenuDragMouseReleased", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuDragMouseReleased, void, $MenuDragMouseEvent*)},
-	{"fireMenuKeyPressed", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuKeyPressed, void, $MenuKeyEvent*)},
-	{"fireMenuKeyReleased", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuKeyReleased, void, $MenuKeyEvent*)},
-	{"fireMenuKeyTyped", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuKeyTyped, void, $MenuKeyEvent*)},
-	{"getAccelerator", "()Ljavax/swing/KeyStroke;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getAccelerator, $KeyStroke*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JMenuItem_MethodAnnotations_getAccessibleContext20},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getComponent, $Component*)},
-	{"getMenuDragMouseListeners", "()[Ljavax/swing/event/MenuDragMouseListener;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getMenuDragMouseListeners, $MenuDragMouseListenerArray*), nullptr, nullptr, _JMenuItem_MethodAnnotations_getMenuDragMouseListeners22},
-	{"getMenuKeyListeners", "()[Ljavax/swing/event/MenuKeyListener;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getMenuKeyListeners, $MenuKeyListenerArray*), nullptr, nullptr, _JMenuItem_MethodAnnotations_getMenuKeyListeners23},
-	{"getSubElements", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getSubElements, $MenuElementArray*), nullptr, nullptr, _JMenuItem_MethodAnnotations_getSubElements24},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getUIClassID, $String*), nullptr, nullptr, _JMenuItem_MethodAnnotations_getUIClassID25},
-	{"init", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, init, void, $String*, $Icon*)},
-	{"initFocusability", "()V", nullptr, 0, $virtualMethod(JMenuItem, initFocusability, void)},
-	{"isArmed", "()Z", nullptr, $PUBLIC, $virtualMethod(JMenuItem, isArmed, bool)},
-	{"largeIconChanged", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JMenuItem, largeIconChanged, void, $Action*)},
-	{"menuSelectionChanged", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, menuSelectionChanged, void, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JMenuItem, paramString, $String*)},
-	{"processKeyEvent", "(Ljava/awt/event/KeyEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, processKeyEvent, void, $KeyEvent*, $MenuElementArray*, $MenuSelectionManager*)},
-	{"processMenuDragMouseEvent", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, processMenuDragMouseEvent, void, $MenuDragMouseEvent*)},
-	{"processMenuKeyEvent", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, processMenuKeyEvent, void, $MenuKeyEvent*)},
-	{"processMouseEvent", "(Ljava/awt/event/MouseEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, processMouseEvent, void, $MouseEvent*, $MenuElementArray*, $MenuSelectionManager*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JMenuItem, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"removeMenuDragMouseListener", "(Ljavax/swing/event/MenuDragMouseListener;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, removeMenuDragMouseListener, void, $MenuDragMouseListener*)},
-	{"removeMenuKeyListener", "(Ljavax/swing/event/MenuKeyListener;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, removeMenuKeyListener, void, $MenuKeyListener*)},
-	{"setAccelerator", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setAccelerator, void, $KeyStroke*), nullptr, nullptr, _JMenuItem_MethodAnnotations_setAccelerator39},
-	{"setArmed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setArmed, void, bool), nullptr, nullptr, _JMenuItem_MethodAnnotations_setArmed40},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setEnabled, void, bool), nullptr, nullptr, _JMenuItem_MethodAnnotations_setEnabled41},
-	{"setIconFromAction", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JMenuItem, setIconFromAction, void, $Action*)},
-	{"setModel", "(Ljavax/swing/ButtonModel;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setModel, void, $ButtonModel*)},
-	{"setUI", "(Ljavax/swing/plaf/MenuItemUI;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setUI, void, $MenuItemUI*), nullptr, nullptr, _JMenuItem_MethodAnnotations_setUI44},
-	{"smallIconChanged", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JMenuItem, smallIconChanged, void, $Action*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JMenuItem, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JMenuItem_InnerClassesInfo_[] = {
-	{"javax.swing.JMenuItem$AccessibleJMenuItem", "javax.swing.JMenuItem", "AccessibleJMenuItem", $PROTECTED},
-	{"javax.swing.JMenuItem$MenuItemFocusListener", "javax.swing.JMenuItem", "MenuItemFocusListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JMenuItem_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JMenuItem",
-	"javax.swing.AbstractButton",
-	"javax.accessibility.Accessible,javax.swing.MenuElement",
-	_JMenuItem_FieldInfo_,
-	_JMenuItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JMenuItem_InnerClassesInfo_,
-	_JMenuItem_Annotations_,
-	nullptr,
-	"javax.swing.JMenuItem$AccessibleJMenuItem,javax.swing.JMenuItem$MenuItemFocusListener"
-};
-
-$Object* allocate$JMenuItem($Class* clazz) {
-	return $of($alloc(JMenuItem));
-}
 
 $String* JMenuItem::toString() {
 	 return this->$AbstractButton::toString();
@@ -324,11 +111,11 @@ void JMenuItem::finalize() {
 $String* JMenuItem::uiClassID = nullptr;
 
 void JMenuItem::init$() {
-	JMenuItem::init$(($String*)nullptr, ($Icon*)nullptr);
+	JMenuItem::init$(nullptr, ($Icon*)nullptr);
 }
 
 void JMenuItem::init$($Icon* icon) {
-	JMenuItem::init$(($String*)nullptr, icon);
+	JMenuItem::init$(nullptr, icon);
 }
 
 void JMenuItem::init$($String* text) {
@@ -360,7 +147,7 @@ void JMenuItem::init$($String* text, int32_t mnemonic) {
 void JMenuItem::setModel($ButtonModel* newModel) {
 	$AbstractButton::setModel(newModel);
 	if ($instanceOf($DefaultButtonModel, newModel)) {
-		$nc(($cast($DefaultButtonModel, newModel)))->setMenuItem(true);
+		$cast($DefaultButtonModel, newModel)->setMenuItem(true);
 	}
 }
 
@@ -376,7 +163,6 @@ void JMenuItem::init($String* text, $Icon* icon) {
 		setIcon(icon);
 	}
 	addFocusListener($$new($JMenuItem$MenuItemFocusListener));
-	$init($Boolean);
 	setUIProperty("borderPainted"_s, $Boolean::FALSE);
 	setFocusPainted(false);
 	setHorizontalTextPosition($JButton::TRAILING);
@@ -385,11 +171,11 @@ void JMenuItem::init($String* text, $Icon* icon) {
 }
 
 void JMenuItem::setUI($MenuItemUI* ui) {
-	$AbstractButton::setUI(static_cast<$ButtonUI*>(ui));
+	$AbstractButton::setUI(ui);
 }
 
 void JMenuItem::updateUI() {
-	setUI($cast($MenuItemUI, $($UIManager::getUI(this))));
+	setUI($$cast($MenuItemUI, $UIManager::getUI(this)));
 }
 
 $String* JMenuItem::getUIClassID() {
@@ -429,7 +215,7 @@ void JMenuItem::setAccelerator($KeyStroke* keyStroke) {
 	$set(this, accelerator, keyStroke);
 	repaint();
 	revalidate();
-	firePropertyChange("accelerator"_s, $of(oldAccelerator), $of(this->accelerator));
+	firePropertyChange("accelerator"_s, oldAccelerator, this->accelerator);
 }
 
 $KeyStroke* JMenuItem::getAccelerator() {
@@ -459,7 +245,7 @@ void JMenuItem::smallIconChanged($Action* a) {
 
 void JMenuItem::configureAcceleratorFromAction($Action* a) {
 	$init($Action);
-	$var($KeyStroke, ks, (a == nullptr) ? ($KeyStroke*)nullptr : $cast($KeyStroke, $nc(a)->getValue($Action::ACCELERATOR_KEY)));
+	$var($KeyStroke, ks, (a == nullptr) ? ($KeyStroke*)nullptr : $cast($KeyStroke, a->getValue($Action::ACCELERATOR_KEY)));
 	setAccelerator(ks);
 }
 
@@ -473,7 +259,7 @@ void JMenuItem::actionPropertyChanged($Action* action, $String* propertyName) {
 }
 
 void JMenuItem::processMouseEvent($MouseEvent* e, $MenuElementArray* path, $MenuSelectionManager* manager) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, var$0, $nc(e)->getComponent());
 	int32_t var$1 = e->getID();
 	int64_t var$2 = e->getWhen();
@@ -487,7 +273,8 @@ void JMenuItem::processMouseEvent($MouseEvent* e, $MenuElementArray* path, $Menu
 }
 
 void JMenuItem::processKeyEvent($KeyEvent* e, $MenuElementArray* path, $MenuSelectionManager* manager) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($Component, var$0, $nc(e)->getComponent());
 	int32_t var$1 = e->getID();
 	int64_t var$2 = e->getWhen();
@@ -496,65 +283,48 @@ void JMenuItem::processKeyEvent($KeyEvent* e, $MenuElementArray* path, $MenuSele
 	$var($MenuKeyEvent, mke, $new($MenuKeyEvent, var$0, var$1, var$2, var$3, var$4, e->getKeyChar(), path, manager));
 	processMenuKeyEvent(mke);
 	if (mke->isConsumed()) {
-		$nc(e)->consume();
+		e->consume();
 	}
 }
 
 void JMenuItem::processMenuDragMouseEvent($MenuDragMouseEvent* e) {
 	switch ($nc(e)->getID()) {
 	case $MouseEvent::MOUSE_ENTERED:
-		{
-			this->isMouseDragged = false;
-			fireMenuDragMouseEntered(e);
-			break;
-		}
+		this->isMouseDragged = false;
+		fireMenuDragMouseEntered(e);
+		break;
 	case $MouseEvent::MOUSE_EXITED:
-		{
-			this->isMouseDragged = false;
-			fireMenuDragMouseExited(e);
-			break;
-		}
+		this->isMouseDragged = false;
+		fireMenuDragMouseExited(e);
+		break;
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			this->isMouseDragged = true;
-			fireMenuDragMouseDragged(e);
-			break;
-		}
+		this->isMouseDragged = true;
+		fireMenuDragMouseDragged(e);
+		break;
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			if (this->isMouseDragged) {
-				fireMenuDragMouseReleased(e);
-			}
-			break;
+		if (this->isMouseDragged) {
+			fireMenuDragMouseReleased(e);
 		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
 void JMenuItem::processMenuKeyEvent($MenuKeyEvent* e) {
+	;
 	switch ($nc(e)->getID()) {
 	case $KeyEvent::KEY_PRESSED:
-		{
-			fireMenuKeyPressed(e);
-			break;
-		}
+		fireMenuKeyPressed(e);
+		break;
 	case $KeyEvent::KEY_RELEASED:
-		{
-			fireMenuKeyReleased(e);
-			break;
-		}
+		fireMenuKeyReleased(e);
+		break;
 	case $KeyEvent::KEY_TYPED:
-		{
-			fireMenuKeyTyped(e);
-			break;
-		}
+		fireMenuKeyTyped(e);
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
@@ -563,7 +333,7 @@ void JMenuItem::fireMenuDragMouseEntered($MenuDragMouseEvent* event) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuDragMouseListener);
 		if ($equals(listeners->get(i), $MenuDragMouseListener::class$)) {
-			$nc(($cast($MenuDragMouseListener, listeners->get(i + 1))))->menuDragMouseEntered(event);
+			$nc($cast($MenuDragMouseListener, listeners->get(i + 1)))->menuDragMouseEntered(event);
 		}
 	}
 }
@@ -573,7 +343,7 @@ void JMenuItem::fireMenuDragMouseExited($MenuDragMouseEvent* event) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuDragMouseListener);
 		if ($equals(listeners->get(i), $MenuDragMouseListener::class$)) {
-			$nc(($cast($MenuDragMouseListener, listeners->get(i + 1))))->menuDragMouseExited(event);
+			$nc($cast($MenuDragMouseListener, listeners->get(i + 1)))->menuDragMouseExited(event);
 		}
 	}
 }
@@ -583,7 +353,7 @@ void JMenuItem::fireMenuDragMouseDragged($MenuDragMouseEvent* event) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuDragMouseListener);
 		if ($equals(listeners->get(i), $MenuDragMouseListener::class$)) {
-			$nc(($cast($MenuDragMouseListener, listeners->get(i + 1))))->menuDragMouseDragged(event);
+			$nc($cast($MenuDragMouseListener, listeners->get(i + 1)))->menuDragMouseDragged(event);
 		}
 	}
 }
@@ -593,37 +363,40 @@ void JMenuItem::fireMenuDragMouseReleased($MenuDragMouseEvent* event) {
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuDragMouseListener);
 		if ($equals(listeners->get(i), $MenuDragMouseListener::class$)) {
-			$nc(($cast($MenuDragMouseListener, listeners->get(i + 1))))->menuDragMouseReleased(event);
+			$nc($cast($MenuDragMouseListener, listeners->get(i + 1)))->menuDragMouseReleased(event);
 		}
 	}
 }
 
 void JMenuItem::fireMenuKeyPressed($MenuKeyEvent* event) {
+	;
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuKeyListener);
 		if ($equals(listeners->get(i), $MenuKeyListener::class$)) {
-			$nc(($cast($MenuKeyListener, listeners->get(i + 1))))->menuKeyPressed(event);
+			$nc($cast($MenuKeyListener, listeners->get(i + 1)))->menuKeyPressed(event);
 		}
 	}
 }
 
 void JMenuItem::fireMenuKeyReleased($MenuKeyEvent* event) {
+	;
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuKeyListener);
 		if ($equals(listeners->get(i), $MenuKeyListener::class$)) {
-			$nc(($cast($MenuKeyListener, listeners->get(i + 1))))->menuKeyReleased(event);
+			$nc($cast($MenuKeyListener, listeners->get(i + 1)))->menuKeyReleased(event);
 		}
 	}
 }
 
 void JMenuItem::fireMenuKeyTyped($MenuKeyEvent* event) {
+	;
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
 		$load($MenuKeyListener);
 		if ($equals(listeners->get(i), $MenuKeyListener::class$)) {
-			$nc(($cast($MenuKeyListener, listeners->get(i + 1))))->menuKeyTyped(event);
+			$nc($cast($MenuKeyListener, listeners->get(i + 1)))->menuKeyTyped(event);
 		}
 	}
 }
@@ -652,7 +425,7 @@ void JMenuItem::removeMenuDragMouseListener($MenuDragMouseListener* l) {
 
 $MenuDragMouseListenerArray* JMenuItem::getMenuDragMouseListeners() {
 	$load($MenuDragMouseListener);
-	return $fcast($MenuDragMouseListenerArray, $nc(this->listenerList)->getListeners($MenuDragMouseListener::class$));
+	return $cast($MenuDragMouseListenerArray, $nc(this->listenerList)->getListeners($MenuDragMouseListener::class$));
 }
 
 void JMenuItem::addMenuKeyListener($MenuKeyListener* l) {
@@ -667,23 +440,23 @@ void JMenuItem::removeMenuKeyListener($MenuKeyListener* l) {
 
 $MenuKeyListenerArray* JMenuItem::getMenuKeyListeners() {
 	$load($MenuKeyListener);
-	return $fcast($MenuKeyListenerArray, $nc(this->listenerList)->getListeners($MenuKeyListener::class$));
+	return $cast($MenuKeyListenerArray, $nc(this->listenerList)->getListeners($MenuKeyListener::class$));
 }
 
 void JMenuItem::readObject($ObjectInputStream* s) {
 	$nc(s)->defaultReadObject();
-	if ($nc($(getUIClassID()))->equals(JMenuItem::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JMenuItem::uiClassID)) {
 		updateUI();
 	}
 }
 
 void JMenuItem::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JMenuItem::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JMenuItem::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -702,12 +475,190 @@ $AccessibleContext* JMenuItem::getAccessibleContext() {
 JMenuItem::JMenuItem() {
 }
 
-void clinit$JMenuItem($Class* class$) {
+void JMenuItem::clinit$($Class* clazz) {
 	$assignStatic(JMenuItem::uiClassID, "MenuItemUI"_s);
 }
 
 $Class* JMenuItem::load$($String* name, bool initialize) {
-	$loadClass(JMenuItem, name, initialize, &_JMenuItem_ClassInfo_, clinit$JMenuItem, allocate$JMenuItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JMenuItem, uiClassID)},
+		{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMenuItem, TRACE)},
+		{"VERBOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMenuItem, VERBOSE)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JMenuItem, DEBUG)},
+		{"isMouseDragged", "Z", nullptr, $PRIVATE, $field(JMenuItem, isMouseDragged)},
+		{"accelerator", "Ljavax/swing/KeyStroke;", nullptr, $PRIVATE, $field(JMenuItem, accelerator)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMenuDragMouseListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getMenuDragMouseListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getMenuDragMouseListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMenuKeyListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getMenuKeyListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getMenuKeyListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getSubElementsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getSubElementsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getSubElementsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setAcceleratormethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The keystroke combination which will invoke the JMenuItem\'s actionlisteners without navigating the menu hierarchy"},
+		{}
+	};
+	$CompoundAttribute setAcceleratormethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setAcceleratormethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setArmedmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "Mouse release will fire an action event"},
+		{}
+	};
+	$CompoundAttribute setArmedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setArmedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The enabled state of the component."},
+		{}
+	};
+	$CompoundAttribute setEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JMenuItem, init$, void)},
+		{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $Icon*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $String*)},
+		{"<init>", "(Ljavax/swing/Action;)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $Action*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $String*, $Icon*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JMenuItem, init$, void, $String*, int32_t)},
+		{"actionPropertyChanged", "(Ljavax/swing/Action;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, actionPropertyChanged, void, $Action*, $String*)},
+		{"addMenuDragMouseListener", "(Ljavax/swing/event/MenuDragMouseListener;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, addMenuDragMouseListener, void, $MenuDragMouseListener*)},
+		{"addMenuKeyListener", "(Ljavax/swing/event/MenuKeyListener;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, addMenuKeyListener, void, $MenuKeyListener*)},
+		{"alwaysOnTop", "()Z", nullptr, 0, $virtualMethod(JMenuItem, alwaysOnTop, bool)},
+		{"configureAcceleratorFromAction", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JMenuItem, configureAcceleratorFromAction, void, $Action*)},
+		{"configurePropertiesFromAction", "(Ljavax/swing/Action;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, configurePropertiesFromAction, void, $Action*)},
+		{"fireMenuDragMouseDragged", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuDragMouseDragged, void, $MenuDragMouseEvent*)},
+		{"fireMenuDragMouseEntered", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuDragMouseEntered, void, $MenuDragMouseEvent*)},
+		{"fireMenuDragMouseExited", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuDragMouseExited, void, $MenuDragMouseEvent*)},
+		{"fireMenuDragMouseReleased", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuDragMouseReleased, void, $MenuDragMouseEvent*)},
+		{"fireMenuKeyPressed", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuKeyPressed, void, $MenuKeyEvent*)},
+		{"fireMenuKeyReleased", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuKeyReleased, void, $MenuKeyEvent*)},
+		{"fireMenuKeyTyped", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, fireMenuKeyTyped, void, $MenuKeyEvent*)},
+		{"getAccelerator", "()Ljavax/swing/KeyStroke;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getAccelerator, $KeyStroke*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getComponent, $Component*)},
+		{"getMenuDragMouseListeners", "()[Ljavax/swing/event/MenuDragMouseListener;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getMenuDragMouseListeners, $MenuDragMouseListenerArray*), nullptr, nullptr, getMenuDragMouseListenersmethodAnnotations$$},
+		{"getMenuKeyListeners", "()[Ljavax/swing/event/MenuKeyListener;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getMenuKeyListeners, $MenuKeyListenerArray*), nullptr, nullptr, getMenuKeyListenersmethodAnnotations$$},
+		{"getSubElements", "()[Ljavax/swing/MenuElement;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getSubElements, $MenuElementArray*), nullptr, nullptr, getSubElementsmethodAnnotations$$},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMenuItem, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"init", "(Ljava/lang/String;Ljavax/swing/Icon;)V", nullptr, $PROTECTED, $virtualMethod(JMenuItem, init, void, $String*, $Icon*)},
+		{"initFocusability", "()V", nullptr, 0, $virtualMethod(JMenuItem, initFocusability, void)},
+		{"isArmed", "()Z", nullptr, $PUBLIC, $virtualMethod(JMenuItem, isArmed, bool)},
+		{"largeIconChanged", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JMenuItem, largeIconChanged, void, $Action*)},
+		{"menuSelectionChanged", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, menuSelectionChanged, void, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JMenuItem, paramString, $String*)},
+		{"processKeyEvent", "(Ljava/awt/event/KeyEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, processKeyEvent, void, $KeyEvent*, $MenuElementArray*, $MenuSelectionManager*)},
+		{"processMenuDragMouseEvent", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, processMenuDragMouseEvent, void, $MenuDragMouseEvent*)},
+		{"processMenuKeyEvent", "(Ljavax/swing/event/MenuKeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, processMenuKeyEvent, void, $MenuKeyEvent*)},
+		{"processMouseEvent", "(Ljava/awt/event/MouseEvent;[Ljavax/swing/MenuElement;Ljavax/swing/MenuSelectionManager;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, processMouseEvent, void, $MouseEvent*, $MenuElementArray*, $MenuSelectionManager*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JMenuItem, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"removeMenuDragMouseListener", "(Ljavax/swing/event/MenuDragMouseListener;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, removeMenuDragMouseListener, void, $MenuDragMouseListener*)},
+		{"removeMenuKeyListener", "(Ljavax/swing/event/MenuKeyListener;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, removeMenuKeyListener, void, $MenuKeyListener*)},
+		{"setAccelerator", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setAccelerator, void, $KeyStroke*), nullptr, nullptr, setAcceleratormethodAnnotations$$},
+		{"setArmed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setArmed, void, bool), nullptr, nullptr, setArmedmethodAnnotations$$},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setEnabled, void, bool), nullptr, nullptr, setEnabledmethodAnnotations$$},
+		{"setIconFromAction", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JMenuItem, setIconFromAction, void, $Action*)},
+		{"setModel", "(Ljavax/swing/ButtonModel;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setModel, void, $ButtonModel*)},
+		{"setUI", "(Ljavax/swing/plaf/MenuItemUI;)V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, setUI, void, $MenuItemUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"smallIconChanged", "(Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(JMenuItem, smallIconChanged, void, $Action*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JMenuItem, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JMenuItem, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JMenuItem$AccessibleJMenuItem", "javax.swing.JMenuItem", "AccessibleJMenuItem", $PROTECTED},
+		{"javax.swing.JMenuItem$MenuItemFocusListener", "javax.swing.JMenuItem", "MenuItemFocusListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UIClassID"},
+		{"description", 's', "An item which can be selected in a menu."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JMenuItem",
+		"javax.swing.AbstractButton",
+		"javax.accessibility.Accessible,javax.swing.MenuElement",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JMenuItem$AccessibleJMenuItem,javax.swing.JMenuItem$MenuItemFocusListener"
+	};
+	$loadClass(JMenuItem, name, initialize, &classInfo$$, JMenuItem::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JMenuItem));
+	});
 	return class$;
 }
 

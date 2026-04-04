@@ -45,7 +45,7 @@ public:
 	$String* actionCommand = nullptr;
 	int64_t when = 0;
 	int32_t modifiers = 0;
-	static const int64_t serialVersionUID = (int64_t)0x958ADA7A58112F2B;
+	static const int64_t serialVersionUID = (int64_t)0x958ada7a58112f2b;
 };
 
 		} // event

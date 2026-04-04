@@ -24,7 +24,7 @@ public:
 	virtual $String* getString() override;
 	using ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token::toString;
 	virtual $String* toString(int32_t options) override;
-	static const int64_t serialVersionUID = (int64_t)0xBFF679B6528D2414;
+	static const int64_t serialVersionUID = (int64_t)0xbff679b6528d2414;
 	$String* string = nullptr;
 	int32_t refNumber = 0;
 };

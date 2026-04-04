@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/SearchFilter$StringFilter.h>
-
 #include <com/sun/jndi/toolkit/dir/SearchFilter.h>
 #include <jcpp.h>
 
@@ -13,38 +12,33 @@ namespace com {
 			namespace toolkit {
 				namespace dir {
 
-$MethodInfo _SearchFilter$StringFilter_MethodInfo_[] = {
-	{"parse", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SearchFilter$StringFilter, parse, void), "javax.naming.directory.InvalidSearchFilterException"},
-	{}
-};
-
-$InnerClassInfo _SearchFilter$StringFilter_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "StringFilter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SearchFilter$StringFilter_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter",
-	nullptr,
-	"com.sun.jndi.toolkit.dir.AttrFilter",
-	nullptr,
-	_SearchFilter$StringFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SearchFilter$StringFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.dir.SearchFilter"
-};
-
-$Object* allocate$SearchFilter$StringFilter($Class* clazz) {
-	return $of($alloc(SearchFilter$StringFilter));
-}
-
 $Class* SearchFilter$StringFilter::load$($String* name, bool initialize) {
-	$loadClass(SearchFilter$StringFilter, name, initialize, &_SearchFilter$StringFilter_ClassInfo_, allocate$SearchFilter$StringFilter);
+	$MethodInfo methodInfos$$[] = {
+		{"parse", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SearchFilter$StringFilter, parse, void), "javax.naming.directory.InvalidSearchFilterException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter", "com.sun.jndi.toolkit.dir.SearchFilter", "StringFilter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.jndi.toolkit.dir.SearchFilter$StringFilter",
+		nullptr,
+		"com.sun.jndi.toolkit.dir.AttrFilter",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.dir.SearchFilter"
+	};
+	$loadClass(SearchFilter$StringFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SearchFilter$StringFilter);
+	});
 	return class$;
 }
 

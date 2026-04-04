@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$FreeTypeListener.h>
-
 #include <com/sun/tools/javac/comp/Infer.h>
 #include <com/sun/tools/javac/comp/InferenceContext.h>
 #include <jcpp.h>
@@ -15,38 +14,33 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Infer$FreeTypeListener_MethodInfo_[] = {
-	{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$FreeTypeListener, typesInferred, void, $InferenceContext*)},
-	{}
-};
-
-$InnerClassInfo _Infer$FreeTypeListener_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$FreeTypeListener", "com.sun.tools.javac.comp.Infer", "FreeTypeListener", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Infer$FreeTypeListener_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.Infer$FreeTypeListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Infer$FreeTypeListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$FreeTypeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$FreeTypeListener($Class* clazz) {
-	return $of($alloc(Infer$FreeTypeListener));
-}
-
 $Class* Infer$FreeTypeListener::load$($String* name, bool initialize) {
-	$loadClass(Infer$FreeTypeListener, name, initialize, &_Infer$FreeTypeListener_ClassInfo_, allocate$Infer$FreeTypeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"typesInferred", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Infer$FreeTypeListener, typesInferred, void, $InferenceContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$FreeTypeListener", "com.sun.tools.javac.comp.Infer", "FreeTypeListener", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.Infer$FreeTypeListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$FreeTypeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$FreeTypeListener);
+	});
 	return class$;
 }
 

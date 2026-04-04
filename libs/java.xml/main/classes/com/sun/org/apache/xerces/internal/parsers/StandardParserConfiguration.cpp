@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/StandardParserConfiguration.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLNamespaceBinder.h>
@@ -14,7 +13,6 @@
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <java/util/Map.h>
@@ -64,24 +62,17 @@
 #undef XMLSCHEMA_VALIDATION
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
-using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
-using $XMLNamespaceBinder = ::com::sun::org::apache::xerces::internal::impl::XMLNamespaceBinder;
 using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
 using $XSMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::xs::XSMessageFormatter;
 using $DTDConfiguration = ::com::sun::org::apache::xerces::internal::parsers::DTDConfiguration;
 using $FeatureState = ::com::sun::org::apache::xerces::internal::util::FeatureState;
-using $MessageFormatter = ::com::sun::org::apache::xerces::internal::util::MessageFormatter;
 using $PropertyState = ::com::sun::org::apache::xerces::internal::util::PropertyState;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
-using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
-using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -90,55 +81,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _StandardParserConfiguration_FieldInfo_[] = {
-	{"NORMALIZE_DATA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, NORMALIZE_DATA)},
-	{"SCHEMA_ELEMENT_DEFAULT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_ELEMENT_DEFAULT)},
-	{"SCHEMA_AUGMENT_PSVI", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_AUGMENT_PSVI)},
-	{"XMLSCHEMA_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, XMLSCHEMA_VALIDATION)},
-	{"XMLSCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, XMLSCHEMA_FULL_CHECKING)},
-	{"GENERATE_SYNTHETIC_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, GENERATE_SYNTHETIC_ANNOTATIONS)},
-	{"VALIDATE_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, VALIDATE_ANNOTATIONS)},
-	{"HONOUR_ALL_SCHEMALOCATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, HONOUR_ALL_SCHEMALOCATIONS)},
-	{"IGNORE_XSI_TYPE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, IGNORE_XSI_TYPE)},
-	{"ID_IDREF_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, ID_IDREF_CHECKING)},
-	{"UNPARSED_ENTITY_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, UNPARSED_ENTITY_CHECKING)},
-	{"IDENTITY_CONSTRAINT_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, IDENTITY_CONSTRAINT_CHECKING)},
-	{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, NAMESPACE_GROWTH)},
-	{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, TOLERATE_DUPLICATES)},
-	{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_VALIDATOR)},
-	{"SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_LOCATION)},
-	{"SCHEMA_NONS_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_NONS_LOCATION)},
-	{"SCHEMA_DV_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_DV_FACTORY)},
-	{"ROOT_TYPE_DEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, ROOT_TYPE_DEF)},
-	{"ROOT_ELEMENT_DECL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, ROOT_ELEMENT_DECL)},
-	{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PROTECTED, $field(StandardParserConfiguration, fSchemaValidator)},
-	{}
-};
-
-$MethodInfo _StandardParserConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StandardParserConfiguration, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(StandardParserConfiguration, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(StandardParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(StandardParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
-	{"checkFeature", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PROTECTED, $virtualMethod(StandardParserConfiguration, checkFeature, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"checkProperty", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PROTECTED, $virtualMethod(StandardParserConfiguration, checkProperty, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
-	{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(StandardParserConfiguration, configurePipeline, void)},
-	{}
-};
-
-$ClassInfo _StandardParserConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.StandardParserConfiguration",
-	"com.sun.org.apache.xerces.internal.parsers.DTDConfiguration",
-	nullptr,
-	_StandardParserConfiguration_FieldInfo_,
-	_StandardParserConfiguration_MethodInfo_
-};
-
-$Object* allocate$StandardParserConfiguration($Class* clazz) {
-	return $of($alloc(StandardParserConfiguration));
-}
 
 $String* StandardParserConfiguration::NORMALIZE_DATA = nullptr;
 $String* StandardParserConfiguration::SCHEMA_ELEMENT_DEFAULT = nullptr;
@@ -174,7 +116,7 @@ void StandardParserConfiguration::init$($SymbolTable* symbolTable, $XMLGrammarPo
 }
 
 void StandardParserConfiguration::init$($SymbolTable* symbolTable, $XMLGrammarPool* grammarPool, $XMLComponentManager* parentSettings) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DTDConfiguration::init$(symbolTable, grammarPool, parentSettings);
 	$var($StringArray, recognizedFeatures, $new($StringArray, {
 		StandardParserConfiguration::NORMALIZE_DATA,
@@ -280,7 +222,7 @@ $PropertyState* StandardParserConfiguration::checkProperty($String* propertyId) 
 			return $PropertyState::RECOGNIZED;
 		}
 	}
-	if ($nc(propertyId)->startsWith($Constants::JAXP_PROPERTY_PREFIX)) {
+	if (propertyId->startsWith($Constants::JAXP_PROPERTY_PREFIX)) {
 		int32_t var$3 = propertyId->length();
 		int32_t suffixLength = var$3 - $nc($Constants::JAXP_PROPERTY_PREFIX)->length();
 		bool var$4 = suffixLength == $nc($Constants::SCHEMA_SOURCE)->length();
@@ -295,7 +237,7 @@ $PropertyState* StandardParserConfiguration::checkProperty($String* propertyId) 
 StandardParserConfiguration::StandardParserConfiguration() {
 }
 
-void clinit$StandardParserConfiguration($Class* class$) {
+void StandardParserConfiguration::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(StandardParserConfiguration::NORMALIZE_DATA, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::SCHEMA_NORMALIZED_VALUE}));
 	$assignStatic(StandardParserConfiguration::SCHEMA_ELEMENT_DEFAULT, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::SCHEMA_ELEMENT_DEFAULT}));
@@ -320,7 +262,51 @@ void clinit$StandardParserConfiguration($Class* class$) {
 }
 
 $Class* StandardParserConfiguration::load$($String* name, bool initialize) {
-	$loadClass(StandardParserConfiguration, name, initialize, &_StandardParserConfiguration_ClassInfo_, clinit$StandardParserConfiguration, allocate$StandardParserConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"NORMALIZE_DATA", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, NORMALIZE_DATA)},
+		{"SCHEMA_ELEMENT_DEFAULT", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_ELEMENT_DEFAULT)},
+		{"SCHEMA_AUGMENT_PSVI", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_AUGMENT_PSVI)},
+		{"XMLSCHEMA_VALIDATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, XMLSCHEMA_VALIDATION)},
+		{"XMLSCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, XMLSCHEMA_FULL_CHECKING)},
+		{"GENERATE_SYNTHETIC_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, GENERATE_SYNTHETIC_ANNOTATIONS)},
+		{"VALIDATE_ANNOTATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, VALIDATE_ANNOTATIONS)},
+		{"HONOUR_ALL_SCHEMALOCATIONS", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, HONOUR_ALL_SCHEMALOCATIONS)},
+		{"IGNORE_XSI_TYPE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, IGNORE_XSI_TYPE)},
+		{"ID_IDREF_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, ID_IDREF_CHECKING)},
+		{"UNPARSED_ENTITY_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, UNPARSED_ENTITY_CHECKING)},
+		{"IDENTITY_CONSTRAINT_CHECKING", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, IDENTITY_CONSTRAINT_CHECKING)},
+		{"NAMESPACE_GROWTH", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, NAMESPACE_GROWTH)},
+		{"TOLERATE_DUPLICATES", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, TOLERATE_DUPLICATES)},
+		{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_VALIDATOR)},
+		{"SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_LOCATION)},
+		{"SCHEMA_NONS_LOCATION", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_NONS_LOCATION)},
+		{"SCHEMA_DV_FACTORY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, SCHEMA_DV_FACTORY)},
+		{"ROOT_TYPE_DEF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, ROOT_TYPE_DEF)},
+		{"ROOT_ELEMENT_DECL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(StandardParserConfiguration, ROOT_ELEMENT_DECL)},
+		{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PROTECTED, $field(StandardParserConfiguration, fSchemaValidator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StandardParserConfiguration, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(StandardParserConfiguration, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(StandardParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(StandardParserConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
+		{"checkFeature", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PROTECTED, $virtualMethod(StandardParserConfiguration, checkFeature, $FeatureState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"checkProperty", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/util/PropertyState;", nullptr, $PROTECTED, $virtualMethod(StandardParserConfiguration, checkProperty, $PropertyState*, $String*), "com.sun.org.apache.xerces.internal.xni.parser.XMLConfigurationException"},
+		{"configurePipeline", "()V", nullptr, $PROTECTED, $virtualMethod(StandardParserConfiguration, configurePipeline, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.StandardParserConfiguration",
+		"com.sun.org.apache.xerces.internal.parsers.DTDConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StandardParserConfiguration, name, initialize, &classInfo$$, StandardParserConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardParserConfiguration));
+	});
 	return class$;
 }
 

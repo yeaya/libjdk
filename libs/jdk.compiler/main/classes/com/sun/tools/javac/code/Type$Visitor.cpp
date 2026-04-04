@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$Visitor.h>
-
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$CapturedType.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
@@ -36,49 +35,44 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Type$Visitor_MethodInfo_[] = {
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ArrayType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ClassType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ErrorType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ForAll;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitForAll, $Object*, $Type$ForAll*, Object$*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$MethodType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
-	{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ModuleType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
-	{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$PackageType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$TypeVar;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$UndetVar;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$WildcardType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Type$Visitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$Visitor", "com.sun.tools.javac.code.Type", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Type$Visitor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.code.Type$Visitor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Type$Visitor_MethodInfo_,
-	"<R:Ljava/lang/Object;S:Ljava/lang/Object;>Ljava/lang/Object;",
-	nullptr,
-	_Type$Visitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$Visitor($Class* clazz) {
-	return $of($alloc(Type$Visitor));
-}
-
 $Class* Type$Visitor::load$($String* name, bool initialize) {
-	$loadClass(Type$Visitor, name, initialize, &_Type$Visitor_ClassInfo_, allocate$Type$Visitor);
+	$MethodInfo methodInfos$$[] = {
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ArrayType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitCapturedType", "(Lcom/sun/tools/javac/code/Type$CapturedType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$CapturedType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitCapturedType, $Object*, $Type$CapturedType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ClassType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ErrorType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitForAll", "(Lcom/sun/tools/javac/code/Type$ForAll;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ForAll;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitForAll, $Object*, $Type$ForAll*, Object$*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$MethodType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+		{"visitModuleType", "(Lcom/sun/tools/javac/code/Type$ModuleType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$ModuleType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitModuleType, $Object*, $Type$ModuleType*, Object$*)},
+		{"visitPackageType", "(Lcom/sun/tools/javac/code/Type$PackageType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$PackageType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitPackageType, $Object*, $Type$PackageType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$TypeVar;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$UndetVar;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", "(Lcom/sun/tools/javac/code/Type$WildcardType;TS;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Type$Visitor, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$Visitor", "com.sun.tools.javac.code.Type", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.code.Type$Visitor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;S:Ljava/lang/Object;>Ljava/lang/Object;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$Visitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Type$Visitor);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class MSISO2022JP$CoderHolder : public ::java::lang::Object {
 	$class(MSISO2022JP$CoderHolder, 0, ::java::lang::Object)
 public:
 	MSISO2022JP$CoderHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::cs::DoubleByte$Decoder* DEC0208;
 	static ::sun::nio::cs::DoubleByte$Encoder* ENC0208;

@@ -1,14 +1,10 @@
 #include <javax/swing/plaf/synth/SynthDesktopPaneUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/event/ComponentListener.h>
-#include <java/awt/event/ContainerListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
@@ -26,7 +22,6 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <jcpp.h>
 
 #undef ENABLED
@@ -36,16 +31,12 @@ using $ComponentArray = $Array<::java::awt::Component>;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $ComponentListener = ::java::awt::event::ComponentListener;
-using $ContainerListener = ::java::awt::event::ContainerListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
@@ -60,72 +51,12 @@ using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthDesktopPaneUI$SynthDesktopManager = ::javax::swing::plaf::synth::SynthDesktopPaneUI$SynthDesktopManager;
 using $SynthDesktopPaneUI$TaskBar = ::javax::swing::plaf::synth::SynthDesktopPaneUI$TaskBar;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthDesktopPaneUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthDesktopPaneUI, style)},
-	{"taskBar", "Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;", nullptr, $PRIVATE, $field(SynthDesktopPaneUI, taskBar)},
-	{"oldDesktopManager", "Ljavax/swing/DesktopManager;", nullptr, $PRIVATE, $field(SynthDesktopPaneUI, oldDesktopManager)},
-	{}
-};
-
-$MethodInfo _SynthDesktopPaneUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthDesktopPaneUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthDesktopPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthDesktopPaneUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthDesktopPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, installDefaults, void)},
-	{"installDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, installDesktopManager, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, uninstallDefaults, void)},
-	{"uninstallDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, uninstallDesktopManager, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JDesktopPane;)V", nullptr, $PRIVATE, $method(SynthDesktopPaneUI, updateStyle, void, $JDesktopPane*)},
-	{}
-};
-
-$InnerClassInfo _SynthDesktopPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$SynthDesktopManager", "javax.swing.plaf.synth.SynthDesktopPaneUI", "SynthDesktopManager", 0},
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar", "javax.swing.plaf.synth.SynthDesktopPaneUI", "TaskBar", $STATIC},
-	{}
-};
-
-$ClassInfo _SynthDesktopPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthDesktopPaneUI",
-	"javax.swing.plaf.basic.BasicDesktopPaneUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthDesktopPaneUI_FieldInfo_,
-	_SynthDesktopPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthDesktopPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthDesktopPaneUI$SynthDesktopManager,javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar,javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$2,javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$1"
-};
-
-$Object* allocate$SynthDesktopPaneUI($Class* clazz) {
-	return $of($alloc(SynthDesktopPaneUI));
-}
 
 int32_t SynthDesktopPaneUI::hashCode() {
 	 return this->$BasicDesktopPaneUI::hashCode();
@@ -166,38 +97,36 @@ void SynthDesktopPaneUI::installListeners() {
 }
 
 void SynthDesktopPaneUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	updateStyle(this->desktop);
 	if ($UIManager::getBoolean("InternalFrame.useTaskBar"_s)) {
 		$set(this, taskBar, $new($SynthDesktopPaneUI$TaskBar));
 		{
 			$var($ComponentArray, arr$, $nc(this->desktop)->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, comp, arr$->get(i$));
 				{
 					$var($JInternalFrame$JDesktopIcon, desktopIcon, nullptr);
 					if ($instanceOf($JInternalFrame$JDesktopIcon, comp)) {
 						$assign(desktopIcon, $cast($JInternalFrame$JDesktopIcon, comp));
 					} else if ($instanceOf($JInternalFrame, comp)) {
-						$assign(desktopIcon, $nc(($cast($JInternalFrame, comp)))->getDesktopIcon());
+						$assign(desktopIcon, $cast($JInternalFrame, comp)->getDesktopIcon());
 					} else {
 						continue;
 					}
 					if ($equals($nc(desktopIcon)->getParent(), this->desktop)) {
-						$nc(this->desktop)->remove(static_cast<$Component*>(desktopIcon));
+						$nc(this->desktop)->remove(desktopIcon);
 					}
-					if (!$equals($nc(desktopIcon)->getParent(), this->taskBar)) {
-						$nc(this->taskBar)->add(static_cast<$Component*>(desktopIcon));
-						$nc($(desktopIcon->getInternalFrame()))->addComponentListener(this->taskBar);
+					if (!$equals(desktopIcon->getParent(), this->taskBar)) {
+						$nc(this->taskBar)->add(desktopIcon);
+						$$nc(desktopIcon->getInternalFrame())->addComponentListener(this->taskBar);
 					}
 				}
 			}
 		}
 		$nc(this->taskBar)->setBackground($($nc(this->desktop)->getBackground()));
 		$init($JLayeredPane);
-		$nc(this->desktop)->add(static_cast<$Component*>(this->taskBar), $($of($Integer::valueOf($nc($JLayeredPane::PALETTE_LAYER)->intValue() + 1))));
+		$nc(this->desktop)->add(this->taskBar, $($Integer::valueOf($nc($JLayeredPane::PALETTE_LAYER)->intValue() + 1)));
 		if ($nc(this->desktop)->isShowing()) {
 			$nc(this->taskBar)->adjustSize();
 		}
@@ -205,7 +134,7 @@ void SynthDesktopPaneUI::installDefaults() {
 }
 
 void SynthDesktopPaneUI::updateStyle($JDesktopPane* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthStyle, oldStyle, this->style);
 	$var($SynthContext, context, getContext(c, $SynthConstants::ENABLED));
 	$set(this, style, $SynthLookAndFeel::updateStyle(context, this));
@@ -225,37 +154,35 @@ void SynthDesktopPaneUI::uninstallListeners() {
 }
 
 void SynthDesktopPaneUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(this->desktop, $SynthConstants::ENABLED));
 	$nc(this->style)->uninstallDefaults(context);
 	$set(this, style, nullptr);
 	if (this->taskBar != nullptr) {
 		{
-			$var($ComponentArray, arr$, $nc(this->taskBar)->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			$var($ComponentArray, arr$, this->taskBar->getComponents());
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, comp, arr$->get(i$));
 				{
 					$var($JInternalFrame$JDesktopIcon, desktopIcon, $cast($JInternalFrame$JDesktopIcon, comp));
-					$nc(this->taskBar)->remove(static_cast<$Component*>(desktopIcon));
+					$nc(this->taskBar)->remove(desktopIcon);
 					$nc(desktopIcon)->setPreferredSize(nullptr);
 					$var($JInternalFrame, f, desktopIcon->getInternalFrame());
 					if ($nc(f)->isIcon()) {
-						$nc(this->desktop)->add(static_cast<$Component*>(desktopIcon));
+						$nc(this->desktop)->add(desktopIcon);
 					}
-					$nc(f)->removeComponentListener(this->taskBar);
+					f->removeComponentListener(this->taskBar);
 				}
 			}
 		}
-		$nc(this->desktop)->remove(static_cast<$Component*>(this->taskBar));
+		$nc(this->desktop)->remove(this->taskBar);
 		$set(this, taskBar, nullptr);
 	}
 }
 
 void SynthDesktopPaneUI::installDesktopManager() {
 	if ($UIManager::getBoolean("InternalFrame.useTaskBar"_s)) {
-		$set(this, desktopManager, ($set(this, oldDesktopManager, $nc(this->desktop)->getDesktopManager())));
+		$set(this, desktopManager, $set(this, oldDesktopManager, $nc(this->desktop)->getDesktopManager()));
 		if (!($instanceOf($SynthDesktopPaneUI$SynthDesktopManager, this->desktopManager))) {
 			$set(this, desktopManager, $new($SynthDesktopPaneUI$SynthDesktopManager, this));
 			$nc(this->desktop)->setDesktopManager(this->desktopManager);
@@ -289,13 +216,11 @@ int32_t SynthDesktopPaneUI::getComponentState($JComponent* c) {
 }
 
 void SynthDesktopPaneUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintDesktopPaneBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintDesktopPaneBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -308,15 +233,15 @@ void SynthDesktopPaneUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthDesktopPaneUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintDesktopPaneBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintDesktopPaneBorder(context, g, x, y, w, h);
 }
 
 void SynthDesktopPaneUI::propertyChange($PropertyChangeEvent* evt) {
 	if ($SynthLookAndFeel::shouldUpdateStyle(evt)) {
-		updateStyle($cast($JDesktopPane, $($nc(evt)->getSource())));
+		updateStyle($$cast($JDesktopPane, $nc(evt)->getSource()));
 	}
 	if ($nc(evt)->getPropertyName() == "ancestor"_s && this->taskBar != nullptr) {
-		$nc(this->taskBar)->adjustSize();
+		this->taskBar->adjustSize();
 	}
 }
 
@@ -324,7 +249,59 @@ SynthDesktopPaneUI::SynthDesktopPaneUI() {
 }
 
 $Class* SynthDesktopPaneUI::load$($String* name, bool initialize) {
-	$loadClass(SynthDesktopPaneUI, name, initialize, &_SynthDesktopPaneUI_ClassInfo_, allocate$SynthDesktopPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthDesktopPaneUI, style)},
+		{"taskBar", "Ljavax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar;", nullptr, $PRIVATE, $field(SynthDesktopPaneUI, taskBar)},
+		{"oldDesktopManager", "Ljavax/swing/DesktopManager;", nullptr, $PRIVATE, $field(SynthDesktopPaneUI, oldDesktopManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthDesktopPaneUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthDesktopPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthDesktopPaneUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthDesktopPaneUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, installDefaults, void)},
+		{"installDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, installDesktopManager, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, uninstallDefaults, void)},
+		{"uninstallDesktopManager", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, uninstallDesktopManager, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopPaneUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JDesktopPane;)V", nullptr, $PRIVATE, $method(SynthDesktopPaneUI, updateStyle, void, $JDesktopPane*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$SynthDesktopManager", "javax.swing.plaf.synth.SynthDesktopPaneUI", "SynthDesktopManager", 0},
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar", "javax.swing.plaf.synth.SynthDesktopPaneUI", "TaskBar", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthDesktopPaneUI",
+		"javax.swing.plaf.basic.BasicDesktopPaneUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthDesktopPaneUI$SynthDesktopManager,javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar,javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$2,javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$1"
+	};
+	$loadClass(SynthDesktopPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthDesktopPaneUI));
+	});
 	return class$;
 }
 

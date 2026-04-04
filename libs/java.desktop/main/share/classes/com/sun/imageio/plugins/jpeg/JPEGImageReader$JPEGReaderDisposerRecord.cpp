@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReader$JPEGReaderDisposerRecord.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReader.h>
 #include <jcpp.h>
 
@@ -14,42 +13,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _JPEGImageReader$JPEGReaderDisposerRecord_FieldInfo_[] = {
-	{"pData", "J", nullptr, $PRIVATE, $field(JPEGImageReader$JPEGReaderDisposerRecord, pData)},
-	{}
-};
-
-$MethodInfo _JPEGImageReader$JPEGReaderDisposerRecord_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(JPEGImageReader$JPEGReaderDisposerRecord, init$, void, int64_t)},
-	{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JPEGImageReader$JPEGReaderDisposerRecord, dispose, void)},
-	{}
-};
-
-$InnerClassInfo _JPEGImageReader$JPEGReaderDisposerRecord_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JPEGImageReader$JPEGReaderDisposerRecord", "com.sun.imageio.plugins.jpeg.JPEGImageReader", "JPEGReaderDisposerRecord", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JPEGImageReader$JPEGReaderDisposerRecord_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGImageReader$JPEGReaderDisposerRecord",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	_JPEGImageReader$JPEGReaderDisposerRecord_FieldInfo_,
-	_JPEGImageReader$JPEGReaderDisposerRecord_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPEGImageReader$JPEGReaderDisposerRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JPEGImageReader"
-};
-
-$Object* allocate$JPEGImageReader$JPEGReaderDisposerRecord($Class* clazz) {
-	return $of($alloc(JPEGImageReader$JPEGReaderDisposerRecord));
-}
 
 void JPEGImageReader$JPEGReaderDisposerRecord::init$(int64_t pData) {
 	this->pData = pData;
@@ -68,7 +31,37 @@ JPEGImageReader$JPEGReaderDisposerRecord::JPEGImageReader$JPEGReaderDisposerReco
 }
 
 $Class* JPEGImageReader$JPEGReaderDisposerRecord::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageReader$JPEGReaderDisposerRecord, name, initialize, &_JPEGImageReader$JPEGReaderDisposerRecord_ClassInfo_, allocate$JPEGImageReader$JPEGReaderDisposerRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"pData", "J", nullptr, $PRIVATE, $field(JPEGImageReader$JPEGReaderDisposerRecord, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(JPEGImageReader$JPEGReaderDisposerRecord, init$, void, int64_t)},
+		{"dispose", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(JPEGImageReader$JPEGReaderDisposerRecord, dispose, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JPEGImageReader$JPEGReaderDisposerRecord", "com.sun.imageio.plugins.jpeg.JPEGImageReader", "JPEGReaderDisposerRecord", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGImageReader$JPEGReaderDisposerRecord",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JPEGImageReader"
+	};
+	$loadClass(JPEGImageReader$JPEGReaderDisposerRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageReader$JPEGReaderDisposerRecord);
+	});
 	return class$;
 }
 

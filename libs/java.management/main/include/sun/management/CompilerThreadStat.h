@@ -28,7 +28,7 @@ public:
 	int64_t taskCount = 0;
 	int64_t compileTime = 0;
 	::sun::management::MethodInfo* lastMethod = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x6109C59A2636DD85;
+	static const int64_t serialVersionUID = (int64_t)0x6109c59a2636dd85;
 };
 
 	} // management

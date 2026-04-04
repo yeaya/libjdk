@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$DynamicVarSymbol.h>
-
 #include <com/sun/tools/javac/code/Symbol$MethodHandleSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -31,56 +30,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Symbol$DynamicVarSymbol_FieldInfo_[] = {
-	{"staticArgs", "[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC, $field(Symbol$DynamicVarSymbol, staticArgs$)},
-	{"bsm", "Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;", nullptr, $PUBLIC, $field(Symbol$DynamicVarSymbol, bsm)},
-	{}
-};
-
-$MethodInfo _Symbol$DynamicVarSymbol_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)V", nullptr, $PUBLIC, $method(Symbol$DynamicVarSymbol, init$, void, $Name*, $Symbol*, $Symbol$MethodHandleSymbol*, $Type*, $PoolConstant$LoadableConstantArray*)},
-	{"bootstrapMethod", "()Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, bootstrapMethod, $PoolConstant$LoadableConstant*)},
-	{"dynamicType", "()Lcom/sun/tools/javac/jvm/PoolConstant;", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, dynamicType, $PoolConstant*)},
-	{"isDynamic", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, isDynamic, bool)},
-	{"*poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, poolTag, int32_t)},
-	{"staticArgs", "()[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, staticArgs, $PoolConstant$LoadableConstantArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Symbol$DynamicVarSymbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$DynamicVarSymbol", "com.sun.tools.javac.code.Symbol", "DynamicVarSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.jvm.PoolConstant$Dynamic", "com.sun.tools.javac.jvm.PoolConstant", "Dynamic", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "com.sun.tools.javac.jvm.PoolConstant", "LoadableConstant", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Symbol$DynamicVarSymbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$DynamicVarSymbol",
-	"com.sun.tools.javac.code.Symbol$VarSymbol",
-	"com.sun.tools.javac.jvm.PoolConstant$Dynamic,com.sun.tools.javac.jvm.PoolConstant$LoadableConstant",
-	_Symbol$DynamicVarSymbol_FieldInfo_,
-	_Symbol$DynamicVarSymbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$DynamicVarSymbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$DynamicVarSymbol($Class* clazz) {
-	return $of($alloc(Symbol$DynamicVarSymbol));
-}
 
 $String* Symbol$DynamicVarSymbol::toString() {
 	 return this->$Symbol$VarSymbol::toString();
@@ -136,7 +85,51 @@ Symbol$DynamicVarSymbol::Symbol$DynamicVarSymbol() {
 }
 
 $Class* Symbol$DynamicVarSymbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol$DynamicVarSymbol, name, initialize, &_Symbol$DynamicVarSymbol_ClassInfo_, allocate$Symbol$DynamicVarSymbol);
+	$FieldInfo fieldInfos$$[] = {
+		{"staticArgs", "[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC, $field(Symbol$DynamicVarSymbol, staticArgs$)},
+		{"bsm", "Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;", nullptr, $PUBLIC, $field(Symbol$DynamicVarSymbol, bsm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)V", nullptr, $PUBLIC, $method(Symbol$DynamicVarSymbol, init$, void, $Name*, $Symbol*, $Symbol$MethodHandleSymbol*, $Type*, $PoolConstant$LoadableConstantArray*)},
+		{"bootstrapMethod", "()Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, bootstrapMethod, $PoolConstant$LoadableConstant*)},
+		{"dynamicType", "()Lcom/sun/tools/javac/jvm/PoolConstant;", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, dynamicType, $PoolConstant*)},
+		{"isDynamic", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, isDynamic, bool)},
+		{"*poolKey", "(Lcom/sun/tools/javac/code/Types;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, poolTag, int32_t)},
+		{"staticArgs", "()[Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;", nullptr, $PUBLIC, $virtualMethod(Symbol$DynamicVarSymbol, staticArgs, $PoolConstant$LoadableConstantArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$DynamicVarSymbol", "com.sun.tools.javac.code.Symbol", "DynamicVarSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.jvm.PoolConstant$Dynamic", "com.sun.tools.javac.jvm.PoolConstant", "Dynamic", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.jvm.PoolConstant$LoadableConstant", "com.sun.tools.javac.jvm.PoolConstant", "LoadableConstant", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$DynamicVarSymbol",
+		"com.sun.tools.javac.code.Symbol$VarSymbol",
+		"com.sun.tools.javac.jvm.PoolConstant$Dynamic,com.sun.tools.javac.jvm.PoolConstant$LoadableConstant",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$DynamicVarSymbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$DynamicVarSymbol));
+	});
 	return class$;
 }
 

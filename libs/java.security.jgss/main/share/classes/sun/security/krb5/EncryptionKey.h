@@ -60,6 +60,7 @@ class $export EncryptionKey : public ::java::lang::Cloneable {
 	$class(EncryptionKey, 0, ::java::lang::Cloneable)
 public:
 	EncryptionKey();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($bytes* keyValue, int32_t keyType, ::java::lang::Integer* kvno);
 	void init$(int32_t keyType, $bytes* keyValue);
 	void init$($chars* password, $String* salt, $String* algorithm);

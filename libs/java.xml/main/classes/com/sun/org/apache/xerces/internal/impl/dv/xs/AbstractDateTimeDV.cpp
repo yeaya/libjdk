@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
@@ -63,79 +62,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _AbstractDateTimeDV_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractDateTimeDV, DEBUG)},
-	{"YEAR", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractDateTimeDV, YEAR)},
-	{"MONTH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractDateTimeDV, MONTH)},
-	{"DAY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractDateTimeDV, DAY)},
-	{"datatypeFactory", "Ljavax/xml/datatype/DatatypeFactory;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDateTimeDV, datatypeFactory)},
-	{}
-};
-
-$MethodInfo _AbstractDateTimeDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractDateTimeDV, init$, void)},
-	{"append", "(Ljava/lang/StringBuffer;II)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, append, void, $StringBuffer*, int32_t, int32_t)},
-	{"append", "(Ljava/lang/StringBuffer;D)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, append, void, $StringBuffer*, double)},
-	{"append2", "(Ljava/lang/StringBuffer;D)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, append2, void, $StringBuffer*, double)},
-	{"append3", "(Ljava/lang/StringBuffer;D)V", nullptr, $PRIVATE, $method(AbstractDateTimeDV, append3, void, $StringBuffer*, double)},
-	{"cloneDate", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PRIVATE, $method(AbstractDateTimeDV, cloneDate, void, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV, compare, int32_t, Object$*, Object$*)},
-	{"compareDates", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Z)S", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, compareDates, int16_t, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*, bool)},
-	{"compareOrder", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, compareOrder, int16_t, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*)},
-	{"dateToString", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, dateToString, $String*, $AbstractDateTimeDV$DateTimeData*)},
-	{"fQuotient", "(II)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, fQuotient, int32_t, int32_t, int32_t)},
-	{"fQuotient", "(III)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, fQuotient, int32_t, int32_t, int32_t, int32_t)},
-	{"findUTCSign", "(Ljava/lang/String;II)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, findUTCSign, int32_t, $String*, int32_t, int32_t)},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV, getAllowedFacets, int16_t)},
-	{"getDate", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getDate, int32_t, $String*, int32_t, int32_t, $AbstractDateTimeDV$DateTimeData*), "java.lang.RuntimeException"},
-	{"getDuration", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/Duration;", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getDuration, $Duration*, $AbstractDateTimeDV$DateTimeData*)},
-	{"getFractionalSecondsAsBigDecimal", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/math/BigDecimal;", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, getFractionalSecondsAsBigDecimal, $BigDecimal*, $AbstractDateTimeDV$DateTimeData*)},
-	{"getTime", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getTime, void, $String*, int32_t, int32_t, $AbstractDateTimeDV$DateTimeData*), "java.lang.RuntimeException"},
-	{"getTimeZone", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;II)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getTimeZone, void, $String*, $AbstractDateTimeDV$DateTimeData*, int32_t, int32_t), "java.lang.RuntimeException"},
-	{"getXMLGregorianCalendar", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getXMLGregorianCalendar, $XMLGregorianCalendar*, $AbstractDateTimeDV$DateTimeData*)},
-	{"getYearMonth", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getYearMonth, int32_t, $String*, int32_t, int32_t, $AbstractDateTimeDV$DateTimeData*), "java.lang.RuntimeException"},
-	{"indexOf", "(Ljava/lang/String;IIC)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, indexOf, int32_t, $String*, int32_t, int32_t, char16_t)},
-	{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV, isIdentical, bool, Object$*, Object$*)},
-	{"isLeapYear", "(I)Z", nullptr, $PRIVATE, $method(AbstractDateTimeDV, isLeapYear, bool, int32_t)},
-	{"isNextCharUTCSign", "(Ljava/lang/String;II)Z", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, isNextCharUTCSign, bool, $String*, int32_t, int32_t)},
-	{"maxDayInMonthFor", "(II)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, maxDayInMonthFor, int32_t, int32_t, int32_t)},
-	{"mod", "(III)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, mod, int32_t, int32_t, int32_t, int32_t)},
-	{"modulo", "(III)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, modulo, int32_t, int32_t, int32_t, int32_t)},
-	{"normalize", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, normalize, void, $AbstractDateTimeDV$DateTimeData*)},
-	{"parseInt", "(Ljava/lang/String;II)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, parseInt, int32_t, $String*, int32_t, int32_t), "java.lang.NumberFormatException"},
-	{"parseIntYear", "(Ljava/lang/String;I)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, parseIntYear, int32_t, $String*, int32_t)},
-	{"parseSecond", "(Ljava/lang/String;II)D", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, parseSecond, double, $String*, int32_t, int32_t), "java.lang.NumberFormatException"},
-	{"parseTimeZone", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, parseTimeZone, void, $String*, int32_t, int32_t, $AbstractDateTimeDV$DateTimeData*), "java.lang.RuntimeException"},
-	{"resetDateObj", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, resetDateObj, void, $AbstractDateTimeDV$DateTimeData*)},
-	{"saveUnnormalized", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, saveUnnormalized, void, $AbstractDateTimeDV$DateTimeData*)},
-	{"validateDateTime", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, validateDateTime, void, $AbstractDateTimeDV$DateTimeData*)},
-	{}
-};
-
-$InnerClassInfo _AbstractDateTimeDV_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV$DateTimeData", "com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV", "DateTimeData", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AbstractDateTimeDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	_AbstractDateTimeDV_FieldInfo_,
-	_AbstractDateTimeDV_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDateTimeDV_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV$DateTimeData"
-};
-
-$Object* allocate$AbstractDateTimeDV($Class* clazz) {
-	return $of($alloc(AbstractDateTimeDV));
-}
-
 $DatatypeFactory* AbstractDateTimeDV::datatypeFactory = nullptr;
 
 void AbstractDateTimeDV::init$() {
@@ -147,7 +73,7 @@ int16_t AbstractDateTimeDV::getAllowedFacets() {
 }
 
 bool AbstractDateTimeDV::isIdentical(Object$* value1, Object$* value2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($AbstractDateTimeDV$DateTimeData, value1)) || !($instanceOf($AbstractDateTimeDV$DateTimeData, value2))) {
 		return false;
 	}
@@ -160,7 +86,7 @@ bool AbstractDateTimeDV::isIdentical(Object$* value1, Object$* value2) {
 }
 
 int32_t AbstractDateTimeDV::compare(Object$* value1, Object$* value2) {
-	return compareDates(($cast($AbstractDateTimeDV$DateTimeData, value1)), ($cast($AbstractDateTimeDV$DateTimeData, value2)), true);
+	return compareDates($cast($AbstractDateTimeDV$DateTimeData, value1), $cast($AbstractDateTimeDV$DateTimeData, value2), true);
 }
 
 int16_t AbstractDateTimeDV::compareDates($AbstractDateTimeDV$DateTimeData* date1, $AbstractDateTimeDV$DateTimeData* date2, bool strict) {
@@ -170,7 +96,7 @@ int16_t AbstractDateTimeDV::compareDates($AbstractDateTimeDV$DateTimeData* date1
 	int16_t c1 = 0;
 	int16_t c2 = 0;
 	$var($AbstractDateTimeDV$DateTimeData, tempDate, $new($AbstractDateTimeDV$DateTimeData, nullptr, this));
-	if ($nc(date1)->utc == u'Z') {
+	if (date1->utc == u'Z') {
 		cloneDate(date2, tempDate);
 		tempDate->timezoneHr = 14;
 		tempDate->timezoneMin = 0;
@@ -190,13 +116,15 @@ int16_t AbstractDateTimeDV::compareDates($AbstractDateTimeDV$DateTimeData* date1
 			return c2;
 		}
 		return $TypeValidator::INDETERMINATE;
-	} else if ($nc(date2)->utc == u'Z') {
+	} else if (date2->utc == u'Z') {
 		cloneDate(date1, tempDate);
 		tempDate->timezoneHr = -14;
 		tempDate->timezoneMin = 0;
 		tempDate->utc = u'-';
+		;
 		normalize(tempDate);
 		c1 = compareOrder(tempDate, date2);
+		;
 		if (c1 == $TypeValidator::LESS_THAN) {
 			return c1;
 		}
@@ -206,6 +134,7 @@ int16_t AbstractDateTimeDV::compareDates($AbstractDateTimeDV$DateTimeData* date1
 		tempDate->utc = u'+';
 		normalize(tempDate);
 		c2 = compareOrder(tempDate, date2);
+		;
 		if (c2 == $TypeValidator::GREATER_THAN) {
 			return c2;
 		}
@@ -217,51 +146,51 @@ int16_t AbstractDateTimeDV::compareDates($AbstractDateTimeDV$DateTimeData* date1
 int16_t AbstractDateTimeDV::compareOrder($AbstractDateTimeDV$DateTimeData* date1, $AbstractDateTimeDV$DateTimeData* date2) {
 	if ($nc(date1)->position < 1) {
 		if (date1->year < $nc(date2)->year) {
-			return (int16_t)-1;
+			return -1;
 		}
-		if (date1->year > $nc(date2)->year) {
-			return (int16_t)1;
+		if (date1->year > date2->year) {
+			return 1;
 		}
 	}
-	if ($nc(date1)->position < 2) {
+	if (date1->position < 2) {
 		if (date1->month < $nc(date2)->month) {
-			return (int16_t)-1;
+			return -1;
 		}
-		if (date1->month > $nc(date2)->month) {
-			return (int16_t)1;
+		if (date1->month > date2->month) {
+			return 1;
 		}
 	}
-	if ($nc(date1)->day < $nc(date2)->day) {
-		return (int16_t)-1;
+	if (date1->day < $nc(date2)->day) {
+		return -1;
 	}
-	if ($nc(date1)->day > $nc(date2)->day) {
-		return (int16_t)1;
+	if (date1->day > date2->day) {
+		return 1;
 	}
-	if ($nc(date1)->hour < $nc(date2)->hour) {
-		return (int16_t)-1;
+	if (date1->hour < date2->hour) {
+		return -1;
 	}
-	if ($nc(date1)->hour > $nc(date2)->hour) {
-		return (int16_t)1;
+	if (date1->hour > date2->hour) {
+		return 1;
 	}
-	if ($nc(date1)->minute < $nc(date2)->minute) {
-		return (int16_t)-1;
+	if (date1->minute < date2->minute) {
+		return -1;
 	}
-	if ($nc(date1)->minute > $nc(date2)->minute) {
-		return (int16_t)1;
+	if (date1->minute > date2->minute) {
+		return 1;
 	}
-	if ($nc(date1)->second < $nc(date2)->second) {
-		return (int16_t)-1;
+	if (date1->second < date2->second) {
+		return -1;
 	}
-	if ($nc(date1)->second > $nc(date2)->second) {
-		return (int16_t)1;
+	if (date1->second > date2->second) {
+		return 1;
 	}
-	if ($nc(date1)->utc < $nc(date2)->utc) {
-		return (int16_t)-1;
+	if (date1->utc < date2->utc) {
+		return -1;
 	}
-	if ($nc(date1)->utc > $nc(date2)->utc) {
-		return (int16_t)1;
+	if (date1->utc > date2->utc) {
+		return 1;
 	}
-	return (int16_t)0;
+	return 0;
 }
 
 void AbstractDateTimeDV::getTime($String* buffer, int32_t start, int32_t end, $AbstractDateTimeDV$DateTimeData* data) {
@@ -273,7 +202,7 @@ void AbstractDateTimeDV::getTime($String* buffer, int32_t start, int32_t end, $A
 	start = stop;
 	stop = stop + 2;
 	data->minute = parseInt(buffer, start, stop);
-	if ($nc(buffer)->charAt(stop++) != u':') {
+	if (buffer->charAt(stop++) != u':') {
 		$throwNew($RuntimeException, "Error in parsing time zone"_s);
 	}
 	int32_t sign = findUTCSign(buffer, start, end);
@@ -306,11 +235,11 @@ int32_t AbstractDateTimeDV::getYearMonth($String* buffer, int32_t start, int32_t
 	int32_t length = i - start;
 	if (length < 4) {
 		$throwNew($RuntimeException, "Year must have \'CCYY\' format"_s);
-	} else if (length > 4 && $nc(buffer)->charAt(start) == u'0') {
+	} else if (length > 4 && buffer->charAt(start) == u'0') {
 		$throwNew($RuntimeException, "Leading zeros are required if the year value would otherwise have fewer than four digits; otherwise they are forbidden"_s);
 	}
 	$nc(date)->year = parseIntYear(buffer, i);
-	if ($nc(buffer)->charAt(i) != u'-') {
+	if (buffer->charAt(i) != u'-') {
 		$throwNew($RuntimeException, "CCYY must be followed by \'-\' sign"_s);
 	}
 	start = ++i;
@@ -354,6 +283,7 @@ void AbstractDateTimeDV::getTimeZone($String* buffer, $AbstractDateTimeDV$DateTi
 	} else {
 		$throwNew($RuntimeException, "Error in parsing time zone"_s);
 	}
+	;
 }
 
 int32_t AbstractDateTimeDV::indexOf($String* buffer, int32_t start, int32_t end, char16_t ch) {
@@ -369,13 +299,13 @@ void AbstractDateTimeDV::validateDateTime($AbstractDateTimeDV$DateTimeData* data
 	if ($nc(data)->year == 0) {
 		$throwNew($RuntimeException, "The year \"0000\" is an illegal year value"_s);
 	}
-	if ($nc(data)->month < 1 || $nc(data)->month > 12) {
+	if (data->month < 1 || data->month > 12) {
 		$throwNew($RuntimeException, "The month must have values 1 to 12"_s);
 	}
-	if ($nc(data)->day > maxDayInMonthFor(data->year, data->month) || $nc(data)->day < 1) {
+	if (data->day > maxDayInMonthFor(data->year, data->month) || data->day < 1) {
 		$throwNew($RuntimeException, "The day must have values 1 to 31"_s);
 	}
-	if ($nc(data)->hour > 23 || $nc(data)->hour < 0) {
+	if (data->hour > 23 || data->hour < 0) {
 		if (data->hour == 24 && data->minute == 0 && data->second == 0) {
 			data->hour = 0;
 			int32_t var$0 = ++data->day;
@@ -392,13 +322,13 @@ void AbstractDateTimeDV::validateDateTime($AbstractDateTimeDV$DateTimeData* data
 			$throwNew($RuntimeException, "Hour must have values 0-23, unless 24:00:00"_s);
 		}
 	}
-	if ($nc(data)->minute > 59 || $nc(data)->minute < 0) {
+	if (data->minute > 59 || data->minute < 0) {
 		$throwNew($RuntimeException, "Minute must have values 0-59"_s);
 	}
-	if ($nc(data)->second >= 60 || $nc(data)->second < 0) {
+	if (data->second >= 60 || data->second < 0) {
 		$throwNew($RuntimeException, "Second must have values 0-59"_s);
 	}
-	if ($nc(data)->timezoneHr > 14 || $nc(data)->timezoneHr < -14) {
+	if (data->timezoneHr > 14 || data->timezoneHr < -14) {
 		$throwNew($RuntimeException, "Time zone should have range -14:00 to +14:00"_s);
 	} else if ((data->timezoneHr == 14 || data->timezoneHr == -14) && data->timezoneMin != 0) {
 		$throwNew($RuntimeException, "Time zone should have range -14:00 to +14:00"_s);
@@ -427,7 +357,7 @@ bool AbstractDateTimeDV::isNextCharUTCSign($String* buffer, int32_t start, int32
 }
 
 int32_t AbstractDateTimeDV::parseInt($String* buffer, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t radix = 10;
 	int32_t result = 0;
 	int32_t digit = 0;
@@ -452,7 +382,7 @@ int32_t AbstractDateTimeDV::parseInt($String* buffer, int32_t start, int32_t end
 }
 
 int32_t AbstractDateTimeDV::parseIntYear($String* buffer, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t radix = 10;
 	int32_t result = 0;
 	bool negative = false;
@@ -469,7 +399,7 @@ int32_t AbstractDateTimeDV::parseIntYear($String* buffer, int32_t end) {
 	}
 	multmin = $div(limit, radix);
 	while (i < end) {
-		digit = getDigit($nc(buffer)->charAt(i++));
+		digit = getDigit(buffer->charAt(i++));
 		if (digit < 0) {
 			$throwNew($NumberFormatException, $$str({"\'"_s, buffer, "\' has wrong format"_s}));
 		}
@@ -494,12 +424,15 @@ int32_t AbstractDateTimeDV::parseIntYear($String* buffer, int32_t end) {
 
 void AbstractDateTimeDV::normalize($AbstractDateTimeDV$DateTimeData* date) {
 	int32_t negate = -1;
-	int32_t temp = $nc(date)->minute + negate * date->timezoneMin;
+	;
+	int32_t temp = $nc(date)->minute + negate * $nc(date)->timezoneMin;
 	int32_t carry = fQuotient(temp, 60);
 	date->minute = mod(temp, 60, carry);
+	;
 	temp = date->hour + negate * date->timezoneHr + carry;
 	carry = fQuotient(temp, 24);
 	date->hour = mod(temp, 24, carry);
+	;
 	date->day = date->day + carry;
 	while (true) {
 		temp = maxDayInMonthFor(date->year, date->month);
@@ -523,7 +456,7 @@ void AbstractDateTimeDV::normalize($AbstractDateTimeDV$DateTimeData* date) {
 }
 
 void AbstractDateTimeDV::saveUnnormalized($AbstractDateTimeDV$DateTimeData* date) {
-	$nc(date)->unNormYear = date->year;
+	$nc(date)->unNormYear = $nc(date)->year;
 	date->unNormMonth = date->month;
 	date->unNormDay = date->day;
 	date->unNormHour = date->hour;
@@ -537,7 +470,7 @@ void AbstractDateTimeDV::resetDateObj($AbstractDateTimeDV$DateTimeData* data) {
 	data->day = 0;
 	data->hour = 0;
 	data->minute = 0;
-	data->second = (double)0;
+	data->second = 0;
 	data->utc = 0;
 	data->timezoneHr = 0;
 	data->timezoneMin = 0;
@@ -583,16 +516,16 @@ $String* AbstractDateTimeDV::dateToString($AbstractDateTimeDV$DateTimeData* date
 	$var($StringBuffer, message, $new($StringBuffer, 25));
 	append(message, $nc(date)->year, 4);
 	message->append(u'-');
-	append(message, $nc(date)->month, 2);
+	append(message, date->month, 2);
 	message->append(u'-');
-	append(message, $nc(date)->day, 2);
+	append(message, date->day, 2);
 	message->append(u'T');
-	append(message, $nc(date)->hour, 2);
+	append(message, date->hour, 2);
 	message->append(u':');
-	append(message, $nc(date)->minute, 2);
+	append(message, date->minute, 2);
 	message->append(u':');
-	append(message, $nc(date)->second);
-	append(message, (char16_t)$nc(date)->utc, 0);
+	append(message, date->second);
+	append(message, (char16_t)date->utc, 0);
 	return message->toString();
 }
 
@@ -646,7 +579,7 @@ void AbstractDateTimeDV::append2($StringBuffer* message, double value) {
 
 void AbstractDateTimeDV::append3($StringBuffer* message, double value) {
 	$var($String, d, $String::valueOf(value));
-	int32_t eIndex = d->indexOf((int32_t)u'E');
+	int32_t eIndex = d->indexOf(u'E');
 	if (eIndex == -1) {
 		$nc(message)->append(d);
 		return;
@@ -701,7 +634,7 @@ void AbstractDateTimeDV::append3($StringBuffer* message, double value) {
 }
 
 double AbstractDateTimeDV::parseSecond($String* buffer, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dot = -1;
 	for (int32_t i = start; i < end; ++i) {
 		char16_t ch = $nc(buffer)->charAt(i);
@@ -742,11 +675,11 @@ $Duration* AbstractDateTimeDV::getDuration($AbstractDateTimeDV$DateTimeData* dat
 }
 
 $BigDecimal* AbstractDateTimeDV::getFractionalSecondsAsBigDecimal($AbstractDateTimeDV$DateTimeData* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, buf, $new($StringBuffer));
 	append3(buf, $nc(data)->unNormSecond);
 	$var($String, value, buf->toString());
-	int32_t index = $nc(value)->indexOf((int32_t)u'.');
+	int32_t index = value->indexOf(u'.');
 	if (index == -1) {
 		return nullptr;
 	}
@@ -758,7 +691,7 @@ $BigDecimal* AbstractDateTimeDV::getFractionalSecondsAsBigDecimal($AbstractDateT
 	return _val;
 }
 
-void clinit$AbstractDateTimeDV($Class* class$) {
+void AbstractDateTimeDV::clinit$($Class* clazz) {
 	$assignStatic(AbstractDateTimeDV::datatypeFactory, $new($DatatypeFactoryImpl));
 }
 
@@ -766,7 +699,74 @@ AbstractDateTimeDV::AbstractDateTimeDV() {
 }
 
 $Class* AbstractDateTimeDV::load$($String* name, bool initialize) {
-	$loadClass(AbstractDateTimeDV, name, initialize, &_AbstractDateTimeDV_ClassInfo_, clinit$AbstractDateTimeDV, allocate$AbstractDateTimeDV);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AbstractDateTimeDV, DEBUG)},
+		{"YEAR", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractDateTimeDV, YEAR)},
+		{"MONTH", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractDateTimeDV, MONTH)},
+		{"DAY", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractDateTimeDV, DAY)},
+		{"datatypeFactory", "Ljavax/xml/datatype/DatatypeFactory;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractDateTimeDV, datatypeFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractDateTimeDV, init$, void)},
+		{"append", "(Ljava/lang/StringBuffer;II)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, append, void, $StringBuffer*, int32_t, int32_t)},
+		{"append", "(Ljava/lang/StringBuffer;D)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, append, void, $StringBuffer*, double)},
+		{"append2", "(Ljava/lang/StringBuffer;D)V", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, append2, void, $StringBuffer*, double)},
+		{"append3", "(Ljava/lang/StringBuffer;D)V", nullptr, $PRIVATE, $method(AbstractDateTimeDV, append3, void, $StringBuffer*, double)},
+		{"cloneDate", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PRIVATE, $method(AbstractDateTimeDV, cloneDate, void, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV, compare, int32_t, Object$*, Object$*)},
+		{"compareDates", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Z)S", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, compareDates, int16_t, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*, bool)},
+		{"compareOrder", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)S", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, compareOrder, int16_t, $AbstractDateTimeDV$DateTimeData*, $AbstractDateTimeDV$DateTimeData*)},
+		{"dateToString", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, dateToString, $String*, $AbstractDateTimeDV$DateTimeData*)},
+		{"fQuotient", "(II)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, fQuotient, int32_t, int32_t, int32_t)},
+		{"fQuotient", "(III)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, fQuotient, int32_t, int32_t, int32_t, int32_t)},
+		{"findUTCSign", "(Ljava/lang/String;II)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, findUTCSign, int32_t, $String*, int32_t, int32_t)},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV, getAllowedFacets, int16_t)},
+		{"getDate", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getDate, int32_t, $String*, int32_t, int32_t, $AbstractDateTimeDV$DateTimeData*), "java.lang.RuntimeException"},
+		{"getDuration", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/Duration;", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getDuration, $Duration*, $AbstractDateTimeDV$DateTimeData*)},
+		{"getFractionalSecondsAsBigDecimal", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljava/math/BigDecimal;", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, getFractionalSecondsAsBigDecimal, $BigDecimal*, $AbstractDateTimeDV$DateTimeData*)},
+		{"getTime", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getTime, void, $String*, int32_t, int32_t, $AbstractDateTimeDV$DateTimeData*), "java.lang.RuntimeException"},
+		{"getTimeZone", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;II)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getTimeZone, void, $String*, $AbstractDateTimeDV$DateTimeData*, int32_t, int32_t), "java.lang.RuntimeException"},
+		{"getXMLGregorianCalendar", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)Ljavax/xml/datatype/XMLGregorianCalendar;", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getXMLGregorianCalendar, $XMLGregorianCalendar*, $AbstractDateTimeDV$DateTimeData*)},
+		{"getYearMonth", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, getYearMonth, int32_t, $String*, int32_t, int32_t, $AbstractDateTimeDV$DateTimeData*), "java.lang.RuntimeException"},
+		{"indexOf", "(Ljava/lang/String;IIC)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, indexOf, int32_t, $String*, int32_t, int32_t, char16_t)},
+		{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDateTimeDV, isIdentical, bool, Object$*, Object$*)},
+		{"isLeapYear", "(I)Z", nullptr, $PRIVATE, $method(AbstractDateTimeDV, isLeapYear, bool, int32_t)},
+		{"isNextCharUTCSign", "(Ljava/lang/String;II)Z", nullptr, $PROTECTED | $FINAL, $method(AbstractDateTimeDV, isNextCharUTCSign, bool, $String*, int32_t, int32_t)},
+		{"maxDayInMonthFor", "(II)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, maxDayInMonthFor, int32_t, int32_t, int32_t)},
+		{"mod", "(III)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, mod, int32_t, int32_t, int32_t, int32_t)},
+		{"modulo", "(III)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, modulo, int32_t, int32_t, int32_t, int32_t)},
+		{"normalize", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, normalize, void, $AbstractDateTimeDV$DateTimeData*)},
+		{"parseInt", "(Ljava/lang/String;II)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, parseInt, int32_t, $String*, int32_t, int32_t), "java.lang.NumberFormatException"},
+		{"parseIntYear", "(Ljava/lang/String;I)I", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, parseIntYear, int32_t, $String*, int32_t)},
+		{"parseSecond", "(Ljava/lang/String;II)D", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, parseSecond, double, $String*, int32_t, int32_t), "java.lang.NumberFormatException"},
+		{"parseTimeZone", "(Ljava/lang/String;IILcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, parseTimeZone, void, $String*, int32_t, int32_t, $AbstractDateTimeDV$DateTimeData*), "java.lang.RuntimeException"},
+		{"resetDateObj", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, resetDateObj, void, $AbstractDateTimeDV$DateTimeData*)},
+		{"saveUnnormalized", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, saveUnnormalized, void, $AbstractDateTimeDV$DateTimeData*)},
+		{"validateDateTime", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV$DateTimeData;)V", nullptr, $PROTECTED, $virtualMethod(AbstractDateTimeDV, validateDateTime, void, $AbstractDateTimeDV$DateTimeData*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV$DateTimeData", "com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV", "DateTimeData", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.AbstractDateTimeDV$DateTimeData"
+	};
+	$loadClass(AbstractDateTimeDV, name, initialize, &classInfo$$, AbstractDateTimeDV::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractDateTimeDV);
+	});
 	return class$;
 }
 

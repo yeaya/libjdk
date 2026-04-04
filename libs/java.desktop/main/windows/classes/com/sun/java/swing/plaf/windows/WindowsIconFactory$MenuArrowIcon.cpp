@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsIconFactory$MenuArrowIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
@@ -31,7 +30,6 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JMenuItem = ::javax::swing::JMenuItem;
 
@@ -41,44 +39,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$MethodInfo _WindowsIconFactory$MenuArrowIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$MenuArrowIcon, init$, void)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuArrowIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuArrowIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _WindowsIconFactory$MenuArrowIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsIconFactory$MenuArrowIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuArrowIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_WindowsIconFactory$MenuArrowIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsIconFactory$MenuArrowIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsIconFactory"
-};
-
-$Object* allocate$WindowsIconFactory$MenuArrowIcon($Class* clazz) {
-	return $of($alloc(WindowsIconFactory$MenuArrowIcon));
-}
 
 int32_t WindowsIconFactory$MenuArrowIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -104,13 +64,13 @@ void WindowsIconFactory$MenuArrowIcon::init$() {
 }
 
 void WindowsIconFactory$MenuArrowIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if ($WindowsMenuItemUI::isVistaPainting(xp)) {
 		$init($TMSchema$State);
 		$TMSchema$State* state = $TMSchema$State::NORMAL;
 		if ($instanceOf($JMenuItem, c)) {
-			state = $nc($($nc(($cast($JMenuItem, c)))->getModel()))->isEnabled() ? $TMSchema$State::NORMAL : $TMSchema$State::DISABLED;
+			state = $$nc($cast($JMenuItem, c)->getModel())->isEnabled() ? $TMSchema$State::NORMAL : $TMSchema$State::DISABLED;
 		}
 		$init($TMSchema$Part);
 		$var($XPStyle$Skin, skin, $nc(xp)->getSkin(c, $TMSchema$Part::MP_POPUPSUBMENU));
@@ -119,8 +79,8 @@ void WindowsIconFactory$MenuArrowIcon::paintIcon($Component* c, $Graphics* g, in
 		} else {
 			$var($Graphics2D, g2d, $cast($Graphics2D, $nc(g)->create()));
 			$nc(g2d)->translate(x + $nc(skin)->getWidth(), y);
-			g2d->scale((double)-1, (double)1);
-			$nc(skin)->paintSkin(g2d, 0, 0, state);
+			g2d->scale(-1, 1);
+			skin->paintSkin(g2d, 0, 0, state);
 			g2d->dispose();
 		}
 	} else {
@@ -141,7 +101,7 @@ void WindowsIconFactory$MenuArrowIcon::paintIcon($Component* c, $Graphics* g, in
 }
 
 int32_t WindowsIconFactory$MenuArrowIcon::getIconWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if ($WindowsMenuItemUI::isVistaPainting(xp)) {
 		$init($TMSchema$Part);
@@ -153,7 +113,7 @@ int32_t WindowsIconFactory$MenuArrowIcon::getIconWidth() {
 }
 
 int32_t WindowsIconFactory$MenuArrowIcon::getIconHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if ($WindowsMenuItemUI::isVistaPainting(xp)) {
 		$init($TMSchema$Part);
@@ -168,7 +128,40 @@ WindowsIconFactory$MenuArrowIcon::WindowsIconFactory$MenuArrowIcon() {
 }
 
 $Class* WindowsIconFactory$MenuArrowIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsIconFactory$MenuArrowIcon, name, initialize, &_WindowsIconFactory$MenuArrowIcon_ClassInfo_, allocate$WindowsIconFactory$MenuArrowIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WindowsIconFactory$MenuArrowIcon, init$, void)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuArrowIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuArrowIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsIconFactory$MenuArrowIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuArrowIcon", "com.sun.java.swing.plaf.windows.WindowsIconFactory", "MenuArrowIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory$MenuArrowIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsIconFactory"
+	};
+	$loadClass(WindowsIconFactory$MenuArrowIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsIconFactory$MenuArrowIcon));
+	});
 	return class$;
 }
 

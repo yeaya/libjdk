@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/RET.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -36,44 +35,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _RET_FieldInfo_[] = {
-	{"wide", "Z", nullptr, $PRIVATE, $field(RET, wide)},
-	{"index", "I", nullptr, $PRIVATE, $field(RET, index)},
-	{}
-};
-
-$MethodInfo _RET_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(RET, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RET, init$, void, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(RET, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(RET, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(RET, getIndex, int32_t)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(RET, getType, $Type*, $ConstantPoolGen*)},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(RET, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{"setIndex", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(RET, setIndex, void, int32_t)},
-	{"setWide", "()V", nullptr, $PRIVATE, $method(RET, setWide, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RET, toString, $String*, bool)},
-	{}
-};
-
-$ClassInfo _RET_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.RET",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.IndexedInstruction,com.sun.org.apache.bcel.internal.generic.TypedInstruction",
-	_RET_FieldInfo_,
-	_RET_MethodInfo_
-};
-
-$Object* allocate$RET($Class* clazz) {
-	return $of($alloc(RET));
-}
 
 $String* RET::toString() {
 	 return this->$Instruction::toString();
@@ -141,7 +102,7 @@ int32_t RET::getIndex() {
 }
 
 void RET::setIndex(int32_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (n < 0) {
 		$throwNew($ClassGenException, $$str({"Negative index value: "_s, $$str(n)}));
 	}
@@ -150,7 +111,7 @@ void RET::setIndex(int32_t n) {
 }
 
 $String* RET::toString(bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($Instruction::toString(verbose)), " "_s, $$str(this->index)});
 }
 
@@ -167,7 +128,40 @@ RET::RET() {
 }
 
 $Class* RET::load$($String* name, bool initialize) {
-	$loadClass(RET, name, initialize, &_RET_ClassInfo_, allocate$RET);
+	$FieldInfo fieldInfos$$[] = {
+		{"wide", "Z", nullptr, $PRIVATE, $field(RET, wide)},
+		{"index", "I", nullptr, $PRIVATE, $field(RET, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(RET, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(RET, init$, void, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(RET, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(RET, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getIndex", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(RET, getIndex, int32_t)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(RET, getType, $Type*, $ConstantPoolGen*)},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(RET, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{"setIndex", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(RET, setIndex, void, int32_t)},
+		{"setWide", "()V", nullptr, $PRIVATE, $method(RET, setWide, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RET, toString, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.RET",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.IndexedInstruction,com.sun.org.apache.bcel.internal.generic.TypedInstruction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RET, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RET));
+	});
 	return class$;
 }
 

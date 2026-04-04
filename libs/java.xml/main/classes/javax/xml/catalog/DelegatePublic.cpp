@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/DelegatePublic.h>
-
 #include <java/net/URI.h>
 #include <javax/xml/catalog/AltCatalog.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
@@ -22,33 +21,6 @@ using $Normalizer = ::javax::xml::catalog::Normalizer;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _DelegatePublic_FieldInfo_[] = {
-	{"publicIdStartString", "Ljava/lang/String;", nullptr, 0, $field(DelegatePublic, publicIdStartString)},
-	{}
-};
-
-$MethodInfo _DelegatePublic_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegatePublic, init$, void, $String*, $String*, $String*)},
-	{"getPublicIdStartString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(DelegatePublic, getPublicIdStartString, $String*)},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DelegatePublic, match, $String*, $String*)},
-	{"matchURI", "(Ljava/lang/String;I)Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(DelegatePublic, matchURI, $URI*, $String*, int32_t)},
-	{"setPublicIdStartString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegatePublic, setPublicIdStartString, void, $String*)},
-	{}
-};
-
-$ClassInfo _DelegatePublic_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.xml.catalog.DelegatePublic",
-	"javax.xml.catalog.AltCatalog",
-	nullptr,
-	_DelegatePublic_FieldInfo_,
-	_DelegatePublic_MethodInfo_
-};
-
-$Object* allocate$DelegatePublic($Class* clazz) {
-	return $of($alloc(DelegatePublic));
-}
 
 void DelegatePublic::init$($String* base, $String* startString, $String* catalog) {
 	$init($BaseEntry$CatalogEntryType);
@@ -74,8 +46,8 @@ $String* DelegatePublic::match($String* publicId) {
 $URI* DelegatePublic::matchURI($String* publicId, int32_t currentMatch) {
 	int32_t var$1 = $nc(this->publicIdStartString)->length();
 	bool var$0 = var$1 <= $nc(publicId)->length();
-	if (var$0 && $nc(this->publicIdStartString)->equals($(publicId->substring(0, $nc(this->publicIdStartString)->length())))) {
-		if (currentMatch < $nc(this->publicIdStartString)->length()) {
+	if (var$0 && this->publicIdStartString->equals($(publicId->substring(0, this->publicIdStartString->length())))) {
+		if (currentMatch < this->publicIdStartString->length()) {
 			return this->catalogURI;
 		}
 	}
@@ -86,7 +58,29 @@ DelegatePublic::DelegatePublic() {
 }
 
 $Class* DelegatePublic::load$($String* name, bool initialize) {
-	$loadClass(DelegatePublic, name, initialize, &_DelegatePublic_ClassInfo_, allocate$DelegatePublic);
+	$FieldInfo fieldInfos$$[] = {
+		{"publicIdStartString", "Ljava/lang/String;", nullptr, 0, $field(DelegatePublic, publicIdStartString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegatePublic, init$, void, $String*, $String*, $String*)},
+		{"getPublicIdStartString", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(DelegatePublic, getPublicIdStartString, $String*)},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DelegatePublic, match, $String*, $String*)},
+		{"matchURI", "(Ljava/lang/String;I)Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(DelegatePublic, matchURI, $URI*, $String*, int32_t)},
+		{"setPublicIdStartString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DelegatePublic, setPublicIdStartString, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.xml.catalog.DelegatePublic",
+		"javax.xml.catalog.AltCatalog",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DelegatePublic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DelegatePublic);
+	});
 	return class$;
 }
 

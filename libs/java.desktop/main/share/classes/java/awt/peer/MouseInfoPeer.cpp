@@ -1,5 +1,4 @@
 #include <java/awt/peer/MouseInfoPeer.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Window.h>
 #include <jcpp.h>
@@ -13,27 +12,23 @@ namespace java {
 	namespace awt {
 		namespace peer {
 
-$MethodInfo _MouseInfoPeer_MethodInfo_[] = {
-	{"fillPointWithCoords", "(Ljava/awt/Point;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MouseInfoPeer, fillPointWithCoords, int32_t, $Point*)},
-	{"isWindowUnderMouse", "(Ljava/awt/Window;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MouseInfoPeer, isWindowUnderMouse, bool, $Window*)},
-	{}
-};
-
-$ClassInfo _MouseInfoPeer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.peer.MouseInfoPeer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MouseInfoPeer_MethodInfo_
-};
-
-$Object* allocate$MouseInfoPeer($Class* clazz) {
-	return $of($alloc(MouseInfoPeer));
-}
-
 $Class* MouseInfoPeer::load$($String* name, bool initialize) {
-	$loadClass(MouseInfoPeer, name, initialize, &_MouseInfoPeer_ClassInfo_, allocate$MouseInfoPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"fillPointWithCoords", "(Ljava/awt/Point;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MouseInfoPeer, fillPointWithCoords, int32_t, $Point*)},
+		{"isWindowUnderMouse", "(Ljava/awt/Window;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MouseInfoPeer, isWindowUnderMouse, bool, $Window*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.peer.MouseInfoPeer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MouseInfoPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MouseInfoPeer);
+	});
 	return class$;
 }
 

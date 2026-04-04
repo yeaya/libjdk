@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WComponentPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
@@ -129,8 +128,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $GlobalCursorManager = ::sun::awt::GlobalCursorManager;
 using $PaintEventDispatcher = ::sun::awt::PaintEventDispatcher;
 using $RepaintArea = ::sun::awt::RepaintArea;
 using $SunToolkit = ::sun::awt::SunToolkit;
@@ -160,204 +157,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WComponentPeer_FieldInfo_[] = {
-	{"hwnd", "J", nullptr, $PROTECTED | $VOLATILE, $field(WComponentPeer, hwnd)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WComponentPeer, log)},
-	{"shapeLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WComponentPeer, shapeLog)},
-	{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WComponentPeer, focusLog)},
-	{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, 0, $field(WComponentPeer, surfaceData)},
-	{"paintArea", "Lsun/awt/RepaintArea;", nullptr, $PRIVATE, $field(WComponentPeer, paintArea)},
-	{"winGraphicsConfig", "Lsun/awt/Win32GraphicsConfig;", nullptr, $PROTECTED, $field(WComponentPeer, winGraphicsConfig)},
-	{"isLayouting", "Z", nullptr, 0, $field(WComponentPeer, isLayouting)},
-	{"paintPending", "Z", nullptr, 0, $field(WComponentPeer, paintPending)},
-	{"oldWidth", "I", nullptr, 0, $field(WComponentPeer, oldWidth)},
-	{"oldHeight", "I", nullptr, 0, $field(WComponentPeer, oldHeight)},
-	{"numBackBuffers", "I", nullptr, $PRIVATE, $field(WComponentPeer, numBackBuffers)},
-	{"backBuffer", "Ljava/awt/image/VolatileImage;", nullptr, $PRIVATE, $field(WComponentPeer, backBuffer)},
-	{"backBufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(WComponentPeer, backBufferCaps)},
-	{"foreground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(WComponentPeer, foreground)},
-	{"background", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(WComponentPeer, background)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(WComponentPeer, font)},
-	{"nDropTargets", "I", nullptr, 0, $field(WComponentPeer, nDropTargets)},
-	{"nativeDropTargetContext", "J", nullptr, 0, $field(WComponentPeer, nativeDropTargetContext)},
-	{"serialNum", "I", nullptr, $PUBLIC, $field(WComponentPeer, serialNum)},
-	{"BANDING_DIVISOR", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WComponentPeer, BANDING_DIVISOR)},
-	{"defaultFont", "Ljava/awt/Font;", nullptr, $STATIC | $FINAL, $staticField(WComponentPeer, defaultFont)},
-	{"updateX1", "I", nullptr, $PRIVATE, $field(WComponentPeer, updateX1)},
-	{"updateY1", "I", nullptr, $PRIVATE, $field(WComponentPeer, updateY1)},
-	{"updateX2", "I", nullptr, $PRIVATE, $field(WComponentPeer, updateX2)},
-	{"updateY2", "I", nullptr, $PRIVATE, $field(WComponentPeer, updateY2)},
-	{"isAccelCapable", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WComponentPeer, isAccelCapable$)},
-	{}
-};
-
-$MethodInfo _WComponentPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(WComponentPeer, init$, void, $Component*)},
-	{"_dispose", "()V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(WComponentPeer, _dispose, void)},
-	{"_setBackground", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, _setBackground, void, int32_t)},
-	{"_setFont", "(Ljava/awt/Font;)V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, _setFont, void, $Font*)},
-	{"_setForeground", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, _setForeground, void, int32_t)},
-	{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, addDropTarget, void, $DropTarget*)},
-	{"addNativeDropTarget", "()J", nullptr, $NATIVE, $virtualMethod(WComponentPeer, addNativeDropTarget, int64_t)},
-	{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, applyShape, void, $Region*)},
-	{"beginLayout", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, beginLayout, void)},
-	{"beginValidate", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WComponentPeer, beginValidate, void)},
-	{"canDetermineObscurity", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, canDetermineObscurity, bool)},
-	{"checkCreation", "()V", nullptr, $PROTECTED, $virtualMethod(WComponentPeer, checkCreation, void)},
-	{"coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, coalescePaintEvent, void, $PaintEvent*)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $ABSTRACT, $virtualMethod(WComponentPeer, create, void, WComponentPeer*)},
-	{"createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, createBuffers, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, createImage, $Image*, int32_t, int32_t)},
-	{"createPrintedPixels", "(IIIII)[I", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, createPrintedPixels, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createScreenSurface", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, createScreenSurface, void, bool)},
-	{"createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, createVolatileImage, $VolatileImage*, int32_t, int32_t)},
-	{"destroyBuffers", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, destroyBuffers, void)},
-	{"disable", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, disable, void)},
-	{"disableAcceleration", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, disableAcceleration, void)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WComponentPeer, disposeImpl, void)},
-	{"disposeLater", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, disposeLater, void)},
-	{"dynamicallyLayoutContainer", "()V", nullptr, 0, $virtualMethod(WComponentPeer, dynamicallyLayoutContainer, void)},
-	{"enable", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, enable, void)},
-	{"endLayout", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, endLayout, void)},
-	{"endValidate", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WComponentPeer, endValidate, void)},
-	{"flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, flip, void, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, getBackBuffer, $Image*)},
-	{"getBackBufferCaps", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getBackBufferCaps, $BufferCapabilities*)},
-	{"getBackBuffersNum", "()I", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getBackBuffersNum, int32_t)},
-	{"getBackgroundNoSync", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getBackgroundNoSync, $Color*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getColorModel, $ColorModel*, int32_t)},
-	{"getData", "()J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WComponentPeer, getData, int64_t)},
-	{"getDeviceColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getDeviceColorModel, $ColorModel*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getGraphics, $Graphics*)},
-	{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getHWnd", "()J", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getHWnd, int64_t)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WComponentPeer, getLocationOnScreen, $Point*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getMinimumSize, $Dimension*)},
-	{"getNativeParent", "()Lsun/awt/windows/WComponentPeer;", nullptr, 0, $virtualMethod(WComponentPeer, getNativeParent, WComponentPeer*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getPreferredSize, $Dimension*)},
-	{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getSurfaceData, $SurfaceData*)},
-	{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WComponentPeer, getTarget, $Object*)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handleEvent, void, $AWTEvent*)},
-	{"handleExpose", "(IIII)V", nullptr, 0, $virtualMethod(WComponentPeer, handleExpose, void, int32_t, int32_t, int32_t, int32_t)},
-	{"handleJavaFocusEvent", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(WComponentPeer, handleJavaFocusEvent, void, $FocusEvent*)},
-	{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handleJavaKeyEvent, bool, $KeyEvent*)},
-	{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handleJavaMouseEvent, void, $MouseEvent*)},
-	{"handlePaint", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handlePaint, void, int32_t, int32_t, int32_t, int32_t)},
-	{"handleRepaint", "(IIII)V", nullptr, 0, $virtualMethod(WComponentPeer, handleRepaint, void, int32_t, int32_t, int32_t, int32_t)},
-	{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handlesWheelScrolling, bool)},
-	{"hide", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, hide, void)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WComponentPeer, initialize, void)},
-	{"isAccelCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isAccelCapable, bool)},
-	{"isContainingTopLevelAccelCapable", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WComponentPeer, isContainingTopLevelAccelCapable, bool, $Component*)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isFocusable, bool)},
-	{"isLightweightFramePeer", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isLightweightFramePeer, bool)},
-	{"isObscured", "()Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WComponentPeer, isObscured, bool)},
-	{"isPaintPending", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isPaintPending, bool)},
-	{"isReparentSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isReparentSupported, bool)},
-	{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, layout, void)},
-	{"nativeHandleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, nativeHandleEvent, void, $AWTEvent*)},
-	{"nativeHandlesWheelScrolling", "()Z", nullptr, $NATIVE, $virtualMethod(WComponentPeer, nativeHandlesWheelScrolling, bool)},
-	{"pSetParent", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, pSetParent, void, $ComponentPeer*)},
-	{"pShow", "()V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(WComponentPeer, pShow, void)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, paint, void, $Graphics*)},
-	{"paintDamagedAreaImmediately", "()V", nullptr, 0, $virtualMethod(WComponentPeer, paintDamagedAreaImmediately, void)},
-	{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(WComponentPeer, postEvent, void, $AWTEvent*)},
-	{"postPaintIfNecessary", "(IIII)V", nullptr, $PRIVATE, $method(WComponentPeer, postPaintIfNecessary, void, int32_t, int32_t, int32_t, int32_t)},
-	{"preprocessPostEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(WComponentPeer, preprocessPostEvent, void, $AWTEvent*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, print, void, $Graphics*)},
-	{"rejectFocusRequestHelper", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(WComponentPeer, rejectFocusRequestHelper, bool, $String*)},
-	{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, removeDropTarget, void, $DropTarget*)},
-	{"removeNativeDropTarget", "()V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, removeNativeDropTarget, void)},
-	{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, reparent, void, $ContainerPeer*)},
-	{"replaceSurfaceData", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, replaceSurfaceData, void)},
-	{"replaceSurfaceData", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, replaceSurfaceData, void, int32_t, $BufferCapabilities*)},
-	{"replaceSurfaceDataLater", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, replaceSurfaceDataLater, void)},
-	{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"reshapeNoCheck", "(IIII)V", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, reshapeNoCheck, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, setBackground, void, $Color*)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setBoundsOperation", "(I)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setBoundsOperation, void, int32_t)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setEnabled, void, bool)},
-	{"setFocus", "(Z)V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, setFocus, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, setForeground, void, $Color*)},
-	{"setRectangularShape", "(IIIILsun/java2d/pipe/Region;)V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, setRectangularShape, void, int32_t, int32_t, int32_t, int32_t, $Region*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setVisible, void, bool)},
-	{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setZOrder, void, $ComponentPeer*)},
-	{"setZOrder", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, setZOrder, void, int64_t)},
-	{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, shouldClearRectBeforePaint, bool)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, show, void)},
-	{"start", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, start, void)},
-	{"syncBounds", "()V", nullptr, 0, $virtualMethod(WComponentPeer, syncBounds, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, toString, $String*)},
-	{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, updateCursorImmediately, void)},
-	{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
-	{"updateWindow", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, updateWindow, void)},
-	{}
-};
-
-#define _METHOD_INDEX__dispose 6
-#define _METHOD_INDEX__setBackground 7
-#define _METHOD_INDEX__setFont 8
-#define _METHOD_INDEX__setForeground 9
-#define _METHOD_INDEX_addNativeDropTarget 11
-#define _METHOD_INDEX_beginValidate 14
-#define _METHOD_INDEX_createPrintedPixels 21
-#define _METHOD_INDEX_disable 25
-#define _METHOD_INDEX_enable 30
-#define _METHOD_INDEX_endValidate 32
-#define _METHOD_INDEX_getLocationOnScreen 47
-#define _METHOD_INDEX_hide 61
-#define _METHOD_INDEX_isObscured 67
-#define _METHOD_INDEX_nativeHandleEvent 71
-#define _METHOD_INDEX_nativeHandlesWheelScrolling 72
-#define _METHOD_INDEX_pSetParent 73
-#define _METHOD_INDEX_pShow 74
-#define _METHOD_INDEX_removeNativeDropTarget 83
-#define _METHOD_INDEX_reshape 90
-#define _METHOD_INDEX_reshapeNoCheck 91
-#define _METHOD_INDEX_setFocus 96
-#define _METHOD_INDEX_setRectangularShape 99
-#define _METHOD_INDEX_setZOrder 102
-#define _METHOD_INDEX_start 105
-#define _METHOD_INDEX_updateWindow 110
-
-$InnerClassInfo _WComponentPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WComponentPeer$3", nullptr, nullptr, 0},
-	{"sun.awt.windows.WComponentPeer$2", nullptr, nullptr, 0},
-	{"sun.awt.windows.WComponentPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WComponentPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.windows.WComponentPeer",
-	"sun.awt.windows.WObjectPeer",
-	"java.awt.peer.ComponentPeer,java.awt.dnd.peer.DropTargetPeer",
-	_WComponentPeer_FieldInfo_,
-	_WComponentPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WComponentPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WComponentPeer$3,sun.awt.windows.WComponentPeer$2,sun.awt.windows.WComponentPeer$1"
-};
-
-$Object* allocate$WComponentPeer($Class* clazz) {
-	return $of($alloc(WComponentPeer));
-}
-
 void WComponentPeer::dispose() {
 	this->$WObjectPeer::dispose();
 }
@@ -385,9 +184,8 @@ double WComponentPeer::BANDING_DIVISOR = 0.0;
 $Font* WComponentPeer::defaultFont = nullptr;
 
 bool WComponentPeer::isObscured() {
-	bool $ret = false;
-	$prepareNative(WComponentPeer, isObscured, bool);
-	$ret = $invokeNative();
+	$prepareNative(isObscured, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -397,25 +195,25 @@ bool WComponentPeer::canDetermineObscurity() {
 }
 
 void WComponentPeer::pShow() {
-	$prepareNative(WComponentPeer, pShow, void);
+	$prepareNative(pShow, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WComponentPeer::hide() {
-	$prepareNative(WComponentPeer, hide, void);
+	$prepareNative(hide, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WComponentPeer::enable() {
-	$prepareNative(WComponentPeer, enable, void);
+	$prepareNative(enable, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WComponentPeer::disable() {
-	$prepareNative(WComponentPeer, disable, void);
+	$prepareNative(disable, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -425,9 +223,8 @@ int64_t WComponentPeer::getHWnd() {
 }
 
 $Point* WComponentPeer::getLocationOnScreen() {
-	$var($Point, $ret, nullptr);
-	$prepareNative(WComponentPeer, getLocationOnScreen, $Point*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(getLocationOnScreen, $Point*);
+	$var($Point, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -441,7 +238,7 @@ void WComponentPeer::setVisible(bool b) {
 }
 
 void WComponentPeer::show() {
-	$var($Dimension, s, $nc(($cast($Component, this->target)))->getSize());
+	$var($Dimension, s, $nc($cast($Component, this->target))->getSize());
 	this->oldHeight = $nc(s)->height;
 	this->oldWidth = s->width;
 	pShow();
@@ -456,14 +253,14 @@ void WComponentPeer::setEnabled(bool b) {
 }
 
 void WComponentPeer::reshapeNoCheck(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$prepareNative(WComponentPeer, reshapeNoCheck, void, int32_t x, int32_t y, int32_t width, int32_t height);
+	$prepareNative(reshapeNoCheck, void, int32_t x, int32_t y, int32_t width, int32_t height);
 	$invokeNative(x, y, width, height);
 	$finishNative();
 }
 
 void WComponentPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t height, int32_t op) {
 	this->paintPending = (width != this->oldWidth) || (height != this->oldHeight);
-	if (((int32_t)(op & (uint32_t)$ComponentPeer::NO_EMBEDDED_CHECK)) != 0) {
+	if ((op & $ComponentPeer::NO_EMBEDDED_CHECK) != 0) {
 		reshapeNoCheck(x, y, width, height);
 	} else {
 		reshape(x, y, width, height);
@@ -480,12 +277,12 @@ void WComponentPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t heig
 }
 
 void WComponentPeer::dynamicallyLayoutContainer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(WComponentPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
 		$var($Container, parent, $WToolkit::getNativeContainer($cast($Component, this->target)));
 		if (parent != nullptr) {
-			$nc(WComponentPeer::log)->fine("Assertion (parent == null) failed"_s);
+			WComponentPeer::log->fine("Assertion (parent == null) failed"_s);
 		}
 	}
 	$var($Container, cont, $cast($Container, this->target));
@@ -499,28 +296,27 @@ void WComponentPeer::paintDamagedAreaImmediately() {
 }
 
 void WComponentPeer::updateWindow() {
-	$prepareNative(WComponentPeer, updateWindow, void);
+	$prepareNative(updateWindow, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WComponentPeer::paint($Graphics* g) {
-	$nc(($cast($Component, this->target)))->paint(g);
+	$nc($cast($Component, this->target))->paint(g);
 }
 
 void WComponentPeer::repaint(int64_t tm, int32_t x, int32_t y, int32_t width, int32_t height) {
 }
 
 $ints* WComponentPeer::createPrintedPixels(int32_t srcX, int32_t srcY, int32_t srcW, int32_t srcH, int32_t alpha) {
-	$var($ints, $ret, nullptr);
-	$prepareNative(WComponentPeer, createPrintedPixels, $ints*, int32_t srcX, int32_t srcY, int32_t srcW, int32_t srcH, int32_t alpha);
-	$assign($ret, $invokeNativeObject(srcX, srcY, srcW, srcH, alpha));
+	$prepareNative(createPrintedPixels, $ints*, int32_t srcX, int32_t srcY, int32_t srcW, int32_t srcH, int32_t alpha);
+	$var($ints, $ret, $invokeNativeObject(srcX, srcY, srcW, srcH, alpha));
 	$finishNative();
 	return $ret;
 }
 
 void WComponentPeer::print($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, comp, $cast($Component, this->target));
 	int32_t totalW = $nc(comp)->getWidth();
 	int32_t totalH = comp->getHeight();
@@ -535,7 +331,7 @@ void WComponentPeer::print($Graphics* g) {
 		}
 		int32_t h = endY - startY + 1;
 		$var($Color, bgColor, comp->getBackground());
-		$var($ints, pix, createPrintedPixels(0, startY, totalW, h, bgColor == nullptr ? 255 : $nc(bgColor)->getAlpha()));
+		$var($ints, pix, createPrintedPixels(0, startY, totalW, h, bgColor == nullptr ? 255 : bgColor->getAlpha()));
 		if (pix != nullptr) {
 			$var($BufferedImage, bim, $new($BufferedImage, totalW, h, $BufferedImage::TYPE_INT_ARGB));
 			bim->setRGB(0, 0, totalW, h, pix, 0, totalW);
@@ -547,7 +343,7 @@ void WComponentPeer::print($Graphics* g) {
 }
 
 void WComponentPeer::coalescePaintEvent($PaintEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, r, $nc(e)->getUpdateRect());
 	if (!($instanceOf($IgnorePaintEvent, e))) {
 		$nc(this->paintArea)->add(r, e->getID());
@@ -556,21 +352,17 @@ void WComponentPeer::coalescePaintEvent($PaintEvent* e) {
 	if ($nc(WComponentPeer::log)->isLoggable($PlatformLogger$Level::FINEST)) {
 		switch (e->getID()) {
 		case $PaintEvent::UPDATE:
-			{
-				$nc(WComponentPeer::log)->finest($$str({"coalescePaintEvent: UPDATE: add: x = "_s, $$str($nc(r)->x), ", y = "_s, $$str(r->y), ", width = "_s, $$str(r->width), ", height = "_s, $$str(r->height)}));
-				return;
-			}
+			WComponentPeer::log->finest($$str({"coalescePaintEvent: UPDATE: add: x = "_s, $$str($nc(r)->x), ", y = "_s, $$str($nc(r)->y), ", width = "_s, $$str($nc(r)->width), ", height = "_s, $$str($nc(r)->height)}));
+			return;
 		case $PaintEvent::PAINT:
-			{
-				$nc(WComponentPeer::log)->finest($$str({"coalescePaintEvent: PAINT: add: x = "_s, $$str($nc(r)->x), ", y = "_s, $$str(r->y), ", width = "_s, $$str(r->width), ", height = "_s, $$str(r->height)}));
-				return;
-			}
+			WComponentPeer::log->finest($$str({"coalescePaintEvent: PAINT: add: x = "_s, $$str($nc(r)->x), ", y = "_s, $$str($nc(r)->y), ", width = "_s, $$str($nc(r)->width), ", height = "_s, $$str($nc(r)->height)}));
+			return;
 		}
 	}
 }
 
 void WComponentPeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$prepareNative(WComponentPeer, reshape, void, int32_t x, int32_t y, int32_t width, int32_t height);
+	$prepareNative(reshape, void, int32_t x, int32_t y, int32_t width, int32_t height);
 	$invokeNative(x, y, width, height);
 	$finishNative();
 }
@@ -584,7 +376,7 @@ void WComponentPeer::handleJavaMouseEvent($MouseEvent* e) {
 	case $MouseEvent::MOUSE_PRESSED:
 		{
 			bool var$1 = $equals(this->target, e->getSource());
-			bool var$0 = var$1 && !$nc(($cast($Component, this->target)))->isFocusOwner();
+			bool var$0 = var$1 && !$nc($cast($Component, this->target))->isFocusOwner();
 			if (var$0 && $WKeyboardFocusManagerPeer::shouldFocusOnClick($cast($Component, this->target))) {
 				$init($FocusEvent$Cause);
 				$WKeyboardFocusManagerPeer::requestFocusFor($cast($Component, this->target), $FocusEvent$Cause::MOUSE_EVENT);
@@ -595,15 +387,15 @@ void WComponentPeer::handleJavaMouseEvent($MouseEvent* e) {
 }
 
 void WComponentPeer::nativeHandleEvent($AWTEvent* e) {
-	$prepareNative(WComponentPeer, nativeHandleEvent, void, $AWTEvent* e);
+	$prepareNative(nativeHandleEvent, void, $AWTEvent* e);
 	$invokeNative(e);
 	$finishNative();
 }
 
 void WComponentPeer::handleEvent($AWTEvent* e) {
 	int32_t id = $nc(e)->getID();
-	bool var$0 = ($instanceOf($InputEvent, e)) && !$nc(($cast($InputEvent, e)))->isConsumed();
-	if (var$0 && $nc(($cast($Component, this->target)))->isEnabled()) {
+	bool var$0 = ($instanceOf($InputEvent, e)) && !$cast($InputEvent, e)->isConsumed();
+	if (var$0 && $nc($cast($Component, this->target))->isEnabled()) {
 		if ($instanceOf($MouseEvent, e) && !($instanceOf($MouseWheelEvent, e))) {
 			handleJavaMouseEvent($cast($MouseEvent, e));
 		} else if ($instanceOf($KeyEvent, e)) {
@@ -614,26 +406,17 @@ void WComponentPeer::handleEvent($AWTEvent* e) {
 	}
 	switch (id) {
 	case $PaintEvent::PAINT:
-		{
-			this->paintPending = false;
-		}
+		this->paintPending = false;
 	case $PaintEvent::UPDATE:
-		{
-			if (!this->isLayouting && !this->paintPending) {
-				$nc(this->paintArea)->paint(this->target, shouldClearRectBeforePaint());
-			}
-			return;
+		if (!this->isLayouting && !this->paintPending) {
+			$nc(this->paintArea)->paint(this->target, shouldClearRectBeforePaint());
 		}
+		return;
 	case $FocusEvent::FOCUS_LOST:
-		{}
 	case $FocusEvent::FOCUS_GAINED:
-		{
-			handleJavaFocusEvent($cast($FocusEvent, e));
-		}
+		handleJavaFocusEvent($cast($FocusEvent, e));
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	nativeHandleEvent(e);
 }
@@ -641,19 +424,19 @@ void WComponentPeer::handleEvent($AWTEvent* e) {
 void WComponentPeer::handleJavaFocusEvent($FocusEvent* fe) {
 	$init($PlatformLogger$Level);
 	if ($nc(WComponentPeer::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(WComponentPeer::focusLog)->finer($($nc(fe)->toString()));
+		WComponentPeer::focusLog->finer($($nc(fe)->toString()));
 	}
 	setFocus($nc(fe)->getID() == $FocusEvent::FOCUS_GAINED);
 }
 
 void WComponentPeer::setFocus(bool doSetFocus) {
-	$prepareNative(WComponentPeer, setFocus, void, bool doSetFocus);
+	$prepareNative(setFocus, void, bool doSetFocus);
 	$invokeNative(doSetFocus);
 	$finishNative();
 }
 
 $Dimension* WComponentPeer::getMinimumSize() {
-	return $nc(($cast($Component, this->target)))->getSize();
+	return $nc($cast($Component, this->target))->getSize();
 }
 
 $Dimension* WComponentPeer::getPreferredSize() {
@@ -664,7 +447,7 @@ void WComponentPeer::layout() {
 }
 
 $Rectangle* WComponentPeer::getBounds() {
-	return $nc(($cast($Component, this->target)))->getBounds();
+	return $nc($cast($Component, this->target))->getBounds();
 }
 
 bool WComponentPeer::isFocusable() {
@@ -675,7 +458,7 @@ $GraphicsConfiguration* WComponentPeer::getGraphicsConfiguration() {
 	if (this->winGraphicsConfig != nullptr) {
 		return this->winGraphicsConfig;
 	} else {
-		return $nc(($cast($Component, this->target)))->getGraphicsConfiguration();
+		return $nc($cast($Component, this->target))->getGraphicsConfiguration();
 	}
 }
 
@@ -688,17 +471,17 @@ void WComponentPeer::replaceSurfaceData() {
 }
 
 void WComponentPeer::createScreenSurface(bool isResize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Win32GraphicsConfig, gc, $cast($Win32GraphicsConfig, getGraphicsConfiguration()));
 	$var($ScreenUpdateManager, mgr, $ScreenUpdateManager::getInstance());
 	$set(this, surfaceData, $nc(mgr)->createScreenSurface(gc, this, this->numBackBuffers, isResize));
 }
 
 void WComponentPeer::replaceSurfaceData(int32_t newNumBackBuffers, $BufferCapabilities* caps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, oldData, nullptr);
 	$var($VolatileImage, oldBB, nullptr);
-	$synchronized($nc(($cast($Component, this->target)))->getTreeLock()) {
+	$synchronized($nc($cast($Component, this->target))->getTreeLock()) {
 		$synchronized(this) {
 			if (this->pData == 0) {
 				return;
@@ -733,17 +516,17 @@ void WComponentPeer::replaceSurfaceData(int32_t newNumBackBuffers, $BufferCapabi
 }
 
 void WComponentPeer::replaceSurfaceDataLater() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Runnable, r, $new($WComponentPeer$2, this));
 	$var($Component, c, $cast($Component, this->target));
-	if (!$nc($($PaintEventDispatcher::getPaintEventDispatcher()))->queueSurfaceDataReplacing(c, r)) {
+	if (!$$nc($PaintEventDispatcher::getPaintEventDispatcher())->queueSurfaceDataReplacing(c, r)) {
 		postEvent($$new($InvocationEvent, c, r));
 	}
 }
 
 bool WComponentPeer::updateGraphicsData($GraphicsConfiguration* gc) {
-	$useLocalCurrentObjectStackCache();
-	$var($AffineTransform, old, $nc($(getGraphicsConfiguration()))->getDefaultTransform());
+	$useLocalObjectStack();
+	$var($AffineTransform, old, $$nc(getGraphicsConfiguration())->getDefaultTransform());
 	$set(this, winGraphicsConfig, $cast($Win32GraphicsConfig, gc));
 	if (gc != nullptr && !$nc(old)->equals($(gc->getDefaultTransform()))) {
 		syncBounds();
@@ -756,8 +539,8 @@ bool WComponentPeer::updateGraphicsData($GraphicsConfiguration* gc) {
 }
 
 void WComponentPeer::syncBounds() {
-	$var($Rectangle, r, $nc(($cast($Component, this->target)))->getBounds());
-	setBounds($nc(r)->x, r->y, r->width, r->height, $ComponentPeer::SET_BOUNDS);
+	$var($Rectangle, r, $nc($cast($Component, this->target))->getBounds());
+	setBounds($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height, $ComponentPeer::SET_BOUNDS);
 }
 
 $ColorModel* WComponentPeer::getColorModel() {
@@ -788,14 +571,14 @@ $ColorModel* WComponentPeer::getColorModel(int32_t transparency) {
 }
 
 $Graphics* WComponentPeer::getGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isDisposed()) {
 		return nullptr;
 	}
 	$var($Component, target, $cast($Component, getTarget()));
 	$var($Window, window, $SunToolkit::getContainingWindow(target));
 	if (window != nullptr) {
-		$var($WWindowPeer, wpeer, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(window)));
+		$var($WWindowPeer, wpeer, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(window)));
 		if (wpeer != nullptr) {
 			$var($Graphics, g, wpeer->getTranslucentGraphics());
 			if (g != nullptr) {
@@ -804,7 +587,7 @@ $Graphics* WComponentPeer::getGraphics() {
 				{
 					$var($Component, c, target);
 					for (; !$equals(c, window); $assign(c, $nc(c)->getParent())) {
-						x += c->getX();
+						x += $nc(c)->getX();
 						y += c->getY();
 					}
 				}
@@ -842,23 +625,23 @@ $FontMetrics* WComponentPeer::getFontMetrics($Font* font) {
 }
 
 void WComponentPeer::_dispose() {
-	$prepareNative(WComponentPeer, _dispose, void);
+	$prepareNative(_dispose, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WComponentPeer::disposeImpl() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, oldData, this->surfaceData);
 	$set(this, surfaceData, nullptr);
-	$nc($($ScreenUpdateManager::getInstance()))->dropScreenSurface(oldData);
+	$$nc($ScreenUpdateManager::getInstance())->dropScreenSurface(oldData);
 	$nc(oldData)->invalidate();
 	$WToolkit::targetDisposedPeer(this->target, this);
 	_dispose();
 }
 
 void WComponentPeer::disposeLater() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent($$new($InvocationEvent, this->target, $$new($WComponentPeer$3, this)));
 }
 
@@ -881,13 +664,13 @@ $Color* WComponentPeer::getBackgroundNoSync() {
 }
 
 void WComponentPeer::_setForeground(int32_t rgb) {
-	$prepareNative(WComponentPeer, _setForeground, void, int32_t rgb);
+	$prepareNative(_setForeground, void, int32_t rgb);
 	$invokeNative(rgb);
 	$finishNative();
 }
 
 void WComponentPeer::_setBackground(int32_t rgb) {
-	$prepareNative(WComponentPeer, _setBackground, void, int32_t rgb);
+	$prepareNative(_setBackground, void, int32_t rgb);
 	$invokeNative(rgb);
 	$finishNative();
 }
@@ -900,58 +683,51 @@ void WComponentPeer::setFont($Font* f) {
 }
 
 void WComponentPeer::_setFont($Font* f) {
-	$prepareNative(WComponentPeer, _setFont, void, $Font* f);
+	$prepareNative(_setFont, void, $Font* f);
 	$invokeNative(f);
 	$finishNative();
 }
 
 void WComponentPeer::updateCursorImmediately() {
-	$nc($($WGlobalCursorManager::getCursorManager()))->updateCursorImmediately();
+	$$nc($WGlobalCursorManager::getCursorManager())->updateCursorImmediately();
 }
 
 bool WComponentPeer::requestFocus($Component* lightweightChild, bool temporary, bool focusedWindowChangeAllowed, int64_t time, $FocusEvent$Cause* cause) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($WKeyboardFocusManagerPeer::processSynchronousLightweightTransfer($cast($Component, this->target), lightweightChild, temporary, focusedWindowChangeAllowed, time)) {
 		return true;
 	}
 	int32_t result = $WKeyboardFocusManagerPeer::shouldNativelyFocusHeavyweight($cast($Component, this->target), lightweightChild, temporary, focusedWindowChangeAllowed, time, cause);
 	{
-		$var($Window, parentWindow, nullptr)
-		$var($WWindowPeer, wpeer, nullptr)
+		$var($Window, parentWindow, nullptr);
+		$var($WWindowPeer, wpeer, nullptr);
 		bool res = false;
 		switch (result) {
 		case $WKeyboardFocusManagerPeer::SNFH_FAILURE:
-			{
-				return false;
-			}
+			return false;
 		case $WKeyboardFocusManagerPeer::SNFH_SUCCESS_PROCEED:
-			{
-				$init($PlatformLogger$Level);
-				if ($nc(WComponentPeer::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(WComponentPeer::focusLog)->finer($$str({"Proceeding with request to "_s, lightweightChild, " in "_s, this->target}));
-				}
-				$assign(parentWindow, $SunToolkit::getContainingWindow($cast($Component, this->target)));
-				if (parentWindow == nullptr) {
-					return rejectFocusRequestHelper("WARNING: Parent window is null"_s);
-				}
-				$assign(wpeer, $cast($WWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(parentWindow)));
-				if (wpeer == nullptr) {
-					return rejectFocusRequestHelper("WARNING: Parent window\'s peer is null"_s);
-				}
-				res = $nc(wpeer)->requestWindowFocus(cause);
-				$init($PlatformLogger$Level);
-				if ($nc(WComponentPeer::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(WComponentPeer::focusLog)->finer($$str({"Requested window focus: "_s, $$str(res)}));
-				}
-				if (!(res && $nc(parentWindow)->isFocused())) {
-					return rejectFocusRequestHelper("Waiting for asynchronous processing of the request"_s);
-				}
-				return $WKeyboardFocusManagerPeer::deliverFocus(lightweightChild, $cast($Component, this->target), temporary, focusedWindowChangeAllowed, time, cause);
+			$init($PlatformLogger$Level);
+			if ($nc(WComponentPeer::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
+				WComponentPeer::focusLog->finer($$str({"Proceeding with request to "_s, lightweightChild, " in "_s, this->target}));
 			}
+			$assign(parentWindow, $SunToolkit::getContainingWindow($cast($Component, this->target)));
+			if (parentWindow == nullptr) {
+				return rejectFocusRequestHelper("WARNING: Parent window is null"_s);
+			}
+			$assign(wpeer, $cast($WWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(parentWindow)));
+			if (wpeer == nullptr) {
+				return rejectFocusRequestHelper("WARNING: Parent window\'s peer is null"_s);
+			}
+			res = $nc(wpeer)->requestWindowFocus(cause);
+			if (WComponentPeer::focusLog->isLoggable($PlatformLogger$Level::FINER)) {
+				WComponentPeer::focusLog->finer($$str({"Requested window focus: "_s, $$str(res)}));
+			}
+			if (!(res && $nc(parentWindow)->isFocused())) {
+				return rejectFocusRequestHelper("Waiting for asynchronous processing of the request"_s);
+			}
+			return $WKeyboardFocusManagerPeer::deliverFocus(lightweightChild, $cast($Component, this->target), temporary, focusedWindowChangeAllowed, time, cause);
 		case $WKeyboardFocusManagerPeer::SNFH_SUCCESS_HANDLED:
-			{
-				return true;
-			}
+			return true;
 		}
 	}
 	return false;
@@ -960,7 +736,7 @@ bool WComponentPeer::requestFocus($Component* lightweightChild, bool temporary, 
 bool WComponentPeer::rejectFocusRequestHelper($String* logMsg) {
 	$init($PlatformLogger$Level);
 	if ($nc(WComponentPeer::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(WComponentPeer::focusLog)->finer(logMsg);
+		WComponentPeer::focusLog->finer(logMsg);
 	}
 	$WKeyboardFocusManagerPeer::removeLastFocusRequest($cast($Component, this->target));
 	return false;
@@ -1015,29 +791,29 @@ void WComponentPeer::checkCreation() {
 }
 
 void WComponentPeer::start() {
-	$prepareNative(WComponentPeer, start, void);
+	$prepareNative(start, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WComponentPeer::initialize() {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(($cast($Component, this->target)))->isVisible()) {
+	$useLocalObjectStack();
+	if ($nc($cast($Component, this->target))->isVisible()) {
 		show();
 	}
-	$var($Color, fg, $nc(($cast($Component, this->target)))->getForeground());
+	$var($Color, fg, $nc($cast($Component, this->target))->getForeground());
 	if (fg != nullptr) {
 		setForeground(fg);
 	}
-	$var($Font, f, $nc(($cast($Component, this->target)))->getFont());
+	$var($Font, f, $nc($cast($Component, this->target))->getFont());
 	if (f != nullptr) {
 		setFont(f);
 	}
-	if (!$nc(($cast($Component, this->target)))->isEnabled()) {
+	if (!$nc($cast($Component, this->target))->isEnabled()) {
 		disable();
 	}
-	$var($Rectangle, r, $nc(($cast($Component, this->target)))->getBounds());
-	setBounds($nc(r)->x, r->y, r->width, r->height, $ComponentPeer::SET_BOUNDS);
+	$var($Rectangle, r, $nc($cast($Component, this->target))->getBounds());
+	setBounds($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height, $ComponentPeer::SET_BOUNDS);
 }
 
 void WComponentPeer::handleRepaint(int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -1052,9 +828,9 @@ void WComponentPeer::handlePaint(int32_t x, int32_t y, int32_t w, int32_t h) {
 }
 
 void WComponentPeer::postPaintIfNecessary(int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($AWTAccessor::getComponentAccessor()))->getIgnoreRepaint($cast($Component, this->target))) {
-		$var($PaintEvent, event, $nc($($PaintEventDispatcher::getPaintEventDispatcher()))->createPaintEvent($cast($Component, this->target), x, y, w, h));
+	$useLocalObjectStack();
+	if (!$$nc($AWTAccessor::getComponentAccessor())->getIgnoreRepaint($cast($Component, this->target))) {
+		$var($PaintEvent, event, $$nc($PaintEventDispatcher::getPaintEventDispatcher())->createPaintEvent($cast($Component, this->target), x, y, w, h));
 		if (event != nullptr) {
 			postEvent(event);
 		}
@@ -1074,22 +850,22 @@ void WComponentPeer::beginLayout() {
 }
 
 void WComponentPeer::endLayout() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(this->paintArea)->isEmpty() && !this->paintPending;
-	if (var$0 && !$nc(($cast($Component, this->target)))->getIgnoreRepaint()) {
+	if (var$0 && !$nc($cast($Component, this->target))->getIgnoreRepaint()) {
 		postEvent($$new($PaintEvent, $cast($Component, this->target), $PaintEvent::PAINT, $$new($Rectangle)));
 	}
 	this->isLayouting = false;
 }
 
 void WComponentPeer::beginValidate() {
-	$prepareNative(WComponentPeer, beginValidate, void);
+	$prepareNative(beginValidate, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WComponentPeer::endValidate() {
-	$prepareNative(WComponentPeer, endValidate, void);
+	$prepareNative(endValidate, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -1114,23 +890,21 @@ void WComponentPeer::removeDropTarget($DropTarget* dt) {
 }
 
 int64_t WComponentPeer::addNativeDropTarget() {
-	int64_t $ret = 0;
-	$prepareNative(WComponentPeer, addNativeDropTarget, int64_t);
-	$ret = $invokeNative();
+	$prepareNative(addNativeDropTarget, int64_t);
+	int64_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void WComponentPeer::removeNativeDropTarget() {
-	$prepareNative(WComponentPeer, removeNativeDropTarget, void);
+	$prepareNative(removeNativeDropTarget, void);
 	$invokeNative();
 	$finishNative();
 }
 
 bool WComponentPeer::nativeHandlesWheelScrolling() {
-	bool $ret = false;
-	$prepareNative(WComponentPeer, nativeHandlesWheelScrolling, bool);
-	$ret = $invokeNative();
+	$prepareNative(nativeHandlesWheelScrolling, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -1144,7 +918,7 @@ bool WComponentPeer::isPaintPending() {
 }
 
 void WComponentPeer::createBuffers(int32_t numBuffers, $BufferCapabilities* caps) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Win32GraphicsConfig, gc, $cast($Win32GraphicsConfig, getGraphicsConfiguration()));
 	$nc(gc)->assertOperationSupported($cast($Component, this->target), numBuffers, caps);
 	try {
@@ -1159,7 +933,7 @@ void WComponentPeer::destroyBuffers() {
 }
 
 void WComponentPeer::flip(int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($VolatileImage, backBuffer, this->backBuffer);
 	if (backBuffer == nullptr) {
 		$throwNew($IllegalStateException, "Buffers have not been created"_s);
@@ -1191,7 +965,7 @@ bool WComponentPeer::shouldClearRectBeforePaint() {
 }
 
 void WComponentPeer::pSetParent($ComponentPeer* newNativeParent) {
-	$prepareNative(WComponentPeer, pSetParent, void, $ComponentPeer* newNativeParent);
+	$prepareNative(pSetParent, void, $ComponentPeer* newNativeParent);
 	$invokeNative(newNativeParent);
 	$finishNative();
 }
@@ -1220,14 +994,14 @@ void WComponentPeer::disableAcceleration() {
 }
 
 void WComponentPeer::setRectangularShape(int32_t lox, int32_t loy, int32_t hix, int32_t hiy, $Region* region) {
-	$prepareNative(WComponentPeer, setRectangularShape, void, int32_t lox, int32_t loy, int32_t hix, int32_t hiy, $Region* region);
+	$prepareNative(setRectangularShape, void, int32_t lox, int32_t loy, int32_t hix, int32_t hiy, $Region* region);
 	$invokeNative(lox, loy, hix, hiy, region);
 	$finishNative();
 }
 
 bool WComponentPeer::isContainingTopLevelAccelCapable($Component* c$renamed) {
 	$init(WComponentPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, c$renamed);
 	while (c != nullptr && !($instanceOf($WEmbeddedFrame, c))) {
 		$assign(c, c->getParent());
@@ -1235,16 +1009,16 @@ bool WComponentPeer::isContainingTopLevelAccelCapable($Component* c$renamed) {
 	if (c == nullptr) {
 		return true;
 	}
-	$var($WEmbeddedFramePeer, peer, $cast($WEmbeddedFramePeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(c)));
+	$var($WEmbeddedFramePeer, peer, $cast($WEmbeddedFramePeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(c)));
 	return $nc(peer)->isAccelCapable();
 }
 
 void WComponentPeer::applyShape($Region* shape$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, shape, shape$renamed);
 	$init($PlatformLogger$Level);
 	if ($nc(WComponentPeer::shapeLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(WComponentPeer::shapeLog)->finer($$str({"*** INFO: Setting shape: PEER: "_s, this, "; TARGET: "_s, this->target, "; SHAPE: "_s, shape}));
+		WComponentPeer::shapeLog->finer($$str({"*** INFO: Setting shape: PEER: "_s, this, "; TARGET: "_s, this->target, "; SHAPE: "_s, shape}));
 	}
 	if (shape != nullptr) {
 		$var($AffineTransform, tx, $nc(this->winGraphicsConfig)->getDefaultTransform());
@@ -1253,7 +1027,7 @@ void WComponentPeer::applyShape($Region* shape$renamed) {
 		if (scaleX != 1 || scaleY != 1) {
 			$assign(shape, shape->getScaledRegion(scaleX, scaleY));
 		}
-		int32_t var$0 = shape->getLoX();
+		int32_t var$0 = $nc(shape)->getLoX();
 		int32_t var$1 = shape->getLoY();
 		int32_t var$2 = shape->getHiX();
 		int32_t var$3 = shape->getHiY();
@@ -1264,12 +1038,12 @@ void WComponentPeer::applyShape($Region* shape$renamed) {
 }
 
 void WComponentPeer::setZOrder($ComponentPeer* above) {
-	int64_t aboveHWND = (above != nullptr) ? $nc(($cast(WComponentPeer, above)))->getHWnd() : (int64_t)0;
+	int64_t aboveHWND = (above != nullptr) ? $cast(WComponentPeer, above)->getHWnd() : 0;
 	setZOrder(aboveHWND);
 }
 
 void WComponentPeer::setZOrder(int64_t above) {
-	$prepareNative(WComponentPeer, setZOrder, void, int64_t above);
+	$prepareNative(setZOrder, void, int64_t above);
 	$invokeNative(above);
 	$finishNative();
 }
@@ -1279,14 +1053,14 @@ bool WComponentPeer::isLightweightFramePeer() {
 }
 
 $Object* WComponentPeer::getTarget() {
-	return $of($WObjectPeer::getTarget());
+	return $WObjectPeer::getTarget();
 }
 
 int64_t WComponentPeer::getData() {
 	return $WObjectPeer::getData();
 }
 
-void clinit$WComponentPeer($Class* class$) {
+void WComponentPeer::clinit$($Class* clazz) {
 	WComponentPeer::BANDING_DIVISOR = 4.0;
 	$assignStatic(WComponentPeer::log, $PlatformLogger::getLogger("sun.awt.windows.WComponentPeer"_s));
 	$assignStatic(WComponentPeer::shapeLog, $PlatformLogger::getLogger("sun.awt.windows.shape.WComponentPeer"_s));
@@ -1299,7 +1073,173 @@ WComponentPeer::WComponentPeer() {
 }
 
 $Class* WComponentPeer::load$($String* name, bool initialize) {
-	$loadClass(WComponentPeer, name, initialize, &_WComponentPeer_ClassInfo_, clinit$WComponentPeer, allocate$WComponentPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"hwnd", "J", nullptr, $PROTECTED | $VOLATILE, $field(WComponentPeer, hwnd)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WComponentPeer, log)},
+		{"shapeLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WComponentPeer, shapeLog)},
+		{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WComponentPeer, focusLog)},
+		{"surfaceData", "Lsun/java2d/SurfaceData;", nullptr, 0, $field(WComponentPeer, surfaceData)},
+		{"paintArea", "Lsun/awt/RepaintArea;", nullptr, $PRIVATE, $field(WComponentPeer, paintArea)},
+		{"winGraphicsConfig", "Lsun/awt/Win32GraphicsConfig;", nullptr, $PROTECTED, $field(WComponentPeer, winGraphicsConfig)},
+		{"isLayouting", "Z", nullptr, 0, $field(WComponentPeer, isLayouting)},
+		{"paintPending", "Z", nullptr, 0, $field(WComponentPeer, paintPending)},
+		{"oldWidth", "I", nullptr, 0, $field(WComponentPeer, oldWidth)},
+		{"oldHeight", "I", nullptr, 0, $field(WComponentPeer, oldHeight)},
+		{"numBackBuffers", "I", nullptr, $PRIVATE, $field(WComponentPeer, numBackBuffers)},
+		{"backBuffer", "Ljava/awt/image/VolatileImage;", nullptr, $PRIVATE, $field(WComponentPeer, backBuffer)},
+		{"backBufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(WComponentPeer, backBufferCaps)},
+		{"foreground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(WComponentPeer, foreground)},
+		{"background", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(WComponentPeer, background)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(WComponentPeer, font)},
+		{"nDropTargets", "I", nullptr, 0, $field(WComponentPeer, nDropTargets)},
+		{"nativeDropTargetContext", "J", nullptr, 0, $field(WComponentPeer, nativeDropTargetContext)},
+		{"serialNum", "I", nullptr, $PUBLIC, $field(WComponentPeer, serialNum)},
+		{"BANDING_DIVISOR", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WComponentPeer, BANDING_DIVISOR)},
+		{"defaultFont", "Ljava/awt/Font;", nullptr, $STATIC | $FINAL, $staticField(WComponentPeer, defaultFont)},
+		{"updateX1", "I", nullptr, $PRIVATE, $field(WComponentPeer, updateX1)},
+		{"updateY1", "I", nullptr, $PRIVATE, $field(WComponentPeer, updateY1)},
+		{"updateX2", "I", nullptr, $PRIVATE, $field(WComponentPeer, updateX2)},
+		{"updateY2", "I", nullptr, $PRIVATE, $field(WComponentPeer, updateY2)},
+		{"isAccelCapable", "Z", nullptr, $PRIVATE | $VOLATILE, $field(WComponentPeer, isAccelCapable$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(WComponentPeer, init$, void, $Component*)},
+		{"_dispose", "()V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(WComponentPeer, _dispose, void)},
+		{"_setBackground", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, _setBackground, void, int32_t)},
+		{"_setFont", "(Ljava/awt/Font;)V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, _setFont, void, $Font*)},
+		{"_setForeground", "(I)V", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, _setForeground, void, int32_t)},
+		{"addDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, addDropTarget, void, $DropTarget*)},
+		{"addNativeDropTarget", "()J", nullptr, $NATIVE, $virtualMethod(WComponentPeer, addNativeDropTarget, int64_t)},
+		{"applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, applyShape, void, $Region*)},
+		{"beginLayout", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, beginLayout, void)},
+		{"beginValidate", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WComponentPeer, beginValidate, void)},
+		{"canDetermineObscurity", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, canDetermineObscurity, bool)},
+		{"checkCreation", "()V", nullptr, $PROTECTED, $virtualMethod(WComponentPeer, checkCreation, void)},
+		{"coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, coalescePaintEvent, void, $PaintEvent*)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $ABSTRACT, $virtualMethod(WComponentPeer, create, void, WComponentPeer*)},
+		{"createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, createBuffers, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, createImage, $Image*, int32_t, int32_t)},
+		{"createPrintedPixels", "(IIIII)[I", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, createPrintedPixels, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createScreenSurface", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, createScreenSurface, void, bool)},
+		{"createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, createVolatileImage, $VolatileImage*, int32_t, int32_t)},
+		{"destroyBuffers", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, destroyBuffers, void)},
+		{"disable", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, disable, void)},
+		{"disableAcceleration", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, disableAcceleration, void)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WComponentPeer, disposeImpl, void)},
+		{"disposeLater", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, disposeLater, void)},
+		{"dynamicallyLayoutContainer", "()V", nullptr, 0, $virtualMethod(WComponentPeer, dynamicallyLayoutContainer, void)},
+		{"enable", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, enable, void)},
+		{"endLayout", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, endLayout, void)},
+		{"endValidate", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WComponentPeer, endValidate, void)},
+		{"flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, flip, void, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, getBackBuffer, $Image*)},
+		{"getBackBufferCaps", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getBackBufferCaps, $BufferCapabilities*)},
+		{"getBackBuffersNum", "()I", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getBackBuffersNum, int32_t)},
+		{"getBackgroundNoSync", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getBackgroundNoSync, $Color*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getColorModel, $ColorModel*, int32_t)},
+		{"getData", "()J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WComponentPeer, getData, int64_t)},
+		{"getDeviceColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getDeviceColorModel, $ColorModel*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getGraphics, $Graphics*)},
+		{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getHWnd", "()J", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getHWnd, int64_t)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WComponentPeer, getLocationOnScreen, $Point*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getMinimumSize, $Dimension*)},
+		{"getNativeParent", "()Lsun/awt/windows/WComponentPeer;", nullptr, 0, $virtualMethod(WComponentPeer, getNativeParent, WComponentPeer*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getPreferredSize, $Dimension*)},
+		{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, getSurfaceData, $SurfaceData*)},
+		{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(WComponentPeer, getTarget, $Object*)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handleEvent, void, $AWTEvent*)},
+		{"handleExpose", "(IIII)V", nullptr, 0, $virtualMethod(WComponentPeer, handleExpose, void, int32_t, int32_t, int32_t, int32_t)},
+		{"handleJavaFocusEvent", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(WComponentPeer, handleJavaFocusEvent, void, $FocusEvent*)},
+		{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handleJavaKeyEvent, bool, $KeyEvent*)},
+		{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handleJavaMouseEvent, void, $MouseEvent*)},
+		{"handlePaint", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handlePaint, void, int32_t, int32_t, int32_t, int32_t)},
+		{"handleRepaint", "(IIII)V", nullptr, 0, $virtualMethod(WComponentPeer, handleRepaint, void, int32_t, int32_t, int32_t, int32_t)},
+		{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, handlesWheelScrolling, bool)},
+		{"hide", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, hide, void)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WComponentPeer, initialize, void)},
+		{"isAccelCapable", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isAccelCapable, bool)},
+		{"isContainingTopLevelAccelCapable", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(WComponentPeer, isContainingTopLevelAccelCapable, bool, $Component*)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isFocusable, bool)},
+		{"isLightweightFramePeer", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isLightweightFramePeer, bool)},
+		{"isObscured", "()Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WComponentPeer, isObscured, bool)},
+		{"isPaintPending", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isPaintPending, bool)},
+		{"isReparentSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, isReparentSupported, bool)},
+		{"layout", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, layout, void)},
+		{"nativeHandleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, nativeHandleEvent, void, $AWTEvent*)},
+		{"nativeHandlesWheelScrolling", "()Z", nullptr, $NATIVE, $virtualMethod(WComponentPeer, nativeHandlesWheelScrolling, bool)},
+		{"pSetParent", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, pSetParent, void, $ComponentPeer*)},
+		{"pShow", "()V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(WComponentPeer, pShow, void)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, paint, void, $Graphics*)},
+		{"paintDamagedAreaImmediately", "()V", nullptr, 0, $virtualMethod(WComponentPeer, paintDamagedAreaImmediately, void)},
+		{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(WComponentPeer, postEvent, void, $AWTEvent*)},
+		{"postPaintIfNecessary", "(IIII)V", nullptr, $PRIVATE, $method(WComponentPeer, postPaintIfNecessary, void, int32_t, int32_t, int32_t, int32_t)},
+		{"preprocessPostEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(WComponentPeer, preprocessPostEvent, void, $AWTEvent*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, print, void, $Graphics*)},
+		{"rejectFocusRequestHelper", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(WComponentPeer, rejectFocusRequestHelper, bool, $String*)},
+		{"removeDropTarget", "(Ljava/awt/dnd/DropTarget;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, removeDropTarget, void, $DropTarget*)},
+		{"removeNativeDropTarget", "()V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, removeNativeDropTarget, void)},
+		{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, reparent, void, $ContainerPeer*)},
+		{"replaceSurfaceData", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, replaceSurfaceData, void)},
+		{"replaceSurfaceData", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, replaceSurfaceData, void, int32_t, $BufferCapabilities*)},
+		{"replaceSurfaceDataLater", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, replaceSurfaceDataLater, void)},
+		{"requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, requestFocus, bool, $Component*, bool, bool, int64_t, $FocusEvent$Cause*)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC | $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"reshapeNoCheck", "(IIII)V", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, reshapeNoCheck, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, setBackground, void, $Color*)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setBoundsOperation", "(I)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setBoundsOperation, void, int32_t)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setEnabled, void, bool)},
+		{"setFocus", "(Z)V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, setFocus, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WComponentPeer, setForeground, void, $Color*)},
+		{"setRectangularShape", "(IIIILsun/java2d/pipe/Region;)V", nullptr, $NATIVE, $virtualMethod(WComponentPeer, setRectangularShape, void, int32_t, int32_t, int32_t, int32_t, $Region*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setVisible, void, bool)},
+		{"setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, setZOrder, void, $ComponentPeer*)},
+		{"setZOrder", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(WComponentPeer, setZOrder, void, int64_t)},
+		{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, shouldClearRectBeforePaint, bool)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, show, void)},
+		{"start", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, start, void)},
+		{"syncBounds", "()V", nullptr, 0, $virtualMethod(WComponentPeer, syncBounds, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, toString, $String*)},
+		{"updateCursorImmediately", "()V", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, updateCursorImmediately, void)},
+		{"updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(WComponentPeer, updateGraphicsData, bool, $GraphicsConfiguration*)},
+		{"updateWindow", "()V", nullptr, $SYNCHRONIZED | $NATIVE, $virtualMethod(WComponentPeer, updateWindow, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WComponentPeer$3", nullptr, nullptr, 0},
+		{"sun.awt.windows.WComponentPeer$2", nullptr, nullptr, 0},
+		{"sun.awt.windows.WComponentPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.windows.WComponentPeer",
+		"sun.awt.windows.WObjectPeer",
+		"java.awt.peer.ComponentPeer,java.awt.dnd.peer.DropTargetPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WComponentPeer$3,sun.awt.windows.WComponentPeer$2,sun.awt.windows.WComponentPeer$1"
+	};
+	$loadClass(WComponentPeer, name, initialize, &classInfo$$, WComponentPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WComponentPeer));
+	});
 	return class$;
 }
 

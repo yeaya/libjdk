@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/TextArea.h>
@@ -25,55 +24,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextArea = ::javax::swing::JTextArea;
 using $TransferHandler = ::javax::swing::TransferHandler;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $Document = ::javax::swing::text::Document;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
-using $LWTextAreaPeer = ::sun::lwawt::LWTextAreaPeer;
 using $LWTextAreaPeer$ScrollableJTextArea = ::sun::lwawt::LWTextAreaPeer$ScrollableJTextArea;
 
 namespace sun {
 	namespace lwawt {
-
-$FieldInfo _LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate_FieldInfo_[] = {
-	{"this$1", "Lsun/lwawt/LWTextAreaPeer$ScrollableJTextArea;", nullptr, $FINAL | $SYNTHETIC, $field(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, this$1)},
-	{}
-};
-
-$MethodInfo _LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWTextAreaPeer$ScrollableJTextArea;)V", nullptr, $PRIVATE, $method(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, init$, void, $LWTextAreaPeer$ScrollableJTextArea*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, getLocationOnScreen, $Point*)},
-	{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, hasFocus, bool)},
-	{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, replaceSelection, void, $String*)},
-	{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, setTransferHandler, void, $TransferHandler*)},
-	{}
-};
-
-$InnerClassInfo _LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "sun.lwawt.LWTextAreaPeer", "ScrollableJTextArea", $FINAL},
-	{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate", "sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "JTextAreaDelegate", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate",
-	"javax.swing.JTextArea",
-	nullptr,
-	_LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate_FieldInfo_,
-	_LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWTextAreaPeer"
-};
-
-$Object* allocate$LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate($Class* clazz) {
-	return $of($alloc(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate));
-}
 
 void LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::init$($LWTextAreaPeer$ScrollableJTextArea* this$1) {
 	$set(this, this$1, this$1);
@@ -81,15 +36,15 @@ void LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::init$($LWTextAreaPeer
 }
 
 void LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::replaceSelection($String* content) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getDocument()))->removeDocumentListener(this->this$1->this$0);
+	$useLocalObjectStack();
+	$$nc(getDocument())->removeDocumentListener(this->this$1->this$0);
 	$JTextArea::replaceSelection(content);
 	$nc(this->this$1->this$0)->postTextEvent();
-	$nc($(getDocument()))->addDocumentListener(this->this$1->this$0);
+	$$nc(getDocument())->addDocumentListener(this->this$1->this$0);
 }
 
 bool LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::hasFocus() {
-	return $nc(($cast($TextArea, $($nc(this->this$1->this$0)->getTarget()))))->hasFocus();
+	return $$sure($TextArea, $nc(this->this$1->this$0)->getTarget())->hasFocus();
 }
 
 $Point* LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::getLocationOnScreen() {
@@ -97,18 +52,52 @@ $Point* LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::getLocationOnScree
 }
 
 void LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::setTransferHandler($TransferHandler* newHandler) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, key, $nc($($AWTAccessor::getClientPropertyKeyAccessor()))->getJComponent_TRANSFER_HANDLER());
+	$useLocalObjectStack();
+	$var($Object, key, $$nc($AWTAccessor::getClientPropertyKeyAccessor())->getJComponent_TRANSFER_HANDLER());
 	$var($Object, oldHandler, getClientProperty(key));
 	putClientProperty(key, newHandler);
-	firePropertyChange("transferHandler"_s, oldHandler, $of(newHandler));
+	firePropertyChange("transferHandler"_s, oldHandler, newHandler);
 }
 
 LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate() {
 }
 
 $Class* LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate::load$($String* name, bool initialize) {
-	$loadClass(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, name, initialize, &_LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate_ClassInfo_, allocate$LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/lwawt/LWTextAreaPeer$ScrollableJTextArea;", nullptr, $FINAL | $SYNTHETIC, $field(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWTextAreaPeer$ScrollableJTextArea;)V", nullptr, $PRIVATE, $method(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, init$, void, $LWTextAreaPeer$ScrollableJTextArea*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, getLocationOnScreen, $Point*)},
+		{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, hasFocus, bool)},
+		{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, replaceSelection, void, $String*)},
+		{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, setTransferHandler, void, $TransferHandler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "sun.lwawt.LWTextAreaPeer", "ScrollableJTextArea", $FINAL},
+		{"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate", "sun.lwawt.LWTextAreaPeer$ScrollableJTextArea", "JTextAreaDelegate", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate",
+		"javax.swing.JTextArea",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWTextAreaPeer"
+	};
+	$loadClass(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate));
+	});
 	return class$;
 }
 

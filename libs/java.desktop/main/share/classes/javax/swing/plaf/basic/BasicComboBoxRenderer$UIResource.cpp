@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboBoxRenderer$UIResource.h>
-
 #include <javax/swing/plaf/basic/BasicComboBoxRenderer.h>
 #include <jcpp.h>
 
@@ -12,41 +11,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicComboBoxRenderer$UIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboBoxRenderer$UIResource, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicComboBoxRenderer$UIResource_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource", "javax.swing.plaf.basic.BasicComboBoxRenderer", "UIResource", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicComboBoxRenderer$UIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource",
-	"javax.swing.plaf.basic.BasicComboBoxRenderer",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_BasicComboBoxRenderer$UIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboBoxRenderer$UIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboBoxRenderer"
-};
-
-$Object* allocate$BasicComboBoxRenderer$UIResource($Class* clazz) {
-	return $of($alloc(BasicComboBoxRenderer$UIResource));
-}
 
 $String* BasicComboBoxRenderer$UIResource::toString() {
 	 return this->$BasicComboBoxRenderer::toString();
@@ -76,7 +40,37 @@ BasicComboBoxRenderer$UIResource::BasicComboBoxRenderer$UIResource() {
 }
 
 $Class* BasicComboBoxRenderer$UIResource::load$($String* name, bool initialize) {
-	$loadClass(BasicComboBoxRenderer$UIResource, name, initialize, &_BasicComboBoxRenderer$UIResource_ClassInfo_, allocate$BasicComboBoxRenderer$UIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicComboBoxRenderer$UIResource, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource", "javax.swing.plaf.basic.BasicComboBoxRenderer", "UIResource", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource",
+		"javax.swing.plaf.basic.BasicComboBoxRenderer",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboBoxRenderer"
+	};
+	$loadClass(BasicComboBoxRenderer$UIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicComboBoxRenderer$UIResource));
+	});
 	return class$;
 }
 

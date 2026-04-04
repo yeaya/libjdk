@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/When.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CastExpr.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
@@ -32,7 +31,6 @@ using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::uti
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
 using $Type = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::Type;
 using $Util = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::Util;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,36 +44,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _When_FieldInfo_[] = {
-	{"_test", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(When, _test)},
-	{"_ignore", "Z", nullptr, $PRIVATE, $field(When, _ignore)},
-	{}
-};
-
-$MethodInfo _When_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(When, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(When, display, void, int32_t)},
-	{"getTest", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PUBLIC, $method(When, getTest, $Expression*)},
-	{"ignore", "()Z", nullptr, $PUBLIC, $method(When, ignore, bool)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(When, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(When, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(When, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _When_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.When",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_When_FieldInfo_,
-	_When_MethodInfo_
-};
-
-$Object* allocate$When($Class* clazz) {
-	return $of($alloc(When));
-}
 
 void When::init$() {
 	$Instruction::init$();
@@ -103,7 +71,7 @@ void When::parseContents($Parser* parser) {
 	$set(this, _test, $nc(parser)->parseExpression(this, "test"_s, nullptr));
 	$var($Object, result, $nc(this->_test)->evaluateAtCompileTime());
 	if (result != nullptr && $instanceOf($Boolean, result)) {
-		this->_ignore = !$nc(($cast($Boolean, result)))->booleanValue();
+		this->_ignore = !$cast($Boolean, result)->booleanValue();
 	}
 	parseChildren(parser);
 	if ($nc(this->_test)->isDummy()) {
@@ -125,17 +93,42 @@ $Type* When::typeCheck($SymbolTable* stable) {
 }
 
 void When::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($ErrorMsg);
-	$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::STRAY_WHEN_ERR, static_cast<$SyntaxTreeNode*>(this)));
-	$nc($(getParser()))->reportError($Constants::ERROR, msg);
+	$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::STRAY_WHEN_ERR, this));
+	$$nc(getParser())->reportError($Constants::ERROR, msg);
 }
 
 When::When() {
 }
 
 $Class* When::load$($String* name, bool initialize) {
-	$loadClass(When, name, initialize, &_When_ClassInfo_, allocate$When);
+	$FieldInfo fieldInfos$$[] = {
+		{"_test", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(When, _test)},
+		{"_ignore", "Z", nullptr, $PRIVATE, $field(When, _ignore)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(When, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(When, display, void, int32_t)},
+		{"getTest", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PUBLIC, $method(When, getTest, $Expression*)},
+		{"ignore", "()Z", nullptr, $PUBLIC, $method(When, ignore, bool)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(When, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(When, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(When, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.When",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(When, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(When);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <PopupReferenceMemoryLeak.h>
-
 #include <PopupReferenceMemoryLeak$FrameCloser.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/LayoutManager.h>
@@ -39,12 +38,9 @@
 using $PopupReferenceMemoryLeak$FrameCloser = ::PopupReferenceMemoryLeak$FrameCloser;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -75,75 +71,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->createUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PopupReferenceMemoryLeak$$Lambda$createUI>());
-	}
 	PopupReferenceMemoryLeak* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PopupReferenceMemoryLeak$$Lambda$createUI::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PopupReferenceMemoryLeak$$Lambda$createUI, inst$)},
-	{}
-};
-$MethodInfo PopupReferenceMemoryLeak$$Lambda$createUI::methodInfos[3] = {
-	{"<init>", "(LPopupReferenceMemoryLeak;)V", nullptr, $PUBLIC, $method(PopupReferenceMemoryLeak$$Lambda$createUI, init$, void, PopupReferenceMemoryLeak*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PopupReferenceMemoryLeak$$Lambda$createUI, run, void)},
-	{}
-};
-$ClassInfo PopupReferenceMemoryLeak$$Lambda$createUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"PopupReferenceMemoryLeak$$Lambda$createUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* PopupReferenceMemoryLeak$$Lambda$createUI::load$($String* name, bool initialize) {
-	$loadClass(PopupReferenceMemoryLeak$$Lambda$createUI, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PopupReferenceMemoryLeak$$Lambda$createUI, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LPopupReferenceMemoryLeak;)V", nullptr, $PUBLIC, $method(PopupReferenceMemoryLeak$$Lambda$createUI, init$, void, PopupReferenceMemoryLeak*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PopupReferenceMemoryLeak$$Lambda$createUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"PopupReferenceMemoryLeak$$Lambda$createUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PopupReferenceMemoryLeak$$Lambda$createUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupReferenceMemoryLeak$$Lambda$createUI);
+	});
 	return class$;
 }
 $Class* PopupReferenceMemoryLeak$$Lambda$createUI::class$ = nullptr;
-
-$FieldInfo _PopupReferenceMemoryLeak_FieldInfo_[] = {
-	{"referenceToFrame1", "Ljava/lang/ref/WeakReference;", nullptr, $STATIC | $VOLATILE, $staticField(PopupReferenceMemoryLeak, referenceToFrame1)},
-	{"frame1", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(PopupReferenceMemoryLeak, frame1)},
-	{"frame2", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(PopupReferenceMemoryLeak, frame2)},
-	{}
-};
-
-$MethodInfo _PopupReferenceMemoryLeak_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PopupReferenceMemoryLeak, init$, void)},
-	{"createUI", "()V", nullptr, $PUBLIC, $virtualMethod(PopupReferenceMemoryLeak, createUI, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PopupReferenceMemoryLeak, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupReferenceMemoryLeak, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{}
-};
-
-$InnerClassInfo _PopupReferenceMemoryLeak_InnerClassesInfo_[] = {
-	{"PopupReferenceMemoryLeak$FrameCloser", "PopupReferenceMemoryLeak", "FrameCloser", 0},
-	{}
-};
-
-$ClassInfo _PopupReferenceMemoryLeak_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"PopupReferenceMemoryLeak",
-	"java.lang.Object",
-	nullptr,
-	_PopupReferenceMemoryLeak_FieldInfo_,
-	_PopupReferenceMemoryLeak_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupReferenceMemoryLeak_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"PopupReferenceMemoryLeak$FrameCloser"
-};
-
-$Object* allocate$PopupReferenceMemoryLeak($Class* clazz) {
-	return $of($alloc(PopupReferenceMemoryLeak));
-}
 
 $volatile($WeakReference*) PopupReferenceMemoryLeak::referenceToFrame1 = nullptr;
 $JFrame* PopupReferenceMemoryLeak::frame1 = nullptr;
@@ -153,113 +106,106 @@ void PopupReferenceMemoryLeak::init$() {
 }
 
 void PopupReferenceMemoryLeak::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(200);
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
 			{
 				$var($String, lafName, $nc(laf)->getName());
 				$nc($System::out)->println($$str({"Testing LaF: "_s, lafName}));
-				if (lafName == nullptr || $nc(lafName)->startsWith("Mac OS X"_s)) {
+				if (lafName == nullptr || lafName->startsWith("Mac OS X"_s)) {
 					continue;
 				}
 				setLookAndFeel(laf);
 				$var(PopupReferenceMemoryLeak, newTest, $new(PopupReferenceMemoryLeak));
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(PopupReferenceMemoryLeak$$Lambda$createUI, static_cast<PopupReferenceMemoryLeak*>(newTest))));
-				{
-					$var($Throwable, var$0, nullptr);
+				$SwingUtilities::invokeAndWait($$new(PopupReferenceMemoryLeak$$Lambda$createUI, newTest));
+				$var($Throwable, var$0, nullptr);
+				try {
 					try {
-						try {
-							bool passed = false;
+						bool passed = false;
+						robot->waitForIdle();
+						$Thread::sleep(2000);
+						robot->mouseMove(200, 200);
+						robot->mousePress($InputEvent::BUTTON1_DOWN_MASK);
+						robot->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+						robot->keyPress($KeyEvent::VK_F10);
+						robot->keyRelease($KeyEvent::VK_F10);
+						robot->keyPress($KeyEvent::VK_F);
+						robot->keyRelease($KeyEvent::VK_F);
+						robot->keyPress($KeyEvent::VK_C);
+						robot->keyRelease($KeyEvent::VK_C);
+						robot->waitForIdle();
+						$Thread::sleep(2000);
+						robot->mouseMove(600, 200);
+						robot->waitForIdle();
+						$Thread::sleep(2000);
+						robot->mousePress($InputEvent::BUTTON1_DOWN_MASK);
+						robot->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+						$var($JFrame, frame3, $new($JFrame, "Workaround"_s));
+						frame3->setSize(100, 100);
+						frame3->setLocation(0, 0);
+						frame3->setVisible(true);
+						$Thread::sleep(1000);
+						frame3->setVisible(false);
+						frame3->dispose();
+						for (int32_t i = 0; i < 30; ++i) {
+							try {
+								$var($ArrayList, gc, $new($ArrayList));
+								while (true) {
+									gc->add($$new($ints, 100000));
+								}
+							} catch ($Throwable& ignore) {
+							}
+							$System::gc();
 							robot->waitForIdle();
-							$Thread::sleep(2000);
-							robot->mouseMove(200, 200);
-							robot->mousePress($InputEvent::BUTTON1_DOWN_MASK);
-							robot->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
+							$Thread::sleep(1000);
+							if ($nc(PopupReferenceMemoryLeak::referenceToFrame1)->get() == nullptr) {
+								passed = true;
+								break;
+							}
+						}
+						if (!passed) {
+							robot->waitForIdle();
 							robot->keyPress($KeyEvent::VK_F10);
 							robot->keyRelease($KeyEvent::VK_F10);
-							robot->keyPress($KeyEvent::VK_F);
-							robot->keyRelease($KeyEvent::VK_F);
-							robot->keyPress($KeyEvent::VK_C);
-							robot->keyRelease($KeyEvent::VK_C);
+							robot->keyPress($KeyEvent::VK_T);
+							robot->keyRelease($KeyEvent::VK_T);
+							robot->keyPress($KeyEvent::VK_M);
+							robot->keyRelease($KeyEvent::VK_M);
 							robot->waitForIdle();
 							$Thread::sleep(2000);
-							robot->mouseMove(600, 200);
-							robot->waitForIdle();
-							$Thread::sleep(2000);
-							robot->mousePress($InputEvent::BUTTON1_DOWN_MASK);
-							robot->mouseRelease($InputEvent::BUTTON1_DOWN_MASK);
-							$var($JFrame, frame3, $new($JFrame, "Workaround"_s));
-							frame3->setSize(100, 100);
-							frame3->setLocation(0, 0);
-							frame3->setVisible(true);
-							$Thread::sleep(1000);
-							frame3->setVisible(false);
-							frame3->dispose();
-							for (int32_t i = 0; i < 30; ++i) {
+							for (int32_t i = 0; i < 5; ++i) {
 								try {
 									$var($ArrayList, gc, $new($ArrayList));
 									while (true) {
-										gc->add($$new($ints, 0x000186A0));
+										gc->add($$new($ints, 100000));
 									}
 								} catch ($Throwable& ignore) {
 								}
-								$System::gc();
 								robot->waitForIdle();
 								$Thread::sleep(1000);
-								$init(PopupReferenceMemoryLeak);
 								if ($nc(PopupReferenceMemoryLeak::referenceToFrame1)->get() == nullptr) {
-									passed = true;
-									break;
+									$throwNew($RuntimeException, "Frame cleared only after menu activated on frame2"_s);
 								}
 							}
-							if (!passed) {
-								robot->waitForIdle();
-								robot->keyPress($KeyEvent::VK_F10);
-								robot->keyRelease($KeyEvent::VK_F10);
-								robot->keyPress($KeyEvent::VK_T);
-								robot->keyRelease($KeyEvent::VK_T);
-								robot->keyPress($KeyEvent::VK_M);
-								robot->keyRelease($KeyEvent::VK_M);
-								robot->waitForIdle();
-								$Thread::sleep(2000);
-								for (int32_t i = 0; i < 5; ++i) {
-									try {
-										$var($ArrayList, gc, $new($ArrayList));
-										while (true) {
-											gc->add($$new($ints, 0x000186A0));
-										}
-									} catch ($Throwable& ignore) {
-									}
-									robot->waitForIdle();
-									$Thread::sleep(1000);
-									$init(PopupReferenceMemoryLeak);
-									if ($nc(PopupReferenceMemoryLeak::referenceToFrame1)->get() == nullptr) {
-										$throwNew($RuntimeException, "Frame cleared only after menu activated on frame2"_s);
-									}
-								}
-								$throwNew($RuntimeException, "Test finished but menu has not cleared the reference!"_s);
-							}
-						} catch ($Exception& re) {
-							$throwNew($RuntimeException, $(re->getLocalizedMessage()));
+							$throwNew($RuntimeException, "Test finished but menu has not cleared the reference!"_s);
 						}
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						$init(PopupReferenceMemoryLeak);
-						if (PopupReferenceMemoryLeak::frame2 != nullptr) {
-							$nc(PopupReferenceMemoryLeak::frame2)->setVisible(false);
-							$nc(PopupReferenceMemoryLeak::frame2)->dispose();
-						}
+					} catch ($Exception& re) {
+						$throwNew($RuntimeException, $(re->getLocalizedMessage()));
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					if (PopupReferenceMemoryLeak::frame2 != nullptr) {
+						PopupReferenceMemoryLeak::frame2->setVisible(false);
+						$nc(PopupReferenceMemoryLeak::frame2)->dispose();
 					}
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 		}
@@ -267,18 +213,18 @@ void PopupReferenceMemoryLeak::main($StringArray* args) {
 }
 
 void PopupReferenceMemoryLeak::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
 	} catch ($UnsupportedLookAndFeelException& ignored) {
 		$nc($System::out)->println($$str({"Unsupported LookAndFeel: "_s, $($nc(laf)->getClassName())}));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void PopupReferenceMemoryLeak::createUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(PopupReferenceMemoryLeak::frame1, $new($JFrame, "Main test window"_s));
 	$var($JMenuBar, menuBar1, $new($JMenuBar));
 	$var($JMenu, file1, $new($JMenu, "File"_s));
@@ -315,11 +261,44 @@ PopupReferenceMemoryLeak::PopupReferenceMemoryLeak() {
 
 $Class* PopupReferenceMemoryLeak::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PopupReferenceMemoryLeak$$Lambda$createUI::classInfo$.name)) {
+		if (name->equals("PopupReferenceMemoryLeak$$Lambda$createUI")) {
 			return PopupReferenceMemoryLeak$$Lambda$createUI::load$(name, initialize);
 		}
 	}
-	$loadClass(PopupReferenceMemoryLeak, name, initialize, &_PopupReferenceMemoryLeak_ClassInfo_, allocate$PopupReferenceMemoryLeak);
+	$FieldInfo fieldInfos$$[] = {
+		{"referenceToFrame1", "Ljava/lang/ref/WeakReference;", nullptr, $STATIC | $VOLATILE, $staticField(PopupReferenceMemoryLeak, referenceToFrame1)},
+		{"frame1", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(PopupReferenceMemoryLeak, frame1)},
+		{"frame2", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(PopupReferenceMemoryLeak, frame2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PopupReferenceMemoryLeak, init$, void)},
+		{"createUI", "()V", nullptr, $PUBLIC, $virtualMethod(PopupReferenceMemoryLeak, createUI, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PopupReferenceMemoryLeak, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupReferenceMemoryLeak, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"PopupReferenceMemoryLeak$FrameCloser", "PopupReferenceMemoryLeak", "FrameCloser", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"PopupReferenceMemoryLeak",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"PopupReferenceMemoryLeak$FrameCloser"
+	};
+	$loadClass(PopupReferenceMemoryLeak, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupReferenceMemoryLeak);
+	});
 	return class$;
 }
 

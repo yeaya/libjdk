@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WToolkit$ToolkitDisposer.h>
-
 #include <sun/awt/windows/WToolkit.h>
 #include <jcpp.h>
 
@@ -12,37 +11,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$MethodInfo _WToolkit$ToolkitDisposer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WToolkit$ToolkitDisposer, init$, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit$ToolkitDisposer, dispose, void)},
-	{}
-};
-
-$InnerClassInfo _WToolkit$ToolkitDisposer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WToolkit$ToolkitDisposer", "sun.awt.windows.WToolkit", "ToolkitDisposer", $STATIC},
-	{}
-};
-
-$ClassInfo _WToolkit$ToolkitDisposer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WToolkit$ToolkitDisposer",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	nullptr,
-	_WToolkit$ToolkitDisposer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WToolkit$ToolkitDisposer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WToolkit"
-};
-
-$Object* allocate$WToolkit$ToolkitDisposer($Class* clazz) {
-	return $of($alloc(WToolkit$ToolkitDisposer));
-}
-
 void WToolkit$ToolkitDisposer::init$() {
 }
 
@@ -54,7 +22,33 @@ WToolkit$ToolkitDisposer::WToolkit$ToolkitDisposer() {
 }
 
 $Class* WToolkit$ToolkitDisposer::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$ToolkitDisposer, name, initialize, &_WToolkit$ToolkitDisposer_ClassInfo_, allocate$WToolkit$ToolkitDisposer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WToolkit$ToolkitDisposer, init$, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit$ToolkitDisposer, dispose, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WToolkit$ToolkitDisposer", "sun.awt.windows.WToolkit", "ToolkitDisposer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WToolkit$ToolkitDisposer",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WToolkit"
+	};
+	$loadClass(WToolkit$ToolkitDisposer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$ToolkitDisposer);
+	});
 	return class$;
 }
 

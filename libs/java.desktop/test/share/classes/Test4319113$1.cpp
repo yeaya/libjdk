@@ -1,9 +1,7 @@
 #include <Test4319113$1.h>
-
 #include <Test4319113$1$1.h>
 #include <Test4319113.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
@@ -15,51 +13,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _Test4319113$1_FieldInfo_[] = {
-	{"this$0", "LTest4319113;", nullptr, $FINAL | $SYNTHETIC, $field(Test4319113$1, this$0)},
-	{}
-};
-
-$MethodInfo _Test4319113$1_MethodInfo_[] = {
-	{"<init>", "(LTest4319113;)V", nullptr, 0, $method(Test4319113$1, init$, void, $Test4319113*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test4319113$1, itemStateChanged, void, $ItemEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _Test4319113$1_EnclosingMethodInfo_ = {
-	"Test4319113",
-	"show",
-	"(Ljava/awt/Window;)V"
-};
-
-$InnerClassInfo _Test4319113$1_InnerClassesInfo_[] = {
-	{"Test4319113$1", nullptr, nullptr, 0},
-	{"Test4319113$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test4319113$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test4319113$1",
-	"java.lang.Object",
-	"java.awt.event.ItemListener",
-	_Test4319113$1_FieldInfo_,
-	_Test4319113$1_MethodInfo_,
-	nullptr,
-	&_Test4319113$1_EnclosingMethodInfo_,
-	_Test4319113$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test4319113"
-};
-
-$Object* allocate$Test4319113$1($Class* clazz) {
-	return $of($alloc(Test4319113$1));
-}
 
 void Test4319113$1::init$($Test4319113* this$0) {
 	$set(this, this$0, this$0);
@@ -75,7 +29,43 @@ Test4319113$1::Test4319113$1() {
 }
 
 $Class* Test4319113$1::load$($String* name, bool initialize) {
-	$loadClass(Test4319113$1, name, initialize, &_Test4319113$1_ClassInfo_, allocate$Test4319113$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTest4319113;", nullptr, $FINAL | $SYNTHETIC, $field(Test4319113$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTest4319113;)V", nullptr, 0, $method(Test4319113$1, init$, void, $Test4319113*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test4319113$1, itemStateChanged, void, $ItemEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test4319113",
+		"show",
+		"(Ljava/awt/Window;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test4319113$1", nullptr, nullptr, 0},
+		{"Test4319113$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test4319113$1",
+		"java.lang.Object",
+		"java.awt.event.ItemListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test4319113"
+	};
+	$loadClass(Test4319113$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test4319113$1);
+	});
 	return class$;
 }
 

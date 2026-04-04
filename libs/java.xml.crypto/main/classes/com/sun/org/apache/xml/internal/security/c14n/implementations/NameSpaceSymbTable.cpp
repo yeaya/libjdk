@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbTable.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/NameSpaceSymbEntry.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
@@ -27,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Attr = ::org::w3c::dom::Attr;
 using $Node = ::org::w3c::dom::Node;
 
@@ -41,48 +39,6 @@ namespace com {
 							namespace c14n {
 								namespace implementations {
 
-$FieldInfo _NameSpaceSymbTable_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NameSpaceSymbTable, LOG)},
-	{"XMLNS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NameSpaceSymbTable, XMLNS)},
-	{"initialMap", "Lcom/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NameSpaceSymbTable, initialMap)},
-	{"symb", "Lcom/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap;", nullptr, $PRIVATE, $field(NameSpaceSymbTable, symb)},
-	{"level", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap;>;", $PRIVATE | $FINAL, $field(NameSpaceSymbTable, level)},
-	{"cloned", "Z", nullptr, $PRIVATE, $field(NameSpaceSymbTable, cloned)},
-	{}
-};
-
-$MethodInfo _NameSpaceSymbTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NameSpaceSymbTable, init$, void)},
-	{"addMapping", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Attr;)Z", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, addMapping, bool, $String*, $String*, $Attr*)},
-	{"addMappingAndRender", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, addMappingAndRender, $Node*, $String*, $String*, $Attr*)},
-	{"getLevel", "()I", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getLevel, int32_t)},
-	{"getMapping", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getMapping, $Attr*, $String*)},
-	{"getMappingWithoutRendered", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getMappingWithoutRendered, $Attr*, $String*)},
-	{"getUnrenderedNodes", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lorg/w3c/dom/Attr;>;)V", $PUBLIC, $virtualMethod(NameSpaceSymbTable, getUnrenderedNodes, void, $Collection*)},
-	{"needsClone", "()V", nullptr, $FINAL, $method(NameSpaceSymbTable, needsClone, void)},
-	{"outputNodePop", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, outputNodePop, void)},
-	{"outputNodePush", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, outputNodePush, void)},
-	{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, pop, void)},
-	{"push", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, push, void)},
-	{"removeMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMapping, void, $String*)},
-	{"removeMappingIfNotRender", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMappingIfNotRender, void, $String*)},
-	{"removeMappingIfRender", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMappingIfRender, bool, $String*)},
-	{}
-};
-
-$ClassInfo _NameSpaceSymbTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.NameSpaceSymbTable",
-	"java.lang.Object",
-	nullptr,
-	_NameSpaceSymbTable_FieldInfo_,
-	_NameSpaceSymbTable_MethodInfo_
-};
-
-$Object* allocate$NameSpaceSymbTable($Class* clazz) {
-	return $of($alloc(NameSpaceSymbTable));
-}
-
 $Logger* NameSpaceSymbTable::LOG = nullptr;
 $String* NameSpaceSymbTable::XMLNS = nullptr;
 $SymbMap* NameSpaceSymbTable::initialMap = nullptr;
@@ -91,22 +47,22 @@ void NameSpaceSymbTable::init$() {
 	$set(this, level, $new($ArrayList));
 	this->cloned = true;
 	try {
-		$set(this, symb, $nc(NameSpaceSymbTable::initialMap)->clone());
+		$set(this, symb, NameSpaceSymbTable::initialMap->clone());
 	} catch ($CloneNotSupportedException& e) {
 		$nc(NameSpaceSymbTable::LOG)->error("Error cloning the initial map"_s);
 	}
 }
 
 void NameSpaceSymbTable::getUnrenderedNodes($Collection* result) {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, it, $nc($($nc(this->symb)->entrySet()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, it, $$nc($nc(this->symb)->entrySet())->iterator());
 	while ($nc(it)->hasNext()) {
 		$var($NameSpaceSymbEntry, n, $cast($NameSpaceSymbEntry, it->next()));
 		if (!$nc(n)->rendered && n->n != nullptr) {
 			$assign(n, n->clone());
 			needsClone();
 			$nc(this->symb)->put($nc(n)->prefix, n);
-			$set($nc(n), lastrendered, n->uri);
+			$set(n, lastrendered, n->uri);
 			n->rendered = true;
 			$nc(result)->add(n->n);
 		}
@@ -122,19 +78,19 @@ void NameSpaceSymbTable::outputNodePop() {
 }
 
 void NameSpaceSymbTable::push() {
-	$nc(this->level)->add(nullptr);
+	this->level->add(nullptr);
 	this->cloned = false;
 }
 
 void NameSpaceSymbTable::pop() {
-	int32_t size = $nc(this->level)->size() - 1;
-	$var($Object, ob, $nc(this->level)->remove(size));
+	int32_t size = this->level->size() - 1;
+	$var($Object, ob, this->level->remove(size));
 	if (ob != nullptr) {
 		$set(this, symb, $cast($SymbMap, ob));
 		if (size == 0) {
 			this->cloned = false;
 		} else {
-			this->cloned = !$equals($nc(this->level)->get(size - 1), this->symb);
+			this->cloned = !$equals(this->level->get(size - 1), this->symb);
 		}
 	} else {
 		this->cloned = false;
@@ -143,7 +99,7 @@ void NameSpaceSymbTable::pop() {
 
 void NameSpaceSymbTable::needsClone() {
 	if (!this->cloned) {
-		$nc(this->level)->set($nc(this->level)->size() - 1, this->symb);
+		this->level->set(this->level->size() - 1, this->symb);
 		try {
 			$set(this, symb, $nc(this->symb)->clone());
 		} catch ($CloneNotSupportedException& e) {
@@ -161,10 +117,10 @@ $Attr* NameSpaceSymbTable::getMapping($String* prefix) {
 	if ($nc(entry)->rendered) {
 		return nullptr;
 	}
-	$assign(entry, $nc(entry)->clone());
+	$assign(entry, entry->clone());
 	needsClone();
 	$nc(this->symb)->put(prefix, entry);
-	entry->rendered = true;
+	$nc(entry)->rendered = true;
 	$set(entry, lastrendered, entry->uri);
 	return entry->n;
 }
@@ -177,11 +133,11 @@ $Attr* NameSpaceSymbTable::getMappingWithoutRendered($String* prefix) {
 	if ($nc(entry)->rendered) {
 		return nullptr;
 	}
-	return $nc(entry)->n;
+	return entry->n;
 }
 
 bool NameSpaceSymbTable::addMapping($String* prefix, $String* uri, $Attr* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NameSpaceSymbEntry, ob, $nc(this->symb)->get(prefix));
 	if (ob != nullptr && $nc(uri)->equals(ob->uri)) {
 		return false;
@@ -191,7 +147,7 @@ bool NameSpaceSymbTable::addMapping($String* prefix, $String* uri, $Attr* n) {
 	$nc(this->symb)->put(prefix, ne);
 	if (ob != nullptr) {
 		$set(ne, lastrendered, ob->lastrendered);
-		if (ob->lastrendered != nullptr && $nc(ob->lastrendered)->equals(uri)) {
+		if (ob->lastrendered != nullptr && ob->lastrendered->equals(uri)) {
 			ne->rendered = true;
 		}
 	}
@@ -199,7 +155,7 @@ bool NameSpaceSymbTable::addMapping($String* prefix, $String* uri, $Attr* n) {
 }
 
 $Node* NameSpaceSymbTable::addMappingAndRender($String* prefix, $String* uri, $Attr* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NameSpaceSymbEntry, ob, $nc(this->symb)->get(prefix));
 	if (ob != nullptr && $nc(uri)->equals(ob->uri)) {
 		if (!ob->rendered) {
@@ -216,7 +172,7 @@ $Node* NameSpaceSymbTable::addMappingAndRender($String* prefix, $String* uri, $A
 	$set(ne, lastrendered, uri);
 	needsClone();
 	$nc(this->symb)->put(prefix, ne);
-	if (ob != nullptr && ob->lastrendered != nullptr && $nc(ob->lastrendered)->equals(uri)) {
+	if (ob != nullptr && ob->lastrendered != nullptr && ob->lastrendered->equals(uri)) {
 		ne->rendered = true;
 		return nullptr;
 	}
@@ -224,7 +180,7 @@ $Node* NameSpaceSymbTable::addMappingAndRender($String* prefix, $String* uri, $A
 }
 
 int32_t NameSpaceSymbTable::getLevel() {
-	return $nc(this->level)->size();
+	return this->level->size();
 }
 
 void NameSpaceSymbTable::removeMapping($String* prefix) {
@@ -252,14 +208,14 @@ bool NameSpaceSymbTable::removeMappingIfRender($String* prefix) {
 	return false;
 }
 
-void clinit$NameSpaceSymbTable($Class* class$) {
+void NameSpaceSymbTable::clinit$($Class* clazz) {
 	$assignStatic(NameSpaceSymbTable::XMLNS, "xmlns"_s);
 	$assignStatic(NameSpaceSymbTable::LOG, $LoggerFactory::getLogger(NameSpaceSymbTable::class$));
 	$assignStatic(NameSpaceSymbTable::initialMap, $new($SymbMap));
 	{
 		$var($NameSpaceSymbEntry, ne, $new($NameSpaceSymbEntry, ""_s, nullptr, true, NameSpaceSymbTable::XMLNS));
 		$set(ne, lastrendered, ""_s);
-		$nc(NameSpaceSymbTable::initialMap)->put(NameSpaceSymbTable::XMLNS, ne);
+		NameSpaceSymbTable::initialMap->put(NameSpaceSymbTable::XMLNS, ne);
 	}
 }
 
@@ -267,7 +223,44 @@ NameSpaceSymbTable::NameSpaceSymbTable() {
 }
 
 $Class* NameSpaceSymbTable::load$($String* name, bool initialize) {
-	$loadClass(NameSpaceSymbTable, name, initialize, &_NameSpaceSymbTable_ClassInfo_, clinit$NameSpaceSymbTable, allocate$NameSpaceSymbTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NameSpaceSymbTable, LOG)},
+		{"XMLNS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NameSpaceSymbTable, XMLNS)},
+		{"initialMap", "Lcom/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NameSpaceSymbTable, initialMap)},
+		{"symb", "Lcom/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap;", nullptr, $PRIVATE, $field(NameSpaceSymbTable, symb)},
+		{"level", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/c14n/implementations/SymbMap;>;", $PRIVATE | $FINAL, $field(NameSpaceSymbTable, level)},
+		{"cloned", "Z", nullptr, $PRIVATE, $field(NameSpaceSymbTable, cloned)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NameSpaceSymbTable, init$, void)},
+		{"addMapping", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Attr;)Z", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, addMapping, bool, $String*, $String*, $Attr*)},
+		{"addMappingAndRender", "(Ljava/lang/String;Ljava/lang/String;Lorg/w3c/dom/Attr;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, addMappingAndRender, $Node*, $String*, $String*, $Attr*)},
+		{"getLevel", "()I", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getLevel, int32_t)},
+		{"getMapping", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getMapping, $Attr*, $String*)},
+		{"getMappingWithoutRendered", "(Ljava/lang/String;)Lorg/w3c/dom/Attr;", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, getMappingWithoutRendered, $Attr*, $String*)},
+		{"getUnrenderedNodes", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<Lorg/w3c/dom/Attr;>;)V", $PUBLIC, $virtualMethod(NameSpaceSymbTable, getUnrenderedNodes, void, $Collection*)},
+		{"needsClone", "()V", nullptr, $FINAL, $method(NameSpaceSymbTable, needsClone, void)},
+		{"outputNodePop", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, outputNodePop, void)},
+		{"outputNodePush", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, outputNodePush, void)},
+		{"pop", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, pop, void)},
+		{"push", "()V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, push, void)},
+		{"removeMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMapping, void, $String*)},
+		{"removeMappingIfNotRender", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMappingIfNotRender, void, $String*)},
+		{"removeMappingIfRender", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NameSpaceSymbTable, removeMappingIfRender, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.NameSpaceSymbTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NameSpaceSymbTable, name, initialize, &classInfo$$, NameSpaceSymbTable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NameSpaceSymbTable);
+	});
 	return class$;
 }
 

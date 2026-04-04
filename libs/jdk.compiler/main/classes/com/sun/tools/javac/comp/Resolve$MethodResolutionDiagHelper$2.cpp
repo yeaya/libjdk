@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
@@ -46,33 +45,29 @@ public:
 	virtual bool test(Object$* o, Object$* ts) override {
 		 return $nc(inst$)->lambda$$0(o, $cast($List, ts));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0>());
-	}
 	Resolve$MethodResolutionDiagHelper$2* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, inst$)},
-	{}
-};
-$MethodInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2;)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, init$, void, Resolve$MethodResolutionDiagHelper$2*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2;)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, init$, void, Resolve$MethodResolutionDiagHelper$2*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0);
+	});
 	return class$;
 }
 $Class* Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::class$ = nullptr;
@@ -87,93 +82,42 @@ public:
 	virtual bool test(Object$* o) override {
 		 return $nc(inst$)->lambda$containsAny$1(ts, o);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1>());
-	}
 	Resolve$MethodResolutionDiagHelper$2* inst$ = nullptr;
 	$List* ts = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, inst$)},
-	{"ts", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, ts)},
-	{}
-};
-$MethodInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, init$, void, Resolve$MethodResolutionDiagHelper$2*, $List*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, inst$)},
+		{"ts", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, ts)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$2;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, init$, void, Resolve$MethodResolutionDiagHelper$2*, $List*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1);
+	});
 	return class$;
 }
 $Class* Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::class$ = nullptr;
 
-$FieldInfo _Resolve$MethodResolutionDiagHelper$2_FieldInfo_[] = {
-	{"containsPredicate", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/Object;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;>;", 0, $field(Resolve$MethodResolutionDiagHelper$2, containsPredicate)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodResolutionDiagHelper$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$2, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
-	{"containsAny", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$2, containsAny, bool, $JCDiagnostic*, $List*)},
-	{"lambda$$0", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$MethodResolutionDiagHelper$2, lambda$$0, bool, Object$*, $List*)},
-	{"lambda$containsAny$1", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$MethodResolutionDiagHelper$2, lambda$containsAny$1, bool, $List*, Object$*)},
-	{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$2, matches, bool, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$MethodResolutionDiagHelper$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Resolve$MethodResolutionDiagHelper$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "com.sun.tools.javac.comp.Resolve", "MethodResolutionDiagHelper", $STATIC},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "Template", $STATIC},
-	{}
-};
-
-$ClassInfo _Resolve$MethodResolutionDiagHelper$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2",
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template",
-	nullptr,
-	_Resolve$MethodResolutionDiagHelper$2_FieldInfo_,
-	_Resolve$MethodResolutionDiagHelper$2_MethodInfo_,
-	nullptr,
-	&_Resolve$MethodResolutionDiagHelper$2_EnclosingMethodInfo_,
-	_Resolve$MethodResolutionDiagHelper$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodResolutionDiagHelper$2($Class* clazz) {
-	return $of($alloc(Resolve$MethodResolutionDiagHelper$2));
-}
-
 void Resolve$MethodResolutionDiagHelper$2::init$($String* key, $Resolve$MethodResolutionDiagHelper$TemplateArray* subTemplates) {
 	$Resolve$MethodResolutionDiagHelper$Template::init$(key, subTemplates);
-	$set(this, containsPredicate, static_cast<$BiPredicate*>($new(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, this)));
+	$set(this, containsPredicate, $new(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0, this));
 }
 
 bool Resolve$MethodResolutionDiagHelper$2::matches(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$Resolve$MethodResolutionDiagHelper$Template::matches(o)) {
 		return false;
 	}
@@ -183,8 +127,8 @@ bool Resolve$MethodResolutionDiagHelper$2::matches(Object$* o) {
 }
 
 bool Resolve$MethodResolutionDiagHelper$2::containsAny($JCDiagnostic* d, $List* ts) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($Stream::of($($nc(d)->getArgs()))))->anyMatch(static_cast<$Predicate*>($$new(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, this, ts)));
+	$useLocalObjectStack();
+	return $$nc($Stream::of($($nc(d)->getArgs())))->anyMatch($$new(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1, this, ts));
 }
 
 bool Resolve$MethodResolutionDiagHelper$2::lambda$containsAny$1($List* ts, Object$* o) {
@@ -192,7 +136,7 @@ bool Resolve$MethodResolutionDiagHelper$2::lambda$containsAny$1($List* ts, Objec
 }
 
 bool Resolve$MethodResolutionDiagHelper$2::lambda$$0(Object$* o, $List* ts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Type, type, nullptr);
 		$var($JCDiagnostic, diagnostic, nullptr);
@@ -204,12 +148,12 @@ bool Resolve$MethodResolutionDiagHelper$2::lambda$$0(Object$* o, $List* ts) {
 		if (var$0) {
 			return $nc(type)->containsAny(ts);
 		} else {
-			bool var$2 = $instanceOf($JCDiagnostic, o);
-			if (var$2) {
+			bool var$1 = $instanceOf($JCDiagnostic, o);
+			if (var$1) {
 				$assign(diagnostic, $cast($JCDiagnostic, o));
-				var$2 = true;
+				var$1 = true;
 			}
-			if (var$2) {
+			if (var$1) {
 				return containsAny(diagnostic, ts);
 			} else {
 				return false;
@@ -223,14 +167,54 @@ Resolve$MethodResolutionDiagHelper$2::Resolve$MethodResolutionDiagHelper$2() {
 
 $Class* Resolve$MethodResolutionDiagHelper$2::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0")) {
 			return Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$$0::load$(name, initialize);
 		}
-		if (name->equals(Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1")) {
 			return Resolve$MethodResolutionDiagHelper$2$$Lambda$lambda$containsAny$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Resolve$MethodResolutionDiagHelper$2, name, initialize, &_Resolve$MethodResolutionDiagHelper$2_ClassInfo_, allocate$Resolve$MethodResolutionDiagHelper$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"containsPredicate", "Ljava/util/function/BiPredicate;", "Ljava/util/function/BiPredicate<Ljava/lang/Object;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;>;", 0, $field(Resolve$MethodResolutionDiagHelper$2, containsPredicate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Lcom/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$Template;)V", nullptr, $TRANSIENT, $method(Resolve$MethodResolutionDiagHelper$2, init$, void, $String*, $Resolve$MethodResolutionDiagHelper$TemplateArray*)},
+		{"containsAny", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List;)Z", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Z", 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$2, containsAny, bool, $JCDiagnostic*, $List*)},
+		{"lambda$$0", "(Ljava/lang/Object;Lcom/sun/tools/javac/util/List;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$MethodResolutionDiagHelper$2, lambda$$0, bool, Object$*, $List*)},
+		{"lambda$containsAny$1", "(Lcom/sun/tools/javac/util/List;Ljava/lang/Object;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$MethodResolutionDiagHelper$2, lambda$containsAny$1, bool, $List*, Object$*)},
+		{"matches", "(Ljava/lang/Object;)Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionDiagHelper$2, matches, bool, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "com.sun.tools.javac.comp.Resolve", "MethodResolutionDiagHelper", $STATIC},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "Template", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$2",
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$Template",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodResolutionDiagHelper$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResolutionDiagHelper$2);
+	});
 	return class$;
 }
 

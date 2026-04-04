@@ -52,6 +52,7 @@ class ExtendedSchemaDVFactoryImpl : public ::com::sun::org::apache::xerces::inte
 	$class(ExtendedSchemaDVFactoryImpl, 0, ::com::sun::org::apache::xerces::internal::impl::dv::xs::BaseSchemaDVFactory)
 public:
 	ExtendedSchemaDVFactoryImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createBuiltInTypes();
 	virtual ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* getBuiltInType($String* name) override;

@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_sr_BA.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,35 +12,16 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_sr_BA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_sr_BA, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_sr_BA, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_sr_BA_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_sr_BA",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_sr_BA_MethodInfo_
-};
-
-$Object* allocate$FormatData_sr_BA($Class* clazz) {
-	return $of($alloc(FormatData_sr_BA));
-}
-
 void FormatData_sr_BA::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_sr_BA::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MonthNames"_s),
-			$of($$new($StringArray, {
+			"MonthNames"_s,
+			$$new($StringArray, {
 				u"јануар"_s,
 				u"фебруар"_s,
 				u"март"_s,
@@ -55,11 +35,11 @@ $ObjectArray2* FormatData_sr_BA::getContents() {
 				u"новембар"_s,
 				u"децембар"_s,
 				""_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayNames"_s),
-			$of($$new($StringArray, {
+			"DayNames"_s,
+			$$new($StringArray, {
 				u"недеља"_s,
 				u"понедељак"_s,
 				u"уторак"_s,
@@ -67,11 +47,11 @@ $ObjectArray2* FormatData_sr_BA::getContents() {
 				u"четвртак"_s,
 				u"петак"_s,
 				u"субота"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DayAbbreviations"_s),
-			$of($$new($StringArray, {
+			"DayAbbreviations"_s,
+			$$new($StringArray, {
 				u"нед"_s,
 				u"пон"_s,
 				u"уто"_s,
@@ -79,29 +59,29 @@ $ObjectArray2* FormatData_sr_BA::getContents() {
 				u"чет"_s,
 				u"пет"_s,
 				u"суб"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("TimePatterns"_s),
-			$of($$new($StringArray, {
+			"TimePatterns"_s,
+			$$new($StringArray, {
 				u"HH \'часова\', mm \'минута\', ss\' секунди\'"_s,
 				"HH.mm.ss z"_s,
 				"HH:mm:ss"_s,
 				"HH:mm"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DatePatterns"_s),
-			$of($$new($StringArray, {
+			"DatePatterns"_s,
+			$$new($StringArray, {
 				"EEEE, dd. MMMM yyyy."_s,
 				"dd. MMMM yyyy."_s,
 				"yyyy-MM-dd"_s,
 				"yy-MM-dd"_s
-			}))
+			})
 		}),
 		$$new($ObjectArray, {
-			$of("DateTimePatterns"_s),
-			$of($$new($StringArray, {"{1} {0}"_s}))
+			"DateTimePatterns"_s,
+			$$new($StringArray, {"{1} {0}"_s})
 		})
 	});
 }
@@ -110,7 +90,22 @@ FormatData_sr_BA::FormatData_sr_BA() {
 }
 
 $Class* FormatData_sr_BA::load$($String* name, bool initialize) {
-	$loadClass(FormatData_sr_BA, name, initialize, &_FormatData_sr_BA_ClassInfo_, allocate$FormatData_sr_BA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_sr_BA, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_sr_BA, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_sr_BA",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_sr_BA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_sr_BA);
+	});
 	return class$;
 }
 

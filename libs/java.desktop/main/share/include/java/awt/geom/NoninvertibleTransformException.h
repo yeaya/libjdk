@@ -14,10 +14,13 @@ class $import NoninvertibleTransformException : public ::java::lang::Exception {
 public:
 	NoninvertibleTransformException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x552BCDD6FECD38C2;
+	static const int64_t serialVersionUID = (int64_t)0x552bcdd6fecd38c2;
 	NoninvertibleTransformException(const NoninvertibleTransformException& e);
 	virtual void throw$() override;
-	inline NoninvertibleTransformException* operator ->() {
+	inline NoninvertibleTransformException* operator ->() const {
+		return (NoninvertibleTransformException*)throwing$;
+	}
+	inline operator NoninvertibleTransformException*() const {
 		return (NoninvertibleTransformException*)throwing$;
 	}
 };

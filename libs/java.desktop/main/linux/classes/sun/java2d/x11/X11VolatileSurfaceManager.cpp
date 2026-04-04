@@ -1,5 +1,4 @@
 #include <sun/java2d/x11/X11VolatileSurfaceManager.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/ImageCapabilities.h>
@@ -17,7 +16,6 @@
 #undef OPAQUE
 
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Image = ::java::awt::Image;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $Transparency = ::java::awt::Transparency;
 using $ColorModel = ::java::awt::image::ColorModel;
@@ -36,33 +34,6 @@ using $X11SurfaceData = ::sun::java2d::x11::X11SurfaceData;
 namespace sun {
 	namespace java2d {
 		namespace x11 {
-
-$FieldInfo _X11VolatileSurfaceManager_FieldInfo_[] = {
-	{"accelerationEnabled", "Z", nullptr, $PRIVATE, $field(X11VolatileSurfaceManager, accelerationEnabled)},
-	{}
-};
-
-$MethodInfo _X11VolatileSurfaceManager_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(X11VolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
-	{"getCapabilities", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(X11VolatileSurfaceManager, getCapabilities, $ImageCapabilities*, $GraphicsConfiguration*)},
-	{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(X11VolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
-	{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(X11VolatileSurfaceManager, isAccelerationEnabled, bool)},
-	{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(X11VolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
-	{}
-};
-
-$ClassInfo _X11VolatileSurfaceManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.x11.X11VolatileSurfaceManager",
-	"sun.awt.image.VolatileSurfaceManager",
-	nullptr,
-	_X11VolatileSurfaceManager_FieldInfo_,
-	_X11VolatileSurfaceManager_MethodInfo_
-};
-
-$Object* allocate$X11VolatileSurfaceManager($Class* clazz) {
-	return $of($alloc(X11VolatileSurfaceManager));
-}
 
 void X11VolatileSurfaceManager::init$($SunVolatileImage* vImg, Object$* context) {
 	$VolatileSurfaceManager::init$(vImg, context);
@@ -83,18 +54,17 @@ bool X11VolatileSurfaceManager::isAccelerationEnabled() {
 }
 
 $SurfaceData* X11VolatileSurfaceManager::initAcceleratedSurface() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, sData, nullptr);
 	try {
 		$var($X11GraphicsConfig, gc, $cast($X11GraphicsConfig, $nc(this->vImg)->getGraphicsConfig()));
 		$var($ColorModel, cm, $nc(gc)->getColorModel());
 		int64_t drawable = 0;
 		if ($instanceOf($Long, this->context)) {
-			drawable = $nc(($cast($Long, this->context)))->longValue();
+			drawable = $cast($Long, this->context)->longValue();
 		}
-		$var($X11GraphicsConfig, var$0, gc);
-		int32_t var$1 = $nc(this->vImg)->getWidth();
-		$assign(sData, $X11SurfaceData::createData(var$0, var$1, $nc(this->vImg)->getHeight(), cm, this->vImg, drawable, $Transparency::OPAQUE, false));
+		int32_t var$0 = $nc(this->vImg)->getWidth();
+		$assign(sData, $X11SurfaceData::createData(gc, var$0, this->vImg->getHeight(), cm, this->vImg, drawable, $Transparency::OPAQUE, false));
 	} catch ($NullPointerException& ex) {
 		$assign(sData, nullptr);
 	} catch ($OutOfMemoryError& er) {
@@ -119,7 +89,29 @@ X11VolatileSurfaceManager::X11VolatileSurfaceManager() {
 }
 
 $Class* X11VolatileSurfaceManager::load$($String* name, bool initialize) {
-	$loadClass(X11VolatileSurfaceManager, name, initialize, &_X11VolatileSurfaceManager_ClassInfo_, allocate$X11VolatileSurfaceManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"accelerationEnabled", "Z", nullptr, $PRIVATE, $field(X11VolatileSurfaceManager, accelerationEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/SunVolatileImage;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(X11VolatileSurfaceManager, init$, void, $SunVolatileImage*, Object$*)},
+		{"getCapabilities", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(X11VolatileSurfaceManager, getCapabilities, $ImageCapabilities*, $GraphicsConfiguration*)},
+		{"initAcceleratedSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $virtualMethod(X11VolatileSurfaceManager, initAcceleratedSurface, $SurfaceData*)},
+		{"isAccelerationEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(X11VolatileSurfaceManager, isAccelerationEnabled, bool)},
+		{"isConfigValid", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PROTECTED, $virtualMethod(X11VolatileSurfaceManager, isConfigValid, bool, $GraphicsConfiguration*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.x11.X11VolatileSurfaceManager",
+		"sun.awt.image.VolatileSurfaceManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X11VolatileSurfaceManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11VolatileSurfaceManager));
+	});
 	return class$;
 }
 

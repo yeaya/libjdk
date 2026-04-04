@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XBaseMenuWindow$1.h>
-
 #include <sun/awt/X11/XBaseMenuWindow.h>
 #include <sun/awt/X11/XMenuPeer.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XBaseMenuWindow$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XBaseMenuWindow;", nullptr, $FINAL | $SYNTHETIC, $field(XBaseMenuWindow$1, this$0)},
-	{"val$submenuToShow", "Lsun/awt/X11/XMenuPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XBaseMenuWindow$1, val$submenuToShow)},
-	{}
-};
-
-$MethodInfo _XBaseMenuWindow$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XBaseMenuWindow;Lsun/awt/X11/XMenuPeer;)V", "()V", 0, $method(XBaseMenuWindow$1, init$, void, $XBaseMenuWindow*, $XMenuPeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _XBaseMenuWindow$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XBaseMenuWindow",
-	"selectItem",
-	"(Lsun/awt/X11/XMenuItemPeer;Z)V"
-};
-
-$InnerClassInfo _XBaseMenuWindow$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XBaseMenuWindow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XBaseMenuWindow$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XBaseMenuWindow$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_XBaseMenuWindow$1_FieldInfo_,
-	_XBaseMenuWindow$1_MethodInfo_,
-	nullptr,
-	&_XBaseMenuWindow$1_EnclosingMethodInfo_,
-	_XBaseMenuWindow$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XBaseMenuWindow"
-};
-
-$Object* allocate$XBaseMenuWindow$1($Class* clazz) {
-	return $of($alloc(XBaseMenuWindow$1));
-}
-
 void XBaseMenuWindow$1::init$($XBaseMenuWindow* this$0, $XMenuPeer* val$submenuToShow) {
 	$set(this, this$0, this$0);
 	$set(this, val$submenuToShow, val$submenuToShow);
@@ -72,7 +28,43 @@ XBaseMenuWindow$1::XBaseMenuWindow$1() {
 }
 
 $Class* XBaseMenuWindow$1::load$($String* name, bool initialize) {
-	$loadClass(XBaseMenuWindow$1, name, initialize, &_XBaseMenuWindow$1_ClassInfo_, allocate$XBaseMenuWindow$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XBaseMenuWindow;", nullptr, $FINAL | $SYNTHETIC, $field(XBaseMenuWindow$1, this$0)},
+		{"val$submenuToShow", "Lsun/awt/X11/XMenuPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XBaseMenuWindow$1, val$submenuToShow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XBaseMenuWindow;Lsun/awt/X11/XMenuPeer;)V", "()V", 0, $method(XBaseMenuWindow$1, init$, void, $XBaseMenuWindow*, $XMenuPeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XBaseMenuWindow$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XBaseMenuWindow",
+		"selectItem",
+		"(Lsun/awt/X11/XMenuItemPeer;Z)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XBaseMenuWindow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XBaseMenuWindow$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XBaseMenuWindow"
+	};
+	$loadClass(XBaseMenuWindow$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XBaseMenuWindow$1);
+	});
 	return class$;
 }
 

@@ -34,10 +34,13 @@ public:
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, ::java::util::Map* failedProperties, $Throwable* cause);
 	virtual ::java::util::Map* getFailedProperties();
 	::java::util::Map* failedProperties = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xC40DAED08DB37FF8;
+	static const int64_t serialVersionUID = (int64_t)0xc40daed08db37ff8;
 	SQLClientInfoException(const SQLClientInfoException& e);
 	virtual void throw$() override;
-	inline SQLClientInfoException* operator ->() {
+	inline SQLClientInfoException* operator ->() const {
+		return (SQLClientInfoException*)throwing$;
+	}
+	inline operator SQLClientInfoException*() const {
 		return (SQLClientInfoException*)throwing$;
 	}
 };

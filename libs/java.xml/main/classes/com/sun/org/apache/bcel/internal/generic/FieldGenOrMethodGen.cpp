@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/FieldGenOrMethodGen.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AccessFlags.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
@@ -29,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -38,54 +36,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _FieldGenOrMethodGen_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FieldGenOrMethodGen, name)},
-	{"type", "Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PRIVATE, $field(FieldGenOrMethodGen, type)},
-	{"cp", "Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PRIVATE, $field(FieldGenOrMethodGen, cp)},
-	{"attributeList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Attribute;>;", $PRIVATE | $FINAL, $field(FieldGenOrMethodGen, attributeList)},
-	{"annotationList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PRIVATE | $FINAL, $field(FieldGenOrMethodGen, annotationList)},
-	{}
-};
-
-$MethodInfo _FieldGenOrMethodGen_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(FieldGenOrMethodGen, init$, void)},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(FieldGenOrMethodGen, init$, void, int32_t)},
-	{"addAnnotationEntry", "(Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, addAnnotationEntry, void, $AnnotationEntryGen*)},
-	{"addAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, addAttribute, void, $Attribute*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, clone, $Object*)},
-	{"getAnnotationEntries", "()[Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getAnnotationEntries, $AnnotationEntryGenArray*)},
-	{"getAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getAttributes, $AttributeArray*)},
-	{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getConstantPool, $ConstantPoolGen*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getName, $String*)},
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FieldGenOrMethodGen, getSignature, $String*)},
-	{"getType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getType, $Type*)},
-	{"removeAnnotationEntries", "()V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, removeAnnotationEntries, void)},
-	{"removeAnnotationEntry", "(Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, removeAnnotationEntry, void, $AnnotationEntryGen*)},
-	{"removeAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, removeAttribute, void, $Attribute*)},
-	{"removeAttributes", "()V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, removeAttributes, void)},
-	{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, setConstantPool, void, $ConstantPoolGen*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, setName, void, $String*)},
-	{"setType", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, setType, void, $Type*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _FieldGenOrMethodGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen",
-	"com.sun.org.apache.bcel.internal.classfile.AccessFlags",
-	"com.sun.org.apache.bcel.internal.generic.NamedAndTyped,java.lang.Cloneable",
-	_FieldGenOrMethodGen_FieldInfo_,
-	_FieldGenOrMethodGen_MethodInfo_
-};
-
-$Object* allocate$FieldGenOrMethodGen($Class* clazz) {
-	return $of($alloc(FieldGenOrMethodGen));
-}
 
 int32_t FieldGenOrMethodGen::hashCode() {
 	 return this->$AccessFlags::hashCode();
@@ -151,11 +101,11 @@ void FieldGenOrMethodGen::addAnnotationEntry($AnnotationEntryGen* ag) {
 }
 
 void FieldGenOrMethodGen::removeAttribute($Attribute* a) {
-	$nc(this->attributeList)->remove($of(a));
+	$nc(this->attributeList)->remove(a);
 }
 
 void FieldGenOrMethodGen::removeAnnotationEntry($AnnotationEntryGen* ag) {
-	$nc(this->annotationList)->remove($of(ag));
+	$nc(this->annotationList)->remove(ag);
 }
 
 void FieldGenOrMethodGen::removeAttributes() {
@@ -167,16 +117,16 @@ void FieldGenOrMethodGen::removeAnnotationEntries() {
 }
 
 $AttributeArray* FieldGenOrMethodGen::getAttributes() {
-	return $fcast($AttributeArray, $nc(this->attributeList)->toArray($$new($AttributeArray, 0)));
+	return $cast($AttributeArray, $nc(this->attributeList)->toArray($$new($AttributeArray, 0)));
 }
 
 $AnnotationEntryGenArray* FieldGenOrMethodGen::getAnnotationEntries() {
-	return $fcast($AnnotationEntryGenArray, $nc(this->annotationList)->toArray($$new($AnnotationEntryGenArray, 0)));
+	return $cast($AnnotationEntryGenArray, $nc(this->annotationList)->toArray($$new($AnnotationEntryGenArray, 0)));
 }
 
 $Object* FieldGenOrMethodGen::clone() {
 	try {
-		return $of($AccessFlags::clone());
+		return $AccessFlags::clone();
 	} catch ($CloneNotSupportedException& e) {
 		$throwNew($Error, "Clone Not Supported"_s);
 	}
@@ -187,7 +137,50 @@ FieldGenOrMethodGen::FieldGenOrMethodGen() {
 }
 
 $Class* FieldGenOrMethodGen::load$($String* name, bool initialize) {
-	$loadClass(FieldGenOrMethodGen, name, initialize, &_FieldGenOrMethodGen_ClassInfo_, allocate$FieldGenOrMethodGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FieldGenOrMethodGen, name)},
+		{"type", "Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PRIVATE, $field(FieldGenOrMethodGen, type)},
+		{"cp", "Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PRIVATE, $field(FieldGenOrMethodGen, cp)},
+		{"attributeList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/Attribute;>;", $PRIVATE | $FINAL, $field(FieldGenOrMethodGen, attributeList)},
+		{"annotationList", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;>;", $PRIVATE | $FINAL, $field(FieldGenOrMethodGen, annotationList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(FieldGenOrMethodGen, init$, void)},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(FieldGenOrMethodGen, init$, void, int32_t)},
+		{"addAnnotationEntry", "(Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, addAnnotationEntry, void, $AnnotationEntryGen*)},
+		{"addAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, addAttribute, void, $Attribute*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, clone, $Object*)},
+		{"getAnnotationEntries", "()[Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getAnnotationEntries, $AnnotationEntryGenArray*)},
+		{"getAttributes", "()[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getAttributes, $AttributeArray*)},
+		{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getConstantPool, $ConstantPoolGen*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getName, $String*)},
+		{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(FieldGenOrMethodGen, getSignature, $String*)},
+		{"getType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, getType, $Type*)},
+		{"removeAnnotationEntries", "()V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, removeAnnotationEntries, void)},
+		{"removeAnnotationEntry", "(Lcom/sun/org/apache/bcel/internal/generic/AnnotationEntryGen;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, removeAnnotationEntry, void, $AnnotationEntryGen*)},
+		{"removeAttribute", "(Lcom/sun/org/apache/bcel/internal/classfile/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, removeAttribute, void, $Attribute*)},
+		{"removeAttributes", "()V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, removeAttributes, void)},
+		{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, setConstantPool, void, $ConstantPoolGen*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, setName, void, $String*)},
+		{"setType", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, $PUBLIC, $virtualMethod(FieldGenOrMethodGen, setType, void, $Type*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen",
+		"com.sun.org.apache.bcel.internal.classfile.AccessFlags",
+		"com.sun.org.apache.bcel.internal.generic.NamedAndTyped,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FieldGenOrMethodGen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FieldGenOrMethodGen));
+	});
 	return class$;
 }
 

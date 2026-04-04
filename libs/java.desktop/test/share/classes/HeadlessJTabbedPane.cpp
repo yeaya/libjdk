@@ -1,5 +1,4 @@
 #include <HeadlessJTabbedPane.h>
-
 #include <HeadlessJTabbedPane$1.h>
 #include <HeadlessJTabbedPane$2.h>
 #include <HeadlessJTabbedPane$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 
-$MethodInfo _HeadlessJTabbedPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTabbedPane, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTabbedPane, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJTabbedPane_InnerClassesInfo_[] = {
-	{"HeadlessJTabbedPane$3", nullptr, nullptr, 0},
-	{"HeadlessJTabbedPane$2", nullptr, nullptr, 0},
-	{"HeadlessJTabbedPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJTabbedPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJTabbedPane",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJTabbedPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJTabbedPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJTabbedPane$3,HeadlessJTabbedPane$2,HeadlessJTabbedPane$1"
-};
-
-$Object* allocate$HeadlessJTabbedPane($Class* clazz) {
-	return $of($alloc(HeadlessJTabbedPane));
-}
-
 void HeadlessJTabbedPane::init$() {
 }
 
 void HeadlessJTabbedPane::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTabbedPane, s, $new($JTabbedPane));
 	s->getAccessibleContext();
 	s->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJTabbedPane::main($StringArray* args) {
 	s->getMaximumSize();
 	s->getMinimumSize();
 	s->contains(1, 2);
-	$var($Component, c1, s->add(static_cast<$Component*>($$new($HeadlessJTabbedPane$1))));
-	$var($Component, c2, s->add(static_cast<$Component*>($$new($HeadlessJTabbedPane$2))));
-	$var($Component, c3, s->add(static_cast<$Component*>($$new($HeadlessJTabbedPane$3))));
+	$var($Component, c1, s->add($$new($HeadlessJTabbedPane$1)));
+	$var($Component, c2, s->add($$new($HeadlessJTabbedPane$2)));
+	$var($Component, c3, s->add($$new($HeadlessJTabbedPane$3)));
 	$var($Insets, ins, s->getInsets());
 	s->getAlignmentY();
 	s->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJTabbedPane::main($StringArray* args) {
 	s->setForeground($Color::red);
 	s->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					s->setFont(f1);
-					s->setFont(f2);
-					s->setFont(f3);
-					s->setFont(f4);
-					s->getFontMetrics(f1);
-					s->getFontMetrics(f2);
-					s->getFontMetrics(f3);
-					s->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				s->setFont(f1);
+				s->setFont(f2);
+				s->setFont(f3);
+				s->setFont(f4);
+				s->getFontMetrics(f1);
+				s->getFontMetrics(f2);
+				s->getFontMetrics(f3);
+				s->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJTabbedPane::main($StringArray* args) {
 	s->getFont();
 	s->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(s));
+	c->add(s);
 	s->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			s->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJTabbedPane::HeadlessJTabbedPane() {
 }
 
 $Class* HeadlessJTabbedPane::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJTabbedPane, name, initialize, &_HeadlessJTabbedPane_ClassInfo_, allocate$HeadlessJTabbedPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTabbedPane, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTabbedPane, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJTabbedPane$3", nullptr, nullptr, 0},
+		{"HeadlessJTabbedPane$2", nullptr, nullptr, 0},
+		{"HeadlessJTabbedPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJTabbedPane",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJTabbedPane$3,HeadlessJTabbedPane$2,HeadlessJTabbedPane$1"
+	};
+	$loadClass(HeadlessJTabbedPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJTabbedPane);
+	});
 	return class$;
 }
 

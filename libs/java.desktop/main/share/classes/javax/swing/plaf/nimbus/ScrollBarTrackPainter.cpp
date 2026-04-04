@@ -1,18 +1,15 @@
 #include <javax/swing/plaf/nimbus/ScrollBarTrackPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -25,13 +22,11 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -46,74 +41,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ScrollBarTrackPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ScrollBarTrackPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ScrollBarTrackPainter, BACKGROUND_ENABLED)},
-	{"state", "I", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color16)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _ScrollBarTrackPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ScrollBarTrackPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodePath4, $Path2D*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeRect1, $Rectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ScrollBarTrackPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ScrollBarTrackPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _ScrollBarTrackPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.ScrollBarTrackPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_ScrollBarTrackPainter_FieldInfo_,
-	_ScrollBarTrackPainter_MethodInfo_
-};
-
-$Object* allocate$ScrollBarTrackPainter($Class* clazz) {
-	return $of($alloc(ScrollBarTrackPainter));
-}
-
 void ScrollBarTrackPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, -0.027777791f, -0.10016362f, 0.011764705f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, -0.027777791f, -0.100476064f, 0.035294116f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, 0.055555582f, -0.10606203f, 0.13333333f, 0));
@@ -138,15 +71,11 @@ void ScrollBarTrackPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t widt
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case ScrollBarTrackPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case ScrollBarTrackPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	}
 }
 
@@ -161,7 +90,7 @@ void ScrollBarTrackPainter::paintBackgroundDisabled($Graphics2D* g) {
 }
 
 void ScrollBarTrackPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint($(decodeGradient2(this->rect)));
 	g->fill(this->rect);
@@ -180,10 +109,10 @@ void ScrollBarTrackPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 $Rectangle2D* ScrollBarTrackPainter::decodeRect1() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
@@ -191,25 +120,25 @@ $Rectangle2D* ScrollBarTrackPainter::decodeRect1() {
 
 $Path2D* ScrollBarTrackPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.7f);
+	double var$0 = decodeX(0.7f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.0f));
-	double var$2 = (double)decodeX(0.0f);
+	double var$2 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.2f));
-	double var$3 = (double)decodeAnchorX(0.0f, 0.0f);
-	double var$4 = (double)decodeAnchorY(1.2f, 0.0f);
-	double var$5 = (double)decodeAnchorX(0.3f, -1.0f);
-	double var$6 = (double)decodeAnchorY(2.2f, -1.0f);
-	double var$7 = (double)decodeX(0.3f);
+	double var$3 = decodeAnchorX(0.0f, 0.0f);
+	double var$4 = decodeAnchorY(1.2f, 0.0f);
+	double var$5 = decodeAnchorX(0.3f, -1.0f);
+	double var$6 = decodeAnchorY(2.2f, -1.0f);
+	double var$7 = decodeX(0.3f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.2f));
-	double var$8 = (double)decodeAnchorX(0.3f, 1.0f);
-	double var$9 = (double)decodeAnchorY(2.2f, 1.0f);
-	double var$10 = (double)decodeAnchorX(0.6785714f, 0.0f);
-	double var$11 = (double)decodeAnchorY(2.8f, 0.0f);
-	double var$12 = (double)decodeX(0.6785714f);
+	double var$8 = decodeAnchorX(0.3f, 1.0f);
+	double var$9 = decodeAnchorY(2.2f, 1.0f);
+	double var$10 = decodeAnchorX(0.6785714f, 0.0f);
+	double var$11 = decodeAnchorY(2.8f, 0.0f);
+	double var$12 = decodeX(0.6785714f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(2.8f));
-	double var$13 = (double)decodeX(0.7f);
+	double var$13 = decodeX(0.7f);
 	$nc(this->path)->lineTo(var$13, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -217,25 +146,25 @@ $Path2D* ScrollBarTrackPainter::decodePath1() {
 
 $Path2D* ScrollBarTrackPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(3.0f);
+	double var$0 = decodeX(3.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(2.2222223f);
+	double var$1 = decodeX(2.2222223f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.0f));
-	double var$2 = (double)decodeX(2.2222223f);
+	double var$2 = decodeX(2.2222223f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.8f));
-	double var$3 = (double)decodeAnchorX(2.2222223f, 0.0f);
-	double var$4 = (double)decodeAnchorY(2.8f, 0.0f);
-	double var$5 = (double)decodeAnchorX(2.6746032f, -1.0f);
-	double var$6 = (double)decodeAnchorY(2.1857142f, 1.0f);
-	double var$7 = (double)decodeX(2.6746032f);
+	double var$3 = decodeAnchorX(2.2222223f, 0.0f);
+	double var$4 = decodeAnchorY(2.8f, 0.0f);
+	double var$5 = decodeAnchorX(2.6746032f, -1.0f);
+	double var$6 = decodeAnchorY(2.1857142f, 1.0f);
+	double var$7 = decodeX(2.6746032f);
 	$nc(this->path)->curveTo(var$3, var$4, var$5, var$6, var$7, decodeY(2.1857142f));
-	double var$8 = (double)decodeAnchorX(2.6746032f, 1.0f);
-	double var$9 = (double)decodeAnchorY(2.1857142f, -1.0f);
-	double var$10 = (double)decodeAnchorX(3.0f, 0.0f);
-	double var$11 = (double)decodeAnchorY(1.2f, 0.0f);
-	double var$12 = (double)decodeX(3.0f);
+	double var$8 = decodeAnchorX(2.6746032f, 1.0f);
+	double var$9 = decodeAnchorY(2.1857142f, -1.0f);
+	double var$10 = decodeAnchorX(3.0f, 0.0f);
+	double var$11 = decodeAnchorY(1.2f, 0.0f);
+	double var$12 = decodeX(3.0f);
 	$nc(this->path)->curveTo(var$8, var$9, var$10, var$11, var$12, decodeY(1.2f));
-	double var$13 = (double)decodeX(3.0f);
+	double var$13 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$13, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -243,31 +172,31 @@ $Path2D* ScrollBarTrackPainter::decodePath2() {
 
 $Path2D* ScrollBarTrackPainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.11428572f);
+	double var$0 = decodeX(0.11428572f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3714286f));
-	double var$1 = (double)decodeAnchorX(0.11428572f, 0.78571427f);
-	double var$2 = (double)decodeAnchorY(1.3714286f, -0.5714286f);
-	double var$3 = (double)decodeAnchorX(0.4642857f, -1.3571428f);
-	double var$4 = (double)decodeAnchorY(2.0714285f, -1.5714285f);
-	double var$5 = (double)decodeX(0.4642857f);
+	double var$1 = decodeAnchorX(0.11428572f, 0.78571427f);
+	double var$2 = decodeAnchorY(1.3714286f, -0.5714286f);
+	double var$3 = decodeAnchorX(0.4642857f, -1.3571428f);
+	double var$4 = decodeAnchorY(2.0714285f, -1.5714285f);
+	double var$5 = decodeX(0.4642857f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(2.0714285f));
-	double var$6 = (double)decodeAnchorX(0.4642857f, 1.3571428f);
-	double var$7 = (double)decodeAnchorY(2.0714285f, 1.5714285f);
-	double var$8 = (double)decodeAnchorX(0.8714286f, 0.21428572f);
-	double var$9 = (double)decodeAnchorY(2.7285714f, -1.0f);
-	double var$10 = (double)decodeX(0.8714286f);
+	double var$6 = decodeAnchorX(0.4642857f, 1.3571428f);
+	double var$7 = decodeAnchorY(2.0714285f, 1.5714285f);
+	double var$8 = decodeAnchorX(0.8714286f, 0.21428572f);
+	double var$9 = decodeAnchorY(2.7285714f, -1.0f);
+	double var$10 = decodeX(0.8714286f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(2.7285714f));
-	double var$11 = (double)decodeAnchorX(0.8714286f, -0.21428572f);
-	double var$12 = (double)decodeAnchorY(2.7285714f, 1.0f);
-	double var$13 = (double)decodeAnchorX(0.35714287f, 1.5f);
-	double var$14 = (double)decodeAnchorY(2.3142858f, 1.6428572f);
-	double var$15 = (double)decodeX(0.35714287f);
+	double var$11 = decodeAnchorX(0.8714286f, -0.21428572f);
+	double var$12 = decodeAnchorY(2.7285714f, 1.0f);
+	double var$13 = decodeAnchorX(0.35714287f, 1.5f);
+	double var$14 = decodeAnchorY(2.3142858f, 1.6428572f);
+	double var$15 = decodeX(0.35714287f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(2.3142858f));
-	double var$16 = (double)decodeAnchorX(0.35714287f, -1.5f);
-	double var$17 = (double)decodeAnchorY(2.3142858f, -1.6428572f);
-	double var$18 = (double)decodeAnchorX(0.11428572f, -0.78571427f);
-	double var$19 = (double)decodeAnchorY(1.3714286f, 0.5714286f);
-	double var$20 = (double)decodeX(0.11428572f);
+	double var$16 = decodeAnchorX(0.35714287f, -1.5f);
+	double var$17 = decodeAnchorY(2.3142858f, -1.6428572f);
+	double var$18 = decodeAnchorX(0.11428572f, -0.78571427f);
+	double var$19 = decodeAnchorY(1.3714286f, 0.5714286f);
+	double var$20 = decodeX(0.11428572f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(1.3714286f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -275,38 +204,38 @@ $Path2D* ScrollBarTrackPainter::decodePath3() {
 
 $Path2D* ScrollBarTrackPainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(2.1111112f);
+	double var$0 = decodeX(2.1111112f);
 	$nc(this->path)->moveTo(var$0, decodeY(2.7f));
-	double var$1 = (double)decodeAnchorX(2.1111112f, 0.42857143f);
-	double var$2 = (double)decodeAnchorY(2.7f, 0.64285713f);
-	double var$3 = (double)decodeAnchorX(2.6269841f, -1.5714285f);
-	double var$4 = (double)decodeAnchorY(2.2f, 1.6428572f);
-	double var$5 = (double)decodeX(2.6269841f);
+	double var$1 = decodeAnchorX(2.1111112f, 0.42857143f);
+	double var$2 = decodeAnchorY(2.7f, 0.64285713f);
+	double var$3 = decodeAnchorX(2.6269841f, -1.5714285f);
+	double var$4 = decodeAnchorY(2.2f, 1.6428572f);
+	double var$5 = decodeX(2.6269841f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(2.2f));
-	double var$6 = (double)decodeAnchorX(2.6269841f, 1.5714285f);
-	double var$7 = (double)decodeAnchorY(2.2f, -1.6428572f);
-	double var$8 = (double)decodeAnchorX(2.84127f, 0.71428573f);
-	double var$9 = (double)decodeAnchorY(1.3857143f, 0.64285713f);
-	double var$10 = (double)decodeX(2.84127f);
+	double var$6 = decodeAnchorX(2.6269841f, 1.5714285f);
+	double var$7 = decodeAnchorY(2.2f, -1.6428572f);
+	double var$8 = decodeAnchorX(2.84127f, 0.71428573f);
+	double var$9 = decodeAnchorY(1.3857143f, 0.64285713f);
+	double var$10 = decodeX(2.84127f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(1.3857143f));
-	double var$11 = (double)decodeAnchorX(2.84127f, -0.71428573f);
-	double var$12 = (double)decodeAnchorY(1.3857143f, -0.64285713f);
-	double var$13 = (double)decodeAnchorX(2.5238094f, 0.71428573f);
-	double var$14 = (double)decodeAnchorY(2.0571427f, -0.85714287f);
-	double var$15 = (double)decodeX(2.5238094f);
+	double var$11 = decodeAnchorX(2.84127f, -0.71428573f);
+	double var$12 = decodeAnchorY(1.3857143f, -0.64285713f);
+	double var$13 = decodeAnchorX(2.5238094f, 0.71428573f);
+	double var$14 = decodeAnchorY(2.0571427f, -0.85714287f);
+	double var$15 = decodeX(2.5238094f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(2.0571427f));
-	double var$16 = (double)decodeAnchorX(2.5238094f, -0.71428573f);
-	double var$17 = (double)decodeAnchorY(2.0571427f, 0.85714287f);
-	double var$18 = (double)decodeAnchorX(2.1111112f, -0.42857143f);
-	double var$19 = (double)decodeAnchorY(2.7f, -0.64285713f);
-	double var$20 = (double)decodeX(2.1111112f);
+	double var$16 = decodeAnchorX(2.5238094f, -0.71428573f);
+	double var$17 = decodeAnchorY(2.0571427f, 0.85714287f);
+	double var$18 = decodeAnchorX(2.1111112f, -0.42857143f);
+	double var$19 = decodeAnchorY(2.7f, -0.64285713f);
+	double var$20 = decodeX(2.1111112f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(2.7f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* ScrollBarTrackPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -332,7 +261,7 @@ $Paint* ScrollBarTrackPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* ScrollBarTrackPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -362,7 +291,7 @@ $Paint* ScrollBarTrackPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* ScrollBarTrackPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -380,7 +309,7 @@ $Paint* ScrollBarTrackPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* ScrollBarTrackPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -398,7 +327,7 @@ $Paint* ScrollBarTrackPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* ScrollBarTrackPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -416,7 +345,7 @@ $Paint* ScrollBarTrackPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* ScrollBarTrackPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -437,7 +366,64 @@ ScrollBarTrackPainter::ScrollBarTrackPainter() {
 }
 
 $Class* ScrollBarTrackPainter::load$($String* name, bool initialize) {
-	$loadClass(ScrollBarTrackPainter, name, initialize, &_ScrollBarTrackPainter_ClassInfo_, allocate$ScrollBarTrackPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ScrollBarTrackPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ScrollBarTrackPainter, BACKGROUND_ENABLED)},
+		{"state", "I", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, color16)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ScrollBarTrackPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ScrollBarTrackPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodePath4, $Path2D*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, decodeRect1, $Rectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ScrollBarTrackPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ScrollBarTrackPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ScrollBarTrackPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.ScrollBarTrackPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScrollBarTrackPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScrollBarTrackPainter);
+	});
 	return class$;
 }
 

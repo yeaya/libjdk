@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/LocaleNames_ro.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,39 +12,20 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _LocaleNames_ro_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ro, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ro, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ro_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.LocaleNames_ro",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ro_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ro($Class* clazz) {
-	return $of($alloc(LocaleNames_ro));
-}
-
 void LocaleNames_ro::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ro::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"România"_s)
+			"RO"_s,
+			u"România"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"română"_s)
+			"ro"_s,
+			u"română"_s
 		})
 	});
 }
@@ -54,7 +34,22 @@ LocaleNames_ro::LocaleNames_ro() {
 }
 
 $Class* LocaleNames_ro::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ro, name, initialize, &_LocaleNames_ro_ClassInfo_, allocate$LocaleNames_ro);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ro, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ro, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.LocaleNames_ro",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ro, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ro);
+	});
 	return class$;
 }
 

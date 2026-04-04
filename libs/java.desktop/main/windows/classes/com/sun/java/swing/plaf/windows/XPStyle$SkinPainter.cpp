@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$SkinPainter.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
@@ -27,7 +26,6 @@ using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -44,39 +42,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _XPStyle$SkinPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XPStyle$SkinPainter, init$, void)},
-	{"createImage", "(Ljava/awt/Component;IILjava/awt/GraphicsConfiguration;[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(XPStyle$SkinPainter, createImage, $Image*, $Component*, int32_t, int32_t, $GraphicsConfiguration*, $ObjectArray*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(XPStyle$SkinPainter, flush, void)},
-	{"paintToImage", "(Ljava/awt/Component;Ljava/awt/Image;Ljava/awt/Graphics;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XPStyle$SkinPainter, paintToImage, void, $Component*, $Image*, $Graphics*, int32_t, int32_t, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _XPStyle$SkinPainter_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.XPStyle$SkinPainter", "com.sun.java.swing.plaf.windows.XPStyle", "SkinPainter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XPStyle$SkinPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.XPStyle$SkinPainter",
-	"sun.swing.CachedPainter",
-	nullptr,
-	nullptr,
-	_XPStyle$SkinPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XPStyle$SkinPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.XPStyle"
-};
-
-$Object* allocate$XPStyle$SkinPainter($Class* clazz) {
-	return $of($alloc(XPStyle$SkinPainter));
-}
-
 void XPStyle$SkinPainter::init$() {
 	$CachedPainter::init$(30);
 	flush();
@@ -87,7 +52,7 @@ void XPStyle$SkinPainter::flush() {
 }
 
 void XPStyle$SkinPainter::paintToImage($Component* c$renamed, $Image* image, $Graphics* g, int32_t w, int32_t h, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, c$renamed);
 	$var($XPStyle$Skin, skin, $cast($XPStyle$Skin, $nc(args)->get(0)));
 	$TMSchema$Part* part = $nc(skin)->part;
@@ -107,7 +72,7 @@ void XPStyle$SkinPainter::paintToImage($Component* c$renamed, $Image* image, $Gr
 	$var($String, var$1, $nc(part)->getControlName(c));
 	int32_t var$2 = part->getValue();
 	$ThemeReader::paintBackground(var$0, var$1, var$2, $TMSchema$State::getValue(part, state), 0, 0, w, h, w);
-	$SunWritableRaster::markDirty(static_cast<$DataBuffer*>(dbi));
+	$SunWritableRaster::markDirty(dbi);
 }
 
 $Image* XPStyle$SkinPainter::createImage($Component* c, int32_t w, int32_t h, $GraphicsConfiguration* config, $ObjectArray* args) {
@@ -118,7 +83,35 @@ XPStyle$SkinPainter::XPStyle$SkinPainter() {
 }
 
 $Class* XPStyle$SkinPainter::load$($String* name, bool initialize) {
-	$loadClass(XPStyle$SkinPainter, name, initialize, &_XPStyle$SkinPainter_ClassInfo_, allocate$XPStyle$SkinPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XPStyle$SkinPainter, init$, void)},
+		{"createImage", "(Ljava/awt/Component;IILjava/awt/GraphicsConfiguration;[Ljava/lang/Object;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(XPStyle$SkinPainter, createImage, $Image*, $Component*, int32_t, int32_t, $GraphicsConfiguration*, $ObjectArray*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(XPStyle$SkinPainter, flush, void)},
+		{"paintToImage", "(Ljava/awt/Component;Ljava/awt/Image;Ljava/awt/Graphics;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XPStyle$SkinPainter, paintToImage, void, $Component*, $Image*, $Graphics*, int32_t, int32_t, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.XPStyle$SkinPainter", "com.sun.java.swing.plaf.windows.XPStyle", "SkinPainter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.XPStyle$SkinPainter",
+		"sun.swing.CachedPainter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.XPStyle"
+	};
+	$loadClass(XPStyle$SkinPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPStyle$SkinPainter);
+	});
 	return class$;
 }
 

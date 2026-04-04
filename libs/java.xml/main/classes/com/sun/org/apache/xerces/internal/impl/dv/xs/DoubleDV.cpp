@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DoubleDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/DoubleDV$XDouble.h>
@@ -36,40 +35,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$MethodInfo _DoubleDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleDV, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DoubleDV, compare, int32_t, Object$*, Object$*)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoubleDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(DoubleDV, getAllowedFacets, int16_t)},
-	{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DoubleDV, isIdentical, bool, Object$*, Object$*)},
-	{"isPossibleFP", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(DoubleDV, isPossibleFP, bool, $String*)},
-	{}
-};
-
-$InnerClassInfo _DoubleDV_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV$XDouble", "com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV", "XDouble", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DoubleDV_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	nullptr,
-	_DoubleDV_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DoubleDV_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV$XDouble"
-};
-
-$Object* allocate$DoubleDV($Class* clazz) {
-	return $of($alloc(DoubleDV));
-}
-
 void DoubleDV::init$() {
 	$TypeValidator::init$();
 }
@@ -80,23 +45,23 @@ int16_t DoubleDV::getAllowedFacets() {
 
 $Object* DoubleDV::getActualValue($String* content, $ValidationContext* context) {
 	try {
-		return $of($new($DoubleDV$XDouble, content));
+		return $new($DoubleDV$XDouble, content);
 	} catch ($NumberFormatException& ex) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("double"_s)
+			content,
+			"double"_s
 		}));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t DoubleDV::compare(Object$* value1, Object$* value2) {
-	return $nc(($cast($DoubleDV$XDouble, value1)))->compareTo($cast($DoubleDV$XDouble, value2));
+	return $nc($cast($DoubleDV$XDouble, value1))->compareTo($cast($DoubleDV$XDouble, value2));
 }
 
 bool DoubleDV::isIdentical(Object$* value1, Object$* value2) {
 	if ($instanceOf($DoubleDV$XDouble, value2)) {
-		return $nc(($cast($DoubleDV$XDouble, value1)))->isIdentical($cast($DoubleDV$XDouble, value2));
+		return $nc($cast($DoubleDV$XDouble, value1))->isIdentical($cast($DoubleDV$XDouble, value2));
 	}
 	return false;
 }
@@ -117,7 +82,36 @@ DoubleDV::DoubleDV() {
 }
 
 $Class* DoubleDV::load$($String* name, bool initialize) {
-	$loadClass(DoubleDV, name, initialize, &_DoubleDV_ClassInfo_, allocate$DoubleDV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DoubleDV, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(DoubleDV, compare, int32_t, Object$*, Object$*)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoubleDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(DoubleDV, getAllowedFacets, int16_t)},
+		{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DoubleDV, isIdentical, bool, Object$*, Object$*)},
+		{"isPossibleFP", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(DoubleDV, isPossibleFP, bool, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV$XDouble", "com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV", "XDouble", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.DoubleDV$XDouble"
+	};
+	$loadClass(DoubleDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleDV);
+	});
 	return class$;
 }
 

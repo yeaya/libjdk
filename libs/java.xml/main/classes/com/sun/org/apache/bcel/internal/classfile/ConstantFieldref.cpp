@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantFieldref.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantCP.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Visitor.h>
@@ -20,27 +19,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$MethodInfo _ConstantFieldref_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantFieldref;)V", nullptr, $PUBLIC, $method(ConstantFieldref, init$, void, ConstantFieldref*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantFieldref, init$, void, $DataInput*), "java.io.IOException"},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ConstantFieldref, init$, void, int32_t, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantFieldref, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _ConstantFieldref_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantFieldref",
-	"com.sun.org.apache.bcel.internal.classfile.ConstantCP",
-	nullptr,
-	nullptr,
-	_ConstantFieldref_MethodInfo_
-};
-
-$Object* allocate$ConstantFieldref($Class* clazz) {
-	return $of($alloc(ConstantFieldref));
-}
 
 void ConstantFieldref::init$(ConstantFieldref* c) {
 	int32_t var$0 = $nc(c)->getClassIndex();
@@ -63,7 +41,24 @@ ConstantFieldref::ConstantFieldref() {
 }
 
 $Class* ConstantFieldref::load$($String* name, bool initialize) {
-	$loadClass(ConstantFieldref, name, initialize, &_ConstantFieldref_ClassInfo_, allocate$ConstantFieldref);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantFieldref;)V", nullptr, $PUBLIC, $method(ConstantFieldref, init$, void, ConstantFieldref*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantFieldref, init$, void, $DataInput*), "java.io.IOException"},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ConstantFieldref, init$, void, int32_t, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantFieldref, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantFieldref",
+		"com.sun.org.apache.bcel.internal.classfile.ConstantCP",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ConstantFieldref, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantFieldref));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WMenuPeer.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/Menu.h>
 #include <java/awt/MenuBar.h>
@@ -21,48 +20,11 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WMenuBarPeer = ::sun::awt::windows::WMenuBarPeer;
 using $WMenuItemPeer = ::sun::awt::windows::WMenuItemPeer;
-using $WObjectPeer = ::sun::awt::windows::WObjectPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;
 
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WMenuPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(WMenuPeer, init$, void)},
-	{"<init>", "(Ljava/awt/Menu;)V", nullptr, 0, $method(WMenuPeer, init$, void, $Menu*)},
-	{"addItem", "(Ljava/awt/MenuItem;)V", nullptr, $PUBLIC, $virtualMethod(WMenuPeer, addItem, void, $MenuItem*)},
-	{"createMenu", "(Lsun/awt/windows/WMenuBarPeer;)V", nullptr, $NATIVE, $virtualMethod(WMenuPeer, createMenu, void, $WMenuBarPeer*)},
-	{"createSubMenu", "(Lsun/awt/windows/WMenuPeer;)V", nullptr, $NATIVE, $virtualMethod(WMenuPeer, createSubMenu, void, WMenuPeer*)},
-	{"delItem", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WMenuPeer, delItem, void, int32_t)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_createMenu 8
-#define _METHOD_INDEX_createSubMenu 9
-#define _METHOD_INDEX_delItem 10
-
-$ClassInfo _WMenuPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WMenuPeer",
-	"sun.awt.windows.WMenuItemPeer",
-	"java.awt.peer.MenuPeer",
-	nullptr,
-	_WMenuPeer_MethodInfo_
-};
-
-$Object* allocate$WMenuPeer($Class* clazz) {
-	return $of($alloc(WMenuPeer));
-}
 
 void WMenuPeer::setEnabled(bool b) {
 	this->$WMenuItemPeer::setEnabled(b);
@@ -104,7 +66,7 @@ void WMenuPeer::addItem($MenuItem* item) {
 }
 
 void WMenuPeer::delItem(int32_t index) {
-	$prepareNative(WMenuPeer, delItem, void, int32_t index);
+	$prepareNative(delItem, void, int32_t index);
 	$invokeNative(index);
 	$finishNative();
 }
@@ -114,7 +76,7 @@ void WMenuPeer::init$() {
 }
 
 void WMenuPeer::init$($Menu* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WMenuItemPeer::init$();
 	$set(this, target, target);
 	$var($MenuContainer, parent, $nc(target)->getParent());
@@ -134,13 +96,13 @@ void WMenuPeer::init$($Menu* target) {
 }
 
 void WMenuPeer::createMenu($WMenuBarPeer* parent) {
-	$prepareNative(WMenuPeer, createMenu, void, $WMenuBarPeer* parent);
+	$prepareNative(createMenu, void, $WMenuBarPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
 
 void WMenuPeer::createSubMenu(WMenuPeer* parent) {
-	$prepareNative(WMenuPeer, createSubMenu, void, WMenuPeer* parent);
+	$prepareNative(createSubMenu, void, WMenuPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
@@ -149,7 +111,35 @@ WMenuPeer::WMenuPeer() {
 }
 
 $Class* WMenuPeer::load$($String* name, bool initialize) {
-	$loadClass(WMenuPeer, name, initialize, &_WMenuPeer_ClassInfo_, allocate$WMenuPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(WMenuPeer, init$, void)},
+		{"<init>", "(Ljava/awt/Menu;)V", nullptr, 0, $method(WMenuPeer, init$, void, $Menu*)},
+		{"addItem", "(Ljava/awt/MenuItem;)V", nullptr, $PUBLIC, $virtualMethod(WMenuPeer, addItem, void, $MenuItem*)},
+		{"createMenu", "(Lsun/awt/windows/WMenuBarPeer;)V", nullptr, $NATIVE, $virtualMethod(WMenuPeer, createMenu, void, $WMenuBarPeer*)},
+		{"createSubMenu", "(Lsun/awt/windows/WMenuPeer;)V", nullptr, $NATIVE, $virtualMethod(WMenuPeer, createSubMenu, void, WMenuPeer*)},
+		{"delItem", "(I)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WMenuPeer, delItem, void, int32_t)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WMenuPeer",
+		"sun.awt.windows.WMenuItemPeer",
+		"java.awt.peer.MenuPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WMenuPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WMenuPeer));
+	});
 	return class$;
 }
 

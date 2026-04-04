@@ -72,7 +72,7 @@ public:
 	virtual void setExpression(::com::sun::org::apache::xpath::internal::Expression* exp) override;
 	virtual void setLeftRight(::com::sun::org::apache::xpath::internal::Expression* l, ::com::sun::org::apache::xpath::internal::Expression* r);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xD5D9E9AEB1A01042;
+	static const int64_t serialVersionUID = (int64_t)0xd5d9e9aeb1a01042;
 	::com::sun::org::apache::xpath::internal::Expression* m_left = nullptr;
 	::com::sun::org::apache::xpath::internal::Expression* m_right = nullptr;
 };

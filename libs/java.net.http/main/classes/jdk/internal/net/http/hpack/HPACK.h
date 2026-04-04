@@ -47,6 +47,7 @@ class HPACK : public ::java::lang::Object {
 	$class(HPACK, 0, ::java::lang::Object)
 public:
 	HPACK();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t bytesForBits(int32_t n);
 	static ::jdk::internal::net::http::hpack::HPACK$Logger* getLogger();

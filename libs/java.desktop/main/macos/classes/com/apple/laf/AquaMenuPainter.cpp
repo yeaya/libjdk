@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaMenuPainter.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
@@ -55,10 +53,8 @@
 #undef PRESSED
 #undef SHIFT_MASK
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaBorder = ::com::apple::laf::AquaBorder;
 using $AquaBorder$Default = ::com::apple::laf::AquaBorder$Default;
 using $AquaIcon$InvertableIcon = ::com::apple::laf::AquaIcon$InvertableIcon;
@@ -77,7 +73,6 @@ using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Character = ::java::lang::Character;
@@ -106,80 +101,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaMenuPainter_FieldInfo_[] = {
-	{"kShiftGlyph", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kShiftGlyph)},
-	{"kOptionGlyph", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kOptionGlyph)},
-	{"kControlGlyph", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kControlGlyph)},
-	{"kPencilGlyph", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kPencilGlyph)},
-	{"kCommandMark", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kCommandMark)},
-	{"kUBlackDiamond", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUBlackDiamond)},
-	{"kUCheckMark", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUCheckMark)},
-	{"kUControlGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUControlGlyph)},
-	{"kUOptionGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUOptionGlyph)},
-	{"kUEnterGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUEnterGlyph)},
-	{"kUCommandGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUCommandGlyph)},
-	{"kULeftDeleteGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kULeftDeleteGlyph)},
-	{"kURightDeleteGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kURightDeleteGlyph)},
-	{"kUShiftGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUShiftGlyph)},
-	{"kUCapsLockGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUCapsLockGlyph)},
-	{"ALT_GRAPH_MASK", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, ALT_GRAPH_MASK)},
-	{"sUnsupportedModifiersMask", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, sUnsupportedModifiersMask)},
-	{"sPainter", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaMenuPainter;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaMenuPainter, sPainter)},
-	{"defaultMenuItemGap", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, defaultMenuItemGap)},
-	{"kAcceleratorArrowSpace", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kAcceleratorArrowSpace)},
-	{"menuBarPainter", "Lcom/apple/laf/AquaMenuPainter$RecyclableBorder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaMenuPainter, menuBarPainter)},
-	{"selectedMenuBarItemPainter", "Lcom/apple/laf/AquaMenuPainter$RecyclableBorder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaMenuPainter, selectedMenuBarItemPainter)},
-	{"selectedMenuItemPainter", "Lcom/apple/laf/AquaMenuPainter$RecyclableBorder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaMenuPainter, selectedMenuItemPainter)},
-	{}
-};
-
-$MethodInfo _AquaMenuPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuPainter, init$, void)},
-	{"drawString", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/lang/String;IIIZZ)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuPainter, drawString, void, $Graphics*, $JComponent*, $String*, int32_t, int32_t, int32_t, bool, bool)},
-	{"getKeyModifiersText", "(IZ)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AquaMenuPainter, getKeyModifiersText, $String*, int32_t, bool)},
-	{"getKeyModifiersUnicode", "(IZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaMenuPainter, getKeyModifiersUnicode, $String*, int32_t, bool)},
-	{"getMenuBarPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuPainter, getMenuBarPainter, $Border*)},
-	{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;ILjava/awt/Font;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t, $Font*)},
-	{"getSelectedMenuBarItemPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuPainter, getSelectedMenuBarItemPainter, $Border*)},
-	{"getSelectedMenuItemPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuPainter, getSelectedMenuItemPainter, $Border*)},
-	{"instance", "()Lcom/apple/laf/AquaMenuPainter;", nullptr, $STATIC, $staticMethod(AquaMenuPainter, instance, AquaMenuPainter*)},
-	{"isTopLevelMenu", "(Ljavax/swing/JMenuItem;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaMenuPainter, isTopLevelMenu, bool, $JMenuItem*)},
-	{"layoutMenuItem", "(Ljavax/swing/JMenuItem;Ljava/awt/FontMetrics;Ljava/lang/String;Ljava/awt/FontMetrics;Ljava/lang/String;Ljava/lang/String;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljavax/swing/Icon;IIIILjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;II)Ljava/lang/String;", nullptr, $PRIVATE, $method(AquaMenuPainter, layoutMenuItem, $String*, $JMenuItem*, $FontMetrics*, $String*, $FontMetrics*, $String*, $String*, $Icon*, $Icon*, $Icon*, int32_t, int32_t, int32_t, int32_t, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, int32_t, int32_t)},
-	{"paintArrow", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljavax/swing/ButtonModel;Ljavax/swing/Icon;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, paintArrow, void, $Graphics*, $JMenuItem*, $ButtonModel*, $Icon*, $Rectangle*)},
-	{"paintCheck", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljavax/swing/Icon;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, paintCheck, void, $Graphics*, $JMenuItem*, $Icon*, $Rectangle*)},
-	{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, paintIcon, void, $Graphics*, $JMenuItem*, $Rectangle*, bool)},
-	{"paintMenuBarBackground", "(Ljava/awt/Graphics;IILjavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuPainter, paintMenuBarBackground, void, $Graphics*, int32_t, int32_t, $JComponent*)},
-	{"paintMenuItem", "(Lcom/apple/laf/AquaMenuPainter$Client;Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;ILjava/awt/Font;)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, paintMenuItem, void, $AquaMenuPainter$Client*, $Graphics*, $JComponent*, $Icon*, $Icon*, $Color*, $Color*, $Color*, $Color*, int32_t, $Font*)},
-	{"paintSelectedMenuItemBackground", "(Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuPainter, paintSelectedMenuItemBackground, void, $Graphics*, int32_t, int32_t)},
-	{"paintSelectedMenuTitleBackground", "(Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuPainter, paintSelectedMenuTitleBackground, void, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaMenuPainter_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaMenuPainter$RecyclableBorder", "com.apple.laf.AquaMenuPainter", "RecyclableBorder", $STATIC},
-	{"com.apple.laf.AquaMenuPainter$Client", "com.apple.laf.AquaMenuPainter", "Client", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaMenuPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaMenuPainter",
-	"java.lang.Object",
-	nullptr,
-	_AquaMenuPainter_FieldInfo_,
-	_AquaMenuPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaMenuPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaMenuPainter$RecyclableBorder,com.apple.laf.AquaMenuPainter$Client"
-};
-
-$Object* allocate$AquaMenuPainter($Class* clazz) {
-	return $of($alloc(AquaMenuPainter));
-}
-
 $AquaUtils$RecyclableSingleton* AquaMenuPainter::sPainter = nullptr;
 $AquaMenuPainter$RecyclableBorder* AquaMenuPainter::menuBarPainter = nullptr;
 $AquaMenuPainter$RecyclableBorder* AquaMenuPainter::selectedMenuBarItemPainter = nullptr;
@@ -197,29 +118,29 @@ $String* AquaMenuPainter::getKeyModifiersUnicode(int32_t modifiers, bool isLeftT
 	$init(AquaMenuPainter);
 	$var($StringBuilder, buf, $new($StringBuilder, 2));
 	if (isLeftToRight) {
-		if (((int32_t)(modifiers & (uint32_t)$InputEvent::CTRL_MASK)) != 0) {
+		if ((modifiers & $InputEvent::CTRL_MASK) != 0) {
 			buf->append(AquaMenuPainter::kUControlGlyph);
 		}
-		if (((int32_t)(modifiers & (uint32_t)($InputEvent::ALT_MASK | AquaMenuPainter::ALT_GRAPH_MASK))) != 0) {
+		if ((modifiers & ($InputEvent::ALT_MASK | AquaMenuPainter::ALT_GRAPH_MASK)) != 0) {
 			buf->append(AquaMenuPainter::kUOptionGlyph);
 		}
-		if (((int32_t)(modifiers & (uint32_t)$InputEvent::SHIFT_MASK)) != 0) {
+		if ((modifiers & $InputEvent::SHIFT_MASK) != 0) {
 			buf->append(AquaMenuPainter::kUShiftGlyph);
 		}
-		if (((int32_t)(modifiers & (uint32_t)$InputEvent::META_MASK)) != 0) {
+		if ((modifiers & $InputEvent::META_MASK) != 0) {
 			buf->append(AquaMenuPainter::kUCommandGlyph);
 		}
 	} else {
-		if (((int32_t)(modifiers & (uint32_t)$InputEvent::META_MASK)) != 0) {
+		if ((modifiers & $InputEvent::META_MASK) != 0) {
 			buf->append(AquaMenuPainter::kUCommandGlyph);
 		}
-		if (((int32_t)(modifiers & (uint32_t)$InputEvent::SHIFT_MASK)) != 0) {
+		if ((modifiers & $InputEvent::SHIFT_MASK) != 0) {
 			buf->append(AquaMenuPainter::kUShiftGlyph);
 		}
-		if (((int32_t)(modifiers & (uint32_t)($InputEvent::ALT_MASK | AquaMenuPainter::ALT_GRAPH_MASK))) != 0) {
+		if ((modifiers & ($InputEvent::ALT_MASK | AquaMenuPainter::ALT_GRAPH_MASK)) != 0) {
 			buf->append(AquaMenuPainter::kUOptionGlyph);
 		}
-		if (((int32_t)(modifiers & (uint32_t)$InputEvent::CTRL_MASK)) != 0) {
+		if ((modifiers & $InputEvent::CTRL_MASK) != 0) {
 			buf->append(AquaMenuPainter::kUControlGlyph);
 		}
 	}
@@ -228,27 +149,27 @@ $String* AquaMenuPainter::getKeyModifiersUnicode(int32_t modifiers, bool isLeftT
 
 AquaMenuPainter* AquaMenuPainter::instance() {
 	$init(AquaMenuPainter);
-	return $cast(AquaMenuPainter, $nc(AquaMenuPainter::sPainter)->get());
+	return $cast(AquaMenuPainter, AquaMenuPainter::sPainter->get());
 }
 
 void AquaMenuPainter::paintMenuBarBackground($Graphics* g, int32_t width, int32_t height, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Color);
-	$nc(g)->setColor(c == nullptr ? $Color::white : $($nc(c)->getBackground()));
+	$nc(g)->setColor(c == nullptr ? $Color::white : $(c->getBackground()));
 	g->fillRect(0, 0, width, height);
-	$nc(($cast($Border, $($nc(AquaMenuPainter::menuBarPainter)->get()))))->paintBorder(nullptr, g, 0, 0, width, height);
+	$$sure($Border, AquaMenuPainter::menuBarPainter->get())->paintBorder(nullptr, g, 0, 0, width, height);
 }
 
 void AquaMenuPainter::paintSelectedMenuTitleBackground($Graphics* g, int32_t width, int32_t height) {
-	$nc(($cast($Border, $($nc(AquaMenuPainter::selectedMenuBarItemPainter)->get()))))->paintBorder(nullptr, g, -1, 0, width + 2, height);
+	$$sure($Border, AquaMenuPainter::selectedMenuBarItemPainter->get())->paintBorder(nullptr, g, -1, 0, width + 2, height);
 }
 
 void AquaMenuPainter::paintSelectedMenuItemBackground($Graphics* g, int32_t width, int32_t height) {
-	$nc(($cast($Border, $($nc(AquaMenuPainter::selectedMenuItemPainter)->get()))))->paintBorder(nullptr, g, 0, 0, width, height);
+	$$sure($Border, AquaMenuPainter::selectedMenuItemPainter->get())->paintBorder(nullptr, g, 0, 0, width, height);
 }
 
 void AquaMenuPainter::paintMenuItem($AquaMenuPainter$Client* client, $Graphics* g, $JComponent* c, $Icon* checkIcon, $Icon* arrowIcon, $Color* background, $Color* foreground, $Color* disabledForeground, $Color* selectionForeground, int32_t defaultTextIconGap, $Font* acceleratorFont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, b, $cast($JMenuItem, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	int32_t menuWidth = b->getWidth();
@@ -289,40 +210,27 @@ void AquaMenuPainter::paintMenuItem($AquaMenuPainter$Client* client, $Graphics* 
 	$var($Rectangle, acceleratorRect, $new($Rectangle));
 	$var($Rectangle, checkIconRect, $new($Rectangle));
 	$var($Rectangle, arrowIconRect, $new($Rectangle));
-	$var($JMenuItem, var$0, b);
-	$var($FontMetrics, var$1, fm);
-	$var($String, var$2, b->getText());
-	$var($FontMetrics, var$3, fmAccel);
-	$var($String, var$4, keyString);
-	$var($String, var$5, modifiersString);
-	$var($Icon, var$6, b->getIcon());
-	$var($Icon, var$7, checkIcon);
-	$var($Icon, var$8, arrowIcon);
-	int32_t var$9 = b->getVerticalAlignment();
-	int32_t var$10 = b->getHorizontalAlignment();
-	int32_t var$11 = b->getVerticalTextPosition();
-	int32_t var$12 = b->getHorizontalTextPosition();
-	$var($Rectangle, var$13, viewRect);
-	$var($Rectangle, var$14, iconRect);
-	$var($Rectangle, var$15, textRect);
-	$var($Rectangle, var$16, acceleratorRect);
-	$var($Rectangle, var$17, checkIconRect);
-	$var($Rectangle, var$18, arrowIconRect);
-	$var($String, text, layoutMenuItem(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, var$14, var$15, var$16, var$17, var$18, b->getText() == nullptr ? 0 : defaultTextIconGap, defaultTextIconGap));
+	$var($String, var$0, b->getText());
+	$var($Icon, var$1, b->getIcon());
+	int32_t var$2 = b->getVerticalAlignment();
+	int32_t var$3 = b->getHorizontalAlignment();
+	int32_t var$4 = b->getVerticalTextPosition();
+	int32_t var$5 = b->getHorizontalTextPosition();
+	$var($String, text, layoutMenuItem(b, fm, var$0, fmAccel, keyString, modifiersString, var$1, checkIcon, arrowIcon, var$2, var$3, var$4, var$5, viewRect, iconRect, textRect, acceleratorRect, checkIconRect, arrowIconRect, b->getText() == nullptr ? 0 : defaultTextIconGap, defaultTextIconGap));
 	$var($Container, parent, b->getParent());
 	bool parentIsMenuBar = $instanceOf($JMenuBar, parent);
 	$var($Container, ancestor, parent);
 	while (ancestor != nullptr && !($instanceOf($JPopupMenu, ancestor))) {
 		$assign(ancestor, ancestor->getParent());
 	}
-	bool var$19 = $nc(model)->isEnabled();
-	bool isEnabled = var$19 && (ancestor == nullptr || $nc(ancestor)->isVisible());
+	bool var$6 = $nc(model)->isEnabled();
+	bool isEnabled = var$6 && (ancestor == nullptr || ancestor->isVisible());
 	bool isSelected = false;
 	if (!isEnabled) {
 		g->setColor(disabledForeground);
 	} else {
-		bool var$21 = $nc(model)->isArmed();
-		if (var$21 || ($instanceOf($JMenu, c) && $nc(model)->isSelected())) {
+		bool var$7 = model->isArmed();
+		if (var$7 || ($instanceOf($JMenu, c) && model->isSelected())) {
 			g->setColor(selectionForeground);
 			isSelected = true;
 		} else {
@@ -337,16 +245,16 @@ void AquaMenuPainter::paintMenuItem($AquaMenuPainter$Client* client, $Graphics* 
 	}
 	if (keyString != nullptr && !keyString->isEmpty()) {
 		int32_t yAccel = acceleratorRect->y + $nc(fm)->getAscent();
-		if (modifiersString->isEmpty()) {
+		if ($nc(modifiersString)->isEmpty()) {
 			$SwingUtilities2::drawString(c, g, keyString, acceleratorRect->x, yAccel);
 		} else {
 			int32_t modifiers = $nc(accelerator)->getModifiers();
 			int32_t underlinedChar = 0;
-			if (((int32_t)(modifiers & (uint32_t)AquaMenuPainter::ALT_GRAPH_MASK)) > 0) {
+			if ((modifiers & AquaMenuPainter::ALT_GRAPH_MASK) > 0) {
 				underlinedChar = AquaMenuPainter::kUOptionGlyph;
 			}
-			int32_t var$22 = fm->charWidth(u'M');
-			int32_t emWidth = $Math::max(var$22, $SwingUtilities::computeStringWidth(fm, keyString));
+			int32_t var$8 = fm->charWidth(u'M');
+			int32_t emWidth = $Math::max(var$8, $SwingUtilities::computeStringWidth(fm, keyString));
 			if (leftToRight) {
 				g->setFont(acceleratorFont);
 				drawString(g, c, modifiersString, underlinedChar, acceleratorRect->x, yAccel, isEnabled, isSelected);
@@ -367,7 +275,7 @@ void AquaMenuPainter::paintMenuItem($AquaMenuPainter$Client* client, $Graphics* 
 		if (v != nullptr) {
 			v->paint(g, textRect);
 		} else {
-			int32_t mnemonic = ($AquaMnemonicHandler::isMnemonicHidden() ? -1 : $nc(model)->getMnemonic());
+			int32_t mnemonic = ($AquaMnemonicHandler::isMnemonicHidden() ? -1 : model->getMnemonic());
 			drawString(g, c, text, mnemonic, textRect->x, textRect->y + $nc(fm)->getAscent(), isEnabled, isSelected);
 		}
 	}
@@ -379,7 +287,7 @@ void AquaMenuPainter::paintMenuItem($AquaMenuPainter$Client* client, $Graphics* 
 }
 
 $Dimension* AquaMenuPainter::getPreferredMenuItemSize($JComponent* c, $Icon* checkIcon, $Icon* arrowIcon, int32_t defaultTextIconGap, $Font* acceleratorFont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenuItem, b, $cast($JMenuItem, c));
 	$var($Icon, icon, $nc(b)->getIcon());
 	$var($String, text, b->getText());
@@ -406,20 +314,11 @@ $Dimension* AquaMenuPainter::getPreferredMenuItemSize($JComponent* c, $Icon* che
 	$var($Rectangle, acceleratorRect, $new($Rectangle));
 	$var($Rectangle, checkIconRect, $new($Rectangle));
 	$var($Rectangle, arrowIconRect, $new($Rectangle));
-	$var($Rectangle, viewRect, $new($Rectangle, (int32_t)$Short::MAX_VALUE, (int32_t)$Short::MAX_VALUE));
-	$var($JMenuItem, var$0, b);
-	$var($FontMetrics, var$1, fm);
-	$var($String, var$2, text);
-	$var($FontMetrics, var$3, fmAccel);
-	$var($String, var$4, keyString);
-	$var($String, var$5, modifiersString);
-	$var($Icon, var$6, icon);
-	$var($Icon, var$7, checkIcon);
-	$var($Icon, var$8, arrowIcon);
-	int32_t var$9 = b->getVerticalAlignment();
-	int32_t var$10 = b->getHorizontalAlignment();
-	int32_t var$11 = b->getVerticalTextPosition();
-	layoutMenuItem(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, b->getHorizontalTextPosition(), viewRect, iconRect, textRect, acceleratorRect, checkIconRect, arrowIconRect, text == nullptr ? 0 : defaultTextIconGap, defaultTextIconGap);
+	$var($Rectangle, viewRect, $new($Rectangle, $Short::MAX_VALUE, $Short::MAX_VALUE));
+	int32_t var$0 = b->getVerticalAlignment();
+	int32_t var$1 = b->getHorizontalAlignment();
+	int32_t var$2 = b->getVerticalTextPosition();
+	layoutMenuItem(b, fm, text, fmAccel, keyString, modifiersString, icon, checkIcon, arrowIcon, var$0, var$1, var$2, b->getHorizontalTextPosition(), viewRect, iconRect, textRect, acceleratorRect, checkIconRect, arrowIconRect, text == nullptr ? 0 : defaultTextIconGap, defaultTextIconGap);
 	$var($Rectangle, r, $new($Rectangle));
 	r->setBounds(textRect);
 	$assign(r, $SwingUtilities::computeUnion(iconRect->x, iconRect->y, iconRect->width, iconRect->height, r));
@@ -449,21 +348,21 @@ void AquaMenuPainter::paintCheck($Graphics* g, $JMenuItem* item, $Icon* checkIco
 		return;
 	}
 	if ($nc(item)->isArmed() && $instanceOf($AquaIcon$InvertableIcon, checkIcon)) {
-		$nc($($nc(($cast($AquaIcon$InvertableIcon, checkIcon)))->getInvertedIcon()))->paintIcon(item, g, $nc(checkIconRect)->x, checkIconRect->y);
+		$$nc($cast($AquaIcon$InvertableIcon, checkIcon)->getInvertedIcon())->paintIcon(item, g, $nc(checkIconRect)->x, $nc(checkIconRect)->y);
 	} else {
-		$nc(checkIcon)->paintIcon(item, g, $nc(checkIconRect)->x, checkIconRect->y);
+		$nc(checkIcon)->paintIcon(item, g, $nc(checkIconRect)->x, $nc(checkIconRect)->y);
 	}
 }
 
 void AquaMenuPainter::paintIcon($Graphics* g, $JMenuItem* c, $Rectangle* localIconRect, bool isEnabled) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonModel, model, $nc(c)->getModel());
 	$var($Icon, icon, nullptr);
 	if (!isEnabled) {
 		$assign(icon, c->getDisabledIcon());
 	} else {
-		bool var$1 = $nc(model)->isPressed();
-		if (var$1 && model->isArmed()) {
+		bool var$0 = $nc(model)->isPressed();
+		if (var$0 && model->isArmed()) {
 			$assign(icon, c->getPressedIcon());
 			if (icon == nullptr) {
 				$assign(icon, c->getIcon());
@@ -473,7 +372,7 @@ void AquaMenuPainter::paintIcon($Graphics* g, $JMenuItem* c, $Rectangle* localIc
 		}
 	}
 	if (icon != nullptr) {
-		icon->paintIcon(c, g, $nc(localIconRect)->x, localIconRect->y);
+		icon->paintIcon(c, g, $nc(localIconRect)->x, $nc(localIconRect)->y);
 	}
 }
 
@@ -484,12 +383,12 @@ void AquaMenuPainter::paintArrow($Graphics* g, $JMenuItem* c, $ButtonModel* mode
 	bool var$0 = $instanceOf($JMenu, c);
 	if (var$0) {
 		bool var$1 = $nc(model)->isArmed();
-		var$0 = (var$1 || $nc(model)->isSelected());
+		var$0 = var$1 || model->isSelected();
 	}
 	if (var$0 && $instanceOf($AquaIcon$InvertableIcon, arrowIcon)) {
-		$nc($($nc(($cast($AquaIcon$InvertableIcon, arrowIcon)))->getInvertedIcon()))->paintIcon(c, g, $nc(arrowIconRect)->x, arrowIconRect->y);
+		$$nc($cast($AquaIcon$InvertableIcon, arrowIcon)->getInvertedIcon())->paintIcon(c, g, $nc(arrowIconRect)->x, $nc(arrowIconRect)->y);
 	} else {
-		$nc(arrowIcon)->paintIcon(c, g, $nc(arrowIconRect)->x, arrowIconRect->y);
+		$nc(arrowIcon)->paintIcon(c, g, $nc(arrowIconRect)->x, $nc(arrowIconRect)->y);
 	}
 }
 
@@ -502,8 +401,8 @@ void AquaMenuPainter::drawString($Graphics* g, $JComponent* c, $String* text, in
 	if (underlinedChar != u'\0') {
 		uc = $Character::toUpperCase((char16_t)underlinedChar);
 		lc = $Character::toLowerCase((char16_t)underlinedChar);
-		uci = $nc(text)->indexOf((int32_t)uc);
-		lci = text->indexOf((int32_t)lc);
+		uci = $nc(text)->indexOf(uc);
+		lci = text->indexOf(lc);
 		if (uci == -1) {
 			index = lci;
 		} else if (lci == -1) {
@@ -517,16 +416,16 @@ void AquaMenuPainter::drawString($Graphics* g, $JComponent* c, $String* text, in
 
 bool AquaMenuPainter::isTopLevelMenu($JMenuItem* menuItem) {
 	$init(AquaMenuPainter);
-	return ($instanceOf($JMenu, menuItem)) && ($nc(($cast($JMenu, menuItem)))->isTopLevelMenu());
+	return ($instanceOf($JMenu, menuItem)) && ($cast($JMenu, menuItem)->isTopLevelMenu());
 }
 
 $String* AquaMenuPainter::layoutMenuItem($JMenuItem* menuItem, $FontMetrics* fm, $String* text, $FontMetrics* fmAccel, $String* keyString$renamed, $String* modifiersString, $Icon* icon, $Icon* checkIcon, $Icon* arrowIcon, int32_t verticalAlignment, int32_t horizontalAlignment, int32_t verticalTextPosition, int32_t horizontalTextPosition, $Rectangle* viewR, $Rectangle* iconR, $Rectangle* textR, $Rectangle* acceleratorR, $Rectangle* checkIconR, $Rectangle* arrowIconR, int32_t textIconGap, int32_t menuItemGap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, keyString, keyString$renamed);
 	$SwingUtilities::layoutCompoundLabel(menuItem, fm, text, icon, verticalAlignment, $SwingConstants::LEFT, verticalTextPosition, horizontalTextPosition, viewR, iconR, textR, textIconGap);
-	bool acceleratorTextIsEmpty = (keyString == nullptr) || $nc(keyString)->isEmpty();
+	bool acceleratorTextIsEmpty = (keyString == nullptr) || keyString->isEmpty();
 	if (acceleratorTextIsEmpty) {
-		$nc(acceleratorR)->width = (acceleratorR->height = 0);
+		$nc(acceleratorR)->width = ($nc(acceleratorR)->height = 0);
 		$assign(keyString, ""_s);
 	} else {
 		$nc(acceleratorR)->width = $SwingUtilities::computeStringWidth(fmAccel, modifiersString);
@@ -540,32 +439,32 @@ $String* AquaMenuPainter::layoutMenuItem($JMenuItem* menuItem, $FontMetrics* fm,
 			$nc(checkIconR)->width = checkIcon->getIconWidth();
 			checkIconR->height = checkIcon->getIconHeight();
 		} else {
-			$nc(checkIconR)->width = (checkIconR->height = 16);
+			$nc(checkIconR)->width = ($nc(checkIconR)->height = 16);
 		}
 		if (arrowIcon != nullptr) {
 			$nc(arrowIconR)->width = arrowIcon->getIconWidth();
 			arrowIconR->height = arrowIcon->getIconHeight();
 		} else {
-			$nc(arrowIconR)->width = (arrowIconR->height = 16);
+			$nc(arrowIconR)->width = ($nc(arrowIconR)->height = 16);
 		}
 		$nc(textR)->x += 12;
 		$nc(iconR)->x += 12;
 	}
 	$var($Rectangle, labelR, $nc(iconR)->union$(textR));
-	$nc(acceleratorR)->x += ($nc(viewR)->width - $nc(arrowIconR)->width - acceleratorR->width);
+	$nc(acceleratorR)->x += ($nc(viewR)->width - $nc(arrowIconR)->width - $nc(acceleratorR)->width);
 	acceleratorR->y = viewR->y + (viewR->height / 2) - (acceleratorR->height / 2);
 	if (!isTopLevelMenu) {
 		arrowIconR->x = (viewR->width - arrowIconR->width) + 1;
 		arrowIconR->y = viewR->y + ($nc(labelR)->height / 2) - (arrowIconR->height / 2) + 1;
-		$nc(checkIconR)->y = viewR->y + (labelR->height / 2) - (checkIconR->height / 2);
+		$nc(checkIconR)->y = viewR->y + (labelR->height / 2) - ($nc(checkIconR)->height / 2);
 		checkIconR->x = 5;
 		$nc(textR)->width += 8;
 	}
 	if (!$AquaUtils::isLeftToRight(menuItem)) {
 		int32_t w = viewR->width;
-		$nc(checkIconR)->x = w - (checkIconR->x + checkIconR->width);
+		$nc(checkIconR)->x = w - ($nc(checkIconR)->x + $nc(checkIconR)->width);
 		iconR->x = w - (iconR->x + iconR->width);
-		$nc(textR)->x = w - (textR->x + textR->width);
+		$nc(textR)->x = w - ($nc(textR)->x + $nc(textR)->width);
 		acceleratorR->x = w - (acceleratorR->x + acceleratorR->width);
 		arrowIconR->x = w - (arrowIconR->x + arrowIconR->width);
 	}
@@ -588,7 +487,7 @@ $Border* AquaMenuPainter::getSelectedMenuBarItemPainter() {
 	$init($JRSUIConstants$Widget);
 	$nc($nc(border->painter)->state)->set($JRSUIConstants$Widget::MENU_TITLE);
 	$init($JRSUIConstants$State);
-	$nc($nc(border->painter)->state)->set($JRSUIConstants$State::PRESSED);
+	$nc(border->painter->state)->set($JRSUIConstants$State::PRESSED);
 	return border;
 }
 
@@ -598,11 +497,11 @@ $Border* AquaMenuPainter::getSelectedMenuItemPainter() {
 	$init($JRSUIConstants$Widget);
 	$nc($nc(border->painter)->state)->set($JRSUIConstants$Widget::MENU_ITEM);
 	$init($JRSUIConstants$State);
-	$nc($nc(border->painter)->state)->set($JRSUIConstants$State::PRESSED);
+	$nc(border->painter->state)->set($JRSUIConstants$State::PRESSED);
 	return border;
 }
 
-void clinit$AquaMenuPainter($Class* class$) {
+void AquaMenuPainter::clinit$($Class* clazz) {
 	$assignStatic(AquaMenuPainter::sPainter, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, AquaMenuPainter::class$));
 	$assignStatic(AquaMenuPainter::menuBarPainter, $new($AquaMenuPainter$RecyclableBorder, "MenuBar.backgroundPainter"_s));
 	$assignStatic(AquaMenuPainter::selectedMenuBarItemPainter, $new($AquaMenuPainter$RecyclableBorder, "MenuBar.selectedBackgroundPainter"_s));
@@ -613,7 +512,75 @@ AquaMenuPainter::AquaMenuPainter() {
 }
 
 $Class* AquaMenuPainter::load$($String* name, bool initialize) {
-	$loadClass(AquaMenuPainter, name, initialize, &_AquaMenuPainter_ClassInfo_, clinit$AquaMenuPainter, allocate$AquaMenuPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"kShiftGlyph", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kShiftGlyph)},
+		{"kOptionGlyph", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kOptionGlyph)},
+		{"kControlGlyph", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kControlGlyph)},
+		{"kPencilGlyph", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kPencilGlyph)},
+		{"kCommandMark", "B", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kCommandMark)},
+		{"kUBlackDiamond", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUBlackDiamond)},
+		{"kUCheckMark", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUCheckMark)},
+		{"kUControlGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUControlGlyph)},
+		{"kUOptionGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUOptionGlyph)},
+		{"kUEnterGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUEnterGlyph)},
+		{"kUCommandGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUCommandGlyph)},
+		{"kULeftDeleteGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kULeftDeleteGlyph)},
+		{"kURightDeleteGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kURightDeleteGlyph)},
+		{"kUShiftGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUShiftGlyph)},
+		{"kUCapsLockGlyph", "C", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kUCapsLockGlyph)},
+		{"ALT_GRAPH_MASK", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, ALT_GRAPH_MASK)},
+		{"sUnsupportedModifiersMask", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, sUnsupportedModifiersMask)},
+		{"sPainter", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaMenuPainter;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaMenuPainter, sPainter)},
+		{"defaultMenuItemGap", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, defaultMenuItemGap)},
+		{"kAcceleratorArrowSpace", "I", nullptr, $STATIC | $FINAL, $constField(AquaMenuPainter, kAcceleratorArrowSpace)},
+		{"menuBarPainter", "Lcom/apple/laf/AquaMenuPainter$RecyclableBorder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaMenuPainter, menuBarPainter)},
+		{"selectedMenuBarItemPainter", "Lcom/apple/laf/AquaMenuPainter$RecyclableBorder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaMenuPainter, selectedMenuBarItemPainter)},
+		{"selectedMenuItemPainter", "Lcom/apple/laf/AquaMenuPainter$RecyclableBorder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AquaMenuPainter, selectedMenuItemPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMenuPainter, init$, void)},
+		{"drawString", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/lang/String;IIIZZ)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuPainter, drawString, void, $Graphics*, $JComponent*, $String*, int32_t, int32_t, int32_t, bool, bool)},
+		{"getKeyModifiersText", "(IZ)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(AquaMenuPainter, getKeyModifiersText, $String*, int32_t, bool)},
+		{"getKeyModifiersUnicode", "(IZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaMenuPainter, getKeyModifiersUnicode, $String*, int32_t, bool)},
+		{"getMenuBarPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuPainter, getMenuBarPainter, $Border*)},
+		{"getPreferredMenuItemSize", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;ILjava/awt/Font;)Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, getPreferredMenuItemSize, $Dimension*, $JComponent*, $Icon*, $Icon*, int32_t, $Font*)},
+		{"getSelectedMenuBarItemPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuPainter, getSelectedMenuBarItemPainter, $Border*)},
+		{"getSelectedMenuItemPainter", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMenuPainter, getSelectedMenuItemPainter, $Border*)},
+		{"instance", "()Lcom/apple/laf/AquaMenuPainter;", nullptr, $STATIC, $staticMethod(AquaMenuPainter, instance, AquaMenuPainter*)},
+		{"isTopLevelMenu", "(Ljavax/swing/JMenuItem;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaMenuPainter, isTopLevelMenu, bool, $JMenuItem*)},
+		{"layoutMenuItem", "(Ljavax/swing/JMenuItem;Ljava/awt/FontMetrics;Ljava/lang/String;Ljava/awt/FontMetrics;Ljava/lang/String;Ljava/lang/String;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljavax/swing/Icon;IIIILjava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;II)Ljava/lang/String;", nullptr, $PRIVATE, $method(AquaMenuPainter, layoutMenuItem, $String*, $JMenuItem*, $FontMetrics*, $String*, $FontMetrics*, $String*, $String*, $Icon*, $Icon*, $Icon*, int32_t, int32_t, int32_t, int32_t, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, $Rectangle*, int32_t, int32_t)},
+		{"paintArrow", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljavax/swing/ButtonModel;Ljavax/swing/Icon;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, paintArrow, void, $Graphics*, $JMenuItem*, $ButtonModel*, $Icon*, $Rectangle*)},
+		{"paintCheck", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljavax/swing/Icon;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, paintCheck, void, $Graphics*, $JMenuItem*, $Icon*, $Rectangle*)},
+		{"paintIcon", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Z)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, paintIcon, void, $Graphics*, $JMenuItem*, $Rectangle*, bool)},
+		{"paintMenuBarBackground", "(Ljava/awt/Graphics;IILjavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuPainter, paintMenuBarBackground, void, $Graphics*, int32_t, int32_t, $JComponent*)},
+		{"paintMenuItem", "(Lcom/apple/laf/AquaMenuPainter$Client;Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljavax/swing/Icon;Ljavax/swing/Icon;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;ILjava/awt/Font;)V", nullptr, $PROTECTED, $virtualMethod(AquaMenuPainter, paintMenuItem, void, $AquaMenuPainter$Client*, $Graphics*, $JComponent*, $Icon*, $Icon*, $Color*, $Color*, $Color*, $Color*, int32_t, $Font*)},
+		{"paintSelectedMenuItemBackground", "(Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuPainter, paintSelectedMenuItemBackground, void, $Graphics*, int32_t, int32_t)},
+		{"paintSelectedMenuTitleBackground", "(Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuPainter, paintSelectedMenuTitleBackground, void, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaMenuPainter$RecyclableBorder", "com.apple.laf.AquaMenuPainter", "RecyclableBorder", $STATIC},
+		{"com.apple.laf.AquaMenuPainter$Client", "com.apple.laf.AquaMenuPainter", "Client", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaMenuPainter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaMenuPainter$RecyclableBorder,com.apple.laf.AquaMenuPainter$Client"
+	};
+	$loadClass(AquaMenuPainter, name, initialize, &classInfo$$, AquaMenuPainter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaMenuPainter);
+	});
 	return class$;
 }
 

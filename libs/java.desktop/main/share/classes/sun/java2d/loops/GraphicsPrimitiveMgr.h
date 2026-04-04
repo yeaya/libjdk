@@ -40,6 +40,7 @@ class $export GraphicsPrimitiveMgr : public ::java::lang::Object {
 	$class(GraphicsPrimitiveMgr, 0, ::java::lang::Object)
 public:
 	GraphicsPrimitiveMgr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void initIDs($Class* GP, $Class* ST, $Class* CT, $Class* SG2D, $Class* Color, $Class* AT, $Class* XORComp, $Class* AlphaComp, $Class* Path2D, $Class* Path2DFloat, $Class* SHints);
 	static ::sun::java2d::loops::GraphicsPrimitive* locate(int32_t primTypeID, ::sun::java2d::loops::SurfaceType* dsttype);

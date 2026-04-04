@@ -1,5 +1,4 @@
 #include <com/sun/beans/editors/FontEditor.h>
-
 #include <java/awt/Choice.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -35,7 +34,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $PropertyChangeSupport = ::java::beans::PropertyChangeSupport;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -45,61 +43,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace editors {
-
-$FieldInfo _FontEditor_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontEditor, serialVersionUID)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontEditor, font)},
-	{"toolkit", "Ljava/awt/Toolkit;", nullptr, $PRIVATE, $field(FontEditor, toolkit)},
-	{"sampleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontEditor, sampleText)},
-	{"sample", "Ljava/awt/Label;", nullptr, $PRIVATE, $field(FontEditor, sample)},
-	{"familyChoser", "Ljava/awt/Choice;", nullptr, $PRIVATE, $field(FontEditor, familyChoser)},
-	{"styleChoser", "Ljava/awt/Choice;", nullptr, $PRIVATE, $field(FontEditor, styleChoser)},
-	{"sizeChoser", "Ljava/awt/Choice;", nullptr, $PRIVATE, $field(FontEditor, sizeChoser)},
-	{"fonts", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(FontEditor, fonts)},
-	{"styleNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(FontEditor, styleNames)},
-	{"styles", "[I", nullptr, $PRIVATE, $field(FontEditor, styles)},
-	{"pointSizes", "[I", nullptr, $PRIVATE, $field(FontEditor, pointSizes)},
-	{"support", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(FontEditor, support)},
-	{}
-};
-
-$MethodInfo _FontEditor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FontEditor, init$, void)},
-	{"action", "(Ljava/awt/Event;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FontEditor, action, bool, $Event*, Object$*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"changeFont", "(Ljava/awt/Font;)V", nullptr, $PRIVATE, $method(FontEditor, changeFont, void, $Font*)},
-	{"getAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getAsText, $String*)},
-	{"getCustomEditor", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getCustomEditor, $Component*)},
-	{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getJavaInitializationString, $String*)},
-	{"getTags", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getTags, $StringArray*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getValue, $Object*)},
-	{"isPaintable", "()Z", nullptr, $PUBLIC, $virtualMethod(FontEditor, isPaintable, bool)},
-	{"paintValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, paintValue, void, $Graphics*, $Rectangle*)},
-	{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(FontEditor, preferredSize, $Dimension*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, setValue, void, Object$*)},
-	{"supportsCustomEditor", "()Z", nullptr, $PUBLIC, $virtualMethod(FontEditor, supportsCustomEditor, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _FontEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.beans.editors.FontEditor",
-	"java.awt.Panel",
-	"java.beans.PropertyEditor",
-	_FontEditor_FieldInfo_,
-	_FontEditor_MethodInfo_
-};
-
-$Object* allocate$FontEditor($Class* clazz) {
-	return $of($alloc(FontEditor));
-}
 
 $String* FontEditor::toString() {
 	 return this->$Panel::toString();
@@ -122,7 +65,7 @@ void FontEditor::finalize() {
 }
 
 void FontEditor::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Panel::init$();
 	$set(this, sampleText, "Abcde..."_s);
 	$set(this, styleNames, $new($StringArray, {
@@ -153,21 +96,21 @@ void FontEditor::init$() {
 	$set(this, fonts, $nc(this->toolkit)->getFontList());
 	$set(this, familyChoser, $new($Choice));
 	for (int32_t i = 0; i < $nc(this->fonts)->length; ++i) {
-		$nc(this->familyChoser)->addItem($nc(this->fonts)->get(i));
+		$nc(this->familyChoser)->addItem(this->fonts->get(i));
 	}
-	add(static_cast<$Component*>(this->familyChoser));
+	add(this->familyChoser);
 	$nc(this->familyChoser)->reshape(20, 5, 100, 30);
 	$set(this, styleChoser, $new($Choice));
 	for (int32_t i = 0; i < $nc(this->styleNames)->length; ++i) {
-		$nc(this->styleChoser)->addItem($nc(this->styleNames)->get(i));
+		$nc(this->styleChoser)->addItem(this->styleNames->get(i));
 	}
-	add(static_cast<$Component*>(this->styleChoser));
+	add(this->styleChoser);
 	$nc(this->styleChoser)->reshape(145, 5, 70, 30);
 	$set(this, sizeChoser, $new($Choice));
 	for (int32_t i = 0; i < $nc(this->pointSizes)->length; ++i) {
-		$nc(this->sizeChoser)->addItem($$str({""_s, $$str($nc(this->pointSizes)->get(i))}));
+		$nc(this->sizeChoser)->addItem($$str({""_s, $$str(this->pointSizes->get(i))}));
 	}
-	add(static_cast<$Component*>(this->sizeChoser));
+	add(this->sizeChoser);
 	$nc(this->sizeChoser)->reshape(220, 5, 70, 30);
 	resize(300, 40);
 }
@@ -177,14 +120,14 @@ $Dimension* FontEditor::preferredSize() {
 }
 
 void FontEditor::setValue(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, font, $cast($Font, o));
 	if (this->font == nullptr) {
 		return;
 	}
 	changeFont(this->font);
 	for (int32_t i = 0; i < $nc(this->fonts)->length; ++i) {
-		if ($nc($nc(this->fonts)->get(i))->equals($($nc(this->font)->getFamily()))) {
+		if ($nc(this->fonts->get(i))->equals($($nc(this->font)->getFamily()))) {
 			$nc(this->familyChoser)->select(i);
 			break;
 		}
@@ -196,7 +139,7 @@ void FontEditor::setValue(Object$* o) {
 		}
 	}
 	for (int32_t i = 0; i < $nc(this->pointSizes)->length; ++i) {
-		if ($nc(this->font)->getSize() <= $nc(this->pointSizes)->get(i)) {
+		if ($nc(this->font)->getSize() <= this->pointSizes->get(i)) {
 			$nc(this->sizeChoser)->select(i);
 			break;
 		}
@@ -206,11 +149,11 @@ void FontEditor::setValue(Object$* o) {
 void FontEditor::changeFont($Font* f) {
 	$set(this, font, f);
 	if (this->sample != nullptr) {
-		remove(static_cast<$Component*>(this->sample));
+		remove(this->sample);
 	}
 	$set(this, sample, $new($Label, this->sampleText));
-	$nc(this->sample)->setFont(this->font);
-	add(static_cast<$Component*>(this->sample));
+	this->sample->setFont(this->font);
+	add(this->sample);
 	$var($Component, p, getParent());
 	if (p != nullptr) {
 		p->invalidate();
@@ -219,27 +162,31 @@ void FontEditor::changeFont($Font* f) {
 	invalidate();
 	layout();
 	repaint();
-	$nc(this->support)->firePropertyChange(""_s, ($Object*)nullptr, ($Object*)nullptr);
+	$nc(this->support)->firePropertyChange(""_s, nullptr, nullptr);
 }
 
 $Object* FontEditor::getValue() {
-	return $of((this->font));
+	return (this->font);
 }
 
 $String* FontEditor::getJavaInitializationString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->font == nullptr) {
 		return "null"_s;
 	}
-	$var($String, var$3, $$str({"new java.awt.Font(\""_s, $($nc(this->font)->getName()), "\", "_s}));
-	$var($String, var$2, $$concat(var$3, $$str($nc(this->font)->getStyle())));
-	$var($String, var$1, $$concat(var$2, ", "_s));
-	$var($String, var$0, $$concat(var$1, $$str($nc(this->font)->getSize())));
-	return $concat(var$0, ")"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("new java.awt.Font(\""_s);
+	var$0->append($($nc(this->font)->getName()));
+	var$0->append("\", "_s);
+	var$0->append(this->font->getStyle());
+	var$0->append(", "_s);
+	var$0->append(this->font->getSize());
+	var$0->append(")"_s);
+	return $str(var$0);
 }
 
 bool FontEditor::action($Event* e, Object$* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, family, $nc(this->familyChoser)->getSelectedItem());
 	int32_t style = $nc(this->styles)->get($nc(this->styleChoser)->getSelectedIndex());
 	int32_t size = $nc(this->pointSizes)->get($nc(this->sizeChoser)->getSelectedIndex());
@@ -257,7 +204,7 @@ bool FontEditor::isPaintable() {
 }
 
 void FontEditor::paintValue($Graphics* gfx, $Rectangle* box) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, oldFont, $nc(gfx)->getFont());
 	gfx->setFont(this->font);
 	$var($FontMetrics, fm, gfx->getFontMetrics());
@@ -267,7 +214,7 @@ void FontEditor::paintValue($Graphics* gfx, $Rectangle* box) {
 }
 
 $String* FontEditor::getAsText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->font == nullptr) {
 		return nullptr;
 	}
@@ -290,7 +237,7 @@ $String* FontEditor::getAsText() {
 }
 
 void FontEditor::setAsText($String* text) {
-	setValue((text == nullptr) ? ($Object*)nullptr : $($of($Font::decode(text))));
+	setValue((text == nullptr) ? ($Object*)nullptr : $$of($Font::decode(text)));
 }
 
 $StringArray* FontEditor::getTags() {
@@ -317,7 +264,57 @@ FontEditor::FontEditor() {
 }
 
 $Class* FontEditor::load$($String* name, bool initialize) {
-	$loadClass(FontEditor, name, initialize, &_FontEditor_ClassInfo_, allocate$FontEditor);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FontEditor, serialVersionUID)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE, $field(FontEditor, font)},
+		{"toolkit", "Ljava/awt/Toolkit;", nullptr, $PRIVATE, $field(FontEditor, toolkit)},
+		{"sampleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FontEditor, sampleText)},
+		{"sample", "Ljava/awt/Label;", nullptr, $PRIVATE, $field(FontEditor, sample)},
+		{"familyChoser", "Ljava/awt/Choice;", nullptr, $PRIVATE, $field(FontEditor, familyChoser)},
+		{"styleChoser", "Ljava/awt/Choice;", nullptr, $PRIVATE, $field(FontEditor, styleChoser)},
+		{"sizeChoser", "Ljava/awt/Choice;", nullptr, $PRIVATE, $field(FontEditor, sizeChoser)},
+		{"fonts", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(FontEditor, fonts)},
+		{"styleNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(FontEditor, styleNames)},
+		{"styles", "[I", nullptr, $PRIVATE, $field(FontEditor, styles)},
+		{"pointSizes", "[I", nullptr, $PRIVATE, $field(FontEditor, pointSizes)},
+		{"support", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(FontEditor, support)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FontEditor, init$, void)},
+		{"action", "(Ljava/awt/Event;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(FontEditor, action, bool, $Event*, Object$*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"changeFont", "(Ljava/awt/Font;)V", nullptr, $PRIVATE, $method(FontEditor, changeFont, void, $Font*)},
+		{"getAsText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getAsText, $String*)},
+		{"getCustomEditor", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getCustomEditor, $Component*)},
+		{"getJavaInitializationString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getJavaInitializationString, $String*)},
+		{"getTags", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getTags, $StringArray*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FontEditor, getValue, $Object*)},
+		{"isPaintable", "()Z", nullptr, $PUBLIC, $virtualMethod(FontEditor, isPaintable, bool)},
+		{"paintValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, paintValue, void, $Graphics*, $Rectangle*)},
+		{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(FontEditor, preferredSize, $Dimension*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setAsText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, setAsText, void, $String*), "java.lang.IllegalArgumentException"},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(FontEditor, setValue, void, Object$*)},
+		{"supportsCustomEditor", "()Z", nullptr, $PUBLIC, $virtualMethod(FontEditor, supportsCustomEditor, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.beans.editors.FontEditor",
+		"java.awt.Panel",
+		"java.beans.PropertyEditor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FontEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FontEditor));
+	});
 	return class$;
 }
 

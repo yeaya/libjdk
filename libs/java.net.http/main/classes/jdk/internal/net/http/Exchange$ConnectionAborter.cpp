@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/Exchange$ConnectionAborter.h>
-
 #include <jdk/internal/net/http/Exchange.h>
 #include <jdk/internal/net/http/HttpConnection.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _Exchange$ConnectionAborter_FieldInfo_[] = {
-	{"connection", "Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $VOLATILE, $field(Exchange$ConnectionAborter, connection$)},
-	{"closeRequested", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Exchange$ConnectionAborter, closeRequested)},
-	{}
-};
-
-$MethodInfo _Exchange$ConnectionAborter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, init$, void)},
-	{"closeConnection", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, closeConnection, void)},
-	{"connection", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(Exchange$ConnectionAborter, connection, void, $HttpConnection*)},
-	{"disable", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, disable, void)},
-	{}
-};
-
-$InnerClassInfo _Exchange$ConnectionAborter_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.Exchange$ConnectionAborter", "jdk.internal.net.http.Exchange", "ConnectionAborter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Exchange$ConnectionAborter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.Exchange$ConnectionAborter",
-	"java.lang.Object",
-	nullptr,
-	_Exchange$ConnectionAborter_FieldInfo_,
-	_Exchange$ConnectionAborter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Exchange$ConnectionAborter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.Exchange"
-};
-
-$Object* allocate$Exchange$ConnectionAborter($Class* clazz) {
-	return $of($alloc(Exchange$ConnectionAborter));
-}
 
 void Exchange$ConnectionAborter::init$() {
 }
@@ -85,7 +45,40 @@ Exchange$ConnectionAborter::Exchange$ConnectionAborter() {
 }
 
 $Class* Exchange$ConnectionAborter::load$($String* name, bool initialize) {
-	$loadClass(Exchange$ConnectionAborter, name, initialize, &_Exchange$ConnectionAborter_ClassInfo_, allocate$Exchange$ConnectionAborter);
+	$FieldInfo fieldInfos$$[] = {
+		{"connection", "Ljdk/internal/net/http/HttpConnection;", nullptr, $PRIVATE | $VOLATILE, $field(Exchange$ConnectionAborter, connection$)},
+		{"closeRequested", "Z", nullptr, $PRIVATE | $VOLATILE, $field(Exchange$ConnectionAborter, closeRequested)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, init$, void)},
+		{"closeConnection", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, closeConnection, void)},
+		{"connection", "(Ljdk/internal/net/http/HttpConnection;)V", nullptr, 0, $method(Exchange$ConnectionAborter, connection, void, $HttpConnection*)},
+		{"disable", "()V", nullptr, 0, $method(Exchange$ConnectionAborter, disable, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.Exchange$ConnectionAborter", "jdk.internal.net.http.Exchange", "ConnectionAborter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.Exchange$ConnectionAborter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.Exchange"
+	};
+	$loadClass(Exchange$ConnectionAborter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Exchange$ConnectionAborter);
+	});
 	return class$;
 }
 

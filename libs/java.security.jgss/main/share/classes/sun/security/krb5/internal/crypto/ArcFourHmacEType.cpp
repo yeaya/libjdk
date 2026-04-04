@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/ArcFourHmacEType.h>
-
 #include <java/security/GeneralSecurityException.h>
 #include <sun/security/krb5/Checksum.h>
 #include <sun/security/krb5/EncryptedData.h>
@@ -28,37 +27,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace crypto {
-
-$MethodInfo _ArcFourHmacEType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ArcFourHmacEType, init$, void)},
-	{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, blockSize, int32_t)},
-	{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, checksumSize, int32_t)},
-	{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, checksumType, int32_t)},
-	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, confounderSize, int32_t)},
-	{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"decryptedData", "([B)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decryptedData, $bytes*, $bytes*)},
-	{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, eType, int32_t)},
-	{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, keyType, int32_t)},
-	{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, minimumPadSize, int32_t)},
-	{}
-};
-
-$ClassInfo _ArcFourHmacEType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.ArcFourHmacEType",
-	"sun.security.krb5.internal.crypto.EType",
-	nullptr,
-	nullptr,
-	_ArcFourHmacEType_MethodInfo_
-};
-
-$Object* allocate$ArcFourHmacEType($Class* clazz) {
-	return $of($alloc(ArcFourHmacEType));
-}
 
 void ArcFourHmacEType::init$() {
 	$EType::init$();
@@ -102,7 +70,7 @@ $bytes* ArcFourHmacEType::encrypt($bytes* data, $bytes* key, int32_t usage) {
 }
 
 $bytes* ArcFourHmacEType::encrypt($bytes* data, $bytes* key, $bytes* ivec, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $ArcFourHmac::encrypt(key, usage, ivec, data, 0, $nc(data)->length);
 	} catch ($GeneralSecurityException& e) {
@@ -119,7 +87,7 @@ $bytes* ArcFourHmacEType::decrypt($bytes* cipher, $bytes* key, int32_t usage) {
 }
 
 $bytes* ArcFourHmacEType::decrypt($bytes* cipher, $bytes* key, $bytes* ivec, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $ArcFourHmac::decrypt(key, usage, ivec, cipher, 0, $nc(cipher)->length);
 	} catch ($GeneralSecurityException& e) {
@@ -138,7 +106,34 @@ ArcFourHmacEType::ArcFourHmacEType() {
 }
 
 $Class* ArcFourHmacEType::load$($String* name, bool initialize) {
-	$loadClass(ArcFourHmacEType, name, initialize, &_ArcFourHmacEType_ClassInfo_, allocate$ArcFourHmacEType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ArcFourHmacEType, init$, void)},
+		{"blockSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, blockSize, int32_t)},
+		{"checksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, checksumSize, int32_t)},
+		{"checksumType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, checksumType, int32_t)},
+		{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, confounderSize, int32_t)},
+		{"decrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"decrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"decryptedData", "([B)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, decryptedData, $bytes*, $bytes*)},
+		{"eType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, eType, int32_t)},
+		{"encrypt", "([B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, encrypt, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"encrypt", "([B[B[BI)[B", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, encrypt, $bytes*, $bytes*, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, keyType, int32_t)},
+		{"minimumPadSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArcFourHmacEType, minimumPadSize, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.ArcFourHmacEType",
+		"sun.security.krb5.internal.crypto.EType",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArcFourHmacEType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArcFourHmacEType);
+	});
 	return class$;
 }
 

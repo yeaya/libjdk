@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/AttrNSImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/AttrImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
@@ -34,45 +33,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$FieldInfo _AttrNSImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AttrNSImpl, serialVersionUID)},
-	{"xmlnsURI", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AttrNSImpl, xmlnsURI)},
-	{"xmlURI", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AttrNSImpl, xmlURI)},
-	{"namespaceURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AttrNSImpl, namespaceURI)},
-	{"localName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AttrNSImpl, localName)},
-	{}
-};
-
-$MethodInfo _AttrNSImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttrNSImpl, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AttrNSImpl, init$, void, $CoreDocumentImpl*, $String*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttrNSImpl, init$, void, $CoreDocumentImpl*, $String*, $String*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AttrNSImpl, init$, void, $CoreDocumentImpl*, $String*)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getLocalName, $String*)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getNamespaceURI, $String*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getPrefix, $String*)},
-	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getTypeName, $String*)},
-	{"getTypeNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getTypeNamespace, $String*)},
-	{"isDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, isDerivedFrom, bool, $String*, $String*, int32_t)},
-	{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AttrNSImpl, rename, void, $String*, $String*)},
-	{"setName", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AttrNSImpl, setName, void, $String*, $String*)},
-	{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, setPrefix, void, $String*), "org.w3c.dom.DOMException"},
-	{}
-};
-
-$ClassInfo _AttrNSImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.AttrNSImpl",
-	"com.sun.org.apache.xerces.internal.dom.AttrImpl",
-	nullptr,
-	_AttrNSImpl_FieldInfo_,
-	_AttrNSImpl_MethodInfo_
-};
-
-$Object* allocate$AttrNSImpl($Class* clazz) {
-	return $of($alloc(AttrNSImpl));
-}
-
 $String* AttrNSImpl::xmlnsURI = nullptr;
 $String* AttrNSImpl::xmlURI = nullptr;
 
@@ -86,15 +46,15 @@ void AttrNSImpl::init$($CoreDocumentImpl* ownerDocument, $String* namespaceURI, 
 }
 
 void AttrNSImpl::setName($String* namespaceURI, $String* qname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CoreDocumentImpl, ownerDocument, this->ownerDocument());
 	$var($String, prefix, nullptr);
 	$set(this, namespaceURI, namespaceURI);
 	if (namespaceURI != nullptr) {
 		$set(this, namespaceURI, (namespaceURI->length() == 0) ? ($String*)nullptr : namespaceURI);
 	}
-	int32_t colon1 = $nc(qname)->indexOf((int32_t)u':');
-	int32_t colon2 = qname->lastIndexOf((int32_t)u':');
+	int32_t colon1 = $nc(qname)->indexOf(u':');
+	int32_t colon2 = qname->lastIndexOf(u':');
 	$nc(ownerDocument)->checkNamespaceWF(qname, colon1, colon2);
 	if (colon1 < 0) {
 		$set(this, localName, qname);
@@ -102,10 +62,10 @@ void AttrNSImpl::setName($String* namespaceURI, $String* qname) {
 			ownerDocument->checkQName(nullptr, this->localName);
 			bool var$1 = qname->equals("xmlns"_s);
 			$init($NamespaceContext);
-			bool var$0 = var$1 && (namespaceURI == nullptr || !$nc(namespaceURI)->equals($NamespaceContext::XMLNS_URI));
+			bool var$0 = var$1 && (namespaceURI == nullptr || !namespaceURI->equals($NamespaceContext::XMLNS_URI));
 			if (!var$0) {
 				bool var$2 = namespaceURI != nullptr && namespaceURI->equals($NamespaceContext::XMLNS_URI);
-				var$0 = (var$2 && !qname->equals("xmlns"_s));
+				var$0 = var$2 && !qname->equals("xmlns"_s);
 			}
 			if (var$0) {
 				$init($DOMMessageFormatter);
@@ -150,12 +110,12 @@ $String* AttrNSImpl::getPrefix() {
 	if (needsSyncData()) {
 		synchronizeData();
 	}
-	int32_t index = $nc(this->name)->indexOf((int32_t)u':');
-	return index < 0 ? ($String*)nullptr : $nc(this->name)->substring(0, index);
+	int32_t index = $nc(this->name)->indexOf(u':');
+	return index < 0 ? ($String*)nullptr : this->name->substring(0, index);
 }
 
 void AttrNSImpl::setPrefix($String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (needsSyncData()) {
 		synchronizeData();
 	}
@@ -166,12 +126,12 @@ void AttrNSImpl::setPrefix($String* prefix) {
 			$throwNew($DOMException, $DOMException::NO_MODIFICATION_ALLOWED_ERR, msg);
 		}
 		if (prefix != nullptr && prefix->length() != 0) {
-			if (!$CoreDocumentImpl::isXMLName(prefix, $nc($(ownerDocument()))->isXML11Version())) {
+			if (!$CoreDocumentImpl::isXMLName(prefix, $$nc(ownerDocument())->isXML11Version())) {
 				$init($DOMMessageFormatter);
 				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_CHARACTER_ERR"_s, nullptr));
 				$throwNew($DOMException, $DOMException::INVALID_CHARACTER_ERR, msg);
 			}
-			if (this->namespaceURI == nullptr || prefix->indexOf((int32_t)u':') >= 0) {
+			if (this->namespaceURI == nullptr || prefix->indexOf(u':') >= 0) {
 				$init($DOMMessageFormatter);
 				$var($String, msg, $DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NAMESPACE_ERR"_s, nullptr));
 				$throwNew($DOMException, $DOMException::NAMESPACE_ERR, msg);
@@ -212,7 +172,7 @@ $String* AttrNSImpl::getLocalName() {
 $String* AttrNSImpl::getTypeName() {
 	if (this->type != nullptr) {
 		if ($instanceOf($XSSimpleTypeDecl, this->type)) {
-			return $nc(($cast($XSSimpleTypeDecl, this->type)))->getName();
+			return $cast($XSSimpleTypeDecl, this->type)->getName();
 		}
 		return $cast($String, this->type);
 	}
@@ -222,7 +182,7 @@ $String* AttrNSImpl::getTypeName() {
 bool AttrNSImpl::isDerivedFrom($String* typeNamespaceArg, $String* typeNameArg, int32_t derivationMethod) {
 	if (this->type != nullptr) {
 		if ($instanceOf($XSSimpleTypeDecl, this->type)) {
-			return $nc(($cast($XSSimpleTypeDecl, this->type)))->isDOMDerivedFrom(typeNamespaceArg, typeNameArg, derivationMethod);
+			return $cast($XSSimpleTypeDecl, this->type)->isDOMDerivedFrom(typeNamespaceArg, typeNameArg, derivationMethod);
 		}
 	}
 	return false;
@@ -231,7 +191,7 @@ bool AttrNSImpl::isDerivedFrom($String* typeNamespaceArg, $String* typeNameArg, 
 $String* AttrNSImpl::getTypeNamespace() {
 	if (this->type != nullptr) {
 		if ($instanceOf($XSSimpleTypeDecl, this->type)) {
-			return $nc(($cast($XSSimpleTypeDecl, this->type)))->getNamespace();
+			return $cast($XSSimpleTypeDecl, this->type)->getNamespace();
 		}
 		$init($AttrImpl);
 		return $AttrImpl::DTD_URI;
@@ -242,13 +202,47 @@ $String* AttrNSImpl::getTypeNamespace() {
 AttrNSImpl::AttrNSImpl() {
 }
 
-void clinit$AttrNSImpl($Class* class$) {
+void AttrNSImpl::clinit$($Class* clazz) {
 	$assignStatic(AttrNSImpl::xmlnsURI, "http://www.w3.org/2000/xmlns/"_s);
 	$assignStatic(AttrNSImpl::xmlURI, "http://www.w3.org/XML/1998/namespace"_s);
 }
 
 $Class* AttrNSImpl::load$($String* name, bool initialize) {
-	$loadClass(AttrNSImpl, name, initialize, &_AttrNSImpl_ClassInfo_, clinit$AttrNSImpl, allocate$AttrNSImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AttrNSImpl, serialVersionUID)},
+		{"xmlnsURI", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AttrNSImpl, xmlnsURI)},
+		{"xmlURI", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(AttrNSImpl, xmlURI)},
+		{"namespaceURI", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AttrNSImpl, namespaceURI)},
+		{"localName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AttrNSImpl, localName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttrNSImpl, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AttrNSImpl, init$, void, $CoreDocumentImpl*, $String*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttrNSImpl, init$, void, $CoreDocumentImpl*, $String*, $String*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AttrNSImpl, init$, void, $CoreDocumentImpl*, $String*)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getLocalName, $String*)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getNamespaceURI, $String*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getPrefix, $String*)},
+		{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getTypeName, $String*)},
+		{"getTypeNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, getTypeNamespace, $String*)},
+		{"isDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, isDerivedFrom, bool, $String*, $String*, int32_t)},
+		{"rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(AttrNSImpl, rename, void, $String*, $String*)},
+		{"setName", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(AttrNSImpl, setName, void, $String*, $String*)},
+		{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AttrNSImpl, setPrefix, void, $String*), "org.w3c.dom.DOMException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.AttrNSImpl",
+		"com.sun.org.apache.xerces.internal.dom.AttrImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttrNSImpl, name, initialize, &classInfo$$, AttrNSImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttrNSImpl));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/GLXSurfaceData.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -41,53 +40,8 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$FieldInfo _GLXSurfaceData_FieldInfo_[] = {
-	{"peer", "Lsun/awt/X11ComponentPeer;", nullptr, $PROTECTED, $field(GLXSurfaceData, peer)},
-	{"graphicsConfig", "Lsun/java2d/opengl/GLXGraphicsConfig;", nullptr, $PRIVATE, $field(GLXSurfaceData, graphicsConfig)},
-	{}
-};
-
-$MethodInfo _GLXSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/java2d/opengl/GLXGraphicsConfig;Ljava/awt/image/ColorModel;I)V", nullptr, $PROTECTED, $method(GLXSurfaceData, init$, void, $X11ComponentPeer*, $GLXGraphicsConfig*, $ColorModel*, int32_t)},
-	{"createData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/opengl/GLXSurfaceData$GLXWindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(GLXSurfaceData, createData, $GLXSurfaceData$GLXWindowSurfaceData*, $X11ComponentPeer*)},
-	{"createData", "(Lsun/awt/X11ComponentPeer;Ljava/awt/Image;I)Lsun/java2d/opengl/GLXSurfaceData$GLXOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(GLXSurfaceData, createData, $GLXSurfaceData$GLXOffScreenSurfaceData*, $X11ComponentPeer*, $Image*, int32_t)},
-	{"createData", "(Lsun/java2d/opengl/GLXGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;I)Lsun/java2d/opengl/GLXSurfaceData$GLXOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(GLXSurfaceData, createData, $GLXSurfaceData$GLXOffScreenSurfaceData*, $GLXGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int32_t)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getGC", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/opengl/GLXGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(GLXSurfaceData, getGC, $GLXGraphicsConfig*, $X11ComponentPeer*)},
-	{"initOps", "(Lsun/java2d/opengl/OGLGraphicsConfig;Lsun/awt/X11ComponentPeer;J)V", nullptr, $PRIVATE | $NATIVE, $method(GLXSurfaceData, initOps, void, $OGLGraphicsConfig*, $X11ComponentPeer*, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_initOps 6
-
-$InnerClassInfo _GLXSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.GLXSurfaceData$GLXOffScreenSurfaceData", "sun.java2d.opengl.GLXSurfaceData", "GLXOffScreenSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.opengl.GLXSurfaceData$GLXVSyncOffScreenSurfaceData", "sun.java2d.opengl.GLXSurfaceData", "GLXVSyncOffScreenSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.opengl.GLXSurfaceData$GLXWindowSurfaceData", "sun.java2d.opengl.GLXSurfaceData", "GLXWindowSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _GLXSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.opengl.GLXSurfaceData",
-	"sun.java2d.opengl.OGLSurfaceData",
-	nullptr,
-	_GLXSurfaceData_FieldInfo_,
-	_GLXSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GLXSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.GLXSurfaceData$GLXOffScreenSurfaceData,sun.java2d.opengl.GLXSurfaceData$GLXVSyncOffScreenSurfaceData,sun.java2d.opengl.GLXSurfaceData$GLXWindowSurfaceData"
-};
-
-$Object* allocate$GLXSurfaceData($Class* clazz) {
-	return $of($alloc(GLXSurfaceData));
-}
-
 void GLXSurfaceData::initOps($OGLGraphicsConfig* gc, $X11ComponentPeer* peer, int64_t aData) {
-	$prepareNative(GLXSurfaceData, initOps, void, $OGLGraphicsConfig* gc, $X11ComponentPeer* peer, int64_t aData);
+	$prepareNative(initOps, void, $OGLGraphicsConfig* gc, $X11ComponentPeer* peer, int64_t aData);
 	$invokeNative(gc, peer, aData);
 	$finishNative();
 }
@@ -111,13 +65,13 @@ $GLXSurfaceData$GLXWindowSurfaceData* GLXSurfaceData::createData($X11ComponentPe
 
 $GLXSurfaceData$GLXOffScreenSurfaceData* GLXSurfaceData::createData($X11ComponentPeer* peer, $Image* image, int32_t type) {
 	$init(GLXSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GLXGraphicsConfig, gc, getGC(peer));
 	$var($Rectangle, r, $nc(peer)->getBounds());
 	if (type == $AccelSurface::FLIP_BACKBUFFER) {
-		return $new($GLXSurfaceData$GLXOffScreenSurfaceData, peer, gc, $nc(r)->width, r->height, image, $(peer->getColorModel()), $AccelSurface::FLIP_BACKBUFFER);
+		return $new($GLXSurfaceData$GLXOffScreenSurfaceData, peer, gc, $nc(r)->width, $nc(r)->height, image, $(peer->getColorModel()), $AccelSurface::FLIP_BACKBUFFER);
 	} else {
-		return $new($GLXSurfaceData$GLXVSyncOffScreenSurfaceData, peer, gc, $nc(r)->width, r->height, image, $(peer->getColorModel()), type);
+		return $new($GLXSurfaceData$GLXVSyncOffScreenSurfaceData, peer, gc, $nc(r)->width, $nc(r)->height, image, $(peer->getColorModel()), type);
 	}
 }
 
@@ -128,7 +82,7 @@ $GLXSurfaceData$GLXOffScreenSurfaceData* GLXSurfaceData::createData($GLXGraphics
 
 $GLXGraphicsConfig* GLXSurfaceData::getGC($X11ComponentPeer* peer) {
 	$init(GLXSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (peer != nullptr) {
 		return $cast($GLXGraphicsConfig, peer->getGraphicsConfiguration());
 	} else {
@@ -142,7 +96,44 @@ GLXSurfaceData::GLXSurfaceData() {
 }
 
 $Class* GLXSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(GLXSurfaceData, name, initialize, &_GLXSurfaceData_ClassInfo_, allocate$GLXSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"peer", "Lsun/awt/X11ComponentPeer;", nullptr, $PROTECTED, $field(GLXSurfaceData, peer)},
+		{"graphicsConfig", "Lsun/java2d/opengl/GLXGraphicsConfig;", nullptr, $PRIVATE, $field(GLXSurfaceData, graphicsConfig)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/java2d/opengl/GLXGraphicsConfig;Ljava/awt/image/ColorModel;I)V", nullptr, $PROTECTED, $method(GLXSurfaceData, init$, void, $X11ComponentPeer*, $GLXGraphicsConfig*, $ColorModel*, int32_t)},
+		{"createData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/opengl/GLXSurfaceData$GLXWindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(GLXSurfaceData, createData, $GLXSurfaceData$GLXWindowSurfaceData*, $X11ComponentPeer*)},
+		{"createData", "(Lsun/awt/X11ComponentPeer;Ljava/awt/Image;I)Lsun/java2d/opengl/GLXSurfaceData$GLXOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(GLXSurfaceData, createData, $GLXSurfaceData$GLXOffScreenSurfaceData*, $X11ComponentPeer*, $Image*, int32_t)},
+		{"createData", "(Lsun/java2d/opengl/GLXGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;I)Lsun/java2d/opengl/GLXSurfaceData$GLXOffScreenSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(GLXSurfaceData, createData, $GLXSurfaceData$GLXOffScreenSurfaceData*, $GLXGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int32_t)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(GLXSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getGC", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/opengl/GLXGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(GLXSurfaceData, getGC, $GLXGraphicsConfig*, $X11ComponentPeer*)},
+		{"initOps", "(Lsun/java2d/opengl/OGLGraphicsConfig;Lsun/awt/X11ComponentPeer;J)V", nullptr, $PRIVATE | $NATIVE, $method(GLXSurfaceData, initOps, void, $OGLGraphicsConfig*, $X11ComponentPeer*, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.GLXSurfaceData$GLXOffScreenSurfaceData", "sun.java2d.opengl.GLXSurfaceData", "GLXOffScreenSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.opengl.GLXSurfaceData$GLXVSyncOffScreenSurfaceData", "sun.java2d.opengl.GLXSurfaceData", "GLXVSyncOffScreenSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.opengl.GLXSurfaceData$GLXWindowSurfaceData", "sun.java2d.opengl.GLXSurfaceData", "GLXWindowSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.opengl.GLXSurfaceData",
+		"sun.java2d.opengl.OGLSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.GLXSurfaceData$GLXOffScreenSurfaceData,sun.java2d.opengl.GLXSurfaceData$GLXVSyncOffScreenSurfaceData,sun.java2d.opengl.GLXSurfaceData$GLXWindowSurfaceData"
+	};
+	$loadClass(GLXSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GLXSurfaceData));
+	});
 	return class$;
 }
 

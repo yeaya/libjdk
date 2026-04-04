@@ -69,6 +69,7 @@ class SchemaDVFactory : public ::java::lang::Object {
 	$class(SchemaDVFactory, 0, ::java::lang::Object)
 public:
 	SchemaDVFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* createTypeList($String* name, $String* targetNamespace, int16_t finalSet, ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* itemType, ::com::sun::org::apache::xerces::internal::xs::XSObjectList* annotations) {return nullptr;}
 	virtual ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* createTypeRestriction($String* name, $String* targetNamespace, int16_t finalSet, ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* base, ::com::sun::org::apache::xerces::internal::xs::XSObjectList* annotations) {return nullptr;}

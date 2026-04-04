@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext.h>
 #include <jcpp.h>
@@ -19,26 +18,6 @@ namespace com {
 							namespace utils {
 								namespace resolver {
 
-$MethodInfo _ResourceResolverSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceResolverSpi, init$, void)},
-	{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceResolverSpi, engineCanResolveURI, bool, $ResourceResolverContext*)},
-	{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceResolverSpi, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
-	{}
-};
-
-$ClassInfo _ResourceResolverSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ResourceResolverSpi_MethodInfo_
-};
-
-$Object* allocate$ResourceResolverSpi($Class* clazz) {
-	return $of($alloc(ResourceResolverSpi));
-}
-
 void ResourceResolverSpi::init$() {
 }
 
@@ -46,7 +25,23 @@ ResourceResolverSpi::ResourceResolverSpi() {
 }
 
 $Class* ResourceResolverSpi::load$($String* name, bool initialize) {
-	$loadClass(ResourceResolverSpi, name, initialize, &_ResourceResolverSpi_ClassInfo_, allocate$ResourceResolverSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ResourceResolverSpi, init$, void)},
+		{"engineCanResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceResolverSpi, engineCanResolveURI, bool, $ResourceResolverContext*)},
+		{"engineResolveURI", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverContext;)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ResourceResolverSpi, engineResolveURI, $XMLSignatureInput*, $ResourceResolverContext*), "com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverSpi",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ResourceResolverSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceResolverSpi);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ClassFormatException.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
@@ -62,48 +61,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _ConstantPool_FieldInfo_[] = {
-	{"constantPool", "[Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PRIVATE, $field(ConstantPool, constantPool)},
-	{}
-};
-
-$MethodInfo _ConstantPool_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "([Lcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $method(ConstantPool, init$, void, $ConstantArray*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, $PUBLIC, $method(ConstantPool, init$, void, $DataInput*), "java.io.IOException,com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPool, accept, void, $Visitor*)},
-	{"constantToString", "(Lcom/sun/org/apache/bcel/internal/classfile/Constant;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, constantToString, $String*, $Constant*), "com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
-	{"constantToString", "(IB)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, constantToString, $String*, int32_t, int8_t), "com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, copy, ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPool, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstantPool, escape, $String*, $String*)},
-	{"getConstant", "(I)Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getConstant, $Constant*, int32_t)},
-	{"getConstant", "(IB)Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getConstant, $Constant*, int32_t, int8_t), "com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
-	{"getConstantPool", "()[Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getConstantPool, $ConstantArray*)},
-	{"getConstantString", "(IB)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getConstantString, $String*, int32_t, int8_t), "com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getLength, int32_t)},
-	{"setConstant", "(ILcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPool, setConstant, void, int32_t, $Constant*)},
-	{"setConstantPool", "([Lcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPool, setConstantPool, void, $ConstantArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ConstantPool_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantPool",
-	"java.lang.Object",
-	"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
-	_ConstantPool_FieldInfo_,
-	_ConstantPool_MethodInfo_
-};
-
-$Object* allocate$ConstantPool($Class* clazz) {
-	return $of($alloc(ConstantPool));
-}
-
 int32_t ConstantPool::hashCode() {
 	 return this->$Cloneable::hashCode();
 }
@@ -125,7 +82,7 @@ void ConstantPool::init$($ConstantArray* constantPool) {
 }
 
 void ConstantPool::init$($DataInput* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int8_t tag = 0;
 	int32_t constant_pool_count = $nc(input)->readUnsignedShort();
 	$set(this, constantPool, $new($ConstantArray, constant_pool_count));
@@ -143,110 +100,98 @@ void ConstantPool::accept($Visitor* v) {
 }
 
 $String* ConstantPool::constantToString($Constant* c$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Constant, c, c$renamed);
 	$var($String, str, nullptr);
 	int32_t i = 0;
 	int8_t tag = $nc(c)->getTag();
 	{
-		$var($ConstantMethodHandle, cmh, nullptr)
-		$var($ConstantMethodType, cmt, nullptr)
-		$var($ConstantInvokeDynamic, cid, nullptr)
+		$var($ConstantMethodHandle, cmh, nullptr);
+		$var($ConstantMethodType, cmt, nullptr);
+		$var($ConstantInvokeDynamic, cid, nullptr);
 		switch (tag) {
 		case $Const::CONSTANT_Class:
-			{
-				i = $nc(($cast($ConstantClass, c)))->getNameIndex();
-				$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
-				$assign(str, $Utility::compactClassName($($nc(($cast($ConstantUtf8, c)))->getBytes()), false));
-				break;
-			}
+			i = $cast($ConstantClass, c)->getNameIndex();
+			$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
+			$assign(str, $Utility::compactClassName($($nc($cast($ConstantUtf8, c))->getBytes()), false));
+			break;
 		case $Const::CONSTANT_String:
-			{
-				i = $nc(($cast($ConstantString, c)))->getStringIndex();
-				$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
-				$assign(str, $str({"\""_s, $(escape($($nc(($cast($ConstantUtf8, c)))->getBytes()))), "\""_s}));
-				break;
-			}
+			i = $cast($ConstantString, c)->getStringIndex();
+			$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
+			$assign(str, $str({"\""_s, $(escape($($nc($cast($ConstantUtf8, c))->getBytes()))), "\""_s}));
+			break;
 		case $Const::CONSTANT_Utf8:
-			{
-				$assign(str, $nc(($cast($ConstantUtf8, c)))->getBytes());
-				break;
-			}
+			$assign(str, $cast($ConstantUtf8, c)->getBytes());
+			break;
 		case $Const::CONSTANT_Double:
-			{
-				$assign(str, $String::valueOf($nc(($cast($ConstantDouble, c)))->getBytes()));
-				break;
-			}
+			$assign(str, $String::valueOf($cast($ConstantDouble, c)->getBytes()));
+			break;
 		case $Const::CONSTANT_Float:
-			{
-				$assign(str, $String::valueOf($nc(($cast($ConstantFloat, c)))->getBytes()));
-				break;
-			}
+			$assign(str, $String::valueOf($cast($ConstantFloat, c)->getBytes()));
+			break;
 		case $Const::CONSTANT_Long:
-			{
-				$assign(str, $String::valueOf($nc(($cast($ConstantLong, c)))->getBytes()));
-				break;
-			}
+			$assign(str, $String::valueOf($cast($ConstantLong, c)->getBytes()));
+			break;
 		case $Const::CONSTANT_Integer:
-			{
-				$assign(str, $String::valueOf($nc(($cast($ConstantInteger, c)))->getBytes()));
-				break;
-			}
+			$assign(str, $String::valueOf($cast($ConstantInteger, c)->getBytes()));
+			break;
 		case $Const::CONSTANT_NameAndType:
 			{
-				$var($String, var$0, $$str({$(constantToString($nc(($cast($ConstantNameAndType, c)))->getNameIndex(), $Const::CONSTANT_Utf8)), " "_s}));
-				$assign(str, $concat(var$0, $(constantToString($nc(($cast($ConstantNameAndType, c)))->getSignatureIndex(), $Const::CONSTANT_Utf8))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($(constantToString($cast($ConstantNameAndType, c)->getNameIndex(), $Const::CONSTANT_Utf8)));
+				var$0->append(" "_s);
+				var$0->append($(constantToString($cast($ConstantNameAndType, c)->getSignatureIndex(), $Const::CONSTANT_Utf8)));
+				$assign(str, $str(var$0));
 				break;
 			}
 		case $Const::CONSTANT_InterfaceMethodref:
-			{}
 		case $Const::CONSTANT_Methodref:
-			{}
 		case $Const::CONSTANT_Fieldref:
 			{
-				$var($String, var$1, $$str({$(constantToString($nc(($cast($ConstantCP, c)))->getClassIndex(), $Const::CONSTANT_Class)), "."_s}));
-				$assign(str, $concat(var$1, $(constantToString($nc(($cast($ConstantCP, c)))->getNameAndTypeIndex(), $Const::CONSTANT_NameAndType))));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append($(constantToString($cast($ConstantCP, c)->getClassIndex(), $Const::CONSTANT_Class)));
+				var$1->append("."_s);
+				var$1->append($(constantToString($cast($ConstantCP, c)->getNameAndTypeIndex(), $Const::CONSTANT_NameAndType)));
+				$assign(str, $str(var$1));
 				break;
 			}
 		case $Const::CONSTANT_MethodHandle:
 			{
 				$assign(cmh, $cast($ConstantMethodHandle, c));
-				$var($String, var$2, $$str({$($Const::getMethodHandleName($nc(cmh)->getReferenceKind())), " "_s}));
-				int32_t var$3 = $nc(cmh)->getReferenceIndex();
-				$assign(str, $concat(var$2, $(constantToString(var$3, $nc($(getConstant(cmh->getReferenceIndex())))->getTag()))));
+				$var($StringBuilder, var$2, $new($StringBuilder));
+				var$2->append($($Const::getMethodHandleName($nc(cmh)->getReferenceKind())));
+				var$2->append(" "_s);
+				int32_t var$3 = cmh->getReferenceIndex();
+				var$2->append($(constantToString(var$3, $$nc(getConstant(cmh->getReferenceIndex()))->getTag())));
+				$assign(str, $str(var$2));
 				break;
 			}
 		case $Const::CONSTANT_MethodType:
-			{
-				$assign(cmt, $cast($ConstantMethodType, c));
-				$assign(str, constantToString($nc(cmt)->getDescriptorIndex(), $Const::CONSTANT_Utf8));
-				break;
-			}
+			$assign(cmt, $cast($ConstantMethodType, c));
+			$assign(str, constantToString($nc(cmt)->getDescriptorIndex(), $Const::CONSTANT_Utf8));
+			break;
 		case $Const::CONSTANT_InvokeDynamic:
 			{
 				$assign(cid, $cast($ConstantInvokeDynamic, c));
-				$var($String, var$4, $$str({$$str($nc(cid)->getBootstrapMethodAttrIndex()), ":"_s}));
-				$assign(str, $concat(var$4, $(constantToString(cid->getNameAndTypeIndex(), $Const::CONSTANT_NameAndType))));
+				$var($StringBuilder, var$4, $new($StringBuilder));
+				var$4->append($nc(cid)->getBootstrapMethodAttrIndex());
+				var$4->append(":"_s);
+				var$4->append($(constantToString(cid->getNameAndTypeIndex(), $Const::CONSTANT_NameAndType)));
+				$assign(str, $str(var$4));
 				break;
 			}
 		case $Const::CONSTANT_Module:
-			{
-				i = $nc(($cast($ConstantModule, c)))->getNameIndex();
-				$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
-				$assign(str, $Utility::compactClassName($($nc(($cast($ConstantUtf8, c)))->getBytes()), false));
-				break;
-			}
+			i = $cast($ConstantModule, c)->getNameIndex();
+			$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
+			$assign(str, $Utility::compactClassName($($nc($cast($ConstantUtf8, c))->getBytes()), false));
+			break;
 		case $Const::CONSTANT_Package:
-			{
-				i = $nc(($cast($ConstantPackage, c)))->getNameIndex();
-				$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
-				$assign(str, $Utility::compactClassName($($nc(($cast($ConstantUtf8, c)))->getBytes()), false));
-				break;
-			}
+			i = $cast($ConstantPackage, c)->getNameIndex();
+			$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
+			$assign(str, $Utility::compactClassName($($nc($cast($ConstantUtf8, c))->getBytes()), false));
+			break;
 		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Unknown constant type "_s, $$str(tag)}));
-			}
+			$throwNew($IllegalArgumentException, $$str({"Unknown constant type "_s, $$str(tag)}));
 		}
 	}
 	return str;
@@ -254,41 +199,29 @@ $String* ConstantPool::constantToString($Constant* c$renamed) {
 
 $String* ConstantPool::escape($String* str) {
 	$init(ConstantPool);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(str)->length();
 	$var($StringBuilder, buf, $new($StringBuilder, len + 5));
 	$var($chars, ch, str->toCharArray());
 	for (int32_t i = 0; i < len; ++i) {
 		switch (ch->get(i)) {
 		case u'\n':
-			{
-				buf->append("\\n"_s);
-				break;
-			}
+			buf->append("\\n"_s);
+			break;
 		case u'\r':
-			{
-				buf->append("\\r"_s);
-				break;
-			}
+			buf->append("\\r"_s);
+			break;
 		case u'\t':
-			{
-				buf->append("\\t"_s);
-				break;
-			}
+			buf->append("\\t"_s);
+			break;
 		case u'\b':
-			{
-				buf->append("\\b"_s);
-				break;
-			}
+			buf->append("\\b"_s);
+			break;
 		case u'\"':
-			{
-				buf->append("\\\""_s);
-				break;
-			}
+			buf->append("\\\""_s);
+			break;
 		default:
-			{
-				buf->append(ch->get(i));
-			}
+			buf->append(ch->get(i));
 		}
 	}
 	return buf->toString();
@@ -302,22 +235,22 @@ $String* ConstantPool::constantToString(int32_t index, int8_t tag) {
 void ConstantPool::dump($DataOutputStream* file) {
 	$nc(file)->writeShort($nc(this->constantPool)->length);
 	for (int32_t i = 1; i < $nc(this->constantPool)->length; ++i) {
-		if ($nc(this->constantPool)->get(i) != nullptr) {
-			$nc($nc(this->constantPool)->get(i))->dump(file);
+		if (this->constantPool->get(i) != nullptr) {
+			$nc(this->constantPool->get(i))->dump(file);
 		}
 	}
 }
 
 $Constant* ConstantPool::getConstant(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index >= $nc(this->constantPool)->length || index < 0) {
-		$throwNew($ClassFormatException, $$str({"Invalid constant pool reference: "_s, $$str(index), ". Constant pool size is: "_s, $$str($nc(this->constantPool)->length)}));
+		$throwNew($ClassFormatException, $$str({"Invalid constant pool reference: "_s, $$str(index), ". Constant pool size is: "_s, $$str(this->constantPool->length)}));
 	}
-	return $nc(this->constantPool)->get(index);
+	return this->constantPool->get(index);
 }
 
 $Constant* ConstantPool::getConstant(int32_t index, int8_t tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Constant, c, nullptr);
 	$assign(c, getConstant(index));
 	if (c == nullptr) {
@@ -334,42 +267,32 @@ $ConstantArray* ConstantPool::getConstantPool() {
 }
 
 $String* ConstantPool::getConstantString(int32_t index, int8_t tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Constant, c, nullptr);
 	int32_t i = 0;
 	$assign(c, getConstant(index, tag));
 	switch (tag) {
 	case $Const::CONSTANT_Class:
-		{
-			i = $nc(($cast($ConstantClass, c)))->getNameIndex();
-			break;
-		}
+		i = $nc($cast($ConstantClass, c))->getNameIndex();
+		break;
 	case $Const::CONSTANT_String:
-		{
-			i = $nc(($cast($ConstantString, c)))->getStringIndex();
-			break;
-		}
+		i = $nc($cast($ConstantString, c))->getStringIndex();
+		break;
 	case $Const::CONSTANT_Module:
-		{
-			i = $nc(($cast($ConstantModule, c)))->getNameIndex();
-			break;
-		}
+		i = $nc($cast($ConstantModule, c))->getNameIndex();
+		break;
 	case $Const::CONSTANT_Package:
-		{
-			i = $nc(($cast($ConstantPackage, c)))->getNameIndex();
-			break;
-		}
+		i = $nc($cast($ConstantPackage, c))->getNameIndex();
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"getConstantString called with illegal tag "_s, $$str(tag)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"getConstantString called with illegal tag "_s, $$str(tag)}));
 	}
 	$assign(c, getConstant(i, $Const::CONSTANT_Utf8));
-	return $nc(($cast($ConstantUtf8, c)))->getBytes();
+	return $nc($cast($ConstantUtf8, c))->getBytes();
 }
 
 int32_t ConstantPool::getLength() {
-	return this->constantPool == nullptr ? 0 : $nc(this->constantPool)->length;
+	return this->constantPool == nullptr ? 0 : this->constantPool->length;
 }
 
 void ConstantPool::setConstant(int32_t index, $Constant* constant) {
@@ -383,20 +306,20 @@ void ConstantPool::setConstantPool($ConstantArray* constantPool) {
 $String* ConstantPool::toString() {
 	$var($StringBuilder, buf, $new($StringBuilder));
 	for (int32_t i = 1; i < $nc(this->constantPool)->length; ++i) {
-		buf->append(i)->append(")"_s)->append($of($nc(this->constantPool)->get(i)))->append("\n"_s);
+		buf->append(i)->append(")"_s)->append(this->constantPool->get(i))->append("\n"_s);
 	}
 	return buf->toString();
 }
 
 ConstantPool* ConstantPool::copy() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(ConstantPool, c, nullptr);
 	try {
 		$assign(c, $cast(ConstantPool, clone()));
 		$set($nc(c), constantPool, $new($ConstantArray, $nc(this->constantPool)->length));
 		for (int32_t i = 1; i < $nc(this->constantPool)->length; ++i) {
-			if ($nc(this->constantPool)->get(i) != nullptr) {
-				$nc(c->constantPool)->set(i, $($nc($nc(this->constantPool)->get(i))->copy()));
+			if (this->constantPool->get(i) != nullptr) {
+				$nc(c->constantPool)->set(i, $($nc(this->constantPool->get(i))->copy()));
 			}
 		}
 	} catch ($CloneNotSupportedException& e) {
@@ -408,7 +331,44 @@ ConstantPool::ConstantPool() {
 }
 
 $Class* ConstantPool::load$($String* name, bool initialize) {
-	$loadClass(ConstantPool, name, initialize, &_ConstantPool_ClassInfo_, allocate$ConstantPool);
+	$FieldInfo fieldInfos$$[] = {
+		{"constantPool", "[Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PRIVATE, $field(ConstantPool, constantPool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "([Lcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $method(ConstantPool, init$, void, $ConstantArray*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, $PUBLIC, $method(ConstantPool, init$, void, $DataInput*), "java.io.IOException,com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPool, accept, void, $Visitor*)},
+		{"constantToString", "(Lcom/sun/org/apache/bcel/internal/classfile/Constant;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, constantToString, $String*, $Constant*), "com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
+		{"constantToString", "(IB)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, constantToString, $String*, int32_t, int8_t), "com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, copy, ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPool, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"escape", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(ConstantPool, escape, $String*, $String*)},
+		{"getConstant", "(I)Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getConstant, $Constant*, int32_t)},
+		{"getConstant", "(IB)Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getConstant, $Constant*, int32_t, int8_t), "com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
+		{"getConstantPool", "()[Lcom/sun/org/apache/bcel/internal/classfile/Constant;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getConstantPool, $ConstantArray*)},
+		{"getConstantString", "(IB)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getConstantString, $String*, int32_t, int8_t), "com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(ConstantPool, getLength, int32_t)},
+		{"setConstant", "(ILcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPool, setConstant, void, int32_t, $Constant*)},
+		{"setConstantPool", "([Lcom/sun/org/apache/bcel/internal/classfile/Constant;)V", nullptr, $PUBLIC, $virtualMethod(ConstantPool, setConstantPool, void, $ConstantArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantPool, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantPool",
+		"java.lang.Object",
+		"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConstantPool, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantPool));
+	});
 	return class$;
 }
 

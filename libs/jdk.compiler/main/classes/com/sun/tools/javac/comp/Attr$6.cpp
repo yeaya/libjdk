@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$6.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -29,51 +28,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$6_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$6, this$0)},
-	{}
-};
-
-$MethodInfo _Attr$6_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$6, init$, void, $Attr*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Attr$6, scan, void, $JCTree*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$6, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Attr$6, visitLambda, void, $JCTree$JCLambda*)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$6_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr",
-	"preFlow",
-	"(Lcom/sun/tools/javac/tree/JCTree;)V"
-};
-
-$InnerClassInfo _Attr$6_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$6", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer", "com.sun.tools.javac.comp.Attr", "PostAttrAnalyzer", 0},
-	{}
-};
-
-$ClassInfo _Attr$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$6",
-	"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer",
-	nullptr,
-	_Attr$6_FieldInfo_,
-	_Attr$6_MethodInfo_,
-	nullptr,
-	&_Attr$6_EnclosingMethodInfo_,
-	_Attr$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$6($Class* clazz) {
-	return $of($alloc(Attr$6));
-}
-
 void Attr$6::init$($Attr* this$0) {
 	$set(this, this$0, this$0);
 	$Attr$PostAttrAnalyzer::init$(this$0);
@@ -81,7 +35,7 @@ void Attr$6::init$($Attr* this$0) {
 
 void Attr$6::scan($JCTree* tree) {
 	$init($Type);
-	if (tree == nullptr || ($nc(tree)->type != nullptr && $equals(tree->type, $Type::stuckType))) {
+	if (tree == nullptr || (tree->type != nullptr && $equals(tree->type, $Type::stuckType))) {
 		return;
 	}
 	$Attr$PostAttrAnalyzer::scan(tree);
@@ -103,7 +57,45 @@ Attr$6::Attr$6() {
 }
 
 $Class* Attr$6::load$($String* name, bool initialize) {
-	$loadClass(Attr$6, name, initialize, &_Attr$6_ClassInfo_, allocate$Attr$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$6, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$6, init$, void, $Attr*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Attr$6, scan, void, $JCTree*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$6, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Attr$6, visitLambda, void, $JCTree$JCLambda*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr",
+		"preFlow",
+		"(Lcom/sun/tools/javac/tree/JCTree;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$6", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer", "com.sun.tools.javac.comp.Attr", "PostAttrAnalyzer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$6",
+		"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$6);
+	});
 	return class$;
 }
 

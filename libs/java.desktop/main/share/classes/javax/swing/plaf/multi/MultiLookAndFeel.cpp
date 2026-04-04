@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/multi/MultiLookAndFeel.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/LookAndFeel.h>
@@ -27,32 +26,6 @@ namespace javax {
 		namespace plaf {
 			namespace multi {
 
-$MethodInfo _MultiLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiLookAndFeel, init$, void)},
-	{"createUIs", "(Ljavax/swing/plaf/ComponentUI;Ljava/util/Vector;Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", "(Ljavax/swing/plaf/ComponentUI;Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", $PUBLIC | $STATIC, $staticMethod(MultiLookAndFeel, createUIs, $ComponentUI*, $ComponentUI*, $Vector*, $JComponent*)},
-	{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, getDefaults, $UIDefaults*)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, getDescription, $String*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, getID, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, getName, $String*)},
-	{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, isNativeLookAndFeel, bool)},
-	{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, isSupportedLookAndFeel, bool)},
-	{"uisToArray", "(Ljava/util/Vector;)[Ljavax/swing/plaf/ComponentUI;", "(Ljava/util/Vector<+Ljavax/swing/plaf/ComponentUI;>;)[Ljavax/swing/plaf/ComponentUI;", $PROTECTED | $STATIC, $staticMethod(MultiLookAndFeel, uisToArray, $ComponentUIArray*, $Vector*)},
-	{}
-};
-
-$ClassInfo _MultiLookAndFeel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.multi.MultiLookAndFeel",
-	"javax.swing.LookAndFeel",
-	nullptr,
-	nullptr,
-	_MultiLookAndFeel_MethodInfo_
-};
-
-$Object* allocate$MultiLookAndFeel($Class* clazz) {
-	return $of($alloc(MultiLookAndFeel));
-}
-
 void MultiLookAndFeel::init$() {
 	$LookAndFeel::init$();
 }
@@ -78,95 +51,95 @@ bool MultiLookAndFeel::isSupportedLookAndFeel() {
 }
 
 $UIDefaults* MultiLookAndFeel::getDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, packageName, "javax.swing.plaf.multi.Multi"_s);
 	$var($ObjectArray, uiDefaults, $new($ObjectArray, {
-		$of("ButtonUI"_s),
-		$of($$str({packageName, "ButtonUI"_s})),
-		$of("CheckBoxMenuItemUI"_s),
-		$of($$str({packageName, "MenuItemUI"_s})),
-		$of("CheckBoxUI"_s),
-		$of($$str({packageName, "ButtonUI"_s})),
-		$of("ColorChooserUI"_s),
-		$of($$str({packageName, "ColorChooserUI"_s})),
-		$of("ComboBoxUI"_s),
-		$of($$str({packageName, "ComboBoxUI"_s})),
-		$of("DesktopIconUI"_s),
-		$of($$str({packageName, "DesktopIconUI"_s})),
-		$of("DesktopPaneUI"_s),
-		$of($$str({packageName, "DesktopPaneUI"_s})),
-		$of("EditorPaneUI"_s),
-		$of($$str({packageName, "TextUI"_s})),
-		$of("FileChooserUI"_s),
-		$of($$str({packageName, "FileChooserUI"_s})),
-		$of("FormattedTextFieldUI"_s),
-		$of($$str({packageName, "TextUI"_s})),
-		$of("InternalFrameUI"_s),
-		$of($$str({packageName, "InternalFrameUI"_s})),
-		$of("LabelUI"_s),
-		$of($$str({packageName, "LabelUI"_s})),
-		$of("ListUI"_s),
-		$of($$str({packageName, "ListUI"_s})),
-		$of("MenuBarUI"_s),
-		$of($$str({packageName, "MenuBarUI"_s})),
-		$of("MenuItemUI"_s),
-		$of($$str({packageName, "MenuItemUI"_s})),
-		$of("MenuUI"_s),
-		$of($$str({packageName, "MenuItemUI"_s})),
-		$of("OptionPaneUI"_s),
-		$of($$str({packageName, "OptionPaneUI"_s})),
-		$of("PanelUI"_s),
-		$of($$str({packageName, "PanelUI"_s})),
-		$of("PasswordFieldUI"_s),
-		$of($$str({packageName, "TextUI"_s})),
-		$of("PopupMenuSeparatorUI"_s),
-		$of($$str({packageName, "SeparatorUI"_s})),
-		$of("PopupMenuUI"_s),
-		$of($$str({packageName, "PopupMenuUI"_s})),
-		$of("ProgressBarUI"_s),
-		$of($$str({packageName, "ProgressBarUI"_s})),
-		$of("RadioButtonMenuItemUI"_s),
-		$of($$str({packageName, "MenuItemUI"_s})),
-		$of("RadioButtonUI"_s),
-		$of($$str({packageName, "ButtonUI"_s})),
-		$of("RootPaneUI"_s),
-		$of($$str({packageName, "RootPaneUI"_s})),
-		$of("ScrollBarUI"_s),
-		$of($$str({packageName, "ScrollBarUI"_s})),
-		$of("ScrollPaneUI"_s),
-		$of($$str({packageName, "ScrollPaneUI"_s})),
-		$of("SeparatorUI"_s),
-		$of($$str({packageName, "SeparatorUI"_s})),
-		$of("SliderUI"_s),
-		$of($$str({packageName, "SliderUI"_s})),
-		$of("SpinnerUI"_s),
-		$of($$str({packageName, "SpinnerUI"_s})),
-		$of("SplitPaneUI"_s),
-		$of($$str({packageName, "SplitPaneUI"_s})),
-		$of("TabbedPaneUI"_s),
-		$of($$str({packageName, "TabbedPaneUI"_s})),
-		$of("TableHeaderUI"_s),
-		$of($$str({packageName, "TableHeaderUI"_s})),
-		$of("TableUI"_s),
-		$of($$str({packageName, "TableUI"_s})),
-		$of("TextAreaUI"_s),
-		$of($$str({packageName, "TextUI"_s})),
-		$of("TextFieldUI"_s),
-		$of($$str({packageName, "TextUI"_s})),
-		$of("TextPaneUI"_s),
-		$of($$str({packageName, "TextUI"_s})),
-		$of("ToggleButtonUI"_s),
-		$of($$str({packageName, "ButtonUI"_s})),
-		$of("ToolBarSeparatorUI"_s),
-		$of($$str({packageName, "SeparatorUI"_s})),
-		$of("ToolBarUI"_s),
-		$of($$str({packageName, "ToolBarUI"_s})),
-		$of("ToolTipUI"_s),
-		$of($$str({packageName, "ToolTipUI"_s})),
-		$of("TreeUI"_s),
-		$of($$str({packageName, "TreeUI"_s})),
-		$of("ViewportUI"_s),
-		$of($$str({packageName, "ViewportUI"_s}))
+		"ButtonUI"_s,
+		$$str({packageName, "ButtonUI"_s}),
+		"CheckBoxMenuItemUI"_s,
+		$$str({packageName, "MenuItemUI"_s}),
+		"CheckBoxUI"_s,
+		$$str({packageName, "ButtonUI"_s}),
+		"ColorChooserUI"_s,
+		$$str({packageName, "ColorChooserUI"_s}),
+		"ComboBoxUI"_s,
+		$$str({packageName, "ComboBoxUI"_s}),
+		"DesktopIconUI"_s,
+		$$str({packageName, "DesktopIconUI"_s}),
+		"DesktopPaneUI"_s,
+		$$str({packageName, "DesktopPaneUI"_s}),
+		"EditorPaneUI"_s,
+		$$str({packageName, "TextUI"_s}),
+		"FileChooserUI"_s,
+		$$str({packageName, "FileChooserUI"_s}),
+		"FormattedTextFieldUI"_s,
+		$$str({packageName, "TextUI"_s}),
+		"InternalFrameUI"_s,
+		$$str({packageName, "InternalFrameUI"_s}),
+		"LabelUI"_s,
+		$$str({packageName, "LabelUI"_s}),
+		"ListUI"_s,
+		$$str({packageName, "ListUI"_s}),
+		"MenuBarUI"_s,
+		$$str({packageName, "MenuBarUI"_s}),
+		"MenuItemUI"_s,
+		$$str({packageName, "MenuItemUI"_s}),
+		"MenuUI"_s,
+		$$str({packageName, "MenuItemUI"_s}),
+		"OptionPaneUI"_s,
+		$$str({packageName, "OptionPaneUI"_s}),
+		"PanelUI"_s,
+		$$str({packageName, "PanelUI"_s}),
+		"PasswordFieldUI"_s,
+		$$str({packageName, "TextUI"_s}),
+		"PopupMenuSeparatorUI"_s,
+		$$str({packageName, "SeparatorUI"_s}),
+		"PopupMenuUI"_s,
+		$$str({packageName, "PopupMenuUI"_s}),
+		"ProgressBarUI"_s,
+		$$str({packageName, "ProgressBarUI"_s}),
+		"RadioButtonMenuItemUI"_s,
+		$$str({packageName, "MenuItemUI"_s}),
+		"RadioButtonUI"_s,
+		$$str({packageName, "ButtonUI"_s}),
+		"RootPaneUI"_s,
+		$$str({packageName, "RootPaneUI"_s}),
+		"ScrollBarUI"_s,
+		$$str({packageName, "ScrollBarUI"_s}),
+		"ScrollPaneUI"_s,
+		$$str({packageName, "ScrollPaneUI"_s}),
+		"SeparatorUI"_s,
+		$$str({packageName, "SeparatorUI"_s}),
+		"SliderUI"_s,
+		$$str({packageName, "SliderUI"_s}),
+		"SpinnerUI"_s,
+		$$str({packageName, "SpinnerUI"_s}),
+		"SplitPaneUI"_s,
+		$$str({packageName, "SplitPaneUI"_s}),
+		"TabbedPaneUI"_s,
+		$$str({packageName, "TabbedPaneUI"_s}),
+		"TableHeaderUI"_s,
+		$$str({packageName, "TableHeaderUI"_s}),
+		"TableUI"_s,
+		$$str({packageName, "TableUI"_s}),
+		"TextAreaUI"_s,
+		$$str({packageName, "TextUI"_s}),
+		"TextFieldUI"_s,
+		$$str({packageName, "TextUI"_s}),
+		"TextPaneUI"_s,
+		$$str({packageName, "TextUI"_s}),
+		"ToggleButtonUI"_s,
+		$$str({packageName, "ButtonUI"_s}),
+		"ToolBarSeparatorUI"_s,
+		$$str({packageName, "SeparatorUI"_s}),
+		"ToolBarUI"_s,
+		$$str({packageName, "ToolBarUI"_s}),
+		"ToolTipUI"_s,
+		$$str({packageName, "ToolTipUI"_s}),
+		"TreeUI"_s,
+		$$str({packageName, "TreeUI"_s}),
+		"ViewportUI"_s,
+		$$str({packageName, "ViewportUI"_s})
 	}));
 	$var($UIDefaults, table, $new($MultiUIDefaults, uiDefaults->length / 2, 0.75f));
 	table->putDefaults(uiDefaults);
@@ -175,16 +148,16 @@ $UIDefaults* MultiLookAndFeel::getDefaults() {
 
 $ComponentUI* MultiLookAndFeel::createUIs($ComponentUI* mui, $Vector* uis, $JComponent* target) {
 	$init(MultiLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentUI, ui, nullptr);
-	$assign(ui, $nc($($UIManager::getDefaults()))->getUI(target));
+	$assign(ui, $$nc($UIManager::getDefaults())->getUI(target));
 	if (ui != nullptr) {
 		$nc(uis)->addElement(ui);
 		$var($LookAndFeelArray, auxiliaryLookAndFeels, nullptr);
 		$assign(auxiliaryLookAndFeels, $UIManager::getAuxiliaryLookAndFeels());
 		if (auxiliaryLookAndFeels != nullptr) {
 			for (int32_t i = 0; i < auxiliaryLookAndFeels->length; ++i) {
-				$assign(ui, $nc($($nc(auxiliaryLookAndFeels->get(i))->getDefaults()))->getUI(target));
+				$assign(ui, $$nc($nc(auxiliaryLookAndFeels->get(i))->getDefaults())->getUI(target));
 				if (ui != nullptr) {
 					uis->addElement(ui);
 				}
@@ -202,15 +175,15 @@ $ComponentUI* MultiLookAndFeel::createUIs($ComponentUI* mui, $Vector* uis, $JCom
 
 $ComponentUIArray* MultiLookAndFeel::uisToArray($Vector* uis) {
 	$init(MultiLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (uis == nullptr) {
 		return $new($ComponentUIArray, 0);
 	} else {
-		int32_t count = $nc(uis)->size();
+		int32_t count = uis->size();
 		if (count > 0) {
 			$var($ComponentUIArray, u, $new($ComponentUIArray, count));
 			for (int32_t i = 0; i < count; ++i) {
-				u->set(i, $cast($ComponentUI, $(uis->elementAt(i))));
+				u->set(i, $$cast($ComponentUI, uis->elementAt(i)));
 			}
 			return u;
 		} else {
@@ -223,7 +196,29 @@ MultiLookAndFeel::MultiLookAndFeel() {
 }
 
 $Class* MultiLookAndFeel::load$($String* name, bool initialize) {
-	$loadClass(MultiLookAndFeel, name, initialize, &_MultiLookAndFeel_ClassInfo_, allocate$MultiLookAndFeel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiLookAndFeel, init$, void)},
+		{"createUIs", "(Ljavax/swing/plaf/ComponentUI;Ljava/util/Vector;Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", "(Ljavax/swing/plaf/ComponentUI;Ljava/util/Vector<Ljavax/swing/plaf/ComponentUI;>;Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", $PUBLIC | $STATIC, $staticMethod(MultiLookAndFeel, createUIs, $ComponentUI*, $ComponentUI*, $Vector*, $JComponent*)},
+		{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, getDefaults, $UIDefaults*)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, getDescription, $String*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, getID, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, getName, $String*)},
+		{"isNativeLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, isNativeLookAndFeel, bool)},
+		{"isSupportedLookAndFeel", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiLookAndFeel, isSupportedLookAndFeel, bool)},
+		{"uisToArray", "(Ljava/util/Vector;)[Ljavax/swing/plaf/ComponentUI;", "(Ljava/util/Vector<+Ljavax/swing/plaf/ComponentUI;>;)[Ljavax/swing/plaf/ComponentUI;", $PROTECTED | $STATIC, $staticMethod(MultiLookAndFeel, uisToArray, $ComponentUIArray*, $Vector*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.multi.MultiLookAndFeel",
+		"javax.swing.LookAndFeel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiLookAndFeel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiLookAndFeel);
+	});
 	return class$;
 }
 

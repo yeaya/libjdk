@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$1.h>
-
 #include <com/sun/tools/javac/comp/Analyzer$RewritingContext.h>
 #include <com/sun/tools/javac/comp/Analyzer.h>
 #include <com/sun/tools/javac/comp/Env.h>
@@ -20,50 +19,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Analyzer$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$1, this$0)},
-	{}
-};
-
-$MethodInfo _Analyzer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$1, init$, void, $Analyzer*)},
-	{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Analyzer$1, flush, void, $Env*)},
-	{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$1, queue, void, $Analyzer$RewritingContext*)},
-	{}
-};
-
-$EnclosingMethodInfo _Analyzer$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Analyzer",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Analyzer$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper", "com.sun.tools.javac.comp.Analyzer", "DeferredAnalysisHelper", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Analyzer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper",
-	_Analyzer$1_FieldInfo_,
-	_Analyzer$1_MethodInfo_,
-	nullptr,
-	&_Analyzer$1_EnclosingMethodInfo_,
-	_Analyzer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$1($Class* clazz) {
-	return $of($alloc(Analyzer$1));
-}
-
 void Analyzer$1::init$($Analyzer* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -78,7 +33,44 @@ Analyzer$1::Analyzer$1() {
 }
 
 $Class* Analyzer$1::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$1, name, initialize, &_Analyzer$1_ClassInfo_, allocate$Analyzer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;)V", nullptr, 0, $method(Analyzer$1, init$, void, $Analyzer*)},
+		{"flush", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Analyzer$1, flush, void, $Env*)},
+		{"queue", "(Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;)V", nullptr, $PUBLIC, $virtualMethod(Analyzer$1, queue, void, $Analyzer$RewritingContext*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Analyzer",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper", "com.sun.tools.javac.comp.Analyzer", "DeferredAnalysisHelper", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Analyzer$DeferredAnalysisHelper",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$BeginLineAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/LookAndFeel.h>
@@ -11,13 +10,11 @@
 #include <javax/swing/text/Utilities.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
@@ -28,49 +25,13 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultEditorKit$BeginLineAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$BeginLineAction, select)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$BeginLineAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$BeginLineAction, init$, void, $String*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$BeginLineAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$BeginLineAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$BeginLineAction", "javax.swing.text.DefaultEditorKit", "BeginLineAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$BeginLineAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$BeginLineAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$BeginLineAction_FieldInfo_,
-	_DefaultEditorKit$BeginLineAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$BeginLineAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$BeginLineAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$BeginLineAction));
-}
-
 void DefaultEditorKit$BeginLineAction::init$($String* nm, bool select) {
 	$TextAction::init$(nm);
 	this->select = select;
 }
 
 void DefaultEditorKit$BeginLineAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		try {
@@ -82,7 +43,7 @@ void DefaultEditorKit$BeginLineAction::actionPerformed($ActionEvent* e) {
 				target->setCaretPosition(begOffs);
 			}
 		} catch ($BadLocationException& bl) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(target);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(target);
 		}
 	}
 }
@@ -91,7 +52,37 @@ DefaultEditorKit$BeginLineAction::DefaultEditorKit$BeginLineAction() {
 }
 
 $Class* DefaultEditorKit$BeginLineAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$BeginLineAction, name, initialize, &_DefaultEditorKit$BeginLineAction_ClassInfo_, allocate$DefaultEditorKit$BeginLineAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$BeginLineAction, select)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(DefaultEditorKit$BeginLineAction, init$, void, $String*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$BeginLineAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$BeginLineAction", "javax.swing.text.DefaultEditorKit", "BeginLineAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$BeginLineAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$BeginLineAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$BeginLineAction));
+	});
 	return class$;
 }
 

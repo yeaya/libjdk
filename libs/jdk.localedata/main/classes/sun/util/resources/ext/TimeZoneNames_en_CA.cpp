@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/TimeZoneNames_en_CA.h>
-
 #include <sun/util/resources/TimeZoneNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _TimeZoneNames_en_CA_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_en_CA, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_en_CA, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _TimeZoneNames_en_CA_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.TimeZoneNames_en_CA",
-	"sun.util.resources.TimeZoneNamesBundle",
-	nullptr,
-	nullptr,
-	_TimeZoneNames_en_CA_MethodInfo_
-};
-
-$Object* allocate$TimeZoneNames_en_CA($Class* clazz) {
-	return $of($alloc(TimeZoneNames_en_CA));
-}
-
 void TimeZoneNames_en_CA::init$() {
 	$TimeZoneNamesBundle::init$();
 }
@@ -44,7 +24,22 @@ TimeZoneNames_en_CA::TimeZoneNames_en_CA() {
 }
 
 $Class* TimeZoneNames_en_CA::load$($String* name, bool initialize) {
-	$loadClass(TimeZoneNames_en_CA, name, initialize, &_TimeZoneNames_en_CA_ClassInfo_, allocate$TimeZoneNames_en_CA);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimeZoneNames_en_CA, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TimeZoneNames_en_CA, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.TimeZoneNames_en_CA",
+		"sun.util.resources.TimeZoneNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TimeZoneNames_en_CA, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeZoneNames_en_CA);
+	});
 	return class$;
 }
 

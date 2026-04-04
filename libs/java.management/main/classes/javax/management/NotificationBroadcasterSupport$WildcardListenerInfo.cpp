@@ -1,5 +1,4 @@
 #include <javax/management/NotificationBroadcasterSupport$WildcardListenerInfo.h>
-
 #include <java/lang/AssertionError.h>
 #include <javax/management/NotificationBroadcasterSupport$ListenerInfo.h>
 #include <javax/management/NotificationBroadcasterSupport.h>
@@ -20,44 +19,6 @@ using $NotificationListener = ::javax::management::NotificationListener;
 namespace javax {
 	namespace management {
 
-$FieldInfo _NotificationBroadcasterSupport$WildcardListenerInfo_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NotificationBroadcasterSupport$WildcardListenerInfo, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _NotificationBroadcasterSupport$WildcardListenerInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/NotificationListener;)V", nullptr, 0, $method(NotificationBroadcasterSupport$WildcardListenerInfo, init$, void, $NotificationListener*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$WildcardListenerInfo, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$WildcardListenerInfo, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NotificationBroadcasterSupport$WildcardListenerInfo_InnerClassesInfo_[] = {
-	{"javax.management.NotificationBroadcasterSupport$WildcardListenerInfo", "javax.management.NotificationBroadcasterSupport", "WildcardListenerInfo", $PRIVATE | $STATIC},
-	{"javax.management.NotificationBroadcasterSupport$ListenerInfo", "javax.management.NotificationBroadcasterSupport", "ListenerInfo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NotificationBroadcasterSupport$WildcardListenerInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.NotificationBroadcasterSupport$WildcardListenerInfo",
-	"javax.management.NotificationBroadcasterSupport$ListenerInfo",
-	nullptr,
-	_NotificationBroadcasterSupport$WildcardListenerInfo_FieldInfo_,
-	_NotificationBroadcasterSupport$WildcardListenerInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NotificationBroadcasterSupport$WildcardListenerInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.NotificationBroadcasterSupport"
-};
-
-$Object* allocate$NotificationBroadcasterSupport$WildcardListenerInfo($Class* clazz) {
-	return $of($alloc(NotificationBroadcasterSupport$WildcardListenerInfo));
-}
-
 bool NotificationBroadcasterSupport$WildcardListenerInfo::$assertionsDisabled = false;
 
 void NotificationBroadcasterSupport$WildcardListenerInfo::init$($NotificationListener* listener) {
@@ -75,7 +36,7 @@ int32_t NotificationBroadcasterSupport$WildcardListenerInfo::hashCode() {
 	return $NotificationBroadcasterSupport$ListenerInfo::hashCode();
 }
 
-void clinit$NotificationBroadcasterSupport$WildcardListenerInfo($Class* class$) {
+void NotificationBroadcasterSupport$WildcardListenerInfo::clinit$($Class* clazz) {
 	$load($NotificationBroadcasterSupport);
 	NotificationBroadcasterSupport$WildcardListenerInfo::$assertionsDisabled = !$NotificationBroadcasterSupport::class$->desiredAssertionStatus();
 }
@@ -84,7 +45,39 @@ NotificationBroadcasterSupport$WildcardListenerInfo::NotificationBroadcasterSupp
 }
 
 $Class* NotificationBroadcasterSupport$WildcardListenerInfo::load$($String* name, bool initialize) {
-	$loadClass(NotificationBroadcasterSupport$WildcardListenerInfo, name, initialize, &_NotificationBroadcasterSupport$WildcardListenerInfo_ClassInfo_, clinit$NotificationBroadcasterSupport$WildcardListenerInfo, allocate$NotificationBroadcasterSupport$WildcardListenerInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NotificationBroadcasterSupport$WildcardListenerInfo, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/NotificationListener;)V", nullptr, 0, $method(NotificationBroadcasterSupport$WildcardListenerInfo, init$, void, $NotificationListener*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$WildcardListenerInfo, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$WildcardListenerInfo, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.NotificationBroadcasterSupport$WildcardListenerInfo", "javax.management.NotificationBroadcasterSupport", "WildcardListenerInfo", $PRIVATE | $STATIC},
+		{"javax.management.NotificationBroadcasterSupport$ListenerInfo", "javax.management.NotificationBroadcasterSupport", "ListenerInfo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.NotificationBroadcasterSupport$WildcardListenerInfo",
+		"javax.management.NotificationBroadcasterSupport$ListenerInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.NotificationBroadcasterSupport"
+	};
+	$loadClass(NotificationBroadcasterSupport$WildcardListenerInfo, name, initialize, &classInfo$$, NotificationBroadcasterSupport$WildcardListenerInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationBroadcasterSupport$WildcardListenerInfo);
+	});
 	return class$;
 }
 

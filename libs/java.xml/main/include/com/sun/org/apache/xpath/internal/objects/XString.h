@@ -65,6 +65,7 @@ public:
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::bool$;
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* val);
 	void init$($String* val);
 	virtual bool bool$() override;
@@ -118,7 +119,7 @@ public:
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* trim() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::xstr;
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* xstr() override;
-	static const int64_t serialVersionUID = (int64_t)0x1C0A273B4816C5FD;
+	static const int64_t serialVersionUID = (int64_t)0x1c0a273b4816c5fd;
 	static ::com::sun::org::apache::xpath::internal::objects::XString* EMPTYSTRING;
 };
 

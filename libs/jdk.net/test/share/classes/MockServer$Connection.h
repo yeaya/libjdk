@@ -36,6 +36,7 @@ class $export MockServer$Connection : public ::java::lang::Thread {
 	$class(MockServer$Connection, 0, ::java::lang::Thread)
 public:
 	MockServer$Connection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::MockServer* this$0, ::java::net::Socket* s);
 	void cleanup();
 	virtual void close();

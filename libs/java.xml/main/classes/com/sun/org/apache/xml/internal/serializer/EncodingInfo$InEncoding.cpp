@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/EncodingInfo$InEncoding.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/EncodingInfo.h>
 #include <jcpp.h>
 
@@ -15,39 +14,34 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$MethodInfo _EncodingInfo$InEncoding_MethodInfo_[] = {
-	{"isInEncoding", "(C)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EncodingInfo$InEncoding, isInEncoding, bool, char16_t)},
-	{"isInEncoding", "(CC)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EncodingInfo$InEncoding, isInEncoding, bool, char16_t, char16_t)},
-	{}
-};
-
-$InnerClassInfo _EncodingInfo$InEncoding_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.EncodingInfo$InEncoding", "com.sun.org.apache.xml.internal.serializer.EncodingInfo", "InEncoding", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _EncodingInfo$InEncoding_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.serializer.EncodingInfo$InEncoding",
-	nullptr,
-	nullptr,
-	nullptr,
-	_EncodingInfo$InEncoding_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EncodingInfo$InEncoding_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.EncodingInfo"
-};
-
-$Object* allocate$EncodingInfo$InEncoding($Class* clazz) {
-	return $of($alloc(EncodingInfo$InEncoding));
-}
-
 $Class* EncodingInfo$InEncoding::load$($String* name, bool initialize) {
-	$loadClass(EncodingInfo$InEncoding, name, initialize, &_EncodingInfo$InEncoding_ClassInfo_, allocate$EncodingInfo$InEncoding);
+	$MethodInfo methodInfos$$[] = {
+		{"isInEncoding", "(C)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EncodingInfo$InEncoding, isInEncoding, bool, char16_t)},
+		{"isInEncoding", "(CC)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EncodingInfo$InEncoding, isInEncoding, bool, char16_t, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.EncodingInfo$InEncoding", "com.sun.org.apache.xml.internal.serializer.EncodingInfo", "InEncoding", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.serializer.EncodingInfo$InEncoding",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.EncodingInfo"
+	};
+	$loadClass(EncodingInfo$InEncoding, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EncodingInfo$InEncoding);
+	});
 	return class$;
 }
 

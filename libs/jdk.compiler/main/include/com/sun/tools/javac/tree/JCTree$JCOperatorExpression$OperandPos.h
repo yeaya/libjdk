@@ -22,6 +22,7 @@ class $import JCTree$JCOperatorExpression$OperandPos : public ::java::lang::Enum
 public:
 	JCTree$JCOperatorExpression$OperandPos();
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCOperatorExpression$OperandPos>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression$OperandPos* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCOperatorExpression$OperandPos>* values();

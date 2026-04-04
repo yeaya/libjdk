@@ -69,6 +69,7 @@ class $import HttpRequestBuilderImpl : public ::java::net::http::HttpRequest$Bui
 	$class(HttpRequestBuilderImpl, 0, ::java::net::http::HttpRequest$Builder)
 public:
 	HttpRequestBuilderImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::URI* uri);
 	void init$();
 	virtual ::java::net::http::HttpRequest$Builder* DELETE() override;

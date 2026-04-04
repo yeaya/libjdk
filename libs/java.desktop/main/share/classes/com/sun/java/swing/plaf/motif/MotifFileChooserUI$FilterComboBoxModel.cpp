@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$FilterComboBoxModel.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/AbstractListModel.h>
@@ -29,54 +28,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifFileChooserUI$FilterComboBoxModel_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$FilterComboBoxModel, this$0)},
-	{"filters", "[Ljavax/swing/filechooser/FileFilter;", nullptr, $PROTECTED, $field(MotifFileChooserUI$FilterComboBoxModel, filters)},
-	{}
-};
-
-$MethodInfo _MotifFileChooserUI$FilterComboBoxModel_MethodInfo_[] = {
-	{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;)V", nullptr, $PROTECTED, $method(MotifFileChooserUI$FilterComboBoxModel, init$, void, $MotifFileChooserUI*)},
-	{"getElementAt", "(I)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, getElementAt, $Object*, int32_t)},
-	{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, getSelectedItem, $Object*)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, getSize, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, propertyChange, void, $PropertyChangeEvent*)},
-	{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
-	{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, setSelectedItem, void, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifFileChooserUI$FilterComboBoxModel_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifFileChooserUI$FilterComboBoxModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxModel",
-	"javax.swing.AbstractListModel",
-	"javax.swing.ComboBoxModel,java.beans.PropertyChangeListener",
-	_MotifFileChooserUI$FilterComboBoxModel_FieldInfo_,
-	_MotifFileChooserUI$FilterComboBoxModel_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<Ljavax/swing/filechooser/FileFilter;>;Ljavax/swing/ComboBoxModel<Ljavax/swing/filechooser/FileFilter;>;Ljava/beans/PropertyChangeListener;",
-	nullptr,
-	_MotifFileChooserUI$FilterComboBoxModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
-};
-
-$Object* allocate$MotifFileChooserUI$FilterComboBoxModel($Class* clazz) {
-	return $of($alloc(MotifFileChooserUI$FilterComboBoxModel));
-}
 
 void MotifFileChooserUI$FilterComboBoxModel::addListDataListener($ListDataListener* l) {
 	this->$AbstractListModel::addListDataListener(l);
@@ -109,7 +60,7 @@ void MotifFileChooserUI$FilterComboBoxModel::finalize() {
 void MotifFileChooserUI$FilterComboBoxModel::init$($MotifFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractListModel::init$();
-	$set(this, filters, $nc($(this$0->getFileChooser()))->getChoosableFileFilters());
+	$set(this, filters, $$nc(this$0->getFileChooser())->getChoosableFileFilters());
 }
 
 void MotifFileChooserUI$FilterComboBoxModel::propertyChange($PropertyChangeEvent* e) {
@@ -118,48 +69,42 @@ void MotifFileChooserUI$FilterComboBoxModel::propertyChange($PropertyChangeEvent
 	if ($nc(prop)->equals($JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY)) {
 		$set(this, filters, $cast($FileFilterArray, e->getNewValue()));
 		fireContentsChanged(this, -1, -1);
-	} else {
-		if (prop->equals($JFileChooser::FILE_FILTER_CHANGED_PROPERTY)) {
-			fireContentsChanged(this, -1, -1);
-		}
+	} else if (prop->equals($JFileChooser::FILE_FILTER_CHANGED_PROPERTY)) {
+		fireContentsChanged(this, -1, -1);
 	}
 }
 
 void MotifFileChooserUI$FilterComboBoxModel::setSelectedItem(Object$* filter) {
 	if (filter != nullptr) {
-		$nc($(this->this$0->getFileChooser()))->setFileFilter($cast($FileFilter, filter));
+		$$nc(this->this$0->getFileChooser())->setFileFilter($cast($FileFilter, filter));
 		fireContentsChanged(this, -1, -1);
 	}
 }
 
 $Object* MotifFileChooserUI$FilterComboBoxModel::getSelectedItem() {
-	$useLocalCurrentObjectStackCache();
-	$var($FileFilter, currentFilter, $nc($(this->this$0->getFileChooser()))->getFileFilter());
+	$useLocalObjectStack();
+	$var($FileFilter, currentFilter, $$nc(this->this$0->getFileChooser())->getFileFilter());
 	bool found = false;
 	if (currentFilter != nullptr) {
 		{
 			$var($FileFilterArray, arr$, this->filters);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($FileFilter, filter, arr$->get(i$));
-				{
-					if (filter == currentFilter) {
-						found = true;
-					}
+				if (filter == currentFilter) {
+					found = true;
 				}
 			}
 		}
 		if (!found) {
-			$nc($(this->this$0->getFileChooser()))->addChoosableFileFilter(currentFilter);
+			$$nc(this->this$0->getFileChooser())->addChoosableFileFilter(currentFilter);
 		}
 	}
-	return $of($nc($(this->this$0->getFileChooser()))->getFileFilter());
+	return $$nc(this->this$0->getFileChooser())->getFileFilter();
 }
 
 int32_t MotifFileChooserUI$FilterComboBoxModel::getSize() {
 	if (this->filters != nullptr) {
-		return $nc(this->filters)->length;
+		return this->filters->length;
 	} else {
 		return 0;
 	}
@@ -167,12 +112,12 @@ int32_t MotifFileChooserUI$FilterComboBoxModel::getSize() {
 
 $Object* MotifFileChooserUI$FilterComboBoxModel::getElementAt(int32_t index) {
 	if (index > getSize() - 1) {
-		return $of($nc($(this->this$0->getFileChooser()))->getFileFilter());
+		return $$nc(this->this$0->getFileChooser())->getFileFilter();
 	}
 	if (this->filters != nullptr) {
-		return $of($nc(this->filters)->get(index));
+		return this->filters->get(index);
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
@@ -180,7 +125,49 @@ MotifFileChooserUI$FilterComboBoxModel::MotifFileChooserUI$FilterComboBoxModel()
 }
 
 $Class* MotifFileChooserUI$FilterComboBoxModel::load$($String* name, bool initialize) {
-	$loadClass(MotifFileChooserUI$FilterComboBoxModel, name, initialize, &_MotifFileChooserUI$FilterComboBoxModel_ClassInfo_, allocate$MotifFileChooserUI$FilterComboBoxModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$FilterComboBoxModel, this$0)},
+		{"filters", "[Ljavax/swing/filechooser/FileFilter;", nullptr, $PROTECTED, $field(MotifFileChooserUI$FilterComboBoxModel, filters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;)V", nullptr, $PROTECTED, $method(MotifFileChooserUI$FilterComboBoxModel, init$, void, $MotifFileChooserUI*)},
+		{"getElementAt", "(I)Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, getElementAt, $Object*, int32_t)},
+		{"getSelectedItem", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, getSelectedItem, $Object*)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, getSize, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, propertyChange, void, $PropertyChangeEvent*)},
+		{"*removeListDataListener", "(Ljavax/swing/event/ListDataListener;)V", nullptr, $PUBLIC},
+		{"setSelectedItem", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$FilterComboBoxModel, setSelectedItem, void, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxModel",
+		"javax.swing.AbstractListModel",
+		"javax.swing.ComboBoxModel,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<Ljavax/swing/filechooser/FileFilter;>;Ljavax/swing/ComboBoxModel<Ljavax/swing/filechooser/FileFilter;>;Ljava/beans/PropertyChangeListener;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
+	};
+	$loadClass(MotifFileChooserUI$FilterComboBoxModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifFileChooserUI$FilterComboBoxModel));
+	});
 	return class$;
 }
 

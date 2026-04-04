@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalComboBoxUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -12,7 +11,6 @@
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/CellRendererPane.h>
 #include <javax/swing/ComboBoxEditor.h>
-#include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JComponent.h>
@@ -34,8 +32,6 @@
 #undef NO_BUTTON_ROLLOVER
 #undef TRUE
 
-using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
@@ -51,7 +47,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
-using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
@@ -72,73 +67,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$CompoundAttribute _MetalComboBoxUI_MethodAnnotations_editablePropertyChanged17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _MetalComboBoxUI_MethodAnnotations_removeListeners24[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _MetalComboBoxUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalComboBoxUI, init$, void)},
-	{"access$000", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$000, $JButton*, MetalComboBoxUI*)},
-	{"access$100", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$100, $JButton*, MetalComboBoxUI*)},
-	{"access$200", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$200, $JComboBox*, MetalComboBoxUI*)},
-	{"access$300", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$300, $JComboBox*, MetalComboBoxUI*)},
-	{"access$400", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$400, $JButton*, MetalComboBoxUI*)},
-	{"access$500", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$500, $JButton*, MetalComboBoxUI*)},
-	{"access$600", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$600, $JList*, MetalComboBoxUI*)},
-	{"access$700", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$700, $JButton*, MetalComboBoxUI*)},
-	{"access$800", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$800, $JList*, MetalComboBoxUI*)},
-	{"configureEditor", "()V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, configureEditor, void)},
-	{"createArrowButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalComboBoxUI, createArrowButton, $JButton*)},
-	{"createEditor", "()Ljavax/swing/ComboBoxEditor;", nullptr, $PROTECTED, $virtualMethod(MetalComboBoxUI, createEditor, $ComboBoxEditor*)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(MetalComboBoxUI, createLayoutManager, $LayoutManager*)},
-	{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(MetalComboBoxUI, createPopup, $ComboPopup*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"editablePropertyChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(MetalComboBoxUI, editablePropertyChanged, void, $PropertyChangeEvent*), nullptr, nullptr, _MetalComboBoxUI_MethodAnnotations_editablePropertyChanged17},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"layoutComboBox", "(Ljava/awt/Container;Ljavax/swing/plaf/metal/MetalComboBoxUI$MetalComboBoxLayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, layoutComboBox, void, $Container*, $MetalComboBoxUI$MetalComboBoxLayoutManager*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintCurrentValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, paintCurrentValue, void, $Graphics*, $Rectangle*, bool)},
-	{"paintCurrentValueBackground", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, paintCurrentValueBackground, void, $Graphics*, $Rectangle*, bool)},
-	{"removeListeners", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(MetalComboBoxUI, removeListeners, void), nullptr, nullptr, _MetalComboBoxUI_MethodAnnotations_removeListeners24},
-	{"unconfigureEditor", "()V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, unconfigureEditor, void)},
-	{"updateButtonForOcean", "(Ljavax/swing/JButton;)V", nullptr, $PRIVATE, $method(MetalComboBoxUI, updateButtonForOcean, void, $JButton*)},
-	{}
-};
-
-$InnerClassInfo _MetalComboBoxUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboPopup", "javax.swing.plaf.metal.MetalComboBoxUI", "MetalComboPopup", $PUBLIC},
-	{"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager", "javax.swing.plaf.metal.MetalComboBoxUI", "MetalComboBoxLayoutManager", $PUBLIC},
-	{"javax.swing.plaf.metal.MetalComboBoxUI$MetalPropertyChangeListener", "javax.swing.plaf.metal.MetalComboBoxUI", "MetalPropertyChangeListener", $PUBLIC},
-	{}
-};
-
-$ClassInfo _MetalComboBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalComboBoxUI",
-	"javax.swing.plaf.basic.BasicComboBoxUI",
-	nullptr,
-	nullptr,
-	_MetalComboBoxUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalComboBoxUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboPopup,javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,javax.swing.plaf.metal.MetalComboBoxUI$MetalPropertyChangeListener"
-};
-
-$Object* allocate$MetalComboBoxUI($Class* clazz) {
-	return $of($alloc(MetalComboBoxUI));
-}
 
 $JList* MetalComboBoxUI::access$800(MetalComboBoxUI* x0) {
 	$init(MetalComboBoxUI);
@@ -205,7 +133,7 @@ void MetalComboBoxUI::paintCurrentValue($Graphics* g, $Rectangle* bounds, bool h
 		$nc(bounds)->x += 2;
 		bounds->width -= 3;
 		if (this->arrowButton != nullptr) {
-			$var($Insets, buttonInsets, $nc(this->arrowButton)->getInsets());
+			$var($Insets, buttonInsets, this->arrowButton->getInsets());
 			bounds->y += $nc(buttonInsets)->top;
 			bounds->height -= (buttonInsets->top + buttonInsets->bottom);
 		} else {
@@ -219,20 +147,20 @@ void MetalComboBoxUI::paintCurrentValue($Graphics* g, $Rectangle* bounds, bool h
 }
 
 void MetalComboBoxUI::paintCurrentValueBackground($Graphics* g, $Rectangle* bounds, bool hasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MetalLookAndFeel::usingOcean()) {
 		$nc(g)->setColor($($MetalLookAndFeel::getControlDarkShadow()));
-		g->drawRect($nc(bounds)->x, bounds->y, bounds->width, bounds->height - 1);
+		g->drawRect($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height - 1);
 		g->setColor($($MetalLookAndFeel::getControlShadow()));
-		g->drawRect($nc(bounds)->x + 1, bounds->y + 1, bounds->width - 2, bounds->height - 3);
+		g->drawRect(bounds->x + 1, bounds->y + 1, bounds->width - 2, bounds->height - 3);
 		if (hasFocus && !isPopupVisible(this->comboBox) && this->arrowButton != nullptr) {
 			g->setColor($($nc(this->listBox)->getSelectionBackground()));
 			$var($Insets, buttonInsets, $nc(this->arrowButton)->getInsets());
 			if ($nc(buttonInsets)->top > 2) {
-				g->fillRect($nc(bounds)->x + 2, bounds->y + 2, bounds->width - 3, buttonInsets->top - 2);
+				g->fillRect(bounds->x + 2, bounds->y + 2, bounds->width - 3, buttonInsets->top - 2);
 			}
-			if ($nc(buttonInsets)->bottom > 2) {
-				g->fillRect($nc(bounds)->x + 2, bounds->y + bounds->height - buttonInsets->bottom, bounds->width - 3, buttonInsets->bottom - 2);
+			if (buttonInsets->bottom > 2) {
+				g->fillRect(bounds->x + 2, bounds->y + bounds->height - buttonInsets->bottom, bounds->width - 3, buttonInsets->bottom - 2);
 			}
 		}
 	} else if (g == nullptr || bounds == nullptr) {
@@ -263,14 +191,13 @@ $ComboPopup* MetalComboBoxUI::createPopup() {
 }
 
 $JButton* MetalComboBoxUI::createArrowButton() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->comboBox)->isEditable();
 	bool iconOnly = (var$0 || $MetalLookAndFeel::usingOcean());
 	$var($JButton, button, $new($MetalComboBoxButton, this->comboBox, $$new($MetalComboBoxIcon), iconOnly, this->currentValuePane, this->listBox));
 	button->setMargin($$new($Insets, 0, 1, 1, 3));
 	if ($MetalLookAndFeel::usingOcean()) {
 		$init($MetalBorders);
-		$init($Boolean);
 		button->putClientProperty($MetalBorders::NO_BUTTON_ROLLOVER, $Boolean::TRUE);
 	}
 	updateButtonForOcean(button);
@@ -295,7 +222,7 @@ $LayoutManager* MetalComboBoxUI::createLayoutManager() {
 }
 
 void MetalComboBoxUI::layoutComboBox($Container* parent, $MetalComboBoxUI$MetalComboBoxLayoutManager* manager) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->comboBox)->isEditable();
 	if (var$0 && !$MetalLookAndFeel::usingOcean()) {
 		$nc(manager)->superLayout(parent);
@@ -305,15 +232,14 @@ void MetalComboBoxUI::layoutComboBox($Container* parent, $MetalComboBoxUI$MetalC
 		if ($MetalLookAndFeel::usingOcean()) {
 			$var($Insets, insets, $nc(this->comboBox)->getInsets());
 			int32_t buttonWidth = $nc($($nc(this->arrowButton)->getMinimumSize()))->width;
-			int32_t var$1 = $MetalUtils::isLeftToRight(this->comboBox) ? ($nc(this->comboBox)->getWidth() - $nc(insets)->right - buttonWidth) : insets->left;
-			int32_t var$2 = insets->top;
-			int32_t var$3 = buttonWidth;
-			$nc(this->arrowButton)->setBounds(var$1, var$2, var$3, $nc(this->comboBox)->getHeight() - insets->top - insets->bottom);
+			int32_t var$1 = $MetalUtils::isLeftToRight(this->comboBox) ? ($nc(this->comboBox)->getWidth() - $nc(insets)->right - buttonWidth) : $nc(insets)->left;
+			int32_t var$2 = $nc(insets)->top;
+			$nc(this->arrowButton)->setBounds(var$1, var$2, buttonWidth, $nc(this->comboBox)->getHeight() - insets->top - insets->bottom);
 		} else {
 			$var($Insets, insets, $nc(this->comboBox)->getInsets());
 			int32_t width = $nc(this->comboBox)->getWidth();
 			int32_t height = $nc(this->comboBox)->getHeight();
-			$nc(this->arrowButton)->setBounds($nc(insets)->left, insets->top, width - (insets->left + insets->right), height - (insets->top + insets->bottom));
+			$nc(this->arrowButton)->setBounds($nc(insets)->left, $nc(insets)->top, width - ($nc(insets)->left + $nc(insets)->right), height - ($nc(insets)->top + $nc(insets)->bottom));
 		}
 	}
 	if (this->editor != nullptr && $MetalLookAndFeel::usingOcean()) {
@@ -337,16 +263,16 @@ void MetalComboBoxUI::unconfigureEditor() {
 }
 
 $Dimension* MetalComboBoxUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isMinimumSizeDirty) {
 		return $new($Dimension, this->cachedMinimumSize);
 	}
 	$var($Dimension, size, nullptr);
 	if (!$nc(this->comboBox)->isEditable() && this->arrowButton != nullptr) {
-		$var($Insets, buttonInsets, $nc(this->arrowButton)->getInsets());
+		$var($Insets, buttonInsets, this->arrowButton->getInsets());
 		$var($Insets, insets, $nc(this->comboBox)->getInsets());
 		$assign(size, getDisplaySize());
-		$nc(size)->width += $nc(insets)->left + insets->right;
+		$nc(size)->width += $nc(insets)->left + $nc(insets)->right;
 		size->width += $nc(buttonInsets)->right;
 		size->width += $nc($($nc(this->arrowButton)->getMinimumSize()))->width;
 		size->height += insets->top + insets->bottom;
@@ -354,12 +280,12 @@ $Dimension* MetalComboBoxUI::getMinimumSize($JComponent* c) {
 	} else if ($nc(this->comboBox)->isEditable() && this->arrowButton != nullptr && this->editor != nullptr) {
 		$assign(size, $BasicComboBoxUI::getMinimumSize(c));
 		$var($Insets, margin, $nc(this->arrowButton)->getMargin());
-		$nc(size)->height += $nc(margin)->top + margin->bottom;
+		$nc(size)->height += $nc(margin)->top + $nc(margin)->bottom;
 		size->width += margin->left + margin->right;
 	} else {
 		$assign(size, $BasicComboBoxUI::getMinimumSize(c));
 	}
-	$nc(this->cachedMinimumSize)->setSize($nc(size)->width, size->height);
+	$nc(this->cachedMinimumSize)->setSize($nc(size)->width, $nc(size)->height);
 	this->isMinimumSizeDirty = false;
 	return $new($Dimension, this->cachedMinimumSize);
 }
@@ -368,7 +294,67 @@ MetalComboBoxUI::MetalComboBoxUI() {
 }
 
 $Class* MetalComboBoxUI::load$($String* name, bool initialize) {
-	$loadClass(MetalComboBoxUI, name, initialize, &_MetalComboBoxUI_ClassInfo_, allocate$MetalComboBoxUI);
+	$CompoundAttribute editablePropertyChangedmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute removeListenersmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalComboBoxUI, init$, void)},
+		{"access$000", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$000, $JButton*, MetalComboBoxUI*)},
+		{"access$100", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$100, $JButton*, MetalComboBoxUI*)},
+		{"access$200", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$200, $JComboBox*, MetalComboBoxUI*)},
+		{"access$300", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$300, $JComboBox*, MetalComboBoxUI*)},
+		{"access$400", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$400, $JButton*, MetalComboBoxUI*)},
+		{"access$500", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$500, $JButton*, MetalComboBoxUI*)},
+		{"access$600", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$600, $JList*, MetalComboBoxUI*)},
+		{"access$700", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JButton;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$700, $JButton*, MetalComboBoxUI*)},
+		{"access$800", "(Ljavax/swing/plaf/metal/MetalComboBoxUI;)Ljavax/swing/JList;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MetalComboBoxUI, access$800, $JList*, MetalComboBoxUI*)},
+		{"configureEditor", "()V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, configureEditor, void)},
+		{"createArrowButton", "()Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MetalComboBoxUI, createArrowButton, $JButton*)},
+		{"createEditor", "()Ljavax/swing/ComboBoxEditor;", nullptr, $PROTECTED, $virtualMethod(MetalComboBoxUI, createEditor, $ComboBoxEditor*)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(MetalComboBoxUI, createLayoutManager, $LayoutManager*)},
+		{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(MetalComboBoxUI, createPopup, $ComboPopup*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"editablePropertyChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(MetalComboBoxUI, editablePropertyChanged, void, $PropertyChangeEvent*), nullptr, nullptr, editablePropertyChangedmethodAnnotations$$},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"layoutComboBox", "(Ljava/awt/Container;Ljavax/swing/plaf/metal/MetalComboBoxUI$MetalComboBoxLayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, layoutComboBox, void, $Container*, $MetalComboBoxUI$MetalComboBoxLayoutManager*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintCurrentValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, paintCurrentValue, void, $Graphics*, $Rectangle*, bool)},
+		{"paintCurrentValueBackground", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, paintCurrentValueBackground, void, $Graphics*, $Rectangle*, bool)},
+		{"removeListeners", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(MetalComboBoxUI, removeListeners, void), nullptr, nullptr, removeListenersmethodAnnotations$$},
+		{"unconfigureEditor", "()V", nullptr, $PUBLIC, $virtualMethod(MetalComboBoxUI, unconfigureEditor, void)},
+		{"updateButtonForOcean", "(Ljavax/swing/JButton;)V", nullptr, $PRIVATE, $method(MetalComboBoxUI, updateButtonForOcean, void, $JButton*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboPopup", "javax.swing.plaf.metal.MetalComboBoxUI", "MetalComboPopup", $PUBLIC},
+		{"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager", "javax.swing.plaf.metal.MetalComboBoxUI", "MetalComboBoxLayoutManager", $PUBLIC},
+		{"javax.swing.plaf.metal.MetalComboBoxUI$MetalPropertyChangeListener", "javax.swing.plaf.metal.MetalComboBoxUI", "MetalPropertyChangeListener", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalComboBoxUI",
+		"javax.swing.plaf.basic.BasicComboBoxUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalComboBoxUI$MetalComboPopup,javax.swing.plaf.metal.MetalComboBoxUI$MetalComboBoxLayoutManager,javax.swing.plaf.metal.MetalComboBoxUI$MetalPropertyChangeListener"
+	};
+	$loadClass(MetalComboBoxUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalComboBoxUI);
+	});
 	return class$;
 }
 

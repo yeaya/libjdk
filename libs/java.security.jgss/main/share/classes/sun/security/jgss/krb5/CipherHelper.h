@@ -66,6 +66,7 @@ class CipherHelper : public ::java::lang::Object {
 	$class(CipherHelper, 0, ::java::lang::Object)
 public:
 	CipherHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::krb5::EncryptionKey* key);
 	void aes128Decrypt(::sun::security::jgss::krb5::WrapToken_v2* token, $bytes* ciphertext, int32_t cStart, int32_t cLen, $bytes* plaintext, int32_t pStart, int32_t key_usage);
 	$bytes* aes128Encrypt($bytes* confounder, $bytes* tokenHeader, $bytes* plaintext, int32_t start, int32_t len, int32_t key_usage);

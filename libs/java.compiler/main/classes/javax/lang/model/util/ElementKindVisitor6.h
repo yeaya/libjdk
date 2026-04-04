@@ -28,6 +28,7 @@ class $export ElementKindVisitor6 : public ::javax::lang::model::util::SimpleEle
 	$class(ElementKindVisitor6, 0, ::javax::lang::model::util::SimpleElementVisitor6)
 public:
 	ElementKindVisitor6();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(Object$* defaultValue);
 	virtual $Object* visitExecutable(::javax::lang::model::element::ExecutableElement* e, Object$* p) override;

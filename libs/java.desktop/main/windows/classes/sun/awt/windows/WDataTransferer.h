@@ -90,6 +90,7 @@ class WDataTransferer : public ::sun::awt::datatransfer::DataTransferer {
 	$class(WDataTransferer, 0, ::sun::awt::datatransfer::DataTransferer)
 public:
 	WDataTransferer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::io::ByteArrayOutputStream* convertFileListToBytes(::java::util::ArrayList* fileList) override;
 	virtual $StringArray* dragQueryFile($bytes* bytes) override;

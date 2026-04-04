@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/CurrencyNames_et_EE.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,47 +12,28 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CurrencyNames_et_EE_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_et_EE, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_et_EE, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_et_EE_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.CurrencyNames_et_EE",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_et_EE_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_et_EE($Class* clazz) {
-	return $of($alloc(CurrencyNames_et_EE));
-}
-
 void CurrencyNames_et_EE::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_et_EE::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("EEK"_s),
-			$of("kr"_s)
+			"EEK"_s,
+			"kr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EUR"_s),
-			$of(u"€"_s)
+			"EUR"_s,
+			u"€"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eek"_s),
-			$of("Eesti kroon"_s)
+			"eek"_s,
+			"Eesti kroon"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("euro"_s)
+			"eur"_s,
+			"euro"_s
 		})
 	});
 }
@@ -62,7 +42,22 @@ CurrencyNames_et_EE::CurrencyNames_et_EE() {
 }
 
 $Class* CurrencyNames_et_EE::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_et_EE, name, initialize, &_CurrencyNames_et_EE_ClassInfo_, allocate$CurrencyNames_et_EE);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_et_EE, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_et_EE, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.CurrencyNames_et_EE",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_et_EE, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_et_EE);
+	});
 	return class$;
 }
 

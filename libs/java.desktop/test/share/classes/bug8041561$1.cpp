@@ -1,12 +1,10 @@
 #include <bug8041561$1.h>
-
 #include <bug8041561.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
 #include <javax/swing/plaf/metal/DefaultMetalTheme.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-#include <javax/swing/plaf/metal/MetalTheme.h>
 #include <jcpp.h>
 
 using $bug8041561 = ::bug8041561;
@@ -15,61 +13,22 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
 using $DefaultMetalTheme = ::javax::swing::plaf::metal::DefaultMetalTheme;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-using $MetalTheme = ::javax::swing::plaf::metal::MetalTheme;
-
-$MethodInfo _bug8041561$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8041561$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8041561$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8041561$1_EnclosingMethodInfo_ = {
-	"bug8041561",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug8041561$1_InnerClassesInfo_[] = {
-	{"bug8041561$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8041561$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8041561$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug8041561$1_MethodInfo_,
-	nullptr,
-	&_bug8041561$1_EnclosingMethodInfo_,
-	_bug8041561$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8041561"
-};
-
-$Object* allocate$bug8041561$1($Class* clazz) {
-	return $of($alloc(bug8041561$1));
-}
 
 void bug8041561$1::init$() {
 }
 
 void bug8041561$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$MetalLookAndFeel::setCurrentTheme($$new($DefaultMetalTheme));
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 		$bug8041561::createAndShowGUI();
 	} catch ($UnsupportedLookAndFeelException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -77,7 +36,38 @@ bug8041561$1::bug8041561$1() {
 }
 
 $Class* bug8041561$1::load$($String* name, bool initialize) {
-	$loadClass(bug8041561$1, name, initialize, &_bug8041561$1_ClassInfo_, allocate$bug8041561$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8041561$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8041561$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8041561",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8041561$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8041561$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8041561"
+	};
+	$loadClass(bug8041561$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8041561$1);
+	});
 	return class$;
 }
 

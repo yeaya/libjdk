@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/UseAttributeSets.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -29,7 +28,6 @@
 
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $AttributeSet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::AttributeSet;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
@@ -37,7 +35,6 @@ using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
-using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
@@ -47,7 +44,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $StringTokenizer = ::java::util::StringTokenizer;
 
 namespace com {
@@ -59,33 +55,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _UseAttributeSets_FieldInfo_[] = {
-	{"ATTR_SET_NOT_FOUND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UseAttributeSets, ATTR_SET_NOT_FOUND)},
-	{"_sets", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;>;", $PRIVATE | $FINAL, $field(UseAttributeSets, _sets)},
-	{}
-};
-
-$MethodInfo _UseAttributeSets_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $method(UseAttributeSets, init$, void, $String*, $Parser*)},
-	{"addAttributeSets", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UseAttributeSets, addAttributeSets, void, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(UseAttributeSets, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(UseAttributeSets, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _UseAttributeSets_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.UseAttributeSets",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_UseAttributeSets_FieldInfo_,
-	_UseAttributeSets_MethodInfo_
-};
-
-$Object* allocate$UseAttributeSets($Class* clazz) {
-	return $of($alloc(UseAttributeSets));
-}
-
 $String* UseAttributeSets::ATTR_SET_NOT_FOUND = nullptr;
 
 void UseAttributeSets::init$($String* setNames, $Parser* parser) {
@@ -96,13 +65,13 @@ void UseAttributeSets::init$($String* setNames, $Parser* parser) {
 }
 
 void UseAttributeSets::addAttributeSets($String* setNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	if ((setNames != nullptr) && (!setNames->equals($Constants::EMPTYSTRING))) {
 		$var($StringTokenizer, tokens, $new($StringTokenizer, setNames));
 		while (tokens->hasMoreTokens()) {
-			$var($QName, qname, $nc($(getParser()))->getQNameIgnoreDefaultNs($(tokens->nextToken())));
-			$nc(this->_sets)->add(qname);
+			$var($QName, qname, $$nc(getParser())->getQNameIgnoreDefaultNs($(tokens->nextToken())));
+			this->_sets->add(qname);
 		}
 	}
 }
@@ -113,12 +82,12 @@ $Type* UseAttributeSets::typeCheck($SymbolTable* stable) {
 }
 
 void UseAttributeSets::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$var($SymbolTable, symbolTable, $nc($(getParser()))->getSymbolTable());
+	$var($SymbolTable, symbolTable, $$nc(getParser())->getSymbolTable());
 	{
-		$var($Iterator, i$, $nc(this->_sets)->iterator());
+		$var($Iterator, i$, this->_sets->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($QName, name, $cast($QName, i$->next()));
 			{
@@ -132,7 +101,7 @@ void UseAttributeSets::translate($ClassGenerator* classGen, $MethodGenerator* me
 					il->append($(methodGen->loadCurrentNode()));
 					$init($Constants);
 					int32_t method = $nc(cpg)->addMethodref($(classGen->getClassName()), methodName, $Constants::ATTR_SET_SIG);
-					il->append(static_cast<$1Instruction*>($$new($INVOKESPECIAL, method)));
+					il->append($$new($INVOKESPECIAL, method));
 				} else {
 					$var($Parser, parser, getParser());
 					$var($String, atrs, $nc(name)->toString());
@@ -147,12 +116,34 @@ void UseAttributeSets::translate($ClassGenerator* classGen, $MethodGenerator* me
 UseAttributeSets::UseAttributeSets() {
 }
 
-void clinit$UseAttributeSets($Class* class$) {
+void UseAttributeSets::clinit$($Class* clazz) {
 	$assignStatic(UseAttributeSets::ATTR_SET_NOT_FOUND, ""_s);
 }
 
 $Class* UseAttributeSets::load$($String* name, bool initialize) {
-	$loadClass(UseAttributeSets, name, initialize, &_UseAttributeSets_ClassInfo_, clinit$UseAttributeSets, allocate$UseAttributeSets);
+	$FieldInfo fieldInfos$$[] = {
+		{"ATTR_SET_NOT_FOUND", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UseAttributeSets, ATTR_SET_NOT_FOUND)},
+		{"_sets", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;>;", $PRIVATE | $FINAL, $field(UseAttributeSets, _sets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $method(UseAttributeSets, init$, void, $String*, $Parser*)},
+		{"addAttributeSets", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(UseAttributeSets, addAttributeSets, void, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(UseAttributeSets, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(UseAttributeSets, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.UseAttributeSets",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UseAttributeSets, name, initialize, &classInfo$$, UseAttributeSets::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UseAttributeSets);
+	});
 	return class$;
 }
 

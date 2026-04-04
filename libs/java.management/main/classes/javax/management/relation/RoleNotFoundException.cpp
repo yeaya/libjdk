@@ -1,5 +1,4 @@
 #include <javax/management/relation/RoleNotFoundException.h>
-
 #include <javax/management/relation/RelationException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RelationException = ::javax::management::relation::RelationException;
 namespace javax {
 	namespace management {
 		namespace relation {
-
-$FieldInfo _RoleNotFoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleNotFoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RoleNotFoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RoleNotFoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RoleNotFoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _RoleNotFoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.RoleNotFoundException",
-	"javax.management.relation.RelationException",
-	nullptr,
-	_RoleNotFoundException_FieldInfo_,
-	_RoleNotFoundException_MethodInfo_
-};
-
-$Object* allocate$RoleNotFoundException($Class* clazz) {
-	return $of($alloc(RoleNotFoundException));
-}
 
 void RoleNotFoundException::init$() {
 	$RelationException::init$();
@@ -55,7 +30,26 @@ void RoleNotFoundException::throw$() {
 }
 
 $Class* RoleNotFoundException::load$($String* name, bool initialize) {
-	$loadClass(RoleNotFoundException, name, initialize, &_RoleNotFoundException_ClassInfo_, allocate$RoleNotFoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoleNotFoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RoleNotFoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RoleNotFoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.RoleNotFoundException",
+		"javax.management.relation.RelationException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RoleNotFoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RoleNotFoundException);
+	});
 	return class$;
 }
 

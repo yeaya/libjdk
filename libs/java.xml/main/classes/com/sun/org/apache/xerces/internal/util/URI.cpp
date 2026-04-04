@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/URI.h>
-
 #include <com/sun/org/apache/xerces/internal/util/URI$MalformedURIException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/util/Objects.h>
@@ -38,122 +37,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _URI_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(URI, serialVersionUID)},
-	{"fgLookupTable", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URI, fgLookupTable)},
-	{"RESERVED_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, RESERVED_CHARACTERS)},
-	{"MARK_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MARK_CHARACTERS)},
-	{"SCHEME_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, SCHEME_CHARACTERS)},
-	{"USERINFO_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, USERINFO_CHARACTERS)},
-	{"ASCII_ALPHA_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, ASCII_ALPHA_CHARACTERS)},
-	{"ASCII_DIGIT_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, ASCII_DIGIT_CHARACTERS)},
-	{"ASCII_HEX_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, ASCII_HEX_CHARACTERS)},
-	{"PATH_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, PATH_CHARACTERS)},
-	{"MASK_ALPHA_NUMERIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_ALPHA_NUMERIC)},
-	{"MASK_UNRESERVED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_UNRESERVED_MASK)},
-	{"MASK_URI_CHARACTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_URI_CHARACTER)},
-	{"MASK_SCHEME_CHARACTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_SCHEME_CHARACTER)},
-	{"MASK_USERINFO_CHARACTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_USERINFO_CHARACTER)},
-	{"MASK_PATH_CHARACTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_PATH_CHARACTER)},
-	{"m_scheme", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_scheme)},
-	{"m_userinfo", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_userinfo)},
-	{"m_host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_host)},
-	{"m_port", "I", nullptr, $PRIVATE, $field(URI, m_port)},
-	{"m_regAuthority", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_regAuthority)},
-	{"m_path", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_path)},
-	{"m_queryString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_queryString)},
-	{"m_fragment", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_fragment)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(URI, DEBUG)},
-	{}
-};
-
-$MethodInfo _URI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(URI, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/URI;)V", nullptr, $PUBLIC, $method(URI, init$, void, URI*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*, bool), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/URI;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, URI*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/URI;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(URI, init$, void, URI*, $String*, bool), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*, $String*, $String*, $String*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*, $String*, $String*, int32_t, $String*, $String*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"absolutize", "(Lcom/sun/org/apache/xerces/internal/util/URI;)V", nullptr, $PUBLIC, $virtualMethod(URI, absolutize, void, URI*)},
-	{"appendPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, appendPath, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URI, equals, bool, Object$*)},
-	{"getAuthority", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getAuthority, $String*)},
-	{"getFragment", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getFragment, $String*)},
-	{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getHost, $String*)},
-	{"getPath", "(ZZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getPath, $String*, bool, bool)},
-	{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getPath, $String*)},
-	{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(URI, getPort, int32_t)},
-	{"getQueryString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getQueryString, $String*)},
-	{"getRegBasedAuthority", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getRegBasedAuthority, $String*)},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getScheme, $String*)},
-	{"getSchemeSpecificPart", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getSchemeSpecificPart, $String*)},
-	{"getUserinfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getUserinfo, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URI, hashCode, int32_t)},
-	{"initialize", "(Lcom/sun/org/apache/xerces/internal/util/URI;)V", nullptr, $PRIVATE, $method(URI, initialize, void, URI*)},
-	{"initialize", "(Lcom/sun/org/apache/xerces/internal/util/URI;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(URI, initialize, void, URI*, $String*, bool), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"initialize", "(Lcom/sun/org/apache/xerces/internal/util/URI;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URI, initialize, void, URI*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"initializeAuthority", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(URI, initializeAuthority, bool, $String*)},
-	{"initializePath", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(URI, initializePath, void, $String*, int32_t), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"initializeScheme", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URI, initializeScheme, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"isAbsoluteURI", "()Z", nullptr, $PUBLIC, $virtualMethod(URI, isAbsoluteURI, bool)},
-	{"isAlpha", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isAlpha, bool, char16_t)},
-	{"isAlphanum", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isAlphanum, bool, char16_t)},
-	{"isConformantSchemeName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URI, isConformantSchemeName, bool, $String*)},
-	{"isDigit", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isDigit, bool, char16_t)},
-	{"isGenericURI", "()Z", nullptr, $PUBLIC, $virtualMethod(URI, isGenericURI, bool)},
-	{"isHex", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isHex, bool, char16_t)},
-	{"isPathCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isPathCharacter, bool, char16_t)},
-	{"isReservedCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isReservedCharacter, bool, char16_t)},
-	{"isSchemeCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isSchemeCharacter, bool, char16_t)},
-	{"isURICharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isURICharacter, bool, char16_t)},
-	{"isURIString", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isURIString, bool, $String*)},
-	{"isUnreservedCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isUnreservedCharacter, bool, char16_t)},
-	{"isUserinfoCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isUserinfoCharacter, bool, char16_t)},
-	{"isValidRegistryBasedAuthority", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(URI, isValidRegistryBasedAuthority, bool, $String*)},
-	{"isValidServerBasedAuthority", "(Ljava/lang/String;ILjava/lang/String;)Z", nullptr, $PRIVATE, $method(URI, isValidServerBasedAuthority, bool, $String*, int32_t, $String*)},
-	{"isWellFormedAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URI, isWellFormedAddress, bool, $String*)},
-	{"isWellFormedIPv4Address", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URI, isWellFormedIPv4Address, bool, $String*)},
-	{"isWellFormedIPv6Reference", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URI, isWellFormedIPv6Reference, bool, $String*)},
-	{"scanHexSequence", "(Ljava/lang/String;II[I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, scanHexSequence, int32_t, $String*, int32_t, int32_t, $ints*)},
-	{"setFragment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setFragment, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"setHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setHost, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"setPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setPath, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"setPort", "(I)V", nullptr, $PUBLIC, $virtualMethod(URI, setPort, void, int32_t), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"setQueryString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setQueryString, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"setRegBasedAuthority", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setRegBasedAuthority, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"setScheme", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setScheme, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"setUserinfo", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setUserinfo, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _URI_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.URI$MalformedURIException", "com.sun.org.apache.xerces.internal.util.URI", "MalformedURIException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _URI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.URI",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_URI_FieldInfo_,
-	_URI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_URI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"
-};
-
-$Object* allocate$URI($Class* clazz) {
-	return $of($alloc(URI));
-}
 
 $bytes* URI::fgLookupTable = nullptr;
 bool URI::DEBUG = false;
@@ -214,7 +97,7 @@ void URI::init$(URI* p_base, $String* p_uriSpec, bool allowNonAbsoluteURI) {
 }
 
 void URI::init$($String* p_scheme, $String* p_schemeSpecificPart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, m_scheme, nullptr);
 	$set(this, m_userinfo, nullptr);
 	$set(this, m_host, nullptr);
@@ -223,10 +106,10 @@ void URI::init$($String* p_scheme, $String* p_schemeSpecificPart) {
 	$set(this, m_path, nullptr);
 	$set(this, m_queryString, nullptr);
 	$set(this, m_fragment, nullptr);
-	if (p_scheme == nullptr || $($nc(p_scheme)->trim())->length() == 0) {
+	if (p_scheme == nullptr || $(p_scheme->trim())->length() == 0) {
 		$throwNew($URI$MalformedURIException, "Cannot construct URI with null/empty scheme!"_s);
 	}
-	if (p_schemeSpecificPart == nullptr || $($nc(p_schemeSpecificPart)->trim())->length() == 0) {
+	if (p_schemeSpecificPart == nullptr || $(p_schemeSpecificPart->trim())->length() == 0) {
 		$throwNew($URI$MalformedURIException, "Cannot construct URI with null/empty scheme-specific part!"_s);
 	}
 	setScheme(p_scheme);
@@ -246,7 +129,7 @@ void URI::init$($String* p_scheme, $String* p_userinfo, $String* p_host, int32_t
 	$set(this, m_path, nullptr);
 	$set(this, m_queryString, nullptr);
 	$set(this, m_fragment, nullptr);
-	if (p_scheme == nullptr || $($nc(p_scheme)->trim())->length() == 0) {
+	if (p_scheme == nullptr || $(p_scheme->trim())->length() == 0) {
 		$throwNew($URI$MalformedURIException, "Scheme is required!"_s);
 	}
 	if (p_host == nullptr) {
@@ -258,10 +141,10 @@ void URI::init$($String* p_scheme, $String* p_userinfo, $String* p_host, int32_t
 		}
 	}
 	if (p_path != nullptr) {
-		if (p_path->indexOf((int32_t)u'?') != -1 && p_queryString != nullptr) {
+		if (p_path->indexOf(u'?') != -1 && p_queryString != nullptr) {
 			$throwNew($URI$MalformedURIException, "Query string cannot be specified in path and query string!"_s);
 		}
-		if (p_path->indexOf((int32_t)u'#') != -1 && p_fragment != nullptr) {
+		if (p_path->indexOf(u'#') != -1 && p_fragment != nullptr) {
 			$throwNew($URI$MalformedURIException, "Fragment cannot be specified in both the path and fragment!"_s);
 		}
 	}
@@ -286,9 +169,9 @@ void URI::initialize(URI* p_other) {
 }
 
 void URI::initialize(URI* p_base, $String* p_uriSpec, bool allowNonAbsoluteURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uriSpec, p_uriSpec);
-	int32_t uriSpecLen = (uriSpec != nullptr) ? $nc(uriSpec)->length() : 0;
+	int32_t uriSpecLen = (uriSpec != nullptr) ? uriSpec->length() : 0;
 	if (p_base == nullptr && uriSpecLen == 0) {
 		if (allowNonAbsoluteURI) {
 			$set(this, m_path, ""_s);
@@ -301,12 +184,12 @@ void URI::initialize(URI* p_base, $String* p_uriSpec, bool allowNonAbsoluteURI) 
 		return;
 	}
 	int32_t index = 0;
-	int32_t colonIdx = uriSpec->indexOf((int32_t)u':');
+	int32_t colonIdx = $nc(uriSpec)->indexOf(u':');
 	if (colonIdx != -1) {
 		int32_t searchFrom = colonIdx - 1;
-		int32_t slashIdx = uriSpec->lastIndexOf((int32_t)u'/', searchFrom);
-		int32_t queryIdx = uriSpec->lastIndexOf((int32_t)u'?', searchFrom);
-		int32_t fragmentIdx = uriSpec->lastIndexOf((int32_t)u'#', searchFrom);
+		int32_t slashIdx = uriSpec->lastIndexOf(u'/', searchFrom);
+		int32_t queryIdx = uriSpec->lastIndexOf(u'?', searchFrom);
+		int32_t fragmentIdx = uriSpec->lastIndexOf(u'#', searchFrom);
 		if (colonIdx == 0 || slashIdx != -1 || queryIdx != -1 || fragmentIdx != -1) {
 			if (colonIdx == 0 || (p_base == nullptr && fragmentIdx != 0 && !allowNonAbsoluteURI)) {
 				$throwNew($URI$MalformedURIException, "No scheme found in URI."_s);
@@ -318,13 +201,13 @@ void URI::initialize(URI* p_base, $String* p_uriSpec, bool allowNonAbsoluteURI) 
 				$throwNew($URI$MalformedURIException, "Scheme specific part cannot be empty."_s);
 			}
 		}
-	} else if (p_base == nullptr && uriSpec->indexOf((int32_t)u'#') != 0 && !allowNonAbsoluteURI) {
+	} else if (p_base == nullptr && uriSpec->indexOf(u'#') != 0 && !allowNonAbsoluteURI) {
 		$throwNew($URI$MalformedURIException, "No scheme found in URI."_s);
 	}
-	bool var$0 = ((index + 1) < uriSpecLen);
+	bool var$0 = (index + 1) < uriSpecLen;
 	if (var$0) {
 		bool var$1 = uriSpec->charAt(index) == u'/';
-		var$0 = (var$1 && uriSpec->charAt(index + 1) == u'/');
+		var$0 = var$1 && uriSpec->charAt(index + 1) == u'/';
 	}
 	if (var$0) {
 		index += 2;
@@ -352,9 +235,9 @@ void URI::initialize(URI* p_base, $String* p_uriSpec, bool allowNonAbsoluteURI) 
 }
 
 void URI::initialize(URI* p_base, $String* p_uriSpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uriSpec, p_uriSpec);
-	int32_t uriSpecLen = (uriSpec != nullptr) ? $nc(uriSpec)->length() : 0;
+	int32_t uriSpecLen = (uriSpec != nullptr) ? uriSpec->length() : 0;
 	if (p_base == nullptr && uriSpecLen == 0) {
 		$throwNew($URI$MalformedURIException, "Cannot initialize URI with empty parameters."_s);
 	}
@@ -363,12 +246,12 @@ void URI::initialize(URI* p_base, $String* p_uriSpec) {
 		return;
 	}
 	int32_t index = 0;
-	int32_t colonIdx = uriSpec->indexOf((int32_t)u':');
+	int32_t colonIdx = $nc(uriSpec)->indexOf(u':');
 	if (colonIdx != -1) {
 		int32_t searchFrom = colonIdx - 1;
-		int32_t slashIdx = uriSpec->lastIndexOf((int32_t)u'/', searchFrom);
-		int32_t queryIdx = uriSpec->lastIndexOf((int32_t)u'?', searchFrom);
-		int32_t fragmentIdx = uriSpec->lastIndexOf((int32_t)u'#', searchFrom);
+		int32_t slashIdx = uriSpec->lastIndexOf(u'/', searchFrom);
+		int32_t queryIdx = uriSpec->lastIndexOf(u'?', searchFrom);
+		int32_t fragmentIdx = uriSpec->lastIndexOf(u'#', searchFrom);
 		if (colonIdx == 0 || slashIdx != -1 || queryIdx != -1 || fragmentIdx != -1) {
 			if (colonIdx == 0 || (p_base == nullptr && fragmentIdx != 0)) {
 				$throwNew($URI$MalformedURIException, "No scheme found in URI."_s);
@@ -380,13 +263,13 @@ void URI::initialize(URI* p_base, $String* p_uriSpec) {
 				$throwNew($URI$MalformedURIException, "Scheme specific part cannot be empty."_s);
 			}
 		}
-	} else if (p_base == nullptr && uriSpec->indexOf((int32_t)u'#') != 0) {
+	} else if (p_base == nullptr && uriSpec->indexOf(u'#') != 0) {
 		$throwNew($URI$MalformedURIException, "No scheme found in URI."_s);
 	}
-	bool var$0 = ((index + 1) < uriSpecLen);
+	bool var$0 = (index + 1) < uriSpecLen;
 	if (var$0) {
 		bool var$1 = uriSpec->charAt(index) == u'/';
-		var$0 = (var$1 && uriSpec->charAt(index + 1) == u'/');
+		var$0 = var$1 && uriSpec->charAt(index + 1) == u'/';
 	}
 	if (var$0) {
 		index += 2;
@@ -416,7 +299,7 @@ void URI::initialize(URI* p_base, $String* p_uriSpec) {
 }
 
 void URI::absolutize(URI* p_base) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->m_path)->length() == 0 && this->m_scheme == nullptr && this->m_host == nullptr && this->m_regAuthority == nullptr) {
 		$set(this, m_scheme, $nc(p_base)->getScheme());
 		$set(this, m_userinfo, p_base->getUserinfo());
@@ -446,13 +329,13 @@ void URI::absolutize(URI* p_base) {
 		return;
 	}
 	bool var$0 = $nc(this->m_path)->length() > 0;
-	if (var$0 && $nc(this->m_path)->startsWith("/"_s)) {
+	if (var$0 && this->m_path->startsWith("/"_s)) {
 		return;
 	}
 	$var($String, path, ""_s);
 	$var($String, basePath, $nc(p_base)->getPath());
 	if (basePath != nullptr && basePath->length() > 0) {
-		int32_t lastSlash = basePath->lastIndexOf((int32_t)u'/');
+		int32_t lastSlash = basePath->lastIndexOf(u'/');
 		if (lastSlash != -1) {
 			$assign(path, basePath->substring(0, lastSlash + 1));
 		}
@@ -472,7 +355,7 @@ void URI::absolutize(URI* p_base) {
 	$var($String, tempString, nullptr);
 	while ((index = path->indexOf("/../"_s, index)) > 0) {
 		$assign(tempString, path->substring(0, path->indexOf("/../"_s)));
-		segIndex = tempString->lastIndexOf((int32_t)u'/');
+		segIndex = tempString->lastIndexOf(u'/');
 		if (segIndex != -1) {
 			if (!$(tempString->substring(segIndex))->equals(".."_s)) {
 				$assign(path, $(path->substring(0, segIndex + 1))->concat($(path->substring(index + 4))));
@@ -486,7 +369,7 @@ void URI::absolutize(URI* p_base) {
 	}
 	if (path->endsWith("/.."_s)) {
 		$assign(tempString, path->substring(0, path->length() - 3));
-		segIndex = tempString->lastIndexOf((int32_t)u'/');
+		segIndex = tempString->lastIndexOf(u'/');
 		if (segIndex != -1) {
 			$assign(path, path->substring(0, segIndex + 1));
 		}
@@ -515,13 +398,13 @@ void URI::initializeScheme($String* p_uriSpec) {
 }
 
 bool URI::initializeAuthority($String* p_uriSpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = 0;
 	int32_t start = 0;
 	int32_t end = $nc(p_uriSpec)->length();
 	char16_t testChar = u'\0';
 	$var($String, userinfo, nullptr);
-	if (p_uriSpec->indexOf((int32_t)u'@', start) != -1) {
+	if (p_uriSpec->indexOf(u'@', start) != -1) {
 		while (index < end) {
 			testChar = p_uriSpec->charAt(index);
 			if (testChar == u'@') {
@@ -537,7 +420,7 @@ bool URI::initializeAuthority($String* p_uriSpec) {
 	bool hasPort = false;
 	if (index < end) {
 		if (p_uriSpec->charAt(start) == u'[') {
-			int32_t bracketIndex = p_uriSpec->indexOf((int32_t)u']', start);
+			int32_t bracketIndex = p_uriSpec->indexOf(u']', start);
 			index = (bracketIndex != -1) ? bracketIndex : end;
 			if (index + 1 < end && p_uriSpec->charAt(index + 1) == u':') {
 				++index;
@@ -546,7 +429,7 @@ bool URI::initializeAuthority($String* p_uriSpec) {
 				index = end;
 			}
 		} else {
-			int32_t colonIndex = p_uriSpec->lastIndexOf((int32_t)u':', end);
+			int32_t colonIndex = p_uriSpec->lastIndexOf(u':', end);
 			index = (colonIndex > start) ? colonIndex : end;
 			hasPort = (index != end);
 		}
@@ -589,7 +472,7 @@ bool URI::isValidServerBasedAuthority($String* host, int32_t port, $String* user
 	if (!isWellFormedAddress(host)) {
 		return false;
 	}
-	if (port < -1 || port > 0x0000FFFF) {
+	if (port < -1 || port > 0x0000ffff) {
 		return false;
 	}
 	if (userinfo != nullptr) {
@@ -634,7 +517,7 @@ bool URI::isValidRegistryBasedAuthority($String* authority) {
 }
 
 void URI::initializePath($String* p_uriSpec, int32_t p_nStartIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p_uriSpec == nullptr) {
 		$throwNew($URI$MalformedURIException, "Cannot initialize path from null string!"_s);
 	}
@@ -831,7 +714,7 @@ void URI::setScheme($String* p_scheme) {
 }
 
 void URI::setUserinfo($String* p_userinfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p_userinfo == nullptr) {
 		$set(this, m_userinfo, nullptr);
 		return;
@@ -840,7 +723,7 @@ void URI::setUserinfo($String* p_userinfo) {
 			$throwNew($URI$MalformedURIException, "Userinfo cannot be set when host is null!"_s);
 		}
 		int32_t index = 0;
-		int32_t end = $nc(p_userinfo)->length();
+		int32_t end = p_userinfo->length();
 		char16_t testChar = u'\0';
 		while (index < end) {
 			testChar = p_userinfo->charAt(index);
@@ -859,7 +742,7 @@ void URI::setUserinfo($String* p_userinfo) {
 }
 
 void URI::setHost($String* p_host) {
-	if (p_host == nullptr || $nc(p_host)->length() == 0) {
+	if (p_host == nullptr || p_host->length() == 0) {
 		if (p_host != nullptr) {
 			$set(this, m_regAuthority, nullptr);
 		}
@@ -875,7 +758,7 @@ void URI::setHost($String* p_host) {
 }
 
 void URI::setPort(int32_t p_port) {
-	if (p_port >= 0 && p_port <= 0x0000FFFF) {
+	if (p_port >= 0 && p_port <= 0x0000ffff) {
 		if (this->m_host == nullptr) {
 			$throwNew($URI$MalformedURIException, "Port cannot be set when host is null!"_s);
 		}
@@ -890,9 +773,9 @@ void URI::setRegBasedAuthority($String* authority) {
 		$set(this, m_regAuthority, nullptr);
 		return;
 	} else {
-		bool var$3 = $nc(authority)->length() < 1;
-		bool var$2 = var$3 || !isValidRegistryBasedAuthority(authority);
-		if (var$2 || $nc(authority)->indexOf((int32_t)u'/') != -1) {
+		bool var$1 = authority->length() < 1;
+		bool var$0 = var$1 || !isValidRegistryBasedAuthority(authority);
+		if (var$0 || authority->indexOf(u'/') != -1) {
 			$throwNew($URI$MalformedURIException, "Registry based authority is not well formed."_s);
 		}
 	}
@@ -913,29 +796,29 @@ void URI::setPath($String* p_path) {
 }
 
 void URI::appendPath($String* p_addToPath) {
-	$useLocalCurrentObjectStackCache();
-	if (p_addToPath == nullptr || $($nc(p_addToPath)->trim())->length() == 0) {
+	$useLocalObjectStack();
+	if (p_addToPath == nullptr || $(p_addToPath->trim())->length() == 0) {
 		return;
 	}
 	if (!isURIString(p_addToPath)) {
 		$throwNew($URI$MalformedURIException, "Path contains invalid character!"_s);
 	}
-	if (this->m_path == nullptr || $($nc(this->m_path)->trim())->length() == 0) {
+	if (this->m_path == nullptr || $(this->m_path->trim())->length() == 0) {
 		if ($nc(p_addToPath)->startsWith("/"_s)) {
 			$set(this, m_path, p_addToPath);
 		} else {
 			$set(this, m_path, $str({"/"_s, p_addToPath}));
 		}
-	} else if ($nc(this->m_path)->endsWith("/"_s)) {
+	} else if (this->m_path->endsWith("/"_s)) {
 		if ($nc(p_addToPath)->startsWith("/"_s)) {
-			$set(this, m_path, $nc(this->m_path)->concat($(p_addToPath->substring(1))));
+			$set(this, m_path, this->m_path->concat($(p_addToPath->substring(1))));
 		} else {
-			$set(this, m_path, $nc(this->m_path)->concat(p_addToPath));
+			$set(this, m_path, this->m_path->concat(p_addToPath));
 		}
 	} else if ($nc(p_addToPath)->startsWith("/"_s)) {
-		$set(this, m_path, $nc(this->m_path)->concat(p_addToPath));
+		$set(this, m_path, this->m_path->concat(p_addToPath));
 	} else {
-		$set(this, m_path, $nc(this->m_path)->concat($$str({"/"_s, p_addToPath})));
+		$set(this, m_path, this->m_path->concat($$str({"/"_s, p_addToPath})));
 	}
 }
 
@@ -970,12 +853,12 @@ void URI::setFragment($String* p_fragment) {
 bool URI::equals(Object$* p_test) {
 	if ($instanceOf(URI, p_test)) {
 		$var(URI, testURI, $cast(URI, p_test));
-		bool var$4 = ((this->m_scheme == nullptr && $nc(testURI)->m_scheme == nullptr) || (this->m_scheme != nullptr && $nc(testURI)->m_scheme != nullptr && $nc(this->m_scheme)->equals(testURI->m_scheme)));
-		bool var$3 = var$4 && ((this->m_userinfo == nullptr && testURI->m_userinfo == nullptr) || (this->m_userinfo != nullptr && $nc(testURI)->m_userinfo != nullptr && $nc(this->m_userinfo)->equals(testURI->m_userinfo)));
-		bool var$2 = var$3 && ((this->m_host == nullptr && testURI->m_host == nullptr) || (this->m_host != nullptr && $nc(testURI)->m_host != nullptr && $nc(this->m_host)->equals(testURI->m_host))) && this->m_port == testURI->m_port;
-		bool var$1 = var$2 && ((this->m_path == nullptr && testURI->m_path == nullptr) || (this->m_path != nullptr && $nc(testURI)->m_path != nullptr && $nc(this->m_path)->equals(testURI->m_path)));
-		bool var$0 = var$1 && ((this->m_queryString == nullptr && testURI->m_queryString == nullptr) || (this->m_queryString != nullptr && $nc(testURI)->m_queryString != nullptr && $nc(this->m_queryString)->equals(testURI->m_queryString)));
-		if (var$0 && ((this->m_fragment == nullptr && testURI->m_fragment == nullptr) || (this->m_fragment != nullptr && $nc(testURI)->m_fragment != nullptr && $nc(this->m_fragment)->equals(testURI->m_fragment)))) {
+		bool var$4 = (this->m_scheme == nullptr && testURI->m_scheme == nullptr) || (this->m_scheme != nullptr && testURI->m_scheme != nullptr && this->m_scheme->equals(testURI->m_scheme));
+		bool var$3 = var$4 && ((this->m_userinfo == nullptr && testURI->m_userinfo == nullptr) || (this->m_userinfo != nullptr && testURI->m_userinfo != nullptr && this->m_userinfo->equals(testURI->m_userinfo)));
+		bool var$2 = var$3 && ((this->m_host == nullptr && testURI->m_host == nullptr) || (this->m_host != nullptr && testURI->m_host != nullptr && this->m_host->equals(testURI->m_host))) && this->m_port == testURI->m_port;
+		bool var$1 = var$2 && ((this->m_path == nullptr && testURI->m_path == nullptr) || (this->m_path != nullptr && testURI->m_path != nullptr && this->m_path->equals(testURI->m_path)));
+		bool var$0 = var$1 && ((this->m_queryString == nullptr && testURI->m_queryString == nullptr) || (this->m_queryString != nullptr && testURI->m_queryString != nullptr && this->m_queryString->equals(testURI->m_queryString)));
+		if (var$0 && ((this->m_fragment == nullptr && testURI->m_fragment == nullptr) || (this->m_fragment != nullptr && testURI->m_fragment != nullptr && this->m_fragment->equals(testURI->m_fragment)))) {
 			return true;
 		}
 	}
@@ -995,7 +878,7 @@ int32_t URI::hashCode() {
 }
 
 $String* URI::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, uriSpecString, $new($StringBuilder));
 	if (this->m_scheme != nullptr) {
 		uriSpecString->append(this->m_scheme);
@@ -1015,14 +898,14 @@ bool URI::isAbsoluteURI() {
 
 bool URI::isConformantSchemeName($String* p_scheme) {
 	$init(URI);
-	if (p_scheme == nullptr || $($nc(p_scheme)->trim())->length() == 0) {
+	if (p_scheme == nullptr || $(p_scheme->trim())->length() == 0) {
 		return false;
 	}
 	if (!isAlpha($nc(p_scheme)->charAt(0))) {
 		return false;
 	}
 	char16_t testChar = 0;
-	int32_t schemeLength = $nc(p_scheme)->length();
+	int32_t schemeLength = p_scheme->length();
 	for (int32_t i = 1; i < schemeLength; ++i) {
 		testChar = p_scheme->charAt(i);
 		if (!isSchemeCharacter(testChar)) {
@@ -1049,9 +932,9 @@ bool URI::isWellFormedAddress($String* address) {
 	if (var$0 || address->endsWith("-"_s)) {
 		return false;
 	}
-	int32_t index = address->lastIndexOf((int32_t)u'.');
+	int32_t index = address->lastIndexOf(u'.');
 	if (address->endsWith("."_s)) {
-		index = $(address->substring(0, index))->lastIndexOf((int32_t)u'.');
+		index = $(address->substring(0, index))->lastIndexOf(u'.');
 	}
 	if (index + 1 < addrLength && isDigit(address->charAt(index + 1))) {
 		return isWellFormedIPv4Address(address);
@@ -1090,7 +973,7 @@ bool URI::isWellFormedIPv4Address($String* address) {
 	for (int32_t i = 0; i < addrLength; ++i) {
 		testChar = address->charAt(i);
 		if (testChar == u'.') {
-			bool var$0 = (i > 0 && !isDigit(address->charAt(i - 1)));
+			bool var$0 = i > 0 && !isDigit(address->charAt(i - 1));
 			if (var$0 || (i + 1 < addrLength && !isDigit(address->charAt(i + 1)))) {
 				return false;
 			}
@@ -1115,7 +998,7 @@ bool URI::isWellFormedIPv4Address($String* address) {
 
 bool URI::isWellFormedIPv6Reference($String* address) {
 	$init(URI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t addrLength = $nc(address)->length();
 	int32_t index = 1;
 	int32_t end = addrLength - 1;
@@ -1185,7 +1068,7 @@ bool URI::isDigit(char16_t p_char) {
 
 bool URI::isHex(char16_t p_char) {
 	$init(URI);
-	return (p_char <= u'f' && ((int32_t)($nc(URI::fgLookupTable)->get(p_char) & (uint32_t)URI::ASCII_HEX_CHARACTERS)) != 0);
+	return (p_char <= u'f' && (URI::fgLookupTable->get(p_char) & URI::ASCII_HEX_CHARACTERS) != 0);
 }
 
 bool URI::isAlpha(char16_t p_char) {
@@ -1195,37 +1078,37 @@ bool URI::isAlpha(char16_t p_char) {
 
 bool URI::isAlphanum(char16_t p_char) {
 	$init(URI);
-	return (p_char <= u'z' && ((int32_t)($nc(URI::fgLookupTable)->get(p_char) & (uint32_t)URI::MASK_ALPHA_NUMERIC)) != 0);
+	return (p_char <= u'z' && (URI::fgLookupTable->get(p_char) & URI::MASK_ALPHA_NUMERIC) != 0);
 }
 
 bool URI::isReservedCharacter(char16_t p_char) {
 	$init(URI);
-	return (p_char <= u']' && ((int32_t)($nc(URI::fgLookupTable)->get(p_char) & (uint32_t)URI::RESERVED_CHARACTERS)) != 0);
+	return (p_char <= u']' && (URI::fgLookupTable->get(p_char) & URI::RESERVED_CHARACTERS) != 0);
 }
 
 bool URI::isUnreservedCharacter(char16_t p_char) {
 	$init(URI);
-	return (p_char <= u'~' && ((int32_t)($nc(URI::fgLookupTable)->get(p_char) & (uint32_t)URI::MASK_UNRESERVED_MASK)) != 0);
+	return (p_char <= u'~' && (URI::fgLookupTable->get(p_char) & URI::MASK_UNRESERVED_MASK) != 0);
 }
 
 bool URI::isURICharacter(char16_t p_char) {
 	$init(URI);
-	return (p_char <= u'~' && ((int32_t)($nc(URI::fgLookupTable)->get(p_char) & (uint32_t)URI::MASK_URI_CHARACTER)) != 0);
+	return (p_char <= u'~' && (URI::fgLookupTable->get(p_char) & URI::MASK_URI_CHARACTER) != 0);
 }
 
 bool URI::isSchemeCharacter(char16_t p_char) {
 	$init(URI);
-	return (p_char <= u'z' && ((int32_t)($nc(URI::fgLookupTable)->get(p_char) & (uint32_t)URI::MASK_SCHEME_CHARACTER)) != 0);
+	return (p_char <= u'z' && (URI::fgLookupTable->get(p_char) & URI::MASK_SCHEME_CHARACTER) != 0);
 }
 
 bool URI::isUserinfoCharacter(char16_t p_char) {
 	$init(URI);
-	return (p_char <= u'z' && ((int32_t)($nc(URI::fgLookupTable)->get(p_char) & (uint32_t)URI::MASK_USERINFO_CHARACTER)) != 0);
+	return (p_char <= u'z' && (URI::fgLookupTable->get(p_char) & URI::MASK_USERINFO_CHARACTER) != 0);
 }
 
 bool URI::isPathCharacter(char16_t p_char) {
 	$init(URI);
-	return (p_char <= u'~' && ((int32_t)($nc(URI::fgLookupTable)->get(p_char) & (uint32_t)URI::MASK_PATH_CHARACTER)) != 0);
+	return (p_char <= u'~' && (URI::fgLookupTable->get(p_char) & URI::MASK_PATH_CHARACTER) != 0);
 }
 
 bool URI::isURIString($String* p_uric) {
@@ -1255,60 +1138,60 @@ bool URI::isURIString($String* p_uric) {
 	return true;
 }
 
-void clinit$URI($Class* class$) {
+void URI::clinit$($Class* clazz) {
 	$assignStatic(URI::fgLookupTable, $new($bytes, 128));
 	{
 		for (int32_t i = u'0'; i <= u'9'; ++i) {
-			(*$nc(URI::fgLookupTable))[i] |= URI::ASCII_DIGIT_CHARACTERS | URI::ASCII_HEX_CHARACTERS;
+			(*URI::fgLookupTable)[i] |= URI::ASCII_DIGIT_CHARACTERS | URI::ASCII_HEX_CHARACTERS;
 		}
 		for (int32_t i = u'A'; i <= u'F'; ++i) {
-			(*$nc(URI::fgLookupTable))[i] |= URI::ASCII_ALPHA_CHARACTERS | URI::ASCII_HEX_CHARACTERS;
-			(*$nc(URI::fgLookupTable))[i + 32] |= URI::ASCII_ALPHA_CHARACTERS | URI::ASCII_HEX_CHARACTERS;
+			(*URI::fgLookupTable)[i] |= URI::ASCII_ALPHA_CHARACTERS | URI::ASCII_HEX_CHARACTERS;
+			(*URI::fgLookupTable)[i + 32] |= URI::ASCII_ALPHA_CHARACTERS | URI::ASCII_HEX_CHARACTERS;
 		}
 		for (int32_t i = u'G'; i <= u'Z'; ++i) {
-			(*$nc(URI::fgLookupTable))[i] |= URI::ASCII_ALPHA_CHARACTERS;
-			(*$nc(URI::fgLookupTable))[i + 32] |= URI::ASCII_ALPHA_CHARACTERS;
+			(*URI::fgLookupTable)[i] |= URI::ASCII_ALPHA_CHARACTERS;
+			(*URI::fgLookupTable)[i + 32] |= URI::ASCII_ALPHA_CHARACTERS;
 		}
-		(*$nc(URI::fgLookupTable))[u';'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'/'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'?'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u':'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'@'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'&'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'='] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'+'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'$'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u','] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'['] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u']'] |= URI::RESERVED_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'-'] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'_'] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'.'] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'!'] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'~'] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'*'] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'\''] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'('] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u')'] |= URI::MARK_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'+'] |= URI::SCHEME_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'-'] |= URI::SCHEME_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'.'] |= URI::SCHEME_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u';'] |= URI::USERINFO_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u':'] |= URI::USERINFO_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'&'] |= URI::USERINFO_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'='] |= URI::USERINFO_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'+'] |= URI::USERINFO_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'$'] |= URI::USERINFO_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u','] |= URI::USERINFO_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u';'] |= URI::PATH_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'/'] |= URI::PATH_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u':'] |= URI::PATH_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'@'] |= URI::PATH_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'&'] |= URI::PATH_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'='] |= URI::PATH_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'+'] |= URI::PATH_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u'$'] |= URI::PATH_CHARACTERS;
-		(*$nc(URI::fgLookupTable))[u','] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u';'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'/'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'?'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u':'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'@'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'&'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'='] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'+'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'$'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u','] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'['] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u']'] |= URI::RESERVED_CHARACTERS;
+		(*URI::fgLookupTable)[u'-'] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u'_'] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u'.'] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u'!'] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u'~'] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u'*'] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u'\''] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u'('] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u')'] |= URI::MARK_CHARACTERS;
+		(*URI::fgLookupTable)[u'+'] |= URI::SCHEME_CHARACTERS;
+		(*URI::fgLookupTable)[u'-'] |= URI::SCHEME_CHARACTERS;
+		(*URI::fgLookupTable)[u'.'] |= URI::SCHEME_CHARACTERS;
+		(*URI::fgLookupTable)[u';'] |= URI::USERINFO_CHARACTERS;
+		(*URI::fgLookupTable)[u':'] |= URI::USERINFO_CHARACTERS;
+		(*URI::fgLookupTable)[u'&'] |= URI::USERINFO_CHARACTERS;
+		(*URI::fgLookupTable)[u'='] |= URI::USERINFO_CHARACTERS;
+		(*URI::fgLookupTable)[u'+'] |= URI::USERINFO_CHARACTERS;
+		(*URI::fgLookupTable)[u'$'] |= URI::USERINFO_CHARACTERS;
+		(*URI::fgLookupTable)[u','] |= URI::USERINFO_CHARACTERS;
+		(*URI::fgLookupTable)[u';'] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u'/'] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u':'] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u'@'] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u'&'] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u'='] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u'+'] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u'$'] |= URI::PATH_CHARACTERS;
+		(*URI::fgLookupTable)[u','] |= URI::PATH_CHARACTERS;
 	}
 	URI::DEBUG = false;
 }
@@ -1317,7 +1200,117 @@ URI::URI() {
 }
 
 $Class* URI::load$($String* name, bool initialize) {
-	$loadClass(URI, name, initialize, &_URI_ClassInfo_, clinit$URI, allocate$URI);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(URI, serialVersionUID)},
+		{"fgLookupTable", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(URI, fgLookupTable)},
+		{"RESERVED_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, RESERVED_CHARACTERS)},
+		{"MARK_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MARK_CHARACTERS)},
+		{"SCHEME_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, SCHEME_CHARACTERS)},
+		{"USERINFO_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, USERINFO_CHARACTERS)},
+		{"ASCII_ALPHA_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, ASCII_ALPHA_CHARACTERS)},
+		{"ASCII_DIGIT_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, ASCII_DIGIT_CHARACTERS)},
+		{"ASCII_HEX_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, ASCII_HEX_CHARACTERS)},
+		{"PATH_CHARACTERS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, PATH_CHARACTERS)},
+		{"MASK_ALPHA_NUMERIC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_ALPHA_NUMERIC)},
+		{"MASK_UNRESERVED_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_UNRESERVED_MASK)},
+		{"MASK_URI_CHARACTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_URI_CHARACTER)},
+		{"MASK_SCHEME_CHARACTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_SCHEME_CHARACTER)},
+		{"MASK_USERINFO_CHARACTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_USERINFO_CHARACTER)},
+		{"MASK_PATH_CHARACTER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(URI, MASK_PATH_CHARACTER)},
+		{"m_scheme", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_scheme)},
+		{"m_userinfo", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_userinfo)},
+		{"m_host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_host)},
+		{"m_port", "I", nullptr, $PRIVATE, $field(URI, m_port)},
+		{"m_regAuthority", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_regAuthority)},
+		{"m_path", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_path)},
+		{"m_queryString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_queryString)},
+		{"m_fragment", "Ljava/lang/String;", nullptr, $PRIVATE, $field(URI, m_fragment)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(URI, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(URI, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/URI;)V", nullptr, $PUBLIC, $method(URI, init$, void, URI*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*, bool), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/URI;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, URI*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/URI;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(URI, init$, void, URI*, $String*, bool), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*, $String*, $String*, $String*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(URI, init$, void, $String*, $String*, $String*, int32_t, $String*, $String*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"absolutize", "(Lcom/sun/org/apache/xerces/internal/util/URI;)V", nullptr, $PUBLIC, $virtualMethod(URI, absolutize, void, URI*)},
+		{"appendPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, appendPath, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(URI, equals, bool, Object$*)},
+		{"getAuthority", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getAuthority, $String*)},
+		{"getFragment", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getFragment, $String*)},
+		{"getHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getHost, $String*)},
+		{"getPath", "(ZZ)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getPath, $String*, bool, bool)},
+		{"getPath", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getPath, $String*)},
+		{"getPort", "()I", nullptr, $PUBLIC, $virtualMethod(URI, getPort, int32_t)},
+		{"getQueryString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getQueryString, $String*)},
+		{"getRegBasedAuthority", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getRegBasedAuthority, $String*)},
+		{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getScheme, $String*)},
+		{"getSchemeSpecificPart", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getSchemeSpecificPart, $String*)},
+		{"getUserinfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, getUserinfo, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(URI, hashCode, int32_t)},
+		{"initialize", "(Lcom/sun/org/apache/xerces/internal/util/URI;)V", nullptr, $PRIVATE, $method(URI, initialize, void, URI*)},
+		{"initialize", "(Lcom/sun/org/apache/xerces/internal/util/URI;Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(URI, initialize, void, URI*, $String*, bool), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"initialize", "(Lcom/sun/org/apache/xerces/internal/util/URI;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URI, initialize, void, URI*, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"initializeAuthority", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(URI, initializeAuthority, bool, $String*)},
+		{"initializePath", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(URI, initializePath, void, $String*, int32_t), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"initializeScheme", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(URI, initializeScheme, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"isAbsoluteURI", "()Z", nullptr, $PUBLIC, $virtualMethod(URI, isAbsoluteURI, bool)},
+		{"isAlpha", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isAlpha, bool, char16_t)},
+		{"isAlphanum", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isAlphanum, bool, char16_t)},
+		{"isConformantSchemeName", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URI, isConformantSchemeName, bool, $String*)},
+		{"isDigit", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isDigit, bool, char16_t)},
+		{"isGenericURI", "()Z", nullptr, $PUBLIC, $virtualMethod(URI, isGenericURI, bool)},
+		{"isHex", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isHex, bool, char16_t)},
+		{"isPathCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isPathCharacter, bool, char16_t)},
+		{"isReservedCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isReservedCharacter, bool, char16_t)},
+		{"isSchemeCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isSchemeCharacter, bool, char16_t)},
+		{"isURICharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isURICharacter, bool, char16_t)},
+		{"isURIString", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isURIString, bool, $String*)},
+		{"isUnreservedCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isUnreservedCharacter, bool, char16_t)},
+		{"isUserinfoCharacter", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, isUserinfoCharacter, bool, char16_t)},
+		{"isValidRegistryBasedAuthority", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(URI, isValidRegistryBasedAuthority, bool, $String*)},
+		{"isValidServerBasedAuthority", "(Ljava/lang/String;ILjava/lang/String;)Z", nullptr, $PRIVATE, $method(URI, isValidServerBasedAuthority, bool, $String*, int32_t, $String*)},
+		{"isWellFormedAddress", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URI, isWellFormedAddress, bool, $String*)},
+		{"isWellFormedIPv4Address", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URI, isWellFormedIPv4Address, bool, $String*)},
+		{"isWellFormedIPv6Reference", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(URI, isWellFormedIPv6Reference, bool, $String*)},
+		{"scanHexSequence", "(Ljava/lang/String;II[I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(URI, scanHexSequence, int32_t, $String*, int32_t, int32_t, $ints*)},
+		{"setFragment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setFragment, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"setHost", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setHost, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"setPath", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setPath, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"setPort", "(I)V", nullptr, $PUBLIC, $virtualMethod(URI, setPort, void, int32_t), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"setQueryString", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setQueryString, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"setRegBasedAuthority", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setRegBasedAuthority, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"setScheme", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setScheme, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"setUserinfo", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(URI, setUserinfo, void, $String*), "com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(URI, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.URI$MalformedURIException", "com.sun.org.apache.xerces.internal.util.URI", "MalformedURIException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.URI",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.URI$MalformedURIException"
+	};
+	$loadClass(URI, name, initialize, &classInfo$$, URI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(URI);
+	});
 	return class$;
 }
 

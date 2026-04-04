@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/SlotAllocator.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
@@ -29,35 +28,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _SlotAllocator_FieldInfo_[] = {
-	{"_firstAvailableSlot", "I", nullptr, $PRIVATE, $field(SlotAllocator, _firstAvailableSlot)},
-	{"_size", "I", nullptr, $PRIVATE, $field(SlotAllocator, _size)},
-	{"_free", "I", nullptr, $PRIVATE, $field(SlotAllocator, _free)},
-	{"_slotsTaken", "[I", nullptr, $PRIVATE, $field(SlotAllocator, _slotsTaken)},
-	{}
-};
-
-$MethodInfo _SlotAllocator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SlotAllocator, init$, void)},
-	{"allocateSlot", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)I", nullptr, $PUBLIC, $method(SlotAllocator, allocateSlot, int32_t, $Type*)},
-	{"initialize", "([Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)V", nullptr, $PUBLIC, $method(SlotAllocator, initialize, void, $LocalVariableGenArray*)},
-	{"releaseSlot", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)V", nullptr, $PUBLIC, $method(SlotAllocator, releaseSlot, void, $LocalVariableGen*)},
-	{}
-};
-
-$ClassInfo _SlotAllocator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.SlotAllocator",
-	"java.lang.Object",
-	nullptr,
-	_SlotAllocator_FieldInfo_,
-	_SlotAllocator_MethodInfo_
-};
-
-$Object* allocate$SlotAllocator($Class* clazz) {
-	return $of($alloc(SlotAllocator));
-}
-
 void SlotAllocator::init$() {
 	this->_size = 8;
 	this->_free = 0;
@@ -65,13 +35,13 @@ void SlotAllocator::init$() {
 }
 
 void SlotAllocator::initialize($LocalVariableGenArray* vars) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(vars)->length;
 	int32_t slot = 0;
 	int32_t size = 0;
 	int32_t index = 0;
 	for (int32_t i = 0; i < length; ++i) {
-		size = $nc($($nc(vars->get(i))->getType()))->getSize();
+		size = $$nc($nc(vars->get(i))->getType())->getSize();
 		index = $nc(vars->get(i))->getIndex();
 		slot = $Math::max(slot, index + size);
 	}
@@ -93,11 +63,11 @@ int32_t SlotAllocator::allocateSlot($Type* type) {
 	while (where < limit) {
 		if (slot + size <= $nc(this->_slotsTaken)->get(where)) {
 			for (int32_t j = limit - 1; j >= where; --j) {
-				$nc(this->_slotsTaken)->set(j + size, $nc(this->_slotsTaken)->get(j));
+				this->_slotsTaken->set(j + size, this->_slotsTaken->get(j));
 			}
 			break;
 		} else {
-			slot = $nc(this->_slotsTaken)->get(where++) + 1;
+			slot = this->_slotsTaken->get(where++) + 1;
 		}
 	}
 	for (int32_t j = 0; j < size; ++j) {
@@ -108,15 +78,15 @@ int32_t SlotAllocator::allocateSlot($Type* type) {
 }
 
 void SlotAllocator::releaseSlot($LocalVariableGen* lvg) {
-	$useLocalCurrentObjectStackCache();
-	int32_t size = $nc($($nc(lvg)->getType()))->getSize();
+	$useLocalObjectStack();
+	int32_t size = $$nc($nc(lvg)->getType())->getSize();
 	int32_t slot = lvg->getIndex();
 	int32_t limit = this->_free;
 	for (int32_t i = 0; i < limit; ++i) {
 		if ($nc(this->_slotsTaken)->get(i) == slot) {
 			int32_t j = i + size;
 			while (j < limit) {
-				$nc(this->_slotsTaken)->set(i++, $nc(this->_slotsTaken)->get(j++));
+				this->_slotsTaken->set(i++, this->_slotsTaken->get(j++));
 			}
 			this->_free -= size;
 			return;
@@ -124,7 +94,7 @@ void SlotAllocator::releaseSlot($LocalVariableGen* lvg) {
 	}
 	$var($String, state, $str({"Variable slot allocation error(size="_s, $$str(size), ", slot="_s, $$str(slot), ", limit="_s, $$str(limit), ")"_s}));
 	$init($ErrorMsg);
-	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INTERNAL_ERR, $of(state)));
+	$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::INTERNAL_ERR, state));
 	$throwNew($Error, $(err->toString()));
 }
 
@@ -132,7 +102,31 @@ SlotAllocator::SlotAllocator() {
 }
 
 $Class* SlotAllocator::load$($String* name, bool initialize) {
-	$loadClass(SlotAllocator, name, initialize, &_SlotAllocator_ClassInfo_, allocate$SlotAllocator);
+	$FieldInfo fieldInfos$$[] = {
+		{"_firstAvailableSlot", "I", nullptr, $PRIVATE, $field(SlotAllocator, _firstAvailableSlot)},
+		{"_size", "I", nullptr, $PRIVATE, $field(SlotAllocator, _size)},
+		{"_free", "I", nullptr, $PRIVATE, $field(SlotAllocator, _free)},
+		{"_slotsTaken", "[I", nullptr, $PRIVATE, $field(SlotAllocator, _slotsTaken)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SlotAllocator, init$, void)},
+		{"allocateSlot", "(Lcom/sun/org/apache/bcel/internal/generic/Type;)I", nullptr, $PUBLIC, $method(SlotAllocator, allocateSlot, int32_t, $Type*)},
+		{"initialize", "([Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)V", nullptr, $PUBLIC, $method(SlotAllocator, initialize, void, $LocalVariableGenArray*)},
+		{"releaseSlot", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)V", nullptr, $PUBLIC, $method(SlotAllocator, releaseSlot, void, $LocalVariableGen*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.SlotAllocator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SlotAllocator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SlotAllocator);
+	});
 	return class$;
 }
 

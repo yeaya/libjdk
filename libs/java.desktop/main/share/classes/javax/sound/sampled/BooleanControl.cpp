@@ -1,7 +1,5 @@
 #include <javax/sound/sampled/BooleanControl.h>
-
 #include <javax/sound/sampled/BooleanControl$Type.h>
-#include <javax/sound/sampled/Control$Type.h>
 #include <javax/sound/sampled/Control.h>
 #include <jcpp.h>
 
@@ -11,52 +9,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BooleanControl$Type = ::javax::sound::sampled::BooleanControl$Type;
 using $Control = ::javax::sound::sampled::Control;
-using $Control$Type = ::javax::sound::sampled::Control$Type;
 
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _BooleanControl_FieldInfo_[] = {
-	{"trueStateLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(BooleanControl, trueStateLabel)},
-	{"falseStateLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(BooleanControl, falseStateLabel)},
-	{"value", "Z", nullptr, $PRIVATE, $field(BooleanControl, value)},
-	{}
-};
-
-$MethodInfo _BooleanControl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/BooleanControl$Type;ZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(BooleanControl, init$, void, $BooleanControl$Type*, bool, $String*, $String*)},
-	{"<init>", "(Ljavax/sound/sampled/BooleanControl$Type;Z)V", nullptr, $PROTECTED, $method(BooleanControl, init$, void, $BooleanControl$Type*, bool)},
-	{"getStateLabel", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanControl, getStateLabel, $String*, bool)},
-	{"getValue", "()Z", nullptr, $PUBLIC, $virtualMethod(BooleanControl, getValue, bool)},
-	{"setValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BooleanControl, setValue, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanControl, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _BooleanControl_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.BooleanControl$Type", "javax.sound.sampled.BooleanControl", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BooleanControl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.sound.sampled.BooleanControl",
-	"javax.sound.sampled.Control",
-	nullptr,
-	_BooleanControl_FieldInfo_,
-	_BooleanControl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BooleanControl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.BooleanControl$Type"
-};
-
-$Object* allocate$BooleanControl($Class* clazz) {
-	return $of($alloc(BooleanControl));
-}
 
 void BooleanControl::init$($BooleanControl$Type* type, bool initialValue, $String* trueStateLabel, $String* falseStateLabel) {
 	$Control::init$(type);
@@ -82,10 +38,10 @@ $String* BooleanControl::getStateLabel(bool state) {
 }
 
 $String* BooleanControl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s with current value: %s"_s, $$new($ObjectArray, {
-		$($of($Control::toString())),
-		$($of(getStateLabel(getValue())))
+		$($Control::toString()),
+		$(getStateLabel(getValue()))
 	}));
 }
 
@@ -93,7 +49,42 @@ BooleanControl::BooleanControl() {
 }
 
 $Class* BooleanControl::load$($String* name, bool initialize) {
-	$loadClass(BooleanControl, name, initialize, &_BooleanControl_ClassInfo_, allocate$BooleanControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"trueStateLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(BooleanControl, trueStateLabel)},
+		{"falseStateLabel", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(BooleanControl, falseStateLabel)},
+		{"value", "Z", nullptr, $PRIVATE, $field(BooleanControl, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/BooleanControl$Type;ZLjava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $method(BooleanControl, init$, void, $BooleanControl$Type*, bool, $String*, $String*)},
+		{"<init>", "(Ljavax/sound/sampled/BooleanControl$Type;Z)V", nullptr, $PROTECTED, $method(BooleanControl, init$, void, $BooleanControl$Type*, bool)},
+		{"getStateLabel", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanControl, getStateLabel, $String*, bool)},
+		{"getValue", "()Z", nullptr, $PUBLIC, $virtualMethod(BooleanControl, getValue, bool)},
+		{"setValue", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BooleanControl, setValue, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BooleanControl, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.BooleanControl$Type", "javax.sound.sampled.BooleanControl", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.sound.sampled.BooleanControl",
+		"javax.sound.sampled.Control",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.BooleanControl$Type"
+	};
+	$loadClass(BooleanControl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BooleanControl);
+	});
 	return class$;
 }
 

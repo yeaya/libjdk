@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dsig/TransformException.h>
-
 #include <java/io/PrintWriter.h>
 #include <jcpp.h>
 
@@ -15,37 +14,6 @@ namespace javax {
 		namespace crypto {
 			namespace dsig {
 
-$FieldInfo _TransformException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TransformException, serialVersionUID)},
-	{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(TransformException, cause)},
-	{}
-};
-
-$MethodInfo _TransformException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $String*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $Throwable*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(TransformException, getCause, $Throwable*)},
-	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void)},
-	{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void, $PrintStream*)},
-	{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void, $PrintWriter*)},
-	{}
-};
-
-$ClassInfo _TransformException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.dsig.TransformException",
-	"java.lang.Exception",
-	nullptr,
-	_TransformException_FieldInfo_,
-	_TransformException_MethodInfo_
-};
-
-$Object* allocate$TransformException($Class* clazz) {
-	return $of($alloc(TransformException));
-}
-
 void TransformException::init$() {
 	$Exception::init$();
 }
@@ -60,7 +28,7 @@ void TransformException::init$($String* message, $Throwable* cause) {
 }
 
 void TransformException::init$($Throwable* cause) {
-	$Exception::init$(cause == nullptr ? ($String*)nullptr : $($nc(cause)->toString()));
+	$Exception::init$(cause == nullptr ? ($String*)nullptr : $(cause->toString()));
 	$set(this, cause, cause);
 }
 
@@ -71,21 +39,21 @@ $Throwable* TransformException::getCause() {
 void TransformException::printStackTrace() {
 	$Exception::printStackTrace();
 	if (this->cause != nullptr) {
-		$nc(this->cause)->printStackTrace();
+		this->cause->printStackTrace();
 	}
 }
 
 void TransformException::printStackTrace($PrintStream* s) {
 	$Exception::printStackTrace(s);
 	if (this->cause != nullptr) {
-		$nc(this->cause)->printStackTrace(s);
+		this->cause->printStackTrace(s);
 	}
 }
 
 void TransformException::printStackTrace($PrintWriter* s) {
 	$Exception::printStackTrace(s);
 	if (this->cause != nullptr) {
-		$nc(this->cause)->printStackTrace(s);
+		this->cause->printStackTrace(s);
 	}
 }
 
@@ -100,7 +68,33 @@ void TransformException::throw$() {
 }
 
 $Class* TransformException::load$($String* name, bool initialize) {
-	$loadClass(TransformException, name, initialize, &_TransformException_ClassInfo_, allocate$TransformException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TransformException, serialVersionUID)},
+		{"cause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(TransformException, cause)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $String*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(TransformException, init$, void, $Throwable*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(TransformException, getCause, $Throwable*)},
+		{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void)},
+		{"printStackTrace", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void, $PrintStream*)},
+		{"printStackTrace", "(Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $virtualMethod(TransformException, printStackTrace, void, $PrintWriter*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.dsig.TransformException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TransformException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformException);
+	});
 	return class$;
 }
 

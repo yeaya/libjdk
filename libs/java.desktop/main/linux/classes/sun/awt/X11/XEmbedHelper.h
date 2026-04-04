@@ -96,6 +96,7 @@ class XEmbedHelper : public ::java::lang::Object {
 	$class(XEmbedHelper, 0, ::java::lang::Object)
 public:
 	XEmbedHelper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* XEmbedMessageToString(::sun::awt::X11::XClientMessageEvent* msg);
 	static $String* focusIdToString(int32_t focus_id);

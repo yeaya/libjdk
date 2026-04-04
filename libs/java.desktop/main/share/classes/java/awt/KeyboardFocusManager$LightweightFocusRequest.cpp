@@ -1,5 +1,4 @@
 #include <java/awt/KeyboardFocusManager$LightweightFocusRequest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/event/FocusEvent$Cause.h>
@@ -15,44 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _KeyboardFocusManager$LightweightFocusRequest_FieldInfo_[] = {
-	{"component", "Ljava/awt/Component;", nullptr, $FINAL, $field(KeyboardFocusManager$LightweightFocusRequest, component)},
-	{"temporary", "Z", nullptr, $FINAL, $field(KeyboardFocusManager$LightweightFocusRequest, temporary)},
-	{"cause", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $FINAL, $field(KeyboardFocusManager$LightweightFocusRequest, cause)},
-	{}
-};
-
-$MethodInfo _KeyboardFocusManager$LightweightFocusRequest_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;ZLjava/awt/event/FocusEvent$Cause;)V", nullptr, 0, $method(KeyboardFocusManager$LightweightFocusRequest, init$, void, $Component*, bool, $FocusEvent$Cause*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$LightweightFocusRequest, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _KeyboardFocusManager$LightweightFocusRequest_InnerClassesInfo_[] = {
-	{"java.awt.KeyboardFocusManager$LightweightFocusRequest", "java.awt.KeyboardFocusManager", "LightweightFocusRequest", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _KeyboardFocusManager$LightweightFocusRequest_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.awt.KeyboardFocusManager$LightweightFocusRequest",
-	"java.lang.Object",
-	nullptr,
-	_KeyboardFocusManager$LightweightFocusRequest_FieldInfo_,
-	_KeyboardFocusManager$LightweightFocusRequest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_KeyboardFocusManager$LightweightFocusRequest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.KeyboardFocusManager"
-};
-
-$Object* allocate$KeyboardFocusManager$LightweightFocusRequest($Class* clazz) {
-	return $of($alloc(KeyboardFocusManager$LightweightFocusRequest));
-}
-
 void KeyboardFocusManager$LightweightFocusRequest::init$($Component* component, bool temporary, $FocusEvent$Cause* cause) {
 	$set(this, component, component);
 	this->temporary = temporary;
@@ -67,7 +28,39 @@ KeyboardFocusManager$LightweightFocusRequest::KeyboardFocusManager$LightweightFo
 }
 
 $Class* KeyboardFocusManager$LightweightFocusRequest::load$($String* name, bool initialize) {
-	$loadClass(KeyboardFocusManager$LightweightFocusRequest, name, initialize, &_KeyboardFocusManager$LightweightFocusRequest_ClassInfo_, allocate$KeyboardFocusManager$LightweightFocusRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"component", "Ljava/awt/Component;", nullptr, $FINAL, $field(KeyboardFocusManager$LightweightFocusRequest, component)},
+		{"temporary", "Z", nullptr, $FINAL, $field(KeyboardFocusManager$LightweightFocusRequest, temporary)},
+		{"cause", "Ljava/awt/event/FocusEvent$Cause;", nullptr, $FINAL, $field(KeyboardFocusManager$LightweightFocusRequest, cause)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;ZLjava/awt/event/FocusEvent$Cause;)V", nullptr, 0, $method(KeyboardFocusManager$LightweightFocusRequest, init$, void, $Component*, bool, $FocusEvent$Cause*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyboardFocusManager$LightweightFocusRequest, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.KeyboardFocusManager$LightweightFocusRequest", "java.awt.KeyboardFocusManager", "LightweightFocusRequest", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.awt.KeyboardFocusManager$LightweightFocusRequest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.KeyboardFocusManager"
+	};
+	$loadClass(KeyboardFocusManager$LightweightFocusRequest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyboardFocusManager$LightweightFocusRequest);
+	});
 	return class$;
 }
 

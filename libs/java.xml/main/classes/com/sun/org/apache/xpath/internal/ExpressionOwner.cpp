@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <jcpp.h>
 
@@ -14,27 +13,23 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 
-$MethodInfo _ExpressionOwner_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpressionOwner, getExpression, $Expression*)},
-	{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpressionOwner, setExpression, void, $Expression*)},
-	{}
-};
-
-$ClassInfo _ExpressionOwner_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xpath.internal.ExpressionOwner",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ExpressionOwner_MethodInfo_
-};
-
-$Object* allocate$ExpressionOwner($Class* clazz) {
-	return $of($alloc(ExpressionOwner));
-}
-
 $Class* ExpressionOwner::load$($String* name, bool initialize) {
-	$loadClass(ExpressionOwner, name, initialize, &_ExpressionOwner_ClassInfo_, allocate$ExpressionOwner);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/org/apache/xpath/internal/Expression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpressionOwner, getExpression, $Expression*)},
+		{"setExpression", "(Lcom/sun/org/apache/xpath/internal/Expression;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExpressionOwner, setExpression, void, $Expression*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xpath.internal.ExpressionOwner",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExpressionOwner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExpressionOwner);
+	});
 	return class$;
 }
 

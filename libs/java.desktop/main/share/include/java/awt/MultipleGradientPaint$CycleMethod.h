@@ -21,6 +21,7 @@ class $import MultipleGradientPaint$CycleMethod : public ::java::lang::Enum {
 public:
 	MultipleGradientPaint$CycleMethod();
 	static $Array<::java::awt::MultipleGradientPaint$CycleMethod>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::java::awt::MultipleGradientPaint$CycleMethod* valueOf($String* name);
 	static $Array<::java::awt::MultipleGradientPaint$CycleMethod>* values();

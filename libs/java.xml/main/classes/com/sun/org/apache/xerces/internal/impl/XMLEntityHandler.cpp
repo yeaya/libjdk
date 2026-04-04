@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityHandler.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier.h>
 #include <jcpp.h>
@@ -17,27 +16,23 @@ namespace com {
 					namespace internal {
 						namespace impl {
 
-$MethodInfo _XMLEntityHandler_MethodInfo_[] = {
-	{"endEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEntityHandler, endEntity, void, $String*, $Augmentations*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{"startEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEntityHandler, startEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
-	{}
-};
-
-$ClassInfo _XMLEntityHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.XMLEntityHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XMLEntityHandler_MethodInfo_
-};
-
-$Object* allocate$XMLEntityHandler($Class* clazz) {
-	return $of($alloc(XMLEntityHandler));
-}
-
 $Class* XMLEntityHandler::load$($String* name, bool initialize) {
-	$loadClass(XMLEntityHandler, name, initialize, &_XMLEntityHandler_ClassInfo_, allocate$XMLEntityHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"endEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEntityHandler, endEntity, void, $String*, $Augmentations*), "java.io.IOException,com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{"startEntity", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/XMLResourceIdentifier;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xni/Augmentations;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLEntityHandler, startEntity, void, $String*, $XMLResourceIdentifier*, $String*, $Augmentations*), "com.sun.org.apache.xerces.internal.xni.XNIException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.XMLEntityHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLEntityHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLEntityHandler);
+	});
 	return class$;
 }
 

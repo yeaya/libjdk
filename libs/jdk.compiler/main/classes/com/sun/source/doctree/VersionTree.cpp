@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/VersionTree.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _VersionTree_MethodInfo_[] = {
-	{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(VersionTree, getBody, $List*)},
-	{}
-};
-
-$ClassInfo _VersionTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.VersionTree",
-	nullptr,
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	_VersionTree_MethodInfo_
-};
-
-$Object* allocate$VersionTree($Class* clazz) {
-	return $of($alloc(VersionTree));
-}
-
 $Class* VersionTree::load$($String* name, bool initialize) {
-	$loadClass(VersionTree, name, initialize, &_VersionTree_ClassInfo_, allocate$VersionTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(VersionTree, getBody, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.VersionTree",
+		nullptr,
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VersionTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftLimiter.h>
-
 #include <com/sun/media/sound/SoftAudioBuffer.h>
 #include <jcpp.h>
 
@@ -14,51 +13,11 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftLimiter_FieldInfo_[] = {
-	{"lastmax", "F", nullptr, 0, $field(SoftLimiter, lastmax)},
-	{"gain", "F", nullptr, 0, $field(SoftLimiter, gain)},
-	{"temp_bufferL", "[F", nullptr, 0, $field(SoftLimiter, temp_bufferL)},
-	{"temp_bufferR", "[F", nullptr, 0, $field(SoftLimiter, temp_bufferR)},
-	{"mix", "Z", nullptr, 0, $field(SoftLimiter, mix)},
-	{"bufferL", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, 0, $field(SoftLimiter, bufferL)},
-	{"bufferR", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, 0, $field(SoftLimiter, bufferR)},
-	{"bufferLout", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, 0, $field(SoftLimiter, bufferLout)},
-	{"bufferRout", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, 0, $field(SoftLimiter, bufferRout)},
-	{"controlrate", "F", nullptr, 0, $field(SoftLimiter, controlrate)},
-	{"silentcounter", "D", nullptr, 0, $field(SoftLimiter, silentcounter)},
-	{}
-};
-
-$MethodInfo _SoftLimiter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftLimiter, init$, void)},
-	{"globalParameterControlChange", "([IJJ)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, globalParameterControlChange, void, $ints*, int64_t, int64_t)},
-	{"init", "(FF)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, init, void, float, float)},
-	{"processAudio", "()V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, processAudio, void)},
-	{"processControlLogic", "()V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, processControlLogic, void)},
-	{"setInput", "(ILcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, setInput, void, int32_t, $SoftAudioBuffer*)},
-	{"setMixMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, setMixMode, void, bool)},
-	{"setOutput", "(ILcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, setOutput, void, int32_t, $SoftAudioBuffer*)},
-	{}
-};
-
-$ClassInfo _SoftLimiter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftLimiter",
-	"java.lang.Object",
-	"com.sun.media.sound.SoftAudioProcessor",
-	_SoftLimiter_FieldInfo_,
-	_SoftLimiter_MethodInfo_
-};
-
-$Object* allocate$SoftLimiter($Class* clazz) {
-	return $of($alloc(SoftLimiter));
-}
-
 void SoftLimiter::init$() {
-	this->lastmax = (float)0;
-	this->gain = (float)1;
+	this->lastmax = 0;
+	this->gain = 1;
 	this->mix = false;
-	this->silentcounter = (double)0;
+	this->silentcounter = 0;
 }
 
 void SoftLimiter::init(float samplerate, float controlrate) {
@@ -91,35 +50,35 @@ void SoftLimiter::globalParameterControlChange($ints* slothpath, int64_t param, 
 }
 
 void SoftLimiter::processAudio() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->bufferL)->isSilent();
-	if (var$0 && (this->bufferR == nullptr || $nc(this->bufferR)->isSilent())) {
+	if (var$0 && (this->bufferR == nullptr || this->bufferR->isSilent())) {
 		this->silentcounter += 1 / this->controlrate;
 		if (this->silentcounter > 60) {
 			if (!this->mix) {
 				$nc(this->bufferLout)->clear();
 				if (this->bufferRout != nullptr) {
-					$nc(this->bufferRout)->clear();
+					this->bufferRout->clear();
 				}
 			}
 			return;
 		}
 	} else {
-		this->silentcounter = (double)0;
+		this->silentcounter = 0;
 	}
 	$var($floats, bufferL, $nc(this->bufferL)->array());
-	$var($floats, bufferR, this->bufferR == nullptr ? ($floats*)nullptr : $nc(this->bufferR)->array());
+	$var($floats, bufferR, this->bufferR == nullptr ? ($floats*)nullptr : this->bufferR->array());
 	$var($floats, bufferLout, $nc(this->bufferLout)->array());
-	$var($floats, bufferRout, this->bufferRout == nullptr ? ($floats*)nullptr : $nc(this->bufferRout)->array());
-	if (this->temp_bufferL == nullptr || $nc(this->temp_bufferL)->length < $nc(bufferL)->length) {
-		$set(this, temp_bufferL, $new($floats, bufferL->length));
+	$var($floats, bufferRout, this->bufferRout == nullptr ? ($floats*)nullptr : this->bufferRout->array());
+	if (this->temp_bufferL == nullptr || this->temp_bufferL->length < $nc(bufferL)->length) {
+		$set(this, temp_bufferL, $new($floats, $nc(bufferL)->length));
 	}
 	if (bufferR != nullptr) {
-		if (this->temp_bufferR == nullptr || $nc(this->temp_bufferR)->length < bufferR->length) {
+		if (this->temp_bufferR == nullptr || this->temp_bufferR->length < bufferR->length) {
 			$set(this, temp_bufferR, $new($floats, bufferR->length));
 		}
 	}
-	float max = (float)0;
+	float max = 0;
 	int32_t len = $nc(bufferL)->length;
 	if (bufferR == nullptr) {
 		for (int32_t i = 0; i < len; ++i) {
@@ -135,13 +94,13 @@ void SoftLimiter::processAudio() {
 			if (bufferL->get(i) > max) {
 				max = bufferL->get(i);
 			}
-			if ($nc(bufferR)->get(i) > max) {
+			if (bufferR->get(i) > max) {
 				max = bufferR->get(i);
 			}
 			if (-bufferL->get(i) > max) {
 				max = -bufferL->get(i);
 			}
-			if (-$nc(bufferR)->get(i) > max) {
+			if (-bufferR->get(i) > max) {
 				max = -bufferR->get(i);
 			}
 		}
@@ -151,11 +110,11 @@ void SoftLimiter::processAudio() {
 	if (lmax > max) {
 		max = lmax;
 	}
-	float newgain = (float)1;
+	float newgain = 1;
 	if (max > 0.99f) {
 		newgain = 0.99f / max;
 	} else {
-		newgain = (float)1;
+		newgain = 1;
 	}
 	if (newgain > this->gain) {
 		newgain = (newgain + this->gain * 9) / 10.0f;
@@ -167,18 +126,18 @@ void SoftLimiter::processAudio() {
 				this->gain += gaindelta;
 				float bL = bufferL->get(i);
 				float tL = $nc(this->temp_bufferL)->get(i);
-				$nc(this->temp_bufferL)->set(i, bL);
+				this->temp_bufferL->set(i, bL);
 				(*$nc(bufferLout))[i] += tL * this->gain;
 			}
 		} else {
 			for (int32_t i = 0; i < len; ++i) {
 				this->gain += gaindelta;
 				float bL = bufferL->get(i);
-				float bR = $nc(bufferR)->get(i);
+				float bR = bufferR->get(i);
 				float tL = $nc(this->temp_bufferL)->get(i);
 				float tR = $nc(this->temp_bufferR)->get(i);
-				$nc(this->temp_bufferL)->set(i, bL);
-				$nc(this->temp_bufferR)->set(i, bR);
+				this->temp_bufferL->set(i, bL);
+				this->temp_bufferR->set(i, bR);
 				(*$nc(bufferLout))[i] += tL * this->gain;
 				(*$nc(bufferRout))[i] += tR * this->gain;
 			}
@@ -188,18 +147,18 @@ void SoftLimiter::processAudio() {
 			this->gain += gaindelta;
 			float bL = bufferL->get(i);
 			float tL = $nc(this->temp_bufferL)->get(i);
-			$nc(this->temp_bufferL)->set(i, bL);
+			this->temp_bufferL->set(i, bL);
 			$nc(bufferLout)->set(i, tL * this->gain);
 		}
 	} else {
 		for (int32_t i = 0; i < len; ++i) {
 			this->gain += gaindelta;
 			float bL = bufferL->get(i);
-			float bR = $nc(bufferR)->get(i);
+			float bR = bufferR->get(i);
 			float tL = $nc(this->temp_bufferL)->get(i);
 			float tR = $nc(this->temp_bufferR)->get(i);
-			$nc(this->temp_bufferL)->set(i, bL);
-			$nc(this->temp_bufferR)->set(i, bR);
+			this->temp_bufferL->set(i, bL);
+			this->temp_bufferR->set(i, bR);
 			$nc(bufferLout)->set(i, tL * this->gain);
 			$nc(bufferRout)->set(i, tR * this->gain);
 		}
@@ -214,7 +173,42 @@ SoftLimiter::SoftLimiter() {
 }
 
 $Class* SoftLimiter::load$($String* name, bool initialize) {
-	$loadClass(SoftLimiter, name, initialize, &_SoftLimiter_ClassInfo_, allocate$SoftLimiter);
+	$FieldInfo fieldInfos$$[] = {
+		{"lastmax", "F", nullptr, 0, $field(SoftLimiter, lastmax)},
+		{"gain", "F", nullptr, 0, $field(SoftLimiter, gain)},
+		{"temp_bufferL", "[F", nullptr, 0, $field(SoftLimiter, temp_bufferL)},
+		{"temp_bufferR", "[F", nullptr, 0, $field(SoftLimiter, temp_bufferR)},
+		{"mix", "Z", nullptr, 0, $field(SoftLimiter, mix)},
+		{"bufferL", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, 0, $field(SoftLimiter, bufferL)},
+		{"bufferR", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, 0, $field(SoftLimiter, bufferR)},
+		{"bufferLout", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, 0, $field(SoftLimiter, bufferLout)},
+		{"bufferRout", "Lcom/sun/media/sound/SoftAudioBuffer;", nullptr, 0, $field(SoftLimiter, bufferRout)},
+		{"controlrate", "F", nullptr, 0, $field(SoftLimiter, controlrate)},
+		{"silentcounter", "D", nullptr, 0, $field(SoftLimiter, silentcounter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftLimiter, init$, void)},
+		{"globalParameterControlChange", "([IJJ)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, globalParameterControlChange, void, $ints*, int64_t, int64_t)},
+		{"init", "(FF)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, init, void, float, float)},
+		{"processAudio", "()V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, processAudio, void)},
+		{"processControlLogic", "()V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, processControlLogic, void)},
+		{"setInput", "(ILcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, setInput, void, int32_t, $SoftAudioBuffer*)},
+		{"setMixMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, setMixMode, void, bool)},
+		{"setOutput", "(ILcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $virtualMethod(SoftLimiter, setOutput, void, int32_t, $SoftAudioBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftLimiter",
+		"java.lang.Object",
+		"com.sun.media.sound.SoftAudioProcessor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SoftLimiter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftLimiter);
+	});
 	return class$;
 }
 

@@ -85,6 +85,7 @@ public:
 	using ::javax::swing::text::JTextComponent::add;
 	using ::javax::swing::text::JTextComponent::getMousePosition;
 	using ::javax::swing::text::JTextComponent::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::net::URL* initialPage);
 	void init$($String* url);

@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/pool/PooledConnectionFactory.h>
-
 #include <com/sun/jndi/ldap/pool/PoolCallback.h>
 #include <com/sun/jndi/ldap/pool/PooledConnection.h>
 #include <jcpp.h>
@@ -15,26 +14,22 @@ namespace com {
 			namespace ldap {
 				namespace pool {
 
-$MethodInfo _PooledConnectionFactory_MethodInfo_[] = {
-	{"createPooledConnection", "(Lcom/sun/jndi/ldap/pool/PoolCallback;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnectionFactory, createPooledConnection, $PooledConnection*, $PoolCallback*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _PooledConnectionFactory_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.jndi.ldap.pool.PooledConnectionFactory",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PooledConnectionFactory_MethodInfo_
-};
-
-$Object* allocate$PooledConnectionFactory($Class* clazz) {
-	return $of($alloc(PooledConnectionFactory));
-}
-
 $Class* PooledConnectionFactory::load$($String* name, bool initialize) {
-	$loadClass(PooledConnectionFactory, name, initialize, &_PooledConnectionFactory_ClassInfo_, allocate$PooledConnectionFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"createPooledConnection", "(Lcom/sun/jndi/ldap/pool/PoolCallback;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnectionFactory, createPooledConnection, $PooledConnection*, $PoolCallback*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.jndi.ldap.pool.PooledConnectionFactory",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PooledConnectionFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PooledConnectionFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_awt_Insets_PersistenceDelegate.h>
-
 #include <java/awt/Insets.h>
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
@@ -19,38 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$java_awt_Insets_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_Insets_PersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_Insets_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_Insets_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_awt_Insets_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_awt_Insets_PersistenceDelegate", "java.beans.MetaData", "java_awt_Insets_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_awt_Insets_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_awt_Insets_PersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_Insets_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_Insets_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_awt_Insets_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_awt_Insets_PersistenceDelegate));
-}
-
 void MetaData$java_awt_Insets_PersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
 }
@@ -60,22 +27,49 @@ bool MetaData$java_awt_Insets_PersistenceDelegate::mutatesTo(Object$* oldInstanc
 }
 
 $Expression* MetaData$java_awt_Insets_PersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, $cast($Insets, oldInstance));
 	$var($ObjectArray, args, $new($ObjectArray, {
-		$($of($Integer::valueOf($nc(insets)->top))),
-		$($of($Integer::valueOf($nc(insets)->left))),
-		$($of($Integer::valueOf($nc(insets)->bottom))),
-		$($of($Integer::valueOf($nc(insets)->right)))
+		$($Integer::valueOf($nc(insets)->top)),
+		$($Integer::valueOf($nc(insets)->left)),
+		$($Integer::valueOf($nc(insets)->bottom)),
+		$($Integer::valueOf($nc(insets)->right))
 	}));
-	return $new($Expression, insets, $nc($of(insets))->getClass(), "new"_s, args);
+	return $new($Expression, insets, $of(insets)->getClass(), "new"_s, args);
 }
 
 MetaData$java_awt_Insets_PersistenceDelegate::MetaData$java_awt_Insets_PersistenceDelegate() {
 }
 
 $Class* MetaData$java_awt_Insets_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_awt_Insets_PersistenceDelegate, name, initialize, &_MetaData$java_awt_Insets_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_awt_Insets_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_Insets_PersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_Insets_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_Insets_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_awt_Insets_PersistenceDelegate", "java.beans.MetaData", "java_awt_Insets_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_awt_Insets_PersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_awt_Insets_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_awt_Insets_PersistenceDelegate);
+	});
 	return class$;
 }
 

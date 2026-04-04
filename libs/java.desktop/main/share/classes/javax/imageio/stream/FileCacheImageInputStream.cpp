@@ -1,5 +1,4 @@
 #include <javax/imageio/stream/FileCacheImageInputStream.h>
-
 #include <com/sun/imageio/stream/StreamCloser$CloseAction.h>
 #include <com/sun/imageio/stream/StreamCloser.h>
 #include <com/sun/imageio/stream/StreamFinalizer.h>
@@ -37,80 +36,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Files = ::java::nio::file::Files;
-using $Path = ::java::nio::file::Path;
 using $FileCacheImageInputStream$StreamDisposerRecord = ::javax::imageio::stream::FileCacheImageInputStream$StreamDisposerRecord;
-using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 using $ImageInputStreamImpl = ::javax::imageio::stream::ImageInputStreamImpl;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace javax {
 	namespace imageio {
 		namespace stream {
 
-$NamedAttribute FileCacheImageInputStream_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _FileCacheImageInputStream_MethodAnnotations_finalize2[] = {
-	{"Ljava/lang/Deprecated;", FileCacheImageInputStream_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _FileCacheImageInputStream_FieldInfo_[] = {
-	{"stream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(FileCacheImageInputStream, stream)},
-	{"cacheFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(FileCacheImageInputStream, cacheFile)},
-	{"cache", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE, $field(FileCacheImageInputStream, cache)},
-	{"BUFFER_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileCacheImageInputStream, BUFFER_LENGTH)},
-	{"buf", "[B", nullptr, $PRIVATE, $field(FileCacheImageInputStream, buf)},
-	{"length", "J", nullptr, $PRIVATE, $field(FileCacheImageInputStream, length$)},
-	{"foundEOF", "Z", nullptr, $PRIVATE, $field(FileCacheImageInputStream, foundEOF)},
-	{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileCacheImageInputStream, disposerReferent)},
-	{"disposerRecord", "Lsun/java2d/DisposerRecord;", nullptr, $PRIVATE | $FINAL, $field(FileCacheImageInputStream, disposerRecord)},
-	{"closeAction", "Lcom/sun/imageio/stream/StreamCloser$CloseAction;", nullptr, $PRIVATE | $FINAL, $field(FileCacheImageInputStream, closeAction)},
-	{}
-};
-
-$MethodInfo _FileCacheImageInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileCacheImageInputStream, init$, void, $InputStream*, $File*), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, close, void), "java.io.IOException"},
-	{"finalize", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(FileCacheImageInputStream, finalize, void), "java.lang.Throwable", nullptr, _FileCacheImageInputStream_MethodAnnotations_finalize2},
-	{"isCached", "()Z", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, isCached, bool)},
-	{"isCachedFile", "()Z", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, isCachedFile, bool)},
-	{"isCachedMemory", "()Z", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, isCachedMemory, bool)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"readUntil", "(J)J", nullptr, $PRIVATE, $method(FileCacheImageInputStream, readUntil, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _FileCacheImageInputStream_InnerClassesInfo_[] = {
-	{"javax.imageio.stream.FileCacheImageInputStream$StreamDisposerRecord", "javax.imageio.stream.FileCacheImageInputStream", "StreamDisposerRecord", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FileCacheImageInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.stream.FileCacheImageInputStream",
-	"javax.imageio.stream.ImageInputStreamImpl",
-	nullptr,
-	_FileCacheImageInputStream_FieldInfo_,
-	_FileCacheImageInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileCacheImageInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.imageio.stream.FileCacheImageInputStream$StreamDisposerRecord"
-};
-
-$Object* allocate$FileCacheImageInputStream($Class* clazz) {
-	return $of($alloc(FileCacheImageInputStream));
-}
-
 void FileCacheImageInputStream::init$($InputStream* stream, $File* cacheDir) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ImageInputStreamImpl::init$();
 	$set(this, buf, $new($bytes, FileCacheImageInputStream::BUFFER_LENGTH));
 	this->length$ = 0;
@@ -123,9 +58,9 @@ void FileCacheImageInputStream::init$($InputStream* stream, $File* cacheDir) {
 	}
 	$set(this, stream, stream);
 	if (cacheDir == nullptr) {
-		$set(this, cacheFile, $nc($($Files::createTempFile("imageio"_s, ".tmp"_s, $$new($FileAttributeArray, 0))))->toFile());
+		$set(this, cacheFile, $$nc($Files::createTempFile("imageio"_s, ".tmp"_s, $$new($FileAttributeArray, 0)))->toFile());
 	} else {
-		$set(this, cacheFile, $nc($($Files::createTempFile($($nc(cacheDir)->toPath()), "imageio"_s, ".tmp"_s, $$new($FileAttributeArray, 0))))->toFile());
+		$set(this, cacheFile, $$nc($Files::createTempFile($(cacheDir->toPath()), "imageio"_s, ".tmp"_s, $$new($FileAttributeArray, 0)))->toFile());
 	}
 	$set(this, cache, $new($RandomAccessFile, this->cacheFile, "rw"_s));
 	$set(this, closeAction, $StreamCloser::createCloseAction(this));
@@ -154,7 +89,7 @@ int64_t FileCacheImageInputStream::readUntil(int64_t pos) {
 			this->foundEOF = true;
 			return this->length$;
 		}
-		$nc(this->cache)->write(this->buf, 0, nbytes);
+		this->cache->write(this->buf, 0, nbytes);
 		len -= nbytes;
 		this->length$ += nbytes;
 	}
@@ -168,7 +103,7 @@ int32_t FileCacheImageInputStream::read() {
 	int64_t pos = readUntil(next);
 	if (pos >= next) {
 		$nc(this->cache)->seek(this->streamPos++);
-		return $nc(this->cache)->read();
+		return this->cache->read();
 	} else {
 		return -1;
 	}
@@ -190,7 +125,7 @@ int32_t FileCacheImageInputStream::read($bytes* b, int32_t off, int32_t len) {
 	len = (int32_t)$Math::min((int64_t)len, pos - this->streamPos);
 	if (len > 0) {
 		$nc(this->cache)->seek(this->streamPos);
-		$nc(this->cache)->readFully(b, off, len);
+		this->cache->readFully(b, off, len);
 		this->streamPos += len;
 		return len;
 	} else {
@@ -212,7 +147,7 @@ bool FileCacheImageInputStream::isCachedMemory() {
 
 void FileCacheImageInputStream::close() {
 	$ImageInputStreamImpl::close();
-	$nc(this->disposerRecord)->dispose();
+	this->disposerRecord->dispose();
 	$set(this, stream, nullptr);
 	$set(this, cache, nullptr);
 	$set(this, cacheFile, nullptr);
@@ -226,7 +161,60 @@ FileCacheImageInputStream::FileCacheImageInputStream() {
 }
 
 $Class* FileCacheImageInputStream::load$($String* name, bool initialize) {
-	$loadClass(FileCacheImageInputStream, name, initialize, &_FileCacheImageInputStream_ClassInfo_, allocate$FileCacheImageInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(FileCacheImageInputStream, stream)},
+		{"cacheFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(FileCacheImageInputStream, cacheFile)},
+		{"cache", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE, $field(FileCacheImageInputStream, cache)},
+		{"BUFFER_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FileCacheImageInputStream, BUFFER_LENGTH)},
+		{"buf", "[B", nullptr, $PRIVATE, $field(FileCacheImageInputStream, buf)},
+		{"length", "J", nullptr, $PRIVATE, $field(FileCacheImageInputStream, length$)},
+		{"foundEOF", "Z", nullptr, $PRIVATE, $field(FileCacheImageInputStream, foundEOF)},
+		{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileCacheImageInputStream, disposerReferent)},
+		{"disposerRecord", "Lsun/java2d/DisposerRecord;", nullptr, $PRIVATE | $FINAL, $field(FileCacheImageInputStream, disposerRecord)},
+		{"closeAction", "Lcom/sun/imageio/stream/StreamCloser$CloseAction;", nullptr, $PRIVATE | $FINAL, $field(FileCacheImageInputStream, closeAction)},
+		{}
+	};
+	$NamedAttribute finalizemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute finalizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", finalizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileCacheImageInputStream, init$, void, $InputStream*, $File*), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, close, void), "java.io.IOException"},
+		{"finalize", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(FileCacheImageInputStream, finalize, void), "java.lang.Throwable", nullptr, finalizemethodAnnotations$$},
+		{"isCached", "()Z", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, isCached, bool)},
+		{"isCachedFile", "()Z", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, isCachedFile, bool)},
+		{"isCachedMemory", "()Z", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, isCachedMemory, bool)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FileCacheImageInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"readUntil", "(J)J", nullptr, $PRIVATE, $method(FileCacheImageInputStream, readUntil, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.stream.FileCacheImageInputStream$StreamDisposerRecord", "javax.imageio.stream.FileCacheImageInputStream", "StreamDisposerRecord", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.stream.FileCacheImageInputStream",
+		"javax.imageio.stream.ImageInputStreamImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.imageio.stream.FileCacheImageInputStream$StreamDisposerRecord"
+	};
+	$loadClass(FileCacheImageInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileCacheImageInputStream));
+	});
 	return class$;
 }
 

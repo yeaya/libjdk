@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/BoolStack.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,43 +13,6 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 							namespace utils {
-
-$FieldInfo _BoolStack_FieldInfo_[] = {
-	{"m_values", "[Z", nullptr, $PRIVATE, $field(BoolStack, m_values)},
-	{"m_allocatedSize", "I", nullptr, $PRIVATE, $field(BoolStack, m_allocatedSize)},
-	{"m_index", "I", nullptr, $PRIVATE, $field(BoolStack, m_index)},
-	{}
-};
-
-$MethodInfo _BoolStack_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BoolStack, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BoolStack, init$, void, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC | $FINAL, $method(BoolStack, clear, void)},
-	{"grow", "()V", nullptr, $PRIVATE, $method(BoolStack, grow, void)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(BoolStack, isEmpty, bool)},
-	{"peek", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, peek, bool)},
-	{"peekOrFalse", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, peekOrFalse, bool)},
-	{"peekOrTrue", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, peekOrTrue, bool)},
-	{"pop", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, pop, bool)},
-	{"popAndTop", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, popAndTop, bool)},
-	{"push", "(Z)Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, push, bool, bool)},
-	{"setTop", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(BoolStack, setTop, void, bool)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(BoolStack, size, int32_t)},
-	{}
-};
-
-$ClassInfo _BoolStack_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.utils.BoolStack",
-	"java.lang.Object",
-	nullptr,
-	_BoolStack_FieldInfo_,
-	_BoolStack_MethodInfo_
-};
-
-$Object* allocate$BoolStack($Class* clazz) {
-	return $of($alloc(BoolStack));
-}
 
 void BoolStack::init$() {
 	BoolStack::init$(32);
@@ -117,7 +79,39 @@ BoolStack::BoolStack() {
 }
 
 $Class* BoolStack::load$($String* name, bool initialize) {
-	$loadClass(BoolStack, name, initialize, &_BoolStack_ClassInfo_, allocate$BoolStack);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_values", "[Z", nullptr, $PRIVATE, $field(BoolStack, m_values)},
+		{"m_allocatedSize", "I", nullptr, $PRIVATE, $field(BoolStack, m_allocatedSize)},
+		{"m_index", "I", nullptr, $PRIVATE, $field(BoolStack, m_index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BoolStack, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BoolStack, init$, void, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC | $FINAL, $method(BoolStack, clear, void)},
+		{"grow", "()V", nullptr, $PRIVATE, $method(BoolStack, grow, void)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(BoolStack, isEmpty, bool)},
+		{"peek", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, peek, bool)},
+		{"peekOrFalse", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, peekOrFalse, bool)},
+		{"peekOrTrue", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, peekOrTrue, bool)},
+		{"pop", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, pop, bool)},
+		{"popAndTop", "()Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, popAndTop, bool)},
+		{"push", "(Z)Z", nullptr, $PUBLIC | $FINAL, $method(BoolStack, push, bool, bool)},
+		{"setTop", "(Z)V", nullptr, $PUBLIC | $FINAL, $method(BoolStack, setTop, void, bool)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(BoolStack, size, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.utils.BoolStack",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BoolStack, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BoolStack);
+	});
 	return class$;
 }
 

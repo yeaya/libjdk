@@ -1,5 +1,4 @@
 #include <org/xml/sax/helpers/ParserFactory.h>
-
 #include <java/lang/ClassLoader.h>
 #include <jdk/xml/internal/SecuritySupport.h>
 #include <org/xml/sax/Parser.h>
@@ -19,40 +18,6 @@ namespace org {
 	namespace xml {
 		namespace sax {
 			namespace helpers {
-
-$NamedAttribute ParserFactory_Attribute_var$0[] = {
-	{"since", 's', "1.5"},
-	{}
-};
-
-$CompoundAttribute _ParserFactory_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", ParserFactory_Attribute_var$0},
-	{}
-};
-
-$MethodInfo _ParserFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ParserFactory, init$, void)},
-	{"makeParser", "()Lorg/xml/sax/Parser;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParserFactory, makeParser, $Parser*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.NullPointerException,java.lang.ClassCastException"},
-	{"makeParser", "(Ljava/lang/String;)Lorg/xml/sax/Parser;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParserFactory, makeParser, $Parser*, $String*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.ClassCastException"},
-	{}
-};
-
-$ClassInfo _ParserFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.xml.sax.helpers.ParserFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ParserFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_ParserFactory_Annotations_
-};
-
-$Object* allocate$ParserFactory($Class* clazz) {
-	return $of($alloc(ParserFactory));
-}
 
 void ParserFactory::init$() {
 }
@@ -75,7 +40,35 @@ ParserFactory::ParserFactory() {
 }
 
 $Class* ParserFactory::load$($String* name, bool initialize) {
-	$loadClass(ParserFactory, name, initialize, &_ParserFactory_ClassInfo_, allocate$ParserFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ParserFactory, init$, void)},
+		{"makeParser", "()Lorg/xml/sax/Parser;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParserFactory, makeParser, $Parser*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.NullPointerException,java.lang.ClassCastException"},
+		{"makeParser", "(Ljava/lang/String;)Lorg/xml/sax/Parser;", nullptr, $PUBLIC | $STATIC, $staticMethod(ParserFactory, makeParser, $Parser*, $String*), "java.lang.ClassNotFoundException,java.lang.IllegalAccessException,java.lang.InstantiationException,java.lang.ClassCastException"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "1.5"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.xml.sax.helpers.ParserFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ParserFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParserFactory);
+	});
 	return class$;
 }
 

@@ -23,7 +23,7 @@ public:
 	UserSessionEvent();
 	void init$(::java::awt::desktop::UserSessionEvent$Reason* reason);
 	::java::awt::desktop::UserSessionEvent$Reason* getReason();
-	static const int64_t serialVersionUID = (int64_t)0x5DA2A6AF1D5D59DF;
+	static const int64_t serialVersionUID = (int64_t)0x5da2a6af1d5d59df;
 	::java::awt::desktop::UserSessionEvent$Reason* reason = nullptr;
 };
 

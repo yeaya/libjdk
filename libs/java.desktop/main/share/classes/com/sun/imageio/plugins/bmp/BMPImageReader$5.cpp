@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$5.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPImageReader.h>
 #include <jcpp.h>
 
@@ -15,48 +14,11 @@ namespace com {
 			namespace plugins {
 				namespace bmp {
 
-$MethodInfo _BMPImageReader$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BMPImageReader$5, init$, void)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$5, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _BMPImageReader$5_EnclosingMethodInfo_ = {
-	"com.sun.imageio.plugins.bmp.BMPImageReader",
-	"isUncOrDevicePath",
-	"([B)Z"
-};
-
-$InnerClassInfo _BMPImageReader$5_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BMPImageReader$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageReader$5",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_BMPImageReader$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_BMPImageReader$5_EnclosingMethodInfo_,
-	_BMPImageReader$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.bmp.BMPImageReader"
-};
-
-$Object* allocate$BMPImageReader$5($Class* clazz) {
-	return $of($alloc(BMPImageReader$5));
-}
-
 void BMPImageReader$5::init$() {
 }
 
 $Object* BMPImageReader$5::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, osname, $System::getProperty("os.name"_s));
 	return $of($Boolean::valueOf((osname != nullptr && $(osname->toLowerCase())->startsWith("win"_s))));
 }
@@ -65,7 +27,38 @@ BMPImageReader$5::BMPImageReader$5() {
 }
 
 $Class* BMPImageReader$5::load$($String* name, bool initialize) {
-	$loadClass(BMPImageReader$5, name, initialize, &_BMPImageReader$5_ClassInfo_, allocate$BMPImageReader$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BMPImageReader$5, init$, void)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$5, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.imageio.plugins.bmp.BMPImageReader",
+		"isUncOrDevicePath",
+		"([B)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageReader$5",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.bmp.BMPImageReader"
+	};
+	$loadClass(BMPImageReader$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPImageReader$5);
+	});
 	return class$;
 }
 

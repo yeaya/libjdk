@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$EnumAttributeProxy.h>
-
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -24,44 +23,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$EnumAttributeProxy_FieldInfo_[] = {
-	{"enumType", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(ClassReader$EnumAttributeProxy, enumType)},
-	{"enumerator", "Lcom/sun/tools/javac/util/Name;", nullptr, 0, $field(ClassReader$EnumAttributeProxy, enumerator)},
-	{}
-};
-
-$MethodInfo _ClassReader$EnumAttributeProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(ClassReader$EnumAttributeProxy, init$, void, $Type*, $Name*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$EnumAttributeProxy, accept, void, $Attribute$Visitor*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$EnumAttributeProxy, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$EnumAttributeProxy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$EnumAttributeProxy", "com.sun.tools.javac.jvm.ClassReader", "EnumAttributeProxy", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassReader$EnumAttributeProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$EnumAttributeProxy",
-	"com.sun.tools.javac.code.Attribute",
-	nullptr,
-	_ClassReader$EnumAttributeProxy_FieldInfo_,
-	_ClassReader$EnumAttributeProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$EnumAttributeProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$EnumAttributeProxy($Class* clazz) {
-	return $of($alloc(ClassReader$EnumAttributeProxy));
-}
-
 void ClassReader$EnumAttributeProxy::init$($Type* enumType, $Name* enumerator) {
 	$Attribute::init$(nullptr);
 	$set(this, enumType, enumType);
@@ -69,7 +30,7 @@ void ClassReader$EnumAttributeProxy::init$($Type* enumType, $Name* enumerator) {
 }
 
 void ClassReader$EnumAttributeProxy::accept($Attribute$Visitor* v) {
-	$nc(($cast($ClassReader$ProxyVisitor, v)))->visitEnumAttributeProxy(this);
+	$nc($cast($ClassReader$ProxyVisitor, v))->visitEnumAttributeProxy(this);
 }
 
 $String* ClassReader$EnumAttributeProxy::toString() {
@@ -80,7 +41,39 @@ ClassReader$EnumAttributeProxy::ClassReader$EnumAttributeProxy() {
 }
 
 $Class* ClassReader$EnumAttributeProxy::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$EnumAttributeProxy, name, initialize, &_ClassReader$EnumAttributeProxy_ClassInfo_, allocate$ClassReader$EnumAttributeProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"enumType", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(ClassReader$EnumAttributeProxy, enumType)},
+		{"enumerator", "Lcom/sun/tools/javac/util/Name;", nullptr, 0, $field(ClassReader$EnumAttributeProxy, enumerator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(ClassReader$EnumAttributeProxy, init$, void, $Type*, $Name*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$EnumAttributeProxy, accept, void, $Attribute$Visitor*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$EnumAttributeProxy, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$EnumAttributeProxy", "com.sun.tools.javac.jvm.ClassReader", "EnumAttributeProxy", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$EnumAttributeProxy",
+		"com.sun.tools.javac.code.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$EnumAttributeProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$EnumAttributeProxy);
+	});
 	return class$;
 }
 

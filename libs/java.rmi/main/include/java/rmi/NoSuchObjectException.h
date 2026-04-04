@@ -13,10 +13,13 @@ class $import NoSuchObjectException : public ::java::rmi::RemoteException {
 public:
 	NoSuchObjectException();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0x5BDCD18C01045019;
+	static const int64_t serialVersionUID = (int64_t)0x5bdcd18c01045019;
 	NoSuchObjectException(const NoSuchObjectException& e);
 	virtual void throw$() override;
-	inline NoSuchObjectException* operator ->() {
+	inline NoSuchObjectException* operator ->() const {
+		return (NoSuchObjectException*)throwing$;
+	}
+	inline operator NoSuchObjectException*() const {
 		return (NoSuchObjectException*)throwing$;
 	}
 };

@@ -1,13 +1,10 @@
 #include <sun/net/www/protocol/http/logging/HttpLogFormatter.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/util/logging/LogRecord.h>
 #include <java/util/logging/SimpleFormatter.h>
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
 #include <jcpp.h>
 
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -23,31 +20,6 @@ namespace sun {
 				namespace http {
 					namespace logging {
 
-$FieldInfo _HttpLogFormatter_FieldInfo_[] = {
-	{"pattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(HttpLogFormatter, pattern)},
-	{"cpattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(HttpLogFormatter, cpattern)},
-	{}
-};
-
-$MethodInfo _HttpLogFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HttpLogFormatter, init$, void)},
-	{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpLogFormatter, format, $String*, $LogRecord*)},
-	{}
-};
-
-$ClassInfo _HttpLogFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.www.protocol.http.logging.HttpLogFormatter",
-	"java.util.logging.SimpleFormatter",
-	nullptr,
-	_HttpLogFormatter_FieldInfo_,
-	_HttpLogFormatter_MethodInfo_
-};
-
-$Object* allocate$HttpLogFormatter($Class* clazz) {
-	return $of($alloc(HttpLogFormatter));
-}
-
 $volatile($Pattern*) HttpLogFormatter::pattern = nullptr;
 $volatile($Pattern*) HttpLogFormatter::cpattern = nullptr;
 
@@ -60,12 +32,12 @@ void HttpLogFormatter::init$() {
 }
 
 $String* HttpLogFormatter::format($LogRecord* record) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, sourceClassName, $nc(record)->getSourceClassName());
 	bool var$0 = sourceClassName == nullptr;
 	if (!var$0) {
-		bool var$1 = $nc(sourceClassName)->startsWith("sun.net.www.protocol.http"_s);
-		var$0 = !(var$1 || $nc(sourceClassName)->startsWith("sun.net.www.http"_s));
+		bool var$1 = sourceClassName->startsWith("sun.net.www.protocol.http"_s);
+		var$0 = !(var$1 || sourceClassName->startsWith("sun.net.www.http"_s));
 	}
 	if (var$0) {
 		return $SimpleFormatter::format(record);
@@ -138,7 +110,7 @@ $String* HttpLogFormatter::format($LogRecord* record) {
 	return buf->toString();
 }
 
-void clinit$HttpLogFormatter($Class* class$) {
+void HttpLogFormatter::clinit$($Class* clazz) {
 	$assignStatic(HttpLogFormatter::pattern, nullptr);
 	$assignStatic(HttpLogFormatter::cpattern, nullptr);
 }
@@ -147,7 +119,27 @@ HttpLogFormatter::HttpLogFormatter() {
 }
 
 $Class* HttpLogFormatter::load$($String* name, bool initialize) {
-	$loadClass(HttpLogFormatter, name, initialize, &_HttpLogFormatter_ClassInfo_, clinit$HttpLogFormatter, allocate$HttpLogFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"pattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(HttpLogFormatter, pattern)},
+		{"cpattern", "Ljava/util/regex/Pattern;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(HttpLogFormatter, cpattern)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HttpLogFormatter, init$, void)},
+		{"format", "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpLogFormatter, format, $String*, $LogRecord*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.www.protocol.http.logging.HttpLogFormatter",
+		"java.util.logging.SimpleFormatter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpLogFormatter, name, initialize, &classInfo$$, HttpLogFormatter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpLogFormatter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMRSAPSSSignatureMethod$RSAPSS.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMRSAPSSSignatureMethod.h>
@@ -23,40 +22,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMRSAPSSSignatureMethod$RSAPSS_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMRSAPSSSignatureMethod$RSAPSS, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMRSAPSSSignatureMethod$RSAPSS, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMRSAPSSSignatureMethod$RSAPSS, getAlgorithm, $String*)},
-	{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod$RSAPSS, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod$RSAPSS, getJCAAlgorithm, $String*)},
-	{}
-};
-
-$InnerClassInfo _DOMRSAPSSSignatureMethod$RSAPSS_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod$RSAPSS", "org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod", "RSAPSS", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMRSAPSSSignatureMethod$RSAPSS_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod$RSAPSS",
-	"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod",
-	nullptr,
-	nullptr,
-	_DOMRSAPSSSignatureMethod$RSAPSS_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMRSAPSSSignatureMethod$RSAPSS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod"
-};
-
-$Object* allocate$DOMRSAPSSSignatureMethod$RSAPSS($Class* clazz) {
-	return $of($alloc(DOMRSAPSSSignatureMethod$RSAPSS));
-}
 
 void DOMRSAPSSSignatureMethod$RSAPSS::init$($AlgorithmParameterSpec* params) {
 	$DOMRSAPSSSignatureMethod::init$(params);
@@ -84,7 +49,36 @@ DOMRSAPSSSignatureMethod$RSAPSS::DOMRSAPSSSignatureMethod$RSAPSS() {
 }
 
 $Class* DOMRSAPSSSignatureMethod$RSAPSS::load$($String* name, bool initialize) {
-	$loadClass(DOMRSAPSSSignatureMethod$RSAPSS, name, initialize, &_DOMRSAPSSSignatureMethod$RSAPSS_ClassInfo_, allocate$DOMRSAPSSSignatureMethod$RSAPSS);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMRSAPSSSignatureMethod$RSAPSS, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMRSAPSSSignatureMethod$RSAPSS, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMRSAPSSSignatureMethod$RSAPSS, getAlgorithm, $String*)},
+		{"getAlgorithmType", "()Lorg/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod$Type;", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod$RSAPSS, getAlgorithmType, $AbstractDOMSignatureMethod$Type*)},
+		{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod$RSAPSS, getJCAAlgorithm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod$RSAPSS", "org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod", "RSAPSS", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod$RSAPSS",
+		"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod"
+	};
+	$loadClass(DOMRSAPSSSignatureMethod$RSAPSS, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMRSAPSSSignatureMethod$RSAPSS));
+	});
 	return class$;
 }
 

@@ -24,6 +24,7 @@ class $import BufferingSubscriber$DownstreamSubscription$PushDemandedTask : publ
 	$class(BufferingSubscriber$DownstreamSubscription$PushDemandedTask, 0, ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask)
 public:
 	BufferingSubscriber$DownstreamSubscription$PushDemandedTask();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::BufferingSubscriber$DownstreamSubscription* this$1);
 	using ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask::run;
 	virtual void run() override;

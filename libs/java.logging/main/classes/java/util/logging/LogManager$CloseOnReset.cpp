@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$CloseOnReset.h>
-
 #include <java/util/Objects.h>
 #include <java/util/logging/LogManager.h>
 #include <java/util/logging/Logger.h>
@@ -16,51 +15,12 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _LogManager$CloseOnReset_FieldInfo_[] = {
-	{"logger", "Ljava/util/logging/Logger;", nullptr, $PRIVATE | $FINAL, $field(LogManager$CloseOnReset, logger)},
-	{}
-};
-
-$MethodInfo _LogManager$CloseOnReset_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$CloseOnReset, init$, void, $Logger*)},
-	{"create", "(Ljava/util/logging/Logger;)Ljava/util/logging/LogManager$CloseOnReset;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$CloseOnReset, create, LogManager$CloseOnReset*, $Logger*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$CloseOnReset, equals, bool, Object$*)},
-	{"get", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC, $method(LogManager$CloseOnReset, get, $Logger*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LogManager$CloseOnReset, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _LogManager$CloseOnReset_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$CloseOnReset", "java.util.logging.LogManager", "CloseOnReset", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LogManager$CloseOnReset_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.LogManager$CloseOnReset",
-	"java.lang.Object",
-	nullptr,
-	_LogManager$CloseOnReset_FieldInfo_,
-	_LogManager$CloseOnReset_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LogManager$CloseOnReset_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$CloseOnReset($Class* clazz) {
-	return $of($alloc(LogManager$CloseOnReset));
-}
-
 void LogManager$CloseOnReset::init$($Logger* ref) {
 	$set(this, logger, $cast($Logger, $Objects::requireNonNull(ref)));
 }
 
 bool LogManager$CloseOnReset::equals(Object$* other) {
-	return ($instanceOf(LogManager$CloseOnReset, other)) && $nc(($cast(LogManager$CloseOnReset, other)))->logger == this->logger;
+	return ($instanceOf(LogManager$CloseOnReset, other)) && $cast(LogManager$CloseOnReset, other)->logger == this->logger;
 }
 
 int32_t LogManager$CloseOnReset::hashCode() {
@@ -79,7 +39,40 @@ LogManager$CloseOnReset::LogManager$CloseOnReset() {
 }
 
 $Class* LogManager$CloseOnReset::load$($String* name, bool initialize) {
-	$loadClass(LogManager$CloseOnReset, name, initialize, &_LogManager$CloseOnReset_ClassInfo_, allocate$LogManager$CloseOnReset);
+	$FieldInfo fieldInfos$$[] = {
+		{"logger", "Ljava/util/logging/Logger;", nullptr, $PRIVATE | $FINAL, $field(LogManager$CloseOnReset, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/Logger;)V", nullptr, $PRIVATE, $method(LogManager$CloseOnReset, init$, void, $Logger*)},
+		{"create", "(Ljava/util/logging/Logger;)Ljava/util/logging/LogManager$CloseOnReset;", nullptr, $PUBLIC | $STATIC, $staticMethod(LogManager$CloseOnReset, create, LogManager$CloseOnReset*, $Logger*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LogManager$CloseOnReset, equals, bool, Object$*)},
+		{"get", "()Ljava/util/logging/Logger;", nullptr, $PUBLIC, $method(LogManager$CloseOnReset, get, $Logger*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LogManager$CloseOnReset, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$CloseOnReset", "java.util.logging.LogManager", "CloseOnReset", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.LogManager$CloseOnReset",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$CloseOnReset, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$CloseOnReset);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/geom/QuadCurve2D.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -43,88 +42,6 @@ namespace java {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _QuadCurve2D_FieldInfo_[] = {
-	{"BELOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, BELOW)},
-	{"LOWEDGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, LOWEDGE)},
-	{"INSIDE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, INSIDE)},
-	{"HIGHEDGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, HIGHEDGE)},
-	{"ABOVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, ABOVE)},
-	{}
-};
-
-$MethodInfo _QuadCurve2D_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(QuadCurve2D, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, clone, $Object*)},
-	{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, contains, bool, double, double)},
-	{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, contains, bool, $Point2D*)},
-	{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, contains, bool, double, double, double, double)},
-	{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, contains, bool, $Rectangle2D*)},
-	{"evalQuadratic", "([DIZZ[DDDD)I", nullptr, $PRIVATE | $STATIC, $staticMethod(QuadCurve2D, evalQuadratic, int32_t, $doubles*, int32_t, bool, bool, $doubles*, double, double, double)},
-	{"fillEqn", "([DDDDD)V", nullptr, $PRIVATE | $STATIC, $staticMethod(QuadCurve2D, fillEqn, void, $doubles*, double, double, double, double)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getBounds, $Rectangle*)},
-	{"getCtrlPt", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getCtrlPt, $Point2D*)},
-	{"getCtrlX", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getCtrlX, double)},
-	{"getCtrlY", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getCtrlY, double)},
-	{"getFlatness", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, getFlatness, double, double, double, double, double, double, double)},
-	{"getFlatness", "([DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, getFlatness, double, $doubles*, int32_t)},
-	{"getFlatness", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getFlatness, double)},
-	{"getFlatnessSq", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, getFlatnessSq, double, double, double, double, double, double, double)},
-	{"getFlatnessSq", "([DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, getFlatnessSq, double, $doubles*, int32_t)},
-	{"getFlatnessSq", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getFlatnessSq, double)},
-	{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getP1, $Point2D*)},
-	{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getP2, $Point2D*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getPathIterator, $PathIterator*, $AffineTransform*, double)},
-	{"getTag", "(DDD)I", nullptr, $PRIVATE | $STATIC, $staticMethod(QuadCurve2D, getTag, int32_t, double, double, double)},
-	{"getX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getX1, double)},
-	{"getX2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getX2, double)},
-	{"getY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getY1, double)},
-	{"getY2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getY2, double)},
-	{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, intersects, bool, double, double, double, double)},
-	{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, intersects, bool, $Rectangle2D*)},
-	{"inwards", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(QuadCurve2D, inwards, bool, int32_t, int32_t, int32_t)},
-	{"setCurve", "(DDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, setCurve, void, double, double, double, double, double, double)},
-	{"setCurve", "([DI)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, setCurve, void, $doubles*, int32_t)},
-	{"setCurve", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, setCurve, void, $Point2D*, $Point2D*, $Point2D*)},
-	{"setCurve", "([Ljava/awt/geom/Point2D;I)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, setCurve, void, $Point2DArray*, int32_t)},
-	{"setCurve", "(Ljava/awt/geom/QuadCurve2D;)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, setCurve, void, QuadCurve2D*)},
-	{"solveQuadratic", "([D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, solveQuadratic, int32_t, $doubles*)},
-	{"solveQuadratic", "([D[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, solveQuadratic, int32_t, $doubles*, $doubles*)},
-	{"subdivide", "(Ljava/awt/geom/QuadCurve2D;Ljava/awt/geom/QuadCurve2D;)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, subdivide, void, QuadCurve2D*, QuadCurve2D*)},
-	{"subdivide", "(Ljava/awt/geom/QuadCurve2D;Ljava/awt/geom/QuadCurve2D;Ljava/awt/geom/QuadCurve2D;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, subdivide, void, QuadCurve2D*, QuadCurve2D*, QuadCurve2D*)},
-	{"subdivide", "([DI[DI[DI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, subdivide, void, $doubles*, int32_t, $doubles*, int32_t, $doubles*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _QuadCurve2D_InnerClassesInfo_[] = {
-	{"java.awt.geom.QuadCurve2D$Double", "java.awt.geom.QuadCurve2D", "Double", $PUBLIC | $STATIC},
-	{"java.awt.geom.QuadCurve2D$Float", "java.awt.geom.QuadCurve2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _QuadCurve2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.QuadCurve2D",
-	"java.lang.Object",
-	"java.awt.Shape,java.lang.Cloneable",
-	_QuadCurve2D_FieldInfo_,
-	_QuadCurve2D_MethodInfo_,
-	nullptr,
-	nullptr,
-	_QuadCurve2D_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.geom.QuadCurve2D$Double,java.awt.geom.QuadCurve2D$Float"
-};
-
-$Object* allocate$QuadCurve2D($Class* clazz) {
-	return $of($alloc(QuadCurve2D));
-}
-
 int32_t QuadCurve2D::hashCode() {
 	 return this->$Shape::hashCode();
 }
@@ -145,7 +62,7 @@ void QuadCurve2D::init$() {
 }
 
 void QuadCurve2D::setCurve($doubles* coords, int32_t offset) {
-	setCurve($nc(coords)->get(offset + 0), coords->get(offset + 1), coords->get(offset + 2), coords->get(offset + 3), coords->get(offset + 4), coords->get(offset + 5));
+	setCurve($nc(coords)->get(offset + 0), $nc(coords)->get(offset + 1), $nc(coords)->get(offset + 2), $nc(coords)->get(offset + 3), $nc(coords)->get(offset + 4), $nc(coords)->get(offset + 5));
 }
 
 void QuadCurve2D::setCurve($Point2D* p1, $Point2D* cp, $Point2D* p2) {
@@ -187,12 +104,12 @@ double QuadCurve2D::getFlatness(double x1, double y1, double ctrlx, double ctrly
 
 double QuadCurve2D::getFlatnessSq($doubles* coords, int32_t offset) {
 	$init(QuadCurve2D);
-	return $Line2D::ptSegDistSq($nc(coords)->get(offset + 0), coords->get(offset + 1), coords->get(offset + 4), coords->get(offset + 5), coords->get(offset + 2), coords->get(offset + 3));
+	return $Line2D::ptSegDistSq($nc(coords)->get(offset + 0), $nc(coords)->get(offset + 1), $nc(coords)->get(offset + 4), $nc(coords)->get(offset + 5), $nc(coords)->get(offset + 2), $nc(coords)->get(offset + 3));
 }
 
 double QuadCurve2D::getFlatness($doubles* coords, int32_t offset) {
 	$init(QuadCurve2D);
-	return $Line2D::ptSegDist($nc(coords)->get(offset + 0), coords->get(offset + 1), coords->get(offset + 4), coords->get(offset + 5), coords->get(offset + 2), coords->get(offset + 3));
+	return $Line2D::ptSegDist($nc(coords)->get(offset + 0), $nc(coords)->get(offset + 1), $nc(coords)->get(offset + 4), $nc(coords)->get(offset + 5), $nc(coords)->get(offset + 2), $nc(coords)->get(offset + 3));
 }
 
 double QuadCurve2D::getFlatnessSq() {
@@ -351,7 +268,7 @@ int32_t QuadCurve2D::evalQuadratic($doubles* vals, int32_t num, bool include0, b
 	int32_t j = 0;
 	for (int32_t i = 0; i < num; ++i) {
 		double t = $nc(vals)->get(i);
-		if ((include0 ? t >= 0 : t > 0) && (include1 ? t <= 1 : t < 1) && (inflect == nullptr || $nc(inflect)->get(1) + 2 * inflect->get(2) * t != 0)) {
+		if ((include0 ? t >= 0 : t > 0) && (include1 ? t <= 1 : t < 1) && (inflect == nullptr || inflect->get(1) + 2 * inflect->get(2) * t != 0)) {
 			double u = 1 - t;
 			vals->set(j++, c1 * u * u + 2 * ctrl * t * u + c2 * t * t);
 		}
@@ -374,30 +291,20 @@ bool QuadCurve2D::inwards(int32_t pttag, int32_t opt1tag, int32_t opt2tag) {
 	$init(QuadCurve2D);
 	switch (pttag) {
 	case QuadCurve2D::BELOW:
-		{}
 	case QuadCurve2D::ABOVE:
-		{}
 	default:
-		{
-			return false;
-		}
+		return false;
 	case QuadCurve2D::LOWEDGE:
-		{
-			return (opt1tag >= QuadCurve2D::INSIDE || opt2tag >= QuadCurve2D::INSIDE);
-		}
+		return (opt1tag >= QuadCurve2D::INSIDE || opt2tag >= QuadCurve2D::INSIDE);
 	case QuadCurve2D::INSIDE:
-		{
-			return true;
-		}
+		return true;
 	case QuadCurve2D::HIGHEDGE:
-		{
-			return (opt1tag <= QuadCurve2D::INSIDE || opt2tag <= QuadCurve2D::INSIDE);
-		}
+		return (opt1tag <= QuadCurve2D::INSIDE || opt2tag <= QuadCurve2D::INSIDE);
 	}
 }
 
 bool QuadCurve2D::intersects(double x, double y, double w, double h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		return false;
 	}
@@ -520,7 +427,7 @@ bool QuadCurve2D::contains($Rectangle2D* r) {
 }
 
 $Rectangle* QuadCurve2D::getBounds() {
-	return $nc($(getBounds2D()))->getBounds();
+	return $$nc(getBounds2D())->getBounds();
 }
 
 $PathIterator* QuadCurve2D::getPathIterator($AffineTransform* at) {
@@ -533,9 +440,9 @@ $PathIterator* QuadCurve2D::getPathIterator($AffineTransform* at, double flatnes
 
 $Object* QuadCurve2D::clone() {
 	try {
-		return $of($Shape::clone());
+		return $Shape::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -544,7 +451,83 @@ QuadCurve2D::QuadCurve2D() {
 }
 
 $Class* QuadCurve2D::load$($String* name, bool initialize) {
-	$loadClass(QuadCurve2D, name, initialize, &_QuadCurve2D_ClassInfo_, allocate$QuadCurve2D);
+	$FieldInfo fieldInfos$$[] = {
+		{"BELOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, BELOW)},
+		{"LOWEDGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, LOWEDGE)},
+		{"INSIDE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, INSIDE)},
+		{"HIGHEDGE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, HIGHEDGE)},
+		{"ABOVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D, ABOVE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(QuadCurve2D, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, clone, $Object*)},
+		{"contains", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, contains, bool, double, double)},
+		{"contains", "(Ljava/awt/geom/Point2D;)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, contains, bool, $Point2D*)},
+		{"contains", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, contains, bool, double, double, double, double)},
+		{"contains", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, contains, bool, $Rectangle2D*)},
+		{"evalQuadratic", "([DIZZ[DDDD)I", nullptr, $PRIVATE | $STATIC, $staticMethod(QuadCurve2D, evalQuadratic, int32_t, $doubles*, int32_t, bool, bool, $doubles*, double, double, double)},
+		{"fillEqn", "([DDDDD)V", nullptr, $PRIVATE | $STATIC, $staticMethod(QuadCurve2D, fillEqn, void, $doubles*, double, double, double, double)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getBounds, $Rectangle*)},
+		{"getCtrlPt", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getCtrlPt, $Point2D*)},
+		{"getCtrlX", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getCtrlX, double)},
+		{"getCtrlY", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getCtrlY, double)},
+		{"getFlatness", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, getFlatness, double, double, double, double, double, double, double)},
+		{"getFlatness", "([DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, getFlatness, double, $doubles*, int32_t)},
+		{"getFlatness", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getFlatness, double)},
+		{"getFlatnessSq", "(DDDDDD)D", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, getFlatnessSq, double, double, double, double, double, double, double)},
+		{"getFlatnessSq", "([DI)D", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, getFlatnessSq, double, $doubles*, int32_t)},
+		{"getFlatnessSq", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getFlatnessSq, double)},
+		{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getP1, $Point2D*)},
+		{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getP2, $Point2D*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;D)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, getPathIterator, $PathIterator*, $AffineTransform*, double)},
+		{"getTag", "(DDD)I", nullptr, $PRIVATE | $STATIC, $staticMethod(QuadCurve2D, getTag, int32_t, double, double, double)},
+		{"getX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getX1, double)},
+		{"getX2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getX2, double)},
+		{"getY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getY1, double)},
+		{"getY2", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, getY2, double)},
+		{"intersects", "(DDDD)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, intersects, bool, double, double, double, double)},
+		{"intersects", "(Ljava/awt/geom/Rectangle2D;)Z", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, intersects, bool, $Rectangle2D*)},
+		{"inwards", "(III)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(QuadCurve2D, inwards, bool, int32_t, int32_t, int32_t)},
+		{"setCurve", "(DDDDDD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(QuadCurve2D, setCurve, void, double, double, double, double, double, double)},
+		{"setCurve", "([DI)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, setCurve, void, $doubles*, int32_t)},
+		{"setCurve", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, setCurve, void, $Point2D*, $Point2D*, $Point2D*)},
+		{"setCurve", "([Ljava/awt/geom/Point2D;I)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, setCurve, void, $Point2DArray*, int32_t)},
+		{"setCurve", "(Ljava/awt/geom/QuadCurve2D;)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, setCurve, void, QuadCurve2D*)},
+		{"solveQuadratic", "([D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, solveQuadratic, int32_t, $doubles*)},
+		{"solveQuadratic", "([D[D)I", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, solveQuadratic, int32_t, $doubles*, $doubles*)},
+		{"subdivide", "(Ljava/awt/geom/QuadCurve2D;Ljava/awt/geom/QuadCurve2D;)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D, subdivide, void, QuadCurve2D*, QuadCurve2D*)},
+		{"subdivide", "(Ljava/awt/geom/QuadCurve2D;Ljava/awt/geom/QuadCurve2D;Ljava/awt/geom/QuadCurve2D;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, subdivide, void, QuadCurve2D*, QuadCurve2D*, QuadCurve2D*)},
+		{"subdivide", "([DI[DI[DI)V", nullptr, $PUBLIC | $STATIC, $staticMethod(QuadCurve2D, subdivide, void, $doubles*, int32_t, $doubles*, int32_t, $doubles*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.QuadCurve2D$Double", "java.awt.geom.QuadCurve2D", "Double", $PUBLIC | $STATIC},
+		{"java.awt.geom.QuadCurve2D$Float", "java.awt.geom.QuadCurve2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.QuadCurve2D",
+		"java.lang.Object",
+		"java.awt.Shape,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.geom.QuadCurve2D$Double,java.awt.geom.QuadCurve2D$Float"
+	};
+	$loadClass(QuadCurve2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(QuadCurve2D));
+	});
 	return class$;
 }
 

@@ -43,7 +43,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	void setClassName($String* className);
 	void setMember($String* member);
-	static const int64_t serialVersionUID = (int64_t)0xDE755825E2A117AB;
+	static const int64_t serialVersionUID = (int64_t)0xde755825e2a117ab;
 	static const int32_t AddNotificationListener = 1;
 	static const int32_t GetAttribute = 2;
 	static const int32_t GetClassLoader = 4;

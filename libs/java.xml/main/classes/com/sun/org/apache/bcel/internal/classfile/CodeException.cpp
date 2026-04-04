@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/CodeException.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Utility.h>
@@ -29,52 +28,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _CodeException_FieldInfo_[] = {
-	{"startPc", "I", nullptr, $PRIVATE, $field(CodeException, startPc)},
-	{"endPc", "I", nullptr, $PRIVATE, $field(CodeException, endPc)},
-	{"handlerPc", "I", nullptr, $PRIVATE, $field(CodeException, handlerPc)},
-	{"catchType", "I", nullptr, $PRIVATE, $field(CodeException, catchType)},
-	{}
-};
-
-$MethodInfo _CodeException_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/CodeException;)V", nullptr, $PUBLIC, $method(CodeException, init$, void, CodeException*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(CodeException, init$, void, $DataInput*), "java.io.IOException"},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(CodeException, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(CodeException, accept, void, $Visitor*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/CodeException;", nullptr, $PUBLIC, $method(CodeException, copy, CodeException*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(CodeException, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getCatchType", "()I", nullptr, $PUBLIC, $method(CodeException, getCatchType, int32_t)},
-	{"getEndPC", "()I", nullptr, $PUBLIC, $method(CodeException, getEndPC, int32_t)},
-	{"getHandlerPC", "()I", nullptr, $PUBLIC, $method(CodeException, getHandlerPC, int32_t)},
-	{"getStartPC", "()I", nullptr, $PUBLIC, $method(CodeException, getStartPC, int32_t)},
-	{"setCatchType", "(I)V", nullptr, $PUBLIC, $method(CodeException, setCatchType, void, int32_t)},
-	{"setEndPC", "(I)V", nullptr, $PUBLIC, $method(CodeException, setEndPC, void, int32_t)},
-	{"setHandlerPC", "(I)V", nullptr, $PUBLIC, $method(CodeException, setHandlerPC, void, int32_t)},
-	{"setStartPC", "(I)V", nullptr, $PUBLIC, $method(CodeException, setStartPC, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CodeException, toString, $String*)},
-	{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(CodeException, toString, $String*, $ConstantPool*, bool)},
-	{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(CodeException, toString, $String*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _CodeException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.CodeException",
-	"java.lang.Object",
-	"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
-	_CodeException_FieldInfo_,
-	_CodeException_MethodInfo_
-};
-
-$Object* allocate$CodeException($Class* clazz) {
-	return $of($alloc(CodeException));
-}
 
 int32_t CodeException::hashCode() {
 	 return this->$Cloneable::hashCode();
@@ -157,12 +110,12 @@ void CodeException::setStartPC(int32_t startPc) {
 }
 
 $String* CodeException::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"CodeException(startPc = "_s, $$str(this->startPc), ", endPc = "_s, $$str(this->endPc), ", handlerPc = "_s, $$str(this->handlerPc), ", catchType = "_s, $$str(this->catchType), ")"_s});
 }
 
 $String* CodeException::toString($ConstantPool* cp, bool verbose) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, nullptr);
 	if (this->catchType == 0) {
 		$assign(str, "<Any exception>(0)"_s);
@@ -188,7 +141,48 @@ CodeException::CodeException() {
 }
 
 $Class* CodeException::load$($String* name, bool initialize) {
-	$loadClass(CodeException, name, initialize, &_CodeException_ClassInfo_, allocate$CodeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"startPc", "I", nullptr, $PRIVATE, $field(CodeException, startPc)},
+		{"endPc", "I", nullptr, $PRIVATE, $field(CodeException, endPc)},
+		{"handlerPc", "I", nullptr, $PRIVATE, $field(CodeException, handlerPc)},
+		{"catchType", "I", nullptr, $PRIVATE, $field(CodeException, catchType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/CodeException;)V", nullptr, $PUBLIC, $method(CodeException, init$, void, CodeException*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(CodeException, init$, void, $DataInput*), "java.io.IOException"},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(CodeException, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(CodeException, accept, void, $Visitor*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/CodeException;", nullptr, $PUBLIC, $method(CodeException, copy, CodeException*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(CodeException, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getCatchType", "()I", nullptr, $PUBLIC, $method(CodeException, getCatchType, int32_t)},
+		{"getEndPC", "()I", nullptr, $PUBLIC, $method(CodeException, getEndPC, int32_t)},
+		{"getHandlerPC", "()I", nullptr, $PUBLIC, $method(CodeException, getHandlerPC, int32_t)},
+		{"getStartPC", "()I", nullptr, $PUBLIC, $method(CodeException, getStartPC, int32_t)},
+		{"setCatchType", "(I)V", nullptr, $PUBLIC, $method(CodeException, setCatchType, void, int32_t)},
+		{"setEndPC", "(I)V", nullptr, $PUBLIC, $method(CodeException, setEndPC, void, int32_t)},
+		{"setHandlerPC", "(I)V", nullptr, $PUBLIC, $method(CodeException, setHandlerPC, void, int32_t)},
+		{"setStartPC", "(I)V", nullptr, $PUBLIC, $method(CodeException, setStartPC, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CodeException, toString, $String*)},
+		{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;Z)Ljava/lang/String;", nullptr, $PUBLIC, $method(CodeException, toString, $String*, $ConstantPool*, bool)},
+		{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(CodeException, toString, $String*, $ConstantPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.CodeException",
+		"java.lang.Object",
+		"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CodeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CodeException));
+	});
 	return class$;
 }
 

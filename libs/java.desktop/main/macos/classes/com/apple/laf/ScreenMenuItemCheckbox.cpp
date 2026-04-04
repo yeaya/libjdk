@@ -1,5 +1,4 @@
 #include <com/apple/laf/ScreenMenuItemCheckbox.h>
-
 #include <com/apple/laf/AquaIcon.h>
 #include <com/apple/laf/AquaMenuItemUI$IndeterminateListener.h>
 #include <com/apple/laf/ScreenMenuItem.h>
@@ -11,17 +10,11 @@
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/Image.h>
-#include <java/awt/MenuComponent.h>
 #include <java/awt/MenuContainer.h>
-#include <java/awt/MenuItem.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/ItemEvent.h>
-#include <java/awt/event/ItemListener.h>
 #include <java/awt/peer/MenuComponentPeer.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
@@ -50,19 +43,12 @@ using $ScreenMenuPropertyListener = ::com::apple::laf::ScreenMenuPropertyListene
 using $CheckboxMenuItem = ::java::awt::CheckboxMenuItem;
 using $Font = ::java::awt::Font;
 using $Image = ::java::awt::Image;
-using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuItem = ::java::awt::MenuItem;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $ItemEvent = ::java::awt::event::ItemEvent;
-using $ItemListener = ::java::awt::event::ItemListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem;
 using $JMenuItem = ::javax::swing::JMenuItem;
@@ -70,64 +56,12 @@ using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $CCheckboxMenuItem = ::sun::lwawt::macosx::CCheckboxMenuItem;
 using $CMenuItem = ::sun::lwawt::macosx::CMenuItem;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _ScreenMenuItemCheckbox_FieldInfo_[] = {
-	{"fMenuItem", "Ljavax/swing/JMenuItem;", nullptr, 0, $field(ScreenMenuItemCheckbox, fMenuItem)},
-	{"fParent", "Ljava/awt/MenuContainer;", nullptr, 0, $field(ScreenMenuItemCheckbox, fParent)},
-	{"fPropertyListener", "Lcom/apple/laf/ScreenMenuPropertyListener;", nullptr, 0, $field(ScreenMenuItemCheckbox, fPropertyListener)},
-	{}
-};
-
-$MethodInfo _ScreenMenuItemCheckbox_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JCheckBoxMenuItem;)V", nullptr, 0, $method(ScreenMenuItemCheckbox, init$, void, $JCheckBoxMenuItem*)},
-	{"<init>", "(Ljavax/swing/JRadioButtonMenuItem;)V", nullptr, 0, $method(ScreenMenuItemCheckbox, init$, void, $JRadioButtonMenuItem*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, actionPerformed, void, $ActionEvent*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, addNotify, void)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, componentMoved, void, $ComponentEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, componentShown, void, $ComponentEvent*)},
-	{"forceSetState", "(Z)V", nullptr, $PRIVATE, $method(ScreenMenuItemCheckbox, forceSetState, void, bool)},
-	{"init", "(Ljavax/swing/JMenuItem;)V", nullptr, $PUBLIC, $method(ScreenMenuItemCheckbox, init, void, $JMenuItem*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, itemStateChanged, void, $ItemEvent*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, removeNotify, void)},
-	{"setAccelerator", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setAccelerator, void, $KeyStroke*)},
-	{"setChildVisible", "(Ljavax/swing/JMenuItem;Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setChildVisible, void, $JMenuItem*, bool)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setIcon, void, $Icon*)},
-	{"setIndeterminate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setIndeterminate, void, bool)},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScreenMenuItemCheckbox, setLabel, void, $String*)},
-	{"setState", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScreenMenuItemCheckbox, setState, void, bool)},
-	{"setToolTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setToolTipText, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $method(ScreenMenuItemCheckbox, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ScreenMenuItemCheckbox_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.apple.laf.ScreenMenuItemCheckbox",
-	"java.awt.CheckboxMenuItem",
-	"java.awt.event.ActionListener,java.awt.event.ComponentListener,com.apple.laf.ScreenMenuPropertyHandler,java.awt.event.ItemListener",
-	_ScreenMenuItemCheckbox_FieldInfo_,
-	_ScreenMenuItemCheckbox_MethodInfo_
-};
-
-$Object* allocate$ScreenMenuItemCheckbox($Class* clazz) {
-	return $of($alloc(ScreenMenuItemCheckbox));
-}
 
 void ScreenMenuItemCheckbox::setEnabled(bool b) {
 	this->$CheckboxMenuItem::setEnabled(b);
@@ -164,9 +98,9 @@ void ScreenMenuItemCheckbox::init$($JCheckBoxMenuItem* mi) {
 }
 
 void ScreenMenuItemCheckbox::init$($JRadioButtonMenuItem* mi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $nc(mi)->getText());
-	$CheckboxMenuItem::init$(var$0, $nc($(mi->getModel()))->isSelected());
+	$CheckboxMenuItem::init$(var$0, $$nc(mi->getModel())->isSelected());
 	init(mi);
 }
 
@@ -176,9 +110,9 @@ void ScreenMenuItemCheckbox::init($JMenuItem* mi) {
 }
 
 void ScreenMenuItemCheckbox::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$CheckboxMenuItem::addNotify();
-	$var($CCheckboxMenuItem, ccb, $cast($CCheckboxMenuItem, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(this)));
+	$var($CCheckboxMenuItem, ccb, $cast($CCheckboxMenuItem, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(this)));
 	$nc(ccb)->setAutoToggle(false);
 	$nc(this->fMenuItem)->addComponentListener(this);
 	$set(this, fPropertyListener, $new($ScreenMenuPropertyListener, this));
@@ -199,12 +133,12 @@ void ScreenMenuItemCheckbox::addNotify() {
 	$nc(this->fMenuItem)->addItemListener(this);
 	$var($ButtonUI, ui, $cast($ButtonUI, $nc(this->fMenuItem)->getUI()));
 	if ($instanceOf($ScreenMenuItemUI, ui)) {
-		$nc(($cast($ScreenMenuItemUI, ui)))->updateListenersForScreenMenuItem();
+		$cast($ScreenMenuItemUI, ui)->updateListenersForScreenMenuItem();
 	}
 	if ($instanceOf($JCheckBoxMenuItem, this->fMenuItem)) {
-		forceSetState($nc(this->fMenuItem)->isSelected());
+		forceSetState(this->fMenuItem->isSelected());
 	} else {
-		forceSetState($nc($($nc(this->fMenuItem)->getModel()))->isSelected());
+		forceSetState($$nc($nc(this->fMenuItem)->getModel())->isSelected());
 	}
 }
 
@@ -247,17 +181,17 @@ void ScreenMenuItemCheckbox::componentHidden($ComponentEvent* e) {
 }
 
 void ScreenMenuItemCheckbox::setToolTipText($String* text) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(this));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(this));
 	if (!($instanceOf($CMenuItem, peer))) {
 		return;
 	}
-	$nc(($cast($CMenuItem, peer)))->setToolTipText(text);
+	$nc($cast($CMenuItem, peer))->setToolTipText(text);
 }
 
 void ScreenMenuItemCheckbox::setIcon($Icon* i) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(this));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(this));
 	if (!($instanceOf($CMenuItem, peer))) {
 		return;
 	}
@@ -276,7 +210,7 @@ void ScreenMenuItemCheckbox::setVisible(bool b) {
 	if (this->fParent == nullptr) {
 		$set(this, fParent, getParent());
 	}
-	$nc(($cast($ScreenMenuPropertyHandler, this->fParent)))->setChildVisible(this->fMenuItem, b);
+	$nc($cast($ScreenMenuPropertyHandler, this->fParent))->setChildVisible(this->fMenuItem, b);
 }
 
 void ScreenMenuItemCheckbox::setChildVisible($JMenuItem* child, bool b) {
@@ -287,25 +221,21 @@ void ScreenMenuItemCheckbox::itemStateChanged($ItemEvent* e) {
 		$nc(this->fMenuItem)->doClick(0);
 		return;
 	}
-	switch ($nc(e)->getStateChange()) {
+	switch (e->getStateChange()) {
 	case $ItemEvent::SELECTED:
-		{
-			forceSetState(true);
-			break;
-		}
+		forceSetState(true);
+		break;
 	case $ItemEvent::DESELECTED:
-		{
-			forceSetState(false);
-			break;
-		}
+		forceSetState(false);
+		break;
 	}
 }
 
 void ScreenMenuItemCheckbox::setIndeterminate(bool indeterminate) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(this));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(this));
 	if ($instanceOf($CCheckboxMenuItem, peer)) {
-		$nc(($cast($CCheckboxMenuItem, peer)))->setIsIndeterminate(indeterminate);
+		$cast($CCheckboxMenuItem, peer)->setIsIndeterminate(indeterminate);
 	}
 }
 
@@ -322,7 +252,53 @@ ScreenMenuItemCheckbox::ScreenMenuItemCheckbox() {
 }
 
 $Class* ScreenMenuItemCheckbox::load$($String* name, bool initialize) {
-	$loadClass(ScreenMenuItemCheckbox, name, initialize, &_ScreenMenuItemCheckbox_ClassInfo_, allocate$ScreenMenuItemCheckbox);
+	$FieldInfo fieldInfos$$[] = {
+		{"fMenuItem", "Ljavax/swing/JMenuItem;", nullptr, 0, $field(ScreenMenuItemCheckbox, fMenuItem)},
+		{"fParent", "Ljava/awt/MenuContainer;", nullptr, 0, $field(ScreenMenuItemCheckbox, fParent)},
+		{"fPropertyListener", "Lcom/apple/laf/ScreenMenuPropertyListener;", nullptr, 0, $field(ScreenMenuItemCheckbox, fPropertyListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JCheckBoxMenuItem;)V", nullptr, 0, $method(ScreenMenuItemCheckbox, init$, void, $JCheckBoxMenuItem*)},
+		{"<init>", "(Ljavax/swing/JRadioButtonMenuItem;)V", nullptr, 0, $method(ScreenMenuItemCheckbox, init$, void, $JRadioButtonMenuItem*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, actionPerformed, void, $ActionEvent*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, addNotify, void)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, componentMoved, void, $ComponentEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, componentShown, void, $ComponentEvent*)},
+		{"forceSetState", "(Z)V", nullptr, $PRIVATE, $method(ScreenMenuItemCheckbox, forceSetState, void, bool)},
+		{"init", "(Ljavax/swing/JMenuItem;)V", nullptr, $PUBLIC, $method(ScreenMenuItemCheckbox, init, void, $JMenuItem*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, itemStateChanged, void, $ItemEvent*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, removeNotify, void)},
+		{"setAccelerator", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setAccelerator, void, $KeyStroke*)},
+		{"setChildVisible", "(Ljavax/swing/JMenuItem;Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setChildVisible, void, $JMenuItem*, bool)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setIcon, void, $Icon*)},
+		{"setIndeterminate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setIndeterminate, void, bool)},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScreenMenuItemCheckbox, setLabel, void, $String*)},
+		{"setState", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScreenMenuItemCheckbox, setState, void, bool)},
+		{"setToolTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItemCheckbox, setToolTipText, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $method(ScreenMenuItemCheckbox, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.apple.laf.ScreenMenuItemCheckbox",
+		"java.awt.CheckboxMenuItem",
+		"java.awt.event.ActionListener,java.awt.event.ComponentListener,com.apple.laf.ScreenMenuPropertyHandler,java.awt.event.ItemListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScreenMenuItemCheckbox, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScreenMenuItemCheckbox));
+	});
 	return class$;
 }
 

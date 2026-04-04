@@ -1,11 +1,9 @@
 #include <WrongSelectionOnMouseOver.h>
-
 #include <WrongSelectionOnMouseOver$1.h>
 #include <WrongSelectionOnMouseOver$2.h>
 #include <WrongSelectionOnMouseOver$3.h>
 #include <java/awt/Component.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -27,7 +25,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/event/MenuListener.h>
 #include <jcpp.h>
 
 #undef BUTTON1_MASK
@@ -38,12 +35,8 @@ using $WrongSelectionOnMouseOver$2 = ::WrongSelectionOnMouseOver$2;
 using $WrongSelectionOnMouseOver$3 = ::WrongSelectionOnMouseOver$3;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -62,7 +55,6 @@ using $JMenuItem = ::javax::swing::JMenuItem;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
-using $MenuListener = ::javax::swing::event::MenuListener;
 
 class WrongSelectionOnMouseOver$$Lambda$lambda$test$0 : public $Runnable {
 	$class(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, $NO_CLASS_INIT, $Runnable)
@@ -73,87 +65,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$test$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WrongSelectionOnMouseOver$$Lambda$lambda$test$0>());
-	}
 	WrongSelectionOnMouseOver* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WrongSelectionOnMouseOver$$Lambda$lambda$test$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, inst$)},
-	{}
-};
-$MethodInfo WrongSelectionOnMouseOver$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "(LWrongSelectionOnMouseOver;)V", nullptr, $PUBLIC, $method(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, init$, void, WrongSelectionOnMouseOver*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, run, void)},
-	{}
-};
-$ClassInfo WrongSelectionOnMouseOver$$Lambda$lambda$test$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"WrongSelectionOnMouseOver$$Lambda$lambda$test$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* WrongSelectionOnMouseOver$$Lambda$lambda$test$0::load$($String* name, bool initialize) {
-	$loadClass(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LWrongSelectionOnMouseOver;)V", nullptr, $PUBLIC, $method(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, init$, void, WrongSelectionOnMouseOver*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"WrongSelectionOnMouseOver$$Lambda$lambda$test$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrongSelectionOnMouseOver$$Lambda$lambda$test$0);
+	});
 	return class$;
 }
 $Class* WrongSelectionOnMouseOver$$Lambda$lambda$test$0::class$ = nullptr;
-
-$FieldInfo _WrongSelectionOnMouseOver_FieldInfo_[] = {
-	{"firstMenuSelected", "Ljava/util/concurrent/CountDownLatch;", nullptr, 0, $field(WrongSelectionOnMouseOver, firstMenuSelected)},
-	{"secondMenuMouseEntered", "Ljava/util/concurrent/CountDownLatch;", nullptr, 0, $field(WrongSelectionOnMouseOver, secondMenuMouseEntered)},
-	{"secondMenuSelected", "Ljava/util/concurrent/CountDownLatch;", nullptr, 0, $field(WrongSelectionOnMouseOver, secondMenuSelected)},
-	{"m1", "Ljavax/swing/JMenu;", nullptr, 0, $field(WrongSelectionOnMouseOver, m1)},
-	{"m2", "Ljavax/swing/JMenu;", nullptr, 0, $field(WrongSelectionOnMouseOver, m2)},
-	{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PRIVATE, $field(WrongSelectionOnMouseOver, laf)},
-	{"frame1", "Ljavax/swing/JFrame;", nullptr, 0, $field(WrongSelectionOnMouseOver, frame1)},
-	{"frame2", "Ljavax/swing/JFrame;", nullptr, 0, $field(WrongSelectionOnMouseOver, frame2)},
-	{"menu1location", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(WrongSelectionOnMouseOver, menu1location)},
-	{"menu2location", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(WrongSelectionOnMouseOver, menu2location)},
-	{}
-};
-
-$MethodInfo _WrongSelectionOnMouseOver_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(WrongSelectionOnMouseOver, init$, void, $UIManager$LookAndFeelInfo*), "java.lang.Exception"},
-	{"createUI", "()V", nullptr, $PRIVATE, $method(WrongSelectionOnMouseOver, createUI, void), "java.lang.Exception"},
-	{"disposeUI", "()V", nullptr, $PUBLIC, $virtualMethod(WrongSelectionOnMouseOver, disposeUI, void)},
-	{"lambda$test$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(WrongSelectionOnMouseOver, lambda$test$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WrongSelectionOnMouseOver, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WrongSelectionOnMouseOver, run, void)},
-	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(WrongSelectionOnMouseOver, test, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _WrongSelectionOnMouseOver_InnerClassesInfo_[] = {
-	{"WrongSelectionOnMouseOver$3", nullptr, nullptr, 0},
-	{"WrongSelectionOnMouseOver$2", nullptr, nullptr, 0},
-	{"WrongSelectionOnMouseOver$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WrongSelectionOnMouseOver_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"WrongSelectionOnMouseOver",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WrongSelectionOnMouseOver_FieldInfo_,
-	_WrongSelectionOnMouseOver_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WrongSelectionOnMouseOver_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"WrongSelectionOnMouseOver$3,WrongSelectionOnMouseOver$2,WrongSelectionOnMouseOver$1"
-};
-
-$Object* allocate$WrongSelectionOnMouseOver($Class* clazz) {
-	return $of($alloc(WrongSelectionOnMouseOver));
-}
 
 void WrongSelectionOnMouseOver::init$($UIManager$LookAndFeelInfo* laf) {
 	$set(this, firstMenuSelected, $new($CountDownLatch, 1));
@@ -163,7 +100,7 @@ void WrongSelectionOnMouseOver::init$($UIManager$LookAndFeelInfo* laf) {
 }
 
 void WrongSelectionOnMouseOver::createUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"Testing UI: "_s, this->laf}));
 	$UIManager::setLookAndFeel($($nc(this->laf)->getClassName()));
 	{
@@ -172,7 +109,7 @@ void WrongSelectionOnMouseOver::createUI() {
 		$set(this, m1, $new($JMenu, "File"_s));
 		$var($JMenuItem, i1, $new($JMenuItem, "Save"_s));
 		$var($JMenuItem, i2, $new($JMenuItem, "Load"_s));
-		$nc(this->m1)->addMenuListener($$new($WrongSelectionOnMouseOver$1, this));
+		this->m1->addMenuListener($$new($WrongSelectionOnMouseOver$1, this));
 		$nc(this->frame1)->setJMenuBar(mb);
 		mb->add(this->m1);
 		$nc(this->m1)->add(i1);
@@ -187,7 +124,7 @@ void WrongSelectionOnMouseOver::createUI() {
 		$set(this, m2, $new($JMenu, "File"_s));
 		$var($JMenuItem, i1, $new($JMenuItem, "Save"_s));
 		$var($JMenuItem, i2, $new($JMenuItem, "Load"_s));
-		$nc(this->m2)->addMouseListener($$new($WrongSelectionOnMouseOver$2, this));
+		this->m2->addMouseListener($$new($WrongSelectionOnMouseOver$2, this));
 		$nc(this->m2)->addMenuListener($$new($WrongSelectionOnMouseOver$3, this));
 		$nc(this->frame2)->setJMenuBar(mb);
 		mb->add(this->m2);
@@ -212,42 +149,43 @@ void WrongSelectionOnMouseOver::run() {
 			disposeUI();
 		}
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void WrongSelectionOnMouseOver::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(100);
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, this)));
+	$SwingUtilities::invokeAndWait($$new(WrongSelectionOnMouseOver$$Lambda$lambda$test$0, this));
 	int32_t var$0 = $cast(int32_t, $nc(this->menu1location)->getX()) + 5;
-	robot->mouseMove(var$0, $cast(int32_t, $nc(this->menu1location)->getY()) + 5);
+	robot->mouseMove(var$0, $cast(int32_t, this->menu1location->getY()) + 5);
 	robot->mousePress($MouseEvent::BUTTON1_MASK);
 	robot->mouseRelease($MouseEvent::BUTTON1_MASK);
 	$init($TimeUnit);
 	if (!$nc(this->firstMenuSelected)->await(5, $TimeUnit::SECONDS)) {
 		$throwNew($RuntimeException, "Menu has not been selected."_s);
 	}
+	;
 	int32_t var$1 = $cast(int32_t, $nc(this->menu2location)->getX()) + 5;
-	robot->mouseMove(var$1, $cast(int32_t, $nc(this->menu2location)->getY()) + 5);
+	robot->mouseMove(var$1, $cast(int32_t, this->menu2location->getY()) + 5);
 	if (!$nc(this->secondMenuMouseEntered)->await(5, $TimeUnit::SECONDS)) {
 		$throwNew($RuntimeException, "MouseEntered event missed for the second menu"_s);
 	}
+	;
 	if ($nc(this->secondMenuSelected)->await(1, $TimeUnit::SECONDS)) {
 		$throwNew($RuntimeException, "The second menu has been selected"_s);
 	}
+	;
 }
 
 void WrongSelectionOnMouseOver::main($StringArray* args) {
 	$init(WrongSelectionOnMouseOver);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, laf, arr$->get(i$));
 			{
 				$var(WrongSelectionOnMouseOver, test, $new(WrongSelectionOnMouseOver, laf));
@@ -270,11 +208,56 @@ WrongSelectionOnMouseOver::WrongSelectionOnMouseOver() {
 
 $Class* WrongSelectionOnMouseOver::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WrongSelectionOnMouseOver$$Lambda$lambda$test$0::classInfo$.name)) {
+		if (name->equals("WrongSelectionOnMouseOver$$Lambda$lambda$test$0")) {
 			return WrongSelectionOnMouseOver$$Lambda$lambda$test$0::load$(name, initialize);
 		}
 	}
-	$loadClass(WrongSelectionOnMouseOver, name, initialize, &_WrongSelectionOnMouseOver_ClassInfo_, allocate$WrongSelectionOnMouseOver);
+	$FieldInfo fieldInfos$$[] = {
+		{"firstMenuSelected", "Ljava/util/concurrent/CountDownLatch;", nullptr, 0, $field(WrongSelectionOnMouseOver, firstMenuSelected)},
+		{"secondMenuMouseEntered", "Ljava/util/concurrent/CountDownLatch;", nullptr, 0, $field(WrongSelectionOnMouseOver, secondMenuMouseEntered)},
+		{"secondMenuSelected", "Ljava/util/concurrent/CountDownLatch;", nullptr, 0, $field(WrongSelectionOnMouseOver, secondMenuSelected)},
+		{"m1", "Ljavax/swing/JMenu;", nullptr, 0, $field(WrongSelectionOnMouseOver, m1)},
+		{"m2", "Ljavax/swing/JMenu;", nullptr, 0, $field(WrongSelectionOnMouseOver, m2)},
+		{"laf", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PRIVATE, $field(WrongSelectionOnMouseOver, laf)},
+		{"frame1", "Ljavax/swing/JFrame;", nullptr, 0, $field(WrongSelectionOnMouseOver, frame1)},
+		{"frame2", "Ljavax/swing/JFrame;", nullptr, 0, $field(WrongSelectionOnMouseOver, frame2)},
+		{"menu1location", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(WrongSelectionOnMouseOver, menu1location)},
+		{"menu2location", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(WrongSelectionOnMouseOver, menu2location)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(WrongSelectionOnMouseOver, init$, void, $UIManager$LookAndFeelInfo*), "java.lang.Exception"},
+		{"createUI", "()V", nullptr, $PRIVATE, $method(WrongSelectionOnMouseOver, createUI, void), "java.lang.Exception"},
+		{"disposeUI", "()V", nullptr, $PUBLIC, $virtualMethod(WrongSelectionOnMouseOver, disposeUI, void)},
+		{"lambda$test$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(WrongSelectionOnMouseOver, lambda$test$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WrongSelectionOnMouseOver, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WrongSelectionOnMouseOver, run, void)},
+		{"test", "()V", nullptr, $PUBLIC, $virtualMethod(WrongSelectionOnMouseOver, test, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"WrongSelectionOnMouseOver$3", nullptr, nullptr, 0},
+		{"WrongSelectionOnMouseOver$2", nullptr, nullptr, 0},
+		{"WrongSelectionOnMouseOver$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"WrongSelectionOnMouseOver",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"WrongSelectionOnMouseOver$3,WrongSelectionOnMouseOver$2,WrongSelectionOnMouseOver$1"
+	};
+	$loadClass(WrongSelectionOnMouseOver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrongSelectionOnMouseOver);
+	});
 	return class$;
 }
 

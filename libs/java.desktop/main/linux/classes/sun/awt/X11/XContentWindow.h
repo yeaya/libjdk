@@ -65,6 +65,7 @@ public:
 	XContentWindow();
 	using ::sun::awt::X11::XWindow::getGraphics;
 	using ::sun::awt::X11::XWindow::handleKeyPress;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::X11::XDecoratedPeer* parentFrame, ::java::awt::Rectangle* bounds);
 	static ::sun::awt::X11::XContentWindow* createContent(::sun::awt::X11::XDecoratedPeer* parentFrame);
 	virtual void dispose() override;

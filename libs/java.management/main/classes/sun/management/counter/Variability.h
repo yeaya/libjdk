@@ -25,6 +25,7 @@ class $export Variability : public ::java::io::Serializable {
 	$class(Variability, 0, ::java::io::Serializable)
 public:
 	Variability();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t value);
 	virtual int32_t intValue();
 	virtual $String* toString() override;
@@ -37,7 +38,7 @@ public:
 	static ::sun::management::counter::Variability* CONSTANT;
 	static ::sun::management::counter::Variability* MONOTONIC;
 	static ::sun::management::counter::Variability* VARIABLE;
-	static const int64_t serialVersionUID = (int64_t)0x6109C59A2636DD85;
+	static const int64_t serialVersionUID = (int64_t)0x6109c59a2636dd85;
 };
 
 		} // counter

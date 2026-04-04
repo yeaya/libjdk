@@ -37,6 +37,7 @@ class Request$ReadStream : public ::java::io::InputStream {
 	$class(Request$ReadStream, 0, ::java::io::InputStream)
 public:
 	Request$ReadStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::ServerImpl* server, ::java::nio::channels::SocketChannel* chan);
 	virtual int32_t available() override;
 	virtual void close() override;

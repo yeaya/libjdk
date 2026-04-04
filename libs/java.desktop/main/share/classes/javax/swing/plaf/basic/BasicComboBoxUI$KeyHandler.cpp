@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboBoxUI$KeyHandler.h>
-
 #include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI$Handler.h>
@@ -13,48 +12,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
-using $BasicComboBoxUI$Handler = ::javax::swing::plaf::basic::BasicComboBoxUI$Handler;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicComboBoxUI$KeyHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboBoxUI$KeyHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicComboBoxUI$KeyHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicComboBoxUI;)V", nullptr, $PUBLIC, $method(BasicComboBoxUI$KeyHandler, init$, void, $BasicComboBoxUI*)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI$KeyHandler, keyPressed, void, $KeyEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicComboBoxUI$KeyHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboBoxUI$KeyHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "KeyHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicComboBoxUI$KeyHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboBoxUI$KeyHandler",
-	"java.awt.event.KeyAdapter",
-	nullptr,
-	_BasicComboBoxUI$KeyHandler_FieldInfo_,
-	_BasicComboBoxUI$KeyHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboBoxUI$KeyHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboBoxUI"
-};
-
-$Object* allocate$BasicComboBoxUI$KeyHandler($Class* clazz) {
-	return $of($alloc(BasicComboBoxUI$KeyHandler));
-}
 
 void BasicComboBoxUI$KeyHandler::init$($BasicComboBoxUI* this$0) {
 	$set(this, this$0, this$0);
@@ -62,14 +24,44 @@ void BasicComboBoxUI$KeyHandler::init$($BasicComboBoxUI* this$0) {
 }
 
 void BasicComboBoxUI$KeyHandler::keyPressed($KeyEvent* e) {
-	$nc($(this->this$0->getHandler()))->keyPressed(e);
+	$$nc(this->this$0->getHandler())->keyPressed(e);
 }
 
 BasicComboBoxUI$KeyHandler::BasicComboBoxUI$KeyHandler() {
 }
 
 $Class* BasicComboBoxUI$KeyHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicComboBoxUI$KeyHandler, name, initialize, &_BasicComboBoxUI$KeyHandler_ClassInfo_, allocate$BasicComboBoxUI$KeyHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicComboBoxUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboBoxUI$KeyHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicComboBoxUI;)V", nullptr, $PUBLIC, $method(BasicComboBoxUI$KeyHandler, init$, void, $BasicComboBoxUI*)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxUI$KeyHandler, keyPressed, void, $KeyEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboBoxUI$KeyHandler", "javax.swing.plaf.basic.BasicComboBoxUI", "KeyHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboBoxUI$KeyHandler",
+		"java.awt.event.KeyAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboBoxUI"
+	};
+	$loadClass(BasicComboBoxUI$KeyHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicComboBoxUI$KeyHandler);
+	});
 	return class$;
 }
 

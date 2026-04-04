@@ -30,12 +30,15 @@ public:
 	XSDComplexTypeTraverser$ComplexTypeRecoverableError();
 	void init$();
 	void init$($String* msgKey, $ObjectArray* args, ::org::w3c::dom::Element* e);
-	static const int64_t serialVersionUID = (int64_t)0x5E6826D0091DB9DF;
+	static const int64_t serialVersionUID = (int64_t)0x5e6826d0091db9df;
 	$ObjectArray* errorSubstText = nullptr;
 	::org::w3c::dom::Element* errorElem = nullptr;
 	XSDComplexTypeTraverser$ComplexTypeRecoverableError(const XSDComplexTypeTraverser$ComplexTypeRecoverableError& e);
 	virtual void throw$() override;
-	inline XSDComplexTypeTraverser$ComplexTypeRecoverableError* operator ->() {
+	inline XSDComplexTypeTraverser$ComplexTypeRecoverableError* operator ->() const {
+		return (XSDComplexTypeTraverser$ComplexTypeRecoverableError*)throwing$;
+	}
+	inline operator XSDComplexTypeTraverser$ComplexTypeRecoverableError*() const {
 		return (XSDComplexTypeTraverser$ComplexTypeRecoverableError*)throwing$;
 	}
 };

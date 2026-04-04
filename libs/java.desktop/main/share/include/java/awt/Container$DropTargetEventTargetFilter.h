@@ -21,6 +21,7 @@ class $import Container$DropTargetEventTargetFilter : public ::java::awt::Contai
 	$class(Container$DropTargetEventTargetFilter, 0, ::java::awt::Container$EventTargetFilter)
 public:
 	Container$DropTargetEventTargetFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool accept(::java::awt::Component* comp) override;
 	static ::java::awt::Container$EventTargetFilter* FILTER;

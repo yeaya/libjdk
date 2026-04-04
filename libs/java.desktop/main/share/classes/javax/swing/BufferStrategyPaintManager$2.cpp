@@ -1,5 +1,4 @@
 #include <javax/swing/BufferStrategyPaintManager$2.h>
-
 #include <javax/swing/BufferStrategyPaintManager.h>
 #include <javax/swing/JRootPane.h>
 #include <jcpp.h>
@@ -15,49 +14,6 @@ using $JRootPane = ::javax::swing::JRootPane;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _BufferStrategyPaintManager$2_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/BufferStrategyPaintManager;", nullptr, $FINAL | $SYNTHETIC, $field(BufferStrategyPaintManager$2, this$0)},
-	{"val$rootPane", "Ljavax/swing/JRootPane;", nullptr, $FINAL | $SYNTHETIC, $field(BufferStrategyPaintManager$2, val$rootPane)},
-	{}
-};
-
-$MethodInfo _BufferStrategyPaintManager$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/BufferStrategyPaintManager;Ljavax/swing/JRootPane;)V", "()V", 0, $method(BufferStrategyPaintManager$2, init$, void, $BufferStrategyPaintManager*, $JRootPane*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _BufferStrategyPaintManager$2_EnclosingMethodInfo_ = {
-	"javax.swing.BufferStrategyPaintManager",
-	"doubleBufferingChanged",
-	"(Ljavax/swing/JRootPane;)V"
-};
-
-$InnerClassInfo _BufferStrategyPaintManager$2_InnerClassesInfo_[] = {
-	{"javax.swing.BufferStrategyPaintManager$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BufferStrategyPaintManager$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.BufferStrategyPaintManager$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_BufferStrategyPaintManager$2_FieldInfo_,
-	_BufferStrategyPaintManager$2_MethodInfo_,
-	nullptr,
-	&_BufferStrategyPaintManager$2_EnclosingMethodInfo_,
-	_BufferStrategyPaintManager$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.BufferStrategyPaintManager"
-};
-
-$Object* allocate$BufferStrategyPaintManager$2($Class* clazz) {
-	return $of($alloc(BufferStrategyPaintManager$2));
-}
-
 void BufferStrategyPaintManager$2::init$($BufferStrategyPaintManager* this$0, $JRootPane* val$rootPane) {
 	$set(this, this$0, this$0);
 	$set(this, val$rootPane, val$rootPane);
@@ -71,7 +27,43 @@ BufferStrategyPaintManager$2::BufferStrategyPaintManager$2() {
 }
 
 $Class* BufferStrategyPaintManager$2::load$($String* name, bool initialize) {
-	$loadClass(BufferStrategyPaintManager$2, name, initialize, &_BufferStrategyPaintManager$2_ClassInfo_, allocate$BufferStrategyPaintManager$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/BufferStrategyPaintManager;", nullptr, $FINAL | $SYNTHETIC, $field(BufferStrategyPaintManager$2, this$0)},
+		{"val$rootPane", "Ljavax/swing/JRootPane;", nullptr, $FINAL | $SYNTHETIC, $field(BufferStrategyPaintManager$2, val$rootPane)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/BufferStrategyPaintManager;Ljavax/swing/JRootPane;)V", "()V", 0, $method(BufferStrategyPaintManager$2, init$, void, $BufferStrategyPaintManager*, $JRootPane*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BufferStrategyPaintManager$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.BufferStrategyPaintManager",
+		"doubleBufferingChanged",
+		"(Ljavax/swing/JRootPane;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.BufferStrategyPaintManager$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.BufferStrategyPaintManager$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.BufferStrategyPaintManager"
+	};
+	$loadClass(BufferStrategyPaintManager$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferStrategyPaintManager$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DragSourceMotionListener.h>
-
 #include <java/awt/dnd/DragSourceDragEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$MethodInfo _DragSourceMotionListener_MethodInfo_[] = {
-	{"dragMouseMoved", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceMotionListener, dragMouseMoved, void, $DragSourceDragEvent*)},
-	{}
-};
-
-$ClassInfo _DragSourceMotionListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.dnd.DragSourceMotionListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_DragSourceMotionListener_MethodInfo_
-};
-
-$Object* allocate$DragSourceMotionListener($Class* clazz) {
-	return $of($alloc(DragSourceMotionListener));
-}
-
 $Class* DragSourceMotionListener::load$($String* name, bool initialize) {
-	$loadClass(DragSourceMotionListener, name, initialize, &_DragSourceMotionListener_ClassInfo_, allocate$DragSourceMotionListener);
+	$MethodInfo methodInfos$$[] = {
+		{"dragMouseMoved", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DragSourceMotionListener, dragMouseMoved, void, $DragSourceDragEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.dnd.DragSourceMotionListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DragSourceMotionListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DragSourceMotionListener);
+	});
 	return class$;
 }
 

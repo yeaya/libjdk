@@ -1,12 +1,10 @@
 #include <bug8015853.h>
-
 #include <bug8015853$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/io/File.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Runnable.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/util/Scanner.h>
@@ -21,7 +19,6 @@
 #undef EXIT_ON_CLOSE
 
 using $bug8015853$1 = ::bug8015853$1;
-using $Component = ::java::awt::Component;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -29,7 +26,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 using $Scanner = ::java::util::Scanner;
@@ -37,44 +33,7 @@ using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $EditorKit = ::javax::swing::text::EditorKit;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
-
-$FieldInfo _bug8015853_FieldInfo_[] = {
-	{"text", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(bug8015853, text)},
-	{}
-};
-
-$MethodInfo _bug8015853_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug8015853, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8015853, createAndShowGUI, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8015853, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug8015853_InnerClassesInfo_[] = {
-	{"bug8015853$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8015853_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug8015853",
-	"java.lang.Object",
-	nullptr,
-	_bug8015853_FieldInfo_,
-	_bug8015853_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8015853_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug8015853$1"
-};
-
-$Object* allocate$bug8015853($Class* clazz) {
-	return $of($alloc(bug8015853));
-}
 
 $String* bug8015853::text = nullptr;
 
@@ -83,7 +42,7 @@ void bug8015853::init$() {
 
 void bug8015853::main($StringArray* args) {
 	$init(bug8015853);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($URL, path, $ClassLoader::getSystemResource("bug8015853.txt"_s));
 		$var($File, file, $new($File, $($nc(path)->toURI())));
@@ -93,7 +52,7 @@ void bug8015853::main($StringArray* args) {
 		}
 		scanner->close();
 	} catch ($Exception& ex) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
+		$throwNew($RuntimeException, ex);
 	}
 	$plusAssignStatic(bug8015853::text, bug8015853::text);
 	$SwingUtilities::invokeAndWait($$new($bug8015853$1));
@@ -101,11 +60,11 @@ void bug8015853::main($StringArray* args) {
 
 void bug8015853::createAndShowGUI() {
 	$init(bug8015853);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$UIManager::setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel"_s);
 	} catch ($Exception& ex) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(ex));
+		$throwNew($RuntimeException, ex);
 	}
 	$var($JFrame, frame, $new($JFrame));
 	frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
@@ -113,11 +72,11 @@ void bug8015853::createAndShowGUI() {
 	$var($HTMLEditorKit, editorKit, $new($HTMLEditorKit));
 	editorPane->setEditorKit(editorKit);
 	editorPane->setText(bug8015853::text);
-	frame->add(static_cast<$Component*>(editorPane));
+	frame->add(editorPane);
 	frame->setVisible(true);
 }
 
-void clinit$bug8015853($Class* class$) {
+void bug8015853::clinit$($Class* clazz) {
 	$assignStatic(bug8015853::text, ""_s);
 }
 
@@ -125,7 +84,37 @@ bug8015853::bug8015853() {
 }
 
 $Class* bug8015853::load$($String* name, bool initialize) {
-	$loadClass(bug8015853, name, initialize, &_bug8015853_ClassInfo_, clinit$bug8015853, allocate$bug8015853);
+	$FieldInfo fieldInfos$$[] = {
+		{"text", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(bug8015853, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug8015853, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug8015853, createAndShowGUI, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug8015853, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8015853$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug8015853",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug8015853$1"
+	};
+	$loadClass(bug8015853, name, initialize, &classInfo$$, bug8015853::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8015853);
+	});
 	return class$;
 }
 

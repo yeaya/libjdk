@@ -47,7 +47,7 @@ public:
 	::java::util::BitSet* colsInserted = nullptr;
 	int32_t cols = 0;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0ECB8BFD98630D60;
+	static const int64_t serialVersionUID = (int64_t)0x0ecb8bfd98630d60;
 };
 
 			} // internal

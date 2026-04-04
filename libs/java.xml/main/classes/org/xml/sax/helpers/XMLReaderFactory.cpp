@@ -1,11 +1,9 @@
 #include <org/xml/sax/helpers/XMLReaderFactory.h>
-
 #include <com/sun/org/apache/xerces/internal/parsers/SAXParser.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
-#include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
@@ -34,14 +32,12 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
@@ -75,81 +71,34 @@ public:
 	virtual $Object* run() override {
 		 return XMLReaderFactory::lambda$findServiceProvider$0(type, cl);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<XMLReaderFactory$$Lambda$lambda$findServiceProvider$0>());
-	}
 	$Class* type = nullptr;
 	$ClassLoader* cl = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo XMLReaderFactory$$Lambda$lambda$findServiceProvider$0::fieldInfos[3] = {
-	{"type", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, type)},
-	{"cl", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, cl)},
-	{}
-};
-$MethodInfo XMLReaderFactory$$Lambda$lambda$findServiceProvider$0::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, init$, void, $Class*, $ClassLoader*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, run, $Object*)},
-	{}
-};
-$ClassInfo XMLReaderFactory$$Lambda$lambda$findServiceProvider$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"org.xml.sax.helpers.XMLReaderFactory$$Lambda$lambda$findServiceProvider$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* XMLReaderFactory$$Lambda$lambda$findServiceProvider$0::load$($String* name, bool initialize) {
-	$loadClass(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, type)},
+		{"cl", "Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $field(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, cl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)V", nullptr, $PUBLIC, $method(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, init$, void, $Class*, $ClassLoader*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"org.xml.sax.helpers.XMLReaderFactory$$Lambda$lambda$findServiceProvider$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0);
+	});
 	return class$;
 }
 $Class* XMLReaderFactory$$Lambda$lambda$findServiceProvider$0::class$ = nullptr;
-
-$NamedAttribute XMLReaderFactory_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _XMLReaderFactory_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", XMLReaderFactory_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _XMLReaderFactory_FieldInfo_[] = {
-	{"property", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLReaderFactory, property)},
-	{}
-};
-
-$MethodInfo _XMLReaderFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XMLReaderFactory, init$, void)},
-	{"createXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLReaderFactory, createXMLReader, $XMLReader*), "org.xml.sax.SAXException"},
-	{"createXMLReader", "(Ljava/lang/String;)Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLReaderFactory, createXMLReader, $XMLReader*, $String*), "org.xml.sax.SAXException"},
-	{"findServiceProvider", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/ClassLoader;)TT;", $PRIVATE | $STATIC, $staticMethod(XMLReaderFactory, findServiceProvider, $Object*, $Class*, $ClassLoader*), "org.xml.sax.SAXException"},
-	{"jarLookup", "(Ljava/lang/ClassLoader;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLReaderFactory, jarLookup, $String*, $ClassLoader*)},
-	{"lambda$findServiceProvider$0", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLReaderFactory, lambda$findServiceProvider$0, $Object*, $Class*, $ClassLoader*)},
-	{"loadClass", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLReaderFactory, loadClass, $XMLReader*, $ClassLoader*, $String*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _XMLReaderFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.xml.sax.helpers.XMLReaderFactory",
-	"java.lang.Object",
-	nullptr,
-	_XMLReaderFactory_FieldInfo_,
-	_XMLReaderFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_XMLReaderFactory_Annotations_
-};
-
-$Object* allocate$XMLReaderFactory($Class* clazz) {
-	return $of($alloc(XMLReaderFactory));
-}
 
 $String* XMLReaderFactory::property = nullptr;
 
@@ -158,7 +107,7 @@ void XMLReaderFactory::init$() {
 
 $XMLReader* XMLReaderFactory::createXMLReader() {
 	$init(XMLReaderFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, className, nullptr);
 	$var($ClassLoader, cl, $SecuritySupport::getClassLoader());
 	try {
@@ -188,7 +137,7 @@ $XMLReader* XMLReaderFactory::createXMLReader($String* className) {
 
 $XMLReader* XMLReaderFactory::loadClass($ClassLoader* loader, $String* className) {
 	$init(XMLReaderFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$load($XMLReader);
 		return $cast($XMLReader, $NewInstance::newInstance($XMLReader::class$, loader, className));
@@ -206,7 +155,7 @@ $XMLReader* XMLReaderFactory::loadClass($ClassLoader* loader, $String* className
 
 $String* XMLReaderFactory::jarLookup($ClassLoader* loader) {
 	$init(XMLReaderFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassLoader, cl, $cast($ClassLoader, $Objects::requireNonNull(loader)));
 	$var($String, clsFromJar, nullptr);
 	$var($String, service, $str({"META-INF/services/"_s, XMLReaderFactory::property}));
@@ -229,11 +178,11 @@ $String* XMLReaderFactory::jarLookup($ClassLoader* loader) {
 
 $Object* XMLReaderFactory::findServiceProvider($Class* type, $ClassLoader* loader) {
 	$init(XMLReaderFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ClassLoader, cl, $cast($ClassLoader, $Objects::requireNonNull(loader)));
 	try {
-		return $of($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, type, cl))));
+		return $AccessController::doPrivileged($cast($PrivilegedAction, $$new(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0, type, cl)));
 	} catch ($ServiceConfigurationError& e) {
 		$var($RuntimeException, x, $new($RuntimeException, $$str({"Provider for "_s, type, " cannot be created"_s}), e));
 		$throwNew($SAXException, $$str({"Provider for "_s, type, " cannot be created"_s}), x);
@@ -243,32 +192,68 @@ $Object* XMLReaderFactory::findServiceProvider($Class* type, $ClassLoader* loade
 
 $Object* XMLReaderFactory::lambda$findServiceProvider$0($Class* type, $ClassLoader* cl) {
 	$init(XMLReaderFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($ServiceLoader, serviceLoader, nullptr);
 	$assign(serviceLoader, $ServiceLoader::load(type, cl));
 	$var($Iterator, iterator, $nc(serviceLoader)->iterator());
 	if ($nc(iterator)->hasNext()) {
-		return $of(iterator->next());
+		return iterator->next();
 	} else {
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
 XMLReaderFactory::XMLReaderFactory() {
 }
 
-void clinit$XMLReaderFactory($Class* class$) {
+void XMLReaderFactory::clinit$($Class* clazz) {
 	$assignStatic(XMLReaderFactory::property, "org.xml.sax.driver"_s);
 }
 
 $Class* XMLReaderFactory::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(XMLReaderFactory$$Lambda$lambda$findServiceProvider$0::classInfo$.name)) {
+		if (name->equals("org.xml.sax.helpers.XMLReaderFactory$$Lambda$lambda$findServiceProvider$0")) {
 			return XMLReaderFactory$$Lambda$lambda$findServiceProvider$0::load$(name, initialize);
 		}
 	}
-	$loadClass(XMLReaderFactory, name, initialize, &_XMLReaderFactory_ClassInfo_, clinit$XMLReaderFactory, allocate$XMLReaderFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"property", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLReaderFactory, property)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XMLReaderFactory, init$, void)},
+		{"createXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLReaderFactory, createXMLReader, $XMLReader*), "org.xml.sax.SAXException"},
+		{"createXMLReader", "(Ljava/lang/String;)Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC | $STATIC, $staticMethod(XMLReaderFactory, createXMLReader, $XMLReader*, $String*), "org.xml.sax.SAXException"},
+		{"findServiceProvider", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/ClassLoader;)TT;", $PRIVATE | $STATIC, $staticMethod(XMLReaderFactory, findServiceProvider, $Object*, $Class*, $ClassLoader*), "org.xml.sax.SAXException"},
+		{"jarLookup", "(Ljava/lang/ClassLoader;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLReaderFactory, jarLookup, $String*, $ClassLoader*)},
+		{"lambda$findServiceProvider$0", "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XMLReaderFactory, lambda$findServiceProvider$0, $Object*, $Class*, $ClassLoader*)},
+		{"loadClass", "(Ljava/lang/ClassLoader;Ljava/lang/String;)Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE | $STATIC, $staticMethod(XMLReaderFactory, loadClass, $XMLReader*, $ClassLoader*, $String*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.xml.sax.helpers.XMLReaderFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(XMLReaderFactory, name, initialize, &classInfo$$, XMLReaderFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLReaderFactory);
+	});
 	return class$;
 }
 

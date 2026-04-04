@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseContent$ChunkState.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/ResponseContent.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _ResponseContent$ChunkState_FieldInfo_[] = {
-	{"READING_LENGTH", "Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ResponseContent$ChunkState, READING_LENGTH)},
-	{"READING_DATA", "Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ResponseContent$ChunkState, READING_DATA)},
-	{"DONE", "Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ResponseContent$ChunkState, DONE)},
-	{"$VALUES", "[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseContent$ChunkState, $VALUES)},
-	{}
-};
-
-$MethodInfo _ResponseContent$ChunkState_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseContent$ChunkState, $values, $ResponseContent$ChunkStateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ResponseContent$ChunkState, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResponseContent$ChunkState, valueOf, ResponseContent$ChunkState*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResponseContent$ChunkState, values, $ResponseContent$ChunkStateArray*)},
-	{}
-};
-
-$InnerClassInfo _ResponseContent$ChunkState_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseContent$ChunkState", "jdk.internal.net.http.ResponseContent", "ChunkState", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ResponseContent$ChunkState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.ResponseContent$ChunkState",
-	"java.lang.Enum",
-	nullptr,
-	_ResponseContent$ChunkState_FieldInfo_,
-	_ResponseContent$ChunkState_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/ResponseContent$ChunkState;>;",
-	nullptr,
-	_ResponseContent$ChunkState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseContent"
-};
-
-$Object* allocate$ResponseContent$ChunkState($Class* clazz) {
-	return $of($alloc(ResponseContent$ChunkState));
-}
 
 ResponseContent$ChunkState* ResponseContent$ChunkState::READING_LENGTH = nullptr;
 ResponseContent$ChunkState* ResponseContent$ChunkState::READING_DATA = nullptr;
@@ -89,7 +47,7 @@ void ResponseContent$ChunkState::init$($String* $enum$name, int32_t $enum$ordina
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ResponseContent$ChunkState($Class* class$) {
+void ResponseContent$ChunkState::clinit$($Class* clazz) {
 	$assignStatic(ResponseContent$ChunkState::READING_LENGTH, $new(ResponseContent$ChunkState, "READING_LENGTH"_s, 0));
 	$assignStatic(ResponseContent$ChunkState::READING_DATA, $new(ResponseContent$ChunkState, "READING_DATA"_s, 1));
 	$assignStatic(ResponseContent$ChunkState::DONE, $new(ResponseContent$ChunkState, "DONE"_s, 2));
@@ -100,7 +58,42 @@ ResponseContent$ChunkState::ResponseContent$ChunkState() {
 }
 
 $Class* ResponseContent$ChunkState::load$($String* name, bool initialize) {
-	$loadClass(ResponseContent$ChunkState, name, initialize, &_ResponseContent$ChunkState_ClassInfo_, clinit$ResponseContent$ChunkState, allocate$ResponseContent$ChunkState);
+	$FieldInfo fieldInfos$$[] = {
+		{"READING_LENGTH", "Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ResponseContent$ChunkState, READING_LENGTH)},
+		{"READING_DATA", "Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ResponseContent$ChunkState, READING_DATA)},
+		{"DONE", "Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ResponseContent$ChunkState, DONE)},
+		{"$VALUES", "[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseContent$ChunkState, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ResponseContent$ChunkState, $values, $ResponseContent$ChunkStateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ResponseContent$ChunkState, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResponseContent$ChunkState, valueOf, ResponseContent$ChunkState*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/ResponseContent$ChunkState;", nullptr, $PUBLIC | $STATIC, $staticMethod(ResponseContent$ChunkState, values, $ResponseContent$ChunkStateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseContent$ChunkState", "jdk.internal.net.http.ResponseContent", "ChunkState", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.ResponseContent$ChunkState",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/ResponseContent$ChunkState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseContent"
+	};
+	$loadClass(ResponseContent$ChunkState, name, initialize, &classInfo$$, ResponseContent$ChunkState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ResponseContent$ChunkState));
+	});
 	return class$;
 }
 

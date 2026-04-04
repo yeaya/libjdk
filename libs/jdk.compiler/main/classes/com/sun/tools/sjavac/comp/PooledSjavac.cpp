@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/PooledSjavac.h>
-
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <com/sun/tools/sjavac/Log.h>
 #include <com/sun/tools/sjavac/server/Sjavac.h>
@@ -34,9 +33,7 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Objects = ::java::util::Objects;
 using $Callable = ::java::util::concurrent::Callable;
-using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $Executors = ::java::util::concurrent::Executors;
-using $Future = ::java::util::concurrent::Future;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 
 namespace com {
@@ -56,67 +53,36 @@ public:
 	virtual $Object* call() override {
 		 return $of($nc(inst$)->lambda$compile$0(log, args));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<PooledSjavac$$Lambda$lambda$compile$0>());
-	}
 	PooledSjavac* inst$ = nullptr;
 	$Log* log = nullptr;
 	$StringArray* args = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo PooledSjavac$$Lambda$lambda$compile$0::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PooledSjavac$$Lambda$lambda$compile$0, inst$)},
-	{"log", "Lcom/sun/tools/sjavac/Log;", nullptr, $PUBLIC, $field(PooledSjavac$$Lambda$lambda$compile$0, log)},
-	{"args", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(PooledSjavac$$Lambda$lambda$compile$0, args)},
-	{}
-};
-$MethodInfo PooledSjavac$$Lambda$lambda$compile$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/comp/PooledSjavac;Lcom/sun/tools/sjavac/Log;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PooledSjavac$$Lambda$lambda$compile$0, init$, void, PooledSjavac*, $Log*, $StringArray*)},
-	{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PooledSjavac$$Lambda$lambda$compile$0, call, $Object*)},
-	{}
-};
-$ClassInfo PooledSjavac$$Lambda$lambda$compile$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.PooledSjavac$$Lambda$lambda$compile$0",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	fieldInfos,
-	methodInfos
 };
 $Class* PooledSjavac$$Lambda$lambda$compile$0::load$($String* name, bool initialize) {
-	$loadClass(PooledSjavac$$Lambda$lambda$compile$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(PooledSjavac$$Lambda$lambda$compile$0, inst$)},
+		{"log", "Lcom/sun/tools/sjavac/Log;", nullptr, $PUBLIC, $field(PooledSjavac$$Lambda$lambda$compile$0, log)},
+		{"args", "[Ljava/lang/String;", nullptr, $PUBLIC, $field(PooledSjavac$$Lambda$lambda$compile$0, args)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/sjavac/comp/PooledSjavac;Lcom/sun/tools/sjavac/Log;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PooledSjavac$$Lambda$lambda$compile$0, init$, void, PooledSjavac*, $Log*, $StringArray*)},
+		{"call", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PooledSjavac$$Lambda$lambda$compile$0, call, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.PooledSjavac$$Lambda$lambda$compile$0",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PooledSjavac$$Lambda$lambda$compile$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PooledSjavac$$Lambda$lambda$compile$0);
+	});
 	return class$;
 }
 $Class* PooledSjavac$$Lambda$lambda$compile$0::class$ = nullptr;
-
-$FieldInfo _PooledSjavac_FieldInfo_[] = {
-	{"delegate", "Lcom/sun/tools/sjavac/server/Sjavac;", nullptr, $FINAL, $field(PooledSjavac, delegate)},
-	{"pool", "Ljava/util/concurrent/ExecutorService;", nullptr, $FINAL, $field(PooledSjavac, pool)},
-	{}
-};
-
-$MethodInfo _PooledSjavac_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/sjavac/server/Sjavac;I)V", nullptr, $PUBLIC, $method(PooledSjavac, init$, void, $Sjavac*, int32_t)},
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(PooledSjavac, compile, $Main$Result*, $StringArray*)},
-	{"lambda$compile$0", "(Lcom/sun/tools/sjavac/Log;[Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $SYNTHETIC, $method(PooledSjavac, lambda$compile$0, $Main$Result*, $Log*, $StringArray*), "java.lang.Exception"},
-	{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(PooledSjavac, shutdown, void)},
-	{}
-};
-
-$ClassInfo _PooledSjavac_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.PooledSjavac",
-	"java.lang.Object",
-	"com.sun.tools.sjavac.server.Sjavac",
-	_PooledSjavac_FieldInfo_,
-	_PooledSjavac_MethodInfo_
-};
-
-$Object* allocate$PooledSjavac($Class* clazz) {
-	return $of($alloc(PooledSjavac));
-}
 
 void PooledSjavac::init$($Sjavac* delegate, int32_t poolsize) {
 	$Objects::requireNonNull(delegate);
@@ -125,10 +91,10 @@ void PooledSjavac::init$($Sjavac* delegate, int32_t poolsize) {
 }
 
 $Main$Result* PooledSjavac::compile($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Log, log, $Log::get());
 	try {
-		return $cast($Main$Result, $nc($($nc(this->pool)->submit(static_cast<$Callable*>($$new(PooledSjavac$$Lambda$lambda$compile$0, this, log, args)))))->get());
+		return $cast($Main$Result, $$nc($nc(this->pool)->submit($$new(PooledSjavac$$Lambda$lambda$compile$0, this, log, args)))->get());
 	} catch ($Exception& e) {
 		e->printStackTrace();
 		$throwNew($RuntimeException, "Error during compile"_s, e);
@@ -141,14 +107,14 @@ void PooledSjavac::shutdown() {
 	$nc(this->pool)->shutdown();
 	try {
 		$init($TimeUnit);
-		if (!$nc(this->pool)->awaitTermination(60, $TimeUnit::SECONDS)) {
-			$nc(this->pool)->shutdownNow();
-			if (!$nc(this->pool)->awaitTermination(60, $TimeUnit::SECONDS)) {
+		if (!this->pool->awaitTermination(60, $TimeUnit::SECONDS)) {
+			this->pool->shutdownNow();
+			if (!this->pool->awaitTermination(60, $TimeUnit::SECONDS)) {
 				$Log::error("ThreadPool did not terminate"_s);
 			}
 		}
 	} catch ($InterruptedException& ie) {
-		$nc(this->pool)->shutdownNow();
+		this->pool->shutdownNow();
 		$($Thread::currentThread())->interrupt();
 	}
 	$nc(this->delegate)->shutdown();
@@ -164,11 +130,33 @@ PooledSjavac::PooledSjavac() {
 
 $Class* PooledSjavac::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(PooledSjavac$$Lambda$lambda$compile$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.PooledSjavac$$Lambda$lambda$compile$0")) {
 			return PooledSjavac$$Lambda$lambda$compile$0::load$(name, initialize);
 		}
 	}
-	$loadClass(PooledSjavac, name, initialize, &_PooledSjavac_ClassInfo_, allocate$PooledSjavac);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Lcom/sun/tools/sjavac/server/Sjavac;", nullptr, $FINAL, $field(PooledSjavac, delegate)},
+		{"pool", "Ljava/util/concurrent/ExecutorService;", nullptr, $FINAL, $field(PooledSjavac, pool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/sjavac/server/Sjavac;I)V", nullptr, $PUBLIC, $method(PooledSjavac, init$, void, $Sjavac*, int32_t)},
+		{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(PooledSjavac, compile, $Main$Result*, $StringArray*)},
+		{"lambda$compile$0", "(Lcom/sun/tools/sjavac/Log;[Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PRIVATE | $SYNTHETIC, $method(PooledSjavac, lambda$compile$0, $Main$Result*, $Log*, $StringArray*), "java.lang.Exception"},
+		{"shutdown", "()V", nullptr, $PUBLIC, $virtualMethod(PooledSjavac, shutdown, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.PooledSjavac",
+		"java.lang.Object",
+		"com.sun.tools.sjavac.server.Sjavac",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PooledSjavac, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PooledSjavac);
+	});
 	return class$;
 }
 

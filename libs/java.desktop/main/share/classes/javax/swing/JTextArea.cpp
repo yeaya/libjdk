@@ -1,5 +1,4 @@
 #include <javax/swing/JTextArea.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -47,7 +46,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JTextArea$AccessibleJTextArea = ::javax::swing::JTextArea$AccessibleJTextArea;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
@@ -58,201 +56,6 @@ using $PlainDocument = ::javax::swing::text::PlainDocument;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JTextArea_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UIClassID"},
-	{"description", 's', "A multi-line area that displays plain text."},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JTextArea_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JTextArea_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_getAccessibleContext8[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_getLineCount11[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_getPreferredScrollableViewportSize16[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_getScrollableTracksViewportWidth20[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_getUIClassID23[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "the number of columns preferred for display"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_setColumns28[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$8[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "should lines be wrapped"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_setLineWrap30[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$9[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "the number of rows preferred for display"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_setRows31[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$10[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "the number of characters to expand tabs to"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_setTabSize32[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JTextArea_Attribute_var$11[] = {
-	{"description", 's', "should wrapping occur at word boundaries"},
-	{}
-};
-
-$CompoundAttribute _JTextArea_MethodAnnotations_setWrapStyleWord33[] = {
-	{"Ljava/beans/BeanProperty;", JTextArea_Attribute_var$11},
-	{}
-};
-
-$FieldInfo _JTextArea_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextArea, uiClassID)},
-	{"rows", "I", nullptr, $PRIVATE, $field(JTextArea, rows)},
-	{"columns", "I", nullptr, $PRIVATE, $field(JTextArea, columns)},
-	{"columnWidth", "I", nullptr, $PRIVATE, $field(JTextArea, columnWidth)},
-	{"rowHeight", "I", nullptr, $PRIVATE, $field(JTextArea, rowHeight)},
-	{"wrap", "Z", nullptr, $PRIVATE, $field(JTextArea, wrap)},
-	{"word", "Z", nullptr, $PRIVATE, $field(JTextArea, word)},
-	{}
-};
-
-$MethodInfo _JTextArea_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTextArea, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, $String*)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, int32_t, int32_t)},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, $Document*)},
-	{"<init>", "(Ljavax/swing/text/Document;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, $Document*, $String*, int32_t, int32_t)},
-	{"append", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, append, void, $String*)},
-	{"createDefaultModel", "()Ljavax/swing/text/Document;", nullptr, $PROTECTED, $virtualMethod(JTextArea, createDefaultModel, $Document*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTextArea, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JTextArea_MethodAnnotations_getAccessibleContext8},
-	{"getColumnWidth", "()I", nullptr, $PROTECTED, $virtualMethod(JTextArea, getColumnWidth, int32_t)},
-	{"getColumns", "()I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getColumns, int32_t)},
-	{"getLineCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineCount, int32_t), nullptr, nullptr, _JTextArea_MethodAnnotations_getLineCount11},
-	{"getLineEndOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineEndOffset, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getLineOfOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineOfOffset, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getLineStartOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineStartOffset, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getLineWrap", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineWrap, bool)},
-	{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTextArea, getPreferredScrollableViewportSize, $Dimension*), nullptr, nullptr, _JTextArea_MethodAnnotations_getPreferredScrollableViewportSize16},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTextArea, getPreferredSize, $Dimension*)},
-	{"getRowHeight", "()I", nullptr, $PROTECTED, $virtualMethod(JTextArea, getRowHeight, int32_t)},
-	{"getRows", "()I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getRows, int32_t)},
-	{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextArea, getScrollableTracksViewportWidth, bool), nullptr, nullptr, _JTextArea_MethodAnnotations_getScrollableTracksViewportWidth20},
-	{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
-	{"getTabSize", "()I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getTabSize, int32_t)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextArea, getUIClassID, $String*), nullptr, nullptr, _JTextArea_MethodAnnotations_getUIClassID23},
-	{"getWrapStyleWord", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextArea, getWrapStyleWord, bool)},
-	{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, insert, void, $String*, int32_t)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTextArea, paramString, $String*)},
-	{"replaceRange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, replaceRange, void, $String*, int32_t, int32_t)},
-	{"setColumns", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setColumns, void, int32_t), nullptr, nullptr, _JTextArea_MethodAnnotations_setColumns28},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setFont, void, $Font*)},
-	{"setLineWrap", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setLineWrap, void, bool), nullptr, nullptr, _JTextArea_MethodAnnotations_setLineWrap30},
-	{"setRows", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setRows, void, int32_t), nullptr, nullptr, _JTextArea_MethodAnnotations_setRows31},
-	{"setTabSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setTabSize, void, int32_t), nullptr, nullptr, _JTextArea_MethodAnnotations_setTabSize32},
-	{"setWrapStyleWord", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setWrapStyleWord, void, bool), nullptr, nullptr, _JTextArea_MethodAnnotations_setWrapStyleWord33},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTextArea, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JTextArea_InnerClassesInfo_[] = {
-	{"javax.swing.JTextArea$AccessibleJTextArea", "javax.swing.JTextArea", "AccessibleJTextArea", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTextArea_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTextArea",
-	"javax.swing.text.JTextComponent",
-	nullptr,
-	_JTextArea_FieldInfo_,
-	_JTextArea_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextArea_InnerClassesInfo_,
-	_JTextArea_Annotations_,
-	nullptr,
-	"javax.swing.JTextArea$AccessibleJTextArea"
-};
-
-$Object* allocate$JTextArea($Class* clazz) {
-	return $of($alloc(JTextArea));
-}
 
 $String* JTextArea::uiClassID = nullptr;
 
@@ -277,7 +80,7 @@ void JTextArea::init$($Document* doc) {
 }
 
 void JTextArea::init$($Document* doc$renamed, $String* text, int32_t rows, int32_t columns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, doc$renamed);
 	$JTextComponent::init$();
 	this->rows = rows;
@@ -309,7 +112,7 @@ $Document* JTextArea::createDefaultModel() {
 }
 
 void JTextArea::setTabSize(int32_t size) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if (doc != nullptr) {
 		int32_t old = getTabSize();
@@ -320,7 +123,7 @@ void JTextArea::setTabSize(int32_t size) {
 }
 
 int32_t JTextArea::getTabSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = 8;
 	$var($Document, doc, getDocument());
 	if (doc != nullptr) {
@@ -354,47 +157,47 @@ bool JTextArea::getWrapStyleWord() {
 }
 
 int32_t JTextArea::getLineOfOffset(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if (offset < 0) {
 		$throwNew($BadLocationException, "Can\'t translate offset to line"_s, -1);
 	} else if (offset > $nc(doc)->getLength()) {
 		$throwNew($BadLocationException, "Can\'t translate offset to line"_s, doc->getLength() + 1);
 	} else {
-		$var($Element, map, $nc($(getDocument()))->getDefaultRootElement());
+		$var($Element, map, $$nc(getDocument())->getDefaultRootElement());
 		return $nc(map)->getElementIndex(offset);
 	}
 }
 
 int32_t JTextArea::getLineCount() {
-	$useLocalCurrentObjectStackCache();
-	$var($Element, map, $nc($(getDocument()))->getDefaultRootElement());
+	$useLocalObjectStack();
+	$var($Element, map, $$nc(getDocument())->getDefaultRootElement());
 	return $nc(map)->getElementCount();
 }
 
 int32_t JTextArea::getLineStartOffset(int32_t line) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lineCount = getLineCount();
 	if (line < 0) {
 		$throwNew($BadLocationException, "Negative line"_s, -1);
 	} else if (line >= lineCount) {
-		$throwNew($BadLocationException, "No such line"_s, $nc($(getDocument()))->getLength() + 1);
+		$throwNew($BadLocationException, "No such line"_s, $$nc(getDocument())->getLength() + 1);
 	} else {
-		$var($Element, map, $nc($(getDocument()))->getDefaultRootElement());
+		$var($Element, map, $$nc(getDocument())->getDefaultRootElement());
 		$var($Element, lineElem, $nc(map)->getElement(line));
 		return $nc(lineElem)->getStartOffset();
 	}
 }
 
 int32_t JTextArea::getLineEndOffset(int32_t line) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lineCount = getLineCount();
 	if (line < 0) {
 		$throwNew($BadLocationException, "Negative line"_s, -1);
 	} else if (line >= lineCount) {
-		$throwNew($BadLocationException, "No such line"_s, $nc($(getDocument()))->getLength() + 1);
+		$throwNew($BadLocationException, "No such line"_s, $$nc(getDocument())->getLength() + 1);
 	} else {
-		$var($Element, map, $nc($(getDocument()))->getDefaultRootElement());
+		$var($Element, map, $$nc(getDocument())->getDefaultRootElement());
 		$var($Element, lineElem, $nc(map)->getElement(line));
 		int32_t endOffset = $nc(lineElem)->getEndOffset();
 		return ((line == lineCount - 1) ? (endOffset - 1) : endOffset);
@@ -402,7 +205,7 @@ int32_t JTextArea::getLineEndOffset(int32_t line) {
 }
 
 void JTextArea::insert($String* str, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, getDocument());
 	if (doc != nullptr) {
 		try {
@@ -424,7 +227,7 @@ void JTextArea::append($String* str) {
 }
 
 void JTextArea::replaceRange($String* str, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (end < start) {
 		$throwNew($IllegalArgumentException, "end before start"_s);
 	}
@@ -432,7 +235,7 @@ void JTextArea::replaceRange($String* str, int32_t start, int32_t end) {
 	if (doc != nullptr) {
 		try {
 			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->replace(start, end - start, str, nullptr);
+				$cast($AbstractDocument, doc)->replace(start, end - start, str, nullptr);
 			} else {
 				doc->remove(start, end - start);
 				doc->insertString(start, str, nullptr);
@@ -459,7 +262,7 @@ void JTextArea::setRows(int32_t rows) {
 }
 
 int32_t JTextArea::getRowHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->rowHeight == 0) {
 		$var($FontMetrics, metrics, getFontMetrics($(getFont())));
 		this->rowHeight = $nc(metrics)->getHeight();
@@ -483,7 +286,7 @@ void JTextArea::setColumns(int32_t columns) {
 }
 
 int32_t JTextArea::getColumnWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->columnWidth == 0) {
 		$var($FontMetrics, metrics, getFontMetrics($(getFont())));
 		this->columnWidth = $nc(metrics)->charWidth(u'm');
@@ -492,15 +295,15 @@ int32_t JTextArea::getColumnWidth() {
 }
 
 $Dimension* JTextArea::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $JTextComponent::getPreferredSize());
 	$assign(d, (d == nullptr) ? $new($Dimension, 400, 400) : d);
 	$var($Insets, insets, getInsets());
 	if (this->columns != 0) {
-		$nc(d)->width = $Math::max(d->width, this->columns * getColumnWidth() + $nc(insets)->left + insets->right);
+		$nc(d)->width = $Math::max($nc(d)->width, this->columns * getColumnWidth() + $nc(insets)->left + $nc(insets)->right);
 	}
 	if (this->rows != 0) {
-		$nc(d)->height = $Math::max(d->height, this->rows * getRowHeight() + $nc(insets)->top + insets->bottom);
+		$nc(d)->height = $Math::max($nc(d)->height, this->rows * getRowHeight() + $nc(insets)->top + $nc(insets)->bottom);
 	}
 	return d;
 }
@@ -512,7 +315,7 @@ void JTextArea::setFont($Font* f) {
 }
 
 $String* JTextArea::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, wrapString, this->wrap ? "true"_s : "false"_s);
 	$var($String, wordString, this->word ? "true"_s : "false"_s);
 	return $str({$($JTextComponent::paramString()), ",colums="_s, $$str(this->columns), ",columWidth="_s, $$str(this->columnWidth), ",rows="_s, $$str(this->rows), ",rowHeight="_s, $$str(this->rowHeight), ",word="_s, wordString, ",wrap="_s, wrapString});
@@ -523,40 +326,34 @@ bool JTextArea::getScrollableTracksViewportWidth() {
 }
 
 $Dimension* JTextArea::getPreferredScrollableViewportSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, $JTextComponent::getPreferredScrollableViewportSize());
 	$assign(size, (size == nullptr) ? $new($Dimension, 400, 400) : size);
 	$var($Insets, insets, getInsets());
-	$nc(size)->width = (this->columns == 0) ? size->width : this->columns * getColumnWidth() + $nc(insets)->left + insets->right;
-	size->height = (this->rows == 0) ? size->height : this->rows * getRowHeight() + insets->top + insets->bottom;
+	$nc(size)->width = (this->columns == 0) ? $nc(size)->width : this->columns * getColumnWidth() + $nc(insets)->left + $nc(insets)->right;
+	size->height = (this->rows == 0) ? size->height : this->rows * getRowHeight() + $nc(insets)->top + $nc(insets)->bottom;
 	return size;
 }
 
 int32_t JTextArea::getScrollableUnitIncrement($Rectangle* visibleRect, int32_t orientation, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (orientation) {
 	case $SwingConstants::VERTICAL:
-		{
-			return getRowHeight();
-		}
+		return getRowHeight();
 	case $SwingConstants::HORIZONTAL:
-		{
-			return getColumnWidth();
-		}
+		return getColumnWidth();
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid orientation: "_s, $$str(orientation)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid orientation: "_s, $$str(orientation)}));
 	}
 }
 
 void JTextArea::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JTextArea::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JTextArea::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -571,12 +368,178 @@ $AccessibleContext* JTextArea::getAccessibleContext() {
 JTextArea::JTextArea() {
 }
 
-void clinit$JTextArea($Class* class$) {
+void JTextArea::clinit$($Class* clazz) {
 	$assignStatic(JTextArea::uiClassID, "TextAreaUI"_s);
 }
 
 $Class* JTextArea::load$($String* name, bool initialize) {
-	$loadClass(JTextArea, name, initialize, &_JTextArea_ClassInfo_, clinit$JTextArea, allocate$JTextArea);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextArea, uiClassID)},
+		{"rows", "I", nullptr, $PRIVATE, $field(JTextArea, rows)},
+		{"columns", "I", nullptr, $PRIVATE, $field(JTextArea, columns)},
+		{"columnWidth", "I", nullptr, $PRIVATE, $field(JTextArea, columnWidth)},
+		{"rowHeight", "I", nullptr, $PRIVATE, $field(JTextArea, rowHeight)},
+		{"wrap", "Z", nullptr, $PRIVATE, $field(JTextArea, wrap)},
+		{"word", "Z", nullptr, $PRIVATE, $field(JTextArea, word)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getLineCountmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getLineCountmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getLineCountmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getPreferredScrollableViewportSizemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getPreferredScrollableViewportSizemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getPreferredScrollableViewportSizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getScrollableTracksViewportWidthmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getScrollableTracksViewportWidthmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getScrollableTracksViewportWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setColumnsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "the number of columns preferred for display"},
+		{}
+	};
+	$CompoundAttribute setColumnsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setColumnsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLineWrapmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "should lines be wrapped"},
+		{}
+	};
+	$CompoundAttribute setLineWrapmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLineWrapmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRowsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "the number of rows preferred for display"},
+		{}
+	};
+	$CompoundAttribute setRowsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRowsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTabSizemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "the number of characters to expand tabs to"},
+		{}
+	};
+	$CompoundAttribute setTabSizemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTabSizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setWrapStyleWordmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "should wrapping occur at word boundaries"},
+		{}
+	};
+	$CompoundAttribute setWrapStyleWordmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setWrapStyleWordmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTextArea, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, $String*)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, int32_t, int32_t)},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, $Document*)},
+		{"<init>", "(Ljavax/swing/text/Document;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(JTextArea, init$, void, $Document*, $String*, int32_t, int32_t)},
+		{"append", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, append, void, $String*)},
+		{"createDefaultModel", "()Ljavax/swing/text/Document;", nullptr, $PROTECTED, $virtualMethod(JTextArea, createDefaultModel, $Document*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JTextArea, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getColumnWidth", "()I", nullptr, $PROTECTED, $virtualMethod(JTextArea, getColumnWidth, int32_t)},
+		{"getColumns", "()I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getColumns, int32_t)},
+		{"getLineCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineCount, int32_t), nullptr, nullptr, getLineCountmethodAnnotations$$},
+		{"getLineEndOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineEndOffset, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getLineOfOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineOfOffset, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getLineStartOffset", "(I)I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineStartOffset, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getLineWrap", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextArea, getLineWrap, bool)},
+		{"getPreferredScrollableViewportSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTextArea, getPreferredScrollableViewportSize, $Dimension*), nullptr, nullptr, getPreferredScrollableViewportSizemethodAnnotations$$},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JTextArea, getPreferredSize, $Dimension*)},
+		{"getRowHeight", "()I", nullptr, $PROTECTED, $virtualMethod(JTextArea, getRowHeight, int32_t)},
+		{"getRows", "()I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getRows, int32_t)},
+		{"getScrollableTracksViewportWidth", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextArea, getScrollableTracksViewportWidth, bool), nullptr, nullptr, getScrollableTracksViewportWidthmethodAnnotations$$},
+		{"getScrollableUnitIncrement", "(Ljava/awt/Rectangle;II)I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getScrollableUnitIncrement, int32_t, $Rectangle*, int32_t, int32_t)},
+		{"getTabSize", "()I", nullptr, $PUBLIC, $virtualMethod(JTextArea, getTabSize, int32_t)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextArea, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"getWrapStyleWord", "()Z", nullptr, $PUBLIC, $virtualMethod(JTextArea, getWrapStyleWord, bool)},
+		{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, insert, void, $String*, int32_t)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTextArea, paramString, $String*)},
+		{"replaceRange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, replaceRange, void, $String*, int32_t, int32_t)},
+		{"setColumns", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setColumns, void, int32_t), nullptr, nullptr, setColumnsmethodAnnotations$$},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setFont, void, $Font*)},
+		{"setLineWrap", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setLineWrap, void, bool), nullptr, nullptr, setLineWrapmethodAnnotations$$},
+		{"setRows", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setRows, void, int32_t), nullptr, nullptr, setRowsmethodAnnotations$$},
+		{"setTabSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setTabSize, void, int32_t), nullptr, nullptr, setTabSizemethodAnnotations$$},
+		{"setWrapStyleWord", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JTextArea, setWrapStyleWord, void, bool), nullptr, nullptr, setWrapStyleWordmethodAnnotations$$},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTextArea, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTextArea$AccessibleJTextArea", "javax.swing.JTextArea", "AccessibleJTextArea", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UIClassID"},
+		{"description", 's', "A multi-line area that displays plain text."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTextArea",
+		"javax.swing.text.JTextComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JTextArea$AccessibleJTextArea"
+	};
+	$loadClass(JTextArea, name, initialize, &classInfo$$, JTextArea::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextArea));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
@@ -21,26 +20,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _StackInstruction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StackInstruction, init$, void)},
-	{"<init>", "(S)V", nullptr, $PROTECTED, $method(StackInstruction, init$, void, int16_t)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(StackInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{}
-};
-
-$ClassInfo _StackInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.StackInstruction",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	nullptr,
-	nullptr,
-	_StackInstruction_MethodInfo_
-};
-
-$Object* allocate$StackInstruction($Class* clazz) {
-	return $of($alloc(StackInstruction));
-}
-
 void StackInstruction::init$() {
 	$Instruction::init$();
 }
@@ -58,7 +37,23 @@ StackInstruction::StackInstruction() {
 }
 
 $Class* StackInstruction::load$($String* name, bool initialize) {
-	$loadClass(StackInstruction, name, initialize, &_StackInstruction_ClassInfo_, allocate$StackInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StackInstruction, init$, void)},
+		{"<init>", "(S)V", nullptr, $PROTECTED, $method(StackInstruction, init$, void, int16_t)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(StackInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.StackInstruction",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StackInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackInstruction);
+	});
 	return class$;
 }
 

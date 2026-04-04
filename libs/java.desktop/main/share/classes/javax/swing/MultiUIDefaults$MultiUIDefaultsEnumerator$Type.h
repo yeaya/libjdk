@@ -19,6 +19,7 @@ class MultiUIDefaults$MultiUIDefaultsEnumerator$Type : public ::java::lang::Enum
 public:
 	MultiUIDefaults$MultiUIDefaultsEnumerator$Type();
 	static $Array<::javax::swing::MultiUIDefaults$MultiUIDefaultsEnumerator$Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::MultiUIDefaults$MultiUIDefaultsEnumerator$Type* valueOf($String* name);
 	static $Array<::javax::swing::MultiUIDefaults$MultiUIDefaultsEnumerator$Type>* values();

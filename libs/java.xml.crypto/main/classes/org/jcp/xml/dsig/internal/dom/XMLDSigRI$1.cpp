@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/XMLDSigRI$1.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,43 +13,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _XMLDSigRI$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XMLDSigRI$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDSigRI$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _XMLDSigRI$1_EnclosingMethodInfo_ = {
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _XMLDSigRI$1_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLDSigRI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_XMLDSigRI$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_XMLDSigRI$1_EnclosingMethodInfo_,
-	_XMLDSigRI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI"
-};
-
-$Object* allocate$XMLDSigRI$1($Class* clazz) {
-	return $of($alloc(XMLDSigRI$1));
-}
-
 void XMLDSigRI$1::init$() {
 }
 
@@ -62,7 +24,38 @@ XMLDSigRI$1::XMLDSigRI$1() {
 }
 
 $Class* XMLDSigRI$1::load$($String* name, bool initialize) {
-	$loadClass(XMLDSigRI$1, name, initialize, &_XMLDSigRI$1_ClassInfo_, allocate$XMLDSigRI$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XMLDSigRI$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLDSigRI$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI"
+	};
+	$loadClass(XMLDSigRI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLDSigRI$1);
+	});
 	return class$;
 }
 

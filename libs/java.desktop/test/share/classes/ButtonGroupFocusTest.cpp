@@ -1,9 +1,7 @@
 #include <ButtonGroupFocusTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
@@ -23,10 +21,8 @@
 
 #undef VK_TAB
 
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
@@ -37,7 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $JFrame = ::javax::swing::JFrame;
 using $JRadioButton = ::javax::swing::JRadioButton;
@@ -51,27 +46,24 @@ public:
 	virtual void run() override {
 		ButtonGroupFocusTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ButtonGroupFocusTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ButtonGroupFocusTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo ButtonGroupFocusTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ButtonGroupFocusTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ButtonGroupFocusTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(ButtonGroupFocusTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ButtonGroupFocusTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ButtonGroupFocusTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ButtonGroupFocusTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* ButtonGroupFocusTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -84,27 +76,24 @@ public:
 	virtual void run() override {
 		ButtonGroupFocusTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ButtonGroupFocusTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ButtonGroupFocusTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo ButtonGroupFocusTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ButtonGroupFocusTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ButtonGroupFocusTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(ButtonGroupFocusTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ButtonGroupFocusTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ButtonGroupFocusTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ButtonGroupFocusTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* ButtonGroupFocusTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -117,27 +106,24 @@ public:
 	virtual void run() override {
 		ButtonGroupFocusTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ButtonGroupFocusTest$$Lambda$lambda$main$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ButtonGroupFocusTest$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$lambda$main$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$lambda$main$2$2, run, void)},
-	{}
-};
-$ClassInfo ButtonGroupFocusTest$$Lambda$lambda$main$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ButtonGroupFocusTest$$Lambda$lambda$main$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ButtonGroupFocusTest$$Lambda$lambda$main$2$2::load$($String* name, bool initialize) {
-	$loadClass(ButtonGroupFocusTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$lambda$main$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$lambda$main$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ButtonGroupFocusTest$$Lambda$lambda$main$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ButtonGroupFocusTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ButtonGroupFocusTest$$Lambda$lambda$main$2$2);
+	});
 	return class$;
 }
 $Class* ButtonGroupFocusTest$$Lambda$lambda$main$2$2::class$ = nullptr;
@@ -150,27 +136,24 @@ public:
 	virtual void run() override {
 		ButtonGroupFocusTest::lambda$main$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ButtonGroupFocusTest$$Lambda$lambda$main$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ButtonGroupFocusTest$$Lambda$lambda$main$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$lambda$main$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$lambda$main$3$3, run, void)},
-	{}
-};
-$ClassInfo ButtonGroupFocusTest$$Lambda$lambda$main$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ButtonGroupFocusTest$$Lambda$lambda$main$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ButtonGroupFocusTest$$Lambda$lambda$main$3$3::load$($String* name, bool initialize) {
-	$loadClass(ButtonGroupFocusTest$$Lambda$lambda$main$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$lambda$main$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$lambda$main$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ButtonGroupFocusTest$$Lambda$lambda$main$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ButtonGroupFocusTest$$Lambda$lambda$main$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ButtonGroupFocusTest$$Lambda$lambda$main$3$3);
+	});
 	return class$;
 }
 $Class* ButtonGroupFocusTest$$Lambda$lambda$main$3$3::class$ = nullptr;
@@ -184,70 +167,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ButtonGroupFocusTest$$Lambda$dispose$4>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ButtonGroupFocusTest$$Lambda$dispose$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ButtonGroupFocusTest$$Lambda$dispose$4, inst$)},
-	{}
-};
-$MethodInfo ButtonGroupFocusTest$$Lambda$dispose$4::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$dispose$4, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$dispose$4, run, void)},
-	{}
-};
-$ClassInfo ButtonGroupFocusTest$$Lambda$dispose$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ButtonGroupFocusTest$$Lambda$dispose$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ButtonGroupFocusTest$$Lambda$dispose$4::load$($String* name, bool initialize) {
-	$loadClass(ButtonGroupFocusTest$$Lambda$dispose$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ButtonGroupFocusTest$$Lambda$dispose$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest$$Lambda$dispose$4, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ButtonGroupFocusTest$$Lambda$dispose$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ButtonGroupFocusTest$$Lambda$dispose$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ButtonGroupFocusTest$$Lambda$dispose$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ButtonGroupFocusTest$$Lambda$dispose$4);
+	});
 	return class$;
 }
 $Class* ButtonGroupFocusTest$$Lambda$dispose$4::class$ = nullptr;
-
-$FieldInfo _ButtonGroupFocusTest_FieldInfo_[] = {
-	{"button1", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button1)},
-	{"button2", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button2)},
-	{"button3", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button3)},
-	{"button4", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button4)},
-	{"button5", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button5)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, robot)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, frame)},
-	{}
-};
-
-$MethodInfo _ButtonGroupFocusTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ButtonGroupFocusTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ButtonGroupFocusTest, lambda$main$1, void)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ButtonGroupFocusTest, lambda$main$2, void)},
-	{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ButtonGroupFocusTest, lambda$main$3, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ButtonGroupFocusTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ButtonGroupFocusTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ButtonGroupFocusTest",
-	"java.lang.Object",
-	nullptr,
-	_ButtonGroupFocusTest_FieldInfo_,
-	_ButtonGroupFocusTest_MethodInfo_
-};
-
-$Object* allocate$ButtonGroupFocusTest($Class* clazz) {
-	return $of($alloc(ButtonGroupFocusTest));
-}
 
 $JRadioButton* ButtonGroupFocusTest::button1 = nullptr;
 $JRadioButton* ButtonGroupFocusTest::button2 = nullptr;
@@ -261,25 +206,25 @@ void ButtonGroupFocusTest::init$() {
 }
 
 void ButtonGroupFocusTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(ButtonGroupFocusTest);
 	$assignStatic(ButtonGroupFocusTest::robot, $new($Robot));
-	$nc(ButtonGroupFocusTest::robot)->setAutoDelay(100);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ButtonGroupFocusTest$$Lambda$lambda$main$0)));
+	ButtonGroupFocusTest::robot->setAutoDelay(100);
+	$SwingUtilities::invokeAndWait($$new(ButtonGroupFocusTest$$Lambda$lambda$main$0));
 	$nc(ButtonGroupFocusTest::robot)->waitForIdle();
 	$nc(ButtonGroupFocusTest::robot)->delay(200);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ButtonGroupFocusTest$$Lambda$lambda$main$1$1)));
+	$SwingUtilities::invokeAndWait($$new(ButtonGroupFocusTest$$Lambda$lambda$main$1$1));
 	$nc(ButtonGroupFocusTest::robot)->keyPress($KeyEvent::VK_TAB);
 	$nc(ButtonGroupFocusTest::robot)->keyRelease($KeyEvent::VK_TAB);
 	$nc(ButtonGroupFocusTest::robot)->waitForIdle();
 	$nc(ButtonGroupFocusTest::robot)->delay(200);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ButtonGroupFocusTest$$Lambda$lambda$main$2$2)));
+	$SwingUtilities::invokeAndWait($$new(ButtonGroupFocusTest$$Lambda$lambda$main$2$2));
 	$nc(ButtonGroupFocusTest::robot)->keyPress($KeyEvent::VK_TAB);
 	$nc(ButtonGroupFocusTest::robot)->keyRelease($KeyEvent::VK_TAB);
 	$nc(ButtonGroupFocusTest::robot)->waitForIdle();
 	$nc(ButtonGroupFocusTest::robot)->delay(200);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ButtonGroupFocusTest$$Lambda$lambda$main$3$3)));
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(ButtonGroupFocusTest$$Lambda$dispose$4, static_cast<$JFrame*>($nc(ButtonGroupFocusTest::frame)))));
+	$SwingUtilities::invokeAndWait($$new(ButtonGroupFocusTest$$Lambda$lambda$main$3$3));
+	$SwingUtilities::invokeLater($$new(ButtonGroupFocusTest$$Lambda$dispose$4, $nc(ButtonGroupFocusTest::frame)));
 }
 
 void ButtonGroupFocusTest::lambda$main$3() {
@@ -308,21 +253,21 @@ void ButtonGroupFocusTest::lambda$main$1() {
 }
 
 void ButtonGroupFocusTest::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(ButtonGroupFocusTest);
 	$assignStatic(ButtonGroupFocusTest::frame, $new($JFrame));
-	$var($Container, contentPane, $nc(ButtonGroupFocusTest::frame)->getContentPane());
+	$var($Container, contentPane, ButtonGroupFocusTest::frame->getContentPane());
 	$nc(contentPane)->setLayout($$new($FlowLayout));
 	$assignStatic(ButtonGroupFocusTest::button1, $new($JRadioButton, "Button 1"_s));
-	contentPane->add(static_cast<$Component*>(ButtonGroupFocusTest::button1));
+	contentPane->add(ButtonGroupFocusTest::button1);
 	$assignStatic(ButtonGroupFocusTest::button2, $new($JRadioButton, "Button 2"_s));
-	contentPane->add(static_cast<$Component*>(ButtonGroupFocusTest::button2));
+	contentPane->add(ButtonGroupFocusTest::button2);
 	$assignStatic(ButtonGroupFocusTest::button3, $new($JRadioButton, "Button 3"_s));
-	contentPane->add(static_cast<$Component*>(ButtonGroupFocusTest::button3));
+	contentPane->add(ButtonGroupFocusTest::button3);
 	$assignStatic(ButtonGroupFocusTest::button4, $new($JRadioButton, "Button 4"_s));
-	contentPane->add(static_cast<$Component*>(ButtonGroupFocusTest::button4));
+	contentPane->add(ButtonGroupFocusTest::button4);
 	$assignStatic(ButtonGroupFocusTest::button5, $new($JRadioButton, "Button 5"_s));
-	contentPane->add(static_cast<$Component*>(ButtonGroupFocusTest::button5));
+	contentPane->add(ButtonGroupFocusTest::button5);
 	$var($ButtonGroup, group, $new($ButtonGroup));
 	group->add(ButtonGroupFocusTest::button1);
 	group->add(ButtonGroupFocusTest::button2);
@@ -340,23 +285,52 @@ ButtonGroupFocusTest::ButtonGroupFocusTest() {
 
 $Class* ButtonGroupFocusTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ButtonGroupFocusTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("ButtonGroupFocusTest$$Lambda$lambda$main$0")) {
 			return ButtonGroupFocusTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(ButtonGroupFocusTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("ButtonGroupFocusTest$$Lambda$lambda$main$1$1")) {
 			return ButtonGroupFocusTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(ButtonGroupFocusTest$$Lambda$lambda$main$2$2::classInfo$.name)) {
+		if (name->equals("ButtonGroupFocusTest$$Lambda$lambda$main$2$2")) {
 			return ButtonGroupFocusTest$$Lambda$lambda$main$2$2::load$(name, initialize);
 		}
-		if (name->equals(ButtonGroupFocusTest$$Lambda$lambda$main$3$3::classInfo$.name)) {
+		if (name->equals("ButtonGroupFocusTest$$Lambda$lambda$main$3$3")) {
 			return ButtonGroupFocusTest$$Lambda$lambda$main$3$3::load$(name, initialize);
 		}
-		if (name->equals(ButtonGroupFocusTest$$Lambda$dispose$4::classInfo$.name)) {
+		if (name->equals("ButtonGroupFocusTest$$Lambda$dispose$4")) {
 			return ButtonGroupFocusTest$$Lambda$dispose$4::load$(name, initialize);
 		}
 	}
-	$loadClass(ButtonGroupFocusTest, name, initialize, &_ButtonGroupFocusTest_ClassInfo_, allocate$ButtonGroupFocusTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"button1", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button1)},
+		{"button2", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button2)},
+		{"button3", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button3)},
+		{"button4", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button4)},
+		{"button5", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, button5)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, robot)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ButtonGroupFocusTest, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ButtonGroupFocusTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ButtonGroupFocusTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ButtonGroupFocusTest, lambda$main$1, void)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ButtonGroupFocusTest, lambda$main$2, void)},
+		{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ButtonGroupFocusTest, lambda$main$3, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ButtonGroupFocusTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ButtonGroupFocusTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ButtonGroupFocusTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ButtonGroupFocusTest);
+	});
 	return class$;
 }
 

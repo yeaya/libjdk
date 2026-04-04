@@ -83,6 +83,7 @@ class $import PrincipalName : public ::java::lang::Cloneable {
 	$class(PrincipalName, 0, ::java::lang::Cloneable)
 public:
 	PrincipalName();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t nameType, $StringArray* nameStrings, ::sun::security::krb5::Realm* nameRealm);
 	void init$($StringArray* nameParts, $String* realm);
 	void init$(::sun::security::util::DerValue* encoding, ::sun::security::krb5::Realm* realm);

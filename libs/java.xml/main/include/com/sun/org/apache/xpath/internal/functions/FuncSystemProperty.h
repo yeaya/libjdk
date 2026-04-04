@@ -54,11 +54,12 @@ class $import FuncSystemProperty : public ::com::sun::org::apache::xpath::intern
 	$class(FuncSystemProperty, 0, ::com::sun::org::apache::xpath::internal::functions::FunctionOneArg)
 public:
 	FuncSystemProperty();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::com::sun::org::apache::xpath::internal::functions::FunctionOneArg::execute;
 	void init$();
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	void loadPropertyFile(::java::util::Properties* target);
-	static const int64_t serialVersionUID = (int64_t)0x3346D5380B84C043;
+	static const int64_t serialVersionUID = (int64_t)0x3346d5380b84c043;
 	static $String* XSLT_PROPERTIES;
 };
 

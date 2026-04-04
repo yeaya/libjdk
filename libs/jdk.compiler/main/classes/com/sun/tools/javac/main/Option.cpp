@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/main/Option$1.h>
 #include <com/sun/tools/javac/main/Option$10.h>
@@ -63,7 +62,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Comparator.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
@@ -245,7 +243,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
@@ -257,7 +254,6 @@ using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
 using $Pattern = ::java::util::regex::Pattern;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -274,33 +270,29 @@ public:
 	virtual bool test(Object$* o) override {
 		 return Option::lambda$showHelp$0(kind, $cast(Option, o));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$$Lambda$lambda$showHelp$0>());
-	}
 	$Option$OptionKind* kind = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Option$$Lambda$lambda$showHelp$0::fieldInfos[2] = {
-	{"kind", "Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$showHelp$0, kind)},
-	{}
-};
-$MethodInfo Option$$Lambda$lambda$showHelp$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Option$OptionKind;)V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$showHelp$0, init$, void, $Option$OptionKind*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$showHelp$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Option$$Lambda$lambda$showHelp$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$$Lambda$lambda$showHelp$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Option$$Lambda$lambda$showHelp$0::load$($String* name, bool initialize) {
-	$loadClass(Option$$Lambda$lambda$showHelp$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$showHelp$0, kind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/main/Option$OptionKind;)V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$showHelp$0, init$, void, $Option$OptionKind*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$showHelp$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$$Lambda$lambda$showHelp$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Option$$Lambda$lambda$showHelp$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$$Lambda$lambda$showHelp$0);
+	});
 	return class$;
 }
 $Class* Option$$Lambda$lambda$showHelp$0::class$ = nullptr;
@@ -314,33 +306,29 @@ public:
 	virtual void accept(Object$* o) override {
 		Option::lambda$showHelp$1(log, $cast(Option, o));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$$Lambda$lambda$showHelp$1$1>());
-	}
 	$Log* log = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Option$$Lambda$lambda$showHelp$1$1::fieldInfos[2] = {
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$showHelp$1$1, log)},
-	{}
-};
-$MethodInfo Option$$Lambda$lambda$showHelp$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$showHelp$1$1, init$, void, $Log*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$showHelp$1$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo Option$$Lambda$lambda$showHelp$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$$Lambda$lambda$showHelp$1$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* Option$$Lambda$lambda$showHelp$1$1::load$($String* name, bool initialize) {
-	$loadClass(Option$$Lambda$lambda$showHelp$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$showHelp$1$1, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$showHelp$1$1, init$, void, $Log*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$showHelp$1$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$$Lambda$lambda$showHelp$1$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Option$$Lambda$lambda$showHelp$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$$Lambda$lambda$showHelp$1$1);
+	});
 	return class$;
 }
 $Class* Option$$Lambda$lambda$showHelp$1$1::class$ = nullptr;
@@ -355,35 +343,31 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return $of($nc(inst$)->lambda$help$2(log, $cast($String, s)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$$Lambda$lambda$help$2$2>());
-	}
 	Option* inst$ = nullptr;
 	$Log* log = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Option$$Lambda$lambda$help$2$2::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$help$2$2, inst$)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$help$2$2, log)},
-	{}
-};
-$MethodInfo Option$$Lambda$lambda$help$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Option;Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$help$2$2, init$, void, Option*, $Log*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$help$2$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Option$$Lambda$lambda$help$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$$Lambda$lambda$help$2$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Option$$Lambda$lambda$help$2$2::load$($String* name, bool initialize) {
-	$loadClass(Option$$Lambda$lambda$help$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$help$2$2, inst$)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$help$2$2, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/main/Option;Lcom/sun/tools/javac/util/Log;)V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$help$2$2, init$, void, Option*, $Log*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$help$2$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$$Lambda$lambda$help$2$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Option$$Lambda$lambda$help$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$$Lambda$lambda$help$2$2);
+	});
 	return class$;
 }
 $Class* Option$$Lambda$lambda$help$2$2::class$ = nullptr;
@@ -397,33 +381,29 @@ public:
 	virtual bool test(Object$* o) override {
 		 return Option::lambda$getOptions$3(group, $cast(Option, o));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$$Lambda$lambda$getOptions$3$3>());
-	}
 	$Option$OptionGroup* group = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Option$$Lambda$lambda$getOptions$3$3::fieldInfos[2] = {
-	{"group", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$getOptions$3$3, group)},
-	{}
-};
-$MethodInfo Option$$Lambda$lambda$getOptions$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$getOptions$3$3, init$, void, $Option$OptionGroup*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$getOptions$3$3, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Option$$Lambda$lambda$getOptions$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$$Lambda$lambda$getOptions$3$3",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Option$$Lambda$lambda$getOptions$3$3::load$($String* name, bool initialize) {
-	$loadClass(Option$$Lambda$lambda$getOptions$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"group", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PUBLIC, $field(Option$$Lambda$lambda$getOptions$3$3, group)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$getOptions$3$3, init$, void, $Option$OptionGroup*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$getOptions$3$3, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$$Lambda$lambda$getOptions$3$3",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Option$$Lambda$lambda$getOptions$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$$Lambda$lambda$getOptions$3$3);
+	});
 	return class$;
 }
 $Class* Option$$Lambda$lambda$getOptions$3$3::class$ = nullptr;
@@ -436,245 +416,27 @@ public:
 	virtual $Object* get() override {
 		 return $of(Option::lambda$getOptions$4());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Option$$Lambda$lambda$getOptions$4$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Option$$Lambda$lambda$getOptions$4$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$getOptions$4$4, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$getOptions$4$4, get, $Object*)},
-	{}
-};
-$ClassInfo Option$$Lambda$lambda$getOptions$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.main.Option$$Lambda$lambda$getOptions$4$4",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* Option$$Lambda$lambda$getOptions$4$4::load$($String* name, bool initialize) {
-	$loadClass(Option$$Lambda$lambda$getOptions$4$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Option$$Lambda$lambda$getOptions$4$4, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Option$$Lambda$lambda$getOptions$4$4, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.main.Option$$Lambda$lambda$getOptions$4$4",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Option$$Lambda$lambda$getOptions$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Option$$Lambda$lambda$getOptions$4$4);
+	});
 	return class$;
 }
 $Class* Option$$Lambda$lambda$getOptions$4$4::class$ = nullptr;
-
-$FieldInfo _Option_FieldInfo_[] = {
-	{"G", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, G)},
-	{"G_NONE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, G_NONE)},
-	{"G_CUSTOM", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, G_CUSTOM)},
-	{"XLINT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XLINT)},
-	{"XLINT_CUSTOM", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XLINT_CUSTOM)},
-	{"XDOCLINT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XDOCLINT)},
-	{"XDOCLINT_CUSTOM", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XDOCLINT_CUSTOM)},
-	{"XDOCLINT_PACKAGE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XDOCLINT_PACKAGE)},
-	{"NOWARN", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, NOWARN)},
-	{"VERBOSE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, VERBOSE)},
-	{"DEPRECATION", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DEPRECATION)},
-	{"CLASS_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, CLASS_PATH)},
-	{"SOURCE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SOURCE_PATH)},
-	{"MODULE_SOURCE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MODULE_SOURCE_PATH)},
-	{"MODULE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MODULE_PATH)},
-	{"UPGRADE_MODULE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, UPGRADE_MODULE_PATH)},
-	{"SYSTEM", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SYSTEM)},
-	{"PATCH_MODULE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PATCH_MODULE)},
-	{"BOOT_CLASS_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, BOOT_CLASS_PATH)},
-	{"XBOOTCLASSPATH_PREPEND", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XBOOTCLASSPATH_PREPEND)},
-	{"XBOOTCLASSPATH_APPEND", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XBOOTCLASSPATH_APPEND)},
-	{"XBOOTCLASSPATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XBOOTCLASSPATH)},
-	{"EXTDIRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, EXTDIRS)},
-	{"DJAVA_EXT_DIRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DJAVA_EXT_DIRS)},
-	{"ENDORSEDDIRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ENDORSEDDIRS)},
-	{"DJAVA_ENDORSED_DIRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DJAVA_ENDORSED_DIRS)},
-	{"PROC", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROC)},
-	{"PROCESSOR", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROCESSOR)},
-	{"PROCESSOR_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROCESSOR_PATH)},
-	{"PROCESSOR_MODULE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROCESSOR_MODULE_PATH)},
-	{"PARAMETERS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PARAMETERS)},
-	{"D", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, D)},
-	{"S", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, S)},
-	{"H", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, H)},
-	{"IMPLICIT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, IMPLICIT)},
-	{"ENCODING", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ENCODING)},
-	{"SOURCE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SOURCE)},
-	{"TARGET", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, TARGET)},
-	{"RELEASE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, RELEASE)},
-	{"PREVIEW", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PREVIEW)},
-	{"PROFILE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROFILE)},
-	{"VERSION", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, VERSION)},
-	{"FULLVERSION", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, FULLVERSION)},
-	{"HELP", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, HELP)},
-	{"A", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, A)},
-	{"DEFAULT_MODULE_FOR_CREATED_FILES", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DEFAULT_MODULE_FOR_CREATED_FILES)},
-	{"X", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, X)},
-	{"HELP_LINT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, HELP_LINT)},
-	{"J", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, J)},
-	{"MOREINFO", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MOREINFO)},
-	{"WERROR", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, WERROR)},
-	{"PROMPT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROMPT)},
-	{"DOE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DOE)},
-	{"PRINTSOURCE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PRINTSOURCE)},
-	{"WARNUNCHECKED", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, WARNUNCHECKED)},
-	{"XMAXERRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XMAXERRS)},
-	{"XMAXWARNS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XMAXWARNS)},
-	{"XSTDOUT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XSTDOUT)},
-	{"XPRINT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPRINT)},
-	{"XPRINTROUNDS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPRINTROUNDS)},
-	{"XPRINTPROCESSORINFO", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPRINTPROCESSORINFO)},
-	{"XPREFER", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPREFER)},
-	{"XXUSERPATHSFIRST", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XXUSERPATHSFIRST)},
-	{"XPKGINFO", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPKGINFO)},
-	{"O", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, O)},
-	{"XJCOV", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XJCOV)},
-	{"PLUGIN", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PLUGIN)},
-	{"XDIAGS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XDIAGS)},
-	{"DEBUG", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DEBUG)},
-	{"SHOULDSTOP", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SHOULDSTOP)},
-	{"DIAGS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DIAGS)},
-	{"XD", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XD)},
-	{"ADD_EXPORTS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ADD_EXPORTS)},
-	{"ADD_OPENS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ADD_OPENS)},
-	{"ADD_READS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ADD_READS)},
-	{"MODULE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MODULE)},
-	{"ADD_MODULES", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ADD_MODULES)},
-	{"LIMIT_MODULES", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, LIMIT_MODULES)},
-	{"MODULE_VERSION", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MODULE_VERSION)},
-	{"AT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, AT)},
-	{"SOURCEFILE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SOURCEFILE)},
-	{"MULTIRELEASE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MULTIRELEASE)},
-	{"INHERIT_RUNTIME_ENVIRONMENT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, INHERIT_RUNTIME_ENVIRONMENT)},
-	{"$VALUES", "[Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Option, $VALUES)},
-	{"primaryName", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Option, primaryName)},
-	{"names", "[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Option, names)},
-	{"argsNameKey", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(Option, argsNameKey)},
-	{"descrKey", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(Option, descrKey)},
-	{"kind", "Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PRIVATE | $FINAL, $field(Option, kind)},
-	{"group", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PRIVATE | $FINAL, $field(Option, group)},
-	{"argKind", "Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PRIVATE | $FINAL, $field(Option, argKind)},
-	{"choiceKind", "Lcom/sun/tools/javac/main/Option$ChoiceKind;", nullptr, $PRIVATE | $FINAL, $field(Option, choiceKind)},
-	{"choices", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Option, choices)},
-	{"SMALL_INDENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Option, SMALL_INDENT)},
-	{"LARGE_INDENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Option, LARGE_INDENT)},
-	{"DEFAULT_SYNOPSIS_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Option, DEFAULT_SYNOPSIS_WIDTH)},
-	{"DEFAULT_MAX_LINE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Option, DEFAULT_MAX_LINE_LENGTH)},
-	{"COMPACT_FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Option, COMPACT_FORMAT)},
-	{}
-};
-
-$MethodInfo _Option_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, $values, $OptionArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ArgKind*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ArgKind*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;Ljava/util/Set;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ChoiceKind*, $Set*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;[Ljava/lang/String;)V", $PRIVATE | $TRANSIENT, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ChoiceKind*, $StringArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;Ljava/util/Set;Lcom/sun/tools/javac/main/Option$ArgKind;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;Ljava/util/Set<Ljava/lang/String;>;Lcom/sun/tools/javac/main/Option$ArgKind;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ChoiceKind*, $Set*, $Option$ArgKind*)},
-	{"findSeparator", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Option, findSeparator, int32_t, $String*)},
-	{"getArgKind", "()Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC, $virtualMethod(Option, getArgKind, $Option$ArgKind*)},
-	{"getJavaCompilerOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $STATIC, $staticMethod(Option, getJavaCompilerOptions, $Set*)},
-	{"getJavacFileManagerOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $PUBLIC | $STATIC, $staticMethod(Option, getJavacFileManagerOptions, $Set*)},
-	{"getJavacToolOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $PUBLIC | $STATIC, $staticMethod(Option, getJavacToolOptions, $Set*)},
-	{"getKind", "()Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PUBLIC, $virtualMethod(Option, getKind, $Option$OptionKind*)},
-	{"getOptions", "(Lcom/sun/tools/javac/main/Option$OptionGroup;)Ljava/util/Set;", "(Lcom/sun/tools/javac/main/Option$OptionGroup;)Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $PRIVATE | $STATIC, $staticMethod(Option, getOptions, $Set*, $Option$OptionGroup*)},
-	{"getPattern", "()Ljava/util/regex/Pattern;", nullptr, $PUBLIC, $virtualMethod(Option, getPattern, $Pattern*)},
-	{"getPrimaryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Option, getPrimaryName, $String*)},
-	{"getXLintChoices", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(Option, getXLintChoices, $Set*)},
-	{"handleOption", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/util/Iterator;)V", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/util/Iterator<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Option, handleOption, void, $OptionHelper*, $String*, $Iterator*), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{"hasArg", "()Z", nullptr, $PUBLIC, $virtualMethod(Option, hasArg, bool)},
-	{"hasSeparateArg", "()Z", nullptr, $PUBLIC, $virtualMethod(Option, hasSeparateArg, bool)},
-	{"help", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED, $virtualMethod(Option, help, void, $Log*)},
-	{"help", "(Lcom/sun/tools/javac/util/Log;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Option, help, void, $Log*, $String*)},
-	{"helpSynopsis", "(Ljava/lang/String;Lcom/sun/tools/javac/util/Log;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Option, helpSynopsis, $String*, $String*, $Log*)},
-	{"lambda$getOptions$3", "(Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, lambda$getOptions$3, bool, $Option$OptionGroup*, Option*)},
-	{"lambda$getOptions$4", "()Ljava/util/EnumSet;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, lambda$getOptions$4, $EnumSet*)},
-	{"lambda$help$2", "(Lcom/sun/tools/javac/util/Log;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Option, lambda$help$2, $String*, $Log*, $String*)},
-	{"lambda$showHelp$0", "(Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, lambda$showHelp$0, bool, $Option$OptionKind*, Option*)},
-	{"lambda$showHelp$1", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/main/Option;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, lambda$showHelp$1, void, $Log*, Option*)},
-	{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option, lookup, Option*, $String*)},
-	{"lookup", "(Ljava/lang/String;Ljava/util/Set;)Lcom/sun/tools/javac/main/Option;", "(Ljava/lang/String;Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;)Lcom/sun/tools/javac/main/Option;", $PUBLIC | $STATIC, $staticMethod(Option, lookup, Option*, $String*, $Set*)},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Option, matches, bool, $String*)},
-	{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Option, matches, bool, $String*, $String*)},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option, process, void, $OptionHelper*, $String*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{"showHelp", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/main/Option$OptionKind;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Option, showHelp, void, $Log*, $Option$OptionKind*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option, valueOf, Option*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option, values, $OptionArray*)},
-	{}
-};
-
-$InnerClassInfo _Option_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$41", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.main.Option$PkgInfo", "com.sun.tools.javac.main.Option", "PkgInfo", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$HiddenGroup", "com.sun.tools.javac.main.Option", "HiddenGroup", $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$ChoiceKind", "com.sun.tools.javac.main.Option", "ChoiceKind", $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$OptionGroup", "com.sun.tools.javac.main.Option", "OptionGroup", $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$OptionKind", "com.sun.tools.javac.main.Option", "OptionKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$ArgKind", "com.sun.tools.javac.main.Option", "ArgKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$InvalidValueException", "com.sun.tools.javac.main.Option", "InvalidValueException", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.main.Option$40", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.main.Option$39", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$38", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$37", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$36", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$35", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$34", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$33", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$32", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$31", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$30", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$29", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$28", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$27", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$26", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$25", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$24", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$23", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$22", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$21", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$20", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$19", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$18", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$17", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$16", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$15", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$14", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$13", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$12", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$11", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$10", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$9", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$8", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$7", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$6", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$5", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$4", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Option$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option",
-	"java.lang.Enum",
-	nullptr,
-	_Option_FieldInfo_,
-	_Option_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Option;>;",
-	nullptr,
-	_Option_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option$41,com.sun.tools.javac.main.Option$PkgInfo,com.sun.tools.javac.main.Option$HiddenGroup,com.sun.tools.javac.main.Option$ChoiceKind,com.sun.tools.javac.main.Option$OptionGroup,com.sun.tools.javac.main.Option$OptionKind,com.sun.tools.javac.main.Option$ArgKind,com.sun.tools.javac.main.Option$InvalidValueException,com.sun.tools.javac.main.Option$40,com.sun.tools.javac.main.Option$39,com.sun.tools.javac.main.Option$38,com.sun.tools.javac.main.Option$37,com.sun.tools.javac.main.Option$36,com.sun.tools.javac.main.Option$35,com.sun.tools.javac.main.Option$34,com.sun.tools.javac.main.Option$33,com.sun.tools.javac.main.Option$32,com.sun.tools.javac.main.Option$31,com.sun.tools.javac.main.Option$30,com.sun.tools.javac.main.Option$29,com.sun.tools.javac.main.Option$28,com.sun.tools.javac.main.Option$27,com.sun.tools.javac.main.Option$26,com.sun.tools.javac.main.Option$25,com.sun.tools.javac.main.Option$24,com.sun.tools.javac.main.Option$23,com.sun.tools.javac.main.Option$22,com.sun.tools.javac.main.Option$21,com.sun.tools.javac.main.Option$20,com.sun.tools.javac.main.Option$19,com.sun.tools.javac.main.Option$18,com.sun.tools.javac.main.Option$17,com.sun.tools.javac.main.Option$16,com.sun.tools.javac.main.Option$15,com.sun.tools.javac.main.Option$14,com.sun.tools.javac.main.Option$13,com.sun.tools.javac.main.Option$12,com.sun.tools.javac.main.Option$11,com.sun.tools.javac.main.Option$10,com.sun.tools.javac.main.Option$9,com.sun.tools.javac.main.Option$8,com.sun.tools.javac.main.Option$7,com.sun.tools.javac.main.Option$6,com.sun.tools.javac.main.Option$5,com.sun.tools.javac.main.Option$4,com.sun.tools.javac.main.Option$3,com.sun.tools.javac.main.Option$2,com.sun.tools.javac.main.Option$1"
-};
-
-$Object* allocate$Option($Class* clazz) {
-	return $of($alloc(Option));
-}
 
 Option* Option::G = nullptr;
 Option* Option::G_NONE = nullptr;
@@ -870,15 +632,11 @@ Option* Option::lookup($String* arg) {
 
 Option* Option::lookup($String* arg, $Set* options) {
 	$init(Option);
-	{
-		$var($Iterator, i$, $nc(options)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			Option* option = $cast(Option, i$->next());
-			{
-				if ($nc(option)->matches(arg)) {
-					return option;
-				}
-			}
+	$var($Iterator, i$, $nc(options)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		Option* option = $cast(Option, i$->next());
+		if ($nc(option)->matches(arg)) {
+			return option;
 		}
 	}
 	return nullptr;
@@ -886,9 +644,9 @@ Option* Option::lookup($String* arg, $Set* options) {
 
 void Option::showHelp($Log* log, $Option$OptionKind* kind) {
 	$init(Option);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Comparator, comp, $new($Option$40));
-	$nc($($nc($($nc($($nc($(getJavaCompilerOptions()))->stream()))->filter(static_cast<$Predicate*>($$new(Option$$Lambda$lambda$showHelp$0, kind)))))->sorted(comp)))->forEach(static_cast<$Consumer*>($$new(Option$$Lambda$lambda$showHelp$1$1, log)));
+	$$nc($$nc($$nc($$nc(getJavaCompilerOptions())->stream())->filter($$new(Option$$Lambda$lambda$showHelp$0, kind)))->sorted(comp))->forEach($$new(Option$$Lambda$lambda$showHelp$1$1, log));
 }
 
 void Option::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* descrKey, $Option$OptionKind* kind, $Option$OptionGroup* group) {
@@ -915,16 +673,16 @@ void Option::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $S
 }
 
 void Option::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* descrKey, $Option$OptionKind* kind, $Option$OptionGroup* group, $Option$ChoiceKind* choiceKind, $StringArray* choices) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Option$ArgKind);
-	Option::init$($enum$name, $enum$ordinal, text, nullptr, descrKey, kind, group, choiceKind, $$new($LinkedHashSet, $(static_cast<$Collection*>($Arrays::asList(choices)))), $Option$ArgKind::REQUIRED);
+	Option::init$($enum$name, $enum$ordinal, text, nullptr, descrKey, kind, group, choiceKind, $$new($LinkedHashSet, $($Arrays::asList(choices))), $Option$ArgKind::REQUIRED);
 }
 
 void Option::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* argsNameKey, $String* descrKey, $Option$OptionKind* kind, $Option$OptionGroup* group, $Option$ChoiceKind* choiceKind, $Set* choices, $Option$ArgKind* argKind) {
 	$Enum::init$($enum$name, $enum$ordinal);
 	$set(this, names, $($nc(text)->trim())->split("\\s+"_s));
 	$Assert::check($nc(this->names)->length >= 1);
-	$set(this, primaryName, $nc(this->names)->get(0));
+	$set(this, primaryName, this->names->get(0));
 	$set(this, argsNameKey, argsNameKey);
 	$set(this, descrKey, descrKey);
 	$set(this, kind, kind);
@@ -955,40 +713,34 @@ bool Option::hasSeparateArg() {
 	$init($Option$ArgKind);
 	bool var$1 = getArgKind() == $Option$ArgKind::REQUIRED;
 	bool var$0 = var$1 && !$nc(this->primaryName)->endsWith(":"_s);
-	return var$0 && !$nc(this->primaryName)->endsWith("="_s);
+	return var$0 && !this->primaryName->endsWith("="_s);
 }
 
 bool Option::matches($String* option) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray, arr$, this->names);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, name, arr$->get(i$));
-			{
-				if (matches(option, name)) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($StringArray, arr$, this->names);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, name, arr$->get(i$));
+		if (matches(option, name)) {
+			return true;
 		}
 	}
 	return false;
 }
 
 bool Option::matches($String* option, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->startsWith("--"_s)) {
 		bool var$0 = $nc(option)->equals(name);
 		if (!var$0) {
 			bool var$1 = hasArg();
-			var$0 = var$1 && $nc(option)->startsWith($$str({name, "="_s}));
+			var$0 = var$1 && option->startsWith($$str({name, "="_s}));
 		}
 		return var$0;
 	}
 	$init($Option$ArgKind);
-	bool var$2 = (this->argKind == $Option$ArgKind::ADJACENT) || $nc(name)->endsWith(":"_s);
-	bool hasSuffix = var$2 || $nc(name)->endsWith("="_s);
+	bool var$2 = (this->argKind == $Option$ArgKind::ADJACENT) || name->endsWith(":"_s);
+	bool hasSuffix = var$2 || name->endsWith("="_s);
 	if (!hasSuffix) {
 		return $nc(option)->equals(name);
 	}
@@ -996,22 +748,16 @@ bool Option::matches($String* option, $String* name) {
 		return false;
 	}
 	if (this->choices != nullptr) {
-		$var($String, arg, $nc(option)->substring(name->length()));
+		$var($String, arg, option->substring(name->length()));
 		$init($Option$ChoiceKind);
 		if (this->choiceKind == $Option$ChoiceKind::ONEOF) {
-			return $nc(this->choices)->contains(arg);
+			return this->choices->contains(arg);
 		} else {
-			{
-				$var($StringArray, arr$, arg->split(",+"_s));
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($String, a, arr$->get(i$));
-					{
-						if (!$nc(this->choices)->contains(a)) {
-							return false;
-						}
-					}
+			$var($StringArray, arr$, arg->split(",+"_s));
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($String, a, arr$->get(i$));
+				if (!this->choices->contains(a)) {
+					return false;
 				}
 			}
 		}
@@ -1020,7 +766,7 @@ bool Option::matches($String* option, $String* name) {
 }
 
 void Option::handleOption($OptionHelper* helper, $String* arg, $Iterator* rest) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (hasArg()) {
 		$var($String, option, nullptr);
 		$var($String, operand, nullptr);
@@ -1037,7 +783,7 @@ void Option::handleOption($OptionHelper* helper, $String* arg, $Iterator* rest) 
 				$throw($($nc(helper)->newInvalidValueException($($CompilerProperties$Errors::ReqArg(this->primaryName)))));
 			}
 			$assign(option, arg);
-			$assign(operand, $cast($String, $nc(rest)->next()));
+			$assign(operand, $cast($String, rest->next()));
 		}
 		process(helper, option, operand);
 	} else {
@@ -1056,12 +802,12 @@ void Option::process($OptionHelper* helper, $String* option) {
 }
 
 void Option::process($OptionHelper* helper, $String* option, $String* arg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->choices != nullptr) {
 		$init($Option$ChoiceKind);
 		if (this->choiceKind == $Option$ChoiceKind::ONEOF) {
 			{
-				$var($Iterator, i$, $nc(this->choices)->iterator());
+				$var($Iterator, i$, this->choices->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($String, s, $cast($String, i$->next()));
 					$nc(helper)->remove($$str({this->primaryName, s}));
@@ -1072,16 +818,12 @@ void Option::process($OptionHelper* helper, $String* option, $String* arg) {
 			$var($String, nm, $nc(this->primaryName)->substring(0, $nc(this->primaryName)->length() - 1));
 			helper->put(nm, arg);
 		} else {
-			{
-				$var($StringArray, arr$, $nc(arg)->split(",+"_s));
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($String, a, arr$->get(i$));
-					{
-						$var($String, opt, $str({this->primaryName, a}));
-						$nc(helper)->put(opt, opt);
-					}
+			$var($StringArray, arr$, $nc(arg)->split(",+"_s));
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($String, a, arr$->get(i$));
+				{
+					$var($String, opt, $str({this->primaryName, a}));
+					$nc(helper)->put(opt, opt);
 				}
 			}
 		}
@@ -1103,62 +845,55 @@ int32_t Option::findSeparator($String* word) {
 	for (int32_t i = 0; i < $nc(word)->length(); ++i) {
 		switch (word->charAt(i)) {
 		case u':':
-			{}
 		case u'=':
-			{
-				return i;
-			}
+			return i;
 		}
 	}
 	return -1;
 }
 
 void Option::help($Log* log) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$PrefixKind);
 	help(log, $($nc(log)->localize($Log$PrefixKind::JAVAC, this->descrKey, $$new($ObjectArray, 0))));
 }
 
 void Option::help($Log* log, $String* descr) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, synopses, $cast($String, $nc($($nc($($Arrays::stream(this->names)))->map(static_cast<$Function*>($$new(Option$$Lambda$lambda$help$2$2, this, log)))))->collect($($Collectors::joining(", "_s)))));
+	$useLocalObjectStack();
+	$var($String, synopses, $cast($String, $$nc($$nc($Arrays::stream(this->names))->map($$new(Option$$Lambda$lambda$help$2$2, this, log)))->collect($($Collectors::joining(", "_s)))));
 	bool var$1 = $nc(synopses)->length() < Option::DEFAULT_SYNOPSIS_WIDTH;
 	bool var$0 = var$1 && !$nc(descr)->contains("\n"_s);
 	if (var$0) {
-		int32_t var$2 = $nc(Option::SMALL_INDENT)->length() + Option::DEFAULT_SYNOPSIS_WIDTH + 1;
-		var$0 = (var$2 + descr->length() <= Option::DEFAULT_MAX_LINE_LENGTH);
+		int32_t var$2 = Option::SMALL_INDENT->length() + Option::DEFAULT_SYNOPSIS_WIDTH + 1;
+		var$0 = var$2 + descr->length() <= Option::DEFAULT_MAX_LINE_LENGTH;
 	}
 	if (var$0) {
 		$init($Log$WriterKind);
 		$nc(log)->printRawLines($Log$WriterKind::STDOUT, $($String::format(Option::COMPACT_FORMAT, $$new($ObjectArray, {
-			$of(synopses),
-			$of(descr)
+			synopses,
+			descr
 		}))));
 		return;
 	}
-	if ($nc(synopses)->length() <= Option::DEFAULT_MAX_LINE_LENGTH) {
+	if (synopses->length() <= Option::DEFAULT_MAX_LINE_LENGTH) {
 		$init($Log$WriterKind);
 		$nc(log)->printRawLines($Log$WriterKind::STDOUT, $$str({Option::SMALL_INDENT, synopses}));
 	} else {
-		{
-			$var($StringArray, arr$, this->names);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($String, name, arr$->get(i$));
-				{
-					$init($Log$WriterKind);
-					$nc(log)->printRawLines($Log$WriterKind::STDOUT, $$str({Option::SMALL_INDENT, $(helpSynopsis(name, log))}));
-				}
+		$var($StringArray, arr$, this->names);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($String, name, arr$->get(i$));
+			{
+				$init($Log$WriterKind);
+				$nc(log)->printRawLines($Log$WriterKind::STDOUT, $$str({Option::SMALL_INDENT, $(helpSynopsis(name, log))}));
 			}
 		}
 	}
 	$init($Log$WriterKind);
-	$nc(log)->printRawLines($Log$WriterKind::STDOUT, $$str({Option::LARGE_INDENT, $($nc(descr)->replace(static_cast<$CharSequence*>("\n"_s), static_cast<$CharSequence*>($$str({"\n"_s, Option::LARGE_INDENT}))))}));
+	$nc(log)->printRawLines($Log$WriterKind::STDOUT, $$str({Option::LARGE_INDENT, $($nc(descr)->replace("\n"_s, $$str({"\n"_s, Option::LARGE_INDENT})))}));
 }
 
 $String* Option::helpSynopsis($String* name, $Log* log) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(name);
 	if (this->argsNameKey == nullptr) {
@@ -1168,7 +903,7 @@ $String* Option::helpSynopsis($String* name, $Log* log) {
 			}
 			$var($String, sep, "{"_s);
 			{
-				$var($Iterator, i$, $nc(this->choices)->iterator());
+				$var($Iterator, i$, this->choices->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($String, choice, $cast($String, i$->next()));
 					{
@@ -1193,18 +928,16 @@ $String* Option::helpSynopsis($String* name, $Log* log) {
 
 $Set* Option::getXLintChoices() {
 	$init(Option);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, choices, $new($LinkedHashSet));
 	choices->add("all"_s);
 	{
 		$var($Lint$LintCategoryArray, arr$, $Lint$LintCategory::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Lint$LintCategory* c = arr$->get(i$);
 			{
 				choices->add($nc(c)->option);
-				choices->add($$str({"-"_s, $nc(c)->option}));
+				choices->add($$str({"-"_s, c->option}));
 			}
 		}
 	}
@@ -1231,8 +964,8 @@ $Set* Option::getJavacToolOptions() {
 
 $Set* Option::getOptions($Option$OptionGroup* group) {
 	$init(Option);
-	$useLocalCurrentObjectStackCache();
-	return $cast($Set, $nc($($nc($($Arrays::stream($(Option::values()))))->filter(static_cast<$Predicate*>($$new(Option$$Lambda$lambda$getOptions$3$3, group)))))->collect($($Collectors::toCollection(static_cast<$Supplier*>($$new(Option$$Lambda$lambda$getOptions$4$4))))));
+	$useLocalObjectStack();
+	return $cast($Set, $$nc($$nc($Arrays::stream($(Option::values())))->filter($$new(Option$$Lambda$lambda$getOptions$3$3, group)))->collect($($Collectors::toCollection($$new(Option$$Lambda$lambda$getOptions$4$4)))));
 }
 
 $EnumSet* Option::lambda$getOptions$4() {
@@ -1259,8 +992,8 @@ bool Option::lambda$showHelp$0($Option$OptionKind* kind, Option* o) {
 	return $nc(o)->kind == kind;
 }
 
-void clinit$Option($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Option::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Option::SMALL_INDENT, "  "_s);
 	$assignStatic(Option::LARGE_INDENT, "        "_s);
 	$assignStatic(Option::COMPACT_FORMAT, $str({Option::SMALL_INDENT, "%-"_s, $$str(Option::DEFAULT_SYNOPSIS_WIDTH), "s %s"_s}));
@@ -1361,7 +1094,7 @@ void clinit$Option($Class* class$) {
 	$assignStatic(Option::DIAGS, $new($Option$30, "DIAGS"_s, 70, "--diags"_s, nullptr, $Option$OptionKind::HIDDEN, $Option$OptionGroup::BASIC, $Option$ArgKind::REQUIRED));
 	$assignStatic(Option::XD, $new($Option$31, "XD"_s, 71, "-XD"_s, nullptr, $Option$OptionKind::HIDDEN, $Option$OptionGroup::BASIC));
 	$assignStatic(Option::ADD_EXPORTS, $new($Option$32, "ADD_EXPORTS"_s, 72, "--add-exports"_s, "opt.arg.addExports"_s, "opt.addExports"_s, $Option$OptionKind::EXTENDED, $Option$OptionGroup::BASIC));
-	$assignStatic(Option::ADD_OPENS, $new(Option, "ADD_OPENS"_s, 73, "--add-opens"_s, ($String*)nullptr, ($String*)nullptr, $Option$OptionKind::HIDDEN, $Option$OptionGroup::BASIC));
+	$assignStatic(Option::ADD_OPENS, $new(Option, "ADD_OPENS"_s, 73, "--add-opens"_s, nullptr, nullptr, $Option$OptionKind::HIDDEN, $Option$OptionGroup::BASIC));
 	$assignStatic(Option::ADD_READS, $new($Option$33, "ADD_READS"_s, 74, "--add-reads"_s, "opt.arg.addReads"_s, "opt.addReads"_s, $Option$OptionKind::EXTENDED, $Option$OptionGroup::BASIC));
 	$assignStatic(Option::MODULE, $new(Option, "MODULE"_s, 75, "--module -m"_s, "opt.arg.m"_s, "opt.m"_s, $Option$OptionKind::STANDARD, $Option$OptionGroup::BASIC));
 	$assignStatic(Option::ADD_MODULES, $new($Option$34, "ADD_MODULES"_s, 76, "--add-modules"_s, "opt.arg.addmods"_s, "opt.addmods"_s, $Option$OptionKind::STANDARD, $Option$OptionGroup::BASIC));
@@ -1379,23 +1112,232 @@ Option::Option() {
 
 $Class* Option::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Option$$Lambda$lambda$showHelp$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$$Lambda$lambda$showHelp$0")) {
 			return Option$$Lambda$lambda$showHelp$0::load$(name, initialize);
 		}
-		if (name->equals(Option$$Lambda$lambda$showHelp$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$$Lambda$lambda$showHelp$1$1")) {
 			return Option$$Lambda$lambda$showHelp$1$1::load$(name, initialize);
 		}
-		if (name->equals(Option$$Lambda$lambda$help$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$$Lambda$lambda$help$2$2")) {
 			return Option$$Lambda$lambda$help$2$2::load$(name, initialize);
 		}
-		if (name->equals(Option$$Lambda$lambda$getOptions$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$$Lambda$lambda$getOptions$3$3")) {
 			return Option$$Lambda$lambda$getOptions$3$3::load$(name, initialize);
 		}
-		if (name->equals(Option$$Lambda$lambda$getOptions$4$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.main.Option$$Lambda$lambda$getOptions$4$4")) {
 			return Option$$Lambda$lambda$getOptions$4$4::load$(name, initialize);
 		}
 	}
-	$loadClass(Option, name, initialize, &_Option_ClassInfo_, clinit$Option, allocate$Option);
+	$FieldInfo fieldInfos$$[] = {
+		{"G", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, G)},
+		{"G_NONE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, G_NONE)},
+		{"G_CUSTOM", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, G_CUSTOM)},
+		{"XLINT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XLINT)},
+		{"XLINT_CUSTOM", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XLINT_CUSTOM)},
+		{"XDOCLINT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XDOCLINT)},
+		{"XDOCLINT_CUSTOM", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XDOCLINT_CUSTOM)},
+		{"XDOCLINT_PACKAGE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XDOCLINT_PACKAGE)},
+		{"NOWARN", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, NOWARN)},
+		{"VERBOSE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, VERBOSE)},
+		{"DEPRECATION", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DEPRECATION)},
+		{"CLASS_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, CLASS_PATH)},
+		{"SOURCE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SOURCE_PATH)},
+		{"MODULE_SOURCE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MODULE_SOURCE_PATH)},
+		{"MODULE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MODULE_PATH)},
+		{"UPGRADE_MODULE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, UPGRADE_MODULE_PATH)},
+		{"SYSTEM", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SYSTEM)},
+		{"PATCH_MODULE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PATCH_MODULE)},
+		{"BOOT_CLASS_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, BOOT_CLASS_PATH)},
+		{"XBOOTCLASSPATH_PREPEND", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XBOOTCLASSPATH_PREPEND)},
+		{"XBOOTCLASSPATH_APPEND", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XBOOTCLASSPATH_APPEND)},
+		{"XBOOTCLASSPATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XBOOTCLASSPATH)},
+		{"EXTDIRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, EXTDIRS)},
+		{"DJAVA_EXT_DIRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DJAVA_EXT_DIRS)},
+		{"ENDORSEDDIRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ENDORSEDDIRS)},
+		{"DJAVA_ENDORSED_DIRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DJAVA_ENDORSED_DIRS)},
+		{"PROC", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROC)},
+		{"PROCESSOR", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROCESSOR)},
+		{"PROCESSOR_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROCESSOR_PATH)},
+		{"PROCESSOR_MODULE_PATH", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROCESSOR_MODULE_PATH)},
+		{"PARAMETERS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PARAMETERS)},
+		{"D", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, D)},
+		{"S", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, S)},
+		{"H", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, H)},
+		{"IMPLICIT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, IMPLICIT)},
+		{"ENCODING", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ENCODING)},
+		{"SOURCE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SOURCE)},
+		{"TARGET", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, TARGET)},
+		{"RELEASE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, RELEASE)},
+		{"PREVIEW", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PREVIEW)},
+		{"PROFILE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROFILE)},
+		{"VERSION", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, VERSION)},
+		{"FULLVERSION", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, FULLVERSION)},
+		{"HELP", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, HELP)},
+		{"A", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, A)},
+		{"DEFAULT_MODULE_FOR_CREATED_FILES", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DEFAULT_MODULE_FOR_CREATED_FILES)},
+		{"X", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, X)},
+		{"HELP_LINT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, HELP_LINT)},
+		{"J", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, J)},
+		{"MOREINFO", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MOREINFO)},
+		{"WERROR", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, WERROR)},
+		{"PROMPT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PROMPT)},
+		{"DOE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DOE)},
+		{"PRINTSOURCE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PRINTSOURCE)},
+		{"WARNUNCHECKED", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, WARNUNCHECKED)},
+		{"XMAXERRS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XMAXERRS)},
+		{"XMAXWARNS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XMAXWARNS)},
+		{"XSTDOUT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XSTDOUT)},
+		{"XPRINT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPRINT)},
+		{"XPRINTROUNDS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPRINTROUNDS)},
+		{"XPRINTPROCESSORINFO", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPRINTPROCESSORINFO)},
+		{"XPREFER", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPREFER)},
+		{"XXUSERPATHSFIRST", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XXUSERPATHSFIRST)},
+		{"XPKGINFO", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XPKGINFO)},
+		{"O", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, O)},
+		{"XJCOV", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XJCOV)},
+		{"PLUGIN", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, PLUGIN)},
+		{"XDIAGS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XDIAGS)},
+		{"DEBUG", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DEBUG)},
+		{"SHOULDSTOP", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SHOULDSTOP)},
+		{"DIAGS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, DIAGS)},
+		{"XD", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, XD)},
+		{"ADD_EXPORTS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ADD_EXPORTS)},
+		{"ADD_OPENS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ADD_OPENS)},
+		{"ADD_READS", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ADD_READS)},
+		{"MODULE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MODULE)},
+		{"ADD_MODULES", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, ADD_MODULES)},
+		{"LIMIT_MODULES", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, LIMIT_MODULES)},
+		{"MODULE_VERSION", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MODULE_VERSION)},
+		{"AT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, AT)},
+		{"SOURCEFILE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, SOURCEFILE)},
+		{"MULTIRELEASE", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, MULTIRELEASE)},
+		{"INHERIT_RUNTIME_ENVIRONMENT", "Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Option, INHERIT_RUNTIME_ENVIRONMENT)},
+		{"$VALUES", "[Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Option, $VALUES)},
+		{"primaryName", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Option, primaryName)},
+		{"names", "[Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Option, names)},
+		{"argsNameKey", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(Option, argsNameKey)},
+		{"descrKey", "Ljava/lang/String;", nullptr, $PROTECTED | $FINAL, $field(Option, descrKey)},
+		{"kind", "Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PRIVATE | $FINAL, $field(Option, kind)},
+		{"group", "Lcom/sun/tools/javac/main/Option$OptionGroup;", nullptr, $PRIVATE | $FINAL, $field(Option, group)},
+		{"argKind", "Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PRIVATE | $FINAL, $field(Option, argKind)},
+		{"choiceKind", "Lcom/sun/tools/javac/main/Option$ChoiceKind;", nullptr, $PRIVATE | $FINAL, $field(Option, choiceKind)},
+		{"choices", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(Option, choices)},
+		{"SMALL_INDENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Option, SMALL_INDENT)},
+		{"LARGE_INDENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Option, LARGE_INDENT)},
+		{"DEFAULT_SYNOPSIS_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Option, DEFAULT_SYNOPSIS_WIDTH)},
+		{"DEFAULT_MAX_LINE_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Option, DEFAULT_MAX_LINE_LENGTH)},
+		{"COMPACT_FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Option, COMPACT_FORMAT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/main/Option;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, $values, $OptionArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ArgKind*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ArgKind;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ArgKind*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;Ljava/util/Set;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;Ljava/util/Set<Ljava/lang/String;>;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ChoiceKind*, $Set*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;[Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;[Ljava/lang/String;)V", $PRIVATE | $TRANSIENT, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ChoiceKind*, $StringArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;Ljava/util/Set;Lcom/sun/tools/javac/main/Option$ArgKind;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option$ChoiceKind;Ljava/util/Set<Ljava/lang/String;>;Lcom/sun/tools/javac/main/Option$ArgKind;)V", $PRIVATE, $method(Option, init$, void, $String*, int32_t, $String*, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*, $Option$ChoiceKind*, $Set*, $Option$ArgKind*)},
+		{"findSeparator", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(Option, findSeparator, int32_t, $String*)},
+		{"getArgKind", "()Lcom/sun/tools/javac/main/Option$ArgKind;", nullptr, $PUBLIC, $virtualMethod(Option, getArgKind, $Option$ArgKind*)},
+		{"getJavaCompilerOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $STATIC, $staticMethod(Option, getJavaCompilerOptions, $Set*)},
+		{"getJavacFileManagerOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $PUBLIC | $STATIC, $staticMethod(Option, getJavacFileManagerOptions, $Set*)},
+		{"getJavacToolOptions", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $PUBLIC | $STATIC, $staticMethod(Option, getJavacToolOptions, $Set*)},
+		{"getKind", "()Lcom/sun/tools/javac/main/Option$OptionKind;", nullptr, $PUBLIC, $virtualMethod(Option, getKind, $Option$OptionKind*)},
+		{"getOptions", "(Lcom/sun/tools/javac/main/Option$OptionGroup;)Ljava/util/Set;", "(Lcom/sun/tools/javac/main/Option$OptionGroup;)Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;", $PRIVATE | $STATIC, $staticMethod(Option, getOptions, $Set*, $Option$OptionGroup*)},
+		{"getPattern", "()Ljava/util/regex/Pattern;", nullptr, $PUBLIC, $virtualMethod(Option, getPattern, $Pattern*)},
+		{"getPrimaryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Option, getPrimaryName, $String*)},
+		{"getXLintChoices", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(Option, getXLintChoices, $Set*)},
+		{"handleOption", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/util/Iterator;)V", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/util/Iterator<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Option, handleOption, void, $OptionHelper*, $String*, $Iterator*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+		{"hasArg", "()Z", nullptr, $PUBLIC, $virtualMethod(Option, hasArg, bool)},
+		{"hasSeparateArg", "()Z", nullptr, $PUBLIC, $virtualMethod(Option, hasSeparateArg, bool)},
+		{"help", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED, $virtualMethod(Option, help, void, $Log*)},
+		{"help", "(Lcom/sun/tools/javac/util/Log;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Option, help, void, $Log*, $String*)},
+		{"helpSynopsis", "(Ljava/lang/String;Lcom/sun/tools/javac/util/Log;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Option, helpSynopsis, $String*, $String*, $Log*)},
+		{"lambda$getOptions$3", "(Lcom/sun/tools/javac/main/Option$OptionGroup;Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, lambda$getOptions$3, bool, $Option$OptionGroup*, Option*)},
+		{"lambda$getOptions$4", "()Ljava/util/EnumSet;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, lambda$getOptions$4, $EnumSet*)},
+		{"lambda$help$2", "(Lcom/sun/tools/javac/util/Log;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(Option, lambda$help$2, $String*, $Log*, $String*)},
+		{"lambda$showHelp$0", "(Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, lambda$showHelp$0, bool, $Option$OptionKind*, Option*)},
+		{"lambda$showHelp$1", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/main/Option;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Option, lambda$showHelp$1, void, $Log*, Option*)},
+		{"lookup", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option, lookup, Option*, $String*)},
+		{"lookup", "(Ljava/lang/String;Ljava/util/Set;)Lcom/sun/tools/javac/main/Option;", "(Ljava/lang/String;Ljava/util/Set<Lcom/sun/tools/javac/main/Option;>;)Lcom/sun/tools/javac/main/Option;", $PUBLIC | $STATIC, $staticMethod(Option, lookup, Option*, $String*, $Set*)},
+		{"matches", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Option, matches, bool, $String*)},
+		{"matches", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(Option, matches, bool, $String*, $String*)},
+		{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+		{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option, process, void, $OptionHelper*, $String*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+		{"showHelp", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/main/Option$OptionKind;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Option, showHelp, void, $Log*, $Option$OptionKind*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option, valueOf, Option*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/main/Option;", nullptr, $PUBLIC | $STATIC, $staticMethod(Option, values, $OptionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$41", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.main.Option$PkgInfo", "com.sun.tools.javac.main.Option", "PkgInfo", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$HiddenGroup", "com.sun.tools.javac.main.Option", "HiddenGroup", $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$ChoiceKind", "com.sun.tools.javac.main.Option", "ChoiceKind", $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$OptionGroup", "com.sun.tools.javac.main.Option", "OptionGroup", $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$OptionKind", "com.sun.tools.javac.main.Option", "OptionKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$ArgKind", "com.sun.tools.javac.main.Option", "ArgKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$InvalidValueException", "com.sun.tools.javac.main.Option", "InvalidValueException", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.main.Option$40", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.main.Option$39", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$38", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$37", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$36", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$35", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$34", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$33", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$32", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$31", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$30", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$29", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$28", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$27", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$26", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$25", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$24", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$23", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$22", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$21", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$20", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$19", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$18", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$17", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$16", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$15", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$14", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$13", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$12", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$11", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$10", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$9", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$8", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$7", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$6", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$5", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$4", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Option$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/main/Option;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option$41,com.sun.tools.javac.main.Option$PkgInfo,com.sun.tools.javac.main.Option$HiddenGroup,com.sun.tools.javac.main.Option$ChoiceKind,com.sun.tools.javac.main.Option$OptionGroup,com.sun.tools.javac.main.Option$OptionKind,com.sun.tools.javac.main.Option$ArgKind,com.sun.tools.javac.main.Option$InvalidValueException,com.sun.tools.javac.main.Option$40,com.sun.tools.javac.main.Option$39,com.sun.tools.javac.main.Option$38,com.sun.tools.javac.main.Option$37,com.sun.tools.javac.main.Option$36,com.sun.tools.javac.main.Option$35,com.sun.tools.javac.main.Option$34,com.sun.tools.javac.main.Option$33,com.sun.tools.javac.main.Option$32,com.sun.tools.javac.main.Option$31,com.sun.tools.javac.main.Option$30,com.sun.tools.javac.main.Option$29,com.sun.tools.javac.main.Option$28,com.sun.tools.javac.main.Option$27,com.sun.tools.javac.main.Option$26,com.sun.tools.javac.main.Option$25,com.sun.tools.javac.main.Option$24,com.sun.tools.javac.main.Option$23,com.sun.tools.javac.main.Option$22,com.sun.tools.javac.main.Option$21,com.sun.tools.javac.main.Option$20,com.sun.tools.javac.main.Option$19,com.sun.tools.javac.main.Option$18,com.sun.tools.javac.main.Option$17,com.sun.tools.javac.main.Option$16,com.sun.tools.javac.main.Option$15,com.sun.tools.javac.main.Option$14,com.sun.tools.javac.main.Option$13,com.sun.tools.javac.main.Option$12,com.sun.tools.javac.main.Option$11,com.sun.tools.javac.main.Option$10,com.sun.tools.javac.main.Option$9,com.sun.tools.javac.main.Option$8,com.sun.tools.javac.main.Option$7,com.sun.tools.javac.main.Option$6,com.sun.tools.javac.main.Option$5,com.sun.tools.javac.main.Option$4,com.sun.tools.javac.main.Option$3,com.sun.tools.javac.main.Option$2,com.sun.tools.javac.main.Option$1"
+	};
+	$loadClass(Option, name, initialize, &classInfo$$, Option::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option));
+	});
 	return class$;
 }
 

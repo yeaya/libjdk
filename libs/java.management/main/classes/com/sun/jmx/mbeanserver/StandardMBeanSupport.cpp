@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/StandardMBeanSupport.h>
-
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector.h>
 #include <com/sun/jmx/mbeanserver/MBeanSupport.h>
 #include <com/sun/jmx/mbeanserver/StandardMBeanIntrospector.h>
@@ -31,30 +30,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _StandardMBeanSupport_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", $PUBLIC, $method(StandardMBeanSupport, init$, void, Object$*, $Class*), "javax.management.NotCompliantMBeanException"},
-	{"getCookie", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(StandardMBeanSupport, getCookie, $Object*)},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, getMBeanInfo, $MBeanInfo*)},
-	{"getMBeanIntrospector", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector<Ljava/lang/reflect/Method;>;", 0, $virtualMethod(StandardMBeanSupport, getMBeanIntrospector, $MBeanIntrospector*)},
-	{"register", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, register$, void, $MBeanServer*, $ObjectName*)},
-	{"unregister", "()V", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, unregister, void)},
-	{}
-};
-
-$ClassInfo _StandardMBeanSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.StandardMBeanSupport",
-	"com.sun.jmx.mbeanserver.MBeanSupport",
-	nullptr,
-	nullptr,
-	_StandardMBeanSupport_MethodInfo_,
-	"Lcom/sun/jmx/mbeanserver/MBeanSupport<Ljava/lang/reflect/Method;>;"
-};
-
-$Object* allocate$StandardMBeanSupport($Class* clazz) {
-	return $of($alloc(StandardMBeanSupport));
-}
-
 void StandardMBeanSupport::init$(Object$* resource, $Class* mbeanInterfaceType) {
 	$MBeanSupport::init$(resource, mbeanInterfaceType);
 }
@@ -64,7 +39,7 @@ $MBeanIntrospector* StandardMBeanSupport::getMBeanIntrospector() {
 }
 
 $Object* StandardMBeanSupport::getCookie() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 void StandardMBeanSupport::register$($MBeanServer* mbs, $ObjectName* name) {
@@ -74,9 +49,9 @@ void StandardMBeanSupport::unregister() {
 }
 
 $MBeanInfo* StandardMBeanSupport::getMBeanInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MBeanInfo, mbi, $MBeanSupport::getMBeanInfo());
-	$Class* resourceClass = $nc($of($(getResource())))->getClass();
+	$Class* resourceClass = $$nc(getResource())->getClass();
 	if ($StandardMBeanIntrospector::isDefinitelyImmutableInfo(resourceClass)) {
 		return mbi;
 	}
@@ -93,7 +68,27 @@ StandardMBeanSupport::StandardMBeanSupport() {
 }
 
 $Class* StandardMBeanSupport::load$($String* name, bool initialize) {
-	$loadClass(StandardMBeanSupport, name, initialize, &_StandardMBeanSupport_ClassInfo_, allocate$StandardMBeanSupport);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", $PUBLIC, $method(StandardMBeanSupport, init$, void, Object$*, $Class*), "javax.management.NotCompliantMBeanException"},
+		{"getCookie", "()Ljava/lang/Object;", nullptr, 0, $virtualMethod(StandardMBeanSupport, getCookie, $Object*)},
+		{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, getMBeanInfo, $MBeanInfo*)},
+		{"getMBeanIntrospector", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector;", "()Lcom/sun/jmx/mbeanserver/MBeanIntrospector<Ljava/lang/reflect/Method;>;", 0, $virtualMethod(StandardMBeanSupport, getMBeanIntrospector, $MBeanIntrospector*)},
+		{"register", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, register$, void, $MBeanServer*, $ObjectName*)},
+		{"unregister", "()V", nullptr, $PUBLIC, $virtualMethod(StandardMBeanSupport, unregister, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.StandardMBeanSupport",
+		"com.sun.jmx.mbeanserver.MBeanSupport",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/sun/jmx/mbeanserver/MBeanSupport<Ljava/lang/reflect/Method;>;"
+	};
+	$loadClass(StandardMBeanSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardMBeanSupport));
+	});
 	return class$;
 }
 

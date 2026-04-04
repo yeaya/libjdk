@@ -1,10 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/RangeImpl.h>
-
-#include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
-#include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/ParentNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/RangeExceptionImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/TextImpl.h>
@@ -46,11 +42,8 @@
 #undef TEXT_NODE
 #undef WRONG_DOCUMENT_ERR
 
-using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
-using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
 using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
-using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
 using $ParentNode = ::com::sun::org::apache::xerces::internal::dom::ParentNode;
 using $RangeExceptionImpl = ::com::sun::org::apache::xerces::internal::dom::RangeExceptionImpl;
 using $TextImpl = ::com::sun::org::apache::xerces::internal::dom::TextImpl;
@@ -64,7 +57,6 @@ using $CharacterData = ::org::w3c::dom::CharacterData;
 using $DOMException = ::org::w3c::dom::DOMException;
 using $DocumentFragment = ::org::w3c::dom::DocumentFragment;
 using $Node = ::org::w3c::dom::Node;
-using $NodeList = ::org::w3c::dom::NodeList;
 using $Range = ::org::w3c::dom::ranges::Range;
 using $RangeException = ::org::w3c::dom::ranges::RangeException;
 
@@ -76,97 +68,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$FieldInfo _RangeImpl_FieldInfo_[] = {
-	{"fDocument", "Lcom/sun/org/apache/xerces/internal/dom/DocumentImpl;", nullptr, 0, $field(RangeImpl, fDocument)},
-	{"fStartContainer", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fStartContainer)},
-	{"fEndContainer", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fEndContainer)},
-	{"fStartOffset", "I", nullptr, 0, $field(RangeImpl, fStartOffset)},
-	{"fEndOffset", "I", nullptr, 0, $field(RangeImpl, fEndOffset)},
-	{"fIsCollapsed", "Z", nullptr, 0, $field(RangeImpl, fIsCollapsed)},
-	{"fDetach", "Z", nullptr, 0, $field(RangeImpl, fDetach)},
-	{"fInsertNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fInsertNode)},
-	{"fDeleteNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fDeleteNode)},
-	{"fSplitNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fSplitNode)},
-	{"fInsertedFromRange", "Z", nullptr, 0, $field(RangeImpl, fInsertedFromRange)},
-	{"fRemoveChild", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fRemoveChild)},
-	{"EXTRACT_CONTENTS", "I", nullptr, $STATIC | $FINAL, $constField(RangeImpl, EXTRACT_CONTENTS)},
-	{"CLONE_CONTENTS", "I", nullptr, $STATIC | $FINAL, $constField(RangeImpl, CLONE_CONTENTS)},
-	{"DELETE_CONTENTS", "I", nullptr, $STATIC | $FINAL, $constField(RangeImpl, DELETE_CONTENTS)},
-	{}
-};
-
-$MethodInfo _RangeImpl_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/DocumentImpl;)V", nullptr, $PUBLIC, $method(RangeImpl, init$, void, $DocumentImpl*)},
-	{"checkIndex", "(Lorg/w3c/dom/Node;I)V", nullptr, 0, $virtualMethod(RangeImpl, checkIndex, void, $Node*, int32_t), "org.w3c.dom.DOMException"},
-	{"cloneContents", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, cloneContents, $DocumentFragment*), "org.w3c.dom.DOMException"},
-	{"cloneRange", "()Lorg/w3c/dom/ranges/Range;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, cloneRange, $Range*)},
-	{"collapse", "(Z)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, collapse, void, bool)},
-	{"compareBoundaryPoints", "(SLorg/w3c/dom/ranges/Range;)S", nullptr, $PUBLIC, $virtualMethod(RangeImpl, compareBoundaryPoints, int16_t, int16_t, $Range*), "org.w3c.dom.DOMException"},
-	{"deleteContents", "()V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, deleteContents, void), "org.w3c.dom.DOMException"},
-	{"deleteData", "(Lorg/w3c/dom/CharacterData;II)V", nullptr, 0, $virtualMethod(RangeImpl, deleteData, void, $CharacterData*, int32_t, int32_t)},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, detach, void)},
-	{"extractContents", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, extractContents, $DocumentFragment*), "org.w3c.dom.DOMException"},
-	{"getCollapsed", "()Z", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getCollapsed, bool)},
-	{"getCommonAncestorContainer", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getCommonAncestorContainer, $Node*)},
-	{"getEndContainer", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getEndContainer, $Node*)},
-	{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getEndOffset, int32_t)},
-	{"getRootContainer", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, getRootContainer, $Node*, $Node*)},
-	{"getSelectedNode", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, getSelectedNode, $Node*, $Node*, int32_t)},
-	{"getStartContainer", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getStartContainer, $Node*)},
-	{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getStartOffset, int32_t)},
-	{"hasLegalRootContainer", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(RangeImpl, hasLegalRootContainer, bool, $Node*)},
-	{"indexOf", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)I", nullptr, 0, $virtualMethod(RangeImpl, indexOf, int32_t, $Node*, $Node*)},
-	{"insertData", "(Lorg/w3c/dom/CharacterData;ILjava/lang/String;)V", nullptr, 0, $virtualMethod(RangeImpl, insertData, void, $CharacterData*, int32_t, $String*)},
-	{"insertNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, insertNode, void, $Node*), "org.w3c.dom.DOMException,org.w3c.dom.ranges.RangeException"},
-	{"insertedNodeFromDOM", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, insertedNodeFromDOM, void, $Node*)},
-	{"isAncestorOf", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, 0, $virtualMethod(RangeImpl, isAncestorOf, bool, $Node*, $Node*)},
-	{"isLegalContainedNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(RangeImpl, isLegalContainedNode, bool, $Node*)},
-	{"isLegalContainer", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(RangeImpl, isLegalContainer, bool, $Node*)},
-	{"nextNode", "(Lorg/w3c/dom/Node;Z)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(RangeImpl, nextNode, $Node*, $Node*, bool)},
-	{"receiveDeletedText", "(Lorg/w3c/dom/Node;II)V", nullptr, 0, $virtualMethod(RangeImpl, receiveDeletedText, void, $Node*, int32_t, int32_t)},
-	{"receiveInsertedText", "(Lorg/w3c/dom/Node;II)V", nullptr, 0, $virtualMethod(RangeImpl, receiveInsertedText, void, $Node*, int32_t, int32_t)},
-	{"receiveReplacedText", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $virtualMethod(RangeImpl, receiveReplacedText, void, $Node*)},
-	{"receiveSplitData", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;I)V", nullptr, 0, $virtualMethod(RangeImpl, receiveSplitData, void, $Node*, $Node*, int32_t)},
-	{"removeChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(RangeImpl, removeChild, $Node*, $Node*, $Node*)},
-	{"removeNode", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $virtualMethod(RangeImpl, removeNode, void, $Node*)},
-	{"selectNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, selectNode, void, $Node*), "org.w3c.dom.ranges.RangeException"},
-	{"selectNodeContents", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, selectNodeContents, void, $Node*), "org.w3c.dom.ranges.RangeException"},
-	{"setEnd", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setEnd, void, $Node*, int32_t), "org.w3c.dom.ranges.RangeException,org.w3c.dom.DOMException"},
-	{"setEndAfter", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setEndAfter, void, $Node*), "org.w3c.dom.ranges.RangeException"},
-	{"setEndBefore", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setEndBefore, void, $Node*), "org.w3c.dom.ranges.RangeException"},
-	{"setStart", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setStart, void, $Node*, int32_t), "org.w3c.dom.ranges.RangeException,org.w3c.dom.DOMException"},
-	{"setStartAfter", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setStartAfter, void, $Node*), "org.w3c.dom.ranges.RangeException"},
-	{"setStartBefore", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setStartBefore, void, $Node*), "org.w3c.dom.ranges.RangeException"},
-	{"signalSplitData", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;I)V", nullptr, 0, $virtualMethod(RangeImpl, signalSplitData, void, $Node*, $Node*, int32_t)},
-	{"surroundContents", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, surroundContents, void, $Node*), "org.w3c.dom.DOMException,org.w3c.dom.ranges.RangeException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, toString, $String*)},
-	{"traverseCommonAncestors", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseCommonAncestors, $DocumentFragment*, $Node*, $Node*, int32_t)},
-	{"traverseCommonEndContainer", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseCommonEndContainer, $DocumentFragment*, $Node*, int32_t)},
-	{"traverseCommonStartContainer", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseCommonStartContainer, $DocumentFragment*, $Node*, int32_t)},
-	{"traverseContents", "(I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseContents, $DocumentFragment*, int32_t), "org.w3c.dom.DOMException"},
-	{"traverseFullySelected", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseFullySelected, $Node*, $Node*, int32_t)},
-	{"traverseLeftBoundary", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseLeftBoundary, $Node*, $Node*, int32_t)},
-	{"traverseNode", "(Lorg/w3c/dom/Node;ZZI)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseNode, $Node*, $Node*, bool, bool, int32_t)},
-	{"traversePartiallySelected", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traversePartiallySelected, $Node*, $Node*, int32_t)},
-	{"traverseRightBoundary", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseRightBoundary, $Node*, $Node*, int32_t)},
-	{"traverseSameContainer", "(I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseSameContainer, $DocumentFragment*, int32_t)},
-	{"traverseTextNode", "(Lorg/w3c/dom/Node;ZI)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseTextNode, $Node*, $Node*, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _RangeImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.RangeImpl",
-	"java.lang.Object",
-	"org.w3c.dom.ranges.Range",
-	_RangeImpl_FieldInfo_,
-	_RangeImpl_MethodInfo_
-};
-
-$Object* allocate$RangeImpl($Class* clazz) {
-	return $of($alloc(RangeImpl));
-}
-
 void RangeImpl::init$($DocumentImpl* document) {
 	this->fDetach = false;
 	$set(this, fInsertNode, nullptr);
@@ -175,8 +76,8 @@ void RangeImpl::init$($DocumentImpl* document) {
 	this->fInsertedFromRange = false;
 	$set(this, fRemoveChild, nullptr);
 	$set(this, fDocument, document);
-	$set(this, fStartContainer, static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(static_cast<$CoreDocumentImpl*>(document))))));
-	$set(this, fEndContainer, static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$ParentNode*>(static_cast<$CoreDocumentImpl*>(document))))));
+	$set(this, fStartContainer, $cast($ParentNode, document));
+	$set(this, fEndContainer, $cast($ParentNode, document));
 	this->fStartOffset = 0;
 	this->fEndOffset = 0;
 	this->fDetach = false;
@@ -223,14 +124,14 @@ bool RangeImpl::getCollapsed() {
 }
 
 $Node* RangeImpl::getCommonAncestorContainer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fDetach) {
 		$init($DOMMessageFormatter);
 		$throwNew($DOMException, $DOMException::INVALID_STATE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_STATE_ERR"_s, nullptr)));
 	}
 	$var($List, startV, $new($ArrayList));
 	$var($Node, node, nullptr);
-	for ($assign(node, this->fStartContainer); node != nullptr; $assign(node, $nc(node)->getParentNode())) {
+	for ($assign(node, this->fStartContainer); node != nullptr; $assign(node, node->getParentNode())) {
 		startV->add(node);
 	}
 	$var($List, endV, $new($ArrayList));
@@ -253,7 +154,7 @@ $Node* RangeImpl::getCommonAncestorContainer() {
 }
 
 void RangeImpl::setStart($Node* refNode, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
@@ -277,7 +178,7 @@ void RangeImpl::setStart($Node* refNode, int32_t offset) {
 }
 
 void RangeImpl::setEnd($Node* refNode, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
@@ -301,7 +202,7 @@ void RangeImpl::setEnd($Node* refNode, int32_t offset) {
 }
 
 void RangeImpl::setStartBefore($Node* refNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
@@ -332,7 +233,7 @@ void RangeImpl::setStartBefore($Node* refNode) {
 }
 
 void RangeImpl::setStartAfter($Node* refNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
@@ -363,7 +264,7 @@ void RangeImpl::setStartAfter($Node* refNode) {
 }
 
 void RangeImpl::setEndBefore($Node* refNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
@@ -394,7 +295,7 @@ void RangeImpl::setEndBefore($Node* refNode) {
 }
 
 void RangeImpl::setEndAfter($Node* refNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
@@ -439,7 +340,7 @@ void RangeImpl::collapse(bool toStart) {
 }
 
 void RangeImpl::selectNode($Node* refNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
@@ -450,7 +351,7 @@ void RangeImpl::selectNode($Node* refNode) {
 			$init($DOMMessageFormatter);
 			$throwNew($RangeExceptionImpl, $RangeException::INVALID_NODE_TYPE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_NODE_TYPE_ERR"_s, nullptr)));
 		}
-		if (!$equals(this->fDocument, $nc(refNode)->getOwnerDocument()) && !$equals(this->fDocument, refNode)) {
+		if (!$equals(this->fDocument, refNode->getOwnerDocument()) && !$equals(this->fDocument, refNode)) {
 			$init($DOMMessageFormatter);
 			$throwNew($DOMException, $DOMException::WRONG_DOCUMENT_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "WRONG_DOCUMENT_ERR"_s, nullptr)));
 		}
@@ -472,7 +373,7 @@ void RangeImpl::selectNode($Node* refNode) {
 }
 
 void RangeImpl::selectNodeContents($Node* refNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
@@ -497,7 +398,7 @@ void RangeImpl::selectNodeContents($Node* refNode) {
 		int32_t i = 0;
 		{
 			$var($Node, n, first);
-			for (; n != nullptr; $assign(n, $nc(n)->getNextSibling())) {
+			for (; n != nullptr; $assign(n, n->getNextSibling())) {
 				++i;
 			}
 		}
@@ -506,19 +407,19 @@ void RangeImpl::selectNodeContents($Node* refNode) {
 }
 
 int16_t RangeImpl::compareBoundaryPoints(int16_t how, $Range* sourceRange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fDocument)->errorChecking) {
 		if (this->fDetach) {
 			$init($DOMMessageFormatter);
 			$throwNew($DOMException, $DOMException::INVALID_STATE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_STATE_ERR"_s, nullptr)));
 		}
-		bool var$2 = !$equals(this->fDocument, $nc($($nc(sourceRange)->getStartContainer()))->getOwnerDocument());
+		bool var$2 = !$equals(this->fDocument, $$nc($nc(sourceRange)->getStartContainer())->getOwnerDocument());
 		bool var$1 = var$2 && !$equals(this->fDocument, sourceRange->getStartContainer());
-		bool var$0 = (var$1 && sourceRange->getStartContainer() != nullptr);
+		bool var$0 = var$1 && sourceRange->getStartContainer() != nullptr;
 		if (!var$0) {
-			bool var$4 = !$equals(this->fDocument, $nc($($nc(sourceRange)->getEndContainer()))->getOwnerDocument());
+			bool var$4 = !$equals(this->fDocument, $$nc(sourceRange->getEndContainer())->getOwnerDocument());
 			bool var$3 = var$4 && !$equals(this->fDocument, sourceRange->getEndContainer());
-			var$0 = (var$3 && sourceRange->getStartContainer() != nullptr);
+			var$0 = var$3 && sourceRange->getStartContainer() != nullptr;
 		}
 		if (var$0) {
 			$init($DOMMessageFormatter);
@@ -552,43 +453,43 @@ int16_t RangeImpl::compareBoundaryPoints(int16_t how, $Range* sourceRange) {
 	}
 	if (endPointA == endPointB) {
 		if (offsetA < offsetB) {
-			return (int16_t)1;
+			return 1;
 		}
 		if (offsetA == offsetB) {
-			return (int16_t)0;
+			return 0;
 		}
-		return (int16_t)-1;
+		return -1;
 	}
 	{
 		$var($Node, c, endPointB);
 		$var($Node, p, $nc(c)->getParentNode());
-		for (; p != nullptr; $assign(c, p), $assign(p, $nc(p)->getParentNode())) {
+		for (; p != nullptr; $assign(c, p), $assign(p, p->getParentNode())) {
 			if (p == endPointA) {
 				int32_t index = indexOf(c, endPointA);
 				if (offsetA <= index) {
-					return (int16_t)1;
+					return 1;
 				}
-				return (int16_t)-1;
+				return -1;
 			}
 		}
 	}
 	{
 		$var($Node, c, endPointA);
-		$var($Node, p, c->getParentNode());
+		$var($Node, p, $nc(c)->getParentNode());
 		for (; p != nullptr; $assign(c, p), $assign(p, p->getParentNode())) {
 			if (p == endPointB) {
 				int32_t index = indexOf(c, endPointB);
 				if (index < offsetB) {
-					return (int16_t)1;
+					return 1;
 				}
-				return (int16_t)-1;
+				return -1;
 			}
 		}
 	}
 	int32_t depthDiff = 0;
 	{
 		$var($Node, n, endPointA);
-		for (; n != nullptr; $assign(n, $nc(n)->getParentNode())) {
+		for (; n != nullptr; $assign(n, n->getParentNode())) {
 			++depthDiff;
 		}
 	}
@@ -615,14 +516,14 @@ int16_t RangeImpl::compareBoundaryPoints(int16_t how, $Range* sourceRange) {
 		}
 	}
 	{
-		$var($Node, n, endPointA->getNextSibling());
+		$var($Node, n, $nc(endPointA)->getNextSibling());
 		for (; n != nullptr; $assign(n, n->getNextSibling())) {
 			if (n == endPointB) {
-				return (int16_t)1;
+				return 1;
 			}
 		}
 	}
-	return (int16_t)-1;
+	return -1;
 }
 
 void RangeImpl::deleteContents() {
@@ -638,7 +539,7 @@ $DocumentFragment* RangeImpl::cloneContents() {
 }
 
 void RangeImpl::insertNode($Node* newNode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (newNode == nullptr) {
 		return;
 	}
@@ -663,10 +564,10 @@ void RangeImpl::insertNode($Node* newNode) {
 	this->fInsertedFromRange = true;
 	if ($nc(this->fStartContainer)->getNodeType() == $Node::TEXT_NODE) {
 		$var($Node, parent, $nc(this->fStartContainer)->getParentNode());
-		currentChildren = $nc($($nc(parent)->getChildNodes()))->getLength();
+		currentChildren = $$nc($nc(parent)->getChildNodes())->getLength();
 		$assign(cloneCurrent, $nc(this->fStartContainer)->cloneNode(false));
-		$nc(($cast($TextImpl, cloneCurrent)))->setNodeValueInternal($($nc(($($nc(cloneCurrent)->getNodeValue())))->substring(this->fStartOffset)));
-		$nc(($cast($TextImpl, this->fStartContainer)))->setNodeValueInternal($($nc(($($nc(this->fStartContainer)->getNodeValue())))->substring(0, this->fStartOffset)));
+		$nc($cast($TextImpl, cloneCurrent))->setNodeValueInternal($(($$nc($nc(cloneCurrent)->getNodeValue()))->substring(this->fStartOffset)));
+		$nc($cast($TextImpl, this->fStartContainer))->setNodeValueInternal($(($$nc($nc(this->fStartContainer)->getNodeValue()))->substring(0, this->fStartOffset)));
 		$var($Node, next, $nc(this->fStartContainer)->getNextSibling());
 		if (next != nullptr) {
 			if (parent != nullptr) {
@@ -681,12 +582,12 @@ void RangeImpl::insertNode($Node* newNode) {
 			$set(this, fEndContainer, cloneCurrent);
 			this->fEndOffset -= this->fStartOffset;
 		} else if (this->fEndContainer == parent) {
-			this->fEndOffset += ($nc($(parent->getChildNodes()))->getLength() - currentChildren);
+			this->fEndOffset += ($$nc(parent->getChildNodes())->getLength() - currentChildren);
 		}
 		signalSplitData(this->fStartContainer, cloneCurrent, this->fStartOffset);
 	} else {
 		if (this->fEndContainer == this->fStartContainer) {
-			currentChildren = $nc($($nc(this->fEndContainer)->getChildNodes()))->getLength();
+			currentChildren = $$nc($nc(this->fEndContainer)->getChildNodes())->getLength();
 		}
 		$assign(current, $nc(this->fStartContainer)->getFirstChild());
 		int32_t i = 0;
@@ -699,14 +600,14 @@ void RangeImpl::insertNode($Node* newNode) {
 			$nc(this->fStartContainer)->appendChild(newNode);
 		}
 		if (this->fEndContainer == this->fStartContainer && this->fEndOffset != 0) {
-			this->fEndOffset += ($nc($($nc(this->fEndContainer)->getChildNodes()))->getLength() - currentChildren);
+			this->fEndOffset += ($$nc($nc(this->fEndContainer)->getChildNodes())->getLength() - currentChildren);
 		}
 	}
 	this->fInsertedFromRange = false;
 }
 
 void RangeImpl::surroundContents($Node* newParent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (newParent == nullptr) {
 		return;
 	}
@@ -740,7 +641,7 @@ void RangeImpl::surroundContents($Node* newParent) {
 }
 
 $Range* RangeImpl::cloneRange() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fDetach) {
 		$init($DOMMessageFormatter);
 		$throwNew($DOMException, $DOMException::INVALID_STATE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_STATE_ERR"_s, nullptr)));
@@ -752,7 +653,7 @@ $Range* RangeImpl::cloneRange() {
 }
 
 $String* RangeImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fDetach) {
 		$init($DOMMessageFormatter);
 		$throwNew($DOMException, $DOMException::INVALID_STATE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INVALID_STATE_ERR"_s, nullptr)));
@@ -761,12 +662,12 @@ $String* RangeImpl::toString() {
 	$var($Node, stopNode, this->fEndContainer);
 	$var($StringBuffer, sb, $new($StringBuffer));
 	bool var$0 = $nc(this->fStartContainer)->getNodeType() == $Node::TEXT_NODE;
-	if (var$0 || $nc(this->fStartContainer)->getNodeType() == $Node::CDATA_SECTION_NODE) {
+	if (var$0 || this->fStartContainer->getNodeType() == $Node::CDATA_SECTION_NODE) {
 		if (this->fStartContainer == this->fEndContainer) {
-			sb->append($($nc($($nc(this->fStartContainer)->getNodeValue()))->substring(this->fStartOffset, this->fEndOffset)));
+			sb->append($($$nc($nc(this->fStartContainer)->getNodeValue())->substring(this->fStartOffset, this->fEndOffset)));
 			return sb->toString();
 		}
-		sb->append($($nc($($nc(this->fStartContainer)->getNodeValue()))->substring(this->fStartOffset)));
+		sb->append($($$nc($nc(this->fStartContainer)->getNodeValue())->substring(this->fStartOffset)));
 		$assign(node, nextNode(node, true));
 	} else {
 		$assign(node, $nc(node)->getFirstChild());
@@ -782,7 +683,7 @@ $String* RangeImpl::toString() {
 		}
 	}
 	bool var$1 = $nc(this->fEndContainer)->getNodeType() != $Node::TEXT_NODE;
-	if (var$1 && $nc(this->fEndContainer)->getNodeType() != $Node::CDATA_SECTION_NODE) {
+	if (var$1 && this->fEndContainer->getNodeType() != $Node::CDATA_SECTION_NODE) {
 		int32_t i = this->fEndOffset;
 		$assign(stopNode, $nc(this->fEndContainer)->getFirstChild());
 		while (i > 0 && stopNode != nullptr) {
@@ -798,14 +699,14 @@ $String* RangeImpl::toString() {
 			break;
 		}
 		bool var$2 = $nc(node)->getNodeType() == $Node::TEXT_NODE;
-		if (var$2 || $nc(node)->getNodeType() == $Node::CDATA_SECTION_NODE) {
+		if (var$2 || node->getNodeType() == $Node::CDATA_SECTION_NODE) {
 			sb->append($(node->getNodeValue()));
 		}
 		$assign(node, nextNode(node, true));
 	}
 	bool var$3 = $nc(this->fEndContainer)->getNodeType() == $Node::TEXT_NODE;
-	if (var$3 || $nc(this->fEndContainer)->getNodeType() == $Node::CDATA_SECTION_NODE) {
-		sb->append($($nc($($nc(this->fEndContainer)->getNodeValue()))->substring(0, this->fEndOffset)));
+	if (var$3 || this->fEndContainer->getNodeType() == $Node::CDATA_SECTION_NODE) {
+		sb->append($($$nc($nc(this->fEndContainer)->getNodeValue())->substring(0, this->fEndOffset)));
 	}
 	return sb->toString();
 }
@@ -977,7 +878,7 @@ void RangeImpl::removeNode($Node* node) {
 }
 
 $DocumentFragment* RangeImpl::traverseContents(int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fStartContainer == nullptr || this->fEndContainer == nullptr) {
 		return nullptr;
 	}
@@ -992,7 +893,7 @@ $DocumentFragment* RangeImpl::traverseContents(int32_t how) {
 	{
 		$var($Node, c, this->fEndContainer);
 		$var($Node, p, $nc(c)->getParentNode());
-		for (; p != nullptr; $assign(c, p), $assign(p, $nc(p)->getParentNode())) {
+		for (; p != nullptr; $assign(c, p), $assign(p, p->getParentNode())) {
 			if (p == this->fStartContainer) {
 				return traverseCommonStartContainer(c, how);
 			}
@@ -1002,7 +903,7 @@ $DocumentFragment* RangeImpl::traverseContents(int32_t how) {
 	int32_t startContainerDepth = 0;
 	{
 		$var($Node, c, this->fStartContainer);
-		$var($Node, p, c->getParentNode());
+		$var($Node, p, $nc(c)->getParentNode());
 		for (; p != nullptr; $assign(c, p), $assign(p, p->getParentNode())) {
 			if (p == this->fEndContainer) {
 				return traverseCommonEndContainer(c, how);
@@ -1033,7 +934,7 @@ $DocumentFragment* RangeImpl::traverseContents(int32_t how) {
 }
 
 $DocumentFragment* RangeImpl::traverseSameContainer(int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DocumentFragment, frag, nullptr);
 	if (how != RangeImpl::DELETE_CONTENTS) {
 		$assign(frag, $nc(this->fDocument)->createDocumentFragment());
@@ -1045,7 +946,7 @@ $DocumentFragment* RangeImpl::traverseSameContainer(int32_t how) {
 		$var($String, s, $nc(this->fStartContainer)->getNodeValue());
 		$var($String, sub, $nc(s)->substring(this->fStartOffset, this->fEndOffset));
 		if (how != RangeImpl::CLONE_CONTENTS) {
-			$nc(($cast($TextImpl, this->fStartContainer)))->deleteData(this->fStartOffset, this->fEndOffset - this->fStartOffset);
+			$nc($cast($TextImpl, this->fStartContainer))->deleteData(this->fStartOffset, this->fEndOffset - this->fStartOffset);
 			collapse(true);
 		}
 		if (how == RangeImpl::DELETE_CONTENTS) {
@@ -1072,7 +973,7 @@ $DocumentFragment* RangeImpl::traverseSameContainer(int32_t how) {
 }
 
 $DocumentFragment* RangeImpl::traverseCommonStartContainer($Node* endAncestor, int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DocumentFragment, frag, nullptr);
 	if (how != RangeImpl::DELETE_CONTENTS) {
 		$assign(frag, $nc(this->fDocument)->createDocumentFragment());
@@ -1108,7 +1009,7 @@ $DocumentFragment* RangeImpl::traverseCommonStartContainer($Node* endAncestor, i
 }
 
 $DocumentFragment* RangeImpl::traverseCommonEndContainer($Node* startAncestor, int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DocumentFragment, frag, nullptr);
 	if (how != RangeImpl::DELETE_CONTENTS) {
 		$assign(frag, $nc(this->fDocument)->createDocumentFragment());
@@ -1138,7 +1039,7 @@ $DocumentFragment* RangeImpl::traverseCommonEndContainer($Node* startAncestor, i
 }
 
 $DocumentFragment* RangeImpl::traverseCommonAncestors($Node* startAncestor, $Node* endAncestor, int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DocumentFragment, frag, nullptr);
 	if (how != RangeImpl::DELETE_CONTENTS) {
 		$assign(frag, $nc(this->fDocument)->createDocumentFragment());
@@ -1174,7 +1075,7 @@ $DocumentFragment* RangeImpl::traverseCommonAncestors($Node* startAncestor, $Nod
 }
 
 $Node* RangeImpl::traverseRightBoundary($Node* root, int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, next, getSelectedNode(this->fEndContainer, this->fEndOffset - 1));
 	bool isFullySelected = (next != this->fEndContainer);
 	if (next == root) {
@@ -1187,7 +1088,7 @@ $Node* RangeImpl::traverseRightBoundary($Node* root, int32_t how) {
 			$var($Node, prevSibling, next->getPreviousSibling());
 			$var($Node, clonedChild, traverseNode(next, isFullySelected, false, how));
 			if (how != RangeImpl::DELETE_CONTENTS) {
-				$nc(clonedParent)->insertBefore(clonedChild, $(clonedParent->getFirstChild()));
+				$nc(clonedParent)->insertBefore(clonedChild, $($nc(clonedParent)->getFirstChild()));
 			}
 			isFullySelected = true;
 			$assign(next, prevSibling);
@@ -1207,7 +1108,7 @@ $Node* RangeImpl::traverseRightBoundary($Node* root, int32_t how) {
 }
 
 $Node* RangeImpl::traverseLeftBoundary($Node* root, int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, var$0, getStartContainer());
 	$var($Node, next, getSelectedNode(var$0, getStartOffset()));
 	bool isFullySelected = (next != getStartContainer());
@@ -1251,25 +1152,19 @@ $Node* RangeImpl::traverseNode($Node* n, bool isFullySelected, bool isLeft, int3
 }
 
 $Node* RangeImpl::traverseFullySelected($Node* n, int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (how) {
 	case RangeImpl::CLONE_CONTENTS:
-		{
-			return $nc(n)->cloneNode(true);
-		}
+		return $nc(n)->cloneNode(true);
 	case RangeImpl::EXTRACT_CONTENTS:
-		{
-			if ($nc(n)->getNodeType() == $Node::DOCUMENT_TYPE_NODE) {
-				$init($DOMMessageFormatter);
-				$throwNew($DOMException, $DOMException::HIERARCHY_REQUEST_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "HIERARCHY_REQUEST_ERR"_s, nullptr)));
-			}
-			return n;
+		if ($nc(n)->getNodeType() == $Node::DOCUMENT_TYPE_NODE) {
+			$init($DOMMessageFormatter);
+			$throwNew($DOMException, $DOMException::HIERARCHY_REQUEST_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "HIERARCHY_REQUEST_ERR"_s, nullptr)));
 		}
+		return n;
 	case RangeImpl::DELETE_CONTENTS:
-		{
-			$nc($($nc(n)->getParentNode()))->removeChild(n);
-			return nullptr;
-		}
+		$$nc($nc(n)->getParentNode())->removeChild(n);
+		return nullptr;
 	}
 	return nullptr;
 }
@@ -1277,21 +1172,16 @@ $Node* RangeImpl::traverseFullySelected($Node* n, int32_t how) {
 $Node* RangeImpl::traversePartiallySelected($Node* n, int32_t how) {
 	switch (how) {
 	case RangeImpl::DELETE_CONTENTS:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	case RangeImpl::CLONE_CONTENTS:
-		{}
 	case RangeImpl::EXTRACT_CONTENTS:
-		{
-			return $nc(n)->cloneNode(false);
-		}
+		return $nc(n)->cloneNode(false);
 	}
 	return nullptr;
 }
 
 $Node* RangeImpl::traverseTextNode($Node* n, bool isLeft, int32_t how) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, txtValue, $nc(n)->getNodeValue());
 	$var($String, newNodeValue, nullptr);
 	$var($String, oldNodeValue, nullptr);
@@ -1316,18 +1206,18 @@ $Node* RangeImpl::traverseTextNode($Node* n, bool isLeft, int32_t how) {
 }
 
 void RangeImpl::checkIndex($Node* refNode, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (offset < 0) {
 		$init($DOMMessageFormatter);
 		$throwNew($DOMException, $DOMException::INDEX_SIZE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INDEX_SIZE_ERR"_s, nullptr)));
 	}
 	int32_t type = $nc(refNode)->getNodeType();
 	if (type == $Node::TEXT_NODE || type == $Node::CDATA_SECTION_NODE || type == $Node::COMMENT_NODE || type == $Node::PROCESSING_INSTRUCTION_NODE) {
-		if (offset > $nc($(refNode->getNodeValue()))->length()) {
+		if (offset > $$nc(refNode->getNodeValue())->length()) {
 			$init($DOMMessageFormatter);
 			$throwNew($DOMException, $DOMException::INDEX_SIZE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INDEX_SIZE_ERR"_s, nullptr)));
 		}
-	} else if (offset > $nc($(refNode->getChildNodes()))->getLength()) {
+	} else if (offset > $$nc(refNode->getChildNodes())->getLength()) {
 		$init($DOMMessageFormatter);
 		$throwNew($DOMException, $DOMException::INDEX_SIZE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INDEX_SIZE_ERR"_s, nullptr)));
 	}
@@ -1352,13 +1242,9 @@ bool RangeImpl::isLegalContainer($Node* node$renamed) {
 	while (node != nullptr) {
 		switch (node->getNodeType()) {
 		case $Node::ENTITY_NODE:
-			{}
 		case $Node::NOTATION_NODE:
-			{}
 		case $Node::DOCUMENT_TYPE_NODE:
-			{
-				return false;
-			}
+			return false;
 		}
 		$assign(node, node->getParentNode());
 	}
@@ -1372,13 +1258,9 @@ bool RangeImpl::hasLegalRootContainer($Node* node) {
 	$var($Node, rootContainer, getRootContainer(node));
 	switch ($nc(rootContainer)->getNodeType()) {
 	case $Node::ATTRIBUTE_NODE:
-		{}
 	case $Node::DOCUMENT_NODE:
-		{}
 	case $Node::DOCUMENT_FRAGMENT_NODE:
-		{
-			return true;
-		}
+		return true;
 	}
 	return false;
 }
@@ -1389,23 +1271,17 @@ bool RangeImpl::isLegalContainedNode($Node* node) {
 	}
 	switch ($nc(node)->getNodeType()) {
 	case $Node::DOCUMENT_NODE:
-		{}
 	case $Node::DOCUMENT_FRAGMENT_NODE:
-		{}
 	case $Node::ATTRIBUTE_NODE:
-		{}
 	case $Node::ENTITY_NODE:
-		{}
 	case $Node::NOTATION_NODE:
-		{
-			return false;
-		}
+		return false;
 	}
 	return true;
 }
 
 $Node* RangeImpl::nextNode($Node* node, bool visitChildren) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (node == nullptr) {
 		return nullptr;
 	}
@@ -1433,12 +1309,10 @@ $Node* RangeImpl::nextNode($Node* node, bool visitChildren) {
 }
 
 bool RangeImpl::isAncestorOf($Node* a, $Node* b) {
-	{
-		$var($Node, node, b);
-		for (; node != nullptr; $assign(node, $nc(node)->getParentNode())) {
-			if (node == a) {
-				return true;
-			}
+	$var($Node, node, b);
+	for (; node != nullptr; $assign(node, node->getParentNode())) {
+		if (node == a) {
+			return true;
 		}
 	}
 	return false;
@@ -1465,7 +1339,7 @@ $Node* RangeImpl::getSelectedNode($Node* container, int32_t offset) {
 	if (offset < 0) {
 		return container;
 	}
-	$var($Node, child, $nc(container)->getFirstChild());
+	$var($Node, child, container->getFirstChild());
 	while (child != nullptr && offset > 0) {
 		--offset;
 		$assign(child, child->getNextSibling());
@@ -1480,7 +1354,93 @@ RangeImpl::RangeImpl() {
 }
 
 $Class* RangeImpl::load$($String* name, bool initialize) {
-	$loadClass(RangeImpl, name, initialize, &_RangeImpl_ClassInfo_, allocate$RangeImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fDocument", "Lcom/sun/org/apache/xerces/internal/dom/DocumentImpl;", nullptr, 0, $field(RangeImpl, fDocument)},
+		{"fStartContainer", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fStartContainer)},
+		{"fEndContainer", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fEndContainer)},
+		{"fStartOffset", "I", nullptr, 0, $field(RangeImpl, fStartOffset)},
+		{"fEndOffset", "I", nullptr, 0, $field(RangeImpl, fEndOffset)},
+		{"fIsCollapsed", "Z", nullptr, 0, $field(RangeImpl, fIsCollapsed)},
+		{"fDetach", "Z", nullptr, 0, $field(RangeImpl, fDetach)},
+		{"fInsertNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fInsertNode)},
+		{"fDeleteNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fDeleteNode)},
+		{"fSplitNode", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fSplitNode)},
+		{"fInsertedFromRange", "Z", nullptr, 0, $field(RangeImpl, fInsertedFromRange)},
+		{"fRemoveChild", "Lorg/w3c/dom/Node;", nullptr, 0, $field(RangeImpl, fRemoveChild)},
+		{"EXTRACT_CONTENTS", "I", nullptr, $STATIC | $FINAL, $constField(RangeImpl, EXTRACT_CONTENTS)},
+		{"CLONE_CONTENTS", "I", nullptr, $STATIC | $FINAL, $constField(RangeImpl, CLONE_CONTENTS)},
+		{"DELETE_CONTENTS", "I", nullptr, $STATIC | $FINAL, $constField(RangeImpl, DELETE_CONTENTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/DocumentImpl;)V", nullptr, $PUBLIC, $method(RangeImpl, init$, void, $DocumentImpl*)},
+		{"checkIndex", "(Lorg/w3c/dom/Node;I)V", nullptr, 0, $virtualMethod(RangeImpl, checkIndex, void, $Node*, int32_t), "org.w3c.dom.DOMException"},
+		{"cloneContents", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, cloneContents, $DocumentFragment*), "org.w3c.dom.DOMException"},
+		{"cloneRange", "()Lorg/w3c/dom/ranges/Range;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, cloneRange, $Range*)},
+		{"collapse", "(Z)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, collapse, void, bool)},
+		{"compareBoundaryPoints", "(SLorg/w3c/dom/ranges/Range;)S", nullptr, $PUBLIC, $virtualMethod(RangeImpl, compareBoundaryPoints, int16_t, int16_t, $Range*), "org.w3c.dom.DOMException"},
+		{"deleteContents", "()V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, deleteContents, void), "org.w3c.dom.DOMException"},
+		{"deleteData", "(Lorg/w3c/dom/CharacterData;II)V", nullptr, 0, $virtualMethod(RangeImpl, deleteData, void, $CharacterData*, int32_t, int32_t)},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, detach, void)},
+		{"extractContents", "()Lorg/w3c/dom/DocumentFragment;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, extractContents, $DocumentFragment*), "org.w3c.dom.DOMException"},
+		{"getCollapsed", "()Z", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getCollapsed, bool)},
+		{"getCommonAncestorContainer", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getCommonAncestorContainer, $Node*)},
+		{"getEndContainer", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getEndContainer, $Node*)},
+		{"getEndOffset", "()I", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getEndOffset, int32_t)},
+		{"getRootContainer", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, getRootContainer, $Node*, $Node*)},
+		{"getSelectedNode", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, getSelectedNode, $Node*, $Node*, int32_t)},
+		{"getStartContainer", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getStartContainer, $Node*)},
+		{"getStartOffset", "()I", nullptr, $PUBLIC, $virtualMethod(RangeImpl, getStartOffset, int32_t)},
+		{"hasLegalRootContainer", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(RangeImpl, hasLegalRootContainer, bool, $Node*)},
+		{"indexOf", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)I", nullptr, 0, $virtualMethod(RangeImpl, indexOf, int32_t, $Node*, $Node*)},
+		{"insertData", "(Lorg/w3c/dom/CharacterData;ILjava/lang/String;)V", nullptr, 0, $virtualMethod(RangeImpl, insertData, void, $CharacterData*, int32_t, $String*)},
+		{"insertNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, insertNode, void, $Node*), "org.w3c.dom.DOMException,org.w3c.dom.ranges.RangeException"},
+		{"insertedNodeFromDOM", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, insertedNodeFromDOM, void, $Node*)},
+		{"isAncestorOf", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Z", nullptr, 0, $virtualMethod(RangeImpl, isAncestorOf, bool, $Node*, $Node*)},
+		{"isLegalContainedNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(RangeImpl, isLegalContainedNode, bool, $Node*)},
+		{"isLegalContainer", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(RangeImpl, isLegalContainer, bool, $Node*)},
+		{"nextNode", "(Lorg/w3c/dom/Node;Z)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(RangeImpl, nextNode, $Node*, $Node*, bool)},
+		{"receiveDeletedText", "(Lorg/w3c/dom/Node;II)V", nullptr, 0, $virtualMethod(RangeImpl, receiveDeletedText, void, $Node*, int32_t, int32_t)},
+		{"receiveInsertedText", "(Lorg/w3c/dom/Node;II)V", nullptr, 0, $virtualMethod(RangeImpl, receiveInsertedText, void, $Node*, int32_t, int32_t)},
+		{"receiveReplacedText", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $virtualMethod(RangeImpl, receiveReplacedText, void, $Node*)},
+		{"receiveSplitData", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;I)V", nullptr, 0, $virtualMethod(RangeImpl, receiveSplitData, void, $Node*, $Node*, int32_t)},
+		{"removeChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, 0, $virtualMethod(RangeImpl, removeChild, $Node*, $Node*, $Node*)},
+		{"removeNode", "(Lorg/w3c/dom/Node;)V", nullptr, 0, $virtualMethod(RangeImpl, removeNode, void, $Node*)},
+		{"selectNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, selectNode, void, $Node*), "org.w3c.dom.ranges.RangeException"},
+		{"selectNodeContents", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, selectNodeContents, void, $Node*), "org.w3c.dom.ranges.RangeException"},
+		{"setEnd", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setEnd, void, $Node*, int32_t), "org.w3c.dom.ranges.RangeException,org.w3c.dom.DOMException"},
+		{"setEndAfter", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setEndAfter, void, $Node*), "org.w3c.dom.ranges.RangeException"},
+		{"setEndBefore", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setEndBefore, void, $Node*), "org.w3c.dom.ranges.RangeException"},
+		{"setStart", "(Lorg/w3c/dom/Node;I)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setStart, void, $Node*, int32_t), "org.w3c.dom.ranges.RangeException,org.w3c.dom.DOMException"},
+		{"setStartAfter", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setStartAfter, void, $Node*), "org.w3c.dom.ranges.RangeException"},
+		{"setStartBefore", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, setStartBefore, void, $Node*), "org.w3c.dom.ranges.RangeException"},
+		{"signalSplitData", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;I)V", nullptr, 0, $virtualMethod(RangeImpl, signalSplitData, void, $Node*, $Node*, int32_t)},
+		{"surroundContents", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(RangeImpl, surroundContents, void, $Node*), "org.w3c.dom.DOMException,org.w3c.dom.ranges.RangeException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RangeImpl, toString, $String*)},
+		{"traverseCommonAncestors", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseCommonAncestors, $DocumentFragment*, $Node*, $Node*, int32_t)},
+		{"traverseCommonEndContainer", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseCommonEndContainer, $DocumentFragment*, $Node*, int32_t)},
+		{"traverseCommonStartContainer", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseCommonStartContainer, $DocumentFragment*, $Node*, int32_t)},
+		{"traverseContents", "(I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseContents, $DocumentFragment*, int32_t), "org.w3c.dom.DOMException"},
+		{"traverseFullySelected", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseFullySelected, $Node*, $Node*, int32_t)},
+		{"traverseLeftBoundary", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseLeftBoundary, $Node*, $Node*, int32_t)},
+		{"traverseNode", "(Lorg/w3c/dom/Node;ZZI)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseNode, $Node*, $Node*, bool, bool, int32_t)},
+		{"traversePartiallySelected", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traversePartiallySelected, $Node*, $Node*, int32_t)},
+		{"traverseRightBoundary", "(Lorg/w3c/dom/Node;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseRightBoundary, $Node*, $Node*, int32_t)},
+		{"traverseSameContainer", "(I)Lorg/w3c/dom/DocumentFragment;", nullptr, $PRIVATE, $method(RangeImpl, traverseSameContainer, $DocumentFragment*, int32_t)},
+		{"traverseTextNode", "(Lorg/w3c/dom/Node;ZI)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(RangeImpl, traverseTextNode, $Node*, $Node*, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.RangeImpl",
+		"java.lang.Object",
+		"org.w3c.dom.ranges.Range",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RangeImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RangeImpl);
+	});
 	return class$;
 }
 

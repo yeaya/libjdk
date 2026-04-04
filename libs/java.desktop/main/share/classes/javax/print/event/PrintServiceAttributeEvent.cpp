@@ -1,5 +1,4 @@
 #include <javax/print/event/PrintServiceAttributeEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/print/PrintService.h>
 #include <javax/print/attribute/AttributeSetUtilities.h>
@@ -19,32 +18,6 @@ namespace javax {
 	namespace print {
 		namespace event {
 
-$FieldInfo _PrintServiceAttributeEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceAttributeEvent, serialVersionUID)},
-	{"attributes", "Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $field(PrintServiceAttributeEvent, attributes)},
-	{}
-};
-
-$MethodInfo _PrintServiceAttributeEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/print/PrintService;Ljavax/print/attribute/PrintServiceAttributeSet;)V", nullptr, $PUBLIC, $method(PrintServiceAttributeEvent, init$, void, $PrintService*, $PrintServiceAttributeSet*)},
-	{"getAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(PrintServiceAttributeEvent, getAttributes, $PrintServiceAttributeSet*)},
-	{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(PrintServiceAttributeEvent, getPrintService, $PrintService*)},
-	{}
-};
-
-$ClassInfo _PrintServiceAttributeEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.event.PrintServiceAttributeEvent",
-	"javax.print.event.PrintEvent",
-	nullptr,
-	_PrintServiceAttributeEvent_FieldInfo_,
-	_PrintServiceAttributeEvent_MethodInfo_
-};
-
-$Object* allocate$PrintServiceAttributeEvent($Class* clazz) {
-	return $of($alloc(PrintServiceAttributeEvent));
-}
-
 void PrintServiceAttributeEvent::init$($PrintService* source, $PrintServiceAttributeSet* attributes) {
 	$PrintEvent::init$(source);
 	$set(this, attributes, $AttributeSetUtilities::unmodifiableView(attributes));
@@ -62,7 +35,28 @@ PrintServiceAttributeEvent::PrintServiceAttributeEvent() {
 }
 
 $Class* PrintServiceAttributeEvent::load$($String* name, bool initialize) {
-	$loadClass(PrintServiceAttributeEvent, name, initialize, &_PrintServiceAttributeEvent_ClassInfo_, allocate$PrintServiceAttributeEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintServiceAttributeEvent, serialVersionUID)},
+		{"attributes", "Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $field(PrintServiceAttributeEvent, attributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/print/PrintService;Ljavax/print/attribute/PrintServiceAttributeSet;)V", nullptr, $PUBLIC, $method(PrintServiceAttributeEvent, init$, void, $PrintService*, $PrintServiceAttributeSet*)},
+		{"getAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(PrintServiceAttributeEvent, getAttributes, $PrintServiceAttributeSet*)},
+		{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(PrintServiceAttributeEvent, getPrintService, $PrintService*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.event.PrintServiceAttributeEvent",
+		"javax.print.event.PrintEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintServiceAttributeEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintServiceAttributeEvent);
+	});
 	return class$;
 }
 

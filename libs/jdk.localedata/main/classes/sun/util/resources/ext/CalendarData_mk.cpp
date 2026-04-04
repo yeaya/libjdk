@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/CalendarData_mk.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CalendarData_mk_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarData_mk, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CalendarData_mk, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CalendarData_mk_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.CalendarData_mk",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_CalendarData_mk_MethodInfo_
-};
-
-$Object* allocate$CalendarData_mk($Class* clazz) {
-	return $of($alloc(CalendarData_mk));
-}
-
 void CalendarData_mk::init$() {
 	$LocaleNamesBundle::init$();
 }
@@ -44,7 +24,22 @@ CalendarData_mk::CalendarData_mk() {
 }
 
 $Class* CalendarData_mk::load$($String* name, bool initialize) {
-	$loadClass(CalendarData_mk, name, initialize, &_CalendarData_mk_ClassInfo_, allocate$CalendarData_mk);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarData_mk, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CalendarData_mk, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.CalendarData_mk",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CalendarData_mk, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CalendarData_mk);
+	});
 	return class$;
 }
 

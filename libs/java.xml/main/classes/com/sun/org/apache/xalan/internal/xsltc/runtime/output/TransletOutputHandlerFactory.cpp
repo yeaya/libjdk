@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/output/TransletOutputHandlerFactory.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXEventWriter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXStreamWriter.h>
@@ -59,63 +58,6 @@ namespace com {
 							namespace runtime {
 								namespace output {
 
-$FieldInfo _TransletOutputHandlerFactory_FieldInfo_[] = {
-	{"STREAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransletOutputHandlerFactory, STREAM)},
-	{"SAX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransletOutputHandlerFactory, SAX)},
-	{"DOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransletOutputHandlerFactory, DOM)},
-	{"STAX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransletOutputHandlerFactory, STAX)},
-	{"_encoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _encoding)},
-	{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _method)},
-	{"_outputType", "I", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _outputType)},
-	{"_ostream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _ostream)},
-	{"_writer", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _writer)},
-	{"_node", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _node)},
-	{"_nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _nextSibling)},
-	{"_xmlStAXEventWriter", "Ljavax/xml/stream/XMLEventWriter;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _xmlStAXEventWriter)},
-	{"_xmlStAXStreamWriter", "Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _xmlStAXStreamWriter)},
-	{"_indentNumber", "I", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _indentNumber)},
-	{"_handler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _handler)},
-	{"_lexHandler", "Lorg/xml/sax/ext/LexicalHandler;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _lexHandler)},
-	{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _overrideDefaultParser)},
-	{"_errListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _errListener)},
-	{}
-};
-
-$MethodInfo _TransletOutputHandlerFactory_MethodInfo_[] = {
-	{"<init>", "(ZLjavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $method(TransletOutputHandlerFactory, init$, void, bool, $ErrorListener*)},
-	{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, getNode, $Node*)},
-	{"getSerializationHandler", "()Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, getSerializationHandler, $SerializationHandler*), "java.io.IOException,javax.xml.parsers.ParserConfigurationException"},
-	{"getXMLEventWriter", "()Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, getXMLEventWriter, $XMLEventWriter*)},
-	{"getXMLStreamWriter", "()Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, getXMLStreamWriter, $XMLStreamWriter*)},
-	{"newInstance", "(ZLjavax/xml/transform/ErrorListener;)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/TransletOutputHandlerFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransletOutputHandlerFactory, newInstance, TransletOutputHandlerFactory*, bool, $ErrorListener*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setEncoding, void, $String*)},
-	{"setHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setHandler, void, $ContentHandler*)},
-	{"setIndentNumber", "(I)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setIndentNumber, void, int32_t)},
-	{"setLexicalHandler", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setLexicalHandler, void, $LexicalHandler*)},
-	{"setNextSibling", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setNextSibling, void, $Node*)},
-	{"setNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setNode, void, $Node*)},
-	{"setOutputMethod", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setOutputMethod, void, $String*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setOutputStream, void, $OutputStream*)},
-	{"setOutputType", "(I)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setOutputType, void, int32_t)},
-	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setWriter, void, $Writer*)},
-	{"setXMLEventWriter", "(Ljavax/xml/stream/XMLEventWriter;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setXMLEventWriter, void, $XMLEventWriter*)},
-	{"setXMLStreamWriter", "(Ljavax/xml/stream/XMLStreamWriter;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setXMLStreamWriter, void, $XMLStreamWriter*)},
-	{}
-};
-
-$ClassInfo _TransletOutputHandlerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.output.TransletOutputHandlerFactory",
-	"java.lang.Object",
-	nullptr,
-	_TransletOutputHandlerFactory_FieldInfo_,
-	_TransletOutputHandlerFactory_MethodInfo_
-};
-
-$Object* allocate$TransletOutputHandlerFactory($Class* clazz) {
-	return $of($alloc(TransletOutputHandlerFactory));
-}
-
 TransletOutputHandlerFactory* TransletOutputHandlerFactory::newInstance(bool overrideDefaultParser, $ErrorListener* errListener) {
 	return $new(TransletOutputHandlerFactory, overrideDefaultParser, errListener);
 }
@@ -172,7 +114,7 @@ void TransletOutputHandlerFactory::setNode($Node* node) {
 }
 
 $Node* TransletOutputHandlerFactory::getNode() {
-	return ($instanceOf($SAX2DOM, this->_handler)) ? $nc(($cast($SAX2DOM, this->_handler)))->getDOM() : ($Node*)nullptr;
+	return ($instanceOf($SAX2DOM, this->_handler)) ? $cast($SAX2DOM, this->_handler)->getDOM() : ($Node*)nullptr;
 }
 
 void TransletOutputHandlerFactory::setNextSibling($Node* nextSibling) {
@@ -180,7 +122,7 @@ void TransletOutputHandlerFactory::setNextSibling($Node* nextSibling) {
 }
 
 $XMLEventWriter* TransletOutputHandlerFactory::getXMLEventWriter() {
-	return ($instanceOf($SAX2StAXEventWriter, this->_handler)) ? $nc(($cast($SAX2StAXEventWriter, this->_handler)))->getEventWriter() : ($XMLEventWriter*)nullptr;
+	return ($instanceOf($SAX2StAXEventWriter, this->_handler)) ? $cast($SAX2StAXEventWriter, this->_handler)->getEventWriter() : ($XMLEventWriter*)nullptr;
 }
 
 void TransletOutputHandlerFactory::setXMLEventWriter($XMLEventWriter* eventWriter) {
@@ -188,7 +130,7 @@ void TransletOutputHandlerFactory::setXMLEventWriter($XMLEventWriter* eventWrite
 }
 
 $XMLStreamWriter* TransletOutputHandlerFactory::getXMLStreamWriter() {
-	return ($instanceOf($SAX2StAXStreamWriter, this->_handler)) ? $nc(($cast($SAX2StAXStreamWriter, this->_handler)))->getStreamWriter() : ($XMLStreamWriter*)nullptr;
+	return ($instanceOf($SAX2StAXStreamWriter, this->_handler)) ? $cast($SAX2StAXStreamWriter, this->_handler)->getStreamWriter() : ($XMLStreamWriter*)nullptr;
 }
 
 void TransletOutputHandlerFactory::setXMLStreamWriter($XMLStreamWriter* streamWriter) {
@@ -203,67 +145,59 @@ $SerializationHandler* TransletOutputHandlerFactory::getSerializationHandler() {
 	$var($SerializationHandler, result, nullptr);
 	switch (this->_outputType) {
 	case TransletOutputHandlerFactory::STREAM:
-		{
-			if (this->_method == nullptr) {
-				$assign(result, $new($ToUnknownStream, this->_errListener));
-			} else if ($nc(this->_method)->equalsIgnoreCase("xml"_s)) {
-				$assign(result, $new($ToXMLStream, this->_errListener));
-			} else if ($nc(this->_method)->equalsIgnoreCase("html"_s)) {
-				$assign(result, $new($ToHTMLStream, this->_errListener));
-			} else if ($nc(this->_method)->equalsIgnoreCase("text"_s)) {
-				$assign(result, $new($ToTextStream, this->_errListener));
-			}
-			if (result != nullptr && this->_indentNumber >= 0) {
-				result->setIndentAmount(this->_indentNumber);
-			}
-			$nc(result)->setEncoding(this->_encoding);
-			if (this->_writer != nullptr) {
-				$nc(result)->setWriter(this->_writer);
-			} else {
-				$nc(result)->setOutputStream(this->_ostream);
-			}
-			return result;
+		if (this->_method == nullptr) {
+			$assign(result, $new($ToUnknownStream, this->_errListener));
+		} else if (this->_method->equalsIgnoreCase("xml"_s)) {
+			$assign(result, $new($ToXMLStream, this->_errListener));
+		} else if (this->_method->equalsIgnoreCase("html"_s)) {
+			$assign(result, $new($ToHTMLStream, this->_errListener));
+		} else if (this->_method->equalsIgnoreCase("text"_s)) {
+			$assign(result, $new($ToTextStream, this->_errListener));
 		}
+		if (result != nullptr && this->_indentNumber >= 0) {
+			result->setIndentAmount(this->_indentNumber);
+		}
+		$nc(result)->setEncoding(this->_encoding);
+		if (this->_writer != nullptr) {
+			result->setWriter(this->_writer);
+		} else {
+			result->setOutputStream(this->_ostream);
+		}
+		return result;
 	case TransletOutputHandlerFactory::DOM:
-		{
-			$set(this, _handler, (this->_node != nullptr) ? static_cast<$ContentHandler*>($new($SAX2DOM, this->_node, this->_nextSibling, this->_overrideDefaultParser)) : static_cast<$ContentHandler*>($new($SAX2DOM, this->_overrideDefaultParser)));
-			$set(this, _lexHandler, $cast($LexicalHandler, this->_handler));
-		}
+		$set(this, _handler, (this->_node != nullptr) ? $new($SAX2DOM, this->_node, this->_nextSibling, this->_overrideDefaultParser) : $new($SAX2DOM, this->_overrideDefaultParser));
+		$set(this, _lexHandler, $cast($LexicalHandler, this->_handler));
 	case TransletOutputHandlerFactory::STAX:
-		{
-			if (this->_xmlStAXEventWriter != nullptr) {
-				$set(this, _handler, $new($SAX2StAXEventWriter, this->_xmlStAXEventWriter));
-			} else if (this->_xmlStAXStreamWriter != nullptr) {
-				$set(this, _handler, $new($SAX2StAXStreamWriter, this->_xmlStAXStreamWriter));
-			}
-			$set(this, _lexHandler, $cast($LexicalHandler, this->_handler));
+		if (this->_xmlStAXEventWriter != nullptr) {
+			$set(this, _handler, $new($SAX2StAXEventWriter, this->_xmlStAXEventWriter));
+		} else if (this->_xmlStAXStreamWriter != nullptr) {
+			$set(this, _handler, $new($SAX2StAXStreamWriter, this->_xmlStAXStreamWriter));
 		}
+		$set(this, _lexHandler, $cast($LexicalHandler, this->_handler));
 	case TransletOutputHandlerFactory::SAX:
-		{
-			if (this->_method == nullptr) {
-				$set(this, _method, "xml"_s);
-			}
-			if ($nc(this->_method)->equalsIgnoreCase("xml"_s)) {
-				if (this->_lexHandler == nullptr) {
-					$assign(result, $new($ToXMLSAXHandler, this->_handler, this->_encoding));
-				} else {
-					$assign(result, $new($ToXMLSAXHandler, this->_handler, this->_lexHandler, this->_encoding));
-				}
-			} else if ($nc(this->_method)->equalsIgnoreCase("html"_s)) {
-				if (this->_lexHandler == nullptr) {
-					$assign(result, $new($ToHTMLSAXHandler, this->_handler, this->_encoding));
-				} else {
-					$assign(result, $new($ToHTMLSAXHandler, this->_handler, this->_lexHandler, this->_encoding));
-				}
-			} else if ($nc(this->_method)->equalsIgnoreCase("text"_s)) {
-				if (this->_lexHandler == nullptr) {
-					$assign(result, $new($ToTextSAXHandler, this->_handler, this->_encoding));
-				} else {
-					$assign(result, $new($ToTextSAXHandler, this->_handler, this->_lexHandler, this->_encoding));
-				}
-			}
-			return result;
+		if (this->_method == nullptr) {
+			$set(this, _method, "xml"_s);
 		}
+		if ($nc(this->_method)->equalsIgnoreCase("xml"_s)) {
+			if (this->_lexHandler == nullptr) {
+				$assign(result, $new($ToXMLSAXHandler, this->_handler, this->_encoding));
+			} else {
+				$assign(result, $new($ToXMLSAXHandler, this->_handler, this->_lexHandler, this->_encoding));
+			}
+		} else if (this->_method->equalsIgnoreCase("html"_s)) {
+			if (this->_lexHandler == nullptr) {
+				$assign(result, $new($ToHTMLSAXHandler, this->_handler, this->_encoding));
+			} else {
+				$assign(result, $new($ToHTMLSAXHandler, this->_handler, this->_lexHandler, this->_encoding));
+			}
+		} else if (this->_method->equalsIgnoreCase("text"_s)) {
+			if (this->_lexHandler == nullptr) {
+				$assign(result, $new($ToTextSAXHandler, this->_handler, this->_encoding));
+			} else {
+				$assign(result, $new($ToTextSAXHandler, this->_handler, this->_lexHandler, this->_encoding));
+			}
+		}
+		return result;
 	}
 	return nullptr;
 }
@@ -272,7 +206,59 @@ TransletOutputHandlerFactory::TransletOutputHandlerFactory() {
 }
 
 $Class* TransletOutputHandlerFactory::load$($String* name, bool initialize) {
-	$loadClass(TransletOutputHandlerFactory, name, initialize, &_TransletOutputHandlerFactory_ClassInfo_, allocate$TransletOutputHandlerFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"STREAM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransletOutputHandlerFactory, STREAM)},
+		{"SAX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransletOutputHandlerFactory, SAX)},
+		{"DOM", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransletOutputHandlerFactory, DOM)},
+		{"STAX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TransletOutputHandlerFactory, STAX)},
+		{"_encoding", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _encoding)},
+		{"_method", "Ljava/lang/String;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _method)},
+		{"_outputType", "I", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _outputType)},
+		{"_ostream", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _ostream)},
+		{"_writer", "Ljava/io/Writer;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _writer)},
+		{"_node", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _node)},
+		{"_nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _nextSibling)},
+		{"_xmlStAXEventWriter", "Ljavax/xml/stream/XMLEventWriter;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _xmlStAXEventWriter)},
+		{"_xmlStAXStreamWriter", "Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _xmlStAXStreamWriter)},
+		{"_indentNumber", "I", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _indentNumber)},
+		{"_handler", "Lorg/xml/sax/ContentHandler;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _handler)},
+		{"_lexHandler", "Lorg/xml/sax/ext/LexicalHandler;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _lexHandler)},
+		{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _overrideDefaultParser)},
+		{"_errListener", "Ljavax/xml/transform/ErrorListener;", nullptr, $PRIVATE, $field(TransletOutputHandlerFactory, _errListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjavax/xml/transform/ErrorListener;)V", nullptr, $PUBLIC, $method(TransletOutputHandlerFactory, init$, void, bool, $ErrorListener*)},
+		{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, getNode, $Node*)},
+		{"getSerializationHandler", "()Lcom/sun/org/apache/xml/internal/serializer/SerializationHandler;", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, getSerializationHandler, $SerializationHandler*), "java.io.IOException,javax.xml.parsers.ParserConfigurationException"},
+		{"getXMLEventWriter", "()Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, getXMLEventWriter, $XMLEventWriter*)},
+		{"getXMLStreamWriter", "()Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, getXMLStreamWriter, $XMLStreamWriter*)},
+		{"newInstance", "(ZLjavax/xml/transform/ErrorListener;)Lcom/sun/org/apache/xalan/internal/xsltc/runtime/output/TransletOutputHandlerFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransletOutputHandlerFactory, newInstance, TransletOutputHandlerFactory*, bool, $ErrorListener*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setEncoding, void, $String*)},
+		{"setHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setHandler, void, $ContentHandler*)},
+		{"setIndentNumber", "(I)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setIndentNumber, void, int32_t)},
+		{"setLexicalHandler", "(Lorg/xml/sax/ext/LexicalHandler;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setLexicalHandler, void, $LexicalHandler*)},
+		{"setNextSibling", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setNextSibling, void, $Node*)},
+		{"setNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setNode, void, $Node*)},
+		{"setOutputMethod", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setOutputMethod, void, $String*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setOutputStream, void, $OutputStream*)},
+		{"setOutputType", "(I)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setOutputType, void, int32_t)},
+		{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setWriter, void, $Writer*)},
+		{"setXMLEventWriter", "(Ljavax/xml/stream/XMLEventWriter;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setXMLEventWriter, void, $XMLEventWriter*)},
+		{"setXMLStreamWriter", "(Ljavax/xml/stream/XMLStreamWriter;)V", nullptr, $PUBLIC, $virtualMethod(TransletOutputHandlerFactory, setXMLStreamWriter, void, $XMLStreamWriter*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.output.TransletOutputHandlerFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TransletOutputHandlerFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransletOutputHandlerFactory);
+	});
 	return class$;
 }
 

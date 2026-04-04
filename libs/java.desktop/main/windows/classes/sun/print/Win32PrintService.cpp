@@ -1,5 +1,4 @@
 #include <sun/print/Win32PrintService.h>
-
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
@@ -212,7 +211,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
@@ -275,166 +273,6 @@ using $Win32PrintService$Win32ServiceUIFactory = ::sun::print::Win32PrintService
 namespace sun {
 	namespace print {
 
-$FieldInfo _Win32PrintService_FieldInfo_[] = {
-	{"predefMedia", "[Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC, $staticField(Win32PrintService, predefMedia)},
-	{"supportedFlavors", "[Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32PrintService, supportedFlavors)},
-	{"serviceAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Win32PrintService, serviceAttrCats)},
-	{"otherAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticField(Win32PrintService, otherAttrCats)},
-	{"dmPaperToPrintService", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Win32PrintService, dmPaperToPrintService)},
-	{"dmPaperBinToPrintService", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32PrintService, dmPaperBinToPrintService)},
-	{"DM_PAPERSIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(Win32PrintService, DM_PAPERSIZE)},
-	{"DM_PRINTQUALITY", "I", nullptr, $PRIVATE | $STATIC, $staticField(Win32PrintService, DM_PRINTQUALITY)},
-	{"DM_YRESOLUTION", "I", nullptr, $PRIVATE | $STATIC, $staticField(Win32PrintService, DM_YRESOLUTION)},
-	{"DMRES_MEDIUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMRES_MEDIUM)},
-	{"DMRES_HIGH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMRES_HIGH)},
-	{"DMORIENT_LANDSCAPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMORIENT_LANDSCAPE)},
-	{"DMDUP_VERTICAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMDUP_VERTICAL)},
-	{"DMDUP_HORIZONTAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMDUP_HORIZONTAL)},
-	{"DMCOLLATE_TRUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMCOLLATE_TRUE)},
-	{"DMCOLOR_MONOCHROME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMCOLOR_MONOCHROME)},
-	{"DMCOLOR_COLOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMCOLOR_COLOR)},
-	{"DMPAPER_A2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMPAPER_A2)},
-	{"DMPAPER_A6", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMPAPER_A6)},
-	{"DMPAPER_B6_JIS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMPAPER_B6_JIS)},
-	{"DEVCAP_COLOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_COLOR)},
-	{"DEVCAP_DUPLEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_DUPLEX)},
-	{"DEVCAP_COLLATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_COLLATE)},
-	{"DEVCAP_QUALITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_QUALITY)},
-	{"DEVCAP_POSTSCRIPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_POSTSCRIPT)},
-	{"printer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32PrintService, printer)},
-	{"name", "Ljavax/print/attribute/standard/PrinterName;", nullptr, $PRIVATE, $field(Win32PrintService, name)},
-	{"port", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32PrintService, port)},
-	{"lastSet", "Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(Win32PrintService, lastSet)},
-	{"notifier", "Lsun/print/ServiceNotifier;", nullptr, $PRIVATE | $TRANSIENT, $field(Win32PrintService, notifier)},
-	{"mediaSizeNames", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(Win32PrintService, mediaSizeNames)},
-	{"mediaPrintables", "[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE, $field(Win32PrintService, mediaPrintables)},
-	{"mediaTrays", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE, $field(Win32PrintService, mediaTrays)},
-	{"printRes", "[Ljavax/print/attribute/standard/PrinterResolution;", nullptr, $PRIVATE, $field(Win32PrintService, printRes)},
-	{"mpaMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljavax/print/attribute/standard/MediaSizeName;Ljavax/print/attribute/standard/MediaPrintableArea;>;", $PRIVATE, $field(Win32PrintService, mpaMap)},
-	{"nCopies", "I", nullptr, $PRIVATE, $field(Win32PrintService, nCopies)},
-	{"prnCaps", "I", nullptr, $PRIVATE, $field(Win32PrintService, prnCaps)},
-	{"defaultSettings", "[I", nullptr, $PRIVATE, $field(Win32PrintService, defaultSettings)},
-	{"gotTrays", "Z", nullptr, $PRIVATE, $field(Win32PrintService, gotTrays)},
-	{"gotCopies", "Z", nullptr, $PRIVATE, $field(Win32PrintService, gotCopies)},
-	{"mediaInitialized", "Z", nullptr, $PRIVATE, $field(Win32PrintService, mediaInitialized)},
-	{"mpaListInitialized", "Z", nullptr, $PRIVATE, $field(Win32PrintService, mpaListInitialized)},
-	{"idList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PRIVATE, $field(Win32PrintService, idList)},
-	{"mediaSizes", "[Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE, $field(Win32PrintService, mediaSizes)},
-	{"isInvalid", "Z", nullptr, $PRIVATE, $field(Win32PrintService, isInvalid)},
-	{"docPropertiesUI", "Lsun/print/Win32PrintService$Win32DocumentPropertiesUI;", nullptr, $PRIVATE, $field(Win32PrintService, docPropertiesUI)},
-	{"uiFactory", "Lsun/print/Win32PrintService$Win32ServiceUIFactory;", nullptr, $PRIVATE, $field(Win32PrintService, uiFactory)},
-	{}
-};
-
-$MethodInfo _Win32PrintService_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Win32PrintService, init$, void, $String*)},
-	{"addPrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, addPrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
-	{"addToUniqueList", "(Ljava/util/ArrayList;Ljavax/print/attribute/standard/MediaSizeName;)Z", "(Ljava/util/ArrayList<Ljavax/print/attribute/standard/MediaSizeName;>;Ljavax/print/attribute/standard/MediaSizeName;)Z", $PRIVATE, $method(Win32PrintService, addToUniqueList, bool, $ArrayList*, $MediaSizeName*)},
-	{"createPrintJob", "()Ljavax/print/DocPrintJob;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, createPrintJob, $DocPrintJob*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, equals, bool, Object$*)},
-	{"findMatchingMediaSizeNameMM", "(FF)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findMatchingMediaSizeNameMM, $MediaSizeName*, float, float)},
-	{"findMediaTray", "(I)Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findMediaTray, $MediaTray*, int32_t)},
-	{"findPaperID", "(Ljavax/print/attribute/standard/MediaSizeName;)I", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findPaperID, int32_t, $MediaSizeName*)},
-	{"findTrayID", "(Ljavax/print/attribute/standard/MediaTray;)I", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findTrayID, int32_t, $MediaTray*)},
-	{"findWin32Media", "(I)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findWin32Media, $MediaSizeName*, int32_t)},
-	{"getAllMediaIDs", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaIDs, $ints*, $String*, $String*)},
-	{"getAllMediaNames", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaNames, $StringArray*, $String*, $String*)},
-	{"getAllMediaSizes", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaSizes, $ints*, $String*, $String*)},
-	{"getAllMediaTrayNames", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaTrayNames, $StringArray*, $String*, $String*)},
-	{"getAllMediaTrays", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaTrays, $ints*, $String*, $String*)},
-	{"getAllResolutions", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllResolutions, $ints*, $String*, $String*)},
-	{"getAttribute", "(Ljava/lang/Class;)Ljavax/print/attribute/PrintServiceAttribute;", "<T::Ljavax/print/attribute/PrintServiceAttribute;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(Win32PrintService, getAttribute, $PrintServiceAttribute*, $Class*)},
-	{"getAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getAttributes, $PrintServiceAttributeSet*)},
-	{"getCapabilities", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getCapabilities, int32_t, $String*, $String*)},
-	{"getCopiesSupported", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getCopiesSupported, int32_t, $String*, $String*)},
-	{"getDefaultAttributeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(Win32PrintService, getDefaultAttributeValue, $Object*, $Class*)},
-	{"getDefaultPrinterSettings", "()[I", nullptr, $PRIVATE, $method(Win32PrintService, getDefaultPrinterSettings, $ints*)},
-	{"getDefaultSettings", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getDefaultSettings, $ints*, $String*, $String*)},
-	{"getDocumentPropertiesUI", "()Lsun/print/DocumentPropertiesUI;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintService, getDocumentPropertiesUI, $DocumentPropertiesUI*)},
-	{"getDynamicAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $method(Win32PrintService, getDynamicAttributes, $PrintServiceAttributeSet*)},
-	{"getJobStatus", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getJobStatus, int32_t, $String*, int32_t)},
-	{"getMediaPrintableArea", "(Ljava/lang/String;I)[F", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getMediaPrintableArea, $floats*, $String*, int32_t)},
-	{"getMediaPrintables", "(Ljavax/print/attribute/standard/MediaSizeName;)[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintService, getMediaPrintables, $MediaPrintableAreaArray*, $MediaSizeName*)},
-	{"getMediaSizes", "(Ljava/util/ArrayList;[ILjava/util/ArrayList;)[Ljavax/print/attribute/standard/MediaSize;", "(Ljava/util/ArrayList<Ljava/lang/Integer;>;[ILjava/util/ArrayList<Ljava/lang/String;>;)[Ljavax/print/attribute/standard/MediaSize;", $PRIVATE, $method(Win32PrintService, getMediaSizes, $MediaSizeArray*, $ArrayList*, $ints*, $ArrayList*)},
-	{"getMediaTrays", "()[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintService, getMediaTrays, $MediaTrayArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getName, $String*)},
-	{"getPort", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Win32PrintService, getPort, $String*)},
-	{"getPrintResolutions", "()[Ljavax/print/attribute/standard/PrinterResolution;", nullptr, $PRIVATE, $method(Win32PrintService, getPrintResolutions, $PrinterResolutionArray*)},
-	{"getPrinterCapabilities", "()I", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterCapabilities, int32_t)},
-	{"getPrinterIsAcceptingJobs", "()Ljavax/print/attribute/standard/PrinterIsAcceptingJobs;", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterIsAcceptingJobs, $PrinterIsAcceptingJobs*)},
-	{"getPrinterName", "()Ljavax/print/attribute/standard/PrinterName;", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterName, $PrinterName*)},
-	{"getPrinterPort", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getPrinterPort, $String*, $String*)},
-	{"getPrinterState", "()Ljavax/print/attribute/standard/PrinterState;", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterState, $PrinterState*)},
-	{"getPrinterStateReasons", "()Ljavax/print/attribute/standard/PrinterStateReasons;", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterStateReasons, $PrinterStateReasons*)},
-	{"getQueuedJobCount", "()Ljavax/print/attribute/standard/QueuedJobCount;", nullptr, $PRIVATE, $method(Win32PrintService, getQueuedJobCount, $QueuedJobCount*)},
-	{"getServiceUIFactory", "()Ljavax/print/ServiceUIFactory;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Win32PrintService, getServiceUIFactory, $ServiceUIFactory*)},
-	{"getSupportedAttributeCategories", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Win32PrintService, getSupportedAttributeCategories, $ClassArray*)},
-	{"getSupportedAttributeValues", "(Ljava/lang/Class;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(Win32PrintService, getSupportedAttributeValues, $Object*, $Class*, $DocFlavor*, $AttributeSet*)},
-	{"getSupportedDocFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getSupportedDocFlavors, $DocFlavorArray*)},
-	{"getUnsupportedAttributes", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getUnsupportedAttributes, $AttributeSet*, $DocFlavor*, $AttributeSet*)},
-	{"getUpdatedAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getUpdatedAttributes, $PrintServiceAttributeSet*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, hashCode, int32_t)},
-	{"initMedia", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintService, initMedia, void)},
-	{"invalidateService", "()V", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, invalidateService, void)},
-	{"isAttributeCategorySupported", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Z", $PUBLIC, $virtualMethod(Win32PrintService, isAttributeCategorySupported, bool, $Class*)},
-	{"isAttributeValueSupported", "(Ljavax/print/attribute/Attribute;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, isAttributeValueSupported, bool, $Attribute*, $DocFlavor*, $AttributeSet*)},
-	{"isAutoSense", "(Ljavax/print/DocFlavor;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isAutoSense, bool, $DocFlavor*)},
-	{"isDocFlavorSupported", "(Ljavax/print/DocFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, isDocFlavorSupported, bool, $DocFlavor*)},
-	{"isPSDocAttr", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(Win32PrintService, isPSDocAttr, bool, $Class*)},
-	{"isPostScriptFlavor", "(Ljavax/print/DocFlavor;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isPostScriptFlavor, bool, $DocFlavor*)},
-	{"isSameSize", "(FFFF)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSameSize, bool, float, float, float, float)},
-	{"isSupportedCopies", "(Ljavax/print/attribute/standard/Copies;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedCopies, bool, $Copies*)},
-	{"isSupportedMedia", "(Ljavax/print/attribute/standard/MediaSizeName;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedMedia, bool, $MediaSizeName*)},
-	{"isSupportedMediaPrintableArea", "(Ljavax/print/attribute/standard/MediaPrintableArea;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedMediaPrintableArea, bool, $MediaPrintableArea*)},
-	{"isSupportedMediaTray", "(Ljavax/print/attribute/standard/MediaTray;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedMediaTray, bool, $MediaTray*)},
-	{"isSupportedResolution", "(Ljavax/print/attribute/standard/PrinterResolution;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedResolution, bool, $PrinterResolution*)},
-	{"removePrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, removePrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, toString, $String*)},
-	{"usesClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(Win32PrintService, usesClass, bool, $Class*)},
-	{"wakeNotifier", "()V", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, wakeNotifier, void)},
-	{}
-};
-
-#define _METHOD_INDEX_getAllMediaIDs 12
-#define _METHOD_INDEX_getAllMediaNames 13
-#define _METHOD_INDEX_getAllMediaSizes 14
-#define _METHOD_INDEX_getAllMediaTrayNames 15
-#define _METHOD_INDEX_getAllMediaTrays 16
-#define _METHOD_INDEX_getAllResolutions 17
-#define _METHOD_INDEX_getCapabilities 20
-#define _METHOD_INDEX_getCopiesSupported 21
-#define _METHOD_INDEX_getDefaultSettings 24
-#define _METHOD_INDEX_getJobStatus 27
-#define _METHOD_INDEX_getMediaPrintableArea 28
-#define _METHOD_INDEX_getPrinterPort 38
-
-$InnerClassInfo _Win32PrintService_InnerClassesInfo_[] = {
-	{"sun.print.Win32PrintService$Win32ServiceUIFactory", "sun.print.Win32PrintService", "Win32ServiceUIFactory", $PRIVATE | $STATIC},
-	{"sun.print.Win32PrintService$Win32DocumentPropertiesUI", "sun.print.Win32PrintService", "Win32DocumentPropertiesUI", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Win32PrintService_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.Win32PrintService",
-	"java.lang.Object",
-	"javax.print.PrintService,sun.print.AttributeUpdater,sun.print.SunPrinterJobService",
-	_Win32PrintService_FieldInfo_,
-	_Win32PrintService_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Win32PrintService_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.Win32PrintService$Win32ServiceUIFactory,sun.print.Win32PrintService$Win32DocumentPropertiesUI"
-};
-
-$Object* allocate$Win32PrintService($Class* clazz) {
-	return $of($alloc(Win32PrintService));
-}
-
 $Object* Win32PrintService::clone() {
 	 return this->$PrintService::clone();
 }
@@ -487,34 +325,29 @@ $PrinterName* Win32PrintService::getPrinterName() {
 }
 
 int32_t Win32PrintService::findPaperID($MediaSizeName* msn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Win32MediaSize, msn)) {
 		$var($Win32MediaSize, winMedia, $cast($Win32MediaSize, msn));
-		return $nc(winMedia)->getDMPaper();
+		return winMedia->getDMPaper();
 	} else {
-		for (int32_t id = 0; id < $nc(Win32PrintService::dmPaperToPrintService)->length; ++id) {
-			if ($nc($nc(Win32PrintService::dmPaperToPrintService)->get(id))->equals(msn)) {
+		for (int32_t id = 0; id < Win32PrintService::dmPaperToPrintService->length; ++id) {
+			if ($nc(Win32PrintService::dmPaperToPrintService->get(id))->equals(msn)) {
 				return id + 1;
 			}
 		}
-		$init($MediaSizeName);
 		if ($nc(msn)->equals($MediaSizeName::ISO_A2)) {
 			return Win32PrintService::DMPAPER_A2;
-		} else {
-			if (msn->equals($MediaSizeName::ISO_A6)) {
-				return Win32PrintService::DMPAPER_A6;
-			} else {
-				if (msn->equals($MediaSizeName::JIS_B6)) {
-					return Win32PrintService::DMPAPER_B6_JIS;
-				}
-			}
+		} else if (msn->equals($MediaSizeName::ISO_A6)) {
+			return Win32PrintService::DMPAPER_A6;
+		} else if (msn->equals($MediaSizeName::JIS_B6)) {
+			return Win32PrintService::DMPAPER_B6_JIS;
 		}
 	}
 	initMedia();
-	if ((this->idList != nullptr) && (this->mediaSizes != nullptr) && ($nc(this->idList)->size() == $nc(this->mediaSizes)->length)) {
+	if ((this->idList != nullptr) && (this->mediaSizes != nullptr) && (this->idList->size() == this->mediaSizes->length)) {
 		for (int32_t i = 0; i < $nc(this->idList)->size(); ++i) {
 			if ($nc($nc(this->mediaSizes)->get(i))->getMediaSizeName() == msn) {
-				return $nc(($cast($Integer, $($nc(this->idList)->get(i)))))->intValue();
+				return $$sure($Integer, $nc(this->idList)->get(i))->intValue();
 			}
 		}
 	}
@@ -525,10 +358,10 @@ int32_t Win32PrintService::findTrayID($MediaTray* tray) {
 	getMediaTrays();
 	if ($instanceOf($Win32MediaTray, tray)) {
 		$var($Win32MediaTray, winTray, $cast($Win32MediaTray, tray));
-		return $nc(winTray)->getDMBinID();
+		return winTray->getDMBinID();
 	}
-	for (int32_t id = 0; id < $nc(Win32PrintService::dmPaperBinToPrintService)->length; ++id) {
-		if ($nc(tray)->equals($nc(Win32PrintService::dmPaperBinToPrintService)->get(id))) {
+	for (int32_t id = 0; id < Win32PrintService::dmPaperBinToPrintService->length; ++id) {
+		if ($nc(tray)->equals(Win32PrintService::dmPaperBinToPrintService->get(id))) {
 			return id + 1;
 		}
 	}
@@ -536,9 +369,9 @@ int32_t Win32PrintService::findTrayID($MediaTray* tray) {
 }
 
 $MediaTray* Win32PrintService::findMediaTray(int32_t dmBin) {
-	$useLocalCurrentObjectStackCache();
-	if (dmBin >= 1 && dmBin <= $nc(Win32PrintService::dmPaperBinToPrintService)->length) {
-		return $nc(Win32PrintService::dmPaperBinToPrintService)->get(dmBin - 1);
+	$useLocalObjectStack();
+	if (dmBin >= 1 && dmBin <= Win32PrintService::dmPaperBinToPrintService->length) {
+		return Win32PrintService::dmPaperBinToPrintService->get(dmBin - 1);
 	}
 	$var($MediaTrayArray, trays, getMediaTrays());
 	if (trays != nullptr) {
@@ -556,29 +389,21 @@ $MediaTray* Win32PrintService::findMediaTray(int32_t dmBin) {
 }
 
 $MediaSizeName* Win32PrintService::findWin32Media(int32_t dmIndex) {
-	if (dmIndex >= 1 && dmIndex <= $nc(Win32PrintService::dmPaperToPrintService)->length) {
-		return $nc(Win32PrintService::dmPaperToPrintService)->get(dmIndex - 1);
+	if (dmIndex >= 1 && dmIndex <= Win32PrintService::dmPaperToPrintService->length) {
+		return Win32PrintService::dmPaperToPrintService->get(dmIndex - 1);
 	}
 	switch (dmIndex) {
 	case Win32PrintService::DMPAPER_A2:
-		{
-			$init($MediaSizeName);
-			return $MediaSizeName::ISO_A2;
-		}
+		$init($MediaSizeName);
+		return $MediaSizeName::ISO_A2;
 	case Win32PrintService::DMPAPER_A6:
-		{
-			$init($MediaSizeName);
-			return $MediaSizeName::ISO_A6;
-		}
+		$init($MediaSizeName);
+		return $MediaSizeName::ISO_A6;
 	case Win32PrintService::DMPAPER_B6_JIS:
-		{
-			$init($MediaSizeName);
-			return $MediaSizeName::JIS_B6;
-		}
+		$init($MediaSizeName);
+		return $MediaSizeName::JIS_B6;
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
@@ -590,13 +415,13 @@ bool Win32PrintService::addToUniqueList($ArrayList* msnList, $MediaSizeName* med
 			return false;
 		}
 	}
-	$nc(msnList)->add(mediaName);
+	msnList->add(mediaName);
 	return true;
 }
 
 void Win32PrintService::initMedia() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->mediaInitialized == true) {
 			return;
 		}
@@ -613,12 +438,12 @@ void Win32PrintService::initMedia() {
 		$var($floats, prnArea, nullptr);
 		$set(this, idList, $new($ArrayList));
 		for (int32_t i = 0; i < $nc(media)->length; ++i) {
-			$nc(this->idList)->add($($Integer::valueOf(media->get(i))));
+			this->idList->add($($Integer::valueOf(media->get(i))));
 		}
 		$var($ArrayList, dmPaperNameList, $new($ArrayList));
 		$set(this, mediaSizes, getMediaSizes(this->idList, media, dmPaperNameList));
 		for (int32_t i = 0; i < $nc(this->idList)->size(); ++i) {
-			$assign(mediaName, findWin32Media($nc(($cast($Integer, $($nc(this->idList)->get(i)))))->intValue()));
+			$assign(mediaName, findWin32Media($$sure($Integer, this->idList->get(i))->intValue()));
 			if (mediaName != nullptr && $nc(this->idList)->size() == $nc(this->mediaSizes)->length) {
 				$var($MediaSize, win32Size, $MediaSize::getMediaSizeForName(mediaName));
 				$var($MediaSize, driverSize, $nc(this->mediaSizes)->get(i));
@@ -626,8 +451,8 @@ void Win32PrintService::initMedia() {
 				float var$1 = $nc(win32Size)->getX(1);
 				bool var$0 = $Math::abs(var$1 - $nc(driverSize)->getX(1)) > error;
 				if (!var$0) {
-					float var$2 = $nc(win32Size)->getY(1);
-					var$0 = $Math::abs(var$2 - $nc(driverSize)->getY(1)) > error;
+					float var$2 = win32Size->getY(1);
+					var$0 = $Math::abs(var$2 - driverSize->getY(1)) > error;
 				}
 				if (var$0) {
 					$assign(mediaName, nullptr);
@@ -635,24 +460,24 @@ void Win32PrintService::initMedia() {
 			}
 			bool dmPaperIDMatched = (mediaName != nullptr);
 			if ((mediaName == nullptr) && ($nc(this->idList)->size() == $nc(this->mediaSizes)->length)) {
-				$assign(mediaName, $nc($nc(this->mediaSizes)->get(i))->getMediaSizeName());
+				$assign(mediaName, $nc(this->mediaSizes->get(i))->getMediaSizeName());
 			}
 			added = false;
 			if (mediaName != nullptr) {
 				added = addToUniqueList(msnList, mediaName);
 			}
-			bool var$3 = (!dmPaperIDMatched || !added);
+			bool var$3 = !dmPaperIDMatched || !added;
 			if (var$3) {
 				int32_t var$4 = $nc(this->idList)->size();
-				var$3 = (var$4 == dmPaperNameList->size());
+				var$3 = var$4 == dmPaperNameList->size();
 			}
 			if (var$3) {
-				$var($Win32MediaSize, wms, $Win32MediaSize::findMediaName($cast($String, $(dmPaperNameList->get(i)))));
+				$var($Win32MediaSize, wms, $Win32MediaSize::findMediaName($$cast($String, dmPaperNameList->get(i))));
 				if ((wms == nullptr) && ($nc(this->idList)->size() == $nc(this->mediaSizes)->length)) {
 					$var($String, var$5, $cast($String, dmPaperNameList->get(i)));
-					$assign(wms, $new($Win32MediaSize, var$5, $nc(($cast($Integer, $($nc(this->idList)->get(i)))))->intValue()));
-					float var$6 = $nc($nc(this->mediaSizes)->get(i))->getX($MediaSize::MM);
-					$nc(this->mediaSizes)->set(i, $$new($MediaSize, var$6, $nc($nc(this->mediaSizes)->get(i))->getY($MediaSize::MM), $MediaSize::MM, static_cast<$MediaSizeName*>(wms)));
+					$assign(wms, $new($Win32MediaSize, var$5, $$sure($Integer, this->idList->get(i))->intValue()));
+					float var$6 = $nc(this->mediaSizes->get(i))->getX($MediaSize::MM);
+					this->mediaSizes->set(i, $$new($MediaSize, var$6, $nc(this->mediaSizes->get(i))->getY($MediaSize::MM), $MediaSize::MM, wms));
 				}
 				if ((wms != nullptr) && (!$equals(wms, mediaName))) {
 					if (!added) {
@@ -679,18 +504,18 @@ void Win32PrintService::initMedia() {
 
 $MediaPrintableAreaArray* Win32PrintService::getMediaPrintables($MediaSizeName* msn) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (msn == nullptr) {
 			if (this->mpaListInitialized == true) {
 				return this->mediaPrintables;
 			}
-		} else if (this->mpaMap != nullptr && ($nc(this->mpaMap)->get(msn) != nullptr)) {
+		} else if (this->mpaMap != nullptr && (this->mpaMap->get(msn) != nullptr)) {
 			$var($MediaPrintableAreaArray, mpaArr, $new($MediaPrintableAreaArray, 1));
-			mpaArr->set(0, $cast($MediaPrintableArea, $($nc(this->mpaMap)->get(msn))));
+			mpaArr->set(0, $$cast($MediaPrintableArea, this->mpaMap->get(msn)));
 			return mpaArr;
 		}
 		initMedia();
-		if ((this->mediaSizeNames == nullptr) || ($nc(this->mediaSizeNames)->length == 0)) {
+		if ((this->mediaSizeNames == nullptr) || (this->mediaSizeNames->length == 0)) {
 			return nullptr;
 		}
 		$var($MediaSizeNameArray, loopNames, nullptr);
@@ -735,14 +560,14 @@ $MediaPrintableAreaArray* Win32PrintService::getMediaPrintables($MediaSizeName* 
 			return nullptr;
 		}
 		if (msn != nullptr) {
-			if ($nc(this->mpaMap)->get(msn) == nullptr) {
+			if (this->mpaMap->get(msn) == nullptr) {
 				return nullptr;
 			}
 			$var($MediaPrintableAreaArray, mpaArr, $new($MediaPrintableAreaArray, 1));
-			mpaArr->set(0, $cast($MediaPrintableArea, $($nc(this->mpaMap)->get(msn))));
+			mpaArr->set(0, $$cast($MediaPrintableArea, this->mpaMap->get(msn)));
 			return mpaArr;
 		} else {
-			$set(this, mediaPrintables, $fcast($MediaPrintableAreaArray, $nc($($nc(this->mpaMap)->values()))->toArray($$new($MediaPrintableAreaArray, 0))));
+			$set(this, mediaPrintables, $cast($MediaPrintableAreaArray, $$nc(this->mpaMap->values())->toArray($$new($MediaPrintableAreaArray, 0))));
 			this->mpaListInitialized = true;
 			return this->mediaPrintables;
 		}
@@ -751,7 +576,7 @@ $MediaPrintableAreaArray* Win32PrintService::getMediaPrintables($MediaSizeName* 
 
 $MediaTrayArray* Win32PrintService::getMediaTrays() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->gotTrays == true && this->mediaTrays != nullptr) {
 			return this->mediaTrays;
 		}
@@ -769,17 +594,13 @@ $MediaTrayArray* Win32PrintService::getMediaTrays() {
 		}
 		$var($MediaTrayArray, arr, $new($MediaTrayArray, nTray));
 		int32_t dmBin = 0;
-		{
-			int32_t i = 0;
-			int32_t j = 0;
-			for (; i < $Math::min($nc(mediaTr)->length, $nc(winMediaTrayNames)->length); ++i) {
-				dmBin = $nc(mediaTr)->get(i);
-				if (dmBin > 0) {
-					if ((dmBin > $nc(Win32PrintService::dmPaperBinToPrintService)->length) || ($nc(Win32PrintService::dmPaperBinToPrintService)->get(dmBin - 1) == nullptr)) {
-						arr->set(j++, $$new($Win32MediaTray, dmBin, $nc(winMediaTrayNames)->get(i)));
-					} else {
-						arr->set(j++, $nc(Win32PrintService::dmPaperBinToPrintService)->get(dmBin - 1));
-					}
+		for (int32_t i = 0, j = 0; i < $Math::min(mediaTr->length, $nc(winMediaTrayNames)->length); ++i) {
+			dmBin = mediaTr->get(i);
+			if (dmBin > 0) {
+				if ((dmBin > Win32PrintService::dmPaperBinToPrintService->length) || (Win32PrintService::dmPaperBinToPrintService->get(dmBin - 1) == nullptr)) {
+					arr->set(j++, $$new($Win32MediaTray, dmBin, winMediaTrayNames->get(i)));
+				} else {
+					arr->set(j++, Win32PrintService::dmPaperBinToPrintService->get(dmBin - 1));
 				}
 			}
 		}
@@ -794,11 +615,11 @@ bool Win32PrintService::isSameSize(float w1, float h1, float w2, float h2) {
 	float diffY = h1 - h2;
 	float diffXrev = w1 - h2;
 	float diffYrev = h1 - w2;
-	bool var$1 = ($Math::abs(diffX) <= 1);
-	bool var$0 = (var$1 && ($Math::abs(diffY) <= 1));
+	bool var$1 = $Math::abs(diffX) <= 1;
+	bool var$0 = var$1 && ($Math::abs(diffY) <= 1);
 	if (!var$0) {
-		bool var$2 = ($Math::abs(diffXrev) <= 1);
-		var$0 = (var$2 && ($Math::abs(diffYrev) <= 1));
+		bool var$2 = $Math::abs(diffXrev) <= 1;
+		var$0 = var$2 && ($Math::abs(diffYrev) <= 1);
 	}
 	if (var$0) {
 		return true;
@@ -810,11 +631,11 @@ bool Win32PrintService::isSameSize(float w1, float h1, float w2, float h2) {
 $MediaSizeName* Win32PrintService::findMatchingMediaSizeNameMM(float w, float h) {
 	if (Win32PrintService::predefMedia != nullptr) {
 		for (int32_t k = 0; k < $nc(Win32PrintService::predefMedia)->length; ++k) {
-			if ($nc(Win32PrintService::predefMedia)->get(k) == nullptr) {
+			if (Win32PrintService::predefMedia->get(k) == nullptr) {
 				continue;
 			}
-			float var$0 = $nc($nc(Win32PrintService::predefMedia)->get(k))->getX($MediaSize::MM);
-			if (isSameSize(var$0, $nc($nc(Win32PrintService::predefMedia)->get(k))->getY($MediaSize::MM), w, h)) {
+			float var$0 = $nc(Win32PrintService::predefMedia->get(k))->getX($MediaSize::MM);
+			if (isSameSize(var$0, $nc(Win32PrintService::predefMedia->get(k))->getY($MediaSize::MM), w, h)) {
 				return $nc($nc(Win32PrintService::predefMedia)->get(k))->getMediaSizeName();
 			}
 		}
@@ -823,7 +644,7 @@ $MediaSizeName* Win32PrintService::findMatchingMediaSizeNameMM(float w, float h)
 }
 
 $MediaSizeArray* Win32PrintService::getMediaSizes($ArrayList* idList, $ints* media, $ArrayList* dmPaperNameList$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, dmPaperNameList, dmPaperNameList$renamed);
 	if (dmPaperNameList == nullptr) {
 		$assign(dmPaperNameList, $new($ArrayList));
@@ -846,7 +667,7 @@ $MediaSizeArray* Win32PrintService::getMediaSizes($ArrayList* idList, $ints* med
 		if ((wid <= 0) || (ht <= 0)) {
 			if (nMedia == $nc(media)->length) {
 				$var($Integer, remObj, $Integer::valueOf(media->get(i)));
-				$nc(idList)->remove(idList->indexOf(remObj));
+				$nc(idList)->remove($nc(idList)->indexOf(remObj));
 			}
 			continue;
 		}
@@ -860,16 +681,16 @@ $MediaSizeArray* Win32PrintService::getMediaSizes($ArrayList* idList, $ints* med
 		} else {
 			$var($Win32MediaSize, wms, $Win32MediaSize::findMediaName($nc(winMediaNames)->get(i)));
 			if (wms == nullptr) {
-				$assign(wms, $new($Win32MediaSize, $nc(winMediaNames)->get(i), $nc(media)->get(i)));
+				$assign(wms, $new($Win32MediaSize, winMediaNames->get(i), $nc(media)->get(i)));
 			}
 			try {
-				$assign(ms, $new($MediaSize, wid, ht, $MediaSize::MM, static_cast<$MediaSizeName*>(wms)));
+				$assign(ms, $new($MediaSize, wid, ht, $MediaSize::MM, wms));
 				msList->add(ms);
-				$nc(dmPaperNameList)->add($nc(winMediaNames)->get(i));
+				$nc(dmPaperNameList)->add(winMediaNames->get(i));
 			} catch ($IllegalArgumentException& e) {
 				if (nMedia == $nc(media)->length) {
 					$var($Integer, remObj, $Integer::valueOf(media->get(i)));
-					$nc(idList)->remove(idList->indexOf(remObj));
+					$nc(idList)->remove($nc(idList)->indexOf(remObj));
 				}
 			}
 		}
@@ -934,7 +755,7 @@ bool Win32PrintService::isSupportedMedia($MediaSizeName* msn) {
 	initMedia();
 	if (this->mediaSizeNames != nullptr) {
 		for (int32_t i = 0; i < $nc(this->mediaSizeNames)->length; ++i) {
-			if ($nc(msn)->equals($nc(this->mediaSizeNames)->get(i))) {
+			if ($nc(msn)->equals(this->mediaSizeNames->get(i))) {
 				return true;
 			}
 		}
@@ -948,26 +769,26 @@ bool Win32PrintService::isSupportedMediaPrintableArea($MediaPrintableArea* mpa) 
 	if (this->mediaPrintables != nullptr) {
 		for (int32_t i = 0; i < $nc(this->mediaPrintables)->length; ++i) {
 			float var$3 = $nc(mpa)->getX(units);
-			bool var$2 = (var$3 >= $nc($nc(this->mediaPrintables)->get(i))->getX(units));
+			bool var$2 = var$3 >= $nc(this->mediaPrintables->get(i))->getX(units);
 			if (var$2) {
 				float var$4 = mpa->getY(units);
-				var$2 = (var$4 >= $nc($nc(this->mediaPrintables)->get(i))->getY(units));
+				var$2 = var$4 >= $nc(this->mediaPrintables->get(i))->getY(units);
 			}
 			bool var$1 = var$2;
 			if (var$1) {
 				float var$6 = mpa->getX(units);
 				float var$5 = var$6 + mpa->getWidth(units);
-				float var$8 = $nc($nc(this->mediaPrintables)->get(i))->getX(units);
-				float var$7 = var$8 + $nc($nc(this->mediaPrintables)->get(i))->getWidth(units);
-				var$1 = (var$5 <= var$7);
+				float var$8 = $nc(this->mediaPrintables->get(i))->getX(units);
+				float var$7 = var$8 + $nc(this->mediaPrintables->get(i))->getWidth(units);
+				var$1 = var$5 <= var$7;
 			}
 			bool var$0 = var$1;
 			if (var$0) {
 				float var$10 = mpa->getY(units);
 				float var$9 = var$10 + mpa->getHeight(units);
-				float var$12 = $nc($nc(this->mediaPrintables)->get(i))->getY(units);
-				float var$11 = var$12 + $nc($nc(this->mediaPrintables)->get(i))->getHeight(units);
-				var$0 = (var$9 <= var$11);
+				float var$12 = $nc(this->mediaPrintables->get(i))->getY(units);
+				float var$11 = var$12 + $nc(this->mediaPrintables->get(i))->getHeight(units);
+				var$0 = var$9 <= var$11;
 			}
 			if (var$0) {
 				return true;
@@ -1011,13 +832,13 @@ $ints* Win32PrintService::getDefaultPrinterSettings() {
 }
 
 $PrinterResolutionArray* Win32PrintService::getPrintResolutions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->printRes == nullptr) {
 		$var($ints, prnRes, getAllResolutions(this->printer, $(getPort())));
 		if (prnRes == nullptr) {
 			$set(this, printRes, $new($PrinterResolutionArray, 0));
 		} else {
-			int32_t nRes = $nc(prnRes)->length / 2;
+			int32_t nRes = prnRes->length / 2;
 			$var($ArrayList, arrList, $new($ArrayList));
 			$var($PrinterResolution, pr, nullptr);
 			for (int32_t i = 0; i < nRes; ++i) {
@@ -1027,7 +848,7 @@ $PrinterResolutionArray* Win32PrintService::getPrintResolutions() {
 				} catch ($IllegalArgumentException& e) {
 				}
 			}
-			$set(this, printRes, $fcast($PrinterResolutionArray, arrList->toArray($$new($PrinterResolutionArray, arrList->size()))));
+			$set(this, printRes, $cast($PrinterResolutionArray, arrList->toArray($$new($PrinterResolutionArray, arrList->size()))));
 		}
 	}
 	return this->printRes;
@@ -1054,7 +875,7 @@ $DocPrintJob* Win32PrintService::createPrintJob() {
 }
 
 $PrintServiceAttributeSet* Win32PrintService::getDynamicAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintServiceAttributeSet, attrs, $new($HashPrintServiceAttributeSet));
 	attrs->add($(getPrinterIsAcceptingJobs()));
 	attrs->add($(getQueuedJobCount()));
@@ -1062,7 +883,7 @@ $PrintServiceAttributeSet* Win32PrintService::getDynamicAttributes() {
 }
 
 $PrintServiceAttributeSet* Win32PrintService::getUpdatedAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintServiceAttributeSet, currSet, getDynamicAttributes());
 	if (this->lastSet == nullptr) {
 		$set(this, lastSet, currSet);
@@ -1084,7 +905,7 @@ $PrintServiceAttributeSet* Win32PrintService::getUpdatedAttributes() {
 void Win32PrintService::wakeNotifier() {
 	$synchronized(this) {
 		if (this->notifier != nullptr) {
-			$nc(this->notifier)->wake();
+			this->notifier->wake();
 		}
 	}
 }
@@ -1125,33 +946,33 @@ $PrintServiceAttribute* Win32PrintService::getAttribute($Class* category) {
 	$load($ColorSupported);
 	if (category == $ColorSupported::class$) {
 		int32_t caps = getPrinterCapabilities();
-		if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_COLOR)) != 0) {
+		if ((caps & Win32PrintService::DEVCAP_COLOR) != 0) {
 			$init($ColorSupported);
-			return static_cast<$PrintServiceAttribute*>($ColorSupported::SUPPORTED);
+			return $cast($PrintServiceAttribute, $ColorSupported::SUPPORTED);
 		} else {
 			$init($ColorSupported);
-			return static_cast<$PrintServiceAttribute*>($ColorSupported::NOT_SUPPORTED);
+			return $cast($PrintServiceAttribute, $ColorSupported::NOT_SUPPORTED);
 		}
 	} else {
 		$load($PrinterName);
 		if (category == $PrinterName::class$) {
-			return static_cast<$PrintServiceAttribute*>(getPrinterName());
+			return $cast($PrintServiceAttribute, getPrinterName());
 		} else {
 			$load($PrinterState);
 			if (category == $PrinterState::class$) {
-				return static_cast<$PrintServiceAttribute*>(getPrinterState());
+				return $cast($PrintServiceAttribute, getPrinterState());
 			} else {
 				$load($PrinterStateReasons);
 				if (category == $PrinterStateReasons::class$) {
-					return static_cast<$PrintServiceAttribute*>(getPrinterStateReasons());
+					return $cast($PrintServiceAttribute, getPrinterStateReasons());
 				} else {
 					$load($QueuedJobCount);
 					if (category == $QueuedJobCount::class$) {
-						return static_cast<$PrintServiceAttribute*>(getQueuedJobCount());
+						return $cast($PrintServiceAttribute, getQueuedJobCount());
 					} else {
 						$load($PrinterIsAcceptingJobs);
 						if (category == $PrinterIsAcceptingJobs::class$) {
-							return static_cast<$PrintServiceAttribute*>(getPrinterIsAcceptingJobs());
+							return $cast($PrintServiceAttribute, getPrinterIsAcceptingJobs());
 						} else {
 							return nullptr;
 						}
@@ -1163,7 +984,7 @@ $PrintServiceAttribute* Win32PrintService::getAttribute($Class* category) {
 }
 
 $PrintServiceAttributeSet* Win32PrintService::getAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrintServiceAttributeSet, attrs, $new($HashPrintServiceAttributeSet));
 	attrs->add($(getPrinterName()));
 	attrs->add($(getPrinterIsAcceptingJobs()));
@@ -1177,7 +998,7 @@ $PrintServiceAttributeSet* Win32PrintService::getAttributes() {
 	}
 	attrs->add($(getQueuedJobCount()));
 	int32_t caps = getPrinterCapabilities();
-	if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_COLOR)) != 0) {
+	if ((caps & Win32PrintService::DEVCAP_COLOR) != 0) {
 		$init($ColorSupported);
 		attrs->add($ColorSupported::SUPPORTED);
 	} else {
@@ -1188,10 +1009,10 @@ $PrintServiceAttributeSet* Win32PrintService::getAttributes() {
 }
 
 $DocFlavorArray* Win32PrintService::getSupportedDocFlavors() {
-	int32_t len = $nc(Win32PrintService::supportedFlavors)->length;
+	int32_t len = Win32PrintService::supportedFlavors->length;
 	$var($DocFlavorArray, supportedDocFlavors, nullptr);
 	int32_t caps = getPrinterCapabilities();
-	if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_POSTSCRIPT)) != 0) {
+	if ((caps & Win32PrintService::DEVCAP_POSTSCRIPT) != 0) {
 		$assign(supportedDocFlavors, $new($DocFlavorArray, len + 3));
 		$System::arraycopy(Win32PrintService::supportedFlavors, 0, supportedDocFlavors, 0, len);
 		$init($DocFlavor$BYTE_ARRAY);
@@ -1223,17 +1044,17 @@ bool Win32PrintService::isDocFlavorSupported($DocFlavor* flavor) {
 }
 
 $ClassArray* Win32PrintService::getSupportedAttributeCategories() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, categList, $new($ArrayList, $nc(Win32PrintService::otherAttrCats)->length + 3));
-	for (int32_t i = 0; i < $nc(Win32PrintService::otherAttrCats)->length; ++i) {
-		categList->add($nc(Win32PrintService::otherAttrCats)->get(i));
+	for (int32_t i = 0; i < Win32PrintService::otherAttrCats->length; ++i) {
+		categList->add(Win32PrintService::otherAttrCats->get(i));
 	}
 	int32_t caps = getPrinterCapabilities();
-	if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_DUPLEX)) != 0) {
+	if ((caps & Win32PrintService::DEVCAP_DUPLEX) != 0) {
 		$load($Sides);
 		categList->add($Sides::class$);
 	}
-	if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_QUALITY)) != 0) {
+	if ((caps & Win32PrintService::DEVCAP_QUALITY) != 0) {
 		$var($ints, defaults, getDefaultPrinterSettings());
 		if (($nc(defaults)->get(3) >= Win32PrintService::DMRES_HIGH) && (defaults->get(3) < 0)) {
 			$load($PrintQuality);
@@ -1242,7 +1063,6 @@ $ClassArray* Win32PrintService::getSupportedAttributeCategories() {
 	}
 	$var($PrinterResolutionArray, supportedRes, getPrintResolutions());
 	if ((supportedRes != nullptr) && (supportedRes->length > 0)) {
-		$load($PrinterResolution);
 		categList->add($PrinterResolution::class$);
 	}
 	if ($GraphicsEnvironment::isHeadless() == false) {
@@ -1251,11 +1071,11 @@ $ClassArray* Win32PrintService::getSupportedAttributeCategories() {
 		$load($DialogTypeSelection);
 		categList->add($DialogTypeSelection::class$);
 	}
-	return $fcast($ClassArray, categList->toArray($$new($ClassArray, categList->size())));
+	return $cast($ClassArray, categList->toArray($$new($ClassArray, categList->size())));
 }
 
 bool Win32PrintService::isAttributeCategorySupported($Class* category) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (category == nullptr) {
 		$throwNew($NullPointerException, "null category"_s);
 	}
@@ -1273,7 +1093,7 @@ bool Win32PrintService::isAttributeCategorySupported($Class* category) {
 }
 
 $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (category == nullptr) {
 		$throwNew($NullPointerException, "null category"_s);
 	}
@@ -1282,7 +1102,7 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 		$throwNew($IllegalArgumentException, $$str({category, " is not an Attribute"_s}));
 	}
 	if (!isAttributeCategorySupported(category)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($ints, defaults, getDefaultPrinterSettings());
 	int32_t defPaper = $nc(defaults)->get(0);
@@ -1334,21 +1154,21 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 							$var($MediaSizeName, msn, findWin32Media(defPaper));
 							if (msn != nullptr) {
 								if (!isSupportedMedia(msn) && this->mediaSizeNames != nullptr) {
-									$assign(msn, $nc(this->mediaSizeNames)->get(0));
+									$assign(msn, this->mediaSizeNames->get(0));
 									defPaper = findPaperID(msn);
 								}
 								return $of(msn);
 							} else {
 								initMedia();
-								if ((this->mediaSizeNames != nullptr) && ($nc(this->mediaSizeNames)->length > 0)) {
-									if ((this->idList != nullptr) && (this->mediaSizes != nullptr) && ($nc(this->idList)->size() == $nc(this->mediaSizes)->length)) {
+								if ((this->mediaSizeNames != nullptr) && (this->mediaSizeNames->length > 0)) {
+									if ((this->idList != nullptr) && (this->mediaSizes != nullptr) && (this->idList->size() == this->mediaSizes->length)) {
 										$var($Integer, defIdObj, $Integer::valueOf(defPaper));
-										int32_t index = $nc(this->idList)->indexOf(defIdObj);
-										if (index >= 0 && index < $nc(this->mediaSizes)->length) {
-											return $of($nc($nc(this->mediaSizes)->get(index))->getMediaSizeName());
+										int32_t index = this->idList->indexOf(defIdObj);
+										if (index >= 0 && index < this->mediaSizes->length) {
+											return $of($nc(this->mediaSizes->get(index))->getMediaSizeName());
 										}
 									}
-									return $of($nc(this->mediaSizeNames)->get(0));
+									return $of(this->mediaSizeNames->get(0));
 								}
 							}
 						} else {
@@ -1356,7 +1176,7 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 							if (category == $MediaPrintableArea::class$) {
 								$var($MediaSizeName, msn, findWin32Media(defPaper));
 								if (msn != nullptr && !isSupportedMedia(msn) && this->mediaSizeNames != nullptr) {
-									defPaper = findPaperID($nc(this->mediaSizeNames)->get(0));
+									defPaper = findPaperID(this->mediaSizeNames->get(0));
 								}
 								$var($floats, prnArea, getMediaPrintableArea(this->printer, defPaper));
 								if (prnArea != nullptr) {
@@ -1367,11 +1187,11 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 									}
 									return $of(printableArea);
 								}
-								return $of(nullptr);
+								return nullptr;
 							} else {
 								$load($SunAlternateMedia);
 								if (category == $SunAlternateMedia::class$) {
-									return $of(nullptr);
+									return nullptr;
 								} else {
 									$load($Destination);
 									if (category == $Destination::class$) {
@@ -1381,7 +1201,7 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 											try {
 												return $of($new($Destination, $$new($URI, "file:out.prn"_s)));
 											} catch ($URISyntaxException& e) {
-												return $of(nullptr);
+												return nullptr;
 											}
 										}
 									} else {
@@ -1389,20 +1209,14 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 										if (category == $Sides::class$) {
 											switch (defSides) {
 											case Win32PrintService::DMDUP_VERTICAL:
-												{
-													$init($Sides);
-													return $of($Sides::TWO_SIDED_LONG_EDGE);
-												}
+												$init($Sides);
+												return $of($Sides::TWO_SIDED_LONG_EDGE);
 											case Win32PrintService::DMDUP_HORIZONTAL:
-												{
-													$init($Sides);
-													return $of($Sides::TWO_SIDED_SHORT_EDGE);
-												}
+												$init($Sides);
+												return $of($Sides::TWO_SIDED_SHORT_EDGE);
 											default:
-												{
-													$init($Sides);
-													return $of($Sides::ONE_SIDED);
-												}
+												$init($Sides);
+												return $of($Sides::ONE_SIDED);
 											}
 										} else {
 											$load($PrinterResolution);
@@ -1421,7 +1235,7 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 												$load($ColorSupported);
 												if (category == $ColorSupported::class$) {
 													int32_t caps = getPrinterCapabilities();
-													if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_COLOR)) != 0) {
+													if ((caps & Win32PrintService::DEVCAP_COLOR) != 0) {
 														$init($ColorSupported);
 														return $of($ColorSupported::SUPPORTED);
 													} else {
@@ -1434,20 +1248,14 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 														if ((defQuality < 0) && (defQuality >= Win32PrintService::DMRES_HIGH)) {
 															switch (defQuality) {
 															case Win32PrintService::DMRES_HIGH:
-																{
-																	$init($PrintQuality);
-																	return $of($PrintQuality::HIGH);
-																}
+																$init($PrintQuality);
+																return $of($PrintQuality::HIGH);
 															case Win32PrintService::DMRES_MEDIUM:
-																{
-																	$init($PrintQuality);
-																	return $of($PrintQuality::NORMAL);
-																}
+																$init($PrintQuality);
+																return $of($PrintQuality::NORMAL);
 															default:
-																{
-																	$init($PrintQuality);
-																	return $of($PrintQuality::DRAFT);
-																}
+																$init($PrintQuality);
+																return $of($PrintQuality::DRAFT);
 															}
 														}
 													} else {
@@ -1490,16 +1298,16 @@ $Object* Win32PrintService::getDefaultAttributeValue($Class* category) {
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool Win32PrintService::isPostScriptFlavor($DocFlavor* flavor) {
 	$init($DocFlavor$BYTE_ARRAY);
 	bool var$1 = $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::POSTSCRIPT);
 	$init($DocFlavor$INPUT_STREAM);
-	bool var$0 = var$1 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::POSTSCRIPT);
+	bool var$0 = var$1 || flavor->equals($DocFlavor$INPUT_STREAM::POSTSCRIPT);
 	$init($DocFlavor$URL);
-	if (var$0 || $nc(flavor)->equals($DocFlavor$URL::POSTSCRIPT)) {
+	if (var$0 || flavor->equals($DocFlavor$URL::POSTSCRIPT)) {
 		return true;
 	} else {
 		return false;
@@ -1520,9 +1328,9 @@ bool Win32PrintService::isAutoSense($DocFlavor* flavor) {
 	$init($DocFlavor$BYTE_ARRAY);
 	bool var$1 = $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::AUTOSENSE);
 	$init($DocFlavor$INPUT_STREAM);
-	bool var$0 = var$1 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::AUTOSENSE);
+	bool var$0 = var$1 || flavor->equals($DocFlavor$INPUT_STREAM::AUTOSENSE);
 	$init($DocFlavor$URL);
-	if (var$0 || $nc(flavor)->equals($DocFlavor$URL::AUTOSENSE)) {
+	if (var$0 || flavor->equals($DocFlavor$URL::AUTOSENSE)) {
 		return true;
 	} else {
 		return false;
@@ -1530,7 +1338,7 @@ bool Win32PrintService::isAutoSense($DocFlavor* flavor) {
 }
 
 $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (category == nullptr) {
 		$throwNew($NullPointerException, "null category"_s);
 	}
@@ -1542,18 +1350,18 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 		if (!isDocFlavorSupported(flavor)) {
 			$throwNew($IllegalArgumentException, $$str({flavor, " is an unsupported flavor"_s}));
 		} else {
-			bool var$2 = isAutoSense(flavor);
-			if (!var$2) {
-				bool var$3 = isPostScriptFlavor(flavor);
-				var$2 = (var$3 && (isPSDocAttr(category)));
+			bool var$0 = isAutoSense(flavor);
+			if (!var$0) {
+				bool var$1 = isPostScriptFlavor(flavor);
+				var$0 = var$1 && (isPSDocAttr(category));
 			}
-			if (var$2) {
-				return $of(nullptr);
+			if (var$0) {
+				return nullptr;
 			}
 		}
 	}
 	if (!isAttributeCategorySupported(category)) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$load($JobName);
 	if (category == $JobName::class$) {
@@ -1571,7 +1379,7 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 			$load($ColorSupported);
 			if (category == $ColorSupported::class$) {
 				int32_t caps = getPrinterCapabilities();
-				if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_COLOR)) != 0) {
+				if ((caps & Win32PrintService::DEVCAP_COLOR) != 0) {
 					$init($ColorSupported);
 					return $of($ColorSupported::SUPPORTED);
 				} else {
@@ -1582,35 +1390,33 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 				$load($Chromaticity);
 				if (category == $Chromaticity::class$) {
 					$init($DocFlavor$SERVICE_FORMATTED);
-					bool var$13 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-					bool var$12 = var$13 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
+					bool var$11 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+					bool var$10 = var$11 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
 					$init($DocFlavor$BYTE_ARRAY);
-					bool var$11 = var$12 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::GIF);
+					bool var$9 = var$10 || flavor->equals($DocFlavor$BYTE_ARRAY::GIF);
 					$init($DocFlavor$INPUT_STREAM);
-					bool var$10 = var$11 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::GIF);
+					bool var$8 = var$9 || flavor->equals($DocFlavor$INPUT_STREAM::GIF);
 					$init($DocFlavor$URL);
-					bool var$9 = var$10 || $nc(flavor)->equals($DocFlavor$URL::GIF);
-					bool var$8 = var$9 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::JPEG);
-					bool var$7 = var$8 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::JPEG);
-					bool var$6 = var$7 || $nc(flavor)->equals($DocFlavor$URL::JPEG);
-					bool var$5 = var$6 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::PNG);
-					bool var$4 = var$5 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::PNG);
-					if (var$4 || $nc(flavor)->equals($DocFlavor$URL::PNG)) {
+					bool var$7 = var$8 || flavor->equals($DocFlavor$URL::GIF);
+					bool var$6 = var$7 || flavor->equals($DocFlavor$BYTE_ARRAY::JPEG);
+					bool var$5 = var$6 || flavor->equals($DocFlavor$INPUT_STREAM::JPEG);
+					bool var$4 = var$5 || flavor->equals($DocFlavor$URL::JPEG);
+					bool var$3 = var$4 || flavor->equals($DocFlavor$BYTE_ARRAY::PNG);
+					bool var$2 = var$3 || flavor->equals($DocFlavor$INPUT_STREAM::PNG);
+					if (var$2 || flavor->equals($DocFlavor$URL::PNG)) {
 						int32_t caps = getPrinterCapabilities();
-						if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_COLOR)) == 0) {
+						if ((caps & Win32PrintService::DEVCAP_COLOR) == 0) {
 							$var($ChromaticityArray, arr, $new($ChromaticityArray, 1));
-							$init($Chromaticity);
 							arr->set(0, $Chromaticity::MONOCHROME);
-							return $of((arr));
+							return (arr);
 						} else {
 							$var($ChromaticityArray, arr, $new($ChromaticityArray, 2));
-							$init($Chromaticity);
 							arr->set(0, $Chromaticity::MONOCHROME);
 							arr->set(1, $Chromaticity::COLOR);
-							return $of((arr));
+							return (arr);
 						}
 					} else {
-						return $of(nullptr);
+						return nullptr;
 					}
 				} else {
 					$load($Destination);
@@ -1621,35 +1427,34 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 							try {
 								return $of($new($Destination, $$new($URI, "file:out.prn"_s)));
 							} catch ($URISyntaxException& e) {
-								return $of(nullptr);
+								return nullptr;
 							}
 						}
 					} else {
 						$load($OrientationRequested);
 						if (category == $OrientationRequested::class$) {
 							$init($DocFlavor$SERVICE_FORMATTED);
-							bool var$23 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-							bool var$22 = var$23 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
+							bool var$21 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+							bool var$20 = var$21 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
 							$init($DocFlavor$INPUT_STREAM);
-							bool var$21 = var$22 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::GIF);
-							bool var$20 = var$21 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::JPEG);
-							bool var$19 = var$20 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::PNG);
+							bool var$19 = var$20 || flavor->equals($DocFlavor$INPUT_STREAM::GIF);
+							bool var$18 = var$19 || flavor->equals($DocFlavor$INPUT_STREAM::JPEG);
+							bool var$17 = var$18 || flavor->equals($DocFlavor$INPUT_STREAM::PNG);
 							$init($DocFlavor$BYTE_ARRAY);
-							bool var$18 = var$19 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::GIF);
-							bool var$17 = var$18 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::JPEG);
-							bool var$16 = var$17 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::PNG);
+							bool var$16 = var$17 || flavor->equals($DocFlavor$BYTE_ARRAY::GIF);
+							bool var$15 = var$16 || flavor->equals($DocFlavor$BYTE_ARRAY::JPEG);
+							bool var$14 = var$15 || flavor->equals($DocFlavor$BYTE_ARRAY::PNG);
 							$init($DocFlavor$URL);
-							bool var$15 = var$16 || $nc(flavor)->equals($DocFlavor$URL::GIF);
-							bool var$14 = var$15 || $nc(flavor)->equals($DocFlavor$URL::JPEG);
-							if (var$14 || $nc(flavor)->equals($DocFlavor$URL::PNG)) {
+							bool var$13 = var$14 || flavor->equals($DocFlavor$URL::GIF);
+							bool var$12 = var$13 || flavor->equals($DocFlavor$URL::JPEG);
+							if (var$12 || flavor->equals($DocFlavor$URL::PNG)) {
 								$var($OrientationRequestedArray, arr, $new($OrientationRequestedArray, 3));
-								$init($OrientationRequested);
 								arr->set(0, $OrientationRequested::PORTRAIT);
 								arr->set(1, $OrientationRequested::LANDSCAPE);
 								arr->set(2, $OrientationRequested::REVERSE_LANDSCAPE);
-								return $of(arr);
+								return arr;
 							} else {
-								return $of(nullptr);
+								return nullptr;
 							}
 						} else {
 							$load($Copies);
@@ -1666,17 +1471,17 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 								$load($Media);
 								if (category == $Media::class$) {
 									initMedia();
-									int32_t len = (this->mediaSizeNames == nullptr) ? 0 : $nc(this->mediaSizeNames)->length;
+									int32_t len = (this->mediaSizeNames == nullptr) ? 0 : this->mediaSizeNames->length;
 									$var($MediaTrayArray, trays, getMediaTrays());
-									len += (trays == nullptr) ? 0 : $nc(trays)->length;
+									len += (trays == nullptr) ? 0 : trays->length;
 									$var($MediaArray, arr, $new($MediaArray, len));
 									if (this->mediaSizeNames != nullptr) {
-										$System::arraycopy(this->mediaSizeNames, 0, arr, 0, $nc(this->mediaSizeNames)->length);
+										$System::arraycopy(this->mediaSizeNames, 0, arr, 0, this->mediaSizeNames->length);
 									}
 									if (trays != nullptr) {
 										$System::arraycopy(trays, 0, arr, len - trays->length, trays->length);
 									}
-									return $of(arr);
+									return arr;
 								} else {
 									$load($MediaPrintableArea);
 									if (category == $MediaPrintableArea::class$) {
@@ -1690,88 +1495,84 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 										if (mpas != nullptr) {
 											$var($MediaPrintableAreaArray, arr, $new($MediaPrintableAreaArray, mpas->length));
 											$System::arraycopy(mpas, 0, arr, 0, mpas->length);
-											return $of(arr);
+											return arr;
 										} else {
-											return $of(nullptr);
+											return nullptr;
 										}
 									} else {
 										$load($SunAlternateMedia);
 										if (category == $SunAlternateMedia::class$) {
-											return $of($new($SunAlternateMedia, $cast($Media, $(getDefaultAttributeValue($Media::class$)))));
+											return $new($SunAlternateMedia, $$cast($Media, getDefaultAttributeValue($Media::class$)));
 										} else {
 											$load($PageRanges);
 											if (category == $PageRanges::class$) {
 												$init($DocFlavor$SERVICE_FORMATTED);
-												bool var$24 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-												if (var$24 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
+												bool var$22 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+												if (var$22 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 													$var($PageRangesArray, arr, $new($PageRangesArray, 1));
 													arr->set(0, $$new($PageRanges, 1, $Integer::MAX_VALUE));
-													return $of(arr);
+													return arr;
 												} else {
-													return $of(nullptr);
+													return nullptr;
 												}
 											} else {
 												$load($PrinterResolution);
 												if (category == $PrinterResolution::class$) {
 													$var($PrinterResolutionArray, supportedRes, getPrintResolutions());
 													if (supportedRes == nullptr) {
-														return $of(nullptr);
+														return nullptr;
 													}
 													$var($PrinterResolutionArray, arr, $new($PrinterResolutionArray, $nc(supportedRes)->length));
 													$System::arraycopy(supportedRes, 0, arr, 0, supportedRes->length);
-													return $of(arr);
+													return arr;
 												} else {
 													$load($Sides);
 													if (category == $Sides::class$) {
 														$init($DocFlavor$SERVICE_FORMATTED);
-														bool var$25 = flavor == nullptr || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-														if (var$25 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
+														bool var$23 = flavor == nullptr || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+														if (var$23 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE)) {
 															$var($SidesArray, arr, $new($SidesArray, 3));
-															$init($Sides);
 															arr->set(0, $Sides::ONE_SIDED);
 															arr->set(1, $Sides::TWO_SIDED_LONG_EDGE);
 															arr->set(2, $Sides::TWO_SIDED_SHORT_EDGE);
-															return $of(arr);
+															return arr;
 														} else {
-															return $of(nullptr);
+															return nullptr;
 														}
 													} else {
 														$load($PrintQuality);
 														if (category == $PrintQuality::class$) {
 															$var($PrintQualityArray, arr, $new($PrintQualityArray, 3));
-															$init($PrintQuality);
 															arr->set(0, $PrintQuality::DRAFT);
 															arr->set(1, $PrintQuality::HIGH);
 															arr->set(2, $PrintQuality::NORMAL);
-															return $of(arr);
+															return arr;
 														} else {
 															$load($SheetCollate);
 															if (category == $SheetCollate::class$) {
-																bool var$26 = flavor == nullptr;
-																if (!var$26) {
+																bool var$24 = flavor == nullptr;
+																if (!var$24) {
 																	$init($DocFlavor$SERVICE_FORMATTED);
-																	bool var$27 = $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-																	var$26 = (var$27 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE));
+																	bool var$25 = flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+																	var$24 = var$25 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
 																}
-																if (var$26) {
+																if (var$24) {
 																	$var($SheetCollateArray, arr, $new($SheetCollateArray, 2));
-																	$init($SheetCollate);
 																	arr->set(0, $SheetCollate::COLLATED);
 																	arr->set(1, $SheetCollate::UNCOLLATED);
-																	return $of(arr);
+																	return arr;
 																} else {
-																	return $of(nullptr);
+																	return nullptr;
 																}
 															} else {
 																$load($Fidelity);
 																if (category == $Fidelity::class$) {
 																	$var($FidelityArray, arr, $new($FidelityArray, 2));
-																	$init($Fidelity);
 																	arr->set(0, $Fidelity::FIDELITY_FALSE);
 																	arr->set(1, $Fidelity::FIDELITY_TRUE);
-																	return $of(arr);
+																	return arr;
 																} else {
-																	return $of(nullptr);
+																	return nullptr;
 																}
 															}
 														}
@@ -1791,7 +1592,7 @@ $Object* Win32PrintService::getSupportedAttributeValues($Class* category, $DocFl
 }
 
 bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attr == nullptr) {
 		$throwNew($NullPointerException, "null attribute"_s);
 	}
@@ -1800,12 +1601,12 @@ bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* 
 		if (!isDocFlavorSupported(flavor)) {
 			$throwNew($IllegalArgumentException, $$str({flavor, " is an unsupported flavor"_s}));
 		} else {
-			bool var$2 = isAutoSense(flavor);
-			if (!var$2) {
-				bool var$3 = isPostScriptFlavor(flavor);
-				var$2 = (var$3 && (isPSDocAttr(category)));
+			bool var$0 = isAutoSense(flavor);
+			if (!var$0) {
+				bool var$1 = isPostScriptFlavor(flavor);
+				var$0 = var$1 && (isPSDocAttr(category));
 			}
-			if (var$2) {
+			if (var$0) {
 				return false;
 			}
 		}
@@ -1816,22 +1617,22 @@ bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* 
 		$load($Chromaticity);
 		if (category == $Chromaticity::class$) {
 			$init($DocFlavor$SERVICE_FORMATTED);
-			bool var$13 = (flavor == nullptr) || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-			bool var$12 = var$13 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
+			bool var$11 = (flavor == nullptr) || flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+			bool var$10 = var$11 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
 			$init($DocFlavor$BYTE_ARRAY);
-			bool var$11 = var$12 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::GIF);
+			bool var$9 = var$10 || flavor->equals($DocFlavor$BYTE_ARRAY::GIF);
 			$init($DocFlavor$INPUT_STREAM);
-			bool var$10 = var$11 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::GIF);
+			bool var$8 = var$9 || flavor->equals($DocFlavor$INPUT_STREAM::GIF);
 			$init($DocFlavor$URL);
-			bool var$9 = var$10 || $nc(flavor)->equals($DocFlavor$URL::GIF);
-			bool var$8 = var$9 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::JPEG);
-			bool var$7 = var$8 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::JPEG);
-			bool var$6 = var$7 || $nc(flavor)->equals($DocFlavor$URL::JPEG);
-			bool var$5 = var$6 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::PNG);
-			bool var$4 = var$5 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::PNG);
-			if (var$4 || $nc(flavor)->equals($DocFlavor$URL::PNG)) {
+			bool var$7 = var$8 || flavor->equals($DocFlavor$URL::GIF);
+			bool var$6 = var$7 || flavor->equals($DocFlavor$BYTE_ARRAY::JPEG);
+			bool var$5 = var$6 || flavor->equals($DocFlavor$INPUT_STREAM::JPEG);
+			bool var$4 = var$5 || flavor->equals($DocFlavor$URL::JPEG);
+			bool var$3 = var$4 || flavor->equals($DocFlavor$BYTE_ARRAY::PNG);
+			bool var$2 = var$3 || flavor->equals($DocFlavor$INPUT_STREAM::PNG);
+			if (var$2 || flavor->equals($DocFlavor$URL::PNG)) {
 				int32_t caps = getPrinterCapabilities();
-				if (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_COLOR)) != 0) {
+				if ((caps & Win32PrintService::DEVCAP_COLOR) != 0) {
 					return true;
 				} else {
 					$init($Chromaticity);
@@ -1847,9 +1648,9 @@ bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* 
 			} else {
 				$load($Destination);
 				if (category == $Destination::class$) {
-					$var($URI, uri, $nc(($cast($Destination, attr)))->getURI());
-					bool var$14 = "file"_s->equals($($nc(uri)->getScheme()));
-					if (var$14 && !$nc($($nc(uri)->getSchemeSpecificPart()))->isEmpty()) {
+					$var($URI, uri, $cast($Destination, attr)->getURI());
+					bool var$12 = "file"_s->equals($($nc(uri)->getScheme()));
+					if (var$12 && !$$nc(uri->getSchemeSpecificPart())->isEmpty()) {
 						return true;
 					} else {
 						return false;
@@ -1870,20 +1671,20 @@ bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* 
 						} else {
 							$load($SunAlternateMedia);
 							if (category == $SunAlternateMedia::class$) {
-								$var($Media, media, $nc(($cast($SunAlternateMedia, attr)))->getMedia());
-								return isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(media)), flavor, attributes);
+								$var($Media, media, $cast($SunAlternateMedia, attr)->getMedia());
+								return isAttributeValueSupported($cast($DocAttribute, media), flavor, attributes);
 							} else {
 								$load($PageRanges);
 								$load($SheetCollate);
 								$load($Sides);
 								if (category == $PageRanges::class$ || category == $SheetCollate::class$ || category == $Sides::class$) {
-									bool var$15 = flavor != nullptr;
-									if (var$15) {
+									bool var$13 = flavor != nullptr;
+									if (var$13) {
 										$init($DocFlavor$SERVICE_FORMATTED);
-										bool var$16 = flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-										var$15 = !(var$16 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE));
+										bool var$14 = flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+										var$13 = !(var$14 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE));
 									}
-									if (var$15) {
+									if (var$13) {
 										return false;
 									}
 								} else {
@@ -1896,36 +1697,36 @@ bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* 
 										$load($OrientationRequested);
 										if (category == $OrientationRequested::class$) {
 											$init($OrientationRequested);
-											bool var$17 = $equals(attr, $OrientationRequested::REVERSE_PORTRAIT);
-											if (!var$17) {
-												bool var$18 = (flavor != nullptr);
-												if (var$18) {
+											bool var$15 = $equals(attr, $OrientationRequested::REVERSE_PORTRAIT);
+											if (!var$15) {
+												bool var$16 = flavor != nullptr;
+												if (var$16) {
 													$init($DocFlavor$SERVICE_FORMATTED);
-													bool var$28 = flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
-													bool var$27 = var$28 || $nc(flavor)->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
+													bool var$26 = flavor->equals($DocFlavor$SERVICE_FORMATTED::PAGEABLE);
+													bool var$25 = var$26 || flavor->equals($DocFlavor$SERVICE_FORMATTED::PRINTABLE);
 													$init($DocFlavor$INPUT_STREAM);
-													bool var$26 = var$27 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::GIF);
-													bool var$25 = var$26 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::JPEG);
-													bool var$24 = var$25 || $nc(flavor)->equals($DocFlavor$INPUT_STREAM::PNG);
+													bool var$24 = var$25 || flavor->equals($DocFlavor$INPUT_STREAM::GIF);
+													bool var$23 = var$24 || flavor->equals($DocFlavor$INPUT_STREAM::JPEG);
+													bool var$22 = var$23 || flavor->equals($DocFlavor$INPUT_STREAM::PNG);
 													$init($DocFlavor$BYTE_ARRAY);
-													bool var$23 = var$24 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::GIF);
-													bool var$22 = var$23 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::JPEG);
-													bool var$21 = var$22 || $nc(flavor)->equals($DocFlavor$BYTE_ARRAY::PNG);
+													bool var$21 = var$22 || flavor->equals($DocFlavor$BYTE_ARRAY::GIF);
+													bool var$20 = var$21 || flavor->equals($DocFlavor$BYTE_ARRAY::JPEG);
+													bool var$19 = var$20 || flavor->equals($DocFlavor$BYTE_ARRAY::PNG);
 													$init($DocFlavor$URL);
-													bool var$20 = var$21 || $nc(flavor)->equals($DocFlavor$URL::GIF);
-													bool var$19 = var$20 || $nc(flavor)->equals($DocFlavor$URL::JPEG);
-													var$18 = !(var$19 || flavor->equals($DocFlavor$URL::PNG));
+													bool var$18 = var$19 || flavor->equals($DocFlavor$URL::GIF);
+													bool var$17 = var$18 || flavor->equals($DocFlavor$URL::JPEG);
+													var$16 = !(var$17 || flavor->equals($DocFlavor$URL::PNG));
 												}
-												var$17 = var$18;
+												var$15 = var$16;
 											}
-											if (var$17) {
+											if (var$15) {
 												return false;
 											}
 										} else {
 											$load($ColorSupported);
 											if (category == $ColorSupported::class$) {
 												int32_t caps = getPrinterCapabilities();
-												bool isColorSup = (((int32_t)(caps & (uint32_t)Win32PrintService::DEVCAP_COLOR)) != 0);
+												bool isColorSup = ((caps & Win32PrintService::DEVCAP_COLOR) != 0);
 												$init($ColorSupported);
 												if ((!isColorSup && ($equals(attr, $ColorSupported::SUPPORTED))) || (isColorSup && ($equals(attr, $ColorSupported::NOT_SUPPORTED)))) {
 													return false;
@@ -1938,7 +1739,7 @@ bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* 
 													$load($DialogOwner);
 													if (category == $DialogOwner::class$) {
 														$var($DialogOwner, owner, $cast($DialogOwner, attr));
-														$var($DialogTypeSelection, dts, (attributes == nullptr) ? ($DialogTypeSelection*)nullptr : $cast($DialogTypeSelection, $nc(attributes)->get($DialogTypeSelection::class$)));
+														$var($DialogTypeSelection, dts, (attributes == nullptr) ? ($DialogTypeSelection*)nullptr : $cast($DialogTypeSelection, attributes->get($DialogTypeSelection::class$)));
 														$init($DialogTypeSelection);
 														if (dts == $DialogTypeSelection::NATIVE) {
 															return $DialogOwnerAccessor::getID(owner) != 0;
@@ -1947,7 +1748,7 @@ bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* 
 														} else if (owner->getOwner() != nullptr) {
 															return true;
 														} else {
-															return $nc($($Toolkit::getDefaultToolkit()))->isAlwaysOnTopSupported();
+															return $$nc($Toolkit::getDefaultToolkit())->isAlwaysOnTopSupported();
 														}
 													}
 												}
@@ -1966,7 +1767,7 @@ bool Win32PrintService::isAttributeValueSupported($Attribute* attr, $DocFlavor* 
 }
 
 $AttributeSet* Win32PrintService::getUnsupportedAttributes($DocFlavor* flavor, $AttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (flavor != nullptr && !isDocFlavorSupported(flavor)) {
 		$throwNew($IllegalArgumentException, $$str({"flavor "_s, flavor, " is not supported"_s}));
 	}
@@ -2014,13 +1815,13 @@ $String* Win32PrintService::toString() {
 }
 
 bool Win32PrintService::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
-	return ($equals(obj, this) || ($instanceOf(Win32PrintService, obj) && $nc($($nc(($cast(Win32PrintService, obj)))->getName()))->equals($(getName()))));
+	$useLocalObjectStack();
+	return ($equals(obj, this) || ($instanceOf(Win32PrintService, obj) && $$nc($cast(Win32PrintService, obj)->getName())->equals($(getName()))));
 }
 
 int32_t Win32PrintService::hashCode() {
-	int32_t var$0 = $of($of(this)->getClass())->hashCode();
-	return var$0 + $nc($(getName()))->hashCode();
+	int32_t var$0 = $of(this)->getClass()->hashCode();
+	return var$0 + $$nc(getName())->hashCode();
 }
 
 bool Win32PrintService::usesClass($Class* c) {
@@ -2029,122 +1830,110 @@ bool Win32PrintService::usesClass($Class* c) {
 }
 
 $ints* Win32PrintService::getAllMediaIDs($String* printerName, $String* port) {
-	$var($ints, $ret, nullptr);
-	$prepareNative(Win32PrintService, getAllMediaIDs, $ints*, $String* printerName, $String* port);
-	$assign($ret, $invokeNativeObject(printerName, port));
+	$prepareNative(getAllMediaIDs, $ints*, $String* printerName, $String* port);
+	$var($ints, $ret, $invokeNativeObject(printerName, port));
 	$finishNative();
 	return $ret;
 }
 
 $ints* Win32PrintService::getAllMediaSizes($String* printerName, $String* port) {
-	$var($ints, $ret, nullptr);
-	$prepareNative(Win32PrintService, getAllMediaSizes, $ints*, $String* printerName, $String* port);
-	$assign($ret, $invokeNativeObject(printerName, port));
+	$prepareNative(getAllMediaSizes, $ints*, $String* printerName, $String* port);
+	$var($ints, $ret, $invokeNativeObject(printerName, port));
 	$finishNative();
 	return $ret;
 }
 
 $ints* Win32PrintService::getAllMediaTrays($String* printerName, $String* port) {
-	$var($ints, $ret, nullptr);
-	$prepareNative(Win32PrintService, getAllMediaTrays, $ints*, $String* printerName, $String* port);
-	$assign($ret, $invokeNativeObject(printerName, port));
+	$prepareNative(getAllMediaTrays, $ints*, $String* printerName, $String* port);
+	$var($ints, $ret, $invokeNativeObject(printerName, port));
 	$finishNative();
 	return $ret;
 }
 
 $floats* Win32PrintService::getMediaPrintableArea($String* printerName, int32_t paperSize) {
-	$var($floats, $ret, nullptr);
-	$prepareNative(Win32PrintService, getMediaPrintableArea, $floats*, $String* printerName, int32_t paperSize);
-	$assign($ret, $invokeNativeObject(printerName, paperSize));
+	$prepareNative(getMediaPrintableArea, $floats*, $String* printerName, int32_t paperSize);
+	$var($floats, $ret, $invokeNativeObject(printerName, paperSize));
 	$finishNative();
 	return $ret;
 }
 
 $StringArray* Win32PrintService::getAllMediaNames($String* printerName, $String* port) {
-	$var($StringArray, $ret, nullptr);
-	$prepareNative(Win32PrintService, getAllMediaNames, $StringArray*, $String* printerName, $String* port);
-	$assign($ret, $invokeNativeObject(printerName, port));
+	$prepareNative(getAllMediaNames, $StringArray*, $String* printerName, $String* port);
+	$var($StringArray, $ret, $invokeNativeObject(printerName, port));
 	$finishNative();
 	return $ret;
 }
 
 $StringArray* Win32PrintService::getAllMediaTrayNames($String* printerName, $String* port) {
-	$var($StringArray, $ret, nullptr);
-	$prepareNative(Win32PrintService, getAllMediaTrayNames, $StringArray*, $String* printerName, $String* port);
-	$assign($ret, $invokeNativeObject(printerName, port));
+	$prepareNative(getAllMediaTrayNames, $StringArray*, $String* printerName, $String* port);
+	$var($StringArray, $ret, $invokeNativeObject(printerName, port));
 	$finishNative();
 	return $ret;
 }
 
 int32_t Win32PrintService::getCopiesSupported($String* printerName, $String* port) {
-	int32_t $ret = 0;
-	$prepareNative(Win32PrintService, getCopiesSupported, int32_t, $String* printerName, $String* port);
-	$ret = $invokeNative(printerName, port);
+	$prepareNative(getCopiesSupported, int32_t, $String* printerName, $String* port);
+	int32_t $ret = $invokeNative(printerName, port);
 	$finishNative();
 	return $ret;
 }
 
 $ints* Win32PrintService::getAllResolutions($String* printerName, $String* port) {
-	$var($ints, $ret, nullptr);
-	$prepareNative(Win32PrintService, getAllResolutions, $ints*, $String* printerName, $String* port);
-	$assign($ret, $invokeNativeObject(printerName, port));
+	$prepareNative(getAllResolutions, $ints*, $String* printerName, $String* port);
+	$var($ints, $ret, $invokeNativeObject(printerName, port));
 	$finishNative();
 	return $ret;
 }
 
 int32_t Win32PrintService::getCapabilities($String* printerName, $String* port) {
-	int32_t $ret = 0;
-	$prepareNative(Win32PrintService, getCapabilities, int32_t, $String* printerName, $String* port);
-	$ret = $invokeNative(printerName, port);
+	$prepareNative(getCapabilities, int32_t, $String* printerName, $String* port);
+	int32_t $ret = $invokeNative(printerName, port);
 	$finishNative();
 	return $ret;
 }
 
 $ints* Win32PrintService::getDefaultSettings($String* printerName, $String* port) {
-	$var($ints, $ret, nullptr);
-	$prepareNative(Win32PrintService, getDefaultSettings, $ints*, $String* printerName, $String* port);
-	$assign($ret, $invokeNativeObject(printerName, port));
+	$prepareNative(getDefaultSettings, $ints*, $String* printerName, $String* port);
+	$var($ints, $ret, $invokeNativeObject(printerName, port));
 	$finishNative();
 	return $ret;
 }
 
 int32_t Win32PrintService::getJobStatus($String* printerName, int32_t type) {
-	int32_t $ret = 0;
-	$prepareNative(Win32PrintService, getJobStatus, int32_t, $String* printerName, int32_t type);
-	$ret = $invokeNative(printerName, type);
+	$prepareNative(getJobStatus, int32_t, $String* printerName, int32_t type);
+	int32_t $ret = $invokeNative(printerName, type);
 	$finishNative();
 	return $ret;
 }
 
 $String* Win32PrintService::getPrinterPort($String* printerName) {
-	$var($String, $ret, nullptr);
-	$prepareNative(Win32PrintService, getPrinterPort, $String*, $String* printerName);
-	$assign($ret, $invokeNativeObject(printerName));
+	$prepareNative(getPrinterPort, $String*, $String* printerName);
+	$var($String, $ret, $invokeNativeObject(printerName));
 	$finishNative();
 	return $ret;
 }
 
-void clinit$Win32PrintService($Class* class$) {
+void Win32PrintService::clinit$($Class* clazz) {
 	$assignStatic(Win32PrintService::predefMedia, $Win32MediaSize::getPredefMedia());
 	$init($DocFlavor$BYTE_ARRAY);
 	$init($DocFlavor$INPUT_STREAM);
 	$init($DocFlavor$URL);
 	$init($DocFlavor$SERVICE_FORMATTED);
 	$assignStatic(Win32PrintService::supportedFlavors, $new($DocFlavorArray, {
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::GIF),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::GIF),
-		static_cast<$DocFlavor*>($DocFlavor$URL::GIF),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::JPEG),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::JPEG),
-		static_cast<$DocFlavor*>($DocFlavor$URL::JPEG),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::PNG),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::PNG),
-		static_cast<$DocFlavor*>($DocFlavor$URL::PNG),
-		static_cast<$DocFlavor*>($DocFlavor$SERVICE_FORMATTED::PAGEABLE),
-		static_cast<$DocFlavor*>($DocFlavor$SERVICE_FORMATTED::PRINTABLE),
-		static_cast<$DocFlavor*>($DocFlavor$BYTE_ARRAY::AUTOSENSE),
-		static_cast<$DocFlavor*>($DocFlavor$URL::AUTOSENSE),
-		static_cast<$DocFlavor*>($DocFlavor$INPUT_STREAM::AUTOSENSE)
+		$DocFlavor$BYTE_ARRAY::GIF,
+		$DocFlavor$INPUT_STREAM::GIF,
+		$DocFlavor$URL::GIF,
+		$DocFlavor$BYTE_ARRAY::JPEG,
+		$DocFlavor$INPUT_STREAM::JPEG,
+		$DocFlavor$URL::JPEG,
+		$DocFlavor$BYTE_ARRAY::PNG,
+		$DocFlavor$INPUT_STREAM::PNG,
+		$DocFlavor$URL::PNG,
+		$DocFlavor$SERVICE_FORMATTED::PAGEABLE,
+		$DocFlavor$SERVICE_FORMATTED::PRINTABLE,
+		$DocFlavor$BYTE_ARRAY::AUTOSENSE,
+		$DocFlavor$URL::AUTOSENSE,
+		$DocFlavor$INPUT_STREAM::AUTOSENSE
 	}));
 	$load($PrinterName);
 	$load($PrinterIsAcceptingJobs);
@@ -2237,16 +2026,16 @@ void clinit$Win32PrintService($Class* class$) {
 		$MediaTray::MIDDLE,
 		$MediaTray::MANUAL,
 		$MediaTray::ENVELOPE,
-		static_cast<$MediaTray*>($Win32MediaTray::ENVELOPE_MANUAL),
-		static_cast<$MediaTray*>($Win32MediaTray::AUTO),
-		static_cast<$MediaTray*>($Win32MediaTray::TRACTOR),
-		static_cast<$MediaTray*>($Win32MediaTray::SMALL_FORMAT),
-		static_cast<$MediaTray*>($Win32MediaTray::LARGE_FORMAT),
+		$Win32MediaTray::ENVELOPE_MANUAL,
+		$Win32MediaTray::AUTO,
+		$Win32MediaTray::TRACTOR,
+		$Win32MediaTray::SMALL_FORMAT,
+		$Win32MediaTray::LARGE_FORMAT,
 		$MediaTray::LARGE_CAPACITY,
-		($MediaTray*)nullptr,
-		($MediaTray*)nullptr,
+		nullptr,
+		nullptr,
 		$MediaTray::MAIN,
-		static_cast<$MediaTray*>($Win32MediaTray::FORMSOURCE)
+		$Win32MediaTray::FORMSOURCE
 	}));
 	Win32PrintService::DM_PAPERSIZE = 2;
 	Win32PrintService::DM_PRINTQUALITY = 1024;
@@ -2257,7 +2046,148 @@ Win32PrintService::Win32PrintService() {
 }
 
 $Class* Win32PrintService::load$($String* name, bool initialize) {
-	$loadClass(Win32PrintService, name, initialize, &_Win32PrintService_ClassInfo_, clinit$Win32PrintService, allocate$Win32PrintService);
+	$FieldInfo fieldInfos$$[] = {
+		{"predefMedia", "[Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC, $staticField(Win32PrintService, predefMedia)},
+		{"supportedFlavors", "[Ljavax/print/DocFlavor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32PrintService, supportedFlavors)},
+		{"serviceAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Win32PrintService, serviceAttrCats)},
+		{"otherAttrCats", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticField(Win32PrintService, otherAttrCats)},
+		{"dmPaperToPrintService", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Win32PrintService, dmPaperToPrintService)},
+		{"dmPaperBinToPrintService", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Win32PrintService, dmPaperBinToPrintService)},
+		{"DM_PAPERSIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(Win32PrintService, DM_PAPERSIZE)},
+		{"DM_PRINTQUALITY", "I", nullptr, $PRIVATE | $STATIC, $staticField(Win32PrintService, DM_PRINTQUALITY)},
+		{"DM_YRESOLUTION", "I", nullptr, $PRIVATE | $STATIC, $staticField(Win32PrintService, DM_YRESOLUTION)},
+		{"DMRES_MEDIUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMRES_MEDIUM)},
+		{"DMRES_HIGH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMRES_HIGH)},
+		{"DMORIENT_LANDSCAPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMORIENT_LANDSCAPE)},
+		{"DMDUP_VERTICAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMDUP_VERTICAL)},
+		{"DMDUP_HORIZONTAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMDUP_HORIZONTAL)},
+		{"DMCOLLATE_TRUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMCOLLATE_TRUE)},
+		{"DMCOLOR_MONOCHROME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMCOLOR_MONOCHROME)},
+		{"DMCOLOR_COLOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMCOLOR_COLOR)},
+		{"DMPAPER_A2", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMPAPER_A2)},
+		{"DMPAPER_A6", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMPAPER_A6)},
+		{"DMPAPER_B6_JIS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DMPAPER_B6_JIS)},
+		{"DEVCAP_COLOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_COLOR)},
+		{"DEVCAP_DUPLEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_DUPLEX)},
+		{"DEVCAP_COLLATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_COLLATE)},
+		{"DEVCAP_QUALITY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_QUALITY)},
+		{"DEVCAP_POSTSCRIPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Win32PrintService, DEVCAP_POSTSCRIPT)},
+		{"printer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32PrintService, printer)},
+		{"name", "Ljavax/print/attribute/standard/PrinterName;", nullptr, $PRIVATE, $field(Win32PrintService, name)},
+		{"port", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Win32PrintService, port)},
+		{"lastSet", "Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE | $TRANSIENT, $field(Win32PrintService, lastSet)},
+		{"notifier", "Lsun/print/ServiceNotifier;", nullptr, $PRIVATE | $TRANSIENT, $field(Win32PrintService, notifier)},
+		{"mediaSizeNames", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(Win32PrintService, mediaSizeNames)},
+		{"mediaPrintables", "[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE, $field(Win32PrintService, mediaPrintables)},
+		{"mediaTrays", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE, $field(Win32PrintService, mediaTrays)},
+		{"printRes", "[Ljavax/print/attribute/standard/PrinterResolution;", nullptr, $PRIVATE, $field(Win32PrintService, printRes)},
+		{"mpaMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljavax/print/attribute/standard/MediaSizeName;Ljavax/print/attribute/standard/MediaPrintableArea;>;", $PRIVATE, $field(Win32PrintService, mpaMap)},
+		{"nCopies", "I", nullptr, $PRIVATE, $field(Win32PrintService, nCopies)},
+		{"prnCaps", "I", nullptr, $PRIVATE, $field(Win32PrintService, prnCaps)},
+		{"defaultSettings", "[I", nullptr, $PRIVATE, $field(Win32PrintService, defaultSettings)},
+		{"gotTrays", "Z", nullptr, $PRIVATE, $field(Win32PrintService, gotTrays)},
+		{"gotCopies", "Z", nullptr, $PRIVATE, $field(Win32PrintService, gotCopies)},
+		{"mediaInitialized", "Z", nullptr, $PRIVATE, $field(Win32PrintService, mediaInitialized)},
+		{"mpaListInitialized", "Z", nullptr, $PRIVATE, $field(Win32PrintService, mpaListInitialized)},
+		{"idList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/Integer;>;", $PRIVATE, $field(Win32PrintService, idList)},
+		{"mediaSizes", "[Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE, $field(Win32PrintService, mediaSizes)},
+		{"isInvalid", "Z", nullptr, $PRIVATE, $field(Win32PrintService, isInvalid)},
+		{"docPropertiesUI", "Lsun/print/Win32PrintService$Win32DocumentPropertiesUI;", nullptr, $PRIVATE, $field(Win32PrintService, docPropertiesUI)},
+		{"uiFactory", "Lsun/print/Win32PrintService$Win32ServiceUIFactory;", nullptr, $PRIVATE, $field(Win32PrintService, uiFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(Win32PrintService, init$, void, $String*)},
+		{"addPrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, addPrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
+		{"addToUniqueList", "(Ljava/util/ArrayList;Ljavax/print/attribute/standard/MediaSizeName;)Z", "(Ljava/util/ArrayList<Ljavax/print/attribute/standard/MediaSizeName;>;Ljavax/print/attribute/standard/MediaSizeName;)Z", $PRIVATE, $method(Win32PrintService, addToUniqueList, bool, $ArrayList*, $MediaSizeName*)},
+		{"createPrintJob", "()Ljavax/print/DocPrintJob;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, createPrintJob, $DocPrintJob*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, equals, bool, Object$*)},
+		{"findMatchingMediaSizeNameMM", "(FF)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findMatchingMediaSizeNameMM, $MediaSizeName*, float, float)},
+		{"findMediaTray", "(I)Ljavax/print/attribute/standard/MediaTray;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findMediaTray, $MediaTray*, int32_t)},
+		{"findPaperID", "(Ljavax/print/attribute/standard/MediaSizeName;)I", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findPaperID, int32_t, $MediaSizeName*)},
+		{"findTrayID", "(Ljavax/print/attribute/standard/MediaTray;)I", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findTrayID, int32_t, $MediaTray*)},
+		{"findWin32Media", "(I)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, findWin32Media, $MediaSizeName*, int32_t)},
+		{"getAllMediaIDs", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaIDs, $ints*, $String*, $String*)},
+		{"getAllMediaNames", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaNames, $StringArray*, $String*, $String*)},
+		{"getAllMediaSizes", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaSizes, $ints*, $String*, $String*)},
+		{"getAllMediaTrayNames", "(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaTrayNames, $StringArray*, $String*, $String*)},
+		{"getAllMediaTrays", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllMediaTrays, $ints*, $String*, $String*)},
+		{"getAllResolutions", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getAllResolutions, $ints*, $String*, $String*)},
+		{"getAttribute", "(Ljava/lang/Class;)Ljavax/print/attribute/PrintServiceAttribute;", "<T::Ljavax/print/attribute/PrintServiceAttribute;>(Ljava/lang/Class<TT;>;)TT;", $PUBLIC, $virtualMethod(Win32PrintService, getAttribute, $PrintServiceAttribute*, $Class*)},
+		{"getAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getAttributes, $PrintServiceAttributeSet*)},
+		{"getCapabilities", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getCapabilities, int32_t, $String*, $String*)},
+		{"getCopiesSupported", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getCopiesSupported, int32_t, $String*, $String*)},
+		{"getDefaultAttributeValue", "(Ljava/lang/Class;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(Win32PrintService, getDefaultAttributeValue, $Object*, $Class*)},
+		{"getDefaultPrinterSettings", "()[I", nullptr, $PRIVATE, $method(Win32PrintService, getDefaultPrinterSettings, $ints*)},
+		{"getDefaultSettings", "(Ljava/lang/String;Ljava/lang/String;)[I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getDefaultSettings, $ints*, $String*, $String*)},
+		{"getDocumentPropertiesUI", "()Lsun/print/DocumentPropertiesUI;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintService, getDocumentPropertiesUI, $DocumentPropertiesUI*)},
+		{"getDynamicAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PRIVATE, $method(Win32PrintService, getDynamicAttributes, $PrintServiceAttributeSet*)},
+		{"getJobStatus", "(Ljava/lang/String;I)I", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getJobStatus, int32_t, $String*, int32_t)},
+		{"getMediaPrintableArea", "(Ljava/lang/String;I)[F", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getMediaPrintableArea, $floats*, $String*, int32_t)},
+		{"getMediaPrintables", "(Ljavax/print/attribute/standard/MediaSizeName;)[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintService, getMediaPrintables, $MediaPrintableAreaArray*, $MediaSizeName*)},
+		{"getMediaSizes", "(Ljava/util/ArrayList;[ILjava/util/ArrayList;)[Ljavax/print/attribute/standard/MediaSize;", "(Ljava/util/ArrayList<Ljava/lang/Integer;>;[ILjava/util/ArrayList<Ljava/lang/String;>;)[Ljavax/print/attribute/standard/MediaSize;", $PRIVATE, $method(Win32PrintService, getMediaSizes, $MediaSizeArray*, $ArrayList*, $ints*, $ArrayList*)},
+		{"getMediaTrays", "()[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintService, getMediaTrays, $MediaTrayArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getName, $String*)},
+		{"getPort", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(Win32PrintService, getPort, $String*)},
+		{"getPrintResolutions", "()[Ljavax/print/attribute/standard/PrinterResolution;", nullptr, $PRIVATE, $method(Win32PrintService, getPrintResolutions, $PrinterResolutionArray*)},
+		{"getPrinterCapabilities", "()I", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterCapabilities, int32_t)},
+		{"getPrinterIsAcceptingJobs", "()Ljavax/print/attribute/standard/PrinterIsAcceptingJobs;", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterIsAcceptingJobs, $PrinterIsAcceptingJobs*)},
+		{"getPrinterName", "()Ljavax/print/attribute/standard/PrinterName;", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterName, $PrinterName*)},
+		{"getPrinterPort", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $NATIVE, $method(Win32PrintService, getPrinterPort, $String*, $String*)},
+		{"getPrinterState", "()Ljavax/print/attribute/standard/PrinterState;", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterState, $PrinterState*)},
+		{"getPrinterStateReasons", "()Ljavax/print/attribute/standard/PrinterStateReasons;", nullptr, $PRIVATE, $method(Win32PrintService, getPrinterStateReasons, $PrinterStateReasons*)},
+		{"getQueuedJobCount", "()Ljavax/print/attribute/standard/QueuedJobCount;", nullptr, $PRIVATE, $method(Win32PrintService, getQueuedJobCount, $QueuedJobCount*)},
+		{"getServiceUIFactory", "()Ljavax/print/ServiceUIFactory;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Win32PrintService, getServiceUIFactory, $ServiceUIFactory*)},
+		{"getSupportedAttributeCategories", "()[Ljava/lang/Class;", "()[Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(Win32PrintService, getSupportedAttributeCategories, $ClassArray*)},
+		{"getSupportedAttributeValues", "(Ljava/lang/Class;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(Win32PrintService, getSupportedAttributeValues, $Object*, $Class*, $DocFlavor*, $AttributeSet*)},
+		{"getSupportedDocFlavors", "()[Ljavax/print/DocFlavor;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getSupportedDocFlavors, $DocFlavorArray*)},
+		{"getUnsupportedAttributes", "(Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Ljavax/print/attribute/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getUnsupportedAttributes, $AttributeSet*, $DocFlavor*, $AttributeSet*)},
+		{"getUpdatedAttributes", "()Ljavax/print/attribute/PrintServiceAttributeSet;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, getUpdatedAttributes, $PrintServiceAttributeSet*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, hashCode, int32_t)},
+		{"initMedia", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Win32PrintService, initMedia, void)},
+		{"invalidateService", "()V", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, invalidateService, void)},
+		{"isAttributeCategorySupported", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;)Z", $PUBLIC, $virtualMethod(Win32PrintService, isAttributeCategorySupported, bool, $Class*)},
+		{"isAttributeValueSupported", "(Ljavax/print/attribute/Attribute;Ljavax/print/DocFlavor;Ljavax/print/attribute/AttributeSet;)Z", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, isAttributeValueSupported, bool, $Attribute*, $DocFlavor*, $AttributeSet*)},
+		{"isAutoSense", "(Ljavax/print/DocFlavor;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isAutoSense, bool, $DocFlavor*)},
+		{"isDocFlavorSupported", "(Ljavax/print/DocFlavor;)Z", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, isDocFlavorSupported, bool, $DocFlavor*)},
+		{"isPSDocAttr", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE, $method(Win32PrintService, isPSDocAttr, bool, $Class*)},
+		{"isPostScriptFlavor", "(Ljavax/print/DocFlavor;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isPostScriptFlavor, bool, $DocFlavor*)},
+		{"isSameSize", "(FFFF)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSameSize, bool, float, float, float, float)},
+		{"isSupportedCopies", "(Ljavax/print/attribute/standard/Copies;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedCopies, bool, $Copies*)},
+		{"isSupportedMedia", "(Ljavax/print/attribute/standard/MediaSizeName;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedMedia, bool, $MediaSizeName*)},
+		{"isSupportedMediaPrintableArea", "(Ljavax/print/attribute/standard/MediaPrintableArea;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedMediaPrintableArea, bool, $MediaPrintableArea*)},
+		{"isSupportedMediaTray", "(Ljavax/print/attribute/standard/MediaTray;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedMediaTray, bool, $MediaTray*)},
+		{"isSupportedResolution", "(Ljavax/print/attribute/standard/PrinterResolution;)Z", nullptr, $PRIVATE, $method(Win32PrintService, isSupportedResolution, bool, $PrinterResolution*)},
+		{"removePrintServiceAttributeListener", "(Ljavax/print/event/PrintServiceAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, removePrintServiceAttributeListener, void, $PrintServiceAttributeListener*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, toString, $String*)},
+		{"usesClass", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PUBLIC, $virtualMethod(Win32PrintService, usesClass, bool, $Class*)},
+		{"wakeNotifier", "()V", nullptr, $PUBLIC, $virtualMethod(Win32PrintService, wakeNotifier, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.Win32PrintService$Win32ServiceUIFactory", "sun.print.Win32PrintService", "Win32ServiceUIFactory", $PRIVATE | $STATIC},
+		{"sun.print.Win32PrintService$Win32DocumentPropertiesUI", "sun.print.Win32PrintService", "Win32DocumentPropertiesUI", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.Win32PrintService",
+		"java.lang.Object",
+		"javax.print.PrintService,sun.print.AttributeUpdater,sun.print.SunPrinterJobService",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.Win32PrintService$Win32ServiceUIFactory,sun.print.Win32PrintService$Win32DocumentPropertiesUI"
+	};
+	$loadClass(Win32PrintService, name, initialize, &classInfo$$, Win32PrintService::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Win32PrintService));
+	});
 	return class$;
 }
 

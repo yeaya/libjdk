@@ -1,5 +1,4 @@
 #include <Cert.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -12,39 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _Cert_FieldInfo_[] = {
-	{"BAD_CERT", "LCert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cert, BAD_CERT)},
-	{"GOOD_CERT", "LCert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cert, GOOD_CERT)},
-	{"LOOPBACK_CERT", "LCert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cert, LOOPBACK_CERT)},
-	{"$VALUES", "[LCert;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Cert, $VALUES)},
-	{"keyAlgo", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Cert, keyAlgo)},
-	{"certStr", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Cert, certStr)},
-	{"keyStr", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Cert, keyStr)},
-	{}
-};
-
-$MethodInfo _Cert_MethodInfo_[] = {
-	{"$values", "()[LCert;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Cert, $values, $CertArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Cert, init$, void, $String*, int32_t, $String*, $String*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)LCert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cert, valueOf, Cert*, $String*)},
-	{"values", "()[LCert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cert, values, $CertArray*)},
-	{}
-};
-
-$ClassInfo _Cert_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"Cert",
-	"java.lang.Enum",
-	nullptr,
-	_Cert_FieldInfo_,
-	_Cert_MethodInfo_,
-	"Ljava/lang/Enum<LCert;>;"
-};
-
-$Object* allocate$Cert($Class* clazz) {
-	return $of($alloc(Cert));
-}
 
 Cert* Cert::BAD_CERT = nullptr;
 Cert* Cert::GOOD_CERT = nullptr;
@@ -77,7 +43,7 @@ void Cert::init$($String* $enum$name, int32_t $enum$ordinal, $String* keyAlgo, $
 	$set(this, keyStr, keyStr);
 }
 
-void clinit$Cert($Class* class$) {
+void Cert::clinit$($Class* clazz) {
 	$assignStatic(Cert::BAD_CERT, $new(Cert, "BAD_CERT"_s, 0, "RSA"_s, "-----BEGIN CERTIFICATE-----\nMIIC7jCCAdagAwIBAgIUZSQTPHqYDBaikZyOQoTPvr7S8UIwDQYJKoZIhvcNAQEL\nBQAwDzENMAsGA1UEAwwEZXZpbDAeFw0yMDAyMDgwMzU5MjdaFw0zMDAyMDUwMzU5\nMjdaMA8xDTALBgNVBAMMBGV2aWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\nAoIBAQCmirsTOW1G+LoI/Aj59lMk3KLywAbXASeTdnBoWkchuJ0QJWO/5b5kgf6Q\nVFfe9lXof9psGIKaCGq6KsI0uqj7+7y++//l+E6GB8UshVB8MXc1SLFe8AxPYhWC\nTXaKWyWGl7PXvugzbByFrf4IwE9+6phYkvl/zHvaMKqdwnkpXuyuBgT3BiYTSNsx\nk1Ma+s5rqiwsOODSzwhadwmU9T4z11KypYb/DixJgHvUET4gTB+i3ll+PllVdQtX\nzBLpEuj5HadK0PsqlOIok3eoSU+MpRqsz0gFEQ95y+Les3MlBeQ7fVKBz8GbrFDB\nAtzca+iknEh8fkLIUUuCjTjUtLvfAgMBAAGjQjBAMB0GA1UdDgQWBBQJ0OhRbA+I\nWUfR/QXCABDWpIAEBzAfBgNVHSMEGDAWgBQJ0OhRbA+IWUfR/QXCABDWpIAEBzAN\nBgkqhkiG9w0BAQsFAAOCAQEAQMfPfYfVSSdsiEUOlVg6M5D90HRONzqlg/v0RqQI\nfb3uufXJs20dg8iamVORXIIeUpGv1OQ2Rx4ndnV3bRLK6ep3gswIkOnD8z/CeNgl\nodZPvWyklHTMenGqU2TR3ceFep/DvQkrP4aZWyr3e2fjatKR/s4pXgBwHs/hR76O\nvDYLRDyCG/+MtUClFsc9HLedbU4Wp8JyaafFZ63/VjaIcvdHoDGNILRu5AIN/JVM\nSgz4blkWJxS1dlqBYwxvbpJWrHUcktsa3Bzw2zWOkTVGQJi3pMvzRBkgliNaXPi3\nqcPViqgzVoB4QdOQBnvDt"
 		"Q9+8Nt/dQY1VJFSBLxZQIefiQ==\n-----END CERTIFICATE-----"_s, "MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCmirsTOW1G+LoI\n/Aj59lMk3KLywAbXASeTdnBoWkchuJ0QJWO/5b5kgf6QVFfe9lXof9psGIKaCGq6\nKsI0uqj7+7y++//l+E6GB8UshVB8MXc1SLFe8AxPYhWCTXaKWyWGl7PXvugzbByF\nrf4IwE9+6phYkvl/zHvaMKqdwnkpXuyuBgT3BiYTSNsxk1Ma+s5rqiwsOODSzwha\ndwmU9T4z11KypYb/DixJgHvUET4gTB+i3ll+PllVdQtXzBLpEuj5HadK0PsqlOIo\nk3eoSU+MpRqsz0gFEQ95y+Les3MlBeQ7fVKBz8GbrFDBAtzca+iknEh8fkLIUUuC\njTjUtLvfAgMBAAECggEATyu2QS5Un5+QOMMvtTx/TA/DOulElyNKYBS23TTFiedM\nayeLIuehuf/+NziRSUILlupouGhyda04p2W6SvzNZnTGxnffr8B5+8dn2YFKwK93\nPxJel4ZAI+C53ubaSm2IClLFwPNVSVTEvlv3XsulPu1hHQJJr5JS8meeRD72AE8G\nbrKbLlq6OGey6u9teao0m4Wo05MzaEoOx4fztPP4BiJJobuPYrdthUwfXJ2mQYeg\nfJKl+JeLUnAXmq8e+6Zs88NzGK8Gmd2TvGnUahxSDtXHuRkB2lOrGFrEJKkAXDBx\n2q8r3vvcay6+k95fS2HOvggFDALS37BGckWg4+HYuQKBgQDXkxw0u2G7rCYbF691\njil++DLNUzejZonAvA/cceVHShfAMlWCBf58cLNsY33rkRsFazhrdDoDAFqKxejB\nxWM8U7UHiHZSznuXTL0YbUombfz+0lp/KwXcirnB7O3AdIW4lfMo/ozeMMIuEzsL\nG/MDvbNSdawEso/qtxFvz87ctQKBgQDFxcCSyWb/SQVr3RkZkO3BW2efuANxNeUh\n35L4inWTa8ml8UL4SrTrkfUHzu5TnBGbSb2n8CdkPnInA81dK"
 		"agX6LXuONeLkX/e\nRXyWIwWRiBkpYSaw2OGApl49DRvk2kCzwoVRWwh8qfhpC0P6AClFRaVAovYcTxm3\nvhCJL3jmwwKBgGMLvTbhLStMEgn6nOwXECu9H6JE7NhPgVUjUupHDj/t4/GzbqQZ\n2u4T3ewb3jwAZHjd5YNBWHIOlIsUGTgGV+zczN0ULsEnC5Pddzgk5p+3gzkVLu0k\nuEG3H1fhYu882j+P7bPVGKXxoxYGUedtxP7gBucJF6rk28jMqd9EjFfNAoGBAKcc\nASwGodDzknEh0SOZIkxPP6/lfIMcVw/YKgd4dwCqAykEQuIpvdWO7sw6PYbISNg9\n5tMQSTiayznMLKqbmD0blR5FSVvVBYZ6kFsMHJhrt1cPj/G+UEy0RsyvVvJ4uFMr\n+hpUIUe1FwErU7TajgTKZGfJSsuAyupG3xIL2syhAoGALv+ulZAY/gUKH8NigsXo\npFPTpiXMyTD/O4RUH/5LcxDELVZ8cnV2q3qEX+ep24y0AtNiBx4oHpZ/vIxtwBCR\nJKU2xmIGC6NyQMRSzfmNgi0X450rgKbTAxn/LAU8syXmNpBUrFZ8+02pQvWzxqfU\nzGaMEK3+f1sq8Byzau/qhKU="_s));
@@ -94,7 +60,35 @@ Cert::Cert() {
 }
 
 $Class* Cert::load$($String* name, bool initialize) {
-	$loadClass(Cert, name, initialize, &_Cert_ClassInfo_, clinit$Cert, allocate$Cert);
+	$FieldInfo fieldInfos$$[] = {
+		{"BAD_CERT", "LCert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cert, BAD_CERT)},
+		{"GOOD_CERT", "LCert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cert, GOOD_CERT)},
+		{"LOOPBACK_CERT", "LCert;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Cert, LOOPBACK_CERT)},
+		{"$VALUES", "[LCert;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Cert, $VALUES)},
+		{"keyAlgo", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Cert, keyAlgo)},
+		{"certStr", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Cert, certStr)},
+		{"keyStr", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(Cert, keyStr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[LCert;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Cert, $values, $CertArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Cert, init$, void, $String*, int32_t, $String*, $String*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)LCert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cert, valueOf, Cert*, $String*)},
+		{"values", "()[LCert;", nullptr, $PUBLIC | $STATIC, $staticMethod(Cert, values, $CertArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"Cert",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<LCert;>;"
+	};
+	$loadClass(Cert, name, initialize, &classInfo$$, Cert::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Cert));
+	});
 	return class$;
 }
 

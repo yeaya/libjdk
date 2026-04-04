@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/WaveExtensibleFileReader$GUID.h>
-
 #include <com/sun/media/sound/RIFFReader.h>
 #include <com/sun/media/sound/WaveExtensibleFileReader.h>
 #include <jcpp.h>
@@ -14,55 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _WaveExtensibleFileReader$GUID_FieldInfo_[] = {
-	{"i1", "J", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, i1)},
-	{"s1", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, s1)},
-	{"s2", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, s2)},
-	{"x1", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x1)},
-	{"x2", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x2)},
-	{"x3", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x3)},
-	{"x4", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x4)},
-	{"x5", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x5)},
-	{"x6", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x6)},
-	{"x7", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x7)},
-	{"x8", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x8)},
-	{}
-};
-
-$MethodInfo _WaveExtensibleFileReader$GUID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(WaveExtensibleFileReader$GUID, init$, void)},
-	{"<init>", "(JIIIIIIIIII)V", nullptr, 0, $method(WaveExtensibleFileReader$GUID, init$, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WaveExtensibleFileReader$GUID, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WaveExtensibleFileReader$GUID, hashCode, int32_t)},
-	{"read", "(Lcom/sun/media/sound/RIFFReader;)Lcom/sun/media/sound/WaveExtensibleFileReader$GUID;", nullptr, $PUBLIC | $STATIC, $staticMethod(WaveExtensibleFileReader$GUID, read, WaveExtensibleFileReader$GUID*, $RIFFReader*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _WaveExtensibleFileReader$GUID_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.WaveExtensibleFileReader$GUID", "com.sun.media.sound.WaveExtensibleFileReader", "GUID", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _WaveExtensibleFileReader$GUID_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.WaveExtensibleFileReader$GUID",
-	"java.lang.Object",
-	nullptr,
-	_WaveExtensibleFileReader$GUID_FieldInfo_,
-	_WaveExtensibleFileReader$GUID_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WaveExtensibleFileReader$GUID_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.WaveExtensibleFileReader"
-};
-
-$Object* allocate$WaveExtensibleFileReader$GUID($Class* clazz) {
-	return $of($alloc(WaveExtensibleFileReader$GUID));
-}
 
 void WaveExtensibleFileReader$GUID::init$() {
 }
@@ -109,34 +59,34 @@ bool WaveExtensibleFileReader$GUID::equals(Object$* obj) {
 	if (this->i1 != $nc(t)->i1) {
 		return false;
 	}
-	if (this->s1 != $nc(t)->s1) {
+	if (this->s1 != t->s1) {
 		return false;
 	}
-	if (this->s2 != $nc(t)->s2) {
+	if (this->s2 != t->s2) {
 		return false;
 	}
-	if (this->x1 != $nc(t)->x1) {
+	if (this->x1 != t->x1) {
 		return false;
 	}
-	if (this->x2 != $nc(t)->x2) {
+	if (this->x2 != t->x2) {
 		return false;
 	}
-	if (this->x3 != $nc(t)->x3) {
+	if (this->x3 != t->x3) {
 		return false;
 	}
-	if (this->x4 != $nc(t)->x4) {
+	if (this->x4 != t->x4) {
 		return false;
 	}
-	if (this->x5 != $nc(t)->x5) {
+	if (this->x5 != t->x5) {
 		return false;
 	}
-	if (this->x6 != $nc(t)->x6) {
+	if (this->x6 != t->x6) {
 		return false;
 	}
-	if (this->x7 != $nc(t)->x7) {
+	if (this->x7 != t->x7) {
 		return false;
 	}
-	if (this->x8 != $nc(t)->x8) {
+	if (this->x8 != t->x8) {
 		return false;
 	}
 	return true;
@@ -146,7 +96,50 @@ WaveExtensibleFileReader$GUID::WaveExtensibleFileReader$GUID() {
 }
 
 $Class* WaveExtensibleFileReader$GUID::load$($String* name, bool initialize) {
-	$loadClass(WaveExtensibleFileReader$GUID, name, initialize, &_WaveExtensibleFileReader$GUID_ClassInfo_, allocate$WaveExtensibleFileReader$GUID);
+	$FieldInfo fieldInfos$$[] = {
+		{"i1", "J", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, i1)},
+		{"s1", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, s1)},
+		{"s2", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, s2)},
+		{"x1", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x1)},
+		{"x2", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x2)},
+		{"x3", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x3)},
+		{"x4", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x4)},
+		{"x5", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x5)},
+		{"x6", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x6)},
+		{"x7", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x7)},
+		{"x8", "I", nullptr, $PRIVATE, $field(WaveExtensibleFileReader$GUID, x8)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(WaveExtensibleFileReader$GUID, init$, void)},
+		{"<init>", "(JIIIIIIIIII)V", nullptr, 0, $method(WaveExtensibleFileReader$GUID, init$, void, int64_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WaveExtensibleFileReader$GUID, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WaveExtensibleFileReader$GUID, hashCode, int32_t)},
+		{"read", "(Lcom/sun/media/sound/RIFFReader;)Lcom/sun/media/sound/WaveExtensibleFileReader$GUID;", nullptr, $PUBLIC | $STATIC, $staticMethod(WaveExtensibleFileReader$GUID, read, WaveExtensibleFileReader$GUID*, $RIFFReader*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.WaveExtensibleFileReader$GUID", "com.sun.media.sound.WaveExtensibleFileReader", "GUID", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.WaveExtensibleFileReader$GUID",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.WaveExtensibleFileReader"
+	};
+	$loadClass(WaveExtensibleFileReader$GUID, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WaveExtensibleFileReader$GUID);
+	});
 	return class$;
 }
 

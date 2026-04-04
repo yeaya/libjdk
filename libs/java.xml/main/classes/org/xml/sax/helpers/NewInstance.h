@@ -25,6 +25,7 @@ class NewInstance : public ::java::lang::Object {
 	$class(NewInstance, 0, ::java::lang::Object)
 public:
 	NewInstance();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* newInstance($Class* type, ::java::lang::ClassLoader* loader, $String* clsName);
 	static $String* DEFAULT_PACKAGE;

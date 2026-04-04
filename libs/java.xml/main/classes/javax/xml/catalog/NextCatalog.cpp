@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/NextCatalog.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <javax/xml/catalog/AltCatalog.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
@@ -17,25 +16,6 @@ namespace javax {
 	namespace xml {
 		namespace catalog {
 
-$MethodInfo _NextCatalog_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NextCatalog, init$, void, $String*, $String*)},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NextCatalog, match, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _NextCatalog_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.xml.catalog.NextCatalog",
-	"javax.xml.catalog.AltCatalog",
-	nullptr,
-	nullptr,
-	_NextCatalog_MethodInfo_
-};
-
-$Object* allocate$NextCatalog($Class* clazz) {
-	return $of($alloc(NextCatalog));
-}
-
 void NextCatalog::init$($String* base, $String* catalog) {
 	$init($BaseEntry$CatalogEntryType);
 	$AltCatalog::init$($BaseEntry$CatalogEntryType::NEXTCATALOG, base);
@@ -51,7 +31,22 @@ NextCatalog::NextCatalog() {
 }
 
 $Class* NextCatalog::load$($String* name, bool initialize) {
-	$loadClass(NextCatalog, name, initialize, &_NextCatalog_ClassInfo_, allocate$NextCatalog);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NextCatalog, init$, void, $String*, $String*)},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NextCatalog, match, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.xml.catalog.NextCatalog",
+		"javax.xml.catalog.AltCatalog",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NextCatalog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NextCatalog);
+	});
 	return class$;
 }
 

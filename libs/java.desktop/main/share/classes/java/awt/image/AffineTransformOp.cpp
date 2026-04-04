@@ -1,9 +1,6 @@
 #include <java/awt/image/AffineTransformOp.h>
-
 #include <java/awt/AlphaComposite.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Graphics2D.h>
-#include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/RenderingHints$Key.h>
 #include <java/awt/RenderingHints.h>
@@ -22,7 +19,6 @@
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/RasterFormatException.h>
-#include <java/awt/image/RasterOp.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
@@ -49,13 +45,10 @@
 #undef VALUE_RENDER_SPEED
 
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Composite = ::java::awt::Composite;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Transparency = ::java::awt::Transparency;
-using $ColorSpace = ::java::awt::color::ColorSpace;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
@@ -69,7 +62,6 @@ using $ImagingOpException = ::java::awt::image::ImagingOpException;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $RasterFormatException = ::java::awt::image::RasterFormatException;
-using $RasterOp = ::java::awt::image::RasterOp;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -85,51 +77,6 @@ using $ImagingLib = ::sun::awt::image::ImagingLib;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _AffineTransformOp_FieldInfo_[] = {
-	{"xform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AffineTransformOp, xform)},
-	{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(AffineTransformOp, hints)},
-	{"TYPE_NEAREST_NEIGHBOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransformOp, TYPE_NEAREST_NEIGHBOR)},
-	{"TYPE_BILINEAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransformOp, TYPE_BILINEAR)},
-	{"TYPE_BICUBIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransformOp, TYPE_BICUBIC)},
-	{"interpolationType", "I", nullptr, 0, $field(AffineTransformOp, interpolationType)},
-	{}
-};
-
-$MethodInfo _AffineTransformOp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(AffineTransformOp, init$, void, $AffineTransform*, $RenderingHints*)},
-	{"<init>", "(Ljava/awt/geom/AffineTransform;I)V", nullptr, $PUBLIC, $method(AffineTransformOp, init$, void, $AffineTransform*, int32_t)},
-	{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(AffineTransformOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
-	{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(AffineTransformOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
-	{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
-	{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
-	{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
-	{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, getBounds2D, $Rectangle2D*, $Raster*)},
-	{"getInterpolationType", "()I", nullptr, $PUBLIC | $FINAL, $method(AffineTransformOp, getInterpolationType, int32_t)},
-	{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, getRenderingHints, $RenderingHints*)},
-	{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $FINAL, $method(AffineTransformOp, getTransform, $AffineTransform*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $virtualMethod(AffineTransformOp, validateTransform, void, $AffineTransform*)},
-	{}
-};
-
-$ClassInfo _AffineTransformOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.AffineTransformOp",
-	"java.lang.Object",
-	"java.awt.image.BufferedImageOp,java.awt.image.RasterOp",
-	_AffineTransformOp_FieldInfo_,
-	_AffineTransformOp_MethodInfo_
-};
-
-$Object* allocate$AffineTransformOp($Class* clazz) {
-	return $of($alloc(AffineTransformOp));
-}
 
 int32_t AffineTransformOp::hashCode() {
 	 return this->$BufferedImageOp::hashCode();
@@ -163,23 +110,15 @@ void AffineTransformOp::init$($AffineTransform* xform, $RenderingHints* hints) {
 			$assign(value, hints->get($RenderingHints::KEY_RENDERING));
 			if ($equals(value, $RenderingHints::VALUE_RENDER_SPEED)) {
 				this->interpolationType = AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
-			} else {
-				if ($equals(value, $RenderingHints::VALUE_RENDER_QUALITY)) {
-					this->interpolationType = AffineTransformOp::TYPE_BILINEAR;
-				}
+			} else if ($equals(value, $RenderingHints::VALUE_RENDER_QUALITY)) {
+				this->interpolationType = AffineTransformOp::TYPE_BILINEAR;
 			}
-		} else {
-			if ($equals(value, $RenderingHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR)) {
-				this->interpolationType = AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
-			} else {
-				if ($equals(value, $RenderingHints::VALUE_INTERPOLATION_BILINEAR)) {
-					this->interpolationType = AffineTransformOp::TYPE_BILINEAR;
-				} else {
-					if ($equals(value, $RenderingHints::VALUE_INTERPOLATION_BICUBIC)) {
-						this->interpolationType = AffineTransformOp::TYPE_BICUBIC;
-					}
-				}
-			}
+		} else if ($equals(value, $RenderingHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR)) {
+			this->interpolationType = AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
+		} else if ($equals(value, $RenderingHints::VALUE_INTERPOLATION_BILINEAR)) {
+			this->interpolationType = AffineTransformOp::TYPE_BILINEAR;
+		} else if ($equals(value, $RenderingHints::VALUE_INTERPOLATION_BICUBIC)) {
+			this->interpolationType = AffineTransformOp::TYPE_BICUBIC;
 		}
 	} else {
 		this->interpolationType = AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
@@ -187,23 +126,17 @@ void AffineTransformOp::init$($AffineTransform* xform, $RenderingHints* hints) {
 }
 
 void AffineTransformOp::init$($AffineTransform* xform, int32_t interpolationType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->interpolationType = AffineTransformOp::TYPE_NEAREST_NEIGHBOR;
 	validateTransform(xform);
 	$set(this, xform, $cast($AffineTransform, $nc(xform)->clone()));
 	switch (interpolationType) {
 	case AffineTransformOp::TYPE_NEAREST_NEIGHBOR:
-		{}
 	case AffineTransformOp::TYPE_BILINEAR:
-		{}
 	case AffineTransformOp::TYPE_BICUBIC:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unknown interpolation type: "_s, $$str(interpolationType)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unknown interpolation type: "_s, $$str(interpolationType)}));
 	}
 	this->interpolationType = interpolationType;
 }
@@ -213,7 +146,7 @@ int32_t AffineTransformOp::getInterpolationType() {
 }
 
 $BufferedImage* AffineTransformOp::filter($BufferedImage* src$renamed, $BufferedImage* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dst, dst$renamed);
 	$var($BufferedImage, src, src$renamed);
 	if (src == nullptr) {
@@ -231,11 +164,11 @@ $BufferedImage* AffineTransformOp::filter($BufferedImage* src$renamed, $Buffered
 		$assign(dstCM, srcCM);
 		$assign(origDst, dst);
 	} else {
-		$assign(dstCM, $nc(dst)->getColorModel());
-		int32_t var$0 = $nc($($nc(srcCM)->getColorSpace()))->getType();
-		if (var$0 != $nc($($nc(dstCM)->getColorSpace()))->getType()) {
+		$assign(dstCM, dst->getColorModel());
+		int32_t var$0 = $$nc($nc(srcCM)->getColorSpace())->getType();
+		if (var$0 != $$nc($nc(dstCM)->getColorSpace())->getType()) {
 			int32_t type = $nc(this->xform)->getType();
-			bool needTrans = (((int32_t)(type & (uint32_t)($AffineTransform::TYPE_MASK_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM))) != 0);
+			bool needTrans = ((type & ($AffineTransform::TYPE_MASK_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM)) != 0);
 			if (!needTrans && type != $AffineTransform::TYPE_TRANSLATION && type != $AffineTransform::TYPE_IDENTITY) {
 				$var($doubles, mtx, $new($doubles, 4));
 				$nc(this->xform)->getMatrix(mtx);
@@ -250,7 +183,7 @@ $BufferedImage* AffineTransformOp::filter($BufferedImage* src$renamed, $Buffered
 					$assign(tmpSrc, $new($BufferedImage, sw, sh, $BufferedImage::TYPE_INT_ARGB));
 				} else {
 					$var($WritableRaster, r, dstCM->createCompatibleWritableRaster(sw, sh));
-					$assign(tmpSrc, $new($BufferedImage, dstCM, r, dstCM->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+					$assign(tmpSrc, $new($BufferedImage, dstCM, r, dstCM->isAlphaPremultiplied(), nullptr));
 				}
 				$assign(src, ccop->filter(src, tmpSrc));
 			} else {
@@ -263,7 +196,7 @@ $BufferedImage* AffineTransformOp::filter($BufferedImage* src$renamed, $Buffered
 		int32_t var$1 = dst->getWidth();
 		$assign(dst, $new($BufferedImage, var$1, dst->getHeight(), $BufferedImage::TYPE_INT_ARGB));
 	}
-	if ($ImagingLib::filter(static_cast<$BufferedImageOp*>(this), src, dst) == nullptr) {
+	if ($ImagingLib::filter(this, src, dst) == nullptr) {
 		$throwNew($ImagingOpException, "Unable to transform src image"_s);
 	}
 	if (needToConvert) {
@@ -271,27 +204,25 @@ $BufferedImage* AffineTransformOp::filter($BufferedImage* src$renamed, $Buffered
 		ccop->filter(dst, origDst);
 	} else if (origDst != dst) {
 		$var($Graphics2D, g, $nc(origDst)->createGraphics());
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				$init($AlphaComposite);
-				$nc(g)->setComposite($AlphaComposite::Src);
-				g->drawImage(dst, 0, 0, nullptr);
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				$nc(g)->dispose();
-			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$init($AlphaComposite);
+			$nc(g)->setComposite($AlphaComposite::Src);
+			g->drawImage(dst, 0, 0, nullptr);
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 	return origDst;
 }
 
 $WritableRaster* AffineTransformOp::filter($Raster* src, $WritableRaster* dst$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, dst, dst$renamed);
 	if (src == nullptr) {
 		$throwNew($NullPointerException, "src image is null"_s);
@@ -304,31 +235,35 @@ $WritableRaster* AffineTransformOp::filter($Raster* src, $WritableRaster* dst$re
 	}
 	int32_t var$0 = $nc(src)->getNumBands();
 	if (var$0 != $nc(dst)->getNumBands()) {
-		$var($String, var$2, $$str({"Number of src bands ("_s, $$str(src->getNumBands()), ") does not match number of  dst bands ("_s}));
-		$var($String, var$1, $$concat(var$2, $$str(dst->getNumBands())));
-		$throwNew($IllegalArgumentException, $$concat(var$1, ")"_s));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("Number of src bands ("_s);
+		var$1->append(src->getNumBands());
+		var$1->append(") does not match number of  dst bands ("_s);
+		var$1->append(dst->getNumBands());
+		var$1->append(")"_s);
+		$throwNew($IllegalArgumentException, $$str(var$1));
 	}
-	if ($ImagingLib::filter(static_cast<$RasterOp*>(this), src, dst) == nullptr) {
+	if ($ImagingLib::filter(this, src, dst) == nullptr) {
 		$throwNew($ImagingOpException, "Unable to transform src image"_s);
 	}
 	return dst;
 }
 
 $Rectangle2D* AffineTransformOp::getBounds2D($BufferedImage* src) {
-	return getBounds2D($(static_cast<$Raster*>($nc(src)->getRaster())));
+	return getBounds2D($($nc(src)->getRaster()));
 }
 
 $Rectangle2D* AffineTransformOp::getBounds2D($Raster* src) {
 	int32_t w = $nc(src)->getWidth();
 	int32_t h = src->getHeight();
 	$var($floats, pts, $new($floats, {
-		(float)0,
-		(float)0,
+		0,
+		0,
 		(float)w,
-		(float)0,
+		0,
 		(float)w,
 		(float)h,
-		(float)0,
+		0,
 		(float)h
 	}));
 	$nc(this->xform)->transform(pts, 0, pts, 0, 4);
@@ -352,10 +287,10 @@ $Rectangle2D* AffineTransformOp::getBounds2D($Raster* src) {
 }
 
 $BufferedImage* AffineTransformOp::createCompatibleDestImage($BufferedImage* src, $ColorModel* destCM) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, image, nullptr);
-	$var($Rectangle, r, $nc($(getBounds2D(src)))->getBounds());
-	int32_t w = $nc(r)->x + r->width;
+	$var($Rectangle, r, $$nc(getBounds2D(src))->getBounds());
+	int32_t w = $nc(r)->x + $nc(r)->width;
 	int32_t h = r->y + r->height;
 	if (w <= 0) {
 		$throwNew($RasterFormatException, $$str({"Transformed width ("_s, $$str(w), ") is less than or equal to 0."_s}));
@@ -368,14 +303,12 @@ $BufferedImage* AffineTransformOp::createCompatibleDestImage($BufferedImage* src
 		if (this->interpolationType != AffineTransformOp::TYPE_NEAREST_NEIGHBOR && ($instanceOf($IndexColorModel, cm) || $nc(cm)->getTransparency() == $Transparency::OPAQUE)) {
 			$assign(image, $new($BufferedImage, w, h, $BufferedImage::TYPE_INT_ARGB));
 		} else {
-			$var($ColorModel, var$0, cm);
-			$var($WritableRaster, var$1, $nc($(src->getRaster()))->createCompatibleWritableRaster(w, h));
-			$assign(image, $new($BufferedImage, var$0, var$1, cm->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+			$var($WritableRaster, var$0, $$nc(src->getRaster())->createCompatibleWritableRaster(w, h));
+			$assign(image, $new($BufferedImage, cm, var$0, $nc(cm)->isAlphaPremultiplied(), nullptr));
 		}
 	} else {
-		$var($ColorModel, var$2, destCM);
-		$var($WritableRaster, var$3, $nc(destCM)->createCompatibleWritableRaster(w, h));
-		$assign(image, $new($BufferedImage, var$2, var$3, destCM->isAlphaPremultiplied(), ($Hashtable*)nullptr));
+		$var($WritableRaster, var$1, destCM->createCompatibleWritableRaster(w, h));
+		$assign(image, $new($BufferedImage, destCM, var$1, destCM->isAlphaPremultiplied(), nullptr));
 	}
 	return image;
 }
@@ -397,32 +330,24 @@ $AffineTransform* AffineTransformOp::getTransform() {
 }
 
 $RenderingHints* AffineTransformOp::getRenderingHints() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hints == nullptr) {
 		$var($Object, val, nullptr);
 		switch (this->interpolationType) {
 		case AffineTransformOp::TYPE_NEAREST_NEIGHBOR:
-			{
-				$init($RenderingHints);
-				$assign(val, $RenderingHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
-				break;
-			}
+			$init($RenderingHints);
+			$assign(val, $RenderingHints::VALUE_INTERPOLATION_NEAREST_NEIGHBOR);
+			break;
 		case AffineTransformOp::TYPE_BILINEAR:
-			{
-				$init($RenderingHints);
-				$assign(val, $RenderingHints::VALUE_INTERPOLATION_BILINEAR);
-				break;
-			}
+			$init($RenderingHints);
+			$assign(val, $RenderingHints::VALUE_INTERPOLATION_BILINEAR);
+			break;
 		case AffineTransformOp::TYPE_BICUBIC:
-			{
-				$init($RenderingHints);
-				$assign(val, $RenderingHints::VALUE_INTERPOLATION_BICUBIC);
-				break;
-			}
+			$init($RenderingHints);
+			$assign(val, $RenderingHints::VALUE_INTERPOLATION_BICUBIC);
+			break;
 		default:
-			{
-				$throwNew($InternalError, $$str({"Unknown interpolation type "_s, $$str(this->interpolationType)}));
-			}
+			$throwNew($InternalError, $$str({"Unknown interpolation type "_s, $$str(this->interpolationType)}));
 		}
 		$init($RenderingHints);
 		$set(this, hints, $new($RenderingHints, $RenderingHints::KEY_INTERPOLATION, val));
@@ -431,7 +356,6 @@ $RenderingHints* AffineTransformOp::getRenderingHints() {
 }
 
 void AffineTransformOp::validateTransform($AffineTransform* xform) {
-	$init($Double);
 	if ($Math::abs($nc(xform)->getDeterminant()) <= $Double::MIN_VALUE) {
 		$throwNew($ImagingOpException, $$str({"Unable to invert transform "_s, xform}));
 	}
@@ -441,7 +365,47 @@ AffineTransformOp::AffineTransformOp() {
 }
 
 $Class* AffineTransformOp::load$($String* name, bool initialize) {
-	$loadClass(AffineTransformOp, name, initialize, &_AffineTransformOp_ClassInfo_, allocate$AffineTransformOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"xform", "Ljava/awt/geom/AffineTransform;", nullptr, $PRIVATE, $field(AffineTransformOp, xform)},
+		{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(AffineTransformOp, hints)},
+		{"TYPE_NEAREST_NEIGHBOR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransformOp, TYPE_NEAREST_NEIGHBOR)},
+		{"TYPE_BILINEAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransformOp, TYPE_BILINEAR)},
+		{"TYPE_BICUBIC", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(AffineTransformOp, TYPE_BICUBIC)},
+		{"interpolationType", "I", nullptr, 0, $field(AffineTransformOp, interpolationType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(AffineTransformOp, init$, void, $AffineTransform*, $RenderingHints*)},
+		{"<init>", "(Ljava/awt/geom/AffineTransform;I)V", nullptr, $PUBLIC, $method(AffineTransformOp, init$, void, $AffineTransform*, int32_t)},
+		{"createCompatibleDestImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/ColorModel;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(AffineTransformOp, createCompatibleDestImage, $BufferedImage*, $BufferedImage*, $ColorModel*)},
+		{"createCompatibleDestRaster", "(Ljava/awt/image/Raster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(AffineTransformOp, createCompatibleDestRaster, $WritableRaster*, $Raster*)},
+		{"filter", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, filter, $BufferedImage*, $BufferedImage*, $BufferedImage*)},
+		{"filter", "(Ljava/awt/image/Raster;Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, filter, $WritableRaster*, $Raster*, $WritableRaster*)},
+		{"getBounds2D", "(Ljava/awt/image/BufferedImage;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, getBounds2D, $Rectangle2D*, $BufferedImage*)},
+		{"getBounds2D", "(Ljava/awt/image/Raster;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, getBounds2D, $Rectangle2D*, $Raster*)},
+		{"getInterpolationType", "()I", nullptr, $PUBLIC | $FINAL, $method(AffineTransformOp, getInterpolationType, int32_t)},
+		{"getPoint2D", "(Ljava/awt/geom/Point2D;Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, getPoint2D, $Point2D*, $Point2D*, $Point2D*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AffineTransformOp, getRenderingHints, $RenderingHints*)},
+		{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $FINAL, $method(AffineTransformOp, getTransform, $AffineTransform*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $virtualMethod(AffineTransformOp, validateTransform, void, $AffineTransform*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.AffineTransformOp",
+		"java.lang.Object",
+		"java.awt.image.BufferedImageOp,java.awt.image.RasterOp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AffineTransformOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AffineTransformOp));
+	});
 	return class$;
 }
 

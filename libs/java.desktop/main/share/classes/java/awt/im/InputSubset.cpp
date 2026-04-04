@@ -1,5 +1,4 @@
 #include <java/awt/im/InputSubset.h>
-
 #include <java/lang/Character$Subset.h>
 #include <jcpp.h>
 
@@ -23,45 +22,6 @@ namespace java {
 	namespace awt {
 		namespace im {
 
-$FieldInfo _InputSubset_FieldInfo_[] = {
-	{"LATIN", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, LATIN)},
-	{"LATIN_DIGITS", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, LATIN_DIGITS)},
-	{"TRADITIONAL_HANZI", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, TRADITIONAL_HANZI)},
-	{"SIMPLIFIED_HANZI", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, SIMPLIFIED_HANZI)},
-	{"KANJI", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, KANJI)},
-	{"HANJA", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, HANJA)},
-	{"HALFWIDTH_KATAKANA", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, HALFWIDTH_KATAKANA)},
-	{"FULLWIDTH_LATIN", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, FULLWIDTH_LATIN)},
-	{"FULLWIDTH_DIGITS", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, FULLWIDTH_DIGITS)},
-	{}
-};
-
-$MethodInfo _InputSubset_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InputSubset, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _InputSubset_InnerClassesInfo_[] = {
-	{"java.lang.Character$Subset", "java.lang.Character", "Subset", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _InputSubset_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.im.InputSubset",
-	"java.lang.Character$Subset",
-	nullptr,
-	_InputSubset_FieldInfo_,
-	_InputSubset_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InputSubset_InnerClassesInfo_
-};
-
-$Object* allocate$InputSubset($Class* clazz) {
-	return $of($alloc(InputSubset));
-}
-
 InputSubset* InputSubset::LATIN = nullptr;
 InputSubset* InputSubset::LATIN_DIGITS = nullptr;
 InputSubset* InputSubset::TRADITIONAL_HANZI = nullptr;
@@ -76,7 +36,7 @@ void InputSubset::init$($String* name) {
 	$Character$Subset::init$(name);
 }
 
-void clinit$InputSubset($Class* class$) {
+void InputSubset::clinit$($Class* clazz) {
 	$assignStatic(InputSubset::LATIN, $new(InputSubset, "LATIN"_s));
 	$assignStatic(InputSubset::LATIN_DIGITS, $new(InputSubset, "LATIN_DIGITS"_s));
 	$assignStatic(InputSubset::TRADITIONAL_HANZI, $new(InputSubset, "TRADITIONAL_HANZI"_s));
@@ -92,7 +52,40 @@ InputSubset::InputSubset() {
 }
 
 $Class* InputSubset::load$($String* name, bool initialize) {
-	$loadClass(InputSubset, name, initialize, &_InputSubset_ClassInfo_, clinit$InputSubset, allocate$InputSubset);
+	$FieldInfo fieldInfos$$[] = {
+		{"LATIN", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, LATIN)},
+		{"LATIN_DIGITS", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, LATIN_DIGITS)},
+		{"TRADITIONAL_HANZI", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, TRADITIONAL_HANZI)},
+		{"SIMPLIFIED_HANZI", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, SIMPLIFIED_HANZI)},
+		{"KANJI", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, KANJI)},
+		{"HANJA", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, HANJA)},
+		{"HALFWIDTH_KATAKANA", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, HALFWIDTH_KATAKANA)},
+		{"FULLWIDTH_LATIN", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, FULLWIDTH_LATIN)},
+		{"FULLWIDTH_DIGITS", "Ljava/awt/im/InputSubset;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InputSubset, FULLWIDTH_DIGITS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(InputSubset, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.Character$Subset", "java.lang.Character", "Subset", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.im.InputSubset",
+		"java.lang.Character$Subset",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(InputSubset, name, initialize, &classInfo$$, InputSubset::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InputSubset);
+	});
 	return class$;
 }
 

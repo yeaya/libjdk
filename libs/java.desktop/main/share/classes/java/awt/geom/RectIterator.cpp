@@ -1,5 +1,4 @@
 #include <java/awt/geom/RectIterator.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -22,39 +21,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _RectIterator_FieldInfo_[] = {
-	{"x", "D", nullptr, 0, $field(RectIterator, x)},
-	{"y", "D", nullptr, 0, $field(RectIterator, y)},
-	{"w", "D", nullptr, 0, $field(RectIterator, w)},
-	{"h", "D", nullptr, 0, $field(RectIterator, h)},
-	{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(RectIterator, affine)},
-	{"index", "I", nullptr, 0, $field(RectIterator, index)},
-	{}
-};
-
-$MethodInfo _RectIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(RectIterator, init$, void, $Rectangle2D*, $AffineTransform*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(RectIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(RectIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(RectIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(RectIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(RectIterator, next, void)},
-	{}
-};
-
-$ClassInfo _RectIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.geom.RectIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_RectIterator_FieldInfo_,
-	_RectIterator_MethodInfo_
-};
-
-$Object* allocate$RectIterator($Class* clazz) {
-	return $of($alloc(RectIterator));
-}
 
 void RectIterator::init$($Rectangle2D* r, $AffineTransform* at) {
 	this->x = $nc(r)->getX();
@@ -95,7 +61,7 @@ int32_t RectIterator::currentSegment($floats* coords) {
 		(*coords)[1] += (float)this->h;
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+		this->affine->transform(coords, 0, coords, 0, 1);
 	}
 	return (this->index == 0 ? $PathIterator::SEG_MOVETO : $PathIterator::SEG_LINETO);
 }
@@ -116,7 +82,7 @@ int32_t RectIterator::currentSegment($doubles* coords) {
 		(*coords)[1] += this->h;
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+		this->affine->transform(coords, 0, coords, 0, 1);
 	}
 	return (this->index == 0 ? $PathIterator::SEG_MOVETO : $PathIterator::SEG_LINETO);
 }
@@ -125,7 +91,35 @@ RectIterator::RectIterator() {
 }
 
 $Class* RectIterator::load$($String* name, bool initialize) {
-	$loadClass(RectIterator, name, initialize, &_RectIterator_ClassInfo_, allocate$RectIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "D", nullptr, 0, $field(RectIterator, x)},
+		{"y", "D", nullptr, 0, $field(RectIterator, y)},
+		{"w", "D", nullptr, 0, $field(RectIterator, w)},
+		{"h", "D", nullptr, 0, $field(RectIterator, h)},
+		{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(RectIterator, affine)},
+		{"index", "I", nullptr, 0, $field(RectIterator, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/Rectangle2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(RectIterator, init$, void, $Rectangle2D*, $AffineTransform*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(RectIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(RectIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(RectIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(RectIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(RectIterator, next, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.geom.RectIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RectIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RectIterator);
+	});
 	return class$;
 }
 

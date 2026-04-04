@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftSincResampler.h>
-
 #include <com/sun/media/sound/SoftAbstractResampler.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -21,40 +20,8 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftSincResampler_FieldInfo_[] = {
-	{"sinc_table", "[[[F", nullptr, 0, $field(SoftSincResampler, sinc_table)},
-	{"sinc_scale_size", "I", nullptr, 0, $field(SoftSincResampler, sinc_scale_size)},
-	{"sinc_table_fsize", "I", nullptr, 0, $field(SoftSincResampler, sinc_table_fsize)},
-	{"sinc_table_size", "I", nullptr, 0, $field(SoftSincResampler, sinc_table_size)},
-	{"sinc_table_center", "I", nullptr, 0, $field(SoftSincResampler, sinc_table_center)},
-	{}
-};
-
-$MethodInfo _SoftSincResampler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftSincResampler, init$, void)},
-	{"getPadding", "()I", nullptr, $PUBLIC, $virtualMethod(SoftSincResampler, getPadding, int32_t)},
-	{"interpolate", "([F[FF[FF[F[II)V", nullptr, $PUBLIC, $virtualMethod(SoftSincResampler, interpolate, void, $floats*, $floats*, float, $floats*, float, $floats*, $ints*, int32_t)},
-	{"sinc", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(SoftSincResampler, sinc, double, double)},
-	{"sincTable", "(IFF)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(SoftSincResampler, sincTable, $floats*, int32_t, float, float)},
-	{"wHanning", "(IF)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(SoftSincResampler, wHanning, $floats*, int32_t, float)},
-	{}
-};
-
-$ClassInfo _SoftSincResampler_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftSincResampler",
-	"com.sun.media.sound.SoftAbstractResampler",
-	nullptr,
-	_SoftSincResampler_FieldInfo_,
-	_SoftSincResampler_MethodInfo_
-};
-
-$Object* allocate$SoftSincResampler($Class* clazz) {
-	return $of($alloc(SoftSincResampler));
-}
-
 void SoftSincResampler::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SoftAbstractResampler::init$();
 	this->sinc_scale_size = 100;
 	this->sinc_table_fsize = 800;
@@ -100,7 +67,7 @@ int32_t SoftSincResampler::getPadding() {
 }
 
 void SoftSincResampler::interpolate($floats* in, $floats* in_offset, float in_end, $floats* startpitch, float pitchstep, $floats* out, $ints* out_offset, int32_t out_end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float pitch = $nc(startpitch)->get(0);
 	float ix = $nc(in_offset)->get(0);
 	int32_t ox = $nc(out_offset)->get(0);
@@ -119,7 +86,7 @@ void SoftSincResampler::interpolate($floats* in, $floats* in_offset, float in_en
 			int32_t iix = $cast(int32_t, ix);
 			$var($floats, sinc_table, $nc(sinc_table_f)->get($cast(int32_t, ((ix - iix) * this->sinc_table_fsize))));
 			int32_t xx = iix - this->sinc_table_center;
-			float y = (float)0;
+			float y = 0;
 			for (int32_t i = 0; i < this->sinc_table_size; ++i, ++xx) {
 				y += $nc(in)->get(xx) * $nc(sinc_table)->get(i);
 			}
@@ -138,7 +105,7 @@ void SoftSincResampler::interpolate($floats* in, $floats* in_offset, float in_en
 			$var($floatArray2, sinc_table_f, $nc(this->sinc_table)->get(p));
 			$var($floats, sinc_table, $nc(sinc_table_f)->get($cast(int32_t, ((ix - iix) * this->sinc_table_fsize))));
 			int32_t xx = iix - this->sinc_table_center;
-			float y = (float)0;
+			float y = 0;
 			for (int32_t i = 0; i < this->sinc_table_size; ++i, ++xx) {
 				y += $nc(in)->get(xx) * $nc(sinc_table)->get(i);
 			}
@@ -156,7 +123,34 @@ SoftSincResampler::SoftSincResampler() {
 }
 
 $Class* SoftSincResampler::load$($String* name, bool initialize) {
-	$loadClass(SoftSincResampler, name, initialize, &_SoftSincResampler_ClassInfo_, allocate$SoftSincResampler);
+	$FieldInfo fieldInfos$$[] = {
+		{"sinc_table", "[[[F", nullptr, 0, $field(SoftSincResampler, sinc_table)},
+		{"sinc_scale_size", "I", nullptr, 0, $field(SoftSincResampler, sinc_scale_size)},
+		{"sinc_table_fsize", "I", nullptr, 0, $field(SoftSincResampler, sinc_table_fsize)},
+		{"sinc_table_size", "I", nullptr, 0, $field(SoftSincResampler, sinc_table_size)},
+		{"sinc_table_center", "I", nullptr, 0, $field(SoftSincResampler, sinc_table_center)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftSincResampler, init$, void)},
+		{"getPadding", "()I", nullptr, $PUBLIC, $virtualMethod(SoftSincResampler, getPadding, int32_t)},
+		{"interpolate", "([F[FF[FF[F[II)V", nullptr, $PUBLIC, $virtualMethod(SoftSincResampler, interpolate, void, $floats*, $floats*, float, $floats*, float, $floats*, $ints*, int32_t)},
+		{"sinc", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(SoftSincResampler, sinc, double, double)},
+		{"sincTable", "(IFF)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(SoftSincResampler, sincTable, $floats*, int32_t, float, float)},
+		{"wHanning", "(IF)[F", nullptr, $PUBLIC | $STATIC, $staticMethod(SoftSincResampler, wHanning, $floats*, int32_t, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftSincResampler",
+		"com.sun.media.sound.SoftAbstractResampler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SoftSincResampler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftSincResampler);
+	});
 	return class$;
 }
 

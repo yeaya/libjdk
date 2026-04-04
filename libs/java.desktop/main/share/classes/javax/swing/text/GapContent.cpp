@@ -1,5 +1,4 @@
 #include <javax/swing/text/GapContent.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/Math.h>
 #include <java/lang/ref/Reference.h>
@@ -46,79 +45,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _GapContent_FieldInfo_[] = {
-	{"empty", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GapContent, empty)},
-	{"marks", "Ljavax/swing/text/GapContent$MarkVector;", nullptr, $PRIVATE | $TRANSIENT, $field(GapContent, marks)},
-	{"search", "Ljavax/swing/text/GapContent$MarkData;", nullptr, $PRIVATE | $TRANSIENT, $field(GapContent, search)},
-	{"unusedMarks", "I", nullptr, $PRIVATE | $TRANSIENT, $field(GapContent, unusedMarks)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljavax/swing/text/GapContent$StickyPosition;>;", $PRIVATE | $TRANSIENT, $field(GapContent, queue)},
-	{"GROWTH_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(GapContent, GROWTH_SIZE)},
-	{}
-};
-
-$MethodInfo _GapContent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GapContent, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(GapContent, init$, void, int32_t)},
-	{"allocateArray", "(I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(GapContent, allocateArray, $Object*, int32_t)},
-	{"compare", "(Ljavax/swing/text/GapContent$MarkData;Ljavax/swing/text/GapContent$MarkData;)I", nullptr, $FINAL, $method(GapContent, compare, int32_t, $GapContent$MarkData*, $GapContent$MarkData*)},
-	{"createPosition", "(I)Ljavax/swing/text/Position;", nullptr, $PUBLIC, $virtualMethod(GapContent, createPosition, $Position*, int32_t), "javax.swing.text.BadLocationException"},
-	{"findMarkAdjustIndex", "(I)I", nullptr, $FINAL, $method(GapContent, findMarkAdjustIndex, int32_t, int32_t)},
-	{"findSortIndex", "(Ljavax/swing/text/GapContent$MarkData;)I", nullptr, $FINAL, $method(GapContent, findSortIndex, int32_t, $GapContent$MarkData*)},
-	{"getArrayLength", "()I", nullptr, $PROTECTED, $virtualMethod(GapContent, getArrayLength, int32_t)},
-	{"getChars", "(IILjavax/swing/text/Segment;)V", nullptr, $PUBLIC, $virtualMethod(GapContent, getChars, void, int32_t, int32_t, $Segment*), "javax.swing.text.BadLocationException"},
-	{"getNewArraySize", "(I)I", nullptr, 0, $virtualMethod(GapContent, getNewArraySize, int32_t, int32_t)},
-	{"getPositionsInRange", "(Ljava/util/Vector;II)Ljava/util/Vector;", nullptr, $PROTECTED, $virtualMethod(GapContent, getPositionsInRange, $Vector*, $Vector*, int32_t, int32_t)},
-	{"getString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GapContent, getString, $String*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"insertString", "(ILjava/lang/String;)Ljavax/swing/undo/UndoableEdit;", nullptr, $PUBLIC, $virtualMethod(GapContent, insertString, $UndoableEdit*, int32_t, $String*), "javax.swing.text.BadLocationException"},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(GapContent, length, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(GapContent, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"remove", "(II)Ljavax/swing/undo/UndoableEdit;", nullptr, $PUBLIC, $virtualMethod(GapContent, remove, $UndoableEdit*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"removeUnusedMarks", "()V", nullptr, $FINAL, $method(GapContent, removeUnusedMarks, void)},
-	{"resetMarksAtZero", "()V", nullptr, $PROTECTED, $virtualMethod(GapContent, resetMarksAtZero, void)},
-	{"resize", "(I)V", nullptr, 0, $virtualMethod(GapContent, resize, void, int32_t)},
-	{"shiftEnd", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapContent, shiftEnd, void, int32_t)},
-	{"shiftGap", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapContent, shiftGap, void, int32_t)},
-	{"shiftGapEndUp", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapContent, shiftGapEndUp, void, int32_t)},
-	{"shiftGapStartDown", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapContent, shiftGapStartDown, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUndoPositions", "(Ljava/util/Vector;II)V", nullptr, $PROTECTED, $virtualMethod(GapContent, updateUndoPositions, void, $Vector*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GapContent_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$Content", "javax.swing.text.AbstractDocument", "Content", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.text.GapContent$RemoveUndo", "javax.swing.text.GapContent", "RemoveUndo", 0},
-	{"javax.swing.text.GapContent$InsertUndo", "javax.swing.text.GapContent", "InsertUndo", 0},
-	{"javax.swing.text.GapContent$UndoPosRef", "javax.swing.text.GapContent", "UndoPosRef", $FINAL},
-	{"javax.swing.text.GapContent$MarkVector", "javax.swing.text.GapContent", "MarkVector", $STATIC},
-	{"javax.swing.text.GapContent$StickyPosition", "javax.swing.text.GapContent", "StickyPosition", $FINAL},
-	{"javax.swing.text.GapContent$MarkData", "javax.swing.text.GapContent", "MarkData", $FINAL},
-	{}
-};
-
-$ClassInfo _GapContent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.GapContent",
-	"javax.swing.text.GapVector",
-	"javax.swing.text.AbstractDocument$Content",
-	_GapContent_FieldInfo_,
-	_GapContent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GapContent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GapContent$RemoveUndo,javax.swing.text.GapContent$InsertUndo,javax.swing.text.GapContent$UndoPosRef,javax.swing.text.GapContent$MarkVector,javax.swing.text.GapContent$StickyPosition,javax.swing.text.GapContent$MarkData"
-};
-
-$Object* allocate$GapContent($Class* clazz) {
-	return $of($alloc(GapContent));
-}
-
 int32_t GapContent::hashCode() {
 	 return this->$GapVector::hashCode();
 }
@@ -157,7 +83,7 @@ void GapContent::init$(int32_t initialLength) {
 }
 
 $Object* GapContent::allocateArray(int32_t len) {
-	return $of($new($chars, len));
+	return $new($chars, len);
 }
 
 int32_t GapContent::getArrayLength() {
@@ -189,7 +115,7 @@ $UndoableEdit* GapContent::insertString(int32_t where, $String* str) {
 }
 
 $UndoableEdit* GapContent::remove(int32_t where, int32_t nitems) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (where + nitems >= length()) {
 		$throwNew($BadLocationException, "Invalid remove"_s, length() + 1);
 	}
@@ -234,7 +160,7 @@ void GapContent::getChars(int32_t where, int32_t len, $Segment* chars) {
 			chars->count = before;
 			return;
 		}
-		$set($nc(chars), array, $new($chars, len));
+		$set(chars, array, $new($chars, len));
 		chars->copy = true;
 		chars->offset = 0;
 		$System::arraycopy(array, where, chars->array, 0, before);
@@ -244,7 +170,7 @@ void GapContent::getChars(int32_t where, int32_t len, $Segment* chars) {
 }
 
 $Position* GapContent::createPosition(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->queue)->poll() != nullptr) {
 		++this->unusedMarks;
 	}
@@ -259,7 +185,7 @@ $Position* GapContent::createPosition(int32_t offset) {
 	$var($GapContent$MarkData, m, nullptr);
 	$var($GapContent$StickyPosition, position, nullptr);
 	bool var$1 = sortIndex < $nc(this->marks)->size();
-	bool var$0 = var$1 && $nc(($assign(m, $nc(this->marks)->elementAt(sortIndex))))->index == index;
+	bool var$0 = var$1 && $nc(($assign(m, this->marks->elementAt(sortIndex))))->index == index;
 	if (var$0 && ($assign(position, $nc(m)->getPosition())) != nullptr) {
 	} else {
 		$assign(position, $new($GapContent$StickyPosition, this));
@@ -271,7 +197,7 @@ $Position* GapContent::createPosition(int32_t offset) {
 }
 
 void GapContent::shiftEnd(int32_t newSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldGapEnd = getGapEnd();
 	$GapVector::shiftEnd(newSize);
 	int32_t dg = getGapEnd() - oldGapEnd;
@@ -292,7 +218,7 @@ int32_t GapContent::getNewArraySize(int32_t reqSize) {
 }
 
 void GapContent::shiftGap(int32_t newGapStart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldGapStart = getGapStart();
 	int32_t dg = newGapStart - oldGapStart;
 	int32_t oldGapEnd = getGapEnd();
@@ -307,7 +233,7 @@ void GapContent::shiftGap(int32_t newGapStart) {
 			if ($nc(mark)->index >= newGapEnd) {
 				break;
 			}
-			$nc(mark)->index -= gapSize;
+			mark->index -= gapSize;
 		}
 	} else if (dg < 0) {
 		int32_t adjustIndex = findMarkAdjustIndex(newGapStart);
@@ -317,33 +243,29 @@ void GapContent::shiftGap(int32_t newGapStart) {
 			if ($nc(mark)->index >= oldGapEnd) {
 				break;
 			}
-			$nc(mark)->index += gapSize;
+			mark->index += gapSize;
 		}
 	}
 	resetMarksAtZero();
 }
 
 void GapContent::resetMarksAtZero() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->marks != nullptr && getGapStart() == 0) {
 		int32_t g1 = getGapEnd();
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = $nc(this->marks)->size();
-			for (; counter < maxCounter; ++counter) {
-				$var($GapContent$MarkData, mark, $nc(this->marks)->elementAt(counter));
-				if ($nc(mark)->index <= g1) {
-					mark->index = 0;
-				} else {
-					break;
-				}
+		for (int32_t counter = 0, maxCounter = $nc(this->marks)->size(); counter < maxCounter; ++counter) {
+			$var($GapContent$MarkData, mark, $nc(this->marks)->elementAt(counter));
+			if ($nc(mark)->index <= g1) {
+				mark->index = 0;
+			} else {
+				break;
 			}
 		}
 	}
 }
 
 void GapContent::shiftGapStartDown(int32_t newGapStart) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t adjustIndex = findMarkAdjustIndex(newGapStart);
 	int32_t n = $nc(this->marks)->size();
 	int32_t g0 = getGapStart();
@@ -353,14 +275,14 @@ void GapContent::shiftGapStartDown(int32_t newGapStart) {
 		if ($nc(mark)->index > g0) {
 			break;
 		}
-		$nc(mark)->index = g1;
+		mark->index = g1;
 	}
 	$GapVector::shiftGapStartDown(newGapStart);
 	resetMarksAtZero();
 }
 
 void GapContent::shiftGapEndUp(int32_t newGapEnd) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t adjustIndex = findMarkAdjustIndex(getGapEnd());
 	int32_t n = $nc(this->marks)->size();
 	for (int32_t i = adjustIndex; i < n; ++i) {
@@ -368,7 +290,7 @@ void GapContent::shiftGapEndUp(int32_t newGapEnd) {
 		if ($nc(mark)->index >= newGapEnd) {
 			break;
 		}
-		$nc(mark)->index = newGapEnd;
+		mark->index = newGapEnd;
 	}
 	$GapVector::shiftGapEndUp(newGapEnd);
 	resetMarksAtZero();
@@ -385,7 +307,7 @@ int32_t GapContent::compare($GapContent$MarkData* o1, $GapContent$MarkData* o2) 
 }
 
 int32_t GapContent::findMarkAdjustIndex(int32_t searchIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->search)->index = $Math::max(searchIndex, 1);
 	int32_t index = findSortIndex(this->search);
 	for (int32_t i = index - 1; i >= 0; --i) {
@@ -399,7 +321,7 @@ int32_t GapContent::findMarkAdjustIndex(int32_t searchIndex) {
 }
 
 int32_t GapContent::findSortIndex($GapContent$MarkData* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lower = 0;
 	int32_t upper = $nc(this->marks)->size() - 1;
 	int32_t mid = 0;
@@ -428,7 +350,7 @@ int32_t GapContent::findSortIndex($GapContent$MarkData* o) {
 }
 
 void GapContent::removeUnusedMarks() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(this->marks)->size();
 	$var($GapContent$MarkVector, cleaned, $new($GapContent$MarkVector, n));
 	for (int32_t i = 0; i < n; ++i) {
@@ -449,7 +371,7 @@ void GapContent::readObject($ObjectInputStream* s) {
 }
 
 $Vector* GapContent::getPositionsInRange($Vector* v, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t endOffset = offset + length;
 	int32_t startIndex = 0;
 	int32_t endIndex = 0;
@@ -478,7 +400,7 @@ $Vector* GapContent::getPositionsInRange($Vector* v, int32_t offset, int32_t len
 }
 
 void GapContent::updateUndoPositions($Vector* positions, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t endOffset = offset + length;
 	int32_t g1 = getGapEnd();
 	int32_t startIndex = 0;
@@ -527,7 +449,7 @@ void GapContent::updateUndoPositions($Vector* positions, int32_t offset, int32_t
 	}
 }
 
-void clinit$GapContent($Class* class$) {
+void GapContent::clinit$($Class* clazz) {
 	$assignStatic(GapContent::empty, $new($chars, 0));
 }
 
@@ -535,7 +457,74 @@ GapContent::GapContent() {
 }
 
 $Class* GapContent::load$($String* name, bool initialize) {
-	$loadClass(GapContent, name, initialize, &_GapContent_ClassInfo_, clinit$GapContent, allocate$GapContent);
+	$FieldInfo fieldInfos$$[] = {
+		{"empty", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GapContent, empty)},
+		{"marks", "Ljavax/swing/text/GapContent$MarkVector;", nullptr, $PRIVATE | $TRANSIENT, $field(GapContent, marks)},
+		{"search", "Ljavax/swing/text/GapContent$MarkData;", nullptr, $PRIVATE | $TRANSIENT, $field(GapContent, search)},
+		{"unusedMarks", "I", nullptr, $PRIVATE | $TRANSIENT, $field(GapContent, unusedMarks)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljavax/swing/text/GapContent$StickyPosition;>;", $PRIVATE | $TRANSIENT, $field(GapContent, queue)},
+		{"GROWTH_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(GapContent, GROWTH_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GapContent, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(GapContent, init$, void, int32_t)},
+		{"allocateArray", "(I)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(GapContent, allocateArray, $Object*, int32_t)},
+		{"compare", "(Ljavax/swing/text/GapContent$MarkData;Ljavax/swing/text/GapContent$MarkData;)I", nullptr, $FINAL, $method(GapContent, compare, int32_t, $GapContent$MarkData*, $GapContent$MarkData*)},
+		{"createPosition", "(I)Ljavax/swing/text/Position;", nullptr, $PUBLIC, $virtualMethod(GapContent, createPosition, $Position*, int32_t), "javax.swing.text.BadLocationException"},
+		{"findMarkAdjustIndex", "(I)I", nullptr, $FINAL, $method(GapContent, findMarkAdjustIndex, int32_t, int32_t)},
+		{"findSortIndex", "(Ljavax/swing/text/GapContent$MarkData;)I", nullptr, $FINAL, $method(GapContent, findSortIndex, int32_t, $GapContent$MarkData*)},
+		{"getArrayLength", "()I", nullptr, $PROTECTED, $virtualMethod(GapContent, getArrayLength, int32_t)},
+		{"getChars", "(IILjavax/swing/text/Segment;)V", nullptr, $PUBLIC, $virtualMethod(GapContent, getChars, void, int32_t, int32_t, $Segment*), "javax.swing.text.BadLocationException"},
+		{"getNewArraySize", "(I)I", nullptr, 0, $virtualMethod(GapContent, getNewArraySize, int32_t, int32_t)},
+		{"getPositionsInRange", "(Ljava/util/Vector;II)Ljava/util/Vector;", nullptr, $PROTECTED, $virtualMethod(GapContent, getPositionsInRange, $Vector*, $Vector*, int32_t, int32_t)},
+		{"getString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GapContent, getString, $String*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"insertString", "(ILjava/lang/String;)Ljavax/swing/undo/UndoableEdit;", nullptr, $PUBLIC, $virtualMethod(GapContent, insertString, $UndoableEdit*, int32_t, $String*), "javax.swing.text.BadLocationException"},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(GapContent, length, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(GapContent, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"remove", "(II)Ljavax/swing/undo/UndoableEdit;", nullptr, $PUBLIC, $virtualMethod(GapContent, remove, $UndoableEdit*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"removeUnusedMarks", "()V", nullptr, $FINAL, $method(GapContent, removeUnusedMarks, void)},
+		{"resetMarksAtZero", "()V", nullptr, $PROTECTED, $virtualMethod(GapContent, resetMarksAtZero, void)},
+		{"resize", "(I)V", nullptr, 0, $virtualMethod(GapContent, resize, void, int32_t)},
+		{"shiftEnd", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapContent, shiftEnd, void, int32_t)},
+		{"shiftGap", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapContent, shiftGap, void, int32_t)},
+		{"shiftGapEndUp", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapContent, shiftGapEndUp, void, int32_t)},
+		{"shiftGapStartDown", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapContent, shiftGapStartDown, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUndoPositions", "(Ljava/util/Vector;II)V", nullptr, $PROTECTED, $virtualMethod(GapContent, updateUndoPositions, void, $Vector*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$Content", "javax.swing.text.AbstractDocument", "Content", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.text.GapContent$RemoveUndo", "javax.swing.text.GapContent", "RemoveUndo", 0},
+		{"javax.swing.text.GapContent$InsertUndo", "javax.swing.text.GapContent", "InsertUndo", 0},
+		{"javax.swing.text.GapContent$UndoPosRef", "javax.swing.text.GapContent", "UndoPosRef", $FINAL},
+		{"javax.swing.text.GapContent$MarkVector", "javax.swing.text.GapContent", "MarkVector", $STATIC},
+		{"javax.swing.text.GapContent$StickyPosition", "javax.swing.text.GapContent", "StickyPosition", $FINAL},
+		{"javax.swing.text.GapContent$MarkData", "javax.swing.text.GapContent", "MarkData", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.GapContent",
+		"javax.swing.text.GapVector",
+		"javax.swing.text.AbstractDocument$Content",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GapContent$RemoveUndo,javax.swing.text.GapContent$InsertUndo,javax.swing.text.GapContent$UndoPosRef,javax.swing.text.GapContent$MarkVector,javax.swing.text.GapContent$StickyPosition,javax.swing.text.GapContent$MarkData"
+	};
+	$loadClass(GapContent, name, initialize, &classInfo$$, GapContent::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GapContent));
+	});
 	return class$;
 }
 

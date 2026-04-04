@@ -1,5 +1,4 @@
 #include <javax/sound/midi/MidiDeviceReceiver.h>
-
 #include <javax/sound/midi/MidiDevice.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$MethodInfo _MidiDeviceReceiver_MethodInfo_[] = {
-	{"getMidiDevice", "()Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MidiDeviceReceiver, getMidiDevice, $MidiDevice*)},
-	{}
-};
-
-$ClassInfo _MidiDeviceReceiver_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sound.midi.MidiDeviceReceiver",
-	nullptr,
-	"javax.sound.midi.Receiver",
-	nullptr,
-	_MidiDeviceReceiver_MethodInfo_
-};
-
-$Object* allocate$MidiDeviceReceiver($Class* clazz) {
-	return $of($alloc(MidiDeviceReceiver));
-}
-
 $Class* MidiDeviceReceiver::load$($String* name, bool initialize) {
-	$loadClass(MidiDeviceReceiver, name, initialize, &_MidiDeviceReceiver_ClassInfo_, allocate$MidiDeviceReceiver);
+	$MethodInfo methodInfos$$[] = {
+		{"getMidiDevice", "()Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MidiDeviceReceiver, getMidiDevice, $MidiDevice*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sound.midi.MidiDeviceReceiver",
+		nullptr,
+		"javax.sound.midi.Receiver",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MidiDeviceReceiver, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiDeviceReceiver);
+	});
 	return class$;
 }
 

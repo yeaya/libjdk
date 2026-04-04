@@ -1,5 +1,4 @@
 #include <HeadlessJTextArea$2.h>
-
 #include <HeadlessJTextArea.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJTextArea$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJTextArea$2, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJTextArea$2_EnclosingMethodInfo_ = {
-	"HeadlessJTextArea",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJTextArea$2_InnerClassesInfo_[] = {
-	{"HeadlessJTextArea$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJTextArea$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJTextArea$2",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJTextArea$2_MethodInfo_,
-	nullptr,
-	&_HeadlessJTextArea$2_EnclosingMethodInfo_,
-	_HeadlessJTextArea$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJTextArea"
-};
-
-$Object* allocate$HeadlessJTextArea$2($Class* clazz) {
-	return $of($alloc(HeadlessJTextArea$2));
-}
-
 void HeadlessJTextArea$2::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJTextArea$2::HeadlessJTextArea$2() {
 }
 
 $Class* HeadlessJTextArea$2::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJTextArea$2, name, initialize, &_HeadlessJTextArea$2_ClassInfo_, allocate$HeadlessJTextArea$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJTextArea$2, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJTextArea",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJTextArea$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJTextArea$2",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJTextArea"
+	};
+	$loadClass(HeadlessJTextArea$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJTextArea$2));
+	});
 	return class$;
 }
 

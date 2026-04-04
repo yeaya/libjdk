@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultRowSorter$Row.h>
-
 #include <javax/swing/DefaultRowSorter.h>
 #include <jcpp.h>
 
@@ -11,44 +10,6 @@ using $DefaultRowSorter = ::javax::swing::DefaultRowSorter;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DefaultRowSorter$Row_FieldInfo_[] = {
-	{"sorter", "Ljavax/swing/DefaultRowSorter;", "Ljavax/swing/DefaultRowSorter<**>;", $PRIVATE, $field(DefaultRowSorter$Row, sorter)},
-	{"modelIndex", "I", nullptr, 0, $field(DefaultRowSorter$Row, modelIndex)},
-	{}
-};
-
-$MethodInfo _DefaultRowSorter$Row_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/DefaultRowSorter;I)V", "(Ljavax/swing/DefaultRowSorter<**>;I)V", $PUBLIC, $method(DefaultRowSorter$Row, init$, void, $DefaultRowSorter*, int32_t)},
-	{"compareTo", "(Ljavax/swing/DefaultRowSorter$Row;)I", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorter$Row, compareTo, int32_t, DefaultRowSorter$Row*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DefaultRowSorter$Row, compareTo, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _DefaultRowSorter$Row_InnerClassesInfo_[] = {
-	{"javax.swing.DefaultRowSorter$Row", "javax.swing.DefaultRowSorter", "Row", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultRowSorter$Row_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.DefaultRowSorter$Row",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_DefaultRowSorter$Row_FieldInfo_,
-	_DefaultRowSorter$Row_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljavax/swing/DefaultRowSorter$Row;>;",
-	nullptr,
-	_DefaultRowSorter$Row_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.DefaultRowSorter"
-};
-
-$Object* allocate$DefaultRowSorter$Row($Class* clazz) {
-	return $of($alloc(DefaultRowSorter$Row));
-}
 
 void DefaultRowSorter$Row::init$($DefaultRowSorter* sorter, int32_t index) {
 	$set(this, sorter, sorter);
@@ -67,7 +28,39 @@ DefaultRowSorter$Row::DefaultRowSorter$Row() {
 }
 
 $Class* DefaultRowSorter$Row::load$($String* name, bool initialize) {
-	$loadClass(DefaultRowSorter$Row, name, initialize, &_DefaultRowSorter$Row_ClassInfo_, allocate$DefaultRowSorter$Row);
+	$FieldInfo fieldInfos$$[] = {
+		{"sorter", "Ljavax/swing/DefaultRowSorter;", "Ljavax/swing/DefaultRowSorter<**>;", $PRIVATE, $field(DefaultRowSorter$Row, sorter)},
+		{"modelIndex", "I", nullptr, 0, $field(DefaultRowSorter$Row, modelIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/DefaultRowSorter;I)V", "(Ljavax/swing/DefaultRowSorter<**>;I)V", $PUBLIC, $method(DefaultRowSorter$Row, init$, void, $DefaultRowSorter*, int32_t)},
+		{"compareTo", "(Ljavax/swing/DefaultRowSorter$Row;)I", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorter$Row, compareTo, int32_t, DefaultRowSorter$Row*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DefaultRowSorter$Row, compareTo, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.DefaultRowSorter$Row", "javax.swing.DefaultRowSorter", "Row", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.DefaultRowSorter$Row",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljavax/swing/DefaultRowSorter$Row;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.DefaultRowSorter"
+	};
+	$loadClass(DefaultRowSorter$Row, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultRowSorter$Row);
+	});
 	return class$;
 }
 

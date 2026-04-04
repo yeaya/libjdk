@@ -144,6 +144,7 @@ class $import Check : public ::java::lang::Object {
 	$class(Check, 0, ::java::lang::Object)
 public:
 	Check();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual bool annotationApplicable(::com::sun::tools::javac::tree::JCTree$JCAnnotation* a, ::com::sun::tools::javac::code::Symbol* s);
 	$Object* asTypeParam(::com::sun::tools::javac::code::Type* t);

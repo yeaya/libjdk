@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$DelegatedType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeMetadata.h>
@@ -25,55 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type$DelegatedType_FieldInfo_[] = {
-	{"qtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$DelegatedType, qtype)},
-	{"tag", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $field(Type$DelegatedType, tag)},
-	{}
-};
-
-$MethodInfo _Type$DelegatedType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Type$DelegatedType, init$, void, $TypeTag*, $Type*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$DelegatedType, init$, void, $TypeTag*, $Type*, $TypeMetadata*)},
-	{"allparams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$DelegatedType, allparams, $List*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$DelegatedType, getAnnotationMirrors, $1List*)},
-	{"getEnclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getEnclosingType, $Type*)},
-	{"getParameterTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$DelegatedType, getParameterTypes, $List*)},
-	{"getReceiverType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getReceiverType, $Type*)},
-	{"getReturnType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getReturnType, $Type*)},
-	{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getTag, $TypeTag*)},
-	{"getThrownTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$DelegatedType, getThrownTypes, $List*)},
-	{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$DelegatedType, getTypeArguments, $List*)},
-	{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getUpperBound, $Type*)},
-	{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, isErroneous, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Type$DelegatedType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$DelegatedType", "com.sun.tools.javac.code.Type", "DelegatedType", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Type$DelegatedType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Type$DelegatedType",
-	"com.sun.tools.javac.code.Type",
-	nullptr,
-	_Type$DelegatedType_FieldInfo_,
-	_Type$DelegatedType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$DelegatedType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$DelegatedType($Class* clazz) {
-	return $of($alloc(Type$DelegatedType));
-}
 
 void Type$DelegatedType::init$($TypeTag* tag, $Type* qtype) {
 	$init($TypeMetadata);
@@ -138,7 +88,50 @@ Type$DelegatedType::Type$DelegatedType() {
 }
 
 $Class* Type$DelegatedType::load$($String* name, bool initialize) {
-	$loadClass(Type$DelegatedType, name, initialize, &_Type$DelegatedType_ClassInfo_, allocate$Type$DelegatedType);
+	$FieldInfo fieldInfos$$[] = {
+		{"qtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Type$DelegatedType, qtype)},
+		{"tag", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $field(Type$DelegatedType, tag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Type$DelegatedType, init$, void, $TypeTag*, $Type*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$DelegatedType, init$, void, $TypeTag*, $Type*, $TypeMetadata*)},
+		{"allparams", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$DelegatedType, allparams, $List*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$DelegatedType, getAnnotationMirrors, $1List*)},
+		{"getEnclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getEnclosingType, $Type*)},
+		{"getParameterTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$DelegatedType, getParameterTypes, $List*)},
+		{"getReceiverType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getReceiverType, $Type*)},
+		{"getReturnType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getReturnType, $Type*)},
+		{"getTag", "()Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getTag, $TypeTag*)},
+		{"getThrownTypes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$DelegatedType, getThrownTypes, $List*)},
+		{"getTypeArguments", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Type$DelegatedType, getTypeArguments, $List*)},
+		{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, getUpperBound, $Type*)},
+		{"isErroneous", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, isErroneous, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Type$DelegatedType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$DelegatedType", "com.sun.tools.javac.code.Type", "DelegatedType", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Type$DelegatedType",
+		"com.sun.tools.javac.code.Type",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$DelegatedType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$DelegatedType));
+	});
 	return class$;
 }
 

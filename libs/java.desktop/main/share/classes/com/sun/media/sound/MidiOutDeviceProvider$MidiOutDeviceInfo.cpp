@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/MidiOutDeviceProvider$MidiOutDeviceInfo.h>
-
 #include <com/sun/media/sound/AbstractMidiDeviceProvider$Info.h>
 #include <com/sun/media/sound/MidiOutDeviceProvider.h>
 #include <jcpp.h>
@@ -16,44 +15,8 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _MidiOutDeviceProvider$MidiOutDeviceInfo_FieldInfo_[] = {
-	{"providerClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MidiOutDeviceProvider$MidiOutDeviceInfo, providerClass)},
-	{}
-};
-
-$MethodInfo _MidiOutDeviceProvider$MidiOutDeviceInfo_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/Class;)V", "(ILjava/lang/Class<*>;)V", $PRIVATE, $method(MidiOutDeviceProvider$MidiOutDeviceInfo, init$, void, int32_t, $Class*)},
-	{}
-};
-
-$InnerClassInfo _MidiOutDeviceProvider$MidiOutDeviceInfo_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.MidiOutDeviceProvider$MidiOutDeviceInfo", "com.sun.media.sound.MidiOutDeviceProvider", "MidiOutDeviceInfo", $STATIC | $FINAL},
-	{"com.sun.media.sound.AbstractMidiDeviceProvider$Info", "com.sun.media.sound.AbstractMidiDeviceProvider", "Info", $STATIC},
-	{}
-};
-
-$ClassInfo _MidiOutDeviceProvider$MidiOutDeviceInfo_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.MidiOutDeviceProvider$MidiOutDeviceInfo",
-	"com.sun.media.sound.AbstractMidiDeviceProvider$Info",
-	nullptr,
-	_MidiOutDeviceProvider$MidiOutDeviceInfo_FieldInfo_,
-	_MidiOutDeviceProvider$MidiOutDeviceInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MidiOutDeviceProvider$MidiOutDeviceInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.MidiOutDeviceProvider"
-};
-
-$Object* allocate$MidiOutDeviceProvider$MidiOutDeviceInfo($Class* clazz) {
-	return $of($alloc(MidiOutDeviceProvider$MidiOutDeviceInfo));
-}
-
 void MidiOutDeviceProvider$MidiOutDeviceInfo::init$(int32_t index, $Class* providerClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, $MidiOutDeviceProvider::nGetName(index));
 	$var($String, var$1, $MidiOutDeviceProvider::nGetVendor(index));
 	$var($String, var$2, $MidiOutDeviceProvider::nGetDescription(index));
@@ -65,7 +28,37 @@ MidiOutDeviceProvider$MidiOutDeviceInfo::MidiOutDeviceProvider$MidiOutDeviceInfo
 }
 
 $Class* MidiOutDeviceProvider$MidiOutDeviceInfo::load$($String* name, bool initialize) {
-	$loadClass(MidiOutDeviceProvider$MidiOutDeviceInfo, name, initialize, &_MidiOutDeviceProvider$MidiOutDeviceInfo_ClassInfo_, allocate$MidiOutDeviceProvider$MidiOutDeviceInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"providerClass", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(MidiOutDeviceProvider$MidiOutDeviceInfo, providerClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/Class;)V", "(ILjava/lang/Class<*>;)V", $PRIVATE, $method(MidiOutDeviceProvider$MidiOutDeviceInfo, init$, void, int32_t, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.MidiOutDeviceProvider$MidiOutDeviceInfo", "com.sun.media.sound.MidiOutDeviceProvider", "MidiOutDeviceInfo", $STATIC | $FINAL},
+		{"com.sun.media.sound.AbstractMidiDeviceProvider$Info", "com.sun.media.sound.AbstractMidiDeviceProvider", "Info", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.MidiOutDeviceProvider$MidiOutDeviceInfo",
+		"com.sun.media.sound.AbstractMidiDeviceProvider$Info",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.MidiOutDeviceProvider"
+	};
+	$loadClass(MidiOutDeviceProvider$MidiOutDeviceInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiOutDeviceProvider$MidiOutDeviceInfo);
+	});
 	return class$;
 }
 

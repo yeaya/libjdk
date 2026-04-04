@@ -34,7 +34,7 @@ class RTFIterator : public ::com::sun::org::apache::xpath::internal::NodeSetDTM 
 public:
 	RTFIterator();
 	void init$(int32_t root, ::com::sun::org::apache::xml::internal::dtm::DTMManager* manager);
-	static const int64_t serialVersionUID = (int64_t)0x6A47192B9016F2E4;
+	static const int64_t serialVersionUID = (int64_t)0x6a47192b9016f2e4;
 };
 
 						} // axes

@@ -1,5 +1,4 @@
 #include <javax/tools/SimpleJavaFileObject.h>
-
 #include <java/io/CharArrayReader.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -40,44 +39,6 @@ using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 namespace javax {
 	namespace tools {
 
-$FieldInfo _SimpleJavaFileObject_FieldInfo_[] = {
-	{"uri", "Ljava/net/URI;", nullptr, $PROTECTED | $FINAL, $field(SimpleJavaFileObject, uri)},
-	{"kind", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PROTECTED | $FINAL, $field(SimpleJavaFileObject, kind)},
-	{}
-};
-
-$MethodInfo _SimpleJavaFileObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;)V", nullptr, $PROTECTED, $method(SimpleJavaFileObject, init$, void, $URI*, $JavaFileObject$Kind*)},
-	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, delete$, bool)},
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getAccessLevel, $Modifier*)},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getKind, $JavaFileObject$Kind*)},
-	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getLastModified, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getName, $String*)},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getNestingKind, $NestingKind*)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openInputStream, $InputStream*), "java.io.IOException"},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openReader, $Reader*, bool), "java.io.IOException"},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openWriter, $Writer*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, toString, $String*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, toUri, $URI*)},
-	{}
-};
-
-$ClassInfo _SimpleJavaFileObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.tools.SimpleJavaFileObject",
-	"java.lang.Object",
-	"javax.tools.JavaFileObject",
-	_SimpleJavaFileObject_FieldInfo_,
-	_SimpleJavaFileObject_MethodInfo_
-};
-
-$Object* allocate$SimpleJavaFileObject($Class* clazz) {
-	return $of($alloc(SimpleJavaFileObject));
-}
-
 void SimpleJavaFileObject::init$($URI* uri, $JavaFileObject$Kind* kind) {
 	$Objects::requireNonNull(uri);
 	$Objects::requireNonNull(kind);
@@ -93,7 +54,7 @@ $URI* SimpleJavaFileObject::toUri() {
 }
 
 $String* SimpleJavaFileObject::getName() {
-	return $nc($(toUri()))->getPath();
+	return $$nc(toUri())->getPath();
 }
 
 $InputStream* SimpleJavaFileObject::openInputStream() {
@@ -107,15 +68,15 @@ $OutputStream* SimpleJavaFileObject::openOutputStream() {
 }
 
 $Reader* SimpleJavaFileObject::openReader(bool ignoreEncodingErrors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CharSequence, charContent, getCharContent(ignoreEncodingErrors));
 	if (charContent == nullptr) {
 		$throwNew($UnsupportedOperationException);
 	}
 	if ($instanceOf($CharBuffer, charContent)) {
 		$var($CharBuffer, buffer, $cast($CharBuffer, charContent));
-		if ($nc(buffer)->hasArray()) {
-			return $new($CharArrayReader, $($cast($chars, buffer->array())));
+		if (buffer->hasArray()) {
+			return $new($CharArrayReader, $$cast($chars, buffer->array()));
 		}
 	}
 	return $new($StringReader, $($nc(charContent)->toString()));
@@ -143,12 +104,12 @@ $JavaFileObject$Kind* SimpleJavaFileObject::getKind() {
 }
 
 bool SimpleJavaFileObject::isNameCompatible($String* simpleName, $JavaFileObject$Kind* kind) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, baseName, $str({simpleName, $nc(kind)->extension}));
 	bool var$0 = kind->equals($(getKind()));
 	if (var$0) {
-		bool var$1 = $nc(baseName)->equals($($nc($(toUri()))->getPath()));
-		var$0 = (var$1 || $nc($($nc($(toUri()))->getPath()))->endsWith($$str({"/"_s, baseName})));
+		bool var$1 = baseName->equals($($$nc(toUri())->getPath()));
+		var$0 = var$1 || $$nc($$nc(toUri())->getPath())->endsWith($$str({"/"_s, baseName}));
 	}
 	return var$0;
 }
@@ -162,17 +123,53 @@ $Modifier* SimpleJavaFileObject::getAccessLevel() {
 }
 
 $String* SimpleJavaFileObject::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "["_s}));
-	$var($String, var$0, $$concat(var$1, $(toUri())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("["_s);
+	var$0->append($(toUri()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 SimpleJavaFileObject::SimpleJavaFileObject() {
 }
 
 $Class* SimpleJavaFileObject::load$($String* name, bool initialize) {
-	$loadClass(SimpleJavaFileObject, name, initialize, &_SimpleJavaFileObject_ClassInfo_, allocate$SimpleJavaFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"uri", "Ljava/net/URI;", nullptr, $PROTECTED | $FINAL, $field(SimpleJavaFileObject, uri)},
+		{"kind", "Ljavax/tools/JavaFileObject$Kind;", nullptr, $PROTECTED | $FINAL, $field(SimpleJavaFileObject, kind)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;)V", nullptr, $PROTECTED, $method(SimpleJavaFileObject, init$, void, $URI*, $JavaFileObject$Kind*)},
+		{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, delete$, bool)},
+		{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getAccessLevel, $Modifier*)},
+		{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+		{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getKind, $JavaFileObject$Kind*)},
+		{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getLastModified, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getName, $String*)},
+		{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, getNestingKind, $NestingKind*)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openInputStream, $InputStream*), "java.io.IOException"},
+		{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openOutputStream, $OutputStream*), "java.io.IOException"},
+		{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openReader, $Reader*, bool), "java.io.IOException"},
+		{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, openWriter, $Writer*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, toString, $String*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(SimpleJavaFileObject, toUri, $URI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.tools.SimpleJavaFileObject",
+		"java.lang.Object",
+		"javax.tools.JavaFileObject",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SimpleJavaFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SimpleJavaFileObject);
+	});
 	return class$;
 }
 

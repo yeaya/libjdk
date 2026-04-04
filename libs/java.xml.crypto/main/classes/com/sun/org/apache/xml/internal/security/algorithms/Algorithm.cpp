@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/Algorithm.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
@@ -24,27 +23,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace algorithms {
-
-$MethodInfo _Algorithm_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Algorithm, init$, void, $Document*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Algorithm, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getAlgorithmURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Algorithm, getAlgorithmURI, $String*)},
-	{"setAlgorithmURI", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Algorithm, setAlgorithmURI, void, $String*)},
-	{}
-};
-
-$ClassInfo _Algorithm_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.algorithms.Algorithm",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	nullptr,
-	_Algorithm_MethodInfo_
-};
-
-$Object* allocate$Algorithm($Class* clazz) {
-	return $of($alloc(Algorithm));
-}
 
 void Algorithm::init$($Document* doc, $String* algorithmURI) {
 	$SignatureElementProxy::init$(doc);
@@ -71,7 +49,24 @@ Algorithm::Algorithm() {
 }
 
 $Class* Algorithm::load$($String* name, bool initialize) {
-	$loadClass(Algorithm, name, initialize, &_Algorithm_ClassInfo_, allocate$Algorithm);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Algorithm, init$, void, $Document*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Algorithm, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getAlgorithmURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Algorithm, getAlgorithmURI, $String*)},
+		{"setAlgorithmURI", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Algorithm, setAlgorithmURI, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.algorithms.Algorithm",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Algorithm, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Algorithm);
+	});
 	return class$;
 }
 

@@ -1,12 +1,10 @@
 #include <com/sun/tools/javac/code/Directive$ProvidesDirective.h>
-
 #include <com/sun/tools/javac/code/Directive.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <java/util/List.h>
 #include <javax/lang/model/element/ModuleElement$DirectiveKind.h>
 #include <javax/lang/model/element/ModuleElement$DirectiveVisitor.h>
-#include <javax/lang/model/element/ModuleElement$ProvidesDirective.h>
 #include <javax/lang/model/element/TypeElement.h>
 #include <jcpp.h>
 
@@ -22,7 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $1List = ::java::util::List;
 using $ModuleElement$DirectiveKind = ::javax::lang::model::element::ModuleElement$DirectiveKind;
 using $ModuleElement$DirectiveVisitor = ::javax::lang::model::element::ModuleElement$DirectiveVisitor;
-using $ModuleElement$ProvidesDirective = ::javax::lang::model::element::ModuleElement$ProvidesDirective;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 
 namespace com {
@@ -30,52 +27,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Directive$ProvidesDirective_FieldInfo_[] = {
-	{"service", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Directive$ProvidesDirective, service)},
-	{"impls", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC | $FINAL, $field(Directive$ProvidesDirective, impls)},
-	{}
-};
-
-$MethodInfo _Directive$ProvidesDirective_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)V", $PUBLIC, $method(Directive$ProvidesDirective, init$, void, $Symbol$ClassSymbol*, $List*)},
-	{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Directive$ProvidesDirective, accept, $Object*, $ModuleElement$DirectiveVisitor*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, equals, bool, Object$*)},
-	{"getImplementations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC, $virtualMethod(Directive$ProvidesDirective, getImplementations, $1List*)},
-	{"getKind", "()Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, getKind, $ModuleElement$DirectiveKind*)},
-	{"getService", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, getService, $TypeElement*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Directive$ProvidesDirective_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Directive$ProvidesDirective", "com.sun.tools.javac.code.Directive", "ProvidesDirective", $PUBLIC | $STATIC},
-	{"javax.lang.model.element.ModuleElement$ProvidesDirective", "javax.lang.model.element.ModuleElement", "ProvidesDirective", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Directive$ProvidesDirective_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Directive$ProvidesDirective",
-	"com.sun.tools.javac.code.Directive",
-	"javax.lang.model.element.ModuleElement$ProvidesDirective",
-	_Directive$ProvidesDirective_FieldInfo_,
-	_Directive$ProvidesDirective_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Directive$ProvidesDirective_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Directive"
-};
-
-$Object* allocate$Directive$ProvidesDirective($Class* clazz) {
-	return $of($alloc(Directive$ProvidesDirective));
-}
 
 $Object* Directive$ProvidesDirective::clone() {
 	 return this->$Directive::clone();
@@ -109,7 +60,7 @@ $String* Directive$ProvidesDirective::toString() {
 }
 
 $Object* Directive$ProvidesDirective::accept($ModuleElement$DirectiveVisitor* v, Object$* p) {
-	return $of($nc(v)->visitProvides(this, p));
+	return $nc(v)->visitProvides(this, p);
 }
 
 bool Directive$ProvidesDirective::equals(Object$* obj) {
@@ -119,13 +70,13 @@ bool Directive$ProvidesDirective::equals(Object$* obj) {
 		$assign(directive, $cast(Directive$ProvidesDirective, obj));
 		var$2 = true;
 	}
-	bool var$1 = (var$2);
+	bool var$1 = var$2;
 	bool var$0 = var$1 && this->service == $nc(directive)->service;
 	return var$0 && $nc(this->impls)->equals(directive->impls);
 }
 
 int32_t Directive$ProvidesDirective::hashCode() {
-	int32_t var$0 = $nc($of(this->service))->hashCode() * 31;
+	int32_t var$0 = $nc(this->service)->hashCode() * 31;
 	return var$0 + $nc(this->impls)->hashCode() * 37;
 }
 
@@ -133,7 +84,47 @@ Directive$ProvidesDirective::Directive$ProvidesDirective() {
 }
 
 $Class* Directive$ProvidesDirective::load$($String* name, bool initialize) {
-	$loadClass(Directive$ProvidesDirective, name, initialize, &_Directive$ProvidesDirective_ClassInfo_, allocate$Directive$ProvidesDirective);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC | $FINAL, $field(Directive$ProvidesDirective, service)},
+		{"impls", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC | $FINAL, $field(Directive$ProvidesDirective, impls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;)V", $PUBLIC, $method(Directive$ProvidesDirective, init$, void, $Symbol$ClassSymbol*, $List*)},
+		{"accept", "(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/ModuleElement$DirectiveVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Directive$ProvidesDirective, accept, $Object*, $ModuleElement$DirectiveVisitor*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, equals, bool, Object$*)},
+		{"getImplementations", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PUBLIC, $virtualMethod(Directive$ProvidesDirective, getImplementations, $1List*)},
+		{"getKind", "()Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, getKind, $ModuleElement$DirectiveKind*)},
+		{"getService", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, getService, $TypeElement*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Directive$ProvidesDirective, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Directive$ProvidesDirective", "com.sun.tools.javac.code.Directive", "ProvidesDirective", $PUBLIC | $STATIC},
+		{"javax.lang.model.element.ModuleElement$ProvidesDirective", "javax.lang.model.element.ModuleElement", "ProvidesDirective", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Directive$ProvidesDirective",
+		"com.sun.tools.javac.code.Directive",
+		"javax.lang.model.element.ModuleElement$ProvidesDirective",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Directive"
+	};
+	$loadClass(Directive$ProvidesDirective, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Directive$ProvidesDirective));
+	});
 	return class$;
 }
 

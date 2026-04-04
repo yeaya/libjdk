@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipFileSystemProvider.h>
-
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -103,89 +102,32 @@ public:
 	virtual $Object* run() override {
 		 return $of(ZipFileSystemProvider::lambda$removeFileSystem$0(rec$));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0>());
-	}
 	$Path* rec$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0::fieldInfos[2] = {
-	{"rec$", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, rec$)},
-	{}
-};
-$MethodInfo ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0::methodInfos[3] = {
-	{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, init$, void, $Path*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, run, $Object*)},
-	{}
-};
-$ClassInfo ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.nio.zipfs.ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0::load$($String* name, bool initialize) {
-	$loadClass(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"rec$", "Ljava/nio/file/Path;", nullptr, $PUBLIC, $field(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, rec$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC, $method(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, init$, void, $Path*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.nio.zipfs.ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0);
+	});
 	return class$;
 }
 $Class* ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0::class$ = nullptr;
-
-$FieldInfo _ZipFileSystemProvider_FieldInfo_[] = {
-	{"filesystems", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Ljdk/nio/zipfs/ZipFileSystem;>;", $PRIVATE | $FINAL, $field(ZipFileSystemProvider, filesystems)},
-	{}
-};
-
-$MethodInfo _ZipFileSystemProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ZipFileSystemProvider, init$, void)},
-	{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
-	{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
-	{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ZipFileSystemProvider, delete$, void, $Path*), "java.io.IOException"},
-	{"ensureFile", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ZipFileSystemProvider, ensureFile, bool, $Path*)},
-	{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
-	{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
-	{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, getFileSystem, $FileSystem*, $URI*)},
-	{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, getPath, $Path*, $URI*)},
-	{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, getScheme, $String*)},
-	{"getZipFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljdk/nio/zipfs/ZipFileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljdk/nio/zipfs/ZipFileSystem;", $PRIVATE, $method(ZipFileSystemProvider, getZipFileSystem, $ZipFileSystem*, $Path*, $Map*), "java.io.IOException"},
-	{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, isHidden, bool, $Path*)},
-	{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
-	{"lambda$removeFileSystem$0", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystemProvider, lambda$removeFileSystem$0, $Path*, $Path*), "java.lang.Exception"},
-	{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
-	{"newAsynchronousFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/AsynchronousFileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newAsynchronousFileChannel, $AsynchronousFileChannel*, $Path*, $Set*, $ExecutorService*, $FileAttributeArray*)},
-	{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ZipFileSystemProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
-	{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newFileChannel, $FileChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(ZipFileSystemProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
-	{"newFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(ZipFileSystemProvider, newFileSystem, $FileSystem*, $Path*, $Map*), "java.io.IOException"},
-	{"newInputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newInputStream, $InputStream*, $Path*, $OpenOptionArray*), "java.io.IOException"},
-	{"newOutputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newOutputStream, $OutputStream*, $Path*, $OpenOptionArray*), "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
-	{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
-	{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, readSymbolicLink, $Path*, $Path*)},
-	{"removeFileSystem", "(Ljava/nio/file/Path;Ljdk/nio/zipfs/ZipFileSystem;)V", nullptr, 0, $virtualMethod(ZipFileSystemProvider, removeFileSystem, void, $Path*, $ZipFileSystem*), "java.io.IOException"},
-	{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
-	{"toZipPath", "(Ljava/nio/file/Path;)Ljdk/nio/zipfs/ZipPath;", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipFileSystemProvider, toZipPath, $ZipPath*, $Path*)},
-	{"uriToPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PROTECTED, $virtualMethod(ZipFileSystemProvider, uriToPath, $Path*, $URI*)},
-	{}
-};
-
-$ClassInfo _ZipFileSystemProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.nio.zipfs.ZipFileSystemProvider",
-	"java.nio.file.spi.FileSystemProvider",
-	nullptr,
-	_ZipFileSystemProvider_FieldInfo_,
-	_ZipFileSystemProvider_MethodInfo_
-};
-
-$Object* allocate$ZipFileSystemProvider($Class* clazz) {
-	return $of($alloc(ZipFileSystemProvider));
-}
 
 void ZipFileSystemProvider::init$() {
 	$FileSystemProvider::init$();
@@ -197,9 +139,9 @@ $String* ZipFileSystemProvider::getScheme() {
 }
 
 $Path* ZipFileSystemProvider::uriToPath($URI* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, scheme, $nc(uri)->getScheme());
-	if ((scheme == nullptr) || !$nc(scheme)->equalsIgnoreCase($(getScheme()))) {
+	if ((scheme == nullptr) || !scheme->equalsIgnoreCase($(getScheme()))) {
 		$throwNew($IllegalArgumentException, $$str({"URI scheme is not \'"_s, $(getScheme()), "\'"_s}));
 	}
 	try {
@@ -208,7 +150,7 @@ $Path* ZipFileSystemProvider::uriToPath($URI* uri) {
 		if (sep != -1) {
 			$assign(spec, spec->substring(0, sep));
 		}
-		return $nc($($Paths::get($$new($URI, spec))))->toAbsolutePath();
+		return $$nc($Paths::get($$new($URI, spec)))->toAbsolutePath();
 	} catch ($URISyntaxException& e) {
 		$throwNew($IllegalArgumentException, $(e->getMessage()), e);
 	}
@@ -216,7 +158,7 @@ $Path* ZipFileSystemProvider::uriToPath($URI* uri) {
 }
 
 bool ZipFileSystemProvider::ensureFile($Path* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$load($BasicFileAttributes);
 		$var($BasicFileAttributes, attrs, $Files::readAttributes(path, $BasicFileAttributes::class$, $$new($LinkOptionArray, 0)));
@@ -231,13 +173,13 @@ bool ZipFileSystemProvider::ensureFile($Path* path) {
 }
 
 $FileSystem* ZipFileSystemProvider::newFileSystem($URI* uri, $Map* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, path, uriToPath(uri));
 	$synchronized(this->filesystems) {
 		$var($Path, realPath, nullptr);
 		if (ensureFile(path)) {
 			$assign(realPath, $nc(path)->toRealPath($$new($LinkOptionArray, 0)));
-			if ($nc(this->filesystems)->containsKey(realPath)) {
+			if (this->filesystems->containsKey(realPath)) {
 				$throwNew($FileSystemAlreadyExistsException);
 			}
 		}
@@ -245,7 +187,7 @@ $FileSystem* ZipFileSystemProvider::newFileSystem($URI* uri, $Map* env) {
 		if (realPath == nullptr) {
 			$assign(realPath, $nc(path)->toRealPath($$new($LinkOptionArray, 0)));
 		}
-		$nc(this->filesystems)->put(realPath, zipfs);
+		this->filesystems->put(realPath, zipfs);
 		return zipfs;
 	}
 }
@@ -261,7 +203,7 @@ $ZipFileSystem* ZipFileSystemProvider::getZipFileSystem($Path* path, $Map* env) 
 	} catch ($ZipException& ze) {
 		$var($String, pname, $nc(path)->toString());
 		bool var$0 = $nc(pname)->endsWith(".zip"_s);
-		if (var$0 || $nc(pname)->endsWith(".jar"_s)) {
+		if (var$0 || pname->endsWith(".jar"_s)) {
 			$throw(ze);
 		}
 		$throwNew($UnsupportedOperationException);
@@ -270,21 +212,21 @@ $ZipFileSystem* ZipFileSystemProvider::getZipFileSystem($Path* path, $Map* env) 
 }
 
 $Path* ZipFileSystemProvider::getPath($URI* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, spec, $nc(uri)->getSchemeSpecificPart());
 	int32_t sep = $nc(spec)->indexOf("!/"_s);
 	if (sep == -1) {
 		$throwNew($IllegalArgumentException, $$str({"URI: "_s, uri, " does not contain path info ex. jar:file:/c:/foo.zip!/BAR"_s}));
 	}
-	return $nc($(getFileSystem(uri)))->getPath($(spec->substring(sep + 1)), $$new($StringArray, 0));
+	return $$nc(getFileSystem(uri))->getPath($(spec->substring(sep + 1)), $$new($StringArray, 0));
 }
 
 $FileSystem* ZipFileSystemProvider::getFileSystem($URI* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->filesystems) {
 		$var($ZipFileSystem, zipfs, nullptr);
 		try {
-			$assign(zipfs, $cast($ZipFileSystem, $nc(this->filesystems)->get($($nc($(uriToPath(uri)))->toRealPath($$new($LinkOptionArray, 0))))));
+			$assign(zipfs, $cast($ZipFileSystem, this->filesystems->get($($$nc(uriToPath(uri))->toRealPath($$new($LinkOptionArray, 0))))));
 		} catch ($IOException& x) {
 		}
 		if (zipfs == nullptr) {
@@ -306,41 +248,41 @@ $ZipPath* ZipFileSystemProvider::toZipPath($Path* path) {
 }
 
 void ZipFileSystemProvider::checkAccess($Path* path, $AccessModeArray* modes) {
-	$nc($(toZipPath(path)))->checkAccess(modes);
+	$$nc(toZipPath(path))->checkAccess(modes);
 }
 
 void ZipFileSystemProvider::copy($Path* src, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(toZipPath(src)))->copy($(toZipPath(target)), options);
+	$useLocalObjectStack();
+	$$nc(toZipPath(src))->copy($(toZipPath(target)), options);
 }
 
 void ZipFileSystemProvider::createDirectory($Path* path, $FileAttributeArray* attrs) {
-	$nc($(toZipPath(path)))->createDirectory(attrs);
+	$$nc(toZipPath(path))->createDirectory(attrs);
 }
 
 void ZipFileSystemProvider::delete$($Path* path) {
-	$nc($(toZipPath(path)))->delete$();
+	$$nc(toZipPath(path))->delete$();
 }
 
 $FileAttributeView* ZipFileSystemProvider::getFileAttributeView($Path* path, $Class* type, $LinkOptionArray* options) {
-	return $nc($(toZipPath(path)))->getFileAttributeView(type);
+	return $$nc(toZipPath(path))->getFileAttributeView(type);
 }
 
 $FileStore* ZipFileSystemProvider::getFileStore($Path* path) {
-	return $nc($(toZipPath(path)))->getFileStore();
+	return $$nc(toZipPath(path))->getFileStore();
 }
 
 bool ZipFileSystemProvider::isHidden($Path* path) {
-	return $nc($(toZipPath(path)))->isHidden();
+	return $$nc(toZipPath(path))->isHidden();
 }
 
 bool ZipFileSystemProvider::isSameFile($Path* path, $Path* other) {
-	return $nc($(toZipPath(path)))->isSameFile(other);
+	return $$nc(toZipPath(path))->isSameFile(other);
 }
 
 void ZipFileSystemProvider::move($Path* src, $Path* target, $CopyOptionArray* options) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(toZipPath(src)))->move($(toZipPath(target)), options);
+	$useLocalObjectStack();
+	$$nc(toZipPath(src))->move($(toZipPath(target)), options);
 }
 
 $AsynchronousFileChannel* ZipFileSystemProvider::newAsynchronousFileChannel($Path* path, $Set* options, $ExecutorService* exec, $FileAttributeArray* attrs) {
@@ -349,31 +291,31 @@ $AsynchronousFileChannel* ZipFileSystemProvider::newAsynchronousFileChannel($Pat
 }
 
 $SeekableByteChannel* ZipFileSystemProvider::newByteChannel($Path* path, $Set* options, $FileAttributeArray* attrs) {
-	return $nc($(toZipPath(path)))->newByteChannel(options, attrs);
+	return $$nc(toZipPath(path))->newByteChannel(options, attrs);
 }
 
 $DirectoryStream* ZipFileSystemProvider::newDirectoryStream($Path* path, $DirectoryStream$Filter* filter) {
-	return $nc($(toZipPath(path)))->newDirectoryStream(filter);
+	return $$nc(toZipPath(path))->newDirectoryStream(filter);
 }
 
 $FileChannel* ZipFileSystemProvider::newFileChannel($Path* path, $Set* options, $FileAttributeArray* attrs) {
-	return $nc($(toZipPath(path)))->newFileChannel(options, attrs);
+	return $$nc(toZipPath(path))->newFileChannel(options, attrs);
 }
 
 $InputStream* ZipFileSystemProvider::newInputStream($Path* path, $OpenOptionArray* options) {
-	return $nc($(toZipPath(path)))->newInputStream(options);
+	return $$nc(toZipPath(path))->newInputStream(options);
 }
 
 $OutputStream* ZipFileSystemProvider::newOutputStream($Path* path, $OpenOptionArray* options) {
-	return $nc($(toZipPath(path)))->newOutputStream(options);
+	return $$nc(toZipPath(path))->newOutputStream(options);
 }
 
 $BasicFileAttributes* ZipFileSystemProvider::readAttributes($Path* path, $Class* type, $LinkOptionArray* options) {
-	return $nc($(toZipPath(path)))->readAttributes(type);
+	return $$nc(toZipPath(path))->readAttributes(type);
 }
 
 $Map* ZipFileSystemProvider::readAttributes($Path* path, $String* attributes, $LinkOptionArray* options) {
-	return $nc($(toZipPath(path)))->readAttributes(attributes, options);
+	return $$nc(toZipPath(path))->readAttributes(attributes, options);
 }
 
 $Path* ZipFileSystemProvider::readSymbolicLink($Path* link) {
@@ -382,23 +324,23 @@ $Path* ZipFileSystemProvider::readSymbolicLink($Path* link) {
 }
 
 void ZipFileSystemProvider::setAttribute($Path* path, $String* attribute, Object$* value, $LinkOptionArray* options) {
-	$nc($(toZipPath(path)))->setAttribute(attribute, value, options);
+	$$nc(toZipPath(path))->setAttribute(attribute, value, options);
 }
 
 void ZipFileSystemProvider::removeFileSystem($Path* zfpath$renamed, $ZipFileSystem* zfs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, zfpath, zfpath$renamed);
 	$beforeCallerSensitive();
 	$synchronized(this->filesystems) {
 		$var($Path, tempPath, zfpath);
-		$var($PrivilegedExceptionAction, action, static_cast<$PrivilegedExceptionAction*>($new(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, static_cast<$Path*>($nc(tempPath)))));
+		$var($PrivilegedExceptionAction, action, $new(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0, $nc(tempPath)));
 		try {
 			$assign(zfpath, $cast($Path, $AccessController::doPrivileged(action)));
 		} catch ($PrivilegedActionException& e) {
-			$throw($cast($IOException, $(e->getException())));
+			$throw($$cast($IOException, e->getException()));
 		}
-		if ($equals($nc(this->filesystems)->get(zfpath), zfs)) {
-			$nc(this->filesystems)->remove(zfpath);
+		if ($equals(this->filesystems->get(zfpath), zfs)) {
+			this->filesystems->remove(zfpath);
 		}
 	}
 }
@@ -413,11 +355,59 @@ ZipFileSystemProvider::ZipFileSystemProvider() {
 
 $Class* ZipFileSystemProvider::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0::classInfo$.name)) {
+		if (name->equals("jdk.nio.zipfs.ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0")) {
 			return ZipFileSystemProvider$$Lambda$lambda$removeFileSystem$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ZipFileSystemProvider, name, initialize, &_ZipFileSystemProvider_ClassInfo_, allocate$ZipFileSystemProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"filesystems", "Ljava/util/Map;", "Ljava/util/Map<Ljava/nio/file/Path;Ljdk/nio/zipfs/ZipFileSystem;>;", $PRIVATE | $FINAL, $field(ZipFileSystemProvider, filesystems)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ZipFileSystemProvider, init$, void)},
+		{"checkAccess", "(Ljava/nio/file/Path;[Ljava/nio/file/AccessMode;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, checkAccess, void, $Path*, $AccessModeArray*), "java.io.IOException"},
+		{"copy", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, copy, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"createDirectory", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute;)V", "(Ljava/nio/file/Path;[Ljava/nio/file/attribute/FileAttribute<*>;)V", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, createDirectory, void, $Path*, $FileAttributeArray*), "java.io.IOException"},
+		{"delete", "(Ljava/nio/file/Path;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(ZipFileSystemProvider, delete$, void, $Path*), "java.io.IOException"},
+		{"ensureFile", "(Ljava/nio/file/Path;)Z", nullptr, $PRIVATE, $method(ZipFileSystemProvider, ensureFile, bool, $Path*)},
+		{"getFileAttributeView", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/FileAttributeView;", "<V::Ljava/nio/file/attribute/FileAttributeView;>(Ljava/nio/file/Path;Ljava/lang/Class<TV;>;[Ljava/nio/file/LinkOption;)TV;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, getFileAttributeView, $FileAttributeView*, $Path*, $Class*, $LinkOptionArray*)},
+		{"getFileStore", "(Ljava/nio/file/Path;)Ljava/nio/file/FileStore;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, getFileStore, $FileStore*, $Path*), "java.io.IOException"},
+		{"getFileSystem", "(Ljava/net/URI;)Ljava/nio/file/FileSystem;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, getFileSystem, $FileSystem*, $URI*)},
+		{"getPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, getPath, $Path*, $URI*)},
+		{"getScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, getScheme, $String*)},
+		{"getZipFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljdk/nio/zipfs/ZipFileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljdk/nio/zipfs/ZipFileSystem;", $PRIVATE, $method(ZipFileSystemProvider, getZipFileSystem, $ZipFileSystem*, $Path*, $Map*), "java.io.IOException"},
+		{"isHidden", "(Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, isHidden, bool, $Path*)},
+		{"isSameFile", "(Ljava/nio/file/Path;Ljava/nio/file/Path;)Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, isSameFile, bool, $Path*, $Path*), "java.io.IOException"},
+		{"lambda$removeFileSystem$0", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileSystemProvider, lambda$removeFileSystem$0, $Path*, $Path*), "java.lang.Exception"},
+		{"move", "(Ljava/nio/file/Path;Ljava/nio/file/Path;[Ljava/nio/file/CopyOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, move, void, $Path*, $Path*, $CopyOptionArray*), "java.io.IOException"},
+		{"newAsynchronousFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/AsynchronousFileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;Ljava/util/concurrent/ExecutorService;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/AsynchronousFileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newAsynchronousFileChannel, $AsynchronousFileChannel*, $Path*, $Set*, $ExecutorService*, $FileAttributeArray*)},
+		{"newByteChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/SeekableByteChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/SeekableByteChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newByteChannel, $SeekableByteChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newDirectoryStream", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter;)Ljava/nio/file/DirectoryStream;", "(Ljava/nio/file/Path;Ljava/nio/file/DirectoryStream$Filter<-Ljava/nio/file/Path;>;)Ljava/nio/file/DirectoryStream<Ljava/nio/file/Path;>;", $PUBLIC, $virtualMethod(ZipFileSystemProvider, newDirectoryStream, $DirectoryStream*, $Path*, $DirectoryStream$Filter*), "java.io.IOException"},
+		{"newFileChannel", "(Ljava/nio/file/Path;Ljava/util/Set;[Ljava/nio/file/attribute/FileAttribute;)Ljava/nio/channels/FileChannel;", "(Ljava/nio/file/Path;Ljava/util/Set<+Ljava/nio/file/OpenOption;>;[Ljava/nio/file/attribute/FileAttribute<*>;)Ljava/nio/channels/FileChannel;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newFileChannel, $FileChannel*, $Path*, $Set*, $FileAttributeArray*), "java.io.IOException"},
+		{"newFileSystem", "(Ljava/net/URI;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/net/URI;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(ZipFileSystemProvider, newFileSystem, $FileSystem*, $URI*, $Map*), "java.io.IOException"},
+		{"newFileSystem", "(Ljava/nio/file/Path;Ljava/util/Map;)Ljava/nio/file/FileSystem;", "(Ljava/nio/file/Path;Ljava/util/Map<Ljava/lang/String;*>;)Ljava/nio/file/FileSystem;", $PUBLIC, $virtualMethod(ZipFileSystemProvider, newFileSystem, $FileSystem*, $Path*, $Map*), "java.io.IOException"},
+		{"newInputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newInputStream, $InputStream*, $Path*, $OpenOptionArray*), "java.io.IOException"},
+		{"newOutputStream", "(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/OutputStream;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, newOutputStream, $OutputStream*, $Path*, $OpenOptionArray*), "java.io.IOException"},
+		{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/Class;[Ljava/nio/file/LinkOption;)Ljava/nio/file/attribute/BasicFileAttributes;", "<A::Ljava/nio/file/attribute/BasicFileAttributes;>(Ljava/nio/file/Path;Ljava/lang/Class<TA;>;[Ljava/nio/file/LinkOption;)TA;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, readAttributes, $BasicFileAttributes*, $Path*, $Class*, $LinkOptionArray*), "java.io.IOException"},
+		{"readAttributes", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map;", "(Ljava/nio/file/Path;Ljava/lang/String;[Ljava/nio/file/LinkOption;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, readAttributes, $Map*, $Path*, $String*, $LinkOptionArray*), "java.io.IOException"},
+		{"readSymbolicLink", "(Ljava/nio/file/Path;)Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystemProvider, readSymbolicLink, $Path*, $Path*)},
+		{"removeFileSystem", "(Ljava/nio/file/Path;Ljdk/nio/zipfs/ZipFileSystem;)V", nullptr, 0, $virtualMethod(ZipFileSystemProvider, removeFileSystem, void, $Path*, $ZipFileSystem*), "java.io.IOException"},
+		{"setAttribute", "(Ljava/nio/file/Path;Ljava/lang/String;Ljava/lang/Object;[Ljava/nio/file/LinkOption;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(ZipFileSystemProvider, setAttribute, void, $Path*, $String*, Object$*, $LinkOptionArray*), "java.io.IOException"},
+		{"toZipPath", "(Ljava/nio/file/Path;)Ljdk/nio/zipfs/ZipPath;", nullptr, $PRIVATE | $STATIC, $staticMethod(ZipFileSystemProvider, toZipPath, $ZipPath*, $Path*)},
+		{"uriToPath", "(Ljava/net/URI;)Ljava/nio/file/Path;", nullptr, $PROTECTED, $virtualMethod(ZipFileSystemProvider, uriToPath, $Path*, $URI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.nio.zipfs.ZipFileSystemProvider",
+		"java.nio.file.spi.FileSystemProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ZipFileSystemProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipFileSystemProvider);
+	});
 	return class$;
 }
 

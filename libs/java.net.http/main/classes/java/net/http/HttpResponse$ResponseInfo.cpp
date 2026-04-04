@@ -1,5 +1,4 @@
 #include <java/net/http/HttpResponse$ResponseInfo.h>
-
 #include <java/net/http/HttpClient$Version.h>
 #include <java/net/http/HttpHeaders.h>
 #include <java/net/http/HttpResponse.h>
@@ -15,40 +14,35 @@ namespace java {
 	namespace net {
 		namespace http {
 
-$MethodInfo _HttpResponse$ResponseInfo_MethodInfo_[] = {
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, headers, $HttpHeaders*)},
-	{"statusCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, statusCode, int32_t)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, version, $HttpClient$Version*)},
-	{}
-};
-
-$InnerClassInfo _HttpResponse$ResponseInfo_InnerClassesInfo_[] = {
-	{"java.net.http.HttpResponse$ResponseInfo", "java.net.http.HttpResponse", "ResponseInfo", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpResponse$ResponseInfo_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.net.http.HttpResponse$ResponseInfo",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HttpResponse$ResponseInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpResponse$ResponseInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.net.http.HttpResponse"
-};
-
-$Object* allocate$HttpResponse$ResponseInfo($Class* clazz) {
-	return $of($alloc(HttpResponse$ResponseInfo));
-}
-
 $Class* HttpResponse$ResponseInfo::load$($String* name, bool initialize) {
-	$loadClass(HttpResponse$ResponseInfo, name, initialize, &_HttpResponse$ResponseInfo_ClassInfo_, allocate$HttpResponse$ResponseInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, headers, $HttpHeaders*)},
+		{"statusCode", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, statusCode, int32_t)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpResponse$ResponseInfo, version, $HttpClient$Version*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpResponse$ResponseInfo", "java.net.http.HttpResponse", "ResponseInfo", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.net.http.HttpResponse$ResponseInfo",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.net.http.HttpResponse"
+	};
+	$loadClass(HttpResponse$ResponseInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpResponse$ResponseInfo);
+	});
 	return class$;
 }
 

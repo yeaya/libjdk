@@ -26,10 +26,13 @@ public:
 	void init$($String* reason, $Throwable* cause);
 	void init$($String* reason, $String* SQLState, $Throwable* cause);
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0x48CFF46D4BD5DEED;
+	static const int64_t serialVersionUID = (int64_t)0x48cff46d4bd5deed;
 	SQLTransactionRollbackException(const SQLTransactionRollbackException& e);
 	virtual void throw$() override;
-	inline SQLTransactionRollbackException* operator ->() {
+	inline SQLTransactionRollbackException* operator ->() const {
+		return (SQLTransactionRollbackException*)throwing$;
+	}
+	inline operator SQLTransactionRollbackException*() const {
 		return (SQLTransactionRollbackException*)throwing$;
 	}
 };

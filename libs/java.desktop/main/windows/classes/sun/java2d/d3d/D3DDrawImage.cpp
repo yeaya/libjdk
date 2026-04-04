@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DDrawImage.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
 #include <java/awt/Image.h>
@@ -39,32 +38,12 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DDrawImage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(D3DDrawImage, init$, void)},
-	{"renderImageXform", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(D3DDrawImage, renderImageXform, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(D3DDrawImage, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DDrawImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.d3d.D3DDrawImage",
-	"sun.java2d.pipe.DrawImage",
-	nullptr,
-	nullptr,
-	_D3DDrawImage_MethodInfo_
-};
-
-$Object* allocate$D3DDrawImage($Class* clazz) {
-	return $of($alloc(D3DDrawImage));
-}
-
 void D3DDrawImage::init$() {
 	$DrawImage::init$();
 }
 
 void D3DDrawImage::renderImageXform($SunGraphics2D* sg, $Image* img, $AffineTransform* tx, int32_t interpType, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (interpType != $AffineTransformOp::TYPE_BICUBIC) {
 		$var($SurfaceData, dstData, $nc(sg)->surfaceData);
 		$var($SurfaceData, srcData, $nc(dstData)->getSourceSurfaceData(img, $SunGraphics2D::TRANSFORM_GENERIC, sg->imageComp, bgColor));
@@ -82,17 +61,13 @@ void D3DDrawImage::renderImageXform($SunGraphics2D* sg, $Image* img, $AffineTran
 }
 
 void D3DDrawImage::transformImage($SunGraphics2D* sg, $BufferedImage* img$renamed, $BufferedImageOp* op, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, img, img$renamed);
 	if (op != nullptr) {
 		if ($instanceOf($AffineTransformOp, op)) {
 			$var($AffineTransformOp, atop, $cast($AffineTransformOp, op));
-			$var($SunGraphics2D, var$0, sg);
-			$var($Image, var$1, static_cast<$Image*>(img));
-			int32_t var$2 = x;
-			int32_t var$3 = y;
-			$var($AffineTransform, var$4, atop->getTransform());
-			transformImage(var$0, var$1, var$2, var$3, var$4, atop->getInterpolationType());
+			$var($AffineTransform, var$0, atop->getTransform());
+			transformImage(sg, img, x, y, var$0, atop->getInterpolationType());
 			return;
 		} else if ($D3DBufImgOps::renderImageWithOp(sg, img, op, x, y)) {
 			return;
@@ -106,7 +81,23 @@ D3DDrawImage::D3DDrawImage() {
 }
 
 $Class* D3DDrawImage::load$($String* name, bool initialize) {
-	$loadClass(D3DDrawImage, name, initialize, &_D3DDrawImage_ClassInfo_, allocate$D3DDrawImage);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(D3DDrawImage, init$, void)},
+		{"renderImageXform", "(Lsun/java2d/SunGraphics2D;Ljava/awt/Image;Ljava/awt/geom/AffineTransform;IIIIILjava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(D3DDrawImage, renderImageXform, void, $SunGraphics2D*, $Image*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"transformImage", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(D3DDrawImage, transformImage, void, $SunGraphics2D*, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.d3d.D3DDrawImage",
+		"sun.java2d.pipe.DrawImage",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DDrawImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DDrawImage);
+	});
 	return class$;
 }
 

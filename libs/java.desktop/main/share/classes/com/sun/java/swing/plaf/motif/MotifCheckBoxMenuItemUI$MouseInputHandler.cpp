@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI$MouseInputHandler.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -20,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
@@ -32,48 +30,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifCheckBoxMenuItemUI$MouseInputHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifCheckBoxMenuItemUI$MouseInputHandler, this$0)},
-	{}
-};
-
-$MethodInfo _MotifCheckBoxMenuItemUI$MouseInputHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI;)V", nullptr, $PROTECTED, $method(MotifCheckBoxMenuItemUI$MouseInputHandler, init$, void, $MotifCheckBoxMenuItemUI*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _MotifCheckBoxMenuItemUI$MouseInputHandler_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI", "MouseInputHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifCheckBoxMenuItemUI$MouseInputHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI$MouseInputHandler",
-	"java.lang.Object",
-	"javax.swing.event.MouseInputListener",
-	_MotifCheckBoxMenuItemUI$MouseInputHandler_FieldInfo_,
-	_MotifCheckBoxMenuItemUI$MouseInputHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifCheckBoxMenuItemUI$MouseInputHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI"
-};
-
-$Object* allocate$MotifCheckBoxMenuItemUI$MouseInputHandler($Class* clazz) {
-	return $of($alloc(MotifCheckBoxMenuItemUI$MouseInputHandler));
-}
-
 void MotifCheckBoxMenuItemUI$MouseInputHandler::init$($MotifCheckBoxMenuItemUI* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -82,13 +38,13 @@ void MotifCheckBoxMenuItemUI$MouseInputHandler::mouseClicked($MouseEvent* e) {
 }
 
 void MotifCheckBoxMenuItemUI$MouseInputHandler::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	$nc(manager)->setSelectedPath($(this->this$0->getPath()));
 }
 
 void MotifCheckBoxMenuItemUI$MouseInputHandler::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, manager, $MenuSelectionManager::defaultManager());
 	$var($JMenuItem, menuItem, $cast($JMenuItem, $nc(e)->getComponent()));
 	$var($Point, p, e->getPoint());
@@ -111,7 +67,7 @@ void MotifCheckBoxMenuItemUI$MouseInputHandler::mouseExited($MouseEvent* e) {
 }
 
 void MotifCheckBoxMenuItemUI$MouseInputHandler::mouseDragged($MouseEvent* e) {
-	$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(e);
+	$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(e);
 }
 
 void MotifCheckBoxMenuItemUI$MouseInputHandler::mouseMoved($MouseEvent* e) {
@@ -121,7 +77,43 @@ MotifCheckBoxMenuItemUI$MouseInputHandler::MotifCheckBoxMenuItemUI$MouseInputHan
 }
 
 $Class* MotifCheckBoxMenuItemUI$MouseInputHandler::load$($String* name, bool initialize) {
-	$loadClass(MotifCheckBoxMenuItemUI$MouseInputHandler, name, initialize, &_MotifCheckBoxMenuItemUI$MouseInputHandler_ClassInfo_, allocate$MotifCheckBoxMenuItemUI$MouseInputHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifCheckBoxMenuItemUI$MouseInputHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifCheckBoxMenuItemUI;)V", nullptr, $PROTECTED, $method(MotifCheckBoxMenuItemUI$MouseInputHandler, init$, void, $MotifCheckBoxMenuItemUI*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifCheckBoxMenuItemUI$MouseInputHandler, mouseReleased, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI$MouseInputHandler", "com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI", "MouseInputHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI$MouseInputHandler",
+		"java.lang.Object",
+		"javax.swing.event.MouseInputListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifCheckBoxMenuItemUI"
+	};
+	$loadClass(MotifCheckBoxMenuItemUI$MouseInputHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifCheckBoxMenuItemUI$MouseInputHandler));
+	});
 	return class$;
 }
 

@@ -13,6 +13,7 @@ class $import DefaultTableCellHeaderRenderer$1 : public ::java::lang::Object {
 	$class(DefaultTableCellHeaderRenderer$1, 0, ::java::lang::Object)
 public:
 	DefaultTableCellHeaderRenderer$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$SortOrder;
 };
 

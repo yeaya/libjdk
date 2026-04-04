@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextPaneUI.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -17,28 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicTextPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextPaneUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTextPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTextPaneUI, getPropertyPrefix, $String*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextPaneUI, installUI, void, $JComponent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$ClassInfo _BasicTextPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextPaneUI",
-	"javax.swing.plaf.basic.BasicEditorPaneUI",
-	nullptr,
-	nullptr,
-	_BasicTextPaneUI_MethodInfo_
-};
-
-$Object* allocate$BasicTextPaneUI($Class* clazz) {
-	return $of($alloc(BasicTextPaneUI));
-}
 
 $ComponentUI* BasicTextPaneUI::createUI($JComponent* c) {
 	$init(BasicTextPaneUI);
@@ -65,7 +42,25 @@ BasicTextPaneUI::BasicTextPaneUI() {
 }
 
 $Class* BasicTextPaneUI::load$($String* name, bool initialize) {
-	$loadClass(BasicTextPaneUI, name, initialize, &_BasicTextPaneUI_ClassInfo_, allocate$BasicTextPaneUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTextPaneUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTextPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicTextPaneUI, getPropertyPrefix, $String*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextPaneUI, installUI, void, $JComponent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicTextPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextPaneUI",
+		"javax.swing.plaf.basic.BasicEditorPaneUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BasicTextPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextPaneUI));
+	});
 	return class$;
 }
 

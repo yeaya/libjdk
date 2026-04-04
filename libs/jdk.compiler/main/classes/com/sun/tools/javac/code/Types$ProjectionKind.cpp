@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$ProjectionKind.h>
-
 #include <com/sun/tools/javac/code/Types$ProjectionKind$1.h>
 #include <com/sun/tools/javac/code/Types$ProjectionKind$2.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -23,49 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$ProjectionKind_FieldInfo_[] = {
-	{"UPWARDS", "Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Types$ProjectionKind, UPWARDS)},
-	{"DOWNWARDS", "Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Types$ProjectionKind, DOWNWARDS)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$ProjectionKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _Types$ProjectionKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Types$ProjectionKind, $values, $Types$ProjectionKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Types$ProjectionKind, init$, void, $String*, int32_t)},
-	{"complement", "()Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $ABSTRACT, $virtualMethod(Types$ProjectionKind, complement, Types$ProjectionKind*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Types$ProjectionKind, valueOf, Types$ProjectionKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Types$ProjectionKind, values, $Types$ProjectionKindArray*)},
-	{}
-};
-
-$InnerClassInfo _Types$ProjectionKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$ProjectionKind", "com.sun.tools.javac.code.Types", "ProjectionKind", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.code.Types$ProjectionKind$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.code.Types$ProjectionKind$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Types$ProjectionKind_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT | $ENUM,
-	"com.sun.tools.javac.code.Types$ProjectionKind",
-	"java.lang.Enum",
-	nullptr,
-	_Types$ProjectionKind_FieldInfo_,
-	_Types$ProjectionKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Types$ProjectionKind;>;",
-	nullptr,
-	_Types$ProjectionKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$ProjectionKind($Class* clazz) {
-	return $of($alloc(Types$ProjectionKind));
-}
 
 Types$ProjectionKind* Types$ProjectionKind::UPWARDS = nullptr;
 Types$ProjectionKind* Types$ProjectionKind::DOWNWARDS = nullptr;
@@ -93,7 +49,7 @@ void Types$ProjectionKind::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Types$ProjectionKind($Class* class$) {
+void Types$ProjectionKind::clinit$($Class* clazz) {
 	$assignStatic(Types$ProjectionKind::UPWARDS, $new($Types$ProjectionKind$1, "UPWARDS"_s, 0));
 	$assignStatic(Types$ProjectionKind::DOWNWARDS, $new($Types$ProjectionKind$2, "DOWNWARDS"_s, 1));
 	$assignStatic(Types$ProjectionKind::$VALUES, Types$ProjectionKind::$values());
@@ -103,7 +59,44 @@ Types$ProjectionKind::Types$ProjectionKind() {
 }
 
 $Class* Types$ProjectionKind::load$($String* name, bool initialize) {
-	$loadClass(Types$ProjectionKind, name, initialize, &_Types$ProjectionKind_ClassInfo_, clinit$Types$ProjectionKind, allocate$Types$ProjectionKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"UPWARDS", "Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Types$ProjectionKind, UPWARDS)},
+		{"DOWNWARDS", "Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Types$ProjectionKind, DOWNWARDS)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Types$ProjectionKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Types$ProjectionKind, $values, $Types$ProjectionKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Types$ProjectionKind, init$, void, $String*, int32_t)},
+		{"complement", "()Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $ABSTRACT, $virtualMethod(Types$ProjectionKind, complement, Types$ProjectionKind*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Types$ProjectionKind, valueOf, Types$ProjectionKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Types$ProjectionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Types$ProjectionKind, values, $Types$ProjectionKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$ProjectionKind", "com.sun.tools.javac.code.Types", "ProjectionKind", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.code.Types$ProjectionKind$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.code.Types$ProjectionKind$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT | $ENUM,
+		"com.sun.tools.javac.code.Types$ProjectionKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Types$ProjectionKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$ProjectionKind, name, initialize, &classInfo$$, Types$ProjectionKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Types$ProjectionKind));
+	});
 	return class$;
 }
 

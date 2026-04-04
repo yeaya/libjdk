@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/TransformHelper.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <sun/java2d/SurfaceData.h>
@@ -33,49 +32,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _TransformHelper_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformHelper, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformHelper, primTypeID)},
-	{"helpercache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(TransformHelper, helpercache)},
-	{}
-};
-
-$MethodInfo _TransformHelper_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(TransformHelper, init$, void, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(TransformHelper, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"Transform", "(Lsun/java2d/loops/MaskBlit;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIIIII[III)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(TransformHelper, Transform, void, $MaskBlit*, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
-	{"getFromCache", "(Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/TransformHelper;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TransformHelper, getFromCache, TransformHelper*, $SurfaceType*)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/TransformHelper;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformHelper, locate, TransformHelper*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(TransformHelper, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_Transform 2
-
-$InnerClassInfo _TransformHelper_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.TransformHelper$TraceTransformHelper", "sun.java2d.loops.TransformHelper", "TraceTransformHelper", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TransformHelper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.TransformHelper",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_TransformHelper_FieldInfo_,
-	_TransformHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.TransformHelper$TraceTransformHelper"
-};
-
-$Object* allocate$TransformHelper($Class* clazz) {
-	return $of($alloc(TransformHelper));
-}
-
 $String* TransformHelper::methodSignature = nullptr;
 int32_t TransformHelper::primTypeID = 0;
 $RenderCache* TransformHelper::helpercache = nullptr;
@@ -88,10 +44,9 @@ TransformHelper* TransformHelper::locate($SurfaceType* srctype) {
 }
 
 TransformHelper* TransformHelper::getFromCache($SurfaceType* src) {
-	$load(TransformHelper);
+	$init(TransformHelper);
 	$synchronized(class$) {
-		$init(TransformHelper);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($Object, o, $nc(TransformHelper::helpercache)->get(src, nullptr, nullptr));
 		if (o != nullptr) {
 			return $cast(TransformHelper, o);
@@ -116,7 +71,7 @@ void TransformHelper::init$(int64_t pNativePrim, $SurfaceType* srctype, $Composi
 }
 
 void TransformHelper::Transform($MaskBlit* output, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, $AffineTransform* itx, int32_t txtype, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, $ints* edges, int32_t dxoff, int32_t dyoff) {
-	$prepareNative(TransformHelper, Transform, void, $MaskBlit* output, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, $AffineTransform* itx, int32_t txtype, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, $ints* edges, int32_t dxoff, int32_t dyoff);
+	$prepareNative(Transform, void, $MaskBlit* output, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, $AffineTransform* itx, int32_t txtype, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, $ints* edges, int32_t dxoff, int32_t dyoff);
 	$invokeNative(output, src, dst, comp, clip, itx, txtype, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2, edges, dxoff, dyoff);
 	$finishNative();
 }
@@ -125,7 +80,7 @@ $GraphicsPrimitive* TransformHelper::traceWrap() {
 	return $new($TransformHelper$TraceTransformHelper, this);
 }
 
-void clinit$TransformHelper($Class* class$) {
+void TransformHelper::clinit$($Class* clazz) {
 	$assignStatic(TransformHelper::methodSignature, "TransformHelper(...)"_s->toString());
 	TransformHelper::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 	$assignStatic(TransformHelper::helpercache, $new($RenderCache, 10));
@@ -135,7 +90,42 @@ TransformHelper::TransformHelper() {
 }
 
 $Class* TransformHelper::load$($String* name, bool initialize) {
-	$loadClass(TransformHelper, name, initialize, &_TransformHelper_ClassInfo_, clinit$TransformHelper, allocate$TransformHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformHelper, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformHelper, primTypeID)},
+		{"helpercache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(TransformHelper, helpercache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(TransformHelper, init$, void, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(TransformHelper, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"Transform", "(Lsun/java2d/loops/MaskBlit;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIIIII[III)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(TransformHelper, Transform, void, $MaskBlit*, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ints*, int32_t, int32_t)},
+		{"getFromCache", "(Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/TransformHelper;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TransformHelper, getFromCache, TransformHelper*, $SurfaceType*)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/TransformHelper;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformHelper, locate, TransformHelper*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(TransformHelper, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.TransformHelper$TraceTransformHelper", "sun.java2d.loops.TransformHelper", "TraceTransformHelper", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.TransformHelper",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.TransformHelper$TraceTransformHelper"
+	};
+	$loadClass(TransformHelper, name, initialize, &classInfo$$, TransformHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformHelper);
+	});
 	return class$;
 }
 

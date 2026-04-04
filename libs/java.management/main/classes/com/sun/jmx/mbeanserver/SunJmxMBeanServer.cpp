@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/SunJmxMBeanServer.h>
-
 #include <com/sun/jmx/mbeanserver/MBeanInstantiator.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/MBeanServerDelegate.h>
@@ -16,30 +15,26 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _SunJmxMBeanServer_MethodInfo_[] = {
-	{"getMBeanInstantiator", "()Lcom/sun/jmx/mbeanserver/MBeanInstantiator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, getMBeanInstantiator, $MBeanInstantiator*)},
-	{"getMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, getMBeanServerDelegate, $MBeanServerDelegate*)},
-	{"getMBeanServerInterceptor", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, getMBeanServerInterceptor, $MBeanServer*)},
-	{"interceptorsEnabled", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, interceptorsEnabled, bool)},
-	{"setMBeanServerInterceptor", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, setMBeanServerInterceptor, void, $MBeanServer*)},
-	{}
-};
-
-$ClassInfo _SunJmxMBeanServer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.jmx.mbeanserver.SunJmxMBeanServer",
-	nullptr,
-	"javax.management.MBeanServer",
-	nullptr,
-	_SunJmxMBeanServer_MethodInfo_
-};
-
-$Object* allocate$SunJmxMBeanServer($Class* clazz) {
-	return $of($alloc(SunJmxMBeanServer));
-}
-
 $Class* SunJmxMBeanServer::load$($String* name, bool initialize) {
-	$loadClass(SunJmxMBeanServer, name, initialize, &_SunJmxMBeanServer_ClassInfo_, allocate$SunJmxMBeanServer);
+	$MethodInfo methodInfos$$[] = {
+		{"getMBeanInstantiator", "()Lcom/sun/jmx/mbeanserver/MBeanInstantiator;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, getMBeanInstantiator, $MBeanInstantiator*)},
+		{"getMBeanServerDelegate", "()Ljavax/management/MBeanServerDelegate;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, getMBeanServerDelegate, $MBeanServerDelegate*)},
+		{"getMBeanServerInterceptor", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, getMBeanServerInterceptor, $MBeanServer*)},
+		{"interceptorsEnabled", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, interceptorsEnabled, bool)},
+		{"setMBeanServerInterceptor", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SunJmxMBeanServer, setMBeanServerInterceptor, void, $MBeanServer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.jmx.mbeanserver.SunJmxMBeanServer",
+		nullptr,
+		"javax.management.MBeanServer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SunJmxMBeanServer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunJmxMBeanServer);
+	});
 	return class$;
 }
 

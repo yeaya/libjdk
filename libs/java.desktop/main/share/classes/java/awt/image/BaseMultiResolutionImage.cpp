@@ -1,5 +1,4 @@
 #include <java/awt/image/BaseMultiResolutionImage.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/ImageObserver.h>
@@ -29,71 +28,38 @@ namespace java {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _BaseMultiResolutionImage_FieldInfo_[] = {
-	{"baseImageIndex", "I", nullptr, $PRIVATE | $FINAL, $field(BaseMultiResolutionImage, baseImageIndex)},
-	{"resolutionVariants", "[Ljava/awt/Image;", nullptr, $PRIVATE | $FINAL, $field(BaseMultiResolutionImage, resolutionVariants)},
-	{}
-};
-
-$MethodInfo _BaseMultiResolutionImage_MethodInfo_[] = {
-	{"<init>", "([Ljava/awt/Image;)V", nullptr, $PUBLIC | $TRANSIENT, $method(BaseMultiResolutionImage, init$, void, $ImageArray*)},
-	{"<init>", "(I[Ljava/awt/Image;)V", nullptr, $PUBLIC | $TRANSIENT, $method(BaseMultiResolutionImage, init$, void, int32_t, $ImageArray*)},
-	{"checkSize", "(DD)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BaseMultiResolutionImage, checkSize, void, double, double)},
-	{"getBaseImage", "()Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(BaseMultiResolutionImage, getBaseImage, $Image*)},
-	{"getResolutionVariant", "(DD)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(BaseMultiResolutionImage, getResolutionVariant, $Image*, double, double)},
-	{"getResolutionVariants", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/Image;>;", $PUBLIC, $virtualMethod(BaseMultiResolutionImage, getResolutionVariants, $List*)},
-	{}
-};
-
-$ClassInfo _BaseMultiResolutionImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.BaseMultiResolutionImage",
-	"java.awt.image.AbstractMultiResolutionImage",
-	nullptr,
-	_BaseMultiResolutionImage_FieldInfo_,
-	_BaseMultiResolutionImage_MethodInfo_
-};
-
-$Object* allocate$BaseMultiResolutionImage($Class* clazz) {
-	return $of($alloc(BaseMultiResolutionImage));
-}
-
 void BaseMultiResolutionImage::init$($ImageArray* resolutionVariants) {
 	BaseMultiResolutionImage::init$(0, resolutionVariants);
 }
 
 void BaseMultiResolutionImage::init$(int32_t baseImageIndex, $ImageArray* resolutionVariants) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractMultiResolutionImage::init$();
-	if (resolutionVariants == nullptr || $nc(resolutionVariants)->length == 0) {
+	if (resolutionVariants == nullptr || resolutionVariants->length == 0) {
 		$throwNew($IllegalArgumentException, "Null or zero-length array is passed"_s);
 	}
 	if (baseImageIndex < 0 || baseImageIndex >= $nc(resolutionVariants)->length) {
 		$throwNew($IndexOutOfBoundsException, $$str({"Invalid base image index: "_s, $$str(baseImageIndex)}));
 	}
 	this->baseImageIndex = baseImageIndex;
-	$set(this, resolutionVariants, $fcast($ImageArray, $Arrays::copyOf(resolutionVariants, $nc(resolutionVariants)->length)));
+	$set(this, resolutionVariants, $cast($ImageArray, $Arrays::copyOf(resolutionVariants, $nc(resolutionVariants)->length)));
 	{
 		$var($ImageArray, arr$, this->resolutionVariants);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Image, resolutionVariant, arr$->get(i$));
 			{
-				$Objects::requireNonNull($of(resolutionVariant), "Resolution variant can\'t be null"_s);
+				$Objects::requireNonNull(resolutionVariant, "Resolution variant can\'t be null"_s);
 			}
 		}
 	}
 }
 
 $Image* BaseMultiResolutionImage::getResolutionVariant(double destImageWidth, double destImageHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkSize(destImageWidth, destImageHeight);
 	{
 		$var($ImageArray, arr$, this->resolutionVariants);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Image, rvImage, arr$->get(i$));
 			{
 				bool var$0 = destImageWidth <= $nc(rvImage)->getWidth(nullptr);
@@ -108,18 +74,18 @@ $Image* BaseMultiResolutionImage::getResolutionVariant(double destImageWidth, do
 
 void BaseMultiResolutionImage::checkSize(double width, double height) {
 	$init(BaseMultiResolutionImage);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (width <= 0 || height <= 0) {
 		$throwNew($IllegalArgumentException, $($String::format("Width (%s) or height (%s) cannot be <= 0"_s, $$new($ObjectArray, {
-			$($of($Double::valueOf(width))),
-			$($of($Double::valueOf(height)))
+			$($Double::valueOf(width)),
+			$($Double::valueOf(height))
 		}))));
 	}
 	bool var$0 = !$Double::isFinite(width);
 	if (var$0 || !$Double::isFinite(height)) {
 		$throwNew($IllegalArgumentException, $($String::format("Width (%s) or height (%s) is not finite"_s, $$new($ObjectArray, {
-			$($of($Double::valueOf(width))),
-			$($of($Double::valueOf(height)))
+			$($Double::valueOf(width)),
+			$($Double::valueOf(height))
 		}))));
 	}
 }
@@ -136,7 +102,31 @@ BaseMultiResolutionImage::BaseMultiResolutionImage() {
 }
 
 $Class* BaseMultiResolutionImage::load$($String* name, bool initialize) {
-	$loadClass(BaseMultiResolutionImage, name, initialize, &_BaseMultiResolutionImage_ClassInfo_, allocate$BaseMultiResolutionImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"baseImageIndex", "I", nullptr, $PRIVATE | $FINAL, $field(BaseMultiResolutionImage, baseImageIndex)},
+		{"resolutionVariants", "[Ljava/awt/Image;", nullptr, $PRIVATE | $FINAL, $field(BaseMultiResolutionImage, resolutionVariants)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/awt/Image;)V", nullptr, $PUBLIC | $TRANSIENT, $method(BaseMultiResolutionImage, init$, void, $ImageArray*)},
+		{"<init>", "(I[Ljava/awt/Image;)V", nullptr, $PUBLIC | $TRANSIENT, $method(BaseMultiResolutionImage, init$, void, int32_t, $ImageArray*)},
+		{"checkSize", "(DD)V", nullptr, $PRIVATE | $STATIC, $staticMethod(BaseMultiResolutionImage, checkSize, void, double, double)},
+		{"getBaseImage", "()Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(BaseMultiResolutionImage, getBaseImage, $Image*)},
+		{"getResolutionVariant", "(DD)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(BaseMultiResolutionImage, getResolutionVariant, $Image*, double, double)},
+		{"getResolutionVariants", "()Ljava/util/List;", "()Ljava/util/List<Ljava/awt/Image;>;", $PUBLIC, $virtualMethod(BaseMultiResolutionImage, getResolutionVariants, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.BaseMultiResolutionImage",
+		"java.awt.image.AbstractMultiResolutionImage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BaseMultiResolutionImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BaseMultiResolutionImage));
+	});
 	return class$;
 }
 

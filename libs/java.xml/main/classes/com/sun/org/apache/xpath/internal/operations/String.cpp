@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/operations/String.h>
-
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <com/sun/org/apache/xpath/internal/objects/XString.h>
@@ -21,30 +20,6 @@ namespace com {
 					namespace internal {
 						namespace operations {
 
-$FieldInfo _String_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(String, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _String_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(String, init$, void)},
-	{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(String, operate, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _String_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.operations.String",
-	"com.sun.org.apache.xpath.internal.operations.UnaryOperation",
-	nullptr,
-	_String_FieldInfo_,
-	_String_MethodInfo_
-};
-
-$Object* allocate$String($Class* clazz) {
-	return $of($alloc(String));
-}
-
 void String::init$() {
 	$UnaryOperation::init$();
 }
@@ -57,7 +32,26 @@ String::String() {
 }
 
 $Class* String::load$($String* name, bool initialize) {
-	$loadClass(String, name, initialize, &_String_ClassInfo_, allocate$String);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(String, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(String, init$, void)},
+		{"operate", "(Lcom/sun/org/apache/xpath/internal/objects/XObject;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(String, operate, $XObject*, $XObject*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.operations.String",
+		"com.sun.org.apache.xpath.internal.operations.UnaryOperation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(String, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(String));
+	});
 	return class$;
 }
 

@@ -47,6 +47,7 @@ class $export JViewPortBackingStoreImageTest : public ::java::lang::Object {
 	$class(JViewPortBackingStoreImageTest, 0, ::java::lang::Object)
 public:
 	JViewPortBackingStoreImageTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addParagraph(::JViewPortBackingStoreImageTest$Paragraph* p);
 	static ::javax::swing::JComponent* createComponent();

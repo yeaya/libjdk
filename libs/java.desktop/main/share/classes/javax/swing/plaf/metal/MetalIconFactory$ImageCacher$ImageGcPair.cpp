@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$ImageCacher$ImageGcPair.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <javax/swing/plaf/metal/MetalIconFactory$ImageCacher.h>
@@ -18,45 +17,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalIconFactory$ImageCacher$ImageGcPair_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalIconFactory$ImageCacher;", nullptr, $FINAL | $SYNTHETIC, $field(MetalIconFactory$ImageCacher$ImageGcPair, this$0)},
-	{"image", "Ljava/awt/Image;", nullptr, 0, $field(MetalIconFactory$ImageCacher$ImageGcPair, image)},
-	{"gc", "Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(MetalIconFactory$ImageCacher$ImageGcPair, gc)},
-	{}
-};
-
-$MethodInfo _MetalIconFactory$ImageCacher$ImageGcPair_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalIconFactory$ImageCacher;Ljava/awt/Image;Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $method(MetalIconFactory$ImageCacher$ImageGcPair, init$, void, $MetalIconFactory$ImageCacher*, $Image*, $GraphicsConfiguration*)},
-	{"hasSameConfiguration", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, 0, $virtualMethod(MetalIconFactory$ImageCacher$ImageGcPair, hasSameConfiguration, bool, $GraphicsConfiguration*)},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$ImageCacher$ImageGcPair_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$ImageCacher", "javax.swing.plaf.metal.MetalIconFactory", "ImageCacher", $STATIC},
-	{"javax.swing.plaf.metal.MetalIconFactory$ImageCacher$ImageGcPair", "javax.swing.plaf.metal.MetalIconFactory$ImageCacher", "ImageGcPair", 0},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$ImageCacher$ImageGcPair_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$ImageCacher$ImageGcPair",
-	"java.lang.Object",
-	nullptr,
-	_MetalIconFactory$ImageCacher$ImageGcPair_FieldInfo_,
-	_MetalIconFactory$ImageCacher$ImageGcPair_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$ImageCacher$ImageGcPair_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$ImageCacher$ImageGcPair($Class* clazz) {
-	return $of($alloc(MetalIconFactory$ImageCacher$ImageGcPair));
-}
-
 void MetalIconFactory$ImageCacher$ImageGcPair::init$($MetalIconFactory$ImageCacher* this$0, $Image* image, $GraphicsConfiguration* gc) {
 	$set(this, this$0, this$0);
 	$set(this, image, image);
@@ -71,7 +31,40 @@ MetalIconFactory$ImageCacher$ImageGcPair::MetalIconFactory$ImageCacher$ImageGcPa
 }
 
 $Class* MetalIconFactory$ImageCacher$ImageGcPair::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$ImageCacher$ImageGcPair, name, initialize, &_MetalIconFactory$ImageCacher$ImageGcPair_ClassInfo_, allocate$MetalIconFactory$ImageCacher$ImageGcPair);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalIconFactory$ImageCacher;", nullptr, $FINAL | $SYNTHETIC, $field(MetalIconFactory$ImageCacher$ImageGcPair, this$0)},
+		{"image", "Ljava/awt/Image;", nullptr, 0, $field(MetalIconFactory$ImageCacher$ImageGcPair, image)},
+		{"gc", "Ljava/awt/GraphicsConfiguration;", nullptr, 0, $field(MetalIconFactory$ImageCacher$ImageGcPair, gc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalIconFactory$ImageCacher;Ljava/awt/Image;Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $method(MetalIconFactory$ImageCacher$ImageGcPair, init$, void, $MetalIconFactory$ImageCacher*, $Image*, $GraphicsConfiguration*)},
+		{"hasSameConfiguration", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, 0, $virtualMethod(MetalIconFactory$ImageCacher$ImageGcPair, hasSameConfiguration, bool, $GraphicsConfiguration*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$ImageCacher", "javax.swing.plaf.metal.MetalIconFactory", "ImageCacher", $STATIC},
+		{"javax.swing.plaf.metal.MetalIconFactory$ImageCacher$ImageGcPair", "javax.swing.plaf.metal.MetalIconFactory$ImageCacher", "ImageGcPair", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$ImageCacher$ImageGcPair",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$ImageCacher$ImageGcPair, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalIconFactory$ImageCacher$ImageGcPair);
+	});
 	return class$;
 }
 

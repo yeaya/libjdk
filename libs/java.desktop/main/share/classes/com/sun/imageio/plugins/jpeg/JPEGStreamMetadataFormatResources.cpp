@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGStreamMetadataFormatResources.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEGMetadataFormatResources.h>
 #include <jcpp.h>
 
@@ -14,25 +13,6 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$MethodInfo _JPEGStreamMetadataFormatResources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGStreamMetadataFormatResources, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JPEGStreamMetadataFormatResources, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _JPEGStreamMetadataFormatResources_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGStreamMetadataFormatResources",
-	"com.sun.imageio.plugins.jpeg.JPEGMetadataFormatResources",
-	nullptr,
-	nullptr,
-	_JPEGStreamMetadataFormatResources_MethodInfo_
-};
-
-$Object* allocate$JPEGStreamMetadataFormatResources($Class* clazz) {
-	return $of($alloc(JPEGStreamMetadataFormatResources));
-}
-
 void JPEGStreamMetadataFormatResources::init$() {
 	$JPEGMetadataFormatResources::init$();
 }
@@ -40,9 +20,9 @@ void JPEGStreamMetadataFormatResources::init$() {
 $ObjectArray2* JPEGStreamMetadataFormatResources::getContents() {
 	$init($JPEGMetadataFormatResources);
 	$var($ObjectArray2, commonCopy, $new($ObjectArray2, $nc($JPEGMetadataFormatResources::commonContents)->length, 2));
-	for (int32_t i = 0; i < $nc($JPEGMetadataFormatResources::commonContents)->length; ++i) {
-		$nc(commonCopy->get(i))->set(0, $nc($nc($JPEGMetadataFormatResources::commonContents)->get(i))->get(0));
-		$nc(commonCopy->get(i))->set(1, $nc($nc($JPEGMetadataFormatResources::commonContents)->get(i))->get(1));
+	for (int32_t i = 0; i < $JPEGMetadataFormatResources::commonContents->length; ++i) {
+		$nc(commonCopy->get(i))->set(0, $nc($JPEGMetadataFormatResources::commonContents->get(i))->get(0));
+		$nc(commonCopy->get(i))->set(1, $nc($JPEGMetadataFormatResources::commonContents->get(i))->get(1));
 	}
 	return commonCopy;
 }
@@ -51,7 +31,22 @@ JPEGStreamMetadataFormatResources::JPEGStreamMetadataFormatResources() {
 }
 
 $Class* JPEGStreamMetadataFormatResources::load$($String* name, bool initialize) {
-	$loadClass(JPEGStreamMetadataFormatResources, name, initialize, &_JPEGStreamMetadataFormatResources_ClassInfo_, allocate$JPEGStreamMetadataFormatResources);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGStreamMetadataFormatResources, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JPEGStreamMetadataFormatResources, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGStreamMetadataFormatResources",
+		"com.sun.imageio.plugins.jpeg.JPEGMetadataFormatResources",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JPEGStreamMetadataFormatResources, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGStreamMetadataFormatResources);
+	});
 	return class$;
 }
 

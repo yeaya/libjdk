@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$DeletePrevCharAction.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/lang/Math.h>
@@ -13,13 +12,11 @@
 #include <javax/swing/text/TextAction.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Caret = ::javax::swing::text::Caret;
@@ -31,43 +28,12 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$DeletePrevCharAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$DeletePrevCharAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$DeletePrevCharAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$DeletePrevCharAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$DeletePrevCharAction", "javax.swing.text.DefaultEditorKit", "DeletePrevCharAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$DeletePrevCharAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$DeletePrevCharAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$DeletePrevCharAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$DeletePrevCharAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$DeletePrevCharAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$DeletePrevCharAction));
-}
-
 void DefaultEditorKit$DeletePrevCharAction::init$() {
 	$TextAction::init$("delete-previous"_s);
 }
 
 void DefaultEditorKit$DeletePrevCharAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	bool beep = true;
 	if ((target != nullptr) && (target->isEditable())) {
@@ -86,7 +52,7 @@ void DefaultEditorKit$DeletePrevCharAction::actionPerformed($ActionEvent* e) {
 					$var($String, dotChars, $nc(doc)->getText(dot - 2, 2));
 					char16_t c0 = $nc(dotChars)->charAt(0);
 					char16_t c1 = dotChars->charAt(1);
-					if (c0 >= (char16_t)0xD800 && c0 <= (char16_t)0xDBFF && c1 >= (char16_t)0xDC00 && c1 <= (char16_t)0xDFFF) {
+					if (c0 >= (char16_t)0xd800 && c0 <= (char16_t)0xdbff && c1 >= (char16_t)0xdc00 && c1 <= (char16_t)0xdfff) {
 						delChars = 2;
 					}
 				}
@@ -97,7 +63,7 @@ void DefaultEditorKit$DeletePrevCharAction::actionPerformed($ActionEvent* e) {
 		}
 	}
 	if (beep) {
-		$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(target);
+		$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(target);
 	}
 }
 
@@ -105,7 +71,33 @@ DefaultEditorKit$DeletePrevCharAction::DefaultEditorKit$DeletePrevCharAction() {
 }
 
 $Class* DefaultEditorKit$DeletePrevCharAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$DeletePrevCharAction, name, initialize, &_DefaultEditorKit$DeletePrevCharAction_ClassInfo_, allocate$DefaultEditorKit$DeletePrevCharAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$DeletePrevCharAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$DeletePrevCharAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$DeletePrevCharAction", "javax.swing.text.DefaultEditorKit", "DeletePrevCharAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$DeletePrevCharAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$DeletePrevCharAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$DeletePrevCharAction));
+	});
 	return class$;
 }
 

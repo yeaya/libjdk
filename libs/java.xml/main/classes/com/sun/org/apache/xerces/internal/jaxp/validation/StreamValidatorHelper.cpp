@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/StreamValidatorHelper.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/msg/XMLMessageFormatter.h>
@@ -10,13 +9,10 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
 #include <com/sun/org/apache/xerces/internal/util/MessageFormatter.h>
-#include <com/sun/org/apache/xerces/internal/util/ParserConfigurationSettings.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDContentModelHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
@@ -35,7 +31,6 @@
 #include <javax/xml/transform/stream/StreamSource.h>
 #include <jdk/xml/internal/JdkConstants.h>
 #include <jdk/xml/internal/JdkXmlUtils.h>
-#include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/SAXParseException.h>
 #include <jcpp.h>
@@ -73,19 +68,14 @@ using $Util = ::com::sun::org::apache::xerces::internal::jaxp::validation::Util;
 using $ValidatorHandlerImpl = ::com::sun::org::apache::xerces::internal::jaxp::validation::ValidatorHandlerImpl;
 using $XMLSchemaValidatorComponentManager = ::com::sun::org::apache::xerces::internal::jaxp::validation::XMLSchemaValidatorComponentManager;
 using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
-using $MessageFormatter = ::com::sun::org::apache::xerces::internal::util::MessageFormatter;
-using $ParserConfigurationSettings = ::com::sun::org::apache::xerces::internal::util::ParserConfigurationSettings;
 using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager;
 using $XMLDTDContentModelHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDContentModelHandler;
 using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
-using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
-using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -102,7 +92,6 @@ using $StreamResult = ::javax::xml::transform::stream::StreamResult;
 using $StreamSource = ::javax::xml::transform::stream::StreamSource;
 using $JdkConstants = ::jdk::xml::internal::JdkConstants;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
-using $ContentHandler = ::org::xml::sax::ContentHandler;
 
 namespace com {
 	namespace sun {
@@ -112,42 +101,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace validation {
-
-$FieldInfo _StreamValidatorHelper_FieldInfo_[] = {
-	{"PARSER_SETTINGS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, PARSER_SETTINGS)},
-	{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, ENTITY_RESOLVER)},
-	{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, ERROR_HANDLER)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, ERROR_REPORTER)},
-	{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, SCHEMA_VALIDATOR)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, SYMBOL_TABLE)},
-	{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, VALIDATION_MANAGER)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, SECURITY_MANAGER)},
-	{"fConfiguration", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;>;", $PRIVATE, $field(StreamValidatorHelper, fConfiguration)},
-	{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PRIVATE, $field(StreamValidatorHelper, fSchemaValidator)},
-	{"fComponentManager", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;", nullptr, $PRIVATE, $field(StreamValidatorHelper, fComponentManager)},
-	{"handler", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl;", nullptr, $PRIVATE, $field(StreamValidatorHelper, handler)},
-	{}
-};
-
-$MethodInfo _StreamValidatorHelper_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;)V", nullptr, $PUBLIC, $method(StreamValidatorHelper, init$, void, $XMLSchemaValidatorComponentManager*)},
-	{"initialize", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;", nullptr, $PRIVATE, $method(StreamValidatorHelper, initialize, $XMLParserConfiguration*)},
-	{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(StreamValidatorHelper, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StreamValidatorHelper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.StreamValidatorHelper",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper",
-	_StreamValidatorHelper_FieldInfo_,
-	_StreamValidatorHelper_MethodInfo_
-};
-
-$Object* allocate$StreamValidatorHelper($Class* clazz) {
-	return $of($alloc(StreamValidatorHelper));
-}
 
 $String* StreamValidatorHelper::PARSER_SETTINGS = nullptr;
 $String* StreamValidatorHelper::ENTITY_RESOLVER = nullptr;
@@ -166,7 +119,7 @@ void StreamValidatorHelper::init$($XMLSchemaValidatorComponentManager* component
 }
 
 void StreamValidatorHelper::validate($Source* source, $Result* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (result == nullptr || $instanceOf($StreamResult, result)) {
 		$var($StreamSource, streamSource, $cast($StreamSource, source));
 		$var($TransformerHandler, identityTransformerHandler, nullptr);
@@ -176,21 +129,21 @@ void StreamValidatorHelper::validate($Source* source, $Result* result) {
 				$var($SAXTransformerFactory, tf, $JdkXmlUtils::getSAXTransformFactory($nc(this->fComponentManager)->getFeature($JdkConstants::OVERRIDE_PARSER)));
 				$assign(identityTransformerHandler, $nc(tf)->newTransformerHandler());
 			} catch ($TransformerConfigurationException& e) {
-				$throwNew($TransformerFactoryConfigurationError, static_cast<$Exception*>(e));
+				$throwNew($TransformerFactoryConfigurationError, e);
 			}
 			$set(this, handler, $new($ValidatorHandlerImpl, this->fComponentManager));
-			$nc(this->handler)->setContentHandler(identityTransformerHandler);
+			this->handler->setContentHandler(identityTransformerHandler);
 			$nc(identityTransformerHandler)->setResult(result);
 		}
 		$var($String, var$0, $nc(streamSource)->getPublicId());
 		$var($XMLInputSource, input, $new($XMLInputSource, var$0, $(streamSource->getSystemId()), nullptr, false));
-		input->setByteStream($($nc(streamSource)->getInputStream()));
-		input->setCharacterStream($($nc(streamSource)->getReader()));
+		input->setByteStream($(streamSource->getInputStream()));
+		input->setCharacterStream($(streamSource->getReader()));
 		$var($XMLParserConfiguration, config, $cast($XMLParserConfiguration, $nc(this->fConfiguration)->get()));
 		if (config == nullptr) {
 			$assign(config, initialize());
 		} else if ($nc(this->fComponentManager)->getFeature(StreamValidatorHelper::PARSER_SETTINGS)) {
-			$nc(config)->setProperty(StreamValidatorHelper::ENTITY_RESOLVER, $($nc(this->fComponentManager)->getProperty(StreamValidatorHelper::ENTITY_RESOLVER)));
+			config->setProperty(StreamValidatorHelper::ENTITY_RESOLVER, $($nc(this->fComponentManager)->getProperty(StreamValidatorHelper::ENTITY_RESOLVER)));
 			config->setProperty(StreamValidatorHelper::ERROR_HANDLER, $($nc(this->fComponentManager)->getProperty(StreamValidatorHelper::ERROR_HANDLER)));
 		}
 		$nc(this->fComponentManager)->reset();
@@ -207,13 +160,13 @@ void StreamValidatorHelper::validate($Source* source, $Result* result) {
 	$var($Locale, var$1, $nc(this->fComponentManager)->getLocale());
 	$var($String, var$2, "SourceResultMismatch"_s);
 	$throwNew($IllegalArgumentException, $($JAXPValidationMessageFormatter::formatMessage(var$1, var$2, $$new($ObjectArray, {
-		$($of($nc($of(source))->getClass()->getName())),
-		$($of($nc($of(result))->getClass()->getName()))
+		$($nc($of(source))->getClass()->getName()),
+		$($nc($of(result))->getClass()->getName())
 	}))));
 }
 
 $XMLParserConfiguration* StreamValidatorHelper::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XML11Configuration, config, $new($XML11Configuration));
 	$init($XMLConstants);
 	if ($nc(this->fComponentManager)->getFeature($XMLConstants::FEATURE_SECURE_PROCESSING)) {
@@ -247,7 +200,7 @@ $XMLParserConfiguration* StreamValidatorHelper::initialize() {
 StreamValidatorHelper::StreamValidatorHelper() {
 }
 
-void clinit$StreamValidatorHelper($Class* class$) {
+void StreamValidatorHelper::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(StreamValidatorHelper::PARSER_SETTINGS, $str({$Constants::XERCES_FEATURE_PREFIX, $Constants::PARSER_SETTINGS}));
 	$assignStatic(StreamValidatorHelper::ENTITY_RESOLVER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ENTITY_RESOLVER_PROPERTY}));
@@ -260,7 +213,38 @@ void clinit$StreamValidatorHelper($Class* class$) {
 }
 
 $Class* StreamValidatorHelper::load$($String* name, bool initialize) {
-	$loadClass(StreamValidatorHelper, name, initialize, &_StreamValidatorHelper_ClassInfo_, clinit$StreamValidatorHelper, allocate$StreamValidatorHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"PARSER_SETTINGS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, PARSER_SETTINGS)},
+		{"ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, ENTITY_RESOLVER)},
+		{"ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, ERROR_HANDLER)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, ERROR_REPORTER)},
+		{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, SCHEMA_VALIDATOR)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, SYMBOL_TABLE)},
+		{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, VALIDATION_MANAGER)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StreamValidatorHelper, SECURITY_MANAGER)},
+		{"fConfiguration", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;>;", $PRIVATE, $field(StreamValidatorHelper, fConfiguration)},
+		{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PRIVATE, $field(StreamValidatorHelper, fSchemaValidator)},
+		{"fComponentManager", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;", nullptr, $PRIVATE, $field(StreamValidatorHelper, fComponentManager)},
+		{"handler", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl;", nullptr, $PRIVATE, $field(StreamValidatorHelper, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;)V", nullptr, $PUBLIC, $method(StreamValidatorHelper, init$, void, $XMLSchemaValidatorComponentManager*)},
+		{"initialize", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;", nullptr, $PRIVATE, $method(StreamValidatorHelper, initialize, $XMLParserConfiguration*)},
+		{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(StreamValidatorHelper, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.StreamValidatorHelper",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamValidatorHelper, name, initialize, &classInfo$$, StreamValidatorHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamValidatorHelper);
+	});
 	return class$;
 }
 

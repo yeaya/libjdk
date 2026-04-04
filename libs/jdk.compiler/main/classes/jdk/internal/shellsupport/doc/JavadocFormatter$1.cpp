@@ -1,5 +1,4 @@
 #include <jdk/internal/shellsupport/doc/JavadocFormatter$1.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/net/URI.h>
 #include <javax/tools/JavaFileObject$Kind.h>
@@ -23,49 +22,6 @@ namespace jdk {
 		namespace shellsupport {
 			namespace doc {
 
-$FieldInfo _JavadocFormatter$1_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/shellsupport/doc/JavadocFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocFormatter$1, this$0)},
-	{"val$javadoc", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocFormatter$1, val$javadoc)},
-	{}
-};
-
-$MethodInfo _JavadocFormatter$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocFormatter;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/lang/String;)V", nullptr, 0, $method(JavadocFormatter$1, init$, void, $JavadocFormatter*, $URI*, $JavaFileObject$Kind*, $String*)},
-	{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$1, getCharContent, $CharSequence*, bool), "java.io.IOException"},
-	{}
-};
-
-$EnclosingMethodInfo _JavadocFormatter$1_EnclosingMethodInfo_ = {
-	"jdk.internal.shellsupport.doc.JavadocFormatter",
-	"formatJavadoc",
-	"(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
-};
-
-$InnerClassInfo _JavadocFormatter$1_InnerClassesInfo_[] = {
-	{"jdk.internal.shellsupport.doc.JavadocFormatter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavadocFormatter$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.shellsupport.doc.JavadocFormatter$1",
-	"javax.tools.SimpleJavaFileObject",
-	nullptr,
-	_JavadocFormatter$1_FieldInfo_,
-	_JavadocFormatter$1_MethodInfo_,
-	nullptr,
-	&_JavadocFormatter$1_EnclosingMethodInfo_,
-	_JavadocFormatter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.shellsupport.doc.JavadocFormatter"
-};
-
-$Object* allocate$JavadocFormatter$1($Class* clazz) {
-	return $of($alloc(JavadocFormatter$1));
-}
-
 void JavadocFormatter$1::init$($JavadocFormatter* this$0, $URI* arg0, $JavaFileObject$Kind* arg1, $String* val$javadoc) {
 	$set(this, this$0, this$0);
 	$set(this, val$javadoc, val$javadoc);
@@ -80,7 +36,43 @@ JavadocFormatter$1::JavadocFormatter$1() {
 }
 
 $Class* JavadocFormatter$1::load$($String* name, bool initialize) {
-	$loadClass(JavadocFormatter$1, name, initialize, &_JavadocFormatter$1_ClassInfo_, allocate$JavadocFormatter$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/shellsupport/doc/JavadocFormatter;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocFormatter$1, this$0)},
+		{"val$javadoc", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocFormatter$1, val$javadoc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocFormatter;Ljava/net/URI;Ljavax/tools/JavaFileObject$Kind;Ljava/lang/String;)V", nullptr, 0, $method(JavadocFormatter$1, init$, void, $JavadocFormatter*, $URI*, $JavaFileObject$Kind*, $String*)},
+		{"getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(JavadocFormatter$1, getCharContent, $CharSequence*, bool), "java.io.IOException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.shellsupport.doc.JavadocFormatter",
+		"formatJavadoc",
+		"(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.shellsupport.doc.JavadocFormatter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.shellsupport.doc.JavadocFormatter$1",
+		"javax.tools.SimpleJavaFileObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.shellsupport.doc.JavadocFormatter"
+	};
+	$loadClass(JavadocFormatter$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocFormatter$1);
+	});
 	return class$;
 }
 

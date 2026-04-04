@@ -59,6 +59,7 @@ class ECDSAUtils : public ::java::lang::Object {
 	$class(ECDSAUtils, 0, ::java::lang::Object)
 public:
 	ECDSAUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* convertASN1toXMLDSIG($bytes* asn1Bytes, int32_t rawLen);
 	static $bytes* convertXMLDSIGtoASN1($bytes* xmldsigBytes);

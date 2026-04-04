@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022_CN_CNS$Encoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/EUC_TW$Encoder.h>
@@ -29,48 +28,6 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$FieldInfo _ISO2022_CN_CNS$Encoder_FieldInfo_[] = {
-	{"cns", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN_CNS$Encoder, cns)},
-	{"SOD", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN_CNS$Encoder, SOD)},
-	{"SS2D", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN_CNS$Encoder, SS2D)},
-	{"SS3D", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN_CNS$Encoder, SS3D)},
-	{"bb", "[B", nullptr, $PRIVATE | $FINAL, $field(ISO2022_CN_CNS$Encoder, bb)},
-	{}
-};
-
-$MethodInfo _ISO2022_CN_CNS$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ISO2022_CN_CNS$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS$Encoder, canEncode, bool, char16_t)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _ISO2022_CN_CNS$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022_CN_CNS$Encoder", "sun.nio.cs.ext.ISO2022_CN_CNS", "Encoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.ext.ISO2022$Encoder", "sun.nio.cs.ext.ISO2022", "Encoder", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022_CN_CNS$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022_CN_CNS$Encoder",
-	"sun.nio.cs.ext.ISO2022$Encoder",
-	nullptr,
-	_ISO2022_CN_CNS$Encoder_FieldInfo_,
-	_ISO2022_CN_CNS$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022_CN_CNS$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022_CN_CNS"
-};
-
-$Object* allocate$ISO2022_CN_CNS$Encoder($Class* clazz) {
-	return $of($alloc(ISO2022_CN_CNS$Encoder));
-}
-
 $Charset* ISO2022_CN_CNS$Encoder::cns = nullptr;
 $bytes* ISO2022_CN_CNS$Encoder::SOD = nullptr;
 $bytes* ISO2022_CN_CNS$Encoder::SS2D = nullptr;
@@ -82,20 +39,20 @@ void ISO2022_CN_CNS$Encoder::init$($Charset* cs) {
 	$set(this, SODesig, ISO2022_CN_CNS$Encoder::SOD);
 	$set(this, SS2Desig, ISO2022_CN_CNS$Encoder::SS2D);
 	$set(this, SS3Desig, ISO2022_CN_CNS$Encoder::SS3D);
-	$set(this, ISOEncoder, $nc(ISO2022_CN_CNS$Encoder::cns)->newEncoder());
+	$set(this, ISOEncoder, ISO2022_CN_CNS$Encoder::cns->newEncoder());
 }
 
 bool ISO2022_CN_CNS$Encoder::canEncode(char16_t c) {
 	int32_t n = 0;
-	bool var$0 = c <= (char16_t)0x7F || (n = $nc(($cast($EUC_TW$Encoder, this->ISOEncoder)))->toEUC(c, this->bb)) == 2;
-	return (var$0 || (n == 4 && $nc(this->bb)->get(0) == $ISO2022$Encoder::SS2 && ($nc(this->bb)->get(1) == $ISO2022$Encoder::PLANE2 || $nc(this->bb)->get(1) == $ISO2022$Encoder::PLANE3)));
+	bool var$0 = c <= (char16_t)0x7f || (n = $nc($cast($EUC_TW$Encoder, this->ISOEncoder))->toEUC(c, this->bb)) == 2;
+	return (var$0 || (n == 4 && this->bb->get(0) == $ISO2022$Encoder::SS2 && (this->bb->get(1) == $ISO2022$Encoder::PLANE2 || this->bb->get(1) == $ISO2022$Encoder::PLANE3)));
 }
 
 bool ISO2022_CN_CNS$Encoder::isLegalReplacement($bytes* repl) {
 	return ($nc(repl)->length == 1 && repl->get(0) == (int8_t)63);
 }
 
-void clinit$ISO2022_CN_CNS$Encoder($Class* class$) {
+void ISO2022_CN_CNS$Encoder::clinit$($Class* clazz) {
 	$assignStatic(ISO2022_CN_CNS$Encoder::cns, $new($EUC_TW));
 	$assignStatic(ISO2022_CN_CNS$Encoder::SOD, $new($bytes, {
 		(int8_t)u'$',
@@ -118,7 +75,43 @@ ISO2022_CN_CNS$Encoder::ISO2022_CN_CNS$Encoder() {
 }
 
 $Class* ISO2022_CN_CNS$Encoder::load$($String* name, bool initialize) {
-	$loadClass(ISO2022_CN_CNS$Encoder, name, initialize, &_ISO2022_CN_CNS$Encoder_ClassInfo_, clinit$ISO2022_CN_CNS$Encoder, allocate$ISO2022_CN_CNS$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"cns", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN_CNS$Encoder, cns)},
+		{"SOD", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN_CNS$Encoder, SOD)},
+		{"SS2D", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN_CNS$Encoder, SS2D)},
+		{"SS3D", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_CN_CNS$Encoder, SS3D)},
+		{"bb", "[B", nullptr, $PRIVATE | $FINAL, $field(ISO2022_CN_CNS$Encoder, bb)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ISO2022_CN_CNS$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS$Encoder, canEncode, bool, char16_t)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_CN_CNS$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022_CN_CNS$Encoder", "sun.nio.cs.ext.ISO2022_CN_CNS", "Encoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.ext.ISO2022$Encoder", "sun.nio.cs.ext.ISO2022", "Encoder", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022_CN_CNS$Encoder",
+		"sun.nio.cs.ext.ISO2022$Encoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022_CN_CNS"
+	};
+	$loadClass(ISO2022_CN_CNS$Encoder, name, initialize, &classInfo$$, ISO2022_CN_CNS$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO2022_CN_CNS$Encoder);
+	});
 	return class$;
 }
 

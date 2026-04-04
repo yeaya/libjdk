@@ -1,5 +1,4 @@
 #include <java/util/logging/Filter.h>
-
 #include <java/util/logging/LogRecord.h>
 #include <jcpp.h>
 
@@ -12,35 +11,30 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$CompoundAttribute _Filter_Annotations_[] = {
-	{"Ljava/lang/FunctionalInterface;", nullptr},
-	{}
-};
-
-$MethodInfo _Filter_MethodInfo_[] = {
-	{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, isLoggable, bool, $LogRecord*)},
-	{}
-};
-
-$ClassInfo _Filter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.logging.Filter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Filter_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Filter_Annotations_
-};
-
-$Object* allocate$Filter($Class* clazz) {
-	return $of($alloc(Filter));
-}
-
 $Class* Filter::load$($String* name, bool initialize) {
-	$loadClass(Filter, name, initialize, &_Filter_ClassInfo_, allocate$Filter);
+	$MethodInfo methodInfos$$[] = {
+		{"isLoggable", "(Ljava/util/logging/LogRecord;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Filter, isLoggable, bool, $LogRecord*)},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/FunctionalInterface;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.logging.Filter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Filter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Filter);
+	});
 	return class$;
 }
 

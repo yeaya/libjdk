@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal.h>
@@ -38,41 +37,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$MethodInfo _PrecisionDecimalDV_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PrecisionDecimalDV, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, compare, int32_t, Object$*, Object$*)},
-	{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, getAllowedFacets, int16_t)},
-	{"getFractionDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, getFractionDigits, int32_t, Object$*)},
-	{"getTotalDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, getTotalDigits, int32_t, Object$*)},
-	{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, isIdentical, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _PrecisionDecimalDV_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV$XPrecisionDecimal", "com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV", "XPrecisionDecimal", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PrecisionDecimalDV_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV",
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
-	nullptr,
-	nullptr,
-	_PrecisionDecimalDV_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrecisionDecimalDV_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV$XPrecisionDecimal"
-};
-
-$Object* allocate$PrecisionDecimalDV($Class* clazz) {
-	return $of($alloc(PrecisionDecimalDV));
-}
-
 void PrecisionDecimalDV::init$() {
 	$TypeValidator::init$();
 }
@@ -83,40 +47,70 @@ int16_t PrecisionDecimalDV::getAllowedFacets() {
 
 $Object* PrecisionDecimalDV::getActualValue($String* content, $ValidationContext* context) {
 	try {
-		return $of($new($PrecisionDecimalDV$XPrecisionDecimal, content));
+		return $new($PrecisionDecimalDV$XPrecisionDecimal, content);
 	} catch ($NumberFormatException& nfe) {
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-			$of(content),
-			$of("precisionDecimal"_s)
+			content,
+			"precisionDecimal"_s
 		}));
 	}
 	$shouldNotReachHere();
 }
 
 int32_t PrecisionDecimalDV::compare(Object$* value1, Object$* value2) {
-	return $nc(($cast($PrecisionDecimalDV$XPrecisionDecimal, value1)))->compareTo($cast($PrecisionDecimalDV$XPrecisionDecimal, value2));
+	return $nc($cast($PrecisionDecimalDV$XPrecisionDecimal, value1))->compareTo($cast($PrecisionDecimalDV$XPrecisionDecimal, value2));
 }
 
 int32_t PrecisionDecimalDV::getFractionDigits(Object$* value) {
-	return $nc(($cast($PrecisionDecimalDV$XPrecisionDecimal, value)))->fracDigits;
+	return $nc($cast($PrecisionDecimalDV$XPrecisionDecimal, value))->fracDigits;
 }
 
 int32_t PrecisionDecimalDV::getTotalDigits(Object$* value) {
-	return $nc(($cast($PrecisionDecimalDV$XPrecisionDecimal, value)))->totalDigits;
+	return $nc($cast($PrecisionDecimalDV$XPrecisionDecimal, value))->totalDigits;
 }
 
 bool PrecisionDecimalDV::isIdentical(Object$* value1, Object$* value2) {
 	if (!($instanceOf($PrecisionDecimalDV$XPrecisionDecimal, value2)) || !($instanceOf($PrecisionDecimalDV$XPrecisionDecimal, value1))) {
 		return false;
 	}
-	return $nc(($cast($PrecisionDecimalDV$XPrecisionDecimal, value1)))->isIdentical($cast($PrecisionDecimalDV$XPrecisionDecimal, value2));
+	return $nc($cast($PrecisionDecimalDV$XPrecisionDecimal, value1))->isIdentical($cast($PrecisionDecimalDV$XPrecisionDecimal, value2));
 }
 
 PrecisionDecimalDV::PrecisionDecimalDV() {
 }
 
 $Class* PrecisionDecimalDV::load$($String* name, bool initialize) {
-	$loadClass(PrecisionDecimalDV, name, initialize, &_PrecisionDecimalDV_ClassInfo_, allocate$PrecisionDecimalDV);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PrecisionDecimalDV, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, compare, int32_t, Object$*, Object$*)},
+		{"getActualValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, getActualValue, $Object*, $String*, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAllowedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, getAllowedFacets, int16_t)},
+		{"getFractionDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, getFractionDigits, int32_t, Object$*)},
+		{"getTotalDigits", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, getTotalDigits, int32_t, Object$*)},
+		{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV, isIdentical, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV$XPrecisionDecimal", "com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV", "XPrecisionDecimal", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV",
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.TypeValidator",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV$XPrecisionDecimal"
+	};
+	$loadClass(PrecisionDecimalDV, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrecisionDecimalDV);
+	});
 	return class$;
 }
 

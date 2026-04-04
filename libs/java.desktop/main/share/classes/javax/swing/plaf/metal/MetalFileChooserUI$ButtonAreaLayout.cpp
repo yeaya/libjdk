@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$ButtonAreaLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -12,7 +11,6 @@
 using $ComponentArray = $Array<::java::awt::Component>;
 using $DimensionArray = $Array<::java::awt::Dimension>;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
@@ -27,47 +25,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalFileChooserUI$ButtonAreaLayout_FieldInfo_[] = {
-	{"hGap", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI$ButtonAreaLayout, hGap)},
-	{"topMargin", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI$ButtonAreaLayout, topMargin)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$ButtonAreaLayout_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalFileChooserUI$ButtonAreaLayout, init$, void)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, removeLayoutComponent, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$ButtonAreaLayout_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$ButtonAreaLayout", "javax.swing.plaf.metal.MetalFileChooserUI", "ButtonAreaLayout", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$ButtonAreaLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$ButtonAreaLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager",
-	_MetalFileChooserUI$ButtonAreaLayout_FieldInfo_,
-	_MetalFileChooserUI$ButtonAreaLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$ButtonAreaLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$ButtonAreaLayout($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$ButtonAreaLayout));
-}
-
 void MetalFileChooserUI$ButtonAreaLayout::init$() {
 	this->hGap = 5;
 	this->topMargin = 17;
@@ -77,7 +34,7 @@ void MetalFileChooserUI$ButtonAreaLayout::addLayoutComponent($String* string, $C
 }
 
 void MetalFileChooserUI$ButtonAreaLayout::layoutContainer($Container* container) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComponentArray, children, $nc(container)->getComponents());
 	if (children != nullptr && children->length > 0) {
 		int32_t numChildren = children->length;
@@ -91,7 +48,7 @@ void MetalFileChooserUI$ButtonAreaLayout::layoutContainer($Container* container)
 		}
 		int32_t xLocation = 0;
 		int32_t xOffset = 0;
-		if ($nc($(container->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc(container->getComponentOrientation())->isLeftToRight()) {
 			xLocation = $nc($(container->getSize()))->width - insets->left - maxWidth;
 			xOffset = this->hGap + maxWidth;
 		} else {
@@ -106,20 +63,20 @@ void MetalFileChooserUI$ButtonAreaLayout::layoutContainer($Container* container)
 }
 
 $Dimension* MetalFileChooserUI$ButtonAreaLayout::minimumLayoutSize($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (c != nullptr) {
 		$var($ComponentArray, children, c->getComponents());
 		if (children != nullptr && children->length > 0) {
 			int32_t numChildren = children->length;
 			int32_t height = 0;
 			$var($Insets, cInsets, c->getInsets());
-			int32_t extraHeight = this->topMargin + $nc(cInsets)->top + cInsets->bottom;
+			int32_t extraHeight = this->topMargin + $nc(cInsets)->top + $nc(cInsets)->bottom;
 			int32_t extraWidth = cInsets->left + cInsets->right;
 			int32_t maxWidth = 0;
 			for (int32_t counter = 0; counter < numChildren; ++counter) {
 				$var($Dimension, aSize, $nc(children->get(counter))->getPreferredSize());
 				height = $Math::max(height, $nc(aSize)->height);
-				maxWidth = $Math::max(maxWidth, $nc(aSize)->width);
+				maxWidth = $Math::max(maxWidth, aSize->width);
 			}
 			return $new($Dimension, extraWidth + numChildren * maxWidth + (numChildren - 1) * this->hGap, extraHeight + height);
 		}
@@ -138,7 +95,42 @@ MetalFileChooserUI$ButtonAreaLayout::MetalFileChooserUI$ButtonAreaLayout() {
 }
 
 $Class* MetalFileChooserUI$ButtonAreaLayout::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$ButtonAreaLayout, name, initialize, &_MetalFileChooserUI$ButtonAreaLayout_ClassInfo_, allocate$MetalFileChooserUI$ButtonAreaLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"hGap", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI$ButtonAreaLayout, hGap)},
+		{"topMargin", "I", nullptr, $PRIVATE, $field(MetalFileChooserUI$ButtonAreaLayout, topMargin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalFileChooserUI$ButtonAreaLayout, init$, void)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$ButtonAreaLayout, removeLayoutComponent, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$ButtonAreaLayout", "javax.swing.plaf.metal.MetalFileChooserUI", "ButtonAreaLayout", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$ButtonAreaLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$ButtonAreaLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalFileChooserUI$ButtonAreaLayout);
+	});
 	return class$;
 }
 

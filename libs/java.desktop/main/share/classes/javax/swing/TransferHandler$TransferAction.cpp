@@ -1,6 +1,4 @@
 #include <javax/swing/TransferHandler$TransferAction.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/datatransfer/Clipboard.h>
@@ -30,9 +28,7 @@
 
 #undef NAME
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Toolkit = ::java::awt::Toolkit;
 using $Clipboard = ::java::awt::datatransfer::Clipboard;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $ActionEvent = ::java::awt::event::ActionEvent;
@@ -46,7 +42,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Action = ::javax::swing::Action;
 using $JComponent = ::javax::swing::JComponent;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $TransferHandler$TransferAction$1 = ::javax::swing::TransferHandler$TransferAction$1;
 using $TransferHandler$TransferAction$2 = ::javax::swing::TransferHandler$TransferAction$2;
@@ -55,61 +50,12 @@ using $UIManager = ::javax::swing::UIManager;
 using $JavaSecurityAccess = ::jdk::internal::access::JavaSecurityAccess;
 using $SharedSecrets = ::jdk::internal::access::SharedSecrets;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AWTEventAccessor = ::sun::awt::AWTAccessor$AWTEventAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _TransferHandler$TransferAction_FieldInfo_[] = {
-	{"javaSecurityAccess", "Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TransferHandler$TransferAction, javaSecurityAccess)},
-	{"SandboxClipboardKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(TransferHandler$TransferAction, SandboxClipboardKey)},
-	{}
-};
-
-$MethodInfo _TransferHandler$TransferAction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TransferHandler$TransferAction, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler$TransferAction, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler$TransferAction, actionPerformed, void, $ActionEvent*)},
-	{"actionPerformedImpl", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE, $method(TransferHandler$TransferAction, actionPerformedImpl, void, $ActionEvent*)},
-	{"getClipboard", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Clipboard;", nullptr, $PRIVATE, $method(TransferHandler$TransferAction, getClipboard, $Clipboard*, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _TransferHandler$TransferAction_InnerClassesInfo_[] = {
-	{"javax.swing.TransferHandler$TransferAction", "javax.swing.TransferHandler", "TransferAction", $STATIC},
-	{"javax.swing.TransferHandler$TransferAction$2", nullptr, nullptr, 0},
-	{"javax.swing.TransferHandler$TransferAction$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TransferHandler$TransferAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.TransferHandler$TransferAction",
-	"sun.swing.UIAction",
-	"javax.swing.plaf.UIResource",
-	_TransferHandler$TransferAction_FieldInfo_,
-	_TransferHandler$TransferAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransferHandler$TransferAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.TransferHandler"
-};
-
-$Object* allocate$TransferHandler$TransferAction($Class* clazz) {
-	return $of($alloc(TransferHandler$TransferAction));
-}
 
 int32_t TransferHandler$TransferAction::hashCode() {
 	 return this->$UIAction::hashCode();
@@ -139,16 +85,16 @@ void TransferHandler$TransferAction::init$($String* name) {
 }
 
 bool TransferHandler$TransferAction::accept(Object$* sender) {
-	return !($instanceOf($JComponent, sender) && $nc(($cast($JComponent, sender)))->getTransferHandler() == nullptr);
+	return !($instanceOf($JComponent, sender) && $cast($JComponent, sender)->getTransferHandler() == nullptr);
 }
 
 void TransferHandler$TransferAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, src, $nc(e)->getSource());
 	$var($PrivilegedAction, action, $new($TransferHandler$TransferAction$1, this, e));
 	$var($AccessControlContext, stack, $AccessController::getContext());
-	$var($AccessControlContext, srcAcc, $nc($($AWTAccessor::getComponentAccessor()))->getAccessControlContext($cast($Component, src)));
-	$var($AccessControlContext, eventAcc, $nc($($AWTAccessor::getAWTEventAccessor()))->getAccessControlContext(e));
+	$var($AccessControlContext, srcAcc, $$nc($AWTAccessor::getComponentAccessor())->getAccessControlContext($cast($Component, src)));
+	$var($AccessControlContext, eventAcc, $$nc($AWTAccessor::getAWTEventAccessor())->getAccessControlContext(e));
 	if (srcAcc == nullptr) {
 		$nc(TransferHandler$TransferAction::javaSecurityAccess)->doIntersectionPrivilege(action, stack, eventAcc);
 	} else {
@@ -157,11 +103,11 @@ void TransferHandler$TransferAction::actionPerformed($ActionEvent* e) {
 }
 
 void TransferHandler$TransferAction::actionPerformedImpl($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, src, $nc(e)->getSource());
 	if ($instanceOf($JComponent, src)) {
 		$var($JComponent, c, $cast($JComponent, src));
-		$var($TransferHandler, th, $nc(c)->getTransferHandler());
+		$var($TransferHandler, th, c->getTransferHandler());
 		$var($Clipboard, clipboard, getClipboard(c));
 		$init($Action);
 		$var($String, name, $cast($String, getValue($Action::NAME)));
@@ -177,29 +123,29 @@ void TransferHandler$TransferAction::actionPerformedImpl($ActionEvent* e) {
 				}
 			}
 		} catch ($IllegalStateException& ise) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(c);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(c);
 			return;
 		}
 		if (trans != nullptr) {
-			$nc(th)->importData($$new($TransferHandler$TransferSupport, static_cast<$Component*>(c), trans));
+			$nc(th)->importData($$new($TransferHandler$TransferSupport, c, trans));
 		}
 	}
 }
 
 $Clipboard* TransferHandler$TransferAction::getClipboard($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SwingUtilities2::canAccessSystemClipboard()) {
-		return $nc($($nc(c)->getToolkit()))->getSystemClipboard();
+		return $$nc($nc(c)->getToolkit())->getSystemClipboard();
 	}
-	$var($Clipboard, clipboard, $cast($Clipboard, $nc($($AppContext::getAppContext()))->get(TransferHandler$TransferAction::SandboxClipboardKey)));
+	$var($Clipboard, clipboard, $cast($Clipboard, $$nc($AppContext::getAppContext())->get(TransferHandler$TransferAction::SandboxClipboardKey)));
 	if (clipboard == nullptr) {
 		$assign(clipboard, $new($Clipboard, "Sandboxed Component Clipboard"_s));
-		$nc($($AppContext::getAppContext()))->put(TransferHandler$TransferAction::SandboxClipboardKey, clipboard);
+		$$nc($AppContext::getAppContext())->put(TransferHandler$TransferAction::SandboxClipboardKey, clipboard);
 	}
 	return clipboard;
 }
 
-void clinit$TransferHandler$TransferAction($Class* class$) {
+void TransferHandler$TransferAction::clinit$($Class* clazz) {
 	$assignStatic(TransferHandler$TransferAction::javaSecurityAccess, $SharedSecrets::getJavaSecurityAccess());
 	$assignStatic(TransferHandler$TransferAction::SandboxClipboardKey, $new($Object));
 }
@@ -208,7 +154,48 @@ TransferHandler$TransferAction::TransferHandler$TransferAction() {
 }
 
 $Class* TransferHandler$TransferAction::load$($String* name, bool initialize) {
-	$loadClass(TransferHandler$TransferAction, name, initialize, &_TransferHandler$TransferAction_ClassInfo_, clinit$TransferHandler$TransferAction, allocate$TransferHandler$TransferAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"javaSecurityAccess", "Ljdk/internal/access/JavaSecurityAccess;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TransferHandler$TransferAction, javaSecurityAccess)},
+		{"SandboxClipboardKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(TransferHandler$TransferAction, SandboxClipboardKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(TransferHandler$TransferAction, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TransferHandler$TransferAction, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TransferHandler$TransferAction, actionPerformed, void, $ActionEvent*)},
+		{"actionPerformedImpl", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE, $method(TransferHandler$TransferAction, actionPerformedImpl, void, $ActionEvent*)},
+		{"getClipboard", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Clipboard;", nullptr, $PRIVATE, $method(TransferHandler$TransferAction, getClipboard, $Clipboard*, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.TransferHandler$TransferAction", "javax.swing.TransferHandler", "TransferAction", $STATIC},
+		{"javax.swing.TransferHandler$TransferAction$2", nullptr, nullptr, 0},
+		{"javax.swing.TransferHandler$TransferAction$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.TransferHandler$TransferAction",
+		"sun.swing.UIAction",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.TransferHandler"
+	};
+	$loadClass(TransferHandler$TransferAction, name, initialize, &classInfo$$, TransferHandler$TransferAction::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TransferHandler$TransferAction));
+	});
 	return class$;
 }
 

@@ -38,7 +38,7 @@ public:
 	virtual void componentShown(::java::awt::event::ComponentEvent* e) override;
 	virtual $String* toString() override;
 	::java::awt::Component$AccessibleAWTComponent* this$1 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xF1FCE1A7618089C3;
+	static const int64_t serialVersionUID = (int64_t)0xf1fce1a7618089c3;
 };
 
 	} // awt

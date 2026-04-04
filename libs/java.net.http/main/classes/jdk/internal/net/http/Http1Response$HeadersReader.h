@@ -50,6 +50,7 @@ class $export Http1Response$HeadersReader : public ::jdk::internal::net::http::H
 	$class(Http1Response$HeadersReader, 0, ::jdk::internal::net::http::Http1Response$Receiver)
 public:
 	Http1Response$HeadersReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http1Response* this$0, ::java::util::function::Consumer* onComplete);
 	virtual void close($Throwable* error) override;
 	virtual ::java::util::concurrent::CompletableFuture* completion() override;

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -30,45 +29,12 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, 0, $method(HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter, init$, void, $Color*)},
-	{"paintLayer", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter, paintLayer, $Shape*, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "javax.swing.text.html.HTMLEditorKit", "NavigateLinkAction", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter", "javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "FocusHighlightPainter", $STATIC},
-	{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter",
-	"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter",
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter));
-}
-
 void HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter::init$($Color* color) {
 	$DefaultHighlighter$DefaultHighlightPainter::init$(color);
 }
 
 $Shape* HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter::paintLayer($Graphics* g, int32_t offs0, int32_t offs1, $Shape* bounds, $JTextComponent* c, $View* view) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, getColor());
 	if (color == nullptr) {
 		$nc(g)->setColor($($nc(c)->getSelectionColor()));
@@ -83,14 +49,14 @@ $Shape* HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter::paintLayer($Grap
 		} else {
 			$assign(alloc, $nc(bounds)->getBounds());
 		}
-		$nc(g)->drawRect($nc(alloc)->x, alloc->y, alloc->width - 1, alloc->height);
+		$nc(g)->drawRect($nc(alloc)->x, $nc(alloc)->y, $nc(alloc)->width - 1, $nc(alloc)->height);
 		return alloc;
 	} else {
 		try {
 			$init($Position$Bias);
 			$var($Shape, shape, view->modelToView(offs0, $Position$Bias::Forward, offs1, $Position$Bias::Backward, bounds));
 			$var($Rectangle, r, ($instanceOf($Rectangle, shape)) ? $cast($Rectangle, shape) : $nc(shape)->getBounds());
-			$nc(g)->drawRect($nc(r)->x, r->y, r->width - 1, r->height);
+			$nc(g)->drawRect($nc(r)->x, $nc(r)->y, $nc(r)->width - 1, $nc(r)->height);
 			return r;
 		} catch ($BadLocationException& e) {
 		}
@@ -102,7 +68,35 @@ HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter::HTMLEditorKit$NavigateLi
 }
 
 $Class* HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter, name, initialize, &_HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter_ClassInfo_, allocate$HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, 0, $method(HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter, init$, void, $Color*)},
+		{"paintLayer", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter, paintLayer, $Shape*, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "javax.swing.text.html.HTMLEditorKit", "NavigateLinkAction", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter", "javax.swing.text.html.HTMLEditorKit$NavigateLinkAction", "FocusHighlightPainter", $STATIC},
+		{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter",
+		"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLEditorKit$NavigateLinkAction$FocusHighlightPainter);
+	});
 	return class$;
 }
 

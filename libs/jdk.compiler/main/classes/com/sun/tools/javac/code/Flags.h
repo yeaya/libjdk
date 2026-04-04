@@ -182,6 +182,7 @@ class $export Flags : public ::java::lang::Object {
 	$class(Flags, 0, ::java::lang::Object)
 public:
 	Flags();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::EnumSet* asFlagSet(int64_t flags);
 	static ::java::util::Set* asModifierSet(int64_t flags);
@@ -276,11 +277,11 @@ public:
 	static const int32_t InterfaceMethodFlags = 1025; // ABSTRACT | PUBLIC
 	static const int32_t MethodFlags = 3391; // AccessFlags | ABSTRACT | STATIC | NATIVE | SYNCHRONIZED | FINAL | STRICTFP
 	static const int32_t RecordMethodFlags = 3135; // AccessFlags | ABSTRACT | STATIC | SYNCHRONIZED | FINAL | STRICTFP
-	static const int64_t ExtendedStandardFlags = 0xC000080000000FFF; // (long)StandardFlags | DEFAULT | SEALED | NON_SEALED
-	static const int64_t ExtendedMemberClassFlags = 0xC000000000005E17; // (long)MemberClassFlags | SEALED | NON_SEALED
-	static const int64_t ExtendedMemberStaticClassFlags = 0xC000000000005E1F; // (long)MemberStaticClassFlags | SEALED | NON_SEALED
-	static const int64_t ExtendedClassFlags = 0xC000000000007E11; // (long)ClassFlags | SEALED | NON_SEALED
-	static const int64_t ModifierFlags = 0xC000080000000DFF; // ((long)StandardFlags & ~INTERFACE) | DEFAULT | SEALED | NON_SEALED
+	static const int64_t ExtendedStandardFlags = 0xc000080000000fff; // (long)StandardFlags | DEFAULT | SEALED | NON_SEALED
+	static const int64_t ExtendedMemberClassFlags = 0xc000000000005e17; // (long)MemberClassFlags | SEALED | NON_SEALED
+	static const int64_t ExtendedMemberStaticClassFlags = 0xc000000000005e1f; // (long)MemberStaticClassFlags | SEALED | NON_SEALED
+	static const int64_t ExtendedClassFlags = 0xc000000000007e11; // (long)ClassFlags | SEALED | NON_SEALED
+	static const int64_t ModifierFlags = 0xc000080000000dff; // ((long)StandardFlags & ~INTERFACE) | DEFAULT | SEALED | NON_SEALED
 	static const int64_t InterfaceMethodMask = 8796093025291; // ABSTRACT | PRIVATE | STATIC | PUBLIC | STRICTFP | DEFAULT
 	static const int64_t AnnotationTypeElementMask = 1025; // ABSTRACT | PUBLIC
 	static const int64_t LocalVarFlags = 8589934608; // FINAL | PARAMETER

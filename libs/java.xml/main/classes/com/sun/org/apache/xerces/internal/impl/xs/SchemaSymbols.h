@@ -341,6 +341,7 @@ class SchemaSymbols : public ::java::lang::Object {
 	$class(SchemaSymbols, 0, ::java::lang::Object)
 public:
 	SchemaSymbols();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* URI_XSI;
 	static $String* XSI_SCHEMALOCATION;

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XGraphicsExposeEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,74 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XGraphicsExposeEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XGraphicsExposeEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XGraphicsExposeEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XGraphicsExposeEvent, pData)},
-	{}
-};
-
-$MethodInfo _XGraphicsExposeEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XGraphicsExposeEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XGraphicsExposeEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XGraphicsExposeEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XGraphicsExposeEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XGraphicsExposeEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XGraphicsExposeEvent, getSize, int32_t)},
-	{"get_count", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_count, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_display, int64_t)},
-	{"get_drawable", "()J", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_drawable, int64_t)},
-	{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_height, int32_t)},
-	{"get_major_code", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_major_code, int32_t)},
-	{"get_minor_code", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_minor_code, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_type, int32_t)},
-	{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_width, int32_t)},
-	{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_x, int32_t)},
-	{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_y, int32_t)},
-	{"set_count", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_count, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_display, void, int64_t)},
-	{"set_drawable", "(J)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_drawable, void, int64_t)},
-	{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_height, void, int32_t)},
-	{"set_major_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_major_code, void, int32_t)},
-	{"set_minor_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_minor_code, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_type, void, int32_t)},
-	{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_width, void, int32_t)},
-	{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_x, void, int32_t)},
-	{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_y, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XGraphicsExposeEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XGraphicsExposeEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XGraphicsExposeEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XGraphicsExposeEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XGraphicsExposeEvent_FieldInfo_,
-	_XGraphicsExposeEvent_MethodInfo_
-};
-
-$Object* allocate$XGraphicsExposeEvent($Class* clazz) {
-	return $of($alloc(XGraphicsExposeEvent));
-}
 
 int32_t XGraphicsExposeEvent::getSize() {
 	$init(XGraphicsExposeEvent);
@@ -117,7 +55,7 @@ void XGraphicsExposeEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -289,7 +227,7 @@ $String* XGraphicsExposeEvent::getFieldsAsString() {
 }
 
 $Object* XGraphicsExposeEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XGraphicsExposeEvent::zero() {
@@ -304,7 +242,61 @@ XGraphicsExposeEvent::XGraphicsExposeEvent() {
 }
 
 $Class* XGraphicsExposeEvent::load$($String* name, bool initialize) {
-	$loadClass(XGraphicsExposeEvent, name, initialize, &_XGraphicsExposeEvent_ClassInfo_, allocate$XGraphicsExposeEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XGraphicsExposeEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XGraphicsExposeEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XGraphicsExposeEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XGraphicsExposeEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XGraphicsExposeEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XGraphicsExposeEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XGraphicsExposeEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XGraphicsExposeEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XGraphicsExposeEvent, getSize, int32_t)},
+		{"get_count", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_count, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_display, int64_t)},
+		{"get_drawable", "()J", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_drawable, int64_t)},
+		{"get_height", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_height, int32_t)},
+		{"get_major_code", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_major_code, int32_t)},
+		{"get_minor_code", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_minor_code, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_type, int32_t)},
+		{"get_width", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_width, int32_t)},
+		{"get_x", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_x, int32_t)},
+		{"get_y", "()I", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, get_y, int32_t)},
+		{"set_count", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_count, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_display, void, int64_t)},
+		{"set_drawable", "(J)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_drawable, void, int64_t)},
+		{"set_height", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_height, void, int32_t)},
+		{"set_major_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_major_code, void, int32_t)},
+		{"set_minor_code", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_minor_code, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_type, void, int32_t)},
+		{"set_width", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_width, void, int32_t)},
+		{"set_x", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_x, void, int32_t)},
+		{"set_y", "(I)V", nullptr, $PUBLIC, $virtualMethod(XGraphicsExposeEvent, set_y, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XGraphicsExposeEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XGraphicsExposeEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XGraphicsExposeEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XGraphicsExposeEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XGraphicsExposeEvent);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ShortVector.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
 #include <jcpp.h>
 
@@ -16,49 +15,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace xs {
-
-$FieldInfo _XMLSchemaValidator$ShortVector_FieldInfo_[] = {
-	{"fLength", "I", nullptr, $PRIVATE, $field(XMLSchemaValidator$ShortVector, fLength)},
-	{"fData", "[S", nullptr, $PRIVATE, $field(XMLSchemaValidator$ShortVector, fData)},
-	{}
-};
-
-$MethodInfo _XMLSchemaValidator$ShortVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, init$, void, int32_t)},
-	{"add", "(S)V", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, add, void, int16_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, clear, void)},
-	{"contains", "(S)Z", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, contains, bool, int16_t)},
-	{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(XMLSchemaValidator$ShortVector, ensureCapacity, void, int32_t)},
-	{"length", "()I", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, length, int32_t)},
-	{"valueAt", "(I)S", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, valueAt, int16_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XMLSchemaValidator$ShortVector_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$ShortVector", "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator", "ShortVector", $PROTECTED | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XMLSchemaValidator$ShortVector_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$ShortVector",
-	"java.lang.Object",
-	nullptr,
-	_XMLSchemaValidator$ShortVector_FieldInfo_,
-	_XMLSchemaValidator$ShortVector_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLSchemaValidator$ShortVector_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator"
-};
-
-$Object* allocate$XMLSchemaValidator$ShortVector($Class* clazz) {
-	return $of($alloc(XMLSchemaValidator$ShortVector));
-}
 
 void XMLSchemaValidator$ShortVector::init$() {
 }
@@ -96,9 +52,9 @@ bool XMLSchemaValidator$ShortVector::contains(int16_t value) {
 void XMLSchemaValidator$ShortVector::ensureCapacity(int32_t size) {
 	if (this->fData == nullptr) {
 		$set(this, fData, $new($shorts, 8));
-	} else if ($nc(this->fData)->length <= size) {
-		$var($shorts, newdata, $new($shorts, $nc(this->fData)->length * 2));
-		$System::arraycopy(this->fData, 0, newdata, 0, $nc(this->fData)->length);
+	} else if (this->fData->length <= size) {
+		$var($shorts, newdata, $new($shorts, this->fData->length * 2));
+		$System::arraycopy(this->fData, 0, newdata, 0, this->fData->length);
 		$set(this, fData, newdata);
 	}
 }
@@ -107,7 +63,44 @@ XMLSchemaValidator$ShortVector::XMLSchemaValidator$ShortVector() {
 }
 
 $Class* XMLSchemaValidator$ShortVector::load$($String* name, bool initialize) {
-	$loadClass(XMLSchemaValidator$ShortVector, name, initialize, &_XMLSchemaValidator$ShortVector_ClassInfo_, allocate$XMLSchemaValidator$ShortVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"fLength", "I", nullptr, $PRIVATE, $field(XMLSchemaValidator$ShortVector, fLength)},
+		{"fData", "[S", nullptr, $PRIVATE, $field(XMLSchemaValidator$ShortVector, fData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, init$, void, int32_t)},
+		{"add", "(S)V", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, add, void, int16_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, clear, void)},
+		{"contains", "(S)Z", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, contains, bool, int16_t)},
+		{"ensureCapacity", "(I)V", nullptr, $PRIVATE, $method(XMLSchemaValidator$ShortVector, ensureCapacity, void, int32_t)},
+		{"length", "()I", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, length, int32_t)},
+		{"valueAt", "(I)S", nullptr, $PUBLIC, $method(XMLSchemaValidator$ShortVector, valueAt, int16_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$ShortVector", "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator", "ShortVector", $PROTECTED | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$ShortVector",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator"
+	};
+	$loadClass(XMLSchemaValidator$ShortVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSchemaValidator$ShortVector);
+	});
 	return class$;
 }
 

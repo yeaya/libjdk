@@ -1,9 +1,7 @@
 #include <java/awt/TexturePaintContext$Any.h>
-
 #include <java/awt/TexturePaintContext.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <jcpp.h>
 
@@ -12,7 +10,6 @@
 using $TexturePaintContext = ::java::awt::TexturePaintContext;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,50 +20,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _TexturePaintContext$Any_FieldInfo_[] = {
-	{"srcRas", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(TexturePaintContext$Any, srcRas)},
-	{"filter", "Z", nullptr, 0, $field(TexturePaintContext$Any, filter)},
-	{}
-};
-
-$MethodInfo _TexturePaintContext$Any_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/WritableRaster;Ljava/awt/image/ColorModel;Ljava/awt/geom/AffineTransform;IZ)V", nullptr, $PUBLIC, $method(TexturePaintContext$Any, init$, void, $WritableRaster*, $ColorModel*, $AffineTransform*, int32_t, bool)},
-	{"makeRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Any, makeRaster, $WritableRaster*, int32_t, int32_t)},
-	{"setRaster", "(IIIIIIIIIIIIIIII)V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Any, setRaster, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TexturePaintContext$Any_InnerClassesInfo_[] = {
-	{"java.awt.TexturePaintContext$Any", "java.awt.TexturePaintContext", "Any", $STATIC},
-	{}
-};
-
-$ClassInfo _TexturePaintContext$Any_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.TexturePaintContext$Any",
-	"java.awt.TexturePaintContext",
-	nullptr,
-	_TexturePaintContext$Any_FieldInfo_,
-	_TexturePaintContext$Any_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TexturePaintContext$Any_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.TexturePaintContext"
-};
-
-$Object* allocate$TexturePaintContext$Any($Class* clazz) {
-	return $of($alloc(TexturePaintContext$Any));
-}
-
 void TexturePaintContext$Any::init$($WritableRaster* srcRas, $ColorModel* cm, $AffineTransform* xform, int32_t maxw, bool filter) {
-	$useLocalCurrentObjectStackCache();
-	$var($ColorModel, var$0, cm);
-	$var($AffineTransform, var$1, xform);
-	int32_t var$2 = $nc(srcRas)->getWidth();
-	$TexturePaintContext::init$(var$0, var$1, var$2, srcRas->getHeight(), maxw);
+	int32_t var$0 = $nc(srcRas)->getWidth();
+	$TexturePaintContext::init$(cm, xform, var$0, srcRas->getHeight(), maxw);
 	$set(this, srcRas, srcRas);
 	this->filter = filter;
 }
@@ -76,7 +32,7 @@ $WritableRaster* TexturePaintContext$Any::makeRaster(int32_t w, int32_t h) {
 }
 
 void TexturePaintContext$Any::setRaster(int32_t x, int32_t y, int32_t xerr, int32_t yerr, int32_t w, int32_t h, int32_t bWidth, int32_t bHeight, int32_t colincx, int32_t colincxerr, int32_t colincy, int32_t colincyerr, int32_t rowincx, int32_t rowincxerr, int32_t rowincy, int32_t rowincyerr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, data, nullptr);
 	int32_t rowx = x;
 	int32_t rowy = y;
@@ -148,7 +104,39 @@ TexturePaintContext$Any::TexturePaintContext$Any() {
 }
 
 $Class* TexturePaintContext$Any::load$($String* name, bool initialize) {
-	$loadClass(TexturePaintContext$Any, name, initialize, &_TexturePaintContext$Any_ClassInfo_, allocate$TexturePaintContext$Any);
+	$FieldInfo fieldInfos$$[] = {
+		{"srcRas", "Ljava/awt/image/WritableRaster;", nullptr, 0, $field(TexturePaintContext$Any, srcRas)},
+		{"filter", "Z", nullptr, 0, $field(TexturePaintContext$Any, filter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/WritableRaster;Ljava/awt/image/ColorModel;Ljava/awt/geom/AffineTransform;IZ)V", nullptr, $PUBLIC, $method(TexturePaintContext$Any, init$, void, $WritableRaster*, $ColorModel*, $AffineTransform*, int32_t, bool)},
+		{"makeRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Any, makeRaster, $WritableRaster*, int32_t, int32_t)},
+		{"setRaster", "(IIIIIIIIIIIIIIII)V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Any, setRaster, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TexturePaintContext$Any", "java.awt.TexturePaintContext", "Any", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.TexturePaintContext$Any",
+		"java.awt.TexturePaintContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.TexturePaintContext"
+	};
+	$loadClass(TexturePaintContext$Any, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TexturePaintContext$Any);
+	});
 	return class$;
 }
 

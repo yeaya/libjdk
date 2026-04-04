@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/MessageToken$MessageTokenHeader.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <org/ietf/jgss/MessageProp.h>
@@ -24,51 +23,6 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _MessageToken$MessageTokenHeader_FieldInfo_[] = {
-	{"this$0", "Lsun/security/jgss/krb5/MessageToken;", nullptr, $FINAL | $SYNTHETIC, $field(MessageToken$MessageTokenHeader, this$0)},
-	{"tokenId", "I", nullptr, $PRIVATE, $field(MessageToken$MessageTokenHeader, tokenId)},
-	{"signAlg", "I", nullptr, $PRIVATE, $field(MessageToken$MessageTokenHeader, signAlg)},
-	{"sealAlg", "I", nullptr, $PRIVATE, $field(MessageToken$MessageTokenHeader, sealAlg)},
-	{"bytes", "[B", nullptr, $PRIVATE, $field(MessageToken$MessageTokenHeader, bytes)},
-	{}
-};
-
-$MethodInfo _MessageToken$MessageTokenHeader_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/krb5/MessageToken;IZI)V", nullptr, $PUBLIC, $method(MessageToken$MessageTokenHeader, init$, void, $MessageToken*, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/MessageToken;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(MessageToken$MessageTokenHeader, init$, void, $MessageToken*, $InputStream*, $MessageProp*), "java.io.IOException"},
-	{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, encode, void, $OutputStream*), "java.io.IOException"},
-	{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getBytes, $bytes*)},
-	{"getSealAlg", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getSealAlg, int32_t)},
-	{"getSignAlg", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getSignAlg, int32_t)},
-	{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getTokenId, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MessageToken$MessageTokenHeader_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.MessageToken$MessageTokenHeader", "sun.security.jgss.krb5.MessageToken", "MessageTokenHeader", 0},
-	{}
-};
-
-$ClassInfo _MessageToken$MessageTokenHeader_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.krb5.MessageToken$MessageTokenHeader",
-	"java.lang.Object",
-	nullptr,
-	_MessageToken$MessageTokenHeader_FieldInfo_,
-	_MessageToken$MessageTokenHeader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MessageToken$MessageTokenHeader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.MessageToken"
-};
-
-$Object* allocate$MessageToken$MessageTokenHeader($Class* clazz) {
-	return $of($alloc(MessageToken$MessageTokenHeader));
-}
-
 void MessageToken$MessageTokenHeader::init$($MessageToken* this$0, int32_t tokenId, bool conf, int32_t qop) {
 	$set(this, this$0, this$0);
 	$set(this, bytes, $new($bytes, 8));
@@ -76,13 +30,13 @@ void MessageToken$MessageTokenHeader::init$($MessageToken* this$0, int32_t token
 	this->signAlg = this$0->getSgnAlg(qop);
 	this->sealAlg = this$0->getSealAlg(conf, qop);
 	$nc(this->bytes)->set(0, (int8_t)((int32_t)((uint32_t)tokenId >> 8)));
-	$nc(this->bytes)->set(1, (int8_t)(tokenId));
-	$nc(this->bytes)->set(2, (int8_t)((int32_t)((uint32_t)this->signAlg >> 8)));
-	$nc(this->bytes)->set(3, (int8_t)(this->signAlg));
-	$nc(this->bytes)->set(4, (int8_t)((int32_t)((uint32_t)this->sealAlg >> 8)));
-	$nc(this->bytes)->set(5, (int8_t)(this->sealAlg));
-	$nc(this->bytes)->set(6, (int8_t)((int32_t)((uint32_t)$MessageToken::FILLER >> 8)));
-	$nc(this->bytes)->set(7, (int8_t)($MessageToken::FILLER));
+	this->bytes->set(1, (int8_t)(tokenId));
+	this->bytes->set(2, (int8_t)((int32_t)((uint32_t)this->signAlg >> 8)));
+	this->bytes->set(3, (int8_t)(this->signAlg));
+	this->bytes->set(4, (int8_t)((int32_t)((uint32_t)this->sealAlg >> 8)));
+	this->bytes->set(5, (int8_t)(this->sealAlg));
+	this->bytes->set(6, (int8_t)((int32_t)((uint32_t)$MessageToken::FILLER >> 8)));
+	this->bytes->set(7, (int8_t)($MessageToken::FILLER));
 }
 
 void MessageToken$MessageTokenHeader::init$($MessageToken* this$0, $InputStream* is, $MessageProp* prop) {
@@ -95,18 +49,12 @@ void MessageToken$MessageTokenHeader::init$($MessageToken* this$0, $InputStream*
 	int32_t temp = $GSSToken::readInt(this->bytes, 4 + 2);
 	switch (this->sealAlg) {
 	case 0:
-		{}
 	case 512:
-		{}
 	case 4096:
-		{
-			$nc(prop)->setPrivacy(true);
-			break;
-		}
+		$nc(prop)->setPrivacy(true);
+		break;
 	default:
-		{
-			$nc(prop)->setPrivacy(false);
-		}
+		$nc(prop)->setPrivacy(false);
 	}
 	$nc(prop)->setQOP(0);
 }
@@ -135,7 +83,46 @@ MessageToken$MessageTokenHeader::MessageToken$MessageTokenHeader() {
 }
 
 $Class* MessageToken$MessageTokenHeader::load$($String* name, bool initialize) {
-	$loadClass(MessageToken$MessageTokenHeader, name, initialize, &_MessageToken$MessageTokenHeader_ClassInfo_, allocate$MessageToken$MessageTokenHeader);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/security/jgss/krb5/MessageToken;", nullptr, $FINAL | $SYNTHETIC, $field(MessageToken$MessageTokenHeader, this$0)},
+		{"tokenId", "I", nullptr, $PRIVATE, $field(MessageToken$MessageTokenHeader, tokenId)},
+		{"signAlg", "I", nullptr, $PRIVATE, $field(MessageToken$MessageTokenHeader, signAlg)},
+		{"sealAlg", "I", nullptr, $PRIVATE, $field(MessageToken$MessageTokenHeader, sealAlg)},
+		{"bytes", "[B", nullptr, $PRIVATE, $field(MessageToken$MessageTokenHeader, bytes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/krb5/MessageToken;IZI)V", nullptr, $PUBLIC, $method(MessageToken$MessageTokenHeader, init$, void, $MessageToken*, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/MessageToken;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $method(MessageToken$MessageTokenHeader, init$, void, $MessageToken*, $InputStream*, $MessageProp*), "java.io.IOException"},
+		{"encode", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, encode, void, $OutputStream*), "java.io.IOException"},
+		{"getBytes", "()[B", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getBytes, $bytes*)},
+		{"getSealAlg", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getSealAlg, int32_t)},
+		{"getSignAlg", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getSignAlg, int32_t)},
+		{"getTokenId", "()I", nullptr, $PUBLIC | $FINAL, $method(MessageToken$MessageTokenHeader, getTokenId, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.MessageToken$MessageTokenHeader", "sun.security.jgss.krb5.MessageToken", "MessageTokenHeader", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.krb5.MessageToken$MessageTokenHeader",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.MessageToken"
+	};
+	$loadClass(MessageToken$MessageTokenHeader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageToken$MessageTokenHeader);
+	});
 	return class$;
 }
 

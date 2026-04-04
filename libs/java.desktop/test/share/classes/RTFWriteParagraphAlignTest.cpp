@@ -1,5 +1,4 @@
 #include <RTFWriteParagraphAlignTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
@@ -36,8 +35,6 @@
 #undef EXIT_ON_CLOSE
 #undef RTF_DATA
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $File = ::java::io::File;
@@ -45,7 +42,6 @@ using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -59,7 +55,6 @@ using $JTextPane = ::javax::swing::JTextPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $WindowConstants = ::javax::swing::WindowConstants;
 using $Document = ::javax::swing::text::Document;
-using $Element = ::javax::swing::text::Element;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $RTFEditorKit = ::javax::swing::text::rtf::RTFEditorKit;
 
@@ -71,27 +66,24 @@ public:
 	virtual void run() override {
 		RTFWriteParagraphAlignTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RTFWriteParagraphAlignTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RTFWriteParagraphAlignTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo RTFWriteParagraphAlignTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RTFWriteParagraphAlignTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RTFWriteParagraphAlignTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -104,27 +96,24 @@ public:
 	virtual void run() override {
 		RTFWriteParagraphAlignTest::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -138,33 +127,29 @@ public:
 	virtual void run() override {
 		RTFWriteParagraphAlignTest::lambda$test$2(align);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2>());
-	}
 	int32_t align = 0;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2::fieldInfos[2] = {
-	{"align", "I", nullptr, $PUBLIC, $field(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, align)},
-	{}
-};
-$MethodInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2::methodInfos[3] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, init$, void, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, run, void)},
-	{}
-};
-$ClassInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2::load$($String* name, bool initialize) {
-	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"align", "I", nullptr, $PUBLIC, $field(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, align)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, init$, void, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2);
+	});
 	return class$;
 }
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2::class$ = nullptr;
@@ -177,27 +162,24 @@ public:
 	virtual void run() override {
 		RTFWriteParagraphAlignTest::lambda$test$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3, run, void)},
-	{}
-};
-$ClassInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3::load$($String* name, bool initialize) {
-	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3);
+	});
 	return class$;
 }
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3::class$ = nullptr;
@@ -211,33 +193,29 @@ public:
 	virtual void run() override {
 		RTFWriteParagraphAlignTest::lambda$test$4(d);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4>());
-	}
 	$Document* d = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4::fieldInfos[2] = {
-	{"d", "Ljavax/swing/text/Document;", nullptr, $PUBLIC, $field(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, d)},
-	{}
-};
-$MethodInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, init$, void, $Document*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, run, void)},
-	{}
-};
-$ClassInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4::load$($String* name, bool initialize) {
-	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"d", "Ljavax/swing/text/Document;", nullptr, $PUBLIC, $field(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, d)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, init$, void, $Document*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4);
+	});
 	return class$;
 }
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4::class$ = nullptr;
@@ -250,67 +228,27 @@ public:
 	virtual void run() override {
 		RTFWriteParagraphAlignTest::lambda$test$5();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5, run, void)},
-	{}
-};
-$ClassInfo RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5::load$($String* name, bool initialize) {
-	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5);
+	});
 	return class$;
 }
 $Class* RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5::class$ = nullptr;
-
-$FieldInfo _RTFWriteParagraphAlignTest_FieldInfo_[] = {
-	{"RTF_DATA", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RTFWriteParagraphAlignTest, RTF_DATA)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, frame)},
-	{"jTextPane", "Ljavax/swing/JTextPane;", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, jTextPane)},
-	{"position1", "I", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, position1)},
-	{"position2", "I", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, position2)},
-	{"rtfEditorKit", "Ljavax/swing/text/rtf/RTFEditorKit;", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, rtfEditorKit)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, robot)},
-	{}
-};
-
-$MethodInfo _RTFWriteParagraphAlignTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$main$1, void)},
-	{"lambda$test$2", "(I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$test$2, void, int32_t)},
-	{"lambda$test$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$test$3, void)},
-	{"lambda$test$4", "(Ljavax/swing/text/Document;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$test$4, void, $Document*)},
-	{"lambda$test$5", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$test$5, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFWriteParagraphAlignTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(I)V", nullptr, $STATIC, $staticMethod(RTFWriteParagraphAlignTest, test, void, int32_t), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _RTFWriteParagraphAlignTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RTFWriteParagraphAlignTest",
-	"java.lang.Object",
-	nullptr,
-	_RTFWriteParagraphAlignTest_FieldInfo_,
-	_RTFWriteParagraphAlignTest_MethodInfo_
-};
-
-$Object* allocate$RTFWriteParagraphAlignTest($Class* clazz) {
-	return $of($alloc(RTFWriteParagraphAlignTest));
-}
 
 $StringArray* RTFWriteParagraphAlignTest::RTF_DATA = nullptr;
 $JFrame* RTFWriteParagraphAlignTest::frame = nullptr;
@@ -325,34 +263,34 @@ void RTFWriteParagraphAlignTest::init$() {
 
 void RTFWriteParagraphAlignTest::main($StringArray* args) {
 	$init(RTFWriteParagraphAlignTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(RTFWriteParagraphAlignTest::rtfEditorKit, $new($RTFEditorKit));
 	$assignStatic(RTFWriteParagraphAlignTest::robot, $new($Robot));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0));
 	test($StyleConstants::ALIGN_LEFT);
 	test($StyleConstants::ALIGN_CENTER);
 	test($StyleConstants::ALIGN_RIGHT);
 	test($StyleConstants::ALIGN_JUSTIFIED);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1)));
+	$SwingUtilities::invokeAndWait($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1));
 	$nc($System::out)->println("ok"_s);
 }
 
 void RTFWriteParagraphAlignTest::test(int32_t align) {
 	$init(RTFWriteParagraphAlignTest);
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, align)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2, align));
 	$nc(RTFWriteParagraphAlignTest::robot)->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3)));
+	$SwingUtilities::invokeAndWait($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3));
 	$var($File, tempFile, $File::createTempFile("aaaa"_s, ".rtf"_s));
 	$nc(tempFile)->deleteOnExit();
-	$var($OutputStream, var$0, static_cast<$OutputStream*>($new($FileOutputStream, tempFile)));
+	$var($OutputStream, var$0, $new($FileOutputStream, tempFile));
 	$var($Document, var$1, $nc(RTFWriteParagraphAlignTest::jTextPane)->getDocument());
-	$nc(RTFWriteParagraphAlignTest::rtfEditorKit)->write(var$0, var$1, 0, $nc($($nc(RTFWriteParagraphAlignTest::jTextPane)->getDocument()))->getLength());
+	$nc(RTFWriteParagraphAlignTest::rtfEditorKit)->write(var$0, var$1, 0, $$nc(RTFWriteParagraphAlignTest::jTextPane->getDocument())->getLength());
 	$var($Document, d, $nc(RTFWriteParagraphAlignTest::rtfEditorKit)->createDefaultDocument());
-	$nc(RTFWriteParagraphAlignTest::rtfEditorKit)->read(static_cast<$InputStream*>($$new($FileInputStream, tempFile)), d, 0);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, d)));
+	$nc(RTFWriteParagraphAlignTest::rtfEditorKit)->read($$new($FileInputStream, tempFile), d, 0);
+	$SwingUtilities::invokeAndWait($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4, d));
 	$nc(RTFWriteParagraphAlignTest::robot)->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5)));
+	$SwingUtilities::invokeAndWait($$new(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5));
 	if (RTFWriteParagraphAlignTest::position1 != RTFWriteParagraphAlignTest::position2) {
 		$throwNew($RuntimeException, "Alignment is not preserved after the document write/read"_s);
 	}
@@ -360,12 +298,12 @@ void RTFWriteParagraphAlignTest::test(int32_t align) {
 
 void RTFWriteParagraphAlignTest::lambda$test$5() {
 	$init(RTFWriteParagraphAlignTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		int32_t endOffset = $nc($($nc($nc($($nc($($nc(RTFWriteParagraphAlignTest::jTextPane)->getDocument()))->getRootElements()))->get(0))->getElement(0)))->getEndOffset();
+		int32_t endOffset = $$nc($nc($nc($($$nc($nc(RTFWriteParagraphAlignTest::jTextPane)->getDocument())->getRootElements()))->get(0))->getElement(0))->getEndOffset();
 		RTFWriteParagraphAlignTest::position2 = $nc($($nc(RTFWriteParagraphAlignTest::jTextPane)->modelToView(endOffset - 1)))->x;
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -376,24 +314,24 @@ void RTFWriteParagraphAlignTest::lambda$test$4($Document* d) {
 
 void RTFWriteParagraphAlignTest::lambda$test$3() {
 	$init(RTFWriteParagraphAlignTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		int32_t endOffset = $nc($($nc($nc($($nc($($nc(RTFWriteParagraphAlignTest::jTextPane)->getDocument()))->getRootElements()))->get(0))->getElement(0)))->getEndOffset();
+		int32_t endOffset = $$nc($nc($nc($($$nc($nc(RTFWriteParagraphAlignTest::jTextPane)->getDocument())->getRootElements()))->get(0))->getElement(0))->getEndOffset();
 		RTFWriteParagraphAlignTest::position1 = $nc($($nc(RTFWriteParagraphAlignTest::jTextPane)->modelToView(endOffset - 1)))->x;
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void RTFWriteParagraphAlignTest::lambda$test$2(int32_t align) {
 	$init(RTFWriteParagraphAlignTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(RTFWriteParagraphAlignTest::jTextPane)->setDocument($($nc(RTFWriteParagraphAlignTest::rtfEditorKit)->createDefaultDocument()));
 	try {
-		$var($InputStream, var$0, static_cast<$InputStream*>($new($ByteArrayInputStream, $($nc($nc(RTFWriteParagraphAlignTest::RTF_DATA)->get(align))->getBytes()))));
+		$var($InputStream, var$0, $new($ByteArrayInputStream, $($nc(RTFWriteParagraphAlignTest::RTF_DATA->get(align))->getBytes())));
 		$nc(RTFWriteParagraphAlignTest::rtfEditorKit)->read(var$0, $($nc(RTFWriteParagraphAlignTest::jTextPane)->getDocument()), 0);
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -405,15 +343,15 @@ void RTFWriteParagraphAlignTest::lambda$main$1() {
 void RTFWriteParagraphAlignTest::lambda$main$0() {
 	$init(RTFWriteParagraphAlignTest);
 	$assignStatic(RTFWriteParagraphAlignTest::frame, $new($JFrame));
-	$nc(RTFWriteParagraphAlignTest::frame)->setUndecorated(true);
+	RTFWriteParagraphAlignTest::frame->setUndecorated(true);
 	$nc(RTFWriteParagraphAlignTest::frame)->setDefaultCloseOperation($WindowConstants::EXIT_ON_CLOSE);
 	$nc(RTFWriteParagraphAlignTest::frame)->setSize(600, 200);
 	$assignStatic(RTFWriteParagraphAlignTest::jTextPane, $new($JTextPane));
-	$nc($($nc(RTFWriteParagraphAlignTest::frame)->getContentPane()))->add(static_cast<$Component*>(RTFWriteParagraphAlignTest::jTextPane));
+	$$nc($nc(RTFWriteParagraphAlignTest::frame)->getContentPane())->add(RTFWriteParagraphAlignTest::jTextPane);
 	$nc(RTFWriteParagraphAlignTest::frame)->setVisible(true);
 }
 
-void clinit$RTFWriteParagraphAlignTest($Class* class$) {
+void RTFWriteParagraphAlignTest::clinit$($Class* clazz) {
 	$assignStatic(RTFWriteParagraphAlignTest::RTF_DATA, $new($StringArray, {
 		"{\\rtf1\\ansi\\ansicpg1252\\cocoartf949\\cocoasubrtf350{\\fonttbl\\f0\\fswiss\\fcharset0 Helvetica;}{\\colortbl;\\red255\\green255\\blue255;}\\margl1440\\margr1440\\vieww9000\\viewh8400\\viewkind0\\pard\\ql\\pardirnatural\\f0\\fs24 \\cf0 left}"_s,
 		"{\\rtf1\\ansi\\ansicpg1252\\cocoartf949\\cocoasubrtf350{\\fonttbl\\f0\\fswiss\\fcharset0 Helvetica;}{\\colortbl;\\red255\\green255\\blue255;}\\margl1440\\margr1440\\vieww9000\\viewh8400\\viewkind0\\pard\\qc\\pardirnatural\\f0\\fs24 \\cf0 center}"_s,
@@ -427,26 +365,58 @@ RTFWriteParagraphAlignTest::RTFWriteParagraphAlignTest() {
 
 $Class* RTFWriteParagraphAlignTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RTFWriteParagraphAlignTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("RTFWriteParagraphAlignTest$$Lambda$lambda$main$0")) {
 			return RTFWriteParagraphAlignTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1")) {
 			return RTFWriteParagraphAlignTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2::classInfo$.name)) {
+		if (name->equals("RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2")) {
 			return RTFWriteParagraphAlignTest$$Lambda$lambda$test$2$2::load$(name, initialize);
 		}
-		if (name->equals(RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3::classInfo$.name)) {
+		if (name->equals("RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3")) {
 			return RTFWriteParagraphAlignTest$$Lambda$lambda$test$3$3::load$(name, initialize);
 		}
-		if (name->equals(RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4::classInfo$.name)) {
+		if (name->equals("RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4")) {
 			return RTFWriteParagraphAlignTest$$Lambda$lambda$test$4$4::load$(name, initialize);
 		}
-		if (name->equals(RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5::classInfo$.name)) {
+		if (name->equals("RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5")) {
 			return RTFWriteParagraphAlignTest$$Lambda$lambda$test$5$5::load$(name, initialize);
 		}
 	}
-	$loadClass(RTFWriteParagraphAlignTest, name, initialize, &_RTFWriteParagraphAlignTest_ClassInfo_, clinit$RTFWriteParagraphAlignTest, allocate$RTFWriteParagraphAlignTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"RTF_DATA", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(RTFWriteParagraphAlignTest, RTF_DATA)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, frame)},
+		{"jTextPane", "Ljavax/swing/JTextPane;", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, jTextPane)},
+		{"position1", "I", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, position1)},
+		{"position2", "I", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, position2)},
+		{"rtfEditorKit", "Ljavax/swing/text/rtf/RTFEditorKit;", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, rtfEditorKit)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(RTFWriteParagraphAlignTest, robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RTFWriteParagraphAlignTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$main$1, void)},
+		{"lambda$test$2", "(I)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$test$2, void, int32_t)},
+		{"lambda$test$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$test$3, void)},
+		{"lambda$test$4", "(Ljavax/swing/text/Document;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$test$4, void, $Document*)},
+		{"lambda$test$5", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RTFWriteParagraphAlignTest, lambda$test$5, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RTFWriteParagraphAlignTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(I)V", nullptr, $STATIC, $staticMethod(RTFWriteParagraphAlignTest, test, void, int32_t), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RTFWriteParagraphAlignTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RTFWriteParagraphAlignTest, name, initialize, &classInfo$$, RTFWriteParagraphAlignTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RTFWriteParagraphAlignTest);
+	});
 	return class$;
 }
 

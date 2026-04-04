@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/SignatureProperty.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
@@ -28,32 +27,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace signature {
-
-$MethodInfo _SignatureProperty_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Document*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Document*, $String*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, appendChild, $Node*, $Node*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getBaseLocalName, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getId, $String*)},
-	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getTarget, $String*)},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, setId, void, $String*)},
-	{"setTarget", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, setTarget, void, $String*)},
-	{}
-};
-
-$ClassInfo _SignatureProperty_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.SignatureProperty",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	nullptr,
-	_SignatureProperty_MethodInfo_
-};
-
-$Object* allocate$SignatureProperty($Class* clazz) {
-	return $of($alloc(SignatureProperty));
-}
 
 void SignatureProperty::init$($Document* doc, $String* target) {
 	SignatureProperty::init$(doc, target, nullptr);
@@ -107,7 +80,29 @@ SignatureProperty::SignatureProperty() {
 }
 
 $Class* SignatureProperty::load$($String* name, bool initialize) {
-	$loadClass(SignatureProperty, name, initialize, &_SignatureProperty_ClassInfo_, allocate$SignatureProperty);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Document*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Document*, $String*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SignatureProperty, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, appendChild, $Node*, $Node*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getBaseLocalName, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getId, $String*)},
+		{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, getTarget, $String*)},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, setId, void, $String*)},
+		{"setTarget", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SignatureProperty, setTarget, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.SignatureProperty",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SignatureProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SignatureProperty);
+	});
 	return class$;
 }
 

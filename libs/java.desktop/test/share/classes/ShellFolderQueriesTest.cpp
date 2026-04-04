@@ -1,5 +1,4 @@
 #include <ShellFolderQueriesTest.h>
-
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileOutputStream.h>
@@ -15,46 +14,13 @@ using $FileArray = $Array<::java::io::File>;
 using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Process = ::java::lang::Process;
 using $Runtime = ::java::lang::Runtime;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
-
-$FieldInfo _ShellFolderQueriesTest_FieldInfo_[] = {
-	{"HOME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ShellFolderQueriesTest, HOME)},
-	{"fsv", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC | $FINAL, $staticField(ShellFolderQueriesTest, fsv)},
-	{"scriptBeg", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ShellFolderQueriesTest, scriptBeg)},
-	{"scriptEnd", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ShellFolderQueriesTest, scriptEnd)},
-	{}
-};
-
-$MethodInfo _ShellFolderQueriesTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShellFolderQueriesTest, init$, void)},
-	{"createVbsScript", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderQueriesTest, createVbsScript, $File*, $String*), "java.io.IOException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolderQueriesTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"testGet", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderQueriesTest, testGet, void)},
-	{"testLink", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderQueriesTest, testLink, void), "java.io.IOException,java.lang.InterruptedException"},
-	{"testShortcutPanelFiles", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderQueriesTest, testShortcutPanelFiles, void)},
-	{}
-};
-
-$ClassInfo _ShellFolderQueriesTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ShellFolderQueriesTest",
-	"java.lang.Object",
-	nullptr,
-	_ShellFolderQueriesTest_FieldInfo_,
-	_ShellFolderQueriesTest_MethodInfo_
-};
-
-$Object* allocate$ShellFolderQueriesTest($Class* clazz) {
-	return $of($alloc(ShellFolderQueriesTest));
-}
 
 $String* ShellFolderQueriesTest::HOME = nullptr;
 $FileSystemView* ShellFolderQueriesTest::fsv = nullptr;
@@ -66,8 +32,8 @@ void ShellFolderQueriesTest::init$() {
 
 void ShellFolderQueriesTest::main($StringArray* args) {
 	$init(ShellFolderQueriesTest);
-	$useLocalCurrentObjectStackCache();
-	if ($($nc($($System::getProperty("os.name"_s)))->toLowerCase())->contains("windows"_s)) {
+	$useLocalObjectStack();
+	if ($($$nc($System::getProperty("os.name"_s))->toLowerCase())->contains("windows"_s)) {
 		$nc($System::out)->println("Windows detected: will run shortcut test"_s);
 		testGet();
 		testLink();
@@ -80,29 +46,29 @@ void ShellFolderQueriesTest::main($StringArray* args) {
 
 void ShellFolderQueriesTest::testLink() {
 	$init(ShellFolderQueriesTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, createVbsScript($$str({ShellFolderQueriesTest::scriptBeg, ShellFolderQueriesTest::HOME, ShellFolderQueriesTest::scriptEnd})));
 	$var($String, var$0, $str({"cscript "_s, $($nc(file)->getName())}));
-	$nc($($nc($($Runtime::getRuntime()))->exec(var$0, ($StringArray*)nullptr, $(file->getParentFile()))))->waitFor();
-	$nc(file)->delete$();
+	$$nc($$nc($Runtime::getRuntime())->exec(var$0, nullptr, $(file->getParentFile())))->waitFor();
+	file->delete$();
 	$var($File, link, $new($File, $(file->getParentFile()), "shortcut.lnk"_s));
 	if (!$nc(ShellFolderQueriesTest::fsv)->isLink(link)) {
 		link->delete$();
 		$throwNew($RuntimeException, "Link is not detected"_s);
 	}
-	$var($File, location, $nc(ShellFolderQueriesTest::fsv)->getLinkLocation(link));
-	if (!$nc($($nc(location)->getAbsolutePath()))->equals(ShellFolderQueriesTest::HOME)) {
+	$var($File, location, ShellFolderQueriesTest::fsv->getLinkLocation(link));
+	if (!$$nc($nc(location)->getAbsolutePath())->equals(ShellFolderQueriesTest::HOME)) {
 		link->delete$();
 		$throwNew($RuntimeException, $$str({"Link location "_s, location, " is wrong"_s}));
 	}
 	link->delete$();
 	$assign(link, $File::createTempFile("test"_s, ".tst"_s));
-	if ($nc(ShellFolderQueriesTest::fsv)->isLink(link)) {
+	if (ShellFolderQueriesTest::fsv->isLink(link)) {
 		$nc(link)->delete$();
 		$throwNew($RuntimeException, "File is not a link"_s);
 	}
 	try {
-		$assign(location, $nc(ShellFolderQueriesTest::fsv)->getLinkLocation(link));
+		$assign(location, ShellFolderQueriesTest::fsv->getLinkLocation(link));
 		if (location != nullptr) {
 			$nc(link)->delete$();
 			$throwNew($RuntimeException, "Not a link, should return null"_s);
@@ -114,7 +80,7 @@ void ShellFolderQueriesTest::testLink() {
 
 $File* ShellFolderQueriesTest::createVbsScript($String* script) {
 	$init(ShellFolderQueriesTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, file, $File::createTempFile("test"_s, ".vbs"_s));
 	$nc(file)->deleteOnExit();
 	$var($FileOutputStream, fos, $new($FileOutputStream, file));
@@ -125,18 +91,14 @@ $File* ShellFolderQueriesTest::createVbsScript($String* script) {
 
 void ShellFolderQueriesTest::testGet() {
 	$init(ShellFolderQueriesTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileArray, files, $nc(ShellFolderQueriesTest::fsv)->getChooserComboBoxFiles());
 	{
 		$var($FileArray, arr$, files);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($File, file, arr$->get(i$));
-			{
-				if ($nc(ShellFolderQueriesTest::fsv)->isLink(file)) {
-					$throwNew($RuntimeException, $$str({"Link shouldn\'t be in FileChooser combobox, "_s, $($nc(file)->getPath())}));
-				}
+			if (ShellFolderQueriesTest::fsv->isLink(file)) {
+				$throwNew($RuntimeException, $$str({"Link shouldn\'t be in FileChooser combobox, "_s, $($nc(file)->getPath())}));
 			}
 		}
 	}
@@ -150,7 +112,7 @@ void ShellFolderQueriesTest::testShortcutPanelFiles() {
 	}
 }
 
-void clinit$ShellFolderQueriesTest($Class* class$) {
+void ShellFolderQueriesTest::clinit$($Class* clazz) {
 	$assignStatic(ShellFolderQueriesTest::HOME, $System::getProperty("user.home"_s));
 	$assignStatic(ShellFolderQueriesTest::fsv, $FileSystemView::getFileSystemView());
 	$assignStatic(ShellFolderQueriesTest::scriptBeg, "set WshShell = WScript.CreateObject(\"WScript.Shell\")\nset oShellLink = WshShell.CreateShortcut(\"shortcut.lnk\")\noShellLink.TargetPath = \""_s);
@@ -161,7 +123,33 @@ ShellFolderQueriesTest::ShellFolderQueriesTest() {
 }
 
 $Class* ShellFolderQueriesTest::load$($String* name, bool initialize) {
-	$loadClass(ShellFolderQueriesTest, name, initialize, &_ShellFolderQueriesTest_ClassInfo_, clinit$ShellFolderQueriesTest, allocate$ShellFolderQueriesTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"HOME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ShellFolderQueriesTest, HOME)},
+		{"fsv", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $STATIC | $FINAL, $staticField(ShellFolderQueriesTest, fsv)},
+		{"scriptBeg", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ShellFolderQueriesTest, scriptBeg)},
+		{"scriptEnd", "Ljava/lang/String;", nullptr, $STATIC, $staticField(ShellFolderQueriesTest, scriptEnd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShellFolderQueriesTest, init$, void)},
+		{"createVbsScript", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderQueriesTest, createVbsScript, $File*, $String*), "java.io.IOException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ShellFolderQueriesTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"testGet", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderQueriesTest, testGet, void)},
+		{"testLink", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderQueriesTest, testLink, void), "java.io.IOException,java.lang.InterruptedException"},
+		{"testShortcutPanelFiles", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ShellFolderQueriesTest, testShortcutPanelFiles, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ShellFolderQueriesTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShellFolderQueriesTest, name, initialize, &classInfo$$, ShellFolderQueriesTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ShellFolderQueriesTest);
+	});
 	return class$;
 }
 

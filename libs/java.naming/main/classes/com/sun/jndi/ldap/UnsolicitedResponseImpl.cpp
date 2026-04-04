@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/UnsolicitedResponseImpl.h>
-
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <java/util/Vector.h>
 #include <javax/naming/NamingException.h>
@@ -19,48 +18,15 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _UnsolicitedResponseImpl_FieldInfo_[] = {
-	{"oid", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, oid)},
-	{"referrals", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, referrals)},
-	{"extensionValue", "[B", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, extensionValue)},
-	{"exception", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, exception)},
-	{"controls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, controls)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsolicitedResponseImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _UnsolicitedResponseImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[BLjava/util/Vector;ILjava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", "(Ljava/lang/String;[BLjava/util/Vector<Ljava/util/Vector<Ljava/lang/String;>;>;ILjava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", 0, $method(UnsolicitedResponseImpl, init$, void, $String*, $bytes*, $Vector*, int32_t, $String*, $String*, $ControlArray*)},
-	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getControls, $ControlArray*), "javax.naming.NamingException"},
-	{"getEncodedValue", "()[B", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getEncodedValue, $bytes*)},
-	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getException, $NamingException*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getID, $String*)},
-	{"getReferrals", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getReferrals, $StringArray*)},
-	{}
-};
-
-$ClassInfo _UnsolicitedResponseImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.UnsolicitedResponseImpl",
-	"java.lang.Object",
-	"javax.naming.ldap.UnsolicitedNotification",
-	_UnsolicitedResponseImpl_FieldInfo_,
-	_UnsolicitedResponseImpl_MethodInfo_
-};
-
-$Object* allocate$UnsolicitedResponseImpl($Class* clazz) {
-	return $of($alloc(UnsolicitedResponseImpl));
-}
-
 void UnsolicitedResponseImpl::init$($String* oid, $bytes* berVal, $Vector* ref, int32_t status, $String* msg, $String* matchedDN, $ControlArray* controls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, oid, oid);
 	$set(this, extensionValue, berVal);
 	if (ref != nullptr && ref->size() > 0) {
 		int32_t len = ref->size();
 		$set(this, referrals, $new($StringArray, len));
 		for (int32_t i = 0; i < len; ++i) {
-			$nc(this->referrals)->set(i, $cast($String, $($nc(($cast($Vector, $(ref->elementAt(i)))))->elementAt(0))));
+			this->referrals->set(i, $$cast($String, $$sure($Vector, ref->elementAt(i))->elementAt(0)));
 		}
 	}
 	$set(this, exception, $LdapCtx::mapErrorCode(status, msg));
@@ -91,7 +57,35 @@ UnsolicitedResponseImpl::UnsolicitedResponseImpl() {
 }
 
 $Class* UnsolicitedResponseImpl::load$($String* name, bool initialize) {
-	$loadClass(UnsolicitedResponseImpl, name, initialize, &_UnsolicitedResponseImpl_ClassInfo_, allocate$UnsolicitedResponseImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"oid", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, oid)},
+		{"referrals", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, referrals)},
+		{"extensionValue", "[B", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, extensionValue)},
+		{"exception", "Ljavax/naming/NamingException;", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, exception)},
+		{"controls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(UnsolicitedResponseImpl, controls)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsolicitedResponseImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[BLjava/util/Vector;ILjava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", "(Ljava/lang/String;[BLjava/util/Vector<Ljava/util/Vector<Ljava/lang/String;>;>;ILjava/lang/String;Ljava/lang/String;[Ljavax/naming/ldap/Control;)V", 0, $method(UnsolicitedResponseImpl, init$, void, $String*, $bytes*, $Vector*, int32_t, $String*, $String*, $ControlArray*)},
+		{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getControls, $ControlArray*), "javax.naming.NamingException"},
+		{"getEncodedValue", "()[B", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getEncodedValue, $bytes*)},
+		{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getException, $NamingException*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getID, $String*)},
+		{"getReferrals", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnsolicitedResponseImpl, getReferrals, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.UnsolicitedResponseImpl",
+		"java.lang.Object",
+		"javax.naming.ldap.UnsolicitedNotification",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsolicitedResponseImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnsolicitedResponseImpl));
+	});
 	return class$;
 }
 

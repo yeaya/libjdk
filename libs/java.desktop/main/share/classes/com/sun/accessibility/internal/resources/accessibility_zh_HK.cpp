@@ -1,5 +1,4 @@
 #include <com/sun/accessibility/internal/resources/accessibility_zh_HK.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,423 +13,404 @@ namespace com {
 			namespace internal {
 				namespace resources {
 
-$MethodInfo _accessibility_zh_HK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(accessibility_zh_HK, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(accessibility_zh_HK, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _accessibility_zh_HK_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.accessibility.internal.resources.accessibility_zh_HK",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_accessibility_zh_HK_MethodInfo_
-};
-
-$Object* allocate$accessibility_zh_HK($Class* clazz) {
-	return $of($alloc(accessibility_zh_HK));
-}
-
 void accessibility_zh_HK::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* accessibility_zh_HK::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("active"_s),
-			$of(u"作用中"_s)
+			"active"_s,
+			u"作用中"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alert"_s),
-			$of(u"警示"_s)
+			"alert"_s,
+			u"警示"_s
 		}),
 		$$new($ObjectArray, {
-			$of("armed"_s),
-			$of(u"已配備"_s)
+			"armed"_s,
+			u"已配備"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awtcomponent"_s),
-			$of(u"AWT 元件"_s)
+			"awtcomponent"_s,
+			u"AWT 元件"_s
 		}),
 		$$new($ObjectArray, {
-			$of("busy"_s),
-			$of(u"忙碌中"_s)
+			"busy"_s,
+			u"忙碌中"_s
 		}),
 		$$new($ObjectArray, {
-			$of("canvas"_s),
-			$of(u"畫布"_s)
+			"canvas"_s,
+			u"畫布"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checkbox"_s),
-			$of(u"核取方塊"_s)
+			"checkbox"_s,
+			u"核取方塊"_s
 		}),
 		$$new($ObjectArray, {
-			$of("checked"_s),
-			$of(u"已核選"_s)
+			"checked"_s,
+			u"已核選"_s
 		}),
 		$$new($ObjectArray, {
-			$of("childNodeOf"_s),
-			$of(u"子節點"_s)
+			"childNodeOf"_s,
+			u"子節點"_s
 		}),
 		$$new($ObjectArray, {
-			$of("collapsed"_s),
-			$of(u"已收縮"_s)
+			"collapsed"_s,
+			u"已收縮"_s
 		}),
 		$$new($ObjectArray, {
-			$of("colorchooser"_s),
-			$of(u"色彩選擇器"_s)
+			"colorchooser"_s,
+			u"色彩選擇器"_s
 		}),
 		$$new($ObjectArray, {
-			$of("columnheader"_s),
-			$of(u"直欄標題"_s)
+			"columnheader"_s,
+			u"直欄標題"_s
 		}),
 		$$new($ObjectArray, {
-			$of("combobox"_s),
-			$of(u"下拉式清單方塊"_s)
+			"combobox"_s,
+			u"下拉式清單方塊"_s
 		}),
 		$$new($ObjectArray, {
-			$of("controlledBy"_s),
-			$of(u"控制者"_s)
+			"controlledBy"_s,
+			u"控制者"_s
 		}),
 		$$new($ObjectArray, {
-			$of("controllerFor"_s),
-			$of(u"控制對象"_s)
+			"controllerFor"_s,
+			u"控制對象"_s
 		}),
 		$$new($ObjectArray, {
-			$of("desktopicon"_s),
-			$of(u"桌面圖示"_s)
+			"desktopicon"_s,
+			u"桌面圖示"_s
 		}),
 		$$new($ObjectArray, {
-			$of("desktoppane"_s),
-			$of(u"桌面窗格"_s)
+			"desktoppane"_s,
+			u"桌面窗格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dialog"_s),
-			$of(u"對話方塊"_s)
+			"dialog"_s,
+			u"對話方塊"_s
 		}),
 		$$new($ObjectArray, {
-			$of("directorypane"_s),
-			$of(u"目錄窗格"_s)
+			"directorypane"_s,
+			u"目錄窗格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("editable"_s),
-			$of(u"可編輯"_s)
+			"editable"_s,
+			u"可編輯"_s
 		}),
 		$$new($ObjectArray, {
-			$of("editbar"_s),
-			$of(u"編輯列"_s)
+			"editbar"_s,
+			u"編輯列"_s
 		}),
 		$$new($ObjectArray, {
-			$of("embeddedBy"_s),
-			$of(u"內嵌者"_s)
+			"embeddedBy"_s,
+			u"內嵌者"_s
 		}),
 		$$new($ObjectArray, {
-			$of("embeds"_s),
-			$of(u"內嵌"_s)
+			"embeds"_s,
+			u"內嵌"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enabled"_s),
-			$of(u"已啟用"_s)
+			"enabled"_s,
+			u"已啟用"_s
 		}),
 		$$new($ObjectArray, {
-			$of("expandable"_s),
-			$of(u"可擴展"_s)
+			"expandable"_s,
+			u"可擴展"_s
 		}),
 		$$new($ObjectArray, {
-			$of("expanded"_s),
-			$of(u"已擴展"_s)
+			"expanded"_s,
+			u"已擴展"_s
 		}),
 		$$new($ObjectArray, {
-			$of("filechooser"_s),
-			$of(u"檔案選擇器"_s)
+			"filechooser"_s,
+			u"檔案選擇器"_s
 		}),
 		$$new($ObjectArray, {
-			$of("filler"_s),
-			$of(u"填充物"_s)
+			"filler"_s,
+			u"填充物"_s
 		}),
 		$$new($ObjectArray, {
-			$of("flowsFrom"_s),
-			$of(u"流動自"_s)
+			"flowsFrom"_s,
+			u"流動自"_s
 		}),
 		$$new($ObjectArray, {
-			$of("flowsTo"_s),
-			$of(u"流動至"_s)
+			"flowsTo"_s,
+			u"流動至"_s
 		}),
 		$$new($ObjectArray, {
-			$of("focusable"_s),
-			$of(u"可聚焦"_s)
+			"focusable"_s,
+			u"可聚焦"_s
 		}),
 		$$new($ObjectArray, {
-			$of("focused"_s),
-			$of(u"已聚焦"_s)
+			"focused"_s,
+			u"已聚焦"_s
 		}),
 		$$new($ObjectArray, {
-			$of("footer"_s),
-			$of(u"頁尾"_s)
+			"footer"_s,
+			u"頁尾"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frame"_s),
-			$of(u"框架"_s)
+			"frame"_s,
+			u"框架"_s
 		}),
 		$$new($ObjectArray, {
-			$of("glasspane"_s),
-			$of(u"檢視窗格"_s)
+			"glasspane"_s,
+			u"檢視窗格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("header"_s),
-			$of(u"頁首"_s)
+			"header"_s,
+			u"頁首"_s
 		}),
 		$$new($ObjectArray, {
-			$of("horizontal"_s),
-			$of(u"水平"_s)
+			"horizontal"_s,
+			u"水平"_s
 		}),
 		$$new($ObjectArray, {
-			$of("htmlcontainer"_s),
-			$of(u"HTML 容器"_s)
+			"htmlcontainer"_s,
+			u"HTML 容器"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iconified"_s),
-			$of(u"已圖示化"_s)
+			"iconified"_s,
+			u"已圖示化"_s
 		}),
 		$$new($ObjectArray, {
-			$of("indeterminate"_s),
-			$of(u"不確定"_s)
+			"indeterminate"_s,
+			u"不確定"_s
 		}),
 		$$new($ObjectArray, {
-			$of("internalframe"_s),
-			$of(u"內部框架"_s)
+			"internalframe"_s,
+			u"內部框架"_s
 		}),
 		$$new($ObjectArray, {
-			$of("label"_s),
-			$of(u"標籤"_s)
+			"label"_s,
+			u"標籤"_s
 		}),
 		$$new($ObjectArray, {
-			$of("labelFor"_s),
-			$of(u"標示對象"_s)
+			"labelFor"_s,
+			u"標示對象"_s
 		}),
 		$$new($ObjectArray, {
-			$of("labeledBy"_s),
-			$of(u"標示者"_s)
+			"labeledBy"_s,
+			u"標示者"_s
 		}),
 		$$new($ObjectArray, {
-			$of("layeredpane"_s),
-			$of(u"分層窗格"_s)
+			"layeredpane"_s,
+			u"分層窗格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("list"_s),
-			$of(u"清單"_s)
+			"list"_s,
+			u"清單"_s
 		}),
 		$$new($ObjectArray, {
-			$of("listitem"_s),
-			$of(u"清單項目"_s)
+			"listitem"_s,
+			u"清單項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("managesDescendants"_s),
-			$of(u"管理子代"_s)
+			"managesDescendants"_s,
+			u"管理子代"_s
 		}),
 		$$new($ObjectArray, {
-			$of("memberOf"_s),
-			$of(u"所屬成員"_s)
+			"memberOf"_s,
+			u"所屬成員"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menu"_s),
-			$of(u"功能表"_s)
+			"menu"_s,
+			u"功能表"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menubar"_s),
-			$of(u"功能表列"_s)
+			"menubar"_s,
+			u"功能表列"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menuitem"_s),
-			$of(u"功能表項目"_s)
+			"menuitem"_s,
+			u"功能表項目"_s
 		}),
 		$$new($ObjectArray, {
-			$of("modal"_s),
-			$of(u"模態"_s)
+			"modal"_s,
+			u"模態"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiline"_s),
-			$of(u"多行"_s)
+			"multiline"_s,
+			u"多行"_s
 		}),
 		$$new($ObjectArray, {
-			$of("multiselectable"_s),
-			$of(u"可多重選取"_s)
+			"multiselectable"_s,
+			u"可多重選取"_s
 		}),
 		$$new($ObjectArray, {
-			$of("opaque"_s),
-			$of(u"不透明"_s)
+			"opaque"_s,
+			u"不透明"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionpane"_s),
-			$of(u"選項窗格"_s)
+			"optionpane"_s,
+			u"選項窗格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pagetab"_s),
-			$of(u"頁面頁籤"_s)
+			"pagetab"_s,
+			u"頁面頁籤"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pagetablist"_s),
-			$of(u"頁面頁籤清單"_s)
+			"pagetablist"_s,
+			u"頁面頁籤清單"_s
 		}),
 		$$new($ObjectArray, {
-			$of("panel"_s),
-			$of(u"面板"_s)
+			"panel"_s,
+			u"面板"_s
 		}),
 		$$new($ObjectArray, {
-			$of("paragraph"_s),
-			$of(u"段落"_s)
+			"paragraph"_s,
+			u"段落"_s
 		}),
 		$$new($ObjectArray, {
-			$of("parentWindowOf"_s),
-			$of(u"父系視窗"_s)
+			"parentWindowOf"_s,
+			u"父系視窗"_s
 		}),
 		$$new($ObjectArray, {
-			$of("passwordtext"_s),
-			$of(u"密碼文字"_s)
+			"passwordtext"_s,
+			u"密碼文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("popupmenu"_s),
-			$of(u"即現式功能表"_s)
+			"popupmenu"_s,
+			u"即現式功能表"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pressed"_s),
-			$of(u"已按下"_s)
+			"pressed"_s,
+			u"已按下"_s
 		}),
 		$$new($ObjectArray, {
-			$of("progressMonitor"_s),
-			$of(u"進度監視器"_s)
+			"progressMonitor"_s,
+			u"進度監視器"_s
 		}),
 		$$new($ObjectArray, {
-			$of("progressbar"_s),
-			$of(u"進度列"_s)
+			"progressbar"_s,
+			u"進度列"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pushbutton"_s),
-			$of(u"下壓按鈕"_s)
+			"pushbutton"_s,
+			u"下壓按鈕"_s
 		}),
 		$$new($ObjectArray, {
-			$of("radiobutton"_s),
-			$of(u"圓鈕"_s)
+			"radiobutton"_s,
+			u"圓鈕"_s
 		}),
 		$$new($ObjectArray, {
-			$of("resizable"_s),
-			$of(u"可調整大小"_s)
+			"resizable"_s,
+			u"可調整大小"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rootpane"_s),
-			$of(u"root 窗格"_s)
+			"rootpane"_s,
+			u"root 窗格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rowheader"_s),
-			$of(u"列標題"_s)
+			"rowheader"_s,
+			u"列標題"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ruler"_s),
-			$of(u"尺規"_s)
+			"ruler"_s,
+			u"尺規"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scrollbar"_s),
-			$of(u"捲軸"_s)
+			"scrollbar"_s,
+			u"捲軸"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scrollpane"_s),
-			$of(u"捲動窗格"_s)
+			"scrollpane"_s,
+			u"捲動窗格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("selectable"_s),
-			$of(u"可選取"_s)
+			"selectable"_s,
+			u"可選取"_s
 		}),
 		$$new($ObjectArray, {
-			$of("selected"_s),
-			$of(u"已選取"_s)
+			"selected"_s,
+			u"已選取"_s
 		}),
 		$$new($ObjectArray, {
-			$of("separator"_s),
-			$of(u"分隔元"_s)
+			"separator"_s,
+			u"分隔元"_s
 		}),
 		$$new($ObjectArray, {
-			$of("showing"_s),
-			$of(u"顯示"_s)
+			"showing"_s,
+			u"顯示"_s
 		}),
 		$$new($ObjectArray, {
-			$of("singleline"_s),
-			$of(u"單行"_s)
+			"singleline"_s,
+			u"單行"_s
 		}),
 		$$new($ObjectArray, {
-			$of("slider"_s),
-			$of(u"滑動軸"_s)
+			"slider"_s,
+			u"滑動軸"_s
 		}),
 		$$new($ObjectArray, {
-			$of("splitpane"_s),
-			$of(u"分割窗格"_s)
+			"splitpane"_s,
+			u"分割窗格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("subwindowOf"_s),
-			$of(u"子視窗"_s)
+			"subwindowOf"_s,
+			u"子視窗"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swingcomponent"_s),
-			$of(u"Swing 元件"_s)
+			"swingcomponent"_s,
+			u"Swing 元件"_s
 		}),
 		$$new($ObjectArray, {
-			$of("table"_s),
-			$of(u"表格"_s)
+			"table"_s,
+			u"表格"_s
 		}),
 		$$new($ObjectArray, {
-			$of("text"_s),
-			$of(u"文字"_s)
+			"text"_s,
+			u"文字"_s
 		}),
 		$$new($ObjectArray, {
-			$of("togglebutton"_s),
-			$of(u"切換按鈕"_s)
+			"togglebutton"_s,
+			u"切換按鈕"_s
 		}),
 		$$new($ObjectArray, {
-			$of("toggleexpand"_s),
-			$of(u"切換擴展"_s)
+			"toggleexpand"_s,
+			u"切換擴展"_s
 		}),
 		$$new($ObjectArray, {
-			$of("toolbar"_s),
-			$of(u"工具列"_s)
+			"toolbar"_s,
+			u"工具列"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tooltip"_s),
-			$of(u"工具提示"_s)
+			"tooltip"_s,
+			u"工具提示"_s
 		}),
 		$$new($ObjectArray, {
-			$of("transient"_s),
-			$of(u"暫時的"_s)
+			"transient"_s,
+			u"暫時的"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tree"_s),
-			$of(u"樹狀結構"_s)
+			"tree"_s,
+			u"樹狀結構"_s
 		}),
 		$$new($ObjectArray, {
-			$of("truncated"_s),
-			$of(u"已截斷"_s)
+			"truncated"_s,
+			u"已截斷"_s
 		}),
 		$$new($ObjectArray, {
-			$of("unknown"_s),
-			$of(u"不明的"_s)
+			"unknown"_s,
+			u"不明的"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vertical"_s),
-			$of(u"垂直"_s)
+			"vertical"_s,
+			u"垂直"_s
 		}),
 		$$new($ObjectArray, {
-			$of("viewport"_s),
-			$of(u"檢視區"_s)
+			"viewport"_s,
+			u"檢視區"_s
 		}),
 		$$new($ObjectArray, {
-			$of("visible"_s),
-			$of(u"可見的"_s)
+			"visible"_s,
+			u"可見的"_s
 		}),
 		$$new($ObjectArray, {
-			$of("window"_s),
-			$of(u"視窗"_s)
+			"window"_s,
+			u"視窗"_s
 		})
 	});
 }
@@ -439,7 +419,22 @@ accessibility_zh_HK::accessibility_zh_HK() {
 }
 
 $Class* accessibility_zh_HK::load$($String* name, bool initialize) {
-	$loadClass(accessibility_zh_HK, name, initialize, &_accessibility_zh_HK_ClassInfo_, allocate$accessibility_zh_HK);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(accessibility_zh_HK, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(accessibility_zh_HK, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.accessibility.internal.resources.accessibility_zh_HK",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(accessibility_zh_HK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(accessibility_zh_HK);
+	});
 	return class$;
 }
 

@@ -21,7 +21,7 @@ public:
 	FilesEvent();
 	void init$(::java::util::List* files);
 	virtual ::java::util::List* getFiles();
-	static const int64_t serialVersionUID = (int64_t)0x4929112B0FECB3A7;
+	static const int64_t serialVersionUID = (int64_t)0x4929112b0fecb3a7;
 	::java::util::List* files = nullptr;
 };
 

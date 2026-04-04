@@ -1,5 +1,4 @@
 #include <javax/management/monitor/CounterMonitor$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/management/monitor/CounterMonitor.h>
 #include <javax/management/monitor/Monitor$NumericalType.h>
@@ -22,61 +21,25 @@ namespace javax {
 	namespace management {
 		namespace monitor {
 
-$FieldInfo _CounterMonitor$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$management$monitor$Monitor$NumericalType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CounterMonitor$1, $SwitchMap$javax$management$monitor$Monitor$NumericalType)},
-	{}
-};
-
-$EnclosingMethodInfo _CounterMonitor$1_EnclosingMethodInfo_ = {
-	"javax.management.monitor.CounterMonitor",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CounterMonitor$1_InnerClassesInfo_[] = {
-	{"javax.management.monitor.CounterMonitor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _CounterMonitor$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.management.monitor.CounterMonitor$1",
-	"java.lang.Object",
-	nullptr,
-	_CounterMonitor$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_CounterMonitor$1_EnclosingMethodInfo_,
-	_CounterMonitor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.CounterMonitor"
-};
-
-$Object* allocate$CounterMonitor$1($Class* clazz) {
-	return $of($alloc(CounterMonitor$1));
-}
-
 $ints* CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType = nullptr;
 
-void clinit$CounterMonitor$1($Class* class$) {
+void CounterMonitor$1::clinit$($Class* clazz) {
 	$assignStatic(CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType, $new($ints, $($Monitor$NumericalType::values())->length));
 	{
 		try {
-			$nc(CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->set($Monitor$NumericalType::INTEGER->ordinal(), 1);
+			CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType->set($Monitor$NumericalType::INTEGER->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->set($Monitor$NumericalType::BYTE->ordinal(), 2);
+			CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType->set($Monitor$NumericalType::BYTE->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->set($Monitor$NumericalType::SHORT->ordinal(), 3);
+			CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType->set($Monitor$NumericalType::SHORT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType)->set($Monitor$NumericalType::LONG->ordinal(), 4);
+			CounterMonitor$1::$SwitchMap$javax$management$monitor$Monitor$NumericalType->set($Monitor$NumericalType::LONG->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -86,7 +49,37 @@ CounterMonitor$1::CounterMonitor$1() {
 }
 
 $Class* CounterMonitor$1::load$($String* name, bool initialize) {
-	$loadClass(CounterMonitor$1, name, initialize, &_CounterMonitor$1_ClassInfo_, clinit$CounterMonitor$1, allocate$CounterMonitor$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$management$monitor$Monitor$NumericalType", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CounterMonitor$1, $SwitchMap$javax$management$monitor$Monitor$NumericalType)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.management.monitor.CounterMonitor",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.CounterMonitor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.management.monitor.CounterMonitor$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.CounterMonitor"
+	};
+	$loadClass(CounterMonitor$1, name, initialize, &classInfo$$, CounterMonitor$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CounterMonitor$1);
+	});
 	return class$;
 }
 

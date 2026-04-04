@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$BorderWidthValue.h>
-
 #include <javax/swing/text/html/CSS$CssValue.h>
 #include <javax/swing/text/html/CSS$LengthValue.h>
 #include <javax/swing/text/html/CSS.h>
@@ -20,79 +19,41 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$BorderWidthValue_FieldInfo_[] = {
-	{"values", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$BorderWidthValue, values)},
-	{}
-};
-
-$MethodInfo _CSS$BorderWidthValue_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(CSS$BorderWidthValue, init$, void, $String*, int32_t)},
-	{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$BorderWidthValue, parseCssValue, $Object*, $String*)},
-	{"parseHtmlValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$BorderWidthValue, parseHtmlValue, $Object*, $String*)},
-	{}
-};
-
-$InnerClassInfo _CSS$BorderWidthValue_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$BorderWidthValue", "javax.swing.text.html.CSS", "BorderWidthValue", $STATIC},
-	{"javax.swing.text.html.CSS$LengthValue", "javax.swing.text.html.CSS", "LengthValue", $STATIC},
-	{}
-};
-
-$ClassInfo _CSS$BorderWidthValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSS$BorderWidthValue",
-	"javax.swing.text.html.CSS$LengthValue",
-	nullptr,
-	_CSS$BorderWidthValue_FieldInfo_,
-	_CSS$BorderWidthValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$BorderWidthValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$BorderWidthValue($Class* clazz) {
-	return $of($alloc(CSS$BorderWidthValue));
-}
-
 $floats* CSS$BorderWidthValue::values = nullptr;
 
 void CSS$BorderWidthValue::init$($String* svalue, int32_t index) {
 	$CSS$LengthValue::init$();
 	$set(this, svalue, svalue);
-	this->span = $nc(CSS$BorderWidthValue::values)->get(index);
+	this->span = CSS$BorderWidthValue::values->get(index);
 	this->percentage = false;
 }
 
 $Object* CSS$BorderWidthValue::parseCssValue($String* value) {
 	if (value != nullptr) {
 		if (value->equals("thick"_s)) {
-			return $of($new(CSS$BorderWidthValue, value, 2));
+			return $new(CSS$BorderWidthValue, value, 2);
 		} else if (value->equals("medium"_s)) {
-			return $of($new(CSS$BorderWidthValue, value, 1));
+			return $new(CSS$BorderWidthValue, value, 1);
 		} else if (value->equals("thin"_s)) {
-			return $of($new(CSS$BorderWidthValue, value, 0));
+			return $new(CSS$BorderWidthValue, value, 0);
 		}
 	}
-	return $of($CSS$LengthValue::parseCssValue(value));
+	return $CSS$LengthValue::parseCssValue(value);
 }
 
 $Object* CSS$BorderWidthValue::parseHtmlValue($String* value) {
 	$init($HTML);
 	if (value == $HTML::NULL_ATTRIBUTE_VALUE) {
-		return $of(parseCssValue("medium"_s));
+		return parseCssValue("medium"_s);
 	}
-	return $of(parseCssValue(value));
+	return parseCssValue(value);
 }
 
-void clinit$CSS$BorderWidthValue($Class* class$) {
+void CSS$BorderWidthValue::clinit$($Class* clazz) {
 	$assignStatic(CSS$BorderWidthValue::values, $new($floats, {
-		(float)1,
-		(float)2,
-		(float)4
+		1,
+		2,
+		4
 	}));
 }
 
@@ -100,7 +61,39 @@ CSS$BorderWidthValue::CSS$BorderWidthValue() {
 }
 
 $Class* CSS$BorderWidthValue::load$($String* name, bool initialize) {
-	$loadClass(CSS$BorderWidthValue, name, initialize, &_CSS$BorderWidthValue_ClassInfo_, clinit$CSS$BorderWidthValue, allocate$CSS$BorderWidthValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"values", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CSS$BorderWidthValue, values)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(CSS$BorderWidthValue, init$, void, $String*, int32_t)},
+		{"parseCssValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$BorderWidthValue, parseCssValue, $Object*, $String*)},
+		{"parseHtmlValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, 0, $virtualMethod(CSS$BorderWidthValue, parseHtmlValue, $Object*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$BorderWidthValue", "javax.swing.text.html.CSS", "BorderWidthValue", $STATIC},
+		{"javax.swing.text.html.CSS$LengthValue", "javax.swing.text.html.CSS", "LengthValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSS$BorderWidthValue",
+		"javax.swing.text.html.CSS$LengthValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$BorderWidthValue, name, initialize, &classInfo$$, CSS$BorderWidthValue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$BorderWidthValue);
+	});
 	return class$;
 }
 

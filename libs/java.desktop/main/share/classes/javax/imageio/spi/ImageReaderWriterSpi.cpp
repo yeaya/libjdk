@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/ImageReaderWriterSpi.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -51,90 +50,34 @@ public:
 	virtual $Object* run() override {
 		 return $of($nc(inst$)->lambda$getMetadataFormat$0(className));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0>());
-	}
 	ImageReaderWriterSpi* inst$ = nullptr;
 	$String* className = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, inst$)},
-	{"className", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, className)},
-	{}
-};
-$MethodInfo ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageReaderWriterSpi;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, init$, void, ImageReaderWriterSpi*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, run, $Object*)},
-	{}
-};
-$ClassInfo ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.imageio.spi.ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0::load$($String* name, bool initialize) {
-	$loadClass(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, inst$)},
+		{"className", "Ljava/lang/String;", nullptr, $PUBLIC, $field(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageReaderWriterSpi;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, init$, void, ImageReaderWriterSpi*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.imageio.spi.ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0);
+	});
 	return class$;
 }
 $Class* ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0::class$ = nullptr;
-
-$FieldInfo _ImageReaderWriterSpi_FieldInfo_[] = {
-	{"names", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, names)},
-	{"suffixes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, suffixes)},
-	{"MIMETypes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, MIMETypes)},
-	{"pluginClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, pluginClassName)},
-	{"supportsStandardStreamMetadataFormat", "Z", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, supportsStandardStreamMetadataFormat)},
-	{"nativeStreamMetadataFormatName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, nativeStreamMetadataFormatName)},
-	{"nativeStreamMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, nativeStreamMetadataFormatClassName)},
-	{"extraStreamMetadataFormatNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, extraStreamMetadataFormatNames)},
-	{"extraStreamMetadataFormatClassNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, extraStreamMetadataFormatClassNames)},
-	{"supportsStandardImageMetadataFormat", "Z", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, supportsStandardImageMetadataFormat)},
-	{"nativeImageMetadataFormatName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, nativeImageMetadataFormatName)},
-	{"nativeImageMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, nativeImageMetadataFormatClassName)},
-	{"extraImageMetadataFormatNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, extraImageMetadataFormatNames)},
-	{"extraImageMetadataFormatClassNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, extraImageMetadataFormatClassNames)},
-	{}
-};
-
-$MethodInfo _ImageReaderWriterSpi_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageReaderWriterSpi, init$, void, $String*, $String*, $StringArray*, $StringArray*, $StringArray*, $String*, bool, $String*, $String*, $StringArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageReaderWriterSpi, init$, void)},
-	{"getExtraImageMetadataFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getExtraImageMetadataFormatNames, $StringArray*)},
-	{"getExtraStreamMetadataFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getExtraStreamMetadataFormatNames, $StringArray*)},
-	{"getFileSuffixes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getFileSuffixes, $StringArray*)},
-	{"getFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getFormatNames, $StringArray*)},
-	{"getImageMetadataFormat", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getImageMetadataFormat, $IIOMetadataFormat*, $String*)},
-	{"getMIMETypes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getMIMETypes, $StringArray*)},
-	{"getMetadataFormat", "(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE, $method(ImageReaderWriterSpi, getMetadataFormat, $IIOMetadataFormat*, $String*, bool, $String*, $String*, $StringArray*, $StringArray*)},
-	{"getMetadataFormatClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(ImageReaderWriterSpi, getMetadataFormatClass, $Class*, $String*)},
-	{"getNativeImageMetadataFormatName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getNativeImageMetadataFormatName, $String*)},
-	{"getNativeStreamMetadataFormatName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getNativeStreamMetadataFormatName, $String*)},
-	{"getPluginClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getPluginClassName, $String*)},
-	{"getStreamMetadataFormat", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getStreamMetadataFormat, $IIOMetadataFormat*, $String*)},
-	{"isStandardImageMetadataFormatSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, isStandardImageMetadataFormatSupported, bool)},
-	{"isStandardStreamMetadataFormatSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, isStandardStreamMetadataFormatSupported, bool)},
-	{"lambda$getMetadataFormat$0", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $SYNTHETIC, $method(ImageReaderWriterSpi, lambda$getMetadataFormat$0, $Class*, $String*)},
-	{}
-};
-
-$ClassInfo _ImageReaderWriterSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.spi.ImageReaderWriterSpi",
-	"javax.imageio.spi.IIOServiceProvider",
-	nullptr,
-	_ImageReaderWriterSpi_FieldInfo_,
-	_ImageReaderWriterSpi_MethodInfo_
-};
-
-$Object* allocate$ImageReaderWriterSpi($Class* clazz) {
-	return $of($alloc(ImageReaderWriterSpi));
-}
 
 void ImageReaderWriterSpi::init$($String* vendorName, $String* version, $StringArray* names, $StringArray* suffixes, $StringArray* MIMETypes, $String* pluginClassName, bool supportsStandardStreamMetadataFormat, $String* nativeStreamMetadataFormatName, $String* nativeStreamMetadataFormatClassName, $StringArray* extraStreamMetadataFormatNames, $StringArray* extraStreamMetadataFormatClassNames, bool supportsStandardImageMetadataFormat, $String* nativeImageMetadataFormatName, $String* nativeImageMetadataFormatClassName, $StringArray* extraImageMetadataFormatNames, $StringArray* extraImageMetadataFormatClassNames) {
 	$IIOServiceProvider::init$(vendorName, version);
@@ -161,7 +104,7 @@ void ImageReaderWriterSpi::init$($String* vendorName, $String* version, $StringA
 	if (pluginClassName == nullptr) {
 		$throwNew($IllegalArgumentException, "pluginClassName == null!"_s);
 	}
-	$set(this, names, $cast($StringArray, $nc(names)->clone()));
+	$set(this, names, $cast($StringArray, names->clone()));
 	if (suffixes != nullptr && suffixes->length > 0) {
 		$set(this, suffixes, $cast($StringArray, suffixes->clone()));
 	}
@@ -212,11 +155,11 @@ $StringArray* ImageReaderWriterSpi::getFormatNames() {
 }
 
 $StringArray* ImageReaderWriterSpi::getFileSuffixes() {
-	return this->suffixes == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(this->suffixes)->clone());
+	return this->suffixes == nullptr ? ($StringArray*)nullptr : $cast($StringArray, this->suffixes->clone());
 }
 
 $StringArray* ImageReaderWriterSpi::getMIMETypes() {
-	return this->MIMETypes == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(this->MIMETypes)->clone());
+	return this->MIMETypes == nullptr ? ($StringArray*)nullptr : $cast($StringArray, this->MIMETypes->clone());
 }
 
 $String* ImageReaderWriterSpi::getPluginClassName() {
@@ -232,7 +175,7 @@ $String* ImageReaderWriterSpi::getNativeStreamMetadataFormatName() {
 }
 
 $StringArray* ImageReaderWriterSpi::getExtraStreamMetadataFormatNames() {
-	return this->extraStreamMetadataFormatNames == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(this->extraStreamMetadataFormatNames)->clone());
+	return this->extraStreamMetadataFormatNames == nullptr ? ($StringArray*)nullptr : $cast($StringArray, this->extraStreamMetadataFormatNames->clone());
 }
 
 bool ImageReaderWriterSpi::isStandardImageMetadataFormatSupported() {
@@ -244,7 +187,7 @@ $String* ImageReaderWriterSpi::getNativeImageMetadataFormatName() {
 }
 
 $StringArray* ImageReaderWriterSpi::getExtraImageMetadataFormatNames() {
-	return this->extraImageMetadataFormatNames == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(this->extraImageMetadataFormatNames)->clone());
+	return this->extraImageMetadataFormatNames == nullptr ? ($StringArray*)nullptr : $cast($StringArray, this->extraImageMetadataFormatNames->clone());
 }
 
 $IIOMetadataFormat* ImageReaderWriterSpi::getStreamMetadataFormat($String* formatName) {
@@ -256,7 +199,7 @@ $IIOMetadataFormat* ImageReaderWriterSpi::getImageMetadataFormat($String* format
 }
 
 $IIOMetadataFormat* ImageReaderWriterSpi::getMetadataFormat($String* formatName, bool supportsStandard, $String* nativeName, $String* nativeClassName, $StringArray* extraNames, $StringArray* extraClassNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (formatName == nullptr) {
 		$throwNew($IllegalArgumentException, "formatName == null!"_s);
@@ -281,7 +224,7 @@ $IIOMetadataFormat* ImageReaderWriterSpi::getMetadataFormat($String* formatName,
 	}
 	try {
 		$var($String, className, formatClassName);
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, this, className)));
+		$var($PrivilegedAction, pa, $new(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0, this, className));
 		$Class* cls = $cast($Class, $AccessController::doPrivileged(pa));
 		$var($Method, meth, $nc(cls)->getMethod("getInstance"_s, $$new($ClassArray, 0)));
 		return $cast($IIOMetadataFormat, $nc(meth)->invoke(nullptr, $$new($ObjectArray, 0)));
@@ -294,13 +237,13 @@ $IIOMetadataFormat* ImageReaderWriterSpi::getMetadataFormat($String* formatName,
 }
 
 $Class* ImageReaderWriterSpi::getMetadataFormatClass($String* formatClassName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Module, thisModule, ImageReaderWriterSpi::class$->getModule());
-	$var($Module, targetModule, $of(this)->getClass()->getModule());
+	$var($Module, targetModule, this->getClass()->getModule());
 	$Class* c = nullptr;
 	try {
-		$var($ClassLoader, cl, $of(this)->getClass()->getClassLoader());
+		$var($ClassLoader, cl, this->getClass()->getClassLoader());
 		c = $Class::forName(formatClassName, false, cl);
 		$load($IIOMetadataFormat);
 		if (!$IIOMetadataFormat::class$->isAssignableFrom(c)) {
@@ -308,7 +251,7 @@ $Class* ImageReaderWriterSpi::getMetadataFormatClass($String* formatClassName) {
 		}
 	} catch ($ClassNotFoundException& e) {
 	}
-	if ($nc($of(thisModule))->equals(targetModule) || c == nullptr) {
+	if ($nc(thisModule)->equals(targetModule) || c == nullptr) {
 		return c;
 	}
 	if ($nc(targetModule)->isNamed()) {
@@ -330,11 +273,58 @@ ImageReaderWriterSpi::ImageReaderWriterSpi() {
 
 $Class* ImageReaderWriterSpi::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0::classInfo$.name)) {
+		if (name->equals("javax.imageio.spi.ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0")) {
 			return ImageReaderWriterSpi$$Lambda$lambda$getMetadataFormat$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ImageReaderWriterSpi, name, initialize, &_ImageReaderWriterSpi_ClassInfo_, allocate$ImageReaderWriterSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"names", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, names)},
+		{"suffixes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, suffixes)},
+		{"MIMETypes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, MIMETypes)},
+		{"pluginClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, pluginClassName)},
+		{"supportsStandardStreamMetadataFormat", "Z", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, supportsStandardStreamMetadataFormat)},
+		{"nativeStreamMetadataFormatName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, nativeStreamMetadataFormatName)},
+		{"nativeStreamMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, nativeStreamMetadataFormatClassName)},
+		{"extraStreamMetadataFormatNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, extraStreamMetadataFormatNames)},
+		{"extraStreamMetadataFormatClassNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, extraStreamMetadataFormatClassNames)},
+		{"supportsStandardImageMetadataFormat", "Z", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, supportsStandardImageMetadataFormat)},
+		{"nativeImageMetadataFormatName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, nativeImageMetadataFormatName)},
+		{"nativeImageMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, nativeImageMetadataFormatClassName)},
+		{"extraImageMetadataFormatNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, extraImageMetadataFormatNames)},
+		{"extraImageMetadataFormatClassNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(ImageReaderWriterSpi, extraImageMetadataFormatClassNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageReaderWriterSpi, init$, void, $String*, $String*, $StringArray*, $StringArray*, $StringArray*, $String*, bool, $String*, $String*, $StringArray*, $StringArray*, bool, $String*, $String*, $StringArray*, $StringArray*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageReaderWriterSpi, init$, void)},
+		{"getExtraImageMetadataFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getExtraImageMetadataFormatNames, $StringArray*)},
+		{"getExtraStreamMetadataFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getExtraStreamMetadataFormatNames, $StringArray*)},
+		{"getFileSuffixes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getFileSuffixes, $StringArray*)},
+		{"getFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getFormatNames, $StringArray*)},
+		{"getImageMetadataFormat", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getImageMetadataFormat, $IIOMetadataFormat*, $String*)},
+		{"getMIMETypes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getMIMETypes, $StringArray*)},
+		{"getMetadataFormat", "(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE, $method(ImageReaderWriterSpi, getMetadataFormat, $IIOMetadataFormat*, $String*, bool, $String*, $String*, $StringArray*, $StringArray*)},
+		{"getMetadataFormatClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(ImageReaderWriterSpi, getMetadataFormatClass, $Class*, $String*)},
+		{"getNativeImageMetadataFormatName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getNativeImageMetadataFormatName, $String*)},
+		{"getNativeStreamMetadataFormatName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getNativeStreamMetadataFormatName, $String*)},
+		{"getPluginClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getPluginClassName, $String*)},
+		{"getStreamMetadataFormat", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, getStreamMetadataFormat, $IIOMetadataFormat*, $String*)},
+		{"isStandardImageMetadataFormatSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, isStandardImageMetadataFormatSupported, bool)},
+		{"isStandardStreamMetadataFormatSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ImageReaderWriterSpi, isStandardStreamMetadataFormatSupported, bool)},
+		{"lambda$getMetadataFormat$0", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $SYNTHETIC, $method(ImageReaderWriterSpi, lambda$getMetadataFormat$0, $Class*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.spi.ImageReaderWriterSpi",
+		"javax.imageio.spi.IIOServiceProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageReaderWriterSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageReaderWriterSpi);
+	});
 	return class$;
 }
 

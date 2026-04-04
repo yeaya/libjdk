@@ -42,7 +42,7 @@ public:
 	void freeInstance(::com::sun::org::apache::xml::internal::dtm::DTMIterator* obj);
 	::com::sun::org::apache::xml::internal::dtm::DTMIterator* getInstance();
 	::com::sun::org::apache::xml::internal::dtm::DTMIterator* getInstanceOrThrow();
-	static const int64_t serialVersionUID = (int64_t)0xF99A7508CF8FABEA;
+	static const int64_t serialVersionUID = (int64_t)0xf99a7508cf8fabea;
 	::com::sun::org::apache::xml::internal::dtm::DTMIterator* m_orig = nullptr;
 	::java::util::List* m_freeStack = nullptr;
 };

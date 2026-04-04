@@ -1,5 +1,4 @@
 #include <sun/print/UnixPrintJob.h>
-
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Pageable.h>
 #include <java/awt/print/Paper.h>
@@ -17,14 +16,12 @@
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Reader.h>
-#include <java/io/Writer.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Locale.h>
 #include <java/util/Vector.h>
 #include <javax/print/Doc.h>
@@ -116,7 +113,6 @@ using $Pageable = ::java::awt::print::Pageable;
 using $Paper = ::java::awt::print::Paper;
 using $Printable = ::java::awt::print::Printable;
 using $PrinterException = ::java::awt::print::PrinterException;
-using $PrinterJob = ::java::awt::print::PrinterJob;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $BufferedReader = ::java::io::BufferedReader;
@@ -127,9 +123,7 @@ using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
-using $Writer = ::java::io::Writer;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -142,7 +136,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Locale = ::java::util::Locale;
 using $Vector = ::java::util::Vector;
 using $Doc = ::javax::print::Doc;
@@ -154,7 +147,6 @@ using $DocFlavor$READER = ::javax::print::DocFlavor$READER;
 using $DocFlavor$SERVICE_FORMATTED = ::javax::print::DocFlavor$SERVICE_FORMATTED;
 using $DocFlavor$STRING = ::javax::print::DocFlavor$STRING;
 using $DocFlavor$URL = ::javax::print::DocFlavor$URL;
-using $DocPrintJob = ::javax::print::DocPrintJob;
 using $PrintException = ::javax::print::PrintException;
 using $PrintService = ::javax::print::PrintService;
 using $Attribute = ::javax::print::attribute::Attribute;
@@ -202,84 +194,6 @@ using $UnixPrintService = ::sun::print::UnixPrintService;
 namespace sun {
 	namespace print {
 
-$FieldInfo _UnixPrintJob_FieldInfo_[] = {
-	{"debugPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintJob, debugPrefix)},
-	{"jobListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintJobListener;>;", $PRIVATE | $TRANSIENT, $field(UnixPrintJob, jobListeners)},
-	{"attrListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintJobAttributeListener;>;", $PRIVATE | $TRANSIENT, $field(UnixPrintJob, attrListeners)},
-	{"listenedAttributeSets", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/PrintJobAttributeSet;>;", $PRIVATE | $TRANSIENT, $field(UnixPrintJob, listenedAttributeSets)},
-	{"service", "Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(UnixPrintJob, service)},
-	{"fidelity", "Z", nullptr, $PRIVATE, $field(UnixPrintJob, fidelity)},
-	{"printing", "Z", nullptr, $PRIVATE, $field(UnixPrintJob, printing)},
-	{"printReturned", "Z", nullptr, $PRIVATE, $field(UnixPrintJob, printReturned)},
-	{"reqAttrSet", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PRIVATE, $field(UnixPrintJob, reqAttrSet)},
-	{"jobAttrSet", "Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PRIVATE, $field(UnixPrintJob, jobAttrSet)},
-	{"job", "Ljava/awt/print/PrinterJob;", nullptr, $PRIVATE, $field(UnixPrintJob, job)},
-	{"doc", "Ljavax/print/Doc;", nullptr, $PRIVATE, $field(UnixPrintJob, doc)},
-	{"instream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(UnixPrintJob, instream)},
-	{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(UnixPrintJob, reader)},
-	{"jobName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixPrintJob, jobName)},
-	{"copies", "I", nullptr, $PRIVATE, $field(UnixPrintJob, copies)},
-	{"mediaName", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(UnixPrintJob, mediaName)},
-	{"mediaSize", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE, $field(UnixPrintJob, mediaSize)},
-	{"customTray", "Lsun/print/CustomMediaTray;", nullptr, $PRIVATE, $field(UnixPrintJob, customTray)},
-	{"orient", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PRIVATE, $field(UnixPrintJob, orient)},
-	{"nUp", "Ljavax/print/attribute/standard/NumberUp;", nullptr, $PRIVATE, $field(UnixPrintJob, nUp)},
-	{"sides", "Ljavax/print/attribute/standard/Sides;", nullptr, $PRIVATE, $field(UnixPrintJob, sides)},
-	{"DESTPRINTER", "I", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintJob, DESTPRINTER)},
-	{"DESTFILE", "I", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintJob, DESTFILE)},
-	{"mDestType", "I", nullptr, $PRIVATE, $field(UnixPrintJob, mDestType)},
-	{"spoolFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(UnixPrintJob, spoolFile)},
-	{"mDestination", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixPrintJob, mDestination)},
-	{"mOptions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixPrintJob, mOptions)},
-	{"mNoJobSheet", "Z", nullptr, $PRIVATE, $field(UnixPrintJob, mNoJobSheet)},
-	{}
-};
-
-$MethodInfo _UnixPrintJob_MethodInfo_[] = {
-	{"<init>", "(Ljavax/print/PrintService;)V", nullptr, 0, $method(UnixPrintJob, init$, void, $PrintService*)},
-	{"addPrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, addPrintJobAttributeListener, void, $PrintJobAttributeListener*, $PrintJobAttributeSet*)},
-	{"addPrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, addPrintJobListener, void, $PrintJobListener*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, cancel, void), "javax.print.PrintException"},
-	{"closeDataStreams", "()V", nullptr, $PRIVATE, $method(UnixPrintJob, closeDataStreams, void)},
-	{"getAttributeValues", "(Ljavax/print/DocFlavor;)V", nullptr, $PRIVATE, $method(UnixPrintJob, getAttributeValues, void, $DocFlavor*), "javax.print.PrintException"},
-	{"getAttributes", "()Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, getAttributes, $PrintJobAttributeSet*)},
-	{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, getPrintService, $PrintService*)},
-	{"initializeAttributeSets", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UnixPrintJob, initializeAttributeSets, void, $Doc*, $PrintRequestAttributeSet*)},
-	{"notifyEvent", "(I)V", nullptr, $PRIVATE, $method(UnixPrintJob, notifyEvent, void, int32_t)},
-	{"pageableJob", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, pageableJob, void, $Pageable*), "javax.print.PrintException"},
-	{"print", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, print, void, $Doc*, $PrintRequestAttributeSet*), "javax.print.PrintException"},
-	{"printExecCmd", "(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(UnixPrintJob, printExecCmd, $StringArray*, $String*, $String*, bool, $String*, int32_t, $String*)},
-	{"printableJob", "(Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, printableJob, void, $Printable*), "javax.print.PrintException"},
-	{"removePrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, removePrintJobAttributeListener, void, $PrintJobAttributeListener*)},
-	{"removePrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, removePrintJobListener, void, $PrintJobListener*)},
-	{}
-};
-
-$InnerClassInfo _UnixPrintJob_InnerClassesInfo_[] = {
-	{"sun.print.UnixPrintJob$PrinterSpooler", "sun.print.UnixPrintJob", "PrinterSpooler", $PRIVATE},
-	{"sun.print.UnixPrintJob$PrinterOpener", "sun.print.UnixPrintJob", "PrinterOpener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _UnixPrintJob_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.UnixPrintJob",
-	"java.lang.Object",
-	"javax.print.CancelablePrintJob",
-	_UnixPrintJob_FieldInfo_,
-	_UnixPrintJob_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnixPrintJob_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.UnixPrintJob$PrinterSpooler,sun.print.UnixPrintJob$PrinterOpener"
-};
-
-$Object* allocate$UnixPrintJob($Class* clazz) {
-	return $of($alloc(UnixPrintJob));
-}
-
 $String* UnixPrintJob::debugPrefix = nullptr;
 int32_t UnixPrintJob::DESTPRINTER = 0;
 int32_t UnixPrintJob::DESTFILE = 0;
@@ -308,13 +222,13 @@ void UnixPrintJob::init$($PrintService* service) {
 	$set(this, service, service);
 	$set(this, mDestination, $nc(service)->getName());
 	if ($PrintServiceLookupProvider::isMac()) {
-		$set(this, mDestination, $nc(($cast($IPPPrintService, service)))->getDest());
+		$set(this, mDestination, $cast($IPPPrintService, service)->getDest());
 	}
 	this->mDestType = UnixPrintJob::DESTPRINTER;
 	$load($JobSheets);
-	$var($JobSheets, js, ($cast($JobSheets, service->getDefaultAttributeValue($JobSheets::class$))));
+	$var($JobSheets, js, $cast($JobSheets, service->getDefaultAttributeValue($JobSheets::class$)));
 	$init($JobSheets);
-	if (js != nullptr && $of(js)->equals($JobSheets::NONE)) {
+	if (js != nullptr && js->equals($JobSheets::NONE)) {
 		this->mNoJobSheet = true;
 	}
 }
@@ -351,15 +265,15 @@ void UnixPrintJob::removePrintJobListener($PrintJobListener* listener) {
 		if (listener == nullptr || this->jobListeners == nullptr) {
 			return;
 		}
-		$nc(this->jobListeners)->remove($of(listener));
-		if ($nc(this->jobListeners)->isEmpty()) {
+		$nc(this->jobListeners)->remove(listener);
+		if (this->jobListeners->isEmpty()) {
 			$set(this, jobListeners, nullptr);
 		}
 	}
 }
 
 void UnixPrintJob::closeDataStreams() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->doc == nullptr) {
 		return;
 	}
@@ -370,99 +284,79 @@ void UnixPrintJob::closeDataStreams() {
 		return;
 	}
 	if (this->instream != nullptr) {
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->instream)->close();
-				} catch ($IOException& e) {
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this, instream, nullptr);
+				this->instream->close();
+			} catch ($IOException& e) {
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(this, instream, nullptr);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else if (this->reader != nullptr) {
-		{
-			$var($Throwable, var$2, nullptr);
+		$var($Throwable, var$2, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->reader)->close();
-				} catch ($IOException& e) {
-				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				$set(this, reader, nullptr);
+				this->reader->close();
+			} catch ($IOException& e) {
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			$set(this, reader, nullptr);
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	} else if ($instanceOf($InputStream, data)) {
 		try {
-			$nc(($cast($InputStream, data)))->close();
+			$cast($InputStream, data)->close();
 		} catch ($IOException& e) {
 		}
 	} else if ($instanceOf($Reader, data)) {
 		try {
-			$nc(($cast($Reader, data)))->close();
+			$cast($Reader, data)->close();
 		} catch ($IOException& e) {
 		}
 	}
 }
 
 void UnixPrintJob::notifyEvent(int32_t reason) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (reason) {
 	case $PrintJobEvent::DATA_TRANSFER_COMPLETE:
-		{}
 	case $PrintJobEvent::JOB_CANCELED:
-		{}
 	case $PrintJobEvent::JOB_FAILED:
-		{}
 	case $PrintJobEvent::NO_MORE_EVENTS:
-		{}
 	case $PrintJobEvent::JOB_COMPLETE:
-		{
-			closeDataStreams();
-		}
+		closeDataStreams();
 	}
 	$synchronized(this) {
 		if (this->jobListeners != nullptr) {
 			$var($PrintJobListener, listener, nullptr);
 			$var($PrintJobEvent, event, $new($PrintJobEvent, this, reason));
 			for (int32_t i = 0; i < $nc(this->jobListeners)->size(); ++i) {
-				$assign(listener, $cast($PrintJobListener, $nc(this->jobListeners)->elementAt(i)));
+				$assign(listener, $cast($PrintJobListener, this->jobListeners->elementAt(i)));
 				switch (reason) {
 				case $PrintJobEvent::JOB_CANCELED:
-					{
-						$nc(listener)->printJobCanceled(event);
-						break;
-					}
+					$nc(listener)->printJobCanceled(event);
+					break;
 				case $PrintJobEvent::JOB_FAILED:
-					{
-						$nc(listener)->printJobFailed(event);
-						break;
-					}
+					$nc(listener)->printJobFailed(event);
+					break;
 				case $PrintJobEvent::DATA_TRANSFER_COMPLETE:
-					{
-						$nc(listener)->printDataTransferCompleted(event);
-						break;
-					}
+					$nc(listener)->printDataTransferCompleted(event);
+					break;
 				case $PrintJobEvent::NO_MORE_EVENTS:
-					{
-						$nc(listener)->printJobNoMoreEvents(event);
-						break;
-					}
+					$nc(listener)->printJobNoMoreEvents(event);
+					break;
 				default:
-					{
-						break;
-					}
+					break;
 				}
 			}
 		}
@@ -496,9 +390,9 @@ void UnixPrintJob::removePrintJobAttributeListener($PrintJobAttributeListener* l
 		if (index == -1) {
 			return;
 		} else {
-			$nc(this->attrListeners)->remove(index);
+			this->attrListeners->remove(index);
 			$nc(this->listenedAttributeSets)->remove(index);
-			if ($nc(this->attrListeners)->isEmpty()) {
+			if (this->attrListeners->isEmpty()) {
 				$set(this, attrListeners, nullptr);
 				$set(this, listenedAttributeSets, nullptr);
 			}
@@ -507,7 +401,7 @@ void UnixPrintJob::removePrintJobAttributeListener($PrintJobAttributeListener* l
 }
 
 void UnixPrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$synchronized(this) {
 		if (this->printing) {
@@ -542,19 +436,19 @@ void UnixPrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 	if (($instanceOf($IPPPrintService, this->service)) && $CUPSPrinter::isCupsRunning()) {
 		$IPPPrintService::debug_println($$str({UnixPrintJob::debugPrefix, "instanceof IPPPrintService"_s}));
 		if (this->mediaName != nullptr) {
-			$var($CustomMediaSizeName, customMedia, $nc(($cast($IPPPrintService, this->service)))->findCustomMedia(this->mediaName));
+			$var($CustomMediaSizeName, customMedia, $nc($cast($IPPPrintService, this->service))->findCustomMedia(this->mediaName));
 			if (customMedia != nullptr) {
 				$set(this, mOptions, $str({" media="_s, $(customMedia->getChoiceName())}));
 			}
 		}
 		if (this->customTray != nullptr && $instanceOf($CustomMediaTray, this->customTray)) {
-			$var($String, choice, $nc(this->customTray)->getChoiceName());
+			$var($String, choice, this->customTray->getChoiceName());
 			if (choice != nullptr) {
 				$plusAssignField(this, mOptions, $$str({" InputSlot="_s, choice}));
 			}
 		}
 		if (this->nUp != nullptr) {
-			$plusAssignField(this, mOptions, $$str({" number-up="_s, $$str($nc(this->nUp)->getValue())}));
+			$plusAssignField(this, mOptions, $$str({" number-up="_s, $$str(this->nUp->getValue())}));
 		}
 		$init($OrientationRequested);
 		$init($DocFlavor$SERVICE_FORMATTED);
@@ -586,54 +480,54 @@ void UnixPrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
 				$throwNew($PrintException, "No stream for data"_s);
 			}
-			if (!($instanceOf($IPPPrintService, this->service) && $nc(($cast($IPPPrintService, this->service)))->isIPPSupportedImages($(flavor->getMimeType())))) {
+			if (!($instanceOf($IPPPrintService, this->service) && $cast($IPPPrintService, this->service)->isIPPSupportedImages($(flavor->getMimeType())))) {
 				printableJob($$new($ImagePrinter, this->instream));
 				if ($instanceOf($IPPPrintService, this->service)) {
-					$nc(($cast($IPPPrintService, this->service)))->wakeNotifier();
+					$cast($IPPPrintService, this->service)->wakeNotifier();
 				} else {
-					$nc(($cast($UnixPrintService, this->service)))->wakeNotifier();
+					$nc($cast($UnixPrintService, this->service))->wakeNotifier();
 				}
 				return;
 			}
 		} catch ($ClassCastException& cce) {
 			notifyEvent($PrintJobEvent::JOB_FAILED);
-			$throwNew($PrintException, static_cast<$Exception*>(cce));
+			$throwNew($PrintException, cce);
 		} catch ($IOException& ioe) {
 			notifyEvent($PrintJobEvent::JOB_FAILED);
-			$throwNew($PrintException, static_cast<$Exception*>(ioe));
+			$throwNew($PrintException, ioe);
 		}
 	} else {
 		$init($DocFlavor$URL);
-		bool var$8 = flavor->equals($DocFlavor$URL::GIF);
-		bool var$7 = var$8 || flavor->equals($DocFlavor$URL::JPEG);
-		if (var$7 || flavor->equals($DocFlavor$URL::PNG)) {
+		bool var$6 = flavor->equals($DocFlavor$URL::GIF);
+		bool var$5 = var$6 || flavor->equals($DocFlavor$URL::JPEG);
+		if (var$5 || flavor->equals($DocFlavor$URL::PNG)) {
 			try {
 				$var($URL, url, $cast($URL, data));
-				if (($instanceOf($IPPPrintService, this->service)) && $nc(($cast($IPPPrintService, this->service)))->isIPPSupportedImages($(flavor->getMimeType()))) {
+				if (($instanceOf($IPPPrintService, this->service)) && $cast($IPPPrintService, this->service)->isIPPSupportedImages($(flavor->getMimeType()))) {
 					$set(this, instream, $nc(url)->openStream());
 				} else {
 					printableJob($$new($ImagePrinter, url));
 					if ($instanceOf($IPPPrintService, this->service)) {
-						$nc(($cast($IPPPrintService, this->service)))->wakeNotifier();
+						$cast($IPPPrintService, this->service)->wakeNotifier();
 					} else {
-						$nc(($cast($UnixPrintService, this->service)))->wakeNotifier();
+						$nc($cast($UnixPrintService, this->service))->wakeNotifier();
 					}
 					return;
 				}
 			} catch ($ClassCastException& cce) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(cce));
+				$throwNew($PrintException, cce);
 			} catch ($IOException& e) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
 				$throwNew($PrintException, $(e->toString()));
 			}
 		} else {
 			$init($DocFlavor$CHAR_ARRAY);
-			bool var$12 = flavor->equals($DocFlavor$CHAR_ARRAY::TEXT_PLAIN);
+			bool var$8 = flavor->equals($DocFlavor$CHAR_ARRAY::TEXT_PLAIN);
 			$init($DocFlavor$READER);
-			bool var$11 = var$12 || flavor->equals($DocFlavor$READER::TEXT_PLAIN);
+			bool var$7 = var$8 || flavor->equals($DocFlavor$READER::TEXT_PLAIN);
 			$init($DocFlavor$STRING);
-			if (var$11 || flavor->equals($DocFlavor$STRING::TEXT_PLAIN)) {
+			if (var$7 || flavor->equals($DocFlavor$STRING::TEXT_PLAIN)) {
 				try {
 					$set(this, reader, doc->getReaderForText());
 					if (this->reader == nullptr) {
@@ -645,8 +539,8 @@ void UnixPrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 					$throwNew($PrintException, $(ioe->toString()));
 				}
 			} else {
-				bool var$14 = $nc(repClassName)->equals("[B"_s);
-				if (var$14 || $nc(repClassName)->equals("java.io.InputStream"_s)) {
+				bool var$9 = $nc(repClassName)->equals("[B"_s);
+				if (var$9 || repClassName->equals("java.io.InputStream"_s)) {
 					try {
 						$set(this, instream, doc->getStreamForBytes());
 						if (this->instream == nullptr) {
@@ -667,35 +561,35 @@ void UnixPrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 					}
 				} else if (repClassName->equals("java.awt.print.Pageable"_s)) {
 					try {
-						pageableJob($cast($Pageable, $(doc->getPrintData())));
+						pageableJob($$cast($Pageable, doc->getPrintData()));
 						if ($instanceOf($IPPPrintService, this->service)) {
-							$nc(($cast($IPPPrintService, this->service)))->wakeNotifier();
+							$cast($IPPPrintService, this->service)->wakeNotifier();
 						} else {
-							$nc(($cast($UnixPrintService, this->service)))->wakeNotifier();
+							$nc($cast($UnixPrintService, this->service))->wakeNotifier();
 						}
 						return;
 					} catch ($ClassCastException& cce) {
 						notifyEvent($PrintJobEvent::JOB_FAILED);
-						$throwNew($PrintException, static_cast<$Exception*>(cce));
+						$throwNew($PrintException, cce);
 					} catch ($IOException& ioe) {
 						notifyEvent($PrintJobEvent::JOB_FAILED);
-						$throwNew($PrintException, static_cast<$Exception*>(ioe));
+						$throwNew($PrintException, ioe);
 					}
 				} else if (repClassName->equals("java.awt.print.Printable"_s)) {
 					try {
-						printableJob($cast($Printable, $(doc->getPrintData())));
+						printableJob($$cast($Printable, doc->getPrintData()));
 						if ($instanceOf($IPPPrintService, this->service)) {
-							$nc(($cast($IPPPrintService, this->service)))->wakeNotifier();
+							$cast($IPPPrintService, this->service)->wakeNotifier();
 						} else {
-							$nc(($cast($UnixPrintService, this->service)))->wakeNotifier();
+							$nc($cast($UnixPrintService, this->service))->wakeNotifier();
 						}
 						return;
 					} catch ($ClassCastException& cce) {
 						notifyEvent($PrintJobEvent::JOB_FAILED);
-						$throwNew($PrintException, static_cast<$Exception*>(cce));
+						$throwNew($PrintException, cce);
 					} catch ($IOException& ioe) {
 						notifyEvent($PrintJobEvent::JOB_FAILED);
-						$throwNew($PrintException, static_cast<$Exception*>(ioe));
+						$throwNew($PrintException, ioe);
 					}
 				} else {
 					notifyEvent($PrintJobEvent::JOB_FAILED);
@@ -705,7 +599,7 @@ void UnixPrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 		}
 	}
 	$var($UnixPrintJob$PrinterOpener, po, $new($UnixPrintJob$PrinterOpener, this));
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>(po));
+	$AccessController::doPrivileged(po);
 	if (po->pex != nullptr) {
 		$throw(po->pex);
 	}
@@ -726,216 +620,204 @@ void UnixPrintJob::print($Doc* doc, $PrintRequestAttributeSet* attributes) {
 			bw->close();
 		} catch ($IOException& e) {
 			notifyEvent($PrintJobEvent::JOB_FAILED);
-			$throwNew($PrintException, static_cast<$Exception*>(e));
+			$throwNew($PrintException, e);
 		}
-	} else if (this->instream != nullptr && $nc($(flavor->getMediaType()))->equalsIgnoreCase("text"_s)) {
-		{
-			$var($Throwable, var$15, nullptr);
+	} else if (this->instream != nullptr && $$nc(flavor->getMediaType())->equalsIgnoreCase("text"_s)) {
+		$var($Throwable, var$10, nullptr);
+		try {
 			try {
-				try {
-					$var($InputStreamReader, isr, $new($InputStreamReader, this->instream, encoding));
-					$var($BufferedReader, br, $new($BufferedReader, isr));
-					$var($OutputStreamWriter, osw, $new($OutputStreamWriter, output));
-					$assign(bw, $new($BufferedWriter, osw));
-					$var($chars, buffer, $new($chars, 1024));
-					int32_t cread = 0;
-					while ((cread = br->read(buffer, 0, buffer->length)) >= 0) {
-						bw->write(buffer, 0, cread);
-					}
-					bw->flush();
-				} catch ($IOException& e) {
-					notifyEvent($PrintJobEvent::JOB_FAILED);
-					$throwNew($PrintException, static_cast<$Exception*>(e));
+				$var($InputStreamReader, isr, $new($InputStreamReader, this->instream, encoding));
+				$var($BufferedReader, br, $new($BufferedReader, isr));
+				$var($OutputStreamWriter, osw, $new($OutputStreamWriter, output));
+				$assign(bw, $new($BufferedWriter, osw));
+				$var($chars, buffer, $new($chars, 1024));
+				int32_t cread = 0;
+				while ((cread = br->read(buffer, 0, buffer->length)) >= 0) {
+					bw->write(buffer, 0, cread);
 				}
-			} catch ($Throwable& var$16) {
-				$assign(var$15, var$16);
-			} /*finally*/ {
-				try {
-					if (bw != nullptr) {
-						bw->close();
-					}
-				} catch ($IOException& e) {
+				bw->flush();
+			} catch ($IOException& e) {
+				notifyEvent($PrintJobEvent::JOB_FAILED);
+				$throwNew($PrintException, e);
+			}
+		} catch ($Throwable& var$11) {
+			$assign(var$10, var$11);
+		} /*finally*/ {
+			try {
+				if (bw != nullptr) {
+					bw->close();
 				}
+			} catch ($IOException& e) {
 			}
-			if (var$15 != nullptr) {
-				$throw(var$15);
-			}
+		}
+		if (var$10 != nullptr) {
+			$throw(var$10);
 		}
 	} else if (this->instream != nullptr) {
 		try {
 			$var($BufferedInputStream, bin, $new($BufferedInputStream, this->instream));
-			{
-				$var($Throwable, var$17, nullptr);
+			$var($Throwable, var$12, nullptr);
+			try {
 				try {
+					$var($BufferedOutputStream, bout, $new($BufferedOutputStream, output));
+					$var($Throwable, var$13, nullptr);
 					try {
-						$var($BufferedOutputStream, bout, $new($BufferedOutputStream, output));
-						{
-							$var($Throwable, var$18, nullptr);
-							try {
-								try {
-									bin->transferTo(bout);
-								} catch ($Throwable& t$) {
-									try {
-										bout->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$19) {
-								$assign(var$18, var$19);
-							} /*finally*/ {
-								bout->close();
-							}
-							if (var$18 != nullptr) {
-								$throw(var$18);
-							}
-						}
-					} catch ($Throwable& t$) {
 						try {
-							bin->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							bin->transferTo(bout);
+						} catch ($Throwable& t$) {
+							try {
+								bout->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
 						}
-						$throw(t$);
+					} catch ($Throwable& var$14) {
+						$assign(var$13, var$14);
+					} /*finally*/ {
+						bout->close();
 					}
-				} catch ($Throwable& var$20) {
-					$assign(var$17, var$20);
-				} /*finally*/ {
-					bin->close();
+					if (var$13 != nullptr) {
+						$throw(var$13);
+					}
+				} catch ($Throwable& t$) {
+					try {
+						bin->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
+					$throw(t$);
 				}
-				if (var$17 != nullptr) {
-					$throw(var$17);
-				}
+			} catch ($Throwable& var$15) {
+				$assign(var$12, var$15);
+			} /*finally*/ {
+				bin->close();
+			}
+			if (var$12 != nullptr) {
+				$throw(var$12);
 			}
 		} catch ($IOException& e) {
 			notifyEvent($PrintJobEvent::JOB_FAILED);
-			$throwNew($PrintException, static_cast<$Exception*>(e));
+			$throwNew($PrintException, e);
 		}
 	}
 	notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
 	if (this->mDestType == UnixPrintJob::DESTPRINTER) {
 		$var($UnixPrintJob$PrinterSpooler, spooler, $new($UnixPrintJob$PrinterSpooler, this));
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>(spooler));
+		$AccessController::doPrivileged(spooler);
 		if (spooler->pex != nullptr) {
 			$throw(spooler->pex);
 		}
 	}
 	notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
 	if ($instanceOf($IPPPrintService, this->service)) {
-		$nc(($cast($IPPPrintService, this->service)))->wakeNotifier();
+		$cast($IPPPrintService, this->service)->wakeNotifier();
 	} else {
-		$nc(($cast($UnixPrintService, this->service)))->wakeNotifier();
+		$nc($cast($UnixPrintService, this->service))->wakeNotifier();
 	}
 }
 
 void UnixPrintJob::printableJob($Printable* printable) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$synchronized(this) {
-					if (this->job != nullptr) {
-						$throwNew($PrintException, "already printing"_s);
-					} else {
-						$set(this, job, $new($PSPrinterJob));
-					}
-				}
-				$nc(this->job)->setPrintService($(getPrintService()));
-				$nc(this->job)->setCopies(this->copies);
-				$nc(this->job)->setJobName(this->jobName);
-				$var($PageFormat, pf, $new($PageFormat));
-				if (this->mediaSize != nullptr) {
-					$var($Paper, p, $new($Paper));
-					double var$2 = $nc(this->mediaSize)->getX($MediaSize::INCH) * 72.0;
-					p->setSize(var$2, $nc(this->mediaSize)->getY($MediaSize::INCH) * 72.0);
-					double var$3 = p->getWidth() - 144.0;
-					p->setImageableArea(72.0, 72.0, var$3, p->getHeight() - 144.0);
-					pf->setPaper(p);
-				}
-				$init($OrientationRequested);
-				if (this->orient == $OrientationRequested::REVERSE_LANDSCAPE) {
-					pf->setOrientation($PageFormat::REVERSE_LANDSCAPE);
+			$synchronized(this) {
+				if (this->job != nullptr) {
+					$throwNew($PrintException, "already printing"_s);
 				} else {
-					if (this->orient == $OrientationRequested::LANDSCAPE) {
-						pf->setOrientation($PageFormat::LANDSCAPE);
-					}
+					$set(this, job, $new($PSPrinterJob));
 				}
-				$nc(this->job)->setPrintable(printable, pf);
-				$nc(this->job)->print(this->reqAttrSet);
-				notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
-				return$1 = true;
-				goto $finally;
-			} catch ($PrinterException& pe) {
-				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(pe));
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			this->printReturned = true;
-			notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+			$nc(this->job)->setPrintService($(getPrintService()));
+			$nc(this->job)->setCopies(this->copies);
+			$nc(this->job)->setJobName(this->jobName);
+			$var($PageFormat, pf, $new($PageFormat));
+			if (this->mediaSize != nullptr) {
+				$var($Paper, p, $new($Paper));
+				double var$2 = this->mediaSize->getX($MediaSize::INCH) * 72.0;
+				p->setSize(var$2, this->mediaSize->getY($MediaSize::INCH) * 72.0);
+				double var$3 = p->getWidth() - 144.0;
+				p->setImageableArea(72.0, 72.0, var$3, p->getHeight() - 144.0);
+				pf->setPaper(p);
+			}
+			$init($OrientationRequested);
+			if (this->orient == $OrientationRequested::REVERSE_LANDSCAPE) {
+				pf->setOrientation($PageFormat::REVERSE_LANDSCAPE);
+			} else if (this->orient == $OrientationRequested::LANDSCAPE) {
+				pf->setOrientation($PageFormat::LANDSCAPE);
+			}
+			$nc(this->job)->setPrintable(printable, pf);
+			$nc(this->job)->print(this->reqAttrSet);
+			notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
+			return$1 = true;
+			goto $finally;
+		} catch ($PrinterException& pe) {
+			notifyEvent($PrintJobEvent::JOB_FAILED);
+			$throwNew($PrintException, pe);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		this->printReturned = true;
+		notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void UnixPrintJob::pageableJob($Pageable* pageable) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$synchronized(this) {
-					if (this->job != nullptr) {
-						$throwNew($PrintException, "already printing"_s);
-					} else {
-						$set(this, job, $new($PSPrinterJob));
-					}
+			$synchronized(this) {
+				if (this->job != nullptr) {
+					$throwNew($PrintException, "already printing"_s);
+				} else {
+					$set(this, job, $new($PSPrinterJob));
 				}
-				$nc(this->job)->setPrintService($(getPrintService()));
-				$nc(this->job)->setCopies(this->copies);
-				$nc(this->job)->setJobName(this->jobName);
-				$nc(this->job)->setPageable(pageable);
-				$nc(this->job)->print(this->reqAttrSet);
-				notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
-				return$1 = true;
-				goto $finally;
-			} catch ($PrinterException& pe) {
-				notifyEvent($PrintJobEvent::JOB_FAILED);
-				$throwNew($PrintException, static_cast<$Exception*>(pe));
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			this->printReturned = true;
-			notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+			$nc(this->job)->setPrintService($(getPrintService()));
+			$nc(this->job)->setCopies(this->copies);
+			$nc(this->job)->setJobName(this->jobName);
+			$nc(this->job)->setPageable(pageable);
+			$nc(this->job)->print(this->reqAttrSet);
+			notifyEvent($PrintJobEvent::DATA_TRANSFER_COMPLETE);
+			return$1 = true;
+			goto $finally;
+		} catch ($PrinterException& pe) {
+			notifyEvent($PrintJobEvent::JOB_FAILED);
+			$throwNew($PrintException, pe);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		this->printReturned = true;
+		notifyEvent($PrintJobEvent::NO_MORE_EVENTS);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void UnixPrintJob::initializeAttributeSets($Doc* doc, $PrintRequestAttributeSet* reqSet) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$set(this, reqAttrSet, $new($HashPrintRequestAttributeSet));
 		$set(this, jobAttrSet, $new($HashPrintJobAttributeSet));
 		$var($AttributeArray, attrs, nullptr);
 		if (reqSet != nullptr) {
-			$nc(this->reqAttrSet)->addAll(reqSet);
+			this->reqAttrSet->addAll(reqSet);
 			$assign(attrs, reqSet->toArray());
 			for (int32_t i = 0; i < $nc(attrs)->length; ++i) {
 				if ($instanceOf($PrintJobAttribute, attrs->get(i))) {
@@ -980,18 +862,18 @@ void UnixPrintJob::initializeAttributeSets($Doc* doc, $PrintRequestAttributeSet*
 				$var($DocumentName, docName, $cast($DocumentName, docSet->get($DocumentName::class$)));
 				$var($String, var$1, $nc(docName)->getValue());
 				$assign(jobName, $new($JobName, var$1, $(docName->getLocale())));
-				$nc(this->jobAttrSet)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>(jobName)));
+				$nc(this->jobAttrSet)->add($cast($PrintRequestAttribute, jobName));
 			} else {
 				$var($String, str, $str({"JPS Job:"_s, doc}));
 				try {
 					$var($Object, printData, doc->getPrintData());
 					if ($instanceOf($URL, printData)) {
-						$assign(str, $nc((($cast($URL, $(doc->getPrintData())))))->toString());
+						$assign(str, $$cast($URL, doc->getPrintData())->toString());
 					}
 				} catch ($IOException& e) {
 				}
 				$assign(jobName, $new($JobName, str, nullptr));
-				$nc(this->jobAttrSet)->add(static_cast<$Attribute*>(static_cast<$PrintRequestAttribute*>(jobName)));
+				$nc(this->jobAttrSet)->add($cast($PrintRequestAttribute, jobName));
 			}
 		}
 		$set(this, jobAttrSet, $AttributeSetUtilities::unmodifiableView(this->jobAttrSet));
@@ -999,7 +881,7 @@ void UnixPrintJob::initializeAttributeSets($Doc* doc, $PrintRequestAttributeSet*
 }
 
 void UnixPrintJob::getAttributeValues($DocFlavor* flavor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute, attr, nullptr);
 	$Class* category = nullptr;
 	$load($Fidelity);
@@ -1024,7 +906,7 @@ void UnixPrintJob::getAttributeValues($DocFlavor* flavor) {
 		}
 		$load($Destination);
 		if (category == $Destination::class$) {
-			$var($URI, uri, $nc(($cast($Destination, attr)))->getURI());
+			$var($URI, uri, $cast($Destination, attr)->getURI());
 			if (!"file"_s->equals($($nc(uri)->getScheme()))) {
 				notifyEvent($PrintJobEvent::JOB_FAILED);
 				$throwNew($PrintException, "Not a file: URI"_s);
@@ -1033,7 +915,7 @@ void UnixPrintJob::getAttributeValues($DocFlavor* flavor) {
 					this->mDestType = UnixPrintJob::DESTFILE;
 					$set(this, mDestination, ($$new($File, uri))->getPath());
 				} catch ($Exception& e) {
-					$throwNew($PrintException, $cast($Exception, e));
+					$throwNew($PrintException, e);
 				}
 				$var($SecurityManager, security, $System::getSecurityManager());
 				if (security != nullptr) {
@@ -1041,7 +923,7 @@ void UnixPrintJob::getAttributeValues($DocFlavor* flavor) {
 						security->checkWrite(this->mDestination);
 					} catch ($SecurityException& se) {
 						notifyEvent($PrintJobEvent::JOB_FAILED);
-						$throwNew($PrintException, static_cast<$Exception*>(se));
+						$throwNew($PrintException, se);
 					}
 				}
 			}
@@ -1055,11 +937,11 @@ void UnixPrintJob::getAttributeValues($DocFlavor* flavor) {
 			} else {
 				$load($JobName);
 				if (category == $JobName::class$) {
-					$set(this, jobName, $nc(($cast($JobName, attr)))->getValue());
+					$set(this, jobName, $cast($JobName, attr)->getValue());
 				} else {
 					$load($Copies);
 					if (category == $Copies::class$) {
-						this->copies = $nc(($cast($Copies, attr)))->getValue();
+						this->copies = $cast($Copies, attr)->getValue();
 					} else {
 						$load($Media);
 						if (category == $Media::class$) {
@@ -1096,7 +978,7 @@ void UnixPrintJob::getAttributeValues($DocFlavor* flavor) {
 }
 
 $StringArray* UnixPrintJob::printExecCmd($String* printer, $String* options, bool noJobSheet, $String* jobTitle, int32_t copies, $String* spoolFile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t PRINTER = 1;
 	int32_t OPTIONS = 2;
 	int32_t JOBTITLE = 4;
@@ -1128,30 +1010,30 @@ $StringArray* UnixPrintJob::printExecCmd($String* printer, $String* options, boo
 		ncomps += 1;
 	} else {
 		$load($JobSheets);
-		if ($nc($(getPrintService()))->isAttributeCategorySupported($JobSheets::class$)) {
+		if ($$nc(getPrintService())->isAttributeCategorySupported($JobSheets::class$)) {
 			ncomps += 1;
 		}
 	}
 	$assign(execCmd, $new($StringArray, ncomps));
 	execCmd->set(n++, "/usr/bin/lpr"_s);
-	if (((int32_t)(pFlags & (uint32_t)PRINTER)) != 0) {
+	if ((pFlags & PRINTER) != 0) {
 		execCmd->set(n++, $$str({"-P"_s, printer}));
 	}
-	if (((int32_t)(pFlags & (uint32_t)JOBTITLE)) != 0) {
+	if ((pFlags & JOBTITLE) != 0) {
 		execCmd->set(n++, $$str({"-J "_s, jobTitle}));
 	}
-	if (((int32_t)(pFlags & (uint32_t)COPIES)) != 0) {
+	if ((pFlags & COPIES) != 0) {
 		execCmd->set(n++, $$str({"-#"_s, $$str(copies)}));
 	}
-	if (((int32_t)(pFlags & (uint32_t)NOSHEET)) != 0) {
+	if ((pFlags & NOSHEET) != 0) {
 		execCmd->set(n++, "-h"_s);
 	} else {
 		$load($JobSheets);
-		if ($nc($(getPrintService()))->isAttributeCategorySupported($JobSheets::class$)) {
+		if ($$nc(getPrintService())->isAttributeCategorySupported($JobSheets::class$)) {
 			execCmd->set(n++, "-o job-sheets=standard"_s);
 		}
 	}
-	if (((int32_t)(pFlags & (uint32_t)OPTIONS)) != 0) {
+	if ((pFlags & OPTIONS) != 0) {
 		execCmd->set(n++, $$str({"-o"_s, options}));
 	}
 	execCmd->set(n++, spoolFile);
@@ -1159,9 +1041,9 @@ $StringArray* UnixPrintJob::printExecCmd($String* printer, $String* options, boo
 	if ($IPPPrintService::debugPrint) {
 		$nc($System::out)->println("UnixPrintJob>> execCmd"_s);
 		for (int32_t i = 0; i < execCmd->length; ++i) {
-			$nc($System::out)->print($$str({" "_s, execCmd->get(i)}));
+			$System::out->print($$str({" "_s, execCmd->get(i)}));
 		}
-		$nc($System::out)->println();
+		$System::out->println();
 	}
 	return execCmd;
 }
@@ -1171,7 +1053,7 @@ void UnixPrintJob::cancel() {
 		if (!this->printing) {
 			$throwNew($PrintException, "Job is not yet submitted."_s);
 		} else if (this->job != nullptr && !this->printReturned) {
-			$nc(this->job)->cancel();
+			this->job->cancel();
 			notifyEvent($PrintJobEvent::JOB_CANCELED);
 			return;
 		} else {
@@ -1180,7 +1062,7 @@ void UnixPrintJob::cancel() {
 	}
 }
 
-void clinit$UnixPrintJob($Class* class$) {
+void UnixPrintJob::clinit$($Class* clazz) {
 	$assignStatic(UnixPrintJob::debugPrefix, "UnixPrintJob>> "_s);
 	UnixPrintJob::DESTPRINTER = 1;
 	UnixPrintJob::DESTFILE = 2;
@@ -1190,7 +1072,79 @@ UnixPrintJob::UnixPrintJob() {
 }
 
 $Class* UnixPrintJob::load$($String* name, bool initialize) {
-	$loadClass(UnixPrintJob, name, initialize, &_UnixPrintJob_ClassInfo_, clinit$UnixPrintJob, allocate$UnixPrintJob);
+	$FieldInfo fieldInfos$$[] = {
+		{"debugPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintJob, debugPrefix)},
+		{"jobListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintJobListener;>;", $PRIVATE | $TRANSIENT, $field(UnixPrintJob, jobListeners)},
+		{"attrListeners", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/event/PrintJobAttributeListener;>;", $PRIVATE | $TRANSIENT, $field(UnixPrintJob, attrListeners)},
+		{"listenedAttributeSets", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/PrintJobAttributeSet;>;", $PRIVATE | $TRANSIENT, $field(UnixPrintJob, listenedAttributeSets)},
+		{"service", "Ljavax/print/PrintService;", nullptr, $PRIVATE, $field(UnixPrintJob, service)},
+		{"fidelity", "Z", nullptr, $PRIVATE, $field(UnixPrintJob, fidelity)},
+		{"printing", "Z", nullptr, $PRIVATE, $field(UnixPrintJob, printing)},
+		{"printReturned", "Z", nullptr, $PRIVATE, $field(UnixPrintJob, printReturned)},
+		{"reqAttrSet", "Ljavax/print/attribute/PrintRequestAttributeSet;", nullptr, $PRIVATE, $field(UnixPrintJob, reqAttrSet)},
+		{"jobAttrSet", "Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PRIVATE, $field(UnixPrintJob, jobAttrSet)},
+		{"job", "Ljava/awt/print/PrinterJob;", nullptr, $PRIVATE, $field(UnixPrintJob, job)},
+		{"doc", "Ljavax/print/Doc;", nullptr, $PRIVATE, $field(UnixPrintJob, doc)},
+		{"instream", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(UnixPrintJob, instream)},
+		{"reader", "Ljava/io/Reader;", nullptr, $PRIVATE, $field(UnixPrintJob, reader)},
+		{"jobName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixPrintJob, jobName)},
+		{"copies", "I", nullptr, $PRIVATE, $field(UnixPrintJob, copies)},
+		{"mediaName", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(UnixPrintJob, mediaName)},
+		{"mediaSize", "Ljavax/print/attribute/standard/MediaSize;", nullptr, $PRIVATE, $field(UnixPrintJob, mediaSize)},
+		{"customTray", "Lsun/print/CustomMediaTray;", nullptr, $PRIVATE, $field(UnixPrintJob, customTray)},
+		{"orient", "Ljavax/print/attribute/standard/OrientationRequested;", nullptr, $PRIVATE, $field(UnixPrintJob, orient)},
+		{"nUp", "Ljavax/print/attribute/standard/NumberUp;", nullptr, $PRIVATE, $field(UnixPrintJob, nUp)},
+		{"sides", "Ljavax/print/attribute/standard/Sides;", nullptr, $PRIVATE, $field(UnixPrintJob, sides)},
+		{"DESTPRINTER", "I", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintJob, DESTPRINTER)},
+		{"DESTFILE", "I", nullptr, $PRIVATE | $STATIC, $staticField(UnixPrintJob, DESTFILE)},
+		{"mDestType", "I", nullptr, $PRIVATE, $field(UnixPrintJob, mDestType)},
+		{"spoolFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(UnixPrintJob, spoolFile)},
+		{"mDestination", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixPrintJob, mDestination)},
+		{"mOptions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(UnixPrintJob, mOptions)},
+		{"mNoJobSheet", "Z", nullptr, $PRIVATE, $field(UnixPrintJob, mNoJobSheet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/print/PrintService;)V", nullptr, 0, $method(UnixPrintJob, init$, void, $PrintService*)},
+		{"addPrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;Ljavax/print/attribute/PrintJobAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, addPrintJobAttributeListener, void, $PrintJobAttributeListener*, $PrintJobAttributeSet*)},
+		{"addPrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, addPrintJobListener, void, $PrintJobListener*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, cancel, void), "javax.print.PrintException"},
+		{"closeDataStreams", "()V", nullptr, $PRIVATE, $method(UnixPrintJob, closeDataStreams, void)},
+		{"getAttributeValues", "(Ljavax/print/DocFlavor;)V", nullptr, $PRIVATE, $method(UnixPrintJob, getAttributeValues, void, $DocFlavor*), "javax.print.PrintException"},
+		{"getAttributes", "()Ljavax/print/attribute/PrintJobAttributeSet;", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, getAttributes, $PrintJobAttributeSet*)},
+		{"getPrintService", "()Ljavax/print/PrintService;", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, getPrintService, $PrintService*)},
+		{"initializeAttributeSets", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UnixPrintJob, initializeAttributeSets, void, $Doc*, $PrintRequestAttributeSet*)},
+		{"notifyEvent", "(I)V", nullptr, $PRIVATE, $method(UnixPrintJob, notifyEvent, void, int32_t)},
+		{"pageableJob", "(Ljava/awt/print/Pageable;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, pageableJob, void, $Pageable*), "javax.print.PrintException"},
+		{"print", "(Ljavax/print/Doc;Ljavax/print/attribute/PrintRequestAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, print, void, $Doc*, $PrintRequestAttributeSet*), "javax.print.PrintException"},
+		{"printExecCmd", "(Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE, $method(UnixPrintJob, printExecCmd, $StringArray*, $String*, $String*, bool, $String*, int32_t, $String*)},
+		{"printableJob", "(Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, printableJob, void, $Printable*), "javax.print.PrintException"},
+		{"removePrintJobAttributeListener", "(Ljavax/print/event/PrintJobAttributeListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, removePrintJobAttributeListener, void, $PrintJobAttributeListener*)},
+		{"removePrintJobListener", "(Ljavax/print/event/PrintJobListener;)V", nullptr, $PUBLIC, $virtualMethod(UnixPrintJob, removePrintJobListener, void, $PrintJobListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.UnixPrintJob$PrinterSpooler", "sun.print.UnixPrintJob", "PrinterSpooler", $PRIVATE},
+		{"sun.print.UnixPrintJob$PrinterOpener", "sun.print.UnixPrintJob", "PrinterOpener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.UnixPrintJob",
+		"java.lang.Object",
+		"javax.print.CancelablePrintJob",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.UnixPrintJob$PrinterSpooler,sun.print.UnixPrintJob$PrinterOpener"
+	};
+	$loadClass(UnixPrintJob, name, initialize, &classInfo$$, UnixPrintJob::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UnixPrintJob);
+	});
 	return class$;
 }
 

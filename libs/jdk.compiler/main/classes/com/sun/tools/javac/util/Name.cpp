@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Name.h>
-
 #include <com/sun/tools/javac/jvm/ClassFile.h>
 #include <com/sun/tools/javac/util/Convert.h>
 #include <com/sun/tools/javac/util/Name$NameMapper.h>
@@ -25,66 +24,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Name_FieldInfo_[] = {
-	{"table", "Lcom/sun/tools/javac/util/Name$Table;", nullptr, $PUBLIC | $FINAL, $field(Name, table)},
-	{}
-};
-
-$MethodInfo _Name_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "(Lcom/sun/tools/javac/util/Name$Table;)V", nullptr, $PROTECTED, $method(Name, init$, void, $Name$Table*)},
-	{"append", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name, append, Name*, Name*)},
-	{"append", "(CLcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name, append, Name*, char16_t, Name*)},
-	{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(Name, charAt, char16_t, int32_t)},
-	{"compareTo", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, $PUBLIC, $virtualMethod(Name, compareTo, int32_t, Name*)},
-	{"contentEquals", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(Name, contentEquals, bool, $CharSequence*)},
-	{"getByteArray", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getByteArray, $bytes*)},
-	{"getByteAt", "(I)B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getByteAt, int8_t, int32_t)},
-	{"getByteLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getByteLength, int32_t)},
-	{"getByteOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getByteOffset, int32_t)},
-	{"getBytes", "([BI)V", nullptr, $PUBLIC, $virtualMethod(Name, getBytes, void, $bytes*, int32_t)},
-	{"getIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getIndex, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Name, isEmpty, bool)},
-	{"lastIndexOf", "(B)I", nullptr, $PUBLIC, $virtualMethod(Name, lastIndexOf, int32_t, int8_t)},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(Name, length, int32_t)},
-	{"map", "(Lcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<X:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Name$NameMapper<TX;>;)TX;", $PUBLIC, $virtualMethod(Name, map, $Object*, $Name$NameMapper*)},
-	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Name, poolTag, int32_t)},
-	{"startsWith", "(Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PUBLIC, $virtualMethod(Name, startsWith, bool, Name*)},
-	{"subName", "(II)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name, subName, Name*, int32_t, int32_t)},
-	{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(Name, subSequence, $CharSequence*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Name, toString, $String*)},
-	{"toUtf", "()[B", nullptr, $PUBLIC, $virtualMethod(Name, toUtf, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _Name_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Name$Table", "com.sun.tools.javac.util.Name", "Table", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.util.Name$NameMapper", "com.sun.tools.javac.util.Name", "NameMapper", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Name_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.util.Name",
-	"java.lang.Object",
-	"javax.lang.model.element.Name,com.sun.tools.javac.jvm.PoolConstant",
-	_Name_FieldInfo_,
-	_Name_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Name_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Name$Table,com.sun.tools.javac.util.Name$NameMapper"
-};
-
-$Object* allocate$Name($Class* clazz) {
-	return $of($alloc(Name));
-}
-
 bool Name::equals(Object$* arg0) {
 	 return this->$Name::equals(arg0);
 }
@@ -106,8 +45,8 @@ void Name::init$($Name$Table* table) {
 }
 
 bool Name::contentEquals($CharSequence* cs) {
-	$useLocalCurrentObjectStackCache();
-	return $nc($(toString()))->equals($($nc(cs)->toString()));
+	$useLocalObjectStack();
+	return $$nc(toString())->equals($($nc(cs)->toString()));
 }
 
 int32_t Name::poolTag() {
@@ -115,15 +54,15 @@ int32_t Name::poolTag() {
 }
 
 int32_t Name::length() {
-	return $nc($(toString()))->length();
+	return $$nc(toString())->length();
 }
 
 char16_t Name::charAt(int32_t index) {
-	return $nc($(toString()))->charAt(index);
+	return $$nc(toString())->charAt(index);
 }
 
 $CharSequence* Name::subSequence(int32_t start, int32_t end) {
-	return $nc($(toString()))->subSequence(start, end);
+	return $$nc(toString())->subSequence(start, end);
 }
 
 Name* Name::append(Name* n) {
@@ -163,7 +102,7 @@ int32_t Name::lastIndexOf(int8_t b) {
 }
 
 bool Name::startsWith(Name* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, thisBytes, this->getByteArray());
 	int32_t thisOffset = this->getByteOffset();
 	int32_t thisLength = this->getByteLength();
@@ -201,25 +140,76 @@ $bytes* Name::toUtf() {
 }
 
 void Name::getBytes($bytes* cs, int32_t start) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, $of(getByteArray()));
+	$var($Object, var$0, getByteArray());
 	int32_t var$1 = getByteOffset();
-	$var($Object, var$2, $of(cs));
-	int32_t var$3 = start;
-	$System::arraycopy(var$0, var$1, var$2, var$3, getByteLength());
+	$System::arraycopy(var$0, var$1, cs, start, getByteLength());
 }
 
 $Object* Name::map($Name$NameMapper* mapper) {
 	$var($bytes, var$0, getByteArray());
 	int32_t var$1 = getByteOffset();
-	return $of($nc(mapper)->map(var$0, var$1, getByteLength()));
+	return $nc(mapper)->map(var$0, var$1, getByteLength());
 }
 
 Name::Name() {
 }
 
 $Class* Name::load$($String* name, bool initialize) {
-	$loadClass(Name, name, initialize, &_Name_ClassInfo_, allocate$Name);
+	$FieldInfo fieldInfos$$[] = {
+		{"table", "Lcom/sun/tools/javac/util/Name$Table;", nullptr, $PUBLIC | $FINAL, $field(Name, table)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "(Lcom/sun/tools/javac/util/Name$Table;)V", nullptr, $PROTECTED, $method(Name, init$, void, $Name$Table*)},
+		{"append", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name, append, Name*, Name*)},
+		{"append", "(CLcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name, append, Name*, char16_t, Name*)},
+		{"charAt", "(I)C", nullptr, $PUBLIC, $virtualMethod(Name, charAt, char16_t, int32_t)},
+		{"compareTo", "(Lcom/sun/tools/javac/util/Name;)I", nullptr, $PUBLIC, $virtualMethod(Name, compareTo, int32_t, Name*)},
+		{"contentEquals", "(Ljava/lang/CharSequence;)Z", nullptr, $PUBLIC, $virtualMethod(Name, contentEquals, bool, $CharSequence*)},
+		{"getByteArray", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getByteArray, $bytes*)},
+		{"getByteAt", "(I)B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getByteAt, int8_t, int32_t)},
+		{"getByteLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getByteLength, int32_t)},
+		{"getByteOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getByteOffset, int32_t)},
+		{"getBytes", "([BI)V", nullptr, $PUBLIC, $virtualMethod(Name, getBytes, void, $bytes*, int32_t)},
+		{"getIndex", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Name, getIndex, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Name, isEmpty, bool)},
+		{"lastIndexOf", "(B)I", nullptr, $PUBLIC, $virtualMethod(Name, lastIndexOf, int32_t, int8_t)},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(Name, length, int32_t)},
+		{"map", "(Lcom/sun/tools/javac/util/Name$NameMapper;)Ljava/lang/Object;", "<X:Ljava/lang/Object;>(Lcom/sun/tools/javac/util/Name$NameMapper<TX;>;)TX;", $PUBLIC, $virtualMethod(Name, map, $Object*, $Name$NameMapper*)},
+		{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Name, poolTag, int32_t)},
+		{"startsWith", "(Lcom/sun/tools/javac/util/Name;)Z", nullptr, $PUBLIC, $virtualMethod(Name, startsWith, bool, Name*)},
+		{"subName", "(II)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Name, subName, Name*, int32_t, int32_t)},
+		{"subSequence", "(II)Ljava/lang/CharSequence;", nullptr, $PUBLIC, $virtualMethod(Name, subSequence, $CharSequence*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Name, toString, $String*)},
+		{"toUtf", "()[B", nullptr, $PUBLIC, $virtualMethod(Name, toUtf, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Name$Table", "com.sun.tools.javac.util.Name", "Table", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.util.Name$NameMapper", "com.sun.tools.javac.util.Name", "NameMapper", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.util.Name",
+		"java.lang.Object",
+		"javax.lang.model.element.Name,com.sun.tools.javac.jvm.PoolConstant",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Name$Table,com.sun.tools.javac.util.Name$NameMapper"
+	};
+	$loadClass(Name, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Name));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/security/NotificationAccessController.h>
-
 #include <javax/management/Notification.h>
 #include <javax/management/ObjectName.h>
 #include <javax/security/auth/Subject.h>
@@ -17,28 +16,24 @@ namespace com {
 			namespace remote {
 				namespace security {
 
-$MethodInfo _NotificationAccessController_MethodInfo_[] = {
-	{"addNotificationListener", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, addNotificationListener, void, $String*, $ObjectName*, $Subject*), "java.lang.SecurityException"},
-	{"fetchNotification", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/Notification;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, fetchNotification, void, $String*, $ObjectName*, $Notification*, $Subject*), "java.lang.SecurityException"},
-	{"removeNotificationListener", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, removeNotificationListener, void, $String*, $ObjectName*, $Subject*), "java.lang.SecurityException"},
-	{}
-};
-
-$ClassInfo _NotificationAccessController_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.jmx.remote.security.NotificationAccessController",
-	nullptr,
-	nullptr,
-	nullptr,
-	_NotificationAccessController_MethodInfo_
-};
-
-$Object* allocate$NotificationAccessController($Class* clazz) {
-	return $of($alloc(NotificationAccessController));
-}
-
 $Class* NotificationAccessController::load$($String* name, bool initialize) {
-	$loadClass(NotificationAccessController, name, initialize, &_NotificationAccessController_ClassInfo_, allocate$NotificationAccessController);
+	$MethodInfo methodInfos$$[] = {
+		{"addNotificationListener", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, addNotificationListener, void, $String*, $ObjectName*, $Subject*), "java.lang.SecurityException"},
+		{"fetchNotification", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/management/Notification;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, fetchNotification, void, $String*, $ObjectName*, $Notification*, $Subject*), "java.lang.SecurityException"},
+		{"removeNotificationListener", "(Ljava/lang/String;Ljavax/management/ObjectName;Ljavax/security/auth/Subject;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationAccessController, removeNotificationListener, void, $String*, $ObjectName*, $Subject*), "java.lang.SecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.jmx.remote.security.NotificationAccessController",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NotificationAccessController, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationAccessController);
+	});
 	return class$;
 }
 

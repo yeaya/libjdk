@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/LongArrayCounterSnapshot.h>
-
 #include <sun/management/counter/AbstractCounter.h>
 #include <sun/management/counter/Units.h>
 #include <sun/management/counter/Variability.h>
@@ -16,45 +15,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _LongArrayCounterSnapshot_FieldInfo_[] = {
-	{"value", "[J", nullptr, 0, $field(LongArrayCounterSnapshot, value)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongArrayCounterSnapshot, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LongArrayCounterSnapshot_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFlags", "()I", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"*getVectorLength", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;II[J)V", nullptr, 0, $method(LongArrayCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $longs*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LongArrayCounterSnapshot, getValue, $Object*)},
-	{"*isInternal", "()Z", nullptr, $PUBLIC},
-	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"longArrayValue", "()[J", nullptr, $PUBLIC, $virtualMethod(LongArrayCounterSnapshot, longArrayValue, $longs*)},
-	{"longAt", "(I)J", nullptr, $PUBLIC, $virtualMethod(LongArrayCounterSnapshot, longAt, int64_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LongArrayCounterSnapshot_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.counter.perf.LongArrayCounterSnapshot",
-	"sun.management.counter.AbstractCounter",
-	"sun.management.counter.LongArrayCounter",
-	_LongArrayCounterSnapshot_FieldInfo_,
-	_LongArrayCounterSnapshot_MethodInfo_
-};
-
-$Object* allocate$LongArrayCounterSnapshot($Class* clazz) {
-	return $of($alloc(LongArrayCounterSnapshot));
-}
 
 $String* LongArrayCounterSnapshot::getName() {
 	 return this->$AbstractCounter::getName();
@@ -110,7 +70,7 @@ void LongArrayCounterSnapshot::init$($String* name, $Units* u, $Variability* v, 
 }
 
 $Object* LongArrayCounterSnapshot::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 $longs* LongArrayCounterSnapshot::longArrayValue() {
@@ -125,7 +85,41 @@ LongArrayCounterSnapshot::LongArrayCounterSnapshot() {
 }
 
 $Class* LongArrayCounterSnapshot::load$($String* name, bool initialize) {
-	$loadClass(LongArrayCounterSnapshot, name, initialize, &_LongArrayCounterSnapshot_ClassInfo_, allocate$LongArrayCounterSnapshot);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "[J", nullptr, 0, $field(LongArrayCounterSnapshot, value)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LongArrayCounterSnapshot, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFlags", "()I", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
+		{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
+		{"*getVectorLength", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;II[J)V", nullptr, 0, $method(LongArrayCounterSnapshot, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $longs*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LongArrayCounterSnapshot, getValue, $Object*)},
+		{"*isInternal", "()Z", nullptr, $PUBLIC},
+		{"*isVector", "()Z", nullptr, $PUBLIC},
+		{"longArrayValue", "()[J", nullptr, $PUBLIC, $virtualMethod(LongArrayCounterSnapshot, longArrayValue, $longs*)},
+		{"longAt", "(I)J", nullptr, $PUBLIC, $virtualMethod(LongArrayCounterSnapshot, longAt, int64_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.counter.perf.LongArrayCounterSnapshot",
+		"sun.management.counter.AbstractCounter",
+		"sun.management.counter.LongArrayCounter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LongArrayCounterSnapshot, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LongArrayCounterSnapshot));
+	});
 	return class$;
 }
 

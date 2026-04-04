@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/SecurityConfiguration.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
@@ -30,32 +29,6 @@ namespace com {
 					namespace internal {
 						namespace parsers {
 
-$FieldInfo _SecurityConfiguration_FieldInfo_[] = {
-	{"SECURITY_MANAGER_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SecurityConfiguration, SECURITY_MANAGER_PROPERTY)},
-	{}
-};
-
-$MethodInfo _SecurityConfiguration_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityConfiguration, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(SecurityConfiguration, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(SecurityConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(SecurityConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
-	{}
-};
-
-$ClassInfo _SecurityConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.SecurityConfiguration",
-	"com.sun.org.apache.xerces.internal.parsers.XIncludeAwareParserConfiguration",
-	nullptr,
-	_SecurityConfiguration_FieldInfo_,
-	_SecurityConfiguration_MethodInfo_
-};
-
-$Object* allocate$SecurityConfiguration($Class* clazz) {
-	return $of($alloc(SecurityConfiguration));
-}
-
 $String* SecurityConfiguration::SECURITY_MANAGER_PROPERTY = nullptr;
 
 void SecurityConfiguration::init$() {
@@ -78,13 +51,34 @@ void SecurityConfiguration::init$($SymbolTable* symbolTable, $XMLGrammarPool* gr
 SecurityConfiguration::SecurityConfiguration() {
 }
 
-void clinit$SecurityConfiguration($Class* class$) {
+void SecurityConfiguration::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(SecurityConfiguration::SECURITY_MANAGER_PROPERTY, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::SECURITY_MANAGER_PROPERTY}));
 }
 
 $Class* SecurityConfiguration::load$($String* name, bool initialize) {
-	$loadClass(SecurityConfiguration, name, initialize, &_SecurityConfiguration_ClassInfo_, clinit$SecurityConfiguration, allocate$SecurityConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"SECURITY_MANAGER_PROPERTY", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(SecurityConfiguration, SECURITY_MANAGER_PROPERTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityConfiguration, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(SecurityConfiguration, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(SecurityConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;Lcom/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager;)V", nullptr, $PUBLIC, $method(SecurityConfiguration, init$, void, $SymbolTable*, $XMLGrammarPool*, $XMLComponentManager*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.SecurityConfiguration",
+		"com.sun.org.apache.xerces.internal.parsers.XIncludeAwareParserConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecurityConfiguration, name, initialize, &classInfo$$, SecurityConfiguration::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SecurityConfiguration));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/I18n.h>
 #include <java/text/MessageFormat.h>
 #include <jcpp.h>
@@ -21,51 +20,6 @@ namespace com {
 						namespace security {
 							namespace exceptions {
 
-$CompoundAttribute _XMLSecurityException_MethodAnnotations_init$5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _XMLSecurityException_MethodAnnotations_init$7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _XMLSecurityException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSecurityException, serialVersionUID)},
-	{"msgID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLSecurityException, msgID)},
-	{}
-};
-
-$MethodInfo _XMLSecurityException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $Exception*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(XMLSecurityException, init$, void, $String*, $Exception*), nullptr, nullptr, _XMLSecurityException_MethodAnnotations_init$5},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $Exception*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(XMLSecurityException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, _XMLSecurityException_MethodAnnotations_init$7},
-	{"getMsgID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityException, getMsgID, $String*)},
-	{"getOriginalException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityException, getOriginalException, $Exception*)},
-	{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSecurityException, printStackTrace, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityException, toString, $String*)},
-	{}
-};
-
-$ClassInfo _XMLSecurityException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
-	"java.lang.Exception",
-	nullptr,
-	_XMLSecurityException_FieldInfo_,
-	_XMLSecurityException_MethodInfo_
-};
-
-$Object* allocate$XMLSecurityException($Class* clazz) {
-	return $of($alloc(XMLSecurityException));
-}
-
 void XMLSecurityException::init$() {
 	$Exception::init$("Missing message string"_s);
 	$set(this, msgID, nullptr);
@@ -77,7 +31,7 @@ void XMLSecurityException::init$($String* msgID) {
 }
 
 void XMLSecurityException::init$($String* msgID, $ObjectArray* exArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Exception::init$($($MessageFormat::format($($I18n::getExceptionMessage(msgID)), exArgs)));
 	$set(this, msgID, msgID);
 }
@@ -96,7 +50,7 @@ void XMLSecurityException::init$($String* msgID, $Exception* originalException) 
 }
 
 void XMLSecurityException::init$($Exception* originalException, $String* msgID, $ObjectArray* exArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Exception::init$($($MessageFormat::format($($I18n::getExceptionMessage(msgID)), exArgs)), originalException);
 	$set(this, msgID, msgID);
 }
@@ -113,8 +67,8 @@ $String* XMLSecurityException::getMsgID() {
 }
 
 $String* XMLSecurityException::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, s, $of(this)->getClass()->getName());
+	$useLocalObjectStack();
+	$var($String, s, this->getClass()->getName());
 	$var($String, message, $Exception::getLocalizedMessage());
 	if (message != nullptr) {
 		$assign(message, $str({s, ": "_s, message}));
@@ -122,7 +76,7 @@ $String* XMLSecurityException::toString() {
 		$assign(message, s);
 	}
 	if ($Exception::getCause() != nullptr) {
-		$assign(message, $str({message, "\nOriginal Exception was "_s, $($nc($($Exception::getCause()))->toString())}));
+		$assign(message, $str({message, "\nOriginal Exception was "_s, $($$nc($Exception::getCause())->toString())}));
 	}
 	return message;
 }
@@ -151,7 +105,45 @@ void XMLSecurityException::throw$() {
 }
 
 $Class* XMLSecurityException::load$($String* name, bool initialize) {
-	$loadClass(XMLSecurityException, name, initialize, &_XMLSecurityException_ClassInfo_, allocate$XMLSecurityException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSecurityException, serialVersionUID)},
+		{"msgID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLSecurityException, msgID)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$5[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$7[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $Exception*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(XMLSecurityException, init$, void, $String*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$5},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLSecurityException, init$, void, $Exception*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC | $DEPRECATED, $method(XMLSecurityException, init$, void, $String*, $ObjectArray*, $Exception*), nullptr, nullptr, init$methodAnnotations$$$7},
+		{"getMsgID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityException, getMsgID, $String*)},
+		{"getOriginalException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityException, getOriginalException, $Exception*)},
+		{"printStackTrace", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSecurityException, printStackTrace, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityException, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLSecurityException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSecurityException);
+	});
 	return class$;
 }
 

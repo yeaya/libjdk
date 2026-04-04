@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/CaseTree.h>
-
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/Tree.h>
@@ -22,49 +21,6 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$CompoundAttribute _CaseTree_MethodAnnotations_getExpression2[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _CaseTree_MethodAnnotations_getLabels4[] = {
-	{}
-};
-
-$MethodInfo _CaseTree_MethodInfo_[] = {
-	{"getBody", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(CaseTree, getBody, $Tree*)},
-	{"getCaseKind", "()Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC, $virtualMethod(CaseTree, getCaseKind, $CaseTree$CaseKind*)},
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(CaseTree, getExpression, $ExpressionTree*), nullptr, nullptr, _CaseTree_MethodAnnotations_getExpression2},
-	{"getExpressions", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getExpressions, $List*)},
-	{"getLabels", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CaseLabelTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getLabels, $List*), nullptr, nullptr, _CaseTree_MethodAnnotations_getLabels4},
-	{"getStatements", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/StatementTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getStatements, $List*)},
-	{}
-};
-
-$InnerClassInfo _CaseTree_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.CaseTree$CaseKind", "com.sun.source.tree.CaseTree", "CaseKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CaseTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.CaseTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_CaseTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CaseTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.CaseTree$CaseKind"
-};
-
-$Object* allocate$CaseTree($Class* clazz) {
-	return $of($alloc(CaseTree));
-}
-
 $Tree* CaseTree::getBody() {
 	return nullptr;
 }
@@ -75,7 +31,43 @@ $CaseTree$CaseKind* CaseTree::getCaseKind() {
 }
 
 $Class* CaseTree::load$($String* name, bool initialize) {
-	$loadClass(CaseTree, name, initialize, &_CaseTree_ClassInfo_, allocate$CaseTree);
+	$CompoundAttribute getExpressionmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute getLabelsmethodAnnotations$$[] = {
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getBody", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(CaseTree, getBody, $Tree*)},
+		{"getCaseKind", "()Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC, $virtualMethod(CaseTree, getCaseKind, $CaseTree$CaseKind*)},
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT | $DEPRECATED, $virtualMethod(CaseTree, getExpression, $ExpressionTree*), nullptr, nullptr, getExpressionmethodAnnotations$$},
+		{"getExpressions", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getExpressions, $List*)},
+		{"getLabels", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/CaseLabelTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getLabels, $List*), nullptr, nullptr, getLabelsmethodAnnotations$$},
+		{"getStatements", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/StatementTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(CaseTree, getStatements, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.CaseTree$CaseKind", "com.sun.source.tree.CaseTree", "CaseKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.CaseTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.CaseTree$CaseKind"
+	};
+	$loadClass(CaseTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CaseTree);
+	});
 	return class$;
 }
 

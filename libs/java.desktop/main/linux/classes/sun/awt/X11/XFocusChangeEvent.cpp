@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XFocusChangeEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,64 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XFocusChangeEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XFocusChangeEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XFocusChangeEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XFocusChangeEvent, pData)},
-	{}
-};
-
-$MethodInfo _XFocusChangeEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XFocusChangeEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XFocusChangeEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XFocusChangeEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XFocusChangeEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XFocusChangeEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XFocusChangeEvent, getSize, int32_t)},
-	{"get_detail", "()I", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_detail, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_display, int64_t)},
-	{"get_mode", "()I", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_mode, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_window, int64_t)},
-	{"set_detail", "(I)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_detail, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_display, void, int64_t)},
-	{"set_mode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_mode, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_window, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XFocusChangeEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XFocusChangeEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XFocusChangeEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XFocusChangeEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XFocusChangeEvent_FieldInfo_,
-	_XFocusChangeEvent_MethodInfo_
-};
-
-$Object* allocate$XFocusChangeEvent($Class* clazz) {
-	return $of($alloc(XFocusChangeEvent));
-}
 
 int32_t XFocusChangeEvent::getSize() {
 	$init(XFocusChangeEvent);
@@ -107,7 +55,7 @@ void XFocusChangeEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -201,7 +149,7 @@ $String* XFocusChangeEvent::getName() {
 }
 
 $String* XFocusChangeEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 280));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -215,7 +163,7 @@ $String* XFocusChangeEvent::getFieldsAsString() {
 }
 
 $Object* XFocusChangeEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XFocusChangeEvent::zero() {
@@ -230,7 +178,51 @@ XFocusChangeEvent::XFocusChangeEvent() {
 }
 
 $Class* XFocusChangeEvent::load$($String* name, bool initialize) {
-	$loadClass(XFocusChangeEvent, name, initialize, &_XFocusChangeEvent_ClassInfo_, allocate$XFocusChangeEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XFocusChangeEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XFocusChangeEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XFocusChangeEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XFocusChangeEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XFocusChangeEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XFocusChangeEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XFocusChangeEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XFocusChangeEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XFocusChangeEvent, getSize, int32_t)},
+		{"get_detail", "()I", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_detail, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_display, int64_t)},
+		{"get_mode", "()I", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_mode, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, get_window, int64_t)},
+		{"set_detail", "(I)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_detail, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_display, void, int64_t)},
+		{"set_mode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_mode, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XFocusChangeEvent, set_window, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XFocusChangeEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XFocusChangeEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XFocusChangeEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XFocusChangeEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XFocusChangeEvent);
+	});
 	return class$;
 }
 

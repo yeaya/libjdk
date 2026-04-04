@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/png/PNGImageReaderSpi.h>
-
 #include <com/sun/imageio/plugins/png/PNGImageReader.h>
 #include <com/sun/imageio/plugins/png/PNGMetadata.h>
 #include <java/util/Locale.h>
@@ -24,38 +23,6 @@ namespace com {
 			namespace plugins {
 				namespace png {
 
-$FieldInfo _PNGImageReaderSpi_FieldInfo_[] = {
-	{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, vendorName)},
-	{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, version)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, names)},
-	{"suffixes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, suffixes)},
-	{"MIMETypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, MIMETypes)},
-	{"readerClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, readerClassName)},
-	{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, writerSpiNames)},
-	{}
-};
-
-$MethodInfo _PNGImageReaderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PNGImageReaderSpi, init$, void)},
-	{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PNGImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
-	{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(PNGImageReaderSpi, createReaderInstance, $ImageReader*, Object$*)},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PNGImageReaderSpi, getDescription, $String*, $Locale*)},
-	{}
-};
-
-$ClassInfo _PNGImageReaderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.png.PNGImageReaderSpi",
-	"javax.imageio.spi.ImageReaderSpi",
-	nullptr,
-	_PNGImageReaderSpi_FieldInfo_,
-	_PNGImageReaderSpi_MethodInfo_
-};
-
-$Object* allocate$PNGImageReaderSpi($Class* clazz) {
-	return $of($alloc(PNGImageReaderSpi));
-}
-
 $String* PNGImageReaderSpi::vendorName = nullptr;
 $String* PNGImageReaderSpi::version = nullptr;
 $StringArray* PNGImageReaderSpi::names = nullptr;
@@ -75,7 +42,7 @@ $String* PNGImageReaderSpi::getDescription($Locale* locale) {
 }
 
 bool PNGImageReaderSpi::canDecodeInput(Object$* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ImageInputStream, input))) {
 		return false;
 	}
@@ -91,7 +58,7 @@ $ImageReader* PNGImageReaderSpi::createReaderInstance(Object$* extension) {
 	return $new($PNGImageReader, this);
 }
 
-void clinit$PNGImageReaderSpi($Class* class$) {
+void PNGImageReaderSpi::clinit$($Class* clazz) {
 	$assignStatic(PNGImageReaderSpi::vendorName, "Oracle Corporation"_s);
 	$assignStatic(PNGImageReaderSpi::version, "1.0"_s);
 	$assignStatic(PNGImageReaderSpi::readerClassName, "com.sun.imageio.plugins.png.PNGImageReader"_s);
@@ -111,7 +78,34 @@ PNGImageReaderSpi::PNGImageReaderSpi() {
 }
 
 $Class* PNGImageReaderSpi::load$($String* name, bool initialize) {
-	$loadClass(PNGImageReaderSpi, name, initialize, &_PNGImageReaderSpi_ClassInfo_, clinit$PNGImageReaderSpi, allocate$PNGImageReaderSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"vendorName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, vendorName)},
+		{"version", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, version)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, names)},
+		{"suffixes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, suffixes)},
+		{"MIMETypes", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, MIMETypes)},
+		{"readerClassName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, readerClassName)},
+		{"writerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PNGImageReaderSpi, writerSpiNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PNGImageReaderSpi, init$, void)},
+		{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PNGImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
+		{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(PNGImageReaderSpi, createReaderInstance, $ImageReader*, Object$*)},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PNGImageReaderSpi, getDescription, $String*, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.png.PNGImageReaderSpi",
+		"javax.imageio.spi.ImageReaderSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PNGImageReaderSpi, name, initialize, &classInfo$$, PNGImageReaderSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PNGImageReaderSpi);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/ModuleElement$DirectiveKind.h>
-
 #include <java/lang/Enum.h>
 #include <javax/lang/model/element/ModuleElement.h>
 #include <jcpp.h>
@@ -21,49 +20,6 @@ namespace javax {
 	namespace lang {
 		namespace model {
 			namespace element {
-
-$FieldInfo _ModuleElement$DirectiveKind_FieldInfo_[] = {
-	{"REQUIRES", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, REQUIRES)},
-	{"EXPORTS", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, EXPORTS)},
-	{"OPENS", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, OPENS)},
-	{"USES", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, USES)},
-	{"PROVIDES", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, PROVIDES)},
-	{"$VALUES", "[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleElement$DirectiveKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _ModuleElement$DirectiveKind_MethodInfo_[] = {
-	{"$values", "()[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleElement$DirectiveKind, $values, $ModuleElement$DirectiveKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleElement$DirectiveKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleElement$DirectiveKind, valueOf, ModuleElement$DirectiveKind*, $String*)},
-	{"values", "()[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleElement$DirectiveKind, values, $ModuleElement$DirectiveKindArray*)},
-	{}
-};
-
-$InnerClassInfo _ModuleElement$DirectiveKind_InnerClassesInfo_[] = {
-	{"javax.lang.model.element.ModuleElement$DirectiveKind", "javax.lang.model.element.ModuleElement", "DirectiveKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ModuleElement$DirectiveKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.lang.model.element.ModuleElement$DirectiveKind",
-	"java.lang.Enum",
-	nullptr,
-	_ModuleElement$DirectiveKind_FieldInfo_,
-	_ModuleElement$DirectiveKind_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/lang/model/element/ModuleElement$DirectiveKind;>;",
-	nullptr,
-	_ModuleElement$DirectiveKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.lang.model.element.ModuleElement"
-};
-
-$Object* allocate$ModuleElement$DirectiveKind($Class* clazz) {
-	return $of($alloc(ModuleElement$DirectiveKind));
-}
 
 ModuleElement$DirectiveKind* ModuleElement$DirectiveKind::REQUIRES = nullptr;
 ModuleElement$DirectiveKind* ModuleElement$DirectiveKind::EXPORTS = nullptr;
@@ -97,7 +53,7 @@ void ModuleElement$DirectiveKind::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ModuleElement$DirectiveKind($Class* class$) {
+void ModuleElement$DirectiveKind::clinit$($Class* clazz) {
 	$assignStatic(ModuleElement$DirectiveKind::REQUIRES, $new(ModuleElement$DirectiveKind, "REQUIRES"_s, 0));
 	$assignStatic(ModuleElement$DirectiveKind::EXPORTS, $new(ModuleElement$DirectiveKind, "EXPORTS"_s, 1));
 	$assignStatic(ModuleElement$DirectiveKind::OPENS, $new(ModuleElement$DirectiveKind, "OPENS"_s, 2));
@@ -110,7 +66,44 @@ ModuleElement$DirectiveKind::ModuleElement$DirectiveKind() {
 }
 
 $Class* ModuleElement$DirectiveKind::load$($String* name, bool initialize) {
-	$loadClass(ModuleElement$DirectiveKind, name, initialize, &_ModuleElement$DirectiveKind_ClassInfo_, clinit$ModuleElement$DirectiveKind, allocate$ModuleElement$DirectiveKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"REQUIRES", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, REQUIRES)},
+		{"EXPORTS", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, EXPORTS)},
+		{"OPENS", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, OPENS)},
+		{"USES", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, USES)},
+		{"PROVIDES", "Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ModuleElement$DirectiveKind, PROVIDES)},
+		{"$VALUES", "[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ModuleElement$DirectiveKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ModuleElement$DirectiveKind, $values, $ModuleElement$DirectiveKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ModuleElement$DirectiveKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleElement$DirectiveKind, valueOf, ModuleElement$DirectiveKind*, $String*)},
+		{"values", "()[Ljavax/lang/model/element/ModuleElement$DirectiveKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(ModuleElement$DirectiveKind, values, $ModuleElement$DirectiveKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.element.ModuleElement$DirectiveKind", "javax.lang.model.element.ModuleElement", "DirectiveKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.lang.model.element.ModuleElement$DirectiveKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/lang/model/element/ModuleElement$DirectiveKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.lang.model.element.ModuleElement"
+	};
+	$loadClass(ModuleElement$DirectiveKind, name, initialize, &classInfo$$, ModuleElement$DirectiveKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModuleElement$DirectiveKind));
+	});
 	return class$;
 }
 

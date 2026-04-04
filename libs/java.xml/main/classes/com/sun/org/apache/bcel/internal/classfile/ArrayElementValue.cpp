@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ArrayElementValue.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ElementValue.h>
 #include <java/io/DataOutputStream.h>
@@ -24,40 +23,12 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _ArrayElementValue_FieldInfo_[] = {
-	{"elementValues", "[Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PRIVATE | $FINAL, $field(ArrayElementValue, elementValues)},
-	{}
-};
-
-$MethodInfo _ArrayElementValue_MethodInfo_[] = {
-	{"<init>", "(I[Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ArrayElementValue, init$, void, int32_t, $ElementValueArray*, $ConstantPool*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getElementValuesArray", "()[Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, getElementValuesArray, $ElementValueArray*)},
-	{"getElementValuesArraySize", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, getElementValuesArraySize, int32_t)},
-	{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, stringifyValue, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ArrayElementValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ArrayElementValue",
-	"com.sun.org.apache.bcel.internal.classfile.ElementValue",
-	nullptr,
-	_ArrayElementValue_FieldInfo_,
-	_ArrayElementValue_MethodInfo_
-};
-
-$Object* allocate$ArrayElementValue($Class* clazz) {
-	return $of($alloc(ArrayElementValue));
-}
-
 $String* ArrayElementValue::toString() {
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("{"_s);
 	for (int32_t i = 0; i < $nc(this->elementValues)->length; ++i) {
-		sb->append($of($nc(this->elementValues)->get(i)));
-		if ((i + 1) < $nc(this->elementValues)->length) {
+		sb->append(this->elementValues->get(i));
+		if ((i + 1) < this->elementValues->length) {
 			sb->append(","_s);
 		}
 	}
@@ -66,7 +37,7 @@ $String* ArrayElementValue::toString() {
 }
 
 void ArrayElementValue::init$(int32_t type, $ElementValueArray* datums, $ConstantPool* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementValue::init$(type, cpool);
 	if (type != $ElementValue::ARRAY) {
 		$throwNew($IllegalArgumentException, $$str({"Only element values of type array can be built with this ctor - type specified: "_s, $$str(type)}));
@@ -75,14 +46,12 @@ void ArrayElementValue::init$(int32_t type, $ElementValueArray* datums, $Constan
 }
 
 void ArrayElementValue::dump($DataOutputStream* dos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(dos)->writeByte($ElementValue::getType());
 	dos->writeShort($nc(this->elementValues)->length);
 	{
 		$var($ElementValueArray, arr$, this->elementValues);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ElementValue, evalue, arr$->get(i$));
 			{
 				$nc(evalue)->dump(dos);
@@ -92,12 +61,12 @@ void ArrayElementValue::dump($DataOutputStream* dos) {
 }
 
 $String* ArrayElementValue::stringifyValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("["_s);
 	for (int32_t i = 0; i < $nc(this->elementValues)->length; ++i) {
-		sb->append($($nc($nc(this->elementValues)->get(i))->stringifyValue()));
-		if ((i + 1) < $nc(this->elementValues)->length) {
+		sb->append($($nc(this->elementValues->get(i))->stringifyValue()));
+		if ((i + 1) < this->elementValues->length) {
 			sb->append(","_s);
 		}
 	}
@@ -117,7 +86,30 @@ ArrayElementValue::ArrayElementValue() {
 }
 
 $Class* ArrayElementValue::load$($String* name, bool initialize) {
-	$loadClass(ArrayElementValue, name, initialize, &_ArrayElementValue_ClassInfo_, allocate$ArrayElementValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"elementValues", "[Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PRIVATE | $FINAL, $field(ArrayElementValue, elementValues)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I[Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(ArrayElementValue, init$, void, int32_t, $ElementValueArray*, $ConstantPool*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getElementValuesArray", "()[Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, getElementValuesArray, $ElementValueArray*)},
+		{"getElementValuesArraySize", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, getElementValuesArraySize, int32_t)},
+		{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, stringifyValue, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValue, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ArrayElementValue",
+		"com.sun.org.apache.bcel.internal.classfile.ElementValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayElementValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayElementValue);
+	});
 	return class$;
 }
 

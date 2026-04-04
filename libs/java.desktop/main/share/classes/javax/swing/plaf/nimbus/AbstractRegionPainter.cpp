@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -51,12 +49,9 @@
 using $ColorArray = $Array<::java::awt::Color>;
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Color = ::java::awt::Color;
-using $Composite = ::java::awt::Composite;
 using $Dimension = ::java::awt::Dimension;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $LinearGradientPaint = ::java::awt::LinearGradientPaint;
 using $RadialGradientPaint = ::java::awt::RadialGradientPaint;
@@ -93,95 +88,24 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _AbstractRegionPainter_FieldInfo_[] = {
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(AbstractRegionPainter, ctx)},
-	{"f", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, f)},
-	{"leftWidth", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, leftWidth)},
-	{"topHeight", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, topHeight)},
-	{"centerWidth", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, centerWidth)},
-	{"centerHeight", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, centerHeight)},
-	{"rightWidth", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, rightWidth)},
-	{"bottomHeight", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, bottomHeight)},
-	{"leftScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, leftScale)},
-	{"topScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, topScale)},
-	{"centerHScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, centerHScale)},
-	{"centerVScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, centerVScale)},
-	{"rightScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, rightScale)},
-	{"bottomScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, bottomScale)},
-	{}
-};
-
-$MethodInfo _AbstractRegionPainter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractRegionPainter, init$, void)},
-	{"clamp", "(F)F", nullptr, $PRIVATE, $method(AbstractRegionPainter, clamp, float, float)},
-	{"clamp", "(I)I", nullptr, $PRIVATE, $method(AbstractRegionPainter, clamp, int32_t, int32_t)},
-	{"configureGraphics", "(Ljava/awt/Graphics2D;)V", nullptr, $PROTECTED, $virtualMethod(AbstractRegionPainter, configureGraphics, void, $Graphics2D*)},
-	{"decodeAnchorX", "(FF)F", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeAnchorX, float, float, float)},
-	{"decodeAnchorY", "(FF)F", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeAnchorY, float, float, float)},
-	{"decodeColor", "(Ljava/lang/String;FFFI)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeColor, $Color*, $String*, float, float, float, int32_t)},
-	{"decodeColor", "(Ljava/awt/Color;Ljava/awt/Color;F)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeColor, $Color*, $Color*, $Color*, float)},
-	{"decodeGradient", "(FFFF[F[Ljava/awt/Color;)Ljava/awt/LinearGradientPaint;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeGradient, $LinearGradientPaint*, float, float, float, float, $floats*, $ColorArray*)},
-	{"decodeRadialGradient", "(FFF[F[Ljava/awt/Color;)Ljava/awt/RadialGradientPaint;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeRadialGradient, $RadialGradientPaint*, float, float, float, $floats*, $ColorArray*)},
-	{"decodeX", "(F)F", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeX, float, float)},
-	{"decodeY", "(F)F", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeY, float, float)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractRegionPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getComponentColor", "(Ljavax/swing/JComponent;Ljava/lang/String;Ljava/awt/Color;FFI)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, getComponentColor, $Color*, $JComponent*, $String*, $Color*, float, float, int32_t)},
-	{"getExtendedCacheKeys", "(Ljavax/swing/JComponent;)[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AbstractRegionPainter, getExtendedCacheKeys, $ObjectArray*, $JComponent*)},
-	{"getImage", "(Ljava/awt/GraphicsConfiguration;Ljavax/swing/JComponent;II[Ljava/lang/Object;)Ljava/awt/image/VolatileImage;", nullptr, $PRIVATE, $method(AbstractRegionPainter, getImage, $VolatileImage*, $GraphicsConfiguration*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractRegionPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II)V", nullptr, $PUBLIC | $FINAL, $method(AbstractRegionPainter, paint, void, $Graphics2D*, $JComponent*, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Graphics2D;Ljava/lang/Object;II)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractRegionPainter, paint, void, $Graphics2D*, Object$*, int32_t, int32_t)},
-	{"paint0", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractRegionPainter, paint0, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"paintWith9SquareCaching", "(Ljava/awt/Graphics2D;Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractRegionPainter, paintWith9SquareCaching, void, $Graphics2D*, $AbstractRegionPainter$PaintContext*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"paintWithFixedSizeCaching", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractRegionPainter, paintWithFixedSizeCaching, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"prepare", "(FF)V", nullptr, $PRIVATE, $method(AbstractRegionPainter, prepare, void, float, float)},
-	{}
-};
-
-$InnerClassInfo _AbstractRegionPainter_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "javax.swing.plaf.nimbus.AbstractRegionPainter", "PaintContext", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractRegionPainter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	"java.lang.Object",
-	"javax.swing.Painter",
-	_AbstractRegionPainter_FieldInfo_,
-	_AbstractRegionPainter_MethodInfo_,
-	"Ljava/lang/Object;Ljavax/swing/Painter<Ljavax/swing/JComponent;>;",
-	nullptr,
-	_AbstractRegionPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext,javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext$CacheMode"
-};
-
-$Object* allocate$AbstractRegionPainter($Class* clazz) {
-	return $of($alloc(AbstractRegionPainter));
-}
-
 void AbstractRegionPainter::init$() {
 }
 
 void AbstractRegionPainter::paint($Graphics2D* g, $JComponent* c, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w <= 0 || h <= 0) {
 		return;
 	}
 	$var($ObjectArray, extendedCacheKeys, getExtendedCacheKeys(c));
 	$set(this, ctx, getPaintContext());
 	$init($AbstractRegionPainter$PaintContext$CacheMode);
-	$AbstractRegionPainter$PaintContext$CacheMode* cacheMode = this->ctx == nullptr ? $AbstractRegionPainter$PaintContext$CacheMode::NO_CACHING : $nc(this->ctx)->cacheMode;
-	if (cacheMode == $AbstractRegionPainter$PaintContext$CacheMode::NO_CACHING || !$nc($($ImageCache::getInstance()))->isImageCachable(w, h) || $instanceOf($PrinterGraphics, g)) {
+	$AbstractRegionPainter$PaintContext$CacheMode* cacheMode = this->ctx == nullptr ? $AbstractRegionPainter$PaintContext$CacheMode::NO_CACHING : this->ctx->cacheMode;
+	if (cacheMode == $AbstractRegionPainter$PaintContext$CacheMode::NO_CACHING || !$$nc($ImageCache::getInstance())->isImageCachable(w, h) || $instanceOf($PrinterGraphics, g)) {
 		paint0(g, c, w, h, extendedCacheKeys);
+	} else if (cacheMode == $AbstractRegionPainter$PaintContext$CacheMode::FIXED_SIZES) {
+		paintWithFixedSizeCaching(g, c, w, h, extendedCacheKeys);
 	} else {
-		if (cacheMode == $AbstractRegionPainter$PaintContext$CacheMode::FIXED_SIZES) {
-			paintWithFixedSizeCaching(g, c, w, h, extendedCacheKeys);
-		} else {
-			paintWith9SquareCaching(g, this->ctx, c, w, h, extendedCacheKeys);
-		}
+		paintWith9SquareCaching(g, this->ctx, c, w, h, extendedCacheKeys);
 	}
 }
 
@@ -243,7 +167,7 @@ float AbstractRegionPainter::decodeAnchorY(float y, float dy) {
 }
 
 $Color* AbstractRegionPainter::decodeColor($String* key, float hOffset, float sOffset, float bOffset, int32_t aOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($NimbusLookAndFeel, $($UIManager::getLookAndFeel()))) {
 		$var($NimbusLookAndFeel, laf, $cast($NimbusLookAndFeel, $UIManager::getLookAndFeel()));
 		return $nc(laf)->getDerivedColor(key, hOffset, sOffset, bOffset, aOffset, true);
@@ -271,7 +195,7 @@ $RadialGradientPaint* AbstractRegionPainter::decodeRadialGradient(float x, float
 }
 
 $Color* AbstractRegionPainter::getComponentColor($JComponent* c, $String* property, $Color* defaultColor, float saturationOffset, float brightnessOffset, int32_t alphaOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, nullptr);
 	if (c != nullptr) {
 		if ("background"_s->equals(property)) {
@@ -279,16 +203,19 @@ $Color* AbstractRegionPainter::getComponentColor($JComponent* c, $String* proper
 		} else if ("foreground"_s->equals(property)) {
 			$assign(color, c->getForeground());
 		} else if ($instanceOf($JList, c) && "selectionForeground"_s->equals(property)) {
-			$assign(color, $nc(($cast($JList, c)))->getSelectionForeground());
+			$assign(color, $cast($JList, c)->getSelectionForeground());
 		} else if ($instanceOf($JList, c) && "selectionBackground"_s->equals(property)) {
-			$assign(color, $nc(($cast($JList, c)))->getSelectionBackground());
+			$assign(color, $cast($JList, c)->getSelectionBackground());
 		} else if ($instanceOf($JTable, c) && "selectionForeground"_s->equals(property)) {
-			$assign(color, $nc(($cast($JTable, c)))->getSelectionForeground());
+			$assign(color, $cast($JTable, c)->getSelectionForeground());
 		} else if ($instanceOf($JTable, c) && "selectionBackground"_s->equals(property)) {
-			$assign(color, $nc(($cast($JTable, c)))->getSelectionBackground());
+			$assign(color, $cast($JTable, c)->getSelectionBackground());
 		} else {
-			$var($String, var$0, $$str({"get"_s, $$str($Character::toUpperCase($nc(property)->charAt(0)))}));
-			$var($String, s, $concat(var$0, $($nc(property)->substring(1))));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("get"_s);
+			var$0->append($Character::toUpperCase($nc(property)->charAt(0)));
+			var$0->append($(property->substring(1)));
+			$var($String, s, $str(var$0));
 			try {
 				$var($Method, method, $MethodUtil::getMethod($of(c)->getClass(), s, nullptr));
 				$assign(color, $cast($Color, $MethodUtil::invoke(method, c, nullptr)));
@@ -305,20 +232,20 @@ $Color* AbstractRegionPainter::getComponentColor($JComponent* c, $String* proper
 	if (color == nullptr || $instanceOf($UIResource, color)) {
 		return defaultColor;
 	} else if (saturationOffset != 0 || brightnessOffset != 0 || alphaOffset != 0) {
-		int32_t var$1 = $nc(color)->getRed();
+		int32_t var$1 = color->getRed();
 		int32_t var$2 = color->getGreen();
 		$var($floats, tmp, $Color::RGBtoHSB(var$1, var$2, color->getBlue(), nullptr));
-		$nc(tmp)->set(1, clamp(tmp->get(1) + saturationOffset));
+		$nc(tmp)->set(1, clamp($nc(tmp)->get(1) + saturationOffset));
 		tmp->set(2, clamp(tmp->get(2) + brightnessOffset));
-		int32_t alpha = clamp($nc(color)->getAlpha() + alphaOffset);
-		return $new($Color, ((int32_t)($Color::HSBtoRGB(tmp->get(0), tmp->get(1), tmp->get(2)) & (uint32_t)0x00FFFFFF)) | (alpha << 24));
+		int32_t alpha = clamp(color->getAlpha() + alphaOffset);
+		return $new($Color, ($Color::HSBtoRGB(tmp->get(0), tmp->get(1), tmp->get(2)) & 0x00ffffff) | (alpha << 24));
 	} else {
 		return color;
 	}
 }
 
 void AbstractRegionPainter::prepare(float w, float h) {
-	if (this->ctx == nullptr || $nc(this->ctx)->canvasSize == nullptr) {
+	if (this->ctx == nullptr || this->ctx->canvasSize == nullptr) {
 		this->f = 1.0f;
 		this->leftWidth = (this->centerWidth = (this->rightWidth = 0.0f));
 		this->topHeight = (this->centerHeight = (this->bottomHeight = 0.0f));
@@ -327,34 +254,34 @@ void AbstractRegionPainter::prepare(float w, float h) {
 		return;
 	}
 	$var($Number, scale, $cast($Number, $UIManager::get("scale"_s)));
-	this->f = scale == nullptr ? 1.0f : $nc(scale)->floatValue();
+	this->f = scale == nullptr ? 1.0f : scale->floatValue();
 	if ($nc(this->ctx)->inverted) {
-		this->centerWidth = ($nc(this->ctx)->b - $nc(this->ctx)->a) * this->f;
+		this->centerWidth = (this->ctx->b - this->ctx->a) * this->f;
 		float availableSpace = w - this->centerWidth;
-		this->leftWidth = availableSpace * $nc(this->ctx)->aPercent;
-		this->rightWidth = availableSpace * $nc(this->ctx)->bPercent;
-		this->centerHeight = ($nc(this->ctx)->d - $nc(this->ctx)->c) * this->f;
+		this->leftWidth = availableSpace * this->ctx->aPercent;
+		this->rightWidth = availableSpace * this->ctx->bPercent;
+		this->centerHeight = (this->ctx->d - this->ctx->c) * this->f;
 		availableSpace = h - this->centerHeight;
-		this->topHeight = availableSpace * $nc(this->ctx)->cPercent;
-		this->bottomHeight = availableSpace * $nc(this->ctx)->dPercent;
+		this->topHeight = availableSpace * this->ctx->cPercent;
+		this->bottomHeight = availableSpace * this->ctx->dPercent;
 	} else {
-		this->leftWidth = $nc(this->ctx)->a * this->f;
-		this->rightWidth = (float)($nc($nc(this->ctx)->canvasSize)->getWidth() - $nc(this->ctx)->b) * this->f;
+		this->leftWidth = this->ctx->a * this->f;
+		this->rightWidth = (float)($nc(this->ctx->canvasSize)->getWidth() - this->ctx->b) * this->f;
 		this->centerWidth = w - this->leftWidth - this->rightWidth;
 		this->topHeight = $nc(this->ctx)->c * this->f;
-		this->bottomHeight = (float)($nc($nc(this->ctx)->canvasSize)->getHeight() - $nc(this->ctx)->d) * this->f;
+		this->bottomHeight = (float)($nc(this->ctx->canvasSize)->getHeight() - this->ctx->d) * this->f;
 		this->centerHeight = h - this->topHeight - this->bottomHeight;
 	}
-	this->leftScale = $nc(this->ctx)->a == 0.0f ? 0.0f : this->leftWidth / $nc(this->ctx)->a;
-	this->centerHScale = ($nc(this->ctx)->b - $nc(this->ctx)->a) == 0.0f ? 0.0f : this->centerWidth / ($nc(this->ctx)->b - $nc(this->ctx)->a);
-	this->rightScale = ($nc($nc(this->ctx)->canvasSize)->width - $nc(this->ctx)->b) == 0.0f ? 0.0f : this->rightWidth / ($nc($nc(this->ctx)->canvasSize)->width - $nc(this->ctx)->b);
-	this->topScale = $nc(this->ctx)->c == 0.0f ? 0.0f : this->topHeight / $nc(this->ctx)->c;
-	this->centerVScale = ($nc(this->ctx)->d - $nc(this->ctx)->c) == 0.0f ? 0.0f : this->centerHeight / ($nc(this->ctx)->d - $nc(this->ctx)->c);
-	this->bottomScale = ($nc($nc(this->ctx)->canvasSize)->height - $nc(this->ctx)->d) == 0.0f ? 0.0f : this->bottomHeight / ($nc($nc(this->ctx)->canvasSize)->height - $nc(this->ctx)->d);
+	this->leftScale = $nc(this->ctx)->a == 0.0f ? 0.0f : this->leftWidth / this->ctx->a;
+	this->centerHScale = (this->ctx->b - this->ctx->a) == 0.0f ? 0.0f : this->centerWidth / (this->ctx->b - this->ctx->a);
+	this->rightScale = ($nc(this->ctx->canvasSize)->width - this->ctx->b) == 0.0f ? 0.0f : this->rightWidth / (this->ctx->canvasSize->width - this->ctx->b);
+	this->topScale = this->ctx->c == 0.0f ? 0.0f : this->topHeight / this->ctx->c;
+	this->centerVScale = (this->ctx->d - this->ctx->c) == 0.0f ? 0.0f : this->centerHeight / (this->ctx->d - this->ctx->c);
+	this->bottomScale = (this->ctx->canvasSize->height - this->ctx->d) == 0.0f ? 0.0f : this->bottomHeight / (this->ctx->canvasSize->height - this->ctx->d);
 }
 
 void AbstractRegionPainter::paintWith9SquareCaching($Graphics2D* g, $AbstractRegionPainter$PaintContext* ctx, $JComponent* c, int32_t w, int32_t h, $ObjectArray* extendedCacheKeys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, canvas, $nc(ctx)->canvasSize);
 	$var($Insets, insets, ctx->stretchingInsets);
 	if (w <= ($nc(canvas)->width * ctx->maxHorizontalScaleFactor) && h <= (canvas->height * ctx->maxVerticalScaleFactor)) {
@@ -362,14 +289,14 @@ void AbstractRegionPainter::paintWith9SquareCaching($Graphics2D* g, $AbstractReg
 		if (img != nullptr) {
 			$var($Insets, dstInsets, nullptr);
 			if (ctx->inverted) {
-				int32_t leftRight = (w - (canvas->width - ($nc(insets)->left + insets->right))) / 2;
+				int32_t leftRight = (w - (canvas->width - ($nc(insets)->left + $nc(insets)->right))) / 2;
 				int32_t topBottom = (h - (canvas->height - (insets->top + insets->bottom))) / 2;
 				$assign(dstInsets, $new($Insets, topBottom, leftRight, topBottom, leftRight));
 			} else {
 				$assign(dstInsets, insets);
 			}
 			$init($RenderingHints);
-			$var($Object, oldScaleingHints, $nc(g)->getRenderingHint($RenderingHints::KEY_INTERPOLATION));
+			$var($Object, oldScaleingHints, g->getRenderingHint($RenderingHints::KEY_INTERPOLATION));
 			g->setRenderingHint($RenderingHints::KEY_INTERPOLATION, $RenderingHints::VALUE_INTERPOLATION_BILINEAR);
 			$init($ImageScalingHelper$PaintType);
 			$ImageScalingHelper::paint(g, 0, 0, w, h, img, insets, dstInsets, $ImageScalingHelper$PaintType::PAINT9_STRETCH, $ImageScalingHelper::PAINT_ALL);
@@ -383,21 +310,21 @@ void AbstractRegionPainter::paintWith9SquareCaching($Graphics2D* g, $AbstractReg
 }
 
 void AbstractRegionPainter::paintWithFixedSizeCaching($Graphics2D* g, $JComponent* c, int32_t w, int32_t h, $ObjectArray* extendedCacheKeys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($VolatileImage, img, getImage($($nc(g)->getDeviceConfiguration()), c, w, h, extendedCacheKeys));
 	if (img != nullptr) {
-		$nc(g)->drawImage(img, 0, 0, nullptr);
+		g->drawImage(img, 0, 0, nullptr);
 	} else {
 		paint0(g, c, w, h, extendedCacheKeys);
 	}
 }
 
 $VolatileImage* AbstractRegionPainter::getImage($GraphicsConfiguration* config, $JComponent* c, int32_t w, int32_t h, $ObjectArray* extendedCacheKeys) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageCache, imageCache, $ImageCache::getInstance());
 	$var($VolatileImage, buffer, $cast($VolatileImage, $nc(imageCache)->getImage(config, w, h, $$new($ObjectArray, {
-		$of(this),
-		$of(extendedCacheKeys)
+		this,
+		extendedCacheKeys
 	}))));
 	int32_t renderCounter = 0;
 	do {
@@ -406,16 +333,16 @@ $VolatileImage* AbstractRegionPainter::getImage($GraphicsConfiguration* config, 
 			bufferStatus = buffer->validate(config);
 		}
 		if (bufferStatus == $VolatileImage::IMAGE_INCOMPATIBLE || bufferStatus == $VolatileImage::IMAGE_RESTORED) {
-			bool var$0 = buffer == nullptr || $nc(buffer)->getWidth() != w;
-			if (var$0 || $nc(buffer)->getHeight() != h || bufferStatus == $VolatileImage::IMAGE_INCOMPATIBLE) {
+			bool var$0 = buffer == nullptr || buffer->getWidth() != w;
+			if (var$0 || buffer->getHeight() != h || bufferStatus == $VolatileImage::IMAGE_INCOMPATIBLE) {
 				if (buffer != nullptr) {
 					buffer->flush();
 					$assign(buffer, nullptr);
 				}
 				$assign(buffer, $nc(config)->createCompatibleVolatileImage(w, h, $Transparency::TRANSLUCENT));
 				imageCache->setImage(buffer, config, w, h, $$new($ObjectArray, {
-					$of(this),
-					$of(extendedCacheKeys)
+					this,
+					extendedCacheKeys
 				}));
 			}
 			$var($Graphics2D, bg, $nc(buffer)->createGraphics());
@@ -440,14 +367,14 @@ void AbstractRegionPainter::paint0($Graphics2D* g$renamed, $JComponent* c, int32
 	$assign(g, $cast($Graphics2D, $nc(g)->create()));
 	configureGraphics(g);
 	doPaint(g, c, width, height, extendedCacheKeys);
-	g->dispose();
+	$nc(g)->dispose();
 }
 
 float AbstractRegionPainter::clamp(float value) {
 	if (value < 0) {
-		value = (float)0;
+		value = 0;
 	} else if (value > 1) {
-		value = (float)1;
+		value = 1;
 	}
 	return value;
 }
@@ -469,7 +396,70 @@ AbstractRegionPainter::AbstractRegionPainter() {
 }
 
 $Class* AbstractRegionPainter::load$($String* name, bool initialize) {
-	$loadClass(AbstractRegionPainter, name, initialize, &_AbstractRegionPainter_ClassInfo_, allocate$AbstractRegionPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(AbstractRegionPainter, ctx)},
+		{"f", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, f)},
+		{"leftWidth", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, leftWidth)},
+		{"topHeight", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, topHeight)},
+		{"centerWidth", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, centerWidth)},
+		{"centerHeight", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, centerHeight)},
+		{"rightWidth", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, rightWidth)},
+		{"bottomHeight", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, bottomHeight)},
+		{"leftScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, leftScale)},
+		{"topScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, topScale)},
+		{"centerHScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, centerHScale)},
+		{"centerVScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, centerVScale)},
+		{"rightScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, rightScale)},
+		{"bottomScale", "F", nullptr, $PRIVATE, $field(AbstractRegionPainter, bottomScale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractRegionPainter, init$, void)},
+		{"clamp", "(F)F", nullptr, $PRIVATE, $method(AbstractRegionPainter, clamp, float, float)},
+		{"clamp", "(I)I", nullptr, $PRIVATE, $method(AbstractRegionPainter, clamp, int32_t, int32_t)},
+		{"configureGraphics", "(Ljava/awt/Graphics2D;)V", nullptr, $PROTECTED, $virtualMethod(AbstractRegionPainter, configureGraphics, void, $Graphics2D*)},
+		{"decodeAnchorX", "(FF)F", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeAnchorX, float, float, float)},
+		{"decodeAnchorY", "(FF)F", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeAnchorY, float, float, float)},
+		{"decodeColor", "(Ljava/lang/String;FFFI)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeColor, $Color*, $String*, float, float, float, int32_t)},
+		{"decodeColor", "(Ljava/awt/Color;Ljava/awt/Color;F)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeColor, $Color*, $Color*, $Color*, float)},
+		{"decodeGradient", "(FFFF[F[Ljava/awt/Color;)Ljava/awt/LinearGradientPaint;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeGradient, $LinearGradientPaint*, float, float, float, float, $floats*, $ColorArray*)},
+		{"decodeRadialGradient", "(FFF[F[Ljava/awt/Color;)Ljava/awt/RadialGradientPaint;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeRadialGradient, $RadialGradientPaint*, float, float, float, $floats*, $ColorArray*)},
+		{"decodeX", "(F)F", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeX, float, float)},
+		{"decodeY", "(F)F", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, decodeY, float, float)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractRegionPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getComponentColor", "(Ljavax/swing/JComponent;Ljava/lang/String;Ljava/awt/Color;FFI)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(AbstractRegionPainter, getComponentColor, $Color*, $JComponent*, $String*, $Color*, float, float, int32_t)},
+		{"getExtendedCacheKeys", "(Ljavax/swing/JComponent;)[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(AbstractRegionPainter, getExtendedCacheKeys, $ObjectArray*, $JComponent*)},
+		{"getImage", "(Ljava/awt/GraphicsConfiguration;Ljavax/swing/JComponent;II[Ljava/lang/Object;)Ljava/awt/image/VolatileImage;", nullptr, $PRIVATE, $method(AbstractRegionPainter, getImage, $VolatileImage*, $GraphicsConfiguration*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractRegionPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II)V", nullptr, $PUBLIC | $FINAL, $method(AbstractRegionPainter, paint, void, $Graphics2D*, $JComponent*, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Graphics2D;Ljava/lang/Object;II)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AbstractRegionPainter, paint, void, $Graphics2D*, Object$*, int32_t, int32_t)},
+		{"paint0", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractRegionPainter, paint0, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"paintWith9SquareCaching", "(Ljava/awt/Graphics2D;Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractRegionPainter, paintWith9SquareCaching, void, $Graphics2D*, $AbstractRegionPainter$PaintContext*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"paintWithFixedSizeCaching", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(AbstractRegionPainter, paintWithFixedSizeCaching, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"prepare", "(FF)V", nullptr, $PRIVATE, $method(AbstractRegionPainter, prepare, void, float, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext", "javax.swing.plaf.nimbus.AbstractRegionPainter", "PaintContext", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		"java.lang.Object",
+		"javax.swing.Painter",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljavax/swing/Painter<Ljavax/swing/JComponent;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext,javax.swing.plaf.nimbus.AbstractRegionPainter$PaintContext$CacheMode"
+	};
+	$loadClass(AbstractRegionPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractRegionPainter);
+	});
 	return class$;
 }
 

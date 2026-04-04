@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$CapturedType$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$CapturedType.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
@@ -24,52 +23,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Type$CapturedType$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Type$CapturedType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$CapturedType$1, this$0)},
-	{}
-};
-
-$MethodInfo _Type$CapturedType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$CapturedType;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$CapturedType$1, init$, void, $Type$CapturedType*, $Symbol$TypeSymbol*, $Type*, $Type*, $Type*, $Type$WildcardType*, $TypeMetadata*)},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, baseType, $Type*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$TypeVar;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$CapturedType$1, cloneWithMetadata, $Type$CapturedType*, $TypeMetadata*)},
-	{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, getUpperBound, $Type*)},
-	{"setUpperBound", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, setUpperBound, void, $Type*)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$CapturedType$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Type$CapturedType",
-	"cloneWithMetadata",
-	"(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$CapturedType;"
-};
-
-$InnerClassInfo _Type$CapturedType$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$CapturedType", "com.sun.tools.javac.code.Type", "CapturedType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$CapturedType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$CapturedType$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Type$CapturedType$1",
-	"com.sun.tools.javac.code.Type$CapturedType",
-	nullptr,
-	_Type$CapturedType$1_FieldInfo_,
-	_Type$CapturedType$1_MethodInfo_,
-	nullptr,
-	&_Type$CapturedType$1_EnclosingMethodInfo_,
-	_Type$CapturedType$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$CapturedType$1($Class* clazz) {
-	return $of($alloc(Type$CapturedType$1));
-}
 
 void Type$CapturedType$1::init$($Type$CapturedType* this$0, $Symbol$TypeSymbol* tsym, $Type* bound, $Type* upper, $Type* lower, $Type$WildcardType* wildcard, $TypeMetadata* metadata) {
 	$set(this, this$0, this$0);
@@ -96,7 +49,46 @@ Type$CapturedType$1::Type$CapturedType$1() {
 }
 
 $Class* Type$CapturedType$1::load$($String* name, bool initialize) {
-	$loadClass(Type$CapturedType$1, name, initialize, &_Type$CapturedType$1_ClassInfo_, allocate$Type$CapturedType$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Type$CapturedType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$CapturedType$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$CapturedType;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$CapturedType$1, init$, void, $Type$CapturedType*, $Symbol$TypeSymbol*, $Type*, $Type*, $Type*, $Type$WildcardType*, $TypeMetadata*)},
+		{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, baseType, $Type*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$TypeVar;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$CapturedType$1, cloneWithMetadata, $Type$CapturedType*, $TypeMetadata*)},
+		{"getUpperBound", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, getUpperBound, $Type*)},
+		{"setUpperBound", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Type$CapturedType$1, setUpperBound, void, $Type*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Type$CapturedType",
+		"cloneWithMetadata",
+		"(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$CapturedType;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$CapturedType", "com.sun.tools.javac.code.Type", "CapturedType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$CapturedType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Type$CapturedType$1",
+		"com.sun.tools.javac.code.Type$CapturedType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$CapturedType$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$CapturedType$1));
+	});
 	return class$;
 }
 

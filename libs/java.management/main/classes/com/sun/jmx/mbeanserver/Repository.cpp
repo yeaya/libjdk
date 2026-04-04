@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/Repository.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/defaults/ServiceName.h>
 #include <com/sun/jmx/mbeanserver/NamedObject.h>
@@ -50,10 +49,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -77,71 +74,16 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _Repository_FieldInfo_[] = {
-	{"domainTb", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;>;", $PRIVATE | $FINAL, $field(Repository, domainTb)},
-	{"nbElements", "I", nullptr, $PRIVATE | $VOLATILE, $field(Repository, nbElements)},
-	{"domain", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Repository, domain)},
-	{"lock", "Ljava/util/concurrent/locks/ReentrantReadWriteLock;", nullptr, $PRIVATE | $FINAL, $field(Repository, lock)},
-	{}
-};
-
-$MethodInfo _Repository_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Repository, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Repository, init$, void, $String*, bool)},
-	{"addAllMatching", "(Ljava/util/Map;Ljava/util/Set;Lcom/sun/jmx/mbeanserver/Repository$ObjectNamePattern;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;Ljava/util/Set<Lcom/sun/jmx/mbeanserver/NamedObject;>;Lcom/sun/jmx/mbeanserver/Repository$ObjectNamePattern;)V", $PRIVATE, $method(Repository, addAllMatching, void, $Map*, $Set*, $Repository$ObjectNamePattern*)},
-	{"addMBean", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PUBLIC, $virtualMethod(Repository, addMBean, void, $DynamicMBean*, $ObjectName*, $Repository$RegistrationContext*), "javax.management.InstanceAlreadyExistsException"},
-	{"addMoiToTb", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/Map;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", $PRIVATE, $method(Repository, addMoiToTb, void, $DynamicMBean*, $ObjectName*, $String*, $Map*, $Repository$RegistrationContext*)},
-	{"addNewDomMoi", "(Ljavax/management/DynamicMBean;Ljava/lang/String;Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PRIVATE, $method(Repository, addNewDomMoi, void, $DynamicMBean*, $String*, $ObjectName*, $Repository$RegistrationContext*)},
-	{"contains", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(Repository, contains, bool, $ObjectName*)},
-	{"getCount", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Repository, getCount, $Integer*)},
-	{"getDefaultDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Repository, getDefaultDomain, $String*)},
-	{"getDomains", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Repository, getDomains, $StringArray*)},
-	{"query", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set<Lcom/sun/jmx/mbeanserver/NamedObject;>;", $PUBLIC, $virtualMethod(Repository, query, $Set*, $ObjectName*, $QueryExp*)},
-	{"registering", "(Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PRIVATE, $method(Repository, registering, void, $Repository$RegistrationContext*)},
-	{"remove", "(Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PUBLIC, $virtualMethod(Repository, remove, void, $ObjectName*, $Repository$RegistrationContext*), "javax.management.InstanceNotFoundException"},
-	{"retrieve", "(Ljavax/management/ObjectName;)Ljavax/management/DynamicMBean;", nullptr, $PUBLIC, $virtualMethod(Repository, retrieve, $DynamicMBean*, $ObjectName*)},
-	{"retrieveNamedObject", "(Ljavax/management/ObjectName;)Lcom/sun/jmx/mbeanserver/NamedObject;", nullptr, $PRIVATE, $method(Repository, retrieveNamedObject, $NamedObject*, $ObjectName*)},
-	{"unregistering", "(Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;Ljavax/management/ObjectName;)V", nullptr, $PRIVATE, $method(Repository, unregistering, void, $Repository$RegistrationContext*, $ObjectName*)},
-	{}
-};
-
-$InnerClassInfo _Repository_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.Repository$ObjectNamePattern", "com.sun.jmx.mbeanserver.Repository", "ObjectNamePattern", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.jmx.mbeanserver.Repository$RegistrationContext", "com.sun.jmx.mbeanserver.Repository", "RegistrationContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Repository_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.Repository",
-	"java.lang.Object",
-	nullptr,
-	_Repository_FieldInfo_,
-	_Repository_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Repository_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.Repository$ObjectNamePattern,com.sun.jmx.mbeanserver.Repository$RegistrationContext"
-};
-
-$Object* allocate$Repository($Class* clazz) {
-	return $of($alloc(Repository));
-}
-
 void Repository::addAllMatching($Map* moiTb, $Set* result, $Repository$ObjectNamePattern* pattern) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(moiTb) {
-		{
-			$var($Iterator, i$, $nc($($nc(moiTb)->values()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($NamedObject, no, $cast($NamedObject, i$->next()));
-				{
-					$var($ObjectName, on, $nc(no)->getName());
-					if ($nc(pattern)->matchKeys(on)) {
-						$nc(result)->add(no);
-					}
+		$var($Iterator, i$, $$nc(moiTb->values())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($NamedObject, no, $cast($NamedObject, i$->next()));
+			{
+				$var($ObjectName, on, $nc(no)->getName());
+				if ($nc(pattern)->matchKeys(on)) {
+					$nc(result)->add(no);
 				}
 			}
 		}
@@ -149,7 +91,7 @@ void Repository::addAllMatching($Map* moiTb, $Set* result, $Repository$ObjectNam
 }
 
 void Repository::addNewDomMoi($DynamicMBean* object, $String* dom, $ObjectName* name, $Repository$RegistrationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, moiTb, $new($HashMap));
 	$var($String, key, $nc(name)->getCanonicalKeyPropertyListString());
 	addMoiToTb(object, name, key, moiTb, context);
@@ -179,7 +121,7 @@ void Repository::unregistering($Repository$RegistrationContext* context, $Object
 	} catch ($Exception& x) {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
-		$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::DEBUG, $$str({"Unexpected exception while unregistering "_s, name}), static_cast<$Throwable*>(x));
+		$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::DEBUG, $$str({"Unexpected exception while unregistering "_s, name}), x);
 	}
 }
 
@@ -189,11 +131,11 @@ void Repository::addMoiToTb($DynamicMBean* object, $ObjectName* name, $String* k
 }
 
 $NamedObject* Repository::retrieveNamedObject($ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->isPattern()) {
 		return nullptr;
 	}
-	$var($String, dom, $nc($($nc(name)->getDomain()))->intern());
+	$var($String, dom, $$nc(name->getDomain())->intern());
 	if (dom->length() == 0) {
 		$assign(dom, this->domain);
 	}
@@ -218,50 +160,48 @@ void Repository::init$($String* domain, bool fairLock) {
 		$init($ServiceName);
 		$set(this, domain, $ServiceName::DOMAIN);
 	}
-	$nc(this->domainTb)->put(this->domain, $$new($HashMap));
+	this->domainTb->put(this->domain, $$new($HashMap));
 }
 
 $StringArray* Repository::getDomains() {
-	$useLocalCurrentObjectStackCache();
-	$nc($($cast($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())))->lock();
+	$useLocalObjectStack();
+	$$sure($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())->lock();
 	$var($List, result, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(result, $new($ArrayList, $nc(this->domainTb)->size()));
-			{
-				$var($Iterator, i$, $nc($($nc(this->domainTb)->entrySet()))->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-					{
-						$var($Map, t, $cast($Map, $nc(entry)->getValue()));
-						if (t != nullptr && t->size() != 0) {
-							result->add($cast($String, $(entry->getKey())));
-						}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(result, $new($ArrayList, $nc(this->domainTb)->size()));
+		{
+			$var($Iterator, i$, $$nc(this->domainTb->entrySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+				{
+					$var($Map, t, $cast($Map, $nc(entry)->getValue()));
+					if (t != nullptr && t->size() != 0) {
+						result->add($$cast($String, entry->getKey()));
 					}
 				}
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($($cast($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())))->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$$sure($ReentrantReadWriteLock$ReadLock, this->lock->readLock())->unlock();
 	}
-	return $fcast($StringArray, $nc(result)->toArray($$new($StringArray, result->size())));
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	return $cast($StringArray, $nc(result)->toArray($$new($StringArray, $nc(result)->size())));
 }
 
 void Repository::addMBean($DynamicMBean* object, $ObjectName* name$renamed, $Repository$RegistrationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectName, name, name$renamed);
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::TRACE, $$str({"name = "_s, name}));
+		$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::TRACE, $$str({"name = "_s, name}));
 	}
-	$var($String, dom, $nc($($nc(name)->getDomain()))->intern());
+	$var($String, dom, $$nc($nc(name)->getDomain())->intern());
 	bool to_default_domain = false;
 	if (dom->length() == 0) {
 		$assign(name, $Util::newObjectName($$str({this->domain, $(name->toString())})));
@@ -272,258 +212,247 @@ void Repository::addMBean($DynamicMBean* object, $ObjectName* name$renamed, $Rep
 	} else {
 		to_default_domain = false;
 	}
-	if (name->isPattern()) {
+	if ($nc(name)->isPattern()) {
 		$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, $$str({"Repository: cannot add mbean for pattern name "_s, $(name->toString())})));
 	}
-	$nc($($cast($ReentrantReadWriteLock$WriteLock, $nc(this->lock)->writeLock())))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
-		try {
-			bool var$2 = !to_default_domain && dom->equals("JMImplementation"_s);
-			if (var$2 && $nc(this->domainTb)->containsKey("JMImplementation"_s)) {
-				$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "Repository: domain name cannot be JMImplementation"_s));
-			}
-			$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get(dom)));
-			if (moiTb == nullptr) {
-				addNewDomMoi(object, dom, name, context);
-				return$1 = true;
-				goto $finally;
+	$$sure($ReentrantReadWriteLock$WriteLock, $nc(this->lock)->writeLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
+		bool var$2 = !to_default_domain && $nc(dom)->equals("JMImplementation"_s);
+		if (var$2 && $nc(this->domainTb)->containsKey("JMImplementation"_s)) {
+			$throwNew($RuntimeOperationsException, $$new($IllegalArgumentException, "Repository: domain name cannot be JMImplementation"_s));
+		}
+		$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get(dom)));
+		if (moiTb == nullptr) {
+			addNewDomMoi(object, dom, name, context);
+			return$1 = true;
+			goto $finally;
+		} else {
+			$var($String, cstr, name->getCanonicalKeyPropertyListString());
+			$var($NamedObject, elmt, $cast($NamedObject, moiTb->get(cstr)));
+			if (elmt != nullptr) {
+				$throwNew($InstanceAlreadyExistsException, $(name->toString()));
 			} else {
-				$var($String, cstr, name->getCanonicalKeyPropertyListString());
-				$var($NamedObject, elmt, $cast($NamedObject, $nc(moiTb)->get(cstr)));
-				if (elmt != nullptr) {
-					$throwNew($InstanceAlreadyExistsException, $(name->toString()));
-				} else {
-					++this->nbElements;
-					addMoiToTb(object, name, cstr, moiTb, context);
-				}
+				++this->nbElements;
+				addMoiToTb(object, name, cstr, moiTb, context);
 			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc($($cast($ReentrantReadWriteLock$WriteLock, $nc(this->lock)->writeLock())))->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$$sure($ReentrantReadWriteLock$WriteLock, this->lock->writeLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 bool Repository::contains($ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::TRACE, $$str({"name = "_s, name}));
+		$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::TRACE, $$str({"name = "_s, name}));
 	}
-	$nc($($cast($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = (retrieveNamedObject(name) != nullptr);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc($($cast($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())))->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$$sure($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = (retrieveNamedObject(name) != nullptr);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$$sure($ReentrantReadWriteLock$ReadLock, this->lock->readLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $DynamicMBean* Repository::retrieve($ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::TRACE, $$str({"name = "_s, name}));
+		$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::TRACE, $$str({"name = "_s, name}));
 	}
-	$nc($($cast($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($DynamicMBean, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($NamedObject, no, retrieveNamedObject(name));
-			if (no == nullptr) {
-				$assign(var$2, nullptr);
-				return$1 = true;
-				goto $finally;
-			} else {
-				$assign(var$2, $nc(no)->getObject());
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc($($cast($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())))->unlock();
+	$$sure($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	$var($DynamicMBean, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($NamedObject, no, retrieveNamedObject(name));
+		if (no == nullptr) {
+			$assign(var$2, nullptr);
+			return$1 = true;
+			goto $finally;
+		} else {
+			$assign(var$2, no->getObject());
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$$sure($ReentrantReadWriteLock$ReadLock, this->lock->readLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Set* Repository::query($ObjectName* pattern, $QueryExp* query) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, result, $new($HashSet));
 	$var($ObjectName, name, nullptr);
-	bool var$0 = pattern == nullptr || $nc($($nc(pattern)->getCanonicalName()))->length() == 0;
-	if (var$0 || $nc(pattern)->equals($ObjectName::WILDCARD)) {
+	bool var$0 = pattern == nullptr || $$nc(pattern->getCanonicalName())->length() == 0;
+	$init($ObjectName);
+	if (var$0 || pattern->equals($ObjectName::WILDCARD)) {
 		$assign(name, $ObjectName::WILDCARD);
 	} else {
 		$assign(name, pattern);
 	}
-	$nc($($cast($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())))->lock();
-	{
-		$var($Throwable, var$1, nullptr);
-		$var($Set, var$3, nullptr);
-		bool return$2 = false;
-		try {
-			if (!$nc(name)->isPattern()) {
-				$var($NamedObject, no, retrieveNamedObject(name));
-				if (no != nullptr) {
-					result->add(no);
-				}
-				$assign(var$3, result);
-				return$2 = true;
-				goto $finally;
+	$$sure($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())->lock();
+	$var($Throwable, var$1, nullptr);
+	$var($Set, var$3, nullptr);
+	bool return$2 = false;
+	try {
+		if (!$nc(name)->isPattern()) {
+			$var($NamedObject, no, retrieveNamedObject(name));
+			if (no != nullptr) {
+				result->add(no);
 			}
-			if (name == $ObjectName::WILDCARD) {
-				{
-					$var($Iterator, i$, $nc($($nc(this->domainTb)->values()))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Map, moiTb, $cast($Map, i$->next()));
-						{
-							result->addAll($($nc(moiTb)->values()));
-						}
-					}
-				}
-				$assign(var$3, result);
-				return$2 = true;
-				goto $finally;
-			}
-			$var($String, canonical_key_property_list_string, $nc(name)->getCanonicalKeyPropertyListString());
-			bool allNames = ($nc(canonical_key_property_list_string)->length() == 0);
-			$var($Repository$ObjectNamePattern, namePattern, allNames ? ($Repository$ObjectNamePattern*)nullptr : $new($Repository$ObjectNamePattern, name));
-			if ($nc($(name->getDomain()))->length() == 0) {
-				$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get(this->domain)));
-				if (allNames) {
-					result->addAll($($nc(moiTb)->values()));
-				} else {
-					addAllMatching(moiTb, result, namePattern);
-				}
-				$assign(var$3, result);
-				return$2 = true;
-				goto $finally;
-			}
-			if (!name->isDomainPattern()) {
-				$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get($(name->getDomain()))));
-				if (moiTb == nullptr) {
-					$assign(var$3, $Collections::emptySet());
-					return$2 = true;
-					goto $finally;
-				}
-				if (allNames) {
-					result->addAll($($nc(moiTb)->values()));
-				} else {
-					addAllMatching(moiTb, result, namePattern);
-				}
-				$assign(var$3, result);
-				return$2 = true;
-				goto $finally;
-			}
-			$var($String, dom2Match, name->getDomain());
+			$assign(var$3, result);
+			return$2 = true;
+			goto $finally;
+		}
+		if (name == $ObjectName::WILDCARD) {
 			{
-				$var($Iterator, i$, $nc($($nc(this->domainTb)->keySet()))->iterator());
+				$var($Iterator, i$, $$nc($nc(this->domainTb)->values())->iterator());
 				for (; $nc(i$)->hasNext();) {
-					$var($String, dom, $cast($String, i$->next()));
+					$var($Map, moiTb, $cast($Map, i$->next()));
 					{
-						if ($Util::wildmatch(dom, dom2Match)) {
-							$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get(dom)));
-							if (allNames) {
-								result->addAll($($nc(moiTb)->values()));
-							} else {
-								addAllMatching(moiTb, result, namePattern);
-							}
-						}
+						result->addAll($($nc(moiTb)->values()));
 					}
 				}
 			}
 			$assign(var$3, result);
 			return$2 = true;
 			goto $finally;
-		} catch ($Throwable& var$4) {
-			$assign(var$1, var$4);
-		} $finally: {
-			$nc($($cast($ReentrantReadWriteLock$ReadLock, $nc(this->lock)->readLock())))->unlock();
 		}
-		if (var$1 != nullptr) {
-			$throw(var$1);
+		$var($String, canonical_key_property_list_string, name->getCanonicalKeyPropertyListString());
+		bool allNames = ($nc(canonical_key_property_list_string)->length() == 0);
+		$var($Repository$ObjectNamePattern, namePattern, allNames ? ($Repository$ObjectNamePattern*)nullptr : $new($Repository$ObjectNamePattern, name));
+		if ($$nc(name->getDomain())->length() == 0) {
+			$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get(this->domain)));
+			if (allNames) {
+				result->addAll($($nc(moiTb)->values()));
+			} else {
+				addAllMatching(moiTb, result, namePattern);
+			}
+			$assign(var$3, result);
+			return$2 = true;
+			goto $finally;
 		}
-		if (return$2) {
-			return var$3;
+		if (!name->isDomainPattern()) {
+			$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get($(name->getDomain()))));
+			if (moiTb == nullptr) {
+				$assign(var$3, $Collections::emptySet());
+				return$2 = true;
+				goto $finally;
+			}
+			if (allNames) {
+				result->addAll($($nc(moiTb)->values()));
+			} else {
+				addAllMatching(moiTb, result, namePattern);
+			}
+			$assign(var$3, result);
+			return$2 = true;
+			goto $finally;
 		}
+		$var($String, dom2Match, name->getDomain());
+		{
+			$var($Iterator, i$, $$nc($nc(this->domainTb)->keySet())->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($String, dom, $cast($String, i$->next()));
+				if ($Util::wildmatch(dom, dom2Match)) {
+					$var($Map, moiTb, $cast($Map, this->domainTb->get(dom)));
+					if (allNames) {
+						result->addAll($($nc(moiTb)->values()));
+					} else {
+						addAllMatching(moiTb, result, namePattern);
+					}
+				}
+			}
+		}
+		$assign(var$3, result);
+		return$2 = true;
+		goto $finally;
+	} catch ($Throwable& var$4) {
+		$assign(var$1, var$4);
+	} $finally: {
+		$$sure($ReentrantReadWriteLock$ReadLock, this->lock->readLock())->unlock();
+	}
+	if (var$1 != nullptr) {
+		$throw(var$1);
+	}
+	if (return$2) {
+		return var$3;
 	}
 	$shouldNotReachHere();
 }
 
 void Repository::remove($ObjectName* name, $Repository$RegistrationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::TRACE, $$str({"name = "_s, name}));
+		$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::TRACE, $$str({"name = "_s, name}));
 	}
-	$var($String, dom, $nc($($nc(name)->getDomain()))->intern());
+	$var($String, dom, $$nc($nc(name)->getDomain())->intern());
 	if (dom->length() == 0) {
 		$assign(dom, this->domain);
 	}
-	$nc($($cast($ReentrantReadWriteLock$WriteLock, $nc(this->lock)->writeLock())))->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get(dom)));
-			if (moiTb == nullptr) {
-				$throwNew($InstanceNotFoundException, $(name->toString()));
-			}
-			if ($nc(moiTb)->remove($(name->getCanonicalKeyPropertyListString())) == nullptr) {
-				$throwNew($InstanceNotFoundException, $(name->toString()));
-			}
-			--this->nbElements;
-			if ($nc(moiTb)->isEmpty()) {
-				$nc(this->domainTb)->remove(dom);
-				if (dom == this->domain) {
-					$nc(this->domainTb)->put(this->domain, $$new($HashMap));
-				}
-			}
-			unregistering(context, name);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc($($cast($ReentrantReadWriteLock$WriteLock, $nc(this->lock)->writeLock())))->unlock();
+	$$sure($ReentrantReadWriteLock$WriteLock, $nc(this->lock)->writeLock())->lock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Map, moiTb, $cast($Map, $nc(this->domainTb)->get(dom)));
+		if (moiTb == nullptr) {
+			$throwNew($InstanceNotFoundException, $(name->toString()));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if ($nc(moiTb)->remove($(name->getCanonicalKeyPropertyListString())) == nullptr) {
+			$throwNew($InstanceNotFoundException, $(name->toString()));
 		}
+		--this->nbElements;
+		if (moiTb->isEmpty()) {
+			this->domainTb->remove(dom);
+			if (dom == this->domain) {
+				this->domainTb->put(this->domain, $$new($HashMap));
+			}
+		}
+		unregistering(context, name);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$$sure($ReentrantReadWriteLock$WriteLock, this->lock->writeLock())->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -539,7 +468,54 @@ Repository::Repository() {
 }
 
 $Class* Repository::load$($String* name, bool initialize) {
-	$loadClass(Repository, name, initialize, &_Repository_ClassInfo_, allocate$Repository);
+	$FieldInfo fieldInfos$$[] = {
+		{"domainTb", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;>;", $PRIVATE | $FINAL, $field(Repository, domainTb)},
+		{"nbElements", "I", nullptr, $PRIVATE | $VOLATILE, $field(Repository, nbElements)},
+		{"domain", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Repository, domain)},
+		{"lock", "Ljava/util/concurrent/locks/ReentrantReadWriteLock;", nullptr, $PRIVATE | $FINAL, $field(Repository, lock)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Repository, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Repository, init$, void, $String*, bool)},
+		{"addAllMatching", "(Ljava/util/Map;Ljava/util/Set;Lcom/sun/jmx/mbeanserver/Repository$ObjectNamePattern;)V", "(Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;Ljava/util/Set<Lcom/sun/jmx/mbeanserver/NamedObject;>;Lcom/sun/jmx/mbeanserver/Repository$ObjectNamePattern;)V", $PRIVATE, $method(Repository, addAllMatching, void, $Map*, $Set*, $Repository$ObjectNamePattern*)},
+		{"addMBean", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PUBLIC, $virtualMethod(Repository, addMBean, void, $DynamicMBean*, $ObjectName*, $Repository$RegistrationContext*), "javax.management.InstanceAlreadyExistsException"},
+		{"addMoiToTb", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/Map;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", "(Ljavax/management/DynamicMBean;Ljavax/management/ObjectName;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Lcom/sun/jmx/mbeanserver/NamedObject;>;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", $PRIVATE, $method(Repository, addMoiToTb, void, $DynamicMBean*, $ObjectName*, $String*, $Map*, $Repository$RegistrationContext*)},
+		{"addNewDomMoi", "(Ljavax/management/DynamicMBean;Ljava/lang/String;Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PRIVATE, $method(Repository, addNewDomMoi, void, $DynamicMBean*, $String*, $ObjectName*, $Repository$RegistrationContext*)},
+		{"contains", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(Repository, contains, bool, $ObjectName*)},
+		{"getCount", "()Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Repository, getCount, $Integer*)},
+		{"getDefaultDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Repository, getDefaultDomain, $String*)},
+		{"getDomains", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Repository, getDomains, $StringArray*)},
+		{"query", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set;", "(Ljavax/management/ObjectName;Ljavax/management/QueryExp;)Ljava/util/Set<Lcom/sun/jmx/mbeanserver/NamedObject;>;", $PUBLIC, $virtualMethod(Repository, query, $Set*, $ObjectName*, $QueryExp*)},
+		{"registering", "(Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PRIVATE, $method(Repository, registering, void, $Repository$RegistrationContext*)},
+		{"remove", "(Ljavax/management/ObjectName;Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;)V", nullptr, $PUBLIC, $virtualMethod(Repository, remove, void, $ObjectName*, $Repository$RegistrationContext*), "javax.management.InstanceNotFoundException"},
+		{"retrieve", "(Ljavax/management/ObjectName;)Ljavax/management/DynamicMBean;", nullptr, $PUBLIC, $virtualMethod(Repository, retrieve, $DynamicMBean*, $ObjectName*)},
+		{"retrieveNamedObject", "(Ljavax/management/ObjectName;)Lcom/sun/jmx/mbeanserver/NamedObject;", nullptr, $PRIVATE, $method(Repository, retrieveNamedObject, $NamedObject*, $ObjectName*)},
+		{"unregistering", "(Lcom/sun/jmx/mbeanserver/Repository$RegistrationContext;Ljavax/management/ObjectName;)V", nullptr, $PRIVATE, $method(Repository, unregistering, void, $Repository$RegistrationContext*, $ObjectName*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.Repository$ObjectNamePattern", "com.sun.jmx.mbeanserver.Repository", "ObjectNamePattern", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.jmx.mbeanserver.Repository$RegistrationContext", "com.sun.jmx.mbeanserver.Repository", "RegistrationContext", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.Repository",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.Repository$ObjectNamePattern,com.sun.jmx.mbeanserver.Repository$RegistrationContext"
+	};
+	$loadClass(Repository, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Repository);
+	});
 	return class$;
 }
 

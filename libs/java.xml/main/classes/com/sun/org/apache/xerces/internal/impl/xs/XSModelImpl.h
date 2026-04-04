@@ -125,6 +125,7 @@ public:
 	virtual int32_t indexOf(Object$* arg0) override;
 	virtual bool isEmpty() override;
 	virtual int32_t lastIndexOf(Object$* arg0) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar>* grammars);
 	void init$($Array<::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar>* grammars, int16_t s4sVersion);
 	::com::sun::org::apache::xerces::internal::util::SymbolHash* buildSubGroups();

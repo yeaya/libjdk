@@ -34,6 +34,7 @@ class $export InitialLdapContext : public ::javax::naming::directory::InitialDir
 	$class(InitialLdapContext, 0, ::javax::naming::directory::InitialDirContext, ::javax::naming::ldap::LdapContext)
 public:
 	InitialLdapContext();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* addToEnvironment($String* propName, Object$* propVal) override;
 	virtual void bind($String* name, Object$* obj, ::javax::naming::directory::Attributes* attrs) override;
 	virtual void bind(::javax::naming::Name* name, Object$* obj, ::javax::naming::directory::Attributes* attrs) override;

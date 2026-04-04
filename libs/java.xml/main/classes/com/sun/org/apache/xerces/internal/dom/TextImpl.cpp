@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/TextImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/CharacterDataImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
@@ -22,7 +21,6 @@
 #undef TEXT_NODE
 
 using $CharacterDataImpl = ::com::sun::org::apache::xerces::internal::dom::CharacterDataImpl;
-using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
@@ -44,95 +42,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace dom {
-
-$FieldInfo _TextImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TextImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _TextImpl_MethodInfo_[] = {
-	{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*appendData", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
-	{"*deleteData", "(II)V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
-	{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
-	{"*getData", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getLength", "()I", nullptr, $PUBLIC},
-	{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
-	{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*hasAttributes", "()Z", nullptr, $PUBLIC},
-	{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TextImpl, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextImpl, init$, void, $CoreDocumentImpl*, $String*)},
-	{"canModifyNext", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, canModifyNext, bool, $Node*)},
-	{"canModifyPrev", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, canModifyPrev, bool, $Node*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextImpl, getNodeName, $String*)},
-	{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(TextImpl, getNodeType, int16_t)},
-	{"getWholeText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextImpl, getWholeText, $String*)},
-	{"getWholeTextBackward", "(Lorg/w3c/dom/Node;Ljava/lang/StringBuilder;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, getWholeTextBackward, bool, $Node*, $StringBuilder*, $Node*)},
-	{"getWholeTextForward", "(Lorg/w3c/dom/Node;Ljava/lang/StringBuilder;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, getWholeTextForward, bool, $Node*, $StringBuilder*, $Node*)},
-	{"hasTextOnlyChildren", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, hasTextOnlyChildren, bool, $Node*)},
-	{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*insertData", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"insertTextContent", "(Ljava/lang/StringBuilder;)V", nullptr, $PROTECTED, $virtualMethod(TextImpl, insertTextContent, void, $StringBuilder*), "org.w3c.dom.DOMException"},
-	{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"isElementContentWhitespace", "()Z", nullptr, $PUBLIC, $virtualMethod(TextImpl, isElementContentWhitespace, bool)},
-	{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"isIgnorableWhitespace", "()Z", nullptr, $PUBLIC, $virtualMethod(TextImpl, isIgnorableWhitespace, bool)},
-	{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
-	{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
-	{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*normalize", "()V", nullptr, $PUBLIC},
-	{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"removeData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextImpl, removeData, $String*)},
-	{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
-	{"*replaceData", "(IILjava/lang/String;)V", nullptr, $PUBLIC},
-	{"replaceData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextImpl, replaceData, void, $String*)},
-	{"replaceWholeText", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC, $virtualMethod(TextImpl, replaceWholeText, $Text*, $String*), "org.w3c.dom.DOMException"},
-	{"*setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setIgnorableWhitespace", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TextImpl, setIgnorableWhitespace, void, bool)},
-	{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"setValues", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextImpl, setValues, void, $CoreDocumentImpl*, $String*)},
-	{"splitText", "(I)Lorg/w3c/dom/Text;", nullptr, $PUBLIC, $virtualMethod(TextImpl, splitText, $Text*, int32_t), "org.w3c.dom.DOMException"},
-	{"*substringData", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _TextImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.TextImpl",
-	"com.sun.org.apache.xerces.internal.dom.CharacterDataImpl",
-	"org.w3c.dom.Text",
-	_TextImpl_FieldInfo_,
-	_TextImpl_MethodInfo_
-};
-
-$Object* allocate$TextImpl($Class* clazz) {
-	return $of($alloc(TextImpl));
-}
 
 $NodeList* TextImpl::getChildNodes() {
 	 return this->$CharacterDataImpl::getChildNodes();
@@ -335,7 +244,7 @@ void TextImpl::init$($CoreDocumentImpl* ownerDoc, $String* data) {
 }
 
 void TextImpl::setValues($CoreDocumentImpl* ownerDoc, $String* data) {
-	this->flags = (int16_t)0;
+	this->flags = 0;
 	$set(this, nextSibling, nullptr);
 	$set(this, previousSibling$, nullptr);
 	setOwnerDocument(ownerDoc);
@@ -365,22 +274,20 @@ bool TextImpl::isElementContentWhitespace() {
 }
 
 $String* TextImpl::getWholeText() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (needsSyncData()) {
 		synchronizeData();
 	}
 	$var($StringBuilder, buffer, $new($StringBuilder));
-	if (this->data != nullptr && $nc(this->data)->length() != 0) {
+	if (this->data != nullptr && this->data->length() != 0) {
 		buffer->append(this->data);
 	}
 	$var($Node, var$0, this->getPreviousSibling());
-	$var($StringBuilder, var$1, buffer);
-	getWholeTextBackward(var$0, var$1, $(this->getParentNode()));
+	getWholeTextBackward(var$0, buffer, $(this->getParentNode()));
 	$var($String, temp, buffer->toString());
 	buffer->setLength(0);
-	$var($Node, var$2, this->getNextSibling());
-	$var($StringBuilder, var$3, buffer);
-	getWholeTextForward(var$2, var$3, $(this->getParentNode()));
+	$var($Node, var$1, this->getNextSibling());
+	getWholeTextForward(var$1, buffer, $(this->getParentNode()));
 	return $str({temp, $(buffer->toString())});
 }
 
@@ -392,7 +299,7 @@ void TextImpl::insertTextContent($StringBuilder* buf) {
 }
 
 bool TextImpl::getWholeTextForward($Node* node$renamed, $StringBuilder* buffer, $Node* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, node$renamed);
 	bool inEntRef = false;
 	if (parent != nullptr) {
@@ -405,7 +312,7 @@ bool TextImpl::getWholeTextForward($Node* node$renamed, $StringBuilder* buffer, 
 				return true;
 			}
 		} else if (type == $Node::TEXT_NODE || type == $Node::CDATA_SECTION_NODE) {
-			$nc(($cast($NodeImpl, node)))->getTextContent(buffer);
+			$cast($NodeImpl, node)->getTextContent(buffer);
 		} else {
 			return true;
 		}
@@ -413,15 +320,14 @@ bool TextImpl::getWholeTextForward($Node* node$renamed, $StringBuilder* buffer, 
 	}
 	if (inEntRef) {
 		$var($Node, var$0, $nc(parent)->getNextSibling());
-		$var($StringBuilder, var$1, buffer);
-		getWholeTextForward(var$0, var$1, $(parent->getParentNode()));
+		getWholeTextForward(var$0, buffer, $(parent->getParentNode()));
 		return true;
 	}
 	return false;
 }
 
 bool TextImpl::getWholeTextBackward($Node* node$renamed, $StringBuilder* buffer, $Node* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, node$renamed);
 	bool inEntRef = false;
 	if (parent != nullptr) {
@@ -434,7 +340,7 @@ bool TextImpl::getWholeTextBackward($Node* node$renamed, $StringBuilder* buffer,
 				return true;
 			}
 		} else if (type == $Node::TEXT_NODE || type == $Node::CDATA_SECTION_NODE) {
-			$nc(($cast(TextImpl, node)))->insertTextContent(buffer);
+			$cast(TextImpl, node)->insertTextContent(buffer);
 		} else {
 			return true;
 		}
@@ -442,41 +348,40 @@ bool TextImpl::getWholeTextBackward($Node* node$renamed, $StringBuilder* buffer,
 	}
 	if (inEntRef) {
 		$var($Node, var$0, $nc(parent)->getPreviousSibling());
-		$var($StringBuilder, var$1, buffer);
-		getWholeTextBackward(var$0, var$1, $(parent->getParentNode()));
+		getWholeTextBackward(var$0, buffer, $(parent->getParentNode()));
 		return true;
 	}
 	return false;
 }
 
 $Text* TextImpl::replaceWholeText($String* content) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (needsSyncData()) {
 		synchronizeData();
 	}
 	$var($Node, parent, this->getParentNode());
-	if (content == nullptr || $nc(content)->length() == 0) {
+	if (content == nullptr || content->length() == 0) {
 		if (parent != nullptr) {
-			parent->removeChild(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$CharacterDataImpl*>(this)))));
+			parent->removeChild($cast($CharacterDataImpl, this));
 		}
 		return nullptr;
 	}
 	if ($nc($(ownerDocument()))->errorChecking) {
-		if (!canModifyPrev(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$CharacterDataImpl*>(this)))))) {
+		if (!canModifyPrev($cast($CharacterDataImpl, this))) {
 			$init($DOMMessageFormatter);
 			$throwNew($DOMException, $DOMException::NO_MODIFICATION_ALLOWED_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NO_MODIFICATION_ALLOWED_ERR"_s, nullptr)));
 		}
-		if (!canModifyNext(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$CharacterDataImpl*>(this)))))) {
+		if (!canModifyNext($cast($CharacterDataImpl, this))) {
 			$init($DOMMessageFormatter);
 			$throwNew($DOMException, $DOMException::NO_MODIFICATION_ALLOWED_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NO_MODIFICATION_ALLOWED_ERR"_s, nullptr)));
 		}
 	}
 	$var($Text, currentNode, nullptr);
 	if (isReadOnly()) {
-		$var($Text, newNode, $nc($(this->ownerDocument()))->createTextNode(content));
+		$var($Text, newNode, $$nc(this->ownerDocument())->createTextNode(content));
 		if (parent != nullptr) {
-			parent->insertBefore(newNode, static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$CharacterDataImpl*>(this)))));
-			parent->removeChild(static_cast<$Node*>(static_cast<$NodeImpl*>(static_cast<$ChildNode*>(static_cast<$CharacterDataImpl*>(this)))));
+			parent->insertBefore(newNode, $cast($CharacterDataImpl, this));
+			parent->removeChild($cast($CharacterDataImpl, this));
 			$assign(currentNode, newNode);
 		} else {
 			return newNode;
@@ -487,11 +392,11 @@ $Text* TextImpl::replaceWholeText($String* content) {
 	}
 	$var($Node, prev, $nc(currentNode)->getPreviousSibling());
 	while (prev != nullptr) {
-		bool var$1 = (prev->getNodeType() == $Node::TEXT_NODE);
+		bool var$1 = prev->getNodeType() == $Node::TEXT_NODE;
 		bool var$0 = var$1 || (prev->getNodeType() == $Node::CDATA_SECTION_NODE);
 		if (!var$0) {
 			bool var$2 = prev->getNodeType() == $Node::ENTITY_REFERENCE_NODE;
-			var$0 = (var$2 && hasTextOnlyChildren(prev));
+			var$0 = var$2 && hasTextOnlyChildren(prev);
 		}
 		if (var$0) {
 			$nc(parent)->removeChild(prev);
@@ -503,11 +408,11 @@ $Text* TextImpl::replaceWholeText($String* content) {
 	}
 	$var($Node, next, currentNode->getNextSibling());
 	while (next != nullptr) {
-		bool var$4 = (next->getNodeType() == $Node::TEXT_NODE);
+		bool var$4 = next->getNodeType() == $Node::TEXT_NODE;
 		bool var$3 = var$4 || (next->getNodeType() == $Node::CDATA_SECTION_NODE);
 		if (!var$3) {
 			bool var$5 = next->getNodeType() == $Node::ENTITY_REFERENCE_NODE;
-			var$3 = (var$5 && hasTextOnlyChildren(next));
+			var$3 = var$5 && hasTextOnlyChildren(next);
 		}
 		if (var$3) {
 			$nc(parent)->removeChild(next);
@@ -521,7 +426,7 @@ $Text* TextImpl::replaceWholeText($String* content) {
 }
 
 bool TextImpl::canModifyPrev($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool textLastChild = false;
 	$var($Node, prev, $nc(node)->getPreviousSibling());
 	while (prev != nullptr) {
@@ -558,7 +463,7 @@ bool TextImpl::canModifyPrev($Node* node) {
 }
 
 bool TextImpl::canModifyNext($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool textFirstChild = false;
 	$var($Node, next, $nc(node)->getNextSibling());
 	while (next != nullptr) {
@@ -620,7 +525,7 @@ bool TextImpl::isIgnorableWhitespace() {
 }
 
 $Text* TextImpl::splitText(int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isReadOnly()) {
 		$init($DOMMessageFormatter);
 		$throwNew($DOMException, $DOMException::NO_MODIFICATION_ALLOWED_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "NO_MODIFICATION_ALLOWED_ERR"_s, nullptr)));
@@ -632,7 +537,7 @@ $Text* TextImpl::splitText(int32_t offset) {
 		$init($DOMMessageFormatter);
 		$throwNew($DOMException, $DOMException::INDEX_SIZE_ERR, $($DOMMessageFormatter::formatMessage($DOMMessageFormatter::DOM_DOMAIN, "INDEX_SIZE_ERR"_s, nullptr)));
 	}
-	$var($Text, newText, $nc($(getOwnerDocument()))->createTextNode($($nc(this->data)->substring(offset))));
+	$var($Text, newText, $$nc(getOwnerDocument())->createTextNode($($nc(this->data)->substring(offset))));
 	setNodeValue($($nc(this->data)->substring(0, offset)));
 	$var($Node, parentNode, getParentNode());
 	if (parentNode != nullptr) {
@@ -655,7 +560,91 @@ TextImpl::TextImpl() {
 }
 
 $Class* TextImpl::load$($String* name, bool initialize) {
-	$loadClass(TextImpl, name, initialize, &_TextImpl_ClassInfo_, allocate$TextImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TextImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*appendData", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC},
+		{"*deleteData", "(II)V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC},
+		{"*getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC},
+		{"*getData", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getLength", "()I", nullptr, $PUBLIC},
+		{"*getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC},
+		{"*getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*hasAttributes", "()Z", nullptr, $PUBLIC},
+		{"*hasChildNodes", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TextImpl, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TextImpl, init$, void, $CoreDocumentImpl*, $String*)},
+		{"canModifyNext", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, canModifyNext, bool, $Node*)},
+		{"canModifyPrev", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, canModifyPrev, bool, $Node*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextImpl, getNodeName, $String*)},
+		{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(TextImpl, getNodeType, int16_t)},
+		{"getWholeText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextImpl, getWholeText, $String*)},
+		{"getWholeTextBackward", "(Lorg/w3c/dom/Node;Ljava/lang/StringBuilder;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, getWholeTextBackward, bool, $Node*, $StringBuilder*, $Node*)},
+		{"getWholeTextForward", "(Lorg/w3c/dom/Node;Ljava/lang/StringBuilder;Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, getWholeTextForward, bool, $Node*, $StringBuilder*, $Node*)},
+		{"hasTextOnlyChildren", "(Lorg/w3c/dom/Node;)Z", nullptr, $PRIVATE, $method(TextImpl, hasTextOnlyChildren, bool, $Node*)},
+		{"*insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*insertData", "(ILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"insertTextContent", "(Ljava/lang/StringBuilder;)V", nullptr, $PROTECTED, $virtualMethod(TextImpl, insertTextContent, void, $StringBuilder*), "org.w3c.dom.DOMException"},
+		{"*isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"isElementContentWhitespace", "()Z", nullptr, $PUBLIC, $virtualMethod(TextImpl, isElementContentWhitespace, bool)},
+		{"*isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"isIgnorableWhitespace", "()Z", nullptr, $PUBLIC, $virtualMethod(TextImpl, isIgnorableWhitespace, bool)},
+		{"*isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC},
+		{"*isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC},
+		{"*lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*normalize", "()V", nullptr, $PUBLIC},
+		{"*removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"removeData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TextImpl, removeData, $String*)},
+		{"*replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC},
+		{"*replaceData", "(IILjava/lang/String;)V", nullptr, $PUBLIC},
+		{"replaceData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextImpl, replaceData, void, $String*)},
+		{"replaceWholeText", "(Ljava/lang/String;)Lorg/w3c/dom/Text;", nullptr, $PUBLIC, $virtualMethod(TextImpl, replaceWholeText, $Text*, $String*), "org.w3c.dom.DOMException"},
+		{"*setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setIgnorableWhitespace", "(Z)V", nullptr, $PUBLIC, $virtualMethod(TextImpl, setIgnorableWhitespace, void, bool)},
+		{"*setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"setValues", "(Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(TextImpl, setValues, void, $CoreDocumentImpl*, $String*)},
+		{"splitText", "(I)Lorg/w3c/dom/Text;", nullptr, $PUBLIC, $virtualMethod(TextImpl, splitText, $Text*, int32_t), "org.w3c.dom.DOMException"},
+		{"*substringData", "(II)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.TextImpl",
+		"com.sun.org.apache.xerces.internal.dom.CharacterDataImpl",
+		"org.w3c.dom.Text",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TextImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TextImpl));
+	});
 	return class$;
 }
 

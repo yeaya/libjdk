@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XListPeer$1.h>
-
 #include <java/awt/event/MouseEvent.h>
 #include <sun/awt/X11/XListPeer.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XListPeer$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XListPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XListPeer$1, this$0)},
-	{"val$me", "Ljava/awt/event/MouseEvent;", nullptr, $FINAL | $SYNTHETIC, $field(XListPeer$1, val$me)},
-	{}
-};
-
-$MethodInfo _XListPeer$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XListPeer;Ljava/awt/event/MouseEvent;)V", "()V", 0, $method(XListPeer$1, init$, void, $XListPeer*, $MouseEvent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _XListPeer$1_EnclosingMethodInfo_ = {
-	"sun.awt.X11.XListPeer",
-	"handleJavaMouseEventOnEDT",
-	"(Ljava/awt/event/MouseEvent;)V"
-};
-
-$InnerClassInfo _XListPeer$1_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XListPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XListPeer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XListPeer$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_XListPeer$1_FieldInfo_,
-	_XListPeer$1_MethodInfo_,
-	nullptr,
-	&_XListPeer$1_EnclosingMethodInfo_,
-	_XListPeer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XListPeer"
-};
-
-$Object* allocate$XListPeer$1($Class* clazz) {
-	return $of($alloc(XListPeer$1));
-}
-
 void XListPeer$1::init$($XListPeer* this$0, $MouseEvent* val$me) {
 	$set(this, this$0, this$0);
 	$set(this, val$me, val$me);
@@ -72,7 +28,43 @@ XListPeer$1::XListPeer$1() {
 }
 
 $Class* XListPeer$1::load$($String* name, bool initialize) {
-	$loadClass(XListPeer$1, name, initialize, &_XListPeer$1_ClassInfo_, allocate$XListPeer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XListPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XListPeer$1, this$0)},
+		{"val$me", "Ljava/awt/event/MouseEvent;", nullptr, $FINAL | $SYNTHETIC, $field(XListPeer$1, val$me)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XListPeer;Ljava/awt/event/MouseEvent;)V", "()V", 0, $method(XListPeer$1, init$, void, $XListPeer*, $MouseEvent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(XListPeer$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.X11.XListPeer",
+		"handleJavaMouseEventOnEDT",
+		"(Ljava/awt/event/MouseEvent;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XListPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XListPeer$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XListPeer"
+	};
+	$loadClass(XListPeer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XListPeer$1);
+	});
 	return class$;
 }
 

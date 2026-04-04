@@ -25,6 +25,7 @@ class $import MBeanParameterInfo : public ::javax::management::MBeanFeatureInfo,
 public:
 	MBeanParameterInfo();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* type, $String* description);
 	void init$($String* name, $String* type, $String* description, ::javax::management::Descriptor* descriptor);
 	virtual $Object* clone() override;
@@ -32,7 +33,7 @@ public:
 	virtual $String* getType();
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x6725F5ACD97B3602;
+	static const int64_t serialVersionUID = (int64_t)0x6725f5acd97b3602;
 	static $Array<::javax::management::MBeanParameterInfo>* NO_PARAMS;
 	$String* type = nullptr;
 };

@@ -66,6 +66,7 @@ class $import TIFFTag : public ::java::lang::Object {
 	$class(TIFFTag, 0, ::java::lang::Object)
 public:
 	TIFFTag();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t number, int32_t dataTypes, int32_t count);
 	void init$($String* name, int32_t number, ::javax::imageio::plugins::tiff::TIFFTagSet* tagSet);
 	void init$($String* name, int32_t number, int32_t dataTypes);

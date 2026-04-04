@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriter.h>
-
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
 #include <com/sun/imageio/plugins/common/SingleTileRenderedImage.h>
 #include <com/sun/imageio/plugins/tiff/EmptyImage.h>
@@ -67,9 +66,7 @@
 #include <javax/imageio/plugins/tiff/TIFFField.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <javax/imageio/plugins/tiff/TIFFTagSet.h>
-#include <javax/imageio/spi/ImageReaderSpi.h>
 #include <javax/imageio/spi/ImageWriterSpi.h>
-#include <javax/imageio/stream/ImageInputStream.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -184,7 +181,6 @@ using $ImageUtil = ::com::sun::imageio::plugins::common::ImageUtil;
 using $SingleTileRenderedImage = ::com::sun::imageio::plugins::common::SingleTileRenderedImage;
 using $EmptyImage = ::com::sun::imageio::plugins::tiff::EmptyImage;
 using $TIFFCIELabColorConverter = ::com::sun::imageio::plugins::tiff::TIFFCIELabColorConverter;
-using $TIFFColorConverter = ::com::sun::imageio::plugins::tiff::TIFFColorConverter;
 using $TIFFCompressor = ::com::sun::imageio::plugins::tiff::TIFFCompressor;
 using $TIFFDeflateCompressor = ::com::sun::imageio::plugins::tiff::TIFFDeflateCompressor;
 using $TIFFExifJPEGCompressor = ::com::sun::imageio::plugins::tiff::TIFFExifJPEGCompressor;
@@ -208,7 +204,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ColorSpace = ::java::awt::color::ColorSpace;
 using $ICC_ColorSpace = ::java::awt::color::ICC_ColorSpace;
-using $ICC_Profile = ::java::awt::color::ICC_Profile;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
@@ -249,13 +244,10 @@ using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
 using $ExifParentTIFFTagSet = ::javax::imageio::plugins::tiff::ExifParentTIFFTagSet;
 using $ExifTIFFTagSet = ::javax::imageio::plugins::tiff::ExifTIFFTagSet;
-using $TIFFDirectory = ::javax::imageio::plugins::tiff::TIFFDirectory;
 using $TIFFField = ::javax::imageio::plugins::tiff::TIFFField;
 using $TIFFTag = ::javax::imageio::plugins::tiff::TIFFTag;
 using $TIFFTagSet = ::javax::imageio::plugins::tiff::TIFFTagSet;
-using $ImageReaderSpi = ::javax::imageio::spi::ImageReaderSpi;
 using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
-using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 using $Node = ::org::w3c::dom::Node;
 
@@ -264,139 +256,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFImageWriter_FieldInfo_[] = {
-	{"EXIF_JPEG_COMPRESSION_TYPE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, EXIF_JPEG_COMPRESSION_TYPE)},
-	{"DEFAULT_BYTES_PER_STRIP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFImageWriter, DEFAULT_BYTES_PER_STRIP)},
-	{"TIFFCompressionTypes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, TIFFCompressionTypes)},
-	{"compressionTypes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, compressionTypes)},
-	{"isCompressionLossless", "[Z", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, isCompressionLossless)},
-	{"compressionNumbers", "[I", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, compressionNumbers)},
-	{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(TIFFImageWriter, stream)},
-	{"headerPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, headerPosition)},
-	{"image", "Ljava/awt/image/RenderedImage;", nullptr, $PRIVATE, $field(TIFFImageWriter, image)},
-	{"imageType", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $field(TIFFImageWriter, imageType)},
-	{"byteOrder", "Ljava/nio/ByteOrder;", nullptr, $PRIVATE, $field(TIFFImageWriter, byteOrder)},
-	{"param", "Ljavax/imageio/ImageWriteParam;", nullptr, $PRIVATE, $field(TIFFImageWriter, param)},
-	{"compressor", "Lcom/sun/imageio/plugins/tiff/TIFFCompressor;", nullptr, $PRIVATE, $field(TIFFImageWriter, compressor)},
-	{"colorConverter", "Lcom/sun/imageio/plugins/tiff/TIFFColorConverter;", nullptr, $PRIVATE, $field(TIFFImageWriter, colorConverter)},
-	{"streamMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFStreamMetadata;", nullptr, $PRIVATE, $field(TIFFImageWriter, streamMetadata)},
-	{"imageMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $field(TIFFImageWriter, imageMetadata)},
-	{"sourceXOffset", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceXOffset)},
-	{"sourceYOffset", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceYOffset)},
-	{"sourceWidth", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceWidth)},
-	{"sourceHeight", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceHeight)},
-	{"sourceBands", "[I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceBands)},
-	{"periodX", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, periodX)},
-	{"periodY", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, periodY)},
-	{"bitDepth", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, bitDepth)},
-	{"numBands", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, numBands)},
-	{"tileWidth", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, tileWidth)},
-	{"tileLength", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, tileLength)},
-	{"tilesAcross", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, tilesAcross)},
-	{"tilesDown", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, tilesDown)},
-	{"sampleSize", "[I", nullptr, $PRIVATE, $field(TIFFImageWriter, sampleSize)},
-	{"scalingBitDepth", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, scalingBitDepth)},
-	{"isRescaling", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isRescaling)},
-	{"isBilevel", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isBilevel)},
-	{"isImageSimple", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isImageSimple)},
-	{"isInverted", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isInverted)},
-	{"isTiled", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isTiled)},
-	{"nativePhotometricInterpretation", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, nativePhotometricInterpretation)},
-	{"photometricInterpretation", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, photometricInterpretation)},
-	{"bitsPerSample", "[C", nullptr, $PRIVATE, $field(TIFFImageWriter, bitsPerSample)},
-	{"sampleFormat", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sampleFormat)},
-	{"scale", "[[B", nullptr, $PRIVATE, $field(TIFFImageWriter, scale)},
-	{"scale0", "[B", nullptr, $PRIVATE, $field(TIFFImageWriter, scale0)},
-	{"scaleh", "[[B", nullptr, $PRIVATE, $field(TIFFImageWriter, scaleh)},
-	{"scalel", "[[B", nullptr, $PRIVATE, $field(TIFFImageWriter, scalel)},
-	{"compression", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, compression)},
-	{"predictor", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, predictor)},
-	{"totalPixels", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, totalPixels)},
-	{"pixelsDone", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, pixelsDone)},
-	{"nextIFDPointerPos", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, nextIFDPointerPos)},
-	{"nextSpace", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, nextSpace)},
-	{"prevStreamPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, prevStreamPosition)},
-	{"prevHeaderPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, prevHeaderPosition)},
-	{"prevNextSpace", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, prevNextSpace)},
-	{"isWritingSequence", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isWritingSequence)},
-	{"isInsertingEmpty", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isInsertingEmpty)},
-	{"isWritingEmpty", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isWritingEmpty)},
-	{"currentImage", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, currentImage)},
-	{"replacePixelsLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsLock)},
-	{"replacePixelsIndex", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsIndex)},
-	{"replacePixelsMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsMetadata)},
-	{"replacePixelsTileOffsets", "[J", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsTileOffsets)},
-	{"replacePixelsByteCounts", "[J", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsByteCounts)},
-	{"replacePixelsOffsetsPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsOffsetsPosition)},
-	{"replacePixelsByteCountsPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsByteCountsPosition)},
-	{"replacePixelsRegion", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsRegion)},
-	{"inReplacePixelsNest", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, inReplacePixelsNest)},
-	{"reader", "Lcom/sun/imageio/plugins/tiff/TIFFImageReader;", nullptr, $PRIVATE, $field(TIFFImageWriter, reader)},
-	{}
-};
-
-$MethodInfo _TIFFImageWriter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PUBLIC, $method(TIFFImageWriter, init$, void, $ImageWriterSpi*)},
-	{"XToTileX", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFImageWriter, XToTileX, int32_t, int32_t, int32_t, int32_t)},
-	{"YToTileY", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFImageWriter, YToTileY, int32_t, int32_t, int32_t, int32_t)},
-	{"canInsertEmpty", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canInsertEmpty, bool, int32_t), "java.io.IOException"},
-	{"canInsertImage", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canInsertImage, bool, int32_t), "java.io.IOException"},
-	{"canReplacePixels", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canReplacePixels, bool, int32_t), "java.io.IOException"},
-	{"canWriteEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canWriteEmpty, bool), "java.io.IOException"},
-	{"canWriteSequence", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canWriteSequence, bool)},
-	{"checkParamsEmpty", "(Ljavax/imageio/ImageTypeSpecifier;IILjava/util/List;)V", "(Ljavax/imageio/ImageTypeSpecifier;IILjava/util/List<+Ljava/awt/image/BufferedImage;>;)V", $PRIVATE, $method(TIFFImageWriter, checkParamsEmpty, void, $ImageTypeSpecifier*, int32_t, int32_t, $List*)},
-	{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"convertNativeImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $method(TIFFImageWriter, convertNativeImageMetadata, $TIFFImageMetadata*, $IIOMetadata*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"convertStandardImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $method(TIFFImageWriter, convertStandardImageMetadata, $TIFFImageMetadata*, $IIOMetadata*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
-	{"endInsertEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, endInsertEmpty, void), "java.io.IOException"},
-	{"endReplacePixels", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, endReplacePixels, void), "java.io.IOException"},
-	{"endWriteEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, endWriteEmpty, void), "java.io.IOException"},
-	{"endWriteSequence", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, endWriteSequence, void), "java.io.IOException"},
-	{"equals", "([I[I)Z", nullptr, $PRIVATE, $method(TIFFImageWriter, equals, bool, $ints*, $ints*)},
-	{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
-	{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
-	{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
-	{"getImageType", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, 0, $virtualMethod(TIFFImageWriter, getImageType, $ImageTypeSpecifier*)},
-	{"initializeScaleTables", "([I)V", nullptr, $PRIVATE, $method(TIFFImageWriter, initializeScaleTables, void, $ints*)},
-	{"insert", "(ILjavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;Z)V", nullptr, $PRIVATE, $method(TIFFImageWriter, insert, void, int32_t, $IIOImage*, $ImageWriteParam*, bool), "java.io.IOException"},
-	{"isEncodingEmpty", "()Z", nullptr, $PRIVATE, $method(TIFFImageWriter, isEncodingEmpty, bool)},
-	{"locateIFD", "(I[J[J)V", nullptr, $PRIVATE, $method(TIFFImageWriter, locateIFD, void, int32_t, $longs*, $longs*), "java.io.IOException"},
-	{"markPositions", "()V", nullptr, $PRIVATE, $method(TIFFImageWriter, markPositions, void), "java.io.IOException"},
-	{"prepareInsertEmpty", "(ILjavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List;Ljavax/imageio/ImageWriteParam;)V", "(ILjavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljavax/imageio/ImageWriteParam;)V", $PUBLIC, $virtualMethod(TIFFImageWriter, prepareInsertEmpty, void, int32_t, $ImageTypeSpecifier*, int32_t, int32_t, $IIOMetadata*, $List*, $ImageWriteParam*), "java.io.IOException"},
-	{"prepareReplacePixels", "(ILjava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, prepareReplacePixels, void, int32_t, $Rectangle*), "java.io.IOException"},
-	{"prepareWriteEmpty", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List;Ljavax/imageio/ImageWriteParam;)V", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljavax/imageio/ImageWriteParam;)V", $PUBLIC, $virtualMethod(TIFFImageWriter, prepareWriteEmpty, void, $IIOMetadata*, $ImageTypeSpecifier*, int32_t, int32_t, $IIOMetadata*, $List*, $ImageWriteParam*), "java.io.IOException"},
-	{"prepareWriteSequence", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, prepareWriteSequence, void, $IIOMetadata*), "java.io.IOException"},
-	{"readIFD", "(I)Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PRIVATE, $method(TIFFImageWriter, readIFD, $TIFFIFD*, int32_t), "java.io.IOException"},
-	{"replacePixels", "(Ljava/awt/image/RenderedImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, replacePixels, void, $RenderedImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"replacePixels", "(Ljava/awt/image/Raster;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, replacePixels, void, $Raster*, $ImageWriteParam*), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, reset, void)},
-	{"resetPositions", "()V", nullptr, $PRIVATE, $method(TIFFImageWriter, resetPositions, void), "java.io.IOException"},
-	{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, setOutput, void, Object$*)},
-	{"setupMetadata", "(Ljava/awt/image/ColorModel;Ljava/awt/image/SampleModel;II)V", nullptr, 0, $virtualMethod(TIFFImageWriter, setupMetadata, void, $ColorModel*, $SampleModel*, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"subsample", "(Ljava/awt/image/Raster;[IIIIIIILjava/awt/Rectangle;)Ljava/awt/image/Raster;", nullptr, $PRIVATE, $method(TIFFImageWriter, subsample, $Raster*, $Raster*, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Rectangle*)},
-	{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;ZZ)V", nullptr, $PRIVATE, $method(TIFFImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*, bool, bool), "java.io.IOException"},
-	{"writeHeader", "()V", nullptr, $PRIVATE, $method(TIFFImageWriter, writeHeader, void), "java.io.IOException"},
-	{"writeInsert", "(ILjavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, writeInsert, void, int32_t, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{"writeTile", "(Ljava/awt/Rectangle;Lcom/sun/imageio/plugins/tiff/TIFFCompressor;)I", nullptr, $PRIVATE, $method(TIFFImageWriter, writeTile, int32_t, $Rectangle*, $TIFFCompressor*), "java.io.IOException"},
-	{"writeToSequence", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, writeToSequence, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _TIFFImageWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFImageWriter",
-	"javax.imageio.ImageWriter",
-	nullptr,
-	_TIFFImageWriter_FieldInfo_,
-	_TIFFImageWriter_MethodInfo_
-};
-
-$Object* allocate$TIFFImageWriter($Class* clazz) {
-	return $of($alloc(TIFFImageWriter));
-}
 
 $String* TIFFImageWriter::EXIF_JPEG_COMPRESSION_TYPE = nullptr;
 $StringArray* TIFFImageWriter::TIFFCompressionTypes = nullptr;
@@ -461,7 +320,7 @@ void TIFFImageWriter::setOutput(Object$* output) {
 		reset();
 		$set(this, stream, $cast($ImageOutputStream, output));
 		try {
-			this->headerPosition = $nc(this->stream)->getStreamPosition();
+			this->headerPosition = this->stream->getStreamPosition();
 			try {
 				$var($bytes, b, $new($bytes, 4));
 				$nc(this->stream)->readFully(b);
@@ -488,7 +347,7 @@ $IIOMetadata* TIFFImageWriter::getDefaultStreamMetadata($ImageWriteParam* param)
 }
 
 $IIOMetadata* TIFFImageWriter::getDefaultImageMetadata($ImageTypeSpecifier* imageType, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, tagSets, $new($ArrayList, 1));
 	tagSets->add($($BaselineTIFFTagSet::getInstance()));
 	$var($TIFFImageMetadata, imageMetadata, $new($TIFFImageMetadata, tagSets));
@@ -502,22 +361,22 @@ $IIOMetadata* TIFFImageWriter::getDefaultImageMetadata($ImageTypeSpecifier* imag
 }
 
 $IIOMetadata* TIFFImageWriter::convertStreamMetadata($IIOMetadata* inData, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inData == nullptr) {
 		$throwNew($NullPointerException, "inData == null!"_s);
 	}
 	$var($TIFFStreamMetadata, outData, nullptr);
 	if ($instanceOf($TIFFStreamMetadata, inData)) {
 		$assign(outData, $new($TIFFStreamMetadata));
-		$set(outData, byteOrder, $nc(($cast($TIFFStreamMetadata, inData)))->byteOrder);
+		$set(outData, byteOrder, $cast($TIFFStreamMetadata, inData)->byteOrder);
 		return outData;
 	} else {
 		$init($TIFFStreamMetadata);
-		if ($nc($($Arrays::asList($($nc(inData)->getMetadataFormatNames()))))->contains($TIFFStreamMetadata::NATIVE_METADATA_FORMAT_NAME)) {
+		if ($$nc($Arrays::asList($($nc(inData)->getMetadataFormatNames())))->contains($TIFFStreamMetadata::NATIVE_METADATA_FORMAT_NAME)) {
 			$assign(outData, $new($TIFFStreamMetadata));
 			$var($String, format, $TIFFStreamMetadata::NATIVE_METADATA_FORMAT_NAME);
 			try {
-				outData->mergeTree(format, $($nc(inData)->getAsTree(format)));
+				outData->mergeTree(format, $(inData->getAsTree(format)));
 			} catch ($IIOInvalidTreeException& e) {
 				return nullptr;
 			}
@@ -527,7 +386,7 @@ $IIOMetadata* TIFFImageWriter::convertStreamMetadata($IIOMetadata* inData, $Imag
 }
 
 $IIOMetadata* TIFFImageWriter::convertImageMetadata($IIOMetadata* inData, $ImageTypeSpecifier* imageType, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inData == nullptr) {
 		$throwNew($NullPointerException, "inData == null!"_s);
 	}
@@ -536,17 +395,17 @@ $IIOMetadata* TIFFImageWriter::convertImageMetadata($IIOMetadata* inData, $Image
 	}
 	$var($TIFFImageMetadata, outData, nullptr);
 	if ($instanceOf($TIFFImageMetadata, inData)) {
-		$var($TIFFIFD, inIFD, $nc(($cast($TIFFImageMetadata, inData)))->getRootIFD());
+		$var($TIFFIFD, inIFD, $cast($TIFFImageMetadata, inData)->getRootIFD());
 		$assign(outData, $new($TIFFImageMetadata, $($nc(inIFD)->getShallowClone())));
 	} else {
 		$init($TIFFImageMetadata);
-		if ($nc($($Arrays::asList($($nc(inData)->getMetadataFormatNames()))))->contains($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME)) {
+		if ($$nc($Arrays::asList($($nc(inData)->getMetadataFormatNames())))->contains($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME)) {
 			try {
 				$assign(outData, convertNativeImageMetadata(inData));
 			} catch ($IIOInvalidTreeException& e) {
 				return nullptr;
 			}
-		} else if ($nc(inData)->isStandardMetadataFormatSupported()) {
+		} else if (inData->isStandardMetadataFormatSupported()) {
 			try {
 				$assign(outData, convertStandardImageMetadata(inData));
 			} catch ($IIOInvalidTreeException& e) {
@@ -561,9 +420,8 @@ $IIOMetadata* TIFFImageWriter::convertImageMetadata($IIOMetadata* inData, $Image
 		$var($SampleModel, sm, $nc(imageType)->getSampleModel());
 		try {
 			$var($ColorModel, var$0, imageType->getColorModel());
-			$var($SampleModel, var$1, sm);
-			int32_t var$2 = $nc(sm)->getWidth();
-			bogusWriter->setupMetadata(var$0, var$1, var$2, sm->getHeight());
+			int32_t var$1 = $nc(sm)->getWidth();
+			bogusWriter->setupMetadata(var$0, sm, var$1, sm->getHeight());
 			return bogusWriter->imageMetadata;
 		} catch ($IIOException& e) {
 			return nullptr;
@@ -573,10 +431,10 @@ $IIOMetadata* TIFFImageWriter::convertImageMetadata($IIOMetadata* inData, $Image
 }
 
 $TIFFImageMetadata* TIFFImageWriter::convertStandardImageMetadata($IIOMetadata* inData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inData == nullptr) {
 		$throwNew($NullPointerException, "inData == null!"_s);
-	} else if (!$nc(inData)->isStandardMetadataFormatSupported()) {
+	} else if (!inData->isStandardMetadataFormatSupported()) {
 		$throwNew($IllegalArgumentException, "inData does not support standard metadata format!"_s);
 	}
 	$var($TIFFImageMetadata, outData, nullptr);
@@ -593,12 +451,12 @@ $TIFFImageMetadata* TIFFImageWriter::convertStandardImageMetadata($IIOMetadata* 
 }
 
 $TIFFImageMetadata* TIFFImageWriter::convertNativeImageMetadata($IIOMetadata* inData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (inData == nullptr) {
 		$throwNew($NullPointerException, "inData == null!"_s);
 	} else {
 		$init($TIFFImageMetadata);
-		if (!$nc($($Arrays::asList($($nc(inData)->getMetadataFormatNames()))))->contains($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME)) {
+		if (!$$nc($Arrays::asList($(inData->getMetadataFormatNames())))->contains($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME)) {
 			$throwNew($IllegalArgumentException, "inData does not support native metadata format!"_s);
 		}
 	}
@@ -616,7 +474,7 @@ $TIFFImageMetadata* TIFFImageWriter::convertNativeImageMetadata($IIOMetadata* in
 }
 
 void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t destWidth, int32_t destHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFIFD, rootIFD, $nc(this->imageMetadata)->getRootIFD());
 	$var($BaselineTIFFTagSet, base, $BaselineTIFFTagSet::getInstance());
 	$var($TIFFField, f, $nc(rootIFD)->getTIFFField($BaselineTIFFTagSet::TAG_PLANAR_CONFIGURATION));
@@ -656,7 +514,7 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 		}
 	} else if (sm->getNumBands() == 1 && $instanceOf($IndexColorModel, cm)) {
 		$var($IndexColorModel, icm, $cast($IndexColorModel, cm));
-		int32_t r0 = $nc(icm)->getRed(0);
+		int32_t r0 = icm->getRed(0);
 		int32_t r1 = icm->getRed(1);
 		bool var$3 = icm->getMapSize() == 2;
 		bool var$2 = var$3 && (r0 == icm->getGreen(0));
@@ -676,26 +534,18 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 		}
 	} else {
 		if (cm != nullptr) {
-			switch ($nc($(cm->getColorSpace()))->getType()) {
+			switch ($$nc(cm->getColorSpace())->getType()) {
 			case $ColorSpace::TYPE_Lab:
-				{
-					this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_CIELAB;
-					break;
-				}
+				this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_CIELAB;
+				break;
 			case $ColorSpace::TYPE_YCbCr:
-				{
-					this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_Y_CB_CR;
-					break;
-				}
+				this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_Y_CB_CR;
+				break;
 			case $ColorSpace::TYPE_CMYK:
-				{
-					this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_CMYK;
-					break;
-				}
+				this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_CMYK;
+				break;
 			default:
-				{
-					this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO;
-				}
+				this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO;
 			}
 		} else {
 			this->nativePhotometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO;
@@ -708,37 +558,31 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 	switch (compressionMode) {
 	case $ImageWriteParam::MODE_EXPLICIT:
 		{
-			{
-				$var($String, compressionType, $nc(this->param)->getCompressionType());
-				if (compressionType == nullptr) {
-					this->compression = $BaselineTIFFTagSet::COMPRESSION_NONE;
-				} else {
-					int32_t len = $nc(TIFFImageWriter::compressionTypes)->length;
-					for (int32_t i = 0; i < len; ++i) {
-						if ($nc(compressionType)->equals($nc(TIFFImageWriter::compressionTypes)->get(i))) {
-							this->compression = $nc(TIFFImageWriter::compressionNumbers)->get(i);
-						}
+			$var($String, compressionType, $nc(this->param)->getCompressionType());
+			if (compressionType == nullptr) {
+				this->compression = $BaselineTIFFTagSet::COMPRESSION_NONE;
+			} else {
+				int32_t len = TIFFImageWriter::compressionTypes->length;
+				for (int32_t i = 0; i < len; ++i) {
+					if (compressionType->equals(TIFFImageWriter::compressionTypes->get(i))) {
+						this->compression = TIFFImageWriter::compressionNumbers->get(i);
 					}
 				}
 			}
-			break;
 		}
+		break;
 	case $ImageWriteParam::MODE_COPY_FROM_METADATA:
 		{
-			{
-				$var($TIFFField, compField, rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_COMPRESSION));
-				if (compField != nullptr) {
-					this->compression = compField->getAsInt(0);
-				} else {
-					this->compression = $BaselineTIFFTagSet::COMPRESSION_NONE;
-				}
+			$var($TIFFField, compField, rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_COMPRESSION));
+			if (compField != nullptr) {
+				this->compression = compField->getAsInt(0);
+			} else {
+				this->compression = $BaselineTIFFTagSet::COMPRESSION_NONE;
 			}
-			break;
 		}
+		break;
 	default:
-		{
-			this->compression = $BaselineTIFFTagSet::COMPRESSION_NONE;
-		}
+		this->compression = $BaselineTIFFTagSet::COMPRESSION_NONE;
 	}
 	$var($TIFFField, predictorField, rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_PREDICTOR));
 	if (predictorField != nullptr) {
@@ -759,7 +603,7 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 			} else if (this->compression == $BaselineTIFFTagSet::COMPRESSION_OLD_JPEG) {
 				isExif = true;
 			}
-		} else if (compressionMode == $ImageWriteParam::MODE_EXPLICIT && $nc(TIFFImageWriter::EXIF_JPEG_COMPRESSION_TYPE)->equals($($nc(this->param)->getCompressionType()))) {
+		} else if (compressionMode == $ImageWriteParam::MODE_EXPLICIT && TIFFImageWriter::EXIF_JPEG_COMPRESSION_TYPE->equals($($nc(this->param)->getCompressionType()))) {
 			isExif = true;
 		}
 	}
@@ -791,7 +635,7 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 	} else if (this->compression == $BaselineTIFFTagSet::COMPRESSION_JPEG) {
 		if (numBands == 3 && $nc(sampleSize)->get(0) == 8 && sampleSize->get(1) == 8 && sampleSize->get(2) == 8) {
 			this->photometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_Y_CB_CR;
-		} else if (numBands == 1 && sampleSize->get(0) == 8) {
+		} else if (numBands == 1 && $nc(sampleSize)->get(0) == 8) {
 			this->photometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO;
 		} else {
 			$throwNew($IIOException, "JPEG compression supported for 1- and 3-band byte images only!"_s);
@@ -813,7 +657,7 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 		}
 	}
 	$set(this, colorConverter, nullptr);
-	if (cm != nullptr && $nc($(cm->getColorSpace()))->getType() == $ColorSpace::TYPE_RGB) {
+	if (cm != nullptr && $$nc(cm->getColorSpace())->getType() == $ColorSpace::TYPE_RGB) {
 		if (this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_Y_CB_CR && this->compression != $BaselineTIFFTagSet::COMPRESSION_JPEG) {
 			$set(this, colorConverter, $new($TIFFYCbCrColorConverter, this->imageMetadata));
 		} else if (this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_CIELAB) {
@@ -823,13 +667,13 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 	if (this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_Y_CB_CR && this->compression != $BaselineTIFFTagSet::COMPRESSION_JPEG) {
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_Y_CB_CR_SUBSAMPLING);
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_Y_CB_CR_POSITIONING);
-		rootIFD->addTIFFField($$new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_Y_CB_CR_SUBSAMPLING)), $TIFFTag::TIFF_SHORT, 2, $of($$new($chars, {
+		rootIFD->addTIFFField($$new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_Y_CB_CR_SUBSAMPLING)), $TIFFTag::TIFF_SHORT, 2, $$new($chars, {
 			(char16_t)1,
 			(char16_t)1
-		}))));
-		rootIFD->addTIFFField($$new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_Y_CB_CR_POSITIONING)), $TIFFTag::TIFF_SHORT, 1, $of($$new($chars, {(char16_t)$BaselineTIFFTagSet::Y_CB_CR_POSITIONING_COSITED}))));
+		})));
+		rootIFD->addTIFFField($$new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_Y_CB_CR_POSITIONING)), $TIFFTag::TIFF_SHORT, 1, $$new($chars, {(char16_t)$BaselineTIFFTagSet::Y_CB_CR_POSITIONING_COSITED})));
 	}
-	$var($TIFFField, photometricInterpretationField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_PHOTOMETRIC_INTERPRETATION)), this->photometricInterpretation));
+	$var($TIFFField, photometricInterpretationField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_PHOTOMETRIC_INTERPRETATION)), this->photometricInterpretation));
 	rootIFD->addTIFFField(photometricInterpretationField);
 	$set(this, bitsPerSample, $new($chars, numBands + numExtraSamples));
 	this->bitDepth = 0;
@@ -848,16 +692,16 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 		this->bitDepth = 64;
 	}
 	for (int32_t i = 0; i < $nc(this->bitsPerSample)->length; ++i) {
-		$nc(this->bitsPerSample)->set(i, (char16_t)this->bitDepth);
+		this->bitsPerSample->set(i, (char16_t)this->bitDepth);
 	}
-	if ($nc(this->bitsPerSample)->length != 1 || $nc(this->bitsPerSample)->get(0) != 1) {
-		$var($TIFFField, bitsPerSampleField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_BITS_PER_SAMPLE)), $TIFFTag::TIFF_SHORT, $nc(this->bitsPerSample)->length, $of(this->bitsPerSample)));
+	if (this->bitsPerSample->length != 1 || this->bitsPerSample->get(0) != 1) {
+		$var($TIFFField, bitsPerSampleField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_BITS_PER_SAMPLE)), $TIFFTag::TIFF_SHORT, this->bitsPerSample->length, this->bitsPerSample));
 		rootIFD->addTIFFField(bitsPerSampleField);
 	} else {
 		$var($TIFFField, bitsPerSampleField, rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_BITS_PER_SAMPLE));
 		if (bitsPerSampleField != nullptr) {
 			$var($ints, bps, bitsPerSampleField->getAsInts());
-			if (bps == nullptr || $nc(bps)->length != 1 || $nc(bps)->get(0) != 1) {
+			if (bps == nullptr || bps->length != 1 || bps->get(0) != 1) {
 				rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_BITS_PER_SAMPLE);
 			}
 		}
@@ -876,8 +720,8 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 		this->sampleFormat = (int32_t)sampleFormatValue;
 		$var($chars, sampleFormatArray, $new($chars, $nc(this->bitsPerSample)->length));
 		$Arrays::fill(sampleFormatArray, sampleFormatValue);
-		$var($TIFFTag, sampleFormatTag, $nc(base)->getTag($BaselineTIFFTagSet::TAG_SAMPLE_FORMAT));
-		$var($TIFFField, sampleFormatField, $new($TIFFField, sampleFormatTag, $TIFFTag::TIFF_SHORT, sampleFormatArray->length, $of(sampleFormatArray)));
+		$var($TIFFTag, sampleFormatTag, base->getTag($BaselineTIFFTagSet::TAG_SAMPLE_FORMAT));
+		$var($TIFFField, sampleFormatField, $new($TIFFField, sampleFormatTag, $TIFFTag::TIFF_SHORT, sampleFormatArray->length, sampleFormatArray));
 		rootIFD->addTIFFField(sampleFormatField);
 	} else if (f != nullptr) {
 		this->sampleFormat = f->getAsInt(0);
@@ -885,24 +729,24 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 		this->sampleFormat = $BaselineTIFFTagSet::SAMPLE_FORMAT_UNDEFINED;
 	}
 	if (extraSamples != nullptr) {
-		$var($TIFFField, extraSamplesField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_EXTRA_SAMPLES)), $TIFFTag::TIFF_SHORT, extraSamples->length, $of(extraSamples)));
+		$var($TIFFField, extraSamplesField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_EXTRA_SAMPLES)), $TIFFTag::TIFF_SHORT, extraSamples->length, extraSamples));
 		rootIFD->addTIFFField(extraSamplesField);
 	} else {
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_EXTRA_SAMPLES);
 	}
-	$var($TIFFField, samplesPerPixelField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_SAMPLES_PER_PIXEL)), $nc(this->bitsPerSample)->length));
+	$var($TIFFField, samplesPerPixelField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_SAMPLES_PER_PIXEL)), $nc(this->bitsPerSample)->length));
 	rootIFD->addTIFFField(samplesPerPixelField);
 	if (this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_PALETTE_COLOR && $instanceOf($IndexColorModel, cm)) {
 		$var($chars, colorMap, $new($chars, 3 * ($sl(1, $nc(this->bitsPerSample)->get(0)))));
 		$var($IndexColorModel, icm, $cast($IndexColorModel, cm));
-		int32_t mapSize = $sl(1, $nc(this->bitsPerSample)->get(0));
-		int32_t indexBound = $Math::min(mapSize, $nc(icm)->getMapSize());
+		int32_t mapSize = $sl(1, this->bitsPerSample->get(0));
+		int32_t indexBound = $Math::min(mapSize, icm->getMapSize());
 		for (int32_t i = 0; i < indexBound; ++i) {
-			colorMap->set(i, (char16_t)(($nc(icm)->getRed(i) * 0x0000FFFF) / 255));
-			colorMap->set(mapSize + i, (char16_t)((icm->getGreen(i) * 0x0000FFFF) / 255));
-			colorMap->set(2 * mapSize + i, (char16_t)((icm->getBlue(i) * 0x0000FFFF) / 255));
+			colorMap->set(i, (char16_t)((icm->getRed(i) * 0x0000ffff) / 255));
+			colorMap->set(mapSize + i, (char16_t)((icm->getGreen(i) * 0x0000ffff) / 255));
+			colorMap->set(2 * mapSize + i, (char16_t)((icm->getBlue(i) * 0x0000ffff) / 255));
 		}
-		$var($TIFFField, colorMapField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_COLOR_MAP)), $TIFFTag::TIFF_SHORT, colorMap->length, $of(colorMap)));
+		$var($TIFFField, colorMapField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_COLOR_MAP)), $TIFFTag::TIFF_SHORT, colorMap->length, colorMap));
 		rootIFD->addTIFFField(colorMapField);
 	} else {
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_COLOR_MAP);
@@ -910,8 +754,8 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 	bool var$4 = cm != nullptr && rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_ICC_PROFILE) == nullptr;
 	if (var$4 && $ImageUtil::isNonStandardICCColorSpace($(cm->getColorSpace()))) {
 		$var($ICC_ColorSpace, iccColorSpace, $cast($ICC_ColorSpace, cm->getColorSpace()));
-		$var($bytes, iccProfileData, $nc($($nc(iccColorSpace)->getProfile()))->getData());
-		$var($TIFFField, iccProfileField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_ICC_PROFILE)), $TIFFTag::TIFF_UNDEFINED, $nc(iccProfileData)->length, $of(iccProfileData)));
+		$var($bytes, iccProfileData, $$nc($nc(iccColorSpace)->getProfile())->getData());
+		$var($TIFFField, iccProfileField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_ICC_PROFILE)), $TIFFTag::TIFF_UNDEFINED, $nc(iccProfileData)->length, iccProfileData));
 		rootIFD->addTIFFField(iccProfileField);
 	}
 	$var($TIFFField, XResolutionField, rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_X_RESOLUTION));
@@ -927,46 +771,40 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 			$assign(ResolutionUnitField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT)), $BaselineTIFFTagSet::RESOLUTION_UNIT_NONE));
 			rootIFD->addTIFFField(ResolutionUnitField);
 		} else {
-			int32_t resolutionUnit = ResolutionUnitField != nullptr ? $nc(ResolutionUnitField)->getAsInt(0) : $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH;
+			int32_t resolutionUnit = ResolutionUnitField != nullptr ? ResolutionUnitField->getAsInt(0) : $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH;
 			int32_t maxDimension = $Math::max(destWidth, destHeight);
 			switch (resolutionUnit) {
 			case $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH:
-				{
-					$nc(resRational->get(0))->set(0, maxDimension);
-					$nc(resRational->get(0))->set(1, 4);
-					break;
-				}
+				$nc(resRational->get(0))->set(0, maxDimension);
+				$nc(resRational->get(0))->set(1, 4);
+				break;
 			case $BaselineTIFFTagSet::RESOLUTION_UNIT_CENTIMETER:
-				{
-					$nc(resRational->get(0))->set(0, (int64_t)100 * maxDimension);
-					$nc(resRational->get(0))->set(1, 4 * 254);
-					break;
-				}
+				$nc(resRational->get(0))->set(0, (int64_t)100 * maxDimension);
+				$nc(resRational->get(0))->set(1, 4 * 254);
+				break;
 			default:
-				{
-					$nc(resRational->get(0))->set(0, 1);
-					$nc(resRational->get(0))->set(1, 1);
-				}
+				$nc(resRational->get(0))->set(0, 1);
+				$nc(resRational->get(0))->set(1, 1);
 			}
 		}
-		$assign(XResolutionField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_X_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, $of(resRational)));
+		$assign(XResolutionField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_X_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, resRational));
 		rootIFD->addTIFFField(XResolutionField);
-		$assign(YResolutionField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_Y_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, $of(resRational)));
+		$assign(YResolutionField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_Y_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, resRational));
 		rootIFD->addTIFFField(YResolutionField);
 	} else if (XResolutionField == nullptr && YResolutionField != nullptr) {
-		$var($longs, yResolution, $cast($longs, $nc($(YResolutionField->getAsRational(0)))->clone()));
-		$assign(XResolutionField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_X_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, $of(yResolution)));
+		$var($longs, yResolution, $cast($longs, $$nc(YResolutionField->getAsRational(0))->clone()));
+		$assign(XResolutionField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_X_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, yResolution));
 		rootIFD->addTIFFField(XResolutionField);
 	} else if (XResolutionField != nullptr && YResolutionField == nullptr) {
-		$var($longs, xResolution, $cast($longs, $nc($(XResolutionField->getAsRational(0)))->clone()));
-		$assign(YResolutionField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_Y_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, $of(xResolution)));
+		$var($longs, xResolution, $cast($longs, $$nc(XResolutionField->getAsRational(0))->clone()));
+		$assign(YResolutionField, $new($TIFFField, $(rootIFD->getTag($BaselineTIFFTagSet::TAG_Y_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, xResolution));
 		rootIFD->addTIFFField(YResolutionField);
 	}
 	int32_t width = destWidth;
-	$var($TIFFField, imageWidthField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_IMAGE_WIDTH)), width));
+	$var($TIFFField, imageWidthField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_IMAGE_WIDTH)), width));
 	rootIFD->addTIFFField(imageWidthField);
 	int32_t height = destHeight;
-	$var($TIFFField, imageLengthField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_IMAGE_LENGTH)), height));
+	$var($TIFFField, imageLengthField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_IMAGE_LENGTH)), height));
 	rootIFD->addTIFFField(imageLengthField);
 	int32_t rowsPerStrip = 0;
 	$var($TIFFField, rowsPerStripField, rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_ROWS_PER_STRIP));
@@ -997,14 +835,14 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 			this->tileWidth = width;
 			useTiling = false;
 		} else {
-			this->tileWidth = $nc(f)->getAsInt(0);
+			this->tileWidth = f->getAsInt(0);
 			useTiling = true;
 		}
 		$assign(f, rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_TILE_LENGTH));
 		if (f == nullptr) {
 			this->tileLength = rowsPerStrip;
 		} else {
-			this->tileLength = $nc(f)->getAsInt(0);
+			this->tileLength = f->getAsInt(0);
 			useTiling = true;
 		}
 	} else {
@@ -1059,24 +897,24 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_TILE_LENGTH);
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_TILE_OFFSETS);
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_TILE_BYTE_COUNTS);
-		$assign(rowsPerStripField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_ROWS_PER_STRIP)), rowsPerStrip));
+		$assign(rowsPerStripField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_ROWS_PER_STRIP)), rowsPerStrip));
 		rootIFD->addTIFFField(rowsPerStripField);
-		$var($TIFFField, stripOffsetsField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_STRIP_OFFSETS)), $TIFFTag::TIFF_LONG, this->tilesDown));
+		$var($TIFFField, stripOffsetsField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_STRIP_OFFSETS)), $TIFFTag::TIFF_LONG, this->tilesDown));
 		rootIFD->addTIFFField(stripOffsetsField);
-		$var($TIFFField, stripByteCountsField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_STRIP_BYTE_COUNTS)), $TIFFTag::TIFF_LONG, this->tilesDown));
+		$var($TIFFField, stripByteCountsField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_STRIP_BYTE_COUNTS)), $TIFFTag::TIFF_LONG, this->tilesDown));
 		rootIFD->addTIFFField(stripByteCountsField);
 	} else {
 		this->isTiled = true;
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_ROWS_PER_STRIP);
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_STRIP_OFFSETS);
 		rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_STRIP_BYTE_COUNTS);
-		$var($TIFFField, tileWidthField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_TILE_WIDTH)), this->tileWidth));
+		$var($TIFFField, tileWidthField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_TILE_WIDTH)), this->tileWidth));
 		rootIFD->addTIFFField(tileWidthField);
-		$var($TIFFField, tileLengthField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_TILE_LENGTH)), this->tileLength));
+		$var($TIFFField, tileLengthField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_TILE_LENGTH)), this->tileLength));
 		rootIFD->addTIFFField(tileLengthField);
-		$var($TIFFField, tileOffsetsField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_TILE_OFFSETS)), $TIFFTag::TIFF_LONG, this->tilesDown * this->tilesAcross));
+		$var($TIFFField, tileOffsetsField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_TILE_OFFSETS)), $TIFFTag::TIFF_LONG, this->tilesDown * this->tilesAcross));
 		rootIFD->addTIFFField(tileOffsetsField);
-		$var($TIFFField, tileByteCountsField, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_TILE_BYTE_COUNTS)), $TIFFTag::TIFF_LONG, this->tilesDown * this->tilesAcross));
+		$var($TIFFField, tileByteCountsField, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_TILE_BYTE_COUNTS)), $TIFFTag::TIFF_LONG, this->tilesDown * this->tilesAcross));
 		rootIFD->addTIFFField(tileByteCountsField);
 	}
 	if (isExif) {
@@ -1095,7 +933,7 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 			rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_STRIP_BYTE_COUNTS);
 			rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_PLANAR_CONFIGURATION);
 			if (rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT) == nullptr) {
-				$assign(f, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT)), $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH));
+				$assign(f, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT)), $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH));
 				rootIFD->addTIFFField(f);
 			}
 			if (isPrimaryIFD) {
@@ -1103,19 +941,19 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 				rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT_LENGTH);
 				rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_Y_CB_CR_SUBSAMPLING);
 				if (rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_Y_CB_CR_POSITIONING) == nullptr) {
-					$assign(f, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_Y_CB_CR_POSITIONING)), $TIFFTag::TIFF_SHORT, 1, $of($$new($chars, {(char16_t)$BaselineTIFFTagSet::Y_CB_CR_POSITIONING_CENTERED}))));
+					$assign(f, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_Y_CB_CR_POSITIONING)), $TIFFTag::TIFF_SHORT, 1, $$new($chars, {(char16_t)$BaselineTIFFTagSet::Y_CB_CR_POSITIONING_CENTERED})));
 					rootIFD->addTIFFField(f);
 				}
 			} else {
-				$assign(f, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT)), $TIFFTag::TIFF_LONG, 1));
+				$assign(f, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT)), $TIFFTag::TIFF_LONG, 1));
 				rootIFD->addTIFFField(f);
-				$assign(f, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT_LENGTH)), $TIFFTag::TIFF_LONG, 1));
+				$assign(f, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT_LENGTH)), $TIFFTag::TIFF_LONG, 1));
 				rootIFD->addTIFFField(f);
 				rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_Y_CB_CR_SUBSAMPLING);
 			}
 		} else {
 			if (rootIFD->getTIFFField($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT) == nullptr) {
-				$assign(f, $new($TIFFField, $($nc(base)->getTag($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT)), $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH));
+				$assign(f, $new($TIFFField, $(base->getTag($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT)), $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH));
 				rootIFD->addTIFFField(f);
 			}
 			rootIFD->removeTIFFField($BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT);
@@ -1137,23 +975,23 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 			$assign(exifIFD, $new($TIFFIFD, exifTagSets));
 			$var($TIFFTagSet, tagSet, $ExifParentTIFFTagSet::getInstance());
 			$var($TIFFTag, exifIFDTag, $nc(tagSet)->getTag($ExifParentTIFFTagSet::TAG_EXIF_IFD_POINTER));
-			rootIFD->addTIFFField($$new($TIFFField, exifIFDTag, $TIFFTag::TIFF_LONG, (int64_t)1, static_cast<$TIFFDirectory*>(exifIFD)));
+			rootIFD->addTIFFField($$new($TIFFField, exifIFDTag, $TIFFTag::TIFF_LONG, (int64_t)1, exifIFD));
 		}
 		if (exifIFD != nullptr) {
 			if (exifIFD->getTIFFField($ExifTIFFTagSet::TAG_EXIF_VERSION) == nullptr) {
 				$var($TIFFTag, var$6, $nc(exifTags)->getTag($ExifTIFFTagSet::TAG_EXIF_VERSION));
 				$init($StandardCharsets);
-				$assign(f, $new($TIFFField, var$6, $TIFFTag::TIFF_UNDEFINED, 4, $($of($nc($ExifTIFFTagSet::EXIF_VERSION_2_2)->getBytes($StandardCharsets::US_ASCII)))));
+				$assign(f, $new($TIFFField, var$6, $TIFFTag::TIFF_UNDEFINED, 4, $($nc($ExifTIFFTagSet::EXIF_VERSION_2_2)->getBytes($StandardCharsets::US_ASCII))));
 				exifIFD->addTIFFField(f);
 			}
 			if (this->compression == $BaselineTIFFTagSet::COMPRESSION_OLD_JPEG) {
 				if (exifIFD->getTIFFField($ExifTIFFTagSet::TAG_COMPONENTS_CONFIGURATION) == nullptr) {
-					$assign(f, $new($TIFFField, $($nc(exifTags)->getTag($ExifTIFFTagSet::TAG_COMPONENTS_CONFIGURATION)), $TIFFTag::TIFF_UNDEFINED, 4, $of($$new($bytes, {
+					$assign(f, $new($TIFFField, $($nc(exifTags)->getTag($ExifTIFFTagSet::TAG_COMPONENTS_CONFIGURATION)), $TIFFTag::TIFF_UNDEFINED, 4, $$new($bytes, {
 						(int8_t)$ExifTIFFTagSet::COMPONENTS_CONFIGURATION_Y,
 						(int8_t)$ExifTIFFTagSet::COMPONENTS_CONFIGURATION_CB,
 						(int8_t)$ExifTIFFTagSet::COMPONENTS_CONFIGURATION_CR,
 						(int8_t)0
-					}))));
+					})));
 					exifIFD->addTIFFField(f);
 				}
 			} else {
@@ -1161,16 +999,16 @@ void TIFFImageWriter::setupMetadata($ColorModel* cm, $SampleModel* sm, int32_t d
 				exifIFD->removeTIFFField($ExifTIFFTagSet::TAG_COMPRESSED_BITS_PER_PIXEL);
 			}
 			if (exifIFD->getTIFFField($ExifTIFFTagSet::TAG_FLASHPIX_VERSION) == nullptr) {
-				$assign(f, $new($TIFFField, $($nc(exifTags)->getTag($ExifTIFFTagSet::TAG_FLASHPIX_VERSION)), $TIFFTag::TIFF_UNDEFINED, 4, $of($$new($bytes, {
+				$assign(f, $new($TIFFField, $($nc(exifTags)->getTag($ExifTIFFTagSet::TAG_FLASHPIX_VERSION)), $TIFFTag::TIFF_UNDEFINED, 4, $$new($bytes, {
 					(int8_t)u'0',
 					(int8_t)u'1',
 					(int8_t)u'0',
 					(int8_t)u'0'
-				}))));
+				})));
 				exifIFD->addTIFFField(f);
 			}
 			if (exifIFD->getTIFFField($ExifTIFFTagSet::TAG_COLOR_SPACE) == nullptr) {
-				$assign(f, $new($TIFFField, $($nc(exifTags)->getTag($ExifTIFFTagSet::TAG_COLOR_SPACE)), $TIFFTag::TIFF_SHORT, 1, $of($$new($chars, {(char16_t)$ExifTIFFTagSet::COLOR_SPACE_SRGB}))));
+				$assign(f, $new($TIFFField, $($nc(exifTags)->getTag($ExifTIFFTagSet::TAG_COLOR_SPACE)), $TIFFTag::TIFF_SHORT, 1, $$new($chars, {(char16_t)$ExifTIFFTagSet::COLOR_SPACE_SRGB})));
 				exifIFD->addTIFFField(f);
 			}
 			if (this->compression == $BaselineTIFFTagSet::COMPRESSION_OLD_JPEG) {
@@ -1194,14 +1032,14 @@ $ImageTypeSpecifier* TIFFImageWriter::getImageType() {
 }
 
 int32_t TIFFImageWriter::writeTile($Rectangle* tileRect$renamed, $TIFFCompressor* compressor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, tileRect, tileRect$renamed);
 	$var($Rectangle, activeRect, nullptr);
 	bool isPadded = false;
 	int32_t var$0 = $nc(this->image)->getMinX();
-	int32_t var$1 = $nc(this->image)->getMinY();
-	int32_t var$2 = $nc(this->image)->getWidth();
-	$var($Rectangle, imageBounds, $new($Rectangle, var$0, var$1, var$2, $nc(this->image)->getHeight()));
+	int32_t var$1 = this->image->getMinY();
+	int32_t var$2 = this->image->getWidth();
+	$var($Rectangle, imageBounds, $new($Rectangle, var$0, var$1, var$2, this->image->getHeight()));
 	if (!this->isTiled) {
 		$assign(activeRect, $nc(tileRect)->intersection(imageBounds));
 		$assign(tileRect, activeRect);
@@ -1232,11 +1070,11 @@ int32_t TIFFImageWriter::writeTile($Rectangle* tileRect$renamed, $TIFFCompressor
 			$var($bytes, buf, $ImageUtil::getPackedBinaryData(raster, tileRect));
 			if (this->isInverted) {
 				$var($DataBuffer, dbb, $nc(raster)->getDataBuffer());
-				if ($instanceOf($DataBufferByte, dbb) && buf == $nc(($cast($DataBufferByte, dbb)))->getData()) {
+				if ($instanceOf($DataBufferByte, dbb) && buf == $cast($DataBufferByte, dbb)->getData()) {
 					$var($bytes, bbuf, $new($bytes, $nc(buf)->length));
 					int32_t len = buf->length;
 					for (int32_t i = 0; i < len; ++i) {
-						bbuf->set(i, (int8_t)(buf->get(i) ^ 255));
+						bbuf->set(i, (int8_t)(buf->get(i) ^ 0xff));
 					}
 					$assign(buf, bbuf);
 				} else {
@@ -1249,10 +1087,10 @@ int32_t TIFFImageWriter::writeTile($Rectangle* tileRect$renamed, $TIFFCompressor
 			return $nc(compressor)->encode(buf, 0, width, height, this->sampleSize, (tileRect->width + 7) / 8);
 		} else if (this->bitDepth == 8 && $nc(sm)->getDataType() == $DataBuffer::TYPE_BYTE) {
 			$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, $nc(raster)->getSampleModel()));
-			$var($bytes, buf, $nc(($cast($DataBufferByte, $(raster->getDataBuffer()))))->getData());
+			$var($bytes, buf, $$sure($DataBufferByte, raster->getDataBuffer())->getData());
 			int32_t var$3 = minX - raster->getSampleModelTranslateX();
 			int32_t off = $nc(csm)->getOffset(var$3, minY - raster->getSampleModelTranslateY());
-			return $nc(compressor)->encode(buf, off, width, height, this->sampleSize, csm->getScanlineStride());
+			return $nc(compressor)->encode(buf, off, width, height, this->sampleSize, $nc(csm)->getScanlineStride());
 		}
 	}
 	int32_t xOffset = minX;
@@ -1293,7 +1131,7 @@ int32_t TIFFImageWriter::writeTile($Rectangle* tileRect$renamed, $TIFFCompressor
 	$var($bytes, currTile, $new($bytes, bytesPerRow * vpixels));
 	if (!this->isInverted && !this->isRescaling && this->sourceBands == nullptr && this->periodX == 1 && this->periodY == 1 && this->colorConverter == nullptr) {
 		$var($SampleModel, sm, $nc(this->image)->getSampleModel());
-		if ($instanceOf($ComponentSampleModel, sm) && this->bitDepth == 8 && $nc(sm)->getDataType() == $DataBuffer::TYPE_BYTE) {
+		if ($instanceOf($ComponentSampleModel, sm) && this->bitDepth == 8 && sm->getDataType() == $DataBuffer::TYPE_BYTE) {
 			$var($Raster, raster, $nc(this->image)->getData(activeRect));
 			if (isPadded) {
 				$var($WritableRaster, wr, $nc(raster)->createCompatibleWritableRaster(minX, minY, width, height));
@@ -1302,7 +1140,7 @@ int32_t TIFFImageWriter::writeTile($Rectangle* tileRect$renamed, $TIFFCompressor
 			}
 			$var($ComponentSampleModel, csm, $cast($ComponentSampleModel, $nc(raster)->getSampleModel()));
 			$var($ints, bankIndices, $nc(csm)->getBankIndices());
-			$var($byteArray2, bankData, $nc(($cast($DataBufferByte, $(raster->getDataBuffer()))))->getBankData());
+			$var($byteArray2, bankData, $$sure($DataBufferByte, raster->getDataBuffer())->getBankData());
 			int32_t lineStride = csm->getScanlineStride();
 			int32_t pixelStride = csm->getPixelStride();
 			for (int32_t k = 0; k < this->numBands; ++k) {
@@ -1326,13 +1164,13 @@ int32_t TIFFImageWriter::writeTile($Rectangle* tileRect$renamed, $TIFFCompressor
 		}
 	}
 	int32_t tcount = 0;
-	int32_t activeMinX = $nc(activeRect)->x;
+	int32_t activeMinX = activeRect->x;
 	int32_t activeMinY = activeRect->y;
 	int32_t activeMaxY = activeMinY + activeRect->height - 1;
 	int32_t activeWidth = activeRect->width;
 	$var($SampleModel, rowSampleModel, nullptr);
 	if (isPadded) {
-		$assign(rowSampleModel, $nc($($nc(this->image)->getSampleModel()))->createCompatibleSampleModel(width, 1));
+		$assign(rowSampleModel, $$nc($nc(this->image)->getSampleModel())->createCompatibleSampleModel(width, 1));
 	}
 	for (int32_t row = yOffset; row < yOffset + height; row += ySkip) {
 		$var($Raster, ras, nullptr);
@@ -1410,229 +1248,217 @@ int32_t TIFFImageWriter::writeTile($Rectangle* tileRect$renamed, $TIFFCompressor
 		int32_t pos = 0;
 		switch (this->bitDepth) {
 		case 1:
-			{}
 		case 2:
-			{}
 		case 4:
-			{
-				if (this->isRescaling) {
-					for (int32_t s = 0; s < numSamples; s += xSkip) {
-						int8_t val = $nc(this->scale0)->get($nc(samples)->get(s));
-						tmp = ($sl(tmp, this->bitDepth)) | val;
-						if (++pos == samplesPerByte) {
-							currTile->set(tcount++, (int8_t)tmp);
-							tmp = 0;
-							pos = 0;
-						}
-					}
-				} else {
-					for (int32_t s = 0; s < numSamples; s += xSkip) {
-						int8_t val = (int8_t)$nc(samples)->get(s);
-						tmp = ($sl(tmp, this->bitDepth)) | val;
-						if (++pos == samplesPerByte) {
-							currTile->set(tcount++, (int8_t)tmp);
-							tmp = 0;
-							pos = 0;
-						}
+			if (this->isRescaling) {
+				for (int32_t s = 0; s < numSamples; s += xSkip) {
+					int8_t val = $nc(this->scale0)->get($nc(samples)->get(s));
+					tmp = ($sl(tmp, this->bitDepth)) | val;
+					if (++pos == samplesPerByte) {
+						currTile->set(tcount++, (int8_t)tmp);
+						tmp = 0;
+						pos = 0;
 					}
 				}
-				if (pos != 0) {
-					tmp <<= (($div(8, this->bitDepth)) - pos) * this->bitDepth;
-					currTile->set(tcount++, (int8_t)tmp);
+			} else {
+				for (int32_t s = 0; s < numSamples; s += xSkip) {
+					int8_t val = (int8_t)$nc(samples)->get(s);
+					tmp = ($sl(tmp, this->bitDepth)) | val;
+					if (++pos == samplesPerByte) {
+						currTile->set(tcount++, (int8_t)tmp);
+						tmp = 0;
+						pos = 0;
+					}
 				}
-				break;
 			}
+			if (pos != 0) {
+				tmp <<= (($div(8, this->bitDepth)) - pos) * this->bitDepth;
+				currTile->set(tcount++, (int8_t)tmp);
+			}
+			break;
 		case 8:
-			{
-				if (this->numBands == 1) {
-					if (this->isRescaling) {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							currTile->set(tcount++, $nc(this->scale0)->get($nc(samples)->get(s)));
-						}
-					} else {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							currTile->set(tcount++, (int8_t)$nc(samples)->get(s));
-						}
-					}
-				} else if (this->isRescaling) {
-					for (int32_t s = 0; s < numSamples; s += xSkip) {
-						for (int32_t b = 0; b < this->numBands; ++b) {
-							currTile->set(tcount++, $nc($nc(this->scale)->get(b))->get($nc(samples)->get(s + b)));
-						}
-					}
-				} else {
-					for (int32_t s = 0; s < numSamples; s += xSkip) {
-						for (int32_t b = 0; b < this->numBands; ++b) {
-							currTile->set(tcount++, (int8_t)$nc(samples)->get(s + b));
-						}
-					}
-				}
-				break;
-			}
-		case 16:
-			{
+			if (this->numBands == 1) {
 				if (this->isRescaling) {
-					$init($ByteOrder);
-					if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								int32_t sample = $nc(samples)->get(s + b);
-								currTile->set(tcount++, $nc($nc(this->scaleh)->get(b))->get(sample));
-								currTile->set(tcount++, $nc($nc(this->scalel)->get(b))->get(sample));
-							}
-						}
-					} else {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								int32_t sample = $nc(samples)->get(s + b);
-								currTile->set(tcount++, $nc($nc(this->scalel)->get(b))->get(sample));
-								currTile->set(tcount++, $nc($nc(this->scaleh)->get(b))->get(sample));
-							}
-						}
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						currTile->set(tcount++, $nc(this->scale0)->get($nc(samples)->get(s)));
 					}
 				} else {
-					$init($ByteOrder);
-					if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								int32_t sample = $nc(samples)->get(s + b);
-								currTile->set(tcount++, (int8_t)((int32_t)(((int32_t)((uint32_t)sample >> 8)) & (uint32_t)255)));
-								currTile->set(tcount++, (int8_t)((int32_t)(sample & (uint32_t)255)));
-							}
-						}
-					} else {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								int32_t sample = $nc(samples)->get(s + b);
-								currTile->set(tcount++, (int8_t)((int32_t)(sample & (uint32_t)255)));
-								currTile->set(tcount++, (int8_t)((int32_t)(((int32_t)((uint32_t)sample >> 8)) & (uint32_t)255)));
-							}
-						}
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						currTile->set(tcount++, (int8_t)$nc(samples)->get(s));
 					}
 				}
-				break;
-			}
-		case 32:
-			{
-				if (this->sampleFormat == $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
-					$init($ByteOrder);
-					if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								float fsample = $nc(fsamples)->get(s + b);
-								int32_t isample = $Float::floatToIntBits(fsample);
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)(int32_t)0xFF000000)) >> 24));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)0x00FF0000)) >> 16));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)0x0000FF00)) >> 8));
-								currTile->set(tcount++, (int8_t)((int32_t)(isample & (uint32_t)255)));
-							}
-						}
-					} else {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								float fsample = $nc(fsamples)->get(s + b);
-								int32_t isample = $Float::floatToIntBits(fsample);
-								currTile->set(tcount++, (int8_t)((int32_t)(isample & (uint32_t)255)));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)0x0000FF00)) >> 8));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)0x00FF0000)) >> 16));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)(int32_t)0xFF000000)) >> 24));
-							}
-						}
-					}
-				} else if (this->isRescaling) {
-					$var($longs, maxIn, $new($longs, this->numBands));
-					$var($longs, halfIn, $new($longs, this->numBands));
-					int64_t maxOut = ($sl((int64_t)1, (int64_t)this->bitDepth)) - (int64_t)1;
+			} else if (this->isRescaling) {
+				for (int32_t s = 0; s < numSamples; s += xSkip) {
 					for (int32_t b = 0; b < this->numBands; ++b) {
-						maxIn->set(b, (($sl((int64_t)1, (int64_t)$nc(this->sampleSize)->get(b))) - (int64_t)1));
-						halfIn->set(b, maxIn->get(b) / 2);
+						currTile->set(tcount++, $nc($nc(this->scale)->get(b))->get($nc(samples)->get(s + b)));
 					}
-					$init($ByteOrder);
-					if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								int64_t sampleOut = $div(($nc(samples)->get(s + b) * maxOut + halfIn->get(b)), maxIn->get(b));
-								currTile->set(tcount++, (int8_t)(((int64_t)(sampleOut & (uint64_t)(int64_t)(int32_t)0xFF000000)) >> 24));
-								currTile->set(tcount++, (int8_t)(((int64_t)(sampleOut & (uint64_t)(int64_t)0x00FF0000)) >> 16));
-								currTile->set(tcount++, (int8_t)(((int64_t)(sampleOut & (uint64_t)(int64_t)0x0000FF00)) >> 8));
-								currTile->set(tcount++, (int8_t)((int64_t)(sampleOut & (uint64_t)(int64_t)255)));
-							}
-						}
-					} else {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								int64_t sampleOut = $div(($nc(samples)->get(s + b) * maxOut + halfIn->get(b)), maxIn->get(b));
-								currTile->set(tcount++, (int8_t)((int64_t)(sampleOut & (uint64_t)(int64_t)255)));
-								currTile->set(tcount++, (int8_t)(((int64_t)(sampleOut & (uint64_t)(int64_t)0x0000FF00)) >> 8));
-								currTile->set(tcount++, (int8_t)(((int64_t)(sampleOut & (uint64_t)(int64_t)0x00FF0000)) >> 16));
-								currTile->set(tcount++, (int8_t)(((int64_t)(sampleOut & (uint64_t)(int64_t)(int32_t)0xFF000000)) >> 24));
-							}
+				}
+			} else {
+				for (int32_t s = 0; s < numSamples; s += xSkip) {
+					for (int32_t b = 0; b < this->numBands; ++b) {
+						currTile->set(tcount++, (int8_t)$nc(samples)->get(s + b));
+					}
+				}
+			}
+			break;
+		case 16:
+			if (this->isRescaling) {
+				$init($ByteOrder);
+				if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							int32_t sample = $nc(samples)->get(s + b);
+							currTile->set(tcount++, $nc($nc(this->scaleh)->get(b))->get(sample));
+							currTile->set(tcount++, $nc($nc(this->scalel)->get(b))->get(sample));
 						}
 					}
 				} else {
-					$init($ByteOrder);
-					if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								int32_t isample = $nc(samples)->get(s + b);
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)(int32_t)0xFF000000)) >> 24));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)0x00FF0000)) >> 16));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)0x0000FF00)) >> 8));
-								currTile->set(tcount++, (int8_t)((int32_t)(isample & (uint32_t)255)));
-							}
-						}
-					} else {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								int32_t isample = $nc(samples)->get(s + b);
-								currTile->set(tcount++, (int8_t)((int32_t)(isample & (uint32_t)255)));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)0x0000FF00)) >> 8));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)0x00FF0000)) >> 16));
-								currTile->set(tcount++, (int8_t)(((int32_t)(isample & (uint32_t)(int32_t)0xFF000000)) >> 24));
-							}
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							int32_t sample = $nc(samples)->get(s + b);
+							currTile->set(tcount++, $nc($nc(this->scalel)->get(b))->get(sample));
+							currTile->set(tcount++, $nc($nc(this->scaleh)->get(b))->get(sample));
 						}
 					}
 				}
-				break;
+			} else {
+				$init($ByteOrder);
+				if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							int32_t sample = $nc(samples)->get(s + b);
+							currTile->set(tcount++, (int8_t)(((int32_t)((uint32_t)sample >> 8)) & 0xff));
+							currTile->set(tcount++, (int8_t)(sample & 0xff));
+						}
+					}
+				} else {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							int32_t sample = $nc(samples)->get(s + b);
+							currTile->set(tcount++, (int8_t)(sample & 0xff));
+							currTile->set(tcount++, (int8_t)(((int32_t)((uint32_t)sample >> 8)) & 0xff));
+						}
+					}
+				}
 			}
+			break;
+		case 32:
+			if (this->sampleFormat == $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
+				$init($ByteOrder);
+				if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							float fsample = $nc(fsamples)->get(s + b);
+							int32_t isample = $Float::floatToIntBits(fsample);
+							currTile->set(tcount++, (int8_t)((isample & (int32_t)0xff000000) >> 0x18));
+							currTile->set(tcount++, (int8_t)((isample & 0x00ff0000) >> 0x10));
+							currTile->set(tcount++, (int8_t)((isample & 0xff00) >> 8));
+							currTile->set(tcount++, (int8_t)(isample & 0xff));
+						}
+					}
+				} else {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							float fsample = $nc(fsamples)->get(s + b);
+							int32_t isample = $Float::floatToIntBits(fsample);
+							currTile->set(tcount++, (int8_t)(isample & 0xff));
+							currTile->set(tcount++, (int8_t)((isample & 0xff00) >> 8));
+							currTile->set(tcount++, (int8_t)((isample & 0x00ff0000) >> 0x10));
+							currTile->set(tcount++, (int8_t)((isample & (int32_t)0xff000000) >> 0x18));
+						}
+					}
+				}
+			} else if (this->isRescaling) {
+				$var($longs, maxIn, $new($longs, this->numBands));
+				$var($longs, halfIn, $new($longs, this->numBands));
+				int64_t maxOut = ($sl((int64_t)1, (int64_t)this->bitDepth)) - (int64_t)1;
+				for (int32_t b = 0; b < this->numBands; ++b) {
+					maxIn->set(b, (($sl((int64_t)1, (int64_t)$nc(this->sampleSize)->get(b))) - (int64_t)1));
+					halfIn->set(b, maxIn->get(b) / 2);
+				}
+				$init($ByteOrder);
+				if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							int64_t sampleOut = $div(($nc(samples)->get(s + b) * maxOut + halfIn->get(b)), maxIn->get(b));
+							currTile->set(tcount++, (int8_t)((sampleOut & (int32_t)0xff000000) >> 0x18));
+							currTile->set(tcount++, (int8_t)((sampleOut & 0x00ff0000) >> 0x10));
+							currTile->set(tcount++, (int8_t)((sampleOut & 0xff00) >> 8));
+							currTile->set(tcount++, (int8_t)(sampleOut & 0xff));
+						}
+					}
+				} else {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							int64_t sampleOut = $div(($nc(samples)->get(s + b) * maxOut + halfIn->get(b)), maxIn->get(b));
+							currTile->set(tcount++, (int8_t)(sampleOut & 0xff));
+							currTile->set(tcount++, (int8_t)((sampleOut & 0xff00) >> 8));
+							currTile->set(tcount++, (int8_t)((sampleOut & 0x00ff0000) >> 0x10));
+							currTile->set(tcount++, (int8_t)((sampleOut & (int32_t)0xff000000) >> 0x18));
+						}
+					}
+				}
+			} else {
+				$init($ByteOrder);
+				if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							int32_t isample = $nc(samples)->get(s + b);
+							currTile->set(tcount++, (int8_t)((isample & (int32_t)0xff000000) >> 0x18));
+							currTile->set(tcount++, (int8_t)((isample & 0x00ff0000) >> 0x10));
+							currTile->set(tcount++, (int8_t)((isample & 0xff00) >> 8));
+							currTile->set(tcount++, (int8_t)(isample & 0xff));
+						}
+					}
+				} else {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							int32_t isample = $nc(samples)->get(s + b);
+							currTile->set(tcount++, (int8_t)(isample & 0xff));
+							currTile->set(tcount++, (int8_t)((isample & 0xff00) >> 8));
+							currTile->set(tcount++, (int8_t)((isample & 0x00ff0000) >> 0x10));
+							currTile->set(tcount++, (int8_t)((isample & (int32_t)0xff000000) >> 0x18));
+						}
+					}
+				}
+			}
+			break;
 		case 64:
-			{
-				if (this->sampleFormat == $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
-					$init($ByteOrder);
-					if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								double dsample = $nc(dsamples)->get(s + b);
-								int64_t lsample = $Double::doubleToLongBits(dsample);
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0xFF00000000000000)) >> 56));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0x00FF000000000000)) >> 48));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0x0000FF0000000000)) >> 40));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0x000000FF00000000)) >> 32));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0x00000000FF000000)) >> 24));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)16711680)) >> 16));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)65280)) >> 8));
-								currTile->set(tcount++, (int8_t)((int64_t)(lsample & (uint64_t)(int64_t)255)));
-							}
+			if (this->sampleFormat == $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT) {
+				$init($ByteOrder);
+				if ($nc(this->stream)->getByteOrder() == $ByteOrder::BIG_ENDIAN) {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							double dsample = $nc(dsamples)->get(s + b);
+							int64_t lsample = $Double::doubleToLongBits(dsample);
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0xff00000000000000) >> 0x38));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0x00ff000000000000) >> 0x30));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0x0000ff0000000000) >> 0x28));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0x000000ff00000000) >> 0x20));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0xff000000) >> 0x18));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0x00ff0000) >> 0x10));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0xff00) >> 8));
+							currTile->set(tcount++, (int8_t)(lsample & (int64_t)0xff));
 						}
-					} else {
-						for (int32_t s = 0; s < numSamples; s += xSkip) {
-							for (int32_t b = 0; b < this->numBands; ++b) {
-								double dsample = $nc(dsamples)->get(s + b);
-								int64_t lsample = $Double::doubleToLongBits(dsample);
-								currTile->set(tcount++, (int8_t)((int64_t)(lsample & (uint64_t)(int64_t)255)));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)65280)) >> 8));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)16711680)) >> 16));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0x00000000FF000000)) >> 24));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0x000000FF00000000)) >> 32));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0x0000FF0000000000)) >> 40));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0x00FF000000000000)) >> 48));
-								currTile->set(tcount++, (int8_t)(((int64_t)(lsample & (uint64_t)(int64_t)0xFF00000000000000)) >> 56));
-							}
+					}
+				} else {
+					for (int32_t s = 0; s < numSamples; s += xSkip) {
+						for (int32_t b = 0; b < this->numBands; ++b) {
+							double dsample = $nc(dsamples)->get(s + b);
+							int64_t lsample = $Double::doubleToLongBits(dsample);
+							currTile->set(tcount++, (int8_t)(lsample & (int64_t)0xff));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0xff00) >> 8));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0x00ff0000) >> 0x10));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0xff000000) >> 0x18));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0x000000ff00000000) >> 0x20));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0x0000ff0000000000) >> 0x28));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0x00ff000000000000) >> 0x30));
+							currTile->set(tcount++, (int8_t)((lsample & (int64_t)0xff00000000000000) >> 0x38));
 						}
 					}
 				}
-				break;
 			}
+			break;
 		}
 	}
 	$var($ints, bitsPerSample, $new($ints, this->numBands));
@@ -1650,8 +1476,8 @@ bool TIFFImageWriter::equals($ints* s0, $ints* s1) {
 	if ($nc(s0)->length != $nc(s1)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(s0)->length; ++i) {
-		if (s0->get(i) != $nc(s1)->get(i)) {
+	for (int32_t i = 0; i < s0->length; ++i) {
+		if (s0->get(i) != s1->get(i)) {
 			return false;
 		}
 	}
@@ -1659,13 +1485,13 @@ bool TIFFImageWriter::equals($ints* s0, $ints* s1) {
 }
 
 void TIFFImageWriter::initializeScaleTables($ints* sampleSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->bitDepth == this->scalingBitDepth && equals(sampleSize, this->sampleSize)) {
 		return;
 	}
 	this->isRescaling = false;
 	this->scalingBitDepth = -1;
-	$set(this, scale, ($set(this, scalel, ($set(this, scaleh, nullptr)))));
+	$set(this, scale, $set(this, scalel, $set(this, scaleh, nullptr)));
 	$set(this, scale0, nullptr);
 	$set(this, sampleSize, sampleSize);
 	if (this->bitDepth <= 16) {
@@ -1686,25 +1512,25 @@ void TIFFImageWriter::initializeScaleTables($ints* sampleSize) {
 		for (int32_t b = 0; b < this->numBands; ++b) {
 			int32_t maxInSample = ($sl(1, $nc(sampleSize)->get(b))) - 1;
 			int32_t halfMaxInSample = maxInSample / 2;
-			$nc(this->scale)->set(b, $$new($bytes, maxInSample + 1));
+			this->scale->set(b, $$new($bytes, maxInSample + 1));
 			for (int32_t s = 0; s <= maxInSample; ++s) {
-				$nc($nc(this->scale)->get(b))->set(s, (int8_t)($div((s * maxOutSample + halfMaxInSample), maxInSample)));
+				$nc(this->scale->get(b))->set(s, (int8_t)($div((s * maxOutSample + halfMaxInSample), maxInSample)));
 			}
 		}
-		$set(this, scale0, $nc(this->scale)->get(0));
-		$set(this, scaleh, ($set(this, scalel, nullptr)));
+		$set(this, scale0, this->scale->get(0));
+		$set(this, scaleh, $set(this, scalel, nullptr));
 	} else if (this->bitDepth <= 16) {
 		$set(this, scaleh, $new($byteArray2, this->numBands));
 		$set(this, scalel, $new($byteArray2, this->numBands));
 		for (int32_t b = 0; b < this->numBands; ++b) {
 			int32_t maxInSample = ($sl(1, $nc(sampleSize)->get(b))) - 1;
 			int32_t halfMaxInSample = maxInSample / 2;
-			$nc(this->scaleh)->set(b, $$new($bytes, maxInSample + 1));
-			$nc(this->scalel)->set(b, $$new($bytes, maxInSample + 1));
+			this->scaleh->set(b, $$new($bytes, maxInSample + 1));
+			this->scalel->set(b, $$new($bytes, maxInSample + 1));
 			for (int32_t s = 0; s <= maxInSample; ++s) {
 				int32_t val = $div((s * maxOutSample + halfMaxInSample), maxInSample);
-				$nc($nc(this->scaleh)->get(b))->set(s, (int8_t)(val >> 8));
-				$nc($nc(this->scalel)->get(b))->set(s, (int8_t)((int32_t)(val & (uint32_t)255)));
+				$nc(this->scaleh->get(b))->set(s, (int8_t)(val >> 8));
+				$nc(this->scalel->get(b))->set(s, (int8_t)(val & 0xff));
 			}
 		}
 		$set(this, scale, nullptr);
@@ -1725,7 +1551,7 @@ void TIFFImageWriter::write($IIOMetadata* sm, $IIOImage* iioimage, $ImageWritePa
 
 void TIFFImageWriter::writeHeader() {
 	if (this->streamMetadata != nullptr) {
-		$set(this, byteOrder, $nc(this->streamMetadata)->byteOrder);
+		$set(this, byteOrder, this->streamMetadata->byteOrder);
 	} else {
 		$init($ByteOrder);
 		$set(this, byteOrder, $ByteOrder::BIG_ENDIAN);
@@ -1744,7 +1570,7 @@ void TIFFImageWriter::writeHeader() {
 }
 
 void TIFFImageWriter::write($IIOMetadata* sm, $IIOImage* iioimage, $ImageWriteParam* p, bool writeHeader, bool writeData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, "output == null!"_s);
 	}
@@ -1755,7 +1581,7 @@ void TIFFImageWriter::write($IIOMetadata* sm, $IIOImage* iioimage, $ImageWritePa
 	if (var$0 && !canWriteRasters()) {
 		$throwNew($UnsupportedOperationException, "TIFF ImageWriter cannot write Rasters!"_s);
 	}
-	$set(this, image, $nc(iioimage)->getRenderedImage());
+	$set(this, image, iioimage->getRenderedImage());
 	$var($SampleModel, sampleModel, $nc(this->image)->getSampleModel());
 	this->sourceXOffset = $nc(this->image)->getMinX();
 	this->sourceYOffset = $nc(this->image)->getMinY();
@@ -1791,11 +1617,11 @@ void TIFFImageWriter::write($IIOMetadata* sm, $IIOImage* iioimage, $ImageWritePa
 		$var($ints, sBands, $nc(this->param)->getSourceBands());
 		if (sBands != nullptr) {
 			$set(this, sourceBands, sBands);
-			this->numBands = $nc(this->sourceBands)->length;
+			this->numBands = this->sourceBands->length;
 		} else {
 			this->numBands = $nc(sampleModel)->getNumBands();
 		}
-		$var($ImageTypeSpecifier, destType, $nc(p)->getDestinationType());
+		$var($ImageTypeSpecifier, destType, p->getDestinationType());
 		if (destType != nullptr) {
 			$var($ColorModel, cm, destType->getColorModel());
 			if ($nc(cm)->getNumComponents() == this->numBands) {
@@ -1829,17 +1655,17 @@ void TIFFImageWriter::write($IIOMetadata* sm, $IIOImage* iioimage, $ImageWritePa
 		}
 		this->writeHeader();
 		$nc(this->stream)->seek(this->headerPosition + 4);
-		this->nextSpace = (int64_t)((this->nextSpace + 3) & (uint64_t)(int64_t)~3);
+		this->nextSpace = (this->nextSpace + 3) & ~3;
 		$nc(this->stream)->writeInt((int32_t)this->nextSpace);
 	}
 	$set(this, imageMetadata, nullptr);
 	$var($IIOMetadata, im, iioimage->getMetadata());
 	if (im != nullptr) {
 		if ($instanceOf($TIFFImageMetadata, im)) {
-			$set(this, imageMetadata, $nc(($cast($TIFFImageMetadata, im)))->getShallowClone());
+			$set(this, imageMetadata, $cast($TIFFImageMetadata, im)->getShallowClone());
 		} else {
 			$init($TIFFImageMetadata);
-			if ($nc($($Arrays::asList($(im->getMetadataFormatNames()))))->contains($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME)) {
+			if ($$nc($Arrays::asList($(im->getMetadataFormatNames())))->contains($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME)) {
 				$set(this, imageMetadata, convertNativeImageMetadata(im));
 			} else if (im->isStandardMetadataFormatSupported()) {
 				$set(this, imageMetadata, convertStandardImageMetadata(im));
@@ -1951,7 +1777,7 @@ void TIFFImageWriter::endWriteSequence() {
 }
 
 bool TIFFImageWriter::canInsertImage(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getOutput() == nullptr) {
 		$throwNew($IllegalStateException, "getOutput() == null!"_s);
 	}
@@ -2019,27 +1845,25 @@ void TIFFImageWriter::locateIFD(int32_t imageIndex, $longs* ifdpos, $longs* ifd)
 
 void TIFFImageWriter::writeInsert(int32_t imageIndex, $IIOImage* image, $ImageWriteParam* param) {
 	int32_t currentImageCached = this->currentImage;
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				insert(imageIndex, image, param, true);
-			} catch ($Exception& e) {
-				$throw(e);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->currentImage = currentImageCached;
+			insert(imageIndex, image, param, true);
+		} catch ($Exception& e) {
+			$throw(e);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->currentImage = currentImageCached;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void TIFFImageWriter::insert(int32_t imageIndex, $IIOImage* image, $ImageWriteParam* param, bool writeData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, "Output not set!"_s);
 	}
@@ -2057,7 +1881,7 @@ void TIFFImageWriter::insert(int32_t imageIndex, $IIOImage* image, $ImageWritePa
 	if (ifdpos->get(0) + 4 > this->nextSpace) {
 		this->nextSpace = ifdpos->get(0) + 4;
 	}
-	this->nextSpace = (int64_t)((this->nextSpace + 3) & (uint64_t)(int64_t)~3);
+	this->nextSpace = (this->nextSpace + 3) & ~3;
 	$nc(this->stream)->writeInt((int32_t)this->nextSpace);
 	$nc(this->stream)->seek(this->nextSpace);
 	write(nullptr, image, param, false, writeData);
@@ -2086,7 +1910,7 @@ bool TIFFImageWriter::canWriteEmpty() {
 }
 
 void TIFFImageWriter::checkParamsEmpty($ImageTypeSpecifier* imageType, int32_t width, int32_t height, $List* thumbnails) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getOutput() == nullptr) {
 		$throwNew($IllegalStateException, "getOutput() == null!"_s);
 	}
@@ -2114,35 +1938,29 @@ void TIFFImageWriter::checkParamsEmpty($ImageTypeSpecifier* imageType, int32_t w
 }
 
 void TIFFImageWriter::prepareInsertEmpty(int32_t imageIndex, $ImageTypeSpecifier* imageType, int32_t width, int32_t height, $IIOMetadata* imageMetadata, $List* thumbnails, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkParamsEmpty(imageType, width, height, thumbnails);
 	this->isInsertingEmpty = true;
 	$var($SampleModel, emptySM, $nc(imageType)->getSampleModel());
-	int32_t var$0 = width;
-	int32_t var$1 = height;
-	int32_t var$2 = $nc(emptySM)->getWidth();
-	int32_t var$3 = emptySM->getHeight();
-	$var($SampleModel, var$4, emptySM);
-	$var($RenderedImage, emptyImage, $new($EmptyImage, 0, 0, var$0, var$1, 0, 0, var$2, var$3, var$4, $(imageType->getColorModel())));
-	insert(imageIndex, $$new($IIOImage, emptyImage, ($List*)nullptr, imageMetadata), param, false);
+	int32_t var$0 = $nc(emptySM)->getWidth();
+	int32_t var$1 = emptySM->getHeight();
+	$var($RenderedImage, emptyImage, $new($EmptyImage, 0, 0, width, height, 0, 0, var$0, var$1, emptySM, $(imageType->getColorModel())));
+	insert(imageIndex, $$new($IIOImage, emptyImage, nullptr, imageMetadata), param, false);
 }
 
 void TIFFImageWriter::prepareWriteEmpty($IIOMetadata* streamMetadata, $ImageTypeSpecifier* imageType, int32_t width, int32_t height, $IIOMetadata* imageMetadata, $List* thumbnails, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, "output == null!"_s);
 	}
 	checkParamsEmpty(imageType, width, height, thumbnails);
 	this->isWritingEmpty = true;
 	$var($SampleModel, emptySM, $nc(imageType)->getSampleModel());
-	int32_t var$0 = width;
-	int32_t var$1 = height;
-	int32_t var$2 = $nc(emptySM)->getWidth();
-	int32_t var$3 = emptySM->getHeight();
-	$var($SampleModel, var$4, emptySM);
-	$var($RenderedImage, emptyImage, $new($EmptyImage, 0, 0, var$0, var$1, 0, 0, var$2, var$3, var$4, $(imageType->getColorModel())));
+	int32_t var$0 = $nc(emptySM)->getWidth();
+	int32_t var$1 = emptySM->getHeight();
+	$var($RenderedImage, emptyImage, $new($EmptyImage, 0, 0, width, height, 0, 0, var$0, var$1, emptySM, $(imageType->getColorModel())));
 	markPositions();
-	write(streamMetadata, $$new($IIOImage, emptyImage, ($List*)nullptr, imageMetadata), param, true, false);
+	write(streamMetadata, $$new($IIOImage, emptyImage, nullptr, imageMetadata), param, true, false);
 	if (abortRequested()) {
 		resetPositions();
 	}
@@ -2181,7 +1999,7 @@ void TIFFImageWriter::endWriteEmpty() {
 }
 
 $TIFFIFD* TIFFImageWriter::readIFD(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, "Output not set!"_s);
 	}
@@ -2205,7 +2023,7 @@ $TIFFIFD* TIFFImageWriter::readIFD(int32_t imageIndex) {
 }
 
 bool TIFFImageWriter::canReplacePixels(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getOutput() == nullptr) {
 		$throwNew($IllegalStateException, "getOutput() == null!"_s);
 	}
@@ -2216,7 +2034,7 @@ bool TIFFImageWriter::canReplacePixels(int32_t imageIndex) {
 }
 
 void TIFFImageWriter::prepareReplacePixels(int32_t imageIndex, $Rectangle* region$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, region, region$renamed);
 	$synchronized(this->replacePixelsLock) {
 		if (this->stream == nullptr) {
@@ -2228,7 +2046,7 @@ void TIFFImageWriter::prepareReplacePixels(int32_t imageIndex, $Rectangle* regio
 		if ($nc(region)->getWidth() < 1) {
 			$throwNew($IllegalArgumentException, "region.getWidth() < 1!"_s);
 		}
-		if ($nc(region)->getHeight() < 1) {
+		if (region->getHeight() < 1) {
 			$throwNew($IllegalArgumentException, "region.getHeight() < 1!"_s);
 		}
 		if (this->inReplacePixelsNest) {
@@ -2244,15 +2062,15 @@ void TIFFImageWriter::prepareReplacePixels(int32_t imageIndex, $Rectangle* regio
 		if (f == nullptr) {
 			$throwNew($IIOException, "Cannot read ImageWidth field."_s);
 		}
-		int32_t w = f->getAsInt(0);
+		int32_t w = $nc(f)->getAsInt(0);
 		$assign(f, replacePixelsIFD->getTIFFField($BaselineTIFFTagSet::TAG_IMAGE_LENGTH));
 		if (f == nullptr) {
 			$throwNew($IIOException, "Cannot read ImageHeight field."_s);
 		}
-		int32_t h = f->getAsInt(0);
+		int32_t h = $nc(f)->getAsInt(0);
 		$var($Rectangle, bounds, $new($Rectangle, 0, 0, w, h));
-		$assign(region, $nc(region)->intersection(bounds));
-		if (region->isEmpty()) {
+		$assign(region, region->intersection(bounds));
+		if ($nc(region)->isEmpty()) {
 			$throwNew($IIOException, "Region does not intersect image bounds"_s);
 		}
 		$set(this, replacePixelsRegion, region);
@@ -2260,12 +2078,12 @@ void TIFFImageWriter::prepareReplacePixels(int32_t imageIndex, $Rectangle* regio
 		if (f == nullptr) {
 			$assign(f, replacePixelsIFD->getTIFFField($BaselineTIFFTagSet::TAG_STRIP_OFFSETS));
 		}
-		$set(this, replacePixelsTileOffsets, f->getAsLongs());
+		$set(this, replacePixelsTileOffsets, $nc(f)->getAsLongs());
 		$assign(f, replacePixelsIFD->getTIFFField($BaselineTIFFTagSet::TAG_TILE_BYTE_COUNTS));
 		if (f == nullptr) {
 			$assign(f, replacePixelsIFD->getTIFFField($BaselineTIFFTagSet::TAG_STRIP_BYTE_COUNTS));
 		}
-		$set(this, replacePixelsByteCounts, f->getAsLongs());
+		$set(this, replacePixelsByteCounts, $nc(f)->getAsLongs());
 		this->replacePixelsOffsetsPosition = replacePixelsIFD->getStripOrTileOffsetsPosition();
 		this->replacePixelsByteCountsPosition = replacePixelsIFD->getStripOrTileByteCountsPosition();
 		$set(this, replacePixelsMetadata, $new($TIFFImageMetadata, replacePixelsIFD));
@@ -2275,13 +2093,13 @@ void TIFFImageWriter::prepareReplacePixels(int32_t imageIndex, $Rectangle* regio
 }
 
 $Raster* TIFFImageWriter::subsample($Raster* raster, $ints* sourceBands, int32_t subOriginX, int32_t subOriginY, int32_t subPeriodX, int32_t subPeriodY, int32_t dstOffsetX, int32_t dstOffsetY, $Rectangle* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x = $nc(raster)->getMinX();
 	int32_t y = raster->getMinY();
 	int32_t w = raster->getWidth();
 	int32_t h = raster->getHeight();
-	int32_t b = $nc($(raster->getSampleModel()))->getNumBands();
-	int32_t t = $nc($(raster->getSampleModel()))->getDataType();
+	int32_t b = $$nc(raster->getSampleModel())->getNumBands();
+	int32_t t = $$nc(raster->getSampleModel())->getDataType();
 	int32_t outMinX = XToTileX(x, subOriginX, subPeriodX) + dstOffsetX;
 	int32_t outMinY = YToTileY(y, subOriginY, subPeriodY) + dstOffsetY;
 	int32_t outMaxX = XToTileX(x + w - 1, subOriginX, subPeriodX) + dstOffsetX;
@@ -2342,11 +2160,11 @@ $Raster* TIFFImageWriter::subsample($Raster* raster, $ints* sourceBands, int32_t
 			}
 		}
 	}
-	return $nc(wr)->createChild(outMinX, outMinY, $nc(target)->width, target->height, target->x, target->y, sourceBands);
+	return $nc(wr)->createChild(outMinX, outMinY, $nc(target)->width, $nc(target)->height, $nc(target)->x, $nc(target)->y, sourceBands);
 }
 
 void TIFFImageWriter::replacePixels($RenderedImage* image, $ImageWriteParam* param$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageWriteParam, param, param$renamed);
 	$synchronized(this->replacePixelsLock) {
 		if (this->stream == nullptr) {
@@ -2368,10 +2186,10 @@ void TIFFImageWriter::replacePixels($RenderedImage* image, $ImageWriteParam* par
 			$var($ImageWriteParam, paramCopy, getDefaultWriteParam());
 			$nc(paramCopy)->setCompressionMode($ImageWriteParam::MODE_DISABLED);
 			paramCopy->setTilingMode($ImageWriteParam::MODE_COPY_FROM_METADATA);
-			paramCopy->setDestinationOffset($($nc(param)->getDestinationOffset()));
-			paramCopy->setSourceBands($($nc(param)->getSourceBands()));
-			paramCopy->setSourceRegion($($nc(param)->getSourceRegion()));
-			stepX = $nc(param)->getSourceXSubsampling();
+			paramCopy->setDestinationOffset($(param->getDestinationOffset()));
+			paramCopy->setSourceBands($(param->getSourceBands()));
+			paramCopy->setSourceRegion($(param->getSourceRegion()));
+			stepX = param->getSourceXSubsampling();
 			stepY = param->getSourceYSubsampling();
 			gridX = param->getSubsamplingXOffset();
 			gridY = param->getSubsamplingYOffset();
@@ -2382,24 +2200,24 @@ void TIFFImageWriter::replacePixels($RenderedImage* image, $ImageWriteParam* par
 			$throwNew($IIOException, "Cannot read destination BitsPerSample"_s);
 		}
 		$var($ints, dstBitsPerSample, $nc(f)->getAsInts());
-		$var($ints, srcBitsPerSample, $nc($($nc(image)->getSampleModel()))->getSampleSize());
+		$var($ints, srcBitsPerSample, $$nc($nc(image)->getSampleModel())->getSampleSize());
 		$var($ints, sourceBands, $nc(param)->getSourceBands());
 		if (sourceBands != nullptr) {
 			if (sourceBands->length != $nc(dstBitsPerSample)->length) {
 				$throwNew($IIOException, "Source and destination have different SamplesPerPixel"_s);
 			}
 			for (int32_t i = 0; i < sourceBands->length; ++i) {
-				if ($nc(dstBitsPerSample)->get(i) != $nc(srcBitsPerSample)->get(sourceBands->get(i))) {
+				if (dstBitsPerSample->get(i) != $nc(srcBitsPerSample)->get(sourceBands->get(i))) {
 					$throwNew($IIOException, "Source and destination have different BitsPerSample"_s);
 				}
 			}
 		} else {
-			int32_t srcNumBands = $nc($(image->getSampleModel()))->getNumBands();
+			int32_t srcNumBands = $$nc(image->getSampleModel())->getNumBands();
 			if (srcNumBands != $nc(dstBitsPerSample)->length) {
 				$throwNew($IIOException, "Source and destination have different SamplesPerPixel"_s);
 			}
 			for (int32_t i = 0; i < srcNumBands; ++i) {
-				if ($nc(dstBitsPerSample)->get(i) != $nc(srcBitsPerSample)->get(i)) {
+				if (dstBitsPerSample->get(i) != $nc(srcBitsPerSample)->get(i)) {
 					$throwNew($IIOException, "Source and destination have different BitsPerSample"_s);
 				}
 			}
@@ -2432,133 +2250,129 @@ void TIFFImageWriter::replacePixels($RenderedImage* image, $ImageWriteParam* par
 		if ($nc(dstRect)->isEmpty()) {
 			$throwNew($IllegalArgumentException, "Forward mapped source region does not intersect destination region!"_s);
 		}
-		int32_t activeSrcMinX = ($nc(dstRect)->x - dstOffset->x) * subPeriodX + subOriginX;
+		int32_t activeSrcMinX = (dstRect->x - dstOffset->x) * subPeriodX + subOriginX;
 		int32_t sxmax = (dstRect->x + dstRect->width - 1 - dstOffset->x) * subPeriodX + subOriginX;
 		int32_t activeSrcWidth = sxmax - activeSrcMinX + 1;
 		int32_t activeSrcMinY = (dstRect->y - dstOffset->y) * subPeriodY + subOriginY;
 		int32_t symax = (dstRect->y + dstRect->height - 1 - dstOffset->y) * subPeriodY + subOriginY;
 		int32_t activeSrcHeight = symax - activeSrcMinY + 1;
 		$var($Rectangle, activeSrcRect, $new($Rectangle, activeSrcMinX, activeSrcMinY, activeSrcWidth, activeSrcHeight));
-		if ($nc($(activeSrcRect->intersection(srcImageBounds)))->isEmpty()) {
+		if ($$nc(activeSrcRect->intersection(srcImageBounds))->isEmpty()) {
 			$throwNew($IllegalArgumentException, "Backward mapped destination region does not intersect source image!"_s);
 		}
 		if (this->reader == nullptr) {
 			$set(this, reader, $new($TIFFImageReader, $$new($TIFFImageReaderSpi)));
 		} else {
-			$nc(this->reader)->reset();
+			this->reader->reset();
 		}
 		$nc(this->stream)->mark();
-		{
-			$var($Throwable, var$3, nullptr);
+		$var($Throwable, var$3, nullptr);
+		try {
 			try {
-				try {
-					$nc(this->stream)->seek(this->headerPosition);
-					$nc(this->reader)->setInput(this->stream);
-					$set(this, imageMetadata, this->replacePixelsMetadata);
-					$set(this, param, param);
-					$var($SampleModel, sm, image->getSampleModel());
-					$var($ColorModel, cm, image->getColorModel());
-					this->numBands = $nc(sm)->getNumBands();
-					$set(this, imageType, $new($ImageTypeSpecifier, image));
-					this->periodX = param->getSourceXSubsampling();
-					this->periodY = param->getSourceYSubsampling();
-					$set(this, sourceBands, nullptr);
-					$var($ints, sBands, param->getSourceBands());
-					if (sBands != nullptr) {
-						$set(this, sourceBands, sBands);
-						this->numBands = $nc(sourceBands)->length;
-					}
-					$var($ColorModel, var$4, cm);
-					$var($SampleModel, var$5, sm);
-					int32_t var$6 = $nc(this->reader)->getWidth(this->replacePixelsIndex);
-					setupMetadata(var$4, var$5, var$6, $nc(this->reader)->getHeight(this->replacePixelsIndex));
-					$var($ints, scaleSampleSize, sm->getSampleSize());
-					initializeScaleTables(scaleSampleSize);
-					this->isBilevel = $ImageUtil::isBinary($(image->getSampleModel()));
-					this->isInverted = (this->nativePhotometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO && this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_WHITE_IS_ZERO) || (this->nativePhotometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_WHITE_IS_ZERO && this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO);
-					this->isImageSimple = (this->isBilevel || (!this->isInverted && $ImageUtil::imageIsContiguous(image))) && !this->isRescaling && sourceBands == nullptr && this->periodX == 1 && this->periodY == 1 && this->colorConverter == nullptr;
-					int32_t minTileX = XToTileX(dstRect->x, 0, this->tileWidth);
-					int32_t minTileY = YToTileY(dstRect->y, 0, this->tileLength);
-					int32_t maxTileX = XToTileX(dstRect->x + dstRect->width - 1, 0, this->tileWidth);
-					int32_t maxTileY = YToTileY(dstRect->y + dstRect->height - 1, 0, this->tileLength);
-					$var($TIFFCompressor, encoder, $new($TIFFNullCompressor));
-					encoder->setWriter(this);
-					encoder->setStream(this->stream);
-					encoder->setMetadata(this->imageMetadata);
-					$var($Rectangle, tileRect, $new($Rectangle));
-					for (int32_t ty = minTileY; ty <= maxTileY; ++ty) {
-						for (int32_t tx = minTileX; tx <= maxTileX; ++tx) {
-							int32_t tileIndex = ty * this->tilesAcross + tx;
-							bool isEmpty = $nc(this->replacePixelsByteCounts)->get(tileIndex) == (int64_t)0;
-							$var($WritableRaster, raster, nullptr);
-							if (isEmpty) {
-								$var($SampleModel, tileSM, sm->createCompatibleSampleModel(this->tileWidth, this->tileLength));
-								$assign(raster, $Raster::createWritableRaster(tileSM, nullptr));
-							} else {
-								$var($BufferedImage, tileImage, $nc(this->reader)->readTile(this->replacePixelsIndex, tx, ty));
-								$assign(raster, $nc(tileImage)->getRaster());
-							}
-							tileRect->setLocation(tx * this->tileWidth, ty * this->tileLength);
-							int32_t var$7 = $nc(raster)->getWidth();
-							tileRect->setSize(var$7, raster->getHeight());
-							$assign(raster, $nc(raster)->createWritableTranslatedChild(tileRect->x, tileRect->y));
-							$var($Rectangle, replacementRect, tileRect->intersection(dstRect));
-							int32_t srcMinX = ($nc(replacementRect)->x - dstOffset->x) * subPeriodX + subOriginX;
-							int32_t srcXmax = (replacementRect->x + replacementRect->width - 1 - dstOffset->x) * subPeriodX + subOriginX;
-							int32_t srcWidth = srcXmax - srcMinX + 1;
-							int32_t srcMinY = (replacementRect->y - dstOffset->y) * subPeriodY + subOriginY;
-							int32_t srcYMax = (replacementRect->y + replacementRect->height - 1 - dstOffset->y) * subPeriodY + subOriginY;
-							int32_t srcHeight = srcYMax - srcMinY + 1;
-							$var($Rectangle, srcTileRect, $new($Rectangle, srcMinX, srcMinY, srcWidth, srcHeight));
-							$var($Raster, replacementData, image->getData(srcTileRect));
-							if (subPeriodX == 1 && subPeriodY == 1 && subOriginX == 0 && subOriginY == 0) {
-								$assign(replacementData, $nc(replacementData)->createChild(srcTileRect->x, srcTileRect->y, srcTileRect->width, srcTileRect->height, replacementRect->x, replacementRect->y, sourceBands));
-							} else {
-								$assign(replacementData, subsample(replacementData, sourceBands, subOriginX, subOriginY, subPeriodX, subPeriodY, dstOffset->x, dstOffset->y, replacementRect));
-								if (replacementData == nullptr) {
-									continue;
-								}
-							}
-							raster->setRect(replacementData);
-							if (isEmpty) {
-								$nc(this->stream)->seek(this->nextSpace);
-							} else {
-								$nc(this->stream)->seek($nc(this->replacePixelsTileOffsets)->get(tileIndex));
-							}
-							$set(this, image, $new($SingleTileRenderedImage, raster, cm));
-							int32_t numBytes = writeTile(tileRect, encoder);
-							if (isEmpty) {
-								$nc(this->stream)->mark();
-								$nc(this->stream)->seek(this->replacePixelsOffsetsPosition + 4 * tileIndex);
-								$nc(this->stream)->writeInt((int32_t)this->nextSpace);
-								$nc(this->stream)->seek(this->replacePixelsByteCountsPosition + 4 * tileIndex);
-								$nc(this->stream)->writeInt(numBytes);
-								$nc(this->stream)->reset();
-								this->nextSpace += numBytes;
+				$nc(this->stream)->seek(this->headerPosition);
+				$nc(this->reader)->setInput(this->stream);
+				$set(this, imageMetadata, this->replacePixelsMetadata);
+				$set(this, param, param);
+				$var($SampleModel, sm, image->getSampleModel());
+				$var($ColorModel, cm, image->getColorModel());
+				this->numBands = $nc(sm)->getNumBands();
+				$set(this, imageType, $new($ImageTypeSpecifier, image));
+				this->periodX = param->getSourceXSubsampling();
+				this->periodY = param->getSourceYSubsampling();
+				$set(this, sourceBands, nullptr);
+				$var($ints, sBands, param->getSourceBands());
+				if (sBands != nullptr) {
+					$set(this, sourceBands, sBands);
+					this->numBands = $nc(sourceBands)->length;
+				}
+				int32_t var$4 = $nc(this->reader)->getWidth(this->replacePixelsIndex);
+				setupMetadata(cm, sm, var$4, this->reader->getHeight(this->replacePixelsIndex));
+				$var($ints, scaleSampleSize, sm->getSampleSize());
+				initializeScaleTables(scaleSampleSize);
+				this->isBilevel = $ImageUtil::isBinary($(image->getSampleModel()));
+				this->isInverted = (this->nativePhotometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO && this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_WHITE_IS_ZERO) || (this->nativePhotometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_WHITE_IS_ZERO && this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO);
+				this->isImageSimple = (this->isBilevel || (!this->isInverted && $ImageUtil::imageIsContiguous(image))) && !this->isRescaling && sourceBands == nullptr && this->periodX == 1 && this->periodY == 1 && this->colorConverter == nullptr;
+				int32_t minTileX = XToTileX(dstRect->x, 0, this->tileWidth);
+				int32_t minTileY = YToTileY(dstRect->y, 0, this->tileLength);
+				int32_t maxTileX = XToTileX(dstRect->x + dstRect->width - 1, 0, this->tileWidth);
+				int32_t maxTileY = YToTileY(dstRect->y + dstRect->height - 1, 0, this->tileLength);
+				$var($TIFFCompressor, encoder, $new($TIFFNullCompressor));
+				encoder->setWriter(this);
+				encoder->setStream(this->stream);
+				encoder->setMetadata(this->imageMetadata);
+				$var($Rectangle, tileRect, $new($Rectangle));
+				for (int32_t ty = minTileY; ty <= maxTileY; ++ty) {
+					for (int32_t tx = minTileX; tx <= maxTileX; ++tx) {
+						int32_t tileIndex = ty * this->tilesAcross + tx;
+						bool isEmpty = $nc(this->replacePixelsByteCounts)->get(tileIndex) == 0;
+						$var($WritableRaster, raster, nullptr);
+						if (isEmpty) {
+							$var($SampleModel, tileSM, sm->createCompatibleSampleModel(this->tileWidth, this->tileLength));
+							$assign(raster, $Raster::createWritableRaster(tileSM, nullptr));
+						} else {
+							$var($BufferedImage, tileImage, $nc(this->reader)->readTile(this->replacePixelsIndex, tx, ty));
+							$assign(raster, $nc(tileImage)->getRaster());
+						}
+						tileRect->setLocation(tx * this->tileWidth, ty * this->tileLength);
+						int32_t var$5 = $nc(raster)->getWidth();
+						tileRect->setSize(var$5, raster->getHeight());
+						$assign(raster, raster->createWritableTranslatedChild(tileRect->x, tileRect->y));
+						$var($Rectangle, replacementRect, tileRect->intersection(dstRect));
+						int32_t srcMinX = ($nc(replacementRect)->x - dstOffset->x) * subPeriodX + subOriginX;
+						int32_t srcXmax = (replacementRect->x + replacementRect->width - 1 - dstOffset->x) * subPeriodX + subOriginX;
+						int32_t srcWidth = srcXmax - srcMinX + 1;
+						int32_t srcMinY = (replacementRect->y - dstOffset->y) * subPeriodY + subOriginY;
+						int32_t srcYMax = (replacementRect->y + replacementRect->height - 1 - dstOffset->y) * subPeriodY + subOriginY;
+						int32_t srcHeight = srcYMax - srcMinY + 1;
+						$var($Rectangle, srcTileRect, $new($Rectangle, srcMinX, srcMinY, srcWidth, srcHeight));
+						$var($Raster, replacementData, image->getData(srcTileRect));
+						if (subPeriodX == 1 && subPeriodY == 1 && subOriginX == 0 && subOriginY == 0) {
+							$assign(replacementData, $nc(replacementData)->createChild(srcTileRect->x, srcTileRect->y, srcTileRect->width, srcTileRect->height, replacementRect->x, replacementRect->y, sourceBands));
+						} else {
+							$assign(replacementData, subsample(replacementData, sourceBands, subOriginX, subOriginY, subPeriodX, subPeriodY, dstOffset->x, dstOffset->y, replacementRect));
+							if (replacementData == nullptr) {
+								continue;
 							}
 						}
+						$nc(raster)->setRect(replacementData);
+						if (isEmpty) {
+							$nc(this->stream)->seek(this->nextSpace);
+						} else {
+							$nc(this->stream)->seek($nc(this->replacePixelsTileOffsets)->get(tileIndex));
+						}
+						$set(this, image, $new($SingleTileRenderedImage, raster, cm));
+						int32_t numBytes = writeTile(tileRect, encoder);
+						if (isEmpty) {
+							$nc(this->stream)->mark();
+							$nc(this->stream)->seek(this->replacePixelsOffsetsPosition + 4 * tileIndex);
+							$nc(this->stream)->writeInt((int32_t)this->nextSpace);
+							$nc(this->stream)->seek(this->replacePixelsByteCountsPosition + 4 * tileIndex);
+							$nc(this->stream)->writeInt(numBytes);
+							$nc(this->stream)->reset();
+							this->nextSpace += numBytes;
+						}
 					}
-				} catch ($IOException& e) {
-					$throw(e);
 				}
-			} catch ($Throwable& var$8) {
-				$assign(var$3, var$8);
-			} /*finally*/ {
-				$nc(this->stream)->reset();
+			} catch ($IOException& e) {
+				$throw(e);
 			}
-			if (var$3 != nullptr) {
-				$throw(var$3);
-			}
+		} catch ($Throwable& var$6) {
+			$assign(var$3, var$6);
+		} /*finally*/ {
+			$nc(this->stream)->reset();
+		}
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
 	}
 }
 
 void TIFFImageWriter::replacePixels($Raster* raster, $ImageWriteParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (raster == nullptr) {
 		$throwNew($NullPointerException, "raster == null!"_s);
 	}
-	replacePixels(static_cast<$RenderedImage*>($$new($SingleTileRenderedImage, raster, $($nc(this->image)->getColorModel()))), param);
+	replacePixels($$new($SingleTileRenderedImage, raster, $($nc(this->image)->getColorModel())), param);
 }
 
 void TIFFImageWriter::endReplacePixels() {
@@ -2614,7 +2428,7 @@ void TIFFImageWriter::reset() {
 	this->inReplacePixelsNest = false;
 }
 
-void clinit$TIFFImageWriter($Class* class$) {
+void TIFFImageWriter::clinit$($Class* clazz) {
 	$assignStatic(TIFFImageWriter::EXIF_JPEG_COMPRESSION_TYPE, "Exif JPEG"_s);
 	$assignStatic(TIFFImageWriter::TIFFCompressionTypes, $new($StringArray, {
 		"CCITT RLE"_s,
@@ -2669,7 +2483,135 @@ TIFFImageWriter::TIFFImageWriter() {
 }
 
 $Class* TIFFImageWriter::load$($String* name, bool initialize) {
-	$loadClass(TIFFImageWriter, name, initialize, &_TIFFImageWriter_ClassInfo_, clinit$TIFFImageWriter, allocate$TIFFImageWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXIF_JPEG_COMPRESSION_TYPE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, EXIF_JPEG_COMPRESSION_TYPE)},
+		{"DEFAULT_BYTES_PER_STRIP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFImageWriter, DEFAULT_BYTES_PER_STRIP)},
+		{"TIFFCompressionTypes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, TIFFCompressionTypes)},
+		{"compressionTypes", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, compressionTypes)},
+		{"isCompressionLossless", "[Z", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, isCompressionLossless)},
+		{"compressionNumbers", "[I", nullptr, $STATIC | $FINAL, $staticField(TIFFImageWriter, compressionNumbers)},
+		{"stream", "Ljavax/imageio/stream/ImageOutputStream;", nullptr, $PRIVATE, $field(TIFFImageWriter, stream)},
+		{"headerPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, headerPosition)},
+		{"image", "Ljava/awt/image/RenderedImage;", nullptr, $PRIVATE, $field(TIFFImageWriter, image)},
+		{"imageType", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $field(TIFFImageWriter, imageType)},
+		{"byteOrder", "Ljava/nio/ByteOrder;", nullptr, $PRIVATE, $field(TIFFImageWriter, byteOrder)},
+		{"param", "Ljavax/imageio/ImageWriteParam;", nullptr, $PRIVATE, $field(TIFFImageWriter, param)},
+		{"compressor", "Lcom/sun/imageio/plugins/tiff/TIFFCompressor;", nullptr, $PRIVATE, $field(TIFFImageWriter, compressor)},
+		{"colorConverter", "Lcom/sun/imageio/plugins/tiff/TIFFColorConverter;", nullptr, $PRIVATE, $field(TIFFImageWriter, colorConverter)},
+		{"streamMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFStreamMetadata;", nullptr, $PRIVATE, $field(TIFFImageWriter, streamMetadata)},
+		{"imageMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $field(TIFFImageWriter, imageMetadata)},
+		{"sourceXOffset", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceXOffset)},
+		{"sourceYOffset", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceYOffset)},
+		{"sourceWidth", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceWidth)},
+		{"sourceHeight", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceHeight)},
+		{"sourceBands", "[I", nullptr, $PRIVATE, $field(TIFFImageWriter, sourceBands)},
+		{"periodX", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, periodX)},
+		{"periodY", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, periodY)},
+		{"bitDepth", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, bitDepth)},
+		{"numBands", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, numBands)},
+		{"tileWidth", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, tileWidth)},
+		{"tileLength", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, tileLength)},
+		{"tilesAcross", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, tilesAcross)},
+		{"tilesDown", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, tilesDown)},
+		{"sampleSize", "[I", nullptr, $PRIVATE, $field(TIFFImageWriter, sampleSize)},
+		{"scalingBitDepth", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, scalingBitDepth)},
+		{"isRescaling", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isRescaling)},
+		{"isBilevel", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isBilevel)},
+		{"isImageSimple", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isImageSimple)},
+		{"isInverted", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isInverted)},
+		{"isTiled", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isTiled)},
+		{"nativePhotometricInterpretation", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, nativePhotometricInterpretation)},
+		{"photometricInterpretation", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, photometricInterpretation)},
+		{"bitsPerSample", "[C", nullptr, $PRIVATE, $field(TIFFImageWriter, bitsPerSample)},
+		{"sampleFormat", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, sampleFormat)},
+		{"scale", "[[B", nullptr, $PRIVATE, $field(TIFFImageWriter, scale)},
+		{"scale0", "[B", nullptr, $PRIVATE, $field(TIFFImageWriter, scale0)},
+		{"scaleh", "[[B", nullptr, $PRIVATE, $field(TIFFImageWriter, scaleh)},
+		{"scalel", "[[B", nullptr, $PRIVATE, $field(TIFFImageWriter, scalel)},
+		{"compression", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, compression)},
+		{"predictor", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, predictor)},
+		{"totalPixels", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, totalPixels)},
+		{"pixelsDone", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, pixelsDone)},
+		{"nextIFDPointerPos", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, nextIFDPointerPos)},
+		{"nextSpace", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, nextSpace)},
+		{"prevStreamPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, prevStreamPosition)},
+		{"prevHeaderPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, prevHeaderPosition)},
+		{"prevNextSpace", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, prevNextSpace)},
+		{"isWritingSequence", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isWritingSequence)},
+		{"isInsertingEmpty", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isInsertingEmpty)},
+		{"isWritingEmpty", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, isWritingEmpty)},
+		{"currentImage", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, currentImage)},
+		{"replacePixelsLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsLock)},
+		{"replacePixelsIndex", "I", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsIndex)},
+		{"replacePixelsMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsMetadata)},
+		{"replacePixelsTileOffsets", "[J", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsTileOffsets)},
+		{"replacePixelsByteCounts", "[J", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsByteCounts)},
+		{"replacePixelsOffsetsPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsOffsetsPosition)},
+		{"replacePixelsByteCountsPosition", "J", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsByteCountsPosition)},
+		{"replacePixelsRegion", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(TIFFImageWriter, replacePixelsRegion)},
+		{"inReplacePixelsNest", "Z", nullptr, $PRIVATE, $field(TIFFImageWriter, inReplacePixelsNest)},
+		{"reader", "Lcom/sun/imageio/plugins/tiff/TIFFImageReader;", nullptr, $PRIVATE, $field(TIFFImageWriter, reader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageWriterSpi;)V", nullptr, $PUBLIC, $method(TIFFImageWriter, init$, void, $ImageWriterSpi*)},
+		{"XToTileX", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFImageWriter, XToTileX, int32_t, int32_t, int32_t, int32_t)},
+		{"YToTileY", "(III)I", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFImageWriter, YToTileY, int32_t, int32_t, int32_t, int32_t)},
+		{"canInsertEmpty", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canInsertEmpty, bool, int32_t), "java.io.IOException"},
+		{"canInsertImage", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canInsertImage, bool, int32_t), "java.io.IOException"},
+		{"canReplacePixels", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canReplacePixels, bool, int32_t), "java.io.IOException"},
+		{"canWriteEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canWriteEmpty, bool), "java.io.IOException"},
+		{"canWriteSequence", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, canWriteSequence, bool)},
+		{"checkParamsEmpty", "(Ljavax/imageio/ImageTypeSpecifier;IILjava/util/List;)V", "(Ljavax/imageio/ImageTypeSpecifier;IILjava/util/List<+Ljava/awt/image/BufferedImage;>;)V", $PRIVATE, $method(TIFFImageWriter, checkParamsEmpty, void, $ImageTypeSpecifier*, int32_t, int32_t, $List*)},
+		{"convertImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, convertImageMetadata, $IIOMetadata*, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"convertNativeImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $method(TIFFImageWriter, convertNativeImageMetadata, $TIFFImageMetadata*, $IIOMetadata*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"convertStandardImageMetadata", "(Ljavax/imageio/metadata/IIOMetadata;)Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $method(TIFFImageWriter, convertStandardImageMetadata, $TIFFImageMetadata*, $IIOMetadata*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"convertStreamMetadata", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, convertStreamMetadata, $IIOMetadata*, $IIOMetadata*, $ImageWriteParam*)},
+		{"endInsertEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, endInsertEmpty, void), "java.io.IOException"},
+		{"endReplacePixels", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, endReplacePixels, void), "java.io.IOException"},
+		{"endWriteEmpty", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, endWriteEmpty, void), "java.io.IOException"},
+		{"endWriteSequence", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, endWriteSequence, void), "java.io.IOException"},
+		{"equals", "([I[I)Z", nullptr, $PRIVATE, $method(TIFFImageWriter, equals, bool, $ints*, $ints*)},
+		{"getDefaultImageMetadata", "(Ljavax/imageio/ImageTypeSpecifier;Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, getDefaultImageMetadata, $IIOMetadata*, $ImageTypeSpecifier*, $ImageWriteParam*)},
+		{"getDefaultStreamMetadata", "(Ljavax/imageio/ImageWriteParam;)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, getDefaultStreamMetadata, $IIOMetadata*, $ImageWriteParam*)},
+		{"getDefaultWriteParam", "()Ljavax/imageio/ImageWriteParam;", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, getDefaultWriteParam, $ImageWriteParam*)},
+		{"getImageType", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, 0, $virtualMethod(TIFFImageWriter, getImageType, $ImageTypeSpecifier*)},
+		{"initializeScaleTables", "([I)V", nullptr, $PRIVATE, $method(TIFFImageWriter, initializeScaleTables, void, $ints*)},
+		{"insert", "(ILjavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;Z)V", nullptr, $PRIVATE, $method(TIFFImageWriter, insert, void, int32_t, $IIOImage*, $ImageWriteParam*, bool), "java.io.IOException"},
+		{"isEncodingEmpty", "()Z", nullptr, $PRIVATE, $method(TIFFImageWriter, isEncodingEmpty, bool)},
+		{"locateIFD", "(I[J[J)V", nullptr, $PRIVATE, $method(TIFFImageWriter, locateIFD, void, int32_t, $longs*, $longs*), "java.io.IOException"},
+		{"markPositions", "()V", nullptr, $PRIVATE, $method(TIFFImageWriter, markPositions, void), "java.io.IOException"},
+		{"prepareInsertEmpty", "(ILjavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List;Ljavax/imageio/ImageWriteParam;)V", "(ILjavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljavax/imageio/ImageWriteParam;)V", $PUBLIC, $virtualMethod(TIFFImageWriter, prepareInsertEmpty, void, int32_t, $ImageTypeSpecifier*, int32_t, int32_t, $IIOMetadata*, $List*, $ImageWriteParam*), "java.io.IOException"},
+		{"prepareReplacePixels", "(ILjava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, prepareReplacePixels, void, int32_t, $Rectangle*), "java.io.IOException"},
+		{"prepareWriteEmpty", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List;Ljavax/imageio/ImageWriteParam;)V", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/ImageTypeSpecifier;IILjavax/imageio/metadata/IIOMetadata;Ljava/util/List<+Ljava/awt/image/BufferedImage;>;Ljavax/imageio/ImageWriteParam;)V", $PUBLIC, $virtualMethod(TIFFImageWriter, prepareWriteEmpty, void, $IIOMetadata*, $ImageTypeSpecifier*, int32_t, int32_t, $IIOMetadata*, $List*, $ImageWriteParam*), "java.io.IOException"},
+		{"prepareWriteSequence", "(Ljavax/imageio/metadata/IIOMetadata;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, prepareWriteSequence, void, $IIOMetadata*), "java.io.IOException"},
+		{"readIFD", "(I)Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PRIVATE, $method(TIFFImageWriter, readIFD, $TIFFIFD*, int32_t), "java.io.IOException"},
+		{"replacePixels", "(Ljava/awt/image/RenderedImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, replacePixels, void, $RenderedImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"replacePixels", "(Ljava/awt/image/Raster;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, replacePixels, void, $Raster*, $ImageWriteParam*), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, reset, void)},
+		{"resetPositions", "()V", nullptr, $PRIVATE, $method(TIFFImageWriter, resetPositions, void), "java.io.IOException"},
+		{"setOutput", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, setOutput, void, Object$*)},
+		{"setupMetadata", "(Ljava/awt/image/ColorModel;Ljava/awt/image/SampleModel;II)V", nullptr, 0, $virtualMethod(TIFFImageWriter, setupMetadata, void, $ColorModel*, $SampleModel*, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"subsample", "(Ljava/awt/image/Raster;[IIIIIIILjava/awt/Rectangle;)Ljava/awt/image/Raster;", nullptr, $PRIVATE, $method(TIFFImageWriter, subsample, $Raster*, $Raster*, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Rectangle*)},
+		{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"write", "(Ljavax/imageio/metadata/IIOMetadata;Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;ZZ)V", nullptr, $PRIVATE, $method(TIFFImageWriter, write, void, $IIOMetadata*, $IIOImage*, $ImageWriteParam*, bool, bool), "java.io.IOException"},
+		{"writeHeader", "()V", nullptr, $PRIVATE, $method(TIFFImageWriter, writeHeader, void), "java.io.IOException"},
+		{"writeInsert", "(ILjavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, writeInsert, void, int32_t, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{"writeTile", "(Ljava/awt/Rectangle;Lcom/sun/imageio/plugins/tiff/TIFFCompressor;)I", nullptr, $PRIVATE, $method(TIFFImageWriter, writeTile, int32_t, $Rectangle*, $TIFFCompressor*), "java.io.IOException"},
+		{"writeToSequence", "(Ljavax/imageio/IIOImage;Ljavax/imageio/ImageWriteParam;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageWriter, writeToSequence, void, $IIOImage*, $ImageWriteParam*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFImageWriter",
+		"javax.imageio.ImageWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFImageWriter, name, initialize, &classInfo$$, TIFFImageWriter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFImageWriter);
+	});
 	return class$;
 }
 

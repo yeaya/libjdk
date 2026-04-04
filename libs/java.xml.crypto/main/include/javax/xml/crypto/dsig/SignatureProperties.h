@@ -22,6 +22,7 @@ namespace javax {
 class $import SignatureProperties : public ::javax::xml::crypto::XMLStructure {
 	$interface(SignatureProperties, 0, ::javax::xml::crypto::XMLStructure)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $String* getId() {return nullptr;}
 	virtual ::java::util::List* getProperties() {return nullptr;}
 	static $String* TYPE;

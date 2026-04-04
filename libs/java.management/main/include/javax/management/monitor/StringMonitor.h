@@ -55,6 +55,7 @@ public:
 	virtual $Array<::javax::management::ObjectName>* getObservedObjects() override;
 	virtual int32_t hashCode() override;
 	virtual bool isActive() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::management::monitor::MonitorNotification* buildAlarmNotification(::javax::management::ObjectName* object, $String* attribute, ::java::lang::Comparable* value) override;
 	virtual ::javax::management::monitor::Monitor$ObservedObject* createObservedObject(::javax::management::ObjectName* object) override;

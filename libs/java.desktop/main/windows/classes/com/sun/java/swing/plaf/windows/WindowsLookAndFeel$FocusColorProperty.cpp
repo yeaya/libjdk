@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$FocusColorProperty.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopProperty.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <java/awt/Color.h>
@@ -24,58 +23,53 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsLookAndFeel$FocusColorProperty_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$FocusColorProperty, init$, void)},
-	{"configureValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$FocusColorProperty, configureValue, $Object*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$FocusColorProperty_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FocusColorProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "FocusColorProperty", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$FocusColorProperty_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FocusColorProperty",
-	"com.sun.java.swing.plaf.windows.WindowsDesktopProperty",
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$FocusColorProperty_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$FocusColorProperty_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$FocusColorProperty($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$FocusColorProperty));
-}
-
 void WindowsLookAndFeel$FocusColorProperty::init$() {
 	$init($Color);
 	$WindowsDesktopProperty::init$("win.3d.backgroundColor"_s, $Color::BLACK);
 }
 
 $Object* WindowsLookAndFeel$FocusColorProperty::configureValue(Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, highContrastOn, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("win.highContrast.on"_s));
-	if (highContrastOn == nullptr || !$nc(($cast($Boolean, highContrastOn)))->booleanValue()) {
+	$useLocalObjectStack();
+	$var($Object, highContrastOn, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("win.highContrast.on"_s));
+	if (highContrastOn == nullptr || !$cast($Boolean, highContrastOn)->booleanValue()) {
 		$init($Color);
 		return $of($Color::BLACK);
 	}
 	$init($Color);
-	return $of($nc($Color::BLACK)->equals(value) ? $of($Color::WHITE) : $of($Color::BLACK));
+	return $of($nc($Color::BLACK)->equals(value) ? $Color::WHITE : $Color::BLACK);
 }
 
 WindowsLookAndFeel$FocusColorProperty::WindowsLookAndFeel$FocusColorProperty() {
 }
 
 $Class* WindowsLookAndFeel$FocusColorProperty::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$FocusColorProperty, name, initialize, &_WindowsLookAndFeel$FocusColorProperty_ClassInfo_, allocate$WindowsLookAndFeel$FocusColorProperty);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLookAndFeel$FocusColorProperty, init$, void)},
+		{"configureValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$FocusColorProperty, configureValue, $Object*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FocusColorProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "FocusColorProperty", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$FocusColorProperty",
+		"com.sun.java.swing.plaf.windows.WindowsDesktopProperty",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$FocusColorProperty, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$FocusColorProperty);
+	});
 	return class$;
 }
 

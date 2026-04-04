@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/StyleSheet.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/io/BufferedReader.h>
@@ -111,118 +110,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _StyleSheet_FieldInfo_[] = {
-	{"noBorder", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(StyleSheet, noBorder)},
-	{"DEFAULT_FONT_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(StyleSheet, DEFAULT_FONT_SIZE)},
-	{"fontSizeInherit", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(StyleSheet, fontSizeInherit$)},
-	{"css", "Ljavax/swing/text/html/CSS;", nullptr, $PRIVATE, $field(StyleSheet, css)},
-	{"selectorMapping", "Ljavax/swing/text/html/StyleSheet$SelectorMapping;", nullptr, $PRIVATE, $field(StyleSheet, selectorMapping)},
-	{"resolvedStyles", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/StyleSheet$ResolvedStyle;>;", $PRIVATE, $field(StyleSheet, resolvedStyles)},
-	{"linkedStyleSheets", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/html/StyleSheet;>;", $PRIVATE, $field(StyleSheet, linkedStyleSheets)},
-	{"base", "Ljava/net/URL;", nullptr, $PRIVATE, $field(StyleSheet, base)},
-	{"sizeMapDefault", "[I", nullptr, $STATIC | $FINAL, $staticField(StyleSheet, sizeMapDefault)},
-	{"sizeMap", "[I", nullptr, $PRIVATE, $field(StyleSheet, sizeMap)},
-	{"w3cLengthUnits", "Z", nullptr, $PRIVATE, $field(StyleSheet, w3cLengthUnits)},
-	{}
-};
-
-$MethodInfo _StyleSheet_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StyleSheet, init$, void)},
-	{"_cleanSelectorString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(StyleSheet, _cleanSelectorString, $String*, $String*)},
-	{"addAttribute", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addAttribute, $AttributeSet*, $AttributeSet*, Object$*, Object$*)},
-	{"addAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addAttributes, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
-	{"addCSSAttribute", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addCSSAttribute, void, $MutableAttributeSet*, $CSS$Attribute*, $String*)},
-	{"addCSSAttributeFromHTML", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addCSSAttributeFromHTML, bool, $MutableAttributeSet*, $CSS$Attribute*, $String*)},
-	{"addRule", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addRule, void, $String*)},
-	{"addRule", "([Ljava/lang/String;Ljavax/swing/text/AttributeSet;Z)V", nullptr, 0, $virtualMethod(StyleSheet, addRule, void, $StringArray*, $AttributeSet*, bool)},
-	{"addSortedStyle", "(Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljava/util/Vector;)V", "(Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljava/util/Vector<Ljavax/swing/text/html/StyleSheet$SelectorMapping;>;)V", $PRIVATE, $method(StyleSheet, addSortedStyle, void, $StyleSheet$SelectorMapping*, $Vector*)},
-	{"addStyleSheet", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addStyleSheet, void, StyleSheet*)},
-	{"cleanSelectorString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet, cleanSelectorString, $String*, $String*)},
-	{"convertAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, 0, $virtualMethod(StyleSheet, convertAttributeSet, $AttributeSet*, $AttributeSet*)},
-	{"createLargeAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(StyleSheet, createLargeAttributeSet, $MutableAttributeSet*, $AttributeSet*)},
-	{"createResolvedStyle", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, createResolvedStyle, $Style*, $String*, $StringArray*, $StringArray*, $StringArray*)},
-	{"createResolvedStyle", "(Ljava/lang/String;Ljava/util/Vector;Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Style;", "(Ljava/lang/String;Ljava/util/Vector<Ljavax/swing/text/Element;>;Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Style;", $PRIVATE, $method(StyleSheet, createResolvedStyle, $Style*, $String*, $Vector*, $HTML$Tag*)},
-	{"createResolvedStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PRIVATE, $method(StyleSheet, createResolvedStyle, $Style*, $String*)},
-	{"createSmallAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/StyleContext$SmallAttributeSet;", nullptr, $PROTECTED, $virtualMethod(StyleSheet, createSmallAttributeSet, $StyleContext$SmallAttributeSet*, $AttributeSet*)},
-	{"fontSizeInherit", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(StyleSheet, fontSizeInherit, $Object*)},
-	{"getBackground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getBackground, $Color*, $AttributeSet*)},
-	{"getBackgroundImage", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/ImageIcon;", nullptr, 0, $virtualMethod(StyleSheet, getBackgroundImage, $ImageIcon*, $AttributeSet*)},
-	{"getBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getBase, $URL*)},
-	{"getBoxPainter", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/StyleSheet$BoxPainter;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getBoxPainter, $StyleSheet$BoxPainter*, $AttributeSet*)},
-	{"getDeclaration", "(Ljava/lang/String;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getDeclaration, $AttributeSet*, $String*)},
-	{"getFont", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getFont, $Font*, $AttributeSet*)},
-	{"getForeground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getForeground, $Color*, $AttributeSet*)},
-	{"getIndexOfSize", "(F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleSheet, getIndexOfSize, int32_t, float)},
-	{"getLinkedStyle", "(Ljavax/swing/text/Style;)Ljavax/swing/text/Style;", nullptr, $PRIVATE, $method(StyleSheet, getLinkedStyle, $Style*, $Style*)},
-	{"getListPainter", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/StyleSheet$ListPainter;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getListPainter, $StyleSheet$ListPainter*, $AttributeSet*)},
-	{"getPointSize", "(I)F", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getPointSize, float, int32_t)},
-	{"getPointSize", "(Ljava/lang/String;)F", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getPointSize, float, $String*)},
-	{"getResolvedStyle", "(Ljava/lang/String;Ljava/util/Vector;Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Style;", "(Ljava/lang/String;Ljava/util/Vector<Ljavax/swing/text/Element;>;Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Style;", $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, getResolvedStyle, $Style*, $String*, $Vector*, $HTML$Tag*)},
-	{"getResolvedStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, getResolvedStyle, $Style*, $String*)},
-	{"getRootSelectorMapping", "()Ljavax/swing/text/html/StyleSheet$SelectorMapping;", nullptr, $PRIVATE, $method(StyleSheet, getRootSelectorMapping, $StyleSheet$SelectorMapping*)},
-	{"getRule", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/Element;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getRule, $Style*, $HTML$Tag*, $Element*)},
-	{"getRule", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getRule, $Style*, $String*)},
-	{"getSimpleSelectors", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet, getSimpleSelectors, $StringArray*, $String*)},
-	{"getSizeMap", "()[I", nullptr, 0, $virtualMethod(StyleSheet, getSizeMap, $ints*)},
-	{"getSpecificity", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(StyleSheet, getSpecificity, int32_t, $String*)},
-	{"getStyleSheets", "()[Ljavax/swing/text/html/StyleSheet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getStyleSheets, $StyleSheetArray*)},
-	{"getStyles", "(Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljava/util/Vector;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;IILjava/util/Hashtable;)V", "(Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljava/util/Vector<Ljavax/swing/text/html/StyleSheet$SelectorMapping;>;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;IILjava/util/Hashtable<Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljavax/swing/text/html/StyleSheet$SelectorMapping;>;)V", $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, getStyles, void, $StyleSheet$SelectorMapping*, $Vector*, $StringArray*, $StringArray*, $StringArray*, int32_t, int32_t, $Hashtable*)},
-	{"getViewAttributes", "(Ljavax/swing/text/View;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getViewAttributes, $AttributeSet*, $View*)},
-	{"importStyleSheet", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, importStyleSheet, void, $URL*)},
-	{"isW3CLengthUnits", "()Z", nullptr, 0, $virtualMethod(StyleSheet, isW3CLengthUnits, bool)},
-	{"linkStyleSheetAt", "(Ljavax/swing/text/html/StyleSheet;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, linkStyleSheetAt, void, StyleSheet*, int32_t)},
-	{"loadRules", "(Ljava/io/Reader;Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, loadRules, void, $Reader*, $URL*), "java.io.IOException"},
-	{"rebaseSizeMap", "(I)V", nullptr, 0, $virtualMethod(StyleSheet, rebaseSizeMap, void, int32_t)},
-	{"refreshResolvedRules", "(Ljava/lang/String;[Ljava/lang/String;Ljavax/swing/text/Style;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, refreshResolvedRules, void, $String*, $StringArray*, $Style*, int32_t)},
-	{"removeAttribute", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, removeAttribute, $AttributeSet*, $AttributeSet*, Object$*)},
-	{"removeAttributes", "(Ljavax/swing/text/AttributeSet;Ljava/util/Enumeration;)Ljavax/swing/text/AttributeSet;", "(Ljavax/swing/text/AttributeSet;Ljava/util/Enumeration<*>;)Ljavax/swing/text/AttributeSet;", $PUBLIC, $virtualMethod(StyleSheet, removeAttributes, $AttributeSet*, $AttributeSet*, $Enumeration*)},
-	{"removeAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, removeAttributes, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
-	{"removeHTMLTags", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $method(StyleSheet, removeHTMLTags, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
-	{"removeStyle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, removeStyle, void, $String*)},
-	{"removeStyleSheet", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, removeStyleSheet, void, StyleSheet*)},
-	{"setBase", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, setBase, void, $URL*)},
-	{"setBaseFontSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, setBaseFontSize, void, int32_t)},
-	{"setBaseFontSize", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, setBaseFontSize, void, $String*)},
-	{"stringToColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, stringToColor, $Color*, $String*)},
-	{"translateHTMLToCSS", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, translateHTMLToCSS, $AttributeSet*, $AttributeSet*)},
-	{"unlinkStyleSheet", "(Ljavax/swing/text/html/StyleSheet;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, unlinkStyleSheet, void, StyleSheet*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _StyleSheet_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.StyleSheet$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.text.html.StyleSheet$CssParser", "javax.swing.text.html.StyleSheet", "CssParser", 0},
-	{"javax.swing.text.html.StyleSheet$SelectorMapping", "javax.swing.text.html.StyleSheet", "SelectorMapping", $STATIC},
-	{"javax.swing.text.html.StyleSheet$ResolvedStyle", "javax.swing.text.html.StyleSheet", "ResolvedStyle", $STATIC},
-	{"javax.swing.text.html.StyleSheet$ViewAttributeSet", "javax.swing.text.html.StyleSheet", "ViewAttributeSet", 0},
-	{"javax.swing.text.html.StyleSheet$BackgroundImagePainter", "javax.swing.text.html.StyleSheet", "BackgroundImagePainter", $STATIC},
-	{"javax.swing.text.html.StyleSheet$ListPainter", "javax.swing.text.html.StyleSheet", "ListPainter", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.StyleSheet$BoxPainter", "javax.swing.text.html.StyleSheet", "BoxPainter", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.StyleSheet$SearchBuffer", "javax.swing.text.html.StyleSheet", "SearchBuffer", $PRIVATE | $STATIC},
-	{"javax.swing.text.html.StyleSheet$SmallConversionSet", "javax.swing.text.html.StyleSheet", "SmallConversionSet", 0},
-	{"javax.swing.text.html.StyleSheet$LargeConversionSet", "javax.swing.text.html.StyleSheet", "LargeConversionSet", 0},
-	{}
-};
-
-$ClassInfo _StyleSheet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.StyleSheet",
-	"javax.swing.text.StyleContext",
-	nullptr,
-	_StyleSheet_FieldInfo_,
-	_StyleSheet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StyleSheet_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.StyleSheet$1,javax.swing.text.html.StyleSheet$CssParser,javax.swing.text.html.StyleSheet$SelectorMapping,javax.swing.text.html.StyleSheet$ResolvedStyle,javax.swing.text.html.StyleSheet$ViewAttributeSet,javax.swing.text.html.StyleSheet$BackgroundImagePainter,javax.swing.text.html.StyleSheet$ListPainter,javax.swing.text.html.StyleSheet$BoxPainter,javax.swing.text.html.StyleSheet$BoxPainter$HorizontalMargin,javax.swing.text.html.StyleSheet$SearchBuffer,javax.swing.text.html.StyleSheet$SmallConversionSet,javax.swing.text.html.StyleSheet$LargeConversionSet"
-};
-
-$Object* allocate$StyleSheet($Class* clazz) {
-	return $of($alloc(StyleSheet));
-}
-
 $Border* StyleSheet::noBorder = nullptr;
 $ints* StyleSheet::sizeMapDefault = nullptr;
 
@@ -238,91 +125,85 @@ void StyleSheet::init$() {
 }
 
 $Style* StyleSheet::getRule($HTML$Tag* t, $Element* e$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, e, e$renamed);
 	$var($StyleSheet$SearchBuffer, sb, $StyleSheet$SearchBuffer::obtainSearchBuffer());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Style, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Vector, searchContext, $nc(sb)->getVector());
-			{
-				$var($Element, p, e);
-				for (; p != nullptr; $assign(p, $nc(p)->getParentElement())) {
-					$nc(searchContext)->addElement(p);
-				}
+	$var($Throwable, var$0, nullptr);
+	$var($Style, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Vector, searchContext, $nc(sb)->getVector());
+		{
+			$var($Element, p, e);
+			for (; p != nullptr; $assign(p, p->getParentElement())) {
+				$nc(searchContext)->addElement(p);
 			}
-			int32_t n = $nc(searchContext)->size();
-			$var($StringBuffer, cacheLookup, sb->getStringBuffer());
-			$var($AttributeSet, attr, nullptr);
-			$var($String, eName, nullptr);
-			$var($Object, name, nullptr);
-			for (int32_t counter = n - 1; counter >= 1; --counter) {
-				$assign(e, $cast($Element, searchContext->elementAt(counter)));
-				$assign(attr, $nc(e)->getAttributes());
-				$init($StyleConstants);
-				$assign(name, $nc(attr)->getAttribute($StyleConstants::NameAttribute));
-				$assign(eName, $nc($of(name))->toString());
-				$nc(cacheLookup)->append(eName);
-				if (attr != nullptr) {
-					$init($HTML$Attribute);
-					if (attr->isDefined($HTML$Attribute::ID)) {
-						cacheLookup->append(u'#');
-						cacheLookup->append($(attr->getAttribute($HTML$Attribute::ID)));
-					} else {
-						if (attr->isDefined($HTML$Attribute::CLASS)) {
-							cacheLookup->append(u'.');
-							cacheLookup->append($(attr->getAttribute($HTML$Attribute::CLASS)));
-						}
-					}
-				}
-				cacheLookup->append(u' ');
-			}
-			$nc(cacheLookup)->append($($nc(t)->toString()));
-			$assign(e, $cast($Element, searchContext->elementAt(0)));
+		}
+		int32_t n = $nc(searchContext)->size();
+		$var($StringBuffer, cacheLookup, sb->getStringBuffer());
+		$var($AttributeSet, attr, nullptr);
+		$var($String, eName, nullptr);
+		$var($Object, name, nullptr);
+		for (int32_t counter = n - 1; counter >= 1; --counter) {
+			$assign(e, $cast($Element, searchContext->elementAt(counter)));
 			$assign(attr, $nc(e)->getAttributes());
-			if (e->isLeaf()) {
-				$var($Object, testAttr, $nc(attr)->getAttribute(t));
-				if ($instanceOf($AttributeSet, testAttr)) {
-					$assign(attr, $cast($AttributeSet, testAttr));
-				} else {
-					$assign(attr, nullptr);
-				}
-			}
+			$init($StyleConstants);
+			$assign(name, $nc(attr)->getAttribute($StyleConstants::NameAttribute));
+			$assign(eName, $nc(name)->toString());
+			$nc(cacheLookup)->append(eName);
 			if (attr != nullptr) {
 				$init($HTML$Attribute);
 				if (attr->isDefined($HTML$Attribute::ID)) {
 					cacheLookup->append(u'#');
 					cacheLookup->append($(attr->getAttribute($HTML$Attribute::ID)));
-				} else {
-					if (attr->isDefined($HTML$Attribute::CLASS)) {
-						cacheLookup->append(u'.');
-						cacheLookup->append($(attr->getAttribute($HTML$Attribute::CLASS)));
-					}
+				} else if (attr->isDefined($HTML$Attribute::CLASS)) {
+					cacheLookup->append(u'.');
+					cacheLookup->append($(attr->getAttribute($HTML$Attribute::CLASS)));
 				}
 			}
-			$var($Style, style, getResolvedStyle($(cacheLookup->toString()), searchContext, t));
-			$assign(var$2, style);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$StyleSheet$SearchBuffer::releaseSearchBuffer(sb);
+			cacheLookup->append(u' ');
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$nc(cacheLookup)->append($($nc(t)->toString()));
+		$assign(e, $cast($Element, searchContext->elementAt(0)));
+		$assign(attr, $nc(e)->getAttributes());
+		if (e->isLeaf()) {
+			$var($Object, testAttr, $nc(attr)->getAttribute(t));
+			if ($instanceOf($AttributeSet, testAttr)) {
+				$assign(attr, $cast($AttributeSet, testAttr));
+			} else {
+				$assign(attr, nullptr);
+			}
 		}
-		if (return$1) {
-			return var$2;
+		if (attr != nullptr) {
+			$init($HTML$Attribute);
+			if (attr->isDefined($HTML$Attribute::ID)) {
+				cacheLookup->append(u'#');
+				cacheLookup->append($(attr->getAttribute($HTML$Attribute::ID)));
+			} else if (attr->isDefined($HTML$Attribute::CLASS)) {
+				cacheLookup->append(u'.');
+				cacheLookup->append($(attr->getAttribute($HTML$Attribute::CLASS)));
+			}
 		}
+		$var($Style, style, getResolvedStyle($(cacheLookup->toString()), searchContext, t));
+		$assign(var$2, style);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$StyleSheet$SearchBuffer::releaseSearchBuffer(sb);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Style* StyleSheet::getRule($String* selector$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, selector, selector$renamed);
 	$assign(selector, cleanSelectorString(selector));
 	if (selector != nullptr) {
@@ -333,7 +214,7 @@ $Style* StyleSheet::getRule($String* selector$renamed) {
 }
 
 void StyleSheet::addRule($String* rule) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (rule != nullptr) {
 		$var($String, baseUnitsDisable, "BASE_SIZE_DISABLE"_s);
 		$var($String, baseUnits, "BASE_SIZE "_s);
@@ -377,7 +258,7 @@ $AttributeSet* StyleSheet::getViewAttributes($View* v) {
 }
 
 void StyleSheet::removeStyle($String* nm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Style, aStyle, getStyle(nm));
 	if (aStyle != nullptr) {
 		$var($String, selector, cleanSelectorString(nm));
@@ -391,7 +272,7 @@ void StyleSheet::removeStyle($String* nm) {
 			if (rule != nullptr) {
 				mapping->setStyle(nullptr);
 				if ($nc(this->resolvedStyles)->size() > 0) {
-					$var($Enumeration, values, $nc(this->resolvedStyles)->elements());
+					$var($Enumeration, values, this->resolvedStyles->elements());
 					while ($nc(values)->hasMoreElements()) {
 						$var($StyleSheet$ResolvedStyle, style, $cast($StyleSheet$ResolvedStyle, values->nextElement()));
 						$nc(style)->removeStyle(rule);
@@ -410,10 +291,10 @@ void StyleSheet::addStyleSheet(StyleSheet* ss) {
 		}
 		if (!$nc(this->linkedStyleSheets)->contains(ss)) {
 			int32_t index = 0;
-			if ($instanceOf($UIResource, ss) && $nc(this->linkedStyleSheets)->size() > 1) {
-				index = $nc(this->linkedStyleSheets)->size() - 1;
+			if ($instanceOf($UIResource, ss) && this->linkedStyleSheets->size() > 1) {
+				index = this->linkedStyleSheets->size() - 1;
 			}
-			$nc(this->linkedStyleSheets)->insertElementAt(ss, index);
+			this->linkedStyleSheets->insertElementAt(ss, index);
 			linkStyleSheetAt(ss, index);
 		}
 	}
@@ -422,9 +303,9 @@ void StyleSheet::addStyleSheet(StyleSheet* ss) {
 void StyleSheet::removeStyleSheet(StyleSheet* ss) {
 	$synchronized(this) {
 		if (this->linkedStyleSheets != nullptr) {
-			int32_t index = $nc(this->linkedStyleSheets)->indexOf(ss);
+			int32_t index = this->linkedStyleSheets->indexOf(ss);
 			if (index != -1) {
-				$nc(this->linkedStyleSheets)->removeElementAt(index);
+				this->linkedStyleSheets->removeElementAt(index);
 				unlinkStyleSheet(ss, index);
 				if (index == 0 && $nc(this->linkedStyleSheets)->size() == 0) {
 					$set(this, linkedStyleSheets, nullptr);
@@ -438,8 +319,8 @@ $StyleSheetArray* StyleSheet::getStyleSheets() {
 	$var($StyleSheetArray, retValue, nullptr);
 	$synchronized(this) {
 		if (this->linkedStyleSheets != nullptr) {
-			$assign(retValue, $new($StyleSheetArray, $nc(this->linkedStyleSheets)->size()));
-			$nc(this->linkedStyleSheets)->copyInto(retValue);
+			$assign(retValue, $new($StyleSheetArray, this->linkedStyleSheets->size()));
+			this->linkedStyleSheets->copyInto(retValue);
 		} else {
 			$assign(retValue, nullptr);
 		}
@@ -448,7 +329,7 @@ $StyleSheetArray* StyleSheet::getStyleSheets() {
 }
 
 void StyleSheet::importStyleSheet($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStream, is, nullptr);
 		$assign(is, $nc(url)->openStream());
@@ -483,7 +364,7 @@ bool StyleSheet::addCSSAttributeFromHTML($MutableAttributeSet* attr, $CSS$Attrib
 }
 
 $AttributeSet* StyleSheet::translateHTMLToCSS($AttributeSet* htmlAttrSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, cssAttrSet, $nc(this->css)->translateHTMLToCSS(htmlAttrSet));
 	$var($MutableAttributeSet, cssStyleSet, addStyle(nullptr, nullptr));
 	$nc(cssStyleSet)->addAttributes(cssAttrSet);
@@ -491,7 +372,7 @@ $AttributeSet* StyleSheet::translateHTMLToCSS($AttributeSet* htmlAttrSet) {
 }
 
 $AttributeSet* StyleSheet::addAttribute($AttributeSet* old$renamed, Object$* key, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, old, old$renamed);
 	if (this->css == nullptr) {
 		$set(this, css, $new($CSS));
@@ -513,7 +394,7 @@ $AttributeSet* StyleSheet::addAttribute($AttributeSet* old$renamed, Object$* key
 }
 
 $AttributeSet* StyleSheet::addAttributes($AttributeSet* old$renamed, $AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, old, old$renamed);
 	if (!($instanceOf($HTMLDocument$TaggedAttributeSet, attr))) {
 		$assign(old, removeHTMLTags(old, attr));
@@ -522,7 +403,7 @@ $AttributeSet* StyleSheet::addAttributes($AttributeSet* old$renamed, $AttributeS
 }
 
 $AttributeSet* StyleSheet::removeAttribute($AttributeSet* old$renamed, Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, old, old$renamed);
 	if ($instanceOf($StyleConstants, key)) {
 		$var($HTML$Tag, tag, $HTML::getTagForStyleConstantsKey($cast($StyleConstants, key)));
@@ -542,7 +423,7 @@ $AttributeSet* StyleSheet::removeAttributes($AttributeSet* old, $Enumeration* na
 }
 
 $AttributeSet* StyleSheet::removeAttributes($AttributeSet* old$renamed, $AttributeSet* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, old, old$renamed);
 	if (old != attrs) {
 		$assign(old, removeHTMLTags(old, attrs));
@@ -559,7 +440,7 @@ $MutableAttributeSet* StyleSheet::createLargeAttributeSet($AttributeSet* a) {
 }
 
 $AttributeSet* StyleSheet::removeHTMLTags($AttributeSet* old$renamed, $AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, old, old$renamed);
 	if (!($instanceOf($StyleSheet$LargeConversionSet, attr)) && !($instanceOf($StyleSheet$SmallConversionSet, attr))) {
 		$var($Enumeration, names, $nc(attr)->getAttributeNames());
@@ -577,7 +458,7 @@ $AttributeSet* StyleSheet::removeHTMLTags($AttributeSet* old$renamed, $Attribute
 }
 
 $AttributeSet* StyleSheet::convertAttributeSet($AttributeSet* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (($instanceOf($StyleSheet$LargeConversionSet, a)) || ($instanceOf($StyleSheet$SmallConversionSet, a))) {
 		return a;
 	}
@@ -663,17 +544,17 @@ $Color* StyleSheet::stringToColor($String* string) {
 }
 
 $ImageIcon* StyleSheet::getBackgroundImage($AttributeSet* attr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CSS$Attribute);
 	$var($Object, value, $nc(attr)->getAttribute($CSS$Attribute::BACKGROUND_IMAGE));
 	if (value != nullptr) {
-		return $nc(($cast($CSS$BackgroundImage, value)))->getImage($(getBase()));
+		return $cast($CSS$BackgroundImage, value)->getImage($(getBase()));
 	}
 	return nullptr;
 }
 
 void StyleSheet::addRule($StringArray* selector, $AttributeSet* declaration, bool isLinked) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(selector)->length;
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(selector->get(0));
@@ -706,12 +587,12 @@ void StyleSheet::addRule($StringArray* selector, $AttributeSet* declaration, boo
 
 void StyleSheet::linkStyleSheetAt(StyleSheet* ss, int32_t index) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($nc(this->resolvedStyles)->size() > 0) {
-			$var($Enumeration, values, $nc(this->resolvedStyles)->elements());
+			$var($Enumeration, values, this->resolvedStyles->elements());
 			while ($nc(values)->hasMoreElements()) {
 				$var($StyleSheet$ResolvedStyle, rule, $cast($StyleSheet$ResolvedStyle, values->nextElement()));
-				$nc(rule)->insertExtendedStyleAt($($nc(ss)->getRule($(rule->getName()))), index);
+				$nc(rule)->insertExtendedStyleAt($($nc(ss)->getRule($($nc(rule)->getName()))), index);
 			}
 		}
 	}
@@ -719,9 +600,9 @@ void StyleSheet::linkStyleSheetAt(StyleSheet* ss, int32_t index) {
 
 void StyleSheet::unlinkStyleSheet(StyleSheet* ss, int32_t index) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($nc(this->resolvedStyles)->size() > 0) {
-			$var($Enumeration, values, $nc(this->resolvedStyles)->elements());
+			$var($Enumeration, values, this->resolvedStyles->elements());
 			while ($nc(values)->hasMoreElements()) {
 				$var($StyleSheet$ResolvedStyle, rule, $cast($StyleSheet$ResolvedStyle, values->nextElement()));
 				$nc(rule)->removeExtendedStyleAt(index);
@@ -731,7 +612,7 @@ void StyleSheet::unlinkStyleSheet(StyleSheet* ss, int32_t index) {
 }
 
 $StringArray* StyleSheet::getSimpleSelectors($String* selector$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, selector, selector$renamed);
 	$assign(selector, cleanSelectorString(selector));
 	$var($StyleSheet$SearchBuffer, sb, $StyleSheet$SearchBuffer::obtainSearchBuffer());
@@ -739,7 +620,7 @@ $StringArray* StyleSheet::getSimpleSelectors($String* selector$renamed) {
 	int32_t lastIndex = 0;
 	int32_t length = $nc(selector)->length();
 	while (lastIndex != -1) {
-		int32_t newIndex = selector->indexOf((int32_t)u' ', lastIndex);
+		int32_t newIndex = selector->indexOf(u' ', lastIndex);
 		if (newIndex != -1) {
 			$nc(selectors)->addElement($(selector->substring(lastIndex, newIndex)));
 			if (++newIndex == length) {
@@ -760,32 +641,20 @@ $StringArray* StyleSheet::getSimpleSelectors($String* selector$renamed) {
 
 $String* StyleSheet::cleanSelectorString($String* selector) {
 	bool lastWasSpace = true;
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = $nc(selector)->length();
-		for (; counter < maxCounter; ++counter) {
-			switch (selector->charAt(counter)) {
-			case u' ':
-				{
-					if (lastWasSpace) {
-						return _cleanSelectorString(selector);
-					}
-					lastWasSpace = true;
-					break;
-				}
-			case u'\n':
-				{}
-			case u'\r':
-				{}
-			case u'\t':
-				{
-					return _cleanSelectorString(selector);
-				}
-			default:
-				{
-					lastWasSpace = false;
-				}
+	for (int32_t counter = 0, maxCounter = $nc(selector)->length(); counter < maxCounter; ++counter) {
+		switch (selector->charAt(counter)) {
+		case u' ':
+			if (lastWasSpace) {
+				return _cleanSelectorString(selector);
 			}
+			lastWasSpace = true;
+			break;
+		case u'\n':
+		case u'\r':
+		case u'\t':
+			return _cleanSelectorString(selector);
+		default:
+			lastWasSpace = false;
 		}
 	}
 	if (lastWasSpace) {
@@ -795,7 +664,7 @@ $String* StyleSheet::cleanSelectorString($String* selector) {
 }
 
 $String* StyleSheet::_cleanSelectorString($String* selector) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet$SearchBuffer, sb, $StyleSheet$SearchBuffer::obtainSearchBuffer());
 	$var($StringBuffer, buff, $nc(sb)->getStringBuffer());
 	bool lastWasSpace = true;
@@ -803,59 +672,49 @@ $String* StyleSheet::_cleanSelectorString($String* selector) {
 	$var($chars, chars, $nc(selector)->toCharArray());
 	int32_t numChars = chars->length;
 	$var($String, retValue, nullptr);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			for (int32_t counter = 0; counter < numChars; ++counter) {
-				switch (chars->get(counter)) {
-				case u' ':
-					{
-						if (!lastWasSpace) {
-							lastWasSpace = true;
-							if (lastIndex < counter) {
-								$nc(buff)->append(chars, lastIndex, 1 + counter - lastIndex);
-							}
-						}
-						lastIndex = counter + 1;
-						break;
-					}
-				case u'\n':
-					{}
-				case u'\r':
-					{}
-				case u'\t':
-					{
-						if (!lastWasSpace) {
-							lastWasSpace = true;
-							if (lastIndex < counter) {
-								$nc(buff)->append(chars, lastIndex, counter - lastIndex);
-								buff->append(u' ');
-							}
-						}
-						lastIndex = counter + 1;
-						break;
-					}
-				default:
-					{
-						lastWasSpace = false;
-						break;
+	$var($Throwable, var$0, nullptr);
+	try {
+		for (int32_t counter = 0; counter < numChars; ++counter) {
+			switch (chars->get(counter)) {
+			case u' ':
+				if (!lastWasSpace) {
+					lastWasSpace = true;
+					if (lastIndex < counter) {
+						$nc(buff)->append(chars, lastIndex, 1 + counter - lastIndex);
 					}
 				}
+				lastIndex = counter + 1;
+				break;
+			case u'\n':
+			case u'\r':
+			case u'\t':
+				if (!lastWasSpace) {
+					lastWasSpace = true;
+					if (lastIndex < counter) {
+						$nc(buff)->append(chars, lastIndex, counter - lastIndex);
+						buff->append(u' ');
+					}
+				}
+				lastIndex = counter + 1;
+				break;
+			default:
+				lastWasSpace = false;
+				break;
 			}
-			if (lastWasSpace && $nc(buff)->length() > 0) {
-				buff->setLength(buff->length() - 1);
-			} else if (lastIndex < numChars) {
-				buff->append(chars, lastIndex, numChars - lastIndex);
-			}
-			$assign(retValue, $nc(buff)->toString());
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$StyleSheet$SearchBuffer::releaseSearchBuffer(sb);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (lastWasSpace && $nc(buff)->length() > 0) {
+			buff->setLength(buff->length() - 1);
+		} else if (lastIndex < numChars) {
+			$nc(buff)->append(chars, lastIndex, numChars - lastIndex);
 		}
+		$assign(retValue, $nc(buff)->toString());
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$StyleSheet$SearchBuffer::releaseSearchBuffer(sb);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return retValue;
 }
@@ -868,33 +727,21 @@ int32_t StyleSheet::getSpecificity($String* selector) {
 	$init(StyleSheet);
 	int32_t specificity = 0;
 	bool lastWasSpace = true;
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = $nc(selector)->length();
-		for (; counter < maxCounter; ++counter) {
-			switch (selector->charAt(counter)) {
-			case u'.':
-				{
-					specificity += 100;
-					break;
-				}
-			case u'#':
-				{
-					specificity += 10000;
-					break;
-				}
-			case u' ':
-				{
-					lastWasSpace = true;
-					break;
-				}
-			default:
-				{
-					if (lastWasSpace) {
-						lastWasSpace = false;
-						specificity += 1;
-					}
-				}
+	for (int32_t counter = 0, maxCounter = $nc(selector)->length(); counter < maxCounter; ++counter) {
+		switch (selector->charAt(counter)) {
+		case u'.':
+			specificity += 100;
+			break;
+		case u'#':
+			specificity += 10000;
+			break;
+		case u' ':
+			lastWasSpace = true;
+			break;
+		default:
+			if (lastWasSpace) {
+				lastWasSpace = false;
+				specificity += 1;
 			}
 		}
 	}
@@ -931,12 +778,12 @@ $Style* StyleSheet::getResolvedStyle($String* selector) {
 }
 
 void StyleSheet::addSortedStyle($StyleSheet$SelectorMapping* mapping, $Vector* elements) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(elements)->size();
 	if (size > 0) {
 		int32_t specificity = $nc(mapping)->getSpecificity();
 		for (int32_t counter = 0; counter < size; ++counter) {
-			if (specificity >= $nc(($cast($StyleSheet$SelectorMapping, $(elements->elementAt(counter)))))->getSpecificity()) {
+			if (specificity >= $$sure($StyleSheet$SelectorMapping, elements->elementAt(counter))->getSpecificity()) {
 				elements->insertElementAt(mapping, counter);
 				return;
 			}
@@ -947,11 +794,11 @@ void StyleSheet::addSortedStyle($StyleSheet$SelectorMapping* mapping, $Vector* e
 
 void StyleSheet::getStyles($StyleSheet$SelectorMapping* parentMapping, $Vector* styles, $StringArray* tags, $StringArray* ids, $StringArray* classes, int32_t index, int32_t numElements, $Hashtable* alreadyChecked) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($nc(alreadyChecked)->contains(parentMapping)) {
 			return;
 		}
-		$nc(alreadyChecked)->put(parentMapping, parentMapping);
+		alreadyChecked->put(parentMapping, parentMapping);
 		$var($Style, style, $nc(parentMapping)->getStyle());
 		if (style != nullptr) {
 			addSortedStyle(parentMapping, styles);
@@ -992,82 +839,80 @@ void StyleSheet::getStyles($StyleSheet$SelectorMapping* parentMapping, $Vector* 
 
 $Style* StyleSheet::createResolvedStyle($String* selector, $StringArray* tags, $StringArray* ids, $StringArray* classes) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StyleSheet$SearchBuffer, sb, $StyleSheet$SearchBuffer::obtainSearchBuffer());
 		$var($Vector, tempVector, $nc(sb)->getVector());
 		$var($Hashtable, tempHashtable, sb->getHashtable());
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Style, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				$var($StyleSheet$SelectorMapping, mapping, getRootSelectorMapping());
-				int32_t numElements = $nc(tags)->length;
-				$var($String, tagString, tags->get(0));
-				$var($StyleSheet$SelectorMapping, childMapping, $nc(mapping)->getChildSelectorMapping(tagString, false));
+		$var($Throwable, var$0, nullptr);
+		$var($Style, var$2, nullptr);
+		bool return$1 = false;
+		try {
+			$var($StyleSheet$SelectorMapping, mapping, getRootSelectorMapping());
+			int32_t numElements = $nc(tags)->length;
+			$var($String, tagString, tags->get(0));
+			$var($StyleSheet$SelectorMapping, childMapping, $nc(mapping)->getChildSelectorMapping(tagString, false));
+			if (childMapping != nullptr) {
+				getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
+			}
+			if ($nc(classes)->get(0) != nullptr) {
+				$var($String, className, classes->get(0));
+				$assign(childMapping, mapping->getChildSelectorMapping($$str({tagString, "."_s, className}), false));
 				if (childMapping != nullptr) {
 					getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
 				}
-				if ($nc(classes)->get(0) != nullptr) {
-					$var($String, className, classes->get(0));
-					$assign(childMapping, mapping->getChildSelectorMapping($$str({tagString, "."_s, className}), false));
-					if (childMapping != nullptr) {
-						getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
-					}
-					$assign(childMapping, mapping->getChildSelectorMapping($$str({"."_s, className}), false));
-					if (childMapping != nullptr) {
-						getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
-					}
+				$assign(childMapping, mapping->getChildSelectorMapping($$str({"."_s, className}), false));
+				if (childMapping != nullptr) {
+					getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
 				}
-				if ($nc(ids)->get(0) != nullptr) {
-					$var($String, idName, ids->get(0));
-					$assign(childMapping, mapping->getChildSelectorMapping($$str({tagString, "#"_s, idName}), false));
-					if (childMapping != nullptr) {
-						getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
-					}
-					$assign(childMapping, mapping->getChildSelectorMapping($$str({"#"_s, idName}), false));
-					if (childMapping != nullptr) {
-						getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
-					}
-				}
-				int32_t numLinkedSS = (this->linkedStyleSheets != nullptr) ? $nc(this->linkedStyleSheets)->size() : 0;
-				int32_t numStyles = $nc(tempVector)->size();
-				$var($AttributeSetArray, attrs, $new($AttributeSetArray, numStyles + numLinkedSS));
-				for (int32_t counter = 0; counter < numStyles; ++counter) {
-					attrs->set(counter, $($nc(($cast($StyleSheet$SelectorMapping, $(tempVector->elementAt(counter)))))->getStyle()));
-				}
-				for (int32_t counter = 0; counter < numLinkedSS; ++counter) {
-					$var($AttributeSet, attr, $nc(($cast(StyleSheet, $($nc(this->linkedStyleSheets)->elementAt(counter)))))->getRule(selector));
-					if (attr == nullptr) {
-						$init($SimpleAttributeSet);
-						attrs->set(counter + numStyles, $SimpleAttributeSet::EMPTY);
-					} else {
-						attrs->set(counter + numStyles, attr);
-					}
-				}
-				$var($StyleSheet$ResolvedStyle, retStyle, $new($StyleSheet$ResolvedStyle, selector, attrs, numStyles));
-				$nc(this->resolvedStyles)->put(selector, retStyle);
-				$assign(var$2, retStyle);
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$StyleSheet$SearchBuffer::releaseSearchBuffer(sb);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+			if ($nc(ids)->get(0) != nullptr) {
+				$var($String, idName, ids->get(0));
+				$assign(childMapping, mapping->getChildSelectorMapping($$str({tagString, "#"_s, idName}), false));
+				if (childMapping != nullptr) {
+					getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
+				}
+				$assign(childMapping, mapping->getChildSelectorMapping($$str({"#"_s, idName}), false));
+				if (childMapping != nullptr) {
+					getStyles(childMapping, tempVector, tags, ids, classes, 1, numElements, tempHashtable);
+				}
 			}
-			if (return$1) {
-				return var$2;
+			int32_t numLinkedSS = (this->linkedStyleSheets != nullptr) ? this->linkedStyleSheets->size() : 0;
+			int32_t numStyles = $nc(tempVector)->size();
+			$var($AttributeSetArray, attrs, $new($AttributeSetArray, numStyles + numLinkedSS));
+			for (int32_t counter = 0; counter < numStyles; ++counter) {
+				attrs->set(counter, $($$sure($StyleSheet$SelectorMapping, tempVector->elementAt(counter))->getStyle()));
 			}
+			for (int32_t counter = 0; counter < numLinkedSS; ++counter) {
+				$var($AttributeSet, attr, $$sure(StyleSheet, $nc(this->linkedStyleSheets)->elementAt(counter))->getRule(selector));
+				if (attr == nullptr) {
+					$init($SimpleAttributeSet);
+					attrs->set(counter + numStyles, $SimpleAttributeSet::EMPTY);
+				} else {
+					attrs->set(counter + numStyles, attr);
+				}
+			}
+			$var($StyleSheet$ResolvedStyle, retStyle, $new($StyleSheet$ResolvedStyle, selector, attrs, numStyles));
+			$nc(this->resolvedStyles)->put(selector, retStyle);
+			$assign(var$2, retStyle);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			$StyleSheet$SearchBuffer::releaseSearchBuffer(sb);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $Style* StyleSheet::createResolvedStyle($String* selector, $Vector* elements, $HTML$Tag* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t numElements = $nc(elements)->size();
 	$var($StringArray, tags, $new($StringArray, numElements));
 	$var($StringArray, ids, $new($StringArray, numElements));
@@ -1093,12 +938,12 @@ $Style* StyleSheet::createResolvedStyle($String* selector, $Vector* elements, $H
 			}
 			$init($HTML$Attribute);
 			if (attr->isDefined($HTML$Attribute::CLASS)) {
-				classes->set(counter, $($nc($of($(attr->getAttribute($HTML$Attribute::CLASS))))->toString()));
+				classes->set(counter, $($$nc(attr->getAttribute($HTML$Attribute::CLASS))->toString()));
 			} else {
 				classes->set(counter, nullptr);
 			}
 			if (attr->isDefined($HTML$Attribute::ID)) {
-				ids->set(counter, $($nc($of($(attr->getAttribute($HTML$Attribute::ID))))->toString()));
+				ids->set(counter, $($$nc(attr->getAttribute($HTML$Attribute::ID))->toString()));
 			} else {
 				ids->set(counter, nullptr);
 			}
@@ -1113,136 +958,130 @@ $Style* StyleSheet::createResolvedStyle($String* selector, $Vector* elements, $H
 }
 
 $Style* StyleSheet::createResolvedStyle($String* selector) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet$SearchBuffer, sb, $StyleSheet$SearchBuffer::obtainSearchBuffer());
 	$var($Vector, elements, $nc(sb)->getVector());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Style, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			bool done = false;
-			int32_t dotIndex = 0;
-			int32_t spaceIndex = 0;
-			int32_t poundIndex = 0;
-			int32_t lastIndex = 0;
-			int32_t length = $nc(selector)->length();
-			while (lastIndex < length) {
-				if (dotIndex == lastIndex) {
-					dotIndex = selector->indexOf((int32_t)u'.', lastIndex);
-				}
-				if (poundIndex == lastIndex) {
-					poundIndex = selector->indexOf((int32_t)u'#', lastIndex);
-				}
-				spaceIndex = selector->indexOf((int32_t)u' ', lastIndex);
-				if (spaceIndex == -1) {
-					spaceIndex = length;
-				}
-				if (dotIndex != -1 && poundIndex != -1 && dotIndex < spaceIndex && poundIndex < spaceIndex) {
-					if (poundIndex < dotIndex) {
-						if (lastIndex == poundIndex) {
-							$nc(elements)->addElement(""_s);
-						} else {
-							$nc(elements)->addElement($(selector->substring(lastIndex, poundIndex)));
-						}
-						if ((dotIndex + 1) < spaceIndex) {
-							$nc(elements)->addElement($(selector->substring(dotIndex + 1, spaceIndex)));
-						} else {
-							$nc(elements)->addElement(nullptr);
-						}
-						if ((poundIndex + 1) == dotIndex) {
-							$nc(elements)->addElement(nullptr);
-						} else {
-							$nc(elements)->addElement($(selector->substring(poundIndex + 1, dotIndex)));
-						}
-					} else if (poundIndex < spaceIndex) {
-						if (lastIndex == dotIndex) {
-							$nc(elements)->addElement(""_s);
-						} else {
-							$nc(elements)->addElement($(selector->substring(lastIndex, dotIndex)));
-						}
-						if ((dotIndex + 1) < poundIndex) {
-							$nc(elements)->addElement($(selector->substring(dotIndex + 1, poundIndex)));
-						} else {
-							$nc(elements)->addElement(nullptr);
-						}
-						if ((poundIndex + 1) == spaceIndex) {
-							$nc(elements)->addElement(nullptr);
-						} else {
-							$nc(elements)->addElement($(selector->substring(poundIndex + 1, spaceIndex)));
-						}
-					}
-					dotIndex = (poundIndex = spaceIndex + 1);
-				} else if (dotIndex != -1 && dotIndex < spaceIndex) {
-					if (dotIndex == lastIndex) {
-						$nc(elements)->addElement(""_s);
-					} else {
-						$nc(elements)->addElement($(selector->substring(lastIndex, dotIndex)));
-					}
-					if ((dotIndex + 1) == spaceIndex) {
-						$nc(elements)->addElement(nullptr);
-					} else {
-						$nc(elements)->addElement($(selector->substring(dotIndex + 1, spaceIndex)));
-					}
-					$nc(elements)->addElement(nullptr);
-					dotIndex = spaceIndex + 1;
-				} else if (poundIndex != -1 && poundIndex < spaceIndex) {
-					if (poundIndex == lastIndex) {
+	$var($Throwable, var$0, nullptr);
+	$var($Style, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		bool done = false;
+		int32_t dotIndex = 0;
+		int32_t spaceIndex = 0;
+		int32_t poundIndex = 0;
+		int32_t lastIndex = 0;
+		int32_t length = $nc(selector)->length();
+		while (lastIndex < length) {
+			if (dotIndex == lastIndex) {
+				dotIndex = selector->indexOf(u'.', lastIndex);
+			}
+			if (poundIndex == lastIndex) {
+				poundIndex = selector->indexOf(u'#', lastIndex);
+			}
+			spaceIndex = selector->indexOf(u' ', lastIndex);
+			if (spaceIndex == -1) {
+				spaceIndex = length;
+			}
+			if (dotIndex != -1 && poundIndex != -1 && dotIndex < spaceIndex && poundIndex < spaceIndex) {
+				if (poundIndex < dotIndex) {
+					if (lastIndex == poundIndex) {
 						$nc(elements)->addElement(""_s);
 					} else {
 						$nc(elements)->addElement($(selector->substring(lastIndex, poundIndex)));
 					}
-					$nc(elements)->addElement(nullptr);
-					if ((poundIndex + 1) == spaceIndex) {
-						elements->addElement(nullptr);
+					if ((dotIndex + 1) < spaceIndex) {
+						$nc(elements)->addElement($(selector->substring(dotIndex + 1, spaceIndex)));
 					} else {
-						elements->addElement($(selector->substring(poundIndex + 1, spaceIndex)));
+						$nc(elements)->addElement(nullptr);
 					}
-					poundIndex = spaceIndex + 1;
+					if ((poundIndex + 1) == dotIndex) {
+						$nc(elements)->addElement(nullptr);
+					} else {
+						$nc(elements)->addElement($(selector->substring(poundIndex + 1, dotIndex)));
+					}
+				} else if (poundIndex < spaceIndex) {
+					if (lastIndex == dotIndex) {
+						$nc(elements)->addElement(""_s);
+					} else {
+						$nc(elements)->addElement($(selector->substring(lastIndex, dotIndex)));
+					}
+					if ((dotIndex + 1) < poundIndex) {
+						$nc(elements)->addElement($(selector->substring(dotIndex + 1, poundIndex)));
+					} else {
+						$nc(elements)->addElement(nullptr);
+					}
+					if ((poundIndex + 1) == spaceIndex) {
+						$nc(elements)->addElement(nullptr);
+					} else {
+						$nc(elements)->addElement($(selector->substring(poundIndex + 1, spaceIndex)));
+					}
+				}
+				dotIndex = (poundIndex = spaceIndex + 1);
+			} else if (dotIndex != -1 && dotIndex < spaceIndex) {
+				if (dotIndex == lastIndex) {
+					$nc(elements)->addElement(""_s);
 				} else {
-					$nc(elements)->addElement($(selector->substring(lastIndex, spaceIndex)));
-					elements->addElement(nullptr);
-					elements->addElement(nullptr);
+					$nc(elements)->addElement($(selector->substring(lastIndex, dotIndex)));
 				}
-				lastIndex = spaceIndex + 1;
-			}
-			int32_t total = $nc(elements)->size();
-			int32_t numTags = total / 3;
-			$var($StringArray, tags, $new($StringArray, numTags));
-			$var($StringArray, ids, $new($StringArray, numTags));
-			$var($StringArray, classes, $new($StringArray, numTags));
-			{
-				int32_t index = 0;
-				int32_t eIndex = total - 3;
-				for (; index < numTags; ++index, eIndex -= 3) {
-					tags->set(index, $cast($String, $(elements->elementAt(eIndex))));
-					classes->set(index, $cast($String, $(elements->elementAt(eIndex + 1))));
-					ids->set(index, $cast($String, $(elements->elementAt(eIndex + 2))));
+				if ((dotIndex + 1) == spaceIndex) {
+					$nc(elements)->addElement(nullptr);
+				} else {
+					$nc(elements)->addElement($(selector->substring(dotIndex + 1, spaceIndex)));
 				}
+				$nc(elements)->addElement(nullptr);
+				dotIndex = spaceIndex + 1;
+			} else if (poundIndex != -1 && poundIndex < spaceIndex) {
+				if (poundIndex == lastIndex) {
+					$nc(elements)->addElement(""_s);
+				} else {
+					$nc(elements)->addElement($(selector->substring(lastIndex, poundIndex)));
+				}
+				$nc(elements)->addElement(nullptr);
+				if ((poundIndex + 1) == spaceIndex) {
+					elements->addElement(nullptr);
+				} else {
+					elements->addElement($(selector->substring(poundIndex + 1, spaceIndex)));
+				}
+				poundIndex = spaceIndex + 1;
+			} else {
+				$nc(elements)->addElement($(selector->substring(lastIndex, spaceIndex)));
+				elements->addElement(nullptr);
+				elements->addElement(nullptr);
 			}
-			$assign(var$2, createResolvedStyle(selector, tags, ids, classes));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$StyleSheet$SearchBuffer::releaseSearchBuffer(sb);
+			lastIndex = spaceIndex + 1;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int32_t total = $nc(elements)->size();
+		int32_t numTags = total / 3;
+		$var($StringArray, tags, $new($StringArray, numTags));
+		$var($StringArray, ids, $new($StringArray, numTags));
+		$var($StringArray, classes, $new($StringArray, numTags));
+		for (int32_t index = 0, eIndex = total - 3; index < numTags; ++index, eIndex -= 3) {
+			tags->set(index, $$cast($String, elements->elementAt(eIndex)));
+			classes->set(index, $$cast($String, elements->elementAt(eIndex + 1)));
+			ids->set(index, $$cast($String, elements->elementAt(eIndex + 2)));
 		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, createResolvedStyle(selector, tags, ids, classes));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$StyleSheet$SearchBuffer::releaseSearchBuffer(sb);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void StyleSheet::refreshResolvedRules($String* selectorName, $StringArray* selector, $Style* newStyle, int32_t specificity) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ($nc(this->resolvedStyles)->size() > 0) {
-			$var($Enumeration, values, $nc(this->resolvedStyles)->elements());
+			$var($Enumeration, values, this->resolvedStyles->elements());
 			while ($nc(values)->hasMoreElements()) {
 				$var($StyleSheet$ResolvedStyle, style, $cast($StyleSheet$ResolvedStyle, values->nextElement()));
 				if ($nc(style)->matches(selectorName)) {
@@ -1255,17 +1094,17 @@ void StyleSheet::refreshResolvedRules($String* selectorName, $StringArray* selec
 
 $Object* StyleSheet::fontSizeInherit() {
 	if (this->fontSizeInherit$ == nullptr) {
-		$set(this, fontSizeInherit$, $$new($CSS$FontSize, static_cast<$CSS*>($nc(this->css)))->parseCssValue("100%"_s));
+		$set(this, fontSizeInherit$, $$new($CSS$FontSize, $nc(this->css))->parseCssValue("100%"_s));
 	}
-	return $of(this->fontSizeInherit$);
+	return this->fontSizeInherit$;
 }
 
 void StyleSheet::rebaseSizeMap(int32_t base) {
 	int32_t minimalFontSize = 4;
-	$set(this, sizeMap, $new($ints, $nc(StyleSheet::sizeMapDefault)->length));
-	for (int32_t i = 0; i < $nc(StyleSheet::sizeMapDefault)->length; ++i) {
+	$set(this, sizeMap, $new($ints, StyleSheet::sizeMapDefault->length));
+	for (int32_t i = 0; i < StyleSheet::sizeMapDefault->length; ++i) {
 		$init($CSS);
-		$nc(this->sizeMap)->set(i, $Math::max($div(base * $nc(StyleSheet::sizeMapDefault)->get(i), $nc(StyleSheet::sizeMapDefault)->get($CSS::baseFontSizeIndex)), minimalFontSize));
+		this->sizeMap->set(i, $Math::max($div(base * StyleSheet::sizeMapDefault->get(i), StyleSheet::sizeMapDefault->get($CSS::baseFontSizeIndex)), minimalFontSize));
 	}
 }
 
@@ -1277,7 +1116,7 @@ bool StyleSheet::isW3CLengthUnits() {
 	return this->w3cLengthUnits;
 }
 
-void clinit$StyleSheet($Class* class$) {
+void StyleSheet::clinit$($Class* clazz) {
 	$assignStatic(StyleSheet::noBorder, $new($EmptyBorder, 0, 0, 0, 0));
 	$assignStatic(StyleSheet::sizeMapDefault, $new($ints, {
 		8,
@@ -1294,7 +1133,113 @@ StyleSheet::StyleSheet() {
 }
 
 $Class* StyleSheet::load$($String* name, bool initialize) {
-	$loadClass(StyleSheet, name, initialize, &_StyleSheet_ClassInfo_, clinit$StyleSheet, allocate$StyleSheet);
+	$FieldInfo fieldInfos$$[] = {
+		{"noBorder", "Ljavax/swing/border/Border;", nullptr, $STATIC | $FINAL, $staticField(StyleSheet, noBorder)},
+		{"DEFAULT_FONT_SIZE", "I", nullptr, $STATIC | $FINAL, $constField(StyleSheet, DEFAULT_FONT_SIZE)},
+		{"fontSizeInherit", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(StyleSheet, fontSizeInherit$)},
+		{"css", "Ljavax/swing/text/html/CSS;", nullptr, $PRIVATE, $field(StyleSheet, css)},
+		{"selectorMapping", "Ljavax/swing/text/html/StyleSheet$SelectorMapping;", nullptr, $PRIVATE, $field(StyleSheet, selectorMapping)},
+		{"resolvedStyles", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/swing/text/html/StyleSheet$ResolvedStyle;>;", $PRIVATE, $field(StyleSheet, resolvedStyles)},
+		{"linkedStyleSheets", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/html/StyleSheet;>;", $PRIVATE, $field(StyleSheet, linkedStyleSheets)},
+		{"base", "Ljava/net/URL;", nullptr, $PRIVATE, $field(StyleSheet, base)},
+		{"sizeMapDefault", "[I", nullptr, $STATIC | $FINAL, $staticField(StyleSheet, sizeMapDefault)},
+		{"sizeMap", "[I", nullptr, $PRIVATE, $field(StyleSheet, sizeMap)},
+		{"w3cLengthUnits", "Z", nullptr, $PRIVATE, $field(StyleSheet, w3cLengthUnits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StyleSheet, init$, void)},
+		{"_cleanSelectorString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(StyleSheet, _cleanSelectorString, $String*, $String*)},
+		{"addAttribute", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addAttribute, $AttributeSet*, $AttributeSet*, Object$*, Object$*)},
+		{"addAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addAttributes, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
+		{"addCSSAttribute", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addCSSAttribute, void, $MutableAttributeSet*, $CSS$Attribute*, $String*)},
+		{"addCSSAttributeFromHTML", "(Ljavax/swing/text/MutableAttributeSet;Ljavax/swing/text/html/CSS$Attribute;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addCSSAttributeFromHTML, bool, $MutableAttributeSet*, $CSS$Attribute*, $String*)},
+		{"addRule", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addRule, void, $String*)},
+		{"addRule", "([Ljava/lang/String;Ljavax/swing/text/AttributeSet;Z)V", nullptr, 0, $virtualMethod(StyleSheet, addRule, void, $StringArray*, $AttributeSet*, bool)},
+		{"addSortedStyle", "(Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljava/util/Vector;)V", "(Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljava/util/Vector<Ljavax/swing/text/html/StyleSheet$SelectorMapping;>;)V", $PRIVATE, $method(StyleSheet, addSortedStyle, void, $StyleSheet$SelectorMapping*, $Vector*)},
+		{"addStyleSheet", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, addStyleSheet, void, StyleSheet*)},
+		{"cleanSelectorString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet, cleanSelectorString, $String*, $String*)},
+		{"convertAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, 0, $virtualMethod(StyleSheet, convertAttributeSet, $AttributeSet*, $AttributeSet*)},
+		{"createLargeAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/MutableAttributeSet;", nullptr, $PROTECTED, $virtualMethod(StyleSheet, createLargeAttributeSet, $MutableAttributeSet*, $AttributeSet*)},
+		{"createResolvedStyle", "(Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, createResolvedStyle, $Style*, $String*, $StringArray*, $StringArray*, $StringArray*)},
+		{"createResolvedStyle", "(Ljava/lang/String;Ljava/util/Vector;Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Style;", "(Ljava/lang/String;Ljava/util/Vector<Ljavax/swing/text/Element;>;Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Style;", $PRIVATE, $method(StyleSheet, createResolvedStyle, $Style*, $String*, $Vector*, $HTML$Tag*)},
+		{"createResolvedStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PRIVATE, $method(StyleSheet, createResolvedStyle, $Style*, $String*)},
+		{"createSmallAttributeSet", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/StyleContext$SmallAttributeSet;", nullptr, $PROTECTED, $virtualMethod(StyleSheet, createSmallAttributeSet, $StyleContext$SmallAttributeSet*, $AttributeSet*)},
+		{"fontSizeInherit", "()Ljava/lang/Object;", nullptr, $PRIVATE, $method(StyleSheet, fontSizeInherit, $Object*)},
+		{"getBackground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getBackground, $Color*, $AttributeSet*)},
+		{"getBackgroundImage", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/ImageIcon;", nullptr, 0, $virtualMethod(StyleSheet, getBackgroundImage, $ImageIcon*, $AttributeSet*)},
+		{"getBase", "()Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getBase, $URL*)},
+		{"getBoxPainter", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/StyleSheet$BoxPainter;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getBoxPainter, $StyleSheet$BoxPainter*, $AttributeSet*)},
+		{"getDeclaration", "(Ljava/lang/String;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getDeclaration, $AttributeSet*, $String*)},
+		{"getFont", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getFont, $Font*, $AttributeSet*)},
+		{"getForeground", "(Ljavax/swing/text/AttributeSet;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getForeground, $Color*, $AttributeSet*)},
+		{"getIndexOfSize", "(F)I", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleSheet, getIndexOfSize, int32_t, float)},
+		{"getLinkedStyle", "(Ljavax/swing/text/Style;)Ljavax/swing/text/Style;", nullptr, $PRIVATE, $method(StyleSheet, getLinkedStyle, $Style*, $Style*)},
+		{"getListPainter", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/html/StyleSheet$ListPainter;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getListPainter, $StyleSheet$ListPainter*, $AttributeSet*)},
+		{"getPointSize", "(I)F", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getPointSize, float, int32_t)},
+		{"getPointSize", "(Ljava/lang/String;)F", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getPointSize, float, $String*)},
+		{"getResolvedStyle", "(Ljava/lang/String;Ljava/util/Vector;Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Style;", "(Ljava/lang/String;Ljava/util/Vector<Ljavax/swing/text/Element;>;Ljavax/swing/text/html/HTML$Tag;)Ljavax/swing/text/Style;", $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, getResolvedStyle, $Style*, $String*, $Vector*, $HTML$Tag*)},
+		{"getResolvedStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, getResolvedStyle, $Style*, $String*)},
+		{"getRootSelectorMapping", "()Ljavax/swing/text/html/StyleSheet$SelectorMapping;", nullptr, $PRIVATE, $method(StyleSheet, getRootSelectorMapping, $StyleSheet$SelectorMapping*)},
+		{"getRule", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/Element;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getRule, $Style*, $HTML$Tag*, $Element*)},
+		{"getRule", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getRule, $Style*, $String*)},
+		{"getSimpleSelectors", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, 0, $virtualMethod(StyleSheet, getSimpleSelectors, $StringArray*, $String*)},
+		{"getSizeMap", "()[I", nullptr, 0, $virtualMethod(StyleSheet, getSizeMap, $ints*)},
+		{"getSpecificity", "(Ljava/lang/String;)I", nullptr, $STATIC, $staticMethod(StyleSheet, getSpecificity, int32_t, $String*)},
+		{"getStyleSheets", "()[Ljavax/swing/text/html/StyleSheet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getStyleSheets, $StyleSheetArray*)},
+		{"getStyles", "(Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljava/util/Vector;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;IILjava/util/Hashtable;)V", "(Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljava/util/Vector<Ljavax/swing/text/html/StyleSheet$SelectorMapping;>;[Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;IILjava/util/Hashtable<Ljavax/swing/text/html/StyleSheet$SelectorMapping;Ljavax/swing/text/html/StyleSheet$SelectorMapping;>;)V", $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, getStyles, void, $StyleSheet$SelectorMapping*, $Vector*, $StringArray*, $StringArray*, $StringArray*, int32_t, int32_t, $Hashtable*)},
+		{"getViewAttributes", "(Ljavax/swing/text/View;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, getViewAttributes, $AttributeSet*, $View*)},
+		{"importStyleSheet", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, importStyleSheet, void, $URL*)},
+		{"isW3CLengthUnits", "()Z", nullptr, 0, $virtualMethod(StyleSheet, isW3CLengthUnits, bool)},
+		{"linkStyleSheetAt", "(Ljavax/swing/text/html/StyleSheet;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, linkStyleSheetAt, void, StyleSheet*, int32_t)},
+		{"loadRules", "(Ljava/io/Reader;Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, loadRules, void, $Reader*, $URL*), "java.io.IOException"},
+		{"rebaseSizeMap", "(I)V", nullptr, 0, $virtualMethod(StyleSheet, rebaseSizeMap, void, int32_t)},
+		{"refreshResolvedRules", "(Ljava/lang/String;[Ljava/lang/String;Ljavax/swing/text/Style;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, refreshResolvedRules, void, $String*, $StringArray*, $Style*, int32_t)},
+		{"removeAttribute", "(Ljavax/swing/text/AttributeSet;Ljava/lang/Object;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, removeAttribute, $AttributeSet*, $AttributeSet*, Object$*)},
+		{"removeAttributes", "(Ljavax/swing/text/AttributeSet;Ljava/util/Enumeration;)Ljavax/swing/text/AttributeSet;", "(Ljavax/swing/text/AttributeSet;Ljava/util/Enumeration<*>;)Ljavax/swing/text/AttributeSet;", $PUBLIC, $virtualMethod(StyleSheet, removeAttributes, $AttributeSet*, $AttributeSet*, $Enumeration*)},
+		{"removeAttributes", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, removeAttributes, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
+		{"removeHTMLTags", "(Ljavax/swing/text/AttributeSet;Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $method(StyleSheet, removeHTMLTags, $AttributeSet*, $AttributeSet*, $AttributeSet*)},
+		{"removeStyle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, removeStyle, void, $String*)},
+		{"removeStyleSheet", "(Ljavax/swing/text/html/StyleSheet;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, removeStyleSheet, void, StyleSheet*)},
+		{"setBase", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, setBase, void, $URL*)},
+		{"setBaseFontSize", "(I)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, setBaseFontSize, void, int32_t)},
+		{"setBaseFontSize", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StyleSheet, setBaseFontSize, void, $String*)},
+		{"stringToColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, stringToColor, $Color*, $String*)},
+		{"translateHTMLToCSS", "(Ljavax/swing/text/AttributeSet;)Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(StyleSheet, translateHTMLToCSS, $AttributeSet*, $AttributeSet*)},
+		{"unlinkStyleSheet", "(Ljavax/swing/text/html/StyleSheet;I)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(StyleSheet, unlinkStyleSheet, void, StyleSheet*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.StyleSheet$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.text.html.StyleSheet$CssParser", "javax.swing.text.html.StyleSheet", "CssParser", 0},
+		{"javax.swing.text.html.StyleSheet$SelectorMapping", "javax.swing.text.html.StyleSheet", "SelectorMapping", $STATIC},
+		{"javax.swing.text.html.StyleSheet$ResolvedStyle", "javax.swing.text.html.StyleSheet", "ResolvedStyle", $STATIC},
+		{"javax.swing.text.html.StyleSheet$ViewAttributeSet", "javax.swing.text.html.StyleSheet", "ViewAttributeSet", 0},
+		{"javax.swing.text.html.StyleSheet$BackgroundImagePainter", "javax.swing.text.html.StyleSheet", "BackgroundImagePainter", $STATIC},
+		{"javax.swing.text.html.StyleSheet$ListPainter", "javax.swing.text.html.StyleSheet", "ListPainter", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.StyleSheet$BoxPainter", "javax.swing.text.html.StyleSheet", "BoxPainter", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.StyleSheet$SearchBuffer", "javax.swing.text.html.StyleSheet", "SearchBuffer", $PRIVATE | $STATIC},
+		{"javax.swing.text.html.StyleSheet$SmallConversionSet", "javax.swing.text.html.StyleSheet", "SmallConversionSet", 0},
+		{"javax.swing.text.html.StyleSheet$LargeConversionSet", "javax.swing.text.html.StyleSheet", "LargeConversionSet", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.StyleSheet",
+		"javax.swing.text.StyleContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.StyleSheet$1,javax.swing.text.html.StyleSheet$CssParser,javax.swing.text.html.StyleSheet$SelectorMapping,javax.swing.text.html.StyleSheet$ResolvedStyle,javax.swing.text.html.StyleSheet$ViewAttributeSet,javax.swing.text.html.StyleSheet$BackgroundImagePainter,javax.swing.text.html.StyleSheet$ListPainter,javax.swing.text.html.StyleSheet$BoxPainter,javax.swing.text.html.StyleSheet$BoxPainter$HorizontalMargin,javax.swing.text.html.StyleSheet$SearchBuffer,javax.swing.text.html.StyleSheet$SmallConversionSet,javax.swing.text.html.StyleSheet$LargeConversionSet"
+	};
+	$loadClass(StyleSheet, name, initialize, &classInfo$$, StyleSheet::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyleSheet));
+	});
 	return class$;
 }
 

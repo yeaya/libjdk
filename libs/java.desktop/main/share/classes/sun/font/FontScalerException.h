@@ -16,7 +16,10 @@ public:
 	void init$($String* reason);
 	FontScalerException(const FontScalerException& e);
 	virtual void throw$() override;
-	inline FontScalerException* operator ->() {
+	inline FontScalerException* operator ->() const {
+		return (FontScalerException*)throwing$;
+	}
+	inline operator FontScalerException*() const {
 		return (FontScalerException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthComboPopup.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
 #include <java/awt/Insets.h>
@@ -21,7 +20,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JList = ::javax::swing::JList;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
@@ -32,32 +30,12 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$MethodInfo _SynthComboPopup_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(SynthComboPopup, init$, void, $JComboBox*)},
-	{"computePopupBounds", "(IIII)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(SynthComboPopup, computePopupBounds, $Rectangle*, int32_t, int32_t, int32_t, int32_t)},
-	{"configureList", "()V", nullptr, $PROTECTED, $virtualMethod(SynthComboPopup, configureList, void)},
-	{}
-};
-
-$ClassInfo _SynthComboPopup_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthComboPopup",
-	"javax.swing.plaf.basic.BasicComboPopup",
-	nullptr,
-	nullptr,
-	_SynthComboPopup_MethodInfo_
-};
-
-$Object* allocate$SynthComboPopup($Class* clazz) {
-	return $of($alloc(SynthComboPopup));
-}
-
 void SynthComboPopup::init$($JComboBox* combo) {
 	$BasicComboPopup::init$(combo);
 }
 
 void SynthComboPopup::configureList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->list$)->setFont($($nc(this->comboBox)->getFont()));
 	$nc(this->list$)->setCellRenderer($($nc(this->comboBox)->getRenderer()));
 	$nc(this->list$)->setFocusable(false);
@@ -73,13 +51,13 @@ void SynthComboPopup::configureList() {
 }
 
 $Rectangle* SynthComboPopup::computePopupBounds(int32_t px, int32_t py, int32_t pw, int32_t ph) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ComboBoxUI, ui, $cast($ComboBoxUI, $nc(this->comboBox)->getUI()));
 	if ($instanceOf($SynthComboBoxUI, ui)) {
 		$var($SynthComboBoxUI, sui, $cast($SynthComboBoxUI, ui));
-		if ($nc(sui)->popupInsets != nullptr) {
+		if (sui->popupInsets != nullptr) {
 			$var($Insets, i, sui->popupInsets);
-			return $BasicComboPopup::computePopupBounds(px + $nc(i)->left, py + i->top, pw - i->left - i->right, ph - i->top - i->bottom);
+			return $BasicComboPopup::computePopupBounds(px + $nc(i)->left, py + $nc(i)->top, pw - $nc(i)->left - $nc(i)->right, ph - $nc(i)->top - $nc(i)->bottom);
 		}
 	}
 	return $BasicComboPopup::computePopupBounds(px, py, pw, ph);
@@ -89,7 +67,23 @@ SynthComboPopup::SynthComboPopup() {
 }
 
 $Class* SynthComboPopup::load$($String* name, bool initialize) {
-	$loadClass(SynthComboPopup, name, initialize, &_SynthComboPopup_ClassInfo_, allocate$SynthComboPopup);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(SynthComboPopup, init$, void, $JComboBox*)},
+		{"computePopupBounds", "(IIII)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(SynthComboPopup, computePopupBounds, $Rectangle*, int32_t, int32_t, int32_t, int32_t)},
+		{"configureList", "()V", nullptr, $PROTECTED, $virtualMethod(SynthComboPopup, configureList, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthComboPopup",
+		"javax.swing.plaf.basic.BasicComboPopup",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthComboPopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthComboPopup));
+	});
 	return class$;
 }
 

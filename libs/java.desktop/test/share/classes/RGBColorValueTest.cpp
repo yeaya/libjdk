@@ -1,5 +1,4 @@
 #include <RGBColorValueTest.h>
-
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/html/CSS$Attribute.h>
 #include <javax/swing/text/html/StyleSheet.h>
@@ -17,37 +16,18 @@ using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $CSS$Attribute = ::javax::swing::text::html::CSS$Attribute;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
 
-$MethodInfo _RGBColorValueTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RGBColorValueTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RGBColorValueTest, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _RGBColorValueTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"RGBColorValueTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_RGBColorValueTest_MethodInfo_
-};
-
-$Object* allocate$RGBColorValueTest($Class* clazz) {
-	return $of($alloc(RGBColorValueTest));
-}
-
 void RGBColorValueTest::init$() {
 }
 
 void RGBColorValueTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyleSheet, styleSheet, $new($StyleSheet));
 	$var($AttributeSet, attributeSet, styleSheet->getDeclaration("border-color: rgb(1, 2, 3)    rgb(1, 2, 4);"_s));
 	$init($CSS$Attribute);
-	bool var$2 = !$nc($($nc($of($($nc(attributeSet)->getAttribute($CSS$Attribute::BORDER_TOP_COLOR))))->toString()))->equals("rgb(1, 2, 3)"_s);
-	bool var$1 = var$2 || !$nc($($nc($of($($nc(attributeSet)->getAttribute($CSS$Attribute::BORDER_BOTTOM_COLOR))))->toString()))->equals("rgb(1, 2, 3)"_s);
-	bool var$0 = var$1 || !$nc($($nc($of($($nc(attributeSet)->getAttribute($CSS$Attribute::BORDER_RIGHT_COLOR))))->toString()))->equals("rgb(1, 2, 4)"_s);
-	if (var$0 || !$nc($($nc($of($($nc(attributeSet)->getAttribute($CSS$Attribute::BORDER_LEFT_COLOR))))->toString()))->equals("rgb(1, 2, 4)"_s)) {
+	bool var$2 = !$$nc($$nc($nc(attributeSet)->getAttribute($CSS$Attribute::BORDER_TOP_COLOR))->toString())->equals("rgb(1, 2, 3)"_s);
+	bool var$1 = var$2 || !$$nc($$nc(attributeSet->getAttribute($CSS$Attribute::BORDER_BOTTOM_COLOR))->toString())->equals("rgb(1, 2, 3)"_s);
+	bool var$0 = var$1 || !$$nc($$nc(attributeSet->getAttribute($CSS$Attribute::BORDER_RIGHT_COLOR))->toString())->equals("rgb(1, 2, 4)"_s);
+	if (var$0 || !$$nc($$nc(attributeSet->getAttribute($CSS$Attribute::BORDER_LEFT_COLOR))->toString())->equals("rgb(1, 2, 4)"_s)) {
 		$throwNew($RuntimeException, "Failed"_s);
 	}
 }
@@ -56,7 +36,22 @@ RGBColorValueTest::RGBColorValueTest() {
 }
 
 $Class* RGBColorValueTest::load$($String* name, bool initialize) {
-	$loadClass(RGBColorValueTest, name, initialize, &_RGBColorValueTest_ClassInfo_, allocate$RGBColorValueTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RGBColorValueTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(RGBColorValueTest, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"RGBColorValueTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RGBColorValueTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RGBColorValueTest);
+	});
 	return class$;
 }
 

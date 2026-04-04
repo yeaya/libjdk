@@ -1,5 +1,4 @@
 #include <java/net/http/WebSocketHandshakeException.h>
-
 #include <java/io/IOException.h>
 #include <java/net/http/HttpResponse.h>
 #include <jcpp.h>
@@ -13,32 +12,6 @@ using $HttpResponse = ::java::net::http::HttpResponse;
 namespace java {
 	namespace net {
 		namespace http {
-
-$FieldInfo _WebSocketHandshakeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WebSocketHandshakeException, serialVersionUID)},
-	{"response", "Ljava/net/http/HttpResponse;", "Ljava/net/http/HttpResponse<*>;", $PRIVATE | $FINAL | $TRANSIENT, $field(WebSocketHandshakeException, response)},
-	{}
-};
-
-$MethodInfo _WebSocketHandshakeException_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpResponse;)V", "(Ljava/net/http/HttpResponse<*>;)V", $PUBLIC, $method(WebSocketHandshakeException, init$, void, $HttpResponse*)},
-	{"getResponse", "()Ljava/net/http/HttpResponse;", "()Ljava/net/http/HttpResponse<*>;", $PUBLIC, $method(WebSocketHandshakeException, getResponse, $HttpResponse*)},
-	{"initCause", "(Ljava/lang/Throwable;)Ljava/net/http/WebSocketHandshakeException;", nullptr, $PUBLIC, $virtualMethod(WebSocketHandshakeException, initCause, WebSocketHandshakeException*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _WebSocketHandshakeException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.net.http.WebSocketHandshakeException",
-	"java.io.IOException",
-	nullptr,
-	_WebSocketHandshakeException_FieldInfo_,
-	_WebSocketHandshakeException_MethodInfo_
-};
-
-$Object* allocate$WebSocketHandshakeException($Class* clazz) {
-	return $of($alloc(WebSocketHandshakeException));
-}
 
 void WebSocketHandshakeException::init$($HttpResponse* response) {
 	$IOException::init$();
@@ -64,7 +37,28 @@ void WebSocketHandshakeException::throw$() {
 }
 
 $Class* WebSocketHandshakeException::load$($String* name, bool initialize) {
-	$loadClass(WebSocketHandshakeException, name, initialize, &_WebSocketHandshakeException_ClassInfo_, allocate$WebSocketHandshakeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WebSocketHandshakeException, serialVersionUID)},
+		{"response", "Ljava/net/http/HttpResponse;", "Ljava/net/http/HttpResponse<*>;", $PRIVATE | $FINAL | $TRANSIENT, $field(WebSocketHandshakeException, response)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpResponse;)V", "(Ljava/net/http/HttpResponse<*>;)V", $PUBLIC, $method(WebSocketHandshakeException, init$, void, $HttpResponse*)},
+		{"getResponse", "()Ljava/net/http/HttpResponse;", "()Ljava/net/http/HttpResponse<*>;", $PUBLIC, $method(WebSocketHandshakeException, getResponse, $HttpResponse*)},
+		{"initCause", "(Ljava/lang/Throwable;)Ljava/net/http/WebSocketHandshakeException;", nullptr, $PUBLIC, $virtualMethod(WebSocketHandshakeException, initCause, WebSocketHandshakeException*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.net.http.WebSocketHandshakeException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WebSocketHandshakeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WebSocketHandshakeException);
+	});
 	return class$;
 }
 

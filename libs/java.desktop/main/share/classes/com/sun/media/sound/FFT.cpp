@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/FFT.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _FFT_FieldInfo_[] = {
-	{"w", "[D", nullptr, $PRIVATE | $FINAL, $field(FFT, w)},
-	{"fftFrameSize", "I", nullptr, $PRIVATE | $FINAL, $field(FFT, fftFrameSize)},
-	{"sign", "I", nullptr, $PRIVATE | $FINAL, $field(FFT, sign)},
-	{"bitm_array", "[I", nullptr, $PRIVATE | $FINAL, $field(FFT, bitm_array)},
-	{"fftFrameSize2", "I", nullptr, $PRIVATE | $FINAL, $field(FFT, fftFrameSize2)},
-	{}
-};
-
-$MethodInfo _FFT_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(FFT, init$, void, int32_t, int32_t)},
-	{"bitreversal", "([D)V", nullptr, $PRIVATE, $method(FFT, bitreversal, void, $doubles*)},
-	{"calc", "(I[DI[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calc, void, int32_t, $doubles*, int32_t, $doubles*)},
-	{"calcF2E", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF2E, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
-	{"calcF4F", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF4F, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
-	{"calcF4FE", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF4FE, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
-	{"calcF4I", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF4I, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
-	{"calcF4IE", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF4IE, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
-	{"computeTwiddleFactors", "(II)[D", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, computeTwiddleFactors, $doubles*, int32_t, int32_t)},
-	{"transform", "([D)V", nullptr, $PUBLIC, $method(FFT, transform, void, $doubles*)},
-	{}
-};
-
-$ClassInfo _FFT_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.FFT",
-	"java.lang.Object",
-	nullptr,
-	_FFT_FieldInfo_,
-	_FFT_MethodInfo_
-};
-
-$Object* allocate$FFT($Class* clazz) {
-	return $of($alloc(FFT));
-}
-
 void FFT::init$(int32_t fftFrameSize, int32_t sign) {
 	$set(this, w, computeTwiddleFactors(fftFrameSize, sign));
 	this->fftFrameSize = fftFrameSize;
@@ -63,12 +26,12 @@ void FFT::init$(int32_t fftFrameSize, int32_t sign) {
 		int32_t j = 0;
 		int32_t bitm = 0;
 		for (bitm = 2, j = 0; bitm < this->fftFrameSize2; bitm <<= 1) {
-			if (((int32_t)(i & (uint32_t)bitm)) != 0) {
+			if ((i & bitm) != 0) {
 				++j;
 			}
 			j <<= 1;
 		}
-		$nc(this->bitm_array)->set(i, j);
+		this->bitm_array->set(i, j);
 	}
 }
 
@@ -82,44 +45,36 @@ $doubles* FFT::computeTwiddleFactors(int32_t fftFrameSize, int32_t sign) {
 	int32_t imax = $cast(int32_t, (var$0 / $Math::log(2.0)));
 	$var($doubles, warray, $new($doubles, (fftFrameSize - 1) * 4));
 	int32_t w_index = 0;
-	{
-		int32_t i = 0;
-		int32_t nstep = 2;
-		for (; i < imax; ++i) {
-			int32_t jmax = nstep;
-			nstep <<= 1;
-			double wr = 1.0;
-			double wi = 0.0;
-			double arg = $Math::PI / (jmax >> 1);
-			double wfr = $Math::cos(arg);
-			double wfi = sign * $Math::sin(arg);
-			for (int32_t j = 0; j < jmax; j += 2) {
-				warray->set(w_index++, wr);
-				warray->set(w_index++, wi);
-				double tempr = wr;
-				wr = tempr * wfr - wi * wfi;
-				wi = tempr * wfi + wi * wfr;
-			}
+	for (int32_t i = 0, nstep = 2; i < imax; ++i) {
+		int32_t jmax = nstep;
+		nstep <<= 1;
+		double wr = 1.0;
+		double wi = 0.0;
+		double arg = $Math::PI / (jmax >> 1);
+		double wfr = $Math::cos(arg);
+		double wfi = sign * $Math::sin(arg);
+		for (int32_t j = 0; j < jmax; j += 2) {
+			warray->set(w_index++, wr);
+			warray->set(w_index++, wi);
+			double tempr = wr;
+			wr = tempr * wfr - wi * wfi;
+			wi = tempr * wfi + wi * wfr;
 		}
 	}
 	{
 		w_index = 0;
 		int32_t w_index2 = warray->length >> 1;
-		{
-			int32_t i = 0;
-			int32_t nstep = 2;
-			for (; i < (imax - 1); ++i) {
-				int32_t jmax = nstep;
-				nstep *= 2;
-				int32_t ii = w_index + jmax;
-				for (int32_t j = 0; j < jmax; j += 2) {
-					double wr = warray->get(w_index++);
-					double wi = warray->get(w_index++);
-					double wr1 = warray->get(ii++);
-					double wi1 = warray->get(ii++);
-					warray->set(w_index2++, wr * wr1 - wi * wi1);
-					warray->set(w_index2++, wr * wi1 + wi * wr1);
-				}
+		for (int32_t i = 0, nstep = 2; i < (imax - 1); ++i) {
+			int32_t jmax = nstep;
+			nstep *= 2;
+			int32_t ii = w_index + jmax;
+			for (int32_t j = 0; j < jmax; j += 2) {
+				double wr = warray->get(w_index++);
+				double wi = warray->get(w_index++);
+				double wr1 = warray->get(ii++);
+				double wi1 = warray->get(ii++);
+				warray->set(w_index2++, wr * wr1 - wi * wi1);
+				warray->set(w_index2++, wr * wi1 + wi * wr1);
 			}
 		}
 	}
@@ -552,7 +507,7 @@ void FFT::bitreversal($doubles* data) {
 	}
 	int32_t inverse = this->fftFrameSize2 - 2;
 	for (int32_t i = 0; i < this->fftFrameSize; i += 4) {
-		int32_t j = $nc(this->bitm_array)->get(i);
+		int32_t j = this->bitm_array->get(i);
 		if (i < j) {
 			int32_t n = i;
 			int32_t m = j;
@@ -592,7 +547,38 @@ FFT::FFT() {
 }
 
 $Class* FFT::load$($String* name, bool initialize) {
-	$loadClass(FFT, name, initialize, &_FFT_ClassInfo_, allocate$FFT);
+	$FieldInfo fieldInfos$$[] = {
+		{"w", "[D", nullptr, $PRIVATE | $FINAL, $field(FFT, w)},
+		{"fftFrameSize", "I", nullptr, $PRIVATE | $FINAL, $field(FFT, fftFrameSize)},
+		{"sign", "I", nullptr, $PRIVATE | $FINAL, $field(FFT, sign)},
+		{"bitm_array", "[I", nullptr, $PRIVATE | $FINAL, $field(FFT, bitm_array)},
+		{"fftFrameSize2", "I", nullptr, $PRIVATE | $FINAL, $field(FFT, fftFrameSize2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(FFT, init$, void, int32_t, int32_t)},
+		{"bitreversal", "([D)V", nullptr, $PRIVATE, $method(FFT, bitreversal, void, $doubles*)},
+		{"calc", "(I[DI[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calc, void, int32_t, $doubles*, int32_t, $doubles*)},
+		{"calcF2E", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF2E, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
+		{"calcF4F", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF4F, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
+		{"calcF4FE", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF4FE, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
+		{"calcF4I", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF4I, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
+		{"calcF4IE", "(I[DII[D)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, calcF4IE, void, int32_t, $doubles*, int32_t, int32_t, $doubles*)},
+		{"computeTwiddleFactors", "(II)[D", nullptr, $PRIVATE | $STATIC, $staticMethod(FFT, computeTwiddleFactors, $doubles*, int32_t, int32_t)},
+		{"transform", "([D)V", nullptr, $PUBLIC, $method(FFT, transform, void, $doubles*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.FFT",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FFT, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FFT);
+	});
 	return class$;
 }
 

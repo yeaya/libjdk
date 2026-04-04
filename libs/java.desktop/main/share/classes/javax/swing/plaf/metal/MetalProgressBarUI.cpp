@@ -1,13 +1,10 @@
 #include <javax/swing/plaf/metal/MetalProgressBarUI.h>
-
 #include <java/awt/BasicStroke.h>
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Stroke.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JProgressBar.h>
 #include <javax/swing/plaf/ColorUIResource.h>
@@ -20,13 +17,10 @@
 #undef HORIZONTAL
 
 using $BasicStroke = ::java::awt::BasicStroke;
-using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Stroke = ::java::awt::Stroke;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -43,33 +37,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalProgressBarUI_FieldInfo_[] = {
-	{"innards", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MetalProgressBarUI, innards)},
-	{"box", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MetalProgressBarUI, box)},
-	{}
-};
-
-$MethodInfo _MetalProgressBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalProgressBarUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"paintDeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalProgressBarUI, paintDeterminate, void, $Graphics*, $JComponent*)},
-	{"paintIndeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalProgressBarUI, paintIndeterminate, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MetalProgressBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalProgressBarUI",
-	"javax.swing.plaf.basic.BasicProgressBarUI",
-	nullptr,
-	_MetalProgressBarUI_FieldInfo_,
-	_MetalProgressBarUI_MethodInfo_
-};
-
-$Object* allocate$MetalProgressBarUI($Class* clazz) {
-	return $of($alloc(MetalProgressBarUI));
-}
-
 void MetalProgressBarUI::init$() {
 	$BasicProgressBarUI::init$();
 }
@@ -80,14 +47,14 @@ $ComponentUI* MetalProgressBarUI::createUI($JComponent* c) {
 }
 
 void MetalProgressBarUI::paintDeterminate($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicProgressBarUI::paintDeterminate(g, c);
 	if (!($instanceOf($Graphics2D, g))) {
 		return;
 	}
 	if ($nc(this->progressBar)->isBorderPainted()) {
 		$var($Insets, b, $nc(this->progressBar)->getInsets());
-		int32_t barRectWidth = $nc(this->progressBar)->getWidth() - ($nc(b)->left + b->right);
+		int32_t barRectWidth = $nc(this->progressBar)->getWidth() - ($nc(b)->left + $nc(b)->right);
 		int32_t barRectHeight = $nc(this->progressBar)->getHeight() - (b->top + b->bottom);
 		int32_t amountFull = getAmountFull(b, barRectWidth, barRectHeight);
 		bool isLeftToRight = $MetalUtils::isLeftToRight(c);
@@ -133,13 +100,13 @@ void MetalProgressBarUI::paintDeterminate($Graphics* g, $JComponent* c) {
 }
 
 void MetalProgressBarUI::paintIndeterminate($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicProgressBarUI::paintIndeterminate(g, c);
 	if (!$nc(this->progressBar)->isBorderPainted() || (!($instanceOf($Graphics2D, g)))) {
 		return;
 	}
 	$var($Insets, b, $nc(this->progressBar)->getInsets());
-	int32_t barRectWidth = $nc(this->progressBar)->getWidth() - ($nc(b)->left + b->right);
+	int32_t barRectWidth = $nc(this->progressBar)->getWidth() - ($nc(b)->left + $nc(b)->right);
 	int32_t barRectHeight = $nc(this->progressBar)->getHeight() - (b->top + b->bottom);
 	int32_t amountFull = getAmountFull(b, barRectWidth, barRectHeight);
 	bool isLeftToRight = $MetalUtils::isLeftToRight(c);
@@ -160,13 +127,13 @@ void MetalProgressBarUI::paintIndeterminate($Graphics* g, $JComponent* c) {
 		g2->drawLine(startX, startY, endX, startY);
 		g2->drawLine(startX, startY, startX, endY);
 		g2->setColor($($MetalLookAndFeel::getPrimaryControlDarkShadow()));
-		g2->drawLine($nc(box)->x, startY, box->x + box->width - 1, startY);
+		g2->drawLine($nc(box)->x, startY, $nc(box)->x + $nc(box)->width - 1, startY);
 	} else {
 		g2->setColor($($MetalLookAndFeel::getControlShadow()));
 		g2->drawLine(startX, startY, startX, endY);
 		g2->drawLine(startX, startY, endX, startY);
 		g2->setColor($($MetalLookAndFeel::getPrimaryControlDarkShadow()));
-		g2->drawLine(startX, $nc(box)->y, startX, box->y + box->height - 1);
+		g2->drawLine(startX, $nc(box)->y, startX, $nc(box)->y + $nc(box)->height - 1);
 	}
 }
 
@@ -174,7 +141,29 @@ MetalProgressBarUI::MetalProgressBarUI() {
 }
 
 $Class* MetalProgressBarUI::load$($String* name, bool initialize) {
-	$loadClass(MetalProgressBarUI, name, initialize, &_MetalProgressBarUI_ClassInfo_, allocate$MetalProgressBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"innards", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MetalProgressBarUI, innards)},
+		{"box", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(MetalProgressBarUI, box)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalProgressBarUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"paintDeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalProgressBarUI, paintDeterminate, void, $Graphics*, $JComponent*)},
+		{"paintIndeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalProgressBarUI, paintIndeterminate, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalProgressBarUI",
+		"javax.swing.plaf.basic.BasicProgressBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalProgressBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalProgressBarUI);
+	});
 	return class$;
 }
 

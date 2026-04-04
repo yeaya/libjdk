@@ -24,6 +24,7 @@ class $import Option$OptionKind : public ::java::lang::Enum {
 public:
 	Option$OptionKind();
 	static $Array<::com::sun::tools::javac::main::Option$OptionKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::main::Option$OptionKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::main::Option$OptionKind>* values();

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTreeUI$CellEditorHandler.h>
-
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/plaf/basic/BasicTreeUI$Handler.h>
 #include <javax/swing/plaf/basic/BasicTreeUI.h>
@@ -11,67 +10,60 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
-using $BasicTreeUI$Handler = ::javax::swing::plaf::basic::BasicTreeUI$Handler;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicTreeUI$CellEditorHandler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTreeUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTreeUI$CellEditorHandler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicTreeUI$CellEditorHandler_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PUBLIC, $method(BasicTreeUI$CellEditorHandler, init$, void, $BasicTreeUI*)},
-	{"editingCanceled", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$CellEditorHandler, editingCanceled, void, $ChangeEvent*)},
-	{"editingStopped", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$CellEditorHandler, editingStopped, void, $ChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicTreeUI$CellEditorHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTreeUI$CellEditorHandler", "javax.swing.plaf.basic.BasicTreeUI", "CellEditorHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicTreeUI$CellEditorHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTreeUI$CellEditorHandler",
-	"java.lang.Object",
-	"javax.swing.event.CellEditorListener",
-	_BasicTreeUI$CellEditorHandler_FieldInfo_,
-	_BasicTreeUI$CellEditorHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTreeUI$CellEditorHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTreeUI"
-};
-
-$Object* allocate$BasicTreeUI$CellEditorHandler($Class* clazz) {
-	return $of($alloc(BasicTreeUI$CellEditorHandler));
-}
-
 void BasicTreeUI$CellEditorHandler::init$($BasicTreeUI* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void BasicTreeUI$CellEditorHandler::editingStopped($ChangeEvent* e) {
-	$nc($(this->this$0->getHandler()))->editingStopped(e);
+	$$nc(this->this$0->getHandler())->editingStopped(e);
 }
 
 void BasicTreeUI$CellEditorHandler::editingCanceled($ChangeEvent* e) {
-	$nc($(this->this$0->getHandler()))->editingCanceled(e);
+	$$nc(this->this$0->getHandler())->editingCanceled(e);
 }
 
 BasicTreeUI$CellEditorHandler::BasicTreeUI$CellEditorHandler() {
 }
 
 $Class* BasicTreeUI$CellEditorHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicTreeUI$CellEditorHandler, name, initialize, &_BasicTreeUI$CellEditorHandler_ClassInfo_, allocate$BasicTreeUI$CellEditorHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTreeUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTreeUI$CellEditorHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTreeUI;)V", nullptr, $PUBLIC, $method(BasicTreeUI$CellEditorHandler, init$, void, $BasicTreeUI*)},
+		{"editingCanceled", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$CellEditorHandler, editingCanceled, void, $ChangeEvent*)},
+		{"editingStopped", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$CellEditorHandler, editingStopped, void, $ChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTreeUI$CellEditorHandler", "javax.swing.plaf.basic.BasicTreeUI", "CellEditorHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTreeUI$CellEditorHandler",
+		"java.lang.Object",
+		"javax.swing.event.CellEditorListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTreeUI"
+	};
+	$loadClass(BasicTreeUI$CellEditorHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTreeUI$CellEditorHandler);
+	});
 	return class$;
 }
 

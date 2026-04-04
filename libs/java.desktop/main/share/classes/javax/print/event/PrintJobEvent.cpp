@@ -1,5 +1,4 @@
 #include <javax/print/event/PrintJobEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/print/DocPrintJob.h>
 #include <javax/print/event/PrintEvent.h>
@@ -22,38 +21,6 @@ namespace javax {
 	namespace print {
 		namespace event {
 
-$FieldInfo _PrintJobEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintJobEvent, serialVersionUID)},
-	{"reason", "I", nullptr, $PRIVATE, $field(PrintJobEvent, reason)},
-	{"JOB_CANCELED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, JOB_CANCELED)},
-	{"JOB_COMPLETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, JOB_COMPLETE)},
-	{"JOB_FAILED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, JOB_FAILED)},
-	{"REQUIRES_ATTENTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, REQUIRES_ATTENTION)},
-	{"NO_MORE_EVENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, NO_MORE_EVENTS)},
-	{"DATA_TRANSFER_COMPLETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, DATA_TRANSFER_COMPLETE)},
-	{}
-};
-
-$MethodInfo _PrintJobEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/print/DocPrintJob;I)V", nullptr, $PUBLIC, $method(PrintJobEvent, init$, void, $DocPrintJob*, int32_t)},
-	{"getPrintEventType", "()I", nullptr, $PUBLIC, $virtualMethod(PrintJobEvent, getPrintEventType, int32_t)},
-	{"getPrintJob", "()Ljavax/print/DocPrintJob;", nullptr, $PUBLIC, $virtualMethod(PrintJobEvent, getPrintJob, $DocPrintJob*)},
-	{}
-};
-
-$ClassInfo _PrintJobEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.event.PrintJobEvent",
-	"javax.print.event.PrintEvent",
-	nullptr,
-	_PrintJobEvent_FieldInfo_,
-	_PrintJobEvent_MethodInfo_
-};
-
-$Object* allocate$PrintJobEvent($Class* clazz) {
-	return $of($alloc(PrintJobEvent));
-}
-
 void PrintJobEvent::init$($DocPrintJob* source, int32_t reason) {
 	$PrintEvent::init$(source);
 	this->reason = reason;
@@ -71,7 +38,34 @@ PrintJobEvent::PrintJobEvent() {
 }
 
 $Class* PrintJobEvent::load$($String* name, bool initialize) {
-	$loadClass(PrintJobEvent, name, initialize, &_PrintJobEvent_ClassInfo_, allocate$PrintJobEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintJobEvent, serialVersionUID)},
+		{"reason", "I", nullptr, $PRIVATE, $field(PrintJobEvent, reason)},
+		{"JOB_CANCELED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, JOB_CANCELED)},
+		{"JOB_COMPLETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, JOB_COMPLETE)},
+		{"JOB_FAILED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, JOB_FAILED)},
+		{"REQUIRES_ATTENTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, REQUIRES_ATTENTION)},
+		{"NO_MORE_EVENTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, NO_MORE_EVENTS)},
+		{"DATA_TRANSFER_COMPLETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(PrintJobEvent, DATA_TRANSFER_COMPLETE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/print/DocPrintJob;I)V", nullptr, $PUBLIC, $method(PrintJobEvent, init$, void, $DocPrintJob*, int32_t)},
+		{"getPrintEventType", "()I", nullptr, $PUBLIC, $virtualMethod(PrintJobEvent, getPrintEventType, int32_t)},
+		{"getPrintJob", "()Ljavax/print/DocPrintJob;", nullptr, $PUBLIC, $virtualMethod(PrintJobEvent, getPrintJob, $DocPrintJob*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.event.PrintJobEvent",
+		"javax.print.event.PrintEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintJobEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintJobEvent);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <HeadlessJProgressBar.h>
-
 #include <HeadlessJProgressBar$1.h>
 #include <HeadlessJProgressBar$2.h>
 #include <HeadlessJProgressBar$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JProgressBar = ::javax::swing::JProgressBar;
 
-$MethodInfo _HeadlessJProgressBar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJProgressBar, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJProgressBar, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJProgressBar_InnerClassesInfo_[] = {
-	{"HeadlessJProgressBar$3", nullptr, nullptr, 0},
-	{"HeadlessJProgressBar$2", nullptr, nullptr, 0},
-	{"HeadlessJProgressBar$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJProgressBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJProgressBar",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJProgressBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJProgressBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJProgressBar$3,HeadlessJProgressBar$2,HeadlessJProgressBar$1"
-};
-
-$Object* allocate$HeadlessJProgressBar($Class* clazz) {
-	return $of($alloc(HeadlessJProgressBar));
-}
-
 void HeadlessJProgressBar::init$() {
 }
 
 void HeadlessJProgressBar::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JProgressBar, pb, $new($JProgressBar));
 	pb->getAccessibleContext();
 	pb->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJProgressBar::main($StringArray* args) {
 	pb->getMaximumSize();
 	pb->getMinimumSize();
 	pb->contains(1, 2);
-	$var($Component, c1, pb->add(static_cast<$Component*>($$new($HeadlessJProgressBar$1))));
-	$var($Component, c2, pb->add(static_cast<$Component*>($$new($HeadlessJProgressBar$2))));
-	$var($Component, c3, pb->add(static_cast<$Component*>($$new($HeadlessJProgressBar$3))));
+	$var($Component, c1, pb->add($$new($HeadlessJProgressBar$1)));
+	$var($Component, c2, pb->add($$new($HeadlessJProgressBar$2)));
+	$var($Component, c3, pb->add($$new($HeadlessJProgressBar$3)));
 	$var($Insets, ins, pb->getInsets());
 	pb->getAlignmentY();
 	pb->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJProgressBar::main($StringArray* args) {
 	pb->setForeground($Color::red);
 	pb->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					pb->setFont(f1);
-					pb->setFont(f2);
-					pb->setFont(f3);
-					pb->setFont(f4);
-					pb->getFontMetrics(f1);
-					pb->getFontMetrics(f2);
-					pb->getFontMetrics(f3);
-					pb->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				pb->setFont(f1);
+				pb->setFont(f2);
+				pb->setFont(f3);
+				pb->setFont(f4);
+				pb->getFontMetrics(f1);
+				pb->getFontMetrics(f2);
+				pb->getFontMetrics(f3);
+				pb->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJProgressBar::main($StringArray* args) {
 	pb->getFont();
 	pb->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(pb));
+	c->add(pb);
 	pb->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			pb->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJProgressBar::HeadlessJProgressBar() {
 }
 
 $Class* HeadlessJProgressBar::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJProgressBar, name, initialize, &_HeadlessJProgressBar_ClassInfo_, allocate$HeadlessJProgressBar);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJProgressBar, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJProgressBar, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJProgressBar$3", nullptr, nullptr, 0},
+		{"HeadlessJProgressBar$2", nullptr, nullptr, 0},
+		{"HeadlessJProgressBar$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJProgressBar",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJProgressBar$3,HeadlessJProgressBar$2,HeadlessJProgressBar$1"
+	};
+	$loadClass(HeadlessJProgressBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJProgressBar);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/sound/midi/Track.h>
-
 #include <com/sun/media/sound/MidiUtils.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -22,109 +21,67 @@ using $ArrayList = ::java::util::ArrayList;
 using $HashSet = ::java::util::HashSet;
 using $MetaMessage = ::javax::sound::midi::MetaMessage;
 using $MidiEvent = ::javax::sound::midi::MidiEvent;
-using $MidiMessage = ::javax::sound::midi::MidiMessage;
 using $Track$ImmutableEndOfTrack = ::javax::sound::midi::Track$ImmutableEndOfTrack;
 
 namespace javax {
 	namespace sound {
 		namespace midi {
 
-$FieldInfo _Track_FieldInfo_[] = {
-	{"eventsList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/sound/midi/MidiEvent;>;", $PRIVATE | $FINAL, $field(Track, eventsList)},
-	{"set", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljavax/sound/midi/MidiEvent;>;", $PRIVATE | $FINAL, $field(Track, set)},
-	{"eotEvent", "Ljavax/sound/midi/MidiEvent;", nullptr, $PRIVATE | $FINAL, $field(Track, eotEvent)},
-	{}
-};
-
-$MethodInfo _Track_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Track, init$, void)},
-	{"add", "(Ljavax/sound/midi/MidiEvent;)Z", nullptr, $PUBLIC, $virtualMethod(Track, add, bool, $MidiEvent*)},
-	{"get", "(I)Ljavax/sound/midi/MidiEvent;", nullptr, $PUBLIC, $virtualMethod(Track, get, $MidiEvent*, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
-	{"remove", "(Ljavax/sound/midi/MidiEvent;)Z", nullptr, $PUBLIC, $virtualMethod(Track, remove, bool, $MidiEvent*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Track, size, int32_t)},
-	{"ticks", "()J", nullptr, $PUBLIC, $virtualMethod(Track, ticks, int64_t)},
-	{}
-};
-
-$InnerClassInfo _Track_InnerClassesInfo_[] = {
-	{"javax.sound.midi.Track$ImmutableEndOfTrack", "javax.sound.midi.Track", "ImmutableEndOfTrack", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Track_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.midi.Track",
-	"java.lang.Object",
-	nullptr,
-	_Track_FieldInfo_,
-	_Track_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Track_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.sound.midi.Track$ImmutableEndOfTrack"
-};
-
-$Object* allocate$Track($Class* clazz) {
-	return $of($alloc(Track));
-}
-
 void Track::init$() {
 	$set(this, eventsList, $new($ArrayList));
 	$set(this, set, $new($HashSet));
 	$var($MetaMessage, eot, $new($Track$ImmutableEndOfTrack));
 	$set(this, eotEvent, $new($MidiEvent, eot, 0));
-	$nc(this->eventsList)->add(this->eotEvent);
-	$nc(this->set)->add(this->eotEvent);
+	this->eventsList->add(this->eotEvent);
+	this->set->add(this->eotEvent);
 }
 
 bool Track::add($MidiEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (event == nullptr) {
 		return false;
 	}
 	$synchronized(this->eventsList) {
-		if (!$nc(this->set)->contains(event)) {
-			int32_t eventsCount = $nc(this->eventsList)->size();
+		if (!this->set->contains(event)) {
+			int32_t eventsCount = this->eventsList->size();
 			$var($MidiEvent, lastEvent, nullptr);
 			if (eventsCount > 0) {
-				$assign(lastEvent, $cast($MidiEvent, $nc(this->eventsList)->get(eventsCount - 1)));
+				$assign(lastEvent, $cast($MidiEvent, this->eventsList->get(eventsCount - 1)));
 			}
 			if (lastEvent != this->eotEvent) {
 				if (lastEvent != nullptr) {
-					$nc(this->eotEvent)->setTick(lastEvent->getTick());
+					this->eotEvent->setTick(lastEvent->getTick());
 				} else {
-					$nc(this->eotEvent)->setTick(0);
+					this->eotEvent->setTick(0);
 				}
-				$nc(this->eventsList)->add(this->eotEvent);
-				$nc(this->set)->add(this->eotEvent);
-				eventsCount = $nc(this->eventsList)->size();
+				this->eventsList->add(this->eotEvent);
+				this->set->add(this->eotEvent);
+				eventsCount = this->eventsList->size();
 			}
 			if ($MidiUtils::isMetaEndOfTrack($($nc(event)->getMessage()))) {
-				int64_t var$0 = $nc(event)->getTick();
-				if (var$0 > $nc(this->eotEvent)->getTick()) {
-					$nc(this->eotEvent)->setTick(event->getTick());
+				int64_t var$0 = event->getTick();
+				if (var$0 > this->eotEvent->getTick()) {
+					this->eotEvent->setTick(event->getTick());
 				}
 				return true;
 			}
-			$nc(this->set)->add(event);
+			this->set->add(event);
 			int32_t i = eventsCount;
 			for (; i > 0; --i) {
-				int64_t var$1 = $nc(event)->getTick();
-				if (var$1 >= $nc(($cast($MidiEvent, $($nc(this->eventsList)->get(i - 1)))))->getTick()) {
+				int64_t var$1 = event->getTick();
+				if (var$1 >= $$sure($MidiEvent, this->eventsList->get(i - 1))->getTick()) {
 					break;
 				}
 			}
 			if (i == eventsCount) {
-				$nc(this->eventsList)->set(eventsCount - 1, event);
-				int64_t var$2 = $nc(this->eotEvent)->getTick();
-				if (var$2 < $nc(event)->getTick()) {
-					$nc(this->eotEvent)->setTick(event->getTick());
+				this->eventsList->set(eventsCount - 1, event);
+				int64_t var$2 = this->eotEvent->getTick();
+				if (var$2 < event->getTick()) {
+					this->eotEvent->setTick(event->getTick());
 				}
-				$nc(this->eventsList)->add(this->eotEvent);
+				this->eventsList->add(this->eotEvent);
 			} else {
-				$nc(this->eventsList)->add(i, event);
+				this->eventsList->add(i, event);
 			}
 			return true;
 		}
@@ -134,10 +91,10 @@ bool Track::add($MidiEvent* event) {
 
 bool Track::remove($MidiEvent* event) {
 	$synchronized(this->eventsList) {
-		if ($nc(this->set)->remove(event)) {
-			int32_t i = $nc(this->eventsList)->indexOf(event);
+		if (this->set->remove(event)) {
+			int32_t i = this->eventsList->indexOf(event);
 			if (i >= 0) {
-				$nc(this->eventsList)->remove(i);
+				this->eventsList->remove(i);
 				return true;
 			}
 		}
@@ -148,7 +105,7 @@ bool Track::remove($MidiEvent* event) {
 $MidiEvent* Track::get(int32_t index) {
 	try {
 		$synchronized(this->eventsList) {
-			return $cast($MidiEvent, $nc(this->eventsList)->get(index));
+			return $cast($MidiEvent, this->eventsList->get(index));
 		}
 	} catch ($IndexOutOfBoundsException& ioobe) {
 		$throwNew($ArrayIndexOutOfBoundsException, $(ioobe->getMessage()));
@@ -158,15 +115,15 @@ $MidiEvent* Track::get(int32_t index) {
 
 int32_t Track::size() {
 	$synchronized(this->eventsList) {
-		return $nc(this->eventsList)->size();
+		return this->eventsList->size();
 	}
 }
 
 int64_t Track::ticks() {
 	int64_t ret = 0;
 	$synchronized(this->eventsList) {
-		if ($nc(this->eventsList)->size() > 0) {
-			ret = $nc(($cast($MidiEvent, $($nc(this->eventsList)->get($nc(this->eventsList)->size() - 1)))))->getTick();
+		if (this->eventsList->size() > 0) {
+			ret = $$sure($MidiEvent, this->eventsList->get(this->eventsList->size() - 1))->getTick();
 		}
 	}
 	return ret;
@@ -176,7 +133,42 @@ Track::Track() {
 }
 
 $Class* Track::load$($String* name, bool initialize) {
-	$loadClass(Track, name, initialize, &_Track_ClassInfo_, allocate$Track);
+	$FieldInfo fieldInfos$$[] = {
+		{"eventsList", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljavax/sound/midi/MidiEvent;>;", $PRIVATE | $FINAL, $field(Track, eventsList)},
+		{"set", "Ljava/util/HashSet;", "Ljava/util/HashSet<Ljavax/sound/midi/MidiEvent;>;", $PRIVATE | $FINAL, $field(Track, set)},
+		{"eotEvent", "Ljavax/sound/midi/MidiEvent;", nullptr, $PRIVATE | $FINAL, $field(Track, eotEvent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Track, init$, void)},
+		{"add", "(Ljavax/sound/midi/MidiEvent;)Z", nullptr, $PUBLIC, $virtualMethod(Track, add, bool, $MidiEvent*)},
+		{"get", "(I)Ljavax/sound/midi/MidiEvent;", nullptr, $PUBLIC, $virtualMethod(Track, get, $MidiEvent*, int32_t), "java.lang.ArrayIndexOutOfBoundsException"},
+		{"remove", "(Ljavax/sound/midi/MidiEvent;)Z", nullptr, $PUBLIC, $virtualMethod(Track, remove, bool, $MidiEvent*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Track, size, int32_t)},
+		{"ticks", "()J", nullptr, $PUBLIC, $virtualMethod(Track, ticks, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.midi.Track$ImmutableEndOfTrack", "javax.sound.midi.Track", "ImmutableEndOfTrack", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.midi.Track",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.sound.midi.Track$ImmutableEndOfTrack"
+	};
+	$loadClass(Track, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Track);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <DemandGTK.h>
-
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
@@ -37,27 +36,24 @@ public:
 	virtual void run() override {
 		DemandGTK::createAndShow();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DemandGTK$$Lambda$createAndShow>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DemandGTK$$Lambda$createAndShow::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DemandGTK$$Lambda$createAndShow, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DemandGTK$$Lambda$createAndShow, run, void)},
-	{}
-};
-$ClassInfo DemandGTK$$Lambda$createAndShow::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DemandGTK$$Lambda$createAndShow",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* DemandGTK$$Lambda$createAndShow::load$($String* name, bool initialize) {
-	$loadClass(DemandGTK$$Lambda$createAndShow, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DemandGTK$$Lambda$createAndShow, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DemandGTK$$Lambda$createAndShow, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DemandGTK$$Lambda$createAndShow",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DemandGTK$$Lambda$createAndShow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DemandGTK$$Lambda$createAndShow);
+	});
 	return class$;
 }
 $Class* DemandGTK$$Lambda$createAndShow::class$ = nullptr;
@@ -70,56 +66,27 @@ public:
 	virtual void run() override {
 		DemandGTK::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DemandGTK$$Lambda$lambda$main$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DemandGTK$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DemandGTK$$Lambda$lambda$main$0$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DemandGTK$$Lambda$lambda$main$0$1, run, void)},
-	{}
-};
-$ClassInfo DemandGTK$$Lambda$lambda$main$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"DemandGTK$$Lambda$lambda$main$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* DemandGTK$$Lambda$lambda$main$0$1::load$($String* name, bool initialize) {
-	$loadClass(DemandGTK$$Lambda$lambda$main$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DemandGTK$$Lambda$lambda$main$0$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DemandGTK$$Lambda$lambda$main$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"DemandGTK$$Lambda$lambda$main$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DemandGTK$$Lambda$lambda$main$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DemandGTK$$Lambda$lambda$main$0$1);
+	});
 	return class$;
 }
 $Class* DemandGTK$$Lambda$lambda$main$0$1::class$ = nullptr;
-
-$FieldInfo _DemandGTK_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(DemandGTK, frame)},
-	{}
-};
-
-$MethodInfo _DemandGTK_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DemandGTK, init$, void)},
-	{"createAndShow", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(DemandGTK, createAndShow, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DemandGTK, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DemandGTK, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _DemandGTK_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"DemandGTK",
-	"java.lang.Object",
-	nullptr,
-	_DemandGTK_FieldInfo_,
-	_DemandGTK_MethodInfo_
-};
-
-$Object* allocate$DemandGTK($Class* clazz) {
-	return $of($alloc(DemandGTK));
-}
 
 $JFrame* DemandGTK::frame = nullptr;
 
@@ -135,18 +102,18 @@ void DemandGTK::createAndShow() {
 	}
 	$init(DemandGTK);
 	$assignStatic(DemandGTK::frame, $new($JFrame, "JFrame"_s));
-	$nc(DemandGTK::frame)->setSize(200, 200);
+	DemandGTK::frame->setSize(200, 200);
 	$nc(DemandGTK::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(DemandGTK::frame)->setVisible(true);
 }
 
 void DemandGTK::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(DemandGTK$$Lambda$createAndShow)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(DemandGTK$$Lambda$createAndShow));
 	$var($Robot, robot, $new($Robot));
 	robot->waitForIdle();
 	robot->delay(1000);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(DemandGTK$$Lambda$lambda$main$0$1)));
+	$SwingUtilities::invokeAndWait($$new(DemandGTK$$Lambda$lambda$main$0$1));
 }
 
 void DemandGTK::lambda$main$0() {
@@ -160,14 +127,35 @@ DemandGTK::DemandGTK() {
 
 $Class* DemandGTK::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DemandGTK$$Lambda$createAndShow::classInfo$.name)) {
+		if (name->equals("DemandGTK$$Lambda$createAndShow")) {
 			return DemandGTK$$Lambda$createAndShow::load$(name, initialize);
 		}
-		if (name->equals(DemandGTK$$Lambda$lambda$main$0$1::classInfo$.name)) {
+		if (name->equals("DemandGTK$$Lambda$lambda$main$0$1")) {
 			return DemandGTK$$Lambda$lambda$main$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(DemandGTK, name, initialize, &_DemandGTK_ClassInfo_, allocate$DemandGTK);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(DemandGTK, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DemandGTK, init$, void)},
+		{"createAndShow", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(DemandGTK, createAndShow, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DemandGTK, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DemandGTK, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"DemandGTK",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DemandGTK, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DemandGTK);
+	});
 	return class$;
 }
 

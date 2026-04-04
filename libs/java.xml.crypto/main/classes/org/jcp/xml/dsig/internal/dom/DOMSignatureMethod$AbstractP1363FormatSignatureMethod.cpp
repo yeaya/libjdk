@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractP1363FormatSignatureMethod.h>
-
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Provider.h>
 #include <java/security/Signature.h>
@@ -27,44 +26,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMSignatureMethod$AbstractP1363FormatSignatureMethod_FieldInfo_[] = {
-	{"asn1", "Z", nullptr, 0, $field(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, asn1)},
-	{}
-};
-
-$MethodInfo _DOMSignatureMethod$AbstractP1363FormatSignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, getJCAFallbackAlgorithm, $String*)},
-	{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod$AbstractP1363FormatSignatureMethod_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractP1363FormatSignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod$AbstractP1363FormatSignatureMethod_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod",
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod",
-	nullptr,
-	_DOMSignatureMethod$AbstractP1363FormatSignatureMethod_FieldInfo_,
-	_DOMSignatureMethod$AbstractP1363FormatSignatureMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$AbstractP1363FormatSignatureMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod$AbstractP1363FormatSignatureMethod($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod$AbstractP1363FormatSignatureMethod));
-}
-
 void DOMSignatureMethod$AbstractP1363FormatSignatureMethod::init$($AlgorithmParameterSpec* params) {
 	$DOMSignatureMethod::init$(params);
 }
@@ -74,7 +35,7 @@ void DOMSignatureMethod$AbstractP1363FormatSignatureMethod::init$($Element* dmEl
 }
 
 $Signature* DOMSignatureMethod$AbstractP1363FormatSignatureMethod::getSignature($Provider* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return (p == nullptr) ? $Signature::getInstance($(getJCAAlgorithm())) : $Signature::getInstance($(getJCAAlgorithm()), p);
 	} catch ($NoSuchAlgorithmException& nsae) {
@@ -89,7 +50,39 @@ DOMSignatureMethod$AbstractP1363FormatSignatureMethod::DOMSignatureMethod$Abstra
 }
 
 $Class* DOMSignatureMethod$AbstractP1363FormatSignatureMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, name, initialize, &_DOMSignatureMethod$AbstractP1363FormatSignatureMethod_ClassInfo_, allocate$DOMSignatureMethod$AbstractP1363FormatSignatureMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"asn1", "Z", nullptr, 0, $field(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, asn1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getJCAFallbackAlgorithm", "()Ljava/lang/String;", nullptr, $ABSTRACT, $virtualMethod(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, getJCAFallbackAlgorithm, $String*)},
+		{"getSignature", "(Ljava/security/Provider;)Ljava/security/Signature;", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, getSignature, $Signature*, $Provider*), "java.security.NoSuchAlgorithmException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractP1363FormatSignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod",
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod$AbstractP1363FormatSignatureMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod$AbstractP1363FormatSignatureMethod));
+	});
 	return class$;
 }
 

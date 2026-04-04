@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/AnnotationTree.h>
-
 #include <com/sun/source/tree/Tree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _AnnotationTree_MethodInfo_[] = {
-	{"getAnnotationType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationTree, getAnnotationType, $Tree*)},
-	{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationTree, getArguments, $List*)},
-	{}
-};
-
-$ClassInfo _AnnotationTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.AnnotationTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_AnnotationTree_MethodInfo_
-};
-
-$Object* allocate$AnnotationTree($Class* clazz) {
-	return $of($alloc(AnnotationTree));
-}
-
 $Class* AnnotationTree::load$($String* name, bool initialize) {
-	$loadClass(AnnotationTree, name, initialize, &_AnnotationTree_ClassInfo_, allocate$AnnotationTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotationType", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationTree, getAnnotationType, $Tree*)},
+		{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationTree, getArguments, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.AnnotationTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnnotationTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationTree);
+	});
 	return class$;
 }
 

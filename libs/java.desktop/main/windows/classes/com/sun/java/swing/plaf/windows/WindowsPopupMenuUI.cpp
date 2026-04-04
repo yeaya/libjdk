@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsPopupMenuUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
@@ -16,7 +15,6 @@
 #include <javax/swing/Popup.h>
 #include <javax/swing/PopupFactory.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicPopupMenuUI.h>
 #include <sun/swing/StringUIClientPropertyKey.h>
@@ -36,7 +34,6 @@ using $WindowsPopupMenuUI$MnemonicListener = ::com::sun::java::swing::plaf::wind
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -50,7 +47,6 @@ using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $Popup = ::javax::swing::Popup;
 using $PopupFactory = ::javax::swing::PopupFactory;
 using $UIManager = ::javax::swing::UIManager;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicPopupMenuUI = ::javax::swing::plaf::basic::BasicPopupMenuUI;
 using $StringUIClientPropertyKey = ::sun::swing::StringUIClientPropertyKey;
@@ -62,50 +58,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsPopupMenuUI_FieldInfo_[] = {
-	{"mnemonicListener", "Lcom/sun/java/swing/plaf/windows/WindowsPopupMenuUI$MnemonicListener;", nullptr, $STATIC, $staticField(WindowsPopupMenuUI, mnemonicListener)},
-	{"GUTTER_OFFSET_KEY", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(WindowsPopupMenuUI, GUTTER_OFFSET_KEY)},
-	{}
-};
-
-$MethodInfo _WindowsPopupMenuUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsPopupMenuUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPopupMenuUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getGutterWidth", "()I", nullptr, $STATIC, $staticMethod(WindowsPopupMenuUI, getGutterWidth, int32_t)},
-	{"getPopup", "(Ljavax/swing/JPopupMenu;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuUI, getPopup, $Popup*, $JPopupMenu*, int32_t, int32_t)},
-	{"getSpanAfterGutter", "()I", nullptr, $STATIC, $staticMethod(WindowsPopupMenuUI, getSpanAfterGutter, int32_t)},
-	{"getSpanBeforeGutter", "()I", nullptr, $STATIC, $staticMethod(WindowsPopupMenuUI, getSpanBeforeGutter, int32_t)},
-	{"getTextOffset", "(Ljavax/swing/JComponent;)I", nullptr, $STATIC, $staticMethod(WindowsPopupMenuUI, getTextOffset, int32_t, $JComponent*)},
-	{"installListeners", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuUI, installListeners, void)},
-	{"isLeftToRight", "(Ljavax/swing/JComponent;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPopupMenuUI, isLeftToRight, bool, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _WindowsPopupMenuUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI$MnemonicListener", "com.sun.java.swing.plaf.windows.WindowsPopupMenuUI", "MnemonicListener", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsPopupMenuUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI",
-	"javax.swing.plaf.basic.BasicPopupMenuUI",
-	nullptr,
-	_WindowsPopupMenuUI_FieldInfo_,
-	_WindowsPopupMenuUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsPopupMenuUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI$MnemonicListener"
-};
-
-$Object* allocate$WindowsPopupMenuUI($Class* clazz) {
-	return $of($alloc(WindowsPopupMenuUI));
-}
 
 $WindowsPopupMenuUI$MnemonicListener* WindowsPopupMenuUI::mnemonicListener = nullptr;
 $Object* WindowsPopupMenuUI::GUTTER_OFFSET_KEY = nullptr;
@@ -123,24 +75,24 @@ void WindowsPopupMenuUI::installListeners() {
 	$BasicPopupMenuUI::installListeners();
 	if (!$UIManager::getBoolean("Button.showMnemonics"_s) && WindowsPopupMenuUI::mnemonicListener == nullptr) {
 		$assignStatic(WindowsPopupMenuUI::mnemonicListener, $new($WindowsPopupMenuUI$MnemonicListener));
-		$nc($($MenuSelectionManager::defaultManager()))->addChangeListener(WindowsPopupMenuUI::mnemonicListener);
+		$$nc($MenuSelectionManager::defaultManager())->addChangeListener(WindowsPopupMenuUI::mnemonicListener);
 	}
 }
 
 $Popup* WindowsPopupMenuUI::getPopup($JPopupMenu* popupMenu, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PopupFactory, popupFactory, $PopupFactory::getSharedInstance());
 	return $nc(popupFactory)->getPopup($($nc(popupMenu)->getInvoker()), popupMenu, x, y);
 }
 
 int32_t WindowsPopupMenuUI::getTextOffset($JComponent* c) {
 	$init(WindowsPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rv = -1;
 	$init($SwingUtilities2);
 	$var($Object, maxTextOffset, $nc(c)->getClientProperty($SwingUtilities2::BASICMENUITEMUI_MAX_TEXT_OFFSET));
 	if ($instanceOf($Integer, maxTextOffset)) {
-		rv = $nc(($cast($Integer, maxTextOffset)))->intValue();
+		rv = $cast($Integer, maxTextOffset)->intValue();
 		int32_t menuItemOffset = 0;
 		$var($Component, component, c->getComponent(0));
 		if (component != nullptr) {
@@ -163,7 +115,7 @@ int32_t WindowsPopupMenuUI::getSpanAfterGutter() {
 
 int32_t WindowsPopupMenuUI::getGutterWidth() {
 	$init(WindowsPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t rv = 2;
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
@@ -176,33 +128,32 @@ int32_t WindowsPopupMenuUI::getGutterWidth() {
 
 bool WindowsPopupMenuUI::isLeftToRight($JComponent* c) {
 	$init(WindowsPopupMenuUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool leftToRight = true;
 	for (int32_t i = $nc(c)->getComponentCount() - 1; i >= 0 && leftToRight; --i) {
-		leftToRight = $nc($($nc($(c->getComponent(i)))->getComponentOrientation()))->isLeftToRight();
+		leftToRight = $$nc($$nc(c->getComponent(i))->getComponentOrientation())->isLeftToRight();
 	}
 	return leftToRight;
 }
 
 void WindowsPopupMenuUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if ($WindowsMenuItemUI::isVistaPainting(xp)) {
 		$init($TMSchema$Part);
 		$var($XPStyle$Skin, skin, $nc(xp)->getSkin(c, $TMSchema$Part::MP_POPUPBACKGROUND));
-		$var($Graphics, var$0, g);
-		int32_t var$1 = $nc(c)->getWidth();
+		int32_t var$0 = $nc(c)->getWidth();
 		$init($TMSchema$State);
-		$nc(skin)->paintSkin(var$0, 0, 0, var$1, c->getHeight(), $TMSchema$State::NORMAL);
+		$nc(skin)->paintSkin(g, 0, 0, var$0, c->getHeight(), $TMSchema$State::NORMAL);
 		int32_t textOffset = getTextOffset(c);
 		if (textOffset >= 0 && isLeftToRight(c)) {
 			$assign(skin, xp->getSkin(c, $TMSchema$Part::MP_POPUPGUTTER));
 			int32_t gutterWidth = getGutterWidth();
 			int32_t gutterOffset = textOffset - getSpanAfterGutter() - gutterWidth;
-			$nc(c)->putClientProperty(WindowsPopupMenuUI::GUTTER_OFFSET_KEY, $($Integer::valueOf(gutterOffset)));
+			c->putClientProperty(WindowsPopupMenuUI::GUTTER_OFFSET_KEY, $($Integer::valueOf(gutterOffset)));
 			$var($Insets, insets, c->getInsets());
-			$nc(skin)->paintSkin(g, gutterOffset, $nc(insets)->top, gutterWidth, c->getHeight() - insets->bottom - insets->top, $TMSchema$State::NORMAL);
-		} else if ($nc(c)->getClientProperty(WindowsPopupMenuUI::GUTTER_OFFSET_KEY) != nullptr) {
+			$nc(skin)->paintSkin(g, gutterOffset, $nc(insets)->top, gutterWidth, c->getHeight() - $nc(insets)->bottom - $nc(insets)->top, $TMSchema$State::NORMAL);
+		} else if (c->getClientProperty(WindowsPopupMenuUI::GUTTER_OFFSET_KEY) != nullptr) {
 			c->putClientProperty(WindowsPopupMenuUI::GUTTER_OFFSET_KEY, nullptr);
 		}
 	} else {
@@ -210,7 +161,7 @@ void WindowsPopupMenuUI::paint($Graphics* g, $JComponent* c) {
 	}
 }
 
-void clinit$WindowsPopupMenuUI($Class* class$) {
+void WindowsPopupMenuUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsPopupMenuUI::mnemonicListener, nullptr);
 	$assignStatic(WindowsPopupMenuUI::GUTTER_OFFSET_KEY, $new($StringUIClientPropertyKey, "GUTTER_OFFSET_KEY"_s));
 }
@@ -219,7 +170,45 @@ WindowsPopupMenuUI::WindowsPopupMenuUI() {
 }
 
 $Class* WindowsPopupMenuUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsPopupMenuUI, name, initialize, &_WindowsPopupMenuUI_ClassInfo_, clinit$WindowsPopupMenuUI, allocate$WindowsPopupMenuUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"mnemonicListener", "Lcom/sun/java/swing/plaf/windows/WindowsPopupMenuUI$MnemonicListener;", nullptr, $STATIC, $staticField(WindowsPopupMenuUI, mnemonicListener)},
+		{"GUTTER_OFFSET_KEY", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(WindowsPopupMenuUI, GUTTER_OFFSET_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsPopupMenuUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPopupMenuUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getGutterWidth", "()I", nullptr, $STATIC, $staticMethod(WindowsPopupMenuUI, getGutterWidth, int32_t)},
+		{"getPopup", "(Ljavax/swing/JPopupMenu;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuUI, getPopup, $Popup*, $JPopupMenu*, int32_t, int32_t)},
+		{"getSpanAfterGutter", "()I", nullptr, $STATIC, $staticMethod(WindowsPopupMenuUI, getSpanAfterGutter, int32_t)},
+		{"getSpanBeforeGutter", "()I", nullptr, $STATIC, $staticMethod(WindowsPopupMenuUI, getSpanBeforeGutter, int32_t)},
+		{"getTextOffset", "(Ljavax/swing/JComponent;)I", nullptr, $STATIC, $staticMethod(WindowsPopupMenuUI, getTextOffset, int32_t, $JComponent*)},
+		{"installListeners", "()V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuUI, installListeners, void)},
+		{"isLeftToRight", "(Ljavax/swing/JComponent;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsPopupMenuUI, isLeftToRight, bool, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI$MnemonicListener", "com.sun.java.swing.plaf.windows.WindowsPopupMenuUI", "MnemonicListener", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI",
+		"javax.swing.plaf.basic.BasicPopupMenuUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsPopupMenuUI$MnemonicListener"
+	};
+	$loadClass(WindowsPopupMenuUI, name, initialize, &classInfo$$, WindowsPopupMenuUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsPopupMenuUI);
+	});
 	return class$;
 }
 

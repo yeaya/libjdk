@@ -1,11 +1,9 @@
 #include <sun/rmi/transport/DGCImpl.h>
-
 #include <java/io/ObjectInputFilter$Config.h>
 #include <java/io/ObjectInputFilter$FilterInfo.h>
 #include <java/io/ObjectInputFilter$Status.h>
 #include <java/io/ObjectInputFilter.h>
 #include <java/io/Serializable.h>
-#include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -65,7 +63,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Lease = ::java::rmi::dgc::Lease;
 using $VMID = ::java::rmi::dgc::VMID;
@@ -78,13 +75,9 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Security = ::java::security::Security;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
-using $Future = ::java::util::concurrent::Future;
 using $ScheduledExecutorService = ::java::util::concurrent::ScheduledExecutorService;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $Log = ::sun::rmi::runtime::Log;
@@ -108,27 +101,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(DGCImpl::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DGCImpl$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DGCImpl$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo DGCImpl$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.DGCImpl$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* DGCImpl$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(DGCImpl$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.DGCImpl$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DGCImpl$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCImpl$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* DGCImpl$$Lambda$lambda$static$0::class$ = nullptr;
@@ -141,27 +131,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(DGCImpl::lambda$static$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DGCImpl$$Lambda$lambda$static$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DGCImpl$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo DGCImpl$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.DGCImpl$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* DGCImpl$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(DGCImpl$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.DGCImpl$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DGCImpl$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCImpl$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* DGCImpl$$Lambda$lambda$static$1$1::class$ = nullptr;
@@ -174,27 +161,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(DGCImpl::lambda$static$2());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DGCImpl$$Lambda$lambda$static$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DGCImpl$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$2$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$2$2, run, $Object*)},
-	{}
-};
-$ClassInfo DGCImpl$$Lambda$lambda$static$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.DGCImpl$$Lambda$lambda$static$2$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* DGCImpl$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
-	$loadClass(DGCImpl$$Lambda$lambda$static$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$lambda$static$2$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$lambda$static$2$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.DGCImpl$$Lambda$lambda$static$2$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DGCImpl$$Lambda$lambda$static$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCImpl$$Lambda$lambda$static$2$2);
+	});
 	return class$;
 }
 $Class* DGCImpl$$Lambda$lambda$static$2$2::class$ = nullptr;
@@ -205,89 +189,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(DGCImpl::initDgcFilter());
+		 return DGCImpl::initDgcFilter();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DGCImpl$$Lambda$initDgcFilter$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo DGCImpl$$Lambda$initDgcFilter$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$initDgcFilter$3, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$initDgcFilter$3, run, $Object*)},
-	{}
-};
-$ClassInfo DGCImpl$$Lambda$initDgcFilter$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.DGCImpl$$Lambda$initDgcFilter$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* DGCImpl$$Lambda$initDgcFilter$3::load$($String* name, bool initialize) {
-	$loadClass(DGCImpl$$Lambda$initDgcFilter$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DGCImpl$$Lambda$initDgcFilter$3, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCImpl$$Lambda$initDgcFilter$3, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.DGCImpl$$Lambda$initDgcFilter$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DGCImpl$$Lambda$initDgcFilter$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCImpl$$Lambda$initDgcFilter$3);
+	});
 	return class$;
 }
 $Class* DGCImpl$$Lambda$initDgcFilter$3::class$ = nullptr;
-
-$FieldInfo _DGCImpl_FieldInfo_[] = {
-	{"dgcLog", "Lsun/rmi/runtime/Log;", nullptr, $STATIC | $FINAL, $staticField(DGCImpl, dgcLog)},
-	{"leaseValue", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, leaseValue)},
-	{"leaseCheckInterval", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, leaseCheckInterval)},
-	{"scheduler", "Ljava/util/concurrent/ScheduledExecutorService;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, scheduler)},
-	{"dgc", "Lsun/rmi/transport/DGCImpl;", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl, dgc)},
-	{"leaseTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/rmi/dgc/VMID;Lsun/rmi/transport/DGCImpl$LeaseInfo;>;", $PRIVATE, $field(DGCImpl, leaseTable)},
-	{"checker", "Ljava/util/concurrent/Future;", "Ljava/util/concurrent/Future<*>;", $PRIVATE, $field(DGCImpl, checker)},
-	{"DGC_FILTER_PROPNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, DGC_FILTER_PROPNAME)},
-	{"DGC_MAX_DEPTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl, DGC_MAX_DEPTH)},
-	{"DGC_MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl, DGC_MAX_ARRAY_SIZE)},
-	{"dgcFilter", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, dgcFilter)},
-	{}
-};
-
-$MethodInfo _DGCImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DGCImpl, init$, void)},
-	{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
-	{"checkLeases", "()V", nullptr, $PRIVATE, $method(DGCImpl, checkLeases, void)},
-	{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC, $virtualMethod(DGCImpl, clean, void, $ObjIDArray*, int64_t, $VMID*, bool)},
-	{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC, $virtualMethod(DGCImpl, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*)},
-	{"getDGCImpl", "()Lsun/rmi/transport/DGCImpl;", nullptr, $STATIC, $staticMethod(DGCImpl, getDGCImpl, DGCImpl*)},
-	{"initDgcFilter", "()Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl, initDgcFilter, $ObjectInputFilter*)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$0, $String*)},
-	{"lambda$static$1", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$1, $Long*)},
-	{"lambda$static$2", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$2, $Long*)},
-	{"registerTarget", "(Ljava/rmi/dgc/VMID;Lsun/rmi/transport/Target;)V", nullptr, 0, $method(DGCImpl, registerTarget, void, $VMID*, $Target*)},
-	{"unregisterTarget", "(Ljava/rmi/dgc/VMID;Lsun/rmi/transport/Target;)V", nullptr, 0, $method(DGCImpl, unregisterTarget, void, $VMID*, $Target*)},
-	{}
-};
-
-$InnerClassInfo _DGCImpl_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.DGCImpl$LeaseInfo", "sun.rmi.transport.DGCImpl", "LeaseInfo", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.DGCImpl$2", nullptr, nullptr, 0},
-	{"sun.rmi.transport.DGCImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DGCImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.rmi.transport.DGCImpl",
-	"java.lang.Object",
-	"java.rmi.dgc.DGC",
-	_DGCImpl_FieldInfo_,
-	_DGCImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DGCImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.DGCImpl$LeaseInfo,sun.rmi.transport.DGCImpl$2,sun.rmi.transport.DGCImpl$2$1,sun.rmi.transport.DGCImpl$1"
-};
-
-$Object* allocate$DGCImpl($Class* clazz) {
-	return $of($alloc(DGCImpl));
-}
 
 $Log* DGCImpl::dgcLog = nullptr;
 int64_t DGCImpl::leaseValue = 0;
@@ -306,7 +230,7 @@ DGCImpl* DGCImpl::getDGCImpl() {
 
 $ObjectInputFilter* DGCImpl::initDgcFilter() {
 	$init(DGCImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputFilter, filter, nullptr);
 	$var($String, props, $System::getProperty(DGCImpl::DGC_FILTER_PROPNAME));
 	if (props == nullptr) {
@@ -316,7 +240,7 @@ $ObjectInputFilter* DGCImpl::initDgcFilter() {
 		$assign(filter, $ObjectInputFilter$Config::createFilter(props));
 		$init($Log);
 		if ($nc(DGCImpl::dgcLog)->isLoggable($Log::BRIEF)) {
-			$nc(DGCImpl::dgcLog)->log($Log::BRIEF, $$str({"dgcFilter = "_s, filter}));
+			DGCImpl::dgcLog->log($Log::BRIEF, $$str({"dgcFilter = "_s, filter}));
 		}
 	}
 	return filter;
@@ -328,48 +252,46 @@ void DGCImpl::init$() {
 }
 
 $Lease* DGCImpl::dirty($ObjIDArray* ids, int64_t sequenceNum, $Lease* lease$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Lease, lease, lease$renamed);
 	$var($VMID, vmid, $nc(lease)->getVMID());
 	int64_t duration = DGCImpl::leaseValue;
 	$init($Log);
 	if ($nc(DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
-		$nc(DGCImpl::dgcLog)->log($Log::VERBOSE, $$str({"vmid = "_s, vmid}));
+		DGCImpl::dgcLog->log($Log::VERBOSE, $$str({"vmid = "_s, vmid}));
 	}
 	if (vmid == nullptr) {
 		$assign(vmid, $new($VMID));
-		if ($nc(DGCImpl::dgcLog)->isLoggable($Log::BRIEF)) {
+		if (DGCImpl::dgcLog->isLoggable($Log::BRIEF)) {
 			$var($String, clientHost, nullptr);
 			try {
 				$assign(clientHost, $RemoteServer::getClientHost());
 			} catch ($ServerNotActiveException& e) {
 				$assign(clientHost, "<unknown host>"_s);
 			}
-			$nc(DGCImpl::dgcLog)->log($Log::BRIEF, $$str({" assigning vmid "_s, vmid, " to client "_s, clientHost}));
+			DGCImpl::dgcLog->log($Log::BRIEF, $$str({" assigning vmid "_s, vmid, " to client "_s, clientHost}));
 		}
 	}
 	$assign(lease, $new($Lease, vmid, duration));
 	$synchronized(this->leaseTable) {
-		$var($DGCImpl$LeaseInfo, info, $cast($DGCImpl$LeaseInfo, $nc(this->leaseTable)->get(vmid)));
+		$var($DGCImpl$LeaseInfo, info, $cast($DGCImpl$LeaseInfo, this->leaseTable->get(vmid)));
 		if (info == nullptr) {
-			$nc(this->leaseTable)->put(vmid, $$new($DGCImpl$LeaseInfo, vmid, duration));
+			this->leaseTable->put(vmid, $$new($DGCImpl$LeaseInfo, vmid, duration));
 			if (this->checker == nullptr) {
 				$init($TimeUnit);
 				$set(this, checker, $nc(DGCImpl::scheduler)->scheduleWithFixedDelay($$new($DGCImpl$1, this), DGCImpl::leaseCheckInterval, DGCImpl::leaseCheckInterval, $TimeUnit::MILLISECONDS));
 			}
 		} else {
-			$nc(info)->renew(duration);
+			info->renew(duration);
 		}
 	}
 	{
 		$var($ObjIDArray, arr$, ids);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ObjID, id, arr$->get(i$));
 			{
-				if ($nc(DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
-					$nc(DGCImpl::dgcLog)->log($Log::VERBOSE, $$str({"id = "_s, id, ", vmid = "_s, vmid, ", duration = "_s, $$str(duration)}));
+				if (DGCImpl::dgcLog->isLoggable($Log::VERBOSE)) {
+					DGCImpl::dgcLog->log($Log::VERBOSE, $$str({"id = "_s, id, ", vmid = "_s, vmid, ", duration = "_s, $$str(duration)}));
 				}
 				$ObjectTable::referenced(id, sequenceNum, vmid);
 			}
@@ -379,38 +301,34 @@ $Lease* DGCImpl::dirty($ObjIDArray* ids, int64_t sequenceNum, $Lease* lease$rena
 }
 
 void DGCImpl::clean($ObjIDArray* ids, int64_t sequenceNum, $VMID* vmid, bool strong) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ObjIDArray, arr$, ids);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($ObjID, id, arr$->get(i$));
-			{
-				$init($Log);
-				if ($nc(DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
-					$nc(DGCImpl::dgcLog)->log($Log::VERBOSE, $$str({"id = "_s, id, ", vmid = "_s, vmid, ", strong = "_s, $$str(strong)}));
-				}
-				$ObjectTable::unreferenced(id, sequenceNum, vmid, strong);
+	$useLocalObjectStack();
+	$var($ObjIDArray, arr$, ids);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($ObjID, id, arr$->get(i$));
+		{
+			$init($Log);
+			if ($nc(DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
+				DGCImpl::dgcLog->log($Log::VERBOSE, $$str({"id = "_s, id, ", vmid = "_s, vmid, ", strong = "_s, $$str(strong)}));
 			}
+			$ObjectTable::unreferenced(id, sequenceNum, vmid, strong);
 		}
 	}
 }
 
 void DGCImpl::registerTarget($VMID* vmid, $Target* target) {
 	$synchronized(this->leaseTable) {
-		$var($DGCImpl$LeaseInfo, info, $cast($DGCImpl$LeaseInfo, $nc(this->leaseTable)->get(vmid)));
+		$var($DGCImpl$LeaseInfo, info, $cast($DGCImpl$LeaseInfo, this->leaseTable->get(vmid)));
 		if (info == nullptr) {
 			$nc(target)->vmidDead(vmid);
 		} else {
-			$nc($nc(info)->notifySet)->add(target);
+			$nc(info->notifySet)->add(target);
 		}
 	}
 }
 
 void DGCImpl::unregisterTarget($VMID* vmid, $Target* target) {
 	$synchronized(this->leaseTable) {
-		$var($DGCImpl$LeaseInfo, info, $cast($DGCImpl$LeaseInfo, $nc(this->leaseTable)->get(vmid)));
+		$var($DGCImpl$LeaseInfo, info, $cast($DGCImpl$LeaseInfo, this->leaseTable->get(vmid)));
 		if (info != nullptr) {
 			$nc(info->notifySet)->remove(target);
 		}
@@ -418,11 +336,11 @@ void DGCImpl::unregisterTarget($VMID* vmid, $Target* target) {
 }
 
 void DGCImpl::checkLeases() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t time = $System::currentTimeMillis();
 	$var($List, toUnregister, $new($ArrayList));
 	$synchronized(this->leaseTable) {
-		$var($Iterator, iter, $nc($($nc(this->leaseTable)->values()))->iterator());
+		$var($Iterator, iter, $$nc(this->leaseTable->values())->iterator());
 		while ($nc(iter)->hasNext()) {
 			$var($DGCImpl$LeaseInfo, info, $cast($DGCImpl$LeaseInfo, iter->next()));
 			if ($nc(info)->expired(time)) {
@@ -440,13 +358,11 @@ void DGCImpl::checkLeases() {
 		for (; $nc(i$)->hasNext();) {
 			$var($DGCImpl$LeaseInfo, info, $cast($DGCImpl$LeaseInfo, i$->next()));
 			{
-				{
-					$var($Iterator, i$, $nc($nc(info)->notifySet)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Target, target, $cast($Target, i$->next()));
-						{
-							$nc(target)->vmidDead(info->vmid);
-						}
+				$var($Iterator, i$, $nc($nc(info)->notifySet)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Target, target, $cast($Target, i$->next()));
+					{
+						$nc(target)->vmidDead(info->vmid);
 					}
 				}
 			}
@@ -457,7 +373,7 @@ void DGCImpl::checkLeases() {
 $ObjectInputFilter$Status* DGCImpl::checkInput($ObjectInputFilter$FilterInfo* filterInfo) {
 	$init(DGCImpl);
 	if (DGCImpl::dgcFilter != nullptr) {
-		$ObjectInputFilter$Status* status = $nc(DGCImpl::dgcFilter)->checkInput(filterInfo);
+		$ObjectInputFilter$Status* status = DGCImpl::dgcFilter->checkInput(filterInfo);
 		$init($ObjectInputFilter$Status);
 		if (status != $ObjectInputFilter$Status::UNDECIDED) {
 			return status;
@@ -467,7 +383,7 @@ $ObjectInputFilter$Status* DGCImpl::checkInput($ObjectInputFilter$FilterInfo* fi
 		$init($ObjectInputFilter$Status);
 		return $ObjectInputFilter$Status::REJECTED;
 	}
-	$Class* clazz = $nc(filterInfo)->serialClass();
+	$Class* clazz = filterInfo->serialClass();
 	if (clazz != nullptr) {
 		while ($nc(clazz)->isArray()) {
 			bool var$0 = filterInfo->arrayLength() >= 0;
@@ -499,7 +415,7 @@ $Long* DGCImpl::lambda$static$2() {
 
 $Long* DGCImpl::lambda$static$1() {
 	$init(DGCImpl);
-	return $Long::getLong("java.rmi.dgc.leaseValue"_s, (int64_t)0x000927C0);
+	return $Long::getLong("java.rmi.dgc.leaseValue"_s, 600000);
 }
 
 $String* DGCImpl::lambda$static$0() {
@@ -507,19 +423,19 @@ $String* DGCImpl::lambda$static$0() {
 	return $System::getProperty("sun.rmi.dgc.logLevel"_s);
 }
 
-void clinit$DGCImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DGCImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DGCImpl::DGC_FILTER_PROPNAME, "sun.rmi.transport.dgcFilter"_s);
 	$beforeCallerSensitive();
-	$assignStatic(DGCImpl::dgcLog, $Log::getLog("sun.rmi.dgc"_s, "dgc"_s, $LogStream::parseLevel($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DGCImpl$$Lambda$lambda$static$0))))))));
-	DGCImpl::leaseValue = $nc(($cast($Long, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DGCImpl$$Lambda$lambda$static$1$1)))))))->longValue();
-	DGCImpl::leaseCheckInterval = $nc(($cast($Long, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DGCImpl$$Lambda$lambda$static$2$2)))))))->longValue();
-	$assignStatic(DGCImpl::scheduler, $nc(($cast($RuntimeUtil, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($RuntimeUtil$GetInstanceAction)))))))->getScheduler());
+	$assignStatic(DGCImpl::dgcLog, $Log::getLog("sun.rmi.dgc"_s, "dgc"_s, $LogStream::parseLevel($$cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(DGCImpl$$Lambda$lambda$static$0)))))));
+	DGCImpl::leaseValue = $$sure($Long, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(DGCImpl$$Lambda$lambda$static$1$1))))->longValue();
+	DGCImpl::leaseCheckInterval = $$sure($Long, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(DGCImpl$$Lambda$lambda$static$2$2))))->longValue();
+	$assignStatic(DGCImpl::scheduler, $$sure($RuntimeUtil, $AccessController::doPrivileged($$new($RuntimeUtil$GetInstanceAction)))->getScheduler());
 	DGCImpl::DGC_MAX_DEPTH = 5;
 	DGCImpl::DGC_MAX_ARRAY_SIZE = 10000;
-	$assignStatic(DGCImpl::dgcFilter, $cast($ObjectInputFilter, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DGCImpl$$Lambda$initDgcFilter$3)))));
+	$assignStatic(DGCImpl::dgcFilter, $cast($ObjectInputFilter, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(DGCImpl$$Lambda$initDgcFilter$3)))));
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DGCImpl$2)));
+		$AccessController::doPrivileged($$new($DGCImpl$2));
 	}
 }
 
@@ -528,20 +444,71 @@ DGCImpl::DGCImpl() {
 
 $Class* DGCImpl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DGCImpl$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.DGCImpl$$Lambda$lambda$static$0")) {
 			return DGCImpl$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(DGCImpl$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.DGCImpl$$Lambda$lambda$static$1$1")) {
 			return DGCImpl$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
-		if (name->equals(DGCImpl$$Lambda$lambda$static$2$2::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.DGCImpl$$Lambda$lambda$static$2$2")) {
 			return DGCImpl$$Lambda$lambda$static$2$2::load$(name, initialize);
 		}
-		if (name->equals(DGCImpl$$Lambda$initDgcFilter$3::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.DGCImpl$$Lambda$initDgcFilter$3")) {
 			return DGCImpl$$Lambda$initDgcFilter$3::load$(name, initialize);
 		}
 	}
-	$loadClass(DGCImpl, name, initialize, &_DGCImpl_ClassInfo_, clinit$DGCImpl, allocate$DGCImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"dgcLog", "Lsun/rmi/runtime/Log;", nullptr, $STATIC | $FINAL, $staticField(DGCImpl, dgcLog)},
+		{"leaseValue", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, leaseValue)},
+		{"leaseCheckInterval", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, leaseCheckInterval)},
+		{"scheduler", "Ljava/util/concurrent/ScheduledExecutorService;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, scheduler)},
+		{"dgc", "Lsun/rmi/transport/DGCImpl;", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl, dgc)},
+		{"leaseTable", "Ljava/util/Map;", "Ljava/util/Map<Ljava/rmi/dgc/VMID;Lsun/rmi/transport/DGCImpl$LeaseInfo;>;", $PRIVATE, $field(DGCImpl, leaseTable)},
+		{"checker", "Ljava/util/concurrent/Future;", "Ljava/util/concurrent/Future<*>;", $PRIVATE, $field(DGCImpl, checker)},
+		{"DGC_FILTER_PROPNAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, DGC_FILTER_PROPNAME)},
+		{"DGC_MAX_DEPTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl, DGC_MAX_DEPTH)},
+		{"DGC_MAX_ARRAY_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(DGCImpl, DGC_MAX_ARRAY_SIZE)},
+		{"dgcFilter", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DGCImpl, dgcFilter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DGCImpl, init$, void)},
+		{"checkInput", "(Ljava/io/ObjectInputFilter$FilterInfo;)Ljava/io/ObjectInputFilter$Status;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl, checkInput, $ObjectInputFilter$Status*, $ObjectInputFilter$FilterInfo*)},
+		{"checkLeases", "()V", nullptr, $PRIVATE, $method(DGCImpl, checkLeases, void)},
+		{"clean", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/VMID;Z)V", nullptr, $PUBLIC, $virtualMethod(DGCImpl, clean, void, $ObjIDArray*, int64_t, $VMID*, bool)},
+		{"dirty", "([Ljava/rmi/server/ObjID;JLjava/rmi/dgc/Lease;)Ljava/rmi/dgc/Lease;", nullptr, $PUBLIC, $virtualMethod(DGCImpl, dirty, $Lease*, $ObjIDArray*, int64_t, $Lease*)},
+		{"getDGCImpl", "()Lsun/rmi/transport/DGCImpl;", nullptr, $STATIC, $staticMethod(DGCImpl, getDGCImpl, DGCImpl*)},
+		{"initDgcFilter", "()Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $STATIC, $staticMethod(DGCImpl, initDgcFilter, $ObjectInputFilter*)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$0, $String*)},
+		{"lambda$static$1", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$1, $Long*)},
+		{"lambda$static$2", "()Ljava/lang/Long;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DGCImpl, lambda$static$2, $Long*)},
+		{"registerTarget", "(Ljava/rmi/dgc/VMID;Lsun/rmi/transport/Target;)V", nullptr, 0, $method(DGCImpl, registerTarget, void, $VMID*, $Target*)},
+		{"unregisterTarget", "(Ljava/rmi/dgc/VMID;Lsun/rmi/transport/Target;)V", nullptr, 0, $method(DGCImpl, unregisterTarget, void, $VMID*, $Target*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.DGCImpl$LeaseInfo", "sun.rmi.transport.DGCImpl", "LeaseInfo", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.DGCImpl$2", nullptr, nullptr, 0},
+		{"sun.rmi.transport.DGCImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.rmi.transport.DGCImpl",
+		"java.lang.Object",
+		"java.rmi.dgc.DGC",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.DGCImpl$LeaseInfo,sun.rmi.transport.DGCImpl$2,sun.rmi.transport.DGCImpl$2$1,sun.rmi.transport.DGCImpl$1"
+	};
+	$loadClass(DGCImpl, name, initialize, &classInfo$$, DGCImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCImpl);
+	});
 	return class$;
 }
 

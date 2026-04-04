@@ -14,10 +14,13 @@ public:
 	ServiceUnavailableException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xBAA7370E65D49D3C;
+	static const int64_t serialVersionUID = (int64_t)0xbaa7370e65d49d3c;
 	ServiceUnavailableException(const ServiceUnavailableException& e);
 	virtual void throw$() override;
-	inline ServiceUnavailableException* operator ->() {
+	inline ServiceUnavailableException* operator ->() const {
+		return (ServiceUnavailableException*)throwing$;
+	}
+	inline operator ServiceUnavailableException*() const {
 		return (ServiceUnavailableException*)throwing$;
 	}
 };

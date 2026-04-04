@@ -19,6 +19,7 @@ class $import JTable$PrintMode : public ::java::lang::Enum {
 public:
 	JTable$PrintMode();
 	static $Array<::javax::swing::JTable$PrintMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::JTable$PrintMode* valueOf($String* name);
 	static $Array<::javax::swing::JTable$PrintMode>* values();

@@ -1,5 +1,4 @@
 #include <sun/swing/text/TextComponentPrintable$2.h>
-
 #include <javax/swing/text/JTextComponent.h>
 #include <sun/swing/text/TextComponentPrintable.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _TextComponentPrintable$2_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/text/TextComponentPrintable;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$2, this$0)},
-	{"val$textComponent", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$2, val$textComponent)},
-	{}
-};
-
-$MethodInfo _TextComponentPrintable$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/text/TextComponentPrintable;Ljavax/swing/text/JTextComponent;)V", "()V", 0, $method(TextComponentPrintable$2, init$, void, $TextComponentPrintable*, $JTextComponent*)},
-	{"call", "()Ljavax/swing/text/JTextComponent;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$2, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _TextComponentPrintable$2_EnclosingMethodInfo_ = {
-	"sun.swing.text.TextComponentPrintable",
-	"createPrintShell",
-	"(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/JTextComponent;"
-};
-
-$InnerClassInfo _TextComponentPrintable$2_InnerClassesInfo_[] = {
-	{"sun.swing.text.TextComponentPrintable$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TextComponentPrintable$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.text.TextComponentPrintable$2",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_TextComponentPrintable$2_FieldInfo_,
-	_TextComponentPrintable$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljavax/swing/text/JTextComponent;>;",
-	&_TextComponentPrintable$2_EnclosingMethodInfo_,
-	_TextComponentPrintable$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.text.TextComponentPrintable"
-};
-
-$Object* allocate$TextComponentPrintable$2($Class* clazz) {
-	return $of($alloc(TextComponentPrintable$2));
-}
-
 void TextComponentPrintable$2::init$($TextComponentPrintable* this$0, $JTextComponent* val$textComponent) {
 	$set(this, this$0, this$0);
 	$set(this, val$textComponent, val$textComponent);
@@ -72,7 +28,43 @@ TextComponentPrintable$2::TextComponentPrintable$2() {
 }
 
 $Class* TextComponentPrintable$2::load$($String* name, bool initialize) {
-	$loadClass(TextComponentPrintable$2, name, initialize, &_TextComponentPrintable$2_ClassInfo_, allocate$TextComponentPrintable$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/text/TextComponentPrintable;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$2, this$0)},
+		{"val$textComponent", "Ljavax/swing/text/JTextComponent;", nullptr, $FINAL | $SYNTHETIC, $field(TextComponentPrintable$2, val$textComponent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/text/TextComponentPrintable;Ljavax/swing/text/JTextComponent;)V", "()V", 0, $method(TextComponentPrintable$2, init$, void, $TextComponentPrintable*, $JTextComponent*)},
+		{"call", "()Ljavax/swing/text/JTextComponent;", nullptr, $PUBLIC, $virtualMethod(TextComponentPrintable$2, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.text.TextComponentPrintable",
+		"createPrintShell",
+		"(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/JTextComponent;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.text.TextComponentPrintable$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.text.TextComponentPrintable$2",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljavax/swing/text/JTextComponent;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.text.TextComponentPrintable"
+	};
+	$loadClass(TextComponentPrintable$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextComponentPrintable$2);
+	});
 	return class$;
 }
 

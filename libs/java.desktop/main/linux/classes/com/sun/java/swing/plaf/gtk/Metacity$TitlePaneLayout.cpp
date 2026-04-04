@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/Metacity$TitlePaneLayout.h>
-
 #include <com/sun/java/swing/plaf/gtk/Metacity.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -18,7 +17,6 @@
 
 using $Metacity = ::com::sun::java::swing::plaf::gtk::Metacity;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -41,46 +39,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _Metacity$TitlePaneLayout_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/Metacity;", nullptr, $FINAL | $SYNTHETIC, $field(Metacity$TitlePaneLayout, this$0)},
-	{}
-};
-
-$MethodInfo _Metacity$TitlePaneLayout_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/Metacity;)V", nullptr, $PROTECTED, $method(Metacity$TitlePaneLayout, init$, void, $Metacity*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, removeLayoutComponent, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _Metacity$TitlePaneLayout_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.Metacity$TitlePaneLayout", "com.sun.java.swing.plaf.gtk.Metacity", "TitlePaneLayout", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Metacity$TitlePaneLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.Metacity$TitlePaneLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager",
-	_Metacity$TitlePaneLayout_FieldInfo_,
-	_Metacity$TitlePaneLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Metacity$TitlePaneLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.Metacity"
-};
-
-$Object* allocate$Metacity$TitlePaneLayout($Class* clazz) {
-	return $of($alloc(Metacity$TitlePaneLayout));
-}
-
 void Metacity$TitlePaneLayout::init$($Metacity* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -96,20 +54,20 @@ $Dimension* Metacity$TitlePaneLayout::preferredLayoutSize($Container* c) {
 }
 
 $Dimension* Metacity$TitlePaneLayout::minimumLayoutSize($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, titlePane, $cast($JComponent, c));
 	$var($Container, titlePaneParent, $nc(titlePane)->getParent());
 	$var($JInternalFrame, frame, nullptr);
 	if ($instanceOf($JInternalFrame, titlePaneParent)) {
 		$assign(frame, $cast($JInternalFrame, titlePaneParent));
 	} else if ($instanceOf($JInternalFrame$JDesktopIcon, titlePaneParent)) {
-		$assign(frame, $nc(($cast($JInternalFrame$JDesktopIcon, titlePaneParent)))->getInternalFrame());
+		$assign(frame, $cast($JInternalFrame$JDesktopIcon, titlePaneParent)->getInternalFrame());
 	} else {
 		return nullptr;
 	}
 	$var($Dimension, buttonDim, this->this$0->calculateButtonSize(titlePane));
-	$var($Insets, title_border, $cast($Insets, $nc($(this->this$0->getFrameGeometry()))->get("title_border"_s)));
-	$var($Insets, button_border, $cast($Insets, $nc($(this->this$0->getFrameGeometry()))->get("button_border"_s)));
+	$var($Insets, title_border, $cast($Insets, $$nc(this->this$0->getFrameGeometry())->get("title_border"_s)));
+	$var($Insets, button_border, $cast($Insets, $$nc(this->this$0->getFrameGeometry())->get("button_border"_s)));
 	int32_t var$0 = this->this$0->getInt("left_titlebar_edge"_s) + $nc(buttonDim)->width;
 	int32_t width = var$0 + this->this$0->getInt("right_titlebar_edge"_s);
 	if (title_border != nullptr) {
@@ -118,18 +76,18 @@ $Dimension* Metacity$TitlePaneLayout::minimumLayoutSize($Container* c) {
 	if ($nc(frame)->isClosable()) {
 		width += buttonDim->width;
 	}
-	if ($nc(frame)->isMaximizable()) {
+	if (frame->isMaximizable()) {
 		width += buttonDim->width;
 	}
-	if ($nc(frame)->isIconifiable()) {
+	if (frame->isIconifiable()) {
 		width += buttonDim->width;
 	}
-	$var($FontMetrics, fm, $nc(frame)->getFontMetrics($(titlePane->getFont())));
+	$var($FontMetrics, fm, frame->getFontMetrics($(titlePane->getFont())));
 	$var($String, frameTitle, frame->getTitle());
 	int32_t title_w = frameTitle != nullptr ? $SwingUtilities2::stringWidth(frame, fm, frameTitle) : 0;
-	int32_t title_length = frameTitle != nullptr ? $nc(frameTitle)->length() : 0;
+	int32_t title_length = frameTitle != nullptr ? frameTitle->length() : 0;
 	if (title_length > 3) {
-		int32_t subtitle_w = $SwingUtilities2::stringWidth(frame, fm, $$str({$(frameTitle->substring(0, 3)), "..."_s}));
+		int32_t subtitle_w = $SwingUtilities2::stringWidth(frame, fm, $$str({$($nc(frameTitle)->substring(0, 3)), "..."_s}));
 		width += (title_w < subtitle_w) ? title_w : subtitle_w;
 	} else {
 		width += title_w;
@@ -148,14 +106,14 @@ $Dimension* Metacity$TitlePaneLayout::minimumLayoutSize($Container* c) {
 }
 
 void Metacity$TitlePaneLayout::layoutContainer($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, titlePane, $cast($JComponent, c));
 	$var($Container, titlePaneParent, $nc(titlePane)->getParent());
 	$var($JInternalFrame, frame, nullptr);
 	if ($instanceOf($JInternalFrame, titlePaneParent)) {
 		$assign(frame, $cast($JInternalFrame, titlePaneParent));
 	} else if ($instanceOf($JInternalFrame$JDesktopIcon, titlePaneParent)) {
-		$assign(frame, $nc(($cast($JInternalFrame$JDesktopIcon, titlePaneParent)))->getInternalFrame());
+		$assign(frame, $cast($JInternalFrame$JDesktopIcon, titlePaneParent)->getInternalFrame());
 	} else {
 		return;
 	}
@@ -168,11 +126,11 @@ void Metacity$TitlePaneLayout::layoutContainer($Container* c) {
 	$var($JComponent, closeButton, $Metacity::findChild(titlePane, "InternalFrameTitlePane.closeButton"_s));
 	$var($Insets, button_border, $cast($Insets, $nc(gm)->get("button_border"_s)));
 	$var($Dimension, buttonDim, this->this$0->calculateButtonSize(titlePane));
-	int32_t y = (button_border != nullptr) ? $nc(button_border)->top : 0;
-	if ($nc($($nc(titlePaneParent)->getComponentOrientation()))->isLeftToRight()) {
+	int32_t y = (button_border != nullptr) ? button_border->top : 0;
+	if ($$nc($nc(titlePaneParent)->getComponentOrientation())->isLeftToRight()) {
 		int32_t x = this->this$0->getInt("left_titlebar_edge"_s);
-		$nc(menuButton)->setBounds(x, y, $nc(buttonDim)->width, buttonDim->height);
-		x = w - $nc(buttonDim)->width - this->this$0->getInt("right_titlebar_edge"_s);
+		$nc(menuButton)->setBounds(x, y, $nc(buttonDim)->width, $nc(buttonDim)->height);
+		x = w - buttonDim->width - this->this$0->getInt("right_titlebar_edge"_s);
 		if (button_border != nullptr) {
 			x -= button_border->right;
 		}
@@ -180,11 +138,11 @@ void Metacity$TitlePaneLayout::layoutContainer($Container* c) {
 			$nc(closeButton)->setBounds(x, y, buttonDim->width, buttonDim->height);
 			x -= buttonDim->width;
 		}
-		if ($nc(frame)->isMaximizable()) {
+		if (frame->isMaximizable()) {
 			$nc(maximizeButton)->setBounds(x, y, buttonDim->width, buttonDim->height);
 			x -= buttonDim->width;
 		}
-		if ($nc(frame)->isIconifiable()) {
+		if (frame->isIconifiable()) {
 			$nc(minimizeButton)->setBounds(x, y, buttonDim->width, buttonDim->height);
 		}
 	} else {
@@ -198,11 +156,11 @@ void Metacity$TitlePaneLayout::layoutContainer($Container* c) {
 			$nc(closeButton)->setBounds(x, y, buttonDim->width, buttonDim->height);
 			x += buttonDim->width;
 		}
-		if ($nc(frame)->isMaximizable()) {
+		if (frame->isMaximizable()) {
 			$nc(maximizeButton)->setBounds(x, y, buttonDim->width, buttonDim->height);
 			x += buttonDim->width;
 		}
-		if ($nc(frame)->isIconifiable()) {
+		if (frame->isIconifiable()) {
 			$nc(minimizeButton)->setBounds(x, y, buttonDim->width, buttonDim->height);
 		}
 	}
@@ -212,7 +170,41 @@ Metacity$TitlePaneLayout::Metacity$TitlePaneLayout() {
 }
 
 $Class* Metacity$TitlePaneLayout::load$($String* name, bool initialize) {
-	$loadClass(Metacity$TitlePaneLayout, name, initialize, &_Metacity$TitlePaneLayout_ClassInfo_, allocate$Metacity$TitlePaneLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/Metacity;", nullptr, $FINAL | $SYNTHETIC, $field(Metacity$TitlePaneLayout, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/Metacity;)V", nullptr, $PROTECTED, $method(Metacity$TitlePaneLayout, init$, void, $Metacity*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(Metacity$TitlePaneLayout, removeLayoutComponent, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.Metacity$TitlePaneLayout", "com.sun.java.swing.plaf.gtk.Metacity", "TitlePaneLayout", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.Metacity$TitlePaneLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.Metacity"
+	};
+	$loadClass(Metacity$TitlePaneLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Metacity$TitlePaneLayout);
+	});
 	return class$;
 }
 

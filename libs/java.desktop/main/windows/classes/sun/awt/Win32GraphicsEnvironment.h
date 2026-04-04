@@ -30,6 +30,7 @@ class $export Win32GraphicsEnvironment : public ::sun::java2d::SunGraphicsEnviro
 	$class(Win32GraphicsEnvironment, 0, ::sun::java2d::SunGraphicsEnvironment)
 public:
 	Win32GraphicsEnvironment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void displayChanged() override;
 	static void dwmCompositionChanged(bool enabled);

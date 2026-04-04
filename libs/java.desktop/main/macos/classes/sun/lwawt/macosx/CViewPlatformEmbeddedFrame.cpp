@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CViewPlatformEmbeddedFrame.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/GraphicsDevice.h>
@@ -16,7 +15,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/lwawt/LWWindowPeer.h>
-#include <sun/lwawt/PlatformEventNotifier.h>
 #include <sun/lwawt/PlatformWindow.h>
 #include <sun/lwawt/macosx/CFRetainedResource$CFNativeAction.h>
 #include <sun/lwawt/macosx/CPlatformResponder.h>
@@ -41,7 +39,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $LWWindowPeer = ::sun::lwawt::LWWindowPeer;
-using $PlatformEventNotifier = ::sun::lwawt::PlatformEventNotifier;
 using $PlatformWindow = ::sun::lwawt::PlatformWindow;
 using $CFRetainedResource$CFNativeAction = ::sun::lwawt::macosx::CFRetainedResource$CFNativeAction;
 using $CPlatformResponder = ::sun::lwawt::macosx::CPlatformResponder;
@@ -61,27 +58,24 @@ public:
 	virtual void run(int64_t view) override {
 		$CWrapper$NSView::removeFromSuperview(view);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview, init$, void)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview, run, void, int64_t)},
-	{}
-};
-$ClassInfo CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	nullptr,
-	methodInfos
 };
 $Class* CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview::load$($String* name, bool initialize) {
-	$loadClass(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview, init$, void)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview);
+	});
 	return class$;
 }
 $Class* CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview::class$ = nullptr;
@@ -95,96 +89,32 @@ public:
 	virtual void run(int64_t ptr) override {
 		CViewPlatformEmbeddedFrame::lambda$setVisible$0(visible, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1>());
-	}
 	bool visible = false;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1::fieldInfos[2] = {
-	{"visible", "Z", nullptr, $PUBLIC, $field(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, visible)},
-	{}
-};
-$MethodInfo CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1::methodInfos[3] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, init$, void, bool)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, run, void, int64_t)},
-	{}
-};
-$ClassInfo CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1::load$($String* name, bool initialize) {
-	$loadClass(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"visible", "Z", nullptr, $PUBLIC, $field(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, visible)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, init$, void, bool)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1);
+	});
 	return class$;
 }
 $Class* CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1::class$ = nullptr;
-
-$FieldInfo _CViewPlatformEmbeddedFrame_FieldInfo_[] = {
-	{"view", "Lsun/lwawt/macosx/CPlatformView;", nullptr, $PRIVATE, $field(CViewPlatformEmbeddedFrame, view)},
-	{"peer", "Lsun/lwawt/LWWindowPeer;", nullptr, $PRIVATE, $field(CViewPlatformEmbeddedFrame, peer)},
-	{"target", "Lsun/lwawt/macosx/CViewEmbeddedFrame;", nullptr, $PRIVATE, $field(CViewPlatformEmbeddedFrame, target)},
-	{"responder", "Lsun/lwawt/macosx/CPlatformResponder;", nullptr, $PRIVATE, $field(CViewPlatformEmbeddedFrame, responder)},
-	{}
-};
-
-$MethodInfo _CViewPlatformEmbeddedFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CViewPlatformEmbeddedFrame, init$, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, dispose, void)},
-	{"enterFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, enterFullScreenMode, void)},
-	{"exitFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, exitFullScreenMode, void)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphicsDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getGraphicsDevice, $GraphicsDevice*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getInsets, $Insets*)},
-	{"getLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getLayerPtr, int64_t)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getLocationOnScreen, $Point*)},
-	{"getNSViewPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getNSViewPtr, int64_t)},
-	{"getPeer", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getPeer, $LWWindowPeer*)},
-	{"getScreenSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getScreenSurface, $SurfaceData*)},
-	{"initialize", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, initialize, void, $Window*, $LWWindowPeer*, $PlatformWindow*)},
-	{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, isActive, bool)},
-	{"isFullScreenMode", "()Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, isFullScreenMode, bool)},
-	{"isUnderMouse", "()Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, isUnderMouse, bool)},
-	{"lambda$setVisible$0", "(ZJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CViewPlatformEmbeddedFrame, lambda$setVisible$0, void, bool, int64_t)},
-	{"rejectFocusRequest", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, rejectFocusRequest, bool, $FocusEvent$Cause*)},
-	{"replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, replaceSurfaceData, $SurfaceData*)},
-	{"requestWindowFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, requestWindowFocus, bool)},
-	{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setAlwaysOnTop, void, bool)},
-	{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setMenuBar, void, $MenuBar*)},
-	{"setModalBlocked", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setModalBlocked, void, bool)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setOpaque, void, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setResizable, void, bool)},
-	{"setSizeConstraints", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setSizeConstraints, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setTitle, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setVisible, void, bool)},
-	{"setWindowState", "(I)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setWindowState, void, int32_t)},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, toFront, void)},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, updateFocusableWindowState, void)},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, updateIconImages, void)},
-	{}
-};
-
-$ClassInfo _CViewPlatformEmbeddedFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CViewPlatformEmbeddedFrame",
-	"java.lang.Object",
-	"sun.lwawt.PlatformWindow",
-	_CViewPlatformEmbeddedFrame_FieldInfo_,
-	_CViewPlatformEmbeddedFrame_MethodInfo_
-};
-
-$Object* allocate$CViewPlatformEmbeddedFrame($Class* clazz) {
-	return $of($alloc(CViewPlatformEmbeddedFrame));
-}
 
 void CViewPlatformEmbeddedFrame::init$() {
 }
@@ -194,7 +124,7 @@ void CViewPlatformEmbeddedFrame::initialize($Window* target, $LWWindowPeer* peer
 	$set(this, target, $cast($CViewEmbeddedFrame, target));
 	$set(this, responder, $new($CPlatformResponder, peer, false));
 	$set(this, view, $new($CPlatformView));
-	$nc(this->view)->initialize(peer, this->responder);
+	this->view->initialize(peer, this->responder);
 	int64_t var$0 = $nc(this->target)->getEmbedderHandle();
 	$CWrapper$NSView::addSubview(var$0, $nc(this->view)->getAWTView());
 	$nc(this->view)->setAutoResizable(true);
@@ -213,12 +143,12 @@ $LWWindowPeer* CViewPlatformEmbeddedFrame::getPeer() {
 }
 
 void CViewPlatformEmbeddedFrame::dispose() {
-	$nc(this->view)->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview)));
+	$nc(this->view)->execute($$new(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview));
 	$nc(this->view)->dispose();
 }
 
 void CViewPlatformEmbeddedFrame::setVisible(bool visible) {
-	$nc(this->view)->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, visible)));
+	$nc(this->view)->execute($$new(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1, visible));
 }
 
 void CViewPlatformEmbeddedFrame::setTitle($String* title) {
@@ -326,14 +256,69 @@ CViewPlatformEmbeddedFrame::CViewPlatformEmbeddedFrame() {
 
 $Class* CViewPlatformEmbeddedFrame::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview")) {
 			return CViewPlatformEmbeddedFrame$$Lambda$removeFromSuperview::load$(name, initialize);
 		}
-		if (name->equals(CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1")) {
 			return CViewPlatformEmbeddedFrame$$Lambda$lambda$setVisible$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(CViewPlatformEmbeddedFrame, name, initialize, &_CViewPlatformEmbeddedFrame_ClassInfo_, allocate$CViewPlatformEmbeddedFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"view", "Lsun/lwawt/macosx/CPlatformView;", nullptr, $PRIVATE, $field(CViewPlatformEmbeddedFrame, view)},
+		{"peer", "Lsun/lwawt/LWWindowPeer;", nullptr, $PRIVATE, $field(CViewPlatformEmbeddedFrame, peer)},
+		{"target", "Lsun/lwawt/macosx/CViewEmbeddedFrame;", nullptr, $PRIVATE, $field(CViewPlatformEmbeddedFrame, target)},
+		{"responder", "Lsun/lwawt/macosx/CPlatformResponder;", nullptr, $PRIVATE, $field(CViewPlatformEmbeddedFrame, responder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CViewPlatformEmbeddedFrame, init$, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, dispose, void)},
+		{"enterFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, enterFullScreenMode, void)},
+		{"exitFullScreenMode", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, exitFullScreenMode, void)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphicsDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getGraphicsDevice, $GraphicsDevice*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getInsets, $Insets*)},
+		{"getLayerPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getLayerPtr, int64_t)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getLocationOnScreen, $Point*)},
+		{"getNSViewPtr", "()J", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getNSViewPtr, int64_t)},
+		{"getPeer", "()Lsun/lwawt/LWWindowPeer;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getPeer, $LWWindowPeer*)},
+		{"getScreenSurface", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, getScreenSurface, $SurfaceData*)},
+		{"initialize", "(Ljava/awt/Window;Lsun/lwawt/LWWindowPeer;Lsun/lwawt/PlatformWindow;)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, initialize, void, $Window*, $LWWindowPeer*, $PlatformWindow*)},
+		{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, isActive, bool)},
+		{"isFullScreenMode", "()Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, isFullScreenMode, bool)},
+		{"isUnderMouse", "()Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, isUnderMouse, bool)},
+		{"lambda$setVisible$0", "(ZJ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CViewPlatformEmbeddedFrame, lambda$setVisible$0, void, bool, int64_t)},
+		{"rejectFocusRequest", "(Ljava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, rejectFocusRequest, bool, $FocusEvent$Cause*)},
+		{"replaceSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, replaceSurfaceData, $SurfaceData*)},
+		{"requestWindowFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, requestWindowFocus, bool)},
+		{"setAlwaysOnTop", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setAlwaysOnTop, void, bool)},
+		{"setBounds", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setBounds, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setMenuBar, void, $MenuBar*)},
+		{"setModalBlocked", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setModalBlocked, void, bool)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setOpaque, void, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setResizable, void, bool)},
+		{"setSizeConstraints", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setSizeConstraints, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setTitle, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setVisible, void, bool)},
+		{"setWindowState", "(I)V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, setWindowState, void, int32_t)},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, toFront, void)},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, updateFocusableWindowState, void)},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(CViewPlatformEmbeddedFrame, updateIconImages, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CViewPlatformEmbeddedFrame",
+		"java.lang.Object",
+		"sun.lwawt.PlatformWindow",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CViewPlatformEmbeddedFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CViewPlatformEmbeddedFrame);
+	});
 	return class$;
 }
 

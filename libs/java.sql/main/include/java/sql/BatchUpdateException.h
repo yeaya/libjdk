@@ -44,10 +44,13 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	$ints* updateCounts = nullptr;
 	$longs* longUpdateCounts = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x52F473C0C18B0E5D;
+	static const int64_t serialVersionUID = (int64_t)0x52f473c0c18b0e5d;
 	BatchUpdateException(const BatchUpdateException& e);
 	virtual void throw$() override;
-	inline BatchUpdateException* operator ->() {
+	inline BatchUpdateException* operator ->() const {
+		return (BatchUpdateException*)throwing$;
+	}
+	inline operator BatchUpdateException*() const {
 		return (BatchUpdateException*)throwing$;
 	}
 };

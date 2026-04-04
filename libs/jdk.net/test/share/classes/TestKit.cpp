@@ -1,9 +1,7 @@
 #include <TestKit.h>
-
 #include <TestKit$ThrowingFunction.h>
 #include <TestKit$ThrowingProcedure.h>
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -33,7 +31,6 @@
 using $TestKit$ThrowingFunction = ::TestKit$ThrowingFunction;
 using $TestKit$ThrowingProcedure = ::TestKit$ThrowingProcedure;
 using $Serializable = ::java::io::Serializable;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -70,33 +67,29 @@ public:
 	virtual $Object* run() override {
 		 return TestKit::lambda$assertNotThrows$0(code);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertNotThrows$0>());
-	}
 	$TestKit$ThrowingProcedure* code = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertNotThrows$0::fieldInfos[2] = {
-	{"code", "LTestKit$ThrowingProcedure;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertNotThrows$0, code)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertNotThrows$0::methodInfos[3] = {
-	{"<init>", "(LTestKit$ThrowingProcedure;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertNotThrows$0, init$, void, $TestKit$ThrowingProcedure*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertNotThrows$0, run, $Object*)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertNotThrows$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertNotThrows$0",
-	"java.lang.Object",
-	"TestKit$ThrowingFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertNotThrows$0::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertNotThrows$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"code", "LTestKit$ThrowingProcedure;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertNotThrows$0, code)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTestKit$ThrowingProcedure;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertNotThrows$0, init$, void, $TestKit$ThrowingProcedure*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertNotThrows$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertNotThrows$0",
+		"java.lang.Object",
+		"TestKit$ThrowingFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertNotThrows$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertNotThrows$0);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertNotThrows$0::class$ = nullptr;
@@ -109,27 +102,24 @@ public:
 	virtual $Object* get() override {
 		 return TestKit::lambda$assertUnmodifiableCollection$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1, get, $Object*)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1::class$ = nullptr;
@@ -144,35 +134,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableCollection$2(collection, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2>());
-	}
 	$Collection* collection = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2::fieldInfos[3] = {
-	{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, collection)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, init$, void, $Collection*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, collection)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, init$, void, $Collection*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2::class$ = nullptr;
@@ -187,35 +173,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableCollection$3(collection, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3>());
-	}
 	$Collection* collection = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3::fieldInfos[3] = {
-	{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, collection)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, init$, void, $Collection*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, collection)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, init$, void, $Collection*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3::class$ = nullptr;
@@ -229,33 +211,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->remove();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$remove$4>());
-	}
 	$Iterator* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$remove$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$remove$4, inst$)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$remove$4::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Iterator;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$remove$4, init$, void, $Iterator*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$remove$4, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$remove$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$remove$4",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$remove$4::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$remove$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$remove$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$remove$4, init$, void, $Iterator*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$remove$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$remove$4",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$remove$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$remove$4);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$remove$4::class$ = nullptr;
@@ -269,33 +247,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->clear();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$clear$5>());
-	}
 	$Collection* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$clear$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$clear$5, inst$)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$clear$5::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$clear$5, init$, void, $Collection*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$clear$5, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$clear$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$clear$5",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$clear$5::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$clear$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$clear$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$clear$5, init$, void, $Collection*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$clear$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$clear$5",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$clear$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$clear$5);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$clear$5::class$ = nullptr;
@@ -310,35 +284,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableCollection$4(collection, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6>());
-	}
 	$Collection* collection = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6::fieldInfos[3] = {
-	{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, collection)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, init$, void, $Collection*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, collection)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, init$, void, $Collection*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6::class$ = nullptr;
@@ -353,35 +323,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableCollection$5(collection, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7>());
-	}
 	$Collection* collection = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7::fieldInfos[3] = {
-	{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, collection)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, init$, void, $Collection*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, collection)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, init$, void, $Collection*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7::class$ = nullptr;
@@ -395,33 +361,29 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableCollection$7(collection);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8>());
-	}
 	$Collection* collection = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8::fieldInfos[2] = {
-	{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, collection)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, init$, void, $Collection*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, collection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, init$, void, $Collection*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8::class$ = nullptr;
@@ -435,33 +397,29 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableCollection$8(collection);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9>());
-	}
 	$Collection* collection = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9::fieldInfos[2] = {
-	{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, collection)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, init$, void, $Collection*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"collection", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, collection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, init$, void, $Collection*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9::class$ = nullptr;
@@ -476,35 +434,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableList$11(list, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$11$10>());
-	}
 	$List* list = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$11$10::fieldInfos[3] = {
-	{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, list)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$11$10::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, init$, void, $List*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$11$10::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$11$10",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$11$10::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, list)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, init$, void, $List*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$11$10",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$11$10::class$ = nullptr;
@@ -519,35 +473,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableList$12(list, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$12$11>());
-	}
 	$List* list = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$12$11::fieldInfos[3] = {
-	{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, list)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$12$11::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, init$, void, $List*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$12$11::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$12$11",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$12$11::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, list)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, init$, void, $List*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$12$11",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$12$11::class$ = nullptr;
@@ -561,33 +511,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->remove();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$remove$12>());
-	}
 	$ListIterator* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$remove$12::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$remove$12, inst$)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$remove$12::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ListIterator;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$remove$12, init$, void, $ListIterator*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$remove$12, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$remove$12::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$remove$12",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$remove$12::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$remove$12, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$remove$12, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ListIterator;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$remove$12, init$, void, $ListIterator*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$remove$12, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$remove$12",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$remove$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$remove$12);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$remove$12::class$ = nullptr;
@@ -602,35 +548,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableList$13(i, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$13$13>());
-	}
 	$ListIterator* i = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$13$13::fieldInfos[3] = {
-	{"i", "Ljava/util/ListIterator;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, i)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$13$13::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ListIterator;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, init$, void, $ListIterator*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$13$13::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$13$13",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$13$13::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"i", "Ljava/util/ListIterator;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, i)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ListIterator;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, init$, void, $ListIterator*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$13$13",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$13$13::class$ = nullptr;
@@ -645,35 +587,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableList$14(i, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$14$14>());
-	}
 	$ListIterator* i = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$14$14::fieldInfos[3] = {
-	{"i", "Ljava/util/ListIterator;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, i)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$14$14::methodInfos[3] = {
-	{"<init>", "(Ljava/util/ListIterator;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, init$, void, $ListIterator*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$14$14::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$14$14",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$14$14::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"i", "Ljava/util/ListIterator;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, i)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/ListIterator;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, init$, void, $ListIterator*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$14$14",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$14$14::class$ = nullptr;
@@ -687,33 +625,29 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableList$15(list);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$15$15>());
-	}
 	$List* list = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$15$15::fieldInfos[2] = {
-	{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, list)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$15$15::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, init$, void, $List*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$15$15::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$15$15",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$15$15::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, list)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, init$, void, $List*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$15$15",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$15$15::class$ = nullptr;
@@ -728,35 +662,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableList$17(list, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$17$16>());
-	}
 	$List* list = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$17$16::fieldInfos[3] = {
-	{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, list)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$17$16::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, init$, void, $List*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$17$16::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$17$16",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$17$16::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, list)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, init$, void, $List*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$17$16",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$17$16::class$ = nullptr;
@@ -771,35 +701,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableList$18(list, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$18$17>());
-	}
 	$List* list = nullptr;
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$18$17::fieldInfos[3] = {
-	{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, list)},
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$18$17::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, init$, void, $List*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$18$17::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$18$17",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$18$17::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, list)},
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, init$, void, $List*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$18$17",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$18$17::class$ = nullptr;
@@ -812,27 +738,24 @@ public:
 	virtual int32_t compare(Object$* a, Object$* b) override {
 		 return TestKit::lambda$assertUnmodifiableList$19(a, b);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$19$18>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$19$18::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$19$18::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$19$18",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$19$18::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$19$18",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$19$18::class$ = nullptr;
@@ -847,35 +770,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableList$20(list, comparator);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$20$19>());
-	}
 	$List* list = nullptr;
 	$Comparator* comparator = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$20$19::fieldInfos[3] = {
-	{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, list)},
-	{"comparator", "Ljava/util/Comparator;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, comparator)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$20$19::methodInfos[3] = {
-	{"<init>", "(Ljava/util/List;Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, init$, void, $List*, $Comparator*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$20$19::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$20$19",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$20$19::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/List;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, list)},
+		{"comparator", "Ljava/util/Comparator;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, comparator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljava/util/Comparator;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, init$, void, $List*, $Comparator*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$20$19",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$20$19::class$ = nullptr;
@@ -886,29 +805,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(TestKit::lambda$assertUnmodifiableMap$21());
+		 return TestKit::lambda$assertUnmodifiableMap$21();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20, get, $Object*)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20::class$ = nullptr;
@@ -922,33 +838,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->clear();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$clear$21>());
-	}
 	$Map* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$clear$21::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$clear$21, inst$)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$clear$21::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$clear$21, init$, void, $Map*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$clear$21, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$clear$21::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$clear$21",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$clear$21::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$clear$21, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$clear$21, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$clear$21, init$, void, $Map*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$clear$21, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$clear$21",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$clear$21, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$clear$21);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$clear$21::class$ = nullptr;
@@ -964,37 +876,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$23(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22::class$ = nullptr;
@@ -1010,37 +918,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$25(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23::class$ = nullptr;
@@ -1056,37 +960,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$27(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24::class$ = nullptr;
@@ -1100,33 +1000,29 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$28(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25>());
-	}
 	$Map$Entry* e = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25::fieldInfos[2] = {
-	{"e", "Ljava/util/Map$Entry;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map$Entry;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, init$, void, $Map$Entry*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"e", "Ljava/util/Map$Entry;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map$Entry;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, init$, void, $Map$Entry*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25::class$ = nullptr;
@@ -1142,37 +1038,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$30(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26::class$ = nullptr;
@@ -1188,37 +1080,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$31(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27::class$ = nullptr;
@@ -1233,35 +1121,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$32(map, m);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28>());
-	}
 	$Map* map = nullptr;
 	$Map* m = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28::fieldInfos[3] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, map)},
-	{"m", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, m)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, init$, void, $Map*, $Map*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, map)},
+		{"m", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, m)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, init$, void, $Map*, $Map*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28::class$ = nullptr;
@@ -1277,37 +1161,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$33(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29::class$ = nullptr;
@@ -1322,35 +1202,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$34(map, k);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30::fieldInfos[3] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, k)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, init$, void, $Map*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, k)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, init$, void, $Map*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30::class$ = nullptr;
@@ -1366,37 +1242,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$35(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31::class$ = nullptr;
@@ -1412,37 +1284,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$36(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32::class$ = nullptr;
@@ -1458,37 +1326,33 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$37(map, k, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33>());
-	}
 	$Map* map = nullptr;
 	$Object* k = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33::fieldInfos[4] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, map)},
-	{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, k)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, init$, void, $Map*, Object$*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, map)},
+		{"k", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, k)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, init$, void, $Map*, Object$*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33::class$ = nullptr;
@@ -1503,35 +1367,31 @@ public:
 	virtual void run() override {
 		TestKit::lambda$assertUnmodifiableMap$39(map, v);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34>());
-	}
 	$Map* map = nullptr;
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34::fieldInfos[3] = {
-	{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, map)},
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, init$, void, $Map*, Object$*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, run, void)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34",
-	"java.lang.Object",
-	"TestKit$ThrowingProcedure",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, map)},
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, init$, void, $Map*, Object$*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34",
+		"java.lang.Object",
+		"TestKit$ThrowingProcedure",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34::class$ = nullptr;
@@ -1545,33 +1405,29 @@ public:
 	virtual $Object* apply(Object$* k1, Object$* v1) override {
 		 return TestKit::lambda$assertUnmodifiableMap$22(v, k1, v1);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35>());
-	}
 	$Object* v = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35::fieldInfos[2] = {
-	{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, init$, void, Object$*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"v", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, init$, void, Object$*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35::class$ = nullptr;
@@ -1585,33 +1441,29 @@ public:
 	virtual $Object* apply(Object$* x) override {
 		 return TestKit::lambda$assertUnmodifiableList$16(e, x);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableList$16$36>());
-	}
 	$Object* e = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestKit$$Lambda$lambda$assertUnmodifiableList$16$36::fieldInfos[2] = {
-	{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, e)},
-	{}
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableList$16$36::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, init$, void, Object$*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableList$16$36::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableList$16$36",
-	"java.lang.Object",
-	"java.util.function.UnaryOperator",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$16$36::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"e", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, e)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, init$, void, Object$*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableList$16$36",
+		"java.lang.Object",
+		"java.util.function.UnaryOperator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableList$16$36::class$ = nullptr;
@@ -1624,187 +1476,110 @@ public:
 	virtual bool test(Object$* x) override {
 		 return TestKit::lambda$assertUnmodifiableCollection$6(x);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37, test, bool, Object$*)},
-	{}
-};
-$ClassInfo TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37::load$($String* name, bool initialize) {
-	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37);
+	});
 	return class$;
 }
 $Class* TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37::class$ = nullptr;
-
-$MethodInfo _TestKit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TestKit, init$, void)},
-	{"assertNotThrows", "(LTestKit$ThrowingProcedure;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestKit, assertNotThrows, void, $TestKit$ThrowingProcedure*)},
-	{"assertNotThrows", "(LTestKit$ThrowingFunction;)Ljava/lang/Object;", "<V:Ljava/lang/Object;>(LTestKit$ThrowingFunction<TV;>;)TV;", $PUBLIC | $STATIC, $staticMethod(TestKit, assertNotThrows, $Object*, $TestKit$ThrowingFunction*)},
-	{"assertThrows", "(Ljava/lang/Class;LTestKit$ThrowingProcedure;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(Ljava/lang/Class<TT;>;LTestKit$ThrowingProcedure;)TT;", $PUBLIC | $STATIC, $staticMethod(TestKit, assertThrows, $Throwable*, $Class*, $TestKit$ThrowingProcedure*)},
-	{"assertThrows", "(Ljava/lang/Class;Ljava/lang/String;LTestKit$ThrowingProcedure;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(Ljava/lang/Class<TT;>;Ljava/lang/String;LTestKit$ThrowingProcedure;)TT;", $PUBLIC | $STATIC, $staticMethod(TestKit, assertThrows, $Throwable*, $Class*, $String*, $TestKit$ThrowingProcedure*)},
-	{"assertUOE", "(LTestKit$ThrowingProcedure;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestKit, assertUOE, void, $TestKit$ThrowingProcedure*)},
-	{"assertUnmodifiableCollection", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableCollection, void, $Collection*)},
-	{"assertUnmodifiableCollection", "(Ljava/util/Collection;Ljava/util/function/Supplier;)V", "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;Ljava/util/function/Supplier<+TE;>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableCollection, void, $Collection*, $Supplier*)},
-	{"assertUnmodifiableList", "(Ljava/util/List;)V", "(Ljava/util/List<*>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableList, void, $List*)},
-	{"assertUnmodifiableList", "(Ljava/util/List;Ljava/util/function/Supplier;)V", "<E:Ljava/lang/Object;>(Ljava/util/List<TE;>;Ljava/util/function/Supplier<+TE;>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableList, void, $List*, $Supplier*)},
-	{"assertUnmodifiableList", "(Ljava/util/List;Ljava/util/function/Supplier;I)V", "<E:Ljava/lang/Object;>(Ljava/util/List<TE;>;Ljava/util/function/Supplier<+TE;>;I)V", $PRIVATE | $STATIC, $staticMethod(TestKit, assertUnmodifiableList, void, $List*, $Supplier*, int32_t)},
-	{"assertUnmodifiableMap", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableMap, void, $Map*)},
-	{"assertUnmodifiableMap", "(Ljava/util/Map;Ljava/util/function/Supplier;)V", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;Ljava/util/function/Supplier<+Ljava/util/Map$Entry<+TK;+TV;>;>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableMap, void, $Map*, $Supplier*)},
-	{"assertUnmodifiableSet", "(Ljava/util/Set;)V", "(Ljava/util/Set<*>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableSet, void, $Set*)},
-	{"assertUnmodifiableSet", "(Ljava/util/Set;Ljava/util/function/Supplier;)V", "<E:Ljava/lang/Object;>(Ljava/util/Set<TE;>;Ljava/util/function/Supplier<+TE;>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableSet, void, $Set*, $Supplier*)},
-	{"lambda$assertNotThrows$0", "(LTestKit$ThrowingProcedure;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertNotThrows$0, $Object*, $TestKit$ThrowingProcedure*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableCollection$1", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$1, $Object*)},
-	{"lambda$assertUnmodifiableCollection$2", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$2, void, $Collection*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableCollection$3", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$3, void, $Collection*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableCollection$4", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$4, void, $Collection*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableCollection$5", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$5, void, $Collection*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableCollection$6", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$6, bool, Object$*)},
-	{"lambda$assertUnmodifiableCollection$7", "(Ljava/util/Collection;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$7, void, $Collection*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableCollection$8", "(Ljava/util/Collection;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$8, void, $Collection*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableList$11", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$11, void, $List*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableList$12", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$12, void, $List*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableList$13", "(Ljava/util/ListIterator;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$13, void, $ListIterator*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableList$14", "(Ljava/util/ListIterator;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$14, void, $ListIterator*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableList$15", "(Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$15, void, $List*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableList$16", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$16, $Object*, Object$*, Object$*)},
-	{"lambda$assertUnmodifiableList$17", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$17, void, $List*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableList$18", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$18, void, $List*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableList$19", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$19, int32_t, Object$*, Object$*)},
-	{"lambda$assertUnmodifiableList$20", "(Ljava/util/List;Ljava/util/Comparator;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$20, void, $List*, $Comparator*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$21", "()Ljava/util/Map$Entry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$21, $Map$Entry*)},
-	{"lambda$assertUnmodifiableMap$22", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$22, $Object*, Object$*, Object$*, Object$*)},
-	{"lambda$assertUnmodifiableMap$23", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$23, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$25", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$25, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$27", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$27, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$28", "(Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$28, void, $Map$Entry*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$30", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$30, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$31", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$31, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$32", "(Ljava/util/Map;Ljava/util/Map;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$32, void, $Map*, $Map*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$33", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$33, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$34", "(Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$34, void, $Map*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$35", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$35, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$36", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$36, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$37", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$37, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
-	{"lambda$assertUnmodifiableMap$39", "(Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$39, void, $Map*, Object$*), "java.lang.Throwable"},
-	{}
-};
-
-$InnerClassInfo _TestKit_InnerClassesInfo_[] = {
-	{"TestKit$ThrowingFunction", "TestKit", "ThrowingFunction", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"TestKit$ThrowingProcedure", "TestKit", "ThrowingProcedure", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestKit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"TestKit",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestKit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestKit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestKit$ThrowingFunction,TestKit$ThrowingProcedure"
-};
-
-$Object* allocate$TestKit($Class* clazz) {
-	return $of($alloc(TestKit));
-}
 
 void TestKit::init$() {
 }
 
 void TestKit::assertNotThrows($TestKit$ThrowingProcedure* code) {
-	$Objects::requireNonNull($of(code), "code"_s);
-	assertNotThrows(static_cast<$TestKit$ThrowingFunction*>($$new(TestKit$$Lambda$lambda$assertNotThrows$0, code)));
+	$Objects::requireNonNull(code, "code"_s);
+	assertNotThrows($$new(TestKit$$Lambda$lambda$assertNotThrows$0, code));
 }
 
 $Object* TestKit::assertNotThrows($TestKit$ThrowingFunction* code) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(code), "code"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(code, "code"_s);
 	try {
-		return $of($nc(code)->run());
+		return $nc(code)->run();
 	} catch ($Throwable& t) {
-		$throwNew($RuntimeException, $$str({"Expected to run normally, but threw "_s, $($of(t)->getClass()->getCanonicalName())}), t);
+		$throwNew($RuntimeException, $$str({"Expected to run normally, but threw "_s, $(t->getClass()->getCanonicalName())}), t);
 	}
 	$shouldNotReachHere();
 }
 
 $Throwable* TestKit::assertThrows($Class* clazz, $TestKit$ThrowingProcedure* code) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(clazz), "clazz"_s);
-	$Objects::requireNonNull($of(code), "code"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(clazz, "clazz"_s);
+	$Objects::requireNonNull(code, "code"_s);
 	try {
 		$nc(code)->run();
 	} catch ($Throwable& t) {
 		if ($nc(clazz)->isInstance(t)) {
 			return $cast($Throwable, clazz->cast(t));
 		}
-		$var($String, var$0, $$str({"Expected to catch an exception of type "_s, $($nc(clazz)->getCanonicalName()), ", but caught "_s}));
-		$throwNew($RuntimeException, $$concat(var$0, $($of(t)->getClass()->getCanonicalName())), t);
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Expected to catch an exception of type "_s);
+		var$0->append($(clazz->getCanonicalName()));
+		var$0->append(", but caught "_s);
+		var$0->append($(t->getClass()->getCanonicalName()));
+		$throwNew($RuntimeException, $$str(var$0), t);
 	}
 	$throwNew($RuntimeException, $$str({"Expected to catch an exception of type "_s, $($nc(clazz)->getCanonicalName()), ", but caught nothing"_s}));
 	$shouldNotReachHere();
 }
 
 $Throwable* TestKit::assertThrows($Class* clazz, $String* messageRegex, $TestKit$ThrowingProcedure* code) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(messageRegex), "messagePattern"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(messageRegex, "messagePattern"_s);
 	$var($Throwable, t, assertThrows(clazz, code));
 	$var($String, m, $nc(t)->getMessage());
 	if (m == nullptr) {
-		$throwNew($RuntimeException, $($String::format("Expected exception message to match the regex \'%s\', but the message was null"_s, $$new($ObjectArray, {$of(messageRegex)}))), t);
+		$throwNew($RuntimeException, $($String::format("Expected exception message to match the regex \'%s\', but the message was null"_s, $$new($ObjectArray, {messageRegex}))), t);
 	}
 	if (!$Pattern::matches(messageRegex, m)) {
 		$throwNew($RuntimeException, $($String::format("Expected exception message to match the regex \'%s\', actual message: %s"_s, $$new($ObjectArray, {
-			$of(messageRegex),
-			$of(m)
+			messageRegex,
+			m
 		}))), t);
 	}
 	return t;
 }
 
 void TestKit::assertUnmodifiableCollection($Collection* collection) {
-	assertUnmodifiableCollection(collection, static_cast<$Supplier*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1)));
+	assertUnmodifiableCollection(collection, $$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1));
 }
 
 void TestKit::assertUnmodifiableCollection($Collection* collection, $Supplier* elementsFactory) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(collection), "collection"_s);
-	$Objects::requireNonNull($of(elementsFactory), "elementsFactory"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(collection, "collection"_s);
+	$Objects::requireNonNull(elementsFactory, "elementsFactory"_s);
 	$var($Object, e, $nc(elementsFactory)->get());
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, collection, e)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, collection, e)));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2, collection, e));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3, collection, e));
 	$var($Iterator, i, $nc(collection)->iterator());
 	if ($nc(i)->hasNext()) {
 		i->next();
-		assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$remove$4, static_cast<$Iterator*>(i))));
+		assertUOE($$new(TestKit$$Lambda$remove$4, i));
 	}
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$clear$5, static_cast<$Collection*>(collection))));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, collection, e)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, collection, e)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, collection)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, collection)));
+	assertUOE($$new(TestKit$$Lambda$clear$5, collection));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6, collection, e));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7, collection, e));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8, collection));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9, collection));
 }
 
 void TestKit::assertUnmodifiableSet($Set* set) {
-	assertUnmodifiableCollection(set, static_cast<$Supplier*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1)));
+	assertUnmodifiableCollection(set, $$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1));
 }
 
 void TestKit::assertUnmodifiableSet($Set* set, $Supplier* elementsFactory) {
@@ -1812,7 +1587,7 @@ void TestKit::assertUnmodifiableSet($Set* set, $Supplier* elementsFactory) {
 }
 
 void TestKit::assertUnmodifiableList($List* list) {
-	assertUnmodifiableList(list, static_cast<$Supplier*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1)));
+	assertUnmodifiableList(list, $$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1));
 }
 
 void TestKit::assertUnmodifiableList($List* list, $Supplier* elementsFactory) {
@@ -1820,9 +1595,9 @@ void TestKit::assertUnmodifiableList($List* list, $Supplier* elementsFactory) {
 }
 
 void TestKit::assertUnmodifiableList($List* list, $Supplier* elementsFactory, int32_t depth) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(list), "list"_s);
-	$Objects::requireNonNull($of(elementsFactory), "elementsFactory"_s);
+	$useLocalObjectStack();
+	$Objects::requireNonNull(list, "list"_s);
+	$Objects::requireNonNull(elementsFactory, "elementsFactory"_s);
 	if (depth < 0) {
 		$throwNew($IllegalArgumentException, $$str({"depth: "_s, $$str(depth)}));
 	}
@@ -1831,61 +1606,61 @@ void TestKit::assertUnmodifiableList($List* list, $Supplier* elementsFactory, in
 	}
 	$var($Object, e, $nc(elementsFactory)->get());
 	assertUnmodifiableCollection(list, elementsFactory);
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, list, e)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, list, e)));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10, list, e));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11, list, e));
 	$var($ListIterator, i, $nc(list)->listIterator());
 	if ($nc(i)->hasNext()) {
 		i->next();
-		assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$remove$12, static_cast<$ListIterator*>(i))));
-		assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, i, e)));
-		assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, i, e)));
+		assertUOE($$new(TestKit$$Lambda$remove$12, i));
+		assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13, i, e));
+		assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14, i, e));
 	}
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, list)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, list, e)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, list, e)));
-	$var($Comparator, comparator, static_cast<$Comparator*>($new(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, list, comparator)));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15, list));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16, list, e));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17, list, e));
+	$var($Comparator, comparator, $new(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19, list, comparator));
 	assertUnmodifiableList($(list->subList(0, list->size())), elementsFactory, depth - 1);
 }
 
 void TestKit::assertUnmodifiableMap($Map* map) {
-	assertUnmodifiableMap(map, static_cast<$Supplier*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20)));
+	assertUnmodifiableMap(map, $$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20));
 }
 
 void TestKit::assertUnmodifiableMap($Map* map, $Supplier* entriesFactory) {
-	$useLocalCurrentObjectStackCache();
-	$Objects::requireNonNull($of(map), "map"_s);
-	$Objects::requireNonNull($of(entriesFactory), "entriesFactory"_s);
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$clear$21, static_cast<$Map*>($nc(map)))));
+	$useLocalObjectStack();
+	$Objects::requireNonNull(map, "map"_s);
+	$Objects::requireNonNull(entriesFactory, "entriesFactory"_s);
+	assertUOE($$new(TestKit$$Lambda$clear$21, $nc(map)));
 	$var($Map$Entry, e1, $cast($Map$Entry, $nc(entriesFactory)->get()));
 	$var($Object, k, $nc(e1)->getKey());
 	$var($Object, v, e1->getValue());
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, map, k, v)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, map, k, v)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, map, k, v)));
-	$var($Set, entrySet, $nc(map)->entrySet());
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22, map, k, v));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23, map, k, v));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24, map, k, v));
+	$var($Set, entrySet, map->entrySet());
 	assertUnmodifiableSet(entrySet);
 	{
 		$var($Iterator, i$, $nc(entrySet)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			{
-				assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, e)));
+				assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25, e));
 			}
 		}
 	}
 	assertUnmodifiableSet($(map->keySet()));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, map, k, v)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, map, k, v)));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26, map, k, v));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27, map, k, v));
 	$var($Map, m, $new($HashMap));
 	m->put(k, v);
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, map, m)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, map, k, v)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, map, k)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, map, k, v)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, map, k, v)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, map, k, v)));
-	assertUOE(static_cast<$TestKit$ThrowingProcedure*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, map, v)));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28, map, m));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29, map, k, v));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30, map, k));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31, map, k, v));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32, map, k, v));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33, map, k, v));
+	assertUOE($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34, map, v));
 	assertUnmodifiableCollection($(map->values()));
 }
 
@@ -1895,7 +1670,7 @@ void TestKit::assertUOE($TestKit$ThrowingProcedure* code) {
 }
 
 void TestKit::lambda$assertUnmodifiableMap$39($Map* map, Object$* v) {
-	$nc(map)->replaceAll(static_cast<$BiFunction*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v)));
+	$nc(map)->replaceAll($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v));
 }
 
 void TestKit::lambda$assertUnmodifiableMap$37($Map* map, Object$* k, Object$* v) {
@@ -1927,7 +1702,7 @@ void TestKit::lambda$assertUnmodifiableMap$31($Map* map, Object$* k, Object$* v)
 }
 
 void TestKit::lambda$assertUnmodifiableMap$30($Map* map, Object$* k, Object$* v) {
-	$nc(map)->merge(k, v, static_cast<$BiFunction*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v)));
+	$nc(map)->merge(k, v, $$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v));
 }
 
 void TestKit::lambda$assertUnmodifiableMap$28($Map$Entry* e) {
@@ -1935,15 +1710,15 @@ void TestKit::lambda$assertUnmodifiableMap$28($Map$Entry* e) {
 }
 
 void TestKit::lambda$assertUnmodifiableMap$27($Map* map, Object$* k, Object$* v) {
-	$nc(map)->computeIfPresent(k, static_cast<$BiFunction*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v)));
+	$nc(map)->computeIfPresent(k, $$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v));
 }
 
 void TestKit::lambda$assertUnmodifiableMap$25($Map* map, Object$* k, Object$* v) {
-	$nc(map)->computeIfAbsent(k, static_cast<$Function*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, v)));
+	$nc(map)->computeIfAbsent(k, $$new(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, v));
 }
 
 void TestKit::lambda$assertUnmodifiableMap$23($Map* map, Object$* k, Object$* v) {
-	$nc(map)->compute(k, static_cast<$BiFunction*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v)));
+	$nc(map)->compute(k, $$new(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35, v));
 }
 
 $Object* TestKit::lambda$assertUnmodifiableMap$22(Object$* v, Object$* k1, Object$* v1) {
@@ -1970,7 +1745,7 @@ void TestKit::lambda$assertUnmodifiableList$18($List* list, Object$* e) {
 }
 
 void TestKit::lambda$assertUnmodifiableList$17($List* list, Object$* e) {
-	$nc(list)->replaceAll(static_cast<$UnaryOperator*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, e)));
+	$nc(list)->replaceAll($$new(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36, e));
 }
 
 $Object* TestKit::lambda$assertUnmodifiableList$16(Object$* e, Object$* x) {
@@ -2002,7 +1777,7 @@ void TestKit::lambda$assertUnmodifiableCollection$8($Collection* collection) {
 }
 
 void TestKit::lambda$assertUnmodifiableCollection$7($Collection* collection) {
-	$nc(collection)->removeIf(static_cast<$Predicate*>($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37)));
+	$nc(collection)->removeIf($$new(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37));
 }
 
 bool TestKit::lambda$assertUnmodifiableCollection$6(Object$* x) {
@@ -2026,12 +1801,12 @@ void TestKit::lambda$assertUnmodifiableCollection$2($Collection* collection, Obj
 }
 
 $Object* TestKit::lambda$assertUnmodifiableCollection$1() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* TestKit::lambda$assertNotThrows$0($TestKit$ThrowingProcedure* code) {
 	$nc(code)->run();
-	return $of(nullptr);
+	return nullptr;
 }
 
 TestKit::TestKit() {
@@ -2039,122 +1814,195 @@ TestKit::TestKit() {
 
 $Class* TestKit::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestKit$$Lambda$lambda$assertNotThrows$0::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertNotThrows$0")) {
 			return TestKit$$Lambda$lambda$assertNotThrows$0::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableCollection$1$1::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableCollection$2$2::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableCollection$3$3::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$remove$4::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$remove$4")) {
 			return TestKit$$Lambda$remove$4::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$clear$5::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$clear$5")) {
 			return TestKit$$Lambda$clear$5::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableCollection$4$6::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableCollection$5$7::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableCollection$7$8::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableCollection$8$9::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$11$10::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$11$10")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$11$10::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$12$11::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$12$11")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$12$11::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$remove$12::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$remove$12")) {
 			return TestKit$$Lambda$remove$12::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$13$13::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$13$13")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$13$13::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$14$14::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$14$14")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$14$14::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$15$15::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$15$15")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$15$15::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$17$16::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$17$16")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$17$16::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$18$17::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$18$17")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$18$17::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$19$18::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$19$18")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$19$18::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$20$19::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$20$19")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$20$19::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$21$20::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$clear$21::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$clear$21")) {
 			return TestKit$$Lambda$clear$21::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$23$22::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$25$23::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$27$24::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$28$25::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$30$26::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$31$27::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$32$28::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$33$29::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$34$30::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$35$31::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$36$32::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$37$33::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$39$34::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableMap$22$35::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableList$16$36::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableList$16$36")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableList$16$36::load$(name, initialize);
 		}
-		if (name->equals(TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37::classInfo$.name)) {
+		if (name->equals("TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37")) {
 			return TestKit$$Lambda$lambda$assertUnmodifiableCollection$6$37::load$(name, initialize);
 		}
 	}
-	$loadClass(TestKit, name, initialize, &_TestKit_ClassInfo_, allocate$TestKit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TestKit, init$, void)},
+		{"assertNotThrows", "(LTestKit$ThrowingProcedure;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestKit, assertNotThrows, void, $TestKit$ThrowingProcedure*)},
+		{"assertNotThrows", "(LTestKit$ThrowingFunction;)Ljava/lang/Object;", "<V:Ljava/lang/Object;>(LTestKit$ThrowingFunction<TV;>;)TV;", $PUBLIC | $STATIC, $staticMethod(TestKit, assertNotThrows, $Object*, $TestKit$ThrowingFunction*)},
+		{"assertThrows", "(Ljava/lang/Class;LTestKit$ThrowingProcedure;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(Ljava/lang/Class<TT;>;LTestKit$ThrowingProcedure;)TT;", $PUBLIC | $STATIC, $staticMethod(TestKit, assertThrows, $Throwable*, $Class*, $TestKit$ThrowingProcedure*)},
+		{"assertThrows", "(Ljava/lang/Class;Ljava/lang/String;LTestKit$ThrowingProcedure;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(Ljava/lang/Class<TT;>;Ljava/lang/String;LTestKit$ThrowingProcedure;)TT;", $PUBLIC | $STATIC, $staticMethod(TestKit, assertThrows, $Throwable*, $Class*, $String*, $TestKit$ThrowingProcedure*)},
+		{"assertUOE", "(LTestKit$ThrowingProcedure;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestKit, assertUOE, void, $TestKit$ThrowingProcedure*)},
+		{"assertUnmodifiableCollection", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableCollection, void, $Collection*)},
+		{"assertUnmodifiableCollection", "(Ljava/util/Collection;Ljava/util/function/Supplier;)V", "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;Ljava/util/function/Supplier<+TE;>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableCollection, void, $Collection*, $Supplier*)},
+		{"assertUnmodifiableList", "(Ljava/util/List;)V", "(Ljava/util/List<*>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableList, void, $List*)},
+		{"assertUnmodifiableList", "(Ljava/util/List;Ljava/util/function/Supplier;)V", "<E:Ljava/lang/Object;>(Ljava/util/List<TE;>;Ljava/util/function/Supplier<+TE;>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableList, void, $List*, $Supplier*)},
+		{"assertUnmodifiableList", "(Ljava/util/List;Ljava/util/function/Supplier;I)V", "<E:Ljava/lang/Object;>(Ljava/util/List<TE;>;Ljava/util/function/Supplier<+TE;>;I)V", $PRIVATE | $STATIC, $staticMethod(TestKit, assertUnmodifiableList, void, $List*, $Supplier*, int32_t)},
+		{"assertUnmodifiableMap", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableMap, void, $Map*)},
+		{"assertUnmodifiableMap", "(Ljava/util/Map;Ljava/util/function/Supplier;)V", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;Ljava/util/function/Supplier<+Ljava/util/Map$Entry<+TK;+TV;>;>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableMap, void, $Map*, $Supplier*)},
+		{"assertUnmodifiableSet", "(Ljava/util/Set;)V", "(Ljava/util/Set<*>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableSet, void, $Set*)},
+		{"assertUnmodifiableSet", "(Ljava/util/Set;Ljava/util/function/Supplier;)V", "<E:Ljava/lang/Object;>(Ljava/util/Set<TE;>;Ljava/util/function/Supplier<+TE;>;)V", $PUBLIC | $STATIC, $staticMethod(TestKit, assertUnmodifiableSet, void, $Set*, $Supplier*)},
+		{"lambda$assertNotThrows$0", "(LTestKit$ThrowingProcedure;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertNotThrows$0, $Object*, $TestKit$ThrowingProcedure*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableCollection$1", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$1, $Object*)},
+		{"lambda$assertUnmodifiableCollection$2", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$2, void, $Collection*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableCollection$3", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$3, void, $Collection*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableCollection$4", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$4, void, $Collection*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableCollection$5", "(Ljava/util/Collection;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$5, void, $Collection*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableCollection$6", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$6, bool, Object$*)},
+		{"lambda$assertUnmodifiableCollection$7", "(Ljava/util/Collection;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$7, void, $Collection*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableCollection$8", "(Ljava/util/Collection;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableCollection$8, void, $Collection*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableList$11", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$11, void, $List*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableList$12", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$12, void, $List*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableList$13", "(Ljava/util/ListIterator;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$13, void, $ListIterator*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableList$14", "(Ljava/util/ListIterator;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$14, void, $ListIterator*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableList$15", "(Ljava/util/List;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$15, void, $List*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableList$16", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$16, $Object*, Object$*, Object$*)},
+		{"lambda$assertUnmodifiableList$17", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$17, void, $List*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableList$18", "(Ljava/util/List;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$18, void, $List*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableList$19", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$19, int32_t, Object$*, Object$*)},
+		{"lambda$assertUnmodifiableList$20", "(Ljava/util/List;Ljava/util/Comparator;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableList$20, void, $List*, $Comparator*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$21", "()Ljava/util/Map$Entry;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$21, $Map$Entry*)},
+		{"lambda$assertUnmodifiableMap$22", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$22, $Object*, Object$*, Object$*, Object$*)},
+		{"lambda$assertUnmodifiableMap$23", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$23, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$25", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$25, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$27", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$27, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$28", "(Ljava/util/Map$Entry;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$28, void, $Map$Entry*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$30", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$30, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$31", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$31, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$32", "(Ljava/util/Map;Ljava/util/Map;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$32, void, $Map*, $Map*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$33", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$33, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$34", "(Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$34, void, $Map*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$35", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$35, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$36", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$36, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$37", "(Ljava/util/Map;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$37, void, $Map*, Object$*, Object$*), "java.lang.Throwable"},
+		{"lambda$assertUnmodifiableMap$39", "(Ljava/util/Map;Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestKit, lambda$assertUnmodifiableMap$39, void, $Map*, Object$*), "java.lang.Throwable"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestKit$ThrowingFunction", "TestKit", "ThrowingFunction", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"TestKit$ThrowingProcedure", "TestKit", "ThrowingProcedure", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"TestKit",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestKit$ThrowingFunction,TestKit$ThrowingProcedure"
+	};
+	$loadClass(TestKit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestKit);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Todo.h>
-
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Todo$FileQueue.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
@@ -29,7 +28,6 @@ using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
-using $Map = ::java::util::Map;
 using $Queue = ::java::util::Queue;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
@@ -38,55 +36,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Todo_FieldInfo_[] = {
-	{"todoKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Todo;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Todo, todoKey)},
-	{"contents", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", 0, $field(Todo, contents)},
-	{"contentsByFile", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;>;", 0, $field(Todo, contentsByFile)},
-	{"fileMap", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/comp/Todo$FileQueue;>;", 0, $field(Todo, fileMap)},
-	{}
-};
-
-$MethodInfo _Todo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Todo, init$, void, $Context*)},
-	{"addByFile", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Todo, addByFile, void, $Env*)},
-	{"append", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Todo, append, void, $Env*)},
-	{"groupByFile", "()Ljava/util/Queue;", "()Ljava/util/Queue<Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;>;", $PUBLIC, $virtualMethod(Todo, groupByFile, $Queue*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Todo;", nullptr, $PUBLIC | $STATIC, $staticMethod(Todo, instance, Todo*, $Context*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(Todo, iterator, $Iterator*)},
-	{"offer", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PUBLIC, $virtualMethod(Todo, offer, bool, $Env*)},
-	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Todo, offer, bool, Object$*)},
-	{"peek", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo, peek, $Object*)},
-	{"poll", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo, poll, $Object*)},
-	{"removeByFile", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Todo, removeByFile, void, $Env*)},
-	{"retainFiles", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(Todo, retainFiles, void, $Collection*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Todo, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Todo_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Todo$FileQueue", "com.sun.tools.javac.comp.Todo", "FileQueue", 0},
-	{}
-};
-
-$ClassInfo _Todo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Todo",
-	"java.util.AbstractQueue",
-	nullptr,
-	_Todo_FieldInfo_,
-	_Todo_MethodInfo_,
-	"Ljava/util/AbstractQueue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;",
-	nullptr,
-	_Todo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Todo$FileQueue"
-};
-
-$Object* allocate$Todo($Class* clazz) {
-	return $of($alloc(Todo));
-}
 
 $Context$Key* Todo::todoKey = nullptr;
 
@@ -102,7 +51,7 @@ Todo* Todo::instance($Context* context) {
 void Todo::init$($Context* context) {
 	$AbstractQueue::init$();
 	$set(this, contents, $new($LinkedList));
-	$nc(context)->put(Todo::todoKey, $of(this));
+	$nc(context)->put(Todo::todoKey, this);
 }
 
 void Todo::append($Env* env) {
@@ -129,38 +78,36 @@ bool Todo::offer($Env* e) {
 }
 
 void Todo::retainFiles($Collection* sourceFiles) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, it, $nc(this->contents)->iterator());
-		for (; $nc(it)->hasNext();) {
-			$var($Env, env, $cast($Env, it->next()));
-			if (!$nc(sourceFiles)->contains($nc($nc(env)->toplevel)->sourcefile)) {
-				if (this->contentsByFile != nullptr) {
-					removeByFile(env);
-				}
-				it->remove();
+	$useLocalObjectStack();
+	$var($Iterator, it, $nc(this->contents)->iterator());
+	for (; $nc(it)->hasNext();) {
+		$var($Env, env, $cast($Env, it->next()));
+		if (!$nc(sourceFiles)->contains($nc($nc(env)->toplevel)->sourcefile)) {
+			if (this->contentsByFile != nullptr) {
+				removeByFile(env);
 			}
+			it->remove();
 		}
 	}
 }
 
 $Object* Todo::poll() {
 	if (size() == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($Env, env, $cast($Env, $nc(this->contents)->remove(0)));
 	if (this->contentsByFile != nullptr) {
 		removeByFile(env);
 	}
-	return $of(env);
+	return env;
 }
 
 $Object* Todo::peek() {
-	return $of((size() == 0 ? ($Env*)nullptr : $cast($Env, $nc(this->contents)->get(0))));
+	return (size() == 0 ? ($Env*)nullptr : $cast($Env, $nc(this->contents)->get(0)));
 }
 
 $Queue* Todo::groupByFile() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->contentsByFile == nullptr) {
 		$set(this, contentsByFile, $new($LinkedList));
 		{
@@ -177,7 +124,7 @@ $Queue* Todo::groupByFile() {
 }
 
 void Todo::addByFile($Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, file, $nc($nc(env)->toplevel)->sourcefile);
 	if (this->fileMap == nullptr) {
 		$set(this, fileMap, $new($HashMap));
@@ -185,23 +132,23 @@ void Todo::addByFile($Env* env) {
 	$var($Todo$FileQueue, fq, $cast($Todo$FileQueue, $nc(this->fileMap)->get(file)));
 	if (fq == nullptr) {
 		$assign(fq, $new($Todo$FileQueue, this));
-		$nc(this->fileMap)->put(file, fq);
+		this->fileMap->put(file, fq);
 		$nc(this->contentsByFile)->add(fq);
 	}
 	$nc($nc(fq)->fileContents)->add(env);
 }
 
 void Todo::removeByFile($Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, file, $nc($nc(env)->toplevel)->sourcefile);
 	$var($Todo$FileQueue, fq, $cast($Todo$FileQueue, $nc(this->fileMap)->get(file)));
 	if (fq == nullptr) {
 		return;
 	}
-	if ($nc($nc(fq)->fileContents)->remove($of(env))) {
+	if ($nc($nc(fq)->fileContents)->remove(env)) {
 		if (fq->isEmpty()) {
-			$nc(this->fileMap)->remove(file);
-			$nc(this->contentsByFile)->remove($of(fq));
+			this->fileMap->remove(file);
+			$nc(this->contentsByFile)->remove(fq);
 		}
 	}
 }
@@ -210,7 +157,7 @@ bool Todo::offer(Object$* e) {
 	return this->offer($cast($Env, e));
 }
 
-void clinit$Todo($Class* class$) {
+void Todo::clinit$($Class* clazz) {
 	$assignStatic(Todo::todoKey, $new($Context$Key));
 }
 
@@ -218,7 +165,50 @@ Todo::Todo() {
 }
 
 $Class* Todo::load$($String* name, bool initialize) {
-	$loadClass(Todo, name, initialize, &_Todo_ClassInfo_, clinit$Todo, allocate$Todo);
+	$FieldInfo fieldInfos$$[] = {
+		{"todoKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Todo;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Todo, todoKey)},
+		{"contents", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", 0, $field(Todo, contents)},
+		{"contentsByFile", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;>;", 0, $field(Todo, contentsByFile)},
+		{"fileMap", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/tools/JavaFileObject;Lcom/sun/tools/javac/comp/Todo$FileQueue;>;", 0, $field(Todo, fileMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Todo, init$, void, $Context*)},
+		{"addByFile", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Todo, addByFile, void, $Env*)},
+		{"append", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PUBLIC, $virtualMethod(Todo, append, void, $Env*)},
+		{"groupByFile", "()Ljava/util/Queue;", "()Ljava/util/Queue<Ljava/util/Queue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;>;", $PUBLIC, $virtualMethod(Todo, groupByFile, $Queue*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Todo;", nullptr, $PUBLIC | $STATIC, $staticMethod(Todo, instance, Todo*, $Context*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(Todo, iterator, $Iterator*)},
+		{"offer", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PUBLIC, $virtualMethod(Todo, offer, bool, $Env*)},
+		{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Todo, offer, bool, Object$*)},
+		{"peek", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo, peek, $Object*)},
+		{"poll", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo, poll, $Object*)},
+		{"removeByFile", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Todo, removeByFile, void, $Env*)},
+		{"retainFiles", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<+Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $virtualMethod(Todo, retainFiles, void, $Collection*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Todo, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Todo$FileQueue", "com.sun.tools.javac.comp.Todo", "FileQueue", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Todo",
+		"java.util.AbstractQueue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractQueue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Todo$FileQueue"
+	};
+	$loadClass(Todo, name, initialize, &classInfo$$, Todo::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Todo));
+	});
 	return class$;
 }
 

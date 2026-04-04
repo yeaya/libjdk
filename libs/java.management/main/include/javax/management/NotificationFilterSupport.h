@@ -30,7 +30,7 @@ public:
 	virtual void enableType($String* prefix);
 	virtual ::java::util::Vector* getEnabledTypes();
 	virtual bool isNotificationEnabled(::javax::management::Notification* notification) override;
-	static const int64_t serialVersionUID = (int64_t)0x5B4D9668CF983659;
+	static const int64_t serialVersionUID = (int64_t)0x5b4d9668cf983659;
 	::java::util::List* enabledTypes = nullptr;
 };
 

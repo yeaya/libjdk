@@ -20,6 +20,7 @@ class $export MemoryType : public ::java::lang::Enum {
 public:
 	MemoryType();
 	static $Array<::java::lang::management::MemoryType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* s);
 	virtual $String* toString() override;
 	static ::java::lang::management::MemoryType* valueOf($String* name);

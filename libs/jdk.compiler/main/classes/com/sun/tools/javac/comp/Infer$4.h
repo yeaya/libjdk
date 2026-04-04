@@ -15,6 +15,7 @@ class Infer$4 : public ::java::lang::Object {
 	$class(Infer$4, 0, ::java::lang::Object)
 public:
 	Infer$4();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$code$Type$UndetVar$InferenceBound;
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 };

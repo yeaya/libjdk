@@ -1,5 +1,4 @@
 #include <sun/java2d/windows/GDIBlitLoops.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/Blit.h>
@@ -19,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $Blit = ::sun::java2d::loops::Blit;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
-using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $Region = ::sun::java2d::pipe::Region;
@@ -29,52 +27,19 @@ namespace sun {
 	namespace java2d {
 		namespace windows {
 
-$FieldInfo _GDIBlitLoops_FieldInfo_[] = {
-	{"rmask", "I", nullptr, 0, $field(GDIBlitLoops, rmask)},
-	{"gmask", "I", nullptr, 0, $field(GDIBlitLoops, gmask)},
-	{"bmask", "I", nullptr, 0, $field(GDIBlitLoops, bmask)},
-	{"indexed", "Z", nullptr, 0, $field(GDIBlitLoops, indexed)},
-	{}
-};
-
-$MethodInfo _GDIBlitLoops_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(GDIBlitLoops, init$, void, $SurfaceType*, $SurfaceType*)},
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;Z)V", nullptr, $PUBLIC, $method(GDIBlitLoops, init$, void, $SurfaceType*, $SurfaceType*, bool)},
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;III)V", nullptr, $PUBLIC, $method(GDIBlitLoops, init$, void, $SurfaceType*, $SurfaceType*, int32_t, int32_t, int32_t)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIBlitLoops, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"nativeBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/Region;IIIIIIIIIZ)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GDIBlitLoops, nativeBlit, void, $SurfaceData*, $SurfaceData*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"register", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GDIBlitLoops, register$, void)},
-	{}
-};
-
-#define _METHOD_INDEX_nativeBlit 4
-
-$ClassInfo _GDIBlitLoops_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.windows.GDIBlitLoops",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	_GDIBlitLoops_FieldInfo_,
-	_GDIBlitLoops_MethodInfo_
-};
-
-$Object* allocate$GDIBlitLoops($Class* clazz) {
-	return $of($alloc(GDIBlitLoops));
-}
-
 void GDIBlitLoops::register$() {
 	$init(GDIBlitLoops);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SurfaceType);
 	$init($GDIWindowSurfaceData);
 	$var($GraphicsPrimitiveArray, primitives, $new($GraphicsPrimitiveArray, {
-		static_cast<$GraphicsPrimitive*>($$new(GDIBlitLoops, $SurfaceType::IntRgb, $GDIWindowSurfaceData::AnyGdi)),
-		static_cast<$GraphicsPrimitive*>($$new(GDIBlitLoops, $SurfaceType::Ushort555Rgb, $GDIWindowSurfaceData::AnyGdi, 31744, 992, 31)),
-		static_cast<$GraphicsPrimitive*>($$new(GDIBlitLoops, $SurfaceType::Ushort565Rgb, $GDIWindowSurfaceData::AnyGdi, 0x0000F800, 2016, 31)),
-		static_cast<$GraphicsPrimitive*>($$new(GDIBlitLoops, $SurfaceType::ThreeByteBgr, $GDIWindowSurfaceData::AnyGdi)),
-		static_cast<$GraphicsPrimitive*>($$new(GDIBlitLoops, $SurfaceType::ByteIndexedOpaque, $GDIWindowSurfaceData::AnyGdi, true)),
-		static_cast<$GraphicsPrimitive*>($$new(GDIBlitLoops, $SurfaceType::Index8Gray, $GDIWindowSurfaceData::AnyGdi, true)),
-		static_cast<$GraphicsPrimitive*>($$new(GDIBlitLoops, $SurfaceType::ByteGray, $GDIWindowSurfaceData::AnyGdi))
+		$$new(GDIBlitLoops, $SurfaceType::IntRgb, $GDIWindowSurfaceData::AnyGdi),
+		$$new(GDIBlitLoops, $SurfaceType::Ushort555Rgb, $GDIWindowSurfaceData::AnyGdi, 31744, 992, 31),
+		$$new(GDIBlitLoops, $SurfaceType::Ushort565Rgb, $GDIWindowSurfaceData::AnyGdi, 0x0000f800, 2016, 31),
+		$$new(GDIBlitLoops, $SurfaceType::ThreeByteBgr, $GDIWindowSurfaceData::AnyGdi),
+		$$new(GDIBlitLoops, $SurfaceType::ByteIndexedOpaque, $GDIWindowSurfaceData::AnyGdi, true),
+		$$new(GDIBlitLoops, $SurfaceType::Index8Gray, $GDIWindowSurfaceData::AnyGdi, true),
+		$$new(GDIBlitLoops, $SurfaceType::ByteGray, $GDIWindowSurfaceData::AnyGdi)
 	}));
 	$GraphicsPrimitiveMgr::register$(primitives);
 }
@@ -98,7 +63,7 @@ void GDIBlitLoops::init$($SurfaceType* srcType, $SurfaceType* dstType, int32_t r
 }
 
 void GDIBlitLoops::nativeBlit($SurfaceData* src, $SurfaceData* dst, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h, int32_t rmask, int32_t gmask, int32_t bmask, bool needLut) {
-	$prepareNative(GDIBlitLoops, nativeBlit, void, $SurfaceData* src, $SurfaceData* dst, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h, int32_t rmask, int32_t gmask, int32_t bmask, bool needLut);
+	$prepareNative(nativeBlit, void, $SurfaceData* src, $SurfaceData* dst, $Region* clip, int32_t sx, int32_t sy, int32_t dx, int32_t dy, int32_t w, int32_t h, int32_t rmask, int32_t gmask, int32_t bmask, bool needLut);
 	$invokeNative(src, dst, clip, sx, sy, dx, dy, w, h, rmask, gmask, bmask, needLut);
 	$finishNative();
 }
@@ -111,7 +76,33 @@ GDIBlitLoops::GDIBlitLoops() {
 }
 
 $Class* GDIBlitLoops::load$($String* name, bool initialize) {
-	$loadClass(GDIBlitLoops, name, initialize, &_GDIBlitLoops_ClassInfo_, allocate$GDIBlitLoops);
+	$FieldInfo fieldInfos$$[] = {
+		{"rmask", "I", nullptr, 0, $field(GDIBlitLoops, rmask)},
+		{"gmask", "I", nullptr, 0, $field(GDIBlitLoops, gmask)},
+		{"bmask", "I", nullptr, 0, $field(GDIBlitLoops, bmask)},
+		{"indexed", "Z", nullptr, 0, $field(GDIBlitLoops, indexed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(GDIBlitLoops, init$, void, $SurfaceType*, $SurfaceType*)},
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;Z)V", nullptr, $PUBLIC, $method(GDIBlitLoops, init$, void, $SurfaceType*, $SurfaceType*, bool)},
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;III)V", nullptr, $PUBLIC, $method(GDIBlitLoops, init$, void, $SurfaceType*, $SurfaceType*, int32_t, int32_t, int32_t)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(GDIBlitLoops, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"nativeBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/Region;IIIIIIIIIZ)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(GDIBlitLoops, nativeBlit, void, $SurfaceData*, $SurfaceData*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"register", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(GDIBlitLoops, register$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.windows.GDIBlitLoops",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GDIBlitLoops, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GDIBlitLoops);
+	});
 	return class$;
 }
 

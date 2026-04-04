@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTreeUI.h>
-
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
@@ -17,7 +16,6 @@
 #include <java/awt/dnd/DropTarget.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyListener.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseListener.h>
@@ -133,8 +131,6 @@ using $BasicStroke = ::java::awt::BasicStroke;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
@@ -145,7 +141,6 @@ using $Stroke = ::java::awt::Stroke;
 using $DropTarget = ::java::awt::dnd::DropTarget;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
@@ -163,9 +158,7 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Enumeration = ::java::util::Enumeration;
-using $EventObject = ::java::util::EventObject;
 using $Hashtable = ::java::util::Hashtable;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $Icon = ::javax::swing::Icon;
@@ -209,7 +202,6 @@ using $TreePath = ::javax::swing::tree::TreePath;
 using $TreeSelectionModel = ::javax::swing::tree::TreeSelectionModel;
 using $VariableHeightLayoutCache = ::javax::swing::tree::VariableHeightLayoutCache;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
@@ -217,245 +209,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTreeUI_FieldInfo_[] = {
-	{"BASELINE_COMPONENT_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI, BASELINE_COMPONENT_KEY)},
-	{"SHARED_ACTION", "Ljavax/swing/plaf/basic/BasicTreeUI$Actions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI, SHARED_ACTION)},
-	{"collapsedIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(BasicTreeUI, collapsedIcon)},
-	{"expandedIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(BasicTreeUI, expandedIcon)},
-	{"hashColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicTreeUI, hashColor)},
-	{"leftChildIndent", "I", nullptr, $PROTECTED, $field(BasicTreeUI, leftChildIndent)},
-	{"rightChildIndent", "I", nullptr, $PROTECTED, $field(BasicTreeUI, rightChildIndent)},
-	{"totalChildIndent", "I", nullptr, $PROTECTED, $field(BasicTreeUI, totalChildIndent)},
-	{"preferredMinSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicTreeUI, preferredMinSize)},
-	{"lastSelectedRow", "I", nullptr, $PROTECTED, $field(BasicTreeUI, lastSelectedRow)},
-	{"tree", "Ljavax/swing/JTree;", nullptr, $PROTECTED, $field(BasicTreeUI, tree)},
-	{"currentCellRenderer", "Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED | $TRANSIENT, $field(BasicTreeUI, currentCellRenderer)},
-	{"createdRenderer", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, createdRenderer)},
-	{"cellEditor", "Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED | $TRANSIENT, $field(BasicTreeUI, cellEditor)},
-	{"createdCellEditor", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, createdCellEditor)},
-	{"stopEditingInCompleteEditing", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, stopEditingInCompleteEditing)},
-	{"rendererPane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $field(BasicTreeUI, rendererPane)},
-	{"preferredSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicTreeUI, preferredSize)},
-	{"validCachedPreferredSize", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, validCachedPreferredSize)},
-	{"treeState", "Ljavax/swing/tree/AbstractLayoutCache;", nullptr, $PROTECTED, $field(BasicTreeUI, treeState)},
-	{"drawingCache", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljava/lang/Boolean;>;", $PROTECTED, $field(BasicTreeUI, drawingCache)},
-	{"largeModel", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, largeModel)},
-	{"nodeDimensions", "Ljavax/swing/tree/AbstractLayoutCache$NodeDimensions;", nullptr, $PROTECTED, $field(BasicTreeUI, nodeDimensions)},
-	{"treeModel", "Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED, $field(BasicTreeUI, treeModel)},
-	{"treeSelectionModel", "Ljavax/swing/tree/TreeSelectionModel;", nullptr, $PROTECTED, $field(BasicTreeUI, treeSelectionModel)},
-	{"depthOffset", "I", nullptr, $PROTECTED, $field(BasicTreeUI, depthOffset)},
-	{"editingComponent", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicTreeUI, editingComponent)},
-	{"editingPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(BasicTreeUI, editingPath)},
-	{"editingRow", "I", nullptr, $PROTECTED, $field(BasicTreeUI, editingRow)},
-	{"editorHasDifferentSize", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, editorHasDifferentSize)},
-	{"leadRow", "I", nullptr, $PRIVATE, $field(BasicTreeUI, leadRow)},
-	{"ignoreLAChange", "Z", nullptr, $PRIVATE, $field(BasicTreeUI, ignoreLAChange)},
-	{"leftToRight", "Z", nullptr, $PRIVATE, $field(BasicTreeUI, leftToRight)},
-	{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicTreeUI, propertyChangeListener)},
-	{"selectionModelPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicTreeUI, selectionModelPropertyChangeListener)},
-	{"mouseListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $field(BasicTreeUI, mouseListener)},
-	{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE, $field(BasicTreeUI, focusListener)},
-	{"keyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(BasicTreeUI, keyListener)},
-	{"componentListener", "Ljava/awt/event/ComponentListener;", nullptr, $PRIVATE, $field(BasicTreeUI, componentListener)},
-	{"cellEditorListener", "Ljavax/swing/event/CellEditorListener;", nullptr, $PRIVATE, $field(BasicTreeUI, cellEditorListener)},
-	{"treeSelectionListener", "Ljavax/swing/event/TreeSelectionListener;", nullptr, $PRIVATE, $field(BasicTreeUI, treeSelectionListener)},
-	{"treeModelListener", "Ljavax/swing/event/TreeModelListener;", nullptr, $PRIVATE, $field(BasicTreeUI, treeModelListener)},
-	{"treeExpansionListener", "Ljavax/swing/event/TreeExpansionListener;", nullptr, $PRIVATE, $field(BasicTreeUI, treeExpansionListener)},
-	{"paintLines", "Z", nullptr, $PRIVATE, $field(BasicTreeUI, paintLines)},
-	{"lineTypeDashed", "Z", nullptr, $PRIVATE, $field(BasicTreeUI, lineTypeDashed)},
-	{"timeFactor", "J", nullptr, $PRIVATE, $field(BasicTreeUI, timeFactor)},
-	{"handler", "Ljavax/swing/plaf/basic/BasicTreeUI$Handler;", nullptr, $PRIVATE, $field(BasicTreeUI, handler)},
-	{"releaseEvent", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE, $field(BasicTreeUI, releaseEvent)},
-	{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI, defaultTransferHandler)},
-	{}
-};
-
-$MethodInfo _BasicTreeUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTreeUI, init$, void)},
-	{"cancelEditing", "(Ljavax/swing/JTree;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, cancelEditing, void, $JTree*)},
-	{"checkForClickInExpandControl", "(Ljavax/swing/tree/TreePath;II)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, checkForClickInExpandControl, void, $TreePath*, int32_t, int32_t)},
-	{"completeEditing", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, completeEditing, void)},
-	{"completeEditing", "(ZZZ)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, completeEditing, void, bool, bool, bool)},
-	{"completeUIInstall", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, completeUIInstall, void)},
-	{"completeUIUninstall", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, completeUIUninstall, void)},
-	{"configureLayoutCache", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, configureLayoutCache, void)},
-	{"createCellEditorListener", "()Ljavax/swing/event/CellEditorListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createCellEditorListener, $CellEditorListener*)},
-	{"createCellRendererPane", "()Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createCellRendererPane, $CellRendererPane*)},
-	{"createComponentListener", "()Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createComponentListener, $ComponentListener*)},
-	{"createDefaultCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createDefaultCellEditor, $TreeCellEditor*)},
-	{"createDefaultCellRenderer", "()Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createDefaultCellRenderer, $TreeCellRenderer*)},
-	{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createFocusListener, $FocusListener*)},
-	{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createKeyListener, $KeyListener*)},
-	{"createLayoutCache", "()Ljavax/swing/tree/AbstractLayoutCache;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createLayoutCache, $AbstractLayoutCache*)},
-	{"createMouseListener", "()Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createMouseListener, $MouseListener*)},
-	{"createNodeDimensions", "()Ljavax/swing/tree/AbstractLayoutCache$NodeDimensions;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createNodeDimensions, $AbstractLayoutCache$NodeDimensions*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createSelectionModelPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createSelectionModelPropertyChangeListener, $PropertyChangeListener*)},
-	{"createTreeExpansionListener", "()Ljavax/swing/event/TreeExpansionListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createTreeExpansionListener, $TreeExpansionListener*)},
-	{"createTreeModelListener", "()Ljavax/swing/event/TreeModelListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createTreeModelListener, $TreeModelListener*)},
-	{"createTreeSelectionListener", "()Ljavax/swing/event/TreeSelectionListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createTreeSelectionListener, $TreeSelectionListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTreeUI, createUI, $ComponentUI*, $JComponent*)},
-	{"drawCentered", "(Ljava/awt/Component;Ljava/awt/Graphics;Ljavax/swing/Icon;II)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, drawCentered, void, $Component*, $Graphics*, $Icon*, int32_t, int32_t)},
-	{"drawDashedHorizontalLine", "(Ljava/awt/Graphics;III)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, drawDashedHorizontalLine, void, $Graphics*, int32_t, int32_t, int32_t)},
-	{"drawDashedLine", "(Ljava/awt/Graphics;IIIZ)V", nullptr, $PRIVATE, $method(BasicTreeUI, drawDashedLine, void, $Graphics*, int32_t, int32_t, int32_t, bool)},
-	{"drawDashedVerticalLine", "(Ljava/awt/Graphics;III)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, drawDashedVerticalLine, void, $Graphics*, int32_t, int32_t, int32_t)},
-	{"ensureRowsAreVisible", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, ensureRowsAreVisible, void, int32_t, int32_t)},
-	{"extendSelection", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(BasicTreeUI, extendSelection, void, $TreePath*)},
-	{"findCenteredX", "(II)I", nullptr, $PRIVATE, $method(BasicTreeUI, findCenteredX, int32_t, int32_t, int32_t)},
-	{"getAnchorSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(BasicTreeUI, getAnchorSelectionPath, $TreePath*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
-	{"getCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getCellEditor, $TreeCellEditor*)},
-	{"getCellRenderer", "()Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getCellRenderer, $TreeCellRenderer*)},
-	{"getClosestPathForLocation", "(Ljavax/swing/JTree;II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getClosestPathForLocation, $TreePath*, $JTree*, int32_t, int32_t)},
-	{"getCollapsedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getCollapsedIcon, $Icon*)},
-	{"getDropLineRect", "(Ljavax/swing/JTree$DropLocation;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getDropLineRect, $Rectangle*, $JTree$DropLocation*)},
-	{"getEditingPath", "(Ljavax/swing/JTree;)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getEditingPath, $TreePath*, $JTree*)},
-	{"getExpandedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getExpandedIcon, $Icon*)},
-	{"getHandler", "()Ljavax/swing/plaf/basic/BasicTreeUI$Handler;", nullptr, $PRIVATE, $method(BasicTreeUI, getHandler, $BasicTreeUI$Handler*)},
-	{"getHashColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getHashColor, $Color*)},
-	{"getHorizontalLegBuffer", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getHorizontalLegBuffer, int32_t)},
-	{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicTreeUI, getInputMap, $InputMap*, int32_t)},
-	{"getLastChildPath", "(Ljavax/swing/tree/TreePath;)Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getLastChildPath, $TreePath*, $TreePath*)},
-	{"getLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(BasicTreeUI, getLeadSelectionPath, $TreePath*)},
-	{"getLeadSelectionRow", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getLeadSelectionRow, int32_t)},
-	{"getLeftChildIndent", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getLeftChildIndent, int32_t)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getModel, $TreeModel*)},
-	{"getPathBounds", "(Ljavax/swing/JTree;Ljavax/swing/tree/TreePath;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPathBounds, $Rectangle*, $JTree*, $TreePath*)},
-	{"getPathBounds", "(Ljavax/swing/tree/TreePath;Ljava/awt/Insets;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(BasicTreeUI, getPathBounds, $Rectangle*, $TreePath*, $Insets*, $Rectangle*)},
-	{"getPathForRow", "(Ljavax/swing/JTree;I)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPathForRow, $TreePath*, $JTree*, int32_t)},
-	{"getPreferredMinSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPreferredMinSize, $Dimension*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;Z)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPreferredSize, $Dimension*, $JComponent*, bool)},
-	{"getRepaintPathBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(BasicTreeUI, getRepaintPathBounds, $Rectangle*, $Rectangle*)},
-	{"getRightChildIndent", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getRightChildIndent, int32_t)},
-	{"getRowCount", "(Ljavax/swing/JTree;)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getRowCount, int32_t, $JTree*)},
-	{"getRowForPath", "(Ljavax/swing/JTree;Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getRowForPath, int32_t, $JTree*, $TreePath*)},
-	{"getRowHeight", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getRowHeight, int32_t)},
-	{"getRowX", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getRowX, int32_t, int32_t, int32_t)},
-	{"getSelectionModel", "()Ljavax/swing/tree/TreeSelectionModel;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getSelectionModel, $TreeSelectionModel*)},
-	{"getShowsRootHandles", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getShowsRootHandles, bool)},
-	{"getVerticalLegBuffer", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getVerticalLegBuffer, int32_t)},
-	{"handleExpandControlClick", "(Ljavax/swing/tree/TreePath;II)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, handleExpandControlClick, void, $TreePath*, int32_t, int32_t)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, installKeyboardActions, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, installUI, void, $JComponent*)},
-	{"isDropLine", "(Ljavax/swing/JTree$DropLocation;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isDropLine, bool, $JTree$DropLocation*)},
-	{"isEditable", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isEditable, bool)},
-	{"isEditing", "(Ljavax/swing/JTree;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, isEditing, bool, $JTree*)},
-	{"isLargeModel", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isLargeModel, bool)},
-	{"isLeaf", "(I)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isLeaf, bool, int32_t)},
-	{"isLocationInExpandControl", "(Ljavax/swing/tree/TreePath;II)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isLocationInExpandControl, bool, $TreePath*, int32_t, int32_t)},
-	{"isMultiSelectEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isMultiSelectEvent, bool, $MouseEvent*)},
-	{"isRootVisible", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isRootVisible, bool)},
-	{"isToggleEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isToggleEvent, bool, $MouseEvent*)},
-	{"isToggleSelectionEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isToggleSelectionEvent, bool, $MouseEvent*)},
-	{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicTreeUI, loadActionMap, void, $LazyActionMap*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintDropLine", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintDropLine, void, $Graphics*)},
-	{"paintExpandControl", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintExpandControl, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
-	{"paintHorizontalLine", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;III)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintHorizontalLine, void, $Graphics*, $JComponent*, int32_t, int32_t, int32_t)},
-	{"paintHorizontalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintHorizontalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
-	{"paintRow", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintRow, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
-	{"paintVerticalLine", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;III)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintVerticalLine, void, $Graphics*, $JComponent*, int32_t, int32_t, int32_t)},
-	{"paintVerticalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintVerticalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $TreePath*)},
-	{"pathWasCollapsed", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, pathWasCollapsed, void, $TreePath*)},
-	{"pathWasExpanded", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, pathWasExpanded, void, $TreePath*)},
-	{"prepareForUIInstall", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, prepareForUIInstall, void)},
-	{"prepareForUIUninstall", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, prepareForUIUninstall, void)},
-	{"redoTheLayout", "()V", nullptr, $PRIVATE, $method(BasicTreeUI, redoTheLayout, void)},
-	{"repaintPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(BasicTreeUI, repaintPath, void, $TreePath*)},
-	{"selectPathForEvent", "(Ljavax/swing/tree/TreePath;Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, selectPathForEvent, void, $TreePath*, $MouseEvent*)},
-	{"setAnchorSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(BasicTreeUI, setAnchorSelectionPath, void, $TreePath*)},
-	{"setCellEditor", "(Ljavax/swing/tree/TreeCellEditor;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setCellEditor, void, $TreeCellEditor*)},
-	{"setCellRenderer", "(Ljavax/swing/tree/TreeCellRenderer;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setCellRenderer, void, $TreeCellRenderer*)},
-	{"setCollapsedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setCollapsedIcon, void, $Icon*)},
-	{"setEditable", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setEditable, void, bool)},
-	{"setExpandedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setExpandedIcon, void, $Icon*)},
-	{"setHashColor", "(Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setHashColor, void, $Color*)},
-	{"setLargeModel", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setLargeModel, void, bool)},
-	{"setLeadSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(BasicTreeUI, setLeadSelectionPath, void, $TreePath*)},
-	{"setLeadSelectionPath", "(Ljavax/swing/tree/TreePath;Z)V", nullptr, $PRIVATE, $method(BasicTreeUI, setLeadSelectionPath, void, $TreePath*, bool)},
-	{"setLeftChildIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setLeftChildIndent, void, int32_t)},
-	{"setModel", "(Ljavax/swing/tree/TreeModel;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setModel, void, $TreeModel*)},
-	{"setPreferredMinSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setPreferredMinSize, void, $Dimension*)},
-	{"setRightChildIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setRightChildIndent, void, int32_t)},
-	{"setRootVisible", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setRootVisible, void, bool)},
-	{"setRowHeight", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setRowHeight, void, int32_t)},
-	{"setSelectionModel", "(Ljavax/swing/tree/TreeSelectionModel;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setSelectionModel, void, $TreeSelectionModel*)},
-	{"setShowsRootHandles", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setShowsRootHandles, void, bool)},
-	{"shouldPaintExpandControl", "(Ljavax/swing/tree/TreePath;IZZZ)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, shouldPaintExpandControl, bool, $TreePath*, int32_t, bool, bool, bool)},
-	{"startEditing", "(Ljavax/swing/tree/TreePath;Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, startEditing, bool, $TreePath*, $MouseEvent*)},
-	{"startEditingAtPath", "(Ljavax/swing/JTree;Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, startEditingAtPath, void, $JTree*, $TreePath*)},
-	{"startEditingOnRelease", "(Ljavax/swing/tree/TreePath;Ljava/awt/event/MouseEvent;Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(BasicTreeUI, startEditingOnRelease, bool, $TreePath*, $MouseEvent*, $MouseEvent*)},
-	{"stopEditing", "(Ljavax/swing/JTree;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, stopEditing, bool, $JTree*)},
-	{"toggleExpandState", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, toggleExpandState, void, $TreePath*)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, uninstallKeyboardActions, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, uninstallUI, void, $JComponent*)},
-	{"updateCachedPreferredSize", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateCachedPreferredSize, void)},
-	{"updateCellEditor", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateCellEditor, void)},
-	{"updateDepthOffset", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateDepthOffset, void)},
-	{"updateExpandedDescendants", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateExpandedDescendants, void, $TreePath*)},
-	{"updateLayoutCacheExpandedNodes", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateLayoutCacheExpandedNodes, void)},
-	{"updateLayoutCacheExpandedNodesIfNecessary", "()V", nullptr, $PRIVATE, $method(BasicTreeUI, updateLayoutCacheExpandedNodesIfNecessary, void)},
-	{"updateLeadSelectionRow", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateLeadSelectionRow, void)},
-	{"updateRenderer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateRenderer, void)},
-	{"updateSize", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateSize, void)},
-	{"updateSize0", "()V", nullptr, $PRIVATE, $method(BasicTreeUI, updateSize0, void)},
-	{}
-};
-
-$InnerClassInfo _BasicTreeUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTreeUI$Actions", "javax.swing.plaf.basic.BasicTreeUI", "Actions", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$Handler", "javax.swing.plaf.basic.BasicTreeUI", "Handler", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeTransferHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeTransferHandler", $STATIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$MouseInputHandler", "javax.swing.plaf.basic.BasicTreeUI", "MouseInputHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeCancelEditingAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeCancelEditingAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeToggleAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeToggleAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeHomeAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeHomeAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeIncrementAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeIncrementAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreePageAction", "javax.swing.plaf.basic.BasicTreeUI", "TreePageAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeTraverseAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeTraverseAction", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$SelectionModelPropertyChangeHandler", "javax.swing.plaf.basic.BasicTreeUI", "SelectionModelPropertyChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicTreeUI", "PropertyChangeHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$MouseHandler", "javax.swing.plaf.basic.BasicTreeUI", "MouseHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$NodeDimensionsHandler", "javax.swing.plaf.basic.BasicTreeUI", "NodeDimensionsHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$FocusHandler", "javax.swing.plaf.basic.BasicTreeUI", "FocusHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$KeyHandler", "javax.swing.plaf.basic.BasicTreeUI", "KeyHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$CellEditorHandler", "javax.swing.plaf.basic.BasicTreeUI", "CellEditorHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeSelectionHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeSelectionHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeModelHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeModelHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$ComponentHandler", "javax.swing.plaf.basic.BasicTreeUI", "ComponentHandler", $PUBLIC},
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeExpansionHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeExpansionHandler", $PUBLIC},
-	{}
-};
-
-$ClassInfo _BasicTreeUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTreeUI",
-	"javax.swing.plaf.TreeUI",
-	nullptr,
-	_BasicTreeUI_FieldInfo_,
-	_BasicTreeUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTreeUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTreeUI$Actions,javax.swing.plaf.basic.BasicTreeUI$Actions$1,javax.swing.plaf.basic.BasicTreeUI$Handler,javax.swing.plaf.basic.BasicTreeUI$TreeTransferHandler,javax.swing.plaf.basic.BasicTreeUI$MouseInputHandler,javax.swing.plaf.basic.BasicTreeUI$TreeCancelEditingAction,javax.swing.plaf.basic.BasicTreeUI$TreeToggleAction,javax.swing.plaf.basic.BasicTreeUI$TreeHomeAction,javax.swing.plaf.basic.BasicTreeUI$TreeIncrementAction,javax.swing.plaf.basic.BasicTreeUI$TreePageAction,javax.swing.plaf.basic.BasicTreeUI$TreeTraverseAction,javax.swing.plaf.basic.BasicTreeUI$SelectionModelPropertyChangeHandler,javax.swing.plaf.basic.BasicTreeUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicTreeUI$MouseHandler,javax.swing.plaf.basic.BasicTreeUI$NodeDimensionsHandler,javax.swing.plaf.basic.BasicTreeUI$FocusHandler,javax.swing.plaf.basic.BasicTreeUI$KeyHandler,javax.swing.plaf.basic.BasicTreeUI$CellEditorHandler,javax.swing.plaf.basic.BasicTreeUI$TreeSelectionHandler,javax.swing.plaf.basic.BasicTreeUI$TreeModelHandler,javax.swing.plaf.basic.BasicTreeUI$ComponentHandler,javax.swing.plaf.basic.BasicTreeUI$TreeExpansionHandler"
-};
-
-$Object* allocate$BasicTreeUI($Class* clazz) {
-	return $of($alloc(BasicTreeUI));
-}
 
 $StringBuilder* BasicTreeUI::BASELINE_COMPONENT_KEY = nullptr;
 $BasicTreeUI$Actions* BasicTreeUI::SHARED_ACTION = nullptr;
@@ -468,7 +221,7 @@ $ComponentUI* BasicTreeUI::createUI($JComponent* x) {
 
 void BasicTreeUI::loadActionMap($LazyActionMap* map) {
 	$init(BasicTreeUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicTreeUI$Actions);
 	$nc(map)->put($$new($BasicTreeUI$Actions, $BasicTreeUI$Actions::SELECT_PREVIOUS));
 	map->put($$new($BasicTreeUI$Actions, $BasicTreeUI$Actions::SELECT_PREVIOUS_CHANGE_LEAD));
@@ -533,7 +286,7 @@ void BasicTreeUI::setLeftChildIndent(int32_t newAmount) {
 	this->leftChildIndent = newAmount;
 	this->totalChildIndent = this->leftChildIndent + this->rightChildIndent;
 	if (this->treeState != nullptr) {
-		$nc(this->treeState)->invalidateSizes();
+		this->treeState->invalidateSizes();
 	}
 	updateSize();
 }
@@ -546,7 +299,7 @@ void BasicTreeUI::setRightChildIndent(int32_t newAmount) {
 	this->rightChildIndent = newAmount;
 	this->totalChildIndent = this->leftChildIndent + this->rightChildIndent;
 	if (this->treeState != nullptr) {
-		$nc(this->treeState)->invalidateSizes();
+		this->treeState->invalidateSizes();
 	}
 	updateSize();
 }
@@ -599,14 +352,14 @@ void BasicTreeUI::setRowHeight(int32_t rowHeight) {
 }
 
 int32_t BasicTreeUI::getRowHeight() {
-	return (this->tree == nullptr) ? -1 : $nc(this->tree)->getRowHeight();
+	return (this->tree == nullptr) ? -1 : this->tree->getRowHeight();
 }
 
 void BasicTreeUI::setCellRenderer($TreeCellRenderer* tcr) {
 	completeEditing();
 	updateRenderer();
 	if (this->treeState != nullptr) {
-		$nc(this->treeState)->invalidateSizes();
+		this->treeState->invalidateSizes();
 		updateSize();
 	}
 }
@@ -618,16 +371,16 @@ $TreeCellRenderer* BasicTreeUI::getCellRenderer() {
 void BasicTreeUI::setModel($TreeModel* model) {
 	completeEditing();
 	if (this->treeModel != nullptr && this->treeModelListener != nullptr) {
-		$nc(this->treeModel)->removeTreeModelListener(this->treeModelListener);
+		this->treeModel->removeTreeModelListener(this->treeModelListener);
 	}
 	$set(this, treeModel, model);
 	if (this->treeModel != nullptr) {
 		if (this->treeModelListener != nullptr) {
-			$nc(this->treeModel)->addTreeModelListener(this->treeModelListener);
+			this->treeModel->addTreeModelListener(this->treeModelListener);
 		}
 	}
 	if (this->treeState != nullptr) {
-		$nc(this->treeState)->setModel(model);
+		this->treeState->setModel(model);
 		updateLayoutCacheExpandedNodesIfNecessary();
 		updateSize();
 	}
@@ -641,27 +394,27 @@ void BasicTreeUI::setRootVisible(bool newValue) {
 	completeEditing();
 	updateDepthOffset();
 	if (this->treeState != nullptr) {
-		$nc(this->treeState)->setRootVisible(newValue);
+		this->treeState->setRootVisible(newValue);
 		$nc(this->treeState)->invalidateSizes();
 		updateSize();
 	}
 }
 
 bool BasicTreeUI::isRootVisible() {
-	return (this->tree != nullptr) ? $nc(this->tree)->isRootVisible() : false;
+	return (this->tree != nullptr) ? this->tree->isRootVisible() : false;
 }
 
 void BasicTreeUI::setShowsRootHandles(bool newValue) {
 	completeEditing();
 	updateDepthOffset();
 	if (this->treeState != nullptr) {
-		$nc(this->treeState)->invalidateSizes();
+		this->treeState->invalidateSizes();
 		updateSize();
 	}
 }
 
 bool BasicTreeUI::getShowsRootHandles() {
-	return (this->tree != nullptr) ? $nc(this->tree)->getShowsRootHandles() : false;
+	return (this->tree != nullptr) ? this->tree->getShowsRootHandles() : false;
 }
 
 void BasicTreeUI::setCellEditor($TreeCellEditor* editor) {
@@ -669,7 +422,7 @@ void BasicTreeUI::setCellEditor($TreeCellEditor* editor) {
 }
 
 $TreeCellEditor* BasicTreeUI::getCellEditor() {
-	return (this->tree != nullptr) ? $nc(this->tree)->getCellEditor() : ($TreeCellEditor*)nullptr;
+	return (this->tree != nullptr) ? this->tree->getCellEditor() : ($TreeCellEditor*)nullptr;
 }
 
 void BasicTreeUI::setEditable(bool newValue) {
@@ -677,33 +430,33 @@ void BasicTreeUI::setEditable(bool newValue) {
 }
 
 bool BasicTreeUI::isEditable() {
-	return (this->tree != nullptr) ? $nc(this->tree)->isEditable() : false;
+	return (this->tree != nullptr) ? this->tree->isEditable() : false;
 }
 
 void BasicTreeUI::setSelectionModel($TreeSelectionModel* newLSM) {
 	completeEditing();
 	if (this->selectionModelPropertyChangeListener != nullptr && this->treeSelectionModel != nullptr) {
-		$nc(this->treeSelectionModel)->removePropertyChangeListener(this->selectionModelPropertyChangeListener);
+		this->treeSelectionModel->removePropertyChangeListener(this->selectionModelPropertyChangeListener);
 	}
 	if (this->treeSelectionListener != nullptr && this->treeSelectionModel != nullptr) {
-		$nc(this->treeSelectionModel)->removeTreeSelectionListener(this->treeSelectionListener);
+		this->treeSelectionModel->removeTreeSelectionListener(this->treeSelectionListener);
 	}
 	$set(this, treeSelectionModel, newLSM);
 	if (this->treeSelectionModel != nullptr) {
 		if (this->selectionModelPropertyChangeListener != nullptr) {
-			$nc(this->treeSelectionModel)->addPropertyChangeListener(this->selectionModelPropertyChangeListener);
+			this->treeSelectionModel->addPropertyChangeListener(this->selectionModelPropertyChangeListener);
 		}
 		if (this->treeSelectionListener != nullptr) {
 			$nc(this->treeSelectionModel)->addTreeSelectionListener(this->treeSelectionListener);
 		}
 		if (this->treeState != nullptr) {
-			$nc(this->treeState)->setSelectionModel(this->treeSelectionModel);
+			this->treeState->setSelectionModel(this->treeSelectionModel);
 		}
 	} else if (this->treeState != nullptr) {
-		$nc(this->treeState)->setSelectionModel(nullptr);
+		this->treeState->setSelectionModel(nullptr);
 	}
 	if (this->tree != nullptr) {
-		$nc(this->tree)->repaint();
+		this->tree->repaint();
 	}
 }
 
@@ -712,11 +465,10 @@ $TreeSelectionModel* BasicTreeUI::getSelectionModel() {
 }
 
 $Rectangle* BasicTreeUI::getPathBounds($JTree* tree, $TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (tree != nullptr && this->treeState != nullptr) {
-		$var($TreePath, var$0, path);
-		$var($Insets, var$1, tree->getInsets());
-		return getPathBounds(var$0, var$1, $$new($Rectangle));
+		$var($Insets, var$0, tree->getInsets());
+		return getPathBounds(path, var$0, $$new($Rectangle));
 	}
 	return nullptr;
 }
@@ -736,15 +488,15 @@ $Rectangle* BasicTreeUI::getPathBounds($TreePath* path, $Insets* insets, $Rectan
 }
 
 $TreePath* BasicTreeUI::getPathForRow($JTree* tree, int32_t row) {
-	return (this->treeState != nullptr) ? $nc(this->treeState)->getPathForRow(row) : ($TreePath*)nullptr;
+	return (this->treeState != nullptr) ? this->treeState->getPathForRow(row) : ($TreePath*)nullptr;
 }
 
 int32_t BasicTreeUI::getRowForPath($JTree* tree, $TreePath* path) {
-	return (this->treeState != nullptr) ? $nc(this->treeState)->getRowForPath(path) : -1;
+	return (this->treeState != nullptr) ? this->treeState->getRowForPath(path) : -1;
 }
 
 int32_t BasicTreeUI::getRowCount($JTree* tree) {
-	return (this->treeState != nullptr) ? $nc(this->treeState)->getRowCount() : 0;
+	return (this->treeState != nullptr) ? this->treeState->getRowCount() : 0;
 }
 
 $TreePath* BasicTreeUI::getClosestPathForLocation($JTree* tree, int32_t x, int32_t y) {
@@ -822,9 +574,9 @@ void BasicTreeUI::completeUIInstall() {
 }
 
 void BasicTreeUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->tree)->getBackground() == nullptr;
-	if (var$0 || $instanceOf($UIResource, $($nc(this->tree)->getBackground()))) {
+	if (var$0 || $instanceOf($UIResource, $(this->tree->getBackground()))) {
 		$nc(this->tree)->setBackground($($UIManager::getColor("Tree.background"_s)));
 	}
 	bool var$1 = getHashColor() == nullptr;
@@ -832,16 +584,16 @@ void BasicTreeUI::installDefaults() {
 		setHashColor($($UIManager::getColor("Tree.hash"_s)));
 	}
 	bool var$2 = $nc(this->tree)->getFont() == nullptr;
-	if (var$2 || $instanceOf($UIResource, $($nc(this->tree)->getFont()))) {
+	if (var$2 || $instanceOf($UIResource, $(this->tree->getFont()))) {
 		$nc(this->tree)->setFont($($UIManager::getFont("Tree.font"_s)));
 	}
-	setExpandedIcon($cast($Icon, $($UIManager::get("Tree.expandedIcon"_s))));
-	setCollapsedIcon($cast($Icon, $($UIManager::get("Tree.collapsedIcon"_s))));
-	setLeftChildIndent($nc(($cast($Integer, $($UIManager::get("Tree.leftChildIndent"_s)))))->intValue());
-	setRightChildIndent($nc(($cast($Integer, $($UIManager::get("Tree.rightChildIndent"_s)))))->intValue());
+	setExpandedIcon($$cast($Icon, $UIManager::get("Tree.expandedIcon"_s)));
+	setCollapsedIcon($$cast($Icon, $UIManager::get("Tree.collapsedIcon"_s)));
+	setLeftChildIndent($$sure($Integer, $UIManager::get("Tree.leftChildIndent"_s))->intValue());
+	setRightChildIndent($$sure($Integer, $UIManager::get("Tree.rightChildIndent"_s))->intValue());
 	$LookAndFeel::installProperty(this->tree, "rowHeight"_s, $($UIManager::get("Tree.rowHeight"_s)));
 	bool var$3 = $nc(this->tree)->isLargeModel();
-	this->largeModel = (var$3 && $nc(this->tree)->getRowHeight() > 0);
+	this->largeModel = (var$3 && this->tree->getRowHeight() > 0);
 	$var($Object, scrollsOnExpand, $UIManager::get("Tree.scrollsOnExpand"_s));
 	if (scrollsOnExpand != nullptr) {
 		$LookAndFeel::installProperty(this->tree, "scrollsOnExpand"_s, scrollsOnExpand);
@@ -849,7 +601,7 @@ void BasicTreeUI::installDefaults() {
 	this->paintLines = $UIManager::getBoolean("Tree.paintLines"_s);
 	this->lineTypeDashed = $UIManager::getBoolean("Tree.lineTypeDashed"_s);
 	$var($Long, l, $cast($Long, $UIManager::get("Tree.timeFactor"_s)));
-	this->timeFactor = (l != nullptr) ? $nc(l)->longValue() : (int64_t)1000;
+	this->timeFactor = (l != nullptr) ? l->longValue() : 1000;
 	$var($Object, showsRootHandles, $UIManager::get("Tree.showsRootHandles"_s));
 	if (showsRootHandles != nullptr) {
 		$LookAndFeel::installProperty(this->tree, $JTree::SHOWS_ROOT_HANDLES_PROPERTY, showsRootHandles);
@@ -857,7 +609,7 @@ void BasicTreeUI::installDefaults() {
 }
 
 void BasicTreeUI::installListeners() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (($set(this, propertyChangeListener, createPropertyChangeListener())) != nullptr) {
 		$nc(this->tree)->addPropertyChangeListener(this->propertyChangeListener);
 	}
@@ -877,13 +629,13 @@ void BasicTreeUI::installListeners() {
 		$nc(this->tree)->addTreeExpansionListener(this->treeExpansionListener);
 	}
 	if (($set(this, treeModelListener, createTreeModelListener())) != nullptr && this->treeModel != nullptr) {
-		$nc(this->treeModel)->addTreeModelListener(this->treeModelListener);
+		this->treeModel->addTreeModelListener(this->treeModelListener);
 	}
 	if (($set(this, selectionModelPropertyChangeListener, createSelectionModelPropertyChangeListener())) != nullptr && this->treeSelectionModel != nullptr) {
-		$nc(this->treeSelectionModel)->addPropertyChangeListener(this->selectionModelPropertyChangeListener);
+		this->treeSelectionModel->addPropertyChangeListener(this->selectionModelPropertyChangeListener);
 	}
 	if (($set(this, treeSelectionListener, createTreeSelectionListener())) != nullptr && this->treeSelectionModel != nullptr) {
-		$nc(this->treeSelectionModel)->addTreeSelectionListener(this->treeSelectionListener);
+		this->treeSelectionModel->addTreeSelectionListener(this->treeSelectionListener);
 	}
 	$var($TransferHandler, th, $nc(this->tree)->getTransferHandler());
 	if (th == nullptr || $instanceOf($UIResource, th)) {
@@ -892,7 +644,6 @@ void BasicTreeUI::installListeners() {
 			$nc(this->tree)->setDropTarget(nullptr);
 		}
 	}
-	$init($Boolean);
 	$LookAndFeel::installProperty(this->tree, "opaque"_s, $Boolean::TRUE);
 }
 
@@ -905,13 +656,13 @@ void BasicTreeUI::installKeyboardActions() {
 }
 
 $InputMap* BasicTreeUI::getInputMap(int32_t condition) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (condition == $JComponent::WHEN_ANCESTOR_OF_FOCUSED_COMPONENT) {
 		return $cast($InputMap, $DefaultLookup::get(this->tree, this, "Tree.ancestorInputMap"_s));
 	} else if (condition == $JComponent::WHEN_FOCUSED) {
 		$var($InputMap, keyMap, $cast($InputMap, $DefaultLookup::get(this->tree, this, "Tree.focusInputMap"_s)));
 		$var($InputMap, rtlKeyMap, nullptr);
-		bool var$0 = $nc($($nc(this->tree)->getComponentOrientation()))->isLeftToRight();
+		bool var$0 = $$nc($nc(this->tree)->getComponentOrientation())->isLeftToRight();
 		if (var$0 || (($assign(rtlKeyMap, $cast($InputMap, $DefaultLookup::get(this->tree, this, "Tree.focusInputMap.RightToLeft"_s)))) == nullptr)) {
 			return keyMap;
 		} else {
@@ -924,7 +675,7 @@ $InputMap* BasicTreeUI::getInputMap(int32_t condition) {
 
 void BasicTreeUI::installComponents() {
 	if (($set(this, rendererPane, createCellRendererPane())) != nullptr) {
-		$nc(this->tree)->add(static_cast<$Component*>(this->rendererPane));
+		$nc(this->tree)->add(this->rendererPane);
 	}
 }
 
@@ -1071,13 +822,13 @@ void BasicTreeUI::uninstallListeners() {
 		$nc(this->tree)->removeTreeExpansionListener(this->treeExpansionListener);
 	}
 	if (this->treeModel != nullptr && this->treeModelListener != nullptr) {
-		$nc(this->treeModel)->removeTreeModelListener(this->treeModelListener);
+		this->treeModel->removeTreeModelListener(this->treeModelListener);
 	}
 	if (this->selectionModelPropertyChangeListener != nullptr && this->treeSelectionModel != nullptr) {
-		$nc(this->treeSelectionModel)->removePropertyChangeListener(this->selectionModelPropertyChangeListener);
+		this->treeSelectionModel->removePropertyChangeListener(this->selectionModelPropertyChangeListener);
 	}
 	if (this->treeSelectionListener != nullptr && this->treeSelectionModel != nullptr) {
-		$nc(this->treeSelectionModel)->removeTreeSelectionListener(this->treeSelectionListener);
+		this->treeSelectionModel->removeTreeSelectionListener(this->treeSelectionListener);
 	}
 	$set(this, handler, nullptr);
 }
@@ -1090,18 +841,18 @@ void BasicTreeUI::uninstallKeyboardActions() {
 
 void BasicTreeUI::uninstallComponents() {
 	if (this->rendererPane != nullptr) {
-		$nc(this->tree)->remove(static_cast<$Component*>(this->rendererPane));
+		$nc(this->tree)->remove(this->rendererPane);
 	}
 }
 
 void BasicTreeUI::redoTheLayout() {
 	if (this->treeState != nullptr) {
-		$nc(this->treeState)->invalidateSizes();
+		this->treeState->invalidateSizes();
 	}
 }
 
 int32_t BasicTreeUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TreeUI::getBaseline(c, width, height);
 	$var($UIDefaults, lafDefaults, $UIManager::getLookAndFeelDefaults());
 	$var($Component, renderer, $cast($Component, $nc(lafDefaults)->get(BasicTreeUI::BASELINE_COMPONENT_KEY)));
@@ -1116,7 +867,7 @@ int32_t BasicTreeUI::getBaseline($JComponent* c, int32_t width, int32_t height) 
 		baseline = $nc(renderer)->getBaseline($Integer::MAX_VALUE, rowHeight);
 	} else {
 		$var($Dimension, pref, $nc(renderer)->getPreferredSize());
-		baseline = renderer->getBaseline($nc(pref)->width, pref->height);
+		baseline = renderer->getBaseline($nc(pref)->width, $nc(pref)->height);
 	}
 	return baseline + $nc($($nc(this->tree)->getInsets()))->top;
 }
@@ -1128,7 +879,7 @@ $Component$BaselineResizeBehavior* BasicTreeUI::getBaselineResizeBehavior($JComp
 }
 
 void BasicTreeUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$equals(this->tree, c)) {
 		$throwNew($InternalError, "incorrect component"_s);
 	}
@@ -1140,14 +891,13 @@ void BasicTreeUI::paint($Graphics* g, $JComponent* c) {
 	$var($TreePath, initialPath, getClosestPathForLocation(this->tree, 0, $nc(paintBounds)->y));
 	$var($Enumeration, paintingEnumerator, $nc(this->treeState)->getVisiblePathsFrom(initialPath));
 	int32_t row = $nc(this->treeState)->getRowForPath(initialPath);
-	int32_t endY = $nc(paintBounds)->y + paintBounds->height;
+	int32_t endY = paintBounds->y + paintBounds->height;
 	$nc(this->drawingCache)->clear();
 	if (initialPath != nullptr && paintingEnumerator != nullptr) {
 		$var($TreePath, parentPath, initialPath);
 		$assign(parentPath, parentPath->getParentPath());
 		while (parentPath != nullptr) {
 			paintVerticalPartOfLeg(g, paintBounds, insets, parentPath);
-			$init($Boolean);
 			$nc(this->drawingCache)->put(parentPath, $Boolean::TRUE);
 			$assign(parentPath, parentPath->getParentPath());
 		}
@@ -1177,7 +927,6 @@ void BasicTreeUI::paint($Graphics* g, $JComponent* c) {
 				if (parentPath != nullptr) {
 					if ($nc(this->drawingCache)->get(parentPath) == nullptr) {
 						paintVerticalPartOfLeg(g, paintBounds, insets, parentPath);
-						$init($Boolean);
 						$nc(this->drawingCache)->put(parentPath, $Boolean::TRUE);
 					}
 					paintHorizontalPartOfLeg(g, paintBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
@@ -1188,7 +937,7 @@ void BasicTreeUI::paint($Graphics* g, $JComponent* c) {
 					paintExpandControl(g, paintBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
 				}
 				paintRow(g, paintBounds, insets, bounds, path, row, isExpanded, hasBeenExpanded, isLeaf);
-				if (($nc(bounds)->y + bounds->height) >= endY) {
+				if (($nc(bounds)->y + $nc(bounds)->height) >= endY) {
 					done = true;
 				}
 			} else {
@@ -1208,7 +957,7 @@ bool BasicTreeUI::isDropLine($JTree$DropLocation* loc) {
 }
 
 void BasicTreeUI::paintDropLine($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTree$DropLocation, loc, $nc(this->tree)->getDropLocation());
 	if (!isDropLine(loc)) {
 		return;
@@ -1217,26 +966,26 @@ void BasicTreeUI::paintDropLine($Graphics* g) {
 	if (c != nullptr) {
 		$nc(g)->setColor(c);
 		$var($Rectangle, rect, getDropLineRect(loc));
-		g->fillRect($nc(rect)->x, rect->y, rect->width, rect->height);
+		g->fillRect($nc(rect)->x, $nc(rect)->y, $nc(rect)->width, $nc(rect)->height);
 	}
 }
 
 $Rectangle* BasicTreeUI::getDropLineRect($JTree$DropLocation* loc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, rect, nullptr);
 	$var($TreePath, path, $nc(loc)->getPath());
 	int32_t index = loc->getChildIndex();
 	bool ltr = this->leftToRight;
 	$var($Insets, insets, $nc(this->tree)->getInsets());
 	if ($nc(this->tree)->getRowCount() == 0) {
-		$assign(rect, $new($Rectangle, $nc(insets)->left, insets->top, $nc(this->tree)->getWidth() - insets->left - insets->right, 0));
+		$assign(rect, $new($Rectangle, $nc(insets)->left, $nc(insets)->top, $nc(this->tree)->getWidth() - $nc(insets)->left - $nc(insets)->right, 0));
 	} else {
 		$var($TreeModel, model, getModel());
 		$var($Object, root, $nc(model)->getRoot());
 		bool var$0 = $equals($nc(path)->getLastPathComponent(), root);
 		if (var$0 && index >= model->getChildCount(root)) {
 			$assign(rect, $nc(this->tree)->getRowBounds($nc(this->tree)->getRowCount() - 1));
-			$nc(rect)->y = rect->y + rect->height;
+			$nc(rect)->y = $nc(rect)->y + $nc(rect)->height;
 			$var($Rectangle, xRect, nullptr);
 			if (!$nc(this->tree)->isRootVisible()) {
 				$assign(xRect, $nc(this->tree)->getRowBounds(0));
@@ -1252,7 +1001,7 @@ $Rectangle* BasicTreeUI::getDropLineRect($JTree$DropLocation* loc) {
 			rect->width = xRect->width;
 		} else if (index >= model->getChildCount($(path->getLastPathComponent()))) {
 			$assign(rect, $nc(this->tree)->getPathBounds($(path->pathByAddingChild($(model->getChild($(path->getLastPathComponent()), index - 1))))));
-			$nc(rect)->y = rect->y + rect->height;
+			$nc(rect)->y = $nc(rect)->y + $nc(rect)->height;
 		} else {
 			$assign(rect, $nc(this->tree)->getPathBounds($(path->pathByAddingChild($(model->getChild($(path->getLastPathComponent()), index))))));
 		}
@@ -1261,20 +1010,20 @@ $Rectangle* BasicTreeUI::getDropLineRect($JTree$DropLocation* loc) {
 		--rect->y;
 	}
 	if (!ltr) {
-		$nc(rect)->x = rect->x + rect->width - 100;
+		rect->x = rect->x + rect->width - 100;
 	}
-	$nc(rect)->width = 100;
+	rect->width = 100;
 	rect->height = 2;
 	return rect;
 }
 
 void BasicTreeUI::paintHorizontalPartOfLeg($Graphics* g, $Rectangle* clipBounds, $Insets* insets, $Rectangle* bounds, $TreePath* path, int32_t row, bool isExpanded, bool hasBeenExpanded, bool isLeaf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->paintLines) {
 		return;
 	}
 	int32_t depth = $nc(path)->getPathCount() - 1;
-	bool var$0 = (depth == 0 || (depth == 1 && !isRootVisible()));
+	bool var$0 = depth == 0 || (depth == 1 && !isRootVisible());
 	if (var$0 && !getShowsRootHandles()) {
 		return;
 	}
@@ -1282,7 +1031,7 @@ void BasicTreeUI::paintHorizontalPartOfLeg($Graphics* g, $Rectangle* clipBounds,
 	int32_t clipRight = clipBounds->x + clipBounds->width;
 	int32_t clipTop = clipBounds->y;
 	int32_t clipBottom = clipBounds->y + clipBounds->height;
-	int32_t lineY = $nc(bounds)->y + bounds->height / 2;
+	int32_t lineY = $nc(bounds)->y + $nc(bounds)->height / 2;
 	if (this->leftToRight) {
 		int32_t leftX = bounds->x - getRightChildIndent();
 		int32_t nodeX = bounds->x - getHorizontalLegBuffer();
@@ -1301,7 +1050,7 @@ void BasicTreeUI::paintHorizontalPartOfLeg($Graphics* g, $Rectangle* clipBounds,
 }
 
 void BasicTreeUI::paintVerticalPartOfLeg($Graphics* g, $Rectangle* clipBounds, $Insets* insets, $TreePath* path) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->paintLines) {
 		return;
 	}
@@ -1331,7 +1080,7 @@ void BasicTreeUI::paintVerticalPartOfLeg($Graphics* g, $Rectangle* clipBounds, $
 		if (parentBounds == nullptr) {
 			top = $Math::max($nc(insets)->top + getVerticalLegBuffer(), clipTop);
 		} else {
-			top = $Math::max($nc(parentBounds)->y + parentBounds->height + getVerticalLegBuffer(), clipTop);
+			top = $Math::max(parentBounds->y + parentBounds->height + getVerticalLegBuffer(), clipTop);
 		}
 		if (depth == 0 && !isRootVisible()) {
 			$var($TreeModel, model, getModel());
@@ -1345,7 +1094,7 @@ void BasicTreeUI::paintVerticalPartOfLeg($Graphics* g, $Rectangle* clipBounds, $
 				}
 			}
 		}
-		int32_t bottom = $Math::min($nc(lastChildBounds)->y + (lastChildBounds->height / 2), clipBottom);
+		int32_t bottom = $Math::min($nc(lastChildBounds)->y + ($nc(lastChildBounds)->height / 2), clipBottom);
 		if (top <= bottom) {
 			$nc(g)->setColor($(getHashColor()));
 			paintVerticalLine(g, this->tree, lineX, top, bottom);
@@ -1354,16 +1103,16 @@ void BasicTreeUI::paintVerticalPartOfLeg($Graphics* g, $Rectangle* clipBounds, $
 }
 
 void BasicTreeUI::paintExpandControl($Graphics* g, $Rectangle* clipBounds, $Insets* insets, $Rectangle* bounds, $TreePath* path, int32_t row, bool isExpanded, bool hasBeenExpanded, bool isLeaf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $nc(path)->getLastPathComponent());
 	if (!isLeaf && (!hasBeenExpanded || $nc(this->treeModel)->getChildCount(value) > 0)) {
 		int32_t middleXOfKnob = 0;
 		if (this->leftToRight) {
 			middleXOfKnob = $nc(bounds)->x - getRightChildIndent() + 1;
 		} else {
-			middleXOfKnob = $nc(bounds)->x + bounds->width + getRightChildIndent() - 1;
+			middleXOfKnob = $nc(bounds)->x + $nc(bounds)->width + getRightChildIndent() - 1;
 		}
-		int32_t middleYOfKnob = $nc(bounds)->y + (bounds->height / 2);
+		int32_t middleYOfKnob = $nc(bounds)->y + ($nc(bounds)->height / 2);
 		if (isExpanded) {
 			$var($Icon, expandedIcon, getExpandedIcon());
 			if (expandedIcon != nullptr) {
@@ -1379,7 +1128,7 @@ void BasicTreeUI::paintExpandControl($Graphics* g, $Rectangle* clipBounds, $Inse
 }
 
 void BasicTreeUI::paintRow($Graphics* g, $Rectangle* clipBounds, $Insets* insets, $Rectangle* bounds, $TreePath* path, int32_t row, bool isExpanded, bool hasBeenExpanded, bool isLeaf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->editingComponent != nullptr && this->editingRow == row) {
 		return;
 	}
@@ -1393,7 +1142,7 @@ void BasicTreeUI::paintRow($Graphics* g, $Rectangle* clipBounds, $Insets* insets
 	$var($JTree, var$0, this->tree);
 	$var($Object, var$1, $nc(path)->getLastPathComponent());
 	$assign(component, $nc(this->currentCellRenderer)->getTreeCellRendererComponent(var$0, var$1, $nc(this->tree)->isRowSelected(row), isExpanded, isLeaf, row, (leadIndex == row)));
-	$nc(this->rendererPane)->paintComponent(g, component, this->tree, $nc(bounds)->x, bounds->y, bounds->width, bounds->height, true);
+	$nc(this->rendererPane)->paintComponent(g, component, this->tree, $nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height, true);
 }
 
 bool BasicTreeUI::shouldPaintExpandControl($TreePath* path, int32_t row, bool isExpanded, bool hasBeenExpanded, bool isLeaf) {
@@ -1401,7 +1150,7 @@ bool BasicTreeUI::shouldPaintExpandControl($TreePath* path, int32_t row, bool is
 		return false;
 	}
 	int32_t depth = $nc(path)->getPathCount() - 1;
-	bool var$0 = (depth == 0 || (depth == 1 && !isRootVisible()));
+	bool var$0 = depth == 0 || (depth == 1 && !isRootVisible());
 	if (var$0 && !getShowsRootHandles()) {
 		return false;
 	}
@@ -1437,11 +1186,8 @@ int32_t BasicTreeUI::findCenteredX(int32_t x, int32_t iconWidth) {
 }
 
 void BasicTreeUI::drawCentered($Component* c, $Graphics* graphics, $Icon* icon, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, var$0, c);
-	$var($Graphics, var$1, graphics);
-	int32_t var$2 = findCenteredX(x, icon->getIconWidth());
-	$nc(icon)->paintIcon(var$0, var$1, var$2, y - icon->getIconHeight() / 2);
+	int32_t var$0 = findCenteredX(x, $nc(icon)->getIconWidth());
+	$nc(icon)->paintIcon(c, graphics, var$0, y - icon->getIconHeight() / 2);
 }
 
 void BasicTreeUI::drawDashedHorizontalLine($Graphics* g, int32_t y, int32_t x1, int32_t x2) {
@@ -1453,14 +1199,14 @@ void BasicTreeUI::drawDashedVerticalLine($Graphics* g, int32_t x, int32_t y1, in
 }
 
 void BasicTreeUI::drawDashedLine($Graphics* g, int32_t v, int32_t v1, int32_t v2, bool isVertical) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (v1 >= v2) {
 		return;
 	}
 	v1 += (v1 % 2);
 	$var($Graphics2D, g2d, $cast($Graphics2D, g));
 	$var($Stroke, oldStroke, $nc(g2d)->getStroke());
-	$var($BasicStroke, dashedStroke, $new($BasicStroke, (float)1, $BasicStroke::CAP_BUTT, $BasicStroke::JOIN_ROUND, (float)0, $$new($floats, {(float)1}), (float)0));
+	$var($BasicStroke, dashedStroke, $new($BasicStroke, 1, $BasicStroke::CAP_BUTT, $BasicStroke::JOIN_ROUND, 0, $$new($floats, {1}), 0));
 	g2d->setStroke(dashedStroke);
 	if (isVertical) {
 		g2d->drawLine(v, v1, v, v2);
@@ -1475,16 +1221,16 @@ int32_t BasicTreeUI::getRowX(int32_t row, int32_t depth) {
 }
 
 void BasicTreeUI::updateLayoutCacheExpandedNodes() {
-	$useLocalCurrentObjectStackCache();
-	if (this->treeModel != nullptr && $nc(this->treeModel)->getRoot() != nullptr) {
-		updateExpandedDescendants($$new($TreePath, $($nc(this->treeModel)->getRoot())));
+	$useLocalObjectStack();
+	if (this->treeModel != nullptr && this->treeModel->getRoot() != nullptr) {
+		updateExpandedDescendants($$new($TreePath, $(this->treeModel->getRoot())));
 	}
 }
 
 void BasicTreeUI::updateLayoutCacheExpandedNodesIfNecessary() {
-	$useLocalCurrentObjectStackCache();
-	if (this->treeModel != nullptr && $nc(this->treeModel)->getRoot() != nullptr) {
-		$var($TreePath, rootPath, $new($TreePath, $($nc(this->treeModel)->getRoot())));
+	$useLocalObjectStack();
+	if (this->treeModel != nullptr && this->treeModel->getRoot() != nullptr) {
+		$var($TreePath, rootPath, $new($TreePath, $(this->treeModel->getRoot())));
 		if ($nc(this->tree)->isExpanded(rootPath)) {
 			updateLayoutCacheExpandedNodes();
 		} else {
@@ -1494,11 +1240,11 @@ void BasicTreeUI::updateLayoutCacheExpandedNodesIfNecessary() {
 }
 
 void BasicTreeUI::updateExpandedDescendants($TreePath* path$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePath, path, path$renamed);
 	completeEditing();
 	if (this->treeState != nullptr) {
-		$nc(this->treeState)->setExpandedState(path, true);
+		this->treeState->setExpandedState(path, true);
 		$var($Enumeration, descendants, $nc(this->tree)->getExpandedDescendants(path));
 		if (descendants != nullptr) {
 			while (descendants->hasMoreElements()) {
@@ -1512,11 +1258,11 @@ void BasicTreeUI::updateExpandedDescendants($TreePath* path$renamed) {
 }
 
 $TreePath* BasicTreeUI::getLastChildPath($TreePath* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->treeModel != nullptr) {
-		int32_t childCount = $nc(this->treeModel)->getChildCount($($nc(parent)->getLastPathComponent()));
+		int32_t childCount = this->treeModel->getChildCount($($nc(parent)->getLastPathComponent()));
 		if (childCount > 0) {
-			return $nc(parent)->pathByAddingChild($($nc(this->treeModel)->getChild($(parent->getLastPathComponent()), childCount - 1)));
+			return parent->pathByAddingChild($($nc(this->treeModel)->getChild($(parent->getLastPathComponent()), childCount - 1)));
 		}
 	}
 	return nullptr;
@@ -1541,7 +1287,7 @@ void BasicTreeUI::updateCellEditor() {
 	completeEditing();
 	if (this->tree == nullptr) {
 		$assign(newEditor, nullptr);
-	} else if ($nc(this->tree)->isEditable()) {
+	} else if (this->tree->isEditable()) {
 		$assign(newEditor, $nc(this->tree)->getCellEditor());
 		if (newEditor == nullptr) {
 			$assign(newEditor, createDefaultCellEditor());
@@ -1555,7 +1301,7 @@ void BasicTreeUI::updateCellEditor() {
 	}
 	if (newEditor != this->cellEditor) {
 		if (this->cellEditor != nullptr && this->cellEditorListener != nullptr) {
-			$nc(this->cellEditor)->removeCellEditorListener(this->cellEditorListener);
+			this->cellEditor->removeCellEditorListener(this->cellEditorListener);
 		}
 		$set(this, cellEditor, newEditor);
 		if (this->cellEditorListener == nullptr) {
@@ -1569,10 +1315,10 @@ void BasicTreeUI::updateCellEditor() {
 }
 
 void BasicTreeUI::updateRenderer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tree != nullptr) {
 		$var($TreeCellRenderer, newCellRenderer, nullptr);
-		$assign(newCellRenderer, $nc(this->tree)->getCellRenderer());
+		$assign(newCellRenderer, this->tree->getCellRenderer());
 		if (newCellRenderer == nullptr) {
 			$nc(this->tree)->setCellRenderer($(createDefaultCellRenderer()));
 			this->createdRenderer = true;
@@ -1591,7 +1337,7 @@ void BasicTreeUI::updateRenderer() {
 }
 
 void BasicTreeUI::configureLayoutCache() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->treeState != nullptr && this->tree != nullptr) {
 		if (this->nodeDimensions == nullptr) {
 			$set(this, nodeDimensions, createNodeDimensions());
@@ -1632,7 +1378,7 @@ void BasicTreeUI::updateSize0() {
 }
 
 void BasicTreeUI::updateCachedPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->treeState != nullptr) {
 		$var($Insets, i, $nc(this->tree)->getInsets());
 		if (isLargeModel()) {
@@ -1640,20 +1386,20 @@ void BasicTreeUI::updateCachedPreferredSize() {
 			if ($nc(visRect)->x == 0 && visRect->y == 0 && visRect->width == 0 && visRect->height == 0 && $nc(this->tree)->getVisibleRowCount() > 0) {
 				visRect->width = 1;
 				int32_t var$0 = $nc(this->tree)->getRowHeight();
-				visRect->height = var$0 * $nc(this->tree)->getVisibleRowCount();
+				visRect->height = var$0 * this->tree->getVisibleRowCount();
 			} else {
 				visRect->x -= $nc(i)->left;
 				visRect->y -= i->top;
 			}
 			$var($Component, component, $SwingUtilities::getUnwrappedParent(this->tree));
 			if ($instanceOf($JViewport, component)) {
-				$assign(component, $nc(component)->getParent());
+				$assign(component, component->getParent());
 				if ($instanceOf($JScrollPane, component)) {
 					$var($JScrollPane, pane, $cast($JScrollPane, component));
 					$var($JScrollBar, bar, pane->getHorizontalScrollBar());
 					if ((bar != nullptr) && bar->isVisible()) {
 						int32_t height = bar->getHeight();
-						$nc(visRect)->y -= height;
+						visRect->y -= height;
 						visRect->height += height;
 					}
 				}
@@ -1663,26 +1409,26 @@ void BasicTreeUI::updateCachedPreferredSize() {
 			$nc(this->preferredSize)->width = $nc(this->treeState)->getPreferredWidth(nullptr);
 		}
 		$nc(this->preferredSize)->height = $nc(this->treeState)->getPreferredHeight();
-		$nc(this->preferredSize)->width += $nc(i)->left + i->right;
-		$nc(this->preferredSize)->height += i->top + i->bottom;
+		$nc(this->preferredSize)->width += $nc(i)->left + $nc(i)->right;
+		this->preferredSize->height += i->top + i->bottom;
 	}
 	this->validCachedPreferredSize = true;
 }
 
 void BasicTreeUI::pathWasExpanded($TreePath* path) {
 	if (this->tree != nullptr) {
-		$nc(this->tree)->fireTreeExpanded(path);
+		this->tree->fireTreeExpanded(path);
 	}
 }
 
 void BasicTreeUI::pathWasCollapsed($TreePath* path) {
 	if (this->tree != nullptr) {
-		$nc(this->tree)->fireTreeCollapsed(path);
+		this->tree->fireTreeCollapsed(path);
 	}
 }
 
 void BasicTreeUI::ensureRowsAreVisible(int32_t beginRow, int32_t endRow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->tree != nullptr && beginRow >= 0 && endRow < getRowCount(this->tree)) {
 		bool scrollVert = $DefaultLookup::getBoolean(this->tree, this, "Tree.scrollsHorizontallyAndVertically"_s, false);
 		if (beginRow == endRow) {
@@ -1706,11 +1452,11 @@ void BasicTreeUI::ensureRowsAreVisible(int32_t beginRow, int32_t endRow) {
 					if (testRect == nullptr) {
 						return;
 					}
-					if (($nc(testRect)->y + testRect->height) > maxY) {
+					if (($nc(testRect)->y + $nc(testRect)->height) > maxY) {
 						counter = endRow;
 					}
 				}
-				$nc(this->tree)->scrollRectToVisible($$new($Rectangle, visRect->x, beginY, 1, $nc(testRect)->y + testRect->height - beginY));
+				$nc(this->tree)->scrollRectToVisible($$new($Rectangle, visRect->x, beginY, 1, $nc(testRect)->y + $nc(testRect)->height - beginY));
 			}
 		}
 	}
@@ -1739,7 +1485,7 @@ $Dimension* BasicTreeUI::getPreferredSize($JComponent* c, bool checkConsistency)
 	if (this->tree != nullptr) {
 		if (pSize != nullptr) {
 			int32_t var$0 = $Math::max(pSize->width, $nc(this->preferredSize)->width);
-			return $new($Dimension, var$0, $Math::max(pSize->height, $nc(this->preferredSize)->height));
+			return $new($Dimension, var$0, $Math::max(pSize->height, this->preferredSize->height));
 		}
 		return $new($Dimension, $nc(this->preferredSize)->width, $nc(this->preferredSize)->height);
 	} else if (pSize != nullptr) {
@@ -1774,7 +1520,7 @@ void BasicTreeUI::completeEditing() {
 }
 
 void BasicTreeUI::completeEditing(bool messageStop, bool messageCancel, bool messageTree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stopEditingInCompleteEditing && this->editingComponent != nullptr) {
 		$var($Component, oldComponent, this->editingComponent);
 		$var($TreePath, oldPath, this->editingPath);
@@ -1783,8 +1529,8 @@ void BasicTreeUI::completeEditing(bool messageStop, bool messageCancel, bool mes
 		$var($Rectangle, editingBounds, getPathBounds(this->tree, this->editingPath));
 		bool var$0 = this->tree != nullptr;
 		if (var$0) {
-			bool var$1 = $nc(this->tree)->hasFocus();
-			var$0 = (var$1 || $SwingUtilities::findFocusOwner(this->editingComponent) != nullptr);
+			bool var$1 = this->tree->hasFocus();
+			var$0 = var$1 || $SwingUtilities::findFocusOwner(this->editingComponent) != nullptr;
 		}
 		bool requestFocus = (var$0);
 		$set(this, editingComponent, nullptr);
@@ -1814,31 +1560,29 @@ void BasicTreeUI::completeEditing(bool messageStop, bool messageCancel, bool mes
 
 bool BasicTreeUI::startEditingOnRelease($TreePath* path, $MouseEvent* event, $MouseEvent* releaseEvent) {
 	$set(this, releaseEvent, releaseEvent);
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			var$2 = startEditing(path, event);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, releaseEvent, nullptr);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		var$2 = startEditing(path, event);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, releaseEvent, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 bool BasicTreeUI::startEditing($TreePath* path, $MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = isEditing(this->tree);
 	bool var$0 = var$1 && $nc(this->tree)->getInvokesStopCellEditing();
 	if (var$0 && !stopEditing(this->tree)) {
@@ -1851,7 +1595,7 @@ bool BasicTreeUI::startEditing($TreePath* path, $MouseEvent* event) {
 			$var($JTree, var$2, this->tree);
 			$var($Object, var$3, $nc(path)->getLastPathComponent());
 			bool var$4 = $nc(this->tree)->isPathSelected(path);
-			bool var$5 = $nc(this->tree)->isExpanded(path);
+			bool var$5 = this->tree->isExpanded(path);
 			$set(this, editingComponent, $nc(this->cellEditor)->getTreeCellEditorComponent(var$2, var$3, var$4, var$5, $nc(this->treeModel)->isLeaf($(path->getLastPathComponent())), row));
 			$var($Rectangle, nodeBounds, getPathBounds(this->tree, path));
 			if (nodeBounds == nullptr) {
@@ -1862,7 +1606,7 @@ bool BasicTreeUI::startEditing($TreePath* path, $MouseEvent* event) {
 			if ($nc(editorSize)->height != $nc(nodeBounds)->height && getRowHeight() > 0) {
 				editorSize->height = getRowHeight();
 			}
-			if ($nc(editorSize)->width != $nc(nodeBounds)->width || $nc(editorSize)->height != $nc(nodeBounds)->height) {
+			if (editorSize->width != nodeBounds->width || editorSize->height != nodeBounds->height) {
 				this->editorHasDifferentSize = true;
 				$nc(this->treeState)->invalidatePathBounds(path);
 				updateSize();
@@ -1874,9 +1618,9 @@ bool BasicTreeUI::startEditing($TreePath* path, $MouseEvent* event) {
 				this->editorHasDifferentSize = false;
 			}
 			$nc(this->tree)->add(this->editingComponent);
-			$nc(this->editingComponent)->setBounds($nc(nodeBounds)->x, nodeBounds->y, nodeBounds->width, nodeBounds->height);
+			$nc(this->editingComponent)->setBounds($nc(nodeBounds)->x, $nc(nodeBounds)->y, $nc(nodeBounds)->width, $nc(nodeBounds)->height);
 			$set(this, editingPath, path);
-			$nc($($AWTAccessor::getComponentAccessor()))->revalidateSynchronously(this->editingComponent);
+			$$nc($AWTAccessor::getComponentAccessor())->revalidateSynchronously(this->editingComponent);
 			$nc(this->editingComponent)->repaint();
 			if ($nc(this->cellEditor)->shouldSelectCell(event)) {
 				this->stopEditingInCompleteEditing = false;
@@ -1888,7 +1632,7 @@ bool BasicTreeUI::startEditing($TreePath* path, $MouseEvent* event) {
 			if (event != nullptr) {
 				int32_t var$6 = event->getX();
 				$var($Point, componentPoint, $SwingUtilities::convertPoint(this->tree, $$new($Point, var$6, event->getY()), this->editingComponent));
-				$var($Component, activeComponent, $SwingUtilities::getDeepestComponentAt(this->editingComponent, $nc(componentPoint)->x, componentPoint->y));
+				$var($Component, activeComponent, $SwingUtilities::getDeepestComponentAt(this->editingComponent, $nc(componentPoint)->x, $nc(componentPoint)->y));
 				if (activeComponent != nullptr) {
 					$var($BasicTreeUI$MouseInputHandler, handler, $new($BasicTreeUI$MouseInputHandler, this, this->tree, activeComponent, event, focusedComponent));
 					if (this->releaseEvent != nullptr) {
@@ -1898,7 +1642,7 @@ bool BasicTreeUI::startEditing($TreePath* path, $MouseEvent* event) {
 				}
 			}
 			if (selectAll && $instanceOf($JTextField, focusedComponent)) {
-				$nc(($cast($JTextField, focusedComponent)))->selectAll();
+				$cast($JTextField, focusedComponent)->selectAll();
 			}
 			return true;
 		} else {
@@ -1915,12 +1659,12 @@ void BasicTreeUI::checkForClickInExpandControl($TreePath* path, int32_t mouseX, 
 }
 
 bool BasicTreeUI::isLocationInExpandControl($TreePath* path, int32_t mouseX, int32_t mouseY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (path != nullptr && !$nc(this->treeModel)->isLeaf($(path->getLastPathComponent()))) {
 		int32_t boxWidth = 0;
 		$var($Insets, i, $nc(this->tree)->getInsets());
 		if (getExpandedIcon() != nullptr) {
-			boxWidth = $nc($(getExpandedIcon()))->getIconWidth();
+			boxWidth = $$nc(getExpandedIcon())->getIconWidth();
 		} else {
 			boxWidth = 8;
 		}
@@ -1982,11 +1726,11 @@ bool BasicTreeUI::isToggleEvent($MouseEvent* event) {
 }
 
 void BasicTreeUI::selectPathForEvent($TreePath* path, $MouseEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isMultiSelectEvent(event)) {
 		$var($TreePath, anchor, getAnchorSelectionPath());
 		int32_t anchorRow = (anchor == nullptr) ? -1 : getRowForPath(this->tree, anchor);
-		if (anchorRow == -1 || $nc($($nc(this->tree)->getSelectionModel()))->getSelectionMode() == $TreeSelectionModel::SINGLE_TREE_SELECTION) {
+		if (anchorRow == -1 || $$nc($nc(this->tree)->getSelectionModel())->getSelectionMode() == $TreeSelectionModel::SINGLE_TREE_SELECTION) {
 			$nc(this->tree)->setSelectionPath(path);
 		} else {
 			int32_t row = getRowForPath(this->tree, path);
@@ -2025,7 +1769,7 @@ void BasicTreeUI::selectPathForEvent($TreePath* path, $MouseEvent* event) {
 }
 
 bool BasicTreeUI::isLeaf(int32_t row) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TreePath, path, getPathForRow(this->tree, row));
 	if (path != nullptr) {
 		return $nc(this->treeModel)->isLeaf($(path->getLastPathComponent()));
@@ -2035,18 +1779,16 @@ bool BasicTreeUI::isLeaf(int32_t row) {
 
 void BasicTreeUI::setAnchorSelectionPath($TreePath* newPath) {
 	this->ignoreLAChange = true;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->tree)->setAnchorSelectionPath(newPath);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->ignoreLAChange = false;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->tree)->setAnchorSelectionPath(newPath);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->ignoreLAChange = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -2059,21 +1801,19 @@ void BasicTreeUI::setLeadSelectionPath($TreePath* newPath) {
 }
 
 void BasicTreeUI::setLeadSelectionPath($TreePath* newPath, bool repaint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, bounds, repaint ? getPathBounds(this->tree, $(getLeadSelectionPath())) : ($Rectangle*)nullptr);
 	this->ignoreLAChange = true;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->tree)->setLeadSelectionPath(newPath);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->ignoreLAChange = false;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->tree)->setLeadSelectionPath(newPath);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->ignoreLAChange = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	this->leadRow = getRowForPath(this->tree, newPath);
 	if (repaint) {
@@ -2133,7 +1873,7 @@ void BasicTreeUI::repaintPath($TreePath* path) {
 	}
 }
 
-void clinit$BasicTreeUI($Class* class$) {
+void BasicTreeUI::clinit$($Class* clazz) {
 	$assignStatic(BasicTreeUI::BASELINE_COMPONENT_KEY, $new($StringBuilder, "Tree.baselineComponent"_s));
 	$assignStatic(BasicTreeUI::SHARED_ACTION, $new($BasicTreeUI$Actions));
 	$assignStatic(BasicTreeUI::defaultTransferHandler, $new($BasicTreeUI$TreeTransferHandler));
@@ -2143,7 +1883,240 @@ BasicTreeUI::BasicTreeUI() {
 }
 
 $Class* BasicTreeUI::load$($String* name, bool initialize) {
-	$loadClass(BasicTreeUI, name, initialize, &_BasicTreeUI_ClassInfo_, clinit$BasicTreeUI, allocate$BasicTreeUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"BASELINE_COMPONENT_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI, BASELINE_COMPONENT_KEY)},
+		{"SHARED_ACTION", "Ljavax/swing/plaf/basic/BasicTreeUI$Actions;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI, SHARED_ACTION)},
+		{"collapsedIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(BasicTreeUI, collapsedIcon)},
+		{"expandedIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED | $TRANSIENT, $field(BasicTreeUI, expandedIcon)},
+		{"hashColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(BasicTreeUI, hashColor)},
+		{"leftChildIndent", "I", nullptr, $PROTECTED, $field(BasicTreeUI, leftChildIndent)},
+		{"rightChildIndent", "I", nullptr, $PROTECTED, $field(BasicTreeUI, rightChildIndent)},
+		{"totalChildIndent", "I", nullptr, $PROTECTED, $field(BasicTreeUI, totalChildIndent)},
+		{"preferredMinSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicTreeUI, preferredMinSize)},
+		{"lastSelectedRow", "I", nullptr, $PROTECTED, $field(BasicTreeUI, lastSelectedRow)},
+		{"tree", "Ljavax/swing/JTree;", nullptr, $PROTECTED, $field(BasicTreeUI, tree)},
+		{"currentCellRenderer", "Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED | $TRANSIENT, $field(BasicTreeUI, currentCellRenderer)},
+		{"createdRenderer", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, createdRenderer)},
+		{"cellEditor", "Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED | $TRANSIENT, $field(BasicTreeUI, cellEditor)},
+		{"createdCellEditor", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, createdCellEditor)},
+		{"stopEditingInCompleteEditing", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, stopEditingInCompleteEditing)},
+		{"rendererPane", "Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $field(BasicTreeUI, rendererPane)},
+		{"preferredSize", "Ljava/awt/Dimension;", nullptr, $PROTECTED, $field(BasicTreeUI, preferredSize)},
+		{"validCachedPreferredSize", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, validCachedPreferredSize)},
+		{"treeState", "Ljavax/swing/tree/AbstractLayoutCache;", nullptr, $PROTECTED, $field(BasicTreeUI, treeState)},
+		{"drawingCache", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljavax/swing/tree/TreePath;Ljava/lang/Boolean;>;", $PROTECTED, $field(BasicTreeUI, drawingCache)},
+		{"largeModel", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, largeModel)},
+		{"nodeDimensions", "Ljavax/swing/tree/AbstractLayoutCache$NodeDimensions;", nullptr, $PROTECTED, $field(BasicTreeUI, nodeDimensions)},
+		{"treeModel", "Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED, $field(BasicTreeUI, treeModel)},
+		{"treeSelectionModel", "Ljavax/swing/tree/TreeSelectionModel;", nullptr, $PROTECTED, $field(BasicTreeUI, treeSelectionModel)},
+		{"depthOffset", "I", nullptr, $PROTECTED, $field(BasicTreeUI, depthOffset)},
+		{"editingComponent", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(BasicTreeUI, editingComponent)},
+		{"editingPath", "Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $field(BasicTreeUI, editingPath)},
+		{"editingRow", "I", nullptr, $PROTECTED, $field(BasicTreeUI, editingRow)},
+		{"editorHasDifferentSize", "Z", nullptr, $PROTECTED, $field(BasicTreeUI, editorHasDifferentSize)},
+		{"leadRow", "I", nullptr, $PRIVATE, $field(BasicTreeUI, leadRow)},
+		{"ignoreLAChange", "Z", nullptr, $PRIVATE, $field(BasicTreeUI, ignoreLAChange)},
+		{"leftToRight", "Z", nullptr, $PRIVATE, $field(BasicTreeUI, leftToRight)},
+		{"propertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicTreeUI, propertyChangeListener)},
+		{"selectionModelPropertyChangeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(BasicTreeUI, selectionModelPropertyChangeListener)},
+		{"mouseListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $field(BasicTreeUI, mouseListener)},
+		{"focusListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE, $field(BasicTreeUI, focusListener)},
+		{"keyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(BasicTreeUI, keyListener)},
+		{"componentListener", "Ljava/awt/event/ComponentListener;", nullptr, $PRIVATE, $field(BasicTreeUI, componentListener)},
+		{"cellEditorListener", "Ljavax/swing/event/CellEditorListener;", nullptr, $PRIVATE, $field(BasicTreeUI, cellEditorListener)},
+		{"treeSelectionListener", "Ljavax/swing/event/TreeSelectionListener;", nullptr, $PRIVATE, $field(BasicTreeUI, treeSelectionListener)},
+		{"treeModelListener", "Ljavax/swing/event/TreeModelListener;", nullptr, $PRIVATE, $field(BasicTreeUI, treeModelListener)},
+		{"treeExpansionListener", "Ljavax/swing/event/TreeExpansionListener;", nullptr, $PRIVATE, $field(BasicTreeUI, treeExpansionListener)},
+		{"paintLines", "Z", nullptr, $PRIVATE, $field(BasicTreeUI, paintLines)},
+		{"lineTypeDashed", "Z", nullptr, $PRIVATE, $field(BasicTreeUI, lineTypeDashed)},
+		{"timeFactor", "J", nullptr, $PRIVATE, $field(BasicTreeUI, timeFactor)},
+		{"handler", "Ljavax/swing/plaf/basic/BasicTreeUI$Handler;", nullptr, $PRIVATE, $field(BasicTreeUI, handler)},
+		{"releaseEvent", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE, $field(BasicTreeUI, releaseEvent)},
+		{"defaultTransferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicTreeUI, defaultTransferHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicTreeUI, init$, void)},
+		{"cancelEditing", "(Ljavax/swing/JTree;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, cancelEditing, void, $JTree*)},
+		{"checkForClickInExpandControl", "(Ljavax/swing/tree/TreePath;II)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, checkForClickInExpandControl, void, $TreePath*, int32_t, int32_t)},
+		{"completeEditing", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, completeEditing, void)},
+		{"completeEditing", "(ZZZ)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, completeEditing, void, bool, bool, bool)},
+		{"completeUIInstall", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, completeUIInstall, void)},
+		{"completeUIUninstall", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, completeUIUninstall, void)},
+		{"configureLayoutCache", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, configureLayoutCache, void)},
+		{"createCellEditorListener", "()Ljavax/swing/event/CellEditorListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createCellEditorListener, $CellEditorListener*)},
+		{"createCellRendererPane", "()Ljavax/swing/CellRendererPane;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createCellRendererPane, $CellRendererPane*)},
+		{"createComponentListener", "()Ljava/awt/event/ComponentListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createComponentListener, $ComponentListener*)},
+		{"createDefaultCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createDefaultCellEditor, $TreeCellEditor*)},
+		{"createDefaultCellRenderer", "()Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createDefaultCellRenderer, $TreeCellRenderer*)},
+		{"createFocusListener", "()Ljava/awt/event/FocusListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createFocusListener, $FocusListener*)},
+		{"createKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createKeyListener, $KeyListener*)},
+		{"createLayoutCache", "()Ljavax/swing/tree/AbstractLayoutCache;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createLayoutCache, $AbstractLayoutCache*)},
+		{"createMouseListener", "()Ljava/awt/event/MouseListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createMouseListener, $MouseListener*)},
+		{"createNodeDimensions", "()Ljavax/swing/tree/AbstractLayoutCache$NodeDimensions;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createNodeDimensions, $AbstractLayoutCache$NodeDimensions*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createSelectionModelPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createSelectionModelPropertyChangeListener, $PropertyChangeListener*)},
+		{"createTreeExpansionListener", "()Ljavax/swing/event/TreeExpansionListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createTreeExpansionListener, $TreeExpansionListener*)},
+		{"createTreeModelListener", "()Ljavax/swing/event/TreeModelListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createTreeModelListener, $TreeModelListener*)},
+		{"createTreeSelectionListener", "()Ljavax/swing/event/TreeSelectionListener;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, createTreeSelectionListener, $TreeSelectionListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicTreeUI, createUI, $ComponentUI*, $JComponent*)},
+		{"drawCentered", "(Ljava/awt/Component;Ljava/awt/Graphics;Ljavax/swing/Icon;II)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, drawCentered, void, $Component*, $Graphics*, $Icon*, int32_t, int32_t)},
+		{"drawDashedHorizontalLine", "(Ljava/awt/Graphics;III)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, drawDashedHorizontalLine, void, $Graphics*, int32_t, int32_t, int32_t)},
+		{"drawDashedLine", "(Ljava/awt/Graphics;IIIZ)V", nullptr, $PRIVATE, $method(BasicTreeUI, drawDashedLine, void, $Graphics*, int32_t, int32_t, int32_t, bool)},
+		{"drawDashedVerticalLine", "(Ljava/awt/Graphics;III)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, drawDashedVerticalLine, void, $Graphics*, int32_t, int32_t, int32_t)},
+		{"ensureRowsAreVisible", "(II)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, ensureRowsAreVisible, void, int32_t, int32_t)},
+		{"extendSelection", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(BasicTreeUI, extendSelection, void, $TreePath*)},
+		{"findCenteredX", "(II)I", nullptr, $PRIVATE, $method(BasicTreeUI, findCenteredX, int32_t, int32_t, int32_t)},
+		{"getAnchorSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(BasicTreeUI, getAnchorSelectionPath, $TreePath*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "(Ljavax/swing/JComponent;)Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*, $JComponent*)},
+		{"getCellEditor", "()Ljavax/swing/tree/TreeCellEditor;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getCellEditor, $TreeCellEditor*)},
+		{"getCellRenderer", "()Ljavax/swing/tree/TreeCellRenderer;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getCellRenderer, $TreeCellRenderer*)},
+		{"getClosestPathForLocation", "(Ljavax/swing/JTree;II)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getClosestPathForLocation, $TreePath*, $JTree*, int32_t, int32_t)},
+		{"getCollapsedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getCollapsedIcon, $Icon*)},
+		{"getDropLineRect", "(Ljavax/swing/JTree$DropLocation;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getDropLineRect, $Rectangle*, $JTree$DropLocation*)},
+		{"getEditingPath", "(Ljavax/swing/JTree;)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getEditingPath, $TreePath*, $JTree*)},
+		{"getExpandedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getExpandedIcon, $Icon*)},
+		{"getHandler", "()Ljavax/swing/plaf/basic/BasicTreeUI$Handler;", nullptr, $PRIVATE, $method(BasicTreeUI, getHandler, $BasicTreeUI$Handler*)},
+		{"getHashColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getHashColor, $Color*)},
+		{"getHorizontalLegBuffer", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getHorizontalLegBuffer, int32_t)},
+		{"getInputMap", "(I)Ljavax/swing/InputMap;", nullptr, 0, $virtualMethod(BasicTreeUI, getInputMap, $InputMap*, int32_t)},
+		{"getLastChildPath", "(Ljavax/swing/tree/TreePath;)Ljavax/swing/tree/TreePath;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getLastChildPath, $TreePath*, $TreePath*)},
+		{"getLeadSelectionPath", "()Ljavax/swing/tree/TreePath;", nullptr, $PRIVATE, $method(BasicTreeUI, getLeadSelectionPath, $TreePath*)},
+		{"getLeadSelectionRow", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getLeadSelectionRow, int32_t)},
+		{"getLeftChildIndent", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getLeftChildIndent, int32_t)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getModel", "()Ljavax/swing/tree/TreeModel;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getModel, $TreeModel*)},
+		{"getPathBounds", "(Ljavax/swing/JTree;Ljavax/swing/tree/TreePath;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPathBounds, $Rectangle*, $JTree*, $TreePath*)},
+		{"getPathBounds", "(Ljavax/swing/tree/TreePath;Ljava/awt/Insets;Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(BasicTreeUI, getPathBounds, $Rectangle*, $TreePath*, $Insets*, $Rectangle*)},
+		{"getPathForRow", "(Ljavax/swing/JTree;I)Ljavax/swing/tree/TreePath;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPathForRow, $TreePath*, $JTree*, int32_t)},
+		{"getPreferredMinSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPreferredMinSize, $Dimension*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;Z)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getPreferredSize, $Dimension*, $JComponent*, bool)},
+		{"getRepaintPathBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(BasicTreeUI, getRepaintPathBounds, $Rectangle*, $Rectangle*)},
+		{"getRightChildIndent", "()I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getRightChildIndent, int32_t)},
+		{"getRowCount", "(Ljavax/swing/JTree;)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getRowCount, int32_t, $JTree*)},
+		{"getRowForPath", "(Ljavax/swing/JTree;Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, getRowForPath, int32_t, $JTree*, $TreePath*)},
+		{"getRowHeight", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getRowHeight, int32_t)},
+		{"getRowX", "(II)I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getRowX, int32_t, int32_t, int32_t)},
+		{"getSelectionModel", "()Ljavax/swing/tree/TreeSelectionModel;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getSelectionModel, $TreeSelectionModel*)},
+		{"getShowsRootHandles", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getShowsRootHandles, bool)},
+		{"getVerticalLegBuffer", "()I", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, getVerticalLegBuffer, int32_t)},
+		{"handleExpandControlClick", "(Ljavax/swing/tree/TreePath;II)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, handleExpandControlClick, void, $TreePath*, int32_t, int32_t)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, installKeyboardActions, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, installUI, void, $JComponent*)},
+		{"isDropLine", "(Ljavax/swing/JTree$DropLocation;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isDropLine, bool, $JTree$DropLocation*)},
+		{"isEditable", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isEditable, bool)},
+		{"isEditing", "(Ljavax/swing/JTree;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, isEditing, bool, $JTree*)},
+		{"isLargeModel", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isLargeModel, bool)},
+		{"isLeaf", "(I)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isLeaf, bool, int32_t)},
+		{"isLocationInExpandControl", "(Ljavax/swing/tree/TreePath;II)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isLocationInExpandControl, bool, $TreePath*, int32_t, int32_t)},
+		{"isMultiSelectEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isMultiSelectEvent, bool, $MouseEvent*)},
+		{"isRootVisible", "()Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isRootVisible, bool)},
+		{"isToggleEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isToggleEvent, bool, $MouseEvent*)},
+		{"isToggleSelectionEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, isToggleSelectionEvent, bool, $MouseEvent*)},
+		{"loadActionMap", "(Ljavax/swing/plaf/basic/LazyActionMap;)V", nullptr, $STATIC, $staticMethod(BasicTreeUI, loadActionMap, void, $LazyActionMap*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintDropLine", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintDropLine, void, $Graphics*)},
+		{"paintExpandControl", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintExpandControl, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
+		{"paintHorizontalLine", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;III)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintHorizontalLine, void, $Graphics*, $JComponent*, int32_t, int32_t, int32_t)},
+		{"paintHorizontalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintHorizontalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
+		{"paintRow", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljava/awt/Rectangle;Ljavax/swing/tree/TreePath;IZZZ)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintRow, void, $Graphics*, $Rectangle*, $Insets*, $Rectangle*, $TreePath*, int32_t, bool, bool, bool)},
+		{"paintVerticalLine", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;III)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintVerticalLine, void, $Graphics*, $JComponent*, int32_t, int32_t, int32_t)},
+		{"paintVerticalPartOfLeg", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljava/awt/Insets;Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, paintVerticalPartOfLeg, void, $Graphics*, $Rectangle*, $Insets*, $TreePath*)},
+		{"pathWasCollapsed", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, pathWasCollapsed, void, $TreePath*)},
+		{"pathWasExpanded", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, pathWasExpanded, void, $TreePath*)},
+		{"prepareForUIInstall", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, prepareForUIInstall, void)},
+		{"prepareForUIUninstall", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, prepareForUIUninstall, void)},
+		{"redoTheLayout", "()V", nullptr, $PRIVATE, $method(BasicTreeUI, redoTheLayout, void)},
+		{"repaintPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(BasicTreeUI, repaintPath, void, $TreePath*)},
+		{"selectPathForEvent", "(Ljavax/swing/tree/TreePath;Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, selectPathForEvent, void, $TreePath*, $MouseEvent*)},
+		{"setAnchorSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(BasicTreeUI, setAnchorSelectionPath, void, $TreePath*)},
+		{"setCellEditor", "(Ljavax/swing/tree/TreeCellEditor;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setCellEditor, void, $TreeCellEditor*)},
+		{"setCellRenderer", "(Ljavax/swing/tree/TreeCellRenderer;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setCellRenderer, void, $TreeCellRenderer*)},
+		{"setCollapsedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setCollapsedIcon, void, $Icon*)},
+		{"setEditable", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setEditable, void, bool)},
+		{"setExpandedIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setExpandedIcon, void, $Icon*)},
+		{"setHashColor", "(Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setHashColor, void, $Color*)},
+		{"setLargeModel", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setLargeModel, void, bool)},
+		{"setLeadSelectionPath", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PRIVATE, $method(BasicTreeUI, setLeadSelectionPath, void, $TreePath*)},
+		{"setLeadSelectionPath", "(Ljavax/swing/tree/TreePath;Z)V", nullptr, $PRIVATE, $method(BasicTreeUI, setLeadSelectionPath, void, $TreePath*, bool)},
+		{"setLeftChildIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setLeftChildIndent, void, int32_t)},
+		{"setModel", "(Ljavax/swing/tree/TreeModel;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setModel, void, $TreeModel*)},
+		{"setPreferredMinSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setPreferredMinSize, void, $Dimension*)},
+		{"setRightChildIndent", "(I)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, setRightChildIndent, void, int32_t)},
+		{"setRootVisible", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setRootVisible, void, bool)},
+		{"setRowHeight", "(I)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setRowHeight, void, int32_t)},
+		{"setSelectionModel", "(Ljavax/swing/tree/TreeSelectionModel;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setSelectionModel, void, $TreeSelectionModel*)},
+		{"setShowsRootHandles", "(Z)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, setShowsRootHandles, void, bool)},
+		{"shouldPaintExpandControl", "(Ljavax/swing/tree/TreePath;IZZZ)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, shouldPaintExpandControl, bool, $TreePath*, int32_t, bool, bool, bool)},
+		{"startEditing", "(Ljavax/swing/tree/TreePath;Ljava/awt/event/MouseEvent;)Z", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, startEditing, bool, $TreePath*, $MouseEvent*)},
+		{"startEditingAtPath", "(Ljavax/swing/JTree;Ljavax/swing/tree/TreePath;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, startEditingAtPath, void, $JTree*, $TreePath*)},
+		{"startEditingOnRelease", "(Ljavax/swing/tree/TreePath;Ljava/awt/event/MouseEvent;Ljava/awt/event/MouseEvent;)Z", nullptr, $PRIVATE, $method(BasicTreeUI, startEditingOnRelease, bool, $TreePath*, $MouseEvent*, $MouseEvent*)},
+		{"stopEditing", "(Ljavax/swing/JTree;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, stopEditing, bool, $JTree*)},
+		{"toggleExpandState", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, toggleExpandState, void, $TreePath*)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, uninstallKeyboardActions, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI, uninstallUI, void, $JComponent*)},
+		{"updateCachedPreferredSize", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateCachedPreferredSize, void)},
+		{"updateCellEditor", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateCellEditor, void)},
+		{"updateDepthOffset", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateDepthOffset, void)},
+		{"updateExpandedDescendants", "(Ljavax/swing/tree/TreePath;)V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateExpandedDescendants, void, $TreePath*)},
+		{"updateLayoutCacheExpandedNodes", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateLayoutCacheExpandedNodes, void)},
+		{"updateLayoutCacheExpandedNodesIfNecessary", "()V", nullptr, $PRIVATE, $method(BasicTreeUI, updateLayoutCacheExpandedNodesIfNecessary, void)},
+		{"updateLeadSelectionRow", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateLeadSelectionRow, void)},
+		{"updateRenderer", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateRenderer, void)},
+		{"updateSize", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI, updateSize, void)},
+		{"updateSize0", "()V", nullptr, $PRIVATE, $method(BasicTreeUI, updateSize0, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTreeUI$Actions", "javax.swing.plaf.basic.BasicTreeUI", "Actions", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$Handler", "javax.swing.plaf.basic.BasicTreeUI", "Handler", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeTransferHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeTransferHandler", $STATIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$MouseInputHandler", "javax.swing.plaf.basic.BasicTreeUI", "MouseInputHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeCancelEditingAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeCancelEditingAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeToggleAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeToggleAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeHomeAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeHomeAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeIncrementAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeIncrementAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreePageAction", "javax.swing.plaf.basic.BasicTreeUI", "TreePageAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeTraverseAction", "javax.swing.plaf.basic.BasicTreeUI", "TreeTraverseAction", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$SelectionModelPropertyChangeHandler", "javax.swing.plaf.basic.BasicTreeUI", "SelectionModelPropertyChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$PropertyChangeHandler", "javax.swing.plaf.basic.BasicTreeUI", "PropertyChangeHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$MouseHandler", "javax.swing.plaf.basic.BasicTreeUI", "MouseHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$NodeDimensionsHandler", "javax.swing.plaf.basic.BasicTreeUI", "NodeDimensionsHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$FocusHandler", "javax.swing.plaf.basic.BasicTreeUI", "FocusHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$KeyHandler", "javax.swing.plaf.basic.BasicTreeUI", "KeyHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$CellEditorHandler", "javax.swing.plaf.basic.BasicTreeUI", "CellEditorHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeSelectionHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeSelectionHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeModelHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeModelHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$ComponentHandler", "javax.swing.plaf.basic.BasicTreeUI", "ComponentHandler", $PUBLIC},
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeExpansionHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeExpansionHandler", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTreeUI",
+		"javax.swing.plaf.TreeUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTreeUI$Actions,javax.swing.plaf.basic.BasicTreeUI$Actions$1,javax.swing.plaf.basic.BasicTreeUI$Handler,javax.swing.plaf.basic.BasicTreeUI$TreeTransferHandler,javax.swing.plaf.basic.BasicTreeUI$MouseInputHandler,javax.swing.plaf.basic.BasicTreeUI$TreeCancelEditingAction,javax.swing.plaf.basic.BasicTreeUI$TreeToggleAction,javax.swing.plaf.basic.BasicTreeUI$TreeHomeAction,javax.swing.plaf.basic.BasicTreeUI$TreeIncrementAction,javax.swing.plaf.basic.BasicTreeUI$TreePageAction,javax.swing.plaf.basic.BasicTreeUI$TreeTraverseAction,javax.swing.plaf.basic.BasicTreeUI$SelectionModelPropertyChangeHandler,javax.swing.plaf.basic.BasicTreeUI$PropertyChangeHandler,javax.swing.plaf.basic.BasicTreeUI$MouseHandler,javax.swing.plaf.basic.BasicTreeUI$NodeDimensionsHandler,javax.swing.plaf.basic.BasicTreeUI$FocusHandler,javax.swing.plaf.basic.BasicTreeUI$KeyHandler,javax.swing.plaf.basic.BasicTreeUI$CellEditorHandler,javax.swing.plaf.basic.BasicTreeUI$TreeSelectionHandler,javax.swing.plaf.basic.BasicTreeUI$TreeModelHandler,javax.swing.plaf.basic.BasicTreeUI$ComponentHandler,javax.swing.plaf.basic.BasicTreeUI$TreeExpansionHandler"
+	};
+	$loadClass(BasicTreeUI, name, initialize, &classInfo$$, BasicTreeUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTreeUI);
+	});
 	return class$;
 }
 

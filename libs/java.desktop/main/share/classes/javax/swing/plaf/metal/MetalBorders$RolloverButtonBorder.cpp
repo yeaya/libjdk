@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$RolloverButtonBorder.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/AbstractButton.h>
@@ -22,44 +21,12 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalBorders$RolloverButtonBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$RolloverButtonBorder, init$, void)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$RolloverButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$RolloverButtonBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$RolloverButtonBorder", "javax.swing.plaf.metal.MetalBorders", "RolloverButtonBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$ButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$RolloverButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$RolloverButtonBorder",
-	"javax.swing.plaf.metal.MetalBorders$ButtonBorder",
-	nullptr,
-	nullptr,
-	_MetalBorders$RolloverButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$RolloverButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$RolloverButtonBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$RolloverButtonBorder));
-}
-
 void MetalBorders$RolloverButtonBorder::init$() {
 	$MetalBorders$ButtonBorder::init$();
 }
 
 void MetalBorders$RolloverButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	bool var$0 = $nc(model)->isRollover();
@@ -76,7 +43,34 @@ MetalBorders$RolloverButtonBorder::MetalBorders$RolloverButtonBorder() {
 }
 
 $Class* MetalBorders$RolloverButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$RolloverButtonBorder, name, initialize, &_MetalBorders$RolloverButtonBorder_ClassInfo_, allocate$MetalBorders$RolloverButtonBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$RolloverButtonBorder, init$, void)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$RolloverButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$RolloverButtonBorder", "javax.swing.plaf.metal.MetalBorders", "RolloverButtonBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$ButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$RolloverButtonBorder",
+		"javax.swing.plaf.metal.MetalBorders$ButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$RolloverButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$RolloverButtonBorder));
+	});
 	return class$;
 }
 

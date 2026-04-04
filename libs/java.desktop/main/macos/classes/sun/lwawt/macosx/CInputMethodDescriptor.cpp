@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CInputMethodDescriptor.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/im/spi/InputMethod.h>
@@ -22,41 +21,11 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$MethodInfo _CInputMethodDescriptor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CInputMethodDescriptor, init$, void)},
-	{"createInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, createInputMethod, $InputMethod*), "java.lang.Exception"},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, getAvailableLocales, $LocaleArray*)},
-	{"getAvailableLocalesInternal", "()[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(CInputMethodDescriptor, getAvailableLocalesInternal, $ObjectArray*)},
-	{"getInputMethodDisplayName", "(Ljava/util/Locale;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CInputMethodDescriptor, getInputMethodDisplayName, $String*, $Locale*, $Locale*)},
-	{"getInputMethodIcon", "(Ljava/util/Locale;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, getInputMethodIcon, $Image*, $Locale*)},
-	{"hasDynamicLocaleList", "()Z", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, hasDynamicLocaleList, bool)},
-	{"nativeGetAvailableLocales", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(CInputMethodDescriptor, nativeGetAvailableLocales, $List*)},
-	{"nativeInit", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CInputMethodDescriptor, nativeInit, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_nativeGetAvailableLocales 7
-#define _METHOD_INDEX_nativeInit 8
-
-$ClassInfo _CInputMethodDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CInputMethodDescriptor",
-	"java.lang.Object",
-	"java.awt.im.spi.InputMethodDescriptor",
-	nullptr,
-	_CInputMethodDescriptor_MethodInfo_
-};
-
-$Object* allocate$CInputMethodDescriptor($Class* clazz) {
-	return $of($alloc(CInputMethodDescriptor));
-}
-
 void CInputMethodDescriptor::init$() {
 }
 
 $LocaleArray* CInputMethodDescriptor::getAvailableLocales() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, locales, getAvailableLocalesInternal());
 	$var($LocaleArray, tmp, $new($LocaleArray, $nc(locales)->length));
 	$System::arraycopy(locales, 0, tmp, 0, locales->length);
@@ -65,11 +34,11 @@ $LocaleArray* CInputMethodDescriptor::getAvailableLocales() {
 
 $ObjectArray* CInputMethodDescriptor::getAvailableLocalesInternal() {
 	$init(CInputMethodDescriptor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, workList, nativeGetAvailableLocales());
 	$var($Locale, currentLocale, $CInputMethod::getNativeLocale());
-	if (workList == nullptr || $nc(workList)->isEmpty()) {
-		return $new($ObjectArray, {currentLocale != nullptr ? $of(currentLocale) : $($of($Locale::getDefault()))});
+	if (workList == nullptr || workList->isEmpty()) {
+		return $new($ObjectArray, {currentLocale != nullptr ? currentLocale : $($Locale::getDefault())});
 	} else {
 		if (currentLocale != nullptr && !workList->contains(currentLocale)) {
 			workList->add(currentLocale);
@@ -84,9 +53,9 @@ bool CInputMethodDescriptor::hasDynamicLocaleList() {
 
 $String* CInputMethodDescriptor::getInputMethodDisplayName($Locale* inputLocale, $Locale* displayLanguage) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, name, "System Input Methods"_s);
-		if ($nc($($Locale::getDefault()))->equals(displayLanguage)) {
+		if ($$nc($Locale::getDefault())->equals(displayLanguage)) {
 			$assign(name, $Toolkit::getProperty("AWT.HostInputMethodDisplayName"_s, name));
 		}
 		return name;
@@ -102,7 +71,7 @@ $InputMethod* CInputMethodDescriptor::createInputMethod() {
 }
 
 $String* CInputMethodDescriptor::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocaleArray, loc, getAvailableLocales());
 	$var($String, locnames, nullptr);
 	for (int32_t i = 0; i < $nc(loc)->length; ++i) {
@@ -112,28 +81,32 @@ $String* CInputMethodDescriptor::toString() {
 			$plusAssign(locnames, $$str({","_s, loc->get(i)}));
 		}
 	}
-	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "[locales="_s, locnames, ",localelist="_s}));
-	$var($String, var$0, $$concat(var$1, (hasDynamicLocaleList() ? "dynamic"_s : "static"_s)));
-	return $concat(var$0, "]"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("[locales="_s);
+	var$0->append(locnames);
+	var$0->append(",localelist="_s);
+	var$0->append(hasDynamicLocaleList() ? "dynamic"_s : "static"_s);
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 void CInputMethodDescriptor::nativeInit() {
 	$init(CInputMethodDescriptor);
-	$prepareNativeStatic(CInputMethodDescriptor, nativeInit, void);
+	$prepareNativeStatic(nativeInit, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 $List* CInputMethodDescriptor::nativeGetAvailableLocales() {
 	$init(CInputMethodDescriptor);
-	$var($List, $ret, nullptr);
-	$prepareNativeStatic(CInputMethodDescriptor, nativeGetAvailableLocales, $List*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(nativeGetAvailableLocales, $List*);
+	$var($List, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$CInputMethodDescriptor($Class* class$) {
+void CInputMethodDescriptor::clinit$($Class* clazz) {
 	{
 		CInputMethodDescriptor::nativeInit();
 	}
@@ -143,7 +116,30 @@ CInputMethodDescriptor::CInputMethodDescriptor() {
 }
 
 $Class* CInputMethodDescriptor::load$($String* name, bool initialize) {
-	$loadClass(CInputMethodDescriptor, name, initialize, &_CInputMethodDescriptor_ClassInfo_, clinit$CInputMethodDescriptor, allocate$CInputMethodDescriptor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CInputMethodDescriptor, init$, void)},
+		{"createInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, createInputMethod, $InputMethod*), "java.lang.Exception"},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, getAvailableLocales, $LocaleArray*)},
+		{"getAvailableLocalesInternal", "()[Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(CInputMethodDescriptor, getAvailableLocalesInternal, $ObjectArray*)},
+		{"getInputMethodDisplayName", "(Ljava/util/Locale;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CInputMethodDescriptor, getInputMethodDisplayName, $String*, $Locale*, $Locale*)},
+		{"getInputMethodIcon", "(Ljava/util/Locale;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, getInputMethodIcon, $Image*, $Locale*)},
+		{"hasDynamicLocaleList", "()Z", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, hasDynamicLocaleList, bool)},
+		{"nativeGetAvailableLocales", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(CInputMethodDescriptor, nativeGetAvailableLocales, $List*)},
+		{"nativeInit", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CInputMethodDescriptor, nativeInit, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CInputMethodDescriptor, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CInputMethodDescriptor",
+		"java.lang.Object",
+		"java.awt.im.spi.InputMethodDescriptor",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CInputMethodDescriptor, name, initialize, &classInfo$$, CInputMethodDescriptor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CInputMethodDescriptor);
+	});
 	return class$;
 }
 

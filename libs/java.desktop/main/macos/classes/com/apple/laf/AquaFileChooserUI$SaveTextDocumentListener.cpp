@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$SaveTextDocumentListener.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/event/DocumentEvent.h>
@@ -15,45 +14,6 @@ using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaFileChooserUI$SaveTextDocumentListener_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$SaveTextDocumentListener, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$SaveTextDocumentListener_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$SaveTextDocumentListener, init$, void, $AquaFileChooserUI*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextDocumentListener, changedUpdate, void, $DocumentEvent*)},
-	{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextDocumentListener, insertUpdate, void, $DocumentEvent*)},
-	{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextDocumentListener, removeUpdate, void, $DocumentEvent*)},
-	{"textChanged", "()V", nullptr, 0, $virtualMethod(AquaFileChooserUI$SaveTextDocumentListener, textChanged, void)},
-	{}
-};
-
-$InnerClassInfo _AquaFileChooserUI$SaveTextDocumentListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$SaveTextDocumentListener", "com.apple.laf.AquaFileChooserUI", "SaveTextDocumentListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$SaveTextDocumentListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$SaveTextDocumentListener",
-	"java.lang.Object",
-	"javax.swing.event.DocumentListener",
-	_AquaFileChooserUI$SaveTextDocumentListener_FieldInfo_,
-	_AquaFileChooserUI$SaveTextDocumentListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileChooserUI$SaveTextDocumentListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$SaveTextDocumentListener($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$SaveTextDocumentListener));
-}
 
 void AquaFileChooserUI$SaveTextDocumentListener::init$($AquaFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -78,7 +38,40 @@ AquaFileChooserUI$SaveTextDocumentListener::AquaFileChooserUI$SaveTextDocumentLi
 }
 
 $Class* AquaFileChooserUI$SaveTextDocumentListener::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$SaveTextDocumentListener, name, initialize, &_AquaFileChooserUI$SaveTextDocumentListener_ClassInfo_, allocate$AquaFileChooserUI$SaveTextDocumentListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$SaveTextDocumentListener, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PROTECTED, $method(AquaFileChooserUI$SaveTextDocumentListener, init$, void, $AquaFileChooserUI*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextDocumentListener, changedUpdate, void, $DocumentEvent*)},
+		{"insertUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextDocumentListener, insertUpdate, void, $DocumentEvent*)},
+		{"removeUpdate", "(Ljavax/swing/event/DocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFileChooserUI$SaveTextDocumentListener, removeUpdate, void, $DocumentEvent*)},
+		{"textChanged", "()V", nullptr, 0, $virtualMethod(AquaFileChooserUI$SaveTextDocumentListener, textChanged, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$SaveTextDocumentListener", "com.apple.laf.AquaFileChooserUI", "SaveTextDocumentListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$SaveTextDocumentListener",
+		"java.lang.Object",
+		"javax.swing.event.DocumentListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$SaveTextDocumentListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileChooserUI$SaveTextDocumentListener);
+	});
 	return class$;
 }
 

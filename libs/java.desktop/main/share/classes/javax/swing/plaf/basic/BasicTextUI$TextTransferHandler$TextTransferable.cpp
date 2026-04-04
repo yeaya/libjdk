@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextUI$TextTransferHandler$TextTransferable.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/awt/datatransfer/UnsupportedFlavorException.h>
 #include <java/io/IOException.h>
@@ -8,7 +7,6 @@
 #include <java/io/StringBufferInputStream.h>
 #include <java/io/StringReader.h>
 #include <java/io/StringWriter.h>
-#include <java/io/Writer.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/plaf/basic/BasicTextUI$TextTransferHandler.h>
@@ -29,7 +27,6 @@ using $Reader = ::java::io::Reader;
 using $StringBufferInputStream = ::java::io::StringBufferInputStream;
 using $StringReader = ::java::io::StringReader;
 using $StringWriter = ::java::io::StringWriter;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -39,60 +36,15 @@ using $JEditorPane = ::javax::swing::JEditorPane;
 using $BasicTransferable = ::javax::swing::plaf::basic::BasicTransferable;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Document = ::javax::swing::text::Document;
-using $EditorKit = ::javax::swing::text::EditorKit;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $Position = ::javax::swing::text::Position;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicTextUI$TextTransferHandler$TextTransferable_FieldInfo_[] = {
-	{"p0", "Ljavax/swing/text/Position;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, p0)},
-	{"p1", "Ljavax/swing/text/Position;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, p1)},
-	{"mimeType", "Ljava/lang/String;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, mimeType)},
-	{"richText", "Ljava/lang/String;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, richText)},
-	{"c", "Ljavax/swing/text/JTextComponent;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, c)},
-	{}
-};
-
-$MethodInfo _BasicTextUI$TextTransferHandler$TextTransferable_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/JTextComponent;II)V", nullptr, 0, $method(BasicTextUI$TextTransferHandler$TextTransferable, init$, void, $JTextComponent*, int32_t, int32_t)},
-	{"getRicherData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler$TextTransferable, getRicherData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException"},
-	{"getRicherFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler$TextTransferable, getRicherFlavors, $DataFlavorArray*)},
-	{"removeText", "()V", nullptr, 0, $virtualMethod(BasicTextUI$TextTransferHandler$TextTransferable, removeText, void)},
-	{}
-};
-
-$InnerClassInfo _BasicTextUI$TextTransferHandler$TextTransferable_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "javax.swing.plaf.basic.BasicTextUI", "TextTransferHandler", $STATIC},
-	{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler$TextTransferable", "javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "TextTransferable", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTextUI$TextTransferHandler$TextTransferable_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler$TextTransferable",
-	"javax.swing.plaf.basic.BasicTransferable",
-	nullptr,
-	_BasicTextUI$TextTransferHandler$TextTransferable_FieldInfo_,
-	_BasicTextUI$TextTransferHandler$TextTransferable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextUI$TextTransferHandler$TextTransferable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextUI"
-};
-
-$Object* allocate$BasicTextUI$TextTransferHandler$TextTransferable($Class* clazz) {
-	return $of($alloc(BasicTextUI$TextTransferHandler$TextTransferable));
-}
-
 void BasicTextUI$TextTransferHandler$TextTransferable::init$($JTextComponent* c, int32_t start, int32_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTransferable::init$(nullptr, nullptr);
 	$set(this, c, c);
 	$var($Document, doc, $nc(c)->getDocument());
@@ -108,11 +60,9 @@ void BasicTextUI$TextTransferHandler$TextTransferable::init$($JTextComponent* c,
 			}
 			int32_t var$0 = $nc(this->p1)->getOffset();
 			$var($StringWriter, sw, $new($StringWriter, var$0 - $nc(this->p0)->getOffset()));
-			$var($Writer, var$1, static_cast<$Writer*>(sw));
-			$var($Document, var$2, doc);
-			int32_t var$3 = $nc(this->p0)->getOffset();
-			int32_t var$4 = $nc(this->p1)->getOffset();
-			$nc($(ep->getEditorKit()))->write(var$1, var$2, var$3, var$4 - $nc(this->p0)->getOffset());
+			int32_t var$1 = $nc(this->p0)->getOffset();
+			int32_t var$2 = $nc(this->p1)->getOffset();
+			$$nc(ep->getEditorKit())->write(sw, doc, var$1, var$2 - this->p0->getOffset());
 			if ($nc(this->mimeType)->startsWith("text/html"_s)) {
 				$set(this, htmlData, sw->toString());
 			} else {
@@ -127,22 +77,22 @@ void BasicTextUI$TextTransferHandler$TextTransferable::init$($JTextComponent* c,
 void BasicTextUI$TextTransferHandler$TextTransferable::removeText() {
 	bool var$0 = (this->p0 != nullptr) && (this->p1 != nullptr);
 	if (var$0) {
-		int32_t var$1 = $nc(this->p0)->getOffset();
-		var$0 = (var$1 != $nc(this->p1)->getOffset());
+		int32_t var$1 = this->p0->getOffset();
+		var$0 = var$1 != this->p1->getOffset();
 	}
 	if (var$0) {
 		try {
 			$var($Document, doc, $nc(this->c)->getDocument());
 			int32_t var$2 = $nc(this->p0)->getOffset();
 			int32_t var$3 = $nc(this->p1)->getOffset();
-			$nc(doc)->remove(var$2, var$3 - $nc(this->p0)->getOffset());
+			$nc(doc)->remove(var$2, var$3 - this->p0->getOffset());
 		} catch ($BadLocationException& e) {
 		}
 	}
 }
 
 $DataFlavorArray* BasicTextUI$TextTransferHandler$TextTransferable::getRicherFlavors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->richText == nullptr) {
 		return nullptr;
 	}
@@ -159,18 +109,18 @@ $DataFlavorArray* BasicTextUI$TextTransferHandler$TextTransferable::getRicherFla
 
 $Object* BasicTextUI$TextTransferHandler$TextTransferable::getRicherData($DataFlavor* flavor) {
 	if (this->richText == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	if ($of($String::class$)->equals($nc(flavor)->getRepresentationClass())) {
+	if ($String::class$->equals($nc(flavor)->getRepresentationClass())) {
 		return $of(this->richText);
 	} else {
 		$load($Reader);
-		if ($of($Reader::class$)->equals($nc(flavor)->getRepresentationClass())) {
+		if ($Reader::class$->equals(flavor->getRepresentationClass())) {
 			return $of($new($StringReader, this->richText));
 		} else {
 			$load($InputStream);
-			if ($of($InputStream::class$)->equals($nc(flavor)->getRepresentationClass())) {
-				return $of($new($StringBufferInputStream, this->richText));
+			if ($InputStream::class$->equals(flavor->getRepresentationClass())) {
+				return $new($StringBufferInputStream, this->richText);
 			}
 		}
 	}
@@ -181,7 +131,44 @@ BasicTextUI$TextTransferHandler$TextTransferable::BasicTextUI$TextTransferHandle
 }
 
 $Class* BasicTextUI$TextTransferHandler$TextTransferable::load$($String* name, bool initialize) {
-	$loadClass(BasicTextUI$TextTransferHandler$TextTransferable, name, initialize, &_BasicTextUI$TextTransferHandler$TextTransferable_ClassInfo_, allocate$BasicTextUI$TextTransferHandler$TextTransferable);
+	$FieldInfo fieldInfos$$[] = {
+		{"p0", "Ljavax/swing/text/Position;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, p0)},
+		{"p1", "Ljavax/swing/text/Position;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, p1)},
+		{"mimeType", "Ljava/lang/String;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, mimeType)},
+		{"richText", "Ljava/lang/String;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, richText)},
+		{"c", "Ljavax/swing/text/JTextComponent;", nullptr, 0, $field(BasicTextUI$TextTransferHandler$TextTransferable, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/JTextComponent;II)V", nullptr, 0, $method(BasicTextUI$TextTransferHandler$TextTransferable, init$, void, $JTextComponent*, int32_t, int32_t)},
+		{"getRicherData", "(Ljava/awt/datatransfer/DataFlavor;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler$TextTransferable, getRicherData, $Object*, $DataFlavor*), "java.awt.datatransfer.UnsupportedFlavorException"},
+		{"getRicherFlavors", "()[Ljava/awt/datatransfer/DataFlavor;", nullptr, $PROTECTED, $virtualMethod(BasicTextUI$TextTransferHandler$TextTransferable, getRicherFlavors, $DataFlavorArray*)},
+		{"removeText", "()V", nullptr, 0, $virtualMethod(BasicTextUI$TextTransferHandler$TextTransferable, removeText, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "javax.swing.plaf.basic.BasicTextUI", "TextTransferHandler", $STATIC},
+		{"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler$TextTransferable", "javax.swing.plaf.basic.BasicTextUI$TextTransferHandler", "TextTransferable", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextUI$TextTransferHandler$TextTransferable",
+		"javax.swing.plaf.basic.BasicTransferable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextUI"
+	};
+	$loadClass(BasicTextUI$TextTransferHandler$TextTransferable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextUI$TextTransferHandler$TextTransferable));
+	});
 	return class$;
 }
 

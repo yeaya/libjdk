@@ -16,6 +16,7 @@ class $export ShowPopupAfterHidePopupTest : public ::java::lang::Object {
 	$class(ShowPopupAfterHidePopupTest, 0, ::java::lang::Object)
 public:
 	ShowPopupAfterHidePopupTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::javax::swing::JFrame* frame;

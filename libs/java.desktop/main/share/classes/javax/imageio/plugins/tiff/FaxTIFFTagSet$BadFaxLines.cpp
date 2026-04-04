@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/FaxTIFFTagSet$BadFaxLines.h>
-
 #include <javax/imageio/plugins/tiff/FaxTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -17,36 +16,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _FaxTIFFTagSet$BadFaxLines_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FaxTIFFTagSet$BadFaxLines, init$, void)},
-	{}
-};
-
-$InnerClassInfo _FaxTIFFTagSet$BadFaxLines_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.FaxTIFFTagSet$BadFaxLines", "javax.imageio.plugins.tiff.FaxTIFFTagSet", "BadFaxLines", $STATIC},
-	{}
-};
-
-$ClassInfo _FaxTIFFTagSet$BadFaxLines_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.FaxTIFFTagSet$BadFaxLines",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_FaxTIFFTagSet$BadFaxLines_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FaxTIFFTagSet$BadFaxLines_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.FaxTIFFTagSet"
-};
-
-$Object* allocate$FaxTIFFTagSet$BadFaxLines($Class* clazz) {
-	return $of($alloc(FaxTIFFTagSet$BadFaxLines));
-}
-
 void FaxTIFFTagSet$BadFaxLines::init$() {
 	$TIFFTag::init$("BadFaxLines"_s, 326, $sl(1, $TIFFTag::TIFF_SHORT) | $sl(1, $TIFFTag::TIFF_LONG), 1);
 }
@@ -55,7 +24,32 @@ FaxTIFFTagSet$BadFaxLines::FaxTIFFTagSet$BadFaxLines() {
 }
 
 $Class* FaxTIFFTagSet$BadFaxLines::load$($String* name, bool initialize) {
-	$loadClass(FaxTIFFTagSet$BadFaxLines, name, initialize, &_FaxTIFFTagSet$BadFaxLines_ClassInfo_, allocate$FaxTIFFTagSet$BadFaxLines);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FaxTIFFTagSet$BadFaxLines, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.FaxTIFFTagSet$BadFaxLines", "javax.imageio.plugins.tiff.FaxTIFFTagSet", "BadFaxLines", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.FaxTIFFTagSet$BadFaxLines",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.FaxTIFFTagSet"
+	};
+	$loadClass(FaxTIFFTagSet$BadFaxLines, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FaxTIFFTagSet$BadFaxLines);
+	});
 	return class$;
 }
 

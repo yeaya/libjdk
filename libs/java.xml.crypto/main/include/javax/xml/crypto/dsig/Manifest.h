@@ -22,6 +22,7 @@ namespace javax {
 class $import Manifest : public ::javax::xml::crypto::XMLStructure {
 	$interface(Manifest, 0, ::javax::xml::crypto::XMLStructure)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $String* getId() {return nullptr;}
 	virtual ::java::util::List* getReferences() {return nullptr;}
 	static $String* TYPE;

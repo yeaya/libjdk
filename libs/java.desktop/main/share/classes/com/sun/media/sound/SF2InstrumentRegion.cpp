@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SF2InstrumentRegion.h>
-
 #include <com/sun/media/sound/SF2Layer.h>
 #include <com/sun/media/sound/SF2Region.h>
 #include <jcpp.h>
@@ -14,31 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SF2InstrumentRegion_FieldInfo_[] = {
-	{"layer", "Lcom/sun/media/sound/SF2Layer;", nullptr, 0, $field(SF2InstrumentRegion, layer)},
-	{}
-};
-
-$MethodInfo _SF2InstrumentRegion_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SF2InstrumentRegion, init$, void)},
-	{"getLayer", "()Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC, $method(SF2InstrumentRegion, getLayer, $SF2Layer*)},
-	{"setLayer", "(Lcom/sun/media/sound/SF2Layer;)V", nullptr, $PUBLIC, $method(SF2InstrumentRegion, setLayer, void, $SF2Layer*)},
-	{}
-};
-
-$ClassInfo _SF2InstrumentRegion_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SF2InstrumentRegion",
-	"com.sun.media.sound.SF2Region",
-	nullptr,
-	_SF2InstrumentRegion_FieldInfo_,
-	_SF2InstrumentRegion_MethodInfo_
-};
-
-$Object* allocate$SF2InstrumentRegion($Class* clazz) {
-	return $of($alloc(SF2InstrumentRegion));
-}
 
 void SF2InstrumentRegion::init$() {
 	$SF2Region::init$();
@@ -56,7 +30,27 @@ SF2InstrumentRegion::SF2InstrumentRegion() {
 }
 
 $Class* SF2InstrumentRegion::load$($String* name, bool initialize) {
-	$loadClass(SF2InstrumentRegion, name, initialize, &_SF2InstrumentRegion_ClassInfo_, allocate$SF2InstrumentRegion);
+	$FieldInfo fieldInfos$$[] = {
+		{"layer", "Lcom/sun/media/sound/SF2Layer;", nullptr, 0, $field(SF2InstrumentRegion, layer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SF2InstrumentRegion, init$, void)},
+		{"getLayer", "()Lcom/sun/media/sound/SF2Layer;", nullptr, $PUBLIC, $method(SF2InstrumentRegion, getLayer, $SF2Layer*)},
+		{"setLayer", "(Lcom/sun/media/sound/SF2Layer;)V", nullptr, $PUBLIC, $method(SF2InstrumentRegion, setLayer, void, $SF2Layer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SF2InstrumentRegion",
+		"com.sun.media.sound.SF2Region",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SF2InstrumentRegion, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SF2InstrumentRegion);
+	});
 	return class$;
 }
 

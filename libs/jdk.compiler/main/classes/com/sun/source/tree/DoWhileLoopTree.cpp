@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/DoWhileLoopTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/StatementTree.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _DoWhileLoopTree_MethodInfo_[] = {
-	{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoWhileLoopTree, getCondition, $ExpressionTree*)},
-	{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoWhileLoopTree, getStatement, $StatementTree*)},
-	{}
-};
-
-$ClassInfo _DoWhileLoopTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.DoWhileLoopTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_DoWhileLoopTree_MethodInfo_
-};
-
-$Object* allocate$DoWhileLoopTree($Class* clazz) {
-	return $of($alloc(DoWhileLoopTree));
-}
-
 $Class* DoWhileLoopTree::load$($String* name, bool initialize) {
-	$loadClass(DoWhileLoopTree, name, initialize, &_DoWhileLoopTree_ClassInfo_, allocate$DoWhileLoopTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getCondition", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoWhileLoopTree, getCondition, $ExpressionTree*)},
+		{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DoWhileLoopTree, getStatement, $StatementTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.DoWhileLoopTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DoWhileLoopTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoWhileLoopTree);
+	});
 	return class$;
 }
 

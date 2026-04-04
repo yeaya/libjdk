@@ -24,6 +24,7 @@ class Histogram : public ::sun::java2d::marlin::stats::StatLong {
 	$class(Histogram, 0, ::sun::java2d::marlin::stats::StatLong)
 public:
 	Histogram();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual void add(int32_t val) override;
 	virtual void add(int64_t val) override;

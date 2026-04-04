@@ -72,6 +72,7 @@ class Field : public ::com::sun::org::apache::bcel::internal::classfile::FieldOr
 	$class(Field, 0, ::com::sun::org::apache::bcel::internal::classfile::FieldOrMethod)
 public:
 	Field();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::bcel::internal::classfile::Field* c);
 	void init$(::java::io::DataInput* file, ::com::sun::org::apache::bcel::internal::classfile::ConstantPool* constant_pool);
 	void init$(int32_t access_flags, int32_t name_index, int32_t signature_index, $Array<::com::sun::org::apache::bcel::internal::classfile::Attribute>* attributes, ::com::sun::org::apache::bcel::internal::classfile::ConstantPool* constant_pool);

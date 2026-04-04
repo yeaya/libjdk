@@ -1,5 +1,4 @@
 #include <B4769350.h>
-
 #include <B4769350$Client.h>
 #include <B4769350$MyAuthenticator.h>
 #include <B4769350$Server.h>
@@ -16,7 +15,6 @@ using $B4769350$Client = ::B4769350$Client;
 using $B4769350$MyAuthenticator = ::B4769350$MyAuthenticator;
 using $B4769350$Server = ::B4769350$Server;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -29,66 +27,6 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ProxySelector = ::java::net::ProxySelector;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $CyclicBarrier = ::java::util::concurrent::CyclicBarrier;
-
-$FieldInfo _B4769350_FieldInfo_[] = {
-	{"count", "I", nullptr, $STATIC, $staticField(B4769350, count)},
-	{"error", "Z", nullptr, $STATIC, $staticField(B4769350, error)},
-	{"server", "LB4769350$Server;", nullptr, $STATIC, $staticField(B4769350, server)},
-	{"auth", "LB4769350$MyAuthenticator;", nullptr, $STATIC, $staticField(B4769350, auth)},
-	{"redirects", "I", nullptr, $STATIC, $staticField(B4769350, redirects)},
-	{"c1", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c1)},
-	{"c2", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c2)},
-	{"c3", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c3)},
-	{"c4", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c4)},
-	{"c5", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c5)},
-	{"c6", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c6)},
-	{"c7", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c7)},
-	{"c8", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c8)},
-	{"c9", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c9)},
-	{"t2condlatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(B4769350, t2condlatch)},
-	{"t3cond1", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(B4769350, t3cond1)},
-	{"t1Cond1", "Ljava/util/concurrent/CyclicBarrier;", nullptr, $STATIC, $staticField(B4769350, t1Cond1)},
-	{}
-};
-
-$MethodInfo _B4769350_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(B4769350, init$, void)},
-	{"authority", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(B4769350, authority, $String*, int32_t)},
-	{"doProxyTests", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $STATIC, $staticMethod(B4769350, doProxyTests, void, $String*, $B4769350$Server*), "java.lang.Exception"},
-	{"doServerTests", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $STATIC, $staticMethod(B4769350, doServerTests, void, $String*, $B4769350$Server*), "java.lang.Exception"},
-	{"except", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4769350, except, void, $String*, $B4769350$Server*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4769350, main, void, $StringArray*), "java.lang.Exception"},
-	{"read", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(B4769350, read, void, $InputStream*), "java.io.IOException"},
-	{"runTest", "(Z)V", nullptr, $PUBLIC, $virtualMethod(B4769350, runTest, void, bool), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _B4769350_InnerClassesInfo_[] = {
-	{"B4769350$MyAuthenticator", "B4769350", "MyAuthenticator", $STATIC},
-	{"B4769350$AuthenticationHandler", "B4769350", "AuthenticationHandler", $STATIC},
-	{"B4769350$Server", "B4769350", "Server", 0},
-	{"B4769350$Client", "B4769350", "Client", $STATIC},
-	{}
-};
-
-$ClassInfo _B4769350_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"B4769350",
-	"java.lang.Object",
-	nullptr,
-	_B4769350_FieldInfo_,
-	_B4769350_MethodInfo_,
-	nullptr,
-	nullptr,
-	_B4769350_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"B4769350$MyAuthenticator,B4769350$AuthenticationHandler,B4769350$Server,B4769350$Server$AuthenticationHandlerT3bc,B4769350$Server$AuthenticationHandlerT3a,B4769350$Server$AuthenticationHandlerT2b,B4769350$Server$AuthenticationHandlerT2a,B4769350$Server$AuthenticationHandlerT1d,B4769350$Server$AuthenticationHandlerT1c,B4769350$Server$AuthenticationHandlerT1b,B4769350$Server$AuthenticationHandlerT1a,B4769350$Client"
-};
-
-$Object* allocate$B4769350($Class* clazz) {
-	return $of($alloc(B4769350));
-}
 
 int32_t B4769350::count = 0;
 bool B4769350::error = false;
@@ -119,22 +57,22 @@ void B4769350::read($InputStream* is) {
 
 void B4769350::doServerTests($String* authority, $B4769350$Server* server) {
 	$init(B4769350);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Doing Server tests"_s);
-	$nc($System::out)->println("T1"_s);
+	$System::out->println("T1"_s);
 	$assignStatic(B4769350::c1, $new($B4769350$Client, authority, "/test/realm1/t1a"_s, false));
 	$assignStatic(B4769350::c2, $new($B4769350$Client, authority, "/test/realm2/t1b"_s, false));
 	$assignStatic(B4769350::c3, $new($B4769350$Client, authority, "/test/realm1/t1c"_s, false));
 	$assignStatic(B4769350::c4, $new($B4769350$Client, authority, "/test/realm2/t1d"_s, false));
-	$nc(B4769350::c1)->start();
-	$nc(B4769350::c2)->start();
+	B4769350::c1->start();
+	B4769350::c2->start();
 	$nc(B4769350::t1Cond1)->await();
 	$nc(B4769350::c3)->start();
 	$nc(B4769350::c4)->start();
 	$nc(B4769350::c1)->join();
 	$nc(B4769350::c2)->join();
-	$nc(B4769350::c3)->join();
-	$nc(B4769350::c4)->join();
+	B4769350::c3->join();
+	B4769350::c4->join();
 	int32_t f = $nc(B4769350::auth)->getCount();
 	if (f != 2) {
 		except($$str({"Authenticator was called "_s, $$str(f), " times. Should be 2"_s}), server);
@@ -143,15 +81,15 @@ void B4769350::doServerTests($String* authority, $B4769350$Server* server) {
 		except("error occurred"_s, server);
 	}
 	$nc(B4769350::auth)->resetCount();
-	$nc($System::out)->println("T2"_s);
+	$System::out->println("T2"_s);
 	$assignStatic(B4769350::c5, $new($B4769350$Client, authority, "/test/realm3/t2a"_s, true));
 	$assignStatic(B4769350::c6, $new($B4769350$Client, authority, "/test/realm3/t2b"_s, false));
 	$assignStatic(B4769350::t2condlatch, $new($CountDownLatch, 1));
-	$nc(B4769350::c5)->start();
-	$nc(B4769350::t2condlatch)->await();
+	B4769350::c5->start();
+	B4769350::t2condlatch->await();
 	$nc(B4769350::c6)->start();
 	$nc(B4769350::c5)->join();
-	$nc(B4769350::c6)->join();
+	B4769350::c6->join();
 	f = $nc(B4769350::auth)->getCount();
 	if (f != B4769350::redirects + 1) {
 		except($$str({"Authenticator was called "_s, $$str(f), " times. Should be: "_s, $$str(B4769350::redirects), $$str(1)}), server);
@@ -163,19 +101,19 @@ void B4769350::doServerTests($String* authority, $B4769350$Server* server) {
 
 void B4769350::doProxyTests($String* authority, $B4769350$Server* server) {
 	$init(B4769350);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Doing Proxy tests"_s);
 	$assignStatic(B4769350::c7, $new($B4769350$Client, authority, "/test/realm4/t3a"_s, false));
 	$assignStatic(B4769350::c8, $new($B4769350$Client, authority, "/test/realm4/t3b"_s, false));
 	$assignStatic(B4769350::c9, $new($B4769350$Client, authority, "/test/realm4/t3c"_s, false));
 	$assignStatic(B4769350::t3cond1, $new($CountDownLatch, 1));
-	$nc(B4769350::c7)->start();
-	$nc(B4769350::t3cond1)->await();
+	B4769350::c7->start();
+	B4769350::t3cond1->await();
 	$nc(B4769350::c8)->start();
 	$nc(B4769350::c9)->start();
 	$nc(B4769350::c7)->join();
-	$nc(B4769350::c8)->join();
-	$nc(B4769350::c9)->join();
+	B4769350::c8->join();
+	B4769350::c9->join();
 	int32_t f = $nc(B4769350::auth)->getCount();
 	if (f != 2) {
 		except($$str({"Authenticator was called "_s, $$str(f), " times. Should be: "_s, $$str(2)}), server);
@@ -191,52 +129,50 @@ void B4769350::main($StringArray* args) {
 }
 
 void B4769350::runTest(bool proxy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$System::setProperty("http.maxRedirects"_s, $($Integer::toString(B4769350::redirects)));
 	$System::setProperty("http.auth.serializeRequests"_s, "true"_s);
 	$Authenticator::setDefault(B4769350::auth);
 	{
 		$var($B4769350$Server, server, $new($B4769350$Server, this));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					server->startServer();
-					$nc($System::out)->println($$str({"Server: listening on port: "_s, $$str(server->getPort())}));
-					if (proxy) {
-						$System::setProperty("http.proxyHost"_s, $($nc($($InetAddress::getLoopbackAddress()))->getHostAddress()));
-						$System::setProperty("http.proxyPort"_s, $($Integer::toString(server->getPort())));
-						doProxyTests("www.foo.com"_s, server);
-					} else {
-						$ProxySelector::setDefault($($ProxySelector::of(nullptr)));
-						doServerTests($(authority(server->getPort())), server);
-					}
-				} catch ($Throwable& t$) {
-					try {
-						server->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+				server->startServer();
+				$nc($System::out)->println($$str({"Server: listening on port: "_s, $$str(server->getPort())}));
+				if (proxy) {
+					$System::setProperty("http.proxyHost"_s, $($$nc($InetAddress::getLoopbackAddress())->getHostAddress()));
+					$System::setProperty("http.proxyPort"_s, $($Integer::toString(server->getPort())));
+					doProxyTests("www.foo.com"_s, server);
+				} else {
+					$ProxySelector::setDefault($($ProxySelector::of(nullptr)));
+					doServerTests($(authority(server->getPort())), server);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				server->close();
+			} catch ($Throwable& t$) {
+				try {
+					server->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			server->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $String* B4769350::authority(int32_t port) {
 	$init(B4769350);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, loopback, $InetAddress::getLoopbackAddress());
 	$var($String, hoststr, $nc(loopback)->getHostAddress());
-	if ($nc(hoststr)->indexOf((int32_t)u':') > -1) {
+	if ($nc(hoststr)->indexOf(u':') > -1) {
 		$assign(hoststr, $str({"["_s, hoststr, "]"_s}));
 	}
 	return $str({hoststr, ":"_s, $$str(port)});
@@ -248,7 +184,7 @@ void B4769350::except($String* s, $B4769350$Server* server) {
 	$throwNew($RuntimeException, s);
 }
 
-void clinit$B4769350($Class* class$) {
+void B4769350::clinit$($Class* clazz) {
 	B4769350::count = 0;
 	B4769350::error = false;
 	$assignStatic(B4769350::auth, $new($B4769350$MyAuthenticator));
@@ -259,7 +195,61 @@ B4769350::B4769350() {
 }
 
 $Class* B4769350::load$($String* name, bool initialize) {
-	$loadClass(B4769350, name, initialize, &_B4769350_ClassInfo_, clinit$B4769350, allocate$B4769350);
+	$FieldInfo fieldInfos$$[] = {
+		{"count", "I", nullptr, $STATIC, $staticField(B4769350, count)},
+		{"error", "Z", nullptr, $STATIC, $staticField(B4769350, error)},
+		{"server", "LB4769350$Server;", nullptr, $STATIC, $staticField(B4769350, server)},
+		{"auth", "LB4769350$MyAuthenticator;", nullptr, $STATIC, $staticField(B4769350, auth)},
+		{"redirects", "I", nullptr, $STATIC, $staticField(B4769350, redirects)},
+		{"c1", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c1)},
+		{"c2", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c2)},
+		{"c3", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c3)},
+		{"c4", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c4)},
+		{"c5", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c5)},
+		{"c6", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c6)},
+		{"c7", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c7)},
+		{"c8", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c8)},
+		{"c9", "LB4769350$Client;", nullptr, $STATIC, $staticField(B4769350, c9)},
+		{"t2condlatch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(B4769350, t2condlatch)},
+		{"t3cond1", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(B4769350, t3cond1)},
+		{"t1Cond1", "Ljava/util/concurrent/CyclicBarrier;", nullptr, $STATIC, $staticField(B4769350, t1Cond1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(B4769350, init$, void)},
+		{"authority", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(B4769350, authority, $String*, int32_t)},
+		{"doProxyTests", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $STATIC, $staticMethod(B4769350, doProxyTests, void, $String*, $B4769350$Server*), "java.lang.Exception"},
+		{"doServerTests", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $STATIC, $staticMethod(B4769350, doServerTests, void, $String*, $B4769350$Server*), "java.lang.Exception"},
+		{"except", "(Ljava/lang/String;LB4769350$Server;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4769350, except, void, $String*, $B4769350$Server*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(B4769350, main, void, $StringArray*), "java.lang.Exception"},
+		{"read", "(Ljava/io/InputStream;)V", nullptr, $STATIC, $staticMethod(B4769350, read, void, $InputStream*), "java.io.IOException"},
+		{"runTest", "(Z)V", nullptr, $PUBLIC, $virtualMethod(B4769350, runTest, void, bool), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"B4769350$MyAuthenticator", "B4769350", "MyAuthenticator", $STATIC},
+		{"B4769350$AuthenticationHandler", "B4769350", "AuthenticationHandler", $STATIC},
+		{"B4769350$Server", "B4769350", "Server", 0},
+		{"B4769350$Client", "B4769350", "Client", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"B4769350",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"B4769350$MyAuthenticator,B4769350$AuthenticationHandler,B4769350$Server,B4769350$Server$AuthenticationHandlerT3bc,B4769350$Server$AuthenticationHandlerT3a,B4769350$Server$AuthenticationHandlerT2b,B4769350$Server$AuthenticationHandlerT2a,B4769350$Server$AuthenticationHandlerT1d,B4769350$Server$AuthenticationHandlerT1c,B4769350$Server$AuthenticationHandlerT1b,B4769350$Server$AuthenticationHandlerT1a,B4769350$Client"
+	};
+	$loadClass(B4769350, name, initialize, &classInfo$$, B4769350::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(B4769350);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class $export DocumentEvent$EventType : public ::java::lang::Object {
 	$class(DocumentEvent$EventType, 0, ::java::lang::Object)
 public:
 	DocumentEvent$EventType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* s);
 	virtual $String* toString() override;
 	static ::javax::swing::event::DocumentEvent$EventType* INSERT;

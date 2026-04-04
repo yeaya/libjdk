@@ -37,7 +37,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	ReferenceNotInitializedException(const ReferenceNotInitializedException& e);
 	virtual void throw$() override;
-	inline ReferenceNotInitializedException* operator ->() {
+	inline ReferenceNotInitializedException* operator ->() const {
+		return (ReferenceNotInitializedException*)throwing$;
+	}
+	inline operator ReferenceNotInitializedException*() const {
 		return (ReferenceNotInitializedException*)throwing$;
 	}
 };

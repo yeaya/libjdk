@@ -52,6 +52,7 @@ class SingleNodeCounter : public ::com::sun::org::apache::xalan::internal::xsltc
 public:
 	SingleNodeCounter();
 	using ::com::sun::org::apache::xalan::internal::xsltc::dom::NodeCounter::getCounter;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::Translet* translet, ::com::sun::org::apache::xalan::internal::xsltc::DOM* document, ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* iterator);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::Translet* translet, ::com::sun::org::apache::xalan::internal::xsltc::DOM* document, ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* iterator, bool hasFrom);
 	virtual $String* getCounter() override;

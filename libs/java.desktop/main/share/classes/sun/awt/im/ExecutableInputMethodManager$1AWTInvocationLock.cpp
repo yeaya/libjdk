@@ -1,5 +1,4 @@
 #include <sun/awt/im/ExecutableInputMethodManager$1AWTInvocationLock.h>
-
 #include <sun/awt/im/ExecutableInputMethodManager.h>
 #include <jcpp.h>
 
@@ -14,47 +13,6 @@ namespace sun {
 	namespace awt {
 		namespace im {
 
-$FieldInfo _ExecutableInputMethodManager$1AWTInvocationLock_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/im/ExecutableInputMethodManager;", nullptr, $FINAL | $SYNTHETIC, $field(ExecutableInputMethodManager$1AWTInvocationLock, this$0)},
-	{}
-};
-
-$MethodInfo _ExecutableInputMethodManager$1AWTInvocationLock_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/im/ExecutableInputMethodManager;)V", nullptr, 0, $method(ExecutableInputMethodManager$1AWTInvocationLock, init$, void, $ExecutableInputMethodManager*)},
-	{}
-};
-
-$EnclosingMethodInfo _ExecutableInputMethodManager$1AWTInvocationLock_EnclosingMethodInfo_ = {
-	"sun.awt.im.ExecutableInputMethodManager",
-	"showInputMethodMenuOnRequesterEDT",
-	"(Ljava/awt/Component;)V"
-};
-
-$InnerClassInfo _ExecutableInputMethodManager$1AWTInvocationLock_InnerClassesInfo_[] = {
-	{"sun.awt.im.ExecutableInputMethodManager$1AWTInvocationLock", nullptr, "AWTInvocationLock", 0},
-	{}
-};
-
-$ClassInfo _ExecutableInputMethodManager$1AWTInvocationLock_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.im.ExecutableInputMethodManager$1AWTInvocationLock",
-	"java.lang.Object",
-	nullptr,
-	_ExecutableInputMethodManager$1AWTInvocationLock_FieldInfo_,
-	_ExecutableInputMethodManager$1AWTInvocationLock_MethodInfo_,
-	nullptr,
-	&_ExecutableInputMethodManager$1AWTInvocationLock_EnclosingMethodInfo_,
-	_ExecutableInputMethodManager$1AWTInvocationLock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.im.ExecutableInputMethodManager"
-};
-
-$Object* allocate$ExecutableInputMethodManager$1AWTInvocationLock($Class* clazz) {
-	return $of($alloc(ExecutableInputMethodManager$1AWTInvocationLock));
-}
-
 void ExecutableInputMethodManager$1AWTInvocationLock::init$($ExecutableInputMethodManager* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -63,7 +21,41 @@ ExecutableInputMethodManager$1AWTInvocationLock::ExecutableInputMethodManager$1A
 }
 
 $Class* ExecutableInputMethodManager$1AWTInvocationLock::load$($String* name, bool initialize) {
-	$loadClass(ExecutableInputMethodManager$1AWTInvocationLock, name, initialize, &_ExecutableInputMethodManager$1AWTInvocationLock_ClassInfo_, allocate$ExecutableInputMethodManager$1AWTInvocationLock);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/im/ExecutableInputMethodManager;", nullptr, $FINAL | $SYNTHETIC, $field(ExecutableInputMethodManager$1AWTInvocationLock, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/im/ExecutableInputMethodManager;)V", nullptr, 0, $method(ExecutableInputMethodManager$1AWTInvocationLock, init$, void, $ExecutableInputMethodManager*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.im.ExecutableInputMethodManager",
+		"showInputMethodMenuOnRequesterEDT",
+		"(Ljava/awt/Component;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.im.ExecutableInputMethodManager$1AWTInvocationLock", nullptr, "AWTInvocationLock", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.im.ExecutableInputMethodManager$1AWTInvocationLock",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.im.ExecutableInputMethodManager"
+	};
+	$loadClass(ExecutableInputMethodManager$1AWTInvocationLock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExecutableInputMethodManager$1AWTInvocationLock);
+	});
 	return class$;
 }
 

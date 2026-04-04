@@ -1,5 +1,4 @@
 #include <java/beans/PropertyChangeEvent.h>
-
 #include <java/util/EventObject.h>
 #include <jcpp.h>
 
@@ -10,40 +9,6 @@ using $EventObject = ::java::util::EventObject;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _PropertyChangeEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyChangeEvent, serialVersionUID)},
-	{"propertyName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PropertyChangeEvent, propertyName)},
-	{"newValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyChangeEvent, newValue)},
-	{"oldValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyChangeEvent, oldValue)},
-	{"propagationId", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyChangeEvent, propagationId)},
-	{}
-};
-
-$MethodInfo _PropertyChangeEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PropertyChangeEvent, init$, void, Object$*, $String*, Object$*, Object$*)},
-	{"appendTo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(PropertyChangeEvent, appendTo, void, $StringBuilder*)},
-	{"getNewValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, getNewValue, $Object*)},
-	{"getOldValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, getOldValue, $Object*)},
-	{"getPropagationId", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, getPropagationId, $Object*)},
-	{"getPropertyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, getPropertyName, $String*)},
-	{"setPropagationId", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, setPropagationId, void, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PropertyChangeEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.PropertyChangeEvent",
-	"java.util.EventObject",
-	nullptr,
-	_PropertyChangeEvent_FieldInfo_,
-	_PropertyChangeEvent_MethodInfo_
-};
-
-$Object* allocate$PropertyChangeEvent($Class* clazz) {
-	return $of($alloc(PropertyChangeEvent));
-}
 
 void PropertyChangeEvent::init$(Object$* source, $String* propertyName, Object$* oldValue, Object$* newValue) {
 	$EventObject::init$(source);
@@ -57,11 +22,11 @@ $String* PropertyChangeEvent::getPropertyName() {
 }
 
 $Object* PropertyChangeEvent::getNewValue() {
-	return $of(this->newValue);
+	return this->newValue;
 }
 
 $Object* PropertyChangeEvent::getOldValue() {
-	return $of(this->oldValue);
+	return this->oldValue;
 }
 
 void PropertyChangeEvent::setPropagationId(Object$* propagationId) {
@@ -69,11 +34,11 @@ void PropertyChangeEvent::setPropagationId(Object$* propagationId) {
 }
 
 $Object* PropertyChangeEvent::getPropagationId() {
-	return $of(this->propagationId);
+	return this->propagationId;
 }
 
 $String* PropertyChangeEvent::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, $($of(this)->getClass()->getName())));
 	sb->append("[propertyName="_s)->append($(getPropertyName()));
 	appendTo(sb);
@@ -91,7 +56,36 @@ PropertyChangeEvent::PropertyChangeEvent() {
 }
 
 $Class* PropertyChangeEvent::load$($String* name, bool initialize) {
-	$loadClass(PropertyChangeEvent, name, initialize, &_PropertyChangeEvent_ClassInfo_, allocate$PropertyChangeEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyChangeEvent, serialVersionUID)},
+		{"propertyName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PropertyChangeEvent, propertyName)},
+		{"newValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyChangeEvent, newValue)},
+		{"oldValue", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyChangeEvent, oldValue)},
+		{"propagationId", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyChangeEvent, propagationId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PropertyChangeEvent, init$, void, Object$*, $String*, Object$*, Object$*)},
+		{"appendTo", "(Ljava/lang/StringBuilder;)V", nullptr, 0, $virtualMethod(PropertyChangeEvent, appendTo, void, $StringBuilder*)},
+		{"getNewValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, getNewValue, $Object*)},
+		{"getOldValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, getOldValue, $Object*)},
+		{"getPropagationId", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, getPropagationId, $Object*)},
+		{"getPropertyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, getPropertyName, $String*)},
+		{"setPropagationId", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, setPropagationId, void, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeEvent, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.PropertyChangeEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PropertyChangeEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyChangeEvent);
+	});
 	return class$;
 }
 

@@ -145,10 +145,11 @@ class $import TextAttribute : public ::java::text::AttributedCharacterIterator$A
 	$class(TextAttribute, 0, ::java::text::AttributedCharacterIterator$Attribute)
 public:
 	TextAttribute();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual $Object* readResolve() override;
 	static ::java::util::Map* instanceMap;
-	static const int64_t serialVersionUID = (int64_t)0x6B789D8C0DE80D46;
+	static const int64_t serialVersionUID = (int64_t)0x6b789d8c0de80d46;
 	static ::java::awt::font::TextAttribute* FAMILY;
 	static ::java::awt::font::TextAttribute* WEIGHT;
 	static ::java::lang::Float* WEIGHT_EXTRA_LIGHT;

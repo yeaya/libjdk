@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/PathFileObject$SimpleFileObject.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <com/sun/tools/javac/file/PathFileObject.h>
 #include <java/lang/Iterable.h>
@@ -28,48 +27,6 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$FieldInfo _PathFileObject$SimpleFileObject_FieldInfo_[] = {
-	{"userPath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(PathFileObject$SimpleFileObject, userPath)},
-	{}
-};
-
-$MethodInfo _PathFileObject$SimpleFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$SimpleFileObject, init$, void, $BaseFileManager*, $Path*, $Path*)},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getKind, $JavaFileObject$Kind*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getName, $String*)},
-	{"getShortName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getShortName, $String*)},
-	{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$SimpleFileObject, getSibling, $PathFileObject*, $String*)},
-	{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, inferBinaryName, $String*, $Iterable*)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, toUri, $URI*)},
-	{}
-};
-
-$InnerClassInfo _PathFileObject$SimpleFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.PathFileObject$SimpleFileObject", "com.sun.tools.javac.file.PathFileObject", "SimpleFileObject", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PathFileObject$SimpleFileObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.PathFileObject$SimpleFileObject",
-	"com.sun.tools.javac.file.PathFileObject",
-	nullptr,
-	_PathFileObject$SimpleFileObject_FieldInfo_,
-	_PathFileObject$SimpleFileObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PathFileObject$SimpleFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.PathFileObject"
-};
-
-$Object* allocate$PathFileObject$SimpleFileObject($Class* clazz) {
-	return $of($alloc(PathFileObject$SimpleFileObject));
-}
-
 void PathFileObject$SimpleFileObject::init$($BaseFileManager* fileManager, $Path* path, $Path* userPath) {
 	$PathFileObject::init$(fileManager, path);
 	$set(this, userPath, userPath);
@@ -80,11 +37,11 @@ $String* PathFileObject$SimpleFileObject::getName() {
 }
 
 $String* PathFileObject$SimpleFileObject::getShortName() {
-	return $nc($($nc(this->userPath)->getFileName()))->toString();
+	return $$nc($nc(this->userPath)->getFileName())->toString();
 }
 
 $String* PathFileObject$SimpleFileObject::inferBinaryName($Iterable* paths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Path, absPath, $nc(this->path)->toAbsolutePath());
 	{
 		$var($Iterator, i$, $nc(paths)->iterator());
@@ -116,11 +73,11 @@ bool PathFileObject$SimpleFileObject::isNameCompatible($String* simpleName, $Jav
 }
 
 $URI* PathFileObject$SimpleFileObject::toUri() {
-	return $nc($($nc(this->userPath)->toUri()))->normalize();
+	return $$nc($nc(this->userPath)->toUri())->normalize();
 }
 
 $PathFileObject* PathFileObject$SimpleFileObject::getSibling($String* baseName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BaseFileManager, var$0, this->fileManager);
 	$var($Path, var$1, $nc(this->path)->resolveSibling(baseName));
 	return $new(PathFileObject$SimpleFileObject, var$0, var$1, $($nc(this->userPath)->resolveSibling(baseName)));
@@ -130,7 +87,43 @@ PathFileObject$SimpleFileObject::PathFileObject$SimpleFileObject() {
 }
 
 $Class* PathFileObject$SimpleFileObject::load$($String* name, bool initialize) {
-	$loadClass(PathFileObject$SimpleFileObject, name, initialize, &_PathFileObject$SimpleFileObject_ClassInfo_, allocate$PathFileObject$SimpleFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"userPath", "Ljava/nio/file/Path;", nullptr, $PRIVATE | $FINAL, $field(PathFileObject$SimpleFileObject, userPath)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Ljava/nio/file/Path;Ljava/nio/file/Path;)V", nullptr, $PRIVATE, $method(PathFileObject$SimpleFileObject, init$, void, $BaseFileManager*, $Path*, $Path*)},
+		{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getKind, $JavaFileObject$Kind*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getName, $String*)},
+		{"getShortName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, getShortName, $String*)},
+		{"getSibling", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/PathFileObject;", nullptr, 0, $virtualMethod(PathFileObject$SimpleFileObject, getSibling, $PathFileObject*, $String*)},
+		{"inferBinaryName", "(Ljava/lang/Iterable;)Ljava/lang/String;", "(Ljava/lang/Iterable<+Ljava/nio/file/Path;>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, inferBinaryName, $String*, $Iterable*)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(PathFileObject$SimpleFileObject, toUri, $URI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.PathFileObject$SimpleFileObject", "com.sun.tools.javac.file.PathFileObject", "SimpleFileObject", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.PathFileObject$SimpleFileObject",
+		"com.sun.tools.javac.file.PathFileObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.PathFileObject"
+	};
+	$loadClass(PathFileObject$SimpleFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PathFileObject$SimpleFileObject);
+	});
 	return class$;
 }
 

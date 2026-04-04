@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSSBorder$InsetOutsetPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Polygon.h>
@@ -25,50 +24,13 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSSBorder$InsetOutsetPainter_FieldInfo_[] = {
-	{"type", "Ljavax/swing/text/html/CSS$Value;", nullptr, 0, $field(CSSBorder$InsetOutsetPainter, type)},
-	{}
-};
-
-$MethodInfo _CSSBorder$InsetOutsetPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/CSS$Value;)V", nullptr, 0, $method(CSSBorder$InsetOutsetPainter, init$, void, $CSS$Value*)},
-	{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$InsetOutsetPainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CSSBorder$InsetOutsetPainter_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSSBorder$InsetOutsetPainter", "javax.swing.text.html.CSSBorder", "InsetOutsetPainter", $STATIC},
-	{"javax.swing.text.html.CSSBorder$ShadowLightPainter", "javax.swing.text.html.CSSBorder", "ShadowLightPainter", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSSBorder$InsetOutsetPainter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.CSSBorder$InsetOutsetPainter",
-	"javax.swing.text.html.CSSBorder$ShadowLightPainter",
-	nullptr,
-	_CSSBorder$InsetOutsetPainter_FieldInfo_,
-	_CSSBorder$InsetOutsetPainter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSSBorder$InsetOutsetPainter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSSBorder"
-};
-
-$Object* allocate$CSSBorder$InsetOutsetPainter($Class* clazz) {
-	return $of($alloc(CSSBorder$InsetOutsetPainter));
-}
-
 void CSSBorder$InsetOutsetPainter::init$($CSS$Value* type) {
 	$CSSBorder$ShadowLightPainter::init$();
 	$set(this, type, type);
 }
 
 void CSSBorder$InsetOutsetPainter::paint($Polygon* shape, $Graphics* g, $Color* color, int32_t side) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($CSS$Value);
 	$nc(g)->setColor(((side + 1) % 4 < 2) == (this->type == $CSS$Value::INSET) ? $(getShadowColor(color)) : $(getLightColor(color)));
 	g->fillPolygon(shape);
@@ -78,7 +40,38 @@ CSSBorder$InsetOutsetPainter::CSSBorder$InsetOutsetPainter() {
 }
 
 $Class* CSSBorder$InsetOutsetPainter::load$($String* name, bool initialize) {
-	$loadClass(CSSBorder$InsetOutsetPainter, name, initialize, &_CSSBorder$InsetOutsetPainter_ClassInfo_, allocate$CSSBorder$InsetOutsetPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljavax/swing/text/html/CSS$Value;", nullptr, 0, $field(CSSBorder$InsetOutsetPainter, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/CSS$Value;)V", nullptr, 0, $method(CSSBorder$InsetOutsetPainter, init$, void, $CSS$Value*)},
+		{"paint", "(Ljava/awt/Polygon;Ljava/awt/Graphics;Ljava/awt/Color;I)V", nullptr, $PUBLIC, $virtualMethod(CSSBorder$InsetOutsetPainter, paint, void, $Polygon*, $Graphics*, $Color*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSSBorder$InsetOutsetPainter", "javax.swing.text.html.CSSBorder", "InsetOutsetPainter", $STATIC},
+		{"javax.swing.text.html.CSSBorder$ShadowLightPainter", "javax.swing.text.html.CSSBorder", "ShadowLightPainter", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.CSSBorder$InsetOutsetPainter",
+		"javax.swing.text.html.CSSBorder$ShadowLightPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSSBorder"
+	};
+	$loadClass(CSSBorder$InsetOutsetPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSSBorder$InsetOutsetPainter);
+	});
 	return class$;
 }
 

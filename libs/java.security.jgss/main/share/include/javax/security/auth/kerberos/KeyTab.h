@@ -49,6 +49,7 @@ class $import KeyTab : public ::java::lang::Object {
 	$class(KeyTab, 0, ::java::lang::Object)
 public:
 	KeyTab();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::security::auth::kerberos::KerberosPrincipal* princ, ::java::io::File* file, bool bound);
 	virtual bool equals(Object$* other) override;
 	bool exists();

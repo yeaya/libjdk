@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/JavacFileManager$SortFiles.h>
-
 #include <com/sun/tools/javac/file/JavacFileManager$SortFiles$1.h>
 #include <com/sun/tools/javac/file/JavacFileManager$SortFiles$2.h>
 #include <com/sun/tools/javac/file/JavacFileManager.h>
@@ -23,53 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace file {
-
-$FieldInfo _JavacFileManager$SortFiles_FieldInfo_[] = {
-	{"FORWARD", "Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacFileManager$SortFiles, FORWARD)},
-	{"REVERSE", "Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacFileManager$SortFiles, REVERSE)},
-	{"$VALUES", "[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacFileManager$SortFiles, $VALUES)},
-	{}
-};
-
-$MethodInfo _JavacFileManager$SortFiles_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager$SortFiles, $values, $JavacFileManager$SortFilesArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacFileManager$SortFiles, init$, void, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager$SortFiles, valueOf, JavacFileManager$SortFiles*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager$SortFiles, values, $JavacFileManager$SortFilesArray*)},
-	{}
-};
-
-$InnerClassInfo _JavacFileManager$SortFiles_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.JavacFileManager$SortFiles", "com.sun.tools.javac.file.JavacFileManager", "SortFiles", $PROTECTED | $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.file.JavacFileManager$SortFiles$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.file.JavacFileManager$SortFiles$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavacFileManager$SortFiles_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
-	"com.sun.tools.javac.file.JavacFileManager$SortFiles",
-	"java.lang.Enum",
-	"java.util.Comparator",
-	_JavacFileManager$SortFiles_FieldInfo_,
-	_JavacFileManager$SortFiles_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;>;Ljava/util/Comparator<Ljava/nio/file/Path;>;",
-	nullptr,
-	_JavacFileManager$SortFiles_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.JavacFileManager"
-};
-
-$Object* allocate$JavacFileManager$SortFiles($Class* clazz) {
-	return $of($alloc(JavacFileManager$SortFiles));
-}
 
 $String* JavacFileManager$SortFiles::toString() {
 	 return this->$Enum::toString();
@@ -117,7 +69,7 @@ void JavacFileManager$SortFiles::init$($String* $enum$name, int32_t $enum$ordina
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JavacFileManager$SortFiles($Class* class$) {
+void JavacFileManager$SortFiles::clinit$($Class* clazz) {
 	$assignStatic(JavacFileManager$SortFiles::FORWARD, $new($JavacFileManager$SortFiles$1, "FORWARD"_s, 0));
 	$assignStatic(JavacFileManager$SortFiles::REVERSE, $new($JavacFileManager$SortFiles$2, "REVERSE"_s, 1));
 	$assignStatic(JavacFileManager$SortFiles::$VALUES, JavacFileManager$SortFiles::$values());
@@ -127,7 +79,48 @@ JavacFileManager$SortFiles::JavacFileManager$SortFiles() {
 }
 
 $Class* JavacFileManager$SortFiles::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$SortFiles, name, initialize, &_JavacFileManager$SortFiles_ClassInfo_, clinit$JavacFileManager$SortFiles, allocate$JavacFileManager$SortFiles);
+	$FieldInfo fieldInfos$$[] = {
+		{"FORWARD", "Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacFileManager$SortFiles, FORWARD)},
+		{"REVERSE", "Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacFileManager$SortFiles, REVERSE)},
+		{"$VALUES", "[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacFileManager$SortFiles, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacFileManager$SortFiles, $values, $JavacFileManager$SortFilesArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacFileManager$SortFiles, init$, void, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager$SortFiles, valueOf, JavacFileManager$SortFiles*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacFileManager$SortFiles, values, $JavacFileManager$SortFilesArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.JavacFileManager$SortFiles", "com.sun.tools.javac.file.JavacFileManager", "SortFiles", $PROTECTED | $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.file.JavacFileManager$SortFiles$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.file.JavacFileManager$SortFiles$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT | $ENUM,
+		"com.sun.tools.javac.file.JavacFileManager$SortFiles",
+		"java.lang.Enum",
+		"java.util.Comparator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/file/JavacFileManager$SortFiles;>;Ljava/util/Comparator<Ljava/nio/file/Path;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.JavacFileManager"
+	};
+	$loadClass(JavacFileManager$SortFiles, name, initialize, &classInfo$$, JavacFileManager$SortFiles::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacFileManager$SortFiles));
+	});
 	return class$;
 }
 

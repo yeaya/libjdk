@@ -60,6 +60,7 @@ class InstructionFinder : public ::java::lang::Object {
 	$class(InstructionFinder, 0, ::java::lang::Object)
 public:
 	InstructionFinder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::bcel::internal::generic::InstructionList* il);
 	static $String* compilePattern($String* pattern);
 	::com::sun::org::apache::bcel::internal::generic::InstructionList* getInstructionList();

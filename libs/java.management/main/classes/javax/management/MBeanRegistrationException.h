@@ -20,10 +20,13 @@ public:
 	MBeanRegistrationException();
 	void init$(::java::lang::Exception* e);
 	void init$(::java::lang::Exception* e, $String* message);
-	static const int64_t serialVersionUID = (int64_t)0x3E349F182A3B9E1D;
+	static const int64_t serialVersionUID = (int64_t)0x3e349f182a3b9e1d;
 	MBeanRegistrationException(const MBeanRegistrationException& e);
 	virtual void throw$() override;
-	inline MBeanRegistrationException* operator ->() {
+	inline MBeanRegistrationException* operator ->() const {
+		return (MBeanRegistrationException*)throwing$;
+	}
+	inline operator MBeanRegistrationException*() const {
 		return (MBeanRegistrationException*)throwing$;
 	}
 };

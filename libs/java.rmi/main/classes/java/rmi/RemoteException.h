@@ -23,11 +23,14 @@ public:
 	void init$($String* s, $Throwable* cause);
 	virtual $Throwable* getCause() override;
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0xB88C9D4EDEE47A22;
+	static const int64_t serialVersionUID = (int64_t)0xb88c9d4edee47a22;
 	$Throwable* detail = nullptr;
 	RemoteException(const RemoteException& e);
 	virtual void throw$() override;
-	inline RemoteException* operator ->() {
+	inline RemoteException* operator ->() const {
+		return (RemoteException*)throwing$;
+	}
+	inline operator RemoteException*() const {
 		return (RemoteException*)throwing$;
 	}
 };

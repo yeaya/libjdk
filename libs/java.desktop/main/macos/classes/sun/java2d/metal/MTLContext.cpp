@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLContext.h>
-
 #include <sun/java2d/metal/MTLGraphicsConfig.h>
 #include <sun/java2d/metal/MTLRenderQueue.h>
 #include <sun/java2d/pipe/BufferedContext.h>
@@ -20,37 +19,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $PUBLIC, $method(MTLContext, init$, void, $RenderQueue*)},
-	{"setScratchSurface", "(Lsun/java2d/metal/MTLGraphicsConfig;)V", nullptr, $STATIC, $staticMethod(MTLContext, setScratchSurface, void, $MTLGraphicsConfig*)},
-	{"setScratchSurface", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLContext, setScratchSurface, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _MTLContext_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLContext$MTLContextCaps", "sun.java2d.metal.MTLContext", "MTLContextCaps", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MTLContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.metal.MTLContext",
-	"sun.java2d.pipe.BufferedContext",
-	nullptr,
-	nullptr,
-	_MTLContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLContext$MTLContextCaps"
-};
-
-$Object* allocate$MTLContext($Class* clazz) {
-	return $of($alloc(MTLContext));
-}
-
 void MTLContext::init$($RenderQueue* rq) {
 	$BufferedContext::init$(rq);
 }
@@ -62,7 +30,7 @@ void MTLContext::setScratchSurface($MTLGraphicsConfig* gc) {
 
 void MTLContext::setScratchSurface(int64_t pConfigInfo) {
 	$init(MTLContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BufferedContext);
 	$assignStatic($BufferedContext::currentContext, nullptr);
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
@@ -76,7 +44,33 @@ MTLContext::MTLContext() {
 }
 
 $Class* MTLContext::load$($String* name, bool initialize) {
-	$loadClass(MTLContext, name, initialize, &_MTLContext_ClassInfo_, allocate$MTLContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, $PUBLIC, $method(MTLContext, init$, void, $RenderQueue*)},
+		{"setScratchSurface", "(Lsun/java2d/metal/MTLGraphicsConfig;)V", nullptr, $STATIC, $staticMethod(MTLContext, setScratchSurface, void, $MTLGraphicsConfig*)},
+		{"setScratchSurface", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLContext, setScratchSurface, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLContext$MTLContextCaps", "sun.java2d.metal.MTLContext", "MTLContextCaps", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.metal.MTLContext",
+		"sun.java2d.pipe.BufferedContext",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLContext$MTLContextCaps"
+	};
+	$loadClass(MTLContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLContext);
+	});
 	return class$;
 }
 

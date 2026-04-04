@@ -69,6 +69,7 @@ class $export BasicTableHeaderUI : public ::javax::swing::plaf::TableHeaderUI {
 	$class(BasicTableHeaderUI, 0, ::javax::swing::plaf::TableHeaderUI)
 public:
 	BasicTableHeaderUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool canResize(::javax::swing::table::TableColumn* column, ::javax::swing::table::JTableHeader* header);
 	int32_t changeColumnWidth(::javax::swing::table::TableColumn* resizingColumn, ::javax::swing::table::JTableHeader* th, int32_t oldWidth, int32_t newWidth);

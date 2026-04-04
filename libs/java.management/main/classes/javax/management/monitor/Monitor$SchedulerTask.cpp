@@ -1,5 +1,4 @@
 #include <javax/management/monitor/Monitor$SchedulerTask.h>
-
 #include <java/util/concurrent/Future.h>
 #include <javax/management/monitor/Monitor$MonitorTask.h>
 #include <javax/management/monitor/Monitor.h>
@@ -15,44 +14,6 @@ using $Monitor$MonitorTask = ::javax::management::monitor::Monitor$MonitorTask;
 namespace javax {
 	namespace management {
 		namespace monitor {
-
-$FieldInfo _Monitor$SchedulerTask_FieldInfo_[] = {
-	{"this$0", "Ljavax/management/monitor/Monitor;", nullptr, $FINAL | $SYNTHETIC, $field(Monitor$SchedulerTask, this$0)},
-	{"task", "Ljavax/management/monitor/Monitor$MonitorTask;", nullptr, $PRIVATE, $field(Monitor$SchedulerTask, task)},
-	{}
-};
-
-$MethodInfo _Monitor$SchedulerTask_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/monitor/Monitor;)V", nullptr, $PUBLIC, $method(Monitor$SchedulerTask, init$, void, $Monitor*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Monitor$SchedulerTask, run, void)},
-	{"setMonitorTask", "(Ljavax/management/monitor/Monitor$MonitorTask;)V", nullptr, $PUBLIC, $virtualMethod(Monitor$SchedulerTask, setMonitorTask, void, $Monitor$MonitorTask*)},
-	{}
-};
-
-$InnerClassInfo _Monitor$SchedulerTask_InnerClassesInfo_[] = {
-	{"javax.management.monitor.Monitor$SchedulerTask", "javax.management.monitor.Monitor", "SchedulerTask", $PRIVATE},
-	{}
-};
-
-$ClassInfo _Monitor$SchedulerTask_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.monitor.Monitor$SchedulerTask",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Monitor$SchedulerTask_FieldInfo_,
-	_Monitor$SchedulerTask_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Monitor$SchedulerTask_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.monitor.Monitor"
-};
-
-$Object* allocate$Monitor$SchedulerTask($Class* clazz) {
-	return $of($alloc(Monitor$SchedulerTask));
-}
 
 void Monitor$SchedulerTask::init$($Monitor* this$0) {
 	$set(this, this$0, this$0);
@@ -72,7 +33,39 @@ Monitor$SchedulerTask::Monitor$SchedulerTask() {
 }
 
 $Class* Monitor$SchedulerTask::load$($String* name, bool initialize) {
-	$loadClass(Monitor$SchedulerTask, name, initialize, &_Monitor$SchedulerTask_ClassInfo_, allocate$Monitor$SchedulerTask);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/management/monitor/Monitor;", nullptr, $FINAL | $SYNTHETIC, $field(Monitor$SchedulerTask, this$0)},
+		{"task", "Ljavax/management/monitor/Monitor$MonitorTask;", nullptr, $PRIVATE, $field(Monitor$SchedulerTask, task)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/monitor/Monitor;)V", nullptr, $PUBLIC, $method(Monitor$SchedulerTask, init$, void, $Monitor*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Monitor$SchedulerTask, run, void)},
+		{"setMonitorTask", "(Ljavax/management/monitor/Monitor$MonitorTask;)V", nullptr, $PUBLIC, $virtualMethod(Monitor$SchedulerTask, setMonitorTask, void, $Monitor$MonitorTask*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.monitor.Monitor$SchedulerTask", "javax.management.monitor.Monitor", "SchedulerTask", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.monitor.Monitor$SchedulerTask",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.monitor.Monitor"
+	};
+	$loadClass(Monitor$SchedulerTask, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Monitor$SchedulerTask);
+	});
 	return class$;
 }
 

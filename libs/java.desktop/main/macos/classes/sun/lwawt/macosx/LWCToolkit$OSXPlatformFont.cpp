@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/LWCToolkit$OSXPlatformFont.h>
-
 #include <sun/awt/PlatformFont.h>
 #include <sun/lwawt/macosx/LWCToolkit.h>
 #include <jcpp.h>
@@ -15,56 +14,50 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _LWCToolkit$OSXPlatformFont_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/macosx/LWCToolkit;", nullptr, $FINAL | $SYNTHETIC, $field(LWCToolkit$OSXPlatformFont, this$0)},
-	{}
-};
-
-$MethodInfo _LWCToolkit$OSXPlatformFont_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/macosx/LWCToolkit;Ljava/lang/String;I)V", nullptr, 0, $method(LWCToolkit$OSXPlatformFont, init$, void, $LWCToolkit*, $String*, int32_t)},
-	{"getMissingGlyphCharacter", "()C", nullptr, $PROTECTED, $virtualMethod(LWCToolkit$OSXPlatformFont, getMissingGlyphCharacter, char16_t)},
-	{}
-};
-
-$InnerClassInfo _LWCToolkit$OSXPlatformFont_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.LWCToolkit$OSXPlatformFont", "sun.lwawt.macosx.LWCToolkit", "OSXPlatformFont", 0},
-	{}
-};
-
-$ClassInfo _LWCToolkit$OSXPlatformFont_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.LWCToolkit$OSXPlatformFont",
-	"sun.awt.PlatformFont",
-	nullptr,
-	_LWCToolkit$OSXPlatformFont_FieldInfo_,
-	_LWCToolkit$OSXPlatformFont_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LWCToolkit$OSXPlatformFont_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.LWCToolkit"
-};
-
-$Object* allocate$LWCToolkit$OSXPlatformFont($Class* clazz) {
-	return $of($alloc(LWCToolkit$OSXPlatformFont));
-}
-
 void LWCToolkit$OSXPlatformFont::init$($LWCToolkit* this$0, $String* name, int32_t style) {
 	$set(this, this$0, this$0);
 	$PlatformFont::init$(name, style);
 }
 
 char16_t LWCToolkit$OSXPlatformFont::getMissingGlyphCharacter() {
-	return (char16_t)0x0000FFF8;
+	return (char16_t)0x0000fff8;
 }
 
 LWCToolkit$OSXPlatformFont::LWCToolkit$OSXPlatformFont() {
 }
 
 $Class* LWCToolkit$OSXPlatformFont::load$($String* name, bool initialize) {
-	$loadClass(LWCToolkit$OSXPlatformFont, name, initialize, &_LWCToolkit$OSXPlatformFont_ClassInfo_, allocate$LWCToolkit$OSXPlatformFont);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/macosx/LWCToolkit;", nullptr, $FINAL | $SYNTHETIC, $field(LWCToolkit$OSXPlatformFont, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/LWCToolkit;Ljava/lang/String;I)V", nullptr, 0, $method(LWCToolkit$OSXPlatformFont, init$, void, $LWCToolkit*, $String*, int32_t)},
+		{"getMissingGlyphCharacter", "()C", nullptr, $PROTECTED, $virtualMethod(LWCToolkit$OSXPlatformFont, getMissingGlyphCharacter, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.LWCToolkit$OSXPlatformFont", "sun.lwawt.macosx.LWCToolkit", "OSXPlatformFont", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.LWCToolkit$OSXPlatformFont",
+		"sun.awt.PlatformFont",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.LWCToolkit"
+	};
+	$loadClass(LWCToolkit$OSXPlatformFont, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCToolkit$OSXPlatformFont);
+	});
 	return class$;
 }
 

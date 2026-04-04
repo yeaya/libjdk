@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMStringPool.h>
-
 #include <com/sun/org/apache/xml/internal/utils/IntVector.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -9,12 +8,10 @@
 #undef NULL
 
 using $IntVector = ::com::sun::org::apache::xml::internal::utils::IntVector;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -24,38 +21,6 @@ namespace com {
 					namespace internal {
 						namespace dtm {
 							namespace ref {
-
-$FieldInfo _DTMStringPool_FieldInfo_[] = {
-	{"m_intToString", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(DTMStringPool, m_intToString)},
-	{"HASHPRIME", "I", nullptr, $STATIC | $FINAL, $constField(DTMStringPool, HASHPRIME)},
-	{"m_hashStart", "[I", nullptr, 0, $field(DTMStringPool, m_hashStart)},
-	{"m_hashChain", "Lcom/sun/org/apache/xml/internal/utils/IntVector;", nullptr, 0, $field(DTMStringPool, m_hashChain)},
-	{"NULL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMStringPool, NULL)},
-	{}
-};
-
-$MethodInfo _DTMStringPool_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DTMStringPool, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DTMStringPool, init$, void)},
-	{"_main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DTMStringPool, _main, void, $StringArray*)},
-	{"indexToString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMStringPool, indexToString, $String*, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(DTMStringPool, removeAllElements, void)},
-	{"stringToIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DTMStringPool, stringToIndex, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _DTMStringPool_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMStringPool",
-	"java.lang.Object",
-	nullptr,
-	_DTMStringPool_FieldInfo_,
-	_DTMStringPool_MethodInfo_
-};
-
-$Object* allocate$DTMStringPool($Class* clazz) {
-	return $of($alloc(DTMStringPool));
-}
 
 void DTMStringPool::init$(int32_t chainSize) {
 	$set(this, m_hashStart, $new($ints, DTMStringPool::HASHPRIME));
@@ -85,7 +50,7 @@ $String* DTMStringPool::indexToString(int32_t i) {
 }
 
 int32_t DTMStringPool::stringToIndex($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (s == nullptr) {
 		return DTMStringPool::NULL;
 	}
@@ -96,14 +61,14 @@ int32_t DTMStringPool::stringToIndex($String* s) {
 	int32_t hashlast = $nc(this->m_hashStart)->get(hashslot);
 	int32_t hashcandidate = hashlast;
 	while (hashcandidate != DTMStringPool::NULL) {
-		if ($nc(($cast($String, $($nc(this->m_intToString)->get(hashcandidate)))))->equals(s)) {
+		if ($$sure($String, $nc(this->m_intToString)->get(hashcandidate))->equals(s)) {
 			return hashcandidate;
 		}
 		hashlast = hashcandidate;
 		hashcandidate = $nc(this->m_hashChain)->elementAt(hashcandidate);
 	}
 	int32_t newIndex = $nc(this->m_intToString)->size();
-	$nc(this->m_intToString)->add(s);
+	this->m_intToString->add(s);
 	$nc(this->m_hashChain)->addElement(DTMStringPool::NULL);
 	if (hashlast == DTMStringPool::NULL) {
 		$nc(this->m_hashStart)->set(hashslot, newIndex);
@@ -114,7 +79,7 @@ int32_t DTMStringPool::stringToIndex($String* s) {
 }
 
 void DTMStringPool::_main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, word, $new($StringArray, {
 		"Zero"_s,
 		"One"_s,
@@ -164,23 +129,23 @@ void DTMStringPool::_main($StringArray* args) {
 		for (i = 0; i < word->length; ++i) {
 			int32_t j = pool->stringToIndex(word->get(i));
 			if (j != i) {
-				$nc($System::out)->println($$str({"\tMismatch populating pool: assigned "_s, $$str(j), " for create "_s, $$str(i)}));
+				$System::out->println($$str({"\tMismatch populating pool: assigned "_s, $$str(j), " for create "_s, $$str(i)}));
 			}
 		}
 		for (i = 0; i < word->length; ++i) {
 			int32_t j = pool->stringToIndex(word->get(i));
 			if (j != i) {
-				$nc($System::out)->println($$str({"\tMismatch in stringToIndex: returned "_s, $$str(j), " for lookup "_s, $$str(i)}));
+				$System::out->println($$str({"\tMismatch in stringToIndex: returned "_s, $$str(j), " for lookup "_s, $$str(i)}));
 			}
 		}
 		for (i = 0; i < word->length; ++i) {
 			$var($String, w, pool->indexToString(i));
 			if (!$nc(word->get(i))->equals(w)) {
-				$nc($System::out)->println($$str({"\tMismatch in indexToString: returned"_s, w, " for lookup "_s, $$str(i)}));
+				$System::out->println($$str({"\tMismatch in indexToString: returned"_s, w, " for lookup "_s, $$str(i)}));
 			}
 		}
 		pool->removeAllElements();
-		$nc($System::out)->println($$str({"\nPass "_s, $$str(pass), " complete\n"_s}));
+		$System::out->println($$str({"\nPass "_s, $$str(pass), " complete\n"_s}));
 	}
 }
 
@@ -188,7 +153,34 @@ DTMStringPool::DTMStringPool() {
 }
 
 $Class* DTMStringPool::load$($String* name, bool initialize) {
-	$loadClass(DTMStringPool, name, initialize, &_DTMStringPool_ClassInfo_, allocate$DTMStringPool);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_intToString", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", 0, $field(DTMStringPool, m_intToString)},
+		{"HASHPRIME", "I", nullptr, $STATIC | $FINAL, $constField(DTMStringPool, HASHPRIME)},
+		{"m_hashStart", "[I", nullptr, 0, $field(DTMStringPool, m_hashStart)},
+		{"m_hashChain", "Lcom/sun/org/apache/xml/internal/utils/IntVector;", nullptr, 0, $field(DTMStringPool, m_hashChain)},
+		{"NULL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DTMStringPool, NULL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DTMStringPool, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DTMStringPool, init$, void)},
+		{"_main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DTMStringPool, _main, void, $StringArray*)},
+		{"indexToString", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DTMStringPool, indexToString, $String*, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{"removeAllElements", "()V", nullptr, $PUBLIC, $virtualMethod(DTMStringPool, removeAllElements, void)},
+		{"stringToIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(DTMStringPool, stringToIndex, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMStringPool",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTMStringPool, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMStringPool);
+	});
 	return class$;
 }
 

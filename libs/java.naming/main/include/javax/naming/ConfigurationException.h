@@ -14,10 +14,13 @@ public:
 	ConfigurationException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xDCD15063AB2FD468;
+	static const int64_t serialVersionUID = (int64_t)0xdcd15063ab2fd468;
 	ConfigurationException(const ConfigurationException& e);
 	virtual void throw$() override;
-	inline ConfigurationException* operator ->() {
+	inline ConfigurationException* operator ->() const {
+		return (ConfigurationException*)throwing$;
+	}
+	inline operator ConfigurationException*() const {
 		return (ConfigurationException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/FoundIndex.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,29 +12,6 @@ namespace com {
 			namespace apache {
 				namespace xpath {
 					namespace internal {
-
-$FieldInfo _FoundIndex_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FoundIndex, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FoundIndex_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FoundIndex, init$, void)},
-	{}
-};
-
-$ClassInfo _FoundIndex_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.FoundIndex",
-	"java.lang.RuntimeException",
-	nullptr,
-	_FoundIndex_FieldInfo_,
-	_FoundIndex_MethodInfo_
-};
-
-$Object* allocate$FoundIndex($Class* clazz) {
-	return $of($alloc(FoundIndex));
-}
 
 void FoundIndex::init$() {
 	$RuntimeException::init$();
@@ -52,7 +28,25 @@ void FoundIndex::throw$() {
 }
 
 $Class* FoundIndex::load$($String* name, bool initialize) {
-	$loadClass(FoundIndex, name, initialize, &_FoundIndex_ClassInfo_, allocate$FoundIndex);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FoundIndex, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FoundIndex, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.FoundIndex",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FoundIndex, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FoundIndex);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/CramMD5Base.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/security/MessageDigest.h>
 #include <java/util/Arrays.h>
@@ -26,44 +25,6 @@ namespace com {
 	namespace sun {
 		namespace security {
 			namespace sasl {
-
-$FieldInfo _CramMD5Base_FieldInfo_[] = {
-	{"completed", "Z", nullptr, $PROTECTED, $field(CramMD5Base, completed)},
-	{"aborted", "Z", nullptr, $PROTECTED, $field(CramMD5Base, aborted)},
-	{"pw", "[B", nullptr, $PROTECTED, $field(CramMD5Base, pw)},
-	{"MD5_BLOCKSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CramMD5Base, MD5_BLOCKSIZE)},
-	{"SASL_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CramMD5Base, SASL_LOGGER_NAME)},
-	{"logger", "Ljava/util/logging/Logger;", nullptr, $PROTECTED | $STATIC, $staticField(CramMD5Base, logger)},
-	{}
-};
-
-$MethodInfo _CramMD5Base_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(CramMD5Base, init$, void)},
-	{"HMAC_MD5", "([B[B)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(CramMD5Base, HMAC_MD5, $String*, $bytes*, $bytes*), "java.security.NoSuchAlgorithmException"},
-	{"clearPassword", "()V", nullptr, $PROTECTED, $virtualMethod(CramMD5Base, clearPassword, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, dispose, void), "javax.security.sasl.SaslException"},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(CramMD5Base, finalize, void)},
-	{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, getMechanismName, $String*)},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, getNegotiatedProperty, $Object*, $String*)},
-	{"initLogger", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(CramMD5Base, initLogger, void)},
-	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, isComplete, bool)},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$ClassInfo _CramMD5Base_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.security.sasl.CramMD5Base",
-	"java.lang.Object",
-	nullptr,
-	_CramMD5Base_FieldInfo_,
-	_CramMD5Base_MethodInfo_
-};
-
-$Object* allocate$CramMD5Base($Class* clazz) {
-	return $of($alloc(CramMD5Base));
-}
 
 $String* CramMD5Base::SASL_LOGGER_NAME = nullptr;
 $Logger* CramMD5Base::logger = nullptr;
@@ -106,7 +67,7 @@ $Object* CramMD5Base::getNegotiatedProperty($String* propName) {
 		if ($nc(propName)->equals($Sasl::QOP)) {
 			return $of("auth"_s);
 		} else {
-			return $of(nullptr);
+			return nullptr;
 		}
 	} else {
 		$throwNew($IllegalStateException, "CRAM-MD5 authentication not completed"_s);
@@ -119,8 +80,8 @@ void CramMD5Base::dispose() {
 
 void CramMD5Base::clearPassword() {
 	if (this->pw != nullptr) {
-		for (int32_t i = 0; i < $nc(this->pw)->length; ++i) {
-			$nc(this->pw)->set(i, (int8_t)0);
+		for (int32_t i = 0; i < this->pw->length; ++i) {
+			this->pw->set(i, (int8_t)0);
 		}
 		$set(this, pw, nullptr);
 	}
@@ -132,7 +93,7 @@ void CramMD5Base::finalize() {
 
 $String* CramMD5Base::HMAC_MD5($bytes* key$renamed, $bytes* text) {
 	$init(CramMD5Base);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, key, key$renamed);
 	$var($MessageDigest, md5, $MessageDigest::getInstance("MD5"_s));
 	if ($nc(key)->length > CramMD5Base::MD5_BLOCKSIZE) {
@@ -158,10 +119,10 @@ $String* CramMD5Base::HMAC_MD5($bytes* key$renamed, $bytes* text) {
 	$assign(digest, md5->digest());
 	$var($StringBuilder, digestString, $new($StringBuilder));
 	for (i = 0; i < $nc(digest)->length; ++i) {
-		if (((int32_t)(digest->get(i) & (uint32_t)255)) < 16) {
-			digestString->append(u'0')->append($($Integer::toHexString((int32_t)(digest->get(i) & (uint32_t)255))));
+		if ((digest->get(i) & 0xff) < 0x10) {
+			digestString->append(u'0')->append($($Integer::toHexString(digest->get(i) & 0xff)));
 		} else {
-			digestString->append($($Integer::toHexString((int32_t)(digest->get(i) & (uint32_t)255))));
+			digestString->append($($Integer::toHexString(digest->get(i) & 0xff)));
 		}
 	}
 	$Arrays::fill(ipad, (int8_t)0);
@@ -172,9 +133,8 @@ $String* CramMD5Base::HMAC_MD5($bytes* key$renamed, $bytes* text) {
 }
 
 void CramMD5Base::initLogger() {
-	$load(CramMD5Base);
+	$init(CramMD5Base);
 	$synchronized(class$) {
-		$init(CramMD5Base);
 		$beforeCallerSensitive();
 		if (CramMD5Base::logger == nullptr) {
 			$assignStatic(CramMD5Base::logger, $Logger::getLogger(CramMD5Base::SASL_LOGGER_NAME));
@@ -185,12 +145,45 @@ void CramMD5Base::initLogger() {
 CramMD5Base::CramMD5Base() {
 }
 
-void clinit$CramMD5Base($Class* class$) {
+void CramMD5Base::clinit$($Class* clazz) {
 	$assignStatic(CramMD5Base::SASL_LOGGER_NAME, "javax.security.sasl"_s);
 }
 
 $Class* CramMD5Base::load$($String* name, bool initialize) {
-	$loadClass(CramMD5Base, name, initialize, &_CramMD5Base_ClassInfo_, clinit$CramMD5Base, allocate$CramMD5Base);
+	$FieldInfo fieldInfos$$[] = {
+		{"completed", "Z", nullptr, $PROTECTED, $field(CramMD5Base, completed)},
+		{"aborted", "Z", nullptr, $PROTECTED, $field(CramMD5Base, aborted)},
+		{"pw", "[B", nullptr, $PROTECTED, $field(CramMD5Base, pw)},
+		{"MD5_BLOCKSIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CramMD5Base, MD5_BLOCKSIZE)},
+		{"SASL_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CramMD5Base, SASL_LOGGER_NAME)},
+		{"logger", "Ljava/util/logging/Logger;", nullptr, $PROTECTED | $STATIC, $staticField(CramMD5Base, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(CramMD5Base, init$, void)},
+		{"HMAC_MD5", "([B[B)Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticMethod(CramMD5Base, HMAC_MD5, $String*, $bytes*, $bytes*), "java.security.NoSuchAlgorithmException"},
+		{"clearPassword", "()V", nullptr, $PROTECTED, $virtualMethod(CramMD5Base, clearPassword, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, dispose, void), "javax.security.sasl.SaslException"},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(CramMD5Base, finalize, void)},
+		{"getMechanismName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, getMechanismName, $String*)},
+		{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, getNegotiatedProperty, $Object*, $String*)},
+		{"initLogger", "()V", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED, $staticMethod(CramMD5Base, initLogger, void)},
+		{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, isComplete, bool)},
+		{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(CramMD5Base, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.security.sasl.CramMD5Base",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CramMD5Base, name, initialize, &classInfo$$, CramMD5Base::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CramMD5Base);
+	});
 	return class$;
 }
 

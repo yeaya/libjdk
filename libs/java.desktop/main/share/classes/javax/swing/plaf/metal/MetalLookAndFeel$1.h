@@ -14,6 +14,7 @@ class MetalLookAndFeel$1 : public ::java::lang::Object {
 	$class(MetalLookAndFeel$1, 0, ::java::lang::Object)
 public:
 	MetalLookAndFeel$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$LayoutStyle$ComponentPlacement;
 };
 

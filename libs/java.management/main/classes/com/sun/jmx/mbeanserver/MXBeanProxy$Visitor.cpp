@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MXBeanProxy$Visitor.h>
-
 #include <com/sun/jmx/mbeanserver/ConvertingMethod.h>
 #include <com/sun/jmx/mbeanserver/MXBeanProxy$GetHandler.h>
 #include <com/sun/jmx/mbeanserver/MXBeanProxy$InvokeHandler.h>
@@ -19,59 +18,18 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _MXBeanProxy$Visitor_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jmx/mbeanserver/MXBeanProxy;", nullptr, $FINAL | $SYNTHETIC, $field(MXBeanProxy$Visitor, this$0)},
-	{}
-};
-
-$MethodInfo _MXBeanProxy$Visitor_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/mbeanserver/MXBeanProxy;)V", nullptr, $PRIVATE, $method(MXBeanProxy$Visitor, init$, void, $MXBeanProxy*)},
-	{"visitAttribute", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, $PUBLIC, $virtualMethod(MXBeanProxy$Visitor, visitAttribute, void, $String*, $ConvertingMethod*, $ConvertingMethod*)},
-	{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanProxy$Visitor, visitAttribute, void, $String*, Object$*, Object$*)},
-	{"visitOperation", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, $PUBLIC, $virtualMethod(MXBeanProxy$Visitor, visitOperation, void, $String*, $ConvertingMethod*)},
-	{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanProxy$Visitor, visitOperation, void, $String*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MXBeanProxy$Visitor_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.MXBeanProxy$Visitor", "com.sun.jmx.mbeanserver.MXBeanProxy", "Visitor", $PRIVATE},
-	{"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor", "com.sun.jmx.mbeanserver.MBeanAnalyzer", "MBeanVisitor", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MXBeanProxy$Visitor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.MXBeanProxy$Visitor",
-	"java.lang.Object",
-	"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor",
-	_MXBeanProxy$Visitor_FieldInfo_,
-	_MXBeanProxy$Visitor_MethodInfo_,
-	"Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;",
-	nullptr,
-	_MXBeanProxy$Visitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.MXBeanProxy"
-};
-
-$Object* allocate$MXBeanProxy$Visitor($Class* clazz) {
-	return $of($alloc(MXBeanProxy$Visitor));
-}
-
 void MXBeanProxy$Visitor::init$($MXBeanProxy* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void MXBeanProxy$Visitor::visitAttribute($String* attributeName, $ConvertingMethod* getter, $ConvertingMethod* setter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getter != nullptr) {
 		getter->checkCallToOpen();
 		$var($Method, getterMethod, getter->getMethod());
@@ -84,7 +42,7 @@ void MXBeanProxy$Visitor::visitAttribute($String* attributeName, $ConvertingMeth
 }
 
 void MXBeanProxy$Visitor::visitOperation($String* operationName, $ConvertingMethod* operation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(operation)->checkCallToOpen();
 	$var($Method, operationMethod, operation->getMethod());
 	$var($StringArray, sig, operation->getOpenSignature());
@@ -103,7 +61,41 @@ MXBeanProxy$Visitor::MXBeanProxy$Visitor() {
 }
 
 $Class* MXBeanProxy$Visitor::load$($String* name, bool initialize) {
-	$loadClass(MXBeanProxy$Visitor, name, initialize, &_MXBeanProxy$Visitor_ClassInfo_, allocate$MXBeanProxy$Visitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jmx/mbeanserver/MXBeanProxy;", nullptr, $FINAL | $SYNTHETIC, $field(MXBeanProxy$Visitor, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/mbeanserver/MXBeanProxy;)V", nullptr, $PRIVATE, $method(MXBeanProxy$Visitor, init$, void, $MXBeanProxy*)},
+		{"visitAttribute", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, $PUBLIC, $virtualMethod(MXBeanProxy$Visitor, visitAttribute, void, $String*, $ConvertingMethod*, $ConvertingMethod*)},
+		{"visitAttribute", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanProxy$Visitor, visitAttribute, void, $String*, Object$*, Object$*)},
+		{"visitOperation", "(Ljava/lang/String;Lcom/sun/jmx/mbeanserver/ConvertingMethod;)V", nullptr, $PUBLIC, $virtualMethod(MXBeanProxy$Visitor, visitOperation, void, $String*, $ConvertingMethod*)},
+		{"visitOperation", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MXBeanProxy$Visitor, visitOperation, void, $String*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.MXBeanProxy$Visitor", "com.sun.jmx.mbeanserver.MXBeanProxy", "Visitor", $PRIVATE},
+		{"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor", "com.sun.jmx.mbeanserver.MBeanAnalyzer", "MBeanVisitor", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.MXBeanProxy$Visitor",
+		"java.lang.Object",
+		"com.sun.jmx.mbeanserver.MBeanAnalyzer$MBeanVisitor",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lcom/sun/jmx/mbeanserver/MBeanAnalyzer$MBeanVisitor<Lcom/sun/jmx/mbeanserver/ConvertingMethod;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.MXBeanProxy"
+	};
+	$loadClass(MXBeanProxy$Visitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MXBeanProxy$Visitor);
+	});
 	return class$;
 }
 

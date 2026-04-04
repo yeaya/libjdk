@@ -1,5 +1,4 @@
 #include <javax/naming/OperationNotSupportedException.h>
-
 #include <javax/naming/NamingException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $NamingException = ::javax::naming::NamingException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _OperationNotSupportedException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OperationNotSupportedException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _OperationNotSupportedException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(OperationNotSupportedException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OperationNotSupportedException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _OperationNotSupportedException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.OperationNotSupportedException",
-	"javax.naming.NamingException",
-	nullptr,
-	_OperationNotSupportedException_FieldInfo_,
-	_OperationNotSupportedException_MethodInfo_
-};
-
-$Object* allocate$OperationNotSupportedException($Class* clazz) {
-	return $of($alloc(OperationNotSupportedException));
-}
 
 void OperationNotSupportedException::init$() {
 	$NamingException::init$();
@@ -54,7 +29,26 @@ void OperationNotSupportedException::throw$() {
 }
 
 $Class* OperationNotSupportedException::load$($String* name, bool initialize) {
-	$loadClass(OperationNotSupportedException, name, initialize, &_OperationNotSupportedException_ClassInfo_, allocate$OperationNotSupportedException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(OperationNotSupportedException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(OperationNotSupportedException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(OperationNotSupportedException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.OperationNotSupportedException",
+		"javax.naming.NamingException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OperationNotSupportedException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OperationNotSupportedException);
+	});
 	return class$;
 }
 

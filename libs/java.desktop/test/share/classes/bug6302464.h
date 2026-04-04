@@ -25,6 +25,7 @@ class $export bug6302464 : public ::java::lang::Object {
 	$class(bug6302464, 0, ::java::lang::Object)
 public:
 	bug6302464();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::HashSet* getAntialiasedColors(Object$* aaHint, int32_t lcdContrast);
 	static bool isExcludedLAF(::javax::swing::UIManager$LookAndFeelInfo* lafInfo);

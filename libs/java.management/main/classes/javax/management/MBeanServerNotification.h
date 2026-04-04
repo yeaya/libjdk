@@ -23,10 +23,11 @@ class $export MBeanServerNotification : public ::javax::management::Notification
 	$class(MBeanServerNotification, 0, ::javax::management::Notification)
 public:
 	MBeanServerNotification();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* type, Object$* source, int64_t sequenceNumber, ::javax::management::ObjectName* objectName);
 	virtual ::javax::management::ObjectName* getMBeanName();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x27EB4D0BE446108D;
+	static const int64_t serialVersionUID = (int64_t)0x27eb4d0be446108d;
 	static $String* REGISTRATION_NOTIFICATION;
 	static $String* UNREGISTRATION_NOTIFICATION;
 	::javax::management::ObjectName* objectName = nullptr;

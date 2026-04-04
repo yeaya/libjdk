@@ -1,5 +1,4 @@
 #include <HeadlessJTextArea.h>
-
 #include <HeadlessJTextArea$1.h>
 #include <HeadlessJTextArea$2.h>
 #include <HeadlessJTextArea$3.h>
@@ -50,7 +49,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,43 +59,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JTextArea = ::javax::swing::JTextArea;
 
-$MethodInfo _HeadlessJTextArea_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTextArea, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTextArea, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJTextArea_InnerClassesInfo_[] = {
-	{"HeadlessJTextArea$3", nullptr, nullptr, 0},
-	{"HeadlessJTextArea$2", nullptr, nullptr, 0},
-	{"HeadlessJTextArea$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJTextArea_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJTextArea",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJTextArea_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJTextArea_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJTextArea$3,HeadlessJTextArea$2,HeadlessJTextArea$1"
-};
-
-$Object* allocate$HeadlessJTextArea($Class* clazz) {
-	return $of($alloc(HeadlessJTextArea));
-}
-
 void HeadlessJTextArea::init$() {
 }
 
 void HeadlessJTextArea::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextArea, t, $new($JTextArea));
 	t->selectAll();
 	t->getSelectionStart();
@@ -112,9 +78,9 @@ void HeadlessJTextArea::main($StringArray* args) {
 	t->getMaximumSize();
 	t->getMinimumSize();
 	t->contains(1, 2);
-	$var($Component, c1, t->add(static_cast<$Component*>($$new($HeadlessJTextArea$1))));
-	$var($Component, c2, t->add(static_cast<$Component*>($$new($HeadlessJTextArea$2))));
-	$var($Component, c3, t->add(static_cast<$Component*>($$new($HeadlessJTextArea$3))));
+	$var($Component, c1, t->add($$new($HeadlessJTextArea$1)));
+	$var($Component, c2, t->add($$new($HeadlessJTextArea$2)));
+	$var($Component, c3, t->add($$new($HeadlessJTextArea$3)));
 	$var($Insets, ins, t->getInsets());
 	t->getAlignmentY();
 	t->getAlignmentX();
@@ -125,26 +91,22 @@ void HeadlessJTextArea::main($StringArray* args) {
 	t->setForeground($Color::red);
 	t->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					t->setFont(f1);
-					t->setFont(f2);
-					t->setFont(f3);
-					t->setFont(f4);
-					t->getFontMetrics(f1);
-					t->getFontMetrics(f2);
-					t->getFontMetrics(f3);
-					t->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				t->setFont(f1);
+				t->setFont(f2);
+				t->setFont(f3);
+				t->setFont(f4);
+				t->getFontMetrics(f1);
+				t->getFontMetrics(f2);
+				t->getFontMetrics(f3);
+				t->getFontMetrics(f4);
 			}
 		}
 	}
@@ -209,13 +171,11 @@ void HeadlessJTextArea::main($StringArray* args) {
 	t->getFont();
 	t->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(t));
+	c->add(t);
 	t->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			t->setLocale(locale);
 		}
@@ -272,7 +232,34 @@ HeadlessJTextArea::HeadlessJTextArea() {
 }
 
 $Class* HeadlessJTextArea::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJTextArea, name, initialize, &_HeadlessJTextArea_ClassInfo_, allocate$HeadlessJTextArea);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTextArea, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTextArea, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJTextArea$3", nullptr, nullptr, 0},
+		{"HeadlessJTextArea$2", nullptr, nullptr, 0},
+		{"HeadlessJTextArea$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJTextArea",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJTextArea$3,HeadlessJTextArea$2,HeadlessJTextArea$1"
+	};
+	$loadClass(HeadlessJTextArea, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJTextArea);
+	});
 	return class$;
 }
 

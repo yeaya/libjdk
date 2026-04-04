@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/parser/AttributeList.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Vector.h>
@@ -41,51 +40,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 				namespace parser {
-
-$FieldInfo _AttributeList_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AttributeList, name)},
-	{"type", "I", nullptr, $PUBLIC, $field(AttributeList, type)},
-	{"values", "Ljava/util/Vector;", "Ljava/util/Vector<*>;", $PUBLIC, $field(AttributeList, values)},
-	{"modifier", "I", nullptr, $PUBLIC, $field(AttributeList, modifier)},
-	{"value", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AttributeList, value)},
-	{"next", "Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $field(AttributeList, next)},
-	{"attributeTypes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $STATIC, $staticField(AttributeList, attributeTypes)},
-	{}
-};
-
-$MethodInfo _AttributeList_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(AttributeList, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeList, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/util/Vector;Ljavax/swing/text/html/parser/AttributeList;)V", "(Ljava/lang/String;IILjava/lang/String;Ljava/util/Vector<*>;Ljavax/swing/text/html/parser/AttributeList;)V", $PUBLIC, $method(AttributeList, init$, void, $String*, int32_t, int32_t, $String*, $Vector*, AttributeList*)},
-	{"defineAttributeType", "(Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(AttributeList, defineAttributeType, void, $String*, int32_t)},
-	{"getModifier", "()I", nullptr, $PUBLIC, $method(AttributeList, getModifier, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(AttributeList, getName, $String*)},
-	{"getNext", "()Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $method(AttributeList, getNext, AttributeList*)},
-	{"getType", "()I", nullptr, $PUBLIC, $method(AttributeList, getType, int32_t)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(AttributeList, getValue, $String*)},
-	{"getValues", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $method(AttributeList, getValues, $Enumeration*)},
-	{"name2type", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeList, name2type, int32_t, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeList, toString, $String*)},
-	{"type2name", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeList, type2name, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _AttributeList_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.text.html.parser.AttributeList",
-	"java.lang.Object",
-	"javax.swing.text.html.parser.DTDConstants,java.io.Serializable",
-	_AttributeList_FieldInfo_,
-	_AttributeList_MethodInfo_
-};
-
-$Object* allocate$AttributeList($Class* clazz) {
-	return $of($alloc(AttributeList));
-}
 
 int32_t AttributeList::hashCode() {
 	 return this->$DTDConstants::hashCode();
@@ -134,7 +88,7 @@ int32_t AttributeList::getModifier() {
 }
 
 $Enumeration* AttributeList::getValues() {
-	return (this->values != nullptr) ? $nc(this->values)->elements() : ($Enumeration*)nullptr;
+	return (this->values != nullptr) ? this->values->elements() : ($Enumeration*)nullptr;
 }
 
 $String* AttributeList::getValue() {
@@ -153,13 +107,13 @@ void AttributeList::defineAttributeType($String* nm, int32_t val) {
 	$init(AttributeList);
 	$var($Integer, num, $Integer::valueOf(val));
 	$nc(AttributeList::attributeTypes)->put(nm, num);
-	$nc(AttributeList::attributeTypes)->put(num, nm);
+	AttributeList::attributeTypes->put(num, nm);
 }
 
 int32_t AttributeList::name2type($String* nm) {
 	$init(AttributeList);
 	$var($Integer, i, $cast($Integer, $nc(AttributeList::attributeTypes)->get(nm)));
-	return (i == nullptr) ? $DTDConstants::CDATA : $nc(i)->intValue();
+	return (i == nullptr) ? $DTDConstants::CDATA : i->intValue();
 }
 
 $String* AttributeList::type2name(int32_t tp) {
@@ -167,8 +121,8 @@ $String* AttributeList::type2name(int32_t tp) {
 	return $cast($String, $nc(AttributeList::attributeTypes)->get($($Integer::valueOf(tp))));
 }
 
-void clinit$AttributeList($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void AttributeList::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(AttributeList::attributeTypes, $new($Hashtable));
 	{
 		AttributeList::defineAttributeType("CDATA"_s, $DTDConstants::CDATA);
@@ -187,10 +141,10 @@ void clinit$AttributeList($Class* class$) {
 		AttributeList::defineAttributeType("NUTOKEN"_s, $DTDConstants::NUTOKEN);
 		AttributeList::defineAttributeType("NUTOKENS"_s, $DTDConstants::NUTOKENS);
 		$nc(AttributeList::attributeTypes)->put("fixed"_s, $($Integer::valueOf($DTDConstants::FIXED)));
-		$nc(AttributeList::attributeTypes)->put("required"_s, $($Integer::valueOf($DTDConstants::REQUIRED)));
-		$nc(AttributeList::attributeTypes)->put("current"_s, $($Integer::valueOf($DTDConstants::CURRENT)));
-		$nc(AttributeList::attributeTypes)->put("conref"_s, $($Integer::valueOf($DTDConstants::CONREF)));
-		$nc(AttributeList::attributeTypes)->put("implied"_s, $($Integer::valueOf($DTDConstants::IMPLIED)));
+		AttributeList::attributeTypes->put("required"_s, $($Integer::valueOf($DTDConstants::REQUIRED)));
+		AttributeList::attributeTypes->put("current"_s, $($Integer::valueOf($DTDConstants::CURRENT)));
+		AttributeList::attributeTypes->put("conref"_s, $($Integer::valueOf($DTDConstants::CONREF)));
+		AttributeList::attributeTypes->put("implied"_s, $($Integer::valueOf($DTDConstants::IMPLIED)));
 	}
 }
 
@@ -198,7 +152,47 @@ AttributeList::AttributeList() {
 }
 
 $Class* AttributeList::load$($String* name, bool initialize) {
-	$loadClass(AttributeList, name, initialize, &_AttributeList_ClassInfo_, clinit$AttributeList, allocate$AttributeList);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AttributeList, name)},
+		{"type", "I", nullptr, $PUBLIC, $field(AttributeList, type)},
+		{"values", "Ljava/util/Vector;", "Ljava/util/Vector<*>;", $PUBLIC, $field(AttributeList, values)},
+		{"modifier", "I", nullptr, $PUBLIC, $field(AttributeList, modifier)},
+		{"value", "Ljava/lang/String;", nullptr, $PUBLIC, $field(AttributeList, value)},
+		{"next", "Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $field(AttributeList, next)},
+		{"attributeTypes", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;", $STATIC, $staticField(AttributeList, attributeTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(AttributeList, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AttributeList, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;IILjava/lang/String;Ljava/util/Vector;Ljavax/swing/text/html/parser/AttributeList;)V", "(Ljava/lang/String;IILjava/lang/String;Ljava/util/Vector<*>;Ljavax/swing/text/html/parser/AttributeList;)V", $PUBLIC, $method(AttributeList, init$, void, $String*, int32_t, int32_t, $String*, $Vector*, AttributeList*)},
+		{"defineAttributeType", "(Ljava/lang/String;I)V", nullptr, $STATIC, $staticMethod(AttributeList, defineAttributeType, void, $String*, int32_t)},
+		{"getModifier", "()I", nullptr, $PUBLIC, $method(AttributeList, getModifier, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(AttributeList, getName, $String*)},
+		{"getNext", "()Ljavax/swing/text/html/parser/AttributeList;", nullptr, $PUBLIC, $method(AttributeList, getNext, AttributeList*)},
+		{"getType", "()I", nullptr, $PUBLIC, $method(AttributeList, getType, int32_t)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(AttributeList, getValue, $String*)},
+		{"getValues", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<*>;", $PUBLIC, $method(AttributeList, getValues, $Enumeration*)},
+		{"name2type", "(Ljava/lang/String;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeList, name2type, int32_t, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AttributeList, toString, $String*)},
+		{"type2name", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeList, type2name, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.text.html.parser.AttributeList",
+		"java.lang.Object",
+		"javax.swing.text.html.parser.DTDConstants,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AttributeList, name, initialize, &classInfo$$, AttributeList::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeList));
+	});
 	return class$;
 }
 

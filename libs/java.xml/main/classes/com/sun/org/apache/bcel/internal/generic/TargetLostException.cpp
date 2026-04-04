@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/TargetLostException.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <jcpp.h>
 
@@ -16,31 +15,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _TargetLostException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TargetLostException, serialVersionUID)},
-	{"targets", "[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE | $FINAL, $field(TargetLostException, targets)},
-	{}
-};
-
-$MethodInfo _TargetLostException_MethodInfo_[] = {
-	{"<init>", "([Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Ljava/lang/String;)V", nullptr, 0, $method(TargetLostException, init$, void, $InstructionHandleArray*, $String*)},
-	{"getTargets", "()[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $method(TargetLostException, getTargets, $InstructionHandleArray*)},
-	{}
-};
-
-$ClassInfo _TargetLostException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.TargetLostException",
-	"java.lang.Exception",
-	nullptr,
-	_TargetLostException_FieldInfo_,
-	_TargetLostException_MethodInfo_
-};
-
-$Object* allocate$TargetLostException($Class* clazz) {
-	return $of($alloc(TargetLostException));
-}
 
 void TargetLostException::init$($InstructionHandleArray* t, $String* mesg) {
 	$Exception::init$(mesg);
@@ -62,7 +36,27 @@ void TargetLostException::throw$() {
 }
 
 $Class* TargetLostException::load$($String* name, bool initialize) {
-	$loadClass(TargetLostException, name, initialize, &_TargetLostException_ClassInfo_, allocate$TargetLostException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TargetLostException, serialVersionUID)},
+		{"targets", "[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PRIVATE | $FINAL, $field(TargetLostException, targets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Ljava/lang/String;)V", nullptr, 0, $method(TargetLostException, init$, void, $InstructionHandleArray*, $String*)},
+		{"getTargets", "()[Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $method(TargetLostException, getTargets, $InstructionHandleArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.TargetLostException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TargetLostException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TargetLostException);
+	});
 	return class$;
 }
 

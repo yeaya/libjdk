@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtilControlSize$SizeVariant.h>
-
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <com/apple/laf/AquaUtilControlSize.h>
 #include <java/awt/Insets.h>
@@ -22,57 +21,6 @@ using $InsetsUIResource = ::javax::swing::plaf::InsetsUIResource;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaUtilControlSize$SizeVariant_FieldInfo_[] = {
-	{"size", "Lapple/laf/JRSUIConstants$Size;", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, size)},
-	{"insets", "Ljava/awt/Insets;", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, insets)},
-	{"margins", "Ljava/awt/Insets;", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, margins)},
-	{"fontSize", "Ljava/lang/Float;", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, fontSize)},
-	{"w", "I", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, w)},
-	{"h", "I", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, h)},
-	{}
-};
-
-$MethodInfo _AquaUtilControlSize$SizeVariant_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaUtilControlSize$SizeVariant, init$, void)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(AquaUtilControlSize$SizeVariant, init$, void, int32_t, int32_t)},
-	{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, $PUBLIC, $method(AquaUtilControlSize$SizeVariant, init$, void, AquaUtilControlSize$SizeVariant*)},
-	{"alterFontSize", "(F)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, alterFontSize, AquaUtilControlSize$SizeVariant*, float)},
-	{"alterInsets", "(IIII)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, alterInsets, AquaUtilControlSize$SizeVariant*, int32_t, int32_t, int32_t, int32_t)},
-	{"alterMargins", "(IIII)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, alterMargins, AquaUtilControlSize$SizeVariant*, int32_t, int32_t, int32_t, int32_t)},
-	{"alterMinSize", "(II)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, alterMinSize, AquaUtilControlSize$SizeVariant*, int32_t, int32_t)},
-	{"generateInsets", "(Ljava/awt/Insets;IIII)Ljava/awt/Insets;", nullptr, $STATIC, $staticMethod(AquaUtilControlSize$SizeVariant, generateInsets, $Insets*, $Insets*, int32_t, int32_t, int32_t, int32_t)},
-	{"replaceInsets", "(Ljava/lang/String;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, replaceInsets, AquaUtilControlSize$SizeVariant*, $String*)},
-	{"replaceInsets", "(Ljava/awt/Insets;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, replaceInsets, AquaUtilControlSize$SizeVariant*, $Insets*)},
-	{"replaceMargins", "(Ljava/lang/String;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, replaceMargins, AquaUtilControlSize$SizeVariant*, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AquaUtilControlSize$SizeVariant_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtilControlSize$SizeVariant", "com.apple.laf.AquaUtilControlSize", "SizeVariant", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaUtilControlSize$SizeVariant_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaUtilControlSize$SizeVariant",
-	"java.lang.Object",
-	nullptr,
-	_AquaUtilControlSize$SizeVariant_FieldInfo_,
-	_AquaUtilControlSize$SizeVariant_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaUtilControlSize$SizeVariant_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtilControlSize"
-};
-
-$Object* allocate$AquaUtilControlSize$SizeVariant($Class* clazz) {
-	return $of($alloc(AquaUtilControlSize$SizeVariant));
-}
 
 void AquaUtilControlSize$SizeVariant::init$() {
 	$init($JRSUIConstants$Size);
@@ -115,7 +63,7 @@ AquaUtilControlSize$SizeVariant* AquaUtilControlSize$SizeVariant::replaceInsets(
 }
 
 AquaUtilControlSize$SizeVariant* AquaUtilControlSize$SizeVariant::replaceInsets($Insets* i) {
-	$set(this, insets, $new($InsetsUIResource, $nc(i)->top, i->left, i->bottom, i->right));
+	$set(this, insets, $new($InsetsUIResource, $nc(i)->top, $nc(i)->left, $nc(i)->bottom, $nc(i)->right));
 	return this;
 }
 
@@ -135,7 +83,7 @@ AquaUtilControlSize$SizeVariant* AquaUtilControlSize$SizeVariant::alterMargins(i
 }
 
 AquaUtilControlSize$SizeVariant* AquaUtilControlSize$SizeVariant::alterFontSize(float newSize) {
-	float oldSize = this->fontSize == nullptr ? 0.0f : $nc(this->fontSize)->floatValue();
+	float oldSize = this->fontSize == nullptr ? 0.0f : this->fontSize->floatValue();
 	$set(this, fontSize, $Float::valueOf(newSize + oldSize));
 	return this;
 }
@@ -165,7 +113,52 @@ AquaUtilControlSize$SizeVariant::AquaUtilControlSize$SizeVariant() {
 }
 
 $Class* AquaUtilControlSize$SizeVariant::load$($String* name, bool initialize) {
-	$loadClass(AquaUtilControlSize$SizeVariant, name, initialize, &_AquaUtilControlSize$SizeVariant_ClassInfo_, allocate$AquaUtilControlSize$SizeVariant);
+	$FieldInfo fieldInfos$$[] = {
+		{"size", "Lapple/laf/JRSUIConstants$Size;", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, size)},
+		{"insets", "Ljava/awt/Insets;", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, insets)},
+		{"margins", "Ljava/awt/Insets;", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, margins)},
+		{"fontSize", "Ljava/lang/Float;", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, fontSize)},
+		{"w", "I", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, w)},
+		{"h", "I", nullptr, 0, $field(AquaUtilControlSize$SizeVariant, h)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaUtilControlSize$SizeVariant, init$, void)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(AquaUtilControlSize$SizeVariant, init$, void, int32_t, int32_t)},
+		{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeVariant;)V", nullptr, $PUBLIC, $method(AquaUtilControlSize$SizeVariant, init$, void, AquaUtilControlSize$SizeVariant*)},
+		{"alterFontSize", "(F)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, alterFontSize, AquaUtilControlSize$SizeVariant*, float)},
+		{"alterInsets", "(IIII)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, alterInsets, AquaUtilControlSize$SizeVariant*, int32_t, int32_t, int32_t, int32_t)},
+		{"alterMargins", "(IIII)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, alterMargins, AquaUtilControlSize$SizeVariant*, int32_t, int32_t, int32_t, int32_t)},
+		{"alterMinSize", "(II)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, alterMinSize, AquaUtilControlSize$SizeVariant*, int32_t, int32_t)},
+		{"generateInsets", "(Ljava/awt/Insets;IIII)Ljava/awt/Insets;", nullptr, $STATIC, $staticMethod(AquaUtilControlSize$SizeVariant, generateInsets, $Insets*, $Insets*, int32_t, int32_t, int32_t, int32_t)},
+		{"replaceInsets", "(Ljava/lang/String;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, replaceInsets, AquaUtilControlSize$SizeVariant*, $String*)},
+		{"replaceInsets", "(Ljava/awt/Insets;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, replaceInsets, AquaUtilControlSize$SizeVariant*, $Insets*)},
+		{"replaceMargins", "(Ljava/lang/String;)Lcom/apple/laf/AquaUtilControlSize$SizeVariant;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, replaceMargins, AquaUtilControlSize$SizeVariant*, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$SizeVariant, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtilControlSize$SizeVariant", "com.apple.laf.AquaUtilControlSize", "SizeVariant", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaUtilControlSize$SizeVariant",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtilControlSize"
+	};
+	$loadClass(AquaUtilControlSize$SizeVariant, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtilControlSize$SizeVariant);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CAccessibility$9.h>
-
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleSelection.h>
@@ -22,64 +21,19 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CAccessibility$9_FieldInfo_[] = {
-	{"val$index", "I", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$9, val$index)},
-	{"val$a", "Ljavax/accessibility/Accessible;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$9, val$a)},
-	{}
-};
-
-$MethodInfo _CAccessibility$9_MethodInfo_[] = {
-	{"<init>", "(Ljavax/accessibility/Accessible;I)V", "()V", 0, $method(CAccessibility$9, init$, void, $Accessible*, int32_t)},
-	{"call", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$9, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _CAccessibility$9_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CAccessibility",
-	"isAccessibleChildSelected",
-	"(Ljavax/accessibility/Accessible;ILjava/awt/Component;)Z"
-};
-
-$InnerClassInfo _CAccessibility$9_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessibility$9", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CAccessibility$9_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessibility$9",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_CAccessibility$9_FieldInfo_,
-	_CAccessibility$9_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Boolean;>;",
-	&_CAccessibility$9_EnclosingMethodInfo_,
-	_CAccessibility$9_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessibility"
-};
-
-$Object* allocate$CAccessibility$9($Class* clazz) {
-	return $of($alloc(CAccessibility$9));
-}
-
 void CAccessibility$9::init$($Accessible* val$a, int32_t val$index) {
 	$set(this, val$a, val$a);
 	this->val$index = val$index;
 }
 
 $Object* CAccessibility$9::call() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, $nc(this->val$a)->getAccessibleContext());
 	if (ac == nullptr) {
-		$init($Boolean);
 		return $of($Boolean::FALSE);
 	}
 	$var($AccessibleSelection, as, $nc(ac)->getAccessibleSelection());
 	if (as == nullptr) {
-		$init($Boolean);
 		return $of($Boolean::FALSE);
 	}
 	return $of($Boolean::valueOf($nc(as)->isAccessibleChildSelected(this->val$index)));
@@ -89,7 +43,43 @@ CAccessibility$9::CAccessibility$9() {
 }
 
 $Class* CAccessibility$9::load$($String* name, bool initialize) {
-	$loadClass(CAccessibility$9, name, initialize, &_CAccessibility$9_ClassInfo_, allocate$CAccessibility$9);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$index", "I", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$9, val$index)},
+		{"val$a", "Ljavax/accessibility/Accessible;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibility$9, val$a)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/accessibility/Accessible;I)V", "()V", 0, $method(CAccessibility$9, init$, void, $Accessible*, int32_t)},
+		{"call", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(CAccessibility$9, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CAccessibility",
+		"isAccessibleChildSelected",
+		"(Ljavax/accessibility/Accessible;ILjava/awt/Component;)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessibility$9", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessibility$9",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessibility"
+	};
+	$loadClass(CAccessibility$9, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessibility$9);
+	});
 	return class$;
 }
 

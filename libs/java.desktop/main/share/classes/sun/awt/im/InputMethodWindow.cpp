@@ -1,5 +1,4 @@
 #include <sun/awt/im/InputMethodWindow.h>
-
 #include <sun/awt/im/InputContext.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace sun {
 	namespace awt {
 		namespace im {
 
-$MethodInfo _InputMethodWindow_MethodInfo_[] = {
-	{"setInputContext", "(Lsun/awt/im/InputContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodWindow, setInputContext, void, $InputContext*)},
-	{}
-};
-
-$ClassInfo _InputMethodWindow_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.im.InputMethodWindow",
-	nullptr,
-	nullptr,
-	nullptr,
-	_InputMethodWindow_MethodInfo_
-};
-
-$Object* allocate$InputMethodWindow($Class* clazz) {
-	return $of($alloc(InputMethodWindow));
-}
-
 $Class* InputMethodWindow::load$($String* name, bool initialize) {
-	$loadClass(InputMethodWindow, name, initialize, &_InputMethodWindow_ClassInfo_, allocate$InputMethodWindow);
+	$MethodInfo methodInfos$$[] = {
+		{"setInputContext", "(Lsun/awt/im/InputContext;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InputMethodWindow, setInputContext, void, $InputContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.im.InputMethodWindow",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InputMethodWindow, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputMethodWindow);
+	});
 	return class$;
 }
 

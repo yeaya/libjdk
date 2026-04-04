@@ -163,6 +163,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool _startDoc($String* dest, $String* jobName);
 	virtual void abortDoc() override;

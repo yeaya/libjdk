@@ -12,6 +12,7 @@ class MultiUIDefaults$1 : public ::java::lang::Object {
 	$class(MultiUIDefaults$1, 0, ::java::lang::Object)
 public:
 	MultiUIDefaults$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$MultiUIDefaults$MultiUIDefaultsEnumerator$Type;
 };
 

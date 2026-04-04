@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/AuthorizationDataEntry.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/math/BigInteger.h>
 #include <sun/security/krb5/Asn1Exception.h>
@@ -16,11 +15,9 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BigInteger = ::java::math::BigInteger;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $CCacheOutputStream = ::sun::security::krb5::internal::ccache::CCacheOutputStream;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -28,36 +25,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _AuthorizationDataEntry_FieldInfo_[] = {
-	{"adType", "I", nullptr, $PUBLIC, $field(AuthorizationDataEntry, adType)},
-	{"adData", "[B", nullptr, $PUBLIC, $field(AuthorizationDataEntry, adData)},
-	{}
-};
-
-$MethodInfo _AuthorizationDataEntry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AuthorizationDataEntry, init$, void)},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(AuthorizationDataEntry, init$, void, int32_t, $bytes*)},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AuthorizationDataEntry, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, clone, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, toString, $String*)},
-	{"writeEntry", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, writeEntry, void, $CCacheOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AuthorizationDataEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.AuthorizationDataEntry",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_AuthorizationDataEntry_FieldInfo_,
-	_AuthorizationDataEntry_MethodInfo_
-};
-
-$Object* allocate$AuthorizationDataEntry($Class* clazz) {
-	return $of($alloc(AuthorizationDataEntry));
-}
 
 void AuthorizationDataEntry::init$() {
 }
@@ -71,37 +38,37 @@ $Object* AuthorizationDataEntry::clone() {
 	$var(AuthorizationDataEntry, new_authorizationDataEntry, $new(AuthorizationDataEntry));
 	new_authorizationDataEntry->adType = this->adType;
 	if (this->adData != nullptr) {
-		$set(new_authorizationDataEntry, adData, $new($bytes, $nc(this->adData)->length));
-		$System::arraycopy(this->adData, 0, new_authorizationDataEntry->adData, 0, $nc(this->adData)->length);
+		$set(new_authorizationDataEntry, adData, $new($bytes, this->adData->length));
+		$System::arraycopy(this->adData, 0, new_authorizationDataEntry->adData, 0, this->adData->length);
 	}
-	return $of(new_authorizationDataEntry);
+	return new_authorizationDataEntry;
 }
 
 void AuthorizationDataEntry::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)0) {
-		this->adType = $nc($($nc($(der->getData()))->getBigInteger()))->intValue();
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & (int8_t)31) == (int8_t)0) {
+		this->adType = $$nc($$nc(der->getData())->getBigInteger())->intValue();
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($(encoding->getData()))->getDerValue());
-	if (((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31)) == (int8_t)1) {
-		$set(this, adData, $nc($(der->getData()))->getOctetString());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
+	if (($nc(der)->getTag() & (int8_t)31) == (int8_t)1) {
+		$set(this, adData, $$nc(der->getData())->getOctetString());
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	if ($nc($(encoding->getData()))->available() > 0) {
+	if ($$nc(encoding->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* AuthorizationDataEntry::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
 	temp->putInteger(this->adType);
@@ -121,7 +88,7 @@ void AuthorizationDataEntry::writeEntry($CCacheOutputStream* cos) {
 }
 
 $String* AuthorizationDataEntry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return ($str({"adType="_s, $$str(this->adType), " adData.length="_s, $$str($nc(this->adData)->length)}));
 }
 
@@ -129,7 +96,32 @@ AuthorizationDataEntry::AuthorizationDataEntry() {
 }
 
 $Class* AuthorizationDataEntry::load$($String* name, bool initialize) {
-	$loadClass(AuthorizationDataEntry, name, initialize, &_AuthorizationDataEntry_ClassInfo_, allocate$AuthorizationDataEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"adType", "I", nullptr, $PUBLIC, $field(AuthorizationDataEntry, adType)},
+		{"adData", "[B", nullptr, $PUBLIC, $field(AuthorizationDataEntry, adData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AuthorizationDataEntry, init$, void)},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(AuthorizationDataEntry, init$, void, int32_t, $bytes*)},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(AuthorizationDataEntry, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, clone, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, toString, $String*)},
+		{"writeEntry", "(Lsun/security/krb5/internal/ccache/CCacheOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(AuthorizationDataEntry, writeEntry, void, $CCacheOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.AuthorizationDataEntry",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthorizationDataEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthorizationDataEntry);
+	});
 	return class$;
 }
 

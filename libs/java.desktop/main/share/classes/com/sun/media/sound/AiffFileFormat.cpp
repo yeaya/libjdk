@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AiffFileFormat.h>
-
 #include <com/sun/media/sound/StandardFileFormat.h>
 #include <javax/sound/sampled/AudioFileFormat$Type.h>
 #include <javax/sound/sampled/AudioFormat.h>
@@ -33,50 +32,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _AiffFileFormat_FieldInfo_[] = {
-	{"AIFF_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFF_MAGIC)},
-	{"AIFC_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_MAGIC)},
-	{"AIFF_MAGIC2", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFF_MAGIC2)},
-	{"FVER_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, FVER_MAGIC)},
-	{"FVER_TIMESTAMP", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, FVER_TIMESTAMP)},
-	{"COMM_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, COMM_MAGIC)},
-	{"SSND_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, SSND_MAGIC)},
-	{"AIFC_PCM", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_PCM)},
-	{"AIFC_ACE2", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_ACE2)},
-	{"AIFC_ACE8", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_ACE8)},
-	{"AIFC_MAC3", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_MAC3)},
-	{"AIFC_MAC6", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_MAC6)},
-	{"AIFC_ULAW", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_ULAW)},
-	{"AIFC_IMA4", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_IMA4)},
-	{"AIFF_HEADERSIZE", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFF_HEADERSIZE)},
-	{"headerSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileFormat, headerSize)},
-	{"commChunkSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileFormat, commChunkSize)},
-	{"fverChunkSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileFormat, fverChunkSize)},
-	{}
-};
-
-$MethodInfo _AiffFileFormat_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;JLjavax/sound/sampled/AudioFormat;J)V", nullptr, 0, $method(AiffFileFormat, init$, void, $AudioFileFormat$Type*, int64_t, $AudioFormat*, int64_t)},
-	{"getCommChunkSize", "()I", nullptr, 0, $method(AiffFileFormat, getCommChunkSize, int32_t)},
-	{"getFverChunkSize", "()I", nullptr, 0, $method(AiffFileFormat, getFverChunkSize, int32_t)},
-	{"getHeaderSize", "()I", nullptr, 0, $method(AiffFileFormat, getHeaderSize, int32_t)},
-	{"getSsndChunkOffset", "()I", nullptr, 0, $method(AiffFileFormat, getSsndChunkOffset, int32_t)},
-	{}
-};
-
-$ClassInfo _AiffFileFormat_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.AiffFileFormat",
-	"com.sun.media.sound.StandardFileFormat",
-	nullptr,
-	_AiffFileFormat_FieldInfo_,
-	_AiffFileFormat_MethodInfo_
-};
-
-$Object* allocate$AiffFileFormat($Class* clazz) {
-	return $of($alloc(AiffFileFormat));
-}
-
 void AiffFileFormat::init$($AudioFileFormat$Type* type, int64_t byteLength, $AudioFormat* format, int64_t frameLength) {
 	$StandardFileFormat::init$(type, byteLength, format, frameLength);
 }
@@ -101,7 +56,46 @@ AiffFileFormat::AiffFileFormat() {
 }
 
 $Class* AiffFileFormat::load$($String* name, bool initialize) {
-	$loadClass(AiffFileFormat, name, initialize, &_AiffFileFormat_ClassInfo_, allocate$AiffFileFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"AIFF_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFF_MAGIC)},
+		{"AIFC_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_MAGIC)},
+		{"AIFF_MAGIC2", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFF_MAGIC2)},
+		{"FVER_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, FVER_MAGIC)},
+		{"FVER_TIMESTAMP", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, FVER_TIMESTAMP)},
+		{"COMM_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, COMM_MAGIC)},
+		{"SSND_MAGIC", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, SSND_MAGIC)},
+		{"AIFC_PCM", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_PCM)},
+		{"AIFC_ACE2", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_ACE2)},
+		{"AIFC_ACE8", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_ACE8)},
+		{"AIFC_MAC3", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_MAC3)},
+		{"AIFC_MAC6", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_MAC6)},
+		{"AIFC_ULAW", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_ULAW)},
+		{"AIFC_IMA4", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFC_IMA4)},
+		{"AIFF_HEADERSIZE", "I", nullptr, $STATIC | $FINAL, $constField(AiffFileFormat, AIFF_HEADERSIZE)},
+		{"headerSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileFormat, headerSize)},
+		{"commChunkSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileFormat, commChunkSize)},
+		{"fverChunkSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AiffFileFormat, fverChunkSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/AudioFileFormat$Type;JLjavax/sound/sampled/AudioFormat;J)V", nullptr, 0, $method(AiffFileFormat, init$, void, $AudioFileFormat$Type*, int64_t, $AudioFormat*, int64_t)},
+		{"getCommChunkSize", "()I", nullptr, 0, $method(AiffFileFormat, getCommChunkSize, int32_t)},
+		{"getFverChunkSize", "()I", nullptr, 0, $method(AiffFileFormat, getFverChunkSize, int32_t)},
+		{"getHeaderSize", "()I", nullptr, 0, $method(AiffFileFormat, getHeaderSize, int32_t)},
+		{"getSsndChunkOffset", "()I", nullptr, 0, $method(AiffFileFormat, getSsndChunkOffset, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.AiffFileFormat",
+		"com.sun.media.sound.StandardFileFormat",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AiffFileFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AiffFileFormat);
+	});
 	return class$;
 }
 

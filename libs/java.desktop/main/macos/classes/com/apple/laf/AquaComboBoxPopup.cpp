@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaComboBoxPopup.h>
-
 #include <com/apple/laf/AquaComboBoxPopup$1.h>
 #include <com/apple/laf/AquaComboBoxUI.h>
 #include <com/apple/laf/AquaUtils.h>
@@ -16,7 +15,6 @@
 #include <javax/swing/Box.h>
 #include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/JScrollPane.h>
@@ -54,13 +52,9 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Box = ::javax::swing::Box;
-using $ComboBoxModel = ::javax::swing::ComboBoxModel;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
-using $JScrollPane = ::javax::swing::JScrollPane;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
-using $ListModel = ::javax::swing::ListModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Border = ::javax::swing::border::Border;
 using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
@@ -69,58 +63,6 @@ using $CPlatformWindow = ::sun::lwawt::macosx::CPlatformWindow;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaComboBoxPopup_FieldInfo_[] = {
-	{"FOCUS_RING_PAD_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(AquaComboBoxPopup, FOCUS_RING_PAD_LEFT)},
-	{"FOCUS_RING_PAD_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(AquaComboBoxPopup, FOCUS_RING_PAD_RIGHT)},
-	{"FOCUS_RING_PAD_BOTTOM", "I", nullptr, $STATIC | $FINAL, $constField(AquaComboBoxPopup, FOCUS_RING_PAD_BOTTOM)},
-	{"topStrut", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(AquaComboBoxPopup, topStrut)},
-	{"bottomStrut", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(AquaComboBoxPopup, bottomStrut)},
-	{"isPopDown", "Z", nullptr, $PROTECTED, $field(AquaComboBoxPopup, isPopDown)},
-	{}
-};
-
-$MethodInfo _AquaComboBoxPopup_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(AquaComboBoxPopup, init$, void, $JComboBox*)},
-	{"adjustPopupAndGetBounds", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $method(AquaComboBoxPopup, adjustPopupAndGetBounds, $Rectangle*)},
-	{"computePopupBounds", "(IIII)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxPopup, computePopupBounds, $Rectangle*, int32_t, int32_t, int32_t, int32_t)},
-	{"computePopupBoundsForMenu", "(IIIIILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $method(AquaComboBoxPopup, computePopupBoundsForMenu, $Rectangle*, int32_t, int32_t, int32_t, int32_t, int32_t, $Rectangle*)},
-	{"configurePopup", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxPopup, configurePopup, void)},
-	{"createList", "()Ljavax/swing/JList;", "()Ljavax/swing/JList<Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(AquaComboBoxPopup, createList, $JList*)},
-	{"getAvailableScreenArea", "(Ljava/awt/Rectangle;Ljava/awt/GraphicsConfiguration;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(AquaComboBoxPopup, getAvailableScreenArea, $Rectangle*, $Rectangle*, $GraphicsConfiguration*)},
-	{"getBestPopupSizeForRowCount", "(I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $method(AquaComboBoxPopup, getBestPopupSizeForRowCount, $Dimension*, int32_t)},
-	{"getBestScreenBounds", "(Ljava/awt/Point;)Ljava/awt/Rectangle;", nullptr, 0, $method(AquaComboBoxPopup, getBestScreenBounds, $Rectangle*, $Point*)},
-	{"getComboBoxEdge", "(IZ)I", nullptr, $PRIVATE, $method(AquaComboBoxPopup, getComboBoxEdge, int32_t, int32_t, bool)},
-	{"isPopdown", "()Z", nullptr, $PROTECTED, $method(AquaComboBoxPopup, isPopdown, bool)},
-	{"shouldScroll", "()Z", nullptr, $PROTECTED, $method(AquaComboBoxPopup, shouldScroll, bool)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxPopup, show, void)},
-	{"updateContents", "(Z)V", nullptr, $PUBLIC, $method(AquaComboBoxPopup, updateContents, void, bool)},
-	{}
-};
-
-$InnerClassInfo _AquaComboBoxPopup_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaComboBoxPopup$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaComboBoxPopup_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.apple.laf.AquaComboBoxPopup",
-	"javax.swing.plaf.basic.BasicComboPopup",
-	nullptr,
-	_AquaComboBoxPopup_FieldInfo_,
-	_AquaComboBoxPopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaComboBoxPopup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaComboBoxPopup$1"
-};
-
-$Object* allocate$AquaComboBoxPopup($Class* clazz) {
-	return $of($alloc(AquaComboBoxPopup));
-}
 
 void AquaComboBoxPopup::init$($JComboBox* cBox) {
 	$BasicComboPopup::init$(cBox);
@@ -147,7 +89,7 @@ void AquaComboBoxPopup::updateContents(bool remove) {
 				this->remove(this->bottomStrut);
 			}
 		} else {
-			add(static_cast<$Component*>(this->scroller));
+			add(this->scroller);
 		}
 	} else {
 		if (this->topStrut == nullptr) {
@@ -155,22 +97,22 @@ void AquaComboBoxPopup::updateContents(bool remove) {
 			$set(this, bottomStrut, $Box::createVerticalStrut(4));
 		}
 		if (remove) {
-			this->remove(static_cast<$Component*>(this->scroller));
+			this->remove(this->scroller);
 		}
 		this->add(this->topStrut);
-		this->add(static_cast<$Component*>(this->scroller));
+		this->add(this->scroller);
 		this->add(this->bottomStrut);
 	}
 }
 
 $Dimension* AquaComboBoxPopup::getBestPopupSizeForRowCount(int32_t maxRowCount) {
-	$useLocalCurrentObjectStackCache();
-	int32_t currentElementCount = $nc($($nc(this->comboBox)->getModel()))->getSize();
+	$useLocalObjectStack();
+	int32_t currentElementCount = $$nc($nc(this->comboBox)->getModel())->getSize();
 	int32_t rowCount = $Math::min(maxRowCount, currentElementCount);
 	$var($Dimension, popupSize, $new($Dimension));
 	$var($ListCellRenderer, renderer, $nc(this->list$)->getCellRenderer());
 	for (int32_t i = 0; i < rowCount; ++i) {
-		$var($Object, value, $nc($($nc(this->list$)->getModel()))->getElementAt(i));
+		$var($Object, value, $$nc($nc(this->list$)->getModel())->getElementAt(i));
 		$var($Component, c, $nc(renderer)->getListCellRendererComponent(this->list$, value, i, false, false));
 		$var($Dimension, prefSize, $nc(c)->getPreferredSize());
 		popupSize->height += $nc(prefSize)->height;
@@ -182,7 +124,7 @@ $Dimension* AquaComboBoxPopup::getBestPopupSizeForRowCount(int32_t maxRowCount) 
 
 bool AquaComboBoxPopup::shouldScroll() {
 	int32_t var$0 = $nc(this->comboBox)->getItemCount();
-	return var$0 > $nc(this->comboBox)->getMaximumRowCount();
+	return var$0 > this->comboBox->getMaximumRowCount();
 }
 
 bool AquaComboBoxPopup::isPopdown() {
@@ -191,14 +133,14 @@ bool AquaComboBoxPopup::isPopdown() {
 }
 
 void AquaComboBoxPopup::show() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t startItemCount = $nc(this->comboBox)->getItemCount();
 	$var($Rectangle, popupBounds, adjustPopupAndGetBounds());
 	if (popupBounds == nullptr) {
 		return;
 	}
 	$nc(this->comboBox)->firePopupMenuWillBecomeVisible();
-	show(this->comboBox, $nc(popupBounds)->x, popupBounds->y);
+	show(this->comboBox, $nc(popupBounds)->x, $nc(popupBounds)->y);
 	int32_t afterShowItemCount = $nc(this->comboBox)->getItemCount();
 	if (afterShowItemCount == 0) {
 		hide();
@@ -206,10 +148,10 @@ void AquaComboBoxPopup::show() {
 	}
 	if (startItemCount != afterShowItemCount) {
 		$var($Rectangle, newBounds, adjustPopupAndGetBounds());
-		$nc(this->list$)->setSize($nc(newBounds)->width, newBounds->height);
+		$nc(this->list$)->setSize($nc(newBounds)->width, $nc(newBounds)->height);
 		pack();
 		$var($Point, newLoc, $nc(this->comboBox)->getLocationOnScreen());
-		setLocation($nc(newLoc)->x + $nc(newBounds)->x, newLoc->y + newBounds->y);
+		setLocation($nc(newLoc)->x + newBounds->x, $nc(newLoc)->y + newBounds->y);
 	}
 	$nc(this->list$)->requestFocusInWindow();
 }
@@ -219,12 +161,12 @@ $JList* AquaComboBoxPopup::createList() {
 }
 
 $Rectangle* AquaComboBoxPopup::adjustPopupAndGetBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->isPopDown != isPopdown()) {
 		updateContents(true);
 	}
 	$var($Dimension, popupSize, getBestPopupSizeForRowCount($nc(this->comboBox)->getMaximumRowCount()));
-	$var($Rectangle, popupBounds, computePopupBounds(0, $nc($($nc(this->comboBox)->getBounds()))->height, $nc(popupSize)->width, popupSize->height));
+	$var($Rectangle, popupBounds, computePopupBounds(0, $nc($($nc(this->comboBox)->getBounds()))->height, $nc(popupSize)->width, $nc(popupSize)->height));
 	if (popupBounds == nullptr) {
 		return nullptr;
 	}
@@ -244,7 +186,7 @@ $Rectangle* AquaComboBoxPopup::adjustPopupAndGetBounds() {
 }
 
 $Rectangle* AquaComboBoxPopup::getBestScreenBounds($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	$var($GraphicsDeviceArray, gs, $nc(ge)->getScreenDevices());
 	{
@@ -257,9 +199,7 @@ $Rectangle* AquaComboBoxPopup::getBestScreenBounds($Point* p) {
 				$var($GraphicsConfigurationArray, gc, $nc(gd)->getConfigurations());
 				{
 					$var($GraphicsConfigurationArray, arr$, gc);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($GraphicsConfiguration, element0, arr$->get(i$));
 						{
 							$var($Rectangle, gcBounds, $nc(element0)->getBounds());
@@ -276,7 +216,7 @@ $Rectangle* AquaComboBoxPopup::getBestScreenBounds($Point* p) {
 	$nc(comboBoxBounds)->setLocation(p);
 	{
 		$var($GraphicsDeviceArray, arr$, gs);
-		int32_t len$ = arr$->length;
+		int32_t len$ = $nc(arr$)->length;
 		int32_t i$ = 0;
 		for (; i$ < len$; ++i$) {
 			$var($GraphicsDevice, gd, arr$->get(i$));
@@ -284,9 +224,7 @@ $Rectangle* AquaComboBoxPopup::getBestScreenBounds($Point* p) {
 				$var($GraphicsConfigurationArray, gc, $nc(gd)->getConfigurations());
 				{
 					$var($GraphicsConfigurationArray, arr$, gc);
-					int32_t len$ = $nc(arr$)->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 						$var($GraphicsConfiguration, element0, arr$->get(i$));
 						{
 							$var($Rectangle, gcBounds, $nc(element0)->getBounds());
@@ -303,9 +241,9 @@ $Rectangle* AquaComboBoxPopup::getBestScreenBounds($Point* p) {
 }
 
 $Rectangle* AquaComboBoxPopup::getAvailableScreenArea($Rectangle* bounds, $GraphicsConfiguration* gc) {
-	$useLocalCurrentObjectStackCache();
-	$var($Insets, insets, $nc($($Toolkit::getDefaultToolkit()))->getScreenInsets(gc));
-	return $new($Rectangle, $nc(bounds)->x + $nc(insets)->left, bounds->y + insets->top, bounds->width - insets->left - insets->right, bounds->height - insets->top - insets->bottom);
+	$useLocalObjectStack();
+	$var($Insets, insets, $$nc($Toolkit::getDefaultToolkit())->getScreenInsets(gc));
+	return $new($Rectangle, $nc(bounds)->x + $nc(insets)->left, $nc(bounds)->y + $nc(insets)->top, $nc(bounds)->width - $nc(insets)->left - $nc(insets)->right, $nc(bounds)->height - $nc(insets)->top - $nc(insets)->bottom);
 }
 
 int32_t AquaComboBoxPopup::getComboBoxEdge(int32_t py, bool bottom) {
@@ -314,8 +252,8 @@ int32_t AquaComboBoxPopup::getComboBoxEdge(int32_t py, bool bottom) {
 }
 
 $Rectangle* AquaComboBoxPopup::computePopupBounds(int32_t px, int32_t py, int32_t pw, int32_t ph) {
-	$useLocalCurrentObjectStackCache();
-	int32_t itemCount = $nc($($nc(this->comboBox)->getModel()))->getSize();
+	$useLocalObjectStack();
+	int32_t itemCount = $$nc($nc(this->comboBox)->getModel())->getSize();
 	bool isPopdown = this->isPopdown();
 	bool isTableCellEditor = $AquaComboBoxUI::isTableCellEditor(this->comboBox);
 	if (isPopdown && !isTableCellEditor) {
@@ -335,7 +273,7 @@ $Rectangle* AquaComboBoxPopup::computePopupBounds(int32_t px, int32_t py, int32_
 	if (isPopdown) {
 		pw += 4;
 	}
-	int32_t minWidth = $nc(comboBoxBounds)->width - ($nc(comboBoxInsets)->left + comboBoxInsets->right);
+	int32_t minWidth = $nc(comboBoxBounds)->width - ($nc(comboBoxInsets)->left + $nc(comboBoxInsets)->right);
 	pw = $Math::max(minWidth, pw);
 	bool leftToRight = $AquaUtils::isLeftToRight(this->comboBox);
 	if (leftToRight) {
@@ -355,12 +293,12 @@ $Rectangle* AquaComboBoxPopup::computePopupBounds(int32_t px, int32_t py, int32_
 	if (p->x < $nc(scrBounds)->x) {
 		px = px + (scrBounds->x - p->x);
 	}
-	if (p->y < $nc(scrBounds)->y) {
+	if (p->y < scrBounds->y) {
 		py = py + (scrBounds->y - p->y);
 	}
 	$var($Point, top, $new($Point, 0, 0));
 	$SwingUtilities::convertPointFromScreen(top, this->comboBox);
-	int32_t maxWidth = $Math::min($nc(scrBounds)->width, top->x + scrBounds->x + scrBounds->width) - 2;
+	int32_t maxWidth = $Math::min(scrBounds->width, top->x + scrBounds->x + scrBounds->width) - 2;
 	pw = $Math::min(maxWidth, pw);
 	if (pw < minWidth) {
 		px -= (minWidth - pw);
@@ -377,11 +315,11 @@ $Rectangle* AquaComboBoxPopup::computePopupBounds(int32_t px, int32_t py, int32_
 		}
 	}
 	$var($Rectangle, r, $new($Rectangle, px, py, pw, ph));
-	if (r->y + r->height < top->y + $nc(scrBounds)->y + scrBounds->height) {
+	if (r->y + r->height < top->y + scrBounds->y + scrBounds->height) {
 		return r;
 	}
 	int32_t newY = getComboBoxEdge(comboBoxBounds->height, false) - ph - comboBoxInsets->top;
-	if (newY > top->y + $nc(scrBounds)->y) {
+	if (newY > top->y + scrBounds->y) {
 		return $new($Rectangle, px, newY, r->width, r->height);
 	} else {
 		r->y = top->y + scrBounds->y + $Math::max(0, (scrBounds->height - ph) / 2);
@@ -391,10 +329,10 @@ $Rectangle* AquaComboBoxPopup::computePopupBounds(int32_t px, int32_t py, int32_
 }
 
 $Rectangle* AquaComboBoxPopup::computePopupBoundsForMenu(int32_t px, int32_t py, int32_t pw, int32_t ph, int32_t itemCount, $Rectangle* scrBounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t elementSize = 0;
 	if (this->list$ != nullptr && itemCount > 0) {
-		$var($Rectangle, cellBounds, $nc(this->list$)->getCellBounds(0, 0));
+		$var($Rectangle, cellBounds, this->list$->getCellBounds(0, 0));
 		if (cellBounds != nullptr) {
 			elementSize = cellBounds->height;
 		}
@@ -406,7 +344,7 @@ $Rectangle* AquaComboBoxPopup::computePopupBoundsForMenu(int32_t px, int32_t py,
 	$nc(this->list$)->setSelectedIndex(offsetIndex);
 	int32_t selectedLocation = elementSize * offsetIndex;
 	$var($Point, top, $new($Point, 0, $nc(scrBounds)->y));
-	$var($Point, bottom, $new($Point, 0, $nc(scrBounds)->y + scrBounds->height - 20));
+	$var($Point, bottom, $new($Point, 0, scrBounds->y + scrBounds->height - 20));
 	$SwingUtilities::convertPointFromScreen(top, this->comboBox);
 	$SwingUtilities::convertPointFromScreen(bottom, this->comboBox);
 	$var($Rectangle, popupBounds, $new($Rectangle, px, py, pw, ph));
@@ -423,7 +361,7 @@ $Rectangle* AquaComboBoxPopup::computePopupBoundsForMenu(int32_t px, int32_t py,
 	}
 	int32_t height = $nc(this->comboBox)->getHeight();
 	$var($Insets, insets, $nc(this->comboBox)->getInsets());
-	int32_t buttonSize = height - ($nc(insets)->top + insets->bottom);
+	int32_t buttonSize = height - ($nc(insets)->top + $nc(insets)->bottom);
 	int32_t diff = (buttonSize - elementSize) / 2 + insets->top;
 	popupBounds->y += diff - AquaComboBoxPopup::FOCUS_RING_PAD_BOTTOM;
 	return popupBounds;
@@ -433,7 +371,53 @@ AquaComboBoxPopup::AquaComboBoxPopup() {
 }
 
 $Class* AquaComboBoxPopup::load$($String* name, bool initialize) {
-	$loadClass(AquaComboBoxPopup, name, initialize, &_AquaComboBoxPopup_ClassInfo_, allocate$AquaComboBoxPopup);
+	$FieldInfo fieldInfos$$[] = {
+		{"FOCUS_RING_PAD_LEFT", "I", nullptr, $STATIC | $FINAL, $constField(AquaComboBoxPopup, FOCUS_RING_PAD_LEFT)},
+		{"FOCUS_RING_PAD_RIGHT", "I", nullptr, $STATIC | $FINAL, $constField(AquaComboBoxPopup, FOCUS_RING_PAD_RIGHT)},
+		{"FOCUS_RING_PAD_BOTTOM", "I", nullptr, $STATIC | $FINAL, $constField(AquaComboBoxPopup, FOCUS_RING_PAD_BOTTOM)},
+		{"topStrut", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(AquaComboBoxPopup, topStrut)},
+		{"bottomStrut", "Ljava/awt/Component;", nullptr, $PROTECTED, $field(AquaComboBoxPopup, bottomStrut)},
+		{"isPopDown", "Z", nullptr, $PROTECTED, $field(AquaComboBoxPopup, isPopDown)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComboBox;)V", "(Ljavax/swing/JComboBox<Ljava/lang/Object;>;)V", $PUBLIC, $method(AquaComboBoxPopup, init$, void, $JComboBox*)},
+		{"adjustPopupAndGetBounds", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $method(AquaComboBoxPopup, adjustPopupAndGetBounds, $Rectangle*)},
+		{"computePopupBounds", "(IIII)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxPopup, computePopupBounds, $Rectangle*, int32_t, int32_t, int32_t, int32_t)},
+		{"computePopupBoundsForMenu", "(IIIIILjava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $method(AquaComboBoxPopup, computePopupBoundsForMenu, $Rectangle*, int32_t, int32_t, int32_t, int32_t, int32_t, $Rectangle*)},
+		{"configurePopup", "()V", nullptr, $PROTECTED, $virtualMethod(AquaComboBoxPopup, configurePopup, void)},
+		{"createList", "()Ljavax/swing/JList;", "()Ljavax/swing/JList<Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(AquaComboBoxPopup, createList, $JList*)},
+		{"getAvailableScreenArea", "(Ljava/awt/Rectangle;Ljava/awt/GraphicsConfiguration;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(AquaComboBoxPopup, getAvailableScreenArea, $Rectangle*, $Rectangle*, $GraphicsConfiguration*)},
+		{"getBestPopupSizeForRowCount", "(I)Ljava/awt/Dimension;", nullptr, $PROTECTED, $method(AquaComboBoxPopup, getBestPopupSizeForRowCount, $Dimension*, int32_t)},
+		{"getBestScreenBounds", "(Ljava/awt/Point;)Ljava/awt/Rectangle;", nullptr, 0, $method(AquaComboBoxPopup, getBestScreenBounds, $Rectangle*, $Point*)},
+		{"getComboBoxEdge", "(IZ)I", nullptr, $PRIVATE, $method(AquaComboBoxPopup, getComboBoxEdge, int32_t, int32_t, bool)},
+		{"isPopdown", "()Z", nullptr, $PROTECTED, $method(AquaComboBoxPopup, isPopdown, bool)},
+		{"shouldScroll", "()Z", nullptr, $PROTECTED, $method(AquaComboBoxPopup, shouldScroll, bool)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(AquaComboBoxPopup, show, void)},
+		{"updateContents", "(Z)V", nullptr, $PUBLIC, $method(AquaComboBoxPopup, updateContents, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaComboBoxPopup$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.apple.laf.AquaComboBoxPopup",
+		"javax.swing.plaf.basic.BasicComboPopup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaComboBoxPopup$1"
+	};
+	$loadClass(AquaComboBoxPopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaComboBoxPopup));
+	});
 	return class$;
 }
 

@@ -64,7 +64,10 @@ public:
 	::java::util::function::Supplier* diagSupplier = nullptr;
 	Symbol$CompletionFailure(const Symbol$CompletionFailure& e);
 	virtual void throw$() override;
-	inline Symbol$CompletionFailure* operator ->() {
+	inline Symbol$CompletionFailure* operator ->() const {
+		return (Symbol$CompletionFailure*)throwing$;
+	}
+	inline operator Symbol$CompletionFailure*() const {
 		return (Symbol$CompletionFailure*)throwing$;
 	}
 };

@@ -37,6 +37,7 @@ class $export JTextArea : public ::javax::swing::text::JTextComponent {
 	$class(JTextArea, 0, ::javax::swing::text::JTextComponent)
 public:
 	JTextArea();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::text::JTextComponent::getToolTipText;
 	using ::javax::swing::text::JTextComponent::contains;
 	using ::javax::swing::text::JTextComponent::enable;

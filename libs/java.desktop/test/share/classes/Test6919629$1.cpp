@@ -1,5 +1,4 @@
 #include <Test6919629$1.h>
-
 #include <Test6919629.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -15,8 +14,6 @@
 
 using $Test6919629 = ::Test6919629;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,54 +24,12 @@ using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $UIDefaults = ::javax::swing::UIDefaults;
 
-$FieldInfo _Test6919629$1_FieldInfo_[] = {
-	{"this$0", "LTest6919629;", nullptr, $FINAL | $SYNTHETIC, $field(Test6919629$1, this$0)},
-	{}
-};
-
-$MethodInfo _Test6919629$1_MethodInfo_[] = {
-	{"<init>", "(LTest6919629;)V", nullptr, 0, $method(Test6919629$1, init$, void, $Test6919629*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6919629$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Test6919629$1_EnclosingMethodInfo_ = {
-	"Test6919629",
-	"test",
-	"()V"
-};
-
-$InnerClassInfo _Test6919629$1_InnerClassesInfo_[] = {
-	{"Test6919629$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test6919629$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test6919629$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_Test6919629$1_FieldInfo_,
-	_Test6919629$1_MethodInfo_,
-	nullptr,
-	&_Test6919629$1_EnclosingMethodInfo_,
-	_Test6919629$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test6919629"
-};
-
-$Object* allocate$Test6919629$1($Class* clazz) {
-	return $of($alloc(Test6919629$1));
-}
-
 void Test6919629$1::init$($Test6919629* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void Test6919629$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, d, $new($UIDefaults));
 	$init($Color);
 	d->put("Label.textForeground"_s, $Color::MAGENTA);
@@ -82,7 +37,7 @@ void Test6919629$1::run() {
 	$set(this->this$0, ref, $new($WeakReference, l));
 	l->putClientProperty("Nimbus.Overrides"_s, d);
 	$set(this->this$0, f, $new($JFrame));
-	$nc($($nc(this->this$0->f)->getContentPane()))->add(static_cast<$Component*>(l));
+	$$nc(this->this$0->f->getContentPane())->add(l);
 	$nc(this->this$0->f)->pack();
 	$nc(this->this$0->f)->setVisible(true);
 }
@@ -91,7 +46,42 @@ Test6919629$1::Test6919629$1() {
 }
 
 $Class* Test6919629$1::load$($String* name, bool initialize) {
-	$loadClass(Test6919629$1, name, initialize, &_Test6919629$1_ClassInfo_, allocate$Test6919629$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LTest6919629;", nullptr, $FINAL | $SYNTHETIC, $field(Test6919629$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTest6919629;)V", nullptr, 0, $method(Test6919629$1, init$, void, $Test6919629*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test6919629$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test6919629",
+		"test",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6919629$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test6919629$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test6919629"
+	};
+	$loadClass(Test6919629$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test6919629$1);
+	});
 	return class$;
 }
 

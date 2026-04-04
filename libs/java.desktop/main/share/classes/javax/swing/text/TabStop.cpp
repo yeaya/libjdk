@@ -1,5 +1,4 @@
 #include <javax/swing/text/TabStop.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
@@ -23,49 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _TabStop_FieldInfo_[] = {
-	{"ALIGN_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_LEFT)},
-	{"ALIGN_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_RIGHT)},
-	{"ALIGN_CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_CENTER)},
-	{"ALIGN_DECIMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_DECIMAL)},
-	{"ALIGN_BAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_BAR)},
-	{"LEAD_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_NONE)},
-	{"LEAD_DOTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_DOTS)},
-	{"LEAD_HYPHENS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_HYPHENS)},
-	{"LEAD_UNDERLINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_UNDERLINE)},
-	{"LEAD_THICKLINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_THICKLINE)},
-	{"LEAD_EQUALS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_EQUALS)},
-	{"alignment", "I", nullptr, $PRIVATE, $field(TabStop, alignment)},
-	{"position", "F", nullptr, $PRIVATE, $field(TabStop, position)},
-	{"leader", "I", nullptr, $PRIVATE, $field(TabStop, leader)},
-	{}
-};
-
-$MethodInfo _TabStop_MethodInfo_[] = {
-	{"<init>", "(F)V", nullptr, $PUBLIC, $method(TabStop, init$, void, float)},
-	{"<init>", "(FII)V", nullptr, $PUBLIC, $method(TabStop, init$, void, float, int32_t, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabStop, equals, bool, Object$*)},
-	{"getAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(TabStop, getAlignment, int32_t)},
-	{"getLeader", "()I", nullptr, $PUBLIC, $virtualMethod(TabStop, getLeader, int32_t)},
-	{"getPosition", "()F", nullptr, $PUBLIC, $virtualMethod(TabStop, getPosition, float)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TabStop, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TabStop, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TabStop_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.TabStop",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_TabStop_FieldInfo_,
-	_TabStop_MethodInfo_
-};
-
-$Object* allocate$TabStop($Class* clazz) {
-	return $of($alloc(TabStop));
-}
 
 void TabStop::init$(float pos) {
 	TabStop::init$(pos, TabStop::ALIGN_LEFT, TabStop::LEAD_NONE);
@@ -95,7 +51,7 @@ bool TabStop::equals(Object$* other) {
 	}
 	if ($instanceOf(TabStop, other)) {
 		$var(TabStop, o, $cast(TabStop, other));
-		return ((this->alignment == $nc(o)->alignment) && (this->leader == o->leader) && (this->position == o->position));
+		return ((this->alignment == o->alignment) && (this->leader == o->leader) && (this->position == o->position));
 	}
 	return false;
 }
@@ -105,36 +61,25 @@ int32_t TabStop::hashCode() {
 }
 
 $String* TabStop::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, buf, nullptr);
 	switch (this->alignment) {
 	default:
-		{}
 	case TabStop::ALIGN_LEFT:
-		{
-			$assign(buf, ""_s);
-			break;
-		}
+		$assign(buf, ""_s);
+		break;
 	case TabStop::ALIGN_RIGHT:
-		{
-			$assign(buf, "right "_s);
-			break;
-		}
+		$assign(buf, "right "_s);
+		break;
 	case TabStop::ALIGN_CENTER:
-		{
-			$assign(buf, "center "_s);
-			break;
-		}
+		$assign(buf, "center "_s);
+		break;
 	case TabStop::ALIGN_DECIMAL:
-		{
-			$assign(buf, "decimal "_s);
-			break;
-		}
+		$assign(buf, "decimal "_s);
+		break;
 	case TabStop::ALIGN_BAR:
-		{
-			$assign(buf, "bar "_s);
-			break;
-		}
+		$assign(buf, "bar "_s);
+		break;
 	}
 	$assign(buf, $str({buf, "tab @"_s, $($String::valueOf(this->position))}));
 	if (this->leader != TabStop::LEAD_NONE) {
@@ -147,7 +92,45 @@ TabStop::TabStop() {
 }
 
 $Class* TabStop::load$($String* name, bool initialize) {
-	$loadClass(TabStop, name, initialize, &_TabStop_ClassInfo_, allocate$TabStop);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALIGN_LEFT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_LEFT)},
+		{"ALIGN_RIGHT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_RIGHT)},
+		{"ALIGN_CENTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_CENTER)},
+		{"ALIGN_DECIMAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_DECIMAL)},
+		{"ALIGN_BAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, ALIGN_BAR)},
+		{"LEAD_NONE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_NONE)},
+		{"LEAD_DOTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_DOTS)},
+		{"LEAD_HYPHENS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_HYPHENS)},
+		{"LEAD_UNDERLINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_UNDERLINE)},
+		{"LEAD_THICKLINE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_THICKLINE)},
+		{"LEAD_EQUALS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TabStop, LEAD_EQUALS)},
+		{"alignment", "I", nullptr, $PRIVATE, $field(TabStop, alignment)},
+		{"position", "F", nullptr, $PRIVATE, $field(TabStop, position)},
+		{"leader", "I", nullptr, $PRIVATE, $field(TabStop, leader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(F)V", nullptr, $PUBLIC, $method(TabStop, init$, void, float)},
+		{"<init>", "(FII)V", nullptr, $PUBLIC, $method(TabStop, init$, void, float, int32_t, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabStop, equals, bool, Object$*)},
+		{"getAlignment", "()I", nullptr, $PUBLIC, $virtualMethod(TabStop, getAlignment, int32_t)},
+		{"getLeader", "()I", nullptr, $PUBLIC, $virtualMethod(TabStop, getLeader, int32_t)},
+		{"getPosition", "()F", nullptr, $PUBLIC, $virtualMethod(TabStop, getPosition, float)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TabStop, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TabStop, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.TabStop",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TabStop, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TabStop);
+	});
 	return class$;
 }
 

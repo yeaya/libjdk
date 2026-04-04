@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Log$WriterKind.h>
-
 #include <com/sun/tools/javac/util/Log.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,49 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Log$WriterKind_FieldInfo_[] = {
-	{"NOTICE", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, NOTICE)},
-	{"WARNING", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, WARNING)},
-	{"ERROR", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, ERROR)},
-	{"STDOUT", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, STDOUT)},
-	{"STDERR", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, STDERR)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Log$WriterKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _Log$WriterKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$WriterKind, $values, $Log$WriterKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Log$WriterKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$WriterKind, valueOf, Log$WriterKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$WriterKind, values, $Log$WriterKindArray*)},
-	{}
-};
-
-$InnerClassInfo _Log$WriterKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Log$WriterKind", "com.sun.tools.javac.util.Log", "WriterKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Log$WriterKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.Log$WriterKind",
-	"java.lang.Enum",
-	nullptr,
-	_Log$WriterKind_FieldInfo_,
-	_Log$WriterKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/Log$WriterKind;>;",
-	nullptr,
-	_Log$WriterKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Log"
-};
-
-$Object* allocate$Log$WriterKind($Class* clazz) {
-	return $of($alloc(Log$WriterKind));
-}
 
 Log$WriterKind* Log$WriterKind::NOTICE = nullptr;
 Log$WriterKind* Log$WriterKind::WARNING = nullptr;
@@ -98,7 +54,7 @@ void Log$WriterKind::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Log$WriterKind($Class* class$) {
+void Log$WriterKind::clinit$($Class* clazz) {
 	$assignStatic(Log$WriterKind::NOTICE, $new(Log$WriterKind, "NOTICE"_s, 0));
 	$assignStatic(Log$WriterKind::WARNING, $new(Log$WriterKind, "WARNING"_s, 1));
 	$assignStatic(Log$WriterKind::ERROR, $new(Log$WriterKind, "ERROR"_s, 2));
@@ -111,7 +67,44 @@ Log$WriterKind::Log$WriterKind() {
 }
 
 $Class* Log$WriterKind::load$($String* name, bool initialize) {
-	$loadClass(Log$WriterKind, name, initialize, &_Log$WriterKind_ClassInfo_, clinit$Log$WriterKind, allocate$Log$WriterKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"NOTICE", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, NOTICE)},
+		{"WARNING", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, WARNING)},
+		{"ERROR", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, ERROR)},
+		{"STDOUT", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, STDOUT)},
+		{"STDERR", "Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Log$WriterKind, STDERR)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Log$WriterKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Log$WriterKind, $values, $Log$WriterKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Log$WriterKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$WriterKind, valueOf, Log$WriterKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/Log$WriterKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Log$WriterKind, values, $Log$WriterKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Log$WriterKind", "com.sun.tools.javac.util.Log", "WriterKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.Log$WriterKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/Log$WriterKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Log"
+	};
+	$loadClass(Log$WriterKind, name, initialize, &classInfo$$, Log$WriterKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Log$WriterKind));
+	});
 	return class$;
 }
 

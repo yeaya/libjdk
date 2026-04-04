@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/CGLGraphicsConfig$CGLImageCaps.h>
-
 #include <java/awt/ImageCapabilities.h>
 #include <sun/java2d/opengl/CGLGraphicsConfig.h>
 #include <jcpp.h>
@@ -13,37 +12,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _CGLGraphicsConfig$CGLImageCaps_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(CGLGraphicsConfig$CGLImageCaps, init$, void)},
-	{"isTrueVolatile", "()Z", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig$CGLImageCaps, isTrueVolatile, bool)},
-	{}
-};
-
-$InnerClassInfo _CGLGraphicsConfig$CGLImageCaps_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.CGLGraphicsConfig$CGLImageCaps", "sun.java2d.opengl.CGLGraphicsConfig", "CGLImageCaps", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _CGLGraphicsConfig$CGLImageCaps_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.CGLGraphicsConfig$CGLImageCaps",
-	"java.awt.ImageCapabilities",
-	nullptr,
-	nullptr,
-	_CGLGraphicsConfig$CGLImageCaps_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CGLGraphicsConfig$CGLImageCaps_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.CGLGraphicsConfig"
-};
-
-$Object* allocate$CGLGraphicsConfig$CGLImageCaps($Class* clazz) {
-	return $of($alloc(CGLGraphicsConfig$CGLImageCaps));
-}
-
 void CGLGraphicsConfig$CGLImageCaps::init$() {
 	$ImageCapabilities::init$(true);
 }
@@ -56,7 +24,33 @@ CGLGraphicsConfig$CGLImageCaps::CGLGraphicsConfig$CGLImageCaps() {
 }
 
 $Class* CGLGraphicsConfig$CGLImageCaps::load$($String* name, bool initialize) {
-	$loadClass(CGLGraphicsConfig$CGLImageCaps, name, initialize, &_CGLGraphicsConfig$CGLImageCaps_ClassInfo_, allocate$CGLGraphicsConfig$CGLImageCaps);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(CGLGraphicsConfig$CGLImageCaps, init$, void)},
+		{"isTrueVolatile", "()Z", nullptr, $PUBLIC, $virtualMethod(CGLGraphicsConfig$CGLImageCaps, isTrueVolatile, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.CGLGraphicsConfig$CGLImageCaps", "sun.java2d.opengl.CGLGraphicsConfig", "CGLImageCaps", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.CGLGraphicsConfig$CGLImageCaps",
+		"java.awt.ImageCapabilities",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.CGLGraphicsConfig"
+	};
+	$loadClass(CGLGraphicsConfig$CGLImageCaps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CGLGraphicsConfig$CGLImageCaps);
+	});
 	return class$;
 }
 

@@ -31,6 +31,7 @@ class $export CachedPainter : public ::java::lang::Object {
 	$class(CachedPainter, 0, ::java::lang::Object)
 public:
 	CachedPainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t cacheCount);
 	virtual ::java::awt::Image* createImage(::java::awt::Component* c, int32_t w, int32_t h, ::java::awt::GraphicsConfiguration* config, $ObjectArray* args);
 	virtual void flush();

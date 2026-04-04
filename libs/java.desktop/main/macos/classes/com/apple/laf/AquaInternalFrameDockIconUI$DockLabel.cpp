@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameDockIconUI$DockLabel.h>
-
 #include <com/apple/laf/AquaFonts.h>
 #include <com/apple/laf/AquaInternalFrameDockIconUI.h>
 #include <java/awt/Color.h>
@@ -15,7 +14,6 @@
 #include <java/awt/RenderingHints.h>
 #include <java/awt/Window.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JLayeredPane.h>
@@ -51,7 +49,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
@@ -65,53 +62,8 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$CompoundAttribute _AquaInternalFrameDockIconUI$DockLabel_MethodAnnotations_hide1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _AquaInternalFrameDockIconUI$DockLabel_FieldInfo_[] = {
-	{"NUB_HEIGHT", "I", nullptr, $STATIC | $FINAL, $constField(AquaInternalFrameDockIconUI$DockLabel, NUB_HEIGHT)},
-	{"ROUND_ADDITIONAL_HEIGHT", "I", nullptr, $STATIC | $FINAL, $constField(AquaInternalFrameDockIconUI$DockLabel, ROUND_ADDITIONAL_HEIGHT)},
-	{"ROUND_ADDITIONAL_WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(AquaInternalFrameDockIconUI$DockLabel, ROUND_ADDITIONAL_WIDTH)},
-	{}
-};
-
-$MethodInfo _AquaInternalFrameDockIconUI$DockLabel_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AquaInternalFrameDockIconUI$DockLabel, init$, void, $String*)},
-	{"hide", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AquaInternalFrameDockIconUI$DockLabel, hide, void), nullptr, nullptr, _AquaInternalFrameDockIconUI$DockLabel_MethodAnnotations_hide1},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI$DockLabel, paint, void, $Graphics*)},
-	{"show", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(AquaInternalFrameDockIconUI$DockLabel, show, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _AquaInternalFrameDockIconUI$DockLabel_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameDockIconUI$DockLabel", "com.apple.laf.AquaInternalFrameDockIconUI", "DockLabel", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameDockIconUI$DockLabel_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameDockIconUI$DockLabel",
-	"javax.swing.JLabel",
-	nullptr,
-	_AquaInternalFrameDockIconUI$DockLabel_FieldInfo_,
-	_AquaInternalFrameDockIconUI$DockLabel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaInternalFrameDockIconUI$DockLabel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameDockIconUI"
-};
-
-$Object* allocate$AquaInternalFrameDockIconUI$DockLabel($Class* clazz) {
-	return $of($alloc(AquaInternalFrameDockIconUI$DockLabel));
-}
-
 void AquaInternalFrameDockIconUI$DockLabel::init$($String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JLabel::init$(text);
 	setBorder(nullptr);
 	setOpaque(false);
@@ -122,13 +74,13 @@ void AquaInternalFrameDockIconUI$DockLabel::init$($String* text) {
 }
 
 void AquaInternalFrameDockIconUI$DockLabel::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = getWidth();
 	int32_t height = getHeight();
 	$var($Font, font, getFont());
 	$var($FontMetrics, metrics, getFontMetrics(font));
 	$nc(g)->setFont(font);
-	$var($String, text, $nc($(getText()))->trim());
+	$var($String, text, $$nc(getText())->trim());
 	int32_t ascent = $nc(metrics)->getAscent();
 	$var($Rectangle2D, stringBounds, metrics->getStringBounds(text, g));
 	int32_t halfway = width / 2;
@@ -156,13 +108,13 @@ void AquaInternalFrameDockIconUI$DockLabel::paint($Graphics* g) {
 	}
 	$init($Color);
 	g->setColor($Color::black);
-	$SwingUtilities2::drawString(static_cast<$JComponent*>(this), g, text, x, 2 + ascent);
+	$SwingUtilities2::drawString(this, g, text, x, 2 + ascent);
 	g->setColor($Color::white);
-	$SwingUtilities2::drawString(static_cast<$JComponent*>(this), g, text, x, 1 + ascent);
+	$SwingUtilities2::drawString(this, g, text, x, 1 + ascent);
 }
 
 void AquaInternalFrameDockIconUI$DockLabel::show($Component* invoker) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(invoker)->getWidth();
 	int32_t desiredLocationX = (var$0 - getWidth()) / 2;
 	int32_t desiredLocationY = -(getHeight() + 6);
@@ -174,37 +126,76 @@ void AquaInternalFrameDockIconUI$DockLabel::show($Component* invoker) {
 				if ($instanceOf($JInternalFrame, $(p->getParent()))) {
 					continue;
 				}
-				$assign(parent, $nc(($cast($JRootPane, p)))->getLayeredPane());
-				for ($assign(p, $nc(parent)->getParent()); p != nullptr && (!($instanceOf($Window, p))); $assign(p, $nc(p)->getParent())) {
+				$assign(parent, $cast($JRootPane, p)->getLayeredPane());
+				for ($assign(p, $nc(parent)->getParent()); p != nullptr && (!($instanceOf($Window, p))); $assign(p, p->getParent())) {
+					;
 				}
 				break;
 			}
 		}
 	}
 	$var($Point, p, $SwingUtilities::convertPoint(invoker, desiredLocationX, desiredLocationY, parent));
-	setLocation(p->x, p->y);
+	setLocation($nc(p)->x, $nc(p)->y);
 	if ($instanceOf($JLayeredPane, parent)) {
 		$init($JLayeredPane);
-		$nc(($cast($JLayeredPane, parent)))->add(this, $JLayeredPane::POPUP_LAYER, 0);
+		$cast($JLayeredPane, parent)->add(this, $JLayeredPane::POPUP_LAYER, 0);
 	}
 }
 
 void AquaInternalFrameDockIconUI$DockLabel::hide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, parent, getParent());
 	$var($Rectangle, r, this->getBounds());
 	if (parent == nullptr) {
 		return;
 	}
-	$nc(parent)->remove(static_cast<$Component*>(this));
-	parent->repaint($nc(r)->x, r->y, r->width, r->height);
+	$nc(parent)->remove(this);
+	parent->repaint($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height);
 }
 
 AquaInternalFrameDockIconUI$DockLabel::AquaInternalFrameDockIconUI$DockLabel() {
 }
 
 $Class* AquaInternalFrameDockIconUI$DockLabel::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameDockIconUI$DockLabel, name, initialize, &_AquaInternalFrameDockIconUI$DockLabel_ClassInfo_, allocate$AquaInternalFrameDockIconUI$DockLabel);
+	$FieldInfo fieldInfos$$[] = {
+		{"NUB_HEIGHT", "I", nullptr, $STATIC | $FINAL, $constField(AquaInternalFrameDockIconUI$DockLabel, NUB_HEIGHT)},
+		{"ROUND_ADDITIONAL_HEIGHT", "I", nullptr, $STATIC | $FINAL, $constField(AquaInternalFrameDockIconUI$DockLabel, ROUND_ADDITIONAL_HEIGHT)},
+		{"ROUND_ADDITIONAL_WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(AquaInternalFrameDockIconUI$DockLabel, ROUND_ADDITIONAL_WIDTH)},
+		{}
+	};
+	$CompoundAttribute hidemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(AquaInternalFrameDockIconUI$DockLabel, init$, void, $String*)},
+		{"hide", "()V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(AquaInternalFrameDockIconUI$DockLabel, hide, void), nullptr, nullptr, hidemethodAnnotations$$},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameDockIconUI$DockLabel, paint, void, $Graphics*)},
+		{"show", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(AquaInternalFrameDockIconUI$DockLabel, show, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameDockIconUI$DockLabel", "com.apple.laf.AquaInternalFrameDockIconUI", "DockLabel", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameDockIconUI$DockLabel",
+		"javax.swing.JLabel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameDockIconUI"
+	};
+	$loadClass(AquaInternalFrameDockIconUI$DockLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaInternalFrameDockIconUI$DockLabel));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/accessibility/AccessibleRole.h>
-
 #include <javax/accessibility/AccessibleBundle.h>
 #include <jcpp.h>
 
@@ -75,91 +74,6 @@ using $AccessibleBundle = ::javax::accessibility::AccessibleBundle;
 namespace javax {
 	namespace accessibility {
 
-$FieldInfo _AccessibleRole_FieldInfo_[] = {
-	{"ALERT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, ALERT)},
-	{"COLUMN_HEADER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, COLUMN_HEADER)},
-	{"CANVAS", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, CANVAS)},
-	{"COMBO_BOX", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, COMBO_BOX)},
-	{"DESKTOP_ICON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DESKTOP_ICON)},
-	{"HTML_CONTAINER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, HTML_CONTAINER)},
-	{"INTERNAL_FRAME", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, INTERNAL_FRAME)},
-	{"DESKTOP_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DESKTOP_PANE)},
-	{"OPTION_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, OPTION_PANE)},
-	{"WINDOW", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, WINDOW)},
-	{"FRAME", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FRAME)},
-	{"DIALOG", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DIALOG)},
-	{"COLOR_CHOOSER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, COLOR_CHOOSER)},
-	{"DIRECTORY_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DIRECTORY_PANE)},
-	{"FILE_CHOOSER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FILE_CHOOSER)},
-	{"FILLER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FILLER)},
-	{"HYPERLINK", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, HYPERLINK)},
-	{"ICON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, ICON)},
-	{"LABEL", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, LABEL)},
-	{"ROOT_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, ROOT_PANE)},
-	{"GLASS_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, GLASS_PANE)},
-	{"LAYERED_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, LAYERED_PANE)},
-	{"LIST", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, LIST)},
-	{"LIST_ITEM", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, LIST_ITEM)},
-	{"MENU_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, MENU_BAR)},
-	{"POPUP_MENU", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, POPUP_MENU)},
-	{"MENU", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, MENU)},
-	{"MENU_ITEM", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, MENU_ITEM)},
-	{"SEPARATOR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SEPARATOR)},
-	{"PAGE_TAB_LIST", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PAGE_TAB_LIST)},
-	{"PAGE_TAB", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PAGE_TAB)},
-	{"PANEL", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PANEL)},
-	{"PROGRESS_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PROGRESS_BAR)},
-	{"PASSWORD_TEXT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PASSWORD_TEXT)},
-	{"PUSH_BUTTON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PUSH_BUTTON)},
-	{"TOGGLE_BUTTON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TOGGLE_BUTTON)},
-	{"CHECK_BOX", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, CHECK_BOX)},
-	{"RADIO_BUTTON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, RADIO_BUTTON)},
-	{"ROW_HEADER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, ROW_HEADER)},
-	{"SCROLL_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SCROLL_PANE)},
-	{"SCROLL_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SCROLL_BAR)},
-	{"VIEWPORT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, VIEWPORT)},
-	{"SLIDER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SLIDER)},
-	{"SPLIT_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SPLIT_PANE)},
-	{"TABLE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TABLE)},
-	{"TEXT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TEXT)},
-	{"TREE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TREE)},
-	{"TOOL_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TOOL_BAR)},
-	{"TOOL_TIP", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TOOL_TIP)},
-	{"AWT_COMPONENT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, AWT_COMPONENT)},
-	{"SWING_COMPONENT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SWING_COMPONENT)},
-	{"UNKNOWN", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, UNKNOWN)},
-	{"STATUS_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, STATUS_BAR)},
-	{"DATE_EDITOR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DATE_EDITOR)},
-	{"SPIN_BOX", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SPIN_BOX)},
-	{"FONT_CHOOSER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FONT_CHOOSER)},
-	{"GROUP_BOX", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, GROUP_BOX)},
-	{"HEADER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, HEADER)},
-	{"FOOTER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FOOTER)},
-	{"PARAGRAPH", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PARAGRAPH)},
-	{"RULER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, RULER)},
-	{"EDITBAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, EDITBAR)},
-	{"PROGRESS_MONITOR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PROGRESS_MONITOR)},
-	{}
-};
-
-$MethodInfo _AccessibleRole_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AccessibleRole, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AccessibleRole_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.accessibility.AccessibleRole",
-	"javax.accessibility.AccessibleBundle",
-	nullptr,
-	_AccessibleRole_FieldInfo_,
-	_AccessibleRole_MethodInfo_
-};
-
-$Object* allocate$AccessibleRole($Class* clazz) {
-	return $of($alloc(AccessibleRole));
-}
-
 AccessibleRole* AccessibleRole::ALERT = nullptr;
 AccessibleRole* AccessibleRole::COLUMN_HEADER = nullptr;
 AccessibleRole* AccessibleRole::CANVAS = nullptr;
@@ -229,7 +143,7 @@ void AccessibleRole::init$($String* key) {
 	$set(this, key, key);
 }
 
-void clinit$AccessibleRole($Class* class$) {
+void AccessibleRole::clinit$($Class* clazz) {
 	$assignStatic(AccessibleRole::ALERT, $new(AccessibleRole, "alert"_s));
 	$assignStatic(AccessibleRole::COLUMN_HEADER, $new(AccessibleRole, "columnheader"_s));
 	$assignStatic(AccessibleRole::CANVAS, $new(AccessibleRole, "canvas"_s));
@@ -299,7 +213,87 @@ AccessibleRole::AccessibleRole() {
 }
 
 $Class* AccessibleRole::load$($String* name, bool initialize) {
-	$loadClass(AccessibleRole, name, initialize, &_AccessibleRole_ClassInfo_, clinit$AccessibleRole, allocate$AccessibleRole);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALERT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, ALERT)},
+		{"COLUMN_HEADER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, COLUMN_HEADER)},
+		{"CANVAS", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, CANVAS)},
+		{"COMBO_BOX", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, COMBO_BOX)},
+		{"DESKTOP_ICON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DESKTOP_ICON)},
+		{"HTML_CONTAINER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, HTML_CONTAINER)},
+		{"INTERNAL_FRAME", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, INTERNAL_FRAME)},
+		{"DESKTOP_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DESKTOP_PANE)},
+		{"OPTION_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, OPTION_PANE)},
+		{"WINDOW", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, WINDOW)},
+		{"FRAME", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FRAME)},
+		{"DIALOG", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DIALOG)},
+		{"COLOR_CHOOSER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, COLOR_CHOOSER)},
+		{"DIRECTORY_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DIRECTORY_PANE)},
+		{"FILE_CHOOSER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FILE_CHOOSER)},
+		{"FILLER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FILLER)},
+		{"HYPERLINK", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, HYPERLINK)},
+		{"ICON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, ICON)},
+		{"LABEL", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, LABEL)},
+		{"ROOT_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, ROOT_PANE)},
+		{"GLASS_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, GLASS_PANE)},
+		{"LAYERED_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, LAYERED_PANE)},
+		{"LIST", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, LIST)},
+		{"LIST_ITEM", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, LIST_ITEM)},
+		{"MENU_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, MENU_BAR)},
+		{"POPUP_MENU", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, POPUP_MENU)},
+		{"MENU", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, MENU)},
+		{"MENU_ITEM", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, MENU_ITEM)},
+		{"SEPARATOR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SEPARATOR)},
+		{"PAGE_TAB_LIST", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PAGE_TAB_LIST)},
+		{"PAGE_TAB", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PAGE_TAB)},
+		{"PANEL", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PANEL)},
+		{"PROGRESS_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PROGRESS_BAR)},
+		{"PASSWORD_TEXT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PASSWORD_TEXT)},
+		{"PUSH_BUTTON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PUSH_BUTTON)},
+		{"TOGGLE_BUTTON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TOGGLE_BUTTON)},
+		{"CHECK_BOX", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, CHECK_BOX)},
+		{"RADIO_BUTTON", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, RADIO_BUTTON)},
+		{"ROW_HEADER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, ROW_HEADER)},
+		{"SCROLL_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SCROLL_PANE)},
+		{"SCROLL_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SCROLL_BAR)},
+		{"VIEWPORT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, VIEWPORT)},
+		{"SLIDER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SLIDER)},
+		{"SPLIT_PANE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SPLIT_PANE)},
+		{"TABLE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TABLE)},
+		{"TEXT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TEXT)},
+		{"TREE", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TREE)},
+		{"TOOL_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TOOL_BAR)},
+		{"TOOL_TIP", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, TOOL_TIP)},
+		{"AWT_COMPONENT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, AWT_COMPONENT)},
+		{"SWING_COMPONENT", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SWING_COMPONENT)},
+		{"UNKNOWN", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, UNKNOWN)},
+		{"STATUS_BAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, STATUS_BAR)},
+		{"DATE_EDITOR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, DATE_EDITOR)},
+		{"SPIN_BOX", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, SPIN_BOX)},
+		{"FONT_CHOOSER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FONT_CHOOSER)},
+		{"GROUP_BOX", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, GROUP_BOX)},
+		{"HEADER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, HEADER)},
+		{"FOOTER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, FOOTER)},
+		{"PARAGRAPH", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PARAGRAPH)},
+		{"RULER", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, RULER)},
+		{"EDITBAR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, EDITBAR)},
+		{"PROGRESS_MONITOR", "Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleRole, PROGRESS_MONITOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(AccessibleRole, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.accessibility.AccessibleRole",
+		"javax.accessibility.AccessibleBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AccessibleRole, name, initialize, &classInfo$$, AccessibleRole::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleRole);
+	});
 	return class$;
 }
 

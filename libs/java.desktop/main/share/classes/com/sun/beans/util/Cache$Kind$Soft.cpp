@@ -1,5 +1,4 @@
 #include <com/sun/beans/util/Cache$Kind$Soft.h>
-
 #include <com/sun/beans/util/Cache$Kind.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/SoftReference.h>
@@ -16,52 +15,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace util {
-
-$FieldInfo _Cache$Kind$Soft_FieldInfo_[] = {
-	{"owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Cache$Kind$Soft, owner)},
-	{}
-};
-
-$MethodInfo _Cache$Kind$Soft_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Object;TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PRIVATE, $method(Cache$Kind$Soft, init$, void, Object$*, Object$*, $ReferenceQueue*)},
-	{"getOwner", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Cache$Kind$Soft, getOwner, $Object*)},
-	{"getReferent", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Cache$Kind$Soft, getReferent, $Object*)},
-	{"isStale", "()Z", nullptr, $PUBLIC, $virtualMethod(Cache$Kind$Soft, isStale, bool)},
-	{"removeOwner", "()V", nullptr, $PUBLIC, $virtualMethod(Cache$Kind$Soft, removeOwner, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Cache$Kind$Soft_InnerClassesInfo_[] = {
-	{"com.sun.beans.util.Cache$Kind", "com.sun.beans.util.Cache", "Kind", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.beans.util.Cache$Kind$Soft", "com.sun.beans.util.Cache$Kind", "Soft", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.beans.util.Cache$Ref", "com.sun.beans.util.Cache", "Ref", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Cache$Kind$Soft_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.util.Cache$Kind$Soft",
-	"java.lang.ref.SoftReference",
-	"com.sun.beans.util.Cache$Ref",
-	_Cache$Kind$Soft_FieldInfo_,
-	_Cache$Kind$Soft_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/ref/SoftReference<TT;>;Lcom/sun/beans/util/Cache$Ref<TT;>;",
-	nullptr,
-	_Cache$Kind$Soft_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.beans.util.Cache"
-};
-
-$Object* allocate$Cache$Kind$Soft($Class* clazz) {
-	return $of($alloc(Cache$Kind$Soft));
-}
 
 $Object* Cache$Kind$Soft::clone() {
 	 return this->$SoftReference::clone();
@@ -89,11 +42,11 @@ void Cache$Kind$Soft::init$(Object$* owner, Object$* referent, $ReferenceQueue* 
 }
 
 $Object* Cache$Kind$Soft::getOwner() {
-	return $of(this->owner);
+	return this->owner;
 }
 
 $Object* Cache$Kind$Soft::getReferent() {
-	return $of(get());
+	return get();
 }
 
 bool Cache$Kind$Soft::isStale() {
@@ -108,7 +61,47 @@ Cache$Kind$Soft::Cache$Kind$Soft() {
 }
 
 $Class* Cache$Kind$Soft::load$($String* name, bool initialize) {
-	$loadClass(Cache$Kind$Soft, name, initialize, &_Cache$Kind$Soft_ClassInfo_, allocate$Cache$Kind$Soft);
+	$FieldInfo fieldInfos$$[] = {
+		{"owner", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(Cache$Kind$Soft, owner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V", "(Ljava/lang/Object;TT;Ljava/lang/ref/ReferenceQueue<-TT;>;)V", $PRIVATE, $method(Cache$Kind$Soft, init$, void, Object$*, Object$*, $ReferenceQueue*)},
+		{"getOwner", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Cache$Kind$Soft, getOwner, $Object*)},
+		{"getReferent", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(Cache$Kind$Soft, getReferent, $Object*)},
+		{"isStale", "()Z", nullptr, $PUBLIC, $virtualMethod(Cache$Kind$Soft, isStale, bool)},
+		{"removeOwner", "()V", nullptr, $PUBLIC, $virtualMethod(Cache$Kind$Soft, removeOwner, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.util.Cache$Kind", "com.sun.beans.util.Cache", "Kind", $PUBLIC | $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.beans.util.Cache$Kind$Soft", "com.sun.beans.util.Cache$Kind", "Soft", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.beans.util.Cache$Ref", "com.sun.beans.util.Cache", "Ref", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.util.Cache$Kind$Soft",
+		"java.lang.ref.SoftReference",
+		"com.sun.beans.util.Cache$Ref",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/ref/SoftReference<TT;>;Lcom/sun/beans/util/Cache$Ref<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.beans.util.Cache"
+	};
+	$loadClass(Cache$Kind$Soft, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Cache$Kind$Soft));
+	});
 	return class$;
 }
 

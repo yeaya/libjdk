@@ -27,6 +27,7 @@ class $import RoleUnresolved : public ::java::io::Serializable {
 	$class(RoleUnresolved, 0, ::java::io::Serializable)
 public:
 	RoleUnresolved();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, ::java::util::List* value, int32_t pbType);
 	virtual $Object* clone() override;
 	virtual int32_t getProblemType();
@@ -38,8 +39,8 @@ public:
 	virtual void setRoleValue(::java::util::List* value);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x82BB948EE96AF290;
-	static const int64_t newSerialVersionUID = (int64_t)0xFF5439B140AE59C6;
+	static const int64_t oldSerialVersionUID = (int64_t)0x82bb948ee96af290;
+	static const int64_t newSerialVersionUID = (int64_t)0xff5439b140ae59c6;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

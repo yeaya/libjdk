@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/MS932_0213.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
@@ -25,45 +24,12 @@ namespace sun {
 		namespace cs {
 			namespace ext {
 
-$MethodInfo _MS932_0213_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MS932_0213, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS932_0213, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS932_0213, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS932_0213, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _MS932_0213_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.MS932_0213$Encoder", "sun.nio.cs.ext.MS932_0213", "Encoder", $PROTECTED | $STATIC},
-	{"sun.nio.cs.ext.MS932_0213$Decoder", "sun.nio.cs.ext.MS932_0213", "Decoder", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _MS932_0213_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.nio.cs.ext.MS932_0213",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_MS932_0213_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MS932_0213_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.MS932_0213$Encoder,sun.nio.cs.ext.MS932_0213$Decoder"
-};
-
-$Object* allocate$MS932_0213($Class* clazz) {
-	return $of($alloc(MS932_0213));
-}
-
 void MS932_0213::init$() {
 	$Charset::init$("x-MS932_0213"_s, $($ExtendedCharsets::aliasesFor("x-MS932_0213"_s)));
 }
 
 bool MS932_0213::contains($Charset* cs) {
-	return (($nc($($nc(cs)->name()))->equals("US-ASCII"_s)) || ($instanceOf($MS932, cs)) || ($instanceOf(MS932_0213, cs)));
+	return (($$nc($nc(cs)->name())->equals("US-ASCII"_s)) || ($instanceOf($MS932, cs)) || ($instanceOf(MS932_0213, cs)));
 }
 
 $CharsetDecoder* MS932_0213::newDecoder() {
@@ -78,7 +44,35 @@ MS932_0213::MS932_0213() {
 }
 
 $Class* MS932_0213::load$($String* name, bool initialize) {
-	$loadClass(MS932_0213, name, initialize, &_MS932_0213_ClassInfo_, allocate$MS932_0213);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MS932_0213, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(MS932_0213, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(MS932_0213, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(MS932_0213, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.MS932_0213$Encoder", "sun.nio.cs.ext.MS932_0213", "Encoder", $PROTECTED | $STATIC},
+		{"sun.nio.cs.ext.MS932_0213$Decoder", "sun.nio.cs.ext.MS932_0213", "Decoder", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.nio.cs.ext.MS932_0213",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.MS932_0213$Encoder,sun.nio.cs.ext.MS932_0213$Decoder"
+	};
+	$loadClass(MS932_0213, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MS932_0213);
+	});
 	return class$;
 }
 

@@ -55,7 +55,7 @@ public:
 	virtual double getArg0AsNumber(::com::sun::org::apache::xpath::internal::XPathContext* xctxt);
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* getArg0AsString(::com::sun::org::apache::xpath::internal::XPathContext* xctxt);
 	virtual void reportWrongNumberArgs() override;
-	static const int64_t serialVersionUID = (int64_t)0x2044BB739A495690;
+	static const int64_t serialVersionUID = (int64_t)0x2044bb739a495690;
 };
 
 						} // functions

@@ -1,5 +1,4 @@
 #include <javax/swing/JDesktopPane$ComponentPosition.h>
-
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JInternalFrame.h>
 #include <jcpp.h>
@@ -12,45 +11,6 @@ using $JInternalFrame = ::javax::swing::JInternalFrame;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JDesktopPane$ComponentPosition_FieldInfo_[] = {
-	{"component", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $FINAL, $field(JDesktopPane$ComponentPosition, component)},
-	{"layer", "I", nullptr, $PRIVATE | $FINAL, $field(JDesktopPane$ComponentPosition, layer)},
-	{"zOrder", "I", nullptr, $PRIVATE | $FINAL, $field(JDesktopPane$ComponentPosition, zOrder)},
-	{}
-};
-
-$MethodInfo _JDesktopPane$ComponentPosition_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JInternalFrame;II)V", nullptr, 0, $method(JDesktopPane$ComponentPosition, init$, void, $JInternalFrame*, int32_t, int32_t)},
-	{"compareTo", "(Ljavax/swing/JDesktopPane$ComponentPosition;)I", nullptr, $PUBLIC, $virtualMethod(JDesktopPane$ComponentPosition, compareTo, int32_t, JDesktopPane$ComponentPosition*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JDesktopPane$ComponentPosition, compareTo, int32_t, Object$*)},
-	{}
-};
-
-$InnerClassInfo _JDesktopPane$ComponentPosition_InnerClassesInfo_[] = {
-	{"javax.swing.JDesktopPane$ComponentPosition", "javax.swing.JDesktopPane", "ComponentPosition", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JDesktopPane$ComponentPosition_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JDesktopPane$ComponentPosition",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_JDesktopPane$ComponentPosition_FieldInfo_,
-	_JDesktopPane$ComponentPosition_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljavax/swing/JDesktopPane$ComponentPosition;>;",
-	nullptr,
-	_JDesktopPane$ComponentPosition_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JDesktopPane"
-};
-
-$Object* allocate$JDesktopPane$ComponentPosition($Class* clazz) {
-	return $of($alloc(JDesktopPane$ComponentPosition));
-}
 
 void JDesktopPane$ComponentPosition::init$($JInternalFrame* component, int32_t layer, int32_t zOrder) {
 	$set(this, component, component);
@@ -74,7 +34,40 @@ JDesktopPane$ComponentPosition::JDesktopPane$ComponentPosition() {
 }
 
 $Class* JDesktopPane$ComponentPosition::load$($String* name, bool initialize) {
-	$loadClass(JDesktopPane$ComponentPosition, name, initialize, &_JDesktopPane$ComponentPosition_ClassInfo_, allocate$JDesktopPane$ComponentPosition);
+	$FieldInfo fieldInfos$$[] = {
+		{"component", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $FINAL, $field(JDesktopPane$ComponentPosition, component)},
+		{"layer", "I", nullptr, $PRIVATE | $FINAL, $field(JDesktopPane$ComponentPosition, layer)},
+		{"zOrder", "I", nullptr, $PRIVATE | $FINAL, $field(JDesktopPane$ComponentPosition, zOrder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JInternalFrame;II)V", nullptr, 0, $method(JDesktopPane$ComponentPosition, init$, void, $JInternalFrame*, int32_t, int32_t)},
+		{"compareTo", "(Ljavax/swing/JDesktopPane$ComponentPosition;)I", nullptr, $PUBLIC, $virtualMethod(JDesktopPane$ComponentPosition, compareTo, int32_t, JDesktopPane$ComponentPosition*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JDesktopPane$ComponentPosition, compareTo, int32_t, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JDesktopPane$ComponentPosition", "javax.swing.JDesktopPane", "ComponentPosition", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JDesktopPane$ComponentPosition",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljavax/swing/JDesktopPane$ComponentPosition;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JDesktopPane"
+	};
+	$loadClass(JDesktopPane$ComponentPosition, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDesktopPane$ComponentPosition);
+	});
 	return class$;
 }
 

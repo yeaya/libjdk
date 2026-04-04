@@ -35,6 +35,7 @@ class InputMethodManager : public ::java::lang::Object {
 	$class(InputMethodManager, 0, ::java::lang::Object)
 public:
 	InputMethodManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::sun::awt::im::InputMethodLocator* findInputMethod(::java::util::Locale* forLocale) {return nullptr;}
 	virtual ::java::util::Locale* getDefaultKeyboardLocale() {return nullptr;}

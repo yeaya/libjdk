@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/DOMErrorHandlerWrapper$DOMErrorTypeMap.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/msg/XMLMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMErrorHandlerWrapper.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLErrorCode.h>
@@ -28,42 +27,6 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$FieldInfo _DOMErrorHandlerWrapper$DOMErrorTypeMap_FieldInfo_[] = {
-	{"fgDOMErrorTypeTable", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xerces/internal/util/XMLErrorCode;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DOMErrorHandlerWrapper$DOMErrorTypeMap, fgDOMErrorTypeTable)},
-	{}
-};
-
-$MethodInfo _DOMErrorHandlerWrapper$DOMErrorTypeMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(DOMErrorHandlerWrapper$DOMErrorTypeMap, init$, void)},
-	{"getDOMErrorType", "(Lcom/sun/org/apache/xerces/internal/util/XMLErrorCode;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMErrorHandlerWrapper$DOMErrorTypeMap, getDOMErrorType, $String*, $XMLErrorCode*)},
-	{}
-};
-
-$InnerClassInfo _DOMErrorHandlerWrapper$DOMErrorTypeMap_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.util.DOMErrorHandlerWrapper$DOMErrorTypeMap", "com.sun.org.apache.xerces.internal.util.DOMErrorHandlerWrapper", "DOMErrorTypeMap", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DOMErrorHandlerWrapper$DOMErrorTypeMap_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.DOMErrorHandlerWrapper$DOMErrorTypeMap",
-	"java.lang.Object",
-	nullptr,
-	_DOMErrorHandlerWrapper$DOMErrorTypeMap_FieldInfo_,
-	_DOMErrorHandlerWrapper$DOMErrorTypeMap_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMErrorHandlerWrapper$DOMErrorTypeMap_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.util.DOMErrorHandlerWrapper"
-};
-
-$Object* allocate$DOMErrorHandlerWrapper$DOMErrorTypeMap($Class* clazz) {
-	return $of($alloc(DOMErrorHandlerWrapper$DOMErrorTypeMap));
-}
-
 $Map* DOMErrorHandlerWrapper$DOMErrorTypeMap::fgDOMErrorTypeTable = nullptr;
 
 $String* DOMErrorHandlerWrapper$DOMErrorTypeMap::getDOMErrorType($XMLErrorCode* error) {
@@ -74,8 +37,8 @@ $String* DOMErrorHandlerWrapper$DOMErrorTypeMap::getDOMErrorType($XMLErrorCode* 
 void DOMErrorHandlerWrapper$DOMErrorTypeMap::init$() {
 }
 
-void clinit$DOMErrorHandlerWrapper$DOMErrorTypeMap($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DOMErrorHandlerWrapper$DOMErrorTypeMap::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	{
 		$var($Map, aDOMErrorTypeTable, $new($HashMap));
 		$init($XMLMessageFormatter);
@@ -196,7 +159,37 @@ DOMErrorHandlerWrapper$DOMErrorTypeMap::DOMErrorHandlerWrapper$DOMErrorTypeMap()
 }
 
 $Class* DOMErrorHandlerWrapper$DOMErrorTypeMap::load$($String* name, bool initialize) {
-	$loadClass(DOMErrorHandlerWrapper$DOMErrorTypeMap, name, initialize, &_DOMErrorHandlerWrapper$DOMErrorTypeMap_ClassInfo_, clinit$DOMErrorHandlerWrapper$DOMErrorTypeMap, allocate$DOMErrorHandlerWrapper$DOMErrorTypeMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"fgDOMErrorTypeTable", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xerces/internal/util/XMLErrorCode;Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DOMErrorHandlerWrapper$DOMErrorTypeMap, fgDOMErrorTypeTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(DOMErrorHandlerWrapper$DOMErrorTypeMap, init$, void)},
+		{"getDOMErrorType", "(Lcom/sun/org/apache/xerces/internal/util/XMLErrorCode;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMErrorHandlerWrapper$DOMErrorTypeMap, getDOMErrorType, $String*, $XMLErrorCode*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.util.DOMErrorHandlerWrapper$DOMErrorTypeMap", "com.sun.org.apache.xerces.internal.util.DOMErrorHandlerWrapper", "DOMErrorTypeMap", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.DOMErrorHandlerWrapper$DOMErrorTypeMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.util.DOMErrorHandlerWrapper"
+	};
+	$loadClass(DOMErrorHandlerWrapper$DOMErrorTypeMap, name, initialize, &classInfo$$, DOMErrorHandlerWrapper$DOMErrorTypeMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMErrorHandlerWrapper$DOMErrorTypeMap);
+	});
 	return class$;
 }
 

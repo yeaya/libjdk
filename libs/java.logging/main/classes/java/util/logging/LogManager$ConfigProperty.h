@@ -39,6 +39,7 @@ class $export LogManager$ConfigProperty : public ::java::lang::Enum {
 public:
 	LogManager$ConfigProperty();
 	static $Array<::java::util::logging::LogManager$ConfigProperty>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* suffix);
 	static ::java::util::Optional* find($String* property);
 	static $String* getLoggerName($String* property);

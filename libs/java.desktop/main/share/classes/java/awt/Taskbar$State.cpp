@@ -1,5 +1,4 @@
 #include <java/awt/Taskbar$State.h>
-
 #include <java/awt/Taskbar.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -19,49 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Taskbar$State_FieldInfo_[] = {
-	{"OFF", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, OFF)},
-	{"NORMAL", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, NORMAL)},
-	{"PAUSED", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, PAUSED)},
-	{"INDETERMINATE", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, INDETERMINATE)},
-	{"ERROR", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, ERROR)},
-	{"$VALUES", "[Ljava/awt/Taskbar$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Taskbar$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _Taskbar$State_MethodInfo_[] = {
-	{"$values", "()[Ljava/awt/Taskbar$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Taskbar$State, $values, $Taskbar$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Taskbar$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar$State, valueOf, Taskbar$State*, $String*)},
-	{"values", "()[Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar$State, values, $Taskbar$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _Taskbar$State_InnerClassesInfo_[] = {
-	{"java.awt.Taskbar$State", "java.awt.Taskbar", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Taskbar$State_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"java.awt.Taskbar$State",
-	"java.lang.Enum",
-	nullptr,
-	_Taskbar$State_FieldInfo_,
-	_Taskbar$State_MethodInfo_,
-	"Ljava/lang/Enum<Ljava/awt/Taskbar$State;>;",
-	nullptr,
-	_Taskbar$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Taskbar"
-};
-
-$Object* allocate$Taskbar$State($Class* clazz) {
-	return $of($alloc(Taskbar$State));
-}
 
 Taskbar$State* Taskbar$State::OFF = nullptr;
 Taskbar$State* Taskbar$State::NORMAL = nullptr;
@@ -95,7 +51,7 @@ void Taskbar$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Taskbar$State($Class* class$) {
+void Taskbar$State::clinit$($Class* clazz) {
 	$assignStatic(Taskbar$State::OFF, $new(Taskbar$State, "OFF"_s, 0));
 	$assignStatic(Taskbar$State::NORMAL, $new(Taskbar$State, "NORMAL"_s, 1));
 	$assignStatic(Taskbar$State::PAUSED, $new(Taskbar$State, "PAUSED"_s, 2));
@@ -108,7 +64,44 @@ Taskbar$State::Taskbar$State() {
 }
 
 $Class* Taskbar$State::load$($String* name, bool initialize) {
-	$loadClass(Taskbar$State, name, initialize, &_Taskbar$State_ClassInfo_, clinit$Taskbar$State, allocate$Taskbar$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"OFF", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, OFF)},
+		{"NORMAL", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, NORMAL)},
+		{"PAUSED", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, PAUSED)},
+		{"INDETERMINATE", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, INDETERMINATE)},
+		{"ERROR", "Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Taskbar$State, ERROR)},
+		{"$VALUES", "[Ljava/awt/Taskbar$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Taskbar$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljava/awt/Taskbar$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Taskbar$State, $values, $Taskbar$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Taskbar$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar$State, valueOf, Taskbar$State*, $String*)},
+		{"values", "()[Ljava/awt/Taskbar$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(Taskbar$State, values, $Taskbar$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Taskbar$State", "java.awt.Taskbar", "State", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"java.awt.Taskbar$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljava/awt/Taskbar$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Taskbar"
+	};
+	$loadClass(Taskbar$State, name, initialize, &classInfo$$, Taskbar$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Taskbar$State));
+	});
 	return class$;
 }
 

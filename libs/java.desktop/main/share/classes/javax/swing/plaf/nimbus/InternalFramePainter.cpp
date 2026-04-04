@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/nimbus/InternalFramePainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
@@ -26,7 +24,6 @@ using $Color = ::java::awt::Color;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
@@ -47,83 +44,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _InternalFramePainter_FieldInfo_[] = {
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFramePainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_ENABLED_WINDOWFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFramePainter, BACKGROUND_ENABLED_WINDOWFOCUSED)},
-	{"state", "I", nullptr, $PRIVATE, $field(InternalFramePainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(InternalFramePainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(InternalFramePainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(InternalFramePainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(InternalFramePainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(InternalFramePainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color18)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(InternalFramePainter, componentColors)},
-	{}
-};
-
-$MethodInfo _InternalFramePainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(InternalFramePainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath4, $Path2D*)},
-	{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath5, $Path2D*)},
-	{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath6, $Path2D*)},
-	{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath7, $Path2D*)},
-	{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath8, $Path2D*)},
-	{"decodePath9", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath9, $Path2D*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRect3, $Rectangle2D*)},
-	{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRect4, $Rectangle2D*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRoundRect2, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(InternalFramePainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(InternalFramePainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFramePainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndWindowFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFramePainter, paintBackgroundEnabledAndWindowFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _InternalFramePainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.InternalFramePainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_InternalFramePainter_FieldInfo_,
-	_InternalFramePainter_MethodInfo_
-};
-
-$Object* allocate$InternalFramePainter($Class* clazz) {
-	return $of($alloc(InternalFramePainter));
-}
-
 void InternalFramePainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBase"_s, 0.032459438f, -0.53637654f, 0.043137252f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, 0.004273474f, -0.039488062f, -0.027450979f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, -0.00505054f, -0.056339122f, 0.05098039f, 0));
@@ -150,15 +76,11 @@ void InternalFramePainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case InternalFramePainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case InternalFramePainter::BACKGROUND_ENABLED_WINDOWFOCUSED:
-		{
-			paintBackgroundEnabledAndWindowFocused(g);
-			break;
-		}
+		paintBackgroundEnabledAndWindowFocused(g);
+		break;
 	}
 }
 
@@ -191,7 +113,7 @@ void InternalFramePainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 void InternalFramePainter::paintBackgroundEnabledAndWindowFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect2());
 	$nc(g)->setPaint(this->color8);
 	g->fill(this->roundRect);
@@ -234,10 +156,10 @@ void InternalFramePainter::paintBackgroundEnabledAndWindowFocused($Graphics2D* g
 }
 
 $RoundRectangle2D* InternalFramePainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.0f), 4.6666665f, 4.6666665f);
 	return this->roundRect;
@@ -245,39 +167,39 @@ $RoundRectangle2D* InternalFramePainter::decodeRoundRect1() {
 
 $Path2D* InternalFramePainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.16666667f);
+	double var$0 = decodeX(0.16666667f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.12f));
-	double var$1 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$2 = (double)decodeAnchorY(0.12f, -1.0f);
-	double var$3 = (double)decodeAnchorX(0.5f, -1.0f);
-	double var$4 = (double)decodeAnchorY(0.04f, 0.0f);
-	double var$5 = (double)decodeX(0.5f);
+	double var$1 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$2 = decodeAnchorY(0.12f, -1.0f);
+	double var$3 = decodeAnchorX(0.5f, -1.0f);
+	double var$4 = decodeAnchorY(0.04f, 0.0f);
+	double var$5 = decodeX(0.5f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(0.04f));
-	double var$6 = (double)decodeAnchorX(0.5f, 1.0f);
-	double var$7 = (double)decodeAnchorY(0.04f, 0.0f);
-	double var$8 = (double)decodeAnchorX(2.5f, -1.0f);
-	double var$9 = (double)decodeAnchorY(0.04f, 0.0f);
-	double var$10 = (double)decodeX(2.5f);
+	double var$6 = decodeAnchorX(0.5f, 1.0f);
+	double var$7 = decodeAnchorY(0.04f, 0.0f);
+	double var$8 = decodeAnchorX(2.5f, -1.0f);
+	double var$9 = decodeAnchorY(0.04f, 0.0f);
+	double var$10 = decodeX(2.5f);
 	$nc(this->path)->curveTo(var$6, var$7, var$8, var$9, var$10, decodeY(0.04f));
-	double var$11 = (double)decodeAnchorX(2.5f, 1.0f);
-	double var$12 = (double)decodeAnchorY(0.04f, 0.0f);
-	double var$13 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$14 = (double)decodeAnchorY(0.12f, -1.0f);
-	double var$15 = (double)decodeX(2.8333333f);
+	double var$11 = decodeAnchorX(2.5f, 1.0f);
+	double var$12 = decodeAnchorY(0.04f, 0.0f);
+	double var$13 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$14 = decodeAnchorY(0.12f, -1.0f);
+	double var$15 = decodeX(2.8333333f);
 	$nc(this->path)->curveTo(var$11, var$12, var$13, var$14, var$15, decodeY(0.12f));
-	double var$16 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$17 = (double)decodeAnchorY(0.12f, 1.0f);
-	double var$18 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$19 = (double)decodeAnchorY(0.96f, 0.0f);
-	double var$20 = (double)decodeX(2.8333333f);
+	double var$16 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$17 = decodeAnchorY(0.12f, 1.0f);
+	double var$18 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$19 = decodeAnchorY(0.96f, 0.0f);
+	double var$20 = decodeX(2.8333333f);
 	$nc(this->path)->curveTo(var$16, var$17, var$18, var$19, var$20, decodeY(0.96f));
-	double var$21 = (double)decodeX(0.16666667f);
+	double var$21 = decodeX(0.16666667f);
 	$nc(this->path)->lineTo(var$21, decodeY(0.96f));
-	double var$22 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$23 = (double)decodeAnchorY(0.96f, 0.0f);
-	double var$24 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$25 = (double)decodeAnchorY(0.12f, 1.0f);
-	double var$26 = (double)decodeX(0.16666667f);
+	double var$22 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$23 = decodeAnchorY(0.96f, 0.0f);
+	double var$24 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$25 = decodeAnchorY(0.12f, 1.0f);
+	double var$26 = decodeX(0.16666667f);
 	$nc(this->path)->curveTo(var$22, var$23, var$24, var$25, var$26, decodeY(0.12f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -285,47 +207,47 @@ $Path2D* InternalFramePainter::decodePath1() {
 
 $Path2D* InternalFramePainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.6666667f);
+	double var$0 = decodeX(0.6666667f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.96f));
-	double var$1 = (double)decodeX(0.16666667f);
+	double var$1 = decodeX(0.16666667f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.96f));
-	double var$2 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$3 = (double)decodeAnchorY(0.96f, 0.0f);
-	double var$4 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$5 = (double)decodeAnchorY(2.5f, -1.0f);
-	double var$6 = (double)decodeX(0.16666667f);
+	double var$2 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$3 = decodeAnchorY(0.96f, 0.0f);
+	double var$4 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$5 = decodeAnchorY(2.5f, -1.0f);
+	double var$6 = decodeX(0.16666667f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(2.5f));
-	double var$7 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$8 = (double)decodeAnchorY(2.5f, 1.0f);
-	double var$9 = (double)decodeAnchorX(0.5f, -1.0f);
-	double var$10 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$11 = (double)decodeX(0.5f);
+	double var$7 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$8 = decodeAnchorY(2.5f, 1.0f);
+	double var$9 = decodeAnchorX(0.5f, -1.0f);
+	double var$10 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$11 = decodeX(0.5f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(2.8333333f));
-	double var$12 = (double)decodeAnchorX(0.5f, 1.0f);
-	double var$13 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$14 = (double)decodeAnchorX(2.5f, -1.0f);
-	double var$15 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$16 = (double)decodeX(2.5f);
+	double var$12 = decodeAnchorX(0.5f, 1.0f);
+	double var$13 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$14 = decodeAnchorX(2.5f, -1.0f);
+	double var$15 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$16 = decodeX(2.5f);
 	$nc(this->path)->curveTo(var$12, var$13, var$14, var$15, var$16, decodeY(2.8333333f));
-	double var$17 = (double)decodeAnchorX(2.5f, 1.0f);
-	double var$18 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$19 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$20 = (double)decodeAnchorY(2.5f, 1.0f);
-	double var$21 = (double)decodeX(2.8333333f);
+	double var$17 = decodeAnchorX(2.5f, 1.0f);
+	double var$18 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$19 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$20 = decodeAnchorY(2.5f, 1.0f);
+	double var$21 = decodeX(2.8333333f);
 	$nc(this->path)->curveTo(var$17, var$18, var$19, var$20, var$21, decodeY(2.5f));
-	double var$22 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$23 = (double)decodeAnchorY(2.5f, -1.0f);
-	double var$24 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$25 = (double)decodeAnchorY(0.96f, 0.0f);
-	double var$26 = (double)decodeX(2.8333333f);
+	double var$22 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$23 = decodeAnchorY(2.5f, -1.0f);
+	double var$24 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$25 = decodeAnchorY(0.96f, 0.0f);
+	double var$26 = decodeX(2.8333333f);
 	$nc(this->path)->curveTo(var$22, var$23, var$24, var$25, var$26, decodeY(0.96f));
-	double var$27 = (double)decodeX(2.3333333f);
+	double var$27 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$27, decodeY(0.96f));
-	double var$28 = (double)decodeX(2.3333333f);
+	double var$28 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$28, decodeY(2.3333333f));
-	double var$29 = (double)decodeX(0.6666667f);
+	double var$29 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$29, decodeY(2.3333333f));
-	double var$30 = (double)decodeX(0.6666667f);
+	double var$30 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$30, decodeY(0.96f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -333,23 +255,23 @@ $Path2D* InternalFramePainter::decodePath2() {
 
 $Path2D* InternalFramePainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.8333333f);
+	double var$0 = decodeX(0.8333333f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.96f));
-	double var$1 = (double)decodeX(0.6666667f);
+	double var$1 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.96f));
-	double var$2 = (double)decodeX(0.6666667f);
+	double var$2 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.3333333f));
-	double var$3 = (double)decodeX(2.3333333f);
+	double var$3 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.3333333f));
-	double var$4 = (double)decodeX(2.3333333f);
+	double var$4 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.96f));
-	double var$5 = (double)decodeX(2.1666667f);
+	double var$5 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.96f));
-	double var$6 = (double)decodeX(2.1666667f);
+	double var$6 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.1666667f));
-	double var$7 = (double)decodeX(0.8333333f);
+	double var$7 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.1666667f));
-	double var$8 = (double)decodeX(0.8333333f);
+	double var$8 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.96f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -357,57 +279,57 @@ $Path2D* InternalFramePainter::decodePath3() {
 
 $Path2D* InternalFramePainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(2.1666667f);
+	double var$0 = decodeX(2.1666667f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0f));
-	double var$1 = (double)decodeX(1.0f);
+	double var$1 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.0f));
-	double var$2 = (double)decodeX(1.0f);
+	double var$2 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.0f));
-	double var$3 = (double)decodeX(2.0f);
+	double var$3 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.0f));
-	double var$4 = (double)decodeX(2.0f);
+	double var$4 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.0f));
-	double var$5 = (double)decodeX(2.1666667f);
+	double var$5 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.0f));
-	double var$6 = (double)decodeX(2.1666667f);
+	double var$6 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.1666667f));
-	double var$7 = (double)decodeX(0.8333333f);
+	double var$7 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.1666667f));
-	double var$8 = (double)decodeX(0.8333333f);
+	double var$8 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.96f));
-	double var$9 = (double)decodeX(2.1666667f);
+	double var$9 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.96f));
-	double var$10 = (double)decodeX(2.1666667f);
+	double var$10 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.0f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* InternalFramePainter::decodeRect1() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFramePainter::decodeRect2() {
-	double var$0 = (double)decodeX(0.33333334f);
-	double var$1 = (double)decodeY(2.6666667f);
+	double var$0 = decodeX(0.33333334f);
+	double var$1 = decodeY(2.6666667f);
 	float var$3 = decodeX(2.6666667f);
-	double var$2 = (double)(var$3 - decodeX(0.33333334f));
+	double var$2 = var$3 - decodeX(0.33333334f);
 	float var$4 = decodeY(2.8333333f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.6666667f));
 	return this->rect;
 }
 
 $RoundRectangle2D* InternalFramePainter::decodeRoundRect2() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.0f), 4.8333335f, 4.8333335f);
 	return this->roundRect;
@@ -415,13 +337,13 @@ $RoundRectangle2D* InternalFramePainter::decodeRoundRect2() {
 
 $Path2D* InternalFramePainter::decodePath5() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.16666667f);
+	double var$0 = decodeX(0.16666667f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.08f));
-	double var$1 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$2 = (double)decodeAnchorY(0.08f, 1.0f);
-	double var$3 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$4 = (double)decodeAnchorY(0.08f, -1.0f);
-	double var$5 = (double)decodeX(0.16666667f);
+	double var$1 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$2 = decodeAnchorY(0.08f, 1.0f);
+	double var$3 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$4 = decodeAnchorY(0.08f, -1.0f);
+	double var$5 = decodeX(0.16666667f);
 	$nc(this->path)->curveTo(var$1, var$2, var$3, var$4, var$5, decodeY(0.08f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -429,47 +351,47 @@ $Path2D* InternalFramePainter::decodePath5() {
 
 $Path2D* InternalFramePainter::decodePath6() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.5f);
+	double var$0 = decodeX(0.5f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.96f));
-	double var$1 = (double)decodeX(0.16666667f);
+	double var$1 = decodeX(0.16666667f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.96f));
-	double var$2 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$3 = (double)decodeAnchorY(0.96f, 0.0f);
-	double var$4 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$5 = (double)decodeAnchorY(2.5f, -1.0f);
-	double var$6 = (double)decodeX(0.16666667f);
+	double var$2 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$3 = decodeAnchorY(0.96f, 0.0f);
+	double var$4 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$5 = decodeAnchorY(2.5f, -1.0f);
+	double var$6 = decodeX(0.16666667f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(2.5f));
-	double var$7 = (double)decodeAnchorX(0.16666667f, 0.0f);
-	double var$8 = (double)decodeAnchorY(2.5f, 1.0f);
-	double var$9 = (double)decodeAnchorX(0.5f, -1.0f);
-	double var$10 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$11 = (double)decodeX(0.5f);
+	double var$7 = decodeAnchorX(0.16666667f, 0.0f);
+	double var$8 = decodeAnchorY(2.5f, 1.0f);
+	double var$9 = decodeAnchorX(0.5f, -1.0f);
+	double var$10 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$11 = decodeX(0.5f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(2.8333333f));
-	double var$12 = (double)decodeAnchorX(0.5f, 1.0f);
-	double var$13 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$14 = (double)decodeAnchorX(2.5f, -1.0f);
-	double var$15 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$16 = (double)decodeX(2.5f);
+	double var$12 = decodeAnchorX(0.5f, 1.0f);
+	double var$13 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$14 = decodeAnchorX(2.5f, -1.0f);
+	double var$15 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$16 = decodeX(2.5f);
 	$nc(this->path)->curveTo(var$12, var$13, var$14, var$15, var$16, decodeY(2.8333333f));
-	double var$17 = (double)decodeAnchorX(2.5f, 1.0f);
-	double var$18 = (double)decodeAnchorY(2.8333333f, 0.0f);
-	double var$19 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$20 = (double)decodeAnchorY(2.5f, 1.0f);
-	double var$21 = (double)decodeX(2.8333333f);
+	double var$17 = decodeAnchorX(2.5f, 1.0f);
+	double var$18 = decodeAnchorY(2.8333333f, 0.0f);
+	double var$19 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$20 = decodeAnchorY(2.5f, 1.0f);
+	double var$21 = decodeX(2.8333333f);
 	$nc(this->path)->curveTo(var$17, var$18, var$19, var$20, var$21, decodeY(2.5f));
-	double var$22 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$23 = (double)decodeAnchorY(2.5f, -1.0f);
-	double var$24 = (double)decodeAnchorX(2.8333333f, 0.0f);
-	double var$25 = (double)decodeAnchorY(0.96f, 0.0f);
-	double var$26 = (double)decodeX(2.8333333f);
+	double var$22 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$23 = decodeAnchorY(2.5f, -1.0f);
+	double var$24 = decodeAnchorX(2.8333333f, 0.0f);
+	double var$25 = decodeAnchorY(0.96f, 0.0f);
+	double var$26 = decodeX(2.8333333f);
 	$nc(this->path)->curveTo(var$22, var$23, var$24, var$25, var$26, decodeY(0.96f));
-	double var$27 = (double)decodeX(2.5f);
+	double var$27 = decodeX(2.5f);
 	$nc(this->path)->lineTo(var$27, decodeY(0.96f));
-	double var$28 = (double)decodeX(2.5f);
+	double var$28 = decodeX(2.5f);
 	$nc(this->path)->lineTo(var$28, decodeY(2.5f));
-	double var$29 = (double)decodeX(0.5f);
+	double var$29 = decodeX(0.5f);
 	$nc(this->path)->lineTo(var$29, decodeY(2.5f));
-	double var$30 = (double)decodeX(0.5f);
+	double var$30 = decodeX(0.5f);
 	$nc(this->path)->lineTo(var$30, decodeY(0.96f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -477,47 +399,47 @@ $Path2D* InternalFramePainter::decodePath6() {
 
 $Path2D* InternalFramePainter::decodePath7() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.6666667f);
+	double var$0 = decodeX(0.6666667f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.96f));
-	double var$1 = (double)decodeX(0.33333334f);
+	double var$1 = decodeX(0.33333334f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.96f));
-	double var$2 = (double)decodeAnchorX(0.33333334f, 0.0f);
-	double var$3 = (double)decodeAnchorY(0.96f, 0.0f);
-	double var$4 = (double)decodeAnchorX(0.33333334f, 0.0f);
-	double var$5 = (double)decodeAnchorY(2.3333333f, -1.0f);
-	double var$6 = (double)decodeX(0.33333334f);
+	double var$2 = decodeAnchorX(0.33333334f, 0.0f);
+	double var$3 = decodeAnchorY(0.96f, 0.0f);
+	double var$4 = decodeAnchorX(0.33333334f, 0.0f);
+	double var$5 = decodeAnchorY(2.3333333f, -1.0f);
+	double var$6 = decodeX(0.33333334f);
 	$nc(this->path)->curveTo(var$2, var$3, var$4, var$5, var$6, decodeY(2.3333333f));
-	double var$7 = (double)decodeAnchorX(0.33333334f, 0.0f);
-	double var$8 = (double)decodeAnchorY(2.3333333f, 1.0f);
-	double var$9 = (double)decodeAnchorX(0.6666667f, -1.0f);
-	double var$10 = (double)decodeAnchorY(2.6666667f, 0.0f);
-	double var$11 = (double)decodeX(0.6666667f);
+	double var$7 = decodeAnchorX(0.33333334f, 0.0f);
+	double var$8 = decodeAnchorY(2.3333333f, 1.0f);
+	double var$9 = decodeAnchorX(0.6666667f, -1.0f);
+	double var$10 = decodeAnchorY(2.6666667f, 0.0f);
+	double var$11 = decodeX(0.6666667f);
 	$nc(this->path)->curveTo(var$7, var$8, var$9, var$10, var$11, decodeY(2.6666667f));
-	double var$12 = (double)decodeAnchorX(0.6666667f, 1.0f);
-	double var$13 = (double)decodeAnchorY(2.6666667f, 0.0f);
-	double var$14 = (double)decodeAnchorX(2.3333333f, -1.0f);
-	double var$15 = (double)decodeAnchorY(2.6666667f, 0.0f);
-	double var$16 = (double)decodeX(2.3333333f);
+	double var$12 = decodeAnchorX(0.6666667f, 1.0f);
+	double var$13 = decodeAnchorY(2.6666667f, 0.0f);
+	double var$14 = decodeAnchorX(2.3333333f, -1.0f);
+	double var$15 = decodeAnchorY(2.6666667f, 0.0f);
+	double var$16 = decodeX(2.3333333f);
 	$nc(this->path)->curveTo(var$12, var$13, var$14, var$15, var$16, decodeY(2.6666667f));
-	double var$17 = (double)decodeAnchorX(2.3333333f, 1.0f);
-	double var$18 = (double)decodeAnchorY(2.6666667f, 0.0f);
-	double var$19 = (double)decodeAnchorX(2.6666667f, 0.0f);
-	double var$20 = (double)decodeAnchorY(2.3333333f, 1.0f);
-	double var$21 = (double)decodeX(2.6666667f);
+	double var$17 = decodeAnchorX(2.3333333f, 1.0f);
+	double var$18 = decodeAnchorY(2.6666667f, 0.0f);
+	double var$19 = decodeAnchorX(2.6666667f, 0.0f);
+	double var$20 = decodeAnchorY(2.3333333f, 1.0f);
+	double var$21 = decodeX(2.6666667f);
 	$nc(this->path)->curveTo(var$17, var$18, var$19, var$20, var$21, decodeY(2.3333333f));
-	double var$22 = (double)decodeAnchorX(2.6666667f, 0.0f);
-	double var$23 = (double)decodeAnchorY(2.3333333f, -1.0f);
-	double var$24 = (double)decodeAnchorX(2.6666667f, 0.0f);
-	double var$25 = (double)decodeAnchorY(0.96f, 0.0f);
-	double var$26 = (double)decodeX(2.6666667f);
+	double var$22 = decodeAnchorX(2.6666667f, 0.0f);
+	double var$23 = decodeAnchorY(2.3333333f, -1.0f);
+	double var$24 = decodeAnchorX(2.6666667f, 0.0f);
+	double var$25 = decodeAnchorY(0.96f, 0.0f);
+	double var$26 = decodeX(2.6666667f);
 	$nc(this->path)->curveTo(var$22, var$23, var$24, var$25, var$26, decodeY(0.96f));
-	double var$27 = (double)decodeX(2.3333333f);
+	double var$27 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$27, decodeY(0.96f));
-	double var$28 = (double)decodeX(2.3333333f);
+	double var$28 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$28, decodeY(2.3333333f));
-	double var$29 = (double)decodeX(0.6666667f);
+	double var$29 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$29, decodeY(2.3333333f));
-	double var$30 = (double)decodeX(0.6666667f);
+	double var$30 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$30, decodeY(0.96f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -525,23 +447,23 @@ $Path2D* InternalFramePainter::decodePath7() {
 
 $Path2D* InternalFramePainter::decodePath8() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(2.3333333f);
+	double var$0 = decodeX(2.3333333f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.96f));
-	double var$1 = (double)decodeX(2.1666667f);
+	double var$1 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$1, decodeY(0.96f));
-	double var$2 = (double)decodeX(2.1666667f);
+	double var$2 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.1666667f));
-	double var$3 = (double)decodeX(0.8333333f);
+	double var$3 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$3, decodeY(2.1666667f));
-	double var$4 = (double)decodeX(0.8333333f);
+	double var$4 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.96f));
-	double var$5 = (double)decodeX(0.6666667f);
+	double var$5 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.96f));
-	double var$6 = (double)decodeX(0.6666667f);
+	double var$6 = decodeX(0.6666667f);
 	$nc(this->path)->lineTo(var$6, decodeY(2.3333333f));
-	double var$7 = (double)decodeX(2.3333333f);
+	double var$7 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.3333333f));
-	double var$8 = (double)decodeX(2.3333333f);
+	double var$8 = decodeX(2.3333333f);
 	$nc(this->path)->lineTo(var$8, decodeY(0.96f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -549,54 +471,54 @@ $Path2D* InternalFramePainter::decodePath8() {
 
 $Path2D* InternalFramePainter::decodePath9() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.8333333f);
+	double var$0 = decodeX(0.8333333f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.0f));
-	double var$1 = (double)decodeX(0.8333333f);
+	double var$1 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$1, decodeY(2.1666667f));
-	double var$2 = (double)decodeX(2.1666667f);
+	double var$2 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$2, decodeY(2.1666667f));
-	double var$3 = (double)decodeX(2.1666667f);
+	double var$3 = decodeX(2.1666667f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.96f));
-	double var$4 = (double)decodeX(0.8333333f);
+	double var$4 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.96f));
-	double var$5 = (double)decodeX(0.8333333f);
+	double var$5 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.0f));
-	double var$6 = (double)decodeX(2.0f);
+	double var$6 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.0f));
-	double var$7 = (double)decodeX(2.0f);
+	double var$7 = decodeX(2.0f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.0f));
-	double var$8 = (double)decodeX(1.0f);
+	double var$8 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.0f));
-	double var$9 = (double)decodeX(1.0f);
+	double var$9 = decodeX(1.0f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.0f));
-	double var$10 = (double)decodeX(0.8333333f);
+	double var$10 = decodeX(0.8333333f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.0f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Rectangle2D* InternalFramePainter::decodeRect3() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(0.0f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(0.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFramePainter::decodeRect4() {
-	double var$0 = (double)decodeX(0.33333334f);
-	double var$1 = (double)decodeY(0.08f);
+	double var$0 = decodeX(0.33333334f);
+	double var$1 = decodeY(0.08f);
 	float var$3 = decodeX(2.6666667f);
-	double var$2 = (double)(var$3 - decodeX(0.33333334f));
+	double var$2 = var$3 - decodeX(0.33333334f);
 	float var$4 = decodeY(0.96f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.08f));
 	return this->rect;
 }
 
 $Paint* InternalFramePainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -614,7 +536,7 @@ $Paint* InternalFramePainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* InternalFramePainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -632,7 +554,7 @@ $Paint* InternalFramePainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* InternalFramePainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -653,7 +575,73 @@ InternalFramePainter::InternalFramePainter() {
 }
 
 $Class* InternalFramePainter::load$($String* name, bool initialize) {
-	$loadClass(InternalFramePainter, name, initialize, &_InternalFramePainter_ClassInfo_, allocate$InternalFramePainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFramePainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_ENABLED_WINDOWFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFramePainter, BACKGROUND_ENABLED_WINDOWFOCUSED)},
+		{"state", "I", nullptr, $PRIVATE, $field(InternalFramePainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(InternalFramePainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(InternalFramePainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(InternalFramePainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(InternalFramePainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(InternalFramePainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFramePainter, color18)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(InternalFramePainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(InternalFramePainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath4, $Path2D*)},
+		{"decodePath5", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath5, $Path2D*)},
+		{"decodePath6", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath6, $Path2D*)},
+		{"decodePath7", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath7, $Path2D*)},
+		{"decodePath8", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath8, $Path2D*)},
+		{"decodePath9", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodePath9, $Path2D*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRect3, $Rectangle2D*)},
+		{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRect4, $Rectangle2D*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFramePainter, decodeRoundRect2, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(InternalFramePainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(InternalFramePainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFramePainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndWindowFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFramePainter, paintBackgroundEnabledAndWindowFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.InternalFramePainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InternalFramePainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFramePainter);
+	});
 	return class$;
 }
 

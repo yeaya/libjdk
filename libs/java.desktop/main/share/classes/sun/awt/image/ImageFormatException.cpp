@@ -1,5 +1,4 @@
 #include <sun/awt/image/ImageFormatException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,24 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$MethodInfo _ImageFormatException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageFormatException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ImageFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.ImageFormatException",
-	"java.lang.Exception",
-	nullptr,
-	nullptr,
-	_ImageFormatException_MethodInfo_
-};
-
-$Object* allocate$ImageFormatException($Class* clazz) {
-	return $of($alloc(ImageFormatException));
-}
 
 void ImageFormatException::init$($String* s) {
 	$Exception::init$(s);
@@ -43,7 +24,21 @@ void ImageFormatException::throw$() {
 }
 
 $Class* ImageFormatException::load$($String* name, bool initialize) {
-	$loadClass(ImageFormatException, name, initialize, &_ImageFormatException_ClassInfo_, allocate$ImageFormatException);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageFormatException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.ImageFormatException",
+		"java.lang.Exception",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageFormatException);
+	});
 	return class$;
 }
 

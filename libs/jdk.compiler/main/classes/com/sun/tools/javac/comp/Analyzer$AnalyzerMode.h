@@ -44,6 +44,7 @@ class $export Analyzer$AnalyzerMode : public ::java::lang::Enum {
 public:
 	Analyzer$AnalyzerMode();
 	static $Array<::com::sun::tools::javac::comp::Analyzer$AnalyzerMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* opt, ::com::sun::tools::javac::code::Source$Feature* feature);
 	static ::java::util::EnumSet* getAnalyzerModes($String* opt, ::com::sun::tools::javac::code::Source* source);
 	static ::com::sun::tools::javac::comp::Analyzer$AnalyzerMode* valueOf($String* name);

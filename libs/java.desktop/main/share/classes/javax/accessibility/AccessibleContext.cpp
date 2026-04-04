@@ -1,5 +1,4 @@
 #include <javax/accessibility/AccessibleContext.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/PropertyChangeSupport.h>
@@ -17,7 +16,6 @@
 #include <javax/accessibility/AccessibleTable.h>
 #include <javax/accessibility/AccessibleText.h>
 #include <javax/accessibility/AccessibleValue.h>
-#include <sun/awt/AWTAccessor$AccessibleContextAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <jcpp.h>
@@ -69,128 +67,9 @@ using $AccessibleTable = ::javax::accessibility::AccessibleTable;
 using $AccessibleText = ::javax::accessibility::AccessibleText;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AccessibleContextAccessor = ::sun::awt::AWTAccessor$AccessibleContextAccessor;
 
 namespace javax {
 	namespace accessibility {
-
-$NamedAttribute AccessibleContext_Attribute_var$0[] = {
-	{"description", 's', "Minimal information that all accessible objects return"},
-	{}
-};
-
-$CompoundAttribute _AccessibleContext_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", AccessibleContext_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute AccessibleContext_Attribute_var$1[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets the accessible description for the component."},
-	{}
-};
-
-$CompoundAttribute _AccessibleContext_MethodAnnotations_setAccessibleDescription22[] = {
-	{"Ljava/beans/BeanProperty;", AccessibleContext_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute AccessibleContext_Attribute_var$2[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets the accessible name for the component."},
-	{}
-};
-
-$CompoundAttribute _AccessibleContext_MethodAnnotations_setAccessibleName23[] = {
-	{"Ljava/beans/BeanProperty;", AccessibleContext_Attribute_var$2},
-	{}
-};
-
-$FieldInfo _AccessibleContext_FieldInfo_[] = {
-	{"targetAppContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $VOLATILE, $field(AccessibleContext, targetAppContext)},
-	{"ACCESSIBLE_NAME_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_NAME_PROPERTY)},
-	{"ACCESSIBLE_DESCRIPTION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_DESCRIPTION_PROPERTY)},
-	{"ACCESSIBLE_STATE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_STATE_PROPERTY)},
-	{"ACCESSIBLE_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_VALUE_PROPERTY)},
-	{"ACCESSIBLE_SELECTION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_SELECTION_PROPERTY)},
-	{"ACCESSIBLE_CARET_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_CARET_PROPERTY)},
-	{"ACCESSIBLE_VISIBLE_DATA_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_VISIBLE_DATA_PROPERTY)},
-	{"ACCESSIBLE_CHILD_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_CHILD_PROPERTY)},
-	{"ACCESSIBLE_ACTIVE_DESCENDANT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_ACTIVE_DESCENDANT_PROPERTY)},
-	{"ACCESSIBLE_TABLE_CAPTION_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_CAPTION_CHANGED)},
-	{"ACCESSIBLE_TABLE_SUMMARY_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_SUMMARY_CHANGED)},
-	{"ACCESSIBLE_TABLE_MODEL_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_MODEL_CHANGED)},
-	{"ACCESSIBLE_TABLE_ROW_HEADER_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_ROW_HEADER_CHANGED)},
-	{"ACCESSIBLE_TABLE_ROW_DESCRIPTION_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_ROW_DESCRIPTION_CHANGED)},
-	{"ACCESSIBLE_TABLE_COLUMN_HEADER_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_COLUMN_HEADER_CHANGED)},
-	{"ACCESSIBLE_TABLE_COLUMN_DESCRIPTION_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_COLUMN_DESCRIPTION_CHANGED)},
-	{"ACCESSIBLE_ACTION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_ACTION_PROPERTY)},
-	{"ACCESSIBLE_HYPERTEXT_OFFSET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_HYPERTEXT_OFFSET)},
-	{"ACCESSIBLE_TEXT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TEXT_PROPERTY)},
-	{"ACCESSIBLE_INVALIDATE_CHILDREN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_INVALIDATE_CHILDREN)},
-	{"ACCESSIBLE_TEXT_ATTRIBUTES_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TEXT_ATTRIBUTES_CHANGED)},
-	{"ACCESSIBLE_COMPONENT_BOUNDS_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_COMPONENT_BOUNDS_CHANGED)},
-	{"accessibleParent", "Ljavax/accessibility/Accessible;", nullptr, $PROTECTED, $field(AccessibleContext, accessibleParent)},
-	{"accessibleName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AccessibleContext, accessibleName)},
-	{"accessibleDescription", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AccessibleContext, accessibleDescription)},
-	{"accessibleChangeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(AccessibleContext, accessibleChangeSupport)},
-	{"relationSet", "Ljavax/accessibility/AccessibleRelationSet;", nullptr, $PRIVATE, $field(AccessibleContext, relationSet)},
-	{"nativeAXResource", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AccessibleContext, nativeAXResource)},
-	{}
-};
-
-$MethodInfo _AccessibleContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AccessibleContext, init$, void)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleAction, $AccessibleAction*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleDescription, $String*)},
-	{"getAccessibleEditableText", "()Ljavax/accessibility/AccessibleEditableText;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleEditableText, $AccessibleEditableText*)},
-	{"getAccessibleIcon", "()[Ljavax/accessibility/AccessibleIcon;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleIcon, $AccessibleIconArray*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleName, $String*)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRelationSet", "()Ljavax/accessibility/AccessibleRelationSet;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleRelationSet, $AccessibleRelationSet*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleSelection, $AccessibleSelection*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleTable", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleTable, $AccessibleTable*)},
-	{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleText, $AccessibleText*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleValue, $AccessibleValue*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setAccessibleDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, setAccessibleDescription, void, $String*), nullptr, nullptr, _AccessibleContext_MethodAnnotations_setAccessibleDescription22},
-	{"setAccessibleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, setAccessibleName, void, $String*), nullptr, nullptr, _AccessibleContext_MethodAnnotations_setAccessibleName23},
-	{"setAccessibleParent", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, setAccessibleParent, void, $Accessible*)},
-	{}
-};
-
-$InnerClassInfo _AccessibleContext_InnerClassesInfo_[] = {
-	{"javax.accessibility.AccessibleContext$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AccessibleContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.accessibility.AccessibleContext",
-	"java.lang.Object",
-	nullptr,
-	_AccessibleContext_FieldInfo_,
-	_AccessibleContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AccessibleContext_InnerClassesInfo_,
-	_AccessibleContext_Annotations_,
-	nullptr,
-	"javax.accessibility.AccessibleContext$1"
-};
-
-$Object* allocate$AccessibleContext($Class* clazz) {
-	return $of($alloc(AccessibleContext));
-}
 
 $String* AccessibleContext::ACCESSIBLE_NAME_PROPERTY = nullptr;
 $String* AccessibleContext::ACCESSIBLE_DESCRIPTION_PROPERTY = nullptr;
@@ -260,7 +139,7 @@ void AccessibleContext::addPropertyChangeListener($PropertyChangeListener* liste
 
 void AccessibleContext::removePropertyChangeListener($PropertyChangeListener* listener) {
 	if (this->accessibleChangeSupport != nullptr) {
-		$nc(this->accessibleChangeSupport)->removePropertyChangeListener(listener);
+		this->accessibleChangeSupport->removePropertyChangeListener(listener);
 	}
 }
 
@@ -304,14 +183,14 @@ void AccessibleContext::firePropertyChange($String* propertyName, Object$* oldVa
 	if (this->accessibleChangeSupport != nullptr) {
 		if ($instanceOf($PropertyChangeEvent, newValue)) {
 			$var($PropertyChangeEvent, pce, $cast($PropertyChangeEvent, newValue));
-			$nc(this->accessibleChangeSupport)->firePropertyChange(pce);
+			this->accessibleChangeSupport->firePropertyChange(pce);
 		} else {
 			$nc(this->accessibleChangeSupport)->firePropertyChange(propertyName, oldValue, newValue);
 		}
 	}
 }
 
-void clinit$AccessibleContext($Class* class$) {
+void AccessibleContext::clinit$($Class* clazz) {
 	$assignStatic(AccessibleContext::ACCESSIBLE_NAME_PROPERTY, "AccessibleName"_s);
 	$assignStatic(AccessibleContext::ACCESSIBLE_DESCRIPTION_PROPERTY, "AccessibleDescription"_s);
 	$assignStatic(AccessibleContext::ACCESSIBLE_STATE_PROPERTY, "AccessibleState"_s);
@@ -343,7 +222,113 @@ AccessibleContext::AccessibleContext() {
 }
 
 $Class* AccessibleContext::load$($String* name, bool initialize) {
-	$loadClass(AccessibleContext, name, initialize, &_AccessibleContext_ClassInfo_, clinit$AccessibleContext, allocate$AccessibleContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"targetAppContext", "Lsun/awt/AppContext;", nullptr, $PRIVATE | $VOLATILE, $field(AccessibleContext, targetAppContext)},
+		{"ACCESSIBLE_NAME_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_NAME_PROPERTY)},
+		{"ACCESSIBLE_DESCRIPTION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_DESCRIPTION_PROPERTY)},
+		{"ACCESSIBLE_STATE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_STATE_PROPERTY)},
+		{"ACCESSIBLE_VALUE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_VALUE_PROPERTY)},
+		{"ACCESSIBLE_SELECTION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_SELECTION_PROPERTY)},
+		{"ACCESSIBLE_CARET_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_CARET_PROPERTY)},
+		{"ACCESSIBLE_VISIBLE_DATA_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_VISIBLE_DATA_PROPERTY)},
+		{"ACCESSIBLE_CHILD_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_CHILD_PROPERTY)},
+		{"ACCESSIBLE_ACTIVE_DESCENDANT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_ACTIVE_DESCENDANT_PROPERTY)},
+		{"ACCESSIBLE_TABLE_CAPTION_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_CAPTION_CHANGED)},
+		{"ACCESSIBLE_TABLE_SUMMARY_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_SUMMARY_CHANGED)},
+		{"ACCESSIBLE_TABLE_MODEL_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_MODEL_CHANGED)},
+		{"ACCESSIBLE_TABLE_ROW_HEADER_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_ROW_HEADER_CHANGED)},
+		{"ACCESSIBLE_TABLE_ROW_DESCRIPTION_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_ROW_DESCRIPTION_CHANGED)},
+		{"ACCESSIBLE_TABLE_COLUMN_HEADER_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_COLUMN_HEADER_CHANGED)},
+		{"ACCESSIBLE_TABLE_COLUMN_DESCRIPTION_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TABLE_COLUMN_DESCRIPTION_CHANGED)},
+		{"ACCESSIBLE_ACTION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_ACTION_PROPERTY)},
+		{"ACCESSIBLE_HYPERTEXT_OFFSET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_HYPERTEXT_OFFSET)},
+		{"ACCESSIBLE_TEXT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TEXT_PROPERTY)},
+		{"ACCESSIBLE_INVALIDATE_CHILDREN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_INVALIDATE_CHILDREN)},
+		{"ACCESSIBLE_TEXT_ATTRIBUTES_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_TEXT_ATTRIBUTES_CHANGED)},
+		{"ACCESSIBLE_COMPONENT_BOUNDS_CHANGED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AccessibleContext, ACCESSIBLE_COMPONENT_BOUNDS_CHANGED)},
+		{"accessibleParent", "Ljavax/accessibility/Accessible;", nullptr, $PROTECTED, $field(AccessibleContext, accessibleParent)},
+		{"accessibleName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AccessibleContext, accessibleName)},
+		{"accessibleDescription", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AccessibleContext, accessibleDescription)},
+		{"accessibleChangeSupport", "Ljava/beans/PropertyChangeSupport;", nullptr, $PRIVATE, $field(AccessibleContext, accessibleChangeSupport)},
+		{"relationSet", "Ljavax/accessibility/AccessibleRelationSet;", nullptr, $PRIVATE, $field(AccessibleContext, relationSet)},
+		{"nativeAXResource", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(AccessibleContext, nativeAXResource)},
+		{}
+	};
+	$NamedAttribute setAccessibleDescriptionmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets the accessible description for the component."},
+		{}
+	};
+	$CompoundAttribute setAccessibleDescriptionmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setAccessibleDescriptionmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setAccessibleNamemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets the accessible name for the component."},
+		{}
+	};
+	$CompoundAttribute setAccessibleNamemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setAccessibleNamemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AccessibleContext, init$, void)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"getAccessibleAction", "()Ljavax/accessibility/AccessibleAction;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleAction, $AccessibleAction*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleDescription, $String*)},
+		{"getAccessibleEditableText", "()Ljavax/accessibility/AccessibleEditableText;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleEditableText, $AccessibleEditableText*)},
+		{"getAccessibleIcon", "()[Ljavax/accessibility/AccessibleIcon;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleIcon, $AccessibleIconArray*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleName, $String*)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRelationSet", "()Ljavax/accessibility/AccessibleRelationSet;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleRelationSet, $AccessibleRelationSet*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleSelection", "()Ljavax/accessibility/AccessibleSelection;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleSelection, $AccessibleSelection*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleTable", "()Ljavax/accessibility/AccessibleTable;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleTable, $AccessibleTable*)},
+		{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleText, $AccessibleText*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, getAccessibleValue, $AccessibleValue*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AccessibleContext, getLocale, $Locale*), "java.awt.IllegalComponentStateException"},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setAccessibleDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, setAccessibleDescription, void, $String*), nullptr, nullptr, setAccessibleDescriptionmethodAnnotations$$},
+		{"setAccessibleName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, setAccessibleName, void, $String*), nullptr, nullptr, setAccessibleNamemethodAnnotations$$},
+		{"setAccessibleParent", "(Ljavax/accessibility/Accessible;)V", nullptr, $PUBLIC, $virtualMethod(AccessibleContext, setAccessibleParent, void, $Accessible*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.accessibility.AccessibleContext$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"description", 's', "Minimal information that all accessible objects return"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.accessibility.AccessibleContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.accessibility.AccessibleContext$1"
+	};
+	$loadClass(AccessibleContext, name, initialize, &classInfo$$, AccessibleContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AccessibleContext);
+	});
 	return class$;
 }
 

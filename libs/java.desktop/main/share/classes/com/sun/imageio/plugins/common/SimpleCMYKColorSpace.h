@@ -16,6 +16,7 @@ class SimpleCMYKColorSpace : public ::java::awt::color::ColorSpace {
 	$class(SimpleCMYKColorSpace, 0, ::java::awt::color::ColorSpace)
 public:
 	SimpleCMYKColorSpace();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool equals(Object$* o) override;
 	virtual $floats* fromCIEXYZ($floats* xyzvalue) override;
@@ -24,7 +25,7 @@ public:
 	virtual int32_t hashCode() override;
 	virtual $floats* toCIEXYZ($floats* colorvalue) override;
 	virtual $floats* toRGB($floats* colorvalue) override;
-	static const int64_t serialVersionUID = (int64_t)0x4AC2E2AD654125B8;
+	static const int64_t serialVersionUID = (int64_t)0x4ac2e2ad654125b8;
 	static ::java::awt::color::ColorSpace* theInstance;
 	::java::awt::color::ColorSpace* csRGB = nullptr;
 	static double power1;

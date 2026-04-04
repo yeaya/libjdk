@@ -30,6 +30,7 @@ class MetalLookAndFeel$MetalLayoutStyle : public ::sun::swing::DefaultLayoutStyl
 public:
 	MetalLookAndFeel$MetalLayoutStyle();
 	using ::sun::swing::DefaultLayoutStyle::getButtonGap;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	int32_t getButtonAdjustment(::javax::swing::JComponent* source, int32_t edge);
 	virtual int32_t getButtonGap(::javax::swing::JComponent* source, ::javax::swing::JComponent* target, int32_t position, int32_t offset) override;

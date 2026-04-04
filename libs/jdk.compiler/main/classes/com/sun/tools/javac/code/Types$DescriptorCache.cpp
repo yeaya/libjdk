@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$DescriptorCache.h>
-
 #include <com/sun/tools/javac/code/Kinds$KindName.h>
 #include <com/sun/tools/javac/code/Kinds.h>
 #include <com/sun/tools/javac/code/Scope$CompoundScope.h>
@@ -50,7 +49,6 @@ using $Types$DescriptorFilter = ::com::sun::tools::javac::code::Types$Descriptor
 using $Types$FunctionDescriptorLookupError = ::com::sun::tools::javac::code::Types$FunctionDescriptorLookupError;
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $JCDiagnostic$MultilineDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic$MultilineDiagnostic;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
@@ -58,15 +56,12 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Iterator = ::java::util::Iterator;
-using $Optional = ::java::util::Optional;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -84,35 +79,31 @@ public:
 	virtual bool test(Object$* msym) override {
 		 return $nc(inst$)->lambda$findDescriptorInternal$0(sym, $cast($Symbol, msym));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0>());
-	}
 	Types$DescriptorCache* inst$ = nullptr;
 	$Symbol* sym = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, inst$)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, sym)},
-	{}
-};
-$MethodInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, init$, void, Types$DescriptorCache*, $Symbol*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0::load$($String* name, bool initialize) {
-	$loadClass(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, inst$)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, sym)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, init$, void, Types$DescriptorCache*, $Symbol*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0);
+	});
 	return class$;
 }
 $Class* Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0::class$ = nullptr;
@@ -127,35 +118,31 @@ public:
 	virtual $Object* apply(Object$* msym) override {
 		 return $of($nc(inst$)->lambda$findDescriptorInternal$1(origin, $cast($Symbol, msym)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1>());
-	}
 	Types$DescriptorCache* inst$ = nullptr;
 	$Symbol$TypeSymbol* origin = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, inst$)},
-	{"origin", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, origin)},
-	{}
-};
-$MethodInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, init$, void, Types$DescriptorCache*, $Symbol$TypeSymbol*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1::load$($String* name, bool initialize) {
-	$loadClass(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, inst$)},
+		{"origin", "Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, origin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, init$, void, Types$DescriptorCache*, $Symbol$TypeSymbol*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1);
+	});
 	return class$;
 }
 $Class* Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1::class$ = nullptr;
@@ -170,35 +157,31 @@ public:
 	virtual bool test(Object$* abstractMType) override {
 		 return $nc(inst$)->lambda$findDescriptorInternal$2(mtype, $cast($Type, abstractMType));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2>());
-	}
 	Types$DescriptorCache* inst$ = nullptr;
 	$Type* mtype = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, inst$)},
-	{"mtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, mtype)},
-	{}
-};
-$MethodInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, init$, void, Types$DescriptorCache*, $Type*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2::load$($String* name, bool initialize) {
-	$loadClass(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, inst$)},
+		{"mtype", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, mtype)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, init$, void, Types$DescriptorCache*, $Type*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2);
+	});
 	return class$;
 }
 $Class* Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2::class$ = nullptr;
@@ -210,86 +193,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* bestSoFar) override {
-		 return $of($nc(inst$)->lambda$mergeDescriptors$3($cast($Symbol, bestSoFar)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3>());
+		 return $nc(inst$)->lambda$mergeDescriptors$3($cast($Symbol, bestSoFar));
 	}
 	Types$DescriptorCache* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, inst$)},
-	{}
-};
-$MethodInfo Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, init$, void, Types$DescriptorCache*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3::load$($String* name, bool initialize) {
-	$loadClass(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types$DescriptorCache;)V", nullptr, $PUBLIC, $method(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, init$, void, Types$DescriptorCache*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3);
+	});
 	return class$;
 }
 $Class* Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3::class$ = nullptr;
-
-$FieldInfo _Types$DescriptorCache_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$DescriptorCache, this$0)},
-	{"_map", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types$DescriptorCache$Entry;>;", $PRIVATE, $field(Types$DescriptorCache, _map)},
-	{}
-};
-
-$MethodInfo _Types$DescriptorCache_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$DescriptorCache, init$, void, $Types*)},
-	{"failure", "(Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/code/Types$FunctionDescriptorLookupError;", nullptr, $TRANSIENT, $virtualMethod(Types$DescriptorCache, failure, $Types$FunctionDescriptorLookupError*, $String*, $ObjectArray*)},
-	{"failure", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/code/Types$FunctionDescriptorLookupError;", nullptr, 0, $virtualMethod(Types$DescriptorCache, failure, $Types$FunctionDescriptorLookupError*, $JCDiagnostic*)},
-	{"findDescriptorInternal", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Scope$CompoundScope;)Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache, findDescriptorInternal, $Types$DescriptorCache$FunctionDescriptor*, $Symbol$TypeSymbol*, $Scope$CompoundScope*), "com.sun.tools.javac.code.Types$FunctionDescriptorLookupError"},
-	{"get", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", nullptr, 0, $virtualMethod(Types$DescriptorCache, get, $Types$DescriptorCache$FunctionDescriptor*, $Symbol$TypeSymbol*), "com.sun.tools.javac.code.Types$FunctionDescriptorLookupError"},
-	{"lambda$findDescriptorInternal$0", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$DescriptorCache, lambda$findDescriptorInternal$0, bool, $Symbol*, $Symbol*)},
-	{"lambda$findDescriptorInternal$1", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$DescriptorCache, lambda$findDescriptorInternal$1, $Type*, $Symbol$TypeSymbol*, $Symbol*)},
-	{"lambda$findDescriptorInternal$2", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$DescriptorCache, lambda$findDescriptorInternal$2, bool, $Type*, $Type*)},
-	{"lambda$mergeDescriptors$3", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Types$DescriptorCache$1;", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$DescriptorCache, lambda$mergeDescriptors$3, $Types$DescriptorCache$1*, $Symbol*)},
-	{"mergeDescriptors", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", $PRIVATE, $method(Types$DescriptorCache, mergeDescriptors, $Types$DescriptorCache$FunctionDescriptor*, $Symbol$TypeSymbol*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Types$DescriptorCache_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$DescriptorCache", "com.sun.tools.javac.code.Types", "DescriptorCache", 0},
-	{"com.sun.tools.javac.code.Types$DescriptorCache$Entry", "com.sun.tools.javac.code.Types$DescriptorCache", "Entry", 0},
-	{"com.sun.tools.javac.code.Types$DescriptorCache$FunctionDescriptor", "com.sun.tools.javac.code.Types$DescriptorCache", "FunctionDescriptor", 0},
-	{"com.sun.tools.javac.code.Types$DescriptorCache$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Types$DescriptorCache_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$DescriptorCache",
-	"java.lang.Object",
-	nullptr,
-	_Types$DescriptorCache_FieldInfo_,
-	_Types$DescriptorCache_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$DescriptorCache_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$DescriptorCache($Class* clazz) {
-	return $of($alloc(Types$DescriptorCache));
-}
 
 void Types$DescriptorCache::init$($Types* this$0) {
 	$set(this, this$0, this$0);
@@ -297,10 +228,10 @@ void Types$DescriptorCache::init$($Types* this$0) {
 }
 
 $Types$DescriptorCache$FunctionDescriptor* Types$DescriptorCache::get($Symbol$TypeSymbol* origin) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Types$DescriptorCache$Entry, e, $cast($Types$DescriptorCache$Entry, $nc(this->_map)->get(origin)));
 	$var($Scope$CompoundScope, members, this->this$0->membersClosure($nc(origin)->type, false));
-	if (e == nullptr || !$nc(e)->matches($nc(members)->getMark())) {
+	if (e == nullptr || !e->matches($nc(members)->getMark())) {
 		$var($Types$DescriptorCache$FunctionDescriptor, descRes, findDescriptorInternal(origin, members));
 		$nc(this->_map)->put(origin, $$new($Types$DescriptorCache$Entry, this, descRes, $nc(members)->getMark()));
 		return descRes;
@@ -310,31 +241,31 @@ $Types$DescriptorCache$FunctionDescriptor* Types$DescriptorCache::get($Symbol$Ty
 }
 
 $Types$DescriptorCache$FunctionDescriptor* Types$DescriptorCache::findDescriptorInternal($Symbol$TypeSymbol* origin, $Scope$CompoundScope* membersCache) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = !$nc(origin)->isInterface();
-	bool var$0 = var$1 || ((int64_t)($nc(origin)->flags() & (uint64_t)(int64_t)8192)) != 0;
-	if (var$0 || $nc(origin)->isSealed()) {
-		$throw($(failure("not.a.functional.intf"_s, $$new($ObjectArray, {$of(origin)}))));
+	bool var$0 = var$1 || (origin->flags() & 0x2000) != 0;
+	if (var$0 || origin->isSealed()) {
+		$throw($(failure("not.a.functional.intf"_s, $$new($ObjectArray, {origin}))));
 	}
 	$var($ListBuffer, abstracts, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc($($nc(membersCache)->getSymbols(static_cast<$Predicate*>($$new($Types$DescriptorFilter, this->this$0, origin)))))->iterator());
+		$var($Iterator, i$, $$nc($nc(membersCache)->getSymbols($$new($Types$DescriptorFilter, this->this$0, origin)))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
 			{
-				$var($Type, mtype, this->this$0->memberType($nc(origin)->type, sym));
+				$var($Type, mtype, this->this$0->memberType(origin->type, sym));
 				if (abstracts->isEmpty()) {
 					abstracts->append(sym);
 				} else {
-					bool var$3 = $nc(sym)->name == $nc(($cast($Symbol, $(abstracts->first()))))->name;
-					if (var$3 && this->this$0->overrideEquivalent(mtype, $(this->this$0->memberType($nc(origin)->type, $cast($Symbol, $(abstracts->first())))))) {
-						if (!$nc($($nc($($nc($(abstracts->stream()))->filter(static_cast<$Predicate*>($$new(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, this, sym)))))->map(static_cast<$Function*>($$new(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, this, origin)))))->anyMatch(static_cast<$Predicate*>($$new(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, this, mtype)))) {
+					bool var$2 = $nc(sym)->name == $nc(($$cast($Symbol, abstracts->first())))->name;
+					if (var$2 && this->this$0->overrideEquivalent(mtype, $(this->this$0->memberType(origin->type, $$cast($Symbol, abstracts->first()))))) {
+						if (!$$nc($$nc($$nc(abstracts->stream())->filter($$new(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0, this, sym)))->map($$new(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1, this, origin)))->anyMatch($$new(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2, this, mtype))) {
 							abstracts->append(sym);
 						}
 					} else {
 						$throw($(failure("not.a.functional.intf.1"_s, $$new($ObjectArray, {
-							$of(origin),
-							$($of($nc(this->this$0->diags)->fragment($($CompilerProperties$Fragments::IncompatibleAbstracts($($Kinds::kindName(static_cast<$Symbol*>(origin))), origin)))))
+							origin,
+							$($nc(this->this$0->diags)->fragment($($CompilerProperties$Fragments::IncompatibleAbstracts($($Kinds::kindName(origin)), origin))))
 						}))));
 					}
 				}
@@ -343,11 +274,11 @@ $Types$DescriptorCache$FunctionDescriptor* Types$DescriptorCache::findDescriptor
 	}
 	if (abstracts->isEmpty()) {
 		$throw($(failure("not.a.functional.intf.1"_s, $$new($ObjectArray, {
-			$of(origin),
-			$($of($nc(this->this$0->diags)->fragment($($CompilerProperties$Fragments::NoAbstracts($($Kinds::kindName(static_cast<$Symbol*>(origin))), origin)))))
+			origin,
+			$($nc(this->this$0->diags)->fragment($($CompilerProperties$Fragments::NoAbstracts($($Kinds::kindName(origin)), origin))))
 		}))));
 	} else if (abstracts->size() == 1) {
-		return $new($Types$DescriptorCache$FunctionDescriptor, this, $cast($Symbol, $(abstracts->first())));
+		return $new($Types$DescriptorCache$FunctionDescriptor, this, $$cast($Symbol, abstracts->first()));
 	} else {
 		$var($Types$DescriptorCache$FunctionDescriptor, descRes, mergeDescriptors(origin, $(abstracts->toList())));
 		if (descRes == nullptr) {
@@ -357,17 +288,17 @@ $Types$DescriptorCache$FunctionDescriptor* Types$DescriptorCache::findDescriptor
 				for (; $nc(i$)->hasNext();) {
 					$var($Symbol, desc, $cast($Symbol, i$->next()));
 					{
-						$var($String, key, $nc($($nc($nc(desc)->type)->getThrownTypes()))->nonEmpty() ? "descriptor.throws"_s : "descriptor"_s);
+						$var($String, key, $$nc($nc($nc(desc)->type)->getThrownTypes())->nonEmpty() ? "descriptor.throws"_s : "descriptor"_s);
 						descriptors->append($($nc(this->this$0->diags)->fragment(key, $$new($ObjectArray, {
-							$of($nc(desc)->name),
-							$($of($nc(desc->type)->getParameterTypes())),
-							$($of($nc(desc->type)->getReturnType())),
-							$($of($nc(desc->type)->getThrownTypes()))
+							desc->name,
+							$($nc(desc->type)->getParameterTypes()),
+							$($nc(desc->type)->getReturnType()),
+							$($nc(desc->type)->getThrownTypes())
 						}))));
 					}
 				}
 			}
-			$var($JCDiagnostic, msg, $nc(this->this$0->diags)->fragment($($CompilerProperties$Fragments::IncompatibleDescsInFunctionalIntf($($Kinds::kindName(static_cast<$Symbol*>(origin))), origin))));
+			$var($JCDiagnostic, msg, $nc(this->this$0->diags)->fragment($($CompilerProperties$Fragments::IncompatibleDescsInFunctionalIntf($($Kinds::kindName(origin)), origin))));
 			$var($JCDiagnostic$MultilineDiagnostic, incompatibleDescriptors, $new($JCDiagnostic$MultilineDiagnostic, msg, $(descriptors->toList())));
 			$throw($(failure(incompatibleDescriptors)));
 		}
@@ -376,8 +307,8 @@ $Types$DescriptorCache$FunctionDescriptor* Types$DescriptorCache::findDescriptor
 }
 
 $Types$DescriptorCache$FunctionDescriptor* Types$DescriptorCache::mergeDescriptors($Symbol$TypeSymbol* origin, $List* methodSyms) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($Types$DescriptorCache$FunctionDescriptor, $nc($($nc($(this->this$0->mergeAbstracts(methodSyms, $nc(origin)->type, false)))->map(static_cast<$Function*>($$new(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, this)))))->orElse(nullptr));
+	$useLocalObjectStack();
+	return $cast($Types$DescriptorCache$FunctionDescriptor, $$nc($$nc(this->this$0->mergeAbstracts(methodSyms, $nc(origin)->type, false))->map($$new(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3, this)))->orElse(nullptr));
 }
 
 $Types$FunctionDescriptorLookupError* Types$DescriptorCache::failure($String* msg, $ObjectArray* args) {
@@ -409,20 +340,62 @@ Types$DescriptorCache::Types$DescriptorCache() {
 
 $Class* Types$DescriptorCache::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0")) {
 			return Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$0::load$(name, initialize);
 		}
-		if (name->equals(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1")) {
 			return Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$1$1::load$(name, initialize);
 		}
-		if (name->equals(Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2")) {
 			return Types$DescriptorCache$$Lambda$lambda$findDescriptorInternal$2$2::load$(name, initialize);
 		}
-		if (name->equals(Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.code.Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3")) {
 			return Types$DescriptorCache$$Lambda$lambda$mergeDescriptors$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(Types$DescriptorCache, name, initialize, &_Types$DescriptorCache_ClassInfo_, allocate$Types$DescriptorCache);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$DescriptorCache, this$0)},
+		{"_map", "Ljava/util/WeakHashMap;", "Ljava/util/WeakHashMap<Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types$DescriptorCache$Entry;>;", $PRIVATE, $field(Types$DescriptorCache, _map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$DescriptorCache, init$, void, $Types*)},
+		{"failure", "(Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/code/Types$FunctionDescriptorLookupError;", nullptr, $TRANSIENT, $virtualMethod(Types$DescriptorCache, failure, $Types$FunctionDescriptorLookupError*, $String*, $ObjectArray*)},
+		{"failure", "(Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/code/Types$FunctionDescriptorLookupError;", nullptr, 0, $virtualMethod(Types$DescriptorCache, failure, $Types$FunctionDescriptorLookupError*, $JCDiagnostic*)},
+		{"findDescriptorInternal", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Scope$CompoundScope;)Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", nullptr, $PUBLIC, $virtualMethod(Types$DescriptorCache, findDescriptorInternal, $Types$DescriptorCache$FunctionDescriptor*, $Symbol$TypeSymbol*, $Scope$CompoundScope*), "com.sun.tools.javac.code.Types$FunctionDescriptorLookupError"},
+		{"get", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", nullptr, 0, $virtualMethod(Types$DescriptorCache, get, $Types$DescriptorCache$FunctionDescriptor*, $Symbol$TypeSymbol*), "com.sun.tools.javac.code.Types$FunctionDescriptorLookupError"},
+		{"lambda$findDescriptorInternal$0", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$DescriptorCache, lambda$findDescriptorInternal$0, bool, $Symbol*, $Symbol*)},
+		{"lambda$findDescriptorInternal$1", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$DescriptorCache, lambda$findDescriptorInternal$1, $Type*, $Symbol$TypeSymbol*, $Symbol*)},
+		{"lambda$findDescriptorInternal$2", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$DescriptorCache, lambda$findDescriptorInternal$2, bool, $Type*, $Type*)},
+		{"lambda$mergeDescriptors$3", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Types$DescriptorCache$1;", nullptr, $PRIVATE | $SYNTHETIC, $method(Types$DescriptorCache, lambda$mergeDescriptors$3, $Types$DescriptorCache$1*, $Symbol*)},
+		{"mergeDescriptors", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;)Lcom/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor;", $PRIVATE, $method(Types$DescriptorCache, mergeDescriptors, $Types$DescriptorCache$FunctionDescriptor*, $Symbol$TypeSymbol*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$DescriptorCache", "com.sun.tools.javac.code.Types", "DescriptorCache", 0},
+		{"com.sun.tools.javac.code.Types$DescriptorCache$Entry", "com.sun.tools.javac.code.Types$DescriptorCache", "Entry", 0},
+		{"com.sun.tools.javac.code.Types$DescriptorCache$FunctionDescriptor", "com.sun.tools.javac.code.Types$DescriptorCache", "FunctionDescriptor", 0},
+		{"com.sun.tools.javac.code.Types$DescriptorCache$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$DescriptorCache",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$DescriptorCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$DescriptorCache);
+	});
 	return class$;
 }
 

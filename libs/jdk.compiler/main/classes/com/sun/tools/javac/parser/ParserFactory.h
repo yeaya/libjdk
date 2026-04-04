@@ -81,6 +81,7 @@ class $export ParserFactory : public ::java::lang::Object {
 	$class(ParserFactory, 0, ::java::lang::Object)
 public:
 	ParserFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	static ::com::sun::tools::javac::parser::ParserFactory* instance(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::parser::JavacParser* newParser(::java::lang::CharSequence* input, bool keepDocComments, bool keepEndPos, bool keepLineMap);

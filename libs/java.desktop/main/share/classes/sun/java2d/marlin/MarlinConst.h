@@ -127,6 +127,7 @@ namespace sun {
 class MarlinConst : public ::java::lang::Object {
 	$interface(MarlinConst, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	static bool ENABLE_LOGS;
 	static bool USE_LOGGER;
 	static bool LOG_CREATE_CONTEXT;

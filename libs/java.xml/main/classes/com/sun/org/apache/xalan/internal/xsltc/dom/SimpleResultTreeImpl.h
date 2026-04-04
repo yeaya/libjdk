@@ -178,6 +178,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager* dtmManager, int32_t documentID);
 	virtual void appendChild(int32_t newChild, bool clone, bool cloneDepth) override;
 	virtual void appendTextChild($String* str) override;

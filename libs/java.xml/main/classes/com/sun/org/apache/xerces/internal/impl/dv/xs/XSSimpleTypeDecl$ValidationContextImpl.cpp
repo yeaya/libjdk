@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl$ValidationContextImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
@@ -23,55 +22,6 @@ namespace com {
 						namespace impl {
 							namespace dv {
 								namespace xs {
-
-$FieldInfo _XSSimpleTypeDecl$ValidationContextImpl_FieldInfo_[] = {
-	{"fExternal", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;", nullptr, $FINAL, $field(XSSimpleTypeDecl$ValidationContextImpl, fExternal)},
-	{"fNSContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, 0, $field(XSSimpleTypeDecl$ValidationContextImpl, fNSContext)},
-	{}
-};
-
-$MethodInfo _XSSimpleTypeDecl$ValidationContextImpl_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, 0, $method(XSSimpleTypeDecl$ValidationContextImpl, init$, void, $ValidationContext*)},
-	{"addId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, addId, void, $String*)},
-	{"addIdRef", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, addIdRef, void, $String*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, getLocale, $Locale*)},
-	{"getSymbol", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, getSymbol, $String*, $String*)},
-	{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, getURI, $String*, $String*)},
-	{"isEntityDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, isEntityDeclared, bool, $String*)},
-	{"isEntityUnparsed", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, isEntityUnparsed, bool, $String*)},
-	{"isIdDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, isIdDeclared, bool, $String*)},
-	{"needExtraChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, needExtraChecking, bool)},
-	{"needFacetChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, needFacetChecking, bool)},
-	{"needToNormalize", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, needToNormalize, bool)},
-	{"setNSContext", "(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, 0, $method(XSSimpleTypeDecl$ValidationContextImpl, setNSContext, void, $NamespaceContext*)},
-	{"useNamespaces", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, useNamespaces, bool)},
-	{}
-};
-
-$InnerClassInfo _XSSimpleTypeDecl$ValidationContextImpl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$ValidationContextImpl", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "ValidationContextImpl", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XSSimpleTypeDecl$ValidationContextImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$ValidationContextImpl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.ValidationContext",
-	_XSSimpleTypeDecl$ValidationContextImpl_FieldInfo_,
-	_XSSimpleTypeDecl$ValidationContextImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSSimpleTypeDecl$ValidationContextImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl"
-};
-
-$Object* allocate$XSSimpleTypeDecl$ValidationContextImpl($Class* clazz) {
-	return $of($alloc(XSSimpleTypeDecl$ValidationContextImpl));
-}
 
 void XSSimpleTypeDecl$ValidationContextImpl::init$($ValidationContext* external) {
 	$set(this, fExternal, external);
@@ -125,7 +75,7 @@ $String* XSSimpleTypeDecl$ValidationContextImpl::getURI($String* prefix) {
 	if (this->fNSContext == nullptr) {
 		return $nc(this->fExternal)->getURI(prefix);
 	} else {
-		return $nc(this->fNSContext)->getURI(prefix);
+		return this->fNSContext->getURI(prefix);
 	}
 }
 
@@ -137,7 +87,50 @@ XSSimpleTypeDecl$ValidationContextImpl::XSSimpleTypeDecl$ValidationContextImpl()
 }
 
 $Class* XSSimpleTypeDecl$ValidationContextImpl::load$($String* name, bool initialize) {
-	$loadClass(XSSimpleTypeDecl$ValidationContextImpl, name, initialize, &_XSSimpleTypeDecl$ValidationContextImpl_ClassInfo_, allocate$XSSimpleTypeDecl$ValidationContextImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fExternal", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;", nullptr, $FINAL, $field(XSSimpleTypeDecl$ValidationContextImpl, fExternal)},
+		{"fNSContext", "Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;", nullptr, 0, $field(XSSimpleTypeDecl$ValidationContextImpl, fNSContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, 0, $method(XSSimpleTypeDecl$ValidationContextImpl, init$, void, $ValidationContext*)},
+		{"addId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, addId, void, $String*)},
+		{"addIdRef", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, addIdRef, void, $String*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, getLocale, $Locale*)},
+		{"getSymbol", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, getSymbol, $String*, $String*)},
+		{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, getURI, $String*, $String*)},
+		{"isEntityDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, isEntityDeclared, bool, $String*)},
+		{"isEntityUnparsed", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, isEntityUnparsed, bool, $String*)},
+		{"isIdDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, isIdDeclared, bool, $String*)},
+		{"needExtraChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, needExtraChecking, bool)},
+		{"needFacetChecking", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, needFacetChecking, bool)},
+		{"needToNormalize", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, needToNormalize, bool)},
+		{"setNSContext", "(Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, 0, $method(XSSimpleTypeDecl$ValidationContextImpl, setNSContext, void, $NamespaceContext*)},
+		{"useNamespaces", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl$ValidationContextImpl, useNamespaces, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$ValidationContextImpl", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "ValidationContextImpl", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$ValidationContextImpl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.ValidationContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl"
+	};
+	$loadClass(XSSimpleTypeDecl$ValidationContextImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSSimpleTypeDecl$ValidationContextImpl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DragSource.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -27,7 +26,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/EventListener.h>
 #include <sun/awt/AWTAccessor$DragSourceContextAccessor.h>
 #include <sun/awt/AWTAccessor.h>
@@ -61,7 +59,6 @@ using $DragSourceMotionListener = ::java::awt::dnd::DragSourceMotionListener;
 using $InvalidDnDOperationException = ::java::awt::dnd::InvalidDnDOperationException;
 using $MouseDragGestureRecognizer = ::java::awt::dnd::MouseDragGestureRecognizer;
 using $SerializationTester = ::java::awt::dnd::SerializationTester;
-using $DragSourceContextPeer = ::java::awt::dnd::peer::DragSourceContextPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $Boolean = ::java::lang::Boolean;
@@ -72,7 +69,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $EventListener = ::java::util::EventListener;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$DragSourceContextAccessor = ::sun::awt::AWTAccessor$DragSourceContextAccessor;
@@ -82,68 +78,6 @@ using $GetIntegerAction = ::sun::security::action::GetIntegerAction;
 namespace java {
 	namespace awt {
 		namespace dnd {
-
-$FieldInfo _DragSource_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DragSource, serialVersionUID)},
-	{"DefaultCopyDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultCopyDrop)},
-	{"DefaultMoveDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultMoveDrop)},
-	{"DefaultLinkDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultLinkDrop)},
-	{"DefaultCopyNoDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultCopyNoDrop)},
-	{"DefaultMoveNoDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultMoveNoDrop)},
-	{"DefaultLinkNoDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultLinkNoDrop)},
-	{"dflt", "Ljava/awt/dnd/DragSource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DragSource, dflt)},
-	{"dragSourceListenerK", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DragSource, dragSourceListenerK)},
-	{"dragSourceMotionListenerK", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DragSource, dragSourceMotionListenerK)},
-	{"flavorMap", "Ljava/awt/datatransfer/FlavorMap;", nullptr, $PRIVATE | $TRANSIENT, $field(DragSource, flavorMap)},
-	{"listener", "Ljava/awt/dnd/DragSourceListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DragSource, listener)},
-	{"motionListener", "Ljava/awt/dnd/DragSourceMotionListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DragSource, motionListener)},
-	{}
-};
-
-$MethodInfo _DragSource_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DragSource, init$, void), "java.awt.HeadlessException"},
-	{"addDragSourceListener", "(Ljava/awt/dnd/DragSourceListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, addDragSourceListener, void, $DragSourceListener*)},
-	{"addDragSourceMotionListener", "(Ljava/awt/dnd/DragSourceMotionListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, addDragSourceMotionListener, void, $DragSourceMotionListener*)},
-	{"createDefaultDragGestureRecognizer", "(Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", nullptr, $PUBLIC, $virtualMethod(DragSource, createDefaultDragGestureRecognizer, $DragGestureRecognizer*, $Component*, int32_t, $DragGestureListener*)},
-	{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(DragSource, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $Component*, int32_t, $DragGestureListener*)},
-	{"createDragSourceContext", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;)Ljava/awt/dnd/DragSourceContext;", nullptr, $PROTECTED, $virtualMethod(DragSource, createDragSourceContext, $DragSourceContext*, $DragGestureEvent*, $Cursor*, $Image*, $Point*, $Transferable*, $DragSourceListener*)},
-	{"getDefaultDragSource", "()Ljava/awt/dnd/DragSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(DragSource, getDefaultDragSource, DragSource*)},
-	{"getDragSourceListeners", "()[Ljava/awt/dnd/DragSourceListener;", nullptr, $PUBLIC, $virtualMethod(DragSource, getDragSourceListeners, $DragSourceListenerArray*)},
-	{"getDragSourceMotionListeners", "()[Ljava/awt/dnd/DragSourceMotionListener;", nullptr, $PUBLIC, $virtualMethod(DragSource, getDragSourceMotionListeners, $DragSourceMotionListenerArray*)},
-	{"getDragThreshold", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DragSource, getDragThreshold, int32_t)},
-	{"getFlavorMap", "()Ljava/awt/datatransfer/FlavorMap;", nullptr, $PUBLIC, $virtualMethod(DragSource, getFlavorMap, $FlavorMap*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DragSource, getListeners, $EventListenerArray*, $Class*)},
-	{"isDragImageSupported", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DragSource, isDragImageSupported, bool)},
-	{"load", "(Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DragSource, load, $Cursor*, $String*)},
-	{"processDragDropEnd", "(Ljava/awt/dnd/DragSourceDropEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragDropEnd, void, $DragSourceDropEvent*)},
-	{"processDragEnter", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragEnter, void, $DragSourceDragEvent*)},
-	{"processDragExit", "(Ljava/awt/dnd/DragSourceEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragExit, void, $DragSourceEvent*)},
-	{"processDragMouseMoved", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragMouseMoved, void, $DragSourceDragEvent*)},
-	{"processDragOver", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragOver, void, $DragSourceDragEvent*)},
-	{"processDropActionChanged", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDropActionChanged, void, $DragSourceDragEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DragSource, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removeDragSourceListener", "(Ljava/awt/dnd/DragSourceListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, removeDragSourceListener, void, $DragSourceListener*)},
-	{"removeDragSourceMotionListener", "(Ljava/awt/dnd/DragSourceMotionListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, removeDragSourceMotionListener, void, $DragSourceMotionListener*)},
-	{"startDrag", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;Ljava/awt/datatransfer/FlavorMap;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, startDrag, void, $DragGestureEvent*, $Cursor*, $Image*, $Point*, $Transferable*, $DragSourceListener*, $FlavorMap*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"startDrag", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;Ljava/awt/datatransfer/FlavorMap;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, startDrag, void, $DragGestureEvent*, $Cursor*, $Transferable*, $DragSourceListener*, $FlavorMap*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"startDrag", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, startDrag, void, $DragGestureEvent*, $Cursor*, $Image*, $Point*, $Transferable*, $DragSourceListener*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"startDrag", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, startDrag, void, $DragGestureEvent*, $Cursor*, $Transferable*, $DragSourceListener*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DragSource, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _DragSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.dnd.DragSource",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_DragSource_FieldInfo_,
-	_DragSource_MethodInfo_
-};
-
-$Object* allocate$DragSource($Class* clazz) {
-	return $of($alloc(DragSource));
-}
 
 $Cursor* DragSource::DefaultCopyDrop = nullptr;
 $Cursor* DragSource::DefaultMoveDrop = nullptr;
@@ -157,12 +91,12 @@ $String* DragSource::dragSourceMotionListenerK = nullptr;
 
 $Cursor* DragSource::load($String* name) {
 	$init(DragSource);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($GraphicsEnvironment::isHeadless()) {
 		return nullptr;
 	}
 	try {
-		return $cast($Cursor, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty(name));
+		return $cast($Cursor, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty(name));
 	} catch ($Exception& e) {
 		e->printStackTrace();
 		$throwNew($RuntimeException, $$str({"failed to load system cursor: "_s, name, " : "_s, $(e->getMessage())}));
@@ -181,11 +115,11 @@ DragSource* DragSource::getDefaultDragSource() {
 
 bool DragSource::isDragImageSupported() {
 	$init(DragSource);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, t, $Toolkit::getDefaultToolkit());
 	$var($Boolean, supported, nullptr);
 	try {
-		$assign(supported, $cast($Boolean, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("DnD.isDragImageSupported"_s)));
+		$assign(supported, $cast($Boolean, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("DnD.isDragImageSupported"_s)));
 		return $nc(supported)->booleanValue();
 	} catch ($Exception& e) {
 		return false;
@@ -201,7 +135,7 @@ void DragSource::init$() {
 }
 
 void DragSource::startDrag($DragGestureEvent* trigger, $Cursor* dragCursor, $Image* dragImage, $Point* imageOffset, $Transferable* transferable, $DragSourceListener* dsl, $FlavorMap* flavorMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SunDragSourceContextPeer::setDragDropInProgress(true);
 	try {
 		if (flavorMap != nullptr) {
@@ -212,7 +146,7 @@ void DragSource::startDrag($DragGestureEvent* trigger, $Cursor* dragCursor, $Ima
 			$throwNew($InvalidDnDOperationException);
 		}
 		$var($AWTAccessor$DragSourceContextAccessor, acc, $AWTAccessor::getDragSourceContextAccessor());
-		$nc($($nc(acc)->getPeer(dsc)))->startDrag(dsc, $($nc(dsc)->getCursor()), dragImage, imageOffset);
+		$$nc($nc(acc)->getPeer(dsc))->startDrag(dsc, $($nc(dsc)->getCursor()), dragImage, imageOffset);
 	} catch ($RuntimeException& e) {
 		$SunDragSourceContextPeer::setDragDropInProgress(false);
 		$throw(e);
@@ -240,12 +174,12 @@ $FlavorMap* DragSource::getFlavorMap() {
 }
 
 $DragGestureRecognizer* DragSource::createDragGestureRecognizer($Class* recognizerAbstractClass, $Component* c, int32_t actions, $DragGestureListener* dgl) {
-	return $nc($($Toolkit::getDefaultToolkit()))->createDragGestureRecognizer(recognizerAbstractClass, this, c, actions, dgl);
+	return $$nc($Toolkit::getDefaultToolkit())->createDragGestureRecognizer(recognizerAbstractClass, this, c, actions, dgl);
 }
 
 $DragGestureRecognizer* DragSource::createDefaultDragGestureRecognizer($Component* c, int32_t actions, $DragGestureListener* dgl) {
 	$load($MouseDragGestureRecognizer);
-	return $nc($($Toolkit::getDefaultToolkit()))->createDragGestureRecognizer($MouseDragGestureRecognizer::class$, this, c, actions, dgl);
+	return $$nc($Toolkit::getDefaultToolkit())->createDragGestureRecognizer($MouseDragGestureRecognizer::class$, this, c, actions, dgl);
 }
 
 void DragSource::addDragSourceListener($DragSourceListener* dsl) {
@@ -266,7 +200,7 @@ void DragSource::removeDragSourceListener($DragSourceListener* dsl) {
 
 $DragSourceListenerArray* DragSource::getDragSourceListeners() {
 	$load($DragSourceListener);
-	return $fcast($DragSourceListenerArray, getListeners($DragSourceListener::class$));
+	return $cast($DragSourceListenerArray, getListeners($DragSourceListener::class$));
 }
 
 void DragSource::addDragSourceMotionListener($DragSourceMotionListener* dsml) {
@@ -287,7 +221,7 @@ void DragSource::removeDragSourceMotionListener($DragSourceMotionListener* dsml)
 
 $DragSourceMotionListenerArray* DragSource::getDragSourceMotionListeners() {
 	$load($DragSourceMotionListener);
-	return $fcast($DragSourceMotionListenerArray, getListeners($DragSourceMotionListener::class$));
+	return $cast($DragSourceMotionListenerArray, getListeners($DragSourceMotionListener::class$));
 }
 
 $EventListenerArray* DragSource::getListeners($Class* listenerType) {
@@ -355,7 +289,7 @@ void DragSource::writeObject($ObjectOutputStream* s) {
 }
 
 void DragSource::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultReadObject();
 	$set(this, flavorMap, $cast($FlavorMap, s->readObject()));
 	if (this->flavorMap == nullptr) {
@@ -363,11 +297,11 @@ void DragSource::readObject($ObjectInputStream* s) {
 	}
 	$var($Object, keyOrNull, nullptr);
 	while (nullptr != ($assign(keyOrNull, s->readObject()))) {
-		$var($String, key, $nc(($cast($String, keyOrNull)))->intern());
+		$var($String, key, $nc($cast($String, keyOrNull))->intern());
 		if (DragSource::dragSourceListenerK == key) {
-			addDragSourceListener(($cast($DragSourceListener, $(s->readObject()))));
+			addDragSourceListener($$cast($DragSourceListener, s->readObject()));
 		} else if (DragSource::dragSourceMotionListenerK == key) {
-			addDragSourceMotionListener(($cast($DragSourceMotionListener, $(s->readObject()))));
+			addDragSourceMotionListener($$cast($DragSourceMotionListener, s->readObject()));
 		} else {
 			s->readObject();
 		}
@@ -376,13 +310,13 @@ void DragSource::readObject($ObjectInputStream* s) {
 
 int32_t DragSource::getDragThreshold() {
 	$init(DragSource);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	int32_t ts = $nc(($cast($Integer, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetIntegerAction, "awt.dnd.drag.threshold"_s, 0)))))))->intValue();
+	int32_t ts = $$sure($Integer, $AccessController::doPrivileged($$new($GetIntegerAction, "awt.dnd.drag.threshold"_s, 0)))->intValue();
 	if (ts > 0) {
 		return ts;
 	} else {
-		$var($Integer, td, $cast($Integer, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("DnD.gestureMotionThreshold"_s)));
+		$var($Integer, td, $cast($Integer, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("DnD.gestureMotionThreshold"_s)));
 		if (td != nullptr) {
 			return td->intValue();
 		}
@@ -390,7 +324,7 @@ int32_t DragSource::getDragThreshold() {
 	return 5;
 }
 
-void clinit$DragSource($Class* class$) {
+void DragSource::clinit$($Class* clazz) {
 	$assignStatic(DragSource::dragSourceListenerK, "dragSourceL"_s);
 	$assignStatic(DragSource::dragSourceMotionListenerK, "dragSourceMotionL"_s);
 	$assignStatic(DragSource::DefaultCopyDrop, DragSource::load("DnD.Cursor.CopyDrop"_s));
@@ -406,7 +340,64 @@ DragSource::DragSource() {
 }
 
 $Class* DragSource::load$($String* name, bool initialize) {
-	$loadClass(DragSource, name, initialize, &_DragSource_ClassInfo_, clinit$DragSource, allocate$DragSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DragSource, serialVersionUID)},
+		{"DefaultCopyDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultCopyDrop)},
+		{"DefaultMoveDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultMoveDrop)},
+		{"DefaultLinkDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultLinkDrop)},
+		{"DefaultCopyNoDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultCopyNoDrop)},
+		{"DefaultMoveNoDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultMoveNoDrop)},
+		{"DefaultLinkNoDrop", "Ljava/awt/Cursor;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DragSource, DefaultLinkNoDrop)},
+		{"dflt", "Ljava/awt/dnd/DragSource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DragSource, dflt)},
+		{"dragSourceListenerK", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DragSource, dragSourceListenerK)},
+		{"dragSourceMotionListenerK", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DragSource, dragSourceMotionListenerK)},
+		{"flavorMap", "Ljava/awt/datatransfer/FlavorMap;", nullptr, $PRIVATE | $TRANSIENT, $field(DragSource, flavorMap)},
+		{"listener", "Ljava/awt/dnd/DragSourceListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DragSource, listener)},
+		{"motionListener", "Ljava/awt/dnd/DragSourceMotionListener;", nullptr, $PRIVATE | $TRANSIENT, $field(DragSource, motionListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DragSource, init$, void), "java.awt.HeadlessException"},
+		{"addDragSourceListener", "(Ljava/awt/dnd/DragSourceListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, addDragSourceListener, void, $DragSourceListener*)},
+		{"addDragSourceMotionListener", "(Ljava/awt/dnd/DragSourceMotionListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, addDragSourceMotionListener, void, $DragSourceMotionListener*)},
+		{"createDefaultDragGestureRecognizer", "(Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", nullptr, $PUBLIC, $virtualMethod(DragSource, createDefaultDragGestureRecognizer, $DragGestureRecognizer*, $Component*, int32_t, $DragGestureListener*)},
+		{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(DragSource, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $Component*, int32_t, $DragGestureListener*)},
+		{"createDragSourceContext", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;)Ljava/awt/dnd/DragSourceContext;", nullptr, $PROTECTED, $virtualMethod(DragSource, createDragSourceContext, $DragSourceContext*, $DragGestureEvent*, $Cursor*, $Image*, $Point*, $Transferable*, $DragSourceListener*)},
+		{"getDefaultDragSource", "()Ljava/awt/dnd/DragSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(DragSource, getDefaultDragSource, DragSource*)},
+		{"getDragSourceListeners", "()[Ljava/awt/dnd/DragSourceListener;", nullptr, $PUBLIC, $virtualMethod(DragSource, getDragSourceListeners, $DragSourceListenerArray*)},
+		{"getDragSourceMotionListeners", "()[Ljava/awt/dnd/DragSourceMotionListener;", nullptr, $PUBLIC, $virtualMethod(DragSource, getDragSourceMotionListeners, $DragSourceMotionListenerArray*)},
+		{"getDragThreshold", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DragSource, getDragThreshold, int32_t)},
+		{"getFlavorMap", "()Ljava/awt/datatransfer/FlavorMap;", nullptr, $PUBLIC, $virtualMethod(DragSource, getFlavorMap, $FlavorMap*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DragSource, getListeners, $EventListenerArray*, $Class*)},
+		{"isDragImageSupported", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(DragSource, isDragImageSupported, bool)},
+		{"load", "(Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC, $staticMethod(DragSource, load, $Cursor*, $String*)},
+		{"processDragDropEnd", "(Ljava/awt/dnd/DragSourceDropEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragDropEnd, void, $DragSourceDropEvent*)},
+		{"processDragEnter", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragEnter, void, $DragSourceDragEvent*)},
+		{"processDragExit", "(Ljava/awt/dnd/DragSourceEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragExit, void, $DragSourceEvent*)},
+		{"processDragMouseMoved", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragMouseMoved, void, $DragSourceDragEvent*)},
+		{"processDragOver", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDragOver, void, $DragSourceDragEvent*)},
+		{"processDropActionChanged", "(Ljava/awt/dnd/DragSourceDragEvent;)V", nullptr, 0, $virtualMethod(DragSource, processDropActionChanged, void, $DragSourceDragEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DragSource, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removeDragSourceListener", "(Ljava/awt/dnd/DragSourceListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, removeDragSourceListener, void, $DragSourceListener*)},
+		{"removeDragSourceMotionListener", "(Ljava/awt/dnd/DragSourceMotionListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, removeDragSourceMotionListener, void, $DragSourceMotionListener*)},
+		{"startDrag", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;Ljava/awt/datatransfer/FlavorMap;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, startDrag, void, $DragGestureEvent*, $Cursor*, $Image*, $Point*, $Transferable*, $DragSourceListener*, $FlavorMap*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"startDrag", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;Ljava/awt/datatransfer/FlavorMap;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, startDrag, void, $DragGestureEvent*, $Cursor*, $Transferable*, $DragSourceListener*, $FlavorMap*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"startDrag", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, startDrag, void, $DragGestureEvent*, $Cursor*, $Image*, $Point*, $Transferable*, $DragSourceListener*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"startDrag", "(Ljava/awt/dnd/DragGestureEvent;Ljava/awt/Cursor;Ljava/awt/datatransfer/Transferable;Ljava/awt/dnd/DragSourceListener;)V", nullptr, $PUBLIC, $virtualMethod(DragSource, startDrag, void, $DragGestureEvent*, $Cursor*, $Transferable*, $DragSourceListener*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DragSource, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.dnd.DragSource",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DragSource, name, initialize, &classInfo$$, DragSource::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DragSource);
+	});
 	return class$;
 }
 

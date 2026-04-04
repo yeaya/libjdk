@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer$XAWTScrollBarUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -28,9 +27,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JScrollBar = ::javax::swing::JScrollBar;
 using $UIDefaults = ::javax::swing::UIDefaults;
-using $Border = ::javax::swing::border::Border;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
 using $XTextAreaPeer = ::sun::awt::X11::XTextAreaPeer;
@@ -41,49 +38,6 @@ using $XToolkit = ::sun::awt::X11::XToolkit;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextAreaPeer$XAWTScrollBarUI_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$XAWTScrollBarUI, this$0)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer$XAWTScrollBarUI_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XTextAreaPeer;)V", nullptr, 0, $method(XTextAreaPeer$XAWTScrollBarUI, init$, void, $XTextAreaPeer*)},
-	{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, configureScrollBarColors, void)},
-	{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
-	{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
-	{"getDecreaseButton", "()Ljavax/swing/JButton;", nullptr, $PUBLIC, $method(XTextAreaPeer$XAWTScrollBarUI, getDecreaseButton, $JButton*)},
-	{"getIncreaseButton", "()Ljavax/swing/JButton;", nullptr, $PUBLIC, $method(XTextAreaPeer$XAWTScrollBarUI, getIncreaseButton, $JButton*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, installDefaults, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer$XAWTScrollBarUI_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollBarUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollBarUI", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer$XAWTScrollBarUI_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer$XAWTScrollBarUI",
-	"javax.swing.plaf.basic.BasicScrollBarUI",
-	nullptr,
-	_XTextAreaPeer$XAWTScrollBarUI_FieldInfo_,
-	_XTextAreaPeer$XAWTScrollBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer$XAWTScrollBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer"
-};
-
-$Object* allocate$XTextAreaPeer$XAWTScrollBarUI($Class* clazz) {
-	return $of($alloc(XTextAreaPeer$XAWTScrollBarUI));
-}
 
 void XTextAreaPeer$XAWTScrollBarUI::init$($XTextAreaPeer* this$0) {
 	$set(this, this$0, this$0);
@@ -97,7 +51,7 @@ void XTextAreaPeer$XAWTScrollBarUI::installDefaults() {
 }
 
 void XTextAreaPeer$XAWTScrollBarUI::configureScrollBarColors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, uidefaults, $XToolkit::getUIDefaults());
 	$var($Color, bg, $nc(this->scrollbar)->getBackground());
 	if (bg == nullptr || $instanceOf($UIResource, bg)) {
@@ -134,7 +88,7 @@ $JButton* XTextAreaPeer$XAWTScrollBarUI::getIncreaseButton() {
 }
 
 void XTextAreaPeer$XAWTScrollBarUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	paintTrack(g, c, $(getTrackBounds()));
 	$var($Rectangle, thumbBounds, getThumbBounds());
 	paintThumb(g, c, thumbBounds);
@@ -166,7 +120,44 @@ XTextAreaPeer$XAWTScrollBarUI::XTextAreaPeer$XAWTScrollBarUI() {
 }
 
 $Class* XTextAreaPeer$XAWTScrollBarUI::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer$XAWTScrollBarUI, name, initialize, &_XTextAreaPeer$XAWTScrollBarUI_ClassInfo_, allocate$XTextAreaPeer$XAWTScrollBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/XTextAreaPeer;", nullptr, $FINAL | $SYNTHETIC, $field(XTextAreaPeer$XAWTScrollBarUI, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XTextAreaPeer;)V", nullptr, 0, $method(XTextAreaPeer$XAWTScrollBarUI, init$, void, $XTextAreaPeer*)},
+		{"configureScrollBarColors", "()V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, configureScrollBarColors, void)},
+		{"createDecreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, createDecreaseButton, $JButton*, int32_t)},
+		{"createIncreaseButton", "(I)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, createIncreaseButton, $JButton*, int32_t)},
+		{"getDecreaseButton", "()Ljavax/swing/JButton;", nullptr, $PUBLIC, $method(XTextAreaPeer$XAWTScrollBarUI, getDecreaseButton, $JButton*)},
+		{"getIncreaseButton", "()Ljavax/swing/JButton;", nullptr, $PUBLIC, $method(XTextAreaPeer$XAWTScrollBarUI, getIncreaseButton, $JButton*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, installDefaults, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintThumb", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer$XAWTScrollBarUI, paintThumb, void, $Graphics*, $JComponent*, $Rectangle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollBarUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollBarUI", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer$XAWTScrollBarUI",
+		"javax.swing.plaf.basic.BasicScrollBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer"
+	};
+	$loadClass(XTextAreaPeer$XAWTScrollBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer$XAWTScrollBarUI));
+	});
 	return class$;
 }
 

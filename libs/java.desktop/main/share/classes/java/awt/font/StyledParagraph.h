@@ -33,6 +33,7 @@ class StyledParagraph : public ::java::lang::Object {
 	$class(StyledParagraph, 0, ::java::lang::Object)
 public:
 	StyledParagraph();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::text::AttributedCharacterIterator* aci, $chars* chars);
 	void addDecoration(::sun::font::Decoration* d, int32_t index);
 	void addFont(Object$* f, int32_t index);

@@ -76,6 +76,7 @@ public:
 	Color();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t r, int32_t g, int32_t b);
 	void init$(int32_t r, int32_t g, int32_t b, int32_t a);
 	void init$(int32_t rgb);
@@ -143,7 +144,7 @@ public:
 	$floats* fvalue = nullptr;
 	float falpha = 0.0;
 	::java::awt::color::ColorSpace* cs = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x01A51783108F3375;
+	static const int64_t serialVersionUID = (int64_t)0x01a51783108f3375;
 	static double FACTOR;
 };
 

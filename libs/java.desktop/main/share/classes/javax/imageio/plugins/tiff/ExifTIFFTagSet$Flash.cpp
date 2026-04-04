@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$Flash.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$Flash_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$Flash, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$Flash_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$Flash", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "Flash", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$Flash_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$Flash",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$Flash_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$Flash_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$Flash($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$Flash));
-}
-
 void ExifTIFFTagSet$Flash::init$() {
 	$TIFFTag::init$("Flash"_s, 0x00009209, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(0, "Flash Did Not Fire"_s);
@@ -58,7 +27,32 @@ ExifTIFFTagSet$Flash::ExifTIFFTagSet$Flash() {
 }
 
 $Class* ExifTIFFTagSet$Flash::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$Flash, name, initialize, &_ExifTIFFTagSet$Flash_ClassInfo_, allocate$ExifTIFFTagSet$Flash);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$Flash, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$Flash", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "Flash", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$Flash",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$Flash, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$Flash);
+	});
 	return class$;
 }
 

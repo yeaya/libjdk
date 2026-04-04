@@ -1,18 +1,15 @@
 #include <javax/swing/plaf/nimbus/TableHeaderRendererPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext.h>
 #include <javax/swing/plaf/nimbus/AbstractRegionPainter.h>
@@ -31,13 +28,11 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -52,93 +47,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _TableHeaderRendererPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_ENABLED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_ENABLED_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_MOUSEOVER)},
-	{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_PRESSED)},
-	{"BACKGROUND_ENABLED_SORTED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_ENABLED_SORTED)},
-	{"BACKGROUND_ENABLED_FOCUSED_SORTED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_ENABLED_FOCUSED_SORTED)},
-	{"BACKGROUND_DISABLED_SORTED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_DISABLED_SORTED)},
-	{"state", "I", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color24)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _TableHeaderRendererPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(TableHeaderRendererPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodePath1, $Path2D*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeRect3, $Rectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(TableHeaderRendererPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TableHeaderRendererPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundDisabledAndSorted", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundDisabledAndSorted, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundEnabledAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndFocusedAndSorted", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundEnabledAndFocusedAndSorted, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndSorted", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundEnabledAndSorted, void, $Graphics2D*)},
-	{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundPressed, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _TableHeaderRendererPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.TableHeaderRendererPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_TableHeaderRendererPainter_FieldInfo_,
-	_TableHeaderRendererPainter_MethodInfo_
-};
-
-$Object* allocate$TableHeaderRendererPainter($Class* clazz) {
-	return $of($alloc(TableHeaderRendererPainter));
-}
-
 void TableHeaderRendererPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBorder"_s, -0.013888836f, 5.823001E-4f, -0.12941176f, 0));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, -0.01111114f, -0.08625447f, 0.062745094f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, -0.013888836f, -0.028334536f, -0.17254901f, 0));
@@ -171,45 +85,29 @@ void TableHeaderRendererPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case TableHeaderRendererPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case TableHeaderRendererPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case TableHeaderRendererPainter::BACKGROUND_ENABLED_FOCUSED:
-		{
-			paintBackgroundEnabledAndFocused(g);
-			break;
-		}
+		paintBackgroundEnabledAndFocused(g);
+		break;
 	case TableHeaderRendererPainter::BACKGROUND_MOUSEOVER:
-		{
-			paintBackgroundMouseOver(g);
-			break;
-		}
+		paintBackgroundMouseOver(g);
+		break;
 	case TableHeaderRendererPainter::BACKGROUND_PRESSED:
-		{
-			paintBackgroundPressed(g);
-			break;
-		}
+		paintBackgroundPressed(g);
+		break;
 	case TableHeaderRendererPainter::BACKGROUND_ENABLED_SORTED:
-		{
-			paintBackgroundEnabledAndSorted(g);
-			break;
-		}
+		paintBackgroundEnabledAndSorted(g);
+		break;
 	case TableHeaderRendererPainter::BACKGROUND_ENABLED_FOCUSED_SORTED:
-		{
-			paintBackgroundEnabledAndFocusedAndSorted(g);
-			break;
-		}
+		paintBackgroundEnabledAndFocusedAndSorted(g);
+		break;
 	case TableHeaderRendererPainter::BACKGROUND_DISABLED_SORTED:
-		{
-			paintBackgroundDisabledAndSorted(g);
-			break;
-		}
+		paintBackgroundDisabledAndSorted(g);
+		break;
 	}
 }
 
@@ -218,7 +116,7 @@ $AbstractRegionPainter$PaintContext* TableHeaderRendererPainter::getPaintContext
 }
 
 void TableHeaderRendererPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -231,7 +129,7 @@ void TableHeaderRendererPainter::paintBackgroundDisabled($Graphics2D* g) {
 }
 
 void TableHeaderRendererPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -244,7 +142,7 @@ void TableHeaderRendererPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 void TableHeaderRendererPainter::paintBackgroundEnabledAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -260,7 +158,7 @@ void TableHeaderRendererPainter::paintBackgroundEnabledAndFocused($Graphics2D* g
 }
 
 void TableHeaderRendererPainter::paintBackgroundMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -273,7 +171,7 @@ void TableHeaderRendererPainter::paintBackgroundMouseOver($Graphics2D* g) {
 }
 
 void TableHeaderRendererPainter::paintBackgroundPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -286,7 +184,7 @@ void TableHeaderRendererPainter::paintBackgroundPressed($Graphics2D* g) {
 }
 
 void TableHeaderRendererPainter::paintBackgroundEnabledAndSorted($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -299,7 +197,7 @@ void TableHeaderRendererPainter::paintBackgroundEnabledAndSorted($Graphics2D* g)
 }
 
 void TableHeaderRendererPainter::paintBackgroundEnabledAndFocusedAndSorted($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -315,7 +213,7 @@ void TableHeaderRendererPainter::paintBackgroundEnabledAndFocusedAndSorted($Grap
 }
 
 void TableHeaderRendererPainter::paintBackgroundDisabledAndSorted($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rect, decodeRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->rect);
@@ -328,30 +226,30 @@ void TableHeaderRendererPainter::paintBackgroundDisabledAndSorted($Graphics2D* g
 }
 
 $Rectangle2D* TableHeaderRendererPainter::decodeRect1() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(2.8f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(2.8f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(3.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(2.8f));
 	return this->rect;
 }
 
 $Rectangle2D* TableHeaderRendererPainter::decodeRect2() {
-	double var$0 = (double)decodeX(2.8f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(2.8f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(3.0f);
-	double var$2 = (double)(var$3 - decodeX(2.8f));
+	double var$2 = var$3 - decodeX(2.8f);
 	float var$4 = decodeY(2.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
 }
 
 $Rectangle2D* TableHeaderRendererPainter::decodeRect3() {
-	double var$0 = (double)decodeX(0.0f);
-	double var$1 = (double)decodeY(0.0f);
+	double var$0 = decodeX(0.0f);
+	double var$1 = decodeY(0.0f);
 	float var$3 = decodeX(2.8f);
-	double var$2 = (double)(var$3 - decodeX(0.0f));
+	double var$2 = var$3 - decodeX(0.0f);
 	float var$4 = decodeY(2.8f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(0.0f));
 	return this->rect;
@@ -359,34 +257,34 @@ $Rectangle2D* TableHeaderRendererPainter::decodeRect3() {
 
 $Path2D* TableHeaderRendererPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(0.0f);
+	double var$0 = decodeX(0.0f);
 	$nc(this->path)->moveTo(var$0, decodeY(0.0f));
-	double var$1 = (double)decodeX(0.0f);
+	double var$1 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$1, decodeY(3.0f));
-	double var$2 = (double)decodeX(3.0f);
+	double var$2 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$2, decodeY(3.0f));
-	double var$3 = (double)decodeX(3.0f);
+	double var$3 = decodeX(3.0f);
 	$nc(this->path)->lineTo(var$3, decodeY(0.0f));
-	double var$4 = (double)decodeX(0.24000001f);
+	double var$4 = decodeX(0.24000001f);
 	$nc(this->path)->lineTo(var$4, decodeY(0.0f));
-	double var$5 = (double)decodeX(0.24000001f);
+	double var$5 = decodeX(0.24000001f);
 	$nc(this->path)->lineTo(var$5, decodeY(0.24000001f));
-	double var$6 = (double)decodeX(2.7599998f);
+	double var$6 = decodeX(2.7599998f);
 	$nc(this->path)->lineTo(var$6, decodeY(0.24000001f));
-	double var$7 = (double)decodeX(2.7599998f);
+	double var$7 = decodeX(2.7599998f);
 	$nc(this->path)->lineTo(var$7, decodeY(2.7599998f));
-	double var$8 = (double)decodeX(0.24000001f);
+	double var$8 = decodeX(0.24000001f);
 	$nc(this->path)->lineTo(var$8, decodeY(2.7599998f));
-	double var$9 = (double)decodeX(0.24000001f);
+	double var$9 = decodeX(0.24000001f);
 	$nc(this->path)->lineTo(var$9, decodeY(0.0f));
-	double var$10 = (double)decodeX(0.0f);
+	double var$10 = decodeX(0.0f);
 	$nc(this->path)->lineTo(var$10, decodeY(0.0f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* TableHeaderRendererPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -412,7 +310,7 @@ $Paint* TableHeaderRendererPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* TableHeaderRendererPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -438,7 +336,7 @@ $Paint* TableHeaderRendererPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* TableHeaderRendererPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -464,7 +362,7 @@ $Paint* TableHeaderRendererPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* TableHeaderRendererPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -490,7 +388,7 @@ $Paint* TableHeaderRendererPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* TableHeaderRendererPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -516,7 +414,7 @@ $Paint* TableHeaderRendererPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* TableHeaderRendererPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -545,7 +443,83 @@ TableHeaderRendererPainter::TableHeaderRendererPainter() {
 }
 
 $Class* TableHeaderRendererPainter::load$($String* name, bool initialize) {
-	$loadClass(TableHeaderRendererPainter, name, initialize, &_TableHeaderRendererPainter_ClassInfo_, allocate$TableHeaderRendererPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_ENABLED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_ENABLED_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_MOUSEOVER)},
+		{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_PRESSED)},
+		{"BACKGROUND_ENABLED_SORTED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_ENABLED_SORTED)},
+		{"BACKGROUND_ENABLED_FOCUSED_SORTED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_ENABLED_FOCUSED_SORTED)},
+		{"BACKGROUND_DISABLED_SORTED", "I", nullptr, $STATIC | $FINAL, $constField(TableHeaderRendererPainter, BACKGROUND_DISABLED_SORTED)},
+		{"state", "I", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, color24)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(TableHeaderRendererPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(TableHeaderRendererPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodePath1, $Path2D*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, decodeRect3, $Rectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(TableHeaderRendererPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(TableHeaderRendererPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundDisabledAndSorted", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundDisabledAndSorted, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundEnabledAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndFocusedAndSorted", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundEnabledAndFocusedAndSorted, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndSorted", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundEnabledAndSorted, void, $Graphics2D*)},
+		{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(TableHeaderRendererPainter, paintBackgroundPressed, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.TableHeaderRendererPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TableHeaderRendererPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableHeaderRendererPainter);
+	});
 	return class$;
 }
 

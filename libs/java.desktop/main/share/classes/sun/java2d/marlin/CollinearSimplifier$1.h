@@ -13,6 +13,7 @@ class CollinearSimplifier$1 : public ::java::lang::Object {
 	$class(CollinearSimplifier$1, 0, ::java::lang::Object)
 public:
 	CollinearSimplifier$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState;
 };
 

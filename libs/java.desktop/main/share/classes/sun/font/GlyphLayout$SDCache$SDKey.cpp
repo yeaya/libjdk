@@ -1,5 +1,4 @@
 #include <sun/font/GlyphLayout$SDCache$SDKey.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/lang/ClassCastException.h>
@@ -16,46 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _GlyphLayout$SDCache$SDKey_FieldInfo_[] = {
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(GlyphLayout$SDCache$SDKey, font)},
-	{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $FINAL, $field(GlyphLayout$SDCache$SDKey, frc)},
-	{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(GlyphLayout$SDCache$SDKey, hash)},
-	{}
-};
-
-$MethodInfo _GlyphLayout$SDCache$SDKey_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, 0, $method(GlyphLayout$SDCache$SDKey, init$, void, $Font*, $FontRenderContext*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GlyphLayout$SDCache$SDKey, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GlyphLayout$SDCache$SDKey, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _GlyphLayout$SDCache$SDKey_InnerClassesInfo_[] = {
-	{"sun.font.GlyphLayout$SDCache", "sun.font.GlyphLayout", "SDCache", $PRIVATE | $STATIC | $FINAL},
-	{"sun.font.GlyphLayout$SDCache$SDKey", "sun.font.GlyphLayout$SDCache", "SDKey", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _GlyphLayout$SDCache$SDKey_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.font.GlyphLayout$SDCache$SDKey",
-	"java.lang.Object",
-	nullptr,
-	_GlyphLayout$SDCache$SDKey_FieldInfo_,
-	_GlyphLayout$SDCache$SDKey_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GlyphLayout$SDCache$SDKey_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.GlyphLayout"
-};
-
-$Object* allocate$GlyphLayout$SDCache$SDKey($Class* clazz) {
-	return $of($alloc(GlyphLayout$SDCache$SDKey));
-}
 
 void GlyphLayout$SDCache$SDKey::init$($Font* font, $FontRenderContext* frc) {
 	$set(this, font, font);
@@ -82,7 +41,41 @@ GlyphLayout$SDCache$SDKey::GlyphLayout$SDCache$SDKey() {
 }
 
 $Class* GlyphLayout$SDCache$SDKey::load$($String* name, bool initialize) {
-	$loadClass(GlyphLayout$SDCache$SDKey, name, initialize, &_GlyphLayout$SDCache$SDKey_ClassInfo_, allocate$GlyphLayout$SDCache$SDKey);
+	$FieldInfo fieldInfos$$[] = {
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $FINAL, $field(GlyphLayout$SDCache$SDKey, font)},
+		{"frc", "Ljava/awt/font/FontRenderContext;", nullptr, $PRIVATE | $FINAL, $field(GlyphLayout$SDCache$SDKey, frc)},
+		{"hash", "I", nullptr, $PRIVATE | $FINAL, $field(GlyphLayout$SDCache$SDKey, hash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Font;Ljava/awt/font/FontRenderContext;)V", nullptr, 0, $method(GlyphLayout$SDCache$SDKey, init$, void, $Font*, $FontRenderContext*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GlyphLayout$SDCache$SDKey, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GlyphLayout$SDCache$SDKey, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.GlyphLayout$SDCache", "sun.font.GlyphLayout", "SDCache", $PRIVATE | $STATIC | $FINAL},
+		{"sun.font.GlyphLayout$SDCache$SDKey", "sun.font.GlyphLayout$SDCache", "SDKey", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.font.GlyphLayout$SDCache$SDKey",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.GlyphLayout"
+	};
+	$loadClass(GlyphLayout$SDCache$SDKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphLayout$SDCache$SDKey);
+	});
 	return class$;
 }
 

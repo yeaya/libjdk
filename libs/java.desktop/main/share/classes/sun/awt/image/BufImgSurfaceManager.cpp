@@ -1,5 +1,4 @@
 #include <sun/awt/image/BufImgSurfaceManager.h>
-
 #include <java/awt/image/BufferedImage.h>
 #include <sun/awt/image/BufImgSurfaceData.h>
 #include <sun/awt/image/SurfaceManager.h>
@@ -17,32 +16,6 @@ using $SurfaceData = ::sun::java2d::SurfaceData;
 namespace sun {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _BufImgSurfaceManager_FieldInfo_[] = {
-	{"bImg", "Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $field(BufImgSurfaceManager, bImg)},
-	{"sdDefault", "Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $field(BufImgSurfaceManager, sdDefault)},
-	{}
-};
-
-$MethodInfo _BufImgSurfaceManager_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $method(BufImgSurfaceManager, init$, void, $BufferedImage*)},
-	{"getPrimarySurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(BufImgSurfaceManager, getPrimarySurfaceData, $SurfaceData*)},
-	{"restoreContents", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(BufImgSurfaceManager, restoreContents, $SurfaceData*)},
-	{}
-};
-
-$ClassInfo _BufImgSurfaceManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.BufImgSurfaceManager",
-	"sun.awt.image.SurfaceManager",
-	nullptr,
-	_BufImgSurfaceManager_FieldInfo_,
-	_BufImgSurfaceManager_MethodInfo_
-};
-
-$Object* allocate$BufImgSurfaceManager($Class* clazz) {
-	return $of($alloc(BufImgSurfaceManager));
-}
 
 void BufImgSurfaceManager::init$($BufferedImage* bImg) {
 	$SurfaceManager::init$();
@@ -62,7 +35,28 @@ BufImgSurfaceManager::BufImgSurfaceManager() {
 }
 
 $Class* BufImgSurfaceManager::load$($String* name, bool initialize) {
-	$loadClass(BufImgSurfaceManager, name, initialize, &_BufImgSurfaceManager_ClassInfo_, allocate$BufImgSurfaceManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"bImg", "Ljava/awt/image/BufferedImage;", nullptr, $PROTECTED, $field(BufImgSurfaceManager, bImg)},
+		{"sdDefault", "Lsun/java2d/SurfaceData;", nullptr, $PROTECTED, $field(BufImgSurfaceManager, sdDefault)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/image/BufferedImage;)V", nullptr, $PUBLIC, $method(BufImgSurfaceManager, init$, void, $BufferedImage*)},
+		{"getPrimarySurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(BufImgSurfaceManager, getPrimarySurfaceData, $SurfaceData*)},
+		{"restoreContents", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(BufImgSurfaceManager, restoreContents, $SurfaceData*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.BufImgSurfaceManager",
+		"sun.awt.image.SurfaceManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BufImgSurfaceManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufImgSurfaceManager);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/GlyphPainter2.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Shape.h>
@@ -53,47 +52,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _GlyphPainter2_FieldInfo_[] = {
-	{"layout", "Ljava/awt/font/TextLayout;", nullptr, 0, $field(GlyphPainter2, layout)},
-	{}
-};
-
-$MethodInfo _GlyphPainter2_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/font/TextLayout;)V", nullptr, $PUBLIC, $method(GlyphPainter2, init$, void, $TextLayout*)},
-	{"getAscent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getAscent, float, $GlyphView*)},
-	{"getBoundedPosition", "(Ljavax/swing/text/GlyphView;IFF)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getBoundedPosition, int32_t, $GlyphView*, int32_t, float, float)},
-	{"getDescent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getDescent, float, $GlyphView*)},
-	{"getHeight", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getHeight, float, $GlyphView*)},
-	{"getNextVisualPositionFrom", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getNextVisualPositionFrom, int32_t, $GlyphView*, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getPainter", "(Ljavax/swing/text/GlyphView;II)Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getPainter, $GlyphView$GlyphPainter*, $GlyphView*, int32_t, int32_t)},
-	{"getSpan", "(Ljavax/swing/text/GlyphView;IILjavax/swing/text/TabExpander;F)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getSpan, float, $GlyphView*, int32_t, int32_t, $TabExpander*, float)},
-	{"modelToView", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, modelToView, $Shape*, $GlyphView*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljavax/swing/text/GlyphView;Ljava/awt/Graphics;Ljava/awt/Shape;II)V", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, paint, void, $GlyphView*, $Graphics*, $Shape*, int32_t, int32_t)},
-	{"viewToModel", "(Ljavax/swing/text/GlyphView;FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, viewToModel, int32_t, $GlyphView*, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$InnerClassInfo _GlyphPainter2_InnerClassesInfo_[] = {
-	{"javax.swing.text.GlyphView$GlyphPainter", "javax.swing.text.GlyphView", "GlyphPainter", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GlyphPainter2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.GlyphPainter2",
-	"javax.swing.text.GlyphView$GlyphPainter",
-	nullptr,
-	_GlyphPainter2_FieldInfo_,
-	_GlyphPainter2_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GlyphPainter2_InnerClassesInfo_
-};
-
-$Object* allocate$GlyphPainter2($Class* clazz) {
-	return $of($alloc(GlyphPainter2));
-}
-
 void GlyphPainter2::init$($TextLayout* layout) {
 	$GlyphView$GlyphPainter::init$();
 	$set(this, layout, layout);
@@ -104,12 +62,12 @@ $GlyphView$GlyphPainter* GlyphPainter2::getPainter($GlyphView* v, int32_t p0, in
 }
 
 float GlyphPainter2::getSpan($GlyphView* v, int32_t p0, int32_t p1, $TabExpander* e, float x) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = (p0 == $nc(v)->getStartOffset());
+	$useLocalObjectStack();
+	bool var$0 = p0 == $nc(v)->getStartOffset();
 	if (var$0 && (p1 == v->getEndOffset())) {
 		return $nc(this->layout)->getAdvance();
 	}
-	int32_t p = $nc(v)->getStartOffset();
+	int32_t p = v->getStartOffset();
 	int32_t index0 = p0 - p;
 	int32_t index1 = p1 - p;
 	$var($TextHitInfo, hit0, $TextHitInfo::afterOffset(index0));
@@ -117,14 +75,14 @@ float GlyphPainter2::getSpan($GlyphView* v, int32_t p0, int32_t p1, $TabExpander
 	$var($floats, locs, $nc(this->layout)->getCaretInfo(hit0));
 	float x0 = $nc(locs)->get(0);
 	$assign(locs, $nc(this->layout)->getCaretInfo(hit1));
-	float x1 = locs->get(0);
+	float x1 = $nc(locs)->get(0);
 	return (x1 > x0) ? x1 - x0 : x0 - x1;
 }
 
 float GlyphPainter2::getHeight($GlyphView* v) {
 	float var$1 = $nc(this->layout)->getAscent();
-	float var$0 = var$1 + $nc(this->layout)->getDescent();
-	return var$0 + $nc(this->layout)->getLeading();
+	float var$0 = var$1 + this->layout->getDescent();
+	return var$0 + this->layout->getLeading();
 }
 
 float GlyphPainter2::getAscent($GlyphView* v) {
@@ -136,21 +94,21 @@ float GlyphPainter2::getDescent($GlyphView* v) {
 }
 
 void GlyphPainter2::paint($GlyphView* v, $Graphics* g, $Shape* a, int32_t p0, int32_t p1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Graphics2D, g)) {
 		$var($Rectangle2D, alloc, $nc(a)->getBounds2D());
 		$var($Graphics2D, g2d, $cast($Graphics2D, g));
 		float var$1 = (float)$nc(alloc)->getY();
 		float var$0 = var$1 + $nc(this->layout)->getAscent();
-		float y = var$0 + $nc(this->layout)->getLeading();
+		float y = var$0 + this->layout->getLeading();
 		float x = (float)alloc->getX();
 		bool var$2 = p0 > $nc(v)->getStartOffset();
-		if (var$2 || p1 < $nc(v)->getEndOffset()) {
+		if (var$2 || p1 < v->getEndOffset()) {
 			try {
 				$init($Position$Bias);
 				$var($Shape, s, v->modelToView(p0, $Position$Bias::Forward, p1, $Position$Bias::Backward, a));
-				$var($Shape, savedClip, $nc(g)->getClip());
-				$nc(g2d)->clip(s);
+				$var($Shape, savedClip, g->getClip());
+				g2d->clip(s);
 				$nc(this->layout)->draw(g2d, x, y);
 				g->setClip(savedClip);
 			} catch ($BadLocationException& e) {
@@ -162,7 +120,7 @@ void GlyphPainter2::paint($GlyphView* v, $Graphics* g, $Shape* a, int32_t p0, in
 }
 
 $Shape* GlyphPainter2::modelToView($GlyphView* v, int32_t pos, $Position$Bias* bias, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t offs = pos - $nc(v)->getStartOffset();
 	$var($Rectangle2D, alloc, $nc(a)->getBounds2D());
 	$init($Position$Bias);
@@ -171,21 +129,21 @@ $Shape* GlyphPainter2::modelToView($GlyphView* v, int32_t pos, $Position$Bias* b
 	$var($Rectangle2D, rect, $new($Rectangle2D$Float));
 	double var$0 = $nc(alloc)->getX() + $nc(locs)->get(0);
 	double var$1 = alloc->getY();
-	rect->setRect(var$0, var$1, (double)1, alloc->getHeight());
+	rect->setRect(var$0, var$1, 1, alloc->getHeight());
 	return rect;
 }
 
 int32_t GlyphPainter2::viewToModel($GlyphView* v, float x, float y, $Shape* a, $Position$BiasArray* biasReturn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, alloc, ($instanceOf($Rectangle2D, a)) ? $cast($Rectangle2D, a) : $nc(a)->getBounds2D());
-	$var($TextHitInfo, hit, $nc(this->layout)->hitTestChar(x - (float)$nc(alloc)->getX(), (float)0));
+	$var($TextHitInfo, hit, $nc(this->layout)->hitTestChar(x - (float)$nc(alloc)->getX(), 0));
 	int32_t pos = $nc(hit)->getInsertionIndex();
 	if (pos == $nc(v)->getEndOffset()) {
 		--pos;
 	}
 	$init($Position$Bias);
 	$nc(biasReturn)->set(0, hit->isLeadingEdge() ? $Position$Bias::Forward : $Position$Bias::Backward);
-	return pos + $nc(v)->getStartOffset();
+	return pos + v->getStartOffset();
 }
 
 int32_t GlyphPainter2::getBoundedPosition($GlyphView* v, int32_t p0, float x, float len) {
@@ -194,16 +152,16 @@ int32_t GlyphPainter2::getBoundedPosition($GlyphView* v, int32_t p0, float x, fl
 	}
 	$var($TextHitInfo, hit, nullptr);
 	if ($nc(this->layout)->isLeftToRight()) {
-		$assign(hit, $nc(this->layout)->hitTestChar(len, (float)0));
+		$assign(hit, $nc(this->layout)->hitTestChar(len, 0));
 	} else {
-		$assign(hit, $nc(this->layout)->hitTestChar($nc(this->layout)->getAdvance() - len, (float)0));
+		$assign(hit, $nc(this->layout)->hitTestChar($nc(this->layout)->getAdvance() - len, 0));
 	}
 	int32_t var$0 = $nc(v)->getStartOffset();
 	return var$0 + $nc(hit)->getCharIndex();
 }
 
 int32_t GlyphPainter2::getNextVisualPositionFrom($GlyphView* v, int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(v)->getDocument());
 	int32_t startOffset = v->getStartOffset();
 	int32_t endOffset = v->getEndOffset();
@@ -213,135 +171,121 @@ int32_t GlyphPainter2::getNextVisualPositionFrom($GlyphView* v, int32_t pos, $Po
 	$var($TextHitInfo, nextHit, nullptr);
 	switch (direction) {
 	case $View::NORTH:
-		{
-			break;
-		}
+		break;
 	case $View::SOUTH:
-		{
-			break;
-		}
+		break;
 	case $View::EAST:
-		{
-			viewIsLeftToRight = $AbstractDocument::isLeftToRight(doc, startOffset, endOffset);
-			if (startOffset == $nc(doc)->getLength()) {
-				if (pos == -1) {
-					$init($Position$Bias);
-					$nc(biasRet)->set(0, $Position$Bias::Forward);
-					return startOffset;
-				}
-				return -1;
-			}
+		viewIsLeftToRight = $AbstractDocument::isLeftToRight(doc, startOffset, endOffset);
+		if (startOffset == $nc(doc)->getLength()) {
 			if (pos == -1) {
-				if (viewIsLeftToRight) {
-					$init($Position$Bias);
-					$nc(biasRet)->set(0, $Position$Bias::Forward);
-					return startOffset;
-				} else {
-					$assign(text, v->getText(endOffset - 1, endOffset));
-					char16_t c = $nc($nc(text)->array)->get(text->offset);
-					$SegmentCache::releaseSharedSegment(text);
-					if (c == u'\n') {
-						$init($Position$Bias);
-						$nc(biasRet)->set(0, $Position$Bias::Forward);
-						return endOffset - 1;
-					}
-					$init($Position$Bias);
-					$nc(biasRet)->set(0, $Position$Bias::Backward);
-					return endOffset;
-				}
+				$init($Position$Bias);
+				$nc(biasRet)->set(0, $Position$Bias::Forward);
+				return startOffset;
 			}
-			$init($Position$Bias);
-			if (b == $Position$Bias::Forward) {
-				$assign(currentHit, $TextHitInfo::afterOffset(pos - startOffset));
+			return -1;
+		}
+		if (pos == -1) {
+			if (viewIsLeftToRight) {
+				$init($Position$Bias);
+				$nc(biasRet)->set(0, $Position$Bias::Forward);
+				return startOffset;
 			} else {
-				$assign(currentHit, $TextHitInfo::beforeOffset(pos - startOffset));
-			}
-			$assign(nextHit, $nc(this->layout)->getNextRightHit(currentHit));
-			if (nextHit == nullptr) {
-				return -1;
-			}
-			if (viewIsLeftToRight != $nc(this->layout)->isLeftToRight()) {
-				$assign(nextHit, $nc(this->layout)->getVisualOtherHit(nextHit));
-			}
-			pos = $nc(nextHit)->getInsertionIndex() + startOffset;
-			if (pos == endOffset) {
 				$assign(text, v->getText(endOffset - 1, endOffset));
-				char16_t c = $nc($nc(text)->array)->get(text->offset);
+				char16_t c = $nc($nc(text)->array)->get($nc(text)->offset);
 				$SegmentCache::releaseSharedSegment(text);
 				if (c == u'\n') {
-					return -1;
+					$init($Position$Bias);
+					$nc(biasRet)->set(0, $Position$Bias::Forward);
+					return endOffset - 1;
 				}
 				$init($Position$Bias);
 				$nc(biasRet)->set(0, $Position$Bias::Backward);
-			} else {
-				$init($Position$Bias);
-				$nc(biasRet)->set(0, $Position$Bias::Forward);
+				return endOffset;
 			}
-			return pos;
 		}
+		$init($Position$Bias);
+		if (b == $Position$Bias::Forward) {
+			$assign(currentHit, $TextHitInfo::afterOffset(pos - startOffset));
+		} else {
+			$assign(currentHit, $TextHitInfo::beforeOffset(pos - startOffset));
+		}
+		$assign(nextHit, $nc(this->layout)->getNextRightHit(currentHit));
+		if (nextHit == nullptr) {
+			return -1;
+		}
+		if (viewIsLeftToRight != $nc(this->layout)->isLeftToRight()) {
+			$assign(nextHit, $nc(this->layout)->getVisualOtherHit(nextHit));
+		}
+		pos = $nc(nextHit)->getInsertionIndex() + startOffset;
+		if (pos == endOffset) {
+			$assign(text, v->getText(endOffset - 1, endOffset));
+			char16_t c = $nc($nc(text)->array)->get($nc(text)->offset);
+			$SegmentCache::releaseSharedSegment(text);
+			if (c == u'\n') {
+				return -1;
+			}
+			$nc(biasRet)->set(0, $Position$Bias::Backward);
+		} else {
+			$nc(biasRet)->set(0, $Position$Bias::Forward);
+		}
+		return pos;
 	case $View::WEST:
-		{
-			viewIsLeftToRight = $AbstractDocument::isLeftToRight(doc, startOffset, endOffset);
-			if (startOffset == $nc(doc)->getLength()) {
-				if (pos == -1) {
-					$init($Position$Bias);
-					$nc(biasRet)->set(0, $Position$Bias::Forward);
-					return startOffset;
-				}
-				return -1;
-			}
+		viewIsLeftToRight = $AbstractDocument::isLeftToRight(doc, startOffset, endOffset);
+		if (startOffset == $nc(doc)->getLength()) {
 			if (pos == -1) {
-				if (viewIsLeftToRight) {
-					$assign(text, v->getText(endOffset - 1, endOffset));
-					char16_t c = $nc($nc(text)->array)->get(text->offset);
-					$SegmentCache::releaseSharedSegment(text);
-					if ((c == u'\n') || $Character::isSpaceChar(c)) {
-						$init($Position$Bias);
-						$nc(biasRet)->set(0, $Position$Bias::Forward);
-						return endOffset - 1;
-					}
-					$init($Position$Bias);
-					$nc(biasRet)->set(0, $Position$Bias::Backward);
-					return endOffset;
-				} else {
+				$init($Position$Bias);
+				$nc(biasRet)->set(0, $Position$Bias::Forward);
+				return startOffset;
+			}
+			return -1;
+		}
+		if (pos == -1) {
+			if (viewIsLeftToRight) {
+				$assign(text, v->getText(endOffset - 1, endOffset));
+				char16_t c = $nc($nc(text)->array)->get($nc(text)->offset);
+				$SegmentCache::releaseSharedSegment(text);
+				if ((c == u'\n') || $Character::isSpaceChar(c)) {
 					$init($Position$Bias);
 					$nc(biasRet)->set(0, $Position$Bias::Forward);
-					return startOffset;
-				}
-			}
-			$init($Position$Bias);
-			if (b == $Position$Bias::Forward) {
-				$assign(currentHit, $TextHitInfo::afterOffset(pos - startOffset));
-			} else {
-				$assign(currentHit, $TextHitInfo::beforeOffset(pos - startOffset));
-			}
-			$assign(nextHit, $nc(this->layout)->getNextLeftHit(currentHit));
-			if (nextHit == nullptr) {
-				return -1;
-			}
-			if (viewIsLeftToRight != $nc(this->layout)->isLeftToRight()) {
-				$assign(nextHit, $nc(this->layout)->getVisualOtherHit(nextHit));
-			}
-			pos = $nc(nextHit)->getInsertionIndex() + startOffset;
-			if (pos == endOffset) {
-				$assign(text, v->getText(endOffset - 1, endOffset));
-				char16_t c = $nc($nc(text)->array)->get(text->offset);
-				$SegmentCache::releaseSharedSegment(text);
-				if (c == u'\n') {
-					return -1;
+					return endOffset - 1;
 				}
 				$init($Position$Bias);
 				$nc(biasRet)->set(0, $Position$Bias::Backward);
+				return endOffset;
 			} else {
 				$init($Position$Bias);
 				$nc(biasRet)->set(0, $Position$Bias::Forward);
+				return startOffset;
 			}
-			return pos;
 		}
+		$init($Position$Bias);
+		if (b == $Position$Bias::Forward) {
+			$assign(currentHit, $TextHitInfo::afterOffset(pos - startOffset));
+		} else {
+			$assign(currentHit, $TextHitInfo::beforeOffset(pos - startOffset));
+		}
+		$assign(nextHit, $nc(this->layout)->getNextLeftHit(currentHit));
+		if (nextHit == nullptr) {
+			return -1;
+		}
+		if (viewIsLeftToRight != $nc(this->layout)->isLeftToRight()) {
+			$assign(nextHit, $nc(this->layout)->getVisualOtherHit(nextHit));
+		}
+		pos = $nc(nextHit)->getInsertionIndex() + startOffset;
+		if (pos == endOffset) {
+			$assign(text, v->getText(endOffset - 1, endOffset));
+			char16_t c = $nc($nc(text)->array)->get($nc(text)->offset);
+			$SegmentCache::releaseSharedSegment(text);
+			if (c == u'\n') {
+				return -1;
+			}
+			$nc(biasRet)->set(0, $Position$Bias::Backward);
+		} else {
+			$nc(biasRet)->set(0, $Position$Bias::Forward);
+		}
+		return pos;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Bad direction: "_s, $$str(direction)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Bad direction: "_s, $$str(direction)}));
 	}
 	return pos;
 }
@@ -350,7 +294,42 @@ GlyphPainter2::GlyphPainter2() {
 }
 
 $Class* GlyphPainter2::load$($String* name, bool initialize) {
-	$loadClass(GlyphPainter2, name, initialize, &_GlyphPainter2_ClassInfo_, allocate$GlyphPainter2);
+	$FieldInfo fieldInfos$$[] = {
+		{"layout", "Ljava/awt/font/TextLayout;", nullptr, 0, $field(GlyphPainter2, layout)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/font/TextLayout;)V", nullptr, $PUBLIC, $method(GlyphPainter2, init$, void, $TextLayout*)},
+		{"getAscent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getAscent, float, $GlyphView*)},
+		{"getBoundedPosition", "(Ljavax/swing/text/GlyphView;IFF)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getBoundedPosition, int32_t, $GlyphView*, int32_t, float, float)},
+		{"getDescent", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getDescent, float, $GlyphView*)},
+		{"getHeight", "(Ljavax/swing/text/GlyphView;)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getHeight, float, $GlyphView*)},
+		{"getNextVisualPositionFrom", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getNextVisualPositionFrom, int32_t, $GlyphView*, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getPainter", "(Ljavax/swing/text/GlyphView;II)Ljavax/swing/text/GlyphView$GlyphPainter;", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getPainter, $GlyphView$GlyphPainter*, $GlyphView*, int32_t, int32_t)},
+		{"getSpan", "(Ljavax/swing/text/GlyphView;IILjavax/swing/text/TabExpander;F)F", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, getSpan, float, $GlyphView*, int32_t, int32_t, $TabExpander*, float)},
+		{"modelToView", "(Ljavax/swing/text/GlyphView;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, modelToView, $Shape*, $GlyphView*, int32_t, $Position$Bias*, $Shape*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljavax/swing/text/GlyphView;Ljava/awt/Graphics;Ljava/awt/Shape;II)V", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, paint, void, $GlyphView*, $Graphics*, $Shape*, int32_t, int32_t)},
+		{"viewToModel", "(Ljavax/swing/text/GlyphView;FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(GlyphPainter2, viewToModel, int32_t, $GlyphView*, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GlyphView$GlyphPainter", "javax.swing.text.GlyphView", "GlyphPainter", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.GlyphPainter2",
+		"javax.swing.text.GlyphView$GlyphPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(GlyphPainter2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GlyphPainter2);
+	});
 	return class$;
 }
 

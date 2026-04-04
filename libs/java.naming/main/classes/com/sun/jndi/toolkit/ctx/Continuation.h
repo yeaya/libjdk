@@ -54,7 +54,7 @@ public:
 	bool continuing = false;
 	::javax::naming::Context* resolvedContext = nullptr;
 	::javax::naming::Name* relativeResolvedName = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x7147226283056FB4;
+	static const int64_t serialVersionUID = (int64_t)0x7147226283056fb4;
 };
 
 				} // ctx

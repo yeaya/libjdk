@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
-
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
@@ -124,158 +123,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$Tag_FieldInfo_[] = {
-	{"NO_TAG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NO_TAG)},
-	{"TOPLEVEL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TOPLEVEL)},
-	{"PACKAGEDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PACKAGEDEF)},
-	{"IMPORT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, IMPORT)},
-	{"CLASSDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CLASSDEF)},
-	{"METHODDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, METHODDEF)},
-	{"VARDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, VARDEF)},
-	{"SKIP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SKIP)},
-	{"BLOCK", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BLOCK)},
-	{"DOLOOP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, DOLOOP)},
-	{"WHILELOOP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, WHILELOOP)},
-	{"FORLOOP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, FORLOOP)},
-	{"FOREACHLOOP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, FOREACHLOOP)},
-	{"LABELLED", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LABELLED)},
-	{"SWITCH", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SWITCH)},
-	{"CASE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CASE)},
-	{"SWITCH_EXPRESSION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SWITCH_EXPRESSION)},
-	{"SYNCHRONIZED", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SYNCHRONIZED)},
-	{"TRY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TRY)},
-	{"CATCH", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CATCH)},
-	{"CONDEXPR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CONDEXPR)},
-	{"IF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, IF)},
-	{"EXEC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, EXEC)},
-	{"BREAK", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BREAK)},
-	{"YIELD", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, YIELD)},
-	{"CONTINUE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CONTINUE)},
-	{"RETURN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, RETURN)},
-	{"THROW", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, THROW)},
-	{"ASSERT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ASSERT)},
-	{"APPLY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, APPLY)},
-	{"NEWCLASS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NEWCLASS)},
-	{"NEWARRAY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NEWARRAY)},
-	{"LAMBDA", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LAMBDA)},
-	{"PARENS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PARENS)},
-	{"ASSIGN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ASSIGN)},
-	{"TYPECAST", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPECAST)},
-	{"TYPETEST", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPETEST)},
-	{"BINDINGPATTERN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BINDINGPATTERN)},
-	{"DEFAULTCASELABEL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, DEFAULTCASELABEL)},
-	{"GUARDPATTERN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, GUARDPATTERN)},
-	{"PARENTHESIZEDPATTERN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PARENTHESIZEDPATTERN)},
-	{"INDEXED", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, INDEXED)},
-	{"SELECT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SELECT)},
-	{"REFERENCE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, REFERENCE)},
-	{"IDENT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, IDENT)},
-	{"LITERAL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LITERAL)},
-	{"TYPEIDENT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEIDENT)},
-	{"TYPEARRAY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEARRAY)},
-	{"TYPEAPPLY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEAPPLY)},
-	{"TYPEUNION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEUNION)},
-	{"TYPEINTERSECTION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEINTERSECTION)},
-	{"TYPEPARAMETER", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEPARAMETER)},
-	{"WILDCARD", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, WILDCARD)},
-	{"TYPEBOUNDKIND", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEBOUNDKIND)},
-	{"ANNOTATION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ANNOTATION)},
-	{"TYPE_ANNOTATION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPE_ANNOTATION)},
-	{"MODIFIERS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MODIFIERS)},
-	{"ANNOTATED_TYPE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ANNOTATED_TYPE)},
-	{"ERRONEOUS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ERRONEOUS)},
-	{"POS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, POS)},
-	{"NEG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NEG)},
-	{"NOT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NOT)},
-	{"COMPL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, COMPL)},
-	{"PREINC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PREINC)},
-	{"PREDEC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PREDEC)},
-	{"POSTINC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, POSTINC)},
-	{"POSTDEC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, POSTDEC)},
-	{"NULLCHK", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NULLCHK)},
-	{"OR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, OR)},
-	{"AND", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, AND)},
-	{"BITOR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITOR)},
-	{"BITXOR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITXOR)},
-	{"BITAND", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITAND)},
-	{"EQ", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, EQ)},
-	{"NE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NE)},
-	{"LT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LT)},
-	{"GT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, GT)},
-	{"LE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LE)},
-	{"GE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, GE)},
-	{"SL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SL)},
-	{"SR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SR)},
-	{"USR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, USR)},
-	{"PLUS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PLUS)},
-	{"MINUS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MINUS)},
-	{"MUL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MUL)},
-	{"DIV", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, DIV)},
-	{"MOD", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MOD)},
-	{"BITOR_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITOR_ASG)},
-	{"BITXOR_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITXOR_ASG)},
-	{"BITAND_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITAND_ASG)},
-	{"SL_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SL_ASG)},
-	{"SR_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SR_ASG)},
-	{"USR_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, USR_ASG)},
-	{"PLUS_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PLUS_ASG)},
-	{"MINUS_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MINUS_ASG)},
-	{"MUL_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MUL_ASG)},
-	{"DIV_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, DIV_ASG)},
-	{"MOD_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MOD_ASG)},
-	{"MODULEDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MODULEDEF)},
-	{"EXPORTS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, EXPORTS)},
-	{"OPENS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, OPENS)},
-	{"PROVIDES", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PROVIDES)},
-	{"REQUIRES", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, REQUIRES)},
-	{"USES", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, USES)},
-	{"LETEXPR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LETEXPR)},
-	{"$VALUES", "[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$Tag, $VALUES)},
-	{"noAssignTag", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PRIVATE | $FINAL, $field(JCTree$Tag, noAssignTag)},
-	{"numberOfOperators", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JCTree$Tag, numberOfOperators)},
-	{}
-};
-
-$MethodInfo _JCTree$Tag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$Tag, $values, $JCTree$TagArray*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(JCTree$Tag, init$, void, $String*, int32_t, JCTree$Tag*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$Tag, init$, void, $String*, int32_t)},
-	{"getNumberOfOperators", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, getNumberOfOperators, int32_t)},
-	{"isAssignop", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isAssignop, bool)},
-	{"isIncOrDecUnaryOp", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isIncOrDecUnaryOp, bool)},
-	{"isPostUnaryOp", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isPostUnaryOp, bool)},
-	{"noAssignOp", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $method(JCTree$Tag, noAssignOp, JCTree$Tag*)},
-	{"operatorIndex", "()I", nullptr, $PUBLIC, $method(JCTree$Tag, operatorIndex, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, valueOf, JCTree$Tag*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, values, $JCTree$TagArray*)},
-	{}
-};
-
-$InnerClassInfo _JCTree$Tag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$Tag", "com.sun.tools.javac.tree.JCTree", "Tag", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JCTree$Tag_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.tree.JCTree$Tag",
-	"java.lang.Enum",
-	nullptr,
-	_JCTree$Tag_FieldInfo_,
-	_JCTree$Tag_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/tree/JCTree$Tag;>;",
-	nullptr,
-	_JCTree$Tag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$Tag($Class* clazz) {
-	return $of($alloc(JCTree$Tag));
-}
 
 JCTree$Tag* JCTree$Tag::NO_TAG = nullptr;
 JCTree$Tag* JCTree$Tag::TOPLEVEL = nullptr;
@@ -544,7 +391,7 @@ int32_t JCTree$Tag::operatorIndex() {
 	return (var$0 - JCTree$Tag::POS->ordinal());
 }
 
-void clinit$JCTree$Tag($Class* class$) {
+void JCTree$Tag::clinit$($Class* clazz) {
 	$assignStatic(JCTree$Tag::NO_TAG, $new(JCTree$Tag, "NO_TAG"_s, 0));
 	$assignStatic(JCTree$Tag::TOPLEVEL, $new(JCTree$Tag, "TOPLEVEL"_s, 1));
 	$assignStatic(JCTree$Tag::PACKAGEDEF, $new(JCTree$Tag, "PACKAGEDEF"_s, 2));
@@ -659,7 +506,153 @@ JCTree$Tag::JCTree$Tag() {
 }
 
 $Class* JCTree$Tag::load$($String* name, bool initialize) {
-	$loadClass(JCTree$Tag, name, initialize, &_JCTree$Tag_ClassInfo_, clinit$JCTree$Tag, allocate$JCTree$Tag);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_TAG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NO_TAG)},
+		{"TOPLEVEL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TOPLEVEL)},
+		{"PACKAGEDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PACKAGEDEF)},
+		{"IMPORT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, IMPORT)},
+		{"CLASSDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CLASSDEF)},
+		{"METHODDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, METHODDEF)},
+		{"VARDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, VARDEF)},
+		{"SKIP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SKIP)},
+		{"BLOCK", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BLOCK)},
+		{"DOLOOP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, DOLOOP)},
+		{"WHILELOOP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, WHILELOOP)},
+		{"FORLOOP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, FORLOOP)},
+		{"FOREACHLOOP", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, FOREACHLOOP)},
+		{"LABELLED", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LABELLED)},
+		{"SWITCH", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SWITCH)},
+		{"CASE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CASE)},
+		{"SWITCH_EXPRESSION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SWITCH_EXPRESSION)},
+		{"SYNCHRONIZED", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SYNCHRONIZED)},
+		{"TRY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TRY)},
+		{"CATCH", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CATCH)},
+		{"CONDEXPR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CONDEXPR)},
+		{"IF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, IF)},
+		{"EXEC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, EXEC)},
+		{"BREAK", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BREAK)},
+		{"YIELD", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, YIELD)},
+		{"CONTINUE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, CONTINUE)},
+		{"RETURN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, RETURN)},
+		{"THROW", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, THROW)},
+		{"ASSERT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ASSERT)},
+		{"APPLY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, APPLY)},
+		{"NEWCLASS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NEWCLASS)},
+		{"NEWARRAY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NEWARRAY)},
+		{"LAMBDA", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LAMBDA)},
+		{"PARENS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PARENS)},
+		{"ASSIGN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ASSIGN)},
+		{"TYPECAST", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPECAST)},
+		{"TYPETEST", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPETEST)},
+		{"BINDINGPATTERN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BINDINGPATTERN)},
+		{"DEFAULTCASELABEL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, DEFAULTCASELABEL)},
+		{"GUARDPATTERN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, GUARDPATTERN)},
+		{"PARENTHESIZEDPATTERN", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PARENTHESIZEDPATTERN)},
+		{"INDEXED", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, INDEXED)},
+		{"SELECT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SELECT)},
+		{"REFERENCE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, REFERENCE)},
+		{"IDENT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, IDENT)},
+		{"LITERAL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LITERAL)},
+		{"TYPEIDENT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEIDENT)},
+		{"TYPEARRAY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEARRAY)},
+		{"TYPEAPPLY", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEAPPLY)},
+		{"TYPEUNION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEUNION)},
+		{"TYPEINTERSECTION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEINTERSECTION)},
+		{"TYPEPARAMETER", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEPARAMETER)},
+		{"WILDCARD", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, WILDCARD)},
+		{"TYPEBOUNDKIND", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPEBOUNDKIND)},
+		{"ANNOTATION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ANNOTATION)},
+		{"TYPE_ANNOTATION", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, TYPE_ANNOTATION)},
+		{"MODIFIERS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MODIFIERS)},
+		{"ANNOTATED_TYPE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ANNOTATED_TYPE)},
+		{"ERRONEOUS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, ERRONEOUS)},
+		{"POS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, POS)},
+		{"NEG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NEG)},
+		{"NOT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NOT)},
+		{"COMPL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, COMPL)},
+		{"PREINC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PREINC)},
+		{"PREDEC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PREDEC)},
+		{"POSTINC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, POSTINC)},
+		{"POSTDEC", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, POSTDEC)},
+		{"NULLCHK", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NULLCHK)},
+		{"OR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, OR)},
+		{"AND", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, AND)},
+		{"BITOR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITOR)},
+		{"BITXOR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITXOR)},
+		{"BITAND", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITAND)},
+		{"EQ", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, EQ)},
+		{"NE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, NE)},
+		{"LT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LT)},
+		{"GT", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, GT)},
+		{"LE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LE)},
+		{"GE", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, GE)},
+		{"SL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SL)},
+		{"SR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SR)},
+		{"USR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, USR)},
+		{"PLUS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PLUS)},
+		{"MINUS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MINUS)},
+		{"MUL", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MUL)},
+		{"DIV", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, DIV)},
+		{"MOD", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MOD)},
+		{"BITOR_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITOR_ASG)},
+		{"BITXOR_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITXOR_ASG)},
+		{"BITAND_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, BITAND_ASG)},
+		{"SL_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SL_ASG)},
+		{"SR_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, SR_ASG)},
+		{"USR_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, USR_ASG)},
+		{"PLUS_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PLUS_ASG)},
+		{"MINUS_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MINUS_ASG)},
+		{"MUL_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MUL_ASG)},
+		{"DIV_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, DIV_ASG)},
+		{"MOD_ASG", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MOD_ASG)},
+		{"MODULEDEF", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, MODULEDEF)},
+		{"EXPORTS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, EXPORTS)},
+		{"OPENS", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, OPENS)},
+		{"PROVIDES", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, PROVIDES)},
+		{"REQUIRES", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, REQUIRES)},
+		{"USES", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, USES)},
+		{"LETEXPR", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$Tag, LETEXPR)},
+		{"$VALUES", "[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$Tag, $VALUES)},
+		{"noAssignTag", "Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PRIVATE | $FINAL, $field(JCTree$Tag, noAssignTag)},
+		{"numberOfOperators", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JCTree$Tag, numberOfOperators)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$Tag, $values, $JCTree$TagArray*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/tree/JCTree$Tag;)V", "(Lcom/sun/tools/javac/tree/JCTree$Tag;)V", $PRIVATE, $method(JCTree$Tag, init$, void, $String*, int32_t, JCTree$Tag*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$Tag, init$, void, $String*, int32_t)},
+		{"getNumberOfOperators", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, getNumberOfOperators, int32_t)},
+		{"isAssignop", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isAssignop, bool)},
+		{"isIncOrDecUnaryOp", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isIncOrDecUnaryOp, bool)},
+		{"isPostUnaryOp", "()Z", nullptr, $PUBLIC, $method(JCTree$Tag, isPostUnaryOp, bool)},
+		{"noAssignOp", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $method(JCTree$Tag, noAssignOp, JCTree$Tag*)},
+		{"operatorIndex", "()I", nullptr, $PUBLIC, $method(JCTree$Tag, operatorIndex, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, valueOf, JCTree$Tag*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$Tag, values, $JCTree$TagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$Tag", "com.sun.tools.javac.tree.JCTree", "Tag", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.tree.JCTree$Tag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/tree/JCTree$Tag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$Tag, name, initialize, &classInfo$$, JCTree$Tag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$Tag));
+	});
 	return class$;
 }
 

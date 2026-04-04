@@ -1,5 +1,4 @@
 #include <javax/security/sasl/AuthorizeCallback.h>
-
 #include <javax/security/auth/callback/Callback.h>
 #include <jcpp.h>
 
@@ -11,44 +10,6 @@ using $Callback = ::javax::security::auth::callback::Callback;
 namespace javax {
 	namespace security {
 		namespace sasl {
-
-$FieldInfo _AuthorizeCallback_FieldInfo_[] = {
-	{"authenticationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AuthorizeCallback, authenticationID)},
-	{"authorizationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AuthorizeCallback, authorizationID)},
-	{"authorizedID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AuthorizeCallback, authorizedID)},
-	{"authorized", "Z", nullptr, $PRIVATE, $field(AuthorizeCallback, authorized)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthorizeCallback, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AuthorizeCallback_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthorizeCallback, init$, void, $String*, $String*)},
-	{"getAuthenticationID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, getAuthenticationID, $String*)},
-	{"getAuthorizationID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, getAuthorizationID, $String*)},
-	{"getAuthorizedID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, getAuthorizedID, $String*)},
-	{"isAuthorized", "()Z", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, isAuthorized, bool)},
-	{"setAuthorized", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, setAuthorized, void, bool)},
-	{"setAuthorizedID", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, setAuthorizedID, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AuthorizeCallback_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.sasl.AuthorizeCallback",
-	"java.lang.Object",
-	"javax.security.auth.callback.Callback,java.io.Serializable",
-	_AuthorizeCallback_FieldInfo_,
-	_AuthorizeCallback_MethodInfo_
-};
-
-$Object* allocate$AuthorizeCallback($Class* clazz) {
-	return $of($alloc(AuthorizeCallback));
-}
 
 int32_t AuthorizeCallback::hashCode() {
 	 return this->$Callback::hashCode();
@@ -106,7 +67,40 @@ AuthorizeCallback::AuthorizeCallback() {
 }
 
 $Class* AuthorizeCallback::load$($String* name, bool initialize) {
-	$loadClass(AuthorizeCallback, name, initialize, &_AuthorizeCallback_ClassInfo_, allocate$AuthorizeCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"authenticationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AuthorizeCallback, authenticationID)},
+		{"authorizationID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AuthorizeCallback, authorizationID)},
+		{"authorizedID", "Ljava/lang/String;", nullptr, $PRIVATE, $field(AuthorizeCallback, authorizedID)},
+		{"authorized", "Z", nullptr, $PRIVATE, $field(AuthorizeCallback, authorized)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AuthorizeCallback, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AuthorizeCallback, init$, void, $String*, $String*)},
+		{"getAuthenticationID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, getAuthenticationID, $String*)},
+		{"getAuthorizationID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, getAuthorizationID, $String*)},
+		{"getAuthorizedID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, getAuthorizedID, $String*)},
+		{"isAuthorized", "()Z", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, isAuthorized, bool)},
+		{"setAuthorized", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, setAuthorized, void, bool)},
+		{"setAuthorizedID", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(AuthorizeCallback, setAuthorizedID, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.sasl.AuthorizeCallback",
+		"java.lang.Object",
+		"javax.security.auth.callback.Callback,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthorizeCallback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AuthorizeCallback));
+	});
 	return class$;
 }
 

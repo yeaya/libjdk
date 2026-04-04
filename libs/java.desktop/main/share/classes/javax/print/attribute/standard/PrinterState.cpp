@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PrinterState.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -19,44 +18,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PrinterState_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterState, serialVersionUID)},
-	{"UNKNOWN", "Ljavax/print/attribute/standard/PrinterState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterState, UNKNOWN)},
-	{"IDLE", "Ljavax/print/attribute/standard/PrinterState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterState, IDLE)},
-	{"PROCESSING", "Ljavax/print/attribute/standard/PrinterState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterState, PROCESSING)},
-	{"STOPPED", "Ljavax/print/attribute/standard/PrinterState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterState, STOPPED)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrinterState, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/PrinterState;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrinterState, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _PrinterState_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(PrinterState, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterState, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PrinterState, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterState, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PrinterState, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PrinterState_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.PrinterState",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintServiceAttribute",
-	_PrinterState_FieldInfo_,
-	_PrinterState_MethodInfo_
-};
-
-$Object* allocate$PrinterState($Class* clazz) {
-	return $of($alloc(PrinterState));
-}
 
 $Object* PrinterState::clone() {
 	 return this->$EnumSyntax::clone();
@@ -94,7 +55,7 @@ $StringArray* PrinterState::getStringTable() {
 }
 
 $EnumSyntaxArray* PrinterState::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, PrinterState::myEnumValueTable);
+	return $cast($EnumSyntaxArray, PrinterState::myEnumValueTable);
 }
 
 $Class* PrinterState::getCategory() {
@@ -105,23 +66,23 @@ $String* PrinterState::getName() {
 	return "printer-state"_s;
 }
 
-void clinit$PrinterState($Class* class$) {
+void PrinterState::clinit$($Class* clazz) {
 	$assignStatic(PrinterState::UNKNOWN, $new(PrinterState, 0));
 	$assignStatic(PrinterState::IDLE, $new(PrinterState, 3));
 	$assignStatic(PrinterState::PROCESSING, $new(PrinterState, 4));
 	$assignStatic(PrinterState::STOPPED, $new(PrinterState, 5));
 	$assignStatic(PrinterState::myStringTable, $new($StringArray, {
 		"unknown"_s,
-		($String*)nullptr,
-		($String*)nullptr,
+		nullptr,
+		nullptr,
 		"idle"_s,
 		"processing"_s,
 		"stopped"_s
 	}));
 	$assignStatic(PrinterState::myEnumValueTable, $new($PrinterStateArray, {
 		PrinterState::UNKNOWN,
-		(PrinterState*)nullptr,
-		(PrinterState*)nullptr,
+		nullptr,
+		nullptr,
 		PrinterState::IDLE,
 		PrinterState::PROCESSING,
 		PrinterState::STOPPED
@@ -132,7 +93,40 @@ PrinterState::PrinterState() {
 }
 
 $Class* PrinterState::load$($String* name, bool initialize) {
-	$loadClass(PrinterState, name, initialize, &_PrinterState_ClassInfo_, clinit$PrinterState, allocate$PrinterState);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterState, serialVersionUID)},
+		{"UNKNOWN", "Ljavax/print/attribute/standard/PrinterState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterState, UNKNOWN)},
+		{"IDLE", "Ljavax/print/attribute/standard/PrinterState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterState, IDLE)},
+		{"PROCESSING", "Ljavax/print/attribute/standard/PrinterState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterState, PROCESSING)},
+		{"STOPPED", "Ljavax/print/attribute/standard/PrinterState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PrinterState, STOPPED)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrinterState, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/PrinterState;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PrinterState, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(PrinterState, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterState, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(PrinterState, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterState, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(PrinterState, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.PrinterState",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintServiceAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrinterState, name, initialize, &classInfo$$, PrinterState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrinterState));
+	});
 	return class$;
 }
 

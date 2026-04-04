@@ -53,8 +53,9 @@ namespace javax {
 	namespace naming {
 
 class $export Context : public ::java::lang::Object {
-	$interface(Context, $NO_CLASS_INIT, ::java::lang::Object)
+	$interface(Context, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* addToEnvironment($String* propName, Object$* propVal) {return nullptr;}
 	virtual void bind(::javax::naming::Name* name, Object$* obj) {}
 	virtual void bind($String* name, Object$* obj) {}

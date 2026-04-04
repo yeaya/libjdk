@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$FilterComboBoxRenderer.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
 #include <java/awt/Component.h>
 #include <javax/swing/DefaultListCellRenderer.h>
@@ -25,42 +24,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsFileChooserUI$FilterComboBoxRenderer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$FilterComboBoxRenderer, this$0)},
-	{}
-};
-
-$MethodInfo _WindowsFileChooserUI$FilterComboBoxRenderer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)V", nullptr, $PUBLIC, $method(WindowsFileChooserUI$FilterComboBoxRenderer, init$, void, $WindowsFileChooserUI*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(WindowsFileChooserUI$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _WindowsFileChooserUI$FilterComboBoxRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
-	{}
-};
-
-$ClassInfo _WindowsFileChooserUI$FilterComboBoxRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxRenderer",
-	"javax.swing.DefaultListCellRenderer",
-	nullptr,
-	_WindowsFileChooserUI$FilterComboBoxRenderer_FieldInfo_,
-	_WindowsFileChooserUI$FilterComboBoxRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsFileChooserUI$FilterComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
-};
-
-$Object* allocate$WindowsFileChooserUI$FilterComboBoxRenderer($Class* clazz) {
-	return $of($alloc(WindowsFileChooserUI$FilterComboBoxRenderer));
-}
-
 void WindowsFileChooserUI$FilterComboBoxRenderer::init$($WindowsFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultListCellRenderer::init$();
@@ -69,7 +32,7 @@ void WindowsFileChooserUI$FilterComboBoxRenderer::init$($WindowsFileChooserUI* t
 $Component* WindowsFileChooserUI$FilterComboBoxRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
 	$DefaultListCellRenderer::getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 	if (value != nullptr && $instanceOf($FileFilter, value)) {
-		setText($($nc(($cast($FileFilter, value)))->getDescription()));
+		setText($($cast($FileFilter, value)->getDescription()));
 	}
 	return this;
 }
@@ -78,7 +41,37 @@ WindowsFileChooserUI$FilterComboBoxRenderer::WindowsFileChooserUI$FilterComboBox
 }
 
 $Class* WindowsFileChooserUI$FilterComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileChooserUI$FilterComboBoxRenderer, name, initialize, &_WindowsFileChooserUI$FilterComboBoxRenderer_ClassInfo_, allocate$WindowsFileChooserUI$FilterComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$FilterComboBoxRenderer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)V", nullptr, $PUBLIC, $method(WindowsFileChooserUI$FilterComboBoxRenderer, init$, void, $WindowsFileChooserUI*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(WindowsFileChooserUI$FilterComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxRenderer",
+		"javax.swing.DefaultListCellRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
+	};
+	$loadClass(WindowsFileChooserUI$FilterComboBoxRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsFileChooserUI$FilterComboBoxRenderer));
+	});
 	return class$;
 }
 

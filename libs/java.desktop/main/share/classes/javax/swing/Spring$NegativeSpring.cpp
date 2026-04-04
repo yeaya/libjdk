@@ -1,5 +1,4 @@
 #include <javax/swing/Spring$NegativeSpring.h>
-
 #include <javax/swing/Spring.h>
 #include <javax/swing/SpringLayout.h>
 #include <jcpp.h>
@@ -13,47 +12,6 @@ using $SpringLayout = ::javax::swing::SpringLayout;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _Spring$NegativeSpring_FieldInfo_[] = {
-	{"s", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(Spring$NegativeSpring, s)},
-	{}
-};
-
-$MethodInfo _Spring$NegativeSpring_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(Spring$NegativeSpring, init$, void, $Spring*)},
-	{"getMaximumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, getMaximumValue, int32_t)},
-	{"getMinimumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, getMinimumValue, int32_t)},
-	{"getPreferredValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, getPreferredValue, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, getValue, int32_t)},
-	{"isCyclic", "(Ljavax/swing/SpringLayout;)Z", nullptr, 0, $virtualMethod(Spring$NegativeSpring, isCyclic, bool, $SpringLayout*)},
-	{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, setValue, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Spring$NegativeSpring_InnerClassesInfo_[] = {
-	{"javax.swing.Spring$NegativeSpring", "javax.swing.Spring", "NegativeSpring", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Spring$NegativeSpring_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.Spring$NegativeSpring",
-	"javax.swing.Spring",
-	nullptr,
-	_Spring$NegativeSpring_FieldInfo_,
-	_Spring$NegativeSpring_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spring$NegativeSpring_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Spring"
-};
-
-$Object* allocate$Spring$NegativeSpring($Class* clazz) {
-	return $of($alloc(Spring$NegativeSpring));
-}
 
 void Spring$NegativeSpring::init$($Spring* s) {
 	$Spring::init$();
@@ -88,7 +46,42 @@ Spring$NegativeSpring::Spring$NegativeSpring() {
 }
 
 $Class* Spring$NegativeSpring::load$($String* name, bool initialize) {
-	$loadClass(Spring$NegativeSpring, name, initialize, &_Spring$NegativeSpring_ClassInfo_, allocate$Spring$NegativeSpring);
+	$FieldInfo fieldInfos$$[] = {
+		{"s", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(Spring$NegativeSpring, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(Spring$NegativeSpring, init$, void, $Spring*)},
+		{"getMaximumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, getMaximumValue, int32_t)},
+		{"getMinimumValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, getMinimumValue, int32_t)},
+		{"getPreferredValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, getPreferredValue, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, getValue, int32_t)},
+		{"isCyclic", "(Ljavax/swing/SpringLayout;)Z", nullptr, 0, $virtualMethod(Spring$NegativeSpring, isCyclic, bool, $SpringLayout*)},
+		{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(Spring$NegativeSpring, setValue, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Spring$NegativeSpring", "javax.swing.Spring", "NegativeSpring", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.Spring$NegativeSpring",
+		"javax.swing.Spring",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Spring"
+	};
+	$loadClass(Spring$NegativeSpring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spring$NegativeSpring);
+	});
 	return class$;
 }
 

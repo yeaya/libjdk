@@ -27,6 +27,7 @@ class GTKEngine$Settings : public ::java::lang::Enum {
 public:
 	GTKEngine$Settings();
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKEngine$Settings>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::gtk::GTKEngine$Settings* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::gtk::GTKEngine$Settings>* values();

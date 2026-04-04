@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$WildcardType$1.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
@@ -31,53 +30,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Type$WildcardType$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Type$WildcardType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$WildcardType$1, this$0)},
-	{}
-};
-
-$MethodInfo _Type$WildcardType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$WildcardType$1, init$, void, $Type$WildcardType*, $Type*, $BoundKind*, $Symbol$TypeSymbol*, $Type$TypeVar*, $TypeMetadata*)},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType$1, baseType, $Type*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType$1, cloneWithMetadata, $Type$WildcardType*, $TypeMetadata*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType$1, getAnnotationMirrors, $List*)},
-	{"getExtendsBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType$1, getExtendsBound, $TypeMirror*)},
-	{"getSuperBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType$1, getSuperBound, $TypeMirror*)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$WildcardType$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Type$WildcardType",
-	"cloneWithMetadata",
-	"(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$WildcardType;"
-};
-
-$InnerClassInfo _Type$WildcardType$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$WildcardType", "com.sun.tools.javac.code.Type", "WildcardType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$WildcardType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$WildcardType$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Type$WildcardType$1",
-	"com.sun.tools.javac.code.Type$WildcardType",
-	nullptr,
-	_Type$WildcardType$1_FieldInfo_,
-	_Type$WildcardType$1_MethodInfo_,
-	nullptr,
-	&_Type$WildcardType$1_EnclosingMethodInfo_,
-	_Type$WildcardType$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$WildcardType$1($Class* clazz) {
-	return $of($alloc(Type$WildcardType$1));
-}
-
 void Type$WildcardType$1::init$($Type$WildcardType* this$0, $Type* type, $BoundKind* kind, $Symbol$TypeSymbol* tsym, $Type$TypeVar* bound, $TypeMetadata* metadata) {
 	$set(this, this$0, this$0);
 	$Type$WildcardType::init$(type, kind, tsym, bound, metadata);
@@ -107,7 +59,47 @@ Type$WildcardType$1::Type$WildcardType$1() {
 }
 
 $Class* Type$WildcardType$1::load$($String* name, bool initialize) {
-	$loadClass(Type$WildcardType$1, name, initialize, &_Type$WildcardType$1_ClassInfo_, allocate$Type$WildcardType$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Type$WildcardType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$WildcardType$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/BoundKind;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Type$TypeVar;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$WildcardType$1, init$, void, $Type$WildcardType*, $Type*, $BoundKind*, $Symbol$TypeSymbol*, $Type$TypeVar*, $TypeMetadata*)},
+		{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$WildcardType$1, baseType, $Type*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType$1, cloneWithMetadata, $Type$WildcardType*, $TypeMetadata*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType$1, getAnnotationMirrors, $List*)},
+		{"getExtendsBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType$1, getExtendsBound, $TypeMirror*)},
+		{"getSuperBound", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$WildcardType$1, getSuperBound, $TypeMirror*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Type$WildcardType",
+		"cloneWithMetadata",
+		"(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$WildcardType;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$WildcardType", "com.sun.tools.javac.code.Type", "WildcardType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$WildcardType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Type$WildcardType$1",
+		"com.sun.tools.javac.code.Type$WildcardType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$WildcardType$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$WildcardType$1));
+	});
 	return class$;
 }
 

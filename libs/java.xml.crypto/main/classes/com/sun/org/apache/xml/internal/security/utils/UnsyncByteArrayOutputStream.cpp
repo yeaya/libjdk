@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/UnsyncByteArrayOutputStream.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <jcpp.h>
@@ -22,40 +21,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _UnsyncByteArrayOutputStream_FieldInfo_[] = {
-	{"VM_ARRAY_INDEX_MAX_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsyncByteArrayOutputStream, VM_ARRAY_INDEX_MAX_VALUE)},
-	{"INITIAL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsyncByteArrayOutputStream, INITIAL_SIZE)},
-	{"buf", "[B", nullptr, $PRIVATE, $field(UnsyncByteArrayOutputStream, buf)},
-	{"size", "I", nullptr, $PRIVATE, $field(UnsyncByteArrayOutputStream, size)},
-	{"pos", "I", nullptr, $PRIVATE, $field(UnsyncByteArrayOutputStream, pos)},
-	{}
-};
-
-$MethodInfo _UnsyncByteArrayOutputStream_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnsyncByteArrayOutputStream, init$, void)},
-	{"expandSize", "(I)V", nullptr, $PRIVATE, $method(UnsyncByteArrayOutputStream, expandSize, void, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, reset, void)},
-	{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, toByteArray, $bytes*)},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, $bytes*)},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, $bytes*, int32_t, int32_t)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, int32_t)},
-	{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, writeTo, void, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UnsyncByteArrayOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.UnsyncByteArrayOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_UnsyncByteArrayOutputStream_FieldInfo_,
-	_UnsyncByteArrayOutputStream_MethodInfo_
-};
-
-$Object* allocate$UnsyncByteArrayOutputStream($Class* clazz) {
-	return $of($alloc(UnsyncByteArrayOutputStream));
-}
-
 void UnsyncByteArrayOutputStream::init$() {
 	$OutputStream::init$();
 	this->size = UnsyncByteArrayOutputStream::INITIAL_SIZE;
@@ -66,7 +31,7 @@ void UnsyncByteArrayOutputStream::write($bytes* arg0) {
 	if ((UnsyncByteArrayOutputStream::VM_ARRAY_INDEX_MAX_VALUE - this->pos) < $nc(arg0)->length) {
 		$throwNew($OutOfMemoryError, "Required length exceeds implementation limit"_s);
 	}
-	int32_t newPos = this->pos + $nc(arg0)->length;
+	int32_t newPos = this->pos + arg0->length;
 	if (newPos > this->size) {
 		expandSize(newPos);
 	}
@@ -129,7 +94,36 @@ UnsyncByteArrayOutputStream::UnsyncByteArrayOutputStream() {
 }
 
 $Class* UnsyncByteArrayOutputStream::load$($String* name, bool initialize) {
-	$loadClass(UnsyncByteArrayOutputStream, name, initialize, &_UnsyncByteArrayOutputStream_ClassInfo_, allocate$UnsyncByteArrayOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"VM_ARRAY_INDEX_MAX_VALUE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsyncByteArrayOutputStream, VM_ARRAY_INDEX_MAX_VALUE)},
+		{"INITIAL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnsyncByteArrayOutputStream, INITIAL_SIZE)},
+		{"buf", "[B", nullptr, $PRIVATE, $field(UnsyncByteArrayOutputStream, buf)},
+		{"size", "I", nullptr, $PRIVATE, $field(UnsyncByteArrayOutputStream, size)},
+		{"pos", "I", nullptr, $PRIVATE, $field(UnsyncByteArrayOutputStream, pos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnsyncByteArrayOutputStream, init$, void)},
+		{"expandSize", "(I)V", nullptr, $PRIVATE, $method(UnsyncByteArrayOutputStream, expandSize, void, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, reset, void)},
+		{"toByteArray", "()[B", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, toByteArray, $bytes*)},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, $bytes*)},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, $bytes*, int32_t, int32_t)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, write, void, int32_t)},
+		{"writeTo", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(UnsyncByteArrayOutputStream, writeTo, void, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.UnsyncByteArrayOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsyncByteArrayOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnsyncByteArrayOutputStream));
+	});
 	return class$;
 }
 

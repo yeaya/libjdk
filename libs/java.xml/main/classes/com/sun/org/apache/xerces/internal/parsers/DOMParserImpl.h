@@ -153,6 +153,7 @@ class DOMParserImpl : public ::com::sun::org::apache::xerces::internal::parsers:
 	$class(DOMParserImpl, 0, ::com::sun::org::apache::xerces::internal::parsers::AbstractDOMParser, ::org::w3c::dom::ls::LSParser, ::org::w3c::dom::DOMConfiguration)
 public:
 	DOMParserImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/frame/FramesDecoder.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
@@ -95,109 +94,32 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FramesDecoder$$Lambda$toString>());
-	}
 	$String* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FramesDecoder$$Lambda$toString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(FramesDecoder$$Lambda$toString, inst$)},
-	{}
-};
-$MethodInfo FramesDecoder$$Lambda$toString::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FramesDecoder$$Lambda$toString, init$, void, $String*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FramesDecoder$$Lambda$toString, get, $Object*)},
-	{}
-};
-$ClassInfo FramesDecoder$$Lambda$toString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.frame.FramesDecoder$$Lambda$toString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* FramesDecoder$$Lambda$toString::load$($String* name, bool initialize) {
-	$loadClass(FramesDecoder$$Lambda$toString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(FramesDecoder$$Lambda$toString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FramesDecoder$$Lambda$toString, init$, void, $String*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(FramesDecoder$$Lambda$toString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.frame.FramesDecoder$$Lambda$toString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FramesDecoder$$Lambda$toString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FramesDecoder$$Lambda$toString);
+	});
 	return class$;
 }
 $Class* FramesDecoder$$Lambda$toString::class$ = nullptr;
-
-$FieldInfo _FramesDecoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FramesDecoder, $assertionsDisabled)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $STATIC | $FINAL, $staticField(FramesDecoder, debug)},
-	{"frameProcessor", "Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;", nullptr, $PRIVATE | $FINAL, $field(FramesDecoder, frameProcessor)},
-	{"maxFrameSize", "I", nullptr, $PRIVATE | $FINAL, $field(FramesDecoder, maxFrameSize)},
-	{"currentBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(FramesDecoder, currentBuffer)},
-	{"tailBuffers", "Ljava/util/ArrayDeque;", "Ljava/util/ArrayDeque<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(FramesDecoder, tailBuffers)},
-	{"tailSize", "I", nullptr, $PRIVATE, $field(FramesDecoder, tailSize)},
-	{"slicedToDataFrame", "Z", nullptr, $PRIVATE, $field(FramesDecoder, slicedToDataFrame)},
-	{"prepareToRelease", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(FramesDecoder, prepareToRelease)},
-	{"frameHeaderParsed", "Z", nullptr, $PRIVATE, $field(FramesDecoder, frameHeaderParsed)},
-	{"frameLength", "I", nullptr, $PRIVATE, $field(FramesDecoder, frameLength)},
-	{"frameType", "I", nullptr, $PRIVATE, $field(FramesDecoder, frameType)},
-	{"frameFlags", "I", nullptr, $PRIVATE, $field(FramesDecoder, frameFlags)},
-	{"frameStreamid", "I", nullptr, $PRIVATE, $field(FramesDecoder, frameStreamid)},
-	{"closed", "Z", nullptr, $PRIVATE, $field(FramesDecoder, closed)},
-	{"COPY_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FramesDecoder, COPY_THRESHOLD)},
-	{}
-};
-
-$MethodInfo _FramesDecoder_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;)V", nullptr, $PUBLIC, $method(FramesDecoder, init$, void, $FramesDecoder$FrameProcessor*)},
-	{"<init>", "(Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;I)V", nullptr, $PUBLIC, $method(FramesDecoder, init$, void, $FramesDecoder$FrameProcessor*, int32_t)},
-	{"close", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, close, void, $String*)},
-	{"decode", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, decode, void, $ByteBuffer*), "java.io.IOException"},
-	{"frameProcessed", "()V", nullptr, $PRIVATE, $method(FramesDecoder, frameProcessed, void)},
-	{"getBuffers", "(ZI)Ljava/util/List;", "(ZI)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(FramesDecoder, getBuffers, $List*, bool, int32_t)},
-	{"getByte", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getByte, int32_t)},
-	{"getBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getBytes, $bytes*, int32_t)},
-	{"getInt", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getInt, int32_t)},
-	{"getShort", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getShort, int32_t)},
-	{"nextBuffer", "()V", nullptr, $PRIVATE, $method(FramesDecoder, nextBuffer, void)},
-	{"nextFrame", "()Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, nextFrame, $Http2Frame*), "java.io.IOException"},
-	{"parseContinuationFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseContinuationFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parseDataFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseDataFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parseFrameBody", "()Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseFrameBody, $Http2Frame*), "java.io.IOException"},
-	{"parseFrameHeader", "()V", nullptr, $PRIVATE, $method(FramesDecoder, parseFrameHeader, void), "java.io.IOException"},
-	{"parseGoAwayFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseGoAwayFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parseHeadersFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseHeadersFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parsePingFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePingFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parsePriorityFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePriorityFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parsePushPromiseFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePushPromiseFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parseResetFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseResetFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parseSettingsFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseSettingsFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"parseWindowUpdateFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseWindowUpdateFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
-	{"skipBytes", "(I)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, skipBytes, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _FramesDecoder_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.frame.FramesDecoder$FrameProcessor", "jdk.internal.net.http.frame.FramesDecoder", "FrameProcessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FramesDecoder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.frame.FramesDecoder",
-	"java.lang.Object",
-	nullptr,
-	_FramesDecoder_FieldInfo_,
-	_FramesDecoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FramesDecoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.frame.FramesDecoder$FrameProcessor"
-};
-
-$Object* allocate$FramesDecoder($Class* clazz) {
-	return $of($alloc(FramesDecoder));
-}
 
 bool FramesDecoder::$assertionsDisabled = false;
 $Logger* FramesDecoder::debug = nullptr;
@@ -217,17 +139,17 @@ void FramesDecoder::init$($FramesDecoder$FrameProcessor* frameProcessor, int32_t
 }
 
 void FramesDecoder::decode($ByteBuffer* inBoundBuffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		if ($nc(FramesDecoder::debug)->on()) {
-			$nc(FramesDecoder::debug)->log("closed: ignoring buffer (%s bytes)"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(inBoundBuffer)->remaining())))}));
+			FramesDecoder::debug->log("closed: ignoring buffer (%s bytes)"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(inBoundBuffer)->remaining()))}));
 		}
-		$nc(inBoundBuffer)->position(inBoundBuffer->limit());
+		$nc(inBoundBuffer)->position($nc(inBoundBuffer)->limit());
 		return;
 	}
 	int32_t remaining = $nc(inBoundBuffer)->remaining();
 	if ($nc(FramesDecoder::debug)->on()) {
-		$nc(FramesDecoder::debug)->log("decodes: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(remaining)))}));
+		FramesDecoder::debug->log("decodes: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(remaining))}));
 	}
 	if (remaining > 0) {
 		if (this->currentBuffer == nullptr) {
@@ -235,7 +157,7 @@ void FramesDecoder::decode($ByteBuffer* inBoundBuffer) {
 		} else {
 			$var($ByteBuffer, b, this->currentBuffer);
 			if (!$nc(this->tailBuffers)->isEmpty()) {
-				$assign(b, $cast($ByteBuffer, $nc(this->tailBuffers)->getLast()));
+				$assign(b, $cast($ByteBuffer, this->tailBuffers->getLast()));
 			}
 			int32_t limit = $nc(b)->limit();
 			int32_t freeSpace = b->capacity() - limit;
@@ -248,28 +170,28 @@ void FramesDecoder::decode($ByteBuffer* inBoundBuffer) {
 				if (b != this->currentBuffer) {
 					this->tailSize += remaining;
 				}
-				if ($nc(FramesDecoder::debug)->on()) {
-					$nc(FramesDecoder::debug)->log("copied: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(remaining)))}));
+				if (FramesDecoder::debug->on()) {
+					FramesDecoder::debug->log("copied: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(remaining))}));
 				}
 			} else {
-				if ($nc(FramesDecoder::debug)->on()) {
-					$nc(FramesDecoder::debug)->log("added: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(remaining)))}));
+				if (FramesDecoder::debug->on()) {
+					FramesDecoder::debug->log("added: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(remaining))}));
 				}
-				$nc(this->tailBuffers)->add(inBoundBuffer);
+				this->tailBuffers->add(inBoundBuffer);
 				this->tailSize += remaining;
 			}
 		}
 	}
-	if ($nc(FramesDecoder::debug)->on()) {
-		$nc(FramesDecoder::debug)->log("Tail size is now: %d, current="_s, $$new($ObjectArray, {
-			$($of($Integer::valueOf(this->tailSize))),
-			$($of($Integer::valueOf((this->currentBuffer == nullptr ? 0 : $nc(this->currentBuffer)->remaining()))))
+	if (FramesDecoder::debug->on()) {
+		FramesDecoder::debug->log("Tail size is now: %d, current="_s, $$new($ObjectArray, {
+			$($Integer::valueOf(this->tailSize)),
+			$($Integer::valueOf((this->currentBuffer == nullptr ? 0 : this->currentBuffer->remaining())))
 		}));
 	}
 	$var($Http2Frame, frame, nullptr);
 	while (($assign(frame, nextFrame())) != nullptr) {
-		if ($nc(FramesDecoder::debug)->on()) {
-			$nc(FramesDecoder::debug)->log("Got frame: %s"_s, $$new($ObjectArray, {$of(frame)}));
+		if (FramesDecoder::debug->on()) {
+			FramesDecoder::debug->log("Got frame: %s"_s, $$new($ObjectArray, {frame}));
 		}
 		$nc(this->frameProcessor)->processFrame(frame);
 		frameProcessed();
@@ -277,7 +199,7 @@ void FramesDecoder::decode($ByteBuffer* inBoundBuffer) {
 }
 
 $Http2Frame* FramesDecoder::nextFrame() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		if (this->currentBuffer == nullptr) {
 			return nullptr;
@@ -292,15 +214,15 @@ $Http2Frame* FramesDecoder::nextFrame() {
 				this->frameHeaderParsed = true;
 			} else {
 				if ($nc(FramesDecoder::debug)->on()) {
-					$nc(FramesDecoder::debug)->log("Not enough data to parse header, needs: %d, has: %d"_s, $$new($ObjectArray, {
-						$($of($Integer::valueOf($Http2Frame::FRAME_HEADER_SIZE))),
-						$($of($Long::valueOf(available)))
+					FramesDecoder::debug->log("Not enough data to parse header, needs: %d, has: %d"_s, $$new($ObjectArray, {
+						$($Integer::valueOf($Http2Frame::FRAME_HEADER_SIZE)),
+						$($Long::valueOf(available))
 					}));
 				}
 				return nullptr;
 			}
 		}
-		available = this->currentBuffer == nullptr ? 0 : $nc(this->currentBuffer)->remaining() + this->tailSize;
+		available = this->currentBuffer == nullptr ? 0 : this->currentBuffer->remaining() + this->tailSize;
 		if ((this->frameLength == 0) || (this->currentBuffer != nullptr && available >= this->frameLength)) {
 			$var($Http2Frame, frame, parseFrameBody());
 			this->frameHeaderParsed = false;
@@ -309,9 +231,9 @@ $Http2Frame* FramesDecoder::nextFrame() {
 			}
 		} else {
 			if ($nc(FramesDecoder::debug)->on()) {
-				$nc(FramesDecoder::debug)->log("Not enough data to parse frame body, needs: %d,  has: %d"_s, $$new($ObjectArray, {
-					$($of($Integer::valueOf(this->frameLength))),
-					$($of($Long::valueOf(available)))
+				FramesDecoder::debug->log("Not enough data to parse frame body, needs: %d,  has: %d"_s, $$new($ObjectArray, {
+					$($Integer::valueOf(this->frameLength)),
+					$($Long::valueOf(available))
 				}));
 			}
 			return nullptr;
@@ -325,10 +247,10 @@ void FramesDecoder::frameProcessed() {
 
 void FramesDecoder::parseFrameHeader() {
 	int32_t x = getInt();
-	this->frameLength = (int32_t)(((int32_t)((uint32_t)x >> 8)) & (uint32_t)0x00FFFFFF);
-	this->frameType = (int32_t)(x & (uint32_t)255);
+	this->frameLength = ((int32_t)((uint32_t)x >> 8)) & 0x00ffffff;
+	this->frameType = x & 0xff;
 	this->frameFlags = getByte();
-	this->frameStreamid = (int32_t)(getInt() & (uint32_t)0x7FFFFFFF);
+	this->frameStreamid = getInt() & 0x7fffffff;
 }
 
 void FramesDecoder::nextBuffer() {
@@ -339,20 +261,20 @@ void FramesDecoder::nextBuffer() {
 		this->slicedToDataFrame = false;
 		$set(this, currentBuffer, $cast($ByteBuffer, $nc(this->tailBuffers)->poll()));
 		if (this->currentBuffer != nullptr) {
-			this->tailSize -= $nc(this->currentBuffer)->remaining();
+			this->tailSize -= this->currentBuffer->remaining();
 		}
 	}
 }
 
 int32_t FramesDecoder::getByte() {
-	int32_t res = (int32_t)($nc(this->currentBuffer)->get() & (uint32_t)255);
+	int32_t res = $nc(this->currentBuffer)->get() & 0xff;
 	nextBuffer();
 	return res;
 }
 
 int32_t FramesDecoder::getShort() {
 	if ($nc(this->currentBuffer)->remaining() >= 2) {
-		int32_t res = (int32_t)($nc(this->currentBuffer)->getShort() & (uint32_t)0x0000FFFF);
+		int32_t res = $nc(this->currentBuffer)->getShort() & 0xffff;
 		nextBuffer();
 		return res;
 	}
@@ -388,14 +310,14 @@ $bytes* FramesDecoder::getBytes(int32_t n) {
 }
 
 $List* FramesDecoder::getBuffers(bool isDataFrame, int32_t bytecount) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, res, $new($ArrayList));
 	while (bytecount > 0) {
 		int32_t remaining = $nc(this->currentBuffer)->remaining();
 		int32_t extract = $Math::min(remaining, bytecount);
 		$var($ByteBuffer, extractedBuf, nullptr);
 		if (isDataFrame) {
-			$assign(extractedBuf, $nc($($Utils::sliceWithLimitedCapacity(this->currentBuffer, extract)))->asReadOnlyBuffer());
+			$assign(extractedBuf, $$nc($Utils::sliceWithLimitedCapacity(this->currentBuffer, extract))->asReadOnlyBuffer());
 			this->slicedToDataFrame = true;
 		} else {
 			$assign(extractedBuf, $Utils::sliceWithLimitedCapacity(this->currentBuffer, extract));
@@ -408,7 +330,7 @@ $List* FramesDecoder::getBuffers(bool isDataFrame, int32_t bytecount) {
 }
 
 void FramesDecoder::close($String* msg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->closed = true;
 	$nc(this->tailBuffers)->clear();
 	int32_t bytes = this->tailSize;
@@ -420,9 +342,9 @@ void FramesDecoder::close($String* msg) {
 	this->tailSize = 0;
 	$set(this, currentBuffer, nullptr);
 	if ($nc(FramesDecoder::debug)->on()) {
-		$nc(FramesDecoder::debug)->log("closed %s, ignoring %d bytes"_s, $$new($ObjectArray, {
-			$of(msg),
-			$($of($Integer::valueOf(bytes)))
+		FramesDecoder::debug->log("closed %s, ignoring %d bytes"_s, $$new($ObjectArray, {
+			msg,
+			$($Integer::valueOf(bytes))
 		}));
 	}
 }
@@ -438,67 +360,45 @@ void FramesDecoder::skipBytes(int32_t bytecount) {
 }
 
 $Http2Frame* FramesDecoder::parseFrameBody() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!FramesDecoder::$assertionsDisabled && !this->frameHeaderParsed) {
 		$throwNew($AssertionError);
 	}
 	switch (this->frameType) {
 	case $DataFrame::TYPE:
-		{
-			return parseDataFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parseDataFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $HeadersFrame::TYPE:
-		{
-			return parseHeadersFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parseHeadersFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $PriorityFrame::TYPE:
-		{
-			return parsePriorityFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parsePriorityFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $ResetFrame::TYPE:
-		{
-			return parseResetFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parseResetFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $SettingsFrame::TYPE:
-		{
-			return parseSettingsFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parseSettingsFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $PushPromiseFrame::TYPE:
-		{
-			return parsePushPromiseFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parsePushPromiseFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $PingFrame::TYPE:
-		{
-			return parsePingFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parsePingFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $GoAwayFrame::TYPE:
-		{
-			return parseGoAwayFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parseGoAwayFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $WindowUpdateFrame::TYPE:
-		{
-			return parseWindowUpdateFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parseWindowUpdateFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	case $ContinuationFrame::TYPE:
-		{
-			return parseContinuationFrame(this->frameLength, this->frameStreamid, this->frameFlags);
-		}
+		return parseContinuationFrame(this->frameLength, this->frameStreamid, this->frameFlags);
 	default:
-		{
-			$Log::logTrace("Unknown incoming frame type: {0}"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->frameType)))}));
-			skipBytes(this->frameLength);
-			return nullptr;
-		}
+		$Log::logTrace("Unknown incoming frame type: {0}"_s, $$new($ObjectArray, {$($Integer::valueOf(this->frameType))}));
+		skipBytes(this->frameLength);
+		return nullptr;
 	}
 }
 
 $Http2Frame* FramesDecoder::parseDataFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamid == 0) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "zero streamId for DataFrame"_s);
 	}
 	int32_t padLength = 0;
-	if (((int32_t)(flags & (uint32_t)$DataFrame::PADDED)) != 0) {
+	if ((flags & $DataFrame::PADDED) != 0) {
 		padLength = getByte();
 		if (padLength >= frameLength) {
 			return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "the length of the padding is the length of the frame payload or greater"_s);
@@ -511,23 +411,23 @@ $Http2Frame* FramesDecoder::parseDataFrame(int32_t frameLength, int32_t streamid
 }
 
 $Http2Frame* FramesDecoder::parseHeadersFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamid == 0) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "zero streamId for HeadersFrame"_s);
 	}
 	int32_t padLength = 0;
-	if (((int32_t)(flags & (uint32_t)$HeadersFrame::PADDED)) != 0) {
+	if ((flags & $HeadersFrame::PADDED) != 0) {
 		padLength = getByte();
 		--frameLength;
 	}
-	bool hasPriority = ((int32_t)(flags & (uint32_t)$HeadersFrame::PRIORITY)) != 0;
+	bool hasPriority = (flags & $HeadersFrame::PRIORITY) != 0;
 	bool exclusive = false;
 	int32_t streamDependency = 0;
 	int32_t weight = 0;
 	if (hasPriority) {
 		int32_t x = getInt();
-		exclusive = ((int32_t)(x & (uint32_t)(int32_t)0x80000000)) != 0;
-		streamDependency = (int32_t)(x & (uint32_t)0x7FFFFFFF);
+		exclusive = (x & (int32_t)0x80000000) != 0;
+		streamDependency = x & 0x7fffffff;
 		weight = getByte();
 		frameLength -= 5;
 	}
@@ -543,7 +443,7 @@ $Http2Frame* FramesDecoder::parseHeadersFrame(int32_t frameLength, int32_t strea
 }
 
 $Http2Frame* FramesDecoder::parsePriorityFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamid == 0) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "zero streamId for PriorityFrame"_s);
 	}
@@ -553,11 +453,11 @@ $Http2Frame* FramesDecoder::parsePriorityFrame(int32_t frameLength, int32_t stre
 	}
 	int32_t x = getInt();
 	int32_t weight = getByte();
-	return $new($PriorityFrame, streamid, (int32_t)(x & (uint32_t)0x7FFFFFFF), ((int32_t)(x & (uint32_t)(int32_t)0x80000000)) != 0, weight);
+	return $new($PriorityFrame, streamid, x & 0x7fffffff, (x & (int32_t)0x80000000) != 0, weight);
 }
 
 $Http2Frame* FramesDecoder::parseResetFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamid == 0) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "zero streamId for ResetFrame"_s);
 	}
@@ -568,11 +468,11 @@ $Http2Frame* FramesDecoder::parseResetFrame(int32_t frameLength, int32_t streami
 }
 
 $Http2Frame* FramesDecoder::parseSettingsFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamid != 0) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "non-zero streamId for SettingsFrame"_s);
 	}
-	if (((int32_t)($SettingsFrame::ACK & (uint32_t)flags)) != 0 && frameLength > 0) {
+	if (($SettingsFrame::ACK & flags) != 0 && frameLength > 0) {
 		return $new($MalformedFrame, $ErrorFrame::FRAME_SIZE_ERROR, "ACK SettingsFrame is not empty"_s);
 	}
 	if (frameLength % 6 != 0) {
@@ -591,16 +491,16 @@ $Http2Frame* FramesDecoder::parseSettingsFrame(int32_t frameLength, int32_t stre
 }
 
 $Http2Frame* FramesDecoder::parsePushPromiseFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamid == 0) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "zero streamId for PushPromiseFrame"_s);
 	}
 	int32_t padLength = 0;
-	if (((int32_t)(flags & (uint32_t)$PushPromiseFrame::PADDED)) != 0) {
+	if ((flags & $PushPromiseFrame::PADDED) != 0) {
 		padLength = getByte();
 		--frameLength;
 	}
-	int32_t promisedStream = (int32_t)(getInt() & (uint32_t)0x7FFFFFFF);
+	int32_t promisedStream = getInt() & 0x7fffffff;
 	frameLength -= 4;
 	if (frameLength < padLength) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "Padding exceeds the size remaining for the PushPromiseFrame"_s);
@@ -611,7 +511,7 @@ $Http2Frame* FramesDecoder::parsePushPromiseFrame(int32_t frameLength, int32_t s
 }
 
 $Http2Frame* FramesDecoder::parsePingFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamid != 0) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "non-zero streamId for PingFrame"_s);
 	}
@@ -622,14 +522,14 @@ $Http2Frame* FramesDecoder::parsePingFrame(int32_t frameLength, int32_t streamid
 }
 
 $Http2Frame* FramesDecoder::parseGoAwayFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (streamid != 0) {
 		return $new($MalformedFrame, $ErrorFrame::PROTOCOL_ERROR, "non-zero streamId for GoAwayFrame"_s);
 	}
 	if (frameLength < 8) {
 		return $new($MalformedFrame, $ErrorFrame::FRAME_SIZE_ERROR, "Invalid GoAway frame size"_s);
 	}
-	int32_t lastStream = (int32_t)(getInt() & (uint32_t)0x7FFFFFFF);
+	int32_t lastStream = getInt() & 0x7fffffff;
 	int32_t errorCode = getInt();
 	$var($bytes, debugData, getBytes(frameLength - 8));
 	if ($nc(debugData)->length > 0) {
@@ -640,11 +540,11 @@ $Http2Frame* FramesDecoder::parseGoAwayFrame(int32_t frameLength, int32_t stream
 }
 
 $Http2Frame* FramesDecoder::parseWindowUpdateFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (frameLength != 4) {
 		return $new($MalformedFrame, $ErrorFrame::FRAME_SIZE_ERROR, $$str({"WindowUpdateFrame length is "_s, $$str(frameLength), ", expected 4"_s}));
 	}
-	return $new($WindowUpdateFrame, streamid, (int32_t)(getInt() & (uint32_t)0x7FFFFFFF));
+	return $new($WindowUpdateFrame, streamid, getInt() & 0x7fffffff);
 }
 
 $Http2Frame* FramesDecoder::parseContinuationFrame(int32_t frameLength, int32_t streamid, int32_t flags) {
@@ -654,10 +554,10 @@ $Http2Frame* FramesDecoder::parseContinuationFrame(int32_t frameLength, int32_t 
 	return $new($ContinuationFrame, streamid, flags, $(getBuffers(false, frameLength)));
 }
 
-void clinit$FramesDecoder($Class* class$) {
+void FramesDecoder::clinit$($Class* clazz) {
 	FramesDecoder::$assertionsDisabled = !FramesDecoder::class$->desiredAssertionStatus();
 	$init($Utils);
-	$assignStatic(FramesDecoder::debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(FramesDecoder$$Lambda$toString, static_cast<$String*>("FramesDecoder"_s))), $Utils::DEBUG));
+	$assignStatic(FramesDecoder::debug, $Utils::getDebugLogger($$new(FramesDecoder$$Lambda$toString, "FramesDecoder"_s), $Utils::DEBUG));
 }
 
 FramesDecoder::FramesDecoder() {
@@ -665,11 +565,78 @@ FramesDecoder::FramesDecoder() {
 
 $Class* FramesDecoder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FramesDecoder$$Lambda$toString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.frame.FramesDecoder$$Lambda$toString")) {
 			return FramesDecoder$$Lambda$toString::load$(name, initialize);
 		}
 	}
-	$loadClass(FramesDecoder, name, initialize, &_FramesDecoder_ClassInfo_, clinit$FramesDecoder, allocate$FramesDecoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(FramesDecoder, $assertionsDisabled)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $STATIC | $FINAL, $staticField(FramesDecoder, debug)},
+		{"frameProcessor", "Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;", nullptr, $PRIVATE | $FINAL, $field(FramesDecoder, frameProcessor)},
+		{"maxFrameSize", "I", nullptr, $PRIVATE | $FINAL, $field(FramesDecoder, maxFrameSize)},
+		{"currentBuffer", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(FramesDecoder, currentBuffer)},
+		{"tailBuffers", "Ljava/util/ArrayDeque;", "Ljava/util/ArrayDeque<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(FramesDecoder, tailBuffers)},
+		{"tailSize", "I", nullptr, $PRIVATE, $field(FramesDecoder, tailSize)},
+		{"slicedToDataFrame", "Z", nullptr, $PRIVATE, $field(FramesDecoder, slicedToDataFrame)},
+		{"prepareToRelease", "Ljava/util/List;", "Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE | $FINAL, $field(FramesDecoder, prepareToRelease)},
+		{"frameHeaderParsed", "Z", nullptr, $PRIVATE, $field(FramesDecoder, frameHeaderParsed)},
+		{"frameLength", "I", nullptr, $PRIVATE, $field(FramesDecoder, frameLength)},
+		{"frameType", "I", nullptr, $PRIVATE, $field(FramesDecoder, frameType)},
+		{"frameFlags", "I", nullptr, $PRIVATE, $field(FramesDecoder, frameFlags)},
+		{"frameStreamid", "I", nullptr, $PRIVATE, $field(FramesDecoder, frameStreamid)},
+		{"closed", "Z", nullptr, $PRIVATE, $field(FramesDecoder, closed)},
+		{"COPY_THRESHOLD", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FramesDecoder, COPY_THRESHOLD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;)V", nullptr, $PUBLIC, $method(FramesDecoder, init$, void, $FramesDecoder$FrameProcessor*)},
+		{"<init>", "(Ljdk/internal/net/http/frame/FramesDecoder$FrameProcessor;I)V", nullptr, $PUBLIC, $method(FramesDecoder, init$, void, $FramesDecoder$FrameProcessor*, int32_t)},
+		{"close", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, close, void, $String*)},
+		{"decode", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, decode, void, $ByteBuffer*), "java.io.IOException"},
+		{"frameProcessed", "()V", nullptr, $PRIVATE, $method(FramesDecoder, frameProcessed, void)},
+		{"getBuffers", "(ZI)Ljava/util/List;", "(ZI)Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(FramesDecoder, getBuffers, $List*, bool, int32_t)},
+		{"getByte", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getByte, int32_t)},
+		{"getBytes", "(I)[B", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getBytes, $bytes*, int32_t)},
+		{"getInt", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getInt, int32_t)},
+		{"getShort", "()I", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, getShort, int32_t)},
+		{"nextBuffer", "()V", nullptr, $PRIVATE, $method(FramesDecoder, nextBuffer, void)},
+		{"nextFrame", "()Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, nextFrame, $Http2Frame*), "java.io.IOException"},
+		{"parseContinuationFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseContinuationFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parseDataFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseDataFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parseFrameBody", "()Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseFrameBody, $Http2Frame*), "java.io.IOException"},
+		{"parseFrameHeader", "()V", nullptr, $PRIVATE, $method(FramesDecoder, parseFrameHeader, void), "java.io.IOException"},
+		{"parseGoAwayFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseGoAwayFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parseHeadersFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseHeadersFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parsePingFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePingFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parsePriorityFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePriorityFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parsePushPromiseFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parsePushPromiseFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parseResetFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseResetFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parseSettingsFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseSettingsFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"parseWindowUpdateFrame", "(III)Ljdk/internal/net/http/frame/Http2Frame;", nullptr, $PRIVATE, $method(FramesDecoder, parseWindowUpdateFrame, $Http2Frame*, int32_t, int32_t, int32_t)},
+		{"skipBytes", "(I)V", nullptr, $PUBLIC, $virtualMethod(FramesDecoder, skipBytes, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.frame.FramesDecoder$FrameProcessor", "jdk.internal.net.http.frame.FramesDecoder", "FrameProcessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.frame.FramesDecoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.frame.FramesDecoder$FrameProcessor"
+	};
+	$loadClass(FramesDecoder, name, initialize, &classInfo$$, FramesDecoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FramesDecoder);
+	});
 	return class$;
 }
 

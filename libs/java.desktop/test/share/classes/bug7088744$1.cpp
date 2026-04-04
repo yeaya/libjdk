@@ -1,5 +1,4 @@
 #include <bug7088744$1.h>
-
 #include <bug7088744.h>
 #include <java/awt/Component.h>
 #include <java/awt/Event.h>
@@ -36,48 +35,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $JLabel = ::javax::swing::JLabel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
-$MethodInfo _bug7088744$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug7088744$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7088744$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug7088744$1_EnclosingMethodInfo_ = {
-	"bug7088744",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug7088744$1_InnerClassesInfo_[] = {
-	{"bug7088744$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7088744$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7088744$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug7088744$1_MethodInfo_,
-	nullptr,
-	&_bug7088744$1_EnclosingMethodInfo_,
-	_bug7088744$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7088744"
-};
-
-$Object* allocate$bug7088744$1($Class* clazz) {
-	return $of($alloc(bug7088744$1));
-}
-
 void bug7088744$1::init$() {
 }
 
 void bug7088744$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, source, $new($JLabel));
 	$var($MouseEvent, mouseEventNoButtons, $new($MouseEvent, source, 0, $System::currentTimeMillis(), (($Event::ALT_MASK | $Event::META_MASK) | $InputEvent::ALT_DOWN_MASK) | $InputEvent::META_DOWN_MASK, 0, 0, 0, false, $MouseEvent::NOBUTTON));
 	if ($SwingUtilities::isLeftMouseButton(mouseEventNoButtons)) {
@@ -113,7 +75,38 @@ bug7088744$1::bug7088744$1() {
 }
 
 $Class* bug7088744$1::load$($String* name, bool initialize) {
-	$loadClass(bug7088744$1, name, initialize, &_bug7088744$1_ClassInfo_, allocate$bug7088744$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug7088744$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7088744$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug7088744",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7088744$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7088744$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7088744"
+	};
+	$loadClass(bug7088744$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7088744$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/font/TrueTypeGlyphMapper.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Locale.h>
 #include <sun/font/CMap$CMapFormat10.h>
@@ -39,54 +38,12 @@ using $CMap$CMapFormat12 = ::sun::font::CMap$CMapFormat12;
 using $CMap$CMapFormat8 = ::sun::font::CMap$CMapFormat8;
 using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
 using $FileFontStrike = ::sun::font::FileFontStrike;
-using $Font2D = ::sun::font::Font2D;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $SunFontManager = ::sun::font::SunFontManager;
 using $TrueTypeFont = ::sun::font::TrueTypeFont;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _TrueTypeGlyphMapper_FieldInfo_[] = {
-	{"REVERSE_SOLIDUS", "C", nullptr, $STATIC | $FINAL, $constField(TrueTypeGlyphMapper, REVERSE_SOLIDUS)},
-	{"JA_YEN", "C", nullptr, $STATIC | $FINAL, $constField(TrueTypeGlyphMapper, JA_YEN)},
-	{"isJAlocale", "Z", nullptr, $STATIC | $FINAL, $staticField(TrueTypeGlyphMapper, isJAlocale)},
-	{"font", "Lsun/font/TrueTypeFont;", nullptr, 0, $field(TrueTypeGlyphMapper, font)},
-	{"cmap", "Lsun/font/CMap;", nullptr, 0, $field(TrueTypeGlyphMapper, cmap)},
-	{"numGlyphs", "I", nullptr, 0, $field(TrueTypeGlyphMapper, numGlyphs)},
-	{}
-};
-
-$MethodInfo _TrueTypeGlyphMapper_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/TrueTypeFont;)V", nullptr, $PUBLIC, $method(TrueTypeGlyphMapper, init$, void, $TrueTypeFont*)},
-	{"charToGlyph", "(C)I", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charToGlyph, int32_t, char16_t)},
-	{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charToGlyph, int32_t, int32_t)},
-	{"charToVariationGlyph", "(II)I", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charToVariationGlyph, int32_t, int32_t, int32_t)},
-	{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
-	{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
-	{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
-	{"getGlyphFromCMAP", "(I)C", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, getGlyphFromCMAP, char16_t, int32_t)},
-	{"getGlyphFromCMAP", "(II)C", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, getGlyphFromCMAP, char16_t, int32_t, int32_t)},
-	{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, getNumGlyphs, int32_t)},
-	{"handleBadCMAP", "()V", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, handleBadCMAP, void)},
-	{"hasSupplementaryChars", "()Z", nullptr, 0, $virtualMethod(TrueTypeGlyphMapper, hasSupplementaryChars, bool)},
-	{"remapJAChar", "(C)C", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, remapJAChar, char16_t, char16_t)},
-	{"remapJAIntChar", "(I)I", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, remapJAIntChar, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _TrueTypeGlyphMapper_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.TrueTypeGlyphMapper",
-	"sun.font.CharToGlyphMapper",
-	nullptr,
-	_TrueTypeGlyphMapper_FieldInfo_,
-	_TrueTypeGlyphMapper_MethodInfo_
-};
-
-$Object* allocate$TrueTypeGlyphMapper($Class* clazz) {
-	return $of($alloc(TrueTypeGlyphMapper));
-}
 
 bool TrueTypeGlyphMapper::isJAlocale = false;
 
@@ -115,17 +72,20 @@ int32_t TrueTypeGlyphMapper::getNumGlyphs() {
 }
 
 char16_t TrueTypeGlyphMapper::getGlyphFromCMAP(int32_t charCode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		char16_t glyphCode = $nc(this->cmap)->getGlyph(charCode);
 		if (glyphCode < this->numGlyphs || glyphCode >= $FileFontStrike::INVISIBLE_GLYPHS) {
 			return glyphCode;
 		} else {
 			if ($FontUtilities::isLogging()) {
-				$var($String, var$2, $$str({this->font, " out of range glyph id="_s}));
-				$var($String, var$1, $$concat(var$2, $($Integer::toHexString((int32_t)glyphCode))));
-				$var($String, var$0, $$concat(var$1, " for char "_s));
-				$FontUtilities::logWarning($$concat(var$0, $($Integer::toHexString(charCode))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append(this->font);
+				var$0->append(" out of range glyph id="_s);
+				var$0->append($($Integer::toHexString((int32_t)glyphCode)));
+				var$0->append(" for char "_s);
+				var$0->append($($Integer::toHexString(charCode)));
+				$FontUtilities::logWarning($$str(var$0));
 			}
 			return (char16_t)this->missingGlyph;
 		}
@@ -137,7 +97,7 @@ char16_t TrueTypeGlyphMapper::getGlyphFromCMAP(int32_t charCode) {
 }
 
 char16_t TrueTypeGlyphMapper::getGlyphFromCMAP(int32_t charCode, int32_t variationSelector) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (variationSelector == 0) {
 		return getGlyphFromCMAP(charCode);
 	}
@@ -147,12 +107,15 @@ char16_t TrueTypeGlyphMapper::getGlyphFromCMAP(int32_t charCode, int32_t variati
 			return glyphCode;
 		} else {
 			if ($FontUtilities::isLogging()) {
-				$var($String, var$4, $$str({this->font, " out of range glyph id="_s}));
-				$var($String, var$3, $$concat(var$4, $($Integer::toHexString((int32_t)glyphCode))));
-				$var($String, var$2, $$concat(var$3, " for char "_s));
-				$var($String, var$1, $$concat(var$2, $($Integer::toHexString(charCode))));
-				$var($String, var$0, $$concat(var$1, " for vs "_s));
-				$FontUtilities::logWarning($$concat(var$0, $($Integer::toHexString(variationSelector))));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append(this->font);
+				var$0->append(" out of range glyph id="_s);
+				var$0->append($($Integer::toHexString((int32_t)glyphCode)));
+				var$0->append(" for char "_s);
+				var$0->append($($Integer::toHexString(charCode)));
+				var$0->append(" for vs "_s);
+				var$0->append($($Integer::toHexString(variationSelector)));
+				$FontUtilities::logWarning($$str(var$0));
 			}
 			return (char16_t)this->missingGlyph;
 		}
@@ -164,11 +127,11 @@ char16_t TrueTypeGlyphMapper::getGlyphFromCMAP(int32_t charCode, int32_t variati
 }
 
 void TrueTypeGlyphMapper::handleBadCMAP() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($FontUtilities::isLogging()) {
 		$FontUtilities::logSevere($$str({"Null Cmap for "_s, this->font, "substituting for this font"_s}));
 	}
-	$nc($($SunFontManager::getInstance()))->deRegisterBadFont(this->font);
+	$$nc($SunFontManager::getInstance())->deRegisterBadFont(this->font);
 	$init($CMap);
 	$set(this, cmap, $CMap::theNullCmap);
 }
@@ -178,7 +141,7 @@ char16_t TrueTypeGlyphMapper::remapJAChar(char16_t unicode) {
 }
 
 int32_t TrueTypeGlyphMapper::remapJAIntChar(int32_t unicode) {
-	return (unicode == TrueTypeGlyphMapper::REVERSE_SOLIDUS) ? (int32_t)TrueTypeGlyphMapper::JA_YEN : unicode;
+	return (unicode == TrueTypeGlyphMapper::REVERSE_SOLIDUS) ? TrueTypeGlyphMapper::JA_YEN : unicode;
 }
 
 int32_t TrueTypeGlyphMapper::charToGlyph(char16_t unicode) {
@@ -233,8 +196,8 @@ bool TrueTypeGlyphMapper::charsToGlyphsNS(int32_t count, $chars* unicodes, $ints
 		if (code < $FontUtilities::MIN_LAYOUT_CHARCODE) {
 			continue;
 		} else {
-			bool var$1 = $FontUtilities::isComplexCharCode(code);
-			if (var$1 || $CharToGlyphMapper::isVariationSelector(code)) {
+			bool var$0 = $FontUtilities::isComplexCharCode(code);
+			if (var$0 || $CharToGlyphMapper::isVariationSelector(code)) {
 				return true;
 			} else if (code >= 0x00010000) {
 				i += 1;
@@ -249,7 +212,7 @@ bool TrueTypeGlyphMapper::hasSupplementaryChars() {
 	return $instanceOf($CMap$CMapFormat8, this->cmap) || $instanceOf($CMap$CMapFormat10, this->cmap) || $instanceOf($CMap$CMapFormat12, this->cmap);
 }
 
-void clinit$TrueTypeGlyphMapper($Class* class$) {
+void TrueTypeGlyphMapper::clinit$($Class* clazz) {
 	$init($Locale);
 	TrueTypeGlyphMapper::isJAlocale = $nc($Locale::JAPAN)->equals($($Locale::getDefault()));
 }
@@ -258,7 +221,43 @@ TrueTypeGlyphMapper::TrueTypeGlyphMapper() {
 }
 
 $Class* TrueTypeGlyphMapper::load$($String* name, bool initialize) {
-	$loadClass(TrueTypeGlyphMapper, name, initialize, &_TrueTypeGlyphMapper_ClassInfo_, clinit$TrueTypeGlyphMapper, allocate$TrueTypeGlyphMapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"REVERSE_SOLIDUS", "C", nullptr, $STATIC | $FINAL, $constField(TrueTypeGlyphMapper, REVERSE_SOLIDUS)},
+		{"JA_YEN", "C", nullptr, $STATIC | $FINAL, $constField(TrueTypeGlyphMapper, JA_YEN)},
+		{"isJAlocale", "Z", nullptr, $STATIC | $FINAL, $staticField(TrueTypeGlyphMapper, isJAlocale)},
+		{"font", "Lsun/font/TrueTypeFont;", nullptr, 0, $field(TrueTypeGlyphMapper, font)},
+		{"cmap", "Lsun/font/CMap;", nullptr, 0, $field(TrueTypeGlyphMapper, cmap)},
+		{"numGlyphs", "I", nullptr, 0, $field(TrueTypeGlyphMapper, numGlyphs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/TrueTypeFont;)V", nullptr, $PUBLIC, $method(TrueTypeGlyphMapper, init$, void, $TrueTypeFont*)},
+		{"charToGlyph", "(C)I", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charToGlyph, int32_t, char16_t)},
+		{"charToGlyph", "(I)I", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charToGlyph, int32_t, int32_t)},
+		{"charToVariationGlyph", "(II)I", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charToVariationGlyph, int32_t, int32_t, int32_t)},
+		{"charsToGlyphs", "(I[I[I)V", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charsToGlyphs, void, int32_t, $ints*, $ints*)},
+		{"charsToGlyphs", "(I[C[I)V", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charsToGlyphs, void, int32_t, $chars*, $ints*)},
+		{"charsToGlyphsNS", "(I[C[I)Z", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, charsToGlyphsNS, bool, int32_t, $chars*, $ints*)},
+		{"getGlyphFromCMAP", "(I)C", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, getGlyphFromCMAP, char16_t, int32_t)},
+		{"getGlyphFromCMAP", "(II)C", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, getGlyphFromCMAP, char16_t, int32_t, int32_t)},
+		{"getNumGlyphs", "()I", nullptr, $PUBLIC, $virtualMethod(TrueTypeGlyphMapper, getNumGlyphs, int32_t)},
+		{"handleBadCMAP", "()V", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, handleBadCMAP, void)},
+		{"hasSupplementaryChars", "()Z", nullptr, 0, $virtualMethod(TrueTypeGlyphMapper, hasSupplementaryChars, bool)},
+		{"remapJAChar", "(C)C", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, remapJAChar, char16_t, char16_t)},
+		{"remapJAIntChar", "(I)I", nullptr, $PRIVATE, $method(TrueTypeGlyphMapper, remapJAIntChar, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.TrueTypeGlyphMapper",
+		"sun.font.CharToGlyphMapper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TrueTypeGlyphMapper, name, initialize, &classInfo$$, TrueTypeGlyphMapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TrueTypeGlyphMapper);
+	});
 	return class$;
 }
 

@@ -18,7 +18,7 @@ class $import NameSpace : public ::java::io::Serializable {
 public:
 	NameSpace();
 	void init$($String* prefix, $String* uri);
-	static const int64_t serialVersionUID = (int64_t)0x146ADE9031F800AF;
+	static const int64_t serialVersionUID = (int64_t)0x146ade9031f800af;
 	::com::sun::org::apache::xml::internal::utils::NameSpace* m_next = nullptr;
 	$String* m_prefix = nullptr;
 	$String* m_uri = nullptr;

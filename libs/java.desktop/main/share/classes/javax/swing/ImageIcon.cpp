@@ -1,5 +1,4 @@
 #include <javax/swing/ImageIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ImageObserver.h>
-#include <java/awt/image/ImageProducer.h>
 #include <java/awt/image/MemoryImageSource.h>
 #include <java/awt/image/PixelGrabber.h>
 #include <java/io/IOException.h>
@@ -43,14 +41,12 @@ using $MediaTracker = ::java::awt::MediaTracker;
 using $Toolkit = ::java::awt::Toolkit;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $ImageProducer = ::java::awt::image::ImageProducer;
 using $MemoryImageSource = ::java::awt::image::MemoryImageSource;
 using $PixelGrabber = ::java::awt::image::PixelGrabber;
 using $IOException = ::java::io::IOException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -78,131 +74,6 @@ using $AppContext = ::sun::awt::AppContext;
 namespace javax {
 	namespace swing {
 
-$CompoundAttribute _ImageIcon_FieldAnnotations_component[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ImageIcon_FieldAnnotations_tracker[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$Attribute ImageIcon_Attribute_var$1[] = {
-	{'s', "description"},
-	{'-'}
-};
-
-$NamedAttribute ImageIcon_Attribute_var$0[] = {
-	{"value", '[', ImageIcon_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _ImageIcon_MethodAnnotations_init$1[] = {
-	{"Ljava/beans/ConstructorProperties;", ImageIcon_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute ImageIcon_Attribute_var$2[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "The AccessibleContext associated with this ImageIcon."},
-	{}
-};
-
-$CompoundAttribute _ImageIcon_MethodAnnotations_getAccessibleContext10[] = {
-	{"Ljava/beans/BeanProperty;", ImageIcon_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _ImageIcon_MethodAnnotations_getImage14[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ImageIcon_MethodAnnotations_getImageObserver16[] = {
-	{"Ljava/beans/Transient;", nullptr},
-	{}
-};
-
-$FieldInfo _ImageIcon_FieldInfo_[] = {
-	{"filename", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(ImageIcon, filename)},
-	{"location", "Ljava/net/URL;", nullptr, $PRIVATE | $TRANSIENT, $field(ImageIcon, location)},
-	{"image", "Ljava/awt/Image;", nullptr, $TRANSIENT, $field(ImageIcon, image)},
-	{"loadStatus", "I", nullptr, $TRANSIENT, $field(ImageIcon, loadStatus)},
-	{"imageObserver", "Ljava/awt/image/ImageObserver;", nullptr, 0, $field(ImageIcon, imageObserver)},
-	{"description", "Ljava/lang/String;", nullptr, 0, $field(ImageIcon, description)},
-	{"component", "Ljava/awt/Component;", nullptr, $PROTECTED | $STATIC | $FINAL | $DEPRECATED, $staticField(ImageIcon, component), _ImageIcon_FieldAnnotations_component},
-	{"tracker", "Ljava/awt/MediaTracker;", nullptr, $PROTECTED | $STATIC | $FINAL | $DEPRECATED, $staticField(ImageIcon, tracker), _ImageIcon_FieldAnnotations_tracker},
-	{"mediaTrackerID", "I", nullptr, $PRIVATE | $STATIC, $staticField(ImageIcon, mediaTrackerID)},
-	{"TRACKER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageIcon, TRACKER_KEY)},
-	{"width", "I", nullptr, 0, $field(ImageIcon, width)},
-	{"height", "I", nullptr, 0, $field(ImageIcon, height)},
-	{"accessibleContext", "Ljavax/swing/ImageIcon$AccessibleImageIcon;", nullptr, $PRIVATE, $field(ImageIcon, accessibleContext)},
-	{}
-};
-
-$MethodInfo _ImageIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $String*), nullptr, nullptr, _ImageIcon_MethodAnnotations_init$1},
-	{"<init>", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $URL*, $String*)},
-	{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $URL*)},
-	{"<init>", "(Ljava/awt/Image;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $Image*, $String*)},
-	{"<init>", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $Image*)},
-	{"<init>", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $bytes*, $String*)},
-	{"<init>", "([B)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $bytes*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageIcon, init$, void)},
-	{"createNoPermsComponent", "()Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIcon, createNoPermsComponent, $Component*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _ImageIcon_MethodAnnotations_getAccessibleContext10},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getDescription, $String*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getIconWidth, int32_t)},
-	{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getImage, $Image*), nullptr, nullptr, _ImageIcon_MethodAnnotations_getImage14},
-	{"getImageLoadStatus", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getImageLoadStatus, int32_t)},
-	{"getImageObserver", "()Ljava/awt/image/ImageObserver;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getImageObserver, $ImageObserver*), nullptr, nullptr, _ImageIcon_MethodAnnotations_getImageObserver16},
-	{"getNextID", "()I", nullptr, $PRIVATE, $method(ImageIcon, getNextID, int32_t)},
-	{"getTracker", "()Ljava/awt/MediaTracker;", nullptr, $PRIVATE, $method(ImageIcon, getTracker, $MediaTracker*)},
-	{"loadImage", "(Ljava/awt/Image;)V", nullptr, $PROTECTED, $virtualMethod(ImageIcon, loadImage, void, $Image*)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImageIcon, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"setDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageIcon, setDescription, void, $String*)},
-	{"setImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(ImageIcon, setImage, void, $Image*)},
-	{"setImageObserver", "(Ljava/awt/image/ImageObserver;)V", nullptr, $PUBLIC, $virtualMethod(ImageIcon, setImageObserver, void, $ImageObserver*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ImageIcon, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ImageIcon_InnerClassesInfo_[] = {
-	{"javax.swing.ImageIcon$AccessibleImageIcon", "javax.swing.ImageIcon", "AccessibleImageIcon", $PROTECTED},
-	{"javax.swing.ImageIcon$3", nullptr, nullptr, 0},
-	{"javax.swing.ImageIcon$2", nullptr, nullptr, 0},
-	{"javax.swing.ImageIcon$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ImageIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ImageIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable,javax.accessibility.Accessible",
-	_ImageIcon_FieldInfo_,
-	_ImageIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.ImageIcon$AccessibleImageIcon,javax.swing.ImageIcon$3,javax.swing.ImageIcon$2,javax.swing.ImageIcon$2$1,javax.swing.ImageIcon$1"
-};
-
-$Object* allocate$ImageIcon($Class* clazz) {
-	return $of($alloc(ImageIcon));
-}
-
 int32_t ImageIcon::hashCode() {
 	 return this->$Icon::hashCode();
 }
@@ -226,9 +97,9 @@ $Object* ImageIcon::TRACKER_KEY = nullptr;
 
 $Component* ImageIcon::createNoPermsComponent() {
 	$init(ImageIcon);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, var$0, static_cast<$PrivilegedAction*>($new($ImageIcon$2)));
+	$var($PrivilegedAction, var$0, $new($ImageIcon$2));
 	return $cast($Component, $AccessController::doPrivileged(var$0, $$new($AccessControlContext, $$new($ProtectionDomainArray, {$$new($ProtectionDomain, nullptr, nullptr)}))));
 }
 
@@ -238,7 +109,7 @@ void ImageIcon::init$($String* filename, $String* description) {
 	this->width = -1;
 	this->height = -1;
 	$set(this, accessibleContext, nullptr);
-	$set(this, image, $nc($($Toolkit::getDefaultToolkit()))->getImage(filename));
+	$set(this, image, $$nc($Toolkit::getDefaultToolkit())->getImage(filename));
 	if (this->image == nullptr) {
 		return;
 	}
@@ -257,7 +128,7 @@ void ImageIcon::init$($URL* location, $String* description) {
 	this->width = -1;
 	this->height = -1;
 	$set(this, accessibleContext, nullptr);
-	$set(this, image, $nc($($Toolkit::getDefaultToolkit()))->getImage(location));
+	$set(this, image, $$nc($Toolkit::getDefaultToolkit())->getImage(location));
 	if (this->image == nullptr) {
 		return;
 	}
@@ -295,7 +166,7 @@ void ImageIcon::init$($bytes* imageData, $String* description) {
 	this->width = -1;
 	this->height = -1;
 	$set(this, accessibleContext, nullptr);
-	$set(this, image, $nc($($Toolkit::getDefaultToolkit()))->createImage(imageData));
+	$set(this, image, $$nc($Toolkit::getDefaultToolkit())->createImage(imageData));
 	if (this->image == nullptr) {
 		return;
 	}
@@ -304,13 +175,13 @@ void ImageIcon::init$($bytes* imageData, $String* description) {
 }
 
 void ImageIcon::init$($bytes* imageData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->loadStatus = 0;
 	$set(this, description, nullptr);
 	this->width = -1;
 	this->height = -1;
 	$set(this, accessibleContext, nullptr);
-	$set(this, image, $nc($($Toolkit::getDefaultToolkit()))->createImage(imageData));
+	$set(this, image, $$nc($Toolkit::getDefaultToolkit())->createImage(imageData));
 	if (this->image == nullptr) {
 		return;
 	}
@@ -333,7 +204,7 @@ void ImageIcon::loadImage($Image* image) {
 	$var($MediaTracker, mTracker, getTracker());
 	$synchronized(mTracker) {
 		int32_t id = getNextID();
-		$nc(mTracker)->addImage(image, id);
+		mTracker->addImage(image, id);
 		try {
 			mTracker->waitForID(id, 0);
 		} catch ($InterruptedException& e) {
@@ -353,11 +224,11 @@ int32_t ImageIcon::getNextID() {
 }
 
 $MediaTracker* ImageIcon::getTracker() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, trackerObj, nullptr);
 	$var($AppContext, ac, $AppContext::getAppContext());
 	$synchronized(ac) {
-		$assign(trackerObj, $nc(ac)->get(ImageIcon::TRACKER_KEY));
+		$assign(trackerObj, ac->get(ImageIcon::TRACKER_KEY));
 		if (trackerObj == nullptr) {
 			$var($Component, comp, $new($ImageIcon$3, this));
 			$assign(trackerObj, $new($MediaTracker, comp));
@@ -422,16 +293,16 @@ $String* ImageIcon::toString() {
 }
 
 void ImageIcon::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$set(this, imageObserver, $cast($ImageObserver, $nc(f)->get("imageObserver"_s, ($Object*)nullptr)));
-	$set(this, description, $cast($String, f->get("description"_s, ($Object*)nullptr)));
+	$set(this, imageObserver, $cast($ImageObserver, $nc(f)->get("imageObserver"_s, nullptr)));
+	$set(this, description, $cast($String, f->get("description"_s, nullptr)));
 	this->width = f->get("width"_s, -1);
 	this->height = f->get("height"_s, -1);
-	$set(this, accessibleContext, $cast($ImageIcon$AccessibleImageIcon, f->get("accessibleContext"_s, ($Object*)nullptr)));
+	$set(this, accessibleContext, $cast($ImageIcon$AccessibleImageIcon, f->get("accessibleContext"_s, nullptr)));
 	int32_t w = s->readInt();
 	int32_t h = s->readInt();
-	$var($ints, pixels, ($cast($ints, s->readObject())));
+	$var($ints, pixels, $cast($ints, s->readObject()));
 	if (pixels == nullptr && (w != -1 || h != -1)) {
 		$throwNew($IllegalStateException, $$str({"Inconsistent width and height for null image ["_s, $$str(w), ", "_s, $$str(h), "]"_s}));
 	}
@@ -445,13 +316,13 @@ void ImageIcon::readObject($ObjectInputStream* s) {
 	if (pixels != nullptr) {
 		$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 		$var($ColorModel, cm, $ColorModel::getRGBdefault());
-		$set(this, image, $nc(tk)->createImage(static_cast<$ImageProducer*>($$new($MemoryImageSource, w, h, cm, pixels, 0, w))));
+		$set(this, image, $nc(tk)->createImage($$new($MemoryImageSource, w, h, cm, pixels, 0, w)));
 		loadImage(this->image);
 	}
 }
 
 void ImageIcon::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(s)->defaultWriteObject();
 	int32_t w = getIconWidth();
 	int32_t h = getIconHeight();
@@ -460,7 +331,7 @@ void ImageIcon::writeObject($ObjectOutputStream* s) {
 		try {
 			$var($PixelGrabber, pg, $new($PixelGrabber, this->image, 0, 0, w, h, pixels, 0, w));
 			pg->grabPixels();
-			if (((int32_t)(pg->getStatus() & (uint32_t)$ImageObserver::ABORT)) != 0) {
+			if ((pg->getStatus() & $ImageObserver::ABORT) != 0) {
 				$throwNew($IOException, "failed to load image contents"_s);
 			}
 		} catch ($InterruptedException& e) {
@@ -479,10 +350,10 @@ $AccessibleContext* ImageIcon::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$ImageIcon($Class* class$) {
+void ImageIcon::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$assignStatic(ImageIcon::component, $cast($Component, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($ImageIcon$1)))));
+		$assignStatic(ImageIcon::component, $cast($Component, $AccessController::doPrivileged($$new($ImageIcon$1))));
 		$assignStatic(ImageIcon::tracker, $new($MediaTracker, ImageIcon::component));
 	}
 	$assignStatic(ImageIcon::TRACKER_KEY, $new($StringBuilder, "TRACKER_KEY"_s));
@@ -492,7 +363,117 @@ ImageIcon::ImageIcon() {
 }
 
 $Class* ImageIcon::load$($String* name, bool initialize) {
-	$loadClass(ImageIcon, name, initialize, &_ImageIcon_ClassInfo_, clinit$ImageIcon, allocate$ImageIcon);
+	$CompoundAttribute componentfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute trackerfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"filename", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(ImageIcon, filename)},
+		{"location", "Ljava/net/URL;", nullptr, $PRIVATE | $TRANSIENT, $field(ImageIcon, location)},
+		{"image", "Ljava/awt/Image;", nullptr, $TRANSIENT, $field(ImageIcon, image)},
+		{"loadStatus", "I", nullptr, $TRANSIENT, $field(ImageIcon, loadStatus)},
+		{"imageObserver", "Ljava/awt/image/ImageObserver;", nullptr, 0, $field(ImageIcon, imageObserver)},
+		{"description", "Ljava/lang/String;", nullptr, 0, $field(ImageIcon, description)},
+		{"component", "Ljava/awt/Component;", nullptr, $PROTECTED | $STATIC | $FINAL | $DEPRECATED, $staticField(ImageIcon, component), componentfieldAnnotations$$},
+		{"tracker", "Ljava/awt/MediaTracker;", nullptr, $PROTECTED | $STATIC | $FINAL | $DEPRECATED, $staticField(ImageIcon, tracker), trackerfieldAnnotations$$},
+		{"mediaTrackerID", "I", nullptr, $PRIVATE | $STATIC, $staticField(ImageIcon, mediaTrackerID)},
+		{"TRACKER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageIcon, TRACKER_KEY)},
+		{"width", "I", nullptr, 0, $field(ImageIcon, width)},
+		{"height", "I", nullptr, 0, $field(ImageIcon, height)},
+		{"accessibleContext", "Ljavax/swing/ImageIcon$AccessibleImageIcon;", nullptr, $PRIVATE, $field(ImageIcon, accessibleContext)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "description"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$1$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "The AccessibleContext associated with this ImageIcon."},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$CompoundAttribute getImagemethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$CompoundAttribute getImageObservermethodAnnotations$$[] = {
+		{"Ljava/beans/Transient;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $String*), nullptr, nullptr, init$methodAnnotations$$$1},
+		{"<init>", "(Ljava/net/URL;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $URL*, $String*)},
+		{"<init>", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $URL*)},
+		{"<init>", "(Ljava/awt/Image;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $Image*, $String*)},
+		{"<init>", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $Image*)},
+		{"<init>", "([BLjava/lang/String;)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $bytes*, $String*)},
+		{"<init>", "([B)V", nullptr, $PUBLIC, $method(ImageIcon, init$, void, $bytes*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageIcon, init$, void)},
+		{"createNoPermsComponent", "()Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(ImageIcon, createNoPermsComponent, $Component*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getDescription, $String*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getIconWidth, int32_t)},
+		{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getImage, $Image*), nullptr, nullptr, getImagemethodAnnotations$$},
+		{"getImageLoadStatus", "()I", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getImageLoadStatus, int32_t)},
+		{"getImageObserver", "()Ljava/awt/image/ImageObserver;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, getImageObserver, $ImageObserver*), nullptr, nullptr, getImageObservermethodAnnotations$$},
+		{"getNextID", "()I", nullptr, $PRIVATE, $method(ImageIcon, getNextID, int32_t)},
+		{"getTracker", "()Ljava/awt/MediaTracker;", nullptr, $PRIVATE, $method(ImageIcon, getTracker, $MediaTracker*)},
+		{"loadImage", "(Ljava/awt/Image;)V", nullptr, $PROTECTED, $virtualMethod(ImageIcon, loadImage, void, $Image*)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ImageIcon, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"setDescription", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ImageIcon, setDescription, void, $String*)},
+		{"setImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(ImageIcon, setImage, void, $Image*)},
+		{"setImageObserver", "(Ljava/awt/image/ImageObserver;)V", nullptr, $PUBLIC, $virtualMethod(ImageIcon, setImageObserver, void, $ImageObserver*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImageIcon, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ImageIcon, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ImageIcon$AccessibleImageIcon", "javax.swing.ImageIcon", "AccessibleImageIcon", $PROTECTED},
+		{"javax.swing.ImageIcon$3", nullptr, nullptr, 0},
+		{"javax.swing.ImageIcon$2", nullptr, nullptr, 0},
+		{"javax.swing.ImageIcon$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ImageIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.ImageIcon$AccessibleImageIcon,javax.swing.ImageIcon$3,javax.swing.ImageIcon$2,javax.swing.ImageIcon$2$1,javax.swing.ImageIcon$1"
+	};
+	$loadClass(ImageIcon, name, initialize, &classInfo$$, ImageIcon::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ImageIcon));
+	});
 	return class$;
 }
 

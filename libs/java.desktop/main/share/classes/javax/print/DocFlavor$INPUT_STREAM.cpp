@@ -1,5 +1,4 @@
 #include <javax/print/DocFlavor$INPUT_STREAM.h>
-
 #include <javax/print/DocFlavor.h>
 #include <jcpp.h>
 
@@ -32,60 +31,6 @@ using $DocFlavor = ::javax::print::DocFlavor;
 namespace javax {
 	namespace print {
 
-$FieldInfo _DocFlavor$INPUT_STREAM_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DocFlavor$INPUT_STREAM, serialVersionUID)},
-	{"TEXT_PLAIN_HOST", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_HOST)},
-	{"TEXT_PLAIN_UTF_8", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_UTF_8)},
-	{"TEXT_PLAIN_UTF_16", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_UTF_16)},
-	{"TEXT_PLAIN_UTF_16BE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_UTF_16BE)},
-	{"TEXT_PLAIN_UTF_16LE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_UTF_16LE)},
-	{"TEXT_PLAIN_US_ASCII", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_US_ASCII)},
-	{"TEXT_HTML_HOST", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_HOST)},
-	{"TEXT_HTML_UTF_8", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_UTF_8)},
-	{"TEXT_HTML_UTF_16", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_UTF_16)},
-	{"TEXT_HTML_UTF_16BE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_UTF_16BE)},
-	{"TEXT_HTML_UTF_16LE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_UTF_16LE)},
-	{"TEXT_HTML_US_ASCII", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_US_ASCII)},
-	{"PDF", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, PDF)},
-	{"POSTSCRIPT", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, POSTSCRIPT)},
-	{"PCL", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, PCL)},
-	{"GIF", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, GIF)},
-	{"JPEG", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, JPEG)},
-	{"PNG", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, PNG)},
-	{"AUTOSENSE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, AUTOSENSE)},
-	{}
-};
-
-$MethodInfo _DocFlavor$INPUT_STREAM_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocFlavor$INPUT_STREAM, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _DocFlavor$INPUT_STREAM_InnerClassesInfo_[] = {
-	{"javax.print.DocFlavor$INPUT_STREAM", "javax.print.DocFlavor", "INPUT_STREAM", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DocFlavor$INPUT_STREAM_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.DocFlavor$INPUT_STREAM",
-	"javax.print.DocFlavor",
-	nullptr,
-	_DocFlavor$INPUT_STREAM_FieldInfo_,
-	_DocFlavor$INPUT_STREAM_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocFlavor$INPUT_STREAM_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.DocFlavor"
-};
-
-$Object* allocate$DocFlavor$INPUT_STREAM($Class* clazz) {
-	return $of($alloc(DocFlavor$INPUT_STREAM));
-}
-
 DocFlavor$INPUT_STREAM* DocFlavor$INPUT_STREAM::TEXT_PLAIN_HOST = nullptr;
 DocFlavor$INPUT_STREAM* DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_8 = nullptr;
 DocFlavor$INPUT_STREAM* DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_16 = nullptr;
@@ -110,8 +55,8 @@ void DocFlavor$INPUT_STREAM::init$($String* mimeType) {
 	$DocFlavor::init$(mimeType, "java.io.InputStream"_s);
 }
 
-void clinit$DocFlavor$INPUT_STREAM($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DocFlavor$INPUT_STREAM::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($DocFlavor);
 	$assignStatic(DocFlavor$INPUT_STREAM::TEXT_PLAIN_HOST, $new(DocFlavor$INPUT_STREAM, $$str({"text/plain; charset="_s, $DocFlavor::hostEncoding})));
 	$assignStatic(DocFlavor$INPUT_STREAM::TEXT_PLAIN_UTF_8, $new(DocFlavor$INPUT_STREAM, "text/plain; charset=utf-8"_s));
@@ -138,7 +83,55 @@ DocFlavor$INPUT_STREAM::DocFlavor$INPUT_STREAM() {
 }
 
 $Class* DocFlavor$INPUT_STREAM::load$($String* name, bool initialize) {
-	$loadClass(DocFlavor$INPUT_STREAM, name, initialize, &_DocFlavor$INPUT_STREAM_ClassInfo_, clinit$DocFlavor$INPUT_STREAM, allocate$DocFlavor$INPUT_STREAM);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DocFlavor$INPUT_STREAM, serialVersionUID)},
+		{"TEXT_PLAIN_HOST", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_HOST)},
+		{"TEXT_PLAIN_UTF_8", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_UTF_8)},
+		{"TEXT_PLAIN_UTF_16", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_UTF_16)},
+		{"TEXT_PLAIN_UTF_16BE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_UTF_16BE)},
+		{"TEXT_PLAIN_UTF_16LE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_UTF_16LE)},
+		{"TEXT_PLAIN_US_ASCII", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_PLAIN_US_ASCII)},
+		{"TEXT_HTML_HOST", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_HOST)},
+		{"TEXT_HTML_UTF_8", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_UTF_8)},
+		{"TEXT_HTML_UTF_16", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_UTF_16)},
+		{"TEXT_HTML_UTF_16BE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_UTF_16BE)},
+		{"TEXT_HTML_UTF_16LE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_UTF_16LE)},
+		{"TEXT_HTML_US_ASCII", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, TEXT_HTML_US_ASCII)},
+		{"PDF", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, PDF)},
+		{"POSTSCRIPT", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, POSTSCRIPT)},
+		{"PCL", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, PCL)},
+		{"GIF", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, GIF)},
+		{"JPEG", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, JPEG)},
+		{"PNG", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, PNG)},
+		{"AUTOSENSE", "Ljavax/print/DocFlavor$INPUT_STREAM;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$INPUT_STREAM, AUTOSENSE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocFlavor$INPUT_STREAM, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.DocFlavor$INPUT_STREAM", "javax.print.DocFlavor", "INPUT_STREAM", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.DocFlavor$INPUT_STREAM",
+		"javax.print.DocFlavor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.DocFlavor"
+	};
+	$loadClass(DocFlavor$INPUT_STREAM, name, initialize, &classInfo$$, DocFlavor$INPUT_STREAM::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocFlavor$INPUT_STREAM));
+	});
 	return class$;
 }
 

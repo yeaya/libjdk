@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CClipboard.h>
-
 #include <java/awt/Toolkit.h>
 #include <java/awt/datatransfer/Clipboard.h>
 #include <java/awt/datatransfer/DataFlavor.h>
@@ -29,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $AppContext = ::sun::awt::AppContext;
 using $DataTransferer = ::sun::awt::datatransfer::DataTransferer;
 using $SunClipboard = ::sun::awt::datatransfer::SunClipboard;
@@ -37,45 +35,6 @@ using $SunClipboard = ::sun::awt::datatransfer::SunClipboard;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$MethodInfo _CClipboard_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CClipboard, init$, void, $String*)},
-	{"checkPasteboardAndNotify", "()V", nullptr, 0, $method(CClipboard, checkPasteboardAndNotify, void)},
-	{"checkPasteboardWithoutNotification", "()Z", nullptr, $NATIVE, $method(CClipboard, checkPasteboardWithoutNotification, bool)},
-	{"clearNativeContext", "()V", nullptr, $PROTECTED, $virtualMethod(CClipboard, clearNativeContext, void)},
-	{"declareTypes", "([JLsun/awt/datatransfer/SunClipboard;)V", nullptr, $PRIVATE | $NATIVE, $method(CClipboard, declareTypes, void, $longs*, $SunClipboard*)},
-	{"getClipboardData", "(J)[B", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CClipboard, getClipboardData, $bytes*, int64_t), "java.io.IOException"},
-	{"getClipboardFormats", "()[J", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CClipboard, getClipboardFormats, $longs*)},
-	{"getContents", "(Ljava/lang/Object;)Ljava/awt/datatransfer/Transferable;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CClipboard, getContents, $Transferable*, Object$*)},
-	{"getContextContents", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CClipboard, getContextContents, $Transferable*)},
-	{"getID", "()J", nullptr, $PUBLIC, $virtualMethod(CClipboard, getID, int64_t)},
-	{"notifyChanged", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CClipboard, notifyChanged, void)},
-	{"notifyLostOwnership", "()V", nullptr, $PRIVATE, $method(CClipboard, notifyLostOwnership, void)},
-	{"registerClipboardViewerChecked", "()V", nullptr, $PROTECTED, $virtualMethod(CClipboard, registerClipboardViewerChecked, void)},
-	{"setContentsNative", "(Ljava/awt/datatransfer/Transferable;)V", nullptr, $PROTECTED, $virtualMethod(CClipboard, setContentsNative, void, $Transferable*)},
-	{"setData", "([BJ)V", nullptr, $PRIVATE | $NATIVE, $method(CClipboard, setData, void, $bytes*, int64_t)},
-	{"unregisterClipboardViewerChecked", "()V", nullptr, $PROTECTED, $virtualMethod(CClipboard, unregisterClipboardViewerChecked, void)},
-	{}
-};
-
-#define _METHOD_INDEX_checkPasteboardWithoutNotification 2
-#define _METHOD_INDEX_declareTypes 4
-#define _METHOD_INDEX_getClipboardData 5
-#define _METHOD_INDEX_getClipboardFormats 6
-#define _METHOD_INDEX_setData 14
-
-$ClassInfo _CClipboard_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CClipboard",
-	"sun.awt.datatransfer.SunClipboard",
-	nullptr,
-	nullptr,
-	_CClipboard_MethodInfo_
-};
-
-$Object* allocate$CClipboard($Class* clazz) {
-	return $of($alloc(CClipboard));
-}
 
 void CClipboard::init$($String* name) {
 	$SunClipboard::init$(name);
@@ -103,21 +62,21 @@ $Transferable* CClipboard::getContextContents() {
 }
 
 void CClipboard::setContentsNative($Transferable* contents) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FlavorTable, flavorMap, getDefaultFlavorTable());
 	$var($DataTransferer, dataTransferer, $DataTransferer::getInstance());
 	$var($longs, formatArray, $nc(dataTransferer)->getFormatsForTransferableAsArray(contents, flavorMap));
 	declareTypes(formatArray, this);
 	$var($Map, formatMap, dataTransferer->getFormatsForTransferable(contents, flavorMap));
 	{
-		$var($Iterator, i$, $nc($($nc(formatMap)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(formatMap)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				int64_t format = $nc(($cast($Long, $($nc(entry)->getKey()))))->longValue();
+				int64_t format = $$sure($Long, $nc(entry)->getKey())->longValue();
 				$var($DataFlavor, flavor, $cast($DataFlavor, entry->getValue()));
 				try {
-					$var($bytes, bytes, $nc($($DataTransferer::getInstance()))->translateTransferable(contents, flavor, format));
+					$var($bytes, bytes, $$nc($DataTransferer::getInstance())->translateTransferable(contents, flavor, format));
 					setData(bytes, format);
 				} catch ($IOException& e) {
 					$init($DataFlavor);
@@ -132,17 +91,15 @@ void CClipboard::setContentsNative($Transferable* contents) {
 }
 
 $longs* CClipboard::getClipboardFormats() {
-	$var($longs, $ret, nullptr);
-	$prepareNative(CClipboard, getClipboardFormats, $longs*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(getClipboardFormats, $longs*);
+	$var($longs, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
 
 $bytes* CClipboard::getClipboardData(int64_t format) {
-	$var($bytes, $ret, nullptr);
-	$prepareNative(CClipboard, getClipboardData, $bytes*, int64_t format);
-	$assign($ret, $invokeNativeObject(format));
+	$prepareNative(getClipboardData, $bytes*, int64_t format);
+	$var($bytes, $ret, $invokeNativeObject(format));
 	$finishNative();
 	return $ret;
 }
@@ -154,13 +111,13 @@ void CClipboard::registerClipboardViewerChecked() {
 }
 
 void CClipboard::declareTypes($longs* formats, $SunClipboard* newOwner) {
-	$prepareNative(CClipboard, declareTypes, void, $longs* formats, $SunClipboard* newOwner);
+	$prepareNative(declareTypes, void, $longs* formats, $SunClipboard* newOwner);
 	$invokeNative(formats, newOwner);
 	$finishNative();
 }
 
 void CClipboard::setData($bytes* data, int64_t format) {
-	$prepareNative(CClipboard, setData, void, $bytes* data, int64_t format);
+	$prepareNative(setData, void, $bytes* data, int64_t format);
 	$invokeNative(data, format);
 	$finishNative();
 }
@@ -173,9 +130,8 @@ void CClipboard::checkPasteboardAndNotify() {
 }
 
 bool CClipboard::checkPasteboardWithoutNotification() {
-	bool $ret = false;
-	$prepareNative(CClipboard, checkPasteboardWithoutNotification, bool);
-	$ret = $invokeNative();
+	$prepareNative(checkPasteboardWithoutNotification, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -186,19 +142,48 @@ void CClipboard::notifyLostOwnership() {
 
 void CClipboard::notifyChanged() {
 	$init(CClipboard);
-	$useLocalCurrentObjectStackCache();
-	$var(CClipboard, clipboard, $cast(CClipboard, $nc($($Toolkit::getDefaultToolkit()))->getSystemClipboard()));
+	$useLocalObjectStack();
+	$var(CClipboard, clipboard, $cast(CClipboard, $$nc($Toolkit::getDefaultToolkit())->getSystemClipboard()));
 	if (!$nc(clipboard)->areFlavorListenersRegistered()) {
 		return;
 	}
-	$nc(clipboard)->checkChange($(clipboard->getClipboardFormats()));
+	clipboard->checkChange($(clipboard->getClipboardFormats()));
 }
 
 CClipboard::CClipboard() {
 }
 
 $Class* CClipboard::load$($String* name, bool initialize) {
-	$loadClass(CClipboard, name, initialize, &_CClipboard_ClassInfo_, allocate$CClipboard);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CClipboard, init$, void, $String*)},
+		{"checkPasteboardAndNotify", "()V", nullptr, 0, $method(CClipboard, checkPasteboardAndNotify, void)},
+		{"checkPasteboardWithoutNotification", "()Z", nullptr, $NATIVE, $method(CClipboard, checkPasteboardWithoutNotification, bool)},
+		{"clearNativeContext", "()V", nullptr, $PROTECTED, $virtualMethod(CClipboard, clearNativeContext, void)},
+		{"declareTypes", "([JLsun/awt/datatransfer/SunClipboard;)V", nullptr, $PRIVATE | $NATIVE, $method(CClipboard, declareTypes, void, $longs*, $SunClipboard*)},
+		{"getClipboardData", "(J)[B", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CClipboard, getClipboardData, $bytes*, int64_t), "java.io.IOException"},
+		{"getClipboardFormats", "()[J", nullptr, $PROTECTED | $NATIVE, $virtualMethod(CClipboard, getClipboardFormats, $longs*)},
+		{"getContents", "(Ljava/lang/Object;)Ljava/awt/datatransfer/Transferable;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(CClipboard, getContents, $Transferable*, Object$*)},
+		{"getContextContents", "()Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(CClipboard, getContextContents, $Transferable*)},
+		{"getID", "()J", nullptr, $PUBLIC, $virtualMethod(CClipboard, getID, int64_t)},
+		{"notifyChanged", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(CClipboard, notifyChanged, void)},
+		{"notifyLostOwnership", "()V", nullptr, $PRIVATE, $method(CClipboard, notifyLostOwnership, void)},
+		{"registerClipboardViewerChecked", "()V", nullptr, $PROTECTED, $virtualMethod(CClipboard, registerClipboardViewerChecked, void)},
+		{"setContentsNative", "(Ljava/awt/datatransfer/Transferable;)V", nullptr, $PROTECTED, $virtualMethod(CClipboard, setContentsNative, void, $Transferable*)},
+		{"setData", "([BJ)V", nullptr, $PRIVATE | $NATIVE, $method(CClipboard, setData, void, $bytes*, int64_t)},
+		{"unregisterClipboardViewerChecked", "()V", nullptr, $PROTECTED, $virtualMethod(CClipboard, unregisterClipboardViewerChecked, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CClipboard",
+		"sun.awt.datatransfer.SunClipboard",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CClipboard, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CClipboard));
+	});
 	return class$;
 }
 

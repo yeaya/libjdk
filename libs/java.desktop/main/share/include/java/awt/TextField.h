@@ -44,6 +44,7 @@ class $import TextField : public ::java::awt::TextComponent {
 	$class(TextField, 0, ::java::awt::TextComponent)
 public:
 	TextField();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* text);
 	void init$(int32_t columns);
@@ -83,7 +84,7 @@ public:
 	::java::awt::event::ActionListener* actionListener = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0xD6D5A0110EB14103;
+	static const int64_t serialVersionUID = (int64_t)0xd6d5a0110eb14103;
 	int32_t textFieldSerializedDataVersion = 0;
 };
 

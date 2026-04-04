@@ -1,5 +1,4 @@
 #include <org/w3c/dom/views/AbstractView.h>
-
 #include <org/w3c/dom/views/DocumentView.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace org {
 		namespace dom {
 			namespace views {
 
-$MethodInfo _AbstractView_MethodInfo_[] = {
-	{"getDocument", "()Lorg/w3c/dom/views/DocumentView;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractView, getDocument, $DocumentView*)},
-	{}
-};
-
-$ClassInfo _AbstractView_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.w3c.dom.views.AbstractView",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AbstractView_MethodInfo_
-};
-
-$Object* allocate$AbstractView($Class* clazz) {
-	return $of($alloc(AbstractView));
-}
-
 $Class* AbstractView::load$($String* name, bool initialize) {
-	$loadClass(AbstractView, name, initialize, &_AbstractView_ClassInfo_, allocate$AbstractView);
+	$MethodInfo methodInfos$$[] = {
+		{"getDocument", "()Lorg/w3c/dom/views/DocumentView;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractView, getDocument, $DocumentView*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.w3c.dom.views.AbstractView",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AbstractView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractView);
+	});
 	return class$;
 }
 

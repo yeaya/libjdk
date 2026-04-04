@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$6.h>
-
 #include <com/sun/tools/javac/code/ClassFinder.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -22,7 +21,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/function/BiFunction.h>
 #include <java/util/function/Function.h>
@@ -31,13 +29,11 @@
 
 #undef TYP
 
-using $ClassFinder = ::com::sun::tools::javac::code::ClassFinder;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
-using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Convert = ::com::sun::tools::javac::util::Convert;
@@ -53,7 +49,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $BiFunction = ::java::util::function::BiFunction;
 using $Function = ::java::util::function::Function;
@@ -73,37 +68,33 @@ public:
 		$set(this, candidates, candidates);
 	}
 	virtual $Object* apply(Object$* n) override {
-		 return $of($nc(inst$)->lambda$loadClass$2(candidates, $cast($Name, n)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$6$$Lambda$lambda$loadClass$2>());
+		 return $nc(inst$)->lambda$loadClass$2(candidates, $cast($Name, n));
 	}
 	Resolve$6* inst$ = nullptr;
 	$List* candidates = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Resolve$6$$Lambda$lambda$loadClass$2::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$2, inst$)},
-	{"candidates", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$2, candidates)},
-	{}
-};
-$MethodInfo Resolve$6$$Lambda$lambda$loadClass$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$6;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$2, init$, void, Resolve$6*, $List*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Resolve$6$$Lambda$lambda$loadClass$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Resolve$6$$Lambda$lambda$loadClass$2::load$($String* name, bool initialize) {
-	$loadClass(Resolve$6$$Lambda$lambda$loadClass$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$2, inst$)},
+		{"candidates", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$2, candidates)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$6;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$2, init$, void, Resolve$6*, $List*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resolve$6$$Lambda$lambda$loadClass$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$6$$Lambda$lambda$loadClass$2);
+	});
 	return class$;
 }
 $Class* Resolve$6$$Lambda$lambda$loadClass$2::class$ = nullptr;
@@ -118,35 +109,31 @@ public:
 	virtual $Object* apply(Object$* ms, Object$* n) override {
 		 return $of($nc(inst$)->lambda$loadClass$3(candidates, $cast($Symbol$ModuleSymbol, ms), $cast($Name, n)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$6$$Lambda$lambda$loadClass$3$1>());
-	}
 	Resolve$6* inst$ = nullptr;
 	$List* candidates = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Resolve$6$$Lambda$lambda$loadClass$3$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$3$1, inst$)},
-	{"candidates", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$3$1, candidates)},
-	{}
-};
-$MethodInfo Resolve$6$$Lambda$lambda$loadClass$3$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$6;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$3$1, init$, void, Resolve$6*, $List*)},
-	{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$3$1, apply, $Object*, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Resolve$6$$Lambda$lambda$loadClass$3$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$3$1",
-	"java.lang.Object",
-	"java.util.function.BiFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Resolve$6$$Lambda$lambda$loadClass$3$1::load$($String* name, bool initialize) {
-	$loadClass(Resolve$6$$Lambda$lambda$loadClass$3$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$3$1, inst$)},
+		{"candidates", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$3$1, candidates)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$6;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$3$1, init$, void, Resolve$6*, $List*)},
+		{"apply", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$3$1, apply, $Object*, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$3$1",
+		"java.lang.Object",
+		"java.util.function.BiFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resolve$6$$Lambda$lambda$loadClass$3$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$6$$Lambda$lambda$loadClass$3$1);
+	});
 	return class$;
 }
 $Class* Resolve$6$$Lambda$lambda$loadClass$3$1::class$ = nullptr;
@@ -159,27 +146,24 @@ public:
 	virtual bool test(Object$* sym) override {
 		 return Resolve$6::lambda$loadClass$4($cast($Symbol$ClassSymbol, sym));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$6$$Lambda$lambda$loadClass$4$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Resolve$6$$Lambda$lambda$loadClass$4$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$4$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$4$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Resolve$6$$Lambda$lambda$loadClass$4$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$4$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Resolve$6$$Lambda$lambda$loadClass$4$2::load$($String* name, bool initialize) {
-	$loadClass(Resolve$6$$Lambda$lambda$loadClass$4$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$4$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$4$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$4$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Resolve$6$$Lambda$lambda$loadClass$4$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$6$$Lambda$lambda$loadClass$4$2);
+	});
 	return class$;
 }
 $Class* Resolve$6$$Lambda$lambda$loadClass$4$2::class$ = nullptr;
@@ -194,35 +178,31 @@ public:
 	virtual $Iterator* iterator() override {
 		 return $nc(inst$)->lambda$loadClass$1(candidates);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$6$$Lambda$lambda$loadClass$1$3>());
-	}
 	Resolve$6* inst$ = nullptr;
 	$List* candidates = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Resolve$6$$Lambda$lambda$loadClass$1$3::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$1$3, inst$)},
-	{"candidates", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$1$3, candidates)},
-	{}
-};
-$MethodInfo Resolve$6$$Lambda$lambda$loadClass$1$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$6;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$1$3, init$, void, Resolve$6*, $List*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$1$3, iterator, $Iterator*)},
-	{}
-};
-$ClassInfo Resolve$6$$Lambda$lambda$loadClass$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$1$3",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Resolve$6$$Lambda$lambda$loadClass$1$3::load$($String* name, bool initialize) {
-	$loadClass(Resolve$6$$Lambda$lambda$loadClass$1$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$1$3, inst$)},
+		{"candidates", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$1$3, candidates)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$6;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$1$3, init$, void, Resolve$6*, $List*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$1$3, iterator, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$1$3",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resolve$6$$Lambda$lambda$loadClass$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$6$$Lambda$lambda$loadClass$1$3);
+	});
 	return class$;
 }
 $Class* Resolve$6$$Lambda$lambda$loadClass$1$3::class$ = nullptr;
@@ -234,99 +214,45 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of($nc(inst$)->lambda$loadClass$0($cast($Name, c)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Resolve$6$$Lambda$lambda$loadClass$0$4>());
+		 return $nc(inst$)->lambda$loadClass$0($cast($Name, c));
 	}
 	Resolve$6* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Resolve$6$$Lambda$lambda$loadClass$0$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$0$4, inst$)},
-	{}
-};
-$MethodInfo Resolve$6$$Lambda$lambda$loadClass$0$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$6;)V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$0$4, init$, void, Resolve$6*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$0$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Resolve$6$$Lambda$lambda$loadClass$0$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$0$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* Resolve$6$$Lambda$lambda$loadClass$0$4::load$($String* name, bool initialize) {
-	$loadClass(Resolve$6$$Lambda$lambda$loadClass$0$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Resolve$6$$Lambda$lambda$loadClass$0$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$6;)V", nullptr, $PUBLIC, $method(Resolve$6$$Lambda$lambda$loadClass$0$4, init$, void, Resolve$6*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Resolve$6$$Lambda$lambda$loadClass$0$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$0$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Resolve$6$$Lambda$lambda$loadClass$0$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$6$$Lambda$lambda$loadClass$0$4);
+	});
 	return class$;
 }
 $Class* Resolve$6$$Lambda$lambda$loadClass$0$4::class$ = nullptr;
-
-$FieldInfo _Resolve$6_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$6, this$0)},
-	{}
-};
-
-$MethodInfo _Resolve$6_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$6, init$, void, $Resolve*)},
-	{"lambda$loadClass$0", "(Lcom/sun/tools/javac/util/Name;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$6, lambda$loadClass$0, $Iterator*, $Name*)},
-	{"lambda$loadClass$1", "(Lcom/sun/tools/javac/util/List;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$6, lambda$loadClass$1, $Iterator*, $List*)},
-	{"lambda$loadClass$2", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable;", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$6, lambda$loadClass$2, $Iterable*, $List*, $Name*)},
-	{"lambda$loadClass$3", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$6, lambda$loadClass$3, $Symbol$ClassSymbol*, $List*, $Symbol$ModuleSymbol*, $Name*)},
-	{"lambda$loadClass$4", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$6, lambda$loadClass$4, bool, $Symbol$ClassSymbol*)},
-	{"loadClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC, $virtualMethod(Resolve$6, loadClass, $Symbol*, $Env*, $Name*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$6_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Resolve$6_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$6", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Resolve$RecoveryLoadClass", "com.sun.tools.javac.comp.Resolve", "RecoveryLoadClass", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$6",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Resolve$RecoveryLoadClass",
-	_Resolve$6_FieldInfo_,
-	_Resolve$6_MethodInfo_,
-	nullptr,
-	&_Resolve$6_EnclosingMethodInfo_,
-	_Resolve$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$6($Class* clazz) {
-	return $of($alloc(Resolve$6));
-}
 
 void Resolve$6::init$($Resolve* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Symbol* Resolve$6::loadClass($Env* env, $Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, candidates, $Convert::classCandidates(name));
-	$var($Env, var$0, env);
-	$var($Name, var$1, name);
-	$var($Function, var$2, static_cast<$Function*>($new(Resolve$6$$Lambda$lambda$loadClass$2, this, candidates)));
-	$var($BiFunction, var$3, static_cast<$BiFunction*>($new(Resolve$6$$Lambda$lambda$loadClass$3$1, this, candidates)));
-	return this->this$0->lookupInvisibleSymbol(var$0, var$1, var$2, var$3, static_cast<$Predicate*>($$new(Resolve$6$$Lambda$lambda$loadClass$4$2)), this->this$0->typeNotFound);
+	$var($Function, var$0, $new(Resolve$6$$Lambda$lambda$loadClass$2, this, candidates));
+	$var($BiFunction, var$1, $new(Resolve$6$$Lambda$lambda$loadClass$3$1, this, candidates));
+	return this->this$0->lookupInvisibleSymbol(env, name, var$0, var$1, $$new(Resolve$6$$Lambda$lambda$loadClass$4$2), this->this$0->typeNotFound);
 }
 
 bool Resolve$6::lambda$loadClass$4($Symbol$ClassSymbol* sym) {
@@ -336,32 +262,28 @@ bool Resolve$6::lambda$loadClass$4($Symbol$ClassSymbol* sym) {
 }
 
 $Symbol$ClassSymbol* Resolve$6::lambda$loadClass$3($List* candidates, $Symbol$ModuleSymbol* ms, $Name* n) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(candidates)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Name, candidate, $cast($Name, i$->next()));
-			{
-				try {
-					return $nc(this->this$0->finder)->loadClass(ms, candidate);
-				} catch ($Symbol$CompletionFailure& cf) {
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(candidates)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Name, candidate, $cast($Name, i$->next()));
+		try {
+			return $nc(this->this$0->finder)->loadClass(ms, candidate);
+		} catch ($Symbol$CompletionFailure& cf) {
 		}
 	}
 	return nullptr;
 }
 
 $Iterable* Resolve$6::lambda$loadClass$2($List* candidates, $Name* n) {
-	return static_cast<$Iterable*>($new(Resolve$6$$Lambda$lambda$loadClass$1$3, this, candidates));
+	return $new(Resolve$6$$Lambda$lambda$loadClass$1$3, this, candidates);
 }
 
 $Iterator* Resolve$6::lambda$loadClass$1($List* candidates) {
-	return $Iterators::createCompoundIterator(static_cast<$Iterable*>(static_cast<$Collection*>(static_cast<$AbstractCollection*>(candidates))), static_cast<$Function*>($$new(Resolve$6$$Lambda$lambda$loadClass$0$4, this)));
+	return $Iterators::createCompoundIterator($cast($AbstractCollection, candidates), $$new(Resolve$6$$Lambda$lambda$loadClass$0$4, this));
 }
 
 $Iterator* Resolve$6::lambda$loadClass$0($Name* c) {
-	return $nc($($nc(this->this$0->syms)->getClassesForName(c)))->iterator();
+	return $$nc($nc(this->this$0->syms)->getClassesForName(c))->iterator();
 }
 
 Resolve$6::Resolve$6() {
@@ -369,23 +291,64 @@ Resolve$6::Resolve$6() {
 
 $Class* Resolve$6::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Resolve$6$$Lambda$lambda$loadClass$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$2")) {
 			return Resolve$6$$Lambda$lambda$loadClass$2::load$(name, initialize);
 		}
-		if (name->equals(Resolve$6$$Lambda$lambda$loadClass$3$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$3$1")) {
 			return Resolve$6$$Lambda$lambda$loadClass$3$1::load$(name, initialize);
 		}
-		if (name->equals(Resolve$6$$Lambda$lambda$loadClass$4$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$4$2")) {
 			return Resolve$6$$Lambda$lambda$loadClass$4$2::load$(name, initialize);
 		}
-		if (name->equals(Resolve$6$$Lambda$lambda$loadClass$1$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$1$3")) {
 			return Resolve$6$$Lambda$lambda$loadClass$1$3::load$(name, initialize);
 		}
-		if (name->equals(Resolve$6$$Lambda$lambda$loadClass$0$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Resolve$6$$Lambda$lambda$loadClass$0$4")) {
 			return Resolve$6$$Lambda$lambda$loadClass$0$4::load$(name, initialize);
 		}
 	}
-	$loadClass(Resolve$6, name, initialize, &_Resolve$6_ClassInfo_, allocate$Resolve$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$6, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$6, init$, void, $Resolve*)},
+		{"lambda$loadClass$0", "(Lcom/sun/tools/javac/util/Name;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$6, lambda$loadClass$0, $Iterator*, $Name*)},
+		{"lambda$loadClass$1", "(Lcom/sun/tools/javac/util/List;)Ljava/util/Iterator;", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$6, lambda$loadClass$1, $Iterator*, $List*)},
+		{"lambda$loadClass$2", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Name;)Ljava/lang/Iterable;", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$6, lambda$loadClass$2, $Iterable*, $List*, $Name*)},
+		{"lambda$loadClass$3", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PRIVATE | $SYNTHETIC, $method(Resolve$6, lambda$loadClass$3, $Symbol$ClassSymbol*, $List*, $Symbol$ModuleSymbol*, $Name*)},
+		{"lambda$loadClass$4", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$6, lambda$loadClass$4, bool, $Symbol$ClassSymbol*)},
+		{"loadClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/code/Symbol;", $PUBLIC, $virtualMethod(Resolve$6, loadClass, $Symbol*, $Env*, $Name*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$6", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Resolve$RecoveryLoadClass", "com.sun.tools.javac.comp.Resolve", "RecoveryLoadClass", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$6",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Resolve$RecoveryLoadClass",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$6);
+	});
 	return class$;
 }
 

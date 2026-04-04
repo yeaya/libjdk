@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLStreamReaderImpl$1.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLStreamReaderImpl.h>
 #include <jcpp.h>
 
-using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
 using $XMLStreamReaderImpl = ::com::sun::org::apache::xerces::internal::impl::XMLStreamReaderImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -19,59 +17,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _XMLStreamReaderImpl$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/XMLStreamReaderImpl;", nullptr, $FINAL | $SYNTHETIC, $field(XMLStreamReaderImpl$1, this$0)},
-	{"_systemId", "Ljava/lang/String;", nullptr, 0, $field(XMLStreamReaderImpl$1, _systemId)},
-	{"_publicId", "Ljava/lang/String;", nullptr, 0, $field(XMLStreamReaderImpl$1, _publicId)},
-	{"_offset", "I", nullptr, 0, $field(XMLStreamReaderImpl$1, _offset)},
-	{"_columnNumber", "I", nullptr, 0, $field(XMLStreamReaderImpl$1, _columnNumber)},
-	{"_lineNumber", "I", nullptr, 0, $field(XMLStreamReaderImpl$1, _lineNumber)},
-	{}
-};
-
-$MethodInfo _XMLStreamReaderImpl$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/XMLStreamReaderImpl;)V", nullptr, 0, $method(XMLStreamReaderImpl$1, init$, void, $XMLStreamReaderImpl*)},
-	{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getCharacterOffset, int32_t)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getColumnNumber, int32_t)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getLineNumber, int32_t)},
-	{"getLocationURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getLocationURI, $String*)},
-	{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getPublicId, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getSystemId, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, toString, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _XMLStreamReaderImpl$1_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl",
-	"getLocation",
-	"()Ljavax/xml/stream/Location;"
-};
-
-$InnerClassInfo _XMLStreamReaderImpl$1_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLStreamReaderImpl$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl$1",
-	"java.lang.Object",
-	"javax.xml.stream.Location",
-	_XMLStreamReaderImpl$1_FieldInfo_,
-	_XMLStreamReaderImpl$1_MethodInfo_,
-	nullptr,
-	&_XMLStreamReaderImpl$1_EnclosingMethodInfo_,
-	_XMLStreamReaderImpl$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl"
-};
-
-$Object* allocate$XMLStreamReaderImpl$1($Class* clazz) {
-	return $of($alloc(XMLStreamReaderImpl$1));
-}
 
 void XMLStreamReaderImpl$1::init$($XMLStreamReaderImpl* this$0) {
 	$set(this, this$0, this$0);
@@ -107,7 +52,7 @@ $String* XMLStreamReaderImpl$1::getSystemId() {
 }
 
 $String* XMLStreamReaderImpl$1::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sbuffer, $new($StringBuilder));
 	sbuffer->append($$str({"Line number = "_s, $$str(getLineNumber())}));
 	sbuffer->append("\n"_s);
@@ -128,7 +73,53 @@ XMLStreamReaderImpl$1::XMLStreamReaderImpl$1() {
 }
 
 $Class* XMLStreamReaderImpl$1::load$($String* name, bool initialize) {
-	$loadClass(XMLStreamReaderImpl$1, name, initialize, &_XMLStreamReaderImpl$1_ClassInfo_, allocate$XMLStreamReaderImpl$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/XMLStreamReaderImpl;", nullptr, $FINAL | $SYNTHETIC, $field(XMLStreamReaderImpl$1, this$0)},
+		{"_systemId", "Ljava/lang/String;", nullptr, 0, $field(XMLStreamReaderImpl$1, _systemId)},
+		{"_publicId", "Ljava/lang/String;", nullptr, 0, $field(XMLStreamReaderImpl$1, _publicId)},
+		{"_offset", "I", nullptr, 0, $field(XMLStreamReaderImpl$1, _offset)},
+		{"_columnNumber", "I", nullptr, 0, $field(XMLStreamReaderImpl$1, _columnNumber)},
+		{"_lineNumber", "I", nullptr, 0, $field(XMLStreamReaderImpl$1, _lineNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/XMLStreamReaderImpl;)V", nullptr, 0, $method(XMLStreamReaderImpl$1, init$, void, $XMLStreamReaderImpl*)},
+		{"getCharacterOffset", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getCharacterOffset, int32_t)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getColumnNumber, int32_t)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getLineNumber, int32_t)},
+		{"getLocationURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getLocationURI, $String*)},
+		{"getPublicId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getPublicId, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, getSystemId, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLStreamReaderImpl$1, toString, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl",
+		"getLocation",
+		"()Ljavax/xml/stream/Location;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl$1",
+		"java.lang.Object",
+		"javax.xml.stream.Location",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl"
+	};
+	$loadClass(XMLStreamReaderImpl$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLStreamReaderImpl$1);
+	});
 	return class$;
 }
 

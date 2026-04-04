@@ -1,7 +1,5 @@
 #include <sun/rmi/runtime/Log$InternalStreamHandler.h>
-
 #include <java/io/OutputStream.h>
-#include <java/util/logging/Formatter.h>
 #include <java/util/logging/LogRecord.h>
 #include <java/util/logging/SimpleFormatter.h>
 #include <java/util/logging/StreamHandler.h>
@@ -12,7 +10,6 @@ using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Formatter = ::java::util::logging::Formatter;
 using $LogRecord = ::java::util::logging::LogRecord;
 using $SimpleFormatter = ::java::util::logging::SimpleFormatter;
 using $StreamHandler = ::java::util::logging::StreamHandler;
@@ -20,38 +17,6 @@ using $StreamHandler = ::java::util::logging::StreamHandler;
 namespace sun {
 	namespace rmi {
 		namespace runtime {
-
-$MethodInfo _Log$InternalStreamHandler_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Log$InternalStreamHandler, init$, void, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Log$InternalStreamHandler, close, void)},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(Log$InternalStreamHandler, publish, void, $LogRecord*)},
-	{}
-};
-
-$InnerClassInfo _Log$InternalStreamHandler_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.Log$InternalStreamHandler", "sun.rmi.runtime.Log", "InternalStreamHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Log$InternalStreamHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.runtime.Log$InternalStreamHandler",
-	"java.util.logging.StreamHandler",
-	nullptr,
-	nullptr,
-	_Log$InternalStreamHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log$InternalStreamHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.Log"
-};
-
-$Object* allocate$Log$InternalStreamHandler($Class* clazz) {
-	return $of($alloc(Log$InternalStreamHandler));
-}
 
 void Log$InternalStreamHandler::init$($OutputStream* out) {
 	$StreamHandler::init$(out, $$new($SimpleFormatter));
@@ -70,7 +35,34 @@ Log$InternalStreamHandler::Log$InternalStreamHandler() {
 }
 
 $Class* Log$InternalStreamHandler::load$($String* name, bool initialize) {
-	$loadClass(Log$InternalStreamHandler, name, initialize, &_Log$InternalStreamHandler_ClassInfo_, allocate$Log$InternalStreamHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(Log$InternalStreamHandler, init$, void, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(Log$InternalStreamHandler, close, void)},
+		{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(Log$InternalStreamHandler, publish, void, $LogRecord*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.Log$InternalStreamHandler", "sun.rmi.runtime.Log", "InternalStreamHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.runtime.Log$InternalStreamHandler",
+		"java.util.logging.StreamHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.Log"
+	};
+	$loadClass(Log$InternalStreamHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$InternalStreamHandler);
+	});
 	return class$;
 }
 

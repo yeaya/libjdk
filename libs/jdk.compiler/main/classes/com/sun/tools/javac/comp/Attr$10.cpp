@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$10.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/comp/Attr.h>
@@ -9,7 +8,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
@@ -26,50 +24,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$10_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$10, this$0)},
-	{}
-};
-
-$MethodInfo _Attr$10_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(Attr$10, init$, void, $Attr*, $Check$CheckContext*)},
-	{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Attr$10, compatible, bool, $Type*, $Type*, $Warner*)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$10_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr",
-	"visitTypeCast",
-	"(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V"
-};
-
-$InnerClassInfo _Attr$10_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$10", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCTypeCast", "com.sun.tools.javac.tree.JCTree", "JCTypeCast", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attr$10_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$10",
-	"com.sun.tools.javac.comp.Check$NestedCheckContext",
-	nullptr,
-	_Attr$10_FieldInfo_,
-	_Attr$10_MethodInfo_,
-	nullptr,
-	&_Attr$10_EnclosingMethodInfo_,
-	_Attr$10_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$10($Class* clazz) {
-	return $of($alloc(Attr$10));
-}
-
 void Attr$10::init$($Attr* this$0, $Check$CheckContext* enclosingContext) {
 	$set(this, this$0, this$0);
 	$Check$NestedCheckContext::init$(enclosingContext);
@@ -83,7 +37,44 @@ Attr$10::Attr$10() {
 }
 
 $Class* Attr$10::load$($String* name, bool initialize) {
-	$loadClass(Attr$10, name, initialize, &_Attr$10_ClassInfo_, allocate$Attr$10);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$10, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, 0, $method(Attr$10, init$, void, $Attr*, $Check$CheckContext*)},
+		{"compatible", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;)Z", nullptr, $PUBLIC, $virtualMethod(Attr$10, compatible, bool, $Type*, $Type*, $Warner*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr",
+		"visitTypeCast",
+		"(Lcom/sun/tools/javac/tree/JCTree$JCTypeCast;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$10", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Check$NestedCheckContext", "com.sun.tools.javac.comp.Check", "NestedCheckContext", $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCTypeCast", "com.sun.tools.javac.tree.JCTree", "JCTypeCast", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$10",
+		"com.sun.tools.javac.comp.Check$NestedCheckContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$10);
+	});
 	return class$;
 }
 

@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/synth/SynthTabbedPaneUI$2.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$TabbedPaneLayout.h>
-#include <javax/swing/plaf/basic/BasicTabbedPaneUI.h>
 #include <javax/swing/plaf/synth/SynthTabbedPaneUI.h>
 #include <jcpp.h>
 
@@ -15,7 +13,6 @@
 #undef RIGHT
 #undef TOP
 
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,7 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
-using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
 using $BasicTabbedPaneUI$TabbedPaneLayout = ::javax::swing::plaf::basic::BasicTabbedPaneUI$TabbedPaneLayout;
 using $SynthTabbedPaneUI = ::javax::swing::plaf::synth::SynthTabbedPaneUI;
 
@@ -32,60 +28,17 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthTabbedPaneUI$2_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTabbedPaneUI$2, this$0)},
-	{}
-};
-
-$MethodInfo _SynthTabbedPaneUI$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)V", nullptr, 0, $method(SynthTabbedPaneUI$2, init$, void, $SynthTabbedPaneUI*)},
-	{"calculateLayoutInfo", "()V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI$2, calculateLayoutInfo, void)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthTabbedPaneUI$2_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.synth.SynthTabbedPaneUI",
-	"createLayoutManager",
-	"()Ljava/awt/LayoutManager;"
-};
-
-$InnerClassInfo _SynthTabbedPaneUI$2_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTabbedPaneUI$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
-	{}
-};
-
-$ClassInfo _SynthTabbedPaneUI$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthTabbedPaneUI$2",
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout",
-	nullptr,
-	_SynthTabbedPaneUI$2_FieldInfo_,
-	_SynthTabbedPaneUI$2_MethodInfo_,
-	nullptr,
-	&_SynthTabbedPaneUI$2_EnclosingMethodInfo_,
-	_SynthTabbedPaneUI$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTabbedPaneUI"
-};
-
-$Object* allocate$SynthTabbedPaneUI$2($Class* clazz) {
-	return $of($alloc(SynthTabbedPaneUI$2));
-}
-
 void SynthTabbedPaneUI$2::init$($SynthTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$BasicTabbedPaneUI$TabbedPaneLayout::init$(this$0);
 }
 
 void SynthTabbedPaneUI$2::calculateLayoutInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTabbedPaneUI$TabbedPaneLayout::calculateLayoutInfo();
 	if (this->this$0->tabOverlap != 0) {
-		int32_t tabCount = $nc($($SynthTabbedPaneUI::access$600(this->this$0)))->getTabCount();
-		bool ltr = $nc($($nc($($SynthTabbedPaneUI::access$700(this->this$0)))->getComponentOrientation()))->isLeftToRight();
+		int32_t tabCount = $$nc($SynthTabbedPaneUI::access$600(this->this$0))->getTabCount();
+		bool ltr = $$nc($$nc($SynthTabbedPaneUI::access$700(this->this$0))->getComponentOrientation())->isLeftToRight();
 		for (int32_t i = $SynthTabbedPaneUI::access$800(this->this$0) - 1; i >= 0; --i) {
 			int32_t start = $nc($($SynthTabbedPaneUI::access$900(this->this$0)))->get(i);
 			int32_t next = $nc($($SynthTabbedPaneUI::access$1000(this->this$0)))->get((i == $SynthTabbedPaneUI::access$1100(this->this$0) - 1) ? 0 : i + 1);
@@ -93,23 +46,17 @@ void SynthTabbedPaneUI$2::calculateLayoutInfo() {
 			for (int32_t j = start + 1; j <= end; ++j) {
 				int32_t xshift = 0;
 				int32_t yshift = 0;
-				switch ($nc($($SynthTabbedPaneUI::access$1200(this->this$0)))->getTabPlacement()) {
+				switch ($$nc($SynthTabbedPaneUI::access$1200(this->this$0))->getTabPlacement()) {
 				case $JTabbedPane::TOP:
-					{}
 				case $JTabbedPane::BOTTOM:
-					{
-						xshift = ltr ? this->this$0->tabOverlap : -this->this$0->tabOverlap;
-						break;
-					}
+					xshift = ltr ? this->this$0->tabOverlap : -this->this$0->tabOverlap;
+					break;
 				case $JTabbedPane::LEFT:
-					{}
 				case $JTabbedPane::RIGHT:
-					{
-						yshift = this->this$0->tabOverlap;
-						break;
-					}
+					yshift = this->this$0->tabOverlap;
+					break;
 				default:
-					{}
+					break;
 				}
 				$nc($nc($($SynthTabbedPaneUI::access$1300(this->this$0)))->get(j))->x += xshift;
 				$nc($nc($($SynthTabbedPaneUI::access$1400(this->this$0)))->get(j))->y += yshift;
@@ -124,7 +71,43 @@ SynthTabbedPaneUI$2::SynthTabbedPaneUI$2() {
 }
 
 $Class* SynthTabbedPaneUI$2::load$($String* name, bool initialize) {
-	$loadClass(SynthTabbedPaneUI$2, name, initialize, &_SynthTabbedPaneUI$2_ClassInfo_, allocate$SynthTabbedPaneUI$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(SynthTabbedPaneUI$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthTabbedPaneUI;)V", nullptr, 0, $method(SynthTabbedPaneUI$2, init$, void, $SynthTabbedPaneUI*)},
+		{"calculateLayoutInfo", "()V", nullptr, $PUBLIC, $virtualMethod(SynthTabbedPaneUI$2, calculateLayoutInfo, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.synth.SynthTabbedPaneUI",
+		"createLayoutManager",
+		"()Ljava/awt/LayoutManager;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTabbedPaneUI$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabbedPaneLayout", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthTabbedPaneUI$2",
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$TabbedPaneLayout",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTabbedPaneUI"
+	};
+	$loadClass(SynthTabbedPaneUI$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthTabbedPaneUI$2);
+	});
 	return class$;
 }
 

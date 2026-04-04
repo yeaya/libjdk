@@ -1,5 +1,4 @@
 #include <javax/script/AbstractScriptEngine.h>
-
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
 #include <javax/script/Bindings.h>
@@ -23,41 +22,6 @@ using $SimpleScriptContext = ::javax::script::SimpleScriptContext;
 
 namespace javax {
 	namespace script {
-
-$FieldInfo _AbstractScriptEngine_FieldInfo_[] = {
-	{"context", "Ljavax/script/ScriptContext;", nullptr, $PROTECTED, $field(AbstractScriptEngine, context)},
-	{}
-};
-
-$MethodInfo _AbstractScriptEngine_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractScriptEngine, init$, void)},
-	{"<init>", "(Ljavax/script/Bindings;)V", nullptr, $PUBLIC, $method(AbstractScriptEngine, init$, void, $Bindings*)},
-	{"eval", "(Ljava/io/Reader;Ljavax/script/Bindings;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, eval, $Object*, $Reader*, $Bindings*), "javax.script.ScriptException"},
-	{"eval", "(Ljava/lang/String;Ljavax/script/Bindings;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, eval, $Object*, $String*, $Bindings*), "javax.script.ScriptException"},
-	{"eval", "(Ljava/io/Reader;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, eval, $Object*, $Reader*), "javax.script.ScriptException"},
-	{"eval", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, eval, $Object*, $String*), "javax.script.ScriptException"},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, get, $Object*, $String*)},
-	{"getBindings", "(I)Ljavax/script/Bindings;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, getBindings, $Bindings*, int32_t)},
-	{"getContext", "()Ljavax/script/ScriptContext;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, getContext, $ScriptContext*)},
-	{"getScriptContext", "(Ljavax/script/Bindings;)Ljavax/script/ScriptContext;", nullptr, $PROTECTED, $virtualMethod(AbstractScriptEngine, getScriptContext, $ScriptContext*, $Bindings*)},
-	{"put", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, put, void, $String*, Object$*)},
-	{"setBindings", "(Ljavax/script/Bindings;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, setBindings, void, $Bindings*, int32_t)},
-	{"setContext", "(Ljavax/script/ScriptContext;)V", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, setContext, void, $ScriptContext*)},
-	{}
-};
-
-$ClassInfo _AbstractScriptEngine_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.script.AbstractScriptEngine",
-	"java.lang.Object",
-	"javax.script.ScriptEngine",
-	_AbstractScriptEngine_FieldInfo_,
-	_AbstractScriptEngine_MethodInfo_
-};
-
-$Object* allocate$AbstractScriptEngine($Class* clazz) {
-	return $of($alloc(AbstractScriptEngine));
-}
 
 void AbstractScriptEngine::init$() {
 	$set(this, context, $new($SimpleScriptContext));
@@ -112,34 +76,34 @@ void AbstractScriptEngine::put($String* key, Object$* value) {
 $Object* AbstractScriptEngine::get($String* key) {
 	$var($Bindings, nn, getBindings($ScriptContext::ENGINE_SCOPE));
 	if (nn != nullptr) {
-		return $of(nn->get(key));
+		return nn->get(key);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* AbstractScriptEngine::eval($Reader* reader, $Bindings* bindings) {
 	$var($ScriptContext, ctxt, getScriptContext(bindings));
-	return $of(eval(reader, ctxt));
+	return eval(reader, ctxt);
 }
 
 $Object* AbstractScriptEngine::eval($String* script, $Bindings* bindings) {
 	$var($ScriptContext, ctxt, getScriptContext(bindings));
-	return $of(eval(script, ctxt));
+	return eval(script, ctxt);
 }
 
 $Object* AbstractScriptEngine::eval($Reader* reader) {
-	return $of(eval(reader, this->context));
+	return eval(reader, this->context);
 }
 
 $Object* AbstractScriptEngine::eval($String* script) {
-	return $of(eval(script, this->context));
+	return eval(script, this->context);
 }
 
 $ScriptContext* AbstractScriptEngine::getScriptContext($Bindings* nn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Reader, var$0, $nc(this->context)->getReader());
-	$var($Writer, var$1, $nc(this->context)->getWriter());
-	$var($SimpleScriptContext, ctxt, $new($SimpleScriptContext, var$0, var$1, $($nc(this->context)->getErrorWriter())));
+	$var($Writer, var$1, this->context->getWriter());
+	$var($SimpleScriptContext, ctxt, $new($SimpleScriptContext, var$0, var$1, $(this->context->getErrorWriter())));
 	$var($Bindings, gs, getBindings($ScriptContext::GLOBAL_SCOPE));
 	if (gs != nullptr) {
 		ctxt->setBindings(gs, $ScriptContext::GLOBAL_SCOPE);
@@ -156,7 +120,37 @@ AbstractScriptEngine::AbstractScriptEngine() {
 }
 
 $Class* AbstractScriptEngine::load$($String* name, bool initialize) {
-	$loadClass(AbstractScriptEngine, name, initialize, &_AbstractScriptEngine_ClassInfo_, allocate$AbstractScriptEngine);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "Ljavax/script/ScriptContext;", nullptr, $PROTECTED, $field(AbstractScriptEngine, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractScriptEngine, init$, void)},
+		{"<init>", "(Ljavax/script/Bindings;)V", nullptr, $PUBLIC, $method(AbstractScriptEngine, init$, void, $Bindings*)},
+		{"eval", "(Ljava/io/Reader;Ljavax/script/Bindings;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, eval, $Object*, $Reader*, $Bindings*), "javax.script.ScriptException"},
+		{"eval", "(Ljava/lang/String;Ljavax/script/Bindings;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, eval, $Object*, $String*, $Bindings*), "javax.script.ScriptException"},
+		{"eval", "(Ljava/io/Reader;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, eval, $Object*, $Reader*), "javax.script.ScriptException"},
+		{"eval", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, eval, $Object*, $String*), "javax.script.ScriptException"},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, get, $Object*, $String*)},
+		{"getBindings", "(I)Ljavax/script/Bindings;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, getBindings, $Bindings*, int32_t)},
+		{"getContext", "()Ljavax/script/ScriptContext;", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, getContext, $ScriptContext*)},
+		{"getScriptContext", "(Ljavax/script/Bindings;)Ljavax/script/ScriptContext;", nullptr, $PROTECTED, $virtualMethod(AbstractScriptEngine, getScriptContext, $ScriptContext*, $Bindings*)},
+		{"put", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, put, void, $String*, Object$*)},
+		{"setBindings", "(Ljavax/script/Bindings;I)V", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, setBindings, void, $Bindings*, int32_t)},
+		{"setContext", "(Ljavax/script/ScriptContext;)V", nullptr, $PUBLIC, $virtualMethod(AbstractScriptEngine, setContext, void, $ScriptContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.script.AbstractScriptEngine",
+		"java.lang.Object",
+		"javax.script.ScriptEngine",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractScriptEngine, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractScriptEngine);
+	});
 	return class$;
 }
 

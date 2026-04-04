@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$8.h>
-
 #include <com/sun/tools/javac/code/Type$WildcardType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
@@ -26,62 +25,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
-using $Set = ::java::util::Set;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$8_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$8, this$0)},
-	{"cache", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Types$TypePair;>;", $PRIVATE, $field(Types$8, cache)},
-	{}
-};
-
-$MethodInfo _Types$8_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$8, init$, void, $Types*)},
-	{"isCastableRecursive", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Types$8, isCastableRecursive, bool, $Type*, $Type*)},
-	{"notSoftSubtypeRecursive", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Types$8, notSoftSubtypeRecursive, bool, $Type*, $Type*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$8, visitType, $Boolean*, $Type*, $Type*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$8, visitType, $Object*, $Type*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$8, visitWildcardType, $Boolean*, $Type$WildcardType*, $Type*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$8, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$8_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$8_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$8", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$8_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$8",
-	"com.sun.tools.javac.code.Types$TypeRelation",
-	nullptr,
-	_Types$8_FieldInfo_,
-	_Types$8_MethodInfo_,
-	nullptr,
-	&_Types$8_EnclosingMethodInfo_,
-	_Types$8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$8($Class* clazz) {
-	return $of($alloc(Types$8));
-}
 
 void Types$8::init$($Types* this$0) {
 	$set(this, this$0, this$0);
@@ -100,28 +49,26 @@ $Boolean* Types$8::visitType($Type* t, $Type* s) {
 }
 
 bool Types$8::isCastableRecursive($Type* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Types$TypePair, pair, $new($Types$TypePair, this->this$0, t, s));
 	if ($nc(this->cache)->add(pair)) {
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
-			try {
-				var$2 = this->this$0->isCastable(t, s);
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(this->cache)->remove(pair);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
+			var$2 = this->this$0->isCastable(t, s);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			this->cache->remove(pair);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} else {
 		return true;
@@ -129,28 +76,26 @@ bool Types$8::isCastableRecursive($Type* t, $Type* s) {
 }
 
 bool Types$8::notSoftSubtypeRecursive($Type* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Types$TypePair, pair, $new($Types$TypePair, this->this$0, t, s));
 	if ($nc(this->cache)->add(pair)) {
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
-			try {
-				var$2 = this->this$0->notSoftSubtype(t, s);
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				$nc(this->cache)->remove(pair);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
+			var$2 = this->this$0->notSoftSubtype(t, s);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			this->cache->remove(pair);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} else {
 		return false;
@@ -158,29 +103,29 @@ bool Types$8::notSoftSubtypeRecursive($Type* t, $Type* s) {
 }
 
 $Boolean* Types$8::visitWildcardType($Type$WildcardType* t, $Type* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(t)->isUnbound()) {
 		return $Boolean::valueOf(false);
 	}
 	$init($TypeTag);
 	if (!$nc(s)->hasTag($TypeTag::WILDCARD)) {
-		if ($nc(t)->isExtendsBound()) {
+		if (t->isExtendsBound()) {
 			return $Boolean::valueOf(notSoftSubtypeRecursive(s, t->type));
 		} else {
 			return $Boolean::valueOf(notSoftSubtypeRecursive(t->type, s));
 		}
 	}
-	if ($nc(s)->isUnbound()) {
+	if (s->isUnbound()) {
 		return $Boolean::valueOf(false);
 	}
-	if ($nc(t)->isExtendsBound()) {
-		if ($nc(s)->isExtendsBound()) {
+	if (t->isExtendsBound()) {
+		if (s->isExtendsBound()) {
 			return $Boolean::valueOf(!isCastableRecursive(t->type, $(this->this$0->wildUpperBound(s))));
 		} else if (s->isSuperBound()) {
 			return $Boolean::valueOf(notSoftSubtypeRecursive($(this->this$0->wildLowerBound(s)), t->type));
 		}
 	} else if (t->isSuperBound()) {
-		if ($nc(s)->isExtendsBound()) {
+		if (s->isExtendsBound()) {
 			return $Boolean::valueOf(notSoftSubtypeRecursive(t->type, $(this->this$0->wildUpperBound(s))));
 		}
 	}
@@ -199,7 +144,49 @@ Types$8::Types$8() {
 }
 
 $Class* Types$8::load$($String* name, bool initialize) {
-	$loadClass(Types$8, name, initialize, &_Types$8_ClassInfo_, allocate$Types$8);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$8, this$0)},
+		{"cache", "Ljava/util/Set;", "Ljava/util/Set<Lcom/sun/tools/javac/code/Types$TypePair;>;", $PRIVATE, $field(Types$8, cache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$8, init$, void, $Types*)},
+		{"isCastableRecursive", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Types$8, isCastableRecursive, bool, $Type*, $Type*)},
+		{"notSoftSubtypeRecursive", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(Types$8, notSoftSubtypeRecursive, bool, $Type*, $Type*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$8, visitType, $Boolean*, $Type*, $Type*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$8, visitType, $Object*, $Type*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Lcom/sun/tools/javac/code/Type;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(Types$8, visitWildcardType, $Boolean*, $Type$WildcardType*, $Type*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$8, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$8", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$TypeRelation", "com.sun.tools.javac.code.Types", "TypeRelation", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$8",
+		"com.sun.tools.javac.code.Types$TypeRelation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$8);
+	});
 	return class$;
 }
 

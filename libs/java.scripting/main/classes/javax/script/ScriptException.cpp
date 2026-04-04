@@ -1,5 +1,4 @@
 #include <javax/script/ScriptException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,39 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace script {
 
-$FieldInfo _ScriptException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScriptException, serialVersionUID)},
-	{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ScriptException, fileName)},
-	{"lineNumber", "I", nullptr, $PRIVATE | $FINAL, $field(ScriptException, lineNumber)},
-	{"columnNumber", "I", nullptr, $PRIVATE | $FINAL, $field(ScriptException, columnNumber)},
-	{}
-};
-
-$MethodInfo _ScriptException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*, $String*, int32_t, int32_t)},
-	{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ScriptException, getColumnNumber, int32_t)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScriptException, getFileName, $String*)},
-	{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ScriptException, getLineNumber, int32_t)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScriptException, getMessage, $String*)},
-	{}
-};
-
-$ClassInfo _ScriptException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.script.ScriptException",
-	"java.lang.Exception",
-	nullptr,
-	_ScriptException_FieldInfo_,
-	_ScriptException_MethodInfo_
-};
-
-$Object* allocate$ScriptException($Class* clazz) {
-	return $of($alloc(ScriptException));
-}
-
 void ScriptException::init$($String* s) {
 	$Exception::init$(s);
 	$set(this, fileName, nullptr);
@@ -51,7 +17,7 @@ void ScriptException::init$($String* s) {
 }
 
 void ScriptException::init$($Exception* e) {
-	$Exception::init$(static_cast<$Throwable*>(e));
+	$Exception::init$(e);
 	$set(this, fileName, nullptr);
 	this->lineNumber = -1;
 	this->columnNumber = -1;
@@ -72,7 +38,7 @@ void ScriptException::init$($String* message, $String* fileName, int32_t lineNum
 }
 
 $String* ScriptException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ret, $Exception::getMessage());
 	if (this->fileName != nullptr) {
 		$plusAssign(ret, ($$str({" in "_s, this->fileName})));
@@ -109,7 +75,35 @@ void ScriptException::throw$() {
 }
 
 $Class* ScriptException::load$($String* name, bool initialize) {
-	$loadClass(ScriptException, name, initialize, &_ScriptException_ClassInfo_, allocate$ScriptException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScriptException, serialVersionUID)},
+		{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ScriptException, fileName)},
+		{"lineNumber", "I", nullptr, $PRIVATE | $FINAL, $field(ScriptException, lineNumber)},
+		{"columnNumber", "I", nullptr, $PRIVATE | $FINAL, $field(ScriptException, columnNumber)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(ScriptException, init$, void, $String*, $String*, int32_t, int32_t)},
+		{"getColumnNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ScriptException, getColumnNumber, int32_t)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScriptException, getFileName, $String*)},
+		{"getLineNumber", "()I", nullptr, $PUBLIC, $virtualMethod(ScriptException, getLineNumber, int32_t)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ScriptException, getMessage, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.script.ScriptException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScriptException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScriptException);
+	});
 	return class$;
 }
 

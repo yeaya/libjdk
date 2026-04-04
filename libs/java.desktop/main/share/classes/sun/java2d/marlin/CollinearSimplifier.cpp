@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/CollinearSimplifier.h>
-
 #include <java/lang/Math.h>
 #include <sun/java2d/marlin/CollinearSimplifier$1.h>
 #include <sun/java2d/marlin/CollinearSimplifier$SimplifierState.h>
@@ -23,58 +22,6 @@ using $DPathConsumer2D = ::sun::java2d::marlin::DPathConsumer2D;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _CollinearSimplifier_FieldInfo_[] = {
-	{"EPS", "D", nullptr, $STATIC | $FINAL, $staticField(CollinearSimplifier, EPS)},
-	{"delegate", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $field(CollinearSimplifier, delegate)},
-	{"state", "Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, 0, $field(CollinearSimplifier, state)},
-	{"px1", "D", nullptr, 0, $field(CollinearSimplifier, px1)},
-	{"py1", "D", nullptr, 0, $field(CollinearSimplifier, py1)},
-	{"px2", "D", nullptr, 0, $field(CollinearSimplifier, px2)},
-	{"py2", "D", nullptr, 0, $field(CollinearSimplifier, py2)},
-	{"pslope", "D", nullptr, 0, $field(CollinearSimplifier, pslope)},
-	{}
-};
-
-$MethodInfo _CollinearSimplifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CollinearSimplifier, init$, void)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, closePath, void)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, curveTo, void, double, double, double, double, double, double)},
-	{"emitStashedLine", "()V", nullptr, $PRIVATE, $method(CollinearSimplifier, emitStashedLine, void)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, getNativeConsumer, int64_t)},
-	{"getSlope", "(DDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CollinearSimplifier, getSlope, double, double, double, double, double)},
-	{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/CollinearSimplifier;", nullptr, $PUBLIC, $method(CollinearSimplifier, init, CollinearSimplifier*, $DPathConsumer2D*)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, quadTo, void, double, double, double, double)},
-	{}
-};
-
-$InnerClassInfo _CollinearSimplifier_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.CollinearSimplifier$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.java2d.marlin.CollinearSimplifier$SimplifierState", "sun.java2d.marlin.CollinearSimplifier", "SimplifierState", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CollinearSimplifier_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.CollinearSimplifier",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D",
-	_CollinearSimplifier_FieldInfo_,
-	_CollinearSimplifier_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CollinearSimplifier_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.CollinearSimplifier$1,sun.java2d.marlin.CollinearSimplifier$SimplifierState"
-};
-
-$Object* allocate$CollinearSimplifier($Class* clazz) {
-	return $of($alloc(CollinearSimplifier));
-}
 
 double CollinearSimplifier::EPS = 0.0;
 
@@ -135,46 +82,36 @@ void CollinearSimplifier::moveTo(double x, double y) {
 
 void CollinearSimplifier::lineTo(double x, double y) {
 	$init($CollinearSimplifier$1);
-	{
-		double slope = 0;
-		switch ($nc($CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState)->get($nc((this->state))->ordinal())) {
-		case 1:
-			{
-				$nc(this->delegate)->lineTo(x, y);
-				$init($CollinearSimplifier$SimplifierState);
-				$set(this, state, $CollinearSimplifier$SimplifierState::PreviousPoint);
-				this->px1 = x;
-				this->py1 = y;
-				return;
-			}
-		case 2:
-			{
-				$init($CollinearSimplifier$SimplifierState);
-				$set(this, state, $CollinearSimplifier$SimplifierState::PreviousLine);
-				this->px2 = x;
-				this->py2 = y;
-				this->pslope = getSlope(this->px1, this->py1, x, y);
-				return;
-			}
-		case 3:
-			{
-				slope = getSlope(this->px2, this->py2, x, y);
-				if ((slope == this->pslope) || ($Math::abs(this->pslope - slope) < CollinearSimplifier::EPS)) {
-					this->px2 = x;
-					this->py2 = y;
-					return;
-				}
-				$nc(this->delegate)->lineTo(this->px2, this->py2);
-				this->px1 = this->px2;
-				this->py1 = this->py2;
-				this->px2 = x;
-				this->py2 = y;
-				this->pslope = slope;
-				return;
-			}
-		default:
-			{}
+	double slope = 0;
+	switch ($nc($CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState)->get($nc((this->state))->ordinal())) {
+	case 1:
+		$nc(this->delegate)->lineTo(x, y);
+		$set(this, state, $CollinearSimplifier$SimplifierState::PreviousPoint);
+		this->px1 = x;
+		this->py1 = y;
+		return;
+	case 2:
+		$set(this, state, $CollinearSimplifier$SimplifierState::PreviousLine);
+		this->px2 = x;
+		this->py2 = y;
+		this->pslope = getSlope(this->px1, this->py1, x, y);
+		return;
+	case 3:
+		slope = getSlope(this->px2, this->py2, x, y);
+		if ((slope == this->pslope) || ($Math::abs(this->pslope - slope) < CollinearSimplifier::EPS)) {
+			this->px2 = x;
+			this->py2 = y;
+			return;
 		}
+		$nc(this->delegate)->lineTo(this->px2, this->py2);
+		this->px1 = this->px2;
+		this->py1 = this->py2;
+		this->px2 = x;
+		this->py2 = y;
+		this->pslope = slope;
+		return;
+	default:
+		break;
 	}
 }
 
@@ -189,7 +126,6 @@ double CollinearSimplifier::getSlope(double x1, double y1, double x2, double y2)
 	$init(CollinearSimplifier);
 	double dy = y2 - y1;
 	if (dy == 0.0) {
-		$init($Double);
 		return (x2 > x1) ? $Double::POSITIVE_INFINITY : $Double::NEGATIVE_INFINITY;
 	}
 	return (x2 - x1) / dy;
@@ -198,12 +134,58 @@ double CollinearSimplifier::getSlope(double x1, double y1, double x2, double y2)
 CollinearSimplifier::CollinearSimplifier() {
 }
 
-void clinit$CollinearSimplifier($Class* class$) {
+void CollinearSimplifier::clinit$($Class* clazz) {
 	CollinearSimplifier::EPS = 1.0E-4;
 }
 
 $Class* CollinearSimplifier::load$($String* name, bool initialize) {
-	$loadClass(CollinearSimplifier, name, initialize, &_CollinearSimplifier_ClassInfo_, clinit$CollinearSimplifier, allocate$CollinearSimplifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"EPS", "D", nullptr, $STATIC | $FINAL, $staticField(CollinearSimplifier, EPS)},
+		{"delegate", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, 0, $field(CollinearSimplifier, delegate)},
+		{"state", "Lsun/java2d/marlin/CollinearSimplifier$SimplifierState;", nullptr, 0, $field(CollinearSimplifier, state)},
+		{"px1", "D", nullptr, 0, $field(CollinearSimplifier, px1)},
+		{"py1", "D", nullptr, 0, $field(CollinearSimplifier, py1)},
+		{"px2", "D", nullptr, 0, $field(CollinearSimplifier, px2)},
+		{"py2", "D", nullptr, 0, $field(CollinearSimplifier, py2)},
+		{"pslope", "D", nullptr, 0, $field(CollinearSimplifier, pslope)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CollinearSimplifier, init$, void)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, closePath, void)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, curveTo, void, double, double, double, double, double, double)},
+		{"emitStashedLine", "()V", nullptr, $PRIVATE, $method(CollinearSimplifier, emitStashedLine, void)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, getNativeConsumer, int64_t)},
+		{"getSlope", "(DDDD)D", nullptr, $PRIVATE | $STATIC, $staticMethod(CollinearSimplifier, getSlope, double, double, double, double, double)},
+		{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/CollinearSimplifier;", nullptr, $PUBLIC, $method(CollinearSimplifier, init, CollinearSimplifier*, $DPathConsumer2D*)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(CollinearSimplifier, quadTo, void, double, double, double, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.CollinearSimplifier$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.java2d.marlin.CollinearSimplifier$SimplifierState", "sun.java2d.marlin.CollinearSimplifier", "SimplifierState", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.CollinearSimplifier",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.CollinearSimplifier$1,sun.java2d.marlin.CollinearSimplifier$SimplifierState"
+	};
+	$loadClass(CollinearSimplifier, name, initialize, &classInfo$$, CollinearSimplifier::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CollinearSimplifier);
+	});
 	return class$;
 }
 

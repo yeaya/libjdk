@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/server/Sjavac.h>
-
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <jcpp.h>
 
@@ -13,27 +12,23 @@ namespace com {
 			namespace sjavac {
 				namespace server {
 
-$MethodInfo _Sjavac_MethodInfo_[] = {
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sjavac, compile, $Main$Result*, $StringArray*)},
-	{"shutdown", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sjavac, shutdown, void)},
-	{}
-};
-
-$ClassInfo _Sjavac_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.sjavac.server.Sjavac",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Sjavac_MethodInfo_
-};
-
-$Object* allocate$Sjavac($Class* clazz) {
-	return $of($alloc(Sjavac));
-}
-
 $Class* Sjavac::load$($String* name, bool initialize) {
-	$loadClass(Sjavac, name, initialize, &_Sjavac_ClassInfo_, allocate$Sjavac);
+	$MethodInfo methodInfos$$[] = {
+		{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sjavac, compile, $Main$Result*, $StringArray*)},
+		{"shutdown", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Sjavac, shutdown, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.sjavac.server.Sjavac",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Sjavac, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Sjavac);
+	});
 	return class$;
 }
 

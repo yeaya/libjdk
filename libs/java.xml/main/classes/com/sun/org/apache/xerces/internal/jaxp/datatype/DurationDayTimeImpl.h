@@ -31,7 +31,7 @@ public:
 	void init$(int64_t durationInMilliseconds);
 	void convertToCanonicalDayTime();
 	virtual float getValue();
-	static const int64_t serialVersionUID = (int64_t)0x0BB94E9233F66164;
+	static const int64_t serialVersionUID = (int64_t)0x0bb94e9233f66164;
 };
 
 							} // datatype

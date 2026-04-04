@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod.h>
-
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/LambdaExpressionTree$BodyKind.h>
@@ -133,13 +132,10 @@ using $PoolConstant$LoadableConstantArray = $Array<::com::sun::tools::javac::jvm
 using $LambdaExpressionTree$BodyKind = ::com::sun::source::tree::LambdaExpressionTree$BodyKind;
 using $Attribute$TypeCompound = ::com::sun::tools::javac::code::Attribute$TypeCompound;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$DynamicMethodSymbol = ::com::sun::tools::javac::code::Symbol$DynamicMethodSymbol;
 using $Symbol$MethodHandleSymbol = ::com::sun::tools::javac::code::Symbol$MethodHandleSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -180,9 +176,7 @@ using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAcce
 using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
-using $JCTree$JCLiteral = ::com::sun::tools::javac::tree::JCTree$JCLiteral;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
-using $JCTree$JCMemberReference$ReferenceKind = ::com::sun::tools::javac::tree::JCTree$JCMemberReference$ReferenceKind;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
@@ -217,9 +211,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Consumer = ::java::util::function::Consumer;
 using $Function = ::java::util::function::Function;
 using $Supplier = ::java::util::function::Supplier;
@@ -240,33 +232,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->getRawTypeAttributes());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LambdaToMethod$$Lambda$getRawTypeAttributes>());
-	}
 	$Symbol* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LambdaToMethod$$Lambda$getRawTypeAttributes::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$getRawTypeAttributes, inst$)},
-	{}
-};
-$MethodInfo LambdaToMethod$$Lambda$getRawTypeAttributes::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getRawTypeAttributes, init$, void, $Symbol*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getRawTypeAttributes, get, $Object*)},
-	{}
-};
-$ClassInfo LambdaToMethod$$Lambda$getRawTypeAttributes::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getRawTypeAttributes",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* LambdaToMethod$$Lambda$getRawTypeAttributes::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$$Lambda$getRawTypeAttributes, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$getRawTypeAttributes, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getRawTypeAttributes, init$, void, $Symbol*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getRawTypeAttributes, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getRawTypeAttributes",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaToMethod$$Lambda$getRawTypeAttributes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$$Lambda$getRawTypeAttributes);
+	});
 	return class$;
 }
 $Class* LambdaToMethod$$Lambda$getRawTypeAttributes::class$ = nullptr;
@@ -280,33 +268,29 @@ public:
 	virtual void accept(Object$* a) override {
 		$nc(inst$)->setTypeAttributes($cast($List, a));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LambdaToMethod$$Lambda$setTypeAttributes$1>());
-	}
 	$Symbol* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LambdaToMethod$$Lambda$setTypeAttributes$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$setTypeAttributes$1, inst$)},
-	{}
-};
-$MethodInfo LambdaToMethod$$Lambda$setTypeAttributes$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setTypeAttributes$1, init$, void, $Symbol*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setTypeAttributes$1, accept, void, Object$*)},
-	{}
-};
-$ClassInfo LambdaToMethod$$Lambda$setTypeAttributes$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setTypeAttributes$1",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* LambdaToMethod$$Lambda$setTypeAttributes$1::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$$Lambda$setTypeAttributes$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$setTypeAttributes$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setTypeAttributes$1, init$, void, $Symbol*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setTypeAttributes$1, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setTypeAttributes$1",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaToMethod$$Lambda$setTypeAttributes$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$$Lambda$setTypeAttributes$1);
+	});
 	return class$;
 }
 $Class* LambdaToMethod$$Lambda$setTypeAttributes$1::class$ = nullptr;
@@ -320,33 +304,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->getInitTypeAttributes());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LambdaToMethod$$Lambda$getInitTypeAttributes$2>());
-	}
 	$Symbol* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LambdaToMethod$$Lambda$getInitTypeAttributes$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$getInitTypeAttributes$2, inst$)},
-	{}
-};
-$MethodInfo LambdaToMethod$$Lambda$getInitTypeAttributes$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getInitTypeAttributes$2, init$, void, $Symbol*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getInitTypeAttributes$2, get, $Object*)},
-	{}
-};
-$ClassInfo LambdaToMethod$$Lambda$getInitTypeAttributes$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getInitTypeAttributes$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* LambdaToMethod$$Lambda$getInitTypeAttributes$2::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$$Lambda$getInitTypeAttributes$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$getInitTypeAttributes$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getInitTypeAttributes$2, init$, void, $Symbol*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getInitTypeAttributes$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getInitTypeAttributes$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaToMethod$$Lambda$getInitTypeAttributes$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$$Lambda$getInitTypeAttributes$2);
+	});
 	return class$;
 }
 $Class* LambdaToMethod$$Lambda$getInitTypeAttributes$2::class$ = nullptr;
@@ -360,33 +340,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->getClassInitTypeAttributes());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LambdaToMethod$$Lambda$getClassInitTypeAttributes$3>());
-	}
 	$Symbol* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, inst$)},
-	{}
-};
-$MethodInfo LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, init$, void, $Symbol*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, get, $Object*)},
-	{}
-};
-$ClassInfo LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getClassInitTypeAttributes$3",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, init$, void, $Symbol*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getClassInitTypeAttributes$3",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3);
+	});
 	return class$;
 }
 $Class* LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::class$ = nullptr;
@@ -400,33 +376,29 @@ public:
 	virtual void accept(Object$* l) override {
 		$nc(inst$)->setInitTypeAttributes($cast($List, l));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LambdaToMethod$$Lambda$setInitTypeAttributes$4>());
-	}
 	$Symbol* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LambdaToMethod$$Lambda$setInitTypeAttributes$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$setInitTypeAttributes$4, inst$)},
-	{}
-};
-$MethodInfo LambdaToMethod$$Lambda$setInitTypeAttributes$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setInitTypeAttributes$4, init$, void, $Symbol*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setInitTypeAttributes$4, accept, void, Object$*)},
-	{}
-};
-$ClassInfo LambdaToMethod$$Lambda$setInitTypeAttributes$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setInitTypeAttributes$4",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* LambdaToMethod$$Lambda$setInitTypeAttributes$4::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$$Lambda$setInitTypeAttributes$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$setInitTypeAttributes$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setInitTypeAttributes$4, init$, void, $Symbol*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setInitTypeAttributes$4, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setInitTypeAttributes$4",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaToMethod$$Lambda$setInitTypeAttributes$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$$Lambda$setInitTypeAttributes$4);
+	});
 	return class$;
 }
 $Class* LambdaToMethod$$Lambda$setInitTypeAttributes$4::class$ = nullptr;
@@ -440,33 +412,29 @@ public:
 	virtual void accept(Object$* l) override {
 		$nc(inst$)->setClassInitTypeAttributes($cast($List, l));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LambdaToMethod$$Lambda$setClassInitTypeAttributes$5>());
-	}
 	$Symbol* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, inst$)},
-	{}
-};
-$MethodInfo LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, init$, void, $Symbol*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, accept, void, Object$*)},
-	{}
-};
-$ClassInfo LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setClassInitTypeAttributes$5",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, init$, void, $Symbol*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setClassInitTypeAttributes$5",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5);
+	});
 	return class$;
 }
 $Class* LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::class$ = nullptr;
@@ -480,33 +448,29 @@ public:
 	virtual void accept(Object$* l) override {
 		$nc(inst$)->appendUniqueTypeAttributes($cast($List, l));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6>());
-	}
 	$Symbol* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, inst$)},
-	{}
-};
-$MethodInfo LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, init$, void, $Symbol*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, accept, void, Object$*)},
-	{}
-};
-$ClassInfo LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, init$, void, $Symbol*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6);
+	});
 	return class$;
 }
 $Class* LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::class$ = nullptr;
@@ -520,138 +484,32 @@ public:
 	virtual $Object* apply(Object$* c) override {
 		 return $of($nc(inst$)->constantType($cast($PoolConstant$LoadableConstant, c)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LambdaToMethod$$Lambda$constantType$7>());
-	}
 	$Types* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LambdaToMethod$$Lambda$constantType$7::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$constantType$7, inst$)},
-	{}
-};
-$MethodInfo LambdaToMethod$$Lambda$constantType$7::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$constantType$7, init$, void, $Types*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$constantType$7, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo LambdaToMethod$$Lambda$constantType$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$constantType$7",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* LambdaToMethod$$Lambda$constantType$7::load$($String* name, bool initialize) {
-	$loadClass(LambdaToMethod$$Lambda$constantType$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LambdaToMethod$$Lambda$constantType$7, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(LambdaToMethod$$Lambda$constantType$7, init$, void, $Types*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod$$Lambda$constantType$7, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.LambdaToMethod$$Lambda$constantType$7",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LambdaToMethod$$Lambda$constantType$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod$$Lambda$constantType$7);
+	});
 	return class$;
 }
 $Class* LambdaToMethod$$Lambda$constantType$7::class$ = nullptr;
-
-$FieldInfo _LambdaToMethod_FieldInfo_[] = {
-	{"attr", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $PRIVATE, $field(LambdaToMethod, attr)},
-	{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE, $field(LambdaToMethod, diags)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE, $field(LambdaToMethod, log)},
-	{"lower", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $PRIVATE, $field(LambdaToMethod, lower)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE, $field(LambdaToMethod, names)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE, $field(LambdaToMethod, syms)},
-	{"rs", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE, $field(LambdaToMethod, rs)},
-	{"operators", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $PRIVATE, $field(LambdaToMethod, operators)},
-	{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE, $field(LambdaToMethod, make)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE, $field(LambdaToMethod, types)},
-	{"transTypes", "Lcom/sun/tools/javac/comp/TransTypes;", nullptr, $PRIVATE, $field(LambdaToMethod, transTypes)},
-	{"attrEnv", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $field(LambdaToMethod, attrEnv)},
-	{"analyzer", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $PRIVATE, $field(LambdaToMethod, analyzer)},
-	{"contextMap", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;>;", $PRIVATE, $field(LambdaToMethod, contextMap)},
-	{"context", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;", $PRIVATE, $field(LambdaToMethod, context)},
-	{"kInfo", "Lcom/sun/tools/javac/comp/LambdaToMethod$KlassInfo;", nullptr, $PRIVATE, $field(LambdaToMethod, kInfo)},
-	{"dumpLambdaToMethodStats", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, dumpLambdaToMethodStats)},
-	{"forceSerializable", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, forceSerializable)},
-	{"debugLinesOrVars", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, debugLinesOrVars)},
-	{"verboseDeduplication", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, verboseDeduplication)},
-	{"deduplicateLambdas", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, deduplicateLambdas)},
-	{"nestmateLambdas", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, nestmateLambdas)},
-	{"FLAG_SERIALIZABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaToMethod, FLAG_SERIALIZABLE)},
-	{"FLAG_MARKERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaToMethod, FLAG_MARKERS)},
-	{"FLAG_BRIDGES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaToMethod, FLAG_BRIDGES)},
-	{"unlambdaKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/LambdaToMethod;>;", $PROTECTED | $STATIC | $FINAL, $staticField(LambdaToMethod, unlambdaKey)},
-	{}
-};
-
-$MethodInfo _LambdaToMethod_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(LambdaToMethod, init$, void, $Context*)},
-	{"addDeserializationCase", "(Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type$MethodType;)V", "(Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/code/Type$MethodType;)V", $PRIVATE, $method(LambdaToMethod, addDeserializationCase, void, $Symbol$MethodHandleSymbol*, $Type*, $Symbol$MethodSymbol*, $JCDiagnostic$DiagnosticPosition*, $List*, $Type$MethodType*)},
-	{"apportionTypeAnnotations", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/function/Supplier;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;Ljava/util/function/Consumer<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;Ljava/util/function/Consumer<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;)V", $PRIVATE, $method(LambdaToMethod, apportionTypeAnnotations, void, $JCTree$JCLambda*, $Supplier*, $Consumer*, $Consumer*)},
-	{"classSig", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, classSig, $String*, $Type*)},
-	{"convertArgs", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PRIVATE, $method(LambdaToMethod, convertArgs, $List*, $Symbol*, $List*, $Type*)},
-	{"deserGetter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, deserGetter, $JCTree$JCExpression*, $String*, $Type*)},
-	{"deserGetter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, deserGetter, $JCTree$JCExpression*, $String*, $Type*, $List*, $List*)},
-	{"deserTest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, deserTest, $JCTree$JCExpression*, $JCTree$JCExpression*, $String*, $String*)},
-	{"eqTest", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, eqTest, $JCTree$JCExpression*, $Type*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/LambdaToMethod;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod, instance, LambdaToMethod*, $Context*)},
-	{"isProtectedInSuperClassOfEnclosingClassInOtherPackage", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(LambdaToMethod, isProtectedInSuperClassOfEnclosingClassInOtherPackage, bool, $Symbol*, $Symbol*)},
-	{"makeDeserializeMethod", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PRIVATE, $method(LambdaToMethod, makeDeserializeMethod, $JCTree$JCMethodDecl*, $Symbol*)},
-	{"makeIndyCall", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, makeIndyCall, $JCTree$JCExpression*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Name*, $List*, $Type$MethodType*, $List*, $Name*)},
-	{"makeLambdaBody", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaBody, $JCTree$JCBlock*, $JCTree$JCLambda*, $JCTree$JCMethodDecl*)},
-	{"makeLambdaExpressionBody", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaExpressionBody, $JCTree$JCBlock*, $JCTree$JCExpression*, $JCTree$JCMethodDecl*)},
-	{"makeLambdaStatementBody", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaStatementBody, $JCTree$JCBlock*, $JCTree$JCBlock*, $JCTree$JCMethodDecl*, bool)},
-	{"makeMetafactoryIndyCall", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, makeMetafactoryIndyCall, $JCTree$JCExpression*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*, $Symbol$MethodHandleSymbol*, $List*)},
-	{"makeNewClass", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0, $virtualMethod(LambdaToMethod, makeNewClass, $JCTree$JCNewClass*, $Type*, $List*, $Symbol*)},
-	{"makeNewClass", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0, $virtualMethod(LambdaToMethod, makeNewClass, $JCTree$JCNewClass*, $Type*, $List*)},
-	{"makePrivateSyntheticMethod", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $method(LambdaToMethod, makePrivateSyntheticMethod, $Symbol$MethodSymbol*, int64_t, $Name*, $Type*, $Symbol*)},
-	{"makeSyntheticVar", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE, $method(LambdaToMethod, makeSyntheticVar, $Symbol$VarSymbol*, int64_t, $Name*, $Type*, $Symbol*)},
-	{"makeThis", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PRIVATE, $method(LambdaToMethod, makeThis, $JCTree$JCIdent*, $Type*, $Symbol*)},
-	{"setVarargsIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(LambdaToMethod, setVarargsIfNeeded, void, $JCTree*, $Type*)},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC, $virtualMethod(LambdaToMethod, translate, $JCTree*, $JCTree*)},
-	{"translate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;)TT;", 0, $virtualMethod(LambdaToMethod, translate, $JCTree*, $JCTree*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*)},
-	{"translate", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;)Lcom/sun/tools/javac/util/List<TT;>;", 0, $virtualMethod(LambdaToMethod, translate, $List*, $List*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*)},
-	{"translateTopLevelClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(LambdaToMethod, translateTopLevelClass, $JCTree*, $Env*, $JCTree*, $TreeMaker*)},
-	{"typeSig", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, typeSig, $String*, $Type*)},
-	{"typeSig", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, typeSig, $String*, $Type*, bool)},
-	{"typeToMethodType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PRIVATE, $method(LambdaToMethod, typeToMethodType, $Type$MethodType*, $Type*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitReference, void, $JCTree$JCMemberReference*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$InnerClassInfo _LambdaToMethod_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.LambdaToMethod$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.comp.LambdaToMethod$L2MSignatureGenerator", "com.sun.tools.javac.comp.LambdaToMethod", "L2MSignatureGenerator", $PRIVATE},
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaSymbolKind", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaSymbolKind", $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
-	{"com.sun.tools.javac.comp.LambdaToMethod$MemberReferenceToLambda", "com.sun.tools.javac.comp.LambdaToMethod", "MemberReferenceToLambda", $PRIVATE},
-	{"com.sun.tools.javac.comp.LambdaToMethod$KlassInfo", "com.sun.tools.javac.comp.LambdaToMethod", "KlassInfo", $PRIVATE},
-	{"com.sun.tools.javac.comp.LambdaToMethod$DedupedLambda", "com.sun.tools.javac.comp.LambdaToMethod", "DedupedLambda", 0},
-	{"com.sun.tools.javac.comp.LambdaToMethod$1LambdaBodyTranslator", nullptr, "LambdaBodyTranslator", 0},
-	{}
-};
-
-$ClassInfo _LambdaToMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.LambdaToMethod",
-	"com.sun.tools.javac.tree.TreeTranslator",
-	nullptr,
-	_LambdaToMethod_FieldInfo_,
-	_LambdaToMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaToMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.LambdaToMethod$1,com.sun.tools.javac.comp.LambdaToMethod$L2MSignatureGenerator,com.sun.tools.javac.comp.LambdaToMethod$LambdaSymbolKind,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$4,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$3,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$2,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$1,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$Frame,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$SyntheticMethodNameCounter,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$1,com.sun.tools.javac.comp.LambdaToMethod$MemberReferenceToLambda,com.sun.tools.javac.comp.LambdaToMethod$KlassInfo,com.sun.tools.javac.comp.LambdaToMethod$DedupedLambda,com.sun.tools.javac.comp.LambdaToMethod$1LambdaBodyTranslator"
-};
-
-$Object* allocate$LambdaToMethod($Class* clazz) {
-	return $of($alloc(LambdaToMethod));
-}
 
 $Context$Key* LambdaToMethod::unlambdaKey = nullptr;
 
@@ -665,9 +523,9 @@ LambdaToMethod* LambdaToMethod::instance($Context* context) {
 }
 
 void LambdaToMethod::init$($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TreeTranslator::init$();
-	$nc(context)->put(LambdaToMethod::unlambdaKey, $of(this));
+	$nc(context)->put(LambdaToMethod::unlambdaKey, this);
 	$set(this, diags, $JCDiagnostic$Factory::instance(context));
 	$set(this, log, $Log::instance(context));
 	$set(this, lower, $Lower::instance(context));
@@ -689,7 +547,7 @@ void LambdaToMethod::init$($Context* context) {
 	this->debugLinesOrVars = var$0 || options->isSet($Option::G_CUSTOM, "vars"_s);
 	this->verboseDeduplication = options->isSet("debug.dumpLambdaToMethodDeduplication"_s);
 	this->deduplicateLambdas = options->getBoolean("deduplicateLambdas"_s, true);
-	this->nestmateLambdas = $nc($($Target::instance(context)))->runtimeUseNestAccess();
+	this->nestmateLambdas = $$nc($Target::instance(context))->runtimeUseNestAccess();
 }
 
 $JCTree* LambdaToMethod::translate($JCTree* tree) {
@@ -698,34 +556,32 @@ $JCTree* LambdaToMethod::translate($JCTree* tree) {
 }
 
 $JCTree* LambdaToMethod::translate($JCTree* tree, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext* newContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext, prevContext, this->context);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($JCTree, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$set(this, context, newContext);
-			$assign(var$2, $TreeTranslator::translate(tree));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$set(this, context, prevContext);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($JCTree, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$set(this, context, newContext);
+		$assign(var$2, $TreeTranslator::translate(tree));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$set(this, context, prevContext);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $List* LambdaToMethod::translate($List* trees, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext* newContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(trees)->iterator());
@@ -748,95 +604,88 @@ $JCTree* LambdaToMethod::translateTopLevelClass($Env* env, $JCTree* cdef, $TreeM
 }
 
 void LambdaToMethod::visitClassDef($JCTree$JCClassDecl* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCClassDecl, tree, tree$renamed);
 	$init($Kinds$Kind);
 	if ($nc($nc($nc(tree)->sym)->owner)->kind == $Kinds$Kind::PCK) {
 		$assign(tree, $nc(this->analyzer)->analyzeAndPreprocessClass(tree));
 	}
 	$var($LambdaToMethod$KlassInfo, prevKlassInfo, this->kInfo);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, kInfo, $new($LambdaToMethod$KlassInfo, this, tree));
-			$TreeTranslator::visitClassDef(tree);
-			if (!$nc($nc(this->kInfo)->deserializeCases)->isEmpty()) {
-				int32_t prevPos = $nc(this->make)->pos;
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, kInfo, $new($LambdaToMethod$KlassInfo, this, tree));
+		$TreeTranslator::visitClassDef(tree);
+		if (!$nc($nc(this->kInfo)->deserializeCases)->isEmpty()) {
+			int32_t prevPos = $nc(this->make)->pos;
+			$var($Throwable, var$1, nullptr);
+			try {
+				this->make->at(tree);
+				$nc(this->kInfo)->addMethod($(makeDeserializeMethod($nc(tree)->sym)));
+			} catch ($Throwable& var$2) {
+				$assign(var$1, var$2);
+			} /*finally*/ {
+				$nc(this->make)->at(prevPos);
+			}
+			if (var$1 != nullptr) {
+				$throw(var$1);
+			}
+		}
+		$var($List, newMethods, $nc($nc(this->kInfo)->appendedMethodList)->toList());
+		$set($nc(tree), defs, $nc($nc(tree)->defs)->appendList(newMethods));
+		{
+			$var($Iterator, i$, $nc(newMethods)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($JCTree, lambda, $cast($JCTree, i$->next()));
 				{
-					$var($Throwable, var$1, nullptr);
-					try {
-						$nc(this->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree));
-						$nc(this->kInfo)->addMethod($(makeDeserializeMethod($nc(tree)->sym)));
-					} catch ($Throwable& var$2) {
-						$assign(var$1, var$2);
-					} /*finally*/ {
-						$nc(this->make)->at(prevPos);
-					}
-					if (var$1 != nullptr) {
-						$throw(var$1);
-					}
+					$$nc($nc(tree->sym)->members())->enter($nc($cast($JCTree$JCMethodDecl, lambda))->sym);
 				}
 			}
-			$var($List, newMethods, $nc($nc(this->kInfo)->appendedMethodList)->toList());
-			$set($nc(tree), defs, $nc(tree->defs)->appendList(newMethods));
-			{
-				$var($Iterator, i$, $nc(newMethods)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($JCTree, lambda, $cast($JCTree, i$->next()));
-					{
-						$nc($($nc(tree->sym)->members()))->enter($nc(($cast($JCTree$JCMethodDecl, lambda)))->sym);
-					}
-				}
-			}
-			$set(this, result, tree);
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$set(this, kInfo, prevKlassInfo);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$set(this, result, tree);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$set(this, kInfo, prevKlassInfo);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void LambdaToMethod::visitLambda($JCTree$JCLambda* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, localContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, this->context));
 	$var($Symbol$MethodSymbol, sym, $nc(localContext)->translatedSym);
 	$var($Type$MethodType, lambdaType, $cast($Type$MethodType, $nc(sym)->type));
 	{
 		$var($Symbol, owner, localContext->owner);
-		$var($JCTree$JCLambda, var$0, tree);
-		$var($Supplier, var$1, static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getRawTypeAttributes, static_cast<$Symbol*>($nc(owner)))));
-		$var($Consumer, var$2, static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setTypeAttributes$1, static_cast<$Symbol*>($nc(owner)))));
-		apportionTypeAnnotations(var$0, var$1, var$2, static_cast<$Consumer*>($$new(LambdaToMethod$$Lambda$setTypeAttributes$1, static_cast<$Symbol$MethodSymbol*>(sym))));
+		$var($Supplier, var$0, $new(LambdaToMethod$$Lambda$getRawTypeAttributes, $nc(owner)));
+		$var($Consumer, var$1, $new(LambdaToMethod$$Lambda$setTypeAttributes$1, owner));
+		apportionTypeAnnotations(tree, var$0, var$1, $$new(LambdaToMethod$$Lambda$setTypeAttributes$1, sym));
 		bool init = false;
-		if ((init = ($nc(owner)->name == $nc(this->names)->init)) || $nc(owner)->name == $nc(this->names)->clinit) {
+		if ((init = (owner->name == $nc(this->names)->init)) || owner->name == this->names->clinit) {
 			$assign(owner, owner->owner);
-			$var($JCTree$JCLambda, var$3, tree);
-			$var($Supplier, var$4, init ? static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getInitTypeAttributes$2, static_cast<$Symbol*>($nc(owner)))) : static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, static_cast<$Symbol*>($nc(owner)))));
-			$var($Consumer, var$5, init ? static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setInitTypeAttributes$4, static_cast<$Symbol*>($nc(owner)))) : static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, static_cast<$Symbol*>($nc(owner)))));
-			apportionTypeAnnotations(var$3, var$4, var$5, static_cast<$Consumer*>($$new(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, static_cast<$Symbol$MethodSymbol*>(sym))));
+			$var($Supplier, var$2, init ? $cast($Supplier, $new(LambdaToMethod$$Lambda$getInitTypeAttributes$2, $nc(owner))) : $cast($Supplier, $new(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, $nc(owner))));
+			$var($Consumer, var$3, init ? $cast($Consumer, $new(LambdaToMethod$$Lambda$setInitTypeAttributes$4, $nc(owner))) : $cast($Consumer, $new(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, $nc(owner))));
+			apportionTypeAnnotations(tree, var$2, var$3, $$new(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, sym));
 		}
 		$init($ElementKind);
-		if (localContext->self != nullptr && $nc(localContext->self)->getKind() == $ElementKind::FIELD) {
+		if (localContext->self != nullptr && localContext->self->getKind() == $ElementKind::FIELD) {
 			$assign(owner, localContext->self);
-			$var($JCTree$JCLambda, var$6, tree);
-			$var($Supplier, var$7, static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getRawTypeAttributes, static_cast<$Symbol*>($nc(owner)))));
-			$var($Consumer, var$8, static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setTypeAttributes$1, static_cast<$Symbol*>($nc(owner)))));
-			apportionTypeAnnotations(var$6, var$7, var$8, static_cast<$Consumer*>($$new(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, static_cast<$Symbol$MethodSymbol*>(sym))));
+			$var($Supplier, var$4, $new(LambdaToMethod$$Lambda$getRawTypeAttributes, $nc(owner)));
+			$var($Consumer, var$5, $new(LambdaToMethod$$Lambda$setTypeAttributes$1, owner));
+			apportionTypeAnnotations(tree, var$4, var$5, $$new(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, sym));
 		}
 	}
-	$var($JCTree$JCModifiers, var$9, $nc(this->make)->Modifiers(sym->flags_field));
-	$var($Name, var$10, sym->name);
-	$var($JCTree$JCExpression, var$11, $nc(this->make)->QualIdent($nc($($nc(lambdaType)->getReturnType()))->tsym));
-	$var($List, var$12, $List::nil());
-	$var($List, var$13, localContext->syntheticParams);
-	$var($JCTree$JCMethodDecl, lambdaDecl, $nc(this->make)->MethodDef(var$9, var$10, var$11, var$12, var$13, $nc(lambdaType)->getThrownTypes() == nullptr ? $($List::nil()) : $($nc(this->make)->Types($($nc(lambdaType)->getThrownTypes()))), nullptr, nullptr));
+	$var($JCTree$JCModifiers, var$6, $nc(this->make)->Modifiers(sym->flags_field));
+	$var($Name, var$7, sym->name);
+	$var($JCTree$JCExpression, var$8, this->make->QualIdent($nc($($nc(lambdaType)->getReturnType()))->tsym));
+	$var($List, var$9, $List::nil());
+	$var($List, var$10, localContext->syntheticParams);
+	$var($JCTree$JCMethodDecl, lambdaDecl, $nc(this->make)->MethodDef(var$6, var$7, var$8, var$9, var$10, lambdaType->getThrownTypes() == nullptr ? $($List::nil()) : $(this->make->Types($(lambdaType->getThrownTypes()))), nullptr, nullptr));
 	$set($nc(lambdaDecl), sym, sym);
 	$set(lambdaDecl, type, lambdaType);
-	$set(lambdaDecl, body, $cast($JCTree$JCBlock, translate($(static_cast<$JCTree*>(makeLambdaBody(tree, lambdaDecl))))));
+	$set(lambdaDecl, body, $cast($JCTree$JCBlock, translate($(makeLambdaBody(tree, lambdaDecl)))));
 	bool dedupe = false;
 	if (this->deduplicateLambdas && !this->debugLinesOrVars && !localContext->isSerializable()) {
 		$var($LambdaToMethod$DedupedLambda, dedupedLambda, $new($LambdaToMethod$DedupedLambda, this, lambdaDecl->sym, lambdaDecl->body));
@@ -845,7 +694,7 @@ void LambdaToMethod::visitLambda($JCTree$JCLambda* tree) {
 			$assign(sym, existing->symbol);
 			dedupe = true;
 			if (this->verboseDeduplication) {
-				$nc(this->log)->note(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree), $($CompilerProperties$Notes::VerboseL2mDeduplicate(sym)));
+				$nc(this->log)->note(tree, $($CompilerProperties$Notes::VerboseL2mDeduplicate(sym)));
 			}
 		}
 	}
@@ -855,26 +704,23 @@ void LambdaToMethod::visitLambda($JCTree$JCLambda* tree) {
 	$var($ListBuffer, syntheticInits, $new($ListBuffer));
 	if (localContext->methodReferenceReceiver != nullptr) {
 		syntheticInits->append(localContext->methodReferenceReceiver);
-	} else if (!sym->isStatic()) {
-		$var($Type, var$14, $cast($Type, $nc($($nc(sym->owner)->enclClass()))->asType()));
-		syntheticInits->append($(makeThis(var$14, $($nc(localContext->owner)->enclClass()))));
+	} else if (!$nc(sym)->isStatic()) {
+		$var($Type, var$11, $cast($Type, $$nc($nc(sym->owner)->enclClass())->asType()));
+		syntheticInits->append($(makeThis(var$11, $($nc(localContext->owner)->enclClass()))));
 	}
 	{
 		$init($LambdaToMethod$LambdaSymbolKind);
-		$var($Iterator, i$, $nc($($nc($(localContext->getSymbolMap($LambdaToMethod$LambdaSymbolKind::CAPTURED_VAR)))->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($$nc(localContext->getSymbolMap($LambdaToMethod$LambdaSymbolKind::CAPTURED_VAR))->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, fv, $cast($Symbol, i$->next()));
-			{
-				if (fv != localContext->self) {
-					$var($JCTree, captured_local, $nc($($nc(this->make)->Ident(fv)))->setType($nc(fv)->type));
-					syntheticInits->append($cast($JCTree$JCExpression, captured_local));
-				}
+			if (fv != localContext->self) {
+				$var($JCTree, captured_local, $$nc($nc(this->make)->Ident(fv))->setType($nc(fv)->type));
+				syntheticInits->append($cast($JCTree$JCExpression, captured_local));
 			}
 		}
 	}
 	{
-		$init($LambdaToMethod$LambdaSymbolKind);
-		$var($Iterator, i$, $nc($($nc($(localContext->getSymbolMap($LambdaToMethod$LambdaSymbolKind::CAPTURED_OUTER_THIS)))->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($$nc(localContext->getSymbolMap($LambdaToMethod$LambdaSymbolKind::CAPTURED_OUTER_THIS))->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, fv, $cast($Symbol, i$->next()));
 			{
@@ -884,23 +730,21 @@ void LambdaToMethod::visitLambda($JCTree$JCLambda* tree) {
 		}
 	}
 	$var($List, indy_args, translate($(syntheticInits->toList()), localContext->prev));
-	$set(this, result, makeMetafactoryIndyCall(this->context, $(sym->asHandle()), indy_args));
+	$set(this, result, makeMetafactoryIndyCall(this->context, $($nc(sym)->asHandle()), indy_args));
 }
 
 void LambdaToMethod::apportionTypeAnnotations($JCTree$JCLambda* tree, $Supplier* source, $Consumer* owner, $Consumer* lambda) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, ownerTypeAnnos, $new($ListBuffer));
 	$var($ListBuffer, lambdaTypeAnnos, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc(($cast($List, $($nc(source)->get()))))->iterator());
+		$var($Iterator, i$, $$sure($List, $nc(source)->get())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$TypeCompound, tc, $cast($Attribute$TypeCompound, i$->next()));
-			{
-				if ($nc($nc(tc)->position)->onLambda == tree) {
-					lambdaTypeAnnos->append(tc);
-				} else {
-					ownerTypeAnnos->append(tc);
-				}
+			if ($nc($nc(tc)->position)->onLambda == tree) {
+				lambdaTypeAnnos->append(tc);
+			} else {
+				ownerTypeAnnos->append(tc);
 			}
 		}
 	}
@@ -911,23 +755,22 @@ void LambdaToMethod::apportionTypeAnnotations($JCTree$JCLambda* tree, $Supplier*
 }
 
 $JCTree$JCIdent* LambdaToMethod::makeThis($Type* type, $Symbol* owner) {
-	$var($Symbol$VarSymbol, _this, $new($Symbol$VarSymbol, ((int64_t)0x0000000200000000 | 16) | 4096, $nc(this->names)->_this, type, owner));
-	return $nc(this->make)->Ident(static_cast<$Symbol*>(_this));
+	$var($Symbol$VarSymbol, _this, $new($Symbol$VarSymbol, ((int64_t)0x0000000200000000 | 0x10) | 0x1000, $nc(this->names)->_this, type, owner));
+	return $nc(this->make)->Ident(_this);
 }
 
 void LambdaToMethod::visitReference($JCTree$JCMemberReference* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, localContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext, this->context));
 	$var($Symbol$MethodSymbol, refSym, $cast($Symbol$MethodSymbol, $nc(tree)->sym));
 	$var($JCTree$JCExpression, init, nullptr);
 	$init($LambdaToMethod$1);
 	switch ($nc($LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$JCMemberReference$ReferenceKind)->get($nc((tree->kind))->ordinal())) {
 	case 1:
-		{}
 	case 2:
 		{
-			$var($Type, var$0, $cast($Type, $nc($($nc($nc(localContext)->owner)->enclClass()))->asType()));
-			$assign(init, makeThis(var$0, $($nc(localContext->owner)->enclClass())));
+			$var($Type, var$0, $cast($Type, $$nc($nc($nc(localContext)->owner)->enclClass())->asType()));
+			$assign(init, makeThis(var$0, $(localContext->owner->enclClass())));
 			break;
 		}
 	case 3:
@@ -939,116 +782,103 @@ void LambdaToMethod::visitReference($JCTree$JCMemberReference* tree) {
 			break;
 		}
 	case 4:
-		{}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
-		{
-			$assign(init, nullptr);
-			break;
-		}
+		$assign(init, nullptr);
+		break;
 	default:
-		{
-			$throwNew($InternalError, "Should not have an invalid kind"_s);
-		}
+		$throwNew($InternalError, "Should not have an invalid kind"_s);
 	}
 	$var($List, indy_args, init == nullptr ? $List::nil() : translate($($List::of(init)), $nc(localContext)->prev));
 	$set(this, result, makeMetafactoryIndyCall(localContext, $($nc(refSym)->asHandle()), indy_args));
 }
 
 void LambdaToMethod::visitIdent($JCTree$JCIdent* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->context == nullptr || !$nc(this->analyzer)->lambdaIdentSymbolFilter($nc(tree)->sym)) {
 		$TreeTranslator::visitIdent(tree);
 	} else {
 		int32_t prevPos = $nc(this->make)->pos;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(this->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree));
-				$var($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambdaContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, this->context));
-				$var($JCTree, ltree, $nc(lambdaContext)->translate(tree));
-				if (ltree != nullptr) {
-					$set(this, result, ltree);
-				} else {
-					$TreeTranslator::visitIdent(tree);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->make)->at(prevPos);
+		$var($Throwable, var$0, nullptr);
+		try {
+			this->make->at(tree);
+			$var($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambdaContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, this->context));
+			$var($JCTree, ltree, $nc(lambdaContext)->translate(tree));
+			if (ltree != nullptr) {
+				$set(this, result, ltree);
+			} else {
+				$TreeTranslator::visitIdent(tree);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->make)->at(prevPos);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void LambdaToMethod::visitSelect($JCTree$JCFieldAccess* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->context == nullptr || !$nc(this->analyzer)->lambdaFieldAccessFilter(tree)) {
 		$TreeTranslator::visitSelect(tree);
 	} else {
 		int32_t prevPos = $nc(this->make)->pos;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(this->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree));
-				$var($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambdaContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, this->context));
-				$var($JCTree, ltree, $nc(lambdaContext)->translate(tree));
-				if (ltree != nullptr) {
-					$set(this, result, ltree);
-				} else {
-					$TreeTranslator::visitSelect(tree);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->make)->at(prevPos);
+		$var($Throwable, var$0, nullptr);
+		try {
+			this->make->at(tree);
+			$var($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambdaContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, this->context));
+			$var($JCTree, ltree, $nc(lambdaContext)->translate(tree));
+			if (ltree != nullptr) {
+				$set(this, result, ltree);
+			} else {
+				$TreeTranslator::visitSelect(tree);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->make)->at(prevPos);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void LambdaToMethod::visitNewClass($JCTree$JCNewClass* tree$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCNewClass, tree, tree$renamed);
 	if (this->context == nullptr || !$nc(this->analyzer)->lambdaNewClassFilter(this->context, tree)) {
 		$TreeTranslator::visitNewClass(tree);
 	} else {
 		int32_t prevPos = $nc(this->make)->pos;
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(this->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree));
-				$var($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambdaContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, this->context));
-				$assign(tree, $nc(lambdaContext)->translate(tree));
-				$TreeTranslator::visitNewClass(tree);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->make)->at(prevPos);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			this->make->at(tree);
+			$var($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambdaContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, this->context));
+			$assign(tree, $nc(lambdaContext)->translate(tree));
+			$TreeTranslator::visitNewClass(tree);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->make)->at(prevPos);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void LambdaToMethod::visitVarDef($JCTree$JCVariableDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, lambdaContext, $cast($LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext, this->context));
 	$init($LambdaToMethod$LambdaSymbolKind);
-	if (this->context != nullptr && $nc($($nc(lambdaContext)->getSymbolMap($LambdaToMethod$LambdaSymbolKind::LOCAL_VAR)))->containsKey($nc(tree)->sym)) {
-		$set($nc(tree), init, $cast($JCTree$JCExpression, translate(static_cast<$JCTree*>(tree->init))));
-		$set(tree, sym, $cast($Symbol$VarSymbol, $nc($(lambdaContext->getSymbolMap($LambdaToMethod$LambdaSymbolKind::LOCAL_VAR)))->get(tree->sym)));
+	if (this->context != nullptr && $$nc($nc(lambdaContext)->getSymbolMap($LambdaToMethod$LambdaSymbolKind::LOCAL_VAR))->containsKey($nc(tree)->sym)) {
+		$set(tree, init, $cast($JCTree$JCExpression, translate(tree->init)));
+		$set(tree, sym, $cast($Symbol$VarSymbol, $$nc(lambdaContext->getSymbolMap($LambdaToMethod$LambdaSymbolKind::LOCAL_VAR))->get(tree->sym)));
 		$set(this, result, tree);
 	} else {
 		$TreeTranslator::visitVarDef(tree);
@@ -1057,81 +887,79 @@ void LambdaToMethod::visitVarDef($JCTree$JCVariableDecl* tree) {
 
 $JCTree$JCBlock* LambdaToMethod::makeLambdaBody($JCTree$JCLambda* tree, $JCTree$JCMethodDecl* lambdaMethodDecl) {
 	$init($LambdaExpressionTree$BodyKind);
-	return $nc(tree)->getBodyKind() == $LambdaExpressionTree$BodyKind::EXPRESSION ? makeLambdaExpressionBody($cast($JCTree$JCExpression, $nc(tree)->body), lambdaMethodDecl) : makeLambdaStatementBody($cast($JCTree$JCBlock, $nc(tree)->body), lambdaMethodDecl, tree->canCompleteNormally);
+	return $nc(tree)->getBodyKind() == $LambdaExpressionTree$BodyKind::EXPRESSION ? makeLambdaExpressionBody($cast($JCTree$JCExpression, tree->body), lambdaMethodDecl) : makeLambdaStatementBody($cast($JCTree$JCBlock, tree->body), lambdaMethodDecl, tree->canCompleteNormally);
 }
 
 $JCTree$JCBlock* LambdaToMethod::makeLambdaExpressionBody($JCTree$JCExpression* expr, $JCTree$JCMethodDecl* lambdaMethodDecl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, restype, $nc($nc(lambdaMethodDecl)->type)->getReturnType());
 	$init($TypeTag);
 	bool isLambda_void = $nc($nc(expr)->type)->hasTag($TypeTag::VOID);
 	bool isTarget_void = $nc(restype)->hasTag($TypeTag::VOID);
 	bool isTarget_Void = $nc(this->types)->isSameType(restype, $nc($($nc(this->types)->boxedClass($nc(this->syms)->voidType)))->type);
 	int32_t prevPos = $nc(this->make)->pos;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($JCTree$JCBlock, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			if (isTarget_void) {
-				$var($JCTree$JCStatement, stat, $nc($($nc(this->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(expr))))->Exec(expr));
-				$assign(var$2, $nc(this->make)->Block(0, $($List::of(stat))));
-				return$1 = true;
-				goto $finally;
-			} else if (isLambda_void && isTarget_Void) {
-				$var($ListBuffer, stats, $new($ListBuffer));
-				stats->append($($nc($($nc(this->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(expr))))->Exec(expr)));
-				stats->append($($nc(this->make)->Return($($nc($($nc(this->make)->Literal($TypeTag::BOT, nullptr)))->setType($nc(this->syms)->botType)))));
-				$assign(var$2, $nc(this->make)->Block(0, $(stats->toList())));
-				return$1 = true;
-				goto $finally;
-			} else {
-				$assign(var$2, $nc($($nc(this->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>(expr))))->Block(0, $($List::of($($nc(this->make)->Return(expr))))));
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->make)->at(prevPos);
+	$var($Throwable, var$0, nullptr);
+	$var($JCTree$JCBlock, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if (isTarget_void) {
+			$var($JCTree$JCStatement, stat, $$nc(this->make->at(expr))->Exec(expr));
+			$assign(var$2, $nc(this->make)->Block(0, $($List::of(stat))));
+			return$1 = true;
+			goto $finally;
+		} else if (isLambda_void && isTarget_Void) {
+			$var($ListBuffer, stats, $new($ListBuffer));
+			stats->append($($$nc($nc(this->make)->at(expr))->Exec(expr)));
+			stats->append($($nc(this->make)->Return($($$nc($nc(this->make)->Literal($TypeTag::BOT, nullptr))->setType($nc(this->syms)->botType)))));
+			$assign(var$2, $nc(this->make)->Block(0, $(stats->toList())));
+			return$1 = true;
+			goto $finally;
+		} else {
+			$assign(var$2, $$nc($nc(this->make)->at(expr))->Block(0, $($List::of($($nc(this->make)->Return(expr))))));
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->make)->at(prevPos);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $JCTree$JCBlock* LambdaToMethod::makeLambdaStatementBody($JCTree$JCBlock* block, $JCTree$JCMethodDecl* lambdaMethodDecl, bool completeNormally) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, restype, $nc($nc(lambdaMethodDecl)->type)->getReturnType());
 	$init($TypeTag);
 	bool isTarget_void = $nc(restype)->hasTag($TypeTag::VOID);
 	bool isTarget_Void = $nc(this->types)->isSameType(restype, $nc($($nc(this->types)->boxedClass($nc(this->syms)->voidType)))->type);
 	{
 	}
-	$var($JCTree$JCBlock, trans_block, $cast($JCTree$JCBlock, $$new($LambdaToMethod$1LambdaBodyTranslator, this, isTarget_void, lambdaMethodDecl)->translate(static_cast<$JCTree*>(block))));
+	$var($JCTree$JCBlock, trans_block, $cast($JCTree$JCBlock, $$new($LambdaToMethod$1LambdaBodyTranslator, this, isTarget_void, lambdaMethodDecl)->translate(block)));
 	if (completeNormally && isTarget_Void) {
-		$set($nc(trans_block), stats, $nc(trans_block->stats)->append($($nc(this->make)->Return($($nc($($nc(this->make)->Literal($TypeTag::BOT, nullptr)))->setType($nc(this->syms)->botType))))));
+		$set($nc(trans_block), stats, $nc($nc(trans_block)->stats)->append($($nc(this->make)->Return($($$nc($nc(this->make)->Literal($TypeTag::BOT, nullptr))->setType($nc(this->syms)->botType))))));
 	}
 	return trans_block;
 }
 
 $JCTree$JCMethodDecl* LambdaToMethod::makeDeserializeMethod($Symbol* kSym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, cases, $new($ListBuffer));
 	$var($ListBuffer, breaks, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc($($nc($nc(this->kInfo)->deserializeCases)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc($nc(this->kInfo)->deserializeCases)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($JCTree$JCBreak, br, $nc(this->make)->Break(nullptr));
 				breaks->add(br);
-				$var($List, stmts, $nc($($nc(($cast($ListBuffer, $($nc(entry)->getValue()))))->append(br)))->toList());
+				$var($List, stmts, $$nc($$sure($ListBuffer, $nc(entry)->getValue())->append(br))->toList());
 				$init($JCTree$JCCase);
 				cases->add($($nc(this->make)->Case($JCTree$JCCase::STATEMENT, $($List::of($($nc(this->make)->Literal($(entry->getKey()))))), stmts, nullptr)));
 			}
@@ -1151,17 +979,17 @@ $JCTree$JCMethodDecl* LambdaToMethod::makeDeserializeMethod($Symbol* kSym) {
 	$var($JCTree$JCBlock, body, $nc(this->make)->Block(0, $($List::of(sw, $($nc(this->make)->Throw($(makeNewClass($nc(this->syms)->illegalArgumentExceptionType, $($List::of($($nc(this->make)->Literal("Invalid lambda deserialization"_s))))))))))));
 	$var($JCTree$JCModifiers, var$1, $nc(this->make)->Modifiers($nc($nc(this->kInfo)->deserMethodSym)->flags()));
 	$var($Name, var$2, $nc(this->names)->deserializeLambda);
-	$var($JCTree$JCExpression, var$3, $nc(this->make)->QualIdent($nc($($nc($nc(this->kInfo)->deserMethodSym)->getReturnType()))->tsym));
+	$var($JCTree$JCExpression, var$3, this->make->QualIdent($nc($(this->kInfo->deserMethodSym->getReturnType()))->tsym));
 	$var($List, var$4, $List::nil());
-	$var($List, var$5, $List::of($($nc(this->make)->VarDef($nc(this->kInfo)->deserParamSym, nullptr))));
+	$var($List, var$5, $List::of($(this->make->VarDef(this->kInfo->deserParamSym, nullptr))));
 	$var($JCTree$JCMethodDecl, deser, $nc(this->make)->MethodDef(var$1, var$2, var$3, var$4, var$5, $($List::nil()), body, nullptr));
 	$set($nc(deser), sym, $nc(this->kInfo)->deserMethodSym);
-	$set(deser, type, $nc($nc(this->kInfo)->deserMethodSym)->type);
+	$set(deser, type, this->kInfo->deserMethodSym->type);
 	return deser;
 }
 
 $JCTree$JCNewClass* LambdaToMethod::makeNewClass($Type* ctype, $List* args, $Symbol* cons) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCNewClass, tree, $nc(this->make)->NewClass(nullptr, nullptr, $($nc(this->make)->QualIdent($nc(ctype)->tsym)), args, nullptr));
 	$set($nc(tree), constructor, cons);
 	$set(tree, type, ctype);
@@ -1169,33 +997,32 @@ $JCTree$JCNewClass* LambdaToMethod::makeNewClass($Type* ctype, $List* args, $Sym
 }
 
 $JCTree$JCNewClass* LambdaToMethod::makeNewClass($Type* ctype, $List* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, var$0, this->attrEnv);
-	$var($Type, var$1, ctype);
-	$var($List, var$2, $TreeInfo::types(args));
-	return makeNewClass(ctype, args, $($nc(this->rs)->resolveConstructor(nullptr, var$0, var$1, var$2, $($List::nil()))));
+	$var($List, var$1, $TreeInfo::types(args));
+	return makeNewClass(ctype, args, $($nc(this->rs)->resolveConstructor(nullptr, var$0, ctype, var$1, $($List::nil()))));
 }
 
 void LambdaToMethod::addDeserializationCase($Symbol$MethodHandleSymbol* refSym, $Type* targetType, $Symbol$MethodSymbol* samSym, $JCDiagnostic$DiagnosticPosition* pos, $List* staticArgs, $Type$MethodType* indyType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, functionalInterfaceClass, classSig(targetType));
-	$var($String, functionalInterfaceMethodName, $nc($($cast($Name, $nc(samSym)->getSimpleName())))->toString());
+	$var($String, functionalInterfaceMethodName, $$sure($Name, $nc(samSym)->getSimpleName())->toString());
 	$var($String, functionalInterfaceMethodSignature, typeSig($($nc(this->types)->erasure(samSym->type))));
 	$var($String, implClass, classSig($($nc(this->types)->erasure($nc($nc(refSym)->owner)->type))));
-	$var($String, implMethodName, $nc($($nc(refSym)->getQualifiedName()))->toString());
+	$var($String, implMethodName, $$nc(refSym->getQualifiedName())->toString());
 	$var($String, implMethodSignature, typeSig($($nc(this->types)->erasure(refSym->type))));
-	$var($Type, var$0, static_cast<$Type*>($nc(this->syms)->intType));
-	$var($JCTree$JCExpression, var$1, deserGetter("getImplMethodKind"_s, $nc(this->syms)->intType));
+	$var($Type, var$0, $nc(this->syms)->intType);
+	$var($JCTree$JCExpression, var$1, deserGetter("getImplMethodKind"_s, this->syms->intType));
 	$var($JCTree$JCExpression, kindTest, eqTest(var$0, var$1, $($nc(this->make)->Literal($($Integer::valueOf(refSym->referenceKind()))))));
 	$var($ListBuffer, serArgs, $new($ListBuffer));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc($($nc(indyType)->getParameterTypes()))->iterator());
+		$var($Iterator, i$, $$nc($nc(indyType)->getParameterTypes())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
-				$var($List, indexAsArg, $nc($($$new($ListBuffer)->append($($nc(this->make)->Literal($($Integer::valueOf(i)))))))->toList());
-				$var($List, argTypes, $nc($($$new($ListBuffer)->append($nc(this->syms)->intType)))->toList());
+				$var($List, indexAsArg, $$nc($$new($ListBuffer)->append($($nc(this->make)->Literal($($Integer::valueOf(i))))))->toList());
+				$var($List, argTypes, $$nc($$new($ListBuffer)->append($nc(this->syms)->intType))->toList());
 				$var($Type, var$2, $nc(this->types)->erasure(t));
 				serArgs->add($($nc(this->make)->TypeCast(var$2, $(deserGetter("getCapturedArg"_s, $nc(this->syms)->objectType, argTypes, indexAsArg)))));
 				++i;
@@ -1207,7 +1034,7 @@ void LambdaToMethod::addDeserializationCase($Symbol$MethodHandleSymbol* refSym, 
 	$var($ListBuffer, stmts, $cast($ListBuffer, $nc($nc(this->kInfo)->deserializeCases)->get(implMethodName)));
 	if (stmts == nullptr) {
 		$assign(stmts, $new($ListBuffer));
-		$nc($nc(this->kInfo)->deserializeCases)->put(implMethodName, stmts);
+		this->kInfo->deserializeCases->put(implMethodName, stmts);
 	}
 	$nc(stmts)->append(stmt);
 }
@@ -1221,18 +1048,18 @@ $JCTree$JCExpression* LambdaToMethod::eqTest($Type* argType, $JCTree$JCExpressio
 }
 
 $JCTree$JCExpression* LambdaToMethod::deserTest($JCTree$JCExpression* prev, $String* func, $String* lit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, var$0, $List::of($nc(this->syms)->objectType));
-	$var($Type, var$1, static_cast<$Type*>($nc(this->syms)->booleanType));
-	$var($Type$MethodType, eqmt, $new($Type$MethodType, var$0, var$1, $($List::nil()), $nc(this->syms)->methodClass));
+	$var($Type, var$1, this->syms->booleanType);
+	$var($Type$MethodType, eqmt, $new($Type$MethodType, var$0, var$1, $($List::nil()), this->syms->methodClass));
 	$var($Env, var$2, this->attrEnv);
 	$var($Type, var$3, $nc(this->syms)->objectType);
 	$var($Name, var$4, $nc(this->names)->equals$);
-	$var($List, var$5, $List::of($nc(this->syms)->objectType));
+	$var($List, var$5, $List::of(this->syms->objectType));
 	$var($Symbol, eqsym, $nc(this->rs)->resolveQualifiedMethod(nullptr, var$2, var$3, var$4, var$5, $($List::nil())));
 	$var($List, var$6, $List::nil());
-	$var($JCTree$JCExpression, var$7, $nc($($nc(this->make)->Select($(deserGetter(func, $nc(this->syms)->stringType)), eqsym)))->setType(eqmt));
-	$var($JCTree$JCMethodInvocation, eqtest, $nc(this->make)->Apply(var$6, var$7, $($List::of($($nc(this->make)->Literal(lit))))));
+	$var($JCTree$JCExpression, var$7, $$nc($nc(this->make)->Select($(deserGetter(func, $nc(this->syms)->stringType)), eqsym))->setType(eqmt));
+	$var($JCTree$JCMethodInvocation, eqtest, $nc(this->make)->Apply(var$6, var$7, $($List::of($(this->make->Literal(lit))))));
 	$nc(eqtest)->setType($nc(this->syms)->booleanType);
 	$init($JCTree$Tag);
 	$var($JCTree$JCBinary, compound, $nc(this->make)->Binary($JCTree$Tag::AND, prev, eqtest));
@@ -1242,73 +1069,62 @@ $JCTree$JCExpression* LambdaToMethod::deserTest($JCTree$JCExpression* prev, $Str
 }
 
 $JCTree$JCExpression* LambdaToMethod::deserGetter($String* func, $Type* type) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, func);
-	$var($Type, var$1, type);
-	$var($List, var$2, $List::nil());
-	return deserGetter(var$0, var$1, var$2, $($List::nil()));
+	$useLocalObjectStack();
+	$var($List, var$0, $List::nil());
+	return deserGetter(func, type, var$0, $($List::nil()));
 }
 
 $JCTree$JCExpression* LambdaToMethod::deserGetter($String* func, $Type* type, $List* argTypes, $List* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type$MethodType, getmt, $new($Type$MethodType, argTypes, type, $($List::nil()), $nc(this->syms)->methodClass));
 	$var($Env, var$0, this->attrEnv);
 	$var($Type, var$1, $nc(this->syms)->serializedLambdaType);
 	$var($Name, var$2, $nc(this->names)->fromString(func));
-	$var($List, var$3, argTypes);
-	$var($Symbol, getsym, $nc(this->rs)->resolveQualifiedMethod(nullptr, var$0, var$1, var$2, var$3, $($List::nil())));
-	$var($List, var$4, $List::nil());
-	return $nc($($nc(this->make)->Apply(var$4, $($nc($($nc(this->make)->Select($($nc($($nc(this->make)->Ident(static_cast<$Symbol*>($nc(this->kInfo)->deserParamSym))))->setType($nc(this->syms)->serializedLambdaType)), getsym)))->setType(getmt)), args)))->setType(type);
+	$var($Symbol, getsym, $nc(this->rs)->resolveQualifiedMethod(nullptr, var$0, var$1, var$2, argTypes, $($List::nil())));
+	$var($List, var$3, $List::nil());
+	return $$nc($nc(this->make)->Apply(var$3, $($$nc($nc(this->make)->Select($($$nc($nc(this->make)->Ident($nc(this->kInfo)->deserParamSym))->setType($nc(this->syms)->serializedLambdaType)), getsym))->setType(getmt)), args))->setType(type);
 }
 
 $Symbol$MethodSymbol* LambdaToMethod::makePrivateSyntheticMethod(int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
-	return $new($Symbol$MethodSymbol, (flags | 4096) | 2, name, type, owner);
+	return $new($Symbol$MethodSymbol, (flags | 0x1000) | 2, name, type, owner);
 }
 
 $Symbol$VarSymbol* LambdaToMethod::makeSyntheticVar(int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
-	return $new($Symbol$VarSymbol, flags | 4096, name, type, owner);
+	return $new($Symbol$VarSymbol, flags | 0x1000, name, type, owner);
 }
 
 void LambdaToMethod::setVarargsIfNeeded($JCTree* tree, $Type* varargsElement) {
 	if (varargsElement != nullptr) {
 		$init($LambdaToMethod$1);
-		switch ($nc($LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get($nc(($($nc(tree)->getTag())))->ordinal())) {
+		switch ($nc($LambdaToMethod$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->get(($$nc($nc(tree)->getTag()))->ordinal())) {
 		case 1:
-			{
-				$set($nc($cast($JCTree$JCMethodInvocation, tree)), varargsElement, varargsElement);
-				break;
-			}
+			$set($cast($JCTree$JCMethodInvocation, tree), varargsElement, varargsElement);
+			break;
 		case 2:
-			{
-				$set($nc($cast($JCTree$JCNewClass, tree)), varargsElement, varargsElement);
-				break;
-			}
+			$set($cast($JCTree$JCNewClass, tree), varargsElement, varargsElement);
+			break;
 		case 3:
-			{
-				setVarargsIfNeeded($nc(($cast($JCTree$JCTypeCast, tree)))->expr, varargsElement);
-				break;
-			}
+			setVarargsIfNeeded($cast($JCTree$JCTypeCast, tree)->expr, varargsElement);
+			break;
 		default:
-			{
-				$throwNew($AssertionError);
-			}
+			$throwNew($AssertionError);
 		}
 	}
 }
 
 $List* LambdaToMethod::convertArgs($Symbol* meth, $List* args, $Type* varargsElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
 	$Assert::check($nc(meth)->kind == $Kinds$Kind::MTH);
-	$var($List, formals, $nc($($nc(this->types)->erasure($nc(meth)->type)))->getParameterTypes());
+	$var($List, formals, $$nc($nc(this->types)->erasure(meth->type))->getParameterTypes());
 	if (varargsElement != nullptr) {
-		$Assert::check(((int64_t)($nc(meth)->flags() & (uint64_t)(int64_t)0x0000000400000000)) != 0);
+		$Assert::check((meth->flags() & (int64_t)0x0000000400000000) != 0);
 	}
 	return $nc(this->transTypes)->translateArgs(args, formals, varargsElement, this->attrEnv);
 }
 
 $Type$MethodType* LambdaToMethod::typeToMethodType($Type* mt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, type, $nc(this->types)->erasure(mt));
 	$var($List, var$0, $nc(type)->getParameterTypes());
 	$var($Type, var$1, type->getReturnType());
@@ -1316,12 +1132,12 @@ $Type$MethodType* LambdaToMethod::typeToMethodType($Type* mt) {
 }
 
 $JCTree$JCExpression* LambdaToMethod::makeMetafactoryIndyCall($LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext* context, $Symbol$MethodHandleSymbol* refSym, $List* indy_args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCFunctionalExpression, tree, $nc(context)->tree);
 	$var($Symbol$MethodSymbol, samSym, $cast($Symbol$MethodSymbol, $nc(this->types)->findDescriptorSymbol($nc($nc(tree)->target)->tsym)));
-	$var($Object, var$0, $of(typeToMethodType($nc(samSym)->type)));
-	$var($Object, var$1, $of($nc(refSym)->asHandle()));
-	$var($List, staticArgs, $List::of(var$0, var$1, $(typeToMethodType($($nc(tree)->getDescriptorType(this->types))))));
+	$var($Object, var$0, typeToMethodType($nc(samSym)->type));
+	$var($Object, var$1, $nc(refSym)->asHandle());
+	$var($List, staticArgs, $List::of(var$0, var$1, $(typeToMethodType($(tree->getDescriptorType(this->types))))));
 	$var($ListBuffer, indy_args_types, $new($ListBuffer));
 	{
 		$var($Iterator, i$, $nc(indy_args)->iterator());
@@ -1333,19 +1149,19 @@ $JCTree$JCExpression* LambdaToMethod::makeMetafactoryIndyCall($LambdaToMethod$La
 		}
 	}
 	$var($List, var$2, indy_args_types->toList());
-	$var($Type, var$3, $nc(tree)->type);
+	$var($Type, var$3, tree->type);
 	$var($Type$MethodType, indyType, $new($Type$MethodType, var$2, var$3, $($List::nil()), $nc(this->syms)->methodClass));
 	$var($Name, metafactoryName, context->needsAltMetafactory() ? $nc(this->names)->altMetafactory : $nc(this->names)->metafactory);
 	if (context->needsAltMetafactory()) {
 		$var($ListBuffer, markers, $new($ListBuffer));
-		$var($List, targets, $nc($nc(tree)->target)->isIntersection() ? $nc(this->types)->directSupertypes($nc(tree)->target) : $List::nil());
+		$var($List, targets, $nc(tree->target)->isIntersection() ? $nc(this->types)->directSupertypes(tree->target) : $List::nil());
 		{
 			$var($Iterator, i$, $nc(targets)->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Type, t, $cast($Type, i$->next()));
 				{
 					$assign(t, $nc(this->types)->erasure(t));
-					if ($nc(t)->tsym != $nc($nc(this->syms)->serializableType)->tsym && t->tsym != $nc($nc(tree)->type)->tsym && t->tsym != $nc($nc(this->syms)->objectType)->tsym) {
+					if ($nc(t)->tsym != $nc($nc(this->syms)->serializableType)->tsym && t->tsym != $nc(tree->type)->tsym && t->tsym != $nc(this->syms->objectType)->tsym) {
 						markers->append(t);
 					}
 				}
@@ -1362,19 +1178,19 @@ $JCTree$JCExpression* LambdaToMethod::makeMetafactoryIndyCall($LambdaToMethod$La
 		}
 		$assign(staticArgs, $nc(staticArgs)->append($($PoolConstant$LoadableConstant::Int(flags))));
 		if (hasMarkers) {
-			$assign(staticArgs, staticArgs->append($($PoolConstant$LoadableConstant::Int(markers->length()))));
+			$assign(staticArgs, $nc(staticArgs)->append($($PoolConstant$LoadableConstant::Int(markers->length()))));
 			$assign(staticArgs, $nc(staticArgs)->appendList($($List::convert($PoolConstant$LoadableConstant::class$, $(markers->toList())))));
 		}
 		if (hasBridges) {
-			$assign(staticArgs, staticArgs->append($($PoolConstant$LoadableConstant::Int($nc(context->bridges)->length() - 1))));
+			$assign(staticArgs, $nc(staticArgs)->append($($PoolConstant$LoadableConstant::Int(context->bridges->length() - 1))));
 			{
-				$var($Iterator, i$, $nc(context->bridges)->iterator());
+				$var($Iterator, i$, context->bridges->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($Symbol, s, $cast($Symbol, i$->next()));
 					{
 						$var($Type, s_erasure, $nc(s)->erasure(this->types));
-						if (!$nc(this->types)->isSameType(s_erasure, $($nc(samSym)->erasure(this->types)))) {
-							$assign(staticArgs, $nc(staticArgs)->append(($cast($Type$MethodType, $(s->erasure(this->types))))));
+						if (!$nc(this->types)->isSameType(s_erasure, $(samSym->erasure(this->types)))) {
+							$assign(staticArgs, $nc(staticArgs)->append($$of($cast($Type$MethodType, s->erasure(this->types)))));
 						}
 					}
 				}
@@ -1382,61 +1198,55 @@ $JCTree$JCExpression* LambdaToMethod::makeMetafactoryIndyCall($LambdaToMethod$La
 		}
 		if (context->isSerializable()) {
 			int32_t prevPos = $nc(this->make)->pos;
-			{
-				$var($Throwable, var$4, nullptr);
-				try {
-					$nc(this->make)->at(static_cast<$JCDiagnostic$DiagnosticPosition*>($nc(this->kInfo)->clazz));
-					addDeserializationCase(refSym, $nc(tree)->type, samSym, tree, staticArgs, indyType);
-				} catch ($Throwable& var$5) {
-					$assign(var$4, var$5);
-				} /*finally*/ {
-					$nc(this->make)->at(prevPos);
-				}
-				if (var$4 != nullptr) {
-					$throw(var$4);
-				}
+			$var($Throwable, var$4, nullptr);
+			try {
+				this->make->at($nc(this->kInfo)->clazz);
+				addDeserializationCase(refSym, tree->type, samSym, tree, staticArgs, indyType);
+			} catch ($Throwable& var$5) {
+				$assign(var$4, var$5);
+			} /*finally*/ {
+				$nc(this->make)->at(prevPos);
+			}
+			if (var$4 != nullptr) {
+				$throw(var$4);
 			}
 		}
 	}
-	return makeIndyCall(tree, $nc(this->syms)->lambdaMetafactory, metafactoryName, staticArgs, indyType, indy_args, $nc(samSym)->name);
+	return makeIndyCall(tree, $nc(this->syms)->lambdaMetafactory, metafactoryName, staticArgs, indyType, indy_args, samSym->name);
 }
 
 $JCTree$JCExpression* LambdaToMethod::makeIndyCall($JCDiagnostic$DiagnosticPosition* pos, $Type* site, $Name* bsmName, $List* staticArgs, $Type$MethodType* indyType, $List* indyArgs, $Name* methName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t prevPos = $nc(this->make)->pos;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($JCTree$JCExpression, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$nc(this->make)->at(pos);
-			$var($List, bsm_staticArgs, $nc($($List::of($nc(this->syms)->methodHandleLookupType, $nc(this->syms)->stringType, $nc(this->syms)->methodTypeType)))->appendList($($nc(staticArgs)->map(static_cast<$Function*>($$new(LambdaToMethod$$Lambda$constantType$7, static_cast<$Types*>($nc(this->types))))))));
-			$var($Symbol, bsm, $nc(this->rs)->resolveInternalMethod(pos, this->attrEnv, site, bsmName, bsm_staticArgs, $($List::nil())));
-			$var($Name, var$3, methName);
-			$var($Symbol, var$4, static_cast<$Symbol*>($nc(this->syms)->noSymbol));
-			$var($Symbol$MethodHandleSymbol, var$5, $nc(($cast($Symbol$MethodSymbol, bsm)))->asHandle());
-			$var($Type, var$6, static_cast<$Type*>(indyType));
-			$var($Symbol$DynamicMethodSymbol, dynSym, $new($Symbol$DynamicMethodSymbol, var$3, var$4, var$5, var$6, $fcast($PoolConstant$LoadableConstantArray, $($nc(staticArgs)->toArray($$new($PoolConstant$LoadableConstantArray, staticArgs->length()))))));
-			$var($JCTree$JCFieldAccess, qualifier, $nc(this->make)->Select($($nc(this->make)->QualIdent($nc(site)->tsym)), bsmName));
-			$var($Symbol$DynamicMethodSymbol, existing, $cast($Symbol$DynamicMethodSymbol, $nc($nc(this->kInfo)->dynMethSyms)->putIfAbsent($(dynSym->poolKey(this->types)), dynSym)));
-			$set($nc(qualifier), sym, existing != nullptr ? static_cast<$Symbol*>(existing) : static_cast<$Symbol*>(dynSym));
-			$set(qualifier, type, $nc(indyType)->getReturnType());
-			$var($JCTree$JCMethodInvocation, proxyCall, $nc(this->make)->Apply($($List::nil()), qualifier, indyArgs));
-			$set($nc(proxyCall), type, indyType->getReturnType());
-			$assign(var$2, proxyCall);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$0, var$7);
-		} $finally: {
-			$nc(this->make)->at(prevPos);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($JCTree$JCExpression, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		this->make->at(pos);
+		$var($List, bsm_staticArgs, $$nc($List::of($nc(this->syms)->methodHandleLookupType, $nc(this->syms)->stringType, $nc(this->syms)->methodTypeType))->appendList($($nc(staticArgs)->map($$new(LambdaToMethod$$Lambda$constantType$7, $nc(this->types))))));
+		$var($Symbol, bsm, $nc(this->rs)->resolveInternalMethod(pos, this->attrEnv, site, bsmName, bsm_staticArgs, $($List::nil())));
+		$var($Symbol, var$3, $nc(this->syms)->noSymbol);
+		$var($Symbol$MethodHandleSymbol, var$4, $nc($cast($Symbol$MethodSymbol, bsm))->asHandle());
+		$var($Symbol$DynamicMethodSymbol, dynSym, $new($Symbol$DynamicMethodSymbol, methName, var$3, var$4, indyType, $$cast($PoolConstant$LoadableConstantArray, staticArgs->toArray($$new($PoolConstant$LoadableConstantArray, staticArgs->length())))));
+		$var($JCTree$JCFieldAccess, qualifier, $nc(this->make)->Select($($nc(this->make)->QualIdent($nc(site)->tsym)), bsmName));
+		$var($Symbol$DynamicMethodSymbol, existing, $cast($Symbol$DynamicMethodSymbol, $nc($nc(this->kInfo)->dynMethSyms)->putIfAbsent($(dynSym->poolKey(this->types)), dynSym)));
+		$set($nc(qualifier), sym, existing != nullptr ? existing : dynSym);
+		$set(qualifier, type, $nc(indyType)->getReturnType());
+		$var($JCTree$JCMethodInvocation, proxyCall, $nc(this->make)->Apply($($List::nil()), qualifier, indyArgs));
+		$set($nc(proxyCall), type, indyType->getReturnType());
+		$assign(var$2, proxyCall);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		$nc(this->make)->at(prevPos);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -1446,7 +1256,7 @@ $String* LambdaToMethod::typeSig($Type* type) {
 }
 
 $String* LambdaToMethod::typeSig($Type* type, bool allowIllegalSignature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($LambdaToMethod$L2MSignatureGenerator, sg, $new($LambdaToMethod$L2MSignatureGenerator, this, allowIllegalSignature));
 		sg->assembleSig(type);
@@ -1460,7 +1270,7 @@ $String* LambdaToMethod::typeSig($Type* type, bool allowIllegalSignature) {
 }
 
 $String* LambdaToMethod::classSig($Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($LambdaToMethod$L2MSignatureGenerator, sg, $new($LambdaToMethod$L2MSignatureGenerator, this, false));
 		sg->assembleClassSig(type);
@@ -1474,14 +1284,14 @@ $String* LambdaToMethod::classSig($Type* type) {
 }
 
 bool LambdaToMethod::isProtectedInSuperClassOfEnclosingClassInOtherPackage($Symbol* targetReference, $Symbol* currentClass) {
-	bool var$0 = ((int64_t)($nc(targetReference)->flags() & (uint64_t)(int64_t)4)) != 0;
+	bool var$0 = ($nc(targetReference)->flags() & 4) != 0;
 	if (var$0) {
 		var$0 = targetReference->packge() != $nc(currentClass)->packge();
 	}
 	return (var$0);
 }
 
-void clinit$LambdaToMethod($Class* class$) {
+void LambdaToMethod::clinit$($Class* clazz) {
 	$assignStatic(LambdaToMethod::unlambdaKey, $new($Context$Key));
 }
 
@@ -1490,32 +1300,128 @@ LambdaToMethod::LambdaToMethod() {
 
 $Class* LambdaToMethod::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LambdaToMethod$$Lambda$getRawTypeAttributes::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getRawTypeAttributes")) {
 			return LambdaToMethod$$Lambda$getRawTypeAttributes::load$(name, initialize);
 		}
-		if (name->equals(LambdaToMethod$$Lambda$setTypeAttributes$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setTypeAttributes$1")) {
 			return LambdaToMethod$$Lambda$setTypeAttributes$1::load$(name, initialize);
 		}
-		if (name->equals(LambdaToMethod$$Lambda$getInitTypeAttributes$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getInitTypeAttributes$2")) {
 			return LambdaToMethod$$Lambda$getInitTypeAttributes$2::load$(name, initialize);
 		}
-		if (name->equals(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.LambdaToMethod$$Lambda$getClassInitTypeAttributes$3")) {
 			return LambdaToMethod$$Lambda$getClassInitTypeAttributes$3::load$(name, initialize);
 		}
-		if (name->equals(LambdaToMethod$$Lambda$setInitTypeAttributes$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setInitTypeAttributes$4")) {
 			return LambdaToMethod$$Lambda$setInitTypeAttributes$4::load$(name, initialize);
 		}
-		if (name->equals(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.LambdaToMethod$$Lambda$setClassInitTypeAttributes$5")) {
 			return LambdaToMethod$$Lambda$setClassInitTypeAttributes$5::load$(name, initialize);
 		}
-		if (name->equals(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6")) {
 			return LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6::load$(name, initialize);
 		}
-		if (name->equals(LambdaToMethod$$Lambda$constantType$7::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.LambdaToMethod$$Lambda$constantType$7")) {
 			return LambdaToMethod$$Lambda$constantType$7::load$(name, initialize);
 		}
 	}
-	$loadClass(LambdaToMethod, name, initialize, &_LambdaToMethod_ClassInfo_, clinit$LambdaToMethod, allocate$LambdaToMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"attr", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $PRIVATE, $field(LambdaToMethod, attr)},
+		{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE, $field(LambdaToMethod, diags)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE, $field(LambdaToMethod, log)},
+		{"lower", "Lcom/sun/tools/javac/comp/Lower;", nullptr, $PRIVATE, $field(LambdaToMethod, lower)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE, $field(LambdaToMethod, names)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE, $field(LambdaToMethod, syms)},
+		{"rs", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE, $field(LambdaToMethod, rs)},
+		{"operators", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $PRIVATE, $field(LambdaToMethod, operators)},
+		{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE, $field(LambdaToMethod, make)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE, $field(LambdaToMethod, types)},
+		{"transTypes", "Lcom/sun/tools/javac/comp/TransTypes;", nullptr, $PRIVATE, $field(LambdaToMethod, transTypes)},
+		{"attrEnv", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $field(LambdaToMethod, attrEnv)},
+		{"analyzer", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor;", nullptr, $PRIVATE, $field(LambdaToMethod, analyzer)},
+		{"contextMap", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;>;", $PRIVATE, $field(LambdaToMethod, contextMap)},
+		{"context", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;", "Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;", $PRIVATE, $field(LambdaToMethod, context)},
+		{"kInfo", "Lcom/sun/tools/javac/comp/LambdaToMethod$KlassInfo;", nullptr, $PRIVATE, $field(LambdaToMethod, kInfo)},
+		{"dumpLambdaToMethodStats", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, dumpLambdaToMethodStats)},
+		{"forceSerializable", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, forceSerializable)},
+		{"debugLinesOrVars", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, debugLinesOrVars)},
+		{"verboseDeduplication", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, verboseDeduplication)},
+		{"deduplicateLambdas", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, deduplicateLambdas)},
+		{"nestmateLambdas", "Z", nullptr, $PRIVATE | $FINAL, $field(LambdaToMethod, nestmateLambdas)},
+		{"FLAG_SERIALIZABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaToMethod, FLAG_SERIALIZABLE)},
+		{"FLAG_MARKERS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaToMethod, FLAG_MARKERS)},
+		{"FLAG_BRIDGES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LambdaToMethod, FLAG_BRIDGES)},
+		{"unlambdaKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/LambdaToMethod;>;", $PROTECTED | $STATIC | $FINAL, $staticField(LambdaToMethod, unlambdaKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PRIVATE, $method(LambdaToMethod, init$, void, $Context*)},
+		{"addDeserializationCase", "(Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type$MethodType;)V", "(Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/code/Type$MethodType;)V", $PRIVATE, $method(LambdaToMethod, addDeserializationCase, void, $Symbol$MethodHandleSymbol*, $Type*, $Symbol$MethodSymbol*, $JCDiagnostic$DiagnosticPosition*, $List*, $Type$MethodType*)},
+		{"apportionTypeAnnotations", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/function/Supplier;Ljava/util/function/Consumer;Ljava/util/function/Consumer;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Ljava/util/function/Supplier<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;Ljava/util/function/Consumer<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;Ljava/util/function/Consumer<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;>;)V", $PRIVATE, $method(LambdaToMethod, apportionTypeAnnotations, void, $JCTree$JCLambda*, $Supplier*, $Consumer*, $Consumer*)},
+		{"classSig", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, classSig, $String*, $Type*)},
+		{"convertArgs", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PRIVATE, $method(LambdaToMethod, convertArgs, $List*, $Symbol*, $List*, $Type*)},
+		{"deserGetter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, deserGetter, $JCTree$JCExpression*, $String*, $Type*)},
+		{"deserGetter", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Ljava/lang/String;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, deserGetter, $JCTree$JCExpression*, $String*, $Type*, $List*, $List*)},
+		{"deserTest", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, deserTest, $JCTree$JCExpression*, $JCTree$JCExpression*, $String*, $String*)},
+		{"eqTest", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(LambdaToMethod, eqTest, $JCTree$JCExpression*, $Type*, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/LambdaToMethod;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaToMethod, instance, LambdaToMethod*, $Context*)},
+		{"isProtectedInSuperClassOfEnclosingClassInOtherPackage", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE, $method(LambdaToMethod, isProtectedInSuperClassOfEnclosingClassInOtherPackage, bool, $Symbol*, $Symbol*)},
+		{"makeDeserializeMethod", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PRIVATE, $method(LambdaToMethod, makeDeserializeMethod, $JCTree$JCMethodDecl*, $Symbol*)},
+		{"makeIndyCall", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;>;Lcom/sun/tools/javac/code/Type$MethodType;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, makeIndyCall, $JCTree$JCExpression*, $JCDiagnostic$DiagnosticPosition*, $Type*, $Name*, $List*, $Type$MethodType*, $List*, $Name*)},
+		{"makeLambdaBody", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaBody, $JCTree$JCBlock*, $JCTree$JCLambda*, $JCTree$JCMethodDecl*)},
+		{"makeLambdaExpressionBody", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaExpressionBody, $JCTree$JCBlock*, $JCTree$JCExpression*, $JCTree$JCMethodDecl*)},
+		{"makeLambdaStatementBody", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;Z)Lcom/sun/tools/javac/tree/JCTree$JCBlock;", nullptr, $PRIVATE, $method(LambdaToMethod, makeLambdaStatementBody, $JCTree$JCBlock*, $JCTree$JCBlock*, $JCTree$JCMethodDecl*, bool)},
+		{"makeMetafactoryIndyCall", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", "(Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;Lcom/sun/tools/javac/code/Symbol$MethodHandleSymbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", $PRIVATE, $method(LambdaToMethod, makeMetafactoryIndyCall, $JCTree$JCExpression*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*, $Symbol$MethodHandleSymbol*, $List*)},
+		{"makeNewClass", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0, $virtualMethod(LambdaToMethod, makeNewClass, $JCTree$JCNewClass*, $Type*, $List*, $Symbol*)},
+		{"makeNewClass", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)Lcom/sun/tools/javac/tree/JCTree$JCNewClass;", 0, $virtualMethod(LambdaToMethod, makeNewClass, $JCTree$JCNewClass*, $Type*, $List*)},
+		{"makePrivateSyntheticMethod", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $method(LambdaToMethod, makePrivateSyntheticMethod, $Symbol$MethodSymbol*, int64_t, $Name*, $Type*, $Symbol*)},
+		{"makeSyntheticVar", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$VarSymbol;", nullptr, $PRIVATE, $method(LambdaToMethod, makeSyntheticVar, $Symbol$VarSymbol*, int64_t, $Name*, $Type*, $Symbol*)},
+		{"makeThis", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCIdent;", nullptr, $PRIVATE, $method(LambdaToMethod, makeThis, $JCTree$JCIdent*, $Type*, $Symbol*)},
+		{"setVarargsIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(LambdaToMethod, setVarargsIfNeeded, void, $JCTree*, $Type*)},
+		{"translate", "(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;)TT;", $PUBLIC, $virtualMethod(LambdaToMethod, translate, $JCTree*, $JCTree*)},
+		{"translate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;)Lcom/sun/tools/javac/tree/JCTree;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(TT;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;)TT;", 0, $virtualMethod(LambdaToMethod, translate, $JCTree*, $JCTree*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*)},
+		{"translate", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext<*>;)Lcom/sun/tools/javac/util/List<TT;>;", 0, $virtualMethod(LambdaToMethod, translate, $List*, $List*, $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext*)},
+		{"translateTopLevelClass", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)Lcom/sun/tools/javac/tree/JCTree;", $PUBLIC, $virtualMethod(LambdaToMethod, translateTopLevelClass, $JCTree*, $Env*, $JCTree*, $TreeMaker*)},
+		{"typeSig", "(Lcom/sun/tools/javac/code/Type;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, typeSig, $String*, $Type*)},
+		{"typeSig", "(Lcom/sun/tools/javac/code/Type;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(LambdaToMethod, typeSig, $String*, $Type*, bool)},
+		{"typeToMethodType", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type$MethodType;", nullptr, $PRIVATE, $method(LambdaToMethod, typeToMethodType, $Type$MethodType*, $Type*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitReference, void, $JCTree$JCMemberReference*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(LambdaToMethod, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.LambdaToMethod$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.comp.LambdaToMethod$L2MSignatureGenerator", "com.sun.tools.javac.comp.LambdaToMethod", "L2MSignatureGenerator", $PRIVATE},
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaSymbolKind", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaSymbolKind", $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor", "com.sun.tools.javac.comp.LambdaToMethod", "LambdaAnalyzerPreprocessor", 0},
+		{"com.sun.tools.javac.comp.LambdaToMethod$MemberReferenceToLambda", "com.sun.tools.javac.comp.LambdaToMethod", "MemberReferenceToLambda", $PRIVATE},
+		{"com.sun.tools.javac.comp.LambdaToMethod$KlassInfo", "com.sun.tools.javac.comp.LambdaToMethod", "KlassInfo", $PRIVATE},
+		{"com.sun.tools.javac.comp.LambdaToMethod$DedupedLambda", "com.sun.tools.javac.comp.LambdaToMethod", "DedupedLambda", 0},
+		{"com.sun.tools.javac.comp.LambdaToMethod$1LambdaBodyTranslator", nullptr, "LambdaBodyTranslator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.LambdaToMethod",
+		"com.sun.tools.javac.tree.TreeTranslator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.LambdaToMethod$1,com.sun.tools.javac.comp.LambdaToMethod$L2MSignatureGenerator,com.sun.tools.javac.comp.LambdaToMethod$LambdaSymbolKind,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$ReferenceTranslationContext,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$4,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$3,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$2,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$LambdaTranslationContext$1,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$Frame,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$SyntheticMethodNameCounter,com.sun.tools.javac.comp.LambdaToMethod$LambdaAnalyzerPreprocessor$1,com.sun.tools.javac.comp.LambdaToMethod$MemberReferenceToLambda,com.sun.tools.javac.comp.LambdaToMethod$KlassInfo,com.sun.tools.javac.comp.LambdaToMethod$DedupedLambda,com.sun.tools.javac.comp.LambdaToMethod$1LambdaBodyTranslator"
+	};
+	$loadClass(LambdaToMethod, name, initialize, &classInfo$$, LambdaToMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaToMethod);
+	});
 	return class$;
 }
 

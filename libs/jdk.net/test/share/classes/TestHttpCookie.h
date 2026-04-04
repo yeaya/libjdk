@@ -20,6 +20,7 @@ class $export TestHttpCookie : public ::java::lang::Object {
 	$class(TestHttpCookie, 0, ::java::lang::Object)
 public:
 	TestHttpCookie();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* cHeader);
 	virtual ::TestHttpCookie* a(int32_t index, int64_t a);
 	virtual ::TestHttpCookie* a(int64_t a);

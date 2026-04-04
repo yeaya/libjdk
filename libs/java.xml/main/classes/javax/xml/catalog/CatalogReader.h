@@ -52,6 +52,7 @@ class CatalogReader : public ::org::xml::sax::helpers::DefaultHandler, public ::
 	$class(CatalogReader, 0, ::org::xml::sax::helpers::DefaultHandler, ::javax::xml::transform::URIResolver)
 public:
 	CatalogReader();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

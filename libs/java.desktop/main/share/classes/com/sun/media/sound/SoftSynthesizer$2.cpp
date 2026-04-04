@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftSynthesizer$2.h>
-
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
@@ -17,62 +16,19 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Properties = ::java::util::Properties;
 
 namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftSynthesizer$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftSynthesizer;", nullptr, $FINAL | $SYNTHETIC, $field(SoftSynthesizer$2, this$0)},
-	{}
-};
-
-$MethodInfo _SoftSynthesizer$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, 0, $method(SoftSynthesizer$2, init$, void, $SoftSynthesizer*)},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SoftSynthesizer$2_EnclosingMethodInfo_ = {
-	"com.sun.media.sound.SoftSynthesizer",
-	"getDefaultSoundbank",
-	"()Ljavax/sound/midi/Soundbank;"
-};
-
-$InnerClassInfo _SoftSynthesizer$2_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftSynthesizer$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftSynthesizer$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftSynthesizer$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_SoftSynthesizer$2_FieldInfo_,
-	_SoftSynthesizer$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/io/InputStream;>;",
-	&_SoftSynthesizer$2_EnclosingMethodInfo_,
-	_SoftSynthesizer$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftSynthesizer"
-};
-
-$Object* allocate$SoftSynthesizer$2($Class* clazz) {
-	return $of($alloc(SoftSynthesizer$2));
-}
-
 void SoftSynthesizer$2::init$($SoftSynthesizer* this$0) {
 	$set(this, this$0, this$0);
 }
 
 $Object* SoftSynthesizer$2::run() {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc($($System::getProperties()))->getProperty("os.name"_s)))->startsWith("Linux"_s)) {
+	$useLocalObjectStack();
+	if ($$nc($$nc($System::getProperties())->getProperty("os.name"_s))->startsWith("Linux"_s)) {
 		$var($FileArray, systemSoundFontsDir, $new($FileArray, {
 			$$new($File, "/usr/share/soundfonts/"_s),
 			$$new($File, "/usr/local/share/soundfonts/"_s),
@@ -81,32 +37,63 @@ $Object* SoftSynthesizer$2::run() {
 		}));
 		{
 			$var($FileArray, arr$, systemSoundFontsDir);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($File, systemSoundFontDir, arr$->get(i$));
-				{
-					if ($nc(systemSoundFontDir)->isDirectory()) {
-						$var($File, defaultSoundFont, $new($File, systemSoundFontDir, "default.sf2"_s));
-						if (defaultSoundFont->isFile()) {
-							try {
-								return $of($new($FileInputStream, defaultSoundFont));
-							} catch ($IOException& e) {
-							}
+				if ($nc(systemSoundFontDir)->isDirectory()) {
+					$var($File, defaultSoundFont, $new($File, systemSoundFontDir, "default.sf2"_s));
+					if (defaultSoundFont->isFile()) {
+						try {
+							return $new($FileInputStream, defaultSoundFont);
+						} catch ($IOException& e) {
 						}
 					}
 				}
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 SoftSynthesizer$2::SoftSynthesizer$2() {
 }
 
 $Class* SoftSynthesizer$2::load$($String* name, bool initialize) {
-	$loadClass(SoftSynthesizer$2, name, initialize, &_SoftSynthesizer$2_ClassInfo_, allocate$SoftSynthesizer$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftSynthesizer;", nullptr, $FINAL | $SYNTHETIC, $field(SoftSynthesizer$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, 0, $method(SoftSynthesizer$2, init$, void, $SoftSynthesizer*)},
+		{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(SoftSynthesizer$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.media.sound.SoftSynthesizer",
+		"getDefaultSoundbank",
+		"()Ljavax/sound/midi/Soundbank;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftSynthesizer$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftSynthesizer$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/io/InputStream;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftSynthesizer"
+	};
+	$loadClass(SoftSynthesizer$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftSynthesizer$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
-
 #include <com/sun/source/tree/CaseTree.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,46 +17,6 @@ namespace com {
 	namespace sun {
 		namespace source {
 			namespace tree {
-
-$FieldInfo _CaseTree$CaseKind_FieldInfo_[] = {
-	{"STATEMENT", "Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CaseTree$CaseKind, STATEMENT)},
-	{"RULE", "Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CaseTree$CaseKind, RULE)},
-	{"$VALUES", "[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CaseTree$CaseKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _CaseTree$CaseKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CaseTree$CaseKind, $values, $CaseTree$CaseKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CaseTree$CaseKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseTree$CaseKind, valueOf, CaseTree$CaseKind*, $String*)},
-	{"values", "()[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseTree$CaseKind, values, $CaseTree$CaseKindArray*)},
-	{}
-};
-
-$InnerClassInfo _CaseTree$CaseKind_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.CaseTree$CaseKind", "com.sun.source.tree.CaseTree", "CaseKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CaseTree$CaseKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.source.tree.CaseTree$CaseKind",
-	"java.lang.Enum",
-	nullptr,
-	_CaseTree$CaseKind_FieldInfo_,
-	_CaseTree$CaseKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/source/tree/CaseTree$CaseKind;>;",
-	nullptr,
-	_CaseTree$CaseKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.CaseTree"
-};
-
-$Object* allocate$CaseTree$CaseKind($Class* clazz) {
-	return $of($alloc(CaseTree$CaseKind));
-}
 
 CaseTree$CaseKind* CaseTree$CaseKind::STATEMENT = nullptr;
 CaseTree$CaseKind* CaseTree$CaseKind::RULE = nullptr;
@@ -85,7 +44,7 @@ void CaseTree$CaseKind::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$CaseTree$CaseKind($Class* class$) {
+void CaseTree$CaseKind::clinit$($Class* clazz) {
 	$assignStatic(CaseTree$CaseKind::STATEMENT, $new(CaseTree$CaseKind, "STATEMENT"_s, 0));
 	$assignStatic(CaseTree$CaseKind::RULE, $new(CaseTree$CaseKind, "RULE"_s, 1));
 	$assignStatic(CaseTree$CaseKind::$VALUES, CaseTree$CaseKind::$values());
@@ -95,7 +54,41 @@ CaseTree$CaseKind::CaseTree$CaseKind() {
 }
 
 $Class* CaseTree$CaseKind::load$($String* name, bool initialize) {
-	$loadClass(CaseTree$CaseKind, name, initialize, &_CaseTree$CaseKind_ClassInfo_, clinit$CaseTree$CaseKind, allocate$CaseTree$CaseKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"STATEMENT", "Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CaseTree$CaseKind, STATEMENT)},
+		{"RULE", "Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(CaseTree$CaseKind, RULE)},
+		{"$VALUES", "[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(CaseTree$CaseKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CaseTree$CaseKind, $values, $CaseTree$CaseKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(CaseTree$CaseKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseTree$CaseKind, valueOf, CaseTree$CaseKind*, $String*)},
+		{"values", "()[Lcom/sun/source/tree/CaseTree$CaseKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(CaseTree$CaseKind, values, $CaseTree$CaseKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.CaseTree$CaseKind", "com.sun.source.tree.CaseTree", "CaseKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.source.tree.CaseTree$CaseKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/source/tree/CaseTree$CaseKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.CaseTree"
+	};
+	$loadClass(CaseTree$CaseKind, name, initialize, &classInfo$$, CaseTree$CaseKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CaseTree$CaseKind));
+	});
 	return class$;
 }
 

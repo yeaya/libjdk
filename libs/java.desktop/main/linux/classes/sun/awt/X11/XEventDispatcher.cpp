@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XEventDispatcher.h>
-
 #include <sun/awt/X11/XEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$MethodInfo _XEventDispatcher_MethodInfo_[] = {
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XEventDispatcher, dispatchEvent, void, $XEvent*)},
-	{}
-};
-
-$ClassInfo _XEventDispatcher_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.X11.XEventDispatcher",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XEventDispatcher_MethodInfo_
-};
-
-$Object* allocate$XEventDispatcher($Class* clazz) {
-	return $of($alloc(XEventDispatcher));
-}
-
 $Class* XEventDispatcher::load$($String* name, bool initialize) {
-	$loadClass(XEventDispatcher, name, initialize, &_XEventDispatcher_ClassInfo_, allocate$XEventDispatcher);
+	$MethodInfo methodInfos$$[] = {
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XEventDispatcher, dispatchEvent, void, $XEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.X11.XEventDispatcher",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XEventDispatcher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XEventDispatcher);
+	});
 	return class$;
 }
 

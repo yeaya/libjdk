@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReader$CallBackLock.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReader$CallBackLock$State.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGImageReader.h>
 #include <java/lang/IllegalStateException.h>
@@ -17,45 +16,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _JPEGImageReader$CallBackLock_FieldInfo_[] = {
-	{"lockState", "Lcom/sun/imageio/plugins/jpeg/JPEGImageReader$CallBackLock$State;", nullptr, $PRIVATE, $field(JPEGImageReader$CallBackLock, lockState)},
-	{}
-};
-
-$MethodInfo _JPEGImageReader$CallBackLock_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JPEGImageReader$CallBackLock, init$, void)},
-	{"check", "()V", nullptr, 0, $virtualMethod(JPEGImageReader$CallBackLock, check, void)},
-	{"lock", "()V", nullptr, $PRIVATE, $method(JPEGImageReader$CallBackLock, lock, void)},
-	{"unlock", "()V", nullptr, $PRIVATE, $method(JPEGImageReader$CallBackLock, unlock, void)},
-	{}
-};
-
-$InnerClassInfo _JPEGImageReader$CallBackLock_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JPEGImageReader$CallBackLock", "com.sun.imageio.plugins.jpeg.JPEGImageReader", "CallBackLock", $PRIVATE | $STATIC},
-	{"com.sun.imageio.plugins.jpeg.JPEGImageReader$CallBackLock$State", "com.sun.imageio.plugins.jpeg.JPEGImageReader$CallBackLock", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JPEGImageReader$CallBackLock_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGImageReader$CallBackLock",
-	"java.lang.Object",
-	nullptr,
-	_JPEGImageReader$CallBackLock_FieldInfo_,
-	_JPEGImageReader$CallBackLock_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPEGImageReader$CallBackLock_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JPEGImageReader"
-};
-
-$Object* allocate$JPEGImageReader$CallBackLock($Class* clazz) {
-	return $of($alloc(JPEGImageReader$CallBackLock));
-}
 
 void JPEGImageReader$CallBackLock::init$() {
 	$init($JPEGImageReader$CallBackLock$State);
@@ -83,7 +43,40 @@ JPEGImageReader$CallBackLock::JPEGImageReader$CallBackLock() {
 }
 
 $Class* JPEGImageReader$CallBackLock::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageReader$CallBackLock, name, initialize, &_JPEGImageReader$CallBackLock_ClassInfo_, allocate$JPEGImageReader$CallBackLock);
+	$FieldInfo fieldInfos$$[] = {
+		{"lockState", "Lcom/sun/imageio/plugins/jpeg/JPEGImageReader$CallBackLock$State;", nullptr, $PRIVATE, $field(JPEGImageReader$CallBackLock, lockState)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JPEGImageReader$CallBackLock, init$, void)},
+		{"check", "()V", nullptr, 0, $virtualMethod(JPEGImageReader$CallBackLock, check, void)},
+		{"lock", "()V", nullptr, $PRIVATE, $method(JPEGImageReader$CallBackLock, lock, void)},
+		{"unlock", "()V", nullptr, $PRIVATE, $method(JPEGImageReader$CallBackLock, unlock, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JPEGImageReader$CallBackLock", "com.sun.imageio.plugins.jpeg.JPEGImageReader", "CallBackLock", $PRIVATE | $STATIC},
+		{"com.sun.imageio.plugins.jpeg.JPEGImageReader$CallBackLock$State", "com.sun.imageio.plugins.jpeg.JPEGImageReader$CallBackLock", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGImageReader$CallBackLock",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JPEGImageReader"
+	};
+	$loadClass(JPEGImageReader$CallBackLock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageReader$CallBackLock);
+	});
 	return class$;
 }
 

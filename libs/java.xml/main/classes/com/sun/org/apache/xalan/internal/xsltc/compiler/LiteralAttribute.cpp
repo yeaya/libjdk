@@ -1,6 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LiteralAttribute.h>
-
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
@@ -27,7 +25,6 @@
 #undef HTML_ATTRURL
 #undef NO_BAD_CHARS
 
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
@@ -57,37 +54,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _LiteralAttribute_FieldInfo_[] = {
-	{"_name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LiteralAttribute, _name)},
-	{"_value", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PRIVATE | $FINAL, $field(LiteralAttribute, _value)},
-	{}
-};
-
-$MethodInfo _LiteralAttribute_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(LiteralAttribute, init$, void, $String*, $String*, $Parser*, $SyntaxTreeNode*)},
-	{"contextDependent", "()Z", nullptr, $PROTECTED, $virtualMethod(LiteralAttribute, contextDependent, bool)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(LiteralAttribute, display, void, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LiteralAttribute, getName, $String*)},
-	{"getValue", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PUBLIC, $method(LiteralAttribute, getValue, $AttributeValue*)},
-	{"hasBadChars", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(LiteralAttribute, hasBadChars, bool, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LiteralAttribute, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(LiteralAttribute, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _LiteralAttribute_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.LiteralAttribute",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_LiteralAttribute_FieldInfo_,
-	_LiteralAttribute_MethodInfo_
-};
-
-$Object* allocate$LiteralAttribute($Class* clazz) {
-	return $of($alloc(LiteralAttribute));
-}
-
 void LiteralAttribute::init$($String* name, $String* value, $Parser* parser, $SyntaxTreeNode* parent) {
 	$Instruction::init$();
 	$set(this, _name, name);
@@ -112,17 +78,17 @@ bool LiteralAttribute::contextDependent() {
 }
 
 void LiteralAttribute::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$nc(il)->append($(methodGen->loadHandler()));
-	il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_name)));
+	il->append($$new($PUSH, cpg, this->_name));
 	$nc(this->_value)->translate(classGen, methodGen);
 	$var($SyntaxTreeNode, parent, getParent());
-	if ($instanceOf($LiteralElement, parent) && $nc(($cast($LiteralElement, parent)))->allAttributesUnique()) {
+	if ($instanceOf($LiteralElement, parent) && $cast($LiteralElement, parent)->allAttributesUnique()) {
 		int32_t flags = 0;
 		bool isHTMLAttrEmpty = false;
-		$var($ElemDesc, elemDesc, $nc(($cast($LiteralElement, parent)))->getElemDesc());
+		$var($ElemDesc, elemDesc, $cast($LiteralElement, parent)->getElemDesc());
 		if (elemDesc != nullptr) {
 			if (elemDesc->isAttrFlagSet(this->_name, $ElemDesc::ATTREMPTY)) {
 				flags = flags | $SerializationHandler::HTML_ATTREMPTY;
@@ -132,12 +98,12 @@ void LiteralAttribute::translate($ClassGenerator* classGen, $MethodGenerator* me
 			}
 		}
 		if ($instanceOf($SimpleAttributeValue, this->_value)) {
-			$var($String, attrValue, $nc(($cast($SimpleAttributeValue, this->_value)))->toString());
+			$var($String, attrValue, $cast($SimpleAttributeValue, this->_value)->toString());
 			if (!hasBadChars(attrValue) && !isHTMLAttrEmpty) {
 				flags = flags | $SerializationHandler::NO_BAD_CHARS;
 			}
 		}
-		il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, flags)));
+		il->append($$new($PUSH, cpg, flags));
 		il->append($(methodGen->uniqueAttribute()));
 	} else {
 		il->append($(methodGen->attribute()));
@@ -168,7 +134,33 @@ LiteralAttribute::LiteralAttribute() {
 }
 
 $Class* LiteralAttribute::load$($String* name, bool initialize) {
-	$loadClass(LiteralAttribute, name, initialize, &_LiteralAttribute_ClassInfo_, allocate$LiteralAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"_name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LiteralAttribute, _name)},
+		{"_value", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PRIVATE | $FINAL, $field(LiteralAttribute, _value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(LiteralAttribute, init$, void, $String*, $String*, $Parser*, $SyntaxTreeNode*)},
+		{"contextDependent", "()Z", nullptr, $PROTECTED, $virtualMethod(LiteralAttribute, contextDependent, bool)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(LiteralAttribute, display, void, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LiteralAttribute, getName, $String*)},
+		{"getValue", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PUBLIC, $method(LiteralAttribute, getValue, $AttributeValue*)},
+		{"hasBadChars", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(LiteralAttribute, hasBadChars, bool, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LiteralAttribute, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(LiteralAttribute, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.LiteralAttribute",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LiteralAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LiteralAttribute);
+	});
 	return class$;
 }
 

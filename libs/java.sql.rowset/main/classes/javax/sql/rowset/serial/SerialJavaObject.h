@@ -57,7 +57,7 @@ public:
 	void writeObject(::java::io::ObjectOutputStream* s);
 	$Object* obj = nullptr;
 	$Array<::java::lang::reflect::Field>* fields = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xEBA8731650742BD1;
+	static const int64_t serialVersionUID = (int64_t)0xeba8731650742bd1;
 	::java::util::Vector* chain = nullptr;
 };
 

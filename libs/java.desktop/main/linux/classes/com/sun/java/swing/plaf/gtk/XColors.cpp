@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/XColors.h>
-
 #include <com/sun/java/swing/plaf/gtk/XColors$XColor.h>
 #include <java/awt/Color.h>
 #include <java/util/Arrays.h>
@@ -21,42 +20,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _XColors_FieldInfo_[] = {
-	{"key", "Lcom/sun/java/swing/plaf/gtk/XColors$XColor;", nullptr, $PRIVATE | $STATIC, $staticField(XColors, key)},
-	{"colors", "[Lcom/sun/java/swing/plaf/gtk/XColors$XColor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XColors, colors)},
-	{}
-};
-
-$MethodInfo _XColors_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XColors, init$, void)},
-	{"lookupColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $STATIC, $staticMethod(XColors, lookupColor, $Color*, $String*)},
-	{}
-};
-
-$InnerClassInfo _XColors_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.XColors$XColor", "com.sun.java.swing.plaf.gtk.XColors", "XColor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XColors_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.XColors",
-	"java.lang.Object",
-	nullptr,
-	_XColors_FieldInfo_,
-	_XColors_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XColors_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.XColors$XColor"
-};
-
-$Object* allocate$XColors($Class* clazz) {
-	return $of($alloc(XColors));
-}
-
 $XColors$XColor* XColors::key = nullptr;
 $XColors$XColorArray* XColors::colors = nullptr;
 
@@ -66,15 +29,15 @@ void XColors::init$() {
 $Color* XColors::lookupColor($String* name) {
 	$init(XColors);
 	$set($nc(XColors::key), name, $nc(name)->toLowerCase());
-	int32_t pos = $Arrays::binarySearch(XColors::colors, $of(XColors::key));
+	int32_t pos = $Arrays::binarySearch(XColors::colors, XColors::key);
 	if (pos < 0) {
 		return nullptr;
 	}
-	return $nc($nc(XColors::colors)->get(pos))->toColor();
+	return $nc(XColors::colors->get(pos))->toColor();
 }
 
-void clinit$XColors($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XColors::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XColors::key, $new($XColors$XColor, ""_s, -1, -1, -1));
 	$assignStatic(XColors::colors, $new($XColors$XColorArray, {
 		$$new($XColors$XColor, "alice blue"_s, 240, 248, 255),
@@ -836,7 +799,37 @@ XColors::XColors() {
 }
 
 $Class* XColors::load$($String* name, bool initialize) {
-	$loadClass(XColors, name, initialize, &_XColors_ClassInfo_, clinit$XColors, allocate$XColors);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Lcom/sun/java/swing/plaf/gtk/XColors$XColor;", nullptr, $PRIVATE | $STATIC, $staticField(XColors, key)},
+		{"colors", "[Lcom/sun/java/swing/plaf/gtk/XColors$XColor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XColors, colors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XColors, init$, void)},
+		{"lookupColor", "(Ljava/lang/String;)Ljava/awt/Color;", nullptr, $STATIC, $staticMethod(XColors, lookupColor, $Color*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.XColors$XColor", "com.sun.java.swing.plaf.gtk.XColors", "XColor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.XColors",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.XColors$XColor"
+	};
+	$loadClass(XColors, name, initialize, &classInfo$$, XColors::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XColors);
+	});
 	return class$;
 }
 

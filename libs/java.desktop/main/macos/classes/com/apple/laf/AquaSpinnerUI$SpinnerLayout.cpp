@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaSpinnerUI$SpinnerLayout.h>
-
 #include <com/apple/laf/AquaSpinnerUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -10,7 +9,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
@@ -23,51 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaSpinnerUI$SpinnerLayout_FieldInfo_[] = {
-	{"nextButton", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaSpinnerUI$SpinnerLayout, nextButton)},
-	{"previousButton", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaSpinnerUI$SpinnerLayout, previousButton)},
-	{"editor", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaSpinnerUI$SpinnerLayout, editor)},
-	{"painter", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaSpinnerUI$SpinnerLayout, painter)},
-	{}
-};
-
-$MethodInfo _AquaSpinnerUI$SpinnerLayout_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaSpinnerUI$SpinnerLayout, init$, void)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"preferredSize", "(Ljava/awt/Component;)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(AquaSpinnerUI$SpinnerLayout, preferredSize, $Dimension*, $Component*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, removeLayoutComponent, void, $Component*)},
-	{"setBounds", "(Ljava/awt/Component;IIII)V", nullptr, $PRIVATE, $method(AquaSpinnerUI$SpinnerLayout, setBounds, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaSpinnerUI$SpinnerLayout_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaSpinnerUI$SpinnerLayout", "com.apple.laf.AquaSpinnerUI", "SpinnerLayout", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaSpinnerUI$SpinnerLayout_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaSpinnerUI$SpinnerLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager",
-	_AquaSpinnerUI$SpinnerLayout_FieldInfo_,
-	_AquaSpinnerUI$SpinnerLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaSpinnerUI$SpinnerLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaSpinnerUI"
-};
-
-$Object* allocate$AquaSpinnerUI$SpinnerLayout($Class* clazz) {
-	return $of($alloc(AquaSpinnerUI$SpinnerLayout));
-}
 
 void AquaSpinnerUI$SpinnerLayout::init$() {
 	$set(this, nextButton, nullptr);
@@ -102,18 +55,18 @@ void AquaSpinnerUI$SpinnerLayout::removeLayoutComponent($Component* c$renamed) {
 }
 
 $Dimension* AquaSpinnerUI$SpinnerLayout::preferredSize($Component* c) {
-	return (c == nullptr) ? $new($Dimension, 0, 0) : $nc(c)->getPreferredSize();
+	return (c == nullptr) ? $new($Dimension, 0, 0) : c->getPreferredSize();
 }
 
 $Dimension* AquaSpinnerUI$SpinnerLayout::preferredLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, editorD, preferredSize(this->editor));
 	$var($Dimension, painterD, preferredSize(this->painter));
-	$nc(editorD)->height = ((editorD->height + 1) / 2) * 2;
+	$nc(editorD)->height = (($nc(editorD)->height + 1) / 2) * 2;
 	$var($Dimension, size, $new($Dimension, editorD->width, $Math::max($nc(painterD)->height, editorD->height)));
-	size->width += $nc(painterD)->width;
+	size->width += painterD->width;
 	$var($Insets, insets, $nc(parent)->getInsets());
-	size->width += $nc(insets)->left + insets->right;
+	size->width += $nc(insets)->left + $nc(insets)->right;
 	size->height += insets->top + insets->bottom;
 	return size;
 }
@@ -129,9 +82,9 @@ void AquaSpinnerUI$SpinnerLayout::setBounds($Component* c, int32_t x, int32_t y,
 }
 
 void AquaSpinnerUI$SpinnerLayout::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, $nc(parent)->getInsets());
-	int32_t availWidth = parent->getWidth() - ($nc(insets)->left + insets->right);
+	int32_t availWidth = parent->getWidth() - ($nc(insets)->left + $nc(insets)->right);
 	int32_t availHeight = parent->getHeight() - (insets->top + insets->bottom);
 	$var($Dimension, painterD, preferredSize(this->painter));
 	int32_t nextHeight = availHeight / 2;
@@ -140,7 +93,7 @@ void AquaSpinnerUI$SpinnerLayout::layoutContainer($Container* parent) {
 	int32_t editorWidth = availWidth - buttonsWidth;
 	int32_t editorX = 0;
 	int32_t buttonsX = 0;
-	if ($nc($(parent->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc(parent->getComponentOrientation())->isLeftToRight()) {
 		editorX = insets->left;
 		buttonsX = editorX + editorWidth;
 	} else {
@@ -159,7 +112,46 @@ AquaSpinnerUI$SpinnerLayout::AquaSpinnerUI$SpinnerLayout() {
 }
 
 $Class* AquaSpinnerUI$SpinnerLayout::load$($String* name, bool initialize) {
-	$loadClass(AquaSpinnerUI$SpinnerLayout, name, initialize, &_AquaSpinnerUI$SpinnerLayout_ClassInfo_, allocate$AquaSpinnerUI$SpinnerLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"nextButton", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaSpinnerUI$SpinnerLayout, nextButton)},
+		{"previousButton", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaSpinnerUI$SpinnerLayout, previousButton)},
+		{"editor", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaSpinnerUI$SpinnerLayout, editor)},
+		{"painter", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(AquaSpinnerUI$SpinnerLayout, painter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaSpinnerUI$SpinnerLayout, init$, void)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"preferredSize", "(Ljava/awt/Component;)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(AquaSpinnerUI$SpinnerLayout, preferredSize, $Dimension*, $Component*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$SpinnerLayout, removeLayoutComponent, void, $Component*)},
+		{"setBounds", "(Ljava/awt/Component;IIII)V", nullptr, $PRIVATE, $method(AquaSpinnerUI$SpinnerLayout, setBounds, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaSpinnerUI$SpinnerLayout", "com.apple.laf.AquaSpinnerUI", "SpinnerLayout", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaSpinnerUI$SpinnerLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaSpinnerUI"
+	};
+	$loadClass(AquaSpinnerUI$SpinnerLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaSpinnerUI$SpinnerLayout);
+	});
 	return class$;
 }
 

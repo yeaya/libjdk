@@ -1,5 +1,4 @@
 #include <javax/swing/text/AbstractDocument$BidiElement.h>
-
 #include <javax/swing/text/AbstractDocument$AbstractElement.h>
 #include <javax/swing/text/AbstractDocument$LeafElement.h>
 #include <javax/swing/text/AbstractDocument.h>
@@ -16,7 +15,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AbstractDocument$LeafElement = ::javax::swing::text::AbstractDocument$LeafElement;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Element = ::javax::swing::text::Element;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
@@ -25,47 +23,8 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _AbstractDocument$BidiElement_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$BidiElement, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractDocument$BidiElement_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AbstractDocument;Ljavax/swing/text/Element;III)V", nullptr, 0, $method(AbstractDocument$BidiElement, init$, void, $AbstractDocument*, $Element*, int32_t, int32_t, int32_t)},
-	{"getLevel", "()I", nullptr, 0, $virtualMethod(AbstractDocument$BidiElement, getLevel, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BidiElement, getName, $String*)},
-	{"isLeftToRight", "()Z", nullptr, 0, $virtualMethod(AbstractDocument$BidiElement, isLeftToRight, bool)},
-	{}
-};
-
-$InnerClassInfo _AbstractDocument$BidiElement_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$BidiElement", "javax.swing.text.AbstractDocument", "BidiElement", 0},
-	{"javax.swing.text.AbstractDocument$LeafElement", "javax.swing.text.AbstractDocument", "LeafElement", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractDocument$BidiElement_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.AbstractDocument$BidiElement",
-	"javax.swing.text.AbstractDocument$LeafElement",
-	nullptr,
-	_AbstractDocument$BidiElement_FieldInfo_,
-	_AbstractDocument$BidiElement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDocument$BidiElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AbstractDocument"
-};
-
-$Object* allocate$AbstractDocument$BidiElement($Class* clazz) {
-	return $of($alloc(AbstractDocument$BidiElement));
-}
-
 void AbstractDocument$BidiElement::init$($AbstractDocument* this$0, $Element* parent, int32_t start, int32_t end, int32_t level) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$AbstractDocument$LeafElement::init$(this$0, parent, $$new($SimpleAttributeSet), start, end);
 	$init($StyleConstants);
@@ -93,7 +52,40 @@ AbstractDocument$BidiElement::AbstractDocument$BidiElement() {
 }
 
 $Class* AbstractDocument$BidiElement::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocument$BidiElement, name, initialize, &_AbstractDocument$BidiElement_ClassInfo_, allocate$AbstractDocument$BidiElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$BidiElement, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AbstractDocument;Ljavax/swing/text/Element;III)V", nullptr, 0, $method(AbstractDocument$BidiElement, init$, void, $AbstractDocument*, $Element*, int32_t, int32_t, int32_t)},
+		{"getLevel", "()I", nullptr, 0, $virtualMethod(AbstractDocument$BidiElement, getLevel, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BidiElement, getName, $String*)},
+		{"isLeftToRight", "()Z", nullptr, 0, $virtualMethod(AbstractDocument$BidiElement, isLeftToRight, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$BidiElement", "javax.swing.text.AbstractDocument", "BidiElement", 0},
+		{"javax.swing.text.AbstractDocument$LeafElement", "javax.swing.text.AbstractDocument", "LeafElement", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.AbstractDocument$BidiElement",
+		"javax.swing.text.AbstractDocument$LeafElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AbstractDocument"
+	};
+	$loadClass(AbstractDocument$BidiElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDocument$BidiElement));
+	});
 	return class$;
 }
 

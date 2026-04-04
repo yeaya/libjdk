@@ -21,6 +21,7 @@ class WriteFinishedEvent : public ::sun::net::httpserver::Event {
 	$class(WriteFinishedEvent, 0, ::sun::net::httpserver::Event)
 public:
 	WriteFinishedEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::ExchangeImpl* t);
 	static bool $assertionsDisabled;
 };

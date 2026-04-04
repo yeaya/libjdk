@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/parser/ParserDelegator$1.h>
-
 #include <java/io/InputStream.h>
 #include <javax/swing/text/html/parser/ParserDelegator.h>
 #include <jcpp.h>
@@ -17,48 +16,6 @@ namespace javax {
 			namespace html {
 				namespace parser {
 
-$FieldInfo _ParserDelegator$1_FieldInfo_[] = {
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(ParserDelegator$1, val$name)},
-	{}
-};
-
-$MethodInfo _ParserDelegator$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(ParserDelegator$1, init$, void, $String*)},
-	{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ParserDelegator$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ParserDelegator$1_EnclosingMethodInfo_ = {
-	"javax.swing.text.html.parser.ParserDelegator",
-	"getResourceAsStream",
-	"(Ljava/lang/String;)Ljava/io/InputStream;"
-};
-
-$InnerClassInfo _ParserDelegator$1_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.parser.ParserDelegator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ParserDelegator$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.parser.ParserDelegator$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ParserDelegator$1_FieldInfo_,
-	_ParserDelegator$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/io/InputStream;>;",
-	&_ParserDelegator$1_EnclosingMethodInfo_,
-	_ParserDelegator$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.parser.ParserDelegator"
-};
-
-$Object* allocate$ParserDelegator$1($Class* clazz) {
-	return $of($alloc(ParserDelegator$1));
-}
-
 void ParserDelegator$1::init$($String* val$name) {
 	$set(this, val$name, val$name);
 }
@@ -66,14 +23,49 @@ void ParserDelegator$1::init$($String* val$name) {
 $Object* ParserDelegator$1::run() {
 	$beforeCallerSensitive();
 	$load($ParserDelegator);
-	return $of($ParserDelegator::class$->getResourceAsStream(this->val$name));
+	return $ParserDelegator::class$->getResourceAsStream(this->val$name);
 }
 
 ParserDelegator$1::ParserDelegator$1() {
 }
 
 $Class* ParserDelegator$1::load$($String* name, bool initialize) {
-	$loadClass(ParserDelegator$1, name, initialize, &_ParserDelegator$1_ClassInfo_, allocate$ParserDelegator$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(ParserDelegator$1, val$name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(ParserDelegator$1, init$, void, $String*)},
+		{"run", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ParserDelegator$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.text.html.parser.ParserDelegator",
+		"getResourceAsStream",
+		"(Ljava/lang/String;)Ljava/io/InputStream;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.parser.ParserDelegator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.parser.ParserDelegator$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/io/InputStream;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.parser.ParserDelegator"
+	};
+	$loadClass(ParserDelegator$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ParserDelegator$1);
+	});
 	return class$;
 }
 

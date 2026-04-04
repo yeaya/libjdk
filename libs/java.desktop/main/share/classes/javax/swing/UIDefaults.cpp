@@ -1,5 +1,4 @@
 #include <javax/swing/UIDefaults.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -8,7 +7,6 @@
 #include <java/io/PrintWriter.h>
 #include <java/io/Serializable.h>
 #include <java/io/StringWriter.h>
-#include <java/io/Writer.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -23,7 +21,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashMap.h>
 #include <java/util/Hashtable.h>
@@ -59,7 +56,6 @@ using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Serializable = ::java::io::Serializable;
 using $StringWriter = ::java::io::StringWriter;
-using $Writer = ::java::io::Writer;
 using $Boolean = ::java::lang::Boolean;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -78,7 +74,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Method = ::java::lang::reflect::Method;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
@@ -113,114 +108,27 @@ public:
 	virtual void addInternalBundle(UIDefaults* inst$, $String* bundleName) override {
 		$nc(inst$)->addInternalBundle(bundleName);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UIDefaults$$Lambda$addInternalBundle>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UIDefaults$$Lambda$addInternalBundle::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UIDefaults$$Lambda$addInternalBundle, init$, void)},
-	{"addInternalBundle", "(Ljavax/swing/UIDefaults;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(UIDefaults$$Lambda$addInternalBundle, addInternalBundle, void, UIDefaults*, $String*)},
-	{}
-};
-$ClassInfo UIDefaults$$Lambda$addInternalBundle::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.UIDefaults$$Lambda$addInternalBundle",
-	"java.lang.Object",
-	"sun.swing.SwingAccessor$UIDefaultsAccessor",
-	nullptr,
-	methodInfos
 };
 $Class* UIDefaults$$Lambda$addInternalBundle::load$($String* name, bool initialize) {
-	$loadClass(UIDefaults$$Lambda$addInternalBundle, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UIDefaults$$Lambda$addInternalBundle, init$, void)},
+		{"addInternalBundle", "(Ljavax/swing/UIDefaults;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(UIDefaults$$Lambda$addInternalBundle, addInternalBundle, void, UIDefaults*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.UIDefaults$$Lambda$addInternalBundle",
+		"java.lang.Object",
+		"sun.swing.SwingAccessor$UIDefaultsAccessor",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UIDefaults$$Lambda$addInternalBundle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UIDefaults$$Lambda$addInternalBundle);
+	});
 	return class$;
 }
 $Class* UIDefaults$$Lambda$addInternalBundle::class$ = nullptr;
-
-$FieldInfo _UIDefaults_FieldInfo_[] = {
-	{"PENDING", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIDefaults, PENDING)},
-	{"changeSupport", "Ljavax/swing/event/SwingPropertyChangeSupport;", nullptr, $PRIVATE, $field(UIDefaults, changeSupport)},
-	{"resourceBundles", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $field(UIDefaults, resourceBundles)},
-	{"defaultLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(UIDefaults, defaultLocale)},
-	{"resourceCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;>;", $PRIVATE, $field(UIDefaults, resourceCache)},
-	{}
-};
-
-$MethodInfo _UIDefaults_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UIDefaults, init$, void)},
-	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(UIDefaults, init$, void, int32_t, float)},
-	{"<init>", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UIDefaults, init$, void, $ObjectArray*)},
-	{"addInternalBundle", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UIDefaults, addInternalBundle, void, $String*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"addResourceBundle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, addResourceBundle, void, $String*)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(UIDefaults, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, get, $Object*, Object$*)},
-	{"get", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, get, $Object*, Object$*, $Locale*)},
-	{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getBoolean, bool, Object$*)},
-	{"getBoolean", "(Ljava/lang/Object;Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getBoolean, bool, Object$*, $Locale*)},
-	{"getBorder", "(Ljava/lang/Object;)Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getBorder, $Border*, Object$*)},
-	{"getBorder", "(Ljava/lang/Object;Ljava/util/Locale;)Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getBorder, $Border*, Object$*, $Locale*)},
-	{"getColor", "(Ljava/lang/Object;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getColor, $Color*, Object$*)},
-	{"getColor", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getColor, $Color*, Object$*, $Locale*)},
-	{"getDefaultLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getDefaultLocale, $Locale*)},
-	{"getDimension", "(Ljava/lang/Object;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getDimension, $Dimension*, Object$*)},
-	{"getDimension", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getDimension, $Dimension*, Object$*, $Locale*)},
-	{"getFont", "(Ljava/lang/Object;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getFont, $Font*, Object$*)},
-	{"getFont", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getFont, $Font*, Object$*, $Locale*)},
-	{"getFromHashtable", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(UIDefaults, getFromHashtable, $Object*, Object$*)},
-	{"getFromResourceBundle", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(UIDefaults, getFromResourceBundle, $Object*, Object$*, $Locale*)},
-	{"getIcon", "(Ljava/lang/Object;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getIcon, $Icon*, Object$*)},
-	{"getIcon", "(Ljava/lang/Object;Ljava/util/Locale;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getIcon, $Icon*, Object$*, $Locale*)},
-	{"getInsets", "(Ljava/lang/Object;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getInsets, $Insets*, Object$*)},
-	{"getInsets", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getInsets, $Insets*, Object$*, $Locale*)},
-	{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getInt, int32_t, Object$*)},
-	{"getInt", "(Ljava/lang/Object;Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getInt, int32_t, Object$*, $Locale*)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getResourceCache", "(Ljava/util/Locale;)Ljava/util/Map;", "(Ljava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $method(UIDefaults, getResourceCache, $Map*, $Locale*)},
-	{"getString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getString, $String*, Object$*)},
-	{"getString", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getString, $String*, Object$*, $Locale*)},
-	{"getUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getUI, $ComponentUI*, $JComponent*)},
-	{"getUIClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<+Ljavax/swing/plaf/ComponentUI;>;", $PUBLIC, $virtualMethod(UIDefaults, getUIClass, $Class*, $String*, $ClassLoader*)},
-	{"getUIClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<+Ljavax/swing/plaf/ComponentUI;>;", $PUBLIC, $virtualMethod(UIDefaults, getUIClass, $Class*, $String*)},
-	{"getUIError", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(UIDefaults, getUIError, void, $String*)},
-	{"isDesktopResourceBundle", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UIDefaults, isDesktopResourceBundle, bool, $String*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, put, $Object*, Object$*, Object$*)},
-	{"putDefaults", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UIDefaults, putDefaults, void, $ObjectArray*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"removeResourceBundle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, removeResourceBundle, void, $String*)},
-	{"setDefaultLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(UIDefaults, setDefaultLocale, void, $Locale*)},
-	{}
-};
-
-$InnerClassInfo _UIDefaults_InnerClassesInfo_[] = {
-	{"javax.swing.UIDefaults$TextAndMnemonicHashMap", "javax.swing.UIDefaults", "TextAndMnemonicHashMap", $PRIVATE | $STATIC},
-	{"javax.swing.UIDefaults$LazyInputMap", "javax.swing.UIDefaults", "LazyInputMap", $PUBLIC | $STATIC},
-	{"javax.swing.UIDefaults$ProxyLazyValue", "javax.swing.UIDefaults", "ProxyLazyValue", $PUBLIC | $STATIC},
-	{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.UIDefaults$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _UIDefaults_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.UIDefaults",
-	"java.util.Hashtable",
-	nullptr,
-	_UIDefaults_FieldInfo_,
-	_UIDefaults_MethodInfo_,
-	"Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;",
-	nullptr,
-	_UIDefaults_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.UIDefaults$TextAndMnemonicHashMap,javax.swing.UIDefaults$LazyInputMap,javax.swing.UIDefaults$ProxyLazyValue,javax.swing.UIDefaults$ProxyLazyValue$1,javax.swing.UIDefaults$ActiveValue,javax.swing.UIDefaults$LazyValue,javax.swing.UIDefaults$1"
-};
-
-$Object* allocate$UIDefaults($Class* clazz) {
-	return $of($alloc(UIDefaults));
-}
 
 $Object* UIDefaults::PENDING = nullptr;
 
@@ -237,21 +145,21 @@ void UIDefaults::init$(int32_t initialCapacity, float loadFactor) {
 void UIDefaults::init$($ObjectArray* keyValueList) {
 	$Hashtable::init$($nc(keyValueList)->length / 2);
 	$set(this, defaultLocale, $Locale::getDefault());
-	for (int32_t i = 0; i < $nc(keyValueList)->length; i += 2) {
+	for (int32_t i = 0; i < keyValueList->length; i += 2) {
 		$Hashtable::put(keyValueList->get(i), keyValueList->get(i + 1));
 	}
 }
 
 $Object* UIDefaults::get(Object$* key) {
 	$var($Object, value, getFromHashtable(key));
-	return $of((value != nullptr) ? value : getFromResourceBundle(key, nullptr));
+	return (value != nullptr) ? value : getFromResourceBundle(key, nullptr);
 }
 
 $Object* UIDefaults::getFromHashtable(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $Hashtable::get(key));
 	if ((!$equals(value, UIDefaults::PENDING)) && !($instanceOf($UIDefaults$ActiveValue, value)) && !($instanceOf($UIDefaults$LazyValue, value))) {
-		return $of(value);
+		return value;
 	}
 	$synchronized(this) {
 		$assign(value, $Hashtable::get(key));
@@ -263,65 +171,63 @@ $Object* UIDefaults::getFromHashtable(Object$* key) {
 				}
 				$assign(value, $Hashtable::get(key));
 			} while ($equals(value, UIDefaults::PENDING));
-			return $of(value);
+			return value;
 		} else if ($instanceOf($UIDefaults$LazyValue, value)) {
 			$Hashtable::put(key, UIDefaults::PENDING);
 		} else if (!($instanceOf($UIDefaults$ActiveValue, value))) {
-			return $of(value);
+			return value;
 		}
 	}
 	if ($instanceOf($UIDefaults$LazyValue, value)) {
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$assign(value, $nc(($cast($UIDefaults$LazyValue, value)))->createValue(this));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$synchronized(this) {
-					if (value == nullptr) {
-						$Hashtable::remove(key);
-					} else {
-						$Hashtable::put(key, value);
-					}
-					$of(this)->notifyAll();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$assign(value, $cast($UIDefaults$LazyValue, value)->createValue(this));
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$synchronized(this) {
+				if (value == nullptr) {
+					$Hashtable::remove(key);
+				} else {
+					$Hashtable::put(key, value);
 				}
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+				$of(this)->notifyAll();
 			}
 		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
 	} else {
-		$assign(value, $nc(($cast($UIDefaults$ActiveValue, value)))->createValue(this));
+		$assign(value, $nc($cast($UIDefaults$ActiveValue, value))->createValue(this));
 	}
-	return $of(value);
+	return value;
 }
 
 $Object* UIDefaults::get(Object$* key, $Locale* l) {
 	$var($Object, value, getFromHashtable(key));
-	return $of((value != nullptr) ? value : getFromResourceBundle(key, l));
+	return (value != nullptr) ? value : getFromResourceBundle(key, l);
 }
 
 $Object* UIDefaults::getFromResourceBundle(Object$* key, $Locale* l$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Locale, l, l$renamed);
-	if (this->resourceBundles == nullptr || $nc(this->resourceBundles)->isEmpty() || !($instanceOf($String, key))) {
-		return $of(nullptr);
+	if (this->resourceBundles == nullptr || this->resourceBundles->isEmpty() || !($instanceOf($String, key))) {
+		return nullptr;
 	}
 	if (l == nullptr) {
 		if (this->defaultLocale == nullptr) {
-			return $of(nullptr);
+			return nullptr;
 		} else {
 			$assign(l, this->defaultLocale);
 		}
 	}
 	$synchronized(this) {
-		return $of($nc($(getResourceCache(l)))->get(key));
+		return $$nc(getResourceCache(l))->get(key);
 	}
 }
 
 $Map* UIDefaults::getResourceCache($Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Map, values, $cast($Map, $nc(this->resourceCache)->get(l)));
 	if (values == nullptr) {
@@ -353,10 +259,10 @@ $Map* UIDefaults::getResourceCache($Locale* l) {
 
 bool UIDefaults::isDesktopResourceBundle($String* baseName) {
 	$init(UIDefaults);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Module, thisModule, UIDefaults::class$->getModule());
-	return $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($UIDefaults$1, thisModule, baseName)))))))->booleanValue();
+	return $$sure($Boolean, $AccessController::doPrivileged($$new($UIDefaults$1, thisModule, baseName)))->booleanValue();
 }
 
 $Object* UIDefaults::put(Object$* key, Object$* value) {
@@ -364,21 +270,17 @@ $Object* UIDefaults::put(Object$* key, Object$* value) {
 	if ($instanceOf($String, key)) {
 		firePropertyChange($cast($String, key), oldValue, value);
 	}
-	return $of(oldValue);
+	return oldValue;
 }
 
 void UIDefaults::putDefaults($ObjectArray* keyValueList) {
-	$useLocalCurrentObjectStackCache();
-	{
-		int32_t i = 0;
-		int32_t max = $nc(keyValueList)->length;
-		for (; i < max; i += 2) {
-			$var($Object0, value, keyValueList->get(i + 1));
-			if (value == nullptr) {
-				$Hashtable::remove(keyValueList->get(i));
-			} else {
-				$Hashtable::put(keyValueList->get(i), value);
-			}
+	$useLocalObjectStack();
+	for (int32_t i = 0, max = $nc(keyValueList)->length; i < max; i += 2) {
+		$var($Object0, value, keyValueList->get(i + 1));
+		if (value == nullptr) {
+			$Hashtable::remove(keyValueList->get(i));
+		} else {
+			$Hashtable::put(keyValueList->get(i), value);
 		}
 	}
 	firePropertyChange("UIDefaults"_s, nullptr, nullptr);
@@ -436,22 +338,22 @@ $String* UIDefaults::getString(Object$* key, $Locale* l) {
 
 int32_t UIDefaults::getInt(Object$* key) {
 	$var($Object, value, get(key));
-	return ($instanceOf($Integer, value)) ? $nc(($cast($Integer, value)))->intValue() : 0;
+	return ($instanceOf($Integer, value)) ? $cast($Integer, value)->intValue() : 0;
 }
 
 int32_t UIDefaults::getInt(Object$* key, $Locale* l) {
 	$var($Object, value, get(key, l));
-	return ($instanceOf($Integer, value)) ? $nc(($cast($Integer, value)))->intValue() : 0;
+	return ($instanceOf($Integer, value)) ? $cast($Integer, value)->intValue() : 0;
 }
 
 bool UIDefaults::getBoolean(Object$* key) {
 	$var($Object, value, get(key));
-	return ($instanceOf($Boolean, value)) ? $nc(($cast($Boolean, value)))->booleanValue() : false;
+	return ($instanceOf($Boolean, value)) ? $cast($Boolean, value)->booleanValue() : false;
 }
 
 bool UIDefaults::getBoolean(Object$* key, $Locale* l) {
 	$var($Object, value, get(key, l));
-	return ($instanceOf($Boolean, value)) ? $nc(($cast($Boolean, value)))->booleanValue() : false;
+	return ($instanceOf($Boolean, value)) ? $cast($Boolean, value)->booleanValue() : false;
 }
 
 $Insets* UIDefaults::getInsets(Object$* key) {
@@ -484,7 +386,7 @@ $Class* UIDefaults::getUIClass($String* uiClassID, $ClassLoader* uiClassLoader) 
 				if (uiClassLoader == nullptr) {
 					cls = $SwingUtilities::loadSystemClass(className);
 				} else {
-					cls = $nc(uiClassLoader)->loadClass(className);
+					cls = uiClassLoader->loadClass(className);
 				}
 				if (cls != nullptr) {
 					put(className, cls);
@@ -514,11 +416,11 @@ void UIDefaults::getUIError($String* msg) {
 }
 
 $ComponentUI* UIDefaults::getUI($JComponent* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Object, cl, get("ClassLoader"_s));
 	$var($ClassLoader, uiClassLoader, (cl != nullptr) ? $cast($ClassLoader, cl) : $nc($of(target))->getClass()->getClassLoader());
-	$Class* uiClass = getUIClass($(target->getUIClassID()), uiClassLoader);
+	$Class* uiClass = getUIClass($($nc(target)->getUIClassID()), uiClassLoader);
 	$var($Object, uiObject, nullptr);
 	if (uiClass == nullptr) {
 		getUIError($$str({"no ComponentUI class for: "_s, target}));
@@ -526,20 +428,20 @@ $ComponentUI* UIDefaults::getUI($JComponent* target) {
 		try {
 			$var($Method, m, $cast($Method, get(uiClass)));
 			if (m == nullptr) {
-				$assign(m, $nc(uiClass)->getMethod("createUI"_s, $$new($ClassArray, {$JComponent::class$})));
+				$assign(m, uiClass->getMethod("createUI"_s, $$new($ClassArray, {$JComponent::class$})));
 				put(uiClass, m);
 			}
 			$load($ComponentUI);
-			if ($nc(uiClass)->getModule() == $ComponentUI::class$->getModule()) {
-				$assign(uiObject, $nc(m)->invoke(nullptr, $$new($ObjectArray, {$of(target)})));
+			if (uiClass->getModule() == $ComponentUI::class$->getModule()) {
+				$assign(uiObject, $nc(m)->invoke(nullptr, $$new($ObjectArray, {target})));
 			} else {
-				$assign(uiObject, $MethodUtil::invoke(m, nullptr, $$new($ObjectArray, {$of(target)})));
+				$assign(uiObject, $MethodUtil::invoke(m, nullptr, $$new($ObjectArray, {target})));
 			}
 		} catch ($NoSuchMethodException& e) {
 			getUIError($$str({"static createUI() method not found in "_s, uiClass}));
 		} catch ($Exception& e) {
 			$var($StringWriter, w, $new($StringWriter));
-			$var($PrintWriter, pw, $new($PrintWriter, static_cast<$Writer*>(w)));
+			$var($PrintWriter, pw, $new($PrintWriter, w));
 			e->printStackTrace(pw);
 			pw->flush();
 			getUIError($$str({"createUI() failed for "_s, target, "\n"_s, w}));
@@ -560,7 +462,7 @@ void UIDefaults::addPropertyChangeListener($PropertyChangeListener* listener) {
 void UIDefaults::removePropertyChangeListener($PropertyChangeListener* listener) {
 	$synchronized(this) {
 		if (this->changeSupport != nullptr) {
-			$nc(this->changeSupport)->removePropertyChangeListener(listener);
+			this->changeSupport->removePropertyChangeListener(listener);
 		}
 	}
 }
@@ -576,7 +478,7 @@ $PropertyChangeListenerArray* UIDefaults::getPropertyChangeListeners() {
 
 void UIDefaults::firePropertyChange($String* propertyName, Object$* oldValue, Object$* newValue) {
 	if (this->changeSupport != nullptr) {
-		$nc(this->changeSupport)->firePropertyChange(propertyName, oldValue, newValue);
+		this->changeSupport->firePropertyChange(propertyName, oldValue, newValue);
 	}
 }
 
@@ -601,7 +503,7 @@ void UIDefaults::addInternalBundle($String* bundleName) {
 			$set(this, resourceBundles, $new($Vector, 5));
 		}
 		if (!$nc(this->resourceBundles)->contains(bundleName)) {
-			$nc(this->resourceBundles)->add(bundleName);
+			this->resourceBundles->add(bundleName);
 			$nc(this->resourceCache)->clear();
 		}
 	}
@@ -610,7 +512,7 @@ void UIDefaults::addInternalBundle($String* bundleName) {
 void UIDefaults::removeResourceBundle($String* bundleName) {
 	$synchronized(this) {
 		if (this->resourceBundles != nullptr) {
-			$nc(this->resourceBundles)->remove($of(bundleName));
+			this->resourceBundles->remove(bundleName);
 		}
 		$nc(this->resourceCache)->clear();
 	}
@@ -624,10 +526,10 @@ $Locale* UIDefaults::getDefaultLocale() {
 	return this->defaultLocale;
 }
 
-void clinit$UIDefaults($Class* class$) {
+void UIDefaults::clinit$($Class* clazz) {
 	$assignStatic(UIDefaults::PENDING, $new($Object));
 	{
-		$SwingAccessor::setUIDefaultsAccessor(static_cast<$SwingAccessor$UIDefaultsAccessor*>($$new(UIDefaults$$Lambda$addInternalBundle)));
+		$SwingAccessor::setUIDefaultsAccessor($$new(UIDefaults$$Lambda$addInternalBundle));
 	}
 }
 
@@ -636,11 +538,89 @@ UIDefaults::UIDefaults() {
 
 $Class* UIDefaults::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(UIDefaults$$Lambda$addInternalBundle::classInfo$.name)) {
+		if (name->equals("javax.swing.UIDefaults$$Lambda$addInternalBundle")) {
 			return UIDefaults$$Lambda$addInternalBundle::load$(name, initialize);
 		}
 	}
-	$loadClass(UIDefaults, name, initialize, &_UIDefaults_ClassInfo_, clinit$UIDefaults, allocate$UIDefaults);
+	$FieldInfo fieldInfos$$[] = {
+		{"PENDING", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UIDefaults, PENDING)},
+		{"changeSupport", "Ljavax/swing/event/SwingPropertyChangeSupport;", nullptr, $PRIVATE, $field(UIDefaults, changeSupport)},
+		{"resourceBundles", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE, $field(UIDefaults, resourceBundles)},
+		{"defaultLocale", "Ljava/util/Locale;", nullptr, $PRIVATE, $field(UIDefaults, defaultLocale)},
+		{"resourceCache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Locale;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;>;", $PRIVATE, $field(UIDefaults, resourceCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UIDefaults, init$, void)},
+		{"<init>", "(IF)V", nullptr, $PUBLIC, $method(UIDefaults, init$, void, int32_t, float)},
+		{"<init>", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UIDefaults, init$, void, $ObjectArray*)},
+		{"addInternalBundle", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(UIDefaults, addInternalBundle, void, $String*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"addResourceBundle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, addResourceBundle, void, $String*)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(UIDefaults, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, get, $Object*, Object$*)},
+		{"get", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, get, $Object*, Object$*, $Locale*)},
+		{"getBoolean", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getBoolean, bool, Object$*)},
+		{"getBoolean", "(Ljava/lang/Object;Ljava/util/Locale;)Z", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getBoolean, bool, Object$*, $Locale*)},
+		{"getBorder", "(Ljava/lang/Object;)Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getBorder, $Border*, Object$*)},
+		{"getBorder", "(Ljava/lang/Object;Ljava/util/Locale;)Ljavax/swing/border/Border;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getBorder, $Border*, Object$*, $Locale*)},
+		{"getColor", "(Ljava/lang/Object;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getColor, $Color*, Object$*)},
+		{"getColor", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getColor, $Color*, Object$*, $Locale*)},
+		{"getDefaultLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getDefaultLocale, $Locale*)},
+		{"getDimension", "(Ljava/lang/Object;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getDimension, $Dimension*, Object$*)},
+		{"getDimension", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getDimension, $Dimension*, Object$*, $Locale*)},
+		{"getFont", "(Ljava/lang/Object;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getFont, $Font*, Object$*)},
+		{"getFont", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getFont, $Font*, Object$*, $Locale*)},
+		{"getFromHashtable", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(UIDefaults, getFromHashtable, $Object*, Object$*)},
+		{"getFromResourceBundle", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(UIDefaults, getFromResourceBundle, $Object*, Object$*, $Locale*)},
+		{"getIcon", "(Ljava/lang/Object;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getIcon, $Icon*, Object$*)},
+		{"getIcon", "(Ljava/lang/Object;Ljava/util/Locale;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getIcon, $Icon*, Object$*, $Locale*)},
+		{"getInsets", "(Ljava/lang/Object;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getInsets, $Insets*, Object$*)},
+		{"getInsets", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getInsets, $Insets*, Object$*, $Locale*)},
+		{"getInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getInt, int32_t, Object$*)},
+		{"getInt", "(Ljava/lang/Object;Ljava/util/Locale;)I", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getInt, int32_t, Object$*, $Locale*)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getResourceCache", "(Ljava/util/Locale;)Ljava/util/Map;", "(Ljava/util/Locale;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $method(UIDefaults, getResourceCache, $Map*, $Locale*)},
+		{"getString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getString, $String*, Object$*)},
+		{"getString", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getString, $String*, Object$*, $Locale*)},
+		{"getUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, getUI, $ComponentUI*, $JComponent*)},
+		{"getUIClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<+Ljavax/swing/plaf/ComponentUI;>;", $PUBLIC, $virtualMethod(UIDefaults, getUIClass, $Class*, $String*, $ClassLoader*)},
+		{"getUIClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<+Ljavax/swing/plaf/ComponentUI;>;", $PUBLIC, $virtualMethod(UIDefaults, getUIClass, $Class*, $String*)},
+		{"getUIError", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(UIDefaults, getUIError, void, $String*)},
+		{"isDesktopResourceBundle", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(UIDefaults, isDesktopResourceBundle, bool, $String*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UIDefaults, put, $Object*, Object$*, Object$*)},
+		{"putDefaults", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(UIDefaults, putDefaults, void, $ObjectArray*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"removeResourceBundle", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UIDefaults, removeResourceBundle, void, $String*)},
+		{"setDefaultLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $virtualMethod(UIDefaults, setDefaultLocale, void, $Locale*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.UIDefaults$TextAndMnemonicHashMap", "javax.swing.UIDefaults", "TextAndMnemonicHashMap", $PRIVATE | $STATIC},
+		{"javax.swing.UIDefaults$LazyInputMap", "javax.swing.UIDefaults", "LazyInputMap", $PUBLIC | $STATIC},
+		{"javax.swing.UIDefaults$ProxyLazyValue", "javax.swing.UIDefaults", "ProxyLazyValue", $PUBLIC | $STATIC},
+		{"javax.swing.UIDefaults$ActiveValue", "javax.swing.UIDefaults", "ActiveValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.UIDefaults$LazyValue", "javax.swing.UIDefaults", "LazyValue", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.UIDefaults$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.UIDefaults",
+		"java.util.Hashtable",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/Hashtable<Ljava/lang/Object;Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.UIDefaults$TextAndMnemonicHashMap,javax.swing.UIDefaults$LazyInputMap,javax.swing.UIDefaults$ProxyLazyValue,javax.swing.UIDefaults$ProxyLazyValue$1,javax.swing.UIDefaults$ActiveValue,javax.swing.UIDefaults$LazyValue,javax.swing.UIDefaults$1"
+	};
+	$loadClass(UIDefaults, name, initialize, &classInfo$$, UIDefaults::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UIDefaults));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDesktopPeer.h>
-
 #include <java/awt/Desktop$Action.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
@@ -8,7 +7,6 @@
 #include <java/net/URI.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <sun/awt/UNIXToolkit$GtkVersions.h>
 #include <sun/awt/UNIXToolkit.h>
@@ -31,54 +29,13 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URI = ::java::net::URI;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $UNIXToolkit = ::sun::awt::UNIXToolkit;
-using $UNIXToolkit$GtkVersions = ::sun::awt::UNIXToolkit$GtkVersions;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XDesktopPeer_FieldInfo_[] = {
-	{"supportedActions", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Desktop$Action;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XDesktopPeer, supportedActions)},
-	{"nativeLibraryLoaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XDesktopPeer, nativeLibraryLoaded)},
-	{"initExecuted", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XDesktopPeer, initExecuted)},
-	{}
-};
-
-$MethodInfo _XDesktopPeer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XDesktopPeer, init$, void)},
-	{"browse", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, browse, void, $URI*), "java.io.IOException"},
-	{"edit", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, edit, void, $File*), "java.io.IOException"},
-	{"gnome_url_show", "([B)Z", nullptr, $PRIVATE | $NATIVE, $method(XDesktopPeer, gnome_url_show, bool, $bytes*)},
-	{"init", "(IZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XDesktopPeer, init, bool, int32_t, bool)},
-	{"initWithLock", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XDesktopPeer, initWithLock, void)},
-	{"isDesktopSupported", "()Z", nullptr, $STATIC, $staticMethod(XDesktopPeer, isDesktopSupported, bool)},
-	{"isSupported", "(Ljava/awt/Desktop$Action;)Z", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, isSupported, bool, $Desktop$Action*)},
-	{"launch", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(XDesktopPeer, launch, void, $URI*), "java.io.IOException"},
-	{"mail", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, mail, void, $URI*), "java.io.IOException"},
-	{"open", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, open, void, $File*), "java.io.IOException"},
-	{"print", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, print, void, $File*), "java.io.IOException"},
-	{}
-};
-
-#define _METHOD_INDEX_gnome_url_show 3
-#define _METHOD_INDEX_init 4
-
-$ClassInfo _XDesktopPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XDesktopPeer",
-	"java.lang.Object",
-	"java.awt.peer.DesktopPeer",
-	_XDesktopPeer_FieldInfo_,
-	_XDesktopPeer_MethodInfo_
-};
-
-$Object* allocate$XDesktopPeer($Class* clazz) {
-	return $of($alloc(XDesktopPeer));
-}
 
 $List* XDesktopPeer::supportedActions = nullptr;
 bool XDesktopPeer::nativeLibraryLoaded = false;
@@ -86,24 +43,22 @@ bool XDesktopPeer::initExecuted = false;
 
 void XDesktopPeer::initWithLock() {
 	$init(XDesktopPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!XDesktopPeer::initExecuted) {
-				int32_t var$1 = $nc($($UNIXToolkit::getEnabledGtkVersion()))->getNumber();
-				XDesktopPeer::nativeLibraryLoaded = init(var$1, $UNIXToolkit::isGtkVerbose());
-			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			XDesktopPeer::initExecuted = true;
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!XDesktopPeer::initExecuted) {
+			int32_t var$1 = $$nc($UNIXToolkit::getEnabledGtkVersion())->getNumber();
+			XDesktopPeer::nativeLibraryLoaded = init(var$1, $UNIXToolkit::isGtkVerbose());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		XDesktopPeer::initExecuted = true;
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -114,15 +69,15 @@ void XDesktopPeer::init$() {
 bool XDesktopPeer::isDesktopSupported() {
 	$init(XDesktopPeer);
 	initWithLock();
-	return XDesktopPeer::nativeLibraryLoaded && !$nc(XDesktopPeer::supportedActions)->isEmpty();
+	return XDesktopPeer::nativeLibraryLoaded && !XDesktopPeer::supportedActions->isEmpty();
 }
 
 bool XDesktopPeer::isSupported($Desktop$Action* type) {
-	return $nc(XDesktopPeer::supportedActions)->contains(type);
+	return XDesktopPeer::supportedActions->contains(type);
 }
 
 void XDesktopPeer::open($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		launch($($nc(file)->toURI()));
 	} catch ($MalformedURLException& e) {
@@ -147,25 +102,23 @@ void XDesktopPeer::browse($URI* uri) {
 }
 
 void XDesktopPeer::launch($URI* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, uriByteArray, $nc(($$str({$($nc(uri)->toString()), $$str(u'\0')})))->getBytes());
 	bool result = false;
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!XDesktopPeer::nativeLibraryLoaded) {
-				$throwNew($IOException, "Failed to load native libraries."_s);
-			}
-			result = gnome_url_show(uriByteArray);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!XDesktopPeer::nativeLibraryLoaded) {
+			$throwNew($IOException, "Failed to load native libraries."_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		result = gnome_url_show(uriByteArray);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	if (!result) {
 		$throwNew($IOException, $$str({"Failed to show URI:"_s, uri}));
@@ -173,30 +126,28 @@ void XDesktopPeer::launch($URI* uri) {
 }
 
 bool XDesktopPeer::gnome_url_show($bytes* url) {
-	bool $ret = false;
-	$prepareNative(XDesktopPeer, gnome_url_show, bool, $bytes* url);
-	$ret = $invokeNative(url);
+	$prepareNative(gnome_url_show, bool, $bytes* url);
+	bool $ret = $invokeNative(url);
 	$finishNative();
 	return $ret;
 }
 
 bool XDesktopPeer::init(int32_t gtkVersion, bool verbose) {
 	$init(XDesktopPeer);
-	bool $ret = false;
-	$prepareNativeStatic(XDesktopPeer, init, bool, int32_t gtkVersion, bool verbose);
-	$ret = $invokeNativeStatic(gtkVersion, verbose);
+	$prepareNativeStatic(init, bool, int32_t gtkVersion, bool verbose);
+	bool $ret = $invokeNativeStatic(gtkVersion, verbose);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$XDesktopPeer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XDesktopPeer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Desktop$Action);
-	$assignStatic(XDesktopPeer::supportedActions, $new($ArrayList, $(static_cast<$Collection*>($Arrays::asList($$new($Desktop$ActionArray, {
+	$assignStatic(XDesktopPeer::supportedActions, $new($ArrayList, $($Arrays::asList($$new($Desktop$ActionArray, {
 		$Desktop$Action::OPEN,
 		$Desktop$Action::MAIL,
 		$Desktop$Action::BROWSE
-	}))))));
+	})))));
 	XDesktopPeer::nativeLibraryLoaded = false;
 	XDesktopPeer::initExecuted = false;
 }
@@ -205,7 +156,38 @@ XDesktopPeer::XDesktopPeer() {
 }
 
 $Class* XDesktopPeer::load$($String* name, bool initialize) {
-	$loadClass(XDesktopPeer, name, initialize, &_XDesktopPeer_ClassInfo_, clinit$XDesktopPeer, allocate$XDesktopPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"supportedActions", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Desktop$Action;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XDesktopPeer, supportedActions)},
+		{"nativeLibraryLoaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XDesktopPeer, nativeLibraryLoaded)},
+		{"initExecuted", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XDesktopPeer, initExecuted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XDesktopPeer, init$, void)},
+		{"browse", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, browse, void, $URI*), "java.io.IOException"},
+		{"edit", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, edit, void, $File*), "java.io.IOException"},
+		{"gnome_url_show", "([B)Z", nullptr, $PRIVATE | $NATIVE, $method(XDesktopPeer, gnome_url_show, bool, $bytes*)},
+		{"init", "(IZ)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XDesktopPeer, init, bool, int32_t, bool)},
+		{"initWithLock", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XDesktopPeer, initWithLock, void)},
+		{"isDesktopSupported", "()Z", nullptr, $STATIC, $staticMethod(XDesktopPeer, isDesktopSupported, bool)},
+		{"isSupported", "(Ljava/awt/Desktop$Action;)Z", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, isSupported, bool, $Desktop$Action*)},
+		{"launch", "(Ljava/net/URI;)V", nullptr, $PRIVATE, $method(XDesktopPeer, launch, void, $URI*), "java.io.IOException"},
+		{"mail", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, mail, void, $URI*), "java.io.IOException"},
+		{"open", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, open, void, $File*), "java.io.IOException"},
+		{"print", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(XDesktopPeer, print, void, $File*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XDesktopPeer",
+		"java.lang.Object",
+		"java.awt.peer.DesktopPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XDesktopPeer, name, initialize, &classInfo$$, XDesktopPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XDesktopPeer);
+	});
 	return class$;
 }
 

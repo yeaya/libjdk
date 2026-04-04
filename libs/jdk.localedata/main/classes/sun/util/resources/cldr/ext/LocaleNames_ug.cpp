@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_ug.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,31 +13,12 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_ug_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ug, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ug, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_ug_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_ug",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_ug_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_ug($Class* clazz) {
-	return $of($alloc(LocaleNames_ug));
-}
-
 void LocaleNames_ug::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_ug::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, metaValue_BD, u"بېنگال"_s);
 	$var($String, metaValue_CY, u"سىپرۇس"_s);
 	$var($String, metaValue_bo, u"تىبەتچە"_s);
@@ -70,4380 +50,4380 @@ $ObjectArray2* LocaleNames_ug::getContents() {
 	$var($String, metaValue_Hant, u"مۇرەككەپ خەنچە"_s);
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ksh"_s),
-			$of(u"كولىشچە"_s)
+			"ksh"_s,
+			u"كولىشچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ogam"_s),
-			$of(u"ئوگەمچە"_s)
+			"Ogam"_s,
+			u"ئوگەمچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwl"_s),
-			$of(u"مىراندېسچە"_s)
+			"mwl"_s,
+			u"مىراندېسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zsym"_s),
-			$of(u"بەلگە"_s)
+			"Zsym"_s,
+			u"بەلگە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cch"_s),
-			$of(u"ئاتسامچە"_s)
+			"cch"_s,
+			u"ئاتسامچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwr"_s),
-			$of(u"مارۋارىچە"_s)
+			"mwr"_s,
+			u"مارۋارىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.lanatham"_s),
-			$of(u"تاي تامچە تام رەقەملەر"_s)
+			"type.nu.lanatham"_s,
+			u"تاي تامچە تام رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tagb"_s),
-			$of(u"تاگبانۋاچە"_s)
+			"Tagb"_s,
+			u"تاگبانۋاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NJIVA"_s),
-			$of(u"گىنىۋا/نىجىۋا شىۋەسى"_s)
+			"%%NJIVA"_s,
+			u"گىنىۋا/نىجىۋا شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egy"_s),
-			$of(u"قەدىمكى مىسىرچە"_s)
+			"egy"_s,
+			u"قەدىمكى مىسىرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("raj"_s),
-			$of(u"راجاستانچە"_s)
+			"raj"_s,
+			u"راجاستانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phag"_s),
-			$of(u"پاسپاچە"_s)
+			"Phag"_s,
+			u"پاسپاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tem"_s),
-			$of(u"تېمنېچە"_s)
+			"tem"_s,
+			u"تېمنېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("teo"_s),
-			$of(u"تېسوچە"_s)
+			"teo"_s,
+			u"تېسوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rap"_s),
-			$of(u"راپانىيچە"_s)
+			"rap"_s,
+			u"راپانىيچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ter"_s),
-			$of(u"تېرېناچە"_s)
+			"ter"_s,
+			u"تېرېناچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AC"_s),
-			$of(u"ئاسسېنسىيون ئارىلى"_s)
+			"AC"_s,
+			u"ئاسسېنسىيون ئارىلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of(u"تېتۇمچە"_s)
+			"tet"_s,
+			u"تېتۇمچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AD"_s),
-			$of(u"ئاندوررا"_s)
+			"AD"_s,
+			u"ئاندوررا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AE"_s),
-			$of(u"ئەرەب بىرلەشمە خەلىپىلىكى"_s)
+			"AE"_s,
+			u"ئەرەب بىرلەشمە خەلىپىلىكى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AF"_s),
-			$of(u"ئافغانىستان"_s)
+			"AF"_s,
+			u"ئافغانىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AG"_s),
-			$of(u"ئانتىگۇئا ۋە باربۇدا"_s)
+			"AG"_s,
+			u"ئانتىگۇئا ۋە باربۇدا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic"_s),
-			$of(u"ئېفىيوپىيە يىلنامەسى"_s)
+			"type.ca.ethiopic"_s,
+			u"ئېفىيوپىيە يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AI"_s),
-			$of(u"ئانگۋىللا"_s)
+			"AI"_s,
+			u"ئانگۋىللا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AL"_s),
-			$of(u"ئالبانىيە"_s)
+			"AL"_s,
+			u"ئالبانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AM"_s),
-			$of(u"ئەرمېنىيە"_s)
+			"AM"_s,
+			u"ئەرمېنىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Teng"_s),
-			$of(u"تېڭۋارچە"_s)
+			"Teng"_s,
+			u"تېڭۋارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AO"_s),
-			$of(u"ئانگولا"_s)
+			"AO"_s,
+			u"ئانگولا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AQ"_s),
-			$of(u"ئانتاركتىكا"_s)
+			"AQ"_s,
+			u"ئانتاركتىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AR"_s),
-			$of(u"ئارگېنتىنا"_s)
+			"AR"_s,
+			u"ئارگېنتىنا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Prti"_s),
-			$of(u"پارتىئانچە ئويما خەت"_s)
+			"Prti"_s,
+			u"پارتىئانچە ئويما خەت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AS"_s),
-			$of(u"ئامېرىكا ساموئا"_s)
+			"AS"_s,
+			u"ئامېرىكا ساموئا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AT"_s),
-			$of(u"ئاۋىستىرىيە"_s)
+			"AT"_s,
+			u"ئاۋىستىرىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AU"_s),
-			$of(u"ئاۋسترالىيە"_s)
+			"AU"_s,
+			u"ئاۋسترالىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AW"_s),
-			$of(u"ئارۇبا"_s)
+			"AW"_s,
+			u"ئارۇبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_US"_s),
-			$of(u"ئامېرىكا ئىنگلىزچە"_s)
+			"en_US"_s,
+			u"ئامېرىكا ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AX"_s),
-			$of(u"ئالاند ئاراللىرى"_s)
+			"AX"_s,
+			u"ئالاند ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mye"_s),
-			$of(u"ميېنېچە"_s)
+			"mye"_s,
+			u"ميېنېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AZ"_s),
-			$of(u"ئەزەربەيجان"_s)
+			"AZ"_s,
+			u"ئەزەربەيجان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%AREVELA"_s),
-			$of(u"شەرقىي ئەرمەنچە"_s)
+			"%%AREVELA"_s,
+			u"شەرقىي ئەرمەنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of(u"بوسىنىيە ۋە گېرتسېگوۋىنا"_s)
+			"BA"_s,
+			u"بوسىنىيە ۋە گېرتسېگوۋىنا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BB"_s),
-			$of(u"باربادوس"_s)
+			"BB"_s,
+			u"باربادوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ceb"_s),
-			$of(u"سېبۇچە"_s)
+			"ceb"_s,
+			u"سېبۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BD"_s),
-			$of(metaValue_BD)
+			"BD"_s,
+			metaValue_BD
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of(u"قۇمۇقچە"_s)
+			"kum"_s,
+			u"قۇمۇقچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BE"_s),
-			$of(u"بېلگىيە"_s)
+			"BE"_s,
+			u"بېلگىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmh"_s),
-			$of(u"ئوتتۇرا ئەسىر ئېگىزلىك گېرمانچە"_s)
+			"gmh"_s,
+			u"ئوتتۇرا ئەسىر ئېگىزلىك گېرمانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BF"_s),
-			$of(u"بۇركىنا فاسو"_s)
+			"BF"_s,
+			u"بۇركىنا فاسو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BG"_s),
-			$of(u"بۇلغارىيە"_s)
+			"BG"_s,
+			u"بۇلغارىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BH"_s),
-			$of(u"بەھرەين"_s)
+			"BH"_s,
+			u"بەھرەين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BI"_s),
-			$of(u"بۇرۇندى"_s)
+			"BI"_s,
+			u"بۇرۇندى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BJ"_s),
-			$of(u"بېنىن"_s)
+			"BJ"_s,
+			u"بېنىن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BL"_s),
-			$of(u"ساينت بارتېلېمى"_s)
+			"BL"_s,
+			u"ساينت بارتېلېمى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BM"_s),
-			$of(u"بېرمۇدا"_s)
+			"BM"_s,
+			u"بېرمۇدا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kut"_s),
-			$of(u"كۇتەنايچە"_s)
+			"kut"_s,
+			u"كۇتەنايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("myv"_s),
-			$of(u"ئېرزاچە"_s)
+			"myv"_s,
+			u"ئېرزاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BN"_s),
-			$of(u"بىرۇنېي"_s)
+			"BN"_s,
+			u"بىرۇنېي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BO"_s),
-			$of(u"بولىۋىيە"_s)
+			"BO"_s,
+			u"بولىۋىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BQ"_s),
-			$of(u"كارىب دېڭىزى گوللاندىيە"_s)
+			"BQ"_s,
+			u"كارىب دېڭىزى گوللاندىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BR"_s),
-			$of(u"بىرازىلىيە"_s)
+			"BR"_s,
+			u"بىرازىلىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BS"_s),
-			$of(u"باھاما"_s)
+			"BS"_s,
+			u"باھاما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xog"_s),
-			$of(u"سوگاچە"_s)
+			"xog"_s,
+			u"سوگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BT"_s),
-			$of(u"بۇتان"_s)
+			"BT"_s,
+			u"بۇتان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BV"_s),
-			$of(u"بوۋېت ئارىلى"_s)
+			"BV"_s,
+			u"بوۋېت ئارىلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BW"_s),
-			$of(u"بوتسۋانا"_s)
+			"BW"_s,
+			u"بوتسۋانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BY"_s),
-			$of(u"بېلارۇسىيە"_s)
+			"BY"_s,
+			u"بېلارۇسىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BZ"_s),
-			$of(u"بېلىز"_s)
+			"BZ"_s,
+			u"بېلىز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Visp"_s),
-			$of(u"كۆرۈنۈشچان تاۋۇش"_s)
+			"Visp"_s,
+			u"كۆرۈنۈشچان تاۋۇش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.persian"_s),
-			$of(u"پارىس يىلنامەسى"_s)
+			"type.ca.persian"_s,
+			u"پارىس يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hebr"_s),
-			$of(u"ئىبرانىچە رەقەملەر"_s)
+			"type.nu.hebr"_s,
+			u"ئىبرانىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CA"_s),
-			$of(u"كانادا"_s)
+			"CA"_s,
+			u"كانادا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CC"_s),
-			$of(u"كوكوس (كىلىڭ) ئاراللىرى"_s)
+			"CC"_s,
+			u"كوكوس (كىلىڭ) ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CD"_s),
-			$of(u"كونگو - كىنشاسا"_s)
+			"CD"_s,
+			u"كونگو - كىنشاسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CF"_s),
-			$of(u"ئوتتۇرا ئافرىقا جۇمھۇرىيىتى"_s)
+			"CF"_s,
+			u"ئوتتۇرا ئافرىقا جۇمھۇرىيىتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CG"_s),
-			$of(u"كونگو - بىراززاۋىل"_s)
+			"CG"_s,
+			u"كونگو - بىراززاۋىل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CH"_s),
-			$of(u"شىۋېتسارىيە"_s)
+			"CH"_s,
+			u"شىۋېتسارىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"كوتې دې ئىۋوئىر"_s)
+			"CI"_s,
+			u"كوتې دې ئىۋوئىر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CK"_s),
-			$of(u"كۇك ئاراللىرى"_s)
+			"CK"_s,
+			u"كۇك ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CL"_s),
-			$of(u"چىلى"_s)
+			"CL"_s,
+			u"چىلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kthi"_s),
-			$of(u"كاياتىچە"_s)
+			"Kthi"_s,
+			u"كاياتىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CM"_s),
-			$of(u"كامېرون"_s)
+			"CM"_s,
+			u"كامېرون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CN"_s),
-			$of(u"جۇڭگو"_s)
+			"CN"_s,
+			u"جۇڭگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CO"_s),
-			$of(u"كولومبىيە"_s)
+			"CO"_s,
+			u"كولومبىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CP"_s),
-			$of(u"كىلىپپېرتون ئاراللىرى"_s)
+			"CP"_s,
+			u"كىلىپپېرتون ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CR"_s),
-			$of(u"كوستارىكا"_s)
+			"CR"_s,
+			u"كوستارىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CU"_s),
-			$of(u"كۇبا"_s)
+			"CU"_s,
+			u"كۇبا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CV"_s),
-			$of(u"يېشىل تۇمشۇق"_s)
+			"CV"_s,
+			u"يېشىل تۇمشۇق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CW"_s),
-			$of(u"كۇراچاۋ"_s)
+			"CW"_s,
+			u"كۇراچاۋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CX"_s),
-			$of(u"مىلاد ئارىلى"_s)
+			"CX"_s,
+			u"مىلاد ئارىلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CY"_s),
-			$of(metaValue_CY)
+			"CY"_s,
+			metaValue_CY
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.bali"_s),
-			$of(u"بالىچە رەقەملەر"_s)
+			"type.nu.bali"_s,
+			u"بالىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CZ"_s),
-			$of(u"چېخ جۇمھۇرىيىتى"_s)
+			"CZ"_s,
+			u"چېخ جۇمھۇرىيىتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eka"_s),
-			$of(u"ئېكاجۇكچە"_s)
+			"eka"_s,
+			u"ئېكاجۇكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%RIGIK"_s),
-			$of(u"ئەنئەنىۋى ۋولاپۇكچە"_s)
+			"%%RIGIK"_s,
+			u"ئەنئەنىۋى ۋولاپۇكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DE"_s),
-			$of(u"گېرمانىيە"_s)
+			"DE"_s,
+			u"گېرمانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("goh"_s),
-			$of(u"قەدىمكى ئېگىزلىك گېرمانچە"_s)
+			"goh"_s,
+			u"قەدىمكى ئېگىزلىك گېرمانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"ئاتجېچە"_s)
+			"ace"_s,
+			u"ئاتجېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cgg"_s),
-			$of(u"چىگاچە"_s)
+			"cgg"_s,
+			u"چىگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DG"_s),
-			$of(u"دېگو-گارشىيا"_s)
+			"DG"_s,
+			u"دېگو-گارشىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.deva"_s),
-			$of(u"دېۋاناگارىچە رەقەملەر"_s)
+			"type.nu.deva"_s,
+			u"دېۋاناگارىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DJ"_s),
-			$of(u"جىبۇتى"_s)
+			"DJ"_s,
+			u"جىبۇتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DK"_s),
-			$of(u"دانىيە"_s)
+			"DK"_s,
+			u"دانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ach"_s),
-			$of(u"ئاچولىچە"_s)
+			"ach"_s,
+			u"ئاچولىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gon"_s),
-			$of(u"گوندىچە"_s)
+			"gon"_s,
+			u"گوندىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brai"_s),
-			$of(u"برائىل ئەمالار يېزىقى"_s)
+			"Brai"_s,
+			u"برائىل ئەمالار يېزىقى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Brah"_s),
-			$of(u"براخمى"_s)
+			"Brah"_s,
+			u"براخمى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DM"_s),
-			$of(u"دومىنىكا"_s)
+			"DM"_s,
+			u"دومىنىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armnlow"_s),
-			$of(u"ئەرەبچە رەقەملەر (كىچىك ھەرپ)"_s)
+			"type.nu.armnlow"_s,
+			u"ئەرەبچە رەقەملەر (كىچىك ھەرپ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DO"_s),
-			$of(u"دومىنىكا جۇمھۇرىيىتى"_s)
+			"DO"_s,
+			u"دومىنىكا جۇمھۇرىيىتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gor"_s),
-			$of(u"گورونتالوچە"_s)
+			"gor"_s,
+			u"گورونتالوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("got"_s),
-			$of(metaValue_got)
+			"got"_s,
+			metaValue_got
 		}),
 		$$new($ObjectArray, {
-			$of("Mtei"_s),
-			$of(u"مانىپۇرىچە"_s)
+			"Mtei"_s,
+			u"مانىپۇرىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zun"_s),
-			$of(u"زۇنىچە"_s)
+			"zun"_s,
+			u"زۇنىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tig"_s),
-			$of(u"تىگرېچە"_s)
+			"tig"_s,
+			u"تىگرېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Takr"_s),
-			$of(u"تاكرىچە"_s)
+			"Takr"_s,
+			u"تاكرىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("DZ"_s),
-			$of(u"ئالجىرىيە"_s)
+			"DZ"_s,
+			u"ئالجىرىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pag"_s),
-			$of(u"پانگاسىنانچە"_s)
+			"pag"_s,
+			u"پانگاسىنانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pal"_s),
-			$of(u"پەھلەۋىچە"_s)
+			"pal"_s,
+			u"پەھلەۋىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EA"_s),
-			$of(u"سېيتا ۋە مېلىلا"_s)
+			"EA"_s,
+			u"سېيتا ۋە مېلىلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chb"_s),
-			$of(u"چىبچاچە"_s)
+			"chb"_s,
+			u"چىبچاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pam"_s),
-			$of(u"پامپانگاچە"_s)
+			"pam"_s,
+			u"پامپانگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EC"_s),
-			$of(u"ئېكۋاتور"_s)
+			"EC"_s,
+			u"ئېكۋاتور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pap"_s),
-			$of(u"پاپىيامېنتوچە"_s)
+			"pap"_s,
+			u"پاپىيامېنتوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ada"_s),
-			$of(u"ئاداڭمېچە"_s)
+			"ada"_s,
+			u"ئاداڭمېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EE"_s),
-			$of(u"ئېستونىيە"_s)
+			"EE"_s,
+			u"ئېستونىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tiv"_s),
-			$of(u"تىۋچە"_s)
+			"tiv"_s,
+			u"تىۋچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EG"_s),
-			$of(u"مىسىر"_s)
+			"EG"_s,
+			u"مىسىر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EH"_s),
-			$of(u"غەربىي ساخارا"_s)
+			"EH"_s,
+			u"غەربىي ساخارا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chg"_s),
-			$of(u"چاغاتايچە"_s)
+			"chg"_s,
+			u"چاغاتايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pau"_s),
-			$of(u"پالاۋچە"_s)
+			"pau"_s,
+			u"پالاۋچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chk"_s),
-			$of(u"چۇكچە"_s)
+			"chk"_s,
+			u"چۇكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chn"_s),
-			$of(u"چىنۇك-ژارگونچە"_s)
+			"chn"_s,
+			u"چىنۇك-ژارگونچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chm"_s),
-			$of(u"مارىچە"_s)
+			"chm"_s,
+			u"مارىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chp"_s),
-			$of(u"چىپېۋيانچە"_s)
+			"chp"_s,
+			u"چىپېۋيانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cho"_s),
-			$of(u"چوكتاۋچە"_s)
+			"cho"_s,
+			u"چوكتاۋچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chr"_s),
-			$of(u"چېروكىچە"_s)
+			"chr"_s,
+			u"چېروكىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ER"_s),
-			$of(u"ئېرىترىيە"_s)
+			"ER"_s,
+			u"ئېرىترىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ES"_s),
-			$of(u"ئىسپانىيە"_s)
+			"ES"_s,
+			u"ئىسپانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ET"_s),
-			$of(u"ئېفىيوپىيە"_s)
+			"ET"_s,
+			u"ئېفىيوپىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EU"_s),
-			$of(u"ياۋروپا ئىتتىپاقى"_s)
+			"EU"_s,
+			u"ياۋروپا ئىتتىپاقى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("elx"_s),
-			$of(u"ئېلامىتچە"_s)
+			"elx"_s,
+			u"ئېلامىتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.gregorian"_s),
-			$of(u"مىلادىيە يىلنامەسى"_s)
+			"type.ca.gregorian"_s,
+			u"مىلادىيە يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chy"_s),
-			$of(u"چېيېنچە"_s)
+			"chy"_s,
+			u"چېيېنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gujr"_s),
-			$of(u"گۇجاراتچە رەقەملەر"_s)
+			"type.nu.gujr"_s,
+			u"گۇجاراتچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Inds"_s),
-			$of(u"ئىندۇسچە"_s)
+			"Inds"_s,
+			u"ئىندۇسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ady"_s),
-			$of(u"ئادىگېيچە"_s)
+			"ady"_s,
+			u"ئادىگېيچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FI"_s),
-			$of(u"فىنلاندىيە"_s)
+			"FI"_s,
+			u"فىنلاندىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FJ"_s),
-			$of(u"فىجى"_s)
+			"FJ"_s,
+			u"فىجى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FK"_s),
-			$of(u"فالكلاند ئاراللىرى"_s)
+			"FK"_s,
+			u"فالكلاند ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FM"_s),
-			$of(u"مىكرونېزىيە"_s)
+			"FM"_s,
+			u"مىكرونېزىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FO"_s),
-			$of(u"فارو ئاراللىرى"_s)
+			"FO"_s,
+			u"فارو ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Taml"_s),
-			$of(metaValue_ta)
+			"Taml"_s,
+			metaValue_ta
 		}),
 		$$new($ObjectArray, {
-			$of("FR"_s),
-			$of(u"فىرانسىيە"_s)
+			"FR"_s,
+			u"فىرانسىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kpel"_s),
-			$of(u"كپېللېچە"_s)
+			"Kpel"_s,
+			u"كپېللېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tkl"_s),
-			$of(u"توكېلاۋچە"_s)
+			"tkl"_s,
+			u"توكېلاۋچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grb"_s),
-			$of(u"گرېبوچە"_s)
+			"grb"_s,
+			u"گرېبوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%DAJNKO"_s),
-			$of(u"داژىنكو ئېلىپبەسى"_s)
+			"%%DAJNKO"_s,
+			u"داژىنكو ئېلىپبەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.indian"_s),
-			$of(u"ھىندىستان دۆلەت يىلنامەسى"_s)
+			"type.ca.indian"_s,
+			u"ھىندىستان دۆلەت يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of(u"قەدىمكى گىرېكچە"_s)
+			"grc"_s,
+			u"قەدىمكى گىرېكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GA"_s),
-			$of(u"گابون"_s)
+			"GA"_s,
+			u"گابون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vot"_s),
-			$of(u"ۋوتېچە"_s)
+			"vot"_s,
+			u"ۋوتېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GB"_s),
-			$of(u"بىرلەشمە پادىشاھلىق"_s)
+			"GB"_s,
+			u"بىرلەشمە پادىشاھلىق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GD"_s),
-			$of(u"گىرېنادا"_s)
+			"GD"_s,
+			u"گىرېنادا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GE"_s),
-			$of(u"گىرۇزىيە"_s)
+			"GE"_s,
+			u"گىرۇزىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GF"_s),
-			$of(u"فىرانسىيەگە قاراشلىق گىۋىيانا"_s)
+			"GF"_s,
+			u"فىرانسىيەگە قاراشلىق گىۋىيانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of(u"گۇرنسېي"_s)
+			"GG"_s,
+			u"گۇرنسېي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GH"_s),
-			$of(u"گانا"_s)
+			"GH"_s,
+			u"گانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tale"_s),
-			$of(u"تاي-لەچە"_s)
+			"Tale"_s,
+			u"تاي-لەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GI"_s),
-			$of(u"جەبىلتارىق"_s)
+			"GI"_s,
+			u"جەبىلتارىق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("afh"_s),
-			$of(u"ئافرىخىلىچە"_s)
+			"afh"_s,
+			u"ئافرىخىلىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GL"_s),
-			$of(u"گىرېنلاندىيە"_s)
+			"GL"_s,
+			u"گىرېنلاندىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enm"_s),
-			$of(u"ئوتتۇرا ئەسىر ئىنگلىزچە"_s)
+			"enm"_s,
+			u"ئوتتۇرا ئەسىر ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GM"_s),
-			$of(u"گامبىيە"_s)
+			"GM"_s,
+			u"گامبىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GN"_s),
-			$of(u"گىۋىنىيە"_s)
+			"GN"_s,
+			u"گىۋىنىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GP"_s),
-			$of(u"گىۋادېلۇپ"_s)
+			"GP"_s,
+			u"گىۋادېلۇپ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GQ"_s),
-			$of(u"ئېكۋاتور گىۋىنىيەسى"_s)
+			"GQ"_s,
+			u"ئېكۋاتور گىۋىنىيەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GR"_s),
-			$of(u"گىرېتسىيە"_s)
+			"GR"_s,
+			u"گىرېتسىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GS"_s),
-			$of(u"جەنۇبىي جورجىيە ۋە جەنۇبىي ساندۋىچ ئاراللىرى"_s)
+			"GS"_s,
+			u"جەنۇبىي جورجىيە ۋە جەنۇبىي ساندۋىچ ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GT"_s),
-			$of(u"گىۋاتېمالا"_s)
+			"GT"_s,
+			u"گىۋاتېمالا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GU"_s),
-			$of(u"گۇئام"_s)
+			"GU"_s,
+			u"گۇئام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GW"_s),
-			$of(u"گىۋىنىيە بىسسائۇ"_s)
+			"GW"_s,
+			u"گىۋىنىيە بىسسائۇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tli"_s),
-			$of(u"تىلىنگىتچە"_s)
+			"tli"_s,
+			u"تىلىنگىتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tlh"_s),
-			$of(u"كىلىنگونچە"_s)
+			"tlh"_s,
+			u"كىلىنگونچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Talu"_s),
-			$of(u"يېڭى تاي-لەچە"_s)
+			"Talu"_s,
+			u"يېڭى تاي-لەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GY"_s),
-			$of(u"گىۋىيانا"_s)
+			"GY"_s,
+			u"گىۋىيانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ckb"_s),
-			$of(u"مەركىزىي كۇردچە"_s)
+			"ckb"_s,
+			u"مەركىزىي كۇردچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zxx"_s),
-			$of(u"تىل مەزمۇنى يوق"_s)
+			"zxx"_s,
+			u"تىل مەزمۇنى يوق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jurc"_s),
-			$of(u"جۇرچېنچە"_s)
+			"Jurc"_s,
+			u"جۇرچېنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_AT"_s),
-			$of(u"ئاۋستىرىيە گېرمانچە"_s)
+			"de_AT"_s,
+			u"ئاۋستىرىيە گېرمانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Vaii"_s),
-			$of(metaValue_vai)
+			"Vaii"_s,
+			metaValue_vai
 		}),
 		$$new($ObjectArray, {
-			$of("HK"_s),
-			$of(u"شياڭگاڭ ئالاھىدە مەمۇرىي رايونى (جۇڭگو)"_s)
+			"HK"_s,
+			u"شياڭگاڭ ئالاھىدە مەمۇرىي رايونى (جۇڭگو)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HM"_s),
-			$of(u"ھېرد ئارىلى ۋە ماكدونالد ئاراللىرى"_s)
+			"HM"_s,
+			u"ھېرد ئارىلى ۋە ماكدونالد ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HN"_s),
-			$of(u"ھوندۇراس"_s)
+			"HN"_s,
+			u"ھوندۇراس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HR"_s),
-			$of(u"كىرودىيە"_s)
+			"HR"_s,
+			u"كىرودىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("agq"_s),
-			$of(u"ئاگەمچە"_s)
+			"agq"_s,
+			u"ئاگەمچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gsw"_s),
-			$of(u"گېرمانچە شىۋىتسارىيە"_s)
+			"gsw"_s,
+			u"گېرمانچە شىۋىتسارىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-umalqura"_s),
-			$of(u"ئىسلام ھىجرىيە يىلنامەسى (ئۇم ئەلقۇرا)"_s)
+			"type.ca.islamic-umalqura"_s,
+			u"ئىسلام ھىجرىيە يىلنامەسى (ئۇم ئەلقۇرا)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HT"_s),
-			$of(u"ھايتى"_s)
+			"HT"_s,
+			u"ھايتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("HU"_s),
-			$of(u"ۋېنگىرىيە"_s)
+			"HU"_s,
+			u"ۋېنگىرىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tmh"_s),
-			$of(u"تاماشېكچە"_s)
+			"tmh"_s,
+			u"تاماشېكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IC"_s),
-			$of(u"كانارى ئاراللىرى"_s)
+			"IC"_s,
+			u"كانارى ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("peo"_s),
-			$of(metaValue_peo)
+			"peo"_s,
+			metaValue_peo
 		}),
 		$$new($ObjectArray, {
-			$of("ID"_s),
-			$of(u"ھىندونېزىيە"_s)
+			"ID"_s,
+			u"ھىندونېزىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.kali"_s),
-			$of(u"كاياھچە رەقەملەر"_s)
+			"type.nu.kali"_s,
+			u"كاياھچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IE"_s),
-			$of(u"ئىرېلاندىيە"_s)
+			"IE"_s,
+			u"ئىرېلاندىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nap"_s),
-			$of(u"ناپولىچە"_s)
+			"nap"_s,
+			u"ناپولىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NDYUKA"_s),
-			$of(u"نىديۇكا شىۋەسى"_s)
+			"%%NDYUKA"_s,
+			u"نىديۇكا شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("naq"_s),
-			$of(u"ناماچە"_s)
+			"naq"_s,
+			u"ناماچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.sora"_s),
-			$of(u"سورا سومپېڭ رەقەملەر"_s)
+			"type.nu.sora"_s,
+			u"سورا سومپېڭ رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zza"_s),
-			$of(u"زازاچە"_s)
+			"zza"_s,
+			u"زازاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tang"_s),
-			$of(u"تاڭغۇتچە"_s)
+			"Tang"_s,
+			u"تاڭغۇتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IL"_s),
-			$of(u"ئىسرائىلىيە"_s)
+			"IL"_s,
+			u"ئىسرائىلىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nbat"_s),
-			$of(u"ئانباتچە"_s)
+			"Nbat"_s,
+			u"ئانباتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IM"_s),
-			$of(u"مان ئارىلى"_s)
+			"IM"_s,
+			u"مان ئارىلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IN"_s),
-			$of(u"ھىندىستان"_s)
+			"IN"_s,
+			u"ھىندىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.eor"_s),
-			$of(u"ياۋروپا تەرتىپلەش قائىدىسى"_s)
+			"type.co.eor"_s,
+			u"ياۋروپا تەرتىپلەش قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IO"_s),
-			$of(u"ئەنگلىيەگە قاراشلىق ھىندى ئوكيان تېررىتورىيەسى"_s)
+			"IO"_s,
+			u"ئەنگلىيەگە قاراشلىق ھىندى ئوكيان تېررىتورىيەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IQ"_s),
-			$of(u"ئىراق"_s)
+			"IQ"_s,
+			u"ئىراق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IR"_s),
-			$of(u"ئىران"_s)
+			"IR"_s,
+			u"ئىران"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IS"_s),
-			$of(u"ئىسلاندىيە"_s)
+			"IS"_s,
+			u"ئىسلاندىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("IT"_s),
-			$of(u"ئىتالىيە"_s)
+			"IT"_s,
+			u"ئىتالىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zmth"_s),
-			$of(u"ماتېماتىكىلىق بەلگە"_s)
+			"Zmth"_s,
+			u"ماتېماتىكىلىق بەلگە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.thai"_s),
-			$of(u"تايلاندچە رەقەملەر"_s)
+			"type.nu.thai"_s,
+			u"تايلاندچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%POSIX"_s),
-			$of(u"كومپيۇتېر"_s)
+			"%%POSIX"_s,
+			u"كومپيۇتېر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.beng"_s),
-			$of(u"بېنگالچە رەقەملەر"_s)
+			"type.nu.beng"_s,
+			u"بېنگالچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JE"_s),
-			$of(u"جېرسېي"_s)
+			"JE"_s,
+			u"جېرسېي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic"_s),
-			$of(u"ئىسلام ھىجرىيە يىلنامەسى"_s)
+			"type.ca.islamic"_s,
+			u"ئىسلام ھىجرىيە يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Beng"_s),
-			$of(metaValue_BD)
+			"Beng"_s,
+			metaValue_BD
 		}),
 		$$new($ObjectArray, {
-			$of("JM"_s),
-			$of(u"يامايكا"_s)
+			"JM"_s,
+			u"يامايكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JO"_s),
-			$of(u"ئىيوردانىيە"_s)
+			"JO"_s,
+			u"ئىيوردانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("JP"_s),
-			$of(u"ياپونىيە"_s)
+			"JP"_s,
+			u"ياپونىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1606NICT"_s),
-			$of(u"ئوتتۇرا ئاخىرقى دەۋردىكى فىرانسۇزچە 1606"_s)
+			"%%1606NICT"_s,
+			u"ئوتتۇرا ئاخىرقى دەۋردىكى فىرانسۇزچە 1606"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ain"_s),
-			$of(u"ئاينۇچە"_s)
+			"ain"_s,
+			u"ئاينۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mend"_s),
-			$of(metaValue_men)
+			"Mend"_s,
+			metaValue_men
 		}),
 		$$new($ObjectArray, {
-			$of("guz"_s),
-			$of(u"گۇسىچە"_s)
+			"guz"_s,
+			u"گۇسىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tog"_s),
-			$of(u"نياسا توڭانچە"_s)
+			"tog"_s,
+			u"نياسا توڭانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.knda"_s),
-			$of(u"كانناداچە رەقەملەر"_s)
+			"type.nu.knda"_s,
+			u"كانناداچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kali"_s),
-			$of(u"كاياھچە"_s)
+			"Kali"_s,
+			u"كاياھچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de_CH"_s),
-			$of(u"شىۋىتسارىيە ئېگىزلىك گېرمانچە"_s)
+			"de_CH"_s,
+			u"شىۋىتسارىيە ئېگىزلىك گېرمانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.buddhist"_s),
-			$of(u"بۇددا يىلنامەسى"_s)
+			"type.ca.buddhist"_s,
+			u"بۇددا يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KE"_s),
-			$of(u"كېنىيە"_s)
+			"KE"_s,
+			u"كېنىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("419"_s),
-			$of(u"لاتىن ئامېرىكا"_s)
+			"419"_s,
+			u"لاتىن ئامېرىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KG"_s),
-			$of(u"قىرغىزىستان"_s)
+			"KG"_s,
+			u"قىرغىزىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KH"_s),
-			$of(u"كامبودژا"_s)
+			"KH"_s,
+			u"كامبودژا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KI"_s),
-			$of(u"كىرىباتى"_s)
+			"KI"_s,
+			u"كىرىباتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KM"_s),
-			$of(u"كومورو"_s)
+			"KM"_s,
+			u"كومورو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Knda"_s),
-			$of(metaValue_kn)
+			"Knda"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("KN"_s),
-			$of(u"ساينت كىتىس ۋە نېۋىس"_s)
+			"KN"_s,
+			u"ساينت كىتىس ۋە نېۋىس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zinh"_s),
-			$of(u"ئىرسىيەت ئاتالغۇ"_s)
+			"Zinh"_s,
+			u"ئىرسىيەت ئاتالغۇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CA"_s),
-			$of(u"كانادا فىرانسۇزچە"_s)
+			"fr_CA"_s,
+			u"كانادا فىرانسۇزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KP"_s),
-			$of(u"چاۋشيەن"_s)
+			"KP"_s,
+			u"چاۋشيەن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KR"_s),
-			$of(u"كورېيە"_s)
+			"KR"_s,
+			u"كورېيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Plrd"_s),
-			$of(u"پوللارد تاۋۇشلىرى"_s)
+			"Plrd"_s,
+			u"پوللارد تاۋۇشلىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr_CH"_s),
-			$of(u"شىۋىتسارىيە فىرانسۇزچە"_s)
+			"fr_CH"_s,
+			u"شىۋىتسارىيە فىرانسۇزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KW"_s),
-			$of(u"كۇۋەيت"_s)
+			"KW"_s,
+			u"كۇۋەيت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tpi"_s),
-			$of(u"توك-پىسىنچە"_s)
+			"tpi"_s,
+			u"توك-پىسىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KY"_s),
-			$of(u"كايمان ئاراللىرى"_s)
+			"KY"_s,
+			u"كايمان ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("KZ"_s),
-			$of(u"قازاقىستان"_s)
+			"KZ"_s,
+			u"قازاقىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrl"_s),
-			$of(u"كىرىل"_s)
+			"Cyrl"_s,
+			u"كىرىل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LA"_s),
-			$of(u"لائوس"_s)
+			"LA"_s,
+			u"لائوس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LB"_s),
-			$of(u"لىۋان"_s)
+			"LB"_s,
+			u"لىۋان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LC"_s),
-			$of(u"ساينت لۇسىيە"_s)
+			"LC"_s,
+			u"ساينت لۇسىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("phn"_s),
-			$of(u"فىنىكىيەچە"_s)
+			"phn"_s,
+			u"فىنىكىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cyrs"_s),
-			$of(u"قەدىمكى چىركاۋ سىلاۋيانچە كىرىل"_s)
+			"Cyrs"_s,
+			u"قەدىمكى چىركاۋ سىلاۋيانچە كىرىل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gwi"_s),
-			$of(u"گىۋىچىنچە"_s)
+			"gwi"_s,
+			u"گىۋىچىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nds"_s),
-			$of(u"تۆۋەن گېرمانچە"_s)
+			"nds"_s,
+			u"تۆۋەن گېرمانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LI"_s),
-			$of(u"لىكتېنستېين"_s)
+			"LI"_s,
+			u"لىكتېنستېين"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LK"_s),
-			$of(u"سىرىلانكا"_s)
+			"LK"_s,
+			u"سىرىلانكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("akk"_s),
-			$of(u"ئاككادچە"_s)
+			"akk"_s,
+			u"ئاككادچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cop"_s),
-			$of(u"كوپتىكچە"_s)
+			"cop"_s,
+			u"كوپتىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LR"_s),
-			$of(u"لىبېرىيە"_s)
+			"LR"_s,
+			u"لىبېرىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LS"_s),
-			$of(u"لېسوتو"_s)
+			"LS"_s,
+			u"لېسوتو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlv"_s),
-			$of(u"پەھلىۋىچە كىتابى تىل"_s)
+			"Phlv"_s,
+			u"پەھلىۋىچە كىتابى تىل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of(u"لىتۋانىيە"_s)
+			"LT"_s,
+			u"لىتۋانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LU"_s),
-			$of(u"لىيۇكسېمبۇرگ"_s)
+			"LU"_s,
+			u"لىيۇكسېمبۇرگ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LV"_s),
-			$of(u"لاتۋىيە"_s)
+			"LV"_s,
+			u"لاتۋىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kana"_s),
-			$of(u"كاتاكانا"_s)
+			"Kana"_s,
+			u"كاتاكانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sora"_s),
-			$of(u"سورا سامپىڭ"_s)
+			"Sora"_s,
+			u"سورا سامپىڭ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("LY"_s),
-			$of(u"لىۋىيە"_s)
+			"LY"_s,
+			u"لىۋىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lad"_s),
-			$of(u"لادىنوچە"_s)
+			"lad"_s,
+			u"لادىنوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vun"_s),
-			$of(u"ۋۇنجوچە"_s)
+			"vun"_s,
+			u"ۋۇنجوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lah"_s),
-			$of(u"لانداچە"_s)
+			"lah"_s,
+			u"لانداچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lag"_s),
-			$of(u"لانگىچە"_s)
+			"lag"_s,
+			u"لانگىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thaa"_s),
-			$of(u"تاناچە"_s)
+			"Thaa"_s,
+			u"تاناچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MA"_s),
-			$of(u"ماراكەش"_s)
+			"MA"_s,
+			u"ماراكەش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MC"_s),
-			$of(u"موناكو"_s)
+			"MC"_s,
+			u"موناكو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MD"_s),
-			$of(u"مولدوۋا"_s)
+			"MD"_s,
+			u"مولدوۋا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nshu"_s),
-			$of(u"نۈشۇچە"_s)
+			"Nshu"_s,
+			u"نۈشۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ME"_s),
-			$of(u"قارا تاغ"_s)
+			"ME"_s,
+			u"قارا تاغ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MF"_s),
-			$of(u"ساينت مارتىن"_s)
+			"MF"_s,
+			u"ساينت مارتىن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lam"_s),
-			$of(u"لامباچە"_s)
+			"lam"_s,
+			u"لامباچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MG"_s),
-			$of(u"ماداغاسقار"_s)
+			"MG"_s,
+			u"ماداغاسقار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Thai"_s),
-			$of(metaValue_th)
+			"Thai"_s,
+			metaValue_th
 		}),
 		$$new($ObjectArray, {
-			$of("MH"_s),
-			$of(u"مارشال ئاراللىرى"_s)
+			"MH"_s,
+			u"مارشال ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ale"_s),
-			$of(u"ئالېيۇتچە"_s)
+			"ale"_s,
+			u"ئالېيۇتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.vaii"_s),
-			$of(u"ۋايچە رەقەملەر"_s)
+			"type.nu.vaii"_s,
+			u"ۋايچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of(u"شىمالىي ماكېدونىيە"_s)
+			"MK"_s,
+			u"شىمالىي ماكېدونىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ML"_s),
-			$of(u"مالى"_s)
+			"ML"_s,
+			u"مالى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MM"_s),
-			$of(u"بىرما"_s)
+			"MM"_s,
+			u"بىرما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MN"_s),
-			$of(u"موڭغۇلىيە"_s)
+			"MN"_s,
+			u"موڭغۇلىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("new"_s),
-			$of(u"نېۋارىچە"_s)
+			"new"_s,
+			u"نېۋارىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MO"_s),
-			$of(u"ئاۋمېن ئالاھىدە مەمۇرىي رايونى"_s)
+			"MO"_s,
+			u"ئاۋمېن ئالاھىدە مەمۇرىي رايونى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MP"_s),
-			$of(u"شىمالىي مارىيانا ئاراللىرى"_s)
+			"MP"_s,
+			u"شىمالىي مارىيانا ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MQ"_s),
-			$of(u"مارتىنىكا"_s)
+			"MQ"_s,
+			u"مارتىنىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MR"_s),
-			$of(u"ماۋرىتانىيە"_s)
+			"MR"_s,
+			u"ماۋرىتانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MS"_s),
-			$of(u"مونتسېررات"_s)
+			"MS"_s,
+			u"مونتسېررات"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MT"_s),
-			$of(u"مالتا"_s)
+			"MT"_s,
+			u"مالتا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MU"_s),
-			$of(u"ماۋرىتىيۇس"_s)
+			"MU"_s,
+			u"ماۋرىتىيۇس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("alt"_s),
-			$of(u"جەنۇبى ئالتاي تىللىرى"_s)
+			"alt"_s,
+			u"جەنۇبى ئالتاي تىللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MV"_s),
-			$of(u"مالدىۋې"_s)
+			"MV"_s,
+			u"مالدىۋې"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MW"_s),
-			$of(u"مالاۋى"_s)
+			"MW"_s,
+			u"مالاۋى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MX"_s),
-			$of(u"مېكسىكا"_s)
+			"MX"_s,
+			u"مېكسىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.japanese"_s),
-			$of(u"ياپونىيە يىلنامەسى"_s)
+			"type.ca.japanese"_s,
+			u"ياپونىيە يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MY"_s),
-			$of(u"مالايسىيا"_s)
+			"MY"_s,
+			u"مالايسىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("MZ"_s),
-			$of(u"موزامبىك"_s)
+			"MZ"_s,
+			u"موزامبىك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phli"_s),
-			$of(u"پەھلىۋىچە ئويما خەت"_s)
+			"Phli"_s,
+			u"پەھلىۋىچە ئويما خەت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NA"_s),
-			$of(u"نامىبىيە"_s)
+			"NA"_s,
+			u"نامىبىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.hebrew"_s),
-			$of(u"يەھۇدى يىلنامەسى"_s)
+			"type.ca.hebrew"_s,
+			u"يەھۇدى يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.dictionary"_s),
-			$of(u"لۇغەت تىزىش تەرتىپى"_s)
+			"type.co.dictionary"_s,
+			u"لۇغەت تىزىش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NC"_s),
-			$of(u"يېڭى كالېدونىيە"_s)
+			"NC"_s,
+			u"يېڭى كالېدونىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%WADEGILE"_s),
-			$of(u"ۋېي ئائىلىسى پىنيىن لاتىنلاشتۇرۇش"_s)
+			"%%WADEGILE"_s,
+			u"ۋېي ئائىلىسى پىنيىن لاتىنلاشتۇرۇش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%UCRCOR"_s),
-			$of(u"بىرلىككە كەلگەن تۈزىتىلگەن ئىملا قائىدىسى"_s)
+			"%%UCRCOR"_s,
+			u"بىرلىككە كەلگەن تۈزىتىلگەن ئىملا قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NE"_s),
-			$of(u"نىگېر"_s)
+			"NE"_s,
+			u"نىگېر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NF"_s),
-			$of(u"نورفولك ئارىلى"_s)
+			"NF"_s,
+			u"نورفولك ئارىلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NG"_s),
-			$of(u"نىگېرىيە"_s)
+			"NG"_s,
+			u"نىگېرىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("trv"_s),
-			$of(u"توروكوچە"_s)
+			"trv"_s,
+			u"توروكوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phlp"_s),
-			$of(u"پەھلىۋىچە شېئىرىي تىل"_s)
+			"Phlp"_s,
+			u"پەھلىۋىچە شېئىرىي تىل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NI"_s),
-			$of(u"نىكاراگۇئا"_s)
+			"NI"_s,
+			u"نىكاراگۇئا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hmng"_s),
-			$of(metaValue_hmn)
+			"Hmng"_s,
+			metaValue_hmn
 		}),
 		$$new($ObjectArray, {
-			$of("NL"_s),
-			$of(u"گوللاندىيە"_s)
+			"NL"_s,
+			u"گوللاندىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NO"_s),
-			$of(u"نورۋېگىيە"_s)
+			"NO"_s,
+			u"نورۋېگىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NP"_s),
-			$of(u"نېپال"_s)
+			"NP"_s,
+			u"نېپال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NR"_s),
-			$of(u"ناۋرۇ"_s)
+			"NR"_s,
+			u"ناۋرۇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NU"_s),
-			$of(u"نيۇئې"_s)
+			"NU"_s,
+			u"نيۇئې"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Phnx"_s),
-			$of(u"فىنىكچە"_s)
+			"Phnx"_s,
+			u"فىنىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rof"_s),
-			$of(u"رومبوچە"_s)
+			"rof"_s,
+			u"رومبوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tsi"_s),
-			$of(u"سىمشيانچە"_s)
+			"tsi"_s,
+			u"سىمشيانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("NZ"_s),
-			$of(u"يېڭى زېلاندىيە"_s)
+			"NZ"_s,
+			u"يېڭى زېلاندىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Merc"_s),
-			$of(u"مېتروئىت يازمىچە"_s)
+			"Merc"_s,
+			u"مېتروئىت يازمىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rom"_s),
-			$of(u"سىگانچە"_s)
+			"rom"_s,
+			u"سىگانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mero"_s),
-			$of(u"مېتروئىت"_s)
+			"Mero"_s,
+			u"مېتروئىت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("crh"_s),
-			$of(u"قىرىم تۈركچە"_s)
+			"crh"_s,
+			u"قىرىم تۈركچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ang"_s),
-			$of(u"قەدىمكى ئىنگلىزچە"_s)
+			"ang"_s,
+			u"قەدىمكى ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("OM"_s),
-			$of(u"ئومان"_s)
+			"OM"_s,
+			u"ئومان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("anp"_s),
-			$of(u"ئانگىكاچە"_s)
+			"anp"_s,
+			u"ئانگىكاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xpeo"_s),
-			$of(metaValue_peo)
+			"Xpeo"_s,
+			metaValue_peo
 		}),
 		$$new($ObjectArray, {
-			$of("PA"_s),
-			$of(u"پاناما"_s)
+			"PA"_s,
+			u"پاناما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-civil"_s),
-			$of(u"ئىسلام ھىجرىيە يىلنامەسى (مەدىنە)"_s)
+			"type.ca.islamic-civil"_s,
+			u"ئىسلام ھىجرىيە يىلنامەسى (مەدىنە)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("csb"_s),
-			$of(u"كاسزۇبىچە"_s)
+			"csb"_s,
+			u"كاسزۇبىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_GB"_s),
-			$of(u"ئەنگلىيە ئىنگلىزچە"_s)
+			"en_GB"_s,
+			u"ئەنگلىيە ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PE"_s),
-			$of(u"پېرۇ"_s)
+			"PE"_s,
+			u"پېرۇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PF"_s),
-			$of(u"فىرانسىيەگە قاراشلىق پولىنېزىيە"_s)
+			"PF"_s,
+			u"فىرانسىيەگە قاراشلىق پولىنېزىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PG"_s),
-			$of(u"پاپۇئا يېڭى گىۋىنىيەسى"_s)
+			"PG"_s,
+			u"پاپۇئا يېڭى گىۋىنىيەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PH"_s),
-			$of(u"فىلىپپىن"_s)
+			"PH"_s,
+			u"فىلىپپىن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PK"_s),
-			$of(u"پاكىستان"_s)
+			"PK"_s,
+			u"پاكىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PL"_s),
-			$of(u"پولشا"_s)
+			"PL"_s,
+			u"پولشا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ewo"_s),
-			$of(u"ئېۋوندوچە"_s)
+			"ewo"_s,
+			u"ئېۋوندوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PM"_s),
-			$of(u"ساينت پىيېر ۋە مىكېلون ئاراللىرى"_s)
+			"PM"_s,
+			u"ساينت پىيېر ۋە مىكېلون ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PN"_s),
-			$of(u"پىتكايرن ئاراللىرى"_s)
+			"PN"_s,
+			u"پىتكايرن ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PR"_s),
-			$of(u"پۇئېرتو رىكو"_s)
+			"PR"_s,
+			u"پۇئېرتو رىكو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PS"_s),
-			$of(u"پەلەستىن زېمىنى"_s)
+			"PS"_s,
+			u"پەلەستىن زېمىنى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bali"_s),
-			$of(u"بالى"_s)
+			"Bali"_s,
+			u"بالى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PT"_s),
-			$of(u"پورتۇگالىيە"_s)
+			"PT"_s,
+			u"پورتۇگالىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PW"_s),
-			$of(u"پالائۇ"_s)
+			"PW"_s,
+			u"پالائۇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nia"_s),
-			$of(u"نىئاسچە"_s)
+			"nia"_s,
+			u"نىئاسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.greklow"_s),
-			$of(u"گىرېكچە رەقەملەر (كىچىك ھەرپ)"_s)
+			"type.nu.greklow"_s,
+			u"گىرېكچە رەقەملەر (كىچىك ھەرپ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("PY"_s),
-			$of(u"پاراگۋاي"_s)
+			"PY"_s,
+			u"پاراگۋاي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tum"_s),
-			$of(u"تۇمبۇكاچە"_s)
+			"tum"_s,
+			u"تۇمبۇكاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hebr"_s),
-			$of(u"ئىبرانىچە"_s)
+			"Hebr"_s,
+			u"ئىبرانىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QA"_s),
-			$of(u"قاتار"_s)
+			"QA"_s,
+			u"قاتار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SCOTLAND"_s),
-			$of(u"شوتلاندىيە ئۆلچەملىك ئىنگلىزچە"_s)
+			"%%SCOTLAND"_s,
+			u"شوتلاندىيە ئۆلچەملىك ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("niu"_s),
-			$of(u"نيۇئېچە"_s)
+			"niu"_s,
+			u"نيۇئېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("QO"_s),
-			$of(u"ئوكيانىيە ئەتراپىدىكى ئاراللار"_s)
+			"QO"_s,
+			u"ئوكيانىيە ئەتراپىدىكى ئاراللار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lez"_s),
-			$of(u"لېزگىنچە"_s)
+			"lez"_s,
+			u"لېزگىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%FONUPA"_s),
-			$of(u"UPA تاۋۇشلىرى"_s)
+			"%%FONUPA"_s,
+			u"UPA تاۋۇشلىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.takr"_s),
-			$of(u"تاكرىچە رەقەملەر"_s)
+			"type.nu.takr"_s,
+			u"تاكرىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tvl"_s),
-			$of(u"تۇۋالۇچە"_s)
+			"tvl"_s,
+			u"تۇۋالۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tavt"_s),
-			$of(u"تايلاندچە-ۋىيېتنامچە"_s)
+			"Tavt"_s,
+			u"تايلاندچە-ۋىيېتنامچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("001"_s),
-			$of(u"دۇنيا"_s)
+			"001"_s,
+			u"دۇنيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("002"_s),
-			$of(u"ئافرىقا"_s)
+			"002"_s,
+			u"ئافرىقا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("003"_s),
-			$of(u"شىمالىي ئامېرىكا"_s)
+			"003"_s,
+			u"شىمالىي ئامېرىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RE"_s),
-			$of(u"رېيۇنىيون"_s)
+			"RE"_s,
+			u"رېيۇنىيون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("005"_s),
-			$of(u"جەنۇبىي ئامېرىكا"_s)
+			"005"_s,
+			u"جەنۇبىي ئامېرىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jbo"_s),
-			$of(u"لوجبانچە"_s)
+			"jbo"_s,
+			u"لوجبانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Rjng"_s),
-			$of(u"رېجاڭچە"_s)
+			"Rjng"_s,
+			u"رېجاڭچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("009"_s),
-			$of(u"ئوكيانىيە"_s)
+			"009"_s,
+			u"ئوكيانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of(u"رومىنىيە"_s)
+			"RO"_s,
+			u"رومىنىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RS"_s),
-			$of(u"سېربىيە"_s)
+			"RS"_s,
+			u"سېربىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mroo"_s),
-			$of(u"مروچە"_s)
+			"Mroo"_s,
+			u"مروچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RU"_s),
-			$of(u"رۇسىيە"_s)
+			"RU"_s,
+			u"رۇسىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RW"_s),
-			$of(u"رىۋاندا"_s)
+			"RW"_s,
+			u"رىۋاندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.talu"_s),
-			$of(u"يېڭى تاي-لەچە رەقەملەر"_s)
+			"type.nu.talu"_s,
+			u"يېڭى تاي-لەچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%METELKO"_s),
-			$of(u"مېتېلكو ئېلىپبەسى"_s)
+			"%%METELKO"_s,
+			u"مېتېلكو ئېلىپبەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ugar"_s),
-			$of(metaValue_uga)
+			"Ugar"_s,
+			metaValue_uga
 		}),
 		$$new($ObjectArray, {
-			$of("Mani"_s),
-			$of(u"مانەكېزەمچە"_s)
+			"Mani"_s,
+			u"مانەكېزەمچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khar"_s),
-			$of(u"كاروشتىچە"_s)
+			"Khar"_s,
+			u"كاروشتىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of(u"سەئۇدىي ئەرەبىستان"_s)
+			"SA"_s,
+			u"سەئۇدىي ئەرەبىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pon"_s),
-			$of(u"پوناپېئانچە"_s)
+			"pon"_s,
+			u"پوناپېئانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mand"_s),
-			$of(u"ماندائىكچە"_s)
+			"Mand"_s,
+			u"ماندائىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SB"_s),
-			$of(u"سولومون ئاراللىرى"_s)
+			"SB"_s,
+			u"سولومون ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("twq"_s),
-			$of(u"شىمالىي سوڭخايچە"_s)
+			"twq"_s,
+			u"شىمالىي سوڭخايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"غەربىي ئافرىقا"_s)
+			"011"_s,
+			u"غەربىي ئافرىقا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SC"_s),
-			$of(u"سېيشېل"_s)
+			"SC"_s,
+			u"سېيشېل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SD"_s),
-			$of(u"سۇدان"_s)
+			"SD"_s,
+			u"سۇدان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("013"_s),
-			$of(u"ئوتتۇرا ئامېرىكا"_s)
+			"013"_s,
+			u"ئوتتۇرا ئامېرىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SE"_s),
-			$of(u"شىۋېتسىيە"_s)
+			"SE"_s,
+			u"شىۋېتسىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"شەرقىي ئافرىقا"_s)
+			"014"_s,
+			u"شەرقىي ئافرىقا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arc"_s),
-			$of(u"ئارامۇچە"_s)
+			"arc"_s,
+			u"ئارامۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Loma"_s),
-			$of(u"لوماچە"_s)
+			"Loma"_s,
+			u"لوماچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"شىمالىي ئافرىقا"_s)
+			"015"_s,
+			u"شىمالىي ئافرىقا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SG"_s),
-			$of(u"سىنگاپور"_s)
+			"SG"_s,
+			u"سىنگاپور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SH"_s),
-			$of(u"ساينىت ھېلېنا"_s)
+			"SH"_s,
+			u"ساينىت ھېلېنا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("017"_s),
-			$of(u"ئوتتۇرا ئافرىقا"_s)
+			"017"_s,
+			u"ئوتتۇرا ئافرىقا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SI"_s),
-			$of(u"سىلوۋېنىيە"_s)
+			"SI"_s,
+			u"سىلوۋېنىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"جەنۇبىي ئافرىقا رايونى"_s)
+			"018"_s,
+			u"جەنۇبىي ئافرىقا رايونى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SJ"_s),
-			$of(u"سىۋالبارد ۋە يان مايېن"_s)
+			"SJ"_s,
+			u"سىۋالبارد ۋە يان مايېن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("019"_s),
-			$of(u"ئامېرىكا"_s)
+			"019"_s,
+			u"ئامېرىكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SK"_s),
-			$of(u"سىلوۋاكىيە"_s)
+			"SK"_s,
+			u"سىلوۋاكىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bamu"_s),
-			$of(u"بامۇم"_s)
+			"Bamu"_s,
+			u"بامۇم"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Wole"_s),
-			$of(u"ۋولىئاي"_s)
+			"Wole"_s,
+			u"ۋولىئاي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SL"_s),
-			$of(u"سېررالېئون"_s)
+			"SL"_s,
+			u"سېررالېئون"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SM"_s),
-			$of(u"سان مارىنو"_s)
+			"SM"_s,
+			u"سان مارىنو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SN"_s),
-			$of(u"سېنېگال"_s)
+			"SN"_s,
+			u"سېنېگال"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SO"_s),
-			$of(u"سومالى"_s)
+			"SO"_s,
+			u"سومالى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arn"_s),
-			$of(u"ماپۇدۇنگۇنچە"_s)
+			"arn"_s,
+			u"ماپۇدۇنگۇنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of(u"ئاراپاخوچە"_s)
+			"arp"_s,
+			u"ئاراپاخوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.taml"_s),
-			$of(u"ئەنئەنىۋى تامىلچە رەقەملەر"_s)
+			"type.nu.taml"_s,
+			u"ئەنئەنىۋى تامىلچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SR"_s),
-			$of(u"سۇرىنام"_s)
+			"SR"_s,
+			u"سۇرىنام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SS"_s),
-			$of(u"جەنۇبىي سۇدان"_s)
+			"SS"_s,
+			u"جەنۇبىي سۇدان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ST"_s),
-			$of(u"سان تومې ۋە پرىنسىپې"_s)
+			"ST"_s,
+			u"سان تومې ۋە پرىنسىپې"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SV"_s),
-			$of(u"سالۋادور"_s)
+			"SV"_s,
+			u"سالۋادور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SX"_s),
-			$of(u"سىنت مارتېن"_s)
+			"SX"_s,
+			u"سىنت مارتېن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SY"_s),
-			$of(u"سۇرىيە"_s)
+			"SY"_s,
+			u"سۇرىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yao"_s),
-			$of(u"ياۋچە"_s)
+			"yao"_s,
+			u"ياۋچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of(u"سىۋېزىلاند"_s)
+			"SZ"_s,
+			u"سىۋېزىلاند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arw"_s),
-			$of(u"ئاراۋاكچە"_s)
+			"arw"_s,
+			u"ئاراۋاكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yap"_s),
-			$of(u"ياپچە"_s)
+			"yap"_s,
+			u"ياپچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of(u"ترىستان داكۇنھا"_s)
+			"TA"_s,
+			u"ترىستان داكۇنھا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("asa"_s),
-			$of(u"ئاسۇچە"_s)
+			"asa"_s,
+			u"ئاسۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("021"_s),
-			$of(u"شىمالىي ئامېرىكا رايونى"_s)
+			"021"_s,
+			u"شىمالىي ئامېرىكا رايونى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TC"_s),
-			$of(u"تۇركس ۋە كايكوس ئاراللىرى"_s)
+			"TC"_s,
+			u"تۇركس ۋە كايكوس ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yav"_s),
-			$of(u"ياڭبەنچە"_s)
+			"yav"_s,
+			u"ياڭبەنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TD"_s),
-			$of(u"چاد"_s)
+			"TD"_s,
+			u"چاد"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TF"_s),
-			$of(u"فىرانسىيەنىڭ جەنۇبىي زېمىنى"_s)
+			"TF"_s,
+			u"فىرانسىيەنىڭ جەنۇبىي زېمىنى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TG"_s),
-			$of(u"توگو"_s)
+			"TG"_s,
+			u"توگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TH"_s),
-			$of(u"تايلاند"_s)
+			"TH"_s,
+			u"تايلاند"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TJ"_s),
-			$of(u"تاجىكىستان"_s)
+			"TJ"_s,
+			u"تاجىكىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("029"_s),
-			$of(u"كارىب دېڭىزى"_s)
+			"029"_s,
+			u"كارىب دېڭىزى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TK"_s),
-			$of(u"توكېلاۋ"_s)
+			"TK"_s,
+			u"توكېلاۋ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TL"_s),
-			$of(u"شەرقىي تىمور"_s)
+			"TL"_s,
+			u"شەرقىي تىمور"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ybb"_s),
-			$of(u"يېمباچە"_s)
+			"ybb"_s,
+			u"يېمباچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.searchjl"_s),
-			$of(u"كورىيەچە ئۈزۈك تاۋۇش بويىچە ئىزدەش"_s)
+			"type.co.searchjl"_s,
+			u"كورىيەچە ئۈزۈك تاۋۇش بويىچە ئىزدەش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TM"_s),
-			$of(u"تۈركمەنىستان"_s)
+			"TM"_s,
+			u"تۈركمەنىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BOONT"_s),
-			$of(u"بۇنتلىڭچە"_s)
+			"%%BOONT"_s,
+			u"بۇنتلىڭچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TN"_s),
-			$of(u"تۇنىس"_s)
+			"TN"_s,
+			u"تۇنىس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TO"_s),
-			$of(u"تونگا"_s)
+			"TO"_s,
+			u"تونگا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%NULIK"_s),
-			$of(u"زامانىۋى ۋولاپۇكچە"_s)
+			"%%NULIK"_s,
+			u"زامانىۋى ۋولاپۇكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TR"_s),
-			$of(u"تۈركىيە"_s)
+			"TR"_s,
+			u"تۈركىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TT"_s),
-			$of(u"تىرىنىداد ۋە توباگو"_s)
+			"TT"_s,
+			u"تىرىنىداد ۋە توباگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TV"_s),
-			$of(u"تۇۋالۇ"_s)
+			"TV"_s,
+			u"تۇۋالۇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TW"_s),
-			$of(u"تەيۋەن"_s)
+			"TW"_s,
+			u"تەيۋەن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ast"_s),
-			$of(u"ئاستۇرىيەچە"_s)
+			"ast"_s,
+			u"ئاستۇرىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orkh"_s),
-			$of(u"ئورخۇنچە"_s)
+			"Orkh"_s,
+			u"ئورخۇنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TZ"_s),
-			$of(u"تانزانىيە"_s)
+			"TZ"_s,
+			u"تانزانىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nmg"_s),
-			$of(u"كۋاسىيوچە"_s)
+			"nmg"_s,
+			u"كۋاسىيوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zzzz"_s),
-			$of(u"يوچۇن يېزىق"_s)
+			"Zzzz"_s,
+			u"يوچۇن يېزىق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sind"_s),
-			$of(u"كۇداۋادچە"_s)
+			"Sind"_s,
+			u"كۇداۋادچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UA"_s),
-			$of(u"ئۇكرائىنا"_s)
+			"UA"_s,
+			u"ئۇكرائىنا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rup"_s),
-			$of(u"ئارومانچە"_s)
+			"rup"_s,
+			u"ئارومانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of(u"شەرقىي ئاسىيا"_s)
+			"030"_s,
+			u"شەرقىي ئاسىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of(u"توۋاچە"_s)
+			"tyv"_s,
+			u"توۋاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw_CD"_s),
-			$of(u"كونگو سىۋالىچە"_s)
+			"sw_CD"_s,
+			u"كونگو سىۋالىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of(u"جەنۇبىي ئاسىيا"_s)
+			"034"_s,
+			u"جەنۇبىي ئاسىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hai"_s),
-			$of(u"ھەيدەچە"_s)
+			"hai"_s,
+			u"ھەيدەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of(u"شەرقىي جەنۇبىي ئاسىيا"_s)
+			"035"_s,
+			u"شەرقىي جەنۇبىي ئاسىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UG"_s),
-			$of(u"ئۇگاندا"_s)
+			"UG"_s,
+			u"ئۇگاندا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.pinyin"_s),
-			$of(u"پىنيىن تىزىش تەرتىپى"_s)
+			"type.co.pinyin"_s,
+			u"پىنيىن تىزىش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of(u"جەنۇبىي ياۋروپا"_s)
+			"039"_s,
+			u"جەنۇبىي ياۋروپا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sinh"_s),
-			$of(u"سىنخالاچە"_s)
+			"Sinh"_s,
+			u"سىنخالاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of(u"ئا ق ش تاشقى ئاراللىرى"_s)
+			"UM"_s,
+			u"ئا ق ش تاشقى ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("US"_s),
-			$of(u"ئامېرىكا قوشما ئىشتاتلىرى"_s)
+			"US"_s,
+			u"ئامېرىكا قوشما ئىشتاتلىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("haw"_s),
-			$of(u"ھاۋايچە"_s)
+			"haw"_s,
+			u"ھاۋايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1959ACAD"_s),
-			$of(u"ئاكادېمىك"_s)
+			"%%1959ACAD"_s,
+			u"ئاكادېمىك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.gb2312han"_s),
-			$of(u"ئاددىي خەنچە تىزىش تەرتىپى - GB2312"_s)
+			"type.co.gb2312han"_s,
+			u"ئاددىي خەنچە تىزىش تەرتىپى - GB2312"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UY"_s),
-			$of(u"ئۇرۇگۋاي"_s)
+			"UY"_s,
+			u"ئۇرۇگۋاي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UZ"_s),
-			$of(u"ئۆزبېكىستان"_s)
+			"UZ"_s,
+			u"ئۆزبېكىستان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzm"_s),
-			$of(u"مەركىزىي ئاتلاس تامازايتچە"_s)
+			"tzm"_s,
+			u"مەركىزىي ئاتلاس تامازايتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.stroke"_s),
-			$of(u"سىزىق بويىچە تەرتىپلەش"_s)
+			"type.co.stroke"_s,
+			u"سىزىق بويىچە تەرتىپلەش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nnh"_s),
-			$of(u"نگېمبۇنچە"_s)
+			"nnh"_s,
+			u"نگېمبۇنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VA"_s),
-			$of(u"ۋاتىكان"_s)
+			"VA"_s,
+			u"ۋاتىكان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pro"_s),
-			$of(u"قەدىمكى پروۋېنچالچە"_s)
+			"pro"_s,
+			u"قەدىمكى پروۋېنچالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VC"_s),
-			$of(u"ساينت ۋىنسېنت ۋە گىرېنادىنېس"_s)
+			"VC"_s,
+			u"ساينت ۋىنسېنت ۋە گىرېنادىنېس"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VE"_s),
-			$of(u"ۋېنېسۇئېلا"_s)
+			"VE"_s,
+			u"ۋېنېسۇئېلا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VG"_s),
-			$of(u"ئەنگلىيە ۋىرگىن ئاراللىرى"_s)
+			"VG"_s,
+			u"ئەنگلىيە ۋىرگىن ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VI"_s),
-			$of(u"ئا ق ش ۋىرگىن ئاراللىرى"_s)
+			"VI"_s,
+			u"ئا ق ش ۋىرگىن ئاراللىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VN"_s),
-			$of(u"ۋىيېتنام"_s)
+			"VN"_s,
+			u"ۋىيېتنام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("VU"_s),
-			$of(u"ۋانۇئاتۇ"_s)
+			"VU"_s,
+			u"ۋانۇئاتۇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nog"_s),
-			$of(u"نوغايچە"_s)
+			"nog"_s,
+			u"نوغايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwk"_s),
-			$of(u"رىۋاچە"_s)
+			"rwk"_s,
+			u"رىۋاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("non"_s),
-			$of(u"قەدىمكى نورۋېگچە"_s)
+			"non"_s,
+			u"قەدىمكى نورۋېگچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("053"_s),
-			$of(u"ئاۋسترالئاسىيا"_s)
+			"053"_s,
+			u"ئاۋسترالئاسىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%AREVMDA"_s),
-			$of(u"غەربىي ئەرمەنچە"_s)
+			"%%AREVMDA"_s,
+			u"غەربىي ئەرمەنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("054"_s),
-			$of(u"مېلانېسىيە"_s)
+			"054"_s,
+			u"مېلانېسىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WF"_s),
-			$of(u"ۋاللىس ۋە فۇتۇنا"_s)
+			"WF"_s,
+			u"ۋاللىس ۋە فۇتۇنا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.traditional"_s),
-			$of(u"ئەنئەنىۋى تەرتىپلەش تەرتىپى"_s)
+			"type.co.traditional"_s,
+			u"ئەنئەنىۋى تەرتىپلەش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("057"_s),
-			$of(u"مىكرونېزىيە رايونى"_s)
+			"057"_s,
+			u"مىكرونېزىيە رايونى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jgo"_s),
-			$of(u"نگومباچە"_s)
+			"jgo"_s,
+			u"نگومباچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%HEPBURN"_s),
-			$of(u"خېپبۇرن لاتىنلاشتۇرۇش"_s)
+			"%%HEPBURN"_s,
+			u"خېپبۇرن لاتىنلاشتۇرۇش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wae"_s),
-			$of(u"ۋالسېرچە"_s)
+			"wae"_s,
+			u"ۋالسېرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("WS"_s),
-			$of(u"ساموئا"_s)
+			"WS"_s,
+			u"ساموئا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bass"_s),
-			$of(u"باسسا"_s)
+			"Bass"_s,
+			u"باسسا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mtei"_s),
-			$of(u"مانىپۇرىچە رەقەملەر"_s)
+			"type.nu.mtei"_s,
+			u"مانىپۇرىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wal"_s),
-			$of(u"ۋولايتاچە"_s)
+			"wal"_s,
+			u"ۋولايتاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("was"_s),
-			$of(u"ۋاشوچە"_s)
+			"was"_s,
+			u"ۋاشوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("war"_s),
-			$of(u"ۋارايچە"_s)
+			"war"_s,
+			u"ۋارايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("awa"_s),
-			$of(u"ئاۋادىچە"_s)
+			"awa"_s,
+			u"ئاۋادىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("061"_s),
-			$of(u"پولىنىزىيە"_s)
+			"061"_s,
+			u"پولىنىزىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%KSCOR"_s),
-			$of(u"ئۆلچەملىك ئىملا قائىدىسى"_s)
+			"%%KSCOR"_s,
+			u"ئۆلچەملىك ئىملا قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("XK"_s),
-			$of(u"كوسوۋو"_s)
+			"XK"_s,
+			u"كوسوۋو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.brah"_s),
-			$of(u"بىراخمىچە رەقەملەر"_s)
+			"type.nu.brah"_s,
+			u"بىراخمىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gujr"_s),
-			$of(metaValue_gu)
+			"Gujr"_s,
+			metaValue_gu
 		}),
 		$$new($ObjectArray, {
-			$of("Zxxx"_s),
-			$of(u"يېزىلمىغان"_s)
+			"Zxxx"_s,
+			u"يېزىلمىغان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Olck"_s),
-			$of(u"ئول-چىكىچە"_s)
+			"Olck"_s,
+			u"ئول-چىكىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Batk"_s),
-			$of(u"باتاك"_s)
+			"Batk"_s,
+			u"باتاك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Blis"_s),
-			$of(metaValue_zbl)
+			"Blis"_s,
+			metaValue_zbl
 		}),
 		$$new($ObjectArray, {
-			$of("YE"_s),
-			$of(u"يەمەن"_s)
+			"YE"_s,
+			u"يەمەن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nqo"_s),
-			$of(metaValue_nqo)
+			"nqo"_s,
+			metaValue_nqo
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.standard"_s),
-			$of(u"ئۆلچەملىك تەرتىپلەش تەرتىپى"_s)
+			"type.co.standard"_s,
+			u"ئۆلچەملىك تەرتىپلەش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fan"_s),
-			$of(u"فاڭچە"_s)
+			"fan"_s,
+			u"فاڭچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%ROZAJ"_s),
-			$of(u"رېسىيان"_s)
+			"%%ROZAJ"_s,
+			u"رېسىيان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fat"_s),
-			$of(u"فانتىچە"_s)
+			"fat"_s,
+			u"فانتىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sgnw"_s),
-			$of(u"ئىشارەت تىلى"_s)
+			"Sgnw"_s,
+			u"ئىشارەت تىلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("YT"_s),
-			$of(u"مايوتى"_s)
+			"YT"_s,
+			u"مايوتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.cham"_s),
-			$of(u"چامچە رەقەملەر"_s)
+			"type.nu.cham"_s,
+			u"چامچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of(u"جەنۇبىي ئافرىقا"_s)
+			"ZA"_s,
+			u"جەنۇبىي ئافرىقا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.sund"_s),
-			$of(u"سۇنداچە رەقەملەر"_s)
+			"type.nu.sund"_s,
+			u"سۇنداچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Deva"_s),
-			$of(u"دېۋاناگارى"_s)
+			"Deva"_s,
+			u"دېۋاناگارى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.geor"_s),
-			$of(u"گىرۇزىنچە رەقەملەر"_s)
+			"type.nu.geor"_s,
+			u"گىرۇزىنچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.zhuyin"_s),
-			$of(u"ترانسكرىپسىيە تەرتىپلەش تەرتىپى"_s)
+			"type.co.zhuyin"_s,
+			u"ترانسكرىپسىيە تەرتىپلەش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hira"_s),
-			$of(u"خىراگانا"_s)
+			"Hira"_s,
+			u"خىراگانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZM"_s),
-			$of(u"زامبىيە"_s)
+			"ZM"_s,
+			u"زامبىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%PINYIN"_s),
-			$of(u"پىنيىن لاتىنلاشتۇرۇش"_s)
+			"%%PINYIN"_s,
+			u"پىنيىن لاتىنلاشتۇرۇش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZW"_s),
-			$of(u"زىمبابۋې"_s)
+			"ZW"_s,
+			u"زىمبابۋې"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZZ"_s),
-			$of(u"يوچۇن جاي"_s)
+			"ZZ"_s,
+			u"يوچۇن جاي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Runr"_s),
-			$of(u"رۇنىكچە"_s)
+			"Runr"_s,
+			u"رۇنىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.iso8601"_s),
-			$of(u"ISO-8601 يىلنامەسى"_s)
+			"type.ca.iso8601"_s,
+			u"ISO-8601 يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lol"_s),
-			$of(u"مونگوچە"_s)
+			"lol"_s,
+			u"مونگوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of(u"شىمالىي سوتوچە"_s)
+			"nso"_s,
+			u"شىمالىي سوتوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.telu"_s),
-			$of(u"تېلۇگۇچە رەقەملەر"_s)
+			"type.nu.telu"_s,
+			u"تېلۇگۇچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("loz"_s),
-			$of(u"لوزىچە"_s)
+			"loz"_s,
+			u"لوزىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkgb"_s),
-			$of(u"ناشىچە"_s)
+			"Nkgb"_s,
+			u"ناشىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jmc"_s),
-			$of(u"ماچامچە"_s)
+			"jmc"_s,
+			u"ماچامچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hansfin"_s),
-			$of(u"ئاددىي خەنچە پۇل-مۇئامىلە رەقەملەر"_s)
+			"type.nu.hansfin"_s,
+			u"ئاددىي خەنچە پۇل-مۇئامىلە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of(u"خىلىگاينونچە"_s)
+			"hil"_s,
+			u"خىلىگاينونچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arabext"_s),
-			$of(u"كېڭەيتىلگەن ئەرەبچە-ھىندىچە رەقەملەر"_s)
+			"type.nu.arabext"_s,
+			u"كېڭەيتىلگەن ئەرەبچە-ھىندىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nus"_s),
-			$of(u"مۇئېرچە"_s)
+			"nus"_s,
+			u"مۇئېرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dak"_s),
-			$of(u"داكوتاچە"_s)
+			"dak"_s,
+			u"داكوتاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.fullwide"_s),
-			$of(u"تولۇق كەڭلىكتىكى رەقەملەر"_s)
+			"type.nu.fullwide"_s,
+			u"تولۇق كەڭلىكتىكى رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hit"_s),
-			$of(u"خىتتىتچە"_s)
+			"hit"_s,
+			u"خىتتىتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dar"_s),
-			$of(u"دارگىۋاچە"_s)
+			"dar"_s,
+			u"دارگىۋاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dav"_s),
-			$of(u"تايتاچە"_s)
+			"dav"_s,
+			u"تايتاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Maya"_s),
-			$of(u"ماياچە تەسۋىرىي يېزىق"_s)
+			"Maya"_s,
+			u"ماياچە تەسۋىرىي يېزىق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Copt"_s),
-			$of(u"كوپتىك"_s)
+			"Copt"_s,
+			u"كوپتىك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nwc"_s),
-			$of(u"نېۋارچە"_s)
+			"nwc"_s,
+			u"نېۋارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("udm"_s),
-			$of(u"ئۇدمۇرتچە"_s)
+			"udm"_s,
+			u"ئۇدمۇرتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khmr"_s),
-			$of(u"كېخمېرچە"_s)
+			"Khmr"_s,
+			u"كېخمېرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-rgsa"_s),
-			$of(u"ئىسلام ھىجرىيە يىلنامەسى (سەئۇدى ئەرەبىستان ئاي)"_s)
+			"type.ca.islamic-rgsa"_s,
+			u"ئىسلام ھىجرىيە يىلنامەسى (سەئۇدى ئەرەبىستان ئاي)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Limb"_s),
-			$of(u"لىمبۇچە"_s)
+			"Limb"_s,
+			u"لىمبۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sad"_s),
-			$of(u"سانداۋېچە"_s)
+			"sad"_s,
+			u"سانداۋېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.roman"_s),
-			$of(u"رىم رەقەملەر"_s)
+			"type.nu.roman"_s,
+			u"رىم رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sah"_s),
-			$of(u"ساخاچە"_s)
+			"sah"_s,
+			u"ساخاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.shrd"_s),
-			$of(u"شاراداچە رەقەملەر"_s)
+			"type.nu.shrd"_s,
+			u"شاراداچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sam"_s),
-			$of(u"سامارىتانچە"_s)
+			"sam"_s,
+			u"سامارىتانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SCOUSE"_s),
-			$of(u"سىكاۋۇز"_s)
+			"%%SCOUSE"_s,
+			u"سىكاۋۇز"_s
 		}),
 		$$new($ObjectArray, {
-			$of("saq"_s),
-			$of(u"سامبۇرۇچە"_s)
+			"saq"_s,
+			u"سامبۇرۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sas"_s),
-			$of(u"ساساكچە"_s)
+			"sas"_s,
+			u"ساساكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sat"_s),
-			$of(u"سانتالچە"_s)
+			"sat"_s,
+			u"سانتالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tfng"_s),
-			$of(u"تىفىناغچە"_s)
+			"Tfng"_s,
+			u"تىفىناغچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpr"_s),
-			$of(u"ئىبرانى پارسچە"_s)
+			"jpr"_s,
+			u"ئىبرانى پارسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sba"_s),
-			$of(u"نگامبايچە"_s)
+			"sba"_s,
+			u"نگامبايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Guru"_s),
-			$of(u"گۇرمۇكىچە"_s)
+			"Guru"_s,
+			u"گۇرمۇكىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%ALUKU"_s),
-			$of(u"ئالۇكۇ شىۋەسى"_s)
+			"%%ALUKU"_s,
+			u"ئالۇكۇ شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lua"_s),
-			$of(u"لۇبا-لۇئاچە"_s)
+			"lua"_s,
+			u"لۇبا-لۇئاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sbp"_s),
-			$of(u"سانگۇچە"_s)
+			"sbp"_s,
+			u"سانگۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lui"_s),
-			$of(u"لۇيسېنگوچە"_s)
+			"lui"_s,
+			u"لۇيسېنگوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyn"_s),
-			$of(u"نىيانكولېچە"_s)
+			"nyn"_s,
+			u"نىيانكولېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nym"_s),
-			$of(u"نيامۋېزىچە"_s)
+			"nym"_s,
+			u"نيامۋېزىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lun"_s),
-			$of(u"لۇنداچە"_s)
+			"lun"_s,
+			u"لۇنداچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nyo"_s),
-			$of(u"نىئوروچە"_s)
+			"nyo"_s,
+			u"نىئوروچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luo"_s),
-			$of(u"لۇئوچە"_s)
+			"luo"_s,
+			u"لۇئوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hmn"_s),
-			$of(metaValue_hmn)
+			"hmn"_s,
+			metaValue_hmn
 		}),
 		$$new($ObjectArray, {
-			$of("fil"_s),
-			$of(u"فىلىپپىنچە"_s)
+			"fil"_s,
+			u"فىلىپپىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("del"_s),
-			$of(u"دېلاۋارېچە"_s)
+			"del"_s,
+			u"دېلاۋارېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of(u"مىزوچە"_s)
+			"lus"_s,
+			u"مىزوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bal"_s),
-			$of(u"بېلۇجىچە"_s)
+			"bal"_s,
+			u"بېلۇجىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("den"_s),
-			$of(u"سلاۋچە"_s)
+			"den"_s,
+			u"سلاۋچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uga"_s),
-			$of(metaValue_uga)
+			"uga"_s,
+			metaValue_uga
 		}),
 		$$new($ObjectArray, {
-			$of("ban"_s),
-			$of(u"بالىچە"_s)
+			"ban"_s,
+			u"بالىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("luy"_s),
-			$of(u"لۇياچە"_s)
+			"luy"_s,
+			u"لۇياچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of(u"باساچە"_s)
+			"bas"_s,
+			u"باساچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bax"_s),
-			$of(u"بامۇنچە"_s)
+			"bax"_s,
+			u"بامۇنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jrb"_s),
-			$of(u"ئىبرانى ئەرەبچە"_s)
+			"jrb"_s,
+			u"ئىبرانى ئەرەبچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_ES"_s),
-			$of(u"ياۋروپا ئىسپانچە"_s)
+			"es_ES"_s,
+			u"ياۋروپا ئىسپانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nzi"_s),
-			$of(u"نىزەماچە"_s)
+			"nzi"_s,
+			u"نىزەماچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sco"_s),
-			$of(u"شوتلاندىيەچە"_s)
+			"sco"_s,
+			u"شوتلاندىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scn"_s),
-			$of(u"سىتسىلىيەچە"_s)
+			"scn"_s,
+			u"سىتسىلىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aa"_s),
-			$of(u"ئافارچە"_s)
+			"aa"_s,
+			u"ئافارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ab"_s),
-			$of(u"ئابخازچە"_s)
+			"ab"_s,
+			u"ئابخازچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ae"_s),
-			$of(u"ئاۋېستاچە"_s)
+			"ae"_s,
+			u"ئاۋېستاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("af"_s),
-			$of(u"ئافرىكانچە"_s)
+			"af"_s,
+			u"ئافرىكانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ak"_s),
-			$of(u"ئاكانچە"_s)
+			"ak"_s,
+			u"ئاكانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.cakm"_s),
-			$of(u"چاكماچە رەقەملەر"_s)
+			"type.nu.cakm"_s,
+			u"چاكماچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bbj"_s),
-			$of(u"گومالاچە"_s)
+			"bbj"_s,
+			u"گومالاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("am"_s),
-			$of(u"ئامھارچە"_s)
+			"am"_s,
+			u"ئامھارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("an"_s),
-			$of(u"ئاراگونچە"_s)
+			"an"_s,
+			u"ئاراگونچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Arab"_s),
-			$of(u"ئەرەب"_s)
+			"Arab"_s,
+			u"ئەرەب"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SOLBA"_s),
-			$of(u"سىتولۋىززا/سولبىكا شىۋەسى"_s)
+			"%%SOLBA"_s,
+			u"سىتولۋىززا/سولبىكا شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Jpan"_s),
-			$of(metaValue_ja)
+			"Jpan"_s,
+			metaValue_ja
 		}),
 		$$new($ObjectArray, {
-			$of("ar"_s),
-			$of(u"ئەرەبچە"_s)
+			"ar"_s,
+			u"ئەرەبچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hrkt"_s),
-			$of(u"ياپونچە خىراگانا ياكى كاتاكانا"_s)
+			"Hrkt"_s,
+			u"ياپونچە خىراگانا ياكى كاتاكانا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("as"_s),
-			$of(u"ئاسامچە"_s)
+			"as"_s,
+			u"ئاسامچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lina"_s),
-			$of(u"سىزىقلىق A"_s)
+			"Lina"_s,
+			u"سىزىقلىق A"_s
 		}),
 		$$new($ObjectArray, {
-			$of("av"_s),
-			$of(u"ئاۋارچە"_s)
+			"av"_s,
+			u"ئاۋارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Linb"_s),
-			$of(u"سىزىقلىق B"_s)
+			"Linb"_s,
+			u"سىزىقلىق B"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ay"_s),
-			$of(u"ئايماراچە"_s)
+			"ay"_s,
+			u"ئايماراچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("az"_s),
-			$of(u"ئەزەربەيجانچە"_s)
+			"az"_s,
+			u"ئەزەربەيجانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Khoj"_s),
-			$of(u"خوجكىچە"_s)
+			"Khoj"_s,
+			u"خوجكىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%OSOJS"_s),
-			$of(u"ئوسېئاككو/ئوسوجەن شىۋەسى"_s)
+			"%%OSOJS"_s,
+			u"ئوسېئاككو/ئوسوجەن شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ba"_s),
-			$of(u"باشقىرتچە"_s)
+			"ba"_s,
+			u"باشقىرتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.unihan"_s),
-			$of(u"يان بۆلەك سىزىق بويچە تەرتىپلەش تەرتىپى"_s)
+			"type.co.unihan"_s,
+			u"يان بۆلەك سىزىق بويچە تەرتىپلەش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("be"_s),
-			$of(u"بېلارۇسچە"_s)
+			"be"_s,
+			u"بېلارۇسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bg"_s),
-			$of(u"بۇلغارچە"_s)
+			"bg"_s,
+			u"بۇلغارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bi"_s),
-			$of(u"بىسلاماچە"_s)
+			"bi"_s,
+			u"بىسلاماچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.java"_s),
-			$of(u"ياۋاچە رەقەملەر"_s)
+			"type.nu.java"_s,
+			u"ياۋاچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bm"_s),
-			$of(u"بامباراچە"_s)
+			"bm"_s,
+			u"بامباراچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bn"_s),
-			$of(u"بېنگالچە"_s)
+			"bn"_s,
+			u"بېنگالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bo"_s),
-			$of(metaValue_bo)
+			"bo"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("dgr"_s),
-			$of(u"دوگرىبچە"_s)
+			"dgr"_s,
+			u"دوگرىبچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("br"_s),
-			$of(u"بىرېتونچە"_s)
+			"br"_s,
+			u"بىرېتونچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bs"_s),
-			$of(u"بوسىنچە"_s)
+			"bs"_s,
+			u"بوسىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("see"_s),
-			$of(u"سېكنېكاچە"_s)
+			"see"_s,
+			u"سېكنېكاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mymr"_s),
-			$of(metaValue_my)
+			"Mymr"_s,
+			metaValue_my
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.laoo"_s),
-			$of(u"لائوسچە رەقەملەر"_s)
+			"type.nu.laoo"_s,
+			u"لائوسچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("seh"_s),
-			$of(u"سېناچە"_s)
+			"seh"_s,
+			u"سېناچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Nkoo"_s),
-			$of(metaValue_nqo)
+			"Nkoo"_s,
+			metaValue_nqo
 		}),
 		$$new($ObjectArray, {
-			$of("sel"_s),
-			$of(u"سېلكاپچە"_s)
+			"sel"_s,
+			u"سېلكاپچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ca"_s),
-			$of(u"كاتالانچە"_s)
+			"ca"_s,
+			u"كاتالانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ses"_s),
-			$of(u"شەرقىي سوڭخايچە"_s)
+			"ses"_s,
+			u"شەرقىي سوڭخايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ce"_s),
-			$of(u"چېچىنچە"_s)
+			"ce"_s,
+			u"چېچىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ch"_s),
-			$of(u"چامورروچە"_s)
+			"ch"_s,
+			u"چامورروچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%REVISED"_s),
-			$of(u"تۈزىتىلگەن ئىملا قائىدىسى"_s)
+			"%%REVISED"_s,
+			u"تۈزىتىلگەن ئىملا قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("co"_s),
-			$of(u"كورسۇچە"_s)
+			"co"_s,
+			u"كورسۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Orya"_s),
-			$of(u"ئورىياچە"_s)
+			"Orya"_s,
+			u"ئورىياچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cr"_s),
-			$of(u"كرىچە"_s)
+			"cr"_s,
+			u"كرىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cs"_s),
-			$of(u"چېخچە"_s)
+			"cs"_s,
+			u"چېخچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cu"_s),
-			$of(u"قەدىمكى سلاۋيانچە"_s)
+			"cu"_s,
+			u"قەدىمكى سلاۋيانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cv"_s),
-			$of(u"چۇۋاشچە"_s)
+			"cv"_s,
+			u"چۇۋاشچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cy"_s),
-			$of(u"ۋېلشچە"_s)
+			"cy"_s,
+			u"ۋېلشچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.ethi"_s),
-			$of(u"ئېفىيوپىيەچە رەقەملەر"_s)
+			"type.nu.ethi"_s,
+			u"ئېفىيوپىيەچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Yiii"_s),
-			$of(u"يىچە"_s)
+			"Yiii"_s,
+			u"يىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("da"_s),
-			$of(u"دانىشچە"_s)
+			"da"_s,
+			u"دانىشچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_PT"_s),
-			$of(u"ياۋروپا پورتۇگالچە"_s)
+			"pt_PT"_s,
+			u"ياۋروپا پورتۇگالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("de"_s),
-			$of(u"گېرمانچە"_s)
+			"de"_s,
+			u"گېرمانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bej"_s),
-			$of(u"بېجاچە"_s)
+			"bej"_s,
+			u"بېجاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("din"_s),
-			$of(u"دىنكاچە"_s)
+			"din"_s,
+			u"دىنكاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bugi"_s),
-			$of(u"بۇگى"_s)
+			"Bugi"_s,
+			u"بۇگى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bem"_s),
-			$of(u"بېمباچە"_s)
+			"bem"_s,
+			u"بېمباچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sga"_s),
-			$of(u"قەدىمكى ئىرېلاندچە"_s)
+			"sga"_s,
+			u"قەدىمكى ئىرېلاندچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mong"_s),
-			$of(u"موڭغۇلچە رەقەملەر"_s)
+			"type.nu.mong"_s,
+			u"موڭغۇلچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dv"_s),
-			$of(u"دىۋېخچە"_s)
+			"dv"_s,
+			u"دىۋېخچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_419"_s),
-			$of(u"لاتىن ئامېرىكا ئىسپانچە"_s)
+			"es_419"_s,
+			u"لاتىن ئامېرىكا ئىسپانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dz"_s),
-			$of(u"زوڭخاچە"_s)
+			"dz"_s,
+			u"زوڭخاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bez"_s),
-			$of(u"بېناچە"_s)
+			"bez"_s,
+			u"بېناچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.chinese"_s),
-			$of(u"دېھقانلار يىلنامەسى"_s)
+			"type.ca.chinese"_s,
+			u"دېھقانلار يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lisu"_s),
-			$of(u"فراسېرچە"_s)
+			"Lisu"_s,
+			u"فراسېرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dje"_s),
-			$of(u"زارماچە"_s)
+			"dje"_s,
+			u"زارماچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.grek"_s),
-			$of(u"گىرېكچە رەقەملەر"_s)
+			"type.nu.grek"_s,
+			u"گىرېكچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ee"_s),
-			$of(u"ئېۋېچە"_s)
+			"ee"_s,
+			u"ئېۋېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bfd"_s),
-			$of(u"بافۇتچە"_s)
+			"bfd"_s,
+			u"بافۇتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("el"_s),
-			$of(metaValue_el)
+			"el"_s,
+			metaValue_el
 		}),
 		$$new($ObjectArray, {
-			$of("en"_s),
-			$of(u"ئىنگلىزچە"_s)
+			"en"_s,
+			u"ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eo"_s),
-			$of(u"ئېسپرانتوچە"_s)
+			"eo"_s,
+			u"ئېسپرانتوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.big5han"_s),
-			$of(u"مۇرەككەپ خەنچە تىزىش تەرتىپى - Big5"_s)
+			"type.co.big5han"_s,
+			u"مۇرەككەپ خەنچە تىزىش تەرتىپى - Big5"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es"_s),
-			$of(u"ئىسپانچە"_s)
+			"es"_s,
+			u"ئىسپانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("et"_s),
-			$of(u"ئېستونچە"_s)
+			"et"_s,
+			u"ئېستونچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of(u"باسكىچە"_s)
+			"eu"_s,
+			u"باسكىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Buhd"_s),
-			$of(u"بۇخىت"_s)
+			"Buhd"_s,
+			u"بۇخىت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Samr"_s),
-			$of(u"سامارىچە"_s)
+			"Samr"_s,
+			u"سامارىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shi"_s),
-			$of(u"شىلخاچە"_s)
+			"shi"_s,
+			u"شىلخاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsb"_s),
-			$of(u"ئۈستۈن سوربچە"_s)
+			"hsb"_s,
+			u"ئۈستۈن سوربچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hani"_s),
-			$of(u"خەنچە"_s)
+			"Hani"_s,
+			u"خەنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shn"_s),
-			$of(u"شانچە"_s)
+			"shn"_s,
+			u"شانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hano"_s),
-			$of(u"خانۇنۇچە"_s)
+			"Hano"_s,
+			u"خانۇنۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fa"_s),
-			$of(u"پارسچە"_s)
+			"fa"_s,
+			u"پارسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hans"_s),
-			$of(metaValue_Hans)
+			"Hans"_s,
+			metaValue_Hans
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.latn"_s),
-			$of(u"غەربچە رەقەملەر"_s)
+			"type.nu.latn"_s,
+			u"غەربچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hant"_s),
-			$of(metaValue_Hant)
+			"Hant"_s,
+			metaValue_Hant
 		}),
 		$$new($ObjectArray, {
-			$of("ff"_s),
-			$of(u"فۇلاھچە"_s)
+			"ff"_s,
+			u"فۇلاھچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shu"_s),
-			$of(u"چاد ئەرەبچە"_s)
+			"shu"_s,
+			u"چاد ئەرەبچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fi"_s),
-			$of(u"فىنچە"_s)
+			"fi"_s,
+			u"فىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fj"_s),
-			$of(u"فىجىچە"_s)
+			"fj"_s,
+			u"فىجىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fon"_s),
-			$of(u"فونچە"_s)
+			"fon"_s,
+			u"فونچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yue"_s),
-			$of(u"گۇاڭدوڭچە"_s)
+			"yue"_s,
+			u"گۇاڭدوڭچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fo"_s),
-			$of(u"فائېروچە"_s)
+			"fo"_s,
+			u"فائېروچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("umb"_s),
-			$of(u"ئۇمبۇندۇچە"_s)
+			"umb"_s,
+			u"ئۇمبۇندۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fr"_s),
-			$of(u"فىرانسۇزچە"_s)
+			"fr"_s,
+			u"فىرانسۇزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sid"_s),
-			$of(u"سىداموچە"_s)
+			"sid"_s,
+			u"سىداموچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fy"_s),
-			$of(u"غەربىي فىرسچە"_s)
+			"fy"_s,
+			u"غەربىي فىرسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ga"_s),
-			$of(u"ئىرېلاندچە"_s)
+			"ga"_s,
+			u"ئىرېلاندچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gd"_s),
-			$of(u"شوتلاندىيە گايلچىسى"_s)
+			"gd"_s,
+			u"شوتلاندىيە گايلچىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gl"_s),
-			$of(u"گالىچە"_s)
+			"gl"_s,
+			u"گالىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gn"_s),
-			$of(u"گۇئارانىچە"_s)
+			"gn"_s,
+			u"گۇئارانىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of(u"بوجپۇرىچە"_s)
+			"bho"_s,
+			u"بوجپۇرىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("und"_s),
-			$of(u"يوچۇن تىل"_s)
+			"und"_s,
+			u"يوچۇن تىل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.ethiopic-amete-alem"_s),
-			$of(u"ئېفىيوپىيە ئامېتې ئالېم يىلنامەسى"_s)
+			"type.ca.ethiopic-amete-alem"_s,
+			u"ئېفىيوپىيە ئامېتې ئالېم يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gu"_s),
-			$of(metaValue_gu)
+			"gu"_s,
+			metaValue_gu
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.islamic-tbla"_s),
-			$of(u"ئىسلام ھىجرىيە يىلنامەسى (ئاسترونومىيە دەۋرى)"_s)
+			"type.ca.islamic-tbla"_s,
+			u"ئىسلام ھىجرىيە يىلنامەسى (ئاسترونومىيە دەۋرى)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gv"_s),
-			$of(u"مانچە"_s)
+			"gv"_s,
+			u"مانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.osma"_s),
-			$of(u"ئوسمانىيە رەقەملەر"_s)
+			"type.nu.osma"_s,
+			u"ئوسمانىيە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ha"_s),
-			$of(u"خائۇساچە"_s)
+			"ha"_s,
+			u"خائۇساچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("he"_s),
-			$of(u"ئىبرانىيچە"_s)
+			"he"_s,
+			u"ئىبرانىيچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hi"_s),
-			$of(u"ھىندىچە"_s)
+			"hi"_s,
+			u"ھىندىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hup"_s),
-			$of(u"خۇپاچە"_s)
+			"hup"_s,
+			u"خۇپاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bik"_s),
-			$of(u"بىكولچە"_s)
+			"bik"_s,
+			u"بىكولچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bin"_s),
-			$of(u"بىنىچە"_s)
+			"bin"_s,
+			u"بىنىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ho"_s),
-			$of(u"ھىرى موتۇچە"_s)
+			"ho"_s,
+			u"ھىرى موتۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hr"_s),
-			$of(u"كىرودىچە"_s)
+			"hr"_s,
+			u"كىرودىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ht"_s),
-			$of(u"ھايتىچە"_s)
+			"ht"_s,
+			u"ھايتىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hu"_s),
-			$of(u"ۋېنگىرچە"_s)
+			"hu"_s,
+			u"ۋېنگىرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hy"_s),
-			$of(u"ئەرمېنچە"_s)
+			"hy"_s,
+			u"ئەرمېنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hz"_s),
-			$of(u"خېرېروچە"_s)
+			"hz"_s,
+			u"خېرېروچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%FONIPA"_s),
-			$of(u"IPA تاۋۇشلىرى"_s)
+			"%%FONIPA"_s,
+			u"IPA تاۋۇشلىرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ia"_s),
-			$of(u"ئارىلىق تىل"_s)
+			"ia"_s,
+			u"ئارىلىق تىل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("id"_s),
-			$of(u"ھىندونېزچە"_s)
+			"id"_s,
+			u"ھىندونېزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tibt"_s),
-			$of(u"تىبەتچە رەقەملەر"_s)
+			"type.nu.tibt"_s,
+			u"تىبەتچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ie"_s),
-			$of(u"ئىنتىرلىڭچە"_s)
+			"ie"_s,
+			u"ئىنتىرلىڭچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ig"_s),
-			$of(u"ئىگبوچە"_s)
+			"ig"_s,
+			u"ئىگبوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ii"_s),
-			$of(u"يىچە (سىچۈەن)"_s)
+			"ii"_s,
+			u"يىچە (سىچۈەن)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frm"_s),
-			$of(u"ئوتتۇرا ئەسىر فىرانسۇزچە"_s)
+			"frm"_s,
+			u"ئوتتۇرا ئەسىر فىرانسۇزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ik"_s),
-			$of(u"ئىنۇپىكچە"_s)
+			"ik"_s,
+			u"ئىنۇپىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fro"_s),
-			$of(u"قەدىمكى فىرانسۇزچە"_s)
+			"fro"_s,
+			u"قەدىمكى فىرانسۇزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("io"_s),
-			$of(u"ئىدوچە"_s)
+			"io"_s,
+			u"ئىدوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frs"_s),
-			$of(u"شەرقى فىرىزيەچە"_s)
+			"frs"_s,
+			u"شەرقى فىرىزيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frr"_s),
-			$of(u"شىمالى فىرىزيەچە"_s)
+			"frr"_s,
+			u"شىمالى فىرىزيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("is"_s),
-			$of(u"ئىسلاندچە"_s)
+			"is"_s,
+			u"ئىسلاندچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("it"_s),
-			$of(u"ئىتالىيانچە"_s)
+			"it"_s,
+			u"ئىتالىيانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iu"_s),
-			$of(u"ئىنۇكتىتۇتچە"_s)
+			"iu"_s,
+			u"ئىنۇكتىتۇتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ja"_s),
-			$of(metaValue_ja)
+			"ja"_s,
+			metaValue_ja
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of(u"مالايامچە"_s)
+			"Mlym"_s,
+			u"مالايامچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sarb"_s),
-			$of(u"قەدىمكى جەنۇبى ئەرەبچە"_s)
+			"Sarb"_s,
+			u"قەدىمكى جەنۇبى ئەرەبچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sara"_s),
-			$of(u"ساراتىچە"_s)
+			"Sara"_s,
+			u"ساراتىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("doi"_s),
-			$of(u"دوگرىچە"_s)
+			"doi"_s,
+			u"دوگرىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.lepc"_s),
-			$of(u"لەپچاچە رەقەملەر"_s)
+			"type.nu.lepc"_s,
+			u"لەپچاچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bkm"_s),
-			$of(u"كومچە"_s)
+			"bkm"_s,
+			u"كومچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sma"_s),
-			$of(u"جەنۇبىي سامىچە"_s)
+			"sma"_s,
+			u"جەنۇبىي سامىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jv"_s),
-			$of(metaValue_jv)
+			"jv"_s,
+			metaValue_jv
 		}),
 		$$new($ObjectArray, {
-			$of("Shaw"_s),
-			$of(u"شاۋىيانچە"_s)
+			"Shaw"_s,
+			u"شاۋىيانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of(u"مادۇرېسچە"_s)
+			"mad"_s,
+			u"مادۇرېسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smj"_s),
-			$of(u"لۇلې سامىچە"_s)
+			"smj"_s,
+			u"لۇلې سامىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mag"_s),
-			$of(u"ماگاخىچە"_s)
+			"mag"_s,
+			u"ماگاخىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("maf"_s),
-			$of(u"مافاچە"_s)
+			"maf"_s,
+			u"مافاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mai"_s),
-			$of(u"مايتىلىچە"_s)
+			"mai"_s,
+			u"مايتىلىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("smn"_s),
-			$of(u"ئىنارى سامىچە"_s)
+			"smn"_s,
+			u"ئىنارى سامىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ka"_s),
-			$of(u"گىرۇزچە"_s)
+			"ka"_s,
+			u"گىرۇزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of(u"سىكسىكاچە"_s)
+			"bla"_s,
+			u"سىكسىكاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mak"_s),
-			$of(u"ماكاسارچە"_s)
+			"mak"_s,
+			u"ماكاسارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sms"_s),
-			$of(u"سكولت سامىچە"_s)
+			"sms"_s,
+			u"سكولت سامىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("man"_s),
-			$of(u"ماندىنگوچە"_s)
+			"man"_s,
+			u"ماندىنگوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kg"_s),
-			$of(u"كونگوچە"_s)
+			"kg"_s,
+			u"كونگوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Goth"_s),
-			$of(metaValue_got)
+			"Goth"_s,
+			metaValue_got
 		}),
 		$$new($ObjectArray, {
-			$of("ki"_s),
-			$of(u"كىكۇيۇچە"_s)
+			"ki"_s,
+			u"كىكۇيۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mas"_s),
-			$of(u"ماسايچە"_s)
+			"mas"_s,
+			u"ماسايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kj"_s),
-			$of(u"كىۋانياماچە"_s)
+			"kj"_s,
+			u"كىۋانياماچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kk"_s),
-			$of(u"قازاقچە"_s)
+			"kk"_s,
+			u"قازاقچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kl"_s),
-			$of(u"گىرېنلاندچە"_s)
+			"kl"_s,
+			u"گىرېنلاندچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("km"_s),
-			$of(u"كىمېرچە"_s)
+			"km"_s,
+			u"كىمېرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kn"_s),
-			$of(metaValue_kn)
+			"kn"_s,
+			metaValue_kn
 		}),
 		$$new($ObjectArray, {
-			$of("ko"_s),
-			$of(metaValue_ko)
+			"ko"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("kr"_s),
-			$of(u"كانۇرچە"_s)
+			"kr"_s,
+			u"كانۇرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ks"_s),
-			$of(u"كەشمىرچە"_s)
+			"ks"_s,
+			u"كەشمىرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cirt"_s),
-			$of(u"كىرسچە"_s)
+			"Cirt"_s,
+			u"كىرسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lepc"_s),
-			$of(u"لەپچاچە"_s)
+			"Lepc"_s,
+			u"لەپچاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Avst"_s),
-			$of(u"ئاۋېستا"_s)
+			"Avst"_s,
+			u"ئاۋېستا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ku"_s),
-			$of(u"كۇردچە"_s)
+			"ku"_s,
+			u"كۇردچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kv"_s),
-			$of(u"كومىچە"_s)
+			"kv"_s,
+			u"كومىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kw"_s),
-			$of(u"كورنىشچە"_s)
+			"kw"_s,
+			u"كورنىشچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ky"_s),
-			$of(u"قىرغىزچە"_s)
+			"ky"_s,
+			u"قىرغىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("snk"_s),
-			$of(u"سونىنكەچە"_s)
+			"snk"_s,
+			u"سونىنكەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("la"_s),
-			$of(metaValue_la)
+			"la"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("lb"_s),
-			$of(u"لىيۇكسېمبۇرگچە"_s)
+			"lb"_s,
+			u"لىيۇكسېمبۇرگچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mlym"_s),
-			$of(u"مالايالامچە رەقەملەر"_s)
+			"type.nu.mlym"_s,
+			u"مالايالامچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lg"_s),
-			$of(u"گانداچە"_s)
+			"lg"_s,
+			u"گانداچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Roro"_s),
-			$of(u"روڭگوروڭگو"_s)
+			"Roro"_s,
+			u"روڭگوروڭگو"_s
 		}),
 		$$new($ObjectArray, {
-			$of("li"_s),
-			$of(u"لىمبۇرگچە"_s)
+			"li"_s,
+			u"لىمبۇرگچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tibt"_s),
-			$of(metaValue_bo)
+			"Tibt"_s,
+			metaValue_bo
 		}),
 		$$new($ObjectArray, {
-			$of("ln"_s),
-			$of(u"لىنگالاچە"_s)
+			"ln"_s,
+			u"لىنگالاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("fur"_s),
-			$of(u"فىرىئۇلىچە"_s)
+			"fur"_s,
+			u"فىرىئۇلىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of(metaValue_lo)
+			"lo"_s,
+			metaValue_lo
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.lana"_s),
-			$of(u"تاي تامچە خورا رەقەملەر"_s)
+			"type.nu.lana"_s,
+			u"تاي تامچە خورا رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"لىتۋانىچە"_s)
+			"lt"_s,
+			u"لىتۋانىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lu"_s),
-			$of(u"لۇبا-كاتانگاچە"_s)
+			"lu"_s,
+			u"لۇبا-كاتانگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lv"_s),
-			$of(u"لاتچە"_s)
+			"lv"_s,
+			u"لاتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sog"_s),
-			$of(u"سوغدىچە"_s)
+			"sog"_s,
+			u"سوغدىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ListCompositionPattern"_s),
-			$of(u"{0}، {1}"_s)
+			"ListCompositionPattern"_s,
+			u"{0}، {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mg"_s),
-			$of(u"مالاگاسچە"_s)
+			"mg"_s,
+			u"مالاگاسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mh"_s),
-			$of(u"مارشالچە"_s)
+			"mh"_s,
+			u"مارشالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.ducet"_s),
-			$of(u"كۆڭۈلدىكى يۇنىكود تىزىش تەرتىپى"_s)
+			"type.co.ducet"_s,
+			u"كۆڭۈلدىكى يۇنىكود تىزىش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mi"_s),
-			$of(u"ماۋرىچە"_s)
+			"mi"_s,
+			u"ماۋرىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mk"_s),
-			$of(u"ماكېدونچە"_s)
+			"mk"_s,
+			u"ماكېدونچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ml"_s),
-			$of(u"مالايالامچە"_s)
+			"ml"_s,
+			u"مالايالامچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mn"_s),
-			$of(metaValue_mn)
+			"mn"_s,
+			metaValue_mn
 		}),
 		$$new($ObjectArray, {
-			$of("mr"_s),
-			$of(u"ماراتىچە"_s)
+			"mr"_s,
+			u"ماراتىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ms"_s),
-			$of(u"مالايچە"_s)
+			"ms"_s,
+			u"مالايچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mt"_s),
-			$of(u"مالتاچە"_s)
+			"mt"_s,
+			u"مالتاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("my"_s),
-			$of(metaValue_my)
+			"my"_s,
+			metaValue_my
 		}),
 		$$new($ObjectArray, {
-			$of("Saur"_s),
-			$of(u"سائۇراشتىراچە"_s)
+			"Saur"_s,
+			u"سائۇراشتىراچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armn"_s),
-			$of(u"ئەرمەن"_s)
+			"Armn"_s,
+			u"ئەرمەن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdf"_s),
-			$of(u"موكشاچە"_s)
+			"mdf"_s,
+			u"موكشاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mde"_s),
-			$of(u"ماباچە"_s)
+			"mde"_s,
+			u"ماباچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dsb"_s),
-			$of(u"تۆۋەن سوربچە"_s)
+			"dsb"_s,
+			u"تۆۋەن سوربچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Armi"_s),
-			$of(u"خان جەمەتى ئارامۇ"_s)
+			"Armi"_s,
+			u"خان جەمەتى ئارامۇ"_s
 		}),
 		$$new($ObjectArray, {
-			$of("na"_s),
-			$of(u"ناۋرۇچە"_s)
+			"na"_s,
+			u"ناۋرۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.search"_s),
-			$of(u"ئادەتتىكى ئىزدەش"_s)
+			"type.co.search"_s,
+			u"ئادەتتىكى ئىزدەش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nb"_s),
-			$of(u"نورۋىگىيە بوكمالچە"_s)
+			"nb"_s,
+			u"نورۋىگىيە بوكمالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nd"_s),
-			$of(u"شىمالى ندەبەلەچە"_s)
+			"nd"_s,
+			u"شىمالى ندەبەلەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ne"_s),
-			$of(u"نېپالچە"_s)
+			"ne"_s,
+			u"نېپالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ng"_s),
-			$of(u"ندونگاچە"_s)
+			"ng"_s,
+			u"ندونگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mdr"_s),
-			$of(u"ماندارچە"_s)
+			"mdr"_s,
+			u"ماندارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nl"_s),
-			$of(u"گوللاندچە"_s)
+			"nl"_s,
+			u"گوللاندچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nn"_s),
-			$of(u"يېڭى نورۋېگچە"_s)
+			"nn"_s,
+			u"يېڭى نورۋېگچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("no"_s),
-			$of(u"نورۋېگچە"_s)
+			"no"_s,
+			u"نورۋېگچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of(u"جەنۇبى ندەبەلەچە"_s)
+			"nr"_s,
+			u"جەنۇبى ندەبەلەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nv"_s),
-			$of(u"ناۋاخوچە"_s)
+			"nv"_s,
+			u"ناۋاخوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaa"_s),
-			$of(u"قارا-قالپاقچە"_s)
+			"kaa"_s,
+			u"قارا-قالپاقچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ny"_s),
-			$of(u"نىيانجاچە"_s)
+			"ny"_s,
+			u"نىيانجاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kac"_s),
-			$of(u"كاچىنچە"_s)
+			"kac"_s,
+			u"كاچىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kab"_s),
-			$of(u"كابىلېچە"_s)
+			"kab"_s,
+			u"كابىلېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%POLYTON"_s),
-			$of(u"پولىتونىك"_s)
+			"%%POLYTON"_s,
+			u"پولىتونىك"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oc"_s),
-			$of(u"ئوكسىتچە"_s)
+			"oc"_s,
+			u"ئوكسىتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaj"_s),
-			$of(u"جۇچە"_s)
+			"kaj"_s,
+			u"جۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kam"_s),
-			$of(u"كامباچە"_s)
+			"kam"_s,
+			u"كامباچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("men"_s),
-			$of(metaValue_men)
+			"men"_s,
+			metaValue_men
 		}),
 		$$new($ObjectArray, {
-			$of("%%EMODENG"_s),
-			$of(u"دەسلەپكى مەزگىلدىكى زامانىۋى ئىنگلىزچە"_s)
+			"%%EMODENG"_s,
+			u"دەسلەپكى مەزگىلدىكى زامانىۋى ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("oj"_s),
-			$of(u"ئوجىبۋاچە"_s)
+			"oj"_s,
+			u"ئوجىبۋاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mer"_s),
-			$of(u"مېرۇچە"_s)
+			"mer"_s,
+			u"مېرۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.armn"_s),
-			$of(u"ئەرمەنچە رەقەملەر"_s)
+			"type.nu.armn"_s,
+			u"ئەرمەنچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("om"_s),
-			$of(u"ئوروموچە"_s)
+			"om"_s,
+			u"ئوروموچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kaw"_s),
-			$of(u"كاۋىچە"_s)
+			"kaw"_s,
+			u"كاۋىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("or"_s),
-			$of(u"ئودىياچە"_s)
+			"or"_s,
+			u"ئودىياچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("os"_s),
-			$of(u"ئوسسېتچەچە"_s)
+			"os"_s,
+			u"ئوسسېتچەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%ALALC97"_s),
-			$of(u"ALA-LC لاتىنلاشتۇرۇش، 1997 نەشرى"_s)
+			"%%ALALC97"_s,
+			u"ALA-LC لاتىنلاشتۇرۇش، 1997 نەشرى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of(u"كاباردەيچە"_s)
+			"kbd"_s,
+			u"كاباردەيچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mfe"_s),
-			$of(u"مورىسيېنچە"_s)
+			"mfe"_s,
+			u"مورىسيېنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srn"_s),
-			$of(u"سىرانان-توڭوچە"_s)
+			"srn"_s,
+			u"سىرانان-توڭوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"پەنجابچە"_s)
+			"pa"_s,
+			u"پەنجابچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dua"_s),
-			$of(u"دۇئالاچە"_s)
+			"dua"_s,
+			u"دۇئالاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("srr"_s),
-			$of(u"سېرېرچە"_s)
+			"srr"_s,
+			u"سېرېرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%LIPAW"_s),
-			$of(u"رېسىياننىڭ لىپوۋاز شىۋەسى"_s)
+			"%%LIPAW"_s,
+			u"رېسىياننىڭ لىپوۋاز شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbl"_s),
-			$of(u"كانېمبۇچە"_s)
+			"kbl"_s,
+			u"كانېمبۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pi"_s),
-			$of(u"پالىچە"_s)
+			"pi"_s,
+			u"پالىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pl"_s),
-			$of(u"پولەكچە"_s)
+			"pl"_s,
+			u"پولەكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dum"_s),
-			$of(u"ئوتتۇرا گوللاندىيەچە"_s)
+			"dum"_s,
+			u"ئوتتۇرا گوللاندىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.saur"_s),
-			$of(u"سائۇراشتىراچە رەقەملەر"_s)
+			"type.nu.saur"_s,
+			u"سائۇراشتىراچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.dangi"_s),
-			$of(u"دانگى يىلنامەسى"_s)
+			"type.ca.dangi"_s,
+			u"دانگى يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ps"_s),
-			$of(u"پۇشتۇچە"_s)
+			"ps"_s,
+			u"پۇشتۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt"_s),
-			$of(u"پورتۇگالچە"_s)
+			"pt"_s,
+			u"پورتۇگالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"ئوتتۇرا ئەسىر ئىرېلاندچە"_s)
+			"mga"_s,
+			u"ئوتتۇرا ئەسىر ئىرېلاندچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.co"_s),
-			$of(u"تەرتىپلەش تەرتىپى"_s)
+			"key.co"_s,
+			u"تەرتىپلەش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pt_BR"_s),
-			$of(u"بىرازىلىيە پورتۇگالچە"_s)
+			"pt_BR"_s,
+			u"بىرازىلىيە پورتۇگالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BOHORIC"_s),
-			$of(u"بوخورىچ ئېلىپبەسى"_s)
+			"%%BOHORIC"_s,
+			u"بوخورىچ ئېلىپبەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kcg"_s),
-			$of(u"تياپچە"_s)
+			"kcg"_s,
+			u"تياپچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mgh"_s),
-			$of(u"ماكۇۋاچە"_s)
+			"mgh"_s,
+			u"ماكۇۋاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.nkoo"_s),
-			$of(u"نىكوچە رەقەملەر"_s)
+			"type.nu.nkoo"_s,
+			u"نىكوچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bra"_s),
-			$of(u"بىراجچە"_s)
+			"bra"_s,
+			u"بىراجچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.ca"_s),
-			$of(u"يىلنامە"_s)
+			"key.ca"_s,
+			u"يىلنامە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Laoo"_s),
-			$of(metaValue_lo)
+			"Laoo"_s,
+			metaValue_lo
 		}),
 		$$new($ObjectArray, {
-			$of("mgo"_s),
-			$of(u"مېتاچە’"_s)
+			"mgo"_s,
+			u"مېتاچە’"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ssy"_s),
-			$of(metaValue_ssy)
+			"ssy"_s,
+			metaValue_ssy
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymr"_s),
-			$of(u"بېرماچە رەقەملەر"_s)
+			"type.nu.mymr"_s,
+			u"بېرماچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("qu"_s),
-			$of(u"كېچىۋاچە"_s)
+			"qu"_s,
+			u"كېچىۋاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zap"_s),
-			$of(u"زاپوتېكچە"_s)
+			"zap"_s,
+			u"زاپوتېكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("brx"_s),
-			$of(u"بودوچە"_s)
+			"brx"_s,
+			u"بودوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lana"_s),
-			$of(u"لانناچە"_s)
+			"Lana"_s,
+			u"لانناچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kde"_s),
-			$of(u"ماكوندېچە"_s)
+			"kde"_s,
+			u"ماكوندېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Ethi"_s),
-			$of(u"ئېفىيوپىيەچە"_s)
+			"Ethi"_s,
+			u"ئېفىيوپىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rm"_s),
-			$of(u"رومانسچە"_s)
+			"rm"_s,
+			u"رومانسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rn"_s),
-			$of(u"رۇندىچە"_s)
+			"rn"_s,
+			u"رۇندىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.cu"_s),
-			$of(u"پۇل"_s)
+			"key.cu"_s,
+			u"پۇل"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ro"_s),
-			$of(u"رومىنچە"_s)
+			"ro"_s,
+			u"رومىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%SAAHO"_s),
-			$of(metaValue_ssy)
+			"%%SAAHO"_s,
+			metaValue_ssy
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.orya"_s),
-			$of(u"ئورىياچە رەقەملەر"_s)
+			"type.nu.orya"_s,
+			u"ئورىياچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hanidec"_s),
-			$of(u"خەنچە ئونلۇق رەقەملەر"_s)
+			"type.nu.hanidec"_s,
+			u"خەنچە ئونلۇق رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ru"_s),
-			$of(u"رۇسچە"_s)
+			"ru"_s,
+			u"رۇسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bss"_s),
-			$of(u"ئاكۇسچە"_s)
+			"bss"_s,
+			u"ئاكۇسچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zbl"_s),
-			$of(metaValue_zbl)
+			"zbl"_s,
+			metaValue_zbl
 		}),
 		$$new($ObjectArray, {
-			$of("rw"_s),
-			$of(u"كېنىيەرىۋانداچە"_s)
+			"rw"_s,
+			u"كېنىيەرىۋانداچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kea"_s),
-			$of(u"كابۇۋېردىيانچە"_s)
+			"kea"_s,
+			u"كابۇۋېردىيانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mic"_s),
-			$of(u"مىكماكچە"_s)
+			"mic"_s,
+			u"مىكماكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("suk"_s),
-			$of(u"سۇكۇماچە"_s)
+			"suk"_s,
+			u"سۇكۇماچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_AU"_s),
-			$of(u"ئاۋسترالىيە ئىنگلىزچە"_s)
+			"en_AU"_s,
+			u"ئاۋسترالىيە ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dupl"_s),
-			$of(u"دۇپلويان تېز خاتىرىلەش"_s)
+			"Dupl"_s,
+			u"دۇپلويان تېز خاتىرىلەش"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sa"_s),
-			$of(u"سانسكرىتچە"_s)
+			"sa"_s,
+			u"سانسكرىتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%UCCOR"_s),
-			$of(u"بىرلىككە كەلگەن ئىملا قائىدىسى"_s)
+			"%%UCCOR"_s,
+			u"بىرلىككە كەلگەن ئىملا قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sc"_s),
-			$of(u"ساردىنىيەچە"_s)
+			"sc"_s,
+			u"ساردىنىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sus"_s),
-			$of(u"سۇسۇچە"_s)
+			"sus"_s,
+			u"سۇسۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sd"_s),
-			$of(u"سىندىچە"_s)
+			"sd"_s,
+			u"سىندىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("se"_s),
-			$of(u"شىمالىي سامىچە"_s)
+			"se"_s,
+			u"شىمالىي سامىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("min"_s),
-			$of(u"مىناڭكابائۇچە"_s)
+			"min"_s,
+			u"مىناڭكابائۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sg"_s),
-			$of(u"سانگوچە"_s)
+			"sg"_s,
+			u"سانگوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sh"_s),
-			$of(u"سېرب-كرودىيەچە"_s)
+			"sh"_s,
+			u"سېرب-كرودىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("si"_s),
-			$of(u"سىنگالچە"_s)
+			"si"_s,
+			u"سىنگالچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sux"_s),
-			$of(u"سۈمەرچە"_s)
+			"sux"_s,
+			u"سۈمەرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sk"_s),
-			$of(u"سىلوۋاكچە"_s)
+			"sk"_s,
+			u"سىلوۋاكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sl"_s),
-			$of(u"سىلوۋېنچە"_s)
+			"sl"_s,
+			u"سىلوۋېنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Gran"_s),
-			$of(u"گىرانتاچە"_s)
+			"Gran"_s,
+			u"گىرانتاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sm"_s),
-			$of(u"ساموئاچە"_s)
+			"sm"_s,
+			u"ساموئاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sn"_s),
-			$of(u"شوناچە"_s)
+			"sn"_s,
+			u"شوناچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("so"_s),
-			$of(u"سومالىچە"_s)
+			"so"_s,
+			u"سومالىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.arab"_s),
-			$of(u"ئەرەبچە-ھىندىچە رەقەملەر"_s)
+			"type.nu.arab"_s,
+			u"ئەرەبچە-ھىندىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sq"_s),
-			$of(u"ئالبانچە"_s)
+			"sq"_s,
+			u"ئالبانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sr"_s),
-			$of(u"سېربچە"_s)
+			"sr"_s,
+			u"سېربچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of(u"سىۋاتىچە"_s)
+			"ss"_s,
+			u"سىۋاتىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Java"_s),
-			$of(metaValue_jv)
+			"Java"_s,
+			metaValue_jv
 		}),
 		$$new($ObjectArray, {
-			$of("st"_s),
-			$of(u"سوتوچە"_s)
+			"st"_s,
+			u"سوتوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("su"_s),
-			$of(metaValue_su)
+			"su"_s,
+			metaValue_su
 		}),
 		$$new($ObjectArray, {
-			$of("%%NEDIS"_s),
-			$of(u"ناتىسون شىۋەسى"_s)
+			"%%NEDIS"_s,
+			u"ناتىسون شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sv"_s),
-			$of(u"شىۋېدچە"_s)
+			"sv"_s,
+			u"شىۋېدچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of(u"سىۋاھىلچە"_s)
+			"sw"_s,
+			u"سىۋاھىلچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hantfin"_s),
-			$of(u"مۇرەككەپ خەنچە پۇل-مۇئامىلە رەقەملەر"_s)
+			"type.nu.hantfin"_s,
+			u"مۇرەككەپ خەنچە پۇل-مۇئامىلە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ibb"_s),
-			$of(u"ئىبىبىئوچە"_s)
+			"ibb"_s,
+			u"ئىبىبىئوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("iba"_s),
-			$of(u"ئىبانچە"_s)
+			"iba"_s,
+			u"ئىبانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ta"_s),
-			$of(metaValue_ta)
+			"ta"_s,
+			metaValue_ta
 		}),
 		$$new($ObjectArray, {
-			$of("142"_s),
-			$of(u"ئاسىيا"_s)
+			"142"_s,
+			u"ئاسىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bua"_s),
-			$of(u"بۇرىياتچە"_s)
+			"bua"_s,
+			u"بۇرىياتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("143"_s),
-			$of(u"ئوتتۇرا ئاسىيا"_s)
+			"143"_s,
+			u"ئوتتۇرا ئاسىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("te"_s),
-			$of(metaValue_te)
+			"te"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of(u"غەربىي ئاسىيا"_s)
+			"145"_s,
+			u"غەربىي ئاسىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tg"_s),
-			$of(u"تاجىكچە"_s)
+			"tg"_s,
+			u"تاجىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("th"_s),
-			$of(metaValue_th)
+			"th"_s,
+			metaValue_th
 		}),
 		$$new($ObjectArray, {
-			$of("ti"_s),
-			$of(u"تىگرىنياچە"_s)
+			"ti"_s,
+			u"تىگرىنياچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bug"_s),
-			$of(u"بۇگىچە"_s)
+			"bug"_s,
+			u"بۇگىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kfo"_s),
-			$of(u"كوروچە"_s)
+			"kfo"_s,
+			u"كوروچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("en_CA"_s),
-			$of(u"كانادا ئىنگلىزچە"_s)
+			"en_CA"_s,
+			u"كانادا ئىنگلىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tk"_s),
-			$of(u"تۈركمەنچە"_s)
+			"tk"_s,
+			u"تۈركمەنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tl"_s),
-			$of(metaValue_tl)
+			"tl"_s,
+			metaValue_tl
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of(u"سىۋاناچە"_s)
+			"tn"_s,
+			u"سىۋاناچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("to"_s),
-			$of(u"تونگانچە"_s)
+			"to"_s,
+			u"تونگانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bum"_s),
-			$of(u"بۇلۇچە"_s)
+			"bum"_s,
+			u"بۇلۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyo"_s),
-			$of(u"جولاچە"_s)
+			"dyo"_s,
+			u"جولاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpan"_s),
-			$of(u"ياپونچە رەقەملەر"_s)
+			"type.nu.jpan"_s,
+			u"ياپونچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tr"_s),
-			$of(u"تۈركچە"_s)
+			"tr"_s,
+			u"تۈركچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ts"_s),
-			$of(u"سونگاچە"_s)
+			"ts"_s,
+			u"سونگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("swb"_s),
-			$of(u"كومورىچە"_s)
+			"swb"_s,
+			u"كومورىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cakm"_s),
-			$of(u"چاكما"_s)
+			"Cakm"_s,
+			u"چاكما"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tt"_s),
-			$of(u"تاتارچە"_s)
+			"tt"_s,
+			u"تاتارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dyu"_s),
-			$of(u"دىيۇلاچە"_s)
+			"dyu"_s,
+			u"دىيۇلاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tw"_s),
-			$of(u"تىۋىچە"_s)
+			"tw"_s,
+			u"تىۋىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ty"_s),
-			$of(u"تاختىچە"_s)
+			"ty"_s,
+			u"تاختىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%BISKE"_s),
-			$of(u"سان گىيورگىيو/بىلا شىۋەسى"_s)
+			"%%BISKE"_s,
+			u"سان گىيورگىيو/بىلا شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("150"_s),
-			$of(u"ياۋروپا"_s)
+			"150"_s,
+			u"ياۋروپا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of(u"شەرقىي ياۋروپا"_s)
+			"151"_s,
+			u"شەرقىي ياۋروپا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of(u"شىمالىي ياۋروپا"_s)
+			"154"_s,
+			u"شىمالىي ياۋروپا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzg"_s),
-			$of(u"دازاگاچە"_s)
+			"dzg"_s,
+			u"دازاگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of(u"غەربىي ياۋروپا"_s)
+			"155"_s,
+			u"غەربىي ياۋروپا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ug"_s),
-			$of(u"ئۇيغۇرچە"_s)
+			"ug"_s,
+			u"ئۇيغۇرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Kore"_s),
-			$of(metaValue_ko)
+			"Kore"_s,
+			metaValue_ko
 		}),
 		$$new($ObjectArray, {
-			$of("Ital"_s),
-			$of(u"قەدىمكى ئىتاليانچە"_s)
+			"Ital"_s,
+			u"قەدىمكى ئىتاليانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Zyyy"_s),
-			$of(u"ئورتاق"_s)
+			"Zyyy"_s,
+			u"ئورتاق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uk"_s),
-			$of(u"ئۇكرائىنچە"_s)
+			"uk"_s,
+			u"ئۇكرائىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.coptic"_s),
-			$of(u"كوپتىك يىلنامەسى"_s)
+			"type.ca.coptic"_s,
+			u"كوپتىك يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ur"_s),
-			$of(u"ئوردۇچە"_s)
+			"ur"_s,
+			u"ئوردۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1994"_s),
-			$of(u"ئۆلچەملەشتۈرۈلگەن رېسىيان ئىملا قائىدىسى"_s)
+			"%%1994"_s,
+			u"ئۆلچەملەشتۈرۈلگەن رېسىيان ئىملا قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of(u"قالماقچە"_s)
+			"xal"_s,
+			u"قالماقچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zen"_s),
-			$of(u"زېناگاچە"_s)
+			"zen"_s,
+			u"زېناگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("uz"_s),
-			$of(u"ئۆزبېكچە"_s)
+			"uz"_s,
+			u"ئۆزبېكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kha"_s),
-			$of(u"كاسىچە"_s)
+			"kha"_s,
+			u"كاسىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1996"_s),
-			$of(u"گېرمانچە ئىملا قائىدىسى 1996"_s)
+			"%%1996"_s,
+			u"گېرمانچە ئىملا قائىدىسى 1996"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Sylo"_s),
-			$of(u"سىيولوتى-ناگرىچە"_s)
+			"Sylo"_s,
+			u"سىيولوتى-ناگرىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ve"_s),
-			$of(u"ۋېنداچە"_s)
+			"ve"_s,
+			u"ۋېنداچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Wara"_s),
-			$of(u"ۋاراڭ كىشىتى"_s)
+			"Wara"_s,
+			u"ۋاراڭ كىشىتى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.roc"_s),
-			$of(u"مىنگو يىلنامەسى"_s)
+			"type.ca.roc"_s,
+			u"مىنگو يىلنامەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vi"_s),
-			$of(u"ۋىيېتنامچە"_s)
+			"vi"_s,
+			u"ۋىيېتنامچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kho"_s),
-			$of(u"خوتەنچە"_s)
+			"kho"_s,
+			u"خوتەنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("khq"_s),
-			$of(u"كويرا چىنىچە"_s)
+			"khq"_s,
+			u"كويرا چىنىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%TARASK"_s),
-			$of(u"تاراسكىۋىتسا ئىملا قائىدىسى"_s)
+			"%%TARASK"_s,
+			u"تاراسكىۋىتسا ئىملا قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vo"_s),
-			$of(u"ۋولاپۇكچە"_s)
+			"vo"_s,
+			u"ۋولاپۇكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syc"_s),
-			$of(u"قەدىمىي سۇرىيەچە"_s)
+			"syc"_s,
+			u"قەدىمىي سۇرىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Osma"_s),
-			$of(u"ئوسمانيە"_s)
+			"Osma"_s,
+			u"ئوسمانيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gaa"_s),
-			$of(u"گاچە"_s)
+			"gaa"_s,
+			u"گاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wa"_s),
-			$of(u"ۋاللۇنچە"_s)
+			"wa"_s,
+			u"ۋاللۇنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of(u"سۇرىيەچە"_s)
+			"syr"_s,
+			u"سۇرىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Grek"_s),
-			$of(metaValue_el)
+			"Grek"_s,
+			metaValue_el
 		}),
 		$$new($ObjectArray, {
-			$of("Lydi"_s),
-			$of(u"لىدىيەچە"_s)
+			"Lydi"_s,
+			u"لىدىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Xsux"_s),
-			$of(u"سۇمېر-ئاككادىيان مىخ خەت"_s)
+			"Xsux"_s,
+			u"سۇمېر-ئاككادىيان مىخ خەت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wo"_s),
-			$of(u"ۋولوفچە"_s)
+			"wo"_s,
+			u"ۋولوفچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"ئۆلچەملىك ماراكەش تامازىتچە"_s)
+			"zgh"_s,
+			u"ئۆلچەملىك ماراكەش تامازىتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ar_001"_s),
-			$of(u"ھازىرقى زامان ئۆلچەملىك ئەرەبچە"_s)
+			"ar_001"_s,
+			u"ھازىرقى زامان ئۆلچەملىك ئەرەبچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cans"_s),
-			$of(u"بىرلىككە كەلگەن كانادا يەرلىك بوغۇم جەدۋىلى"_s)
+			"Cans"_s,
+			u"بىرلىككە كەلگەن كانادا يەرلىك بوغۇم جەدۋىلى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gay"_s),
-			$of(u"گايوچە"_s)
+			"gay"_s,
+			u"گايوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mong"_s),
-			$of(metaValue_mn)
+			"Mong"_s,
+			metaValue_mn
 		}),
 		$$new($ObjectArray, {
-			$of("mnc"_s),
-			$of(u"مانجۇچە"_s)
+			"mnc"_s,
+			u"مانجۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latf"_s),
-			$of(u"فىراكتۇر لاتىنچە"_s)
+			"Latf"_s,
+			u"فىراكتۇر لاتىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hluw"_s),
-			$of(u"ئاناتولىيە تەسۋىرىي يېزىق"_s)
+			"Hluw"_s,
+			u"ئاناتولىيە تەسۋىرىي يېزىق"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gba"_s),
-			$of(u"گىباياچە"_s)
+			"gba"_s,
+			u"گىباياچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mni"_s),
-			$of(u"مانىپۇرچە"_s)
+			"mni"_s,
+			u"مانىپۇرچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Latn"_s),
-			$of(metaValue_la)
+			"Latn"_s,
+			metaValue_la
 		}),
 		$$new($ObjectArray, {
-			$of("Latg"_s),
-			$of(u"سىكوت لاتىنچە"_s)
+			"Latg"_s,
+			u"سىكوت لاتىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hans"_s),
-			$of(u"ئاددىي خەنچە رەقەملەر"_s)
+			"type.nu.hans"_s,
+			u"ئاددىي خەنچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.hant"_s),
-			$of(u"مۇرەككەپ خەنچە رەقەملەر"_s)
+			"type.nu.hant"_s,
+			u"مۇرەككەپ خەنچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of(u"خوساچە"_s)
+			"xh"_s,
+			u"خوساچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.romanlow"_s),
-			$of(u"رىم رەقەملەر (كىچىك ھەرپ)"_s)
+			"type.nu.romanlow"_s,
+			u"رىم رەقەملەر (كىچىك ھەرپ)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byn"_s),
-			$of(u"بىلىنچە"_s)
+			"byn"_s,
+			u"بىلىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%PAMAKA"_s),
-			$of(u"پاماكا شىۋەسى"_s)
+			"%%PAMAKA"_s,
+			u"پاماكا شىۋەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Lyci"_s),
-			$of(u"لىسىيانچە"_s)
+			"Lyci"_s,
+			u"لىسىيانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("osa"_s),
-			$of(u"ئوساگېلارچە"_s)
+			"osa"_s,
+			u"ئوساگېلارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("byv"_s),
-			$of(u"مېدۇمباچە"_s)
+			"byv"_s,
+			u"مېدۇمباچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Moon"_s),
-			$of(u"كورىيە"_s)
+			"Moon"_s,
+			u"كورىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("moh"_s),
-			$of(u"موخاۋكچە"_s)
+			"moh"_s,
+			u"موخاۋكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kkj"_s),
-			$of(u"كاكوچە"_s)
+			"kkj"_s,
+			u"كاكوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1694ACAD"_s),
-			$of(u"دەسلەپكى مەزگىلدىكى زامانىۋى فىرانسۇزچە"_s)
+			"%%1694ACAD"_s,
+			u"دەسلەپكى مەزگىلدىكى زامانىۋى فىرانسۇزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yi"_s),
-			$of(u"يىددىشچە"_s)
+			"yi"_s,
+			u"يىددىشچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mos"_s),
-			$of(u"موسسىچە"_s)
+			"mos"_s,
+			u"موسسىچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrc"_s),
-			$of(u"سۈرىيەچە"_s)
+			"Syrc"_s,
+			u"سۈرىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Dsrt"_s),
-			$of(u"دېزېرېت"_s)
+			"Dsrt"_s,
+			u"دېزېرېت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yo"_s),
-			$of(u"يورۇباچە"_s)
+			"yo"_s,
+			u"يورۇباچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("es_MX"_s),
-			$of(u"مېكسىكا ئىسپانچە"_s)
+			"es_MX"_s,
+			u"مېكسىكا ئىسپانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrj"_s),
-			$of(u"غەربىي سۈرىيەچە"_s)
+			"Syrj"_s,
+			u"غەربىي سۈرىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ota"_s),
-			$of(u"ئوسمان تۈركچە"_s)
+			"ota"_s,
+			u"ئوسمان تۈركچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syre"_s),
-			$of(u"سۈرىيەچە ئەبجەت"_s)
+			"Syre"_s,
+			u"سۈرىيەچە ئەبجەت"_s
 		}),
 		$$new($ObjectArray, {
-			$of("vai"_s),
-			$of(metaValue_vai)
+			"vai"_s,
+			metaValue_vai
 		}),
 		$$new($ObjectArray, {
-			$of("za"_s),
-			$of(u"جۇاڭچە"_s)
+			"za"_s,
+			u"جۇاڭچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cari"_s),
-			$of(u"كارىيا"_s)
+			"Cari"_s,
+			u"كارىيا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kln"_s),
-			$of(u"كالېنجىنچە"_s)
+			"kln"_s,
+			u"كالېنجىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh"_s),
-			$of(u"خەنزۇچە"_s)
+			"zh"_s,
+			u"خەنزۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Afak"_s),
-			$of(u"ئافاكا"_s)
+			"Afak"_s,
+			u"ئافاكا"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Bopo"_s),
-			$of(u"خەنچە پىنيىن"_s)
+			"Bopo"_s,
+			u"خەنچە پىنيىن"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Perm"_s),
-			$of(u"قەدىمكى پېرمىكچە"_s)
+			"Perm"_s,
+			u"قەدىمكى پېرمىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zu"_s),
-			$of(u"زۇلۇچە"_s)
+			"zu"_s,
+			u"زۇلۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.phonebook"_s),
-			$of(u"تېلېفون نومۇر تىزىش تەرتىپى"_s)
+			"type.co.phonebook"_s,
+			u"تېلېفون نومۇر تىزىش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%MONOTON"_s),
-			$of(u"ئاددىي"_s)
+			"%%MONOTON"_s,
+			u"ئاددىي"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geor"_s),
-			$of(u"گىرۇزىنچە"_s)
+			"Geor"_s,
+			u"گىرۇزىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Shrd"_s),
-			$of(u"شاراداچە"_s)
+			"Shrd"_s,
+			u"شاراداچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmb"_s),
-			$of(u"كىمبۇندۇچە"_s)
+			"kmb"_s,
+			u"كىمبۇندۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.jpanfin"_s),
-			$of(u"ياپونچە پۇل-مۇئامىلە رەقەملەر"_s)
+			"type.nu.jpanfin"_s,
+			u"ياپونچە پۇل-مۇئامىلە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cham"_s),
-			$of(u"چام"_s)
+			"Cham"_s,
+			u"چام"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gez"_s),
-			$of(u"گىزچە"_s)
+			"gez"_s,
+			u"گىزچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Syrn"_s),
-			$of(u"شەرقىي سۈرىيەچە"_s)
+			"Syrn"_s,
+			u"شەرقىي سۈرىيەچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.mymrshan"_s),
-			$of(u"بېرما شانچە رەقەملەر"_s)
+			"type.nu.mymrshan"_s,
+			u"بېرما شانچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Narb"_s),
-			$of(u"قەدىمكى شىمالىي ئەرەبچە"_s)
+			"Narb"_s,
+			u"قەدىمكى شىمالىي ئەرەبچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.olck"_s),
-			$of(u"ئول-چىكىچە رەقەملەر"_s)
+			"type.nu.olck"_s,
+			u"ئول-چىكىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.reformed"_s),
-			$of(u"ياخشىلانغان تەرتىپلەش تەرتىپى"_s)
+			"type.co.reformed"_s,
+			u"ياخشىلانغان تەرتىپلەش تەرتىپى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tglg"_s),
-			$of(metaValue_tl)
+			"Tglg"_s,
+			metaValue_tl
 		}),
 		$$new($ObjectArray, {
-			$of("Egyd"_s),
-			$of(u"دېموتىكچە مىسىر"_s)
+			"Egyd"_s,
+			u"دېموتىكچە مىسىر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyh"_s),
-			$of(u"خىيەراتىكچە مىسىر"_s)
+			"Egyh"_s,
+			u"خىيەراتىكچە مىسىر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Palm"_s),
-			$of(u"پالمىراچە"_s)
+			"Palm"_s,
+			u"پالمىراچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ebu"_s),
-			$of(u"ئېمبۇچە"_s)
+			"ebu"_s,
+			u"ئېمبۇچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Egyp"_s),
-			$of(u"تەسۋىرىي يېزىق مىسىر"_s)
+			"Egyp"_s,
+			u"تەسۋىرىي يېزىق مىسىر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Geok"_s),
-			$of(u"خۇتسۇرى گىرۇزىنچە"_s)
+			"Geok"_s,
+			u"خۇتسۇرى گىرۇزىنچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hans"_s),
-			$of(metaValue_Hans)
+			"zh_Hans"_s,
+			metaValue_Hans
 		}),
 		$$new($ObjectArray, {
-			$of("Hung"_s),
-			$of(u"قەدىمكى ماجارچە"_s)
+			"Hung"_s,
+			u"قەدىمكى ماجارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kok"_s),
-			$of(u"كونكانچە"_s)
+			"kok"_s,
+			u"كونكانچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%1901"_s),
-			$of(u"ئەنئەنىۋى گېرمانچە ئىملا قائىدىسى"_s)
+			"%%1901"_s,
+			u"ئەنئەنىۋى گېرمانچە ئىملا قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kos"_s),
-			$of(u"كوسرايېچە"_s)
+			"kos"_s,
+			u"كوسرايېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.limb"_s),
-			$of(u"لىمبۇچە رەقەملەر"_s)
+			"type.nu.limb"_s,
+			u"لىمبۇچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zh_Hant"_s),
-			$of(metaValue_Hant)
+			"zh_Hant"_s,
+			metaValue_Hant
 		}),
 		$$new($ObjectArray, {
-			$of("Sund"_s),
-			$of(metaValue_su)
+			"Sund"_s,
+			metaValue_su
 		}),
 		$$new($ObjectArray, {
-			$of("kpe"_s),
-			$of(u"كىپەللېچە"_s)
+			"kpe"_s,
+			u"كىپەللېچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.khmr"_s),
-			$of(u"كېخمېرچە رەقەملەر"_s)
+			"type.nu.khmr"_s,
+			u"كېخمېرچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Tirh"_s),
-			$of(u"تىرخۇتاچە"_s)
+			"Tirh"_s,
+			u"تىرخۇتاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ilo"_s),
-			$of(u"ئىلوكانوچە"_s)
+			"ilo"_s,
+			u"ئىلوكانوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%VALENCIA"_s),
-			$of(u"ۋالېنسىيە"_s)
+			"%%VALENCIA"_s,
+			u"ۋالېنسىيە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cprt"_s),
-			$of(metaValue_CY)
+			"Cprt"_s,
+			metaValue_CY
 		}),
 		$$new($ObjectArray, {
-			$of("%%BAKU1926"_s),
-			$of(u"بىرلىككە كەلگەن تۈرك لاتىن ئېلىپبەسى"_s)
+			"%%BAKU1926"_s,
+			u"بىرلىككە كەلگەن تۈرك لاتىن ئېلىپبەسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mua"_s),
-			$of(u"مۇنداڭچە"_s)
+			"mua"_s,
+			u"مۇنداڭچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.guru"_s),
-			$of(u"گۇرمۇكىچە رەقەملەر"_s)
+			"type.nu.guru"_s,
+			u"گۇرمۇكىچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mul"_s),
-			$of(u"كۆپ تىللار"_s)
+			"mul"_s,
+			u"كۆپ تىللار"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of(u"كاددوچە"_s)
+			"cad"_s,
+			u"كاددوچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mus"_s),
-			$of(u"كىرىكچە"_s)
+			"mus"_s,
+			u"كىرىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Glag"_s),
-			$of(u"گىلاگوتچە"_s)
+			"Glag"_s,
+			u"گىلاگوتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gil"_s),
-			$of(u"گىلبېرتچە"_s)
+			"gil"_s,
+			u"گىلبېرتچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("%%KKCOR"_s),
-			$of(u"ئورتاق ئىملا قائىدىسى"_s)
+			"%%KKCOR"_s,
+			u"ئورتاق ئىملا قائىدىسى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Cher"_s),
-			$of(u"چېروكى"_s)
+			"Cher"_s,
+			u"چېروكى"_s
 		}),
 		$$new($ObjectArray, {
-			$of("car"_s),
-			$of(u"كارىبچە"_s)
+			"car"_s,
+			u"كارىبچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cay"_s),
-			$of(u"كايۇگاچە"_s)
+			"cay"_s,
+			u"كايۇگاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.tamldec"_s),
-			$of(u"تامىلچە رەقەملەر"_s)
+			"type.nu.tamldec"_s,
+			u"تامىلچە رەقەملەر"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of(u"قاراچاي-بالقارچە"_s)
+			"krc"_s,
+			u"قاراچاي-بالقارچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of(u"ئىنگۇشچە"_s)
+			"inh"_s,
+			u"ئىنگۇشچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krl"_s),
-			$of(u"كارەلچە"_s)
+			"krl"_s,
+			u"كارەلچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("efi"_s),
-			$of(u"ئېفىكچە"_s)
+			"efi"_s,
+			u"ئېفىكچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("key.nu"_s),
-			$of(u"سان"_s)
+			"key.nu"_s,
+			u"سان"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kru"_s),
-			$of(u"كۇرۇخچە"_s)
+			"kru"_s,
+			u"كۇرۇخچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ksb"_s),
-			$of(u"شامبالاچە"_s)
+			"ksb"_s,
+			u"شامبالاچە"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Telu"_s),
-			$of(metaValue_te)
+			"Telu"_s,
+			metaValue_te
 		}),
 		$$new($ObjectArray, {
-			$of("ksf"_s),
-			$of(u"بافىياچە"_s)
+			"ksf"_s,
+			u"بافىياچە"_s
 		})
 	}));
 	return data;
@@ -4453,7 +4433,22 @@ LocaleNames_ug::LocaleNames_ug() {
 }
 
 $Class* LocaleNames_ug::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_ug, name, initialize, &_LocaleNames_ug_ClassInfo_, allocate$LocaleNames_ug);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_ug, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_ug, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_ug",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_ug, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_ug);
+	});
 	return class$;
 }
 

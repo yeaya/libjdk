@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLEditorKit$HTMLFactory.h>
-
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BoxView.h>
@@ -124,44 +123,11 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _HTMLEditorKit$HTMLFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLEditorKit$HTMLFactory, init$, void)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$HTMLFactory, create, $View*, $Element*)},
-	{}
-};
-
-$InnerClassInfo _HTMLEditorKit$HTMLFactory_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLEditorKit$HTMLFactory", "javax.swing.text.html.HTMLEditorKit", "HTMLFactory", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$HTMLFactory$BodyBlockView", "javax.swing.text.html.HTMLEditorKit$HTMLFactory", "BodyBlockView", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$HTMLFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HTMLEditorKit$HTMLFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.HTMLEditorKit$HTMLFactory",
-	"java.lang.Object",
-	"javax.swing.text.ViewFactory",
-	nullptr,
-	_HTMLEditorKit$HTMLFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLEditorKit$HTMLFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLEditorKit"
-};
-
-$Object* allocate$HTMLEditorKit$HTMLFactory($Class* clazz) {
-	return $of($alloc(HTMLEditorKit$HTMLFactory));
-}
-
 void HTMLEditorKit$HTMLFactory::init$() {
 }
 
 $View* HTMLEditorKit$HTMLFactory::create($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, attrs, $nc(elem)->getAttributes());
 	$init($AbstractDocument);
 	$var($Object, elementName, $nc(attrs)->getAttribute($AbstractDocument::ElementNameAttribute));
@@ -172,119 +138,71 @@ $View* HTMLEditorKit$HTMLFactory::create($Element* elem) {
 		$init($HTML$Tag);
 		if (kind == $HTML$Tag::CONTENT) {
 			return $new($InlineView, elem);
-		} else {
-			if (kind == $HTML$Tag::IMPLIED) {
-				$init($CSS$Attribute);
-				$var($String, ws, $cast($String, $nc($(elem->getAttributes()))->getAttribute($CSS$Attribute::WHITE_SPACE)));
-				if ((ws != nullptr) && ws->equals("pre"_s)) {
-					return $new($LineView, elem);
-				}
-				return $new($ParagraphView, elem);
-			} else {
-				if ((kind == $HTML$Tag::P) || (kind == $HTML$Tag::H1) || (kind == $HTML$Tag::H2) || (kind == $HTML$Tag::H3) || (kind == $HTML$Tag::H4) || (kind == $HTML$Tag::H5) || (kind == $HTML$Tag::H6) || (kind == $HTML$Tag::DT)) {
-					return $new($ParagraphView, elem);
-				} else {
-					if ((kind == $HTML$Tag::MENU) || (kind == $HTML$Tag::DIR) || (kind == $HTML$Tag::UL) || (kind == $HTML$Tag::OL)) {
-						return $new($ListView, elem);
-					} else {
-						if (kind == $HTML$Tag::BODY) {
-							return $new($HTMLEditorKit$HTMLFactory$BodyBlockView, elem);
-						} else {
-							if (kind == $HTML$Tag::HTML) {
-								return $new($BlockView, elem, $View::Y_AXIS);
-							} else {
-								if ((kind == $HTML$Tag::LI) || (kind == $HTML$Tag::CENTER) || (kind == $HTML$Tag::DL) || (kind == $HTML$Tag::DD) || (kind == $HTML$Tag::DIV) || (kind == $HTML$Tag::BLOCKQUOTE) || (kind == $HTML$Tag::PRE) || (kind == $HTML$Tag::FORM)) {
-									return $new($BlockView, elem, $View::Y_AXIS);
-								} else {
-									if (kind == $HTML$Tag::NOFRAMES) {
-										return $new($NoFramesView, elem, $View::Y_AXIS);
-									} else {
-										if (kind == $HTML$Tag::IMG) {
-											return $new($ImageView, elem);
-										} else {
-											if (kind == $HTML$Tag::ISINDEX) {
-												return $new($IsindexView, elem);
-											} else {
-												if (kind == $HTML$Tag::HR) {
-													return $new($HRuleView, elem);
-												} else {
-													if (kind == $HTML$Tag::BR) {
-														return $new($BRView, elem);
-													} else {
-														if (kind == $HTML$Tag::TABLE) {
-															return $new($TableView, elem);
-														} else {
-															if ((kind == $HTML$Tag::INPUT) || (kind == $HTML$Tag::SELECT) || (kind == $HTML$Tag::TEXTAREA)) {
-																return $new($FormView, elem);
-															} else {
-																if (kind == $HTML$Tag::OBJECT) {
-																	return $new($ObjectView, elem);
-																} else {
-																	if (kind == $HTML$Tag::FRAMESET) {
-																		$init($HTML$Attribute);
-																		if ($nc($(elem->getAttributes()))->isDefined($HTML$Attribute::ROWS)) {
-																			return $new($FrameSetView, elem, $View::Y_AXIS);
-																		} else {
-																			if ($nc($(elem->getAttributes()))->isDefined($HTML$Attribute::COLS)) {
-																				return $new($FrameSetView, elem, $View::X_AXIS);
-																			}
-																		}
-																		$throwNew($RuntimeException, $$str({"Can\'t build a"_s, kind, ", "_s, elem, ":no ROWS or COLS defined."_s}));
-																	} else {
-																		if (kind == $HTML$Tag::FRAME) {
-																			return $new($FrameView, elem);
-																		} else if ($instanceOf($HTML$UnknownTag, kind)) {
-																			return $new($HiddenTagView, elem);
-																		} else {
-																			if (kind == $HTML$Tag::COMMENT) {
-																				return $new($CommentView, elem);
-																			} else {
-																				if (kind == $HTML$Tag::HEAD) {
-																					return $new($HTMLEditorKit$HTMLFactory$1, this, elem, $View::X_AXIS);
-																				} else {
-																					if ((kind == $HTML$Tag::TITLE) || (kind == $HTML$Tag::META) || (kind == $HTML$Tag::LINK) || (kind == $HTML$Tag::STYLE) || (kind == $HTML$Tag::SCRIPT) || (kind == $HTML$Tag::AREA) || (kind == $HTML$Tag::MAP) || (kind == $HTML$Tag::PARAM) || (kind == $HTML$Tag::APPLET)) {
-																						return $new($HiddenTagView, elem);
-																					}
-																				}
-																			}
-																		}
-																	}
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
+		} else if (kind == $HTML$Tag::IMPLIED) {
+			$init($CSS$Attribute);
+			$var($String, ws, $cast($String, $$nc(elem->getAttributes())->getAttribute($CSS$Attribute::WHITE_SPACE)));
+			if ((ws != nullptr) && ws->equals("pre"_s)) {
+				return $new($LineView, elem);
 			}
+			return $new($ParagraphView, elem);
+		} else if ((kind == $HTML$Tag::P) || (kind == $HTML$Tag::H1) || (kind == $HTML$Tag::H2) || (kind == $HTML$Tag::H3) || (kind == $HTML$Tag::H4) || (kind == $HTML$Tag::H5) || (kind == $HTML$Tag::H6) || (kind == $HTML$Tag::DT)) {
+			return $new($ParagraphView, elem);
+		} else if ((kind == $HTML$Tag::MENU) || (kind == $HTML$Tag::DIR) || (kind == $HTML$Tag::UL) || (kind == $HTML$Tag::OL)) {
+			return $new($ListView, elem);
+		} else if (kind == $HTML$Tag::BODY) {
+			return $new($HTMLEditorKit$HTMLFactory$BodyBlockView, elem);
+		} else if (kind == $HTML$Tag::HTML) {
+			return $new($BlockView, elem, $View::Y_AXIS);
+		} else if ((kind == $HTML$Tag::LI) || (kind == $HTML$Tag::CENTER) || (kind == $HTML$Tag::DL) || (kind == $HTML$Tag::DD) || (kind == $HTML$Tag::DIV) || (kind == $HTML$Tag::BLOCKQUOTE) || (kind == $HTML$Tag::PRE) || (kind == $HTML$Tag::FORM)) {
+			return $new($BlockView, elem, $View::Y_AXIS);
+		} else if (kind == $HTML$Tag::NOFRAMES) {
+			return $new($NoFramesView, elem, $View::Y_AXIS);
+		} else if (kind == $HTML$Tag::IMG) {
+			return $new($ImageView, elem);
+		} else if (kind == $HTML$Tag::ISINDEX) {
+			return $new($IsindexView, elem);
+		} else if (kind == $HTML$Tag::HR) {
+			return $new($HRuleView, elem);
+		} else if (kind == $HTML$Tag::BR) {
+			return $new($BRView, elem);
+		} else if (kind == $HTML$Tag::TABLE) {
+			return $new($TableView, elem);
+		} else if ((kind == $HTML$Tag::INPUT) || (kind == $HTML$Tag::SELECT) || (kind == $HTML$Tag::TEXTAREA)) {
+			return $new($FormView, elem);
+		} else if (kind == $HTML$Tag::OBJECT) {
+			return $new($ObjectView, elem);
+		} else if (kind == $HTML$Tag::FRAMESET) {
+			$init($HTML$Attribute);
+			if ($$nc(elem->getAttributes())->isDefined($HTML$Attribute::ROWS)) {
+				return $new($FrameSetView, elem, $View::Y_AXIS);
+			} else if ($$nc(elem->getAttributes())->isDefined($HTML$Attribute::COLS)) {
+				return $new($FrameSetView, elem, $View::X_AXIS);
+			}
+			$throwNew($RuntimeException, $$str({"Can\'t build a"_s, kind, ", "_s, elem, ":no ROWS or COLS defined."_s}));
+		} else if (kind == $HTML$Tag::FRAME) {
+			return $new($FrameView, elem);
+		} else if ($instanceOf($HTML$UnknownTag, kind)) {
+			return $new($HiddenTagView, elem);
+		} else if (kind == $HTML$Tag::COMMENT) {
+			return $new($CommentView, elem);
+		} else if (kind == $HTML$Tag::HEAD) {
+			return $new($HTMLEditorKit$HTMLFactory$1, this, elem, $View::X_AXIS);
+		} else if ((kind == $HTML$Tag::TITLE) || (kind == $HTML$Tag::META) || (kind == $HTML$Tag::LINK) || (kind == $HTML$Tag::STYLE) || (kind == $HTML$Tag::SCRIPT) || (kind == $HTML$Tag::AREA) || (kind == $HTML$Tag::MAP) || (kind == $HTML$Tag::PARAM) || (kind == $HTML$Tag::APPLET)) {
+			return $new($HiddenTagView, elem);
 		}
 	}
 	$var($String, nm, (elementName != nullptr) ? $cast($String, elementName) : elem->getName());
 	if (nm != nullptr) {
 		if (nm->equals($AbstractDocument::ContentElementName)) {
 			return $new($LabelView, elem);
-		} else {
-			if (nm->equals($AbstractDocument::ParagraphElementName)) {
-				return $new($ParagraphView, elem);
-			} else {
-				if (nm->equals($AbstractDocument::SectionElementName)) {
-					return $new($BoxView, elem, $View::Y_AXIS);
-				} else {
-					if (nm->equals($StyleConstants::ComponentElementName)) {
-						return $new($ComponentView, elem);
-					} else {
-						if (nm->equals($StyleConstants::IconElementName)) {
-							return $new($IconView, elem);
-						}
-					}
-				}
-			}
+		} else if (nm->equals($AbstractDocument::ParagraphElementName)) {
+			return $new($ParagraphView, elem);
+		} else if (nm->equals($AbstractDocument::SectionElementName)) {
+			return $new($BoxView, elem, $View::Y_AXIS);
+		} else if (nm->equals($StyleConstants::ComponentElementName)) {
+			return $new($ComponentView, elem);
+		} else if (nm->equals($StyleConstants::IconElementName)) {
+			return $new($IconView, elem);
 		}
 	}
 	return $new($LabelView, elem);
@@ -294,7 +212,35 @@ HTMLEditorKit$HTMLFactory::HTMLEditorKit$HTMLFactory() {
 }
 
 $Class* HTMLEditorKit$HTMLFactory::load$($String* name, bool initialize) {
-	$loadClass(HTMLEditorKit$HTMLFactory, name, initialize, &_HTMLEditorKit$HTMLFactory_ClassInfo_, allocate$HTMLEditorKit$HTMLFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HTMLEditorKit$HTMLFactory, init$, void)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(HTMLEditorKit$HTMLFactory, create, $View*, $Element*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLEditorKit$HTMLFactory", "javax.swing.text.html.HTMLEditorKit", "HTMLFactory", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$HTMLFactory$BodyBlockView", "javax.swing.text.html.HTMLEditorKit$HTMLFactory", "BodyBlockView", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$HTMLFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.HTMLEditorKit$HTMLFactory",
+		"java.lang.Object",
+		"javax.swing.text.ViewFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLEditorKit"
+	};
+	$loadClass(HTMLEditorKit$HTMLFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLEditorKit$HTMLFactory);
+	});
 	return class$;
 }
 

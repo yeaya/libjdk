@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/AnyNodeCounter$DefaultAnyNodeCounter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/AnyNodeCounter.h>
@@ -28,37 +27,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$MethodInfo _AnyNodeCounter$DefaultAnyNodeCounter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(AnyNodeCounter$DefaultAnyNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
-	{"getCounter", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnyNodeCounter$DefaultAnyNodeCounter, getCounter, $String*)},
-	{}
-};
-
-$InnerClassInfo _AnyNodeCounter$DefaultAnyNodeCounter_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter$DefaultAnyNodeCounter", "com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter", "DefaultAnyNodeCounter", $STATIC},
-	{}
-};
-
-$ClassInfo _AnyNodeCounter$DefaultAnyNodeCounter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter$DefaultAnyNodeCounter",
-	"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter",
-	nullptr,
-	nullptr,
-	_AnyNodeCounter$DefaultAnyNodeCounter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnyNodeCounter$DefaultAnyNodeCounter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter"
-};
-
-$Object* allocate$AnyNodeCounter$DefaultAnyNodeCounter($Class* clazz) {
-	return $of($alloc(AnyNodeCounter$DefaultAnyNodeCounter));
-}
-
 void AnyNodeCounter$DefaultAnyNodeCounter::init$($Translet* translet, $DOM* document, $DTMAxisIterator* iterator) {
 	$AnyNodeCounter::init$(translet, document, iterator);
 }
@@ -81,9 +49,9 @@ $String* AnyNodeCounter$DefaultAnyNodeCounter::getCounter() {
 		int32_t next = this->_node;
 		result = 0;
 		int32_t ntype = $nc(this->_document)->getExpandedTypeID(this->_node);
-		int32_t root = $nc(this->_document)->getDocument();
+		int32_t root = this->_document->getDocument();
 		while (next >= 0) {
-			if (ntype == $nc(this->_document)->getExpandedTypeID(next)) {
+			if (ntype == this->_document->getExpandedTypeID(next)) {
 				++result;
 			}
 			if (next == root) {
@@ -100,7 +68,33 @@ AnyNodeCounter$DefaultAnyNodeCounter::AnyNodeCounter$DefaultAnyNodeCounter() {
 }
 
 $Class* AnyNodeCounter$DefaultAnyNodeCounter::load$($String* name, bool initialize) {
-	$loadClass(AnyNodeCounter$DefaultAnyNodeCounter, name, initialize, &_AnyNodeCounter$DefaultAnyNodeCounter_ClassInfo_, allocate$AnyNodeCounter$DefaultAnyNodeCounter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(AnyNodeCounter$DefaultAnyNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
+		{"getCounter", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnyNodeCounter$DefaultAnyNodeCounter, getCounter, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter$DefaultAnyNodeCounter", "com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter", "DefaultAnyNodeCounter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter$DefaultAnyNodeCounter",
+		"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.AnyNodeCounter"
+	};
+	$loadClass(AnyNodeCounter$DefaultAnyNodeCounter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnyNodeCounter$DefaultAnyNodeCounter);
+	});
 	return class$;
 }
 

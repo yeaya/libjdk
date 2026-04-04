@@ -1,5 +1,4 @@
 #include <javax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration$Queue.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <javax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode.h>
 #include <javax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration.h>
@@ -17,83 +16,40 @@ namespace javax {
 	namespace swing {
 		namespace tree {
 
-$FieldInfo _DefaultMutableTreeNode$BreadthFirstEnumeration$Queue_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, this$1)},
-	{"head", "Ljavax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode;", nullptr, 0, $field(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, head)},
-	{"tail", "Ljavax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode;", nullptr, 0, $field(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, tail)},
-	{}
-};
-
-$MethodInfo _DefaultMutableTreeNode$BreadthFirstEnumeration$Queue_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration;)V", nullptr, 0, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, init$, void, $DefaultMutableTreeNode$BreadthFirstEnumeration*)},
-	{"dequeue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, dequeue, $Object*)},
-	{"enqueue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, enqueue, void, Object$*)},
-	{"firstObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, firstObject, $Object*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, isEmpty, bool)},
-	{}
-};
-
-$InnerClassInfo _DefaultMutableTreeNode$BreadthFirstEnumeration$Queue_InnerClassesInfo_[] = {
-	{"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "BreadthFirstEnumeration", $FINAL},
-	{"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue", "javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration", "Queue", $FINAL},
-	{"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode", "javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue", "QNode", $FINAL},
-	{}
-};
-
-$ClassInfo _DefaultMutableTreeNode$BreadthFirstEnumeration$Queue_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue",
-	"java.lang.Object",
-	nullptr,
-	_DefaultMutableTreeNode$BreadthFirstEnumeration$Queue_FieldInfo_,
-	_DefaultMutableTreeNode$BreadthFirstEnumeration$Queue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMutableTreeNode$BreadthFirstEnumeration$Queue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.tree.DefaultMutableTreeNode"
-};
-
-$Object* allocate$DefaultMutableTreeNode$BreadthFirstEnumeration$Queue($Class* clazz) {
-	return $of($alloc(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue));
-}
-
 void DefaultMutableTreeNode$BreadthFirstEnumeration$Queue::init$($DefaultMutableTreeNode$BreadthFirstEnumeration* this$1) {
 	$set(this, this$1, this$1);
 }
 
 void DefaultMutableTreeNode$BreadthFirstEnumeration$Queue::enqueue(Object$* anObject) {
 	if (this->head == nullptr) {
-		$set(this, head, ($set(this, tail, $new($DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode, this, anObject, nullptr))));
+		$set(this, head, $set(this, tail, $new($DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode, this, anObject, nullptr)));
 	} else {
 		$set($nc(this->tail), next, $new($DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode, this, anObject, nullptr));
-		$set(this, tail, $nc(this->tail)->next);
+		$set(this, tail, this->tail->next);
 	}
 }
 
 $Object* DefaultMutableTreeNode$BreadthFirstEnumeration$Queue::dequeue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->head == nullptr) {
 		$throwNew($NoSuchElementException, "No more elements"_s);
 	}
 	$var($Object, retval, $nc(this->head)->object);
 	$var($DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode, oldHead, this->head);
-	$set(this, head, $nc(this->head)->next);
+	$set(this, head, this->head->next);
 	if (this->head == nullptr) {
 		$set(this, tail, nullptr);
 	} else {
 		$set($nc(oldHead), next, nullptr);
 	}
-	return $of(retval);
+	return retval;
 }
 
 $Object* DefaultMutableTreeNode$BreadthFirstEnumeration$Queue::firstObject() {
 	if (this->head == nullptr) {
 		$throwNew($NoSuchElementException, "No more elements"_s);
 	}
-	return $of($nc(this->head)->object);
+	return $nc(this->head)->object;
 }
 
 bool DefaultMutableTreeNode$BreadthFirstEnumeration$Queue::isEmpty() {
@@ -104,7 +60,44 @@ DefaultMutableTreeNode$BreadthFirstEnumeration$Queue::DefaultMutableTreeNode$Bre
 }
 
 $Class* DefaultMutableTreeNode$BreadthFirstEnumeration$Queue::load$($String* name, bool initialize) {
-	$loadClass(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, name, initialize, &_DefaultMutableTreeNode$BreadthFirstEnumeration$Queue_ClassInfo_, allocate$DefaultMutableTreeNode$BreadthFirstEnumeration$Queue);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, this$1)},
+		{"head", "Ljavax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode;", nullptr, 0, $field(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, head)},
+		{"tail", "Ljavax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode;", nullptr, 0, $field(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, tail)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/DefaultMutableTreeNode$BreadthFirstEnumeration;)V", nullptr, 0, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, init$, void, $DefaultMutableTreeNode$BreadthFirstEnumeration*)},
+		{"dequeue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, dequeue, $Object*)},
+		{"enqueue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, enqueue, void, Object$*)},
+		{"firstObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, firstObject, $Object*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $method(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, isEmpty, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration", "javax.swing.tree.DefaultMutableTreeNode", "BreadthFirstEnumeration", $FINAL},
+		{"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue", "javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration", "Queue", $FINAL},
+		{"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue$QNode", "javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue", "QNode", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.tree.DefaultMutableTreeNode$BreadthFirstEnumeration$Queue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.tree.DefaultMutableTreeNode"
+	};
+	$loadClass(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMutableTreeNode$BreadthFirstEnumeration$Queue);
+	});
 	return class$;
 }
 

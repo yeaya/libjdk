@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$CheckUpperBounds.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -49,7 +48,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Iterator = ::java::util::Iterator;
 using $BiPredicate = ::java::util::function::BiPredicate;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -66,74 +64,32 @@ public:
 	virtual bool test(Object$* t, Object$* s) override {
 		 return $nc(inst$)->isSameType($cast($Type, t), $cast($Type, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Infer$CheckUpperBounds$$Lambda$isSameType>());
-	}
 	$Types* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Infer$CheckUpperBounds$$Lambda$isSameType::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Infer$CheckUpperBounds$$Lambda$isSameType, inst$)},
-	{}
-};
-$MethodInfo Infer$CheckUpperBounds$$Lambda$isSameType::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Infer$CheckUpperBounds$$Lambda$isSameType, init$, void, $Types*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$CheckUpperBounds$$Lambda$isSameType, test, bool, Object$*, Object$*)},
-	{}
-};
-$ClassInfo Infer$CheckUpperBounds$$Lambda$isSameType::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Infer$CheckUpperBounds$$Lambda$isSameType",
-	"java.lang.Object",
-	"java.util.function.BiPredicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Infer$CheckUpperBounds$$Lambda$isSameType::load$($String* name, bool initialize) {
-	$loadClass(Infer$CheckUpperBounds$$Lambda$isSameType, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Infer$CheckUpperBounds$$Lambda$isSameType, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, $PUBLIC, $method(Infer$CheckUpperBounds$$Lambda$isSameType, init$, void, $Types*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$CheckUpperBounds$$Lambda$isSameType, test, bool, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Infer$CheckUpperBounds$$Lambda$isSameType",
+		"java.lang.Object",
+		"java.util.function.BiPredicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Infer$CheckUpperBounds$$Lambda$isSameType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$CheckUpperBounds$$Lambda$isSameType);
+	});
 	return class$;
 }
 $Class* Infer$CheckUpperBounds$$Lambda$isSameType::class$ = nullptr;
-
-$FieldInfo _Infer$CheckUpperBounds_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$CheckUpperBounds, this$0)},
-	{}
-};
-
-$MethodInfo _Infer$CheckUpperBounds_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Infer$CheckUpperBounds, init$, void, $Infer*, $Type$UndetVar*, $Type*)},
-	{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Infer$CheckUpperBounds, apply, void, $InferenceContext*, $Warner*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$CheckUpperBounds, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
-	{}
-};
-
-$InnerClassInfo _Infer$CheckUpperBounds_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$CheckUpperBounds", "com.sun.tools.javac.comp.Infer", "CheckUpperBounds", 0},
-	{"com.sun.tools.javac.comp.Infer$IncorporationAction", "com.sun.tools.javac.comp.Infer", "IncorporationAction", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Infer$CheckUpperBounds_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$CheckUpperBounds",
-	"com.sun.tools.javac.comp.Infer$IncorporationAction",
-	nullptr,
-	_Infer$CheckUpperBounds_FieldInfo_,
-	_Infer$CheckUpperBounds_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Infer$CheckUpperBounds_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$CheckUpperBounds($Class* clazz) {
-	return $of($alloc(Infer$CheckUpperBounds));
-}
 
 void Infer$CheckUpperBounds::init$($Infer* this$0, $Type$UndetVar* uv, $Type* t) {
 	$set(this, this$0, this$0);
@@ -145,9 +101,9 @@ $Infer$IncorporationAction* Infer$CheckUpperBounds::dup($Type$UndetVar* that) {
 }
 
 void Infer$CheckUpperBounds::apply($InferenceContext* inferenceContext, $Warner* warn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Type$UndetVar$InferenceBound);
-	$var($List, boundList, $cast($List, $nc($($nc($($nc(this->uv)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {$Type$UndetVar$InferenceBound::UPPER}))))->stream()))->collect($($nc(this->this$0->types)->closureCollector(true, static_cast<$BiPredicate*>($$new(Infer$CheckUpperBounds$$Lambda$isSameType, static_cast<$Types*>($nc(this->this$0->types)))))))));
+	$var($List, boundList, $cast($List, $$nc($$nc($nc(this->uv)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {$Type$UndetVar$InferenceBound::UPPER})))->stream())->collect($($nc(this->this$0->types)->closureCollector(true, $$new(Infer$CheckUpperBounds$$Lambda$isSameType, $nc(this->this$0->types)))))));
 	{
 		$var($Iterator, i$, $nc(boundList)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -159,33 +115,31 @@ void Infer$CheckUpperBounds::apply($InferenceContext* inferenceContext, $Warner*
 				$init($TypeTag);
 				bool var$0 = this->t != b2 && !$nc(this->t)->hasTag($TypeTag::WILDCARD);
 				if (var$0 && !$nc(b2)->hasTag($TypeTag::WILDCARD)) {
-					{
-						$var($Iterator, i$, $nc($(this->this$0->getParameterizedSupers(this->t, b2)))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Pair, commonSupers, $cast($Pair, i$->next()));
-							{
-								$var($List, allParamsSuperBound1, $nc(($cast($Type, $nc(commonSupers)->fst)))->allparams());
-								$var($List, allParamsSuperBound2, $nc(($cast($Type, commonSupers->snd)))->allparams());
-								while (true) {
-									bool var$1 = $nc(allParamsSuperBound1)->nonEmpty();
-									if (!(var$1 && $nc(allParamsSuperBound2)->nonEmpty())) {
-										break;
-									}
-									{
-										bool var$2 = !$nc(($cast($Type, allParamsSuperBound1->head)))->hasTag($TypeTag::WILDCARD);
-										if (var$2 && !$nc(($cast($Type, allParamsSuperBound2->head)))->hasTag($TypeTag::WILDCARD)) {
-											$var($Type, var$3, $nc(inferenceContext)->asUndetVar($cast($Type, allParamsSuperBound1->head)));
-											if (!isSameType(var$3, $(inferenceContext->asUndetVar($cast($Type, allParamsSuperBound2->head))))) {
-												this->this$0->reportBoundError(this->uv, $Type$UndetVar$InferenceBound::UPPER);
-											}
-										}
-										$assign(allParamsSuperBound1, allParamsSuperBound1->tail);
-										$assign(allParamsSuperBound2, allParamsSuperBound2->tail);
-									}
+					$var($Iterator, i$, $$nc(this->this$0->getParameterizedSupers(this->t, b2))->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($Pair, commonSupers, $cast($Pair, i$->next()));
+						{
+							$var($List, allParamsSuperBound1, $nc($cast($Type, $nc(commonSupers)->fst))->allparams());
+							$var($List, allParamsSuperBound2, $nc($cast($Type, commonSupers->snd))->allparams());
+							while (true) {
+								bool var$1 = $nc(allParamsSuperBound1)->nonEmpty();
+								if (!(var$1 && $nc(allParamsSuperBound2)->nonEmpty())) {
+									break;
 								}
-								bool var$4 = $nc(allParamsSuperBound1)->isEmpty();
-								$Assert::check(var$4 && $nc(allParamsSuperBound2)->isEmpty());
+								{
+									bool var$2 = !$nc($cast($Type, allParamsSuperBound1->head))->hasTag($TypeTag::WILDCARD);
+									if (var$2 && !$nc($cast($Type, $nc(allParamsSuperBound2)->head))->hasTag($TypeTag::WILDCARD)) {
+										$var($Type, var$3, $nc(inferenceContext)->asUndetVar($cast($Type, allParamsSuperBound1->head)));
+										if (!isSameType(var$3, $(inferenceContext->asUndetVar($cast($Type, allParamsSuperBound2->head))))) {
+											this->this$0->reportBoundError(this->uv, $Type$UndetVar$InferenceBound::UPPER);
+										}
+									}
+									$assign(allParamsSuperBound1, allParamsSuperBound1->tail);
+									$assign(allParamsSuperBound2, $nc(allParamsSuperBound2)->tail);
+								}
 							}
+							bool var$4 = $nc(allParamsSuperBound1)->isEmpty();
+							$Assert::check(var$4 && $nc(allParamsSuperBound2)->isEmpty());
 						}
 					}
 				}
@@ -199,11 +153,43 @@ Infer$CheckUpperBounds::Infer$CheckUpperBounds() {
 
 $Class* Infer$CheckUpperBounds::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Infer$CheckUpperBounds$$Lambda$isSameType::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Infer$CheckUpperBounds$$Lambda$isSameType")) {
 			return Infer$CheckUpperBounds$$Lambda$isSameType::load$(name, initialize);
 		}
 	}
-	$loadClass(Infer$CheckUpperBounds, name, initialize, &_Infer$CheckUpperBounds_ClassInfo_, allocate$Infer$CheckUpperBounds);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Infer;", nullptr, $FINAL | $SYNTHETIC, $field(Infer$CheckUpperBounds, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Infer;Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Infer$CheckUpperBounds, init$, void, $Infer*, $Type$UndetVar*, $Type*)},
+		{"apply", "(Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Infer$CheckUpperBounds, apply, void, $InferenceContext*, $Warner*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type$UndetVar;)Lcom/sun/tools/javac/comp/Infer$IncorporationAction;", nullptr, $PUBLIC, $virtualMethod(Infer$CheckUpperBounds, dup, $Infer$IncorporationAction*, $Type$UndetVar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$CheckUpperBounds", "com.sun.tools.javac.comp.Infer", "CheckUpperBounds", 0},
+		{"com.sun.tools.javac.comp.Infer$IncorporationAction", "com.sun.tools.javac.comp.Infer", "IncorporationAction", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$CheckUpperBounds",
+		"com.sun.tools.javac.comp.Infer$IncorporationAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$CheckUpperBounds, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$CheckUpperBounds);
+	});
 	return class$;
 }
 

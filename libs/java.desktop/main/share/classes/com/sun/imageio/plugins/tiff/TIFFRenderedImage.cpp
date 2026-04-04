@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFRenderedImage.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFImageReader.h>
 #include <java/awt/Image.h>
 #include <java/awt/Point.h>
@@ -46,62 +45,6 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFRenderedImage_FieldInfo_[] = {
-	{"reader", "Lcom/sun/imageio/plugins/tiff/TIFFImageReader;", nullptr, $PRIVATE, $field(TIFFRenderedImage, reader)},
-	{"imageIndex", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, imageIndex)},
-	{"tileParam", "Ljavax/imageio/ImageReadParam;", nullptr, $PRIVATE, $field(TIFFRenderedImage, tileParam)},
-	{"subsampleX", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, subsampleX)},
-	{"subsampleY", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, subsampleY)},
-	{"isSubsampling", "Z", nullptr, $PRIVATE, $field(TIFFRenderedImage, isSubsampling)},
-	{"width", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, height)},
-	{"tileWidth", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, tileWidth)},
-	{"tileHeight", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, tileHeight)},
-	{"its", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $field(TIFFRenderedImage, its)},
-	{}
-};
-
-$MethodInfo _TIFFRenderedImage_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/tiff/TIFFImageReader;ILjavax/imageio/ImageReadParam;II)V", nullptr, $PUBLIC, $method(TIFFRenderedImage, init$, void, $TIFFImageReader*, int32_t, $ImageReadParam*, int32_t, int32_t), "java.io.IOException"},
-	{"cloneImageReadParam", "(Ljavax/imageio/ImageReadParam;Z)Ljavax/imageio/ImageReadParam;", nullptr, $PRIVATE, $method(TIFFRenderedImage, cloneImageReadParam, $ImageReadParam*, $ImageReadParam*, bool)},
-	{"copyData", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, copyData, $WritableRaster*, $WritableRaster*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getColorModel, $ColorModel*)},
-	{"getData", "()Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getData, $Raster*)},
-	{"getData", "(Ljava/awt/Rectangle;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getData, $Raster*, $Rectangle*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getHeight, int32_t)},
-	{"getMinTileX", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getMinTileX, int32_t)},
-	{"getMinTileY", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getMinTileY, int32_t)},
-	{"getMinX", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getMinX, int32_t)},
-	{"getMinY", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getMinY, int32_t)},
-	{"getNumXTiles", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getNumXTiles, int32_t)},
-	{"getNumYTiles", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getNumYTiles, int32_t)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getProperty, $Object*, $String*)},
-	{"getPropertyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getPropertyNames, $StringArray*)},
-	{"getSampleModel", "()Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getSampleModel, $SampleModel*)},
-	{"getSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/RenderedImage;>;", $PUBLIC, $virtualMethod(TIFFRenderedImage, getSources, $Vector*)},
-	{"getTile", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTile, $Raster*, int32_t, int32_t)},
-	{"getTileGridXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTileGridXOffset, int32_t)},
-	{"getTileGridYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTileGridYOffset, int32_t)},
-	{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTileHeight, int32_t)},
-	{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTileWidth, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getWidth, int32_t)},
-	{"read", "(Ljava/awt/Rectangle;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TIFFRenderedImage, read, $WritableRaster*, $Rectangle*)},
-	{}
-};
-
-$ClassInfo _TIFFRenderedImage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFRenderedImage",
-	"java.lang.Object",
-	"java.awt.image.RenderedImage",
-	_TIFFRenderedImage_FieldInfo_,
-	_TIFFRenderedImage_MethodInfo_
-};
-
-$Object* allocate$TIFFRenderedImage($Class* clazz) {
-	return $of($alloc(TIFFRenderedImage));
-}
-
 void TIFFRenderedImage::init$($TIFFImageReader* reader, int32_t imageIndex, $ImageReadParam* readParam, int32_t width, int32_t height) {
 	$set(this, reader, reader);
 	this->imageIndex = imageIndex;
@@ -119,18 +62,18 @@ void TIFFRenderedImage::init$($TIFFImageReader* reader, int32_t imageIndex, $Ima
 }
 
 $ImageReadParam* TIFFRenderedImage::cloneImageReadParam($ImageReadParam* param, bool copyTagSets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFImageReadParam, newParam, $new($TIFFImageReadParam));
 	int32_t var$0 = $nc(param)->getSourceXSubsampling();
 	int32_t var$1 = param->getSourceYSubsampling();
 	int32_t var$2 = param->getSubsamplingXOffset();
 	newParam->setSourceSubsampling(var$0, var$1, var$2, param->getSubsamplingYOffset());
-	newParam->setSourceBands($($nc(param)->getSourceBands()));
-	newParam->setDestinationBands($($nc(param)->getDestinationBands()));
-	newParam->setDestinationOffset($($nc(param)->getDestinationOffset()));
+	newParam->setSourceBands($(param->getSourceBands()));
+	newParam->setDestinationBands($(param->getDestinationBands()));
+	newParam->setDestinationOffset($(param->getDestinationOffset()));
 	if ($instanceOf($TIFFImageReadParam, param) && copyTagSets) {
 		$var($TIFFImageReadParam, tparam, $cast($TIFFImageReadParam, param));
-		$var($List, tagSets, $nc(tparam)->getAllowedTagSets());
+		$var($List, tagSets, tparam->getAllowedTagSets());
 		if (tagSets != nullptr) {
 			$var($Iterator, tagSetIter, tagSets->iterator());
 			if (tagSetIter != nullptr) {
@@ -150,7 +93,7 @@ $Vector* TIFFRenderedImage::getSources() {
 
 $Object* TIFFRenderedImage::getProperty($String* name) {
 	$init($Image);
-	return $of($Image::UndefinedProperty);
+	return $Image::UndefinedProperty;
 }
 
 $StringArray* TIFFRenderedImage::getPropertyNames() {
@@ -229,28 +172,28 @@ $Raster* TIFFRenderedImage::getData($Rectangle* rect) {
 
 $WritableRaster* TIFFRenderedImage::read($Rectangle* rect) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$nc(this->tileParam)->setSourceRegion(this->isSubsampling ? $$new($Rectangle, this->subsampleX * $nc(rect)->x, this->subsampleY * rect->y, this->subsampleX * rect->width, this->subsampleY * rect->height) : rect);
+		$useLocalObjectStack();
+		$nc(this->tileParam)->setSourceRegion(this->isSubsampling ? $$new($Rectangle, this->subsampleX * $nc(rect)->x, this->subsampleY * $nc(rect)->y, this->subsampleX * $nc(rect)->width, this->subsampleY * $nc(rect)->height) : rect);
 		try {
 			$var($BufferedImage, bi, $nc(this->reader)->read(this->imageIndex, this->tileParam));
 			$var($WritableRaster, ras, $nc(bi)->getRaster());
-			int32_t var$0 = ras->getWidth();
-			return $nc(ras)->createWritableChild(0, 0, var$0, ras->getHeight(), $nc(rect)->x, rect->y, nullptr);
+			int32_t var$0 = $nc(ras)->getWidth();
+			return $nc(ras)->createWritableChild(0, 0, var$0, ras->getHeight(), $nc(rect)->x, $nc(rect)->y, nullptr);
 		} catch ($IOException& e) {
-			$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+			$throwNew($RuntimeException, e);
 		}
 	}
 	$shouldNotReachHere();
 }
 
 $WritableRaster* TIFFRenderedImage::copyData($WritableRaster* raster) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (raster == nullptr) {
 		int32_t var$0 = getWidth();
 		return read($$new($Rectangle, 0, 0, var$0, getHeight()));
 	} else {
-		$var($Raster, src, read($($nc(raster)->getBounds())));
-		$nc(raster)->setRect(src);
+		$var($Raster, src, read($(raster->getBounds())));
+		raster->setRect(src);
 		return raster;
 	}
 }
@@ -259,7 +202,58 @@ TIFFRenderedImage::TIFFRenderedImage() {
 }
 
 $Class* TIFFRenderedImage::load$($String* name, bool initialize) {
-	$loadClass(TIFFRenderedImage, name, initialize, &_TIFFRenderedImage_ClassInfo_, allocate$TIFFRenderedImage);
+	$FieldInfo fieldInfos$$[] = {
+		{"reader", "Lcom/sun/imageio/plugins/tiff/TIFFImageReader;", nullptr, $PRIVATE, $field(TIFFRenderedImage, reader)},
+		{"imageIndex", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, imageIndex)},
+		{"tileParam", "Ljavax/imageio/ImageReadParam;", nullptr, $PRIVATE, $field(TIFFRenderedImage, tileParam)},
+		{"subsampleX", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, subsampleX)},
+		{"subsampleY", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, subsampleY)},
+		{"isSubsampling", "Z", nullptr, $PRIVATE, $field(TIFFRenderedImage, isSubsampling)},
+		{"width", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, height)},
+		{"tileWidth", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, tileWidth)},
+		{"tileHeight", "I", nullptr, $PRIVATE, $field(TIFFRenderedImage, tileHeight)},
+		{"its", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $field(TIFFRenderedImage, its)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/tiff/TIFFImageReader;ILjavax/imageio/ImageReadParam;II)V", nullptr, $PUBLIC, $method(TIFFRenderedImage, init$, void, $TIFFImageReader*, int32_t, $ImageReadParam*, int32_t, int32_t), "java.io.IOException"},
+		{"cloneImageReadParam", "(Ljavax/imageio/ImageReadParam;Z)Ljavax/imageio/ImageReadParam;", nullptr, $PRIVATE, $method(TIFFRenderedImage, cloneImageReadParam, $ImageReadParam*, $ImageReadParam*, bool)},
+		{"copyData", "(Ljava/awt/image/WritableRaster;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, copyData, $WritableRaster*, $WritableRaster*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getColorModel, $ColorModel*)},
+		{"getData", "()Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getData, $Raster*)},
+		{"getData", "(Ljava/awt/Rectangle;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getData, $Raster*, $Rectangle*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getHeight, int32_t)},
+		{"getMinTileX", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getMinTileX, int32_t)},
+		{"getMinTileY", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getMinTileY, int32_t)},
+		{"getMinX", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getMinX, int32_t)},
+		{"getMinY", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getMinY, int32_t)},
+		{"getNumXTiles", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getNumXTiles, int32_t)},
+		{"getNumYTiles", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getNumYTiles, int32_t)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getProperty, $Object*, $String*)},
+		{"getPropertyNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getPropertyNames, $StringArray*)},
+		{"getSampleModel", "()Ljava/awt/image/SampleModel;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getSampleModel, $SampleModel*)},
+		{"getSources", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/image/RenderedImage;>;", $PUBLIC, $virtualMethod(TIFFRenderedImage, getSources, $Vector*)},
+		{"getTile", "(II)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTile, $Raster*, int32_t, int32_t)},
+		{"getTileGridXOffset", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTileGridXOffset, int32_t)},
+		{"getTileGridYOffset", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTileGridYOffset, int32_t)},
+		{"getTileHeight", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTileHeight, int32_t)},
+		{"getTileWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getTileWidth, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(TIFFRenderedImage, getWidth, int32_t)},
+		{"read", "(Ljava/awt/Rectangle;)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(TIFFRenderedImage, read, $WritableRaster*, $Rectangle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFRenderedImage",
+		"java.lang.Object",
+		"java.awt.image.RenderedImage",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFRenderedImage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFRenderedImage);
+	});
 	return class$;
 }
 

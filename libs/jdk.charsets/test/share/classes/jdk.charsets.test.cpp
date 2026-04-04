@@ -1,5 +1,4 @@
 #include <jdk.charsets.test.h>
-
 #include <jdk.charsets.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

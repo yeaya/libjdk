@@ -58,6 +58,7 @@ class XMLEntityManager$EncodingInfo : public ::java::lang::Object {
 	$class(XMLEntityManager$EncodingInfo, 0, ::java::lang::Object)
 public:
 	XMLEntityManager$EncodingInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* autoDetectedEncoding, ::java::lang::Boolean* isBigEndian, bool hasBOM);
 	void init$($String* autoDetectedEncoding, $String* readerEncoding, ::java::lang::Boolean* isBigEndian, bool hasBOM);
 	static $String* STR_UTF8;

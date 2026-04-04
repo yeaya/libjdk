@@ -44,6 +44,7 @@ class AreaOp : public ::java::lang::Object {
 	$class(AreaOp, 0, ::java::lang::Object)
 public:
 	AreaOp();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addEdges(::java::util::Vector* edges, ::java::util::Vector* curves, int32_t curvetag);
 	virtual ::java::util::Vector* calculate(::java::util::Vector* left, ::java::util::Vector* right);

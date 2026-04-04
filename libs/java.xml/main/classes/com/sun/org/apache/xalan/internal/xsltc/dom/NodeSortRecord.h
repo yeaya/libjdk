@@ -95,6 +95,7 @@ class NodeSortRecord : public ::java::lang::Object {
 	$class(NodeSortRecord, 0, ::java::lang::Object)
 public:
 	NodeSortRecord();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t node);
 	void init$();
 	int32_t compareDocOrder(::com::sun::org::apache::xalan::internal::xsltc::dom::NodeSortRecord* other);

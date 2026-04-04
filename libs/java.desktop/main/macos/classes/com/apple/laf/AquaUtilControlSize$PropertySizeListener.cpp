@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaUtilControlSize$PropertySizeListener.h>
-
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <com/apple/laf/AquaUtilControlSize$Sizeable.h>
 #include <com/apple/laf/AquaUtilControlSize.h>
@@ -16,7 +15,6 @@
 using $JRSUIConstants$Size = ::apple::laf::JRSUIConstants$Size;
 using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $AquaUtilControlSize$Sizeable = ::com::apple::laf::AquaUtilControlSize$Sizeable;
-using $Component = ::java::awt::Component;
 using $Font = ::java::awt::Font;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,43 +27,11 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaUtilControlSize$PropertySizeListener_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AquaUtilControlSize$PropertySizeListener, init$, void)},
-	{"applyComponentSize", "(Ljavax/swing/JComponent;Ljava/lang/Object;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaUtilControlSize$PropertySizeListener, applyComponentSize, void, $JComponent*, Object$*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$PropertySizeListener, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaUtilControlSize$PropertySizeListener_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaUtilControlSize$PropertySizeListener", "com.apple.laf.AquaUtilControlSize", "PropertySizeListener", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaUtilControlSize$PropertySizeListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaUtilControlSize$PropertySizeListener",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	_AquaUtilControlSize$PropertySizeListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaUtilControlSize$PropertySizeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaUtilControlSize"
-};
-
-$Object* allocate$AquaUtilControlSize$PropertySizeListener($Class* clazz) {
-	return $of($alloc(AquaUtilControlSize$PropertySizeListener));
-}
-
 void AquaUtilControlSize$PropertySizeListener::init$() {
 }
 
 void AquaUtilControlSize$PropertySizeListener::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, key, $nc(evt)->getPropertyName());
 	if (!"JComponent.sizeVariant"_s->equalsIgnoreCase(key)) {
 		return;
@@ -80,8 +46,8 @@ void AquaUtilControlSize$PropertySizeListener::propertyChange($PropertyChangeEve
 
 void AquaUtilControlSize$PropertySizeListener::applyComponentSize($JComponent* c, Object$* value) {
 	$init(AquaUtilControlSize$PropertySizeListener);
-	$useLocalCurrentObjectStackCache();
-	$var($JRSUIConstants$Size, size, $AquaUtilControlSize::getSizeFromString(value == nullptr ? ($String*)nullptr : $($nc($of(value))->toString())));
+	$useLocalObjectStack();
+	$var($JRSUIConstants$Size, size, $AquaUtilControlSize::getSizeFromString(value == nullptr ? ($String*)nullptr : $($of(value)->toString())));
 	if (size == nullptr) {
 		$assign(size, $AquaUtilControlSize::getUserSizeFrom(c));
 		$init($JRSUIConstants$Size);
@@ -92,7 +58,7 @@ void AquaUtilControlSize$PropertySizeListener::applyComponentSize($JComponent* c
 	$AquaUtilControlSize::applyBorderForSize(c, size);
 	$var($Object, ui, $nc(c)->getUI());
 	if ($instanceOf($AquaUtilControlSize$Sizeable, ui)) {
-		$nc(($cast($AquaUtilControlSize$Sizeable, ui)))->applySizeFor(c, size);
+		$cast($AquaUtilControlSize$Sizeable, ui)->applySizeFor(c, size);
 	}
 	$var($Font, priorFont, c->getFont());
 	if (!($instanceOf($FontUIResource, priorFont))) {
@@ -105,7 +71,34 @@ AquaUtilControlSize$PropertySizeListener::AquaUtilControlSize$PropertySizeListen
 }
 
 $Class* AquaUtilControlSize$PropertySizeListener::load$($String* name, bool initialize) {
-	$loadClass(AquaUtilControlSize$PropertySizeListener, name, initialize, &_AquaUtilControlSize$PropertySizeListener_ClassInfo_, allocate$AquaUtilControlSize$PropertySizeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AquaUtilControlSize$PropertySizeListener, init$, void)},
+		{"applyComponentSize", "(Ljavax/swing/JComponent;Ljava/lang/Object;)V", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaUtilControlSize$PropertySizeListener, applyComponentSize, void, $JComponent*, Object$*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaUtilControlSize$PropertySizeListener, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaUtilControlSize$PropertySizeListener", "com.apple.laf.AquaUtilControlSize", "PropertySizeListener", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaUtilControlSize$PropertySizeListener",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaUtilControlSize"
+	};
+	$loadClass(AquaUtilControlSize$PropertySizeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaUtilControlSize$PropertySizeListener);
+	});
 	return class$;
 }
 

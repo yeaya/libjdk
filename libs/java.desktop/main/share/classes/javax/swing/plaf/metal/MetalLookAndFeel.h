@@ -56,6 +56,7 @@ class $export MetalLookAndFeel : public ::javax::swing::plaf::basic::BasicLookAn
 	$class(MetalLookAndFeel, 0, ::javax::swing::plaf::basic::BasicLookAndFeel)
 public:
 	MetalLookAndFeel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void createDefaultTheme();
 	static void flushUnreferenced();

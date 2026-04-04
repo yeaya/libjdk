@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper.h>
-
 #include <java/lang/ClassLoader.h>
 #include <javax/management/remote/rmi/RMIConnectionImpl$CombinedClassLoader.h>
 #include <jcpp.h>
@@ -14,38 +13,6 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$MethodInfo _RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper, init$, void, $ClassLoader*)},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper_InnerClassesInfo_[] = {
-	{"javax.management.remote.rmi.RMIConnectionImpl$CombinedClassLoader", "javax.management.remote.rmi.RMIConnectionImpl", "CombinedClassLoader", $PRIVATE | $STATIC | $FINAL},
-	{"javax.management.remote.rmi.RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper", "javax.management.remote.rmi.RMIConnectionImpl$CombinedClassLoader", "ClassLoaderWrapper", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper",
-	"java.lang.ClassLoader",
-	nullptr,
-	nullptr,
-	_RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.rmi.RMIConnectionImpl"
-};
-
-$Object* allocate$RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper($Class* clazz) {
-	return $of($alloc(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper));
-}
-
 void RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper::init$($ClassLoader* cl) {
 	$ClassLoader::init$(cl);
 }
@@ -58,7 +25,34 @@ RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper::RMIConnectionImpl$Comb
 }
 
 $Class* RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper::load$($String* name, bool initialize) {
-	$loadClass(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper, name, initialize, &_RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper_ClassInfo_, allocate$RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/ClassLoader;)V", nullptr, 0, $method(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper, init$, void, $ClassLoader*)},
+		{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.rmi.RMIConnectionImpl$CombinedClassLoader", "javax.management.remote.rmi.RMIConnectionImpl", "CombinedClassLoader", $PRIVATE | $STATIC | $FINAL},
+		{"javax.management.remote.rmi.RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper", "javax.management.remote.rmi.RMIConnectionImpl$CombinedClassLoader", "ClassLoaderWrapper", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper",
+		"java.lang.ClassLoader",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.rmi.RMIConnectionImpl"
+	};
+	$loadClass(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIConnectionImpl$CombinedClassLoader$ClassLoaderWrapper);
+	});
 	return class$;
 }
 

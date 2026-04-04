@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSurfaceToGDIWindowSurfaceBlit.h>
-
 #include <java/awt/Composite.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/d3d/D3DSurfaceData.h>
@@ -26,25 +25,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DSurfaceToGDIWindowSurfaceBlit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DSurfaceToGDIWindowSurfaceBlit, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceToGDIWindowSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _D3DSurfaceToGDIWindowSurfaceBlit_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DSurfaceToGDIWindowSurfaceBlit",
-	"sun.java2d.loops.Blit",
-	nullptr,
-	nullptr,
-	_D3DSurfaceToGDIWindowSurfaceBlit_MethodInfo_
-};
-
-$Object* allocate$D3DSurfaceToGDIWindowSurfaceBlit($Class* clazz) {
-	return $of($alloc(D3DSurfaceToGDIWindowSurfaceBlit));
-}
-
 void D3DSurfaceToGDIWindowSurfaceBlit::init$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -60,7 +40,22 @@ D3DSurfaceToGDIWindowSurfaceBlit::D3DSurfaceToGDIWindowSurfaceBlit() {
 }
 
 $Class* D3DSurfaceToGDIWindowSurfaceBlit::load$($String* name, bool initialize) {
-	$loadClass(D3DSurfaceToGDIWindowSurfaceBlit, name, initialize, &_D3DSurfaceToGDIWindowSurfaceBlit_ClassInfo_, allocate$D3DSurfaceToGDIWindowSurfaceBlit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DSurfaceToGDIWindowSurfaceBlit, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(D3DSurfaceToGDIWindowSurfaceBlit, Blit$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DSurfaceToGDIWindowSurfaceBlit",
+		"sun.java2d.loops.Blit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DSurfaceToGDIWindowSurfaceBlit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DSurfaceToGDIWindowSurfaceBlit);
+	});
 	return class$;
 }
 

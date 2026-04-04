@@ -15,10 +15,13 @@ public:
 	MimeTypeParseException();
 	void init$();
 	void init$($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xB23924D4D91E2FCB;
+	static const int64_t serialVersionUID = (int64_t)0xb23924d4d91e2fcb;
 	MimeTypeParseException(const MimeTypeParseException& e);
 	virtual void throw$() override;
-	inline MimeTypeParseException* operator ->() {
+	inline MimeTypeParseException* operator ->() const {
+		return (MimeTypeParseException*)throwing$;
+	}
+	inline operator MimeTypeParseException*() const {
 		return (MimeTypeParseException*)throwing$;
 	}
 };

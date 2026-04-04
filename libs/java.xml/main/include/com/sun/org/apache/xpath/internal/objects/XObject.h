@@ -166,7 +166,7 @@ public:
 	virtual $String* toString() override;
 	using ::com::sun::org::apache::xpath::internal::Expression::xstr;
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* xstr();
-	static const int64_t serialVersionUID = (int64_t)0xF4981209BB7BB619;
+	static const int64_t serialVersionUID = (int64_t)0xf4981209bb7bb619;
 	$Object* m_obj = nullptr;
 	static const int32_t CLASS_NULL = (-1);
 	static const int32_t CLASS_UNKNOWN = 0;

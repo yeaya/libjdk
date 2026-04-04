@@ -35,7 +35,10 @@ public:
 	$Class* category = nullptr;
 	PrintJobAttributeException(const PrintJobAttributeException& e);
 	virtual void throw$() override;
-	inline PrintJobAttributeException* operator ->() {
+	inline PrintJobAttributeException* operator ->() const {
+		return (PrintJobAttributeException*)throwing$;
+	}
+	inline operator PrintJobAttributeException*() const {
 		return (PrintJobAttributeException*)throwing$;
 	}
 };

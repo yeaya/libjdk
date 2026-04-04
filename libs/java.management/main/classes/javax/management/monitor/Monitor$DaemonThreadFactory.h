@@ -30,6 +30,7 @@ class Monitor$DaemonThreadFactory : public ::java::util::concurrent::ThreadFacto
 	$class(Monitor$DaemonThreadFactory, 0, ::java::util::concurrent::ThreadFactory)
 public:
 	Monitor$DaemonThreadFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* poolName);
 	void init$($String* poolName, ::java::lang::ThreadGroup* threadGroup);
 	virtual ::java::lang::ThreadGroup* getThreadGroup();

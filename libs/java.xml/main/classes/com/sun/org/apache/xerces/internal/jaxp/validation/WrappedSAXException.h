@@ -27,11 +27,14 @@ class WrappedSAXException : public ::java::lang::RuntimeException {
 public:
 	WrappedSAXException();
 	void init$(::org::xml::sax::SAXException* e);
-	static const int64_t serialVersionUID = (int64_t)0xD3904282EC4DA316;
+	static const int64_t serialVersionUID = (int64_t)0xd3904282ec4da316;
 	::org::xml::sax::SAXException* exception = nullptr;
 	WrappedSAXException(const WrappedSAXException& e);
 	virtual void throw$() override;
-	inline WrappedSAXException* operator ->() {
+	inline WrappedSAXException* operator ->() const {
+		return (WrappedSAXException*)throwing$;
+	}
+	inline operator WrappedSAXException*() const {
 		return (WrappedSAXException*)throwing$;
 	}
 };

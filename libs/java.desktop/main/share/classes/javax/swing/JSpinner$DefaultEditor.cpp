@@ -1,5 +1,4 @@
 #include <javax/swing/JSpinner$DefaultEditor.h>
-
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -8,14 +7,12 @@
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JSpinner.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/FontUIResource.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -31,7 +28,6 @@ using $Font = ::java::awt::Font;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -41,61 +37,11 @@ using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JPanel = ::javax::swing::JPanel;
 using $JSpinner = ::javax::swing::JSpinner;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $UIResource = ::javax::swing::plaf::UIResource;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _JSpinner$DefaultEditor_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JSpinner;)V", nullptr, $PUBLIC, $method(JSpinner$DefaultEditor, init$, void, $JSpinner*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, addLayoutComponent, void, $String*, $Component*)},
-	{"commitEdit", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, commitEdit, void), "java.text.ParseException"},
-	{"dismiss", "(Ljavax/swing/JSpinner;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, dismiss, void, $JSpinner*)},
-	{"getBaseline", "(II)I", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, getBaseline, int32_t, int32_t, int32_t)},
-	{"getBaselineResizeBehavior", "()Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*)},
-	{"getSpinner", "()Ljavax/swing/JSpinner;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, getSpinner, $JSpinner*)},
-	{"getTextField", "()Ljavax/swing/JFormattedTextField;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, getTextField, $JFormattedTextField*)},
-	{"insetSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(JSpinner$DefaultEditor, insetSize, $Dimension*, $Container*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, preferredLayoutSize, $Dimension*, $Container*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, removeLayoutComponent, void, $Component*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JSpinner$DefaultEditor_InnerClassesInfo_[] = {
-	{"javax.swing.JSpinner$DefaultEditor", "javax.swing.JSpinner", "DefaultEditor", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JSpinner$DefaultEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JSpinner$DefaultEditor",
-	"javax.swing.JPanel",
-	"javax.swing.event.ChangeListener,java.beans.PropertyChangeListener,java.awt.LayoutManager",
-	nullptr,
-	_JSpinner$DefaultEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSpinner$DefaultEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JSpinner"
-};
-
-$Object* allocate$JSpinner$DefaultEditor($Class* clazz) {
-	return $of($alloc(JSpinner$DefaultEditor));
-}
 
 $String* JSpinner$DefaultEditor::toString() {
 	 return this->$JPanel::toString();
@@ -118,19 +64,19 @@ void JSpinner$DefaultEditor::finalize() {
 }
 
 void JSpinner$DefaultEditor::init$($JSpinner* spinner) {
-	$useLocalCurrentObjectStackCache();
-	$JPanel::init$(($LayoutManager*)nullptr);
+	$useLocalObjectStack();
+	$JPanel::init$(nullptr);
 	$var($JFormattedTextField, ftf, $new($JFormattedTextField));
 	ftf->setName("Spinner.formattedTextField"_s);
 	ftf->setValue($($nc(spinner)->getValue()));
 	ftf->addPropertyChangeListener(this);
 	ftf->setEditable(false);
 	ftf->setInheritsPopupMenu(true);
-	$var($String, toolTipText, $nc(spinner)->getToolTipText());
+	$var($String, toolTipText, spinner->getToolTipText());
 	if (toolTipText != nullptr) {
 		ftf->setToolTipText(toolTipText);
 	}
-	add(static_cast<$Component*>(ftf));
+	add(ftf);
 	setLayout(this);
 	spinner->addChangeListener(this);
 	$var($ActionMap, ftfMap, ftf->getActionMap());
@@ -145,12 +91,10 @@ void JSpinner$DefaultEditor::dismiss($JSpinner* spinner) {
 }
 
 $JSpinner* JSpinner$DefaultEditor::getSpinner() {
-	{
-		$var($Component, c, this);
-		for (; c != nullptr; $assign(c, c->getParent())) {
-			if ($instanceOf($JSpinner, c)) {
-				return $cast($JSpinner, c);
-			}
+	$var($Component, c, this);
+	for (; c != nullptr; $assign(c, c->getParent())) {
+		if ($instanceOf($JSpinner, c)) {
+			return $cast($JSpinner, c);
 		}
 	}
 	return nullptr;
@@ -161,13 +105,13 @@ $JFormattedTextField* JSpinner$DefaultEditor::getTextField() {
 }
 
 void JSpinner$DefaultEditor::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($JSpinner, spinner, ($cast($JSpinner, $nc(e)->getSource())));
-	$nc($(getTextField()))->setValue($($nc(spinner)->getValue()));
+	$useLocalObjectStack();
+	$var($JSpinner, spinner, $cast($JSpinner, $nc(e)->getSource()));
+	$$nc(getTextField())->setValue($($nc(spinner)->getValue()));
 }
 
 void JSpinner$DefaultEditor::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSpinner, spinner, getSpinner());
 	if (spinner == nullptr) {
 		return;
@@ -178,10 +122,10 @@ void JSpinner$DefaultEditor::propertyChange($PropertyChangeEvent* e) {
 		if ("value"_s->equals(name)) {
 			$var($Object, lastValue, $nc(spinner)->getValue());
 			try {
-				spinner->setValue($($nc($(getTextField()))->getValue()));
+				spinner->setValue($($$nc(getTextField())->getValue()));
 			} catch ($IllegalArgumentException& iae) {
 				try {
-					$nc(($cast($JFormattedTextField, source)))->setValue(lastValue);
+					$cast($JFormattedTextField, source)->setValue(lastValue);
 				} catch ($IllegalArgumentException& iae2) {
 				}
 			}
@@ -189,8 +133,8 @@ void JSpinner$DefaultEditor::propertyChange($PropertyChangeEvent* e) {
 			$var($Object, newfont, e->getNewValue());
 			if ($instanceOf($UIResource, newfont)) {
 				$var($Font, font, $nc(spinner)->getFont());
-				if (!$nc($of(newfont))->equals(font)) {
-					$nc($(getTextField()))->setFont(font == nullptr ? ($Font*)nullptr : static_cast<$Font*>($$new($FontUIResource, font)));
+				if (!newfont->equals(font)) {
+					$$nc(getTextField())->setFont(font == nullptr ? ($Font*)nullptr : $$cast($Font, $new($FontUIResource, font)));
 				}
 			}
 		}
@@ -205,16 +149,16 @@ void JSpinner$DefaultEditor::removeLayoutComponent($Component* child) {
 
 $Dimension* JSpinner$DefaultEditor::insetSize($Container* parent) {
 	$var($Insets, insets, $nc(parent)->getInsets());
-	int32_t w = $nc(insets)->left + insets->right;
+	int32_t w = $nc(insets)->left + $nc(insets)->right;
 	int32_t h = insets->top + insets->bottom;
 	return $new($Dimension, w, h);
 }
 
 $Dimension* JSpinner$DefaultEditor::preferredLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, preferredSize, insetSize(parent));
 	if ($nc(parent)->getComponentCount() > 0) {
-		$var($Dimension, childSize, $nc($(getComponent(0)))->getPreferredSize());
+		$var($Dimension, childSize, $$nc(getComponent(0))->getPreferredSize());
 		$nc(preferredSize)->width += $nc(childSize)->width;
 		preferredSize->height += childSize->height;
 	}
@@ -222,10 +166,10 @@ $Dimension* JSpinner$DefaultEditor::preferredLayoutSize($Container* parent) {
 }
 
 $Dimension* JSpinner$DefaultEditor::minimumLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, minimumSize, insetSize(parent));
 	if ($nc(parent)->getComponentCount() > 0) {
-		$var($Dimension, childSize, $nc($(getComponent(0)))->getMinimumSize());
+		$var($Dimension, childSize, $$nc(getComponent(0))->getMinimumSize());
 		$nc(minimumSize)->width += $nc(childSize)->width;
 		minimumSize->height += childSize->height;
 	}
@@ -233,12 +177,12 @@ $Dimension* JSpinner$DefaultEditor::minimumLayoutSize($Container* parent) {
 }
 
 void JSpinner$DefaultEditor::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(parent)->getComponentCount() > 0) {
 		$var($Insets, insets, parent->getInsets());
-		int32_t w = parent->getWidth() - ($nc(insets)->left + insets->right);
+		int32_t w = parent->getWidth() - ($nc(insets)->left + $nc(insets)->right);
 		int32_t h = parent->getHeight() - (insets->top + insets->bottom);
-		$nc($(getComponent(0)))->setBounds(insets->left, insets->top, w, h);
+		$$nc(getComponent(0))->setBounds(insets->left, insets->top, w, h);
 	}
 }
 
@@ -248,12 +192,12 @@ void JSpinner$DefaultEditor::commitEdit() {
 }
 
 int32_t JSpinner$DefaultEditor::getBaseline(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::getBaseline(width, height);
 	$var($Insets, insets, getInsets());
-	width = width - $nc(insets)->left - insets->right;
+	width = width - $nc(insets)->left - $nc(insets)->right;
 	height = height - insets->top - insets->bottom;
-	int32_t baseline = $nc($(getComponent(0)))->getBaseline(width, height);
+	int32_t baseline = $$nc(getComponent(0))->getBaseline(width, height);
 	if (baseline >= 0) {
 		return baseline + insets->top;
 	}
@@ -261,14 +205,58 @@ int32_t JSpinner$DefaultEditor::getBaseline(int32_t width, int32_t height) {
 }
 
 $Component$BaselineResizeBehavior* JSpinner$DefaultEditor::getBaselineResizeBehavior() {
-	return $nc($(getComponent(0)))->getBaselineResizeBehavior();
+	return $$nc(getComponent(0))->getBaselineResizeBehavior();
 }
 
 JSpinner$DefaultEditor::JSpinner$DefaultEditor() {
 }
 
 $Class* JSpinner$DefaultEditor::load$($String* name, bool initialize) {
-	$loadClass(JSpinner$DefaultEditor, name, initialize, &_JSpinner$DefaultEditor_ClassInfo_, allocate$JSpinner$DefaultEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JSpinner;)V", nullptr, $PUBLIC, $method(JSpinner$DefaultEditor, init$, void, $JSpinner*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, addLayoutComponent, void, $String*, $Component*)},
+		{"commitEdit", "()V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, commitEdit, void), "java.text.ParseException"},
+		{"dismiss", "(Ljavax/swing/JSpinner;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, dismiss, void, $JSpinner*)},
+		{"getBaseline", "(II)I", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, getBaseline, int32_t, int32_t, int32_t)},
+		{"getBaselineResizeBehavior", "()Ljava/awt/Component$BaselineResizeBehavior;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, getBaselineResizeBehavior, $Component$BaselineResizeBehavior*)},
+		{"getSpinner", "()Ljavax/swing/JSpinner;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, getSpinner, $JSpinner*)},
+		{"getTextField", "()Ljavax/swing/JFormattedTextField;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, getTextField, $JFormattedTextField*)},
+		{"insetSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(JSpinner$DefaultEditor, insetSize, $Dimension*, $Container*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, preferredLayoutSize, $Dimension*, $Container*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, removeLayoutComponent, void, $Component*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(JSpinner$DefaultEditor, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JSpinner$DefaultEditor", "javax.swing.JSpinner", "DefaultEditor", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JSpinner$DefaultEditor",
+		"javax.swing.JPanel",
+		"javax.swing.event.ChangeListener,java.beans.PropertyChangeListener,java.awt.LayoutManager",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JSpinner"
+	};
+	$loadClass(JSpinner$DefaultEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSpinner$DefaultEditor));
+	});
 	return class$;
 }
 

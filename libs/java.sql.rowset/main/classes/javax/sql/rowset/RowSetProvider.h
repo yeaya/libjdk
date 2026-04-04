@@ -33,6 +33,7 @@ class $export RowSetProvider : public ::java::lang::Object {
 	$class(RowSetProvider, 0, ::java::lang::Object)
 public:
 	RowSetProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::sql::rowset::RowSetFactory* defaultRowSetFactory();
 	static ::java::lang::ClassLoader* getContextClassLoader();

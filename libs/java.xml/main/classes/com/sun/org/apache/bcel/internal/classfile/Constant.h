@@ -43,6 +43,7 @@ public:
 	Constant();
 	virtual void accept(::com::sun::org::apache::bcel::internal::classfile::Visitor* v) override {}
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t tag);
 	virtual $Object* clone() override;
 	virtual ::com::sun::org::apache::bcel::internal::classfile::Constant* copy();

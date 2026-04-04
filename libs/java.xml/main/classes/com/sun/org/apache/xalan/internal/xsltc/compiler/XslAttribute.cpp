@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/XslAttribute.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
-#include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
@@ -59,12 +57,10 @@
 
 using $ALOAD = ::com::sun::org::apache::bcel::internal::generic::ALOAD;
 using $ASTORE = ::com::sun::org::apache::bcel::internal::generic::ASTORE;
-using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
@@ -108,38 +104,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _XslAttribute_FieldInfo_[] = {
-	{"_prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XslAttribute, _prefix)},
-	{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PRIVATE, $field(XslAttribute, _name)},
-	{"_namespace", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValueTemplate;", nullptr, $PRIVATE, $field(XslAttribute, _namespace)},
-	{"_ignore", "Z", nullptr, $PRIVATE, $field(XslAttribute, _ignore)},
-	{"_isLiteral", "Z", nullptr, $PRIVATE, $field(XslAttribute, _isLiteral)},
-	{}
-};
-
-$MethodInfo _XslAttribute_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XslAttribute, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(XslAttribute, display, void, int32_t)},
-	{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PUBLIC, $method(XslAttribute, getName, $AttributeValue*)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(XslAttribute, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(XslAttribute, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(XslAttribute, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _XslAttribute_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.XslAttribute",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_XslAttribute_FieldInfo_,
-	_XslAttribute_MethodInfo_
-};
-
-$Object* allocate$XslAttribute($Class* clazz) {
-	return $of($alloc(XslAttribute));
-}
-
 void XslAttribute::init$() {
 	$Instruction::init$();
 	$set(this, _namespace, nullptr);
@@ -158,7 +122,7 @@ void XslAttribute::display(int32_t indent) {
 }
 
 void XslAttribute::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool generated = false;
 	$var($SymbolTable, stable, $nc(parser)->getSymbolTable());
 	$var($String, name, getAttribute("name"_s));
@@ -166,7 +130,7 @@ void XslAttribute::parseContents($Parser* parser) {
 	$var($QName, qname, parser->getQName(name, false));
 	$var($String, prefix, $nc(qname)->getPrefix());
 	$init($Constants);
-	bool var$0 = ((prefix != nullptr) && (prefix->equals($Constants::XMLNS_PREFIX)));
+	bool var$0 = (prefix != nullptr) && (prefix->equals($Constants::XMLNS_PREFIX));
 	if (var$0 || ($nc(name)->equals($Constants::XMLNS_PREFIX))) {
 		$init($ErrorMsg);
 		reportError(this, parser, $ErrorMsg::ILLEGAL_ATTR_NAME_ERR, name);
@@ -217,13 +181,11 @@ void XslAttribute::parseContents($Parser* parser) {
 	if (namespace$ != nullptr && namespace$ != $Constants::EMPTYSTRING) {
 		$set(this, _prefix, lookupPrefix(namespace$));
 		$set(this, _namespace, $new($AttributeValueTemplate, namespace$, parser, this));
-	} else {
-		if (prefix != nullptr && prefix != $Constants::EMPTYSTRING) {
-			$set(this, _prefix, prefix);
-			$assign(namespace$, lookupNamespace(prefix));
-			if (namespace$ != nullptr) {
-				$set(this, _namespace, $new($AttributeValueTemplate, namespace$, parser, this));
-			}
+	} else if (prefix != nullptr && prefix != $Constants::EMPTYSTRING) {
+		$set(this, _prefix, prefix);
+		$assign(namespace$, lookupNamespace(prefix));
+		if (namespace$ != nullptr) {
+			$set(this, _namespace, $new($AttributeValueTemplate, namespace$, parser, this));
 		}
 	}
 	if (this->_namespace != nullptr) {
@@ -239,11 +201,11 @@ void XslAttribute::parseContents($Parser* parser) {
 		}
 		$assign(name, $str({this->_prefix, ":"_s, $(qname->getLocalPart())}));
 		if (($instanceOf($LiteralElement, parent)) && (!generated)) {
-			$nc(($cast($LiteralElement, parent)))->registerNamespace(this->_prefix, namespace$, stable, false);
+			$cast($LiteralElement, parent)->registerNamespace(this->_prefix, namespace$, stable, false);
 		}
 	}
 	if ($instanceOf($LiteralElement, parent)) {
-		$nc(($cast($LiteralElement, parent)))->addAttribute(this);
+		$cast($LiteralElement, parent)->addAttribute(this);
 	}
 	$set(this, _name, $AttributeValue::create(this, name, parser));
 	parseChildren(parser);
@@ -253,7 +215,7 @@ $Type* XslAttribute::typeCheck($SymbolTable* stable) {
 	if (!this->_ignore) {
 		$nc(this->_name)->typeCheck(stable);
 		if (this->_namespace != nullptr) {
-			$nc(this->_namespace)->typeCheck(stable);
+			this->_namespace->typeCheck(stable);
 		}
 		typeCheckContents(stable);
 	}
@@ -262,7 +224,7 @@ $Type* XslAttribute::typeCheck($SymbolTable* stable) {
 }
 
 void XslAttribute::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if (this->_ignore) {
@@ -271,7 +233,7 @@ void XslAttribute::translate($ClassGenerator* classGen, $MethodGenerator* method
 	this->_ignore = true;
 	if (this->_namespace != nullptr) {
 		$nc(il)->append($(methodGen->loadHandler()));
-		il->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, this->_prefix)));
+		il->append($$new($PUSH, cpg, this->_prefix));
 		$nc(this->_namespace)->translate(classGen, methodGen);
 		il->append($(methodGen->namespace$()));
 	}
@@ -279,44 +241,44 @@ void XslAttribute::translate($ClassGenerator* classGen, $MethodGenerator* method
 		$init($Constants);
 		$var($LocalVariableGen, nameValue, methodGen->addLocalVariable2("nameValue"_s, $($Util::getJCRefType($Constants::STRING_SIG)), nullptr));
 		$nc(this->_name)->translate(classGen, methodGen);
-		$nc(nameValue)->setStart($($nc(il)->append(static_cast<$1Instruction*>($$new($ASTORE, nameValue->getIndex())))));
-		$nc(il)->append(static_cast<$1Instruction*>($$new($ALOAD, nameValue->getIndex())));
+		$nc(nameValue)->setStart($($nc(il)->append($$new($ASTORE, $nc(nameValue)->getIndex()))));
+		il->append($$new($ALOAD, nameValue->getIndex()));
 		int32_t check = $nc(cpg)->addMethodref($Constants::BASIS_LIBRARY_CLASS, "checkAttribQName"_s, $$str({"("_s, $Constants::STRING_SIG, ")V"_s}));
-		il->append(static_cast<$1Instruction*>($$new($INVOKESTATIC, check)));
+		il->append($$new($INVOKESTATIC, check));
 		il->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($Constants::DUP));
-		nameValue->setEnd($(il->append(static_cast<$1Instruction*>($$new($ALOAD, nameValue->getIndex())))));
+		il->append($Constants::DUP);
+		nameValue->setEnd($(il->append($$new($ALOAD, nameValue->getIndex()))));
 	} else {
 		$nc(il)->append($(methodGen->loadHandler()));
 		$init($Constants);
-		il->append(static_cast<$1Instruction*>($Constants::DUP));
+		il->append($Constants::DUP);
 		$nc(this->_name)->translate(classGen, methodGen);
 	}
-	bool var$0 = (elementCount() == 1);
+	bool var$0 = elementCount() == 1;
 	if (var$0 && ($instanceOf($Text, $(elementAt(0))))) {
-		$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, $($nc(($cast($Text, $(elementAt(0)))))->getText()))));
+		$nc(il)->append($$new($PUSH, cpg, $($$sure($Text, elementAt(0))->getText())));
 	} else {
 		$nc(il)->append($(classGen->loadTranslet()));
 		$init($Constants);
-		il->append(static_cast<$1Instruction*>($$new($GETFIELD, $nc(cpg)->addFieldref($Constants::TRANSLET_CLASS, "stringValueHandler"_s, $Constants::STRING_VALUE_HANDLER_SIG))));
-		il->append(static_cast<$1Instruction*>($Constants::DUP));
+		il->append($$new($GETFIELD, $nc(cpg)->addFieldref($Constants::TRANSLET_CLASS, "stringValueHandler"_s, $Constants::STRING_VALUE_HANDLER_SIG)));
+		il->append($Constants::DUP);
 		il->append($(methodGen->storeHandler()));
 		translateContents(classGen, methodGen);
-		il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref($Constants::STRING_VALUE_HANDLER, "getValue"_s, $$str({"()"_s, $Constants::STRING_SIG})))));
+		il->append($$new($INVOKEVIRTUAL, cpg->addMethodref($Constants::STRING_VALUE_HANDLER, "getValue"_s, $$str({"()"_s, $Constants::STRING_SIG}))));
 	}
 	$var($SyntaxTreeNode, parent, getParent());
-	if ($instanceOf($LiteralElement, parent) && $nc(($cast($LiteralElement, parent)))->allAttributesUnique()) {
+	if ($instanceOf($LiteralElement, parent) && $cast($LiteralElement, parent)->allAttributesUnique()) {
 		int32_t flags = 0;
-		$var($ElemDesc, elemDesc, $nc(($cast($LiteralElement, parent)))->getElemDesc());
+		$var($ElemDesc, elemDesc, $cast($LiteralElement, parent)->getElemDesc());
 		if (elemDesc != nullptr && $instanceOf($SimpleAttributeValue, this->_name)) {
-			$var($String, attrName, $nc(($cast($SimpleAttributeValue, this->_name)))->toString());
+			$var($String, attrName, $cast($SimpleAttributeValue, this->_name)->toString());
 			if (elemDesc->isAttrFlagSet(attrName, $ElemDesc::ATTREMPTY)) {
 				flags = flags | $SerializationHandler::HTML_ATTREMPTY;
 			} else if (elemDesc->isAttrFlagSet(attrName, $ElemDesc::ATTRURL)) {
 				flags = flags | $SerializationHandler::HTML_ATTRURL;
 			}
 		}
-		$nc(il)->append(static_cast<$CompoundInstruction*>($$new($PUSH, cpg, flags)));
+		$nc(il)->append($$new($PUSH, cpg, flags));
 		il->append($(methodGen->uniqueAttribute()));
 	} else {
 		$nc(il)->append($(methodGen->attribute()));
@@ -328,7 +290,34 @@ XslAttribute::XslAttribute() {
 }
 
 $Class* XslAttribute::load$($String* name, bool initialize) {
-	$loadClass(XslAttribute, name, initialize, &_XslAttribute_ClassInfo_, allocate$XslAttribute);
+	$FieldInfo fieldInfos$$[] = {
+		{"_prefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XslAttribute, _prefix)},
+		{"_name", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PRIVATE, $field(XslAttribute, _name)},
+		{"_namespace", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValueTemplate;", nullptr, $PRIVATE, $field(XslAttribute, _namespace)},
+		{"_ignore", "Z", nullptr, $PRIVATE, $field(XslAttribute, _ignore)},
+		{"_isLiteral", "Z", nullptr, $PRIVATE, $field(XslAttribute, _isLiteral)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XslAttribute, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(XslAttribute, display, void, int32_t)},
+		{"getName", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeValue;", nullptr, $PUBLIC, $method(XslAttribute, getName, $AttributeValue*)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(XslAttribute, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(XslAttribute, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(XslAttribute, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.XslAttribute",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XslAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XslAttribute);
+	});
 	return class$;
 }
 

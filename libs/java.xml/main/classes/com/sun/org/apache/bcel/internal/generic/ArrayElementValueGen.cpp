@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ArrayElementValueGen.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/ArrayElementValue.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ElementValue.h>
@@ -35,44 +34,13 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _ArrayElementValueGen_FieldInfo_[] = {
-	{"evalues", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;>;", $PRIVATE | $FINAL, $field(ArrayElementValueGen, evalues)},
-	{}
-};
-
-$MethodInfo _ArrayElementValueGen_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(ArrayElementValueGen, init$, void, $ConstantPoolGen*)},
-	{"<init>", "(I[Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(ArrayElementValueGen, init$, void, int32_t, $ElementValueArray*, $ConstantPoolGen*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ArrayElementValue;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(ArrayElementValueGen, init$, void, $ArrayElementValue*, $ConstantPoolGen*, bool)},
-	{"addElement", "(Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;)V", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, addElement, void, $ElementValueGen*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getElementValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, getElementValue, $ElementValue*)},
-	{"getElementValues", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;>;", $PUBLIC, $virtualMethod(ArrayElementValueGen, getElementValues, $List*)},
-	{"getElementValuesSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, getElementValuesSize, int32_t)},
-	{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, stringifyValue, $String*)},
-	{}
-};
-
-$ClassInfo _ArrayElementValueGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ArrayElementValueGen",
-	"com.sun.org.apache.bcel.internal.generic.ElementValueGen",
-	nullptr,
-	_ArrayElementValueGen_FieldInfo_,
-	_ArrayElementValueGen_MethodInfo_
-};
-
-$Object* allocate$ArrayElementValueGen($Class* clazz) {
-	return $of($alloc(ArrayElementValueGen));
-}
-
 void ArrayElementValueGen::init$($ConstantPoolGen* cp) {
 	$ElementValueGen::init$($ElementValueGen::ARRAY, cp);
 	$set(this, evalues, $new($ArrayList));
 }
 
 void ArrayElementValueGen::init$(int32_t type, $ElementValueArray* datums, $ConstantPoolGen* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementValueGen::init$(type, cpool);
 	if (type != $ElementValueGen::ARRAY) {
 		$throwNew($IllegalArgumentException, $$str({"Only element values of type array can be built with this ctor - type specified: "_s, $$str(type)}));
@@ -80,9 +48,7 @@ void ArrayElementValueGen::init$(int32_t type, $ElementValueArray* datums, $Cons
 	$set(this, evalues, $new($ArrayList));
 	{
 		$var($ElementValueArray, arr$, datums);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ElementValue, datum, arr$->get(i$));
 			{
 				$nc(this->evalues)->add($($ElementValueGen::copy(datum, cpool, true)));
@@ -92,11 +58,11 @@ void ArrayElementValueGen::init$(int32_t type, $ElementValueArray* datums, $Cons
 }
 
 $ElementValue* ArrayElementValueGen::getElementValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ElementValueArray, immutableData, $new($ElementValueArray, $nc(this->evalues)->size()));
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc(this->evalues)->iterator());
+		$var($Iterator, i$, this->evalues->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ElementValueGen, element, $cast($ElementValueGen, i$->next()));
 			{
@@ -105,34 +71,31 @@ $ElementValue* ArrayElementValueGen::getElementValue() {
 		}
 	}
 	int32_t var$0 = $ElementValueGen::getElementValueType();
-	$var($ElementValueArray, var$1, immutableData);
-	return $new($ArrayElementValue, var$0, var$1, $($nc($(getConstantPool()))->getConstantPool()));
+	return $new($ArrayElementValue, var$0, immutableData, $($$nc(getConstantPool())->getConstantPool()));
 }
 
 void ArrayElementValueGen::init$($ArrayElementValue* value, $ConstantPoolGen* cpool, bool copyPoolEntries) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementValueGen::init$($ElementValueGen::ARRAY, cpool);
 	$set(this, evalues, $new($ArrayList));
 	$var($ElementValueArray, in, $nc(value)->getElementValuesArray());
 	{
 		$var($ElementValueArray, arr$, in);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ElementValue, element, arr$->get(i$));
 			{
-				$nc(this->evalues)->add($($ElementValueGen::copy(element, cpool, copyPoolEntries)));
+				this->evalues->add($($ElementValueGen::copy(element, cpool, copyPoolEntries)));
 			}
 		}
 	}
 }
 
 void ArrayElementValueGen::dump($DataOutputStream* dos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(dos)->writeByte($ElementValueGen::getElementValueType());
 	dos->writeShort($nc(this->evalues)->size());
 	{
-		$var($Iterator, i$, $nc(this->evalues)->iterator());
+		$var($Iterator, i$, this->evalues->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ElementValueGen, element, $cast($ElementValueGen, i$->next()));
 			{
@@ -143,7 +106,7 @@ void ArrayElementValueGen::dump($DataOutputStream* dos) {
 }
 
 $String* ArrayElementValueGen::stringifyValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("["_s);
 	$var($String, comma, ""_s);
@@ -178,7 +141,33 @@ ArrayElementValueGen::ArrayElementValueGen() {
 }
 
 $Class* ArrayElementValueGen::load$($String* name, bool initialize) {
-	$loadClass(ArrayElementValueGen, name, initialize, &_ArrayElementValueGen_ClassInfo_, allocate$ArrayElementValueGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"evalues", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;>;", $PRIVATE | $FINAL, $field(ArrayElementValueGen, evalues)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(ArrayElementValueGen, init$, void, $ConstantPoolGen*)},
+		{"<init>", "(I[Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(ArrayElementValueGen, init$, void, int32_t, $ElementValueArray*, $ConstantPoolGen*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ArrayElementValue;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(ArrayElementValueGen, init$, void, $ArrayElementValue*, $ConstantPoolGen*, bool)},
+		{"addElement", "(Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;)V", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, addElement, void, $ElementValueGen*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getElementValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, getElementValue, $ElementValue*)},
+		{"getElementValues", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/ElementValueGen;>;", $PUBLIC, $virtualMethod(ArrayElementValueGen, getElementValues, $List*)},
+		{"getElementValuesSize", "()I", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, getElementValuesSize, int32_t)},
+		{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ArrayElementValueGen, stringifyValue, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ArrayElementValueGen",
+		"com.sun.org.apache.bcel.internal.generic.ElementValueGen",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ArrayElementValueGen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ArrayElementValueGen);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$InvisibleSymbolError.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -39,9 +38,7 @@ using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $JCDiagnostic$DiagnosticType = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType;
-using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Factory;
 using $List = ::com::sun::tools::javac::util::List;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -54,45 +51,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$InvisibleSymbolError_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$InvisibleSymbolError, this$0)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE | $FINAL, $field(Resolve$InvisibleSymbolError, env)},
-	{"suppressError", "Z", nullptr, $PRIVATE | $FINAL, $field(Resolve$InvisibleSymbolError, suppressError)},
-	{}
-};
-
-$MethodInfo _Resolve$InvisibleSymbolError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Env;ZLcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;ZLcom/sun/tools/javac/code/Symbol;)V", 0, $method(Resolve$InvisibleSymbolError, init$, void, $Resolve*, $Env*, bool, $Symbol*)},
-	{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$InvisibleSymbolError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$InvisibleSymbolError_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$InvisibleSymbolError", "com.sun.tools.javac.comp.Resolve", "InvisibleSymbolError", 0},
-	{"com.sun.tools.javac.comp.Resolve$InvalidSymbolError", "com.sun.tools.javac.comp.Resolve", "InvalidSymbolError", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$InvisibleSymbolError_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$InvisibleSymbolError",
-	"com.sun.tools.javac.comp.Resolve$InvalidSymbolError",
-	nullptr,
-	_Resolve$InvisibleSymbolError_FieldInfo_,
-	_Resolve$InvisibleSymbolError_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$InvisibleSymbolError_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$InvisibleSymbolError($Class* clazz) {
-	return $of($alloc(Resolve$InvisibleSymbolError));
-}
-
 void Resolve$InvisibleSymbolError::init$($Resolve* this$0, $Env* env, bool suppressError, $Symbol* sym) {
 	$set(this, this$0, this$0);
 	$init($Kinds$Kind);
@@ -103,17 +61,17 @@ void Resolve$InvisibleSymbolError::init$($Resolve* this$0, $Env* env, bool suppr
 }
 
 $JCDiagnostic* Resolve$InvisibleSymbolError::getDiagnostic($JCDiagnostic$DiagnosticType* dkind, $JCDiagnostic$DiagnosticPosition* pos$renamed, $Symbol* location, $Type* site, $Name* name, $List* argtypes, $List* typeargtypes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCDiagnostic$DiagnosticPosition, pos, pos$renamed);
 	if (this->suppressError) {
 		return nullptr;
 	}
 	$init($Kinds$Kind);
 	if ($nc(this->sym)->kind == $Kinds$Kind::PCK) {
-		$var($JCDiagnostic, details, this->this$0->inaccessiblePackageReason(this->env, $($nc(this->sym)->packge())));
+		$var($JCDiagnostic, details, this->this$0->inaccessiblePackageReason(this->env, $(this->sym->packge())));
 		return $nc(this->this$0->diags)->create(dkind, $($nc(this->this$0->log)->currentSource()), pos, "package.not.visible"_s, $$new($ObjectArray, {
-			$of(this->sym),
-			$of(details)
+			this->sym,
+			details
 		}));
 	}
 	$var($JCDiagnostic, details, this->this$0->inaccessiblePackageReason(this->env, $($nc(this->sym)->packge())));
@@ -123,24 +81,22 @@ $JCDiagnostic* Resolve$InvisibleSymbolError::getDiagnostic($JCDiagnostic$Diagnos
 		$init($JCTree$Tag);
 		while ($nc(o)->kind != $Kinds$Kind::PCK && $nc(tree)->hasTag($JCTree$Tag::SELECT)) {
 			$assign(o, o->owner);
-			$assign(tree, $nc(($cast($JCTree$JCFieldAccess, tree)))->selected);
+			$assign(tree, $cast($JCTree$JCFieldAccess, tree)->selected);
 		}
 		if ($nc(o)->kind == $Kinds$Kind::PCK) {
 			$assign(pos, $nc(tree)->pos());
 			return $nc(this->this$0->diags)->create(dkind, $($nc(this->this$0->log)->currentSource()), pos, "package.not.visible"_s, $$new($ObjectArray, {
-				$of(o),
-				$of(details)
+				o,
+				details
 			}));
 		}
 	}
-	$var($JCDiagnostic$DiagnosticType, var$0, dkind);
-	$var($DiagnosticSource, var$1, $nc(this->this$0->log)->currentSource());
-	$var($JCDiagnostic$DiagnosticPosition, var$2, pos);
-	$var($String, var$3, "not.def.access.package.cant.access"_s);
-	return $nc(this->this$0->diags)->create(var$0, var$1, var$2, var$3, $$new($ObjectArray, {
-		$of(this->sym),
-		$($of($nc(this->sym)->packge())),
-		$of(details)
+	$var($DiagnosticSource, var$0, $nc(this->this$0->log)->currentSource());
+	$var($String, var$1, "not.def.access.package.cant.access"_s);
+	return $nc(this->this$0->diags)->create(dkind, var$0, pos, var$1, $$new($ObjectArray, {
+		this->sym,
+		$($nc(this->sym)->packge()),
+		details
 	}));
 }
 
@@ -148,7 +104,40 @@ Resolve$InvisibleSymbolError::Resolve$InvisibleSymbolError() {
 }
 
 $Class* Resolve$InvisibleSymbolError::load$($String* name, bool initialize) {
-	$loadClass(Resolve$InvisibleSymbolError, name, initialize, &_Resolve$InvisibleSymbolError_ClassInfo_, allocate$Resolve$InvisibleSymbolError);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$InvisibleSymbolError, this$0)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE | $FINAL, $field(Resolve$InvisibleSymbolError, env)},
+		{"suppressError", "Z", nullptr, $PRIVATE | $FINAL, $field(Resolve$InvisibleSymbolError, suppressError)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/Env;ZLcom/sun/tools/javac/code/Symbol;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;ZLcom/sun/tools/javac/code/Symbol;)V", 0, $method(Resolve$InvisibleSymbolError, init$, void, $Resolve*, $Env*, bool, $Symbol*)},
+		{"getDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/JCDiagnostic;", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/util/JCDiagnostic;", 0, $virtualMethod(Resolve$InvisibleSymbolError, getDiagnostic, $JCDiagnostic*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic$DiagnosticPosition*, $Symbol*, $Type*, $Name*, $List*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$InvisibleSymbolError", "com.sun.tools.javac.comp.Resolve", "InvisibleSymbolError", 0},
+		{"com.sun.tools.javac.comp.Resolve$InvalidSymbolError", "com.sun.tools.javac.comp.Resolve", "InvalidSymbolError", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$InvisibleSymbolError",
+		"com.sun.tools.javac.comp.Resolve$InvalidSymbolError",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$InvisibleSymbolError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$InvisibleSymbolError));
+	});
 	return class$;
 }
 

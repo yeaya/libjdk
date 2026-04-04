@@ -34,6 +34,7 @@ public:
 	virtual bool equals(Object$* obj) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::rmi::server::RemoteRef* ref);
 	virtual void bind($String* $param_String_1, ::java::rmi::Remote* $param_Remote_2) override;
@@ -43,7 +44,7 @@ public:
 	virtual $String* toString() override;
 	virtual void unbind($String* $param_String_1) override;
 	static $Array<::java::rmi::server::Operation>* operations;
-	static const int64_t interfaceHash = (int64_t)0x44154DC9D4E63BDF;
+	static const int64_t interfaceHash = (int64_t)0x44154dc9d4e63bdf;
 };
 
 		} // registry

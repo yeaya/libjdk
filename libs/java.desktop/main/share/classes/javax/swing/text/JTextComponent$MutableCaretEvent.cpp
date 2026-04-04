@@ -1,5 +1,4 @@
 #include <javax/swing/text/JTextComponent$MutableCaretEvent.h>
-
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/event/CaretEvent.h>
@@ -27,59 +26,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _JTextComponent$MutableCaretEvent_FieldInfo_[] = {
-	{"dragActive", "Z", nullptr, $PRIVATE, $field(JTextComponent$MutableCaretEvent, dragActive)},
-	{"dot", "I", nullptr, $PRIVATE, $field(JTextComponent$MutableCaretEvent, dot)},
-	{"mark", "I", nullptr, $PRIVATE, $field(JTextComponent$MutableCaretEvent, mark)},
-	{}
-};
-
-$MethodInfo _JTextComponent$MutableCaretEvent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $method(JTextComponent$MutableCaretEvent, init$, void, $JTextComponent*)},
-	{"fire", "()V", nullptr, $FINAL, $method(JTextComponent$MutableCaretEvent, fire, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$MutableCaretEvent, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$MutableCaretEvent, focusLost, void, $FocusEvent*)},
-	{"getDot", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, getDot, int32_t)},
-	{"getMark", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, getMark, int32_t)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mouseReleased, void, $MouseEvent*)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, stateChanged, void, $ChangeEvent*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JTextComponent$MutableCaretEvent_InnerClassesInfo_[] = {
-	{"javax.swing.text.JTextComponent$MutableCaretEvent", "javax.swing.text.JTextComponent", "MutableCaretEvent", $STATIC},
-	{}
-};
-
-$ClassInfo _JTextComponent$MutableCaretEvent_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.JTextComponent$MutableCaretEvent",
-	"javax.swing.event.CaretEvent",
-	"javax.swing.event.ChangeListener,java.awt.event.FocusListener,java.awt.event.MouseListener",
-	_JTextComponent$MutableCaretEvent_FieldInfo_,
-	_JTextComponent$MutableCaretEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTextComponent$MutableCaretEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.JTextComponent"
-};
-
-$Object* allocate$JTextComponent$MutableCaretEvent($Class* clazz) {
-	return $of($alloc(JTextComponent$MutableCaretEvent));
-}
-
 int32_t JTextComponent$MutableCaretEvent::hashCode() {
 	 return this->$CaretEvent::hashCode();
 }
@@ -101,7 +47,7 @@ void JTextComponent$MutableCaretEvent::init$($JTextComponent* c) {
 }
 
 void JTextComponent$MutableCaretEvent::fire() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, c, $cast($JTextComponent, getSource()));
 	if (c != nullptr) {
 		$var($Caret, caret, c->getCaret());
@@ -112,7 +58,7 @@ void JTextComponent$MutableCaretEvent::fire() {
 }
 
 $String* JTextComponent$MutableCaretEvent::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"dot="_s, $$str(this->dot), ",mark="_s, $$str(this->mark)});
 }
 
@@ -131,9 +77,9 @@ void JTextComponent$MutableCaretEvent::stateChanged($ChangeEvent* e) {
 }
 
 void JTextComponent$MutableCaretEvent::focusGained($FocusEvent* fe) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JTextComponent);
-	$nc($($AppContext::getAppContext()))->put($JTextComponent::FOCUSED_COMPONENT, $($nc(fe)->getSource()));
+	$$nc($AppContext::getAppContext())->put($JTextComponent::FOCUSED_COMPONENT, $($nc(fe)->getSource()));
 }
 
 void JTextComponent$MutableCaretEvent::focusLost($FocusEvent* fe) {
@@ -161,7 +107,54 @@ JTextComponent$MutableCaretEvent::JTextComponent$MutableCaretEvent() {
 }
 
 $Class* JTextComponent$MutableCaretEvent::load$($String* name, bool initialize) {
-	$loadClass(JTextComponent$MutableCaretEvent, name, initialize, &_JTextComponent$MutableCaretEvent_ClassInfo_, allocate$JTextComponent$MutableCaretEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"dragActive", "Z", nullptr, $PRIVATE, $field(JTextComponent$MutableCaretEvent, dragActive)},
+		{"dot", "I", nullptr, $PRIVATE, $field(JTextComponent$MutableCaretEvent, dot)},
+		{"mark", "I", nullptr, $PRIVATE, $field(JTextComponent$MutableCaretEvent, mark)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/JTextComponent;)V", nullptr, 0, $method(JTextComponent$MutableCaretEvent, init$, void, $JTextComponent*)},
+		{"fire", "()V", nullptr, $FINAL, $method(JTextComponent$MutableCaretEvent, fire, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$MutableCaretEvent, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(JTextComponent$MutableCaretEvent, focusLost, void, $FocusEvent*)},
+		{"getDot", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, getDot, int32_t)},
+		{"getMark", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, getMark, int32_t)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, mouseReleased, void, $MouseEvent*)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, stateChanged, void, $ChangeEvent*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextComponent$MutableCaretEvent, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.JTextComponent$MutableCaretEvent", "javax.swing.text.JTextComponent", "MutableCaretEvent", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.JTextComponent$MutableCaretEvent",
+		"javax.swing.event.CaretEvent",
+		"javax.swing.event.ChangeListener,java.awt.event.FocusListener,java.awt.event.MouseListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.JTextComponent"
+	};
+	$loadClass(JTextComponent$MutableCaretEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextComponent$MutableCaretEvent));
+	});
 	return class$;
 }
 

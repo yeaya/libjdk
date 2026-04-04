@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$IndentIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Graphics.h>
@@ -8,59 +7,17 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Icon = ::javax::swing::Icon;
 using $MetalFileChooserUI = ::javax::swing::plaf::metal::MetalFileChooserUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalFileChooserUI$IndentIcon_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$IndentIcon, this$0)},
-	{"icon", "Ljavax/swing/Icon;", nullptr, 0, $field(MetalFileChooserUI$IndentIcon, icon)},
-	{"depth", "I", nullptr, 0, $field(MetalFileChooserUI$IndentIcon, depth)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$IndentIcon_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$IndentIcon, init$, void, $MetalFileChooserUI*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$IndentIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$IndentIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$IndentIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalFileChooserUI$IndentIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$IndentIcon", "javax.swing.plaf.metal.MetalFileChooserUI", "IndentIcon", 0},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$IndentIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$IndentIcon",
-	"java.lang.Object",
-	"javax.swing.Icon",
-	_MetalFileChooserUI$IndentIcon_FieldInfo_,
-	_MetalFileChooserUI$IndentIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalFileChooserUI$IndentIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$IndentIcon($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$IndentIcon));
-}
 
 void MetalFileChooserUI$IndentIcon::init$($MetalFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -69,7 +26,7 @@ void MetalFileChooserUI$IndentIcon::init$($MetalFileChooserUI* this$0) {
 }
 
 void MetalFileChooserUI$IndentIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	if ($nc($($nc(c)->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($nc(c)->getComponentOrientation())->isLeftToRight()) {
 		$nc(this->icon)->paintIcon(c, g, x + this->depth * 10, y);
 	} else {
 		$nc(this->icon)->paintIcon(c, g, x, y);
@@ -88,7 +45,41 @@ MetalFileChooserUI$IndentIcon::MetalFileChooserUI$IndentIcon() {
 }
 
 $Class* MetalFileChooserUI$IndentIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$IndentIcon, name, initialize, &_MetalFileChooserUI$IndentIcon_ClassInfo_, allocate$MetalFileChooserUI$IndentIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$IndentIcon, this$0)},
+		{"icon", "Ljavax/swing/Icon;", nullptr, 0, $field(MetalFileChooserUI$IndentIcon, icon)},
+		{"depth", "I", nullptr, 0, $field(MetalFileChooserUI$IndentIcon, depth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;)V", nullptr, 0, $method(MetalFileChooserUI$IndentIcon, init$, void, $MetalFileChooserUI*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$IndentIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$IndentIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$IndentIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$IndentIcon", "javax.swing.plaf.metal.MetalFileChooserUI", "IndentIcon", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$IndentIcon",
+		"java.lang.Object",
+		"javax.swing.Icon",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$IndentIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalFileChooserUI$IndentIcon);
+	});
 	return class$;
 }
 

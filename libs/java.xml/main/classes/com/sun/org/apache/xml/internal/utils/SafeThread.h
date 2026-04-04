@@ -33,6 +33,7 @@ class $export SafeThread : public ::java::lang::Thread {
 	$class(SafeThread, 0, ::java::lang::Thread)
 public:
 	SafeThread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::Runnable* target);
 	void init$(::java::lang::Runnable* target, $String* name);
 	void init$(::java::lang::ThreadGroup* group, ::java::lang::Runnable* target, $String* name);

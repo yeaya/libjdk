@@ -1,5 +1,4 @@
 #include <CloseOnMouseClickPropertyTest.h>
-
 #include <CloseOnMouseClickPropertyTest$TestItem.h>
 #include <CloseOnMouseClickPropertyTest$TestType.h>
 #include <java/awt/Component.h>
@@ -70,33 +69,29 @@ public:
 	virtual void run() override {
 		CloseOnMouseClickPropertyTest::lambda$test$0(item);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0>());
-	}
 	$CloseOnMouseClickPropertyTest$TestItem* item = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0::fieldInfos[2] = {
-	{"item", "LCloseOnMouseClickPropertyTest$TestItem;", nullptr, $PUBLIC, $field(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, item)},
-	{}
-};
-$MethodInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PUBLIC, $method(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, init$, void, $CloseOnMouseClickPropertyTest$TestItem*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, run, void)},
-	{}
-};
-$ClassInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0::load$($String* name, bool initialize) {
-	$loadClass(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"item", "LCloseOnMouseClickPropertyTest$TestItem;", nullptr, $PUBLIC, $field(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, item)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PUBLIC, $method(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, init$, void, $CloseOnMouseClickPropertyTest$TestItem*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0);
+	});
 	return class$;
 }
 $Class* CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0::class$ = nullptr;
@@ -110,33 +105,29 @@ public:
 	virtual void run() override {
 		CloseOnMouseClickPropertyTest::lambda$test$1(item);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1>());
-	}
 	$CloseOnMouseClickPropertyTest$TestItem* item = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1::fieldInfos[2] = {
-	{"item", "LCloseOnMouseClickPropertyTest$TestItem;", nullptr, $PUBLIC, $field(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, item)},
-	{}
-};
-$MethodInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1::methodInfos[3] = {
-	{"<init>", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PUBLIC, $method(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, init$, void, $CloseOnMouseClickPropertyTest$TestItem*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, run, void)},
-	{}
-};
-$ClassInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1::load$($String* name, bool initialize) {
-	$loadClass(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"item", "LCloseOnMouseClickPropertyTest$TestItem;", nullptr, $PUBLIC, $field(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, item)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PUBLIC, $method(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, init$, void, $CloseOnMouseClickPropertyTest$TestItem*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1);
+	});
 	return class$;
 }
 $Class* CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1::class$ = nullptr;
@@ -151,85 +142,34 @@ public:
 	virtual void run() override {
 		CloseOnMouseClickPropertyTest::lambda$getClickPoint$2(parent, points);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2>());
-	}
 	bool parent = false;
 	$PointArray* points = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2::fieldInfos[3] = {
-	{"parent", "Z", nullptr, $PUBLIC, $field(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, parent)},
-	{"points", "[Ljava/awt/Point;", nullptr, $PUBLIC, $field(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, points)},
-	{}
-};
-$MethodInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2::methodInfos[3] = {
-	{"<init>", "(Z[Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, init$, void, bool, $PointArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, run, void)},
-	{}
-};
-$ClassInfo CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2::load$($String* name, bool initialize) {
-	$loadClass(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"parent", "Z", nullptr, $PUBLIC, $field(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, parent)},
+		{"points", "[Ljava/awt/Point;", nullptr, $PUBLIC, $field(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, points)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z[Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, init$, void, bool, $PointArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2);
+	});
 	return class$;
 }
 $Class* CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2::class$ = nullptr;
-
-$FieldInfo _CloseOnMouseClickPropertyTest_FieldInfo_[] = {
-	{"CHECK_BOX_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CloseOnMouseClickPropertyTest, CHECK_BOX_PROP)},
-	{"RADIO_BUTTON_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CloseOnMouseClickPropertyTest, RADIO_BUTTON_PROP)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(CloseOnMouseClickPropertyTest, frame)},
-	{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(CloseOnMouseClickPropertyTest, menu)},
-	{"TEST_ITEMS", "[LCloseOnMouseClickPropertyTest$TestItem;", nullptr, $PRIVATE | $STATIC, $staticField(CloseOnMouseClickPropertyTest, TEST_ITEMS)},
-	{}
-};
-
-$MethodInfo _CloseOnMouseClickPropertyTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CloseOnMouseClickPropertyTest, init$, void)},
-	{"createAndShowGUI", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CloseOnMouseClickPropertyTest, createAndShowGUI, void, $CloseOnMouseClickPropertyTest$TestItem*)},
-	{"getClickPoint", "(Z)Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(CloseOnMouseClickPropertyTest, getClickPoint, $Point*, bool), "java.lang.Exception"},
-	{"lambda$getClickPoint$2", "(Z[Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CloseOnMouseClickPropertyTest, lambda$getClickPoint$2, void, bool, $PointArray*)},
-	{"lambda$test$0", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CloseOnMouseClickPropertyTest, lambda$test$0, void, $CloseOnMouseClickPropertyTest$TestItem*)},
-	{"lambda$test$1", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CloseOnMouseClickPropertyTest, lambda$test$1, void, $CloseOnMouseClickPropertyTest$TestItem*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseOnMouseClickPropertyTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CloseOnMouseClickPropertyTest, test, void, $CloseOnMouseClickPropertyTest$TestItem*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _CloseOnMouseClickPropertyTest_InnerClassesInfo_[] = {
-	{"CloseOnMouseClickPropertyTest$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"CloseOnMouseClickPropertyTest$TestItem", "CloseOnMouseClickPropertyTest", "TestItem", $STATIC},
-	{"CloseOnMouseClickPropertyTest$TestType", "CloseOnMouseClickPropertyTest", "TestType", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _CloseOnMouseClickPropertyTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CloseOnMouseClickPropertyTest",
-	"java.lang.Object",
-	nullptr,
-	_CloseOnMouseClickPropertyTest_FieldInfo_,
-	_CloseOnMouseClickPropertyTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CloseOnMouseClickPropertyTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"CloseOnMouseClickPropertyTest$1,CloseOnMouseClickPropertyTest$TestItem,CloseOnMouseClickPropertyTest$TestType"
-};
-
-$Object* allocate$CloseOnMouseClickPropertyTest($Class* clazz) {
-	return $of($alloc(CloseOnMouseClickPropertyTest));
-}
 
 $String* CloseOnMouseClickPropertyTest::CHECK_BOX_PROP = nullptr;
 $String* CloseOnMouseClickPropertyTest::RADIO_BUTTON_PROP = nullptr;
@@ -242,24 +182,20 @@ void CloseOnMouseClickPropertyTest::init$() {
 
 void CloseOnMouseClickPropertyTest::main($StringArray* args) {
 	$init(CloseOnMouseClickPropertyTest);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
+	$useLocalObjectStack();
+	$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
+	int32_t len$ = $nc(arr$)->length;
+	int32_t i$ = 0;
+	for (; i$ < len$; ++i$) {
+		$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
+		{
+			$UIManager::setLookAndFeel($($nc(info)->getClassName()));
 			{
-				$UIManager::setLookAndFeel($($nc(info)->getClassName()));
-				{
-					$var($CloseOnMouseClickPropertyTest$TestItemArray, arr$, CloseOnMouseClickPropertyTest::TEST_ITEMS);
-					int32_t len$ = arr$->length;
-					int32_t i$ = 0;
-					for (; i$ < len$; ++i$) {
-						$var($CloseOnMouseClickPropertyTest$TestItem, testItem, arr$->get(i$));
-						{
-							test(testItem);
-						}
+				$var($CloseOnMouseClickPropertyTest$TestItemArray, arr$, CloseOnMouseClickPropertyTest::TEST_ITEMS);
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$var($CloseOnMouseClickPropertyTest$TestItem, testItem, arr$->get(i$));
+					{
+						test(testItem);
 					}
 				}
 			}
@@ -269,29 +205,29 @@ void CloseOnMouseClickPropertyTest::main($StringArray* args) {
 
 void CloseOnMouseClickPropertyTest::test($CloseOnMouseClickPropertyTest$TestItem* item) {
 	$init(CloseOnMouseClickPropertyTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(50);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, item)));
+	$SwingUtilities::invokeAndWait($$new(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0, item));
 	robot->waitForIdle();
 	$var($Point, point, getClickPoint(true));
-	robot->mouseMove($nc(point)->x, point->y);
+	robot->mouseMove($nc(point)->x, $nc(point)->y);
 	robot->mousePress($InputEvent::BUTTON1_MASK);
 	robot->mouseRelease($InputEvent::BUTTON1_MASK);
 	robot->waitForIdle();
 	$assign(point, getClickPoint(false));
-	robot->mouseMove($nc(point)->x, point->y);
+	robot->mouseMove($nc(point)->x, $nc(point)->y);
 	robot->mousePress($InputEvent::BUTTON1_MASK);
 	robot->mouseRelease($InputEvent::BUTTON1_MASK);
 	robot->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, item)));
+	$SwingUtilities::invokeAndWait($$new(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1, item));
 }
 
 void CloseOnMouseClickPropertyTest::createAndShowGUI($CloseOnMouseClickPropertyTest$TestItem* testItem) {
 	$init(CloseOnMouseClickPropertyTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(CloseOnMouseClickPropertyTest::frame, $new($JFrame));
-	$nc(CloseOnMouseClickPropertyTest::frame)->setSize(300, 300);
+	CloseOnMouseClickPropertyTest::frame->setSize(300, 300);
 	$nc(CloseOnMouseClickPropertyTest::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JMenuBar, menuBar, $new($JMenuBar));
 	$assignStatic(CloseOnMouseClickPropertyTest::menu, $new($JMenu, "Menu"_s));
@@ -305,16 +241,16 @@ void CloseOnMouseClickPropertyTest::createAndShowGUI($CloseOnMouseClickPropertyT
 
 $Point* CloseOnMouseClickPropertyTest::getClickPoint(bool parent) {
 	$init(CloseOnMouseClickPropertyTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, points, $new($PointArray, 1));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, parent, points)));
+	$SwingUtilities::invokeAndWait($$new(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2, parent, points));
 	return points->get(0);
 }
 
 void CloseOnMouseClickPropertyTest::lambda$getClickPoint$2(bool parent, $PointArray* points) {
 	$init(CloseOnMouseClickPropertyTest);
-	$useLocalCurrentObjectStackCache();
-	$var($JComponent, comp, parent ? static_cast<$JComponent*>(CloseOnMouseClickPropertyTest::menu) : static_cast<$JComponent*>($nc(CloseOnMouseClickPropertyTest::menu)->getItem(0)));
+	$useLocalObjectStack();
+	$var($JComponent, comp, parent ? $cast($JComponent, CloseOnMouseClickPropertyTest::menu) : $cast($JComponent, $nc(CloseOnMouseClickPropertyTest::menu)->getItem(0)));
 	$var($Point, point, $nc(comp)->getLocationOnScreen());
 	$var($Rectangle, bounds, comp->getBounds());
 	$nc(point)->x += $nc(bounds)->getWidth() / 2;
@@ -337,8 +273,8 @@ void CloseOnMouseClickPropertyTest::lambda$test$0($CloseOnMouseClickPropertyTest
 	createAndShowGUI(item);
 }
 
-void clinit$CloseOnMouseClickPropertyTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CloseOnMouseClickPropertyTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(CloseOnMouseClickPropertyTest::CHECK_BOX_PROP, "CheckBoxMenuItem.doNotCloseOnMouseClick"_s);
 	$assignStatic(CloseOnMouseClickPropertyTest::RADIO_BUTTON_PROP, "RadioButtonMenuItem.doNotCloseOnMouseClick"_s);
 	$init($CloseOnMouseClickPropertyTest$TestType);
@@ -399,17 +335,58 @@ CloseOnMouseClickPropertyTest::CloseOnMouseClickPropertyTest() {
 
 $Class* CloseOnMouseClickPropertyTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0::classInfo$.name)) {
+		if (name->equals("CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0")) {
 			return CloseOnMouseClickPropertyTest$$Lambda$lambda$test$0::load$(name, initialize);
 		}
-		if (name->equals(CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1::classInfo$.name)) {
+		if (name->equals("CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1")) {
 			return CloseOnMouseClickPropertyTest$$Lambda$lambda$test$1$1::load$(name, initialize);
 		}
-		if (name->equals(CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2::classInfo$.name)) {
+		if (name->equals("CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2")) {
 			return CloseOnMouseClickPropertyTest$$Lambda$lambda$getClickPoint$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(CloseOnMouseClickPropertyTest, name, initialize, &_CloseOnMouseClickPropertyTest_ClassInfo_, clinit$CloseOnMouseClickPropertyTest, allocate$CloseOnMouseClickPropertyTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHECK_BOX_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CloseOnMouseClickPropertyTest, CHECK_BOX_PROP)},
+		{"RADIO_BUTTON_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CloseOnMouseClickPropertyTest, RADIO_BUTTON_PROP)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(CloseOnMouseClickPropertyTest, frame)},
+		{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(CloseOnMouseClickPropertyTest, menu)},
+		{"TEST_ITEMS", "[LCloseOnMouseClickPropertyTest$TestItem;", nullptr, $PRIVATE | $STATIC, $staticField(CloseOnMouseClickPropertyTest, TEST_ITEMS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CloseOnMouseClickPropertyTest, init$, void)},
+		{"createAndShowGUI", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CloseOnMouseClickPropertyTest, createAndShowGUI, void, $CloseOnMouseClickPropertyTest$TestItem*)},
+		{"getClickPoint", "(Z)Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(CloseOnMouseClickPropertyTest, getClickPoint, $Point*, bool), "java.lang.Exception"},
+		{"lambda$getClickPoint$2", "(Z[Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CloseOnMouseClickPropertyTest, lambda$getClickPoint$2, void, bool, $PointArray*)},
+		{"lambda$test$0", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CloseOnMouseClickPropertyTest, lambda$test$0, void, $CloseOnMouseClickPropertyTest$TestItem*)},
+		{"lambda$test$1", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CloseOnMouseClickPropertyTest, lambda$test$1, void, $CloseOnMouseClickPropertyTest$TestItem*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CloseOnMouseClickPropertyTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(LCloseOnMouseClickPropertyTest$TestItem;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(CloseOnMouseClickPropertyTest, test, void, $CloseOnMouseClickPropertyTest$TestItem*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"CloseOnMouseClickPropertyTest$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"CloseOnMouseClickPropertyTest$TestItem", "CloseOnMouseClickPropertyTest", "TestItem", $STATIC},
+		{"CloseOnMouseClickPropertyTest$TestType", "CloseOnMouseClickPropertyTest", "TestType", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CloseOnMouseClickPropertyTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"CloseOnMouseClickPropertyTest$1,CloseOnMouseClickPropertyTest$TestItem,CloseOnMouseClickPropertyTest$TestType"
+	};
+	$loadClass(CloseOnMouseClickPropertyTest, name, initialize, &classInfo$$, CloseOnMouseClickPropertyTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CloseOnMouseClickPropertyTest);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/PlainView$2.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/swing/text/PlainView$FPMethodArgs.h>
 #include <javax/swing/text/PlainView.h>
@@ -21,61 +20,25 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _PlainView$2_FieldInfo_[] = {
-	{"$SwitchMap$javax$swing$text$PlainView$FPMethodArgs", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PlainView$2, $SwitchMap$javax$swing$text$PlainView$FPMethodArgs)},
-	{}
-};
-
-$EnclosingMethodInfo _PlainView$2_EnclosingMethodInfo_ = {
-	"javax.swing.text.PlainView",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _PlainView$2_InnerClassesInfo_[] = {
-	{"javax.swing.text.PlainView$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _PlainView$2_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.swing.text.PlainView$2",
-	"java.lang.Object",
-	nullptr,
-	_PlainView$2_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_PlainView$2_EnclosingMethodInfo_,
-	_PlainView$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.PlainView"
-};
-
-$Object* allocate$PlainView$2($Class* clazz) {
-	return $of($alloc(PlainView$2));
-}
-
 $ints* PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs = nullptr;
 
-void clinit$PlainView$2($Class* class$) {
+void PlainView$2::clinit$($Class* clazz) {
 	$assignStatic(PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs, $new($ints, $($PlainView$FPMethodArgs::values())->length));
 	{
 		try {
-			$nc(PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs)->set($PlainView$FPMethodArgs::IGNN->ordinal(), 1);
+			PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs->set($PlainView$FPMethodArgs::IGNN->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs)->set($PlainView$FPMethodArgs::IIGNN->ordinal(), 2);
+			PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs->set($PlainView$FPMethodArgs::IIGNN->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs)->set($PlainView$FPMethodArgs::GNNII->ordinal(), 3);
+			PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs->set($PlainView$FPMethodArgs::GNNII->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs)->set($PlainView$FPMethodArgs::GNNC->ordinal(), 4);
+			PlainView$2::$SwitchMap$javax$swing$text$PlainView$FPMethodArgs->set($PlainView$FPMethodArgs::GNNC->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -85,7 +48,37 @@ PlainView$2::PlainView$2() {
 }
 
 $Class* PlainView$2::load$($String* name, bool initialize) {
-	$loadClass(PlainView$2, name, initialize, &_PlainView$2_ClassInfo_, clinit$PlainView$2, allocate$PlainView$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$swing$text$PlainView$FPMethodArgs", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PlainView$2, $SwitchMap$javax$swing$text$PlainView$FPMethodArgs)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.text.PlainView",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.PlainView$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.swing.text.PlainView$2",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.PlainView"
+	};
+	$loadClass(PlainView$2, name, initialize, &classInfo$$, PlainView$2::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PlainView$2);
+	});
 	return class$;
 }
 

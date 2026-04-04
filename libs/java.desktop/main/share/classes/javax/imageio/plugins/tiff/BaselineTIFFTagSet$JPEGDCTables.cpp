@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$JPEGDCTables.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$JPEGDCTables_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$JPEGDCTables, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$JPEGDCTables_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGDCTables", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "JPEGDCTables", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$JPEGDCTables_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGDCTables",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$JPEGDCTables_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$JPEGDCTables_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$JPEGDCTables($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$JPEGDCTables));
-}
-
 void BaselineTIFFTagSet$JPEGDCTables::init$() {
 	$TIFFTag::init$("JPEGDCTables"_s, 520, $sl(1, $TIFFTag::TIFF_LONG));
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$JPEGDCTables::BaselineTIFFTagSet$JPEGDCTables() {
 }
 
 $Class* BaselineTIFFTagSet$JPEGDCTables::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$JPEGDCTables, name, initialize, &_BaselineTIFFTagSet$JPEGDCTables_ClassInfo_, allocate$BaselineTIFFTagSet$JPEGDCTables);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$JPEGDCTables, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGDCTables", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "JPEGDCTables", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$JPEGDCTables",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$JPEGDCTables, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$JPEGDCTables);
+	});
 	return class$;
 }
 

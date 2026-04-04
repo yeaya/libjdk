@@ -30,6 +30,7 @@ class WeakIdentityMap : public ::java::lang::Object {
 	$class(WeakIdentityMap, 0, ::java::lang::Object)
 public:
 	WeakIdentityMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* create(Object$* key) {return nullptr;}
 	virtual $Object* get(Object$* key);

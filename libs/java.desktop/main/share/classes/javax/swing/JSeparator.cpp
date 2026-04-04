@@ -1,5 +1,4 @@
 #include <javax/swing/JSeparator.h>
-
 #include <java/awt/Component.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -33,125 +32,6 @@ using $SeparatorUI = ::javax::swing::plaf::SeparatorUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JSeparator_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A divider between menu items."},
-	{}
-};
-
-$NamedAttribute JSeparator_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSeparator_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JSeparator_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JSeparator_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JSeparator_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSeparator_MethodAnnotations_getAccessibleContext3[] = {
-	{"Ljava/beans/BeanProperty;", JSeparator_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JSeparator_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JSeparator_MethodAnnotations_getUIClassID6[] = {
-	{"Ljava/beans/BeanProperty;", JSeparator_Attribute_var$3},
-	{}
-};
-
-$Attribute JSeparator_Attribute_var$5[] = {
-	{'s', "SwingConstants.HORIZONTAL"},
-	{'s', "SwingConstants.VERTICAL"},
-	{'-'}
-};
-
-$NamedAttribute JSeparator_Attribute_var$4[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"enumerationValues", '[', JSeparator_Attribute_var$5},
-	{"description", 's', "The orientation of the separator."},
-	{}
-};
-
-$CompoundAttribute _JSeparator_MethodAnnotations_setOrientation8[] = {
-	{"Ljava/beans/BeanProperty;", JSeparator_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JSeparator_Attribute_var$6[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JSeparator_MethodAnnotations_setUI9[] = {
-	{"Ljava/beans/BeanProperty;", JSeparator_Attribute_var$6},
-	{}
-};
-
-$FieldInfo _JSeparator_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JSeparator, uiClassID)},
-	{"orientation", "I", nullptr, $PRIVATE, $field(JSeparator, orientation)},
-	{}
-};
-
-$MethodInfo _JSeparator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JSeparator, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JSeparator, init$, void, int32_t)},
-	{"checkOrientation", "(I)V", nullptr, $PRIVATE, $method(JSeparator, checkOrientation, void, int32_t)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JSeparator, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JSeparator_MethodAnnotations_getAccessibleContext3},
-	{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(JSeparator, getOrientation, int32_t)},
-	{"getUI", "()Ljavax/swing/plaf/SeparatorUI;", nullptr, $PUBLIC, $virtualMethod(JSeparator, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JSeparator, getUIClassID, $String*), nullptr, nullptr, _JSeparator_MethodAnnotations_getUIClassID6},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JSeparator, paramString, $String*)},
-	{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JSeparator, setOrientation, void, int32_t), nullptr, nullptr, _JSeparator_MethodAnnotations_setOrientation8},
-	{"setUI", "(Ljavax/swing/plaf/SeparatorUI;)V", nullptr, $PUBLIC, $virtualMethod(JSeparator, setUI, void, $SeparatorUI*), nullptr, nullptr, _JSeparator_MethodAnnotations_setUI9},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JSeparator, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JSeparator, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JSeparator_InnerClassesInfo_[] = {
-	{"javax.swing.JSeparator$AccessibleJSeparator", "javax.swing.JSeparator", "AccessibleJSeparator", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JSeparator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JSeparator",
-	"javax.swing.JComponent",
-	"javax.swing.SwingConstants,javax.accessibility.Accessible",
-	_JSeparator_FieldInfo_,
-	_JSeparator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JSeparator_InnerClassesInfo_,
-	_JSeparator_Annotations_,
-	nullptr,
-	"javax.swing.JSeparator$AccessibleJSeparator"
-};
-
-$Object* allocate$JSeparator($Class* clazz) {
-	return $of($alloc(JSeparator));
-}
 
 $String* JSeparator::toString() {
 	 return this->$JComponent::toString();
@@ -197,7 +77,7 @@ void JSeparator::setUI($SeparatorUI* ui) {
 }
 
 void JSeparator::updateUI() {
-	setUI($cast($SeparatorUI, $($UIManager::getUI(this))));
+	setUI($$cast($SeparatorUI, $UIManager::getUI(this)));
 }
 
 $String* JSeparator::getUIClassID() {
@@ -206,11 +86,11 @@ $String* JSeparator::getUIClassID() {
 
 void JSeparator::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JSeparator::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JSeparator::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -234,20 +114,15 @@ void JSeparator::setOrientation(int32_t orientation) {
 void JSeparator::checkOrientation(int32_t orientation) {
 	switch (orientation) {
 	case $SwingConstants::VERTICAL:
-		{}
 	case $SwingConstants::HORIZONTAL:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "orientation must be one of: VERTICAL, HORIZONTAL"_s);
-		}
+		$throwNew($IllegalArgumentException, "orientation must be one of: VERTICAL, HORIZONTAL"_s);
 	}
 }
 
 $String* JSeparator::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, orientationString, this->orientation == $SwingConstants::HORIZONTAL ? "HORIZONTAL"_s : "VERTICAL"_s);
 	return $str({$($JComponent::paramString()), ",orientation="_s, orientationString});
 }
@@ -262,12 +137,113 @@ $AccessibleContext* JSeparator::getAccessibleContext() {
 JSeparator::JSeparator() {
 }
 
-void clinit$JSeparator($Class* class$) {
+void JSeparator::clinit$($Class* clazz) {
 	$assignStatic(JSeparator::uiClassID, "SeparatorUI"_s);
 }
 
 $Class* JSeparator::load$($String* name, bool initialize) {
-	$loadClass(JSeparator, name, initialize, &_JSeparator_ClassInfo_, clinit$JSeparator, allocate$JSeparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JSeparator, uiClassID)},
+		{"orientation", "I", nullptr, $PRIVATE, $field(JSeparator, orientation)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "SwingConstants.HORIZONTAL"},
+		{'s', "SwingConstants.VERTICAL"},
+		{'-'}
+	};
+	$NamedAttribute setOrientationmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The orientation of the separator."},
+		{}
+	};
+	$CompoundAttribute setOrientationmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setOrientationmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JSeparator, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JSeparator, init$, void, int32_t)},
+		{"checkOrientation", "(I)V", nullptr, $PRIVATE, $method(JSeparator, checkOrientation, void, int32_t)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JSeparator, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(JSeparator, getOrientation, int32_t)},
+		{"getUI", "()Ljavax/swing/plaf/SeparatorUI;", nullptr, $PUBLIC, $virtualMethod(JSeparator, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JSeparator, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JSeparator, paramString, $String*)},
+		{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JSeparator, setOrientation, void, int32_t), nullptr, nullptr, setOrientationmethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/SeparatorUI;)V", nullptr, $PUBLIC, $virtualMethod(JSeparator, setUI, void, $SeparatorUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JSeparator, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JSeparator, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JSeparator$AccessibleJSeparator", "javax.swing.JSeparator", "AccessibleJSeparator", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A divider between menu items."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JSeparator",
+		"javax.swing.JComponent",
+		"javax.swing.SwingConstants,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JSeparator$AccessibleJSeparator"
+	};
+	$loadClass(JSeparator, name, initialize, &classInfo$$, JSeparator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JSeparator));
+	});
 	return class$;
 }
 

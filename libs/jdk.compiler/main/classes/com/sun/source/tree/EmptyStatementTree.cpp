@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/EmptyStatementTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$ClassInfo _EmptyStatementTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.EmptyStatementTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree"
-};
-
-$Object* allocate$EmptyStatementTree($Class* clazz) {
-	return $of($alloc(EmptyStatementTree));
-}
-
 $Class* EmptyStatementTree::load$($String* name, bool initialize) {
-	$loadClass(EmptyStatementTree, name, initialize, &_EmptyStatementTree_ClassInfo_, allocate$EmptyStatementTree);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.EmptyStatementTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree"
+	};
+	$loadClass(EmptyStatementTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EmptyStatementTree);
+	});
 	return class$;
 }
 

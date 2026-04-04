@@ -1,13 +1,10 @@
 #include <jdk.charsets.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <sun/nio/cs/ext/AbstractCharsetProvider.h>
 #include <sun/nio/cs/ext/AbstractCharsetProvider$1.h>
 #include <sun/nio/cs/ext/Big5_HKSCS_2001.h>
@@ -621,6 +618,7 @@ $bytes* jdk$charsets$GetResource($String* name) {
 
 void jdk$charsets::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"jdk.charsets", "17.35", "",
 		&_jdk$charsets_ModuleInfo_,

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/DOMCache.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <jcpp.h>
@@ -17,26 +16,22 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 
-$MethodInfo _DOMCache_MethodInfo_[] = {
-	{"retrieveDocument", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMCache, retrieveDocument, $DOM*, $String*, $String*, $Translet*)},
-	{}
-};
-
-$ClassInfo _DOMCache_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.DOMCache",
-	nullptr,
-	nullptr,
-	nullptr,
-	_DOMCache_MethodInfo_
-};
-
-$Object* allocate$DOMCache($Class* clazz) {
-	return $of($alloc(DOMCache));
-}
-
 $Class* DOMCache::load$($String* name, bool initialize) {
-	$loadClass(DOMCache, name, initialize, &_DOMCache_ClassInfo_, allocate$DOMCache);
+	$MethodInfo methodInfos$$[] = {
+		{"retrieveDocument", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/Translet;)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(DOMCache, retrieveDocument, $DOM*, $String*, $String*, $Translet*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.DOMCache",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DOMCache, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMCache);
+	});
 	return class$;
 }
 

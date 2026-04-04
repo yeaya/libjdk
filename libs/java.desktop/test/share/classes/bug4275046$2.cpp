@@ -1,5 +1,4 @@
 #include <bug4275046$2.h>
-
 #include <bug4275046.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JFrame.h>
@@ -11,49 +10,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JFrame = ::javax::swing::JFrame;
-
-$FieldInfo _bug4275046$2_FieldInfo_[] = {
-	{"this$0", "Lbug4275046;", nullptr, $FINAL | $SYNTHETIC, $field(bug4275046$2, this$0)},
-	{}
-};
-
-$MethodInfo _bug4275046$2_MethodInfo_[] = {
-	{"<init>", "(Lbug4275046;)V", nullptr, 0, $method(bug4275046$2, init$, void, $bug4275046*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4275046$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug4275046$2_EnclosingMethodInfo_ = {
-	"bug4275046",
-	"test",
-	"()V"
-};
-
-$InnerClassInfo _bug4275046$2_InnerClassesInfo_[] = {
-	{"bug4275046$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4275046$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4275046$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug4275046$2_FieldInfo_,
-	_bug4275046$2_MethodInfo_,
-	nullptr,
-	&_bug4275046$2_EnclosingMethodInfo_,
-	_bug4275046$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4275046"
-};
-
-$Object* allocate$bug4275046$2($Class* clazz) {
-	return $of($alloc(bug4275046$2));
-}
 
 void bug4275046$2::init$($bug4275046* this$0) {
 	$set(this, this$0, this$0);
@@ -61,7 +17,7 @@ void bug4275046$2::init$($bug4275046* this$0) {
 
 void bug4275046$2::run() {
 	if (this->this$0->frame != nullptr) {
-		$nc(this->this$0->frame)->dispose();
+		this->this$0->frame->dispose();
 	}
 }
 
@@ -69,7 +25,42 @@ bug4275046$2::bug4275046$2() {
 }
 
 $Class* bug4275046$2::load$($String* name, bool initialize) {
-	$loadClass(bug4275046$2, name, initialize, &_bug4275046$2_ClassInfo_, allocate$bug4275046$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug4275046;", nullptr, $FINAL | $SYNTHETIC, $field(bug4275046$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4275046;)V", nullptr, 0, $method(bug4275046$2, init$, void, $bug4275046*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4275046$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug4275046",
+		"test",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4275046$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4275046$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4275046"
+	};
+	$loadClass(bug4275046$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4275046$2);
+	});
 	return class$;
 }
 

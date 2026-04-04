@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WToolkit.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/AWTPermission.h>
@@ -126,7 +125,6 @@
 #include <sun/awt/AppContext.h>
 #include <sun/awt/ComponentFactory.h>
 #include <sun/awt/DisplayChangedListener.h>
-#include <sun/awt/EmbeddedFrame.h>
 #include <sun/awt/LightweightFrame.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/Win32GraphicsDevice.h>
@@ -185,7 +183,6 @@
 #include <sun/font/FontManagerFactory.h>
 #include <sun/font/SunFontManager.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <sun/java2d/d3d/D3DRenderQueue.h>
 #include <sun/java2d/opengl/OGLRenderQueue.h>
 #include <sun/print/PrintJob2D.h>
@@ -329,26 +326,21 @@ using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessController = ::java::security::AccessController;
-using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $Properties = ::java::util::Properties;
-using $Set = ::java::util::Set;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $Executors = ::java::util::concurrent::Executors;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $AWTAccessor$MouseEventAccessor = ::sun::awt::AWTAccessor$MouseEventAccessor;
 using $AWTAutoShutdown = ::sun::awt::AWTAutoShutdown;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
-using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
 using $LightweightFrame = ::sun::awt::LightweightFrame;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $Win32GraphicsDevice = ::sun::awt::Win32GraphicsDevice;
@@ -407,7 +399,6 @@ using $FontManager = ::sun::font::FontManager;
 using $FontManagerFactory = ::sun::font::FontManagerFactory;
 using $SunFontManager = ::sun::font::SunFontManager;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 using $D3DRenderQueue = ::sun::java2d::d3d::D3DRenderQueue;
 using $OGLRenderQueue = ::sun::java2d::opengl::OGLRenderQueue;
 using $PrintJob2D = ::sun::print::PrintJob2D;
@@ -424,29 +415,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of($ThreadGroupUtils::getRootThreadGroup());
+		 return $ThreadGroupUtils::getRootThreadGroup();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$getRootThreadGroup>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WToolkit$$Lambda$getRootThreadGroup::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$getRootThreadGroup, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$getRootThreadGroup, run, $Object*)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$getRootThreadGroup::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$getRootThreadGroup",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$getRootThreadGroup::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$getRootThreadGroup, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$getRootThreadGroup, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$getRootThreadGroup, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$getRootThreadGroup",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$getRootThreadGroup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$getRootThreadGroup);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$getRootThreadGroup::class$ = nullptr;
@@ -459,37 +447,33 @@ public:
 		$set(this, rootTG, rootTG);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$new$0(rootTG));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$lambda$new$0$1>());
+		 return $nc(inst$)->lambda$new$0(rootTG);
 	}
 	WToolkit* inst$ = nullptr;
 	$ThreadGroup* rootTG = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WToolkit$$Lambda$lambda$new$0$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$new$0$1, inst$)},
-	{"rootTG", "Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$new$0$1, rootTG)},
-	{}
-};
-$MethodInfo WToolkit$$Lambda$lambda$new$0$1::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/windows/WToolkit;Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$new$0$1, init$, void, WToolkit*, $ThreadGroup*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$new$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$lambda$new$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$lambda$new$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$lambda$new$0$1::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$lambda$new$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$new$0$1, inst$)},
+		{"rootTG", "Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$new$0$1, rootTG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WToolkit;Ljava/lang/ThreadGroup;)V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$new$0$1, init$, void, WToolkit*, $ThreadGroup*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$new$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$lambda$new$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$lambda$new$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$lambda$new$0$1);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$lambda$new$0$1::class$ = nullptr;
@@ -500,29 +484,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(WToolkit::lambda$new$1());
+		 return WToolkit::lambda$new$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$lambda$new$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WToolkit$$Lambda$lambda$new$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$new$1$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$new$1$2, run, $Object*)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$lambda$new$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$lambda$new$1$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$lambda$new$1$2::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$lambda$new$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$new$1$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$new$1$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$lambda$new$1$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$lambda$new$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$lambda$new$1$2);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$lambda$new$1$2::class$ = nullptr;
@@ -534,35 +515,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$registerShutdownHook$2());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$lambda$registerShutdownHook$2$3>());
+		 return $nc(inst$)->lambda$registerShutdownHook$2();
 	}
 	WToolkit* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WToolkit$$Lambda$lambda$registerShutdownHook$2$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, inst$)},
-	{}
-};
-$MethodInfo WToolkit$$Lambda$lambda$registerShutdownHook$2$3::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/windows/WToolkit;)V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, init$, void, WToolkit*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, run, $Object*)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$lambda$registerShutdownHook$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$lambda$registerShutdownHook$2$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$lambda$registerShutdownHook$2$3::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WToolkit;)V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, init$, void, WToolkit*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$lambda$registerShutdownHook$2$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$lambda$registerShutdownHook$2$3);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$lambda$registerShutdownHook$2$3::class$ = nullptr;
@@ -573,29 +550,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* run() override {
-		 return $of(WToolkit::lambda$run$3());
+		 return WToolkit::lambda$run$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$lambda$run$3$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WToolkit$$Lambda$lambda$run$3$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$run$3$4, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$run$3$4, run, $Object*)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$lambda$run$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$lambda$run$3$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$lambda$run$3$4::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$lambda$run$3$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$run$3$4, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$run$3$4, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$lambda$run$3$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$lambda$run$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$lambda$run$3$4);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$lambda$run$3$4::class$ = nullptr;
@@ -608,27 +582,24 @@ public:
 	virtual void run() override {
 		WToolkit::lambda$displayChanged$4();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$lambda$displayChanged$4$5>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WToolkit$$Lambda$lambda$displayChanged$4$5::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$displayChanged$4$5, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$displayChanged$4$5, run, void)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$lambda$displayChanged$4$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$lambda$displayChanged$4$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$lambda$displayChanged$4$5::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$lambda$displayChanged$4$5, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$displayChanged$4$5, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$displayChanged$4$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$lambda$displayChanged$4$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$lambda$displayChanged$4$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$lambda$displayChanged$4$5);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$lambda$displayChanged$4$5::class$ = nullptr;
@@ -641,27 +612,24 @@ public:
 	virtual $Thread* newThread($Runnable* r) override {
 		 return WToolkit::lambda$displayChanged$5(r);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$lambda$displayChanged$5$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo WToolkit$$Lambda$lambda$displayChanged$5$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$displayChanged$5$6, init$, void)},
-	{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$displayChanged$5$6, newThread, $Thread*, $Runnable*)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$lambda$displayChanged$5$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$lambda$displayChanged$5$6",
-	"java.lang.Object",
-	"java.util.concurrent.ThreadFactory",
-	nullptr,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$lambda$displayChanged$5$6::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$lambda$displayChanged$5$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$displayChanged$5$6, init$, void)},
+		{"newThread", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$displayChanged$5$6, newThread, $Thread*, $Runnable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$lambda$displayChanged$5$6",
+		"java.lang.Object",
+		"java.util.concurrent.ThreadFactory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$lambda$displayChanged$5$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$lambda$displayChanged$5$6);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$lambda$displayChanged$5$6::class$ = nullptr;
@@ -676,35 +644,31 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$windowsSettingChange$6(props);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$lambda$windowsSettingChange$6$7>());
-	}
 	WToolkit* inst$ = nullptr;
 	$Map* props = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WToolkit$$Lambda$lambda$windowsSettingChange$6$7::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, inst$)},
-	{"props", "Ljava/util/Map;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, props)},
-	{}
-};
-$MethodInfo WToolkit$$Lambda$lambda$windowsSettingChange$6$7::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/windows/WToolkit;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, init$, void, WToolkit*, $Map*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, run, void)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$lambda$windowsSettingChange$6$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$lambda$windowsSettingChange$6$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$lambda$windowsSettingChange$6$7::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, inst$)},
+		{"props", "Ljava/util/Map;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, props)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WToolkit;Ljava/util/Map;)V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, init$, void, WToolkit*, $Map*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$lambda$windowsSettingChange$6$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$lambda$windowsSettingChange$6$7);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$lambda$windowsSettingChange$6$7::class$ = nullptr;
@@ -718,247 +682,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->shutdown();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<WToolkit$$Lambda$shutdown$8>());
-	}
 	WToolkit* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo WToolkit$$Lambda$shutdown$8::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$shutdown$8, inst$)},
-	{}
-};
-$MethodInfo WToolkit$$Lambda$shutdown$8::methodInfos[3] = {
-	{"<init>", "(Lsun/awt/windows/WToolkit;)V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$shutdown$8, init$, void, WToolkit*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$shutdown$8, run, void)},
-	{}
-};
-$ClassInfo WToolkit$$Lambda$shutdown$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.awt.windows.WToolkit$$Lambda$shutdown$8",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* WToolkit$$Lambda$shutdown$8::load$($String* name, bool initialize) {
-	$loadClass(WToolkit$$Lambda$shutdown$8, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(WToolkit$$Lambda$shutdown$8, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WToolkit;)V", nullptr, $PUBLIC, $method(WToolkit$$Lambda$shutdown$8, init$, void, WToolkit*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit$$Lambda$shutdown$8, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.awt.windows.WToolkit$$Lambda$shutdown$8",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WToolkit$$Lambda$shutdown$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WToolkit$$Lambda$shutdown$8);
+	});
 	return class$;
 }
 $Class* WToolkit$$Lambda$shutdown$8::class$ = nullptr;
-
-$FieldInfo _WToolkit_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, log)},
-	{"XPSTYLE_THEME_ACTIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WToolkit, XPSTYLE_THEME_ACTIVE)},
-	{"clipboard", "Lsun/awt/windows/WClipboard;", nullptr, 0, $field(WToolkit, clipboard)},
-	{"cacheFontPeer", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/awt/peer/FontPeer;>;", $PRIVATE, $field(WToolkit, cacheFontPeer)},
-	{"wprops", "Lsun/awt/windows/WDesktopProperties;", nullptr, $PRIVATE, $field(WToolkit, wprops)},
-	{"dynamicLayoutSetting", "Z", nullptr, $PROTECTED, $field(WToolkit, dynamicLayoutSetting)},
-	{"areExtraMouseButtonsEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WToolkit, areExtraMouseButtonsEnabled$)},
-	{"loaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WToolkit, loaded)},
-	{"anchor", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WToolkit, anchor)},
-	{"inited", "Z", nullptr, $PRIVATE, $field(WToolkit, inited)},
-	{"wPeer", "Lsun/awt/windows/WMouseInfoPeer;", nullptr, $PRIVATE | $STATIC, $staticField(WToolkit, wPeer)},
-	{"screenmodel", "Ljava/awt/image/ColorModel;", nullptr, $STATIC, $staticField(WToolkit, screenmodel)},
-	{"displayChangeExecutor", "Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC, $staticField(WToolkit, displayChangeExecutor)},
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, prefix)},
-	{"postfix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, postfix)},
-	{"awtPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, awtPrefix)},
-	{"dndPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, dndPrefix)},
-	{"NULL_COMPONENT_WR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, NULL_COMPONENT_WR)},
-	{"compOnTouchDownEvent", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE | $VOLATILE, $field(WToolkit, compOnTouchDownEvent)},
-	{"compOnMousePressedEvent", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE | $VOLATILE, $field(WToolkit, compOnMousePressedEvent)},
-	{}
-};
-
-$MethodInfo _WToolkit_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit, init$, void)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WToolkit, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"areExtraMouseButtonsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, areExtraMouseButtonsEnabled, bool), "java.awt.HeadlessException"},
-	{"beep", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WToolkit, beep, void)},
-	{"createButton", "(Ljava/awt/Button;)Ljava/awt/peer/ButtonPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createButton, $ButtonPeer*, $Button*)},
-	{"createCanvas", "(Ljava/awt/Canvas;)Ljava/awt/peer/CanvasPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createCanvas, $CanvasPeer*, $Canvas*)},
-	{"createCheckbox", "(Ljava/awt/Checkbox;)Ljava/awt/peer/CheckboxPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createCheckbox, $CheckboxPeer*, $Checkbox*)},
-	{"createCheckboxMenuItem", "(Ljava/awt/CheckboxMenuItem;)Ljava/awt/peer/CheckboxMenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createCheckboxMenuItem, $CheckboxMenuItemPeer*, $CheckboxMenuItem*)},
-	{"createChoice", "(Ljava/awt/Choice;)Ljava/awt/peer/ChoicePeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createChoice, $ChoicePeer*, $Choice*)},
-	{"createCustomCursor", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createCustomCursor, $Cursor*, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException"},
-	{"createDesktopPeer", "(Ljava/awt/Desktop;)Ljava/awt/peer/DesktopPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createDesktopPeer, $DesktopPeer*, $Desktop*)},
-	{"createDialog", "(Ljava/awt/Dialog;)Ljava/awt/peer/DialogPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createDialog, $DialogPeer*, $Dialog*)},
-	{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(WToolkit, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
-	{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"createEmbeddedFrame", "(Lsun/awt/windows/WEmbeddedFrame;)Lsun/awt/windows/WEmbeddedFramePeer;", nullptr, $PUBLIC, $method(WToolkit, createEmbeddedFrame, $WEmbeddedFramePeer*, $WEmbeddedFrame*)},
-	{"createFileDialog", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createFileDialog, $FileDialogPeer*, $FileDialog*)},
-	{"createFrame", "(Ljava/awt/Frame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createFrame, $FramePeer*, $Frame*)},
-	{"createLabel", "(Ljava/awt/Label;)Ljava/awt/peer/LabelPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createLabel, $LabelPeer*, $Label*)},
-	{"createLightweightFrame", "(Lsun/awt/LightweightFrame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createLightweightFrame, $FramePeer*, $LightweightFrame*)},
-	{"createList", "(Ljava/awt/List;)Ljava/awt/peer/ListPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createList, $ListPeer*, $List*)},
-	{"createMenu", "(Ljava/awt/Menu;)Ljava/awt/peer/MenuPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createMenu, $MenuPeer*, $Menu*)},
-	{"createMenuBar", "(Ljava/awt/MenuBar;)Ljava/awt/peer/MenuBarPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createMenuBar, $MenuBarPeer*, $MenuBar*)},
-	{"createMenuItem", "(Ljava/awt/MenuItem;)Ljava/awt/peer/MenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createMenuItem, $MenuItemPeer*, $MenuItem*)},
-	{"createPanel", "(Ljava/awt/Panel;)Ljava/awt/peer/PanelPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createPanel, $PanelPeer*, $Panel*)},
-	{"createPopupMenu", "(Ljava/awt/PopupMenu;)Ljava/awt/peer/PopupMenuPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createPopupMenu, $PopupMenuPeer*, $PopupMenu*)},
-	{"createRobot", "(Ljava/awt/GraphicsDevice;)Ljava/awt/peer/RobotPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createRobot, $RobotPeer*, $GraphicsDevice*), "java.awt.AWTException"},
-	{"createScrollPane", "(Ljava/awt/ScrollPane;)Ljava/awt/peer/ScrollPanePeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createScrollPane, $ScrollPanePeer*, $ScrollPane*)},
-	{"createScrollbar", "(Ljava/awt/Scrollbar;)Ljava/awt/peer/ScrollbarPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createScrollbar, $ScrollbarPeer*, $Scrollbar*)},
-	{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*)},
-	{"createTaskbarPeer", "(Ljava/awt/Taskbar;)Ljava/awt/peer/TaskbarPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createTaskbarPeer, $TaskbarPeer*, $Taskbar*)},
-	{"createTextArea", "(Ljava/awt/TextArea;)Ljava/awt/peer/TextAreaPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createTextArea, $TextAreaPeer*, $TextArea*)},
-	{"createTextField", "(Ljava/awt/TextField;)Ljava/awt/peer/TextFieldPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createTextField, $TextFieldPeer*, $TextField*)},
-	{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*)},
-	{"createWPageDialog", "(Lsun/awt/windows/WPageDialog;)Lsun/awt/windows/WPageDialogPeer;", nullptr, 0, $method(WToolkit, createWPageDialog, $WPageDialogPeer*, $WPageDialog*)},
-	{"createWPrintDialog", "(Lsun/awt/windows/WPrintDialog;)Lsun/awt/windows/WPrintDialogPeer;", nullptr, 0, $method(WToolkit, createWPrintDialog, $WPrintDialogPeer*, $WPrintDialog*)},
-	{"createWindow", "(Ljava/awt/Window;)Ljava/awt/peer/WindowPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createWindow, $WindowPeer*, $Window*)},
-	{"disableBackgroundErase", "(Ljava/awt/Canvas;)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, disableBackgroundErase, void, $Canvas*)},
-	{"displayChanged", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, displayChanged, void)},
-	{"embeddedDispose", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(WToolkit, embeddedDispose, bool)},
-	{"embeddedEventLoopIdleProcessing", "()V", nullptr, $PUBLIC | $NATIVE, $method(WToolkit, embeddedEventLoopIdleProcessing, void)},
-	{"embeddedInit", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(WToolkit, embeddedInit, bool)},
-	{"enableInputMethodsForTextComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, enableInputMethodsForTextComponent, bool)},
-	{"eventLoop", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, eventLoop, void)},
-	{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getBestCursorSize, $Dimension*, int32_t, int32_t)},
-	{"getDataTransferer", "()Lsun/awt/datatransfer/DataTransferer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getDataTransferer, $DataTransferer*)},
-	{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getDefaultKeyboardLocale, $Locale*)},
-	{"getDesktopAAHints", "()Ljava/awt/RenderingHints;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(WToolkit, getDesktopAAHints, $RenderingHints*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getFontPeer", "(Ljava/lang/String;I)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getFontPeer, $FontPeer*, $String*, int32_t)},
-	{"getInputMethodAdapterDescriptor", "()Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getInputMethodAdapterDescriptor, $InputMethodDescriptor*)},
-	{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*), "java.awt.HeadlessException"},
-	{"getLockingKeyState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, getLockingKeyState, bool, int32_t)},
-	{"getLockingKeyStateNative", "(I)Z", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, getLockingKeyStateNative, bool, int32_t)},
-	{"getMaximumCursorColors", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WToolkit, getMaximumCursorColors, int32_t)},
-	{"getMouseInfoPeer", "()Ljava/awt/peer/MouseInfoPeer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WToolkit, getMouseInfoPeer, $MouseInfoPeer*)},
-	{"getNumberOfButtons", "()I", nullptr, $PUBLIC, $virtualMethod(WToolkit, getNumberOfButtons, int32_t)},
-	{"getNumberOfButtonsImpl", "()I", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(WToolkit, getNumberOfButtonsImpl, int32_t)},
-	{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $Properties*)},
-	{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
-	{"getScreenInsets", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getScreenInsets, $Insets*, $GraphicsConfiguration*)},
-	{"getScreenInsets", "(I)Ljava/awt/Insets;", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, getScreenInsets, $Insets*, int32_t)},
-	{"getScreenResolution", "()I", nullptr, $PUBLIC, $virtualMethod(WToolkit, getScreenResolution, int32_t)},
-	{"getSystemClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getSystemClipboard, $Clipboard*)},
-	{"getWProps", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $SYNCHRONIZED, $method(WToolkit, getWProps, $Map*)},
-	{"getWToolkit", "()Lsun/awt/windows/WToolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, getWToolkit, WToolkit*)},
-	{"getWindowsVersion", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, getWindowsVersion, $String*)},
-	{"grab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, grab, void, $Window*)},
-	{"hideTouchKeyboard", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, hideTouchKeyboard, void)},
-	{"init", "()Z", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, init, bool)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, initIDs, void)},
-	{"initializeDesktopProperties", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(WToolkit, initializeDesktopProperties, void)},
-	{"isComponentValidForTouchKeyboard", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(WToolkit, isComponentValidForTouchKeyboard, bool, $Component*)},
-	{"isDesktopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isDesktopSupported, bool)},
-	{"isDynamicLayoutActive", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isDynamicLayoutActive, bool)},
-	{"isDynamicLayoutSet", "()Z", nullptr, $PROTECTED, $virtualMethod(WToolkit, isDynamicLayoutSet, bool)},
-	{"isDynamicLayoutSupported", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WToolkit, isDynamicLayoutSupported, bool)},
-	{"isDynamicLayoutSupportedNative", "()Z", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, isDynamicLayoutSupportedNative, bool)},
-	{"isFrameStateSupported", "(I)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isFrameStateSupported, bool, int32_t)},
-	{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
-	{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
-	{"isTaskbarSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isTaskbarSupported, bool)},
-	{"isTranslucencyCapable", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isTranslucencyCapable, bool, $GraphicsConfiguration*)},
-	{"isTraySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isTraySupported, bool)},
-	{"isWindowOpacitySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isWindowOpacitySupported, bool)},
-	{"isWindowShapingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isWindowShapingSupported, bool)},
-	{"isWindowTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isWindowTranslucencySupported, bool)},
-	{"lambda$displayChanged$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WToolkit, lambda$displayChanged$4, void)},
-	{"lambda$displayChanged$5", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WToolkit, lambda$displayChanged$5, $Thread*, $Runnable*)},
-	{"lambda$new$0", "(Ljava/lang/ThreadGroup;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(WToolkit, lambda$new$0, $Void*, $ThreadGroup*)},
-	{"lambda$new$1", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WToolkit, lambda$new$1, $Void*)},
-	{"lambda$registerShutdownHook$2", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(WToolkit, lambda$registerShutdownHook$2, $Void*)},
-	{"lambda$run$3", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WToolkit, lambda$run$3, $Void*)},
-	{"lambda$windowsSettingChange$6", "(Ljava/util/Map;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(WToolkit, lambda$windowsSettingChange$6, void, $Map*)},
-	{"lazilyInitWProps", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WToolkit, lazilyInitWProps, void)},
-	{"lazilyLoadDesktopProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WToolkit, lazilyLoadDesktopProperty, $Object*, $String*)},
-	{"loadLibraries", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, loadLibraries, void)},
-	{"loadSystemColors", "([I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(WToolkit, loadSystemColors, void, $ints*)},
-	{"makeColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $STATIC | $NATIVE, $staticMethod(WToolkit, makeColorModel, $ColorModel*)},
-	{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(WToolkit, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
-	{"nativeSync", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, nativeSync, void)},
-	{"needUpdateWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, needUpdateWindow, bool)},
-	{"paletteChanged", "()V", nullptr, $STATIC, $staticMethod(WToolkit, paletteChanged, void)},
-	{"postDispose", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, postDispose, void)},
-	{"quitSecondaryEventLoop", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(WToolkit, quitSecondaryEventLoop, void)},
-	{"registerShutdownHook", "()V", nullptr, $PRIVATE, $method(WToolkit, registerShutdownHook, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit, run, void)},
-	{"setDynamicLayout", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, setDynamicLayout, void, bool)},
-	{"setDynamicLayoutNative", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, setDynamicLayoutNative, void, bool)},
-	{"setExtraMouseButtonsEnabledNative", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, setExtraMouseButtonsEnabledNative, void, bool)},
-	{"setLockingKeyState", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, setLockingKeyState, void, int32_t, bool)},
-	{"setLockingKeyStateNative", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, setLockingKeyStateNative, void, int32_t, bool)},
-	{"showOrHideTouchKeyboard", "(Ljava/awt/Component;Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, showOrHideTouchKeyboard, void, $Component*, $AWTEvent*)},
-	{"showTouchKeyboard", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, showTouchKeyboard, void, bool)},
-	{"shutdown", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, shutdown, void)},
-	{"startSecondaryEventLoop", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(WToolkit, startSecondaryEventLoop, void)},
-	{"startToolkitThread", "(Ljava/lang/Runnable;Ljava/lang/ThreadGroup;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, startToolkitThread, bool, $Runnable*, $ThreadGroup*)},
-	{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit, sync, void)},
-	{"syncNativeQueue", "(J)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WToolkit, syncNativeQueue, bool, int64_t)},
-	{"targetDisposedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, targetDisposedPeer, void, Object$*, Object$*)},
-	{"targetToPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, targetToPeer, $Object*, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, ungrab, void, $Window*)},
-	{"updateProperties", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE | $SYNCHRONIZED, $method(WToolkit, updateProperties, void, $Map*)},
-	{"updateXPStyleEnabled", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(WToolkit, updateXPStyleEnabled, void, Object$*)},
-	{"useBufferPerWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, useBufferPerWindow, bool)},
-	{"windowsSettingChange", "()V", nullptr, $PRIVATE, $method(WToolkit, windowsSettingChange, void)},
-	{}
-};
-
-#define _METHOD_INDEX_beep 7
-#define _METHOD_INDEX_embeddedDispose 42
-#define _METHOD_INDEX_embeddedEventLoopIdleProcessing 43
-#define _METHOD_INDEX_embeddedInit 44
-#define _METHOD_INDEX_eventLoop 46
-#define _METHOD_INDEX_getLockingKeyStateNative 56
-#define _METHOD_INDEX_getMaximumCursorColors 57
-#define _METHOD_INDEX_getNumberOfButtonsImpl 60
-#define _METHOD_INDEX_getScreenInsets 64
-#define _METHOD_INDEX_getWindowsVersion 69
-#define _METHOD_INDEX_hideTouchKeyboard 71
-#define _METHOD_INDEX_init 72
-#define _METHOD_INDEX_initIDs 73
-#define _METHOD_INDEX_isDynamicLayoutSupportedNative 80
-#define _METHOD_INDEX_loadSystemColors 100
-#define _METHOD_INDEX_makeColorModel 101
-#define _METHOD_INDEX_nativeSync 103
-#define _METHOD_INDEX_postDispose 106
-#define _METHOD_INDEX_quitSecondaryEventLoop 107
-#define _METHOD_INDEX_setDynamicLayoutNative 111
-#define _METHOD_INDEX_setExtraMouseButtonsEnabledNative 112
-#define _METHOD_INDEX_setLockingKeyStateNative 114
-#define _METHOD_INDEX_showTouchKeyboard 116
-#define _METHOD_INDEX_shutdown 117
-#define _METHOD_INDEX_startSecondaryEventLoop 118
-#define _METHOD_INDEX_startToolkitThread 119
-#define _METHOD_INDEX_syncNativeQueue 121
-
-$InnerClassInfo _WToolkit_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WToolkit$ToolkitDisposer", "sun.awt.windows.WToolkit", "ToolkitDisposer", $STATIC},
-	{"sun.awt.windows.WToolkit$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WToolkit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.windows.WToolkit",
-	"sun.awt.SunToolkit",
-	"java.lang.Runnable",
-	_WToolkit_FieldInfo_,
-	_WToolkit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WToolkit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WToolkit$ToolkitDisposer,sun.awt.windows.WToolkit$1"
-};
-
-$Object* allocate$WToolkit($Class* clazz) {
-	return $of($alloc(WToolkit));
-}
 
 int32_t WToolkit::hashCode() {
 	 return this->$SunToolkit::hashCode();
@@ -995,7 +744,7 @@ $WeakReference* WToolkit::NULL_COMPONENT_WR = nullptr;
 
 void WToolkit::initIDs() {
 	$init(WToolkit);
-	$prepareNativeStatic(WToolkit, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -1004,62 +753,58 @@ void WToolkit::loadLibraries() {
 	$init(WToolkit);
 	$beforeCallerSensitive();
 	if (!WToolkit::loaded) {
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($WToolkit$1)));
+		$AccessController::doPrivileged($$new($WToolkit$1));
 		WToolkit::loaded = true;
 	}
 }
 
 $String* WToolkit::getWindowsVersion() {
 	$init(WToolkit);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(WToolkit, getWindowsVersion, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getWindowsVersion, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool WToolkit::embeddedInit() {
 	$init(WToolkit);
-	bool $ret = false;
-	$prepareNativeStatic(WToolkit, embeddedInit, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(embeddedInit, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool WToolkit::embeddedDispose() {
 	$init(WToolkit);
-	bool $ret = false;
-	$prepareNativeStatic(WToolkit, embeddedDispose, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(embeddedDispose, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void WToolkit::embeddedEventLoopIdleProcessing() {
-	$prepareNative(WToolkit, embeddedEventLoopIdleProcessing, void);
+	$prepareNative(embeddedEventLoopIdleProcessing, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WToolkit::postDispose() {
 	$init(WToolkit);
-	$prepareNativeStatic(WToolkit, postDispose, void);
+	$prepareNativeStatic(postDispose, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 bool WToolkit::startToolkitThread($Runnable* thread, $ThreadGroup* rootThreadGroup) {
 	$init(WToolkit);
-	bool $ret = false;
-	$prepareNativeStatic(WToolkit, startToolkitThread, bool, $Runnable* thread, $ThreadGroup* rootThreadGroup);
-	$ret = $invokeNativeStatic(thread, rootThreadGroup);
+	$prepareNativeStatic(startToolkitThread, bool, $Runnable* thread, $ThreadGroup* rootThreadGroup);
+	bool $ret = $invokeNativeStatic(thread, rootThreadGroup);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void WToolkit::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$SunToolkit::init$();
 	this->dynamicLayoutSetting = false;
@@ -1072,10 +817,10 @@ void WToolkit::init$() {
 	}
 	$Disposer::addRecord(this->anchor, $$new($WToolkit$ToolkitDisposer));
 	$AWTAutoShutdown::notifyToolkitThreadBusy();
-	$var($ThreadGroup, rootTG, $cast($ThreadGroup, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(WToolkit$$Lambda$getRootThreadGroup)))));
+	$var($ThreadGroup, rootTG, $cast($ThreadGroup, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(WToolkit$$Lambda$getRootThreadGroup)))));
 	if (!startToolkitThread(this, rootTG)) {
 		$var($String, name, "AWT-Windows"_s);
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(WToolkit$$Lambda$lambda$new$0$1, this, rootTG)));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(WToolkit$$Lambda$lambda$new$0$1, this, rootTG)));
 	}
 	try {
 		$synchronized(this) {
@@ -1087,18 +832,18 @@ void WToolkit::init$() {
 	}
 	setDynamicLayout(true);
 	$var($String, extraButtons, "sun.awt.enableExtraMouseButtons"_s);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(WToolkit$$Lambda$lambda$new$1$2)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(WToolkit$$Lambda$lambda$new$1$2)));
 	setExtraMouseButtonsEnabledNative(WToolkit::areExtraMouseButtonsEnabled$);
 }
 
 void WToolkit::registerShutdownHook() {
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, this)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(WToolkit$$Lambda$lambda$registerShutdownHook$2$3, this)));
 }
 
 void WToolkit::run() {
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(WToolkit$$Lambda$lambda$run$3$4)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(WToolkit$$Lambda$lambda$run$3$4)));
 	bool startPump = init();
 	if (startPump) {
 		registerShutdownHook();
@@ -1113,35 +858,34 @@ void WToolkit::run() {
 }
 
 bool WToolkit::init() {
-	bool $ret = false;
-	$prepareNative(WToolkit, init, bool);
-	$ret = $invokeNative();
+	$prepareNative(init, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
 
 void WToolkit::eventLoop() {
-	$prepareNative(WToolkit, eventLoop, void);
+	$prepareNative(eventLoop, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WToolkit::shutdown() {
-	$prepareNative(WToolkit, shutdown, void);
+	$prepareNative(shutdown, void);
 	$invokeNative();
 	$finishNative();
 }
 
 void WToolkit::startSecondaryEventLoop() {
 	$init(WToolkit);
-	$prepareNativeStatic(WToolkit, startSecondaryEventLoop, void);
+	$prepareNativeStatic(startSecondaryEventLoop, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void WToolkit::quitSecondaryEventLoop() {
 	$init(WToolkit);
-	$prepareNativeStatic(WToolkit, quitSecondaryEventLoop, void);
+	$prepareNativeStatic(quitSecondaryEventLoop, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -1219,8 +963,8 @@ $CanvasPeer* WToolkit::createCanvas($Canvas* target) {
 }
 
 void WToolkit::disableBackgroundErase($Canvas* canvas) {
-	$useLocalCurrentObjectStackCache();
-	$var($WCanvasPeer, peer, $cast($WCanvasPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(canvas)));
+	$useLocalObjectStack();
+	$var($WCanvasPeer, peer, $cast($WCanvasPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(canvas)));
 	if (peer == nullptr) {
 		$throwNew($IllegalStateException, "Canvas must have a valid peer"_s);
 	}
@@ -1338,7 +1082,7 @@ $MouseInfoPeer* WToolkit::getMouseInfoPeer() {
 }
 
 void WToolkit::setDynamicLayoutNative(bool b) {
-	$prepareNative(WToolkit, setDynamicLayoutNative, void, bool b);
+	$prepareNative(setDynamicLayoutNative, void, bool b);
 	$invokeNative(b);
 	$finishNative();
 }
@@ -1356,9 +1100,8 @@ bool WToolkit::isDynamicLayoutSet() {
 }
 
 bool WToolkit::isDynamicLayoutSupportedNative() {
-	bool $ret = false;
-	$prepareNative(WToolkit, isDynamicLayoutSupportedNative, bool);
-	$ret = $invokeNative();
+	$prepareNative(isDynamicLayoutSupportedNative, bool);
+	bool $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -1371,25 +1114,18 @@ bool WToolkit::isDynamicLayoutActive() {
 bool WToolkit::isFrameStateSupported(int32_t state) {
 	switch (state) {
 	case $Frame::NORMAL:
-		{}
 	case $Frame::ICONIFIED:
-		{}
 	case $Frame::MAXIMIZED_BOTH:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 }
 
 $ColorModel* WToolkit::makeColorModel() {
 	$init(WToolkit);
-	$var($ColorModel, $ret, nullptr);
-	$prepareNativeStatic(WToolkit, makeColorModel, $ColorModel*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(makeColorModel, $ColorModel*);
+	$var($ColorModel, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -1399,7 +1135,7 @@ $Insets* WToolkit::getScreenInsets($GraphicsConfiguration* gc) {
 	if (!($instanceOf($Win32GraphicsDevice, gd))) {
 		return $SunToolkit::getScreenInsets(gc);
 	}
-	return getScreenInsets($nc(($cast($Win32GraphicsDevice, gd)))->getScreen());
+	return getScreenInsets($nc($cast($Win32GraphicsDevice, gd))->getScreen());
 }
 
 int32_t WToolkit::getScreenResolution() {
@@ -1408,27 +1144,26 @@ int32_t WToolkit::getScreenResolution() {
 }
 
 $Insets* WToolkit::getScreenInsets(int32_t screen) {
-	$var($Insets, $ret, nullptr);
-	$prepareNative(WToolkit, getScreenInsets, $Insets*, int32_t screen);
-	$assign($ret, $invokeNativeObject(screen));
+	$prepareNative(getScreenInsets, $Insets*, int32_t screen);
+	$var($Insets, $ret, $invokeNativeObject(screen));
 	$finishNative();
 	return $ret;
 }
 
 $FontMetrics* WToolkit::getFontMetrics($Font* font) {
 	$var($FontManager, fm, $FontManagerFactory::getInstance());
-	if ($instanceOf($SunFontManager, fm) && $nc(($cast($SunFontManager, fm)))->usePlatformFontMetrics()) {
+	if ($instanceOf($SunFontManager, fm) && $cast($SunFontManager, fm)->usePlatformFontMetrics()) {
 		return $WFontMetrics::getFontMetrics(font);
 	}
 	return $SunToolkit::getFontMetrics(font);
 }
 
 $FontPeer* WToolkit::getFontPeer($String* name, int32_t style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FontPeer, retval, nullptr);
 	$var($String, lcName, $nc(name)->toLowerCase());
 	if (nullptr != this->cacheFontPeer) {
-		$assign(retval, $cast($FontPeer, $nc(this->cacheFontPeer)->get($$str({lcName, $$str(style)}))));
+		$assign(retval, $cast($FontPeer, this->cacheFontPeer->get($$str({lcName, $$str(style)}))));
 		if (nullptr != retval) {
 			return retval;
 		}
@@ -1439,14 +1174,14 @@ $FontPeer* WToolkit::getFontPeer($String* name, int32_t style) {
 			$set(this, cacheFontPeer, $new($Hashtable, 5, 0.9f));
 		}
 		if (nullptr != this->cacheFontPeer) {
-			$nc(this->cacheFontPeer)->put($$str({lcName, $$str(style)}), retval);
+			this->cacheFontPeer->put($$str({lcName, $$str(style)}), retval);
 		}
 	}
 	return retval;
 }
 
 void WToolkit::nativeSync() {
-	$prepareNative(WToolkit, nativeSync, void);
+	$prepareNative(nativeSync, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -1473,7 +1208,7 @@ $PrintJob* WToolkit::getPrintJob($Frame* frame, $String* doctitle, $JobAttribute
 }
 
 void WToolkit::beep() {
-	$prepareNative(WToolkit, beep, void);
+	$prepareNative(beep, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -1486,9 +1221,8 @@ bool WToolkit::getLockingKeyState(int32_t key) {
 }
 
 bool WToolkit::getLockingKeyStateNative(int32_t key) {
-	bool $ret = false;
-	$prepareNative(WToolkit, getLockingKeyStateNative, bool, int32_t key);
-	$ret = $invokeNative(key);
+	$prepareNative(getLockingKeyStateNative, bool, int32_t key);
+	bool $ret = $invokeNative(key);
 	$finishNative();
 	return $ret;
 }
@@ -1501,7 +1235,7 @@ void WToolkit::setLockingKeyState(int32_t key, bool on) {
 }
 
 void WToolkit::setLockingKeyStateNative(int32_t key, bool on) {
-	$prepareNative(WToolkit, setLockingKeyStateNative, void, int32_t key, bool on);
+	$prepareNative(setLockingKeyStateNative, void, int32_t key, bool on);
 	$invokeNative(key, on);
 	$finishNative();
 }
@@ -1521,14 +1255,14 @@ $Clipboard* WToolkit::getSystemClipboard() {
 }
 
 void WToolkit::loadSystemColors($ints* systemColors) {
-	$prepareNative(WToolkit, loadSystemColors, void, $ints* systemColors);
+	$prepareNative(loadSystemColors, void, $ints* systemColors);
 	$invokeNative(systemColors);
 	$finishNative();
 }
 
 $Object* WToolkit::targetToPeer(Object$* target) {
 	$init(WToolkit);
-	return $of($SunToolkit::targetToPeer(target));
+	return $SunToolkit::targetToPeer(target);
 }
 
 void WToolkit::targetDisposedPeer(Object$* target, Object$* peer) {
@@ -1567,9 +1301,8 @@ $Dimension* WToolkit::getBestCursorSize(int32_t preferredWidth, int32_t preferre
 }
 
 int32_t WToolkit::getMaximumCursorColors() {
-	int32_t $ret = 0;
-	$prepareNative(WToolkit, getMaximumCursorColors, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getMaximumCursorColors, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -1578,26 +1311,26 @@ void WToolkit::paletteChanged() {
 	$init(WToolkit);
 	$var($Object, lge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	if ($instanceOf($DisplayChangedListener, lge)) {
-		$nc(($cast($DisplayChangedListener, lge)))->paletteChanged();
+		$cast($DisplayChangedListener, lge)->paletteChanged();
 	}
 }
 
 void WToolkit::displayChanged() {
 	$init(WToolkit);
-	$useLocalCurrentObjectStackCache();
-	$var($Runnable, runnable, static_cast<$Runnable*>($new(WToolkit$$Lambda$lambda$displayChanged$4$5)));
+	$useLocalObjectStack();
+	$var($Runnable, runnable, $new(WToolkit$$Lambda$lambda$displayChanged$4$5));
 	if ($AppContext::getAppContext() != nullptr) {
 		$EventQueue::invokeLater(runnable);
 	} else {
 		if (WToolkit::displayChangeExecutor == nullptr) {
-			$assignStatic(WToolkit::displayChangeExecutor, $Executors::newFixedThreadPool(1, static_cast<$ThreadFactory*>($$new(WToolkit$$Lambda$lambda$displayChanged$5$6))));
+			$assignStatic(WToolkit::displayChangeExecutor, $Executors::newFixedThreadPool(1, $$new(WToolkit$$Lambda$lambda$displayChanged$5$6)));
 		}
 		$nc(WToolkit::displayChangeExecutor)->submit(runnable);
 	}
 }
 
 $DragSourceContextPeer* WToolkit::createDragSourceContextPeer($DragGestureEvent* dge) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LightweightFrame, f, $SunToolkit::getLightweightFrame($($nc(dge)->getComponent())));
 	if (f != nullptr) {
 		return f->createDragSourceContextPeer(dge);
@@ -1611,59 +1344,61 @@ $DragGestureRecognizer* WToolkit::createDragGestureRecognizer($Class* abstractRe
 		return f->createDragGestureRecognizer(abstractRecognizerClass, ds, c, srcActions, dgl);
 	}
 	$load($MouseDragGestureRecognizer);
-	if ($of($MouseDragGestureRecognizer::class$)->equals(abstractRecognizerClass)) {
-		return static_cast<$DragGestureRecognizer*>($new($WMouseDragGestureRecognizer, ds, c, srcActions, dgl));
+	if ($MouseDragGestureRecognizer::class$->equals(abstractRecognizerClass)) {
+		return $cast($DragGestureRecognizer, $new($WMouseDragGestureRecognizer, ds, c, srcActions, dgl));
 	} else {
 		return nullptr;
 	}
 }
 
 $Object* WToolkit::lazilyLoadDesktopProperty($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(name)->startsWith(WToolkit::prefix)) {
-		int32_t var$1 = $nc(WToolkit::prefix)->length();
-		$var($String, var$0, $(name->substring(var$1, name->length())));
-		$var($String, cursorName, $concat(var$0, WToolkit::postfix));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		int32_t var$1 = WToolkit::prefix->length();
+		var$0->append($(name->substring(var$1, name->length())));
+		var$0->append(WToolkit::postfix);
+		$var($String, cursorName, $str(var$0));
 		try {
-			return $of($Cursor::getSystemCustomCursor(cursorName));
+			return $Cursor::getSystemCustomCursor(cursorName);
 		} catch ($AWTException& awte) {
 			$throwNew($RuntimeException, $$str({"cannot load system cursor: "_s, cursorName}), awte);
 		}
 	}
-	if ($nc(name)->equals("awt.dynamicLayoutSupported"_s)) {
+	if (name->equals("awt.dynamicLayoutSupported"_s)) {
 		return $of($Boolean::valueOf(isDynamicLayoutSupported()));
 	}
 	bool var$3 = $WDesktopProperties::isWindowsProperty(name);
-	bool var$2 = var$3 || $nc(name)->startsWith(WToolkit::awtPrefix);
-	if (var$2 || $nc(name)->startsWith(WToolkit::dndPrefix)) {
+	bool var$2 = var$3 || name->startsWith(WToolkit::awtPrefix);
+	if (var$2 || name->startsWith(WToolkit::dndPrefix)) {
 		$synchronized(this) {
 			lazilyInitWProps();
-			return $of($nc(this->desktopProperties)->get(name));
+			return $nc(this->desktopProperties)->get(name);
 		}
 	}
-	return $of($SunToolkit::lazilyLoadDesktopProperty(name));
+	return $SunToolkit::lazilyLoadDesktopProperty(name);
 }
 
 void WToolkit::lazilyInitWProps() {
 	$synchronized(this) {
 		if (this->wprops == nullptr) {
 			$set(this, wprops, $new($WDesktopProperties, this));
-			updateProperties($($nc(this->wprops)->getProperties()));
+			updateProperties($(this->wprops->getProperties()));
 		}
 	}
 }
 
 bool WToolkit::isDynamicLayoutSupported() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		bool nativeDynamic = isDynamicLayoutSupportedNative();
 		lazilyInitWProps();
 		$var($Boolean, prop, $cast($Boolean, $nc(this->desktopProperties)->get("awt.dynamicLayoutSupported"_s)));
 		$init($PlatformLogger$Level);
 		if ($nc(WToolkit::log)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(WToolkit::log)->finer($$str({"In WTK.isDynamicLayoutSupported()   nativeDynamic == "_s, $$str(nativeDynamic), "   wprops.dynamic == "_s, prop}));
+			WToolkit::log->finer($$str({"In WTK.isDynamicLayoutSupported()   nativeDynamic == "_s, $$str(nativeDynamic), "   wprops.dynamic == "_s, prop}));
 		}
-		if ((prop == nullptr) || (nativeDynamic != $nc(prop)->booleanValue())) {
+		if ((prop == nullptr) || (nativeDynamic != prop->booleanValue())) {
 			windowsSettingChange();
 			return nativeDynamic;
 		}
@@ -1672,7 +1407,7 @@ bool WToolkit::isDynamicLayoutSupported() {
 }
 
 void WToolkit::windowsSettingChange() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, props, getWProps());
 	if (props == nullptr) {
 		return;
@@ -1681,26 +1416,26 @@ void WToolkit::windowsSettingChange() {
 	if ($AppContext::getAppContext() == nullptr) {
 		updateProperties(props);
 	} else {
-		$EventQueue::invokeLater(static_cast<$Runnable*>($$new(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, this, props)));
+		$EventQueue::invokeLater($$new(WToolkit$$Lambda$lambda$windowsSettingChange$6$7, this, props));
 	}
 }
 
 void WToolkit::updateProperties($Map* props) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (nullptr == props) {
 			return;
 		}
 		updateXPStyleEnabled($($nc(props)->get(WToolkit::XPSTYLE_THEME_ACTIVE)));
 		{
-			$var($Iterator, i$, $nc($($nc(props)->keySet()))->iterator());
+			$var($Iterator, i$, $$nc(props->keySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, propName, $cast($String, i$->next()));
 				{
 					$var($Object, val, props->get(propName));
 					$init($PlatformLogger$Level);
 					if ($nc(WToolkit::log)->isLoggable($PlatformLogger$Level::FINER)) {
-						$nc(WToolkit::log)->finer($$str({"changed "_s, propName, " to "_s, val}));
+						WToolkit::log->finer($$str({"changed "_s, propName, " to "_s, val}));
 					}
 					setDesktopProperty(propName, val);
 				}
@@ -1711,13 +1446,12 @@ void WToolkit::updateProperties($Map* props) {
 
 $Map* WToolkit::getWProps() {
 	$synchronized(this) {
-		return (this->wprops != nullptr) ? $nc(this->wprops)->getProperties() : ($Map*)nullptr;
+		return (this->wprops != nullptr) ? this->wprops->getProperties() : ($Map*)nullptr;
 	}
 }
 
 void WToolkit::updateXPStyleEnabled(Object$* dskProp) {
 	$init($ThemeReader);
-	$init($Boolean);
 	$ThemeReader::xpStyleEnabled = $nc($Boolean::TRUE)->equals(dskProp);
 }
 
@@ -1737,12 +1471,11 @@ void WToolkit::addPropertyChangeListener($String* name, $PropertyChangeListener*
 
 void WToolkit::initializeDesktopProperties() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$nc(this->desktopProperties)->put("DnD.Autoscroll.initialDelay"_s, $($Integer::valueOf(50)));
-		$nc(this->desktopProperties)->put("DnD.Autoscroll.interval"_s, $($Integer::valueOf(50)));
-		$init($Boolean);
-		$nc(this->desktopProperties)->put("DnD.isDragImageSupported"_s, $Boolean::TRUE);
-		$nc(this->desktopProperties)->put("Shell.shellFolderManager"_s, "sun.awt.shell.Win32ShellFolderManager2"_s);
+		this->desktopProperties->put("DnD.Autoscroll.interval"_s, $($Integer::valueOf(50)));
+		this->desktopProperties->put("DnD.isDragImageSupported"_s, $Boolean::TRUE);
+		this->desktopProperties->put("Shell.shellFolderManager"_s, "sun.awt.shell.Win32ShellFolderManager2"_s);
 	}
 }
 
@@ -1751,7 +1484,7 @@ $RenderingHints* WToolkit::getDesktopAAHints() {
 		if (this->wprops == nullptr) {
 			return nullptr;
 		} else {
-			return $nc(this->wprops)->getDesktopAAHints();
+			return this->wprops->getDesktopAAHints();
 		}
 	}
 }
@@ -1777,18 +1510,18 @@ bool WToolkit::useBufferPerWindow() {
 }
 
 void WToolkit::grab($Window* w) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w));
 	if (peer != nullptr) {
-		$nc(($cast($WWindowPeer, peer)))->grab();
+		$cast($WWindowPeer, peer)->grab();
 	}
 }
 
 void WToolkit::ungrab($Window* w) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w));
 	if (peer != nullptr) {
-		$nc(($cast($WWindowPeer, peer)))->ungrab();
+		$cast($WWindowPeer, peer)->ungrab();
 	}
 }
 
@@ -1796,8 +1529,8 @@ bool WToolkit::isComponentValidForTouchKeyboard($Component* comp) {
 	bool var$1 = (comp != nullptr) && comp->isEnabled();
 	bool var$0 = var$1 && comp->isFocusable();
 	if (var$0) {
-		bool var$2 = (($instanceOf($TextComponent, comp)) && $nc(($cast($TextComponent, comp)))->isEditable());
-		var$0 = (var$2 || (($instanceOf($JTextComponent, comp)) && $nc(($cast($JTextComponent, comp)))->isEditable()));
+		bool var$2 = ($instanceOf($TextComponent, comp)) && $cast($TextComponent, comp)->isEditable();
+		var$0 = var$2 || (($instanceOf($JTextComponent, comp)) && $cast($JTextComponent, comp)->isEditable());
 	}
 	if (var$0) {
 		return true;
@@ -1806,20 +1539,20 @@ bool WToolkit::isComponentValidForTouchKeyboard($Component* comp) {
 }
 
 void WToolkit::showOrHideTouchKeyboard($Component* comp, $AWTEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($TextComponent, comp)) && !($instanceOf($JTextComponent, comp))) {
 		return;
 	}
 	if (($instanceOf($MouseEvent, e)) && isComponentValidForTouchKeyboard(comp)) {
 		$var($MouseEvent, me, $cast($MouseEvent, e));
-		if ($nc(me)->getID() == $MouseEvent::MOUSE_PRESSED) {
-			if ($nc($($AWTAccessor::getMouseEventAccessor()))->isCausedByTouchEvent(me)) {
+		if (me->getID() == $MouseEvent::MOUSE_PRESSED) {
+			if ($$nc($AWTAccessor::getMouseEventAccessor())->isCausedByTouchEvent(me)) {
 				$set(this, compOnTouchDownEvent, $new($WeakReference, comp));
 			} else {
 				$set(this, compOnMousePressedEvent, $new($WeakReference, comp));
 			}
 		} else if (me->getID() == $MouseEvent::MOUSE_RELEASED) {
-			if ($nc($($AWTAccessor::getMouseEventAccessor()))->isCausedByTouchEvent(me)) {
+			if ($$nc($AWTAccessor::getMouseEventAccessor())->isCausedByTouchEvent(me)) {
 				if ($equals($nc(this->compOnTouchDownEvent)->get(), comp)) {
 					showTouchKeyboard(true);
 				}
@@ -1833,7 +1566,7 @@ void WToolkit::showOrHideTouchKeyboard($Component* comp, $AWTEvent* e) {
 		}
 	} else if ($instanceOf($FocusEvent, e)) {
 		$var($FocusEvent, fe, $cast($FocusEvent, e));
-		if ($nc(fe)->getID() == $FocusEvent::FOCUS_LOST) {
+		if (fe->getID() == $FocusEvent::FOCUS_LOST) {
 			if (!isComponentValidForTouchKeyboard($(fe->getOppositeComponent()))) {
 				hideTouchKeyboard();
 			}
@@ -1842,21 +1575,20 @@ void WToolkit::showOrHideTouchKeyboard($Component* comp, $AWTEvent* e) {
 }
 
 void WToolkit::showTouchKeyboard(bool causedByTouchEvent) {
-	$prepareNative(WToolkit, showTouchKeyboard, void, bool causedByTouchEvent);
+	$prepareNative(showTouchKeyboard, void, bool causedByTouchEvent);
 	$invokeNative(causedByTouchEvent);
 	$finishNative();
 }
 
 void WToolkit::hideTouchKeyboard() {
-	$prepareNative(WToolkit, hideTouchKeyboard, void);
+	$prepareNative(hideTouchKeyboard, void);
 	$invokeNative();
 	$finishNative();
 }
 
 bool WToolkit::syncNativeQueue(int64_t timeout) {
-	bool $ret = false;
-	$prepareNative(WToolkit, syncNativeQueue, bool, int64_t timeout);
-	$ret = $invokeNative(timeout);
+	$prepareNative(syncNativeQueue, bool, int64_t timeout);
+	bool $ret = $invokeNative(timeout);
 	$finishNative();
 	return $ret;
 }
@@ -1879,7 +1611,7 @@ $TaskbarPeer* WToolkit::createTaskbarPeer($Taskbar* target) {
 
 void WToolkit::setExtraMouseButtonsEnabledNative(bool enable) {
 	$init(WToolkit);
-	$prepareNativeStatic(WToolkit, setExtraMouseButtonsEnabledNative, void, bool enable);
+	$prepareNativeStatic(setExtraMouseButtonsEnabledNative, void, bool enable);
 	$invokeNativeStatic(enable);
 	$finishNativeStatic();
 }
@@ -1889,9 +1621,8 @@ bool WToolkit::areExtraMouseButtonsEnabled() {
 }
 
 int32_t WToolkit::getNumberOfButtonsImpl() {
-	int32_t $ret = 0;
-	$prepareNative(WToolkit, getNumberOfButtonsImpl, int32_t);
-	$ret = $invokeNative();
+	$prepareNative(getNumberOfButtonsImpl, int32_t);
+	int32_t $ret = $invokeNative();
 	$finishNative();
 	return $ret;
 }
@@ -1930,8 +1661,8 @@ void WToolkit::lambda$windowsSettingChange$6($Map* props) {
 
 $Thread* WToolkit::lambda$displayChanged$5($Runnable* r) {
 	$init(WToolkit);
-	$useLocalCurrentObjectStackCache();
-	$var($Thread, t, $nc($($Executors::defaultThreadFactory()))->newThread(r));
+	$useLocalObjectStack();
+	$var($Thread, t, $$nc($Executors::defaultThreadFactory())->newThread(r));
 	$nc(t)->setDaemon(true);
 	return t;
 }
@@ -1940,30 +1671,30 @@ void WToolkit::lambda$displayChanged$4() {
 	$init(WToolkit);
 	$var($Object, lge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	if ($instanceOf($DisplayChangedListener, lge)) {
-		$nc(($cast($DisplayChangedListener, lge)))->displayChanged();
+		$cast($DisplayChangedListener, lge)->displayChanged();
 	}
 }
 
 $Void* WToolkit::lambda$run$3() {
 	$init(WToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$($Thread::currentThread())->setContextClassLoader(nullptr);
 	$($Thread::currentThread())->setPriority($Thread::NORM_PRIORITY + 1);
 	return nullptr;
 }
 
 $Void* WToolkit::lambda$registerShutdownHook$2() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ThreadGroup, var$0, $ThreadGroupUtils::getRootThreadGroup());
-	$var($Thread, shutdown, $new($Thread, var$0, static_cast<$Runnable*>($$new(WToolkit$$Lambda$shutdown$8, this)), "ToolkitShutdown"_s, 0, false));
+	$var($Thread, shutdown, $new($Thread, var$0, $$new(WToolkit$$Lambda$shutdown$8, this), "ToolkitShutdown"_s, 0, false));
 	shutdown->setContextClassLoader(nullptr);
-	$nc($($Runtime::getRuntime()))->addShutdownHook(shutdown);
+	$$nc($Runtime::getRuntime())->addShutdownHook(shutdown);
 	return nullptr;
 }
 
 $Void* WToolkit::lambda$new$1() {
 	$init(WToolkit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, extraButtons, "sun.awt.enableExtraMouseButtons"_s);
 	WToolkit::areExtraMouseButtonsEnabled$ = $Boolean::parseBoolean($($System::getProperty(extraButtons, "true"_s)));
 	$System::setProperty(extraButtons, $$str({""_s, $$str(WToolkit::areExtraMouseButtonsEnabled$)}));
@@ -1971,7 +1702,7 @@ $Void* WToolkit::lambda$new$1() {
 }
 
 $Void* WToolkit::lambda$new$0($ThreadGroup* rootTG) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, "AWT-Windows"_s);
 	$var($Thread, toolkitThread, $new($Thread, rootTG, this, name, 0, false));
 	toolkitThread->setDaemon(true);
@@ -1979,8 +1710,8 @@ $Void* WToolkit::lambda$new$0($ThreadGroup* rootTG) {
 	return nullptr;
 }
 
-void clinit$WToolkit($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void WToolkit::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(WToolkit::XPSTYLE_THEME_ACTIVE, "win.xpstyle.themeActive"_s);
 	$assignStatic(WToolkit::prefix, "DnD.Cursor."_s);
 	$assignStatic(WToolkit::postfix, ".32x32"_s);
@@ -1994,7 +1725,7 @@ void clinit$WToolkit($Class* class$) {
 		WToolkit::initIDs();
 		$init($PlatformLogger$Level);
 		if ($nc(WToolkit::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(WToolkit::log)->fine($$str({"Win version: "_s, $(WToolkit::getWindowsVersion())}));
+			WToolkit::log->fine($$str({"Win version: "_s, $(WToolkit::getWindowsVersion())}));
 		}
 	}
 	$assignStatic(WToolkit::wPeer, nullptr);
@@ -2006,35 +1737,212 @@ WToolkit::WToolkit() {
 
 $Class* WToolkit::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(WToolkit$$Lambda$getRootThreadGroup::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$getRootThreadGroup")) {
 			return WToolkit$$Lambda$getRootThreadGroup::load$(name, initialize);
 		}
-		if (name->equals(WToolkit$$Lambda$lambda$new$0$1::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$lambda$new$0$1")) {
 			return WToolkit$$Lambda$lambda$new$0$1::load$(name, initialize);
 		}
-		if (name->equals(WToolkit$$Lambda$lambda$new$1$2::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$lambda$new$1$2")) {
 			return WToolkit$$Lambda$lambda$new$1$2::load$(name, initialize);
 		}
-		if (name->equals(WToolkit$$Lambda$lambda$registerShutdownHook$2$3::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$lambda$registerShutdownHook$2$3")) {
 			return WToolkit$$Lambda$lambda$registerShutdownHook$2$3::load$(name, initialize);
 		}
-		if (name->equals(WToolkit$$Lambda$lambda$run$3$4::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$lambda$run$3$4")) {
 			return WToolkit$$Lambda$lambda$run$3$4::load$(name, initialize);
 		}
-		if (name->equals(WToolkit$$Lambda$lambda$displayChanged$4$5::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$lambda$displayChanged$4$5")) {
 			return WToolkit$$Lambda$lambda$displayChanged$4$5::load$(name, initialize);
 		}
-		if (name->equals(WToolkit$$Lambda$lambda$displayChanged$5$6::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$lambda$displayChanged$5$6")) {
 			return WToolkit$$Lambda$lambda$displayChanged$5$6::load$(name, initialize);
 		}
-		if (name->equals(WToolkit$$Lambda$lambda$windowsSettingChange$6$7::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$lambda$windowsSettingChange$6$7")) {
 			return WToolkit$$Lambda$lambda$windowsSettingChange$6$7::load$(name, initialize);
 		}
-		if (name->equals(WToolkit$$Lambda$shutdown$8::classInfo$.name)) {
+		if (name->equals("sun.awt.windows.WToolkit$$Lambda$shutdown$8")) {
 			return WToolkit$$Lambda$shutdown$8::load$(name, initialize);
 		}
 	}
-	$loadClass(WToolkit, name, initialize, &_WToolkit_ClassInfo_, clinit$WToolkit, allocate$WToolkit);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, log)},
+		{"XPSTYLE_THEME_ACTIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WToolkit, XPSTYLE_THEME_ACTIVE)},
+		{"clipboard", "Lsun/awt/windows/WClipboard;", nullptr, 0, $field(WToolkit, clipboard)},
+		{"cacheFontPeer", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/awt/peer/FontPeer;>;", $PRIVATE, $field(WToolkit, cacheFontPeer)},
+		{"wprops", "Lsun/awt/windows/WDesktopProperties;", nullptr, $PRIVATE, $field(WToolkit, wprops)},
+		{"dynamicLayoutSetting", "Z", nullptr, $PROTECTED, $field(WToolkit, dynamicLayoutSetting)},
+		{"areExtraMouseButtonsEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WToolkit, areExtraMouseButtonsEnabled$)},
+		{"loaded", "Z", nullptr, $PRIVATE | $STATIC, $staticField(WToolkit, loaded)},
+		{"anchor", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(WToolkit, anchor)},
+		{"inited", "Z", nullptr, $PRIVATE, $field(WToolkit, inited)},
+		{"wPeer", "Lsun/awt/windows/WMouseInfoPeer;", nullptr, $PRIVATE | $STATIC, $staticField(WToolkit, wPeer)},
+		{"screenmodel", "Ljava/awt/image/ColorModel;", nullptr, $STATIC, $staticField(WToolkit, screenmodel)},
+		{"displayChangeExecutor", "Ljava/util/concurrent/ExecutorService;", nullptr, $PRIVATE | $STATIC, $staticField(WToolkit, displayChangeExecutor)},
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, prefix)},
+		{"postfix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, postfix)},
+		{"awtPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, awtPrefix)},
+		{"dndPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, dndPrefix)},
+		{"NULL_COMPONENT_WR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE | $STATIC | $FINAL, $staticField(WToolkit, NULL_COMPONENT_WR)},
+		{"compOnTouchDownEvent", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE | $VOLATILE, $field(WToolkit, compOnTouchDownEvent)},
+		{"compOnMousePressedEvent", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE | $VOLATILE, $field(WToolkit, compOnMousePressedEvent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WToolkit, init$, void)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WToolkit, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"areExtraMouseButtonsEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, areExtraMouseButtonsEnabled, bool), "java.awt.HeadlessException"},
+		{"beep", "()V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WToolkit, beep, void)},
+		{"createButton", "(Ljava/awt/Button;)Ljava/awt/peer/ButtonPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createButton, $ButtonPeer*, $Button*)},
+		{"createCanvas", "(Ljava/awt/Canvas;)Ljava/awt/peer/CanvasPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createCanvas, $CanvasPeer*, $Canvas*)},
+		{"createCheckbox", "(Ljava/awt/Checkbox;)Ljava/awt/peer/CheckboxPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createCheckbox, $CheckboxPeer*, $Checkbox*)},
+		{"createCheckboxMenuItem", "(Ljava/awt/CheckboxMenuItem;)Ljava/awt/peer/CheckboxMenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createCheckboxMenuItem, $CheckboxMenuItemPeer*, $CheckboxMenuItem*)},
+		{"createChoice", "(Ljava/awt/Choice;)Ljava/awt/peer/ChoicePeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createChoice, $ChoicePeer*, $Choice*)},
+		{"createCustomCursor", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)Ljava/awt/Cursor;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createCustomCursor, $Cursor*, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException"},
+		{"createDesktopPeer", "(Ljava/awt/Desktop;)Ljava/awt/peer/DesktopPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createDesktopPeer, $DesktopPeer*, $Desktop*)},
+		{"createDialog", "(Ljava/awt/Dialog;)Ljava/awt/peer/DialogPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createDialog, $DialogPeer*, $Dialog*)},
+		{"createDragGestureRecognizer", "(Ljava/lang/Class;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)Ljava/awt/dnd/DragGestureRecognizer;", "<T:Ljava/awt/dnd/DragGestureRecognizer;>(Ljava/lang/Class<TT;>;Ljava/awt/dnd/DragSource;Ljava/awt/Component;ILjava/awt/dnd/DragGestureListener;)TT;", $PUBLIC, $virtualMethod(WToolkit, createDragGestureRecognizer, $DragGestureRecognizer*, $Class*, $DragSource*, $Component*, int32_t, $DragGestureListener*)},
+		{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createDragSourceContextPeer, $DragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"createEmbeddedFrame", "(Lsun/awt/windows/WEmbeddedFrame;)Lsun/awt/windows/WEmbeddedFramePeer;", nullptr, $PUBLIC, $method(WToolkit, createEmbeddedFrame, $WEmbeddedFramePeer*, $WEmbeddedFrame*)},
+		{"createFileDialog", "(Ljava/awt/FileDialog;)Ljava/awt/peer/FileDialogPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createFileDialog, $FileDialogPeer*, $FileDialog*)},
+		{"createFrame", "(Ljava/awt/Frame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createFrame, $FramePeer*, $Frame*)},
+		{"createLabel", "(Ljava/awt/Label;)Ljava/awt/peer/LabelPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createLabel, $LabelPeer*, $Label*)},
+		{"createLightweightFrame", "(Lsun/awt/LightweightFrame;)Ljava/awt/peer/FramePeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createLightweightFrame, $FramePeer*, $LightweightFrame*)},
+		{"createList", "(Ljava/awt/List;)Ljava/awt/peer/ListPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createList, $ListPeer*, $List*)},
+		{"createMenu", "(Ljava/awt/Menu;)Ljava/awt/peer/MenuPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createMenu, $MenuPeer*, $Menu*)},
+		{"createMenuBar", "(Ljava/awt/MenuBar;)Ljava/awt/peer/MenuBarPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createMenuBar, $MenuBarPeer*, $MenuBar*)},
+		{"createMenuItem", "(Ljava/awt/MenuItem;)Ljava/awt/peer/MenuItemPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createMenuItem, $MenuItemPeer*, $MenuItem*)},
+		{"createPanel", "(Ljava/awt/Panel;)Ljava/awt/peer/PanelPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createPanel, $PanelPeer*, $Panel*)},
+		{"createPopupMenu", "(Ljava/awt/PopupMenu;)Ljava/awt/peer/PopupMenuPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createPopupMenu, $PopupMenuPeer*, $PopupMenu*)},
+		{"createRobot", "(Ljava/awt/GraphicsDevice;)Ljava/awt/peer/RobotPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createRobot, $RobotPeer*, $GraphicsDevice*), "java.awt.AWTException"},
+		{"createScrollPane", "(Ljava/awt/ScrollPane;)Ljava/awt/peer/ScrollPanePeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createScrollPane, $ScrollPanePeer*, $ScrollPane*)},
+		{"createScrollbar", "(Ljava/awt/Scrollbar;)Ljava/awt/peer/ScrollbarPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createScrollbar, $ScrollbarPeer*, $Scrollbar*)},
+		{"createSystemTray", "(Ljava/awt/SystemTray;)Ljava/awt/peer/SystemTrayPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createSystemTray, $SystemTrayPeer*, $SystemTray*)},
+		{"createTaskbarPeer", "(Ljava/awt/Taskbar;)Ljava/awt/peer/TaskbarPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createTaskbarPeer, $TaskbarPeer*, $Taskbar*)},
+		{"createTextArea", "(Ljava/awt/TextArea;)Ljava/awt/peer/TextAreaPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createTextArea, $TextAreaPeer*, $TextArea*)},
+		{"createTextField", "(Ljava/awt/TextField;)Ljava/awt/peer/TextFieldPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createTextField, $TextFieldPeer*, $TextField*)},
+		{"createTrayIcon", "(Ljava/awt/TrayIcon;)Ljava/awt/peer/TrayIconPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createTrayIcon, $TrayIconPeer*, $TrayIcon*)},
+		{"createWPageDialog", "(Lsun/awt/windows/WPageDialog;)Lsun/awt/windows/WPageDialogPeer;", nullptr, 0, $method(WToolkit, createWPageDialog, $WPageDialogPeer*, $WPageDialog*)},
+		{"createWPrintDialog", "(Lsun/awt/windows/WPrintDialog;)Lsun/awt/windows/WPrintDialogPeer;", nullptr, 0, $method(WToolkit, createWPrintDialog, $WPrintDialogPeer*, $WPrintDialog*)},
+		{"createWindow", "(Ljava/awt/Window;)Ljava/awt/peer/WindowPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, createWindow, $WindowPeer*, $Window*)},
+		{"disableBackgroundErase", "(Ljava/awt/Canvas;)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, disableBackgroundErase, void, $Canvas*)},
+		{"displayChanged", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, displayChanged, void)},
+		{"embeddedDispose", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(WToolkit, embeddedDispose, bool)},
+		{"embeddedEventLoopIdleProcessing", "()V", nullptr, $PUBLIC | $NATIVE, $method(WToolkit, embeddedEventLoopIdleProcessing, void)},
+		{"embeddedInit", "()Z", nullptr, $PUBLIC | $STATIC | $NATIVE, $staticMethod(WToolkit, embeddedInit, bool)},
+		{"enableInputMethodsForTextComponent", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, enableInputMethodsForTextComponent, bool)},
+		{"eventLoop", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, eventLoop, void)},
+		{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getBestCursorSize, $Dimension*, int32_t, int32_t)},
+		{"getDataTransferer", "()Lsun/awt/datatransfer/DataTransferer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getDataTransferer, $DataTransferer*)},
+		{"getDefaultKeyboardLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getDefaultKeyboardLocale, $Locale*)},
+		{"getDesktopAAHints", "()Ljava/awt/RenderingHints;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(WToolkit, getDesktopAAHints, $RenderingHints*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getFontPeer", "(Ljava/lang/String;I)Ljava/awt/peer/FontPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getFontPeer, $FontPeer*, $String*, int32_t)},
+		{"getInputMethodAdapterDescriptor", "()Ljava/awt/im/spi/InputMethodDescriptor;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getInputMethodAdapterDescriptor, $InputMethodDescriptor*)},
+		{"getKeyboardFocusManagerPeer", "()Ljava/awt/peer/KeyboardFocusManagerPeer;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getKeyboardFocusManagerPeer, $KeyboardFocusManagerPeer*), "java.awt.HeadlessException"},
+		{"getLockingKeyState", "(I)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, getLockingKeyState, bool, int32_t)},
+		{"getLockingKeyStateNative", "(I)Z", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, getLockingKeyStateNative, bool, int32_t)},
+		{"getMaximumCursorColors", "()I", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WToolkit, getMaximumCursorColors, int32_t)},
+		{"getMouseInfoPeer", "()Ljava/awt/peer/MouseInfoPeer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(WToolkit, getMouseInfoPeer, $MouseInfoPeer*)},
+		{"getNumberOfButtons", "()I", nullptr, $PUBLIC, $virtualMethod(WToolkit, getNumberOfButtons, int32_t)},
+		{"getNumberOfButtonsImpl", "()I", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(WToolkit, getNumberOfButtonsImpl, int32_t)},
+		{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/util/Properties;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $Properties*)},
+		{"getPrintJob", "(Ljava/awt/Frame;Ljava/lang/String;Ljava/awt/JobAttributes;Ljava/awt/PageAttributes;)Ljava/awt/PrintJob;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getPrintJob, $PrintJob*, $Frame*, $String*, $JobAttributes*, $PageAttributes*)},
+		{"getScreenInsets", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getScreenInsets, $Insets*, $GraphicsConfiguration*)},
+		{"getScreenInsets", "(I)Ljava/awt/Insets;", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, getScreenInsets, $Insets*, int32_t)},
+		{"getScreenResolution", "()I", nullptr, $PUBLIC, $virtualMethod(WToolkit, getScreenResolution, int32_t)},
+		{"getSystemClipboard", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PUBLIC, $virtualMethod(WToolkit, getSystemClipboard, $Clipboard*)},
+		{"getWProps", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $SYNCHRONIZED, $method(WToolkit, getWProps, $Map*)},
+		{"getWToolkit", "()Lsun/awt/windows/WToolkit;", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, getWToolkit, WToolkit*)},
+		{"getWindowsVersion", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, getWindowsVersion, $String*)},
+		{"grab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, grab, void, $Window*)},
+		{"hideTouchKeyboard", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, hideTouchKeyboard, void)},
+		{"init", "()Z", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, init, bool)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, initIDs, void)},
+		{"initializeDesktopProperties", "()V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(WToolkit, initializeDesktopProperties, void)},
+		{"isComponentValidForTouchKeyboard", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(WToolkit, isComponentValidForTouchKeyboard, bool, $Component*)},
+		{"isDesktopSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isDesktopSupported, bool)},
+		{"isDynamicLayoutActive", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isDynamicLayoutActive, bool)},
+		{"isDynamicLayoutSet", "()Z", nullptr, $PROTECTED, $virtualMethod(WToolkit, isDynamicLayoutSet, bool)},
+		{"isDynamicLayoutSupported", "()Z", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WToolkit, isDynamicLayoutSupported, bool)},
+		{"isDynamicLayoutSupportedNative", "()Z", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, isDynamicLayoutSupportedNative, bool)},
+		{"isFrameStateSupported", "(I)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isFrameStateSupported, bool, int32_t)},
+		{"isModalExclusionTypeSupported", "(Ljava/awt/Dialog$ModalExclusionType;)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isModalExclusionTypeSupported, bool, $Dialog$ModalExclusionType*)},
+		{"isModalityTypeSupported", "(Ljava/awt/Dialog$ModalityType;)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isModalityTypeSupported, bool, $Dialog$ModalityType*)},
+		{"isTaskbarSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isTaskbarSupported, bool)},
+		{"isTranslucencyCapable", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isTranslucencyCapable, bool, $GraphicsConfiguration*)},
+		{"isTraySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isTraySupported, bool)},
+		{"isWindowOpacitySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isWindowOpacitySupported, bool)},
+		{"isWindowShapingSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isWindowShapingSupported, bool)},
+		{"isWindowTranslucencySupported", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, isWindowTranslucencySupported, bool)},
+		{"lambda$displayChanged$4", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WToolkit, lambda$displayChanged$4, void)},
+		{"lambda$displayChanged$5", "(Ljava/lang/Runnable;)Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WToolkit, lambda$displayChanged$5, $Thread*, $Runnable*)},
+		{"lambda$new$0", "(Ljava/lang/ThreadGroup;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(WToolkit, lambda$new$0, $Void*, $ThreadGroup*)},
+		{"lambda$new$1", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WToolkit, lambda$new$1, $Void*)},
+		{"lambda$registerShutdownHook$2", "()Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(WToolkit, lambda$registerShutdownHook$2, $Void*)},
+		{"lambda$run$3", "()Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(WToolkit, lambda$run$3, $Void*)},
+		{"lambda$windowsSettingChange$6", "(Ljava/util/Map;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(WToolkit, lambda$windowsSettingChange$6, void, $Map*)},
+		{"lazilyInitWProps", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(WToolkit, lazilyInitWProps, void)},
+		{"lazilyLoadDesktopProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(WToolkit, lazilyLoadDesktopProperty, $Object*, $String*)},
+		{"loadLibraries", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, loadLibraries, void)},
+		{"loadSystemColors", "([I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(WToolkit, loadSystemColors, void, $ints*)},
+		{"makeColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $STATIC | $NATIVE, $staticMethod(WToolkit, makeColorModel, $ColorModel*)},
+		{"mapInputMethodHighlight", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map;", "(Ljava/awt/im/InputMethodHighlight;)Ljava/util/Map<Ljava/awt/font/TextAttribute;*>;", $PUBLIC, $virtualMethod(WToolkit, mapInputMethodHighlight, $Map*, $InputMethodHighlight*)},
+		{"nativeSync", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, nativeSync, void)},
+		{"needUpdateWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, needUpdateWindow, bool)},
+		{"paletteChanged", "()V", nullptr, $STATIC, $staticMethod(WToolkit, paletteChanged, void)},
+		{"postDispose", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, postDispose, void)},
+		{"quitSecondaryEventLoop", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(WToolkit, quitSecondaryEventLoop, void)},
+		{"registerShutdownHook", "()V", nullptr, $PRIVATE, $method(WToolkit, registerShutdownHook, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit, run, void)},
+		{"setDynamicLayout", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, setDynamicLayout, void, bool)},
+		{"setDynamicLayoutNative", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, setDynamicLayoutNative, void, bool)},
+		{"setExtraMouseButtonsEnabledNative", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, setExtraMouseButtonsEnabledNative, void, bool)},
+		{"setLockingKeyState", "(IZ)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, setLockingKeyState, void, int32_t, bool)},
+		{"setLockingKeyStateNative", "(IZ)V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, setLockingKeyStateNative, void, int32_t, bool)},
+		{"showOrHideTouchKeyboard", "(Ljava/awt/Component;Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, showOrHideTouchKeyboard, void, $Component*, $AWTEvent*)},
+		{"showTouchKeyboard", "(Z)V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, showTouchKeyboard, void, bool)},
+		{"shutdown", "()V", nullptr, $PRIVATE | $NATIVE, $method(WToolkit, shutdown, void)},
+		{"startSecondaryEventLoop", "()V", nullptr, $STATIC | $NATIVE, $staticMethod(WToolkit, startSecondaryEventLoop, void)},
+		{"startToolkitThread", "(Ljava/lang/Runnable;Ljava/lang/ThreadGroup;)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WToolkit, startToolkitThread, bool, $Runnable*, $ThreadGroup*)},
+		{"sync", "()V", nullptr, $PUBLIC, $virtualMethod(WToolkit, sync, void)},
+		{"syncNativeQueue", "(J)Z", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WToolkit, syncNativeQueue, bool, int64_t)},
+		{"targetDisposedPeer", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, targetDisposedPeer, void, Object$*, Object$*)},
+		{"targetToPeer", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(WToolkit, targetToPeer, $Object*, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrab", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $virtualMethod(WToolkit, ungrab, void, $Window*)},
+		{"updateProperties", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;)V", $PRIVATE | $SYNCHRONIZED, $method(WToolkit, updateProperties, void, $Map*)},
+		{"updateXPStyleEnabled", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(WToolkit, updateXPStyleEnabled, void, Object$*)},
+		{"useBufferPerWindow", "()Z", nullptr, $PUBLIC, $virtualMethod(WToolkit, useBufferPerWindow, bool)},
+		{"windowsSettingChange", "()V", nullptr, $PRIVATE, $method(WToolkit, windowsSettingChange, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WToolkit$ToolkitDisposer", "sun.awt.windows.WToolkit", "ToolkitDisposer", $STATIC},
+		{"sun.awt.windows.WToolkit$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.windows.WToolkit",
+		"sun.awt.SunToolkit",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WToolkit$ToolkitDisposer,sun.awt.windows.WToolkit$1"
+	};
+	$loadClass(WToolkit, name, initialize, &classInfo$$, WToolkit::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WToolkit));
+	});
 	return class$;
 }
 

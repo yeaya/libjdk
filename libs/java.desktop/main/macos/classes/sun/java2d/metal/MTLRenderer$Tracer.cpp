@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLRenderer$Tracer.h>
-
 #include <java/awt/geom/Path2D$Float.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
@@ -26,55 +25,6 @@ using $SpanIterator = ::sun::java2d::pipe::SpanIterator;
 namespace sun {
 	namespace java2d {
 		namespace metal {
-
-$FieldInfo _MTLRenderer$Tracer_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/metal/MTLRenderer;", nullptr, $FINAL | $SYNTHETIC, $field(MTLRenderer$Tracer, this$0)},
-	{"mtlr", "Lsun/java2d/metal/MTLRenderer;", nullptr, $PRIVATE, $field(MTLRenderer$Tracer, mtlr)},
-	{}
-};
-
-$MethodInfo _MTLRenderer$Tracer_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/metal/MTLRenderer;Lsun/java2d/metal/MTLRenderer;)V", nullptr, 0, $method(MTLRenderer$Tracer, init$, void, $MTLRenderer*, $MTLRenderer*)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, copyArea, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
-	{"drawPath", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Path2D$Float;II)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, drawPath, void, $SunGraphics2D*, $Path2D$Float*, int32_t, int32_t)},
-	{"drawPoly", "(Lsun/java2d/SunGraphics2D;[I[IIZ)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, drawPoly, void, $SunGraphics2D*, $ints*, $ints*, int32_t, bool)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
-	{"fillPath", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Path2D$Float;II)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, fillPath, void, $SunGraphics2D*, $Path2D$Float*, int32_t, int32_t)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/SpanIterator;II)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, fillSpans, void, $SunGraphics2D*, $SpanIterator*, int32_t, int32_t)},
-	{"getAAParallelogramPipe", "()Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, getAAParallelogramPipe, $ParallelogramPipe*)},
-	{"validateContext", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, validateContext, void, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _MTLRenderer$Tracer_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLRenderer$Tracer", "sun.java2d.metal.MTLRenderer", "Tracer", $PRIVATE},
-	{"sun.java2d.metal.MTLRenderer$Tracer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MTLRenderer$Tracer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLRenderer$Tracer",
-	"sun.java2d.metal.MTLRenderer",
-	nullptr,
-	_MTLRenderer$Tracer_FieldInfo_,
-	_MTLRenderer$Tracer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLRenderer$Tracer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLRenderer"
-};
-
-$Object* allocate$MTLRenderer$Tracer($Class* clazz) {
-	return $of($alloc(MTLRenderer$Tracer));
-}
 
 void MTLRenderer$Tracer::init$($MTLRenderer* this$0, $MTLRenderer* mtlr) {
 	$set(this, this$0, this$0);
@@ -145,7 +95,50 @@ MTLRenderer$Tracer::MTLRenderer$Tracer() {
 }
 
 $Class* MTLRenderer$Tracer::load$($String* name, bool initialize) {
-	$loadClass(MTLRenderer$Tracer, name, initialize, &_MTLRenderer$Tracer_ClassInfo_, allocate$MTLRenderer$Tracer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/metal/MTLRenderer;", nullptr, $FINAL | $SYNTHETIC, $field(MTLRenderer$Tracer, this$0)},
+		{"mtlr", "Lsun/java2d/metal/MTLRenderer;", nullptr, $PRIVATE, $field(MTLRenderer$Tracer, mtlr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/metal/MTLRenderer;Lsun/java2d/metal/MTLRenderer;)V", nullptr, 0, $method(MTLRenderer$Tracer, init$, void, $MTLRenderer*, $MTLRenderer*)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, copyArea, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, drawParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double, double, double)},
+		{"drawPath", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Path2D$Float;II)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, drawPath, void, $SunGraphics2D*, $Path2D$Float*, int32_t, int32_t)},
+		{"drawPoly", "(Lsun/java2d/SunGraphics2D;[I[IIZ)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, drawPoly, void, $SunGraphics2D*, $ints*, $ints*, int32_t, bool)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillParallelogram", "(Lsun/java2d/SunGraphics2D;DDDDDDDDDD)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, fillParallelogram, void, $SunGraphics2D*, double, double, double, double, double, double, double, double, double, double)},
+		{"fillPath", "(Lsun/java2d/SunGraphics2D;Ljava/awt/geom/Path2D$Float;II)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, fillPath, void, $SunGraphics2D*, $Path2D$Float*, int32_t, int32_t)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillSpans", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/SpanIterator;II)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, fillSpans, void, $SunGraphics2D*, $SpanIterator*, int32_t, int32_t)},
+		{"getAAParallelogramPipe", "()Lsun/java2d/pipe/ParallelogramPipe;", nullptr, $PUBLIC, $virtualMethod(MTLRenderer$Tracer, getAAParallelogramPipe, $ParallelogramPipe*)},
+		{"validateContext", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PROTECTED, $virtualMethod(MTLRenderer$Tracer, validateContext, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLRenderer$Tracer", "sun.java2d.metal.MTLRenderer", "Tracer", $PRIVATE},
+		{"sun.java2d.metal.MTLRenderer$Tracer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLRenderer$Tracer",
+		"sun.java2d.metal.MTLRenderer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLRenderer"
+	};
+	$loadClass(MTLRenderer$Tracer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MTLRenderer$Tracer));
+	});
 	return class$;
 }
 

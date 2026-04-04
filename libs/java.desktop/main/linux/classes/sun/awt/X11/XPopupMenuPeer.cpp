@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XPopupMenuPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -9,8 +8,6 @@
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
-#include <java/awt/Menu.h>
-#include <java/awt/MenuComponent.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/Point.h>
 #include <java/awt/PopupMenu.h>
@@ -55,9 +52,6 @@ using $Event = ::java::awt::Event;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Menu = ::java::awt::Menu;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuItem = ::java::awt::MenuItem;
 using $Point = ::java::awt::Point;
 using $PopupMenu = ::java::awt::PopupMenu;
@@ -69,9 +63,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuAccessor = ::sun::awt::AWTAccessor$MenuAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
-using $AWTAccessor$MenuItemAccessor = ::sun::awt::AWTAccessor$MenuItemAccessor;
 using $XEvent = ::sun::awt::X11::XEvent;
 using $XKeyEvent = ::sun::awt::X11::XKeyEvent;
 using $XMenuItemPeer = ::sun::awt::X11::XMenuItemPeer;
@@ -85,57 +76,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XPopupMenuPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XPopupMenuPeer, log)},
-	{"componentPeer", "Lsun/awt/X11/XComponentPeer;", nullptr, $PRIVATE, $field(XPopupMenuPeer, componentPeer)},
-	{"popupMenuTarget", "Ljava/awt/PopupMenu;", nullptr, $PRIVATE, $field(XPopupMenuPeer, popupMenuTarget)},
-	{"showingMousePressedSubmenu", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XPopupMenuPeer, showingMousePressedSubmenu)},
-	{"CAPTION_MARGIN_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPopupMenuPeer, CAPTION_MARGIN_TOP)},
-	{"CAPTION_SEPARATOR_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPopupMenuPeer, CAPTION_SEPARATOR_HEIGHT)},
-	{}
-};
-
-$MethodInfo _XPopupMenuPeer_MethodInfo_[] = {
-	{"*addItem", "(Ljava/awt/MenuItem;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*delItem", "(I)V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/PopupMenu;)V", nullptr, 0, $method(XPopupMenuPeer, init$, void, $PopupMenu*)},
-	{"doDispose", "()V", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, doDispose, void)},
-	{"getCaptionSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, getCaptionSize, $Dimension*)},
-	{"getMenuTargetItems", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/MenuItem;>;", 0, $virtualMethod(XPopupMenuPeer, getMenuTargetItems, $Vector*)},
-	{"getTargetFont", "()Ljava/awt/Font;", nullptr, 0, $virtualMethod(XPopupMenuPeer, getTargetFont, $Font*)},
-	{"getTargetLabel", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XPopupMenuPeer, getTargetLabel, $String*)},
-	{"getWindowBounds", "(Ljava/awt/Point;Ljava/awt/Dimension;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, getWindowBounds, $Rectangle*, $Point*, $Dimension*)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, handleEvent, void, $AWTEvent*)},
-	{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, handleKeyPress, void, $XEvent*)},
-	{"isTargetEnabled", "()Z", nullptr, 0, $virtualMethod(XPopupMenuPeer, isTargetEnabled, bool)},
-	{"paintCaption", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, paintCaption, void, $Graphics*, $Rectangle*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, setFont, void, $Font*)},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, setLabel, void, $String*)},
-	{"show", "(Ljava/awt/Event;)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, show, void, $Event*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrabInputImpl", "()V", nullptr, 0, $virtualMethod(XPopupMenuPeer, ungrabInputImpl, void)},
-	{}
-};
-
-$ClassInfo _XPopupMenuPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XPopupMenuPeer",
-	"sun.awt.X11.XMenuWindow",
-	"java.awt.peer.PopupMenuPeer",
-	_XPopupMenuPeer_FieldInfo_,
-	_XPopupMenuPeer_MethodInfo_
-};
-
-$Object* allocate$XPopupMenuPeer($Class* clazz) {
-	return $of($alloc(XPopupMenuPeer));
-}
 
 void XPopupMenuPeer::addItem($MenuItem* item) {
 	this->$XMenuWindow::addItem(item);
@@ -193,13 +133,13 @@ void XPopupMenuPeer::setEnabled(bool enabled) {
 }
 
 void XPopupMenuPeer::show($Event* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, target, $cast($Component, $nc(e)->target));
 	$var($Vector, targetItemVector, getMenuTargetItems());
 	if (targetItemVector != nullptr) {
 		reloadItems(targetItemVector);
 		$var($Point, tl, $nc(this->target)->getLocationOnScreen());
-		$var($Point, pt, $new($Point, $nc(tl)->x + e->x, tl->y + e->y));
+		$var($Point, pt, $new($Point, $nc(tl)->x + e->x, $nc(tl)->y + e->y));
 		if (!ensureCreated()) {
 			return;
 		}
@@ -217,34 +157,34 @@ $Font* XPopupMenuPeer::getTargetFont() {
 	if (this->popupMenuTarget == nullptr) {
 		return $XWindow::getDefaultFont();
 	}
-	return $nc($($AWTAccessor::getMenuComponentAccessor()))->getFont_NoClientCode(this->popupMenuTarget);
+	return $$nc($AWTAccessor::getMenuComponentAccessor())->getFont_NoClientCode(this->popupMenuTarget);
 }
 
 $String* XPopupMenuPeer::getTargetLabel() {
 	if (this->target == nullptr) {
 		return ""_s;
 	}
-	return $nc($($AWTAccessor::getMenuItemAccessor()))->getLabel(this->popupMenuTarget);
+	return $$nc($AWTAccessor::getMenuItemAccessor())->getLabel(this->popupMenuTarget);
 }
 
 bool XPopupMenuPeer::isTargetEnabled() {
 	if (this->popupMenuTarget == nullptr) {
 		return false;
 	}
-	return $nc($($AWTAccessor::getMenuItemAccessor()))->isEnabled(this->popupMenuTarget);
+	return $$nc($AWTAccessor::getMenuItemAccessor())->isEnabled(this->popupMenuTarget);
 }
 
 $Vector* XPopupMenuPeer::getMenuTargetItems() {
 	if (this->popupMenuTarget == nullptr) {
 		return nullptr;
 	}
-	return $nc($($AWTAccessor::getMenuAccessor()))->getItems(this->popupMenuTarget);
+	return $$nc($AWTAccessor::getMenuAccessor())->getItems(this->popupMenuTarget);
 }
 
 $Rectangle* XPopupMenuPeer::getWindowBounds($Point* origin, $Dimension* windowSize) {
-	$useLocalCurrentObjectStackCache();
-	$var($Rectangle, globalBounds, $new($Rectangle, $nc(origin)->x, origin->y, 0, 0));
-	$var($Rectangle, screenBounds, $nc($(getCurrentGraphicsConfiguration()))->getBounds());
+	$useLocalObjectStack();
+	$var($Rectangle, globalBounds, $new($Rectangle, $nc(origin)->x, $nc(origin)->y, 0, 0));
+	$var($Rectangle, screenBounds, $$nc(getCurrentGraphicsConfiguration())->getBounds());
 	$var($Rectangle, res, nullptr);
 	$assign(res, fitWindowRight(globalBounds, windowSize, screenBounds));
 	if (res != nullptr) {
@@ -266,7 +206,7 @@ $Rectangle* XPopupMenuPeer::getWindowBounds($Point* origin, $Dimension* windowSi
 }
 
 $Dimension* XPopupMenuPeer::getCaptionSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, getTargetLabel());
 	if ($nc(s)->isEmpty()) {
 		return nullptr;
@@ -275,37 +215,35 @@ $Dimension* XPopupMenuPeer::getCaptionSize() {
 	if (g == nullptr) {
 		return nullptr;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Dimension, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$nc(g)->setFont($(getTargetFont()));
-			$var($FontMetrics, fm, g->getFontMetrics());
-			$var($String, str, getTargetLabel());
-			int32_t width = $nc(fm)->stringWidth(str);
-			int32_t height = XPopupMenuPeer::CAPTION_MARGIN_TOP + fm->getHeight() + XPopupMenuPeer::CAPTION_SEPARATOR_HEIGHT;
-			$var($Dimension, textDimension, $new($Dimension, width, height));
-			$assign(var$2, textDimension);
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(g)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Dimension, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$nc(g)->setFont($(getTargetFont()));
+		$var($FontMetrics, fm, g->getFontMetrics());
+		$var($String, str, getTargetLabel());
+		int32_t width = $nc(fm)->stringWidth(str);
+		int32_t height = XPopupMenuPeer::CAPTION_MARGIN_TOP + fm->getHeight() + XPopupMenuPeer::CAPTION_SEPARATOR_HEIGHT;
+		$var($Dimension, textDimension, $new($Dimension, width, height));
+		$assign(var$2, textDimension);
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(g)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XPopupMenuPeer::paintCaption($Graphics* g, $Rectangle* rect) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, getTargetLabel());
 	if ($nc(s)->isEmpty()) {
 		return;
@@ -314,7 +252,7 @@ void XPopupMenuPeer::paintCaption($Graphics* g, $Rectangle* rect) {
 	$var($FontMetrics, fm, g->getFontMetrics());
 	$var($String, str, getTargetLabel());
 	int32_t width = $nc(fm)->stringWidth(str);
-	int32_t textx = $nc(rect)->x + (rect->width - width) / 2;
+	int32_t textx = $nc(rect)->x + ($nc(rect)->width - width) / 2;
 	int32_t texty = rect->y + XPopupMenuPeer::CAPTION_MARGIN_TOP + fm->getAscent();
 	int32_t sepy = rect->y + rect->height - XPopupMenuPeer::CAPTION_SEPARATOR_HEIGHT / 2;
 	g->setColor(isTargetEnabled() ? $(getForegroundColor()) : $(getDisabledColor()));
@@ -330,34 +268,21 @@ void XPopupMenuPeer::doDispose() {
 void XPopupMenuPeer::handleEvent($AWTEvent* event) {
 	switch ($nc(event)->getID()) {
 	case $MouseEvent::MOUSE_PRESSED:
-		{}
 	case $MouseEvent::MOUSE_RELEASED:
-		{}
 	case $MouseEvent::MOUSE_CLICKED:
-		{}
 	case $MouseEvent::MOUSE_MOVED:
-		{}
 	case $MouseEvent::MOUSE_ENTERED:
-		{}
 	case $MouseEvent::MOUSE_EXITED:
-		{}
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			doHandleJavaMouseEvent($cast($MouseEvent, event));
-			break;
-		}
+		doHandleJavaMouseEvent($cast($MouseEvent, event));
+		break;
 	case $KeyEvent::KEY_PRESSED:
-		{}
 	case $KeyEvent::KEY_RELEASED:
-		{
-			doHandleJavaKeyEvent($cast($KeyEvent, event));
-			break;
-		}
+		doHandleJavaKeyEvent($cast($KeyEvent, event));
+		break;
 	default:
-		{
-			$XMenuWindow::handleEvent(event);
-			break;
-		}
+		$XMenuWindow::handleEvent(event);
+		break;
 	}
 }
 
@@ -366,7 +291,7 @@ void XPopupMenuPeer::ungrabInputImpl() {
 }
 
 void XPopupMenuPeer::handleKeyPress($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XKeyEvent, xkey, $nc(xev)->get_xkey());
 	$init($PlatformLogger$Level);
 	if ($nc(XPopupMenuPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
@@ -379,7 +304,7 @@ void XPopupMenuPeer::handleKeyPress($XEvent* xev) {
 	handleKeyPress(xkey);
 }
 
-void clinit$XPopupMenuPeer($Class* class$) {
+void XPopupMenuPeer::clinit$($Class* clazz) {
 	$assignStatic(XPopupMenuPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XBaseMenuWindow"_s));
 }
 
@@ -387,7 +312,53 @@ XPopupMenuPeer::XPopupMenuPeer() {
 }
 
 $Class* XPopupMenuPeer::load$($String* name, bool initialize) {
-	$loadClass(XPopupMenuPeer, name, initialize, &_XPopupMenuPeer_ClassInfo_, clinit$XPopupMenuPeer, allocate$XPopupMenuPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XPopupMenuPeer, log)},
+		{"componentPeer", "Lsun/awt/X11/XComponentPeer;", nullptr, $PRIVATE, $field(XPopupMenuPeer, componentPeer)},
+		{"popupMenuTarget", "Ljava/awt/PopupMenu;", nullptr, $PRIVATE, $field(XPopupMenuPeer, popupMenuTarget)},
+		{"showingMousePressedSubmenu", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XPopupMenuPeer, showingMousePressedSubmenu)},
+		{"CAPTION_MARGIN_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPopupMenuPeer, CAPTION_MARGIN_TOP)},
+		{"CAPTION_SEPARATOR_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPopupMenuPeer, CAPTION_SEPARATOR_HEIGHT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addItem", "(Ljava/awt/MenuItem;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*delItem", "(I)V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/PopupMenu;)V", nullptr, 0, $method(XPopupMenuPeer, init$, void, $PopupMenu*)},
+		{"doDispose", "()V", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, doDispose, void)},
+		{"getCaptionSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, getCaptionSize, $Dimension*)},
+		{"getMenuTargetItems", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/MenuItem;>;", 0, $virtualMethod(XPopupMenuPeer, getMenuTargetItems, $Vector*)},
+		{"getTargetFont", "()Ljava/awt/Font;", nullptr, 0, $virtualMethod(XPopupMenuPeer, getTargetFont, $Font*)},
+		{"getTargetLabel", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XPopupMenuPeer, getTargetLabel, $String*)},
+		{"getWindowBounds", "(Ljava/awt/Point;Ljava/awt/Dimension;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, getWindowBounds, $Rectangle*, $Point*, $Dimension*)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, handleEvent, void, $AWTEvent*)},
+		{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, handleKeyPress, void, $XEvent*)},
+		{"isTargetEnabled", "()Z", nullptr, 0, $virtualMethod(XPopupMenuPeer, isTargetEnabled, bool)},
+		{"paintCaption", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(XPopupMenuPeer, paintCaption, void, $Graphics*, $Rectangle*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, setFont, void, $Font*)},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, setLabel, void, $String*)},
+		{"show", "(Ljava/awt/Event;)V", nullptr, $PUBLIC, $virtualMethod(XPopupMenuPeer, show, void, $Event*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrabInputImpl", "()V", nullptr, 0, $virtualMethod(XPopupMenuPeer, ungrabInputImpl, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XPopupMenuPeer",
+		"sun.awt.X11.XMenuWindow",
+		"java.awt.peer.PopupMenuPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPopupMenuPeer, name, initialize, &classInfo$$, XPopupMenuPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XPopupMenuPeer));
+	});
 	return class$;
 }
 

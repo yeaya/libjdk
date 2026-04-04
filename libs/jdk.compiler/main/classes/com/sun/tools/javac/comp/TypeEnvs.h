@@ -56,6 +56,7 @@ class TypeEnvs : public ::java::lang::Object {
 	$class(TypeEnvs, 0, ::java::lang::Object)
 public:
 	TypeEnvs();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual void clear();
 	virtual ::com::sun::tools::javac::comp::Env* get(::com::sun::tools::javac::code::Symbol$TypeSymbol* sym);
@@ -63,7 +64,7 @@ public:
 	virtual ::com::sun::tools::javac::comp::Env* put(::com::sun::tools::javac::code::Symbol$TypeSymbol* sym, ::com::sun::tools::javac::comp::Env* env);
 	virtual ::com::sun::tools::javac::comp::Env* remove(::com::sun::tools::javac::code::Symbol$TypeSymbol* sym);
 	virtual ::java::util::Collection* values();
-	static const int64_t serialVersionUID = (int64_t)0x07EE76BBFC81BD47;
+	static const int64_t serialVersionUID = (int64_t)0x07ee76bbfc81bd47;
 	static ::com::sun::tools::javac::util::Context$Key* typeEnvsKey;
 	::java::util::HashMap* map = nullptr;
 };

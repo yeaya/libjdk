@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncLast.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/axes/SubContextList.h>
@@ -30,34 +29,6 @@ namespace com {
 					namespace internal {
 						namespace functions {
 
-$FieldInfo _FuncLast_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncLast, serialVersionUID)},
-	{"m_isTopLevel", "Z", nullptr, $PRIVATE, $field(FuncLast, m_isTopLevel)},
-	{}
-};
-
-$MethodInfo _FuncLast_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncLast, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncLast, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncLast, fixupVariables, void, $List*, int32_t)},
-	{"getCountOfContextNodeList", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(FuncLast, getCountOfContextNodeList, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{"postCompileStep", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;)V", nullptr, $PUBLIC, $virtualMethod(FuncLast, postCompileStep, void, $Compiler*)},
-	{}
-};
-
-$ClassInfo _FuncLast_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncLast",
-	"com.sun.org.apache.xpath.internal.functions.Function",
-	nullptr,
-	_FuncLast_FieldInfo_,
-	_FuncLast_MethodInfo_
-};
-
-$Object* allocate$FuncLast($Class* clazz) {
-	return $of($alloc(FuncLast));
-}
-
 void FuncLast::init$() {
 	$Function::init$();
 }
@@ -67,12 +38,12 @@ void FuncLast::postCompileStep($Compiler* compiler) {
 }
 
 int32_t FuncLast::getCountOfContextNodeList($XPathContext* xctxt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SubContextList, iter, this->m_isTopLevel ? ($SubContextList*)nullptr : $nc(xctxt)->getSubContextList());
 	if (nullptr != iter) {
 		return iter->getLastPos(xctxt);
 	}
-	$var($DTMIterator, cnl, xctxt->getContextNodeList());
+	$var($DTMIterator, cnl, $nc(xctxt)->getContextNodeList());
 	int32_t count = 0;
 	if (nullptr != cnl) {
 		count = cnl->getLength();
@@ -94,7 +65,30 @@ FuncLast::FuncLast() {
 }
 
 $Class* FuncLast::load$($String* name, bool initialize) {
-	$loadClass(FuncLast, name, initialize, &_FuncLast_ClassInfo_, allocate$FuncLast);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncLast, serialVersionUID)},
+		{"m_isTopLevel", "Z", nullptr, $PRIVATE, $field(FuncLast, m_isTopLevel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncLast, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncLast, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(FuncLast, fixupVariables, void, $List*, int32_t)},
+		{"getCountOfContextNodeList", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)I", nullptr, $PUBLIC, $virtualMethod(FuncLast, getCountOfContextNodeList, int32_t, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{"postCompileStep", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;)V", nullptr, $PUBLIC, $virtualMethod(FuncLast, postCompileStep, void, $Compiler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncLast",
+		"com.sun.org.apache.xpath.internal.functions.Function",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncLast, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncLast));
+	});
 	return class$;
 }
 

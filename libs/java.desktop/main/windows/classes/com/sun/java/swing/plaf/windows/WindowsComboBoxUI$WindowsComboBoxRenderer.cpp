@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsBorders$DashedBorder.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI.h>
@@ -40,68 +39,29 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsComboBoxUI$WindowsComboBoxRenderer_FieldInfo_[] = {
-	{"BORDER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsComboBoxUI$WindowsComboBoxRenderer, BORDER_KEY)},
-	{"NULL_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsComboBoxUI$WindowsComboBoxRenderer, NULL_BORDER)},
-	{}
-};
-
-$MethodInfo _WindowsComboBoxUI$WindowsComboBoxRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsComboBoxUI$WindowsComboBoxRenderer, init$, void)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(WindowsComboBoxUI$WindowsComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$InnerClassInfo _WindowsComboBoxUI$WindowsComboBoxRenderer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WindowsComboBoxRenderer", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource", "javax.swing.plaf.basic.BasicComboBoxRenderer", "UIResource", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "WindowsComboBoxDashedBorder", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsComboBoxUI$WindowsComboBoxRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer",
-	"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource",
-	nullptr,
-	_WindowsComboBoxUI$WindowsComboBoxRenderer_FieldInfo_,
-	_WindowsComboBoxUI$WindowsComboBoxRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsComboBoxUI$WindowsComboBoxRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
-};
-
-$Object* allocate$WindowsComboBoxUI$WindowsComboBoxRenderer($Class* clazz) {
-	return $of($alloc(WindowsComboBoxUI$WindowsComboBoxRenderer));
-}
-
 $Object* WindowsComboBoxUI$WindowsComboBoxRenderer::BORDER_KEY = nullptr;
 $Border* WindowsComboBoxUI$WindowsComboBoxRenderer::NULL_BORDER = nullptr;
 
 void WindowsComboBoxUI$WindowsComboBoxRenderer::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicComboBoxRenderer$UIResource::init$();
-	$var($Insets, i, $nc($(getBorder()))->getBorderInsets(this));
+	$var($Insets, i, $$nc(getBorder())->getBorderInsets(this));
 	setBorder($$new($EmptyBorder, 0, 2, 0, $nc(i)->right));
 }
 
 $Component* WindowsComboBoxUI$WindowsComboBoxRenderer::getListCellRendererComponent($JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, rv, $BasicComboBoxRenderer$UIResource::getListCellRendererComponent(list, value, index, isSelected, cellHasFocus));
 	if ($instanceOf($JComponent, rv)) {
 		$var($JComponent, component, $cast($JComponent, rv));
 		if (index == -1 && isSelected) {
-			$var($Border, border, $nc(component)->getBorder());
+			$var($Border, border, component->getBorder());
 			$var($Border, dashedBorder, $new($WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder, this, $($nc(list)->getForeground())));
 			component->setBorder(dashedBorder);
 			if (component->getClientProperty(WindowsComboBoxUI$WindowsComboBoxRenderer::BORDER_KEY) == nullptr) {
-				component->putClientProperty(WindowsComboBoxUI$WindowsComboBoxRenderer::BORDER_KEY, (border == nullptr) ? $of(WindowsComboBoxUI$WindowsComboBoxRenderer::NULL_BORDER) : $of(border));
+				component->putClientProperty(WindowsComboBoxUI$WindowsComboBoxRenderer::BORDER_KEY, (border == nullptr) ? WindowsComboBoxUI$WindowsComboBoxRenderer::NULL_BORDER : border);
 			}
-		} else if ($instanceOf($WindowsBorders$DashedBorder, $($nc(component)->getBorder()))) {
+		} else if ($instanceOf($WindowsBorders$DashedBorder, $(component->getBorder()))) {
 			$var($Object, storedBorder, component->getClientProperty(WindowsComboBoxUI$WindowsComboBoxRenderer::BORDER_KEY));
 			if ($instanceOf($Border, storedBorder)) {
 				component->setBorder(($equals(storedBorder, WindowsComboBoxUI$WindowsComboBoxRenderer::NULL_BORDER)) ? ($Border*)nullptr : $cast($Border, storedBorder));
@@ -109,16 +69,16 @@ $Component* WindowsComboBoxUI$WindowsComboBoxRenderer::getListCellRendererCompon
 			component->putClientProperty(WindowsComboBoxUI$WindowsComboBoxRenderer::BORDER_KEY, nullptr);
 		}
 		if (index == -1) {
-			$nc(component)->setOpaque(false);
+			component->setOpaque(false);
 			component->setForeground($($nc(list)->getForeground()));
 		} else {
-			$nc(component)->setOpaque(true);
+			component->setOpaque(true);
 		}
 	}
 	return rv;
 }
 
-void clinit$WindowsComboBoxUI$WindowsComboBoxRenderer($Class* class$) {
+void WindowsComboBoxUI$WindowsComboBoxRenderer::clinit$($Class* clazz) {
 	$assignStatic(WindowsComboBoxUI$WindowsComboBoxRenderer::BORDER_KEY, $new($StringUIClientPropertyKey, "BORDER_KEY"_s));
 	$assignStatic(WindowsComboBoxUI$WindowsComboBoxRenderer::NULL_BORDER, $new($EmptyBorder, 0, 0, 0, 0));
 }
@@ -127,7 +87,40 @@ WindowsComboBoxUI$WindowsComboBoxRenderer::WindowsComboBoxUI$WindowsComboBoxRend
 }
 
 $Class* WindowsComboBoxUI$WindowsComboBoxRenderer::load$($String* name, bool initialize) {
-	$loadClass(WindowsComboBoxUI$WindowsComboBoxRenderer, name, initialize, &_WindowsComboBoxUI$WindowsComboBoxRenderer_ClassInfo_, clinit$WindowsComboBoxUI$WindowsComboBoxRenderer, allocate$WindowsComboBoxUI$WindowsComboBoxRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"BORDER_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsComboBoxUI$WindowsComboBoxRenderer, BORDER_KEY)},
+		{"NULL_BORDER", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsComboBoxUI$WindowsComboBoxRenderer, NULL_BORDER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsComboBoxUI$WindowsComboBoxRenderer, init$, void)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<*>;Ljava/lang/Object;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(WindowsComboBoxUI$WindowsComboBoxRenderer, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI", "WindowsComboBoxRenderer", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource", "javax.swing.plaf.basic.BasicComboBoxRenderer", "UIResource", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder", "com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer", "WindowsComboBoxDashedBorder", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI$WindowsComboBoxRenderer",
+		"javax.swing.plaf.basic.BasicComboBoxRenderer$UIResource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsComboBoxUI"
+	};
+	$loadClass(WindowsComboBoxUI$WindowsComboBoxRenderer, name, initialize, &classInfo$$, WindowsComboBoxUI$WindowsComboBoxRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsComboBoxUI$WindowsComboBoxRenderer));
+	});
 	return class$;
 }
 

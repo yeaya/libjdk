@@ -66,6 +66,7 @@ class $import MotifDesktopIconUI : public ::javax::swing::plaf::basic::BasicDesk
 	$class(MotifDesktopIconUI, 0, ::javax::swing::plaf::basic::BasicDesktopIconUI)
 public:
 	MotifDesktopIconUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI$DesktopIconActionListener* createDesktopIconActionListener();
 	virtual ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI$DesktopIconMouseListener* createDesktopIconMouseListener();

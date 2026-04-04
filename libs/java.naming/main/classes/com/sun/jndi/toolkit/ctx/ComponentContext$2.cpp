@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/ctx/ComponentContext$2.h>
-
 #include <com/sun/jndi/toolkit/ctx/ComponentContext.h>
 #include <javax/naming/RefAddr.h>
 #include <jcpp.h>
@@ -18,49 +17,6 @@ namespace com {
 			namespace toolkit {
 				namespace ctx {
 
-$FieldInfo _ComponentContext$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jndi/toolkit/ctx/ComponentContext;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentContext$2, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComponentContext$2, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ComponentContext$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/ctx/ComponentContext;Ljava/lang/String;)V", nullptr, 0, $method(ComponentContext$2, init$, void, $ComponentContext*, $String*)},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ComponentContext$2, getContent, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ComponentContext$2_EnclosingMethodInfo_ = {
-	"com.sun.jndi.toolkit.ctx.ComponentContext",
-	"c_processJunction_nns",
-	"(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V"
-};
-
-$InnerClassInfo _ComponentContext$2_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.ctx.ComponentContext$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ComponentContext$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.toolkit.ctx.ComponentContext$2",
-	"javax.naming.RefAddr",
-	nullptr,
-	_ComponentContext$2_FieldInfo_,
-	_ComponentContext$2_MethodInfo_,
-	nullptr,
-	&_ComponentContext$2_EnclosingMethodInfo_,
-	_ComponentContext$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.ctx.ComponentContext"
-};
-
-$Object* allocate$ComponentContext$2($Class* clazz) {
-	return $of($alloc(ComponentContext$2));
-}
-
 void ComponentContext$2::init$($ComponentContext* this$0, $String* addrType) {
 	$set(this, this$0, this$0);
 	$RefAddr::init$(addrType);
@@ -74,7 +30,43 @@ ComponentContext$2::ComponentContext$2() {
 }
 
 $Class* ComponentContext$2::load$($String* name, bool initialize) {
-	$loadClass(ComponentContext$2, name, initialize, &_ComponentContext$2_ClassInfo_, allocate$ComponentContext$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jndi/toolkit/ctx/ComponentContext;", nullptr, $FINAL | $SYNTHETIC, $field(ComponentContext$2, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ComponentContext$2, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/toolkit/ctx/ComponentContext;Ljava/lang/String;)V", nullptr, 0, $method(ComponentContext$2, init$, void, $ComponentContext*, $String*)},
+		{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ComponentContext$2, getContent, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.jndi.toolkit.ctx.ComponentContext",
+		"c_processJunction_nns",
+		"(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.ctx.ComponentContext$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.toolkit.ctx.ComponentContext$2",
+		"javax.naming.RefAddr",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.ctx.ComponentContext"
+	};
+	$loadClass(ComponentContext$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComponentContext$2);
+	});
 	return class$;
 }
 

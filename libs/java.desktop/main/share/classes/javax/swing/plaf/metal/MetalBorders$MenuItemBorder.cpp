@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$MenuItemBorder.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
@@ -15,7 +13,6 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -34,48 +31,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalBorders$MenuItemBorder_FieldInfo_[] = {
-	{"borderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticField(MetalBorders$MenuItemBorder, borderInsets)},
-	{}
-};
-
-$MethodInfo _MetalBorders$MenuItemBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$MenuItemBorder, init$, void)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$MenuItemBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$MenuItemBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$MenuItemBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$MenuItemBorder", "javax.swing.plaf.metal.MetalBorders", "MenuItemBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$MenuItemBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$MenuItemBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_MetalBorders$MenuItemBorder_FieldInfo_,
-	_MetalBorders$MenuItemBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$MenuItemBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$MenuItemBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$MenuItemBorder));
-}
 
 int32_t MetalBorders$MenuItemBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -104,7 +59,7 @@ void MetalBorders$MenuItemBorder::init$() {
 }
 
 void MetalBorders$MenuItemBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JMenuItem, c))) {
 		return;
 	}
@@ -113,7 +68,7 @@ void MetalBorders$MenuItemBorder::paintBorder($Component* c, $Graphics* g, int32
 	$nc(g)->translate(x, y);
 	if ($instanceOf($JMenuBar, $($nc(c)->getParent()))) {
 		bool var$0 = $nc(model)->isArmed();
-		if (var$0 || $nc(model)->isSelected()) {
+		if (var$0 || model->isSelected()) {
 			g->setColor($($MetalLookAndFeel::getControlDarkShadow()));
 			g->drawLine(0, 0, w - 2, 0);
 			g->drawLine(0, 0, 0, h - 1);
@@ -124,8 +79,8 @@ void MetalBorders$MenuItemBorder::paintBorder($Component* c, $Graphics* g, int32
 			g->drawLine(w - 1, 0, w - 1, 0);
 		}
 	} else {
-		bool var$2 = $nc(model)->isArmed();
-		if (var$2 || ($instanceOf($JMenu, c) && $nc(model)->isSelected())) {
+		bool var$1 = $nc(model)->isArmed();
+		if (var$1 || ($instanceOf($JMenu, c) && model->isSelected())) {
 			g->setColor($($MetalLookAndFeel::getPrimaryControlDarkShadow()));
 			g->drawLine(0, 0, w - 1, 0);
 			g->setColor($($MetalLookAndFeel::getPrimaryControlHighlight()));
@@ -143,7 +98,7 @@ $Insets* MetalBorders$MenuItemBorder::getBorderInsets($Component* c, $Insets* ne
 	return newInsets;
 }
 
-void clinit$MetalBorders$MenuItemBorder($Class* class$) {
+void MetalBorders$MenuItemBorder::clinit$($Class* clazz) {
 	$assignStatic(MetalBorders$MenuItemBorder::borderInsets, $new($Insets, 2, 2, 2, 2));
 }
 
@@ -151,7 +106,43 @@ MetalBorders$MenuItemBorder::MetalBorders$MenuItemBorder() {
 }
 
 $Class* MetalBorders$MenuItemBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$MenuItemBorder, name, initialize, &_MetalBorders$MenuItemBorder_ClassInfo_, clinit$MetalBorders$MenuItemBorder, allocate$MetalBorders$MenuItemBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"borderInsets", "Ljava/awt/Insets;", nullptr, $PROTECTED | $STATIC, $staticField(MetalBorders$MenuItemBorder, borderInsets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$MenuItemBorder, init$, void)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MetalBorders$MenuItemBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$MenuItemBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$MenuItemBorder", "javax.swing.plaf.metal.MetalBorders", "MenuItemBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$MenuItemBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$MenuItemBorder, name, initialize, &classInfo$$, MetalBorders$MenuItemBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$MenuItemBorder));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/FillParallelogram$TraceFillParallelogram.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -23,45 +22,8 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _FillParallelogram$TraceFillParallelogram_FieldInfo_[] = {
-	{"target", "Lsun/java2d/loops/FillParallelogram;", nullptr, 0, $field(FillParallelogram$TraceFillParallelogram, target)},
-	{}
-};
-
-$MethodInfo _FillParallelogram$TraceFillParallelogram_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/FillParallelogram;)V", nullptr, $PUBLIC, $method(FillParallelogram$TraceFillParallelogram, init$, void, $FillParallelogram*)},
-	{"FillParallelogram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(FillParallelogram$TraceFillParallelogram, FillParallelogram$, void, $SunGraphics2D*, $SurfaceData*, double, double, double, double, double, double)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillParallelogram$TraceFillParallelogram, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-$InnerClassInfo _FillParallelogram$TraceFillParallelogram_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.FillParallelogram$TraceFillParallelogram", "sun.java2d.loops.FillParallelogram", "TraceFillParallelogram", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FillParallelogram$TraceFillParallelogram_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.FillParallelogram$TraceFillParallelogram",
-	"sun.java2d.loops.FillParallelogram",
-	nullptr,
-	_FillParallelogram$TraceFillParallelogram_FieldInfo_,
-	_FillParallelogram$TraceFillParallelogram_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FillParallelogram$TraceFillParallelogram_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.FillParallelogram"
-};
-
-$Object* allocate$FillParallelogram$TraceFillParallelogram($Class* clazz) {
-	return $of($alloc(FillParallelogram$TraceFillParallelogram));
-}
-
 void FillParallelogram$TraceFillParallelogram::init$($FillParallelogram* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, $nc(target)->getSourceType());
 	$var($CompositeType, var$1, target->getCompositeType());
 	$FillParallelogram::init$(var$0, var$1, $(target->getDestType()));
@@ -81,7 +43,38 @@ FillParallelogram$TraceFillParallelogram::FillParallelogram$TraceFillParallelogr
 }
 
 $Class* FillParallelogram$TraceFillParallelogram::load$($String* name, bool initialize) {
-	$loadClass(FillParallelogram$TraceFillParallelogram, name, initialize, &_FillParallelogram$TraceFillParallelogram_ClassInfo_, allocate$FillParallelogram$TraceFillParallelogram);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Lsun/java2d/loops/FillParallelogram;", nullptr, 0, $field(FillParallelogram$TraceFillParallelogram, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/FillParallelogram;)V", nullptr, $PUBLIC, $method(FillParallelogram$TraceFillParallelogram, init$, void, $FillParallelogram*)},
+		{"FillParallelogram", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(FillParallelogram$TraceFillParallelogram, FillParallelogram$, void, $SunGraphics2D*, $SurfaceData*, double, double, double, double, double, double)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(FillParallelogram$TraceFillParallelogram, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.FillParallelogram$TraceFillParallelogram", "sun.java2d.loops.FillParallelogram", "TraceFillParallelogram", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.FillParallelogram$TraceFillParallelogram",
+		"sun.java2d.loops.FillParallelogram",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.FillParallelogram"
+	};
+	$loadClass(FillParallelogram$TraceFillParallelogram, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FillParallelogram$TraceFillParallelogram);
+	});
 	return class$;
 }
 

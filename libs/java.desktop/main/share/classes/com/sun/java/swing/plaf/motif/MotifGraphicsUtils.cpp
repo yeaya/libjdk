@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifGraphicsUtils.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -27,26 +26,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$MethodInfo _MotifGraphicsUtils_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MotifGraphicsUtils, init$, void)},
-	{"drawGroove", "(Ljava/awt/Graphics;IIIILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $STATIC, $staticMethod(MotifGraphicsUtils, drawGroove, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*)},
-	{"drawStringInRect", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;IIIII)V", nullptr, $STATIC, $staticMethod(MotifGraphicsUtils, drawStringInRect, void, $JComponent*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MotifGraphicsUtils_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifGraphicsUtils",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MotifGraphicsUtils_MethodInfo_
-};
-
-$Object* allocate$MotifGraphicsUtils($Class* clazz) {
-	return $of($alloc(MotifGraphicsUtils));
-}
 
 void MotifGraphicsUtils::init$() {
 }
@@ -106,7 +85,23 @@ MotifGraphicsUtils::MotifGraphicsUtils() {
 }
 
 $Class* MotifGraphicsUtils::load$($String* name, bool initialize) {
-	$loadClass(MotifGraphicsUtils, name, initialize, &_MotifGraphicsUtils_ClassInfo_, allocate$MotifGraphicsUtils);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MotifGraphicsUtils, init$, void)},
+		{"drawGroove", "(Ljava/awt/Graphics;IIIILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $STATIC, $staticMethod(MotifGraphicsUtils, drawGroove, void, $Graphics*, int32_t, int32_t, int32_t, int32_t, $Color*, $Color*)},
+		{"drawStringInRect", "(Ljavax/swing/JComponent;Ljava/awt/Graphics;Ljava/lang/String;IIIII)V", nullptr, $STATIC, $staticMethod(MotifGraphicsUtils, drawStringInRect, void, $JComponent*, $Graphics*, $String*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifGraphicsUtils",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifGraphicsUtils, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifGraphicsUtils);
+	});
 	return class$;
 }
 

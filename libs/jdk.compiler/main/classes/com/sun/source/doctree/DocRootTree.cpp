@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/DocRootTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$ClassInfo _DocRootTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.DocRootTree",
-	nullptr,
-	"com.sun.source.doctree.InlineTagTree"
-};
-
-$Object* allocate$DocRootTree($Class* clazz) {
-	return $of($alloc(DocRootTree));
-}
-
 $Class* DocRootTree::load$($String* name, bool initialize) {
-	$loadClass(DocRootTree, name, initialize, &_DocRootTree_ClassInfo_, allocate$DocRootTree);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.DocRootTree",
+		nullptr,
+		"com.sun.source.doctree.InlineTagTree"
+	};
+	$loadClass(DocRootTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocRootTree);
+	});
 	return class$;
 }
 

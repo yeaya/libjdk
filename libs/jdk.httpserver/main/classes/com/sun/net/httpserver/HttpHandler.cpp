@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/HttpHandler.h>
-
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace net {
 			namespace httpserver {
 
-$MethodInfo _HttpHandler_MethodInfo_[] = {
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpHandler, handle, void, $HttpExchange*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _HttpHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.net.httpserver.HttpHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HttpHandler_MethodInfo_
-};
-
-$Object* allocate$HttpHandler($Class* clazz) {
-	return $of($alloc(HttpHandler));
-}
-
 $Class* HttpHandler::load$($String* name, bool initialize) {
-	$loadClass(HttpHandler, name, initialize, &_HttpHandler_ClassInfo_, allocate$HttpHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HttpHandler, handle, void, $HttpExchange*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.net.httpserver.HttpHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HttpHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpHandler);
+	});
 	return class$;
 }
 

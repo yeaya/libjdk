@@ -1,5 +1,4 @@
 #include <java/awt/desktop/QuitEvent.h>
-
 #include <java/awt/desktop/AppEvent.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$FieldInfo _QuitEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuitEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _QuitEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(QuitEvent, init$, void)},
-	{}
-};
-
-$ClassInfo _QuitEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.desktop.QuitEvent",
-	"java.awt.desktop.AppEvent",
-	nullptr,
-	_QuitEvent_FieldInfo_,
-	_QuitEvent_MethodInfo_
-};
-
-$Object* allocate$QuitEvent($Class* clazz) {
-	return $of($alloc(QuitEvent));
-}
-
 void QuitEvent::init$() {
 	$AppEvent::init$();
 }
@@ -43,7 +19,25 @@ QuitEvent::QuitEvent() {
 }
 
 $Class* QuitEvent::load$($String* name, bool initialize) {
-	$loadClass(QuitEvent, name, initialize, &_QuitEvent_ClassInfo_, allocate$QuitEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuitEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(QuitEvent, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.desktop.QuitEvent",
+		"java.awt.desktop.AppEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(QuitEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(QuitEvent);
+	});
 	return class$;
 }
 

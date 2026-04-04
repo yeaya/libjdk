@@ -29,6 +29,7 @@ class JRSUIConstants$Orientation : public ::apple::laf::JRSUIConstants$Property 
 	$class(JRSUIConstants$Orientation, 0, ::apple::laf::JRSUIConstants$Property)
 public:
 	JRSUIConstants$Orientation();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t value);
 	virtual int64_t apply(int64_t encodedState) override;
 	virtual $String* toString() override;

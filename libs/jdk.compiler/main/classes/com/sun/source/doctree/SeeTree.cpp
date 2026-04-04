@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/SeeTree.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _SeeTree_MethodInfo_[] = {
-	{"getReference", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SeeTree, getReference, $List*)},
-	{}
-};
-
-$ClassInfo _SeeTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.SeeTree",
-	nullptr,
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	_SeeTree_MethodInfo_
-};
-
-$Object* allocate$SeeTree($Class* clazz) {
-	return $of($alloc(SeeTree));
-}
-
 $Class* SeeTree::load$($String* name, bool initialize) {
-	$loadClass(SeeTree, name, initialize, &_SeeTree_ClassInfo_, allocate$SeeTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getReference", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(SeeTree, getReference, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.SeeTree",
+		nullptr,
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SeeTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SeeTree);
+	});
 	return class$;
 }
 

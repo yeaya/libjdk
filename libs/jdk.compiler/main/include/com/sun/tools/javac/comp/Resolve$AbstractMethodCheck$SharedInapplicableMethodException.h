@@ -44,7 +44,10 @@ public:
 	static const int64_t serialVersionUID = 0;
 	Resolve$AbstractMethodCheck$SharedInapplicableMethodException(const Resolve$AbstractMethodCheck$SharedInapplicableMethodException& e);
 	virtual void throw$() override;
-	inline Resolve$AbstractMethodCheck$SharedInapplicableMethodException* operator ->() {
+	inline Resolve$AbstractMethodCheck$SharedInapplicableMethodException* operator ->() const {
+		return (Resolve$AbstractMethodCheck$SharedInapplicableMethodException*)throwing$;
+	}
+	inline operator Resolve$AbstractMethodCheck$SharedInapplicableMethodException*() const {
 		return (Resolve$AbstractMethodCheck$SharedInapplicableMethodException*)throwing$;
 	}
 };

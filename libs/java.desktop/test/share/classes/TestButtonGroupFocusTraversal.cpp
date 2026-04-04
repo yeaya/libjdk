@@ -1,5 +1,4 @@
 #include <TestButtonGroupFocusTraversal.h>
-
 #include <TestButtonGroupFocusTraversal$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/KeyboardFocusManager.h>
@@ -42,7 +41,6 @@ using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -72,33 +70,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->requestFocus();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestButtonGroupFocusTraversal$$Lambda$requestFocus>());
-	}
 	$JComponent* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestButtonGroupFocusTraversal$$Lambda$requestFocus::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestButtonGroupFocusTraversal$$Lambda$requestFocus, inst$)},
-	{}
-};
-$MethodInfo TestButtonGroupFocusTraversal$$Lambda$requestFocus::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(TestButtonGroupFocusTraversal$$Lambda$requestFocus, init$, void, $JComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestButtonGroupFocusTraversal$$Lambda$requestFocus, run, void)},
-	{}
-};
-$ClassInfo TestButtonGroupFocusTraversal$$Lambda$requestFocus::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestButtonGroupFocusTraversal$$Lambda$requestFocus",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestButtonGroupFocusTraversal$$Lambda$requestFocus::load$($String* name, bool initialize) {
-	$loadClass(TestButtonGroupFocusTraversal$$Lambda$requestFocus, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestButtonGroupFocusTraversal$$Lambda$requestFocus, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(TestButtonGroupFocusTraversal$$Lambda$requestFocus, init$, void, $JComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestButtonGroupFocusTraversal$$Lambda$requestFocus, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestButtonGroupFocusTraversal$$Lambda$requestFocus",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestButtonGroupFocusTraversal$$Lambda$requestFocus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestButtonGroupFocusTraversal$$Lambda$requestFocus);
+	});
 	return class$;
 }
 $Class* TestButtonGroupFocusTraversal$$Lambda$requestFocus::class$ = nullptr;
@@ -112,88 +106,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestButtonGroupFocusTraversal$$Lambda$dispose$1>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestButtonGroupFocusTraversal$$Lambda$dispose$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestButtonGroupFocusTraversal$$Lambda$dispose$1, inst$)},
-	{}
-};
-$MethodInfo TestButtonGroupFocusTraversal$$Lambda$dispose$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestButtonGroupFocusTraversal$$Lambda$dispose$1, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestButtonGroupFocusTraversal$$Lambda$dispose$1, run, void)},
-	{}
-};
-$ClassInfo TestButtonGroupFocusTraversal$$Lambda$dispose$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestButtonGroupFocusTraversal$$Lambda$dispose$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestButtonGroupFocusTraversal$$Lambda$dispose$1::load$($String* name, bool initialize) {
-	$loadClass(TestButtonGroupFocusTraversal$$Lambda$dispose$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestButtonGroupFocusTraversal$$Lambda$dispose$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestButtonGroupFocusTraversal$$Lambda$dispose$1, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestButtonGroupFocusTraversal$$Lambda$dispose$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestButtonGroupFocusTraversal$$Lambda$dispose$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestButtonGroupFocusTraversal$$Lambda$dispose$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestButtonGroupFocusTraversal$$Lambda$dispose$1);
+	});
 	return class$;
 }
 $Class* TestButtonGroupFocusTraversal$$Lambda$dispose$1::class$ = nullptr;
-
-$FieldInfo _TestButtonGroupFocusTraversal_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, frame)},
-	{"textFieldFirst", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, textFieldFirst)},
-	{"textFieldLast", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, textFieldLast)},
-	{"toggleButton1", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, toggleButton1)},
-	{"toggleButton2", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, toggleButton2)},
-	{"checkBox1", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, checkBox1)},
-	{"checkBox2", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, checkBox2)},
-	{"toggleButtonActionPerformed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, toggleButtonActionPerformed)},
-	{"checkboxActionPerformed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, checkboxActionPerformed)},
-	{"radioButton1", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, radioButton1)},
-	{"radioButton2", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, radioButton2)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, robot)},
-	{}
-};
-
-$MethodInfo _TestButtonGroupFocusTraversal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestButtonGroupFocusTraversal, init$, void)},
-	{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, blockTillDisplayed, void, $Component*)},
-	{"checkCheckboxActionPerformed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, checkCheckboxActionPerformed, void)},
-	{"checkFocusedComponent", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, checkFocusedComponent, void, $Component*)},
-	{"checkToggleButtonActionPerformed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, checkToggleButtonActionPerformed, void)},
-	{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, createUI, void), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, main, void, $StringArray*), "java.lang.Exception"},
-	{"pressKey", "([I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TestButtonGroupFocusTraversal, pressKey, void, $ints*)},
-	{}
-};
-
-$InnerClassInfo _TestButtonGroupFocusTraversal_InnerClassesInfo_[] = {
-	{"TestButtonGroupFocusTraversal$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestButtonGroupFocusTraversal_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestButtonGroupFocusTraversal",
-	"java.lang.Object",
-	nullptr,
-	_TestButtonGroupFocusTraversal_FieldInfo_,
-	_TestButtonGroupFocusTraversal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestButtonGroupFocusTraversal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestButtonGroupFocusTraversal$1,TestButtonGroupFocusTraversal$1$4,TestButtonGroupFocusTraversal$1$3,TestButtonGroupFocusTraversal$1$2,TestButtonGroupFocusTraversal$1$1"
-};
-
-$Object* allocate$TestButtonGroupFocusTraversal($Class* clazz) {
-	return $of($alloc(TestButtonGroupFocusTraversal));
-}
 
 $JFrame* TestButtonGroupFocusTraversal::frame = nullptr;
 $JTextField* TestButtonGroupFocusTraversal::textFieldFirst = nullptr;
@@ -245,11 +183,11 @@ void TestButtonGroupFocusTraversal::pressKey($ints* keys) {
 }
 
 void TestButtonGroupFocusTraversal::checkFocusedComponent($Component* component) {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, focusedComponent, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
-	if (!$nc($of(focusedComponent))->equals(component)) {
-		$nc($System::out)->println($of(component));
-		$nc($System::out)->println($of(focusedComponent));
+	$useLocalObjectStack();
+	$var($Component, focusedComponent, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
+	if (!$nc(focusedComponent)->equals(component)) {
+		$nc($System::out)->println(component);
+		$System::out->println(focusedComponent);
 		$throwNew($RuntimeException, "Wrong Component Selected"_s);
 	}
 }
@@ -269,114 +207,110 @@ void TestButtonGroupFocusTraversal::checkCheckboxActionPerformed() {
 }
 
 void TestButtonGroupFocusTraversal::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(TestButtonGroupFocusTraversal);
 	$assignStatic(TestButtonGroupFocusTraversal::robot, $new($Robot));
-	$nc(TestButtonGroupFocusTraversal::robot)->setAutoDelay(100);
+	TestButtonGroupFocusTraversal::robot->setAutoDelay(100);
 	$var($UIManager$LookAndFeelInfoArray, infos, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, infos);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
 			{
 				$UIManager::setLookAndFeel($($nc(info)->getClassName()));
-				$nc($System::out)->println($($nc(info)->getClassName()));
-				{
-					$var($Throwable, var$0, nullptr);
-					try {
-						createUI();
-						$nc(TestButtonGroupFocusTraversal::robot)->waitForIdle();
-						$nc(TestButtonGroupFocusTraversal::robot)->delay(200);
-						blockTillDisplayed(TestButtonGroupFocusTraversal::frame);
-						$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestButtonGroupFocusTraversal$$Lambda$requestFocus, static_cast<$JTextField*>($nc(TestButtonGroupFocusTraversal::textFieldFirst)))));
-						if (!$nc($of(TestButtonGroupFocusTraversal::textFieldFirst))->equals($($nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner()))) {
-							try {
-								$Thread::sleep(100);
-							} catch ($InterruptedException& e) {
-								e->printStackTrace();
-							}
-							$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestButtonGroupFocusTraversal$$Lambda$requestFocus, static_cast<$JTextField*>($nc(TestButtonGroupFocusTraversal::textFieldFirst)))));
+				$nc($System::out)->println($(info->getClassName()));
+				$var($Throwable, var$0, nullptr);
+				try {
+					createUI();
+					$nc(TestButtonGroupFocusTraversal::robot)->waitForIdle();
+					$nc(TestButtonGroupFocusTraversal::robot)->delay(200);
+					blockTillDisplayed(TestButtonGroupFocusTraversal::frame);
+					$SwingUtilities::invokeAndWait($$new(TestButtonGroupFocusTraversal$$Lambda$requestFocus, $nc(TestButtonGroupFocusTraversal::textFieldFirst)));
+					if (!$nc(TestButtonGroupFocusTraversal::textFieldFirst)->equals($($$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner()))) {
+						try {
+							$Thread::sleep(100);
+						} catch ($InterruptedException& e) {
+							e->printStackTrace();
 						}
-						$nc(TestButtonGroupFocusTraversal::robot)->waitForIdle();
-						$nc(TestButtonGroupFocusTraversal::robot)->delay(200);
-						pressKey($$new($ints, {$KeyEvent::VK_TAB}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
-						pressKey($$new($ints, {$KeyEvent::VK_TAB}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
-						pressKey($$new($ints, {$KeyEvent::VK_TAB}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
-						pressKey($$new($ints, {$KeyEvent::VK_TAB}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::textFieldLast);
-						pressKey($$new($ints, {
-							$KeyEvent::VK_SHIFT,
-							$KeyEvent::VK_TAB
-						}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
-						pressKey($$new($ints, {
-							$KeyEvent::VK_SHIFT,
-							$KeyEvent::VK_TAB
-						}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
-						pressKey($$new($ints, {
-							$KeyEvent::VK_SHIFT,
-							$KeyEvent::VK_TAB
-						}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
-						pressKey($$new($ints, {
-							$KeyEvent::VK_SHIFT,
-							$KeyEvent::VK_TAB
-						}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::textFieldFirst);
-						pressKey($$new($ints, {$KeyEvent::VK_TAB}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
-						pressKey($$new($ints, {$KeyEvent::VK_LEFT}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton1);
-						checkToggleButtonActionPerformed();
-						pressKey($$new($ints, {$KeyEvent::VK_RIGHT}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
-						checkToggleButtonActionPerformed();
-						pressKey($$new($ints, {$KeyEvent::VK_UP}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton1);
-						checkToggleButtonActionPerformed();
-						pressKey($$new($ints, {$KeyEvent::VK_DOWN}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
-						checkToggleButtonActionPerformed();
-						pressKey($$new($ints, {$KeyEvent::VK_TAB}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
-						pressKey($$new($ints, {$KeyEvent::VK_LEFT}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton1);
-						pressKey($$new($ints, {$KeyEvent::VK_RIGHT}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
-						pressKey($$new($ints, {$KeyEvent::VK_UP}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton1);
-						pressKey($$new($ints, {$KeyEvent::VK_DOWN}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
-						pressKey($$new($ints, {$KeyEvent::VK_TAB}));
-						checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
-						pressKey($$new($ints, {$KeyEvent::VK_LEFT}));
-						checkCheckboxActionPerformed();
-						checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox1);
-						pressKey($$new($ints, {$KeyEvent::VK_RIGHT}));
-						checkCheckboxActionPerformed();
-						checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
-						pressKey($$new($ints, {$KeyEvent::VK_UP}));
-						checkCheckboxActionPerformed();
-						checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox1);
-						pressKey($$new($ints, {$KeyEvent::VK_DOWN}));
-						checkCheckboxActionPerformed();
-						checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
-					} catch ($Throwable& var$1) {
-						$assign(var$0, var$1);
-					} /*finally*/ {
-						if (TestButtonGroupFocusTraversal::frame != nullptr) {
-							$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestButtonGroupFocusTraversal$$Lambda$dispose$1, static_cast<$JFrame*>($nc(TestButtonGroupFocusTraversal::frame)))));
-						}
+						$SwingUtilities::invokeAndWait($$new(TestButtonGroupFocusTraversal$$Lambda$requestFocus, $nc(TestButtonGroupFocusTraversal::textFieldFirst)));
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+					$nc(TestButtonGroupFocusTraversal::robot)->waitForIdle();
+					$nc(TestButtonGroupFocusTraversal::robot)->delay(200);
+					pressKey($$new($ints, {$KeyEvent::VK_TAB}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
+					pressKey($$new($ints, {$KeyEvent::VK_TAB}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
+					pressKey($$new($ints, {$KeyEvent::VK_TAB}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
+					pressKey($$new($ints, {$KeyEvent::VK_TAB}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::textFieldLast);
+					pressKey($$new($ints, {
+						$KeyEvent::VK_SHIFT,
+						$KeyEvent::VK_TAB
+					}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
+					pressKey($$new($ints, {
+						$KeyEvent::VK_SHIFT,
+						$KeyEvent::VK_TAB
+					}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
+					pressKey($$new($ints, {
+						$KeyEvent::VK_SHIFT,
+						$KeyEvent::VK_TAB
+					}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
+					pressKey($$new($ints, {
+						$KeyEvent::VK_SHIFT,
+						$KeyEvent::VK_TAB
+					}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::textFieldFirst);
+					pressKey($$new($ints, {$KeyEvent::VK_TAB}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
+					pressKey($$new($ints, {$KeyEvent::VK_LEFT}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton1);
+					checkToggleButtonActionPerformed();
+					pressKey($$new($ints, {$KeyEvent::VK_RIGHT}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
+					checkToggleButtonActionPerformed();
+					pressKey($$new($ints, {$KeyEvent::VK_UP}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton1);
+					checkToggleButtonActionPerformed();
+					pressKey($$new($ints, {$KeyEvent::VK_DOWN}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::toggleButton2);
+					checkToggleButtonActionPerformed();
+					pressKey($$new($ints, {$KeyEvent::VK_TAB}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
+					pressKey($$new($ints, {$KeyEvent::VK_LEFT}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton1);
+					pressKey($$new($ints, {$KeyEvent::VK_RIGHT}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
+					pressKey($$new($ints, {$KeyEvent::VK_UP}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton1);
+					pressKey($$new($ints, {$KeyEvent::VK_DOWN}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::radioButton2);
+					pressKey($$new($ints, {$KeyEvent::VK_TAB}));
+					checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
+					pressKey($$new($ints, {$KeyEvent::VK_LEFT}));
+					checkCheckboxActionPerformed();
+					checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox1);
+					pressKey($$new($ints, {$KeyEvent::VK_RIGHT}));
+					checkCheckboxActionPerformed();
+					checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
+					pressKey($$new($ints, {$KeyEvent::VK_UP}));
+					checkCheckboxActionPerformed();
+					checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox1);
+					pressKey($$new($ints, {$KeyEvent::VK_DOWN}));
+					checkCheckboxActionPerformed();
+					checkFocusedComponent(TestButtonGroupFocusTraversal::checkBox2);
+				} catch ($Throwable& var$1) {
+					$assign(var$0, var$1);
+				} /*finally*/ {
+					if (TestButtonGroupFocusTraversal::frame != nullptr) {
+						$SwingUtilities::invokeAndWait($$new(TestButtonGroupFocusTraversal$$Lambda$dispose$1, TestButtonGroupFocusTraversal::frame));
 					}
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			}
 		}
@@ -388,14 +322,60 @@ TestButtonGroupFocusTraversal::TestButtonGroupFocusTraversal() {
 
 $Class* TestButtonGroupFocusTraversal::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestButtonGroupFocusTraversal$$Lambda$requestFocus::classInfo$.name)) {
+		if (name->equals("TestButtonGroupFocusTraversal$$Lambda$requestFocus")) {
 			return TestButtonGroupFocusTraversal$$Lambda$requestFocus::load$(name, initialize);
 		}
-		if (name->equals(TestButtonGroupFocusTraversal$$Lambda$dispose$1::classInfo$.name)) {
+		if (name->equals("TestButtonGroupFocusTraversal$$Lambda$dispose$1")) {
 			return TestButtonGroupFocusTraversal$$Lambda$dispose$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestButtonGroupFocusTraversal, name, initialize, &_TestButtonGroupFocusTraversal_ClassInfo_, allocate$TestButtonGroupFocusTraversal);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, frame)},
+		{"textFieldFirst", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, textFieldFirst)},
+		{"textFieldLast", "Ljavax/swing/JTextField;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, textFieldLast)},
+		{"toggleButton1", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, toggleButton1)},
+		{"toggleButton2", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, toggleButton2)},
+		{"checkBox1", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, checkBox1)},
+		{"checkBox2", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, checkBox2)},
+		{"toggleButtonActionPerformed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, toggleButtonActionPerformed)},
+		{"checkboxActionPerformed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, checkboxActionPerformed)},
+		{"radioButton1", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, radioButton1)},
+		{"radioButton2", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, radioButton2)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestButtonGroupFocusTraversal, robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestButtonGroupFocusTraversal, init$, void)},
+		{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, blockTillDisplayed, void, $Component*)},
+		{"checkCheckboxActionPerformed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, checkCheckboxActionPerformed, void)},
+		{"checkFocusedComponent", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, checkFocusedComponent, void, $Component*)},
+		{"checkToggleButtonActionPerformed", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, checkToggleButtonActionPerformed, void)},
+		{"createUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, createUI, void), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestButtonGroupFocusTraversal, main, void, $StringArray*), "java.lang.Exception"},
+		{"pressKey", "([I)V", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(TestButtonGroupFocusTraversal, pressKey, void, $ints*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestButtonGroupFocusTraversal$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestButtonGroupFocusTraversal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestButtonGroupFocusTraversal$1,TestButtonGroupFocusTraversal$1$4,TestButtonGroupFocusTraversal$1$3,TestButtonGroupFocusTraversal$1$2,TestButtonGroupFocusTraversal$1$1"
+	};
+	$loadClass(TestButtonGroupFocusTraversal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestButtonGroupFocusTraversal);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CopyOf.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
@@ -45,11 +44,9 @@ using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::Const
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
@@ -76,39 +73,12 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _CopyOf_FieldInfo_[] = {
-	{"_select", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(CopyOf, _select)},
-	{}
-};
-
-$MethodInfo _CopyOf_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CopyOf, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(CopyOf, display, void, int32_t)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(CopyOf, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(CopyOf, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(CopyOf, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _CopyOf_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.CopyOf",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_CopyOf_FieldInfo_,
-	_CopyOf_MethodInfo_
-};
-
-$Object* allocate$CopyOf($Class* clazz) {
-	return $of($alloc(CopyOf));
-}
-
 void CopyOf::init$() {
 	$Instruction::init$();
 }
 
 void CopyOf::display(int32_t indent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->indent(indent);
 	$Util::println("CopyOf"_s);
 	this->indent(indent + $SyntaxTreeNode::IndentIncrement);
@@ -136,7 +106,7 @@ $Type* CopyOf::typeCheck($SymbolTable* stable) {
 }
 
 void CopyOf::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$var($Type, tselect, $nc(this->_select)->getType());
@@ -152,30 +122,30 @@ void CopyOf::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
 		$nc(this->_select)->translate(classGen, methodGen);
 		$nc(this->_select)->startIterator(classGen, methodGen);
 		il->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, cpy1, 3)));
+		il->append($$new($INVOKEINTERFACE, cpy1, 3));
 	} else if ($instanceOf($NodeType, tselect)) {
 		$nc(il)->append($(methodGen->loadDOM()));
 		$nc(this->_select)->translate(classGen, methodGen);
 		il->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, cpy2, 3)));
+		il->append($$new($INVOKEINTERFACE, cpy2, 3));
 	} else if ($instanceOf($ResultTreeType, tselect)) {
 		$nc(this->_select)->translate(classGen, methodGen);
-		$nc(il)->append(static_cast<$1Instruction*>($Constants::DUP));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, getDoc, 1)));
+		$nc(il)->append($Constants::DUP);
+		il->append($$new($INVOKEINTERFACE, getDoc, 1));
 		il->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEINTERFACE, cpy2, 3)));
+		il->append($$new($INVOKEINTERFACE, cpy2, 3));
 	} else if ($instanceOf($ReferenceType, tselect)) {
 		$nc(this->_select)->translate(classGen, methodGen);
 		$nc(il)->append($(methodGen->loadHandler()));
 		il->append($(methodGen->loadCurrentNode()));
 		il->append($(methodGen->loadDOM()));
 		int32_t copy = cpg->addMethodref($Constants::BASIS_LIBRARY_CLASS, "copy"_s, $$str({"("_s, $Constants::OBJECT_SIG, $Constants::TRANSLET_OUTPUT_SIG, $Constants::NODE_SIG, $Constants::DOM_INTF_SIG, ")V"_s}));
-		il->append(static_cast<$1Instruction*>($$new($INVOKESTATIC, copy)));
+		il->append($$new($INVOKESTATIC, copy));
 	} else {
 		$nc(il)->append($(classGen->loadTranslet()));
 		$nc(this->_select)->translate(classGen, methodGen);
 		il->append($(methodGen->loadHandler()));
-		il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, cpg->addMethodref($Constants::TRANSLET_CLASS, $Constants::CHARACTERSW, $Constants::CHARACTERSW_SIG))));
+		il->append($$new($INVOKEVIRTUAL, cpg->addMethodref($Constants::TRANSLET_CLASS, $Constants::CHARACTERSW, $Constants::CHARACTERSW_SIG)));
 	}
 }
 
@@ -183,7 +153,29 @@ CopyOf::CopyOf() {
 }
 
 $Class* CopyOf::load$($String* name, bool initialize) {
-	$loadClass(CopyOf, name, initialize, &_CopyOf_ClassInfo_, allocate$CopyOf);
+	$FieldInfo fieldInfos$$[] = {
+		{"_select", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(CopyOf, _select)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CopyOf, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(CopyOf, display, void, int32_t)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(CopyOf, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(CopyOf, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(CopyOf, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.CopyOf",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CopyOf, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CopyOf);
+	});
 	return class$;
 }
 

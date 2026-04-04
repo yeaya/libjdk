@@ -26,7 +26,7 @@ public:
 	virtual int32_t size() override;
 	using ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token::toString;
 	virtual $String* toString(int32_t options) override;
-	static const int64_t serialVersionUID = (int64_t)0x8182A94A32FAF79C;
+	static const int64_t serialVersionUID = (int64_t)0x8182a94a32faf79c;
 	::com::sun::org::apache::xerces::internal::impl::xpath::regex::Token* child = nullptr;
 	int32_t add = 0;
 	int32_t mask = 0;

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/LayoutCharacters.h>
-
 #include <jcpp.h>
 
 #undef CR
@@ -18,42 +17,37 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _LayoutCharacters_FieldInfo_[] = {
-	{"TabInc", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, TabInc)},
-	{"DiagInc", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, DiagInc)},
-	{"DetailsInc", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, DetailsInc)},
-	{"TAB", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, TAB)},
-	{"LF", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, LF)},
-	{"FF", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, FF)},
-	{"CR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, CR)},
-	{"EOI", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, EOI)},
-	{}
-};
-
-$MethodInfo _LayoutCharacters_MethodInfo_[] = {
-	{"tabulate", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutCharacters, tabulate, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _LayoutCharacters_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.util.LayoutCharacters",
-	nullptr,
-	nullptr,
-	_LayoutCharacters_FieldInfo_,
-	_LayoutCharacters_MethodInfo_
-};
-
-$Object* allocate$LayoutCharacters($Class* clazz) {
-	return $of($alloc(LayoutCharacters));
-}
-
 int32_t LayoutCharacters::tabulate(int32_t column) {
 	return ($div(column, LayoutCharacters::TabInc) * LayoutCharacters::TabInc) + LayoutCharacters::TabInc;
 }
 
 $Class* LayoutCharacters::load$($String* name, bool initialize) {
-	$loadClass(LayoutCharacters, name, initialize, &_LayoutCharacters_ClassInfo_, allocate$LayoutCharacters);
+	$FieldInfo fieldInfos$$[] = {
+		{"TabInc", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, TabInc)},
+		{"DiagInc", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, DiagInc)},
+		{"DetailsInc", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, DetailsInc)},
+		{"TAB", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, TAB)},
+		{"LF", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, LF)},
+		{"FF", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, FF)},
+		{"CR", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, CR)},
+		{"EOI", "B", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LayoutCharacters, EOI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"tabulate", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutCharacters, tabulate, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.util.LayoutCharacters",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LayoutCharacters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LayoutCharacters);
+	});
 	return class$;
 }
 

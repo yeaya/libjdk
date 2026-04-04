@@ -15,6 +15,7 @@ class Option$41 : public ::java::lang::Object {
 	$class(Option$41, 0, ::java::lang::Object)
 public:
 	Option$41();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$main$Option;
 };
 

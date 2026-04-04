@@ -1,7 +1,5 @@
 #include <javax/swing/colorchooser/SlidingSpinner.h>
-
 #include <java/awt/Component.h>
-#include <java/lang/Comparable.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JSlider.h>
@@ -12,11 +10,9 @@
 #include <javax/swing/colorchooser/ColorPanel.h>
 #include <javax/swing/colorchooser/ValueFormatter.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -24,57 +20,17 @@ using $JComponent = ::javax::swing::JComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
-using $SpinnerModel = ::javax::swing::SpinnerModel;
 using $SpinnerNumberModel = ::javax::swing::SpinnerNumberModel;
 using $ColorPanel = ::javax::swing::colorchooser::ColorPanel;
 using $ValueFormatter = ::javax::swing::colorchooser::ValueFormatter;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
 
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
 
-$FieldInfo _SlidingSpinner_FieldInfo_[] = {
-	{"panel", "Ljavax/swing/colorchooser/ColorPanel;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, panel)},
-	{"label", "Ljavax/swing/JComponent;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, label)},
-	{"model", "Ljavax/swing/SpinnerNumberModel;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, model)},
-	{"slider", "Ljavax/swing/JSlider;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, slider)},
-	{"spinner", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, spinner)},
-	{"value", "F", nullptr, $PRIVATE, $field(SlidingSpinner, value)},
-	{"internal", "Z", nullptr, $PRIVATE, $field(SlidingSpinner, internal)},
-	{}
-};
-
-$MethodInfo _SlidingSpinner_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/colorchooser/ColorPanel;Ljavax/swing/JComponent;)V", nullptr, 0, $method(SlidingSpinner, init$, void, $ColorPanel*, $JComponent*)},
-	{"getLabel", "()Ljavax/swing/JComponent;", nullptr, 0, $method(SlidingSpinner, getLabel, $JComponent*)},
-	{"getSlider", "()Ljavax/swing/JSlider;", nullptr, 0, $method(SlidingSpinner, getSlider, $JSlider*)},
-	{"getSpinner", "()Ljavax/swing/JSpinner;", nullptr, 0, $method(SlidingSpinner, getSpinner, $JSpinner*)},
-	{"getValue", "()F", nullptr, 0, $method(SlidingSpinner, getValue, float)},
-	{"isVisible", "()Z", nullptr, 0, $method(SlidingSpinner, isVisible, bool)},
-	{"setRange", "(II)V", nullptr, 0, $method(SlidingSpinner, setRange, void, int32_t, int32_t)},
-	{"setValue", "(F)V", nullptr, 0, $method(SlidingSpinner, setValue, void, float)},
-	{"setVisible", "(Z)V", nullptr, 0, $method(SlidingSpinner, setVisible, void, bool)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SlidingSpinner, stateChanged, void, $ChangeEvent*)},
-	{}
-};
-
-$ClassInfo _SlidingSpinner_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.colorchooser.SlidingSpinner",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener",
-	_SlidingSpinner_FieldInfo_,
-	_SlidingSpinner_MethodInfo_
-};
-
-$Object* allocate$SlidingSpinner($Class* clazz) {
-	return $of($alloc(SlidingSpinner));
-}
-
 void SlidingSpinner::init$($ColorPanel* panel, $JComponent* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, model, $new($SpinnerNumberModel));
 	$set(this, slider, $new($JSlider));
 	$set(this, spinner, $new($JSpinner, this->model));
@@ -82,10 +38,10 @@ void SlidingSpinner::init$($ColorPanel* panel, $JComponent* label) {
 	$set(this, label, label);
 	$nc(this->slider)->addChangeListener(this);
 	$nc(this->spinner)->addChangeListener(this);
-	$var($JSpinner$DefaultEditor, editor, $cast($JSpinner$DefaultEditor, $nc(this->spinner)->getEditor()));
+	$var($JSpinner$DefaultEditor, editor, $cast($JSpinner$DefaultEditor, this->spinner->getEditor()));
 	$ValueFormatter::init(3, false, $($nc(editor)->getTextField()));
-	$nc(editor)->setFocusable(false);
-	$nc(this->spinner)->setFocusable(false);
+	editor->setFocusable(false);
+	this->spinner->setFocusable(false);
 }
 
 $JComponent* SlidingSpinner::getLabel() {
@@ -106,21 +62,21 @@ float SlidingSpinner::getValue() {
 
 void SlidingSpinner::setValue(float value) {
 	int32_t min = $nc(this->slider)->getMinimum();
-	int32_t max = $nc(this->slider)->getMaximum();
+	int32_t max = this->slider->getMaximum();
 	this->internal = true;
-	$nc(this->slider)->setValue(min + $cast(int32_t, (value * (float)(max - min))));
-	$nc(this->spinner)->setValue($($Integer::valueOf($nc(this->slider)->getValue())));
+	this->slider->setValue(min + $cast(int32_t, (value * (float)(max - min))));
+	$nc(this->spinner)->setValue($($Integer::valueOf(this->slider->getValue())));
 	this->internal = false;
 	this->value = value;
 }
 
 void SlidingSpinner::setRange(int32_t min, int32_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->internal = true;
 	$nc(this->slider)->setMinimum(min);
-	$nc(this->slider)->setMaximum(max);
+	this->slider->setMaximum(max);
 	$nc(this->model)->setMinimum($($Integer::valueOf(min)));
-	$nc(this->model)->setMaximum($($Integer::valueOf(max)));
+	this->model->setMaximum($($Integer::valueOf(max)));
 	this->internal = false;
 }
 
@@ -135,13 +91,13 @@ bool SlidingSpinner::isVisible() {
 }
 
 void SlidingSpinner::stateChanged($ChangeEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->internal) {
 		if ($equals(this->spinner, $nc(event)->getSource())) {
 			$var($Object, value, $nc(this->spinner)->getValue());
 			if ($instanceOf($Integer, value)) {
 				this->internal = true;
-				$nc(this->slider)->setValue($nc(($cast($Integer, value)))->intValue());
+				$nc(this->slider)->setValue($cast($Integer, value)->intValue());
 				this->internal = false;
 			}
 		}
@@ -149,8 +105,8 @@ void SlidingSpinner::stateChanged($ChangeEvent* event) {
 		this->internal = true;
 		$nc(this->spinner)->setValue($($Integer::valueOf(value)));
 		this->internal = false;
-		int32_t min = $nc(this->slider)->getMinimum();
-		int32_t max = $nc(this->slider)->getMaximum();
+		int32_t min = this->slider->getMinimum();
+		int32_t max = this->slider->getMaximum();
 		this->value = (float)(value - min) / (float)(max - min);
 		$nc(this->panel)->colorChanged();
 	}
@@ -160,7 +116,40 @@ SlidingSpinner::SlidingSpinner() {
 }
 
 $Class* SlidingSpinner::load$($String* name, bool initialize) {
-	$loadClass(SlidingSpinner, name, initialize, &_SlidingSpinner_ClassInfo_, allocate$SlidingSpinner);
+	$FieldInfo fieldInfos$$[] = {
+		{"panel", "Ljavax/swing/colorchooser/ColorPanel;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, panel)},
+		{"label", "Ljavax/swing/JComponent;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, label)},
+		{"model", "Ljavax/swing/SpinnerNumberModel;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, model)},
+		{"slider", "Ljavax/swing/JSlider;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, slider)},
+		{"spinner", "Ljavax/swing/JSpinner;", nullptr, $PRIVATE | $FINAL, $field(SlidingSpinner, spinner)},
+		{"value", "F", nullptr, $PRIVATE, $field(SlidingSpinner, value)},
+		{"internal", "Z", nullptr, $PRIVATE, $field(SlidingSpinner, internal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/colorchooser/ColorPanel;Ljavax/swing/JComponent;)V", nullptr, 0, $method(SlidingSpinner, init$, void, $ColorPanel*, $JComponent*)},
+		{"getLabel", "()Ljavax/swing/JComponent;", nullptr, 0, $method(SlidingSpinner, getLabel, $JComponent*)},
+		{"getSlider", "()Ljavax/swing/JSlider;", nullptr, 0, $method(SlidingSpinner, getSlider, $JSlider*)},
+		{"getSpinner", "()Ljavax/swing/JSpinner;", nullptr, 0, $method(SlidingSpinner, getSpinner, $JSpinner*)},
+		{"getValue", "()F", nullptr, 0, $method(SlidingSpinner, getValue, float)},
+		{"isVisible", "()Z", nullptr, 0, $method(SlidingSpinner, isVisible, bool)},
+		{"setRange", "(II)V", nullptr, 0, $method(SlidingSpinner, setRange, void, int32_t, int32_t)},
+		{"setValue", "(F)V", nullptr, 0, $method(SlidingSpinner, setValue, void, float)},
+		{"setVisible", "(Z)V", nullptr, 0, $method(SlidingSpinner, setVisible, void, bool)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SlidingSpinner, stateChanged, void, $ChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.colorchooser.SlidingSpinner",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SlidingSpinner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SlidingSpinner);
+	});
 	return class$;
 }
 

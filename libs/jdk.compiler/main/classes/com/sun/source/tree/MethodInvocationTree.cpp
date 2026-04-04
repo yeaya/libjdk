@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/MethodInvocationTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,28 +13,24 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _MethodInvocationTree_MethodInfo_[] = {
-	{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getArguments, $List*)},
-	{"getMethodSelect", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getMethodSelect, $ExpressionTree*)},
-	{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getTypeArguments, $List*)},
-	{}
-};
-
-$ClassInfo _MethodInvocationTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.MethodInvocationTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_MethodInvocationTree_MethodInfo_
-};
-
-$Object* allocate$MethodInvocationTree($Class* clazz) {
-	return $of($alloc(MethodInvocationTree));
-}
-
 $Class* MethodInvocationTree::load$($String* name, bool initialize) {
-	$loadClass(MethodInvocationTree, name, initialize, &_MethodInvocationTree_ClassInfo_, allocate$MethodInvocationTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/ExpressionTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getArguments, $List*)},
+		{"getMethodSelect", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getMethodSelect, $ExpressionTree*)},
+		{"getTypeArguments", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/Tree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(MethodInvocationTree, getTypeArguments, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.MethodInvocationTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MethodInvocationTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodInvocationTree);
+	});
 	return class$;
 }
 

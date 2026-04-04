@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/CurrencyNames_ar_IQ.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,33 +12,14 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CurrencyNames_ar_IQ_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_ar_IQ, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_ar_IQ, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_ar_IQ_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.CurrencyNames_ar_IQ",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_ar_IQ_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_ar_IQ($Class* clazz) {
-	return $of($alloc(CurrencyNames_ar_IQ));
-}
-
 void CurrencyNames_ar_IQ::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_ar_IQ::getContents() {
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("IQD"_s),
-		$of(u"د.ع.\u200f"_s)
+		"IQD"_s,
+		u"د.ع.\u200f"_s
 	})});
 }
 
@@ -47,7 +27,22 @@ CurrencyNames_ar_IQ::CurrencyNames_ar_IQ() {
 }
 
 $Class* CurrencyNames_ar_IQ::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_ar_IQ, name, initialize, &_CurrencyNames_ar_IQ_ClassInfo_, allocate$CurrencyNames_ar_IQ);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_ar_IQ, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_ar_IQ, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.CurrencyNames_ar_IQ",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_ar_IQ, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_ar_IQ);
+	});
 	return class$;
 }
 

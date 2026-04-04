@@ -1,5 +1,4 @@
 #include <java/awt/event/AdjustmentListener.h>
-
 #include <java/awt/event/AdjustmentEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace event {
 
-$MethodInfo _AdjustmentListener_MethodInfo_[] = {
-	{"adjustmentValueChanged", "(Ljava/awt/event/AdjustmentEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AdjustmentListener, adjustmentValueChanged, void, $AdjustmentEvent*)},
-	{}
-};
-
-$ClassInfo _AdjustmentListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.event.AdjustmentListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_AdjustmentListener_MethodInfo_
-};
-
-$Object* allocate$AdjustmentListener($Class* clazz) {
-	return $of($alloc(AdjustmentListener));
-}
-
 $Class* AdjustmentListener::load$($String* name, bool initialize) {
-	$loadClass(AdjustmentListener, name, initialize, &_AdjustmentListener_ClassInfo_, allocate$AdjustmentListener);
+	$MethodInfo methodInfos$$[] = {
+		{"adjustmentValueChanged", "(Ljava/awt/event/AdjustmentEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AdjustmentListener, adjustmentValueChanged, void, $AdjustmentEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.event.AdjustmentListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AdjustmentListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AdjustmentListener);
+	});
 	return class$;
 }
 

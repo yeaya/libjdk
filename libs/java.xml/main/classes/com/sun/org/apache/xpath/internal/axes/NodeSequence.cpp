@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMFilter.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
@@ -45,90 +44,6 @@ namespace com {
 					namespace internal {
 						namespace axes {
 
-$FieldInfo _NodeSequence_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NodeSequence, serialVersionUID)},
-	{"m_last", "I", nullptr, $PROTECTED, $field(NodeSequence, m_last)},
-	{"m_next", "I", nullptr, $PROTECTED, $field(NodeSequence, m_next)},
-	{"m_cache", "Lcom/sun/org/apache/xpath/internal/axes/NodeSequence$IteratorCache;", nullptr, $PRIVATE, $field(NodeSequence, m_cache)},
-	{"m_iter", "Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PROTECTED, $field(NodeSequence, m_iter)},
-	{"m_dtmMgr", "Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PROTECTED, $field(NodeSequence, m_dtmMgr)},
-	{}
-};
-
-$MethodInfo _NodeSequence_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;ILcom/sun/org/apache/xpath/internal/XPathContext;Z)V", nullptr, $PRIVATE, $method(NodeSequence, init$, void, $DTMIterator*, int32_t, $XPathContext*, bool)},
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NodeSequence, init$, void, Object$*)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PRIVATE, $method(NodeSequence, init$, void, $DTMManager*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NodeSequence, init$, void)},
-	{"SetVector", "(Lcom/sun/org/apache/xml/internal/utils/NodeVector;)V", nullptr, $PROTECTED, $virtualMethod(NodeSequence, SetVector, void, $NodeVector*)},
-	{"addNodeInDocOrder", "(I)I", nullptr, $PROTECTED, $virtualMethod(NodeSequence, addNodeInDocOrder, int32_t, int32_t)},
-	{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, allowDetachToRelease, void, bool)},
-	{"cacheComplete", "()Z", nullptr, $PRIVATE, $method(NodeSequence, cacheComplete, bool)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NodeSequence, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(NodeSequence, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, detach, void)},
-	{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(NodeSequence, fixupVariables, void, $List*, int32_t)},
-	{"getAnalysisBits", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getAnalysisBits, int32_t)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getAxis, int32_t)},
-	{"getCache", "()Lcom/sun/org/apache/xpath/internal/axes/NodeSequence$IteratorCache;", nullptr, $PRIVATE, $method(NodeSequence, getCache, $NodeSequence$IteratorCache*)},
-	{"getContainedIter", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC | $FINAL, $method(NodeSequence, getContainedIter, $DTMIterator*)},
-	{"getCurrentNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getCurrentNode, int32_t)},
-	{"getCurrentPos", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getCurrentPos, int32_t)},
-	{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getDTM, $DTM*, int32_t)},
-	{"getDTMManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getDTMManager, $DTMManager*)},
-	{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getExpandEntityReferences, bool)},
-	{"getIteratorCache", "()Lcom/sun/org/apache/xpath/internal/axes/NodeSequence$IteratorCache;", nullptr, $PROTECTED, $virtualMethod(NodeSequence, getIteratorCache, $NodeSequence$IteratorCache*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getLength, int32_t)},
-	{"getRoot", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getRoot, int32_t)},
-	{"getVector", "()Lcom/sun/org/apache/xml/internal/utils/NodeVector;", nullptr, $PROTECTED, $virtualMethod(NodeSequence, getVector, $NodeVector*)},
-	{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getWhatToShow, int32_t)},
-	{"hasCache", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, hasCache, bool)},
-	{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, isDocOrdered, bool)},
-	{"isFresh", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, isFresh, bool)},
-	{"isMutable", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, isMutable, bool)},
-	{"item", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, item, int32_t, int32_t)},
-	{"markCacheComplete", "()V", nullptr, $PRIVATE, $method(NodeSequence, markCacheComplete, void)},
-	{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, nextNode, int32_t)},
-	{"previousNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, previousNode, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, reset, void)},
-	{"runTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, runTo, void, int32_t)},
-	{"setCurrentPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, setCurrentPos, void, int32_t)},
-	{"setItem", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, setItem, void, int32_t, int32_t)},
-	{"setIter", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSequence, setIter, void, $DTMIterator*)},
-	{"setObject", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(NodeSequence, setObject, void, Object$*)},
-	{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, setRoot, void, int32_t, Object$*)},
-	{"setShouldCacheNodes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, setShouldCacheNodes, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _NodeSequence_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xpath.internal.axes.NodeSequence$IteratorCache", "com.sun.org.apache.xpath.internal.axes.NodeSequence", "IteratorCache", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NodeSequence_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.NodeSequence",
-	"com.sun.org.apache.xpath.internal.objects.XObject",
-	"com.sun.org.apache.xml.internal.dtm.DTMIterator,com.sun.org.apache.xpath.internal.axes.PathComponent",
-	_NodeSequence_FieldInfo_,
-	_NodeSequence_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NodeSequence_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xpath.internal.axes.NodeSequence$IteratorCache"
-};
-
-$Object* allocate$NodeSequence($Class* clazz) {
-	return $of($alloc(NodeSequence));
-}
-
 $String* NodeSequence::toString() {
 	 return this->$XObject::toString();
 }
@@ -146,7 +61,7 @@ void NodeSequence::finalize() {
 }
 
 $NodeVector* NodeSequence::getVector() {
-	$var($NodeVector, nv, (this->m_cache != nullptr) ? $nc(this->m_cache)->getVector() : ($NodeVector*)nullptr);
+	$var($NodeVector, nv, (this->m_cache != nullptr) ? this->m_cache->getVector() : ($NodeVector*)nullptr);
 	return nv;
 }
 
@@ -166,7 +81,7 @@ bool NodeSequence::hasCache() {
 bool NodeSequence::cacheComplete() {
 	bool complete = false;
 	if (this->m_cache != nullptr) {
-		complete = $nc(this->m_cache)->isComplete();
+		complete = this->m_cache->isComplete();
 	} else {
 		complete = false;
 	}
@@ -208,7 +123,7 @@ void NodeSequence::init$(Object$* nodeVector) {
 		assertion($instanceOf($NodeVector, nodeVector), "Must have a NodeVector as the object for NodeSequence!"_s);
 		if ($instanceOf($DTMIterator, nodeVector)) {
 			setIter($cast($DTMIterator, nodeVector));
-			this->m_last = $nc(($cast($DTMIterator, nodeVector)))->getLength();
+			this->m_last = $cast($DTMIterator, nodeVector)->getLength();
 		}
 	}
 }
@@ -229,10 +144,10 @@ void NodeSequence::init$() {
 }
 
 $DTM* NodeSequence::getDTM(int32_t nodeHandle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DTMManager, mgr, getDTMManager());
 	if (nullptr != mgr) {
-		return $nc($(getDTMManager()))->getDTM(nodeHandle);
+		return $$nc(getDTMManager())->getDTM(nodeHandle);
 	} else {
 		assertion(false, "Can not get a DTM Unless a DTMManager has been set!"_s);
 		return nullptr;
@@ -245,7 +160,7 @@ $DTMManager* NodeSequence::getDTMManager() {
 
 int32_t NodeSequence::getRoot() {
 	if (nullptr != this->m_iter) {
-		return $nc(this->m_iter)->getRoot();
+		return this->m_iter->getRoot();
 	} else {
 		return $DTM::NULL;
 	}
@@ -276,19 +191,19 @@ void NodeSequence::reset() {
 }
 
 int32_t NodeSequence::getWhatToShow() {
-	return hasCache() ? ((int32_t)($DTMFilter::SHOW_ALL & (uint32_t)~$DTMFilter::SHOW_ENTITY_REFERENCE)) : $nc(this->m_iter)->getWhatToShow();
+	return hasCache() ? ($DTMFilter::SHOW_ALL & ~$DTMFilter::SHOW_ENTITY_REFERENCE) : $nc(this->m_iter)->getWhatToShow();
 }
 
 bool NodeSequence::getExpandEntityReferences() {
 	if (nullptr != this->m_iter) {
-		return $nc(this->m_iter)->getExpandEntityReferences();
+		return this->m_iter->getExpandEntityReferences();
 	} else {
 		return true;
 	}
 }
 
 int32_t NodeSequence::nextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeVector, vec, getVector());
 	if (nullptr != vec) {
 		if (this->m_next < vec->size()) {
@@ -307,7 +222,7 @@ int32_t NodeSequence::nextNode() {
 	if ($DTM::NULL != next) {
 		if (hasCache()) {
 			if ($nc(this->m_iter)->isDocOrdered()) {
-				$nc($(getVector()))->addElement(next);
+				$$nc(getVector())->addElement(next);
 				++this->m_next;
 			} else {
 				int32_t insertIndex = addNodeInDocOrder(next);
@@ -343,7 +258,7 @@ int32_t NodeSequence::previousNode() {
 
 void NodeSequence::detach() {
 	if (nullptr != this->m_iter) {
-		$nc(this->m_iter)->detach();
+		this->m_iter->detach();
 	}
 	$XObject::detach();
 }
@@ -353,7 +268,7 @@ void NodeSequence::allowDetachToRelease(bool allowRelease) {
 		setShouldCacheNodes(true);
 	}
 	if (nullptr != this->m_iter) {
-		$nc(this->m_iter)->allowDetachToRelease(allowRelease);
+		this->m_iter->allowDetachToRelease(allowRelease);
 	}
 	$XObject::allowDetachToRelease(allowRelease);
 }
@@ -369,7 +284,7 @@ int32_t NodeSequence::getCurrentNode() {
 		}
 	}
 	if (nullptr != this->m_iter) {
-		return $nc(this->m_iter)->getCurrentNode();
+		return this->m_iter->getCurrentNode();
 	} else {
 		return $DTM::NULL;
 	}
@@ -398,24 +313,26 @@ int32_t NodeSequence::getCurrentPos() {
 }
 
 void NodeSequence::runTo(int32_t index) {
-	$useLocalCurrentObjectStackCache();
 	int32_t n = 0;
 	if (-1 == index) {
 		int32_t pos = this->m_next;
 		while ($DTM::NULL != (n = nextNode())) {
+			;
 		}
 		this->m_next = pos;
 	} else if (this->m_next == index) {
 		return;
 	} else {
-		bool var$1 = hasCache();
-		if (var$1 && index < $nc($(getVector()))->size()) {
+		bool var$0 = hasCache();
+		if (var$0 && index < $$nc(getVector())->size()) {
 			this->m_next = index;
 		} else if ((nullptr == getVector()) && (index < this->m_next)) {
 			while ((this->m_next >= index) && $DTM::NULL != (n = previousNode())) {
+				;
 			}
 		} else {
 			while ((this->m_next < index) && $DTM::NULL != (n = nextNode())) {
+				;
 			}
 		}
 	}
@@ -433,7 +350,7 @@ int32_t NodeSequence::item(int32_t index) {
 }
 
 void NodeSequence::setItem(int32_t node, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeVector, vec, getVector());
 	if (nullptr != vec) {
 		int32_t oldNode = vec->elementAt(index);
@@ -453,7 +370,7 @@ void NodeSequence::setItem(int32_t node, int32_t index) {
 			$assign(vec, nv);
 			$XObject::setObject(nv);
 		}
-		vec->setElementAt(node, index);
+		$nc(vec)->setElementAt(node, index);
 		this->m_last = vec->size();
 	} else {
 		$nc(this->m_iter)->setItem(node, index);
@@ -461,7 +378,7 @@ void NodeSequence::setItem(int32_t node, int32_t index) {
 }
 
 int32_t NodeSequence::getLength() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NodeSequence$IteratorCache, cache, getCache());
 	if (cache != nullptr) {
 		if (cache->isComplete()) {
@@ -469,7 +386,7 @@ int32_t NodeSequence::getLength() {
 			return $nc(nv)->size();
 		}
 		if ($instanceOf($NodeSetDTM, this->m_iter)) {
-			return $nc(this->m_iter)->getLength();
+			return this->m_iter->getLength();
 		}
 		if (-1 == this->m_last) {
 			int32_t pos = this->m_next;
@@ -486,7 +403,7 @@ $DTMIterator* NodeSequence::cloneWithReset() {
 	$var(NodeSequence, seq, $cast(NodeSequence, $XObject::clone()));
 	$nc(seq)->m_next = 0;
 	if (this->m_cache != nullptr) {
-		$nc(this->m_cache)->increaseUseCount();
+		this->m_cache->increaseUseCount();
 	}
 	return seq;
 }
@@ -494,17 +411,17 @@ $DTMIterator* NodeSequence::cloneWithReset() {
 $Object* NodeSequence::clone() {
 	$var(NodeSequence, clone, $cast(NodeSequence, $XObject::clone()));
 	if (nullptr != this->m_iter) {
-		$set($nc(clone), m_iter, $cast($DTMIterator, $nc(this->m_iter)->clone()));
+		$set($nc(clone), m_iter, $cast($DTMIterator, this->m_iter->clone()));
 	}
 	if (this->m_cache != nullptr) {
-		$nc(this->m_cache)->increaseUseCount();
+		this->m_cache->increaseUseCount();
 	}
 	return $of(clone);
 }
 
 bool NodeSequence::isDocOrdered() {
 	if (nullptr != this->m_iter) {
-		return $nc(this->m_iter)->isDocOrdered();
+		return this->m_iter->isDocOrdered();
 	} else {
 		return true;
 	}
@@ -512,7 +429,7 @@ bool NodeSequence::isDocOrdered() {
 
 int32_t NodeSequence::getAxis() {
 	if (nullptr != this->m_iter) {
-		return $nc(this->m_iter)->getAxis();
+		return this->m_iter->getAxis();
 	} else {
 		assertion(false, "Can not getAxis from a non-iterated node sequence!"_s);
 		return 0;
@@ -521,7 +438,7 @@ int32_t NodeSequence::getAxis() {
 
 int32_t NodeSequence::getAnalysisBits() {
 	if ((nullptr != this->m_iter) && ($instanceOf($PathComponent, this->m_iter))) {
-		return $nc(($cast($PathComponent, this->m_iter)))->getAnalysisBits();
+		return $cast($PathComponent, this->m_iter)->getAnalysisBits();
 	} else {
 		return 0;
 	}
@@ -532,7 +449,7 @@ void NodeSequence::fixupVariables($List* vars, int32_t globalsSize) {
 }
 
 int32_t NodeSequence::addNodeInDocOrder(int32_t node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	assertion(hasCache(), "addNodeInDocOrder must be done on a mutable sequence!"_s);
 	int32_t insertIndex = -1;
 	$var($NodeVector, vec, getVector());
@@ -557,21 +474,21 @@ int32_t NodeSequence::addNodeInDocOrder(int32_t node) {
 }
 
 void NodeSequence::setObject(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($NodeVector, obj)) {
 		$XObject::setObject(obj);
 		$var($NodeVector, v, $cast($NodeVector, obj));
 		if (this->m_cache != nullptr) {
-			$nc(this->m_cache)->setVector(v);
+			this->m_cache->setVector(v);
 		} else if (v != nullptr) {
 			$set(this, m_cache, $new($NodeSequence$IteratorCache));
-			$nc(this->m_cache)->setVector(v);
+			this->m_cache->setVector(v);
 		}
 	} else if ($instanceOf($NodeSequence$IteratorCache, obj)) {
 		$var($NodeSequence$IteratorCache, cache, $cast($NodeSequence$IteratorCache, obj));
 		$set(this, m_cache, cache);
-		$nc(this->m_cache)->increaseUseCount();
-		$XObject::setObject($($nc(cache)->getVector()));
+		this->m_cache->increaseUseCount();
+		$XObject::setObject($(cache->getVector()));
 	} else {
 		$XObject::setObject(obj);
 	}
@@ -585,7 +502,85 @@ NodeSequence::NodeSequence() {
 }
 
 $Class* NodeSequence::load$($String* name, bool initialize) {
-	$loadClass(NodeSequence, name, initialize, &_NodeSequence_ClassInfo_, allocate$NodeSequence);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(NodeSequence, serialVersionUID)},
+		{"m_last", "I", nullptr, $PROTECTED, $field(NodeSequence, m_last)},
+		{"m_next", "I", nullptr, $PROTECTED, $field(NodeSequence, m_next)},
+		{"m_cache", "Lcom/sun/org/apache/xpath/internal/axes/NodeSequence$IteratorCache;", nullptr, $PRIVATE, $field(NodeSequence, m_cache)},
+		{"m_iter", "Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PROTECTED, $field(NodeSequence, m_iter)},
+		{"m_dtmMgr", "Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PROTECTED, $field(NodeSequence, m_dtmMgr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;ILcom/sun/org/apache/xpath/internal/XPathContext;Z)V", nullptr, $PRIVATE, $method(NodeSequence, init$, void, $DTMIterator*, int32_t, $XPathContext*, bool)},
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(NodeSequence, init$, void, Object$*)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMManager;)V", nullptr, $PRIVATE, $method(NodeSequence, init$, void, $DTMManager*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NodeSequence, init$, void)},
+		{"SetVector", "(Lcom/sun/org/apache/xml/internal/utils/NodeVector;)V", nullptr, $PROTECTED, $virtualMethod(NodeSequence, SetVector, void, $NodeVector*)},
+		{"addNodeInDocOrder", "(I)I", nullptr, $PROTECTED, $virtualMethod(NodeSequence, addNodeInDocOrder, int32_t, int32_t)},
+		{"allowDetachToRelease", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, allowDetachToRelease, void, bool)},
+		{"cacheComplete", "()Z", nullptr, $PRIVATE, $method(NodeSequence, cacheComplete, bool)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NodeSequence, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(NodeSequence, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, detach, void)},
+		{"fixupVariables", "(Ljava/util/List;I)V", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/utils/QName;>;I)V", $PUBLIC, $virtualMethod(NodeSequence, fixupVariables, void, $List*, int32_t)},
+		{"getAnalysisBits", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getAnalysisBits, int32_t)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getAxis, int32_t)},
+		{"getCache", "()Lcom/sun/org/apache/xpath/internal/axes/NodeSequence$IteratorCache;", nullptr, $PRIVATE, $method(NodeSequence, getCache, $NodeSequence$IteratorCache*)},
+		{"getContainedIter", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC | $FINAL, $method(NodeSequence, getContainedIter, $DTMIterator*)},
+		{"getCurrentNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getCurrentNode, int32_t)},
+		{"getCurrentPos", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getCurrentPos, int32_t)},
+		{"getDTM", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getDTM, $DTM*, int32_t)},
+		{"getDTMManager", "()Lcom/sun/org/apache/xml/internal/dtm/DTMManager;", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getDTMManager, $DTMManager*)},
+		{"getExpandEntityReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getExpandEntityReferences, bool)},
+		{"getIteratorCache", "()Lcom/sun/org/apache/xpath/internal/axes/NodeSequence$IteratorCache;", nullptr, $PROTECTED, $virtualMethod(NodeSequence, getIteratorCache, $NodeSequence$IteratorCache*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getLength, int32_t)},
+		{"getRoot", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getRoot, int32_t)},
+		{"getVector", "()Lcom/sun/org/apache/xml/internal/utils/NodeVector;", nullptr, $PROTECTED, $virtualMethod(NodeSequence, getVector, $NodeVector*)},
+		{"getWhatToShow", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, getWhatToShow, int32_t)},
+		{"hasCache", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, hasCache, bool)},
+		{"isDocOrdered", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, isDocOrdered, bool)},
+		{"isFresh", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, isFresh, bool)},
+		{"isMutable", "()Z", nullptr, $PUBLIC, $virtualMethod(NodeSequence, isMutable, bool)},
+		{"item", "(I)I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, item, int32_t, int32_t)},
+		{"markCacheComplete", "()V", nullptr, $PRIVATE, $method(NodeSequence, markCacheComplete, void)},
+		{"nextNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, nextNode, int32_t)},
+		{"previousNode", "()I", nullptr, $PUBLIC, $virtualMethod(NodeSequence, previousNode, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, reset, void)},
+		{"runTo", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, runTo, void, int32_t)},
+		{"setCurrentPos", "(I)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, setCurrentPos, void, int32_t)},
+		{"setItem", "(II)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, setItem, void, int32_t, int32_t)},
+		{"setIter", "(Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;)V", nullptr, $PUBLIC | $FINAL, $method(NodeSequence, setIter, void, $DTMIterator*)},
+		{"setObject", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(NodeSequence, setObject, void, Object$*)},
+		{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, setRoot, void, int32_t, Object$*)},
+		{"setShouldCacheNodes", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NodeSequence, setShouldCacheNodes, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xpath.internal.axes.NodeSequence$IteratorCache", "com.sun.org.apache.xpath.internal.axes.NodeSequence", "IteratorCache", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.NodeSequence",
+		"com.sun.org.apache.xpath.internal.objects.XObject",
+		"com.sun.org.apache.xml.internal.dtm.DTMIterator,com.sun.org.apache.xpath.internal.axes.PathComponent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xpath.internal.axes.NodeSequence$IteratorCache"
+	};
+	$loadClass(NodeSequence, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NodeSequence));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XMenuWindow.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Vector.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/XBaseMenuWindow$MappingData.h>
@@ -51,7 +49,6 @@ using $XMenuItemPeer$TextMetricsArray = $Array<::sun::awt::X11::XMenuItemPeer$Te
 using $XMenuItemPeerArray = $Array<::sun::awt::X11::XMenuItemPeer>;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Boolean = ::java::lang::Boolean;
@@ -60,7 +57,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Vector = ::java::util::Vector;
 using $XBaseMenuWindow = ::sun::awt::X11::XBaseMenuWindow;
 using $XBaseMenuWindow$MappingData = ::sun::awt::X11::XBaseMenuWindow$MappingData;
@@ -81,76 +77,12 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XMenuWindow_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XMenuWindow, log)},
-	{"menuPeer", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XMenuWindow, menuPeer)},
-	{"WINDOW_SPACING_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SPACING_LEFT)},
-	{"WINDOW_SPACING_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SPACING_RIGHT)},
-	{"WINDOW_SPACING_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SPACING_TOP)},
-	{"WINDOW_SPACING_BOTTOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SPACING_BOTTOM)},
-	{"WINDOW_ITEM_INDENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_INDENT)},
-	{"WINDOW_ITEM_MARGIN_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_MARGIN_LEFT)},
-	{"WINDOW_ITEM_MARGIN_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_MARGIN_RIGHT)},
-	{"WINDOW_ITEM_MARGIN_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_MARGIN_TOP)},
-	{"WINDOW_ITEM_MARGIN_BOTTOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_MARGIN_BOTTOM)},
-	{"WINDOW_SHORTCUT_SPACING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SHORTCUT_SPACING)},
-	{"CHECKMARK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, CHECKMARK_SIZE)},
-	{"CHECKMARK_X", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMenuWindow, CHECKMARK_X)},
-	{"CHECKMARK_Y", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMenuWindow, CHECKMARK_Y)},
-	{}
-};
-
-$MethodInfo _XMenuWindow_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XMenuPeer;)V", nullptr, 0, $method(XMenuWindow, init$, void, $XMenuPeer*)},
-	{"ensureCreated", "()Z", nullptr, 0, $virtualMethod(XMenuWindow, ensureCreated, bool)},
-	{"getCaptionSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, getCaptionSize, $Dimension*)},
-	{"getDesiredSize", "()Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(XMenuWindow, getDesiredSize, $Dimension*)},
-	{"getMenuPeer", "()Lsun/awt/X11/XMenuPeer;", nullptr, 0, $virtualMethod(XMenuWindow, getMenuPeer, $XMenuPeer*)},
-	{"getMenuTargetItems", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/MenuItem;>;", 0, $virtualMethod(XMenuWindow, getMenuTargetItems, $Vector*)},
-	{"getParentMenuWindow", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, getParentMenuWindow, $XBaseMenuWindow*)},
-	{"getSubmenuBounds", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, getSubmenuBounds, $Rectangle*, $Rectangle*, $Dimension*)},
-	{"hide", "()V", nullptr, 0, $virtualMethod(XMenuWindow, hide, void)},
-	{"isCreated", "()Z", nullptr, 0, $virtualMethod(XMenuWindow, isCreated, bool)},
-	{"map", "()Lsun/awt/X11/XMenuWindow$MappingData;", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, map, $XBaseMenuWindow$MappingData*)},
-	{"paintCaption", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, paintCaption, void, $Graphics*, $Rectangle*)},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XMenuWindow, paintPeer, void, $Graphics*)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XMenuWindow, postInit, void, $XCreateWindowParams*)},
-	{"show", "(Ljava/awt/Rectangle;)V", nullptr, 0, $virtualMethod(XMenuWindow, show, void, $Rectangle*)},
-	{"updateSize", "()V", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, updateSize, void)},
-	{}
-};
-
-$InnerClassInfo _XMenuWindow_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XMenuWindow$MappingData", "sun.awt.X11.XMenuWindow", "MappingData", $STATIC},
-	{"sun.awt.X11.XMenuWindow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMenuWindow_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XMenuWindow",
-	"sun.awt.X11.XBaseMenuWindow",
-	nullptr,
-	_XMenuWindow_FieldInfo_,
-	_XMenuWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMenuWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XMenuWindow$MappingData,sun.awt.X11.XMenuWindow$1"
-};
-
-$Object* allocate$XMenuWindow($Class* clazz) {
-	return $of($alloc(XMenuWindow));
-}
-
 $PlatformLogger* XMenuWindow::log = nullptr;
 $ints* XMenuWindow::CHECKMARK_X = nullptr;
 $ints* XMenuWindow::CHECKMARK_Y = nullptr;
 
 void XMenuWindow::init$($XMenuPeer* menuPeer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XBaseMenuWindow::init$();
 	if (menuPeer != nullptr) {
 		$set(this, menuPeer, menuPeer);
@@ -166,11 +98,11 @@ void XMenuWindow::postInit($XCreateWindowParams* params) {
 }
 
 $XBaseMenuWindow* XMenuWindow::getParentMenuWindow() {
-	return (this->menuPeer != nullptr) ? $nc(this->menuPeer)->getContainer() : ($XBaseMenuWindow*)nullptr;
+	return (this->menuPeer != nullptr) ? this->menuPeer->getContainer() : ($XBaseMenuWindow*)nullptr;
 }
 
 $XBaseMenuWindow$MappingData* XMenuWindow::map() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t itemCnt = 0;
 	if (!isCreated()) {
 		$var($XMenuItemPeerArray, var$0, $new($XMenuItemPeerArray, 0));
@@ -181,7 +113,7 @@ $XBaseMenuWindow$MappingData* XMenuWindow::map() {
 	$var($XMenuItemPeerArray, itemVector, copyItems());
 	itemCnt = $nc(itemVector)->length;
 	$var($Dimension, captionSize, getCaptionSize());
-	int32_t maxWidth = (captionSize != nullptr) ? $nc(captionSize)->width : 0;
+	int32_t maxWidth = (captionSize != nullptr) ? captionSize->width : 0;
 	int32_t maxLeftIndent = 0;
 	int32_t maxRightIndent = 0;
 	int32_t maxShortcutWidth = 0;
@@ -238,9 +170,9 @@ $XBaseMenuWindow$MappingData* XMenuWindow::map() {
 }
 
 $Rectangle* XMenuWindow::getSubmenuBounds($Rectangle* itemBounds, $Dimension* windowSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, globalBounds, toGlobal(itemBounds));
-	$var($Rectangle, screenBounds, $nc($(getCurrentGraphicsConfiguration()))->getBounds());
+	$var($Rectangle, screenBounds, $$nc(getCurrentGraphicsConfiguration())->getBounds());
 	$var($Rectangle, res, nullptr);
 	$assign(res, fitWindowRight(globalBounds, windowSize, screenBounds));
 	if (res != nullptr) {
@@ -297,17 +229,16 @@ bool XMenuWindow::ensureCreated() {
 		$var($XCreateWindowParams, params, getDelayedParams());
 		$init($XBaseWindow);
 		$nc(params)->remove($XBaseWindow::DELAYED);
-		$init($Boolean);
-		params->add($of($XBaseWindow::OVERRIDE_REDIRECT), $of($Boolean::TRUE));
+		params->add($XBaseWindow::OVERRIDE_REDIRECT, $Boolean::TRUE);
 		$init($XWindow);
-		params->add($of($XWindow::TARGET), $of(this->target));
+		params->add($XWindow::TARGET, this->target);
 		init(params);
 	}
 	return true;
 }
 
 void XMenuWindow::show($Rectangle* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isCreated()) {
 		return;
 	}
@@ -316,21 +247,19 @@ void XMenuWindow::show($Rectangle* bounds) {
 		$nc(XMenuWindow::log)->finer($$str({"showing menu window + "_s, $$str(getWindow()), " at "_s, bounds}));
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			reshape($nc(bounds)->x, bounds->y, bounds->width, bounds->height);
-			xSetVisible(true);
-			toFront();
-			selectItem($(getFirstSelectableItem()), false);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		reshape($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
+		xSetVisible(true);
+		toFront();
+		selectItem($(getFirstSelectableItem()), false);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -340,7 +269,7 @@ void XMenuWindow::hide() {
 }
 
 void XMenuWindow::paintPeer($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	resetColors();
 	int32_t width = getWidth();
 	int32_t height = getHeight();
@@ -350,7 +279,7 @@ void XMenuWindow::paintPeer($Graphics* g) {
 	draw3DRect(g, 0, 0, width, height, true);
 	$var($XMenuWindow$MappingData, mappingData, $cast($XMenuWindow$MappingData, getMappingData()));
 	paintCaption(g, $($nc(mappingData)->getCaptionRect()));
-	$var($XMenuItemPeerArray, itemVector, $nc(mappingData)->getItems());
+	$var($XMenuItemPeerArray, itemVector, mappingData->getItems());
 	$var($Dimension, windowSize, mappingData->getDesiredSize());
 	$var($XMenuItemPeer, selectedItem, getSelectedItem());
 	for (int32_t i = 0; i < $nc(itemVector)->length; ++i) {
@@ -358,26 +287,26 @@ void XMenuWindow::paintPeer($Graphics* g) {
 		$var($XMenuItemPeer$TextMetrics, metrics, $nc(item)->getTextMetrics());
 		$var($Rectangle, bounds, item->getBounds());
 		if (item->isSeparator()) {
-			draw3DRect(g, $nc(bounds)->x, bounds->y + bounds->height / 2, bounds->width, 2, false);
+			draw3DRect(g, $nc(bounds)->x, $nc(bounds)->y + $nc(bounds)->height / 2, $nc(bounds)->width, 2, false);
 		} else {
 			g->setFont($(item->getTargetFont()));
 			$var($Point, textOrigin, item->getTextOrigin());
 			$var($Dimension, textDim, $nc(metrics)->getTextDimension());
 			if (item == selectedItem) {
 				g->setColor($(getSelectedColor()));
-				g->fillRect($nc(bounds)->x, bounds->y, bounds->width, bounds->height);
-				draw3DRect(g, $nc(bounds)->x, bounds->y, bounds->width, bounds->height, false);
+				g->fillRect($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
+				draw3DRect(g, bounds->x, bounds->y, bounds->width, bounds->height, false);
 			}
 			g->setColor(item->isTargetItemEnabled() ? $(getForegroundColor()) : $(getDisabledColor()));
-			g->drawString($(item->getTargetLabel()), $nc(textOrigin)->x, textOrigin->y);
+			g->drawString($(item->getTargetLabel()), $nc(textOrigin)->x, $nc(textOrigin)->y);
 			$var($String, shortcutText, item->getShortcutText());
 			if (shortcutText != nullptr) {
-				g->drawString(shortcutText, mappingData->getShortcutOrigin(), $nc(textOrigin)->y);
+				g->drawString(shortcutText, mappingData->getShortcutOrigin(), textOrigin->y);
 			}
 			if ($instanceOf($XMenuPeer, item)) {
 				int32_t markWidth = $nc(textDim)->height * 4 / 5;
 				int32_t markHeight = textDim->height * 4 / 5;
-				int32_t markX = $nc(bounds)->x + bounds->width - markWidth - XMenuWindow::WINDOW_SPACING_RIGHT - XMenuWindow::WINDOW_ITEM_MARGIN_RIGHT;
+				int32_t markX = $nc(bounds)->x + $nc(bounds)->width - markWidth - XMenuWindow::WINDOW_SPACING_RIGHT - XMenuWindow::WINDOW_ITEM_MARGIN_RIGHT;
 				int32_t markY = bounds->y + (bounds->height - markHeight) / 2;
 				g->setColor(item->isTargetItemEnabled() ? $(getDarkShadowColor()) : $(getDisabledColor()));
 				g->drawLine(markX, markY + markHeight, markX + markWidth, markY + markHeight / 2);
@@ -388,20 +317,20 @@ void XMenuWindow::paintPeer($Graphics* g) {
 				int32_t markWidth = $nc(textDim)->height * 4 / 5;
 				int32_t markHeight = textDim->height * 4 / 5;
 				int32_t markX = XMenuWindow::WINDOW_SPACING_LEFT + XMenuWindow::WINDOW_ITEM_MARGIN_LEFT;
-				int32_t markY = $nc(bounds)->y + (bounds->height - markHeight) / 2;
-				bool checkState = $nc(($cast($XCheckboxMenuItemPeer, item)))->getTargetState();
+				int32_t markY = $nc(bounds)->y + ($nc(bounds)->height - markHeight) / 2;
+				bool checkState = $cast($XCheckboxMenuItemPeer, item)->getTargetState();
 				if (checkState) {
 					g->setColor($(getSelectedColor()));
 					g->fillRect(markX, markY, markWidth, markHeight);
 					draw3DRect(g, markX, markY, markWidth, markHeight, false);
-					$var($ints, px, $new($ints, $nc(XMenuWindow::CHECKMARK_X)->length));
-					$var($ints, py, $new($ints, $nc(XMenuWindow::CHECKMARK_X)->length));
-					for (int32_t j = 0; j < $nc(XMenuWindow::CHECKMARK_X)->length; ++j) {
-						px->set(j, markX + $div($nc(XMenuWindow::CHECKMARK_X)->get(j) * markWidth, XMenuWindow::CHECKMARK_SIZE));
-						py->set(j, markY + $div($nc(XMenuWindow::CHECKMARK_Y)->get(j) * markHeight, XMenuWindow::CHECKMARK_SIZE));
+					$var($ints, px, $new($ints, XMenuWindow::CHECKMARK_X->length));
+					$var($ints, py, $new($ints, XMenuWindow::CHECKMARK_X->length));
+					for (int32_t j = 0; j < XMenuWindow::CHECKMARK_X->length; ++j) {
+						px->set(j, markX + $div(XMenuWindow::CHECKMARK_X->get(j) * markWidth, XMenuWindow::CHECKMARK_SIZE));
+						py->set(j, markY + $div(XMenuWindow::CHECKMARK_Y->get(j) * markHeight, XMenuWindow::CHECKMARK_SIZE));
 					}
 					g->setColor(item->isTargetItemEnabled() ? $(getForegroundColor()) : $(getDisabledColor()));
-					g->fillPolygon(px, py, $nc(XMenuWindow::CHECKMARK_X)->length);
+					g->fillPolygon(px, py, XMenuWindow::CHECKMARK_X->length);
 				} else {
 					g->setColor($(getBackgroundColor()));
 					g->fillRect(markX, markY, markWidth, markHeight);
@@ -413,7 +342,7 @@ void XMenuWindow::paintPeer($Graphics* g) {
 	flush();
 }
 
-void clinit$XMenuWindow($Class* class$) {
+void XMenuWindow::clinit$($Class* clazz) {
 	$assignStatic(XMenuWindow::log, $PlatformLogger::getLogger("sun.awt.X11.XMenuWindow"_s));
 	$assignStatic(XMenuWindow::CHECKMARK_X, $new($ints, {
 		1,
@@ -439,7 +368,65 @@ XMenuWindow::XMenuWindow() {
 }
 
 $Class* XMenuWindow::load$($String* name, bool initialize) {
-	$loadClass(XMenuWindow, name, initialize, &_XMenuWindow_ClassInfo_, clinit$XMenuWindow, allocate$XMenuWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XMenuWindow, log)},
+		{"menuPeer", "Lsun/awt/X11/XMenuPeer;", nullptr, $PRIVATE, $field(XMenuWindow, menuPeer)},
+		{"WINDOW_SPACING_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SPACING_LEFT)},
+		{"WINDOW_SPACING_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SPACING_RIGHT)},
+		{"WINDOW_SPACING_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SPACING_TOP)},
+		{"WINDOW_SPACING_BOTTOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SPACING_BOTTOM)},
+		{"WINDOW_ITEM_INDENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_INDENT)},
+		{"WINDOW_ITEM_MARGIN_LEFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_MARGIN_LEFT)},
+		{"WINDOW_ITEM_MARGIN_RIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_MARGIN_RIGHT)},
+		{"WINDOW_ITEM_MARGIN_TOP", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_MARGIN_TOP)},
+		{"WINDOW_ITEM_MARGIN_BOTTOM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_ITEM_MARGIN_BOTTOM)},
+		{"WINDOW_SHORTCUT_SPACING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, WINDOW_SHORTCUT_SPACING)},
+		{"CHECKMARK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMenuWindow, CHECKMARK_SIZE)},
+		{"CHECKMARK_X", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMenuWindow, CHECKMARK_X)},
+		{"CHECKMARK_Y", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMenuWindow, CHECKMARK_Y)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XMenuPeer;)V", nullptr, 0, $method(XMenuWindow, init$, void, $XMenuPeer*)},
+		{"ensureCreated", "()Z", nullptr, 0, $virtualMethod(XMenuWindow, ensureCreated, bool)},
+		{"getCaptionSize", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, getCaptionSize, $Dimension*)},
+		{"getDesiredSize", "()Ljava/awt/Dimension;", nullptr, 0, $virtualMethod(XMenuWindow, getDesiredSize, $Dimension*)},
+		{"getMenuPeer", "()Lsun/awt/X11/XMenuPeer;", nullptr, 0, $virtualMethod(XMenuWindow, getMenuPeer, $XMenuPeer*)},
+		{"getMenuTargetItems", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/awt/MenuItem;>;", 0, $virtualMethod(XMenuWindow, getMenuTargetItems, $Vector*)},
+		{"getParentMenuWindow", "()Lsun/awt/X11/XBaseMenuWindow;", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, getParentMenuWindow, $XBaseMenuWindow*)},
+		{"getSubmenuBounds", "(Ljava/awt/Rectangle;Ljava/awt/Dimension;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, getSubmenuBounds, $Rectangle*, $Rectangle*, $Dimension*)},
+		{"hide", "()V", nullptr, 0, $virtualMethod(XMenuWindow, hide, void)},
+		{"isCreated", "()Z", nullptr, 0, $virtualMethod(XMenuWindow, isCreated, bool)},
+		{"map", "()Lsun/awt/X11/XMenuWindow$MappingData;", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, map, $XBaseMenuWindow$MappingData*)},
+		{"paintCaption", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, paintCaption, void, $Graphics*, $Rectangle*)},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XMenuWindow, paintPeer, void, $Graphics*)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XMenuWindow, postInit, void, $XCreateWindowParams*)},
+		{"show", "(Ljava/awt/Rectangle;)V", nullptr, 0, $virtualMethod(XMenuWindow, show, void, $Rectangle*)},
+		{"updateSize", "()V", nullptr, $PROTECTED, $virtualMethod(XMenuWindow, updateSize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XMenuWindow$MappingData", "sun.awt.X11.XMenuWindow", "MappingData", $STATIC},
+		{"sun.awt.X11.XMenuWindow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XMenuWindow",
+		"sun.awt.X11.XBaseMenuWindow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XMenuWindow$MappingData,sun.awt.X11.XMenuWindow$1"
+	};
+	$loadClass(XMenuWindow, name, initialize, &classInfo$$, XMenuWindow::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMenuWindow));
+	});
 	return class$;
 }
 

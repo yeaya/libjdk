@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/tree/DCTree$DCReturn.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
-#include <com/sun/source/doctree/ReturnTree.h>
 #include <com/sun/tools/javac/tree/DCTree$DCEndPosTree.h>
 #include <com/sun/tools/javac/tree/DCTree.h>
 #include <java/util/List.h>
@@ -12,7 +10,6 @@
 
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
-using $ReturnTree = ::com::sun::source::doctree::ReturnTree;
 using $DCTree$DCEndPosTree = ::com::sun::tools::javac::tree::DCTree$DCEndPosTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,53 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCReturn_FieldInfo_[] = {
-	{"inline", "Z", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCReturn, inline$)},
-	{"description", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCReturn, description)},
-	{}
-};
-
-$MethodInfo _DCTree$DCReturn_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(ZLjava/util/List;)V", "(ZLjava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCReturn, init$, void, bool, $List*)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCReturn, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCReturn, getDescription, $List*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCReturn, getKind, $DocTree$Kind*)},
-	{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCReturn, getTagName, $String*)},
-	{"isInline", "()Z", nullptr, $PUBLIC, $virtualMethod(DCTree$DCReturn, isInline, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCReturn_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCReturn", "com.sun.tools.javac.tree.DCTree", "DCReturn", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.DCTree$DCEndPosTree", "com.sun.tools.javac.tree.DCTree", "DCEndPosTree", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCReturn_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCReturn",
-	"com.sun.tools.javac.tree.DCTree$DCEndPosTree",
-	"com.sun.source.doctree.ReturnTree",
-	_DCTree$DCReturn_FieldInfo_,
-	_DCTree$DCReturn_MethodInfo_,
-	"Lcom/sun/tools/javac/tree/DCTree$DCEndPosTree<Lcom/sun/tools/javac/tree/DCTree$DCReturn;>;Lcom/sun/source/doctree/ReturnTree;",
-	nullptr,
-	_DCTree$DCReturn_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCReturn($Class* clazz) {
-	return $of($alloc(DCTree$DCReturn));
-}
 
 $String* DCTree$DCReturn::toString() {
 	 return this->$DCTree$DCEndPosTree::toString();
@@ -109,7 +59,7 @@ $DocTree$Kind* DCTree$DCReturn::getKind() {
 }
 
 $Object* DCTree$DCReturn::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitReturn(this, d));
+	return $nc(v)->visitReturn(this, d);
 }
 
 bool DCTree$DCReturn::isInline() {
@@ -124,7 +74,48 @@ DCTree$DCReturn::DCTree$DCReturn() {
 }
 
 $Class* DCTree$DCReturn::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCReturn, name, initialize, &_DCTree$DCReturn_ClassInfo_, allocate$DCTree$DCReturn);
+	$FieldInfo fieldInfos$$[] = {
+		{"inline", "Z", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCReturn, inline$)},
+		{"description", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCReturn, description)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(ZLjava/util/List;)V", "(ZLjava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCReturn, init$, void, bool, $List*)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCReturn, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCReturn, getDescription, $List*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCReturn, getKind, $DocTree$Kind*)},
+		{"getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCReturn, getTagName, $String*)},
+		{"isInline", "()Z", nullptr, $PUBLIC, $virtualMethod(DCTree$DCReturn, isInline, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCReturn", "com.sun.tools.javac.tree.DCTree", "DCReturn", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.DCTree$DCEndPosTree", "com.sun.tools.javac.tree.DCTree", "DCEndPosTree", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCReturn",
+		"com.sun.tools.javac.tree.DCTree$DCEndPosTree",
+		"com.sun.source.doctree.ReturnTree",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/tree/DCTree$DCEndPosTree<Lcom/sun/tools/javac/tree/DCTree$DCReturn;>;Lcom/sun/source/doctree/ReturnTree;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCReturn, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCReturn));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11/ColorEntry.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,58 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _ColorEntry_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(ColorEntry, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(ColorEntry, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(ColorEntry, pData)},
-	{}
-};
-
-$MethodInfo _ColorEntry_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(ColorEntry, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ColorEntry, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorEntry, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(ColorEntry, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ColorEntry, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ColorEntry, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(ColorEntry, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorEntry, getSize, int32_t)},
-	{"get_b", "()B", nullptr, $PUBLIC, $virtualMethod(ColorEntry, get_b, int8_t)},
-	{"get_flags", "()B", nullptr, $PUBLIC, $virtualMethod(ColorEntry, get_flags, int8_t)},
-	{"get_g", "()B", nullptr, $PUBLIC, $virtualMethod(ColorEntry, get_g, int8_t)},
-	{"get_r", "()B", nullptr, $PUBLIC, $virtualMethod(ColorEntry, get_r, int8_t)},
-	{"set_b", "(B)V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, set_b, void, int8_t)},
-	{"set_flags", "(B)V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, set_flags, void, int8_t)},
-	{"set_g", "(B)V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, set_g, void, int8_t)},
-	{"set_r", "(B)V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, set_r, void, int8_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorEntry, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorEntry, zero, void)},
-	{}
-};
-
-$ClassInfo _ColorEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.ColorEntry",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_ColorEntry_FieldInfo_,
-	_ColorEntry_MethodInfo_
-};
-
-$Object* allocate$ColorEntry($Class* clazz) {
-	return $of($alloc(ColorEntry));
-}
 
 int32_t ColorEntry::getSize() {
 	$init(ColorEntry);
@@ -101,7 +55,7 @@ void ColorEntry::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -168,7 +122,7 @@ $String* ColorEntry::getFieldsAsString() {
 }
 
 $Object* ColorEntry::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void ColorEntry::zero() {
@@ -183,7 +137,45 @@ ColorEntry::ColorEntry() {
 }
 
 $Class* ColorEntry::load$($String* name, bool initialize) {
-	$loadClass(ColorEntry, name, initialize, &_ColorEntry_ClassInfo_, allocate$ColorEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(ColorEntry, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(ColorEntry, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(ColorEntry, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(ColorEntry, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ColorEntry, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorEntry, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(ColorEntry, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ColorEntry, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ColorEntry, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(ColorEntry, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(ColorEntry, getSize, int32_t)},
+		{"get_b", "()B", nullptr, $PUBLIC, $virtualMethod(ColorEntry, get_b, int8_t)},
+		{"get_flags", "()B", nullptr, $PUBLIC, $virtualMethod(ColorEntry, get_flags, int8_t)},
+		{"get_g", "()B", nullptr, $PUBLIC, $virtualMethod(ColorEntry, get_g, int8_t)},
+		{"get_r", "()B", nullptr, $PUBLIC, $virtualMethod(ColorEntry, get_r, int8_t)},
+		{"set_b", "(B)V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, set_b, void, int8_t)},
+		{"set_flags", "(B)V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, set_flags, void, int8_t)},
+		{"set_g", "(B)V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, set_g, void, int8_t)},
+		{"set_r", "(B)V", nullptr, $PUBLIC, $virtualMethod(ColorEntry, set_r, void, int8_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorEntry, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ColorEntry, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.ColorEntry",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ColorEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorEntry);
+	});
 	return class$;
 }
 

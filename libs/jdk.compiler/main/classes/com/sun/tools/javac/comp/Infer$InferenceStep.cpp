@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$InferenceStep.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -14,7 +13,6 @@
 #include <com/sun/tools/javac/comp/InferenceContext.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <java/lang/Enum.h>
-#include <java/util/function/Predicate.h>
 #include <jcpp.h>
 
 #undef CAPTURED
@@ -43,67 +41,12 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Predicate = ::java::util::function::Predicate;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Infer$InferenceStep_FieldInfo_[] = {
-	{"EQ", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, EQ)},
-	{"LOWER", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, LOWER)},
-	{"THROWS", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, THROWS)},
-	{"UPPER", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, UPPER)},
-	{"UPPER_LEGACY", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, UPPER_LEGACY)},
-	{"CAPTURED", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, CAPTURED)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Infer$InferenceStep, $VALUES)},
-	{"ib", "Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $FINAL, $field(Infer$InferenceStep, ib)},
-	{}
-};
-
-$MethodInfo _Infer$InferenceStep_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep, $values, $Infer$InferenceStepArray*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", $PRIVATE, $method(Infer$InferenceStep, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
-	{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep, accepts, bool, $Type$UndetVar*, $InferenceContext*)},
-	{"filterBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Infer$InferenceStep, filterBounds, $List*, $Type$UndetVar*, $InferenceContext*)},
-	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $ABSTRACT, $virtualMethod(Infer$InferenceStep, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$InferenceStep, valueOf, Infer$InferenceStep*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$InferenceStep, values, $Infer$InferenceStepArray*)},
-	{}
-};
-
-$InnerClassInfo _Infer$InferenceStep_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$InferenceStep", "com.sun.tools.javac.comp.Infer", "InferenceStep", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$InferenceStep$6", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$InferenceStep$5", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$InferenceStep$4", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$InferenceStep$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$InferenceStep$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$InferenceStep$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Infer$InferenceStep_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT | $ENUM,
-	"com.sun.tools.javac.comp.Infer$InferenceStep",
-	"java.lang.Enum",
-	nullptr,
-	_Infer$InferenceStep_FieldInfo_,
-	_Infer$InferenceStep_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;",
-	nullptr,
-	_Infer$InferenceStep_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$InferenceStep($Class* clazz) {
-	return $of($alloc(Infer$InferenceStep));
-}
 
 Infer$InferenceStep* Infer$InferenceStep::EQ = nullptr;
 Infer$InferenceStep* Infer$InferenceStep::LOWER = nullptr;
@@ -141,17 +84,17 @@ void Infer$InferenceStep::init$($String* $enum$name, int32_t $enum$ordinal, $Typ
 }
 
 bool Infer$InferenceStep::accepts($Type$UndetVar* t, $InferenceContext* inferenceContext) {
-	bool var$0 = $nc($(filterBounds(t, inferenceContext)))->nonEmpty();
+	bool var$0 = $$nc(filterBounds(t, inferenceContext))->nonEmpty();
 	return var$0 && !$nc(t)->isCaptured();
 }
 
 $List* Infer$InferenceStep::filterBounds($Type$UndetVar* uv, $InferenceContext* inferenceContext) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, var$0, $nc(uv)->getBounds($$new($Type$UndetVar$InferenceBoundArray, {this->ib})));
 	return $Type::filter(var$0, $$new($Infer$BoundFilter, inferenceContext));
 }
 
-void clinit$Infer$InferenceStep($Class* class$) {
+void Infer$InferenceStep::clinit$($Class* clazz) {
 	$init($Type$UndetVar$InferenceBound);
 	$assignStatic(Infer$InferenceStep::EQ, $new($Infer$InferenceStep$1, "EQ"_s, 0, $Type$UndetVar$InferenceBound::EQ));
 	$assignStatic(Infer$InferenceStep::LOWER, $new($Infer$InferenceStep$2, "LOWER"_s, 1, $Type$UndetVar$InferenceBound::LOWER));
@@ -166,7 +109,55 @@ Infer$InferenceStep::Infer$InferenceStep() {
 }
 
 $Class* Infer$InferenceStep::load$($String* name, bool initialize) {
-	$loadClass(Infer$InferenceStep, name, initialize, &_Infer$InferenceStep_ClassInfo_, clinit$Infer$InferenceStep, allocate$Infer$InferenceStep);
+	$FieldInfo fieldInfos$$[] = {
+		{"EQ", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, EQ)},
+		{"LOWER", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, LOWER)},
+		{"THROWS", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, THROWS)},
+		{"UPPER", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, UPPER)},
+		{"UPPER_LEGACY", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, UPPER_LEGACY)},
+		{"CAPTURED", "Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$InferenceStep, CAPTURED)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Infer$InferenceStep, $VALUES)},
+		{"ib", "Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;", nullptr, $FINAL, $field(Infer$InferenceStep, ib)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$InferenceStep, $values, $Infer$InferenceStepArray*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", "(Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", $PRIVATE, $method(Infer$InferenceStep, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
+		{"accepts", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$InferenceStep, accepts, bool, $Type$UndetVar*, $InferenceContext*)},
+		{"filterBounds", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Infer$InferenceStep, filterBounds, $List*, $Type$UndetVar*, $InferenceContext*)},
+		{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, $ABSTRACT, $virtualMethod(Infer$InferenceStep, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$InferenceStep, valueOf, Infer$InferenceStep*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/Infer$InferenceStep;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$InferenceStep, values, $Infer$InferenceStepArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$InferenceStep", "com.sun.tools.javac.comp.Infer", "InferenceStep", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$InferenceStep$6", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$InferenceStep$5", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$InferenceStep$4", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$InferenceStep$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$InferenceStep$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$InferenceStep$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT | $ENUM,
+		"com.sun.tools.javac.comp.Infer$InferenceStep",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$InferenceStep, name, initialize, &classInfo$$, Infer$InferenceStep::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$InferenceStep));
+	});
 	return class$;
 }
 

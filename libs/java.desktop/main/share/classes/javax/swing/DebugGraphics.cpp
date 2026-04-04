@@ -1,5 +1,4 @@
 #include <javax/swing/DebugGraphics.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
@@ -43,7 +42,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
 using $FilteredImageSource = ::java::awt::image::FilteredImageSource;
-using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ImageProducer = ::java::awt::image::ImageProducer;
 using $PrintStream = ::java::io::PrintStream;
@@ -52,7 +50,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $Hashtable = ::java::util::Hashtable;
 using $DebugGraphicsFilter = ::javax::swing::DebugGraphicsFilter;
 using $DebugGraphicsInfo = ::javax::swing::DebugGraphicsInfo;
 using $DebugGraphicsObserver = ::javax::swing::DebugGraphicsObserver;
@@ -63,110 +60,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DebugGraphics_FieldInfo_[] = {
-	{"graphics", "Ljava/awt/Graphics;", nullptr, 0, $field(DebugGraphics, graphics)},
-	{"buffer", "Ljava/awt/Image;", nullptr, 0, $field(DebugGraphics, buffer)},
-	{"debugOptions", "I", nullptr, 0, $field(DebugGraphics, debugOptions)},
-	{"graphicsID", "I", nullptr, 0, $field(DebugGraphics, graphicsID)},
-	{"xOffset", "I", nullptr, 0, $field(DebugGraphics, xOffset)},
-	{"yOffset", "I", nullptr, 0, $field(DebugGraphics, yOffset)},
-	{"graphicsCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(DebugGraphics, graphicsCount)},
-	{"imageLoadingIcon", "Ljavax/swing/ImageIcon;", nullptr, $PRIVATE | $STATIC, $staticField(DebugGraphics, imageLoadingIcon)},
-	{"LOG_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DebugGraphics, LOG_OPTION)},
-	{"FLASH_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DebugGraphics, FLASH_OPTION)},
-	{"BUFFERED_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DebugGraphics, BUFFERED_OPTION)},
-	{"NONE_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DebugGraphics, NONE_OPTION)},
-	{"debugGraphicsInfoKey", "Ljava/lang/Class;", "Ljava/lang/Class<Ljavax/swing/DebugGraphicsInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DebugGraphics, debugGraphicsInfoKey)},
-	{}
-};
-
-$MethodInfo _DebugGraphics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DebugGraphics, init$, void)},
-	{"<init>", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(DebugGraphics, init$, void, $Graphics*, $JComponent*)},
-	{"<init>", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $method(DebugGraphics, init$, void, $Graphics*)},
-	{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, create, $Graphics*)},
-	{"create", "(IIII)Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, create, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"debugBuffered", "()Z", nullptr, 0, $virtualMethod(DebugGraphics, debugBuffered, bool)},
-	{"debugComponentCount", "()I", nullptr, $STATIC, $staticMethod(DebugGraphics, debugComponentCount, int32_t)},
-	{"debugFlash", "()Z", nullptr, 0, $virtualMethod(DebugGraphics, debugFlash, bool)},
-	{"debugGraphics", "()Ljava/awt/Graphics;", nullptr, $PRIVATE, $method(DebugGraphics, debugGraphics, $Graphics*)},
-	{"debugLog", "()Z", nullptr, 0, $virtualMethod(DebugGraphics, debugLog, bool)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, dispose, void)},
-	{"draw3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, draw3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawBytes", "([BIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawBytes, void, $bytes*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawChars", "([CIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawChars, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawPolygon, void, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawPolyline, void, $ints*, $ints*, int32_t)},
-	{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawString, void, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"fill3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fill3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillPolygon, void, $ints*, $ints*, int32_t)},
-	{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"flashColor", "()Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, flashColor, $Color*)},
-	{"flashCount", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, flashCount, int32_t)},
-	{"flashTime", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, flashTime, int32_t)},
-	{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getClip, $Shape*)},
-	{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getClipBounds, $Rectangle*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getColor, $Color*)},
-	{"getDebugOptions", "()I", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getDebugOptions, int32_t)},
-	{"getDebugOptions", "(Ljavax/swing/JComponent;)I", nullptr, $STATIC, $staticMethod(DebugGraphics, getDebugOptions, int32_t, $JComponent*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getFont, $Font*)},
-	{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getFontMetrics, $FontMetrics*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getFontMetrics, $FontMetrics*, $Font*)},
-	{"info", "()Ljavax/swing/DebugGraphicsInfo;", nullptr, $STATIC, $staticMethod(DebugGraphics, info, $DebugGraphicsInfo*)},
-	{"isDrawingBuffer", "()Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, isDrawingBuffer, bool)},
-	{"loadImage", "(Ljava/awt/Image;)V", nullptr, $STATIC, $staticMethod(DebugGraphics, loadImage, void, $Image*)},
-	{"logStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, logStream, $PrintStream*)},
-	{"pointToString", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(DebugGraphics, pointToString, $String*, int32_t, int32_t)},
-	{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setClip, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setClip, void, $Shape*)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setColor, void, $Color*)},
-	{"setDebugOptions", "(I)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setDebugOptions, void, int32_t)},
-	{"setDebugOptions", "(Ljavax/swing/JComponent;I)V", nullptr, $STATIC, $staticMethod(DebugGraphics, setDebugOptions, void, $JComponent*, int32_t)},
-	{"setFlashColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, setFlashColor, void, $Color*)},
-	{"setFlashCount", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, setFlashCount, void, int32_t)},
-	{"setFlashTime", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, setFlashTime, void, int32_t)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setFont, void, $Font*)},
-	{"setLogStream", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, setLogStream, void, $PrintStream*)},
-	{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setPaintMode, void)},
-	{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setXORMode, void, $Color*)},
-	{"shouldComponentDebug", "(Ljavax/swing/JComponent;)I", nullptr, $STATIC, $staticMethod(DebugGraphics, shouldComponentDebug, int32_t, $JComponent*)},
-	{"sleep", "(I)V", nullptr, $FINAL, $method(DebugGraphics, sleep, void, int32_t)},
-	{"toShortString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DebugGraphics, toShortString, $String*)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, translate, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DebugGraphics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.DebugGraphics",
-	"java.awt.Graphics",
-	nullptr,
-	_DebugGraphics_FieldInfo_,
-	_DebugGraphics_MethodInfo_
-};
-
-$Object* allocate$DebugGraphics($Class* clazz) {
-	return $of($alloc(DebugGraphics));
-}
 
 int32_t DebugGraphics::graphicsCount = 0;
 $ImageIcon* DebugGraphics::imageLoadingIcon = nullptr;
@@ -250,9 +143,9 @@ $PrintStream* DebugGraphics::logStream() {
 }
 
 void DebugGraphics::setFont($Font* aFont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (debugLog()) {
-		$nc($(info()))->log($$str({$(toShortString()), " Setting font: "_s, aFont}));
+		$$nc(info())->log($$str({$(toShortString()), " Setting font: "_s, aFont}));
 	}
 	$nc(this->graphics)->setFont(aFont);
 }
@@ -262,9 +155,9 @@ $Font* DebugGraphics::getFont() {
 }
 
 void DebugGraphics::setColor($Color* aColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (debugLog()) {
-		$nc($(info()))->log($$str({$(toShortString()), " Setting color: "_s, aColor}));
+		$$nc(info())->log($$str({$(toShortString()), " Setting color: "_s, aColor}));
 	}
 	$nc(this->graphics)->setColor(aColor);
 }
@@ -282,10 +175,13 @@ $FontMetrics* DebugGraphics::getFontMetrics($Font* f) {
 }
 
 void DebugGraphics::translate(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Translating by: "_s}));
-		$nc($(info()))->log($$concat(var$0, $($new($Point, x, y))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Translating by: "_s);
+		var$0->append($$new($Point, x, y));
+		$$nc(info())->log($$str(var$0));
 	}
 	this->xOffset += x;
 	this->yOffset += y;
@@ -293,17 +189,17 @@ void DebugGraphics::translate(int32_t x, int32_t y) {
 }
 
 void DebugGraphics::setPaintMode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (debugLog()) {
-		$nc($(info()))->log($$str({$(toShortString()), " Setting paint mode"_s}));
+		$$nc(info())->log($$str({$(toShortString()), " Setting paint mode"_s}));
 	}
 	$nc(this->graphics)->setPaintMode();
 }
 
 void DebugGraphics::setXORMode($Color* aColor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (debugLog()) {
-		$nc($(info()))->log($$str({$(toShortString()), " Setting XOR mode: "_s, aColor}));
+		$$nc(info())->log($$str({$(toShortString()), " Setting XOR mode: "_s, aColor}));
 	}
 	$nc(this->graphics)->setXORMode(aColor);
 }
@@ -313,22 +209,28 @@ $Rectangle* DebugGraphics::getClipBounds() {
 }
 
 void DebugGraphics::clipRect(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->graphics)->clipRect(x, y, width, height);
 	if (debugLog()) {
-		$var($String, var$2, $$str({$(toShortString()), " Setting clipRect: "_s}));
-		$var($String, var$1, $$concat(var$2, $(($new($Rectangle, x, y, width, height)))));
-		$var($String, var$0, $$concat(var$1, " New clipRect: "_s));
-		$nc($(info()))->log($$concat(var$0, $($nc(this->graphics)->getClip())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Setting clipRect: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(" New clipRect: "_s);
+		var$0->append($($nc(this->graphics)->getClip()));
+		$$nc(info())->log($$str(var$0));
 	}
 }
 
 void DebugGraphics::setClip(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->graphics)->setClip(x, y, width, height);
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Setting new clipRect: "_s}));
-		$nc($(info()))->log($$concat(var$0, $($nc(this->graphics)->getClip())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Setting new clipRect: "_s);
+		var$0->append($($nc(this->graphics)->getClip()));
+		$$nc(info())->log($$str(var$0));
 	}
 }
 
@@ -337,20 +239,26 @@ $Shape* DebugGraphics::getClip() {
 }
 
 void DebugGraphics::setClip($Shape* clip) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->graphics)->setClip(clip);
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Setting new clipRect: "_s}));
-		$nc($(info()))->log($$concat(var$0, $($nc(this->graphics)->getClip())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Setting new clipRect: "_s);
+		var$0->append($($nc(this->graphics)->getClip()));
+		$$nc(info())->log($$str(var$0));
 	}
 }
 
 void DebugGraphics::drawRect(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Drawing rect: "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Rectangle, x, y, width, height))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing rect: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -365,7 +273,7 @@ void DebugGraphics::drawRect(int32_t x, int32_t y, int32_t width, int32_t height
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawRect(x, y, width, height);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -374,11 +282,14 @@ void DebugGraphics::drawRect(int32_t x, int32_t y, int32_t width, int32_t height
 }
 
 void DebugGraphics::fillRect(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Filling rect: "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Rectangle, x, y, width, height))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Filling rect: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -393,7 +304,7 @@ void DebugGraphics::fillRect(int32_t x, int32_t y, int32_t width, int32_t height
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->fillRect(x, y, width, height);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -402,11 +313,14 @@ void DebugGraphics::fillRect(int32_t x, int32_t y, int32_t width, int32_t height
 }
 
 void DebugGraphics::clearRect(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Clearing rect: "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Rectangle, x, y, width, height))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Clearing rect: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -421,7 +335,7 @@ void DebugGraphics::clearRect(int32_t x, int32_t y, int32_t width, int32_t heigh
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->clearRect(x, y, width, height);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -430,15 +344,18 @@ void DebugGraphics::clearRect(int32_t x, int32_t y, int32_t width, int32_t heigh
 }
 
 void DebugGraphics::drawRoundRect(int32_t x, int32_t y, int32_t width, int32_t height, int32_t arcWidth, int32_t arcHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$4, $$str({$(toShortString()), " Drawing round rect: "_s}));
-		$var($String, var$3, $$concat(var$4, $($new($Rectangle, x, y, width, height))));
-		$var($String, var$2, $$concat(var$3, " arcWidth: "_s));
-		$var($String, var$1, $$concat(var$2, $$str(arcWidth)));
-		$var($String, var$0, $$concat(var$1, " archHeight: "_s));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $$str(arcHeight)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing round rect: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(" arcWidth: "_s);
+		var$0->append(arcWidth);
+		var$0->append(" archHeight: "_s);
+		var$0->append(arcHeight);
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -453,7 +370,7 @@ void DebugGraphics::drawRoundRect(int32_t x, int32_t y, int32_t width, int32_t h
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawRoundRect(x, y, width, height, arcWidth, arcHeight);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -462,15 +379,18 @@ void DebugGraphics::drawRoundRect(int32_t x, int32_t y, int32_t width, int32_t h
 }
 
 void DebugGraphics::fillRoundRect(int32_t x, int32_t y, int32_t width, int32_t height, int32_t arcWidth, int32_t arcHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$4, $$str({$(toShortString()), " Filling round rect: "_s}));
-		$var($String, var$3, $$concat(var$4, $($new($Rectangle, x, y, width, height))));
-		$var($String, var$2, $$concat(var$3, " arcWidth: "_s));
-		$var($String, var$1, $$concat(var$2, $$str(arcWidth)));
-		$var($String, var$0, $$concat(var$1, " archHeight: "_s));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $$str(arcHeight)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Filling round rect: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(" arcWidth: "_s);
+		var$0->append(arcWidth);
+		var$0->append(" archHeight: "_s);
+		var$0->append(arcHeight);
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -485,7 +405,7 @@ void DebugGraphics::fillRoundRect(int32_t x, int32_t y, int32_t width, int32_t h
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->fillRoundRect(x, y, width, height, arcWidth, arcHeight);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -494,13 +414,16 @@ void DebugGraphics::fillRoundRect(int32_t x, int32_t y, int32_t width, int32_t h
 }
 
 void DebugGraphics::drawLine(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$2, $$str({$(toShortString()), " Drawing line: from "_s}));
-		$var($String, var$1, $$concat(var$2, $(pointToString(x1, y1))));
-		$var($String, var$0, $$concat(var$1, " to "_s));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $(pointToString(x2, y2))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing line: from "_s);
+		var$0->append($(pointToString(x1, y1)));
+		var$0->append(" to "_s);
+		var$0->append($(pointToString(x2, y2)));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -515,7 +438,7 @@ void DebugGraphics::drawLine(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawLine(x1, y1, x2, y2);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -524,13 +447,16 @@ void DebugGraphics::drawLine(int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
 }
 
 void DebugGraphics::draw3DRect(int32_t x, int32_t y, int32_t width, int32_t height, bool raised) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$2, $$str({$(toShortString()), " Drawing 3D rect: "_s}));
-		$var($String, var$1, $$concat(var$2, $($new($Rectangle, x, y, width, height))));
-		$var($String, var$0, $$concat(var$1, " Raised bezel: "_s));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $$str(raised)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing 3D rect: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(" Raised bezel: "_s);
+		var$0->append(raised);
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -545,7 +471,7 @@ void DebugGraphics::draw3DRect(int32_t x, int32_t y, int32_t width, int32_t heig
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->draw3DRect(x, y, width, height, raised);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -554,13 +480,16 @@ void DebugGraphics::draw3DRect(int32_t x, int32_t y, int32_t width, int32_t heig
 }
 
 void DebugGraphics::fill3DRect(int32_t x, int32_t y, int32_t width, int32_t height, bool raised) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$2, $$str({$(toShortString()), " Filling 3D rect: "_s}));
-		$var($String, var$1, $$concat(var$2, $($new($Rectangle, x, y, width, height))));
-		$var($String, var$0, $$concat(var$1, " Raised bezel: "_s));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $$str(raised)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Filling 3D rect: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(" Raised bezel: "_s);
+		var$0->append(raised);
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -575,7 +504,7 @@ void DebugGraphics::fill3DRect(int32_t x, int32_t y, int32_t width, int32_t heig
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->fill3DRect(x, y, width, height, raised);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -584,11 +513,14 @@ void DebugGraphics::fill3DRect(int32_t x, int32_t y, int32_t width, int32_t heig
 }
 
 void DebugGraphics::drawOval(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Drawing oval: "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Rectangle, x, y, width, height))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing oval: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -603,7 +535,7 @@ void DebugGraphics::drawOval(int32_t x, int32_t y, int32_t width, int32_t height
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawOval(x, y, width, height);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -612,11 +544,14 @@ void DebugGraphics::drawOval(int32_t x, int32_t y, int32_t width, int32_t height
 }
 
 void DebugGraphics::fillOval(int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Filling oval: "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Rectangle, x, y, width, height))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Filling oval: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -631,7 +566,7 @@ void DebugGraphics::fillOval(int32_t x, int32_t y, int32_t width, int32_t height
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->fillOval(x, y, width, height);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -640,15 +575,18 @@ void DebugGraphics::fillOval(int32_t x, int32_t y, int32_t width, int32_t height
 }
 
 void DebugGraphics::drawArc(int32_t x, int32_t y, int32_t width, int32_t height, int32_t startAngle, int32_t arcAngle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$4, $$str({$(toShortString()), " Drawing arc: "_s}));
-		$var($String, var$3, $$concat(var$4, $($new($Rectangle, x, y, width, height))));
-		$var($String, var$2, $$concat(var$3, " startAngle: "_s));
-		$var($String, var$1, $$concat(var$2, $$str(startAngle)));
-		$var($String, var$0, $$concat(var$1, " arcAngle: "_s));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $$str(arcAngle)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing arc: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(" startAngle: "_s);
+		var$0->append(startAngle);
+		var$0->append(" arcAngle: "_s);
+		var$0->append(arcAngle);
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -663,7 +601,7 @@ void DebugGraphics::drawArc(int32_t x, int32_t y, int32_t width, int32_t height,
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawArc(x, y, width, height, startAngle, arcAngle);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -672,15 +610,18 @@ void DebugGraphics::drawArc(int32_t x, int32_t y, int32_t width, int32_t height,
 }
 
 void DebugGraphics::fillArc(int32_t x, int32_t y, int32_t width, int32_t height, int32_t startAngle, int32_t arcAngle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$4, $$str({$(toShortString()), " Filling arc: "_s}));
-		$var($String, var$3, $$concat(var$4, $($new($Rectangle, x, y, width, height))));
-		$var($String, var$2, $$concat(var$3, " startAngle: "_s));
-		$var($String, var$1, $$concat(var$2, $$str(startAngle)));
-		$var($String, var$0, $$concat(var$1, " arcAngle: "_s));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $$str(arcAngle)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Filling arc: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(" startAngle: "_s);
+		var$0->append(startAngle);
+		var$0->append(" arcAngle: "_s);
+		var$0->append(arcAngle);
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -695,7 +636,7 @@ void DebugGraphics::fillArc(int32_t x, int32_t y, int32_t width, int32_t height,
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->fillArc(x, y, width, height, startAngle, arcAngle);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -704,10 +645,10 @@ void DebugGraphics::fillArc(int32_t x, int32_t y, int32_t width, int32_t height,
 }
 
 void DebugGraphics::drawPolyline($ints* xPoints, $ints* yPoints, int32_t nPoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$nc($(DebugGraphics::info()))->log($$str({$(toShortString()), " Drawing polyline:  nPoints: "_s, $$str(nPoints), " X\'s: "_s, xPoints, " Y\'s: "_s, yPoints}));
+		$$nc(DebugGraphics::info())->log($$str({$(toShortString()), " Drawing polyline:  nPoints: "_s, $$str(nPoints), " X\'s: "_s, xPoints, " Y\'s: "_s, yPoints}));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -722,7 +663,7 @@ void DebugGraphics::drawPolyline($ints* xPoints, $ints* yPoints, int32_t nPoints
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawPolyline(xPoints, yPoints, nPoints);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -731,10 +672,10 @@ void DebugGraphics::drawPolyline($ints* xPoints, $ints* yPoints, int32_t nPoints
 }
 
 void DebugGraphics::drawPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$nc($(DebugGraphics::info()))->log($$str({$(toShortString()), " Drawing polygon:  nPoints: "_s, $$str(nPoints), " X\'s: "_s, xPoints, " Y\'s: "_s, yPoints}));
+		$$nc(DebugGraphics::info())->log($$str({$(toShortString()), " Drawing polygon:  nPoints: "_s, $$str(nPoints), " X\'s: "_s, xPoints, " Y\'s: "_s, yPoints}));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -749,7 +690,7 @@ void DebugGraphics::drawPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints)
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawPolygon(xPoints, yPoints, nPoints);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -758,10 +699,10 @@ void DebugGraphics::drawPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints)
 }
 
 void DebugGraphics::fillPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$nc($(DebugGraphics::info()))->log($$str({$(toShortString()), " Filling polygon:  nPoints: "_s, $$str(nPoints), " X\'s: "_s, xPoints, " Y\'s: "_s, yPoints}));
+		$$nc(DebugGraphics::info())->log($$str({$(toShortString()), " Filling polygon:  nPoints: "_s, $$str(nPoints), " X\'s: "_s, xPoints, " Y\'s: "_s, yPoints}));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -776,7 +717,7 @@ void DebugGraphics::fillPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints)
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->fillPolygon(xPoints, yPoints, nPoints);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -785,11 +726,16 @@ void DebugGraphics::fillPolygon($ints* xPoints, $ints* yPoints, int32_t nPoints)
 }
 
 void DebugGraphics::drawString($String* aString, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Drawing string: \""_s, aString, "\" at: "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Point, x, y))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing string: \""_s);
+		var$0->append(aString);
+		var$0->append("\" at: "_s);
+		var$0->append($$new($Point, x, y));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -804,7 +750,7 @@ void DebugGraphics::drawString($String* aString, int32_t x, int32_t y) {
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawString(aString, x, y);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -813,11 +759,16 @@ void DebugGraphics::drawString($String* aString, int32_t x, int32_t y) {
 }
 
 void DebugGraphics::drawString($AttributedCharacterIterator* iterator, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Drawing text: \""_s, iterator, "\" at: "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Point, x, y))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing text: \""_s);
+		var$0->append(iterator);
+		var$0->append("\" at: "_s);
+		var$0->append($$new($Point, x, y));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -832,7 +783,7 @@ void DebugGraphics::drawString($AttributedCharacterIterator* iterator, int32_t x
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawString(iterator, x, y);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -841,12 +792,15 @@ void DebugGraphics::drawString($AttributedCharacterIterator* iterator, int32_t x
 }
 
 void DebugGraphics::drawBytes($bytes* data, int32_t offset, int32_t length, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	$var($Font, font, $nc(this->graphics)->getFont());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Drawing bytes at: "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Point, x, y))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing bytes at: "_s);
+		var$0->append($$new($Point, x, y));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -861,7 +815,7 @@ void DebugGraphics::drawBytes($bytes* data, int32_t offset, int32_t length, int3
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawBytes(data, offset, length, x, y);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -870,12 +824,15 @@ void DebugGraphics::drawBytes($bytes* data, int32_t offset, int32_t length, int3
 }
 
 void DebugGraphics::drawChars($chars* data, int32_t offset, int32_t length, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	$var($Font, font, $nc(this->graphics)->getFont());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Drawing chars at "_s}));
-		$nc($(DebugGraphics::info()))->log($$concat(var$0, $($new($Point, x, y))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing chars at "_s);
+		var$0->append($$new($Point, x, y));
+		$$nc(DebugGraphics::info())->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -890,7 +847,7 @@ void DebugGraphics::drawChars($chars* data, int32_t offset, int32_t length, int3
 		for (i = 0; i < count; ++i) {
 			$nc(this->graphics)->setColor((i % 2) == 0 ? info->flashColor : oldColor);
 			$nc(this->graphics)->drawChars(data, offset, length, x, y);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 		$nc(this->graphics)->setColor(oldColor);
@@ -899,11 +856,16 @@ void DebugGraphics::drawChars($chars* data, int32_t offset, int32_t length, int3
 }
 
 bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Drawing image: "_s, img, " at: "_s}));
-		$nc(info)->log($$concat(var$0, $($new($Point, x, y))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing image: "_s);
+		var$0->append(img);
+		var$0->append(" at: "_s);
+		var$0->append($$new($Point, x, y));
+		$nc(info)->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -916,14 +878,14 @@ bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, $ImageObserver*
 		int32_t count = ($nc(info)->flashCount * 2) - 1;
 		$var($ImageProducer, oldProducer, $nc(img)->getSource());
 		$var($ImageProducer, newProducer, $new($FilteredImageSource, oldProducer, $$new($DebugGraphicsFilter, info->flashColor)));
-		$var($Image, newImage, $nc($($Toolkit::getDefaultToolkit()))->createImage(newProducer));
+		$var($Image, newImage, $$nc($Toolkit::getDefaultToolkit())->createImage(newProducer));
 		$var($DebugGraphicsObserver, imageObserver, $new($DebugGraphicsObserver));
 		$var($Image, imageToDraw, nullptr);
 		for (i = 0; i < count; ++i) {
 			$assign(imageToDraw, (i % 2) == 0 ? newImage : img);
 			loadImage(imageToDraw);
 			$nc(this->graphics)->drawImage(imageToDraw, x, y, imageObserver);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 	}
@@ -931,11 +893,16 @@ bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, $ImageObserver*
 }
 
 bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, int32_t width, int32_t height, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$0, $$str({$(toShortString()), " Drawing image: "_s, img, " at: "_s}));
-		$nc(info)->log($$concat(var$0, $($new($Rectangle, x, y, width, height))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing image: "_s);
+		var$0->append(img);
+		var$0->append(" at: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		$nc(info)->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -948,14 +915,14 @@ bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, int32_t width, 
 		int32_t count = ($nc(info)->flashCount * 2) - 1;
 		$var($ImageProducer, oldProducer, $nc(img)->getSource());
 		$var($ImageProducer, newProducer, $new($FilteredImageSource, oldProducer, $$new($DebugGraphicsFilter, info->flashColor)));
-		$var($Image, newImage, $nc($($Toolkit::getDefaultToolkit()))->createImage(newProducer));
+		$var($Image, newImage, $$nc($Toolkit::getDefaultToolkit())->createImage(newProducer));
 		$var($DebugGraphicsObserver, imageObserver, $new($DebugGraphicsObserver));
 		$var($Image, imageToDraw, nullptr);
 		for (i = 0; i < count; ++i) {
 			$assign(imageToDraw, (i % 2) == 0 ? newImage : img);
 			loadImage(imageToDraw);
 			$nc(this->graphics)->drawImage(imageToDraw, x, y, width, height, imageObserver);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 	}
@@ -963,13 +930,18 @@ bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, int32_t width, 
 }
 
 bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, $Color* bgcolor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$2, $$str({$(toShortString()), " Drawing image: "_s, img, " at: "_s}));
-		$var($String, var$1, $$concat(var$2, $($new($Point, x, y))));
-		$var($String, var$0, $$concat(var$1, ", bgcolor: "_s));
-		$nc(info)->log($$concat(var$0, $(bgcolor)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing image: "_s);
+		var$0->append(img);
+		var$0->append(" at: "_s);
+		var$0->append($$new($Point, x, y));
+		var$0->append(", bgcolor: "_s);
+		var$0->append(bgcolor);
+		$nc(info)->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -982,14 +954,14 @@ bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, $Color* bgcolor
 		int32_t count = ($nc(info)->flashCount * 2) - 1;
 		$var($ImageProducer, oldProducer, $nc(img)->getSource());
 		$var($ImageProducer, newProducer, $new($FilteredImageSource, oldProducer, $$new($DebugGraphicsFilter, info->flashColor)));
-		$var($Image, newImage, $nc($($Toolkit::getDefaultToolkit()))->createImage(newProducer));
+		$var($Image, newImage, $$nc($Toolkit::getDefaultToolkit())->createImage(newProducer));
 		$var($DebugGraphicsObserver, imageObserver, $new($DebugGraphicsObserver));
 		$var($Image, imageToDraw, nullptr);
 		for (i = 0; i < count; ++i) {
 			$assign(imageToDraw, (i % 2) == 0 ? newImage : img);
 			loadImage(imageToDraw);
 			$nc(this->graphics)->drawImage(imageToDraw, x, y, bgcolor, imageObserver);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 	}
@@ -997,13 +969,18 @@ bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, $Color* bgcolor
 }
 
 bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, int32_t width, int32_t height, $Color* bgcolor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$2, $$str({$(toShortString()), " Drawing image: "_s, img, " at: "_s}));
-		$var($String, var$1, $$concat(var$2, $($new($Rectangle, x, y, width, height))));
-		$var($String, var$0, $$concat(var$1, ", bgcolor: "_s));
-		$nc(info)->log($$concat(var$0, $(bgcolor)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing image: "_s);
+		var$0->append(img);
+		var$0->append(" at: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(", bgcolor: "_s);
+		var$0->append(bgcolor);
+		$nc(info)->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -1016,14 +993,14 @@ bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, int32_t width, 
 		int32_t count = ($nc(info)->flashCount * 2) - 1;
 		$var($ImageProducer, oldProducer, $nc(img)->getSource());
 		$var($ImageProducer, newProducer, $new($FilteredImageSource, oldProducer, $$new($DebugGraphicsFilter, info->flashColor)));
-		$var($Image, newImage, $nc($($Toolkit::getDefaultToolkit()))->createImage(newProducer));
+		$var($Image, newImage, $$nc($Toolkit::getDefaultToolkit())->createImage(newProducer));
 		$var($DebugGraphicsObserver, imageObserver, $new($DebugGraphicsObserver));
 		$var($Image, imageToDraw, nullptr);
 		for (i = 0; i < count; ++i) {
 			$assign(imageToDraw, (i % 2) == 0 ? newImage : img);
 			loadImage(imageToDraw);
 			$nc(this->graphics)->drawImage(imageToDraw, x, y, width, height, bgcolor, imageObserver);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 	}
@@ -1031,13 +1008,18 @@ bool DebugGraphics::drawImage($Image* img, int32_t x, int32_t y, int32_t width, 
 }
 
 bool DebugGraphics::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$2, $$str({$(toShortString()), " Drawing image: "_s, img, " destination: "_s}));
-		$var($String, var$1, $$concat(var$2, $($new($Rectangle, dx1, dy1, dx2, dy2))));
-		$var($String, var$0, $$concat(var$1, " source: "_s));
-		$nc(info)->log($$concat(var$0, $($new($Rectangle, sx1, sy1, sx2, sy2))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing image: "_s);
+		var$0->append(img);
+		var$0->append(" destination: "_s);
+		var$0->append($$new($Rectangle, dx1, dy1, dx2, dy2));
+		var$0->append(" source: "_s);
+		var$0->append($$new($Rectangle, sx1, sy1, sx2, sy2));
+		$nc(info)->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -1050,14 +1032,14 @@ bool DebugGraphics::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2
 		int32_t count = ($nc(info)->flashCount * 2) - 1;
 		$var($ImageProducer, oldProducer, $nc(img)->getSource());
 		$var($ImageProducer, newProducer, $new($FilteredImageSource, oldProducer, $$new($DebugGraphicsFilter, info->flashColor)));
-		$var($Image, newImage, $nc($($Toolkit::getDefaultToolkit()))->createImage(newProducer));
+		$var($Image, newImage, $$nc($Toolkit::getDefaultToolkit())->createImage(newProducer));
 		$var($DebugGraphicsObserver, imageObserver, $new($DebugGraphicsObserver));
 		$var($Image, imageToDraw, nullptr);
 		for (i = 0; i < count; ++i) {
 			$assign(imageToDraw, (i % 2) == 0 ? newImage : img);
 			loadImage(imageToDraw);
 			$nc(this->graphics)->drawImage(imageToDraw, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, imageObserver);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 	}
@@ -1065,15 +1047,20 @@ bool DebugGraphics::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2
 }
 
 bool DebugGraphics::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2, int32_t dy2, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, $Color* bgcolor, $ImageObserver* observer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (debugLog()) {
-		$var($String, var$4, $$str({$(toShortString()), " Drawing image: "_s, img, " destination: "_s}));
-		$var($String, var$3, $$concat(var$4, $($new($Rectangle, dx1, dy1, dx2, dy2))));
-		$var($String, var$2, $$concat(var$3, " source: "_s));
-		$var($String, var$1, $$concat(var$2, $($new($Rectangle, sx1, sy1, sx2, sy2))));
-		$var($String, var$0, $$concat(var$1, ", bgcolor: "_s));
-		$nc(info)->log($$concat(var$0, $(bgcolor)));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Drawing image: "_s);
+		var$0->append(img);
+		var$0->append(" destination: "_s);
+		var$0->append($$new($Rectangle, dx1, dy1, dx2, dy2));
+		var$0->append(" source: "_s);
+		var$0->append($$new($Rectangle, sx1, sy1, sx2, sy2));
+		var$0->append(", bgcolor: "_s);
+		var$0->append(bgcolor);
+		$nc(info)->log($$str(var$0));
 	}
 	if (isDrawingBuffer()) {
 		if (debugBuffered()) {
@@ -1086,14 +1073,14 @@ bool DebugGraphics::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t dx2
 		int32_t count = ($nc(info)->flashCount * 2) - 1;
 		$var($ImageProducer, oldProducer, $nc(img)->getSource());
 		$var($ImageProducer, newProducer, $new($FilteredImageSource, oldProducer, $$new($DebugGraphicsFilter, info->flashColor)));
-		$var($Image, newImage, $nc($($Toolkit::getDefaultToolkit()))->createImage(newProducer));
+		$var($Image, newImage, $$nc($Toolkit::getDefaultToolkit())->createImage(newProducer));
 		$var($DebugGraphicsObserver, imageObserver, $new($DebugGraphicsObserver));
 		$var($Image, imageToDraw, nullptr);
 		for (i = 0; i < count; ++i) {
 			$assign(imageToDraw, (i % 2) == 0 ? newImage : img);
 			loadImage(imageToDraw);
 			$nc(this->graphics)->drawImage(imageToDraw, dx1, dy1, dx2, dy2, sx1, sy1, sx2, sy2, bgcolor, imageObserver);
-			$nc($($Toolkit::getDefaultToolkit()))->sync();
+			$$nc($Toolkit::getDefaultToolkit())->sync();
 			sleep(info->flashTime);
 		}
 	}
@@ -1106,12 +1093,15 @@ void DebugGraphics::loadImage($Image* img) {
 }
 
 void DebugGraphics::copyArea(int32_t x, int32_t y, int32_t width, int32_t height, int32_t destX, int32_t destY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (debugLog()) {
-		$var($String, var$2, $$str({$(toShortString()), " Copying area from: "_s}));
-		$var($String, var$1, $$concat(var$2, $($new($Rectangle, x, y, width, height))));
-		$var($String, var$0, $$concat(var$1, " to: "_s));
-		$nc($(info()))->log($$concat(var$0, $($new($Point, destX, destY))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($(toShortString()));
+		var$0->append(" Copying area from: "_s);
+		var$0->append($$new($Rectangle, x, y, width, height));
+		var$0->append(" to: "_s);
+		var$0->append($$new($Point, destX, destY));
+		$$nc(info())->log($$str(var$0));
 	}
 	$nc(this->graphics)->copyArea(x, y, width, height, destX, destY);
 }
@@ -1133,17 +1123,17 @@ bool DebugGraphics::isDrawingBuffer() {
 }
 
 $String* DebugGraphics::toShortString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Graphics"_s, (isDrawingBuffer() ? "<B>"_s : ""_s), "("_s, $$str(this->graphicsID), "-"_s, $$str(this->debugOptions), ")"_s});
 }
 
 $String* DebugGraphics::pointToString(int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"("_s, $$str(x), ", "_s, $$str(y), ")"_s});
 }
 
 void DebugGraphics::setDebugOptions(int32_t options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (options != 0) {
 		if (options == DebugGraphics::NONE_OPTION) {
 			if (this->debugOptions != 0) {
@@ -1165,7 +1155,7 @@ int32_t DebugGraphics::getDebugOptions() {
 
 void DebugGraphics::setDebugOptions($JComponent* component, int32_t options) {
 	$init(DebugGraphics);
-	$nc($(info()))->setDebugOptions(component, options);
+	$$nc(info())->setDebugOptions(component, options);
 }
 
 int32_t DebugGraphics::getDebugOptions($JComponent* component) {
@@ -1174,21 +1164,21 @@ int32_t DebugGraphics::getDebugOptions($JComponent* component) {
 	if (debugGraphicsInfo == nullptr) {
 		return 0;
 	} else {
-		return $nc(debugGraphicsInfo)->getDebugOptions(component);
+		return debugGraphicsInfo->getDebugOptions(component);
 	}
 }
 
 int32_t DebugGraphics::shouldComponentDebug($JComponent* component) {
 	$init(DebugGraphics);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	if (info == nullptr) {
 		return 0;
 	} else {
-		$var($Container, container, static_cast<$Container*>(component));
+		$var($Container, container, $cast($Container, component));
 		int32_t debugOptions = 0;
 		while (container != nullptr && ($instanceOf($JComponent, container))) {
-			debugOptions |= $nc(info)->getDebugOptions($cast($JComponent, container));
+			debugOptions |= info->getDebugOptions($cast($JComponent, container));
 			$assign(container, container->getParent());
 		}
 		return debugOptions;
@@ -1199,34 +1189,34 @@ int32_t DebugGraphics::debugComponentCount() {
 	$init(DebugGraphics);
 	$var($DebugGraphicsInfo, debugGraphicsInfo, info());
 	if (debugGraphicsInfo != nullptr && debugGraphicsInfo->componentToDebug != nullptr) {
-		return $nc(debugGraphicsInfo->componentToDebug)->size();
+		return debugGraphicsInfo->componentToDebug->size();
 	} else {
 		return 0;
 	}
 }
 
 bool DebugGraphics::debugLog() {
-	return ((int32_t)(this->debugOptions & (uint32_t)DebugGraphics::LOG_OPTION)) == DebugGraphics::LOG_OPTION;
+	return (this->debugOptions & DebugGraphics::LOG_OPTION) == DebugGraphics::LOG_OPTION;
 }
 
 bool DebugGraphics::debugFlash() {
-	return ((int32_t)(this->debugOptions & (uint32_t)DebugGraphics::FLASH_OPTION)) == DebugGraphics::FLASH_OPTION;
+	return (this->debugOptions & DebugGraphics::FLASH_OPTION) == DebugGraphics::FLASH_OPTION;
 }
 
 bool DebugGraphics::debugBuffered() {
-	return ((int32_t)(this->debugOptions & (uint32_t)DebugGraphics::BUFFERED_OPTION)) == DebugGraphics::BUFFERED_OPTION;
+	return (this->debugOptions & DebugGraphics::BUFFERED_OPTION) == DebugGraphics::BUFFERED_OPTION;
 }
 
 $Graphics* DebugGraphics::debugGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(DebugGraphics, debugGraphics, nullptr);
 	$var($DebugGraphicsInfo, info, DebugGraphics::info());
 	$var($JFrame, debugFrame, nullptr);
 	if ($nc(info)->debugFrame == nullptr) {
 		$set(info, debugFrame, $new($JFrame));
-		$nc(info->debugFrame)->setSize(500, 500);
+		info->debugFrame->setSize(500, 500);
 	}
-	$assign(debugFrame, $nc(info)->debugFrame);
+	$assign(debugFrame, info->debugFrame);
 	$nc(debugFrame)->show();
 	$assign(debugGraphics, $new(DebugGraphics, $(debugFrame->getGraphics())));
 	debugGraphics->setFont($(getFont()));
@@ -1249,7 +1239,7 @@ $DebugGraphicsInfo* DebugGraphics::info() {
 	return debugGraphicsInfo;
 }
 
-void clinit$DebugGraphics($Class* class$) {
+void DebugGraphics::clinit$($Class* clazz) {
 	DebugGraphics::graphicsCount = 0;
 	$assignStatic(DebugGraphics::imageLoadingIcon, $new($ImageIcon));
 	{
@@ -1264,7 +1254,106 @@ DebugGraphics::DebugGraphics() {
 }
 
 $Class* DebugGraphics::load$($String* name, bool initialize) {
-	$loadClass(DebugGraphics, name, initialize, &_DebugGraphics_ClassInfo_, clinit$DebugGraphics, allocate$DebugGraphics);
+	$FieldInfo fieldInfos$$[] = {
+		{"graphics", "Ljava/awt/Graphics;", nullptr, 0, $field(DebugGraphics, graphics)},
+		{"buffer", "Ljava/awt/Image;", nullptr, 0, $field(DebugGraphics, buffer)},
+		{"debugOptions", "I", nullptr, 0, $field(DebugGraphics, debugOptions)},
+		{"graphicsID", "I", nullptr, 0, $field(DebugGraphics, graphicsID)},
+		{"xOffset", "I", nullptr, 0, $field(DebugGraphics, xOffset)},
+		{"yOffset", "I", nullptr, 0, $field(DebugGraphics, yOffset)},
+		{"graphicsCount", "I", nullptr, $PRIVATE | $STATIC, $staticField(DebugGraphics, graphicsCount)},
+		{"imageLoadingIcon", "Ljavax/swing/ImageIcon;", nullptr, $PRIVATE | $STATIC, $staticField(DebugGraphics, imageLoadingIcon)},
+		{"LOG_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DebugGraphics, LOG_OPTION)},
+		{"FLASH_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DebugGraphics, FLASH_OPTION)},
+		{"BUFFERED_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DebugGraphics, BUFFERED_OPTION)},
+		{"NONE_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DebugGraphics, NONE_OPTION)},
+		{"debugGraphicsInfoKey", "Ljava/lang/Class;", "Ljava/lang/Class<Ljavax/swing/DebugGraphicsInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DebugGraphics, debugGraphicsInfoKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DebugGraphics, init$, void)},
+		{"<init>", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(DebugGraphics, init$, void, $Graphics*, $JComponent*)},
+		{"<init>", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $method(DebugGraphics, init$, void, $Graphics*)},
+		{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, create, $Graphics*)},
+		{"create", "(IIII)Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, create, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"debugBuffered", "()Z", nullptr, 0, $virtualMethod(DebugGraphics, debugBuffered, bool)},
+		{"debugComponentCount", "()I", nullptr, $STATIC, $staticMethod(DebugGraphics, debugComponentCount, int32_t)},
+		{"debugFlash", "()Z", nullptr, 0, $virtualMethod(DebugGraphics, debugFlash, bool)},
+		{"debugGraphics", "()Ljava/awt/Graphics;", nullptr, $PRIVATE, $method(DebugGraphics, debugGraphics, $Graphics*)},
+		{"debugLog", "()Z", nullptr, 0, $virtualMethod(DebugGraphics, debugLog, bool)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, dispose, void)},
+		{"draw3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, draw3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawBytes", "([BIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawBytes, void, $bytes*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawChars", "([CIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawChars, void, $chars*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawPolygon, void, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawPolyline, void, $ints*, $ints*, int32_t)},
+		{"drawRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawString, void, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"fill3DRect", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fill3DRect, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillPolygon, void, $ints*, $ints*, int32_t)},
+		{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"flashColor", "()Ljava/awt/Color;", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, flashColor, $Color*)},
+		{"flashCount", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, flashCount, int32_t)},
+		{"flashTime", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, flashTime, int32_t)},
+		{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getClip, $Shape*)},
+		{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getClipBounds, $Rectangle*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getColor, $Color*)},
+		{"getDebugOptions", "()I", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getDebugOptions, int32_t)},
+		{"getDebugOptions", "(Ljavax/swing/JComponent;)I", nullptr, $STATIC, $staticMethod(DebugGraphics, getDebugOptions, int32_t, $JComponent*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getFont, $Font*)},
+		{"getFontMetrics", "()Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getFontMetrics, $FontMetrics*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, getFontMetrics, $FontMetrics*, $Font*)},
+		{"info", "()Ljavax/swing/DebugGraphicsInfo;", nullptr, $STATIC, $staticMethod(DebugGraphics, info, $DebugGraphicsInfo*)},
+		{"isDrawingBuffer", "()Z", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, isDrawingBuffer, bool)},
+		{"loadImage", "(Ljava/awt/Image;)V", nullptr, $STATIC, $staticMethod(DebugGraphics, loadImage, void, $Image*)},
+		{"logStream", "()Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, logStream, $PrintStream*)},
+		{"pointToString", "(II)Ljava/lang/String;", nullptr, 0, $virtualMethod(DebugGraphics, pointToString, $String*, int32_t, int32_t)},
+		{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setClip, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setClip, void, $Shape*)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setColor, void, $Color*)},
+		{"setDebugOptions", "(I)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setDebugOptions, void, int32_t)},
+		{"setDebugOptions", "(Ljavax/swing/JComponent;I)V", nullptr, $STATIC, $staticMethod(DebugGraphics, setDebugOptions, void, $JComponent*, int32_t)},
+		{"setFlashColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, setFlashColor, void, $Color*)},
+		{"setFlashCount", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, setFlashCount, void, int32_t)},
+		{"setFlashTime", "(I)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, setFlashTime, void, int32_t)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setFont, void, $Font*)},
+		{"setLogStream", "(Ljava/io/PrintStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugGraphics, setLogStream, void, $PrintStream*)},
+		{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setPaintMode, void)},
+		{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, setXORMode, void, $Color*)},
+		{"shouldComponentDebug", "(Ljavax/swing/JComponent;)I", nullptr, $STATIC, $staticMethod(DebugGraphics, shouldComponentDebug, int32_t, $JComponent*)},
+		{"sleep", "(I)V", nullptr, $FINAL, $method(DebugGraphics, sleep, void, int32_t)},
+		{"toShortString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DebugGraphics, toShortString, $String*)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(DebugGraphics, translate, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.DebugGraphics",
+		"java.awt.Graphics",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DebugGraphics, name, initialize, &classInfo$$, DebugGraphics::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DebugGraphics);
+	});
 	return class$;
 }
 

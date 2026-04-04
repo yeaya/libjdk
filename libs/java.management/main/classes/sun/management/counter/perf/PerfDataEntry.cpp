@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/PerfDataEntry.h>
-
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
@@ -42,64 +41,10 @@ namespace sun {
 		namespace counter {
 			namespace perf {
 
-$FieldInfo _PerfDataEntry_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PerfDataEntry, $assertionsDisabled)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PerfDataEntry, name$)},
-	{"entryStart", "I", nullptr, $PRIVATE, $field(PerfDataEntry, entryStart)},
-	{"entryLength", "I", nullptr, $PRIVATE, $field(PerfDataEntry, entryLength)},
-	{"vectorLength", "I", nullptr, $PRIVATE, $field(PerfDataEntry, vectorLength$)},
-	{"dataType", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PRIVATE, $field(PerfDataEntry, dataType)},
-	{"flags", "I", nullptr, $PRIVATE, $field(PerfDataEntry, flags$)},
-	{"unit", "Lsun/management/counter/Units;", nullptr, $PRIVATE, $field(PerfDataEntry, unit)},
-	{"variability", "Lsun/management/counter/Variability;", nullptr, $PRIVATE, $field(PerfDataEntry, variability$)},
-	{"dataOffset", "I", nullptr, $PRIVATE, $field(PerfDataEntry, dataOffset)},
-	{"dataSize", "I", nullptr, $PRIVATE, $field(PerfDataEntry, dataSize)},
-	{"data", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(PerfDataEntry, data)},
-	{}
-};
-
-$MethodInfo _PerfDataEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(PerfDataEntry, init$, void, $ByteBuffer*)},
-	{"byteData", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, byteData, $ByteBuffer*)},
-	{"flags", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, flags, int32_t)},
-	{"longData", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, longData, $LongBuffer*)},
-	{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, name, $String*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, size, int32_t)},
-	{"type", "()Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, type, $PerfDataType*)},
-	{"units", "()Lsun/management/counter/Units;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, units, $Units*)},
-	{"variability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, variability, $Variability*)},
-	{"vectorLength", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, vectorLength, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PerfDataEntry_InnerClassesInfo_[] = {
-	{"sun.management.counter.perf.PerfDataEntry$EntryFieldOffset", "sun.management.counter.perf.PerfDataEntry", "EntryFieldOffset", $PRIVATE},
-	{}
-};
-
-$ClassInfo _PerfDataEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.counter.perf.PerfDataEntry",
-	"java.lang.Object",
-	nullptr,
-	_PerfDataEntry_FieldInfo_,
-	_PerfDataEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PerfDataEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.management.counter.perf.PerfDataEntry$EntryFieldOffset"
-};
-
-$Object* allocate$PerfDataEntry($Class* clazz) {
-	return $of($alloc(PerfDataEntry));
-}
-
 bool PerfDataEntry::$assertionsDisabled = false;
 
 void PerfDataEntry::init$($ByteBuffer* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->entryStart = $nc(b)->position();
 	this->entryLength = b->getInt();
 	if (this->entryLength <= 0 || this->entryLength > b->limit()) {
@@ -129,6 +74,7 @@ void PerfDataEntry::init$($ByteBuffer* b) {
 	int32_t nameLength = 0;
 	int8_t c = 0;
 	for (; (c = b->get()) != (int8_t)0; ++nameLength) {
+		;
 	}
 	$var($bytes, symbolBytes, $new($bytes, nameLength));
 	b->position(this->entryStart + nameOffset);
@@ -206,7 +152,7 @@ $LongBuffer* PerfDataEntry::longData() {
 	return lb;
 }
 
-void clinit$PerfDataEntry($Class* class$) {
+void PerfDataEntry::clinit$($Class* clazz) {
 	PerfDataEntry::$assertionsDisabled = !PerfDataEntry::class$->desiredAssertionStatus();
 }
 
@@ -214,7 +160,55 @@ PerfDataEntry::PerfDataEntry() {
 }
 
 $Class* PerfDataEntry::load$($String* name, bool initialize) {
-	$loadClass(PerfDataEntry, name, initialize, &_PerfDataEntry_ClassInfo_, clinit$PerfDataEntry, allocate$PerfDataEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PerfDataEntry, $assertionsDisabled)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PerfDataEntry, name$)},
+		{"entryStart", "I", nullptr, $PRIVATE, $field(PerfDataEntry, entryStart)},
+		{"entryLength", "I", nullptr, $PRIVATE, $field(PerfDataEntry, entryLength)},
+		{"vectorLength", "I", nullptr, $PRIVATE, $field(PerfDataEntry, vectorLength$)},
+		{"dataType", "Lsun/management/counter/perf/PerfDataType;", nullptr, $PRIVATE, $field(PerfDataEntry, dataType)},
+		{"flags", "I", nullptr, $PRIVATE, $field(PerfDataEntry, flags$)},
+		{"unit", "Lsun/management/counter/Units;", nullptr, $PRIVATE, $field(PerfDataEntry, unit)},
+		{"variability", "Lsun/management/counter/Variability;", nullptr, $PRIVATE, $field(PerfDataEntry, variability$)},
+		{"dataOffset", "I", nullptr, $PRIVATE, $field(PerfDataEntry, dataOffset)},
+		{"dataSize", "I", nullptr, $PRIVATE, $field(PerfDataEntry, dataSize)},
+		{"data", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE, $field(PerfDataEntry, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/ByteBuffer;)V", nullptr, 0, $method(PerfDataEntry, init$, void, $ByteBuffer*)},
+		{"byteData", "()Ljava/nio/ByteBuffer;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, byteData, $ByteBuffer*)},
+		{"flags", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, flags, int32_t)},
+		{"longData", "()Ljava/nio/LongBuffer;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, longData, $LongBuffer*)},
+		{"name", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, name, $String*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, size, int32_t)},
+		{"type", "()Lsun/management/counter/perf/PerfDataType;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, type, $PerfDataType*)},
+		{"units", "()Lsun/management/counter/Units;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, units, $Units*)},
+		{"variability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, variability, $Variability*)},
+		{"vectorLength", "()I", nullptr, $PUBLIC, $virtualMethod(PerfDataEntry, vectorLength, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.counter.perf.PerfDataEntry$EntryFieldOffset", "sun.management.counter.perf.PerfDataEntry", "EntryFieldOffset", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.counter.perf.PerfDataEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.management.counter.perf.PerfDataEntry$EntryFieldOffset"
+	};
+	$loadClass(PerfDataEntry, name, initialize, &classInfo$$, PerfDataEntry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PerfDataEntry);
+	});
 	return class$;
 }
 

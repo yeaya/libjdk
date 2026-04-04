@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LogicalExpr.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
@@ -28,14 +27,12 @@
 #undef OR
 #undef TRUE
 
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
-using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $NotCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NotCall;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
@@ -49,7 +46,6 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -59,43 +55,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _LogicalExpr_FieldInfo_[] = {
-	{"OR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LogicalExpr, OR)},
-	{"AND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LogicalExpr, AND)},
-	{"_op", "I", nullptr, $PRIVATE | $FINAL, $field(LogicalExpr, _op)},
-	{"_left", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(LogicalExpr, _left)},
-	{"_right", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(LogicalExpr, _right)},
-	{"Ops", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LogicalExpr, Ops)},
-	{}
-};
-
-$MethodInfo _LogicalExpr_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;)V", nullptr, $PUBLIC, $method(LogicalExpr, init$, void, int32_t, $Expression*, $Expression*)},
-	{"evaluateAtCompileTime", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, evaluateAtCompileTime, $Object*)},
-	{"getOp", "()I", nullptr, $PUBLIC, $method(LogicalExpr, getOp, int32_t)},
-	{"hasLastCall", "()Z", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, hasLastCall, bool)},
-	{"hasPositionCall", "()Z", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, hasPositionCall, bool)},
-	{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, setParser, void, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _LogicalExpr_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.LogicalExpr",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
-	nullptr,
-	_LogicalExpr_FieldInfo_,
-	_LogicalExpr_MethodInfo_
-};
-
-$Object* allocate$LogicalExpr($Class* clazz) {
-	return $of($alloc(LogicalExpr));
-}
 
 $StringArray* LogicalExpr::Ops = nullptr;
 
@@ -117,17 +76,15 @@ bool LogicalExpr::hasLastCall() {
 }
 
 $Object* LogicalExpr::evaluateAtCompileTime() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, leftb, $nc(this->_left)->evaluateAtCompileTime());
 	$var($Object, rightb, $nc(this->_right)->evaluateAtCompileTime());
 	if (leftb == nullptr || rightb == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	if (this->_op == LogicalExpr::AND) {
-		$init($Boolean);
 		return $of(($equals(leftb, $Boolean::TRUE) && $equals(rightb, $Boolean::TRUE)) ? $Boolean::TRUE : $Boolean::FALSE);
 	} else {
-		$init($Boolean);
 		return $of(($equals(leftb, $Boolean::TRUE) || $equals(rightb, $Boolean::TRUE)) ? $Boolean::TRUE : $Boolean::FALSE);
 	}
 }
@@ -143,29 +100,29 @@ void LogicalExpr::setParser($Parser* parser) {
 }
 
 $String* LogicalExpr::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $str({$nc(LogicalExpr::Ops)->get(this->_op), $$str(u'('), this->_left, ", "_s, this->_right, $$str(u')')});
+	$useLocalObjectStack();
+	return $str({LogicalExpr::Ops->get(this->_op), $$str(u'('), this->_left, ", "_s, this->_right, $$str(u')')});
 }
 
 $Type* LogicalExpr::typeCheck($SymbolTable* stable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, tleft, $nc(this->_left)->typeCheck(stable));
 	$var($Type, tright, $nc(this->_right)->typeCheck(stable));
 	$init($Type);
 	$var($MethodType, wantType, $new($MethodType, $Type::Void, tleft, tright));
-	$var($MethodType, haveType, lookupPrimop(stable, $nc(LogicalExpr::Ops)->get(this->_op), wantType));
+	$var($MethodType, haveType, lookupPrimop(stable, LogicalExpr::Ops->get(this->_op), wantType));
 	if (haveType != nullptr) {
-		$var($Type, arg1, $cast($Type, $nc($(haveType->argsType()))->get(0)));
+		$var($Type, arg1, $cast($Type, $$nc(haveType->argsType())->get(0)));
 		if (!$nc(arg1)->identicalTo(tleft)) {
 			$set(this, _left, $new($CastExpr, this->_left, arg1));
 		}
-		$var($Type, arg2, $cast($Type, $nc($(haveType->argsType()))->get(1)));
+		$var($Type, arg2, $cast($Type, $$nc(haveType->argsType())->get(1)));
 		if (!$nc(arg2)->identicalTo(tright)) {
 			$set(this, _right, $new($CastExpr, this->_right, arg1));
 		}
 		return $set(this, _type, haveType->resultType());
 	}
-	$throwNew($TypeCheckError, static_cast<$SyntaxTreeNode*>(this));
+	$throwNew($TypeCheckError, this);
 }
 
 void LogicalExpr::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
@@ -174,7 +131,7 @@ void LogicalExpr::translate($ClassGenerator* classGen, $MethodGenerator* methodG
 }
 
 void LogicalExpr::translateDesynthesized($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$var($SyntaxTreeNode, parent, getParent());
 	if (this->_op == LogicalExpr::AND) {
@@ -184,32 +141,32 @@ void LogicalExpr::translateDesynthesized($ClassGenerator* classGen, $MethodGener
 		$nc(this->_right)->translateDesynthesized(classGen, methodGen);
 		$var($InstructionHandle, after, il->append($Constants::NOP));
 		$nc(this->_falseList)->append($($nc($nc(this->_right)->_falseList)->append($nc(this->_left)->_falseList)));
-		if (($instanceOf(LogicalExpr, this->_left)) && ($nc(($cast(LogicalExpr, this->_left)))->getOp() == LogicalExpr::OR)) {
-			$nc(this->_left)->backPatchTrueList(middle);
+		if (($instanceOf(LogicalExpr, this->_left)) && ($cast(LogicalExpr, this->_left)->getOp() == LogicalExpr::OR)) {
+			this->_left->backPatchTrueList(middle);
 		} else if ($instanceOf($NotCall, this->_left)) {
-			$nc(this->_left)->backPatchTrueList(middle);
+			this->_left->backPatchTrueList(middle);
 		} else {
 			$nc(this->_trueList)->append($nc(this->_left)->_trueList);
 		}
-		if (($instanceOf(LogicalExpr, this->_right)) && ($nc(($cast(LogicalExpr, this->_right)))->getOp() == LogicalExpr::OR)) {
-			$nc(this->_right)->backPatchTrueList(after);
+		if (($instanceOf(LogicalExpr, this->_right)) && ($cast(LogicalExpr, this->_right)->getOp() == LogicalExpr::OR)) {
+			this->_right->backPatchTrueList(after);
 		} else if ($instanceOf($NotCall, this->_right)) {
-			$nc(this->_right)->backPatchTrueList(after);
+			this->_right->backPatchTrueList(after);
 		} else {
 			$nc(this->_trueList)->append($nc(this->_right)->_trueList);
 		}
 	} else {
 		$nc(this->_left)->translateDesynthesized(classGen, methodGen);
-		$var($InstructionHandle, ih, $nc(il)->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
+		$var($InstructionHandle, ih, $nc(il)->append($$new($GOTO, nullptr)));
 		$nc(this->_right)->translateDesynthesized(classGen, methodGen);
 		$nc($nc(this->_left)->_trueList)->backPatch(ih);
 		$nc($nc(this->_left)->_falseList)->backPatch($($nc(ih)->getNext()));
 		$nc(this->_falseList)->append($nc(this->_right)->_falseList);
-		$nc($($nc(this->_trueList)->add(ih)))->append($nc(this->_right)->_trueList);
+		$$nc($nc(this->_trueList)->add(ih))->append($nc(this->_right)->_trueList);
 	}
 }
 
-void clinit$LogicalExpr($Class* class$) {
+void LogicalExpr::clinit$($Class* clazz) {
 	$assignStatic(LogicalExpr::Ops, $new($StringArray, {
 		"or"_s,
 		"and"_s
@@ -220,7 +177,39 @@ LogicalExpr::LogicalExpr() {
 }
 
 $Class* LogicalExpr::load$($String* name, bool initialize) {
-	$loadClass(LogicalExpr, name, initialize, &_LogicalExpr_ClassInfo_, clinit$LogicalExpr, allocate$LogicalExpr);
+	$FieldInfo fieldInfos$$[] = {
+		{"OR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LogicalExpr, OR)},
+		{"AND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LogicalExpr, AND)},
+		{"_op", "I", nullptr, $PRIVATE | $FINAL, $field(LogicalExpr, _op)},
+		{"_left", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(LogicalExpr, _left)},
+		{"_right", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;", nullptr, $PRIVATE, $field(LogicalExpr, _right)},
+		{"Ops", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LogicalExpr, Ops)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;)V", nullptr, $PUBLIC, $method(LogicalExpr, init$, void, int32_t, $Expression*, $Expression*)},
+		{"evaluateAtCompileTime", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, evaluateAtCompileTime, $Object*)},
+		{"getOp", "()I", nullptr, $PUBLIC, $method(LogicalExpr, getOp, int32_t)},
+		{"hasLastCall", "()Z", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, hasLastCall, bool)},
+		{"hasPositionCall", "()Z", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, hasPositionCall, bool)},
+		{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, setParser, void, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, translateDesynthesized, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(LogicalExpr, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.LogicalExpr",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Expression",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LogicalExpr, name, initialize, &classInfo$$, LogicalExpr::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LogicalExpr);
+	});
 	return class$;
 }
 

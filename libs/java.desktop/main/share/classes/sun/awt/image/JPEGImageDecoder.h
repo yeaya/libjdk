@@ -39,6 +39,7 @@ class JPEGImageDecoder : public ::sun::awt::image::ImageDecoder {
 	$class(JPEGImageDecoder, 0, ::sun::awt::image::ImageDecoder)
 public:
 	JPEGImageDecoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::image::InputStreamImageSource* src, ::java::io::InputStream* is);
 	static void error($String* s1);
 	static void initIDs($Class* InputStreamClass);

@@ -1,5 +1,4 @@
 #include <FocusTraversal$3.h>
-
 #include <FocusTraversal.h>
 #include <java/awt/Component.h>
 #include <java/awt/KeyboardFocusManager.h>
@@ -17,50 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $FocusManager = ::javax::swing::FocusManager;
-using $JFrame = ::javax::swing::JFrame;
-
-$FieldInfo _FocusTraversal$3_FieldInfo_[] = {
-	{"val$direction", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(FocusTraversal$3, val$direction)},
-	{"val$queriedFocusOwner", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(FocusTraversal$3, val$queriedFocusOwner)},
-	{}
-};
-
-$MethodInfo _FocusTraversal$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/lang/String;)V", "()V", 0, $method(FocusTraversal$3, init$, void, $Component*, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FocusTraversal$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _FocusTraversal$3_EnclosingMethodInfo_ = {
-	"FocusTraversal",
-	"isFocusOwner",
-	"(Ljava/awt/Component;Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _FocusTraversal$3_InnerClassesInfo_[] = {
-	{"FocusTraversal$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FocusTraversal$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"FocusTraversal$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_FocusTraversal$3_FieldInfo_,
-	_FocusTraversal$3_MethodInfo_,
-	nullptr,
-	&_FocusTraversal$3_EnclosingMethodInfo_,
-	_FocusTraversal$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FocusTraversal"
-};
-
-$Object* allocate$FocusTraversal$3($Class* clazz) {
-	return $of($alloc(FocusTraversal$3));
-}
 
 void FocusTraversal$3::init$($Component* val$queriedFocusOwner, $String* val$direction) {
 	$set(this, val$queriedFocusOwner, val$queriedFocusOwner);
@@ -68,8 +23,8 @@ void FocusTraversal$3::init$($Component* val$queriedFocusOwner, $String* val$dir
 }
 
 void FocusTraversal$3::run() {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, actualFocusOwner, $nc($($FocusManager::getCurrentManager()))->getFocusOwner());
+	$useLocalObjectStack();
+	$var($Component, actualFocusOwner, $$nc($FocusManager::getCurrentManager())->getFocusOwner());
 	if (actualFocusOwner != this->val$queriedFocusOwner) {
 		$init($FocusTraversal);
 		$nc($FocusTraversal::frame)->dispose();
@@ -81,7 +36,43 @@ FocusTraversal$3::FocusTraversal$3() {
 }
 
 $Class* FocusTraversal$3::load$($String* name, bool initialize) {
-	$loadClass(FocusTraversal$3, name, initialize, &_FocusTraversal$3_ClassInfo_, allocate$FocusTraversal$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$direction", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(FocusTraversal$3, val$direction)},
+		{"val$queriedFocusOwner", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(FocusTraversal$3, val$queriedFocusOwner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/lang/String;)V", "()V", 0, $method(FocusTraversal$3, init$, void, $Component*, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FocusTraversal$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"FocusTraversal",
+		"isFocusOwner",
+		"(Ljava/awt/Component;Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FocusTraversal$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FocusTraversal$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FocusTraversal"
+	};
+	$loadClass(FocusTraversal$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FocusTraversal$3);
+	});
 	return class$;
 }
 

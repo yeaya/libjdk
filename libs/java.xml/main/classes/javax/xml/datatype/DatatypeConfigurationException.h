@@ -23,10 +23,13 @@ public:
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xE86A9D1D935C04BA;
+	static const int64_t serialVersionUID = (int64_t)0xe86a9d1d935c04ba;
 	DatatypeConfigurationException(const DatatypeConfigurationException& e);
 	virtual void throw$() override;
-	inline DatatypeConfigurationException* operator ->() {
+	inline DatatypeConfigurationException* operator ->() const {
+		return (DatatypeConfigurationException*)throwing$;
+	}
+	inline operator DatatypeConfigurationException*() const {
 		return (DatatypeConfigurationException*)throwing$;
 	}
 };

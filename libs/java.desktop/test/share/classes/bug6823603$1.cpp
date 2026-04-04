@@ -1,5 +1,4 @@
 #include <bug6823603$1.h>
-
 #include <bug6823603.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <javax/swing/AbstractListModel.h>
@@ -11,44 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AbstractListModel = ::javax::swing::AbstractListModel;
-
-$MethodInfo _bug6823603$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6823603$1, init$, void)},
-	{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(bug6823603$1, getElementAt, $Object*, int32_t)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(bug6823603$1, getSize, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6823603$1_EnclosingMethodInfo_ = {
-	"bug6823603",
-	"testRawSignatures",
-	"()V"
-};
-
-$InnerClassInfo _bug6823603$1_InnerClassesInfo_[] = {
-	{"bug6823603$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6823603$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6823603$1",
-	"javax.swing.AbstractListModel",
-	nullptr,
-	nullptr,
-	_bug6823603$1_MethodInfo_,
-	nullptr,
-	&_bug6823603$1_EnclosingMethodInfo_,
-	_bug6823603$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6823603"
-};
-
-$Object* allocate$bug6823603$1($Class* clazz) {
-	return $of($alloc(bug6823603$1));
-}
 
 void bug6823603$1::init$() {
 	$AbstractListModel::init$();
@@ -68,7 +29,39 @@ bug6823603$1::bug6823603$1() {
 }
 
 $Class* bug6823603$1::load$($String* name, bool initialize) {
-	$loadClass(bug6823603$1, name, initialize, &_bug6823603$1_ClassInfo_, allocate$bug6823603$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6823603$1, init$, void)},
+		{"getElementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(bug6823603$1, getElementAt, $Object*, int32_t)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(bug6823603$1, getSize, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6823603",
+		"testRawSignatures",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6823603$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6823603$1",
+		"javax.swing.AbstractListModel",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6823603"
+	};
+	$loadClass(bug6823603$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug6823603$1));
+	});
 	return class$;
 }
 

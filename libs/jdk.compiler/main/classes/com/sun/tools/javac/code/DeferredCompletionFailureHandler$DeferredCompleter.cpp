@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler$DeferredCompleter.h>
-
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
 #include <com/sun/tools/javac/code/Symbol$Completer.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -19,44 +18,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _DeferredCompletionFailureHandler$DeferredCompleter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredCompletionFailureHandler$DeferredCompleter, this$0)},
-	{"origCompleter", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE | $FINAL, $field(DeferredCompletionFailureHandler$DeferredCompleter, origCompleter)},
-	{}
-};
-
-$MethodInfo _DeferredCompletionFailureHandler$DeferredCompleter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $method(DeferredCompletionFailureHandler$DeferredCompleter, init$, void, $DeferredCompletionFailureHandler*, $Symbol$Completer*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$DeferredCompleter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{}
-};
-
-$InnerClassInfo _DeferredCompletionFailureHandler$DeferredCompleter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.DeferredCompletionFailureHandler$DeferredCompleter", "com.sun.tools.javac.code.DeferredCompletionFailureHandler", "DeferredCompleter", $PRIVATE},
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DeferredCompletionFailureHandler$DeferredCompleter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.DeferredCompletionFailureHandler$DeferredCompleter",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	_DeferredCompletionFailureHandler$DeferredCompleter_FieldInfo_,
-	_DeferredCompletionFailureHandler$DeferredCompleter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DeferredCompletionFailureHandler$DeferredCompleter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.DeferredCompletionFailureHandler"
-};
-
-$Object* allocate$DeferredCompletionFailureHandler$DeferredCompleter($Class* clazz) {
-	return $of($alloc(DeferredCompletionFailureHandler$DeferredCompleter));
-}
-
 void DeferredCompletionFailureHandler$DeferredCompleter::init$($DeferredCompletionFailureHandler* this$0, $Symbol$Completer* origCompleter) {
 	$set(this, this$0, this$0);
 	$set(this, origCompleter, origCompleter);
@@ -70,7 +31,39 @@ DeferredCompletionFailureHandler$DeferredCompleter::DeferredCompletionFailureHan
 }
 
 $Class* DeferredCompletionFailureHandler$DeferredCompleter::load$($String* name, bool initialize) {
-	$loadClass(DeferredCompletionFailureHandler$DeferredCompleter, name, initialize, &_DeferredCompletionFailureHandler$DeferredCompleter_ClassInfo_, allocate$DeferredCompletionFailureHandler$DeferredCompleter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredCompletionFailureHandler$DeferredCompleter, this$0)},
+		{"origCompleter", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PRIVATE | $FINAL, $field(DeferredCompletionFailureHandler$DeferredCompleter, origCompleter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/DeferredCompletionFailureHandler;Lcom/sun/tools/javac/code/Symbol$Completer;)V", nullptr, $PUBLIC, $method(DeferredCompletionFailureHandler$DeferredCompleter, init$, void, $DeferredCompletionFailureHandler*, $Symbol$Completer*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(DeferredCompletionFailureHandler$DeferredCompleter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.DeferredCompletionFailureHandler$DeferredCompleter", "com.sun.tools.javac.code.DeferredCompletionFailureHandler", "DeferredCompleter", $PRIVATE},
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.DeferredCompletionFailureHandler$DeferredCompleter",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.DeferredCompletionFailureHandler"
+	};
+	$loadClass(DeferredCompletionFailureHandler$DeferredCompleter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeferredCompletionFailureHandler$DeferredCompleter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftVoice.h>
-
 #include <com/sun/media/sound/ModelChannelMixer.h>
 #include <com/sun/media/sound/ModelConnectionBlock.h>
 #include <com/sun/media/sound/ModelDestination.h>
@@ -31,7 +30,6 @@
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
-#include <javax/sound/midi/MidiChannel.h>
 #include <javax/sound/midi/VoiceStatus.h>
 #include <javax/sound/sampled/AudioFormat.h>
 #include <jcpp.h>
@@ -61,19 +59,15 @@ using $ModelConnectionBlock = ::com::sun::media::sound::ModelConnectionBlock;
 using $ModelDestination = ::com::sun::media::sound::ModelDestination;
 using $ModelIdentifier = ::com::sun::media::sound::ModelIdentifier;
 using $ModelOscillator = ::com::sun::media::sound::ModelOscillator;
-using $ModelOscillatorStream = ::com::sun::media::sound::ModelOscillatorStream;
 using $ModelSource = ::com::sun::media::sound::ModelSource;
 using $ModelTransform = ::com::sun::media::sound::ModelTransform;
 using $ModelWavetable = ::com::sun::media::sound::ModelWavetable;
 using $SoftAudioBuffer = ::com::sun::media::sound::SoftAudioBuffer;
-using $SoftChannel = ::com::sun::media::sound::SoftChannel;
 using $SoftControl = ::com::sun::media::sound::SoftControl;
 using $SoftEnvelopeGenerator = ::com::sun::media::sound::SoftEnvelopeGenerator;
 using $SoftFilter = ::com::sun::media::sound::SoftFilter;
 using $SoftLowFrequencyOscillator = ::com::sun::media::sound::SoftLowFrequencyOscillator;
 using $SoftMainMixer = ::com::sun::media::sound::SoftMainMixer;
-using $SoftProcess = ::com::sun::media::sound::SoftProcess;
-using $SoftResamplerStreamer = ::com::sun::media::sound::SoftResamplerStreamer;
 using $SoftSynthesizer = ::com::sun::media::sound::SoftSynthesizer;
 using $SoftTuning = ::com::sun::media::sound::SoftTuning;
 using $SoftVoice$1 = ::com::sun::media::sound::SoftVoice$1;
@@ -91,154 +85,15 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
-using $MidiChannel = ::javax::sound::midi::MidiChannel;
 using $VoiceStatus = ::javax::sound::midi::VoiceStatus;
-using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 
 namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftVoice_FieldInfo_[] = {
-	{"exclusiveClass", "I", nullptr, $PUBLIC, $field(SoftVoice, exclusiveClass)},
-	{"releaseTriggered", "Z", nullptr, $PUBLIC, $field(SoftVoice, releaseTriggered)},
-	{"noteOn_noteNumber", "I", nullptr, $PRIVATE, $field(SoftVoice, noteOn_noteNumber)},
-	{"noteOn_velocity", "I", nullptr, $PRIVATE, $field(SoftVoice, noteOn_velocity)},
-	{"noteOff_velocity", "I", nullptr, $PRIVATE, $field(SoftVoice, noteOff_velocity)},
-	{"delay", "I", nullptr, $PRIVATE, $field(SoftVoice, delay)},
-	{"channelmixer", "Lcom/sun/media/sound/ModelChannelMixer;", nullptr, 0, $field(SoftVoice, channelmixer)},
-	{"tunedKey", "D", nullptr, 0, $field(SoftVoice, tunedKey)},
-	{"tuning", "Lcom/sun/media/sound/SoftTuning;", nullptr, 0, $field(SoftVoice, tuning)},
-	{"stealer_channel", "Lcom/sun/media/sound/SoftChannel;", nullptr, 0, $field(SoftVoice, stealer_channel)},
-	{"stealer_extendedConnectionBlocks", "[Lcom/sun/media/sound/ModelConnectionBlock;", nullptr, 0, $field(SoftVoice, stealer_extendedConnectionBlocks)},
-	{"stealer_performer", "Lcom/sun/media/sound/SoftPerformer;", nullptr, 0, $field(SoftVoice, stealer_performer)},
-	{"stealer_channelmixer", "Lcom/sun/media/sound/ModelChannelMixer;", nullptr, 0, $field(SoftVoice, stealer_channelmixer)},
-	{"stealer_voiceID", "I", nullptr, 0, $field(SoftVoice, stealer_voiceID)},
-	{"stealer_noteNumber", "I", nullptr, 0, $field(SoftVoice, stealer_noteNumber)},
-	{"stealer_velocity", "I", nullptr, 0, $field(SoftVoice, stealer_velocity)},
-	{"stealer_releaseTriggered", "Z", nullptr, 0, $field(SoftVoice, stealer_releaseTriggered)},
-	{"voiceID", "I", nullptr, 0, $field(SoftVoice, voiceID)},
-	{"sustain", "Z", nullptr, 0, $field(SoftVoice, sustain)},
-	{"sostenuto", "Z", nullptr, 0, $field(SoftVoice, sostenuto)},
-	{"portamento", "Z", nullptr, 0, $field(SoftVoice, portamento)},
-	{"filter_left", "Lcom/sun/media/sound/SoftFilter;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, filter_left)},
-	{"filter_right", "Lcom/sun/media/sound/SoftFilter;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, filter_right)},
-	{"eg", "Lcom/sun/media/sound/SoftProcess;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, eg)},
-	{"lfo", "Lcom/sun/media/sound/SoftProcess;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, lfo)},
-	{"objects", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/media/sound/SoftControl;>;", $FINAL, $field(SoftVoice, objects)},
-	{"synthesizer", "Lcom/sun/media/sound/SoftSynthesizer;", nullptr, 0, $field(SoftVoice, synthesizer)},
-	{"instrument", "Lcom/sun/media/sound/SoftInstrument;", nullptr, 0, $field(SoftVoice, instrument)},
-	{"performer", "Lcom/sun/media/sound/SoftPerformer;", nullptr, 0, $field(SoftVoice, performer)},
-	{"softchannel", "Lcom/sun/media/sound/SoftChannel;", nullptr, 0, $field(SoftVoice, softchannel)},
-	{"on", "Z", nullptr, 0, $field(SoftVoice, on)},
-	{"audiostarted", "Z", nullptr, $PRIVATE, $field(SoftVoice, audiostarted)},
-	{"started", "Z", nullptr, $PRIVATE, $field(SoftVoice, started)},
-	{"stopping", "Z", nullptr, $PRIVATE, $field(SoftVoice, stopping)},
-	{"osc_attenuation", "F", nullptr, $PRIVATE, $field(SoftVoice, osc_attenuation)},
-	{"osc_stream", "Lcom/sun/media/sound/ModelOscillatorStream;", nullptr, $PRIVATE, $field(SoftVoice, osc_stream)},
-	{"osc_stream_nrofchannels", "I", nullptr, $PRIVATE, $field(SoftVoice, osc_stream_nrofchannels)},
-	{"osc_buff", "[[F", nullptr, $PRIVATE, $field(SoftVoice, osc_buff)},
-	{"osc_stream_off_transmitted", "Z", nullptr, $PRIVATE, $field(SoftVoice, osc_stream_off_transmitted)},
-	{"out_mixer_end", "Z", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_end)},
-	{"out_mixer_left", "F", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_left)},
-	{"out_mixer_right", "F", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_right)},
-	{"out_mixer_effect1", "F", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_effect1)},
-	{"out_mixer_effect2", "F", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_effect2)},
-	{"last_out_mixer_left", "F", nullptr, $PRIVATE, $field(SoftVoice, last_out_mixer_left)},
-	{"last_out_mixer_right", "F", nullptr, $PRIVATE, $field(SoftVoice, last_out_mixer_right)},
-	{"last_out_mixer_effect1", "F", nullptr, $PRIVATE, $field(SoftVoice, last_out_mixer_effect1)},
-	{"last_out_mixer_effect2", "F", nullptr, $PRIVATE, $field(SoftVoice, last_out_mixer_effect2)},
-	{"extendedConnectionBlocks", "[Lcom/sun/media/sound/ModelConnectionBlock;", nullptr, 0, $field(SoftVoice, extendedConnectionBlocks)},
-	{"connections", "[Lcom/sun/media/sound/ModelConnectionBlock;", nullptr, $PRIVATE, $field(SoftVoice, connections)},
-	{"connections_last", "[D", nullptr, $PRIVATE, $field(SoftVoice, connections_last)},
-	{"connections_src", "[[[D", nullptr, $PRIVATE, $field(SoftVoice, connections_src)},
-	{"connections_src_kc", "[[I", nullptr, $PRIVATE, $field(SoftVoice, connections_src_kc)},
-	{"connections_dst", "[[D", nullptr, $PRIVATE, $field(SoftVoice, connections_dst)},
-	{"soundoff", "Z", nullptr, $PRIVATE, $field(SoftVoice, soundoff)},
-	{"lastMuteValue", "F", nullptr, $PRIVATE, $field(SoftVoice, lastMuteValue)},
-	{"lastSoloMuteValue", "F", nullptr, $PRIVATE, $field(SoftVoice, lastSoloMuteValue)},
-	{"co_noteon_keynumber", "[D", nullptr, 0, $field(SoftVoice, co_noteon_keynumber)},
-	{"co_noteon_velocity", "[D", nullptr, 0, $field(SoftVoice, co_noteon_velocity)},
-	{"co_noteon_on", "[D", nullptr, 0, $field(SoftVoice, co_noteon_on)},
-	{"co_noteon", "Lcom/sun/media/sound/SoftControl;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_noteon)},
-	{"co_mixer_active", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_active)},
-	{"co_mixer_gain", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_gain)},
-	{"co_mixer_pan", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_pan)},
-	{"co_mixer_balance", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_balance)},
-	{"co_mixer_reverb", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_reverb)},
-	{"co_mixer_chorus", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_chorus)},
-	{"co_mixer", "Lcom/sun/media/sound/SoftControl;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer)},
-	{"co_osc_pitch", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_osc_pitch)},
-	{"co_osc", "Lcom/sun/media/sound/SoftControl;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_osc)},
-	{"co_filter_freq", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_filter_freq)},
-	{"co_filter_type", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_filter_type)},
-	{"co_filter_q", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_filter_q)},
-	{"co_filter", "Lcom/sun/media/sound/SoftControl;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_filter)},
-	{"resampler", "Lcom/sun/media/sound/SoftResamplerStreamer;", nullptr, 0, $field(SoftVoice, resampler)},
-	{"nrofchannels", "I", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, nrofchannels)},
-	{}
-};
-
-$MethodInfo _SoftVoice_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, $PUBLIC, $method(SoftVoice, init$, void, $SoftSynthesizer*)},
-	{"controlChange", "(II)V", nullptr, 0, $method(SoftVoice, controlChange, void, int32_t, int32_t)},
-	{"getValue", "(Lcom/sun/media/sound/ModelIdentifier;)[D", nullptr, $PRIVATE, $method(SoftVoice, getValue, $doubles*, $ModelIdentifier*)},
-	{"getValueKC", "(Lcom/sun/media/sound/ModelIdentifier;)I", nullptr, $PRIVATE, $method(SoftVoice, getValueKC, int32_t, $ModelIdentifier*)},
-	{"mixAudioStream", "(Lcom/sun/media/sound/SoftAudioBuffer;Lcom/sun/media/sound/SoftAudioBuffer;Lcom/sun/media/sound/SoftAudioBuffer;FF)V", nullptr, 0, $method(SoftVoice, mixAudioStream, void, $SoftAudioBuffer*, $SoftAudioBuffer*, $SoftAudioBuffer*, float, float)},
-	{"noteOff", "(I)V", nullptr, 0, $method(SoftVoice, noteOff, void, int32_t)},
-	{"noteOn", "(III)V", nullptr, 0, $method(SoftVoice, noteOn, void, int32_t, int32_t, int32_t)},
-	{"nrpnChange", "(II)V", nullptr, 0, $method(SoftVoice, nrpnChange, void, int32_t, int32_t)},
-	{"processAudioLogic", "([Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, 0, $method(SoftVoice, processAudioLogic, void, $SoftAudioBufferArray*)},
-	{"processConnection", "(I)V", nullptr, $PRIVATE, $method(SoftVoice, processConnection, void, int32_t)},
-	{"processControlLogic", "()V", nullptr, 0, $method(SoftVoice, processControlLogic, void)},
-	{"processKeyBasedController", "(DI)D", nullptr, $PRIVATE, $method(SoftVoice, processKeyBasedController, double, double, int32_t)},
-	{"redamp", "()V", nullptr, 0, $method(SoftVoice, redamp, void)},
-	{"rpnChange", "(II)V", nullptr, 0, $method(SoftVoice, rpnChange, void, int32_t, int32_t)},
-	{"setChannelPressure", "(I)V", nullptr, 0, $method(SoftVoice, setChannelPressure, void, int32_t)},
-	{"setMute", "(Z)V", nullptr, 0, $method(SoftVoice, setMute, void, bool)},
-	{"setNote", "(I)V", nullptr, 0, $method(SoftVoice, setNote, void, int32_t)},
-	{"setPitchBend", "(I)V", nullptr, 0, $method(SoftVoice, setPitchBend, void, int32_t)},
-	{"setPolyPressure", "(I)V", nullptr, 0, $method(SoftVoice, setPolyPressure, void, int32_t)},
-	{"setSoloMute", "(Z)V", nullptr, 0, $method(SoftVoice, setSoloMute, void, bool)},
-	{"shutdown", "()V", nullptr, 0, $method(SoftVoice, shutdown, void)},
-	{"soundOff", "()V", nullptr, 0, $method(SoftVoice, soundOff, void)},
-	{"transformValue", "(DLcom/sun/media/sound/ModelSource;)D", nullptr, $PRIVATE, $method(SoftVoice, transformValue, double, double, $ModelSource*)},
-	{"transformValue", "(DLcom/sun/media/sound/ModelDestination;)D", nullptr, $PRIVATE, $method(SoftVoice, transformValue, double, double, $ModelDestination*)},
-	{"updateTuning", "(Lcom/sun/media/sound/SoftTuning;)V", nullptr, 0, $method(SoftVoice, updateTuning, void, $SoftTuning*)},
-	{}
-};
-
-$InnerClassInfo _SoftVoice_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftVoice$4", nullptr, nullptr, 0},
-	{"com.sun.media.sound.SoftVoice$3", nullptr, nullptr, 0},
-	{"com.sun.media.sound.SoftVoice$2", nullptr, nullptr, 0},
-	{"com.sun.media.sound.SoftVoice$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftVoice_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftVoice",
-	"javax.sound.midi.VoiceStatus",
-	nullptr,
-	_SoftVoice_FieldInfo_,
-	_SoftVoice_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftVoice_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftVoice$4,com.sun.media.sound.SoftVoice$3,com.sun.media.sound.SoftVoice$2,com.sun.media.sound.SoftVoice$1"
-};
-
-$Object* allocate$SoftVoice($Class* clazz) {
-	return $of($alloc(SoftVoice));
-}
-
 void SoftVoice::init$($SoftSynthesizer* synth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$VoiceStatus::init$();
 	this->exclusiveClass = 0;
 	this->releaseTriggered = false;
@@ -247,7 +102,7 @@ void SoftVoice::init$($SoftSynthesizer* synth) {
 	this->noteOff_velocity = 0;
 	this->delay = 0;
 	$set(this, channelmixer, nullptr);
-	this->tunedKey = (double)0;
+	this->tunedKey = 0;
 	$set(this, tuning, nullptr);
 	$set(this, stealer_channel, nullptr);
 	$set(this, stealer_extendedConnectionBlocks, nullptr);
@@ -273,22 +128,22 @@ void SoftVoice::init$($SoftSynthesizer* synth) {
 	$set(this, osc_buff, $new($floatArray2, 2));
 	this->osc_stream_off_transmitted = false;
 	this->out_mixer_end = false;
-	this->out_mixer_left = (float)0;
-	this->out_mixer_right = (float)0;
-	this->out_mixer_effect1 = (float)0;
-	this->out_mixer_effect2 = (float)0;
-	this->last_out_mixer_left = (float)0;
-	this->last_out_mixer_right = (float)0;
-	this->last_out_mixer_effect1 = (float)0;
-	this->last_out_mixer_effect2 = (float)0;
+	this->out_mixer_left = 0;
+	this->out_mixer_right = 0;
+	this->out_mixer_effect1 = 0;
+	this->out_mixer_effect2 = 0;
+	this->last_out_mixer_left = 0;
+	this->last_out_mixer_right = 0;
+	this->last_out_mixer_effect1 = 0;
+	this->last_out_mixer_effect2 = 0;
 	$set(this, extendedConnectionBlocks, nullptr);
 	$set(this, connections_last, $new($doubles, 50));
 	$set(this, connections_src, $new($doubleArray3, 50, 3));
 	$set(this, connections_src_kc, $new($intArray2, 50, 3));
 	$set(this, connections_dst, $new($doubleArray2, 50));
 	this->soundoff = false;
-	this->lastMuteValue = (float)0;
-	this->lastSoloMuteValue = (float)0;
+	this->lastMuteValue = 0;
+	this->lastSoloMuteValue = 0;
 	$set(this, co_noteon_keynumber, $new($doubles, 1));
 	$set(this, co_noteon_velocity, $new($doubles, 1));
 	$set(this, co_noteon_on, $new($doubles, 1));
@@ -307,25 +162,25 @@ void SoftVoice::init$($SoftSynthesizer* synth) {
 	$set(this, co_filter_q, $new($doubles, 1));
 	$set(this, co_filter, $new($SoftVoice$4, this));
 	$set(this, synthesizer, synth);
-	$set(this, filter_left, $new($SoftFilter, $nc($($nc(synth)->getFormat()))->getSampleRate()));
-	$set(this, filter_right, $new($SoftFilter, $nc($($nc(synth)->getFormat()))->getSampleRate()));
-	this->nrofchannels = $nc($($nc(synth)->getFormat()))->getChannels();
+	$set(this, filter_left, $new($SoftFilter, $$nc($nc(synth)->getFormat())->getSampleRate()));
+	$set(this, filter_right, $new($SoftFilter, $$nc(synth->getFormat())->getSampleRate()));
+	this->nrofchannels = $$nc(synth->getFormat())->getChannels();
 }
 
 int32_t SoftVoice::getValueKC($ModelIdentifier* id) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($nc(id)->getObject()))->equals("midi_cc"_s)) {
+	$useLocalObjectStack();
+	if ($$nc($nc(id)->getObject())->equals("midi_cc"_s)) {
 		int32_t ic = $Integer::parseInt($(id->getVariable()));
 		if (ic != 0 && ic != 32) {
 			if (ic < 120) {
 				return ic;
 			}
 		}
-	} else if ($nc($(id->getObject()))->equals("midi_rpn"_s)) {
-		if ($nc($(id->getVariable()))->equals("1"_s)) {
+	} else if ($$nc(id->getObject())->equals("midi_rpn"_s)) {
+		if ($$nc(id->getVariable())->equals("1"_s)) {
 			return 120;
 		}
-		if ($nc($(id->getVariable()))->equals("2"_s)) {
+		if ($$nc(id->getVariable())->equals("2"_s)) {
 			return 121;
 		}
 	}
@@ -333,18 +188,18 @@ int32_t SoftVoice::getValueKC($ModelIdentifier* id) {
 }
 
 $doubles* SoftVoice::getValue($ModelIdentifier* id) {
-	$useLocalCurrentObjectStackCache();
-	$var($SoftControl, o, $cast($SoftControl, $nc(this->objects)->get($($nc(id)->getObject()))));
+	$useLocalObjectStack();
+	$var($SoftControl, o, $cast($SoftControl, this->objects->get($($nc(id)->getObject()))));
 	if (o == nullptr) {
 		return nullptr;
 	}
-	int32_t var$0 = $nc(id)->getInstance();
+	int32_t var$0 = id->getInstance();
 	return $nc(o)->get(var$0, $(id->getVariable()));
 }
 
 double SoftVoice::transformValue(double value, $ModelSource* src) {
 	if ($nc(src)->getTransform() != nullptr) {
-		return $nc($(src->getTransform()))->transform(value);
+		return $$nc(src->getTransform())->transform(value);
 	} else {
 		return value;
 	}
@@ -352,7 +207,7 @@ double SoftVoice::transformValue(double value, $ModelSource* src) {
 
 double SoftVoice::transformValue(double value, $ModelDestination* dst) {
 	if ($nc(dst)->getTransform() != nullptr) {
-		return $nc($(dst->getTransform()))->transform(value);
+		return $$nc(dst->getTransform())->transform(value);
 	} else {
 		return value;
 	}
@@ -363,17 +218,17 @@ double SoftVoice::processKeyBasedController(double value, int32_t keycontrol) {
 		return value;
 	}
 	if ($nc(this->softchannel)->keybasedcontroller_active != nullptr) {
-		if ($nc($nc(this->softchannel)->keybasedcontroller_active)->get(this->note) != nullptr) {
-			if ($nc($nc($nc(this->softchannel)->keybasedcontroller_active)->get(this->note))->get(keycontrol)) {
-				double key_controlvalue = $nc($nc($nc(this->softchannel)->keybasedcontroller_value)->get(this->note))->get(keycontrol);
+		if (this->softchannel->keybasedcontroller_active->get(this->note) != nullptr) {
+			if ($nc(this->softchannel->keybasedcontroller_active->get(this->note))->get(keycontrol)) {
+				double key_controlvalue = $nc($nc(this->softchannel->keybasedcontroller_value)->get(this->note))->get(keycontrol);
 				if (keycontrol == 10 || keycontrol == 91 || keycontrol == 93) {
 					return key_controlvalue;
 				}
 				value += key_controlvalue * 2.0 - 1.0;
 				if (value > 1) {
-					value = (double)1;
+					value = 1;
 				} else if (value < 0) {
-					value = (double)0;
+					value = 0;
 				}
 			}
 		}
@@ -382,11 +237,11 @@ double SoftVoice::processKeyBasedController(double value, int32_t keycontrol) {
 }
 
 void SoftVoice::processConnection(int32_t ix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModelConnectionBlock, conn, $nc(this->connections)->get(ix));
 	$var($doubleArray2, src, $nc(this->connections_src)->get(ix));
 	$var($doubles, dst, $nc(this->connections_dst)->get(ix));
-	if (dst == nullptr || $Double::isInfinite($nc(dst)->get(0))) {
+	if (dst == nullptr || $Double::isInfinite(dst->get(0))) {
 		return;
 	}
 	double value = $nc(conn)->getScale();
@@ -409,8 +264,8 @@ void SoftVoice::processConnection(int32_t ix) {
 		}
 	}
 	value = transformValue(value, $(conn->getDestination()));
-	$nc(dst)->set(0, dst->get(0) - $nc(this->connections_last)->get(ix) + value);
-	$nc(this->connections_last)->set(ix, value);
+	$nc(dst)->set(0, $nc(dst)->get(0) - $nc(this->connections_last)->get(ix) + value);
+	this->connections_last->set(ix, value);
 }
 
 void SoftVoice::updateTuning($SoftTuning* newtuning) {
@@ -437,7 +292,7 @@ void SoftVoice::setNote(int32_t noteNumber) {
 }
 
 void SoftVoice::noteOn(int32_t noteNumber, int32_t velocity, int32_t delay) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->sustain = false;
 	this->sostenuto = false;
 	this->portamento = false;
@@ -448,71 +303,71 @@ void SoftVoice::noteOn(int32_t noteNumber, int32_t velocity, int32_t delay) {
 	this->noteOn_noteNumber = noteNumber;
 	this->noteOn_velocity = velocity;
 	this->delay = delay;
-	this->lastMuteValue = (float)0;
-	this->lastSoloMuteValue = (float)0;
+	this->lastMuteValue = 0;
+	this->lastSoloMuteValue = 0;
 	setNote(noteNumber);
 	if ($nc(this->performer)->forcedKeynumber) {
-		$nc(this->co_noteon_keynumber)->set(0, (double)0);
+		$nc(this->co_noteon_keynumber)->set(0, 0);
 	} else {
 		$nc(this->co_noteon_keynumber)->set(0, this->tunedKey * (1.0f / 128.0f));
 	}
-	if ($nc(this->performer)->forcedVelocity) {
-		$nc(this->co_noteon_velocity)->set(0, (double)0);
+	if (this->performer->forcedVelocity) {
+		$nc(this->co_noteon_velocity)->set(0, 0);
 	} else {
 		$nc(this->co_noteon_velocity)->set(0, velocity * (1.0f / 128.0f));
 	}
-	$nc(this->co_mixer_active)->set(0, (double)0);
-	$nc(this->co_mixer_gain)->set(0, (double)0);
-	$nc(this->co_mixer_pan)->set(0, (double)0);
-	$nc(this->co_mixer_balance)->set(0, (double)0);
-	$nc(this->co_mixer_reverb)->set(0, (double)0);
-	$nc(this->co_mixer_chorus)->set(0, (double)0);
-	$nc(this->co_osc_pitch)->set(0, (double)0);
-	$nc(this->co_filter_freq)->set(0, (double)0);
-	$nc(this->co_filter_q)->set(0, (double)0);
-	$nc(this->co_filter_type)->set(0, (double)0);
-	$nc(this->co_noteon_on)->set(0, (double)1);
-	$nc(this->eg)->reset();
-	$nc(this->lfo)->reset();
-	$nc(this->filter_left)->reset();
-	$nc(this->filter_right)->reset();
-	$nc(this->objects)->put("master"_s, $nc($($nc(this->synthesizer)->getMainMixer()))->co_master);
-	$nc(this->objects)->put("eg"_s, this->eg);
-	$nc(this->objects)->put("lfo"_s, this->lfo);
-	$nc(this->objects)->put("noteon"_s, this->co_noteon);
-	$nc(this->objects)->put("osc"_s, this->co_osc);
-	$nc(this->objects)->put("mixer"_s, this->co_mixer);
-	$nc(this->objects)->put("filter"_s, this->co_filter);
+	this->co_mixer_active->set(0, 0);
+	this->co_mixer_gain->set(0, 0);
+	this->co_mixer_pan->set(0, 0);
+	this->co_mixer_balance->set(0, 0);
+	this->co_mixer_reverb->set(0, 0);
+	this->co_mixer_chorus->set(0, 0);
+	this->co_osc_pitch->set(0, 0);
+	this->co_filter_freq->set(0, 0);
+	this->co_filter_q->set(0, 0);
+	this->co_filter_type->set(0, 0);
+	$nc(this->co_noteon_on)->set(0, 1);
+	this->eg->reset();
+	this->lfo->reset();
+	this->filter_left->reset();
+	this->filter_right->reset();
+	this->objects->put("master"_s, $nc($($nc(this->synthesizer)->getMainMixer()))->co_master);
+	this->objects->put("eg"_s, this->eg);
+	this->objects->put("lfo"_s, this->lfo);
+	this->objects->put("noteon"_s, this->co_noteon);
+	this->objects->put("osc"_s, this->co_osc);
+	this->objects->put("mixer"_s, this->co_mixer);
+	this->objects->put("filter"_s, this->co_filter);
 	$set(this, connections, $nc(this->performer)->connections);
-	if (this->connections_last == nullptr || $nc(this->connections_last)->length < $nc(this->connections)->length) {
+	if (this->connections_last == nullptr || this->connections_last->length < $nc(this->connections)->length) {
 		$set(this, connections_last, $new($doubles, $nc(this->connections)->length));
 	}
-	if (this->connections_src == nullptr || $nc(this->connections_src)->length < $nc(this->connections)->length) {
+	if (this->connections_src == nullptr || this->connections_src->length < $nc(this->connections)->length) {
 		$set(this, connections_src, $new($doubleArray3, $nc(this->connections)->length));
-		$set(this, connections_src_kc, $new($intArray2, $nc(this->connections)->length));
+		$set(this, connections_src_kc, $new($intArray2, this->connections->length));
 	}
-	if (this->connections_dst == nullptr || $nc(this->connections_dst)->length < $nc(this->connections)->length) {
+	if (this->connections_dst == nullptr || this->connections_dst->length < $nc(this->connections)->length) {
 		$set(this, connections_dst, $new($doubleArray2, $nc(this->connections)->length));
 	}
 	for (int32_t i = 0; i < $nc(this->connections)->length; ++i) {
-		$var($ModelConnectionBlock, conn, $nc(this->connections)->get(i));
-		$nc(this->connections_last)->set(i, (double)0);
+		$var($ModelConnectionBlock, conn, this->connections->get(i));
+		$nc(this->connections_last)->set(i, 0);
 		if ($nc(conn)->getSources() != nullptr) {
 			$var($ModelSourceArray, srcs, conn->getSources());
-			if ($nc(this->connections_src)->get(i) == nullptr || $nc($nc(this->connections_src)->get(i))->length < $nc(srcs)->length) {
-				$nc(this->connections_src)->set(i, $$new($doubleArray2, srcs->length));
+			if ($nc(this->connections_src)->get(i) == nullptr || $nc(this->connections_src->get(i))->length < $nc(srcs)->length) {
+				this->connections_src->set(i, $$new($doubleArray2, $nc(srcs)->length));
 				$nc(this->connections_src_kc)->set(i, $$new($ints, srcs->length));
 			}
-			$var($doubleArray2, src, $nc(this->connections_src)->get(i));
+			$var($doubleArray2, src, this->connections_src->get(i));
 			$var($ints, src_kc, $nc(this->connections_src_kc)->get(i));
-			$nc(this->connections_src)->set(i, src);
+			this->connections_src->set(i, src);
 			for (int32_t j = 0; j < $nc(srcs)->length; ++j) {
 				$nc(src_kc)->set(j, getValueKC($($nc(srcs->get(j))->getIdentifier())));
 				$nc(src)->set(j, $(getValue($($nc(srcs->get(j))->getIdentifier()))));
 			}
 		}
-		if ($nc(conn)->getDestination() != nullptr) {
-			$nc(this->connections_dst)->set(i, $(getValue($($nc($(conn->getDestination()))->getIdentifier()))));
+		if (conn->getDestination() != nullptr) {
+			$nc(this->connections_dst)->set(i, $(getValue($($$nc(conn->getDestination())->getIdentifier()))));
 		} else {
 			$nc(this->connections_dst)->set(i, nullptr);
 		}
@@ -521,64 +376,54 @@ void SoftVoice::noteOn(int32_t noteNumber, int32_t velocity, int32_t delay) {
 		processConnection(i);
 	}
 	if (this->extendedConnectionBlocks != nullptr) {
-		{
-			$var($ModelConnectionBlockArray, arr$, this->extendedConnectionBlocks);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($ModelConnectionBlock, connection, arr$->get(i$));
-				{
-					double value = (double)0;
-					if ($nc(this->softchannel)->keybasedcontroller_active == nullptr) {
+		$var($ModelConnectionBlockArray, arr$, this->extendedConnectionBlocks);
+		int32_t len$ = $nc(arr$)->length;
+		int32_t i$ = 0;
+		for (; i$ < len$; ++i$) {
+			$var($ModelConnectionBlock, connection, arr$->get(i$));
+			{
+				double value = 0;
+				if ($nc(this->softchannel)->keybasedcontroller_active == nullptr) {
+					$var($ModelSourceArray, arr$, $nc(connection)->getSources());
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						$var($ModelSource, src, arr$->get(i$));
 						{
-							$var($ModelSourceArray, arr$, $nc(connection)->getSources());
-							int32_t len$ = arr$->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
-								$var($ModelSource, src, arr$->get(i$));
-								{
-									double x = $nc($(getValue($($nc(src)->getIdentifier()))))->get(0);
-									$var($ModelTransform, t, $nc(src)->getTransform());
-									if (t == nullptr) {
-										value += x;
-									} else {
-										value += $nc(t)->transform(x);
-									}
-								}
-							}
-						}
-					} else {
-						{
-							$var($ModelSourceArray, arr$, $nc(connection)->getSources());
-							int32_t len$ = arr$->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
-								$var($ModelSource, src, arr$->get(i$));
-								{
-									double x = $nc($(getValue($($nc(src)->getIdentifier()))))->get(0);
-									x = processKeyBasedController(x, getValueKC($($nc(src)->getIdentifier())));
-									$var($ModelTransform, t, $nc(src)->getTransform());
-									if (t == nullptr) {
-										value += x;
-									} else {
-										value += $nc(t)->transform(x);
-									}
-								}
+							double x = $nc($(getValue($($nc(src)->getIdentifier()))))->get(0);
+							$var($ModelTransform, t, src->getTransform());
+							if (t == nullptr) {
+								value += x;
+							} else {
+								value += t->transform(x);
 							}
 						}
 					}
-					$var($ModelDestination, dest, $nc(connection)->getDestination());
-					$var($ModelTransform, t, $nc(dest)->getTransform());
-					if (t != nullptr) {
-						value = t->transform(value);
+				} else {
+					$var($ModelSourceArray, arr$, $nc(connection)->getSources());
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						$var($ModelSource, src, arr$->get(i$));
+						{
+							double x = $nc($(getValue($($nc(src)->getIdentifier()))))->get(0);
+							x = processKeyBasedController(x, getValueKC($(src->getIdentifier())));
+							$var($ModelTransform, t, src->getTransform());
+							if (t == nullptr) {
+								value += x;
+							} else {
+								value += t->transform(x);
+							}
+						}
 					}
-					(*$nc($(getValue($(dest->getIdentifier())))))[0] += value;
 				}
+				$var($ModelDestination, dest, $nc(connection)->getDestination());
+				$var($ModelTransform, t, $nc(dest)->getTransform());
+				if (t != nullptr) {
+					value = t->transform(value);
+				}
+				(*$nc($(getValue($(dest->getIdentifier())))))[0] += value;
 			}
 		}
 	}
-	$nc(this->eg)->init(this->synthesizer);
-	$nc(this->lfo)->init(this->synthesizer);
+	this->eg->init(this->synthesizer);
+	this->lfo->init(this->synthesizer);
 }
 
 void SoftVoice::setPolyPressure(int32_t pressure) {
@@ -621,7 +466,7 @@ void SoftVoice::controlChange(int32_t controller, int32_t value) {
 }
 
 void SoftVoice::nrpnChange(int32_t controller, int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->performer == nullptr) {
 		return;
 	}
@@ -635,7 +480,7 @@ void SoftVoice::nrpnChange(int32_t controller, int32_t value) {
 }
 
 void SoftVoice::rpnChange(int32_t controller, int32_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->performer == nullptr) {
 		return;
 	}
@@ -662,15 +507,15 @@ void SoftVoice::setPitchBend(int32_t bend) {
 }
 
 void SoftVoice::setMute(bool mute) {
-	(*$nc(this->co_mixer_gain))[0] -= this->lastMuteValue;
+	(*this->co_mixer_gain)[0] -= this->lastMuteValue;
 	this->lastMuteValue = (float)(mute ? -960 : 0);
-	(*$nc(this->co_mixer_gain))[0] += this->lastMuteValue;
+	(*this->co_mixer_gain)[0] += this->lastMuteValue;
 }
 
 void SoftVoice::setSoloMute(bool mute) {
-	(*$nc(this->co_mixer_gain))[0] -= this->lastSoloMuteValue;
+	(*this->co_mixer_gain)[0] -= this->lastSoloMuteValue;
 	this->lastSoloMuteValue = (float)(mute ? -960 : 0);
-	(*$nc(this->co_mixer_gain))[0] += this->lastSoloMuteValue;
+	(*this->co_mixer_gain)[0] += this->lastSoloMuteValue;
 }
 
 void SoftVoice::shutdown() {
@@ -678,7 +523,7 @@ void SoftVoice::shutdown() {
 		return;
 	}
 	this->on = false;
-	$nc(this->co_noteon_on)->set(0, (double)-1);
+	this->co_noteon_on->set(0, -1);
 	if (this->performer == nullptr) {
 		return;
 	}
@@ -709,7 +554,7 @@ void SoftVoice::noteOff(int32_t velocity) {
 	if (this->sostenuto) {
 		return;
 	}
-	$nc(this->co_noteon_on)->set(0, (double)0);
+	$nc(this->co_noteon_on)->set(0, 0);
 	if (this->performer == nullptr) {
 		return;
 	}
@@ -726,11 +571,11 @@ void SoftVoice::redamp() {
 	if ($nc(this->co_noteon_on)->get(0) > 0.5) {
 		return;
 	}
-	if ($nc(this->co_noteon_on)->get(0) < -0.5) {
+	if (this->co_noteon_on->get(0) < -0.5) {
 		return;
 	}
 	this->sustain = true;
-	$nc(this->co_noteon_on)->set(0, (double)1);
+	this->co_noteon_on->set(0, 1);
 	if (this->performer == nullptr) {
 		return;
 	}
@@ -744,7 +589,7 @@ void SoftVoice::redamp() {
 }
 
 void SoftVoice::processControlLogic() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stopping) {
 		this->active = false;
 		this->stopping = false;
@@ -756,12 +601,12 @@ void SoftVoice::processControlLogic() {
 		$set(this, channelmixer, nullptr);
 		if (this->osc_stream != nullptr) {
 			try {
-				$nc(this->osc_stream)->close();
+				this->osc_stream->close();
 			} catch ($IOException& e) {
 			}
 		}
 		if (this->stealer_channel != nullptr) {
-			$nc(this->stealer_channel)->initVoice(this, this->stealer_performer, this->stealer_voiceID, this->stealer_noteNumber, this->stealer_velocity, 0, this->stealer_extendedConnectionBlocks, this->stealer_channelmixer, this->stealer_releaseTriggered);
+			this->stealer_channel->initVoice(this, this->stealer_performer, this->stealer_voiceID, this->stealer_noteNumber, this->stealer_velocity, 0, this->stealer_extendedConnectionBlocks, this->stealer_channelmixer, this->stealer_releaseTriggered);
 			this->stealer_releaseTriggered = false;
 			$set(this, stealer_channel, nullptr);
 			$set(this, stealer_performer, nullptr);
@@ -778,20 +623,20 @@ void SoftVoice::processControlLogic() {
 		this->osc_stream_off_transmitted = false;
 		if ($instanceOf($ModelWavetable, osc)) {
 			try {
-				$nc(this->resampler)->open($cast($ModelWavetable, osc), $nc($($nc(this->synthesizer)->getFormat()))->getSampleRate());
+				$nc(this->resampler)->open($cast($ModelWavetable, osc), $$nc($nc(this->synthesizer)->getFormat())->getSampleRate());
 				$set(this, osc_stream, this->resampler);
 			} catch ($IOException& e) {
 			}
 		} else {
-			$set(this, osc_stream, $nc(osc)->open($nc($($nc(this->synthesizer)->getFormat()))->getSampleRate()));
+			$set(this, osc_stream, $nc(osc)->open($$nc($nc(this->synthesizer)->getFormat())->getSampleRate()));
 		}
 		this->osc_attenuation = $nc(osc)->getAttenuation();
 		this->osc_stream_nrofchannels = osc->getChannels();
-		if (this->osc_buff == nullptr || $nc(this->osc_buff)->length < this->osc_stream_nrofchannels) {
+		if (this->osc_buff == nullptr || this->osc_buff->length < this->osc_stream_nrofchannels) {
 			$set(this, osc_buff, $new($floatArray2, this->osc_stream_nrofchannels));
 		}
 		if (this->osc_stream != nullptr) {
-			$nc(this->osc_stream)->noteOn(this->softchannel, this, this->noteOn_noteNumber, this->noteOn_velocity);
+			this->osc_stream->noteOn(this->softchannel, this, this->noteOn_noteNumber, this->noteOn_velocity);
 		}
 	}
 	if (this->audiostarted) {
@@ -799,13 +644,13 @@ void SoftVoice::processControlLogic() {
 			double note_delta = this->tunedKey - ($nc(this->co_noteon_keynumber)->get(0) * 128);
 			double note_delta_a = $Math::abs(note_delta);
 			if (note_delta_a < 1.0E-10) {
-				$nc(this->co_noteon_keynumber)->set(0, this->tunedKey * (1.0 / 128.0));
+				this->co_noteon_keynumber->set(0, this->tunedKey * (1.0 / 128.0));
 				this->portamento = false;
 			} else {
 				if (note_delta_a > $nc(this->softchannel)->portamento_time) {
-					note_delta = $Math::signum(note_delta) * $nc(this->softchannel)->portamento_time;
+					note_delta = $Math::signum(note_delta) * this->softchannel->portamento_time;
 				}
-				(*$nc(this->co_noteon_keynumber))[0] += note_delta * (1.0 / 128.0);
+				(*this->co_noteon_keynumber)[0] += note_delta * (1.0 / 128.0);
 			}
 			$var($ints, c, $nc($nc(this->performer)->midi_connections)->get(4));
 			if (c == nullptr) {
@@ -815,40 +660,40 @@ void SoftVoice::processControlLogic() {
 				processConnection(c->get(i));
 			}
 		}
-		$nc(this->eg)->processControlLogic();
-		$nc(this->lfo)->processControlLogic();
+		this->eg->processControlLogic();
+		this->lfo->processControlLogic();
 		for (int32_t i = 0; i < $nc($nc(this->performer)->ctrl_connections)->length; ++i) {
-			processConnection($nc($nc(this->performer)->ctrl_connections)->get(i));
+			processConnection(this->performer->ctrl_connections->get(i));
 		}
-		$nc(this->osc_stream)->setPitch((float)$nc(this->co_osc_pitch)->get(0));
-		int32_t filter_type = $cast(int32_t, $nc(this->co_filter_type)->get(0));
+		$nc(this->osc_stream)->setPitch((float)this->co_osc_pitch->get(0));
+		int32_t filter_type = $cast(int32_t, this->co_filter_type->get(0));
 		double filter_freq = 0.0;
-		if ($nc(this->co_filter_freq)->get(0) == 13500.0) {
+		if (this->co_filter_freq->get(0) == 13500.0) {
 			filter_freq = 19912.126958213175;
 		} else {
-			filter_freq = 440.0 * $Math::exp((($nc(this->co_filter_freq)->get(0)) - 6900.0) * ($Math::log(2.0) / 1200.0));
+			filter_freq = 440.0 * $Math::exp(((this->co_filter_freq->get(0)) - 6900.0) * ($Math::log(2.0) / 1200.0));
 		}
-		double q = $nc(this->co_filter_q)->get(0) / 10.0;
-		$nc(this->filter_left)->setFilterType(filter_type);
-		$nc(this->filter_left)->setFrequency(filter_freq);
-		$nc(this->filter_left)->setResonance(q);
-		$nc(this->filter_right)->setFilterType(filter_type);
-		$nc(this->filter_right)->setFrequency(filter_freq);
-		$nc(this->filter_right)->setResonance(q);
-		float gain = (float)$Math::exp((-this->osc_attenuation + $nc(this->co_mixer_gain)->get(0)) * ($Math::log((double)10) / 200.0));
-		if ($nc(this->co_mixer_gain)->get(0) <= -960) {
-			gain = (float)0;
+		double q = this->co_filter_q->get(0) / 10.0;
+		this->filter_left->setFilterType(filter_type);
+		this->filter_left->setFrequency(filter_freq);
+		this->filter_left->setResonance(q);
+		this->filter_right->setFilterType(filter_type);
+		this->filter_right->setFrequency(filter_freq);
+		this->filter_right->setResonance(q);
+		float gain = (float)$Math::exp((-this->osc_attenuation + this->co_mixer_gain->get(0)) * ($Math::log(10) / 200.0));
+		if (this->co_mixer_gain->get(0) <= -960) {
+			gain = 0;
 		}
 		if (this->soundoff) {
 			this->stopping = true;
-			gain = (float)0;
+			gain = 0;
 		}
 		this->volume = $cast(int32_t, ($Math::sqrt(gain) * 128));
-		double pan = $nc(this->co_mixer_pan)->get(0) * (1.0 / 1000.0);
+		double pan = this->co_mixer_pan->get(0) * (1.0 / 1000.0);
 		if (pan < 0) {
-			pan = (double)0;
+			pan = 0;
 		} else if (pan > 1) {
-			pan = (double)1;
+			pan = 1;
 		}
 		if (pan == 0.5) {
 			this->out_mixer_left = gain * 0.70710677f;
@@ -857,7 +702,7 @@ void SoftVoice::processControlLogic() {
 			this->out_mixer_left = gain * (float)$Math::cos(pan * $Math::PI * 0.5);
 			this->out_mixer_right = gain * (float)$Math::sin(pan * $Math::PI * 0.5);
 		}
-		double balance = $nc(this->co_mixer_balance)->get(0) * (1.0 / 1000.0);
+		double balance = this->co_mixer_balance->get(0) * (1.0 / 1000.0);
 		if (balance != 0.5) {
 			if (balance > 0.5) {
 				this->out_mixer_left *= (1 - balance) * 2;
@@ -866,23 +711,23 @@ void SoftVoice::processControlLogic() {
 			}
 		}
 		if ($nc(this->synthesizer)->reverb_on) {
-			this->out_mixer_effect1 = (float)($nc(this->co_mixer_reverb)->get(0) * (1.0 / 1000.0));
+			this->out_mixer_effect1 = (float)(this->co_mixer_reverb->get(0) * (1.0 / 1000.0));
 			this->out_mixer_effect1 *= gain;
 		} else {
-			this->out_mixer_effect1 = (float)0;
+			this->out_mixer_effect1 = 0;
 		}
-		if ($nc(this->synthesizer)->chorus_on) {
-			this->out_mixer_effect2 = (float)($nc(this->co_mixer_chorus)->get(0) * (1.0 / 1000.0));
+		if (this->synthesizer->chorus_on) {
+			this->out_mixer_effect2 = (float)(this->co_mixer_chorus->get(0) * (1.0 / 1000.0));
 			this->out_mixer_effect2 *= gain;
 		} else {
-			this->out_mixer_effect2 = (float)0;
+			this->out_mixer_effect2 = 0;
 		}
-		this->out_mixer_end = $nc(this->co_mixer_active)->get(0) < 0.5;
+		this->out_mixer_end = this->co_mixer_active->get(0) < 0.5;
 		if (!this->on) {
 			if (!this->osc_stream_off_transmitted) {
 				this->osc_stream_off_transmitted = true;
 				if (this->osc_stream != nullptr) {
-					$nc(this->osc_stream)->noteOff(this->noteOff_velocity);
+					this->osc_stream->noteOff(this->noteOff_velocity);
 				}
 			}
 		}
@@ -897,7 +742,7 @@ void SoftVoice::processControlLogic() {
 }
 
 void SoftVoice::mixAudioStream($SoftAudioBuffer* in, $SoftAudioBuffer* out, $SoftAudioBuffer* dout, float amp_from, float amp_to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t bufferlen = $nc(in)->getSize();
 	if (amp_from < 1.0E-9 && amp_to < 1.0E-9) {
 		return;
@@ -949,7 +794,7 @@ void SoftVoice::mixAudioStream($SoftAudioBuffer* in, $SoftAudioBuffer* out, $Sof
 }
 
 void SoftVoice::processAudioLogic($SoftAudioBufferArray* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->audiostarted) {
 		return;
 	}
@@ -967,7 +812,7 @@ void SoftVoice::processAudioLogic($SoftAudioBufferArray* buffer) {
 		if (ret != bufferlen) {
 			$Arrays::fill($nc(this->osc_buff)->get(0), ret, bufferlen, 0.0f);
 			if (this->nrofchannels != 1) {
-				$Arrays::fill($nc(this->osc_buff)->get(1), ret, bufferlen, 0.0f);
+				$Arrays::fill(this->osc_buff->get(1), ret, bufferlen, 0.0f);
 			}
 		}
 	} catch ($IOException& e) {
@@ -987,10 +832,10 @@ void SoftVoice::processAudioLogic($SoftAudioBufferArray* buffer) {
 	if (this->osc_stream_nrofchannels == 1) {
 		$assign(rightdry, nullptr);
 	}
-	if (!$Double::isInfinite($nc(this->co_filter_freq)->get(0))) {
-		$nc(this->filter_left)->processAudio(leftdry);
+	if (!$Double::isInfinite(this->co_filter_freq->get(0))) {
+		this->filter_left->processAudio(leftdry);
 		if (rightdry != nullptr) {
-			$nc(this->filter_right)->processAudio(rightdry);
+			this->filter_right->processAudio(rightdry);
 		}
 	}
 	if (this->nrofchannels == 1) {
@@ -1031,7 +876,137 @@ SoftVoice::SoftVoice() {
 }
 
 $Class* SoftVoice::load$($String* name, bool initialize) {
-	$loadClass(SoftVoice, name, initialize, &_SoftVoice_ClassInfo_, allocate$SoftVoice);
+	$FieldInfo fieldInfos$$[] = {
+		{"exclusiveClass", "I", nullptr, $PUBLIC, $field(SoftVoice, exclusiveClass)},
+		{"releaseTriggered", "Z", nullptr, $PUBLIC, $field(SoftVoice, releaseTriggered)},
+		{"noteOn_noteNumber", "I", nullptr, $PRIVATE, $field(SoftVoice, noteOn_noteNumber)},
+		{"noteOn_velocity", "I", nullptr, $PRIVATE, $field(SoftVoice, noteOn_velocity)},
+		{"noteOff_velocity", "I", nullptr, $PRIVATE, $field(SoftVoice, noteOff_velocity)},
+		{"delay", "I", nullptr, $PRIVATE, $field(SoftVoice, delay)},
+		{"channelmixer", "Lcom/sun/media/sound/ModelChannelMixer;", nullptr, 0, $field(SoftVoice, channelmixer)},
+		{"tunedKey", "D", nullptr, 0, $field(SoftVoice, tunedKey)},
+		{"tuning", "Lcom/sun/media/sound/SoftTuning;", nullptr, 0, $field(SoftVoice, tuning)},
+		{"stealer_channel", "Lcom/sun/media/sound/SoftChannel;", nullptr, 0, $field(SoftVoice, stealer_channel)},
+		{"stealer_extendedConnectionBlocks", "[Lcom/sun/media/sound/ModelConnectionBlock;", nullptr, 0, $field(SoftVoice, stealer_extendedConnectionBlocks)},
+		{"stealer_performer", "Lcom/sun/media/sound/SoftPerformer;", nullptr, 0, $field(SoftVoice, stealer_performer)},
+		{"stealer_channelmixer", "Lcom/sun/media/sound/ModelChannelMixer;", nullptr, 0, $field(SoftVoice, stealer_channelmixer)},
+		{"stealer_voiceID", "I", nullptr, 0, $field(SoftVoice, stealer_voiceID)},
+		{"stealer_noteNumber", "I", nullptr, 0, $field(SoftVoice, stealer_noteNumber)},
+		{"stealer_velocity", "I", nullptr, 0, $field(SoftVoice, stealer_velocity)},
+		{"stealer_releaseTriggered", "Z", nullptr, 0, $field(SoftVoice, stealer_releaseTriggered)},
+		{"voiceID", "I", nullptr, 0, $field(SoftVoice, voiceID)},
+		{"sustain", "Z", nullptr, 0, $field(SoftVoice, sustain)},
+		{"sostenuto", "Z", nullptr, 0, $field(SoftVoice, sostenuto)},
+		{"portamento", "Z", nullptr, 0, $field(SoftVoice, portamento)},
+		{"filter_left", "Lcom/sun/media/sound/SoftFilter;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, filter_left)},
+		{"filter_right", "Lcom/sun/media/sound/SoftFilter;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, filter_right)},
+		{"eg", "Lcom/sun/media/sound/SoftProcess;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, eg)},
+		{"lfo", "Lcom/sun/media/sound/SoftProcess;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, lfo)},
+		{"objects", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/media/sound/SoftControl;>;", $FINAL, $field(SoftVoice, objects)},
+		{"synthesizer", "Lcom/sun/media/sound/SoftSynthesizer;", nullptr, 0, $field(SoftVoice, synthesizer)},
+		{"instrument", "Lcom/sun/media/sound/SoftInstrument;", nullptr, 0, $field(SoftVoice, instrument)},
+		{"performer", "Lcom/sun/media/sound/SoftPerformer;", nullptr, 0, $field(SoftVoice, performer)},
+		{"softchannel", "Lcom/sun/media/sound/SoftChannel;", nullptr, 0, $field(SoftVoice, softchannel)},
+		{"on", "Z", nullptr, 0, $field(SoftVoice, on)},
+		{"audiostarted", "Z", nullptr, $PRIVATE, $field(SoftVoice, audiostarted)},
+		{"started", "Z", nullptr, $PRIVATE, $field(SoftVoice, started)},
+		{"stopping", "Z", nullptr, $PRIVATE, $field(SoftVoice, stopping)},
+		{"osc_attenuation", "F", nullptr, $PRIVATE, $field(SoftVoice, osc_attenuation)},
+		{"osc_stream", "Lcom/sun/media/sound/ModelOscillatorStream;", nullptr, $PRIVATE, $field(SoftVoice, osc_stream)},
+		{"osc_stream_nrofchannels", "I", nullptr, $PRIVATE, $field(SoftVoice, osc_stream_nrofchannels)},
+		{"osc_buff", "[[F", nullptr, $PRIVATE, $field(SoftVoice, osc_buff)},
+		{"osc_stream_off_transmitted", "Z", nullptr, $PRIVATE, $field(SoftVoice, osc_stream_off_transmitted)},
+		{"out_mixer_end", "Z", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_end)},
+		{"out_mixer_left", "F", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_left)},
+		{"out_mixer_right", "F", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_right)},
+		{"out_mixer_effect1", "F", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_effect1)},
+		{"out_mixer_effect2", "F", nullptr, $PRIVATE, $field(SoftVoice, out_mixer_effect2)},
+		{"last_out_mixer_left", "F", nullptr, $PRIVATE, $field(SoftVoice, last_out_mixer_left)},
+		{"last_out_mixer_right", "F", nullptr, $PRIVATE, $field(SoftVoice, last_out_mixer_right)},
+		{"last_out_mixer_effect1", "F", nullptr, $PRIVATE, $field(SoftVoice, last_out_mixer_effect1)},
+		{"last_out_mixer_effect2", "F", nullptr, $PRIVATE, $field(SoftVoice, last_out_mixer_effect2)},
+		{"extendedConnectionBlocks", "[Lcom/sun/media/sound/ModelConnectionBlock;", nullptr, 0, $field(SoftVoice, extendedConnectionBlocks)},
+		{"connections", "[Lcom/sun/media/sound/ModelConnectionBlock;", nullptr, $PRIVATE, $field(SoftVoice, connections)},
+		{"connections_last", "[D", nullptr, $PRIVATE, $field(SoftVoice, connections_last)},
+		{"connections_src", "[[[D", nullptr, $PRIVATE, $field(SoftVoice, connections_src)},
+		{"connections_src_kc", "[[I", nullptr, $PRIVATE, $field(SoftVoice, connections_src_kc)},
+		{"connections_dst", "[[D", nullptr, $PRIVATE, $field(SoftVoice, connections_dst)},
+		{"soundoff", "Z", nullptr, $PRIVATE, $field(SoftVoice, soundoff)},
+		{"lastMuteValue", "F", nullptr, $PRIVATE, $field(SoftVoice, lastMuteValue)},
+		{"lastSoloMuteValue", "F", nullptr, $PRIVATE, $field(SoftVoice, lastSoloMuteValue)},
+		{"co_noteon_keynumber", "[D", nullptr, 0, $field(SoftVoice, co_noteon_keynumber)},
+		{"co_noteon_velocity", "[D", nullptr, 0, $field(SoftVoice, co_noteon_velocity)},
+		{"co_noteon_on", "[D", nullptr, 0, $field(SoftVoice, co_noteon_on)},
+		{"co_noteon", "Lcom/sun/media/sound/SoftControl;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_noteon)},
+		{"co_mixer_active", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_active)},
+		{"co_mixer_gain", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_gain)},
+		{"co_mixer_pan", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_pan)},
+		{"co_mixer_balance", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_balance)},
+		{"co_mixer_reverb", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_reverb)},
+		{"co_mixer_chorus", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer_chorus)},
+		{"co_mixer", "Lcom/sun/media/sound/SoftControl;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_mixer)},
+		{"co_osc_pitch", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_osc_pitch)},
+		{"co_osc", "Lcom/sun/media/sound/SoftControl;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_osc)},
+		{"co_filter_freq", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_filter_freq)},
+		{"co_filter_type", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_filter_type)},
+		{"co_filter_q", "[D", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_filter_q)},
+		{"co_filter", "Lcom/sun/media/sound/SoftControl;", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, co_filter)},
+		{"resampler", "Lcom/sun/media/sound/SoftResamplerStreamer;", nullptr, 0, $field(SoftVoice, resampler)},
+		{"nrofchannels", "I", nullptr, $PRIVATE | $FINAL, $field(SoftVoice, nrofchannels)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftSynthesizer;)V", nullptr, $PUBLIC, $method(SoftVoice, init$, void, $SoftSynthesizer*)},
+		{"controlChange", "(II)V", nullptr, 0, $method(SoftVoice, controlChange, void, int32_t, int32_t)},
+		{"getValue", "(Lcom/sun/media/sound/ModelIdentifier;)[D", nullptr, $PRIVATE, $method(SoftVoice, getValue, $doubles*, $ModelIdentifier*)},
+		{"getValueKC", "(Lcom/sun/media/sound/ModelIdentifier;)I", nullptr, $PRIVATE, $method(SoftVoice, getValueKC, int32_t, $ModelIdentifier*)},
+		{"mixAudioStream", "(Lcom/sun/media/sound/SoftAudioBuffer;Lcom/sun/media/sound/SoftAudioBuffer;Lcom/sun/media/sound/SoftAudioBuffer;FF)V", nullptr, 0, $method(SoftVoice, mixAudioStream, void, $SoftAudioBuffer*, $SoftAudioBuffer*, $SoftAudioBuffer*, float, float)},
+		{"noteOff", "(I)V", nullptr, 0, $method(SoftVoice, noteOff, void, int32_t)},
+		{"noteOn", "(III)V", nullptr, 0, $method(SoftVoice, noteOn, void, int32_t, int32_t, int32_t)},
+		{"nrpnChange", "(II)V", nullptr, 0, $method(SoftVoice, nrpnChange, void, int32_t, int32_t)},
+		{"processAudioLogic", "([Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, 0, $method(SoftVoice, processAudioLogic, void, $SoftAudioBufferArray*)},
+		{"processConnection", "(I)V", nullptr, $PRIVATE, $method(SoftVoice, processConnection, void, int32_t)},
+		{"processControlLogic", "()V", nullptr, 0, $method(SoftVoice, processControlLogic, void)},
+		{"processKeyBasedController", "(DI)D", nullptr, $PRIVATE, $method(SoftVoice, processKeyBasedController, double, double, int32_t)},
+		{"redamp", "()V", nullptr, 0, $method(SoftVoice, redamp, void)},
+		{"rpnChange", "(II)V", nullptr, 0, $method(SoftVoice, rpnChange, void, int32_t, int32_t)},
+		{"setChannelPressure", "(I)V", nullptr, 0, $method(SoftVoice, setChannelPressure, void, int32_t)},
+		{"setMute", "(Z)V", nullptr, 0, $method(SoftVoice, setMute, void, bool)},
+		{"setNote", "(I)V", nullptr, 0, $method(SoftVoice, setNote, void, int32_t)},
+		{"setPitchBend", "(I)V", nullptr, 0, $method(SoftVoice, setPitchBend, void, int32_t)},
+		{"setPolyPressure", "(I)V", nullptr, 0, $method(SoftVoice, setPolyPressure, void, int32_t)},
+		{"setSoloMute", "(Z)V", nullptr, 0, $method(SoftVoice, setSoloMute, void, bool)},
+		{"shutdown", "()V", nullptr, 0, $method(SoftVoice, shutdown, void)},
+		{"soundOff", "()V", nullptr, 0, $method(SoftVoice, soundOff, void)},
+		{"transformValue", "(DLcom/sun/media/sound/ModelSource;)D", nullptr, $PRIVATE, $method(SoftVoice, transformValue, double, double, $ModelSource*)},
+		{"transformValue", "(DLcom/sun/media/sound/ModelDestination;)D", nullptr, $PRIVATE, $method(SoftVoice, transformValue, double, double, $ModelDestination*)},
+		{"updateTuning", "(Lcom/sun/media/sound/SoftTuning;)V", nullptr, 0, $method(SoftVoice, updateTuning, void, $SoftTuning*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftVoice$4", nullptr, nullptr, 0},
+		{"com.sun.media.sound.SoftVoice$3", nullptr, nullptr, 0},
+		{"com.sun.media.sound.SoftVoice$2", nullptr, nullptr, 0},
+		{"com.sun.media.sound.SoftVoice$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftVoice",
+		"javax.sound.midi.VoiceStatus",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftVoice$4,com.sun.media.sound.SoftVoice$3,com.sun.media.sound.SoftVoice$2,com.sun.media.sound.SoftVoice$1"
+	};
+	$loadClass(SoftVoice, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftVoice);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsButtonUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsButtonUI$1.h>
@@ -92,60 +91,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsButtonUI_FieldInfo_[] = {
-	{"dashedRectGapX", "I", nullptr, $PROTECTED, $field(WindowsButtonUI, dashedRectGapX)},
-	{"dashedRectGapY", "I", nullptr, $PROTECTED, $field(WindowsButtonUI, dashedRectGapY)},
-	{"dashedRectGapWidth", "I", nullptr, $PROTECTED, $field(WindowsButtonUI, dashedRectGapWidth)},
-	{"dashedRectGapHeight", "I", nullptr, $PROTECTED, $field(WindowsButtonUI, dashedRectGapHeight)},
-	{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsButtonUI, focusColor)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(WindowsButtonUI, defaults_initialized)},
-	{"WINDOWS_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsButtonUI, WINDOWS_BUTTON_UI_KEY)},
-	{"viewRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(WindowsButtonUI, viewRect)},
-	{}
-};
-
-$MethodInfo _WindowsButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, getFocusColor, $Color*)},
-	{"getOpaqueInsets", "(Ljavax/swing/border/Border;Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsButtonUI, getOpaqueInsets, $Insets*, $Border*, $Component*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getXPButtonState", "(Ljavax/swing/AbstractButton;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $STATIC, $staticMethod(WindowsButtonUI, getXPButtonState, $TMSchema$State*, $AbstractButton*)},
-	{"getXPButtonType", "(Ljavax/swing/AbstractButton;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $STATIC, $staticMethod(WindowsButtonUI, getXPButtonType, $TMSchema$Part*, $AbstractButton*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, installDefaults, void, $AbstractButton*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsButtonUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
-	{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
-	{"paintXPButtonBackground", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $STATIC, $staticMethod(WindowsButtonUI, paintXPButtonBackground, void, $Graphics*, $JComponent*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{}
-};
-
-$InnerClassInfo _WindowsButtonUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsButtonUI$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _WindowsButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsButtonUI",
-	"javax.swing.plaf.basic.BasicButtonUI",
-	nullptr,
-	_WindowsButtonUI_FieldInfo_,
-	_WindowsButtonUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsButtonUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsButtonUI$1"
-};
-
-$Object* allocate$WindowsButtonUI($Class* clazz) {
-	return $of($alloc(WindowsButtonUI));
-}
-
 $Object* WindowsButtonUI::WINDOWS_BUTTON_UI_KEY = nullptr;
 
 void WindowsButtonUI::init$() {
@@ -156,7 +101,7 @@ void WindowsButtonUI::init$() {
 
 $ComponentUI* WindowsButtonUI::createUI($JComponent* c) {
 	$init(WindowsButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(WindowsButtonUI, windowsButtonUI, $cast(WindowsButtonUI, $nc(appContext)->get(WindowsButtonUI::WINDOWS_BUTTON_UI_KEY)));
 	if (windowsButtonUI == nullptr) {
@@ -167,7 +112,7 @@ $ComponentUI* WindowsButtonUI::createUI($JComponent* c) {
 }
 
 void WindowsButtonUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicButtonUI::installDefaults(b);
 	if (!this->defaults_initialized) {
 		$var($String, pp, getPropertyPrefix());
@@ -181,7 +126,6 @@ void WindowsButtonUI::installDefaults($AbstractButton* b) {
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$nc(b)->setBorder($(xp->getBorder(b, $(getXPButtonType(b)))));
-		$init($Boolean);
 		$LookAndFeel::installProperty(b, "rolloverEnabled"_s, $Boolean::TRUE);
 	}
 }
@@ -211,7 +155,7 @@ void WindowsButtonUI::paintButtonPressed($Graphics* g, $AbstractButton* b) {
 }
 
 $Dimension* WindowsButtonUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $BasicButtonUI::getPreferredSize(c));
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	if (d != nullptr && $nc(b)->isFocusPainted()) {
@@ -249,80 +193,72 @@ $TMSchema$Part* WindowsButtonUI::getXPButtonType($AbstractButton* b) {
 
 $TMSchema$State* WindowsButtonUI::getXPButtonState($AbstractButton* b) {
 	$init(WindowsButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$TMSchema$Part* part = getXPButtonType(b);
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$init($TMSchema$State);
 	$TMSchema$State* state = $TMSchema$State::NORMAL;
-	$init($WindowsButtonUI$1);
 	{
+		$init($WindowsButtonUI$1);
 		bool toolbar = false;
 		switch ($nc($WindowsButtonUI$1::$SwitchMap$com$sun$java$swing$plaf$windows$TMSchema$Part)->get($nc((part))->ordinal())) {
 		case 1:
-			{}
 		case 2:
-			{
-				if (!$nc(model)->isEnabled()) {
-					state = (model->isSelected()) ? $TMSchema$State::CHECKEDDISABLED : $TMSchema$State::UNCHECKEDDISABLED;
+			if (!$nc(model)->isEnabled()) {
+				state = (model->isSelected()) ? $TMSchema$State::CHECKEDDISABLED : $TMSchema$State::UNCHECKEDDISABLED;
+			} else {
+				bool var$0 = model->isPressed();
+				if (var$0 && model->isArmed()) {
+					state = (model->isSelected()) ? $TMSchema$State::CHECKEDPRESSED : $TMSchema$State::UNCHECKEDPRESSED;
+				} else if (model->isRollover()) {
+					state = (model->isSelected()) ? $TMSchema$State::CHECKEDHOT : $TMSchema$State::UNCHECKEDHOT;
 				} else {
-					bool var$1 = model->isPressed();
-					if (var$1 && model->isArmed()) {
-						state = (model->isSelected()) ? $TMSchema$State::CHECKEDPRESSED : $TMSchema$State::UNCHECKEDPRESSED;
-					} else if (model->isRollover()) {
-						state = (model->isSelected()) ? $TMSchema$State::CHECKEDHOT : $TMSchema$State::UNCHECKEDHOT;
-					} else {
-						state = (model->isSelected()) ? $TMSchema$State::CHECKEDNORMAL : $TMSchema$State::UNCHECKEDNORMAL;
-					}
+					state = (model->isSelected()) ? $TMSchema$State::CHECKEDNORMAL : $TMSchema$State::UNCHECKEDNORMAL;
 				}
-				break;
 			}
+			break;
 		case 3:
-			{}
 		case 4:
-			{
-				toolbar = ($instanceOf($JToolBar, $(b->getParent())));
-				if (toolbar) {
-					bool var$2 = $nc(model)->isArmed();
-					if (var$2 && model->isPressed()) {
-						state = $TMSchema$State::PRESSED;
-					} else if (!model->isEnabled()) {
-						state = $TMSchema$State::DISABLED;
-					} else {
-						bool var$4 = model->isSelected();
-						if (var$4 && model->isRollover()) {
-							state = $TMSchema$State::HOTCHECKED;
-						} else if (model->isSelected()) {
-							state = $TMSchema$State::CHECKED;
-						} else if (model->isRollover()) {
-							state = $TMSchema$State::HOT;
-						} else if (b->hasFocus()) {
-							state = $TMSchema$State::HOT;
-						}
-					}
+			toolbar = ($instanceOf($JToolBar, $(b->getParent())));
+			if (toolbar) {
+				bool var$1 = $nc(model)->isArmed();
+				if (var$1 && model->isPressed()) {
+					state = $TMSchema$State::PRESSED;
+				} else if (!model->isEnabled()) {
+					state = $TMSchema$State::DISABLED;
 				} else {
-					bool var$8 = $nc(model)->isArmed();
-					bool var$7 = (var$8 && model->isPressed());
-					if (var$7 || $nc(model)->isSelected()) {
-						state = $TMSchema$State::PRESSED;
-					} else if (!model->isEnabled()) {
-						state = $TMSchema$State::DISABLED;
-					} else {
-						bool var$10 = model->isRollover();
-						if (var$10 || model->isPressed()) {
-							state = $TMSchema$State::HOT;
-						} else if ($instanceOf($JButton, b) && $nc(($cast($JButton, b)))->isDefaultButton()) {
-							state = $TMSchema$State::DEFAULTED;
-						} else if (b->hasFocus()) {
-							state = $TMSchema$State::HOT;
-						}
+					bool var$2 = model->isSelected();
+					if (var$2 && model->isRollover()) {
+						state = $TMSchema$State::HOTCHECKED;
+					} else if (model->isSelected()) {
+						state = $TMSchema$State::CHECKED;
+					} else if (model->isRollover()) {
+						state = $TMSchema$State::HOT;
+					} else if (b->hasFocus()) {
+						state = $TMSchema$State::HOT;
 					}
 				}
-				break;
+			} else {
+				bool var$4 = $nc(model)->isArmed();
+				bool var$3 = var$4 && model->isPressed();
+				if (var$3 || model->isSelected()) {
+					state = $TMSchema$State::PRESSED;
+				} else if (!model->isEnabled()) {
+					state = $TMSchema$State::DISABLED;
+				} else {
+					bool var$5 = model->isRollover();
+					if (var$5 || model->isPressed()) {
+						state = $TMSchema$State::HOT;
+					} else if ($instanceOf($JButton, b) && $cast($JButton, b)->isDefaultButton()) {
+						state = $TMSchema$State::DEFAULTED;
+					} else if (b->hasFocus()) {
+						state = $TMSchema$State::HOT;
+					}
+				}
 			}
+			break;
 		default:
-			{
-				state = $TMSchema$State::NORMAL;
-			}
+			state = $TMSchema$State::NORMAL;
 		}
 	}
 	return state;
@@ -330,7 +266,7 @@ $TMSchema$State* WindowsButtonUI::getXPButtonState($AbstractButton* b) {
 
 void WindowsButtonUI::paintXPButtonBackground($Graphics* g, $JComponent* c) {
 	$init(WindowsButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($XPStyle, xp, $XPStyle::getXP());
 	$TMSchema$Part* part = getXPButtonType(b);
@@ -363,7 +299,7 @@ void WindowsButtonUI::paintXPButtonBackground($Graphics* g, $JComponent* c) {
 
 $Insets* WindowsButtonUI::getOpaqueInsets($Border* b, $Component* c) {
 	$init(WindowsButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (b == nullptr) {
 		return nullptr;
 	}
@@ -372,12 +308,12 @@ $Insets* WindowsButtonUI::getOpaqueInsets($Border* b, $Component* c) {
 	} else if ($instanceOf($CompoundBorder, b)) {
 		$var($CompoundBorder, cb, $cast($CompoundBorder, b));
 		$var($Insets, iOut, getOpaqueInsets($(cb->getOutsideBorder()), c));
-		if (iOut != nullptr && iOut->equals($($nc($(cb->getOutsideBorder()))->getBorderInsets(c)))) {
+		if (iOut != nullptr && iOut->equals($($$nc(cb->getOutsideBorder())->getBorderInsets(c)))) {
 			$var($Insets, iIn, getOpaqueInsets($(cb->getInsideBorder()), c));
 			if (iIn == nullptr) {
 				return iOut;
 			} else {
-				return $new($Insets, iOut->top + $nc(iIn)->top, iOut->left + iIn->left, iOut->bottom + iIn->bottom, iOut->right + iIn->right);
+				return $new($Insets, iOut->top + iIn->top, iOut->left + iIn->left, iOut->bottom + iIn->bottom, iOut->right + iIn->right);
 			}
 		} else {
 			return iOut;
@@ -387,7 +323,7 @@ $Insets* WindowsButtonUI::getOpaqueInsets($Border* b, $Component* c) {
 	}
 }
 
-void clinit$WindowsButtonUI($Class* class$) {
+void WindowsButtonUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsButtonUI::WINDOWS_BUTTON_UI_KEY, $new($Object));
 }
 
@@ -395,7 +331,55 @@ WindowsButtonUI::WindowsButtonUI() {
 }
 
 $Class* WindowsButtonUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsButtonUI, name, initialize, &_WindowsButtonUI_ClassInfo_, clinit$WindowsButtonUI, allocate$WindowsButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"dashedRectGapX", "I", nullptr, $PROTECTED, $field(WindowsButtonUI, dashedRectGapX)},
+		{"dashedRectGapY", "I", nullptr, $PROTECTED, $field(WindowsButtonUI, dashedRectGapY)},
+		{"dashedRectGapWidth", "I", nullptr, $PROTECTED, $field(WindowsButtonUI, dashedRectGapWidth)},
+		{"dashedRectGapHeight", "I", nullptr, $PROTECTED, $field(WindowsButtonUI, dashedRectGapHeight)},
+		{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsButtonUI, focusColor)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(WindowsButtonUI, defaults_initialized)},
+		{"WINDOWS_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsButtonUI, WINDOWS_BUTTON_UI_KEY)},
+		{"viewRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(WindowsButtonUI, viewRect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, getFocusColor, $Color*)},
+		{"getOpaqueInsets", "(Ljavax/swing/border/Border;Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsButtonUI, getOpaqueInsets, $Insets*, $Border*, $Component*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getXPButtonState", "(Ljavax/swing/AbstractButton;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $STATIC, $staticMethod(WindowsButtonUI, getXPButtonState, $TMSchema$State*, $AbstractButton*)},
+		{"getXPButtonType", "(Ljavax/swing/AbstractButton;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $STATIC, $staticMethod(WindowsButtonUI, getXPButtonType, $TMSchema$Part*, $AbstractButton*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, installDefaults, void, $AbstractButton*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsButtonUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
+		{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
+		{"paintXPButtonBackground", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $STATIC, $staticMethod(WindowsButtonUI, paintXPButtonBackground, void, $Graphics*, $JComponent*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsButtonUI$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsButtonUI",
+		"javax.swing.plaf.basic.BasicButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsButtonUI$1"
+	};
+	$loadClass(WindowsButtonUI, name, initialize, &classInfo$$, WindowsButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsButtonUI);
+	});
 	return class$;
 }
 

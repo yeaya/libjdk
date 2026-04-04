@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/tree/DCTree$DCStartElement.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
-#include <com/sun/source/doctree/StartElementTree.h>
 #include <com/sun/tools/javac/tree/DCTree$DCEndPosTree.h>
 #include <com/sun/tools/javac/tree/DCTree.h>
 #include <java/util/List.h>
@@ -13,7 +11,6 @@
 
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
-using $StartElementTree = ::com::sun::source::doctree::StartElementTree;
 using $DCTree$DCEndPosTree = ::com::sun::tools::javac::tree::DCTree$DCEndPosTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -27,54 +24,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCStartElement_FieldInfo_[] = {
-	{"name", "Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCStartElement, name)},
-	{"attrs", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCStartElement, attrs)},
-	{"selfClosing", "Z", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCStartElement, selfClosing)},
-	{}
-};
-
-$MethodInfo _DCTree$DCStartElement_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/lang/model/element/Name;Ljava/util/List;Z)V", "(Ljavax/lang/model/element/Name;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Z)V", 0, $method(DCTree$DCStartElement, init$, void, $Name*, $List*, bool)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCStartElement, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getAttributes", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCStartElement, getAttributes, $List*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCStartElement, getKind, $DocTree$Kind*)},
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCStartElement, getName, $Name*)},
-	{"isSelfClosing", "()Z", nullptr, $PUBLIC, $virtualMethod(DCTree$DCStartElement, isSelfClosing, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCStartElement_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCStartElement", "com.sun.tools.javac.tree.DCTree", "DCStartElement", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.DCTree$DCEndPosTree", "com.sun.tools.javac.tree.DCTree", "DCEndPosTree", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCStartElement_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCStartElement",
-	"com.sun.tools.javac.tree.DCTree$DCEndPosTree",
-	"com.sun.source.doctree.StartElementTree",
-	_DCTree$DCStartElement_FieldInfo_,
-	_DCTree$DCStartElement_MethodInfo_,
-	"Lcom/sun/tools/javac/tree/DCTree$DCEndPosTree<Lcom/sun/tools/javac/tree/DCTree$DCStartElement;>;Lcom/sun/source/doctree/StartElementTree;",
-	nullptr,
-	_DCTree$DCStartElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCStartElement($Class* clazz) {
-	return $of($alloc(DCTree$DCStartElement));
-}
 
 $String* DCTree$DCStartElement::toString() {
 	 return this->$DCTree$DCEndPosTree::toString();
@@ -109,7 +58,7 @@ $DocTree$Kind* DCTree$DCStartElement::getKind() {
 }
 
 $Object* DCTree$DCStartElement::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitStartElement(this, d));
+	return $nc(v)->visitStartElement(this, d);
 }
 
 $Name* DCTree$DCStartElement::getName() {
@@ -128,7 +77,49 @@ DCTree$DCStartElement::DCTree$DCStartElement() {
 }
 
 $Class* DCTree$DCStartElement::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCStartElement, name, initialize, &_DCTree$DCStartElement_ClassInfo_, allocate$DCTree$DCStartElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCStartElement, name)},
+		{"attrs", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCStartElement, attrs)},
+		{"selfClosing", "Z", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCStartElement, selfClosing)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/lang/model/element/Name;Ljava/util/List;Z)V", "(Ljavax/lang/model/element/Name;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Z)V", 0, $method(DCTree$DCStartElement, init$, void, $Name*, $List*, bool)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCStartElement, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getAttributes", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCStartElement, getAttributes, $List*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCStartElement, getKind, $DocTree$Kind*)},
+		{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCStartElement, getName, $Name*)},
+		{"isSelfClosing", "()Z", nullptr, $PUBLIC, $virtualMethod(DCTree$DCStartElement, isSelfClosing, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCStartElement", "com.sun.tools.javac.tree.DCTree", "DCStartElement", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.DCTree$DCEndPosTree", "com.sun.tools.javac.tree.DCTree", "DCEndPosTree", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCStartElement",
+		"com.sun.tools.javac.tree.DCTree$DCEndPosTree",
+		"com.sun.source.doctree.StartElementTree",
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/tree/DCTree$DCEndPosTree<Lcom/sun/tools/javac/tree/DCTree$DCStartElement;>;Lcom/sun/source/doctree/StartElementTree;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCStartElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCStartElement));
+	});
 	return class$;
 }
 

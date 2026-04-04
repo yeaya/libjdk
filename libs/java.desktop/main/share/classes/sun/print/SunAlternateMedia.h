@@ -28,7 +28,7 @@ public:
 	virtual $String* getName() override;
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x84C7EC4834A166E7;
+	static const int64_t serialVersionUID = (int64_t)0x84c7ec4834a166e7;
 	::javax::print::attribute::standard::Media* media = nullptr;
 };
 

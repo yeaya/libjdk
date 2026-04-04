@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/AutoFlushWriter.h>
-
 #include <java/io/FilterWriter.h>
 #include <java/io/Writer.h>
 #include <java/lang/CharSequence.h>
@@ -16,27 +15,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 
-$MethodInfo _AutoFlushWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(AutoFlushWriter, init$, void, $Writer*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _AutoFlushWriter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.AutoFlushWriter",
-	"java.io.FilterWriter",
-	nullptr,
-	nullptr,
-	_AutoFlushWriter_MethodInfo_
-};
-
-$Object* allocate$AutoFlushWriter($Class* clazz) {
-	return $of($alloc(AutoFlushWriter));
-}
-
 void AutoFlushWriter::init$($Writer* out) {
 	$FilterWriter::init$(out);
 }
@@ -51,7 +29,7 @@ void AutoFlushWriter::write(int32_t c) {
 void AutoFlushWriter::write($String* str, int32_t off, int32_t len) {
 	$FilterWriter::write(str, off, len);
 	bool var$0 = $nc(str)->contains("\n"_s);
-	if (var$0 || $nc(str)->contains("\r"_s)) {
+	if (var$0 || str->contains("\r"_s)) {
 		flush();
 	}
 }
@@ -60,15 +38,11 @@ void AutoFlushWriter::write($chars* cbuf, int32_t off, int32_t len) {
 	$FilterWriter::write(cbuf, off, len);
 	{
 		$var($chars, arr$, cbuf);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			char16_t c = arr$->get(i$);
-			{
-				if (c == u'\n' || c == u'\r') {
-					flush();
-					break;
-				}
+			if (c == u'\n' || c == u'\r') {
+				flush();
+				break;
 			}
 		}
 	}
@@ -78,7 +52,24 @@ AutoFlushWriter::AutoFlushWriter() {
 }
 
 $Class* AutoFlushWriter::load$($String* name, bool initialize) {
-	$loadClass(AutoFlushWriter, name, initialize, &_AutoFlushWriter_ClassInfo_, allocate$AutoFlushWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(AutoFlushWriter, init$, void, $Writer*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(AutoFlushWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.AutoFlushWriter",
+		"java.io.FilterWriter",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AutoFlushWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AutoFlushWriter));
+	});
 	return class$;
 }
 

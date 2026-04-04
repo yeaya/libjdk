@@ -29,6 +29,7 @@ class $export FlowAdaptersCompileOnly : public ::java::lang::Object {
 	$class(FlowAdaptersCompileOnly, 0, ::java::lang::Object)
 public:
 	FlowAdaptersCompileOnly();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::lang::Integer* lambda$makesSureDifferentGenericFunctionSignaturesCompile$4(::FlowAdaptersCompileOnly$ListSubscriber* s);
 	static ::java::lang::Number* lambda$makesSureDifferentGenericFunctionSignaturesCompile$5(::FlowAdaptersCompileOnly$ListSubscriber* s);

@@ -1,5 +1,4 @@
 #include <javax/swing/text/BoxView.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
@@ -45,82 +44,6 @@ using $ViewFactory = ::javax::swing::text::ViewFactory;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _BoxView_FieldInfo_[] = {
-	{"majorAxis", "I", nullptr, 0, $field(BoxView, majorAxis)},
-	{"majorSpan", "I", nullptr, 0, $field(BoxView, majorSpan)},
-	{"minorSpan", "I", nullptr, 0, $field(BoxView, minorSpan)},
-	{"majorReqValid", "Z", nullptr, 0, $field(BoxView, majorReqValid)},
-	{"minorReqValid", "Z", nullptr, 0, $field(BoxView, minorReqValid)},
-	{"majorRequest", "Ljavax/swing/SizeRequirements;", nullptr, 0, $field(BoxView, majorRequest)},
-	{"minorRequest", "Ljavax/swing/SizeRequirements;", nullptr, 0, $field(BoxView, minorRequest)},
-	{"majorAllocValid", "Z", nullptr, 0, $field(BoxView, majorAllocValid)},
-	{"majorOffsets", "[I", nullptr, 0, $field(BoxView, majorOffsets)},
-	{"majorSpans", "[I", nullptr, 0, $field(BoxView, majorSpans)},
-	{"minorAllocValid", "Z", nullptr, 0, $field(BoxView, minorAllocValid)},
-	{"minorOffsets", "[I", nullptr, 0, $field(BoxView, minorOffsets)},
-	{"minorSpans", "[I", nullptr, 0, $field(BoxView, minorSpans)},
-	{"tempRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(BoxView, tempRect)},
-	{}
-};
-
-$MethodInfo _BoxView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(BoxView, init$, void, $Element*, int32_t)},
-	{"baselineLayout", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(BoxView, baselineLayout, void, int32_t, int32_t, $ints*, $ints*)},
-	{"baselineRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BoxView, baselineRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BoxView, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BoxView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"checkRequests", "(I)V", nullptr, 0, $virtualMethod(BoxView, checkRequests, void, int32_t)},
-	{"childAllocation", "(ILjava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BoxView, childAllocation, void, int32_t, $Rectangle*)},
-	{"flipEastAndWestAtEnds", "(ILjavax/swing/text/Position$Bias;)Z", nullptr, $PROTECTED, $virtualMethod(BoxView, flipEastAndWestAtEnds, bool, int32_t, $Position$Bias*)},
-	{"forwardUpdate", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(BoxView, forwardUpdate, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(BoxView, getAlignment, float, int32_t)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(BoxView, getAxis, int32_t)},
-	{"getChildAllocation", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BoxView, getChildAllocation, $Shape*, int32_t, $Shape*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BoxView, getHeight, int32_t)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BoxView, getMaximumSpan, float, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BoxView, getMinimumSpan, float, int32_t)},
-	{"getOffset", "(II)I", nullptr, $PROTECTED, $virtualMethod(BoxView, getOffset, int32_t, int32_t, int32_t)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BoxView, getPreferredSpan, float, int32_t)},
-	{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(BoxView, getResizeWeight, int32_t, int32_t)},
-	{"getSpan", "(II)I", nullptr, $PROTECTED, $virtualMethod(BoxView, getSpan, int32_t, int32_t, int32_t)},
-	{"getSpanOnAxis", "(I)F", nullptr, 0, $virtualMethod(BoxView, getSpanOnAxis, float, int32_t)},
-	{"getViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(BoxView, getViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BoxView, getWidth, int32_t)},
-	{"isAfter", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(BoxView, isAfter, bool, int32_t, int32_t, $Rectangle*)},
-	{"isAllocationValid", "()Z", nullptr, $PROTECTED, $virtualMethod(BoxView, isAllocationValid, bool)},
-	{"isBefore", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(BoxView, isBefore, bool, int32_t, int32_t, $Rectangle*)},
-	{"isLayoutValid", "(I)Z", nullptr, $PROTECTED, $virtualMethod(BoxView, isLayoutValid, bool, int32_t)},
-	{"layout", "(II)V", nullptr, $PROTECTED, $virtualMethod(BoxView, layout, void, int32_t, int32_t)},
-	{"layoutChanged", "(I)V", nullptr, $PUBLIC, $virtualMethod(BoxView, layoutChanged, void, int32_t)},
-	{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(BoxView, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(BoxView, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BoxView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(BoxView, paint, void, $Graphics*, $Shape*)},
-	{"paintChild", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BoxView, paintChild, void, $Graphics*, $Rectangle*, int32_t)},
-	{"preferenceChanged", "(Ljavax/swing/text/View;ZZ)V", nullptr, $PUBLIC, $virtualMethod(BoxView, preferenceChanged, void, $View*, bool, bool)},
-	{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(BoxView, replace, void, int32_t, int32_t, $ViewArray*)},
-	{"setAxis", "(I)V", nullptr, $PUBLIC, $virtualMethod(BoxView, setAxis, void, int32_t)},
-	{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(BoxView, setSize, void, float, float)},
-	{"setSpanOnAxis", "(IF)V", nullptr, 0, $virtualMethod(BoxView, setSpanOnAxis, void, int32_t, float)},
-	{"updateChildSizes", "()V", nullptr, 0, $virtualMethod(BoxView, updateChildSizes, void)},
-	{"updateLayoutArray", "([III)[I", nullptr, 0, $virtualMethod(BoxView, updateLayoutArray, $ints*, $ints*, int32_t, int32_t)},
-	{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(BoxView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
-	{}
-};
-
-$ClassInfo _BoxView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.BoxView",
-	"javax.swing.text.CompositeView",
-	nullptr,
-	_BoxView_FieldInfo_,
-	_BoxView_MethodInfo_
-};
-
-$Object* allocate$BoxView($Class* clazz) {
-	return $of($alloc(BoxView));
-}
 
 void BoxView::init$($Element* elem, int32_t axis) {
 	$CompositeView::init$(elem);
@@ -171,7 +94,7 @@ void BoxView::paintChild($Graphics* g, $Rectangle* alloc, int32_t index) {
 
 void BoxView::replace(int32_t index, int32_t length, $ViewArray* elems) {
 	$CompositeView::replace(index, length, elems);
-	int32_t nInserted = (elems != nullptr) ? $nc(elems)->length : 0;
+	int32_t nInserted = (elems != nullptr) ? elems->length : 0;
 	$set(this, majorOffsets, updateLayoutArray(this->majorOffsets, index, nInserted));
 	$set(this, majorSpans, updateLayoutArray(this->majorSpans, index, nInserted));
 	this->majorReqValid = false;
@@ -191,7 +114,7 @@ $ints* BoxView::updateLayoutArray($ints* oldArray, int32_t offset, int32_t nInse
 }
 
 void BoxView::forwardUpdate($DocumentEvent$ElementChange* ec, $DocumentEvent* e, $Shape* a, $ViewFactory* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool wasValid = isLayoutValid(this->majorAxis);
 	$CompositeView::forwardUpdate(ec, e, a, f);
 	if (wasValid && (!isLayoutValid(this->majorAxis))) {
@@ -202,12 +125,12 @@ void BoxView::forwardUpdate($DocumentEvent$ElementChange* ec, $DocumentEvent* e,
 			$var($Rectangle, alloc, getInsideAllocation(a));
 			if (this->majorAxis == $View::X_AXIS) {
 				$nc(alloc)->x += $nc(this->majorOffsets)->get(index);
-				alloc->width -= $nc(this->majorOffsets)->get(index);
+				alloc->width -= this->majorOffsets->get(index);
 			} else {
 				$nc(alloc)->y += $nc(this->minorOffsets)->get(index);
-				alloc->height -= $nc(this->minorOffsets)->get(index);
+				alloc->height -= this->minorOffsets->get(index);
 			}
-			c->repaint($nc(alloc)->x, alloc->y, alloc->width, alloc->height);
+			c->repaint($nc(alloc)->x, $nc(alloc)->y, $nc(alloc)->width, $nc(alloc)->height);
 		}
 	}
 }
@@ -229,10 +152,10 @@ void BoxView::preferenceChanged($View* child, bool width, bool height) {
 int32_t BoxView::getResizeWeight(int32_t axis) {
 	checkRequests(axis);
 	if (axis == this->majorAxis) {
-		if (($nc(this->majorRequest)->preferred != $nc(this->majorRequest)->minimum) || ($nc(this->majorRequest)->preferred != $nc(this->majorRequest)->maximum)) {
+		if (($nc(this->majorRequest)->preferred != $nc(this->majorRequest)->minimum) || (this->majorRequest->preferred != this->majorRequest->maximum)) {
 			return 1;
 		}
-	} else if (($nc(this->minorRequest)->preferred != $nc(this->minorRequest)->minimum) || ($nc(this->minorRequest)->preferred != $nc(this->minorRequest)->maximum)) {
+	} else if (($nc(this->minorRequest)->preferred != $nc(this->minorRequest)->minimum) || (this->minorRequest->preferred != this->minorRequest->maximum)) {
 		return 1;
 	}
 	return 0;
@@ -265,7 +188,7 @@ void BoxView::setSpanOnAxis(int32_t axis, float span) {
 }
 
 void BoxView::updateChildSizes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getViewCount();
 	if (this->majorAxis == $View::X_AXIS) {
 		for (int32_t i = 0; i < n; ++i) {
@@ -296,7 +219,7 @@ void BoxView::setSize(float width, float height) {
 }
 
 void BoxView::paint($Graphics* g, $Shape* allocation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, ($instanceOf($Rectangle, allocation)) ? $cast($Rectangle, allocation) : $nc(allocation)->getBounds());
 	int32_t n = getViewCount();
 	int32_t x = $nc(alloc)->x + getLeftInset();
@@ -308,9 +231,9 @@ void BoxView::paint($Graphics* g, $Shape* allocation) {
 		$nc(this->tempRect)->width = getSpan($View::X_AXIS, i);
 		$nc(this->tempRect)->height = getSpan($View::Y_AXIS, i);
 		int32_t trx0 = $nc(this->tempRect)->x;
-		int32_t trx1 = trx0 + $nc(this->tempRect)->width;
-		int32_t try0 = $nc(this->tempRect)->y;
-		int32_t try1 = try0 + $nc(this->tempRect)->height;
+		int32_t trx1 = trx0 + this->tempRect->width;
+		int32_t try0 = this->tempRect->y;
+		int32_t try1 = try0 + this->tempRect->height;
 		int32_t crx0 = $nc(clip)->x;
 		int32_t crx1 = crx0 + clip->width;
 		int32_t cry0 = clip->y;
@@ -322,7 +245,7 @@ void BoxView::paint($Graphics* g, $Shape* allocation) {
 }
 
 $Shape* BoxView::getChildAllocation(int32_t index, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a != nullptr) {
 		$var($Shape, ca, $CompositeView::getChildAllocation(index, a));
 		if ((ca != nullptr) && (!isAllocationValid())) {
@@ -339,7 +262,7 @@ $Shape* BoxView::getChildAllocation(int32_t index, $Shape* a) {
 $Shape* BoxView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 	if (!isAllocationValid()) {
 		$var($Rectangle, alloc, $nc(a)->getBounds());
-		setSize((float)$nc(alloc)->width, (float)alloc->height);
+		setSize((float)$nc(alloc)->width, (float)$nc(alloc)->height);
 	}
 	return $CompositeView::modelToView(pos, a, b);
 }
@@ -347,7 +270,7 @@ $Shape* BoxView::modelToView(int32_t pos, $Shape* a, $Position$Bias* b) {
 int32_t BoxView::viewToModel(float x, float y, $Shape* a, $Position$BiasArray* bias) {
 	if (!isAllocationValid()) {
 		$var($Rectangle, alloc, $nc(a)->getBounds());
-		setSize((float)$nc(alloc)->width, (float)alloc->height);
+		setSize((float)$nc(alloc)->width, (float)$nc(alloc)->height);
 	}
 	return $CompositeView::viewToModel(x, y, a, bias);
 }
@@ -429,9 +352,9 @@ bool BoxView::isBefore(int32_t x, int32_t y, $Rectangle* innerAlloc) {
 
 bool BoxView::isAfter(int32_t x, int32_t y, $Rectangle* innerAlloc) {
 	if (this->majorAxis == $View::X_AXIS) {
-		return (x > ($nc(innerAlloc)->width + innerAlloc->x));
+		return (x > ($nc(innerAlloc)->width + $nc(innerAlloc)->x));
 	} else {
-		return (y > ($nc(innerAlloc)->height + innerAlloc->y));
+		return (y > ($nc(innerAlloc)->height + $nc(innerAlloc)->y));
 	}
 }
 
@@ -443,7 +366,7 @@ $View* BoxView::getViewAtPoint(int32_t x, int32_t y, $Rectangle* alloc) {
 			return getView(0);
 		}
 		for (int32_t i = 0; i < n; ++i) {
-			if (x < ($nc(alloc)->x + $nc(this->majorOffsets)->get(i))) {
+			if (x < (alloc->x + $nc(this->majorOffsets)->get(i))) {
 				childAllocation(i - 1, alloc);
 				return getView(i - 1);
 			}
@@ -456,7 +379,7 @@ $View* BoxView::getViewAtPoint(int32_t x, int32_t y, $Rectangle* alloc) {
 			return getView(0);
 		}
 		for (int32_t i = 0; i < n; ++i) {
-			if (y < ($nc(alloc)->y + $nc(this->majorOffsets)->get(i))) {
+			if (y < (alloc->y + $nc(this->majorOffsets)->get(i))) {
 				childAllocation(i - 1, alloc);
 				return getView(i - 1);
 			}
@@ -503,7 +426,7 @@ int32_t BoxView::getHeight() {
 }
 
 void BoxView::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t preferred = 0;
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
@@ -546,7 +469,7 @@ void BoxView::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, 
 }
 
 void BoxView::layoutMinorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getView(i));
@@ -564,11 +487,11 @@ void BoxView::layoutMinorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, 
 }
 
 $SizeRequirements* BoxView::calculateMajorAxisRequirements(int32_t axis, $SizeRequirements* r$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, r, r$renamed);
-	float min = (float)0;
-	float pref = (float)0;
-	float max = (float)0;
+	float min = 0;
+	float pref = 0;
+	float max = 0;
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getView(i));
@@ -587,7 +510,7 @@ $SizeRequirements* BoxView::calculateMajorAxisRequirements(int32_t axis, $SizeRe
 }
 
 $SizeRequirements* BoxView::calculateMinorAxisRequirements(int32_t axis, $SizeRequirements* r$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, r, r$renamed);
 	int32_t min = 0;
 	int64_t pref = 0;
@@ -596,8 +519,8 @@ $SizeRequirements* BoxView::calculateMinorAxisRequirements(int32_t axis, $SizeRe
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getView(i));
 		min = $Math::max($cast(int32_t, $nc(v)->getMinimumSpan(axis)), min);
-		pref = $Math::max((int64_t)$cast(int32_t, $nc(v)->getPreferredSpan(axis)), pref);
-		max = $Math::max($cast(int32_t, $nc(v)->getMaximumSpan(axis)), max);
+		pref = $Math::max((int64_t)$cast(int32_t, v->getPreferredSpan(axis)), pref);
+		max = $Math::max($cast(int32_t, v->getMaximumSpan(axis)), max);
 	}
 	if (r == nullptr) {
 		$assign(r, $new($SizeRequirements));
@@ -610,7 +533,7 @@ $SizeRequirements* BoxView::calculateMinorAxisRequirements(int32_t axis, $SizeRe
 }
 
 void BoxView::checkRequests(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((axis != $View::X_AXIS) && (axis != $View::Y_AXIS)) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
@@ -626,7 +549,7 @@ void BoxView::checkRequests(int32_t axis) {
 }
 
 void BoxView::baselineLayout(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t totalAscent = $cast(int32_t, (targetSpan * getAlignment(axis)));
 	int32_t totalDescent = targetSpan - totalAscent;
 	int32_t n = getViewCount();
@@ -654,7 +577,7 @@ void BoxView::baselineLayout(int32_t targetSpan, int32_t axis, $ints* offsets, $
 }
 
 $SizeRequirements* BoxView::baselineRequirements(int32_t axis, $SizeRequirements* r$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, r, r$renamed);
 	$var($SizeRequirements, totalAscent, $new($SizeRequirements));
 	$var($SizeRequirements, totalDescent, $new($SizeRequirements));
@@ -727,7 +650,7 @@ bool BoxView::flipEastAndWestAtEnds(int32_t position, $Position$Bias* bias) {
 		if (index != -1) {
 			$var($View, v, getView(index));
 			if (v != nullptr && $instanceOf($CompositeView, v)) {
-				return $nc(($cast($CompositeView, v)))->flipEastAndWestAtEnds(position, bias);
+				return $cast($CompositeView, v)->flipEastAndWestAtEnds(position, bias);
 			}
 		}
 	}
@@ -738,7 +661,78 @@ BoxView::BoxView() {
 }
 
 $Class* BoxView::load$($String* name, bool initialize) {
-	$loadClass(BoxView, name, initialize, &_BoxView_ClassInfo_, allocate$BoxView);
+	$FieldInfo fieldInfos$$[] = {
+		{"majorAxis", "I", nullptr, 0, $field(BoxView, majorAxis)},
+		{"majorSpan", "I", nullptr, 0, $field(BoxView, majorSpan)},
+		{"minorSpan", "I", nullptr, 0, $field(BoxView, minorSpan)},
+		{"majorReqValid", "Z", nullptr, 0, $field(BoxView, majorReqValid)},
+		{"minorReqValid", "Z", nullptr, 0, $field(BoxView, minorReqValid)},
+		{"majorRequest", "Ljavax/swing/SizeRequirements;", nullptr, 0, $field(BoxView, majorRequest)},
+		{"minorRequest", "Ljavax/swing/SizeRequirements;", nullptr, 0, $field(BoxView, minorRequest)},
+		{"majorAllocValid", "Z", nullptr, 0, $field(BoxView, majorAllocValid)},
+		{"majorOffsets", "[I", nullptr, 0, $field(BoxView, majorOffsets)},
+		{"majorSpans", "[I", nullptr, 0, $field(BoxView, majorSpans)},
+		{"minorAllocValid", "Z", nullptr, 0, $field(BoxView, minorAllocValid)},
+		{"minorOffsets", "[I", nullptr, 0, $field(BoxView, minorOffsets)},
+		{"minorSpans", "[I", nullptr, 0, $field(BoxView, minorSpans)},
+		{"tempRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(BoxView, tempRect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(BoxView, init$, void, $Element*, int32_t)},
+		{"baselineLayout", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(BoxView, baselineLayout, void, int32_t, int32_t, $ints*, $ints*)},
+		{"baselineRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BoxView, baselineRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BoxView, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BoxView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"checkRequests", "(I)V", nullptr, 0, $virtualMethod(BoxView, checkRequests, void, int32_t)},
+		{"childAllocation", "(ILjava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(BoxView, childAllocation, void, int32_t, $Rectangle*)},
+		{"flipEastAndWestAtEnds", "(ILjavax/swing/text/Position$Bias;)Z", nullptr, $PROTECTED, $virtualMethod(BoxView, flipEastAndWestAtEnds, bool, int32_t, $Position$Bias*)},
+		{"forwardUpdate", "(Ljavax/swing/event/DocumentEvent$ElementChange;Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PROTECTED, $virtualMethod(BoxView, forwardUpdate, void, $DocumentEvent$ElementChange*, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(BoxView, getAlignment, float, int32_t)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(BoxView, getAxis, int32_t)},
+		{"getChildAllocation", "(ILjava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BoxView, getChildAllocation, $Shape*, int32_t, $Shape*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(BoxView, getHeight, int32_t)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BoxView, getMaximumSpan, float, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BoxView, getMinimumSpan, float, int32_t)},
+		{"getOffset", "(II)I", nullptr, $PROTECTED, $virtualMethod(BoxView, getOffset, int32_t, int32_t, int32_t)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BoxView, getPreferredSpan, float, int32_t)},
+		{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(BoxView, getResizeWeight, int32_t, int32_t)},
+		{"getSpan", "(II)I", nullptr, $PROTECTED, $virtualMethod(BoxView, getSpan, int32_t, int32_t, int32_t)},
+		{"getSpanOnAxis", "(I)F", nullptr, 0, $virtualMethod(BoxView, getSpanOnAxis, float, int32_t)},
+		{"getViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(BoxView, getViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(BoxView, getWidth, int32_t)},
+		{"isAfter", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(BoxView, isAfter, bool, int32_t, int32_t, $Rectangle*)},
+		{"isAllocationValid", "()Z", nullptr, $PROTECTED, $virtualMethod(BoxView, isAllocationValid, bool)},
+		{"isBefore", "(IILjava/awt/Rectangle;)Z", nullptr, $PROTECTED, $virtualMethod(BoxView, isBefore, bool, int32_t, int32_t, $Rectangle*)},
+		{"isLayoutValid", "(I)Z", nullptr, $PROTECTED, $virtualMethod(BoxView, isLayoutValid, bool, int32_t)},
+		{"layout", "(II)V", nullptr, $PROTECTED, $virtualMethod(BoxView, layout, void, int32_t, int32_t)},
+		{"layoutChanged", "(I)V", nullptr, $PUBLIC, $virtualMethod(BoxView, layoutChanged, void, int32_t)},
+		{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(BoxView, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(BoxView, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"modelToView", "(ILjava/awt/Shape;Ljavax/swing/text/Position$Bias;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BoxView, modelToView, $Shape*, int32_t, $Shape*, $Position$Bias*), "javax.swing.text.BadLocationException"},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(BoxView, paint, void, $Graphics*, $Shape*)},
+		{"paintChild", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(BoxView, paintChild, void, $Graphics*, $Rectangle*, int32_t)},
+		{"preferenceChanged", "(Ljavax/swing/text/View;ZZ)V", nullptr, $PUBLIC, $virtualMethod(BoxView, preferenceChanged, void, $View*, bool, bool)},
+		{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(BoxView, replace, void, int32_t, int32_t, $ViewArray*)},
+		{"setAxis", "(I)V", nullptr, $PUBLIC, $virtualMethod(BoxView, setAxis, void, int32_t)},
+		{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(BoxView, setSize, void, float, float)},
+		{"setSpanOnAxis", "(IF)V", nullptr, 0, $virtualMethod(BoxView, setSpanOnAxis, void, int32_t, float)},
+		{"updateChildSizes", "()V", nullptr, 0, $virtualMethod(BoxView, updateChildSizes, void)},
+		{"updateLayoutArray", "([III)[I", nullptr, 0, $virtualMethod(BoxView, updateLayoutArray, $ints*, $ints*, int32_t, int32_t)},
+		{"viewToModel", "(FFLjava/awt/Shape;[Ljavax/swing/text/Position$Bias;)I", nullptr, $PUBLIC, $virtualMethod(BoxView, viewToModel, int32_t, float, float, $Shape*, $Position$BiasArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.BoxView",
+		"javax.swing.text.CompositeView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BoxView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BoxView);
+	});
 	return class$;
 }
 

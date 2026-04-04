@@ -50,6 +50,7 @@ class $export FileHandler : public ::java::util::logging::StreamHandler {
 	$class(FileHandler, 0, ::java::util::logging::StreamHandler)
 public:
 	FileHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* pattern);
 	void init$($String* pattern, bool append);

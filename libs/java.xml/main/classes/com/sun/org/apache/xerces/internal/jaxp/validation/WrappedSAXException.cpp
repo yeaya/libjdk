@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/WrappedSAXException.h>
-
 #include <org/xml/sax/SAXException.h>
 #include <jcpp.h>
 
@@ -18,30 +17,6 @@ namespace com {
 						namespace jaxp {
 							namespace validation {
 
-$FieldInfo _WrappedSAXException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WrappedSAXException, serialVersionUID)},
-	{"exception", "Lorg/xml/sax/SAXException;", nullptr, $PUBLIC | $FINAL, $field(WrappedSAXException, exception)},
-	{}
-};
-
-$MethodInfo _WrappedSAXException_MethodInfo_[] = {
-	{"<init>", "(Lorg/xml/sax/SAXException;)V", nullptr, 0, $method(WrappedSAXException, init$, void, $SAXException*)},
-	{}
-};
-
-$ClassInfo _WrappedSAXException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.WrappedSAXException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_WrappedSAXException_FieldInfo_,
-	_WrappedSAXException_MethodInfo_
-};
-
-$Object* allocate$WrappedSAXException($Class* clazz) {
-	return $of($alloc(WrappedSAXException));
-}
-
 void WrappedSAXException::init$($SAXException* e) {
 	$RuntimeException::init$();
 	$set(this, exception, e);
@@ -58,7 +33,26 @@ void WrappedSAXException::throw$() {
 }
 
 $Class* WrappedSAXException::load$($String* name, bool initialize) {
-	$loadClass(WrappedSAXException, name, initialize, &_WrappedSAXException_ClassInfo_, allocate$WrappedSAXException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WrappedSAXException, serialVersionUID)},
+		{"exception", "Lorg/xml/sax/SAXException;", nullptr, $PUBLIC | $FINAL, $field(WrappedSAXException, exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/xml/sax/SAXException;)V", nullptr, 0, $method(WrappedSAXException, init$, void, $SAXException*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.WrappedSAXException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WrappedSAXException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WrappedSAXException);
+	});
 	return class$;
 }
 

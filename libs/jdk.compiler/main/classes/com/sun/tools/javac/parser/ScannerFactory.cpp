@@ -1,9 +1,7 @@
 #include <com/sun/tools/javac/parser/ScannerFactory.h>
-
 #include <com/sun/tools/javac/code/Lint.h>
 #include <com/sun/tools/javac/code/Preview.h>
 #include <com/sun/tools/javac/code/Source.h>
-#include <com/sun/tools/javac/parser/JavaTokenizer.h>
 #include <com/sun/tools/javac/parser/JavadocTokenizer.h>
 #include <com/sun/tools/javac/parser/Scanner.h>
 #include <com/sun/tools/javac/parser/Tokens.h>
@@ -18,7 +16,6 @@
 using $Lint = ::com::sun::tools::javac::code::Lint;
 using $Preview = ::com::sun::tools::javac::code::Preview;
 using $Source = ::com::sun::tools::javac::code::Source;
-using $JavaTokenizer = ::com::sun::tools::javac::parser::JavaTokenizer;
 using $JavadocTokenizer = ::com::sun::tools::javac::parser::JavadocTokenizer;
 using $Scanner = ::com::sun::tools::javac::parser::Scanner;
 using $Tokens = ::com::sun::tools::javac::parser::Tokens;
@@ -38,38 +35,6 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _ScannerFactory_FieldInfo_[] = {
-	{"scannerFactoryKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/parser/ScannerFactory;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ScannerFactory, scannerFactoryKey)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $FINAL, $field(ScannerFactory, log)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $FINAL, $field(ScannerFactory, names)},
-	{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $FINAL, $field(ScannerFactory, source)},
-	{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $FINAL, $field(ScannerFactory, preview)},
-	{"tokens", "Lcom/sun/tools/javac/parser/Tokens;", nullptr, $FINAL, $field(ScannerFactory, tokens)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $FINAL, $field(ScannerFactory, lint)},
-	{}
-};
-
-$MethodInfo _ScannerFactory_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ScannerFactory, init$, void, $Context*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScannerFactory, instance, ScannerFactory*, $Context*)},
-	{"newScanner", "(Ljava/lang/CharSequence;Z)Lcom/sun/tools/javac/parser/Scanner;", nullptr, $PUBLIC, $virtualMethod(ScannerFactory, newScanner, $Scanner*, $CharSequence*, bool)},
-	{"newScanner", "([CIZ)Lcom/sun/tools/javac/parser/Scanner;", nullptr, $PUBLIC, $virtualMethod(ScannerFactory, newScanner, $Scanner*, $chars*, int32_t, bool)},
-	{}
-};
-
-$ClassInfo _ScannerFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.ScannerFactory",
-	"java.lang.Object",
-	nullptr,
-	_ScannerFactory_FieldInfo_,
-	_ScannerFactory_MethodInfo_
-};
-
-$Object* allocate$ScannerFactory($Class* clazz) {
-	return $of($alloc(ScannerFactory));
-}
-
 $Context$Key* ScannerFactory::scannerFactoryKey = nullptr;
 
 ScannerFactory* ScannerFactory::instance($Context* context) {
@@ -82,7 +47,7 @@ ScannerFactory* ScannerFactory::instance($Context* context) {
 }
 
 void ScannerFactory::init$($Context* context) {
-	$nc(context)->put(ScannerFactory::scannerFactoryKey, $of(this));
+	$nc(context)->put(ScannerFactory::scannerFactoryKey, this);
 	$set(this, log, $Log::instance(context));
 	$set(this, names, $Names::instance(context));
 	$set(this, source, $Source::instance(context));
@@ -92,7 +57,7 @@ void ScannerFactory::init$($Context* context) {
 }
 
 $Scanner* ScannerFactory::newScanner($CharSequence* input, bool keepDocComments) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($CharBuffer, charBuffer, nullptr);
 		bool var$0 = $instanceOf($CharBuffer, input);
@@ -102,12 +67,12 @@ $Scanner* ScannerFactory::newScanner($CharSequence* input, bool keepDocComments)
 		}
 		if (var$0) {
 			if (keepDocComments) {
-				return $new($Scanner, this, static_cast<$JavaTokenizer*>($$new($JavadocTokenizer, this, charBuffer)));
+				return $new($Scanner, this, $$new($JavadocTokenizer, this, charBuffer));
 			} else {
 				return $new($Scanner, this, charBuffer);
 			}
 		} else {
-			$var($chars, array, $nc($($nc(input)->toString()))->toCharArray());
+			$var($chars, array, $$nc($nc(input)->toString())->toCharArray());
 			return newScanner(array, array->length, keepDocComments);
 		}
 	}
@@ -115,13 +80,13 @@ $Scanner* ScannerFactory::newScanner($CharSequence* input, bool keepDocComments)
 
 $Scanner* ScannerFactory::newScanner($chars* input, int32_t inputLength, bool keepDocComments) {
 	if (keepDocComments) {
-		return $new($Scanner, this, static_cast<$JavaTokenizer*>($$new($JavadocTokenizer, this, input, inputLength)));
+		return $new($Scanner, this, $$new($JavadocTokenizer, this, input, inputLength));
 	} else {
 		return $new($Scanner, this, input, inputLength);
 	}
 }
 
-void clinit$ScannerFactory($Class* class$) {
+void ScannerFactory::clinit$($Class* clazz) {
 	$assignStatic(ScannerFactory::scannerFactoryKey, $new($Context$Key));
 }
 
@@ -129,7 +94,34 @@ ScannerFactory::ScannerFactory() {
 }
 
 $Class* ScannerFactory::load$($String* name, bool initialize) {
-	$loadClass(ScannerFactory, name, initialize, &_ScannerFactory_ClassInfo_, clinit$ScannerFactory, allocate$ScannerFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"scannerFactoryKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/parser/ScannerFactory;>;", $PUBLIC | $STATIC | $FINAL, $staticField(ScannerFactory, scannerFactoryKey)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $FINAL, $field(ScannerFactory, log)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $FINAL, $field(ScannerFactory, names)},
+		{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $FINAL, $field(ScannerFactory, source)},
+		{"preview", "Lcom/sun/tools/javac/code/Preview;", nullptr, $FINAL, $field(ScannerFactory, preview)},
+		{"tokens", "Lcom/sun/tools/javac/parser/Tokens;", nullptr, $FINAL, $field(ScannerFactory, tokens)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $FINAL, $field(ScannerFactory, lint)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(ScannerFactory, init$, void, $Context*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/parser/ScannerFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(ScannerFactory, instance, ScannerFactory*, $Context*)},
+		{"newScanner", "(Ljava/lang/CharSequence;Z)Lcom/sun/tools/javac/parser/Scanner;", nullptr, $PUBLIC, $virtualMethod(ScannerFactory, newScanner, $Scanner*, $CharSequence*, bool)},
+		{"newScanner", "([CIZ)Lcom/sun/tools/javac/parser/Scanner;", nullptr, $PUBLIC, $virtualMethod(ScannerFactory, newScanner, $Scanner*, $chars*, int32_t, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.ScannerFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScannerFactory, name, initialize, &classInfo$$, ScannerFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScannerFactory);
+	});
 	return class$;
 }
 

@@ -43,6 +43,7 @@ class $import HTML : public ::java::lang::Object {
 	$class(HTML, 0, ::java::lang::Object)
 public:
 	HTML();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::javax::swing::text::html::HTML$Attribute>* getAllAttributeKeys();
 	static $Array<::javax::swing::text::html::HTML$Tag>* getAllTags();

@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/SystemSuffix.h>
-
 #include <java/net/URL.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
 #include <javax/xml/catalog/BaseEntry.h>
@@ -21,36 +20,6 @@ using $Normalizer = ::javax::xml::catalog::Normalizer;
 namespace javax {
 	namespace xml {
 		namespace catalog {
-
-$FieldInfo _SystemSuffix_FieldInfo_[] = {
-	{"systemIdSuffix", "Ljava/lang/String;", nullptr, 0, $field(SystemSuffix, systemIdSuffix)},
-	{"uri", "Ljava/net/URL;", nullptr, 0, $field(SystemSuffix, uri)},
-	{}
-};
-
-$MethodInfo _SystemSuffix_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemSuffix, init$, void, $String*, $String*, $String*)},
-	{"getSystemIdSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SystemSuffix, getSystemIdSuffix, $String*)},
-	{"getURI", "()Ljava/net/URL;", nullptr, $PUBLIC, $method(SystemSuffix, getURI, $URL*)},
-	{"match", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SystemSuffix, match, $String*, $String*, int32_t)},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SystemSuffix, match, $String*, $String*)},
-	{"setSystemIdSuffix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemSuffix, setSystemIdSuffix, void, $String*)},
-	{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemSuffix, setURI, void, $String*)},
-	{}
-};
-
-$ClassInfo _SystemSuffix_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.xml.catalog.SystemSuffix",
-	"javax.xml.catalog.BaseEntry",
-	nullptr,
-	_SystemSuffix_FieldInfo_,
-	_SystemSuffix_MethodInfo_
-};
-
-$Object* allocate$SystemSuffix($Class* clazz) {
-	return $of($alloc(SystemSuffix));
-}
 
 void SystemSuffix::init$($String* base, $String* systemIdSuffix, $String* uri) {
 	$init($BaseEntry$CatalogEntryType);
@@ -93,7 +62,32 @@ SystemSuffix::SystemSuffix() {
 }
 
 $Class* SystemSuffix::load$($String* name, bool initialize) {
-	$loadClass(SystemSuffix, name, initialize, &_SystemSuffix_ClassInfo_, allocate$SystemSuffix);
+	$FieldInfo fieldInfos$$[] = {
+		{"systemIdSuffix", "Ljava/lang/String;", nullptr, 0, $field(SystemSuffix, systemIdSuffix)},
+		{"uri", "Ljava/net/URL;", nullptr, 0, $field(SystemSuffix, uri)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemSuffix, init$, void, $String*, $String*, $String*)},
+		{"getSystemIdSuffix", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SystemSuffix, getSystemIdSuffix, $String*)},
+		{"getURI", "()Ljava/net/URL;", nullptr, $PUBLIC, $method(SystemSuffix, getURI, $URL*)},
+		{"match", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SystemSuffix, match, $String*, $String*, int32_t)},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SystemSuffix, match, $String*, $String*)},
+		{"setSystemIdSuffix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemSuffix, setSystemIdSuffix, void, $String*)},
+		{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SystemSuffix, setURI, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.xml.catalog.SystemSuffix",
+		"javax.xml.catalog.BaseEntry",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SystemSuffix, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SystemSuffix);
+	});
 	return class$;
 }
 

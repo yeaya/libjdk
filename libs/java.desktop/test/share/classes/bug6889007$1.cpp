@@ -1,5 +1,4 @@
 #include <bug6889007$1.h>
-
 #include <bug6889007$MyTableHeaderUI.h>
 #include <bug6889007.h>
 #include <java/awt/Component.h>
@@ -23,72 +22,64 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
-using $TableHeaderUI = ::javax::swing::plaf::TableHeaderUI;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
-
-$FieldInfo _bug6889007$1_FieldInfo_[] = {
-	{"val$frame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(bug6889007$1, val$frame)},
-	{}
-};
-
-$MethodInfo _bug6889007$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", "()V", 0, $method(bug6889007$1, init$, void, $JFrame*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6889007$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6889007$1_EnclosingMethodInfo_ = {
-	"bug6889007",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6889007$1_InnerClassesInfo_[] = {
-	{"bug6889007$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6889007$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6889007$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6889007$1_FieldInfo_,
-	_bug6889007$1_MethodInfo_,
-	nullptr,
-	&_bug6889007$1_EnclosingMethodInfo_,
-	_bug6889007$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6889007"
-};
-
-$Object* allocate$bug6889007$1($Class* clazz) {
-	return $of($alloc(bug6889007$1));
-}
 
 void bug6889007$1::init$($JFrame* val$frame) {
 	$set(this, val$frame, val$frame);
 }
 
 void bug6889007$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->val$frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JTableHeader, th, $new($JTableHeader));
 	th->setColumnModel($($$new($JTable, 20, 5)->getColumnModel()));
-	th->setUI(static_cast<$TableHeaderUI*>($$new($bug6889007$MyTableHeaderUI)));
-	$nc(this->val$frame)->add(static_cast<$Component*>(th));
-	$nc(this->val$frame)->pack();
-	$nc(this->val$frame)->setLocationRelativeTo(nullptr);
-	$nc(this->val$frame)->setVisible(true);
+	th->setUI($$new($bug6889007$MyTableHeaderUI));
+	this->val$frame->add(th);
+	this->val$frame->pack();
+	this->val$frame->setLocationRelativeTo(nullptr);
+	this->val$frame->setVisible(true);
 }
 
 bug6889007$1::bug6889007$1() {
 }
 
 $Class* bug6889007$1::load$($String* name, bool initialize) {
-	$loadClass(bug6889007$1, name, initialize, &_bug6889007$1_ClassInfo_, allocate$bug6889007$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$frame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(bug6889007$1, val$frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", "()V", 0, $method(bug6889007$1, init$, void, $JFrame*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6889007$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6889007",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6889007$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6889007$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6889007"
+	};
+	$loadClass(bug6889007$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6889007$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/res/XPATHErrorResources.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -170,183 +169,6 @@ namespace com {
 					namespace internal {
 						namespace res {
 
-$FieldInfo _XPATHErrorResources_FieldInfo_[] = {
-	{"ERROR0000", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ERROR0000)},
-	{"ER_CURRENT_NOT_ALLOWED_IN_MATCH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CURRENT_NOT_ALLOWED_IN_MATCH)},
-	{"ER_CURRENT_TAKES_NO_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CURRENT_TAKES_NO_ARGS)},
-	{"ER_DOCUMENT_REPLACED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DOCUMENT_REPLACED)},
-	{"ER_CONTEXT_CAN_NOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CONTEXT_CAN_NOT_BE_NULL)},
-	{"ER_CONTEXT_HAS_NO_OWNERDOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CONTEXT_HAS_NO_OWNERDOC)},
-	{"ER_LOCALNAME_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_LOCALNAME_HAS_TOO_MANY_ARGS)},
-	{"ER_NAMESPACEURI_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NAMESPACEURI_HAS_TOO_MANY_ARGS)},
-	{"ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS)},
-	{"ER_NUMBER_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NUMBER_HAS_TOO_MANY_ARGS)},
-	{"ER_NAME_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NAME_HAS_TOO_MANY_ARGS)},
-	{"ER_STRING_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_STRING_HAS_TOO_MANY_ARGS)},
-	{"ER_STRINGLENGTH_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_STRINGLENGTH_HAS_TOO_MANY_ARGS)},
-	{"ER_TRANSLATE_TAKES_3_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_TRANSLATE_TAKES_3_ARGS)},
-	{"ER_UNPARSEDENTITYURI_TAKES_1_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNPARSEDENTITYURI_TAKES_1_ARG)},
-	{"ER_NAMESPACEAXIS_NOT_IMPLEMENTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NAMESPACEAXIS_NOT_IMPLEMENTED)},
-	{"ER_UNKNOWN_AXIS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_AXIS)},
-	{"ER_UNKNOWN_MATCH_OPERATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_MATCH_OPERATION)},
-	{"ER_INCORRECT_ARG_LENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INCORRECT_ARG_LENGTH)},
-	{"ER_CANT_CONVERT_TO_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_NUMBER)},
-	{"ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER)},
-	{"ER_CANT_CONVERT_TO_NODELIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_NODELIST)},
-	{"ER_CANT_CONVERT_TO_MUTABLENODELIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_MUTABLENODELIST)},
-	{"ER_CANT_CONVERT_TO_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_TYPE)},
-	{"ER_EXPECTED_MATCH_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_MATCH_PATTERN)},
-	{"ER_COULDNOT_GET_VAR_NAMED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_GET_VAR_NAMED)},
-	{"ER_UNKNOWN_OPCODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_OPCODE)},
-	{"ER_EXTRA_ILLEGAL_TOKENS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXTRA_ILLEGAL_TOKENS)},
-	{"ER_EXPECTED_DOUBLE_QUOTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_DOUBLE_QUOTE)},
-	{"ER_EXPECTED_SINGLE_QUOTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_SINGLE_QUOTE)},
-	{"ER_EMPTY_EXPRESSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EMPTY_EXPRESSION)},
-	{"ER_EXPECTED_BUT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_BUT_FOUND)},
-	{"ER_INCORRECT_PROGRAMMER_ASSERTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INCORRECT_PROGRAMMER_ASSERTION)},
-	{"ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL)},
-	{"ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG)},
-	{"ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG)},
-	{"ER_PREDICATE_ILLEGAL_SYNTAX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PREDICATE_ILLEGAL_SYNTAX)},
-	{"ER_PREDICATE_TOO_MANY_OPEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PREDICATE_TOO_MANY_OPEN)},
-	{"ER_COMPILATION_TOO_MANY_OPERATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COMPILATION_TOO_MANY_OPERATION)},
-	{"ER_ILLEGAL_AXIS_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ILLEGAL_AXIS_NAME)},
-	{"ER_UNKNOWN_NODETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_NODETYPE)},
-	{"ER_PATTERN_LITERAL_NEEDS_BE_QUOTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PATTERN_LITERAL_NEEDS_BE_QUOTED)},
-	{"ER_COULDNOT_BE_FORMATTED_TO_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_BE_FORMATTED_TO_NUMBER)},
-	{"ER_COULDNOT_CREATE_XMLPROCESSORLIAISON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_CREATE_XMLPROCESSORLIAISON)},
-	{"ER_DIDNOT_FIND_XPATH_SELECT_EXP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DIDNOT_FIND_XPATH_SELECT_EXP)},
-	{"ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH)},
-	{"ER_ERROR_OCCURED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ERROR_OCCURED)},
-	{"ER_ILLEGAL_VARIABLE_REFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ILLEGAL_VARIABLE_REFERENCE)},
-	{"ER_AXES_NOT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_AXES_NOT_ALLOWED)},
-	{"ER_KEY_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_KEY_HAS_TOO_MANY_ARGS)},
-	{"ER_COUNT_TAKES_1_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COUNT_TAKES_1_ARG)},
-	{"ER_COULDNOT_FIND_FUNCTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_FIND_FUNCTION)},
-	{"ER_UNSUPPORTED_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNSUPPORTED_ENCODING)},
-	{"ER_PROBLEM_IN_DTM_NEXTSIBLING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PROBLEM_IN_DTM_NEXTSIBLING)},
-	{"ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL)},
-	{"ER_SETDOMFACTORY_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SETDOMFACTORY_NOT_SUPPORTED)},
-	{"ER_PREFIX_MUST_RESOLVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PREFIX_MUST_RESOLVE)},
-	{"ER_PARSE_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PARSE_NOT_SUPPORTED)},
-	{"ER_SAX_API_NOT_HANDLED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SAX_API_NOT_HANDLED)},
-	{"ER_IGNORABLE_WHITESPACE_NOT_HANDLED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_IGNORABLE_WHITESPACE_NOT_HANDLED)},
-	{"ER_DTM_CANNOT_HANDLE_NODES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DTM_CANNOT_HANDLE_NODES)},
-	{"ER_XERCES_CANNOT_HANDLE_NODES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XERCES_CANNOT_HANDLE_NODES)},
-	{"ER_XERCES_PARSE_ERROR_DETAILS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XERCES_PARSE_ERROR_DETAILS)},
-	{"ER_XERCES_PARSE_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XERCES_PARSE_ERROR)},
-	{"ER_INVALID_UTF16_SURROGATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INVALID_UTF16_SURROGATE)},
-	{"ER_OIERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_OIERROR)},
-	{"ER_CANNOT_CREATE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANNOT_CREATE_URL)},
-	{"ER_XPATH_READOBJECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XPATH_READOBJECT)},
-	{"ER_FUNCTION_TOKEN_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FUNCTION_TOKEN_NOT_FOUND)},
-	{"ER_CANNOT_DEAL_XPATH_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANNOT_DEAL_XPATH_TYPE)},
-	{"ER_NODESET_NOT_MUTABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESET_NOT_MUTABLE)},
-	{"ER_NODESETDTM_NOT_MUTABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESETDTM_NOT_MUTABLE)},
-	{"ER_VAR_NOT_RESOLVABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_VAR_NOT_RESOLVABLE)},
-	{"ER_NULL_ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NULL_ERROR_HANDLER)},
-	{"ER_PROG_ASSERT_UNKNOWN_OPCODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PROG_ASSERT_UNKNOWN_OPCODE)},
-	{"ER_ZERO_OR_ONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ZERO_OR_ONE)},
-	{"ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
-	{"ER_ASNODEITERATOR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ASNODEITERATOR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
-	{"ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS)},
-	{"ER_COULD_NOT_FIND_VAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULD_NOT_FIND_VAR)},
-	{"ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING)},
-	{"ER_FASTSTRINGBUFFER_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FASTSTRINGBUFFER_CANNOT_BE_NULL)},
-	{"ER_TWO_OR_THREE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_TWO_OR_THREE)},
-	{"ER_VARIABLE_ACCESSED_BEFORE_BIND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_VARIABLE_ACCESSED_BEFORE_BIND)},
-	{"ER_FSB_CANNOT_TAKE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FSB_CANNOT_TAKE_STRING)},
-	{"ER_SETTING_WALKER_ROOT_TO_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SETTING_WALKER_ROOT_TO_NULL)},
-	{"ER_NODESETDTM_CANNOT_ITERATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESETDTM_CANNOT_ITERATE)},
-	{"ER_NODESET_CANNOT_ITERATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESET_CANNOT_ITERATE)},
-	{"ER_NODESETDTM_CANNOT_INDEX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESETDTM_CANNOT_INDEX)},
-	{"ER_NODESET_CANNOT_INDEX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESET_CANNOT_INDEX)},
-	{"ER_CANNOT_CALL_SETSHOULDCACHENODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANNOT_CALL_SETSHOULDCACHENODE)},
-	{"ER_ONLY_ALLOWS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ONLY_ALLOWS)},
-	{"ER_UNKNOWN_STEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_STEP)},
-	{"ER_EXPECTED_REL_LOC_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_REL_LOC_PATH)},
-	{"ER_EXPECTED_LOC_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_LOC_PATH)},
-	{"ER_EXPECTED_LOC_PATH_AT_END_EXPR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_LOC_PATH_AT_END_EXPR)},
-	{"ER_EXPECTED_LOC_STEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_LOC_STEP)},
-	{"ER_EXPECTED_NODE_TEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_NODE_TEST)},
-	{"ER_EXPECTED_STEP_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_STEP_PATTERN)},
-	{"ER_EXPECTED_REL_PATH_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_REL_PATH_PATTERN)},
-	{"ER_CANT_CONVERT_TO_BOOLEAN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_BOOLEAN)},
-	{"ER_CANT_CONVERT_TO_SINGLENODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_SINGLENODE)},
-	{"ER_CANT_GET_SNAPSHOT_LENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_GET_SNAPSHOT_LENGTH)},
-	{"ER_NON_ITERATOR_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NON_ITERATOR_TYPE)},
-	{"ER_DOC_MUTATED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DOC_MUTATED)},
-	{"ER_INVALID_XPATH_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INVALID_XPATH_TYPE)},
-	{"ER_EMPTY_XPATH_RESULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EMPTY_XPATH_RESULT)},
-	{"ER_INCOMPATIBLE_TYPES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INCOMPATIBLE_TYPES)},
-	{"ER_NULL_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NULL_RESOLVER)},
-	{"ER_CANT_CONVERT_TO_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_STRING)},
-	{"ER_NON_SNAPSHOT_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NON_SNAPSHOT_TYPE)},
-	{"ER_WRONG_DOCUMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_WRONG_DOCUMENT)},
-	{"ER_WRONG_NODETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_WRONG_NODETYPE)},
-	{"ER_XPATH_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XPATH_ERROR)},
-	{"ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED)},
-	{"ER_RESOLVE_VARIABLE_RETURNS_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_RESOLVE_VARIABLE_RETURNS_NULL)},
-	{"ER_UNSUPPORTED_RETURN_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNSUPPORTED_RETURN_TYPE)},
-	{"ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL)},
-	{"ER_ARG_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ARG_CANNOT_BE_NULL)},
-	{"ER_OBJECT_MODEL_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_OBJECT_MODEL_NULL)},
-	{"ER_OBJECT_MODEL_EMPTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_OBJECT_MODEL_EMPTY)},
-	{"ER_FEATURE_NAME_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FEATURE_NAME_NULL)},
-	{"ER_FEATURE_UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FEATURE_UNKNOWN)},
-	{"ER_GETTING_NULL_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_GETTING_NULL_FEATURE)},
-	{"ER_GETTING_UNKNOWN_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_GETTING_UNKNOWN_FEATURE)},
-	{"ER_SECUREPROCESSING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SECUREPROCESSING_FEATURE)},
-	{"ER_NULL_XPATH_FUNCTION_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NULL_XPATH_FUNCTION_RESOLVER)},
-	{"ER_NULL_XPATH_VARIABLE_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NULL_XPATH_VARIABLE_RESOLVER)},
-	{"WG_LOCALE_NAME_NOT_HANDLED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_LOCALE_NAME_NOT_HANDLED)},
-	{"WG_PROPERTY_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_PROPERTY_NOT_SUPPORTED)},
-	{"WG_DONT_DO_ANYTHING_WITH_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_DONT_DO_ANYTHING_WITH_NS)},
-	{"WG_SECURITY_EXCEPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_SECURITY_EXCEPTION)},
-	{"WG_QUO_NO_LONGER_DEFINED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_QUO_NO_LONGER_DEFINED)},
-	{"WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST)},
-	{"WG_FUNCTION_TOKEN_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_FUNCTION_TOKEN_NOT_FOUND)},
-	{"WG_COULDNOT_FIND_FUNCTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_COULDNOT_FIND_FUNCTION)},
-	{"WG_CANNOT_MAKE_URL_FROM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_CANNOT_MAKE_URL_FROM)},
-	{"WG_EXPAND_ENTITIES_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_EXPAND_ENTITIES_NOT_SUPPORTED)},
-	{"WG_ILLEGAL_VARIABLE_REFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_ILLEGAL_VARIABLE_REFERENCE)},
-	{"WG_UNSUPPORTED_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_UNSUPPORTED_ENCODING)},
-	{"ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
-	{"ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
-	{"ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
-	{"ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
-	{"_contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPATHErrorResources, _contents)},
-	{"BAD_CODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, BAD_CODE)},
-	{"FORMAT_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, FORMAT_FAILED)},
-	{"ERROR_RESOURCES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ERROR_RESOURCES)},
-	{"ERROR_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ERROR_STRING)},
-	{"ERROR_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ERROR_HEADER)},
-	{"WARNING_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WARNING_HEADER)},
-	{"XSL_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, XSL_HEADER)},
-	{"XML_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, XML_HEADER)},
-	{"QUERY_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, QUERY_HEADER)},
-	{}
-};
-
-$MethodInfo _XPATHErrorResources_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPATHErrorResources, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPATHErrorResources, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _XPATHErrorResources_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.res.XPATHErrorResources",
-	"java.util.ListResourceBundle",
-	nullptr,
-	_XPATHErrorResources_FieldInfo_,
-	_XPATHErrorResources_MethodInfo_
-};
-
-$Object* allocate$XPATHErrorResources($Class* clazz) {
-	return $of($alloc(XPATHErrorResources));
-}
-
 $String* XPATHErrorResources::ERROR0000 = nullptr;
 $String* XPATHErrorResources::ER_CURRENT_NOT_ALLOWED_IN_MATCH = nullptr;
 $String* XPATHErrorResources::ER_CURRENT_TAKES_NO_ARGS = nullptr;
@@ -510,8 +332,8 @@ $ObjectArray2* XPATHErrorResources::getContents() {
 	return XPATHErrorResources::_contents;
 }
 
-void clinit$XPATHErrorResources($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XPATHErrorResources::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XPATHErrorResources::ERROR0000, "ERROR0000"_s);
 	$assignStatic(XPATHErrorResources::ER_CURRENT_NOT_ALLOWED_IN_MATCH, "ER_CURRENT_NOT_ALLOWED_IN_MATCH"_s);
 	$assignStatic(XPATHErrorResources::ER_CURRENT_TAKES_NO_ARGS, "ER_CURRENT_TAKES_NO_ARGS"_s);
@@ -667,688 +489,688 @@ void clinit$XPATHErrorResources($Class* class$) {
 	$assignStatic(XPATHErrorResources::QUERY_HEADER, "PATTERN "_s);
 	$assignStatic(XPATHErrorResources::_contents, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ERROR0000"_s),
-			$of("{0}"_s)
+			"ERROR0000"_s,
+			"{0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CURRENT_NOT_ALLOWED_IN_MATCH),
-			$of("The current() function is not allowed in a match pattern!"_s)
+			XPATHErrorResources::ER_CURRENT_NOT_ALLOWED_IN_MATCH,
+			"The current() function is not allowed in a match pattern!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CURRENT_TAKES_NO_ARGS),
-			$of("The current() function does not accept arguments!"_s)
+			XPATHErrorResources::ER_CURRENT_TAKES_NO_ARGS,
+			"The current() function does not accept arguments!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_DOCUMENT_REPLACED),
-			$of("document() function implementation has been replaced by com.sun.org.apache.xalan.internal.xslt.FuncDocument!"_s)
+			XPATHErrorResources::ER_DOCUMENT_REPLACED,
+			"document() function implementation has been replaced by com.sun.org.apache.xalan.internal.xslt.FuncDocument!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CONTEXT_CAN_NOT_BE_NULL),
-			$of("The context can not be null when the operation is context-dependent."_s)
+			XPATHErrorResources::ER_CONTEXT_CAN_NOT_BE_NULL,
+			"The context can not be null when the operation is context-dependent."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CONTEXT_HAS_NO_OWNERDOC),
-			$of("context does not have an owner document!"_s)
+			XPATHErrorResources::ER_CONTEXT_HAS_NO_OWNERDOC,
+			"context does not have an owner document!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_LOCALNAME_HAS_TOO_MANY_ARGS),
-			$of("local-name() has too many arguments."_s)
+			XPATHErrorResources::ER_LOCALNAME_HAS_TOO_MANY_ARGS,
+			"local-name() has too many arguments."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NAMESPACEURI_HAS_TOO_MANY_ARGS),
-			$of("namespace-uri() has too many arguments."_s)
+			XPATHErrorResources::ER_NAMESPACEURI_HAS_TOO_MANY_ARGS,
+			"namespace-uri() has too many arguments."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS),
-			$of("normalize-space() has too many arguments."_s)
+			XPATHErrorResources::ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS,
+			"normalize-space() has too many arguments."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NUMBER_HAS_TOO_MANY_ARGS),
-			$of("number() has too many arguments."_s)
+			XPATHErrorResources::ER_NUMBER_HAS_TOO_MANY_ARGS,
+			"number() has too many arguments."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NAME_HAS_TOO_MANY_ARGS),
-			$of("name() has too many arguments."_s)
+			XPATHErrorResources::ER_NAME_HAS_TOO_MANY_ARGS,
+			"name() has too many arguments."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_STRING_HAS_TOO_MANY_ARGS),
-			$of("string() has too many arguments."_s)
+			XPATHErrorResources::ER_STRING_HAS_TOO_MANY_ARGS,
+			"string() has too many arguments."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_STRINGLENGTH_HAS_TOO_MANY_ARGS),
-			$of("string-length() has too many arguments."_s)
+			XPATHErrorResources::ER_STRINGLENGTH_HAS_TOO_MANY_ARGS,
+			"string-length() has too many arguments."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_TRANSLATE_TAKES_3_ARGS),
-			$of("The translate() function takes three arguments!"_s)
+			XPATHErrorResources::ER_TRANSLATE_TAKES_3_ARGS,
+			"The translate() function takes three arguments!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_UNPARSEDENTITYURI_TAKES_1_ARG),
-			$of("The unparsed-entity-uri function should take one argument!"_s)
+			XPATHErrorResources::ER_UNPARSEDENTITYURI_TAKES_1_ARG,
+			"The unparsed-entity-uri function should take one argument!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NAMESPACEAXIS_NOT_IMPLEMENTED),
-			$of("namespace axis not implemented yet!"_s)
+			XPATHErrorResources::ER_NAMESPACEAXIS_NOT_IMPLEMENTED,
+			"namespace axis not implemented yet!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_UNKNOWN_AXIS),
-			$of("unknown axis: {0}"_s)
+			XPATHErrorResources::ER_UNKNOWN_AXIS,
+			"unknown axis: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_UNKNOWN_MATCH_OPERATION),
-			$of("unknown match operation!"_s)
+			XPATHErrorResources::ER_UNKNOWN_MATCH_OPERATION,
+			"unknown match operation!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_INCORRECT_ARG_LENGTH),
-			$of("Arg length of processing-instruction() node test is incorrect!"_s)
+			XPATHErrorResources::ER_INCORRECT_ARG_LENGTH,
+			"Arg length of processing-instruction() node test is incorrect!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_CONVERT_TO_NUMBER),
-			$of("Can not convert {0} to a number"_s)
+			XPATHErrorResources::ER_CANT_CONVERT_TO_NUMBER,
+			"Can not convert {0} to a number"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_CONVERT_TO_NODELIST),
-			$of("Can not convert {0} to a NodeList!"_s)
+			XPATHErrorResources::ER_CANT_CONVERT_TO_NODELIST,
+			"Can not convert {0} to a NodeList!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_CONVERT_TO_MUTABLENODELIST),
-			$of("Can not convert {0} to a NodeSetDTM!"_s)
+			XPATHErrorResources::ER_CANT_CONVERT_TO_MUTABLENODELIST,
+			"Can not convert {0} to a NodeSetDTM!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_CONVERT_TO_TYPE),
-			$of("Can not convert {0} to a type#{1}"_s)
+			XPATHErrorResources::ER_CANT_CONVERT_TO_TYPE,
+			"Can not convert {0} to a type#{1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_MATCH_PATTERN),
-			$of("Expected match pattern in getMatchScore!"_s)
+			XPATHErrorResources::ER_EXPECTED_MATCH_PATTERN,
+			"Expected match pattern in getMatchScore!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_COULDNOT_GET_VAR_NAMED),
-			$of("Could not get variable named {0}"_s)
+			XPATHErrorResources::ER_COULDNOT_GET_VAR_NAMED,
+			"Could not get variable named {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_UNKNOWN_OPCODE),
-			$of("ERROR! Unknown op code: {0}"_s)
+			XPATHErrorResources::ER_UNKNOWN_OPCODE,
+			"ERROR! Unknown op code: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXTRA_ILLEGAL_TOKENS),
-			$of("Extra illegal tokens: {0}"_s)
+			XPATHErrorResources::ER_EXTRA_ILLEGAL_TOKENS,
+			"Extra illegal tokens: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_DOUBLE_QUOTE),
-			$of("misquoted literal... expected double quote!"_s)
+			XPATHErrorResources::ER_EXPECTED_DOUBLE_QUOTE,
+			"misquoted literal... expected double quote!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_SINGLE_QUOTE),
-			$of("misquoted literal... expected single quote!"_s)
+			XPATHErrorResources::ER_EXPECTED_SINGLE_QUOTE,
+			"misquoted literal... expected single quote!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EMPTY_EXPRESSION),
-			$of("Empty expression!"_s)
+			XPATHErrorResources::ER_EMPTY_EXPRESSION,
+			"Empty expression!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_BUT_FOUND),
-			$of("Expected {0}, but found: {1}"_s)
+			XPATHErrorResources::ER_EXPECTED_BUT_FOUND,
+			"Expected {0}, but found: {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_INCORRECT_PROGRAMMER_ASSERTION),
-			$of("Programmer assertion is incorrect! - {0}"_s)
+			XPATHErrorResources::ER_INCORRECT_PROGRAMMER_ASSERTION,
+			"Programmer assertion is incorrect! - {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL),
-			$of("boolean(...) argument is no longer optional with 19990709 XPath draft."_s)
+			XPATHErrorResources::ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL,
+			"boolean(...) argument is no longer optional with 19990709 XPath draft."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG),
-			$of("Found \',\' but no preceding argument!"_s)
+			XPATHErrorResources::ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG,
+			"Found \',\' but no preceding argument!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG),
-			$of("Found \',\' but no following argument!"_s)
+			XPATHErrorResources::ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG,
+			"Found \',\' but no following argument!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_PREDICATE_ILLEGAL_SYNTAX),
-			$of("\'..[predicate]\' or \'.[predicate]\' is illegal syntax.  Use \'self::node()[predicate]\' instead."_s)
+			XPATHErrorResources::ER_PREDICATE_ILLEGAL_SYNTAX,
+			"\'..[predicate]\' or \'.[predicate]\' is illegal syntax.  Use \'self::node()[predicate]\' instead."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_PREDICATE_TOO_MANY_OPEN),
-			$of("Stack overflow while parsing {0} at {1}. Too many open predicates({2})."_s)
+			XPATHErrorResources::ER_PREDICATE_TOO_MANY_OPEN,
+			"Stack overflow while parsing {0} at {1}. Too many open predicates({2})."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_COMPILATION_TOO_MANY_OPERATION),
-			$of("Stack overflow while compiling the expression. Too many operations({0})."_s)
+			XPATHErrorResources::ER_COMPILATION_TOO_MANY_OPERATION,
+			"Stack overflow while compiling the expression. Too many operations({0})."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_ILLEGAL_AXIS_NAME),
-			$of("illegal axis name: {0}"_s)
+			XPATHErrorResources::ER_ILLEGAL_AXIS_NAME,
+			"illegal axis name: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_UNKNOWN_NODETYPE),
-			$of("Unknown nodetype: {0}"_s)
+			XPATHErrorResources::ER_UNKNOWN_NODETYPE,
+			"Unknown nodetype: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_PATTERN_LITERAL_NEEDS_BE_QUOTED),
-			$of("Pattern literal ({0}) needs to be quoted!"_s)
+			XPATHErrorResources::ER_PATTERN_LITERAL_NEEDS_BE_QUOTED,
+			"Pattern literal ({0}) needs to be quoted!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_COULDNOT_BE_FORMATTED_TO_NUMBER),
-			$of("{0} could not be formatted to a number!"_s)
+			XPATHErrorResources::ER_COULDNOT_BE_FORMATTED_TO_NUMBER,
+			"{0} could not be formatted to a number!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_COULDNOT_CREATE_XMLPROCESSORLIAISON),
-			$of("Could not create XML TransformerFactory Liaison: {0}"_s)
+			XPATHErrorResources::ER_COULDNOT_CREATE_XMLPROCESSORLIAISON,
+			"Could not create XML TransformerFactory Liaison: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_DIDNOT_FIND_XPATH_SELECT_EXP),
-			$of("Error! Did not find xpath select expression (-select)."_s)
+			XPATHErrorResources::ER_DIDNOT_FIND_XPATH_SELECT_EXP,
+			"Error! Did not find xpath select expression (-select)."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH),
-			$of("ERROR! Could not find ENDOP after OP_LOCATIONPATH"_s)
+			XPATHErrorResources::ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH,
+			"ERROR! Could not find ENDOP after OP_LOCATIONPATH"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_ERROR_OCCURED),
-			$of("Error occured!"_s)
+			XPATHErrorResources::ER_ERROR_OCCURED,
+			"Error occured!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_ILLEGAL_VARIABLE_REFERENCE),
-			$of("VariableReference given for variable out of context or without definition!  Name = {0}"_s)
+			XPATHErrorResources::ER_ILLEGAL_VARIABLE_REFERENCE,
+			"VariableReference given for variable out of context or without definition!  Name = {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_AXES_NOT_ALLOWED),
-			$of("Only child:: and attribute:: axes are allowed in match patterns!  Offending axes = {0}"_s)
+			XPATHErrorResources::ER_AXES_NOT_ALLOWED,
+			"Only child:: and attribute:: axes are allowed in match patterns!  Offending axes = {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_KEY_HAS_TOO_MANY_ARGS),
-			$of("key() has an incorrect number of arguments."_s)
+			XPATHErrorResources::ER_KEY_HAS_TOO_MANY_ARGS,
+			"key() has an incorrect number of arguments."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_COUNT_TAKES_1_ARG),
-			$of("The count function should take one argument!"_s)
+			XPATHErrorResources::ER_COUNT_TAKES_1_ARG,
+			"The count function should take one argument!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_COULDNOT_FIND_FUNCTION),
-			$of("Could not find function: {0}"_s)
+			XPATHErrorResources::ER_COULDNOT_FIND_FUNCTION,
+			"Could not find function: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_UNSUPPORTED_ENCODING),
-			$of("Unsupported encoding: {0}"_s)
+			XPATHErrorResources::ER_UNSUPPORTED_ENCODING,
+			"Unsupported encoding: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_PROBLEM_IN_DTM_NEXTSIBLING),
-			$of("Problem occured in DTM in getNextSibling... trying to recover"_s)
+			XPATHErrorResources::ER_PROBLEM_IN_DTM_NEXTSIBLING,
+			"Problem occured in DTM in getNextSibling... trying to recover"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL),
-			$of("Programmer error: EmptyNodeList can not be written to."_s)
+			XPATHErrorResources::ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL,
+			"Programmer error: EmptyNodeList can not be written to."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_SETDOMFACTORY_NOT_SUPPORTED),
-			$of("setDOMFactory is not supported by XPathContext!"_s)
+			XPATHErrorResources::ER_SETDOMFACTORY_NOT_SUPPORTED,
+			"setDOMFactory is not supported by XPathContext!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_PREFIX_MUST_RESOLVE),
-			$of("Prefix must resolve to a namespace: {0}"_s)
+			XPATHErrorResources::ER_PREFIX_MUST_RESOLVE,
+			"Prefix must resolve to a namespace: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_PARSE_NOT_SUPPORTED),
-			$of("parse (InputSource source) not supported in XPathContext! Can not open {0}"_s)
+			XPATHErrorResources::ER_PARSE_NOT_SUPPORTED,
+			"parse (InputSource source) not supported in XPathContext! Can not open {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_SAX_API_NOT_HANDLED),
-			$of("SAX API characters(char ch[]... not handled by the DTM!"_s)
+			XPATHErrorResources::ER_SAX_API_NOT_HANDLED,
+			"SAX API characters(char ch[]... not handled by the DTM!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_IGNORABLE_WHITESPACE_NOT_HANDLED),
-			$of("ignorableWhitespace(char ch[]... not handled by the DTM!"_s)
+			XPATHErrorResources::ER_IGNORABLE_WHITESPACE_NOT_HANDLED,
+			"ignorableWhitespace(char ch[]... not handled by the DTM!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_DTM_CANNOT_HANDLE_NODES),
-			$of("DTMLiaison can not handle nodes of type {0}"_s)
+			XPATHErrorResources::ER_DTM_CANNOT_HANDLE_NODES,
+			"DTMLiaison can not handle nodes of type {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_XERCES_CANNOT_HANDLE_NODES),
-			$of("DOM2Helper can not handle nodes of type {0}"_s)
+			XPATHErrorResources::ER_XERCES_CANNOT_HANDLE_NODES,
+			"DOM2Helper can not handle nodes of type {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_XERCES_PARSE_ERROR_DETAILS),
-			$of("DOM2Helper.parse error: SystemID - {0} line - {1}"_s)
+			XPATHErrorResources::ER_XERCES_PARSE_ERROR_DETAILS,
+			"DOM2Helper.parse error: SystemID - {0} line - {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_XERCES_PARSE_ERROR),
-			$of("DOM2Helper.parse error"_s)
+			XPATHErrorResources::ER_XERCES_PARSE_ERROR,
+			"DOM2Helper.parse error"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_INVALID_UTF16_SURROGATE),
-			$of("Invalid UTF-16 surrogate detected: {0} ?"_s)
+			XPATHErrorResources::ER_INVALID_UTF16_SURROGATE,
+			"Invalid UTF-16 surrogate detected: {0} ?"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_OIERROR),
-			$of("IO error"_s)
+			XPATHErrorResources::ER_OIERROR,
+			"IO error"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANNOT_CREATE_URL),
-			$of("Cannot create url for: {0}"_s)
+			XPATHErrorResources::ER_CANNOT_CREATE_URL,
+			"Cannot create url for: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_XPATH_READOBJECT),
-			$of("In XPath.readObject: {0}"_s)
+			XPATHErrorResources::ER_XPATH_READOBJECT,
+			"In XPath.readObject: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_FUNCTION_TOKEN_NOT_FOUND),
-			$of("function token not found."_s)
+			XPATHErrorResources::ER_FUNCTION_TOKEN_NOT_FOUND,
+			"function token not found."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANNOT_DEAL_XPATH_TYPE),
-			$of("Can not deal with XPath type: {0}"_s)
+			XPATHErrorResources::ER_CANNOT_DEAL_XPATH_TYPE,
+			"Can not deal with XPath type: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NODESET_NOT_MUTABLE),
-			$of("This NodeSet is not mutable"_s)
+			XPATHErrorResources::ER_NODESET_NOT_MUTABLE,
+			"This NodeSet is not mutable"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NODESETDTM_NOT_MUTABLE),
-			$of("This NodeSetDTM is not mutable"_s)
+			XPATHErrorResources::ER_NODESETDTM_NOT_MUTABLE,
+			"This NodeSetDTM is not mutable"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_VAR_NOT_RESOLVABLE),
-			$of("Variable not resolvable: {0}"_s)
+			XPATHErrorResources::ER_VAR_NOT_RESOLVABLE,
+			"Variable not resolvable: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NULL_ERROR_HANDLER),
-			$of("Null error handler"_s)
+			XPATHErrorResources::ER_NULL_ERROR_HANDLER,
+			"Null error handler"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_PROG_ASSERT_UNKNOWN_OPCODE),
-			$of("Programmer\'\'s assertion: unknown opcode: {0}"_s)
+			XPATHErrorResources::ER_PROG_ASSERT_UNKNOWN_OPCODE,
+			"Programmer\'\'s assertion: unknown opcode: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_ZERO_OR_ONE),
-			$of("0 or 1"_s)
+			XPATHErrorResources::ER_ZERO_OR_ONE,
+			"0 or 1"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER),
-			$of("rtf() not supported by XRTreeFragSelectWrapper"_s)
+			XPATHErrorResources::ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER,
+			"rtf() not supported by XRTreeFragSelectWrapper"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER),
-			$of("asNodeIterator() not supported by XRTreeFragSelectWrapper"_s)
+			XPATHErrorResources::ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER,
+			"asNodeIterator() not supported by XRTreeFragSelectWrapper"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER),
-			$of("detach() not supported by XRTreeFragSelectWrapper"_s)
+			XPATHErrorResources::ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER,
+			"detach() not supported by XRTreeFragSelectWrapper"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER),
-			$of("num() not supported by XRTreeFragSelectWrapper"_s)
+			XPATHErrorResources::ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER,
+			"num() not supported by XRTreeFragSelectWrapper"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER),
-			$of("xstr() not supported by XRTreeFragSelectWrapper"_s)
+			XPATHErrorResources::ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER,
+			"xstr() not supported by XRTreeFragSelectWrapper"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER),
-			$of("str() not supported by XRTreeFragSelectWrapper"_s)
+			XPATHErrorResources::ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER,
+			"str() not supported by XRTreeFragSelectWrapper"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS),
-			$of("fsb() not supported for XStringForChars"_s)
+			XPATHErrorResources::ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS,
+			"fsb() not supported for XStringForChars"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_COULD_NOT_FIND_VAR),
-			$of("Could not find variable with the name of {0}"_s)
+			XPATHErrorResources::ER_COULD_NOT_FIND_VAR,
+			"Could not find variable with the name of {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING),
-			$of("XStringForChars can not take a string for an argument"_s)
+			XPATHErrorResources::ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING,
+			"XStringForChars can not take a string for an argument"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_FASTSTRINGBUFFER_CANNOT_BE_NULL),
-			$of("The FastStringBuffer argument can not be null"_s)
+			XPATHErrorResources::ER_FASTSTRINGBUFFER_CANNOT_BE_NULL,
+			"The FastStringBuffer argument can not be null"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_TWO_OR_THREE),
-			$of("2 or 3"_s)
+			XPATHErrorResources::ER_TWO_OR_THREE,
+			"2 or 3"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_VARIABLE_ACCESSED_BEFORE_BIND),
-			$of("Variable accessed before it is bound!"_s)
+			XPATHErrorResources::ER_VARIABLE_ACCESSED_BEFORE_BIND,
+			"Variable accessed before it is bound!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_FSB_CANNOT_TAKE_STRING),
-			$of("XStringForFSB can not take a string for an argument!"_s)
+			XPATHErrorResources::ER_FSB_CANNOT_TAKE_STRING,
+			"XStringForFSB can not take a string for an argument!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_SETTING_WALKER_ROOT_TO_NULL),
-			$of("\n !!!! Error! Setting the root of a walker to null!!!"_s)
+			XPATHErrorResources::ER_SETTING_WALKER_ROOT_TO_NULL,
+			"\n !!!! Error! Setting the root of a walker to null!!!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NODESETDTM_CANNOT_ITERATE),
-			$of("This NodeSetDTM can not iterate to a previous node!"_s)
+			XPATHErrorResources::ER_NODESETDTM_CANNOT_ITERATE,
+			"This NodeSetDTM can not iterate to a previous node!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NODESET_CANNOT_ITERATE),
-			$of("This NodeSet can not iterate to a previous node!"_s)
+			XPATHErrorResources::ER_NODESET_CANNOT_ITERATE,
+			"This NodeSet can not iterate to a previous node!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NODESETDTM_CANNOT_INDEX),
-			$of("This NodeSetDTM can not do indexing or counting functions!"_s)
+			XPATHErrorResources::ER_NODESETDTM_CANNOT_INDEX,
+			"This NodeSetDTM can not do indexing or counting functions!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NODESET_CANNOT_INDEX),
-			$of("This NodeSet can not do indexing or counting functions!"_s)
+			XPATHErrorResources::ER_NODESET_CANNOT_INDEX,
+			"This NodeSet can not do indexing or counting functions!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANNOT_CALL_SETSHOULDCACHENODE),
-			$of("Can not call setShouldCacheNodes after nextNode has been called!"_s)
+			XPATHErrorResources::ER_CANNOT_CALL_SETSHOULDCACHENODE,
+			"Can not call setShouldCacheNodes after nextNode has been called!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_ONLY_ALLOWS),
-			$of("{0} only allows {1} arguments"_s)
+			XPATHErrorResources::ER_ONLY_ALLOWS,
+			"{0} only allows {1} arguments"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_UNKNOWN_STEP),
-			$of("Programmer\'\'s assertion in getNextStepPos: unknown stepType: {0}"_s)
+			XPATHErrorResources::ER_UNKNOWN_STEP,
+			"Programmer\'\'s assertion in getNextStepPos: unknown stepType: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_REL_LOC_PATH),
-			$of("A relative location path was expected following the \'/\' or \'//\' token."_s)
+			XPATHErrorResources::ER_EXPECTED_REL_LOC_PATH,
+			"A relative location path was expected following the \'/\' or \'//\' token."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_LOC_PATH),
-			$of("A location path was expected, but the following token was encountered:  {0}"_s)
+			XPATHErrorResources::ER_EXPECTED_LOC_PATH,
+			"A location path was expected, but the following token was encountered:  {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_LOC_PATH_AT_END_EXPR),
-			$of("A location path was expected, but the end of the XPath expression was found instead."_s)
+			XPATHErrorResources::ER_EXPECTED_LOC_PATH_AT_END_EXPR,
+			"A location path was expected, but the end of the XPath expression was found instead."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_LOC_STEP),
-			$of("A location step was expected following the \'/\' or \'//\' token."_s)
+			XPATHErrorResources::ER_EXPECTED_LOC_STEP,
+			"A location step was expected following the \'/\' or \'//\' token."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_NODE_TEST),
-			$of("A node test that matches either NCName:* or QName was expected."_s)
+			XPATHErrorResources::ER_EXPECTED_NODE_TEST,
+			"A node test that matches either NCName:* or QName was expected."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_STEP_PATTERN),
-			$of("A step pattern was expected, but \'/\' was encountered."_s)
+			XPATHErrorResources::ER_EXPECTED_STEP_PATTERN,
+			"A step pattern was expected, but \'/\' was encountered."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXPECTED_REL_PATH_PATTERN),
-			$of("A relative path pattern was expected."_s)
+			XPATHErrorResources::ER_EXPECTED_REL_PATH_PATTERN,
+			"A relative path pattern was expected."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_CONVERT_TO_BOOLEAN),
-			$of("The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be converted to a boolean."_s)
+			XPATHErrorResources::ER_CANT_CONVERT_TO_BOOLEAN,
+			"The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be converted to a boolean."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_CONVERT_TO_SINGLENODE),
-			$of("The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be converted to a single node. The method getSingleNodeValue applies only to types ANY_UNORDERED_NODE_TYPE and FIRST_ORDERED_NODE_TYPE."_s)
+			XPATHErrorResources::ER_CANT_CONVERT_TO_SINGLENODE,
+			"The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be converted to a single node. The method getSingleNodeValue applies only to types ANY_UNORDERED_NODE_TYPE and FIRST_ORDERED_NODE_TYPE."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_GET_SNAPSHOT_LENGTH),
-			$of("The method getSnapshotLength cannot be called on the XPathResult of XPath expression \'\'{0}\'\' because its XPathResultType is {1}. This method applies only to types UNORDERED_NODE_SNAPSHOT_TYPE and ORDERED_NODE_SNAPSHOT_TYPE."_s)
+			XPATHErrorResources::ER_CANT_GET_SNAPSHOT_LENGTH,
+			"The method getSnapshotLength cannot be called on the XPathResult of XPath expression \'\'{0}\'\' because its XPathResultType is {1}. This method applies only to types UNORDERED_NODE_SNAPSHOT_TYPE and ORDERED_NODE_SNAPSHOT_TYPE."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NON_ITERATOR_TYPE),
-			$of("The method iterateNext cannot be called on the XPathResult of XPath expression \'\'{0}\'\' because its XPathResultType is {1}. This method applies only to types UNORDERED_NODE_ITERATOR_TYPE and ORDERED_NODE_ITERATOR_TYPE."_s)
+			XPATHErrorResources::ER_NON_ITERATOR_TYPE,
+			"The method iterateNext cannot be called on the XPathResult of XPath expression \'\'{0}\'\' because its XPathResultType is {1}. This method applies only to types UNORDERED_NODE_ITERATOR_TYPE and ORDERED_NODE_ITERATOR_TYPE."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_DOC_MUTATED),
-			$of("Document mutated since result was returned. Iterator is invalid."_s)
+			XPATHErrorResources::ER_DOC_MUTATED,
+			"Document mutated since result was returned. Iterator is invalid."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_INVALID_XPATH_TYPE),
-			$of("Invalid XPath type argument: {0}"_s)
+			XPATHErrorResources::ER_INVALID_XPATH_TYPE,
+			"Invalid XPath type argument: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EMPTY_XPATH_RESULT),
-			$of("Empty XPath result object"_s)
+			XPATHErrorResources::ER_EMPTY_XPATH_RESULT,
+			"Empty XPath result object"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_INCOMPATIBLE_TYPES),
-			$of("The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be coerced into the specified XPathResultType of {2}."_s)
+			XPATHErrorResources::ER_INCOMPATIBLE_TYPES,
+			"The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be coerced into the specified XPathResultType of {2}."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NULL_RESOLVER),
-			$of("Unable to resolve prefix with null prefix resolver."_s)
+			XPATHErrorResources::ER_NULL_RESOLVER,
+			"Unable to resolve prefix with null prefix resolver."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_CONVERT_TO_STRING),
-			$of("The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be converted to a string."_s)
+			XPATHErrorResources::ER_CANT_CONVERT_TO_STRING,
+			"The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be converted to a string."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NON_SNAPSHOT_TYPE),
-			$of("The method snapshotItem cannot be called on the XPathResult of XPath expression \'\'{0}\'\' because its XPathResultType is {1}. This method applies only to types UNORDERED_NODE_SNAPSHOT_TYPE and ORDERED_NODE_SNAPSHOT_TYPE."_s)
+			XPATHErrorResources::ER_NON_SNAPSHOT_TYPE,
+			"The method snapshotItem cannot be called on the XPathResult of XPath expression \'\'{0}\'\' because its XPathResultType is {1}. This method applies only to types UNORDERED_NODE_SNAPSHOT_TYPE and ORDERED_NODE_SNAPSHOT_TYPE."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_WRONG_DOCUMENT),
-			$of("Context node does not belong to the document that is bound to this XPathEvaluator."_s)
+			XPATHErrorResources::ER_WRONG_DOCUMENT,
+			"Context node does not belong to the document that is bound to this XPathEvaluator."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_WRONG_NODETYPE),
-			$of("The context node type is not supported."_s)
+			XPATHErrorResources::ER_WRONG_NODETYPE,
+			"The context node type is not supported."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_XPATH_ERROR),
-			$of("Unknown error in XPath."_s)
+			XPATHErrorResources::ER_XPATH_ERROR,
+			"Unknown error in XPath."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER),
-			$of("The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be converted to a number"_s)
+			XPATHErrorResources::ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER,
+			"The XPathResult of XPath expression \'\'{0}\'\' has an XPathResultType of {1} which cannot be converted to a number"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED),
-			$of("Extension function: \'\'{0}\'\' can not be invoked when the XMLConstants.FEATURE_SECURE_PROCESSING feature is set to true."_s)
+			XPATHErrorResources::ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED,
+			"Extension function: \'\'{0}\'\' can not be invoked when the XMLConstants.FEATURE_SECURE_PROCESSING feature is set to true."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_RESOLVE_VARIABLE_RETURNS_NULL),
-			$of("resolveVariable for variable {0} returning null"_s)
+			XPATHErrorResources::ER_RESOLVE_VARIABLE_RETURNS_NULL,
+			"resolveVariable for variable {0} returning null"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_UNSUPPORTED_RETURN_TYPE),
-			$of("UnSupported Return Type : {0}"_s)
+			XPATHErrorResources::ER_UNSUPPORTED_RETURN_TYPE,
+			"UnSupported Return Type : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL),
-			$of("Source and/or Return Type can not be null"_s)
+			XPATHErrorResources::ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL,
+			"Source and/or Return Type can not be null"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL),
-			$of("Source and/or Return Type can not be null"_s)
+			XPATHErrorResources::ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL,
+			"Source and/or Return Type can not be null"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_ARG_CANNOT_BE_NULL),
-			$of("{0} argument can not be null"_s)
+			XPATHErrorResources::ER_ARG_CANNOT_BE_NULL,
+			"{0} argument can not be null"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_OBJECT_MODEL_NULL),
-			$of("{0}#isObjectModelSupported( String objectModel ) cannot be called with objectModel == null"_s)
+			XPATHErrorResources::ER_OBJECT_MODEL_NULL,
+			"{0}#isObjectModelSupported( String objectModel ) cannot be called with objectModel == null"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_OBJECT_MODEL_EMPTY),
-			$of("{0}#isObjectModelSupported( String objectModel ) cannot be called with objectModel == \"\""_s)
+			XPATHErrorResources::ER_OBJECT_MODEL_EMPTY,
+			"{0}#isObjectModelSupported( String objectModel ) cannot be called with objectModel == \"\""_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_FEATURE_NAME_NULL),
-			$of("Trying to set a feature with a null name: {0}#setFeature( null, {1})"_s)
+			XPATHErrorResources::ER_FEATURE_NAME_NULL,
+			"Trying to set a feature with a null name: {0}#setFeature( null, {1})"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_FEATURE_UNKNOWN),
-			$of("Trying to set the unknown feature \"{0}\":{1}#setFeature({0},{2})"_s)
+			XPATHErrorResources::ER_FEATURE_UNKNOWN,
+			"Trying to set the unknown feature \"{0}\":{1}#setFeature({0},{2})"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_GETTING_NULL_FEATURE),
-			$of("Trying to get a feature with a null name: {0}#getFeature(null)"_s)
+			XPATHErrorResources::ER_GETTING_NULL_FEATURE,
+			"Trying to get a feature with a null name: {0}#getFeature(null)"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_GETTING_UNKNOWN_FEATURE),
-			$of("Trying to get the unknown feature \"{0}\":{1}#getFeature({0})"_s)
+			XPATHErrorResources::ER_GETTING_UNKNOWN_FEATURE,
+			"Trying to get the unknown feature \"{0}\":{1}#getFeature({0})"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_SECUREPROCESSING_FEATURE),
-			$of("FEATURE_SECURE_PROCESSING: Cannot set the feature to false when security manager is present: {1}#setFeature({0},{2})"_s)
+			XPATHErrorResources::ER_SECUREPROCESSING_FEATURE,
+			"FEATURE_SECURE_PROCESSING: Cannot set the feature to false when security manager is present: {1}#setFeature({0},{2})"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NULL_XPATH_FUNCTION_RESOLVER),
-			$of("Attempting to set a null XPathFunctionResolver:{0}#setXPathFunctionResolver(null)"_s)
+			XPATHErrorResources::ER_NULL_XPATH_FUNCTION_RESOLVER,
+			"Attempting to set a null XPathFunctionResolver:{0}#setXPathFunctionResolver(null)"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::ER_NULL_XPATH_VARIABLE_RESOLVER),
-			$of("Attempting to set a null XPathVariableResolver:{0}#setXPathVariableResolver(null)"_s)
+			XPATHErrorResources::ER_NULL_XPATH_VARIABLE_RESOLVER,
+			"Attempting to set a null XPathVariableResolver:{0}#setXPathVariableResolver(null)"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_LOCALE_NAME_NOT_HANDLED),
-			$of("locale name in the format-number function not yet handled!"_s)
+			XPATHErrorResources::WG_LOCALE_NAME_NOT_HANDLED,
+			"locale name in the format-number function not yet handled!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_PROPERTY_NOT_SUPPORTED),
-			$of("XSL Property not supported: {0}"_s)
+			XPATHErrorResources::WG_PROPERTY_NOT_SUPPORTED,
+			"XSL Property not supported: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_DONT_DO_ANYTHING_WITH_NS),
-			$of("Do not currently do anything with namespace {0} in property: {1}"_s)
+			XPATHErrorResources::WG_DONT_DO_ANYTHING_WITH_NS,
+			"Do not currently do anything with namespace {0} in property: {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_SECURITY_EXCEPTION),
-			$of("SecurityException when trying to access XSL system property: {0}"_s)
+			XPATHErrorResources::WG_SECURITY_EXCEPTION,
+			"SecurityException when trying to access XSL system property: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_QUO_NO_LONGER_DEFINED),
-			$of("Old syntax: quo(...) is no longer defined in XPath."_s)
+			XPATHErrorResources::WG_QUO_NO_LONGER_DEFINED,
+			"Old syntax: quo(...) is no longer defined in XPath."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST),
-			$of("XPath needs a derived object to implement nodeTest!"_s)
+			XPATHErrorResources::WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST,
+			"XPath needs a derived object to implement nodeTest!"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_FUNCTION_TOKEN_NOT_FOUND),
-			$of("function token not found."_s)
+			XPATHErrorResources::WG_FUNCTION_TOKEN_NOT_FOUND,
+			"function token not found."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_COULDNOT_FIND_FUNCTION),
-			$of("Could not find function: {0}"_s)
+			XPATHErrorResources::WG_COULDNOT_FIND_FUNCTION,
+			"Could not find function: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_CANNOT_MAKE_URL_FROM),
-			$of("Can not make URL from: {0}"_s)
+			XPATHErrorResources::WG_CANNOT_MAKE_URL_FROM,
+			"Can not make URL from: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_EXPAND_ENTITIES_NOT_SUPPORTED),
-			$of("-E option not supported for DTM parser"_s)
+			XPATHErrorResources::WG_EXPAND_ENTITIES_NOT_SUPPORTED,
+			"-E option not supported for DTM parser"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_ILLEGAL_VARIABLE_REFERENCE),
-			$of("VariableReference given for variable out of context or without definition!  Name = {0}"_s)
+			XPATHErrorResources::WG_ILLEGAL_VARIABLE_REFERENCE,
+			"VariableReference given for variable out of context or without definition!  Name = {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XPATHErrorResources::WG_UNSUPPORTED_ENCODING),
-			$of("Unsupported encoding: {0}"_s)
+			XPATHErrorResources::WG_UNSUPPORTED_ENCODING,
+			"Unsupported encoding: {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ui_language"_s),
-			$of("en"_s)
+			"ui_language"_s,
+			"en"_s
 		}),
 		$$new($ObjectArray, {
-			$of("help_language"_s),
-			$of("en"_s)
+			"help_language"_s,
+			"en"_s
 		}),
 		$$new($ObjectArray, {
-			$of("language"_s),
-			$of("en"_s)
+			"language"_s,
+			"en"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BAD_CODE"_s),
-			$of("Parameter to createMessage was out of bounds"_s)
+			"BAD_CODE"_s,
+			"Parameter to createMessage was out of bounds"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FORMAT_FAILED"_s),
-			$of("Exception thrown during messageFormat call"_s)
+			"FORMAT_FAILED"_s,
+			"Exception thrown during messageFormat call"_s
 		}),
 		$$new($ObjectArray, {
-			$of("version"_s),
-			$of(">>>>>>> Xalan Version "_s)
+			"version"_s,
+			">>>>>>> Xalan Version "_s
 		}),
 		$$new($ObjectArray, {
-			$of("version2"_s),
-			$of("<<<<<<<"_s)
+			"version2"_s,
+			"<<<<<<<"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yes"_s),
-			$of("yes"_s)
+			"yes"_s,
+			"yes"_s
 		}),
 		$$new($ObjectArray, {
-			$of("line"_s),
-			$of("Line #"_s)
+			"line"_s,
+			"Line #"_s
 		}),
 		$$new($ObjectArray, {
-			$of("column"_s),
-			$of("Column #"_s)
+			"column"_s,
+			"Column #"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xsldone"_s),
-			$of("XSLProcessor: done"_s)
+			"xsldone"_s,
+			"XSLProcessor: done"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xpath_option"_s),
-			$of("xpath options: "_s)
+			"xpath_option"_s,
+			"xpath options: "_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionIN"_s),
-			$of("   [-in inputXMLURL]"_s)
+			"optionIN"_s,
+			"   [-in inputXMLURL]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionSelect"_s),
-			$of("   [-select xpath expression]"_s)
+			"optionSelect"_s,
+			"   [-select xpath expression]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionMatch"_s),
-			$of("   [-match match pattern (for match diagnostics)]"_s)
+			"optionMatch"_s,
+			"   [-match match pattern (for match diagnostics)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionAnyExpr"_s),
-			$of("Or just an xpath expression will do a diagnostic dump"_s)
+			"optionAnyExpr"_s,
+			"Or just an xpath expression will do a diagnostic dump"_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg1"_s),
-			$of("XSL Process was not successful."_s)
+			"noParsermsg1"_s,
+			"XSL Process was not successful."_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg2"_s),
-			$of("** Could not find parser **"_s)
+			"noParsermsg2"_s,
+			"** Could not find parser **"_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg3"_s),
-			$of("Please check your classpath."_s)
+			"noParsermsg3"_s,
+			"Please check your classpath."_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg4"_s),
-			$of("If you don\'t have IBM\'s XML Parser for Java, you can download it from"_s)
+			"noParsermsg4"_s,
+			"If you don\'t have IBM\'s XML Parser for Java, you can download it from"_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg5"_s),
-			$of("IBM\'s AlphaWorks: http://www.alphaworks.ibm.com/formula/xml"_s)
+			"noParsermsg5"_s,
+			"IBM\'s AlphaWorks: http://www.alphaworks.ibm.com/formula/xml"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gtone"_s),
-			$of(">1"_s)
+			"gtone"_s,
+			">1"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zero"_s),
-			$of("0"_s)
+			"zero"_s,
+			"0"_s
 		}),
 		$$new($ObjectArray, {
-			$of("one"_s),
-			$of("1"_s)
+			"one"_s,
+			"1"_s
 		}),
 		$$new($ObjectArray, {
-			$of("two"_s),
-			$of("2"_s)
+			"two"_s,
+			"2"_s
 		}),
 		$$new($ObjectArray, {
-			$of("three"_s),
-			$of("3"_s)
+			"three"_s,
+			"3"_s
 		})
 	}));
 }
@@ -1357,7 +1179,179 @@ XPATHErrorResources::XPATHErrorResources() {
 }
 
 $Class* XPATHErrorResources::load$($String* name, bool initialize) {
-	$loadClass(XPATHErrorResources, name, initialize, &_XPATHErrorResources_ClassInfo_, clinit$XPATHErrorResources, allocate$XPATHErrorResources);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERROR0000", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ERROR0000)},
+		{"ER_CURRENT_NOT_ALLOWED_IN_MATCH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CURRENT_NOT_ALLOWED_IN_MATCH)},
+		{"ER_CURRENT_TAKES_NO_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CURRENT_TAKES_NO_ARGS)},
+		{"ER_DOCUMENT_REPLACED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DOCUMENT_REPLACED)},
+		{"ER_CONTEXT_CAN_NOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CONTEXT_CAN_NOT_BE_NULL)},
+		{"ER_CONTEXT_HAS_NO_OWNERDOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CONTEXT_HAS_NO_OWNERDOC)},
+		{"ER_LOCALNAME_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_LOCALNAME_HAS_TOO_MANY_ARGS)},
+		{"ER_NAMESPACEURI_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NAMESPACEURI_HAS_TOO_MANY_ARGS)},
+		{"ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NORMALIZESPACE_HAS_TOO_MANY_ARGS)},
+		{"ER_NUMBER_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NUMBER_HAS_TOO_MANY_ARGS)},
+		{"ER_NAME_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NAME_HAS_TOO_MANY_ARGS)},
+		{"ER_STRING_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_STRING_HAS_TOO_MANY_ARGS)},
+		{"ER_STRINGLENGTH_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_STRINGLENGTH_HAS_TOO_MANY_ARGS)},
+		{"ER_TRANSLATE_TAKES_3_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_TRANSLATE_TAKES_3_ARGS)},
+		{"ER_UNPARSEDENTITYURI_TAKES_1_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNPARSEDENTITYURI_TAKES_1_ARG)},
+		{"ER_NAMESPACEAXIS_NOT_IMPLEMENTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NAMESPACEAXIS_NOT_IMPLEMENTED)},
+		{"ER_UNKNOWN_AXIS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_AXIS)},
+		{"ER_UNKNOWN_MATCH_OPERATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_MATCH_OPERATION)},
+		{"ER_INCORRECT_ARG_LENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INCORRECT_ARG_LENGTH)},
+		{"ER_CANT_CONVERT_TO_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_NUMBER)},
+		{"ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_XPATHRESULTTYPE_TO_NUMBER)},
+		{"ER_CANT_CONVERT_TO_NODELIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_NODELIST)},
+		{"ER_CANT_CONVERT_TO_MUTABLENODELIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_MUTABLENODELIST)},
+		{"ER_CANT_CONVERT_TO_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_TYPE)},
+		{"ER_EXPECTED_MATCH_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_MATCH_PATTERN)},
+		{"ER_COULDNOT_GET_VAR_NAMED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_GET_VAR_NAMED)},
+		{"ER_UNKNOWN_OPCODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_OPCODE)},
+		{"ER_EXTRA_ILLEGAL_TOKENS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXTRA_ILLEGAL_TOKENS)},
+		{"ER_EXPECTED_DOUBLE_QUOTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_DOUBLE_QUOTE)},
+		{"ER_EXPECTED_SINGLE_QUOTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_SINGLE_QUOTE)},
+		{"ER_EMPTY_EXPRESSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EMPTY_EXPRESSION)},
+		{"ER_EXPECTED_BUT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_BUT_FOUND)},
+		{"ER_INCORRECT_PROGRAMMER_ASSERTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INCORRECT_PROGRAMMER_ASSERTION)},
+		{"ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_BOOLEAN_ARG_NO_LONGER_OPTIONAL)},
+		{"ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FOUND_COMMA_BUT_NO_PRECEDING_ARG)},
+		{"ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FOUND_COMMA_BUT_NO_FOLLOWING_ARG)},
+		{"ER_PREDICATE_ILLEGAL_SYNTAX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PREDICATE_ILLEGAL_SYNTAX)},
+		{"ER_PREDICATE_TOO_MANY_OPEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PREDICATE_TOO_MANY_OPEN)},
+		{"ER_COMPILATION_TOO_MANY_OPERATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COMPILATION_TOO_MANY_OPERATION)},
+		{"ER_ILLEGAL_AXIS_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ILLEGAL_AXIS_NAME)},
+		{"ER_UNKNOWN_NODETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_NODETYPE)},
+		{"ER_PATTERN_LITERAL_NEEDS_BE_QUOTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PATTERN_LITERAL_NEEDS_BE_QUOTED)},
+		{"ER_COULDNOT_BE_FORMATTED_TO_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_BE_FORMATTED_TO_NUMBER)},
+		{"ER_COULDNOT_CREATE_XMLPROCESSORLIAISON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_CREATE_XMLPROCESSORLIAISON)},
+		{"ER_DIDNOT_FIND_XPATH_SELECT_EXP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DIDNOT_FIND_XPATH_SELECT_EXP)},
+		{"ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_FIND_ENDOP_AFTER_OPLOCATIONPATH)},
+		{"ER_ERROR_OCCURED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ERROR_OCCURED)},
+		{"ER_ILLEGAL_VARIABLE_REFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ILLEGAL_VARIABLE_REFERENCE)},
+		{"ER_AXES_NOT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_AXES_NOT_ALLOWED)},
+		{"ER_KEY_HAS_TOO_MANY_ARGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_KEY_HAS_TOO_MANY_ARGS)},
+		{"ER_COUNT_TAKES_1_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COUNT_TAKES_1_ARG)},
+		{"ER_COULDNOT_FIND_FUNCTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULDNOT_FIND_FUNCTION)},
+		{"ER_UNSUPPORTED_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNSUPPORTED_ENCODING)},
+		{"ER_PROBLEM_IN_DTM_NEXTSIBLING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PROBLEM_IN_DTM_NEXTSIBLING)},
+		{"ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANNOT_WRITE_TO_EMPTYNODELISTIMPL)},
+		{"ER_SETDOMFACTORY_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SETDOMFACTORY_NOT_SUPPORTED)},
+		{"ER_PREFIX_MUST_RESOLVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PREFIX_MUST_RESOLVE)},
+		{"ER_PARSE_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PARSE_NOT_SUPPORTED)},
+		{"ER_SAX_API_NOT_HANDLED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SAX_API_NOT_HANDLED)},
+		{"ER_IGNORABLE_WHITESPACE_NOT_HANDLED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_IGNORABLE_WHITESPACE_NOT_HANDLED)},
+		{"ER_DTM_CANNOT_HANDLE_NODES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DTM_CANNOT_HANDLE_NODES)},
+		{"ER_XERCES_CANNOT_HANDLE_NODES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XERCES_CANNOT_HANDLE_NODES)},
+		{"ER_XERCES_PARSE_ERROR_DETAILS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XERCES_PARSE_ERROR_DETAILS)},
+		{"ER_XERCES_PARSE_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XERCES_PARSE_ERROR)},
+		{"ER_INVALID_UTF16_SURROGATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INVALID_UTF16_SURROGATE)},
+		{"ER_OIERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_OIERROR)},
+		{"ER_CANNOT_CREATE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANNOT_CREATE_URL)},
+		{"ER_XPATH_READOBJECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XPATH_READOBJECT)},
+		{"ER_FUNCTION_TOKEN_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FUNCTION_TOKEN_NOT_FOUND)},
+		{"ER_CANNOT_DEAL_XPATH_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANNOT_DEAL_XPATH_TYPE)},
+		{"ER_NODESET_NOT_MUTABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESET_NOT_MUTABLE)},
+		{"ER_NODESETDTM_NOT_MUTABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESETDTM_NOT_MUTABLE)},
+		{"ER_VAR_NOT_RESOLVABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_VAR_NOT_RESOLVABLE)},
+		{"ER_NULL_ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NULL_ERROR_HANDLER)},
+		{"ER_PROG_ASSERT_UNKNOWN_OPCODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_PROG_ASSERT_UNKNOWN_OPCODE)},
+		{"ER_ZERO_OR_ONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ZERO_OR_ONE)},
+		{"ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_RTF_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
+		{"ER_ASNODEITERATOR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ASNODEITERATOR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
+		{"ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FSB_NOT_SUPPORTED_XSTRINGFORCHARS)},
+		{"ER_COULD_NOT_FIND_VAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_COULD_NOT_FIND_VAR)},
+		{"ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XSTRINGFORCHARS_CANNOT_TAKE_STRING)},
+		{"ER_FASTSTRINGBUFFER_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FASTSTRINGBUFFER_CANNOT_BE_NULL)},
+		{"ER_TWO_OR_THREE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_TWO_OR_THREE)},
+		{"ER_VARIABLE_ACCESSED_BEFORE_BIND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_VARIABLE_ACCESSED_BEFORE_BIND)},
+		{"ER_FSB_CANNOT_TAKE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FSB_CANNOT_TAKE_STRING)},
+		{"ER_SETTING_WALKER_ROOT_TO_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SETTING_WALKER_ROOT_TO_NULL)},
+		{"ER_NODESETDTM_CANNOT_ITERATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESETDTM_CANNOT_ITERATE)},
+		{"ER_NODESET_CANNOT_ITERATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESET_CANNOT_ITERATE)},
+		{"ER_NODESETDTM_CANNOT_INDEX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESETDTM_CANNOT_INDEX)},
+		{"ER_NODESET_CANNOT_INDEX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NODESET_CANNOT_INDEX)},
+		{"ER_CANNOT_CALL_SETSHOULDCACHENODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANNOT_CALL_SETSHOULDCACHENODE)},
+		{"ER_ONLY_ALLOWS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ONLY_ALLOWS)},
+		{"ER_UNKNOWN_STEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNKNOWN_STEP)},
+		{"ER_EXPECTED_REL_LOC_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_REL_LOC_PATH)},
+		{"ER_EXPECTED_LOC_PATH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_LOC_PATH)},
+		{"ER_EXPECTED_LOC_PATH_AT_END_EXPR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_LOC_PATH_AT_END_EXPR)},
+		{"ER_EXPECTED_LOC_STEP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_LOC_STEP)},
+		{"ER_EXPECTED_NODE_TEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_NODE_TEST)},
+		{"ER_EXPECTED_STEP_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_STEP_PATTERN)},
+		{"ER_EXPECTED_REL_PATH_PATTERN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXPECTED_REL_PATH_PATTERN)},
+		{"ER_CANT_CONVERT_TO_BOOLEAN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_BOOLEAN)},
+		{"ER_CANT_CONVERT_TO_SINGLENODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_SINGLENODE)},
+		{"ER_CANT_GET_SNAPSHOT_LENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_GET_SNAPSHOT_LENGTH)},
+		{"ER_NON_ITERATOR_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NON_ITERATOR_TYPE)},
+		{"ER_DOC_MUTATED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DOC_MUTATED)},
+		{"ER_INVALID_XPATH_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INVALID_XPATH_TYPE)},
+		{"ER_EMPTY_XPATH_RESULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EMPTY_XPATH_RESULT)},
+		{"ER_INCOMPATIBLE_TYPES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_INCOMPATIBLE_TYPES)},
+		{"ER_NULL_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NULL_RESOLVER)},
+		{"ER_CANT_CONVERT_TO_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_CANT_CONVERT_TO_STRING)},
+		{"ER_NON_SNAPSHOT_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NON_SNAPSHOT_TYPE)},
+		{"ER_WRONG_DOCUMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_WRONG_DOCUMENT)},
+		{"ER_WRONG_NODETYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_WRONG_NODETYPE)},
+		{"ER_XPATH_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XPATH_ERROR)},
+		{"ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_EXTENSION_FUNCTION_CANNOT_BE_INVOKED)},
+		{"ER_RESOLVE_VARIABLE_RETURNS_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_RESOLVE_VARIABLE_RETURNS_NULL)},
+		{"ER_UNSUPPORTED_RETURN_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_UNSUPPORTED_RETURN_TYPE)},
+		{"ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SOURCE_RETURN_TYPE_CANNOT_BE_NULL)},
+		{"ER_ARG_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_ARG_CANNOT_BE_NULL)},
+		{"ER_OBJECT_MODEL_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_OBJECT_MODEL_NULL)},
+		{"ER_OBJECT_MODEL_EMPTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_OBJECT_MODEL_EMPTY)},
+		{"ER_FEATURE_NAME_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FEATURE_NAME_NULL)},
+		{"ER_FEATURE_UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_FEATURE_UNKNOWN)},
+		{"ER_GETTING_NULL_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_GETTING_NULL_FEATURE)},
+		{"ER_GETTING_UNKNOWN_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_GETTING_UNKNOWN_FEATURE)},
+		{"ER_SECUREPROCESSING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_SECUREPROCESSING_FEATURE)},
+		{"ER_NULL_XPATH_FUNCTION_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NULL_XPATH_FUNCTION_RESOLVER)},
+		{"ER_NULL_XPATH_VARIABLE_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NULL_XPATH_VARIABLE_RESOLVER)},
+		{"WG_LOCALE_NAME_NOT_HANDLED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_LOCALE_NAME_NOT_HANDLED)},
+		{"WG_PROPERTY_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_PROPERTY_NOT_SUPPORTED)},
+		{"WG_DONT_DO_ANYTHING_WITH_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_DONT_DO_ANYTHING_WITH_NS)},
+		{"WG_SECURITY_EXCEPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_SECURITY_EXCEPTION)},
+		{"WG_QUO_NO_LONGER_DEFINED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_QUO_NO_LONGER_DEFINED)},
+		{"WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_NEED_DERIVED_OBJECT_TO_IMPLEMENT_NODETEST)},
+		{"WG_FUNCTION_TOKEN_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_FUNCTION_TOKEN_NOT_FOUND)},
+		{"WG_COULDNOT_FIND_FUNCTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_COULDNOT_FIND_FUNCTION)},
+		{"WG_CANNOT_MAKE_URL_FROM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_CANNOT_MAKE_URL_FROM)},
+		{"WG_EXPAND_ENTITIES_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_EXPAND_ENTITIES_NOT_SUPPORTED)},
+		{"WG_ILLEGAL_VARIABLE_REFERENCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_ILLEGAL_VARIABLE_REFERENCE)},
+		{"WG_UNSUPPORTED_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WG_UNSUPPORTED_ENCODING)},
+		{"ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_DETACH_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
+		{"ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_NUM_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
+		{"ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_XSTR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
+		{"ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ER_STR_NOT_SUPPORTED_XRTREEFRAGSELECTWRAPPER)},
+		{"_contents", "[[Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPATHErrorResources, _contents)},
+		{"BAD_CODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, BAD_CODE)},
+		{"FORMAT_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, FORMAT_FAILED)},
+		{"ERROR_RESOURCES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ERROR_RESOURCES)},
+		{"ERROR_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ERROR_STRING)},
+		{"ERROR_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, ERROR_HEADER)},
+		{"WARNING_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, WARNING_HEADER)},
+		{"XSL_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, XSL_HEADER)},
+		{"XML_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, XML_HEADER)},
+		{"QUERY_HEADER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPATHErrorResources, QUERY_HEADER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPATHErrorResources, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XPATHErrorResources, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.res.XPATHErrorResources",
+		"java.util.ListResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPATHErrorResources, name, initialize, &classInfo$$, XPATHErrorResources::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPATHErrorResources);
+	});
 	return class$;
 }
 

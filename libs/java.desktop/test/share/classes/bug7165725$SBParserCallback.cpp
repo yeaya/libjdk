@@ -1,5 +1,4 @@
 #include <bug7165725$SBParserCallback.h>
-
 #include <bug7165725.h>
 #include <java/lang/StringBuffer.h>
 #include <java/util/ArrayList.h>
@@ -20,54 +19,6 @@ using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
 using $HTMLEditorKit$ParserCallback = ::javax::swing::text::html::HTMLEditorKit$ParserCallback;
 
-$FieldInfo _bug7165725$SBParserCallback_FieldInfo_[] = {
-	{"indentSize", "I", nullptr, $PRIVATE, $field(bug7165725$SBParserCallback, indentSize)},
-	{"elist", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $field(bug7165725$SBParserCallback, elist)},
-	{}
-};
-
-$MethodInfo _bug7165725$SBParserCallback_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug7165725$SBParserCallback, init$, void)},
-	{"getStringOneLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, getStringOneLine, $String*)},
-	{"handleComment", "([CI)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleComment, void, $chars*, int32_t)},
-	{"handleEndTag", "(Ljavax/swing/text/html/HTML$Tag;I)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleEndTag, void, $HTML$Tag*, int32_t)},
-	{"handleError", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleError, void, $String*, int32_t)},
-	{"handleSimpleTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleSimpleTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
-	{"handleStartTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleStartTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
-	{"handleText", "([CI)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleText, void, $chars*, int32_t)},
-	{"indent", "()V", nullptr, $PROTECTED, $virtualMethod(bug7165725$SBParserCallback, indent, void)},
-	{"pIndent", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(bug7165725$SBParserCallback, pIndent, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, toString, $String*)},
-	{"unIndent", "()V", nullptr, $PROTECTED, $virtualMethod(bug7165725$SBParserCallback, unIndent, void)},
-	{}
-};
-
-$InnerClassInfo _bug7165725$SBParserCallback_InnerClassesInfo_[] = {
-	{"bug7165725$SBParserCallback", "bug7165725", "SBParserCallback", $STATIC},
-	{"javax.swing.text.html.HTMLEditorKit$ParserCallback", "javax.swing.text.html.HTMLEditorKit", "ParserCallback", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _bug7165725$SBParserCallback_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug7165725$SBParserCallback",
-	"javax.swing.text.html.HTMLEditorKit$ParserCallback",
-	nullptr,
-	_bug7165725$SBParserCallback_FieldInfo_,
-	_bug7165725$SBParserCallback_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7165725$SBParserCallback_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug7165725"
-};
-
-$Object* allocate$bug7165725$SBParserCallback($Class* clazz) {
-	return $of($alloc(bug7165725$SBParserCallback));
-}
-
 void bug7165725$SBParserCallback::init$() {
 	$HTMLEditorKit$ParserCallback::init$();
 	this->indentSize = 0;
@@ -75,7 +26,7 @@ void bug7165725$SBParserCallback::init$() {
 }
 
 $String* bug7165725$SBParserCallback::getStringOneLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	{
 		$var($Iterator, i$, $nc(this->elist)->iterator());
@@ -88,7 +39,7 @@ $String* bug7165725$SBParserCallback::getStringOneLine() {
 }
 
 $String* bug7165725$SBParserCallback::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, sb, $new($StringBuffer));
 	{
 		$var($Iterator, i$, $nc(this->elist)->iterator());
@@ -120,44 +71,58 @@ $String* bug7165725$SBParserCallback::pIndent() {
 }
 
 void bug7165725$SBParserCallback::handleText($chars* data, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$(pIndent()), "Text("_s, $$str($nc(data)->length), " chars) \""_s}));
-	$var($String, var$0, $$concat(var$1, $$new($String, data)));
-	$nc(this->elist)->add($$concat(var$0, "\""_s));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(pIndent()));
+	var$0->append("Text("_s);
+	var$0->append($nc(data)->length);
+	var$0->append(" chars) \""_s);
+	var$0->append($$new($String, data));
+	var$0->append("\""_s);
+	$nc(this->elist)->add($$str(var$0));
 }
 
 void bug7165725$SBParserCallback::handleComment($chars* data, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->elist)->add($$str({$(pIndent()), "Comment("_s, $$str($nc(data)->length), " chars)"_s}));
 }
 
 void bug7165725$SBParserCallback::handleStartTag($HTML$Tag* t, $MutableAttributeSet* a, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$5, $$str({$(pIndent()), "Tag start(<"_s}));
-	$var($String, var$4, $$concat(var$5, $($nc(t)->toString())));
-	$var($String, var$3, $$concat(var$4, " "_s));
-	$var($String, var$2, $$concat(var$3, $(a)));
-	$var($String, var$1, $$concat(var$2, ">, "_s));
-	$var($String, var$0, $$concat(var$1, $$str($nc(a)->getAttributeCount())));
-	$nc(this->elist)->add($$concat(var$0, " attrs)"_s));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(pIndent()));
+	var$0->append("Tag start(<"_s);
+	var$0->append($($nc(t)->toString()));
+	var$0->append(" "_s);
+	var$0->append(a);
+	var$0->append(">, "_s);
+	var$0->append($nc(a)->getAttributeCount());
+	var$0->append(" attrs)"_s);
+	$nc(this->elist)->add($$str(var$0));
 	indent();
 }
 
 void bug7165725$SBParserCallback::handleEndTag($HTML$Tag* t, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	unIndent();
-	$var($String, var$1, $$str({$(pIndent()), "Tag end(</"_s}));
-	$var($String, var$0, $$concat(var$1, $($nc(t)->toString())));
-	$nc(this->elist)->add($$concat(var$0, ">)"_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(pIndent()));
+	var$0->append("Tag end(</"_s);
+	var$0->append($($nc(t)->toString()));
+	var$0->append(">)"_s);
+	$nc(this->elist)->add($$str(var$0));
 }
 
 void bug7165725$SBParserCallback::handleSimpleTag($HTML$Tag* t, $MutableAttributeSet* a, int32_t pos) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$3, $$str({$(pIndent()), "Tag(<"_s}));
-	$var($String, var$2, $$concat(var$3, $($nc(t)->toString())));
-	$var($String, var$1, $$concat(var$2, ">, "_s));
-	$var($String, var$0, $$concat(var$1, $$str($nc(a)->getAttributeCount())));
-	$nc(this->elist)->add($$concat(var$0, " attrs)"_s));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(pIndent()));
+	var$0->append("Tag(<"_s);
+	var$0->append($($nc(t)->toString()));
+	var$0->append(">, "_s);
+	var$0->append($nc(a)->getAttributeCount());
+	var$0->append(" attrs)"_s);
+	$nc(this->elist)->add($$str(var$0));
 }
 
 void bug7165725$SBParserCallback::handleError($String* errorMsg, int32_t pos) {
@@ -167,7 +132,49 @@ bug7165725$SBParserCallback::bug7165725$SBParserCallback() {
 }
 
 $Class* bug7165725$SBParserCallback::load$($String* name, bool initialize) {
-	$loadClass(bug7165725$SBParserCallback, name, initialize, &_bug7165725$SBParserCallback_ClassInfo_, allocate$bug7165725$SBParserCallback);
+	$FieldInfo fieldInfos$$[] = {
+		{"indentSize", "I", nullptr, $PRIVATE, $field(bug7165725$SBParserCallback, indentSize)},
+		{"elist", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<Ljava/lang/String;>;", $PRIVATE, $field(bug7165725$SBParserCallback, elist)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug7165725$SBParserCallback, init$, void)},
+		{"getStringOneLine", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, getStringOneLine, $String*)},
+		{"handleComment", "([CI)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleComment, void, $chars*, int32_t)},
+		{"handleEndTag", "(Ljavax/swing/text/html/HTML$Tag;I)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleEndTag, void, $HTML$Tag*, int32_t)},
+		{"handleError", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleError, void, $String*, int32_t)},
+		{"handleSimpleTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleSimpleTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
+		{"handleStartTag", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;I)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleStartTag, void, $HTML$Tag*, $MutableAttributeSet*, int32_t)},
+		{"handleText", "([CI)V", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, handleText, void, $chars*, int32_t)},
+		{"indent", "()V", nullptr, $PROTECTED, $virtualMethod(bug7165725$SBParserCallback, indent, void)},
+		{"pIndent", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(bug7165725$SBParserCallback, pIndent, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(bug7165725$SBParserCallback, toString, $String*)},
+		{"unIndent", "()V", nullptr, $PROTECTED, $virtualMethod(bug7165725$SBParserCallback, unIndent, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7165725$SBParserCallback", "bug7165725", "SBParserCallback", $STATIC},
+		{"javax.swing.text.html.HTMLEditorKit$ParserCallback", "javax.swing.text.html.HTMLEditorKit", "ParserCallback", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug7165725$SBParserCallback",
+		"javax.swing.text.html.HTMLEditorKit$ParserCallback",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug7165725"
+	};
+	$loadClass(bug7165725$SBParserCallback, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7165725$SBParserCallback);
+	});
 	return class$;
 }
 

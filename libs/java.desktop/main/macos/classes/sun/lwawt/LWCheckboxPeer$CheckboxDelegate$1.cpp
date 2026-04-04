@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWCheckboxPeer$CheckboxDelegate$1.h>
-
 #include <java/awt/Checkbox.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JCheckBox.h>
@@ -20,50 +19,6 @@ using $LWCheckboxPeer$CheckboxDelegate = ::sun::lwawt::LWCheckboxPeer$CheckboxDe
 namespace sun {
 	namespace lwawt {
 
-$FieldInfo _LWCheckboxPeer$CheckboxDelegate$1_FieldInfo_[] = {
-	{"this$1", "Lsun/lwawt/LWCheckboxPeer$CheckboxDelegate;", nullptr, $FINAL | $SYNTHETIC, $field(LWCheckboxPeer$CheckboxDelegate$1, this$1)},
-	{"val$this$0", "Lsun/lwawt/LWCheckboxPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWCheckboxPeer$CheckboxDelegate$1, val$this$0)},
-	{}
-};
-
-$MethodInfo _LWCheckboxPeer$CheckboxDelegate$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWCheckboxPeer$CheckboxDelegate;Lsun/lwawt/LWCheckboxPeer;)V", nullptr, 0, $method(LWCheckboxPeer$CheckboxDelegate$1, init$, void, $LWCheckboxPeer$CheckboxDelegate*, $LWCheckboxPeer*)},
-	{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer$CheckboxDelegate$1, hasFocus, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _LWCheckboxPeer$CheckboxDelegate$1_EnclosingMethodInfo_ = {
-	"sun.lwawt.LWCheckboxPeer$CheckboxDelegate",
-	"<init>",
-	"(Lsun/lwawt/LWCheckboxPeer;)V"
-};
-
-$InnerClassInfo _LWCheckboxPeer$CheckboxDelegate$1_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWCheckboxPeer$CheckboxDelegate", "sun.lwawt.LWCheckboxPeer", "CheckboxDelegate", $FINAL},
-	{"sun.lwawt.LWCheckboxPeer$CheckboxDelegate$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWCheckboxPeer$CheckboxDelegate$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.LWCheckboxPeer$CheckboxDelegate$1",
-	"javax.swing.JCheckBox",
-	nullptr,
-	_LWCheckboxPeer$CheckboxDelegate$1_FieldInfo_,
-	_LWCheckboxPeer$CheckboxDelegate$1_MethodInfo_,
-	nullptr,
-	&_LWCheckboxPeer$CheckboxDelegate$1_EnclosingMethodInfo_,
-	_LWCheckboxPeer$CheckboxDelegate$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWCheckboxPeer"
-};
-
-$Object* allocate$LWCheckboxPeer$CheckboxDelegate$1($Class* clazz) {
-	return $of($alloc(LWCheckboxPeer$CheckboxDelegate$1));
-}
-
 void LWCheckboxPeer$CheckboxDelegate$1::init$($LWCheckboxPeer$CheckboxDelegate* this$1, $LWCheckboxPeer* val$this$0) {
 	$set(this, this$1, this$1);
 	$set(this, val$this$0, val$this$0);
@@ -71,14 +26,51 @@ void LWCheckboxPeer$CheckboxDelegate$1::init$($LWCheckboxPeer$CheckboxDelegate* 
 }
 
 bool LWCheckboxPeer$CheckboxDelegate$1::hasFocus() {
-	return $nc(($cast($Checkbox, $($nc(this->this$1->this$0)->getTarget()))))->hasFocus();
+	return $$sure($Checkbox, $nc(this->this$1->this$0)->getTarget())->hasFocus();
 }
 
 LWCheckboxPeer$CheckboxDelegate$1::LWCheckboxPeer$CheckboxDelegate$1() {
 }
 
 $Class* LWCheckboxPeer$CheckboxDelegate$1::load$($String* name, bool initialize) {
-	$loadClass(LWCheckboxPeer$CheckboxDelegate$1, name, initialize, &_LWCheckboxPeer$CheckboxDelegate$1_ClassInfo_, allocate$LWCheckboxPeer$CheckboxDelegate$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/lwawt/LWCheckboxPeer$CheckboxDelegate;", nullptr, $FINAL | $SYNTHETIC, $field(LWCheckboxPeer$CheckboxDelegate$1, this$1)},
+		{"val$this$0", "Lsun/lwawt/LWCheckboxPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWCheckboxPeer$CheckboxDelegate$1, val$this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWCheckboxPeer$CheckboxDelegate;Lsun/lwawt/LWCheckboxPeer;)V", nullptr, 0, $method(LWCheckboxPeer$CheckboxDelegate$1, init$, void, $LWCheckboxPeer$CheckboxDelegate*, $LWCheckboxPeer*)},
+		{"hasFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(LWCheckboxPeer$CheckboxDelegate$1, hasFocus, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.LWCheckboxPeer$CheckboxDelegate",
+		"<init>",
+		"(Lsun/lwawt/LWCheckboxPeer;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWCheckboxPeer$CheckboxDelegate", "sun.lwawt.LWCheckboxPeer", "CheckboxDelegate", $FINAL},
+		{"sun.lwawt.LWCheckboxPeer$CheckboxDelegate$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.LWCheckboxPeer$CheckboxDelegate$1",
+		"javax.swing.JCheckBox",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWCheckboxPeer"
+	};
+	$loadClass(LWCheckboxPeer$CheckboxDelegate$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LWCheckboxPeer$CheckboxDelegate$1));
+	});
 	return class$;
 }
 

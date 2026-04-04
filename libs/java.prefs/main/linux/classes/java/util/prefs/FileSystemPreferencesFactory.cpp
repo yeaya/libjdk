@@ -1,5 +1,4 @@
 #include <java/util/prefs/FileSystemPreferencesFactory.h>
-
 #include <java/util/prefs/FileSystemPreferences.h>
 #include <java/util/prefs/Preferences.h>
 #include <jcpp.h>
@@ -12,26 +11,6 @@ using $Preferences = ::java::util::prefs::Preferences;
 namespace java {
 	namespace util {
 		namespace prefs {
-
-$MethodInfo _FileSystemPreferencesFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FileSystemPreferencesFactory, init$, void)},
-	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferencesFactory, systemRoot, $Preferences*)},
-	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferencesFactory, userRoot, $Preferences*)},
-	{}
-};
-
-$ClassInfo _FileSystemPreferencesFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.FileSystemPreferencesFactory",
-	"java.lang.Object",
-	"java.util.prefs.PreferencesFactory",
-	nullptr,
-	_FileSystemPreferencesFactory_MethodInfo_
-};
-
-$Object* allocate$FileSystemPreferencesFactory($Class* clazz) {
-	return $of($alloc(FileSystemPreferencesFactory));
-}
 
 void FileSystemPreferencesFactory::init$() {
 }
@@ -48,7 +27,23 @@ FileSystemPreferencesFactory::FileSystemPreferencesFactory() {
 }
 
 $Class* FileSystemPreferencesFactory::load$($String* name, bool initialize) {
-	$loadClass(FileSystemPreferencesFactory, name, initialize, &_FileSystemPreferencesFactory_ClassInfo_, allocate$FileSystemPreferencesFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FileSystemPreferencesFactory, init$, void)},
+		{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferencesFactory, systemRoot, $Preferences*)},
+		{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(FileSystemPreferencesFactory, userRoot, $Preferences*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.FileSystemPreferencesFactory",
+		"java.lang.Object",
+		"java.util.prefs.PreferencesFactory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FileSystemPreferencesFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemPreferencesFactory);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/management/ThreadImpl.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/management/ManagementFactory.h>
 #include <java/lang/management/ThreadInfo.h>
@@ -31,116 +30,11 @@ using $VMManagement = ::sun::management::VMManagement;
 namespace sun {
 	namespace management {
 
-$FieldInfo _ThreadImpl_FieldInfo_[] = {
-	{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(ThreadImpl, jvm)},
-	{"contentionMonitoringEnabled", "Z", nullptr, $PRIVATE, $field(ThreadImpl, contentionMonitoringEnabled)},
-	{"cpuTimeEnabled", "Z", nullptr, $PRIVATE, $field(ThreadImpl, cpuTimeEnabled)},
-	{"allocatedMemoryEnabled", "Z", nullptr, $PRIVATE, $field(ThreadImpl, allocatedMemoryEnabled)},
-	{}
-};
-
-$MethodInfo _ThreadImpl_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/VMManagement;)V", nullptr, $PROTECTED, $method(ThreadImpl, init$, void, $VMManagement*)},
-	{"dumpAllThreads", "(ZZ)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, dumpAllThreads, $ThreadInfoArray*, bool, bool)},
-	{"dumpAllThreads", "(ZZI)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, dumpAllThreads, $ThreadInfoArray*, bool, bool, int32_t)},
-	{"dumpThreads0", "([JZZI)[Ljava/lang/management/ThreadInfo;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, dumpThreads0, $ThreadInfoArray*, $longs*, bool, bool, int32_t)},
-	{"ensureThreadAllocatedMemorySupported", "()V", nullptr, $PRIVATE, $method(ThreadImpl, ensureThreadAllocatedMemorySupported, void)},
-	{"findDeadlockedThreads", "()[J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, findDeadlockedThreads, $longs*)},
-	{"findDeadlockedThreads0", "()[Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, findDeadlockedThreads0, $ThreadArray*)},
-	{"findMonitorDeadlockedThreads", "()[J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, findMonitorDeadlockedThreads, $longs*)},
-	{"findMonitorDeadlockedThreads0", "()[Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, findMonitorDeadlockedThreads0, $ThreadArray*)},
-	{"getAllThreadIds", "()[J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getAllThreadIds, $longs*)},
-	{"getCurrentThreadAllocatedBytes", "()J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getCurrentThreadAllocatedBytes, int64_t)},
-	{"getCurrentThreadCpuTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getCurrentThreadCpuTime, int64_t)},
-	{"getCurrentThreadUserTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getCurrentThreadUserTime, int64_t)},
-	{"getDaemonThreadCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getDaemonThreadCount, int32_t)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getObjectName, $ObjectName*)},
-	{"getPeakThreadCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getPeakThreadCount, int32_t)},
-	{"getThreadAllocatedBytes", "(J)J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getThreadAllocatedBytes, int64_t, int64_t)},
-	{"getThreadAllocatedBytes", "([J)[J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getThreadAllocatedBytes, $longs*, $longs*)},
-	{"getThreadAllocatedMemory0", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadAllocatedMemory0, int64_t, int64_t)},
-	{"getThreadAllocatedMemory1", "([J[J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadAllocatedMemory1, void, $longs*, $longs*)},
-	{"getThreadCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadCount, int32_t)},
-	{"getThreadCpuTime", "(J)J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadCpuTime, int64_t, int64_t)},
-	{"getThreadCpuTime", "([J)[J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getThreadCpuTime, $longs*, $longs*)},
-	{"getThreadInfo", "(J)Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfo*, int64_t)},
-	{"getThreadInfo", "(JI)Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfo*, int64_t, int32_t)},
-	{"getThreadInfo", "([J)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfoArray*, $longs*)},
-	{"getThreadInfo", "([JI)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfoArray*, $longs*, int32_t)},
-	{"getThreadInfo", "([JZZ)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfoArray*, $longs*, bool, bool)},
-	{"getThreadInfo", "([JZZI)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfoArray*, $longs*, bool, bool, int32_t)},
-	{"getThreadInfo1", "([JI[Ljava/lang/management/ThreadInfo;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadInfo1, void, $longs*, int32_t, $ThreadInfoArray*)},
-	{"getThreadTotalCpuTime0", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadTotalCpuTime0, int64_t, int64_t)},
-	{"getThreadTotalCpuTime1", "([J[J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadTotalCpuTime1, void, $longs*, $longs*)},
-	{"getThreadUserCpuTime0", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadUserCpuTime0, int64_t, int64_t)},
-	{"getThreadUserCpuTime1", "([J[J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadUserCpuTime1, void, $longs*, $longs*)},
-	{"getThreadUserTime", "(J)J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadUserTime, int64_t, int64_t)},
-	{"getThreadUserTime", "([J)[J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getThreadUserTime, $longs*, $longs*)},
-	{"getThreads", "()[Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreads, $ThreadArray*)},
-	{"getTotalStartedThreadCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getTotalStartedThreadCount, int64_t)},
-	{"isCurrentThreadCpuTimeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isCurrentThreadCpuTimeSupported, bool)},
-	{"isObjectMonitorUsageSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isObjectMonitorUsageSupported, bool)},
-	{"isSynchronizerUsageSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isSynchronizerUsageSupported, bool)},
-	{"isThreadAllocatedMemoryEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, isThreadAllocatedMemoryEnabled, bool)},
-	{"isThreadAllocatedMemorySupported", "()Z", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, isThreadAllocatedMemorySupported, bool)},
-	{"isThreadContentionMonitoringEnabled", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ThreadImpl, isThreadContentionMonitoringEnabled, bool)},
-	{"isThreadContentionMonitoringSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isThreadContentionMonitoringSupported, bool)},
-	{"isThreadCpuTimeEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isThreadCpuTimeEnabled, bool)},
-	{"isThreadCpuTimeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isThreadCpuTimeSupported, bool)},
-	{"resetContentionTimes0", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, resetContentionTimes0, void, int64_t)},
-	{"resetPeakThreadCount", "()V", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, resetPeakThreadCount, void)},
-	{"resetPeakThreadCount0", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, resetPeakThreadCount0, void)},
-	{"setThreadAllocatedMemoryEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, setThreadAllocatedMemoryEnabled, void, bool)},
-	{"setThreadAllocatedMemoryEnabled0", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, setThreadAllocatedMemoryEnabled0, void, bool)},
-	{"setThreadContentionMonitoringEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, setThreadContentionMonitoringEnabled, void, bool)},
-	{"setThreadContentionMonitoringEnabled0", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, setThreadContentionMonitoringEnabled0, void, bool)},
-	{"setThreadCpuTimeEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, setThreadCpuTimeEnabled, void, bool)},
-	{"setThreadCpuTimeEnabled0", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, setThreadCpuTimeEnabled0, void, bool)},
-	{"verifyCurrentThreadCpuTime", "()Z", nullptr, $PRIVATE, $method(ThreadImpl, verifyCurrentThreadCpuTime, bool)},
-	{"verifyDumpThreads", "(ZZ)V", nullptr, $PRIVATE, $method(ThreadImpl, verifyDumpThreads, void, bool, bool)},
-	{"verifyThreadAllocatedMemory", "(J)Z", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadAllocatedMemory, bool, int64_t)},
-	{"verifyThreadAllocatedMemory", "([J)Z", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadAllocatedMemory, bool, $longs*)},
-	{"verifyThreadCpuTime", "([J)Z", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadCpuTime, bool, $longs*)},
-	{"verifyThreadId", "(J)V", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadId, void, int64_t)},
-	{"verifyThreadIds", "([J)V", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadIds, void, $longs*)},
-	{}
-};
-
-#define _METHOD_INDEX_dumpThreads0 3
-#define _METHOD_INDEX_findDeadlockedThreads0 6
-#define _METHOD_INDEX_findMonitorDeadlockedThreads0 8
-#define _METHOD_INDEX_getThreadAllocatedMemory0 18
-#define _METHOD_INDEX_getThreadAllocatedMemory1 19
-#define _METHOD_INDEX_getThreadInfo1 29
-#define _METHOD_INDEX_getThreadTotalCpuTime0 30
-#define _METHOD_INDEX_getThreadTotalCpuTime1 31
-#define _METHOD_INDEX_getThreadUserCpuTime0 32
-#define _METHOD_INDEX_getThreadUserCpuTime1 33
-#define _METHOD_INDEX_getThreads 36
-#define _METHOD_INDEX_resetContentionTimes0 47
-#define _METHOD_INDEX_resetPeakThreadCount0 49
-#define _METHOD_INDEX_setThreadAllocatedMemoryEnabled0 51
-#define _METHOD_INDEX_setThreadContentionMonitoringEnabled0 53
-#define _METHOD_INDEX_setThreadCpuTimeEnabled0 55
-
-$ClassInfo _ThreadImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.ThreadImpl",
-	"java.lang.Object",
-	"java.lang.management.ThreadMXBean",
-	_ThreadImpl_FieldInfo_,
-	_ThreadImpl_MethodInfo_
-};
-
-$Object* allocate$ThreadImpl($Class* clazz) {
-	return $of($alloc(ThreadImpl));
-}
-
 void ThreadImpl::init$($VMManagement* vm) {
 	this->contentionMonitoringEnabled = false;
 	$set(this, jvm, vm);
 	this->cpuTimeEnabled = $nc(this->jvm)->isThreadCpuTimeEnabled();
-	this->allocatedMemoryEnabled = $nc(this->jvm)->isThreadAllocatedMemoryEnabled();
+	this->allocatedMemoryEnabled = this->jvm->isThreadAllocatedMemoryEnabled();
 }
 
 int32_t ThreadImpl::getThreadCount() {
@@ -204,7 +98,7 @@ bool ThreadImpl::isThreadAllocatedMemoryEnabled() {
 }
 
 $longs* ThreadImpl::getAllThreadIds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Util::checkMonitorAccess();
 	$var($ThreadArray, threads, getThreads());
 	int32_t length = $nc(threads)->length;
@@ -217,7 +111,7 @@ $longs* ThreadImpl::getAllThreadIds() {
 }
 
 $ThreadInfo* ThreadImpl::getThreadInfo(int64_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, ids, $new($longs, 1));
 	ids->set(0, id);
 	$var($ThreadInfoArray, infos, getThreadInfo(ids, 0));
@@ -225,7 +119,7 @@ $ThreadInfo* ThreadImpl::getThreadInfo(int64_t id) {
 }
 
 $ThreadInfo* ThreadImpl::getThreadInfo(int64_t id, int32_t maxDepth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, ids, $new($longs, 1));
 	ids->set(0, id);
 	$var($ThreadInfoArray, infos, getThreadInfo(ids, maxDepth));
@@ -237,7 +131,7 @@ $ThreadInfoArray* ThreadImpl::getThreadInfo($longs* ids) {
 }
 
 void ThreadImpl::verifyThreadId(int64_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (id <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid thread ID parameter: "_s, $$str(id)}));
 	}
@@ -251,7 +145,7 @@ void ThreadImpl::verifyThreadIds($longs* ids) {
 }
 
 $ThreadInfoArray* ThreadImpl::getThreadInfo($longs* ids, int32_t maxDepth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	verifyThreadIds(ids);
 	if (maxDepth < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid maxDepth parameter: "_s, $$str(maxDepth)}));
@@ -260,7 +154,7 @@ $ThreadInfoArray* ThreadImpl::getThreadInfo($longs* ids, int32_t maxDepth) {
 		return $new($ThreadInfoArray, 0);
 	}
 	$Util::checkMonitorAccess();
-	$var($ThreadInfoArray, infos, $new($ThreadInfoArray, $nc(ids)->length));
+	$var($ThreadInfoArray, infos, $new($ThreadInfoArray, ids->length));
 	if (maxDepth == $Integer::MAX_VALUE) {
 		getThreadInfo1(ids, -1, infos);
 	} else {
@@ -300,7 +194,7 @@ int64_t ThreadImpl::getCurrentThreadCpuTime() {
 }
 
 int64_t ThreadImpl::getThreadCpuTime(int64_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, ids, $new($longs, 1));
 	ids->set(0, id);
 	$var($longs, times, getThreadCpuTime(ids));
@@ -308,7 +202,7 @@ int64_t ThreadImpl::getThreadCpuTime(int64_t id) {
 }
 
 bool ThreadImpl::verifyThreadCpuTime($longs* ids) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	verifyThreadIds(ids);
 	bool var$0 = !isThreadCpuTimeSupported();
 	if (var$0 && !isCurrentThreadCpuTimeSupported()) {
@@ -325,11 +219,11 @@ bool ThreadImpl::verifyThreadCpuTime($longs* ids) {
 }
 
 $longs* ThreadImpl::getThreadCpuTime($longs* ids) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool verified = verifyThreadCpuTime(ids);
 	int32_t length = $nc(ids)->length;
 	$var($longs, times, $new($longs, length));
-	$Arrays::fill(times, (int64_t)-1);
+	$Arrays::fill(times, -1);
 	if (verified) {
 		if (length == 1) {
 			int64_t id = ids->get(0);
@@ -352,7 +246,7 @@ int64_t ThreadImpl::getCurrentThreadUserTime() {
 }
 
 int64_t ThreadImpl::getThreadUserTime(int64_t id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($longs, ids, $new($longs, 1));
 	ids->set(0, id);
 	$var($longs, times, getThreadUserTime(ids));
@@ -360,11 +254,11 @@ int64_t ThreadImpl::getThreadUserTime(int64_t id) {
 }
 
 $longs* ThreadImpl::getThreadUserTime($longs* ids) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool verified = verifyThreadCpuTime(ids);
 	int32_t length = $nc(ids)->length;
 	$var($longs, times, $new($longs, length));
-	$Arrays::fill(times, (int64_t)-1);
+	$Arrays::fill(times, -1);
 	if (verified) {
 		if (length == 1) {
 			int64_t id = ids->get(0);
@@ -408,7 +302,7 @@ bool ThreadImpl::verifyThreadAllocatedMemory(int64_t id) {
 int64_t ThreadImpl::getThreadAllocatedBytes(int64_t id) {
 	bool verified = verifyThreadAllocatedMemory(id);
 	if (verified) {
-		return getThreadAllocatedMemory0($($Thread::currentThread())->getId() == id ? (int64_t)0 : id);
+		return getThreadAllocatedMemory0($($Thread::currentThread())->getId() == id ? 0 : id);
 	}
 	return -1;
 }
@@ -426,7 +320,7 @@ $longs* ThreadImpl::getThreadAllocatedBytes($longs* ids) {
 	}
 	bool verified = verifyThreadAllocatedMemory(ids);
 	$var($longs, sizes, $new($longs, ids->length));
-	$Arrays::fill(sizes, (int64_t)-1);
+	$Arrays::fill(sizes, -1);
 	if (verified) {
 		getThreadAllocatedMemory1(ids, sizes);
 	}
@@ -445,7 +339,7 @@ void ThreadImpl::setThreadAllocatedMemoryEnabled(bool enable) {
 }
 
 $longs* ThreadImpl::findMonitorDeadlockedThreads() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Util::checkMonitorAccess();
 	$var($ThreadArray, threads, findMonitorDeadlockedThreads0());
 	if (threads == nullptr) {
@@ -460,7 +354,7 @@ $longs* ThreadImpl::findMonitorDeadlockedThreads() {
 }
 
 $longs* ThreadImpl::findDeadlockedThreads() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isSynchronizerUsageSupported()) {
 		$throwNew($UnsupportedOperationException, "Monitoring of Synchronizer Usage is not supported."_s);
 	}
@@ -505,7 +399,7 @@ $ThreadInfoArray* ThreadImpl::getThreadInfo($longs* ids, bool lockedMonitors, bo
 }
 
 $ThreadInfoArray* ThreadImpl::getThreadInfo($longs* ids, bool lockedMonitors, bool lockedSynchronizers, int32_t maxDepth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (maxDepth < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid maxDepth parameter: "_s, $$str(maxDepth)}));
 	}
@@ -522,7 +416,7 @@ $ThreadInfoArray* ThreadImpl::dumpAllThreads(bool lockedMonitors, bool lockedSyn
 }
 
 $ThreadInfoArray* ThreadImpl::dumpAllThreads(bool lockedMonitors, bool lockedSynchronizers, int32_t maxDepth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (maxDepth < 0) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid maxDepth parameter: "_s, $$str(maxDepth)}));
 	}
@@ -532,126 +426,119 @@ $ThreadInfoArray* ThreadImpl::dumpAllThreads(bool lockedMonitors, bool lockedSyn
 
 $ThreadArray* ThreadImpl::getThreads() {
 	$init(ThreadImpl);
-	$var($ThreadArray, $ret, nullptr);
-	$prepareNativeStatic(ThreadImpl, getThreads, $ThreadArray*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getThreads, $ThreadArray*);
+	$var($ThreadArray, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 void ThreadImpl::getThreadInfo1($longs* ids, int32_t maxDepth, $ThreadInfoArray* result) {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, getThreadInfo1, void, $longs* ids, int32_t maxDepth, $ThreadInfoArray* result);
+	$prepareNativeStatic(getThreadInfo1, void, $longs* ids, int32_t maxDepth, $ThreadInfoArray* result);
 	$invokeNativeStatic(ids, maxDepth, result);
 	$finishNativeStatic();
 }
 
 int64_t ThreadImpl::getThreadTotalCpuTime0(int64_t id) {
 	$init(ThreadImpl);
-	int64_t $ret = 0;
-	$prepareNativeStatic(ThreadImpl, getThreadTotalCpuTime0, int64_t, int64_t id);
-	$ret = $invokeNativeStatic(id);
+	$prepareNativeStatic(getThreadTotalCpuTime0, int64_t, int64_t id);
+	int64_t $ret = $invokeNativeStatic(id);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void ThreadImpl::getThreadTotalCpuTime1($longs* ids, $longs* result) {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, getThreadTotalCpuTime1, void, $longs* ids, $longs* result);
+	$prepareNativeStatic(getThreadTotalCpuTime1, void, $longs* ids, $longs* result);
 	$invokeNativeStatic(ids, result);
 	$finishNativeStatic();
 }
 
 int64_t ThreadImpl::getThreadUserCpuTime0(int64_t id) {
 	$init(ThreadImpl);
-	int64_t $ret = 0;
-	$prepareNativeStatic(ThreadImpl, getThreadUserCpuTime0, int64_t, int64_t id);
-	$ret = $invokeNativeStatic(id);
+	$prepareNativeStatic(getThreadUserCpuTime0, int64_t, int64_t id);
+	int64_t $ret = $invokeNativeStatic(id);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void ThreadImpl::getThreadUserCpuTime1($longs* ids, $longs* result) {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, getThreadUserCpuTime1, void, $longs* ids, $longs* result);
+	$prepareNativeStatic(getThreadUserCpuTime1, void, $longs* ids, $longs* result);
 	$invokeNativeStatic(ids, result);
 	$finishNativeStatic();
 }
 
 int64_t ThreadImpl::getThreadAllocatedMemory0(int64_t id) {
 	$init(ThreadImpl);
-	int64_t $ret = 0;
-	$prepareNativeStatic(ThreadImpl, getThreadAllocatedMemory0, int64_t, int64_t id);
-	$ret = $invokeNativeStatic(id);
+	$prepareNativeStatic(getThreadAllocatedMemory0, int64_t, int64_t id);
+	int64_t $ret = $invokeNativeStatic(id);
 	$finishNativeStatic();
 	return $ret;
 }
 
 void ThreadImpl::getThreadAllocatedMemory1($longs* ids, $longs* result) {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, getThreadAllocatedMemory1, void, $longs* ids, $longs* result);
+	$prepareNativeStatic(getThreadAllocatedMemory1, void, $longs* ids, $longs* result);
 	$invokeNativeStatic(ids, result);
 	$finishNativeStatic();
 }
 
 void ThreadImpl::setThreadCpuTimeEnabled0(bool enable) {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, setThreadCpuTimeEnabled0, void, bool enable);
+	$prepareNativeStatic(setThreadCpuTimeEnabled0, void, bool enable);
 	$invokeNativeStatic(enable);
 	$finishNativeStatic();
 }
 
 void ThreadImpl::setThreadAllocatedMemoryEnabled0(bool enable) {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, setThreadAllocatedMemoryEnabled0, void, bool enable);
+	$prepareNativeStatic(setThreadAllocatedMemoryEnabled0, void, bool enable);
 	$invokeNativeStatic(enable);
 	$finishNativeStatic();
 }
 
 void ThreadImpl::setThreadContentionMonitoringEnabled0(bool enable) {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, setThreadContentionMonitoringEnabled0, void, bool enable);
+	$prepareNativeStatic(setThreadContentionMonitoringEnabled0, void, bool enable);
 	$invokeNativeStatic(enable);
 	$finishNativeStatic();
 }
 
 $ThreadArray* ThreadImpl::findMonitorDeadlockedThreads0() {
 	$init(ThreadImpl);
-	$var($ThreadArray, $ret, nullptr);
-	$prepareNativeStatic(ThreadImpl, findMonitorDeadlockedThreads0, $ThreadArray*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(findMonitorDeadlockedThreads0, $ThreadArray*);
+	$var($ThreadArray, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 $ThreadArray* ThreadImpl::findDeadlockedThreads0() {
 	$init(ThreadImpl);
-	$var($ThreadArray, $ret, nullptr);
-	$prepareNativeStatic(ThreadImpl, findDeadlockedThreads0, $ThreadArray*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(findDeadlockedThreads0, $ThreadArray*);
+	$var($ThreadArray, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 void ThreadImpl::resetPeakThreadCount0() {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, resetPeakThreadCount0, void);
+	$prepareNativeStatic(resetPeakThreadCount0, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 $ThreadInfoArray* ThreadImpl::dumpThreads0($longs* ids, bool lockedMonitors, bool lockedSynchronizers, int32_t maxDepth) {
 	$init(ThreadImpl);
-	$var($ThreadInfoArray, $ret, nullptr);
-	$prepareNativeStatic(ThreadImpl, dumpThreads0, $ThreadInfoArray*, $longs* ids, bool lockedMonitors, bool lockedSynchronizers, int32_t maxDepth);
-	$assign($ret, $invokeNativeStaticObject(ids, lockedMonitors, lockedSynchronizers, maxDepth));
+	$prepareNativeStatic(dumpThreads0, $ThreadInfoArray*, $longs* ids, bool lockedMonitors, bool lockedSynchronizers, int32_t maxDepth);
+	$var($ThreadInfoArray, $ret, $invokeNativeStaticObject(ids, lockedMonitors, lockedSynchronizers, maxDepth));
 	$finishNativeStatic();
 	return $ret;
 }
 
 void ThreadImpl::resetContentionTimes0(int64_t tid) {
 	$init(ThreadImpl);
-	$prepareNativeStatic(ThreadImpl, resetContentionTimes0, void, int64_t tid);
+	$prepareNativeStatic(resetContentionTimes0, void, int64_t tid);
 	$invokeNativeStatic(tid);
 	$finishNativeStatic();
 }
@@ -665,7 +552,90 @@ ThreadImpl::ThreadImpl() {
 }
 
 $Class* ThreadImpl::load$($String* name, bool initialize) {
-	$loadClass(ThreadImpl, name, initialize, &_ThreadImpl_ClassInfo_, allocate$ThreadImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"jvm", "Lsun/management/VMManagement;", nullptr, $PRIVATE | $FINAL, $field(ThreadImpl, jvm)},
+		{"contentionMonitoringEnabled", "Z", nullptr, $PRIVATE, $field(ThreadImpl, contentionMonitoringEnabled)},
+		{"cpuTimeEnabled", "Z", nullptr, $PRIVATE, $field(ThreadImpl, cpuTimeEnabled)},
+		{"allocatedMemoryEnabled", "Z", nullptr, $PRIVATE, $field(ThreadImpl, allocatedMemoryEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/VMManagement;)V", nullptr, $PROTECTED, $method(ThreadImpl, init$, void, $VMManagement*)},
+		{"dumpAllThreads", "(ZZ)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, dumpAllThreads, $ThreadInfoArray*, bool, bool)},
+		{"dumpAllThreads", "(ZZI)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, dumpAllThreads, $ThreadInfoArray*, bool, bool, int32_t)},
+		{"dumpThreads0", "([JZZI)[Ljava/lang/management/ThreadInfo;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, dumpThreads0, $ThreadInfoArray*, $longs*, bool, bool, int32_t)},
+		{"ensureThreadAllocatedMemorySupported", "()V", nullptr, $PRIVATE, $method(ThreadImpl, ensureThreadAllocatedMemorySupported, void)},
+		{"findDeadlockedThreads", "()[J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, findDeadlockedThreads, $longs*)},
+		{"findDeadlockedThreads0", "()[Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, findDeadlockedThreads0, $ThreadArray*)},
+		{"findMonitorDeadlockedThreads", "()[J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, findMonitorDeadlockedThreads, $longs*)},
+		{"findMonitorDeadlockedThreads0", "()[Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, findMonitorDeadlockedThreads0, $ThreadArray*)},
+		{"getAllThreadIds", "()[J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getAllThreadIds, $longs*)},
+		{"getCurrentThreadAllocatedBytes", "()J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getCurrentThreadAllocatedBytes, int64_t)},
+		{"getCurrentThreadCpuTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getCurrentThreadCpuTime, int64_t)},
+		{"getCurrentThreadUserTime", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getCurrentThreadUserTime, int64_t)},
+		{"getDaemonThreadCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getDaemonThreadCount, int32_t)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getObjectName, $ObjectName*)},
+		{"getPeakThreadCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getPeakThreadCount, int32_t)},
+		{"getThreadAllocatedBytes", "(J)J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getThreadAllocatedBytes, int64_t, int64_t)},
+		{"getThreadAllocatedBytes", "([J)[J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getThreadAllocatedBytes, $longs*, $longs*)},
+		{"getThreadAllocatedMemory0", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadAllocatedMemory0, int64_t, int64_t)},
+		{"getThreadAllocatedMemory1", "([J[J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadAllocatedMemory1, void, $longs*, $longs*)},
+		{"getThreadCount", "()I", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadCount, int32_t)},
+		{"getThreadCpuTime", "(J)J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadCpuTime, int64_t, int64_t)},
+		{"getThreadCpuTime", "([J)[J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getThreadCpuTime, $longs*, $longs*)},
+		{"getThreadInfo", "(J)Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfo*, int64_t)},
+		{"getThreadInfo", "(JI)Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfo*, int64_t, int32_t)},
+		{"getThreadInfo", "([J)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfoArray*, $longs*)},
+		{"getThreadInfo", "([JI)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfoArray*, $longs*, int32_t)},
+		{"getThreadInfo", "([JZZ)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfoArray*, $longs*, bool, bool)},
+		{"getThreadInfo", "([JZZI)[Ljava/lang/management/ThreadInfo;", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadInfo, $ThreadInfoArray*, $longs*, bool, bool, int32_t)},
+		{"getThreadInfo1", "([JI[Ljava/lang/management/ThreadInfo;)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadInfo1, void, $longs*, int32_t, $ThreadInfoArray*)},
+		{"getThreadTotalCpuTime0", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadTotalCpuTime0, int64_t, int64_t)},
+		{"getThreadTotalCpuTime1", "([J[J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadTotalCpuTime1, void, $longs*, $longs*)},
+		{"getThreadUserCpuTime0", "(J)J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadUserCpuTime0, int64_t, int64_t)},
+		{"getThreadUserCpuTime1", "([J[J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreadUserCpuTime1, void, $longs*, $longs*)},
+		{"getThreadUserTime", "(J)J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getThreadUserTime, int64_t, int64_t)},
+		{"getThreadUserTime", "([J)[J", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, getThreadUserTime, $longs*, $longs*)},
+		{"getThreads", "()[Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, getThreads, $ThreadArray*)},
+		{"getTotalStartedThreadCount", "()J", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, getTotalStartedThreadCount, int64_t)},
+		{"isCurrentThreadCpuTimeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isCurrentThreadCpuTimeSupported, bool)},
+		{"isObjectMonitorUsageSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isObjectMonitorUsageSupported, bool)},
+		{"isSynchronizerUsageSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isSynchronizerUsageSupported, bool)},
+		{"isThreadAllocatedMemoryEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, isThreadAllocatedMemoryEnabled, bool)},
+		{"isThreadAllocatedMemorySupported", "()Z", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, isThreadAllocatedMemorySupported, bool)},
+		{"isThreadContentionMonitoringEnabled", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ThreadImpl, isThreadContentionMonitoringEnabled, bool)},
+		{"isThreadContentionMonitoringSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isThreadContentionMonitoringSupported, bool)},
+		{"isThreadCpuTimeEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isThreadCpuTimeEnabled, bool)},
+		{"isThreadCpuTimeSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, isThreadCpuTimeSupported, bool)},
+		{"resetContentionTimes0", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, resetContentionTimes0, void, int64_t)},
+		{"resetPeakThreadCount", "()V", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, resetPeakThreadCount, void)},
+		{"resetPeakThreadCount0", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, resetPeakThreadCount0, void)},
+		{"setThreadAllocatedMemoryEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(ThreadImpl, setThreadAllocatedMemoryEnabled, void, bool)},
+		{"setThreadAllocatedMemoryEnabled0", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, setThreadAllocatedMemoryEnabled0, void, bool)},
+		{"setThreadContentionMonitoringEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, setThreadContentionMonitoringEnabled, void, bool)},
+		{"setThreadContentionMonitoringEnabled0", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, setThreadContentionMonitoringEnabled0, void, bool)},
+		{"setThreadCpuTimeEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ThreadImpl, setThreadCpuTimeEnabled, void, bool)},
+		{"setThreadCpuTimeEnabled0", "(Z)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(ThreadImpl, setThreadCpuTimeEnabled0, void, bool)},
+		{"verifyCurrentThreadCpuTime", "()Z", nullptr, $PRIVATE, $method(ThreadImpl, verifyCurrentThreadCpuTime, bool)},
+		{"verifyDumpThreads", "(ZZ)V", nullptr, $PRIVATE, $method(ThreadImpl, verifyDumpThreads, void, bool, bool)},
+		{"verifyThreadAllocatedMemory", "(J)Z", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadAllocatedMemory, bool, int64_t)},
+		{"verifyThreadAllocatedMemory", "([J)Z", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadAllocatedMemory, bool, $longs*)},
+		{"verifyThreadCpuTime", "([J)Z", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadCpuTime, bool, $longs*)},
+		{"verifyThreadId", "(J)V", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadId, void, int64_t)},
+		{"verifyThreadIds", "([J)V", nullptr, $PRIVATE, $method(ThreadImpl, verifyThreadIds, void, $longs*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.ThreadImpl",
+		"java.lang.Object",
+		"java.lang.management.ThreadMXBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ThreadImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThreadImpl);
+	});
 	return class$;
 }
 

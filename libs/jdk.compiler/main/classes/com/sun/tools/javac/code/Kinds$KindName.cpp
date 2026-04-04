@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Kinds$KindName.h>
-
 #include <com/sun/tools/javac/api/Messages.h>
 #include <com/sun/tools/javac/code/Kinds.h>
 #include <java/lang/Enum.h>
@@ -38,69 +37,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Kinds$KindName_FieldInfo_[] = {
-	{"ANNOTATION", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, ANNOTATION)},
-	{"CONSTRUCTOR", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, CONSTRUCTOR)},
-	{"INTERFACE", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, INTERFACE)},
-	{"ENUM", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, ENUM)},
-	{"STATIC", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, STATIC)},
-	{"TYPEVAR", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, TYPEVAR)},
-	{"BOUND", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, BOUND)},
-	{"VAR", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, VAR)},
-	{"VAL", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, VAL)},
-	{"METHOD", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, METHOD)},
-	{"CLASS", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, CLASS)},
-	{"STATIC_INIT", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, STATIC_INIT)},
-	{"INSTANCE_INIT", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, INSTANCE_INIT)},
-	{"PACKAGE", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, PACKAGE)},
-	{"MODULE", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, MODULE)},
-	{"RECORD_COMPONENT", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, RECORD_COMPONENT)},
-	{"RECORD", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, RECORD)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Kinds$KindName, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Kinds$KindName, name$)},
-	{}
-};
-
-$MethodInfo _Kinds$KindName_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Kinds$KindName, $values, $Kinds$KindNameArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Kinds$KindName, init$, void, $String*, int32_t, $String*)},
-	{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, getKind, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, toString, $String*)},
-	{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, toString, $String*, $Locale*, $Messages*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$KindName, valueOf, Kinds$KindName*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$KindName, values, $Kinds$KindNameArray*)},
-	{}
-};
-
-$InnerClassInfo _Kinds$KindName_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Kinds$KindName", "com.sun.tools.javac.code.Kinds", "KindName", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Kinds$KindName_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.Kinds$KindName",
-	"java.lang.Enum",
-	"com.sun.tools.javac.api.Formattable",
-	_Kinds$KindName_FieldInfo_,
-	_Kinds$KindName_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Kinds$KindName;>;Lcom/sun/tools/javac/api/Formattable;",
-	nullptr,
-	_Kinds$KindName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Kinds"
-};
-
-$Object* allocate$Kinds$KindName($Class* clazz) {
-	return $of($alloc(Kinds$KindName));
-}
 
 bool Kinds$KindName::equals(Object$* arg0) {
 	 return this->$Enum::equals(arg0);
@@ -184,12 +120,12 @@ $String* Kinds$KindName::getKind() {
 }
 
 $String* Kinds$KindName::toString($Locale* locale, $Messages* messages) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, toString());
 	return $nc(messages)->getLocalizedString(locale, $$str({"compiler.misc."_s, s}), $$new($ObjectArray, 0));
 }
 
-void clinit$Kinds$KindName($Class* class$) {
+void Kinds$KindName::clinit$($Class* clazz) {
 	$assignStatic(Kinds$KindName::ANNOTATION, $new(Kinds$KindName, "ANNOTATION"_s, 0, "kindname.annotation"_s));
 	$assignStatic(Kinds$KindName::CONSTRUCTOR, $new(Kinds$KindName, "CONSTRUCTOR"_s, 1, "kindname.constructor"_s));
 	$assignStatic(Kinds$KindName::INTERFACE, $new(Kinds$KindName, "INTERFACE"_s, 2, "kindname.interface"_s));
@@ -214,7 +150,64 @@ Kinds$KindName::Kinds$KindName() {
 }
 
 $Class* Kinds$KindName::load$($String* name, bool initialize) {
-	$loadClass(Kinds$KindName, name, initialize, &_Kinds$KindName_ClassInfo_, clinit$Kinds$KindName, allocate$Kinds$KindName);
+	$FieldInfo fieldInfos$$[] = {
+		{"ANNOTATION", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, ANNOTATION)},
+		{"CONSTRUCTOR", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, CONSTRUCTOR)},
+		{"INTERFACE", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, INTERFACE)},
+		{"ENUM", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, ENUM)},
+		{"STATIC", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, STATIC)},
+		{"TYPEVAR", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, TYPEVAR)},
+		{"BOUND", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, BOUND)},
+		{"VAR", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, VAR)},
+		{"VAL", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, VAL)},
+		{"METHOD", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, METHOD)},
+		{"CLASS", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, CLASS)},
+		{"STATIC_INIT", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, STATIC_INIT)},
+		{"INSTANCE_INIT", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, INSTANCE_INIT)},
+		{"PACKAGE", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, PACKAGE)},
+		{"MODULE", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, MODULE)},
+		{"RECORD_COMPONENT", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, RECORD_COMPONENT)},
+		{"RECORD", "Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Kinds$KindName, RECORD)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Kinds$KindName, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Kinds$KindName, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Kinds$KindName, $values, $Kinds$KindNameArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(Kinds$KindName, init$, void, $String*, int32_t, $String*)},
+		{"getKind", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, getKind, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, toString, $String*)},
+		{"toString", "(Ljava/util/Locale;Lcom/sun/tools/javac/api/Messages;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Kinds$KindName, toString, $String*, $Locale*, $Messages*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$KindName, valueOf, Kinds$KindName*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/Kinds$KindName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinds$KindName, values, $Kinds$KindNameArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Kinds$KindName", "com.sun.tools.javac.code.Kinds", "KindName", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.Kinds$KindName",
+		"java.lang.Enum",
+		"com.sun.tools.javac.api.Formattable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/Kinds$KindName;>;Lcom/sun/tools/javac/api/Formattable;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Kinds"
+	};
+	$loadClass(Kinds$KindName, name, initialize, &classInfo$$, Kinds$KindName::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Kinds$KindName));
+	});
 	return class$;
 }
 

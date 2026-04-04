@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ApplyImports.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -28,7 +27,6 @@
 
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $1Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
@@ -54,36 +52,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _ApplyImports_FieldInfo_[] = {
-	{"_modeName", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(ApplyImports, _modeName)},
-	{"_precedence", "I", nullptr, $PRIVATE, $field(ApplyImports, _precedence)},
-	{}
-};
-
-$MethodInfo _ApplyImports_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ApplyImports, init$, void)},
-	{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(ApplyImports, display, void, int32_t)},
-	{"getMinPrecedence", "(I)I", nullptr, $PRIVATE, $method(ApplyImports, getMinPrecedence, int32_t, int32_t)},
-	{"hasWithParams", "()Z", nullptr, $PUBLIC, $method(ApplyImports, hasWithParams, bool)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ApplyImports, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ApplyImports, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ApplyImports, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _ApplyImports_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.ApplyImports",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
-	nullptr,
-	_ApplyImports_FieldInfo_,
-	_ApplyImports_MethodInfo_
-};
-
-$Object* allocate$ApplyImports($Class* clazz) {
-	return $of($alloc(ApplyImports));
-}
 
 void ApplyImports::init$() {
 	$Instruction::init$();
@@ -112,7 +80,7 @@ int32_t ApplyImports::getMinPrecedence(int32_t max) {
 }
 
 void ApplyImports::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Stylesheet, stylesheet, getStylesheet());
 	$nc(stylesheet)->setTemplateInlining(false);
 	$var($Template, template$, getTemplate());
@@ -129,7 +97,7 @@ $Type* ApplyImports::typeCheck($SymbolTable* stable) {
 }
 
 void ApplyImports::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Stylesheet, stylesheet, $nc(classGen)->getStylesheet());
 	$var($ConstantPoolGen, cpg, classGen->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
@@ -143,21 +111,21 @@ void ApplyImports::translate($ClassGenerator* classGen, $MethodGenerator* method
 		il->append($(classGen->loadTranslet()));
 		$init($Constants);
 		int32_t pushFrame = $nc(cpg)->addMethodref($Constants::TRANSLET_CLASS, $Constants::PUSH_PARAM_FRAME, $Constants::PUSH_PARAM_FRAME_SIG);
-		il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, pushFrame)));
+		il->append($$new($INVOKEVIRTUAL, pushFrame));
 	}
 	int32_t maxPrecedence = this->_precedence;
 	int32_t minPrecedence = getMinPrecedence(maxPrecedence);
-	$var($Mode, mode, $nc(stylesheet)->getMode(this->_modeName));
+	$var($Mode, mode, stylesheet->getMode(this->_modeName));
 	$var($String, functionName, $nc(mode)->functionName(minPrecedence, maxPrecedence));
-	$var($String, className, $nc($(classGen->getStylesheet()))->getClassName());
+	$var($String, className, $$nc(classGen->getStylesheet())->getClassName());
 	$var($String, signature, classGen->getApplyTemplatesSigForImport());
 	int32_t applyTemplates = $nc(cpg)->addMethodref(className, functionName, signature);
-	il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, applyTemplates)));
+	il->append($$new($INVOKEVIRTUAL, applyTemplates));
 	if (stylesheet->hasLocalParams()) {
 		il->append($(classGen->loadTranslet()));
 		$init($Constants);
 		int32_t pushFrame = cpg->addMethodref($Constants::TRANSLET_CLASS, $Constants::POP_PARAM_FRAME, $Constants::POP_PARAM_FRAME_SIG);
-		il->append(static_cast<$1Instruction*>($$new($INVOKEVIRTUAL, pushFrame)));
+		il->append($$new($INVOKEVIRTUAL, pushFrame));
 	}
 }
 
@@ -165,7 +133,32 @@ ApplyImports::ApplyImports() {
 }
 
 $Class* ApplyImports::load$($String* name, bool initialize) {
-	$loadClass(ApplyImports, name, initialize, &_ApplyImports_ClassInfo_, allocate$ApplyImports);
+	$FieldInfo fieldInfos$$[] = {
+		{"_modeName", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;", nullptr, $PRIVATE, $field(ApplyImports, _modeName)},
+		{"_precedence", "I", nullptr, $PRIVATE, $field(ApplyImports, _precedence)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ApplyImports, init$, void)},
+		{"display", "(I)V", nullptr, $PUBLIC, $virtualMethod(ApplyImports, display, void, int32_t)},
+		{"getMinPrecedence", "(I)I", nullptr, $PRIVATE, $method(ApplyImports, getMinPrecedence, int32_t, int32_t)},
+		{"hasWithParams", "()Z", nullptr, $PUBLIC, $method(ApplyImports, hasWithParams, bool)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(ApplyImports, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(ApplyImports, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(ApplyImports, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.ApplyImports",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Instruction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ApplyImports, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ApplyImports);
+	});
 	return class$;
 }
 

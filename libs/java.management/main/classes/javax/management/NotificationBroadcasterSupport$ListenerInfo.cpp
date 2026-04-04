@@ -1,5 +1,4 @@
 #include <javax/management/NotificationBroadcasterSupport$ListenerInfo.h>
-
 #include <java/util/Objects.h>
 #include <javax/management/NotificationBroadcasterSupport$WildcardListenerInfo.h>
 #include <javax/management/NotificationBroadcasterSupport.h>
@@ -19,45 +18,6 @@ using $NotificationListener = ::javax::management::NotificationListener;
 namespace javax {
 	namespace management {
 
-$FieldInfo _NotificationBroadcasterSupport$ListenerInfo_FieldInfo_[] = {
-	{"listener", "Ljavax/management/NotificationListener;", nullptr, 0, $field(NotificationBroadcasterSupport$ListenerInfo, listener)},
-	{"filter", "Ljavax/management/NotificationFilter;", nullptr, 0, $field(NotificationBroadcasterSupport$ListenerInfo, filter)},
-	{"handback", "Ljava/lang/Object;", nullptr, 0, $field(NotificationBroadcasterSupport$ListenerInfo, handback)},
-	{}
-};
-
-$MethodInfo _NotificationBroadcasterSupport$ListenerInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, 0, $method(NotificationBroadcasterSupport$ListenerInfo, init$, void, $NotificationListener*, $NotificationFilter*, Object$*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$ListenerInfo, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$ListenerInfo, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _NotificationBroadcasterSupport$ListenerInfo_InnerClassesInfo_[] = {
-	{"javax.management.NotificationBroadcasterSupport$ListenerInfo", "javax.management.NotificationBroadcasterSupport", "ListenerInfo", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _NotificationBroadcasterSupport$ListenerInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.NotificationBroadcasterSupport$ListenerInfo",
-	"java.lang.Object",
-	nullptr,
-	_NotificationBroadcasterSupport$ListenerInfo_FieldInfo_,
-	_NotificationBroadcasterSupport$ListenerInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NotificationBroadcasterSupport$ListenerInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.NotificationBroadcasterSupport"
-};
-
-$Object* allocate$NotificationBroadcasterSupport$ListenerInfo($Class* clazz) {
-	return $of($alloc(NotificationBroadcasterSupport$ListenerInfo));
-}
-
 void NotificationBroadcasterSupport$ListenerInfo::init$($NotificationListener* listener, $NotificationFilter* filter, Object$* handback) {
 	$set(this, listener, listener);
 	$set(this, filter, filter);
@@ -70,7 +30,7 @@ bool NotificationBroadcasterSupport$ListenerInfo::equals(Object$* o) {
 	}
 	$var(NotificationBroadcasterSupport$ListenerInfo, li, $cast(NotificationBroadcasterSupport$ListenerInfo, o));
 	if ($instanceOf($NotificationBroadcasterSupport$WildcardListenerInfo, li)) {
-		return ($nc(li)->listener == this->listener);
+		return (li->listener == this->listener);
 	} else {
 		return ($nc(li)->listener == this->listener && li->filter == this->filter && $equals(li->handback, this->handback));
 	}
@@ -84,7 +44,40 @@ NotificationBroadcasterSupport$ListenerInfo::NotificationBroadcasterSupport$List
 }
 
 $Class* NotificationBroadcasterSupport$ListenerInfo::load$($String* name, bool initialize) {
-	$loadClass(NotificationBroadcasterSupport$ListenerInfo, name, initialize, &_NotificationBroadcasterSupport$ListenerInfo_ClassInfo_, allocate$NotificationBroadcasterSupport$ListenerInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"listener", "Ljavax/management/NotificationListener;", nullptr, 0, $field(NotificationBroadcasterSupport$ListenerInfo, listener)},
+		{"filter", "Ljavax/management/NotificationFilter;", nullptr, 0, $field(NotificationBroadcasterSupport$ListenerInfo, filter)},
+		{"handback", "Ljava/lang/Object;", nullptr, 0, $field(NotificationBroadcasterSupport$ListenerInfo, handback)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, 0, $method(NotificationBroadcasterSupport$ListenerInfo, init$, void, $NotificationListener*, $NotificationFilter*, Object$*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$ListenerInfo, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotificationBroadcasterSupport$ListenerInfo, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.NotificationBroadcasterSupport$ListenerInfo", "javax.management.NotificationBroadcasterSupport", "ListenerInfo", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.NotificationBroadcasterSupport$ListenerInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.NotificationBroadcasterSupport"
+	};
+	$loadClass(NotificationBroadcasterSupport$ListenerInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationBroadcasterSupport$ListenerInfo);
+	});
 	return class$;
 }
 

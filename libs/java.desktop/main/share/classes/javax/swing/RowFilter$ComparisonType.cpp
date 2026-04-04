@@ -1,5 +1,4 @@
 #include <javax/swing/RowFilter$ComparisonType.h>
-
 #include <java/lang/Enum.h>
 #include <javax/swing/RowFilter.h>
 #include <jcpp.h>
@@ -18,48 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _RowFilter$ComparisonType_FieldInfo_[] = {
-	{"BEFORE", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowFilter$ComparisonType, BEFORE)},
-	{"AFTER", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowFilter$ComparisonType, AFTER)},
-	{"EQUAL", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowFilter$ComparisonType, EQUAL)},
-	{"NOT_EQUAL", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowFilter$ComparisonType, NOT_EQUAL)},
-	{"$VALUES", "[Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RowFilter$ComparisonType, $VALUES)},
-	{}
-};
-
-$MethodInfo _RowFilter$ComparisonType_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RowFilter$ComparisonType, $values, $RowFilter$ComparisonTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RowFilter$ComparisonType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowFilter$ComparisonType, valueOf, RowFilter$ComparisonType*, $String*)},
-	{"values", "()[Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowFilter$ComparisonType, values, $RowFilter$ComparisonTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _RowFilter$ComparisonType_InnerClassesInfo_[] = {
-	{"javax.swing.RowFilter$ComparisonType", "javax.swing.RowFilter", "ComparisonType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _RowFilter$ComparisonType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.RowFilter$ComparisonType",
-	"java.lang.Enum",
-	nullptr,
-	_RowFilter$ComparisonType_FieldInfo_,
-	_RowFilter$ComparisonType_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/RowFilter$ComparisonType;>;",
-	nullptr,
-	_RowFilter$ComparisonType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.RowFilter"
-};
-
-$Object* allocate$RowFilter$ComparisonType($Class* clazz) {
-	return $of($alloc(RowFilter$ComparisonType));
-}
 
 RowFilter$ComparisonType* RowFilter$ComparisonType::BEFORE = nullptr;
 RowFilter$ComparisonType* RowFilter$ComparisonType::AFTER = nullptr;
@@ -91,7 +48,7 @@ void RowFilter$ComparisonType::init$($String* $enum$name, int32_t $enum$ordinal)
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$RowFilter$ComparisonType($Class* class$) {
+void RowFilter$ComparisonType::clinit$($Class* clazz) {
 	$assignStatic(RowFilter$ComparisonType::BEFORE, $new(RowFilter$ComparisonType, "BEFORE"_s, 0));
 	$assignStatic(RowFilter$ComparisonType::AFTER, $new(RowFilter$ComparisonType, "AFTER"_s, 1));
 	$assignStatic(RowFilter$ComparisonType::EQUAL, $new(RowFilter$ComparisonType, "EQUAL"_s, 2));
@@ -103,7 +60,43 @@ RowFilter$ComparisonType::RowFilter$ComparisonType() {
 }
 
 $Class* RowFilter$ComparisonType::load$($String* name, bool initialize) {
-	$loadClass(RowFilter$ComparisonType, name, initialize, &_RowFilter$ComparisonType_ClassInfo_, clinit$RowFilter$ComparisonType, allocate$RowFilter$ComparisonType);
+	$FieldInfo fieldInfos$$[] = {
+		{"BEFORE", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowFilter$ComparisonType, BEFORE)},
+		{"AFTER", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowFilter$ComparisonType, AFTER)},
+		{"EQUAL", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowFilter$ComparisonType, EQUAL)},
+		{"NOT_EQUAL", "Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(RowFilter$ComparisonType, NOT_EQUAL)},
+		{"$VALUES", "[Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(RowFilter$ComparisonType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RowFilter$ComparisonType, $values, $RowFilter$ComparisonTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(RowFilter$ComparisonType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowFilter$ComparisonType, valueOf, RowFilter$ComparisonType*, $String*)},
+		{"values", "()[Ljavax/swing/RowFilter$ComparisonType;", nullptr, $PUBLIC | $STATIC, $staticMethod(RowFilter$ComparisonType, values, $RowFilter$ComparisonTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.RowFilter$ComparisonType", "javax.swing.RowFilter", "ComparisonType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.RowFilter$ComparisonType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/RowFilter$ComparisonType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.RowFilter"
+	};
+	$loadClass(RowFilter$ComparisonType, name, initialize, &classInfo$$, RowFilter$ComparisonType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RowFilter$ComparisonType));
+	});
 	return class$;
 }
 

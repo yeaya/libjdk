@@ -22,11 +22,14 @@ public:
 	JMXServerErrorException();
 	void init$($String* s, ::java::lang::Error* err);
 	virtual $Throwable* getCause() override;
-	static const int64_t serialVersionUID = (int64_t)0x37773ECBD9401A5A;
+	static const int64_t serialVersionUID = (int64_t)0x37773ecbd9401a5a;
 	::java::lang::Error* cause = nullptr;
 	JMXServerErrorException(const JMXServerErrorException& e);
 	virtual void throw$() override;
-	inline JMXServerErrorException* operator ->() {
+	inline JMXServerErrorException* operator ->() const {
+		return (JMXServerErrorException*)throwing$;
+	}
+	inline operator JMXServerErrorException*() const {
 		return (JMXServerErrorException*)throwing$;
 	}
 };

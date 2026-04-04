@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CEmbeddedFrame.h>
-
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -9,11 +8,8 @@
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/EmbeddedFrame.h>
-#include <sun/lwawt/LWCanvasPeer.h>
 #include <sun/lwawt/LWComponentPeer.h>
-#include <sun/lwawt/LWContainerPeer.h>
 #include <sun/lwawt/LWWindowPeer.h>
-#include <sun/lwawt/PlatformEventNotifier.h>
 #include <sun/lwawt/macosx/CClipboard.h>
 #include <sun/lwawt/macosx/CCursorManager.h>
 #include <sun/lwawt/macosx/CPlatformResponder.h>
@@ -25,21 +21,15 @@
 #undef SCROLL_PHASE_UNSUPPORTED
 
 using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
-using $Component = ::java::awt::Component;
 using $Point = ::java::awt::Point;
 using $Toolkit = ::java::awt::Toolkit;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
-using $LWCanvasPeer = ::sun::lwawt::LWCanvasPeer;
 using $LWComponentPeer = ::sun::lwawt::LWComponentPeer;
-using $LWContainerPeer = ::sun::lwawt::LWContainerPeer;
 using $LWWindowPeer = ::sun::lwawt::LWWindowPeer;
-using $PlatformEventNotifier = ::sun::lwawt::PlatformEventNotifier;
 using $CClipboard = ::sun::lwawt::macosx::CClipboard;
 using $CCursorManager = ::sun::lwawt::macosx::CCursorManager;
 using $CPlatformResponder = ::sun::lwawt::macosx::CPlatformResponder;
@@ -51,47 +41,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CEmbeddedFrame_FieldInfo_[] = {
-	{"responder", "Lsun/lwawt/macosx/CPlatformResponder;", nullptr, $PRIVATE, $field(CEmbeddedFrame, responder)},
-	{"classLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CEmbeddedFrame, classLock)},
-	{"globalFocusedWindow", "Lsun/lwawt/macosx/CEmbeddedFrame;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(CEmbeddedFrame, globalFocusedWindow)},
-	{"browserWindowFocusedApplet", "Lsun/lwawt/macosx/CEmbeddedFrame;", nullptr, $PRIVATE, $field(CEmbeddedFrame, browserWindowFocusedApplet)},
-	{"parentWindowActive", "Z", nullptr, $PRIVATE, $field(CEmbeddedFrame, parentWindowActive)},
-	{}
-};
-
-$MethodInfo _CEmbeddedFrame_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CEmbeddedFrame, init$, void)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, addNotify, void)},
-	{"getLayerPtr", "()J", nullptr, $PROTECTED, $virtualMethod(CEmbeddedFrame, getLayerPtr, int64_t)},
-	{"handleFocusEvent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleFocusEvent, void, bool)},
-	{"handleInputEvent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleInputEvent, void, $String*)},
-	{"handleKeyEvent", "(IILjava/lang/String;Ljava/lang/String;ZSZ)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleKeyEvent, void, int32_t, int32_t, $String*, $String*, bool, int16_t, bool)},
-	{"handleMouseEvent", "(IIDDII)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleMouseEvent, void, int32_t, int32_t, double, double, int32_t, int32_t)},
-	{"handleScrollEvent", "(DDIDDD)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleScrollEvent, void, double, double, int32_t, double, double, double)},
-	{"handleWindowFocusEvent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleWindowFocusEvent, void, bool)},
-	{"isParentWindowActive", "()Z", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, isParentWindowActive, bool)},
-	{"isParentWindowChanged", "()Z", nullptr, $PRIVATE, $method(CEmbeddedFrame, isParentWindowChanged, bool)},
-	{"registerAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, registerAccelerator, void, $AWTKeyStroke*)},
-	{"synthesizeWindowActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, synthesizeWindowActivation, void, bool)},
-	{"unregisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, unregisterAccelerator, void, $AWTKeyStroke*)},
-	{"updateGlobalFocusedWindow", "(Lsun/lwawt/macosx/CEmbeddedFrame;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CEmbeddedFrame, updateGlobalFocusedWindow, void, CEmbeddedFrame*)},
-	{}
-};
-
-$ClassInfo _CEmbeddedFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CEmbeddedFrame",
-	"sun.awt.EmbeddedFrame",
-	nullptr,
-	_CEmbeddedFrame_FieldInfo_,
-	_CEmbeddedFrame_MethodInfo_
-};
-
-$Object* allocate$CEmbeddedFrame($Class* clazz) {
-	return $of($alloc(CEmbeddedFrame));
-}
-
 $Object* CEmbeddedFrame::classLock = nullptr;
 $volatile(CEmbeddedFrame*) CEmbeddedFrame::globalFocusedWindow = nullptr;
 
@@ -102,11 +51,11 @@ void CEmbeddedFrame::init$() {
 }
 
 void CEmbeddedFrame::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!isDisplayable()) {
 		$var($LWCToolkit, toolkit, $cast($LWCToolkit, $Toolkit::getDefaultToolkit()));
 		$var($LWWindowPeer, peer, $nc(toolkit)->createEmbeddedFrame(this));
-		setPeer(static_cast<$ComponentPeer*>(static_cast<$LWComponentPeer*>(static_cast<$LWCanvasPeer*>(static_cast<$LWContainerPeer*>(peer)))));
+		setPeer($cast($LWComponentPeer, peer));
 		$set(this, responder, $new($CPlatformResponder, peer, true));
 	}
 	$EmbeddedFrame::addNotify();
@@ -119,8 +68,8 @@ void CEmbeddedFrame::unregisterAccelerator($AWTKeyStroke* stroke) {
 }
 
 int64_t CEmbeddedFrame::getLayerPtr() {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($LWWindowPeer, $($nc($($AWTAccessor::getComponentAccessor()))->getPeer(this)))))->getLayerPtr();
+	$useLocalObjectStack();
+	return $$sure($LWWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(this))->getLayerPtr();
 }
 
 void CEmbeddedFrame::handleMouseEvent(int32_t eventType, int32_t modifierFlags, double pluginX, double pluginY, int32_t buttonNumber, int32_t clickCount) {
@@ -155,12 +104,12 @@ void CEmbeddedFrame::handleInputEvent($String* text) {
 }
 
 void CEmbeddedFrame::handleFocusEvent(bool focused) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(CEmbeddedFrame::classLock) {
 		$assignStatic(CEmbeddedFrame::globalFocusedWindow, (focused) ? this : ((CEmbeddedFrame::globalFocusedWindow == this) ? (CEmbeddedFrame*)nullptr : $cast(CEmbeddedFrame, CEmbeddedFrame::globalFocusedWindow)));
 	}
 	if (CEmbeddedFrame::globalFocusedWindow == this) {
-		$var($CClipboard, clipboard, $cast($CClipboard, $nc($($Toolkit::getDefaultToolkit()))->getSystemClipboard()));
+		$var($CClipboard, clipboard, $cast($CClipboard, $$nc($Toolkit::getDefaultToolkit())->getSystemClipboard()));
 		$nc(clipboard)->checkPasteboardAndNotify();
 	}
 	if (this->parentWindowActive) {
@@ -206,7 +155,7 @@ void CEmbeddedFrame::updateGlobalFocusedWindow(CEmbeddedFrame* newGlobalFocusedW
 	}
 }
 
-void clinit$CEmbeddedFrame($Class* class$) {
+void CEmbeddedFrame::clinit$($Class* clazz) {
 	$assignStatic(CEmbeddedFrame::classLock, $new($Object));
 }
 
@@ -214,7 +163,43 @@ CEmbeddedFrame::CEmbeddedFrame() {
 }
 
 $Class* CEmbeddedFrame::load$($String* name, bool initialize) {
-	$loadClass(CEmbeddedFrame, name, initialize, &_CEmbeddedFrame_ClassInfo_, clinit$CEmbeddedFrame, allocate$CEmbeddedFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"responder", "Lsun/lwawt/macosx/CPlatformResponder;", nullptr, $PRIVATE, $field(CEmbeddedFrame, responder)},
+		{"classLock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CEmbeddedFrame, classLock)},
+		{"globalFocusedWindow", "Lsun/lwawt/macosx/CEmbeddedFrame;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(CEmbeddedFrame, globalFocusedWindow)},
+		{"browserWindowFocusedApplet", "Lsun/lwawt/macosx/CEmbeddedFrame;", nullptr, $PRIVATE, $field(CEmbeddedFrame, browserWindowFocusedApplet)},
+		{"parentWindowActive", "Z", nullptr, $PRIVATE, $field(CEmbeddedFrame, parentWindowActive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CEmbeddedFrame, init$, void)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, addNotify, void)},
+		{"getLayerPtr", "()J", nullptr, $PROTECTED, $virtualMethod(CEmbeddedFrame, getLayerPtr, int64_t)},
+		{"handleFocusEvent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleFocusEvent, void, bool)},
+		{"handleInputEvent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleInputEvent, void, $String*)},
+		{"handleKeyEvent", "(IILjava/lang/String;Ljava/lang/String;ZSZ)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleKeyEvent, void, int32_t, int32_t, $String*, $String*, bool, int16_t, bool)},
+		{"handleMouseEvent", "(IIDDII)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleMouseEvent, void, int32_t, int32_t, double, double, int32_t, int32_t)},
+		{"handleScrollEvent", "(DDIDDD)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleScrollEvent, void, double, double, int32_t, double, double, double)},
+		{"handleWindowFocusEvent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, handleWindowFocusEvent, void, bool)},
+		{"isParentWindowActive", "()Z", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, isParentWindowActive, bool)},
+		{"isParentWindowChanged", "()Z", nullptr, $PRIVATE, $method(CEmbeddedFrame, isParentWindowChanged, bool)},
+		{"registerAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, registerAccelerator, void, $AWTKeyStroke*)},
+		{"synthesizeWindowActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, synthesizeWindowActivation, void, bool)},
+		{"unregisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(CEmbeddedFrame, unregisterAccelerator, void, $AWTKeyStroke*)},
+		{"updateGlobalFocusedWindow", "(Lsun/lwawt/macosx/CEmbeddedFrame;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CEmbeddedFrame, updateGlobalFocusedWindow, void, CEmbeddedFrame*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CEmbeddedFrame",
+		"sun.awt.EmbeddedFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CEmbeddedFrame, name, initialize, &classInfo$$, CEmbeddedFrame::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CEmbeddedFrame));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/JsrInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -25,33 +24,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _JsrInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(SLcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, 0, $method(JsrInstruction, init$, void, int16_t, $InstructionHandle*)},
-	{"<init>", "()V", nullptr, 0, $method(JsrInstruction, init$, void)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(JsrInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{"physicalSuccessor", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(JsrInstruction, physicalSuccessor, $InstructionHandle*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _JsrInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.JsrInstruction",
-	"com.sun.org.apache.bcel.internal.generic.BranchInstruction",
-	"com.sun.org.apache.bcel.internal.generic.UnconditionalBranch,com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.StackProducer",
-	nullptr,
-	_JsrInstruction_MethodInfo_
-};
-
-$Object* allocate$JsrInstruction($Class* clazz) {
-	return $of($alloc(JsrInstruction));
-}
 
 $String* JsrInstruction::toString() {
 	 return this->$BranchInstruction::toString();
@@ -90,7 +62,7 @@ $Type* JsrInstruction::getType($ConstantPoolGen* cp) {
 }
 
 $InstructionHandle* JsrInstruction::physicalSuccessor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, ih, $BranchInstruction::getTarget());
 	while ($nc(ih)->getPrev() != nullptr) {
 		$assign(ih, ih->getPrev());
@@ -112,7 +84,30 @@ JsrInstruction::JsrInstruction() {
 }
 
 $Class* JsrInstruction::load$($String* name, bool initialize) {
-	$loadClass(JsrInstruction, name, initialize, &_JsrInstruction_ClassInfo_, allocate$JsrInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(SLcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, 0, $method(JsrInstruction, init$, void, int16_t, $InstructionHandle*)},
+		{"<init>", "()V", nullptr, 0, $method(JsrInstruction, init$, void)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(JsrInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{"physicalSuccessor", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $virtualMethod(JsrInstruction, physicalSuccessor, $InstructionHandle*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.JsrInstruction",
+		"com.sun.org.apache.bcel.internal.generic.BranchInstruction",
+		"com.sun.org.apache.bcel.internal.generic.UnconditionalBranch,com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.StackProducer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JsrInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JsrInstruction));
+	});
 	return class$;
 }
 

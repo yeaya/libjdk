@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$java_awt_Font_PersistenceDelegate.h>
-
 #include <java/awt/Font.h>
 #include <java/awt/font/TextAttribute.h>
 #include <java/beans/Encoder.h>
@@ -31,7 +30,6 @@ using $Encoder = ::java::beans::Encoder;
 using $Expression = ::java::beans::Expression;
 using $PersistenceDelegate = ::java::beans::PersistenceDelegate;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -39,42 +37,9 @@ using $Number = ::java::lang::Number;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace beans {
-
-$MethodInfo _MetaData$java_awt_Font_PersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_Font_PersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_Font_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_Font_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$java_awt_Font_PersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$java_awt_Font_PersistenceDelegate", "java.beans.MetaData", "java_awt_Font_PersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$java_awt_Font_PersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$java_awt_Font_PersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_Font_PersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$java_awt_Font_PersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$java_awt_Font_PersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$java_awt_Font_PersistenceDelegate));
-}
 
 void MetaData$java_awt_Font_PersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
@@ -85,7 +50,7 @@ bool MetaData$java_awt_Font_PersistenceDelegate::mutatesTo(Object$* oldInstance,
 }
 
 $Expression* MetaData$java_awt_Font_PersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Font, font, $cast($Font, oldInstance));
 	int32_t count = 0;
 	$var($String, family, nullptr);
@@ -94,7 +59,7 @@ $Expression* MetaData$java_awt_Font_PersistenceDelegate::instantiate(Object$* ol
 	$var($Map, basic, $nc(font)->getAttributes());
 	$var($Map, clone, $new($HashMap, $nc(basic)->size()));
 	{
-		$var($Iterator, i$, $nc($($nc(basic)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc(basic->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($TextAttribute, key, $cast($TextAttribute, i$->next()));
 			{
@@ -108,61 +73,78 @@ $Expression* MetaData$java_awt_Font_PersistenceDelegate::instantiate(Object$* ol
 						++count;
 						$assign(family, $cast($String, value));
 					}
-				} else {
-					if (key == $TextAttribute::WEIGHT) {
-						if ($nc($TextAttribute::WEIGHT_REGULAR)->equals(value)) {
+				} else if (key == $TextAttribute::WEIGHT) {
+					if ($nc($TextAttribute::WEIGHT_REGULAR)->equals(value)) {
+						++count;
+					} else if ($nc($TextAttribute::WEIGHT_BOLD)->equals(value)) {
+						++count;
+						style |= $Font::BOLD;
+					}
+				} else if (key == $TextAttribute::POSTURE) {
+					if ($nc($TextAttribute::POSTURE_REGULAR)->equals(value)) {
+						++count;
+					} else if ($nc($TextAttribute::POSTURE_OBLIQUE)->equals(value)) {
+						++count;
+						style |= $Font::ITALIC;
+					}
+				} else if (key == $TextAttribute::SIZE) {
+					if ($instanceOf($Number, value)) {
+						$var($Number, number, $cast($Number, value));
+						size = number->intValue();
+						if (size == number->floatValue()) {
 							++count;
-						} else {
-							if ($nc($TextAttribute::WEIGHT_BOLD)->equals(value)) {
-								++count;
-								style |= $Font::BOLD;
-							}
-						}
-					} else {
-						if (key == $TextAttribute::POSTURE) {
-							if ($nc($TextAttribute::POSTURE_REGULAR)->equals(value)) {
-								++count;
-							} else {
-								if ($nc($TextAttribute::POSTURE_OBLIQUE)->equals(value)) {
-									++count;
-									style |= $Font::ITALIC;
-								}
-							}
-						} else {
-							if (key == $TextAttribute::SIZE) {
-								if ($instanceOf($Number, value)) {
-									$var($Number, number, $cast($Number, value));
-									size = $nc(number)->intValue();
-									if (size == number->floatValue()) {
-										++count;
-									}
-								}
-							}
 						}
 					}
 				}
 			}
 		}
 	}
-	$Class* type = $of(font)->getClass();
+	$Class* type = font->getClass();
 	if (count == clone->size()) {
 		return $new($Expression, font, type, "new"_s, $$new($ObjectArray, {
-			$of(family),
-			$($of($Integer::valueOf(style))),
-			$($of($Integer::valueOf(size)))
+			family,
+			$($Integer::valueOf(style)),
+			$($Integer::valueOf(size))
 		}));
 	}
 	if (type == $Font::class$) {
-		return $new($Expression, font, type, "getFont"_s, $$new($ObjectArray, {$of(clone)}));
+		return $new($Expression, font, type, "getFont"_s, $$new($ObjectArray, {clone}));
 	}
-	return $new($Expression, font, type, "new"_s, $$new($ObjectArray, {$($of($Font::getFont(clone)))}));
+	return $new($Expression, font, type, "new"_s, $$new($ObjectArray, {$($Font::getFont(clone))}));
 }
 
 MetaData$java_awt_Font_PersistenceDelegate::MetaData$java_awt_Font_PersistenceDelegate() {
 }
 
 $Class* MetaData$java_awt_Font_PersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$java_awt_Font_PersistenceDelegate, name, initialize, &_MetaData$java_awt_Font_PersistenceDelegate_ClassInfo_, allocate$MetaData$java_awt_Font_PersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$java_awt_Font_PersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_Font_PersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$java_awt_Font_PersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$java_awt_Font_PersistenceDelegate", "java.beans.MetaData", "java_awt_Font_PersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$java_awt_Font_PersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$java_awt_Font_PersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$java_awt_Font_PersistenceDelegate);
+	});
 	return class$;
 }
 

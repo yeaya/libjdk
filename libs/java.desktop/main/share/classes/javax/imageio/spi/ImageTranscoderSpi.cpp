@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/ImageTranscoderSpi.h>
-
 #include <javax/imageio/ImageTranscoder.h>
 #include <javax/imageio/spi/IIOServiceProvider.h>
 #include <jcpp.h>
@@ -13,28 +12,6 @@ namespace javax {
 	namespace imageio {
 		namespace spi {
 
-$MethodInfo _ImageTranscoderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ImageTranscoderSpi, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageTranscoderSpi, init$, void, $String*, $String*)},
-	{"createTranscoderInstance", "()Ljavax/imageio/ImageTranscoder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoderSpi, createTranscoderInstance, $ImageTranscoder*)},
-	{"getReaderServiceProviderName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoderSpi, getReaderServiceProviderName, $String*)},
-	{"getWriterServiceProviderName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoderSpi, getWriterServiceProviderName, $String*)},
-	{}
-};
-
-$ClassInfo _ImageTranscoderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.spi.ImageTranscoderSpi",
-	"javax.imageio.spi.IIOServiceProvider",
-	nullptr,
-	nullptr,
-	_ImageTranscoderSpi_MethodInfo_
-};
-
-$Object* allocate$ImageTranscoderSpi($Class* clazz) {
-	return $of($alloc(ImageTranscoderSpi));
-}
-
 void ImageTranscoderSpi::init$() {
 	$IIOServiceProvider::init$();
 }
@@ -47,7 +24,25 @@ ImageTranscoderSpi::ImageTranscoderSpi() {
 }
 
 $Class* ImageTranscoderSpi::load$($String* name, bool initialize) {
-	$loadClass(ImageTranscoderSpi, name, initialize, &_ImageTranscoderSpi_ClassInfo_, allocate$ImageTranscoderSpi);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ImageTranscoderSpi, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImageTranscoderSpi, init$, void, $String*, $String*)},
+		{"createTranscoderInstance", "()Ljavax/imageio/ImageTranscoder;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoderSpi, createTranscoderInstance, $ImageTranscoder*)},
+		{"getReaderServiceProviderName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoderSpi, getReaderServiceProviderName, $String*)},
+		{"getWriterServiceProviderName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ImageTranscoderSpi, getWriterServiceProviderName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.spi.ImageTranscoderSpi",
+		"javax.imageio.spi.IIOServiceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ImageTranscoderSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageTranscoderSpi);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Test.h>
-
 #include <jcpp.h>
 
 using $Attribute = ::java::lang::Attribute;
@@ -8,56 +7,48 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 
-$NamedAttribute Test_Attribute_var$0[] = {
-	{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
-	{}
-};
-
-$Attribute Test_Attribute_var$2[] = {
-	{'e', "Ljava/lang/annotation/ElementType; METHOD"},
-	{'-'}
-};
-
-$NamedAttribute Test_Attribute_var$1[] = {
-	{"value", '[', Test_Attribute_var$2},
-	{}
-};
-
-$CompoundAttribute _Test_Annotations_[] = {
-	{"Ljava/lang/annotation/Retention;", Test_Attribute_var$0},
-	{"Ljava/lang/annotation/Target;", Test_Attribute_var$1},
-	{}
-};
-
-$Attribute _Test_DefaultValue_onEDT0 = {
-	'Z', "true"
-};
-
-$MethodInfo _Test_MethodInfo_[] = {
-	{"onEDT", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test, onEDT, bool), nullptr, &_Test_DefaultValue_onEDT0},
-	{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test, value, int32_t)},
-	{}
-};
-
-$ClassInfo _Test_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
-	"Test",
-	nullptr,
-	"java.lang.annotation.Annotation",
-	nullptr,
-	_Test_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_Test_Annotations_
-};
-
-$Object* allocate$Test($Class* clazz) {
-	return $of($alloc(Test));
-}
-
 $Class* Test::load$($String* name, bool initialize) {
-	$loadClass(Test, name, initialize, &_Test_ClassInfo_, allocate$Test);
+
+	$Attribute onEDTdefaultValue$$ = {
+		'Z', "true"
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"onEDT", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test, onEDT, bool), nullptr, &onEDTdefaultValue$$},
+		{"value", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Test, value, int32_t)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljava/lang/annotation/RetentionPolicy; RUNTIME"},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'e', "Ljava/lang/annotation/ElementType; METHOD"},
+		{'-'}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/annotation/Retention;", annotations$$$namedAttribute},
+		{"Ljava/lang/annotation/Target;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT | $ANNOTATION,
+		"Test",
+		nullptr,
+		"java.lang.annotation.Annotation",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(Test, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test);
+	});
 	return class$;
 }
 

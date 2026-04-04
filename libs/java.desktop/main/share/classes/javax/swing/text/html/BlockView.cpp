@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/BlockView.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -52,55 +51,11 @@ using $CSS$Attribute = ::javax::swing::text::html::CSS$Attribute;
 using $CSS$LengthValue = ::javax::swing::text::html::CSS$LengthValue;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
-using $StyleSheet$BoxPainter = ::javax::swing::text::html::StyleSheet$BoxPainter;
 
 namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _BlockView_FieldInfo_[] = {
-	{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(BlockView, attr)},
-	{"painter", "Ljavax/swing/text/html/StyleSheet$BoxPainter;", nullptr, $PRIVATE, $field(BlockView, painter)},
-	{"cssWidth", "Ljavax/swing/text/html/CSS$LengthValue;", nullptr, $PRIVATE, $field(BlockView, cssWidth)},
-	{"cssHeight", "Ljavax/swing/text/html/CSS$LengthValue;", nullptr, $PRIVATE, $field(BlockView, cssHeight)},
-	{}
-};
-
-$MethodInfo _BlockView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(BlockView, init$, void, $Element*, int32_t)},
-	{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BlockView, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BlockView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(BlockView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"constrainSize", "(ILjavax/swing/SizeRequirements;Ljavax/swing/SizeRequirements;)V", nullptr, $PRIVATE, $method(BlockView, constrainSize, void, int32_t, $SizeRequirements*, $SizeRequirements*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(BlockView, getAlignment, float, int32_t)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(BlockView, getAttributes, $AttributeSet*)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BlockView, getMaximumSpan, float, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BlockView, getMinimumSpan, float, int32_t)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BlockView, getPreferredSpan, float, int32_t)},
-	{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(BlockView, getResizeWeight, int32_t, int32_t)},
-	{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PROTECTED, $virtualMethod(BlockView, getStyleSheet, $StyleSheet*)},
-	{"isPercentage", "(ILjavax/swing/text/AttributeSet;)Z", nullptr, 0, $virtualMethod(BlockView, isPercentage, bool, int32_t, $AttributeSet*)},
-	{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(BlockView, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(BlockView, paint, void, $Graphics*, $Shape*)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(BlockView, setParent, void, $View*)},
-	{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(BlockView, setPropertiesFromAttributes, void)},
-	{"spanSetFromAttributes", "(ILjavax/swing/SizeRequirements;Ljavax/swing/text/html/CSS$LengthValue;Ljavax/swing/text/html/CSS$LengthValue;)Z", nullptr, $STATIC, $staticMethod(BlockView, spanSetFromAttributes, bool, int32_t, $SizeRequirements*, $CSS$LengthValue*, $CSS$LengthValue*)},
-	{}
-};
-
-$ClassInfo _BlockView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.BlockView",
-	"javax.swing.text.BoxView",
-	nullptr,
-	_BlockView_FieldInfo_,
-	_BlockView_MethodInfo_
-};
-
-$Object* allocate$BlockView($Class* clazz) {
-	return $of($alloc(BlockView));
-}
 
 void BlockView::init$($Element* elem, int32_t axis) {
 	$BoxView::init$(elem, axis);
@@ -114,7 +69,7 @@ void BlockView::setParent($View* parent) {
 }
 
 $SizeRequirements* BlockView::calculateMajorAxisRequirements(int32_t axis, $SizeRequirements* r$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, r, r$renamed);
 	if (r == nullptr) {
 		$assign(r, $new($SizeRequirements));
@@ -141,7 +96,7 @@ $SizeRequirements* BlockView::calculateMajorAxisRequirements(int32_t axis, $Size
 }
 
 $SizeRequirements* BlockView::calculateMinorAxisRequirements(int32_t axis, $SizeRequirements* r$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, r, r$renamed);
 	if (r == nullptr) {
 		$assign(r, $new($SizeRequirements));
@@ -166,9 +121,9 @@ $SizeRequirements* BlockView::calculateMinorAxisRequirements(int32_t axis, $Size
 	}
 	if (axis == $View::X_AXIS) {
 		$init($CSS$Attribute);
-		$var($Object, o, $nc($(getAttributes()))->getAttribute($CSS$Attribute::TEXT_ALIGN));
+		$var($Object, o, $$nc(getAttributes())->getAttribute($CSS$Attribute::TEXT_ALIGN));
 		if (o != nullptr) {
-			$var($String, align, $of(o)->toString());
+			$var($String, align, o->toString());
 			if ($nc(align)->equals("center"_s)) {
 				$nc(r)->alignment = 0.5f;
 			} else if (align->equals("right"_s)) {
@@ -184,10 +139,10 @@ $SizeRequirements* BlockView::calculateMinorAxisRequirements(int32_t axis, $Size
 bool BlockView::isPercentage(int32_t axis, $AttributeSet* a) {
 	if (axis == $View::X_AXIS) {
 		if (this->cssWidth != nullptr) {
-			return $nc(this->cssWidth)->isPercentage();
+			return this->cssWidth->isPercentage();
 		}
 	} else if (this->cssHeight != nullptr) {
-		return $nc(this->cssHeight)->isPercentage();
+		return this->cssHeight->isPercentage();
 	}
 	return false;
 }
@@ -196,21 +151,21 @@ bool BlockView::spanSetFromAttributes(int32_t axis, $SizeRequirements* r, $CSS$L
 	$init(BlockView);
 	if (axis == $View::X_AXIS) {
 		if ((cssWidth != nullptr) && (!cssWidth->isPercentage())) {
-			$nc(r)->minimum = (r->preferred = (r->maximum = $cast(int32_t, cssWidth->getValue())));
+			$nc(r)->minimum = ($nc(r)->preferred = ($nc(r)->maximum = $cast(int32_t, cssWidth->getValue())));
 			return true;
 		}
 	} else if ((cssHeight != nullptr) && (!cssHeight->isPercentage())) {
-		$nc(r)->minimum = (r->preferred = (r->maximum = $cast(int32_t, cssHeight->getValue())));
+		$nc(r)->minimum = ($nc(r)->preferred = ($nc(r)->maximum = $cast(int32_t, cssHeight->getValue())));
 		return true;
 	}
 	return false;
 }
 
 void BlockView::layoutMinorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getViewCount();
 	$init($CSS$Attribute);
-	$var($Object, key, (axis == $View::X_AXIS) ? $of($CSS$Attribute::WIDTH) : $of($CSS$Attribute::HEIGHT));
+	$var($Object, key, (axis == $View::X_AXIS) ? $CSS$Attribute::WIDTH : $CSS$Attribute::HEIGHT);
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getView(i));
 		int32_t min = $cast(int32_t, $nc(v)->getMinimumSpan(axis));
@@ -236,7 +191,7 @@ void BlockView::layoutMinorAxis(int32_t targetSpan, int32_t axis, $ints* offsets
 
 void BlockView::paint($Graphics* g, $Shape* allocation) {
 	$var($Rectangle, a, $cast($Rectangle, allocation));
-	$nc(this->painter)->paint(g, (float)$nc(a)->x, (float)a->y, (float)a->width, (float)a->height, this);
+	$nc(this->painter)->paint(g, (float)$nc(a)->x, (float)$nc(a)->y, (float)$nc(a)->width, (float)$nc(a)->height, this);
 	$BoxView::paint(g, a);
 }
 
@@ -249,51 +204,37 @@ $AttributeSet* BlockView::getAttributes() {
 }
 
 int32_t BlockView::getResizeWeight(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (axis) {
 	case $View::X_AXIS:
-		{
-			return 1;
-		}
+		return 1;
 	case $View::Y_AXIS:
-		{
-			return 0;
-		}
+		return 0;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
 float BlockView::getAlignment(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
-	{
-		float span = 0;
-		$var($View, v, nullptr)
-		float above = 0;
-		float a = 0;
-		switch (axis) {
-		case $View::X_AXIS:
-			{
-				return (float)0;
-			}
-		case $View::Y_AXIS:
-			{
-				if (getViewCount() == 0) {
-					return (float)0;
-				}
-				span = getPreferredSpan($View::Y_AXIS);
-				$assign(v, getView(0));
-				above = $nc(v)->getPreferredSpan($View::Y_AXIS);
-				a = (($cast(int32_t, span)) != 0) ? (above * v->getAlignment($View::Y_AXIS)) / span : (float)0;
-				return a;
-			}
-		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-			}
+	$useLocalObjectStack();
+	float span = 0;
+	$var($View, v, nullptr);
+	float above = 0;
+	float a = 0;
+	switch (axis) {
+	case $View::X_AXIS:
+		return 0;
+	case $View::Y_AXIS:
+		if (getViewCount() == 0) {
+			return 0;
 		}
+		span = getPreferredSpan($View::Y_AXIS);
+		$assign(v, getView(0));
+		above = $nc(v)->getPreferredSpan($View::Y_AXIS);
+		a = (($cast(int32_t, span)) != 0) ? (above * v->getAlignment($View::Y_AXIS)) / span : 0;
+		return a;
+	default:
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
@@ -302,7 +243,7 @@ void BlockView::changedUpdate($DocumentEvent* changes, $Shape* a, $ViewFactory* 
 	int32_t pos = $nc(changes)->getOffset();
 	bool var$0 = pos <= getStartOffset();
 	if (var$0) {
-		int32_t var$1 = (pos + changes->getLength());
+		int32_t var$1 = pos + changes->getLength();
 		var$0 = var$1 >= getEndOffset();
 	}
 	if (var$0) {
@@ -328,9 +269,9 @@ void BlockView::setPropertiesFromAttributes() {
 	$set(this, painter, sheet->getBoxPainter(this->attr));
 	if (this->attr != nullptr) {
 		int16_t var$0 = $cast(int16_t, $nc(this->painter)->getInset($SwingConstants::TOP, this));
-		int16_t var$1 = $cast(int16_t, $nc(this->painter)->getInset($SwingConstants::LEFT, this));
-		int16_t var$2 = $cast(int16_t, $nc(this->painter)->getInset($SwingConstants::BOTTOM, this));
-		setInsets(var$0, var$1, var$2, $cast(int16_t, $nc(this->painter)->getInset($SwingConstants::RIGHT, this)));
+		int16_t var$1 = $cast(int16_t, this->painter->getInset($SwingConstants::LEFT, this));
+		int16_t var$2 = $cast(int16_t, this->painter->getInset($SwingConstants::BOTTOM, this));
+		setInsets(var$0, var$1, var$2, $cast(int16_t, this->painter->getInset($SwingConstants::RIGHT, this)));
 	}
 	$init($CSS$Attribute);
 	$set(this, cssWidth, $cast($CSS$LengthValue, $nc(this->attr)->getAttribute($CSS$Attribute::WIDTH)));
@@ -353,7 +294,45 @@ BlockView::BlockView() {
 }
 
 $Class* BlockView::load$($String* name, bool initialize) {
-	$loadClass(BlockView, name, initialize, &_BlockView_ClassInfo_, allocate$BlockView);
+	$FieldInfo fieldInfos$$[] = {
+		{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(BlockView, attr)},
+		{"painter", "Ljavax/swing/text/html/StyleSheet$BoxPainter;", nullptr, $PRIVATE, $field(BlockView, painter)},
+		{"cssWidth", "Ljavax/swing/text/html/CSS$LengthValue;", nullptr, $PRIVATE, $field(BlockView, cssWidth)},
+		{"cssHeight", "Ljavax/swing/text/html/CSS$LengthValue;", nullptr, $PRIVATE, $field(BlockView, cssHeight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;I)V", nullptr, $PUBLIC, $method(BlockView, init$, void, $Element*, int32_t)},
+		{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BlockView, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BlockView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(BlockView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"constrainSize", "(ILjavax/swing/SizeRequirements;Ljavax/swing/SizeRequirements;)V", nullptr, $PRIVATE, $method(BlockView, constrainSize, void, int32_t, $SizeRequirements*, $SizeRequirements*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(BlockView, getAlignment, float, int32_t)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(BlockView, getAttributes, $AttributeSet*)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BlockView, getMaximumSpan, float, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BlockView, getMinimumSpan, float, int32_t)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(BlockView, getPreferredSpan, float, int32_t)},
+		{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(BlockView, getResizeWeight, int32_t, int32_t)},
+		{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PROTECTED, $virtualMethod(BlockView, getStyleSheet, $StyleSheet*)},
+		{"isPercentage", "(ILjavax/swing/text/AttributeSet;)Z", nullptr, 0, $virtualMethod(BlockView, isPercentage, bool, int32_t, $AttributeSet*)},
+		{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(BlockView, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(BlockView, paint, void, $Graphics*, $Shape*)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(BlockView, setParent, void, $View*)},
+		{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(BlockView, setPropertiesFromAttributes, void)},
+		{"spanSetFromAttributes", "(ILjavax/swing/SizeRequirements;Ljavax/swing/text/html/CSS$LengthValue;Ljavax/swing/text/html/CSS$LengthValue;)Z", nullptr, $STATIC, $staticMethod(BlockView, spanSetFromAttributes, bool, int32_t, $SizeRequirements*, $CSS$LengthValue*, $CSS$LengthValue*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.BlockView",
+		"javax.swing.text.BoxView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BlockView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BlockView);
+	});
 	return class$;
 }
 

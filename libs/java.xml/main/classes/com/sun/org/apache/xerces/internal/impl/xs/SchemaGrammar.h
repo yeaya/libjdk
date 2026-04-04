@@ -230,6 +230,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* targetNamespace, ::com::sun::org::apache::xerces::internal::impl::xs::XSDDescription* grammarDesc, ::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);
 	void init$(::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar* grammar);

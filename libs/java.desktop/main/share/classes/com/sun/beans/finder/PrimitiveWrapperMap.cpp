@@ -1,5 +1,4 @@
 #include <com/sun/beans/finder/PrimitiveWrapperMap.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -26,36 +25,11 @@ namespace com {
 		namespace beans {
 			namespace finder {
 
-$FieldInfo _PrimitiveWrapperMap_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(PrimitiveWrapperMap, map)},
-	{}
-};
-
-$MethodInfo _PrimitiveWrapperMap_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PrimitiveWrapperMap, init$, void)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(PrimitiveWrapperMap, getType, $Class*, $String*)},
-	{"replacePrimitivesWithWrappers", "([Ljava/lang/Class;)V", "([Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(PrimitiveWrapperMap, replacePrimitivesWithWrappers, void, $ClassArray*)},
-	{}
-};
-
-$ClassInfo _PrimitiveWrapperMap_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.finder.PrimitiveWrapperMap",
-	"java.lang.Object",
-	nullptr,
-	_PrimitiveWrapperMap_FieldInfo_,
-	_PrimitiveWrapperMap_MethodInfo_
-};
-
-$Object* allocate$PrimitiveWrapperMap($Class* clazz) {
-	return $of($alloc(PrimitiveWrapperMap));
-}
-
 $Map* PrimitiveWrapperMap::map = nullptr;
 
 void PrimitiveWrapperMap::replacePrimitivesWithWrappers($ClassArray* types) {
 	$init(PrimitiveWrapperMap);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(types)->length; ++i) {
 		if (types->get(i) != nullptr) {
 			if ($nc(types->get(i))->isPrimitive()) {
@@ -67,34 +41,25 @@ void PrimitiveWrapperMap::replacePrimitivesWithWrappers($ClassArray* types) {
 
 $Class* PrimitiveWrapperMap::getType($String* name) {
 	$init(PrimitiveWrapperMap);
-	return $cast($Class, $nc(PrimitiveWrapperMap::map)->get(name));
+	return $cast($Class, PrimitiveWrapperMap::map->get(name));
 }
 
 void PrimitiveWrapperMap::init$() {
 }
 
-void clinit$PrimitiveWrapperMap($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PrimitiveWrapperMap::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(PrimitiveWrapperMap::map, $new($HashMap, 9));
 	{
-		$init($Boolean);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Boolean::TYPE)->getName()), $Boolean::class$);
-		$init($Character);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Character::TYPE)->getName()), $Character::class$);
-		$init($Byte);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Byte::TYPE)->getName()), $Byte::class$);
-		$init($Short);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Short::TYPE)->getName()), $Short::class$);
-		$init($Integer);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Integer::TYPE)->getName()), $Integer::class$);
-		$init($Long);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Long::TYPE)->getName()), $Long::class$);
-		$init($Float);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Float::TYPE)->getName()), $Float::class$);
-		$init($Double);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Double::TYPE)->getName()), $Double::class$);
-		$init($Void);
-		$nc(PrimitiveWrapperMap::map)->put($($nc($Void::TYPE)->getName()), $Void::class$);
+		PrimitiveWrapperMap::map->put($($nc($Boolean::TYPE)->getName()), $Boolean::class$);
+		PrimitiveWrapperMap::map->put($($nc($Character::TYPE)->getName()), $Character::class$);
+		PrimitiveWrapperMap::map->put($($nc($Byte::TYPE)->getName()), $Byte::class$);
+		PrimitiveWrapperMap::map->put($($nc($Short::TYPE)->getName()), $Short::class$);
+		PrimitiveWrapperMap::map->put($($nc($Integer::TYPE)->getName()), $Integer::class$);
+		PrimitiveWrapperMap::map->put($($nc($Long::TYPE)->getName()), $Long::class$);
+		PrimitiveWrapperMap::map->put($($nc($Float::TYPE)->getName()), $Float::class$);
+		PrimitiveWrapperMap::map->put($($nc($Double::TYPE)->getName()), $Double::class$);
+		PrimitiveWrapperMap::map->put($($nc($Void::TYPE)->getName()), $Void::class$);
 	}
 }
 
@@ -102,7 +67,27 @@ PrimitiveWrapperMap::PrimitiveWrapperMap() {
 }
 
 $Class* PrimitiveWrapperMap::load$($String* name, bool initialize) {
-	$loadClass(PrimitiveWrapperMap, name, initialize, &_PrimitiveWrapperMap_ClassInfo_, clinit$PrimitiveWrapperMap, allocate$PrimitiveWrapperMap);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(PrimitiveWrapperMap, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PrimitiveWrapperMap, init$, void)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(PrimitiveWrapperMap, getType, $Class*, $String*)},
+		{"replacePrimitivesWithWrappers", "([Ljava/lang/Class;)V", "([Ljava/lang/Class<*>;)V", $STATIC, $staticMethod(PrimitiveWrapperMap, replacePrimitivesWithWrappers, void, $ClassArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.finder.PrimitiveWrapperMap",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrimitiveWrapperMap, name, initialize, &classInfo$$, PrimitiveWrapperMap::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PrimitiveWrapperMap);
+	});
 	return class$;
 }
 

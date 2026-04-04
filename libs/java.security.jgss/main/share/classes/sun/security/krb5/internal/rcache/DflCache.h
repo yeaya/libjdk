@@ -48,6 +48,7 @@ class DflCache : public ::sun::security::krb5::internal::ReplayCache {
 	$class(DflCache, 0, ::sun::security::krb5::internal::ReplayCache)
 public:
 	DflCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* source);
 	virtual void checkAndStore(::sun::security::krb5::internal::KerberosTime* currTime, ::sun::security::krb5::internal::rcache::AuthTimeWithHash* time) override;
 	void checkAndStore0(::sun::security::krb5::internal::KerberosTime* currTime, ::sun::security::krb5::internal::rcache::AuthTimeWithHash* time);

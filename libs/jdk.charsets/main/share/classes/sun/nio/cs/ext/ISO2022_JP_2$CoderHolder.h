@@ -23,6 +23,7 @@ class ISO2022_JP_2$CoderHolder : public ::java::lang::Object {
 	$class(ISO2022_JP_2$CoderHolder, 0, ::java::lang::Object)
 public:
 	ISO2022_JP_2$CoderHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::nio::cs::DoubleByte$Decoder* DEC0212;
 	static ::sun::nio::cs::DoubleByte$Encoder* ENC0212;

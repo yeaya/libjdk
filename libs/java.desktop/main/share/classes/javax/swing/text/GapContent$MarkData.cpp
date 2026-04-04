@@ -1,5 +1,4 @@
 #include <javax/swing/text/GapContent$MarkData.h>
-
 #include <java/lang/Math.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -21,46 +20,6 @@ using $GapContent$StickyPosition = ::javax::swing::text::GapContent$StickyPositi
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _GapContent$MarkData_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/GapContent;", nullptr, $FINAL | $SYNTHETIC, $field(GapContent$MarkData, this$0)},
-	{"index", "I", nullptr, 0, $field(GapContent$MarkData, index)},
-	{}
-};
-
-$MethodInfo _GapContent$MarkData_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/GapContent;I)V", nullptr, 0, $method(GapContent$MarkData, init$, void, $GapContent*, int32_t)},
-	{"<init>", "(Ljavax/swing/text/GapContent;ILjavax/swing/text/GapContent$StickyPosition;Ljava/lang/ref/ReferenceQueue;)V", "(ILjavax/swing/text/GapContent$StickyPosition;Ljava/lang/ref/ReferenceQueue<-Ljavax/swing/text/GapContent$StickyPosition;>;)V", 0, $method(GapContent$MarkData, init$, void, $GapContent*, int32_t, $GapContent$StickyPosition*, $ReferenceQueue*)},
-	{"getOffset", "()I", nullptr, $PUBLIC, $method(GapContent$MarkData, getOffset, int32_t)},
-	{"getPosition", "()Ljavax/swing/text/GapContent$StickyPosition;", nullptr, 0, $method(GapContent$MarkData, getPosition, $GapContent$StickyPosition*)},
-	{}
-};
-
-$InnerClassInfo _GapContent$MarkData_InnerClassesInfo_[] = {
-	{"javax.swing.text.GapContent$MarkData", "javax.swing.text.GapContent", "MarkData", $FINAL},
-	{"javax.swing.text.GapContent$StickyPosition", "javax.swing.text.GapContent", "StickyPosition", $FINAL},
-	{}
-};
-
-$ClassInfo _GapContent$MarkData_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.text.GapContent$MarkData",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_GapContent$MarkData_FieldInfo_,
-	_GapContent$MarkData_MethodInfo_,
-	"Ljava/lang/ref/WeakReference<Ljavax/swing/text/GapContent$StickyPosition;>;",
-	nullptr,
-	_GapContent$MarkData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.GapContent"
-};
-
-$Object* allocate$GapContent$MarkData($Class* clazz) {
-	return $of($alloc(GapContent$MarkData));
-}
 
 void GapContent$MarkData::init$($GapContent* this$0, int32_t index) {
 	$set(this, this$0, this$0);
@@ -89,7 +48,41 @@ GapContent$MarkData::GapContent$MarkData() {
 }
 
 $Class* GapContent$MarkData::load$($String* name, bool initialize) {
-	$loadClass(GapContent$MarkData, name, initialize, &_GapContent$MarkData_ClassInfo_, allocate$GapContent$MarkData);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/GapContent;", nullptr, $FINAL | $SYNTHETIC, $field(GapContent$MarkData, this$0)},
+		{"index", "I", nullptr, 0, $field(GapContent$MarkData, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/GapContent;I)V", nullptr, 0, $method(GapContent$MarkData, init$, void, $GapContent*, int32_t)},
+		{"<init>", "(Ljavax/swing/text/GapContent;ILjavax/swing/text/GapContent$StickyPosition;Ljava/lang/ref/ReferenceQueue;)V", "(ILjavax/swing/text/GapContent$StickyPosition;Ljava/lang/ref/ReferenceQueue<-Ljavax/swing/text/GapContent$StickyPosition;>;)V", 0, $method(GapContent$MarkData, init$, void, $GapContent*, int32_t, $GapContent$StickyPosition*, $ReferenceQueue*)},
+		{"getOffset", "()I", nullptr, $PUBLIC, $method(GapContent$MarkData, getOffset, int32_t)},
+		{"getPosition", "()Ljavax/swing/text/GapContent$StickyPosition;", nullptr, 0, $method(GapContent$MarkData, getPosition, $GapContent$StickyPosition*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.GapContent$MarkData", "javax.swing.text.GapContent", "MarkData", $FINAL},
+		{"javax.swing.text.GapContent$StickyPosition", "javax.swing.text.GapContent", "StickyPosition", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.text.GapContent$MarkData",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/ref/WeakReference<Ljavax/swing/text/GapContent$StickyPosition;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.GapContent"
+	};
+	$loadClass(GapContent$MarkData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GapContent$MarkData);
+	});
 	return class$;
 }
 

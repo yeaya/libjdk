@@ -31,6 +31,7 @@ namespace javax {
 class $export WebRowSet : public ::javax::sql::rowset::CachedRowSet {
 	$interface(WebRowSet, 0, ::javax::sql::rowset::CachedRowSet)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::sql::rowset::CachedRowSet::execute;
 	virtual void readXml(::java::io::Reader* reader) {}
 	virtual void readXml(::java::io::InputStream* iStream) {}

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/StandardMetadataFormat.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
@@ -28,26 +27,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace common {
-
-$MethodInfo _StandardMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StandardMetadataFormat, init$, void)},
-	{"addSingleAttributeElement", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(StandardMetadataFormat, addSingleAttributeElement, void, $String*, $String*, int32_t)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(StandardMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{}
-};
-
-$ClassInfo _StandardMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.StandardMetadataFormat",
-	"javax.imageio.metadata.IIOMetadataFormatImpl",
-	nullptr,
-	nullptr,
-	_StandardMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$StandardMetadataFormat($Class* clazz) {
-	return $of($alloc(StandardMetadataFormat));
-}
 
 void StandardMetadataFormat::addSingleAttributeElement($String* elementName, $String* parentName, int32_t dataType) {
 	addElement(elementName, parentName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
@@ -88,7 +67,7 @@ void StandardMetadataFormat::init$() {
 	values->add("DCLR"_s);
 	values->add("ECLR"_s);
 	values->add("FCLR"_s);
-	addAttribute("ColorSpaceType"_s, "name"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, values);
+	addAttribute("ColorSpaceType"_s, "name"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, values);
 	addElement("NumChannels"_s, "Chroma"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("NumChannels"_s, "value"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, 0, $Integer::MAX_VALUE);
 	addElement("Gamma"_s, "Chroma"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
@@ -121,14 +100,14 @@ void StandardMetadataFormat::init$() {
 	values->add("PlaneInterleaved"_s);
 	values->add("LineInterleaved"_s);
 	values->add("TileInterleaved"_s);
-	addAttribute("PlanarConfiguration"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, values);
+	addAttribute("PlanarConfiguration"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, values);
 	addElement("SampleFormat"_s, "Data"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	$assign(values, $new($ArrayList));
 	values->add("SignedIntegral"_s);
 	values->add("UnsignedIntegral"_s);
 	values->add("Real"_s);
 	values->add("Index"_s);
-	addAttribute("SampleFormat"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, values);
+	addAttribute("SampleFormat"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, values);
 	addElement("BitsPerSample"_s, "Data"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("BitsPerSample"_s, "value"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, 1, $Integer::MAX_VALUE);
 	addElement("SignificantBitsPerSample"_s, "Data"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
@@ -147,7 +126,7 @@ void StandardMetadataFormat::init$() {
 	values->add("FlipV"_s);
 	values->add("FlipHRotate90"_s);
 	values->add("FlipVRotate90"_s);
-	addAttribute("ImageOrientation"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, values);
+	addAttribute("ImageOrientation"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, values);
 	addSingleAttributeElement("HorizontalPixelSize"_s, "Dimension"_s, $IIOMetadataFormat::DATATYPE_FLOAT);
 	addSingleAttributeElement("VerticalPixelSize"_s, "Dimension"_s, $IIOMetadataFormat::DATATYPE_FLOAT);
 	addSingleAttributeElement("HorizontalPhysicalPixelSpacing"_s, "Dimension"_s, $IIOMetadataFormat::DATATYPE_FLOAT);
@@ -177,7 +156,7 @@ void StandardMetadataFormat::init$() {
 	values->add("CompositingLayer"_s);
 	values->add("SpectralSlice"_s);
 	values->add("Unknown"_s);
-	addAttribute("SubimageInterpretation"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, values);
+	addAttribute("SubimageInterpretation"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, values);
 	addElement("ImageCreationTime"_s, "Document"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("ImageCreationTime"_s, "year"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr);
 	addAttribute("ImageCreationTime"_s, "month"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, "1"_s, "12"_s, true, true);
@@ -233,7 +212,23 @@ StandardMetadataFormat::StandardMetadataFormat() {
 }
 
 $Class* StandardMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(StandardMetadataFormat, name, initialize, &_StandardMetadataFormat_ClassInfo_, allocate$StandardMetadataFormat);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StandardMetadataFormat, init$, void)},
+		{"addSingleAttributeElement", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(StandardMetadataFormat, addSingleAttributeElement, void, $String*, $String*, int32_t)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(StandardMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.StandardMetadataFormat",
+		"javax.imageio.metadata.IIOMetadataFormatImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(StandardMetadataFormat, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StandardMetadataFormat);
+	});
 	return class$;
 }
 

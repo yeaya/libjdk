@@ -48,6 +48,7 @@ class FeatureState : public ::java::lang::Object {
 	$class(FeatureState, 0, ::java::lang::Object)
 public:
 	FeatureState();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::util::Status* status, bool state);
 	static ::com::sun::org::apache::xerces::internal::util::FeatureState* is(bool value);
 	virtual bool isExceptional();

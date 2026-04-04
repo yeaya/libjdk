@@ -1,5 +1,4 @@
 #include <javax/sound/midi/MidiMessage.h>
-
 #include <java/lang/Cloneable.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <jcpp.h>
@@ -14,35 +13,6 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$FieldInfo _MidiMessage_FieldInfo_[] = {
-	{"data", "[B", nullptr, $PROTECTED, $field(MidiMessage, data)},
-	{"length", "I", nullptr, $PROTECTED, $field(MidiMessage, length)},
-	{}
-};
-
-$MethodInfo _MidiMessage_MethodInfo_[] = {
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "([B)V", nullptr, $PROTECTED, $method(MidiMessage, init$, void, $bytes*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(MidiMessage, getLength, int32_t)},
-	{"getMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(MidiMessage, getMessage, $bytes*)},
-	{"getStatus", "()I", nullptr, $PUBLIC, $virtualMethod(MidiMessage, getStatus, int32_t)},
-	{"setMessage", "([BI)V", nullptr, $PROTECTED, $virtualMethod(MidiMessage, setMessage, void, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{}
-};
-
-$ClassInfo _MidiMessage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.sound.midi.MidiMessage",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_MidiMessage_FieldInfo_,
-	_MidiMessage_MethodInfo_
-};
-
-$Object* allocate$MidiMessage($Class* clazz) {
-	return $of($alloc(MidiMessage));
-}
-
 $Object* MidiMessage::clone() {
 	 return this->$Cloneable::clone();
 }
@@ -56,12 +26,12 @@ void MidiMessage::init$($bytes* data) {
 }
 
 void MidiMessage::setMessage($bytes* data, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (length < 0 || (length > 0 && length > $nc(data)->length)) {
 		$throwNew($IndexOutOfBoundsException, $$str({"length out of bounds: "_s, $$str(length)}));
 	}
 	this->length = length;
-	if (this->data == nullptr || $nc(this->data)->length < this->length) {
+	if (this->data == nullptr || this->data->length < this->length) {
 		$set(this, data, $new($bytes, this->length));
 	}
 	$System::arraycopy(data, 0, this->data, 0, length);
@@ -75,7 +45,7 @@ $bytes* MidiMessage::getMessage() {
 
 int32_t MidiMessage::getStatus() {
 	if (this->length > 0) {
-		return ((int32_t)($nc(this->data)->get(0) & (uint32_t)255));
+		return ($nc(this->data)->get(0) & 0xff);
 	}
 	return 0;
 }
@@ -88,7 +58,31 @@ MidiMessage::MidiMessage() {
 }
 
 $Class* MidiMessage::load$($String* name, bool initialize) {
-	$loadClass(MidiMessage, name, initialize, &_MidiMessage_ClassInfo_, allocate$MidiMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "[B", nullptr, $PROTECTED, $field(MidiMessage, data)},
+		{"length", "I", nullptr, $PROTECTED, $field(MidiMessage, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "([B)V", nullptr, $PROTECTED, $method(MidiMessage, init$, void, $bytes*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(MidiMessage, getLength, int32_t)},
+		{"getMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(MidiMessage, getMessage, $bytes*)},
+		{"getStatus", "()I", nullptr, $PUBLIC, $virtualMethod(MidiMessage, getStatus, int32_t)},
+		{"setMessage", "([BI)V", nullptr, $PROTECTED, $virtualMethod(MidiMessage, setMessage, void, $bytes*, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.sound.midi.MidiMessage",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MidiMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MidiMessage);
+	});
 	return class$;
 }
 

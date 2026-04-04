@@ -1,17 +1,14 @@
 #include <com/sun/jmx/remote/util/EnvHelp.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/remote/security/NotificationAccessController.h>
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <com/sun/jmx/remote/util/EnvHelp$SinkOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/Number.h>
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Hashtable.h>
@@ -49,7 +46,6 @@ using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $EnvHelp$SinkOutputStream = ::com::sun::jmx::remote::util::EnvHelp$SinkOutputStream;
 using $IOException = ::java::io::IOException;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $Exception = ::java::lang::Exception;
@@ -63,13 +59,11 @@ using $Number = ::java::lang::Number;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $SortedSet = ::java::util::SortedSet;
 using $StringTokenizer = ::java::util::StringTokenizer;
@@ -85,74 +79,6 @@ namespace com {
 		namespace jmx {
 			namespace remote {
 				namespace util {
-
-$FieldInfo _EnvHelp_FieldInfo_[] = {
-	{"DEFAULT_CLASS_LOADER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, DEFAULT_CLASS_LOADER)},
-	{"DEFAULT_CLASS_LOADER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, DEFAULT_CLASS_LOADER_NAME)},
-	{"BUFFER_SIZE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, BUFFER_SIZE_PROPERTY)},
-	{"MAX_FETCH_NOTIFS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, MAX_FETCH_NOTIFS)},
-	{"FETCH_TIMEOUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, FETCH_TIMEOUT)},
-	{"NOTIF_ACCESS_CONTROLLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, NOTIF_ACCESS_CONTROLLER)},
-	{"DEFAULT_ORB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, DEFAULT_ORB)},
-	{"HIDDEN_ATTRIBUTES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, HIDDEN_ATTRIBUTES)},
-	{"DEFAULT_HIDDEN_ATTRIBUTES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, DEFAULT_HIDDEN_ATTRIBUTES)},
-	{"defaultHiddenStrings", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, defaultHiddenStrings)},
-	{"defaultHiddenPrefixes", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, defaultHiddenPrefixes)},
-	{"SERVER_CONNECTION_TIMEOUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, SERVER_CONNECTION_TIMEOUT)},
-	{"CLIENT_CONNECTION_CHECK_PERIOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, CLIENT_CONNECTION_CHECK_PERIOD)},
-	{"JMX_SERVER_DAEMON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, JMX_SERVER_DAEMON)},
-	{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, logger)},
-	{}
-};
-
-$MethodInfo _EnvHelp_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EnvHelp, init$, void)},
-	{"checkAttributes", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC | $STATIC, $staticMethod(EnvHelp, checkAttributes, void, $Map*)},
-	{"computeBooleanFromString", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EnvHelp, computeBooleanFromString, bool, $String*)},
-	{"computeBooleanFromString", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EnvHelp, computeBooleanFromString, bool, $String*, bool)},
-	{"filterAttributes", "(Ljava/util/Map;)Ljava/util/Map;", "<V:Ljava/lang/Object;>(Ljava/util/Map<Ljava/lang/String;TV;>;)Ljava/util/Map<Ljava/lang/String;TV;>;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, filterAttributes, $Map*, $Map*)},
-	{"getCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(EnvHelp, getCause, $Throwable*, $Throwable*)},
-	{"getConnectionCheckPeriod", "(Ljava/util/Map;)J", "(Ljava/util/Map<Ljava/lang/String;*>;)J", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getConnectionCheckPeriod, int64_t, $Map*)},
-	{"getFetchTimeout", "(Ljava/util/Map;)J", "(Ljava/util/Map<Ljava/lang/String;*>;)J", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getFetchTimeout, int64_t, $Map*)},
-	{"getIntegerAttribute", "(Ljava/util/Map;Ljava/lang/String;JJJ)J", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;JJJ)J", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getIntegerAttribute, int64_t, $Map*, $String*, int64_t, int64_t, int64_t)},
-	{"getMaxFetchNotifNumber", "(Ljava/util/Map;)I", "(Ljava/util/Map<Ljava/lang/String;*>;)I", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getMaxFetchNotifNumber, int32_t, $Map*)},
-	{"getNotifBufferSize", "(Ljava/util/Map;)I", "(Ljava/util/Map<Ljava/lang/String;*>;)I", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getNotifBufferSize, int32_t, $Map*)},
-	{"getNotificationAccessController", "(Ljava/util/Map;)Lcom/sun/jmx/remote/security/NotificationAccessController;", "(Ljava/util/Map<Ljava/lang/String;*>;)Lcom/sun/jmx/remote/security/NotificationAccessController;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getNotificationAccessController, $NotificationAccessController*, $Map*)},
-	{"getServerConnectionTimeout", "(Ljava/util/Map;)J", "(Ljava/util/Map<Ljava/lang/String;*>;)J", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getServerConnectionTimeout, int64_t, $Map*)},
-	{"hideAttributes", "(Ljava/util/SortedMap;)V", "(Ljava/util/SortedMap<Ljava/lang/String;*>;)V", $PRIVATE | $STATIC, $staticMethod(EnvHelp, hideAttributes, void, $SortedMap*)},
-	{"initCause", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(TT;Ljava/lang/Throwable;)TT;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, initCause, $Throwable*, $Throwable*, $Throwable*)},
-	{"isServerDaemon", "(Ljava/util/Map;)Z", "(Ljava/util/Map<Ljava/lang/String;*>;)Z", $PUBLIC | $STATIC, $staticMethod(EnvHelp, isServerDaemon, bool, $Map*)},
-	{"mapToHashtable", "(Ljava/util/Map;)Ljava/util/Hashtable;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;)Ljava/util/Hashtable<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, mapToHashtable, $Hashtable*, $Map*)},
-	{"parseHiddenAttributes", "(Ljava/lang/String;Ljava/util/SortedSet;Ljava/util/SortedSet;)V", "(Ljava/lang/String;Ljava/util/SortedSet<Ljava/lang/String;>;Ljava/util/SortedSet<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(EnvHelp, parseHiddenAttributes, void, $String*, $SortedSet*, $SortedSet*)},
-	{"purgeUnserializable", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE | $STATIC, $staticMethod(EnvHelp, purgeUnserializable, void, $Collection*)},
-	{"resolveClientClassLoader", "(Ljava/util/Map;)Ljava/lang/ClassLoader;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/ClassLoader;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, resolveClientClassLoader, $ClassLoader*, $Map*)},
-	{"resolveServerClassLoader", "(Ljava/util/Map;Ljavax/management/MBeanServer;)Ljava/lang/ClassLoader;", "(Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)Ljava/lang/ClassLoader;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, resolveServerClassLoader, $ClassLoader*, $Map*, $MBeanServer*), "javax.management.InstanceNotFoundException"},
-	{}
-};
-
-$InnerClassInfo _EnvHelp_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.util.EnvHelp$SinkOutputStream", "com.sun.jmx.remote.util.EnvHelp", "SinkOutputStream", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _EnvHelp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.remote.util.EnvHelp",
-	"java.lang.Object",
-	nullptr,
-	_EnvHelp_FieldInfo_,
-	_EnvHelp_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EnvHelp_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.util.EnvHelp$SinkOutputStream"
-};
-
-$Object* allocate$EnvHelp($Class* clazz) {
-	return $of($alloc(EnvHelp));
-}
 
 $String* EnvHelp::DEFAULT_CLASS_LOADER = nullptr;
 $String* EnvHelp::DEFAULT_CLASS_LOADER_NAME = nullptr;
@@ -175,7 +101,7 @@ void EnvHelp::init$() {
 
 $ClassLoader* EnvHelp::resolveServerClassLoader($Map* env, $MBeanServer* mbs) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (env == nullptr) {
 		return $($Thread::currentThread())->getContextClassLoader();
@@ -193,9 +119,13 @@ $ClassLoader* EnvHelp::resolveServerClassLoader($Map* env, $MBeanServer* mbs) {
 		if ($instanceOf($ClassLoader, loader)) {
 			return $cast($ClassLoader, loader);
 		} else {
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("ClassLoader object is not an instance of "_s);
 			$load($ClassLoader);
-			$var($String, var$0, $$str({"ClassLoader object is not an instance of "_s, $($ClassLoader::class$->getName()), " : "_s}));
-			$var($String, msg, $concat(var$0, $($of(loader)->getClass()->getName())));
+			var$0->append($($ClassLoader::class$->getName()));
+			var$0->append(" : "_s);
+			var$0->append($(loader->getClass()->getName()));
+			$var($String, msg, $str(var$0));
 			$throwNew($IllegalArgumentException, msg);
 		}
 	}
@@ -203,9 +133,13 @@ $ClassLoader* EnvHelp::resolveServerClassLoader($Map* env, $MBeanServer* mbs) {
 	if ($instanceOf($ObjectName, name)) {
 		$assign(on, $cast($ObjectName, name));
 	} else {
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("ClassLoader name is not an instance of "_s);
 		$load($ObjectName);
-		$var($String, var$1, $$str({"ClassLoader name is not an instance of "_s, $($ObjectName::class$->getName()), " : "_s}));
-		$var($String, msg, $concat(var$1, $($nc($of(name))->getClass()->getName())));
+		var$1->append($($ObjectName::class$->getName()));
+		var$1->append(" : "_s);
+		var$1->append($($nc(name)->getClass()->getName()));
+		$var($String, msg, $str(var$1));
 		$throwNew($IllegalArgumentException, msg);
 	}
 	if (mbs == nullptr) {
@@ -216,7 +150,7 @@ $ClassLoader* EnvHelp::resolveServerClassLoader($Map* env, $MBeanServer* mbs) {
 
 $ClassLoader* EnvHelp::resolveClientClassLoader($Map* env) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (env == nullptr) {
 		return $($Thread::currentThread())->getContextClassLoader();
@@ -228,9 +162,13 @@ $ClassLoader* EnvHelp::resolveClientClassLoader($Map* env) {
 	if ($instanceOf($ClassLoader, loader)) {
 		return $cast($ClassLoader, loader);
 	} else {
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("ClassLoader object is not an instance of "_s);
 		$load($ClassLoader);
-		$var($String, var$0, $$str({"ClassLoader object is not an instance of "_s, $($ClassLoader::class$->getName()), " : "_s}));
-		$var($String, msg, $concat(var$0, $($nc($of(loader))->getClass()->getName())));
+		var$0->append($($ClassLoader::class$->getName()));
+		var$0->append(" : "_s);
+		var$0->append($($nc(loader)->getClass()->getName()));
+		$var($String, msg, $str(var$0));
 		$throwNew($IllegalArgumentException, msg);
 	}
 }
@@ -243,7 +181,7 @@ $Throwable* EnvHelp::initCause($Throwable* throwable, $Throwable* cause) {
 
 $Throwable* EnvHelp::getCause($Throwable* t) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Throwable, ret, t);
 	try {
@@ -256,25 +194,25 @@ $Throwable* EnvHelp::getCause($Throwable* t) {
 
 int32_t EnvHelp::getNotifBufferSize($Map* env) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int32_t defaultQueueSize = 1000;
 	$var($String, oldP, "jmx.remote.x.buffer.size"_s);
 	try {
 		$var($GetPropertyAction, act, $new($GetPropertyAction, EnvHelp::BUFFER_SIZE_PROPERTY));
-		$var($String, s, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+		$var($String, s, $cast($String, $AccessController::doPrivileged(act)));
 		if (s != nullptr) {
 			defaultQueueSize = $Integer::parseInt(s);
 		} else {
 			$assign(act, $new($GetPropertyAction, oldP));
-			$assign(s, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$assign(s, $cast($String, $AccessController::doPrivileged(act)));
 			if (s != nullptr) {
 				defaultQueueSize = $Integer::parseInt(s);
 			}
 		}
 	} catch ($RuntimeException& e) {
-		$nc(EnvHelp::logger)->warning("getNotifBufferSize"_s, $$str({"Can\'t use System property "_s, EnvHelp::BUFFER_SIZE_PROPERTY, ": "_s, e}));
-		$nc(EnvHelp::logger)->debug("getNotifBufferSize"_s, static_cast<$Throwable*>(e));
+		EnvHelp::logger->warning("getNotifBufferSize"_s, $$str({"Can\'t use System property "_s, EnvHelp::BUFFER_SIZE_PROPERTY, ": "_s, e}));
+		EnvHelp::logger->debug("getNotifBufferSize"_s, e);
 	}
 	int32_t queueSize = defaultQueueSize;
 	try {
@@ -284,8 +222,8 @@ int32_t EnvHelp::getNotifBufferSize($Map* env) {
 			queueSize = (int32_t)EnvHelp::getIntegerAttribute(env, oldP, defaultQueueSize, 0, $Integer::MAX_VALUE);
 		}
 	} catch ($RuntimeException& e) {
-		$nc(EnvHelp::logger)->warning("getNotifBufferSize"_s, $$str({"Can\'t determine queuesize (using default): "_s, e}));
-		$nc(EnvHelp::logger)->debug("getNotifBufferSize"_s, static_cast<$Throwable*>(e));
+		EnvHelp::logger->warning("getNotifBufferSize"_s, $$str({"Can\'t determine queuesize (using default): "_s, e}));
+		EnvHelp::logger->debug("getNotifBufferSize"_s, e);
 	}
 	return queueSize;
 }
@@ -302,19 +240,19 @@ int64_t EnvHelp::getFetchTimeout($Map* env) {
 
 $NotificationAccessController* EnvHelp::getNotificationAccessController($Map* env) {
 	$init(EnvHelp);
-	return (env == nullptr) ? ($NotificationAccessController*)nullptr : $cast($NotificationAccessController, $nc(env)->get(EnvHelp::NOTIF_ACCESS_CONTROLLER));
+	return (env == nullptr) ? ($NotificationAccessController*)nullptr : $cast($NotificationAccessController, env->get(EnvHelp::NOTIF_ACCESS_CONTROLLER));
 }
 
 int64_t EnvHelp::getIntegerAttribute($Map* env, $String* name, int64_t defaultValue, int64_t minValue, int64_t maxValue) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, o, nullptr);
-	if (env == nullptr || ($assign(o, $nc(env)->get(name))) == nullptr) {
+	if (env == nullptr || ($assign(o, env->get(name))) == nullptr) {
 		return defaultValue;
 	}
 	int64_t result = 0;
 	if ($instanceOf($Number, o)) {
-		result = $nc(($cast($Number, o)))->longValue();
+		result = $cast($Number, o)->longValue();
 	} else if ($instanceOf($String, o)) {
 		result = $Long::parseLong($cast($String, o));
 	} else {
@@ -334,26 +272,22 @@ int64_t EnvHelp::getIntegerAttribute($Map* env, $String* name, int64_t defaultVa
 
 void EnvHelp::checkAttributes($Map* attributes) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(attributes)->keySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, key, i$->next());
-			{
-				if (!($instanceOf($String, key))) {
-					$var($String, msg, $str({"Attributes contain key that is not a string: "_s, key}));
-					$throwNew($IllegalArgumentException, msg);
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(attributes)->keySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, key, i$->next());
+		if (!($instanceOf($String, key))) {
+			$var($String, msg, $str({"Attributes contain key that is not a string: "_s, key}));
+			$throwNew($IllegalArgumentException, msg);
 		}
 	}
 }
 
 $Map* EnvHelp::filterAttributes($Map* attributes) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
-	if ($nc(EnvHelp::logger)->traceOn()) {
-		$nc(EnvHelp::logger)->trace("filterAttributes"_s, "starts"_s);
+	$useLocalObjectStack();
+	if (EnvHelp::logger->traceOn()) {
+		EnvHelp::logger->trace("filterAttributes"_s, "starts"_s);
 	}
 	$var($SortedMap, map, $new($TreeMap, attributes));
 	purgeUnserializable($(map->values()));
@@ -363,8 +297,8 @@ $Map* EnvHelp::filterAttributes($Map* attributes) {
 
 void EnvHelp::purgeUnserializable($Collection* objects) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
-	$nc(EnvHelp::logger)->trace("purgeUnserializable"_s, "starts"_s);
+	$useLocalObjectStack();
+	EnvHelp::logger->trace("purgeUnserializable"_s, "starts"_s);
 	$var($ObjectOutputStream, oos, nullptr);
 	int32_t i = 0;
 	{
@@ -372,8 +306,8 @@ void EnvHelp::purgeUnserializable($Collection* objects) {
 		for (; $nc(it)->hasNext(); ++i) {
 			$var($Object, v, it->next());
 			if (v == nullptr || $instanceOf($String, v)) {
-				if ($nc(EnvHelp::logger)->traceOn()) {
-					$nc(EnvHelp::logger)->trace("purgeUnserializable"_s, $$str({"Value trivially serializable: "_s, v}));
+				if (EnvHelp::logger->traceOn()) {
+					EnvHelp::logger->trace("purgeUnserializable"_s, $$str({"Value trivially serializable: "_s, v}));
 				}
 				continue;
 			}
@@ -382,12 +316,12 @@ void EnvHelp::purgeUnserializable($Collection* objects) {
 					$assign(oos, $new($ObjectOutputStream, $$new($EnvHelp$SinkOutputStream)));
 				}
 				$nc(oos)->writeObject(v);
-				if ($nc(EnvHelp::logger)->traceOn()) {
-					$nc(EnvHelp::logger)->trace("purgeUnserializable"_s, $$str({"Value serializable: "_s, v}));
+				if (EnvHelp::logger->traceOn()) {
+					EnvHelp::logger->trace("purgeUnserializable"_s, $$str({"Value serializable: "_s, v}));
 				}
 			} catch ($IOException& e) {
-				if ($nc(EnvHelp::logger)->traceOn()) {
-					$nc(EnvHelp::logger)->trace("purgeUnserializable"_s, $$str({"Value not serializable: "_s, v, ": "_s, e}));
+				if (EnvHelp::logger->traceOn()) {
+					EnvHelp::logger->trace("purgeUnserializable"_s, $$str({"Value not serializable: "_s, v, ": "_s, e}));
 				}
 				it->remove();
 				$assign(oos, nullptr);
@@ -398,13 +332,13 @@ void EnvHelp::purgeUnserializable($Collection* objects) {
 
 void EnvHelp::hideAttributes($SortedMap* map) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(map)->isEmpty()) {
 		return;
 	}
 	$var($SortedSet, hiddenStrings, nullptr);
 	$var($SortedSet, hiddenPrefixes, nullptr);
-	$var($String, hide, $cast($String, $nc(map)->get(EnvHelp::HIDDEN_ATTRIBUTES)));
+	$var($String, hide, $cast($String, map->get(EnvHelp::HIDDEN_ATTRIBUTES)));
 	if (hide != nullptr) {
 		if (hide->startsWith("="_s)) {
 			$assign(hide, hide->substring(1));
@@ -417,15 +351,15 @@ void EnvHelp::hideAttributes($SortedMap* map) {
 	} else {
 		$assign(hide, EnvHelp::DEFAULT_HIDDEN_ATTRIBUTES);
 		$synchronized(EnvHelp::defaultHiddenStrings) {
-			if ($nc(EnvHelp::defaultHiddenStrings)->isEmpty()) {
+			if (EnvHelp::defaultHiddenStrings->isEmpty()) {
 				parseHiddenAttributes(hide, EnvHelp::defaultHiddenStrings, EnvHelp::defaultHiddenPrefixes);
 			}
 			$assign(hiddenStrings, EnvHelp::defaultHiddenStrings);
 			$assign(hiddenPrefixes, EnvHelp::defaultHiddenPrefixes);
 		}
 	}
-	$var($String, sentinelKey, $str({$cast($String, $(map->lastKey())), "X"_s}));
-	$var($Iterator, keyIterator, $nc($(map->keySet()))->iterator());
+	$var($String, sentinelKey, $str({$$cast($String, map->lastKey()), "X"_s}));
+	$var($Iterator, keyIterator, $$nc(map->keySet())->iterator());
 	$var($Iterator, stringIterator, $nc(hiddenStrings)->iterator());
 	$var($Iterator, prefixIterator, $nc(hiddenPrefixes)->iterator());
 	$var($String, nextString, nullptr);
@@ -445,7 +379,7 @@ void EnvHelp::hideAttributes($SortedMap* map) {
 		$var($String, key, $cast($String, keyIterator->next()));
 		int32_t cmp = +1;
 		while ((cmp = $nc(nextString)->compareTo(key)) < 0) {
-			if ($nc(stringIterator)->hasNext()) {
+			if (stringIterator->hasNext()) {
 				$assign(nextString, $cast($String, stringIterator->next()));
 			} else {
 				$assign(nextString, sentinelKey);
@@ -461,7 +395,7 @@ void EnvHelp::hideAttributes($SortedMap* map) {
 				keys$continue = true;
 				break;
 			}
-			if ($nc(prefixIterator)->hasNext()) {
+			if (prefixIterator->hasNext()) {
 				$assign(nextPrefix, $cast($String, prefixIterator->next()));
 			} else {
 				$assign(nextPrefix, sentinelKey);
@@ -476,7 +410,7 @@ void EnvHelp::hideAttributes($SortedMap* map) {
 
 void EnvHelp::parseHiddenAttributes($String* hide, $SortedSet* hiddenStrings, $SortedSet* hiddenPrefixes) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, tok, $new($StringTokenizer, hide));
 	while (tok->hasMoreTokens()) {
 		$var($String, s, tok->nextToken());
@@ -507,7 +441,7 @@ bool EnvHelp::computeBooleanFromString($String* stringBoolean, bool defaultValue
 	$init(EnvHelp);
 	if (stringBoolean == nullptr) {
 		return defaultValue;
-	} else if ($nc(stringBoolean)->equalsIgnoreCase("true"_s)) {
+	} else if (stringBoolean->equalsIgnoreCase("true"_s)) {
 		return true;
 	} else if (stringBoolean->equalsIgnoreCase("false"_s)) {
 		return false;
@@ -518,28 +452,28 @@ bool EnvHelp::computeBooleanFromString($String* stringBoolean, bool defaultValue
 
 $Hashtable* EnvHelp::mapToHashtable($Map* map) {
 	$init(EnvHelp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashMap, m, $new($HashMap, map));
 	if (m->containsKey(nullptr)) {
 		m->remove(nullptr);
 	}
 	{
-		$var($Iterator, i, $nc($(m->values()))->iterator());
+		$var($Iterator, i, $$nc(m->values())->iterator());
 		for (; $nc(i)->hasNext();) {
 			if (i->next() == nullptr) {
 				i->remove();
 			}
 		}
 	}
-	return $new($Hashtable, static_cast<$Map*>(m));
+	return $new($Hashtable, m);
 }
 
 bool EnvHelp::isServerDaemon($Map* env) {
 	$init(EnvHelp);
-	return (env != nullptr) && ("true"_s->equalsIgnoreCase($cast($String, $(env->get(EnvHelp::JMX_SERVER_DAEMON)))));
+	return (env != nullptr) && ("true"_s->equalsIgnoreCase($$cast($String, env->get(EnvHelp::JMX_SERVER_DAEMON))));
 }
 
-void clinit$EnvHelp($Class* class$) {
+void EnvHelp::clinit$($Class* clazz) {
 	$init($JMXConnectorFactory);
 	$assignStatic(EnvHelp::DEFAULT_CLASS_LOADER, $JMXConnectorFactory::DEFAULT_CLASS_LOADER);
 	$init($JMXConnectorServerFactory);
@@ -563,7 +497,69 @@ EnvHelp::EnvHelp() {
 }
 
 $Class* EnvHelp::load$($String* name, bool initialize) {
-	$loadClass(EnvHelp, name, initialize, &_EnvHelp_ClassInfo_, clinit$EnvHelp, allocate$EnvHelp);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_CLASS_LOADER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, DEFAULT_CLASS_LOADER)},
+		{"DEFAULT_CLASS_LOADER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, DEFAULT_CLASS_LOADER_NAME)},
+		{"BUFFER_SIZE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, BUFFER_SIZE_PROPERTY)},
+		{"MAX_FETCH_NOTIFS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, MAX_FETCH_NOTIFS)},
+		{"FETCH_TIMEOUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, FETCH_TIMEOUT)},
+		{"NOTIF_ACCESS_CONTROLLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, NOTIF_ACCESS_CONTROLLER)},
+		{"DEFAULT_ORB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, DEFAULT_ORB)},
+		{"HIDDEN_ATTRIBUTES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, HIDDEN_ATTRIBUTES)},
+		{"DEFAULT_HIDDEN_ATTRIBUTES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, DEFAULT_HIDDEN_ATTRIBUTES)},
+		{"defaultHiddenStrings", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, defaultHiddenStrings)},
+		{"defaultHiddenPrefixes", "Ljava/util/SortedSet;", "Ljava/util/SortedSet<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, defaultHiddenPrefixes)},
+		{"SERVER_CONNECTION_TIMEOUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, SERVER_CONNECTION_TIMEOUT)},
+		{"CLIENT_CONNECTION_CHECK_PERIOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, CLIENT_CONNECTION_CHECK_PERIOD)},
+		{"JMX_SERVER_DAEMON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(EnvHelp, JMX_SERVER_DAEMON)},
+		{"logger", "Lcom/sun/jmx/remote/util/ClassLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(EnvHelp, logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EnvHelp, init$, void)},
+		{"checkAttributes", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC | $STATIC, $staticMethod(EnvHelp, checkAttributes, void, $Map*)},
+		{"computeBooleanFromString", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EnvHelp, computeBooleanFromString, bool, $String*)},
+		{"computeBooleanFromString", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(EnvHelp, computeBooleanFromString, bool, $String*, bool)},
+		{"filterAttributes", "(Ljava/util/Map;)Ljava/util/Map;", "<V:Ljava/lang/Object;>(Ljava/util/Map<Ljava/lang/String;TV;>;)Ljava/util/Map<Ljava/lang/String;TV;>;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, filterAttributes, $Map*, $Map*)},
+		{"getCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC | $STATIC, $staticMethod(EnvHelp, getCause, $Throwable*, $Throwable*)},
+		{"getConnectionCheckPeriod", "(Ljava/util/Map;)J", "(Ljava/util/Map<Ljava/lang/String;*>;)J", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getConnectionCheckPeriod, int64_t, $Map*)},
+		{"getFetchTimeout", "(Ljava/util/Map;)J", "(Ljava/util/Map<Ljava/lang/String;*>;)J", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getFetchTimeout, int64_t, $Map*)},
+		{"getIntegerAttribute", "(Ljava/util/Map;Ljava/lang/String;JJJ)J", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;JJJ)J", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getIntegerAttribute, int64_t, $Map*, $String*, int64_t, int64_t, int64_t)},
+		{"getMaxFetchNotifNumber", "(Ljava/util/Map;)I", "(Ljava/util/Map<Ljava/lang/String;*>;)I", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getMaxFetchNotifNumber, int32_t, $Map*)},
+		{"getNotifBufferSize", "(Ljava/util/Map;)I", "(Ljava/util/Map<Ljava/lang/String;*>;)I", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getNotifBufferSize, int32_t, $Map*)},
+		{"getNotificationAccessController", "(Ljava/util/Map;)Lcom/sun/jmx/remote/security/NotificationAccessController;", "(Ljava/util/Map<Ljava/lang/String;*>;)Lcom/sun/jmx/remote/security/NotificationAccessController;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getNotificationAccessController, $NotificationAccessController*, $Map*)},
+		{"getServerConnectionTimeout", "(Ljava/util/Map;)J", "(Ljava/util/Map<Ljava/lang/String;*>;)J", $PUBLIC | $STATIC, $staticMethod(EnvHelp, getServerConnectionTimeout, int64_t, $Map*)},
+		{"hideAttributes", "(Ljava/util/SortedMap;)V", "(Ljava/util/SortedMap<Ljava/lang/String;*>;)V", $PRIVATE | $STATIC, $staticMethod(EnvHelp, hideAttributes, void, $SortedMap*)},
+		{"initCause", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)Ljava/lang/Throwable;", "<T:Ljava/lang/Throwable;>(TT;Ljava/lang/Throwable;)TT;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, initCause, $Throwable*, $Throwable*, $Throwable*)},
+		{"isServerDaemon", "(Ljava/util/Map;)Z", "(Ljava/util/Map<Ljava/lang/String;*>;)Z", $PUBLIC | $STATIC, $staticMethod(EnvHelp, isServerDaemon, bool, $Map*)},
+		{"mapToHashtable", "(Ljava/util/Map;)Ljava/util/Hashtable;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Map<TK;TV;>;)Ljava/util/Hashtable<TK;TV;>;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, mapToHashtable, $Hashtable*, $Map*)},
+		{"parseHiddenAttributes", "(Ljava/lang/String;Ljava/util/SortedSet;Ljava/util/SortedSet;)V", "(Ljava/lang/String;Ljava/util/SortedSet<Ljava/lang/String;>;Ljava/util/SortedSet<Ljava/lang/String;>;)V", $PRIVATE | $STATIC, $staticMethod(EnvHelp, parseHiddenAttributes, void, $String*, $SortedSet*, $SortedSet*)},
+		{"purgeUnserializable", "(Ljava/util/Collection;)V", "(Ljava/util/Collection<*>;)V", $PRIVATE | $STATIC, $staticMethod(EnvHelp, purgeUnserializable, void, $Collection*)},
+		{"resolveClientClassLoader", "(Ljava/util/Map;)Ljava/lang/ClassLoader;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/lang/ClassLoader;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, resolveClientClassLoader, $ClassLoader*, $Map*)},
+		{"resolveServerClassLoader", "(Ljava/util/Map;Ljavax/management/MBeanServer;)Ljava/lang/ClassLoader;", "(Ljava/util/Map<Ljava/lang/String;*>;Ljavax/management/MBeanServer;)Ljava/lang/ClassLoader;", $PUBLIC | $STATIC, $staticMethod(EnvHelp, resolveServerClassLoader, $ClassLoader*, $Map*, $MBeanServer*), "javax.management.InstanceNotFoundException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.util.EnvHelp$SinkOutputStream", "com.sun.jmx.remote.util.EnvHelp", "SinkOutputStream", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.remote.util.EnvHelp",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.util.EnvHelp$SinkOutputStream"
+	};
+	$loadClass(EnvHelp, name, initialize, &classInfo$$, EnvHelp::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(EnvHelp);
+	});
 	return class$;
 }
 

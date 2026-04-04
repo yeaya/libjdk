@@ -1,7 +1,5 @@
 #include <com/apple/laf/AquaButtonBorder.h>
-
 #include <apple/laf/JRSUIConstants$Focused.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaBorder.h>
@@ -36,16 +34,13 @@
 #undef YES
 
 using $JRSUIConstants$Focused = ::apple::laf::JRSUIConstants$Focused;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaBorder = ::com::apple::laf::AquaBorder;
 using $AquaButtonBorder$1 = ::com::apple::laf::AquaButtonBorder$1;
 using $AquaButtonBorder$Dynamic = ::com::apple::laf::AquaButtonBorder$Dynamic;
 using $AquaButtonBorder$Toggle = ::com::apple::laf::AquaButtonBorder$Toggle;
 using $AquaButtonBorder$Toolbar = ::com::apple::laf::AquaButtonBorder$Toolbar;
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
-using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
@@ -68,63 +63,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaButtonBorder_FieldInfo_[] = {
-	{"fDynamic", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonBorder$Dynamic;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonBorder, fDynamic)},
-	{"fToggle", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonBorder$Toggle;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonBorder, fToggle)},
-	{"fToolBar", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonBorder$Toolbar;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonBorder, fToolBar)},
-	{"fBevel", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonBorder$Named;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonBorder, fBevel)},
-	{}
-};
-
-$MethodInfo _AquaButtonBorder_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, $PUBLIC, $method(AquaButtonBorder, init$, void, $AquaUtilControlSize$SizeDescriptor*)},
-	{"<init>", "(Lcom/apple/laf/AquaButtonBorder;)V", nullptr, $PUBLIC, $method(AquaButtonBorder, init$, void, AquaButtonBorder*)},
-	{"alterPreferredSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, alterPreferredSize, void, $Dimension*)},
-	{"doButtonPaint", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder, doButtonPaint, void, $AbstractButton*, $ButtonModel*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"getBevelButtonBorder", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonBorder, getBevelButtonBorder, AquaButtonBorder*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, getBorderInsets, $Insets*, $Component*)},
-	{"getButtonState", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder, getButtonState, $JRSUIConstants$State*, $AbstractButton*, $ButtonModel*)},
-	{"getContentInsets", "(Ljavax/swing/AbstractButton;II)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, getContentInsets, $Insets*, $AbstractButton*, int32_t, int32_t)},
-	{"getDynamicButtonBorder", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonBorder, getDynamicButtonBorder, AquaButtonBorder*)},
-	{"getToggleButtonBorder", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonBorder, getToggleButtonBorder, AquaButtonBorder*)},
-	{"getToolBarButtonBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonBorder, getToolBarButtonBorder, $Border*)},
-	{"hasSmallerInsets", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, hasSmallerInsets, bool, $JComponent*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, isBorderOpaque, bool)},
-	{"isSelectionPressing", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder, isSelectionPressing, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintButton", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, paintButton, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonBorder_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonBorder$Toolbar", "com.apple.laf.AquaButtonBorder", "Toolbar", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonBorder$Named", "com.apple.laf.AquaButtonBorder", "Named", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonBorder$Toggle", "com.apple.laf.AquaButtonBorder", "Toggle", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonBorder$Dynamic", "com.apple.laf.AquaButtonBorder", "Dynamic", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonBorder$SizeConstants", "com.apple.laf.AquaButtonBorder", "SizeConstants", $STATIC},
-	{"com.apple.laf.AquaButtonBorder$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.apple.laf.AquaButtonBorder",
-	"com.apple.laf.AquaBorder",
-	nullptr,
-	_AquaButtonBorder_FieldInfo_,
-	_AquaButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonBorder$Toolbar,com.apple.laf.AquaButtonBorder$Named,com.apple.laf.AquaButtonBorder$Toggle,com.apple.laf.AquaButtonBorder$Dynamic,com.apple.laf.AquaButtonBorder$Dynamic$1,com.apple.laf.AquaButtonBorder$SizeConstants,com.apple.laf.AquaButtonBorder$1"
-};
-
-$Object* allocate$AquaButtonBorder($Class* clazz) {
-	return $of($alloc(AquaButtonBorder));
-}
-
 $AquaUtils$RecyclableSingleton* AquaButtonBorder::fDynamic = nullptr;
 $AquaUtils$RecyclableSingleton* AquaButtonBorder::fToggle = nullptr;
 $AquaUtils$RecyclableSingleton* AquaButtonBorder::fToolBar = nullptr;
@@ -132,22 +70,22 @@ $AquaUtils$RecyclableSingleton* AquaButtonBorder::fBevel = nullptr;
 
 AquaButtonBorder* AquaButtonBorder::getDynamicButtonBorder() {
 	$init(AquaButtonBorder);
-	return $cast(AquaButtonBorder, $nc(AquaButtonBorder::fDynamic)->get());
+	return $cast(AquaButtonBorder, AquaButtonBorder::fDynamic->get());
 }
 
 AquaButtonBorder* AquaButtonBorder::getToggleButtonBorder() {
 	$init(AquaButtonBorder);
-	return $cast(AquaButtonBorder, $nc(AquaButtonBorder::fToggle)->get());
+	return $cast(AquaButtonBorder, AquaButtonBorder::fToggle->get());
 }
 
 $Border* AquaButtonBorder::getToolBarButtonBorder() {
 	$init(AquaButtonBorder);
-	return $cast($Border, $nc(AquaButtonBorder::fToolBar)->get());
+	return $cast($Border, AquaButtonBorder::fToolBar->get());
 }
 
 AquaButtonBorder* AquaButtonBorder::getBevelButtonBorder() {
 	$init(AquaButtonBorder);
-	return $cast(AquaButtonBorder, $nc(AquaButtonBorder::fBevel)->get());
+	return $cast(AquaButtonBorder, AquaButtonBorder::fBevel->get());
 }
 
 void AquaButtonBorder::init$($AquaUtilControlSize$SizeDescriptor* sizeDescriptor) {
@@ -155,14 +93,14 @@ void AquaButtonBorder::init$($AquaUtilControlSize$SizeDescriptor* sizeDescriptor
 }
 
 void AquaButtonBorder::init$(AquaButtonBorder* other) {
-	$AquaBorder::init$(static_cast<$AquaBorder*>(other));
+	$AquaBorder::init$(other);
 }
 
 void AquaButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
 }
 
 void AquaButtonBorder::paintButton($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(b)->getModel());
 	$var($JRSUIConstants$State, state, getButtonState(b, model));
@@ -170,7 +108,7 @@ void AquaButtonBorder::paintButton($Component* c, $Graphics* g, int32_t x, int32
 	$init($JRSUIConstants$State);
 	bool var$0 = (state != $JRSUIConstants$State::DISABLED && state != $JRSUIConstants$State::INACTIVE) && b->isFocusPainted();
 	$init($JRSUIConstants$Focused);
-	$nc($nc(this->painter)->state)->set(var$0 && isFocused(b) ? static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::YES) : static_cast<$JRSUIConstants$Property*>($JRSUIConstants$Focused::NO));
+	$nc(this->painter->state)->set(var$0 && isFocused(b) ? $JRSUIConstants$Focused::YES : $JRSUIConstants$Focused::NO);
 	$var($Insets, subInsets, $nc(this->sizeVariant)->insets);
 	x += $nc(subInsets)->left;
 	y += subInsets->top;
@@ -197,12 +135,12 @@ $JRSUIConstants$State* AquaButtonBorder::getButtonState($AbstractButton* b, $But
 		$init($JRSUIConstants$State);
 		return $JRSUIConstants$State::PRESSED;
 	}
-	bool var$1 = $nc(model)->isSelected();
+	bool var$1 = model->isSelected();
 	if (var$1 && isSelectionPressing()) {
 		$init($JRSUIConstants$State);
 		return $JRSUIConstants$State::PRESSED;
 	}
-	if (($instanceOf($JButton, b)) && $nc(($cast($JButton, b)))->isDefaultButton()) {
+	if (($instanceOf($JButton, b)) && $cast($JButton, b)->isDefaultButton()) {
 		$init($JRSUIConstants$State);
 		return $JRSUIConstants$State::PULSED;
 	}
@@ -215,25 +153,25 @@ bool AquaButtonBorder::isSelectionPressing() {
 }
 
 bool AquaButtonBorder::hasSmallerInsets($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, inset, $nc(c)->getInsets());
 	$var($Insets, margin, $nc(this->sizeVariant)->margins);
 	if ($nc(margin)->equals(inset)) {
 		return false;
 	}
-	return (($nc(inset)->top < $nc(margin)->top) || ($nc(inset)->left < $nc(margin)->left) || ($nc(inset)->right < $nc(margin)->right) || ($nc(inset)->bottom < $nc(margin)->bottom));
+	return (($nc(inset)->top < margin->top) || (inset->left < margin->left) || (inset->right < margin->right) || (inset->bottom < margin->bottom));
 }
 
 $Insets* AquaButtonBorder::getBorderInsets($Component* c) {
 	if (c == nullptr || !($instanceOf($AbstractButton, c))) {
 		return $new($Insets, 0, 0, 0, 0);
 	}
-	$var($Insets, margin, $nc(($cast($AbstractButton, c)))->getMargin());
-	$assign(margin, (margin == nullptr) ? static_cast<$Insets*>($new($InsetsUIResource, 0, 0, 0, 0)) : $cast($Insets, $nc(margin)->clone()));
-	margin->top += $nc($nc(this->sizeVariant)->margins)->top;
-	margin->bottom += $nc($nc(this->sizeVariant)->margins)->bottom;
-	margin->left += $nc($nc(this->sizeVariant)->margins)->left;
-	margin->right += $nc($nc(this->sizeVariant)->margins)->right;
+	$var($Insets, margin, $nc($cast($AbstractButton, c))->getMargin());
+	$assign(margin, (margin == nullptr) ? $cast($Insets, $new($InsetsUIResource, 0, 0, 0, 0)) : $cast($Insets, margin->clone()));
+	$nc(margin)->top += $nc($nc(this->sizeVariant)->margins)->top;
+	margin->bottom += this->sizeVariant->margins->bottom;
+	margin->left += this->sizeVariant->margins->left;
+	margin->right += this->sizeVariant->margins->right;
 	return margin;
 }
 
@@ -242,11 +180,11 @@ $Insets* AquaButtonBorder::getContentInsets($AbstractButton* b, int32_t w, int32
 }
 
 void AquaButtonBorder::alterPreferredSize($Dimension* d) {
-	if ($nc(this->sizeVariant)->h > 0 && $nc(this->sizeVariant)->h > $nc(d)->height) {
-		d->height = $nc(this->sizeVariant)->h;
+	if ($nc(this->sizeVariant)->h > 0 && this->sizeVariant->h > $nc(d)->height) {
+		d->height = this->sizeVariant->h;
 	}
-	if ($nc(this->sizeVariant)->w > 0 && $nc(this->sizeVariant)->w > $nc(d)->width) {
-		d->width = $nc(this->sizeVariant)->w;
+	if (this->sizeVariant->w > 0 && this->sizeVariant->w > $nc(d)->width) {
+		d->width = this->sizeVariant->w;
 	}
 }
 
@@ -254,7 +192,7 @@ bool AquaButtonBorder::isBorderOpaque() {
 	return false;
 }
 
-void clinit$AquaButtonBorder($Class* class$) {
+void AquaButtonBorder::clinit$($Class* clazz) {
 	$load($AquaButtonBorder$Dynamic);
 	$assignStatic(AquaButtonBorder::fDynamic, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, $AquaButtonBorder$Dynamic::class$));
 	$load($AquaButtonBorder$Toggle);
@@ -268,7 +206,58 @@ AquaButtonBorder::AquaButtonBorder() {
 }
 
 $Class* AquaButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonBorder, name, initialize, &_AquaButtonBorder_ClassInfo_, clinit$AquaButtonBorder, allocate$AquaButtonBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"fDynamic", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonBorder$Dynamic;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonBorder, fDynamic)},
+		{"fToggle", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonBorder$Toggle;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonBorder, fToggle)},
+		{"fToolBar", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonBorder$Toolbar;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonBorder, fToolBar)},
+		{"fBevel", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaButtonBorder$Named;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonBorder, fBevel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaUtilControlSize$SizeDescriptor;)V", nullptr, $PUBLIC, $method(AquaButtonBorder, init$, void, $AquaUtilControlSize$SizeDescriptor*)},
+		{"<init>", "(Lcom/apple/laf/AquaButtonBorder;)V", nullptr, $PUBLIC, $method(AquaButtonBorder, init$, void, AquaButtonBorder*)},
+		{"alterPreferredSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, alterPreferredSize, void, $Dimension*)},
+		{"doButtonPaint", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder, doButtonPaint, void, $AbstractButton*, $ButtonModel*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"getBevelButtonBorder", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonBorder, getBevelButtonBorder, AquaButtonBorder*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, getBorderInsets, $Insets*, $Component*)},
+		{"getButtonState", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;)Lapple/laf/JRSUIConstants$State;", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder, getButtonState, $JRSUIConstants$State*, $AbstractButton*, $ButtonModel*)},
+		{"getContentInsets", "(Ljavax/swing/AbstractButton;II)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, getContentInsets, $Insets*, $AbstractButton*, int32_t, int32_t)},
+		{"getDynamicButtonBorder", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonBorder, getDynamicButtonBorder, AquaButtonBorder*)},
+		{"getToggleButtonBorder", "()Lcom/apple/laf/AquaButtonBorder;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonBorder, getToggleButtonBorder, AquaButtonBorder*)},
+		{"getToolBarButtonBorder", "()Ljavax/swing/border/Border;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaButtonBorder, getToolBarButtonBorder, $Border*)},
+		{"hasSmallerInsets", "(Ljavax/swing/JComponent;)Z", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, hasSmallerInsets, bool, $JComponent*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, isBorderOpaque, bool)},
+		{"isSelectionPressing", "()Z", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder, isSelectionPressing, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintButton", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaButtonBorder, paintButton, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonBorder$Toolbar", "com.apple.laf.AquaButtonBorder", "Toolbar", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonBorder$Named", "com.apple.laf.AquaButtonBorder", "Named", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonBorder$Toggle", "com.apple.laf.AquaButtonBorder", "Toggle", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonBorder$Dynamic", "com.apple.laf.AquaButtonBorder", "Dynamic", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonBorder$SizeConstants", "com.apple.laf.AquaButtonBorder", "SizeConstants", $STATIC},
+		{"com.apple.laf.AquaButtonBorder$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.apple.laf.AquaButtonBorder",
+		"com.apple.laf.AquaBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonBorder$Toolbar,com.apple.laf.AquaButtonBorder$Named,com.apple.laf.AquaButtonBorder$Toggle,com.apple.laf.AquaButtonBorder$Dynamic,com.apple.laf.AquaButtonBorder$Dynamic$1,com.apple.laf.AquaButtonBorder$SizeConstants,com.apple.laf.AquaButtonBorder$1"
+	};
+	$loadClass(AquaButtonBorder, name, initialize, &classInfo$$, AquaButtonBorder::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonBorder));
+	});
 	return class$;
 }
 

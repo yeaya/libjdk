@@ -170,6 +170,7 @@ class $import Lower : public ::com::sun::tools::javac::tree::TreeTranslator {
 	$class(Lower, 0, ::com::sun::tools::javac::tree::TreeTranslator)
 public:
 	Lower();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::tree::JCTree$JCExpression* abstractLval(::com::sun::tools::javac::tree::JCTree$JCExpression* lval, ::com::sun::tools::javac::comp::Lower$TreeBuilder* builder);
 	virtual ::com::sun::tools::javac::tree::JCTree$JCExpression* abstractRval(::com::sun::tools::javac::tree::JCTree$JCExpression* rval, ::com::sun::tools::javac::code::Type* type, ::com::sun::tools::javac::comp::Lower$TreeBuilder* builder);

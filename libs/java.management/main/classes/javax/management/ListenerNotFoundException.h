@@ -14,10 +14,13 @@ public:
 	ListenerNotFoundException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x9B7D1860A0C7B86B;
+	static const int64_t serialVersionUID = (int64_t)0x9b7d1860a0c7b86b;
 	ListenerNotFoundException(const ListenerNotFoundException& e);
 	virtual void throw$() override;
-	inline ListenerNotFoundException* operator ->() {
+	inline ListenerNotFoundException* operator ->() const {
+		return (ListenerNotFoundException*)throwing$;
+	}
+	inline operator ListenerNotFoundException*() const {
 		return (ListenerNotFoundException*)throwing$;
 	}
 };

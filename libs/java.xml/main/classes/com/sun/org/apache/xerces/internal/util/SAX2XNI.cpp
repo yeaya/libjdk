@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/SAX2XNI.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/WrappedSAXException.h>
 #include <com/sun/org/apache/xerces/internal/util/LocatorWrapper.h>
@@ -7,7 +6,6 @@
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLAttributesImpl.h>
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
-#include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
@@ -28,7 +26,6 @@ using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::Names
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLAttributesImpl = ::com::sun::org::apache::xerces::internal::util::XMLAttributesImpl;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
-using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
@@ -48,55 +45,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _SAX2XNI_FieldInfo_[] = {
-	{"fCore", "Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PRIVATE, $field(SAX2XNI, fCore)},
-	{"nsContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PRIVATE | $FINAL, $field(SAX2XNI, nsContext)},
-	{"symbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE | $FINAL, $field(SAX2XNI, symbolTable)},
-	{"locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(SAX2XNI, locator)},
-	{"xa", "Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PRIVATE | $FINAL, $field(SAX2XNI, xa)},
-	{}
-};
-
-$MethodInfo _SAX2XNI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $method(SAX2XNI, init$, void, $XMLDocumentHandler*)},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"createAttributes", "(Lorg/xml/sax/Attributes;)Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PRIVATE, $method(SAX2XNI, createAttributes, $XMLAttributes*, $Attributes*)},
-	{"createQName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $method(SAX2XNI, createQName, $QName*, $String*, $String*, $String*)},
-	{"createXMLString", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE, $method(SAX2XNI, createXMLString, $XMLString*, $String*)},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, endPrefixMapping, void, $String*)},
-	{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, getDocumentHandler, $XMLDocumentHandler*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, setDocumentHandler, void, $XMLDocumentHandler*)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, setDocumentLocator, void, $Locator*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, skippedEntity, void, $String*)},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, startPrefixMapping, void, $String*, $String*)},
-	{"symbolize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SAX2XNI, symbolize, $String*, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SAX2XNI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.SAX2XNI",
-	"java.lang.Object",
-	"org.xml.sax.ContentHandler,com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentSource",
-	_SAX2XNI_FieldInfo_,
-	_SAX2XNI_MethodInfo_
-};
-
-$Object* allocate$SAX2XNI($Class* clazz) {
-	return $of($alloc(SAX2XNI));
-}
 
 int32_t SAX2XNI::hashCode() {
 	 return this->$ContentHandler::hashCode();
@@ -135,7 +83,7 @@ $XMLDocumentHandler* SAX2XNI::getDocumentHandler() {
 
 void SAX2XNI::startDocument() {
 	try {
-		$nc(this->nsContext)->reset();
+		this->nsContext->reset();
 		$var($XMLLocator, xmlLocator, nullptr);
 		if (this->locator == nullptr) {
 			$assign(xmlLocator, $new($SimpleLocator, nullptr, nullptr, -1, -1));
@@ -157,7 +105,7 @@ void SAX2XNI::endDocument() {
 }
 
 void SAX2XNI::startElement($String* uri, $String* local, $String* qname, $Attributes* att) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($QName, var$0, createQName(uri, local, qname));
 		$nc(this->fCore)->startElement(var$0, $(createAttributes(att)), nullptr);
@@ -191,16 +139,16 @@ void SAX2XNI::ignorableWhitespace($chars* buf, int32_t offset, int32_t len) {
 }
 
 void SAX2XNI::startPrefixMapping($String* prefix, $String* uri) {
-	$nc(this->nsContext)->pushContext();
-	$nc(this->nsContext)->declarePrefix(prefix, uri);
+	this->nsContext->pushContext();
+	this->nsContext->declarePrefix(prefix, uri);
 }
 
 void SAX2XNI::endPrefixMapping($String* prefix) {
-	$nc(this->nsContext)->popContext();
+	this->nsContext->popContext();
 }
 
 void SAX2XNI::processingInstruction($String* target, $String* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, var$0, symbolize(target));
 		$nc(this->fCore)->processingInstruction(var$0, $(createXMLString(data)), nullptr);
@@ -217,10 +165,10 @@ void SAX2XNI::setDocumentLocator($Locator* _loc) {
 }
 
 $QName* SAX2XNI::createQName($String* uri$renamed, $String* local$renamed, $String* raw) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, uri, uri$renamed);
 	$var($String, local, local$renamed);
-	int32_t idx = $nc(raw)->indexOf((int32_t)u':');
+	int32_t idx = $nc(raw)->indexOf(u':');
 	if ($nc(local)->length() == 0) {
 		$assign(uri, ""_s);
 		if (idx < 0) {
@@ -248,7 +196,7 @@ $String* SAX2XNI::symbolize($String* s) {
 	if (s == nullptr) {
 		return nullptr;
 	} else {
-		return $nc(this->symbolTable)->addSymbol(s);
+		return this->symbolTable->addSymbol(s);
 	}
 }
 
@@ -258,15 +206,15 @@ $XMLString* SAX2XNI::createXMLString($String* str) {
 }
 
 $XMLAttributes* SAX2XNI::createAttributes($Attributes* att) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->xa)->removeAllAttributes();
+	$useLocalObjectStack();
+	this->xa->removeAllAttributes();
 	int32_t len = $nc(att)->getLength();
 	for (int32_t i = 0; i < len; ++i) {
 		$var($String, var$1, att->getURI(i));
 		$var($String, var$2, att->getLocalName(i));
 		$var($QName, var$0, createQName(var$1, var$2, $(att->getQName(i))));
 		$var($String, var$3, att->getType(i));
-		$nc(this->xa)->addAttribute(var$0, var$3, $(att->getValue(i)));
+		this->xa->addAttribute(var$0, var$3, $(att->getValue(i)));
 	}
 	return this->xa;
 }
@@ -275,7 +223,51 @@ SAX2XNI::SAX2XNI() {
 }
 
 $Class* SAX2XNI::load$($String* name, bool initialize) {
-	$loadClass(SAX2XNI, name, initialize, &_SAX2XNI_ClassInfo_, allocate$SAX2XNI);
+	$FieldInfo fieldInfos$$[] = {
+		{"fCore", "Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PRIVATE, $field(SAX2XNI, fCore)},
+		{"nsContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PRIVATE | $FINAL, $field(SAX2XNI, nsContext)},
+		{"symbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE | $FINAL, $field(SAX2XNI, symbolTable)},
+		{"locator", "Lorg/xml/sax/Locator;", nullptr, $PRIVATE, $field(SAX2XNI, locator)},
+		{"xa", "Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PRIVATE | $FINAL, $field(SAX2XNI, xa)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $method(SAX2XNI, init$, void, $XMLDocumentHandler*)},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"createAttributes", "(Lorg/xml/sax/Attributes;)Lcom/sun/org/apache/xerces/internal/xni/XMLAttributes;", nullptr, $PRIVATE, $method(SAX2XNI, createAttributes, $XMLAttributes*, $Attributes*)},
+		{"createQName", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $PRIVATE, $method(SAX2XNI, createQName, $QName*, $String*, $String*, $String*)},
+		{"createXMLString", "(Ljava/lang/String;)Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $PRIVATE, $method(SAX2XNI, createXMLString, $XMLString*, $String*)},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, endPrefixMapping, void, $String*)},
+		{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, getDocumentHandler, $XMLDocumentHandler*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, setDocumentHandler, void, $XMLDocumentHandler*)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, setDocumentLocator, void, $Locator*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, skippedEntity, void, $String*)},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SAX2XNI, startPrefixMapping, void, $String*, $String*)},
+		{"symbolize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SAX2XNI, symbolize, $String*, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.SAX2XNI",
+		"java.lang.Object",
+		"org.xml.sax.ContentHandler,com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentSource",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SAX2XNI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SAX2XNI));
+	});
 	return class$;
 }
 

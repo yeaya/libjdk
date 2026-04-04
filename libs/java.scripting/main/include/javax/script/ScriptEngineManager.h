@@ -48,6 +48,7 @@ class $import ScriptEngineManager : public ::java::lang::Object {
 	$class(ScriptEngineManager, 0, ::java::lang::Object)
 public:
 	ScriptEngineManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::lang::ClassLoader* loader);
 	static void associateFactory(::java::util::Map* associations, $String* association, ::javax::script::ScriptEngineFactory* factory);

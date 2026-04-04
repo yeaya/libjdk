@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFWritableImageMetadata.h>
-
 #include <com/sun/imageio/plugins/gif/GIFImageMetadata.h>
 #include <com/sun/imageio/plugins/gif/GIFMetadata.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -22,7 +21,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $Node = ::org::w3c::dom::Node;
@@ -32,35 +30,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace gif {
-
-$FieldInfo _GIFWritableImageMetadata_FieldInfo_[] = {
-	{"NATIVE_FORMAT_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFWritableImageMetadata, NATIVE_FORMAT_NAME)},
-	{}
-};
-
-$MethodInfo _GIFWritableImageMetadata_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GIFWritableImageMetadata, init$, void)},
-	{"fromISO8859", "(Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(GIFWritableImageMetadata, fromISO8859, $bytes*, $String*)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(GIFWritableImageMetadata, isReadOnly, bool)},
-	{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFWritableImageMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFWritableImageMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFWritableImageMetadata, reset, void)},
-	{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFWritableImageMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{}
-};
-
-$ClassInfo _GIFWritableImageMetadata_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFWritableImageMetadata",
-	"com.sun.imageio.plugins.gif.GIFImageMetadata",
-	nullptr,
-	_GIFWritableImageMetadata_FieldInfo_,
-	_GIFWritableImageMetadata_MethodInfo_
-};
-
-$Object* allocate$GIFWritableImageMetadata($Class* clazz) {
-	return $of($alloc(GIFWritableImageMetadata));
-}
 
 $String* GIFWritableImageMetadata::NATIVE_FORMAT_NAME = nullptr;
 
@@ -111,20 +80,20 @@ $bytes* GIFWritableImageMetadata::fromISO8859($String* data) {
 }
 
 void GIFWritableImageMetadata::mergeNativeTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, root);
 	$init($GIFImageMetadata);
-	if (!$nc($($nc(node)->getNodeName()))->equals($GIFImageMetadata::nativeMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals($GIFImageMetadata::nativeMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, $GIFImageMetadata::nativeMetadataFormatName}));
 	}
-	$assign(node, $nc(node)->getFirstChild());
+	$assign(node, node->getFirstChild());
 	while (node != nullptr) {
 		$var($String, name, node->getNodeName());
 		if ($nc(name)->equals("ImageDescriptor"_s)) {
-			this->imageLeftPosition = getIntAttribute(node, "imageLeftPosition"_s, -1, true, true, 0, 0x0000FFFF);
-			this->imageTopPosition = getIntAttribute(node, "imageTopPosition"_s, -1, true, true, 0, 0x0000FFFF);
-			this->imageWidth = getIntAttribute(node, "imageWidth"_s, -1, true, true, 1, 0x0000FFFF);
-			this->imageHeight = getIntAttribute(node, "imageHeight"_s, -1, true, true, 1, 0x0000FFFF);
+			this->imageLeftPosition = getIntAttribute(node, "imageLeftPosition"_s, -1, true, true, 0, 0x0000ffff);
+			this->imageTopPosition = getIntAttribute(node, "imageTopPosition"_s, -1, true, true, 0, 0x0000ffff);
+			this->imageWidth = getIntAttribute(node, "imageWidth"_s, -1, true, true, 1, 0x0000ffff);
+			this->imageHeight = getIntAttribute(node, "imageHeight"_s, -1, true, true, 1, 0x0000ffff);
 			this->interlaceFlag = getBooleanAttribute(node, "interlaceFlag"_s, false, true);
 		} else if (name->equals("LocalColorTable"_s)) {
 			int32_t sizeOfLocalColorTable = getIntAttribute(node, "sizeOfLocalColorTable"_s, true, 2, 256);
@@ -141,14 +110,14 @@ void GIFWritableImageMetadata::mergeNativeTree($Node* root) {
 			}
 			this->userInputFlag = getBooleanAttribute(node, "userInputFlag"_s, false, true);
 			this->transparentColorFlag = getBooleanAttribute(node, "transparentColorFlag"_s, false, true);
-			this->delayTime = getIntAttribute(node, "delayTime"_s, -1, true, true, 0, 0x0000FFFF);
-			this->transparentColorIndex = getIntAttribute(node, "transparentColorIndex"_s, -1, true, true, 0, 0x0000FFFF);
+			this->delayTime = getIntAttribute(node, "delayTime"_s, -1, true, true, 0, 0x0000ffff);
+			this->transparentColorIndex = getIntAttribute(node, "transparentColorIndex"_s, -1, true, true, 0, 0x0000ffff);
 		} else if (name->equals("PlainTextExtension"_s)) {
 			this->hasPlainTextExtension = true;
-			this->textGridLeft = getIntAttribute(node, "textGridLeft"_s, -1, true, true, 0, 0x0000FFFF);
-			this->textGridTop = getIntAttribute(node, "textGridTop"_s, -1, true, true, 0, 0x0000FFFF);
-			this->textGridWidth = getIntAttribute(node, "textGridWidth"_s, -1, true, true, 1, 0x0000FFFF);
-			this->textGridHeight = getIntAttribute(node, "textGridHeight"_s, -1, true, true, 1, 0x0000FFFF);
+			this->textGridLeft = getIntAttribute(node, "textGridLeft"_s, -1, true, true, 0, 0x0000ffff);
+			this->textGridTop = getIntAttribute(node, "textGridTop"_s, -1, true, true, 0, 0x0000ffff);
+			this->textGridWidth = getIntAttribute(node, "textGridWidth"_s, -1, true, true, 1, 0x0000ffff);
+			this->textGridHeight = getIntAttribute(node, "textGridHeight"_s, -1, true, true, 1, 0x0000ffff);
 			this->characterCellWidth = getIntAttribute(node, "characterCellWidth"_s, -1, true, true, 1, 255);
 			this->characterCellHeight = getIntAttribute(node, "characterCellHeight"_s, -1, true, true, 1, 255);
 			this->textForegroundColor = getIntAttribute(node, "textForegroundColor"_s, -1, true, true, 0, 255);
@@ -157,12 +126,12 @@ void GIFWritableImageMetadata::mergeNativeTree($Node* root) {
 			$set(this, text, fromISO8859(textString));
 		} else if (name->equals("ApplicationExtensions"_s)) {
 			$var($IIOMetadataNode, applicationExtension, $cast($IIOMetadataNode, node->getFirstChild()));
-			if (!$nc($($nc(applicationExtension)->getNodeName()))->equals("ApplicationExtension"_s)) {
+			if (!$$nc($nc(applicationExtension)->getNodeName())->equals("ApplicationExtension"_s)) {
 				fatal(node, "Only a ApplicationExtension may be a child of a ApplicationExtensions!"_s);
 			}
 			$var($String, applicationIDString, getStringAttribute(applicationExtension, "applicationID"_s, nullptr, true, nullptr));
 			$var($String, authenticationCodeString, getStringAttribute(applicationExtension, "authenticationCode"_s, nullptr, true, nullptr));
-			$var($Object, applicationExtensionData, $nc(applicationExtension)->getUserObject());
+			$var($Object, applicationExtensionData, applicationExtension->getUserObject());
 			if (applicationExtensionData == nullptr || !($instanceOf($bytes, applicationExtensionData))) {
 				fatal(applicationExtension, "Bad user object in ApplicationExtension!"_s);
 			}
@@ -178,7 +147,7 @@ void GIFWritableImageMetadata::mergeNativeTree($Node* root) {
 			$var($Node, commentExtension, node->getFirstChild());
 			if (commentExtension != nullptr) {
 				while (commentExtension != nullptr) {
-					if (!$nc($(commentExtension->getNodeName()))->equals("CommentExtension"_s)) {
+					if (!$$nc(commentExtension->getNodeName())->equals("CommentExtension"_s)) {
 						fatal(node, "Only a CommentExtension may be a child of a CommentExtensions!"_s);
 					}
 					if (this->comments == nullptr) {
@@ -197,13 +166,13 @@ void GIFWritableImageMetadata::mergeNativeTree($Node* root) {
 }
 
 void GIFWritableImageMetadata::mergeStandardTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, root);
 	$init($IIOMetadataFormatImpl);
-	if (!$nc($($nc(node)->getNodeName()))->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, $IIOMetadataFormatImpl::standardMetadataFormatName}));
 	}
-	$assign(node, $nc(node)->getFirstChild());
+	$assign(node, node->getFirstChild());
 	while (node != nullptr) {
 		$var($String, name, node->getNodeName());
 		if ($nc(name)->equals("Chroma"_s)) {
@@ -234,9 +203,9 @@ void GIFWritableImageMetadata::mergeStandardTree($Node* root) {
 			while (childNode != nullptr) {
 				$var($String, childName, childNode->getNodeName());
 				if ($nc(childName)->equals("HorizontalPixelOffset"_s)) {
-					this->imageLeftPosition = getIntAttribute(childNode, "value"_s, -1, true, true, 0, 0x0000FFFF);
+					this->imageLeftPosition = getIntAttribute(childNode, "value"_s, -1, true, true, 0, 0x0000ffff);
 				} else if (childName->equals("VerticalPixelOffset"_s)) {
-					this->imageTopPosition = getIntAttribute(childNode, "value"_s, -1, true, true, 0, 0x0000FFFF);
+					this->imageTopPosition = getIntAttribute(childNode, "value"_s, -1, true, true, 0, 0x0000ffff);
 				}
 				$assign(childNode, childNode->getNextSibling());
 			}
@@ -245,7 +214,7 @@ void GIFWritableImageMetadata::mergeStandardTree($Node* root) {
 			while (childNode != nullptr) {
 				$var($String, childName, childNode->getNodeName());
 				bool var$1 = $nc(childName)->equals("TextEntry"_s);
-				bool var$0 = var$1 && $nc($(getAttribute(childNode, "compression"_s, "none"_s, false)))->equals("none"_s);
+				bool var$0 = var$1 && $$nc(getAttribute(childNode, "compression"_s, "none"_s, false))->equals("none"_s);
 				if (var$0 && $Charset::isSupported($(getAttribute(childNode, "encoding"_s, "ISO-8859-1"_s, false)))) {
 					$var($String, value, getAttribute(childNode, "value"_s));
 					$var($bytes, comment, fromISO8859(value));
@@ -280,12 +249,36 @@ void GIFWritableImageMetadata::setFromTree($String* formatName, $Node* root) {
 GIFWritableImageMetadata::GIFWritableImageMetadata() {
 }
 
-void clinit$GIFWritableImageMetadata($Class* class$) {
+void GIFWritableImageMetadata::clinit$($Class* clazz) {
 	$assignStatic(GIFWritableImageMetadata::NATIVE_FORMAT_NAME, "javax_imageio_gif_image_1.0"_s);
 }
 
 $Class* GIFWritableImageMetadata::load$($String* name, bool initialize) {
-	$loadClass(GIFWritableImageMetadata, name, initialize, &_GIFWritableImageMetadata_ClassInfo_, clinit$GIFWritableImageMetadata, allocate$GIFWritableImageMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"NATIVE_FORMAT_NAME", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(GIFWritableImageMetadata, NATIVE_FORMAT_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GIFWritableImageMetadata, init$, void)},
+		{"fromISO8859", "(Ljava/lang/String;)[B", nullptr, $PRIVATE, $method(GIFWritableImageMetadata, fromISO8859, $bytes*, $String*)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(GIFWritableImageMetadata, isReadOnly, bool)},
+		{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFWritableImageMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PROTECTED, $virtualMethod(GIFWritableImageMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(GIFWritableImageMetadata, reset, void)},
+		{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(GIFWritableImageMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFWritableImageMetadata",
+		"com.sun.imageio.plugins.gif.GIFImageMetadata",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFWritableImageMetadata, name, initialize, &classInfo$$, GIFWritableImageMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFWritableImageMetadata);
+	});
 	return class$;
 }
 

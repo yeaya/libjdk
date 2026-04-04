@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicPopupMenuUI$MouseGrabber.h>
-
 #include <java/applet/Applet.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
@@ -7,14 +6,11 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/WindowEvent.h>
-#include <java/awt/event/WindowListener.h>
 #include <java/lang/Error.h>
 #include <java/lang/StringBuffer.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <javax/swing/JComboBox.h>
@@ -54,10 +50,8 @@ using $Component = ::java::awt::Component;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
@@ -66,7 +60,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $JComboBox = ::javax::swing::JComboBox;
@@ -94,68 +87,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicPopupMenuUI$MouseGrabber_FieldInfo_[] = {
-	{"grabbedWindow", "Ljava/awt/Window;", nullptr, 0, $field(BasicPopupMenuUI$MouseGrabber, grabbedWindow)},
-	{"lastPathSelected", "[Ljavax/swing/MenuElement;", nullptr, 0, $field(BasicPopupMenuUI$MouseGrabber, lastPathSelected)},
-	{}
-};
-
-$MethodInfo _BasicPopupMenuUI$MouseGrabber_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPopupMenuUI$MouseGrabber, init$, void)},
-	{"cancelPopupMenu", "()V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, cancelPopupMenu, void)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, componentMoved, void, $ComponentEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, componentShown, void, $ComponentEvent*)},
-	{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, eventDispatched, void, $AWTEvent*)},
-	{"grabWindow", "([Ljavax/swing/MenuElement;)V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, grabWindow, void, $MenuElementArray*)},
-	{"isInPopup", "(Ljava/awt/Component;)Z", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, isInPopup, bool, $Component*)},
-	{"realUngrabWindow", "()V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, realUngrabWindow, void)},
-	{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, stateChanged, void, $ChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrabWindow", "()V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, ungrabWindow, void)},
-	{"uninstall", "()V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, uninstall, void)},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowActivated, void, $WindowEvent*)},
-	{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowClosed, void, $WindowEvent*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowClosing, void, $WindowEvent*)},
-	{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowDeactivated, void, $WindowEvent*)},
-	{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowDeiconified, void, $WindowEvent*)},
-	{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowIconified, void, $WindowEvent*)},
-	{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowOpened, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicPopupMenuUI$MouseGrabber_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber", "javax.swing.plaf.basic.BasicPopupMenuUI", "MouseGrabber", $STATIC},
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicPopupMenuUI$MouseGrabber_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber",
-	"java.lang.Object",
-	"javax.swing.event.ChangeListener,java.awt.event.AWTEventListener,java.awt.event.ComponentListener,java.awt.event.WindowListener",
-	_BasicPopupMenuUI$MouseGrabber_FieldInfo_,
-	_BasicPopupMenuUI$MouseGrabber_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicPopupMenuUI$MouseGrabber_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicPopupMenuUI"
-};
-
-$Object* allocate$BasicPopupMenuUI$MouseGrabber($Class* clazz) {
-	return $of($alloc(BasicPopupMenuUI$MouseGrabber));
-}
 
 int32_t BasicPopupMenuUI$MouseGrabber::hashCode() {
 	 return this->$ChangeListener::hashCode();
@@ -187,28 +118,28 @@ void BasicPopupMenuUI$MouseGrabber::init$() {
 }
 
 void BasicPopupMenuUI$MouseGrabber::uninstall() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BasicPopupMenuUI);
 	$synchronized($BasicPopupMenuUI::MOUSE_GRABBER_KEY) {
-		$nc($($MenuSelectionManager::defaultManager()))->removeChangeListener(this);
+		$$nc($MenuSelectionManager::defaultManager())->removeChangeListener(this);
 		ungrabWindow();
-		$nc($($AppContext::getAppContext()))->remove($BasicPopupMenuUI::MOUSE_GRABBER_KEY);
+		$$nc($AppContext::getAppContext())->remove($BasicPopupMenuUI::MOUSE_GRABBER_KEY);
 	}
 }
 
 void BasicPopupMenuUI$MouseGrabber::grabWindow($MenuElementArray* newPath) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($BasicPopupMenuUI$MouseGrabber$1, this, tk)));
+	$AccessController::doPrivileged($$new($BasicPopupMenuUI$MouseGrabber$1, this, tk));
 	$var($Component, invoker, $nc($nc(newPath)->get(0))->getComponent());
 	if ($instanceOf($JPopupMenu, invoker)) {
-		$assign(invoker, $nc(($cast($JPopupMenu, invoker)))->getInvoker());
+		$assign(invoker, $cast($JPopupMenu, invoker)->getInvoker());
 	}
 	$set(this, grabbedWindow, (invoker == nullptr) ? ($Window*)nullptr : (($instanceOf($Window, invoker)) ? $cast($Window, invoker) : $SwingUtilities::getWindowAncestor(invoker)));
 	if (this->grabbedWindow != nullptr) {
 		if ($instanceOf($SunToolkit, tk)) {
-			$nc(($cast($SunToolkit, tk)))->grab(this->grabbedWindow);
+			$cast($SunToolkit, tk)->grab(this->grabbedWindow);
 		} else {
 			$nc(this->grabbedWindow)->addComponentListener(this);
 			$nc(this->grabbedWindow)->addWindowListener(this);
@@ -217,10 +148,10 @@ void BasicPopupMenuUI$MouseGrabber::grabWindow($MenuElementArray* newPath) {
 }
 
 void BasicPopupMenuUI$MouseGrabber::ungrabWindow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($BasicPopupMenuUI$MouseGrabber$2, this, tk)));
+	$AccessController::doPrivileged($$new($BasicPopupMenuUI$MouseGrabber$2, this, tk));
 	realUngrabWindow();
 }
 
@@ -228,7 +159,7 @@ void BasicPopupMenuUI$MouseGrabber::realUngrabWindow() {
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 	if (this->grabbedWindow != nullptr) {
 		if ($instanceOf($SunToolkit, tk)) {
-			$nc(($cast($SunToolkit, tk)))->ungrab(this->grabbedWindow);
+			$cast($SunToolkit, tk)->ungrab(this->grabbedWindow);
 		} else {
 			$nc(this->grabbedWindow)->removeComponentListener(this);
 			$nc(this->grabbedWindow)->removeWindowListener(this);
@@ -238,7 +169,7 @@ void BasicPopupMenuUI$MouseGrabber::realUngrabWindow() {
 }
 
 void BasicPopupMenuUI$MouseGrabber::stateChanged($ChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuSelectionManager, msm, $MenuSelectionManager::defaultManager());
 	$var($MenuElementArray, p, $nc(msm)->getSelectedPath());
 	if ($nc(this->lastPathSelected)->length == 0 && $nc(p)->length != 0) {
@@ -251,7 +182,7 @@ void BasicPopupMenuUI$MouseGrabber::stateChanged($ChangeEvent* e) {
 }
 
 void BasicPopupMenuUI$MouseGrabber::eventDispatched($AWTEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($UngrabEvent, ev)) {
 		cancelPopupMenu();
 		return;
@@ -265,11 +196,11 @@ void BasicPopupMenuUI$MouseGrabber::eventDispatched($AWTEvent* ev) {
 	case $MouseEvent::MOUSE_PRESSED:
 		{
 			bool var$0 = isInPopup(src);
-			if (var$0 || ($instanceOf($JMenu, src) && $nc(($cast($JMenu, src)))->isSelected())) {
+			if (var$0 || ($instanceOf($JMenu, src) && $cast($JMenu, src)->isSelected())) {
 				return;
 			}
 			$init($BasicComboBoxUI);
-			if (!($instanceOf($JComponent, src)) || !($equals($nc(($cast($JComponent, src)))->getClientProperty("doNotCancelPopup"_s), $BasicComboBoxUI::HIDE_POPUP_KEY))) {
+			if (!($instanceOf($JComponent, src)) || !($equals($cast($JComponent, src)->getClientProperty("doNotCancelPopup"_s), $BasicComboBoxUI::HIDE_POPUP_KEY))) {
 				cancelPopupMenu();
 				bool consumeEvent = $UIManager::getBoolean("PopupMenu.consumeEventOnClose"_s);
 				if (consumeEvent && !($instanceOf($MenuElement, src))) {
@@ -279,33 +210,29 @@ void BasicPopupMenuUI$MouseGrabber::eventDispatched($AWTEvent* ev) {
 			break;
 		}
 	case $MouseEvent::MOUSE_RELEASED:
-		{
-			if (!($instanceOf($MenuElement, src))) {
-				if (isInPopup(src)) {
-					break;
-				}
+		if (!($instanceOf($MenuElement, src))) {
+			if (isInPopup(src)) {
+				break;
 			}
-			if ($instanceOf($JMenu, src) || !($instanceOf($JMenuItem, src))) {
-				$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(me);
-			}
-			break;
 		}
+		if ($instanceOf($JMenu, src) || !($instanceOf($JMenuItem, src))) {
+			$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(me);
+		}
+		break;
 	case $MouseEvent::MOUSE_DRAGGED:
-		{
-			if (!($instanceOf($MenuElement, src))) {
-				if (isInPopup(src)) {
-					break;
-				}
+		if (!($instanceOf($MenuElement, src))) {
+			if (isInPopup(src)) {
+				break;
 			}
-			$nc($($MenuSelectionManager::defaultManager()))->processMouseEvent(me);
-			break;
 		}
+		$$nc($MenuSelectionManager::defaultManager())->processMouseEvent(me);
+		break;
 	case $MouseEvent::MOUSE_WHEEL:
 		{
 			bool var$3 = isInPopup(src);
-			bool var$2 = var$3 || (($instanceOf($JComboBox, src)) && $nc(($cast($JComboBox, src)))->isPopupVisible());
-			bool var$1 = var$2 || (($instanceOf($JWindow, src)) && $nc(($cast($JWindow, src)))->isVisible());
-			if (var$1 || (($instanceOf($JMenuItem, src)) && $nc(($cast($JMenuItem, src)))->isVisible()) || ($instanceOf($JFrame, src))) {
+			bool var$2 = var$3 || (($instanceOf($JComboBox, src)) && $cast($JComboBox, src)->isPopupVisible());
+			bool var$1 = var$2 || (($instanceOf($JWindow, src)) && $cast($JWindow, src)->isVisible());
+			if (var$1 || (($instanceOf($JMenuItem, src)) && $cast($JMenuItem, src)->isVisible()) || ($instanceOf($JFrame, src))) {
 				return;
 			}
 			cancelPopupMenu();
@@ -315,21 +242,19 @@ void BasicPopupMenuUI$MouseGrabber::eventDispatched($AWTEvent* ev) {
 }
 
 bool BasicPopupMenuUI$MouseGrabber::isInPopup($Component* src) {
-	{
-		$var($Component, c, src);
-		for (; c != nullptr; $assign(c, $nc(c)->getParent())) {
-			if ($instanceOf($Applet, c) || $instanceOf($Window, c)) {
-				break;
-			} else if ($instanceOf($JPopupMenu, c)) {
-				return true;
-			}
+	$var($Component, c, src);
+	for (; c != nullptr; $assign(c, c->getParent())) {
+		if ($instanceOf($Applet, c) || $instanceOf($Window, c)) {
+			break;
+		} else if ($instanceOf($JPopupMenu, c)) {
+			return true;
 		}
 	}
 	return false;
 }
 
 void BasicPopupMenuUI$MouseGrabber::cancelPopupMenu() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($List, popups, $BasicPopupMenuUI::getPopups());
 		{
@@ -337,12 +262,11 @@ void BasicPopupMenuUI$MouseGrabber::cancelPopupMenu() {
 			for (; $nc(i$)->hasNext();) {
 				$var($JPopupMenu, popup, $cast($JPopupMenu, i$->next()));
 				{
-					$init($Boolean);
 					$nc(popup)->putClientProperty("JPopupMenu.firePopupMenuCanceled"_s, $Boolean::TRUE);
 				}
 			}
 		}
-		$nc($($MenuSelectionManager::defaultManager()))->clearSelectedPath();
+		$$nc($MenuSelectionManager::defaultManager())->clearSelectedPath();
 	} catch ($RuntimeException& ex) {
 		realUngrabWindow();
 		$throw(ex);
@@ -397,7 +321,63 @@ BasicPopupMenuUI$MouseGrabber::BasicPopupMenuUI$MouseGrabber() {
 }
 
 $Class* BasicPopupMenuUI$MouseGrabber::load$($String* name, bool initialize) {
-	$loadClass(BasicPopupMenuUI$MouseGrabber, name, initialize, &_BasicPopupMenuUI$MouseGrabber_ClassInfo_, allocate$BasicPopupMenuUI$MouseGrabber);
+	$FieldInfo fieldInfos$$[] = {
+		{"grabbedWindow", "Ljava/awt/Window;", nullptr, 0, $field(BasicPopupMenuUI$MouseGrabber, grabbedWindow)},
+		{"lastPathSelected", "[Ljavax/swing/MenuElement;", nullptr, 0, $field(BasicPopupMenuUI$MouseGrabber, lastPathSelected)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicPopupMenuUI$MouseGrabber, init$, void)},
+		{"cancelPopupMenu", "()V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, cancelPopupMenu, void)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, componentMoved, void, $ComponentEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, componentShown, void, $ComponentEvent*)},
+		{"eventDispatched", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, eventDispatched, void, $AWTEvent*)},
+		{"grabWindow", "([Ljavax/swing/MenuElement;)V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, grabWindow, void, $MenuElementArray*)},
+		{"isInPopup", "(Ljava/awt/Component;)Z", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, isInPopup, bool, $Component*)},
+		{"realUngrabWindow", "()V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, realUngrabWindow, void)},
+		{"stateChanged", "(Ljavax/swing/event/ChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, stateChanged, void, $ChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrabWindow", "()V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, ungrabWindow, void)},
+		{"uninstall", "()V", nullptr, 0, $virtualMethod(BasicPopupMenuUI$MouseGrabber, uninstall, void)},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowActivated, void, $WindowEvent*)},
+		{"windowClosed", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowClosed, void, $WindowEvent*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowClosing, void, $WindowEvent*)},
+		{"windowDeactivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowDeactivated, void, $WindowEvent*)},
+		{"windowDeiconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowDeiconified, void, $WindowEvent*)},
+		{"windowIconified", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowIconified, void, $WindowEvent*)},
+		{"windowOpened", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicPopupMenuUI$MouseGrabber, windowOpened, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber", "javax.swing.plaf.basic.BasicPopupMenuUI", "MouseGrabber", $STATIC},
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicPopupMenuUI$MouseGrabber",
+		"java.lang.Object",
+		"javax.swing.event.ChangeListener,java.awt.event.AWTEventListener,java.awt.event.ComponentListener,java.awt.event.WindowListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicPopupMenuUI"
+	};
+	$loadClass(BasicPopupMenuUI$MouseGrabber, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicPopupMenuUI$MouseGrabber));
+	});
 	return class$;
 }
 

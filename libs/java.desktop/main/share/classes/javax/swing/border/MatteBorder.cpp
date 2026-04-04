@@ -1,5 +1,4 @@
 #include <javax/swing/border/MatteBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -22,42 +21,6 @@ using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 namespace javax {
 	namespace swing {
 		namespace border {
-
-$FieldInfo _MatteBorder_FieldInfo_[] = {
-	{"color", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MatteBorder, color)},
-	{"tileIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(MatteBorder, tileIcon)},
-	{}
-};
-
-$MethodInfo _MatteBorder_MethodInfo_[] = {
-	{"<init>", "(IIIILjava/awt/Color;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
-	{"<init>", "(Ljava/awt/Insets;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, $Insets*, $Color*)},
-	{"<init>", "(IIIILjavax/swing/Icon;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, int32_t, int32_t, int32_t, int32_t, $Icon*)},
-	{"<init>", "(Ljava/awt/Insets;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, $Insets*, $Icon*)},
-	{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, $Icon*)},
-	{"computeInsets", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(MatteBorder, computeInsets, $Insets*, $Insets*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MatteBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getBorderInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MatteBorder, getBorderInsets, $Insets*)},
-	{"getMatteColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(MatteBorder, getMatteColor, $Color*)},
-	{"getTileIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(MatteBorder, getTileIcon, $Icon*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(MatteBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MatteBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintEdge", "(Ljava/awt/Component;Ljava/awt/Graphics;IIIIII)V", nullptr, $PRIVATE, $method(MatteBorder, paintEdge, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MatteBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.border.MatteBorder",
-	"javax.swing.border.EmptyBorder",
-	nullptr,
-	_MatteBorder_FieldInfo_,
-	_MatteBorder_MethodInfo_
-};
-
-$Object* allocate$MatteBorder($Class* clazz) {
-	return $of($alloc(MatteBorder));
-}
 
 void MatteBorder::init$(int32_t top, int32_t left, int32_t bottom, int32_t right, $Color* matteColor) {
 	$EmptyBorder::init$(top, left, bottom, right);
@@ -84,27 +47,27 @@ void MatteBorder::init$($Icon* tileIcon) {
 }
 
 void MatteBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, insets, getBorderInsets(c));
 	$var($Color, oldColor, $nc(g)->getColor());
 	g->translate(x, y);
 	if (this->tileIcon != nullptr) {
 		$init($Color);
-		$set(this, color, ($nc(this->tileIcon)->getIconWidth() == -1) ? $Color::gray : ($Color*)nullptr);
+		$set(this, color, (this->tileIcon->getIconWidth() == -1) ? $Color::gray : ($Color*)nullptr);
 	}
 	if (this->color != nullptr) {
 		g->setColor(this->color);
-		g->fillRect(0, 0, width - $nc(insets)->right, insets->top);
-		g->fillRect(0, $nc(insets)->top, insets->left, height - insets->top);
-		g->fillRect($nc(insets)->left, height - insets->bottom, width - insets->left, insets->bottom);
-		g->fillRect(width - $nc(insets)->right, 0, insets->right, height - insets->bottom);
+		g->fillRect(0, 0, width - $nc(insets)->right, $nc(insets)->top);
+		g->fillRect(0, insets->top, insets->left, height - insets->top);
+		g->fillRect(insets->left, height - insets->bottom, width - insets->left, insets->bottom);
+		g->fillRect(width - insets->right, 0, insets->right, height - insets->bottom);
 	} else if (this->tileIcon != nullptr) {
-		int32_t tileW = $nc(this->tileIcon)->getIconWidth();
+		int32_t tileW = this->tileIcon->getIconWidth();
 		int32_t tileH = $nc(this->tileIcon)->getIconHeight();
-		paintEdge(c, g, 0, 0, width - $nc(insets)->right, insets->top, tileW, tileH);
-		paintEdge(c, g, 0, $nc(insets)->top, insets->left, height - insets->top, tileW, tileH);
-		paintEdge(c, g, $nc(insets)->left, height - insets->bottom, width - insets->left, insets->bottom, tileW, tileH);
-		paintEdge(c, g, width - $nc(insets)->right, 0, insets->right, height - insets->bottom, tileW, tileH);
+		paintEdge(c, g, 0, 0, width - $nc(insets)->right, $nc(insets)->top, tileW, tileH);
+		paintEdge(c, g, 0, insets->top, insets->left, height - insets->top, tileW, tileH);
+		paintEdge(c, g, insets->left, height - insets->bottom, width - insets->left, insets->bottom, tileW, tileH);
+		paintEdge(c, g, width - insets->right, 0, insets->right, height - insets->bottom, tileW, tileH);
 	}
 	g->translate(-x, -y);
 	g->setColor(oldColor);
@@ -119,7 +82,7 @@ void MatteBorder::paintEdge($Component* c, $Graphics* g$renamed, int32_t x, int3
 			$nc(this->tileIcon)->paintIcon(c, g, x, y);
 		}
 	}
-	g->dispose();
+	$nc(g)->dispose();
 }
 
 $Insets* MatteBorder::getBorderInsets($Component* c, $Insets* insets) {
@@ -132,7 +95,7 @@ $Insets* MatteBorder::getBorderInsets() {
 
 $Insets* MatteBorder::computeInsets($Insets* insets) {
 	if (this->tileIcon != nullptr && this->top == -1 && this->bottom == -1 && this->left == -1 && this->right == -1) {
-		int32_t w = $nc(this->tileIcon)->getIconWidth();
+		int32_t w = this->tileIcon->getIconWidth();
 		int32_t h = $nc(this->tileIcon)->getIconHeight();
 		$nc(insets)->top = h;
 		insets->right = w;
@@ -163,7 +126,38 @@ MatteBorder::MatteBorder() {
 }
 
 $Class* MatteBorder::load$($String* name, bool initialize) {
-	$loadClass(MatteBorder, name, initialize, &_MatteBorder_ClassInfo_, allocate$MatteBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"color", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MatteBorder, color)},
+		{"tileIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(MatteBorder, tileIcon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIILjava/awt/Color;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, int32_t, int32_t, int32_t, int32_t, $Color*)},
+		{"<init>", "(Ljava/awt/Insets;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, $Insets*, $Color*)},
+		{"<init>", "(IIIILjavax/swing/Icon;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, int32_t, int32_t, int32_t, int32_t, $Icon*)},
+		{"<init>", "(Ljava/awt/Insets;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, $Insets*, $Icon*)},
+		{"<init>", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(MatteBorder, init$, void, $Icon*)},
+		{"computeInsets", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(MatteBorder, computeInsets, $Insets*, $Insets*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MatteBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getBorderInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MatteBorder, getBorderInsets, $Insets*)},
+		{"getMatteColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(MatteBorder, getMatteColor, $Color*)},
+		{"getTileIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(MatteBorder, getTileIcon, $Icon*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(MatteBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MatteBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintEdge", "(Ljava/awt/Component;Ljava/awt/Graphics;IIIIII)V", nullptr, $PRIVATE, $method(MatteBorder, paintEdge, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.border.MatteBorder",
+		"javax.swing.border.EmptyBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MatteBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MatteBorder));
+	});
 	return class$;
 }
 

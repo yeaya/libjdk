@@ -15,6 +15,7 @@ class BasicDiagnosticFormatter$1 : public ::java::lang::Object {
 	$class(BasicDiagnosticFormatter$1, 0, ::java::lang::Object)
 public:
 	BasicDiagnosticFormatter$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$util$JCDiagnostic$DiagnosticType;
 };
 

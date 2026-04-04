@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ClassFormatException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,31 +13,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _ClassFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ClassFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFormatException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassFormatException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClassFormatException, init$, void, $String*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _ClassFormatException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ClassFormatException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ClassFormatException_FieldInfo_,
-	_ClassFormatException_MethodInfo_
-};
-
-$Object* allocate$ClassFormatException($Class* clazz) {
-	return $of($alloc(ClassFormatException));
-}
 
 void ClassFormatException::init$() {
 	$RuntimeException::init$();
@@ -63,7 +37,27 @@ void ClassFormatException::throw$() {
 }
 
 $Class* ClassFormatException::load$($String* name, bool initialize) {
-	$loadClass(ClassFormatException, name, initialize, &_ClassFormatException_ClassInfo_, allocate$ClassFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ClassFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClassFormatException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ClassFormatException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(ClassFormatException, init$, void, $String*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ClassFormatException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassFormatException);
+	});
 	return class$;
 }
 

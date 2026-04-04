@@ -36,6 +36,7 @@ class $export BorderFactory : public ::java::lang::Object {
 	$class(BorderFactory, 0, ::java::lang::Object)
 public:
 	BorderFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::border::Border* createBevelBorder(int32_t type);
 	static ::javax::swing::border::Border* createBevelBorder(int32_t type, ::java::awt::Color* highlight, ::java::awt::Color* shadow);

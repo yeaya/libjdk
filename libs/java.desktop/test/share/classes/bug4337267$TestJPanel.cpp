@@ -1,10 +1,8 @@
 #include <bug4337267$TestJPanel.h>
-
 #include <bug4337267$TestBufferedImage.h>
 #include <bug4337267.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/Image.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <javax/swing/JComponent.h>
@@ -16,52 +14,12 @@
 using $bug4337267$TestBufferedImage = ::bug4337267$TestBufferedImage;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $Image = ::java::awt::Image;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPanel = ::javax::swing::JPanel;
-
-$FieldInfo _bug4337267$TestJPanel_FieldInfo_[] = {
-	{"image", "Lbug4337267$TestBufferedImage;", nullptr, 0, $field(bug4337267$TestJPanel, image)},
-	{}
-};
-
-$MethodInfo _bug4337267$TestJPanel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug4337267$TestJPanel, init$, void)},
-	{"createImage", "(Ljava/awt/Dimension;)Lbug4337267$TestBufferedImage;", nullptr, 0, $virtualMethod(bug4337267$TestJPanel, createImage, $bug4337267$TestBufferedImage*, $Dimension*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(bug4337267$TestJPanel, paint, void, $Graphics*)},
-	{"setPreferredSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(bug4337267$TestJPanel, setPreferredSize, void, $Dimension*)},
-	{}
-};
-
-$InnerClassInfo _bug4337267$TestJPanel_InnerClassesInfo_[] = {
-	{"bug4337267$TestJPanel", "bug4337267", "TestJPanel", $STATIC},
-	{}
-};
-
-$ClassInfo _bug4337267$TestJPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4337267$TestJPanel",
-	"javax.swing.JPanel",
-	nullptr,
-	_bug4337267$TestJPanel_FieldInfo_,
-	_bug4337267$TestJPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4337267$TestJPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4337267"
-};
-
-$Object* allocate$bug4337267$TestJPanel($Class* clazz) {
-	return $of($alloc(bug4337267$TestJPanel));
-}
 
 void bug4337267$TestJPanel::init$() {
 	$JPanel::init$();
@@ -69,7 +27,7 @@ void bug4337267$TestJPanel::init$() {
 }
 
 $bug4337267$TestBufferedImage* bug4337267$TestJPanel::createImage($Dimension* d) {
-	return $new($bug4337267$TestBufferedImage, $nc(d)->width, d->height, $BufferedImage::TYPE_INT_ARGB);
+	return $new($bug4337267$TestBufferedImage, $nc(d)->width, $nc(d)->height, $BufferedImage::TYPE_INT_ARGB);
 }
 
 void bug4337267$TestJPanel::setPreferredSize($Dimension* size) {
@@ -87,7 +45,39 @@ bug4337267$TestJPanel::bug4337267$TestJPanel() {
 }
 
 $Class* bug4337267$TestJPanel::load$($String* name, bool initialize) {
-	$loadClass(bug4337267$TestJPanel, name, initialize, &_bug4337267$TestJPanel_ClassInfo_, allocate$bug4337267$TestJPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"image", "Lbug4337267$TestBufferedImage;", nullptr, 0, $field(bug4337267$TestJPanel, image)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug4337267$TestJPanel, init$, void)},
+		{"createImage", "(Ljava/awt/Dimension;)Lbug4337267$TestBufferedImage;", nullptr, 0, $virtualMethod(bug4337267$TestJPanel, createImage, $bug4337267$TestBufferedImage*, $Dimension*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(bug4337267$TestJPanel, paint, void, $Graphics*)},
+		{"setPreferredSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(bug4337267$TestJPanel, setPreferredSize, void, $Dimension*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4337267$TestJPanel", "bug4337267", "TestJPanel", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4337267$TestJPanel",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4337267"
+	};
+	$loadClass(bug4337267$TestJPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4337267$TestJPanel));
+	});
 	return class$;
 }
 

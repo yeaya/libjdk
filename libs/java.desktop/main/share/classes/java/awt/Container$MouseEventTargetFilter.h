@@ -21,6 +21,7 @@ class $export Container$MouseEventTargetFilter : public ::java::awt::Container$E
 	$class(Container$MouseEventTargetFilter, 0, ::java::awt::Container$EventTargetFilter)
 public:
 	Container$MouseEventTargetFilter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool accept(::java::awt::Component* comp) override;
 	static ::java::awt::Container$EventTargetFilter* FILTER;

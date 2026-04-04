@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/DirtyRegion.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -17,42 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace java2d {
 		namespace xr {
-
-$FieldInfo _DirtyRegion_FieldInfo_[] = {
-	{"x", "I", nullptr, 0, $field(DirtyRegion, x)},
-	{"y", "I", nullptr, 0, $field(DirtyRegion, y)},
-	{"x2", "I", nullptr, 0, $field(DirtyRegion, x2)},
-	{"y2", "I", nullptr, 0, $field(DirtyRegion, y2)},
-	{}
-};
-
-$MethodInfo _DirtyRegion_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DirtyRegion, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, clear, void)},
-	{"cloneRegion", "()Lsun/java2d/xr/DirtyRegion;", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, cloneRegion, DirtyRegion*)},
-	{"combineRegion", "(Lsun/java2d/xr/DirtyRegion;Lsun/java2d/xr/DirtyRegion;)Lsun/java2d/xr/DirtyRegion;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirtyRegion, combineRegion, DirtyRegion*, DirtyRegion*, DirtyRegion*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, getHeight, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, getWidth, int32_t)},
-	{"growDirtyRegion", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, growDirtyRegion, void, int32_t, int32_t, int32_t, int32_t)},
-	{"growDirtyRegionTileLimit", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, growDirtyRegionTileLimit, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setDirtyLineRegion", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, setDirtyLineRegion, void, int32_t, int32_t, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, toString, $String*)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, translate, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DirtyRegion_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.DirtyRegion",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_DirtyRegion_FieldInfo_,
-	_DirtyRegion_MethodInfo_
-};
-
-$Object* allocate$DirtyRegion($Class* clazz) {
-	return $of($alloc(DirtyRegion));
-}
 
 void DirtyRegion::init$() {
 	clear();
@@ -99,9 +62,9 @@ DirtyRegion* DirtyRegion::combineRegion(DirtyRegion* region1, DirtyRegion* regio
 	$init(DirtyRegion);
 	$var(DirtyRegion, region, $new(DirtyRegion));
 	region->x = $Math::min($nc(region1)->x, $nc(region2)->x);
-	region->y = $Math::min($nc(region1)->y, $nc(region2)->y);
-	region->x2 = $Math::max($nc(region1)->x2, $nc(region2)->x2);
-	region->y2 = $Math::max($nc(region1)->y2, $nc(region2)->y2);
+	region->y = $Math::min(region1->y, region2->y);
+	region->x2 = $Math::max(region1->x2, region2->x2);
+	region->y2 = $Math::max(region1->y2, region2->y2);
 	return region;
 }
 
@@ -132,8 +95,8 @@ void DirtyRegion::translate(int32_t x, int32_t y) {
 }
 
 $String* DirtyRegion::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $str({$($of(this)->getClass()->getName()), "(x: "_s, $$str(this->x), ", y:"_s, $$str(this->y), ", x2:"_s, $$str(this->x2), ", y2:"_s, $$str(this->y2), ")"_s});
+	$useLocalObjectStack();
+	return $str({$(this->getClass()->getName()), "(x: "_s, $$str(this->x), ", y:"_s, $$str(this->y), ", x2:"_s, $$str(this->x2), ", y2:"_s, $$str(this->y2), ")"_s});
 }
 
 DirtyRegion* DirtyRegion::cloneRegion() {
@@ -149,7 +112,38 @@ DirtyRegion::DirtyRegion() {
 }
 
 $Class* DirtyRegion::load$($String* name, bool initialize) {
-	$loadClass(DirtyRegion, name, initialize, &_DirtyRegion_ClassInfo_, allocate$DirtyRegion);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "I", nullptr, 0, $field(DirtyRegion, x)},
+		{"y", "I", nullptr, 0, $field(DirtyRegion, y)},
+		{"x2", "I", nullptr, 0, $field(DirtyRegion, x2)},
+		{"y2", "I", nullptr, 0, $field(DirtyRegion, y2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DirtyRegion, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, clear, void)},
+		{"cloneRegion", "()Lsun/java2d/xr/DirtyRegion;", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, cloneRegion, DirtyRegion*)},
+		{"combineRegion", "(Lsun/java2d/xr/DirtyRegion;Lsun/java2d/xr/DirtyRegion;)Lsun/java2d/xr/DirtyRegion;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirtyRegion, combineRegion, DirtyRegion*, DirtyRegion*, DirtyRegion*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, getHeight, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, getWidth, int32_t)},
+		{"growDirtyRegion", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, growDirtyRegion, void, int32_t, int32_t, int32_t, int32_t)},
+		{"growDirtyRegionTileLimit", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, growDirtyRegionTileLimit, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setDirtyLineRegion", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, setDirtyLineRegion, void, int32_t, int32_t, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, toString, $String*)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(DirtyRegion, translate, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.DirtyRegion",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DirtyRegion, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirtyRegion);
+	});
 	return class$;
 }
 

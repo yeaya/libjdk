@@ -1,5 +1,4 @@
 #include <TestBadBreak.h>
-
 #include <TestBadBreak$1.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -22,7 +21,6 @@ using $TestBadBreak$1 = ::TestBadBreak$1;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $File = ::java::io::File;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -44,27 +42,24 @@ public:
 	virtual void run() override {
 		TestBadBreak::lambda$test$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestBadBreak$$Lambda$lambda$test$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestBadBreak$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBadBreak$$Lambda$lambda$test$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBadBreak$$Lambda$lambda$test$0, run, void)},
-	{}
-};
-$ClassInfo TestBadBreak$$Lambda$lambda$test$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestBadBreak$$Lambda$lambda$test$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestBadBreak$$Lambda$lambda$test$0::load$($String* name, bool initialize) {
-	$loadClass(TestBadBreak$$Lambda$lambda$test$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBadBreak$$Lambda$lambda$test$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBadBreak$$Lambda$lambda$test$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestBadBreak$$Lambda$lambda$test$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestBadBreak$$Lambda$lambda$test$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBadBreak$$Lambda$lambda$test$0);
+	});
 	return class$;
 }
 $Class* TestBadBreak$$Lambda$lambda$test$0::class$ = nullptr;
@@ -78,76 +73,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestBadBreak$$Lambda$dispose$1>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestBadBreak$$Lambda$dispose$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestBadBreak$$Lambda$dispose$1, inst$)},
-	{}
-};
-$MethodInfo TestBadBreak$$Lambda$dispose$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestBadBreak$$Lambda$dispose$1, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBadBreak$$Lambda$dispose$1, run, void)},
-	{}
-};
-$ClassInfo TestBadBreak$$Lambda$dispose$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestBadBreak$$Lambda$dispose$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestBadBreak$$Lambda$dispose$1::load$($String* name, bool initialize) {
-	$loadClass(TestBadBreak$$Lambda$dispose$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestBadBreak$$Lambda$dispose$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestBadBreak$$Lambda$dispose$1, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBadBreak$$Lambda$dispose$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestBadBreak$$Lambda$dispose$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestBadBreak$$Lambda$dispose$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBadBreak$$Lambda$dispose$1);
+	});
 	return class$;
 }
 $Class* TestBadBreak$$Lambda$dispose$1::class$ = nullptr;
-
-$FieldInfo _TestBadBreak_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(TestBadBreak, frame)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $STATIC, $staticField(TestBadBreak, robot)},
-	{"withCombiningDiaeresis", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TestBadBreak, withCombiningDiaeresis)},
-	{"withoutCombiningDiaeresis", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TestBadBreak, withoutCombiningDiaeresis)},
-	{}
-};
-
-$MethodInfo _TestBadBreak_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBadBreak, init$, void)},
-	{"lambda$test$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestBadBreak, lambda$test$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestBadBreak, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/String;Ljava/awt/image/BufferedImage;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestBadBreak, test, void, $String*, $BufferedImage*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TestBadBreak_InnerClassesInfo_[] = {
-	{"TestBadBreak$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestBadBreak_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestBadBreak",
-	"java.lang.Object",
-	nullptr,
-	_TestBadBreak_FieldInfo_,
-	_TestBadBreak_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestBadBreak_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestBadBreak$1,TestBadBreak$1$1"
-};
-
-$Object* allocate$TestBadBreak($Class* clazz) {
-	return $of($alloc(TestBadBreak));
-}
 
 $JFrame* TestBadBreak::frame = nullptr;
 $Robot* TestBadBreak::robot = nullptr;
@@ -159,7 +110,7 @@ void TestBadBreak::init$() {
 
 void TestBadBreak::main($StringArray* args) {
 	$init(TestBadBreak);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(TestBadBreak::robot, $new($Robot));
 	$var($BufferedImage, bi1, $new($BufferedImage, 200, 90, 2));
 	$var($BufferedImage, bi2, $new($BufferedImage, 200, 90, 2));
@@ -169,8 +120,8 @@ void TestBadBreak::main($StringArray* args) {
 		for (int32_t y = 0; y < bi1->getHeight(); ++y) {
 			int32_t var$0 = bi1->getRGB(x, y);
 			if (var$0 != bi2->getRGB(x, y)) {
-				$ImageIO::write(static_cast<$RenderedImage*>(bi1), "png"_s, $$new($File, "image1.png"_s));
-				$ImageIO::write(static_cast<$RenderedImage*>(bi2), "png"_s, $$new($File, "image2.png"_s));
+				$ImageIO::write(bi1, "png"_s, $$new($File, "image1.png"_s));
+				$ImageIO::write(bi2, "png"_s, $$new($File, "image2.png"_s));
 				$throwNew($RuntimeException, "Wrong color"_s);
 			}
 		}
@@ -179,12 +130,12 @@ void TestBadBreak::main($StringArray* args) {
 
 void TestBadBreak::test($String* text, $BufferedImage* i1) {
 	$init(TestBadBreak);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SwingUtilities::invokeAndWait($$new($TestBadBreak$1, text, i1));
 	$nc(TestBadBreak::robot)->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestBadBreak$$Lambda$lambda$test$0)));
+	$SwingUtilities::invokeAndWait($$new(TestBadBreak$$Lambda$lambda$test$0));
 	$nc(TestBadBreak::robot)->waitForIdle();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestBadBreak$$Lambda$dispose$1, static_cast<$JFrame*>($nc(TestBadBreak::frame)))));
+	$SwingUtilities::invokeAndWait($$new(TestBadBreak$$Lambda$dispose$1, $nc(TestBadBreak::frame)));
 	$nc(TestBadBreak::robot)->waitForIdle();
 }
 
@@ -196,21 +147,55 @@ void TestBadBreak::lambda$test$0() {
 TestBadBreak::TestBadBreak() {
 }
 
-void clinit$TestBadBreak($Class* class$) {
+void TestBadBreak::clinit$($Class* clazz) {
 	$assignStatic(TestBadBreak::withCombiningDiaeresis, u"123p://.aaaaaaaaaaaaaaaaaaaaaa.123/ä"_s);
 	$assignStatic(TestBadBreak::withoutCombiningDiaeresis, u"123p://.aaaaaaaaaaaaaaaaaaaaaa.123/ä"_s);
 }
 
 $Class* TestBadBreak::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestBadBreak$$Lambda$lambda$test$0::classInfo$.name)) {
+		if (name->equals("TestBadBreak$$Lambda$lambda$test$0")) {
 			return TestBadBreak$$Lambda$lambda$test$0::load$(name, initialize);
 		}
-		if (name->equals(TestBadBreak$$Lambda$dispose$1::classInfo$.name)) {
+		if (name->equals("TestBadBreak$$Lambda$dispose$1")) {
 			return TestBadBreak$$Lambda$dispose$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestBadBreak, name, initialize, &_TestBadBreak_ClassInfo_, clinit$TestBadBreak, allocate$TestBadBreak);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(TestBadBreak, frame)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $STATIC, $staticField(TestBadBreak, robot)},
+		{"withCombiningDiaeresis", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TestBadBreak, withCombiningDiaeresis)},
+		{"withoutCombiningDiaeresis", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(TestBadBreak, withoutCombiningDiaeresis)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBadBreak, init$, void)},
+		{"lambda$test$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestBadBreak, lambda$test$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestBadBreak, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/String;Ljava/awt/image/BufferedImage;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestBadBreak, test, void, $String*, $BufferedImage*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestBadBreak$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestBadBreak",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestBadBreak$1,TestBadBreak$1$1"
+	};
+	$loadClass(TestBadBreak, name, initialize, &classInfo$$, TestBadBreak::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBadBreak);
+	});
 	return class$;
 }
 

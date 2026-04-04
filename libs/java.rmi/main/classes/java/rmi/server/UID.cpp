@@ -1,5 +1,4 @@
 #include <java/rmi/server/UID.h>
-
 #include <java/io/DataInput.h>
 #include <java/io/DataOutput.h>
 #include <java/lang/InterruptedException.h>
@@ -25,44 +24,6 @@ namespace java {
 	namespace rmi {
 		namespace server {
 
-$FieldInfo _UID_FieldInfo_[] = {
-	{"hostUnique", "I", nullptr, $PRIVATE | $STATIC, $staticField(UID, hostUnique)},
-	{"hostUniqueSet", "Z", nullptr, $PRIVATE | $STATIC, $staticField(UID, hostUniqueSet)},
-	{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UID, lock)},
-	{"lastTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(UID, lastTime)},
-	{"lastCount", "S", nullptr, $PRIVATE | $STATIC, $staticField(UID, lastCount)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UID, serialVersionUID)},
-	{"unique", "I", nullptr, $PRIVATE | $FINAL, $field(UID, unique)},
-	{"time", "J", nullptr, $PRIVATE | $FINAL, $field(UID, time)},
-	{"count", "S", nullptr, $PRIVATE | $FINAL, $field(UID, count)},
-	{}
-};
-
-$MethodInfo _UID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UID, init$, void)},
-	{"<init>", "(S)V", nullptr, $PUBLIC, $method(UID, init$, void, int16_t)},
-	{"<init>", "(IJS)V", nullptr, $PRIVATE, $method(UID, init$, void, int32_t, int64_t, int16_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UID, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UID, hashCode, int32_t)},
-	{"read", "(Ljava/io/DataInput;)Ljava/rmi/server/UID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UID, read, UID*, $DataInput*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UID, toString, $String*)},
-	{"write", "(Ljava/io/DataOutput;)V", nullptr, $PUBLIC, $method(UID, write, void, $DataOutput*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UID_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.rmi.server.UID",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_UID_FieldInfo_,
-	_UID_MethodInfo_
-};
-
-$Object* allocate$UID($Class* clazz) {
-	return $of($alloc(UID));
-}
-
 int32_t UID::hostUnique = 0;
 bool UID::hostUniqueSet = false;
 $Object* UID::lock = nullptr;
@@ -70,7 +31,7 @@ int64_t UID::lastTime = 0;
 int16_t UID::lastCount = 0;
 
 void UID::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(UID::lock) {
 		if (!UID::hostUniqueSet) {
 			UID::hostUnique = ($$new($SecureRandom))->nextInt();
@@ -122,18 +83,21 @@ int32_t UID::hashCode() {
 bool UID::equals(Object$* obj) {
 	if ($instanceOf(UID, obj)) {
 		$var(UID, uid, $cast(UID, obj));
-		return (this->unique == $nc(uid)->unique && this->count == uid->count && this->time == uid->time);
+		return (this->unique == uid->unique && this->count == uid->count && this->time == uid->time);
 	} else {
 		return false;
 	}
 }
 
 $String* UID::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$($Integer::toString(this->unique, 16)), ":"_s}));
-	$var($String, var$1, $$concat(var$2, $($Long::toString(this->time, 16))));
-	$var($String, var$0, $$concat(var$1, ":"_s));
-	return $concat(var$0, $($Integer::toString(this->count, 16)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Integer::toString(this->unique, 16)));
+	var$0->append(":"_s);
+	var$0->append($($Long::toString(this->time, 16)));
+	var$0->append(":"_s);
+	var$0->append($($Integer::toString(this->count, 16)));
+	return $str(var$0);
 }
 
 void UID::write($DataOutput* out) {
@@ -150,7 +114,7 @@ UID* UID::read($DataInput* in) {
 	return $new(UID, unique, time, count);
 }
 
-void clinit$UID($Class* class$) {
+void UID::clinit$($Class* clazz) {
 	UID::hostUniqueSet = false;
 	$assignStatic(UID::lock, $new($Object));
 	UID::lastTime = $System::currentTimeMillis();
@@ -161,7 +125,40 @@ UID::UID() {
 }
 
 $Class* UID::load$($String* name, bool initialize) {
-	$loadClass(UID, name, initialize, &_UID_ClassInfo_, clinit$UID, allocate$UID);
+	$FieldInfo fieldInfos$$[] = {
+		{"hostUnique", "I", nullptr, $PRIVATE | $STATIC, $staticField(UID, hostUnique)},
+		{"hostUniqueSet", "Z", nullptr, $PRIVATE | $STATIC, $staticField(UID, hostUniqueSet)},
+		{"lock", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UID, lock)},
+		{"lastTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(UID, lastTime)},
+		{"lastCount", "S", nullptr, $PRIVATE | $STATIC, $staticField(UID, lastCount)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UID, serialVersionUID)},
+		{"unique", "I", nullptr, $PRIVATE | $FINAL, $field(UID, unique)},
+		{"time", "J", nullptr, $PRIVATE | $FINAL, $field(UID, time)},
+		{"count", "S", nullptr, $PRIVATE | $FINAL, $field(UID, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UID, init$, void)},
+		{"<init>", "(S)V", nullptr, $PUBLIC, $method(UID, init$, void, int16_t)},
+		{"<init>", "(IJS)V", nullptr, $PRIVATE, $method(UID, init$, void, int32_t, int64_t, int16_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(UID, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(UID, hashCode, int32_t)},
+		{"read", "(Ljava/io/DataInput;)Ljava/rmi/server/UID;", nullptr, $PUBLIC | $STATIC, $staticMethod(UID, read, UID*, $DataInput*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UID, toString, $String*)},
+		{"write", "(Ljava/io/DataOutput;)V", nullptr, $PUBLIC, $method(UID, write, void, $DataOutput*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.rmi.server.UID",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UID, name, initialize, &classInfo$$, UID::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UID);
+	});
 	return class$;
 }
 

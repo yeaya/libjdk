@@ -30,6 +30,7 @@ class $import DefaultRowSorter : public ::javax::swing::RowSorter {
 	$class(DefaultRowSorter, 0, ::javax::swing::RowSorter)
 public:
 	DefaultRowSorter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void allChanged();
 	virtual void allRowsChanged() override;

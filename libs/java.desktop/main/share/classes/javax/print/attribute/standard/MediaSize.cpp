@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MediaSize.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Vector.h>
 #include <javax/print/attribute/Size2DSyntax.h>
@@ -38,60 +37,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _MediaSize_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaSize, serialVersionUID)},
-	{"mediaName", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(MediaSize, mediaName)},
-	{"mediaMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljavax/print/attribute/standard/MediaSizeName;Ljavax/print/attribute/standard/MediaSize;>;", $PRIVATE | $STATIC, $staticField(MediaSize, mediaMap)},
-	{"sizeVector", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/standard/MediaSize;>;", $PRIVATE | $STATIC, $staticField(MediaSize, sizeVector)},
-	{}
-};
-
-$MethodInfo _MediaSize_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(FFI)V", nullptr, $PUBLIC, $method(MediaSize, init$, void, float, float, int32_t)},
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(MediaSize, init$, void, int32_t, int32_t, int32_t)},
-	{"<init>", "(FFILjavax/print/attribute/standard/MediaSizeName;)V", nullptr, $PUBLIC, $method(MediaSize, init$, void, float, float, int32_t, $MediaSizeName*)},
-	{"<init>", "(IIILjavax/print/attribute/standard/MediaSizeName;)V", nullptr, $PUBLIC, $method(MediaSize, init$, void, int32_t, int32_t, int32_t, $MediaSizeName*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MediaSize, equals, bool, Object$*)},
-	{"findMedia", "(FFI)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC, $staticMethod(MediaSize, findMedia, $MediaSizeName*, float, float, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(MediaSize, getCategory, $Class*)},
-	{"getMediaSizeForName", "(Ljavax/print/attribute/standard/MediaSizeName;)Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC, $staticMethod(MediaSize, getMediaSizeForName, MediaSize*, $MediaSizeName*)},
-	{"getMediaSizeName", "()Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC, $virtualMethod(MediaSize, getMediaSizeName, $MediaSizeName*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MediaSize, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MediaSize_InnerClassesInfo_[] = {
-	{"javax.print.attribute.standard.MediaSize$Other", "javax.print.attribute.standard.MediaSize", "Other", $PUBLIC | $STATIC | $FINAL},
-	{"javax.print.attribute.standard.MediaSize$Engineering", "javax.print.attribute.standard.MediaSize", "Engineering", $PUBLIC | $STATIC | $FINAL},
-	{"javax.print.attribute.standard.MediaSize$NA", "javax.print.attribute.standard.MediaSize", "NA", $PUBLIC | $STATIC | $FINAL},
-	{"javax.print.attribute.standard.MediaSize$JIS", "javax.print.attribute.standard.MediaSize", "JIS", $PUBLIC | $STATIC | $FINAL},
-	{"javax.print.attribute.standard.MediaSize$ISO", "javax.print.attribute.standard.MediaSize", "ISO", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MediaSize_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.MediaSize",
-	"javax.print.attribute.Size2DSyntax",
-	"javax.print.attribute.Attribute",
-	_MediaSize_FieldInfo_,
-	_MediaSize_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MediaSize_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.standard.MediaSize$Other,javax.print.attribute.standard.MediaSize$Engineering,javax.print.attribute.standard.MediaSize$NA,javax.print.attribute.standard.MediaSize$JIS,javax.print.attribute.standard.MediaSize$ISO"
-};
-
-$Object* allocate$MediaSize($Class* clazz) {
-	return $of($alloc(MediaSize));
-}
 
 int32_t MediaSize::hashCode() {
 	 return this->$Size2DSyntax::hashCode();
@@ -135,7 +80,7 @@ void MediaSize::init$(float x, float y, int32_t units, $MediaSizeName* media) {
 	}
 	if (media != nullptr && $nc(MediaSize::mediaMap)->get(media) == nullptr) {
 		$set(this, mediaName, media);
-		$nc(MediaSize::mediaMap)->put(this->mediaName, this);
+		MediaSize::mediaMap->put(this->mediaName, this);
 	}
 	$nc(MediaSize::sizeVector)->add(this);
 }
@@ -147,7 +92,7 @@ void MediaSize::init$(int32_t x, int32_t y, int32_t units, $MediaSizeName* media
 	}
 	if (media != nullptr && $nc(MediaSize::mediaMap)->get(media) == nullptr) {
 		$set(this, mediaName, media);
-		$nc(MediaSize::mediaMap)->put(this->mediaName, this);
+		MediaSize::mediaMap->put(this->mediaName, this);
 	}
 	$nc(MediaSize::sizeVector)->add(this);
 }
@@ -163,7 +108,7 @@ MediaSize* MediaSize::getMediaSizeForName($MediaSizeName* media) {
 
 $MediaSizeName* MediaSize::findMedia(float x, float y, int32_t units) {
 	$init(MediaSize);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($MediaSize$ISO);
 	$var(MediaSize, match, $MediaSize$ISO::A4);
 	if (x <= 0.0f || y <= 0.0f || units < 1) {
@@ -175,7 +120,7 @@ $MediaSizeName* MediaSize::findMedia(float x, float y, int32_t units) {
 	float diffx = x;
 	float diffy = y;
 	for (int32_t i = 0; i < $nc(MediaSize::sizeVector)->size(); ++i) {
-		$var(MediaSize, mediaSize, $cast(MediaSize, $nc(MediaSize::sizeVector)->elementAt(i)));
+		$var(MediaSize, mediaSize, $cast(MediaSize, MediaSize::sizeVector->elementAt(i)));
 		$assign(dim, $nc(mediaSize)->getSize(units));
 		if (x == $nc(dim)->get(0) && y == dim->get(1)) {
 			$assign(match, mediaSize);
@@ -205,9 +150,9 @@ $String* MediaSize::getName() {
 	return "media-size"_s;
 }
 
-void clinit$MediaSize($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(MediaSize::mediaMap, $new($HashMap, 100, (float)10));
+void MediaSize::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(MediaSize::mediaMap, $new($HashMap, 100, 10));
 	$assignStatic(MediaSize::sizeVector, $new($Vector, 100, 10));
 	{
 		$init($MediaSize$ISO);
@@ -227,7 +172,55 @@ MediaSize::MediaSize() {
 }
 
 $Class* MediaSize::load$($String* name, bool initialize) {
-	$loadClass(MediaSize, name, initialize, &_MediaSize_ClassInfo_, clinit$MediaSize, allocate$MediaSize);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaSize, serialVersionUID)},
+		{"mediaName", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(MediaSize, mediaName)},
+		{"mediaMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljavax/print/attribute/standard/MediaSizeName;Ljavax/print/attribute/standard/MediaSize;>;", $PRIVATE | $STATIC, $staticField(MediaSize, mediaMap)},
+		{"sizeVector", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/print/attribute/standard/MediaSize;>;", $PRIVATE | $STATIC, $staticField(MediaSize, sizeVector)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(FFI)V", nullptr, $PUBLIC, $method(MediaSize, init$, void, float, float, int32_t)},
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(MediaSize, init$, void, int32_t, int32_t, int32_t)},
+		{"<init>", "(FFILjavax/print/attribute/standard/MediaSizeName;)V", nullptr, $PUBLIC, $method(MediaSize, init$, void, float, float, int32_t, $MediaSizeName*)},
+		{"<init>", "(IIILjavax/print/attribute/standard/MediaSizeName;)V", nullptr, $PUBLIC, $method(MediaSize, init$, void, int32_t, int32_t, int32_t, $MediaSizeName*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MediaSize, equals, bool, Object$*)},
+		{"findMedia", "(FFI)Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC, $staticMethod(MediaSize, findMedia, $MediaSizeName*, float, float, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(MediaSize, getCategory, $Class*)},
+		{"getMediaSizeForName", "(Ljavax/print/attribute/standard/MediaSizeName;)Ljavax/print/attribute/standard/MediaSize;", nullptr, $PUBLIC | $STATIC, $staticMethod(MediaSize, getMediaSizeForName, MediaSize*, $MediaSizeName*)},
+		{"getMediaSizeName", "()Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC, $virtualMethod(MediaSize, getMediaSizeName, $MediaSizeName*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MediaSize, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.standard.MediaSize$Other", "javax.print.attribute.standard.MediaSize", "Other", $PUBLIC | $STATIC | $FINAL},
+		{"javax.print.attribute.standard.MediaSize$Engineering", "javax.print.attribute.standard.MediaSize", "Engineering", $PUBLIC | $STATIC | $FINAL},
+		{"javax.print.attribute.standard.MediaSize$NA", "javax.print.attribute.standard.MediaSize", "NA", $PUBLIC | $STATIC | $FINAL},
+		{"javax.print.attribute.standard.MediaSize$JIS", "javax.print.attribute.standard.MediaSize", "JIS", $PUBLIC | $STATIC | $FINAL},
+		{"javax.print.attribute.standard.MediaSize$ISO", "javax.print.attribute.standard.MediaSize", "ISO", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.MediaSize",
+		"javax.print.attribute.Size2DSyntax",
+		"javax.print.attribute.Attribute",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.standard.MediaSize$Other,javax.print.attribute.standard.MediaSize$Engineering,javax.print.attribute.standard.MediaSize$NA,javax.print.attribute.standard.MediaSize$JIS,javax.print.attribute.standard.MediaSize$ISO"
+	};
+	$loadClass(MediaSize, name, initialize, &classInfo$$, MediaSize::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MediaSize));
+	});
 	return class$;
 }
 

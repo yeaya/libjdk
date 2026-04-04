@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/BogusColorSpace.h>
-
 #include <java/awt/color/ColorSpace.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
@@ -20,29 +19,6 @@ namespace com {
 			namespace plugins {
 				namespace common {
 
-$MethodInfo _BogusColorSpace_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(BogusColorSpace, init$, void, int32_t)},
-	{"fromCIEXYZ", "([F)[F", nullptr, $PUBLIC, $virtualMethod(BogusColorSpace, fromCIEXYZ, $floats*, $floats*)},
-	{"fromRGB", "([F)[F", nullptr, $PUBLIC, $virtualMethod(BogusColorSpace, fromRGB, $floats*, $floats*)},
-	{"getType", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BogusColorSpace, getType, int32_t, int32_t)},
-	{"toCIEXYZ", "([F)[F", nullptr, $PUBLIC, $virtualMethod(BogusColorSpace, toCIEXYZ, $floats*, $floats*)},
-	{"toRGB", "([F)[F", nullptr, $PUBLIC, $virtualMethod(BogusColorSpace, toRGB, $floats*, $floats*)},
-	{}
-};
-
-$ClassInfo _BogusColorSpace_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.BogusColorSpace",
-	"java.awt.color.ColorSpace",
-	nullptr,
-	nullptr,
-	_BogusColorSpace_MethodInfo_
-};
-
-$Object* allocate$BogusColorSpace($Class* clazz) {
-	return $of($alloc(BogusColorSpace));
-}
-
 int32_t BogusColorSpace::getType(int32_t numComponents) {
 	$init(BogusColorSpace);
 	if (numComponents < 1) {
@@ -51,14 +27,10 @@ int32_t BogusColorSpace::getType(int32_t numComponents) {
 	int32_t type = 0;
 	switch (numComponents) {
 	case 1:
-		{
-			type = $ColorSpace::TYPE_GRAY;
-			break;
-		}
+		type = $ColorSpace::TYPE_GRAY;
+		break;
 	default:
-		{
-			type = numComponents + 10;
-		}
+		type = numComponents + 10;
 	}
 	return type;
 }
@@ -107,7 +79,26 @@ BogusColorSpace::BogusColorSpace() {
 }
 
 $Class* BogusColorSpace::load$($String* name, bool initialize) {
-	$loadClass(BogusColorSpace, name, initialize, &_BogusColorSpace_ClassInfo_, allocate$BogusColorSpace);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(BogusColorSpace, init$, void, int32_t)},
+		{"fromCIEXYZ", "([F)[F", nullptr, $PUBLIC, $virtualMethod(BogusColorSpace, fromCIEXYZ, $floats*, $floats*)},
+		{"fromRGB", "([F)[F", nullptr, $PUBLIC, $virtualMethod(BogusColorSpace, fromRGB, $floats*, $floats*)},
+		{"getType", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(BogusColorSpace, getType, int32_t, int32_t)},
+		{"toCIEXYZ", "([F)[F", nullptr, $PUBLIC, $virtualMethod(BogusColorSpace, toCIEXYZ, $floats*, $floats*)},
+		{"toRGB", "([F)[F", nullptr, $PUBLIC, $virtualMethod(BogusColorSpace, toRGB, $floats*, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.BogusColorSpace",
+		"java.awt.color.ColorSpace",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BogusColorSpace, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BogusColorSpace);
+	});
 	return class$;
 }
 

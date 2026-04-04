@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/security/JMXPluggableAuthenticator$JMXCallbackHandler.h>
-
 #include <com/sun/jmx/remote/security/JMXPluggableAuthenticator.h>
 #include <javax/security/auth/callback/Callback.h>
 #include <javax/security/auth/callback/NameCallback.h>
@@ -23,53 +22,17 @@ namespace com {
 			namespace remote {
 				namespace security {
 
-$FieldInfo _JMXPluggableAuthenticator$JMXCallbackHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;", nullptr, $FINAL | $SYNTHETIC, $field(JMXPluggableAuthenticator$JMXCallbackHandler, this$0)},
-	{}
-};
-
-$MethodInfo _JMXPluggableAuthenticator$JMXCallbackHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;)V", nullptr, $PRIVATE, $method(JMXPluggableAuthenticator$JMXCallbackHandler, init$, void, $JMXPluggableAuthenticator*)},
-	{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$JMXCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
-	{}
-};
-
-$InnerClassInfo _JMXPluggableAuthenticator$JMXCallbackHandler_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$JMXCallbackHandler", "com.sun.jmx.remote.security.JMXPluggableAuthenticator", "JMXCallbackHandler", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _JMXPluggableAuthenticator$JMXCallbackHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.remote.security.JMXPluggableAuthenticator$JMXCallbackHandler",
-	"java.lang.Object",
-	"javax.security.auth.callback.CallbackHandler",
-	_JMXPluggableAuthenticator$JMXCallbackHandler_FieldInfo_,
-	_JMXPluggableAuthenticator$JMXCallbackHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JMXPluggableAuthenticator$JMXCallbackHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.security.JMXPluggableAuthenticator"
-};
-
-$Object* allocate$JMXPluggableAuthenticator$JMXCallbackHandler($Class* clazz) {
-	return $of($alloc(JMXPluggableAuthenticator$JMXCallbackHandler));
-}
-
 void JMXPluggableAuthenticator$JMXCallbackHandler::init$($JMXPluggableAuthenticator* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void JMXPluggableAuthenticator$JMXCallbackHandler::handle($CallbackArray* callbacks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(callbacks)->length; ++i) {
 		if ($instanceOf($NameCallback, callbacks->get(i))) {
-			$nc(($cast($NameCallback, callbacks->get(i))))->setName(this->this$0->username);
+			$nc($cast($NameCallback, callbacks->get(i)))->setName(this->this$0->username);
 		} else if ($instanceOf($PasswordCallback, callbacks->get(i))) {
-			$nc(($cast($PasswordCallback, callbacks->get(i))))->setPassword($($nc(this->this$0->password)->toCharArray()));
+			$nc($cast($PasswordCallback, callbacks->get(i)))->setPassword($($nc(this->this$0->password)->toCharArray()));
 		} else {
 			$throwNew($UnsupportedCallbackException, callbacks->get(i), "Unrecognized Callback"_s);
 		}
@@ -80,7 +43,37 @@ JMXPluggableAuthenticator$JMXCallbackHandler::JMXPluggableAuthenticator$JMXCallb
 }
 
 $Class* JMXPluggableAuthenticator$JMXCallbackHandler::load$($String* name, bool initialize) {
-	$loadClass(JMXPluggableAuthenticator$JMXCallbackHandler, name, initialize, &_JMXPluggableAuthenticator$JMXCallbackHandler_ClassInfo_, allocate$JMXPluggableAuthenticator$JMXCallbackHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;", nullptr, $FINAL | $SYNTHETIC, $field(JMXPluggableAuthenticator$JMXCallbackHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/remote/security/JMXPluggableAuthenticator;)V", nullptr, $PRIVATE, $method(JMXPluggableAuthenticator$JMXCallbackHandler, init$, void, $JMXPluggableAuthenticator*)},
+		{"handle", "([Ljavax/security/auth/callback/Callback;)V", nullptr, $PUBLIC, $virtualMethod(JMXPluggableAuthenticator$JMXCallbackHandler, handle, void, $CallbackArray*), "java.io.IOException,javax.security.auth.callback.UnsupportedCallbackException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.security.JMXPluggableAuthenticator$JMXCallbackHandler", "com.sun.jmx.remote.security.JMXPluggableAuthenticator", "JMXCallbackHandler", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.remote.security.JMXPluggableAuthenticator$JMXCallbackHandler",
+		"java.lang.Object",
+		"javax.security.auth.callback.CallbackHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.security.JMXPluggableAuthenticator"
+	};
+	$loadClass(JMXPluggableAuthenticator$JMXCallbackHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXPluggableAuthenticator$JMXCallbackHandler);
+	});
 	return class$;
 }
 

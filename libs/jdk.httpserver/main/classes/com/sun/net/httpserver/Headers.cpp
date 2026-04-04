@@ -1,5 +1,4 @@
 #include <com/sun/net/httpserver/Headers.h>
-
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -25,50 +24,6 @@ namespace com {
 	namespace sun {
 		namespace net {
 			namespace httpserver {
-
-$FieldInfo _Headers_FieldInfo_[] = {
-	{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", 0, $field(Headers, map)},
-	{}
-};
-
-$MethodInfo _Headers_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Headers, init$, void)},
-	{"add", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Headers, add, void, $String*, $String*)},
-	{"checkValue", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Headers, checkValue, void, $String*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Headers, clear, void)},
-	{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Headers, containsKey, bool, Object$*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Headers, containsValue, bool, Object$*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;>;", $PUBLIC, $virtualMethod(Headers, entrySet, $Set*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Headers, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Headers, get, $Object*, Object$*)},
-	{"getFirst", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Headers, getFirst, $String*, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Headers, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Headers, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Headers, keySet, $Set*)},
-	{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Headers, normalize, $String*, $String*)},
-	{"put", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Headers, put, $List*, $String*, $List*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Headers, put, $Object*, Object$*, Object$*)},
-	{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/lang/String;+Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, $virtualMethod(Headers, putAll, void, $Map*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Headers, remove, $Object*, Object$*)},
-	{"set", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Headers, set, void, $String*, $String*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Headers, size, int32_t)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(Headers, values, $Collection*)},
-	{}
-};
-
-$ClassInfo _Headers_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.net.httpserver.Headers",
-	"java.lang.Object",
-	"java.util.Map",
-	_Headers_FieldInfo_,
-	_Headers_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
-};
-
-$Object* allocate$Headers($Class* clazz) {
-	return $of($alloc(Headers));
-}
 
 void Headers::init$() {
 	$set(this, map, $new($HashMap, 32));
@@ -121,11 +76,11 @@ bool Headers::containsValue(Object$* value) {
 }
 
 $Object* Headers::get(Object$* key) {
-	return $of($cast($List, $nc(this->map)->get($(normalize($cast($String, key))))));
+	return $cast($List, $nc(this->map)->get($(normalize($cast($String, key)))));
 }
 
 $String* Headers::getFirst($String* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, $cast($List, $nc(this->map)->get($(normalize(key)))));
 	if (l == nullptr) {
 		return nullptr;
@@ -134,7 +89,7 @@ $String* Headers::getFirst($String* key) {
 }
 
 $List* Headers::put($String* key, $List* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Iterator, i$, $nc(value)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -146,13 +101,13 @@ $List* Headers::put($String* key, $List* value) {
 }
 
 void Headers::add($String* key, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkValue(value);
 	$var($String, k, normalize(key));
 	$var($List, l, $cast($List, $nc(this->map)->get(k)));
 	if (l == nullptr) {
 		$assign(l, $new($LinkedList));
-		$nc(this->map)->put(k, l);
+		this->map->put(k, l);
 	}
 	$nc(l)->add(value);
 }
@@ -184,11 +139,11 @@ void Headers::checkValue($String* value) {
 void Headers::set($String* key, $String* value) {
 	$var($LinkedList, l, $new($LinkedList));
 	l->add(value);
-	put(key, static_cast<$List*>(l));
+	put(key, l);
 }
 
 $Object* Headers::remove(Object$* key) {
-	return $of($cast($List, $nc(this->map)->remove($(normalize($cast($String, key))))));
+	return $cast($List, $nc(this->map)->remove($(normalize($cast($String, key)))));
 }
 
 void Headers::putAll($Map* t) {
@@ -220,14 +175,53 @@ int32_t Headers::hashCode() {
 }
 
 $Object* Headers::put(Object$* key, Object$* value) {
-	return $of(this->put($cast($String, key), $cast($List, value)));
+	return this->put($cast($String, key), $cast($List, value));
 }
 
 Headers::Headers() {
 }
 
 $Class* Headers::load$($String* name, bool initialize) {
-	$loadClass(Headers, name, initialize, &_Headers_ClassInfo_, allocate$Headers);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;", 0, $field(Headers, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Headers, init$, void)},
+		{"add", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Headers, add, void, $String*, $String*)},
+		{"checkValue", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Headers, checkValue, void, $String*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Headers, clear, void)},
+		{"containsKey", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Headers, containsKey, bool, Object$*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Headers, containsValue, bool, Object$*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;>;", $PUBLIC, $virtualMethod(Headers, entrySet, $Set*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Headers, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Headers, get, $Object*, Object$*)},
+		{"getFirst", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Headers, getFirst, $String*, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Headers, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(Headers, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Headers, keySet, $Set*)},
+		{"normalize", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Headers, normalize, $String*, $String*)},
+		{"put", "(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;", "(Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Headers, put, $List*, $String*, $List*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Headers, put, $Object*, Object$*, Object$*)},
+		{"putAll", "(Ljava/util/Map;)V", "(Ljava/util/Map<+Ljava/lang/String;+Ljava/util/List<Ljava/lang/String;>;>;)V", $PUBLIC, $virtualMethod(Headers, putAll, void, $Map*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/util/List;", "(Ljava/lang/Object;)Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Headers, remove, $Object*, Object$*)},
+		{"set", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Headers, set, void, $String*, $String*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Headers, size, int32_t)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<Ljava/util/List<Ljava/lang/String;>;>;", $PUBLIC, $virtualMethod(Headers, values, $Collection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.net.httpserver.Headers",
+		"java.lang.Object",
+		"java.util.Map",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Ljava/lang/String;>;>;"
+	};
+	$loadClass(Headers, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Headers);
+	});
 	return class$;
 }
 

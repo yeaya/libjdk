@@ -33,6 +33,7 @@ class AquaButtonToggleUI : public ::com::apple::laf::AquaButtonUI {
 	$class(AquaButtonToggleUI, 0, ::com::apple::laf::AquaButtonUI)
 public:
 	AquaButtonToggleUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* b);
 	virtual $String* getPropertyPrefix() override;

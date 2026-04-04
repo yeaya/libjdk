@@ -1,5 +1,4 @@
 #include <java/rmi/AlreadyBoundException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,30 +8,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _AlreadyBoundException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlreadyBoundException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AlreadyBoundException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _AlreadyBoundException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.AlreadyBoundException",
-	"java.lang.Exception",
-	nullptr,
-	_AlreadyBoundException_FieldInfo_,
-	_AlreadyBoundException_MethodInfo_
-};
-
-$Object* allocate$AlreadyBoundException($Class* clazz) {
-	return $of($alloc(AlreadyBoundException));
-}
 
 void AlreadyBoundException::init$() {
 	$Exception::init$();
@@ -53,7 +28,26 @@ void AlreadyBoundException::throw$() {
 }
 
 $Class* AlreadyBoundException::load$($String* name, bool initialize) {
-	$loadClass(AlreadyBoundException, name, initialize, &_AlreadyBoundException_ClassInfo_, allocate$AlreadyBoundException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AlreadyBoundException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(AlreadyBoundException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.AlreadyBoundException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlreadyBoundException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlreadyBoundException);
+	});
 	return class$;
 }
 

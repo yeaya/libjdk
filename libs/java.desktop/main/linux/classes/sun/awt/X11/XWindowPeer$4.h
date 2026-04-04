@@ -13,6 +13,7 @@ class XWindowPeer$4 : public ::java::lang::Object {
 	$class(XWindowPeer$4, 0, ::java::lang::Object)
 public:
 	XWindowPeer$4();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$java$awt$Window$Type;
 };
 

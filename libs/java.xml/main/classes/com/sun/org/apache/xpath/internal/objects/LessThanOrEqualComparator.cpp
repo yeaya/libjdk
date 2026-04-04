@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/LessThanOrEqualComparator.h>
-
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <com/sun/org/apache/xpath/internal/objects/Comparator.h>
 #include <jcpp.h>
@@ -16,26 +15,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace objects {
-
-$MethodInfo _LessThanOrEqualComparator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LessThanOrEqualComparator, init$, void)},
-	{"compareNumbers", "(DD)Z", nullptr, 0, $virtualMethod(LessThanOrEqualComparator, compareNumbers, bool, double, double)},
-	{"compareStrings", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, 0, $virtualMethod(LessThanOrEqualComparator, compareStrings, bool, $XMLString*, $XMLString*)},
-	{}
-};
-
-$ClassInfo _LessThanOrEqualComparator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.LessThanOrEqualComparator",
-	"com.sun.org.apache.xpath.internal.objects.Comparator",
-	nullptr,
-	nullptr,
-	_LessThanOrEqualComparator_MethodInfo_
-};
-
-$Object* allocate$LessThanOrEqualComparator($Class* clazz) {
-	return $of($alloc(LessThanOrEqualComparator));
-}
 
 void LessThanOrEqualComparator::init$() {
 	$Comparator::init$();
@@ -54,7 +33,23 @@ LessThanOrEqualComparator::LessThanOrEqualComparator() {
 }
 
 $Class* LessThanOrEqualComparator::load$($String* name, bool initialize) {
-	$loadClass(LessThanOrEqualComparator, name, initialize, &_LessThanOrEqualComparator_ClassInfo_, allocate$LessThanOrEqualComparator);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LessThanOrEqualComparator, init$, void)},
+		{"compareNumbers", "(DD)Z", nullptr, 0, $virtualMethod(LessThanOrEqualComparator, compareNumbers, bool, double, double)},
+		{"compareStrings", "(Lcom/sun/org/apache/xml/internal/utils/XMLString;Lcom/sun/org/apache/xml/internal/utils/XMLString;)Z", nullptr, 0, $virtualMethod(LessThanOrEqualComparator, compareStrings, bool, $XMLString*, $XMLString*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.LessThanOrEqualComparator",
+		"com.sun.org.apache.xpath.internal.objects.Comparator",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LessThanOrEqualComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LessThanOrEqualComparator);
+	});
 	return class$;
 }
 

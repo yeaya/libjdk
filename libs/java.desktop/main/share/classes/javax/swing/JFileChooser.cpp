@@ -1,5 +1,4 @@
 #include <javax/swing/JFileChooser.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
@@ -15,7 +14,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/HierarchyListener.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -94,15 +92,11 @@ using $EventQueue = ::java::awt::EventQueue;
 using $Frame = ::java::awt::Frame;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $HierarchyListener = ::java::awt::event::HierarchyListener;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -117,7 +111,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $EventListener = ::java::util::EventListener;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Icon = ::javax::swing::Icon;
@@ -129,9 +122,7 @@ using $JFileChooser$FCHierarchyListener = ::javax::swing::JFileChooser$FCHierarc
 using $JFileChooser$WeakPCL = ::javax::swing::JFileChooser$WeakPCL;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $JRootPane = ::javax::swing::JRootPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $FileView = ::javax::swing::filechooser::FileView;
@@ -140,503 +131,6 @@ using $FileChooserUI = ::javax::swing::plaf::FileChooserUI;
 
 namespace javax {
 	namespace swing {
-
-$NamedAttribute JFileChooser_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A component which allows for the interactive selection of a file."},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$1[] = {
-	{"value", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JFileChooser_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", JFileChooser_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$2[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Adds a filter to the list of user choosable file filters."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_addChoosableFileFilter8[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_getAcceptAllFileFilter18[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_getAccessibleContext19[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_getActionListeners21[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_getChoosableFileFilters25[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_getUI41[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$8[] = {
-	{"bound", 'Z', "false"},
-	{"expert", 'Z', "true"},
-	{"description", 's', "A string that specifies the name of the L&F class."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_getUIClassID42[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$9[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_isDirectorySelectionEnabled46[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$10[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_isFileSelectionEnabled48[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$10},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$11[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets whether the AcceptAll FileFilter is used as an available choice in the choosable filter list."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setAcceptAllFileFilterUsed57[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$11},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$12[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets the accessory component on the JFileChooser."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setAccessory58[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$12},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$13[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The mnemonic key accelerator for the ApproveButton."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setApproveButtonMnemonic59[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$13},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$14[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The text that goes in the ApproveButton."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setApproveButtonText61[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$14},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$15[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The tooltip text for the ApproveButton."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setApproveButtonToolTipText62[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$15},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$16[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets whether the approve & cancel buttons are shown."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setControlButtonsAreShown63[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$16},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$17[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The directory that the JFileChooser is showing files of."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setCurrentDirectory64[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$17},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$18[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "The title of the JFileChooser dialog window."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setDialogTitle65[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$18},
-	{}
-};
-
-$Attribute JFileChooser_Attribute_var$20[] = {
-	{'s', "JFileChooser.OPEN_DIALOG"},
-	{'s', "JFileChooser.SAVE_DIALOG"},
-	{'s', "JFileChooser.CUSTOM_DIALOG"},
-	{'-'}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$19[] = {
-	{"preferred", 'Z', "true"},
-	{"enumerationValues", '[', JFileChooser_Attribute_var$20},
-	{"description", 's', "The type (open, save, custom) of the JFileChooser."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setDialogType66[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$19},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$21[] = {
-	{"bound", 'Z', "false"},
-	{"description", 's', "determines whether automatic drag handling is enabled"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setDragEnabled67[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$21},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$22[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets the File Filter used to filter out files of type."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setFileFilter68[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$22},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$23[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets file hiding on or off."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setFileHidingEnabled69[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$23},
-	{}
-};
-
-$Attribute JFileChooser_Attribute_var$25[] = {
-	{'s', "JFileChooser.FILES_ONLY"},
-	{'s', "JFileChooser.DIRECTORIES_ONLY"},
-	{'s', "JFileChooser.FILES_AND_DIRECTORIES"},
-	{'-'}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$24[] = {
-	{"preferred", 'Z', "true"},
-	{"enumerationValues", '[', JFileChooser_Attribute_var$25},
-	{"description", 's', "Sets the types of files that the JFileChooser can choose."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setFileSelectionMode70[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$24},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$26[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "Sets the FileSytemView used to get filesystem information."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setFileSystemView71[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$26},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$27[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Sets the File View used to get file type information."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setFileView72[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$27},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$28[] = {
-	{"description", 's', "Sets multiple file selection mode."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setMultiSelectionEnabled73[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$28},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$29[] = {
-	{"preferred", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setSelectedFile74[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$29},
-	{}
-};
-
-$NamedAttribute JFileChooser_Attribute_var$30[] = {
-	{"description", 's', "The list of selected files if the chooser is in multiple selection mode."},
-	{}
-};
-
-$CompoundAttribute _JFileChooser_MethodAnnotations_setSelectedFiles75[] = {
-	{"Ljava/beans/BeanProperty;", JFileChooser_Attribute_var$30},
-	{}
-};
-
-$FieldInfo _JFileChooser_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFileChooser, uiClassID)},
-	{"OPEN_DIALOG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, OPEN_DIALOG)},
-	{"SAVE_DIALOG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, SAVE_DIALOG)},
-	{"CUSTOM_DIALOG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, CUSTOM_DIALOG)},
-	{"CANCEL_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, CANCEL_OPTION)},
-	{"APPROVE_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, APPROVE_OPTION)},
-	{"ERROR_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, ERROR_OPTION)},
-	{"FILES_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, FILES_ONLY)},
-	{"DIRECTORIES_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, DIRECTORIES_ONLY)},
-	{"FILES_AND_DIRECTORIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, FILES_AND_DIRECTORIES)},
-	{"CANCEL_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, CANCEL_SELECTION)},
-	{"APPROVE_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, APPROVE_SELECTION)},
-	{"APPROVE_BUTTON_TEXT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, APPROVE_BUTTON_TEXT_CHANGED_PROPERTY)},
-	{"APPROVE_BUTTON_TOOL_TIP_TEXT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, APPROVE_BUTTON_TOOL_TIP_TEXT_CHANGED_PROPERTY)},
-	{"APPROVE_BUTTON_MNEMONIC_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, APPROVE_BUTTON_MNEMONIC_CHANGED_PROPERTY)},
-	{"CONTROL_BUTTONS_ARE_SHOWN_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, CONTROL_BUTTONS_ARE_SHOWN_CHANGED_PROPERTY)},
-	{"DIRECTORY_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, DIRECTORY_CHANGED_PROPERTY)},
-	{"SELECTED_FILE_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, SELECTED_FILE_CHANGED_PROPERTY)},
-	{"SELECTED_FILES_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, SELECTED_FILES_CHANGED_PROPERTY)},
-	{"MULTI_SELECTION_ENABLED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, MULTI_SELECTION_ENABLED_CHANGED_PROPERTY)},
-	{"FILE_SYSTEM_VIEW_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_SYSTEM_VIEW_CHANGED_PROPERTY)},
-	{"FILE_VIEW_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_VIEW_CHANGED_PROPERTY)},
-	{"FILE_HIDING_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_HIDING_CHANGED_PROPERTY)},
-	{"FILE_FILTER_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_FILTER_CHANGED_PROPERTY)},
-	{"FILE_SELECTION_MODE_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_SELECTION_MODE_CHANGED_PROPERTY)},
-	{"ACCESSORY_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, ACCESSORY_CHANGED_PROPERTY)},
-	{"ACCEPT_ALL_FILE_FILTER_USED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, ACCEPT_ALL_FILE_FILTER_USED_CHANGED_PROPERTY)},
-	{"DIALOG_TITLE_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, DIALOG_TITLE_CHANGED_PROPERTY)},
-	{"DIALOG_TYPE_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, DIALOG_TYPE_CHANGED_PROPERTY)},
-	{"CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY)},
-	{"dialogTitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JFileChooser, dialogTitle)},
-	{"approveButtonText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JFileChooser, approveButtonText)},
-	{"approveButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JFileChooser, approveButtonToolTipText)},
-	{"approveButtonMnemonic", "I", nullptr, $PRIVATE, $field(JFileChooser, approveButtonMnemonic)},
-	{"filters", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(JFileChooser, filters)},
-	{"dialog", "Ljavax/swing/JDialog;", nullptr, $PRIVATE, $field(JFileChooser, dialog)},
-	{"dialogType", "I", nullptr, $PRIVATE, $field(JFileChooser, dialogType)},
-	{"returnValue", "I", nullptr, $PRIVATE, $field(JFileChooser, returnValue)},
-	{"accessory", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(JFileChooser, accessory)},
-	{"fileView", "Ljavax/swing/filechooser/FileView;", nullptr, $PRIVATE, $field(JFileChooser, fileView)},
-	{"controlsShown", "Z", nullptr, $PRIVATE, $field(JFileChooser, controlsShown)},
-	{"useFileHiding", "Z", nullptr, $PRIVATE, $field(JFileChooser, useFileHiding)},
-	{"SHOW_HIDDEN_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFileChooser, SHOW_HIDDEN_PROP)},
-	{"showFilesListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $TRANSIENT, $field(JFileChooser, showFilesListener)},
-	{"fileSelectionMode", "I", nullptr, $PRIVATE, $field(JFileChooser, fileSelectionMode)},
-	{"multiSelectionEnabled", "Z", nullptr, $PRIVATE, $field(JFileChooser, multiSelectionEnabled)},
-	{"useAcceptAllFileFilter", "Z", nullptr, $PRIVATE, $field(JFileChooser, useAcceptAllFileFilter)},
-	{"dragEnabled", "Z", nullptr, $PRIVATE, $field(JFileChooser, dragEnabled)},
-	{"fileFilter", "Ljavax/swing/filechooser/FileFilter;", nullptr, $PRIVATE, $field(JFileChooser, fileFilter)},
-	{"fileSystemView", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $PRIVATE, $field(JFileChooser, fileSystemView)},
-	{"currentDirectory", "Ljava/io/File;", nullptr, $PRIVATE, $field(JFileChooser, currentDirectory)},
-	{"selectedFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(JFileChooser, selectedFile)},
-	{"selectedFiles", "[Ljava/io/File;", nullptr, $PRIVATE, $field(JFileChooser, selectedFiles)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JFileChooser, accessibleContext)},
-	{}
-};
-
-$MethodInfo _JFileChooser_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JFileChooser, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $String*)},
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $File*)},
-	{"<init>", "(Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $FileSystemView*)},
-	{"<init>", "(Ljava/io/File;Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $File*, $FileSystemView*)},
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $String*, $FileSystemView*)},
-	{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, accept, bool, $File*)},
-	{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, addActionListener, void, $ActionListener*)},
-	{"addChoosableFileFilter", "(Ljavax/swing/filechooser/FileFilter;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, addChoosableFileFilter, void, $FileFilter*), nullptr, nullptr, _JFileChooser_MethodAnnotations_addChoosableFileFilter8},
-	{"approveSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, approveSelection, void)},
-	{"cancelSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, cancelSelection, void)},
-	{"changeToParentDirectory", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, changeToParentDirectory, void)},
-	{"checkDialogType", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JFileChooser, checkDialogType, void, int32_t)},
-	{"checkDragEnabled", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JFileChooser, checkDragEnabled, void, bool)},
-	{"checkFileSelectionMode", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JFileChooser, checkFileSelectionMode, void, int32_t)},
-	{"createDialog", "(Ljava/awt/Component;)Ljavax/swing/JDialog;", nullptr, $PROTECTED, $virtualMethod(JFileChooser, createDialog, $JDialog*, $Component*), "java.awt.HeadlessException"},
-	{"ensureFileIsVisible", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, ensureFileIsVisible, void, $File*)},
-	{"fireActionPerformed", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JFileChooser, fireActionPerformed, void, $String*)},
-	{"getAcceptAllFileFilter", "()Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getAcceptAllFileFilter, $FileFilter*), nullptr, nullptr, _JFileChooser_MethodAnnotations_getAcceptAllFileFilter18},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JFileChooser_MethodAnnotations_getAccessibleContext19},
-	{"getAccessory", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getAccessory, $JComponent*)},
-	{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getActionListeners, $ActionListenerArray*), nullptr, nullptr, _JFileChooser_MethodAnnotations_getActionListeners21},
-	{"getApproveButtonMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getApproveButtonMnemonic, int32_t)},
-	{"getApproveButtonText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getApproveButtonText, $String*)},
-	{"getApproveButtonToolTipText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getApproveButtonToolTipText, $String*)},
-	{"getChoosableFileFilters", "()[Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getChoosableFileFilters, $FileFilterArray*), nullptr, nullptr, _JFileChooser_MethodAnnotations_getChoosableFileFilters25},
-	{"getControlButtonsAreShown", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getControlButtonsAreShown, bool)},
-	{"getCurrentDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getCurrentDirectory, $File*)},
-	{"getDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getDescription, $String*, $File*)},
-	{"getDialogTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getDialogTitle, $String*)},
-	{"getDialogType", "()I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getDialogType, int32_t)},
-	{"getDragEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getDragEnabled, bool)},
-	{"getFileFilter", "()Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getFileFilter, $FileFilter*)},
-	{"getFileSelectionMode", "()I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getFileSelectionMode, int32_t)},
-	{"getFileSystemView", "()Ljavax/swing/filechooser/FileSystemView;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getFileSystemView, $FileSystemView*)},
-	{"getFileView", "()Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getFileView, $FileView*)},
-	{"getIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getIcon, $Icon*, $File*)},
-	{"getName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getName, $String*, $File*)},
-	{"getSelectedFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getSelectedFile, $File*)},
-	{"getSelectedFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getSelectedFiles, $FileArray*)},
-	{"getTypeDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getTypeDescription, $String*, $File*)},
-	{"getUI", "()Ljavax/swing/plaf/FileChooserUI;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getUI, $ComponentUI*), nullptr, nullptr, _JFileChooser_MethodAnnotations_getUI41},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getUIClassID, $String*), nullptr, nullptr, _JFileChooser_MethodAnnotations_getUIClassID42},
-	{"installHierarchyListener", "()V", nullptr, $PRIVATE, $method(JFileChooser, installHierarchyListener, void)},
-	{"installShowFilesListener", "()V", nullptr, $PRIVATE, $method(JFileChooser, installShowFilesListener, void)},
-	{"isAcceptAllFileFilterUsed", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isAcceptAllFileFilterUsed, bool)},
-	{"isDirectorySelectionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isDirectorySelectionEnabled, bool), nullptr, nullptr, _JFileChooser_MethodAnnotations_isDirectorySelectionEnabled46},
-	{"isFileHidingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isFileHidingEnabled, bool)},
-	{"isFileSelectionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isFileSelectionEnabled, bool), nullptr, nullptr, _JFileChooser_MethodAnnotations_isFileSelectionEnabled48},
-	{"isMultiSelectionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isMultiSelectionEnabled, bool)},
-	{"isTraversable", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isTraversable, bool, $File*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JFileChooser, paramString, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JFileChooser, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, removeActionListener, void, $ActionListener*)},
-	{"removeChoosableFileFilter", "(Ljavax/swing/filechooser/FileFilter;)Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, removeChoosableFileFilter, bool, $FileFilter*)},
-	{"rescanCurrentDirectory", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, rescanCurrentDirectory, void)},
-	{"resetChoosableFileFilters", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, resetChoosableFileFilters, void)},
-	{"setAcceptAllFileFilterUsed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setAcceptAllFileFilterUsed, void, bool), nullptr, nullptr, _JFileChooser_MethodAnnotations_setAcceptAllFileFilterUsed57},
-	{"setAccessory", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setAccessory, void, $JComponent*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setAccessory58},
-	{"setApproveButtonMnemonic", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setApproveButtonMnemonic, void, int32_t), nullptr, nullptr, _JFileChooser_MethodAnnotations_setApproveButtonMnemonic59},
-	{"setApproveButtonMnemonic", "(C)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setApproveButtonMnemonic, void, char16_t)},
-	{"setApproveButtonText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setApproveButtonText, void, $String*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setApproveButtonText61},
-	{"setApproveButtonToolTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setApproveButtonToolTipText, void, $String*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setApproveButtonToolTipText62},
-	{"setControlButtonsAreShown", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setControlButtonsAreShown, void, bool), nullptr, nullptr, _JFileChooser_MethodAnnotations_setControlButtonsAreShown63},
-	{"setCurrentDirectory", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setCurrentDirectory, void, $File*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setCurrentDirectory64},
-	{"setDialogTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setDialogTitle, void, $String*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setDialogTitle65},
-	{"setDialogType", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setDialogType, void, int32_t), nullptr, nullptr, _JFileChooser_MethodAnnotations_setDialogType66},
-	{"setDragEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setDragEnabled, void, bool), nullptr, nullptr, _JFileChooser_MethodAnnotations_setDragEnabled67},
-	{"setFileFilter", "(Ljavax/swing/filechooser/FileFilter;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileFilter, void, $FileFilter*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setFileFilter68},
-	{"setFileHidingEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileHidingEnabled, void, bool), nullptr, nullptr, _JFileChooser_MethodAnnotations_setFileHidingEnabled69},
-	{"setFileSelectionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileSelectionMode, void, int32_t), nullptr, nullptr, _JFileChooser_MethodAnnotations_setFileSelectionMode70},
-	{"setFileSystemView", "(Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileSystemView, void, $FileSystemView*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setFileSystemView71},
-	{"setFileView", "(Ljavax/swing/filechooser/FileView;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileView, void, $FileView*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setFileView72},
-	{"setMultiSelectionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setMultiSelectionEnabled, void, bool), nullptr, nullptr, _JFileChooser_MethodAnnotations_setMultiSelectionEnabled73},
-	{"setSelectedFile", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setSelectedFile, void, $File*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setSelectedFile74},
-	{"setSelectedFiles", "([Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setSelectedFiles, void, $FileArray*), nullptr, nullptr, _JFileChooser_MethodAnnotations_setSelectedFiles75},
-	{"setup", "(Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PROTECTED, $virtualMethod(JFileChooser, setup, void, $FileSystemView*)},
-	{"showDialog", "(Ljava/awt/Component;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, showDialog, int32_t, $Component*, $String*), "java.awt.HeadlessException"},
-	{"showOpenDialog", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, showOpenDialog, int32_t, $Component*), "java.awt.HeadlessException"},
-	{"showSaveDialog", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, showSaveDialog, int32_t, $Component*), "java.awt.HeadlessException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JFileChooser, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JFileChooser_InnerClassesInfo_[] = {
-	{"javax.swing.JFileChooser$FCHierarchyListener", "javax.swing.JFileChooser", "FCHierarchyListener", $PRIVATE},
-	{"javax.swing.JFileChooser$AccessibleJFileChooser", "javax.swing.JFileChooser", "AccessibleJFileChooser", $PROTECTED},
-	{"javax.swing.JFileChooser$WeakPCL", "javax.swing.JFileChooser", "WeakPCL", $PRIVATE | $STATIC},
-	{"javax.swing.JFileChooser$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JFileChooser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JFileChooser",
-	"javax.swing.JComponent",
-	"javax.accessibility.Accessible",
-	_JFileChooser_FieldInfo_,
-	_JFileChooser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFileChooser_InnerClassesInfo_,
-	_JFileChooser_Annotations_,
-	nullptr,
-	"javax.swing.JFileChooser$FCHierarchyListener,javax.swing.JFileChooser$AccessibleJFileChooser,javax.swing.JFileChooser$WeakPCL,javax.swing.JFileChooser$1"
-};
-
-$Object* allocate$JFileChooser($Class* clazz) {
-	return $of($alloc(JFileChooser));
-}
 
 $String* JFileChooser::toString() {
 	 return this->$JComponent::toString();
@@ -758,7 +252,7 @@ void JFileChooser::init$($String* currentDirectoryPath, $FileSystemView* fsv) {
 }
 
 void JFileChooser::setup($FileSystemView* view$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileSystemView, view, view$renamed);
 	installShowFilesListener();
 	installHierarchyListener();
@@ -778,11 +272,11 @@ void JFileChooser::installHierarchyListener() {
 }
 
 void JFileChooser::installShowFilesListener() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Toolkit, tk, $Toolkit::getDefaultToolkit());
 	$var($Object, showHiddenProperty, $nc(tk)->getDesktopProperty(JFileChooser::SHOW_HIDDEN_PROP));
 	if ($instanceOf($Boolean, showHiddenProperty)) {
-		this->useFileHiding = !$nc(($cast($Boolean, showHiddenProperty)))->booleanValue();
+		this->useFileHiding = !$cast($Boolean, showHiddenProperty)->booleanValue();
 		$set(this, showFilesListener, $new($JFileChooser$WeakPCL, this));
 		tk->addPropertyChangeListener(JFileChooser::SHOW_HIDDEN_PROP, this->showFilesListener);
 	}
@@ -809,42 +303,42 @@ $File* JFileChooser::getSelectedFile() {
 }
 
 void JFileChooser::setSelectedFile($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, oldValue, this->selectedFile);
 	$set(this, selectedFile, file);
 	if (this->selectedFile != nullptr) {
 		bool var$0 = $nc(file)->isAbsolute();
-		if (var$0 && !$nc($(getFileSystemView()))->isParent($(getCurrentDirectory()), this->selectedFile)) {
+		if (var$0 && !$$nc(getFileSystemView())->isParent($(getCurrentDirectory()), this->selectedFile)) {
 			setCurrentDirectory($($nc(this->selectedFile)->getParentFile()));
 		}
-		if (!isMultiSelectionEnabled() || this->selectedFiles == nullptr || $nc(this->selectedFiles)->length == 1) {
+		if (!isMultiSelectionEnabled() || this->selectedFiles == nullptr || this->selectedFiles->length == 1) {
 			ensureFileIsVisible(this->selectedFile);
 		}
 	}
-	firePropertyChange(JFileChooser::SELECTED_FILE_CHANGED_PROPERTY, $of(oldValue), $of(this->selectedFile));
+	firePropertyChange(JFileChooser::SELECTED_FILE_CHANGED_PROPERTY, oldValue, this->selectedFile);
 }
 
 $FileArray* JFileChooser::getSelectedFiles() {
 	if (this->selectedFiles == nullptr) {
 		return $new($FileArray, 0);
 	} else {
-		return $cast($FileArray, $nc(this->selectedFiles)->clone());
+		return $cast($FileArray, this->selectedFiles->clone());
 	}
 }
 
 void JFileChooser::setSelectedFiles($FileArray* selectedFiles$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileArray, selectedFiles, selectedFiles$renamed);
 	$var($FileArray, oldValue, this->selectedFiles);
-	if (selectedFiles == nullptr || $nc(selectedFiles)->length == 0) {
+	if (selectedFiles == nullptr || selectedFiles->length == 0) {
 		$assign(selectedFiles, nullptr);
 		$set(this, selectedFiles, nullptr);
 		setSelectedFile(nullptr);
 	} else {
 		$set(this, selectedFiles, $cast($FileArray, selectedFiles->clone()));
-		setSelectedFile($nc(this->selectedFiles)->get(0));
+		setSelectedFile(this->selectedFiles->get(0));
 	}
-	firePropertyChange(JFileChooser::SELECTED_FILES_CHANGED_PROPERTY, $of(oldValue), $of(selectedFiles));
+	firePropertyChange(JFileChooser::SELECTED_FILES_CHANGED_PROPERTY, oldValue, selectedFiles);
 }
 
 $File* JFileChooser::getCurrentDirectory() {
@@ -852,14 +346,14 @@ $File* JFileChooser::getCurrentDirectory() {
 }
 
 void JFileChooser::setCurrentDirectory($File* dir$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, dir, dir$renamed);
 	$var($File, oldValue, this->currentDirectory);
 	if (dir != nullptr && !dir->exists()) {
 		$assign(dir, this->currentDirectory);
 	}
 	if (dir == nullptr) {
-		$assign(dir, $nc($(getFileSystemView()))->getDefaultDirectory());
+		$assign(dir, $$nc(getFileSystemView())->getDefaultDirectory());
 	}
 	if (this->currentDirectory != nullptr) {
 		if ($nc(this->currentDirectory)->equals(dir)) {
@@ -869,25 +363,25 @@ void JFileChooser::setCurrentDirectory($File* dir$renamed) {
 	$var($File, prev, nullptr);
 	while (!isTraversable(dir) && prev != dir) {
 		$assign(prev, dir);
-		$assign(dir, $nc($(getFileSystemView()))->getParentDirectory(dir));
+		$assign(dir, $$nc(getFileSystemView())->getParentDirectory(dir));
 	}
 	$set(this, currentDirectory, dir);
-	firePropertyChange(JFileChooser::DIRECTORY_CHANGED_PROPERTY, $of(oldValue), $of(this->currentDirectory));
+	firePropertyChange(JFileChooser::DIRECTORY_CHANGED_PROPERTY, oldValue, this->currentDirectory);
 }
 
 void JFileChooser::changeToParentDirectory() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, selectedFile, nullptr);
 	$var($File, oldValue, getCurrentDirectory());
-	setCurrentDirectory($($nc($(getFileSystemView()))->getParentDirectory(oldValue)));
+	setCurrentDirectory($($$nc(getFileSystemView())->getParentDirectory(oldValue)));
 }
 
 void JFileChooser::rescanCurrentDirectory() {
-	$nc($($cast($FileChooserUI, getUI())))->rescanCurrentDirectory(this);
+	$$sure($FileChooserUI, getUI())->rescanCurrentDirectory(this);
 }
 
 void JFileChooser::ensureFileIsVisible($File* f) {
-	$nc($($cast($FileChooserUI, getUI())))->ensureFileIsVisible(this, f);
+	$$sure($FileChooserUI, getUI())->ensureFileIsVisible(this, f);
 }
 
 int32_t JFileChooser::showOpenDialog($Component* parent) {
@@ -901,7 +395,7 @@ int32_t JFileChooser::showSaveDialog($Component* parent) {
 }
 
 int32_t JFileChooser::showDialog($Component* parent, $String* approveButtonText) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->dialog != nullptr) {
 		return JFileChooser::ERROR_OPTION;
 	}
@@ -914,15 +408,15 @@ int32_t JFileChooser::showDialog($Component* parent, $String* approveButtonText)
 	this->returnValue = JFileChooser::ERROR_OPTION;
 	rescanCurrentDirectory();
 	$nc(this->dialog)->show();
-	firePropertyChange("JFileChooserDialogIsClosingProperty"_s, $of(this->dialog), ($Object*)nullptr);
-	$nc($($nc(this->dialog)->getContentPane()))->removeAll();
+	firePropertyChange("JFileChooserDialogIsClosingProperty"_s, this->dialog, nullptr);
+	$$nc($nc(this->dialog)->getContentPane())->removeAll();
 	$nc(this->dialog)->dispose();
 	$set(this, dialog, nullptr);
 	return this->returnValue;
 }
 
 $JDialog* JFileChooser::createDialog($Component* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileChooserUI, ui, $cast($FileChooserUI, getUI()));
 	$var($String, title, $nc(ui)->getDialogTitle(this));
 	$init($AccessibleContext);
@@ -937,12 +431,11 @@ $JDialog* JFileChooser::createDialog($Component* parent) {
 	$nc(dialog)->setComponentOrientation($(this->getComponentOrientation()));
 	$var($Container, contentPane, dialog->getContentPane());
 	$nc(contentPane)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	contentPane->add(static_cast<$Component*>(this), $of($BorderLayout::CENTER));
+	contentPane->add(this, $BorderLayout::CENTER);
 	if ($JDialog::isDefaultLookAndFeelDecorated()) {
-		bool supportsWindowDecorations = $nc($($UIManager::getLookAndFeel()))->getSupportsWindowDecorations();
+		bool supportsWindowDecorations = $$nc($UIManager::getLookAndFeel())->getSupportsWindowDecorations();
 		if (supportsWindowDecorations) {
-			$nc($(dialog->getRootPane()))->setWindowDecorationStyle($JRootPane::FILE_CHOOSER_DIALOG);
+			$$nc(dialog->getRootPane())->setWindowDecorationStyle($JRootPane::FILE_CHOOSER_DIALOG);
 		}
 	}
 	dialog->pack();
@@ -982,7 +475,7 @@ void JFileChooser::setDialogType(int32_t dialogType) {
 
 void JFileChooser::checkDialogType(int32_t dialogType) {
 	$init(JFileChooser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!(dialogType == JFileChooser::OPEN_DIALOG || dialogType == JFileChooser::SAVE_DIALOG || dialogType == JFileChooser::CUSTOM_DIALOG)) {
 		$throwNew($IllegalArgumentException, $$str({"Incorrect Dialog Type: "_s, $$str(dialogType)}));
 	}
@@ -992,9 +485,9 @@ void JFileChooser::setDialogTitle($String* dialogTitle) {
 	$var($String, oldValue, this->dialogTitle);
 	$set(this, dialogTitle, dialogTitle);
 	if (this->dialog != nullptr) {
-		$nc(this->dialog)->setTitle(dialogTitle);
+		this->dialog->setTitle(dialogTitle);
 	}
-	firePropertyChange(JFileChooser::DIALOG_TITLE_CHANGED_PROPERTY, $of(oldValue), $of(dialogTitle));
+	firePropertyChange(JFileChooser::DIALOG_TITLE_CHANGED_PROPERTY, oldValue, dialogTitle);
 }
 
 $String* JFileChooser::getDialogTitle() {
@@ -1007,7 +500,7 @@ void JFileChooser::setApproveButtonToolTipText($String* toolTipText) {
 	}
 	$var($String, oldValue, this->approveButtonToolTipText);
 	$set(this, approveButtonToolTipText, toolTipText);
-	firePropertyChange(JFileChooser::APPROVE_BUTTON_TOOL_TIP_TEXT_CHANGED_PROPERTY, $of(oldValue), $of(this->approveButtonToolTipText));
+	firePropertyChange(JFileChooser::APPROVE_BUTTON_TOOL_TIP_TEXT_CHANGED_PROPERTY, oldValue, this->approveButtonToolTipText);
 }
 
 $String* JFileChooser::getApproveButtonToolTipText() {
@@ -1041,7 +534,7 @@ void JFileChooser::setApproveButtonText($String* approveButtonText) {
 	}
 	$var($String, oldValue, this->approveButtonText);
 	$set(this, approveButtonText, approveButtonText);
-	firePropertyChange(JFileChooser::APPROVE_BUTTON_TEXT_CHANGED_PROPERTY, $of(oldValue), $of(approveButtonText));
+	firePropertyChange(JFileChooser::APPROVE_BUTTON_TEXT_CHANGED_PROPERTY, oldValue, approveButtonText);
 }
 
 $String* JFileChooser::getApproveButtonText() {
@@ -1050,16 +543,16 @@ $String* JFileChooser::getApproveButtonText() {
 
 $FileFilterArray* JFileChooser::getChoosableFileFilters() {
 	$var($FileFilterArray, filterArray, $new($FileFilterArray, $nc(this->filters)->size()));
-	$nc(this->filters)->copyInto(filterArray);
+	this->filters->copyInto(filterArray);
 	return filterArray;
 }
 
 void JFileChooser::addChoosableFileFilter($FileFilter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (filter != nullptr && !$nc(this->filters)->contains(filter)) {
 		$var($FileFilterArray, oldValue, getChoosableFileFilters());
 		$nc(this->filters)->addElement(filter);
-		firePropertyChange(JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY, $of(oldValue), $($of(getChoosableFileFilters())));
+		firePropertyChange(JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY, oldValue, $(getChoosableFileFilters()));
 		if (this->fileFilter == nullptr && $nc(this->filters)->size() == 1) {
 			setFileFilter(filter);
 		}
@@ -1067,7 +560,7 @@ void JFileChooser::addChoosableFileFilter($FileFilter* filter) {
 }
 
 bool JFileChooser::removeChoosableFileFilter($FileFilter* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t index = $nc(this->filters)->indexOf(f);
 	if (index >= 0) {
 		if (getFileFilter() == f) {
@@ -1075,16 +568,16 @@ bool JFileChooser::removeChoosableFileFilter($FileFilter* f) {
 			if (isAcceptAllFileFilterUsed() && (aaff != f)) {
 				setFileFilter(aaff);
 			} else if (index > 0) {
-				setFileFilter($cast($FileFilter, $($nc(this->filters)->get(0))));
+				setFileFilter($$cast($FileFilter, $nc(this->filters)->get(0)));
 			} else if ($nc(this->filters)->size() > 1) {
-				setFileFilter($cast($FileFilter, $($nc(this->filters)->get(1))));
+				setFileFilter($$cast($FileFilter, this->filters->get(1)));
 			} else {
 				setFileFilter(nullptr);
 			}
 		}
 		$var($FileFilterArray, oldValue, getChoosableFileFilters());
 		$nc(this->filters)->removeElement(f);
-		firePropertyChange(JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY, $of(oldValue), $($of(getChoosableFileFilters())));
+		firePropertyChange(JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY, oldValue, $(getChoosableFileFilters()));
 		return true;
 	} else {
 		return false;
@@ -1092,21 +585,21 @@ bool JFileChooser::removeChoosableFileFilter($FileFilter* f) {
 }
 
 void JFileChooser::resetChoosableFileFilters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileFilterArray, oldValue, getChoosableFileFilters());
 	setFileFilter(nullptr);
 	$nc(this->filters)->removeAllElements();
 	if (isAcceptAllFileFilterUsed()) {
 		addChoosableFileFilter($(getAcceptAllFileFilter()));
 	}
-	firePropertyChange(JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY, $of(oldValue), $($of(getChoosableFileFilters())));
+	firePropertyChange(JFileChooser::CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY, oldValue, $(getChoosableFileFilters()));
 }
 
 $FileFilter* JFileChooser::getAcceptAllFileFilter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileFilter, filter, nullptr);
 	if ($cast($FileChooserUI, getUI()) != nullptr) {
-		$assign(filter, $nc($($cast($FileChooserUI, getUI())))->getAcceptAllFileFilter(this));
+		$assign(filter, $$sure($FileChooserUI, getUI())->getAcceptAllFileFilter(this));
 	}
 	return filter;
 }
@@ -1116,7 +609,7 @@ bool JFileChooser::isAcceptAllFileFilterUsed() {
 }
 
 void JFileChooser::setAcceptAllFileFilterUsed(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool oldValue = this->useAcceptAllFileFilter;
 	this->useAcceptAllFileFilter = b;
 	if (!b) {
@@ -1135,7 +628,7 @@ $JComponent* JFileChooser::getAccessory() {
 void JFileChooser::setAccessory($JComponent* newAccessory) {
 	$var($JComponent, oldValue, this->accessory);
 	$set(this, accessory, newAccessory);
-	firePropertyChange(JFileChooser::ACCESSORY_CHANGED_PROPERTY, $of(oldValue), $of(this->accessory));
+	firePropertyChange(JFileChooser::ACCESSORY_CHANGED_PROPERTY, oldValue, this->accessory);
 }
 
 void JFileChooser::setFileSelectionMode(int32_t mode) {
@@ -1150,7 +643,7 @@ void JFileChooser::setFileSelectionMode(int32_t mode) {
 
 void JFileChooser::checkFileSelectionMode(int32_t mode) {
 	$init(JFileChooser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((mode != JFileChooser::FILES_ONLY) && (mode != JFileChooser::DIRECTORIES_ONLY) && (mode != JFileChooser::FILES_AND_DIRECTORIES)) {
 		$throwNew($IllegalArgumentException, $$str({"Incorrect Mode for file selection: "_s, $$str(mode)}));
 	}
@@ -1187,7 +680,7 @@ bool JFileChooser::isFileHidingEnabled() {
 
 void JFileChooser::setFileHidingEnabled(bool b) {
 	if (this->showFilesListener != nullptr) {
-		$nc($($Toolkit::getDefaultToolkit()))->removePropertyChangeListener(JFileChooser::SHOW_HIDDEN_PROP, this->showFilesListener);
+		$$nc($Toolkit::getDefaultToolkit())->removePropertyChangeListener(JFileChooser::SHOW_HIDDEN_PROP, this->showFilesListener);
 		$set(this, showFilesListener, nullptr);
 	}
 	bool oldValue = this->useFileHiding;
@@ -1196,36 +689,32 @@ void JFileChooser::setFileHidingEnabled(bool b) {
 }
 
 void JFileChooser::setFileFilter($FileFilter* filter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileFilter, oldValue, this->fileFilter);
 	$set(this, fileFilter, filter);
 	if (filter != nullptr) {
-		if (isMultiSelectionEnabled() && this->selectedFiles != nullptr && $nc(this->selectedFiles)->length > 0) {
+		if (isMultiSelectionEnabled() && this->selectedFiles != nullptr && this->selectedFiles->length > 0) {
 			$var($Vector, fList, $new($Vector));
 			bool failed = false;
 			{
 				$var($FileArray, arr$, this->selectedFiles);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($File, file, arr$->get(i$));
-					{
-						if (filter->accept(file)) {
-							fList->add(file);
-						} else {
-							failed = true;
-						}
+					if (filter->accept(file)) {
+						fList->add(file);
+					} else {
+						failed = true;
 					}
 				}
 			}
 			if (failed) {
-				setSelectedFiles((fList->size() == 0) ? ($FileArray*)nullptr : $fcast($FileArray, $(fList->toArray($$new($FileArray, fList->size())))));
+				setSelectedFiles((fList->size() == 0) ? ($FileArray*)nullptr : $$cast($FileArray, fList->toArray($$new($FileArray, fList->size()))));
 			}
 		} else if (this->selectedFile != nullptr && !filter->accept(this->selectedFile)) {
 			setSelectedFile(nullptr);
 		}
 	}
-	firePropertyChange(JFileChooser::FILE_FILTER_CHANGED_PROPERTY, $of(oldValue), $of(this->fileFilter));
+	firePropertyChange(JFileChooser::FILE_FILTER_CHANGED_PROPERTY, oldValue, this->fileFilter);
 }
 
 $FileFilter* JFileChooser::getFileFilter() {
@@ -1235,7 +724,7 @@ $FileFilter* JFileChooser::getFileFilter() {
 void JFileChooser::setFileView($FileView* fileView) {
 	$var($FileView, oldValue, this->fileView);
 	$set(this, fileView, fileView);
-	firePropertyChange(JFileChooser::FILE_VIEW_CHANGED_PROPERTY, $of(oldValue), $of(fileView));
+	firePropertyChange(JFileChooser::FILE_VIEW_CHANGED_PROPERTY, oldValue, fileView);
 }
 
 $FileView* JFileChooser::getFileView() {
@@ -1243,13 +732,13 @@ $FileView* JFileChooser::getFileView() {
 }
 
 $String* JFileChooser::getName($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, filename, nullptr);
 	if (f != nullptr) {
 		if (getFileView() != nullptr) {
-			$assign(filename, $nc($(getFileView()))->getName(f));
+			$assign(filename, $$nc(getFileView())->getName(f));
 		}
-		$var($FileView, uiFileView, $nc($($cast($FileChooserUI, getUI())))->getFileView(this));
+		$var($FileView, uiFileView, $$sure($FileChooserUI, getUI())->getFileView(this));
 		if (filename == nullptr && uiFileView != nullptr) {
 			$assign(filename, uiFileView->getName(f));
 		}
@@ -1258,13 +747,13 @@ $String* JFileChooser::getName($File* f) {
 }
 
 $String* JFileChooser::getDescription($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, description, nullptr);
 	if (f != nullptr) {
 		if (getFileView() != nullptr) {
-			$assign(description, $nc($(getFileView()))->getDescription(f));
+			$assign(description, $$nc(getFileView())->getDescription(f));
 		}
-		$var($FileView, uiFileView, $nc($($cast($FileChooserUI, getUI())))->getFileView(this));
+		$var($FileView, uiFileView, $$sure($FileChooserUI, getUI())->getFileView(this));
 		if (description == nullptr && uiFileView != nullptr) {
 			$assign(description, uiFileView->getDescription(f));
 		}
@@ -1273,13 +762,13 @@ $String* JFileChooser::getDescription($File* f) {
 }
 
 $String* JFileChooser::getTypeDescription($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, typeDescription, nullptr);
 	if (f != nullptr) {
 		if (getFileView() != nullptr) {
-			$assign(typeDescription, $nc($(getFileView()))->getTypeDescription(f));
+			$assign(typeDescription, $$nc(getFileView())->getTypeDescription(f));
 		}
-		$var($FileView, uiFileView, $nc($($cast($FileChooserUI, getUI())))->getFileView(this));
+		$var($FileView, uiFileView, $$sure($FileChooserUI, getUI())->getFileView(this));
 		if (typeDescription == nullptr && uiFileView != nullptr) {
 			$assign(typeDescription, uiFileView->getTypeDescription(f));
 		}
@@ -1288,13 +777,13 @@ $String* JFileChooser::getTypeDescription($File* f) {
 }
 
 $Icon* JFileChooser::getIcon($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Icon, icon, nullptr);
 	if (f != nullptr) {
 		if (getFileView() != nullptr) {
-			$assign(icon, $nc($(getFileView()))->getIcon(f));
+			$assign(icon, $$nc(getFileView())->getIcon(f));
 		}
-		$var($FileView, uiFileView, $nc($($cast($FileChooserUI, getUI())))->getFileView(this));
+		$var($FileView, uiFileView, $$sure($FileChooserUI, getUI())->getFileView(this));
 		if (icon == nullptr && uiFileView != nullptr) {
 			$assign(icon, uiFileView->getIcon(f));
 		}
@@ -1303,7 +792,7 @@ $Icon* JFileChooser::getIcon($File* f) {
 }
 
 bool JFileChooser::isTraversable($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Boolean, traversable, nullptr);
 	if (f != nullptr) {
 		$var($FileView, fileView, getFileView());
@@ -1327,13 +816,13 @@ bool JFileChooser::isTraversable($File* f) {
 
 bool JFileChooser::accept($File* f) {
 	$var($FileFilter, filter, this->fileFilter);
-	return f == nullptr || filter == nullptr || $nc(filter)->accept(f);
+	return f == nullptr || filter == nullptr || filter->accept(f);
 }
 
 void JFileChooser::setFileSystemView($FileSystemView* fsv) {
 	$var($FileSystemView, oldValue, this->fileSystemView);
 	$set(this, fileSystemView, fsv);
-	firePropertyChange(JFileChooser::FILE_SYSTEM_VIEW_CHANGED_PROPERTY, $of(oldValue), $of(this->fileSystemView));
+	firePropertyChange(JFileChooser::FILE_SYSTEM_VIEW_CHANGED_PROPERTY, oldValue, this->fileSystemView);
 }
 
 $FileSystemView* JFileChooser::getFileSystemView() {
@@ -1343,7 +832,7 @@ $FileSystemView* JFileChooser::getFileSystemView() {
 void JFileChooser::approveSelection() {
 	this->returnValue = JFileChooser::APPROVE_OPTION;
 	if (this->dialog != nullptr) {
-		$nc(this->dialog)->setVisible(false);
+		this->dialog->setVisible(false);
 	}
 	fireActionPerformed(JFileChooser::APPROVE_SELECTION);
 }
@@ -1351,7 +840,7 @@ void JFileChooser::approveSelection() {
 void JFileChooser::cancelSelection() {
 	this->returnValue = JFileChooser::CANCEL_OPTION;
 	if (this->dialog != nullptr) {
-		$nc(this->dialog)->setVisible(false);
+		this->dialog->setVisible(false);
 	}
 	fireActionPerformed(JFileChooser::CANCEL_SELECTION);
 }
@@ -1368,19 +857,19 @@ void JFileChooser::removeActionListener($ActionListener* l) {
 
 $ActionListenerArray* JFileChooser::getActionListeners() {
 	$load($ActionListener);
-	return $fcast($ActionListenerArray, $nc(this->listenerList)->getListeners($ActionListener::class$));
+	return $cast($ActionListenerArray, $nc(this->listenerList)->getListeners($ActionListener::class$));
 }
 
 void JFileChooser::fireActionPerformed($String* command) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, listeners, $nc(this->listenerList)->getListenerList());
 	int64_t mostRecentEventTime = $EventQueue::getMostRecentEventTime();
 	int32_t modifiers = 0;
 	$var($AWTEvent, currentEvent, $EventQueue::getCurrentEvent());
 	if ($instanceOf($InputEvent, currentEvent)) {
-		modifiers = $nc(($cast($InputEvent, currentEvent)))->getModifiers();
+		modifiers = $cast($InputEvent, currentEvent)->getModifiers();
 	} else if ($instanceOf($ActionEvent, currentEvent)) {
-		modifiers = $nc(($cast($ActionEvent, currentEvent)))->getModifiers();
+		modifiers = $cast($ActionEvent, currentEvent)->getModifiers();
 	}
 	$var($ActionEvent, e, nullptr);
 	for (int32_t i = $nc(listeners)->length - 2; i >= 0; i -= 2) {
@@ -1389,13 +878,13 @@ void JFileChooser::fireActionPerformed($String* command) {
 			if (e == nullptr) {
 				$assign(e, $new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, command, mostRecentEventTime, modifiers));
 			}
-			$nc(($cast($ActionListener, listeners->get(i + 1))))->actionPerformed(e);
+			$nc($cast($ActionListener, listeners->get(i + 1)))->actionPerformed(e);
 		}
 	}
 }
 
 void JFileChooser::updateUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isAcceptAllFileFilterUsed()) {
 		removeChoosableFileFilter($(getAcceptAllFileFilter()));
 	}
@@ -1418,24 +907,24 @@ $ComponentUI* JFileChooser::getUI() {
 }
 
 void JFileChooser::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(in)->readFields());
-	$set(this, dialogTitle, $cast($String, $nc(f)->get("dialogTitle"_s, ($Object*)nullptr)));
-	$set(this, approveButtonText, $cast($String, f->get("approveButtonText"_s, ($Object*)nullptr)));
-	$set(this, approveButtonToolTipText, $cast($String, f->get("approveButtonToolTipText"_s, ($Object*)nullptr)));
+	$set(this, dialogTitle, $cast($String, $nc(f)->get("dialogTitle"_s, nullptr)));
+	$set(this, approveButtonText, $cast($String, f->get("approveButtonText"_s, nullptr)));
+	$set(this, approveButtonToolTipText, $cast($String, f->get("approveButtonToolTipText"_s, nullptr)));
 	this->approveButtonMnemonic = f->get("approveButtonMnemonic"_s, 0);
-	$var($Vector, newFilters, $cast($Vector, f->get("filters"_s, ($Object*)nullptr)));
+	$var($Vector, newFilters, $cast($Vector, f->get("filters"_s, nullptr)));
 	if (newFilters == nullptr) {
 		$throwNew($InvalidObjectException, "Null filters"_s);
 	}
 	$set(this, filters, newFilters);
-	$set(this, dialog, $cast($JDialog, f->get("dialog"_s, ($Object*)nullptr)));
+	$set(this, dialog, $cast($JDialog, f->get("dialog"_s, nullptr)));
 	int32_t newDialogType = f->get("dialogType"_s, JFileChooser::OPEN_DIALOG);
 	checkDialogType(newDialogType);
 	this->dialogType = newDialogType;
 	this->returnValue = f->get("returnValue"_s, 0);
-	$set(this, accessory, $cast($JComponent, f->get("accessory"_s, ($Object*)nullptr)));
-	$set(this, fileView, $cast($FileView, f->get("fileView"_s, ($Object*)nullptr)));
+	$set(this, accessory, $cast($JComponent, f->get("accessory"_s, nullptr)));
+	$set(this, fileView, $cast($FileView, f->get("fileView"_s, nullptr)));
 	this->controlsShown = f->get("controlsShown"_s, false);
 	this->useFileHiding = f->get("useFileHiding"_s, false);
 	int32_t newFileSelectionMode = f->get("fileSelectionMode"_s, JFileChooser::FILES_ONLY);
@@ -1446,22 +935,22 @@ void JFileChooser::readObject($ObjectInputStream* in) {
 	bool newDragEnabled = f->get("dragEnabled"_s, false);
 	checkDragEnabled(newDragEnabled);
 	this->dragEnabled = newDragEnabled;
-	$set(this, fileFilter, $cast($FileFilter, f->get("fileFilter"_s, ($Object*)nullptr)));
-	$set(this, fileSystemView, $cast($FileSystemView, f->get("fileSystemView"_s, ($Object*)nullptr)));
-	$set(this, currentDirectory, $cast($File, f->get("currentDirectory"_s, ($Object*)nullptr)));
-	$set(this, selectedFile, $cast($File, f->get("selectedFile"_s, ($Object*)nullptr)));
-	$set(this, selectedFiles, $cast($FileArray, f->get("selectedFiles"_s, ($Object*)nullptr)));
-	$set(this, accessibleContext, $cast($AccessibleContext, f->get("accessibleContext"_s, ($Object*)nullptr)));
+	$set(this, fileFilter, $cast($FileFilter, f->get("fileFilter"_s, nullptr)));
+	$set(this, fileSystemView, $cast($FileSystemView, f->get("fileSystemView"_s, nullptr)));
+	$set(this, currentDirectory, $cast($File, f->get("currentDirectory"_s, nullptr)));
+	$set(this, selectedFile, $cast($File, f->get("selectedFile"_s, nullptr)));
+	$set(this, selectedFiles, $cast($FileArray, f->get("selectedFiles"_s, nullptr)));
+	$set(this, accessibleContext, $cast($AccessibleContext, f->get("accessibleContext"_s, nullptr)));
 	installShowFilesListener();
 }
 
 void JFileChooser::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileSystemView, fsv, nullptr);
 	if (isAcceptAllFileFilterUsed()) {
 		removeChoosableFileFilter($(getAcceptAllFileFilter()));
 	}
-	if ($nc($of(this->fileSystemView))->equals($($FileSystemView::getFileSystemView()))) {
+	if ($nc(this->fileSystemView)->equals($($FileSystemView::getFileSystemView()))) {
 		$assign(fsv, this->fileSystemView);
 		$set(this, fileSystemView, nullptr);
 	}
@@ -1472,17 +961,17 @@ void JFileChooser::writeObject($ObjectOutputStream* s) {
 	if (isAcceptAllFileFilterUsed()) {
 		addChoosableFileFilter($(getAcceptAllFileFilter()));
 	}
-	if ($nc($(getUIClassID()))->equals(JFileChooser::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JFileChooser::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JFileChooser::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, approveButtonTextString, this->approveButtonText != nullptr ? this->approveButtonText : ""_s);
 	$var($String, dialogTitleString, this->dialogTitle != nullptr ? this->dialogTitle : ""_s);
 	$var($String, dialogTypeString, nullptr);
@@ -1516,8 +1005,8 @@ $String* JFileChooser::paramString() {
 	} else {
 		$assign(fileSelectionModeString, ""_s);
 	}
-	$var($String, currentDirectoryString, this->currentDirectory != nullptr ? $nc(this->currentDirectory)->toString() : ""_s);
-	$var($String, selectedFileString, this->selectedFile != nullptr ? $nc(this->selectedFile)->toString() : ""_s);
+	$var($String, currentDirectoryString, this->currentDirectory != nullptr ? this->currentDirectory->toString() : ""_s);
+	$var($String, selectedFileString, this->selectedFile != nullptr ? this->selectedFile->toString() : ""_s);
 	return $str({$($JComponent::paramString()), ",approveButtonText="_s, approveButtonTextString, ",currentDirectory="_s, currentDirectoryString, ",dialogTitle="_s, dialogTitleString, ",dialogType="_s, dialogTypeString, ",fileSelectionMode="_s, fileSelectionModeString, ",returnValue="_s, returnValueString, ",selectedFile="_s, selectedFileString, ",useFileHiding="_s, 
 	useFileHidingString});
 }
@@ -1532,7 +1021,7 @@ $AccessibleContext* JFileChooser::getAccessibleContext() {
 JFileChooser::JFileChooser() {
 }
 
-void clinit$JFileChooser($Class* class$) {
+void JFileChooser::clinit$($Class* clazz) {
 	$assignStatic(JFileChooser::uiClassID, "FileChooserUI"_s);
 	$assignStatic(JFileChooser::CANCEL_SELECTION, "CancelSelection"_s);
 	$assignStatic(JFileChooser::APPROVE_SELECTION, "ApproveSelection"_s);
@@ -1558,7 +1047,439 @@ void clinit$JFileChooser($Class* class$) {
 }
 
 $Class* JFileChooser::load$($String* name, bool initialize) {
-	$loadClass(JFileChooser, name, initialize, &_JFileChooser_ClassInfo_, clinit$JFileChooser, allocate$JFileChooser);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFileChooser, uiClassID)},
+		{"OPEN_DIALOG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, OPEN_DIALOG)},
+		{"SAVE_DIALOG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, SAVE_DIALOG)},
+		{"CUSTOM_DIALOG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, CUSTOM_DIALOG)},
+		{"CANCEL_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, CANCEL_OPTION)},
+		{"APPROVE_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, APPROVE_OPTION)},
+		{"ERROR_OPTION", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, ERROR_OPTION)},
+		{"FILES_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, FILES_ONLY)},
+		{"DIRECTORIES_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, DIRECTORIES_ONLY)},
+		{"FILES_AND_DIRECTORIES", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JFileChooser, FILES_AND_DIRECTORIES)},
+		{"CANCEL_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, CANCEL_SELECTION)},
+		{"APPROVE_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, APPROVE_SELECTION)},
+		{"APPROVE_BUTTON_TEXT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, APPROVE_BUTTON_TEXT_CHANGED_PROPERTY)},
+		{"APPROVE_BUTTON_TOOL_TIP_TEXT_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, APPROVE_BUTTON_TOOL_TIP_TEXT_CHANGED_PROPERTY)},
+		{"APPROVE_BUTTON_MNEMONIC_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, APPROVE_BUTTON_MNEMONIC_CHANGED_PROPERTY)},
+		{"CONTROL_BUTTONS_ARE_SHOWN_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, CONTROL_BUTTONS_ARE_SHOWN_CHANGED_PROPERTY)},
+		{"DIRECTORY_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, DIRECTORY_CHANGED_PROPERTY)},
+		{"SELECTED_FILE_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, SELECTED_FILE_CHANGED_PROPERTY)},
+		{"SELECTED_FILES_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, SELECTED_FILES_CHANGED_PROPERTY)},
+		{"MULTI_SELECTION_ENABLED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, MULTI_SELECTION_ENABLED_CHANGED_PROPERTY)},
+		{"FILE_SYSTEM_VIEW_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_SYSTEM_VIEW_CHANGED_PROPERTY)},
+		{"FILE_VIEW_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_VIEW_CHANGED_PROPERTY)},
+		{"FILE_HIDING_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_HIDING_CHANGED_PROPERTY)},
+		{"FILE_FILTER_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_FILTER_CHANGED_PROPERTY)},
+		{"FILE_SELECTION_MODE_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, FILE_SELECTION_MODE_CHANGED_PROPERTY)},
+		{"ACCESSORY_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, ACCESSORY_CHANGED_PROPERTY)},
+		{"ACCEPT_ALL_FILE_FILTER_USED_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, ACCEPT_ALL_FILE_FILTER_USED_CHANGED_PROPERTY)},
+		{"DIALOG_TITLE_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, DIALOG_TITLE_CHANGED_PROPERTY)},
+		{"DIALOG_TYPE_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, DIALOG_TYPE_CHANGED_PROPERTY)},
+		{"CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JFileChooser, CHOOSABLE_FILE_FILTER_CHANGED_PROPERTY)},
+		{"dialogTitle", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JFileChooser, dialogTitle)},
+		{"approveButtonText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JFileChooser, approveButtonText)},
+		{"approveButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(JFileChooser, approveButtonToolTipText)},
+		{"approveButtonMnemonic", "I", nullptr, $PRIVATE, $field(JFileChooser, approveButtonMnemonic)},
+		{"filters", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(JFileChooser, filters)},
+		{"dialog", "Ljavax/swing/JDialog;", nullptr, $PRIVATE, $field(JFileChooser, dialog)},
+		{"dialogType", "I", nullptr, $PRIVATE, $field(JFileChooser, dialogType)},
+		{"returnValue", "I", nullptr, $PRIVATE, $field(JFileChooser, returnValue)},
+		{"accessory", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(JFileChooser, accessory)},
+		{"fileView", "Ljavax/swing/filechooser/FileView;", nullptr, $PRIVATE, $field(JFileChooser, fileView)},
+		{"controlsShown", "Z", nullptr, $PRIVATE, $field(JFileChooser, controlsShown)},
+		{"useFileHiding", "Z", nullptr, $PRIVATE, $field(JFileChooser, useFileHiding)},
+		{"SHOW_HIDDEN_PROP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JFileChooser, SHOW_HIDDEN_PROP)},
+		{"showFilesListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $TRANSIENT, $field(JFileChooser, showFilesListener)},
+		{"fileSelectionMode", "I", nullptr, $PRIVATE, $field(JFileChooser, fileSelectionMode)},
+		{"multiSelectionEnabled", "Z", nullptr, $PRIVATE, $field(JFileChooser, multiSelectionEnabled)},
+		{"useAcceptAllFileFilter", "Z", nullptr, $PRIVATE, $field(JFileChooser, useAcceptAllFileFilter)},
+		{"dragEnabled", "Z", nullptr, $PRIVATE, $field(JFileChooser, dragEnabled)},
+		{"fileFilter", "Ljavax/swing/filechooser/FileFilter;", nullptr, $PRIVATE, $field(JFileChooser, fileFilter)},
+		{"fileSystemView", "Ljavax/swing/filechooser/FileSystemView;", nullptr, $PRIVATE, $field(JFileChooser, fileSystemView)},
+		{"currentDirectory", "Ljava/io/File;", nullptr, $PRIVATE, $field(JFileChooser, currentDirectory)},
+		{"selectedFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(JFileChooser, selectedFile)},
+		{"selectedFiles", "[Ljava/io/File;", nullptr, $PRIVATE, $field(JFileChooser, selectedFiles)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JFileChooser, accessibleContext)},
+		{}
+	};
+	$NamedAttribute addChoosableFileFiltermethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Adds a filter to the list of user choosable file filters."},
+		{}
+	};
+	$CompoundAttribute addChoosableFileFiltermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", addChoosableFileFiltermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getAcceptAllFileFiltermethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAcceptAllFileFiltermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAcceptAllFileFiltermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getActionListenersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getActionListenersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getActionListenersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getChoosableFileFiltersmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getChoosableFileFiltersmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getChoosableFileFiltersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUImethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"expert", 'Z', "true"},
+		{"description", 's', "A string that specifies the name of the L&F class."},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isDirectorySelectionEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute isDirectorySelectionEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isDirectorySelectionEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute isFileSelectionEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute isFileSelectionEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", isFileSelectionEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setAcceptAllFileFilterUsedmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets whether the AcceptAll FileFilter is used as an available choice in the choosable filter list."},
+		{}
+	};
+	$CompoundAttribute setAcceptAllFileFilterUsedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setAcceptAllFileFilterUsedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setAccessorymethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets the accessory component on the JFileChooser."},
+		{}
+	};
+	$CompoundAttribute setAccessorymethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setAccessorymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setApproveButtonMnemonicmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The mnemonic key accelerator for the ApproveButton."},
+		{}
+	};
+	$CompoundAttribute setApproveButtonMnemonicmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setApproveButtonMnemonicmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setApproveButtonTextmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The text that goes in the ApproveButton."},
+		{}
+	};
+	$CompoundAttribute setApproveButtonTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setApproveButtonTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setApproveButtonToolTipTextmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The tooltip text for the ApproveButton."},
+		{}
+	};
+	$CompoundAttribute setApproveButtonToolTipTextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setApproveButtonToolTipTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setControlButtonsAreShownmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets whether the approve & cancel buttons are shown."},
+		{}
+	};
+	$CompoundAttribute setControlButtonsAreShownmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setControlButtonsAreShownmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setCurrentDirectorymethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The directory that the JFileChooser is showing files of."},
+		{}
+	};
+	$CompoundAttribute setCurrentDirectorymethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setCurrentDirectorymethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDialogTitlemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "The title of the JFileChooser dialog window."},
+		{}
+	};
+	$CompoundAttribute setDialogTitlemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDialogTitlemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "JFileChooser.OPEN_DIALOG"},
+		{'s', "JFileChooser.SAVE_DIALOG"},
+		{'s', "JFileChooser.CUSTOM_DIALOG"},
+		{'-'}
+	};
+	$NamedAttribute setDialogTypemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The type (open, save, custom) of the JFileChooser."},
+		{}
+	};
+	$CompoundAttribute setDialogTypemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDialogTypemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDragEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"description", 's', "determines whether automatic drag handling is enabled"},
+		{}
+	};
+	$CompoundAttribute setDragEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDragEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFileFiltermethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets the File Filter used to filter out files of type."},
+		{}
+	};
+	$CompoundAttribute setFileFiltermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFileFiltermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFileHidingEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets file hiding on or off."},
+		{}
+	};
+	$CompoundAttribute setFileHidingEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFileHidingEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute$1[] = {
+		{'s', "JFileChooser.FILES_ONLY"},
+		{'s', "JFileChooser.DIRECTORIES_ONLY"},
+		{'s', "JFileChooser.FILES_AND_DIRECTORIES"},
+		{'-'}
+	};
+	$NamedAttribute setFileSelectionModemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"enumerationValues", '[', $attribute$1},
+		{"description", 's', "Sets the types of files that the JFileChooser can choose."},
+		{}
+	};
+	$CompoundAttribute setFileSelectionModemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFileSelectionModemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFileSystemViewmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "Sets the FileSytemView used to get filesystem information."},
+		{}
+	};
+	$CompoundAttribute setFileSystemViewmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFileSystemViewmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFileViewmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Sets the File View used to get file type information."},
+		{}
+	};
+	$CompoundAttribute setFileViewmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFileViewmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMultiSelectionEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Sets multiple file selection mode."},
+		{}
+	};
+	$CompoundAttribute setMultiSelectionEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMultiSelectionEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectedFilemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute setSelectedFilemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectedFilemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setSelectedFilesmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "The list of selected files if the chooser is in multiple selection mode."},
+		{}
+	};
+	$CompoundAttribute setSelectedFilesmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setSelectedFilesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JFileChooser, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $String*)},
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $File*)},
+		{"<init>", "(Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $FileSystemView*)},
+		{"<init>", "(Ljava/io/File;Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $File*, $FileSystemView*)},
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $method(JFileChooser, init$, void, $String*, $FileSystemView*)},
+		{"accept", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, accept, bool, $File*)},
+		{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, addActionListener, void, $ActionListener*)},
+		{"addChoosableFileFilter", "(Ljavax/swing/filechooser/FileFilter;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, addChoosableFileFilter, void, $FileFilter*), nullptr, nullptr, addChoosableFileFiltermethodAnnotations$$},
+		{"approveSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, approveSelection, void)},
+		{"cancelSelection", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, cancelSelection, void)},
+		{"changeToParentDirectory", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, changeToParentDirectory, void)},
+		{"checkDialogType", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JFileChooser, checkDialogType, void, int32_t)},
+		{"checkDragEnabled", "(Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JFileChooser, checkDragEnabled, void, bool)},
+		{"checkFileSelectionMode", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JFileChooser, checkFileSelectionMode, void, int32_t)},
+		{"createDialog", "(Ljava/awt/Component;)Ljavax/swing/JDialog;", nullptr, $PROTECTED, $virtualMethod(JFileChooser, createDialog, $JDialog*, $Component*), "java.awt.HeadlessException"},
+		{"ensureFileIsVisible", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, ensureFileIsVisible, void, $File*)},
+		{"fireActionPerformed", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(JFileChooser, fireActionPerformed, void, $String*)},
+		{"getAcceptAllFileFilter", "()Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getAcceptAllFileFilter, $FileFilter*), nullptr, nullptr, getAcceptAllFileFiltermethodAnnotations$$},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getAccessory", "()Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getAccessory, $JComponent*)},
+		{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getActionListeners, $ActionListenerArray*), nullptr, nullptr, getActionListenersmethodAnnotations$$},
+		{"getApproveButtonMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getApproveButtonMnemonic, int32_t)},
+		{"getApproveButtonText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getApproveButtonText, $String*)},
+		{"getApproveButtonToolTipText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getApproveButtonToolTipText, $String*)},
+		{"getChoosableFileFilters", "()[Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getChoosableFileFilters, $FileFilterArray*), nullptr, nullptr, getChoosableFileFiltersmethodAnnotations$$},
+		{"getControlButtonsAreShown", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getControlButtonsAreShown, bool)},
+		{"getCurrentDirectory", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getCurrentDirectory, $File*)},
+		{"getDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getDescription, $String*, $File*)},
+		{"getDialogTitle", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getDialogTitle, $String*)},
+		{"getDialogType", "()I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getDialogType, int32_t)},
+		{"getDragEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getDragEnabled, bool)},
+		{"getFileFilter", "()Ljavax/swing/filechooser/FileFilter;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getFileFilter, $FileFilter*)},
+		{"getFileSelectionMode", "()I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getFileSelectionMode, int32_t)},
+		{"getFileSystemView", "()Ljavax/swing/filechooser/FileSystemView;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getFileSystemView, $FileSystemView*)},
+		{"getFileView", "()Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getFileView, $FileView*)},
+		{"getIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getIcon, $Icon*, $File*)},
+		{"getName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getName, $String*, $File*)},
+		{"getSelectedFile", "()Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getSelectedFile, $File*)},
+		{"getSelectedFiles", "()[Ljava/io/File;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getSelectedFiles, $FileArray*)},
+		{"getTypeDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getTypeDescription, $String*, $File*)},
+		{"getUI", "()Ljavax/swing/plaf/FileChooserUI;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getUI, $ComponentUI*), nullptr, nullptr, getUImethodAnnotations$$},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JFileChooser, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"installHierarchyListener", "()V", nullptr, $PRIVATE, $method(JFileChooser, installHierarchyListener, void)},
+		{"installShowFilesListener", "()V", nullptr, $PRIVATE, $method(JFileChooser, installShowFilesListener, void)},
+		{"isAcceptAllFileFilterUsed", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isAcceptAllFileFilterUsed, bool)},
+		{"isDirectorySelectionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isDirectorySelectionEnabled, bool), nullptr, nullptr, isDirectorySelectionEnabledmethodAnnotations$$},
+		{"isFileHidingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isFileHidingEnabled, bool)},
+		{"isFileSelectionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isFileSelectionEnabled, bool), nullptr, nullptr, isFileSelectionEnabledmethodAnnotations$$},
+		{"isMultiSelectionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isMultiSelectionEnabled, bool)},
+		{"isTraversable", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, isTraversable, bool, $File*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JFileChooser, paramString, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(JFileChooser, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, removeActionListener, void, $ActionListener*)},
+		{"removeChoosableFileFilter", "(Ljavax/swing/filechooser/FileFilter;)Z", nullptr, $PUBLIC, $virtualMethod(JFileChooser, removeChoosableFileFilter, bool, $FileFilter*)},
+		{"rescanCurrentDirectory", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, rescanCurrentDirectory, void)},
+		{"resetChoosableFileFilters", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, resetChoosableFileFilters, void)},
+		{"setAcceptAllFileFilterUsed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setAcceptAllFileFilterUsed, void, bool), nullptr, nullptr, setAcceptAllFileFilterUsedmethodAnnotations$$},
+		{"setAccessory", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setAccessory, void, $JComponent*), nullptr, nullptr, setAccessorymethodAnnotations$$},
+		{"setApproveButtonMnemonic", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setApproveButtonMnemonic, void, int32_t), nullptr, nullptr, setApproveButtonMnemonicmethodAnnotations$$},
+		{"setApproveButtonMnemonic", "(C)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setApproveButtonMnemonic, void, char16_t)},
+		{"setApproveButtonText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setApproveButtonText, void, $String*), nullptr, nullptr, setApproveButtonTextmethodAnnotations$$},
+		{"setApproveButtonToolTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setApproveButtonToolTipText, void, $String*), nullptr, nullptr, setApproveButtonToolTipTextmethodAnnotations$$},
+		{"setControlButtonsAreShown", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setControlButtonsAreShown, void, bool), nullptr, nullptr, setControlButtonsAreShownmethodAnnotations$$},
+		{"setCurrentDirectory", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setCurrentDirectory, void, $File*), nullptr, nullptr, setCurrentDirectorymethodAnnotations$$},
+		{"setDialogTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setDialogTitle, void, $String*), nullptr, nullptr, setDialogTitlemethodAnnotations$$},
+		{"setDialogType", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setDialogType, void, int32_t), nullptr, nullptr, setDialogTypemethodAnnotations$$},
+		{"setDragEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setDragEnabled, void, bool), nullptr, nullptr, setDragEnabledmethodAnnotations$$},
+		{"setFileFilter", "(Ljavax/swing/filechooser/FileFilter;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileFilter, void, $FileFilter*), nullptr, nullptr, setFileFiltermethodAnnotations$$},
+		{"setFileHidingEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileHidingEnabled, void, bool), nullptr, nullptr, setFileHidingEnabledmethodAnnotations$$},
+		{"setFileSelectionMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileSelectionMode, void, int32_t), nullptr, nullptr, setFileSelectionModemethodAnnotations$$},
+		{"setFileSystemView", "(Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileSystemView, void, $FileSystemView*), nullptr, nullptr, setFileSystemViewmethodAnnotations$$},
+		{"setFileView", "(Ljavax/swing/filechooser/FileView;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setFileView, void, $FileView*), nullptr, nullptr, setFileViewmethodAnnotations$$},
+		{"setMultiSelectionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setMultiSelectionEnabled, void, bool), nullptr, nullptr, setMultiSelectionEnabledmethodAnnotations$$},
+		{"setSelectedFile", "(Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setSelectedFile, void, $File*), nullptr, nullptr, setSelectedFilemethodAnnotations$$},
+		{"setSelectedFiles", "([Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, setSelectedFiles, void, $FileArray*), nullptr, nullptr, setSelectedFilesmethodAnnotations$$},
+		{"setup", "(Ljavax/swing/filechooser/FileSystemView;)V", nullptr, $PROTECTED, $virtualMethod(JFileChooser, setup, void, $FileSystemView*)},
+		{"showDialog", "(Ljava/awt/Component;Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, showDialog, int32_t, $Component*, $String*), "java.awt.HeadlessException"},
+		{"showOpenDialog", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, showOpenDialog, int32_t, $Component*), "java.awt.HeadlessException"},
+		{"showSaveDialog", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JFileChooser, showSaveDialog, int32_t, $Component*), "java.awt.HeadlessException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JFileChooser, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JFileChooser, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JFileChooser$FCHierarchyListener", "javax.swing.JFileChooser", "FCHierarchyListener", $PRIVATE},
+		{"javax.swing.JFileChooser$AccessibleJFileChooser", "javax.swing.JFileChooser", "AccessibleJFileChooser", $PROTECTED},
+		{"javax.swing.JFileChooser$WeakPCL", "javax.swing.JFileChooser", "WeakPCL", $PRIVATE | $STATIC},
+		{"javax.swing.JFileChooser$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A component which allows for the interactive selection of a file."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"value", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JFileChooser",
+		"javax.swing.JComponent",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JFileChooser$FCHierarchyListener,javax.swing.JFileChooser$AccessibleJFileChooser,javax.swing.JFileChooser$WeakPCL,javax.swing.JFileChooser$1"
+	};
+	$loadClass(JFileChooser, name, initialize, &classInfo$$, JFileChooser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JFileChooser));
+	});
 	return class$;
 }
 

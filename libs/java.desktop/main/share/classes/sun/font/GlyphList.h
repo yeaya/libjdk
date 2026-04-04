@@ -53,6 +53,7 @@ class GlyphList : public ::java::lang::Object {
 	$class(GlyphList, 0, ::java::lang::Object)
 public:
 	GlyphList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool canContainColorGlyphs();
 	void dispose();

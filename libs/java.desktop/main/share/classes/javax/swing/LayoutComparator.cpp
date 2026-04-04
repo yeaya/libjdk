@@ -1,5 +1,4 @@
 #include <javax/swing/LayoutComparator.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -15,7 +14,6 @@
 
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -28,40 +26,6 @@ using $ListIterator = ::java::util::ListIterator;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _LayoutComparator_FieldInfo_[] = {
-	{"ROW_TOLERANCE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LayoutComparator, ROW_TOLERANCE)},
-	{"horizontal", "Z", nullptr, $PRIVATE, $field(LayoutComparator, horizontal)},
-	{"leftToRight", "Z", nullptr, $PRIVATE, $field(LayoutComparator, leftToRight)},
-	{}
-};
-
-$MethodInfo _LayoutComparator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(LayoutComparator, init$, void)},
-	{"compare", "(Ljava/awt/Component;Ljava/awt/Component;)I", nullptr, $PUBLIC, $method(LayoutComparator, compare, int32_t, $Component*, $Component*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LayoutComparator, compare, int32_t, Object$*, Object$*)},
-	{"setComponentOrientation", "(Ljava/awt/ComponentOrientation;)V", nullptr, 0, $method(LayoutComparator, setComponentOrientation, void, $ComponentOrientation*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _LayoutComparator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.LayoutComparator",
-	"java.lang.Object",
-	"java.util.Comparator,java.io.Serializable",
-	_LayoutComparator_FieldInfo_,
-	_LayoutComparator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Ljava/awt/Component;>;Ljava/io/Serializable;"
-};
-
-$Object* allocate$LayoutComparator($Class* clazz) {
-	return $of($alloc(LayoutComparator));
-}
 
 bool LayoutComparator::equals(Object$* arg0) {
 	 return this->$Comparator::equals(arg0);
@@ -94,7 +58,7 @@ void LayoutComparator::setComponentOrientation($ComponentOrientation* orientatio
 }
 
 int32_t LayoutComparator::compare($Component* a$renamed, $Component* b$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, a, a$renamed);
 	$var($Component, b, b$renamed);
 	if (a == b) {
@@ -102,7 +66,7 @@ int32_t LayoutComparator::compare($Component* a$renamed, $Component* b$renamed) 
 	}
 	if ($nc(a)->getParent() != $nc(b)->getParent()) {
 		$var($LinkedList, aAncestory, $new($LinkedList));
-		for (; a != nullptr; $assign(a, $nc(a)->getParent())) {
+		for (; a != nullptr; $assign(a, a->getParent())) {
 			aAncestory->add(a);
 			if ($instanceOf($Window, a)) {
 				break;
@@ -112,7 +76,7 @@ int32_t LayoutComparator::compare($Component* a$renamed, $Component* b$renamed) 
 			$throwNew($ClassCastException);
 		}
 		$var($LinkedList, bAncestory, $new($LinkedList));
-		for (; b != nullptr; $assign(b, $nc(b)->getParent())) {
+		for (; b != nullptr; $assign(b, b->getParent())) {
 			bAncestory->add(b);
 			if ($instanceOf($Window, b)) {
 				break;
@@ -145,8 +109,8 @@ int32_t LayoutComparator::compare($Component* a$renamed, $Component* b$renamed) 
 	int32_t ay = a->getY();
 	int32_t bx = $nc(b)->getX();
 	int32_t by = b->getY();
-	int32_t var$0 = $nc($(a->getParent()))->getComponentZOrder(a);
-	int32_t zOrder = var$0 - $nc($(b->getParent()))->getComponentZOrder(b);
+	int32_t var$0 = $$nc(a->getParent())->getComponentZOrder(a);
+	int32_t zOrder = var$0 - $$nc(b->getParent())->getComponentZOrder(b);
 	if (this->horizontal) {
 		if (this->leftToRight) {
 			if ($Math::abs(ay - by) < LayoutComparator::ROW_TOLERANCE) {
@@ -180,7 +144,36 @@ LayoutComparator::LayoutComparator() {
 }
 
 $Class* LayoutComparator::load$($String* name, bool initialize) {
-	$loadClass(LayoutComparator, name, initialize, &_LayoutComparator_ClassInfo_, allocate$LayoutComparator);
+	$FieldInfo fieldInfos$$[] = {
+		{"ROW_TOLERANCE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LayoutComparator, ROW_TOLERANCE)},
+		{"horizontal", "Z", nullptr, $PRIVATE, $field(LayoutComparator, horizontal)},
+		{"leftToRight", "Z", nullptr, $PRIVATE, $field(LayoutComparator, leftToRight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(LayoutComparator, init$, void)},
+		{"compare", "(Ljava/awt/Component;Ljava/awt/Component;)I", nullptr, $PUBLIC, $method(LayoutComparator, compare, int32_t, $Component*, $Component*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(LayoutComparator, compare, int32_t, Object$*, Object$*)},
+		{"setComponentOrientation", "(Ljava/awt/ComponentOrientation;)V", nullptr, 0, $method(LayoutComparator, setComponentOrientation, void, $ComponentOrientation*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.LayoutComparator",
+		"java.lang.Object",
+		"java.util.Comparator,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Ljava/awt/Component;>;Ljava/io/Serializable;"
+	};
+	$loadClass(LayoutComparator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LayoutComparator));
+	});
 	return class$;
 }
 

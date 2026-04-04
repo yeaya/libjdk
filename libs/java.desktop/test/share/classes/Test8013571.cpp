@@ -1,11 +1,8 @@
 #include <Test8013571.h>
-
 #include <javax/swing/JTree.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/DefaultTreeModel.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeModel.h>
-#include <javax/swing/tree/TreeNode.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,34 +10,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JTree = ::javax::swing::JTree;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
-using $TreeModel = ::javax::swing::tree::TreeModel;
-using $TreeNode = ::javax::swing::tree::TreeNode;
-
-$MethodInfo _Test8013571_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/tree/DefaultMutableTreeNode;)V", nullptr, $PRIVATE, $method(Test8013571, init$, void, $DefaultMutableTreeNode*)},
-	{"create", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Test8013571, create, $DefaultMutableTreeNode*, $String*, $StringArray*)},
-	{"fireTreeChanged", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Test8013571, fireTreeChanged, void, Object$*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8013571, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _Test8013571_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test8013571",
-	"javax.swing.tree.DefaultTreeModel",
-	nullptr,
-	nullptr,
-	_Test8013571_MethodInfo_
-};
-
-$Object* allocate$Test8013571($Class* clazz) {
-	return $of($alloc(Test8013571));
-}
 
 void Test8013571::main($StringArray* args) {
 	$init(Test8013571);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultMutableTreeNode, root, create("root"_s, $$new($StringArray, 0)));
 	$nc(root)->add($(create("colors"_s, $$new($StringArray, {
 		"blue"_s,
@@ -61,19 +34,17 @@ void Test8013571::main($StringArray* args) {
 		"bananas"_s
 	}))));
 	$var(Test8013571, model, $new(Test8013571, root));
-	$var($JTree, tree, $new($JTree, static_cast<$TreeModel*>(model)));
+	$var($JTree, tree, $new($JTree, model));
 	model->fireTreeChanged(tree);
 }
 
 $DefaultMutableTreeNode* Test8013571::create($String* name, $StringArray* values) {
 	$init(Test8013571);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultMutableTreeNode, node, $new($DefaultMutableTreeNode, name));
 	{
 		$var($StringArray, arr$, values);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, value, arr$->get(i$));
 			{
 				node->add($(create(value, $$new($StringArray, 0))));
@@ -98,7 +69,24 @@ Test8013571::Test8013571() {
 }
 
 $Class* Test8013571::load$($String* name, bool initialize) {
-	$loadClass(Test8013571, name, initialize, &_Test8013571_ClassInfo_, allocate$Test8013571);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/tree/DefaultMutableTreeNode;)V", nullptr, $PRIVATE, $method(Test8013571, init$, void, $DefaultMutableTreeNode*)},
+		{"create", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/swing/tree/DefaultMutableTreeNode;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticMethod(Test8013571, create, $DefaultMutableTreeNode*, $String*, $StringArray*)},
+		{"fireTreeChanged", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(Test8013571, fireTreeChanged, void, Object$*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8013571, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test8013571",
+		"javax.swing.tree.DefaultTreeModel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8013571, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test8013571));
+	});
 	return class$;
 }
 

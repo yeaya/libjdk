@@ -13,6 +13,7 @@ class XTextAreaPeer$1 : public ::java::lang::Object {
 	$class(XTextAreaPeer$1, 0, ::java::lang::Object)
 public:
 	XTextAreaPeer$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$sun$awt$X11$XTextAreaPeer$JavaMouseEventHandler$Pointer$Type;
 };
 

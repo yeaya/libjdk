@@ -1,5 +1,4 @@
 #include <sun/security/jgss/GSSContextImpl.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
@@ -55,7 +54,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
 using $Modifier = ::java::lang::reflect::Modifier;
-using $Provider = ::java::security::Provider;
 using $ChannelBinding = ::org::ietf::jgss::ChannelBinding;
 using $GSSContext = ::org::ietf::jgss::GSSContext;
 using $GSSCredential = ::org::ietf::jgss::GSSCredential;
@@ -70,7 +68,6 @@ using $GSSManagerImpl = ::sun::security::jgss::GSSManagerImpl;
 using $GSSNameImpl = ::sun::security::jgss::GSSNameImpl;
 using $GSSUtil = ::sun::security::jgss::GSSUtil;
 using $ProviderList = ::sun::security::jgss::ProviderList;
-using $GSSContextSpi = ::sun::security::jgss::spi::GSSContextSpi;
 using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
@@ -78,158 +75,6 @@ using $ObjectIdentifier = ::sun::security::util::ObjectIdentifier;
 namespace sun {
 	namespace security {
 		namespace jgss {
-
-$NamedAttribute GSSContextImpl_Attribute_var$0[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _GSSContextImpl_MethodAnnotations_acceptSecContext6[] = {
-	{"Ljava/lang/Deprecated;", GSSContextImpl_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute GSSContextImpl_Attribute_var$1[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _GSSContextImpl_MethodAnnotations_getMIC17[] = {
-	{"Ljava/lang/Deprecated;", GSSContextImpl_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute GSSContextImpl_Attribute_var$2[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _GSSContextImpl_MethodAnnotations_initSecContext26[] = {
-	{"Ljava/lang/Deprecated;", GSSContextImpl_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute GSSContextImpl_Attribute_var$3[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _GSSContextImpl_MethodAnnotations_unwrap43[] = {
-	{"Ljava/lang/Deprecated;", GSSContextImpl_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute GSSContextImpl_Attribute_var$4[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _GSSContextImpl_MethodAnnotations_verifyMIC45[] = {
-	{"Ljava/lang/Deprecated;", GSSContextImpl_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute GSSContextImpl_Attribute_var$5[] = {
-	{"since", 's', "11"},
-	{}
-};
-
-$CompoundAttribute _GSSContextImpl_MethodAnnotations_wrap47[] = {
-	{"Ljava/lang/Deprecated;", GSSContextImpl_Attribute_var$5},
-	{}
-};
-
-$FieldInfo _GSSContextImpl_FieldInfo_[] = {
-	{"gssManager", "Lsun/security/jgss/GSSManagerImpl;", nullptr, $PRIVATE, $field(GSSContextImpl, gssManager)},
-	{"initiator", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, initiator)},
-	{"PRE_INIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSContextImpl, PRE_INIT)},
-	{"IN_PROGRESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSContextImpl, IN_PROGRESS)},
-	{"READY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSContextImpl, READY)},
-	{"DELETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSContextImpl, DELETED)},
-	{"currentState", "I", nullptr, $PRIVATE, $field(GSSContextImpl, currentState)},
-	{"mechCtxt", "Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PRIVATE, $field(GSSContextImpl, mechCtxt)},
-	{"mechOid", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSContextImpl, mechOid)},
-	{"objId", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(GSSContextImpl, objId)},
-	{"myCred", "Lsun/security/jgss/GSSCredentialImpl;", nullptr, $PRIVATE, $field(GSSContextImpl, myCred)},
-	{"srcName", "Lsun/security/jgss/GSSNameImpl;", nullptr, $PRIVATE, $field(GSSContextImpl, srcName)},
-	{"targName", "Lsun/security/jgss/GSSNameImpl;", nullptr, $PRIVATE, $field(GSSContextImpl, targName)},
-	{"reqLifetime", "I", nullptr, $PRIVATE, $field(GSSContextImpl, reqLifetime)},
-	{"channelBindings", "Lorg/ietf/jgss/ChannelBinding;", nullptr, $PRIVATE, $field(GSSContextImpl, channelBindings)},
-	{"reqConfState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqConfState)},
-	{"reqIntegState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqIntegState)},
-	{"reqMutualAuthState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqMutualAuthState)},
-	{"reqReplayDetState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqReplayDetState)},
-	{"reqSequenceDetState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqSequenceDetState)},
-	{"reqCredDelegState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqCredDelegState)},
-	{"reqAnonState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqAnonState)},
-	{"reqDelegPolicyState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqDelegPolicyState)},
-	{}
-};
-
-$MethodInfo _GSSContextImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GSSContextImpl, init$, void)},
-	{"<init>", "(Lsun/security/jgss/GSSContextImpl;)V", nullptr, $PROTECTED, $method(GSSContextImpl, init$, void, GSSContextImpl*)},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lorg/ietf/jgss/GSSName;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/GSSCredential;I)V", nullptr, $PUBLIC, $method(GSSContextImpl, init$, void, $GSSManagerImpl*, $GSSName*, $Oid*, $GSSCredential*, int32_t), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lorg/ietf/jgss/GSSCredential;)V", nullptr, $PUBLIC, $method(GSSContextImpl, init$, void, $GSSManagerImpl*, $GSSCredential*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;[B)V", nullptr, $PUBLIC, $method(GSSContextImpl, init$, void, $GSSManagerImpl*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"acceptSecContext", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, acceptSecContext, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"acceptSecContext", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, acceptSecContext, void, $InputStream*, $OutputStream*), "org.ietf.jgss.GSSException", nullptr, _GSSContextImpl_MethodAnnotations_acceptSecContext6},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, dispose, void), "org.ietf.jgss.GSSException"},
-	{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, export$, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getAnonymityState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getAnonymityState, bool)},
-	{"getConfState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getConfState, bool)},
-	{"getCredDelegState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getCredDelegState, bool)},
-	{"getDelegCred", "()Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getDelegCred, $GSSCredential*), "org.ietf.jgss.GSSException"},
-	{"getDelegPolicyState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getDelegPolicyState, bool)},
-	{"getIntegState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getIntegState, bool)},
-	{"getLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getLifetime, int32_t)},
-	{"getMIC", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getMIC, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"getMIC", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, getMIC, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, _GSSContextImpl_MethodAnnotations_getMIC17},
-	{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getMech, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getMutualAuthState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getMutualAuthState, bool)},
-	{"getReplayDetState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getReplayDetState, bool)},
-	{"getSequenceDetState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getSequenceDetState, bool)},
-	{"getSrcName", "()Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getSrcName, $GSSName*), "org.ietf.jgss.GSSException"},
-	{"getTargName", "()Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getTargName, $GSSName*), "org.ietf.jgss.GSSException"},
-	{"getWrapSizeLimit", "(IZI)I", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getWrapSizeLimit, int32_t, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
-	{"initSecContext", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, initSecContext, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"initSecContext", "(Ljava/io/InputStream;Ljava/io/OutputStream;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, initSecContext, int32_t, $InputStream*, $OutputStream*), "org.ietf.jgss.GSSException", nullptr, _GSSContextImpl_MethodAnnotations_initSecContext26},
-	{"inquireSecContext", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, inquireSecContext, $Object*, $String*), "org.ietf.jgss.GSSException"},
-	{"isEstablished", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, isEstablished, bool)},
-	{"isInitiator", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, isInitiator, bool), "org.ietf.jgss.GSSException"},
-	{"isProtReady", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, isProtReady, bool)},
-	{"isTransferable", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, isTransferable, bool), "org.ietf.jgss.GSSException"},
-	{"requestAnonymity", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestAnonymity, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestConf", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestConf, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestCredDeleg", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestCredDeleg, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestDelegPolicy", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestDelegPolicy, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestInteg", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestInteg, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestLifetime", "(I)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestLifetime, void, int32_t), "org.ietf.jgss.GSSException"},
-	{"requestMutualAuth", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestMutualAuth, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestReplayDet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestReplayDet, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestSequenceDet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestSequenceDet, void, bool), "org.ietf.jgss.GSSException"},
-	{"setChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, setChannelBinding, void, $ChannelBinding*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, unwrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, unwrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, _GSSContextImpl_MethodAnnotations_unwrap43},
-	{"verifyMIC", "([BII[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, verifyMIC, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"verifyMIC", "(Ljava/io/InputStream;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, verifyMIC, void, $InputStream*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, _GSSContextImpl_MethodAnnotations_verifyMIC45},
-	{"wrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, wrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, wrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, _GSSContextImpl_MethodAnnotations_wrap47},
-	{}
-};
-
-$ClassInfo _GSSContextImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.GSSContextImpl",
-	"java.lang.Object",
-	"org.ietf.jgss.GSSContext",
-	_GSSContextImpl_FieldInfo_,
-	_GSSContextImpl_MethodInfo_
-};
-
-$Object* allocate$GSSContextImpl($Class* clazz) {
-	return $of($alloc(GSSContextImpl));
-}
 
 void GSSContextImpl::init$() {
 	this->currentState = GSSContextImpl::PRE_INIT;
@@ -252,7 +97,7 @@ void GSSContextImpl::init$() {
 }
 
 void GSSContextImpl::init$(GSSContextImpl* src) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	this->currentState = GSSContextImpl::PRE_INIT;
 	$set(this, mechCtxt, nullptr);
@@ -273,17 +118,13 @@ void GSSContextImpl::init$(GSSContextImpl* src) {
 	this->reqDelegPolicyState = false;
 	{
 		$var($FieldArray, arr$, GSSContextImpl::class$->getDeclaredFields());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Field, f, arr$->get(i$));
-			{
-				if (!$Modifier::isStatic($nc(f)->getModifiers())) {
-					try {
-						$nc(f)->set(this, $(f->get(src)));
-					} catch ($Exception& e) {
-						$throwNew($RuntimeException, static_cast<$Throwable*>(e));
-					}
+			if (!$Modifier::isStatic($nc(f)->getModifiers())) {
+				try {
+					f->set(this, $(f->get(src)));
+				} catch ($Exception& e) {
+					$throwNew($RuntimeException, e);
 				}
 			}
 		}
@@ -372,7 +213,7 @@ void GSSContextImpl::init$($GSSManagerImpl* gssManager, $bytes* interProcessToke
 }
 
 $bytes* GSSContextImpl::initSecContext($bytes* inputBuf, int32_t offset, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream, 600));
 	$var($ByteArrayInputStream, bin, $new($ByteArrayInputStream, inputBuf, offset, len));
 	int32_t size = initSecContext(bin, bos);
@@ -380,7 +221,7 @@ $bytes* GSSContextImpl::initSecContext($bytes* inputBuf, int32_t offset, int32_t
 }
 
 int32_t GSSContextImpl::initSecContext($InputStream* inStream, $OutputStream* outStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mechCtxt != nullptr && this->currentState != GSSContextImpl::IN_PROGRESS) {
 		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, "Illegal call to initSecContext"_s);
 	}
@@ -392,7 +233,7 @@ int32_t GSSContextImpl::initSecContext($InputStream* inStream, $OutputStream* ou
 		if (this->mechCtxt == nullptr) {
 			if (this->myCred != nullptr) {
 				try {
-					$assign(credElement, $nc(this->myCred)->getElement(this->mechOid, true));
+					$assign(credElement, this->myCred->getElement(this->mechOid, true));
 				} catch ($GSSException& ge) {
 					bool var$0 = $GSSUtil::isSpNegoMech(this->mechOid);
 					if (var$0 && ge->getMajor() == $GSSException::NO_CRED) {
@@ -417,11 +258,11 @@ int32_t GSSContextImpl::initSecContext($InputStream* inStream, $OutputStream* ou
 			this->currentState = GSSContextImpl::IN_PROGRESS;
 			firstToken = true;
 		} else {
-			bool var$2 = $nc($($nc($($nc(this->mechCtxt)->getProvider()))->getName()))->equals("SunNativeGSS"_s);
-			if (var$2 || $GSSUtil::isSpNegoMech(this->mechOid)) {
+			bool var$1 = $$nc($$nc(this->mechCtxt->getProvider())->getName())->equals("SunNativeGSS"_s);
+			if (var$1 || $GSSUtil::isSpNegoMech(this->mechOid)) {
 			} else {
 				$assign(gssHeader, $new($GSSHeader, inStream));
-				if (!$nc($(gssHeader->getOid()))->equals(this->objId)) {
+				if (!$$nc(gssHeader->getOid())->equals(this->objId)) {
 					$throwNew($GSSExceptionImpl, $GSSException::DEFECTIVE_TOKEN, $$str({"Mechanism not equal to "_s, $($nc(this->mechOid)->toString()), " in initSecContext token"_s}));
 				}
 				inTokenLen = gssHeader->getMechTokenLength();
@@ -431,8 +272,8 @@ int32_t GSSContextImpl::initSecContext($InputStream* inStream, $OutputStream* ou
 		int32_t retVal = 0;
 		if (obuf != nullptr) {
 			retVal = obuf->length;
-			bool var$3 = $nc($($nc($($nc(this->mechCtxt)->getProvider()))->getName()))->equals("SunNativeGSS"_s);
-			if (var$3 || (!firstToken && $GSSUtil::isSpNegoMech(this->mechOid))) {
+			bool var$2 = $$nc($$nc($nc(this->mechCtxt)->getProvider())->getName())->equals("SunNativeGSS"_s);
+			if (var$2 || (!firstToken && $GSSUtil::isSpNegoMech(this->mechOid))) {
 			} else {
 				$assign(gssHeader, $new($GSSHeader, this->objId, obuf->length));
 				retVal += gssHeader->encode(outStream);
@@ -450,7 +291,7 @@ int32_t GSSContextImpl::initSecContext($InputStream* inStream, $OutputStream* ou
 }
 
 $bytes* GSSContextImpl::acceptSecContext($bytes* inTok, int32_t offset, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bos, $new($ByteArrayOutputStream, 100));
 	acceptSecContext($$new($ByteArrayInputStream, inTok, offset, len), bos);
 	$var($bytes, out, bos->toByteArray());
@@ -458,7 +299,7 @@ $bytes* GSSContextImpl::acceptSecContext($bytes* inTok, int32_t offset, int32_t 
 }
 
 void GSSContextImpl::acceptSecContext($InputStream* inStream, $OutputStream* outStream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mechCtxt != nullptr && this->currentState != GSSContextImpl::IN_PROGRESS) {
 		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, "Illegal call to acceptSecContext"_s);
 	}
@@ -472,17 +313,17 @@ void GSSContextImpl::acceptSecContext($InputStream* inStream, $OutputStream* out
 			$set(this, objId, gssHeader->getOid());
 			$set(this, mechOid, $new($Oid, $($nc(this->objId)->toString())));
 			if (this->myCred != nullptr) {
-				$assign(credElement, $nc(this->myCred)->getElement(this->mechOid, false));
+				$assign(credElement, this->myCred->getElement(this->mechOid, false));
 			}
 			$set(this, mechCtxt, $nc(this->gssManager)->getMechanismContext(credElement, this->mechOid));
 			$nc(this->mechCtxt)->setChannelBinding(this->channelBindings);
 			this->currentState = GSSContextImpl::IN_PROGRESS;
 		} else {
-			bool var$1 = $nc($($nc($($nc(this->mechCtxt)->getProvider()))->getName()))->equals("SunNativeGSS"_s);
-			if (var$1 || ($GSSUtil::isSpNegoMech(this->mechOid))) {
+			bool var$0 = $$nc($$nc(this->mechCtxt->getProvider())->getName())->equals("SunNativeGSS"_s);
+			if (var$0 || ($GSSUtil::isSpNegoMech(this->mechOid))) {
 			} else {
 				$assign(gssHeader, $new($GSSHeader, inStream));
-				if (!$nc($(gssHeader->getOid()))->equals(this->objId)) {
+				if (!$$nc(gssHeader->getOid())->equals(this->objId)) {
 					$throwNew($GSSExceptionImpl, $GSSException::DEFECTIVE_TOKEN, $$str({"Mechanism not equal to "_s, $($nc(this->mechOid)->toString()), " in acceptSecContext token"_s}));
 				}
 				inTokenLen = gssHeader->getMechTokenLength();
@@ -491,8 +332,8 @@ void GSSContextImpl::acceptSecContext($InputStream* inStream, $OutputStream* out
 		$var($bytes, obuf, $nc(this->mechCtxt)->acceptSecContext(inStream, inTokenLen));
 		if (obuf != nullptr) {
 			int32_t retVal = obuf->length;
-			bool var$2 = $nc($($nc($($nc(this->mechCtxt)->getProvider()))->getName()))->equals("SunNativeGSS"_s);
-			if (var$2 || ($GSSUtil::isSpNegoMech(this->mechOid))) {
+			bool var$1 = $$nc($$nc($nc(this->mechCtxt)->getProvider())->getName())->equals("SunNativeGSS"_s);
+			if (var$1 || ($GSSUtil::isSpNegoMech(this->mechOid))) {
 			} else {
 				$assign(gssHeader, $new($GSSHeader, this->objId, obuf->length));
 				retVal += gssHeader->encode(outStream);
@@ -517,7 +358,7 @@ bool GSSContextImpl::isEstablished() {
 
 int32_t GSSContextImpl::getWrapSizeLimit(int32_t qop, bool confReq, int32_t maxTokenSize) {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getWrapSizeLimit(qop, confReq, maxTokenSize);
+		return this->mechCtxt->getWrapSizeLimit(qop, confReq, maxTokenSize);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -525,7 +366,7 @@ int32_t GSSContextImpl::getWrapSizeLimit(int32_t qop, bool confReq, int32_t maxT
 
 $bytes* GSSContextImpl::wrap($bytes* inBuf, int32_t offset, int32_t len, $MessageProp* msgProp) {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->wrap(inBuf, offset, len, msgProp);
+		return this->mechCtxt->wrap(inBuf, offset, len, msgProp);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -533,7 +374,7 @@ $bytes* GSSContextImpl::wrap($bytes* inBuf, int32_t offset, int32_t len, $Messag
 
 void GSSContextImpl::wrap($InputStream* inStream, $OutputStream* outStream, $MessageProp* msgProp) {
 	if (this->mechCtxt != nullptr) {
-		$nc(this->mechCtxt)->wrap(inStream, outStream, msgProp);
+		this->mechCtxt->wrap(inStream, outStream, msgProp);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -541,7 +382,7 @@ void GSSContextImpl::wrap($InputStream* inStream, $OutputStream* outStream, $Mes
 
 $bytes* GSSContextImpl::unwrap($bytes* inBuf, int32_t offset, int32_t len, $MessageProp* msgProp) {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->unwrap(inBuf, offset, len, msgProp);
+		return this->mechCtxt->unwrap(inBuf, offset, len, msgProp);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -549,7 +390,7 @@ $bytes* GSSContextImpl::unwrap($bytes* inBuf, int32_t offset, int32_t len, $Mess
 
 void GSSContextImpl::unwrap($InputStream* inStream, $OutputStream* outStream, $MessageProp* msgProp) {
 	if (this->mechCtxt != nullptr) {
-		$nc(this->mechCtxt)->unwrap(inStream, outStream, msgProp);
+		this->mechCtxt->unwrap(inStream, outStream, msgProp);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -557,7 +398,7 @@ void GSSContextImpl::unwrap($InputStream* inStream, $OutputStream* outStream, $M
 
 $bytes* GSSContextImpl::getMIC($bytes* inMsg, int32_t offset, int32_t len, $MessageProp* msgProp) {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getMIC(inMsg, offset, len, msgProp);
+		return this->mechCtxt->getMIC(inMsg, offset, len, msgProp);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -565,7 +406,7 @@ $bytes* GSSContextImpl::getMIC($bytes* inMsg, int32_t offset, int32_t len, $Mess
 
 void GSSContextImpl::getMIC($InputStream* inStream, $OutputStream* outStream, $MessageProp* msgProp) {
 	if (this->mechCtxt != nullptr) {
-		$nc(this->mechCtxt)->getMIC(inStream, outStream, msgProp);
+		this->mechCtxt->getMIC(inStream, outStream, msgProp);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -573,7 +414,7 @@ void GSSContextImpl::getMIC($InputStream* inStream, $OutputStream* outStream, $M
 
 void GSSContextImpl::verifyMIC($bytes* inTok, int32_t tokOffset, int32_t tokLen, $bytes* inMsg, int32_t msgOffset, int32_t msgLen, $MessageProp* msgProp) {
 	if (this->mechCtxt != nullptr) {
-		$nc(this->mechCtxt)->verifyMIC(inTok, tokOffset, tokLen, inMsg, msgOffset, msgLen, msgProp);
+		this->mechCtxt->verifyMIC(inTok, tokOffset, tokLen, inMsg, msgOffset, msgLen, msgProp);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -581,17 +422,17 @@ void GSSContextImpl::verifyMIC($bytes* inTok, int32_t tokOffset, int32_t tokLen,
 
 void GSSContextImpl::verifyMIC($InputStream* tokStream, $InputStream* msgStream, $MessageProp* msgProp) {
 	if (this->mechCtxt != nullptr) {
-		$nc(this->mechCtxt)->verifyMIC(tokStream, msgStream, msgProp);
+		this->mechCtxt->verifyMIC(tokStream, msgStream, msgProp);
 	} else {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
 }
 
 $bytes* GSSContextImpl::export$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, nullptr);
 	bool var$0 = $nc(this->mechCtxt)->isTransferable();
-	if (var$0 && $nc($($nc($($nc(this->mechCtxt)->getProvider()))->getName()))->equals("SunNativeGSS"_s)) {
+	if (var$0 && $$nc($$nc(this->mechCtxt->getProvider())->getName())->equals("SunNativeGSS"_s)) {
 		$assign(result, $nc(this->mechCtxt)->export$());
 	}
 	return result;
@@ -653,7 +494,7 @@ void GSSContextImpl::setChannelBinding($ChannelBinding* channelBindings) {
 
 bool GSSContextImpl::getCredDelegState() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getCredDelegState();
+		return this->mechCtxt->getCredDelegState();
 	} else {
 		return this->reqCredDelegState;
 	}
@@ -661,7 +502,7 @@ bool GSSContextImpl::getCredDelegState() {
 
 bool GSSContextImpl::getMutualAuthState() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getMutualAuthState();
+		return this->mechCtxt->getMutualAuthState();
 	} else {
 		return this->reqMutualAuthState;
 	}
@@ -669,7 +510,7 @@ bool GSSContextImpl::getMutualAuthState() {
 
 bool GSSContextImpl::getReplayDetState() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getReplayDetState();
+		return this->mechCtxt->getReplayDetState();
 	} else {
 		return this->reqReplayDetState;
 	}
@@ -677,7 +518,7 @@ bool GSSContextImpl::getReplayDetState() {
 
 bool GSSContextImpl::getSequenceDetState() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getSequenceDetState();
+		return this->mechCtxt->getSequenceDetState();
 	} else {
 		return this->reqSequenceDetState;
 	}
@@ -685,7 +526,7 @@ bool GSSContextImpl::getSequenceDetState() {
 
 bool GSSContextImpl::getAnonymityState() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getAnonymityState();
+		return this->mechCtxt->getAnonymityState();
 	} else {
 		return this->reqAnonState;
 	}
@@ -693,7 +534,7 @@ bool GSSContextImpl::getAnonymityState() {
 
 bool GSSContextImpl::isTransferable() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->isTransferable();
+		return this->mechCtxt->isTransferable();
 	} else {
 		return false;
 	}
@@ -701,7 +542,7 @@ bool GSSContextImpl::isTransferable() {
 
 bool GSSContextImpl::isProtReady() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->isProtReady();
+		return this->mechCtxt->isProtReady();
 	} else {
 		return false;
 	}
@@ -709,7 +550,7 @@ bool GSSContextImpl::isProtReady() {
 
 bool GSSContextImpl::getConfState() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getConfState();
+		return this->mechCtxt->getConfState();
 	} else {
 		return this->reqConfState;
 	}
@@ -717,7 +558,7 @@ bool GSSContextImpl::getConfState() {
 
 bool GSSContextImpl::getIntegState() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getIntegState();
+		return this->mechCtxt->getIntegState();
 	} else {
 		return this->reqIntegState;
 	}
@@ -725,7 +566,7 @@ bool GSSContextImpl::getIntegState() {
 
 int32_t GSSContextImpl::getLifetime() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getLifetime();
+		return this->mechCtxt->getLifetime();
 	} else {
 		return this->reqLifetime;
 	}
@@ -747,13 +588,13 @@ $GSSName* GSSContextImpl::getTargName() {
 
 $Oid* GSSContextImpl::getMech() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getMech();
+		return this->mechCtxt->getMech();
 	}
 	return this->mechOid;
 }
 
 $GSSCredential* GSSContextImpl::getDelegCred() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->mechCtxt == nullptr) {
 		$throwNew($GSSExceptionImpl, $GSSException::NO_CONTEXT, "No mechanism context yet!"_s);
 	}
@@ -768,7 +609,7 @@ bool GSSContextImpl::isInitiator() {
 void GSSContextImpl::dispose() {
 	this->currentState = GSSContextImpl::DELETED;
 	if (this->mechCtxt != nullptr) {
-		$nc(this->mechCtxt)->dispose();
+		this->mechCtxt->dispose();
 		$set(this, mechCtxt, nullptr);
 	}
 	$set(this, myCred, nullptr);
@@ -780,7 +621,7 @@ $Object* GSSContextImpl::inquireSecContext($String* type) {
 	if (this->mechCtxt == nullptr) {
 		$throwNew($GSSException, $GSSException::NO_CONTEXT);
 	}
-	return $of($nc(this->mechCtxt)->inquireSecContext(type));
+	return $nc(this->mechCtxt)->inquireSecContext(type);
 }
 
 void GSSContextImpl::requestDelegPolicy(bool state) {
@@ -791,7 +632,7 @@ void GSSContextImpl::requestDelegPolicy(bool state) {
 
 bool GSSContextImpl::getDelegPolicyState() {
 	if (this->mechCtxt != nullptr) {
-		return $nc(this->mechCtxt)->getDelegPolicyState();
+		return this->mechCtxt->getDelegPolicyState();
 	} else {
 		return this->reqDelegPolicyState;
 	}
@@ -801,7 +642,142 @@ GSSContextImpl::GSSContextImpl() {
 }
 
 $Class* GSSContextImpl::load$($String* name, bool initialize) {
-	$loadClass(GSSContextImpl, name, initialize, &_GSSContextImpl_ClassInfo_, allocate$GSSContextImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"gssManager", "Lsun/security/jgss/GSSManagerImpl;", nullptr, $PRIVATE, $field(GSSContextImpl, gssManager)},
+		{"initiator", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, initiator)},
+		{"PRE_INIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSContextImpl, PRE_INIT)},
+		{"IN_PROGRESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSContextImpl, IN_PROGRESS)},
+		{"READY", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSContextImpl, READY)},
+		{"DELETED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(GSSContextImpl, DELETED)},
+		{"currentState", "I", nullptr, $PRIVATE, $field(GSSContextImpl, currentState)},
+		{"mechCtxt", "Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PRIVATE, $field(GSSContextImpl, mechCtxt)},
+		{"mechOid", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(GSSContextImpl, mechOid)},
+		{"objId", "Lsun/security/util/ObjectIdentifier;", nullptr, $PRIVATE, $field(GSSContextImpl, objId)},
+		{"myCred", "Lsun/security/jgss/GSSCredentialImpl;", nullptr, $PRIVATE, $field(GSSContextImpl, myCred)},
+		{"srcName", "Lsun/security/jgss/GSSNameImpl;", nullptr, $PRIVATE, $field(GSSContextImpl, srcName)},
+		{"targName", "Lsun/security/jgss/GSSNameImpl;", nullptr, $PRIVATE, $field(GSSContextImpl, targName)},
+		{"reqLifetime", "I", nullptr, $PRIVATE, $field(GSSContextImpl, reqLifetime)},
+		{"channelBindings", "Lorg/ietf/jgss/ChannelBinding;", nullptr, $PRIVATE, $field(GSSContextImpl, channelBindings)},
+		{"reqConfState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqConfState)},
+		{"reqIntegState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqIntegState)},
+		{"reqMutualAuthState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqMutualAuthState)},
+		{"reqReplayDetState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqReplayDetState)},
+		{"reqSequenceDetState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqSequenceDetState)},
+		{"reqCredDelegState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqCredDelegState)},
+		{"reqAnonState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqAnonState)},
+		{"reqDelegPolicyState", "Z", nullptr, $PRIVATE, $field(GSSContextImpl, reqDelegPolicyState)},
+		{}
+	};
+	$NamedAttribute acceptSecContextmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute acceptSecContextmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", acceptSecContextmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute getMICmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute getMICmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", getMICmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute initSecContextmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute initSecContextmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", initSecContextmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute unwrapmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute unwrapmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", unwrapmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute verifyMICmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute verifyMICmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", verifyMICmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$NamedAttribute wrapmethodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "11"},
+		{}
+	};
+	$CompoundAttribute wrapmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", wrapmethodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GSSContextImpl, init$, void)},
+		{"<init>", "(Lsun/security/jgss/GSSContextImpl;)V", nullptr, $PROTECTED, $method(GSSContextImpl, init$, void, GSSContextImpl*)},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lorg/ietf/jgss/GSSName;Lorg/ietf/jgss/Oid;Lorg/ietf/jgss/GSSCredential;I)V", nullptr, $PUBLIC, $method(GSSContextImpl, init$, void, $GSSManagerImpl*, $GSSName*, $Oid*, $GSSCredential*, int32_t), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lorg/ietf/jgss/GSSCredential;)V", nullptr, $PUBLIC, $method(GSSContextImpl, init$, void, $GSSManagerImpl*, $GSSCredential*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;[B)V", nullptr, $PUBLIC, $method(GSSContextImpl, init$, void, $GSSManagerImpl*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"acceptSecContext", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, acceptSecContext, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"acceptSecContext", "(Ljava/io/InputStream;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, acceptSecContext, void, $InputStream*, $OutputStream*), "org.ietf.jgss.GSSException", nullptr, acceptSecContextmethodAnnotations$$$1},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, dispose, void), "org.ietf.jgss.GSSException"},
+		{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, export$, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getAnonymityState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getAnonymityState, bool)},
+		{"getConfState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getConfState, bool)},
+		{"getCredDelegState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getCredDelegState, bool)},
+		{"getDelegCred", "()Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getDelegCred, $GSSCredential*), "org.ietf.jgss.GSSException"},
+		{"getDelegPolicyState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getDelegPolicyState, bool)},
+		{"getIntegState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getIntegState, bool)},
+		{"getLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getLifetime, int32_t)},
+		{"getMIC", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getMIC, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"getMIC", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, getMIC, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, getMICmethodAnnotations$$$1},
+		{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getMech, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getMutualAuthState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getMutualAuthState, bool)},
+		{"getReplayDetState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getReplayDetState, bool)},
+		{"getSequenceDetState", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getSequenceDetState, bool)},
+		{"getSrcName", "()Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getSrcName, $GSSName*), "org.ietf.jgss.GSSException"},
+		{"getTargName", "()Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getTargName, $GSSName*), "org.ietf.jgss.GSSException"},
+		{"getWrapSizeLimit", "(IZI)I", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, getWrapSizeLimit, int32_t, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
+		{"initSecContext", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, initSecContext, $bytes*, $bytes*, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"initSecContext", "(Ljava/io/InputStream;Ljava/io/OutputStream;)I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, initSecContext, int32_t, $InputStream*, $OutputStream*), "org.ietf.jgss.GSSException", nullptr, initSecContextmethodAnnotations$$$1},
+		{"inquireSecContext", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, inquireSecContext, $Object*, $String*), "org.ietf.jgss.GSSException"},
+		{"isEstablished", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, isEstablished, bool)},
+		{"isInitiator", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, isInitiator, bool), "org.ietf.jgss.GSSException"},
+		{"isProtReady", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, isProtReady, bool)},
+		{"isTransferable", "()Z", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, isTransferable, bool), "org.ietf.jgss.GSSException"},
+		{"requestAnonymity", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestAnonymity, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestConf", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestConf, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestCredDeleg", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestCredDeleg, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestDelegPolicy", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestDelegPolicy, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestInteg", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestInteg, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestLifetime", "(I)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestLifetime, void, int32_t), "org.ietf.jgss.GSSException"},
+		{"requestMutualAuth", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestMutualAuth, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestReplayDet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestReplayDet, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestSequenceDet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, requestSequenceDet, void, bool), "org.ietf.jgss.GSSException"},
+		{"setChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, setChannelBinding, void, $ChannelBinding*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, unwrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, unwrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, unwrapmethodAnnotations$$$1},
+		{"verifyMIC", "([BII[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, verifyMIC, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"verifyMIC", "(Ljava/io/InputStream;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, verifyMIC, void, $InputStream*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, verifyMICmethodAnnotations$$$1},
+		{"wrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(GSSContextImpl, wrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(GSSContextImpl, wrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException", nullptr, wrapmethodAnnotations$$$1},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.GSSContextImpl",
+		"java.lang.Object",
+		"org.ietf.jgss.GSSContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSContextImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSContextImpl);
+	});
 	return class$;
 }
 

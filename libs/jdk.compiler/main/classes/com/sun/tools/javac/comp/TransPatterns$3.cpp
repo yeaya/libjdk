@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/TransPatterns$3.h>
-
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/comp/TransPatterns.h>
 #include <java/lang/NoSuchFieldError.h>
@@ -24,65 +23,29 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _TransPatterns$3_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TransPatterns$3, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
-	{}
-};
-
-$EnclosingMethodInfo _TransPatterns$3_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.TransPatterns",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _TransPatterns$3_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.TransPatterns$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _TransPatterns$3_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.comp.TransPatterns$3",
-	"java.lang.Object",
-	nullptr,
-	_TransPatterns$3_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_TransPatterns$3_EnclosingMethodInfo_,
-	_TransPatterns$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.TransPatterns"
-};
-
-$Object* allocate$TransPatterns$3($Class* clazz) {
-	return $of($alloc(TransPatterns$3));
-}
-
 $ints* TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag = nullptr;
 
-void clinit$TransPatterns$3($Class* class$) {
+void TransPatterns$3::clinit$($Class* clazz) {
 	$assignStatic(TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag, $new($ints, $($TypeTag::values())->length));
 	{
 		try {
-			$nc(TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::BYTE->ordinal(), 1);
+			TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::BYTE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CHAR->ordinal(), 2);
+			TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CHAR->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::SHORT->ordinal(), 3);
+			TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::SHORT->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::INT->ordinal(), 4);
+			TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::INT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag)->set($TypeTag::CLASS->ordinal(), 5);
+			TransPatterns$3::$SwitchMap$com$sun$tools$javac$code$TypeTag->set($TypeTag::CLASS->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -92,7 +55,37 @@ TransPatterns$3::TransPatterns$3() {
 }
 
 $Class* TransPatterns$3::load$($String* name, bool initialize) {
-	$loadClass(TransPatterns$3, name, initialize, &_TransPatterns$3_ClassInfo_, clinit$TransPatterns$3, allocate$TransPatterns$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$code$TypeTag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(TransPatterns$3, $SwitchMap$com$sun$tools$javac$code$TypeTag)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.TransPatterns",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.TransPatterns$3", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.comp.TransPatterns$3",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.TransPatterns"
+	};
+	$loadClass(TransPatterns$3, name, initialize, &classInfo$$, TransPatterns$3::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TransPatterns$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/ext/StartTlsResponseImpl.h>
-
 #include <com/sun/jndi/ldap/Connection.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -50,51 +49,6 @@ namespace com {
 			namespace ldap {
 				namespace ext {
 
-$FieldInfo _StartTlsResponseImpl_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StartTlsResponseImpl, debug)},
-	{"DNSNAME_TYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StartTlsResponseImpl, DNSNAME_TYPE)},
-	{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, hostname)},
-	{"ldapConnection", "Lcom/sun/jndi/ldap/Connection;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, ldapConnection)},
-	{"originalInputStream", "Ljava/io/InputStream;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, originalInputStream)},
-	{"originalOutputStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, originalOutputStream)},
-	{"sslSocket", "Ljavax/net/ssl/SSLSocket;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, sslSocket)},
-	{"defaultFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, defaultFactory)},
-	{"currentFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, currentFactory)},
-	{"suites", "[Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, suites)},
-	{"verifier", "Ljavax/net/ssl/HostnameVerifier;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, verifier)},
-	{"isClosed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, isClosed)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StartTlsResponseImpl, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StartTlsResponseImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StartTlsResponseImpl, init$, void)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, close, void), "java.io.IOException"},
-	{"getDefaultFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE, $method(StartTlsResponseImpl, getDefaultFactory, $SSLSocketFactory*), "java.io.IOException"},
-	{"getPeerPrincipal", "(Ljavax/net/ssl/SSLSession;)Ljava/security/Principal;", nullptr, $PRIVATE | $STATIC, $staticMethod(StartTlsResponseImpl, getPeerPrincipal, $Principal*, $SSLSession*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{"negotiate", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, negotiate, $SSLSession*), "java.io.IOException"},
-	{"negotiate", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, negotiate, $SSLSession*, $SSLSocketFactory*), "java.io.IOException"},
-	{"setConnection", "(Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartTlsResponseImpl, setConnection, void, $Connection*, $String*)},
-	{"setEnabledCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, setEnabledCipherSuites, void, $StringArray*)},
-	{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, setHostnameVerifier, void, $HostnameVerifier*)},
-	{"startHandshake", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSocket;", nullptr, $PRIVATE, $method(StartTlsResponseImpl, startHandshake, $SSLSocket*, $SSLSocketFactory*), "java.io.IOException"},
-	{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PRIVATE, $method(StartTlsResponseImpl, verify, bool, $String*, $SSLSession*), "javax.net.ssl.SSLPeerUnverifiedException"},
-	{}
-};
-
-$ClassInfo _StartTlsResponseImpl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.ext.StartTlsResponseImpl",
-	"javax.naming.ldap.StartTlsResponse",
-	nullptr,
-	_StartTlsResponseImpl_FieldInfo_,
-	_StartTlsResponseImpl_MethodInfo_
-};
-
-$Object* allocate$StartTlsResponseImpl($Class* clazz) {
-	return $of($alloc(StartTlsResponseImpl));
-}
-
 void StartTlsResponseImpl::init$() {
 	$StartTlsResponse::init$();
 	$set(this, hostname, nullptr);
@@ -110,7 +64,7 @@ void StartTlsResponseImpl::init$() {
 }
 
 void StartTlsResponseImpl::setEnabledCipherSuites($StringArray* suites) {
-	$set(this, suites, suites == nullptr ? ($StringArray*)nullptr : $cast($StringArray, $nc(suites)->clone()));
+	$set(this, suites, suites == nullptr ? ($StringArray*)nullptr : $cast($StringArray, suites->clone()));
 }
 
 void StartTlsResponseImpl::setHostnameVerifier($HostnameVerifier* verifier) {
@@ -122,7 +76,7 @@ $SSLSession* StartTlsResponseImpl::negotiate() {
 }
 
 $SSLSession* StartTlsResponseImpl::negotiate($SSLSocketFactory* factory$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLSocketFactory, factory, factory$renamed);
 	if (this->isClosed && this->sslSocket != nullptr) {
 		$throwNew($IOException, "TLS connection is closed."_s);
@@ -130,7 +84,9 @@ $SSLSession* StartTlsResponseImpl::negotiate($SSLSocketFactory* factory$renamed)
 	if (factory == nullptr) {
 		$assign(factory, getDefaultFactory());
 	}
-	$var($SSLSession, sslSession, $nc($(startHandshake(factory)))->getSession());
+	;
+	$var($SSLSession, sslSession, $$nc(startHandshake(factory))->getSession());
+	;
 	$var($SSLPeerUnverifiedException, verifExcep, nullptr);
 	try {
 		if (verify(this->hostname, sslSession)) {
@@ -140,7 +96,7 @@ $SSLSession* StartTlsResponseImpl::negotiate($SSLSocketFactory* factory$renamed)
 	} catch ($SSLPeerUnverifiedException& e) {
 		$assign(verifExcep, e);
 	}
-	if ((this->verifier != nullptr) && $nc(this->verifier)->verify(this->hostname, sslSession)) {
+	if ((this->verifier != nullptr) && this->verifier->verify(this->hostname, sslSession)) {
 		this->isClosed = false;
 		return sslSession;
 	}
@@ -156,15 +112,17 @@ void StartTlsResponseImpl::close() {
 	if (this->isClosed) {
 		return;
 	}
+	;
 	$nc(this->ldapConnection)->replaceStreams(this->originalInputStream, this->originalOutputStream, false);
+	;
 	$nc(this->sslSocket)->close();
 	this->isClosed = true;
 }
 
 void StartTlsResponseImpl::setConnection($Connection* ldapConnection, $String* hostname) {
 	$set(this, ldapConnection, ldapConnection);
-	$set(this, hostname, (hostname == nullptr || $nc(hostname)->isEmpty()) ? $nc(ldapConnection)->host : hostname);
-	$set(this, originalInputStream, ldapConnection->inStream);
+	$set(this, hostname, (hostname == nullptr || hostname->isEmpty()) ? $nc(ldapConnection)->host : hostname);
+	$set(this, originalInputStream, $nc(ldapConnection)->inStream);
 	$set(this, originalOutputStream, ldapConnection->outStream);
 }
 
@@ -176,23 +134,29 @@ $SSLSocketFactory* StartTlsResponseImpl::getDefaultFactory() {
 }
 
 $SSLSocket* StartTlsResponseImpl::startHandshake($SSLSocketFactory* factory) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ldapConnection == nullptr) {
 		$throwNew($IllegalStateException, "LDAP connection has not been set. TLS requires an existing LDAP connection."_s);
 	}
 	if (factory != this->currentFactory) {
 		$set(this, sslSocket, $cast($SSLSocket, $nc(factory)->createSocket($nc(this->ldapConnection)->sock, $nc(this->ldapConnection)->host, $nc(this->ldapConnection)->port, false)));
 		$set(this, currentFactory, factory);
+		;
 	}
 	if (this->suites != nullptr) {
 		$nc(this->sslSocket)->setEnabledCipherSuites(this->suites);
+		;
 	}
 	try {
+		;
 		$nc(this->ldapConnection)->setHandshakeCompletedListener(this->sslSocket);
 		$nc(this->sslSocket)->startHandshake();
-		$var($InputStream, var$0, $nc(this->sslSocket)->getInputStream());
-		$nc(this->ldapConnection)->replaceStreams(var$0, $($nc(this->sslSocket)->getOutputStream()), true);
+		;
+		$var($InputStream, var$0, this->sslSocket->getInputStream());
+		$nc(this->ldapConnection)->replaceStreams(var$0, $(this->sslSocket->getOutputStream()), true);
+		;
 	} catch ($IOException& e) {
+		;
 		$nc(this->sslSocket)->close();
 		this->isClosed = true;
 		$throw(e);
@@ -201,7 +165,7 @@ $SSLSocket* StartTlsResponseImpl::startHandshake($SSLSocketFactory* factory) {
 }
 
 bool StartTlsResponseImpl::verify($String* hostname$renamed, $SSLSession* session) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, hostname, hostname$renamed);
 	$var($CertificateArray, certs, nullptr);
 	bool var$0 = hostname != nullptr && hostname->startsWith("["_s);
@@ -226,7 +190,7 @@ bool StartTlsResponseImpl::verify($String* hostname$renamed, $SSLSession* sessio
 		}
 		$throw(e);
 	} catch ($CertificateException& e) {
-		$throw($cast($SSLPeerUnverifiedException, $($$new($SSLPeerUnverifiedException, $$str({"hostname of the server \'"_s, hostname, "\' does not match the hostname in the server\'s certificate."_s}))->initCause(e))));
+		$throw($$cast($SSLPeerUnverifiedException, $$new($SSLPeerUnverifiedException, $$str({"hostname of the server \'"_s, hostname, "\' does not match the hostname in the server\'s certificate."_s}))->initCause(e)));
 	}
 	$shouldNotReachHere();
 }
@@ -246,7 +210,47 @@ StartTlsResponseImpl::StartTlsResponseImpl() {
 }
 
 $Class* StartTlsResponseImpl::load$($String* name, bool initialize) {
-	$loadClass(StartTlsResponseImpl, name, initialize, &_StartTlsResponseImpl_ClassInfo_, allocate$StartTlsResponseImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StartTlsResponseImpl, debug)},
+		{"DNSNAME_TYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StartTlsResponseImpl, DNSNAME_TYPE)},
+		{"hostname", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, hostname)},
+		{"ldapConnection", "Lcom/sun/jndi/ldap/Connection;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, ldapConnection)},
+		{"originalInputStream", "Ljava/io/InputStream;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, originalInputStream)},
+		{"originalOutputStream", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, originalOutputStream)},
+		{"sslSocket", "Ljavax/net/ssl/SSLSocket;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, sslSocket)},
+		{"defaultFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, defaultFactory)},
+		{"currentFactory", "Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, currentFactory)},
+		{"suites", "[Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, suites)},
+		{"verifier", "Ljavax/net/ssl/HostnameVerifier;", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, verifier)},
+		{"isClosed", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(StartTlsResponseImpl, isClosed)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StartTlsResponseImpl, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StartTlsResponseImpl, init$, void)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, close, void), "java.io.IOException"},
+		{"getDefaultFactory", "()Ljavax/net/ssl/SSLSocketFactory;", nullptr, $PRIVATE, $method(StartTlsResponseImpl, getDefaultFactory, $SSLSocketFactory*), "java.io.IOException"},
+		{"getPeerPrincipal", "(Ljavax/net/ssl/SSLSession;)Ljava/security/Principal;", nullptr, $PRIVATE | $STATIC, $staticMethod(StartTlsResponseImpl, getPeerPrincipal, $Principal*, $SSLSession*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{"negotiate", "()Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, negotiate, $SSLSession*), "java.io.IOException"},
+		{"negotiate", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSession;", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, negotiate, $SSLSession*, $SSLSocketFactory*), "java.io.IOException"},
+		{"setConnection", "(Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartTlsResponseImpl, setConnection, void, $Connection*, $String*)},
+		{"setEnabledCipherSuites", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, setEnabledCipherSuites, void, $StringArray*)},
+		{"setHostnameVerifier", "(Ljavax/net/ssl/HostnameVerifier;)V", nullptr, $PUBLIC, $virtualMethod(StartTlsResponseImpl, setHostnameVerifier, void, $HostnameVerifier*)},
+		{"startHandshake", "(Ljavax/net/ssl/SSLSocketFactory;)Ljavax/net/ssl/SSLSocket;", nullptr, $PRIVATE, $method(StartTlsResponseImpl, startHandshake, $SSLSocket*, $SSLSocketFactory*), "java.io.IOException"},
+		{"verify", "(Ljava/lang/String;Ljavax/net/ssl/SSLSession;)Z", nullptr, $PRIVATE, $method(StartTlsResponseImpl, verify, bool, $String*, $SSLSession*), "javax.net.ssl.SSLPeerUnverifiedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.ext.StartTlsResponseImpl",
+		"javax.naming.ldap.StartTlsResponse",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StartTlsResponseImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StartTlsResponseImpl);
+	});
 	return class$;
 }
 

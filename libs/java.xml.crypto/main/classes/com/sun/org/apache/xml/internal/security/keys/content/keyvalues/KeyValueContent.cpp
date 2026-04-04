@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/keyvalues/KeyValueContent.h>
-
 #include <java/security/PublicKey.h>
 #include <jcpp.h>
 
@@ -18,26 +17,22 @@ namespace com {
 								namespace content {
 									namespace keyvalues {
 
-$MethodInfo _KeyValueContent_MethodInfo_[] = {
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyValueContent, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{}
-};
-
-$ClassInfo _KeyValueContent_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.KeyValueContent",
-	nullptr,
-	nullptr,
-	nullptr,
-	_KeyValueContent_MethodInfo_
-};
-
-$Object* allocate$KeyValueContent($Class* clazz) {
-	return $of($alloc(KeyValueContent));
-}
-
 $Class* KeyValueContent::load$($String* name, bool initialize) {
-	$loadClass(KeyValueContent, name, initialize, &_KeyValueContent_ClassInfo_, allocate$KeyValueContent);
+	$MethodInfo methodInfos$$[] = {
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(KeyValueContent, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.KeyValueContent",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(KeyValueContent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyValueContent);
+	});
 	return class$;
 }
 

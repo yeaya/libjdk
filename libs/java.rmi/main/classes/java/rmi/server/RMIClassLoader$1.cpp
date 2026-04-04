@@ -1,5 +1,4 @@
 #include <java/rmi/server/RMIClassLoader$1.h>
-
 #include <java/rmi/server/RMIClassLoader.h>
 #include <java/rmi/server/RMIClassLoaderSpi.h>
 #include <jcpp.h>
@@ -14,55 +13,49 @@ namespace java {
 	namespace rmi {
 		namespace server {
 
-$MethodInfo _RMIClassLoader$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RMIClassLoader$1, init$, void)},
-	{"run", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PUBLIC, $virtualMethod(RMIClassLoader$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _RMIClassLoader$1_EnclosingMethodInfo_ = {
-	"java.rmi.server.RMIClassLoader",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _RMIClassLoader$1_InnerClassesInfo_[] = {
-	{"java.rmi.server.RMIClassLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RMIClassLoader$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.rmi.server.RMIClassLoader$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_RMIClassLoader$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/rmi/server/RMIClassLoaderSpi;>;",
-	&_RMIClassLoader$1_EnclosingMethodInfo_,
-	_RMIClassLoader$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.rmi.server.RMIClassLoader"
-};
-
-$Object* allocate$RMIClassLoader$1($Class* clazz) {
-	return $of($alloc(RMIClassLoader$1));
-}
-
 void RMIClassLoader$1::init$() {
 }
 
 $Object* RMIClassLoader$1::run() {
-	return $of($RMIClassLoader::initializeProvider());
+	return $RMIClassLoader::initializeProvider();
 }
 
 RMIClassLoader$1::RMIClassLoader$1() {
 }
 
 $Class* RMIClassLoader$1::load$($String* name, bool initialize) {
-	$loadClass(RMIClassLoader$1, name, initialize, &_RMIClassLoader$1_ClassInfo_, allocate$RMIClassLoader$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RMIClassLoader$1, init$, void)},
+		{"run", "()Ljava/rmi/server/RMIClassLoaderSpi;", nullptr, $PUBLIC, $virtualMethod(RMIClassLoader$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.rmi.server.RMIClassLoader",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.rmi.server.RMIClassLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.rmi.server.RMIClassLoader$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/rmi/server/RMIClassLoaderSpi;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.rmi.server.RMIClassLoader"
+	};
+	$loadClass(RMIClassLoader$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIClassLoader$1);
+	});
 	return class$;
 }
 

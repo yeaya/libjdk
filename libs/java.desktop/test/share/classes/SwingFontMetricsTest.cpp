@@ -1,5 +1,4 @@
 #include <SwingFontMetricsTest.h>
-
 #include <SwingFontMetricsTest$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -31,7 +30,6 @@
 #undef VALUE_TEXT_ANTIALIAS_DEFAULT
 
 using $SwingFontMetricsTest$1 = ::SwingFontMetricsTest$1;
-using $Component = ::java::awt::Component;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Toolkit = ::java::awt::Toolkit;
 using $Serializable = ::java::io::Serializable;
@@ -57,71 +55,27 @@ public:
 	virtual void run() override {
 		SwingFontMetricsTest::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SwingFontMetricsTest$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SwingFontMetricsTest$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SwingFontMetricsTest$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SwingFontMetricsTest$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo SwingFontMetricsTest$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"SwingFontMetricsTest$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* SwingFontMetricsTest$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(SwingFontMetricsTest$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SwingFontMetricsTest$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SwingFontMetricsTest$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"SwingFontMetricsTest$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SwingFontMetricsTest$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingFontMetricsTest$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* SwingFontMetricsTest$$Lambda$createAndShowGUI::class$ = nullptr;
-
-$FieldInfo _SwingFontMetricsTest_FieldInfo_[] = {
-	{"LOWER_CASE_TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingFontMetricsTest, LOWER_CASE_TEXT)},
-	{"UPPER_CASE_TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingFontMetricsTest, UPPER_CASE_TEXT)},
-	{"TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingFontMetricsTest, TEXT)},
-	{"passed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingFontMetricsTest, passed)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC, $staticField(SwingFontMetricsTest, latch)},
-	{"aaHint", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(SwingFontMetricsTest, aaHint)},
-	{}
-};
-
-$MethodInfo _SwingFontMetricsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SwingFontMetricsTest, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingFontMetricsTest, createAndShowGUI, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingFontMetricsTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _SwingFontMetricsTest_InnerClassesInfo_[] = {
-	{"SwingFontMetricsTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwingFontMetricsTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"SwingFontMetricsTest",
-	"java.lang.Object",
-	nullptr,
-	_SwingFontMetricsTest_FieldInfo_,
-	_SwingFontMetricsTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingFontMetricsTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"SwingFontMetricsTest$1"
-};
-
-$Object* allocate$SwingFontMetricsTest($Class* clazz) {
-	return $of($alloc(SwingFontMetricsTest));
-}
 
 $String* SwingFontMetricsTest::LOWER_CASE_TEXT = nullptr;
 $String* SwingFontMetricsTest::UPPER_CASE_TEXT = nullptr;
@@ -135,14 +89,14 @@ void SwingFontMetricsTest::init$() {
 
 void SwingFontMetricsTest::main($StringArray* args) {
 	$init(SwingFontMetricsTest);
-	$useLocalCurrentObjectStackCache();
-	$var($Map, map, $cast($Map, $nc($($Toolkit::getDefaultToolkit()))->getDesktopProperty("awt.font.desktophints"_s)));
+	$useLocalObjectStack();
+	$var($Map, map, $cast($Map, $$nc($Toolkit::getDefaultToolkit())->getDesktopProperty("awt.font.desktophints"_s)));
 	$init($RenderingHints);
 	$assignStatic(SwingFontMetricsTest::aaHint, $nc(map)->get($RenderingHints::KEY_TEXT_ANTIALIASING));
 	if (SwingFontMetricsTest::aaHint == nullptr) {
 		$assignStatic(SwingFontMetricsTest::aaHint, $RenderingHints::VALUE_TEXT_ANTIALIAS_DEFAULT);
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(SwingFontMetricsTest$$Lambda$createAndShowGUI)));
+	$SwingUtilities::invokeAndWait($$new(SwingFontMetricsTest$$Lambda$createAndShowGUI));
 	$init($TimeUnit);
 	$nc(SwingFontMetricsTest::latch)->await(5, $TimeUnit::SECONDS);
 	if (!SwingFontMetricsTest::passed) {
@@ -152,18 +106,18 @@ void SwingFontMetricsTest::main($StringArray* args) {
 
 void SwingFontMetricsTest::createAndShowGUI() {
 	$init(SwingFontMetricsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFrame, frame, $new($JFrame));
 	frame->setSize(300, 300);
 	frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($JLabel, label, $new($SwingFontMetricsTest$1, SwingFontMetricsTest::TEXT, frame));
-	frame->add(static_cast<$Component*>(label));
+	frame->add(label);
 	frame->setVisible(true);
 }
 
-void clinit$SwingFontMetricsTest($Class* class$) {
+void SwingFontMetricsTest::clinit$($Class* clazz) {
 	$assignStatic(SwingFontMetricsTest::LOWER_CASE_TEXT, "the quick brown fox jumps over the lazy dog"_s);
-	$assignStatic(SwingFontMetricsTest::UPPER_CASE_TEXT, $nc(SwingFontMetricsTest::LOWER_CASE_TEXT)->toUpperCase());
+	$assignStatic(SwingFontMetricsTest::UPPER_CASE_TEXT, SwingFontMetricsTest::LOWER_CASE_TEXT->toUpperCase());
 	$assignStatic(SwingFontMetricsTest::TEXT, $str({SwingFontMetricsTest::LOWER_CASE_TEXT, SwingFontMetricsTest::UPPER_CASE_TEXT}));
 	SwingFontMetricsTest::passed = false;
 	$assignStatic(SwingFontMetricsTest::latch, $new($CountDownLatch, 1));
@@ -175,11 +129,46 @@ SwingFontMetricsTest::SwingFontMetricsTest() {
 
 $Class* SwingFontMetricsTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SwingFontMetricsTest$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("SwingFontMetricsTest$$Lambda$createAndShowGUI")) {
 			return SwingFontMetricsTest$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
 	}
-	$loadClass(SwingFontMetricsTest, name, initialize, &_SwingFontMetricsTest_ClassInfo_, clinit$SwingFontMetricsTest, allocate$SwingFontMetricsTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOWER_CASE_TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingFontMetricsTest, LOWER_CASE_TEXT)},
+		{"UPPER_CASE_TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingFontMetricsTest, UPPER_CASE_TEXT)},
+		{"TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SwingFontMetricsTest, TEXT)},
+		{"passed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SwingFontMetricsTest, passed)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $PRIVATE | $STATIC, $staticField(SwingFontMetricsTest, latch)},
+		{"aaHint", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticField(SwingFontMetricsTest, aaHint)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SwingFontMetricsTest, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(SwingFontMetricsTest, createAndShowGUI, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingFontMetricsTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"SwingFontMetricsTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"SwingFontMetricsTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"SwingFontMetricsTest$1"
+	};
+	$loadClass(SwingFontMetricsTest, name, initialize, &classInfo$$, SwingFontMetricsTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingFontMetricsTest);
+	});
 	return class$;
 }
 

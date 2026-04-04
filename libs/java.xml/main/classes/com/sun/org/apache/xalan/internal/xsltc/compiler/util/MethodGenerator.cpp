@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -189,7 +188,6 @@ using $Select = ::com::sun::org::apache::bcel::internal::generic::Select;
 using $TargetLostException = ::com::sun::org::apache::bcel::internal::generic::TargetLostException;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Pattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Pattern;
 using $XSLTC = ::com::sun::org::apache::xalan::internal::xsltc::compiler::XSLTC;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
@@ -212,9 +210,7 @@ using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $Stack = ::java::util::Stack;
 
 namespace com {
@@ -226,122 +222,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 								namespace util {
-
-$FieldInfo _MethodGenerator_FieldInfo_[] = {
-	{"INVALID_INDEX", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MethodGenerator, INVALID_INDEX)},
-	{"START_ELEMENT_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodGenerator, START_ELEMENT_SIG)},
-	{"END_ELEMENT_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodGenerator, END_ELEMENT_SIG)},
-	{"DOM_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, DOM_INDEX)},
-	{"ITERATOR_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, ITERATOR_INDEX)},
-	{"HANDLER_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, HANDLER_INDEX)},
-	{"MAX_METHOD_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, MAX_METHOD_SIZE)},
-	{"MAX_BRANCH_TARGET_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, MAX_BRANCH_TARGET_OFFSET)},
-	{"MIN_BRANCH_TARGET_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, MIN_BRANCH_TARGET_OFFSET)},
-	{"TARGET_METHOD_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, TARGET_METHOD_SIZE)},
-	{"MINIMUM_OUTLINEABLE_CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, MINIMUM_OUTLINEABLE_CHUNK_SIZE)},
-	{"_iloadCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(MethodGenerator, _iloadCurrent)},
-	{"_istoreCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(MethodGenerator, _istoreCurrent)},
-	{"_astoreHandler", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _astoreHandler)},
-	{"_aloadHandler", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _aloadHandler)},
-	{"_astoreIterator", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _astoreIterator)},
-	{"_aloadIterator", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _aloadIterator)},
-	{"_aloadDom", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _aloadDom)},
-	{"_astoreDom", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _astoreDom)},
-	{"_startElement", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _startElement)},
-	{"_endElement", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _endElement)},
-	{"_startDocument", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _startDocument)},
-	{"_endDocument", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _endDocument)},
-	{"_attribute", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _attribute)},
-	{"_uniqueAttribute", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _uniqueAttribute)},
-	{"_namespace", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _namespace)},
-	{"_setStartNode", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _setStartNode)},
-	{"_reset", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _reset)},
-	{"_nextNode", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _nextNode)},
-	{"_slotAllocator", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/SlotAllocator;", nullptr, $PRIVATE, $field(MethodGenerator, _slotAllocator)},
-	{"_allocatorInit", "Z", nullptr, $PRIVATE, $field(MethodGenerator, _allocatorInit)},
-	{"_localVariableRegistry", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$LocalVariableRegistry;", nullptr, $PRIVATE, $field(MethodGenerator, _localVariableRegistry)},
-	{"_preCompiled", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;>;", $PRIVATE, $field(MethodGenerator, _preCompiled)},
-	{"m_totalChunks", "I", nullptr, $PRIVATE, $field(MethodGenerator, m_totalChunks)},
-	{"m_openChunks", "I", nullptr, $PRIVATE, $field(MethodGenerator, m_openChunks)},
-	{}
-};
-
-$MethodInfo _MethodGenerator_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(MethodGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
-	{"addInstructionList", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, addInstructionList, void, $Pattern*, $InstructionList*)},
-	{"addLocalVariable", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, addLocalVariable, $LocalVariableGen*, $String*, $Type*, $InstructionHandle*, $InstructionHandle*)},
-	{"addLocalVariable2", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, addLocalVariable2, $LocalVariableGen*, $String*, $Type*, $InstructionHandle*)},
-	{"attribute", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, attribute, $Instruction*)},
-	{"endDocument", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, endDocument, $Instruction*)},
-	{"endElement", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, endElement, $Instruction*)},
-	{"getCandidateChunks", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;I)Ljava/util/List;", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;I)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$Chunk;>;", $PRIVATE, $method(MethodGenerator, getCandidateChunks, $List*, $ClassGenerator*, int32_t)},
-	{"getGeneratedMethods", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;)[Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, 0, $virtualMethod(MethodGenerator, getGeneratedMethods, $MethodArray*, $ClassGenerator*)},
-	{"getInstructionList", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, getInstructionList, $InstructionList*, $Pattern*)},
-	{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, getLocalIndex, int32_t, $String*)},
-	{"getLocalVariable", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, getLocalVariable, $LocalVariableGen*, $String*)},
-	{"getLocalVariableRegistry", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$LocalVariableRegistry;", nullptr, $PRIVATE, $method(MethodGenerator, getLocalVariableRegistry, $MethodGenerator$LocalVariableRegistry*)},
-	{"getThisMethod", "()Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PROTECTED, $virtualMethod(MethodGenerator, getThisMethod, $Method*)},
-	{"loadContextNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadContextNode, $Instruction*)},
-	{"loadCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadCurrentNode, $Instruction*)},
-	{"loadDOM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadDOM, $Instruction*)},
-	{"loadHandler", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadHandler, $Instruction*)},
-	{"loadIterator", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadIterator, $Instruction*)},
-	{"loadLocal", "(ILcom/sun/org/apache/bcel/internal/generic/Type;)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodGenerator, loadLocal, $Instruction*, int32_t, $Type*)},
-	{"markChunkEnd", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, markChunkEnd, void)},
-	{"markChunkStart", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, markChunkStart, void)},
-	{"mergeAdjacentChunks", "([Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$Chunk;)Ljava/util/List;", "([Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$Chunk;)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$Chunk;>;", $PRIVATE, $method(MethodGenerator, mergeAdjacentChunks, $List*, $MethodGenerator$ChunkArray*)},
-	{"namespace", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, namespace$, $Instruction*)},
-	{"nextNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, nextNode, $Instruction*)},
-	{"offsetInLocalVariableGenRange", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;I)Z", nullptr, 0, $virtualMethod(MethodGenerator, offsetInLocalVariableGenRange, bool, $LocalVariableGen*, int32_t)},
-	{"outline", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;)Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PRIVATE, $method(MethodGenerator, outline, $Method*, $InstructionHandle*, $InstructionHandle*, $String*, $ClassGenerator*)},
-	{"outlineChunks", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;I)[Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, outlineChunks, $MethodArray*, $ClassGenerator*, int32_t)},
-	{"removeLocalVariable", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, removeLocalVariable, void, $LocalVariableGen*)},
-	{"reset", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, reset, $Instruction*)},
-	{"setMaxLocals", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, setMaxLocals, void)},
-	{"setStartNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, setStartNode, $Instruction*)},
-	{"startDocument", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, startDocument, $Instruction*)},
-	{"startElement", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, startElement, $Instruction*)},
-	{"storeContextNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeContextNode, $Instruction*)},
-	{"storeCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeCurrentNode, $Instruction*)},
-	{"storeDOM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeDOM, $Instruction*)},
-	{"storeHandler", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeHandler, $Instruction*)},
-	{"storeIterator", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeIterator, $Instruction*)},
-	{"storeLocal", "(ILcom/sun/org/apache/bcel/internal/generic/Type;)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodGenerator, storeLocal, $Instruction*, int32_t, $Type*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
-	{"uniqueAttribute", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, uniqueAttribute, $Instruction*)},
-	{"widenConditionalBranchTargetOffsets", "()Z", nullptr, 0, $virtualMethod(MethodGenerator, widenConditionalBranchTargetOffsets, bool)},
-	{}
-};
-
-$InnerClassInfo _MethodGenerator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$Chunk", "com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator", "Chunk", $PRIVATE},
-	{"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$LocalVariableRegistry", "com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator", "LocalVariableRegistry", $PROTECTED},
-	{"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodGenerator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
-	"com.sun.org.apache.bcel.internal.generic.MethodGen",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Constants",
-	_MethodGenerator_FieldInfo_,
-	_MethodGenerator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodGenerator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$Chunk,com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$LocalVariableRegistry,com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$1"
-};
-
-$Object* allocate$MethodGenerator($Class* clazz) {
-	return $of($alloc(MethodGenerator));
-}
 
 $String* MethodGenerator::toString() {
 	 return this->$MethodGen::toString();
@@ -367,7 +247,7 @@ $String* MethodGenerator::START_ELEMENT_SIG = nullptr;
 $String* MethodGenerator::END_ELEMENT_SIG = nullptr;
 
 void MethodGenerator::init$(int32_t access_flags, $Type* return_type, $TypeArray* arg_types, $StringArray* arg_names, $String* method_name, $String* class_name, $InstructionList* il, $ConstantPoolGen* cpg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MethodGen::init$(access_flags, return_type, arg_types, arg_names, method_name, class_name, il, cpg);
 	this->_allocatorInit = false;
 	$set(this, _preCompiled, $new($HashMap));
@@ -401,26 +281,26 @@ void MethodGenerator::init$(int32_t access_flags, $Type* return_type, $TypeArray
 	index = cpg->addInterfaceMethodref($Constants::NODE_ITERATOR, $Constants::NEXT, $Constants::NEXT_SIG);
 	$set(this, _nextNode, $new($INVOKEINTERFACE, index, 1));
 	$set(this, _slotAllocator, $new($SlotAllocator));
-	$nc(this->_slotAllocator)->initialize($($nc($(getLocalVariableRegistry()))->getLocals()));
+	this->_slotAllocator->initialize($($$nc(getLocalVariableRegistry())->getLocals()));
 	this->_allocatorInit = true;
 }
 
 $LocalVariableGen* MethodGenerator::addLocalVariable($String* name, $Type* type, $InstructionHandle* start, $InstructionHandle* end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalVariableGen, lvg, nullptr);
 	if (this->_allocatorInit) {
 		$assign(lvg, addLocalVariable2(name, type, start));
 	} else {
 		$assign(lvg, $MethodGen::addLocalVariable(name, type, start, end));
-		$nc($(getLocalVariableRegistry()))->registerLocalVariable(lvg);
+		$$nc(getLocalVariableRegistry())->registerLocalVariable(lvg);
 	}
 	return lvg;
 }
 
 $LocalVariableGen* MethodGenerator::addLocalVariable2($String* name, $Type* type, $InstructionHandle* start) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LocalVariableGen, lvg, $MethodGen::addLocalVariable(name, type, $nc(this->_slotAllocator)->allocateSlot(type), start, nullptr));
-	$nc($(getLocalVariableRegistry()))->registerLocalVariable(lvg);
+	$$nc(getLocalVariableRegistry())->registerLocalVariable(lvg);
 	return lvg;
 }
 
@@ -432,26 +312,26 @@ $MethodGenerator$LocalVariableRegistry* MethodGenerator::getLocalVariableRegistr
 }
 
 bool MethodGenerator::offsetInLocalVariableGenRange($LocalVariableGen* lvg, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionHandle, lvgStart, $nc(lvg)->getStart());
 	$var($InstructionHandle, lvgEnd, lvg->getEnd());
 	if (lvgStart == nullptr) {
-		$assign(lvgStart, $nc($(getInstructionList()))->getStart());
+		$assign(lvgStart, $$nc(getInstructionList())->getStart());
 	}
 	if (lvgEnd == nullptr) {
-		$assign(lvgEnd, $nc($(getInstructionList()))->getEnd());
+		$assign(lvgEnd, $$nc(getInstructionList())->getEnd());
 	}
-	bool var$0 = ($nc(lvgStart)->getPosition() <= offset);
+	bool var$0 = $nc(lvgStart)->getPosition() <= offset;
 	if (var$0) {
 		int32_t var$1 = $nc(lvgEnd)->getPosition();
-		var$0 = (var$1 + $nc($(lvgEnd->getInstruction()))->getLength() >= offset);
+		var$0 = var$1 + $$nc(lvgEnd->getInstruction())->getLength() >= offset;
 	}
 	return (var$0);
 }
 
 void MethodGenerator::removeLocalVariable($LocalVariableGen* lvg) {
 	$nc(this->_slotAllocator)->releaseSlot(lvg);
-	$nc($(getLocalVariableRegistry()))->removeByNameTracking(lvg);
+	$$nc(getLocalVariableRegistry())->removeByNameTracking(lvg);
 	$MethodGen::removeLocalVariable(lvg);
 }
 
@@ -544,11 +424,11 @@ $Instruction* MethodGenerator::storeContextNode() {
 }
 
 int32_t MethodGenerator::getLocalIndex($String* name) {
-	return $nc($(getLocalVariable(name)))->getIndex();
+	return $$nc(getLocalVariable(name))->getIndex();
 }
 
 $LocalVariableGen* MethodGenerator::getLocalVariable($String* name) {
-	return $nc($(getLocalVariableRegistry()))->lookUpByName(name);
+	return $$nc(getLocalVariableRegistry())->lookUpByName(name);
 }
 
 void MethodGenerator::setMaxLocals() {
@@ -575,8 +455,8 @@ $InstructionList* MethodGenerator::getInstructionList($Pattern* pattern) {
 }
 
 $List* MethodGenerator::getCandidateChunks($ClassGenerator* classGen, int32_t totalMethodSize) {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, instructions, $nc($(getInstructionList()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, instructions, $$nc(getInstructionList())->iterator());
 	$var($List, candidateChunks, $new($ArrayList));
 	$var($List, currLevelChunks, $new($ArrayList));
 	$var($Stack, subChunkStack, $new($Stack));
@@ -589,11 +469,11 @@ $List* MethodGenerator::getCandidateChunks($ClassGenerator* classGen, int32_t to
 		$throwNew($InternalError, msg);
 	}
 	do {
-		$assign(currentHandle, $nc(instructions)->hasNext() ? $cast($InstructionHandle, $nc(instructions)->next()) : ($InstructionHandle*)nullptr);
-		$var($Instruction, inst, (currentHandle != nullptr) ? $nc(currentHandle)->getInstruction() : ($Instruction*)nullptr);
+		$assign(currentHandle, $nc(instructions)->hasNext() ? $cast($InstructionHandle, instructions->next()) : ($InstructionHandle*)nullptr);
+		$var($Instruction, inst, (currentHandle != nullptr) ? currentHandle->getInstruction() : ($Instruction*)nullptr);
 		if (firstInstruction) {
 			openChunkAtCurrLevel = true;
-			currLevelChunks->add(currentHandle);
+			$nc(currLevelChunks)->add(currentHandle);
 			firstInstruction = false;
 		}
 		if ($instanceOf($OutlineableChunkStart, inst)) {
@@ -602,14 +482,14 @@ $List* MethodGenerator::getCandidateChunks($ClassGenerator* classGen, int32_t to
 				$assign(currLevelChunks, $new($ArrayList));
 			}
 			openChunkAtCurrLevel = true;
-			currLevelChunks->add(currentHandle);
+			$nc(currLevelChunks)->add(currentHandle);
 		} else if (currentHandle == nullptr || $instanceOf($OutlineableChunkEnd, inst)) {
 			$var($List, nestedSubChunks, nullptr);
 			if (!openChunkAtCurrLevel) {
 				$assign(nestedSubChunks, currLevelChunks);
 				$assign(currLevelChunks, $cast($List, subChunkStack->pop()));
 			}
-			$var($InstructionHandle, chunkStart, $cast($InstructionHandle, currLevelChunks->get(currLevelChunks->size() - 1)));
+			$var($InstructionHandle, chunkStart, $cast($InstructionHandle, $nc(currLevelChunks)->get($nc(currLevelChunks)->size() - 1)));
 			int32_t chunkEndPosition = (currentHandle != nullptr) ? currentHandle->getPosition() : totalMethodSize;
 			int32_t chunkSize = chunkEndPosition - $nc(chunkStart)->getPosition();
 			if (chunkSize <= MethodGenerator::TARGET_METHOD_SIZE) {
@@ -641,14 +521,14 @@ $List* MethodGenerator::getCandidateChunks($ClassGenerator* classGen, int32_t to
 				}
 				currLevelChunks->remove(currLevelChunks->size() - 1);
 			}
-			openChunkAtCurrLevel = (((int32_t)(currLevelChunks->size() & (uint32_t)1)) == 1);
+			openChunkAtCurrLevel = ((currLevelChunks->size() & 1) == 1);
 		}
 	} while (currentHandle != nullptr);
 	return candidateChunks;
 }
 
 $List* MethodGenerator::mergeAdjacentChunks($MethodGenerator$ChunkArray* chunks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, adjacencyRunStart, $new($ints, $nc(chunks)->length));
 	$var($ints, adjacencyRunLength, $new($ints, chunks->length));
 	$var($booleans, chunkWasMerged, $new($booleans, chunks->length));
@@ -718,7 +598,7 @@ $List* MethodGenerator::mergeAdjacentChunks($MethodGenerator$ChunkArray* chunks)
 }
 
 $MethodArray* MethodGenerator::outlineChunks($ClassGenerator* classGen, int32_t originalMethodSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, methodsOutlined, $new($ArrayList));
 	int32_t currentMethodSize = originalMethodSize;
 	int32_t outlinedCount = 0;
@@ -743,7 +623,7 @@ $MethodArray* MethodGenerator::outlineChunks($ClassGenerator* classGen, int32_t 
 			$var($InstructionHandle, lastInst, $nc(il)->getEnd());
 			il->setPositions();
 			int32_t var$1 = $nc(lastInst)->getPosition();
-			currentMethodSize = var$1 + $nc($(lastInst->getInstruction()))->getLength();
+			currentMethodSize = var$1 + $$nc(lastInst->getInstruction())->getLength();
 		}
 	} while (moreMethodsOutlined && currentMethodSize > MethodGenerator::TARGET_METHOD_SIZE);
 	if (currentMethodSize > MethodGenerator::MAX_METHOD_SIZE) {
@@ -759,7 +639,7 @@ $MethodArray* MethodGenerator::outlineChunks($ClassGenerator* classGen, int32_t 
 }
 
 $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle* last, $String* outlinedMethodName, $ClassGenerator* classGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($(getExceptionHandlers()))->length != 0) {
 		$init($ErrorMsg);
 		$var($String, msg, ($$new($ErrorMsg, $ErrorMsg::OUTLINE_ERR_TRY_CATCH))->toString());
@@ -767,20 +647,19 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 	}
 	int32_t outlineChunkStartOffset = $nc(first)->getPosition();
 	int32_t var$0 = $nc(last)->getPosition();
-	int32_t outlineChunkEndOffset = var$0 + $nc($(last->getInstruction()))->getLength();
+	int32_t outlineChunkEndOffset = var$0 + $$nc(last->getInstruction())->getLength();
 	$var($ConstantPoolGen, cpg, getConstantPool());
 	$var($InstructionList, newIL, $new($InstructionList));
-	$var($XSLTC, xsltc, $nc($($nc(classGen)->getParser()))->getXSLTC());
+	$var($XSLTC, xsltc, $$nc($nc(classGen)->getParser())->getXSLTC());
 	$var($String, argTypeName, $nc(xsltc)->getHelperClassName());
 	$var($TypeArray, argTypes, $new($TypeArray, {$(($$new($ObjectType, argTypeName))->toJCType())}));
 	$var($String, argName, "copyLocals"_s);
 	$var($StringArray, argNames, $new($StringArray, {argName}));
 	int32_t methodAttributes = $Constants::ACC_PRIVATE | $Constants::ACC_FINAL;
-	bool isStaticMethod = ((int32_t)(getAccessFlags() & (uint32_t)$Constants::ACC_STATIC)) != 0;
+	bool isStaticMethod = (getAccessFlags() & $Constants::ACC_STATIC) != 0;
 	if (isStaticMethod) {
 		methodAttributes = methodAttributes | $Constants::ACC_STATIC;
 	}
-	$init($Type);
 	$var(MethodGenerator, outlinedMethodGen, $new(MethodGenerator, methodAttributes, $Type::VOID, argTypes, argNames, outlinedMethodName, $(getClassName()), newIL, cpg));
 	$init($Constants);
 	$var($ClassGenerator, copyAreaCG, $new($MethodGenerator$1, this, argTypeName, $Constants::OBJECT_CLASS, $$str({argTypeName, ".java"_s}), ($Constants::ACC_FINAL | $Constants::ACC_PUBLIC) | $Constants::ACC_SUPER, nullptr, $(classGen->getStylesheet())));
@@ -792,22 +671,20 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 	$var($InstructionList, oldMethCopyOutIL, $new($InstructionList));
 	$var($InstructionList, newMethCopyInIL, $new($InstructionList));
 	$var($InstructionList, newMethCopyOutIL, $new($InstructionList));
-	$var($InstructionHandle, outlinedMethodCallSetup, oldMethCopyInIL->append(static_cast<$Instruction*>($$new($NEW, $nc(cpg)->addClass(argTypeName)))));
+	$var($InstructionHandle, outlinedMethodCallSetup, oldMethCopyInIL->append($$new($NEW, $nc(cpg)->addClass(argTypeName))));
 	$init($InstructionConst);
-	oldMethCopyInIL->append(static_cast<$Instruction*>($InstructionConst::DUP));
-	oldMethCopyInIL->append(static_cast<$Instruction*>($InstructionConst::DUP));
-	oldMethCopyInIL->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, $nc(cpg)->addMethodref(argTypeName, "<init>"_s, "()V"_s))));
+	oldMethCopyInIL->append($InstructionConst::DUP);
+	oldMethCopyInIL->append($InstructionConst::DUP);
+	oldMethCopyInIL->append($$new($INVOKESPECIAL, cpg->addMethodref(argTypeName, "<init>"_s, "()V"_s)));
 	$var($InstructionHandle, outlinedMethodRef, nullptr);
 	if (isStaticMethod) {
 		$var($String, var$1, classGen->getClassName());
-		$var($String, var$2, outlinedMethodName);
-		$assign(outlinedMethodRef, oldMethCopyOutIL->append(static_cast<$Instruction*>($$new($INVOKESTATIC, $nc(cpg)->addMethodref(var$1, var$2, $(outlinedMethodGen->getSignature()))))));
+		$assign(outlinedMethodRef, oldMethCopyOutIL->append($$new($INVOKESTATIC, cpg->addMethodref(var$1, outlinedMethodName, $(outlinedMethodGen->getSignature())))));
 	} else {
-		oldMethCopyOutIL->append(static_cast<$Instruction*>($InstructionConst::THIS));
-		oldMethCopyOutIL->append(static_cast<$Instruction*>($InstructionConst::SWAP));
-		$var($String, var$3, classGen->getClassName());
-		$var($String, var$4, outlinedMethodName);
-		$assign(outlinedMethodRef, oldMethCopyOutIL->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, $nc(cpg)->addMethodref(var$3, var$4, $(outlinedMethodGen->getSignature()))))));
+		oldMethCopyOutIL->append($InstructionConst::THIS);
+		oldMethCopyOutIL->append($InstructionConst::SWAP);
+		$var($String, var$2, classGen->getClassName());
+		$assign(outlinedMethodRef, oldMethCopyOutIL->append($$new($INVOKEVIRTUAL, cpg->addMethodref(var$2, outlinedMethodName, $(outlinedMethodGen->getSignature())))));
 	}
 	bool chunkStartTargetMappingsPending = false;
 	$var($InstructionHandle, pendingTargetMappingHandle, nullptr);
@@ -818,7 +695,7 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 	$var($HashMap, revisedLocalVarEnd, $new($HashMap));
 	{
 		$var($InstructionHandle, ih, first);
-		for (; ih != limit; $assign(ih, ih->getNext())) {
+		for (; ih != limit; $assign(ih, $nc(ih)->getNext())) {
 			$var($Instruction, inst, $nc(ih)->getInstruction());
 			if ($instanceOf($MarkerInstruction, inst)) {
 				if (ih->hasTargeters()) {
@@ -839,7 +716,7 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 				if ($instanceOf($LocalVariableInstruction, c) || $instanceOf($RET, c)) {
 					$var($IndexedInstruction, lvi, $cast($IndexedInstruction, c));
 					int32_t oldLocalVarIndex = $nc(lvi)->getIndex();
-					$var($LocalVariableGen, oldLVG, $nc($(getLocalVariableRegistry()))->lookupRegisteredLocalVariable(oldLocalVarIndex, ih->getPosition()));
+					$var($LocalVariableGen, oldLVG, $$nc(getLocalVariableRegistry())->lookupRegisteredLocalVariable(oldLocalVarIndex, ih->getPosition()));
 					$var($LocalVariableGen, newLVG, $cast($LocalVariableGen, localVarMap->get(oldLVG)));
 					if (localVarMap->get(oldLVG) == nullptr) {
 						bool copyInLocalValue = offsetInLocalVariableGenRange(oldLVG, (outlineChunkStartOffset != 0) ? outlineChunkStartOffset - 1 : 0);
@@ -853,28 +730,27 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 							localVarMap->put(oldLVG, newLVG);
 							++copyAreaFieldCount;
 							$var($String, copyAreaFieldName, $str({"field"_s, $$str(copyAreaFieldCount)}));
-							int32_t var$5 = $Constants::ACC_PUBLIC;
-							int32_t var$6 = $nc(copyAreaCPG)->addUtf8(copyAreaFieldName);
-							int32_t var$7 = copyAreaCPG->addUtf8(varSignature);
-							copyAreaCG->addField($$new($Field, var$5, var$6, var$7, nullptr, $(copyAreaCPG->getConstantPool())));
-							int32_t fieldRef = $nc(cpg)->addFieldref(argTypeName, copyAreaFieldName, varSignature);
+							int32_t var$3 = $nc(copyAreaCPG)->addUtf8(copyAreaFieldName);
+							int32_t var$4 = copyAreaCPG->addUtf8(varSignature);
+							copyAreaCG->addField($$new($Field, $Constants::ACC_PUBLIC, var$3, var$4, nullptr, $(copyAreaCPG->getConstantPool())));
+							int32_t fieldRef = cpg->addFieldref(argTypeName, copyAreaFieldName, varSignature);
 							if (copyInLocalValue) {
-								oldMethCopyInIL->append(static_cast<$Instruction*>($InstructionConst::DUP));
+								oldMethCopyInIL->append($InstructionConst::DUP);
 								$var($InstructionHandle, copyInLoad, oldMethCopyInIL->append($(loadLocal(oldLocalVarIndex, varType))));
-								oldMethCopyInIL->append(static_cast<$Instruction*>($$new($PUTFIELD, fieldRef)));
+								oldMethCopyInIL->append($$new($PUTFIELD, fieldRef));
 								if (!copyOutLocalValue) {
 									revisedLocalVarEnd->put(oldLVG, copyInLoad);
 								}
-								newMethCopyInIL->append(static_cast<$Instruction*>($InstructionConst::ALOAD_1));
-								newMethCopyInIL->append(static_cast<$Instruction*>($$new($GETFIELD, fieldRef)));
+								newMethCopyInIL->append($InstructionConst::ALOAD_1);
+								newMethCopyInIL->append($$new($GETFIELD, fieldRef));
 								newMethCopyInIL->append($(storeLocal(newLocalVarIndex, varType)));
 							}
 							if (copyOutLocalValue) {
-								newMethCopyOutIL->append(static_cast<$Instruction*>($InstructionConst::ALOAD_1));
+								newMethCopyOutIL->append($InstructionConst::ALOAD_1);
 								newMethCopyOutIL->append($(loadLocal(newLocalVarIndex, varType)));
-								newMethCopyOutIL->append(static_cast<$Instruction*>($$new($PUTFIELD, fieldRef)));
-								oldMethCopyOutIL->append(static_cast<$Instruction*>($InstructionConst::DUP));
-								oldMethCopyOutIL->append(static_cast<$Instruction*>($$new($GETFIELD, fieldRef)));
+								newMethCopyOutIL->append($$new($PUTFIELD, fieldRef));
+								oldMethCopyOutIL->append($InstructionConst::DUP);
+								oldMethCopyOutIL->append($$new($GETFIELD, fieldRef));
 								$var($InstructionHandle, copyOutStore, oldMethCopyOutIL->append($(storeLocal(oldLocalVarIndex, varType))));
 								if (!copyInLocalValue) {
 									revisedLocalVarStart->put(oldLVG, copyOutStore);
@@ -904,20 +780,20 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 		if ($instanceOf($BranchInstruction, i)) {
 			$var($BranchInstruction, bc, $cast($BranchInstruction, c));
 			$var($BranchInstruction, bi, $cast($BranchInstruction, i));
-			$var($InstructionHandle, itarget, $nc(bi)->getTarget());
+			$var($InstructionHandle, itarget, bi->getTarget());
 			$var($InstructionHandle, newTarget, $cast($InstructionHandle, targetMap->get(itarget)));
 			$nc(bc)->setTarget(newTarget);
 			if ($instanceOf($Select, bi)) {
-				$var($InstructionHandleArray, itargets, $nc(($cast($Select, bi)))->getTargets());
-				$var($InstructionHandleArray, ctargets, $nc(($cast($Select, bc)))->getTargets());
+				$var($InstructionHandleArray, itargets, $cast($Select, bi)->getTargets());
+				$var($InstructionHandleArray, ctargets, $cast($Select, bc)->getTargets());
 				for (int32_t j = 0; j < $nc(itargets)->length; ++j) {
-					$nc(ctargets)->set(j, $cast($InstructionHandle, $(targetMap->get(itargets->get(j)))));
+					$nc(ctargets)->set(j, $$cast($InstructionHandle, targetMap->get(itargets->get(j))));
 				}
 			}
 		} else if ($instanceOf($LocalVariableInstruction, i) || $instanceOf($RET, i)) {
 			$var($IndexedInstruction, lvi, $cast($IndexedInstruction, c));
 			int32_t oldLocalVarIndex = $nc(lvi)->getIndex();
-			$var($LocalVariableGen, oldLVG, $nc($(getLocalVariableRegistry()))->lookupRegisteredLocalVariable(oldLocalVarIndex, ih->getPosition()));
+			$var($LocalVariableGen, oldLVG, $$nc(getLocalVariableRegistry())->lookupRegisteredLocalVariable(oldLocalVarIndex, ih->getPosition()));
 			$var($LocalVariableGen, newLVG, $cast($LocalVariableGen, localVarMap->get(oldLVG)));
 			int32_t newLocalVarIndex = 0;
 			if (newLVG == nullptr) {
@@ -929,7 +805,7 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 				revisedLocalVarStart->put(oldLVG, outlinedMethodRef);
 				revisedLocalVarEnd->put(oldLVG, outlinedMethodRef);
 			} else {
-				newLocalVarIndex = $nc(newLVG)->getIndex();
+				newLocalVarIndex = newLVG->getIndex();
 			}
 			lvi->setIndex(newLocalVarIndex);
 		}
@@ -937,7 +813,7 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 			$var($InstructionTargeterArray, targeters, ih->getTargeters());
 			for (int32_t idx = 0; idx < $nc(targeters)->length; ++idx) {
 				$var($InstructionTargeter, targeter, targeters->get(idx));
-				if ($instanceOf($LocalVariableGen, targeter) && $nc(($cast($LocalVariableGen, targeter)))->getEnd() == ih) {
+				if ($instanceOf($LocalVariableGen, targeter) && $cast($LocalVariableGen, targeter)->getEnd() == ih) {
 					$var($LocalVariableGen, newLVG, $cast($LocalVariableGen, localVarMap->get(targeter)));
 					if (newLVG != nullptr) {
 						outlinedMethodGen->removeLocalVariable(newLVG);
@@ -950,9 +826,9 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 		}
 		$assign(ih, ih->getNext());
 	}
-	oldMethCopyOutIL->append(static_cast<$Instruction*>($InstructionConst::POP));
+	oldMethCopyOutIL->append($InstructionConst::POP);
 	{
-		$var($Iterator, i$, $nc($(revisedLocalVarStart->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(revisedLocalVarStart->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, lvgRangeStartPair, $cast($Map$Entry, i$->next()));
 			{
@@ -963,7 +839,7 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 		}
 	}
 	{
-		$var($Iterator, i$, $nc($(revisedLocalVarEnd->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(revisedLocalVarEnd->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, lvgRangeEndPair, $cast($Map$Entry, i$->next()));
 			{
@@ -979,7 +855,7 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 	oldMethodIL->insert(first, oldMethCopyOutIL);
 	newIL->insert(newMethCopyInIL);
 	newIL->append(newMethCopyOutIL);
-	newIL->append(static_cast<$Instruction*>($InstructionConst::RETURN));
+	newIL->append($InstructionConst::RETURN);
 	try {
 		oldMethodIL->delete$(first, last);
 	} catch ($TargetLostException& e) {
@@ -993,7 +869,7 @@ $Method* MethodGenerator::outline($InstructionHandle* first, $InstructionHandle*
 					if ($nc(lvgTargeter)->getStart() == lostTarget) {
 						lvgTargeter->setStart(outlinedMethodRef);
 					}
-					if ($nc(lvgTargeter)->getEnd() == lostTarget) {
+					if (lvgTargeter->getEnd() == lostTarget) {
 						lvgTargeter->setEnd(outlinedMethodRef);
 					}
 				} else {
@@ -1014,36 +890,22 @@ $Instruction* MethodGenerator::loadLocal(int32_t index, $Type* type) {
 	$init($Type);
 	if ($equals(type, $Type::BOOLEAN)) {
 		return $new($ILOAD, index);
+	} else if ($equals(type, $Type::INT)) {
+		return $new($ILOAD, index);
+	} else if ($equals(type, $Type::SHORT)) {
+		return $new($ILOAD, index);
+	} else if ($equals(type, $Type::LONG)) {
+		return $new($LLOAD, index);
+	} else if ($equals(type, $Type::BYTE)) {
+		return $new($ILOAD, index);
+	} else if ($equals(type, $Type::CHAR)) {
+		return $new($ILOAD, index);
+	} else if ($equals(type, $Type::FLOAT)) {
+		return $new($FLOAD, index);
+	} else if ($equals(type, $Type::DOUBLE)) {
+		return $new($DLOAD, index);
 	} else {
-		if ($equals(type, $Type::INT)) {
-			return $new($ILOAD, index);
-		} else {
-			if ($equals(type, $Type::SHORT)) {
-				return $new($ILOAD, index);
-			} else {
-				if ($equals(type, $Type::LONG)) {
-					return $new($LLOAD, index);
-				} else {
-					if ($equals(type, $Type::BYTE)) {
-						return $new($ILOAD, index);
-					} else {
-						if ($equals(type, $Type::CHAR)) {
-							return $new($ILOAD, index);
-						} else {
-							if ($equals(type, $Type::FLOAT)) {
-								return $new($FLOAD, index);
-							} else {
-								if ($equals(type, $Type::DOUBLE)) {
-									return $new($DLOAD, index);
-								} else {
-									return $new($ALOAD, index);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		return $new($ALOAD, index);
 	}
 }
 
@@ -1052,50 +914,36 @@ $Instruction* MethodGenerator::storeLocal(int32_t index, $Type* type) {
 	$init($Type);
 	if ($equals(type, $Type::BOOLEAN)) {
 		return $new($ISTORE, index);
+	} else if ($equals(type, $Type::INT)) {
+		return $new($ISTORE, index);
+	} else if ($equals(type, $Type::SHORT)) {
+		return $new($ISTORE, index);
+	} else if ($equals(type, $Type::LONG)) {
+		return $new($LSTORE, index);
+	} else if ($equals(type, $Type::BYTE)) {
+		return $new($ISTORE, index);
+	} else if ($equals(type, $Type::CHAR)) {
+		return $new($ISTORE, index);
+	} else if ($equals(type, $Type::FLOAT)) {
+		return $new($FSTORE, index);
+	} else if ($equals(type, $Type::DOUBLE)) {
+		return $new($DSTORE, index);
 	} else {
-		if ($equals(type, $Type::INT)) {
-			return $new($ISTORE, index);
-		} else {
-			if ($equals(type, $Type::SHORT)) {
-				return $new($ISTORE, index);
-			} else {
-				if ($equals(type, $Type::LONG)) {
-					return $new($LSTORE, index);
-				} else {
-					if ($equals(type, $Type::BYTE)) {
-						return $new($ISTORE, index);
-					} else {
-						if ($equals(type, $Type::CHAR)) {
-							return $new($ISTORE, index);
-						} else {
-							if ($equals(type, $Type::FLOAT)) {
-								return $new($FSTORE, index);
-							} else {
-								if ($equals(type, $Type::DOUBLE)) {
-									return $new($DSTORE, index);
-								} else {
-									return $new($ASTORE, index);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		return $new($ASTORE, index);
 	}
 }
 
 void MethodGenerator::markChunkStart() {
 	$init($OutlineableChunkStart);
-	$nc($(getInstructionList()))->append($OutlineableChunkStart::OUTLINEABLECHUNKSTART);
+	$$nc(getInstructionList())->append($OutlineableChunkStart::OUTLINEABLECHUNKSTART);
 	++this->m_totalChunks;
 	++this->m_openChunks;
 }
 
 void MethodGenerator::markChunkEnd() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($OutlineableChunkEnd);
-	$nc($(getInstructionList()))->append($OutlineableChunkEnd::OUTLINEABLECHUNKEND);
+	$$nc(getInstructionList())->append($OutlineableChunkEnd::OUTLINEABLECHUNKEND);
 	--this->m_openChunks;
 	if (this->m_openChunks < 0) {
 		$init($ErrorMsg);
@@ -1105,20 +953,20 @@ void MethodGenerator::markChunkEnd() {
 }
 
 $MethodArray* MethodGenerator::getGeneratedMethods($ClassGenerator* classGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MethodArray, generatedMethods, nullptr);
 	$var($InstructionList, il, getInstructionList());
 	$var($InstructionHandle, last, $nc(il)->getEnd());
 	il->setPositions();
 	int32_t var$0 = $nc(last)->getPosition();
-	int32_t instructionListSize = var$0 + $nc($(last->getInstruction()))->getLength();
+	int32_t instructionListSize = var$0 + $$nc(last->getInstruction())->getLength();
 	if (instructionListSize > MethodGenerator::MAX_BRANCH_TARGET_OFFSET) {
 		bool ilChanged = widenConditionalBranchTargetOffsets();
 		if (ilChanged) {
 			il->setPositions();
 			$assign(last, il->getEnd());
 			int32_t var$1 = $nc(last)->getPosition();
-			instructionListSize = var$1 + $nc($(last->getInstruction()))->getLength();
+			instructionListSize = var$1 + $$nc(last->getInstruction())->getLength();
 		}
 	}
 	if (instructionListSize > MethodGenerator::MAX_METHOD_SIZE) {
@@ -1138,85 +986,62 @@ $Method* MethodGenerator::getThisMethod() {
 }
 
 bool MethodGenerator::widenConditionalBranchTargetOffsets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ilChanged = false;
 	int32_t maxOffsetChange = 0;
 	$var($InstructionList, il, getInstructionList());
 	{
 		$var($InstructionHandle, ih, $nc(il)->getStart());
-		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+		for (; ih != nullptr; $assign(ih, ih->getNext())) {
 			$var($Instruction, inst, ih->getInstruction());
 			switch ($nc(inst)->getOpcode()) {
 			case $Const::GOTO:
-				{}
 			case $Const::JSR:
-				{
-					maxOffsetChange = maxOffsetChange + 2;
-					break;
-				}
+				maxOffsetChange = maxOffsetChange + 2;
+				break;
 			case $Const::TABLESWITCH:
-				{}
 			case $Const::LOOKUPSWITCH:
-				{
-					maxOffsetChange = maxOffsetChange + 3;
-					break;
-				}
+				maxOffsetChange = maxOffsetChange + 3;
+				break;
 			case $Const::IF_ACMPEQ:
-				{}
 			case $Const::IF_ACMPNE:
-				{}
 			case $Const::IF_ICMPEQ:
-				{}
 			case $Const::IF_ICMPGE:
-				{}
 			case $Const::IF_ICMPGT:
-				{}
 			case $Const::IF_ICMPLE:
-				{}
 			case $Const::IF_ICMPLT:
-				{}
 			case $Const::IF_ICMPNE:
-				{}
 			case $Const::IFEQ:
-				{}
 			case $Const::IFGE:
-				{}
 			case $Const::IFGT:
-				{}
 			case $Const::IFLE:
-				{}
 			case $Const::IFLT:
-				{}
 			case $Const::IFNE:
-				{}
 			case $Const::IFNONNULL:
-				{}
 			case $Const::IFNULL:
-				{
-					maxOffsetChange = maxOffsetChange + 5;
-					break;
-				}
+				maxOffsetChange = maxOffsetChange + 5;
+				break;
 			}
 		}
 	}
 	{
 		$var($InstructionHandle, ih, il->getStart());
-		for (; ih != nullptr; $assign(ih, ih->getNext())) {
-			$var($Instruction, inst, $nc(ih)->getInstruction());
+		for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+			$var($Instruction, inst, ih->getInstruction());
 			if ($instanceOf($IfInstruction, inst)) {
 				$var($IfInstruction, oldIfInst, $cast($IfInstruction, inst));
 				$var($BranchHandle, oldIfHandle, $cast($BranchHandle, ih));
-				$var($InstructionHandle, target, $nc(oldIfInst)->getTarget());
+				$var($InstructionHandle, target, oldIfInst->getTarget());
 				int32_t var$0 = $nc(target)->getPosition();
 				int32_t relativeTargetOffset = var$0 - oldIfHandle->getPosition();
 				if ((relativeTargetOffset - maxOffsetChange < MethodGenerator::MIN_BRANCH_TARGET_OFFSET) || (relativeTargetOffset + maxOffsetChange > MethodGenerator::MAX_BRANCH_TARGET_OFFSET)) {
 					$var($InstructionHandle, nextHandle, oldIfHandle->getNext());
 					$var($IfInstruction, invertedIfInst, oldIfInst->negate());
-					$var($BranchHandle, invertedIfHandle, il->append(static_cast<$InstructionHandle*>(oldIfHandle), static_cast<$BranchInstruction*>(invertedIfInst)));
-					$var($BranchHandle, gotoHandle, il->append(static_cast<$InstructionHandle*>(invertedIfHandle), static_cast<$BranchInstruction*>($$new($GOTO, target))));
+					$var($BranchHandle, invertedIfHandle, il->append(oldIfHandle, invertedIfInst));
+					$var($BranchHandle, gotoHandle, il->append(invertedIfHandle, $$new($GOTO, target)));
 					if (nextHandle == nullptr) {
 						$init($InstructionConst);
-						$assign(nextHandle, il->append(static_cast<$InstructionHandle*>(gotoHandle), $InstructionConst::NOP));
+						$assign(nextHandle, il->append(gotoHandle, $InstructionConst::NOP));
 					}
 					$nc(invertedIfHandle)->updateTarget(target, nextHandle);
 					if (oldIfHandle->hasTargeters()) {
@@ -1225,7 +1050,7 @@ bool MethodGenerator::widenConditionalBranchTargetOffsets() {
 							$var($InstructionTargeter, targeter, targeters->get(i));
 							if ($instanceOf($LocalVariableGen, targeter)) {
 								$var($LocalVariableGen, lvg, $cast($LocalVariableGen, targeter));
-								if ($equals($nc(lvg)->getStart(), oldIfHandle)) {
+								if ($equals(lvg->getStart(), oldIfHandle)) {
 									lvg->setStart(invertedIfHandle);
 								} else if ($equals(lvg->getEnd(), oldIfHandle)) {
 									lvg->setEnd(gotoHandle);
@@ -1236,10 +1061,10 @@ bool MethodGenerator::widenConditionalBranchTargetOffsets() {
 						}
 					}
 					try {
-						il->delete$(static_cast<$InstructionHandle*>(oldIfHandle));
+						il->delete$(oldIfHandle);
 					} catch ($TargetLostException& tle) {
 						$init($ErrorMsg);
-						$var($String, msg, $$new($ErrorMsg, $ErrorMsg::OUTLINE_ERR_DELETED_TARGET, $($of(tle->getMessage())))->toString());
+						$var($String, msg, $$new($ErrorMsg, $ErrorMsg::OUTLINE_ERR_DELETED_TARGET, $(tle->getMessage()))->toString());
 						$throwNew($InternalError, msg);
 					}
 					$assign(ih, gotoHandle);
@@ -1254,14 +1079,124 @@ bool MethodGenerator::widenConditionalBranchTargetOffsets() {
 MethodGenerator::MethodGenerator() {
 }
 
-void clinit$MethodGenerator($Class* class$) {
+void MethodGenerator::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(MethodGenerator::START_ELEMENT_SIG, $str({"("_s, $Constants::STRING_SIG, ")V"_s}));
 	$assignStatic(MethodGenerator::END_ELEMENT_SIG, MethodGenerator::START_ELEMENT_SIG);
 }
 
 $Class* MethodGenerator::load$($String* name, bool initialize) {
-	$loadClass(MethodGenerator, name, initialize, &_MethodGenerator_ClassInfo_, clinit$MethodGenerator, allocate$MethodGenerator);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVALID_INDEX", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MethodGenerator, INVALID_INDEX)},
+		{"START_ELEMENT_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodGenerator, START_ELEMENT_SIG)},
+		{"END_ELEMENT_SIG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MethodGenerator, END_ELEMENT_SIG)},
+		{"DOM_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, DOM_INDEX)},
+		{"ITERATOR_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, ITERATOR_INDEX)},
+		{"HANDLER_INDEX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, HANDLER_INDEX)},
+		{"MAX_METHOD_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, MAX_METHOD_SIZE)},
+		{"MAX_BRANCH_TARGET_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, MAX_BRANCH_TARGET_OFFSET)},
+		{"MIN_BRANCH_TARGET_OFFSET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, MIN_BRANCH_TARGET_OFFSET)},
+		{"TARGET_METHOD_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, TARGET_METHOD_SIZE)},
+		{"MINIMUM_OUTLINEABLE_CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MethodGenerator, MINIMUM_OUTLINEABLE_CHUNK_SIZE)},
+		{"_iloadCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(MethodGenerator, _iloadCurrent)},
+		{"_istoreCurrent", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(MethodGenerator, _istoreCurrent)},
+		{"_astoreHandler", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _astoreHandler)},
+		{"_aloadHandler", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _aloadHandler)},
+		{"_astoreIterator", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _astoreIterator)},
+		{"_aloadIterator", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _aloadIterator)},
+		{"_aloadDom", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _aloadDom)},
+		{"_astoreDom", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _astoreDom)},
+		{"_startElement", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _startElement)},
+		{"_endElement", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _endElement)},
+		{"_startDocument", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _startDocument)},
+		{"_endDocument", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _endDocument)},
+		{"_attribute", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _attribute)},
+		{"_uniqueAttribute", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _uniqueAttribute)},
+		{"_namespace", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _namespace)},
+		{"_setStartNode", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _setStartNode)},
+		{"_reset", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _reset)},
+		{"_nextNode", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $FINAL, $field(MethodGenerator, _nextNode)},
+		{"_slotAllocator", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/SlotAllocator;", nullptr, $PRIVATE, $field(MethodGenerator, _slotAllocator)},
+		{"_allocatorInit", "Z", nullptr, $PRIVATE, $field(MethodGenerator, _allocatorInit)},
+		{"_localVariableRegistry", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$LocalVariableRegistry;", nullptr, $PRIVATE, $field(MethodGenerator, _localVariableRegistry)},
+		{"_preCompiled", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;>;", $PRIVATE, $field(MethodGenerator, _preCompiled)},
+		{"m_totalChunks", "I", nullptr, $PRIVATE, $field(MethodGenerator, m_totalChunks)},
+		{"m_openChunks", "I", nullptr, $PRIVATE, $field(MethodGenerator, m_openChunks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(ILcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(MethodGenerator, init$, void, int32_t, $Type*, $TypeArray*, $StringArray*, $String*, $String*, $InstructionList*, $ConstantPoolGen*)},
+		{"addInstructionList", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/bcel/internal/generic/InstructionList;)V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, addInstructionList, void, $Pattern*, $InstructionList*)},
+		{"addLocalVariable", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, addLocalVariable, $LocalVariableGen*, $String*, $Type*, $InstructionHandle*, $InstructionHandle*)},
+		{"addLocalVariable2", "(Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, addLocalVariable2, $LocalVariableGen*, $String*, $Type*, $InstructionHandle*)},
+		{"attribute", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, attribute, $Instruction*)},
+		{"endDocument", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, endDocument, $Instruction*)},
+		{"endElement", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, endElement, $Instruction*)},
+		{"getCandidateChunks", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;I)Ljava/util/List;", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;I)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$Chunk;>;", $PRIVATE, $method(MethodGenerator, getCandidateChunks, $List*, $ClassGenerator*, int32_t)},
+		{"getGeneratedMethods", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;)[Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, 0, $virtualMethod(MethodGenerator, getGeneratedMethods, $MethodArray*, $ClassGenerator*)},
+		{"getInstructionList", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;)Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, getInstructionList, $InstructionList*, $Pattern*)},
+		{"getLocalIndex", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, getLocalIndex, int32_t, $String*)},
+		{"getLocalVariable", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, getLocalVariable, $LocalVariableGen*, $String*)},
+		{"getLocalVariableRegistry", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$LocalVariableRegistry;", nullptr, $PRIVATE, $method(MethodGenerator, getLocalVariableRegistry, $MethodGenerator$LocalVariableRegistry*)},
+		{"getThisMethod", "()Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PROTECTED, $virtualMethod(MethodGenerator, getThisMethod, $Method*)},
+		{"loadContextNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadContextNode, $Instruction*)},
+		{"loadCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadCurrentNode, $Instruction*)},
+		{"loadDOM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadDOM, $Instruction*)},
+		{"loadHandler", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadHandler, $Instruction*)},
+		{"loadIterator", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, loadIterator, $Instruction*)},
+		{"loadLocal", "(ILcom/sun/org/apache/bcel/internal/generic/Type;)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodGenerator, loadLocal, $Instruction*, int32_t, $Type*)},
+		{"markChunkEnd", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, markChunkEnd, void)},
+		{"markChunkStart", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, markChunkStart, void)},
+		{"mergeAdjacentChunks", "([Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$Chunk;)Ljava/util/List;", "([Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$Chunk;)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator$Chunk;>;", $PRIVATE, $method(MethodGenerator, mergeAdjacentChunks, $List*, $MethodGenerator$ChunkArray*)},
+		{"namespace", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, namespace$, $Instruction*)},
+		{"nextNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, nextNode, $Instruction*)},
+		{"offsetInLocalVariableGenRange", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;I)Z", nullptr, 0, $virtualMethod(MethodGenerator, offsetInLocalVariableGenRange, bool, $LocalVariableGen*, int32_t)},
+		{"outline", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;)Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PRIVATE, $method(MethodGenerator, outline, $Method*, $InstructionHandle*, $InstructionHandle*, $String*, $ClassGenerator*)},
+		{"outlineChunks", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;I)[Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, outlineChunks, $MethodArray*, $ClassGenerator*, int32_t)},
+		{"removeLocalVariable", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableGen;)V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, removeLocalVariable, void, $LocalVariableGen*)},
+		{"reset", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, reset, $Instruction*)},
+		{"setMaxLocals", "()V", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, setMaxLocals, void)},
+		{"setStartNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, setStartNode, $Instruction*)},
+		{"startDocument", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, startDocument, $Instruction*)},
+		{"startElement", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, startElement, $Instruction*)},
+		{"storeContextNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeContextNode, $Instruction*)},
+		{"storeCurrentNode", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeCurrentNode, $Instruction*)},
+		{"storeDOM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeDOM, $Instruction*)},
+		{"storeHandler", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeHandler, $Instruction*)},
+		{"storeIterator", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(MethodGenerator, storeIterator, $Instruction*)},
+		{"storeLocal", "(ILcom/sun/org/apache/bcel/internal/generic/Type;)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $STATIC, $staticMethod(MethodGenerator, storeLocal, $Instruction*, int32_t, $Type*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL},
+		{"uniqueAttribute", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $FINAL, $method(MethodGenerator, uniqueAttribute, $Instruction*)},
+		{"widenConditionalBranchTargetOffsets", "()Z", nullptr, 0, $virtualMethod(MethodGenerator, widenConditionalBranchTargetOffsets, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$Chunk", "com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator", "Chunk", $PRIVATE},
+		{"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$LocalVariableRegistry", "com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator", "LocalVariableRegistry", $PROTECTED},
+		{"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator",
+		"com.sun.org.apache.bcel.internal.generic.MethodGen",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Constants",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$Chunk,com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$LocalVariableRegistry,com.sun.org.apache.xalan.internal.xsltc.compiler.util.MethodGenerator$1"
+	};
+	$loadClass(MethodGenerator, name, initialize, &classInfo$$, MethodGenerator::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MethodGenerator));
+	});
 	return class$;
 }
 

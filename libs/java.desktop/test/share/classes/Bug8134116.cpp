@@ -1,5 +1,4 @@
 #include <Bug8134116.h>
-
 #include <Bug8134116$BadPane.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -34,7 +33,6 @@ using $Bug8134116$BadPane = ::Bug8134116$BadPane;
 using $Component = ::java::awt::Component;
 using $Rectangle = ::java::awt::Rectangle;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -45,14 +43,12 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Accessible = ::javax::accessibility::Accessible;
-using $AccessibleComponent = ::javax::accessibility::AccessibleComponent;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
@@ -65,27 +61,24 @@ public:
 	virtual void run() override {
 		Bug8134116::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Bug8134116$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Bug8134116$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8134116$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug8134116$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo Bug8134116$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Bug8134116$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Bug8134116$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(Bug8134116$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8134116$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug8134116$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Bug8134116$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug8134116$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug8134116$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* Bug8134116$$Lambda$lambda$main$0::class$ = nullptr;
@@ -98,68 +91,27 @@ public:
 	virtual void run() override {
 		Bug8134116::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Bug8134116$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Bug8134116$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8134116$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug8134116$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo Bug8134116$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Bug8134116$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Bug8134116$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(Bug8134116$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8134116$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug8134116$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Bug8134116$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug8134116$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug8134116$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* Bug8134116$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _Bug8134116_FieldInfo_[] = {
-	{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Bug8134116, exception)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(Bug8134116, frame)},
-	{}
-};
-
-$MethodInfo _Bug8134116_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8134116, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8134116, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8134116, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8134116, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _Bug8134116_InnerClassesInfo_[] = {
-	{"Bug8134116$BadPane", "Bug8134116", "BadPane", $STATIC},
-	{}
-};
-
-$ClassInfo _Bug8134116_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug8134116",
-	"java.lang.Object",
-	nullptr,
-	_Bug8134116_FieldInfo_,
-	_Bug8134116_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Bug8134116_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Bug8134116$BadPane"
-};
-
-$Object* allocate$Bug8134116($Class* clazz) {
-	return $of($alloc(Bug8134116));
-}
 
 $volatile($Exception*) Bug8134116::exception = nullptr;
 $JFrame* Bug8134116::frame = nullptr;
@@ -169,32 +121,30 @@ void Bug8134116::init$() {
 
 void Bug8134116::main($StringArray* args) {
 	$init(Bug8134116);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($NimbusLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($NimbusLookAndFeel));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Bug8134116$$Lambda$lambda$main$0)));
-			if (Bug8134116::exception != nullptr) {
-				$nc($System::out)->println($$str({"Test failed: "_s, $($nc(Bug8134116::exception)->getMessage())}));
-				$throw(Bug8134116::exception);
-			} else {
-				$nc($System::out)->println("Test passed."_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (Bug8134116::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Bug8134116$$Lambda$lambda$main$1$1)));
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new(Bug8134116$$Lambda$lambda$main$0));
+		if (Bug8134116::exception != nullptr) {
+			$nc($System::out)->println($$str({"Test failed: "_s, $($nc(Bug8134116::exception)->getMessage())}));
+			$throw(Bug8134116::exception);
+		} else {
+			$nc($System::out)->println("Test passed."_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (Bug8134116::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(Bug8134116$$Lambda$lambda$main$1$1));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -205,20 +155,20 @@ void Bug8134116::lambda$main$1() {
 
 void Bug8134116::lambda$main$0() {
 	$init(Bug8134116);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, panel0, $new($JPanel));
 	$var($JPanel, panel2, $new($JPanel));
 	$var($Bug8134116$BadPane, badPane, $new($Bug8134116$BadPane));
-	badPane->add("zero"_s, static_cast<$Component*>(panel0));
-	badPane->add("one"_s, ($Component*)nullptr);
-	badPane->add(""_s, static_cast<$Component*>(panel2));
-	badPane->add(""_s, ($Component*)nullptr);
+	badPane->add("zero"_s, panel0);
+	badPane->add("one"_s, nullptr);
+	badPane->add(""_s, panel2);
+	badPane->add(""_s, nullptr);
 	$var($JPanel, tabComponent, $new($JPanel));
 	$var($JLabel, tabComponentLabel, $new($JLabel, "three"_s));
-	tabComponent->add(static_cast<$Component*>(tabComponentLabel));
+	tabComponent->add(tabComponentLabel);
 	badPane->setTabComponentAt(3, tabComponent);
 	$assignStatic(Bug8134116::frame, $new($JFrame));
-	$nc(Bug8134116::frame)->add(static_cast<$Component*>(badPane));
+	Bug8134116::frame->add(badPane);
 	$nc(Bug8134116::frame)->setSize(300, 300);
 	$nc(Bug8134116::frame)->setVisible(true);
 	try {
@@ -237,8 +187,8 @@ void Bug8134116::lambda$main$0() {
 		$var($AccessibleContext, pac1, $nc(page1)->getAccessibleContext());
 		$var($AccessibleContext, pac2, $nc(page2)->getAccessibleContext());
 		$var($AccessibleContext, pac3, $nc(page3)->getAccessibleContext());
-		$var($Rectangle, r0, $nc($($nc(pac0)->getAccessibleComponent()))->getBounds());
-		$var($Rectangle, r1, $nc($($nc(pac1)->getAccessibleComponent()))->getBounds());
+		$var($Rectangle, r0, $$nc($nc(pac0)->getAccessibleComponent())->getBounds());
+		$var($Rectangle, r1, $$nc($nc(pac1)->getAccessibleComponent())->getBounds());
 		if ($nc(r1)->equals(r0)) {
 			$var($String, msg, "Second tab should not have same bounds as first tab"_s);
 			$throwNew($RuntimeException, msg);
@@ -257,13 +207,13 @@ void Bug8134116::lambda$main$0() {
 		}
 		badPane->setSelectedIndex(2);
 		$var($AccessibleStateSet, accSS2, $nc(pac2)->getAccessibleStateSet());
-		if (!$nc(accSS1)->contains($AccessibleState::SELECTED)) {
+		if (!accSS1->contains($AccessibleState::SELECTED)) {
 			$var($String, msg, "Third tab selected but AccessibleState.SELECTED not set"_s);
 			$throwNew($RuntimeException, msg);
 		}
 		badPane->setSelectedIndex(3);
 		$var($AccessibleStateSet, accSS3, $nc(pac3)->getAccessibleStateSet());
-		if (!$nc(accSS1)->contains($AccessibleState::SELECTED)) {
+		if (!accSS1->contains($AccessibleState::SELECTED)) {
 			$var($String, msg, "Fourth tab selected but AccessibleState.SELECTED not set"_s);
 			$throwNew($RuntimeException, msg);
 		}
@@ -308,7 +258,7 @@ void Bug8134116::lambda$main$0() {
 	}
 }
 
-void clinit$Bug8134116($Class* class$) {
+void Bug8134116::clinit$($Class* clazz) {
 	$assignStatic(Bug8134116::exception, nullptr);
 }
 
@@ -317,14 +267,46 @@ Bug8134116::Bug8134116() {
 
 $Class* Bug8134116::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Bug8134116$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("Bug8134116$$Lambda$lambda$main$0")) {
 			return Bug8134116$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(Bug8134116$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("Bug8134116$$Lambda$lambda$main$1$1")) {
 			return Bug8134116$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Bug8134116, name, initialize, &_Bug8134116_ClassInfo_, clinit$Bug8134116, allocate$Bug8134116);
+	$FieldInfo fieldInfos$$[] = {
+		{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Bug8134116, exception)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(Bug8134116, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8134116, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8134116, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8134116, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8134116, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Bug8134116$BadPane", "Bug8134116", "BadPane", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug8134116",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Bug8134116$BadPane"
+	};
+	$loadClass(Bug8134116, name, initialize, &classInfo$$, Bug8134116::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug8134116);
+	});
 	return class$;
 }
 

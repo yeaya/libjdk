@@ -1,5 +1,4 @@
 #include <java/awt/Component$FlipSubRegionBufferStrategy.h>
-
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Component$FlipBufferStrategy.h>
 #include <java/awt/Component.h>
@@ -15,49 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Component$FlipSubRegionBufferStrategy_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$FlipSubRegionBufferStrategy, this$0)},
-	{}
-};
-
-$MethodInfo _Component$FlipSubRegionBufferStrategy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PROTECTED, $method(Component$FlipSubRegionBufferStrategy, init$, void, $Component*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"show", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Component$FlipSubRegionBufferStrategy, show, void, int32_t, int32_t, int32_t, int32_t)},
-	{"showIfNotLost", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Component$FlipSubRegionBufferStrategy, showIfNotLost, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Component$FlipSubRegionBufferStrategy_InnerClassesInfo_[] = {
-	{"java.awt.Component$FlipSubRegionBufferStrategy", "java.awt.Component", "FlipSubRegionBufferStrategy", $PRIVATE},
-	{"java.awt.Component$FlipBufferStrategy", "java.awt.Component", "FlipBufferStrategy", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Component$FlipSubRegionBufferStrategy_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Component$FlipSubRegionBufferStrategy",
-	"java.awt.Component$FlipBufferStrategy",
-	"sun.awt.SubRegionShowable",
-	_Component$FlipSubRegionBufferStrategy_FieldInfo_,
-	_Component$FlipSubRegionBufferStrategy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Component$FlipSubRegionBufferStrategy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Component"
-};
-
-$Object* allocate$Component$FlipSubRegionBufferStrategy($Class* clazz) {
-	return $of($alloc(Component$FlipSubRegionBufferStrategy));
-}
 
 int32_t Component$FlipSubRegionBufferStrategy::hashCode() {
 	 return this->$Component$FlipBufferStrategy::hashCode();
@@ -100,7 +56,44 @@ Component$FlipSubRegionBufferStrategy::Component$FlipSubRegionBufferStrategy() {
 }
 
 $Class* Component$FlipSubRegionBufferStrategy::load$($String* name, bool initialize) {
-	$loadClass(Component$FlipSubRegionBufferStrategy, name, initialize, &_Component$FlipSubRegionBufferStrategy_ClassInfo_, allocate$Component$FlipSubRegionBufferStrategy);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(Component$FlipSubRegionBufferStrategy, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PROTECTED, $method(Component$FlipSubRegionBufferStrategy, init$, void, $Component*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"show", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(Component$FlipSubRegionBufferStrategy, show, void, int32_t, int32_t, int32_t, int32_t)},
+		{"showIfNotLost", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(Component$FlipSubRegionBufferStrategy, showIfNotLost, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Component$FlipSubRegionBufferStrategy", "java.awt.Component", "FlipSubRegionBufferStrategy", $PRIVATE},
+		{"java.awt.Component$FlipBufferStrategy", "java.awt.Component", "FlipBufferStrategy", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Component$FlipSubRegionBufferStrategy",
+		"java.awt.Component$FlipBufferStrategy",
+		"sun.awt.SubRegionShowable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Component"
+	};
+	$loadClass(Component$FlipSubRegionBufferStrategy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Component$FlipSubRegionBufferStrategy));
+	});
 	return class$;
 }
 

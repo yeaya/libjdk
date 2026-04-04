@@ -1,5 +1,4 @@
 #include <java/awt/event/InputEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Component.h>
@@ -12,7 +11,6 @@
 #include <java/lang/SecurityManager.h>
 #include <java/security/Permission.h>
 #include <java/util/Arrays.h>
-#include <sun/awt/AWTAccessor$InputEventAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AWTPermissions.h>
 #include <sun/util/logging/PlatformLogger$Level.h>
@@ -57,10 +55,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$InputEventAccessor = ::sun::awt::AWTAccessor$InputEventAccessor;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
@@ -69,191 +65,26 @@ namespace java {
 	namespace awt {
 		namespace event {
 
-$NamedAttribute InputEvent_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_FieldAnnotations_SHIFT_MASK[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute InputEvent_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_FieldAnnotations_CTRL_MASK[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute InputEvent_Attribute_var$2[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_FieldAnnotations_META_MASK[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute InputEvent_Attribute_var$3[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_FieldAnnotations_ALT_MASK[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute InputEvent_Attribute_var$4[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_FieldAnnotations_ALT_GRAPH_MASK[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute InputEvent_Attribute_var$5[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_FieldAnnotations_BUTTON1_MASK[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute InputEvent_Attribute_var$6[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_FieldAnnotations_BUTTON2_MASK[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute InputEvent_Attribute_var$7[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_FieldAnnotations_BUTTON3_MASK[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute InputEvent_Attribute_var$8[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _InputEvent_MethodAnnotations_getModifiers5[] = {
-	{"Ljava/lang/Deprecated;", InputEvent_Attribute_var$8},
-	{}
-};
-
-$FieldInfo _InputEvent_FieldInfo_[] = {
-	{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputEvent, logger)},
-	{"SHIFT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, SHIFT_MASK), _InputEvent_FieldAnnotations_SHIFT_MASK},
-	{"CTRL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, CTRL_MASK), _InputEvent_FieldAnnotations_CTRL_MASK},
-	{"META_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, META_MASK), _InputEvent_FieldAnnotations_META_MASK},
-	{"ALT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, ALT_MASK), _InputEvent_FieldAnnotations_ALT_MASK},
-	{"ALT_GRAPH_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, ALT_GRAPH_MASK), _InputEvent_FieldAnnotations_ALT_GRAPH_MASK},
-	{"BUTTON1_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, BUTTON1_MASK), _InputEvent_FieldAnnotations_BUTTON1_MASK},
-	{"BUTTON2_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, BUTTON2_MASK), _InputEvent_FieldAnnotations_BUTTON2_MASK},
-	{"BUTTON3_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, BUTTON3_MASK), _InputEvent_FieldAnnotations_BUTTON3_MASK},
-	{"SHIFT_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, SHIFT_DOWN_MASK)},
-	{"CTRL_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, CTRL_DOWN_MASK)},
-	{"META_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, META_DOWN_MASK)},
-	{"ALT_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, ALT_DOWN_MASK)},
-	{"BUTTON1_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, BUTTON1_DOWN_MASK)},
-	{"BUTTON2_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, BUTTON2_DOWN_MASK)},
-	{"BUTTON3_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, BUTTON3_DOWN_MASK)},
-	{"ALT_GRAPH_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, ALT_GRAPH_DOWN_MASK)},
-	{"BUTTON_DOWN_MASK", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputEvent, BUTTON_DOWN_MASK)},
-	{"FIRST_HIGH_BIT", "I", nullptr, $STATIC | $FINAL, $constField(InputEvent, FIRST_HIGH_BIT)},
-	{"JDK_1_3_MODIFIERS", "I", nullptr, $STATIC | $FINAL, $constField(InputEvent, JDK_1_3_MODIFIERS)},
-	{"HIGH_MODIFIERS", "I", nullptr, $STATIC | $FINAL, $constField(InputEvent, HIGH_MODIFIERS)},
-	{"when", "J", nullptr, 0, $field(InputEvent, when)},
-	{"modifiers", "I", nullptr, 0, $field(InputEvent, modifiers)},
-	{"canAccessSystemClipboard", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(InputEvent, canAccessSystemClipboard$)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InputEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;IJI)V", nullptr, 0, $method(InputEvent, init$, void, $Component*, int32_t, int64_t, int32_t)},
-	{"canAccessSystemClipboard", "()Z", nullptr, $PRIVATE, $method(InputEvent, canAccessSystemClipboard, bool)},
-	{"consume", "()V", nullptr, $PUBLIC, $virtualMethod(InputEvent, consume, void)},
-	{"getButtonDownMasks", "()[I", nullptr, $PRIVATE | $STATIC, $staticMethod(InputEvent, getButtonDownMasks, $ints*)},
-	{"getMaskForButton", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(InputEvent, getMaskForButton, int32_t, int32_t)},
-	{"getModifiers", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InputEvent, getModifiers, int32_t), nullptr, nullptr, _InputEvent_MethodAnnotations_getModifiers5},
-	{"getModifiersEx", "()I", nullptr, $PUBLIC, $virtualMethod(InputEvent, getModifiersEx, int32_t)},
-	{"getModifiersExText", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(InputEvent, getModifiersExText, $String*, int32_t)},
-	{"getWhen", "()J", nullptr, $PUBLIC, $virtualMethod(InputEvent, getWhen, int64_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(InputEvent, initIDs, void)},
-	{"isAltDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isAltDown, bool)},
-	{"isAltGraphDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isAltGraphDown, bool)},
-	{"isConsumed", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isConsumed, bool)},
-	{"isControlDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isControlDown, bool)},
-	{"isMetaDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isMetaDown, bool)},
-	{"isShiftDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isShiftDown, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 9
-
-$InnerClassInfo _InputEvent_InnerClassesInfo_[] = {
-	{"java.awt.event.InputEvent$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _InputEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.event.InputEvent",
-	"java.awt.event.ComponentEvent",
-	nullptr,
-	_InputEvent_FieldInfo_,
-	_InputEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InputEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.event.InputEvent$1"
-};
-
-$Object* allocate$InputEvent($Class* clazz) {
-	return $of($alloc(InputEvent));
-}
-
 $PlatformLogger* InputEvent::logger = nullptr;
 $ints* InputEvent::BUTTON_DOWN_MASK = nullptr;
 
 $ints* InputEvent::getButtonDownMasks() {
 	$init(InputEvent);
-	return $Arrays::copyOf(InputEvent::BUTTON_DOWN_MASK, $nc(InputEvent::BUTTON_DOWN_MASK)->length);
+	return $Arrays::copyOf(InputEvent::BUTTON_DOWN_MASK, InputEvent::BUTTON_DOWN_MASK->length);
 }
 
 int32_t InputEvent::getMaskForButton(int32_t button) {
 	$init(InputEvent);
-	$useLocalCurrentObjectStackCache();
-	if (button <= 0 || button > $nc(InputEvent::BUTTON_DOWN_MASK)->length) {
+	$useLocalObjectStack();
+	if (button <= 0 || button > InputEvent::BUTTON_DOWN_MASK->length) {
 		$throwNew($IllegalArgumentException, $$str({"button doesn\'t exist "_s, $$str(button)}));
 	}
-	return $nc(InputEvent::BUTTON_DOWN_MASK)->get(button - 1);
+	return InputEvent::BUTTON_DOWN_MASK->get(button - 1);
 }
 
 void InputEvent::initIDs() {
 	$init(InputEvent);
-	$prepareNativeStatic(InputEvent, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
@@ -277,7 +108,7 @@ bool InputEvent::canAccessSystemClipboard() {
 			} catch ($SecurityException& se) {
 				$init($PlatformLogger$Level);
 				if ($nc(InputEvent::logger)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(InputEvent::logger)->fine("InputEvent.canAccessSystemClipboard() got SecurityException "_s, static_cast<$Throwable*>(se));
+					InputEvent::logger->fine("InputEvent.canAccessSystemClipboard() got SecurityException "_s, se);
 				}
 			}
 		} else {
@@ -288,23 +119,23 @@ bool InputEvent::canAccessSystemClipboard() {
 }
 
 bool InputEvent::isShiftDown() {
-	return ((int32_t)(this->modifiers & (uint32_t)InputEvent::SHIFT_DOWN_MASK)) != 0;
+	return (this->modifiers & InputEvent::SHIFT_DOWN_MASK) != 0;
 }
 
 bool InputEvent::isControlDown() {
-	return ((int32_t)(this->modifiers & (uint32_t)InputEvent::CTRL_DOWN_MASK)) != 0;
+	return (this->modifiers & InputEvent::CTRL_DOWN_MASK) != 0;
 }
 
 bool InputEvent::isMetaDown() {
-	return ((int32_t)(this->modifiers & (uint32_t)InputEvent::META_DOWN_MASK)) != 0;
+	return (this->modifiers & InputEvent::META_DOWN_MASK) != 0;
 }
 
 bool InputEvent::isAltDown() {
-	return ((int32_t)(this->modifiers & (uint32_t)InputEvent::ALT_DOWN_MASK)) != 0;
+	return (this->modifiers & InputEvent::ALT_DOWN_MASK) != 0;
 }
 
 bool InputEvent::isAltGraphDown() {
-	return ((int32_t)(this->modifiers & (uint32_t)InputEvent::ALT_GRAPH_DOWN_MASK)) != 0;
+	return (this->modifiers & InputEvent::ALT_GRAPH_DOWN_MASK) != 0;
 }
 
 int64_t InputEvent::getWhen() {
@@ -312,11 +143,11 @@ int64_t InputEvent::getWhen() {
 }
 
 int32_t InputEvent::getModifiers() {
-	return (int32_t)(this->modifiers & (uint32_t)(InputEvent::JDK_1_3_MODIFIERS | InputEvent::HIGH_MODIFIERS));
+	return this->modifiers & (InputEvent::JDK_1_3_MODIFIERS | InputEvent::HIGH_MODIFIERS);
 }
 
 int32_t InputEvent::getModifiersEx() {
-	return (int32_t)(this->modifiers & (uint32_t)~InputEvent::JDK_1_3_MODIFIERS);
+	return this->modifiers & ~InputEvent::JDK_1_3_MODIFIERS;
 }
 
 void InputEvent::consume() {
@@ -329,37 +160,35 @@ bool InputEvent::isConsumed() {
 
 $String* InputEvent::getModifiersExText(int32_t modifiers) {
 	$init(InputEvent);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
-	if (((int32_t)(modifiers & (uint32_t)InputEvent::META_DOWN_MASK)) != 0) {
+	if ((modifiers & InputEvent::META_DOWN_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.meta"_s, "Meta"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)InputEvent::CTRL_DOWN_MASK)) != 0) {
+	if ((modifiers & InputEvent::CTRL_DOWN_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.control"_s, "Ctrl"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)InputEvent::ALT_DOWN_MASK)) != 0) {
+	if ((modifiers & InputEvent::ALT_DOWN_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.alt"_s, "Alt"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)InputEvent::SHIFT_DOWN_MASK)) != 0) {
+	if ((modifiers & InputEvent::SHIFT_DOWN_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.shift"_s, "Shift"_s)));
 		buf->append("+"_s);
 	}
-	if (((int32_t)(modifiers & (uint32_t)InputEvent::ALT_GRAPH_DOWN_MASK)) != 0) {
+	if ((modifiers & InputEvent::ALT_GRAPH_DOWN_MASK) != 0) {
 		buf->append($($Toolkit::getProperty("AWT.altGraph"_s, "Alt Graph"_s)));
 		buf->append("+"_s);
 	}
 	int32_t buttonNumber = 1;
 	{
 		$var($ints, arr$, InputEvent::BUTTON_DOWN_MASK);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t mask = arr$->get(i$);
 			{
-				if (((int32_t)(modifiers & (uint32_t)mask)) != 0) {
+				if ((modifiers & mask) != 0) {
 					buf->append($($Toolkit::getProperty($$str({"AWT.button"_s, $$str(buttonNumber)}), $$str({"Button"_s, $$str(buttonNumber)}))));
 					buf->append("+"_s);
 				}
@@ -373,7 +202,7 @@ $String* InputEvent::getModifiersExText(int32_t modifiers) {
 	return buf->toString();
 }
 
-void clinit$InputEvent($Class* class$) {
+void InputEvent::clinit$($Class* clazz) {
 	$assignStatic(InputEvent::logger, $PlatformLogger::getLogger("java.awt.event.InputEvent"_s));
 	$assignStatic(InputEvent::BUTTON_DOWN_MASK, $new($ints, {
 		InputEvent::BUTTON1_DOWN_MASK,
@@ -410,7 +239,146 @@ InputEvent::InputEvent() {
 }
 
 $Class* InputEvent::load$($String* name, bool initialize) {
-	$loadClass(InputEvent, name, initialize, &_InputEvent_ClassInfo_, clinit$InputEvent, allocate$InputEvent);
+	$NamedAttribute SHIFT_MASKfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute SHIFT_MASKfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", SHIFT_MASKfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute CTRL_MASKfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute CTRL_MASKfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", CTRL_MASKfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute META_MASKfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute META_MASKfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", META_MASKfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute ALT_MASKfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute ALT_MASKfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", ALT_MASKfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute ALT_GRAPH_MASKfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute ALT_GRAPH_MASKfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", ALT_GRAPH_MASKfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute BUTTON1_MASKfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute BUTTON1_MASKfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", BUTTON1_MASKfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute BUTTON2_MASKfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute BUTTON2_MASKfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", BUTTON2_MASKfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute BUTTON3_MASKfieldAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute BUTTON3_MASKfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", BUTTON3_MASKfieldAnnotations$$$namedAttribute},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputEvent, logger)},
+		{"SHIFT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, SHIFT_MASK), SHIFT_MASKfieldAnnotations$$},
+		{"CTRL_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, CTRL_MASK), CTRL_MASKfieldAnnotations$$},
+		{"META_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, META_MASK), META_MASKfieldAnnotations$$},
+		{"ALT_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, ALT_MASK), ALT_MASKfieldAnnotations$$},
+		{"ALT_GRAPH_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, ALT_GRAPH_MASK), ALT_GRAPH_MASKfieldAnnotations$$},
+		{"BUTTON1_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, BUTTON1_MASK), BUTTON1_MASKfieldAnnotations$$},
+		{"BUTTON2_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, BUTTON2_MASK), BUTTON2_MASKfieldAnnotations$$},
+		{"BUTTON3_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $constField(InputEvent, BUTTON3_MASK), BUTTON3_MASKfieldAnnotations$$},
+		{"SHIFT_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, SHIFT_DOWN_MASK)},
+		{"CTRL_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, CTRL_DOWN_MASK)},
+		{"META_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, META_DOWN_MASK)},
+		{"ALT_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, ALT_DOWN_MASK)},
+		{"BUTTON1_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, BUTTON1_DOWN_MASK)},
+		{"BUTTON2_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, BUTTON2_DOWN_MASK)},
+		{"BUTTON3_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, BUTTON3_DOWN_MASK)},
+		{"ALT_GRAPH_DOWN_MASK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(InputEvent, ALT_GRAPH_DOWN_MASK)},
+		{"BUTTON_DOWN_MASK", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InputEvent, BUTTON_DOWN_MASK)},
+		{"FIRST_HIGH_BIT", "I", nullptr, $STATIC | $FINAL, $constField(InputEvent, FIRST_HIGH_BIT)},
+		{"JDK_1_3_MODIFIERS", "I", nullptr, $STATIC | $FINAL, $constField(InputEvent, JDK_1_3_MODIFIERS)},
+		{"HIGH_MODIFIERS", "I", nullptr, $STATIC | $FINAL, $constField(InputEvent, HIGH_MODIFIERS)},
+		{"when", "J", nullptr, 0, $field(InputEvent, when)},
+		{"modifiers", "I", nullptr, 0, $field(InputEvent, modifiers)},
+		{"canAccessSystemClipboard", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(InputEvent, canAccessSystemClipboard$)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputEvent, serialVersionUID)},
+		{}
+	};
+	$NamedAttribute getModifiersmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getModifiersmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getModifiersmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;IJI)V", nullptr, 0, $method(InputEvent, init$, void, $Component*, int32_t, int64_t, int32_t)},
+		{"canAccessSystemClipboard", "()Z", nullptr, $PRIVATE, $method(InputEvent, canAccessSystemClipboard, bool)},
+		{"consume", "()V", nullptr, $PUBLIC, $virtualMethod(InputEvent, consume, void)},
+		{"getButtonDownMasks", "()[I", nullptr, $PRIVATE | $STATIC, $staticMethod(InputEvent, getButtonDownMasks, $ints*)},
+		{"getMaskForButton", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(InputEvent, getMaskForButton, int32_t, int32_t)},
+		{"getModifiers", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InputEvent, getModifiers, int32_t), nullptr, nullptr, getModifiersmethodAnnotations$$},
+		{"getModifiersEx", "()I", nullptr, $PUBLIC, $virtualMethod(InputEvent, getModifiersEx, int32_t)},
+		{"getModifiersExText", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(InputEvent, getModifiersExText, $String*, int32_t)},
+		{"getWhen", "()J", nullptr, $PUBLIC, $virtualMethod(InputEvent, getWhen, int64_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(InputEvent, initIDs, void)},
+		{"isAltDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isAltDown, bool)},
+		{"isAltGraphDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isAltGraphDown, bool)},
+		{"isConsumed", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isConsumed, bool)},
+		{"isControlDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isControlDown, bool)},
+		{"isMetaDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isMetaDown, bool)},
+		{"isShiftDown", "()Z", nullptr, $PUBLIC, $virtualMethod(InputEvent, isShiftDown, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.event.InputEvent$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.event.InputEvent",
+		"java.awt.event.ComponentEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.event.InputEvent$1"
+	};
+	$loadClass(InputEvent, name, initialize, &classInfo$$, InputEvent::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InputEvent);
+	});
 	return class$;
 }
 

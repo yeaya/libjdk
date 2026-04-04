@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/KDCRep.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/math/BigInteger.h>
@@ -27,7 +26,6 @@
 using $PADataArray = $Array<::sun::security::krb5::internal::PAData>;
 using $DerValueArray = $Array<::sun::security::util::DerValue>;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -40,7 +38,6 @@ using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $KrbApErrException = ::sun::security::krb5::internal::KrbApErrException;
 using $PAData = ::sun::security::krb5::internal::PAData;
 using $Ticket = ::sun::security::krb5::internal::Ticket;
-using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerOutputStream = ::sun::security::util::DerOutputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -49,43 +46,8 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _KDCRep_FieldInfo_[] = {
-	{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KDCRep, cname)},
-	{"ticket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC, $field(KDCRep, ticket)},
-	{"encPart", "Lsun/security/krb5/EncryptedData;", nullptr, $PUBLIC, $field(KDCRep, encPart)},
-	{"encKDCRepPart", "Lsun/security/krb5/internal/EncKDCRepPart;", nullptr, $PUBLIC, $field(KDCRep, encKDCRepPart)},
-	{"pvno", "I", nullptr, $PRIVATE, $field(KDCRep, pvno)},
-	{"msgType", "I", nullptr, $PRIVATE, $field(KDCRep, msgType)},
-	{"pAData", "[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC, $field(KDCRep, pAData)},
-	{"DEBUG", "Z", nullptr, $PRIVATE, $field(KDCRep, DEBUG)},
-	{}
-};
-
-$MethodInfo _KDCRep_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;I)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $PADataArray*, $PrincipalName*, $Ticket*, $EncryptedData*, int32_t), "java.io.IOException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KDCRep, init$, void)},
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException,java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KDCRep, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, $virtualMethod(KDCRep, init, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
-	{}
-};
-
-$ClassInfo _KDCRep_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.KDCRep",
-	"java.lang.Object",
-	nullptr,
-	_KDCRep_FieldInfo_,
-	_KDCRep_MethodInfo_
-};
-
-$Object* allocate$KDCRep($Class* clazz) {
-	return $of($alloc(KDCRep));
-}
-
 void KDCRep::init$($PADataArray* new_pAData, $PrincipalName* new_cname, $Ticket* new_ticket, $EncryptedData* new_encPart, int32_t req_type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, pAData, nullptr);
 	$init($Krb5);
 	this->DEBUG = $Krb5::DEBUG;
@@ -97,7 +59,7 @@ void KDCRep::init$($PADataArray* new_pAData, $PrincipalName* new_cname, $Ticket*
 			if (new_pAData->get(i) == nullptr) {
 				$throwNew($IOException, "Cannot create a KDCRep"_s);
 			} else {
-				$nc(this->pAData)->set(i, $cast($PAData, $($nc(new_pAData->get(i))->clone())));
+				$nc(this->pAData)->set(i, $$cast($PAData, $nc(new_pAData->get(i))->clone()));
 			}
 		}
 	}
@@ -127,43 +89,43 @@ void KDCRep::init$($DerValue* encoding, int32_t req_type) {
 }
 
 void KDCRep::init($DerValue* encoding, int32_t req_type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerValue, der, nullptr);
 	$var($DerValue, subDer, nullptr);
-	if (((int32_t)($nc(encoding)->getTag() & (uint32_t)31)) != req_type) {
+	if (($nc(encoding)->getTag() & 0x1f) != req_type) {
 		if (this->DEBUG) {
 			$nc($System::out)->println($$str({">>> KDCRep: init() encoding tag is "_s, $$str(encoding->getTag()), " req type is "_s, $$str(req_type)}));
 		}
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(der, $nc($($nc(encoding)->getData()))->getDerValue());
+	$assign(der, $$nc(encoding->getData())->getDerValue());
 	if ($nc(der)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(subDer, $nc($($nc(der)->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)31)) == 0) {
-		this->pvno = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & 0x1f) == 0) {
+		this->pvno = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 		if (this->pvno != $Krb5::PVNO) {
 			$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_BADVERSION);
 		}
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	$assign(subDer, $nc($(der->getData()))->getDerValue());
-	if (((int32_t)($nc(subDer)->getTag() & (uint32_t)31)) == 1) {
-		this->msgType = $nc($($nc($(subDer->getData()))->getBigInteger()))->intValue();
+	$assign(subDer, $$nc(der->getData())->getDerValue());
+	if (($nc(subDer)->getTag() & 0x1f) == 1) {
+		this->msgType = $$nc($$nc(subDer->getData())->getBigInteger())->intValue();
 		if (this->msgType != req_type) {
 			$throwNew($KrbApErrException, $Krb5::KRB_AP_ERR_MSG_TYPE);
 		}
 	} else {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	if (((int32_t)($nc($(der->getData()))->peekByte() & (uint32_t)31)) == 2) {
-		$assign(subDer, $nc($(der->getData()))->getDerValue());
-		$var($DerValueArray, padata, $nc($($nc(subDer)->getData()))->getSequence(1));
+	if (($$nc(der->getData())->peekByte() & 0x1f) == 2) {
+		$assign(subDer, $$nc(der->getData())->getDerValue());
+		$var($DerValueArray, padata, $$nc($nc(subDer)->getData())->getSequence(1));
 		$set(this, pAData, $new($PADataArray, $nc(padata)->length));
 		for (int32_t i = 0; i < padata->length; ++i) {
-			$nc(this->pAData)->set(i, $$new($PAData, padata->get(i)));
+			this->pAData->set(i, $$new($PAData, padata->get(i)));
 		}
 	} else {
 		$set(this, pAData, nullptr);
@@ -172,31 +134,31 @@ void KDCRep::init($DerValue* encoding, int32_t req_type) {
 	$set(this, cname, $PrincipalName::parse($(der->getData()), (int8_t)4, false, crealm));
 	$set(this, ticket, $Ticket::parse($(der->getData()), (int8_t)5, false));
 	$set(this, encPart, $EncryptedData::parse($(der->getData()), (int8_t)6, false));
-	if ($nc($(der->getData()))->available() > 0) {
+	if ($$nc(der->getData())->available() > 0) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
 }
 
 $bytes* KDCRep::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
 	$var($DerOutputStream, temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->pvno)));
+	temp->putInteger($($BigInteger::valueOf(this->pvno)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)0), temp);
 	$assign(temp, $new($DerOutputStream));
-	temp->putInteger($($BigInteger::valueOf((int64_t)this->msgType)));
+	temp->putInteger($($BigInteger::valueOf(this->msgType)));
 	bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)1), temp);
-	if (this->pAData != nullptr && $nc(this->pAData)->length > 0) {
+	if (this->pAData != nullptr && this->pAData->length > 0) {
 		$var($DerOutputStream, padata_stream, $new($DerOutputStream));
 		for (int32_t i = 0; i < $nc(this->pAData)->length; ++i) {
-			padata_stream->write($($nc($nc(this->pAData)->get(i))->asn1Encode()));
+			padata_stream->write($($nc(this->pAData->get(i))->asn1Encode()));
 		}
 		$assign(temp, $new($DerOutputStream));
 		temp->write($DerValue::tag_SequenceOf, padata_stream);
 		bytes->write($DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)2), temp);
 	}
 	int8_t var$0 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)3);
-	bytes->write(var$0, $($nc($($nc(this->cname)->getRealm()))->asn1Encode()));
+	bytes->write(var$0, $($$nc($nc(this->cname)->getRealm())->asn1Encode()));
 	int8_t var$1 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)4);
 	bytes->write(var$1, $($nc(this->cname)->asn1Encode()));
 	int8_t var$2 = $DerValue::createTag($DerValue::TAG_CONTEXT, true, (int8_t)5);
@@ -212,7 +174,37 @@ KDCRep::KDCRep() {
 }
 
 $Class* KDCRep::load$($String* name, bool initialize) {
-	$loadClass(KDCRep, name, initialize, &_KDCRep_ClassInfo_, allocate$KDCRep);
+	$FieldInfo fieldInfos$$[] = {
+		{"cname", "Lsun/security/krb5/PrincipalName;", nullptr, $PUBLIC, $field(KDCRep, cname)},
+		{"ticket", "Lsun/security/krb5/internal/Ticket;", nullptr, $PUBLIC, $field(KDCRep, ticket)},
+		{"encPart", "Lsun/security/krb5/EncryptedData;", nullptr, $PUBLIC, $field(KDCRep, encPart)},
+		{"encKDCRepPart", "Lsun/security/krb5/internal/EncKDCRepPart;", nullptr, $PUBLIC, $field(KDCRep, encKDCRepPart)},
+		{"pvno", "I", nullptr, $PRIVATE, $field(KDCRep, pvno)},
+		{"msgType", "I", nullptr, $PRIVATE, $field(KDCRep, msgType)},
+		{"pAData", "[Lsun/security/krb5/internal/PAData;", nullptr, $PUBLIC, $field(KDCRep, pAData)},
+		{"DEBUG", "Z", nullptr, $PRIVATE, $field(KDCRep, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lsun/security/krb5/internal/PAData;Lsun/security/krb5/PrincipalName;Lsun/security/krb5/internal/Ticket;Lsun/security/krb5/EncryptedData;I)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $PADataArray*, $PrincipalName*, $Ticket*, $EncryptedData*, int32_t), "java.io.IOException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KDCRep, init$, void)},
+		{"<init>", "([BI)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $bytes*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.RealmException,java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;I)V", nullptr, $PUBLIC, $method(KDCRep, init$, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,sun.security.krb5.internal.KrbApErrException,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(KDCRep, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"init", "(Lsun/security/util/DerValue;I)V", nullptr, $PROTECTED, $virtualMethod(KDCRep, init, void, $DerValue*, int32_t), "sun.security.krb5.Asn1Exception,sun.security.krb5.RealmException,java.io.IOException,sun.security.krb5.internal.KrbApErrException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.KDCRep",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KDCRep, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KDCRep);
+	});
 	return class$;
 }
 

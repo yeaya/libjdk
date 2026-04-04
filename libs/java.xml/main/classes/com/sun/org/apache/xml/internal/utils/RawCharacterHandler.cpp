@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/RawCharacterHandler.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -13,26 +12,22 @@ namespace com {
 					namespace internal {
 						namespace utils {
 
-$MethodInfo _RawCharacterHandler_MethodInfo_[] = {
-	{"charactersRaw", "([CII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawCharacterHandler, charactersRaw, void, $chars*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _RawCharacterHandler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.utils.RawCharacterHandler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RawCharacterHandler_MethodInfo_
-};
-
-$Object* allocate$RawCharacterHandler($Class* clazz) {
-	return $of($alloc(RawCharacterHandler));
-}
-
 $Class* RawCharacterHandler::load$($String* name, bool initialize) {
-	$loadClass(RawCharacterHandler, name, initialize, &_RawCharacterHandler_ClassInfo_, allocate$RawCharacterHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"charactersRaw", "([CII)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RawCharacterHandler, charactersRaw, void, $chars*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.utils.RawCharacterHandler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RawCharacterHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RawCharacterHandler);
+	});
 	return class$;
 }
 

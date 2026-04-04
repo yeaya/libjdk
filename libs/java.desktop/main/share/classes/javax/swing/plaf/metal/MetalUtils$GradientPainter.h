@@ -36,6 +36,7 @@ class MetalUtils$GradientPainter : public ::sun::swing::CachedPainter {
 	$class(MetalUtils$GradientPainter, 0, ::sun::swing::CachedPainter)
 public:
 	MetalUtils$GradientPainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t count);
 	void drawHorizontalGradient(::java::awt::Graphics2D* g, float ratio1, float ratio2, ::java::awt::Color* c1, ::java::awt::Color* c2, ::java::awt::Color* c3, int32_t w, int32_t h);
 	void drawVerticalGradient(::java::awt::Graphics2D* g, float ratio1, float ratio2, ::java::awt::Color* c1, ::java::awt::Color* c2, ::java::awt::Color* c3, int32_t w, int32_t h);

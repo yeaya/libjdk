@@ -1,5 +1,4 @@
 #include <sun/print/OpenBook.h>
-
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Pageable.h>
 #include <java/awt/print/Printable.h>
@@ -16,33 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _OpenBook_FieldInfo_[] = {
-	{"mFormat", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $field(OpenBook, mFormat)},
-	{"mPainter", "Ljava/awt/print/Printable;", nullptr, $PRIVATE, $field(OpenBook, mPainter)},
-	{}
-};
-
-$MethodInfo _OpenBook_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)V", nullptr, 0, $method(OpenBook, init$, void, $PageFormat*, $Printable*)},
-	{"getNumberOfPages", "()I", nullptr, $PUBLIC, $virtualMethod(OpenBook, getNumberOfPages, int32_t)},
-	{"getPageFormat", "(I)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(OpenBook, getPageFormat, $PageFormat*, int32_t)},
-	{"getPrintable", "(I)Ljava/awt/print/Printable;", nullptr, $PUBLIC, $virtualMethod(OpenBook, getPrintable, $Printable*, int32_t), "java.lang.IndexOutOfBoundsException"},
-	{}
-};
-
-$ClassInfo _OpenBook_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.OpenBook",
-	"java.lang.Object",
-	"java.awt.print.Pageable",
-	_OpenBook_FieldInfo_,
-	_OpenBook_MethodInfo_
-};
-
-$Object* allocate$OpenBook($Class* clazz) {
-	return $of($alloc(OpenBook));
-}
 
 void OpenBook::init$($PageFormat* format, $Printable* painter) {
 	$set(this, mFormat, format);
@@ -65,7 +37,29 @@ OpenBook::OpenBook() {
 }
 
 $Class* OpenBook::load$($String* name, bool initialize) {
-	$loadClass(OpenBook, name, initialize, &_OpenBook_ClassInfo_, allocate$OpenBook);
+	$FieldInfo fieldInfos$$[] = {
+		{"mFormat", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE, $field(OpenBook, mFormat)},
+		{"mPainter", "Ljava/awt/print/Printable;", nullptr, $PRIVATE, $field(OpenBook, mPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/print/PageFormat;Ljava/awt/print/Printable;)V", nullptr, 0, $method(OpenBook, init$, void, $PageFormat*, $Printable*)},
+		{"getNumberOfPages", "()I", nullptr, $PUBLIC, $virtualMethod(OpenBook, getNumberOfPages, int32_t)},
+		{"getPageFormat", "(I)Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $virtualMethod(OpenBook, getPageFormat, $PageFormat*, int32_t)},
+		{"getPrintable", "(I)Ljava/awt/print/Printable;", nullptr, $PUBLIC, $virtualMethod(OpenBook, getPrintable, $Printable*, int32_t), "java.lang.IndexOutOfBoundsException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.OpenBook",
+		"java.lang.Object",
+		"java.awt.print.Pageable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OpenBook, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenBook);
+	});
 	return class$;
 }
 

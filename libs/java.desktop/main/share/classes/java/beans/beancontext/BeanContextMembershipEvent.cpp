@@ -1,5 +1,4 @@
 #include <java/beans/beancontext/BeanContextMembershipEvent.h>
-
 #include <java/beans/beancontext/BeanContext.h>
 #include <java/beans/beancontext/BeanContextEvent.h>
 #include <java/util/Arrays.h>
@@ -21,35 +20,6 @@ using $Iterator = ::java::util::Iterator;
 namespace java {
 	namespace beans {
 		namespace beancontext {
-
-$FieldInfo _BeanContextMembershipEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextMembershipEvent, serialVersionUID)},
-	{"children", "Ljava/util/Collection;", nullptr, $PROTECTED, $field(BeanContextMembershipEvent, children)},
-	{}
-};
-
-$MethodInfo _BeanContextMembershipEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/beans/beancontext/BeanContext;Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(BeanContextMembershipEvent, init$, void, $BeanContext*, $Collection*)},
-	{"<init>", "(Ljava/beans/beancontext/BeanContext;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BeanContextMembershipEvent, init$, void, $BeanContext*, $ObjectArray*)},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BeanContextMembershipEvent, contains, bool, Object$*)},
-	{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(BeanContextMembershipEvent, iterator, $Iterator*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(BeanContextMembershipEvent, size, int32_t)},
-	{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BeanContextMembershipEvent, toArray, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _BeanContextMembershipEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.beancontext.BeanContextMembershipEvent",
-	"java.beans.beancontext.BeanContextEvent",
-	nullptr,
-	_BeanContextMembershipEvent_FieldInfo_,
-	_BeanContextMembershipEvent_MethodInfo_
-};
-
-$Object* allocate$BeanContextMembershipEvent($Class* clazz) {
-	return $of($alloc(BeanContextMembershipEvent));
-}
 
 void BeanContextMembershipEvent::init$($BeanContext* bc, $Collection* changes) {
 	$BeanContextEvent::init$(bc);
@@ -87,7 +57,31 @@ BeanContextMembershipEvent::BeanContextMembershipEvent() {
 }
 
 $Class* BeanContextMembershipEvent::load$($String* name, bool initialize) {
-	$loadClass(BeanContextMembershipEvent, name, initialize, &_BeanContextMembershipEvent_ClassInfo_, allocate$BeanContextMembershipEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(BeanContextMembershipEvent, serialVersionUID)},
+		{"children", "Ljava/util/Collection;", nullptr, $PROTECTED, $field(BeanContextMembershipEvent, children)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/beans/beancontext/BeanContext;Ljava/util/Collection;)V", nullptr, $PUBLIC, $method(BeanContextMembershipEvent, init$, void, $BeanContext*, $Collection*)},
+		{"<init>", "(Ljava/beans/beancontext/BeanContext;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(BeanContextMembershipEvent, init$, void, $BeanContext*, $ObjectArray*)},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BeanContextMembershipEvent, contains, bool, Object$*)},
+		{"iterator", "()Ljava/util/Iterator;", nullptr, $PUBLIC, $virtualMethod(BeanContextMembershipEvent, iterator, $Iterator*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(BeanContextMembershipEvent, size, int32_t)},
+		{"toArray", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(BeanContextMembershipEvent, toArray, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.beancontext.BeanContextMembershipEvent",
+		"java.beans.beancontext.BeanContextEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BeanContextMembershipEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BeanContextMembershipEvent);
+	});
 	return class$;
 }
 

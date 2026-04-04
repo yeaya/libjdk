@@ -235,6 +235,7 @@ class $export Option : public ::java::lang::Enum {
 public:
 	Option();
 	static $Array<::com::sun::tools::javac::main::Option>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* descrKey, ::com::sun::tools::javac::main::Option$OptionKind* kind, ::com::sun::tools::javac::main::Option$OptionGroup* group);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* descrKey, ::com::sun::tools::javac::main::Option$OptionKind* kind, ::com::sun::tools::javac::main::Option$OptionGroup* group, ::com::sun::tools::javac::main::Option$ArgKind* argKind);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* argsNameKey, $String* descrKey, ::com::sun::tools::javac::main::Option$OptionKind* kind, ::com::sun::tools::javac::main::Option$OptionGroup* group);

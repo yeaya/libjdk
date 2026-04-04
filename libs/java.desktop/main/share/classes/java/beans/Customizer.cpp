@@ -1,5 +1,4 @@
 #include <java/beans/Customizer.h>
-
 #include <java/beans/PropertyChangeListener.h>
 #include <jcpp.h>
 
@@ -10,28 +9,24 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$MethodInfo _Customizer_MethodInfo_[] = {
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Customizer, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Customizer, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"setObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Customizer, setObject, void, Object$*)},
-	{}
-};
-
-$ClassInfo _Customizer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.beans.Customizer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Customizer_MethodInfo_
-};
-
-$Object* allocate$Customizer($Class* clazz) {
-	return $of($alloc(Customizer));
-}
-
 $Class* Customizer::load$($String* name, bool initialize) {
-	$loadClass(Customizer, name, initialize, &_Customizer_ClassInfo_, allocate$Customizer);
+	$MethodInfo methodInfos$$[] = {
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Customizer, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Customizer, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"setObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Customizer, setObject, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.beans.Customizer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Customizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Customizer);
+	});
 	return class$;
 }
 

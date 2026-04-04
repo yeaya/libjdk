@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseContent$UnknownLengthBodyParser.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
@@ -12,7 +11,6 @@
 #include <java/nio/ByteBuffer.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
-#include <java/util/concurrent/Flow$Subscription.h>
 #include <java/util/function/Consumer.h>
 #include <java/util/function/Supplier.h>
 #include <jdk/internal/net/http/AbstractSubscription.h>
@@ -32,16 +30,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscriber;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $List = ::java::util::List;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Consumer = ::java::util::function::Consumer;
 using $Supplier = ::java::util::function::Supplier;
 using $AbstractSubscription = ::jdk::internal::net::http::AbstractSubscription;
 using $ResponseContent = ::jdk::internal::net::http::ResponseContent;
-using $Demand = ::jdk::internal::net::http::common::Demand;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {
@@ -58,92 +52,39 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->dbgString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString>());
-	}
 	ResponseContent$UnknownLengthBodyParser* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, inst$)},
-	{}
-};
-$MethodInfo ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent$UnknownLengthBodyParser;)V", nullptr, $PUBLIC, $method(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, init$, void, ResponseContent$UnknownLengthBodyParser*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, get, $Object*)},
-	{}
-};
-$ClassInfo ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::load$($String* name, bool initialize) {
-	$loadClass(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/ResponseContent$UnknownLengthBodyParser;)V", nullptr, $PUBLIC, $method(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, init$, void, ResponseContent$UnknownLengthBodyParser*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString);
+	});
 	return class$;
 }
 $Class* ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::class$ = nullptr;
-
-$FieldInfo _ResponseContent$UnknownLengthBodyParser_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/ResponseContent;", nullptr, $FINAL | $SYNTHETIC, $field(ResponseContent$UnknownLengthBodyParser, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseContent$UnknownLengthBodyParser, $assertionsDisabled)},
-	{"onComplete", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/lang/Throwable;>;", $FINAL, $field(ResponseContent$UnknownLengthBodyParser, onComplete)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(ResponseContent$UnknownLengthBodyParser, debug)},
-	{"dbgTag", "Ljava/lang/String;", nullptr, $FINAL, $field(ResponseContent$UnknownLengthBodyParser, dbgTag)},
-	{"closedExceptionally", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(ResponseContent$UnknownLengthBodyParser, closedExceptionally)},
-	{"sub", "Ljdk/internal/net/http/AbstractSubscription;", nullptr, $VOLATILE, $field(ResponseContent$UnknownLengthBodyParser, sub)},
-	{"breceived", "I", nullptr, $VOLATILE, $field(ResponseContent$UnknownLengthBodyParser, breceived)},
-	{}
-};
-
-$MethodInfo _ResponseContent$UnknownLengthBodyParser_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/ResponseContent;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(ResponseContent$UnknownLengthBodyParser, init$, void, $ResponseContent*, $Consumer*)},
-	{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, accept, void, $ByteBuffer*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, accept, void, Object$*)},
-	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, complete, void)},
-	{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, currentStateMessage, $String*)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ResponseContent$UnknownLengthBodyParser, dbgString, $String*)},
-	{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, onSubscribe, void, $AbstractSubscription*)},
-	{}
-};
-
-$InnerClassInfo _ResponseContent$UnknownLengthBodyParser_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser", "jdk.internal.net.http.ResponseContent", "UnknownLengthBodyParser", 0},
-	{"jdk.internal.net.http.ResponseContent$BodyParser", "jdk.internal.net.http.ResponseContent", "BodyParser", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseContent$UnknownLengthBodyParser_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser",
-	"java.lang.Object",
-	"jdk.internal.net.http.ResponseContent$BodyParser",
-	_ResponseContent$UnknownLengthBodyParser_FieldInfo_,
-	_ResponseContent$UnknownLengthBodyParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResponseContent$UnknownLengthBodyParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.ResponseContent"
-};
-
-$Object* allocate$ResponseContent$UnknownLengthBodyParser($Class* clazz) {
-	return $of($alloc(ResponseContent$UnknownLengthBodyParser));
-}
 
 bool ResponseContent$UnknownLengthBodyParser::$assertionsDisabled = false;
 
 void ResponseContent$UnknownLengthBodyParser::init$($ResponseContent* this$0, $Consumer* onComplete) {
 	$set(this, this$0, this$0);
 	$init($Utils);
-	$set(this, debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, this)), $Utils::DEBUG));
+	$set(this, debug, $Utils::getDebugLogger($$new(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString, this), $Utils::DEBUG));
 	$set(this, dbgTag, $str({this->this$0->dbgTag, "/UnknownLengthBodyParser"_s}));
 	this->breceived = 0;
 	$set(this, onComplete, onComplete);
@@ -154,42 +95,42 @@ $String* ResponseContent$UnknownLengthBodyParser::dbgString() {
 }
 
 void ResponseContent$UnknownLengthBodyParser::onSubscribe($AbstractSubscription* sub) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log($$str({"onSubscribe: "_s, $($nc($of(this->this$0->pusher))->getClass()->getName())}));
+		this->debug->log($$str({"onSubscribe: "_s, $($nc(this->this$0->pusher)->getClass()->getName())}));
 	}
-	$nc(this->this$0->pusher)->onSubscribe(($set(this, sub, sub)));
+	$nc(this->this$0->pusher)->onSubscribe($set(this, sub, sub));
 }
 
 $String* ResponseContent$UnknownLengthBodyParser::currentStateMessage() {
-	$useLocalCurrentObjectStackCache();
-	return $String::format("http1_0 content, bytes received: %d"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->breceived)))}));
+	$useLocalObjectStack();
+	return $String::format("http1_0 content, bytes received: %d"_s, $$new($ObjectArray, {$($Integer::valueOf(this->breceived))}));
 }
 
 void ResponseContent$UnknownLengthBodyParser::accept($ByteBuffer* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closedExceptionally != nullptr) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log($$str({"already closed: "_s, this->closedExceptionally}));
+			this->debug->log($$str({"already closed: "_s, this->closedExceptionally}));
 		}
 		return;
 	}
 	bool completed = false;
 	try {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Parser got %d bytes "_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(b)->remaining())))}));
+			this->debug->log("Parser got %d bytes "_s, $$new($ObjectArray, {$($Integer::valueOf($nc(b)->remaining()))}));
 		}
 		if ($nc(b)->hasRemaining()) {
-			bool hasDemand = $nc($($nc(this->sub)->demand()))->tryDecrement();
+			bool hasDemand = $$nc($nc(this->sub)->demand())->tryDecrement();
 			if (!ResponseContent$UnknownLengthBodyParser::$assertionsDisabled && !hasDemand) {
 				$throwNew($AssertionError);
 			}
 			this->breceived += b->remaining();
-			$nc(this->this$0->pusher)->onNext($($List::of($($of(b->asReadOnlyBuffer())))));
+			$nc(this->this$0->pusher)->onNext($($List::of($(b->asReadOnlyBuffer()))));
 		}
 	} catch ($Throwable& t) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Unexpected exception"_s, $cast($Throwable, t));
+			this->debug->log("Unexpected exception"_s, t);
 		}
 		$set(this, closedExceptionally, t);
 		if (!completed) {
@@ -200,7 +141,7 @@ void ResponseContent$UnknownLengthBodyParser::accept($ByteBuffer* b) {
 
 void ResponseContent$UnknownLengthBodyParser::complete() {
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("Parser got all expected bytes: completing"_s);
+		this->debug->log("Parser got all expected bytes: completing"_s);
 	}
 	if (!ResponseContent$UnknownLengthBodyParser::$assertionsDisabled && !(this->closedExceptionally == nullptr)) {
 		$throwNew($AssertionError);
@@ -214,7 +155,7 @@ void ResponseContent$UnknownLengthBodyParser::accept(Object$* b) {
 	this->accept($cast($ByteBuffer, b));
 }
 
-void clinit$ResponseContent$UnknownLengthBodyParser($Class* class$) {
+void ResponseContent$UnknownLengthBodyParser::clinit$($Class* clazz) {
 	$load($ResponseContent);
 	ResponseContent$UnknownLengthBodyParser::$assertionsDisabled = !$ResponseContent::class$->desiredAssertionStatus();
 }
@@ -224,11 +165,54 @@ ResponseContent$UnknownLengthBodyParser::ResponseContent$UnknownLengthBodyParser
 
 $Class* ResponseContent$UnknownLengthBodyParser::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString")) {
 			return ResponseContent$UnknownLengthBodyParser$$Lambda$dbgString::load$(name, initialize);
 		}
 	}
-	$loadClass(ResponseContent$UnknownLengthBodyParser, name, initialize, &_ResponseContent$UnknownLengthBodyParser_ClassInfo_, clinit$ResponseContent$UnknownLengthBodyParser, allocate$ResponseContent$UnknownLengthBodyParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/ResponseContent;", nullptr, $FINAL | $SYNTHETIC, $field(ResponseContent$UnknownLengthBodyParser, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(ResponseContent$UnknownLengthBodyParser, $assertionsDisabled)},
+		{"onComplete", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/lang/Throwable;>;", $FINAL, $field(ResponseContent$UnknownLengthBodyParser, onComplete)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(ResponseContent$UnknownLengthBodyParser, debug)},
+		{"dbgTag", "Ljava/lang/String;", nullptr, $FINAL, $field(ResponseContent$UnknownLengthBodyParser, dbgTag)},
+		{"closedExceptionally", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(ResponseContent$UnknownLengthBodyParser, closedExceptionally)},
+		{"sub", "Ljdk/internal/net/http/AbstractSubscription;", nullptr, $VOLATILE, $field(ResponseContent$UnknownLengthBodyParser, sub)},
+		{"breceived", "I", nullptr, $VOLATILE, $field(ResponseContent$UnknownLengthBodyParser, breceived)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/ResponseContent;Ljava/util/function/Consumer;)V", "(Ljava/util/function/Consumer<Ljava/lang/Throwable;>;)V", 0, $method(ResponseContent$UnknownLengthBodyParser, init$, void, $ResponseContent*, $Consumer*)},
+		{"accept", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, accept, void, $ByteBuffer*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, accept, void, Object$*)},
+		{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, complete, void)},
+		{"currentStateMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, currentStateMessage, $String*)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(ResponseContent$UnknownLengthBodyParser, dbgString, $String*)},
+		{"onSubscribe", "(Ljdk/internal/net/http/AbstractSubscription;)V", nullptr, $PUBLIC, $virtualMethod(ResponseContent$UnknownLengthBodyParser, onSubscribe, void, $AbstractSubscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser", "jdk.internal.net.http.ResponseContent", "UnknownLengthBodyParser", 0},
+		{"jdk.internal.net.http.ResponseContent$BodyParser", "jdk.internal.net.http.ResponseContent", "BodyParser", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.ResponseContent$UnknownLengthBodyParser",
+		"java.lang.Object",
+		"jdk.internal.net.http.ResponseContent$BodyParser",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.ResponseContent"
+	};
+	$loadClass(ResponseContent$UnknownLengthBodyParser, name, initialize, &classInfo$$, ResponseContent$UnknownLengthBodyParser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseContent$UnknownLengthBodyParser);
+	});
 	return class$;
 }
 

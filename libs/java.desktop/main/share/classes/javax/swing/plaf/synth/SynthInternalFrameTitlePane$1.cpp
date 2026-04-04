@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthInternalFrameTitlePane$1.h>
-
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/beans/PropertyVetoException.h>
@@ -15,55 +14,12 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $SynthInternalFrameTitlePane = ::javax::swing::plaf::synth::SynthInternalFrameTitlePane;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthInternalFrameTitlePane$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/synth/SynthInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(SynthInternalFrameTitlePane$1, this$0)},
-	{}
-};
-
-$MethodInfo _SynthInternalFrameTitlePane$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/synth/SynthInternalFrameTitlePane;)V", nullptr, 0, $method(SynthInternalFrameTitlePane$1, init$, void, $SynthInternalFrameTitlePane*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameTitlePane$1, mousePressed, void, $MouseEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthInternalFrameTitlePane$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.synth.SynthInternalFrameTitlePane",
-	"assembleSystemMenu",
-	"()V"
-};
-
-$InnerClassInfo _SynthInternalFrameTitlePane$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthInternalFrameTitlePane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthInternalFrameTitlePane$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthInternalFrameTitlePane$1",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_SynthInternalFrameTitlePane$1_FieldInfo_,
-	_SynthInternalFrameTitlePane$1_MethodInfo_,
-	nullptr,
-	&_SynthInternalFrameTitlePane$1_EnclosingMethodInfo_,
-	_SynthInternalFrameTitlePane$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthInternalFrameTitlePane"
-};
-
-$Object* allocate$SynthInternalFrameTitlePane$1($Class* clazz) {
-	return $of($alloc(SynthInternalFrameTitlePane$1));
-}
 
 void SynthInternalFrameTitlePane$1::init$($SynthInternalFrameTitlePane* this$0) {
 	$set(this, this$0, this$0);
@@ -72,7 +28,7 @@ void SynthInternalFrameTitlePane$1::init$($SynthInternalFrameTitlePane* this$0) 
 
 void SynthInternalFrameTitlePane$1::mousePressed($MouseEvent* e) {
 	try {
-		$nc($($SynthInternalFrameTitlePane::access$000(this->this$0)))->setSelected(true);
+		$$nc($SynthInternalFrameTitlePane::access$000(this->this$0))->setSelected(true);
 	} catch ($PropertyVetoException& pve) {
 	}
 	this->this$0->showSystemMenu();
@@ -82,7 +38,42 @@ SynthInternalFrameTitlePane$1::SynthInternalFrameTitlePane$1() {
 }
 
 $Class* SynthInternalFrameTitlePane$1::load$($String* name, bool initialize) {
-	$loadClass(SynthInternalFrameTitlePane$1, name, initialize, &_SynthInternalFrameTitlePane$1_ClassInfo_, allocate$SynthInternalFrameTitlePane$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/synth/SynthInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(SynthInternalFrameTitlePane$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/synth/SynthInternalFrameTitlePane;)V", nullptr, 0, $method(SynthInternalFrameTitlePane$1, init$, void, $SynthInternalFrameTitlePane*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthInternalFrameTitlePane$1, mousePressed, void, $MouseEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.synth.SynthInternalFrameTitlePane",
+		"assembleSystemMenu",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthInternalFrameTitlePane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthInternalFrameTitlePane$1",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthInternalFrameTitlePane"
+	};
+	$loadClass(SynthInternalFrameTitlePane$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthInternalFrameTitlePane$1));
+	});
 	return class$;
 }
 

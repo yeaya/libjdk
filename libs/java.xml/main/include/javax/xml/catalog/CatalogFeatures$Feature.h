@@ -24,6 +24,7 @@ class $import CatalogFeatures$Feature : public ::java::lang::Enum {
 public:
 	CatalogFeatures$Feature();
 	static $Array<::javax::xml::catalog::CatalogFeatures$Feature>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, $String* value, bool hasSystem);
 	virtual $String* defaultValue();
 	virtual bool equalsPropertyName($String* propertyName);

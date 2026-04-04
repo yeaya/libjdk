@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/helper/AttrCompare.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <java/util/Comparator.h>
 #include <org/w3c/dom/Attr.h>
@@ -25,40 +24,6 @@ namespace com {
 						namespace security {
 							namespace c14n {
 								namespace helper {
-
-$FieldInfo _AttrCompare_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttrCompare, serialVersionUID)},
-	{"ATTR0_BEFORE_ATTR1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttrCompare, ATTR0_BEFORE_ATTR1)},
-	{"ATTR1_BEFORE_ATTR0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttrCompare, ATTR1_BEFORE_ATTR0)},
-	{"XMLNS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttrCompare, XMLNS)},
-	{}
-};
-
-$MethodInfo _AttrCompare_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AttrCompare, init$, void)},
-	{"compare", "(Lorg/w3c/dom/Attr;Lorg/w3c/dom/Attr;)I", nullptr, $PUBLIC, $virtualMethod(AttrCompare, compare, int32_t, $Attr*, $Attr*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AttrCompare, compare, int32_t, Object$*, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AttrCompare_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.helper.AttrCompare",
-	"java.lang.Object",
-	"java.util.Comparator,java.io.Serializable",
-	_AttrCompare_FieldInfo_,
-	_AttrCompare_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Comparator<Lorg/w3c/dom/Attr;>;Ljava/io/Serializable;"
-};
-
-$Object* allocate$AttrCompare($Class* clazz) {
-	return $of($alloc(AttrCompare));
-}
 
 bool AttrCompare::equals(Object$* arg0) {
 	 return this->$Comparator::equals(arg0);
@@ -86,11 +51,11 @@ void AttrCompare::init$() {
 }
 
 int32_t AttrCompare::compare($Attr* attr0, $Attr* attr1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, namespaceURI0, $nc(attr0)->getNamespaceURI());
 	$var($String, namespaceURI1, $nc(attr1)->getNamespaceURI());
 	bool isNamespaceAttr0 = $nc(AttrCompare::XMLNS)->equals(namespaceURI0);
-	bool isNamespaceAttr1 = $nc(AttrCompare::XMLNS)->equals(namespaceURI1);
+	bool isNamespaceAttr1 = AttrCompare::XMLNS->equals(namespaceURI1);
 	if (isNamespaceAttr0) {
 		if (isNamespaceAttr1) {
 			$var($String, localname0, attr0->getLocalName());
@@ -121,7 +86,7 @@ int32_t AttrCompare::compare($Attr* attr0, $Attr* attr1) {
 	if (a != 0) {
 		return a;
 	}
-	return $nc($(attr0->getLocalName()))->compareTo($(attr1->getLocalName()));
+	return $$nc(attr0->getLocalName())->compareTo($(attr1->getLocalName()));
 }
 
 int32_t AttrCompare::compare(Object$* attr0, Object$* attr1) {
@@ -131,13 +96,42 @@ int32_t AttrCompare::compare(Object$* attr0, Object$* attr1) {
 AttrCompare::AttrCompare() {
 }
 
-void clinit$AttrCompare($Class* class$) {
+void AttrCompare::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(AttrCompare::XMLNS, $Constants::NamespaceSpecNS);
 }
 
 $Class* AttrCompare::load$($String* name, bool initialize) {
-	$loadClass(AttrCompare, name, initialize, &_AttrCompare_ClassInfo_, clinit$AttrCompare, allocate$AttrCompare);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttrCompare, serialVersionUID)},
+		{"ATTR0_BEFORE_ATTR1", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttrCompare, ATTR0_BEFORE_ATTR1)},
+		{"ATTR1_BEFORE_ATTR0", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AttrCompare, ATTR1_BEFORE_ATTR0)},
+		{"XMLNS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AttrCompare, XMLNS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AttrCompare, init$, void)},
+		{"compare", "(Lorg/w3c/dom/Attr;Lorg/w3c/dom/Attr;)I", nullptr, $PUBLIC, $virtualMethod(AttrCompare, compare, int32_t, $Attr*, $Attr*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AttrCompare, compare, int32_t, Object$*, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.helper.AttrCompare",
+		"java.lang.Object",
+		"java.util.Comparator,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Comparator<Lorg/w3c/dom/Attr;>;Ljava/io/Serializable;"
+	};
+	$loadClass(AttrCompare, name, initialize, &classInfo$$, AttrCompare::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttrCompare));
+	});
 	return class$;
 }
 

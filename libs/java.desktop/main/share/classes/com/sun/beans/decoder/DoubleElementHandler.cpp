@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/DoubleElementHandler.h>
-
 #include <com/sun/beans/decoder/StringElementHandler.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace com {
 		namespace beans {
 			namespace decoder {
 
-$MethodInfo _DoubleElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DoubleElementHandler, init$, void)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoubleElementHandler, getValue, $Object*, $String*)},
-	{}
-};
-
-$ClassInfo _DoubleElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.DoubleElementHandler",
-	"com.sun.beans.decoder.StringElementHandler",
-	nullptr,
-	nullptr,
-	_DoubleElementHandler_MethodInfo_
-};
-
-$Object* allocate$DoubleElementHandler($Class* clazz) {
-	return $of($alloc(DoubleElementHandler));
-}
-
 void DoubleElementHandler::init$() {
 	$StringElementHandler::init$();
 }
@@ -44,7 +24,22 @@ DoubleElementHandler::DoubleElementHandler() {
 }
 
 $Class* DoubleElementHandler::load$($String* name, bool initialize) {
-	$loadClass(DoubleElementHandler, name, initialize, &_DoubleElementHandler_ClassInfo_, allocate$DoubleElementHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DoubleElementHandler, init$, void)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DoubleElementHandler, getValue, $Object*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.DoubleElementHandler",
+		"com.sun.beans.decoder.StringElementHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DoubleElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DoubleElementHandler);
+	});
 	return class$;
 }
 

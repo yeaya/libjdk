@@ -1,5 +1,4 @@
 #include <sun/awt/windows/awtLocalization_zh_TW.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,39 +11,20 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$MethodInfo _awtLocalization_zh_TW_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(awtLocalization_zh_TW, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(awtLocalization_zh_TW, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _awtLocalization_zh_TW_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.windows.awtLocalization_zh_TW",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_awtLocalization_zh_TW_MethodInfo_
-};
-
-$Object* allocate$awtLocalization_zh_TW($Class* clazz) {
-	return $of($alloc(awtLocalization_zh_TW));
-}
-
 void awtLocalization_zh_TW::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* awtLocalization_zh_TW::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("allFiles"_s),
-			$of(u"所有檔案"_s)
+			"allFiles"_s,
+			u"所有檔案"_s
 		}),
 		$$new($ObjectArray, {
-			$of("menuFont"_s),
-			$of("SansSerif-plain-12"_s)
+			"menuFont"_s,
+			"SansSerif-plain-12"_s
 		})
 	});
 }
@@ -53,7 +33,22 @@ awtLocalization_zh_TW::awtLocalization_zh_TW() {
 }
 
 $Class* awtLocalization_zh_TW::load$($String* name, bool initialize) {
-	$loadClass(awtLocalization_zh_TW, name, initialize, &_awtLocalization_zh_TW_ClassInfo_, allocate$awtLocalization_zh_TW);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(awtLocalization_zh_TW, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(awtLocalization_zh_TW, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.windows.awtLocalization_zh_TW",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(awtLocalization_zh_TW, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(awtLocalization_zh_TW);
+	});
 	return class$;
 }
 

@@ -187,6 +187,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual bool atLeastOneProcessor();
 	bool callProcessor(::javax::annotation::processing::Processor* proc, ::java::util::Set* tes, ::javax::annotation::processing::RoundEnvironment* renv);

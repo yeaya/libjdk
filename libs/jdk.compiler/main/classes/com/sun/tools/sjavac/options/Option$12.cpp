@@ -1,14 +1,11 @@
 #include <com/sun/tools/sjavac/options/Option$12.h>
-
 #include <com/sun/tools/sjavac/CopyFile.h>
-#include <com/sun/tools/sjavac/Transformer.h>
 #include <com/sun/tools/sjavac/options/ArgumentIterator.h>
 #include <com/sun/tools/sjavac/options/Option.h>
 #include <com/sun/tools/sjavac/options/OptionHelper.h>
 #include <jcpp.h>
 
 using $CopyFile = ::com::sun::tools::sjavac::CopyFile;
-using $Transformer = ::com::sun::tools::sjavac::Transformer;
 using $ArgumentIterator = ::com::sun::tools::sjavac::options::ArgumentIterator;
 using $Option = ::com::sun::tools::sjavac::options::Option;
 using $OptionHelper = ::com::sun::tools::sjavac::options::OptionHelper;
@@ -23,54 +20,17 @@ namespace com {
 			namespace sjavac {
 				namespace options {
 
-$MethodInfo _Option$12_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Option$12, init$, void, $String*, int32_t, $String*, $String*)},
-	{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED, $virtualMethod(Option$12, processMatching, void, $ArgumentIterator*, $OptionHelper*)},
-	{}
-};
-
-$EnclosingMethodInfo _Option$12_EnclosingMethodInfo_ = {
-	"com.sun.tools.sjavac.options.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$12_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.options.Option$12", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$12_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.sjavac.options.Option$12",
-	"com.sun.tools.sjavac.options.Option",
-	nullptr,
-	nullptr,
-	_Option$12_MethodInfo_,
-	nullptr,
-	&_Option$12_EnclosingMethodInfo_,
-	_Option$12_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.options.Option"
-};
-
-$Object* allocate$Option$12($Class* clazz) {
-	return $of($alloc(Option$12));
-}
-
 void Option$12::init$($String* $enum$name, int32_t $enum$ordinal, $String* arg, $String* description) {
 	$Option::init$($enum$name, $enum$ordinal, arg, description);
 }
 
 void Option$12::processMatching($ArgumentIterator* iter, $OptionHelper* helper) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(iter)->hasNext()) {
 		$nc(helper)->reportError($$str({this->arg, " must be followed by a resource type"_s}));
 		return;
 	}
-	$var($String, copyArg, $cast($String, $nc(iter)->next()));
+	$var($String, copyArg, $cast($String, iter->next()));
 	if (!$nc(copyArg)->matches("\\.[a-zA-Z_][a-zA-Z0-9_]*"_s)) {
 		$nc(helper)->reportError($$str({"The string \""_s, copyArg, "\" is not a valid resource type."_s}));
 		return;
@@ -82,7 +42,38 @@ Option$12::Option$12() {
 }
 
 $Class* Option$12::load$($String* name, bool initialize) {
-	$loadClass(Option$12, name, initialize, &_Option$12_ClassInfo_, allocate$Option$12);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Option$12, init$, void, $String*, int32_t, $String*, $String*)},
+		{"processMatching", "(Lcom/sun/tools/sjavac/options/ArgumentIterator;Lcom/sun/tools/sjavac/options/OptionHelper;)V", nullptr, $PROTECTED, $virtualMethod(Option$12, processMatching, void, $ArgumentIterator*, $OptionHelper*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.sjavac.options.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.options.Option$12", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.sjavac.options.Option$12",
+		"com.sun.tools.sjavac.options.Option",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.options.Option"
+	};
+	$loadClass(Option$12, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$12));
+	});
 	return class$;
 }
 

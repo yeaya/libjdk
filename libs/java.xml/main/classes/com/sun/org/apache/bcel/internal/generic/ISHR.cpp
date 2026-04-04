@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ISHR.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ArithmeticInstruction = ::com::sun::org::apache::bcel::internal::generic::ArithmeticInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _ISHR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ISHR, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ISHR, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _ISHR_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ISHR",
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	nullptr,
-	nullptr,
-	_ISHR_MethodInfo_
-};
-
-$Object* allocate$ISHR($Class* clazz) {
-	return $of($alloc(ISHR));
-}
 
 void ISHR::init$() {
 	$ArithmeticInstruction::init$($Const::ISHR);
@@ -62,7 +39,22 @@ ISHR::ISHR() {
 }
 
 $Class* ISHR::load$($String* name, bool initialize) {
-	$loadClass(ISHR, name, initialize, &_ISHR_ClassInfo_, allocate$ISHR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ISHR, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ISHR, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ISHR",
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ISHR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ISHR));
+	});
 	return class$;
 }
 

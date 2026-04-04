@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL$Balance.h>
-
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL$Pan.h>
 #include <com/sun/media/sound/DirectAudioDevice$DirectDL.h>
 #include <javax/sound/sampled/FloatControl$Type.h>
@@ -9,7 +8,6 @@
 #undef BALANCE
 
 using $DirectAudioDevice$DirectDL = ::com::sun::media::sound::DirectAudioDevice$DirectDL;
-using $DirectAudioDevice$DirectDL$Pan = ::com::sun::media::sound::DirectAudioDevice$DirectDL$Pan;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -22,44 +20,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DirectAudioDevice$DirectDL$Balance_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/DirectAudioDevice$DirectDL;", nullptr, $FINAL | $SYNTHETIC, $field(DirectAudioDevice$DirectDL$Balance, this$0)},
-	{}
-};
-
-$MethodInfo _DirectAudioDevice$DirectDL$Balance_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/DirectAudioDevice$DirectDL;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectDL$Balance, init$, void, $DirectAudioDevice$DirectDL*)},
-	{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectDL$Balance, setValue, void, float)},
-	{"setValueImpl", "(F)V", nullptr, 0, $method(DirectAudioDevice$DirectDL$Balance, setValueImpl, void, float)},
-	{}
-};
-
-$InnerClassInfo _DirectAudioDevice$DirectDL$Balance_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
-	{"com.sun.media.sound.DirectAudioDevice$DirectDL$Balance", "com.sun.media.sound.DirectAudioDevice$DirectDL", "Balance", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _DirectAudioDevice$DirectDL$Balance_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DirectAudioDevice$DirectDL$Balance",
-	"javax.sound.sampled.FloatControl",
-	nullptr,
-	_DirectAudioDevice$DirectDL$Balance_FieldInfo_,
-	_DirectAudioDevice$DirectDL$Balance_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DirectAudioDevice$DirectDL$Balance_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.DirectAudioDevice"
-};
-
-$Object* allocate$DirectAudioDevice$DirectDL$Balance($Class* clazz) {
-	return $of($alloc(DirectAudioDevice$DirectDL$Balance));
-}
 
 void DirectAudioDevice$DirectDL$Balance::init$($DirectAudioDevice$DirectDL* this$0) {
 	$set(this, this$0, this$0);
@@ -81,7 +41,39 @@ DirectAudioDevice$DirectDL$Balance::DirectAudioDevice$DirectDL$Balance() {
 }
 
 $Class* DirectAudioDevice$DirectDL$Balance::load$($String* name, bool initialize) {
-	$loadClass(DirectAudioDevice$DirectDL$Balance, name, initialize, &_DirectAudioDevice$DirectDL$Balance_ClassInfo_, allocate$DirectAudioDevice$DirectDL$Balance);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/DirectAudioDevice$DirectDL;", nullptr, $FINAL | $SYNTHETIC, $field(DirectAudioDevice$DirectDL$Balance, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/DirectAudioDevice$DirectDL;)V", nullptr, $PRIVATE, $method(DirectAudioDevice$DirectDL$Balance, init$, void, $DirectAudioDevice$DirectDL*)},
+		{"setValue", "(F)V", nullptr, $PUBLIC, $virtualMethod(DirectAudioDevice$DirectDL$Balance, setValue, void, float)},
+		{"setValueImpl", "(F)V", nullptr, 0, $method(DirectAudioDevice$DirectDL$Balance, setValueImpl, void, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.DirectAudioDevice$DirectDL", "com.sun.media.sound.DirectAudioDevice", "DirectDL", $PRIVATE | $STATIC},
+		{"com.sun.media.sound.DirectAudioDevice$DirectDL$Balance", "com.sun.media.sound.DirectAudioDevice$DirectDL", "Balance", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DirectAudioDevice$DirectDL$Balance",
+		"javax.sound.sampled.FloatControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.DirectAudioDevice"
+	};
+	$loadClass(DirectAudioDevice$DirectDL$Balance, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectAudioDevice$DirectDL$Balance);
+	});
 	return class$;
 }
 

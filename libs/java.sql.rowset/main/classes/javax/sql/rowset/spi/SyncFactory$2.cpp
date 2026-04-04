@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/spi/SyncFactory$2.h>
-
 #include <javax/sql/rowset/spi/SyncFactory.h>
 #include <jcpp.h>
 
@@ -13,43 +12,6 @@ namespace javax {
 		namespace rowset {
 			namespace spi {
 
-$MethodInfo _SyncFactory$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SyncFactory$2, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SyncFactory$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _SyncFactory$2_EnclosingMethodInfo_ = {
-	"javax.sql.rowset.spi.SyncFactory",
-	"initMapIfNecessary",
-	"()V"
-};
-
-$InnerClassInfo _SyncFactory$2_InnerClassesInfo_[] = {
-	{"javax.sql.rowset.spi.SyncFactory$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SyncFactory$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.sql.rowset.spi.SyncFactory$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_SyncFactory$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_SyncFactory$2_EnclosingMethodInfo_,
-	_SyncFactory$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.sql.rowset.spi.SyncFactory"
-};
-
-$Object* allocate$SyncFactory$2($Class* clazz) {
-	return $of($alloc(SyncFactory$2));
-}
-
 void SyncFactory$2::init$() {
 }
 
@@ -61,7 +23,38 @@ SyncFactory$2::SyncFactory$2() {
 }
 
 $Class* SyncFactory$2::load$($String* name, bool initialize) {
-	$loadClass(SyncFactory$2, name, initialize, &_SyncFactory$2_ClassInfo_, allocate$SyncFactory$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SyncFactory$2, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SyncFactory$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.sql.rowset.spi.SyncFactory",
+		"initMapIfNecessary",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sql.rowset.spi.SyncFactory$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.sql.rowset.spi.SyncFactory$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.sql.rowset.spi.SyncFactory"
+	};
+	$loadClass(SyncFactory$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SyncFactory$2);
+	});
 	return class$;
 }
 

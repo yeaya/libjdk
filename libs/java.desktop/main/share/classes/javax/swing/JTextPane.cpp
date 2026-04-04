@@ -1,5 +1,4 @@
 #include <javax/swing/JTextPane.h>
-
 #include <java/awt/Component.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/Math.h>
@@ -34,13 +33,10 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Map = ::java::util::Map;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
@@ -57,112 +53,10 @@ using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 namespace javax {
 	namespace swing {
 
-$NamedAttribute JTextPane_Attribute_var$0[] = {
-	{"description", 's', "A text component that can be marked up with attributes that are graphically represented."},
-	{}
-};
-
-$CompoundAttribute _JTextPane_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JTextPane_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", nullptr},
-	{}
-};
-
-$NamedAttribute JTextPane_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextPane_MethodAnnotations_getCharacterAttributes4[] = {
-	{"Ljava/beans/BeanProperty;", JTextPane_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JTextPane_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextPane_MethodAnnotations_getInputAttributes5[] = {
-	{"Ljava/beans/BeanProperty;", JTextPane_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JTextPane_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextPane_MethodAnnotations_getParagraphAttributes7[] = {
-	{"Ljava/beans/BeanProperty;", JTextPane_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JTextPane_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JTextPane_MethodAnnotations_getUIClassID11[] = {
-	{"Ljava/beans/BeanProperty;", JTextPane_Attribute_var$4},
-	{}
-};
-
-$FieldInfo _JTextPane_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextPane, uiClassID)},
-	{}
-};
-
-$MethodInfo _JTextPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTextPane, init$, void)},
-	{"<init>", "(Ljavax/swing/text/StyledDocument;)V", nullptr, $PUBLIC, $method(JTextPane, init$, void, $StyledDocument*)},
-	{"addStyle", "(Ljava/lang/String;Ljavax/swing/text/Style;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(JTextPane, addStyle, $Style*, $String*, $Style*)},
-	{"createDefaultEditorKit", "()Ljavax/swing/text/EditorKit;", nullptr, $PROTECTED, $virtualMethod(JTextPane, createDefaultEditorKit, $EditorKit*)},
-	{"getCharacterAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getCharacterAttributes, $AttributeSet*), nullptr, nullptr, _JTextPane_MethodAnnotations_getCharacterAttributes4},
-	{"getInputAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getInputAttributes, $MutableAttributeSet*), nullptr, nullptr, _JTextPane_MethodAnnotations_getInputAttributes5},
-	{"getLogicalStyle", "()Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getLogicalStyle, $Style*)},
-	{"getParagraphAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getParagraphAttributes, $AttributeSet*), nullptr, nullptr, _JTextPane_MethodAnnotations_getParagraphAttributes7},
-	{"getStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getStyle, $Style*, $String*)},
-	{"getStyledDocument", "()Ljavax/swing/text/StyledDocument;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getStyledDocument, $StyledDocument*)},
-	{"getStyledEditorKit", "()Ljavax/swing/text/StyledEditorKit;", nullptr, $PROTECTED | $FINAL, $method(JTextPane, getStyledEditorKit, $StyledEditorKit*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getUIClassID, $String*), nullptr, nullptr, _JTextPane_MethodAnnotations_getUIClassID11},
-	{"insertComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, insertComponent, void, $Component*)},
-	{"insertIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, insertIcon, void, $Icon*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTextPane, paramString, $String*)},
-	{"removeStyle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, removeStyle, void, $String*)},
-	{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, replaceSelection, void, $String*)},
-	{"replaceSelection", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(JTextPane, replaceSelection, void, $String*, bool)},
-	{"setCharacterAttributes", "(Ljavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setCharacterAttributes, void, $AttributeSet*, bool)},
-	{"setDocument", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setDocument, void, $Document*)},
-	{"setEditorKit", "(Ljavax/swing/text/EditorKit;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextPane, setEditorKit, void, $EditorKit*)},
-	{"setLogicalStyle", "(Ljavax/swing/text/Style;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setLogicalStyle, void, $Style*)},
-	{"setParagraphAttributes", "(Ljavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setParagraphAttributes, void, $AttributeSet*, bool)},
-	{"setStyledDocument", "(Ljavax/swing/text/StyledDocument;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setStyledDocument, void, $StyledDocument*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTextPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _JTextPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JTextPane",
-	"javax.swing.JEditorPane",
-	nullptr,
-	_JTextPane_FieldInfo_,
-	_JTextPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_JTextPane_Annotations_
-};
-
-$Object* allocate$JTextPane($Class* clazz) {
-	return $of($alloc(JTextPane));
-}
-
 $String* JTextPane::uiClassID = nullptr;
 
 void JTextPane::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JEditorPane::init$();
 	$var($EditorKit, editorKit, createDefaultEditorKit());
 	$var($String, contentType, $nc(editorKit)->getContentType());
@@ -207,9 +101,9 @@ void JTextPane::replaceSelection($String* content) {
 }
 
 void JTextPane::replaceSelection($String* content, bool checkEditable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (checkEditable && !isEditable()) {
-		$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+		$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 		return;
 	}
 	$var($Document, doc, getStyledDocument());
@@ -217,13 +111,13 @@ void JTextPane::replaceSelection($String* content, bool checkEditable) {
 		try {
 			$var($Caret, caret, getCaret());
 			bool composedTextSaved = saveComposedText($nc(caret)->getDot());
-			int32_t var$0 = $nc(caret)->getDot();
+			int32_t var$0 = caret->getDot();
 			int32_t p0 = $Math::min(var$0, caret->getMark());
-			int32_t var$1 = $nc(caret)->getDot();
+			int32_t var$1 = caret->getDot();
 			int32_t p1 = $Math::max(var$1, caret->getMark());
-			$var($AttributeSet, attr, $nc($(getInputAttributes()))->copyAttributes());
+			$var($AttributeSet, attr, $$nc(getInputAttributes())->copyAttributes());
 			if ($instanceOf($AbstractDocument, doc)) {
-				$nc(($cast($AbstractDocument, doc)))->replace(p0, p1 - p0, content, attr);
+				$cast($AbstractDocument, doc)->replace(p0, p1 - p0, content, attr);
 			} else {
 				if (p0 != p1) {
 					doc->remove(p0, p1 - p0);
@@ -236,25 +130,25 @@ void JTextPane::replaceSelection($String* content, bool checkEditable) {
 				restoreComposedText();
 			}
 		} catch ($BadLocationException& e) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this);
 		}
 	}
 }
 
 void JTextPane::insertComponent($Component* c) {
 	$var($MutableAttributeSet, inputAttributes, getInputAttributes());
-	$nc(inputAttributes)->removeAttributes(static_cast<$AttributeSet*>(inputAttributes));
+	$nc(inputAttributes)->removeAttributes(inputAttributes);
 	$StyleConstants::setComponent(inputAttributes, c);
 	replaceSelection(" "_s, false);
-	inputAttributes->removeAttributes(static_cast<$AttributeSet*>(inputAttributes));
+	inputAttributes->removeAttributes(inputAttributes);
 }
 
 void JTextPane::insertIcon($Icon* g) {
 	$var($MutableAttributeSet, inputAttributes, getInputAttributes());
-	$nc(inputAttributes)->removeAttributes(static_cast<$AttributeSet*>(inputAttributes));
+	$nc(inputAttributes)->removeAttributes(inputAttributes);
 	$StyleConstants::setIcon(inputAttributes, g);
 	replaceSelection(" "_s, false);
-	inputAttributes->removeAttributes(static_cast<$AttributeSet*>(inputAttributes));
+	inputAttributes->removeAttributes(inputAttributes);
 }
 
 $Style* JTextPane::addStyle($String* nm, $Style* parent) {
@@ -283,7 +177,7 @@ $Style* JTextPane::getLogicalStyle() {
 }
 
 $AttributeSet* JTextPane::getCharacterAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyledDocument, doc, getStyledDocument());
 	$var($Element, run, $nc(doc)->getCharacterElement(getCaretPosition()));
 	if (run != nullptr) {
@@ -293,7 +187,7 @@ $AttributeSet* JTextPane::getCharacterAttributes() {
 }
 
 void JTextPane::setCharacterAttributes($AttributeSet* attr, bool replace) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t p0 = getSelectionStart();
 	int32_t p1 = getSelectionEnd();
 	if (p0 != p1) {
@@ -302,14 +196,14 @@ void JTextPane::setCharacterAttributes($AttributeSet* attr, bool replace) {
 	} else {
 		$var($MutableAttributeSet, inputAttributes, getInputAttributes());
 		if (replace) {
-			$nc(inputAttributes)->removeAttributes(static_cast<$AttributeSet*>(inputAttributes));
+			$nc(inputAttributes)->removeAttributes(inputAttributes);
 		}
 		$nc(inputAttributes)->addAttributes(attr);
 	}
 }
 
 $AttributeSet* JTextPane::getParagraphAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StyledDocument, doc, getStyledDocument());
 	$var($Element, paragraph, $nc(doc)->getParagraphElement(getCaretPosition()));
 	if (paragraph != nullptr) {
@@ -326,7 +220,7 @@ void JTextPane::setParagraphAttributes($AttributeSet* attr, bool replace) {
 }
 
 $MutableAttributeSet* JTextPane::getInputAttributes() {
-	return $nc($(getStyledEditorKit()))->getInputAttributes();
+	return $$nc(getStyledEditorKit())->getInputAttributes();
 }
 
 $StyledEditorKit* JTextPane::getStyledEditorKit() {
@@ -335,11 +229,11 @@ $StyledEditorKit* JTextPane::getStyledEditorKit() {
 
 void JTextPane::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JTextPane::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JTextPane::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -363,12 +257,99 @@ $String* JTextPane::paramString() {
 JTextPane::JTextPane() {
 }
 
-void clinit$JTextPane($Class* class$) {
+void JTextPane::clinit$($Class* clazz) {
 	$assignStatic(JTextPane::uiClassID, "TextPaneUI"_s);
 }
 
 $Class* JTextPane::load$($String* name, bool initialize) {
-	$loadClass(JTextPane, name, initialize, &_JTextPane_ClassInfo_, clinit$JTextPane, allocate$JTextPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTextPane, uiClassID)},
+		{}
+	};
+	$NamedAttribute getCharacterAttributesmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getCharacterAttributesmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getCharacterAttributesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getInputAttributesmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getInputAttributesmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getInputAttributesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getParagraphAttributesmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getParagraphAttributesmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getParagraphAttributesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTextPane, init$, void)},
+		{"<init>", "(Ljavax/swing/text/StyledDocument;)V", nullptr, $PUBLIC, $method(JTextPane, init$, void, $StyledDocument*)},
+		{"addStyle", "(Ljava/lang/String;Ljavax/swing/text/Style;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(JTextPane, addStyle, $Style*, $String*, $Style*)},
+		{"createDefaultEditorKit", "()Ljavax/swing/text/EditorKit;", nullptr, $PROTECTED, $virtualMethod(JTextPane, createDefaultEditorKit, $EditorKit*)},
+		{"getCharacterAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getCharacterAttributes, $AttributeSet*), nullptr, nullptr, getCharacterAttributesmethodAnnotations$$},
+		{"getInputAttributes", "()Ljavax/swing/text/MutableAttributeSet;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getInputAttributes, $MutableAttributeSet*), nullptr, nullptr, getInputAttributesmethodAnnotations$$},
+		{"getLogicalStyle", "()Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getLogicalStyle, $Style*)},
+		{"getParagraphAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getParagraphAttributes, $AttributeSet*), nullptr, nullptr, getParagraphAttributesmethodAnnotations$$},
+		{"getStyle", "(Ljava/lang/String;)Ljavax/swing/text/Style;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getStyle, $Style*, $String*)},
+		{"getStyledDocument", "()Ljavax/swing/text/StyledDocument;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getStyledDocument, $StyledDocument*)},
+		{"getStyledEditorKit", "()Ljavax/swing/text/StyledEditorKit;", nullptr, $PROTECTED | $FINAL, $method(JTextPane, getStyledEditorKit, $StyledEditorKit*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JTextPane, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"insertComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, insertComponent, void, $Component*)},
+		{"insertIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, insertIcon, void, $Icon*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JTextPane, paramString, $String*)},
+		{"removeStyle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, removeStyle, void, $String*)},
+		{"replaceSelection", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, replaceSelection, void, $String*)},
+		{"replaceSelection", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(JTextPane, replaceSelection, void, $String*, bool)},
+		{"setCharacterAttributes", "(Ljavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setCharacterAttributes, void, $AttributeSet*, bool)},
+		{"setDocument", "(Ljavax/swing/text/Document;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setDocument, void, $Document*)},
+		{"setEditorKit", "(Ljavax/swing/text/EditorKit;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(JTextPane, setEditorKit, void, $EditorKit*)},
+		{"setLogicalStyle", "(Ljavax/swing/text/Style;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setLogicalStyle, void, $Style*)},
+		{"setParagraphAttributes", "(Ljavax/swing/text/AttributeSet;Z)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setParagraphAttributes, void, $AttributeSet*, bool)},
+		{"setStyledDocument", "(Ljavax/swing/text/StyledDocument;)V", nullptr, $PUBLIC, $virtualMethod(JTextPane, setStyledDocument, void, $StyledDocument*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JTextPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"description", 's', "A text component that can be marked up with attributes that are graphically represented."},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JTextPane",
+		"javax.swing.JEditorPane",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(JTextPane, name, initialize, &classInfo$$, JTextPane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTextPane));
+	});
 	return class$;
 }
 

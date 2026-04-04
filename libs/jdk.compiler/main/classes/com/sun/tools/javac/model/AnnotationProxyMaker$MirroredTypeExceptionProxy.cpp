@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/model/AnnotationProxyMaker$MirroredTypeExceptionProxy.h>
-
 #include <com/sun/tools/javac/model/AnnotationProxyMaker.h>
 #include <java/io/ObjectInputStream.h>
 #include <javax/lang/model/type/MirroredTypeException.h>
@@ -23,48 +22,6 @@ namespace com {
 			namespace javac {
 				namespace model {
 
-$FieldInfo _AnnotationProxyMaker$MirroredTypeExceptionProxy_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AnnotationProxyMaker$MirroredTypeExceptionProxy, serialVersionUID)},
-	{"type", "Ljavax/lang/model/type/TypeMirror;", nullptr, $PRIVATE | $TRANSIENT, $field(AnnotationProxyMaker$MirroredTypeExceptionProxy, type)},
-	{"typeString", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AnnotationProxyMaker$MirroredTypeExceptionProxy, typeString)},
-	{}
-};
-
-$MethodInfo _AnnotationProxyMaker$MirroredTypeExceptionProxy_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/type/TypeMirror;)V", nullptr, 0, $method(AnnotationProxyMaker$MirroredTypeExceptionProxy, init$, void, $TypeMirror*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypeExceptionProxy, equals, bool, Object$*)},
-	{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(AnnotationProxyMaker$MirroredTypeExceptionProxy, generateException, $RuntimeException*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypeExceptionProxy, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AnnotationProxyMaker$MirroredTypeExceptionProxy, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypeExceptionProxy, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _AnnotationProxyMaker$MirroredTypeExceptionProxy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.model.AnnotationProxyMaker$MirroredTypeExceptionProxy", "com.sun.tools.javac.model.AnnotationProxyMaker", "MirroredTypeExceptionProxy", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _AnnotationProxyMaker$MirroredTypeExceptionProxy_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.model.AnnotationProxyMaker$MirroredTypeExceptionProxy",
-	"sun.reflect.annotation.ExceptionProxy",
-	nullptr,
-	_AnnotationProxyMaker$MirroredTypeExceptionProxy_FieldInfo_,
-	_AnnotationProxyMaker$MirroredTypeExceptionProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnnotationProxyMaker$MirroredTypeExceptionProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.model.AnnotationProxyMaker"
-};
-
-$Object* allocate$AnnotationProxyMaker$MirroredTypeExceptionProxy($Class* clazz) {
-	return $of($alloc(AnnotationProxyMaker$MirroredTypeExceptionProxy));
-}
-
 void AnnotationProxyMaker$MirroredTypeExceptionProxy::init$($TypeMirror* t) {
 	$ExceptionProxy::init$();
 	$set(this, type, t);
@@ -76,7 +33,7 @@ $String* AnnotationProxyMaker$MirroredTypeExceptionProxy::toString() {
 }
 
 int32_t AnnotationProxyMaker$MirroredTypeExceptionProxy::hashCode() {
-	return $nc($of((this->type != nullptr ? $of(this->type) : $of(this->typeString))))->hashCode();
+	return $nc((this->type != nullptr ? $of(this->type) : $of(this->typeString)))->hashCode();
 }
 
 bool AnnotationProxyMaker$MirroredTypeExceptionProxy::equals(Object$* obj) {
@@ -107,7 +64,43 @@ AnnotationProxyMaker$MirroredTypeExceptionProxy::AnnotationProxyMaker$MirroredTy
 }
 
 $Class* AnnotationProxyMaker$MirroredTypeExceptionProxy::load$($String* name, bool initialize) {
-	$loadClass(AnnotationProxyMaker$MirroredTypeExceptionProxy, name, initialize, &_AnnotationProxyMaker$MirroredTypeExceptionProxy_ClassInfo_, allocate$AnnotationProxyMaker$MirroredTypeExceptionProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(AnnotationProxyMaker$MirroredTypeExceptionProxy, serialVersionUID)},
+		{"type", "Ljavax/lang/model/type/TypeMirror;", nullptr, $PRIVATE | $TRANSIENT, $field(AnnotationProxyMaker$MirroredTypeExceptionProxy, type)},
+		{"typeString", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(AnnotationProxyMaker$MirroredTypeExceptionProxy, typeString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/lang/model/type/TypeMirror;)V", nullptr, 0, $method(AnnotationProxyMaker$MirroredTypeExceptionProxy, init$, void, $TypeMirror*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypeExceptionProxy, equals, bool, Object$*)},
+		{"generateException", "()Ljava/lang/RuntimeException;", nullptr, $PROTECTED, $virtualMethod(AnnotationProxyMaker$MirroredTypeExceptionProxy, generateException, $RuntimeException*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypeExceptionProxy, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(AnnotationProxyMaker$MirroredTypeExceptionProxy, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AnnotationProxyMaker$MirroredTypeExceptionProxy, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.model.AnnotationProxyMaker$MirroredTypeExceptionProxy", "com.sun.tools.javac.model.AnnotationProxyMaker", "MirroredTypeExceptionProxy", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.model.AnnotationProxyMaker$MirroredTypeExceptionProxy",
+		"sun.reflect.annotation.ExceptionProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.model.AnnotationProxyMaker"
+	};
+	$loadClass(AnnotationProxyMaker$MirroredTypeExceptionProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationProxyMaker$MirroredTypeExceptionProxy);
+	});
 	return class$;
 }
 

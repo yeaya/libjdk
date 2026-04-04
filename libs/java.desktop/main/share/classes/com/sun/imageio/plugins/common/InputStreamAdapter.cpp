@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/InputStreamAdapter.h>
-
 #include <java/io/InputStream.h>
 #include <javax/imageio/stream/ImageInputStream.h>
 #include <jcpp.h>
@@ -15,31 +14,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace common {
-
-$FieldInfo _InputStreamAdapter_FieldInfo_[] = {
-	{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(InputStreamAdapter, stream)},
-	{}
-};
-
-$MethodInfo _InputStreamAdapter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PUBLIC, $method(InputStreamAdapter, init$, void, $ImageInputStream*)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InputStreamAdapter, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStreamAdapter, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _InputStreamAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.InputStreamAdapter",
-	"java.io.InputStream",
-	nullptr,
-	_InputStreamAdapter_FieldInfo_,
-	_InputStreamAdapter_MethodInfo_
-};
-
-$Object* allocate$InputStreamAdapter($Class* clazz) {
-	return $of($alloc(InputStreamAdapter));
-}
 
 void InputStreamAdapter::init$($ImageInputStream* stream) {
 	$InputStream::init$();
@@ -58,7 +32,27 @@ InputStreamAdapter::InputStreamAdapter() {
 }
 
 $Class* InputStreamAdapter::load$($String* name, bool initialize) {
-	$loadClass(InputStreamAdapter, name, initialize, &_InputStreamAdapter_ClassInfo_, allocate$InputStreamAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(InputStreamAdapter, stream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/stream/ImageInputStream;)V", nullptr, $PUBLIC, $method(InputStreamAdapter, init$, void, $ImageInputStream*)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(InputStreamAdapter, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(InputStreamAdapter, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.InputStreamAdapter",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputStreamAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InputStreamAdapter);
+	});
 	return class$;
 }
 

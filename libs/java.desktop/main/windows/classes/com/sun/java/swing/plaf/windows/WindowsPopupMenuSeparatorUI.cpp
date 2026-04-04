@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsPopupMenuSeparatorUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
@@ -31,7 +30,6 @@ using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
-using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -47,27 +45,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsPopupMenuSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsPopupMenuSeparatorUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPopupMenuSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuSeparatorUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsPopupMenuSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsPopupMenuSeparatorUI",
-	"javax.swing.plaf.basic.BasicPopupMenuSeparatorUI",
-	nullptr,
-	nullptr,
-	_WindowsPopupMenuSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$WindowsPopupMenuSeparatorUI($Class* clazz) {
-	return $of($alloc(WindowsPopupMenuSeparatorUI));
-}
-
 void WindowsPopupMenuSeparatorUI::init$() {
 	$BasicPopupMenuSeparatorUI::init$();
 }
@@ -78,7 +55,7 @@ $ComponentUI* WindowsPopupMenuSeparatorUI::createUI($JComponent* c) {
 }
 
 void WindowsPopupMenuSeparatorUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, s, $nc(c)->getSize());
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if ($WindowsMenuItemUI::isVistaPainting(xp)) {
@@ -86,9 +63,9 @@ void WindowsPopupMenuSeparatorUI::paint($Graphics* g, $JComponent* c) {
 		$var($Component, parent, c->getParent());
 		if ($instanceOf($JComponent, parent)) {
 			$init($WindowsPopupMenuUI);
-			$var($Object, gutterOffsetObject, $nc(($cast($JComponent, parent)))->getClientProperty($WindowsPopupMenuUI::GUTTER_OFFSET_KEY));
+			$var($Object, gutterOffsetObject, $cast($JComponent, parent)->getClientProperty($WindowsPopupMenuUI::GUTTER_OFFSET_KEY));
 			if ($instanceOf($Integer, gutterOffsetObject)) {
-				int32_t var$0 = $nc(($cast($Integer, gutterOffsetObject)))->intValue();
+				int32_t var$0 = $cast($Integer, gutterOffsetObject)->intValue();
 				x = var$0 - c->getX();
 				x += $WindowsPopupMenuUI::getGutterWidth();
 			}
@@ -109,11 +86,11 @@ void WindowsPopupMenuSeparatorUI::paint($Graphics* g, $JComponent* c) {
 }
 
 $Dimension* WindowsPopupMenuSeparatorUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t fontHeight = 0;
 	$var($Font, font, $nc(c)->getFont());
 	if (font != nullptr) {
-		fontHeight = $nc($(c->getFontMetrics(font)))->getHeight();
+		fontHeight = $$nc(c->getFontMetrics(font))->getHeight();
 	}
 	return $new($Dimension, 0, fontHeight / 2 + 2);
 }
@@ -122,7 +99,24 @@ WindowsPopupMenuSeparatorUI::WindowsPopupMenuSeparatorUI() {
 }
 
 $Class* WindowsPopupMenuSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsPopupMenuSeparatorUI, name, initialize, &_WindowsPopupMenuSeparatorUI_ClassInfo_, allocate$WindowsPopupMenuSeparatorUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsPopupMenuSeparatorUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsPopupMenuSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsPopupMenuSeparatorUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsPopupMenuSeparatorUI",
+		"javax.swing.plaf.basic.BasicPopupMenuSeparatorUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsPopupMenuSeparatorUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsPopupMenuSeparatorUI);
+	});
 	return class$;
 }
 

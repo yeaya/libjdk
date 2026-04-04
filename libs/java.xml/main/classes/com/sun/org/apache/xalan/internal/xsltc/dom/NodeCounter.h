@@ -63,6 +63,7 @@ class NodeCounter : public ::java::lang::Object {
 	$class(NodeCounter, 0, ::java::lang::Object)
 public:
 	NodeCounter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::Translet* translet, ::com::sun::org::apache::xalan::internal::xsltc::DOM* document, ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* iterator);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::Translet* translet, ::com::sun::org::apache::xalan::internal::xsltc::DOM* document, ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* iterator, bool hasFrom);
 	$String* alphaValue(int32_t value, int32_t min, int32_t max);

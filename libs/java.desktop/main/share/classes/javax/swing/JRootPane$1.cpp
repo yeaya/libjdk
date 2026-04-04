@@ -1,5 +1,4 @@
 #include <javax/swing/JRootPane$1.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JRootPane.h>
@@ -19,48 +18,6 @@ using $JRootPane = ::javax::swing::JRootPane;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _JRootPane$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JRootPane;", nullptr, $FINAL | $SYNTHETIC, $field(JRootPane$1, this$0)},
-	{}
-};
-
-$MethodInfo _JRootPane$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JRootPane;)V", nullptr, 0, $method(JRootPane$1, init$, void, $JRootPane*)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JRootPane$1, addLayoutComponent, void, $Component*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _JRootPane$1_EnclosingMethodInfo_ = {
-	"javax.swing.JRootPane",
-	"createContentPane",
-	"()Ljava/awt/Container;"
-};
-
-$InnerClassInfo _JRootPane$1_InnerClassesInfo_[] = {
-	{"javax.swing.JRootPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JRootPane$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JRootPane$1",
-	"java.awt.BorderLayout",
-	nullptr,
-	_JRootPane$1_FieldInfo_,
-	_JRootPane$1_MethodInfo_,
-	nullptr,
-	&_JRootPane$1_EnclosingMethodInfo_,
-	_JRootPane$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JRootPane"
-};
-
-$Object* allocate$JRootPane$1($Class* clazz) {
-	return $of($alloc(JRootPane$1));
-}
-
 void JRootPane$1::init$($JRootPane* this$0) {
 	$set(this, this$0, this$0);
 	$BorderLayout::init$();
@@ -79,7 +36,42 @@ JRootPane$1::JRootPane$1() {
 }
 
 $Class* JRootPane$1::load$($String* name, bool initialize) {
-	$loadClass(JRootPane$1, name, initialize, &_JRootPane$1_ClassInfo_, allocate$JRootPane$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JRootPane;", nullptr, $FINAL | $SYNTHETIC, $field(JRootPane$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JRootPane;)V", nullptr, 0, $method(JRootPane$1, init$, void, $JRootPane*)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(JRootPane$1, addLayoutComponent, void, $Component*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JRootPane",
+		"createContentPane",
+		"()Ljava/awt/Container;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JRootPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JRootPane$1",
+		"java.awt.BorderLayout",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JRootPane"
+	};
+	$loadClass(JRootPane$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JRootPane$1));
+	});
 	return class$;
 }
 

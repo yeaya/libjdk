@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$MaxSampleValue.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$MaxSampleValue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$MaxSampleValue, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$MaxSampleValue_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$MaxSampleValue", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "MaxSampleValue", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$MaxSampleValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$MaxSampleValue",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$MaxSampleValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$MaxSampleValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$MaxSampleValue($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$MaxSampleValue));
-}
-
 void BaselineTIFFTagSet$MaxSampleValue::init$() {
 	$TIFFTag::init$("MaxSampleValue"_s, 281, $sl(1, $TIFFTag::TIFF_SHORT));
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$MaxSampleValue::BaselineTIFFTagSet$MaxSampleValue() {
 }
 
 $Class* BaselineTIFFTagSet$MaxSampleValue::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$MaxSampleValue, name, initialize, &_BaselineTIFFTagSet$MaxSampleValue_ClassInfo_, allocate$BaselineTIFFTagSet$MaxSampleValue);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$MaxSampleValue, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$MaxSampleValue", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "MaxSampleValue", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$MaxSampleValue",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$MaxSampleValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$MaxSampleValue);
+	});
 	return class$;
 }
 

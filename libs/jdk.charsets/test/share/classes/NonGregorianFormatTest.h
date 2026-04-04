@@ -36,6 +36,7 @@ class $export NonGregorianFormatTest : public ::java::lang::Object {
 	$class(NonGregorianFormatTest, 0, ::java::lang::Object)
 public:
 	NonGregorianFormatTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void error($String* msg);
 	static void error($String* fmt, $ObjectArray* args);

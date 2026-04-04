@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/LocaleNames_lt.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,39 +12,20 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _LocaleNames_lt_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_lt, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_lt, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_lt_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.LocaleNames_lt",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_lt_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_lt($Class* clazz) {
-	return $of($alloc(LocaleNames_lt));
-}
-
 void LocaleNames_lt::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_lt::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("LT"_s),
-			$of("Lietuva"_s)
+			"LT"_s,
+			"Lietuva"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lt"_s),
-			$of(u"Lietuvių"_s)
+			"lt"_s,
+			u"Lietuvių"_s
 		})
 	});
 }
@@ -54,7 +34,22 @@ LocaleNames_lt::LocaleNames_lt() {
 }
 
 $Class* LocaleNames_lt::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_lt, name, initialize, &_LocaleNames_lt_ClassInfo_, allocate$LocaleNames_lt);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_lt, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_lt, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.LocaleNames_lt",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_lt, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_lt);
+	});
 	return class$;
 }
 

@@ -9,6 +9,7 @@ class $export bug4117335 : public ::java::lang::Object {
 	$class(bug4117335, 0, ::java::lang::Object)
 public:
 	bug4117335();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* bc;

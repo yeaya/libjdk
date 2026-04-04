@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NameCall.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -19,7 +18,6 @@
 
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $NameBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NameBase;
@@ -39,26 +37,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _NameCall_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(NameCall, init$, void, $QName*)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(NameCall, init$, void, $QName*, $List*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NameCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _NameCall_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.NameCall",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.NameBase",
-	nullptr,
-	nullptr,
-	_NameCall_MethodInfo_
-};
-
-$Object* allocate$NameCall($Class* clazz) {
-	return $of($alloc(NameCall));
-}
-
 void NameCall::init$($QName* fname) {
 	$NameBase::init$(fname);
 }
@@ -68,20 +46,36 @@ void NameCall::init$($QName* fname, $List* arguments) {
 }
 
 void NameCall::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
 	int32_t getName = $nc(cpg)->addInterfaceMethodref($Constants::DOM_INTF, $Constants::GET_NODE_NAME, $Constants::GET_NODE_NAME_SIG);
 	$NameBase::translate(classGen, methodGen);
-	$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, getName, 2)));
+	$nc(il)->append($$new($INVOKEINTERFACE, getName, 2));
 }
 
 NameCall::NameCall() {
 }
 
 $Class* NameCall::load$($String* name, bool initialize) {
-	$loadClass(NameCall, name, initialize, &_NameCall_ClassInfo_, allocate$NameCall);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)V", nullptr, $PUBLIC, $method(NameCall, init$, void, $QName*)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Expression;>;)V", $PUBLIC, $method(NameCall, init$, void, $QName*, $List*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(NameCall, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.NameCall",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.NameBase",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NameCall, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NameCall);
+	});
 	return class$;
 }
 

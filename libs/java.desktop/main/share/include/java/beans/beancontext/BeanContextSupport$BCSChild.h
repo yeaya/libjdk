@@ -28,7 +28,7 @@ public:
 	virtual bool isRemovePending();
 	virtual void setRemovePending(bool v);
 	::java::beans::beancontext::BeanContextSupport* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xAF4BF419EE45FF5B;
+	static const int64_t serialVersionUID = (int64_t)0xaf4bf419ee45ff5b;
 	$Object* child = nullptr;
 	$Object* proxyPeer = nullptr;
 	bool removePending = false;

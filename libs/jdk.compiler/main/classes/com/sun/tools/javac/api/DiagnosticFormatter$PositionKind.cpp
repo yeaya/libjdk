@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/DiagnosticFormatter$PositionKind.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,49 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace api {
-
-$FieldInfo _DiagnosticFormatter$PositionKind_FieldInfo_[] = {
-	{"START", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, START)},
-	{"END", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, END)},
-	{"LINE", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, LINE)},
-	{"COLUMN", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, COLUMN)},
-	{"OFFSET", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, OFFSET)},
-	{"$VALUES", "[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DiagnosticFormatter$PositionKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _DiagnosticFormatter$PositionKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$PositionKind, $values, $DiagnosticFormatter$PositionKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$PositionKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$PositionKind, valueOf, DiagnosticFormatter$PositionKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$PositionKind, values, $DiagnosticFormatter$PositionKindArray*)},
-	{}
-};
-
-$InnerClassInfo _DiagnosticFormatter$PositionKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.DiagnosticFormatter$PositionKind", "com.sun.tools.javac.api.DiagnosticFormatter", "PositionKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DiagnosticFormatter$PositionKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.api.DiagnosticFormatter$PositionKind",
-	"java.lang.Enum",
-	nullptr,
-	_DiagnosticFormatter$PositionKind_FieldInfo_,
-	_DiagnosticFormatter$PositionKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;>;",
-	nullptr,
-	_DiagnosticFormatter$PositionKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.DiagnosticFormatter"
-};
-
-$Object* allocate$DiagnosticFormatter$PositionKind($Class* clazz) {
-	return $of($alloc(DiagnosticFormatter$PositionKind));
-}
 
 DiagnosticFormatter$PositionKind* DiagnosticFormatter$PositionKind::START = nullptr;
 DiagnosticFormatter$PositionKind* DiagnosticFormatter$PositionKind::END = nullptr;
@@ -98,7 +54,7 @@ void DiagnosticFormatter$PositionKind::init$($String* $enum$name, int32_t $enum$
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$DiagnosticFormatter$PositionKind($Class* class$) {
+void DiagnosticFormatter$PositionKind::clinit$($Class* clazz) {
 	$assignStatic(DiagnosticFormatter$PositionKind::START, $new(DiagnosticFormatter$PositionKind, "START"_s, 0));
 	$assignStatic(DiagnosticFormatter$PositionKind::END, $new(DiagnosticFormatter$PositionKind, "END"_s, 1));
 	$assignStatic(DiagnosticFormatter$PositionKind::LINE, $new(DiagnosticFormatter$PositionKind, "LINE"_s, 2));
@@ -111,7 +67,44 @@ DiagnosticFormatter$PositionKind::DiagnosticFormatter$PositionKind() {
 }
 
 $Class* DiagnosticFormatter$PositionKind::load$($String* name, bool initialize) {
-	$loadClass(DiagnosticFormatter$PositionKind, name, initialize, &_DiagnosticFormatter$PositionKind_ClassInfo_, clinit$DiagnosticFormatter$PositionKind, allocate$DiagnosticFormatter$PositionKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"START", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, START)},
+		{"END", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, END)},
+		{"LINE", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, LINE)},
+		{"COLUMN", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, COLUMN)},
+		{"OFFSET", "Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DiagnosticFormatter$PositionKind, OFFSET)},
+		{"$VALUES", "[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DiagnosticFormatter$PositionKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DiagnosticFormatter$PositionKind, $values, $DiagnosticFormatter$PositionKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(DiagnosticFormatter$PositionKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$PositionKind, valueOf, DiagnosticFormatter$PositionKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(DiagnosticFormatter$PositionKind, values, $DiagnosticFormatter$PositionKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.DiagnosticFormatter$PositionKind", "com.sun.tools.javac.api.DiagnosticFormatter", "PositionKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.api.DiagnosticFormatter$PositionKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.DiagnosticFormatter"
+	};
+	$loadClass(DiagnosticFormatter$PositionKind, name, initialize, &classInfo$$, DiagnosticFormatter$PositionKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DiagnosticFormatter$PositionKind));
+	});
 	return class$;
 }
 

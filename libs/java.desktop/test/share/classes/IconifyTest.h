@@ -16,6 +16,7 @@ class $export IconifyTest : public ::java::lang::Object {
 	$class(IconifyTest, 0, ::java::lang::Object)
 public:
 	IconifyTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $volatile(bool) windowIconifiedIsCalled;

@@ -63,6 +63,7 @@ class $import PoolReader : public ::java::lang::Object {
 	$class(PoolReader, 0, ::java::lang::Object)
 public:
 	PoolReader();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::ByteBuffer* buf);
 	void init$(::com::sun::tools::javac::jvm::ClassReader* reader, ::com::sun::tools::javac::util::Names* names, ::com::sun::tools::javac::code::Symtab* syms);
 	void init$(::com::sun::tools::javac::jvm::ClassReader* reader, ::com::sun::tools::javac::util::ByteBuffer* buf, ::com::sun::tools::javac::util::Names* names, ::com::sun::tools::javac::code::Symtab* syms);

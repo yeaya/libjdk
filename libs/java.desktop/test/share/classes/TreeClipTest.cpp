@@ -1,57 +1,17 @@
 #include <TreeClipTest.h>
-
 #include <TreeClipTest$1.h>
 #include <java/awt/image/BufferedImage.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
 using $TreeClipTest$1 = ::TreeClipTest$1;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$FieldInfo _TreeClipTest_FieldInfo_[] = {
-	{"passed", "Z", nullptr, $STATIC, $staticField(TreeClipTest, passed)},
-	{}
-};
-
-$MethodInfo _TreeClipTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeClipTest, init$, void)},
-	{"checkImage", "(Ljava/awt/image/BufferedImage;I)Z", nullptr, $STATIC, $staticMethod(TreeClipTest, checkImage, bool, $BufferedImage*, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeClipTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TreeClipTest_InnerClassesInfo_[] = {
-	{"TreeClipTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TreeClipTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TreeClipTest",
-	"java.lang.Object",
-	nullptr,
-	_TreeClipTest_FieldInfo_,
-	_TreeClipTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TreeClipTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TreeClipTest$1"
-};
-
-$Object* allocate$TreeClipTest($Class* clazz) {
-	return $of($alloc(TreeClipTest));
-}
 
 bool TreeClipTest::passed = false;
 
@@ -62,7 +22,7 @@ bool TreeClipTest::checkImage($BufferedImage* img, int32_t clipY) {
 	$init(TreeClipTest);
 	for (int32_t y = clipY; y < $nc(img)->getHeight(); ++y) {
 		for (int32_t x = 0; x < img->getWidth(); ++x) {
-			if (((int32_t)(img->getRGB(x, y) & (uint32_t)0x00FFFFFF)) != 0x00FFFFFF) {
+			if ((img->getRGB(x, y) & 0x00ffffff) != 0x00ffffff) {
 				return false;
 			}
 		}
@@ -80,7 +40,7 @@ void TreeClipTest::main($StringArray* args) {
 	}
 }
 
-void clinit$TreeClipTest($Class* class$) {
+void TreeClipTest::clinit$($Class* clazz) {
 	TreeClipTest::passed = true;
 }
 
@@ -88,7 +48,37 @@ TreeClipTest::TreeClipTest() {
 }
 
 $Class* TreeClipTest::load$($String* name, bool initialize) {
-	$loadClass(TreeClipTest, name, initialize, &_TreeClipTest_ClassInfo_, clinit$TreeClipTest, allocate$TreeClipTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"passed", "Z", nullptr, $STATIC, $staticField(TreeClipTest, passed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeClipTest, init$, void)},
+		{"checkImage", "(Ljava/awt/image/BufferedImage;I)Z", nullptr, $STATIC, $staticMethod(TreeClipTest, checkImage, bool, $BufferedImage*, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeClipTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TreeClipTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TreeClipTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TreeClipTest$1"
+	};
+	$loadClass(TreeClipTest, name, initialize, &classInfo$$, TreeClipTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeClipTest);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/Target.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -83,35 +82,31 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$refSetRemove$1(unrefObj);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Target$$Lambda$lambda$refSetRemove$1>());
-	}
 	Target* inst$ = nullptr;
 	$Unreferenced* unrefObj = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Target$$Lambda$lambda$refSetRemove$1::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Target$$Lambda$lambda$refSetRemove$1, inst$)},
-	{"unrefObj", "Ljava/rmi/server/Unreferenced;", nullptr, $PUBLIC, $field(Target$$Lambda$lambda$refSetRemove$1, unrefObj)},
-	{}
-};
-$MethodInfo Target$$Lambda$lambda$refSetRemove$1::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/transport/Target;Ljava/rmi/server/Unreferenced;)V", nullptr, $PUBLIC, $method(Target$$Lambda$lambda$refSetRemove$1, init$, void, Target*, $Unreferenced*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Target$$Lambda$lambda$refSetRemove$1, run, void)},
-	{}
-};
-$ClassInfo Target$$Lambda$lambda$refSetRemove$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.Target$$Lambda$lambda$refSetRemove$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Target$$Lambda$lambda$refSetRemove$1::load$($String* name, bool initialize) {
-	$loadClass(Target$$Lambda$lambda$refSetRemove$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Target$$Lambda$lambda$refSetRemove$1, inst$)},
+		{"unrefObj", "Ljava/rmi/server/Unreferenced;", nullptr, $PUBLIC, $field(Target$$Lambda$lambda$refSetRemove$1, unrefObj)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/Target;Ljava/rmi/server/Unreferenced;)V", nullptr, $PUBLIC, $method(Target$$Lambda$lambda$refSetRemove$1, init$, void, Target*, $Unreferenced*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Target$$Lambda$lambda$refSetRemove$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.Target$$Lambda$lambda$refSetRemove$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Target$$Lambda$lambda$refSetRemove$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Target$$Lambda$lambda$refSetRemove$1);
+	});
 	return class$;
 }
 $Class* Target$$Lambda$lambda$refSetRemove$1::class$ = nullptr;
@@ -123,101 +118,39 @@ public:
 		$set(this, unrefObj, unrefObj);
 	}
 	virtual $Object* run() override {
-		 return $of(Target::lambda$refSetRemove$0(unrefObj));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Target$$Lambda$lambda$refSetRemove$0$1>());
+		 return Target::lambda$refSetRemove$0(unrefObj);
 	}
 	$Unreferenced* unrefObj = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Target$$Lambda$lambda$refSetRemove$0$1::fieldInfos[2] = {
-	{"unrefObj", "Ljava/rmi/server/Unreferenced;", nullptr, $PUBLIC, $field(Target$$Lambda$lambda$refSetRemove$0$1, unrefObj)},
-	{}
-};
-$MethodInfo Target$$Lambda$lambda$refSetRemove$0$1::methodInfos[3] = {
-	{"<init>", "(Ljava/rmi/server/Unreferenced;)V", nullptr, $PUBLIC, $method(Target$$Lambda$lambda$refSetRemove$0$1, init$, void, $Unreferenced*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Target$$Lambda$lambda$refSetRemove$0$1, run, $Object*)},
-	{}
-};
-$ClassInfo Target$$Lambda$lambda$refSetRemove$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.Target$$Lambda$lambda$refSetRemove$0$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Target$$Lambda$lambda$refSetRemove$0$1::load$($String* name, bool initialize) {
-	$loadClass(Target$$Lambda$lambda$refSetRemove$0$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"unrefObj", "Ljava/rmi/server/Unreferenced;", nullptr, $PUBLIC, $field(Target$$Lambda$lambda$refSetRemove$0$1, unrefObj)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/rmi/server/Unreferenced;)V", nullptr, $PUBLIC, $method(Target$$Lambda$lambda$refSetRemove$0$1, init$, void, $Unreferenced*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Target$$Lambda$lambda$refSetRemove$0$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.Target$$Lambda$lambda$refSetRemove$0$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Target$$Lambda$lambda$refSetRemove$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Target$$Lambda$lambda$refSetRemove$0$1);
+	});
 	return class$;
 }
 $Class* Target$$Lambda$lambda$refSetRemove$0$1::class$ = nullptr;
 
-$FieldInfo _Target_FieldInfo_[] = {
-	{"id", "Ljava/rmi/server/ObjID;", nullptr, $PRIVATE | $FINAL, $field(Target, id)},
-	{"permanent", "Z", nullptr, $PRIVATE | $FINAL, $field(Target, permanent)},
-	{"weakImpl", "Lsun/rmi/transport/WeakRef;", nullptr, $PRIVATE | $FINAL, $field(Target, weakImpl)},
-	{"disp", "Lsun/rmi/server/Dispatcher;", nullptr, $PRIVATE | $VOLATILE, $field(Target, disp)},
-	{"stub", "Ljava/rmi/Remote;", nullptr, $PRIVATE | $FINAL, $field(Target, stub)},
-	{"refSet", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/rmi/dgc/VMID;>;", $PRIVATE | $FINAL, $field(Target, refSet)},
-	{"sequenceTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/rmi/dgc/VMID;Lsun/rmi/transport/SequenceEntry;>;", $PRIVATE | $FINAL, $field(Target, sequenceTable)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(Target, acc)},
-	{"ccl", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(Target, ccl)},
-	{"callCount", "I", nullptr, $PRIVATE, $field(Target, callCount)},
-	{"removed", "Z", nullptr, $PRIVATE, $field(Target, removed)},
-	{"exportedTransport", "Lsun/rmi/transport/Transport;", nullptr, $PRIVATE | $VOLATILE, $field(Target, exportedTransport)},
-	{"nextThreadNum", "I", nullptr, $PRIVATE | $STATIC, $staticField(Target, nextThreadNum)},
-	{}
-};
-
-$MethodInfo _Target_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/Remote;Lsun/rmi/server/Dispatcher;Ljava/rmi/Remote;Ljava/rmi/server/ObjID;Z)V", nullptr, $PUBLIC, $method(Target, init$, void, $Remote*, $Dispatcher*, $Remote*, $ObjID*, bool)},
-	{"checkLoaderAncestry", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Target, checkLoaderAncestry, bool, $ClassLoader*, $ClassLoader*)},
-	{"decrementCallCount", "()V", nullptr, $SYNCHRONIZED, $method(Target, decrementCallCount, void)},
-	{"getAccessControlContext", "()Ljava/security/AccessControlContext;", nullptr, 0, $method(Target, getAccessControlContext, $AccessControlContext*)},
-	{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(Target, getContextClassLoader, $ClassLoader*)},
-	{"getDispatcher", "()Lsun/rmi/server/Dispatcher;", nullptr, 0, $method(Target, getDispatcher, $Dispatcher*)},
-	{"getImpl", "()Ljava/rmi/Remote;", nullptr, 0, $method(Target, getImpl, $Remote*)},
-	{"getObjectEndpoint", "()Lsun/rmi/transport/ObjectEndpoint;", nullptr, 0, $method(Target, getObjectEndpoint, $ObjectEndpoint*)},
-	{"getStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $method(Target, getStub, $Remote*)},
-	{"getWeakImpl", "()Lsun/rmi/transport/WeakRef;", nullptr, 0, $method(Target, getWeakImpl, $WeakRef*)},
-	{"incrementCallCount", "()V", nullptr, $SYNCHRONIZED, $method(Target, incrementCallCount, void), "java.rmi.NoSuchObjectException"},
-	{"isEmpty", "()Z", nullptr, 0, $method(Target, isEmpty, bool)},
-	{"isPermanent", "()Z", nullptr, 0, $method(Target, isPermanent, bool)},
-	{"lambda$refSetRemove$0", "(Ljava/rmi/server/Unreferenced;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Target, lambda$refSetRemove$0, $Void*, $Unreferenced*)},
-	{"lambda$refSetRemove$1", "(Ljava/rmi/server/Unreferenced;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Target, lambda$refSetRemove$1, void, $Unreferenced*)},
-	{"markRemoved", "()V", nullptr, $SYNCHRONIZED, $method(Target, markRemoved, void)},
-	{"pinImpl", "()V", nullptr, $SYNCHRONIZED, $method(Target, pinImpl, void)},
-	{"refSetRemove", "(Ljava/rmi/dgc/VMID;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Target, refSetRemove, void, $VMID*)},
-	{"referenced", "(JLjava/rmi/dgc/VMID;)V", nullptr, $SYNCHRONIZED, $method(Target, referenced, void, int64_t, $VMID*)},
-	{"setExportedTransport", "(Lsun/rmi/transport/Transport;)V", nullptr, 0, $method(Target, setExportedTransport, void, $Transport*)},
-	{"unexport", "(Z)Z", nullptr, $SYNCHRONIZED, $method(Target, unexport, bool, bool)},
-	{"unpinImpl", "()V", nullptr, $SYNCHRONIZED, $method(Target, unpinImpl, void)},
-	{"unreferenced", "(JLjava/rmi/dgc/VMID;Z)V", nullptr, $SYNCHRONIZED, $method(Target, unreferenced, void, int64_t, $VMID*, bool)},
-	{"vmidDead", "(Ljava/rmi/dgc/VMID;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Target, vmidDead, void, $VMID*)},
-	{}
-};
-
-$ClassInfo _Target_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.rmi.transport.Target",
-	"java.lang.Object",
-	nullptr,
-	_Target_FieldInfo_,
-	_Target_MethodInfo_
-};
-
-$Object* allocate$Target($Class* clazz) {
-	return $of($alloc(Target));
-}
-
 int32_t Target::nextThreadNum = 0;
 
 void Target::init$($Remote* impl, $Dispatcher* disp, $Remote* stub, $ObjID* id, bool permanent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$set(this, refSet, $new($Vector));
 	$set(this, sequenceTable, $new($Hashtable, 5));
@@ -251,12 +184,10 @@ bool Target::checkLoaderAncestry($ClassLoader* child, $ClassLoader* ancestor) {
 	} else if (child == nullptr) {
 		return false;
 	} else {
-		{
-			$var($ClassLoader, parent, child);
-			for (; parent != nullptr; $assign(parent, $nc(parent)->getParent())) {
-				if (parent == ancestor) {
-					return true;
-				}
+		$var($ClassLoader, parent, child);
+		for (; parent != nullptr; $assign(parent, parent->getParent())) {
+			if (parent == ancestor) {
+				return true;
 			}
 		}
 		return false;
@@ -303,7 +234,7 @@ void Target::pinImpl() {
 
 void Target::unpinImpl() {
 	$synchronized(this) {
-		if (!this->permanent && $nc(this->refSet)->isEmpty()) {
+		if (!this->permanent && this->refSet->isEmpty()) {
 			$nc(this->weakImpl)->unpin();
 		}
 	}
@@ -317,16 +248,16 @@ void Target::setExportedTransport($Transport* exportedTransport) {
 
 void Target::referenced(int64_t sequenceNum, $VMID* vmid) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($SequenceEntry, entry, $cast($SequenceEntry, $nc(this->sequenceTable)->get(vmid)));
+		$useLocalObjectStack();
+		$var($SequenceEntry, entry, $cast($SequenceEntry, this->sequenceTable->get(vmid)));
 		if (entry == nullptr) {
-			$nc(this->sequenceTable)->put(vmid, $$new($SequenceEntry, sequenceNum));
-		} else if ($nc(entry)->sequenceNum < sequenceNum) {
+			this->sequenceTable->put(vmid, $$new($SequenceEntry, sequenceNum));
+		} else if (entry->sequenceNum < sequenceNum) {
 			entry->update(sequenceNum);
 		} else {
 			return;
 		}
-		if (!$nc(this->refSet)->contains(vmid)) {
+		if (!this->refSet->contains(vmid)) {
 			pinImpl();
 			if (getImpl() == nullptr) {
 				return;
@@ -334,29 +265,29 @@ void Target::referenced(int64_t sequenceNum, $VMID* vmid) {
 			$init($DGCImpl);
 			$init($Log);
 			if ($nc($DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
-				$nc($DGCImpl::dgcLog)->log($Log::VERBOSE, $$str({"add to dirty set: "_s, vmid}));
+				$DGCImpl::dgcLog->log($Log::VERBOSE, $$str({"add to dirty set: "_s, vmid}));
 			}
-			$nc(this->refSet)->addElement(vmid);
-			$nc($($DGCImpl::getDGCImpl()))->registerTarget(vmid, this);
+			this->refSet->addElement(vmid);
+			$$nc($DGCImpl::getDGCImpl())->registerTarget(vmid, this);
 		}
 	}
 }
 
 void Target::unreferenced(int64_t sequenceNum, $VMID* vmid, bool strong) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($SequenceEntry, entry, $cast($SequenceEntry, $nc(this->sequenceTable)->get(vmid)));
-		if (entry == nullptr || $nc(entry)->sequenceNum > sequenceNum) {
+		$useLocalObjectStack();
+		$var($SequenceEntry, entry, $cast($SequenceEntry, this->sequenceTable->get(vmid)));
+		if (entry == nullptr || entry->sequenceNum > sequenceNum) {
 			return;
 		} else if (strong) {
 			entry->retain(sequenceNum);
 		} else if (entry->keep == false) {
-			$nc(this->sequenceTable)->remove(vmid);
+			this->sequenceTable->remove(vmid);
 		}
 		$init($DGCImpl);
 		$init($Log);
 		if ($nc($DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
-			$nc($DGCImpl::dgcLog)->log($Log::VERBOSE, $$str({"remove from dirty set: "_s, vmid}));
+			$DGCImpl::dgcLog->log($Log::VERBOSE, $$str({"remove from dirty set: "_s, vmid}));
 		}
 		refSetRemove(vmid);
 	}
@@ -364,20 +295,22 @@ void Target::unreferenced(int64_t sequenceNum, $VMID* vmid, bool strong) {
 
 void Target::refSetRemove($VMID* vmid) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
-		$nc($($DGCImpl::getDGCImpl()))->unregisterTarget(vmid, this);
-		bool var$0 = $nc(this->refSet)->removeElement(vmid);
-		if (var$0 && $nc(this->refSet)->isEmpty()) {
+		$$nc($DGCImpl::getDGCImpl())->unregisterTarget(vmid, this);
+		bool var$0 = this->refSet->removeElement(vmid);
+		if (var$0 && this->refSet->isEmpty()) {
 			$init($Log);
 			if ($nc($DGCImpl::dgcLog)->isLoggable($Log::VERBOSE)) {
-				$nc($DGCImpl::dgcLog)->log($Log::VERBOSE, $$str({"reference set is empty: target = "_s, this}));
+				$DGCImpl::dgcLog->log($Log::VERBOSE, $$str({"reference set is empty: target = "_s, this}));
 			}
 			$var($Remote, obj, getImpl());
 			if ($instanceOf($Unreferenced, obj)) {
 				$var($Unreferenced, unrefObj, $cast($Unreferenced, obj));
-				$var($String, var$1, "Unreferenced-"_s);
-				$nc(($cast($Thread, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NewThreadAction, static_cast<$Runnable*>($$new(Target$$Lambda$lambda$refSetRemove$1, this, unrefObj)), $$concat(var$1, $$str(Target::nextThreadNum++)), false, true)))))))->start();
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append("Unreferenced-"_s);
+				var$1->append(Target::nextThreadNum++);
+				$$sure($Thread, $AccessController::doPrivileged($$new($NewThreadAction, $$new(Target$$Lambda$lambda$refSetRemove$1, this, unrefObj), $$str(var$1), false, true)))->start();
 			}
 			unpinImpl();
 		}
@@ -386,12 +319,12 @@ void Target::refSetRemove($VMID* vmid) {
 
 bool Target::unexport(bool force) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if ((force == true) || (this->callCount == 0) || (this->disp == nullptr)) {
 			$set(this, disp, nullptr);
 			unpinImpl();
 			$var($DGCImpl, dgc, $DGCImpl::getDGCImpl());
-			$var($Enumeration, enum_, $nc(this->refSet)->elements());
+			$var($Enumeration, enum_, this->refSet->elements());
 			while ($nc(enum_)->hasMoreElements()) {
 				$var($VMID, vmid, $cast($VMID, enum_->nextElement()));
 				$nc(dgc)->unregisterTarget(vmid, this);
@@ -440,7 +373,7 @@ void Target::decrementCallCount() {
 }
 
 bool Target::isEmpty() {
-	return $nc(this->refSet)->isEmpty();
+	return this->refSet->isEmpty();
 }
 
 void Target::vmidDead($VMID* vmid) {
@@ -448,18 +381,18 @@ void Target::vmidDead($VMID* vmid) {
 		$init($DGCImpl);
 		$init($Log);
 		if ($nc($DGCImpl::dgcLog)->isLoggable($Log::BRIEF)) {
-			$nc($DGCImpl::dgcLog)->log($Log::BRIEF, $$str({"removing endpoint "_s, vmid, " from reference set"_s}));
+			$DGCImpl::dgcLog->log($Log::BRIEF, $$str({"removing endpoint "_s, vmid, " from reference set"_s}));
 		}
-		$nc(this->sequenceTable)->remove(vmid);
+		this->sequenceTable->remove(vmid);
 		refSetRemove(vmid);
 	}
 }
 
 void Target::lambda$refSetRemove$1($Unreferenced* unrefObj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$($Thread::currentThread())->setContextClassLoader(this->ccl);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Target$$Lambda$lambda$refSetRemove$0$1, unrefObj)), this->acc);
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(Target$$Lambda$lambda$refSetRemove$0$1, unrefObj)), this->acc);
 }
 
 $Void* Target::lambda$refSetRemove$0($Unreferenced* unrefObj) {
@@ -468,7 +401,7 @@ $Void* Target::lambda$refSetRemove$0($Unreferenced* unrefObj) {
 	return nullptr;
 }
 
-void clinit$Target($Class* class$) {
+void Target::clinit$($Class* clazz) {
 	Target::nextThreadNum = 0;
 }
 
@@ -477,14 +410,67 @@ Target::Target() {
 
 $Class* Target::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Target$$Lambda$lambda$refSetRemove$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.Target$$Lambda$lambda$refSetRemove$1")) {
 			return Target$$Lambda$lambda$refSetRemove$1::load$(name, initialize);
 		}
-		if (name->equals(Target$$Lambda$lambda$refSetRemove$0$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.Target$$Lambda$lambda$refSetRemove$0$1")) {
 			return Target$$Lambda$lambda$refSetRemove$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Target, name, initialize, &_Target_ClassInfo_, clinit$Target, allocate$Target);
+	$FieldInfo fieldInfos$$[] = {
+		{"id", "Ljava/rmi/server/ObjID;", nullptr, $PRIVATE | $FINAL, $field(Target, id)},
+		{"permanent", "Z", nullptr, $PRIVATE | $FINAL, $field(Target, permanent)},
+		{"weakImpl", "Lsun/rmi/transport/WeakRef;", nullptr, $PRIVATE | $FINAL, $field(Target, weakImpl)},
+		{"disp", "Lsun/rmi/server/Dispatcher;", nullptr, $PRIVATE | $VOLATILE, $field(Target, disp)},
+		{"stub", "Ljava/rmi/Remote;", nullptr, $PRIVATE | $FINAL, $field(Target, stub)},
+		{"refSet", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/rmi/dgc/VMID;>;", $PRIVATE | $FINAL, $field(Target, refSet)},
+		{"sequenceTable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/rmi/dgc/VMID;Lsun/rmi/transport/SequenceEntry;>;", $PRIVATE | $FINAL, $field(Target, sequenceTable)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $PRIVATE | $FINAL, $field(Target, acc)},
+		{"ccl", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $FINAL, $field(Target, ccl)},
+		{"callCount", "I", nullptr, $PRIVATE, $field(Target, callCount)},
+		{"removed", "Z", nullptr, $PRIVATE, $field(Target, removed)},
+		{"exportedTransport", "Lsun/rmi/transport/Transport;", nullptr, $PRIVATE | $VOLATILE, $field(Target, exportedTransport)},
+		{"nextThreadNum", "I", nullptr, $PRIVATE | $STATIC, $staticField(Target, nextThreadNum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/rmi/Remote;Lsun/rmi/server/Dispatcher;Ljava/rmi/Remote;Ljava/rmi/server/ObjID;Z)V", nullptr, $PUBLIC, $method(Target, init$, void, $Remote*, $Dispatcher*, $Remote*, $ObjID*, bool)},
+		{"checkLoaderAncestry", "(Ljava/lang/ClassLoader;Ljava/lang/ClassLoader;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Target, checkLoaderAncestry, bool, $ClassLoader*, $ClassLoader*)},
+		{"decrementCallCount", "()V", nullptr, $SYNCHRONIZED, $method(Target, decrementCallCount, void)},
+		{"getAccessControlContext", "()Ljava/security/AccessControlContext;", nullptr, 0, $method(Target, getAccessControlContext, $AccessControlContext*)},
+		{"getContextClassLoader", "()Ljava/lang/ClassLoader;", nullptr, 0, $method(Target, getContextClassLoader, $ClassLoader*)},
+		{"getDispatcher", "()Lsun/rmi/server/Dispatcher;", nullptr, 0, $method(Target, getDispatcher, $Dispatcher*)},
+		{"getImpl", "()Ljava/rmi/Remote;", nullptr, 0, $method(Target, getImpl, $Remote*)},
+		{"getObjectEndpoint", "()Lsun/rmi/transport/ObjectEndpoint;", nullptr, 0, $method(Target, getObjectEndpoint, $ObjectEndpoint*)},
+		{"getStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $method(Target, getStub, $Remote*)},
+		{"getWeakImpl", "()Lsun/rmi/transport/WeakRef;", nullptr, 0, $method(Target, getWeakImpl, $WeakRef*)},
+		{"incrementCallCount", "()V", nullptr, $SYNCHRONIZED, $method(Target, incrementCallCount, void), "java.rmi.NoSuchObjectException"},
+		{"isEmpty", "()Z", nullptr, 0, $method(Target, isEmpty, bool)},
+		{"isPermanent", "()Z", nullptr, 0, $method(Target, isPermanent, bool)},
+		{"lambda$refSetRemove$0", "(Ljava/rmi/server/Unreferenced;)Ljava/lang/Void;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Target, lambda$refSetRemove$0, $Void*, $Unreferenced*)},
+		{"lambda$refSetRemove$1", "(Ljava/rmi/server/Unreferenced;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Target, lambda$refSetRemove$1, void, $Unreferenced*)},
+		{"markRemoved", "()V", nullptr, $SYNCHRONIZED, $method(Target, markRemoved, void)},
+		{"pinImpl", "()V", nullptr, $SYNCHRONIZED, $method(Target, pinImpl, void)},
+		{"refSetRemove", "(Ljava/rmi/dgc/VMID;)V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(Target, refSetRemove, void, $VMID*)},
+		{"referenced", "(JLjava/rmi/dgc/VMID;)V", nullptr, $SYNCHRONIZED, $method(Target, referenced, void, int64_t, $VMID*)},
+		{"setExportedTransport", "(Lsun/rmi/transport/Transport;)V", nullptr, 0, $method(Target, setExportedTransport, void, $Transport*)},
+		{"unexport", "(Z)Z", nullptr, $SYNCHRONIZED, $method(Target, unexport, bool, bool)},
+		{"unpinImpl", "()V", nullptr, $SYNCHRONIZED, $method(Target, unpinImpl, void)},
+		{"unreferenced", "(JLjava/rmi/dgc/VMID;Z)V", nullptr, $SYNCHRONIZED, $method(Target, unreferenced, void, int64_t, $VMID*, bool)},
+		{"vmidDead", "(Ljava/rmi/dgc/VMID;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(Target, vmidDead, void, $VMID*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.rmi.transport.Target",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Target, name, initialize, &classInfo$$, Target::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Target);
+	});
 	return class$;
 }
 

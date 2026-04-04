@@ -38,6 +38,7 @@ class ExsltMath : public ::com::sun::org::apache::xalan::internal::lib::ExsltBas
 	$class(ExsltMath, 0, ::com::sun::org::apache::xalan::internal::lib::ExsltBase)
 public:
 	ExsltMath();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static double abs(double num);
 	static double acos(double num);

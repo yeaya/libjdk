@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_xh.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,39 +13,20 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_xh_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_xh, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_xh, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_xh_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_xh",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_xh_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_xh($Class* clazz) {
-	return $of($alloc(CurrencyNames_xh));
-}
-
 void CurrencyNames_xh::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_xh::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ZAR"_s),
-			$of("R"_s)
+			"ZAR"_s,
+			"R"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of("iRandi yaseMzanzi Afrika"_s)
+			"zar"_s,
+			"iRandi yaseMzanzi Afrika"_s
 		})
 	}));
 	return data;
@@ -56,7 +36,22 @@ CurrencyNames_xh::CurrencyNames_xh() {
 }
 
 $Class* CurrencyNames_xh::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_xh, name, initialize, &_CurrencyNames_xh_ClassInfo_, allocate$CurrencyNames_xh);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_xh, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_xh, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_xh",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_xh, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_xh);
+	});
 	return class$;
 }
 

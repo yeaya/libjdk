@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/Metacity$ArithmeticExpressionEvaluator.h>
-
 #include <com/sun/java/swing/plaf/gtk/Metacity$PeekableStringTokenizer.h>
 #include <com/sun/java/swing/plaf/gtk/Metacity.h>
 #include <java/lang/Math.h>
@@ -16,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -24,47 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _Metacity$ArithmeticExpressionEvaluator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/Metacity;", nullptr, $FINAL | $SYNTHETIC, $field(Metacity$ArithmeticExpressionEvaluator, this$0)},
-	{"tokenizer", "Lcom/sun/java/swing/plaf/gtk/Metacity$PeekableStringTokenizer;", nullptr, $PRIVATE, $field(Metacity$ArithmeticExpressionEvaluator, tokenizer)},
-	{}
-};
-
-$MethodInfo _Metacity$ArithmeticExpressionEvaluator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/Metacity;)V", nullptr, 0, $method(Metacity$ArithmeticExpressionEvaluator, init$, void, $Metacity*)},
-	{"evaluate", "(Ljava/lang/String;)I", nullptr, 0, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, evaluate, int32_t, $String*)},
-	{"evaluate", "(Ljava/lang/String;I)I", nullptr, 0, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, evaluate, int32_t, $String*, int32_t)},
-	{"expression", "()F", nullptr, $PUBLIC, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, expression, float)},
-	{"getFactorValue", "()F", nullptr, $PUBLIC, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, getFactorValue, float)},
-	{"getTermValue", "()F", nullptr, $PUBLIC, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, getTermValue, float)},
-	{}
-};
-
-$InnerClassInfo _Metacity$ArithmeticExpressionEvaluator_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.Metacity$ArithmeticExpressionEvaluator", "com.sun.java.swing.plaf.gtk.Metacity", "ArithmeticExpressionEvaluator", 0},
-	{}
-};
-
-$ClassInfo _Metacity$ArithmeticExpressionEvaluator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.Metacity$ArithmeticExpressionEvaluator",
-	"java.lang.Object",
-	nullptr,
-	_Metacity$ArithmeticExpressionEvaluator_FieldInfo_,
-	_Metacity$ArithmeticExpressionEvaluator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Metacity$ArithmeticExpressionEvaluator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.Metacity"
-};
-
-$Object* allocate$Metacity$ArithmeticExpressionEvaluator($Class* clazz) {
-	return $of($alloc(Metacity$ArithmeticExpressionEvaluator));
-}
 
 void Metacity$ArithmeticExpressionEvaluator::init$($Metacity* this$0) {
 	$set(this, this$0, this$0);
@@ -80,11 +37,11 @@ int32_t Metacity$ArithmeticExpressionEvaluator::evaluate($String* expr, int32_t 
 }
 
 float Metacity$ArithmeticExpressionEvaluator::expression() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float value = getTermValue();
 	bool done = false;
 	while (!done && $nc(this->tokenizer)->hasMoreTokens()) {
-		$var($String, next, $nc(this->tokenizer)->peek());
+		$var($String, next, this->tokenizer->peek());
 		bool var$2 = "+"_s->equals(next);
 		bool var$1 = var$2 || "-"_s->equals(next);
 		bool var$0 = var$1 || "`max`"_s->equals(next);
@@ -108,11 +65,11 @@ float Metacity$ArithmeticExpressionEvaluator::expression() {
 }
 
 float Metacity$ArithmeticExpressionEvaluator::getTermValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float value = getFactorValue();
 	bool done = false;
 	while (!done && $nc(this->tokenizer)->hasMoreTokens()) {
-		$var($String, next, $nc(this->tokenizer)->peek());
+		$var($String, next, this->tokenizer->peek());
 		bool var$1 = "*"_s->equals(next);
 		bool var$0 = var$1 || "/"_s->equals(next);
 		if (var$0 || "%"_s->equals(next)) {
@@ -133,7 +90,7 @@ float Metacity$ArithmeticExpressionEvaluator::getTermValue() {
 }
 
 float Metacity$ArithmeticExpressionEvaluator::getFactorValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float value = 0.0;
 	if ("("_s->equals($($nc(this->tokenizer)->peek()))) {
 		$nc(this->tokenizer)->nextToken();
@@ -146,13 +103,13 @@ float Metacity$ArithmeticExpressionEvaluator::getFactorValue() {
 		} else {
 			$var($Integer, i, $cast($Integer, $nc(this->this$0->variables)->get(token)));
 			if (i == nullptr) {
-				$assign(i, $cast($Integer, $nc($(this->this$0->getFrameGeometry()))->get(token)));
+				$assign(i, $cast($Integer, $$nc(this->this$0->getFrameGeometry())->get(token)));
 			}
 			if (i == nullptr) {
 				$Metacity::logError(this->this$0->themeName, $$str({"Variable \""_s, token, "\" not defined"_s}));
-				return (float)0;
+				return 0;
 			}
-			value = (i != nullptr) ? (float)$nc(i)->intValue() : 0.0f;
+			value = (i != nullptr) ? (float)i->intValue() : 0.0f;
 		}
 	}
 	return value;
@@ -162,7 +119,42 @@ Metacity$ArithmeticExpressionEvaluator::Metacity$ArithmeticExpressionEvaluator()
 }
 
 $Class* Metacity$ArithmeticExpressionEvaluator::load$($String* name, bool initialize) {
-	$loadClass(Metacity$ArithmeticExpressionEvaluator, name, initialize, &_Metacity$ArithmeticExpressionEvaluator_ClassInfo_, allocate$Metacity$ArithmeticExpressionEvaluator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/Metacity;", nullptr, $FINAL | $SYNTHETIC, $field(Metacity$ArithmeticExpressionEvaluator, this$0)},
+		{"tokenizer", "Lcom/sun/java/swing/plaf/gtk/Metacity$PeekableStringTokenizer;", nullptr, $PRIVATE, $field(Metacity$ArithmeticExpressionEvaluator, tokenizer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/Metacity;)V", nullptr, 0, $method(Metacity$ArithmeticExpressionEvaluator, init$, void, $Metacity*)},
+		{"evaluate", "(Ljava/lang/String;)I", nullptr, 0, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, evaluate, int32_t, $String*)},
+		{"evaluate", "(Ljava/lang/String;I)I", nullptr, 0, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, evaluate, int32_t, $String*, int32_t)},
+		{"expression", "()F", nullptr, $PUBLIC, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, expression, float)},
+		{"getFactorValue", "()F", nullptr, $PUBLIC, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, getFactorValue, float)},
+		{"getTermValue", "()F", nullptr, $PUBLIC, $virtualMethod(Metacity$ArithmeticExpressionEvaluator, getTermValue, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.Metacity$ArithmeticExpressionEvaluator", "com.sun.java.swing.plaf.gtk.Metacity", "ArithmeticExpressionEvaluator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.Metacity$ArithmeticExpressionEvaluator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.Metacity"
+	};
+	$loadClass(Metacity$ArithmeticExpressionEvaluator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Metacity$ArithmeticExpressionEvaluator);
+	});
 	return class$;
 }
 

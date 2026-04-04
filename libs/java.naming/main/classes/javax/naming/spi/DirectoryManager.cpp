@@ -1,5 +1,4 @@
 #include <javax/naming/spi/DirectoryManager.h>
-
 #include <com/sun/naming/internal/FactoryEnumeration.h>
 #include <com/sun/naming/internal/ResourceManager.h>
 #include <java/util/Hashtable.h>
@@ -49,28 +48,6 @@ namespace javax {
 	namespace naming {
 		namespace spi {
 
-$MethodInfo _DirectoryManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DirectoryManager, init$, void)},
-	{"createObjectFromFactories", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(DirectoryManager, createObjectFromFactories, $Object*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "java.lang.Exception"},
-	{"getContinuationDirContext", "(Ljavax/naming/CannotProceedException;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectoryManager, getContinuationDirContext, $DirContext*, $CannotProceedException*), "javax.naming.NamingException"},
-	{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(DirectoryManager, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "java.lang.Exception"},
-	{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", $PUBLIC | $STATIC, $staticMethod(DirectoryManager, getStateToBind, $DirStateFactory$Result*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _DirectoryManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.spi.DirectoryManager",
-	"javax.naming.spi.NamingManager",
-	nullptr,
-	nullptr,
-	_DirectoryManager_MethodInfo_
-};
-
-$Object* allocate$DirectoryManager($Class* clazz) {
-	return $of($alloc(DirectoryManager));
-}
-
 void DirectoryManager::init$() {
 	$NamingManager::init$();
 }
@@ -81,7 +58,7 @@ $DirContext* DirectoryManager::getContinuationDirContext($CannotProceedException
 	if (env == nullptr) {
 		$assign(env, $new($Hashtable, 7));
 	} else {
-		$assign(env, $cast($Hashtable, $nc(env)->clone()));
+		$assign(env, $cast($Hashtable, env->clone()));
 	}
 	$init($NamingManager);
 	$nc(env)->put($NamingManager::CPE, cpe);
@@ -90,22 +67,22 @@ $DirContext* DirectoryManager::getContinuationDirContext($CannotProceedException
 
 $Object* DirectoryManager::getObjectInstance(Object$* refInfo, $Name* name, $Context* nameCtx, $Hashtable* environment, $Attributes* attrs) {
 	$init(DirectoryManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectFactory, factory, nullptr);
 	$var($ObjectFactoryBuilder, builder, getObjectFactoryBuilder());
 	if (builder != nullptr) {
 		$assign(factory, builder->createObjectFactory(refInfo, environment));
 		if ($instanceOf($DirObjectFactory, factory)) {
-			return $of($nc(($cast($DirObjectFactory, factory)))->getObjectInstance(refInfo, name, nameCtx, environment, attrs));
+			return $cast($DirObjectFactory, factory)->getObjectInstance(refInfo, name, nameCtx, environment, attrs);
 		} else {
-			return $of($nc(factory)->getObjectInstance(refInfo, name, nameCtx, environment));
+			return $nc(factory)->getObjectInstance(refInfo, name, nameCtx, environment);
 		}
 	}
 	$var($Reference, ref, nullptr);
 	if ($instanceOf($Reference, refInfo)) {
 		$assign(ref, $cast($Reference, refInfo));
 	} else if ($instanceOf($Referenceable, refInfo)) {
-		$assign(ref, $nc((($cast($Referenceable, refInfo))))->getReference());
+		$assign(ref, $cast($Referenceable, refInfo)->getReference());
 	}
 	$var($Object, answer, nullptr);
 	if (ref != nullptr) {
@@ -113,46 +90,46 @@ $Object* DirectoryManager::getObjectInstance(Object$* refInfo, $Name* name, $Con
 		if (f != nullptr) {
 			$assign(factory, getObjectFactoryFromReference(ref, f));
 			if ($instanceOf($DirObjectFactory, factory)) {
-				return $of($nc(($cast($DirObjectFactory, factory)))->getObjectInstance(ref, name, nameCtx, environment, attrs));
+				return $cast($DirObjectFactory, factory)->getObjectInstance(ref, name, nameCtx, environment, attrs);
 			} else if (factory != nullptr) {
-				return $of(factory->getObjectInstance(ref, name, nameCtx, environment));
+				return factory->getObjectInstance(ref, name, nameCtx, environment);
 			}
 			return $of(refInfo);
 		} else {
 			$assign(answer, processURLAddrs(ref, name, nameCtx, environment));
 			if (answer != nullptr) {
-				return $of(answer);
+				return answer;
 			}
 		}
 	}
 	$assign(answer, createObjectFromFactories(refInfo, name, nameCtx, environment, attrs));
-	return $of((answer != nullptr) ? answer : $of(refInfo));
+	return (answer != nullptr) ? answer : $of(refInfo);
 }
 
 $Object* DirectoryManager::createObjectFromFactories(Object$* obj, $Name* name, $Context* nameCtx, $Hashtable* environment, $Attributes* attrs) {
 	$init(DirectoryManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Context);
 	$var($FactoryEnumeration, factories, $ResourceManager::getFactories($Context::OBJECT_FACTORIES, environment, nameCtx));
 	if (factories == nullptr) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$var($ObjectFactory, factory, nullptr);
 	$var($Object, answer, nullptr);
 	while (answer == nullptr && $nc(factories)->hasMore()) {
 		$assign(factory, $cast($ObjectFactory, factories->next()));
 		if ($instanceOf($DirObjectFactory, factory)) {
-			$assign(answer, $nc(($cast($DirObjectFactory, factory)))->getObjectInstance(obj, name, nameCtx, environment, attrs));
+			$assign(answer, $cast($DirObjectFactory, factory)->getObjectInstance(obj, name, nameCtx, environment, attrs));
 		} else {
 			$assign(answer, $nc(factory)->getObjectInstance(obj, name, nameCtx, environment));
 		}
 	}
-	return $of(answer);
+	return answer;
 }
 
 $DirStateFactory$Result* DirectoryManager::getStateToBind(Object$* obj, $Name* name, $Context* nameCtx, $Hashtable* environment, $Attributes* attrs) {
 	$init(DirectoryManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Context);
 	$var($FactoryEnumeration, factories, $ResourceManager::getFactories($Context::STATE_FACTORIES, environment, nameCtx));
 	if (factories == nullptr) {
@@ -164,7 +141,7 @@ $DirStateFactory$Result* DirectoryManager::getStateToBind(Object$* obj, $Name* n
 	while (answer == nullptr && $nc(factories)->hasMore()) {
 		$assign(factory, $cast($StateFactory, factories->next()));
 		if ($instanceOf($DirStateFactory, factory)) {
-			$assign(answer, $nc(($cast($DirStateFactory, factory)))->getStateToBind(obj, name, nameCtx, environment, attrs));
+			$assign(answer, $cast($DirStateFactory, factory)->getStateToBind(obj, name, nameCtx, environment, attrs));
 		} else {
 			$assign(objanswer, $nc(factory)->getStateToBind(obj, name, nameCtx, environment));
 			if (objanswer != nullptr) {
@@ -179,7 +156,25 @@ DirectoryManager::DirectoryManager() {
 }
 
 $Class* DirectoryManager::load$($String* name, bool initialize) {
-	$loadClass(DirectoryManager, name, initialize, &_DirectoryManager_ClassInfo_, allocate$DirectoryManager);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DirectoryManager, init$, void)},
+		{"createObjectFromFactories", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", $PRIVATE | $STATIC, $staticMethod(DirectoryManager, createObjectFromFactories, $Object*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "java.lang.Exception"},
+		{"getContinuationDirContext", "(Ljavax/naming/CannotProceedException;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC | $STATIC, $staticMethod(DirectoryManager, getContinuationDirContext, $DirContext*, $CannotProceedException*), "javax.naming.NamingException"},
+		{"getObjectInstance", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljava/lang/Object;", $PUBLIC | $STATIC, $staticMethod(DirectoryManager, getObjectInstance, $Object*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "java.lang.Exception"},
+		{"getStateToBind", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", "(Ljava/lang/Object;Ljavax/naming/Name;Ljavax/naming/Context;Ljava/util/Hashtable<**>;Ljavax/naming/directory/Attributes;)Ljavax/naming/spi/DirStateFactory$Result;", $PUBLIC | $STATIC, $staticMethod(DirectoryManager, getStateToBind, $DirStateFactory$Result*, Object$*, $Name*, $Context*, $Hashtable*, $Attributes*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.spi.DirectoryManager",
+		"javax.naming.spi.NamingManager",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DirectoryManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DirectoryManager);
+	});
 	return class$;
 }
 

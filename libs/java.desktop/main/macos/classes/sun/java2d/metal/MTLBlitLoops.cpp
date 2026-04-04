@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLBlitLoops.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Transparency.h>
@@ -73,7 +72,6 @@ using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $Blit = ::sun::java2d::loops::Blit;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
-using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $TransformBlit = ::sun::java2d::loops::TransformBlit;
@@ -108,44 +106,11 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLBlitLoops_FieldInfo_[] = {
-	{"OFFSET_SRCTYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_SRCTYPE)},
-	{"OFFSET_HINT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_HINT)},
-	{"OFFSET_TEXTURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_TEXTURE)},
-	{"OFFSET_RTT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_RTT)},
-	{"OFFSET_XFORM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_XFORM)},
-	{"OFFSET_ISOBLIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_ISOBLIT)},
-	{}
-};
-
-$MethodInfo _MTLBlitLoops_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MTLBlitLoops, init$, void)},
-	{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIDDDDIZ)V", nullptr, $STATIC, $staticMethod(MTLBlitLoops, Blit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double, int32_t, bool)},
-	{"IsoBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIDDDDZ)V", nullptr, $STATIC, $staticMethod(MTLBlitLoops, IsoBlit, void, $SurfaceData*, $SurfaceData*, $BufferedImage*, $BufferedImageOp*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double, bool)},
-	{"createPackedParams", "(ZZZZII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MTLBlitLoops, createPackedParams, int32_t, bool, bool, bool, bool, int32_t, int32_t)},
-	{"enqueueBlit", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;IIIIIDDDD)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MTLBlitLoops, enqueueBlit, void, $RenderQueue*, $SurfaceData*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{"register", "()V", nullptr, $STATIC, $staticMethod(MTLBlitLoops, register$, void)},
-	{}
-};
-
-$ClassInfo _MTLBlitLoops_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.metal.MTLBlitLoops",
-	"java.lang.Object",
-	nullptr,
-	_MTLBlitLoops_FieldInfo_,
-	_MTLBlitLoops_MethodInfo_
-};
-
-$Object* allocate$MTLBlitLoops($Class* clazz) {
-	return $of($alloc(MTLBlitLoops));
-}
-
 void MTLBlitLoops::init$() {
 }
 
 void MTLBlitLoops::register$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SurfaceType);
 	$var($Blit, blitIntArgbPreToSurface, $new($MTLSwToSurfaceBlit, $SurfaceType::IntArgbPre, $MTLSurfaceData::PF_INT_ARGB_PRE));
 	$var($Blit, blitIntArgbPreToTexture, $new($MTLSwToTextureBlit, $SurfaceType::IntArgbPre, $MTLSurfaceData::PF_INT_ARGB_PRE));
@@ -154,42 +119,42 @@ void MTLBlitLoops::register$() {
 	$init($MTLSurfaceData);
 	$init($CompositeType);
 	$var($GraphicsPrimitiveArray, primitives, $new($GraphicsPrimitiveArray, {
-		static_cast<$GraphicsPrimitive*>($$new($MTLSurfaceToSurfaceBlit)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSurfaceToSurfaceScale)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSurfaceToSurfaceTransform)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLRTTSurfaceToSurfaceBlit)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLRTTSurfaceToSurfaceScale)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLRTTSurfaceToSurfaceTransform)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSurfaceToSwBlit, $SurfaceType::IntArgb, $MTLSurfaceData::PF_INT_ARGB)),
-		static_cast<$GraphicsPrimitive*>(blitSurfaceToIntArgbPre),
-		static_cast<$GraphicsPrimitive*>(blitIntArgbPreToSurface),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceBlit, $SurfaceType::IntRgb, $MTLSurfaceData::PF_INT_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceBlit, $SurfaceType::IntRgbx, $MTLSurfaceData::PF_INT_RGBX)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceBlit, $SurfaceType::IntBgr, $MTLSurfaceData::PF_INT_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceBlit, $SurfaceType::IntBgrx, $MTLSurfaceData::PF_INT_BGRX)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLGeneralBlit, $MTLSurfaceData::MTLSurface, $CompositeType::AnyAlpha, blitIntArgbPreToSurface)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLAnyCompositeBlit, $MTLSurfaceData::MTLSurface, blitSurfaceToIntArgbPre, blitSurfaceToIntArgbPre, blitIntArgbPreToSurface)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLAnyCompositeBlit, $SurfaceType::Any, nullptr, blitSurfaceToIntArgbPre, blitIntArgbPreToSurface)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceScale, $SurfaceType::IntRgb, $MTLSurfaceData::PF_INT_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceScale, $SurfaceType::IntRgbx, $MTLSurfaceData::PF_INT_RGBX)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceScale, $SurfaceType::IntBgr, $MTLSurfaceData::PF_INT_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceScale, $SurfaceType::IntBgrx, $MTLSurfaceData::PF_INT_BGRX)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceScale, $SurfaceType::IntArgbPre, $MTLSurfaceData::PF_INT_ARGB_PRE)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceTransform, $SurfaceType::IntRgb, $MTLSurfaceData::PF_INT_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceTransform, $SurfaceType::IntRgbx, $MTLSurfaceData::PF_INT_RGBX)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceTransform, $SurfaceType::IntBgr, $MTLSurfaceData::PF_INT_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToSurfaceTransform, $SurfaceType::IntBgrx, $MTLSurfaceData::PF_INT_BGRX)),
-		static_cast<$GraphicsPrimitive*>(transformBlitIntArgbPreToSurface),
-		static_cast<$GraphicsPrimitive*>($$new($MTLGeneralTransformedBlit, transformBlitIntArgbPreToSurface)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLTextureToSurfaceBlit)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLTextureToSurfaceScale)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLTextureToSurfaceTransform)),
-		static_cast<$GraphicsPrimitive*>(blitIntArgbPreToTexture),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToTextureBlit, $SurfaceType::IntRgb, $MTLSurfaceData::PF_INT_RGB)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToTextureBlit, $SurfaceType::IntRgbx, $MTLSurfaceData::PF_INT_RGBX)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToTextureBlit, $SurfaceType::IntBgr, $MTLSurfaceData::PF_INT_BGR)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLSwToTextureBlit, $SurfaceType::IntBgrx, $MTLSurfaceData::PF_INT_BGRX)),
-		static_cast<$GraphicsPrimitive*>($$new($MTLGeneralBlit, $MTLSurfaceData::MTLTexture, $CompositeType::SrcNoEa, blitIntArgbPreToTexture))
+		$$new($MTLSurfaceToSurfaceBlit),
+		$$new($MTLSurfaceToSurfaceScale),
+		$$new($MTLSurfaceToSurfaceTransform),
+		$$new($MTLRTTSurfaceToSurfaceBlit),
+		$$new($MTLRTTSurfaceToSurfaceScale),
+		$$new($MTLRTTSurfaceToSurfaceTransform),
+		$$new($MTLSurfaceToSwBlit, $SurfaceType::IntArgb, $MTLSurfaceData::PF_INT_ARGB),
+		blitSurfaceToIntArgbPre,
+		blitIntArgbPreToSurface,
+		$$new($MTLSwToSurfaceBlit, $SurfaceType::IntRgb, $MTLSurfaceData::PF_INT_RGB),
+		$$new($MTLSwToSurfaceBlit, $SurfaceType::IntRgbx, $MTLSurfaceData::PF_INT_RGBX),
+		$$new($MTLSwToSurfaceBlit, $SurfaceType::IntBgr, $MTLSurfaceData::PF_INT_BGR),
+		$$new($MTLSwToSurfaceBlit, $SurfaceType::IntBgrx, $MTLSurfaceData::PF_INT_BGRX),
+		$$new($MTLGeneralBlit, $MTLSurfaceData::MTLSurface, $CompositeType::AnyAlpha, blitIntArgbPreToSurface),
+		$$new($MTLAnyCompositeBlit, $MTLSurfaceData::MTLSurface, blitSurfaceToIntArgbPre, blitSurfaceToIntArgbPre, blitIntArgbPreToSurface),
+		$$new($MTLAnyCompositeBlit, $SurfaceType::Any, nullptr, blitSurfaceToIntArgbPre, blitIntArgbPreToSurface),
+		$$new($MTLSwToSurfaceScale, $SurfaceType::IntRgb, $MTLSurfaceData::PF_INT_RGB),
+		$$new($MTLSwToSurfaceScale, $SurfaceType::IntRgbx, $MTLSurfaceData::PF_INT_RGBX),
+		$$new($MTLSwToSurfaceScale, $SurfaceType::IntBgr, $MTLSurfaceData::PF_INT_BGR),
+		$$new($MTLSwToSurfaceScale, $SurfaceType::IntBgrx, $MTLSurfaceData::PF_INT_BGRX),
+		$$new($MTLSwToSurfaceScale, $SurfaceType::IntArgbPre, $MTLSurfaceData::PF_INT_ARGB_PRE),
+		$$new($MTLSwToSurfaceTransform, $SurfaceType::IntRgb, $MTLSurfaceData::PF_INT_RGB),
+		$$new($MTLSwToSurfaceTransform, $SurfaceType::IntRgbx, $MTLSurfaceData::PF_INT_RGBX),
+		$$new($MTLSwToSurfaceTransform, $SurfaceType::IntBgr, $MTLSurfaceData::PF_INT_BGR),
+		$$new($MTLSwToSurfaceTransform, $SurfaceType::IntBgrx, $MTLSurfaceData::PF_INT_BGRX),
+		transformBlitIntArgbPreToSurface,
+		$$new($MTLGeneralTransformedBlit, transformBlitIntArgbPreToSurface),
+		$$new($MTLTextureToSurfaceBlit),
+		$$new($MTLTextureToSurfaceScale),
+		$$new($MTLTextureToSurfaceTransform),
+		blitIntArgbPreToTexture,
+		$$new($MTLSwToTextureBlit, $SurfaceType::IntRgb, $MTLSurfaceData::PF_INT_RGB),
+		$$new($MTLSwToTextureBlit, $SurfaceType::IntRgbx, $MTLSurfaceData::PF_INT_RGBX),
+		$$new($MTLSwToTextureBlit, $SurfaceType::IntBgr, $MTLSurfaceData::PF_INT_BGR),
+		$$new($MTLSwToTextureBlit, $SurfaceType::IntBgrx, $MTLSurfaceData::PF_INT_BGRX),
+		$$new($MTLGeneralBlit, $MTLSurfaceData::MTLTexture, $CompositeType::SrcNoEa, blitIntArgbPreToTexture)
 	}));
 	$GraphicsPrimitiveMgr::register$(primitives);
 }
@@ -199,99 +164,95 @@ int32_t MTLBlitLoops::createPackedParams(bool isoblit, bool texture, bool rtt, b
 }
 
 void MTLBlitLoops::enqueueBlit($RenderQueue* rq, $SurfaceData* src, $SurfaceData* dst, int32_t packedParams, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RenderBuffer, buf, $nc(rq)->getBuffer());
 	rq->ensureCapacityAndAlignment(72, 24);
 	$nc(buf)->putInt(31);
 	buf->putInt(packedParams);
-	$nc($(buf->putInt(sx1)))->putInt(sy1);
-	$nc($(buf->putInt(sx2)))->putInt(sy2);
-	$nc($(buf->putDouble(dx1)))->putDouble(dy1);
-	$nc($(buf->putDouble(dx2)))->putDouble(dy2);
+	$$nc(buf->putInt(sx1))->putInt(sy1);
+	$$nc(buf->putInt(sx2))->putInt(sy2);
+	$$nc(buf->putDouble(dx1))->putDouble(dy1);
+	$$nc(buf->putDouble(dx2))->putDouble(dy2);
 	buf->putLong($nc(src)->getNativeOps());
 	buf->putLong($nc(dst)->getNativeOps());
 }
 
 void MTLBlitLoops::Blit($SurfaceData* srcData, $SurfaceData* dstData, $Composite* comp, $Region* clip, $AffineTransform* xform, int32_t hint, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2, int32_t srctype, bool texture) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ctxflags = 0;
 	if ($nc(srcData)->getTransparency() == $Transparency::OPAQUE) {
 		ctxflags |= $MTLContext::SRC_IS_OPAQUE;
 	}
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			rq->addReference(srcData);
-			$var($MTLSurfaceData, mtlDst, $cast($MTLSurfaceData, dstData));
-			if (texture) {
-				$var($MTLGraphicsConfig, gc, $nc(mtlDst)->getMTLGraphicsConfig());
-				$MTLContext::setScratchSurface(gc);
-			} else {
-				$MTLContext::validateContext(mtlDst, mtlDst, clip, comp, xform, nullptr, nullptr, ctxflags);
-			}
-			int32_t packedParams = createPackedParams(false, texture, false, xform != nullptr, hint, srctype);
-			enqueueBlit(rq, srcData, dstData, packedParams, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		rq->addReference(srcData);
+		$var($MTLSurfaceData, mtlDst, $cast($MTLSurfaceData, dstData));
+		if (texture) {
+			$var($MTLGraphicsConfig, gc, $nc(mtlDst)->getMTLGraphicsConfig());
+			$MTLContext::setScratchSurface(gc);
+		} else {
+			$MTLContext::validateContext(mtlDst, mtlDst, clip, comp, xform, nullptr, nullptr, ctxflags);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		int32_t packedParams = createPackedParams(false, texture, false, xform != nullptr, hint, srctype);
+		enqueueBlit(rq, srcData, dstData, packedParams, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void MTLBlitLoops::IsoBlit($SurfaceData* srcData, $SurfaceData* dstData, $BufferedImage* srcImg, $BufferedImageOp* biop, $Composite* comp, $Region* clip, $AffineTransform* xform, int32_t hint, int32_t sx1, int32_t sy1, int32_t sx2, int32_t sy2, double dx1, double dy1, double dx2, double dy2, bool texture) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ctxflags = 0;
 	if ($nc(srcData)->getTransparency() == $Transparency::OPAQUE) {
 		ctxflags |= $MTLContext::SRC_IS_OPAQUE;
 	}
 	$var($MTLRenderQueue, rq, $MTLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($MTLSurfaceData, mtlSrc, $cast($MTLSurfaceData, srcData));
-			$var($MTLSurfaceData, mtlDst, $cast($MTLSurfaceData, dstData));
-			int32_t srctype = $nc(mtlSrc)->getType();
-			bool rtt = false;
-			$var($MTLSurfaceData, srcCtxData, nullptr);
-			if (srctype == $MTLSurfaceData::TEXTURE) {
-				rtt = false;
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($MTLSurfaceData, mtlSrc, $cast($MTLSurfaceData, srcData));
+		$var($MTLSurfaceData, mtlDst, $cast($MTLSurfaceData, dstData));
+		int32_t srctype = mtlSrc->getType();
+		bool rtt = false;
+		$var($MTLSurfaceData, srcCtxData, nullptr);
+		if (srctype == $MTLSurfaceData::TEXTURE) {
+			rtt = false;
+			$assign(srcCtxData, mtlDst);
+		} else {
+			rtt = true;
+			if (srctype == $AccelSurface::RT_TEXTURE) {
 				$assign(srcCtxData, mtlDst);
 			} else {
-				rtt = true;
-				if (srctype == $AccelSurface::RT_TEXTURE) {
-					$assign(srcCtxData, mtlDst);
-				} else {
-					$assign(srcCtxData, mtlSrc);
-				}
+				$assign(srcCtxData, mtlSrc);
 			}
-			$MTLContext::validateContext(srcCtxData, mtlDst, clip, comp, xform, nullptr, nullptr, ctxflags);
-			if (biop != nullptr) {
-				$MTLBufImgOps::enableBufImgOp(rq, mtlSrc, srcImg, biop);
-			}
-			int32_t packedParams = createPackedParams(true, texture, false, xform != nullptr, hint, 0);
-			enqueueBlit(rq, srcData, dstData, packedParams, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
-			if (biop != nullptr) {
-				$MTLBufImgOps::disableBufImgOp(rq, biop);
-			}
-			if (rtt && $nc(mtlDst)->isOnScreen()) {
-				rq->flushNow();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$MTLContext::validateContext(srcCtxData, mtlDst, clip, comp, xform, nullptr, nullptr, ctxflags);
+		if (biop != nullptr) {
+			$MTLBufImgOps::enableBufImgOp(rq, mtlSrc, srcImg, biop);
 		}
+		int32_t packedParams = createPackedParams(true, texture, false, xform != nullptr, hint, 0);
+		enqueueBlit(rq, srcData, dstData, packedParams, sx1, sy1, sx2, sy2, dx1, dy1, dx2, dy2);
+		if (biop != nullptr) {
+			$MTLBufImgOps::disableBufImgOp(rq, biop);
+		}
+		if (rtt && $nc(mtlDst)->isOnScreen()) {
+			rq->flushNow();
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -299,7 +260,35 @@ MTLBlitLoops::MTLBlitLoops() {
 }
 
 $Class* MTLBlitLoops::load$($String* name, bool initialize) {
-	$loadClass(MTLBlitLoops, name, initialize, &_MTLBlitLoops_ClassInfo_, allocate$MTLBlitLoops);
+	$FieldInfo fieldInfos$$[] = {
+		{"OFFSET_SRCTYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_SRCTYPE)},
+		{"OFFSET_HINT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_HINT)},
+		{"OFFSET_TEXTURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_TEXTURE)},
+		{"OFFSET_RTT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_RTT)},
+		{"OFFSET_XFORM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_XFORM)},
+		{"OFFSET_ISOBLIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MTLBlitLoops, OFFSET_ISOBLIT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MTLBlitLoops, init$, void)},
+		{"Blit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIDDDDIZ)V", nullptr, $STATIC, $staticMethod(MTLBlitLoops, Blit, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double, int32_t, bool)},
+		{"IsoBlit", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIDDDDZ)V", nullptr, $STATIC, $staticMethod(MTLBlitLoops, IsoBlit, void, $SurfaceData*, $SurfaceData*, $BufferedImage*, $BufferedImageOp*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double, bool)},
+		{"createPackedParams", "(ZZZZII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MTLBlitLoops, createPackedParams, int32_t, bool, bool, bool, bool, int32_t, int32_t)},
+		{"enqueueBlit", "(Lsun/java2d/pipe/RenderQueue;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;IIIIIDDDD)V", nullptr, $PRIVATE | $STATIC, $staticMethod(MTLBlitLoops, enqueueBlit, void, $RenderQueue*, $SurfaceData*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{"register", "()V", nullptr, $STATIC, $staticMethod(MTLBlitLoops, register$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.metal.MTLBlitLoops",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MTLBlitLoops, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLBlitLoops);
+	});
 	return class$;
 }
 

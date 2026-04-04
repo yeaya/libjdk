@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$3.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/code/Types$TypeMapping.h>
@@ -18,9 +17,7 @@ using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -34,61 +31,17 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _DeferredAttr$3_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$3, this$0)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;)V", nullptr, 0, $method(DeferredAttr$3, init$, void, $DeferredAttr*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$3, visitType, $Type*, $Type*, $Void*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$3, visitType, $Object*, $Type*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _DeferredAttr$3_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.DeferredAttr",
-	"<init>",
-	"(Lcom/sun/tools/javac/util/Context;)V"
-};
-
-$InnerClassInfo _DeferredAttr$3_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$3", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$TypeMapping", "com.sun.tools.javac.code.Types", "TypeMapping", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DeferredAttr$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.DeferredAttr$3",
-	"com.sun.tools.javac.code.Types$TypeMapping",
-	nullptr,
-	_DeferredAttr$3_FieldInfo_,
-	_DeferredAttr$3_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$TypeMapping<Ljava/lang/Void;>;",
-	&_DeferredAttr$3_EnclosingMethodInfo_,
-	_DeferredAttr$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$3($Class* clazz) {
-	return $of($alloc(DeferredAttr$3));
-}
-
 void DeferredAttr$3::init$($DeferredAttr* this$0) {
 	$set(this, this$0, this$0);
 	$Types$TypeMapping::init$();
 }
 
 $Type* DeferredAttr$3::visitType($Type* t, $Void* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc(t)->hasTag($TypeTag::DEFERRED)) {
 		$var($DeferredAttr$DeferredType, dt, $cast($DeferredAttr$DeferredType, t));
-		return $new($DeferredAttr$DeferredType, this->this$0, $cast($JCTree$JCExpression, $($nc(this->this$0->treeCopier)->copy(static_cast<$JCTree*>(dt->tree)))), dt->env);
+		return $new($DeferredAttr$DeferredType, this->this$0, $$cast($JCTree$JCExpression, $nc(this->this$0->treeCopier)->copy(dt->tree)), dt->env);
 	}
 	return t;
 }
@@ -101,7 +54,44 @@ DeferredAttr$3::DeferredAttr$3() {
 }
 
 $Class* DeferredAttr$3::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$3, name, initialize, &_DeferredAttr$3_ClassInfo_, allocate$DeferredAttr$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/DeferredAttr;", nullptr, $FINAL | $SYNTHETIC, $field(DeferredAttr$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/DeferredAttr;)V", nullptr, 0, $method(DeferredAttr$3, init$, void, $DeferredAttr*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(DeferredAttr$3, visitType, $Type*, $Type*, $Void*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DeferredAttr$3, visitType, $Object*, $Type*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.DeferredAttr",
+		"<init>",
+		"(Lcom/sun/tools/javac/util/Context;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$3", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$TypeMapping", "com.sun.tools.javac.code.Types", "TypeMapping", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.DeferredAttr$3",
+		"com.sun.tools.javac.code.Types$TypeMapping",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$TypeMapping<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeferredAttr$3));
+	});
 	return class$;
 }
 

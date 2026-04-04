@@ -19,7 +19,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	PlatformProvider$PlatformNotSupported(const PlatformProvider$PlatformNotSupported& e);
 	virtual void throw$() override;
-	inline PlatformProvider$PlatformNotSupported* operator ->() {
+	inline PlatformProvider$PlatformNotSupported* operator ->() const {
+		return (PlatformProvider$PlatformNotSupported*)throwing$;
+	}
+	inline operator PlatformProvider$PlatformNotSupported*() const {
 		return (PlatformProvider$PlatformNotSupported*)throwing$;
 	}
 };

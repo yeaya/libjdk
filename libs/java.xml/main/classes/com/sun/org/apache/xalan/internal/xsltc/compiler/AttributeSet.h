@@ -60,6 +60,7 @@ class AttributeSet : public ::com::sun::org::apache::xalan::internal::xsltc::com
 	$class(AttributeSet, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::TopLevelElement)
 public:
 	AttributeSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	$String* getMethodName();
 	::com::sun::org::apache::xalan::internal::xsltc::compiler::QName* getName();

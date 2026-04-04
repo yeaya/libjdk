@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$BoundFilter.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/comp/Infer.h>
@@ -22,43 +21,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Infer$BoundFilter_FieldInfo_[] = {
-	{"inferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, 0, $field(Infer$BoundFilter, inferenceContext)},
-	{}
-};
-
-$MethodInfo _Infer$BoundFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(Infer$BoundFilter, init$, void, $InferenceContext*)},
-	{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$BoundFilter, test, bool, $Type*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$BoundFilter, test, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Infer$BoundFilter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$BoundFilter", "com.sun.tools.javac.comp.Infer", "BoundFilter", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _Infer$BoundFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Infer$BoundFilter",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	_Infer$BoundFilter_FieldInfo_,
-	_Infer$BoundFilter_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;",
-	nullptr,
-	_Infer$BoundFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$BoundFilter($Class* clazz) {
-	return $of($alloc(Infer$BoundFilter));
-}
-
 void Infer$BoundFilter::init$($InferenceContext* inferenceContext) {
 	$set(this, inferenceContext, inferenceContext);
 }
@@ -78,7 +40,38 @@ Infer$BoundFilter::Infer$BoundFilter() {
 }
 
 $Class* Infer$BoundFilter::load$($String* name, bool initialize) {
-	$loadClass(Infer$BoundFilter, name, initialize, &_Infer$BoundFilter_ClassInfo_, allocate$Infer$BoundFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"inferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, 0, $field(Infer$BoundFilter, inferenceContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, $PUBLIC, $method(Infer$BoundFilter, init$, void, $InferenceContext*)},
+		{"test", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PUBLIC, $virtualMethod(Infer$BoundFilter, test, bool, $Type*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Infer$BoundFilter, test, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$BoundFilter", "com.sun.tools.javac.comp.Infer", "BoundFilter", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Infer$BoundFilter",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Predicate<Lcom/sun/tools/javac/code/Type;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$BoundFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Infer$BoundFilter);
+	});
 	return class$;
 }
 

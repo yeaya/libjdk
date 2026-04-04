@@ -164,6 +164,7 @@ class XMLDocumentScannerImpl : public ::com::sun::org::apache::xerces::internal:
 	$class(XMLDocumentScannerImpl, 0, ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl)
 public:
 	XMLDocumentScannerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl$Driver* createContentDriver() override;
 	virtual void endEntity($String* name, ::com::sun::org::apache::xerces::internal::xni::Augmentations* augs) override;

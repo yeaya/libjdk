@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicFormattedTextFieldUI.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicTextFieldUI.h>
@@ -15,26 +14,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$MethodInfo _BasicFormattedTextFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicFormattedTextFieldUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicFormattedTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicFormattedTextFieldUI, getPropertyPrefix, $String*)},
-	{}
-};
-
-$ClassInfo _BasicFormattedTextFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicFormattedTextFieldUI",
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	nullptr,
-	nullptr,
-	_BasicFormattedTextFieldUI_MethodInfo_
-};
-
-$Object* allocate$BasicFormattedTextFieldUI($Class* clazz) {
-	return $of($alloc(BasicFormattedTextFieldUI));
-}
 
 void BasicFormattedTextFieldUI::init$() {
 	$BasicTextFieldUI::init$();
@@ -53,7 +32,23 @@ BasicFormattedTextFieldUI::BasicFormattedTextFieldUI() {
 }
 
 $Class* BasicFormattedTextFieldUI::load$($String* name, bool initialize) {
-	$loadClass(BasicFormattedTextFieldUI, name, initialize, &_BasicFormattedTextFieldUI_ClassInfo_, allocate$BasicFormattedTextFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicFormattedTextFieldUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicFormattedTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicFormattedTextFieldUI, getPropertyPrefix, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicFormattedTextFieldUI",
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BasicFormattedTextFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicFormattedTextFieldUI));
+	});
 	return class$;
 }
 

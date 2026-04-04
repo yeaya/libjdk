@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelByteBuffer$RandomFileInputStream.h>
-
 #include <com/sun/media/sound/ModelByteBuffer.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
@@ -24,61 +23,13 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _ModelByteBuffer$RandomFileInputStream_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(ModelByteBuffer$RandomFileInputStream, this$0)},
-	{"raf", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE | $FINAL, $field(ModelByteBuffer$RandomFileInputStream, raf)},
-	{"left", "J", nullptr, $PRIVATE, $field(ModelByteBuffer$RandomFileInputStream, left)},
-	{"mark", "J", nullptr, $PRIVATE, $field(ModelByteBuffer$RandomFileInputStream, mark$)},
-	{"markleft", "J", nullptr, $PRIVATE, $field(ModelByteBuffer$RandomFileInputStream, markleft)},
-	{}
-};
-
-$MethodInfo _ModelByteBuffer$RandomFileInputStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/ModelByteBuffer;)V", nullptr, 0, $method(ModelByteBuffer$RandomFileInputStream, init$, void, $ModelByteBuffer*), "java.io.IOException"},
-	{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, available, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, close, void), "java.io.IOException"},
-	{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ModelByteBuffer$RandomFileInputStream, mark, void, int32_t)},
-	{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, markSupported, bool)},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, read, int32_t), "java.io.IOException"},
-	{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ModelByteBuffer$RandomFileInputStream, reset, void), "java.io.IOException"},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ModelByteBuffer$RandomFileInputStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.ModelByteBuffer$RandomFileInputStream", "com.sun.media.sound.ModelByteBuffer", "RandomFileInputStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ModelByteBuffer$RandomFileInputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.ModelByteBuffer$RandomFileInputStream",
-	"java.io.InputStream",
-	nullptr,
-	_ModelByteBuffer$RandomFileInputStream_FieldInfo_,
-	_ModelByteBuffer$RandomFileInputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModelByteBuffer$RandomFileInputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.ModelByteBuffer"
-};
-
-$Object* allocate$ModelByteBuffer$RandomFileInputStream($Class* clazz) {
-	return $of($alloc(ModelByteBuffer$RandomFileInputStream));
-}
-
 void ModelByteBuffer$RandomFileInputStream::init$($ModelByteBuffer* this$0) {
 	$set(this, this$0, this$0);
 	$InputStream::init$();
 	this->mark$ = 0;
 	this->markleft = 0;
 	$set(this, raf, $new($RandomAccessFile, $nc(this$0->root)->file, "r"_s));
-	$nc(this->raf)->seek($nc(this$0->root)->fileoffset + this$0->arrayOffset());
+	this->raf->seek(this$0->root->fileoffset + this$0->arrayOffset());
 	this->left = this$0->capacity();
 }
 
@@ -92,7 +43,7 @@ int32_t ModelByteBuffer$RandomFileInputStream::available() {
 void ModelByteBuffer$RandomFileInputStream::mark(int32_t readlimit) {
 	$synchronized(this) {
 		try {
-			this->mark$ = $nc(this->raf)->getFilePointer();
+			this->mark$ = this->raf->getFilePointer();
 			this->markleft = this->left;
 		} catch ($IOException& e) {
 		}
@@ -105,7 +56,7 @@ bool ModelByteBuffer$RandomFileInputStream::markSupported() {
 
 void ModelByteBuffer$RandomFileInputStream::reset() {
 	$synchronized(this) {
-		$nc(this->raf)->seek(this->mark$);
+		this->raf->seek(this->mark$);
 		this->left = this->markleft;
 	}
 }
@@ -117,8 +68,8 @@ int64_t ModelByteBuffer$RandomFileInputStream::skip(int64_t n) {
 	if (n > this->left) {
 		n = this->left;
 	}
-	int64_t p = $nc(this->raf)->getFilePointer();
-	$nc(this->raf)->seek(p + n);
+	int64_t p = this->raf->getFilePointer();
+	this->raf->seek(p + n);
 	this->left -= n;
 	return n;
 }
@@ -130,7 +81,7 @@ int32_t ModelByteBuffer$RandomFileInputStream::read($bytes* b, int32_t off, int3
 	if (this->left == 0) {
 		return -1;
 	}
-	len = $nc(this->raf)->read(b, off, len);
+	len = this->raf->read(b, off, len);
 	if (len == -1) {
 		return -1;
 	}
@@ -146,7 +97,7 @@ int32_t ModelByteBuffer$RandomFileInputStream::read($bytes* b) {
 	if (this->left == 0) {
 		return -1;
 	}
-	len = $nc(this->raf)->read(b, 0, len);
+	len = this->raf->read(b, 0, len);
 	if (len == -1) {
 		return -1;
 	}
@@ -158,7 +109,7 @@ int32_t ModelByteBuffer$RandomFileInputStream::read() {
 	if (this->left == 0) {
 		return -1;
 	}
-	int32_t b = $nc(this->raf)->read();
+	int32_t b = this->raf->read();
 	if (b == -1) {
 		return -1;
 	}
@@ -167,14 +118,56 @@ int32_t ModelByteBuffer$RandomFileInputStream::read() {
 }
 
 void ModelByteBuffer$RandomFileInputStream::close() {
-	$nc(this->raf)->close();
+	this->raf->close();
 }
 
 ModelByteBuffer$RandomFileInputStream::ModelByteBuffer$RandomFileInputStream() {
 }
 
 $Class* ModelByteBuffer$RandomFileInputStream::load$($String* name, bool initialize) {
-	$loadClass(ModelByteBuffer$RandomFileInputStream, name, initialize, &_ModelByteBuffer$RandomFileInputStream_ClassInfo_, allocate$ModelByteBuffer$RandomFileInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/ModelByteBuffer;", nullptr, $FINAL | $SYNTHETIC, $field(ModelByteBuffer$RandomFileInputStream, this$0)},
+		{"raf", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE | $FINAL, $field(ModelByteBuffer$RandomFileInputStream, raf)},
+		{"left", "J", nullptr, $PRIVATE, $field(ModelByteBuffer$RandomFileInputStream, left)},
+		{"mark", "J", nullptr, $PRIVATE, $field(ModelByteBuffer$RandomFileInputStream, mark$)},
+		{"markleft", "J", nullptr, $PRIVATE, $field(ModelByteBuffer$RandomFileInputStream, markleft)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/ModelByteBuffer;)V", nullptr, 0, $method(ModelByteBuffer$RandomFileInputStream, init$, void, $ModelByteBuffer*), "java.io.IOException"},
+		{"available", "()I", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, available, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, close, void), "java.io.IOException"},
+		{"mark", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ModelByteBuffer$RandomFileInputStream, mark, void, int32_t)},
+		{"markSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, markSupported, bool)},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, read, int32_t), "java.io.IOException"},
+		{"reset", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ModelByteBuffer$RandomFileInputStream, reset, void), "java.io.IOException"},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(ModelByteBuffer$RandomFileInputStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.ModelByteBuffer$RandomFileInputStream", "com.sun.media.sound.ModelByteBuffer", "RandomFileInputStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.ModelByteBuffer$RandomFileInputStream",
+		"java.io.InputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.ModelByteBuffer"
+	};
+	$loadClass(ModelByteBuffer$RandomFileInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelByteBuffer$RandomFileInputStream);
+	});
 	return class$;
 }
 

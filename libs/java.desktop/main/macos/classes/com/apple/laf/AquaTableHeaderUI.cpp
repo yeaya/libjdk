@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTableHeaderUI.h>
-
 #include <com/apple/laf/AquaTableHeaderBorder.h>
 #include <com/apple/laf/AquaTableHeaderUI$1.h>
 #include <com/apple/laf/AquaTableHeaderUI$AquaTableCellRenderer.h>
@@ -60,61 +59,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTableHeaderUI_FieldInfo_[] = {
-	{"originalHeaderAlignment", "I", nullptr, $PRIVATE, $field(AquaTableHeaderUI, originalHeaderAlignment)},
-	{"sortColumn", "I", nullptr, $PROTECTED, $field(AquaTableHeaderUI, sortColumn)},
-	{"sortOrder", "I", nullptr, $PROTECTED, $field(AquaTableHeaderUI, sortOrder)},
-	{"TABLE_HEADER_APPLICATORS", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/table/JTableHeader;Ljavax/swing/table/JTableHeader;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaTableHeaderUI, TABLE_HEADER_APPLICATORS)},
-	{}
-};
-
-$MethodInfo _AquaTableHeaderUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTableHeaderUI, init$, void)},
-	{"access$000", "(Lcom/apple/laf/AquaTableHeaderUI;)Ljavax/swing/table/JTableHeader;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTableHeaderUI, access$000, $JTableHeader*, AquaTableHeaderUI*)},
-	{"access$100", "(Lcom/apple/laf/AquaTableHeaderUI;)Ljavax/swing/table/JTableHeader;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTableHeaderUI, access$100, $JTableHeader*, AquaTableHeaderUI*)},
-	{"access$200", "(Lcom/apple/laf/AquaTableHeaderUI;)Ljavax/swing/table/JTableHeader;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTableHeaderUI, access$200, $JTableHeader*, AquaTableHeaderUI*)},
-	{"createHeaderSizeAqua", "(J)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(AquaTableHeaderUI, createHeaderSizeAqua, $Dimension*, int64_t)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTableHeaderUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getAquaBorderFrom", "(Ljavax/swing/table/JTableHeader;Ljavax/swing/table/TableColumn;)Lcom/apple/laf/AquaTableHeaderBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTableHeaderUI, getAquaBorderFrom, $AquaTableHeaderBorder*, $JTableHeader*, $TableColumn*)},
-	{"getHeaderHeightAqua", "()I", nullptr, $PRIVATE, $method(AquaTableHeaderUI, getHeaderHeightAqua, int32_t)},
-	{"getHeaderRendererAqua", "(I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(AquaTableHeaderUI, getHeaderRendererAqua, $Component*, int32_t)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"getTableColumn", "(Ljavax/swing/table/JTableHeader;Ljava/lang/Object;)Ljavax/swing/table/TableColumn;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTableHeaderUI, getTableColumn, $TableColumn*, $JTableHeader*, Object$*)},
-	{"getTableHeaderApplicators", "()Lcom/apple/laf/ClientPropertyApplicator;", "()Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/table/JTableHeader;Ljavax/swing/table/JTableHeader;>;", $STATIC, $staticMethod(AquaTableHeaderUI, getTableHeaderApplicators, $ClientPropertyApplicator*)},
-	{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderUI, installListeners, void)},
-	{"tickle", "(Ljavax/swing/table/JTableHeader;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaTableHeaderUI, tickle, void, $JTableHeader*, Object$*, Object$*)},
-	{"uninstallDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderUI, uninstallListeners, void)},
-	{}
-};
-
-$InnerClassInfo _AquaTableHeaderUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTableHeaderUI$AquaTableCellRenderer", "com.apple.laf.AquaTableHeaderUI", "AquaTableCellRenderer", 0},
-	{"com.apple.laf.AquaTableHeaderUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaTableHeaderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTableHeaderUI",
-	"javax.swing.plaf.basic.BasicTableHeaderUI",
-	nullptr,
-	_AquaTableHeaderUI_FieldInfo_,
-	_AquaTableHeaderUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTableHeaderUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTableHeaderUI$AquaTableCellRenderer,com.apple.laf.AquaTableHeaderUI$1,com.apple.laf.AquaTableHeaderUI$1$2,com.apple.laf.AquaTableHeaderUI$1$1"
-};
-
-$Object* allocate$AquaTableHeaderUI($Class* clazz) {
-	return $of($alloc(AquaTableHeaderUI));
-}
-
 $AquaUtils$RecyclableSingleton* AquaTableHeaderUI::TABLE_HEADER_APPLICATORS = nullptr;
 
 $JTableHeader* AquaTableHeaderUI::access$200(AquaTableHeaderUI* x0) {
@@ -142,34 +86,34 @@ $ComponentUI* AquaTableHeaderUI::createUI($JComponent* c) {
 }
 
 void AquaTableHeaderUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTableHeaderUI::installDefaults();
 	$var($TableCellRenderer, renderer, $nc(this->header)->getDefaultRenderer());
 	if ($instanceOf($UIResource, renderer) && $instanceOf($DefaultTableCellRenderer, renderer)) {
 		$var($DefaultTableCellRenderer, defaultRenderer, $cast($DefaultTableCellRenderer, renderer));
-		this->originalHeaderAlignment = $nc(defaultRenderer)->getHorizontalAlignment();
+		this->originalHeaderAlignment = defaultRenderer->getHorizontalAlignment();
 		defaultRenderer->setHorizontalAlignment($SwingConstants::LEADING);
 	}
 }
 
 void AquaTableHeaderUI::uninstallDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TableCellRenderer, renderer, $nc(this->header)->getDefaultRenderer());
 	if ($instanceOf($UIResource, renderer) && $instanceOf($DefaultTableCellRenderer, renderer)) {
 		$var($DefaultTableCellRenderer, defaultRenderer, $cast($DefaultTableCellRenderer, renderer));
-		$nc(defaultRenderer)->setHorizontalAlignment(this->originalHeaderAlignment);
+		defaultRenderer->setHorizontalAlignment(this->originalHeaderAlignment);
 	}
 	$BasicTableHeaderUI::uninstallDefaults();
 }
 
 $ClientPropertyApplicator* AquaTableHeaderUI::getTableHeaderApplicators() {
 	$init(AquaTableHeaderUI);
-	return $cast($ClientPropertyApplicator, $nc(AquaTableHeaderUI::TABLE_HEADER_APPLICATORS)->get());
+	return $cast($ClientPropertyApplicator, AquaTableHeaderUI::TABLE_HEADER_APPLICATORS->get());
 }
 
 void AquaTableHeaderUI::tickle($JTableHeader* target, Object$* selectedColumn, Object$* direction) {
 	$init(AquaTableHeaderUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TableColumn, tableColumn, getTableColumn(target, selectedColumn));
 	if (tableColumn == nullptr) {
 		return;
@@ -189,7 +133,7 @@ void AquaTableHeaderUI::tickle($JTableHeader* target, Object$* selectedColumn, O
 	$var(AquaTableHeaderUI, aquaHeaderUI, $cast(AquaTableHeaderUI, headerUI));
 	$nc(aquaHeaderUI)->sortColumn = $nc(tableColumn)->getModelIndex();
 	aquaHeaderUI->sortOrder = sortDirection;
-	$var($AquaTableHeaderUI$AquaTableCellRenderer, renderer, $new($AquaTableHeaderUI$AquaTableCellRenderer, static_cast<AquaTableHeaderUI*>(aquaHeaderUI)));
+	$var($AquaTableHeaderUI$AquaTableCellRenderer, renderer, $new($AquaTableHeaderUI$AquaTableCellRenderer, aquaHeaderUI));
 	tableColumn->setHeaderRenderer(renderer);
 }
 
@@ -198,7 +142,7 @@ $TableColumn* AquaTableHeaderUI::getTableColumn($JTableHeader* target, Object$* 
 	if (value == nullptr || !($instanceOf($Integer, value))) {
 		return nullptr;
 	}
-	int32_t columnIndex = $nc(($cast($Integer, value)))->intValue();
+	int32_t columnIndex = $nc($cast($Integer, value))->intValue();
 	$var($TableColumnModel, columnModel, $nc(target)->getColumnModel());
 	if (columnIndex < 0 || columnIndex >= $nc(columnModel)->getColumnCount()) {
 		return nullptr;
@@ -208,7 +152,7 @@ $TableColumn* AquaTableHeaderUI::getTableColumn($JTableHeader* target, Object$* 
 
 $AquaTableHeaderBorder* AquaTableHeaderUI::getAquaBorderFrom($JTableHeader* header, $TableColumn* column) {
 	$init(AquaTableHeaderUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TableCellRenderer, renderer, $nc(column)->getHeaderRenderer());
 	if (renderer == nullptr) {
 		return nullptr;
@@ -219,7 +163,7 @@ $AquaTableHeaderBorder* AquaTableHeaderUI::getAquaBorderFrom($JTableHeader* head
 	if (!($instanceOf($JComponent, c))) {
 		return nullptr;
 	}
-	$var($Border, border, $nc(($cast($JComponent, c)))->getBorder());
+	$var($Border, border, $nc($cast($JComponent, c))->getBorder());
 	if (!($instanceOf($AquaTableHeaderBorder, border))) {
 		return nullptr;
 	}
@@ -228,16 +172,16 @@ $AquaTableHeaderBorder* AquaTableHeaderUI::getAquaBorderFrom($JTableHeader* head
 
 void AquaTableHeaderUI::installListeners() {
 	$BasicTableHeaderUI::installListeners();
-	$nc($(getTableHeaderApplicators()))->attachAndApplyClientProperties(this->header);
+	$$nc(getTableHeaderApplicators())->attachAndApplyClientProperties(this->header);
 }
 
 void AquaTableHeaderUI::uninstallListeners() {
-	$nc($(getTableHeaderApplicators()))->removeFrom(this->header);
+	$$nc(getTableHeaderApplicators())->removeFrom(this->header);
 	$BasicTableHeaderUI::uninstallListeners();
 }
 
 int32_t AquaTableHeaderUI::getHeaderHeightAqua() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t height = 0;
 	bool accomodatedDefault = false;
 	$var($TableColumnModel, columnModel, $nc(this->header)->getColumnModel());
@@ -256,8 +200,8 @@ int32_t AquaTableHeaderUI::getHeaderHeightAqua() {
 }
 
 $Component* AquaTableHeaderUI::getHeaderRendererAqua(int32_t columnIndex) {
-	$useLocalCurrentObjectStackCache();
-	$var($TableColumn, aColumn, $nc($($nc(this->header)->getColumnModel()))->getColumn(columnIndex));
+	$useLocalObjectStack();
+	$var($TableColumn, aColumn, $$nc($nc(this->header)->getColumnModel())->getColumn(columnIndex));
 	$var($TableCellRenderer, renderer, $nc(aColumn)->getHeaderRenderer());
 	if (renderer == nullptr) {
 		$assign(renderer, $nc(this->header)->getDefaultRenderer());
@@ -274,9 +218,9 @@ $Dimension* AquaTableHeaderUI::createHeaderSizeAqua(int64_t width) {
 }
 
 $Dimension* AquaTableHeaderUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t width = 0;
-	$var($Enumeration, enumeration, $nc($($nc(this->header)->getColumnModel()))->getColumns());
+	$var($Enumeration, enumeration, $$nc($nc(this->header)->getColumnModel())->getColumns());
 	while ($nc(enumeration)->hasMoreElements()) {
 		$var($TableColumn, aColumn, $cast($TableColumn, enumeration->nextElement()));
 		width = width + $nc(aColumn)->getMinWidth();
@@ -285,9 +229,9 @@ $Dimension* AquaTableHeaderUI::getMinimumSize($JComponent* c) {
 }
 
 $Dimension* AquaTableHeaderUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t width = 0;
-	$var($Enumeration, enumeration, $nc($($nc(this->header)->getColumnModel()))->getColumns());
+	$var($Enumeration, enumeration, $$nc($nc(this->header)->getColumnModel())->getColumns());
 	while ($nc(enumeration)->hasMoreElements()) {
 		$var($TableColumn, aColumn, $cast($TableColumn, enumeration->nextElement()));
 		width = width + $nc(aColumn)->getPreferredWidth();
@@ -295,7 +239,7 @@ $Dimension* AquaTableHeaderUI::getPreferredSize($JComponent* c) {
 	return createHeaderSizeAqua(width);
 }
 
-void clinit$AquaTableHeaderUI($Class* class$) {
+void AquaTableHeaderUI::clinit$($Class* clazz) {
 	$assignStatic(AquaTableHeaderUI::TABLE_HEADER_APPLICATORS, $new($AquaTableHeaderUI$1));
 }
 
@@ -303,7 +247,56 @@ AquaTableHeaderUI::AquaTableHeaderUI() {
 }
 
 $Class* AquaTableHeaderUI::load$($String* name, bool initialize) {
-	$loadClass(AquaTableHeaderUI, name, initialize, &_AquaTableHeaderUI_ClassInfo_, clinit$AquaTableHeaderUI, allocate$AquaTableHeaderUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"originalHeaderAlignment", "I", nullptr, $PRIVATE, $field(AquaTableHeaderUI, originalHeaderAlignment)},
+		{"sortColumn", "I", nullptr, $PROTECTED, $field(AquaTableHeaderUI, sortColumn)},
+		{"sortOrder", "I", nullptr, $PROTECTED, $field(AquaTableHeaderUI, sortOrder)},
+		{"TABLE_HEADER_APPLICATORS", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/table/JTableHeader;Ljavax/swing/table/JTableHeader;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaTableHeaderUI, TABLE_HEADER_APPLICATORS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaTableHeaderUI, init$, void)},
+		{"access$000", "(Lcom/apple/laf/AquaTableHeaderUI;)Ljavax/swing/table/JTableHeader;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTableHeaderUI, access$000, $JTableHeader*, AquaTableHeaderUI*)},
+		{"access$100", "(Lcom/apple/laf/AquaTableHeaderUI;)Ljavax/swing/table/JTableHeader;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTableHeaderUI, access$100, $JTableHeader*, AquaTableHeaderUI*)},
+		{"access$200", "(Lcom/apple/laf/AquaTableHeaderUI;)Ljavax/swing/table/JTableHeader;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(AquaTableHeaderUI, access$200, $JTableHeader*, AquaTableHeaderUI*)},
+		{"createHeaderSizeAqua", "(J)Ljava/awt/Dimension;", nullptr, $PRIVATE, $method(AquaTableHeaderUI, createHeaderSizeAqua, $Dimension*, int64_t)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaTableHeaderUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getAquaBorderFrom", "(Ljavax/swing/table/JTableHeader;Ljavax/swing/table/TableColumn;)Lcom/apple/laf/AquaTableHeaderBorder;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTableHeaderUI, getAquaBorderFrom, $AquaTableHeaderBorder*, $JTableHeader*, $TableColumn*)},
+		{"getHeaderHeightAqua", "()I", nullptr, $PRIVATE, $method(AquaTableHeaderUI, getHeaderHeightAqua, int32_t)},
+		{"getHeaderRendererAqua", "(I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(AquaTableHeaderUI, getHeaderRendererAqua, $Component*, int32_t)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"getTableColumn", "(Ljavax/swing/table/JTableHeader;Ljava/lang/Object;)Ljavax/swing/table/TableColumn;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaTableHeaderUI, getTableColumn, $TableColumn*, $JTableHeader*, Object$*)},
+		{"getTableHeaderApplicators", "()Lcom/apple/laf/ClientPropertyApplicator;", "()Lcom/apple/laf/ClientPropertyApplicator<Ljavax/swing/table/JTableHeader;Ljavax/swing/table/JTableHeader;>;", $STATIC, $staticMethod(AquaTableHeaderUI, getTableHeaderApplicators, $ClientPropertyApplicator*)},
+		{"installDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderUI, installListeners, void)},
+		{"tickle", "(Ljavax/swing/table/JTableHeader;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $STATIC, $staticMethod(AquaTableHeaderUI, tickle, void, $JTableHeader*, Object$*, Object$*)},
+		{"uninstallDefaults", "()V", nullptr, $PUBLIC, $virtualMethod(AquaTableHeaderUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(AquaTableHeaderUI, uninstallListeners, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTableHeaderUI$AquaTableCellRenderer", "com.apple.laf.AquaTableHeaderUI", "AquaTableCellRenderer", 0},
+		{"com.apple.laf.AquaTableHeaderUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTableHeaderUI",
+		"javax.swing.plaf.basic.BasicTableHeaderUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTableHeaderUI$AquaTableCellRenderer,com.apple.laf.AquaTableHeaderUI$1,com.apple.laf.AquaTableHeaderUI$1$2,com.apple.laf.AquaTableHeaderUI$1$1"
+	};
+	$loadClass(AquaTableHeaderUI, name, initialize, &classInfo$$, AquaTableHeaderUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTableHeaderUI);
+	});
 	return class$;
 }
 

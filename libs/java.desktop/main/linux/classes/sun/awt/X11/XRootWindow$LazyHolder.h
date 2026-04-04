@@ -21,6 +21,7 @@ class XRootWindow$LazyHolder : public ::java::lang::Object {
 	$class(XRootWindow$LazyHolder, 0, ::java::lang::Object)
 public:
 	XRootWindow$LazyHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::X11::XRootWindow* xawtRootWindow;
 };

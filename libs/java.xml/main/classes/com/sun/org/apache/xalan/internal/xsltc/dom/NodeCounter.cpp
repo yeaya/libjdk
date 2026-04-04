@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
@@ -21,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 
 namespace com {
 	namespace sun {
@@ -31,68 +29,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _NodeCounter_FieldInfo_[] = {
-	{"END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NodeCounter, END)},
-	{"_node", "I", nullptr, $PROTECTED, $field(NodeCounter, _node)},
-	{"_nodeType", "I", nullptr, $PROTECTED, $field(NodeCounter, _nodeType)},
-	{"_value", "D", nullptr, $PROTECTED, $field(NodeCounter, _value)},
-	{"_document", "Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC | $FINAL, $field(NodeCounter, _document)},
-	{"_iterator", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $FINAL, $field(NodeCounter, _iterator)},
-	{"_translet", "Lcom/sun/org/apache/xalan/internal/xsltc/Translet;", nullptr, $PUBLIC | $FINAL, $field(NodeCounter, _translet)},
-	{"_format", "Ljava/lang/String;", nullptr, $PROTECTED, $field(NodeCounter, _format)},
-	{"_lang", "Ljava/lang/String;", nullptr, $PROTECTED, $field(NodeCounter, _lang)},
-	{"_letterValue", "Ljava/lang/String;", nullptr, $PROTECTED, $field(NodeCounter, _letterValue)},
-	{"_groupSep", "Ljava/lang/String;", nullptr, $PROTECTED, $field(NodeCounter, _groupSep)},
-	{"_groupSize", "I", nullptr, $PROTECTED, $field(NodeCounter, _groupSize)},
-	{"_separFirst", "Z", nullptr, $PRIVATE, $field(NodeCounter, _separFirst)},
-	{"_separLast", "Z", nullptr, $PRIVATE, $field(NodeCounter, _separLast)},
-	{"_separToks", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(NodeCounter, _separToks)},
-	{"_formatToks", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(NodeCounter, _formatToks)},
-	{"_nSepars", "I", nullptr, $PRIVATE, $field(NodeCounter, _nSepars)},
-	{"_nFormats", "I", nullptr, $PRIVATE, $field(NodeCounter, _nFormats)},
-	{"Thousands", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NodeCounter, Thousands)},
-	{"Hundreds", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NodeCounter, Hundreds)},
-	{"Tens", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NodeCounter, Tens)},
-	{"Ones", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NodeCounter, Ones)},
-	{"_tempBuffer", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(NodeCounter, _tempBuffer)},
-	{"_hasFrom", "Z", nullptr, $PROTECTED, $field(NodeCounter, _hasFrom)},
-	{}
-};
-
-$MethodInfo _NodeCounter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PROTECTED, $method(NodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Z)V", nullptr, $PROTECTED, $method(NodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*, bool)},
-	{"alphaValue", "(III)Ljava/lang/String;", nullptr, $PRIVATE, $method(NodeCounter, alphaValue, $String*, int32_t, int32_t, int32_t)},
-	{"formatNumbers", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(NodeCounter, formatNumbers, $String*, int32_t)},
-	{"formatNumbers", "([I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(NodeCounter, formatNumbers, $String*, $ints*)},
-	{"formatValue", "(ILjava/lang/String;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(NodeCounter, formatValue, void, int32_t, $String*, $StringBuilder*)},
-	{"getCounter", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeCounter, getCounter, $String*)},
-	{"getCounter", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeCounter, getCounter, $String*, $String*, $String*, $String*, $String*, $String*)},
-	{"matchesCount", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeCounter, matchesCount, bool, int32_t)},
-	{"matchesFrom", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeCounter, matchesFrom, bool, int32_t)},
-	{"parseStringToAnInt", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(NodeCounter, parseStringToAnInt, int32_t, $String*)},
-	{"romanValue", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(NodeCounter, romanValue, $String*, int32_t)},
-	{"setDefaultFormatting", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC, $virtualMethod(NodeCounter, setDefaultFormatting, NodeCounter*)},
-	{"setFormatting", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(NodeCounter, setFormatting, void, $String*, $String*, $String*, $String*, $String*)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeCounter, setStartNode, NodeCounter*, int32_t)},
-	{"setTokens", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(NodeCounter, setTokens, void, $String*)},
-	{"setValue", "(D)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC, $virtualMethod(NodeCounter, setValue, NodeCounter*, double)},
-	{}
-};
-
-$ClassInfo _NodeCounter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.NodeCounter",
-	"java.lang.Object",
-	nullptr,
-	_NodeCounter_FieldInfo_,
-	_NodeCounter_MethodInfo_
-};
-
-$Object* allocate$NodeCounter($Class* clazz) {
-	return $of($alloc(NodeCounter));
-}
 
 $StringArray* NodeCounter::Thousands = nullptr;
 $StringArray* NodeCounter::Hundreds = nullptr;
@@ -203,7 +139,7 @@ int32_t NodeCounter::parseStringToAnInt($String* s) {
 }
 
 void NodeCounter::setTokens($String* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((this->_format != nullptr) && ($nc(format)->equals(this->_format))) {
 		return;
 	}
@@ -216,42 +152,38 @@ void NodeCounter::setTokens($String* format) {
 	this->_nFormats = 0;
 	$nc(this->_separToks)->clear();
 	$nc(this->_formatToks)->clear();
-	{
-		int32_t j = 0;
-		int32_t i = 0;
-		for (; i < length;) {
-			char16_t c = $nc(format)->charAt(i);
-			for (j = i; $Character::isLetterOrDigit(c);) {
-				if (++i == length) {
-					break;
-				}
-				c = format->charAt(i);
-			}
-			if (i > j) {
-				if (isFirst) {
-					$nc(this->_separToks)->add("."_s);
-					isFirst = (this->_separFirst = false);
-				}
-				$nc(this->_formatToks)->add($(format->substring(j, i)));
-			}
-			if (i == length) {
+	for (int32_t j = 0, i = 0; i < length;) {
+		char16_t c = $nc(format)->charAt(i);
+		for (j = i; $Character::isLetterOrDigit(c);) {
+			if (++i == length) {
 				break;
 			}
 			c = format->charAt(i);
-			for (j = i; !$Character::isLetterOrDigit(c);) {
-				if (++i == length) {
-					break;
-				}
-				c = format->charAt(i);
-				isFirst = false;
+		}
+		if (i > j) {
+			if (isFirst) {
+				this->_separToks->add("."_s);
+				isFirst = (this->_separFirst = false);
 			}
-			if (i > j) {
-				$nc(this->_separToks)->add($(format->substring(j, i)));
+			this->_formatToks->add($(format->substring(j, i)));
+		}
+		if (i == length) {
+			break;
+		}
+		c = format->charAt(i);
+		for (j = i; !$Character::isLetterOrDigit(c);) {
+			if (++i == length) {
+				break;
 			}
+			c = format->charAt(i);
+			isFirst = false;
+		}
+		if (i > j) {
+			this->_separToks->add($(format->substring(j, i)));
 		}
 	}
-	this->_nSepars = $nc(this->_separToks)->size();
-	this->_nFormats = $nc(this->_formatToks)->size();
+	this->_nSepars = this->_separToks->size();
+	this->_nFormats = this->_formatToks->size();
 	if (this->_nSepars > this->_nFormats) {
 		this->_separLast = true;
 	}
@@ -262,7 +194,7 @@ void NodeCounter::setTokens($String* format) {
 		--this->_nSepars;
 	}
 	if (this->_nSepars == 0) {
-		$nc(this->_separToks)->add(1, "."_s);
+		this->_separToks->add(1, "."_s);
 		++this->_nSepars;
 	}
 	if (this->_separFirst) {
@@ -293,7 +225,7 @@ $String* NodeCounter::formatNumbers(int32_t value) {
 }
 
 $String* NodeCounter::formatNumbers($ints* values) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nValues = $nc(values)->length;
 	bool isEmpty = true;
 	for (int32_t i = 0; i < nValues; ++i) {
@@ -311,15 +243,15 @@ $String* NodeCounter::formatNumbers($ints* values) {
 	$nc(this->_tempBuffer)->setLength(0);
 	$var($StringBuilder, buffer, this->_tempBuffer);
 	if (this->_separFirst) {
-		$nc(buffer)->append($cast($String, $($nc(this->_separToks)->get(0))));
+		$nc(buffer)->append($$cast($String, $nc(this->_separToks)->get(0)));
 	}
 	while (n < nValues) {
 		int32_t value = values->get(n);
 		if (value != $Integer::MIN_VALUE) {
 			if (!isFirst) {
-				$nc(buffer)->append($cast($String, $($nc(this->_separToks)->get(s++))));
+				$nc(buffer)->append($$cast($String, $nc(this->_separToks)->get(s++)));
 			}
-			formatValue(value, $cast($String, $($nc(this->_formatToks)->get(t++))), buffer);
+			formatValue(value, $$cast($String, $nc(this->_formatToks)->get(t++)), buffer);
 			if (t == this->_nFormats) {
 				--t;
 			}
@@ -331,13 +263,13 @@ $String* NodeCounter::formatNumbers($ints* values) {
 		++n;
 	}
 	if (this->_separLast) {
-		$nc(buffer)->append($cast($String, $($nc(this->_separToks)->get($nc(this->_separToks)->size() - 1))));
+		$nc(buffer)->append($$cast($String, $nc(this->_separToks)->get($nc(this->_separToks)->size() - 1)));
 	}
 	return $nc(buffer)->toString();
 }
 
 void NodeCounter::formatValue(int32_t value, $String* format, $StringBuilder* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t c = $nc(format)->charAt(0);
 	if ($Character::isDigit(c)) {
 		char16_t zero = (char16_t)(c - $Character::getNumericValue(c));
@@ -351,18 +283,15 @@ void NodeCounter::formatValue(int32_t value, $String* format, $StringBuilder* bu
 			$assign(s, $str({$$str((char16_t)((int32_t)zero + (n % 10))), s}));
 			n = n / 10;
 		}
-		{
-			int32_t i = 0;
-			for (;; ++i) {
-				int32_t var$0 = i;
-				int32_t var$2 = format->length();
-				int32_t var$1 = var$2 - $nc(s)->length();
-				if (!(var$0 < var$1)) {
-					break;
-				}
-				{
-					$nc(temp)->append(zero);
-				}
+		for (int32_t i = 0;; ++i) {
+			int32_t var$0 = i;
+			int32_t var$2 = format->length();
+			int32_t var$1 = var$2 - s->length();
+			if (!(var$0 < var$1)) {
+				break;
+			}
+			{
+				$nc(temp)->append(zero);
 			}
 		}
 		$nc(temp)->append(s);
@@ -377,7 +306,7 @@ void NodeCounter::formatValue(int32_t value, $String* format, $StringBuilder* bu
 	} else if (c == u'i' && !$nc(this->_letterValue)->equals("alphabetic"_s)) {
 		$nc(buffer)->append($(romanValue(value)));
 	} else if (c == u'I' && !$nc(this->_letterValue)->equals("alphabetic"_s)) {
-		$nc(buffer)->append($($nc($(romanValue(value)))->toUpperCase()));
+		$nc(buffer)->append($($$nc(romanValue(value))->toUpperCase()));
 	} else {
 		int32_t min = (int32_t)c;
 		int32_t max = (int32_t)c;
@@ -393,7 +322,7 @@ void NodeCounter::formatValue(int32_t value, $String* format, $StringBuilder* bu
 }
 
 $String* NodeCounter::alphaValue(int32_t value, int32_t min, int32_t max) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value <= 0) {
 		return $str({""_s, $$str(value)});
 	}
@@ -410,10 +339,10 @@ $String* NodeCounter::romanValue(int32_t n) {
 	if (n <= 0 || n > 4000) {
 		return $str({""_s, $$str(n)});
 	}
-	return $str({$nc(NodeCounter::Thousands)->get(n / 1000), $nc(NodeCounter::Hundreds)->get((n / 100) % 10), $nc(NodeCounter::Tens)->get((n / 10) % 10), $nc(NodeCounter::Ones)->get(n % 10)});
+	return $str({NodeCounter::Thousands->get(n / 1000), NodeCounter::Hundreds->get((n / 100) % 10), NodeCounter::Tens->get((n / 10) % 10), NodeCounter::Ones->get(n % 10)});
 }
 
-void clinit$NodeCounter($Class* class$) {
+void NodeCounter::clinit$($Class* clazz) {
 	$assignStatic(NodeCounter::Thousands, $new($StringArray, {
 		""_s,
 		"m"_s,
@@ -462,7 +391,64 @@ NodeCounter::NodeCounter() {
 }
 
 $Class* NodeCounter::load$($String* name, bool initialize) {
-	$loadClass(NodeCounter, name, initialize, &_NodeCounter_ClassInfo_, clinit$NodeCounter, allocate$NodeCounter);
+	$FieldInfo fieldInfos$$[] = {
+		{"END", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NodeCounter, END)},
+		{"_node", "I", nullptr, $PROTECTED, $field(NodeCounter, _node)},
+		{"_nodeType", "I", nullptr, $PROTECTED, $field(NodeCounter, _nodeType)},
+		{"_value", "D", nullptr, $PROTECTED, $field(NodeCounter, _value)},
+		{"_document", "Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PUBLIC | $FINAL, $field(NodeCounter, _document)},
+		{"_iterator", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC | $FINAL, $field(NodeCounter, _iterator)},
+		{"_translet", "Lcom/sun/org/apache/xalan/internal/xsltc/Translet;", nullptr, $PUBLIC | $FINAL, $field(NodeCounter, _translet)},
+		{"_format", "Ljava/lang/String;", nullptr, $PROTECTED, $field(NodeCounter, _format)},
+		{"_lang", "Ljava/lang/String;", nullptr, $PROTECTED, $field(NodeCounter, _lang)},
+		{"_letterValue", "Ljava/lang/String;", nullptr, $PROTECTED, $field(NodeCounter, _letterValue)},
+		{"_groupSep", "Ljava/lang/String;", nullptr, $PROTECTED, $field(NodeCounter, _groupSep)},
+		{"_groupSize", "I", nullptr, $PROTECTED, $field(NodeCounter, _groupSize)},
+		{"_separFirst", "Z", nullptr, $PRIVATE, $field(NodeCounter, _separFirst)},
+		{"_separLast", "Z", nullptr, $PRIVATE, $field(NodeCounter, _separLast)},
+		{"_separToks", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(NodeCounter, _separToks)},
+		{"_formatToks", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(NodeCounter, _formatToks)},
+		{"_nSepars", "I", nullptr, $PRIVATE, $field(NodeCounter, _nSepars)},
+		{"_nFormats", "I", nullptr, $PRIVATE, $field(NodeCounter, _nFormats)},
+		{"Thousands", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NodeCounter, Thousands)},
+		{"Hundreds", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NodeCounter, Hundreds)},
+		{"Tens", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NodeCounter, Tens)},
+		{"Ones", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NodeCounter, Ones)},
+		{"_tempBuffer", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE, $field(NodeCounter, _tempBuffer)},
+		{"_hasFrom", "Z", nullptr, $PROTECTED, $field(NodeCounter, _hasFrom)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PROTECTED, $method(NodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Z)V", nullptr, $PROTECTED, $method(NodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*, bool)},
+		{"alphaValue", "(III)Ljava/lang/String;", nullptr, $PRIVATE, $method(NodeCounter, alphaValue, $String*, int32_t, int32_t, int32_t)},
+		{"formatNumbers", "(I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(NodeCounter, formatNumbers, $String*, int32_t)},
+		{"formatNumbers", "([I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(NodeCounter, formatNumbers, $String*, $ints*)},
+		{"formatValue", "(ILjava/lang/String;Ljava/lang/StringBuilder;)V", nullptr, $PRIVATE, $method(NodeCounter, formatValue, void, int32_t, $String*, $StringBuilder*)},
+		{"getCounter", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeCounter, getCounter, $String*)},
+		{"getCounter", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NodeCounter, getCounter, $String*, $String*, $String*, $String*, $String*, $String*)},
+		{"matchesCount", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeCounter, matchesCount, bool, int32_t)},
+		{"matchesFrom", "(I)Z", nullptr, $PUBLIC, $virtualMethod(NodeCounter, matchesFrom, bool, int32_t)},
+		{"parseStringToAnInt", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(NodeCounter, parseStringToAnInt, int32_t, $String*)},
+		{"romanValue", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(NodeCounter, romanValue, $String*, int32_t)},
+		{"setDefaultFormatting", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC, $virtualMethod(NodeCounter, setDefaultFormatting, NodeCounter*)},
+		{"setFormatting", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(NodeCounter, setFormatting, void, $String*, $String*, $String*, $String*, $String*)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeCounter, setStartNode, NodeCounter*, int32_t)},
+		{"setTokens", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $FINAL, $method(NodeCounter, setTokens, void, $String*)},
+		{"setValue", "(D)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC, $virtualMethod(NodeCounter, setValue, NodeCounter*, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.NodeCounter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NodeCounter, name, initialize, &classInfo$$, NodeCounter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NodeCounter);
+	});
 	return class$;
 }
 

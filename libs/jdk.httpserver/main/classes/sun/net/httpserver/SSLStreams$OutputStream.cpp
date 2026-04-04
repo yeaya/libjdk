@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/SSLStreams$OutputStream.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
@@ -25,63 +24,15 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ByteBuffer = ::java::nio::ByteBuffer;
-using $SSLEngine = ::javax::net::ssl::SSLEngine;
-using $SSLEngineResult = ::javax::net::ssl::SSLEngineResult;
 using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
 using $SSLEngineResult$Status = ::javax::net::ssl::SSLEngineResult$Status;
 using $SSLStreams = ::sun::net::httpserver::SSLStreams;
 using $SSLStreams$BufType = ::sun::net::httpserver::SSLStreams$BufType;
-using $SSLStreams$EngineWrapper = ::sun::net::httpserver::SSLStreams$EngineWrapper;
 using $SSLStreams$WrapperResult = ::sun::net::httpserver::SSLStreams$WrapperResult;
 
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _SSLStreams$OutputStream_FieldInfo_[] = {
-	{"this$0", "Lsun/net/httpserver/SSLStreams;", nullptr, $FINAL | $SYNTHETIC, $field(SSLStreams$OutputStream, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLStreams$OutputStream, $assertionsDisabled)},
-	{"buf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(SSLStreams$OutputStream, buf)},
-	{"closed", "Z", nullptr, 0, $field(SSLStreams$OutputStream, closed)},
-	{"single", "[B", nullptr, 0, $field(SSLStreams$OutputStream, single)},
-	{}
-};
-
-$MethodInfo _SSLStreams$OutputStream_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(SSLStreams$OutputStream, init$, void, $SSLStreams*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, $bytes*), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _SSLStreams$OutputStream_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.SSLStreams$OutputStream", "sun.net.httpserver.SSLStreams", "OutputStream", 0},
-	{}
-};
-
-$ClassInfo _SSLStreams$OutputStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.SSLStreams$OutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_SSLStreams$OutputStream_FieldInfo_,
-	_SSLStreams$OutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLStreams$OutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.SSLStreams"
-};
-
-$Object* allocate$SSLStreams$OutputStream($Class* clazz) {
-	return $of($alloc(SSLStreams$OutputStream));
-}
 
 bool SSLStreams$OutputStream::$assertionsDisabled = false;
 
@@ -104,12 +55,12 @@ void SSLStreams$OutputStream::write($bytes* b) {
 }
 
 void SSLStreams$OutputStream::write($bytes* b, int32_t off, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->closed) {
 		$throwNew($IOException, "output stream is closed"_s);
 	}
 	while (len > 0) {
-		int32_t l = len > $nc(this->buf)->capacity() ? $nc(this->buf)->capacity() : len;
+		int32_t l = len > $nc(this->buf)->capacity() ? this->buf->capacity() : len;
 		$nc(this->buf)->clear();
 		$nc(this->buf)->put(b, off, l);
 		len -= l;
@@ -130,7 +81,7 @@ void SSLStreams$OutputStream::flush() {
 }
 
 void SSLStreams$OutputStream::close() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SSLStreams$WrapperResult, r, nullptr);
 	$nc(this->this$0->engine)->closeOutbound();
 	this->closed = true;
@@ -143,11 +94,11 @@ void SSLStreams$OutputStream::close() {
 	}
 	$init($SSLEngineResult$Status);
 	if (!SSLStreams$OutputStream::$assertionsDisabled && !($nc($nc(r)->result)->getStatus() == $SSLEngineResult$Status::CLOSED)) {
-		$throwNew($AssertionError, $of($$str({"status is: "_s, $($nc(r->result)->getStatus()), ", handshakeStatus is: "_s, stat})));
+		$throwNew($AssertionError, $$of($str({"status is: "_s, $(r->result->getStatus()), ", handshakeStatus is: "_s, stat})));
 	}
 }
 
-void clinit$SSLStreams$OutputStream($Class* class$) {
+void SSLStreams$OutputStream::clinit$($Class* clazz) {
 	$load($SSLStreams);
 	SSLStreams$OutputStream::$assertionsDisabled = !$SSLStreams::class$->desiredAssertionStatus();
 }
@@ -156,7 +107,45 @@ SSLStreams$OutputStream::SSLStreams$OutputStream() {
 }
 
 $Class* SSLStreams$OutputStream::load$($String* name, bool initialize) {
-	$loadClass(SSLStreams$OutputStream, name, initialize, &_SSLStreams$OutputStream_ClassInfo_, clinit$SSLStreams$OutputStream, allocate$SSLStreams$OutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/httpserver/SSLStreams;", nullptr, $FINAL | $SYNTHETIC, $field(SSLStreams$OutputStream, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLStreams$OutputStream, $assertionsDisabled)},
+		{"buf", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(SSLStreams$OutputStream, buf)},
+		{"closed", "Z", nullptr, 0, $field(SSLStreams$OutputStream, closed)},
+		{"single", "[B", nullptr, 0, $field(SSLStreams$OutputStream, single)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/SSLStreams;)V", nullptr, 0, $method(SSLStreams$OutputStream, init$, void, $SSLStreams*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, $bytes*), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$OutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.SSLStreams$OutputStream", "sun.net.httpserver.SSLStreams", "OutputStream", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.SSLStreams$OutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.SSLStreams"
+	};
+	$loadClass(SSLStreams$OutputStream, name, initialize, &classInfo$$, SSLStreams$OutputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SSLStreams$OutputStream));
+	});
 	return class$;
 }
 

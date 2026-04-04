@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XContentWindow$SavedExposeEvent.h>
-
 #include <java/awt/Component.h>
 #include <sun/awt/X11/XContentWindow.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XContentWindow$SavedExposeEvent_FieldInfo_[] = {
-	{"target", "Ljava/awt/Component;", nullptr, 0, $field(XContentWindow$SavedExposeEvent, target)},
-	{"x", "I", nullptr, 0, $field(XContentWindow$SavedExposeEvent, x)},
-	{"y", "I", nullptr, 0, $field(XContentWindow$SavedExposeEvent, y)},
-	{"w", "I", nullptr, 0, $field(XContentWindow$SavedExposeEvent, w)},
-	{"h", "I", nullptr, 0, $field(XContentWindow$SavedExposeEvent, h)},
-	{}
-};
-
-$MethodInfo _XContentWindow$SavedExposeEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;IIII)V", nullptr, 0, $method(XContentWindow$SavedExposeEvent, init$, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XContentWindow$SavedExposeEvent_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XContentWindow$SavedExposeEvent", "sun.awt.X11.XContentWindow", "SavedExposeEvent", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XContentWindow$SavedExposeEvent_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XContentWindow$SavedExposeEvent",
-	"java.lang.Object",
-	nullptr,
-	_XContentWindow$SavedExposeEvent_FieldInfo_,
-	_XContentWindow$SavedExposeEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XContentWindow$SavedExposeEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XContentWindow"
-};
-
-$Object* allocate$XContentWindow$SavedExposeEvent($Class* clazz) {
-	return $of($alloc(XContentWindow$SavedExposeEvent));
-}
-
 void XContentWindow$SavedExposeEvent::init$($Component* target, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$set(this, target, target);
 	this->x = x;
@@ -65,7 +25,40 @@ XContentWindow$SavedExposeEvent::XContentWindow$SavedExposeEvent() {
 }
 
 $Class* XContentWindow$SavedExposeEvent::load$($String* name, bool initialize) {
-	$loadClass(XContentWindow$SavedExposeEvent, name, initialize, &_XContentWindow$SavedExposeEvent_ClassInfo_, allocate$XContentWindow$SavedExposeEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "Ljava/awt/Component;", nullptr, 0, $field(XContentWindow$SavedExposeEvent, target)},
+		{"x", "I", nullptr, 0, $field(XContentWindow$SavedExposeEvent, x)},
+		{"y", "I", nullptr, 0, $field(XContentWindow$SavedExposeEvent, y)},
+		{"w", "I", nullptr, 0, $field(XContentWindow$SavedExposeEvent, w)},
+		{"h", "I", nullptr, 0, $field(XContentWindow$SavedExposeEvent, h)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;IIII)V", nullptr, 0, $method(XContentWindow$SavedExposeEvent, init$, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XContentWindow$SavedExposeEvent", "sun.awt.X11.XContentWindow", "SavedExposeEvent", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XContentWindow$SavedExposeEvent",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XContentWindow"
+	};
+	$loadClass(XContentWindow$SavedExposeEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XContentWindow$SavedExposeEvent);
+	});
 	return class$;
 }
 

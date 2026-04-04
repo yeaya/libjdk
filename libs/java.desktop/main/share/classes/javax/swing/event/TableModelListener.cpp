@@ -1,5 +1,4 @@
 #include <javax/swing/event/TableModelListener.h>
-
 #include <javax/swing/event/TableModelEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace swing {
 		namespace event {
 
-$MethodInfo _TableModelListener_MethodInfo_[] = {
-	{"tableChanged", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableModelListener, tableChanged, void, $TableModelEvent*)},
-	{}
-};
-
-$ClassInfo _TableModelListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.event.TableModelListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_TableModelListener_MethodInfo_
-};
-
-$Object* allocate$TableModelListener($Class* clazz) {
-	return $of($alloc(TableModelListener));
-}
-
 $Class* TableModelListener::load$($String* name, bool initialize) {
-	$loadClass(TableModelListener, name, initialize, &_TableModelListener_ClassInfo_, allocate$TableModelListener);
+	$MethodInfo methodInfos$$[] = {
+		{"tableChanged", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TableModelListener, tableChanged, void, $TableModelEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.event.TableModelListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TableModelListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableModelListener);
+	});
 	return class$;
 }
 

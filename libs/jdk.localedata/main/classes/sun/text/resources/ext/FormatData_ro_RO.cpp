@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_ro_RO.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,38 +12,19 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_ro_RO_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ro_RO, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ro_RO, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_ro_RO_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_ro_RO",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_ro_RO_MethodInfo_
-};
-
-$Object* allocate$FormatData_ro_RO($Class* clazz) {
-	return $of($alloc(FormatData_ro_RO));
-}
-
 void FormatData_ro_RO::init$() {
 	$ParallelListResourceBundle::init$();
 }
 
 $ObjectArray2* FormatData_ro_RO::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("NumberPatterns"_s),
-		$of($$new($StringArray, {
+		"NumberPatterns"_s,
+		$$new($StringArray, {
 			"#,##0.###;-#,##0.###"_s,
 			u"#,##0.00 ¤;-#,##0.00 ¤"_s,
 			"#,##0%"_s
-		}))
+		})
 	})});
 }
 
@@ -52,7 +32,22 @@ FormatData_ro_RO::FormatData_ro_RO() {
 }
 
 $Class* FormatData_ro_RO::load$($String* name, bool initialize) {
-	$loadClass(FormatData_ro_RO, name, initialize, &_FormatData_ro_RO_ClassInfo_, allocate$FormatData_ro_RO);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_ro_RO, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_ro_RO, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_ro_RO",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_ro_RO, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_ro_RO);
+	});
 	return class$;
 }
 

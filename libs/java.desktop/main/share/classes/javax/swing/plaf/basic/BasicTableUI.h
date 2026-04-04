@@ -82,6 +82,7 @@ class $export BasicTableUI : public ::javax::swing::plaf::TableUI {
 	$class(BasicTableUI, 0, ::javax::swing::plaf::TableUI)
 public:
 	BasicTableUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::event::FocusListener* createFocusListener();
 	virtual ::java::awt::event::KeyListener* createKeyListener();

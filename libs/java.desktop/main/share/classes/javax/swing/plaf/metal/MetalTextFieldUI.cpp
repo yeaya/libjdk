@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalTextFieldUI.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -19,26 +18,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalTextFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalTextFieldUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTextFieldUI, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$ClassInfo _MetalTextFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalTextFieldUI",
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	nullptr,
-	nullptr,
-	_MetalTextFieldUI_MethodInfo_
-};
-
-$Object* allocate$MetalTextFieldUI($Class* clazz) {
-	return $of($alloc(MetalTextFieldUI));
-}
-
 void MetalTextFieldUI::init$() {
 	$BasicTextFieldUI::init$();
 }
@@ -56,7 +35,23 @@ MetalTextFieldUI::MetalTextFieldUI() {
 }
 
 $Class* MetalTextFieldUI::load$($String* name, bool initialize) {
-	$loadClass(MetalTextFieldUI, name, initialize, &_MetalTextFieldUI_ClassInfo_, allocate$MetalTextFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalTextFieldUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalTextFieldUI, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalTextFieldUI",
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalTextFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalTextFieldUI));
+	});
 	return class$;
 }
 

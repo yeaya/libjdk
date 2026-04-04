@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/Metacity$PeekableStringTokenizer.h>
-
 #include <com/sun/java/swing/plaf/gtk/Metacity.h>
 #include <java/util/StringTokenizer.h>
 #include <jcpp.h>
@@ -16,44 +15,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _Metacity$PeekableStringTokenizer_FieldInfo_[] = {
-	{"token", "Ljava/lang/String;", nullptr, 0, $field(Metacity$PeekableStringTokenizer, token)},
-	{}
-};
-
-$MethodInfo _Metacity$PeekableStringTokenizer_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Metacity$PeekableStringTokenizer, init$, void, $String*, $String*, bool)},
-	{"hasMoreTokens", "()Z", nullptr, $PUBLIC, $virtualMethod(Metacity$PeekableStringTokenizer, hasMoreTokens, bool)},
-	{"nextToken", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Metacity$PeekableStringTokenizer, nextToken, $String*)},
-	{"peek", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Metacity$PeekableStringTokenizer, peek, $String*)},
-	{}
-};
-
-$InnerClassInfo _Metacity$PeekableStringTokenizer_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.Metacity$PeekableStringTokenizer", "com.sun.java.swing.plaf.gtk.Metacity", "PeekableStringTokenizer", $STATIC},
-	{}
-};
-
-$ClassInfo _Metacity$PeekableStringTokenizer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.Metacity$PeekableStringTokenizer",
-	"java.util.StringTokenizer",
-	nullptr,
-	_Metacity$PeekableStringTokenizer_FieldInfo_,
-	_Metacity$PeekableStringTokenizer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Metacity$PeekableStringTokenizer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.Metacity"
-};
-
-$Object* allocate$Metacity$PeekableStringTokenizer($Class* clazz) {
-	return $of($alloc(Metacity$PeekableStringTokenizer));
-}
 
 void Metacity$PeekableStringTokenizer::init$($String* str, $String* delim, bool returnDelims) {
 	$StringTokenizer::init$(str, delim, returnDelims);
@@ -73,7 +34,7 @@ bool Metacity$PeekableStringTokenizer::hasMoreTokens() {
 }
 
 $String* Metacity$PeekableStringTokenizer::nextToken() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->token != nullptr) {
 		$var($String, t, this->token);
 		$set(this, token, nullptr);
@@ -85,7 +46,7 @@ $String* Metacity$PeekableStringTokenizer::nextToken() {
 		$var($String, token, $StringTokenizer::nextToken());
 		while (true) {
 			bool var$1 = $nc(token)->equals(" "_s);
-			bool var$0 = (var$1 || $nc(token)->equals("\t"_s));
+			bool var$0 = var$1 || token->equals("\t"_s);
 			if (!(var$0 && hasMoreTokens())) {
 				break;
 			}
@@ -101,7 +62,39 @@ Metacity$PeekableStringTokenizer::Metacity$PeekableStringTokenizer() {
 }
 
 $Class* Metacity$PeekableStringTokenizer::load$($String* name, bool initialize) {
-	$loadClass(Metacity$PeekableStringTokenizer, name, initialize, &_Metacity$PeekableStringTokenizer_ClassInfo_, allocate$Metacity$PeekableStringTokenizer);
+	$FieldInfo fieldInfos$$[] = {
+		{"token", "Ljava/lang/String;", nullptr, 0, $field(Metacity$PeekableStringTokenizer, token)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Metacity$PeekableStringTokenizer, init$, void, $String*, $String*, bool)},
+		{"hasMoreTokens", "()Z", nullptr, $PUBLIC, $virtualMethod(Metacity$PeekableStringTokenizer, hasMoreTokens, bool)},
+		{"nextToken", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Metacity$PeekableStringTokenizer, nextToken, $String*)},
+		{"peek", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Metacity$PeekableStringTokenizer, peek, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.Metacity$PeekableStringTokenizer", "com.sun.java.swing.plaf.gtk.Metacity", "PeekableStringTokenizer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.Metacity$PeekableStringTokenizer",
+		"java.util.StringTokenizer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.Metacity"
+	};
+	$loadClass(Metacity$PeekableStringTokenizer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Metacity$PeekableStringTokenizer);
+	});
 	return class$;
 }
 

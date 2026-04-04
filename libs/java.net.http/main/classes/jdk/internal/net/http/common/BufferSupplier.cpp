@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/BufferSupplier.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <jcpp.h>
 
@@ -13,28 +12,24 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$MethodInfo _BufferSupplier_MethodInfo_[] = {
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"recycle", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferSupplier, recycle, void, $ByteBuffer*)},
-	{}
-};
-
-$ClassInfo _BufferSupplier_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.common.BufferSupplier",
-	nullptr,
-	"java.util.function.Supplier",
-	nullptr,
-	_BufferSupplier_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;"
-};
-
-$Object* allocate$BufferSupplier($Class* clazz) {
-	return $of($alloc(BufferSupplier));
-}
-
 $Class* BufferSupplier::load$($String* name, bool initialize) {
-	$loadClass(BufferSupplier, name, initialize, &_BufferSupplier_ClassInfo_, allocate$BufferSupplier);
+	$MethodInfo methodInfos$$[] = {
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"recycle", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BufferSupplier, recycle, void, $ByteBuffer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.common.BufferSupplier",
+		nullptr,
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/function/Supplier<Ljava/nio/ByteBuffer;>;"
+	};
+	$loadClass(BufferSupplier, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferSupplier);
+	});
 	return class$;
 }
 

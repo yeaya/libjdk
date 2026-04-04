@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WEmbeddedFrame$1.h>
-
 #include <sun/awt/windows/WEmbeddedFrame.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$MethodInfo _WEmbeddedFrame$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(WEmbeddedFrame$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _WEmbeddedFrame$1_EnclosingMethodInfo_ = {
-	"sun.awt.windows.WEmbeddedFrame",
-	"getPrintScaleFactor",
-	"()I"
-};
-
-$InnerClassInfo _WEmbeddedFrame$1_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WEmbeddedFrame$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WEmbeddedFrame$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WEmbeddedFrame$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_WEmbeddedFrame$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_WEmbeddedFrame$1_EnclosingMethodInfo_,
-	_WEmbeddedFrame$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WEmbeddedFrame"
-};
-
-$Object* allocate$WEmbeddedFrame$1($Class* clazz) {
-	return $of($alloc(WEmbeddedFrame$1));
-}
-
 void WEmbeddedFrame$1::init$() {
 }
 
@@ -60,7 +22,38 @@ WEmbeddedFrame$1::WEmbeddedFrame$1() {
 }
 
 $Class* WEmbeddedFrame$1::load$($String* name, bool initialize) {
-	$loadClass(WEmbeddedFrame$1, name, initialize, &_WEmbeddedFrame$1_ClassInfo_, allocate$WEmbeddedFrame$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(WEmbeddedFrame$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.windows.WEmbeddedFrame",
+		"getPrintScaleFactor",
+		"()I"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WEmbeddedFrame$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WEmbeddedFrame$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WEmbeddedFrame"
+	};
+	$loadClass(WEmbeddedFrame$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WEmbeddedFrame$1);
+	});
 	return class$;
 }
 

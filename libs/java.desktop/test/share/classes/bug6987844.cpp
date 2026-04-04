@@ -1,5 +1,4 @@
 #include <bug6987844.h>
-
 #include <bug6987844$1.h>
 #include <bug6987844$2.h>
 #include <java/awt/Component.h>
@@ -45,69 +44,27 @@ public:
 	virtual void run() override {
 		bug6987844::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6987844$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6987844$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6987844$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6987844$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6987844$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6987844$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6987844$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6987844$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6987844$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6987844$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6987844$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6987844$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6987844$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6987844$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6987844_FieldInfo_[] = {
-	{"menu1", "Ljavax/swing/JMenu;", nullptr, $STATIC, $staticField(bug6987844, menu1)},
-	{"menu2", "Ljavax/swing/JMenu;", nullptr, $STATIC, $staticField(bug6987844, menu2)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug6987844, frame)},
-	{}
-};
-
-$MethodInfo _bug6987844_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6987844, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6987844, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(bug6987844, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6987844_InnerClassesInfo_[] = {
-	{"bug6987844$2", nullptr, nullptr, 0},
-	{"bug6987844$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6987844_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6987844",
-	"java.lang.Object",
-	nullptr,
-	_bug6987844_FieldInfo_,
-	_bug6987844_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6987844_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6987844$2,bug6987844$1"
-};
-
-$Object* allocate$bug6987844($Class* clazz) {
-	return $of($alloc(bug6987844));
-}
 
 $JMenu* bug6987844::menu1 = nullptr;
 $JMenu* bug6987844::menu2 = nullptr;
@@ -117,39 +74,37 @@ void bug6987844::init$() {
 }
 
 void bug6987844::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(200);
-			$SwingUtilities::invokeAndWait($$new($bug6987844$1));
-			robot->waitForIdle();
-			$init(bug6987844);
-			$var($Point, point1, $nc(bug6987844::menu1)->getLocationOnScreen());
-			$var($Point, point2, $nc(bug6987844::menu2)->getLocationOnScreen());
-			robot->mouseMove($nc(point1)->x + 1, point1->y + 1);
-			robot->mousePress($InputEvent::BUTTON1_MASK);
-			robot->mouseRelease($InputEvent::BUTTON1_MASK);
-			robot->mouseMove($nc(point2)->x + 1, point2->y + 1);
-			robot->mousePress($InputEvent::BUTTON1_MASK);
-			robot->mouseRelease($InputEvent::BUTTON1_MASK);
-			robot->mousePress($InputEvent::BUTTON1_MASK);
-			robot->mouseRelease($InputEvent::BUTTON1_MASK);
-			robot->mouseMove($nc(point1)->x + 1, point1->y + 1);
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug6987844$2));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug6987844);
-			if (bug6987844::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6987844$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(200);
+		$SwingUtilities::invokeAndWait($$new($bug6987844$1));
+		robot->waitForIdle();
+		$init(bug6987844);
+		$var($Point, point1, $nc(bug6987844::menu1)->getLocationOnScreen());
+		$var($Point, point2, $nc(bug6987844::menu2)->getLocationOnScreen());
+		robot->mouseMove($nc(point1)->x + 1, $nc(point1)->y + 1);
+		robot->mousePress($InputEvent::BUTTON1_MASK);
+		robot->mouseRelease($InputEvent::BUTTON1_MASK);
+		robot->mouseMove($nc(point2)->x + 1, $nc(point2)->y + 1);
+		robot->mousePress($InputEvent::BUTTON1_MASK);
+		robot->mouseRelease($InputEvent::BUTTON1_MASK);
+		robot->mousePress($InputEvent::BUTTON1_MASK);
+		robot->mouseRelease($InputEvent::BUTTON1_MASK);
+		robot->mouseMove(point1->x + 1, point1->y + 1);
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug6987844$2));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug6987844);
+		if (bug6987844::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6987844$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -163,11 +118,44 @@ bug6987844::bug6987844() {
 
 $Class* bug6987844::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6987844$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6987844$$Lambda$lambda$main$0")) {
 			return bug6987844$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6987844, name, initialize, &_bug6987844_ClassInfo_, allocate$bug6987844);
+	$FieldInfo fieldInfos$$[] = {
+		{"menu1", "Ljavax/swing/JMenu;", nullptr, $STATIC, $staticField(bug6987844, menu1)},
+		{"menu2", "Ljavax/swing/JMenu;", nullptr, $STATIC, $staticField(bug6987844, menu2)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug6987844, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6987844, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6987844, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(bug6987844, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6987844$2", nullptr, nullptr, 0},
+		{"bug6987844$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6987844",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6987844$2,bug6987844$1"
+	};
+	$loadClass(bug6987844, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6987844);
+	});
 	return class$;
 }
 

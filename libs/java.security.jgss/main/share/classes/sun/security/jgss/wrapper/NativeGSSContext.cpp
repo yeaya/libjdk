@@ -1,5 +1,4 @@
 #include <sun/security/jgss/wrapper/NativeGSSContext.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
@@ -57,12 +56,10 @@ using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $Permission = ::java::security::Permission;
 using $Provider = ::java::security::Provider;
 using $DelegationPermission = ::javax::security::auth::kerberos::DelegationPermission;
 using $ChannelBinding = ::org::ietf::jgss::ChannelBinding;
@@ -90,122 +87,18 @@ namespace sun {
 		namespace jgss {
 			namespace wrapper {
 
-$FieldInfo _NativeGSSContext_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeGSSContext, $assertionsDisabled)},
-	{"GSS_C_DELEG_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_DELEG_FLAG)},
-	{"GSS_C_MUTUAL_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_MUTUAL_FLAG)},
-	{"GSS_C_REPLAY_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_REPLAY_FLAG)},
-	{"GSS_C_SEQUENCE_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_SEQUENCE_FLAG)},
-	{"GSS_C_CONF_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_CONF_FLAG)},
-	{"GSS_C_INTEG_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_INTEG_FLAG)},
-	{"GSS_C_ANON_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_ANON_FLAG)},
-	{"GSS_C_PROT_READY_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_PROT_READY_FLAG)},
-	{"GSS_C_TRANS_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_TRANS_FLAG)},
-	{"NUM_OF_INQUIRE_VALUES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, NUM_OF_INQUIRE_VALUES)},
-	{"pContext", "J", nullptr, $PRIVATE, $field(NativeGSSContext, pContext)},
-	{"srcName", "Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $PRIVATE, $field(NativeGSSContext, srcName)},
-	{"targetName", "Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $PRIVATE, $field(NativeGSSContext, targetName)},
-	{"isInitiator", "Z", nullptr, $PRIVATE, $field(NativeGSSContext, isInitiator$)},
-	{"isEstablished", "Z", nullptr, $PRIVATE, $field(NativeGSSContext, isEstablished$)},
-	{"delegatedCred", "Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $field(NativeGSSContext, delegatedCred)},
-	{"flags", "I", nullptr, $PRIVATE, $field(NativeGSSContext, flags)},
-	{"lifetime", "I", nullptr, $PRIVATE, $field(NativeGSSContext, lifetime)},
-	{"actualMech", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(NativeGSSContext, actualMech)},
-	{"cred", "Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $field(NativeGSSContext, cred)},
-	{"disposeCred", "Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $field(NativeGSSContext, disposeCred)},
-	{"cb", "Lorg/ietf/jgss/ChannelBinding;", nullptr, $PRIVATE, $field(NativeGSSContext, cb)},
-	{"disposeDelegatedCred", "Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $field(NativeGSSContext, disposeDelegatedCred)},
-	{"cStub", "Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, $PRIVATE | $FINAL, $field(NativeGSSContext, cStub)},
-	{"skipDelegPermCheck", "Z", nullptr, $PRIVATE, $field(NativeGSSContext, skipDelegPermCheck)},
-	{"skipServicePermCheck", "Z", nullptr, $PRIVATE, $field(NativeGSSContext, skipServicePermCheck)},
-	{}
-};
-
-$MethodInfo _NativeGSSContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/wrapper/GSSNameElement;Lsun/security/jgss/wrapper/GSSCredElement;ILsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(NativeGSSContext, init$, void, $GSSNameElement*, $GSSCredElement*, int32_t, $GSSLibStub*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/wrapper/GSSCredElement;Lsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(NativeGSSContext, init$, void, $GSSCredElement*, $GSSLibStub*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(JLsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(NativeGSSContext, init$, void, int64_t, $GSSLibStub*), "org.ietf.jgss.GSSException"},
-	{"acceptSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, acceptSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
-	{"changeFlags", "(IZ)V", nullptr, $PRIVATE, $method(NativeGSSContext, changeFlags, void, int32_t, bool)},
-	{"checkFlags", "(I)Z", nullptr, $PRIVATE, $method(NativeGSSContext, checkFlags, bool, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, dispose, void), "org.ietf.jgss.GSSException"},
-	{"doDelegPermCheck", "()V", nullptr, $PRIVATE, $method(NativeGSSContext, doDelegPermCheck, void), "org.ietf.jgss.GSSException"},
-	{"doServicePermCheck", "()V", nullptr, $PRIVATE, $method(NativeGSSContext, doServicePermCheck, void), "org.ietf.jgss.GSSException"},
-	{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, export$, $bytes*), "org.ietf.jgss.GSSException"},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(NativeGSSContext, finalize, void), "java.lang.Throwable"},
-	{"getAnonymityState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getAnonymityState, bool)},
-	{"getConfState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getConfState, bool)},
-	{"getCredDelegState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getCredDelegState, bool)},
-	{"getDelegCred", "()Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getDelegCred, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
-	{"getDelegPolicyState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getDelegPolicyState, bool)},
-	{"getIntegState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getIntegState, bool)},
-	{"getLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getLifetime, int32_t)},
-	{"getMIC", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getMIC, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"getMIC", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getMIC, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getMech, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getMechFromSpNegoToken", "([BZ)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeGSSContext, getMechFromSpNegoToken, $Oid*, $bytes*, bool), "org.ietf.jgss.GSSException"},
-	{"getMutualAuthState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getMutualAuthState, bool)},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getProvider, $Provider*)},
-	{"getReplayDetState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getReplayDetState, bool)},
-	{"getSequenceDetState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getSequenceDetState, bool)},
-	{"getSrcName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getSrcName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getTargName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getTargName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getWrapSizeLimit", "(IZI)I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getWrapSizeLimit, int32_t, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
-	{"initSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, initSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
-	{"inquireSecContext", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, inquireSecContext, $Object*, $String*), "org.ietf.jgss.GSSException"},
-	{"isEstablished", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, isEstablished, bool)},
-	{"isInitiator", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, isInitiator, bool)},
-	{"isProtReady", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, isProtReady, bool)},
-	{"isTransferable", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, isTransferable, bool), "org.ietf.jgss.GSSException"},
-	{"requestAnonymity", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestAnonymity, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestConf", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestConf, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestCredDeleg", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestCredDeleg, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestDelegPolicy", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestDelegPolicy, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestInteg", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestInteg, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestLifetime", "(I)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestLifetime, void, int32_t), "org.ietf.jgss.GSSException"},
-	{"requestMutualAuth", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestMutualAuth, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestReplayDet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestReplayDet, void, bool), "org.ietf.jgss.GSSException"},
-	{"requestSequenceDet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestSequenceDet, void, bool), "org.ietf.jgss.GSSException"},
-	{"retrieveToken", "(Ljava/io/InputStream;I)[B", nullptr, $PRIVATE, $method(NativeGSSContext, retrieveToken, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
-	{"setChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, setChannelBinding, void, $ChannelBinding*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, unwrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, unwrap, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, unwrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"unwrap", "(Ljava/io/InputStream;[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, unwrap, int32_t, $InputStream*, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"verifyMIC", "([BII[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, verifyMIC, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"verifyMIC", "(Ljava/io/InputStream;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, verifyMIC, void, $InputStream*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, wrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "([BIILjava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, wrap, void, $bytes*, int32_t, int32_t, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, wrap, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{"wrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, wrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$ClassInfo _NativeGSSContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.jgss.wrapper.NativeGSSContext",
-	"java.lang.Object",
-	"sun.security.jgss.spi.GSSContextSpi",
-	_NativeGSSContext_FieldInfo_,
-	_NativeGSSContext_MethodInfo_
-};
-
-$Object* allocate$NativeGSSContext($Class* clazz) {
-	return $of($alloc(NativeGSSContext));
-}
-
 bool NativeGSSContext::$assertionsDisabled = false;
 
 $Oid* NativeGSSContext::getMechFromSpNegoToken($bytes* token, bool isInitiator) {
 	$init(NativeGSSContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, nullptr);
 	if (isInitiator) {
 		$var($GSSHeader, header, nullptr);
 		try {
 			$assign(header, $new($GSSHeader, $$new($ByteArrayInputStream, token)));
 		} catch ($IOException& ioe) {
-			$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(ioe));
+			$throwNew($GSSExceptionImpl, $GSSException::FAILURE, ioe);
 		}
 		int32_t negTokenLen = $nc(header)->getMechTokenLength();
 		$var($bytes, negToken, $new($bytes, negTokenLen));
@@ -223,12 +116,11 @@ $Oid* NativeGSSContext::getMechFromSpNegoToken($bytes* token, bool isInitiator) 
 }
 
 void NativeGSSContext::doServicePermCheck() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($System::getSecurityManager() != nullptr) {
 		$var($String, action, this->isInitiator$ ? "initiate"_s : "accept"_s);
 		if ($GSSUtil::isSpNegoMech($($nc(this->cStub)->getMech())) && this->isInitiator$ && !this->isEstablished$) {
 			if (this->srcName == nullptr) {
-				$init($GSSUtil);
 				$var($GSSCredElement, tempCred, $new($GSSCredElement, nullptr, this->lifetime, $GSSCredential::INITIATE_ONLY, $($GSSLibStub::getInstance($GSSUtil::GSS_KRB5_MECH_OID))));
 				tempCred->dispose();
 			} else {
@@ -243,7 +135,7 @@ void NativeGSSContext::doServicePermCheck() {
 }
 
 void NativeGSSContext::doDelegPermCheck() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SecurityManager, sm, $System::getSecurityManager());
 	if (sm != nullptr) {
 		$var($String, targetStr, $nc(this->targetName)->getKrbName());
@@ -260,12 +152,12 @@ void NativeGSSContext::doDelegPermCheck() {
 }
 
 $bytes* NativeGSSContext::retrieveToken($InputStream* is, int32_t mechTokenLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, result, nullptr);
 		if (mechTokenLen != -1) {
 			$SunNativeProvider::debug($$str({"Precomputed mechToken length: "_s, $$str(mechTokenLen)}));
-			$var($GSSHeader, gssHeader, $new($GSSHeader, $($ObjectIdentifier::of($($nc($($nc(this->cStub)->getMech()))->toString()))), mechTokenLen));
+			$var($GSSHeader, gssHeader, $new($GSSHeader, $($ObjectIdentifier::of($($$nc($nc(this->cStub)->getMech())->toString()))), mechTokenLen));
 			$var($ByteArrayOutputStream, baos, $new($ByteArrayOutputStream, 600));
 			$var($bytes, mechToken, $new($bytes, mechTokenLen));
 			int32_t len = $nc(is)->read(mechToken);
@@ -285,7 +177,7 @@ $bytes* NativeGSSContext::retrieveToken($InputStream* is, int32_t mechTokenLen) 
 		$SunNativeProvider::debug($$str({"Complete Token length: "_s, $$str($nc(result)->length)}));
 		return result;
 	} catch ($IOException& ioe) {
-		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(ioe));
+		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, ioe);
 	}
 	$shouldNotReachHere();
 }
@@ -305,7 +197,7 @@ void NativeGSSContext::init$($GSSNameElement* peer, $GSSCredElement* myCred, int
 	if ($GSSUtil::isKerberosMech($($nc(this->cStub)->getMech()))) {
 		doServicePermCheck();
 		if (this->cred == nullptr) {
-			$set(this, disposeCred, ($set(this, cred, $new($GSSCredElement, nullptr, this->lifetime, $GSSCredential::INITIATE_ONLY, this->cStub))));
+			$set(this, disposeCred, $set(this, cred, $new($GSSCredElement, nullptr, this->lifetime, $GSSCredential::INITIATE_ONLY, this->cStub)));
 		}
 		$set(this, srcName, $cast($GSSNameElement, $nc(this->cred)->getName()));
 	}
@@ -318,7 +210,7 @@ void NativeGSSContext::init$($GSSCredElement* myCred, $GSSLibStub* stub) {
 	$set(this, cred, myCred);
 	$set(this, disposeCred, nullptr);
 	if (this->cred != nullptr) {
-		$set(this, targetName, $cast($GSSNameElement, $nc(this->cred)->getName()));
+		$set(this, targetName, $cast($GSSNameElement, this->cred->getName()));
 	}
 	this->isInitiator$ = false;
 	if ($GSSUtil::isKerberosMech($($nc(this->cStub)->getMech())) && this->targetName != nullptr) {
@@ -327,7 +219,7 @@ void NativeGSSContext::init$($GSSCredElement* myCred, $GSSLibStub* stub) {
 }
 
 void NativeGSSContext::init$(int64_t pCtxt, $GSSLibStub* stub) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->pContext = 0;
 	this->lifetime = $GSSCredential::DEFAULT_LIFETIME;
 	if (!NativeGSSContext::$assertionsDisabled && !(this->pContext != 0)) {
@@ -339,13 +231,13 @@ void NativeGSSContext::init$(int64_t pCtxt, $GSSLibStub* stub) {
 	if ($nc(info)->length != NativeGSSContext::NUM_OF_INQUIRE_VALUES) {
 		$throwNew($RuntimeException, "Bug w/ GSSLibStub.inquireContext()"_s);
 	}
-	$set(this, srcName, $new($GSSNameElement, $nc(info)->get(0), this->cStub));
-	$set(this, targetName, $new($GSSNameElement, $nc(info)->get(1), this->cStub));
-	this->isInitiator$ = ($nc(info)->get(2) != 0);
+	$set(this, srcName, $new($GSSNameElement, info->get(0), this->cStub));
+	$set(this, targetName, $new($GSSNameElement, info->get(1), this->cStub));
+	this->isInitiator$ = (info->get(2) != 0);
 	this->isEstablished$ = (info->get(3) != 0);
 	this->flags = (int32_t)info->get(4);
 	this->lifetime = (int32_t)info->get(5);
-	$var($Oid, mech, $nc(this->cStub)->getMech());
+	$var($Oid, mech, this->cStub->getMech());
 	bool var$0 = $GSSUtil::isSpNegoMech(mech);
 	if (var$0 || $GSSUtil::isKerberosMech(mech)) {
 		doServicePermCheck();
@@ -358,7 +250,7 @@ $Provider* NativeGSSContext::getProvider() {
 }
 
 $bytes* NativeGSSContext::initSecContext($InputStream* is, int32_t mechTokenLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, outToken, nullptr);
 	if ((!this->isEstablished$) && (this->isInitiator$)) {
 		$var($bytes, inToken, nullptr);
@@ -372,10 +264,10 @@ $bytes* NativeGSSContext::initSecContext($InputStream* is, int32_t mechTokenLen)
 		if ($GSSUtil::isKerberosMech($($nc(this->cStub)->getMech())) && !this->skipDelegPermCheck) {
 			doDelegPermCheck();
 		}
-		int64_t pCred = (this->cred == nullptr ? (int64_t)0 : $nc(this->cred)->pCred);
-		$assign(outToken, $nc(this->cStub)->initContext(pCred, $nc(this->targetName)->pName, this->cb, inToken, this));
-		$SunNativeProvider::debug($$str({"initSecContext=> outToken len="_s, $$str((outToken == nullptr ? 0 : $nc(outToken)->length))}));
-		if ($GSSUtil::isSpNegoMech($($nc(this->cStub)->getMech())) && outToken != nullptr) {
+		int64_t pCred = (this->cred == nullptr ? 0 : this->cred->pCred);
+		$assign(outToken, this->cStub->initContext(pCred, $nc(this->targetName)->pName, this->cb, inToken, this));
+		$SunNativeProvider::debug($$str({"initSecContext=> outToken len="_s, $$str((outToken == nullptr ? 0 : outToken->length))}));
+		if ($GSSUtil::isSpNegoMech($(this->cStub->getMech())) && outToken != nullptr) {
 			$set(this, actualMech, getMechFromSpNegoToken(outToken, true));
 			if ($GSSUtil::isKerberosMech(this->actualMech)) {
 				if (!this->skipServicePermCheck) {
@@ -388,10 +280,10 @@ $bytes* NativeGSSContext::initSecContext($InputStream* is, int32_t mechTokenLen)
 		}
 		if (this->isEstablished$) {
 			if (this->srcName == nullptr) {
-				$set(this, srcName, $new($GSSNameElement, $nc(this->cStub)->getContextName(this->pContext, true), this->cStub));
+				$set(this, srcName, $new($GSSNameElement, this->cStub->getContextName(this->pContext, true), this->cStub));
 			}
 			if (this->cred == nullptr) {
-				$set(this, disposeCred, ($set(this, cred, $new($GSSCredElement, this->srcName, this->lifetime, $GSSCredential::INITIATE_ONLY, this->cStub))));
+				$set(this, disposeCred, $set(this, cred, $new($GSSCredElement, this->srcName, this->lifetime, $GSSCredential::INITIATE_ONLY, this->cStub)));
 			}
 		}
 	}
@@ -399,23 +291,23 @@ $bytes* NativeGSSContext::initSecContext($InputStream* is, int32_t mechTokenLen)
 }
 
 $bytes* NativeGSSContext::acceptSecContext($InputStream* is, int32_t mechTokenLen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, outToken, nullptr);
 	if ((!this->isEstablished$) && (!this->isInitiator$)) {
 		$var($bytes, inToken, retrieveToken(is, mechTokenLen));
 		$SunNativeProvider::debug($$str({"acceptSecContext=> inToken len="_s, $$str($nc(inToken)->length)}));
-		int64_t pCred = (this->cred == nullptr ? (int64_t)0 : $nc(this->cred)->pCred);
+		int64_t pCred = (this->cred == nullptr ? 0 : this->cred->pCred);
 		$assign(outToken, $nc(this->cStub)->acceptContext(pCred, this->cb, inToken, this));
 		$set(this, disposeDelegatedCred, this->delegatedCred);
-		$SunNativeProvider::debug($$str({"acceptSecContext=> outToken len="_s, $$str((outToken == nullptr ? 0 : $nc(outToken)->length))}));
+		$SunNativeProvider::debug($$str({"acceptSecContext=> outToken len="_s, $$str((outToken == nullptr ? 0 : outToken->length))}));
 		if (this->targetName == nullptr) {
-			$set(this, targetName, $new($GSSNameElement, $nc(this->cStub)->getContextName(this->pContext, false), this->cStub));
+			$set(this, targetName, $new($GSSNameElement, this->cStub->getContextName(this->pContext, false), this->cStub));
 			if (this->disposeCred != nullptr) {
-				$nc(this->disposeCred)->dispose();
+				this->disposeCred->dispose();
 			}
-			$set(this, disposeCred, ($set(this, cred, $new($GSSCredElement, this->targetName, this->lifetime, $GSSCredential::ACCEPT_ONLY, this->cStub))));
+			$set(this, disposeCred, $set(this, cred, $new($GSSCredElement, this->targetName, this->lifetime, $GSSCredential::ACCEPT_ONLY, this->cStub)));
 		}
-		if ($GSSUtil::isSpNegoMech($($nc(this->cStub)->getMech())) && (outToken != nullptr) && !this->skipServicePermCheck) {
+		if ($GSSUtil::isSpNegoMech($(this->cStub->getMech())) && (outToken != nullptr) && !this->skipServicePermCheck) {
 			if ($GSSUtil::isKerberosMech($(getMechFromSpNegoToken(outToken, false)))) {
 				doServicePermCheck();
 			}
@@ -430,12 +322,12 @@ bool NativeGSSContext::isEstablished() {
 
 void NativeGSSContext::dispose() {
 	if (this->disposeCred != nullptr) {
-		$nc(this->disposeCred)->dispose();
+		this->disposeCred->dispose();
 	}
 	if (this->disposeDelegatedCred != nullptr) {
-		$nc(this->disposeDelegatedCred)->dispose();
+		this->disposeDelegatedCred->dispose();
 	}
-	$set(this, disposeDelegatedCred, ($set(this, disposeCred, ($set(this, cred, nullptr)))));
+	$set(this, disposeDelegatedCred, $set(this, disposeCred, $set(this, cred, nullptr)));
 	$set(this, srcName, nullptr);
 	$set(this, targetName, nullptr);
 	$set(this, delegatedCred, nullptr);
@@ -463,25 +355,25 @@ void NativeGSSContext::wrap($bytes* inBuf, int32_t offset, int32_t len, $OutputS
 		$var($bytes, result, wrap(inBuf, offset, len, msgProp));
 		$nc(os)->write(result);
 	} catch ($IOException& ioe) {
-		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(ioe));
+		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, ioe);
 	}
 }
 
 int32_t NativeGSSContext::wrap($bytes* inBuf, int32_t inOffset, int32_t len, $bytes* outBuf, int32_t outOffset, $MessageProp* msgProp) {
 	$var($bytes, result, wrap(inBuf, inOffset, len, msgProp));
 	$System::arraycopy(result, 0, outBuf, outOffset, $nc(result)->length);
-	return $nc(result)->length;
+	return result->length;
 }
 
 void NativeGSSContext::wrap($InputStream* inStream, $OutputStream* outStream, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, data, $new($bytes, $nc(inStream)->available()));
 		int32_t length = inStream->read(data);
 		$var($bytes, token, wrap(data, 0, length, msgProp));
 		$nc(outStream)->write(token);
 	} catch ($IOException& ioe) {
-		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(ioe));
+		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, ioe);
 	}
 }
 
@@ -496,7 +388,7 @@ $bytes* NativeGSSContext::unwrap($bytes* inBuf, int32_t offset, int32_t len, $Me
 }
 
 int32_t NativeGSSContext::unwrap($bytes* inBuf, int32_t inOffset, int32_t len, $bytes* outBuf, int32_t outOffset, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, result, nullptr);
 	if ((inOffset != 0) || (len != $nc(inBuf)->length)) {
 		$var($bytes, temp, $new($bytes, len));
@@ -506,11 +398,11 @@ int32_t NativeGSSContext::unwrap($bytes* inBuf, int32_t inOffset, int32_t len, $
 		$assign(result, $nc(this->cStub)->unwrap(this->pContext, inBuf, msgProp));
 	}
 	$System::arraycopy(result, 0, outBuf, outOffset, $nc(result)->length);
-	return $nc(result)->length;
+	return result->length;
 }
 
 void NativeGSSContext::unwrap($InputStream* inStream, $OutputStream* outStream, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, wrapped, $new($bytes, $nc(inStream)->available()));
 		int32_t wLength = inStream->read(wrapped);
@@ -518,12 +410,12 @@ void NativeGSSContext::unwrap($InputStream* inStream, $OutputStream* outStream, 
 		$nc(outStream)->write(data);
 		outStream->flush();
 	} catch ($IOException& ioe) {
-		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(ioe));
+		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, ioe);
 	}
 }
 
 int32_t NativeGSSContext::unwrap($InputStream* inStream, $bytes* outBuf, int32_t outOffset, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, wrapped, nullptr);
 	int32_t wLength = 0;
 	try {
@@ -531,15 +423,15 @@ int32_t NativeGSSContext::unwrap($InputStream* inStream, $bytes* outBuf, int32_t
 		wLength = inStream->read(wrapped);
 		$var($bytes, result, unwrap(wrapped, 0, wLength, msgProp));
 	} catch ($IOException& ioe) {
-		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(ioe));
+		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, ioe);
 	}
 	$var($bytes, result, unwrap(wrapped, 0, wLength, msgProp));
 	$System::arraycopy(result, 0, outBuf, outOffset, $nc(result)->length);
-	return $nc(result)->length;
+	return result->length;
 }
 
 $bytes* NativeGSSContext::getMIC($bytes* in, int32_t offset, int32_t len, $MessageProp* msgProp) {
-	int32_t qop = (msgProp == nullptr ? 0 : $nc(msgProp)->getQOP());
+	int32_t qop = (msgProp == nullptr ? 0 : msgProp->getQOP());
 	$var($bytes, inMsg, in);
 	if ((offset != 0) || (len != $nc(in)->length)) {
 		$assign(inMsg, $new($bytes, len));
@@ -549,7 +441,7 @@ $bytes* NativeGSSContext::getMIC($bytes* in, int32_t offset, int32_t len, $Messa
 }
 
 void NativeGSSContext::getMIC($InputStream* inStream, $OutputStream* outStream, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t length = 0;
 		$var($bytes, msg, $new($bytes, $nc(inStream)->available()));
@@ -559,12 +451,12 @@ void NativeGSSContext::getMIC($InputStream* inStream, $OutputStream* outStream, 
 			$nc(outStream)->write(msgToken);
 		}
 	} catch ($IOException& ioe) {
-		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(ioe));
+		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, ioe);
 	}
 }
 
 void NativeGSSContext::verifyMIC($bytes* inToken, int32_t tOffset, int32_t tLen, $bytes* inMsg, int32_t mOffset, int32_t mLen, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, token, inToken);
 	$var($bytes, msg, inMsg);
 	if ((tOffset != 0) || (tLen != $nc(inToken)->length)) {
@@ -579,7 +471,7 @@ void NativeGSSContext::verifyMIC($bytes* inToken, int32_t tOffset, int32_t tLen,
 }
 
 void NativeGSSContext::verifyMIC($InputStream* tokStream, $InputStream* msgStream, $MessageProp* msgProp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($bytes, msg, $new($bytes, $nc(msgStream)->available()));
 		int32_t mLength = msgStream->read(msg);
@@ -587,7 +479,7 @@ void NativeGSSContext::verifyMIC($InputStream* tokStream, $InputStream* msgStrea
 		int32_t tLength = tokStream->read(tok);
 		verifyMIC(tok, 0, tLength, msg, 0, mLength, msgProp);
 	} catch ($IOException& ioe) {
-		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, static_cast<$Exception*>(ioe));
+		$throwNew($GSSExceptionImpl, $GSSException::FAILURE, ioe);
 	}
 }
 
@@ -651,7 +543,7 @@ void NativeGSSContext::setChannelBinding($ChannelBinding* cb) {
 }
 
 bool NativeGSSContext::checkFlags(int32_t flagMask) {
-	return (((int32_t)(this->flags & (uint32_t)flagMask)) != 0);
+	return ((this->flags & flagMask) != 0);
 }
 
 bool NativeGSSContext::getCredDelegState() {
@@ -732,7 +624,7 @@ $Object* NativeGSSContext::inquireSecContext($String* type) {
 	$shouldNotReachHere();
 }
 
-void clinit$NativeGSSContext($Class* class$) {
+void NativeGSSContext::clinit$($Class* clazz) {
 	NativeGSSContext::$assertionsDisabled = !NativeGSSContext::class$->desiredAssertionStatus();
 }
 
@@ -740,7 +632,106 @@ NativeGSSContext::NativeGSSContext() {
 }
 
 $Class* NativeGSSContext::load$($String* name, bool initialize) {
-	$loadClass(NativeGSSContext, name, initialize, &_NativeGSSContext_ClassInfo_, clinit$NativeGSSContext, allocate$NativeGSSContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(NativeGSSContext, $assertionsDisabled)},
+		{"GSS_C_DELEG_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_DELEG_FLAG)},
+		{"GSS_C_MUTUAL_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_MUTUAL_FLAG)},
+		{"GSS_C_REPLAY_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_REPLAY_FLAG)},
+		{"GSS_C_SEQUENCE_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_SEQUENCE_FLAG)},
+		{"GSS_C_CONF_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_CONF_FLAG)},
+		{"GSS_C_INTEG_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_INTEG_FLAG)},
+		{"GSS_C_ANON_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_ANON_FLAG)},
+		{"GSS_C_PROT_READY_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_PROT_READY_FLAG)},
+		{"GSS_C_TRANS_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, GSS_C_TRANS_FLAG)},
+		{"NUM_OF_INQUIRE_VALUES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NativeGSSContext, NUM_OF_INQUIRE_VALUES)},
+		{"pContext", "J", nullptr, $PRIVATE, $field(NativeGSSContext, pContext)},
+		{"srcName", "Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $PRIVATE, $field(NativeGSSContext, srcName)},
+		{"targetName", "Lsun/security/jgss/wrapper/GSSNameElement;", nullptr, $PRIVATE, $field(NativeGSSContext, targetName)},
+		{"isInitiator", "Z", nullptr, $PRIVATE, $field(NativeGSSContext, isInitiator$)},
+		{"isEstablished", "Z", nullptr, $PRIVATE, $field(NativeGSSContext, isEstablished$)},
+		{"delegatedCred", "Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $field(NativeGSSContext, delegatedCred)},
+		{"flags", "I", nullptr, $PRIVATE, $field(NativeGSSContext, flags)},
+		{"lifetime", "I", nullptr, $PRIVATE, $field(NativeGSSContext, lifetime)},
+		{"actualMech", "Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE, $field(NativeGSSContext, actualMech)},
+		{"cred", "Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $field(NativeGSSContext, cred)},
+		{"disposeCred", "Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $field(NativeGSSContext, disposeCred)},
+		{"cb", "Lorg/ietf/jgss/ChannelBinding;", nullptr, $PRIVATE, $field(NativeGSSContext, cb)},
+		{"disposeDelegatedCred", "Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $field(NativeGSSContext, disposeDelegatedCred)},
+		{"cStub", "Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, $PRIVATE | $FINAL, $field(NativeGSSContext, cStub)},
+		{"skipDelegPermCheck", "Z", nullptr, $PRIVATE, $field(NativeGSSContext, skipDelegPermCheck)},
+		{"skipServicePermCheck", "Z", nullptr, $PRIVATE, $field(NativeGSSContext, skipServicePermCheck)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/wrapper/GSSNameElement;Lsun/security/jgss/wrapper/GSSCredElement;ILsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(NativeGSSContext, init$, void, $GSSNameElement*, $GSSCredElement*, int32_t, $GSSLibStub*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/wrapper/GSSCredElement;Lsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(NativeGSSContext, init$, void, $GSSCredElement*, $GSSLibStub*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(JLsun/security/jgss/wrapper/GSSLibStub;)V", nullptr, 0, $method(NativeGSSContext, init$, void, int64_t, $GSSLibStub*), "org.ietf.jgss.GSSException"},
+		{"acceptSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, acceptSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
+		{"changeFlags", "(IZ)V", nullptr, $PRIVATE, $method(NativeGSSContext, changeFlags, void, int32_t, bool)},
+		{"checkFlags", "(I)Z", nullptr, $PRIVATE, $method(NativeGSSContext, checkFlags, bool, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, dispose, void), "org.ietf.jgss.GSSException"},
+		{"doDelegPermCheck", "()V", nullptr, $PRIVATE, $method(NativeGSSContext, doDelegPermCheck, void), "org.ietf.jgss.GSSException"},
+		{"doServicePermCheck", "()V", nullptr, $PRIVATE, $method(NativeGSSContext, doServicePermCheck, void), "org.ietf.jgss.GSSException"},
+		{"export", "()[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, export$, $bytes*), "org.ietf.jgss.GSSException"},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(NativeGSSContext, finalize, void), "java.lang.Throwable"},
+		{"getAnonymityState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getAnonymityState, bool)},
+		{"getConfState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getConfState, bool)},
+		{"getCredDelegState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getCredDelegState, bool)},
+		{"getDelegCred", "()Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getDelegCred, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+		{"getDelegPolicyState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getDelegPolicyState, bool)},
+		{"getIntegState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getIntegState, bool)},
+		{"getLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getLifetime, int32_t)},
+		{"getMIC", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getMIC, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"getMIC", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getMIC, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"getMech", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getMech, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getMechFromSpNegoToken", "([BZ)Lorg/ietf/jgss/Oid;", nullptr, $PRIVATE | $STATIC, $staticMethod(NativeGSSContext, getMechFromSpNegoToken, $Oid*, $bytes*, bool), "org.ietf.jgss.GSSException"},
+		{"getMutualAuthState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getMutualAuthState, bool)},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getProvider, $Provider*)},
+		{"getReplayDetState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getReplayDetState, bool)},
+		{"getSequenceDetState", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getSequenceDetState, bool)},
+		{"getSrcName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getSrcName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getTargName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getTargName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getWrapSizeLimit", "(IZI)I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, getWrapSizeLimit, int32_t, int32_t, bool, int32_t), "org.ietf.jgss.GSSException"},
+		{"initSecContext", "(Ljava/io/InputStream;I)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, initSecContext, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
+		{"inquireSecContext", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, inquireSecContext, $Object*, $String*), "org.ietf.jgss.GSSException"},
+		{"isEstablished", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, isEstablished, bool)},
+		{"isInitiator", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, isInitiator, bool)},
+		{"isProtReady", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, isProtReady, bool)},
+		{"isTransferable", "()Z", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, isTransferable, bool), "org.ietf.jgss.GSSException"},
+		{"requestAnonymity", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestAnonymity, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestConf", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestConf, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestCredDeleg", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestCredDeleg, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestDelegPolicy", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestDelegPolicy, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestInteg", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestInteg, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestLifetime", "(I)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestLifetime, void, int32_t), "org.ietf.jgss.GSSException"},
+		{"requestMutualAuth", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestMutualAuth, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestReplayDet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestReplayDet, void, bool), "org.ietf.jgss.GSSException"},
+		{"requestSequenceDet", "(Z)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, requestSequenceDet, void, bool), "org.ietf.jgss.GSSException"},
+		{"retrieveToken", "(Ljava/io/InputStream;I)[B", nullptr, $PRIVATE, $method(NativeGSSContext, retrieveToken, $bytes*, $InputStream*, int32_t), "org.ietf.jgss.GSSException"},
+		{"setChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, setChannelBinding, void, $ChannelBinding*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, unwrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, unwrap, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, unwrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"unwrap", "(Ljava/io/InputStream;[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, unwrap, int32_t, $InputStream*, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"verifyMIC", "([BII[BIILorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, verifyMIC, void, $bytes*, int32_t, int32_t, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"verifyMIC", "(Ljava/io/InputStream;Ljava/io/InputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, verifyMIC, void, $InputStream*, $InputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "([BIILorg/ietf/jgss/MessageProp;)[B", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, wrap, $bytes*, $bytes*, int32_t, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "([BIILjava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, wrap, void, $bytes*, int32_t, int32_t, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "([BII[BILorg/ietf/jgss/MessageProp;)I", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, wrap, int32_t, $bytes*, int32_t, int32_t, $bytes*, int32_t, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{"wrap", "(Ljava/io/InputStream;Ljava/io/OutputStream;Lorg/ietf/jgss/MessageProp;)V", nullptr, $PUBLIC, $virtualMethod(NativeGSSContext, wrap, void, $InputStream*, $OutputStream*, $MessageProp*), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.jgss.wrapper.NativeGSSContext",
+		"java.lang.Object",
+		"sun.security.jgss.spi.GSSContextSpi",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeGSSContext, name, initialize, &classInfo$$, NativeGSSContext::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeGSSContext);
+	});
 	return class$;
 }
 

@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/synth/SynthToolBarUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar.h>
@@ -21,7 +19,6 @@
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
 #include <javax/swing/plaf/synth/SynthToolBarUI$SynthToolBarLayoutManager.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <jcpp.h>
 
 #undef ENABLED
@@ -29,12 +26,10 @@
 #undef TOOL_BAR_DRAG_WINDOW
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -44,88 +39,18 @@ using $JComponent = ::javax::swing::JComponent;
 using $JToolBar = ::javax::swing::JToolBar;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicToolBarUI = ::javax::swing::plaf::basic::BasicToolBarUI;
-using $BasicToolBarUI$DragWindow = ::javax::swing::plaf::basic::BasicToolBarUI$DragWindow;
 using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthToolBarUI$SynthToolBarLayoutManager = ::javax::swing::plaf::synth::SynthToolBarUI$SynthToolBarLayoutManager;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthToolBarUI_FieldInfo_[] = {
-	{"handleIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(SynthToolBarUI, handleIcon)},
-	{"contentRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthToolBarUI, contentRect)},
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthToolBarUI, style)},
-	{"contentStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthToolBarUI, contentStyle)},
-	{"dragWindowStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthToolBarUI, dragWindowStyle)},
-	{}
-};
-
-$MethodInfo _SynthToolBarUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthToolBarUI, init$, void)},
-	{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, createLayout, $LayoutManager*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthToolBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)I", nullptr, $PRIVATE, $method(SynthToolBarUI, getComponentState, int32_t, $JComponent*, $Region*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthToolBarUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthToolBarUI, getContext, $SynthContext*, $JComponent*, $Region*, $SynthStyle*)},
-	{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthToolBarUI, getContext, $SynthContext*, $JComponent*, $Region*, $SynthStyle*, int32_t)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintContent", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, paintContent, void, $SynthContext*, $Graphics*, $Rectangle*)},
-	{"paintDragWindow", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, paintDragWindow, void, $Graphics*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"setBorderToNonRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, setBorderToNonRollover, void, $Component*)},
-	{"setBorderToNormal", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, setBorderToNormal, void, $Component*)},
-	{"setBorderToRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, setBorderToRollover, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JToolBar;)V", nullptr, $PRIVATE, $method(SynthToolBarUI, updateStyle, void, $JToolBar*)},
-	{}
-};
-
-$InnerClassInfo _SynthToolBarUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthToolBarUI$SynthToolBarLayoutManager", "javax.swing.plaf.synth.SynthToolBarUI", "SynthToolBarLayoutManager", 0},
-	{}
-};
-
-$ClassInfo _SynthToolBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthToolBarUI",
-	"javax.swing.plaf.basic.BasicToolBarUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthToolBarUI_FieldInfo_,
-	_SynthToolBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthToolBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthToolBarUI$SynthToolBarLayoutManager"
-};
-
-$Object* allocate$SynthToolBarUI($Class* clazz) {
-	return $of($alloc(SynthToolBarUI));
-}
 
 int32_t SynthToolBarUI::hashCode() {
 	 return this->$BasicToolBarUI::hashCode();
@@ -174,7 +99,7 @@ void SynthToolBarUI::uninstallListeners() {
 }
 
 void SynthToolBarUI::updateStyle($JToolBar* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Region);
 	$var($SynthContext, context, getContext(c, $Region::TOOL_BAR_CONTENT, this->contentStyle, $SynthConstants::ENABLED));
 	$set(this, contentStyle, $SynthLookAndFeel::updateStyle(context, this));
@@ -238,14 +163,12 @@ int32_t SynthToolBarUI::getComponentState($JComponent* c, $Region* region) {
 }
 
 void SynthToolBarUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	int32_t var$3 = c->getHeight();
-	$nc($($nc(context)->getPainter()))->paintToolBarBackground(var$0, var$1, 0, 0, var$2, var$3, $nc(this->toolBar)->getOrientation());
+	int32_t var$0 = $nc(c)->getWidth();
+	int32_t var$1 = c->getHeight();
+	$$nc($nc(context)->getPainter())->paintToolBarBackground(context, g, 0, 0, var$0, var$1, $nc(this->toolBar)->getOrientation());
 	paint(context, g);
 }
 
@@ -255,7 +178,7 @@ void SynthToolBarUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthToolBarUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintToolBarBorder(context, g, x, y, w, h, $nc(this->toolBar)->getOrientation());
+	$$nc($nc(context)->getPainter())->paintToolBarBorder(context, g, x, y, w, h, $nc(this->toolBar)->getOrientation());
 }
 
 void SynthToolBarUI::setBorderToNonRollover($Component* c) {
@@ -268,10 +191,10 @@ void SynthToolBarUI::setBorderToNormal($Component* c) {
 }
 
 void SynthToolBarUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->handleIcon != nullptr && $nc(this->toolBar)->isFloatable()) {
 		int32_t var$0 = 0;
-		if ($nc($($nc(this->toolBar)->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc($nc(this->toolBar)->getComponentOrientation())->isLeftToRight()) {
 			var$0 = 0;
 		} else {
 			int32_t var$1 = $nc(this->toolBar)->getWidth();
@@ -279,11 +202,8 @@ void SynthToolBarUI::paint($SynthContext* context, $Graphics* g) {
 		}
 		int32_t startX = var$0;
 		$var($Icon, var$2, this->handleIcon);
-		$var($SynthContext, var$3, context);
-		$var($Graphics, var$4, g);
-		int32_t var$5 = startX;
-		int32_t var$6 = $SynthGraphicsUtils::getIconWidth(this->handleIcon, context);
-		$SynthGraphicsUtils::paintIcon(var$2, var$3, var$4, var$5, 0, var$6, $SynthGraphicsUtils::getIconHeight(this->handleIcon, context));
+		int32_t var$3 = $SynthGraphicsUtils::getIconWidth(this->handleIcon, context);
+		$SynthGraphicsUtils::paintIcon(var$2, context, g, startX, 0, var$3, $SynthGraphicsUtils::getIconHeight(this->handleIcon, context));
 	}
 	$init($Region);
 	$var($SynthContext, subcontext, getContext(this->toolBar, $Region::TOOL_BAR_CONTENT, this->contentStyle));
@@ -291,26 +211,26 @@ void SynthToolBarUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthToolBarUI::paintContent($SynthContext* context, $Graphics* g, $Rectangle* bounds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthLookAndFeel::updateSubregion(context, g, bounds);
-	$nc($($nc(context)->getPainter()))->paintToolBarContentBackground(context, g, $nc(bounds)->x, bounds->y, bounds->width, bounds->height, $nc(this->toolBar)->getOrientation());
-	$nc($(context->getPainter()))->paintToolBarContentBorder(context, g, $nc(bounds)->x, bounds->y, bounds->width, bounds->height, $nc(this->toolBar)->getOrientation());
+	$$nc($nc(context)->getPainter())->paintToolBarContentBackground(context, g, $nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height, $nc(this->toolBar)->getOrientation());
+	$$nc(context->getPainter())->paintToolBarContentBorder(context, g, bounds->x, bounds->y, bounds->width, bounds->height, $nc(this->toolBar)->getOrientation());
 }
 
 void SynthToolBarUI::paintDragWindow($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = $nc(this->dragWindow)->getWidth();
 	int32_t h = $nc(this->dragWindow)->getHeight();
 	$init($Region);
 	$var($SynthContext, context, getContext(this->toolBar, $Region::TOOL_BAR_DRAG_WINDOW, this->dragWindowStyle));
 	$SynthLookAndFeel::updateSubregion(context, g, $$new($Rectangle, 0, 0, w, h));
-	$nc($($nc(context)->getPainter()))->paintToolBarDragWindowBackground(context, g, 0, 0, w, h, $nc(this->dragWindow)->getOrientation());
-	$nc($(context->getPainter()))->paintToolBarDragWindowBorder(context, g, 0, 0, w, h, $nc(this->dragWindow)->getOrientation());
+	$$nc($nc(context)->getPainter())->paintToolBarDragWindowBackground(context, g, 0, 0, w, h, $nc(this->dragWindow)->getOrientation());
+	$$nc(context->getPainter())->paintToolBarDragWindowBorder(context, g, 0, 0, w, h, $nc(this->dragWindow)->getOrientation());
 }
 
 void SynthToolBarUI::propertyChange($PropertyChangeEvent* e) {
 	if ($SynthLookAndFeel::shouldUpdateStyle(e)) {
-		updateStyle($cast($JToolBar, $($nc(e)->getSource())));
+		updateStyle($$cast($JToolBar, $nc(e)->getSource()));
 	}
 }
 
@@ -318,7 +238,68 @@ SynthToolBarUI::SynthToolBarUI() {
 }
 
 $Class* SynthToolBarUI::load$($String* name, bool initialize) {
-	$loadClass(SynthToolBarUI, name, initialize, &_SynthToolBarUI_ClassInfo_, allocate$SynthToolBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"handleIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(SynthToolBarUI, handleIcon)},
+		{"contentRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(SynthToolBarUI, contentRect)},
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthToolBarUI, style)},
+		{"contentStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthToolBarUI, contentStyle)},
+		{"dragWindowStyle", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthToolBarUI, dragWindowStyle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthToolBarUI, init$, void)},
+		{"createLayout", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, createLayout, $LayoutManager*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthToolBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)I", nullptr, $PRIVATE, $method(SynthToolBarUI, getComponentState, int32_t, $JComponent*, $Region*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthToolBarUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthToolBarUI, getContext, $SynthContext*, $JComponent*, $Region*, $SynthStyle*)},
+		{"getContext", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthToolBarUI, getContext, $SynthContext*, $JComponent*, $Region*, $SynthStyle*, int32_t)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintContent", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, paintContent, void, $SynthContext*, $Graphics*, $Rectangle*)},
+		{"paintDragWindow", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, paintDragWindow, void, $Graphics*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"setBorderToNonRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, setBorderToNonRollover, void, $Component*)},
+		{"setBorderToNormal", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, setBorderToNormal, void, $Component*)},
+		{"setBorderToRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, setBorderToRollover, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthToolBarUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolBarUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JToolBar;)V", nullptr, $PRIVATE, $method(SynthToolBarUI, updateStyle, void, $JToolBar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthToolBarUI$SynthToolBarLayoutManager", "javax.swing.plaf.synth.SynthToolBarUI", "SynthToolBarLayoutManager", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthToolBarUI",
+		"javax.swing.plaf.basic.BasicToolBarUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthToolBarUI$SynthToolBarLayoutManager"
+	};
+	$loadClass(SynthToolBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthToolBarUI));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$AttributionMode.h>
-
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,52 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _DeferredAttr$AttributionMode_FieldInfo_[] = {
-	{"FULL", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DeferredAttr$AttributionMode, FULL)},
-	{"ATTRIB_TO_TREE", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DeferredAttr$AttributionMode, ATTRIB_TO_TREE)},
-	{"ANALYZER", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DeferredAttr$AttributionMode, ANALYZER)},
-	{"SPECULATIVE", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DeferredAttr$AttributionMode, SPECULATIVE)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DeferredAttr$AttributionMode, $VALUES)},
-	{"isSpeculative", "Z", nullptr, $FINAL, $field(DeferredAttr$AttributionMode, isSpeculative$)},
-	{"recover", "Z", nullptr, $FINAL, $field(DeferredAttr$AttributionMode, recover$)},
-	{}
-};
-
-$MethodInfo _DeferredAttr$AttributionMode_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredAttr$AttributionMode, $values, $DeferredAttr$AttributionModeArray*)},
-	{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(DeferredAttr$AttributionMode, init$, void, $String*, int32_t, bool, bool)},
-	{"isSpeculative", "()Z", nullptr, 0, $method(DeferredAttr$AttributionMode, isSpeculative, bool)},
-	{"recover", "()Z", nullptr, 0, $method(DeferredAttr$AttributionMode, recover, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredAttr$AttributionMode, valueOf, DeferredAttr$AttributionMode*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredAttr$AttributionMode, values, $DeferredAttr$AttributionModeArray*)},
-	{}
-};
-
-$InnerClassInfo _DeferredAttr$AttributionMode_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.DeferredAttr$AttributionMode", "com.sun.tools.javac.comp.DeferredAttr", "AttributionMode", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DeferredAttr$AttributionMode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.DeferredAttr$AttributionMode",
-	"java.lang.Enum",
-	nullptr,
-	_DeferredAttr$AttributionMode_FieldInfo_,
-	_DeferredAttr$AttributionMode_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;>;",
-	nullptr,
-	_DeferredAttr$AttributionMode_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.DeferredAttr"
-};
-
-$Object* allocate$DeferredAttr$AttributionMode($Class* clazz) {
-	return $of($alloc(DeferredAttr$AttributionMode));
-}
 
 DeferredAttr$AttributionMode* DeferredAttr$AttributionMode::FULL = nullptr;
 DeferredAttr$AttributionMode* DeferredAttr$AttributionMode::ATTRIB_TO_TREE = nullptr;
@@ -108,7 +61,7 @@ bool DeferredAttr$AttributionMode::recover() {
 	return this->recover$;
 }
 
-void clinit$DeferredAttr$AttributionMode($Class* class$) {
+void DeferredAttr$AttributionMode::clinit$($Class* clazz) {
 	$assignStatic(DeferredAttr$AttributionMode::FULL, $new(DeferredAttr$AttributionMode, "FULL"_s, 0, false, true));
 	$assignStatic(DeferredAttr$AttributionMode::ATTRIB_TO_TREE, $new(DeferredAttr$AttributionMode, "ATTRIB_TO_TREE"_s, 1, true, true));
 	$assignStatic(DeferredAttr$AttributionMode::ANALYZER, $new(DeferredAttr$AttributionMode, "ANALYZER"_s, 2, true, false));
@@ -120,7 +73,47 @@ DeferredAttr$AttributionMode::DeferredAttr$AttributionMode() {
 }
 
 $Class* DeferredAttr$AttributionMode::load$($String* name, bool initialize) {
-	$loadClass(DeferredAttr$AttributionMode, name, initialize, &_DeferredAttr$AttributionMode_ClassInfo_, clinit$DeferredAttr$AttributionMode, allocate$DeferredAttr$AttributionMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"FULL", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DeferredAttr$AttributionMode, FULL)},
+		{"ATTRIB_TO_TREE", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DeferredAttr$AttributionMode, ATTRIB_TO_TREE)},
+		{"ANALYZER", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DeferredAttr$AttributionMode, ANALYZER)},
+		{"SPECULATIVE", "Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(DeferredAttr$AttributionMode, SPECULATIVE)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(DeferredAttr$AttributionMode, $VALUES)},
+		{"isSpeculative", "Z", nullptr, $FINAL, $field(DeferredAttr$AttributionMode, isSpeculative$)},
+		{"recover", "Z", nullptr, $FINAL, $field(DeferredAttr$AttributionMode, recover$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(DeferredAttr$AttributionMode, $values, $DeferredAttr$AttributionModeArray*)},
+		{"<init>", "(Ljava/lang/String;IZZ)V", "(ZZ)V", $PRIVATE, $method(DeferredAttr$AttributionMode, init$, void, $String*, int32_t, bool, bool)},
+		{"isSpeculative", "()Z", nullptr, 0, $method(DeferredAttr$AttributionMode, isSpeculative, bool)},
+		{"recover", "()Z", nullptr, 0, $method(DeferredAttr$AttributionMode, recover, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredAttr$AttributionMode, valueOf, DeferredAttr$AttributionMode*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(DeferredAttr$AttributionMode, values, $DeferredAttr$AttributionModeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.DeferredAttr$AttributionMode", "com.sun.tools.javac.comp.DeferredAttr", "AttributionMode", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.DeferredAttr$AttributionMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/DeferredAttr$AttributionMode;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.DeferredAttr"
+	};
+	$loadClass(DeferredAttr$AttributionMode, name, initialize, &classInfo$$, DeferredAttr$AttributionMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DeferredAttr$AttributionMode));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <HeadlessDefaultListCellRenderer_UIResource$2.h>
-
 #include <HeadlessDefaultListCellRenderer_UIResource.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessDefaultListCellRenderer_UIResource$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessDefaultListCellRenderer_UIResource$2, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessDefaultListCellRenderer_UIResource$2_EnclosingMethodInfo_ = {
-	"HeadlessDefaultListCellRenderer_UIResource",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessDefaultListCellRenderer_UIResource$2_InnerClassesInfo_[] = {
-	{"HeadlessDefaultListCellRenderer_UIResource$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessDefaultListCellRenderer_UIResource$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessDefaultListCellRenderer_UIResource$2",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessDefaultListCellRenderer_UIResource$2_MethodInfo_,
-	nullptr,
-	&_HeadlessDefaultListCellRenderer_UIResource$2_EnclosingMethodInfo_,
-	_HeadlessDefaultListCellRenderer_UIResource$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessDefaultListCellRenderer_UIResource"
-};
-
-$Object* allocate$HeadlessDefaultListCellRenderer_UIResource$2($Class* clazz) {
-	return $of($alloc(HeadlessDefaultListCellRenderer_UIResource$2));
-}
-
 void HeadlessDefaultListCellRenderer_UIResource$2::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessDefaultListCellRenderer_UIResource$2::HeadlessDefaultListCellRenderer_UI
 }
 
 $Class* HeadlessDefaultListCellRenderer_UIResource$2::load$($String* name, bool initialize) {
-	$loadClass(HeadlessDefaultListCellRenderer_UIResource$2, name, initialize, &_HeadlessDefaultListCellRenderer_UIResource$2_ClassInfo_, allocate$HeadlessDefaultListCellRenderer_UIResource$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessDefaultListCellRenderer_UIResource$2, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessDefaultListCellRenderer_UIResource",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessDefaultListCellRenderer_UIResource$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessDefaultListCellRenderer_UIResource$2",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessDefaultListCellRenderer_UIResource"
+	};
+	$loadClass(HeadlessDefaultListCellRenderer_UIResource$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessDefaultListCellRenderer_UIResource$2));
+	});
 	return class$;
 }
 

@@ -81,6 +81,7 @@ class $import ThreadInfoCompositeData : public ::sun::management::LazyCompositeD
 	$class(ThreadInfoCompositeData, 0, ::sun::management::LazyCompositeData)
 public:
 	ThreadInfoCompositeData();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::lang::management::ThreadInfo* ti);
 	void init$(::javax::management::openmbean::CompositeData* cd);
 	virtual int64_t blockedCount();
@@ -130,7 +131,7 @@ public:
 	static $StringArray* V6_ATTRIBUTES;
 	static $StringArray* V9_ATTRIBUTES;
 	static int32_t RUNTIME_VERSION;
-	static const int64_t serialVersionUID = (int64_t)0x22333B39785437D7;
+	static const int64_t serialVersionUID = (int64_t)0x22333b39785437d7;
 };
 
 	} // management

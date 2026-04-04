@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/FlowTube$AbstractTubePublisher.h>
-
 #include <jdk/internal/net/http/common/FlowTube.h>
 #include <jcpp.h>
 
@@ -13,38 +12,6 @@ namespace jdk {
 			namespace http {
 				namespace common {
 
-$MethodInfo _FlowTube$AbstractTubePublisher_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FlowTube$AbstractTubePublisher, init$, void)},
-	{}
-};
-
-$InnerClassInfo _FlowTube$AbstractTubePublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.FlowTube$AbstractTubePublisher", "jdk.internal.net.http.common.FlowTube", "AbstractTubePublisher", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$AbstractTubePublisher$TubePublisherWrapper", "jdk.internal.net.http.common.FlowTube$AbstractTubePublisher", "TubePublisherWrapper", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _FlowTube$AbstractTubePublisher_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.common.FlowTube$AbstractTubePublisher",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.FlowTube$TubePublisher",
-	nullptr,
-	_FlowTube$AbstractTubePublisher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FlowTube$AbstractTubePublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.FlowTube"
-};
-
-$Object* allocate$FlowTube$AbstractTubePublisher($Class* clazz) {
-	return $of($alloc(FlowTube$AbstractTubePublisher));
-}
-
 void FlowTube$AbstractTubePublisher::init$() {
 }
 
@@ -52,7 +19,34 @@ FlowTube$AbstractTubePublisher::FlowTube$AbstractTubePublisher() {
 }
 
 $Class* FlowTube$AbstractTubePublisher::load$($String* name, bool initialize) {
-	$loadClass(FlowTube$AbstractTubePublisher, name, initialize, &_FlowTube$AbstractTubePublisher_ClassInfo_, allocate$FlowTube$AbstractTubePublisher);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FlowTube$AbstractTubePublisher, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.FlowTube$AbstractTubePublisher", "jdk.internal.net.http.common.FlowTube", "AbstractTubePublisher", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$TubePublisher", "jdk.internal.net.http.common.FlowTube", "TubePublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$AbstractTubePublisher$TubePublisherWrapper", "jdk.internal.net.http.common.FlowTube$AbstractTubePublisher", "TubePublisherWrapper", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.common.FlowTube$AbstractTubePublisher",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.FlowTube$TubePublisher",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.FlowTube"
+	};
+	$loadClass(FlowTube$AbstractTubePublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowTube$AbstractTubePublisher);
+	});
 	return class$;
 }
 

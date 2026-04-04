@@ -43,6 +43,7 @@ class XButtonPeer : public ::sun::awt::X11::XComponentPeer, public ::java::awt::
 	$class(XButtonPeer, 0, ::sun::awt::X11::XComponentPeer, ::java::awt::peer::ButtonPeer)
 public:
 	XButtonPeer();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::sun::awt::X11::XComponentPeer::handleKeyPress;
 	using ::sun::awt::X11::XComponentPeer::getColorModel;
 	using ::sun::awt::X11::XComponentPeer::getGraphics;

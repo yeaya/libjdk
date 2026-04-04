@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaSplitPaneDividerUI$1.h>
-
 #include <com/apple/laf/AquaImageFactory.h>
 #include <com/apple/laf/AquaUtils$LazyKeyedSingleton.h>
 #include <com/apple/laf/AquaUtils.h>
@@ -24,51 +23,12 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaSplitPaneDividerUI$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaSplitPaneDividerUI$1, init$, void)},
-	{"getInstance", "(Ljava/lang/Integer;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneDividerUI$1, getInstance, $Image*, $Integer*)},
-	{"getInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(AquaSplitPaneDividerUI$1, getInstance, $Object*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaSplitPaneDividerUI$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaSplitPaneDividerUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaSplitPaneDividerUI$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaSplitPaneDividerUI$1", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaUtils$LazyKeyedSingleton", "com.apple.laf.AquaUtils", "LazyKeyedSingleton", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaSplitPaneDividerUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaSplitPaneDividerUI$1",
-	"com.apple.laf.AquaUtils$LazyKeyedSingleton",
-	nullptr,
-	nullptr,
-	_AquaSplitPaneDividerUI$1_MethodInfo_,
-	"Lcom/apple/laf/AquaUtils$LazyKeyedSingleton<Ljava/lang/Integer;Ljava/awt/Image;>;",
-	&_AquaSplitPaneDividerUI$1_EnclosingMethodInfo_,
-	_AquaSplitPaneDividerUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaSplitPaneDividerUI"
-};
-
-$Object* allocate$AquaSplitPaneDividerUI$1($Class* clazz) {
-	return $of($alloc(AquaSplitPaneDividerUI$1));
-}
-
 void AquaSplitPaneDividerUI$1::init$() {
 	$AquaUtils$LazyKeyedSingleton::init$();
 }
 
 $Image* AquaSplitPaneDividerUI$1::getInstance($Integer* direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, arrowImage, $AquaImageFactory::getArrowImageForDirection($nc(direction)->intValue()));
 	int32_t h = ($nc(arrowImage)->getHeight(nullptr) * 5) / 7;
 	int32_t w = (arrowImage->getWidth(nullptr) * 5) / 7;
@@ -76,14 +36,47 @@ $Image* AquaSplitPaneDividerUI$1::getInstance($Integer* direction) {
 }
 
 $Object* AquaSplitPaneDividerUI$1::getInstance(Object$* direction) {
-	return $of(this->getInstance($cast($Integer, direction)));
+	return this->getInstance($cast($Integer, direction));
 }
 
 AquaSplitPaneDividerUI$1::AquaSplitPaneDividerUI$1() {
 }
 
 $Class* AquaSplitPaneDividerUI$1::load$($String* name, bool initialize) {
-	$loadClass(AquaSplitPaneDividerUI$1, name, initialize, &_AquaSplitPaneDividerUI$1_ClassInfo_, allocate$AquaSplitPaneDividerUI$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaSplitPaneDividerUI$1, init$, void)},
+		{"getInstance", "(Ljava/lang/Integer;)Ljava/awt/Image;", nullptr, $PROTECTED, $virtualMethod(AquaSplitPaneDividerUI$1, getInstance, $Image*, $Integer*)},
+		{"getInstance", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(AquaSplitPaneDividerUI$1, getInstance, $Object*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaSplitPaneDividerUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaSplitPaneDividerUI$1", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaUtils$LazyKeyedSingleton", "com.apple.laf.AquaUtils", "LazyKeyedSingleton", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaSplitPaneDividerUI$1",
+		"com.apple.laf.AquaUtils$LazyKeyedSingleton",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaUtils$LazyKeyedSingleton<Ljava/lang/Integer;Ljava/awt/Image;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaSplitPaneDividerUI"
+	};
+	$loadClass(AquaSplitPaneDividerUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaSplitPaneDividerUI$1);
+	});
 	return class$;
 }
 

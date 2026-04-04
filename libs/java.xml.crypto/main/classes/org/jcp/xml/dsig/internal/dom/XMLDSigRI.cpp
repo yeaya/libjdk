@@ -1,7 +1,5 @@
 #include <org/jcp/xml/dsig/internal/dom/XMLDSigRI.h>
-
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <org/jcp/xml/dsig/internal/dom/XMLDSigRI$1.h>
@@ -16,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $XMLDSigRI$1 = ::org::jcp::xml::dsig::internal::dom::XMLDSigRI$1;
@@ -28,57 +25,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _XMLDSigRI_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XMLDSigRI, serialVersionUID)},
-	{"INFO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDSigRI, INFO)},
-	{"VER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDSigRI, VER)},
-	{}
-};
-
-$MethodInfo _XMLDSigRI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDSigRI, init$, void)},
-	{"access$000", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$000, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$100", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$100, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$1000", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1000, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$1100", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1100, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$1200", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1200, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$200", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$200, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$300", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$300, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$400", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$400, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$500", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$500, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$600", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$600, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$700", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$700, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$800", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$800, void, XMLDSigRI*, $Provider$Service*)},
-	{"access$900", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$900, void, XMLDSigRI*, $Provider$Service*)},
-	{}
-};
-
-$InnerClassInfo _XMLDSigRI_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$ProviderService", "org.jcp.xml.dsig.internal.dom.XMLDSigRI", "ProviderService", $PRIVATE | $STATIC | $FINAL},
-	{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$2", nullptr, nullptr, 0},
-	{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLDSigRI_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI",
-	"java.security.Provider",
-	nullptr,
-	_XMLDSigRI_FieldInfo_,
-	_XMLDSigRI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLDSigRI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.XMLDSigRI$ProviderService,org.jcp.xml.dsig.internal.dom.XMLDSigRI$2,org.jcp.xml.dsig.internal.dom.XMLDSigRI$1"
-};
-
-$Object* allocate$XMLDSigRI($Class* clazz) {
-	return $of($alloc(XMLDSigRI));
-}
 
 $String* XMLDSigRI::INFO = nullptr;
 $String* XMLDSigRI::VER = nullptr;
@@ -149,24 +95,69 @@ void XMLDSigRI::access$000(XMLDSigRI* x0, $Provider$Service* x1) {
 }
 
 void XMLDSigRI::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Provider::init$("XMLDSig"_s, XMLDSigRI::VER, XMLDSigRI::INFO);
 	$var($Provider, p, this);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($XMLDSigRI$2, this, p)));
+	$AccessController::doPrivileged($$new($XMLDSigRI$2, this, p));
 }
 
-void clinit$XMLDSigRI($Class* class$) {
+void XMLDSigRI::clinit$($Class* clazz) {
 	$assignStatic(XMLDSigRI::INFO, "XMLDSig (DOM XMLSignatureFactory; DOM KeyInfoFactory; C14N 1.0, C14N 1.1, Exclusive C14N, Base64, Enveloped, XPath, XPath2, XSLT TransformServices)"_s);
 	$beforeCallerSensitive();
-	$assignStatic(XMLDSigRI::VER, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($XMLDSigRI$1)))));
+	$assignStatic(XMLDSigRI::VER, $cast($String, $AccessController::doPrivileged($$new($XMLDSigRI$1))));
 }
 
 XMLDSigRI::XMLDSigRI() {
 }
 
 $Class* XMLDSigRI::load$($String* name, bool initialize) {
-	$loadClass(XMLDSigRI, name, initialize, &_XMLDSigRI_ClassInfo_, clinit$XMLDSigRI, allocate$XMLDSigRI);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(XMLDSigRI, serialVersionUID)},
+		{"INFO", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDSigRI, INFO)},
+		{"VER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLDSigRI, VER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLDSigRI, init$, void)},
+		{"access$000", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$000, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$100", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$100, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$1000", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1000, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$1100", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1100, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$1200", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$1200, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$200", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$200, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$300", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$300, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$400", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$400, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$500", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$500, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$600", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$600, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$700", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$700, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$800", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$800, void, XMLDSigRI*, $Provider$Service*)},
+		{"access$900", "(Lorg/jcp/xml/dsig/internal/dom/XMLDSigRI;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(XMLDSigRI, access$900, void, XMLDSigRI*, $Provider$Service*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$ProviderService", "org.jcp.xml.dsig.internal.dom.XMLDSigRI", "ProviderService", $PRIVATE | $STATIC | $FINAL},
+		{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$2", nullptr, nullptr, 0},
+		{"org.jcp.xml.dsig.internal.dom.XMLDSigRI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.XMLDSigRI$ProviderService,org.jcp.xml.dsig.internal.dom.XMLDSigRI$2,org.jcp.xml.dsig.internal.dom.XMLDSigRI$1"
+	};
+	$loadClass(XMLDSigRI, name, initialize, &classInfo$$, XMLDSigRI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLDSigRI));
+	});
 	return class$;
 }
 

@@ -1,9 +1,7 @@
 #include <javax/swing/text/JTextComponent$4.h>
-
 #include <com/sun/beans/util/Cache$Kind.h>
 #include <com/sun/beans/util/Cache.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/text/JTextComponent$4$1.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
@@ -19,7 +17,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $JTextComponent$4$1 = ::javax::swing::text::JTextComponent$4$1;
 
@@ -27,62 +24,21 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _JTextComponent$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;)V", nullptr, 0, $method(JTextComponent$4, init$, void, $Cache$Kind*, $Cache$Kind*)},
-	{"create", "(Ljava/lang/Class;)Ljava/lang/Boolean;", "(Ljava/lang/Class<*>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(JTextComponent$4, create, $Boolean*, $Class*)},
-	{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JTextComponent$4, create, $Object*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _JTextComponent$4_EnclosingMethodInfo_ = {
-	"javax.swing.text.JTextComponent",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JTextComponent$4_InnerClassesInfo_[] = {
-	{"javax.swing.text.JTextComponent$4", nullptr, nullptr, 0},
-	{"javax.swing.text.JTextComponent$4$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JTextComponent$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.JTextComponent$4",
-	"com.sun.beans.util.Cache",
-	nullptr,
-	nullptr,
-	_JTextComponent$4_MethodInfo_,
-	"Lcom/sun/beans/util/Cache<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;",
-	&_JTextComponent$4_EnclosingMethodInfo_,
-	_JTextComponent$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.JTextComponent"
-};
-
-$Object* allocate$JTextComponent$4($Class* clazz) {
-	return $of($alloc(JTextComponent$4));
-}
-
 void JTextComponent$4::init$($Cache$Kind* keyKind, $Cache$Kind* valueKind) {
 	$Cache::init$(keyKind, valueKind);
 }
 
 $Boolean* JTextComponent$4::create($Class* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($JTextComponent);
 	if ($JTextComponent::class$ == type) {
-		$init($Boolean);
 		return $Boolean::FALSE;
 	}
-	if ($nc(($cast($Boolean, $(get($nc(type)->getSuperclass())))))->booleanValue()) {
-		$init($Boolean);
+	if ($$sure($Boolean, get($nc(type)->getSuperclass()))->booleanValue()) {
 		return $Boolean::TRUE;
 	}
-	return $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($JTextComponent$4$1, this, type))));
+	return $cast($Boolean, $AccessController::doPrivileged($$new($JTextComponent$4$1, this, type)));
 }
 
 $Object* JTextComponent$4::create(Object$* type) {
@@ -93,7 +49,40 @@ JTextComponent$4::JTextComponent$4() {
 }
 
 $Class* JTextComponent$4::load$($String* name, bool initialize) {
-	$loadClass(JTextComponent$4, name, initialize, &_JTextComponent$4_ClassInfo_, allocate$JTextComponent$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/beans/util/Cache$Kind;Lcom/sun/beans/util/Cache$Kind;)V", nullptr, 0, $method(JTextComponent$4, init$, void, $Cache$Kind*, $Cache$Kind*)},
+		{"create", "(Ljava/lang/Class;)Ljava/lang/Boolean;", "(Ljava/lang/Class<*>;)Ljava/lang/Boolean;", $PUBLIC, $virtualMethod(JTextComponent$4, create, $Boolean*, $Class*)},
+		{"create", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JTextComponent$4, create, $Object*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.text.JTextComponent",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.JTextComponent$4", nullptr, nullptr, 0},
+		{"javax.swing.text.JTextComponent$4$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.JTextComponent$4",
+		"com.sun.beans.util.Cache",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/sun/beans/util/Cache<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.JTextComponent"
+	};
+	$loadClass(JTextComponent$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JTextComponent$4);
+	});
 	return class$;
 }
 

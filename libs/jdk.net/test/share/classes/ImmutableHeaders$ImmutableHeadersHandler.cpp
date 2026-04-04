@@ -1,5 +1,4 @@
 #include <ImmutableHeaders$ImmutableHeadersHandler.h>
-
 #include <ImmutableHeaders.h>
 #include <com/sun/net/httpserver/Headers.h>
 #include <com/sun/net/httpserver/HttpExchange.h>
@@ -20,42 +19,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 
-$MethodInfo _ImmutableHeaders$ImmutableHeadersHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ImmutableHeaders$ImmutableHeadersHandler, init$, void)},
-	{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableHeaders$ImmutableHeadersHandler, handle, void, $HttpExchange*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ImmutableHeaders$ImmutableHeadersHandler_InnerClassesInfo_[] = {
-	{"ImmutableHeaders$ImmutableHeadersHandler", "ImmutableHeaders", "ImmutableHeadersHandler", $STATIC},
-	{}
-};
-
-$ClassInfo _ImmutableHeaders$ImmutableHeadersHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"ImmutableHeaders$ImmutableHeadersHandler",
-	"java.lang.Object",
-	"com.sun.net.httpserver.HttpHandler",
-	nullptr,
-	_ImmutableHeaders$ImmutableHeadersHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImmutableHeaders$ImmutableHeadersHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ImmutableHeaders"
-};
-
-$Object* allocate$ImmutableHeaders$ImmutableHeadersHandler($Class* clazz) {
-	return $of($alloc(ImmutableHeaders$ImmutableHeadersHandler));
-}
-
 void ImmutableHeaders$ImmutableHeadersHandler::init$() {
 }
 
 void ImmutableHeaders$ImmutableHeadersHandler::handle($HttpExchange* he) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, method, $nc(he)->getRequestMethod());
 	$var($InputStream, is, he->getRequestBody());
 	$var($Headers, h, he->getResponseHeaders());
@@ -71,7 +39,33 @@ ImmutableHeaders$ImmutableHeadersHandler::ImmutableHeaders$ImmutableHeadersHandl
 }
 
 $Class* ImmutableHeaders$ImmutableHeadersHandler::load$($String* name, bool initialize) {
-	$loadClass(ImmutableHeaders$ImmutableHeadersHandler, name, initialize, &_ImmutableHeaders$ImmutableHeadersHandler_ClassInfo_, allocate$ImmutableHeaders$ImmutableHeadersHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ImmutableHeaders$ImmutableHeadersHandler, init$, void)},
+		{"handle", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(ImmutableHeaders$ImmutableHeadersHandler, handle, void, $HttpExchange*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ImmutableHeaders$ImmutableHeadersHandler", "ImmutableHeaders", "ImmutableHeadersHandler", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"ImmutableHeaders$ImmutableHeadersHandler",
+		"java.lang.Object",
+		"com.sun.net.httpserver.HttpHandler",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ImmutableHeaders"
+	};
+	$loadClass(ImmutableHeaders$ImmutableHeadersHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableHeaders$ImmutableHeadersHandler);
+	});
 	return class$;
 }
 

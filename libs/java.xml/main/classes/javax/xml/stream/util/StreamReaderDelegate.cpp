@@ -1,5 +1,4 @@
 #include <javax/xml/stream/util/StreamReaderDelegate.h>
-
 #include <javax/xml/namespace/NamespaceContext.h>
 #include <javax/xml/namespace/QName.h>
 #include <javax/xml/stream/Location.h>
@@ -18,77 +17,6 @@ namespace javax {
 	namespace xml {
 		namespace stream {
 			namespace util {
-
-$FieldInfo _StreamReaderDelegate_FieldInfo_[] = {
-	{"reader", "Ljavax/xml/stream/XMLStreamReader;", nullptr, $PRIVATE, $field(StreamReaderDelegate, reader)},
-	{}
-};
-
-$MethodInfo _StreamReaderDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StreamReaderDelegate, init$, void)},
-	{"<init>", "(Ljavax/xml/stream/XMLStreamReader;)V", nullptr, $PUBLIC, $method(StreamReaderDelegate, init$, void, $XMLStreamReader*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, close, void), "javax.xml.stream.XMLStreamException"},
-	{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeCount, int32_t)},
-	{"getAttributeLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeLocalName, $String*, int32_t)},
-	{"getAttributeName", "(I)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeName, $QName*, int32_t)},
-	{"getAttributeNamespace", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeNamespace, $String*, int32_t)},
-	{"getAttributePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributePrefix, $String*, int32_t)},
-	{"getAttributeType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeType, $String*, int32_t)},
-	{"getAttributeValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeValue, $String*, $String*, $String*)},
-	{"getAttributeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeValue, $String*, int32_t)},
-	{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getCharacterEncodingScheme, $String*)},
-	{"getElementText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getElementText, $String*), "javax.xml.stream.XMLStreamException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getEncoding, $String*)},
-	{"getEventType", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getEventType, int32_t)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getLocalName, $String*)},
-	{"getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getLocation, $Location*)},
-	{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getName, $QName*)},
-	{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceContext, $NamespaceContext*)},
-	{"getNamespaceCount", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceCount, int32_t)},
-	{"getNamespacePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespacePrefix, $String*, int32_t)},
-	{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceURI, $String*, $String*)},
-	{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceURI, $String*, int32_t)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceURI, $String*)},
-	{"getPIData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getPIData, $String*)},
-	{"getPITarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getPITarget, $String*)},
-	{"getParent", "()Ljavax/xml/stream/XMLStreamReader;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getParent, $XMLStreamReader*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getPrefix, $String*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getProperty, $Object*, $String*)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getText, $String*)},
-	{"getTextCharacters", "(I[CII)I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getTextCharacters, int32_t, int32_t, $chars*, int32_t, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"getTextCharacters", "()[C", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getTextCharacters, $chars*)},
-	{"getTextLength", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getTextLength, int32_t)},
-	{"getTextStart", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getTextStart, int32_t)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getVersion, $String*)},
-	{"hasName", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, hasName, bool)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, hasNext, bool), "javax.xml.stream.XMLStreamException"},
-	{"hasText", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, hasText, bool)},
-	{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isAttributeSpecified, bool, int32_t)},
-	{"isCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isCharacters, bool)},
-	{"isEndElement", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isEndElement, bool)},
-	{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isStandalone, bool)},
-	{"isStartElement", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isStartElement, bool)},
-	{"isWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isWhiteSpace, bool)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, next, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"nextTag", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, nextTag, int32_t), "javax.xml.stream.XMLStreamException"},
-	{"require", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, require, void, int32_t, $String*, $String*), "javax.xml.stream.XMLStreamException"},
-	{"setParent", "(Ljavax/xml/stream/XMLStreamReader;)V", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, setParent, void, $XMLStreamReader*)},
-	{"standaloneSet", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, standaloneSet, bool)},
-	{}
-};
-
-$ClassInfo _StreamReaderDelegate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.stream.util.StreamReaderDelegate",
-	"java.lang.Object",
-	"javax.xml.stream.XMLStreamReader",
-	_StreamReaderDelegate_FieldInfo_,
-	_StreamReaderDelegate_MethodInfo_
-};
-
-$Object* allocate$StreamReaderDelegate($Class* clazz) {
-	return $of($alloc(StreamReaderDelegate));
-}
 
 void StreamReaderDelegate::init$() {
 }
@@ -282,14 +210,80 @@ $String* StreamReaderDelegate::getPIData() {
 }
 
 $Object* StreamReaderDelegate::getProperty($String* name) {
-	return $of($nc(this->reader)->getProperty(name));
+	return $nc(this->reader)->getProperty(name);
 }
 
 StreamReaderDelegate::StreamReaderDelegate() {
 }
 
 $Class* StreamReaderDelegate::load$($String* name, bool initialize) {
-	$loadClass(StreamReaderDelegate, name, initialize, &_StreamReaderDelegate_ClassInfo_, allocate$StreamReaderDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"reader", "Ljavax/xml/stream/XMLStreamReader;", nullptr, $PRIVATE, $field(StreamReaderDelegate, reader)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StreamReaderDelegate, init$, void)},
+		{"<init>", "(Ljavax/xml/stream/XMLStreamReader;)V", nullptr, $PUBLIC, $method(StreamReaderDelegate, init$, void, $XMLStreamReader*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, close, void), "javax.xml.stream.XMLStreamException"},
+		{"getAttributeCount", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeCount, int32_t)},
+		{"getAttributeLocalName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeLocalName, $String*, int32_t)},
+		{"getAttributeName", "(I)Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeName, $QName*, int32_t)},
+		{"getAttributeNamespace", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeNamespace, $String*, int32_t)},
+		{"getAttributePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributePrefix, $String*, int32_t)},
+		{"getAttributeType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeType, $String*, int32_t)},
+		{"getAttributeValue", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeValue, $String*, $String*, $String*)},
+		{"getAttributeValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getAttributeValue, $String*, int32_t)},
+		{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getCharacterEncodingScheme, $String*)},
+		{"getElementText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getElementText, $String*), "javax.xml.stream.XMLStreamException"},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getEncoding, $String*)},
+		{"getEventType", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getEventType, int32_t)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getLocalName, $String*)},
+		{"getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getLocation, $Location*)},
+		{"getName", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getName, $QName*)},
+		{"getNamespaceContext", "()Ljavax/xml/namespace/NamespaceContext;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceContext, $NamespaceContext*)},
+		{"getNamespaceCount", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceCount, int32_t)},
+		{"getNamespacePrefix", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespacePrefix, $String*, int32_t)},
+		{"getNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceURI, $String*, $String*)},
+		{"getNamespaceURI", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceURI, $String*, int32_t)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getNamespaceURI, $String*)},
+		{"getPIData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getPIData, $String*)},
+		{"getPITarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getPITarget, $String*)},
+		{"getParent", "()Ljavax/xml/stream/XMLStreamReader;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getParent, $XMLStreamReader*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getPrefix, $String*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getProperty, $Object*, $String*)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getText, $String*)},
+		{"getTextCharacters", "(I[CII)I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getTextCharacters, int32_t, int32_t, $chars*, int32_t, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"getTextCharacters", "()[C", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getTextCharacters, $chars*)},
+		{"getTextLength", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getTextLength, int32_t)},
+		{"getTextStart", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getTextStart, int32_t)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, getVersion, $String*)},
+		{"hasName", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, hasName, bool)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, hasNext, bool), "javax.xml.stream.XMLStreamException"},
+		{"hasText", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, hasText, bool)},
+		{"isAttributeSpecified", "(I)Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isAttributeSpecified, bool, int32_t)},
+		{"isCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isCharacters, bool)},
+		{"isEndElement", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isEndElement, bool)},
+		{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isStandalone, bool)},
+		{"isStartElement", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isStartElement, bool)},
+		{"isWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, isWhiteSpace, bool)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, next, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"nextTag", "()I", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, nextTag, int32_t), "javax.xml.stream.XMLStreamException"},
+		{"require", "(ILjava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, require, void, int32_t, $String*, $String*), "javax.xml.stream.XMLStreamException"},
+		{"setParent", "(Ljavax/xml/stream/XMLStreamReader;)V", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, setParent, void, $XMLStreamReader*)},
+		{"standaloneSet", "()Z", nullptr, $PUBLIC, $virtualMethod(StreamReaderDelegate, standaloneSet, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.stream.util.StreamReaderDelegate",
+		"java.lang.Object",
+		"javax.xml.stream.XMLStreamReader",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StreamReaderDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StreamReaderDelegate);
+	});
 	return class$;
 }
 

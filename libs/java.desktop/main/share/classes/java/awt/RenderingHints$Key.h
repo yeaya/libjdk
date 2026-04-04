@@ -18,6 +18,7 @@ class $export RenderingHints$Key : public ::java::lang::Object {
 	$class(RenderingHints$Key, 0, ::java::lang::Object)
 public:
 	RenderingHints$Key();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t privatekey);
 	virtual bool equals(Object$* o) override;
 	$String* getIdentity();

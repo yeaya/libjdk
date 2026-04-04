@@ -1,5 +1,4 @@
 #include <sun/java2d/windows/GDIWindowSurfaceData.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Rectangle.h>
@@ -26,11 +25,8 @@
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/loops/XORComposite.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/PixelDrawPipe.h>
-#include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToShapeConverter.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/pipe/ShapeDrawPipe.h>
 #include <sun/java2d/pipe/TextPipe.h>
 #include <sun/java2d/windows/GDIBlitLoops.h>
 #include <sun/java2d/windows/GDIRenderer.h>
@@ -79,11 +75,8 @@ using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $RenderLoops = ::sun::java2d::loops::RenderLoops;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $XORComposite = ::sun::java2d::loops::XORComposite;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;
 using $Region = ::sun::java2d::pipe::Region;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $GDIBlitLoops = ::sun::java2d::windows::GDIBlitLoops;
 using $GDIRenderer = ::sun::java2d::windows::GDIRenderer;
 using $WindowsFlags = ::sun::java2d::windows::WindowsFlags;
@@ -91,63 +84,6 @@ using $WindowsFlags = ::sun::java2d::windows::WindowsFlags;
 namespace sun {
 	namespace java2d {
 		namespace windows {
-
-$FieldInfo _GDIWindowSurfaceData_FieldInfo_[] = {
-	{"peer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(GDIWindowSurfaceData, peer)},
-	{"graphicsConfig", "Lsun/awt/Win32GraphicsConfig;", nullptr, $PRIVATE, $field(GDIWindowSurfaceData, graphicsConfig)},
-	{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PRIVATE, $field(GDIWindowSurfaceData, solidloops)},
-	{"DESC_GDI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, DESC_GDI)},
-	{"AnyGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, AnyGdi)},
-	{"IntRgbGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, IntRgbGdi)},
-	{"Ushort565RgbGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, Ushort565RgbGdi)},
-	{"Ushort555RgbGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, Ushort555RgbGdi)},
-	{"ThreeByteBgrGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, ThreeByteBgrGdi)},
-	{"scaleX", "D", nullptr, $PRIVATE | $FINAL, $field(GDIWindowSurfaceData, scaleX)},
-	{"scaleY", "D", nullptr, $PRIVATE | $FINAL, $field(GDIWindowSurfaceData, scaleY)},
-	{"gdiPipe", "Lsun/java2d/windows/GDIRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(GDIWindowSurfaceData, gdiPipe)},
-	{"gdiTxPipe", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED | $STATIC, $staticField(GDIWindowSurfaceData, gdiTxPipe)},
-	{}
-};
-
-$MethodInfo _GDIWindowSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PRIVATE, $method(GDIWindowSurfaceData, init$, void, $WComponentPeer*, $SurfaceType*)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createData", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/windows/GDIWindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(GDIWindowSurfaceData, createData, GDIWindowSurfaceData*, $WComponentPeer*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getBounds, $Rectangle*)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getDefaultScaleY, double)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getDestination, $Object*)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getPeer", "()Lsun/awt/windows/WComponentPeer;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getPeer, $WComponentPeer*)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getRenderLoops", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getRenderLoops, $RenderLoops*, $SunGraphics2D*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getReplacement, $SurfaceData*)},
-	{"getSurfaceType", "(Ljava/awt/image/ColorModel;)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GDIWindowSurfaceData, getSurfaceType, $SurfaceType*, $ColorModel*)},
-	{"initIDs", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(GDIWindowSurfaceData, initIDs, void, $Class*)},
-	{"initOps", "(Lsun/awt/windows/WComponentPeer;IIIII)V", nullptr, $PRIVATE | $NATIVE, $method(GDIWindowSurfaceData, initOps, void, $WComponentPeer*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, invalidate, void)},
-	{"invalidateSD", "()V", nullptr, $PRIVATE | $NATIVE, $method(GDIWindowSurfaceData, invalidateSD, void)},
-	{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
-	{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, validatePipe, void, $SunGraphics2D*)},
-	{}
-};
-
-#define _METHOD_INDEX_initIDs 13
-#define _METHOD_INDEX_initOps 14
-#define _METHOD_INDEX_invalidateSD 16
-
-$ClassInfo _GDIWindowSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.windows.GDIWindowSurfaceData",
-	"sun.java2d.SurfaceData",
-	nullptr,
-	_GDIWindowSurfaceData_FieldInfo_,
-	_GDIWindowSurfaceData_MethodInfo_
-};
-
-$Object* allocate$GDIWindowSurfaceData($Class* clazz) {
-	return $of($alloc(GDIWindowSurfaceData));
-}
 
 $String* GDIWindowSurfaceData::DESC_GDI = nullptr;
 $SurfaceType* GDIWindowSurfaceData::AnyGdi = nullptr;
@@ -160,66 +96,55 @@ $PixelToShapeConverter* GDIWindowSurfaceData::gdiTxPipe = nullptr;
 
 void GDIWindowSurfaceData::initIDs($Class* xorComp) {
 	$init(GDIWindowSurfaceData);
-	$prepareNativeStatic(GDIWindowSurfaceData, initIDs, void, $Class* xorComp);
+	$prepareNativeStatic(initIDs, void, $Class* xorComp);
 	$invokeNativeStatic(xorComp);
 	$finishNativeStatic();
 }
 
 $SurfaceType* GDIWindowSurfaceData::getSurfaceType($ColorModel* cm) {
 	$init(GDIWindowSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(cm)->getPixelSize()) {
 	case 32:
-		{}
 	case 24:
-		{
-			if ($instanceOf($DirectColorModel, cm)) {
-				if ($nc(($cast($DirectColorModel, cm)))->getRedMask() == 0x00FF0000) {
-					return GDIWindowSurfaceData::IntRgbGdi;
-				} else {
-					$init($SurfaceType);
-					return $SurfaceType::IntRgbx;
-				}
+		if ($instanceOf($DirectColorModel, cm)) {
+			if ($cast($DirectColorModel, cm)->getRedMask() == 0x00ff0000) {
+				return GDIWindowSurfaceData::IntRgbGdi;
 			} else {
-				return GDIWindowSurfaceData::ThreeByteBgrGdi;
+				$init($SurfaceType);
+				return $SurfaceType::IntRgbx;
 			}
+		} else {
+			return GDIWindowSurfaceData::ThreeByteBgrGdi;
 		}
 	case 15:
-		{
-			return GDIWindowSurfaceData::Ushort555RgbGdi;
-		}
+		return GDIWindowSurfaceData::Ushort555RgbGdi;
 	case 16:
-		{
-			if (($instanceOf($DirectColorModel, cm)) && ($nc(($cast($DirectColorModel, cm)))->getBlueMask() == 62)) {
-				$init($SurfaceType);
-				return $SurfaceType::Ushort555Rgbx;
-			} else {
-				return GDIWindowSurfaceData::Ushort565RgbGdi;
-			}
+		if (($instanceOf($DirectColorModel, cm)) && ($cast($DirectColorModel, cm)->getBlueMask() == 62)) {
+			$init($SurfaceType);
+			return $SurfaceType::Ushort555Rgbx;
+		} else {
+			return GDIWindowSurfaceData::Ushort565RgbGdi;
 		}
 	case 8:
-		{
-			if ($nc($(cm->getColorSpace()))->getType() == $ColorSpace::TYPE_GRAY && $instanceOf($ComponentColorModel, cm)) {
-				$init($SurfaceType);
-				return $SurfaceType::ByteGray;
-			} else if ($instanceOf($IndexColorModel, cm) && isOpaqueGray($cast($IndexColorModel, cm))) {
-				$init($SurfaceType);
-				return $SurfaceType::Index8Gray;
-			} else {
-				$init($SurfaceType);
-				return $SurfaceType::ByteIndexedOpaque;
-			}
+		if ($$nc(cm->getColorSpace())->getType() == $ColorSpace::TYPE_GRAY && $instanceOf($ComponentColorModel, cm)) {
+			$init($SurfaceType);
+			return $SurfaceType::ByteGray;
+		} else if ($instanceOf($IndexColorModel, cm) && isOpaqueGray($cast($IndexColorModel, cm))) {
+			$init($SurfaceType);
+			return $SurfaceType::Index8Gray;
+		} else {
+			$init($SurfaceType);
+			return $SurfaceType::ByteIndexedOpaque;
 		}
 	default:
-		{
-			$throwNew($InvalidPipeException, $$str({"Unsupported bit depth: "_s, $$str(cm->getPixelSize())}));
-		}
+		$throwNew($InvalidPipeException, $$str({"Unsupported bit depth: "_s, $$str(cm->getPixelSize())}));
 	}
 }
 
 GDIWindowSurfaceData* GDIWindowSurfaceData::createData($WComponentPeer* peer) {
 	$init(GDIWindowSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, sType, getSurfaceType($($nc(peer)->getDeviceColorModel())));
 	return $new(GDIWindowSurfaceData, peer, sType);
 }
@@ -235,48 +160,34 @@ $Raster* GDIWindowSurfaceData::getRaster(int32_t x, int32_t y, int32_t w, int32_
 }
 
 void GDIWindowSurfaceData::validatePipe($SunGraphics2D* sg2d) {
-	if ($nc(sg2d)->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && (sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY || $nc(sg2d)->compositeState == $SunGraphics2D::COMP_XOR)) {
+	if ($nc(sg2d)->antialiasHint != $SunHints::INTVAL_ANTIALIAS_ON && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR && (sg2d->compositeState <= $SunGraphics2D::COMP_ISCOPY || sg2d->compositeState == $SunGraphics2D::COMP_XOR)) {
 		if (sg2d->clipState == $SunGraphics2D::CLIP_SHAPE) {
 			$SurfaceData::validatePipe(sg2d);
 		} else {
 			switch (sg2d->textAntialiasHint) {
 			case $SunHints::INTVAL_TEXT_ANTIALIAS_DEFAULT:
-				{}
 			case $SunHints::INTVAL_TEXT_ANTIALIAS_OFF:
-				{
-					$init($SurfaceData);
-					$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
-					break;
-				}
+				$init($SurfaceData);
+				$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
+				break;
 			case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
-				{
+				$init($SurfaceData);
+				$set(sg2d, textpipe, $SurfaceData::aaTextRenderer);
+				break;
+			default:
+				switch ($nc($(sg2d->getFontInfo()))->aaHint) {
+				case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_HRGB:
+				case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_VRGB:
+					$init($SurfaceData);
+					$set(sg2d, textpipe, $SurfaceData::lcdTextRenderer);
+					break;
+				case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
 					$init($SurfaceData);
 					$set(sg2d, textpipe, $SurfaceData::aaTextRenderer);
 					break;
-				}
-			default:
-				{
-					switch ($nc($(sg2d->getFontInfo()))->aaHint) {
-					case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_HRGB:
-						{}
-					case $SunHints::INTVAL_TEXT_ANTIALIAS_LCD_VRGB:
-						{
-							$init($SurfaceData);
-							$set(sg2d, textpipe, $SurfaceData::lcdTextRenderer);
-							break;
-						}
-					case $SunHints::INTVAL_TEXT_ANTIALIAS_ON:
-						{
-							$init($SurfaceData);
-							$set(sg2d, textpipe, $SurfaceData::aaTextRenderer);
-							break;
-						}
-					default:
-						{
-							$init($SurfaceData);
-							$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
-						}
-					}
+				default:
+					$init($SurfaceData);
+					$set(sg2d, textpipe, $SurfaceData::solidTextRenderer);
 				}
 			}
 		}
@@ -313,15 +224,15 @@ $GraphicsConfiguration* GDIWindowSurfaceData::getDeviceConfiguration() {
 }
 
 void GDIWindowSurfaceData::initOps($WComponentPeer* peer, int32_t depth, int32_t redMask, int32_t greenMask, int32_t blueMask, int32_t screen) {
-	$prepareNative(GDIWindowSurfaceData, initOps, void, $WComponentPeer* peer, int32_t depth, int32_t redMask, int32_t greenMask, int32_t blueMask, int32_t screen);
+	$prepareNative(initOps, void, $WComponentPeer* peer, int32_t depth, int32_t redMask, int32_t greenMask, int32_t blueMask, int32_t screen);
 	$invokeNative(peer, depth, redMask, greenMask, blueMask, screen);
 	$finishNative();
 }
 
 void GDIWindowSurfaceData::init$($WComponentPeer* peer, $SurfaceType* sType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SurfaceData::init$(sType, $($nc(peer)->getDeviceColorModel()));
-	$var($ColorModel, cm, $nc(peer)->getDeviceColorModel());
+	$var($ColorModel, cm, peer->getDeviceColorModel());
 	$set(this, peer, peer);
 	int32_t rMask = 0;
 	int32_t gMask = 0;
@@ -329,20 +240,15 @@ void GDIWindowSurfaceData::init$($WComponentPeer* peer, $SurfaceType* sType) {
 	int32_t depth = 0;
 	switch ($nc(cm)->getPixelSize()) {
 	case 32:
-		{}
 	case 24:
-		{
-			if ($instanceOf($DirectColorModel, cm)) {
-				depth = 32;
-			} else {
-				depth = 24;
-			}
-			break;
+		if ($instanceOf($DirectColorModel, cm)) {
+			depth = 32;
+		} else {
+			depth = 24;
 		}
+		break;
 	default:
-		{
-			depth = cm->getPixelSize();
-		}
+		depth = cm->getPixelSize();
 	}
 	if ($instanceOf($DirectColorModel, cm)) {
 		$var($DirectColorModel, dcm, $cast($DirectColorModel, cm));
@@ -374,20 +280,20 @@ $SurfaceData* GDIWindowSurfaceData::getReplacement() {
 
 $Rectangle* GDIWindowSurfaceData::getBounds() {
 	$var($Rectangle, r, $nc(this->peer)->getBounds());
-	$nc(r)->x = (r->y = 0);
+	$nc(r)->x = ($nc(r)->y = 0);
 	r->width = $Region::clipRound(r->width * this->scaleX);
 	r->height = $Region::clipRound(r->height * this->scaleY);
 	return r;
 }
 
 bool GDIWindowSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h, int32_t dx, int32_t dy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompositeType, comptype, $nc(sg2d)->imageComp);
 	bool var$0 = sg2d->clipState != $SunGraphics2D::CLIP_SHAPE;
 	if (var$0) {
 		$init($CompositeType);
 		bool var$1 = $nc($CompositeType::SrcOverNoEa)->equals(comptype);
-		var$0 = (var$1 || $nc($CompositeType::SrcNoEa)->equals(comptype));
+		var$0 = var$1 || $nc($CompositeType::SrcNoEa)->equals(comptype);
 	}
 	if (var$0) {
 		int32_t dstx1 = x + dx;
@@ -398,13 +304,13 @@ bool GDIWindowSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, 
 		if (dstx1 < $nc(clip)->getLoX()) {
 			dstx1 = clip->getLoX();
 		}
-		if (dsty1 < $nc(clip)->getLoY()) {
+		if (dsty1 < clip->getLoY()) {
 			dsty1 = clip->getLoY();
 		}
-		if (dstx2 > $nc(clip)->getHiX()) {
+		if (dstx2 > clip->getHiX()) {
 			dstx2 = clip->getHiX();
 		}
-		if (dsty2 > $nc(clip)->getHiY()) {
+		if (dsty2 > clip->getHiY()) {
 			dsty2 = clip->getHiY();
 		}
 		if (dstx1 < dstx2 && dsty1 < dsty2) {
@@ -416,7 +322,7 @@ bool GDIWindowSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, 
 }
 
 void GDIWindowSurfaceData::invalidateSD() {
-	$prepareNative(GDIWindowSurfaceData, invalidateSD, void);
+	$prepareNative(invalidateSD, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -429,18 +335,18 @@ void GDIWindowSurfaceData::invalidate() {
 }
 
 $Object* GDIWindowSurfaceData::getDestination() {
-	return $of($nc(this->peer)->getTarget());
+	return $nc(this->peer)->getTarget();
 }
 
 $WComponentPeer* GDIWindowSurfaceData::getPeer() {
 	return this->peer;
 }
 
-void clinit$GDIWindowSurfaceData($Class* class$) {
+void GDIWindowSurfaceData::clinit$($Class* clazz) {
 	$assignStatic(GDIWindowSurfaceData::DESC_GDI, "GDI"_s);
 	$init($SurfaceType);
 	$assignStatic(GDIWindowSurfaceData::AnyGdi, $nc($SurfaceType::IntRgb)->deriveSubType(GDIWindowSurfaceData::DESC_GDI));
-	$assignStatic(GDIWindowSurfaceData::IntRgbGdi, $nc($SurfaceType::IntRgb)->deriveSubType(GDIWindowSurfaceData::DESC_GDI));
+	$assignStatic(GDIWindowSurfaceData::IntRgbGdi, $SurfaceType::IntRgb->deriveSubType(GDIWindowSurfaceData::DESC_GDI));
 	$assignStatic(GDIWindowSurfaceData::Ushort565RgbGdi, $nc($SurfaceType::Ushort565Rgb)->deriveSubType(GDIWindowSurfaceData::DESC_GDI));
 	$assignStatic(GDIWindowSurfaceData::Ushort555RgbGdi, $nc($SurfaceType::Ushort555Rgb)->deriveSubType(GDIWindowSurfaceData::DESC_GDI));
 	$assignStatic(GDIWindowSurfaceData::ThreeByteBgrGdi, $nc($SurfaceType::ThreeByteBgr)->deriveSubType(GDIWindowSurfaceData::DESC_GDI));
@@ -464,7 +370,55 @@ GDIWindowSurfaceData::GDIWindowSurfaceData() {
 }
 
 $Class* GDIWindowSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(GDIWindowSurfaceData, name, initialize, &_GDIWindowSurfaceData_ClassInfo_, clinit$GDIWindowSurfaceData, allocate$GDIWindowSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"peer", "Lsun/awt/windows/WComponentPeer;", nullptr, $PRIVATE, $field(GDIWindowSurfaceData, peer)},
+		{"graphicsConfig", "Lsun/awt/Win32GraphicsConfig;", nullptr, $PRIVATE, $field(GDIWindowSurfaceData, graphicsConfig)},
+		{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PRIVATE, $field(GDIWindowSurfaceData, solidloops)},
+		{"DESC_GDI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, DESC_GDI)},
+		{"AnyGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, AnyGdi)},
+		{"IntRgbGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, IntRgbGdi)},
+		{"Ushort565RgbGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, Ushort565RgbGdi)},
+		{"Ushort555RgbGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, Ushort555RgbGdi)},
+		{"ThreeByteBgrGdi", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GDIWindowSurfaceData, ThreeByteBgrGdi)},
+		{"scaleX", "D", nullptr, $PRIVATE | $FINAL, $field(GDIWindowSurfaceData, scaleX)},
+		{"scaleY", "D", nullptr, $PRIVATE | $FINAL, $field(GDIWindowSurfaceData, scaleY)},
+		{"gdiPipe", "Lsun/java2d/windows/GDIRenderer;", nullptr, $PROTECTED | $STATIC, $staticField(GDIWindowSurfaceData, gdiPipe)},
+		{"gdiTxPipe", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED | $STATIC, $staticField(GDIWindowSurfaceData, gdiTxPipe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WComponentPeer;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PRIVATE, $method(GDIWindowSurfaceData, init$, void, $WComponentPeer*, $SurfaceType*)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createData", "(Lsun/awt/windows/WComponentPeer;)Lsun/java2d/windows/GDIWindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(GDIWindowSurfaceData, createData, GDIWindowSurfaceData*, $WComponentPeer*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getBounds, $Rectangle*)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getDefaultScaleY, double)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getDestination, $Object*)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getPeer", "()Lsun/awt/windows/WComponentPeer;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getPeer, $WComponentPeer*)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getRenderLoops", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getRenderLoops, $RenderLoops*, $SunGraphics2D*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, getReplacement, $SurfaceData*)},
+		{"getSurfaceType", "(Ljava/awt/image/ColorModel;)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GDIWindowSurfaceData, getSurfaceType, $SurfaceType*, $ColorModel*)},
+		{"initIDs", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC | $NATIVE, $staticMethod(GDIWindowSurfaceData, initIDs, void, $Class*)},
+		{"initOps", "(Lsun/awt/windows/WComponentPeer;IIIII)V", nullptr, $PRIVATE | $NATIVE, $method(GDIWindowSurfaceData, initOps, void, $WComponentPeer*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, invalidate, void)},
+		{"invalidateSD", "()V", nullptr, $PRIVATE | $NATIVE, $method(GDIWindowSurfaceData, invalidateSD, void)},
+		{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
+		{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(GDIWindowSurfaceData, validatePipe, void, $SunGraphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.windows.GDIWindowSurfaceData",
+		"sun.java2d.SurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GDIWindowSurfaceData, name, initialize, &classInfo$$, GDIWindowSurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GDIWindowSurfaceData));
+	});
 	return class$;
 }
 

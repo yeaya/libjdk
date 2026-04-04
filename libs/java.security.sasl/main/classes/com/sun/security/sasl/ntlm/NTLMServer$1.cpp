@@ -1,5 +1,4 @@
 #include <com/sun/security/sasl/ntlm/NTLMServer$1.h>
-
 #include <com/sun/security/ntlm/Server.h>
 #include <com/sun/security/sasl/ntlm/NTLMServer.h>
 #include <java/io/IOException.h>
@@ -20,7 +19,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
@@ -33,49 +31,6 @@ namespace com {
 			namespace sasl {
 				namespace ntlm {
 
-$FieldInfo _NTLMServer$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/security/sasl/ntlm/NTLMServer;", nullptr, $FINAL | $SYNTHETIC, $field(NTLMServer$1, this$0)},
-	{"val$cbh", "Ljavax/security/auth/callback/CallbackHandler;", nullptr, $FINAL | $SYNTHETIC, $field(NTLMServer$1, val$cbh)},
-	{}
-};
-
-$MethodInfo _NTLMServer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/security/sasl/ntlm/NTLMServer;Ljava/lang/String;Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, 0, $method(NTLMServer$1, init$, void, $NTLMServer*, $String*, $String*, $CallbackHandler*), "com.sun.security.ntlm.NTLMException"},
-	{"getPassword", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $PUBLIC, $virtualMethod(NTLMServer$1, getPassword, $chars*, $String*, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _NTLMServer$1_EnclosingMethodInfo_ = {
-	"com.sun.security.sasl.ntlm.NTLMServer",
-	"<init>",
-	"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V"
-};
-
-$InnerClassInfo _NTLMServer$1_InnerClassesInfo_[] = {
-	{"com.sun.security.sasl.ntlm.NTLMServer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NTLMServer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.security.sasl.ntlm.NTLMServer$1",
-	"com.sun.security.ntlm.Server",
-	nullptr,
-	_NTLMServer$1_FieldInfo_,
-	_NTLMServer$1_MethodInfo_,
-	nullptr,
-	&_NTLMServer$1_EnclosingMethodInfo_,
-	_NTLMServer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.security.sasl.ntlm.NTLMServer"
-};
-
-$Object* allocate$NTLMServer$1($Class* clazz) {
-	return $of($alloc(NTLMServer$1));
-}
-
 void NTLMServer$1::init$($NTLMServer* this$0, $String* arg0, $String* arg1, $CallbackHandler* val$cbh) {
 	$set(this, this$0, this$0);
 	$set(this, val$cbh, val$cbh);
@@ -83,15 +38,15 @@ void NTLMServer$1::init$($NTLMServer* this$0, $String* arg0, $String* arg1, $Cal
 }
 
 $chars* NTLMServer$1::getPassword($String* ntdomain, $String* username) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($RealmCallback, rcb, (ntdomain == nullptr || $nc(ntdomain)->isEmpty()) ? $new($RealmCallback, "Domain: "_s) : $new($RealmCallback, "Domain: "_s, ntdomain));
+		$var($RealmCallback, rcb, (ntdomain == nullptr || ntdomain->isEmpty()) ? $new($RealmCallback, "Domain: "_s) : $new($RealmCallback, "Domain: "_s, ntdomain));
 		$var($NameCallback, ncb, $new($NameCallback, "Name: "_s, username));
 		$var($PasswordCallback, pcb, $new($PasswordCallback, "Password: "_s, false));
 		$nc(this->val$cbh)->handle($$new($CallbackArray, {
-			static_cast<$Callback*>(rcb),
-			static_cast<$Callback*>(ncb),
-			static_cast<$Callback*>(pcb)
+			rcb,
+			ncb,
+			pcb
 		}));
 		$var($chars, passwd, pcb->getPassword());
 		pcb->clearPassword();
@@ -108,7 +63,43 @@ NTLMServer$1::NTLMServer$1() {
 }
 
 $Class* NTLMServer$1::load$($String* name, bool initialize) {
-	$loadClass(NTLMServer$1, name, initialize, &_NTLMServer$1_ClassInfo_, allocate$NTLMServer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/security/sasl/ntlm/NTLMServer;", nullptr, $FINAL | $SYNTHETIC, $field(NTLMServer$1, this$0)},
+		{"val$cbh", "Ljavax/security/auth/callback/CallbackHandler;", nullptr, $FINAL | $SYNTHETIC, $field(NTLMServer$1, val$cbh)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/security/sasl/ntlm/NTLMServer;Ljava/lang/String;Ljava/lang/String;Ljavax/security/auth/callback/CallbackHandler;)V", nullptr, 0, $method(NTLMServer$1, init$, void, $NTLMServer*, $String*, $String*, $CallbackHandler*), "com.sun.security.ntlm.NTLMException"},
+		{"getPassword", "(Ljava/lang/String;Ljava/lang/String;)[C", nullptr, $PUBLIC, $virtualMethod(NTLMServer$1, getPassword, $chars*, $String*, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.security.sasl.ntlm.NTLMServer",
+		"<init>",
+		"(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.security.sasl.ntlm.NTLMServer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.security.sasl.ntlm.NTLMServer$1",
+		"com.sun.security.ntlm.Server",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.security.sasl.ntlm.NTLMServer"
+	};
+	$loadClass(NTLMServer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NTLMServer$1);
+	});
 	return class$;
 }
 

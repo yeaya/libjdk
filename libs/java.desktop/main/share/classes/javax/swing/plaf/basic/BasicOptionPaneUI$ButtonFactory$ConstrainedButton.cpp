@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$ButtonFactory$ConstrainedButton.h>
-
 #include <java/awt/Dimension.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JButton.h>
@@ -20,44 +19,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicOptionPaneUI$ButtonFactory$ConstrainedButton_FieldInfo_[] = {
-	{"minimumWidth", "I", nullptr, 0, $field(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, minimumWidth)},
-	{}
-};
-
-$MethodInfo _BasicOptionPaneUI$ButtonFactory$ConstrainedButton_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, init$, void, $String*, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, getPreferredSize, $Dimension*)},
-	{}
-};
-
-$InnerClassInfo _BasicOptionPaneUI$ButtonFactory$ConstrainedButton_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonFactory", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory$ConstrainedButton", "javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "ConstrainedButton", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicOptionPaneUI$ButtonFactory$ConstrainedButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory$ConstrainedButton",
-	"javax.swing.JButton",
-	nullptr,
-	_BasicOptionPaneUI$ButtonFactory$ConstrainedButton_FieldInfo_,
-	_BasicOptionPaneUI$ButtonFactory$ConstrainedButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicOptionPaneUI$ButtonFactory$ConstrainedButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicOptionPaneUI"
-};
-
-$Object* allocate$BasicOptionPaneUI$ButtonFactory$ConstrainedButton($Class* clazz) {
-	return $of($alloc(BasicOptionPaneUI$ButtonFactory$ConstrainedButton));
-}
-
 void BasicOptionPaneUI$ButtonFactory$ConstrainedButton::init$($String* text, int32_t minimumWidth) {
 	$JButton::init$(text);
 	this->minimumWidth = minimumWidth;
@@ -65,13 +26,13 @@ void BasicOptionPaneUI$ButtonFactory$ConstrainedButton::init$($String* text, int
 
 $Dimension* BasicOptionPaneUI$ButtonFactory$ConstrainedButton::getMinimumSize() {
 	$var($Dimension, min, $JButton::getMinimumSize());
-	$nc(min)->width = $Math::max(min->width, this->minimumWidth);
+	$nc(min)->width = $Math::max($nc(min)->width, this->minimumWidth);
 	return min;
 }
 
 $Dimension* BasicOptionPaneUI$ButtonFactory$ConstrainedButton::getPreferredSize() {
 	$var($Dimension, pref, $JButton::getPreferredSize());
-	$nc(pref)->width = $Math::max(pref->width, this->minimumWidth);
+	$nc(pref)->width = $Math::max($nc(pref)->width, this->minimumWidth);
 	return pref;
 }
 
@@ -79,7 +40,39 @@ BasicOptionPaneUI$ButtonFactory$ConstrainedButton::BasicOptionPaneUI$ButtonFacto
 }
 
 $Class* BasicOptionPaneUI$ButtonFactory$ConstrainedButton::load$($String* name, bool initialize) {
-	$loadClass(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, name, initialize, &_BasicOptionPaneUI$ButtonFactory$ConstrainedButton_ClassInfo_, allocate$BasicOptionPaneUI$ButtonFactory$ConstrainedButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"minimumWidth", "I", nullptr, 0, $field(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, minimumWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, init$, void, $String*, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, getPreferredSize, $Dimension*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonFactory", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory$ConstrainedButton", "javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "ConstrainedButton", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory$ConstrainedButton",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicOptionPaneUI"
+	};
+	$loadClass(BasicOptionPaneUI$ButtonFactory$ConstrainedButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicOptionPaneUI$ButtonFactory$ConstrainedButton));
+	});
 	return class$;
 }
 

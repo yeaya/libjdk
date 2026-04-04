@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileChooserUI$4.h>
-
 #include <com/apple/laf/AquaComboBoxRendererInternal.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/Component.h>
@@ -28,56 +27,13 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaFileChooserUI$4_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$4, this$0)},
-	{}
-};
-
-$MethodInfo _AquaFileChooserUI$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Ljavax/swing/JComboBox;)V", nullptr, 0, $method(AquaFileChooserUI$4, init$, void, $AquaFileChooserUI*, $JComboBox*)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/io/File;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<+Ljava/io/File;>;Ljava/io/File;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(AquaFileChooserUI$4, getListCellRendererComponent, $Component*, $JList*, $File*, int32_t, bool, bool)},
-	{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AquaFileChooserUI$4, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaFileChooserUI$4_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaFileChooserUI",
-	"createDirectoryComboBoxRenderer",
-	"(Ljavax/swing/JFileChooser;)Ljavax/swing/ListCellRenderer;"
-};
-
-$InnerClassInfo _AquaFileChooserUI$4_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileChooserUI$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaFileChooserUI$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileChooserUI$4",
-	"com.apple.laf.AquaComboBoxRendererInternal",
-	nullptr,
-	_AquaFileChooserUI$4_FieldInfo_,
-	_AquaFileChooserUI$4_MethodInfo_,
-	"Lcom/apple/laf/AquaComboBoxRendererInternal<Ljava/io/File;>;",
-	&_AquaFileChooserUI$4_EnclosingMethodInfo_,
-	_AquaFileChooserUI$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileChooserUI"
-};
-
-$Object* allocate$AquaFileChooserUI$4($Class* clazz) {
-	return $of($alloc(AquaFileChooserUI$4));
-}
-
 void AquaFileChooserUI$4::init$($AquaFileChooserUI* this$0, $JComboBox* comboBox) {
 	$set(this, this$0, this$0);
 	$AquaComboBoxRendererInternal::init$(comboBox);
 }
 
 $Component* AquaFileChooserUI$4::getListCellRendererComponent($JList* list, $File* directory, int32_t index, bool isSelected, bool cellHasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaComboBoxRendererInternal::getListCellRendererComponent(list, directory, index, isSelected, cellHasFocus);
 	if (directory == nullptr) {
 		setText(""_s);
@@ -85,7 +41,7 @@ $Component* AquaFileChooserUI$4::getListCellRendererComponent($JList* list, $Fil
 	}
 	$var($JFileChooser, chooser, this->this$0->getFileChooser());
 	setText($($nc(chooser)->getName(directory)));
-	setIcon($($nc(chooser)->getIcon(directory)));
+	setIcon($(chooser->getIcon(directory)));
 	return this;
 }
 
@@ -97,7 +53,43 @@ AquaFileChooserUI$4::AquaFileChooserUI$4() {
 }
 
 $Class* AquaFileChooserUI$4::load$($String* name, bool initialize) {
-	$loadClass(AquaFileChooserUI$4, name, initialize, &_AquaFileChooserUI$4_ClassInfo_, allocate$AquaFileChooserUI$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaFileChooserUI$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;Ljavax/swing/JComboBox;)V", nullptr, 0, $method(AquaFileChooserUI$4, init$, void, $AquaFileChooserUI*, $JComboBox*)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/io/File;IZZ)Ljava/awt/Component;", "(Ljavax/swing/JList<+Ljava/io/File;>;Ljava/io/File;IZZ)Ljava/awt/Component;", $PUBLIC, $virtualMethod(AquaFileChooserUI$4, getListCellRendererComponent, $Component*, $JList*, $File*, int32_t, bool, bool)},
+		{"getListCellRendererComponent", "(Ljavax/swing/JList;Ljava/lang/Object;IZZ)Ljava/awt/Component;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AquaFileChooserUI$4, getListCellRendererComponent, $Component*, $JList*, Object$*, int32_t, bool, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaFileChooserUI",
+		"createDirectoryComboBoxRenderer",
+		"(Ljavax/swing/JFileChooser;)Ljavax/swing/ListCellRenderer;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileChooserUI$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileChooserUI$4",
+		"com.apple.laf.AquaComboBoxRendererInternal",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/apple/laf/AquaComboBoxRendererInternal<Ljava/io/File;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileChooserUI"
+	};
+	$loadClass(AquaFileChooserUI$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaFileChooserUI$4));
+	});
 	return class$;
 }
 

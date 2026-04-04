@@ -57,7 +57,10 @@ public:
 	::com::sun::org::apache::xml::internal::security::signature::Reference* uninitializedReference = nullptr;
 	MissingResourceFailureException(const MissingResourceFailureException& e);
 	virtual void throw$() override;
-	inline MissingResourceFailureException* operator ->() {
+	inline MissingResourceFailureException* operator ->() const {
+		return (MissingResourceFailureException*)throwing$;
+	}
+	inline operator MissingResourceFailureException*() const {
 		return (MissingResourceFailureException*)throwing$;
 	}
 };

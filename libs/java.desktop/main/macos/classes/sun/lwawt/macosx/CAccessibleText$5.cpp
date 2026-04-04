@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CAccessibleText$5.h>
-
 #include <javax/accessibility/AccessibleEditableText.h>
 #include <sun/lwawt/macosx/CAccessibleText.h>
 #include <jcpp.h>
@@ -15,50 +14,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CAccessibleText$5_FieldInfo_[] = {
-	{"val$stop", "I", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibleText$5, val$stop)},
-	{"val$start", "I", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibleText$5, val$start)},
-	{"val$aet", "Ljavax/accessibility/AccessibleEditableText;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibleText$5, val$aet)},
-	{}
-};
-
-$MethodInfo _CAccessibleText$5_MethodInfo_[] = {
-	{"<init>", "(Ljavax/accessibility/AccessibleEditableText;II)V", "()V", 0, $method(CAccessibleText$5, init$, void, $AccessibleEditableText*, int32_t, int32_t)},
-	{"call", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CAccessibleText$5, call, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _CAccessibleText$5_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CAccessibleText",
-	"getTextRange",
-	"(Ljavax/accessibility/AccessibleEditableText;IILjava/awt/Component;)Ljava/lang/String;"
-};
-
-$InnerClassInfo _CAccessibleText$5_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessibleText$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CAccessibleText$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessibleText$5",
-	"java.lang.Object",
-	"java.util.concurrent.Callable",
-	_CAccessibleText$5_FieldInfo_,
-	_CAccessibleText$5_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/String;>;",
-	&_CAccessibleText$5_EnclosingMethodInfo_,
-	_CAccessibleText$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessibleText"
-};
-
-$Object* allocate$CAccessibleText$5($Class* clazz) {
-	return $of($alloc(CAccessibleText$5));
-}
-
 void CAccessibleText$5::init$($AccessibleEditableText* val$aet, int32_t val$start, int32_t val$stop) {
 	$set(this, val$aet, val$aet);
 	this->val$start = val$start;
@@ -73,7 +28,44 @@ CAccessibleText$5::CAccessibleText$5() {
 }
 
 $Class* CAccessibleText$5::load$($String* name, bool initialize) {
-	$loadClass(CAccessibleText$5, name, initialize, &_CAccessibleText$5_ClassInfo_, allocate$CAccessibleText$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$stop", "I", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibleText$5, val$stop)},
+		{"val$start", "I", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibleText$5, val$start)},
+		{"val$aet", "Ljavax/accessibility/AccessibleEditableText;", nullptr, $FINAL | $SYNTHETIC, $field(CAccessibleText$5, val$aet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/accessibility/AccessibleEditableText;II)V", "()V", 0, $method(CAccessibleText$5, init$, void, $AccessibleEditableText*, int32_t, int32_t)},
+		{"call", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CAccessibleText$5, call, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CAccessibleText",
+		"getTextRange",
+		"(Ljavax/accessibility/AccessibleEditableText;IILjava/awt/Component;)Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessibleText$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessibleText$5",
+		"java.lang.Object",
+		"java.util.concurrent.Callable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Callable<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessibleText"
+	};
+	$loadClass(CAccessibleText$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessibleText$5);
+	});
 	return class$;
 }
 

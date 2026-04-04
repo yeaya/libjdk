@@ -1,5 +1,4 @@
 #include <java/awt/SentEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/Toolkit.h>
@@ -11,7 +10,6 @@
 #undef ID
 
 using $AWTEvent = ::java::awt::AWTEvent;
-using $EventQueue = ::java::awt::EventQueue;
 using $Toolkit = ::java::awt::Toolkit;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -21,42 +19,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _SentEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SentEvent, serialVersionUID)},
-	{"ID", "I", nullptr, $STATIC | $FINAL, $constField(SentEvent, ID)},
-	{"dispatched", "Z", nullptr, 0, $field(SentEvent, dispatched$)},
-	{"nested", "Ljava/awt/AWTEvent;", nullptr, $PRIVATE, $field(SentEvent, nested)},
-	{"toNotify", "Lsun/awt/AppContext;", nullptr, $PRIVATE, $field(SentEvent, toNotify)},
-	{}
-};
-
-$MethodInfo _SentEvent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SentEvent, init$, void)},
-	{"<init>", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $method(SentEvent, init$, void, $AWTEvent*)},
-	{"<init>", "(Ljava/awt/AWTEvent;Lsun/awt/AppContext;)V", nullptr, 0, $method(SentEvent, init$, void, $AWTEvent*, $AppContext*)},
-	{"dispatch", "()V", nullptr, $PUBLIC, $virtualMethod(SentEvent, dispatch, void)},
-	{"dispose", "()V", nullptr, $FINAL, $method(SentEvent, dispose, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _SentEvent_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.SentEvent",
-	"java.awt.AWTEvent",
-	"java.awt.ActiveEvent",
-	_SentEvent_FieldInfo_,
-	_SentEvent_MethodInfo_
-};
-
-$Object* allocate$SentEvent($Class* clazz) {
-	return $of($alloc(SentEvent));
-}
 
 $String* SentEvent::toString() {
 	 return this->$AWTEvent::toString();
@@ -87,34 +49,32 @@ void SentEvent::init$($AWTEvent* nested) {
 }
 
 void SentEvent::init$($AWTEvent* nested, $AppContext* toNotify) {
-	$useLocalCurrentObjectStackCache();
-	$AWTEvent::init$((nested != nullptr) ? $($nc(nested)->getSource()) : $($of($Toolkit::getDefaultToolkit())), SentEvent::ID);
+	$useLocalObjectStack();
+	$AWTEvent::init$((nested != nullptr) ? $(nested->getSource()) : $$of($Toolkit::getDefaultToolkit()), SentEvent::ID);
 	$set(this, nested, nested);
 	$set(this, toNotify, toNotify);
 }
 
 void SentEvent::dispatch() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->nested != nullptr) {
-				$nc($($Toolkit::getEventQueue()))->dispatchEvent(this->nested);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->dispatched$ = true;
-			if (this->toNotify != nullptr) {
-				$SunToolkit::postEvent(this->toNotify, $$new(SentEvent));
-			}
-			$synchronized(this) {
-				$of(this)->notifyAll();
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->nested != nullptr) {
+			$$nc($Toolkit::getEventQueue())->dispatchEvent(this->nested);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->dispatched$ = true;
+		if (this->toNotify != nullptr) {
+			$SunToolkit::postEvent(this->toNotify, $$new(SentEvent));
 		}
+		$synchronized(this) {
+			$of(this)->notifyAll();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -132,7 +92,38 @@ SentEvent::SentEvent() {
 }
 
 $Class* SentEvent::load$($String* name, bool initialize) {
-	$loadClass(SentEvent, name, initialize, &_SentEvent_ClassInfo_, allocate$SentEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SentEvent, serialVersionUID)},
+		{"ID", "I", nullptr, $STATIC | $FINAL, $constField(SentEvent, ID)},
+		{"dispatched", "Z", nullptr, 0, $field(SentEvent, dispatched$)},
+		{"nested", "Ljava/awt/AWTEvent;", nullptr, $PRIVATE, $field(SentEvent, nested)},
+		{"toNotify", "Lsun/awt/AppContext;", nullptr, $PRIVATE, $field(SentEvent, toNotify)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SentEvent, init$, void)},
+		{"<init>", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $method(SentEvent, init$, void, $AWTEvent*)},
+		{"<init>", "(Ljava/awt/AWTEvent;Lsun/awt/AppContext;)V", nullptr, 0, $method(SentEvent, init$, void, $AWTEvent*, $AppContext*)},
+		{"dispatch", "()V", nullptr, $PUBLIC, $virtualMethod(SentEvent, dispatch, void)},
+		{"dispose", "()V", nullptr, $FINAL, $method(SentEvent, dispose, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.SentEvent",
+		"java.awt.AWTEvent",
+		"java.awt.ActiveEvent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SentEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SentEvent));
+	});
 	return class$;
 }
 

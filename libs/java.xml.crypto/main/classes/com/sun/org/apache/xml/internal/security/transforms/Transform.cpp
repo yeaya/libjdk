@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/Transform.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/exceptions/AlgorithmAlreadyRegisteredException.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
@@ -84,12 +83,10 @@ using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
@@ -97,7 +94,6 @@ using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $ParserConfigurationException = ::javax::xml::parsers::ParserConfigurationException;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;
 using $SAXException = ::org::xml::sax::SAXException;
 
@@ -110,42 +106,6 @@ namespace com {
 						namespace security {
 							namespace transforms {
 
-$FieldInfo _Transform_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Transform, LOG)},
-	{"transformSpiHash", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/TransformSpi;>;", $PRIVATE | $STATIC, $staticField(Transform, transformSpiHash)},
-	{"transformSpi", "Lcom/sun/org/apache/xml/internal/security/transforms/TransformSpi;", nullptr, $PRIVATE | $FINAL, $field(Transform, transformSpi)},
-	{}
-};
-
-$MethodInfo _Transform_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Transform, init$, void, $Document*, $String*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(Transform, init$, void, $Document*, $String*, $Element*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lorg/w3c/dom/NodeList;)V", nullptr, $PUBLIC, $method(Transform, init$, void, $Document*, $String*, $NodeList*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Transform, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException,com.sun.org.apache.xml.internal.security.transforms.TransformationException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Transform, getBaseLocalName, $String*)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Transform, getURI, $String*)},
-	{"initializeTransform", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/transforms/TransformSpi;", nullptr, $PRIVATE, $method(Transform, initializeTransform, $TransformSpi*, $String*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
-	{"performTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $method(Transform, performTransform, $XMLSignatureInput*, $XMLSignatureInput*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"performTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $method(Transform, performTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
-	{"register", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Transform, register$, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException,com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
-	{"register", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/transforms/TransformSpi;>;)V", $PUBLIC | $STATIC, $staticMethod(Transform, register$, void, $String*, $Class*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
-	{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Transform, registerDefaultAlgorithms, void)},
-	{}
-};
-
-$ClassInfo _Transform_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.Transform",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	_Transform_FieldInfo_,
-	_Transform_MethodInfo_
-};
-
-$Object* allocate$Transform($Class* clazz) {
-	return $of($alloc(Transform));
-}
-
 $Logger* Transform::LOG = nullptr;
 $Map* Transform::transformSpiHash = nullptr;
 
@@ -154,7 +114,7 @@ void Transform::init$($Document* doc, $String* algorithmURI) {
 }
 
 void Transform::init$($Document* doc, $String* algorithmURI, $Element* contextChild) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(doc);
 	$init($Constants);
 	setLocalAttribute($Constants::_ATT_ALGORITHM, algorithmURI);
@@ -166,14 +126,14 @@ void Transform::init$($Document* doc, $String* algorithmURI, $Element* contextCh
 		$XMLUtils::addReturnToElement(doc, contextNodes);
 		int32_t length = contextNodes->getLength();
 		for (int32_t i = 0; i < length; ++i) {
-			appendSelf($($nc($(contextNodes->item(i)))->cloneNode(true)));
+			appendSelf($($$nc(contextNodes->item(i))->cloneNode(true)));
 		}
-		$nc(Transform::LOG)->debug("The NodeList is {}"_s, $$new($ObjectArray, {$of(contextNodes)}));
+		$nc(Transform::LOG)->debug("The NodeList is {}"_s, $$new($ObjectArray, {contextNodes}));
 	}
 }
 
 void Transform::init$($Document* doc, $String* algorithmURI, $NodeList* contextNodes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(doc);
 	$init($Constants);
 	setLocalAttribute($Constants::_ATT_ALGORITHM, algorithmURI);
@@ -181,21 +141,21 @@ void Transform::init$($Document* doc, $String* algorithmURI, $NodeList* contextN
 	if (contextNodes != nullptr) {
 		int32_t length = contextNodes->getLength();
 		for (int32_t i = 0; i < length; ++i) {
-			appendSelf($($nc($(contextNodes->item(i)))->cloneNode(true)));
+			appendSelf($($$nc(contextNodes->item(i))->cloneNode(true)));
 		}
-		$nc(Transform::LOG)->debug("The NodeList is {}"_s, $$new($ObjectArray, {$of(contextNodes)}));
+		$nc(Transform::LOG)->debug("The NodeList is {}"_s, $$new($ObjectArray, {contextNodes}));
 	}
 }
 
 void Transform::init$($Element* element, $String* baseURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(element, baseURI);
 	$init($Constants);
 	$var($String, algorithmURI, $nc(element)->getAttributeNS(nullptr, $Constants::_ATT_ALGORITHM));
-	if (algorithmURI == nullptr || $nc(algorithmURI)->length() == 0) {
+	if (algorithmURI == nullptr || algorithmURI->length() == 0) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_ATT_ALGORITHM),
-			$of($Constants::_TAG_TRANSFORM)
+			$Constants::_ATT_ALGORITHM,
+			$Constants::_TAG_TRANSFORM
 		}));
 		$throwNew($TransformationException, "xml.WrongContent"_s, exArgs);
 	}
@@ -204,72 +164,72 @@ void Transform::init$($Element* element, $String* baseURI) {
 
 void Transform::register$($String* algorithmURI, $String* implementingClass) {
 	$init(Transform);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JavaUtils::checkRegisterPermission();
 	$var($TransformSpi, transformSpi, $cast($TransformSpi, $nc(Transform::transformSpiHash)->get(algorithmURI)));
 	if (transformSpi != nullptr) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$of(transformSpi)
+			algorithmURI,
+			transformSpi
 		}));
 		$throwNew($AlgorithmAlreadyRegisteredException, "algorithm.alreadyRegistered"_s, exArgs);
 	}
 	$Class* transformSpiClass = $ClassLoaderUtils::loadClass(implementingClass, Transform::class$);
 	try {
-		$nc(Transform::transformSpiHash)->put(algorithmURI, $cast($TransformSpi, $($JavaUtils::newInstanceWithEmptyConstructor(transformSpiClass))));
+		$nc(Transform::transformSpiHash)->put(algorithmURI, $$cast($TransformSpi, $JavaUtils::newInstanceWithEmptyConstructor(transformSpiClass)));
 	} catch ($InstantiationException& ex) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
-		$throwNew($InvalidTransformException, static_cast<$Exception*>(ex), "signature.Transform.UnknownTransform"_s, exArgs);
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
+		$throwNew($InvalidTransformException, ex, "signature.Transform.UnknownTransform"_s, exArgs);
 	} catch ($IllegalAccessException& ex) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
-		$throwNew($InvalidTransformException, static_cast<$Exception*>(ex), "signature.Transform.UnknownTransform"_s, exArgs);
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
+		$throwNew($InvalidTransformException, ex, "signature.Transform.UnknownTransform"_s, exArgs);
 	} catch ($InvocationTargetException& ex) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
-		$throwNew($InvalidTransformException, static_cast<$Exception*>(ex), "signature.Transform.UnknownTransform"_s, exArgs);
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
+		$throwNew($InvalidTransformException, ex, "signature.Transform.UnknownTransform"_s, exArgs);
 	}
 }
 
 void Transform::register$($String* algorithmURI, $Class* implementingClass) {
 	$init(Transform);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JavaUtils::checkRegisterPermission();
 	$var($TransformSpi, transformSpi, $cast($TransformSpi, $nc(Transform::transformSpiHash)->get(algorithmURI)));
 	if (transformSpi != nullptr) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmURI),
-			$of(transformSpi)
+			algorithmURI,
+			transformSpi
 		}));
 		$throwNew($AlgorithmAlreadyRegisteredException, "algorithm.alreadyRegistered"_s, exArgs);
 	}
 	try {
-		$nc(Transform::transformSpiHash)->put(algorithmURI, $cast($TransformSpi, $($JavaUtils::newInstanceWithEmptyConstructor(implementingClass))));
+		Transform::transformSpiHash->put(algorithmURI, $$cast($TransformSpi, $JavaUtils::newInstanceWithEmptyConstructor(implementingClass)));
 	} catch ($InstantiationException& ex) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
-		$throwNew($InvalidTransformException, static_cast<$Exception*>(ex), "signature.Transform.UnknownTransform"_s, exArgs);
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
+		$throwNew($InvalidTransformException, ex, "signature.Transform.UnknownTransform"_s, exArgs);
 	} catch ($IllegalAccessException& ex) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
-		$throwNew($InvalidTransformException, static_cast<$Exception*>(ex), "signature.Transform.UnknownTransform"_s, exArgs);
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
+		$throwNew($InvalidTransformException, ex, "signature.Transform.UnknownTransform"_s, exArgs);
 	} catch ($InvocationTargetException& ex) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
-		$throwNew($InvalidTransformException, static_cast<$Exception*>(ex), "signature.Transform.UnknownTransform"_s, exArgs);
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
+		$throwNew($InvalidTransformException, ex, "signature.Transform.UnknownTransform"_s, exArgs);
 	}
 }
 
 void Transform::registerDefaultAlgorithms() {
 	$init(Transform);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Transforms);
 	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_BASE64_DECODE, $$new($TransformBase64Decode));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_C14N_OMIT_COMMENTS, $$new($TransformC14N));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_C14N_WITH_COMMENTS, $$new($TransformC14NWithComments));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_C14N11_OMIT_COMMENTS, $$new($TransformC14N11));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_C14N11_WITH_COMMENTS, $$new($TransformC14N11_WithComments));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_C14N_EXCL_OMIT_COMMENTS, $$new($TransformC14NExclusive));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_C14N_EXCL_WITH_COMMENTS, $$new($TransformC14NExclusiveWithComments));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_XPATH, $$new($TransformXPath));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_ENVELOPED_SIGNATURE, $$new($TransformEnvelopedSignature));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_XSLT, $$new($TransformXSLT));
-	$nc(Transform::transformSpiHash)->put($Transforms::TRANSFORM_XPATH2FILTER, $$new($TransformXPath2Filter));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_C14N_OMIT_COMMENTS, $$new($TransformC14N));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_C14N_WITH_COMMENTS, $$new($TransformC14NWithComments));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_C14N11_OMIT_COMMENTS, $$new($TransformC14N11));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_C14N11_WITH_COMMENTS, $$new($TransformC14N11_WithComments));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_C14N_EXCL_OMIT_COMMENTS, $$new($TransformC14NExclusive));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_C14N_EXCL_WITH_COMMENTS, $$new($TransformC14NExclusiveWithComments));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_XPATH, $$new($TransformXPath));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_ENVELOPED_SIGNATURE, $$new($TransformEnvelopedSignature));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_XSLT, $$new($TransformXSLT));
+	Transform::transformSpiHash->put($Transforms::TRANSFORM_XPATH2FILTER, $$new($TransformXPath2Filter));
 }
 
 $String* Transform::getURI() {
@@ -282,22 +242,22 @@ $XMLSignatureInput* Transform::performTransform($XMLSignatureInput* input, bool 
 }
 
 $XMLSignatureInput* Transform::performTransform($XMLSignatureInput* input, $OutputStream* os, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLSignatureInput, result, nullptr);
 	try {
 		$assign(result, $nc(this->transformSpi)->enginePerformTransform(input, os, $(getElement()), this->baseURI, secureValidation));
 	} catch ($ParserConfigurationException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$($of(this->getURI())),
-			$of("ParserConfigurationException"_s)
+			$(this->getURI()),
+			"ParserConfigurationException"_s
 		}));
-		$throwNew($CanonicalizationException, static_cast<$Exception*>(ex), "signature.Transform.ErrorDuringTransform"_s, exArgs);
+		$throwNew($CanonicalizationException, ex, "signature.Transform.ErrorDuringTransform"_s, exArgs);
 	} catch ($SAXException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$($of(this->getURI())),
-			$of("SAXException"_s)
+			$(this->getURI()),
+			"SAXException"_s
 		}));
-		$throwNew($CanonicalizationException, static_cast<$Exception*>(ex), "signature.Transform.ErrorDuringTransform"_s, exArgs);
+		$throwNew($CanonicalizationException, ex, "signature.Transform.ErrorDuringTransform"_s, exArgs);
 	}
 	return result;
 }
@@ -308,29 +268,60 @@ $String* Transform::getBaseLocalName() {
 }
 
 $TransformSpi* Transform::initializeTransform($String* algorithmURI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TransformSpi, newTransformSpi, $cast($TransformSpi, $nc(Transform::transformSpiHash)->get(algorithmURI)));
 	if (newTransformSpi == nullptr) {
-		$var($ObjectArray, exArgs, $new($ObjectArray, {$of(algorithmURI)}));
+		$var($ObjectArray, exArgs, $new($ObjectArray, {algorithmURI}));
 		$throwNew($InvalidTransformException, "signature.Transform.UnknownTransform"_s, exArgs);
 	}
 	$nc(Transform::LOG)->debug("Create URI \"{}\" class \"{}\""_s, $$new($ObjectArray, {
-		$of(algorithmURI),
-		$of($nc($of(newTransformSpi))->getClass())
+		algorithmURI,
+		$nc(newTransformSpi)->getClass()
 	}));
 	return newTransformSpi;
 }
 
-void clinit$Transform($Class* class$) {
+void Transform::clinit$($Class* clazz) {
 	$assignStatic(Transform::LOG, $LoggerFactory::getLogger(Transform::class$));
-	$assignStatic(Transform::transformSpiHash, static_cast<$Map*>(static_cast<$AbstractMap*>($new($ConcurrentHashMap))));
+	$assignStatic(Transform::transformSpiHash, $cast($AbstractMap, $new($ConcurrentHashMap)));
 }
 
 Transform::Transform() {
 }
 
 $Class* Transform::load$($String* name, bool initialize) {
-	$loadClass(Transform, name, initialize, &_Transform_ClassInfo_, clinit$Transform, allocate$Transform);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Transform, LOG)},
+		{"transformSpiHash", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/TransformSpi;>;", $PRIVATE | $STATIC, $staticField(Transform, transformSpiHash)},
+		{"transformSpi", "Lcom/sun/org/apache/xml/internal/security/transforms/TransformSpi;", nullptr, $PRIVATE | $FINAL, $field(Transform, transformSpi)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Transform, init$, void, $Document*, $String*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lorg/w3c/dom/Element;)V", nullptr, $PUBLIC, $method(Transform, init$, void, $Document*, $String*, $Element*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Lorg/w3c/dom/NodeList;)V", nullptr, $PUBLIC, $method(Transform, init$, void, $Document*, $String*, $NodeList*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Transform, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException,com.sun.org.apache.xml.internal.security.transforms.TransformationException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Transform, getBaseLocalName, $String*)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(Transform, getURI, $String*)},
+		{"initializeTransform", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/transforms/TransformSpi;", nullptr, $PRIVATE, $method(Transform, initializeTransform, $TransformSpi*, $String*), "com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
+		{"performTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $method(Transform, performTransform, $XMLSignatureInput*, $XMLSignatureInput*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"performTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $method(Transform, performTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, bool), "java.io.IOException,com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException,com.sun.org.apache.xml.internal.security.c14n.InvalidCanonicalizerException,com.sun.org.apache.xml.internal.security.transforms.TransformationException"},
+		{"register", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Transform, register$, void, $String*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,java.lang.ClassNotFoundException,com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
+		{"register", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<+Lcom/sun/org/apache/xml/internal/security/transforms/TransformSpi;>;)V", $PUBLIC | $STATIC, $staticMethod(Transform, register$, void, $String*, $Class*), "com.sun.org.apache.xml.internal.security.exceptions.AlgorithmAlreadyRegisteredException,com.sun.org.apache.xml.internal.security.transforms.InvalidTransformException"},
+		{"registerDefaultAlgorithms", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(Transform, registerDefaultAlgorithms, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.Transform",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Transform, name, initialize, &classInfo$$, Transform::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Transform);
+	});
 	return class$;
 }
 

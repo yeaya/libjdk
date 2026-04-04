@@ -79,6 +79,7 @@ public:
 	virtual void finalize() override;
 	virtual int64_t getWindow() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::awt::X11::XCreateWindowParams* params);
 	void init$(::java::awt::Component* target);

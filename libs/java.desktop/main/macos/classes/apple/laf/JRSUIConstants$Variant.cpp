@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIConstants$Variant.h>
-
 #include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$PropertyEncoding.h>
 #include <apple/laf/JRSUIConstants.h>
@@ -28,65 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace apple {
 	namespace laf {
 
-$FieldInfo _JRSUIConstants$Variant_FieldInfo_[] = {
-	{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, SHIFT)},
-	{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, SIZE)},
-	{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, MASK)},
-	{"variant", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, variant)},
-	{"_menuGlyph", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _menuGlyph)},
-	{"MENU_GLYPH", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, MENU_GLYPH)},
-	{"_menuPopup", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _menuPopup)},
-	{"MENU_POPUP", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, MENU_POPUP)},
-	{"_menuPulldown", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _menuPulldown)},
-	{"MENU_PULLDOWN", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, MENU_PULLDOWN)},
-	{"_menuHierarchical", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _menuHierarchical)},
-	{"MENU_HIERARCHICAL", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, MENU_HIERARCHICAL)},
-	{"_gradientListBackgroundEven", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientListBackgroundEven)},
-	{"GRADIENT_LIST_BACKGROUND_EVEN", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_LIST_BACKGROUND_EVEN)},
-	{"_gradientListBackgroundOdd", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientListBackgroundOdd)},
-	{"GRADIENT_LIST_BACKGROUND_ODD", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_LIST_BACKGROUND_ODD)},
-	{"_gradientSideBar", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientSideBar)},
-	{"GRADIENT_SIDE_BAR", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_SIDE_BAR)},
-	{"_gradientSideBarSelection", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientSideBarSelection)},
-	{"GRADIENT_SIDE_BAR_SELECTION", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_SIDE_BAR_SELECTION)},
-	{"_gradientSideBarFocusedSelection", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientSideBarFocusedSelection)},
-	{"GRADIENT_SIDE_BAR_FOCUSED_SELECTION", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_SIDE_BAR_FOCUSED_SELECTION)},
-	{}
-};
-
-$MethodInfo _JRSUIConstants$Variant_MethodInfo_[] = {
-	{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$Variant, init$, void, int8_t)},
-	{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Variant, apply, int64_t, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Variant, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIConstants$Variant_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIConstants$Variant", "apple.laf.JRSUIConstants", "Variant", $PUBLIC | $STATIC},
-	{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIConstants$Variant_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIConstants$Variant",
-	"apple.laf.JRSUIConstants$Property",
-	nullptr,
-	_JRSUIConstants$Variant_FieldInfo_,
-	_JRSUIConstants$Variant_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIConstants$Variant_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIConstants"
-};
-
-$Object* allocate$JRSUIConstants$Variant($Class* clazz) {
-	return $of($alloc(JRSUIConstants$Variant));
-}
-
 $JRSUIConstants$PropertyEncoding* JRSUIConstants$Variant::variant = nullptr;
 JRSUIConstants$Variant* JRSUIConstants$Variant::MENU_GLYPH = nullptr;
 JRSUIConstants$Variant* JRSUIConstants$Variant::MENU_POPUP = nullptr;
@@ -110,7 +50,7 @@ int64_t JRSUIConstants$Variant::apply(int64_t encodedState) {
 	return $JRSUIConstants$Property::apply(encodedState);
 }
 
-void clinit$JRSUIConstants$Variant($Class* class$) {
+void JRSUIConstants$Variant::clinit$($Class* clazz) {
 	$assignStatic(JRSUIConstants$Variant::variant, $new($JRSUIConstants$PropertyEncoding, JRSUIConstants$Variant::MASK, JRSUIConstants$Variant::SHIFT));
 	$assignStatic(JRSUIConstants$Variant::MENU_GLYPH, $new(JRSUIConstants$Variant, JRSUIConstants$Variant::_menuGlyph));
 	$assignStatic(JRSUIConstants$Variant::MENU_POPUP, $new(JRSUIConstants$Variant, JRSUIConstants$Variant::_menuPopup));
@@ -127,7 +67,60 @@ JRSUIConstants$Variant::JRSUIConstants$Variant() {
 }
 
 $Class* JRSUIConstants$Variant::load$($String* name, bool initialize) {
-	$loadClass(JRSUIConstants$Variant, name, initialize, &_JRSUIConstants$Variant_ClassInfo_, clinit$JRSUIConstants$Variant, allocate$JRSUIConstants$Variant);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHIFT", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, SHIFT)},
+		{"SIZE", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, SIZE)},
+		{"MASK", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, MASK)},
+		{"variant", "Lapple/laf/JRSUIConstants$PropertyEncoding;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, variant)},
+		{"_menuGlyph", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _menuGlyph)},
+		{"MENU_GLYPH", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, MENU_GLYPH)},
+		{"_menuPopup", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _menuPopup)},
+		{"MENU_POPUP", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, MENU_POPUP)},
+		{"_menuPulldown", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _menuPulldown)},
+		{"MENU_PULLDOWN", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, MENU_PULLDOWN)},
+		{"_menuHierarchical", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _menuHierarchical)},
+		{"MENU_HIERARCHICAL", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, MENU_HIERARCHICAL)},
+		{"_gradientListBackgroundEven", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientListBackgroundEven)},
+		{"GRADIENT_LIST_BACKGROUND_EVEN", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_LIST_BACKGROUND_EVEN)},
+		{"_gradientListBackgroundOdd", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientListBackgroundOdd)},
+		{"GRADIENT_LIST_BACKGROUND_ODD", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_LIST_BACKGROUND_ODD)},
+		{"_gradientSideBar", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientSideBar)},
+		{"GRADIENT_SIDE_BAR", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_SIDE_BAR)},
+		{"_gradientSideBarSelection", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientSideBarSelection)},
+		{"GRADIENT_SIDE_BAR_SELECTION", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_SIDE_BAR_SELECTION)},
+		{"_gradientSideBarFocusedSelection", "B", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Variant, _gradientSideBarFocusedSelection)},
+		{"GRADIENT_SIDE_BAR_FOCUSED_SELECTION", "Lapple/laf/JRSUIConstants$Variant;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Variant, GRADIENT_SIDE_BAR_FOCUSED_SELECTION)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(B)V", nullptr, 0, $method(JRSUIConstants$Variant, init$, void, int8_t)},
+		{"apply", "(J)J", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Variant, apply, int64_t, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JRSUIConstants$Variant, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIConstants$Variant", "apple.laf.JRSUIConstants", "Variant", $PUBLIC | $STATIC},
+		{"apple.laf.JRSUIConstants$Property", "apple.laf.JRSUIConstants", "Property", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIConstants$Variant",
+		"apple.laf.JRSUIConstants$Property",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIConstants"
+	};
+	$loadClass(JRSUIConstants$Variant, name, initialize, &classInfo$$, JRSUIConstants$Variant::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIConstants$Variant);
+	});
 	return class$;
 }
 

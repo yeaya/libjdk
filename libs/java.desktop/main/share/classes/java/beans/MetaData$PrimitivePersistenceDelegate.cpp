@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$PrimitivePersistenceDelegate.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData.h>
@@ -16,38 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$PrimitivePersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$PrimitivePersistenceDelegate, init$, void)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$PrimitivePersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$PrimitivePersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$PrimitivePersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$PrimitivePersistenceDelegate", "java.beans.MetaData", "PrimitivePersistenceDelegate", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _MetaData$PrimitivePersistenceDelegate_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.beans.MetaData$PrimitivePersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$PrimitivePersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$PrimitivePersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$PrimitivePersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$PrimitivePersistenceDelegate));
-}
-
 void MetaData$PrimitivePersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
 }
@@ -57,18 +24,44 @@ bool MetaData$PrimitivePersistenceDelegate::mutatesTo(Object$* oldInstance, Obje
 }
 
 $Expression* MetaData$PrimitivePersistenceDelegate::instantiate(Object$* oldInstance, $Encoder* out) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, var$0, oldInstance);
-	$var($Object, var$1, $of($nc($of(oldInstance))->getClass()));
-	$var($String, var$2, "new"_s);
-	return $new($Expression, var$0, var$1, var$2, $$new($ObjectArray, {$($of($of(oldInstance)->toString()))}));
+	$useLocalObjectStack();
+	$var($Object, var$0, $nc($of(oldInstance))->getClass());
+	$var($String, var$1, "new"_s);
+	return $new($Expression, oldInstance, var$0, var$1, $$new($ObjectArray, {$($of(oldInstance)->toString())}));
 }
 
 MetaData$PrimitivePersistenceDelegate::MetaData$PrimitivePersistenceDelegate() {
 }
 
 $Class* MetaData$PrimitivePersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$PrimitivePersistenceDelegate, name, initialize, &_MetaData$PrimitivePersistenceDelegate_ClassInfo_, allocate$MetaData$PrimitivePersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$PrimitivePersistenceDelegate, init$, void)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$PrimitivePersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"mutatesTo", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PROTECTED, $virtualMethod(MetaData$PrimitivePersistenceDelegate, mutatesTo, bool, Object$*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$PrimitivePersistenceDelegate", "java.beans.MetaData", "PrimitivePersistenceDelegate", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.beans.MetaData$PrimitivePersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$PrimitivePersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$PrimitivePersistenceDelegate);
+	});
 	return class$;
 }
 

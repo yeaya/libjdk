@@ -98,7 +98,7 @@ public:
 	::java::io::Writer* writer = nullptr;
 	::java::util::Stack* stack = nullptr;
 	::com::sun::rowset::JdbcRowSetResourceBundle* resBundle = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x636891516A022449;
+	static const int64_t serialVersionUID = (int64_t)0x636891516a022449;
 };
 
 			} // internal

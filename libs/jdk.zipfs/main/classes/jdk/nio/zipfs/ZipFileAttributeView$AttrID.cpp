@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipFileAttributeView$AttrID.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/nio/zipfs/ZipFileAttributeView.h>
 #include <jcpp.h>
@@ -14,59 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipFileAttributeView$AttrID_FieldInfo_[] = {
-	{"size", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, size)},
-	{"creationTime", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, creationTime)},
-	{"lastAccessTime", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, lastAccessTime)},
-	{"lastModifiedTime", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, lastModifiedTime)},
-	{"isDirectory", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, isDirectory)},
-	{"isRegularFile", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, isRegularFile)},
-	{"isSymbolicLink", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, isSymbolicLink)},
-	{"isOther", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, isOther)},
-	{"fileKey", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, fileKey)},
-	{"compressedSize", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, compressedSize)},
-	{"crc", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, crc)},
-	{"method", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, method)},
-	{"owner", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, owner)},
-	{"group", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, group)},
-	{"permissions", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, permissions)},
-	{"$VALUES", "[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ZipFileAttributeView$AttrID, $VALUES)},
-	{}
-};
-
-$MethodInfo _ZipFileAttributeView$AttrID_MethodInfo_[] = {
-	{"$values", "()[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileAttributeView$AttrID, $values, $ZipFileAttributeView$AttrIDArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ZipFileAttributeView$AttrID, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipFileAttributeView$AttrID, valueOf, ZipFileAttributeView$AttrID*, $String*)},
-	{"values", "()[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipFileAttributeView$AttrID, values, $ZipFileAttributeView$AttrIDArray*)},
-	{}
-};
-
-$InnerClassInfo _ZipFileAttributeView$AttrID_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipFileAttributeView$AttrID", "jdk.nio.zipfs.ZipFileAttributeView", "AttrID", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ZipFileAttributeView$AttrID_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.nio.zipfs.ZipFileAttributeView$AttrID",
-	"java.lang.Enum",
-	nullptr,
-	_ZipFileAttributeView$AttrID_FieldInfo_,
-	_ZipFileAttributeView$AttrID_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;>;",
-	nullptr,
-	_ZipFileAttributeView$AttrID_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipFileAttributeView"
-};
-
-$Object* allocate$ZipFileAttributeView$AttrID($Class* clazz) {
-	return $of($alloc(ZipFileAttributeView$AttrID));
-}
 
 ZipFileAttributeView$AttrID* ZipFileAttributeView$AttrID::size = nullptr;
 ZipFileAttributeView$AttrID* ZipFileAttributeView$AttrID::creationTime = nullptr;
@@ -120,7 +66,7 @@ void ZipFileAttributeView$AttrID::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ZipFileAttributeView$AttrID($Class* class$) {
+void ZipFileAttributeView$AttrID::clinit$($Class* clazz) {
 	$assignStatic(ZipFileAttributeView$AttrID::size, $new(ZipFileAttributeView$AttrID, "size"_s, 0));
 	$assignStatic(ZipFileAttributeView$AttrID::creationTime, $new(ZipFileAttributeView$AttrID, "creationTime"_s, 1));
 	$assignStatic(ZipFileAttributeView$AttrID::lastAccessTime, $new(ZipFileAttributeView$AttrID, "lastAccessTime"_s, 2));
@@ -143,7 +89,54 @@ ZipFileAttributeView$AttrID::ZipFileAttributeView$AttrID() {
 }
 
 $Class* ZipFileAttributeView$AttrID::load$($String* name, bool initialize) {
-	$loadClass(ZipFileAttributeView$AttrID, name, initialize, &_ZipFileAttributeView$AttrID_ClassInfo_, clinit$ZipFileAttributeView$AttrID, allocate$ZipFileAttributeView$AttrID);
+	$FieldInfo fieldInfos$$[] = {
+		{"size", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, size)},
+		{"creationTime", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, creationTime)},
+		{"lastAccessTime", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, lastAccessTime)},
+		{"lastModifiedTime", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, lastModifiedTime)},
+		{"isDirectory", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, isDirectory)},
+		{"isRegularFile", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, isRegularFile)},
+		{"isSymbolicLink", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, isSymbolicLink)},
+		{"isOther", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, isOther)},
+		{"fileKey", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, fileKey)},
+		{"compressedSize", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, compressedSize)},
+		{"crc", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, crc)},
+		{"method", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, method)},
+		{"owner", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, owner)},
+		{"group", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, group)},
+		{"permissions", "Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ZipFileAttributeView$AttrID, permissions)},
+		{"$VALUES", "[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ZipFileAttributeView$AttrID, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ZipFileAttributeView$AttrID, $values, $ZipFileAttributeView$AttrIDArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ZipFileAttributeView$AttrID, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipFileAttributeView$AttrID, valueOf, ZipFileAttributeView$AttrID*, $String*)},
+		{"values", "()[Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipFileAttributeView$AttrID, values, $ZipFileAttributeView$AttrIDArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipFileAttributeView$AttrID", "jdk.nio.zipfs.ZipFileAttributeView", "AttrID", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.nio.zipfs.ZipFileAttributeView$AttrID",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/nio/zipfs/ZipFileAttributeView$AttrID;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipFileAttributeView"
+	};
+	$loadClass(ZipFileAttributeView$AttrID, name, initialize, &classInfo$$, ZipFileAttributeView$AttrID::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipFileAttributeView$AttrID));
+	});
 	return class$;
 }
 

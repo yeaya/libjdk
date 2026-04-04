@@ -1,5 +1,4 @@
 #include <javax/lang/model/type/UnknownTypeException.h>
-
 #include <javax/lang/model/UnknownEntityException.h>
 #include <javax/lang/model/type/TypeMirror.h>
 #include <jcpp.h>
@@ -15,33 +14,6 @@ namespace javax {
 		namespace model {
 			namespace type {
 
-$FieldInfo _UnknownTypeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownTypeException, serialVersionUID)},
-	{"type", "Ljavax/lang/model/type/TypeMirror;", nullptr, $PRIVATE | $TRANSIENT, $field(UnknownTypeException, type)},
-	{"parameter", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(UnknownTypeException, parameter)},
-	{}
-};
-
-$MethodInfo _UnknownTypeException_MethodInfo_[] = {
-	{"<init>", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UnknownTypeException, init$, void, $TypeMirror*, Object$*)},
-	{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownTypeException, getArgument, $Object*)},
-	{"getUnknownType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(UnknownTypeException, getUnknownType, $TypeMirror*)},
-	{}
-};
-
-$ClassInfo _UnknownTypeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.lang.model.type.UnknownTypeException",
-	"javax.lang.model.UnknownEntityException",
-	nullptr,
-	_UnknownTypeException_FieldInfo_,
-	_UnknownTypeException_MethodInfo_
-};
-
-$Object* allocate$UnknownTypeException($Class* clazz) {
-	return $of($alloc(UnknownTypeException));
-}
-
 void UnknownTypeException::init$($TypeMirror* t, Object$* p) {
 	$UnknownEntityException::init$($$str({"Unknown type: \""_s, t, "\""_s}));
 	$set(this, type, t);
@@ -53,7 +25,7 @@ $TypeMirror* UnknownTypeException::getUnknownType() {
 }
 
 $Object* UnknownTypeException::getArgument() {
-	return $of(this->parameter);
+	return this->parameter;
 }
 
 UnknownTypeException::UnknownTypeException() {
@@ -67,7 +39,29 @@ void UnknownTypeException::throw$() {
 }
 
 $Class* UnknownTypeException::load$($String* name, bool initialize) {
-	$loadClass(UnknownTypeException, name, initialize, &_UnknownTypeException_ClassInfo_, allocate$UnknownTypeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnknownTypeException, serialVersionUID)},
+		{"type", "Ljavax/lang/model/type/TypeMirror;", nullptr, $PRIVATE | $TRANSIENT, $field(UnknownTypeException, type)},
+		{"parameter", "Ljava/lang/Object;", nullptr, $PRIVATE | $TRANSIENT, $field(UnknownTypeException, parameter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/lang/model/type/TypeMirror;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(UnknownTypeException, init$, void, $TypeMirror*, Object$*)},
+		{"getArgument", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnknownTypeException, getArgument, $Object*)},
+		{"getUnknownType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC, $virtualMethod(UnknownTypeException, getUnknownType, $TypeMirror*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.lang.model.type.UnknownTypeException",
+		"javax.lang.model.UnknownEntityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnknownTypeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnknownTypeException);
+	});
 	return class$;
 }
 

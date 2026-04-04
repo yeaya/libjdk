@@ -22,12 +22,15 @@ public:
 	void init$($String* key, $ObjectArray* args);
 	virtual $ObjectArray* getArgs();
 	virtual $String* getKey();
-	static const int64_t serialVersionUID = (int64_t)0x81C104A8F8C48336;
+	static const int64_t serialVersionUID = (int64_t)0x81c104a8f8c48336;
 	$String* key = nullptr;
 	$ObjectArray* args = nullptr;
 	XMLSchemaException(const XMLSchemaException& e);
 	virtual void throw$() override;
-	inline XMLSchemaException* operator ->() {
+	inline XMLSchemaException* operator ->() const {
+		return (XMLSchemaException*)throwing$;
+	}
+	inline operator XMLSchemaException*() const {
 		return (XMLSchemaException*)throwing$;
 	}
 };

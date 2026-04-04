@@ -1,5 +1,4 @@
 #include <javax/swing/text/Utilities.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
@@ -17,7 +16,6 @@
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/AttributedString.h>
 #include <java/text/BreakIterator.h>
-#include <java/text/CharacterIterator.h>
 #include <java/util/Locale.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/SwingConstants.h>
@@ -66,7 +64,6 @@
 using $AttributedCharacterIterator$AttributeArray = $Array<::java::text::AttributedCharacterIterator$Attribute>;
 using $Position$BiasArray = $Array<::javax::swing::text::Position$Bias>;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
@@ -82,10 +79,8 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $AttributedString = ::java::text::AttributedString;
 using $BreakIterator = ::java::text::BreakIterator;
-using $CharacterIterator = ::java::text::CharacterIterator;
 using $JComponent = ::javax::swing::JComponent;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
@@ -94,7 +89,6 @@ using $CompositeView = ::javax::swing::text::CompositeView;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $GlyphView = ::javax::swing::text::GlyphView;
-using $GlyphView$GlyphPainter = ::javax::swing::text::GlyphView$GlyphPainter;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $ParagraphView$Row = ::javax::swing::text::ParagraphView$Row;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
@@ -109,138 +103,6 @@ using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$NamedAttribute Utilities_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Utilities_MethodAnnotations_drawTabbedText4[] = {
-	{"Ljava/lang/Deprecated;", Utilities_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute Utilities_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Utilities_MethodAnnotations_getBreakLocation9[] = {
-	{"Ljava/lang/Deprecated;", Utilities_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute Utilities_Attribute_var$2[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Utilities_MethodAnnotations_getPositionAbove17[] = {
-	{"Ljava/lang/Deprecated;", Utilities_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute Utilities_Attribute_var$3[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Utilities_MethodAnnotations_getPositionBelow20[] = {
-	{"Ljava/lang/Deprecated;", Utilities_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute Utilities_Attribute_var$4[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Utilities_MethodAnnotations_getTabbedTextOffset27[] = {
-	{"Ljava/lang/Deprecated;", Utilities_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute Utilities_Attribute_var$5[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Utilities_MethodAnnotations_getTabbedTextOffset30[] = {
-	{"Ljava/lang/Deprecated;", Utilities_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute Utilities_Attribute_var$6[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _Utilities_MethodAnnotations_getTabbedTextWidth33[] = {
-	{"Ljava/lang/Deprecated;", Utilities_Attribute_var$6},
-	{}
-};
-
-$MethodInfo _Utilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Utilities, init$, void)},
-	{"drawComposedText", "(Ljavax/swing/text/View;Ljavax/swing/text/AttributeSet;Ljava/awt/Graphics;IIII)I", nullptr, $STATIC, $staticMethod(Utilities, drawComposedText, int32_t, $View*, $AttributeSet*, $Graphics*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"drawComposedText", "(Ljavax/swing/text/View;Ljavax/swing/text/AttributeSet;Ljava/awt/Graphics;FFII)F", nullptr, $STATIC, $staticMethod(Utilities, drawComposedText, float, $View*, $AttributeSet*, $Graphics*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"drawComposedText", "(Ljavax/swing/text/View;Ljavax/swing/text/AttributeSet;Ljava/awt/Graphics;FFIIZ)F", nullptr, $STATIC, $staticMethod(Utilities, drawComposedText, float, $View*, $AttributeSet*, $Graphics*, float, float, int32_t, int32_t, bool), "javax.swing.text.BadLocationException"},
-	{"drawTabbedText", "(Ljavax/swing/text/Segment;IILjava/awt/Graphics;Ljavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, drawTabbedText, int32_t, $Segment*, int32_t, int32_t, $Graphics*, $TabExpander*, int32_t), nullptr, nullptr, _Utilities_MethodAnnotations_drawTabbedText4},
-	{"drawTabbedText", "(Ljavax/swing/text/Segment;FFLjava/awt/Graphics2D;Ljavax/swing/text/TabExpander;I)F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, drawTabbedText, float, $Segment*, float, float, $Graphics2D*, $TabExpander*, int32_t)},
-	{"drawTabbedText", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;IILjava/awt/Graphics;Ljavax/swing/text/TabExpander;I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, drawTabbedText, int32_t, $View*, $Segment*, int32_t, int32_t, $Graphics*, $TabExpander*, int32_t)},
-	{"drawTabbedText", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;IILjava/awt/Graphics;Ljavax/swing/text/TabExpander;I[I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, drawTabbedText, int32_t, $View*, $Segment*, int32_t, int32_t, $Graphics*, $TabExpander*, int32_t, $ints*)},
-	{"drawTabbedText", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;FFLjava/awt/Graphics;Ljavax/swing/text/TabExpander;I[IZ)F", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, drawTabbedText, float, $View*, $Segment*, float, float, $Graphics*, $TabExpander*, int32_t, $ints*, bool)},
-	{"getBreakLocation", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;IILjavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getBreakLocation, int32_t, $Segment*, $FontMetrics*, int32_t, int32_t, $TabExpander*, int32_t), nullptr, nullptr, _Utilities_MethodAnnotations_getBreakLocation9},
-	{"getBreakLocation", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;IZ)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getBreakLocation, int32_t, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t, bool)},
-	{"getBreakLocation", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getBreakLocation, int32_t, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t)},
-	{"getJComponent", "(Ljavax/swing/text/View;)Ljavax/swing/JComponent;", nullptr, $STATIC, $staticMethod(Utilities, getJComponent, $JComponent*, $View*)},
-	{"getNextVisualPositionFrom", "(Ljavax/swing/text/View;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $STATIC, $staticMethod(Utilities, getNextVisualPositionFrom, int32_t, $View*, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getNextWord", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getNextWord, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getNextWordInParagraph", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/text/Element;IZ)I", nullptr, $STATIC, $staticMethod(Utilities, getNextWordInParagraph, int32_t, $JTextComponent*, $Element*, int32_t, bool), "javax.swing.text.BadLocationException"},
-	{"getParagraphElement", "(Ljavax/swing/text/JTextComponent;I)Ljavax/swing/text/Element;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getParagraphElement, $Element*, $JTextComponent*, int32_t)},
-	{"getPositionAbove", "(Ljavax/swing/text/JTextComponent;II)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getPositionAbove, int32_t, $JTextComponent*, int32_t, int32_t), "javax.swing.text.BadLocationException", nullptr, _Utilities_MethodAnnotations_getPositionAbove17},
-	{"getPositionAbove", "(Ljavax/swing/text/JTextComponent;IFZ)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getPositionAbove, int32_t, $JTextComponent*, int32_t, float, bool), "javax.swing.text.BadLocationException"},
-	{"getPositionAbove", "(Ljavax/swing/text/JTextComponent;IF)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getPositionAbove, int32_t, $JTextComponent*, int32_t, float), "javax.swing.text.BadLocationException"},
-	{"getPositionBelow", "(Ljavax/swing/text/JTextComponent;II)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getPositionBelow, int32_t, $JTextComponent*, int32_t, int32_t), "javax.swing.text.BadLocationException", nullptr, _Utilities_MethodAnnotations_getPositionBelow20},
-	{"getPositionBelow", "(Ljavax/swing/text/JTextComponent;IFZ)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getPositionBelow, int32_t, $JTextComponent*, int32_t, float, bool), "javax.swing.text.BadLocationException"},
-	{"getPositionBelow", "(Ljavax/swing/text/JTextComponent;IF)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getPositionBelow, int32_t, $JTextComponent*, int32_t, float), "javax.swing.text.BadLocationException"},
-	{"getPrevWordInParagraph", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/text/Element;I)I", nullptr, $STATIC, $staticMethod(Utilities, getPrevWordInParagraph, int32_t, $JTextComponent*, $Element*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getPreviousWord", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getPreviousWord, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getRowEnd", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getRowEnd, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getRowStart", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getRowStart, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getTabbedTextOffset", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;IILjavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $Segment*, $FontMetrics*, int32_t, int32_t, $TabExpander*, int32_t), nullptr, nullptr, _Utilities_MethodAnnotations_getTabbedTextOffset27},
-	{"getTabbedTextOffset", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;IILjavax/swing/text/TabExpander;I[I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $View*, $Segment*, $FontMetrics*, int32_t, int32_t, $TabExpander*, int32_t, $ints*)},
-	{"getTabbedTextOffset", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;I[I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $View*, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t, $ints*)},
-	{"getTabbedTextOffset", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;IILjavax/swing/text/TabExpander;IZ)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $Segment*, $FontMetrics*, int32_t, int32_t, $TabExpander*, int32_t, bool), nullptr, nullptr, _Utilities_MethodAnnotations_getTabbedTextOffset30},
-	{"getTabbedTextOffset", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;IZ)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t, bool)},
-	{"getTabbedTextOffset", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;IZ[IZ)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $View*, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t, bool, $ints*, bool)},
-	{"getTabbedTextWidth", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;ILjavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getTabbedTextWidth, int32_t, $Segment*, $FontMetrics*, int32_t, $TabExpander*, int32_t), nullptr, nullptr, _Utilities_MethodAnnotations_getTabbedTextWidth33},
-	{"getTabbedTextWidth", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FLjavax/swing/text/TabExpander;I)F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextWidth, float, $Segment*, $FontMetrics*, float, $TabExpander*, int32_t)},
-	{"getTabbedTextWidth", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;ILjavax/swing/text/TabExpander;I[I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextWidth, int32_t, $View*, $Segment*, $FontMetrics*, int32_t, $TabExpander*, int32_t, $ints*)},
-	{"getTabbedTextWidth", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FLjavax/swing/text/TabExpander;I[I)F", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextWidth, float, $View*, $Segment*, $FontMetrics*, float, $TabExpander*, int32_t, $ints*)},
-	{"getTabbedTextWidth", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FLjavax/swing/text/TabExpander;I[IZ)F", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextWidth, float, $View*, $Segment*, $FontMetrics*, float, $TabExpander*, int32_t, $ints*, bool)},
-	{"getWordEnd", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getWordEnd, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getWordStart", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getWordStart, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
-	{"isComposedTextAttributeDefined", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $STATIC, $staticMethod(Utilities, isComposedTextAttributeDefined, bool, $AttributeSet*)},
-	{"isComposedTextElement", "(Ljavax/swing/text/Document;I)Z", nullptr, $STATIC, $staticMethod(Utilities, isComposedTextElement, bool, $Document*, int32_t)},
-	{"isComposedTextElement", "(Ljavax/swing/text/Element;)Z", nullptr, $STATIC, $staticMethod(Utilities, isComposedTextElement, bool, $Element*)},
-	{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(Utilities, isLeftToRight, bool, $Component*)},
-	{"paintComposedText", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljavax/swing/text/GlyphView;)V", nullptr, $STATIC, $staticMethod(Utilities, paintComposedText, void, $Graphics*, $Rectangle*, $GlyphView*)},
-	{}
-};
-
-$ClassInfo _Utilities_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.Utilities",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Utilities_MethodInfo_
-};
-
-$Object* allocate$Utilities($Class* clazz) {
-	return $of($alloc(Utilities));
-}
 
 void Utilities::init$() {
 }
@@ -272,7 +134,7 @@ int32_t Utilities::drawTabbedText($View* view, $Segment* s, int32_t x, int32_t y
 }
 
 float Utilities::drawTabbedText($View* view, $Segment* s, float x, float y, $Graphics* g, $TabExpander* e, int32_t startOffset, $ints* justificationData, bool useFPAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, component, getJComponent(view));
 	$var($FontMetrics, metrics, $SwingUtilities2::getFontMetrics(component, g));
 	float nextX = x;
@@ -297,7 +159,7 @@ float Utilities::drawTabbedText($View* view, $Segment* s, float x, float y, $Gra
 	}
 	int32_t n = s->offset + s->count;
 	for (int32_t i = txtOffset; i < n; ++i) {
-		if ($nc(txt)->get(i) == u'\t' || ((spaceAddon != 0 || i <= spaceAddonLeftoverEnd) && ($nc(txt)->get(i) == u' ') && startJustifiableContent <= i && i <= endJustifiableContent)) {
+		if ($nc(txt)->get(i) == u'\t' || ((spaceAddon != 0 || i <= spaceAddonLeftoverEnd) && (txt->get(i) == u' ') && startJustifiableContent <= i && i <= endJustifiableContent)) {
 			if (flushLen > 0) {
 				nextX = $SwingUtilities2::drawChars(component, g, txt, flushIndex, flushLen, x, y);
 				flushLen = 0;
@@ -335,11 +197,11 @@ float Utilities::drawTabbedText($View* view, $Segment* s, float x, float y, $Gra
 }
 
 int32_t Utilities::getTabbedTextWidth($Segment* s, $FontMetrics* metrics, int32_t x, $TabExpander* e, int32_t startOffset) {
-	return getTabbedTextWidth(($View*)nullptr, s, metrics, x, e, startOffset, ($ints*)nullptr);
+	return getTabbedTextWidth(nullptr, s, metrics, x, e, startOffset, nullptr);
 }
 
 float Utilities::getTabbedTextWidth($Segment* s, $FontMetrics* metrics, float x, $TabExpander* e, int32_t startOffset) {
-	return getTabbedTextWidth(($View*)nullptr, s, metrics, x, e, startOffset, ($ints*)nullptr);
+	return getTabbedTextWidth(nullptr, s, metrics, x, e, startOffset, nullptr);
 }
 
 int32_t Utilities::getTabbedTextWidth($View* view, $Segment* s, $FontMetrics* metrics, int32_t x, $TabExpander* e, int32_t startOffset, $ints* justificationData) {
@@ -351,7 +213,7 @@ float Utilities::getTabbedTextWidth($View* view, $Segment* s, $FontMetrics* metr
 }
 
 float Utilities::getTabbedTextWidth($View* view, $Segment* s, $FontMetrics* metrics, float x, $TabExpander* e, int32_t startOffset, $ints* justificationData, bool useFPAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float nextX = x;
 	$var($chars, txt, $nc(s)->array);
 	int32_t txtOffset = s->offset;
@@ -373,7 +235,7 @@ float Utilities::getTabbedTextWidth($View* view, $Segment* s, $FontMetrics* metr
 		endJustifiableContent = justificationData->get($ParagraphView$Row::END_JUSTIFIABLE) + offset;
 	}
 	for (int32_t i = txtOffset; i < n; ++i) {
-		if ($nc(txt)->get(i) == u'\t' || ((spaceAddon != 0 || i <= spaceAddonLeftoverEnd) && ($nc(txt)->get(i) == u' ') && startJustifiableContent <= i && i <= endJustifiableContent)) {
+		if ($nc(txt)->get(i) == u'\t' || ((spaceAddon != 0 || i <= spaceAddonLeftoverEnd) && (txt->get(i) == u' ') && startJustifiableContent <= i && i <= endJustifiableContent)) {
 			nextX += $nc(metrics)->charsWidth(txt, i - charCount, charCount);
 			charCount = 0;
 			if (txt->get(i) == u'\t') {
@@ -421,7 +283,7 @@ int32_t Utilities::getTabbedTextOffset($Segment* s, $FontMetrics* metrics, float
 }
 
 int32_t Utilities::getTabbedTextOffset($View* view, $Segment* s, $FontMetrics* metrics, float x0, float x, $TabExpander* e, int32_t startOffset, bool round, $ints* justificationData, bool useFPAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (x0 >= x) {
 		return 0;
 	}
@@ -446,7 +308,7 @@ int32_t Utilities::getTabbedTextOffset($View* view, $Segment* s, $FontMetrics* m
 	}
 	int32_t n = s->offset + s->count;
 	for (int32_t i = s->offset; i < n; ++i) {
-		if ($nc(txt)->get(i) == u'\t' || ((spaceAddon != 0 || i <= spaceAddonLeftoverEnd) && ($nc(txt)->get(i) == u' ') && startJustifiableContent <= i && i <= endJustifiableContent)) {
+		if ($nc(txt)->get(i) == u'\t' || ((spaceAddon != 0 || i <= spaceAddonLeftoverEnd) && (txt->get(i) == u' ') && startJustifiableContent <= i && i <= endJustifiableContent)) {
 			if (txt->get(i) == u'\t') {
 				if (e != nullptr) {
 					nextX = e->nextTabStop(nextX, startOffset + i - txtOffset);
@@ -472,7 +334,7 @@ int32_t Utilities::getTabbedTextOffset($View* view, $Segment* s, $FontMetrics* m
 				if (span < width) {
 					while (offset > 0) {
 						float charsWidth = $SwingUtilities2::getFontCharsWidth(txt, txtOffset, offset - 1, metrics, useFPAPI);
-						float nextWidth = offset > 1 ? charsWidth : (float)0;
+						float nextWidth = offset > 1 ? charsWidth : 0;
 						if (span >= nextWidth) {
 							if (span - nextWidth < width - span) {
 								--offset;
@@ -500,7 +362,7 @@ int32_t Utilities::getBreakLocation($Segment* s, $FontMetrics* metrics, int32_t 
 }
 
 int32_t Utilities::getBreakLocation($Segment* s, $FontMetrics* metrics, float x0, float x, $TabExpander* e, int32_t startOffset, bool useFPIAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, txt, $nc(s)->array);
 	int32_t txtOffset = s->offset;
 	int32_t txtCount = s->count;
@@ -517,7 +379,7 @@ int32_t Utilities::getBreakLocation($Segment* s, $FontMetrics* metrics, float x0
 			}
 		} else {
 			$var($BreakIterator, bit, $BreakIterator::getLineInstance());
-			$nc(bit)->setText(static_cast<$CharacterIterator*>(s));
+			$nc(bit)->setText(s);
 			int32_t breakPos = bit->preceding(i + 1);
 			if (breakPos > txtOffset) {
 				index = breakPos - txtOffset;
@@ -550,12 +412,12 @@ int32_t Utilities::getRowStart($JTextComponent* c, int32_t offs) {
 }
 
 int32_t Utilities::getRowEnd($JTextComponent* c, int32_t offs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, r, $nc(c)->modelToView2D(offs));
 	if (r == nullptr) {
 		return -1;
 	}
-	int32_t n = $nc($(c->getDocument()))->getLength();
+	int32_t n = $$nc(c->getDocument())->getLength();
 	int32_t lastOffs = offs;
 	double y = $nc(r)->getY();
 	while ((r != nullptr) && (y == r->getY())) {
@@ -563,7 +425,7 @@ int32_t Utilities::getRowEnd($JTextComponent* c, int32_t offs) {
 			offs = lastOffs;
 		}
 		lastOffs += 1;
-		$assign(r, (lastOffs <= n) ? static_cast<$Rectangle2D*>(c->modelToView(lastOffs)) : ($Rectangle2D*)nullptr);
+		$assign(r, (lastOffs <= n) ? $cast($Rectangle2D, c->modelToView(lastOffs)) : ($Rectangle2D*)nullptr);
 	}
 	return offs;
 }
@@ -578,10 +440,10 @@ int32_t Utilities::getPositionAbove($JTextComponent* c, int32_t offs, float x, b
 		return -1;
 	}
 	double bestSpan = (double)$Integer::MAX_VALUE;
-	double y = (double)0;
+	double y = 0;
 	$var($Rectangle2D, r, nullptr);
 	if (lastOffs >= 0) {
-		$assign(r, useFPAPI ? $nc(c)->modelToView2D(lastOffs) : static_cast<$Rectangle2D*>(c->modelToView(lastOffs)));
+		$assign(r, useFPAPI ? $nc(c)->modelToView2D(lastOffs) : $cast($Rectangle2D, $nc(c)->modelToView(lastOffs)));
 		y = $nc(r)->getY();
 	}
 	while ((r != nullptr) && (y == r->getY())) {
@@ -592,7 +454,7 @@ int32_t Utilities::getPositionAbove($JTextComponent* c, int32_t offs, float x, b
 		}
 		lastOffs -= 1;
 		if (lastOffs >= 0) {
-			$assign(r, useFPAPI ? $nc(c)->modelToView2D(lastOffs) : static_cast<$Rectangle2D*>(c->modelToView(lastOffs)));
+			$assign(r, useFPAPI ? $nc(c)->modelToView2D(lastOffs) : $cast($Rectangle2D, $nc(c)->modelToView(lastOffs)));
 		} else {
 			$assign(r, nullptr);
 		}
@@ -609,17 +471,17 @@ int32_t Utilities::getPositionBelow($JTextComponent* c, int32_t offs, int32_t x)
 }
 
 int32_t Utilities::getPositionBelow($JTextComponent* c, int32_t offs, float x, bool useFPAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t lastOffs = getRowEnd(c, offs) + 1;
 	if (lastOffs <= 0) {
 		return -1;
 	}
 	double bestSpan = (double)$Integer::MAX_VALUE;
-	int32_t n = $nc($($nc(c)->getDocument()))->getLength();
-	double y = (double)0;
+	int32_t n = $$nc($nc(c)->getDocument())->getLength();
+	double y = 0;
 	$var($Rectangle2D, r, nullptr);
 	if (lastOffs <= n) {
-		$assign(r, useFPAPI ? c->modelToView2D(lastOffs) : static_cast<$Rectangle2D*>(c->modelToView(lastOffs)));
+		$assign(r, useFPAPI ? c->modelToView2D(lastOffs) : $cast($Rectangle2D, c->modelToView(lastOffs)));
 		y = $nc(r)->getY();
 	}
 	while ((r != nullptr) && (y == r->getY())) {
@@ -630,7 +492,7 @@ int32_t Utilities::getPositionBelow($JTextComponent* c, int32_t offs, float x, b
 		}
 		lastOffs += 1;
 		if (lastOffs <= n) {
-			$assign(r, useFPAPI ? c->modelToView2D(lastOffs) : static_cast<$Rectangle2D*>(c->modelToView(lastOffs)));
+			$assign(r, useFPAPI ? c->modelToView2D(lastOffs) : $cast($Rectangle2D, c->modelToView(lastOffs)));
 		} else {
 			$assign(r, nullptr);
 		}
@@ -643,7 +505,7 @@ int32_t Utilities::getPositionBelow($JTextComponent* c, int32_t offs, float x) {
 }
 
 int32_t Utilities::getWordStart($JTextComponent* c, int32_t offs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(c)->getDocument());
 	$var($Element, line, getParagraphElement(c, offs));
 	if (line == nullptr) {
@@ -653,10 +515,10 @@ int32_t Utilities::getWordStart($JTextComponent* c, int32_t offs) {
 	int32_t var$0 = line->getEndOffset();
 	int32_t lineEnd = $Math::min(var$0, $nc(doc)->getLength());
 	$var($Segment, seg, $SegmentCache::getSharedSegment());
-	$nc(doc)->getText(lineStart, lineEnd - lineStart, seg);
+	doc->getText(lineStart, lineEnd - lineStart, seg);
 	if ($nc(seg)->count > 0) {
 		$var($BreakIterator, words, $BreakIterator::getWordInstance($(c->getLocale())));
-		$nc(words)->setText(static_cast<$CharacterIterator*>(seg));
+		$nc(words)->setText(seg);
 		int32_t wordPosition = seg->offset + offs - lineStart;
 		if (wordPosition >= words->last()) {
 			wordPosition = words->last() - 1;
@@ -669,7 +531,7 @@ int32_t Utilities::getWordStart($JTextComponent* c, int32_t offs) {
 }
 
 int32_t Utilities::getWordEnd($JTextComponent* c, int32_t offs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(c)->getDocument());
 	$var($Element, line, getParagraphElement(c, offs));
 	if (line == nullptr) {
@@ -679,10 +541,10 @@ int32_t Utilities::getWordEnd($JTextComponent* c, int32_t offs) {
 	int32_t var$0 = line->getEndOffset();
 	int32_t lineEnd = $Math::min(var$0, $nc(doc)->getLength());
 	$var($Segment, seg, $SegmentCache::getSharedSegment());
-	$nc(doc)->getText(lineStart, lineEnd - lineStart, seg);
+	doc->getText(lineStart, lineEnd - lineStart, seg);
 	if ($nc(seg)->count > 0) {
 		$var($BreakIterator, words, $BreakIterator::getWordInstance($(c->getLocale())));
-		$nc(words)->setText(static_cast<$CharacterIterator*>(seg));
+		$nc(words)->setText(seg);
 		int32_t wordPosition = offs - lineStart + seg->offset;
 		if (wordPosition >= words->last()) {
 			wordPosition = words->last() - 1;
@@ -704,7 +566,7 @@ int32_t Utilities::getNextWord($JTextComponent* c, int32_t offs) {
 }
 
 int32_t Utilities::getNextWordInParagraph($JTextComponent* c, $Element* line, int32_t offs, bool first) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (line == nullptr) {
 		$throwNew($BadLocationException, "No more words"_s, offs);
 	}
@@ -716,18 +578,18 @@ int32_t Utilities::getNextWordInParagraph($JTextComponent* c, $Element* line, in
 		$throwNew($BadLocationException, "No more words"_s, offs);
 	}
 	$var($Segment, seg, $SegmentCache::getSharedSegment());
-	$nc(doc)->getText(lineStart, lineEnd - lineStart, seg);
+	doc->getText(lineStart, lineEnd - lineStart, seg);
 	$var($BreakIterator, words, $BreakIterator::getWordInstance($($nc(c)->getLocale())));
-	$nc(words)->setText(static_cast<$CharacterIterator*>(seg));
-	bool var$1 = (first && (words->first() == ($nc(seg)->offset + offs - lineStart)));
+	$nc(words)->setText(seg);
+	bool var$1 = first && (words->first() == ($nc(seg)->offset + offs - lineStart));
 	if (var$1 && (!$Character::isWhitespace($nc(seg->array)->get(words->first())))) {
 		return offs;
 	}
 	int32_t wordPosition = words->following($nc(seg)->offset + offs - lineStart);
-	if ((wordPosition == $BreakIterator::DONE) || (wordPosition >= $nc(seg)->offset + seg->count)) {
+	if ((wordPosition == $BreakIterator::DONE) || (wordPosition >= seg->offset + seg->count)) {
 		return $BreakIterator::DONE;
 	}
-	char16_t ch = $nc($nc(seg)->array)->get(wordPosition);
+	char16_t ch = $nc(seg->array)->get(wordPosition);
 	if (!$Character::isWhitespace(ch)) {
 		return lineStart + wordPosition - seg->offset;
 	}
@@ -753,7 +615,7 @@ int32_t Utilities::getPreviousWord($JTextComponent* c, int32_t offs) {
 }
 
 int32_t Utilities::getPrevWordInParagraph($JTextComponent* c, $Element* line, int32_t offs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (line == nullptr) {
 		$throwNew($BadLocationException, "No more words"_s, offs);
 	}
@@ -766,18 +628,18 @@ int32_t Utilities::getPrevWordInParagraph($JTextComponent* c, $Element* line, in
 	$var($Segment, seg, $SegmentCache::getSharedSegment());
 	$nc(doc)->getText(lineStart, lineEnd - lineStart, seg);
 	$var($BreakIterator, words, $BreakIterator::getWordInstance($($nc(c)->getLocale())));
-	$nc(words)->setText(static_cast<$CharacterIterator*>(seg));
+	$nc(words)->setText(seg);
 	if (words->following($nc(seg)->offset + offs - lineStart) == $BreakIterator::DONE) {
 		words->last();
 	}
 	int32_t wordPosition = words->previous();
-	if (wordPosition == ($nc(seg)->offset + offs - lineStart)) {
+	if (wordPosition == (seg->offset + offs - lineStart)) {
 		wordPosition = words->previous();
 	}
 	if (wordPosition == $BreakIterator::DONE) {
 		return $BreakIterator::DONE;
 	}
-	char16_t ch = $nc($nc(seg)->array)->get(wordPosition);
+	char16_t ch = $nc(seg->array)->get(wordPosition);
 	if (!$Character::isWhitespace(ch)) {
 		return lineStart + wordPosition - seg->offset;
 	}
@@ -790,15 +652,15 @@ int32_t Utilities::getPrevWordInParagraph($JTextComponent* c, $Element* line, in
 }
 
 $Element* Utilities::getParagraphElement($JTextComponent* c, int32_t offs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(c)->getDocument());
 	if ($instanceOf($StyledDocument, doc)) {
-		return $nc(($cast($StyledDocument, doc)))->getParagraphElement(offs);
+		return $cast($StyledDocument, doc)->getParagraphElement(offs);
 	}
 	$var($Element, map, $nc(doc)->getDefaultRootElement());
 	int32_t index = $nc(map)->getElementIndex(offs);
 	$var($Element, paragraph, map->getElement(index));
-	bool var$0 = (offs >= $nc(paragraph)->getStartOffset());
+	bool var$0 = offs >= $nc(paragraph)->getStartOffset();
 	if (var$0 && (offs < paragraph->getEndOffset())) {
 		return paragraph;
 	}
@@ -832,7 +694,7 @@ float Utilities::drawComposedText($View* view, $AttributeSet* attr, $Graphics* g
 }
 
 float Utilities::drawComposedText($View* view, $AttributeSet* attr, $Graphics* g, float x, float y, int32_t p0, int32_t p1, bool useFPAPI) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Graphics2D, g2d, $cast($Graphics2D, g));
 	$init($StyleConstants);
 	$var($AttributedString, as, $cast($AttributedString, $nc(attr)->getAttribute($StyleConstants::ComposedTextAttribute)));
@@ -842,20 +704,20 @@ float Utilities::drawComposedText($View* view, $AttributeSet* attr, $Graphics* g
 		return x;
 	}
 	$var($AttributedCharacterIterator, aci, as->getIterator(nullptr, p0, p1));
-	return x + $SwingUtilities2::drawString($(getJComponent(view)), static_cast<$Graphics*>(g2d), aci, x, y);
+	return x + $SwingUtilities2::drawString($(getJComponent(view)), g2d, aci, x, y);
 }
 
 void Utilities::paintComposedText($Graphics* g, $Rectangle* alloc, $GlyphView* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($Graphics2D, g)) {
 		$var($Graphics2D, g2d, $cast($Graphics2D, g));
 		int32_t p0 = $nc(v)->getStartOffset();
 		int32_t p1 = v->getEndOffset();
-		$var($AttributeSet, attrSet, $nc($(v->getElement()))->getAttributes());
+		$var($AttributeSet, attrSet, $$nc(v->getElement())->getAttributes());
 		$init($StyleConstants);
 		$var($AttributedString, as, $cast($AttributedString, $nc(attrSet)->getAttribute($StyleConstants::ComposedTextAttribute)));
-		int32_t start = $nc($(v->getElement()))->getStartOffset();
-		int32_t y = $nc(alloc)->y + alloc->height - $cast(int32_t, $nc($(v->getGlyphPainter()))->getDescent(v));
+		int32_t start = $$nc(v->getElement())->getStartOffset();
+		int32_t y = $nc(alloc)->y + $nc(alloc)->height - $cast(int32_t, $$nc(v->getGlyphPainter())->getDescent(v));
 		int32_t x = alloc->x;
 		$init($TextAttribute);
 		$nc(as)->addAttribute($TextAttribute::FONT, $(v->getFont()));
@@ -879,23 +741,23 @@ void Utilities::paintComposedText($Graphics* g, $Rectangle* alloc, $GlyphView* v
 			as->addAttribute($TextAttribute::SUPERSCRIPT, $TextAttribute::SUPERSCRIPT_SUB);
 		}
 		$var($AttributedCharacterIterator, aci, as->getIterator(nullptr, p0 - start, p1 - start));
-		$SwingUtilities2::drawString($(getJComponent(v)), static_cast<$Graphics*>(g2d), aci, x, y);
+		$SwingUtilities2::drawString($(getJComponent(v)), g2d, aci, x, y);
 	}
 }
 
 bool Utilities::isLeftToRight($Component* c) {
-	return $nc($($nc(c)->getComponentOrientation()))->isLeftToRight();
+	return $$nc($nc(c)->getComponentOrientation())->isLeftToRight();
 }
 
 int32_t Utilities::getNextVisualPositionFrom($View* v, int32_t pos, $Position$Bias* b, $Shape* alloc, int32_t direction, $Position$BiasArray* biasRet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(v)->getViewCount() == 0) {
 		return pos;
 	}
 	bool top = (direction == $SwingConstants::NORTH || direction == $SwingConstants::WEST);
 	int32_t retValue = 0;
 	if (pos == -1) {
-		int32_t childIndex = (top) ? $nc(v)->getViewCount() - 1 : 0;
+		int32_t childIndex = (top) ? v->getViewCount() - 1 : 0;
 		$var($View, child, v->getView(childIndex));
 		$var($Shape, childBounds, v->getChildAllocation(childIndex, alloc));
 		retValue = $nc(child)->getNextVisualPositionFrom(pos, b, childBounds, direction, biasRet);
@@ -909,14 +771,14 @@ int32_t Utilities::getNextVisualPositionFrom($View* v, int32_t pos, $Position$Bi
 		int32_t childIndex = 0;
 		$init($Position$Bias);
 		if (b == $Position$Bias::Backward && pos > 0) {
-			childIndex = $nc(v)->getViewIndex(pos - 1, $Position$Bias::Forward);
+			childIndex = v->getViewIndex(pos - 1, $Position$Bias::Forward);
 		} else {
-			childIndex = $nc(v)->getViewIndex(pos, $Position$Bias::Forward);
+			childIndex = v->getViewIndex(pos, $Position$Bias::Forward);
 		}
-		$var($View, child, $nc(v)->getView(childIndex));
+		$var($View, child, v->getView(childIndex));
 		$var($Shape, childBounds, v->getChildAllocation(childIndex, alloc));
 		retValue = $nc(child)->getNextVisualPositionFrom(pos, b, childBounds, direction, biasRet);
-		if ((direction == $SwingConstants::EAST || direction == $SwingConstants::WEST) && ($instanceOf($CompositeView, v)) && $nc(($cast($CompositeView, v)))->flipEastAndWestAtEnds(pos, b)) {
+		if ((direction == $SwingConstants::EAST || direction == $SwingConstants::WEST) && ($instanceOf($CompositeView, v)) && $cast($CompositeView, v)->flipEastAndWestAtEnds(pos, b)) {
 			increment *= -1;
 		}
 		childIndex += increment;
@@ -928,13 +790,13 @@ int32_t Utilities::getNextVisualPositionFrom($View* v, int32_t pos, $Position$Bi
 				return getNextVisualPositionFrom(v, pos, biasRet->get(0), alloc, direction, biasRet);
 			}
 		} else {
-			bool var$4 = retValue != -1 && $nc(biasRet)->get(0) != b;
-			if (var$4) {
-				bool var$5 = (increment == 1 && child->getEndOffset() == retValue);
-				var$4 = (var$5 || (increment == -1 && child->getStartOffset() == retValue));
+			bool var$1 = retValue != -1 && $nc(biasRet)->get(0) != b;
+			if (var$1) {
+				bool var$2 = increment == 1 && child->getEndOffset() == retValue;
+				var$1 = var$2 || (increment == -1 && child->getStartOffset() == retValue);
 			}
-			bool var$3 = var$4 && childIndex >= 0;
-			if (var$3 && childIndex < v->getViewCount()) {
+			bool var$0 = var$1 && childIndex >= 0;
+			if (var$0 && childIndex < v->getViewCount()) {
 				$assign(child, v->getView(childIndex));
 				$assign(childBounds, v->getChildAllocation(childIndex, alloc));
 				$var($Position$Bias, originalBias, $nc(biasRet)->get(0));
@@ -954,7 +816,121 @@ Utilities::Utilities() {
 }
 
 $Class* Utilities::load$($String* name, bool initialize) {
-	$loadClass(Utilities, name, initialize, &_Utilities_ClassInfo_, allocate$Utilities);
+	$NamedAttribute drawTabbedTextmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute drawTabbedTextmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", drawTabbedTextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getBreakLocationmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getBreakLocationmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getBreakLocationmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getPositionAbovemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getPositionAbovemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getPositionAbovemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getPositionBelowmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getPositionBelowmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getPositionBelowmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getTabbedTextOffsetmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getTabbedTextOffsetmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getTabbedTextOffsetmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getTabbedTextOffsetmethodAnnotations$$$3$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getTabbedTextOffsetmethodAnnotations$$$3[] = {
+		{"Ljava/lang/Deprecated;", getTabbedTextOffsetmethodAnnotations$$$3$namedAttribute},
+		{}
+	};
+	$NamedAttribute getTabbedTextWidthmethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute getTabbedTextWidthmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", getTabbedTextWidthmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Utilities, init$, void)},
+		{"drawComposedText", "(Ljavax/swing/text/View;Ljavax/swing/text/AttributeSet;Ljava/awt/Graphics;IIII)I", nullptr, $STATIC, $staticMethod(Utilities, drawComposedText, int32_t, $View*, $AttributeSet*, $Graphics*, int32_t, int32_t, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"drawComposedText", "(Ljavax/swing/text/View;Ljavax/swing/text/AttributeSet;Ljava/awt/Graphics;FFII)F", nullptr, $STATIC, $staticMethod(Utilities, drawComposedText, float, $View*, $AttributeSet*, $Graphics*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"drawComposedText", "(Ljavax/swing/text/View;Ljavax/swing/text/AttributeSet;Ljava/awt/Graphics;FFIIZ)F", nullptr, $STATIC, $staticMethod(Utilities, drawComposedText, float, $View*, $AttributeSet*, $Graphics*, float, float, int32_t, int32_t, bool), "javax.swing.text.BadLocationException"},
+		{"drawTabbedText", "(Ljavax/swing/text/Segment;IILjava/awt/Graphics;Ljavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, drawTabbedText, int32_t, $Segment*, int32_t, int32_t, $Graphics*, $TabExpander*, int32_t), nullptr, nullptr, drawTabbedTextmethodAnnotations$$},
+		{"drawTabbedText", "(Ljavax/swing/text/Segment;FFLjava/awt/Graphics2D;Ljavax/swing/text/TabExpander;I)F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, drawTabbedText, float, $Segment*, float, float, $Graphics2D*, $TabExpander*, int32_t)},
+		{"drawTabbedText", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;IILjava/awt/Graphics;Ljavax/swing/text/TabExpander;I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, drawTabbedText, int32_t, $View*, $Segment*, int32_t, int32_t, $Graphics*, $TabExpander*, int32_t)},
+		{"drawTabbedText", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;IILjava/awt/Graphics;Ljavax/swing/text/TabExpander;I[I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, drawTabbedText, int32_t, $View*, $Segment*, int32_t, int32_t, $Graphics*, $TabExpander*, int32_t, $ints*)},
+		{"drawTabbedText", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;FFLjava/awt/Graphics;Ljavax/swing/text/TabExpander;I[IZ)F", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, drawTabbedText, float, $View*, $Segment*, float, float, $Graphics*, $TabExpander*, int32_t, $ints*, bool)},
+		{"getBreakLocation", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;IILjavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getBreakLocation, int32_t, $Segment*, $FontMetrics*, int32_t, int32_t, $TabExpander*, int32_t), nullptr, nullptr, getBreakLocationmethodAnnotations$$},
+		{"getBreakLocation", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;IZ)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getBreakLocation, int32_t, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t, bool)},
+		{"getBreakLocation", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getBreakLocation, int32_t, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t)},
+		{"getJComponent", "(Ljavax/swing/text/View;)Ljavax/swing/JComponent;", nullptr, $STATIC, $staticMethod(Utilities, getJComponent, $JComponent*, $View*)},
+		{"getNextVisualPositionFrom", "(Ljavax/swing/text/View;ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $STATIC, $staticMethod(Utilities, getNextVisualPositionFrom, int32_t, $View*, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getNextWord", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getNextWord, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getNextWordInParagraph", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/text/Element;IZ)I", nullptr, $STATIC, $staticMethod(Utilities, getNextWordInParagraph, int32_t, $JTextComponent*, $Element*, int32_t, bool), "javax.swing.text.BadLocationException"},
+		{"getParagraphElement", "(Ljavax/swing/text/JTextComponent;I)Ljavax/swing/text/Element;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getParagraphElement, $Element*, $JTextComponent*, int32_t)},
+		{"getPositionAbove", "(Ljavax/swing/text/JTextComponent;II)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getPositionAbove, int32_t, $JTextComponent*, int32_t, int32_t), "javax.swing.text.BadLocationException", nullptr, getPositionAbovemethodAnnotations$$},
+		{"getPositionAbove", "(Ljavax/swing/text/JTextComponent;IFZ)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getPositionAbove, int32_t, $JTextComponent*, int32_t, float, bool), "javax.swing.text.BadLocationException"},
+		{"getPositionAbove", "(Ljavax/swing/text/JTextComponent;IF)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getPositionAbove, int32_t, $JTextComponent*, int32_t, float), "javax.swing.text.BadLocationException"},
+		{"getPositionBelow", "(Ljavax/swing/text/JTextComponent;II)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getPositionBelow, int32_t, $JTextComponent*, int32_t, int32_t), "javax.swing.text.BadLocationException", nullptr, getPositionBelowmethodAnnotations$$},
+		{"getPositionBelow", "(Ljavax/swing/text/JTextComponent;IFZ)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getPositionBelow, int32_t, $JTextComponent*, int32_t, float, bool), "javax.swing.text.BadLocationException"},
+		{"getPositionBelow", "(Ljavax/swing/text/JTextComponent;IF)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getPositionBelow, int32_t, $JTextComponent*, int32_t, float), "javax.swing.text.BadLocationException"},
+		{"getPrevWordInParagraph", "(Ljavax/swing/text/JTextComponent;Ljavax/swing/text/Element;I)I", nullptr, $STATIC, $staticMethod(Utilities, getPrevWordInParagraph, int32_t, $JTextComponent*, $Element*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getPreviousWord", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getPreviousWord, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getRowEnd", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getRowEnd, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getRowStart", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getRowStart, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getTabbedTextOffset", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;IILjavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $Segment*, $FontMetrics*, int32_t, int32_t, $TabExpander*, int32_t), nullptr, nullptr, getTabbedTextOffsetmethodAnnotations$$},
+		{"getTabbedTextOffset", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;IILjavax/swing/text/TabExpander;I[I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $View*, $Segment*, $FontMetrics*, int32_t, int32_t, $TabExpander*, int32_t, $ints*)},
+		{"getTabbedTextOffset", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;I[I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $View*, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t, $ints*)},
+		{"getTabbedTextOffset", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;IILjavax/swing/text/TabExpander;IZ)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $Segment*, $FontMetrics*, int32_t, int32_t, $TabExpander*, int32_t, bool), nullptr, nullptr, getTabbedTextOffsetmethodAnnotations$$$3},
+		{"getTabbedTextOffset", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;IZ)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t, bool)},
+		{"getTabbedTextOffset", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FFLjavax/swing/text/TabExpander;IZ[IZ)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextOffset, int32_t, $View*, $Segment*, $FontMetrics*, float, float, $TabExpander*, int32_t, bool, $ints*, bool)},
+		{"getTabbedTextWidth", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;ILjavax/swing/text/TabExpander;I)I", nullptr, $PUBLIC | $STATIC | $FINAL | $DEPRECATED, $staticMethod(Utilities, getTabbedTextWidth, int32_t, $Segment*, $FontMetrics*, int32_t, $TabExpander*, int32_t), nullptr, nullptr, getTabbedTextWidthmethodAnnotations$$},
+		{"getTabbedTextWidth", "(Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FLjavax/swing/text/TabExpander;I)F", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextWidth, float, $Segment*, $FontMetrics*, float, $TabExpander*, int32_t)},
+		{"getTabbedTextWidth", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;ILjavax/swing/text/TabExpander;I[I)I", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextWidth, int32_t, $View*, $Segment*, $FontMetrics*, int32_t, $TabExpander*, int32_t, $ints*)},
+		{"getTabbedTextWidth", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FLjavax/swing/text/TabExpander;I[I)F", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextWidth, float, $View*, $Segment*, $FontMetrics*, float, $TabExpander*, int32_t, $ints*)},
+		{"getTabbedTextWidth", "(Ljavax/swing/text/View;Ljavax/swing/text/Segment;Ljava/awt/FontMetrics;FLjavax/swing/text/TabExpander;I[IZ)F", nullptr, $STATIC | $FINAL, $staticMethod(Utilities, getTabbedTextWidth, float, $View*, $Segment*, $FontMetrics*, float, $TabExpander*, int32_t, $ints*, bool)},
+		{"getWordEnd", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getWordEnd, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getWordStart", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticMethod(Utilities, getWordStart, int32_t, $JTextComponent*, int32_t), "javax.swing.text.BadLocationException"},
+		{"isComposedTextAttributeDefined", "(Ljavax/swing/text/AttributeSet;)Z", nullptr, $STATIC, $staticMethod(Utilities, isComposedTextAttributeDefined, bool, $AttributeSet*)},
+		{"isComposedTextElement", "(Ljavax/swing/text/Document;I)Z", nullptr, $STATIC, $staticMethod(Utilities, isComposedTextElement, bool, $Document*, int32_t)},
+		{"isComposedTextElement", "(Ljavax/swing/text/Element;)Z", nullptr, $STATIC, $staticMethod(Utilities, isComposedTextElement, bool, $Element*)},
+		{"isLeftToRight", "(Ljava/awt/Component;)Z", nullptr, $STATIC, $staticMethod(Utilities, isLeftToRight, bool, $Component*)},
+		{"paintComposedText", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Ljavax/swing/text/GlyphView;)V", nullptr, $STATIC, $staticMethod(Utilities, paintComposedText, void, $Graphics*, $Rectangle*, $GlyphView*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.Utilities",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Utilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Utilities);
+	});
 	return class$;
 }
 

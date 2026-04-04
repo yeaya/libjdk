@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$AssignAnalyzer$1.h>
-
 #include <com/sun/tools/javac/comp/Flow$AssignAnalyzer.h>
 #include <com/sun/tools/javac/comp/Flow$BaseAnalyzer$PendingExit.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -21,56 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Flow$AssignAnalyzer$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/Flow$AssignAnalyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, this$1)},
-	{"val$uninitsAfterBreakWhenFalse", "Lcom/sun/tools/javac/util/Bits;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, val$uninitsAfterBreakWhenFalse)},
-	{"val$uninitsAfterBreakWhenTrue", "Lcom/sun/tools/javac/util/Bits;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, val$uninitsAfterBreakWhenTrue)},
-	{"val$initsAfterBreakWhenFalse", "Lcom/sun/tools/javac/util/Bits;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, val$initsAfterBreakWhenFalse)},
-	{"val$initsAfterBreakWhenTrue", "Lcom/sun/tools/javac/util/Bits;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, val$initsAfterBreakWhenTrue)},
-	{}
-};
-
-$MethodInfo _Flow$AssignAnalyzer$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AssignAnalyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;)V", nullptr, 0, $method(Flow$AssignAnalyzer$1, init$, void, $Flow$AssignAnalyzer*, $JCTree*, $Bits*, $Bits*, $Bits*, $Bits*)},
-	{"resolveJump", "()V", nullptr, 0, $virtualMethod(Flow$AssignAnalyzer$1, resolveJump, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Flow$AssignAnalyzer$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Flow$AssignAnalyzer",
-	"visitYield",
-	"(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V"
-};
-
-$InnerClassInfo _Flow$AssignAnalyzer$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$AssignAnalyzer", "com.sun.tools.javac.comp.Flow", "AssignAnalyzer", $PUBLIC},
-	{"com.sun.tools.javac.comp.Flow$AssignAnalyzer$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "PendingExit", $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCYield", "com.sun.tools.javac.tree.JCTree", "JCYield", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Flow$AssignAnalyzer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow$AssignAnalyzer$1",
-	"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit",
-	nullptr,
-	_Flow$AssignAnalyzer$1_FieldInfo_,
-	_Flow$AssignAnalyzer$1_MethodInfo_,
-	nullptr,
-	&_Flow$AssignAnalyzer$1_EnclosingMethodInfo_,
-	_Flow$AssignAnalyzer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$AssignAnalyzer$1($Class* clazz) {
-	return $of($alloc(Flow$AssignAnalyzer$1));
-}
 
 void Flow$AssignAnalyzer$1::init$($Flow$AssignAnalyzer* this$1, $JCTree* tree, $Bits* val$initsAfterBreakWhenTrue, $Bits* val$initsAfterBreakWhenFalse, $Bits* val$uninitsAfterBreakWhenTrue, $Bits* val$uninitsAfterBreakWhenFalse) {
 	$set(this, this$1, this$1);
@@ -95,7 +44,50 @@ Flow$AssignAnalyzer$1::Flow$AssignAnalyzer$1() {
 }
 
 $Class* Flow$AssignAnalyzer$1::load$($String* name, bool initialize) {
-	$loadClass(Flow$AssignAnalyzer$1, name, initialize, &_Flow$AssignAnalyzer$1_ClassInfo_, allocate$Flow$AssignAnalyzer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/Flow$AssignAnalyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, this$1)},
+		{"val$uninitsAfterBreakWhenFalse", "Lcom/sun/tools/javac/util/Bits;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, val$uninitsAfterBreakWhenFalse)},
+		{"val$uninitsAfterBreakWhenTrue", "Lcom/sun/tools/javac/util/Bits;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, val$uninitsAfterBreakWhenTrue)},
+		{"val$initsAfterBreakWhenFalse", "Lcom/sun/tools/javac/util/Bits;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, val$initsAfterBreakWhenFalse)},
+		{"val$initsAfterBreakWhenTrue", "Lcom/sun/tools/javac/util/Bits;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AssignAnalyzer$1, val$initsAfterBreakWhenTrue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AssignAnalyzer;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;Lcom/sun/tools/javac/util/Bits;)V", nullptr, 0, $method(Flow$AssignAnalyzer$1, init$, void, $Flow$AssignAnalyzer*, $JCTree*, $Bits*, $Bits*, $Bits*, $Bits*)},
+		{"resolveJump", "()V", nullptr, 0, $virtualMethod(Flow$AssignAnalyzer$1, resolveJump, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Flow$AssignAnalyzer",
+		"visitYield",
+		"(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$AssignAnalyzer", "com.sun.tools.javac.comp.Flow", "AssignAnalyzer", $PUBLIC},
+		{"com.sun.tools.javac.comp.Flow$AssignAnalyzer$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit", "com.sun.tools.javac.comp.Flow$BaseAnalyzer", "PendingExit", $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCYield", "com.sun.tools.javac.tree.JCTree", "JCYield", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow$AssignAnalyzer$1",
+		"com.sun.tools.javac.comp.Flow$BaseAnalyzer$PendingExit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$AssignAnalyzer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$AssignAnalyzer$1);
+	});
 	return class$;
 }
 

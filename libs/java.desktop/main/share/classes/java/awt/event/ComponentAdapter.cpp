@@ -1,5 +1,4 @@
 #include <java/awt/event/ComponentAdapter.h>
-
 #include <java/awt/event/ComponentEvent.h>
 #include <jcpp.h>
 
@@ -10,28 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace event {
-
-$MethodInfo _ComponentAdapter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ComponentAdapter, init$, void)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentAdapter, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentAdapter, componentMoved, void, $ComponentEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentAdapter, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentAdapter, componentShown, void, $ComponentEvent*)},
-	{}
-};
-
-$ClassInfo _ComponentAdapter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.event.ComponentAdapter",
-	"java.lang.Object",
-	"java.awt.event.ComponentListener",
-	nullptr,
-	_ComponentAdapter_MethodInfo_
-};
-
-$Object* allocate$ComponentAdapter($Class* clazz) {
-	return $of($alloc(ComponentAdapter));
-}
 
 void ComponentAdapter::init$() {
 }
@@ -52,7 +29,25 @@ ComponentAdapter::ComponentAdapter() {
 }
 
 $Class* ComponentAdapter::load$($String* name, bool initialize) {
-	$loadClass(ComponentAdapter, name, initialize, &_ComponentAdapter_ClassInfo_, allocate$ComponentAdapter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ComponentAdapter, init$, void)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentAdapter, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentAdapter, componentMoved, void, $ComponentEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentAdapter, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ComponentAdapter, componentShown, void, $ComponentEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.event.ComponentAdapter",
+		"java.lang.Object",
+		"java.awt.event.ComponentListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ComponentAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComponentAdapter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/StatementTree.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -9,19 +8,16 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$ClassInfo _StatementTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	"com.sun.source.tree.Tree"
-};
-
-$Object* allocate$StatementTree($Class* clazz) {
-	return $of($alloc(StatementTree));
-}
-
 $Class* StatementTree::load$($String* name, bool initialize) {
-	$loadClass(StatementTree, name, initialize, &_StatementTree_ClassInfo_, allocate$StatementTree);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		"com.sun.source.tree.Tree"
+	};
+	$loadClass(StatementTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StatementTree);
+	});
 	return class$;
 }
 

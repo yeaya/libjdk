@@ -1,5 +1,4 @@
 #include <javax/xml/xpath/XPathFactory.h>
-
 #include <com/sun/org/apache/xpath/internal/jaxp/XPathFactoryImpl.h>
 #include <java/lang/ClassLoader.h>
 #include <javax/xml/xpath/XPath.h>
@@ -32,40 +31,6 @@ namespace javax {
 	namespace xml {
 		namespace xpath {
 
-$FieldInfo _XPathFactory_FieldInfo_[] = {
-	{"DEFAULT_PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPathFactory, DEFAULT_PROPERTY_NAME)},
-	{"DEFAULT_OBJECT_MODEL_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPathFactory, DEFAULT_OBJECT_MODEL_URI)},
-	{}
-};
-
-$MethodInfo _XPathFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(XPathFactory, init$, void)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, getFeature, bool, $String*), "javax.xml.xpath.XPathFactoryConfigurationException"},
-	{"isObjectModelSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, isObjectModelSupported, bool, $String*)},
-	{"newDefaultInstance", "()Ljavax/xml/xpath/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newDefaultInstance, XPathFactory*)},
-	{"newInstance", "()Ljavax/xml/xpath/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*)},
-	{"newInstance", "(Ljava/lang/String;)Ljavax/xml/xpath/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*, $String*), "javax.xml.xpath.XPathFactoryConfigurationException"},
-	{"newInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljavax/xml/xpath/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*, $String*, $String*, $ClassLoader*), "javax.xml.xpath.XPathFactoryConfigurationException"},
-	{"newXPath", "()Ljavax/xml/xpath/XPath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, newXPath, $XPath*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, setFeature, void, $String*, bool), "javax.xml.xpath.XPathFactoryConfigurationException"},
-	{"setXPathFunctionResolver", "(Ljavax/xml/xpath/XPathFunctionResolver;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, setXPathFunctionResolver, void, $XPathFunctionResolver*)},
-	{"setXPathVariableResolver", "(Ljavax/xml/xpath/XPathVariableResolver;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, setXPathVariableResolver, void, $XPathVariableResolver*)},
-	{}
-};
-
-$ClassInfo _XPathFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.xml.xpath.XPathFactory",
-	"java.lang.Object",
-	nullptr,
-	_XPathFactory_FieldInfo_,
-	_XPathFactory_MethodInfo_
-};
-
-$Object* allocate$XPathFactory($Class* clazz) {
-	return $of($alloc(XPathFactory));
-}
-
 $String* XPathFactory::DEFAULT_PROPERTY_NAME = nullptr;
 $String* XPathFactory::DEFAULT_OBJECT_MODEL_URI = nullptr;
 
@@ -79,7 +44,7 @@ XPathFactory* XPathFactory::newDefaultInstance() {
 
 XPathFactory* XPathFactory::newInstance() {
 	$init(XPathFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return newInstance(XPathFactory::DEFAULT_OBJECT_MODEL_URI);
 	} catch ($XPathFactoryConfigurationException& e) {
@@ -90,7 +55,7 @@ XPathFactory* XPathFactory::newInstance() {
 
 XPathFactory* XPathFactory::newInstance($String* uri) {
 	$init(XPathFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (uri == nullptr) {
 		$throwNew($NullPointerException, "XPathFactory#newInstance(String uri) cannot be called with uri == null"_s);
@@ -111,7 +76,7 @@ XPathFactory* XPathFactory::newInstance($String* uri) {
 
 XPathFactory* XPathFactory::newInstance($String* uri, $String* factoryClassName, $ClassLoader* classLoader) {
 	$init(XPathFactory);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassLoader, cl, classLoader);
 	if (uri == nullptr) {
 		$throwNew($NullPointerException, "XPathFactory#newInstance(String uri) cannot be called with uri == null"_s);
@@ -136,13 +101,42 @@ XPathFactory* XPathFactory::newInstance($String* uri, $String* factoryClassName,
 XPathFactory::XPathFactory() {
 }
 
-void clinit$XPathFactory($Class* class$) {
+void XPathFactory::clinit$($Class* clazz) {
 	$assignStatic(XPathFactory::DEFAULT_PROPERTY_NAME, "javax.xml.xpath.XPathFactory"_s);
 	$assignStatic(XPathFactory::DEFAULT_OBJECT_MODEL_URI, "http://java.sun.com/jaxp/xpath/dom"_s);
 }
 
 $Class* XPathFactory::load$($String* name, bool initialize) {
-	$loadClass(XPathFactory, name, initialize, &_XPathFactory_ClassInfo_, clinit$XPathFactory, allocate$XPathFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_PROPERTY_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPathFactory, DEFAULT_PROPERTY_NAME)},
+		{"DEFAULT_OBJECT_MODEL_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XPathFactory, DEFAULT_OBJECT_MODEL_URI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(XPathFactory, init$, void)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, getFeature, bool, $String*), "javax.xml.xpath.XPathFactoryConfigurationException"},
+		{"isObjectModelSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, isObjectModelSupported, bool, $String*)},
+		{"newDefaultInstance", "()Ljavax/xml/xpath/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newDefaultInstance, XPathFactory*)},
+		{"newInstance", "()Ljavax/xml/xpath/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*)},
+		{"newInstance", "(Ljava/lang/String;)Ljavax/xml/xpath/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*, $String*), "javax.xml.xpath.XPathFactoryConfigurationException"},
+		{"newInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljavax/xml/xpath/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*, $String*, $String*, $ClassLoader*), "javax.xml.xpath.XPathFactoryConfigurationException"},
+		{"newXPath", "()Ljavax/xml/xpath/XPath;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, newXPath, $XPath*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, setFeature, void, $String*, bool), "javax.xml.xpath.XPathFactoryConfigurationException"},
+		{"setXPathFunctionResolver", "(Ljavax/xml/xpath/XPathFunctionResolver;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, setXPathFunctionResolver, void, $XPathFunctionResolver*)},
+		{"setXPathVariableResolver", "(Ljavax/xml/xpath/XPathVariableResolver;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, setXPathVariableResolver, void, $XPathVariableResolver*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.xml.xpath.XPathFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathFactory, name, initialize, &classInfo$$, XPathFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathFactory);
+	});
 	return class$;
 }
 

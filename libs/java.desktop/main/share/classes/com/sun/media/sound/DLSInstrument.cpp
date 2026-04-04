@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/DLSInstrument.h>
-
 #include <com/sun/media/sound/DLSInfo.h>
 #include <com/sun/media/sound/DLSModulator.h>
 #include <com/sun/media/sound/DLSRegion.h>
@@ -155,7 +154,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -167,51 +165,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DLSInstrument_FieldInfo_[] = {
-	{"preset", "I", nullptr, 0, $field(DLSInstrument, preset)},
-	{"bank", "I", nullptr, 0, $field(DLSInstrument, bank)},
-	{"druminstrument", "Z", nullptr, 0, $field(DLSInstrument, druminstrument)},
-	{"guid", "[B", nullptr, 0, $field(DLSInstrument, guid)},
-	{"info", "Lcom/sun/media/sound/DLSInfo;", nullptr, 0, $field(DLSInstrument, info)},
-	{"regions", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/DLSRegion;>;", 0, $field(DLSInstrument, regions)},
-	{"modulators", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/DLSModulator;>;", 0, $field(DLSInstrument, modulators)},
-	{}
-};
-
-$MethodInfo _DLSInstrument_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DLSInstrument, init$, void)},
-	{"<init>", "(Lcom/sun/media/sound/DLSSoundbank;)V", nullptr, $PUBLIC, $method(DLSInstrument, init$, void, $DLSSoundbank*)},
-	{"convertToModel", "(Lcom/sun/media/sound/DLSModulator;)Lcom/sun/media/sound/ModelConnectionBlock;", nullptr, $PRIVATE, $method(DLSInstrument, convertToModel, $ModelConnectionBlock*, $DLSModulator*)},
-	{"convertToModelDest", "(I)Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PRIVATE, $method(DLSInstrument, convertToModelDest, $ModelIdentifier*, int32_t)},
-	{"convertToModelSrc", "(I)Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PRIVATE, $method(DLSInstrument, convertToModelSrc, $ModelIdentifier*, int32_t)},
-	{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, getData, $Object*)},
-	{"getGuid", "()[B", nullptr, $PUBLIC, $method(DLSInstrument, getGuid, $bytes*)},
-	{"getInfo", "()Lcom/sun/media/sound/DLSInfo;", nullptr, $PUBLIC, $method(DLSInstrument, getInfo, $DLSInfo*)},
-	{"getModulators", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/DLSModulator;>;", $PUBLIC, $method(DLSInstrument, getModulators, $List*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, getName, $String*)},
-	{"getPatch", "()Lcom/sun/media/sound/ModelPatch;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, getPatch, $Patch*)},
-	{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, getPerformers, $ModelPerformerArray*)},
-	{"getRegions", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/DLSRegion;>;", $PUBLIC, $method(DLSInstrument, getRegions, $List*)},
-	{"setGuid", "([B)V", nullptr, $PUBLIC, $method(DLSInstrument, setGuid, void, $bytes*)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DLSInstrument, setName, void, $String*)},
-	{"setPatch", "(Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $method(DLSInstrument, setPatch, void, $Patch*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DLSInstrument_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DLSInstrument",
-	"com.sun.media.sound.ModelInstrument",
-	nullptr,
-	_DLSInstrument_FieldInfo_,
-	_DLSInstrument_MethodInfo_
-};
-
-$Object* allocate$DLSInstrument($Class* clazz) {
-	return $of($alloc(DLSInstrument));
-}
 
 void DLSInstrument::init$() {
 	$ModelInstrument::init$(nullptr, nullptr, nullptr, nullptr);
@@ -252,9 +205,9 @@ $Patch* DLSInstrument::getPatch() {
 }
 
 void DLSInstrument::setPatch($Patch* patch) {
-	if ($instanceOf($ModelPatch, patch) && $nc(($cast($ModelPatch, patch)))->isPercussion()) {
+	if ($instanceOf($ModelPatch, patch) && $cast($ModelPatch, patch)->isPercussion()) {
 		this->druminstrument = true;
-		this->bank = $nc(patch)->getBank();
+		this->bank = patch->getBank();
 		this->preset = patch->getProgram();
 	} else {
 		this->druminstrument = false;
@@ -264,7 +217,7 @@ void DLSInstrument::setPatch($Patch* patch) {
 }
 
 $Object* DLSInstrument::getData() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $List* DLSInstrument::getRegions() {
@@ -276,7 +229,7 @@ $List* DLSInstrument::getModulators() {
 }
 
 $String* DLSInstrument::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->druminstrument) {
 		return $str({"Drumkit: "_s, $nc(this->info)->name, " bank #"_s, $$str(this->bank), " preset #"_s, $$str(this->preset)});
 	} else {
@@ -463,14 +416,13 @@ $ModelIdentifier* DLSInstrument::convertToModelSrc(int32_t src) {
 }
 
 $ModelConnectionBlock* DLSInstrument::convertToModel($DLSModulator* mod) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ModelIdentifier, source, convertToModelSrc($nc(mod)->getSource()));
-	$var($ModelIdentifier, control, convertToModelSrc($nc(mod)->getControl()));
-	$var($ModelIdentifier, destination_id, convertToModelDest($nc(mod)->getDestination()));
-	int32_t scale = $nc(mod)->getScale();
+	$var($ModelIdentifier, control, convertToModelSrc(mod->getControl()));
+	$var($ModelIdentifier, destination_id, convertToModelDest(mod->getDestination()));
+	int32_t scale = mod->getScale();
 	double f_scale = 0.0;
 	if (scale == $Integer::MIN_VALUE) {
-		$init($Double);
 		f_scale = $Double::NEGATIVE_INFINITY;
 	} else {
 		f_scale = scale / 65536.0;
@@ -481,13 +433,10 @@ $ModelConnectionBlock* DLSInstrument::convertToModel($DLSModulator* mod) {
 		$var($ModelConnectionBlock, block, $new($ModelConnectionBlock));
 		if (control != nullptr) {
 			$var($ModelSource, s, $new($ModelSource));
-			$init($ModelSource);
 			if (control == $ModelSource::SOURCE_MIDI_PITCH) {
-				$nc(($cast($ModelStandardTransform, $(s->getTransform()))))->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
-			} else {
-				if (control == $ModelSource::SOURCE_LFO1 || control == $ModelSource::SOURCE_LFO2) {
-					$nc(($cast($ModelStandardTransform, $(s->getTransform()))))->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
-				}
+				$$sure($ModelStandardTransform, s->getTransform())->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
+			} else if (control == $ModelSource::SOURCE_LFO1 || control == $ModelSource::SOURCE_LFO2) {
+				$$sure($ModelStandardTransform, s->getTransform())->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
 			}
 			s->setIdentifier(control);
 			block->addSource(s);
@@ -495,13 +444,10 @@ $ModelConnectionBlock* DLSInstrument::convertToModel($DLSModulator* mod) {
 		}
 		if (source != nullptr) {
 			$var($ModelSource, s, $new($ModelSource));
-			$init($ModelSource);
 			if (source == $ModelSource::SOURCE_MIDI_PITCH) {
-				$nc(($cast($ModelStandardTransform, $(s->getTransform()))))->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
-			} else {
-				if (source == $ModelSource::SOURCE_LFO1 || source == $ModelSource::SOURCE_LFO2) {
-					$nc(($cast($ModelStandardTransform, $(s->getTransform()))))->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
-				}
+				$$sure($ModelStandardTransform, s->getTransform())->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
+			} else if (source == $ModelSource::SOURCE_LFO1 || source == $ModelSource::SOURCE_LFO2) {
+				$$sure($ModelStandardTransform, s->getTransform())->setPolarity($ModelStandardTransform::POLARITY_BIPOLAR);
 			}
 			s->setIdentifier(source);
 			block->addSource(s);
@@ -513,22 +459,22 @@ $ModelConnectionBlock* DLSInstrument::convertToModel($DLSModulator* mod) {
 		if (mod->getVersion() == 1) {
 			if (mod->getTransform() == $DLSModulator::CONN_TRN_CONCAVE) {
 				if (src != nullptr) {
-					$nc(($cast($ModelStandardTransform, $(src->getTransform()))))->setTransform($ModelStandardTransform::TRANSFORM_CONCAVE);
-					$nc(($cast($ModelStandardTransform, $(src->getTransform()))))->setDirection($ModelStandardTransform::DIRECTION_MAX2MIN);
+					$$sure($ModelStandardTransform, src->getTransform())->setTransform($ModelStandardTransform::TRANSFORM_CONCAVE);
+					$$sure($ModelStandardTransform, src->getTransform())->setDirection($ModelStandardTransform::DIRECTION_MAX2MIN);
 				}
 				if (ctrl != nullptr) {
-					$nc(($cast($ModelStandardTransform, $(ctrl->getTransform()))))->setTransform($ModelStandardTransform::TRANSFORM_CONCAVE);
-					$nc(($cast($ModelStandardTransform, $(ctrl->getTransform()))))->setDirection($ModelStandardTransform::DIRECTION_MAX2MIN);
+					$$sure($ModelStandardTransform, ctrl->getTransform())->setTransform($ModelStandardTransform::TRANSFORM_CONCAVE);
+					$$sure($ModelStandardTransform, ctrl->getTransform())->setDirection($ModelStandardTransform::DIRECTION_MAX2MIN);
 				}
 			}
 		} else if (mod->getVersion() == 2) {
 			int32_t transform = mod->getTransform();
-			int32_t src_transform_invert = (int32_t)((transform >> 15) & (uint32_t)1);
-			int32_t src_transform_bipolar = (int32_t)((transform >> 14) & (uint32_t)1);
-			int32_t src_transform = (int32_t)((transform >> 10) & (uint32_t)8);
-			int32_t ctr_transform_invert = (int32_t)((transform >> 9) & (uint32_t)1);
-			int32_t ctr_transform_bipolar = (int32_t)((transform >> 8) & (uint32_t)1);
-			int32_t ctr_transform = (int32_t)((transform >> 4) & (uint32_t)8);
+			int32_t src_transform_invert = (transform >> 15) & 1;
+			int32_t src_transform_bipolar = (transform >> 14) & 1;
+			int32_t src_transform = (transform >> 10) & 8;
+			int32_t ctr_transform_invert = (transform >> 9) & 1;
+			int32_t ctr_transform_bipolar = (transform >> 8) & 1;
+			int32_t ctr_transform = (transform >> 4) & 8;
 			if (src != nullptr) {
 				int32_t trans = $ModelStandardTransform::TRANSFORM_LINEAR;
 				if (src_transform == $DLSModulator::CONN_TRN_SWITCH) {
@@ -540,9 +486,9 @@ $ModelConnectionBlock* DLSInstrument::convertToModel($DLSModulator* mod) {
 				if (src_transform == $DLSModulator::CONN_TRN_CONVEX) {
 					trans = $ModelStandardTransform::TRANSFORM_CONVEX;
 				}
-				$nc(($cast($ModelStandardTransform, $(src->getTransform()))))->setTransform(trans);
-				$nc(($cast($ModelStandardTransform, $(src->getTransform()))))->setPolarity(src_transform_bipolar == 1);
-				$nc(($cast($ModelStandardTransform, $(src->getTransform()))))->setDirection(src_transform_invert == 1);
+				$$sure($ModelStandardTransform, src->getTransform())->setTransform(trans);
+				$$sure($ModelStandardTransform, src->getTransform())->setPolarity(src_transform_bipolar == 1);
+				$$sure($ModelStandardTransform, src->getTransform())->setDirection(src_transform_invert == 1);
 			}
 			if (ctrl != nullptr) {
 				int32_t trans = $ModelStandardTransform::TRANSFORM_LINEAR;
@@ -555,9 +501,9 @@ $ModelConnectionBlock* DLSInstrument::convertToModel($DLSModulator* mod) {
 				if (ctr_transform == $DLSModulator::CONN_TRN_CONVEX) {
 					trans = $ModelStandardTransform::TRANSFORM_CONVEX;
 				}
-				$nc(($cast($ModelStandardTransform, $(ctrl->getTransform()))))->setTransform(trans);
-				$nc(($cast($ModelStandardTransform, $(ctrl->getTransform()))))->setPolarity(ctr_transform_bipolar == 1);
-				$nc(($cast($ModelStandardTransform, $(ctrl->getTransform()))))->setDirection(ctr_transform_invert == 1);
+				$$sure($ModelStandardTransform, ctrl->getTransform())->setTransform(trans);
+				$$sure($ModelStandardTransform, ctrl->getTransform())->setPolarity(ctr_transform_bipolar == 1);
+				$$sure($ModelStandardTransform, ctrl->getTransform())->setDirection(ctr_transform_invert == 1);
 			}
 		}
 		block->setScale(f_scale);
@@ -567,18 +513,21 @@ $ModelConnectionBlock* DLSInstrument::convertToModel($DLSModulator* mod) {
 }
 
 $ModelPerformerArray* DLSInstrument::getPerformers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, performers, $new($ArrayList));
 	$var($Map, modmap, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($(getModulators()))->iterator());
+		$var($Iterator, i$, $$nc(getModulators())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($DLSModulator, mod, $cast($DLSModulator, i$->next()));
 			{
-				$var($String, var$2, $$str({$$str($nc(mod)->getSource()), "x"_s}));
-				$var($String, var$1, $$concat(var$2, $$str(mod->getControl())));
-				$var($String, var$0, $$concat(var$1, "="_s));
-				modmap->put($$concat(var$0, $$str(mod->getDestination())), mod);
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($nc(mod)->getSource());
+				var$0->append("x"_s);
+				var$0->append(mod->getControl());
+				var$0->append("="_s);
+				var$0->append(mod->getDestination());
+				modmap->put($$str(var$0), mod);
 			}
 		}
 	}
@@ -589,30 +538,33 @@ $ModelPerformerArray* DLSInstrument::getPerformers() {
 			$var($DLSRegion, zone, $cast($DLSRegion, i$->next()));
 			{
 				$var($ModelPerformer, performer, $new($ModelPerformer));
-				performer->setName($($nc($($nc(zone)->getSample()))->getName()));
-				performer->setSelfNonExclusive(((int32_t)($nc(zone)->getFusoptions() & (uint32_t)$DLSRegion::OPTION_SELFNONEXCLUSIVE)) != 0);
-				performer->setExclusiveClass($nc(zone)->getExclusiveClass());
-				performer->setKeyFrom($nc(zone)->getKeyfrom());
-				performer->setKeyTo($nc(zone)->getKeyto());
-				performer->setVelFrom($nc(zone)->getVelfrom());
-				performer->setVelTo($nc(zone)->getVelto());
+				performer->setName($($$nc($nc(zone)->getSample())->getName()));
+				performer->setSelfNonExclusive((zone->getFusoptions() & $DLSRegion::OPTION_SELFNONEXCLUSIVE) != 0);
+				performer->setExclusiveClass(zone->getExclusiveClass());
+				performer->setKeyFrom(zone->getKeyfrom());
+				performer->setKeyTo(zone->getKeyto());
+				performer->setVelFrom(zone->getVelfrom());
+				performer->setVelTo(zone->getVelto());
 				insmodmap->clear();
 				insmodmap->putAll(modmap);
 				{
-					$var($Iterator, i$, $nc($($nc(zone)->getModulators()))->iterator());
+					$var($Iterator, i$, $$nc(zone->getModulators())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($DLSModulator, mod, $cast($DLSModulator, i$->next()));
 						{
-							$var($String, var$5, $$str({$$str($nc(mod)->getSource()), "x"_s}));
-							$var($String, var$4, $$concat(var$5, $$str(mod->getControl())));
-							$var($String, var$3, $$concat(var$4, "="_s));
-							insmodmap->put($$concat(var$3, $$str(mod->getDestination())), mod);
+							$var($StringBuilder, var$1, $new($StringBuilder));
+							var$1->append($nc(mod)->getSource());
+							var$1->append("x"_s);
+							var$1->append(mod->getControl());
+							var$1->append("="_s);
+							var$1->append(mod->getDestination());
+							insmodmap->put($$str(var$1), mod);
 						}
 					}
 				}
 				$var($List, blocks, performer->getConnectionBlocks());
 				{
-					$var($Iterator, i$, $nc($(insmodmap->values()))->iterator());
+					$var($Iterator, i$, $$nc(insmodmap->values())->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($DLSModulator, mod, $cast($DLSModulator, i$->next()));
 						{
@@ -629,44 +581,84 @@ $ModelPerformerArray* DLSInstrument::getPerformers() {
 					$assign(sampleopt, $nc(sample)->getSampleoptions());
 				}
 				$var($ModelByteBuffer, buff, $nc(sample)->getDataBuffer());
-				float pitchcorrection = (float)((-$nc(sampleopt)->unitynote * 100) + sampleopt->finetune);
+				float pitchcorrection = (float)((-$nc(sampleopt)->unitynote * 100) + $nc(sampleopt)->finetune);
 				$var($ModelByteBufferWavetable, osc, $new($ModelByteBufferWavetable, buff, $(sample->getFormat()), pitchcorrection));
 				osc->setAttenuation(osc->getAttenuation() / 65536.0f);
-				if ($nc($(sampleopt->getLoops()))->size() != 0) {
-					$var($DLSSampleLoop, loop, $cast($DLSSampleLoop, $nc($(sampleopt->getLoops()))->get(0)));
+				if ($$nc(sampleopt->getLoops())->size() != 0) {
+					$var($DLSSampleLoop, loop, $cast($DLSSampleLoop, $$nc(sampleopt->getLoops())->get(0)));
 					osc->setLoopStart((float)(int32_t)$nc(loop)->getStart());
-					osc->setLoopLength((float)(int32_t)$nc(loop)->getLength());
-					if ($nc(loop)->getType() == $DLSSampleLoop::LOOP_TYPE_FORWARD) {
+					osc->setLoopLength((float)(int32_t)loop->getLength());
+					if (loop->getType() == $DLSSampleLoop::LOOP_TYPE_FORWARD) {
 						osc->setLoopType($ModelWavetable::LOOP_TYPE_FORWARD);
 					}
-					if ($nc(loop)->getType() == $DLSSampleLoop::LOOP_TYPE_RELEASE) {
+					if (loop->getType() == $DLSSampleLoop::LOOP_TYPE_RELEASE) {
 						osc->setLoopType($ModelWavetable::LOOP_TYPE_RELEASE);
 					} else {
 						osc->setLoopType($ModelWavetable::LOOP_TYPE_FORWARD);
 					}
 				}
-				$nc($(performer->getConnectionBlocks()))->add($$new($ModelConnectionBlock, (double)$SoftFilter::FILTERTYPE_LP12, $$new($ModelDestination, $$new($ModelIdentifier, "filter"_s, "type"_s, 1))));
-				$nc($(performer->getOscillators()))->add(osc);
+				$$nc(performer->getConnectionBlocks())->add($$new($ModelConnectionBlock, (double)$SoftFilter::FILTERTYPE_LP12, $$new($ModelDestination, $$new($ModelIdentifier, "filter"_s, "type"_s, 1))));
+				$$nc(performer->getOscillators())->add(osc);
 				performers->add(performer);
 			}
 		}
 	}
-	return $fcast($ModelPerformerArray, performers->toArray($$new($ModelPerformerArray, performers->size())));
+	return $cast($ModelPerformerArray, performers->toArray($$new($ModelPerformerArray, performers->size())));
 }
 
 $bytes* DLSInstrument::getGuid() {
-	return this->guid == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(this->guid, $nc(this->guid)->length);
+	return this->guid == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(this->guid, this->guid->length);
 }
 
 void DLSInstrument::setGuid($bytes* guid) {
-	$set(this, guid, guid == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(guid, $nc(guid)->length));
+	$set(this, guid, guid == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(guid, guid->length));
 }
 
 DLSInstrument::DLSInstrument() {
 }
 
 $Class* DLSInstrument::load$($String* name, bool initialize) {
-	$loadClass(DLSInstrument, name, initialize, &_DLSInstrument_ClassInfo_, allocate$DLSInstrument);
+	$FieldInfo fieldInfos$$[] = {
+		{"preset", "I", nullptr, 0, $field(DLSInstrument, preset)},
+		{"bank", "I", nullptr, 0, $field(DLSInstrument, bank)},
+		{"druminstrument", "Z", nullptr, 0, $field(DLSInstrument, druminstrument)},
+		{"guid", "[B", nullptr, 0, $field(DLSInstrument, guid)},
+		{"info", "Lcom/sun/media/sound/DLSInfo;", nullptr, 0, $field(DLSInstrument, info)},
+		{"regions", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/DLSRegion;>;", 0, $field(DLSInstrument, regions)},
+		{"modulators", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/media/sound/DLSModulator;>;", 0, $field(DLSInstrument, modulators)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DLSInstrument, init$, void)},
+		{"<init>", "(Lcom/sun/media/sound/DLSSoundbank;)V", nullptr, $PUBLIC, $method(DLSInstrument, init$, void, $DLSSoundbank*)},
+		{"convertToModel", "(Lcom/sun/media/sound/DLSModulator;)Lcom/sun/media/sound/ModelConnectionBlock;", nullptr, $PRIVATE, $method(DLSInstrument, convertToModel, $ModelConnectionBlock*, $DLSModulator*)},
+		{"convertToModelDest", "(I)Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PRIVATE, $method(DLSInstrument, convertToModelDest, $ModelIdentifier*, int32_t)},
+		{"convertToModelSrc", "(I)Lcom/sun/media/sound/ModelIdentifier;", nullptr, $PRIVATE, $method(DLSInstrument, convertToModelSrc, $ModelIdentifier*, int32_t)},
+		{"getData", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, getData, $Object*)},
+		{"getGuid", "()[B", nullptr, $PUBLIC, $method(DLSInstrument, getGuid, $bytes*)},
+		{"getInfo", "()Lcom/sun/media/sound/DLSInfo;", nullptr, $PUBLIC, $method(DLSInstrument, getInfo, $DLSInfo*)},
+		{"getModulators", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/DLSModulator;>;", $PUBLIC, $method(DLSInstrument, getModulators, $List*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, getName, $String*)},
+		{"getPatch", "()Lcom/sun/media/sound/ModelPatch;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, getPatch, $Patch*)},
+		{"getPerformers", "()[Lcom/sun/media/sound/ModelPerformer;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, getPerformers, $ModelPerformerArray*)},
+		{"getRegions", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/media/sound/DLSRegion;>;", $PUBLIC, $method(DLSInstrument, getRegions, $List*)},
+		{"setGuid", "([B)V", nullptr, $PUBLIC, $method(DLSInstrument, setGuid, void, $bytes*)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DLSInstrument, setName, void, $String*)},
+		{"setPatch", "(Ljavax/sound/midi/Patch;)V", nullptr, $PUBLIC, $method(DLSInstrument, setPatch, void, $Patch*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DLSInstrument, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DLSInstrument",
+		"com.sun.media.sound.ModelInstrument",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DLSInstrument, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DLSInstrument);
+	});
 	return class$;
 }
 

@@ -1,10 +1,8 @@
 #include <sun/swing/PrintingStatus$NotificationPrintable.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Printable.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Runnable.h>
 #include <java/text/Format.h>
 #include <java/text/MessageFormat.h>
 #include <javax/swing/JLabel.h>
@@ -25,55 +23,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Runnable = ::java::lang::Runnable;
-using $MessageFormat = ::java::text::MessageFormat;
-using $JLabel = ::javax::swing::JLabel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $PrintingStatus = ::sun::swing::PrintingStatus;
 using $PrintingStatus$NotificationPrintable$1 = ::sun::swing::PrintingStatus$NotificationPrintable$1;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _PrintingStatus$NotificationPrintable_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/PrintingStatus;", nullptr, $FINAL | $SYNTHETIC, $field(PrintingStatus$NotificationPrintable, this$0)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PrintingStatus$NotificationPrintable, $assertionsDisabled)},
-	{"printDelegatee", "Ljava/awt/print/Printable;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus$NotificationPrintable, printDelegatee)},
-	{}
-};
-
-$MethodInfo _PrintingStatus$NotificationPrintable_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/PrintingStatus;Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $method(PrintingStatus$NotificationPrintable, init$, void, $PrintingStatus*, $Printable*)},
-	{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(PrintingStatus$NotificationPrintable, print, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
-	{"updateStatusOnEDT", "(I)V", nullptr, $PRIVATE, $method(PrintingStatus$NotificationPrintable, updateStatusOnEDT, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PrintingStatus$NotificationPrintable_InnerClassesInfo_[] = {
-	{"sun.swing.PrintingStatus$NotificationPrintable", "sun.swing.PrintingStatus", "NotificationPrintable", $PRIVATE},
-	{"sun.swing.PrintingStatus$NotificationPrintable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintingStatus$NotificationPrintable_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.PrintingStatus$NotificationPrintable",
-	"java.lang.Object",
-	"java.awt.print.Printable",
-	_PrintingStatus$NotificationPrintable_FieldInfo_,
-	_PrintingStatus$NotificationPrintable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrintingStatus$NotificationPrintable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.PrintingStatus"
-};
-
-$Object* allocate$PrintingStatus$NotificationPrintable($Class* clazz) {
-	return $of($alloc(PrintingStatus$NotificationPrintable));
-}
 
 bool PrintingStatus$NotificationPrintable::$assertionsDisabled = false;
 
@@ -98,15 +53,15 @@ int32_t PrintingStatus$NotificationPrintable::print($Graphics* graphics, $PageFo
 }
 
 void PrintingStatus$NotificationPrintable::updateStatusOnEDT(int32_t pageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!PrintingStatus$NotificationPrintable::$assertionsDisabled && !$SwingUtilities::isEventDispatchThread()) {
 		$throwNew($AssertionError);
 	}
-	$var($ObjectArray, pageNumber, $new($ObjectArray, {$($of($Integer::valueOf(pageIndex + 1)))}));
+	$var($ObjectArray, pageNumber, $new($ObjectArray, {$($Integer::valueOf(pageIndex + 1))}));
 	$nc(this->this$0->statusLabel)->setText($($nc(this->this$0->statusFormat)->format(pageNumber)));
 }
 
-void clinit$PrintingStatus$NotificationPrintable($Class* class$) {
+void PrintingStatus$NotificationPrintable::clinit$($Class* clazz) {
 	$load($PrintingStatus);
 	PrintingStatus$NotificationPrintable::$assertionsDisabled = !$PrintingStatus::class$->desiredAssertionStatus();
 }
@@ -115,7 +70,41 @@ PrintingStatus$NotificationPrintable::PrintingStatus$NotificationPrintable() {
 }
 
 $Class* PrintingStatus$NotificationPrintable::load$($String* name, bool initialize) {
-	$loadClass(PrintingStatus$NotificationPrintable, name, initialize, &_PrintingStatus$NotificationPrintable_ClassInfo_, clinit$PrintingStatus$NotificationPrintable, allocate$PrintingStatus$NotificationPrintable);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/PrintingStatus;", nullptr, $FINAL | $SYNTHETIC, $field(PrintingStatus$NotificationPrintable, this$0)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PrintingStatus$NotificationPrintable, $assertionsDisabled)},
+		{"printDelegatee", "Ljava/awt/print/Printable;", nullptr, $PRIVATE | $FINAL, $field(PrintingStatus$NotificationPrintable, printDelegatee)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/PrintingStatus;Ljava/awt/print/Printable;)V", nullptr, $PUBLIC, $method(PrintingStatus$NotificationPrintable, init$, void, $PrintingStatus*, $Printable*)},
+		{"print", "(Ljava/awt/Graphics;Ljava/awt/print/PageFormat;I)I", nullptr, $PUBLIC, $virtualMethod(PrintingStatus$NotificationPrintable, print, int32_t, $Graphics*, $PageFormat*, int32_t), "java.awt.print.PrinterException"},
+		{"updateStatusOnEDT", "(I)V", nullptr, $PRIVATE, $method(PrintingStatus$NotificationPrintable, updateStatusOnEDT, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.PrintingStatus$NotificationPrintable", "sun.swing.PrintingStatus", "NotificationPrintable", $PRIVATE},
+		{"sun.swing.PrintingStatus$NotificationPrintable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.PrintingStatus$NotificationPrintable",
+		"java.lang.Object",
+		"java.awt.print.Printable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.PrintingStatus"
+	};
+	$loadClass(PrintingStatus$NotificationPrintable, name, initialize, &classInfo$$, PrintingStatus$NotificationPrintable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintingStatus$NotificationPrintable);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/windows/EHTMLReadMode.h>
-
 #include <java/awt/datatransfer/DataFlavor.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,37 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _EHTMLReadMode_FieldInfo_[] = {
-	{"HTML_READ_ALL", "Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EHTMLReadMode, HTML_READ_ALL)},
-	{"HTML_READ_FRAGMENT", "Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EHTMLReadMode, HTML_READ_FRAGMENT)},
-	{"HTML_READ_SELECTION", "Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EHTMLReadMode, HTML_READ_SELECTION)},
-	{"$VALUES", "[Lsun/awt/windows/EHTMLReadMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(EHTMLReadMode, $VALUES)},
-	{}
-};
-
-$MethodInfo _EHTMLReadMode_MethodInfo_[] = {
-	{"$values", "()[Lsun/awt/windows/EHTMLReadMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(EHTMLReadMode, $values, $EHTMLReadModeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(EHTMLReadMode, init$, void, $String*, int32_t)},
-	{"getEHTMLReadMode", "(Ljava/awt/datatransfer/DataFlavor;)Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(EHTMLReadMode, getEHTMLReadMode, EHTMLReadMode*, $DataFlavor*)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(EHTMLReadMode, valueOf, EHTMLReadMode*, $String*)},
-	{"values", "()[Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(EHTMLReadMode, values, $EHTMLReadModeArray*)},
-	{}
-};
-
-$ClassInfo _EHTMLReadMode_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.awt.windows.EHTMLReadMode",
-	"java.lang.Enum",
-	nullptr,
-	_EHTMLReadMode_FieldInfo_,
-	_EHTMLReadMode_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/awt/windows/EHTMLReadMode;>;"
-};
-
-$Object* allocate$EHTMLReadMode($Class* clazz) {
-	return $of($alloc(EHTMLReadMode));
-}
 
 EHTMLReadMode* EHTMLReadMode::HTML_READ_ALL = nullptr;
 EHTMLReadMode* EHTMLReadMode::HTML_READ_FRAGMENT = nullptr;
@@ -90,7 +58,7 @@ EHTMLReadMode* EHTMLReadMode::getEHTMLReadMode($DataFlavor* df) {
 	return mode;
 }
 
-void clinit$EHTMLReadMode($Class* class$) {
+void EHTMLReadMode::clinit$($Class* clazz) {
 	$assignStatic(EHTMLReadMode::HTML_READ_ALL, $new(EHTMLReadMode, "HTML_READ_ALL"_s, 0));
 	$assignStatic(EHTMLReadMode::HTML_READ_FRAGMENT, $new(EHTMLReadMode, "HTML_READ_FRAGMENT"_s, 1));
 	$assignStatic(EHTMLReadMode::HTML_READ_SELECTION, $new(EHTMLReadMode, "HTML_READ_SELECTION"_s, 2));
@@ -101,7 +69,33 @@ EHTMLReadMode::EHTMLReadMode() {
 }
 
 $Class* EHTMLReadMode::load$($String* name, bool initialize) {
-	$loadClass(EHTMLReadMode, name, initialize, &_EHTMLReadMode_ClassInfo_, clinit$EHTMLReadMode, allocate$EHTMLReadMode);
+	$FieldInfo fieldInfos$$[] = {
+		{"HTML_READ_ALL", "Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EHTMLReadMode, HTML_READ_ALL)},
+		{"HTML_READ_FRAGMENT", "Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EHTMLReadMode, HTML_READ_FRAGMENT)},
+		{"HTML_READ_SELECTION", "Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(EHTMLReadMode, HTML_READ_SELECTION)},
+		{"$VALUES", "[Lsun/awt/windows/EHTMLReadMode;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(EHTMLReadMode, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/awt/windows/EHTMLReadMode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(EHTMLReadMode, $values, $EHTMLReadModeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(EHTMLReadMode, init$, void, $String*, int32_t)},
+		{"getEHTMLReadMode", "(Ljava/awt/datatransfer/DataFlavor;)Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(EHTMLReadMode, getEHTMLReadMode, EHTMLReadMode*, $DataFlavor*)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(EHTMLReadMode, valueOf, EHTMLReadMode*, $String*)},
+		{"values", "()[Lsun/awt/windows/EHTMLReadMode;", nullptr, $PUBLIC | $STATIC, $staticMethod(EHTMLReadMode, values, $EHTMLReadModeArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.awt.windows.EHTMLReadMode",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/awt/windows/EHTMLReadMode;>;"
+	};
+	$loadClass(EHTMLReadMode, name, initialize, &classInfo$$, EHTMLReadMode::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EHTMLReadMode));
+	});
 	return class$;
 }
 

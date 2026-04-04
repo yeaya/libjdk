@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$PostAttrAnalyzer.h>
-
 #include <com/sun/tools/javac/code/Symbol$BindingSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
@@ -42,12 +41,10 @@
 #undef TYPEIDENT
 #undef VOID
 
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$BindingSymbol = ::com::sun::tools::javac::code::Symbol$BindingSymbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
@@ -68,7 +65,6 @@ using $JCTree$JCPrimitiveTypeTree = ::com::sun::tools::javac::tree::JCTree$JCPri
 using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $List = ::com::sun::tools::javac::util::List;
 using $Position = ::com::sun::tools::javac::util::Position;
@@ -82,56 +78,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Attr$PostAttrAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$PostAttrAnalyzer, this$0)},
-	{}
-};
-
-$MethodInfo _Attr$PostAttrAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$PostAttrAnalyzer, init$, void, $Attr*)},
-	{"dummyMethodType", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, dummyMethodType, $Type*, $JCTree$JCMethodDecl*)},
-	{"dummyMethodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, dummyMethodType, $Type*)},
-	{"initTypeIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, initTypeIfNeeded, void, $JCTree*)},
-	{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, scan, void, $JCTree*)},
-	{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitAssignop, void, $JCTree$JCAssignOp*)},
-	{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitBinary, void, $JCTree$JCBinary*)},
-	{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitIdent, void, $JCTree$JCIdent*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitReference, void, $JCTree$JCMemberReference*)},
-	{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitSelect, void, $JCTree$JCFieldAccess*)},
-	{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitUnary, void, $JCTree$JCUnary*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$InnerClassInfo _Attr$PostAttrAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer", "com.sun.tools.javac.comp.Attr", "PostAttrAnalyzer", 0},
-	{}
-};
-
-$ClassInfo _Attr$PostAttrAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer",
-	"com.sun.tools.javac.tree.TreeScanner",
-	nullptr,
-	_Attr$PostAttrAnalyzer_FieldInfo_,
-	_Attr$PostAttrAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attr$PostAttrAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$PostAttrAnalyzer($Class* clazz) {
-	return $of($alloc(Attr$PostAttrAnalyzer));
-}
 
 void Attr$PostAttrAnalyzer::init$($Attr* this$0) {
 	$set(this, this$0, this$0);
@@ -150,19 +96,18 @@ void Attr$PostAttrAnalyzer::initTypeIfNeeded($JCTree* that) {
 }
 
 $Type* Attr$PostAttrAnalyzer::dummyMethodType($JCTree$JCMethodDecl* md) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, restype, $nc(this->this$0->syms)->unknownType);
 	$init($JCTree$Tag);
-	if (md != nullptr && md->restype != nullptr && $nc(md->restype)->hasTag($JCTree$Tag::TYPEIDENT)) {
+	if (md != nullptr && md->restype != nullptr && md->restype->hasTag($JCTree$Tag::TYPEIDENT)) {
 		$var($JCTree$JCPrimitiveTypeTree, prim, $cast($JCTree$JCPrimitiveTypeTree, md->restype));
 		$init($TypeTag);
 		if ($nc(prim)->typetag == $TypeTag::VOID) {
-			$assign(restype, $nc(this->this$0->syms)->voidType);
+			$assign(restype, this->this$0->syms->voidType);
 		}
 	}
 	$var($List, var$0, $List::nil());
-	$var($Type, var$1, restype);
-	return $new($Type$MethodType, var$0, var$1, $($List::nil()), $nc(this->this$0->syms)->methodClass);
+	return $new($Type$MethodType, var$0, restype, $($List::nil()), this->this$0->syms->methodClass);
 }
 
 $Type* Attr$PostAttrAnalyzer::dummyMethodType() {
@@ -212,18 +157,18 @@ void Attr$PostAttrAnalyzer::visitVarDef($JCTree$JCVariableDecl* that) {
 	initTypeIfNeeded(that);
 	if ($nc(that)->sym == nullptr) {
 		$set(that, sym, $new($Symbol$VarSymbol, 0, that->name, that->type, $nc(this->this$0->syms)->noSymbol));
-		$nc(that->sym)->adr = 0;
+		that->sym->adr = 0;
 	}
-	if ($nc(that)->vartype == nullptr) {
-		$set(that, vartype, $nc($($nc(this->this$0->make)->at($Position::NOPOS)))->Erroneous());
+	if (that->vartype == nullptr) {
+		$set(that, vartype, $$nc($nc(this->this$0->make)->at($Position::NOPOS))->Erroneous());
 	}
 	$TreeScanner::visitVarDef(that);
 }
 
 void Attr$PostAttrAnalyzer::visitBindingPattern($JCTree$JCBindingPattern* that) {
 	if ($nc($nc(that)->var)->sym == nullptr) {
-		$set($nc(that->var), sym, $new($Symbol$BindingSymbol, 0, $nc(that->var)->name, $nc(that->var)->type, $nc(this->this$0->syms)->noSymbol));
-		$nc($nc(that->var)->sym)->adr = 0;
+		$set(that->var, sym, $new($Symbol$BindingSymbol, 0, that->var->name, that->var->type, $nc(this->this$0->syms)->noSymbol));
+		that->var->sym->adr = 0;
 	}
 	$TreeScanner::visitBindingPattern(that);
 }
@@ -232,7 +177,7 @@ void Attr$PostAttrAnalyzer::visitNewClass($JCTree$JCNewClass* that) {
 	if ($nc(that)->constructor == nullptr) {
 		$set(that, constructor, $new($Symbol$MethodSymbol, 0, $nc(this->this$0->names)->init, $(dummyMethodType()), $nc(this->this$0->syms)->noSymbol));
 	}
-	if ($nc(that)->constructorType == nullptr) {
+	if (that->constructorType == nullptr) {
 		$set(that, constructorType, $nc(this->this$0->syms)->unknownType);
 	}
 	$TreeScanner::visitNewClass(that);
@@ -270,7 +215,51 @@ Attr$PostAttrAnalyzer::Attr$PostAttrAnalyzer() {
 }
 
 $Class* Attr$PostAttrAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Attr$PostAttrAnalyzer, name, initialize, &_Attr$PostAttrAnalyzer_ClassInfo_, allocate$Attr$PostAttrAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$PostAttrAnalyzer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$PostAttrAnalyzer, init$, void, $Attr*)},
+		{"dummyMethodType", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, dummyMethodType, $Type*, $JCTree$JCMethodDecl*)},
+		{"dummyMethodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, dummyMethodType, $Type*)},
+		{"initTypeIfNeeded", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PRIVATE, $method(Attr$PostAttrAnalyzer, initTypeIfNeeded, void, $JCTree*)},
+		{"scan", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, scan, void, $JCTree*)},
+		{"visitAssignop", "(Lcom/sun/tools/javac/tree/JCTree$JCAssignOp;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitAssignop, void, $JCTree$JCAssignOp*)},
+		{"visitBinary", "(Lcom/sun/tools/javac/tree/JCTree$JCBinary;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitBinary, void, $JCTree$JCBinary*)},
+		{"visitBindingPattern", "(Lcom/sun/tools/javac/tree/JCTree$JCBindingPattern;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitBindingPattern, void, $JCTree$JCBindingPattern*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitIdent", "(Lcom/sun/tools/javac/tree/JCTree$JCIdent;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitIdent, void, $JCTree$JCIdent*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitReference", "(Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitReference, void, $JCTree$JCMemberReference*)},
+		{"visitSelect", "(Lcom/sun/tools/javac/tree/JCTree$JCFieldAccess;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitSelect, void, $JCTree$JCFieldAccess*)},
+		{"visitUnary", "(Lcom/sun/tools/javac/tree/JCTree$JCUnary;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitUnary, void, $JCTree$JCUnary*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Attr$PostAttrAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer", "com.sun.tools.javac.comp.Attr", "PostAttrAnalyzer", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$PostAttrAnalyzer",
+		"com.sun.tools.javac.tree.TreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$PostAttrAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$PostAttrAnalyzer);
+	});
 	return class$;
 }
 

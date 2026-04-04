@@ -145,6 +145,7 @@ class AbstractTranslet : public ::com::sun::org::apache::xalan::internal::xsltc:
 	$class(AbstractTranslet, 0, ::com::sun::org::apache::xalan::internal::xsltc::Translet)
 public:
 	AbstractTranslet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addAuxiliaryClass($Class* auxClass) override;
 	virtual void addCdataElement($String* name);

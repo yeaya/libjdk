@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/signature/Manifest.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
@@ -64,7 +63,6 @@ using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security:
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $Transforms = ::com::sun::org::apache::xml::internal::security::transforms::Transforms;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
-using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $I18n = ::com::sun::org::apache::xml::internal::security::utils::I18n;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
@@ -113,85 +111,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(Manifest::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Manifest$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Manifest$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Manifest$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Manifest$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo Manifest$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xml.internal.security.signature.Manifest$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Manifest$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(Manifest$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Manifest$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Manifest$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xml.internal.security.signature.Manifest$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Manifest$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Manifest$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* Manifest$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _Manifest_FieldInfo_[] = {
-	{"MAXIMUM_REFERENCE_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Manifest, MAXIMUM_REFERENCE_COUNT)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Manifest, LOG)},
-	{"referenceCount", "Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC, $staticField(Manifest, referenceCount)},
-	{"references", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/Reference;>;", $PRIVATE, $field(Manifest, references)},
-	{"referencesEl", "[Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(Manifest, referencesEl)},
-	{"verificationResults", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PRIVATE, $field(Manifest, verificationResults)},
-	{"resolverProperties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(Manifest, resolverProperties)},
-	{"perManifestResolvers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;>;", $PRIVATE, $field(Manifest, perManifestResolvers)},
-	{"secureValidation", "Z", nullptr, $PRIVATE, $field(Manifest, secureValidation)},
-	{}
-};
-
-$MethodInfo _Manifest_MethodInfo_[] = {
-	{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Document*)},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"addDocument", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, addDocument, void, $String*, $String*, $Transforms*, $String*, $String*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"addResourceResolver", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, addResourceResolver, void, $ResourceResolverSpi*)},
-	{"generateDigestValues", "()V", nullptr, $PUBLIC, $virtualMethod(Manifest, generateDigestValues, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getBaseLocalName, $String*)},
-	{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getId, $String*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest, getLength, int32_t)},
-	{"getPerManifestResolvers", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;>;", $PUBLIC, $virtualMethod(Manifest, getPerManifestResolvers, $List*)},
-	{"getReferencedContentAfterTransformsItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Manifest, getReferencedContentAfterTransformsItem, $XMLSignatureInput*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getReferencedContentBeforeTransformsItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Manifest, getReferencedContentBeforeTransformsItem, $XMLSignatureInput*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getResolverProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Manifest, getResolverProperties, $Map*)},
-	{"getResolverProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getResolverProperty, $String*, $String*)},
-	{"getSignedContentItem", "(I)[B", nullptr, $PUBLIC, $virtualMethod(Manifest, getSignedContentItem, $bytes*, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getSignedContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest, getSignedContentLength, int32_t)},
-	{"getVerificationResult", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Manifest, getVerificationResult, bool, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getVerificationResults", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PUBLIC, $virtualMethod(Manifest, getVerificationResults, $List*)},
-	{"isSecureValidation", "()Z", nullptr, $PUBLIC, $virtualMethod(Manifest, isSecureValidation, bool)},
-	{"item", "(I)Lcom/sun/org/apache/xml/internal/security/signature/Reference;", nullptr, $PUBLIC, $virtualMethod(Manifest, item, $Reference*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Manifest, lambda$static$0, $Integer*)},
-	{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, setId, void, $String*)},
-	{"setResolverProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, setResolverProperty, void, $String*, $String*)},
-	{"verifyReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(Manifest, verifyReferences, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"verifyReferences", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(Manifest, verifyReferences, bool, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{}
-};
-
-$ClassInfo _Manifest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.signature.Manifest",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	nullptr,
-	_Manifest_FieldInfo_,
-	_Manifest_MethodInfo_
-};
-
-$Object* allocate$Manifest($Class* clazz) {
-	return $of($alloc(Manifest));
-}
 
 $Logger* Manifest::LOG = nullptr;
 $Integer* Manifest::referenceCount = nullptr;
@@ -207,7 +147,7 @@ void Manifest::init$($Element* element, $String* baseURI) {
 }
 
 void Manifest::init$($Element* element, $String* baseURI, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(element, baseURI);
 	$var($Attr, attr, $nc(element)->getAttributeNodeNS(nullptr, "Id"_s));
 	if (attr != nullptr) {
@@ -219,15 +159,15 @@ void Manifest::init$($Element* element, $String* baseURI, bool secureValidation)
 	int32_t le = $nc(this->referencesEl)->length;
 	if (le == 0) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_TAG_REFERENCE),
-			$of($Constants::_TAG_MANIFEST)
+			$Constants::_TAG_REFERENCE,
+			$Constants::_TAG_MANIFEST
 		}));
 		$throwNew($DOMException, $DOMException::WRONG_DOCUMENT_ERR, $($I18n::translate("xml.WrongContent"_s, exArgs)));
 	}
 	if (secureValidation && le > $nc(Manifest::referenceCount)->intValue()) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$($of($Integer::valueOf(le))),
-			$of(Manifest::referenceCount)
+			$($Integer::valueOf(le)),
+			Manifest::referenceCount
 		}));
 		$throwNew($XMLSecurityException, "signature.tooManyReferences"_s, exArgs);
 	}
@@ -243,7 +183,7 @@ void Manifest::init$($Element* element, $String* baseURI, bool secureValidation)
 }
 
 void Manifest::addDocument($String* baseURI, $String* referenceURI, $Transforms* transforms, $String* digestURI, $String* referenceId, $String* referenceType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Reference, ref, $new($Reference, $(getDocument()), baseURI, referenceURI, this, transforms, digestURI));
 	if (referenceId != nullptr) {
 		ref->setId(referenceId);
@@ -252,12 +192,12 @@ void Manifest::addDocument($String* baseURI, $String* referenceURI, $Transforms*
 		ref->setType(referenceType);
 	}
 	$nc(this->references)->add(ref);
-	appendSelf(static_cast<$ElementProxy*>(ref));
+	appendSelf(ref);
 	addReturnToSelf();
 }
 
 void Manifest::generateDigestValues() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->getLength(); ++i) {
 		$var($Reference, currentRef, $cast($Reference, $nc(this->references)->get(i)));
 		$nc(currentRef)->generateDigestValue();
@@ -271,9 +211,9 @@ int32_t Manifest::getLength() {
 $Reference* Manifest::item(int32_t i) {
 	if ($nc(this->references)->get(i) == nullptr) {
 		$var($Reference, ref, $new($Reference, $nc(this->referencesEl)->get(i), this->baseURI, this, this->secureValidation));
-		$nc(this->references)->set(i, ref);
+		this->references->set(i, ref);
 	}
-	return $cast($Reference, $nc(this->references)->get(i));
+	return $cast($Reference, this->references->get(i));
 }
 
 void Manifest::setId($String* Id) {
@@ -293,24 +233,24 @@ bool Manifest::verifyReferences() {
 }
 
 bool Manifest::verifyReferences(bool followManifests) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->referencesEl == nullptr) {
 		$init($Constants);
 		$set(this, referencesEl, $XMLUtils::selectDsNodes($(getFirstChild()), $Constants::_TAG_REFERENCE));
 	}
-	$nc(Manifest::LOG)->debug("verify {} References"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(this->referencesEl)->length)))}));
-	$nc(Manifest::LOG)->debug("I am {} requested to follow nested Manifests"_s, $$new($ObjectArray, {followManifests ? $of(""_s) : $of("not"_s)}));
+	$nc(Manifest::LOG)->debug("verify {} References"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(this->referencesEl)->length))}));
+	Manifest::LOG->debug("I am {} requested to follow nested Manifests"_s, $$new($ObjectArray, {followManifests ? ""_s : "not"_s}));
 	if ($nc(this->referencesEl)->length == 0) {
-		$throwNew($XMLSecurityException, "empty"_s, $$new($ObjectArray, {$of("References are empty"_s)}));
+		$throwNew($XMLSecurityException, "empty"_s, $$new($ObjectArray, {"References are empty"_s}));
 	}
-	if (this->secureValidation && $nc(this->referencesEl)->length > $nc(Manifest::referenceCount)->intValue()) {
+	if (this->secureValidation && this->referencesEl->length > $nc(Manifest::referenceCount)->intValue()) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$($of($Integer::valueOf($nc(this->referencesEl)->length))),
-			$of(Manifest::referenceCount)
+			$($Integer::valueOf(this->referencesEl->length)),
+			Manifest::referenceCount
 		}));
 		$throwNew($XMLSecurityException, "signature.tooManyReferences"_s, exArgs);
 	}
-	$set(this, verificationResults, $new($ArrayList, $nc(this->referencesEl)->length));
+	$set(this, verificationResults, $new($ArrayList, this->referencesEl->length));
 	bool verify = true;
 	for (int32_t i = 0; i < $nc(this->referencesEl)->length; ++i) {
 		$var($Reference, currentRef, $new($Reference, $nc(this->referencesEl)->get(i), this->baseURI, this, this->secureValidation));
@@ -320,10 +260,10 @@ bool Manifest::verifyReferences(bool followManifests) {
 			if (!currentRefVerified) {
 				verify = false;
 			}
-			$nc(Manifest::LOG)->debug("The Reference has Type {}"_s, $$new($ObjectArray, {$($of(currentRef->getType()))}));
+			Manifest::LOG->debug("The Reference has Type {}"_s, $$new($ObjectArray, {$(currentRef->getType())}));
 			$var($List, manifestReferences, $Collections::emptyList());
 			if (verify && followManifests && currentRef->typeIsReferenceToManifest()) {
-				$nc(Manifest::LOG)->debug("We have to follow a nested Manifest"_s);
+				Manifest::LOG->debug("We have to follow a nested Manifest"_s);
 				try {
 					$var($XMLSignatureInput, signedManifestNodes, currentRef->dereferenceURIandPerformTransforms(nullptr));
 					$var($Set, nl, $nc(signedManifestNodes)->getNodeSet());
@@ -333,50 +273,50 @@ bool Manifest::verifyReferences(bool followManifests) {
 						$var($Node, n, $cast($Node, nlIterator->next()));
 						bool var$1 = $nc(n)->getNodeType() == $Node::ELEMENT_NODE;
 						$init($Constants);
-						bool var$0 = var$1 && $nc($($nc(($cast($Element, n)))->getNamespaceURI()))->equals($Constants::SignatureSpecNS);
-						if (var$0 && $nc($($nc(($cast($Element, n)))->getLocalName()))->equals($Constants::_TAG_MANIFEST)) {
+						bool var$0 = var$1 && $$nc($cast($Element, n)->getNamespaceURI())->equals($Constants::SignatureSpecNS);
+						if (var$0 && $$nc($cast($Element, n)->getLocalName())->equals($Constants::_TAG_MANIFEST)) {
 							try {
 								$assign(referencedManifest, $new(Manifest, $cast($Element, n), $(signedManifestNodes->getSourceURI()), this->secureValidation));
 								break;
 							} catch ($XMLSecurityException& ex) {
-								$nc(Manifest::LOG)->debug($(ex->getMessage()), static_cast<$Throwable*>(ex));
+								Manifest::LOG->debug($(ex->getMessage()), ex);
 							}
 						}
 					}
 					if (referencedManifest == nullptr) {
-						$throwNew($MissingResourceFailureException, currentRef, "empty"_s, $$new($ObjectArray, {$of("No Manifest found"_s)}));
+						$throwNew($MissingResourceFailureException, currentRef, "empty"_s, $$new($ObjectArray, {"No Manifest found"_s}));
 					}
 					$set($nc(referencedManifest), perManifestResolvers, this->perManifestResolvers);
 					$set(referencedManifest, resolverProperties, this->resolverProperties);
 					bool referencedManifestValid = referencedManifest->verifyReferences(followManifests);
 					if (!referencedManifestValid) {
 						verify = false;
-						$nc(Manifest::LOG)->warn("The nested Manifest was invalid (bad)"_s);
+						Manifest::LOG->warn("The nested Manifest was invalid (bad)"_s);
 					} else {
-						$nc(Manifest::LOG)->debug("The nested Manifest was valid (good)"_s);
+						Manifest::LOG->debug("The nested Manifest was valid (good)"_s);
 					}
 					$assign(manifestReferences, referencedManifest->getVerificationResults());
 				} catch ($IOException& ex) {
-					$throwNew($ReferenceNotInitializedException, static_cast<$Exception*>(ex));
+					$throwNew($ReferenceNotInitializedException, ex);
 				} catch ($XMLParserException& ex) {
-					$throwNew($ReferenceNotInitializedException, static_cast<$Exception*>(ex));
+					$throwNew($ReferenceNotInitializedException, ex);
 				}
 			}
 			$nc(this->verificationResults)->add($$new($VerifiedReference, currentRefVerified, $(currentRef->getURI()), manifestReferences));
 		} catch ($ReferenceNotInitializedException& ex) {
-			$var($ObjectArray, exArgs, $new($ObjectArray, {$($of(currentRef->getURI()))}));
-			$throwNew($MissingResourceFailureException, static_cast<$Exception*>(ex), currentRef, "signature.Verification.Reference.NoInput"_s, exArgs);
+			$var($ObjectArray, exArgs, $new($ObjectArray, {$(currentRef->getURI())}));
+			$throwNew($MissingResourceFailureException, ex, currentRef, "signature.Verification.Reference.NoInput"_s, exArgs);
 		}
 	}
 	return verify;
 }
 
 bool Manifest::getVerificationResult(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (index < 0 || index > this->getLength() - 1) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$($of($Integer::toString(index))),
-			$($of($Integer::toString(this->getLength())))
+			$($Integer::toString(index)),
+			$($Integer::toString(this->getLength()))
 		}));
 		$var($Exception, e, $new($IndexOutOfBoundsException, $($I18n::translate("signature.Verification.IndexOutOfBounds"_s, exArgs))));
 		$throwNew($XMLSecurityException, e);
@@ -385,10 +325,10 @@ bool Manifest::getVerificationResult(int32_t index) {
 		try {
 			this->verifyReferences();
 		} catch ($Exception& ex) {
-			$throwNew($XMLSecurityException, $cast($Exception, ex));
+			$throwNew($XMLSecurityException, ex);
 		}
 	}
-	return $nc(($cast($VerifiedReference, $($nc(this->verificationResults)->get(index)))))->isValid();
+	return $$sure($VerifiedReference, $nc(this->verificationResults)->get(index))->isValid();
 }
 
 $List* Manifest::getVerificationResults() {
@@ -429,25 +369,25 @@ $String* Manifest::getResolverProperty($String* key) {
 
 $bytes* Manifest::getSignedContentItem(int32_t i) {
 	try {
-		return $nc($(this->getReferencedContentAfterTransformsItem(i)))->getBytes();
+		return $$nc(this->getReferencedContentAfterTransformsItem(i))->getBytes();
 	} catch ($IOException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($CanonicalizationException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($InvalidCanonicalizerException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($XMLSecurityException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 $XMLSignatureInput* Manifest::getReferencedContentBeforeTransformsItem(int32_t i) {
-	return $nc($(this->item(i)))->getContentsBeforeTransformation();
+	return $$nc(this->item(i))->getContentsBeforeTransformation();
 }
 
 $XMLSignatureInput* Manifest::getReferencedContentAfterTransformsItem(int32_t i) {
-	return $nc($(this->item(i)))->getContentsAfterTransformation();
+	return $$nc(this->item(i))->getContentsAfterTransformation();
 }
 
 int32_t Manifest::getSignedContentLength() {
@@ -465,14 +405,14 @@ bool Manifest::isSecureValidation() {
 
 $Integer* Manifest::lambda$static$0() {
 	$init(Manifest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Integer::valueOf($Integer::parseInt($($System::getProperty("com.sun.org.apache.xml.internal.security.maxReferences"_s, $($Integer::toString(Manifest::MAXIMUM_REFERENCE_COUNT))))));
 }
 
-void clinit$Manifest($Class* class$) {
+void Manifest::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(Manifest::LOG, $LoggerFactory::getLogger(Manifest::class$));
-	$assignStatic(Manifest::referenceCount, $cast($Integer, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Manifest$$Lambda$lambda$static$0)))));
+	$assignStatic(Manifest::referenceCount, $cast($Integer, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Manifest$$Lambda$lambda$static$0)))));
 }
 
 Manifest::Manifest() {
@@ -480,11 +420,61 @@ Manifest::Manifest() {
 
 $Class* Manifest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Manifest$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xml.internal.security.signature.Manifest$$Lambda$lambda$static$0")) {
 			return Manifest$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Manifest, name, initialize, &_Manifest_ClassInfo_, clinit$Manifest, allocate$Manifest);
+	$FieldInfo fieldInfos$$[] = {
+		{"MAXIMUM_REFERENCE_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Manifest, MAXIMUM_REFERENCE_COUNT)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Manifest, LOG)},
+		{"referenceCount", "Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC, $staticField(Manifest, referenceCount)},
+		{"references", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/Reference;>;", $PRIVATE, $field(Manifest, references)},
+		{"referencesEl", "[Lorg/w3c/dom/Element;", nullptr, $PRIVATE, $field(Manifest, referencesEl)},
+		{"verificationResults", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PRIVATE, $field(Manifest, verificationResults)},
+		{"resolverProperties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(Manifest, resolverProperties)},
+		{"perManifestResolvers", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;>;", $PRIVATE, $field(Manifest, perManifestResolvers)},
+		{"secureValidation", "Z", nullptr, $PRIVATE, $field(Manifest, secureValidation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/w3c/dom/Document;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Document*)},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(Manifest, init$, void, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"addDocument", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xml/internal/security/transforms/Transforms;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, addDocument, void, $String*, $String*, $Transforms*, $String*, $String*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"addResourceResolver", "(Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, addResourceResolver, void, $ResourceResolverSpi*)},
+		{"generateDigestValues", "()V", nullptr, $PUBLIC, $virtualMethod(Manifest, generateDigestValues, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException,com.sun.org.apache.xml.internal.security.signature.ReferenceNotInitializedException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getBaseLocalName, $String*)},
+		{"getId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getId, $String*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest, getLength, int32_t)},
+		{"getPerManifestResolvers", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi;>;", $PUBLIC, $virtualMethod(Manifest, getPerManifestResolvers, $List*)},
+		{"getReferencedContentAfterTransformsItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Manifest, getReferencedContentAfterTransformsItem, $XMLSignatureInput*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getReferencedContentBeforeTransformsItem", "(I)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(Manifest, getReferencedContentBeforeTransformsItem, $XMLSignatureInput*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getResolverProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Manifest, getResolverProperties, $Map*)},
+		{"getResolverProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Manifest, getResolverProperty, $String*, $String*)},
+		{"getSignedContentItem", "(I)[B", nullptr, $PUBLIC, $virtualMethod(Manifest, getSignedContentItem, $bytes*, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getSignedContentLength", "()I", nullptr, $PUBLIC, $virtualMethod(Manifest, getSignedContentLength, int32_t)},
+		{"getVerificationResult", "(I)Z", nullptr, $PUBLIC, $virtualMethod(Manifest, getVerificationResult, bool, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getVerificationResults", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/VerifiedReference;>;", $PUBLIC, $virtualMethod(Manifest, getVerificationResults, $List*)},
+		{"isSecureValidation", "()Z", nullptr, $PUBLIC, $virtualMethod(Manifest, isSecureValidation, bool)},
+		{"item", "(I)Lcom/sun/org/apache/xml/internal/security/signature/Reference;", nullptr, $PUBLIC, $virtualMethod(Manifest, item, $Reference*, int32_t), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"lambda$static$0", "()Ljava/lang/Integer;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Manifest, lambda$static$0, $Integer*)},
+		{"setId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, setId, void, $String*)},
+		{"setResolverProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Manifest, setResolverProperty, void, $String*, $String*)},
+		{"verifyReferences", "()Z", nullptr, $PUBLIC, $virtualMethod(Manifest, verifyReferences, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"verifyReferences", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(Manifest, verifyReferences, bool, bool), "com.sun.org.apache.xml.internal.security.signature.MissingResourceFailureException,com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.signature.Manifest",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Manifest, name, initialize, &classInfo$$, Manifest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Manifest);
+	});
 	return class$;
 }
 

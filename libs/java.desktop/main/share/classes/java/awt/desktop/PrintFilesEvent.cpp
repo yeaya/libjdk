@@ -1,5 +1,4 @@
 #include <java/awt/desktop/PrintFilesEvent.h>
-
 #include <java/awt/desktop/FilesEvent.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,29 +13,6 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$FieldInfo _PrintFilesEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintFilesEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PrintFilesEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/io/File;>;)V", $PUBLIC, $method(PrintFilesEvent, init$, void, $List*)},
-	{}
-};
-
-$ClassInfo _PrintFilesEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.desktop.PrintFilesEvent",
-	"java.awt.desktop.FilesEvent",
-	nullptr,
-	_PrintFilesEvent_FieldInfo_,
-	_PrintFilesEvent_MethodInfo_
-};
-
-$Object* allocate$PrintFilesEvent($Class* clazz) {
-	return $of($alloc(PrintFilesEvent));
-}
-
 void PrintFilesEvent::init$($List* files) {
 	$FilesEvent::init$(files);
 }
@@ -45,7 +21,25 @@ PrintFilesEvent::PrintFilesEvent() {
 }
 
 $Class* PrintFilesEvent::load$($String* name, bool initialize) {
-	$loadClass(PrintFilesEvent, name, initialize, &_PrintFilesEvent_ClassInfo_, allocate$PrintFilesEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintFilesEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/io/File;>;)V", $PUBLIC, $method(PrintFilesEvent, init$, void, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.desktop.PrintFilesEvent",
+		"java.awt.desktop.FilesEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintFilesEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintFilesEvent);
+	});
 	return class$;
 }
 

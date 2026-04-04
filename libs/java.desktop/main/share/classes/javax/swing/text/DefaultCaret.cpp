@@ -1,6 +1,4 @@
 #include <javax/swing/text/DefaultCaret.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -13,14 +11,9 @@
 #include <java/awt/datatransfer/StringSelection.h>
 #include <java/awt/datatransfer/Transferable.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -33,7 +26,6 @@
 #include <java/util/EventListener.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPasswordField.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/LookAndFeel.h>
@@ -43,7 +35,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/event/EventListenerList.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TextUI.h>
@@ -86,8 +77,6 @@
 using $EventListenerArray = $Array<::java::util::EventListener>;
 using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $Position$BiasArray = $Array<::javax::swing::text::Position$Bias>;
-using $AWTEvent = ::java::awt::AWTEvent;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Point = ::java::awt::Point;
@@ -98,14 +87,9 @@ using $ClipboardOwner = ::java::awt::datatransfer::ClipboardOwner;
 using $StringSelection = ::java::awt::datatransfer::StringSelection;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
@@ -123,20 +107,16 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
-using $EventListener = ::java::util::EventListener;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $JComponent = ::javax::swing::JComponent;
 using $JPasswordField = ::javax::swing::JPasswordField;
 using $JRootPane = ::javax::swing::JRootPane;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $UIManager = ::javax::swing::UIManager;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
@@ -165,142 +145,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultCaret_FieldInfo_[] = {
-	{"UPDATE_WHEN_ON_EDT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultCaret, UPDATE_WHEN_ON_EDT)},
-	{"NEVER_UPDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultCaret, NEVER_UPDATE)},
-	{"ALWAYS_UPDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultCaret, ALWAYS_UPDATE)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultCaret, listenerList)},
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultCaret, changeEvent)},
-	{"component", "Ljavax/swing/text/JTextComponent;", nullptr, 0, $field(DefaultCaret, component)},
-	{"updatePolicy", "I", nullptr, 0, $field(DefaultCaret, updatePolicy)},
-	{"visible", "Z", nullptr, 0, $field(DefaultCaret, visible)},
-	{"active", "Z", nullptr, 0, $field(DefaultCaret, active)},
-	{"dot", "I", nullptr, 0, $field(DefaultCaret, dot)},
-	{"mark", "I", nullptr, 0, $field(DefaultCaret, mark)},
-	{"selectionTag", "Ljava/lang/Object;", nullptr, 0, $field(DefaultCaret, selectionTag)},
-	{"selectionVisible", "Z", nullptr, 0, $field(DefaultCaret, selectionVisible)},
-	{"flasher", "Ljavax/swing/Timer;", nullptr, 0, $field(DefaultCaret, flasher)},
-	{"magicCaretPosition", "Ljava/awt/Point;", nullptr, 0, $field(DefaultCaret, magicCaretPosition)},
-	{"dotBias", "Ljavax/swing/text/Position$Bias;", nullptr, $TRANSIENT, $field(DefaultCaret, dotBias)},
-	{"markBias", "Ljavax/swing/text/Position$Bias;", nullptr, $TRANSIENT, $field(DefaultCaret, markBias)},
-	{"dotLTR", "Z", nullptr, 0, $field(DefaultCaret, dotLTR)},
-	{"markLTR", "Z", nullptr, 0, $field(DefaultCaret, markLTR)},
-	{"handler", "Ljavax/swing/text/DefaultCaret$Handler;", nullptr, $TRANSIENT, $field(DefaultCaret, handler)},
-	{"flagXPoints", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, flagXPoints)},
-	{"flagYPoints", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, flagYPoints)},
-	{"filterBypass", "Ljavax/swing/text/NavigationFilter$FilterBypass;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, filterBypass)},
-	{"selectWord", "Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticField(DefaultCaret, selectWord$)},
-	{"selectLine", "Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticField(DefaultCaret, selectLine)},
-	{"ownsSelection", "Z", nullptr, $PRIVATE, $field(DefaultCaret, ownsSelection)},
-	{"forceCaretPositionChange", "Z", nullptr, $PRIVATE, $field(DefaultCaret, forceCaretPositionChange)},
-	{"shouldHandleRelease", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, shouldHandleRelease)},
-	{"selectedWordEvent", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, selectedWordEvent)},
-	{"caretWidth", "I", nullptr, $PRIVATE, $field(DefaultCaret, caretWidth)},
-	{"aspectRatio", "F", nullptr, $PRIVATE, $field(DefaultCaret, aspectRatio)},
-	{}
-};
-
-$MethodInfo _DefaultCaret_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultCaret, init$, void)},
-	{"_contains", "(IIII)Z", nullptr, $PRIVATE, $method(DefaultCaret, _contains, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, addChangeListener, void, $ChangeListener*)},
-	{"adjustCaret", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(DefaultCaret, adjustCaret, void, $MouseEvent*)},
-	{"adjustCaretAndFocus", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(DefaultCaret, adjustCaretAndFocus, void, $MouseEvent*)},
-	{"adjustFocus", "(Z)V", nullptr, $PRIVATE, $method(DefaultCaret, adjustFocus, void, bool)},
-	{"adjustVisibility", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, adjustVisibility, void, $Rectangle*)},
-	{"changeCaretPosition", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(DefaultCaret, changeCaretPosition, void, int32_t, $Position$Bias*)},
-	{"damage", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(DefaultCaret, damage, void, $Rectangle*)},
-	{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, deinstall, void, $JTextComponent*)},
-	{"ensureValidPosition", "()V", nullptr, $PRIVATE, $method(DefaultCaret, ensureValidPosition, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, equals, bool, Object$*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, fireStateChanged, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, focusLost, void, $FocusEvent*)},
-	{"getBlinkRate", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getBlinkRate, int32_t)},
-	{"getCaretWidth", "(I)I", nullptr, 0, $virtualMethod(DefaultCaret, getCaretWidth, int32_t, int32_t)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getChangeListeners, $ChangeListenerArray*)},
-	{"getClipboardOwner", "()Ljava/awt/datatransfer/ClipboardOwner;", nullptr, $PRIVATE, $method(DefaultCaret, getClipboardOwner, $ClipboardOwner*)},
-	{"getComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $PROTECTED | $FINAL, $method(DefaultCaret, getComponent, $JTextComponent*)},
-	{"getDot", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getDot, int32_t)},
-	{"getDotBias", "()Ljavax/swing/text/Position$Bias;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getDotBias, $Position$Bias*)},
-	{"getFilterBypass", "()Ljavax/swing/text/NavigationFilter$FilterBypass;", nullptr, $PRIVATE, $method(DefaultCaret, getFilterBypass, $NavigationFilter$FilterBypass*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultCaret, getListeners, $EventListenerArray*, $Class*)},
-	{"getMagicCaretPosition", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getMagicCaretPosition, $Point*)},
-	{"getMark", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getMark, int32_t)},
-	{"getMarkBias", "()Ljavax/swing/text/Position$Bias;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getMarkBias, $Position$Bias*)},
-	{"getSelectionPainter", "()Ljavax/swing/text/Highlighter$HighlightPainter;", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, getSelectionPainter, $Highlighter$HighlightPainter*)},
-	{"getSystemSelection", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PRIVATE, $method(DefaultCaret, getSystemSelection, $Clipboard*)},
-	{"getUpdatePolicy", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getUpdatePolicy, int32_t)},
-	{"guessBiasForOffset", "(ILjavax/swing/text/Position$Bias;Z)Ljavax/swing/text/Position$Bias;", nullptr, 0, $virtualMethod(DefaultCaret, guessBiasForOffset, $Position$Bias*, int32_t, $Position$Bias*, bool)},
-	{"handleMoveDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(DefaultCaret, handleMoveDot, void, int32_t, $Position$Bias*)},
-	{"handleSetDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(DefaultCaret, handleSetDot, void, int32_t, $Position$Bias*)},
-	{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, install, void, $JTextComponent*)},
-	{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, isActive, bool)},
-	{"isDotLeftToRight", "()Z", nullptr, 0, $virtualMethod(DefaultCaret, isDotLeftToRight, bool)},
-	{"isMarkLeftToRight", "()Z", nullptr, 0, $virtualMethod(DefaultCaret, isMarkLeftToRight, bool)},
-	{"isPositionLTR", "(ILjavax/swing/text/Position$Bias;)Z", nullptr, 0, $virtualMethod(DefaultCaret, isPositionLTR, bool, int32_t, $Position$Bias*)},
-	{"isSelectionVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, isSelectionVisible, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, isVisible, bool)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseReleased, void, $MouseEvent*)},
-	{"moveCaret", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, moveCaret, void, $MouseEvent*)},
-	{"moveDot", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, moveDot, void, int32_t)},
-	{"moveDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, moveDot, void, int32_t, $Position$Bias*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, paint, void, $Graphics*)},
-	{"positionCaret", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, positionCaret, void, $MouseEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultCaret, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, removeChangeListener, void, $ChangeListener*)},
-	{"repaint", "()V", nullptr, $PROTECTED | $FINAL | $SYNCHRONIZED, $method(DefaultCaret, repaint, void)},
-	{"repaintNewCaret", "()V", nullptr, 0, $virtualMethod(DefaultCaret, repaintNewCaret, void)},
-	{"selectWord", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(DefaultCaret, selectWord, void, $MouseEvent*)},
-	{"setBlinkRate", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setBlinkRate, void, int32_t)},
-	{"setDot", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setDot, void, int32_t)},
-	{"setDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setDot, void, int32_t, $Position$Bias*)},
-	{"setMagicCaretPosition", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setMagicCaretPosition, void, $Point*)},
-	{"setSelectionVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setSelectionVisible, void, bool)},
-	{"setUpdatePolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setUpdatePolicy, void, int32_t)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setVisible, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, toString, $String*)},
-	{"updateSystemSelection", "()V", nullptr, $PRIVATE, $method(DefaultCaret, updateSystemSelection, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefaultCaret, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DefaultCaret_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultCaret$DefaultFilterBypass", "javax.swing.text.DefaultCaret", "DefaultFilterBypass", $PRIVATE},
-	{"javax.swing.text.DefaultCaret$Handler", "javax.swing.text.DefaultCaret", "Handler", 0},
-	{"javax.swing.text.DefaultCaret$SafeScroller", "javax.swing.text.DefaultCaret", "SafeScroller", 0},
-	{"javax.swing.text.DefaultCaret$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultCaret_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultCaret",
-	"java.awt.Rectangle",
-	"javax.swing.text.Caret,java.awt.event.FocusListener,java.awt.event.MouseListener,java.awt.event.MouseMotionListener",
-	_DefaultCaret_FieldInfo_,
-	_DefaultCaret_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultCaret_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultCaret$DefaultFilterBypass,javax.swing.text.DefaultCaret$Handler,javax.swing.text.DefaultCaret$SafeScroller,javax.swing.text.DefaultCaret$1"
-};
-
-$Object* allocate$DefaultCaret($Class* clazz) {
-	return $of($alloc(DefaultCaret));
-}
-
 int32_t DefaultCaret::hashCode() {
 	 return this->$Rectangle::hashCode();
 }
@@ -326,7 +170,7 @@ void DefaultCaret::init$() {
 	$set(this, flagYPoints, $new($ints, 3));
 	$set(this, selectedWordEvent, nullptr);
 	this->caretWidth = -1;
-	this->aspectRatio = (float)-1;
+	this->aspectRatio = -1;
 }
 
 void DefaultCaret::setUpdatePolicy(int32_t policy) {
@@ -344,7 +188,7 @@ $JTextComponent* DefaultCaret::getComponent() {
 void DefaultCaret::repaint() {
 	$synchronized(this) {
 		if (this->component != nullptr) {
-			$nc(this->component)->repaint(this->x, this->y, this->width, this->height);
+			this->component->repaint(this->x, this->y, this->width, this->height);
 		}
 	}
 }
@@ -379,13 +223,12 @@ $Highlighter$HighlightPainter* DefaultCaret::getSelectionPainter() {
 }
 
 void DefaultCaret::positionCaret($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(e)->getX();
 	$var($Point, pt, $new($Point, var$0, e->getY()));
 	$var($Position$BiasArray, biasRet, $new($Position$BiasArray, 1));
-	int32_t pos = $nc($($cast($TextUI, $nc(this->component)->getUI())))->viewToModel(this->component, pt, biasRet);
+	int32_t pos = $$sure($TextUI, $nc(this->component)->getUI())->viewToModel(this->component, pt, biasRet);
 	if (biasRet->get(0) == nullptr) {
-		$init($Position$Bias);
 		biasRet->set(0, $Position$Bias::Forward);
 	}
 	if (pos >= 0) {
@@ -394,13 +237,12 @@ void DefaultCaret::positionCaret($MouseEvent* e) {
 }
 
 void DefaultCaret::moveCaret($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t var$0 = $nc(e)->getX();
 	$var($Point, pt, $new($Point, var$0, e->getY()));
 	$var($Position$BiasArray, biasRet, $new($Position$BiasArray, 1));
-	int32_t pos = $nc($($cast($TextUI, $nc(this->component)->getUI())))->viewToModel(this->component, pt, biasRet);
+	int32_t pos = $$sure($TextUI, $nc(this->component)->getUI())->viewToModel(this->component, pt, biasRet);
 	if (biasRet->get(0) == nullptr) {
-		$init($Position$Bias);
 		biasRet->set(0, $Position$Bias::Forward);
 	}
 	if (pos >= 0) {
@@ -422,27 +264,27 @@ void DefaultCaret::focusLost($FocusEvent* e) {
 	setVisible(false);
 	$init($FocusEvent$Cause);
 	bool var$1 = $nc(e)->getCause() == $FocusEvent$Cause::ACTIVATION;
-	bool var$0 = (var$1 || $instanceOf($JRootPane, $($nc(e)->getOppositeComponent())));
-	setSelectionVisible(var$0 && (this->ownsSelection || $nc(e)->isTemporary()));
+	bool var$0 = var$1 || $instanceOf($JRootPane, $(e->getOppositeComponent()));
+	setSelectionVisible(var$0 && (this->ownsSelection || e->isTemporary()));
 }
 
 void DefaultCaret::selectWord($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = this->selectedWordEvent != nullptr;
 	if (var$1) {
-		int32_t var$2 = $nc(this->selectedWordEvent)->getX();
+		int32_t var$2 = this->selectedWordEvent->getX();
 		var$1 = var$2 == $nc(e)->getX();
 	}
 	bool var$0 = var$1;
 	if (var$0) {
 		int32_t var$3 = $nc(this->selectedWordEvent)->getY();
-		var$0 = var$3 == e->getY();
+		var$0 = var$3 == $nc(e)->getY();
 	}
 	if (var$0) {
 		return;
 	}
 	$var($Action, a, nullptr);
-	$var($ActionMap, map, $nc($(getComponent()))->getActionMap());
+	$var($ActionMap, map, $$nc(getComponent())->getActionMap());
 	if (map != nullptr) {
 		$init($DefaultEditorKit);
 		$assign(a, map->get($DefaultEditorKit::selectWordAction));
@@ -453,14 +295,14 @@ void DefaultCaret::selectWord($MouseEvent* e) {
 		}
 		$assign(a, DefaultCaret::selectWord$);
 	}
-	$var($Object, var$4, $of(getComponent()));
+	$var($Object, var$4, getComponent());
 	int64_t var$5 = $nc(e)->getWhen();
 	$nc(a)->actionPerformed($$new($ActionEvent, var$4, $ActionEvent::ACTION_PERFORMED, nullptr, var$5, e->getModifiers()));
 	$set(this, selectedWordEvent, e);
 }
 
 void DefaultCaret::mouseClicked($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getComponent() == nullptr) {
 		return;
 	}
@@ -474,7 +316,7 @@ void DefaultCaret::mouseClicked($MouseEvent* e) {
 				$set(this, selectedWordEvent, nullptr);
 			} else if (nclicks == 3 && $SwingUtilities2::canEventAccessSystemClipboard(e)) {
 				$var($Action, a, nullptr);
-				$var($ActionMap, map, $nc($(getComponent()))->getActionMap());
+				$var($ActionMap, map, $$nc(getComponent())->getActionMap());
 				if (map != nullptr) {
 					$init($DefaultEditorKit);
 					$assign(a, map->get($DefaultEditorKit::selectLineAction));
@@ -485,13 +327,13 @@ void DefaultCaret::mouseClicked($MouseEvent* e) {
 					}
 					$assign(a, DefaultCaret::selectLine);
 				}
-				$var($Object, var$0, $of(getComponent()));
+				$var($Object, var$0, getComponent());
 				int64_t var$1 = e->getWhen();
 				$nc(a)->actionPerformed($$new($ActionEvent, var$0, $ActionEvent::ACTION_PERFORMED, nullptr, var$1, e->getModifiers()));
 			}
 		} else if ($SwingUtilities::isMiddleMouseButton(e)) {
 			bool var$3 = nclicks == 1 && $nc(this->component)->isEditable();
-			bool var$2 = var$3 && $nc(this->component)->isEnabled();
+			bool var$2 = var$3 && this->component->isEnabled();
 			if (var$2 && $SwingUtilities2::canEventAccessSystemClipboard(e)) {
 				$var($JTextComponent, c, $cast($JTextComponent, e->getSource()));
 				if (c != nullptr) {
@@ -506,7 +348,7 @@ void DefaultCaret::mouseClicked($MouseEvent* e) {
 								try {
 									$assign(trans, buffer->getContents(nullptr));
 								} catch ($IllegalStateException& ise) {
-									$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(c);
+									$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(c);
 								}
 								if (trans != nullptr) {
 									th->importData(c, trans);
@@ -543,7 +385,7 @@ void DefaultCaret::adjustCaretAndFocus($MouseEvent* e) {
 }
 
 void DefaultCaret::adjustCaret($MouseEvent* e) {
-	bool var$0 = ((int32_t)($nc(e)->getModifiers() & (uint32_t)$ActionEvent::SHIFT_MASK)) != 0;
+	bool var$0 = ($nc(e)->getModifiers() & $ActionEvent::SHIFT_MASK) != 0;
 	if (var$0 && getDot() != -1) {
 		moveCaret(e);
 	} else if (!e->isPopupTrigger()) {
@@ -552,10 +394,10 @@ void DefaultCaret::adjustCaret($MouseEvent* e) {
 }
 
 void DefaultCaret::adjustFocus(bool inWindow) {
-	bool var$0 = (this->component != nullptr) && $nc(this->component)->isEnabled();
-	if (var$0 && $nc(this->component)->isRequestFocusEnabled()) {
+	bool var$0 = (this->component != nullptr) && this->component->isEnabled();
+	if (var$0 && this->component->isRequestFocusEnabled()) {
 		if (inWindow) {
-			$nc(this->component)->requestFocusInWindow();
+			this->component->requestFocusInWindow();
 		} else {
 			$nc(this->component)->requestFocus();
 		}
@@ -576,7 +418,7 @@ void DefaultCaret::mouseExited($MouseEvent* e) {
 }
 
 void DefaultCaret::mouseDragged($MouseEvent* e) {
-	bool var$0 = (!$nc(e)->isConsumed());
+	bool var$0 = !$nc(e)->isConsumed();
 	if (var$0 && $SwingUtilities::isLeftMouseButton(e)) {
 		moveCaret(e);
 	}
@@ -586,35 +428,35 @@ void DefaultCaret::mouseMoved($MouseEvent* e) {
 }
 
 void DefaultCaret::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isVisible()) {
 		try {
 			$var($TextUI, mapper, $cast($TextUI, $nc(this->component)->getUI()));
 			$var($Rectangle, r, $nc(mapper)->modelToView(this->component, this->dot, this->dotBias));
-			if ((r == nullptr) || (($nc(r)->width == 0) && (r->height == 0))) {
+			if ((r == nullptr) || ((r->width == 0) && (r->height == 0))) {
 				return;
 			}
-			if (this->width > 0 && this->height > 0 && !this->_contains($nc(r)->x, r->y, r->width, r->height)) {
+			if (this->width > 0 && this->height > 0 && !this->_contains($nc(r)->x, $nc(r)->y, $nc(r)->width, $nc(r)->height)) {
 				$var($Rectangle, clip, $nc(g)->getClipBounds());
-				if (clip != nullptr && !clip->contains(static_cast<$Rectangle*>(this))) {
+				if (clip != nullptr && !clip->contains(this)) {
 					repaint();
 				}
 				damage(r);
 			}
 			$nc(g)->setColor($($nc(this->component)->getCaretColor()));
 			int32_t paintWidth = getCaretWidth($nc(r)->height);
-			$nc(r)->x -= paintWidth >> 1;
+			r->x -= paintWidth >> 1;
 			g->fillRect(r->x, r->y, paintWidth, r->height);
 			$var($Document, doc, $nc(this->component)->getDocument());
 			if ($instanceOf($AbstractDocument, doc)) {
-				$var($Element, bidi, $nc(($cast($AbstractDocument, doc)))->getBidiRootElement());
+				$var($Element, bidi, $cast($AbstractDocument, doc)->getBidiRootElement());
 				if ((bidi != nullptr) && (bidi->getElementCount() > 1)) {
 					$nc(this->flagXPoints)->set(0, r->x + ((this->dotLTR) ? paintWidth : 0));
 					$nc(this->flagYPoints)->set(0, r->y);
-					$nc(this->flagXPoints)->set(1, $nc(this->flagXPoints)->get(0));
-					$nc(this->flagYPoints)->set(1, $nc(this->flagYPoints)->get(0) + 4);
-					$nc(this->flagXPoints)->set(2, $nc(this->flagXPoints)->get(0) + ((this->dotLTR) ? 4 : -4));
-					$nc(this->flagYPoints)->set(2, $nc(this->flagYPoints)->get(0));
+					this->flagXPoints->set(1, this->flagXPoints->get(0));
+					this->flagYPoints->set(1, this->flagYPoints->get(0) + 4);
+					this->flagXPoints->set(2, this->flagXPoints->get(0) + ((this->dotLTR) ? 4 : -4));
+					this->flagYPoints->set(2, this->flagYPoints->get(0));
 					g->fillPolygon(this->flagXPoints, this->flagYPoints, 3);
 				}
 			}
@@ -624,13 +466,13 @@ void DefaultCaret::paint($Graphics* g) {
 }
 
 void DefaultCaret::install($JTextComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, component, c);
 	$var($Document, doc, $nc(c)->getDocument());
 	this->dot = (this->mark = 0);
 	this->dotLTR = (this->markLTR = true);
 	$init($Position$Bias);
-	$set(this, dotBias, ($set(this, markBias, $Position$Bias::Forward)));
+	$set(this, dotBias, $set(this, markBias, $Position$Bias::Forward));
 	if (doc != nullptr) {
 		doc->addDocumentListener(this->handler);
 	}
@@ -645,7 +487,7 @@ void DefaultCaret::install($JTextComponent* c) {
 	if (ratio != nullptr) {
 		this->aspectRatio = ratio->floatValue();
 	} else {
-		this->aspectRatio = (float)-1;
+		this->aspectRatio = -1;
 	}
 	$var($Integer, width, $cast($Integer, c->getClientProperty("caretWidth"_s)));
 	if (width != nullptr) {
@@ -668,7 +510,7 @@ void DefaultCaret::deinstall($JTextComponent* c) {
 		$set(this, component, nullptr);
 	}
 	if (this->flasher != nullptr) {
-		$nc(this->flasher)->stop();
+		this->flasher->stop();
 	}
 }
 
@@ -684,7 +526,7 @@ void DefaultCaret::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* DefaultCaret::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void DefaultCaret::fireStateChanged() {
@@ -695,7 +537,7 @@ void DefaultCaret::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
@@ -705,7 +547,7 @@ $EventListenerArray* DefaultCaret::getListeners($Class* listenerType) {
 }
 
 void DefaultCaret::setSelectionVisible(bool vis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (vis != this->selectionVisible) {
 		this->selectionVisible = vis;
 		if (this->selectionVisible) {
@@ -741,10 +583,10 @@ bool DefaultCaret::isVisible() {
 }
 
 void DefaultCaret::setVisible(bool e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->active = e;
 	if (this->component != nullptr) {
-		$var($TextUI, mapper, $cast($TextUI, $nc(this->component)->getUI()));
+		$var($TextUI, mapper, $cast($TextUI, this->component->getUI()));
 		if (this->visible != e) {
 			this->visible = e;
 			try {
@@ -756,7 +598,7 @@ void DefaultCaret::setVisible(bool e) {
 	}
 	if (this->flasher != nullptr) {
 		if (this->visible) {
-			$nc(this->flasher)->start();
+			this->flasher->start();
 		} else {
 			$nc(this->flasher)->stop();
 		}
@@ -770,14 +612,14 @@ void DefaultCaret::setBlinkRate(int32_t rate) {
 		}
 		$nc(this->flasher)->setDelay(rate);
 	} else if (this->flasher != nullptr) {
-		$nc(this->flasher)->stop();
+		this->flasher->stop();
 		$nc(this->flasher)->removeActionListener(this->handler);
 		$set(this, flasher, nullptr);
 	}
 }
 
 int32_t DefaultCaret::getBlinkRate() {
-	return (this->flasher == nullptr) ? 0 : $nc(this->flasher)->getDelay();
+	return (this->flasher == nullptr) ? 0 : this->flasher->getDelay();
 }
 
 int32_t DefaultCaret::getDot() {
@@ -799,7 +641,7 @@ void DefaultCaret::moveDot(int32_t dot) {
 }
 
 void DefaultCaret::moveDot(int32_t dot, $Position$Bias* dotBias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dotBias == nullptr) {
 		$throwNew($IllegalArgumentException, "null bias"_s);
 	}
@@ -818,7 +660,7 @@ void DefaultCaret::moveDot(int32_t dot, $Position$Bias* dotBias) {
 }
 
 void DefaultCaret::handleMoveDot(int32_t dot, $Position$Bias* dotBias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	changeCaretPosition(dot, dotBias);
 	if (this->selectionVisible) {
 		$var($Highlighter, h, $nc(this->component)->getHighlighter());
@@ -847,7 +689,7 @@ void DefaultCaret::handleMoveDot(int32_t dot, $Position$Bias* dotBias) {
 }
 
 void DefaultCaret::setDot(int32_t dot, $Position$Bias* dotBias) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (dotBias == nullptr) {
 		$throwNew($IllegalArgumentException, "null bias"_s);
 	}
@@ -860,7 +702,7 @@ void DefaultCaret::setDot(int32_t dot, $Position$Bias* dotBias) {
 }
 
 void DefaultCaret::handleSetDot(int32_t dot, $Position$Bias* dotBias$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Position$Bias, dotBias, dotBias$renamed);
 	$var($Document, doc, $nc(this->component)->getDocument());
 	if (doc != nullptr) {
@@ -910,7 +752,7 @@ bool DefaultCaret::isPositionLTR(int32_t position, $Position$Bias* bias) {
 }
 
 $Position$Bias* DefaultCaret::guessBiasForOffset(int32_t offset, $Position$Bias* lastBias$renamed, bool lastLTR) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Position$Bias, lastBias, lastBias$renamed);
 	if (lastLTR != isPositionLTR(offset, lastBias)) {
 		$init($Position$Bias);
@@ -925,7 +767,7 @@ $Position$Bias* DefaultCaret::guessBiasForOffset(int32_t offset, $Position$Bias*
 	if (lastBias == $Position$Bias::Backward && offset > 0) {
 		try {
 			$var($Segment, s, $new($Segment));
-			$nc($($nc(this->component)->getDocument()))->getText(offset - 1, 1, s);
+			$$nc($nc(this->component)->getDocument())->getText(offset - 1, 1, s);
 			if (s->count > 0 && $nc(s->array)->get(s->offset) == u'\n') {
 				$assign(lastBias, $Position$Bias::Forward);
 			}
@@ -937,9 +779,9 @@ $Position$Bias* DefaultCaret::guessBiasForOffset(int32_t offset, $Position$Bias*
 
 void DefaultCaret::changeCaretPosition(int32_t dot, $Position$Bias* dotBias) {
 	repaint();
-	if (this->flasher != nullptr && $nc(this->flasher)->isRunning()) {
+	if (this->flasher != nullptr && this->flasher->isRunning()) {
 		this->visible = true;
-		$nc(this->flasher)->restart();
+		this->flasher->restart();
 	}
 	this->dot = dot;
 	$set(this, dotBias, dotBias);
@@ -952,9 +794,9 @@ void DefaultCaret::changeCaretPosition(int32_t dot, $Position$Bias* dotBias) {
 }
 
 void DefaultCaret::repaintNewCaret() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->component != nullptr) {
-		$var($TextUI, mapper, $cast($TextUI, $nc(this->component)->getUI()));
+		$var($TextUI, mapper, $cast($TextUI, this->component->getUI()));
 		$var($Document, doc, $nc(this->component)->getDocument());
 		if ((mapper != nullptr) && (doc != nullptr)) {
 			$var($Rectangle, newLoc, nullptr);
@@ -975,18 +817,17 @@ void DefaultCaret::repaintNewCaret() {
 }
 
 void DefaultCaret::updateSystemSelection() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$SwingUtilities2::canCurrentEventAccessSystemClipboard()) {
 		return;
 	}
-	if (this->dot != this->mark && this->component != nullptr && $nc(this->component)->hasFocus()) {
+	if (this->dot != this->mark && this->component != nullptr && this->component->hasFocus()) {
 		$var($Clipboard, clip, getSystemSelection());
 		if (clip != nullptr) {
 			$var($String, selectedText, nullptr);
-			$init($Boolean);
-			if ($instanceOf($JPasswordField, this->component) && !$equals($nc(this->component)->getClientProperty("JPasswordField.cutCopyAllowed"_s), $Boolean::TRUE)) {
+			if ($instanceOf($JPasswordField, this->component) && !$equals(this->component->getClientProperty("JPasswordField.cutCopyAllowed"_s), $Boolean::TRUE)) {
 				$var($StringBuilder, txt, nullptr);
-				char16_t echoChar = $nc(($cast($JPasswordField, this->component)))->getEchoChar();
+				char16_t echoChar = $cast($JPasswordField, this->component)->getEchoChar();
 				int32_t var$0 = getDot();
 				int32_t p0 = $Math::min(var$0, getMark());
 				int32_t var$1 = getDot();
@@ -997,12 +838,12 @@ void DefaultCaret::updateSystemSelection() {
 					}
 					$nc(txt)->append(echoChar);
 				}
-				$assign(selectedText, (txt != nullptr) ? $nc(txt)->toString() : ($String*)nullptr);
+				$assign(selectedText, (txt != nullptr) ? txt->toString() : ($String*)nullptr);
 			} else {
 				$assign(selectedText, $nc(this->component)->getSelectedText());
 			}
 			try {
-				$var($Transferable, var$2, static_cast<$Transferable*>($new($StringSelection, selectedText)));
+				$var($Transferable, var$2, $new($StringSelection, selectedText));
 				clip->setContents(var$2, $(getClipboardOwner()));
 				this->ownsSelection = true;
 			} catch ($IllegalStateException& ise) {
@@ -1013,7 +854,7 @@ void DefaultCaret::updateSystemSelection() {
 
 $Clipboard* DefaultCaret::getSystemSelection() {
 	try {
-		return $nc($($nc(this->component)->getToolkit()))->getSystemSelection();
+		return $$nc($nc(this->component)->getToolkit())->getSystemSelection();
 	} catch ($HeadlessException& he) {
 	} catch ($SecurityException& se) {
 	}
@@ -1025,7 +866,7 @@ $ClipboardOwner* DefaultCaret::getClipboardOwner() {
 }
 
 void DefaultCaret::ensureValidPosition() {
-	int32_t length = $nc($($nc(this->component)->getDocument()))->getLength();
+	int32_t length = $$nc($nc(this->component)->getDocument())->getLength();
 	if (this->dot > length || this->mark > length) {
 		$init($Position$Bias);
 		handleSetDot(length, $Position$Bias::Forward);
@@ -1045,7 +886,7 @@ bool DefaultCaret::equals(Object$* obj) {
 }
 
 $String* DefaultCaret::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $str({"Dot=("_s, $$str(this->dot), ", "_s, this->dotBias, ")"_s}));
 	$plusAssign(s, $$str({" Mark=("_s, $$str(this->mark), ", "_s, this->markBias, ")"_s}));
 	return s;
@@ -1107,7 +948,7 @@ int32_t DefaultCaret::getCaretWidth(int32_t height) {
 	} else {
 		$var($Object, property, $UIManager::get("Caret.width"_s));
 		if ($instanceOf($Integer, property)) {
-			return $nc(($cast($Integer, property)))->intValue();
+			return $cast($Integer, property)->intValue();
 		} else {
 			return 1;
 		}
@@ -1115,23 +956,23 @@ int32_t DefaultCaret::getCaretWidth(int32_t height) {
 }
 
 void DefaultCaret::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$var($EventListenerList, newListenerList, $cast($EventListenerList, $nc(f)->get("listenerList"_s, ($Object*)nullptr)));
+	$var($EventListenerList, newListenerList, $cast($EventListenerList, $nc(f)->get("listenerList"_s, nullptr)));
 	if (newListenerList == nullptr) {
 		$throwNew($InvalidObjectException, "Null listenerList"_s);
 	}
 	$set(this, listenerList, newListenerList);
-	$set(this, component, $cast($JTextComponent, f->get("component"_s, ($Object*)nullptr)));
+	$set(this, component, $cast($JTextComponent, f->get("component"_s, nullptr)));
 	this->updatePolicy = f->get("updatePolicy"_s, 0);
 	this->visible = f->get("visible"_s, false);
 	this->active = f->get("active"_s, false);
 	this->dot = f->get("dot"_s, 0);
 	this->mark = f->get("mark"_s, 0);
-	$set(this, selectionTag, f->get("selectionTag"_s, ($Object*)nullptr));
+	$set(this, selectionTag, f->get("selectionTag"_s, nullptr));
 	this->selectionVisible = f->get("selectionVisible"_s, false);
-	$set(this, flasher, $cast($Timer, f->get("flasher"_s, ($Object*)nullptr)));
-	$set(this, magicCaretPosition, $cast($Point, f->get("magicCaretPosition"_s, ($Object*)nullptr)));
+	$set(this, flasher, $cast($Timer, f->get("flasher"_s, nullptr)));
+	$set(this, magicCaretPosition, $cast($Point, f->get("magicCaretPosition"_s, nullptr)));
 	this->dotLTR = f->get("dotLTR"_s, false);
 	this->markLTR = f->get("markLTR"_s, false);
 	this->ownsSelection = f->get("ownsSelection"_s, false);
@@ -1162,7 +1003,7 @@ void DefaultCaret::writeObject($ObjectOutputStream* s) {
 	s->writeBoolean((this->markBias == $Position$Bias::Backward));
 }
 
-void clinit$DefaultCaret($Class* class$) {
+void DefaultCaret::clinit$($Class* clazz) {
 	$assignStatic(DefaultCaret::selectWord$, nullptr);
 	$assignStatic(DefaultCaret::selectLine, nullptr);
 }
@@ -1171,7 +1012,137 @@ DefaultCaret::DefaultCaret() {
 }
 
 $Class* DefaultCaret::load$($String* name, bool initialize) {
-	$loadClass(DefaultCaret, name, initialize, &_DefaultCaret_ClassInfo_, clinit$DefaultCaret, allocate$DefaultCaret);
+	$FieldInfo fieldInfos$$[] = {
+		{"UPDATE_WHEN_ON_EDT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultCaret, UPDATE_WHEN_ON_EDT)},
+		{"NEVER_UPDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultCaret, NEVER_UPDATE)},
+		{"ALWAYS_UPDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultCaret, ALWAYS_UPDATE)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultCaret, listenerList)},
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultCaret, changeEvent)},
+		{"component", "Ljavax/swing/text/JTextComponent;", nullptr, 0, $field(DefaultCaret, component)},
+		{"updatePolicy", "I", nullptr, 0, $field(DefaultCaret, updatePolicy)},
+		{"visible", "Z", nullptr, 0, $field(DefaultCaret, visible)},
+		{"active", "Z", nullptr, 0, $field(DefaultCaret, active)},
+		{"dot", "I", nullptr, 0, $field(DefaultCaret, dot)},
+		{"mark", "I", nullptr, 0, $field(DefaultCaret, mark)},
+		{"selectionTag", "Ljava/lang/Object;", nullptr, 0, $field(DefaultCaret, selectionTag)},
+		{"selectionVisible", "Z", nullptr, 0, $field(DefaultCaret, selectionVisible)},
+		{"flasher", "Ljavax/swing/Timer;", nullptr, 0, $field(DefaultCaret, flasher)},
+		{"magicCaretPosition", "Ljava/awt/Point;", nullptr, 0, $field(DefaultCaret, magicCaretPosition)},
+		{"dotBias", "Ljavax/swing/text/Position$Bias;", nullptr, $TRANSIENT, $field(DefaultCaret, dotBias)},
+		{"markBias", "Ljavax/swing/text/Position$Bias;", nullptr, $TRANSIENT, $field(DefaultCaret, markBias)},
+		{"dotLTR", "Z", nullptr, 0, $field(DefaultCaret, dotLTR)},
+		{"markLTR", "Z", nullptr, 0, $field(DefaultCaret, markLTR)},
+		{"handler", "Ljavax/swing/text/DefaultCaret$Handler;", nullptr, $TRANSIENT, $field(DefaultCaret, handler)},
+		{"flagXPoints", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, flagXPoints)},
+		{"flagYPoints", "[I", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, flagYPoints)},
+		{"filterBypass", "Ljavax/swing/text/NavigationFilter$FilterBypass;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, filterBypass)},
+		{"selectWord", "Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticField(DefaultCaret, selectWord$)},
+		{"selectLine", "Ljavax/swing/Action;", nullptr, $PRIVATE | $STATIC | $TRANSIENT, $staticField(DefaultCaret, selectLine)},
+		{"ownsSelection", "Z", nullptr, $PRIVATE, $field(DefaultCaret, ownsSelection)},
+		{"forceCaretPositionChange", "Z", nullptr, $PRIVATE, $field(DefaultCaret, forceCaretPositionChange)},
+		{"shouldHandleRelease", "Z", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, shouldHandleRelease)},
+		{"selectedWordEvent", "Ljava/awt/event/MouseEvent;", nullptr, $PRIVATE | $TRANSIENT, $field(DefaultCaret, selectedWordEvent)},
+		{"caretWidth", "I", nullptr, $PRIVATE, $field(DefaultCaret, caretWidth)},
+		{"aspectRatio", "F", nullptr, $PRIVATE, $field(DefaultCaret, aspectRatio)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultCaret, init$, void)},
+		{"_contains", "(IIII)Z", nullptr, $PRIVATE, $method(DefaultCaret, _contains, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, addChangeListener, void, $ChangeListener*)},
+		{"adjustCaret", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(DefaultCaret, adjustCaret, void, $MouseEvent*)},
+		{"adjustCaretAndFocus", "(Ljava/awt/event/MouseEvent;)V", nullptr, 0, $virtualMethod(DefaultCaret, adjustCaretAndFocus, void, $MouseEvent*)},
+		{"adjustFocus", "(Z)V", nullptr, $PRIVATE, $method(DefaultCaret, adjustFocus, void, bool)},
+		{"adjustVisibility", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, adjustVisibility, void, $Rectangle*)},
+		{"changeCaretPosition", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(DefaultCaret, changeCaretPosition, void, int32_t, $Position$Bias*)},
+		{"damage", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(DefaultCaret, damage, void, $Rectangle*)},
+		{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, deinstall, void, $JTextComponent*)},
+		{"ensureValidPosition", "()V", nullptr, $PRIVATE, $method(DefaultCaret, ensureValidPosition, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, equals, bool, Object$*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, fireStateChanged, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, focusLost, void, $FocusEvent*)},
+		{"getBlinkRate", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getBlinkRate, int32_t)},
+		{"getCaretWidth", "(I)I", nullptr, 0, $virtualMethod(DefaultCaret, getCaretWidth, int32_t, int32_t)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getChangeListeners, $ChangeListenerArray*)},
+		{"getClipboardOwner", "()Ljava/awt/datatransfer/ClipboardOwner;", nullptr, $PRIVATE, $method(DefaultCaret, getClipboardOwner, $ClipboardOwner*)},
+		{"getComponent", "()Ljavax/swing/text/JTextComponent;", nullptr, $PROTECTED | $FINAL, $method(DefaultCaret, getComponent, $JTextComponent*)},
+		{"getDot", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getDot, int32_t)},
+		{"getDotBias", "()Ljavax/swing/text/Position$Bias;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getDotBias, $Position$Bias*)},
+		{"getFilterBypass", "()Ljavax/swing/text/NavigationFilter$FilterBypass;", nullptr, $PRIVATE, $method(DefaultCaret, getFilterBypass, $NavigationFilter$FilterBypass*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultCaret, getListeners, $EventListenerArray*, $Class*)},
+		{"getMagicCaretPosition", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getMagicCaretPosition, $Point*)},
+		{"getMark", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getMark, int32_t)},
+		{"getMarkBias", "()Ljavax/swing/text/Position$Bias;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getMarkBias, $Position$Bias*)},
+		{"getSelectionPainter", "()Ljavax/swing/text/Highlighter$HighlightPainter;", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, getSelectionPainter, $Highlighter$HighlightPainter*)},
+		{"getSystemSelection", "()Ljava/awt/datatransfer/Clipboard;", nullptr, $PRIVATE, $method(DefaultCaret, getSystemSelection, $Clipboard*)},
+		{"getUpdatePolicy", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, getUpdatePolicy, int32_t)},
+		{"guessBiasForOffset", "(ILjavax/swing/text/Position$Bias;Z)Ljavax/swing/text/Position$Bias;", nullptr, 0, $virtualMethod(DefaultCaret, guessBiasForOffset, $Position$Bias*, int32_t, $Position$Bias*, bool)},
+		{"handleMoveDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(DefaultCaret, handleMoveDot, void, int32_t, $Position$Bias*)},
+		{"handleSetDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, 0, $virtualMethod(DefaultCaret, handleSetDot, void, int32_t, $Position$Bias*)},
+		{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, install, void, $JTextComponent*)},
+		{"isActive", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, isActive, bool)},
+		{"isDotLeftToRight", "()Z", nullptr, 0, $virtualMethod(DefaultCaret, isDotLeftToRight, bool)},
+		{"isMarkLeftToRight", "()Z", nullptr, 0, $virtualMethod(DefaultCaret, isMarkLeftToRight, bool)},
+		{"isPositionLTR", "(ILjavax/swing/text/Position$Bias;)Z", nullptr, 0, $virtualMethod(DefaultCaret, isPositionLTR, bool, int32_t, $Position$Bias*)},
+		{"isSelectionVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, isSelectionVisible, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, isVisible, bool)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, mouseReleased, void, $MouseEvent*)},
+		{"moveCaret", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, moveCaret, void, $MouseEvent*)},
+		{"moveDot", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, moveDot, void, int32_t)},
+		{"moveDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, moveDot, void, int32_t, $Position$Bias*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, paint, void, $Graphics*)},
+		{"positionCaret", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PROTECTED, $virtualMethod(DefaultCaret, positionCaret, void, $MouseEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(DefaultCaret, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, removeChangeListener, void, $ChangeListener*)},
+		{"repaint", "()V", nullptr, $PROTECTED | $FINAL | $SYNCHRONIZED, $method(DefaultCaret, repaint, void)},
+		{"repaintNewCaret", "()V", nullptr, 0, $virtualMethod(DefaultCaret, repaintNewCaret, void)},
+		{"selectWord", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PRIVATE, $method(DefaultCaret, selectWord, void, $MouseEvent*)},
+		{"setBlinkRate", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setBlinkRate, void, int32_t)},
+		{"setDot", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setDot, void, int32_t)},
+		{"setDot", "(ILjavax/swing/text/Position$Bias;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setDot, void, int32_t, $Position$Bias*)},
+		{"setMagicCaretPosition", "(Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setMagicCaretPosition, void, $Point*)},
+		{"setSelectionVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setSelectionVisible, void, bool)},
+		{"setUpdatePolicy", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setUpdatePolicy, void, int32_t)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, setVisible, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultCaret, toString, $String*)},
+		{"updateSystemSelection", "()V", nullptr, $PRIVATE, $method(DefaultCaret, updateSystemSelection, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(DefaultCaret, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultCaret$DefaultFilterBypass", "javax.swing.text.DefaultCaret", "DefaultFilterBypass", $PRIVATE},
+		{"javax.swing.text.DefaultCaret$Handler", "javax.swing.text.DefaultCaret", "Handler", 0},
+		{"javax.swing.text.DefaultCaret$SafeScroller", "javax.swing.text.DefaultCaret", "SafeScroller", 0},
+		{"javax.swing.text.DefaultCaret$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultCaret",
+		"java.awt.Rectangle",
+		"javax.swing.text.Caret,java.awt.event.FocusListener,java.awt.event.MouseListener,java.awt.event.MouseMotionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultCaret$DefaultFilterBypass,javax.swing.text.DefaultCaret$Handler,javax.swing.text.DefaultCaret$SafeScroller,javax.swing.text.DefaultCaret$1"
+	};
+	$loadClass(DefaultCaret, name, initialize, &classInfo$$, DefaultCaret::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultCaret));
+	});
 	return class$;
 }
 

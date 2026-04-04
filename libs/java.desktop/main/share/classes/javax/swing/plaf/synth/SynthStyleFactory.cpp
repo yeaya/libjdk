@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthStyleFactory.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/synth/Region.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
@@ -16,25 +15,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$MethodInfo _SynthStyleFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthStyleFactory, init$, void)},
-	{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SynthStyleFactory, getStyle, $SynthStyle*, $JComponent*, $Region*)},
-	{}
-};
-
-$ClassInfo _SynthStyleFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.synth.SynthStyleFactory",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_SynthStyleFactory_MethodInfo_
-};
-
-$Object* allocate$SynthStyleFactory($Class* clazz) {
-	return $of($alloc(SynthStyleFactory));
-}
-
 void SynthStyleFactory::init$() {
 }
 
@@ -42,7 +22,22 @@ SynthStyleFactory::SynthStyleFactory() {
 }
 
 $Class* SynthStyleFactory::load$($String* name, bool initialize) {
-	$loadClass(SynthStyleFactory, name, initialize, &_SynthStyleFactory_ClassInfo_, allocate$SynthStyleFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthStyleFactory, init$, void)},
+		{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SynthStyleFactory, getStyle, $SynthStyle*, $JComponent*, $Region*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.synth.SynthStyleFactory",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthStyleFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthStyleFactory);
+	});
 	return class$;
 }
 

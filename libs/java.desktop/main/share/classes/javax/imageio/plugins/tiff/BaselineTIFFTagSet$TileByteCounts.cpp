@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$TileByteCounts.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -17,36 +16,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$TileByteCounts_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$TileByteCounts, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$TileByteCounts_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$TileByteCounts", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "TileByteCounts", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$TileByteCounts_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$TileByteCounts",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$TileByteCounts_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$TileByteCounts_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$TileByteCounts($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$TileByteCounts));
-}
-
 void BaselineTIFFTagSet$TileByteCounts::init$() {
 	$TIFFTag::init$("TileByteCounts"_s, 325, ($sl(1, $TIFFTag::TIFF_SHORT)) | ($sl(1, $TIFFTag::TIFF_LONG)));
 }
@@ -55,7 +24,32 @@ BaselineTIFFTagSet$TileByteCounts::BaselineTIFFTagSet$TileByteCounts() {
 }
 
 $Class* BaselineTIFFTagSet$TileByteCounts::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$TileByteCounts, name, initialize, &_BaselineTIFFTagSet$TileByteCounts_ClassInfo_, allocate$BaselineTIFFTagSet$TileByteCounts);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$TileByteCounts, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$TileByteCounts", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "TileByteCounts", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$TileByteCounts",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$TileByteCounts, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$TileByteCounts);
+	});
 	return class$;
 }
 

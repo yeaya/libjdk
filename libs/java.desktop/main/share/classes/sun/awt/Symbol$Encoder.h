@@ -29,6 +29,7 @@ class Symbol$Encoder : public ::java::nio::charset::CharsetEncoder {
 public:
 	Symbol$Encoder();
 	using ::java::nio::charset::CharsetEncoder::canEncode;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	virtual bool canEncode(char16_t c) override;
 	virtual ::java::nio::charset::CoderResult* encodeLoop(::java::nio::CharBuffer* src, ::java::nio::ByteBuffer* dst) override;

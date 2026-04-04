@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/keyvalues/ECKeyValue$Curve.h>
-
 #include <com/sun/org/apache/xml/internal/security/keys/content/keyvalues/ECKeyValue.h>
 #include <java/math/BigInteger.h>
 #include <java/security/spec/ECParameterSpec.h>
@@ -27,44 +26,6 @@ namespace com {
 								namespace content {
 									namespace keyvalues {
 
-$FieldInfo _ECKeyValue$Curve_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECKeyValue$Curve, name)},
-	{"oid", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECKeyValue$Curve, oid)},
-	{}
-};
-
-$MethodInfo _ECKeyValue$Curve_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, 0, $method(ECKeyValue$Curve, init$, void, $String*, $String*, $EllipticCurve*, $ECPoint*, $BigInteger*, int32_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ECKeyValue$Curve, getName, $String*)},
-	{"getObjectId", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ECKeyValue$Curve, getObjectId, $String*)},
-	{}
-};
-
-$InnerClassInfo _ECKeyValue$Curve_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.ECKeyValue$Curve", "com.sun.org.apache.xml.internal.security.keys.content.keyvalues.ECKeyValue", "Curve", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ECKeyValue$Curve_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.ECKeyValue$Curve",
-	"java.security.spec.ECParameterSpec",
-	nullptr,
-	_ECKeyValue$Curve_FieldInfo_,
-	_ECKeyValue$Curve_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ECKeyValue$Curve_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.ECKeyValue"
-};
-
-$Object* allocate$ECKeyValue$Curve($Class* clazz) {
-	return $of($alloc(ECKeyValue$Curve));
-}
-
 void ECKeyValue$Curve::init$($String* name, $String* oid, $EllipticCurve* curve, $ECPoint* g, $BigInteger* n, int32_t h) {
 	$ECParameterSpec::init$(curve, g, n, h);
 	$set(this, name, name);
@@ -83,7 +44,39 @@ ECKeyValue$Curve::ECKeyValue$Curve() {
 }
 
 $Class* ECKeyValue$Curve::load$($String* name, bool initialize) {
-	$loadClass(ECKeyValue$Curve, name, initialize, &_ECKeyValue$Curve_ClassInfo_, allocate$ECKeyValue$Curve);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECKeyValue$Curve, name)},
+		{"oid", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ECKeyValue$Curve, oid)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/security/spec/EllipticCurve;Ljava/security/spec/ECPoint;Ljava/math/BigInteger;I)V", nullptr, 0, $method(ECKeyValue$Curve, init$, void, $String*, $String*, $EllipticCurve*, $ECPoint*, $BigInteger*, int32_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ECKeyValue$Curve, getName, $String*)},
+		{"getObjectId", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ECKeyValue$Curve, getObjectId, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.ECKeyValue$Curve", "com.sun.org.apache.xml.internal.security.keys.content.keyvalues.ECKeyValue", "Curve", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.ECKeyValue$Curve",
+		"java.security.spec.ECParameterSpec",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.ECKeyValue"
+	};
+	$loadClass(ECKeyValue$Curve, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ECKeyValue$Curve);
+	});
 	return class$;
 }
 

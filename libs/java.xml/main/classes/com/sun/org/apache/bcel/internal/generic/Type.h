@@ -82,6 +82,7 @@ class Type : public ::java::lang::Object {
 	$class(Type, 0, ::java::lang::Object)
 public:
 	Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int8_t t, $String* s);
 	static int32_t consumed(int32_t coded);
 	static int32_t encode(int32_t size, int32_t consumed);

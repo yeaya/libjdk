@@ -1,5 +1,4 @@
 #include <sun/rmi/runtime/NewThreadAction$2.h>
-
 #include <java/lang/ThreadGroup.h>
 #include <sun/rmi/runtime/NewThreadAction.h>
 #include <jcpp.h>
@@ -15,56 +14,50 @@ namespace sun {
 	namespace rmi {
 		namespace runtime {
 
-$MethodInfo _NewThreadAction$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NewThreadAction$2, init$, void)},
-	{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(NewThreadAction$2, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _NewThreadAction$2_EnclosingMethodInfo_ = {
-	"sun.rmi.runtime.NewThreadAction",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _NewThreadAction$2_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.NewThreadAction$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NewThreadAction$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.runtime.NewThreadAction$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_NewThreadAction$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/ThreadGroup;>;",
-	&_NewThreadAction$2_EnclosingMethodInfo_,
-	_NewThreadAction$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.NewThreadAction"
-};
-
-$Object* allocate$NewThreadAction$2($Class* clazz) {
-	return $of($alloc(NewThreadAction$2));
-}
-
 void NewThreadAction$2::init$() {
 }
 
 $Object* NewThreadAction$2::run() {
 	$init($NewThreadAction);
-	return $of($new($ThreadGroup, $NewThreadAction::systemThreadGroup, "RMI Runtime"_s));
+	return $new($ThreadGroup, $NewThreadAction::systemThreadGroup, "RMI Runtime"_s);
 }
 
 NewThreadAction$2::NewThreadAction$2() {
 }
 
 $Class* NewThreadAction$2::load$($String* name, bool initialize) {
-	$loadClass(NewThreadAction$2, name, initialize, &_NewThreadAction$2_ClassInfo_, allocate$NewThreadAction$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NewThreadAction$2, init$, void)},
+		{"run", "()Ljava/lang/ThreadGroup;", nullptr, $PUBLIC, $virtualMethod(NewThreadAction$2, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.rmi.runtime.NewThreadAction",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.NewThreadAction$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.runtime.NewThreadAction$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/ThreadGroup;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.NewThreadAction"
+	};
+	$loadClass(NewThreadAction$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewThreadAction$2);
+	});
 	return class$;
 }
 

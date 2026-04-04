@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultStyledDocument$ElementBuffer.h>
-
 #include <java/lang/Math.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Stack.h>
@@ -44,88 +43,10 @@ using $Element = ::javax::swing::text::Element;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StateInvariantError = ::javax::swing::text::StateInvariantError;
-using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _DefaultStyledDocument$ElementBuffer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/DefaultStyledDocument;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultStyledDocument$ElementBuffer, this$0)},
-	{"root", "Ljavax/swing/text/Element;", nullptr, 0, $field(DefaultStyledDocument$ElementBuffer, root)},
-	{"pos", "I", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, pos)},
-	{"offset", "I", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, offset)},
-	{"length", "I", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, length)},
-	{"endOffset", "I", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, endOffset)},
-	{"changes", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/DefaultStyledDocument$ElementBuffer$ElemChanges;>;", $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, changes)},
-	{"path", "Ljava/util/Stack;", "Ljava/util/Stack<Ljavax/swing/text/DefaultStyledDocument$ElementBuffer$ElemChanges;>;", $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, path)},
-	{"insertOp", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, insertOp)},
-	{"recreateLeafs", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, recreateLeafs)},
-	{"insertPath", "[Ljavax/swing/text/DefaultStyledDocument$ElementBuffer$ElemChanges;", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, insertPath)},
-	{"createdFracture", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, createdFracture)},
-	{"fracturedParent", "Ljavax/swing/text/Element;", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, fracturedParent)},
-	{"fracturedChild", "Ljavax/swing/text/Element;", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, fracturedChild)},
-	{"offsetLastIndex", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, offsetLastIndex)},
-	{"offsetLastIndexOnReplace", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, offsetLastIndexOnReplace)},
-	{}
-};
-
-$MethodInfo _DefaultStyledDocument$ElementBuffer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/DefaultStyledDocument;Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(DefaultStyledDocument$ElementBuffer, init$, void, $DefaultStyledDocument*, $Element*)},
-	{"advance", "(I)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, advance, void, int32_t)},
-	{"beginEdits", "(II)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, beginEdits, void, int32_t, int32_t)},
-	{"canJoin", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;)Z", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, canJoin, bool, $Element*, $Element*)},
-	{"change", "(IILjavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, change, void, int32_t, int32_t, $AbstractDocument$DefaultDocumentEvent*)},
-	{"changeUpdate", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument$ElementBuffer, changeUpdate, void)},
-	{"clone", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, clone, $Element*, $Element*, $Element*)},
-	{"cloneAsNecessary", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;II)Ljavax/swing/text/Element;", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, cloneAsNecessary, $Element*, $Element*, $Element*, int32_t, int32_t)},
-	{"create", "(I[Ljavax/swing/text/DefaultStyledDocument$ElementSpec;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, create, void, int32_t, $DefaultStyledDocument$ElementSpecArray*, $AbstractDocument$DefaultDocumentEvent*)},
-	{"endEdits", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, endEdits, void, $AbstractDocument$DefaultDocumentEvent*)},
-	{"fracture", "(I)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, fracture, void, int32_t)},
-	{"fractureDeepestLeaf", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, fractureDeepestLeaf, void, $DefaultStyledDocument$ElementSpecArray*)},
-	{"fractureFrom", "([Ljavax/swing/text/DefaultStyledDocument$ElementBuffer$ElemChanges;II)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, fractureFrom, void, $DefaultStyledDocument$ElementBuffer$ElemChangesArray*, int32_t, int32_t)},
-	{"getRootElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, getRootElement, $Element*)},
-	{"insert", "(II[Ljavax/swing/text/DefaultStyledDocument$ElementSpec;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, insert, void, int32_t, int32_t, $DefaultStyledDocument$ElementSpecArray*, $AbstractDocument$DefaultDocumentEvent*)},
-	{"insertElement", "(Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, insertElement, void, $DefaultStyledDocument$ElementSpec*)},
-	{"insertFirstContent", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, insertFirstContent, void, $DefaultStyledDocument$ElementSpecArray*)},
-	{"insertUpdate", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument$ElementBuffer, insertUpdate, void, $DefaultStyledDocument$ElementSpecArray*)},
-	{"join", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;Ljavax/swing/text/Element;II)Ljavax/swing/text/Element;", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, join, $Element*, $Element*, $Element*, $Element*, int32_t, int32_t)},
-	{"pop", "()V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, pop, void)},
-	{"push", "(Ljavax/swing/text/Element;IZ)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, push, void, $Element*, int32_t, bool)},
-	{"push", "(Ljavax/swing/text/Element;I)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, push, void, $Element*, int32_t)},
-	{"recreateFracturedElement", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;)Ljavax/swing/text/Element;", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, recreateFracturedElement, $Element*, $Element*, $Element*)},
-	{"remove", "(IILjavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, remove, void, int32_t, int32_t, $AbstractDocument$DefaultDocumentEvent*)},
-	{"removeElements", "(Ljavax/swing/text/Element;II)Z", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, removeElements, bool, $Element*, int32_t, int32_t)},
-	{"removeUpdate", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument$ElementBuffer, removeUpdate, void)},
-	{"split", "(II)Z", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, split, bool, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DefaultStyledDocument$ElementBuffer_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultStyledDocument$ElementBuffer", "javax.swing.text.DefaultStyledDocument", "ElementBuffer", $PUBLIC},
-	{"javax.swing.text.DefaultStyledDocument$ElementBuffer$ElemChanges", "javax.swing.text.DefaultStyledDocument$ElementBuffer", "ElemChanges", 0},
-	{}
-};
-
-$ClassInfo _DefaultStyledDocument$ElementBuffer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultStyledDocument$ElementBuffer",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_DefaultStyledDocument$ElementBuffer_FieldInfo_,
-	_DefaultStyledDocument$ElementBuffer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultStyledDocument$ElementBuffer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultStyledDocument"
-};
-
-$Object* allocate$DefaultStyledDocument$ElementBuffer($Class* clazz) {
-	return $of($alloc(DefaultStyledDocument$ElementBuffer));
-}
 
 void DefaultStyledDocument$ElementBuffer::init$($DefaultStyledDocument* this$0, $Element* root) {
 	$set(this, this$0, this$0);
@@ -150,19 +71,19 @@ void DefaultStyledDocument$ElementBuffer::insert(int32_t offset, int32_t length,
 }
 
 void DefaultStyledDocument$ElementBuffer::create(int32_t length, $DefaultStyledDocument$ElementSpecArray* data, $AbstractDocument$DefaultDocumentEvent* de) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->insertOp = true;
 	beginEdits(this->offset, length);
 	$var($Element, elem, this->root);
 	int32_t index = $nc(elem)->getElementIndex(0);
-	while (!elem->isLeaf()) {
+	while (!$nc(elem)->isLeaf()) {
 		$var($Element, child, elem->getElement(index));
 		push(elem, index);
 		$assign(elem, child);
 		index = $nc(elem)->getElementIndex(0);
 	}
 	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, ec, $cast($DefaultStyledDocument$ElementBuffer$ElemChanges, $nc(this->path)->peek()));
-	$var($Element, child, $nc($nc(ec)->parent)->getElement(ec->index));
+	$var($Element, child, $nc($nc(ec)->parent)->getElement($nc(ec)->index));
 	$var($Element, var$0, ec->parent);
 	$var($AttributeSet, var$1, $nc(child)->getAttributes());
 	int32_t var$2 = this->this$0->getLength();
@@ -182,7 +103,7 @@ void DefaultStyledDocument$ElementBuffer::create(int32_t length, $DefaultStyledD
 	}
 	$var($MutableAttributeSet, attr, $cast($MutableAttributeSet, $nc(this->root)->getAttributes()));
 	$nc(de)->addEdit($$new($DefaultStyledDocument$AttributeUndoableEdit, this->root, newAttrs, true));
-	$nc(attr)->removeAttributes(static_cast<$AttributeSet*>(attr));
+	$nc(attr)->removeAttributes(attr);
 	attr->addAttributes(newAttrs);
 	for (int32_t i = 1; i < n; ++i) {
 		insertElement(data->get(i));
@@ -207,17 +128,17 @@ void DefaultStyledDocument$ElementBuffer::change(int32_t offset, int32_t length,
 }
 
 void DefaultStyledDocument$ElementBuffer::insertUpdate($DefaultStyledDocument$ElementSpecArray* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, elem, this->root);
 	int32_t index = $nc(elem)->getElementIndex(this->offset);
-	while (!elem->isLeaf()) {
+	while (!$nc(elem)->isLeaf()) {
 		$var($Element, child, elem->getElement(index));
 		push(elem, ($nc(child)->isLeaf() ? index : index + 1));
 		$assign(elem, child);
-		index = $nc(elem)->getElementIndex(this->offset);
+		index = elem->getElementIndex(this->offset);
 	}
 	$set(this, insertPath, $new($DefaultStyledDocument$ElementBuffer$ElemChangesArray, $nc(this->path)->size()));
-	$nc(this->path)->copyInto(this->insertPath);
+	this->path->copyInto(this->insertPath);
 	this->createdFracture = false;
 	int32_t i = 0;
 	this->recreateLeafs = false;
@@ -229,7 +150,7 @@ void DefaultStyledDocument$ElementBuffer::insertUpdate($DefaultStyledDocument$El
 		fractureDeepestLeaf(data);
 		i = 0;
 	}
-	int32_t n = $nc(data)->length;
+	int32_t n = data->length;
 	for (; i < n; ++i) {
 		insertElement(data->get(i));
 	}
@@ -243,14 +164,14 @@ void DefaultStyledDocument$ElementBuffer::insertUpdate($DefaultStyledDocument$El
 		++$nc($nc(this->insertPath)->get($nc(this->insertPath)->length - 1))->index;
 	}
 	for (int32_t counter = $nc(this->insertPath)->length - 1; counter >= 0; --counter) {
-		$var($DefaultStyledDocument$ElementBuffer$ElemChanges, change, $nc(this->insertPath)->get(counter));
+		$var($DefaultStyledDocument$ElementBuffer$ElemChanges, change, this->insertPath->get(counter));
 		if ($nc(change)->parent == this->fracturedParent) {
 			$nc(change->added)->addElement(this->fracturedChild);
 		}
-		bool var$1 = $nc($nc(change)->added)->size() > 0;
-		bool var$0 = (var$1 || $nc($nc(change)->removed)->size() > 0);
+		bool var$1 = $nc(change->added)->size() > 0;
+		bool var$0 = var$1 || $nc(change->removed)->size() > 0;
 		if (var$0 && !$nc(this->changes)->contains(change)) {
-			$nc(this->changes)->addElement(change);
+			this->changes->addElement(change);
 		}
 	}
 	if (this->offset == 0 && this->fracturedParent != nullptr && $nc(data->get(0))->getType() == $DefaultStyledDocument$ElementSpec::EndTagType) {
@@ -259,7 +180,7 @@ void DefaultStyledDocument$ElementBuffer::insertUpdate($DefaultStyledDocument$El
 			++counter;
 		}
 		$var($DefaultStyledDocument$ElementBuffer$ElemChanges, change, $nc(this->insertPath)->get($nc(this->insertPath)->length - counter - 1));
-		$nc($nc(change)->removed)->insertElementAt($($nc(change->parent)->getElement(--change->index)), 0);
+		$nc($nc(change)->removed)->insertElementAt($($nc($nc(change)->parent)->getElement(--$nc(change)->index)), 0);
 	}
 }
 
@@ -281,17 +202,17 @@ void DefaultStyledDocument$ElementBuffer::changeUpdate() {
 }
 
 bool DefaultStyledDocument$ElementBuffer::split(int32_t offs, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool splitEnd = false;
 	$var($Element, e, this->root);
 	int32_t index = $nc(e)->getElementIndex(offs);
-	while (!e->isLeaf()) {
+	while (!$nc(e)->isLeaf()) {
 		push(e, index);
 		$assign(e, e->getElement(index));
 		index = $nc(e)->getElementIndex(offs);
 	}
 	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, ec, $cast($DefaultStyledDocument$ElementBuffer$ElemChanges, $nc(this->path)->peek()));
-	$var($Element, child, $nc($nc(ec)->parent)->getElement(ec->index));
+	$var($Element, child, $nc($nc(ec)->parent)->getElement($nc(ec)->index));
 	bool var$0 = $nc(child)->getStartOffset() < offs;
 	if (var$0 && offs < child->getEndOffset()) {
 		int32_t index0 = ec->index;
@@ -328,7 +249,7 @@ bool DefaultStyledDocument$ElementBuffer::split(int32_t offs, int32_t len) {
 		$assign(e, this->this$0->createLeafElement(var$6, var$7, child->getStartOffset(), this->pos));
 		$nc(ec->added)->addElement(e);
 		$var($Element, var$8, ec->parent);
-		$var($AttributeSet, var$9, $nc(child)->getAttributes());
+		$var($AttributeSet, var$9, child->getAttributes());
 		int32_t var$10 = this->pos;
 		$assign(e, this->this$0->createLeafElement(var$8, var$9, var$10, child->getEndOffset()));
 		$nc(ec->added)->addElement(e);
@@ -346,7 +267,7 @@ bool DefaultStyledDocument$ElementBuffer::split(int32_t offs, int32_t len) {
 			$assign(e, this->this$0->createLeafElement(var$11, var$12, child->getStartOffset(), this->pos));
 			$nc(ec->added)->addElement(e);
 			$var($Element, var$13, ec->parent);
-			$var($AttributeSet, var$14, $nc(child)->getAttributes());
+			$var($AttributeSet, var$14, child->getAttributes());
 			int32_t var$15 = this->pos;
 			$assign(e, this->this$0->createLeafElement(var$13, var$14, var$15, child->getEndOffset()));
 			$nc(ec->added)->addElement(e);
@@ -356,16 +277,16 @@ bool DefaultStyledDocument$ElementBuffer::split(int32_t offs, int32_t len) {
 }
 
 void DefaultStyledDocument$ElementBuffer::endEdits($AbstractDocument$DefaultDocumentEvent* de) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(this->changes)->size();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($DefaultStyledDocument$ElementBuffer$ElemChanges, ec, $cast($DefaultStyledDocument$ElementBuffer$ElemChanges, $nc(this->changes)->elementAt(i)));
 		$var($ElementArray, removed, $new($ElementArray, $nc($nc(ec)->removed)->size()));
-		$nc(ec->removed)->copyInto(removed);
+		ec->removed->copyInto(removed);
 		$var($ElementArray, added, $new($ElementArray, $nc(ec->added)->size()));
-		$nc(ec->added)->copyInto(added);
+		ec->added->copyInto(added);
 		int32_t index = ec->index;
-		$nc(($cast($AbstractDocument$BranchElement, ec->parent)))->replace(index, removed->length, added);
+		$nc($cast($AbstractDocument$BranchElement, ec->parent))->replace(index, removed->length, added);
 		$var($AbstractDocument$ElementEdit, ee, $new($AbstractDocument$ElementEdit, ec->parent, index, removed, added));
 		$nc(de)->addEdit(ee);
 	}
@@ -381,12 +302,12 @@ void DefaultStyledDocument$ElementBuffer::beginEdits(int32_t offset, int32_t len
 	if (this->changes == nullptr) {
 		$set(this, changes, $new($Vector));
 	} else {
-		$nc(this->changes)->removeAllElements();
+		this->changes->removeAllElements();
 	}
 	if (this->path == nullptr) {
 		$set(this, path, $new($Stack));
 	} else {
-		$nc(this->path)->removeAllElements();
+		this->path->removeAllElements();
 	}
 	$set(this, fracturedParent, nullptr);
 	$set(this, fracturedChild, nullptr);
@@ -403,13 +324,13 @@ void DefaultStyledDocument$ElementBuffer::push($Element* e, int32_t index) {
 }
 
 void DefaultStyledDocument$ElementBuffer::pop() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, ec, $cast($DefaultStyledDocument$ElementBuffer$ElemChanges, $nc(this->path)->peek()));
-	$nc(this->path)->pop();
-	bool var$0 = ($nc($nc(ec)->added)->size() > 0);
-	if (var$0 || ($nc($nc(ec)->removed)->size() > 0)) {
+	this->path->pop();
+	bool var$0 = $nc($nc(ec)->added)->size() > 0;
+	if (var$0 || ($nc(ec->removed)->size() > 0)) {
 		$nc(this->changes)->addElement(ec);
-	} else if (!$nc(this->path)->isEmpty()) {
+	} else if (!this->path->isEmpty()) {
 		$var($Element, e, ec->parent);
 		if ($nc(e)->getElementCount() == 0) {
 			$assign(ec, $cast($DefaultStyledDocument$ElementBuffer$ElemChanges, $nc(this->path)->peek()));
@@ -423,103 +344,91 @@ void DefaultStyledDocument$ElementBuffer::advance(int32_t n) {
 }
 
 void DefaultStyledDocument$ElementBuffer::insertElement($DefaultStyledDocument$ElementSpec* es) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, ec, $cast($DefaultStyledDocument$ElementBuffer$ElemChanges, $nc(this->path)->peek()));
 	{
 		int32_t len = 0;
 		switch ($nc(es)->getType()) {
 		case $DefaultStyledDocument$ElementSpec::StartTagType:
 			{
-				{
-					$var($Element, parent, nullptr)
-					$var($Element, belem, nullptr)
-					switch (es->getDirection()) {
-					case $DefaultStyledDocument$ElementSpec::JoinNextDirection:
-						{
-							$assign(parent, $nc($nc(ec)->parent)->getElement(ec->index));
-							if ($nc(parent)->isLeaf()) {
-								if ((ec->index + 1) < $nc(ec->parent)->getElementCount()) {
-									$assign(parent, $nc(ec->parent)->getElement(ec->index + 1));
-								} else {
-									$throwNew($StateInvariantError, "Join next to leaf"_s);
-								}
-							}
-							push(parent, 0, true);
-							break;
-						}
-					case $DefaultStyledDocument$ElementSpec::JoinFractureDirection:
-						{
-							if (!this->createdFracture) {
-								fracture($nc(this->path)->size() - 1);
-							}
-							if (!ec->isFracture) {
-								push(this->fracturedChild, 0, true);
-							} else {
-								push($($nc(ec->parent)->getElement(0)), 0, true);
-							}
-							break;
-						}
-					default:
-						{
-							$assign(belem, this->this$0->createBranchElement(ec->parent, $(es->getAttributes())));
-							$nc(ec->added)->addElement(belem);
-							push(belem, 0);
-							break;
+				$var($Element, parent, nullptr);
+				$var($Element, belem, nullptr);
+				switch (es->getDirection()) {
+				case $DefaultStyledDocument$ElementSpec::JoinNextDirection:
+					$assign(parent, $nc($nc(ec)->parent)->getElement($nc(ec)->index));
+					if ($nc(parent)->isLeaf()) {
+						if ((ec->index + 1) < $nc(ec->parent)->getElementCount()) {
+							$assign(parent, $nc(ec->parent)->getElement(ec->index + 1));
+						} else {
+							$throwNew($StateInvariantError, "Join next to leaf"_s);
 						}
 					}
+					push(parent, 0, true);
+					break;
+				case $DefaultStyledDocument$ElementSpec::JoinFractureDirection:
+					if (!this->createdFracture) {
+						fracture($nc(this->path)->size() - 1);
+					}
+					if (!$nc(ec)->isFracture) {
+						push(this->fracturedChild, 0, true);
+					} else {
+						push($($nc(ec->parent)->getElement(0)), 0, true);
+					}
+					break;
+				default:
+					$assign(belem, this->this$0->createBranchElement($nc(ec)->parent, $(es->getAttributes())));
+					$nc(ec->added)->addElement(belem);
+					push(belem, 0);
+					break;
 				}
 				break;
 			}
 		case $DefaultStyledDocument$ElementSpec::EndTagType:
-			{
-				pop();
-				break;
-			}
+			pop();
+			break;
 		case $DefaultStyledDocument$ElementSpec::ContentType:
-			{
-				len = es->getLength();
-				if (es->getDirection() != $DefaultStyledDocument$ElementSpec::JoinNextDirection) {
-					$var($Element, leaf, this->this$0->createLeafElement($nc(ec)->parent, $(es->getAttributes()), this->pos, this->pos + len));
-					$nc($nc(ec)->added)->addElement(leaf);
-				} else if (!$nc(ec)->isFracture) {
-					$var($Element, first, nullptr);
-					if (this->insertPath != nullptr) {
-						for (int32_t counter = $nc(this->insertPath)->length - 1; counter >= 0; --counter) {
-							if ($nc(this->insertPath)->get(counter) == ec) {
-								if (counter != ($nc(this->insertPath)->length - 1)) {
-									$assign(first, $nc(ec->parent)->getElement(ec->index));
-								}
-								break;
+			len = es->getLength();
+			if (es->getDirection() != $DefaultStyledDocument$ElementSpec::JoinNextDirection) {
+				$var($Element, leaf, this->this$0->createLeafElement($nc(ec)->parent, $(es->getAttributes()), this->pos, this->pos + len));
+				$nc(ec->added)->addElement(leaf);
+			} else if (!$nc(ec)->isFracture) {
+				$var($Element, first, nullptr);
+				if (this->insertPath != nullptr) {
+					for (int32_t counter = this->insertPath->length - 1; counter >= 0; --counter) {
+						if ($nc(this->insertPath)->get(counter) == ec) {
+							if (counter != (this->insertPath->length - 1)) {
+								$assign(first, $nc(ec->parent)->getElement(ec->index));
 							}
+							break;
 						}
 					}
-					if (first == nullptr) {
-						$assign(first, $nc(ec->parent)->getElement(ec->index + 1));
-					}
-					$var($Element, var$0, ec->parent);
-					$var($AttributeSet, var$1, $nc(first)->getAttributes());
-					int32_t var$2 = this->pos;
-					$var($Element, leaf, this->this$0->createLeafElement(var$0, var$1, var$2, first->getEndOffset()));
-					$nc(ec->added)->addElement(leaf);
-					$nc(ec->removed)->addElement(first);
-				} else {
-					$var($Element, first, $nc(ec->parent)->getElement(0));
-					$var($Element, var$3, ec->parent);
-					$var($AttributeSet, var$4, $nc(first)->getAttributes());
-					int32_t var$5 = this->pos;
-					$var($Element, leaf, this->this$0->createLeafElement(var$3, var$4, var$5, first->getEndOffset()));
-					$nc(ec->added)->addElement(leaf);
-					$nc(ec->removed)->addElement(first);
 				}
-				this->pos += len;
-				break;
+				if (first == nullptr) {
+					$assign(first, $nc(ec->parent)->getElement(ec->index + 1));
+				}
+				$var($Element, var$0, ec->parent);
+				$var($AttributeSet, var$1, $nc(first)->getAttributes());
+				int32_t var$2 = this->pos;
+				$var($Element, leaf, this->this$0->createLeafElement(var$0, var$1, var$2, first->getEndOffset()));
+				$nc(ec->added)->addElement(leaf);
+				$nc(ec->removed)->addElement(first);
+			} else {
+				$var($Element, first, $nc(ec->parent)->getElement(0));
+				$var($Element, var$3, ec->parent);
+				$var($AttributeSet, var$4, $nc(first)->getAttributes());
+				int32_t var$5 = this->pos;
+				$var($Element, leaf, this->this$0->createLeafElement(var$3, var$4, var$5, first->getEndOffset()));
+				$nc(ec->added)->addElement(leaf);
+				$nc(ec->removed)->addElement(first);
 			}
+			this->pos += len;
+			break;
 		}
 	}
 }
 
 bool DefaultStyledDocument$ElementBuffer::removeElements($Element* elem, int32_t rmOffs0, int32_t rmOffs1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(elem)->isLeaf()) {
 		int32_t index0 = elem->getElementIndex(rmOffs0);
 		int32_t index1 = elem->getElementIndex(rmOffs1);
@@ -548,8 +457,8 @@ bool DefaultStyledDocument$ElementBuffer::removeElements($Element* elem, int32_t
 				int32_t rmIndex1 = index1 - 1;
 				bool var$1 = $nc(child0)->getStartOffset() == rmOffs0;
 				if (!var$1) {
-					bool var$2 = index0 == 0 && $nc(child0)->getStartOffset() > rmOffs0;
-					var$1 = (var$2 && child0->getEndOffset() <= rmOffs1);
+					bool var$2 = index0 == 0 && child0->getStartOffset() > rmOffs0;
+					var$1 = var$2 && child0->getEndOffset() <= rmOffs1;
 				}
 				if (var$1) {
 					$assign(child0, nullptr);
@@ -592,7 +501,7 @@ bool DefaultStyledDocument$ElementBuffer::removeElements($Element* elem, int32_t
 }
 
 bool DefaultStyledDocument$ElementBuffer::canJoin($Element* e0, $Element* e1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((e0 == nullptr) || (e1 == nullptr)) {
 		return false;
 	}
@@ -602,7 +511,7 @@ bool DefaultStyledDocument$ElementBuffer::canJoin($Element* e0, $Element* e1) {
 		return false;
 	}
 	if (leaf0) {
-		return $nc($(e0->getAttributes()))->isEqual($(e1->getAttributes()));
+		return $$nc(e0->getAttributes())->isEqual($(e1->getAttributes()));
 	}
 	$var($String, name0, e0->getName());
 	$var($String, name1, e1->getName());
@@ -616,16 +525,15 @@ bool DefaultStyledDocument$ElementBuffer::canJoin($Element* e0, $Element* e1) {
 }
 
 $Element* DefaultStyledDocument$ElementBuffer::join($Element* p, $Element* left, $Element* right, int32_t rmOffs0, int32_t rmOffs1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(left)->isLeaf();
 	if (var$0 && $nc(right)->isLeaf()) {
-		$var($Element, var$1, p);
-		$var($AttributeSet, var$2, left->getAttributes());
-		int32_t var$3 = left->getStartOffset();
-		return this->this$0->createLeafElement(var$1, var$2, var$3, right->getEndOffset());
+		$var($AttributeSet, var$1, left->getAttributes());
+		int32_t var$2 = left->getStartOffset();
+		return this->this$0->createLeafElement(p, var$1, var$2, right->getEndOffset());
 	} else {
-		bool var$5 = (!left->isLeaf());
-		if (var$5 && (!right->isLeaf())) {
+		bool var$3 = !left->isLeaf();
+		if (var$3 && (!$nc(right)->isLeaf())) {
 			$var($Element, to, this->this$0->createBranchElement(p, $(left->getAttributes())));
 			int32_t ljIndex = left->getElementIndex(rmOffs0);
 			int32_t rjIndex = right->getElementIndex(rmOffs1);
@@ -658,7 +566,7 @@ $Element* DefaultStyledDocument$ElementBuffer::join($Element* p, $Element* left,
 			}
 			$var($ElementArray, c, $new($ElementArray, children->size()));
 			children->copyInto(c);
-			$nc(($cast($AbstractDocument$BranchElement, to)))->replace(0, 0, c);
+			$nc($cast($AbstractDocument$BranchElement, to))->replace(0, 0, c);
 			return to;
 		} else {
 			$throwNew($StateInvariantError, "No support to join leaf element with non-leaf element"_s);
@@ -667,54 +575,52 @@ $Element* DefaultStyledDocument$ElementBuffer::join($Element* p, $Element* left,
 }
 
 $Element* DefaultStyledDocument$ElementBuffer::clone($Element* parent, $Element* clonee) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(clonee)->isLeaf()) {
-		$var($Element, var$0, parent);
-		$var($AttributeSet, var$1, clonee->getAttributes());
-		int32_t var$2 = clonee->getStartOffset();
-		return this->this$0->createLeafElement(var$0, var$1, var$2, clonee->getEndOffset());
+		$var($AttributeSet, var$0, clonee->getAttributes());
+		int32_t var$1 = clonee->getStartOffset();
+		return this->this$0->createLeafElement(parent, var$0, var$1, clonee->getEndOffset());
 	}
-	$var($Element, e, this->this$0->createBranchElement(parent, $($nc(clonee)->getAttributes())));
-	int32_t n = $nc(clonee)->getElementCount();
+	$var($Element, e, this->this$0->createBranchElement(parent, $(clonee->getAttributes())));
+	int32_t n = clonee->getElementCount();
 	$var($ElementArray, children, $new($ElementArray, n));
 	for (int32_t i = 0; i < n; ++i) {
 		children->set(i, $(clone(e, $(clonee->getElement(i)))));
 	}
-	$nc(($cast($AbstractDocument$BranchElement, e)))->replace(0, 0, children);
+	$nc($cast($AbstractDocument$BranchElement, e))->replace(0, 0, children);
 	return e;
 }
 
 $Element* DefaultStyledDocument$ElementBuffer::cloneAsNecessary($Element* parent, $Element* clonee, int32_t rmOffs0, int32_t rmOffs1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(clonee)->isLeaf()) {
-		$var($Element, var$0, parent);
-		$var($AttributeSet, var$1, clonee->getAttributes());
-		int32_t var$2 = clonee->getStartOffset();
-		return this->this$0->createLeafElement(var$0, var$1, var$2, clonee->getEndOffset());
+		$var($AttributeSet, var$0, clonee->getAttributes());
+		int32_t var$1 = clonee->getStartOffset();
+		return this->this$0->createLeafElement(parent, var$0, var$1, clonee->getEndOffset());
 	}
-	$var($Element, e, this->this$0->createBranchElement(parent, $($nc(clonee)->getAttributes())));
-	int32_t n = $nc(clonee)->getElementCount();
+	$var($Element, e, this->this$0->createBranchElement(parent, $(clonee->getAttributes())));
+	int32_t n = clonee->getElementCount();
 	$var($ArrayList, childrenList, $new($ArrayList, n));
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Element, elem, clonee->getElement(i));
-		bool var$3 = $nc(elem)->getStartOffset() < rmOffs0;
-		if (var$3 || $nc(elem)->getEndOffset() > rmOffs1) {
+		bool var$2 = $nc(elem)->getStartOffset() < rmOffs0;
+		if (var$2 || elem->getEndOffset() > rmOffs1) {
 			childrenList->add($(cloneAsNecessary(e, elem, rmOffs0, rmOffs1)));
 		}
 	}
 	$var($ElementArray, children, $new($ElementArray, childrenList->size()));
-	$assign(children, $fcast($ElementArray, childrenList->toArray(children)));
-	$nc(($cast($AbstractDocument$BranchElement, e)))->replace(0, 0, children);
+	$assign(children, $cast($ElementArray, childrenList->toArray(children)));
+	$nc($cast($AbstractDocument$BranchElement, e))->replace(0, 0, children);
 	return e;
 }
 
 void DefaultStyledDocument$ElementBuffer::fracture(int32_t depth) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t cLength = $nc(this->insertPath)->length;
 	int32_t lastIndex = -1;
 	bool needRecreate = this->recreateLeafs;
-	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, lastChange, $nc(this->insertPath)->get(cLength - 1));
-	bool childAltered = (($nc(lastChange)->index + 1) < $nc(lastChange->parent)->getElementCount());
+	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, lastChange, this->insertPath->get(cLength - 1));
+	bool childAltered = (($nc(lastChange)->index + 1) < $nc($nc(lastChange)->parent)->getElementCount());
 	int32_t deepestAlteredIndex = (needRecreate) ? cLength : -1;
 	int32_t lastAlteredIndex = cLength - 1;
 	this->createdFracture = true;
@@ -729,7 +635,7 @@ void DefaultStyledDocument$ElementBuffer::fracture(int32_t depth) {
 				}
 			}
 		}
-		if (!childAltered && $nc(change)->index < $nc(change->parent)->getElementCount()) {
+		if (!childAltered && change->index < $nc(change->parent)->getElementCount()) {
 			childAltered = true;
 			lastAlteredIndex = counter;
 		}
@@ -743,15 +649,15 @@ void DefaultStyledDocument$ElementBuffer::fracture(int32_t depth) {
 }
 
 void DefaultStyledDocument$ElementBuffer::fractureFrom($DefaultStyledDocument$ElementBuffer$ElemChangesArray* changed, int32_t startIndex, int32_t endFractureIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, change, $nc(changed)->get(startIndex));
 	$var($Element, child, nullptr);
 	$var($Element, newChild, nullptr);
 	int32_t changeLength = changed->length;
 	if ((startIndex + 1) == changeLength) {
-		$assign(child, $nc($nc(change)->parent)->getElement(change->index));
+		$assign(child, $nc($nc(change)->parent)->getElement($nc(change)->index));
 	} else {
-		$assign(child, $nc($nc(change)->parent)->getElement(change->index - 1));
+		$assign(child, $nc($nc(change)->parent)->getElement($nc(change)->index - 1));
 	}
 	if ($nc(child)->isLeaf()) {
 		$var($Element, var$0, $nc(change)->parent);
@@ -772,24 +678,23 @@ void DefaultStyledDocument$ElementBuffer::fractureFrom($DefaultStyledDocument$El
 			if (this->offsetLastIndex || !isEndLeaf) {
 				$assign(child, nullptr);
 			} else {
-				$assign(child, $nc($nc(change)->parent)->getElement(change->index));
+				$assign(child, $nc($nc(change)->parent)->getElement($nc(change)->index));
 			}
 		} else {
-			$assign(child, $nc($nc(change)->parent)->getElement(change->index - 1));
+			$assign(child, $nc($nc(change)->parent)->getElement($nc(change)->index - 1));
 		}
 		if (child != nullptr) {
 			if (child->isLeaf()) {
-				$var($Element, var$3, parent);
-				$var($AttributeSet, var$4, child->getAttributes());
-				int32_t var$5 = $Math::max(this->endOffset, child->getStartOffset());
-				$assign(newChild, this->this$0->createLeafElement(var$3, var$4, var$5, child->getEndOffset()));
+				$var($AttributeSet, var$3, child->getAttributes());
+				int32_t var$4 = $Math::max(this->endOffset, child->getStartOffset());
+				$assign(newChild, this->this$0->createLeafElement(parent, var$3, var$4, child->getEndOffset()));
 			} else {
 				$assign(newChild, this->this$0->createBranchElement(parent, $(child->getAttributes())));
 			}
 		} else {
 			$assign(newChild, nullptr);
 		}
-		int32_t kidsToMove = $nc($nc(change)->parent)->getElementCount() - change->index;
+		int32_t kidsToMove = $nc($nc(change)->parent)->getElementCount() - $nc(change)->index;
 		$var($ElementArray, kids, nullptr);
 		int32_t moveStartIndex = 0;
 		int32_t kidStartIndex = 1;
@@ -817,33 +722,32 @@ void DefaultStyledDocument$ElementBuffer::fractureFrom($DefaultStyledDocument$El
 			$nc(kids)->set(counter, $(recreateFracturedElement(parent, toMove)));
 			$nc(change->removed)->addElement(toMove);
 		}
-		$nc(($cast($AbstractDocument$BranchElement, parent)))->replace(0, 0, kids);
+		$nc($cast($AbstractDocument$BranchElement, parent))->replace(0, 0, kids);
 		$assign(parent, newChild);
 	}
 }
 
 $Element* DefaultStyledDocument$ElementBuffer::recreateFracturedElement($Element* parent, $Element* toDuplicate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(toDuplicate)->isLeaf()) {
-		$var($Element, var$0, parent);
-		$var($AttributeSet, var$1, toDuplicate->getAttributes());
-		int32_t var$2 = $Math::max(toDuplicate->getStartOffset(), this->endOffset);
-		return this->this$0->createLeafElement(var$0, var$1, var$2, toDuplicate->getEndOffset());
+		$var($AttributeSet, var$0, toDuplicate->getAttributes());
+		int32_t var$1 = $Math::max(toDuplicate->getStartOffset(), this->endOffset);
+		return this->this$0->createLeafElement(parent, var$0, var$1, toDuplicate->getEndOffset());
 	}
-	$var($Element, newParent, this->this$0->createBranchElement(parent, $($nc(toDuplicate)->getAttributes())));
-	int32_t childCount = $nc(toDuplicate)->getElementCount();
+	$var($Element, newParent, this->this$0->createBranchElement(parent, $(toDuplicate->getAttributes())));
+	int32_t childCount = toDuplicate->getElementCount();
 	$var($ElementArray, newKids, $new($ElementArray, childCount));
 	for (int32_t counter = 0; counter < childCount; ++counter) {
 		newKids->set(counter, $(recreateFracturedElement(newParent, $(toDuplicate->getElement(counter)))));
 	}
-	$nc(($cast($AbstractDocument$BranchElement, newParent)))->replace(0, 0, newKids);
+	$nc($cast($AbstractDocument$BranchElement, newParent))->replace(0, 0, newKids);
 	return newParent;
 }
 
 void DefaultStyledDocument$ElementBuffer::fractureDeepestLeaf($DefaultStyledDocument$ElementSpecArray* specs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, ec, $cast($DefaultStyledDocument$ElementBuffer$ElemChanges, $nc(this->path)->peek()));
-	$var($Element, child, $nc($nc(ec)->parent)->getElement(ec->index));
+	$var($Element, child, $nc($nc(ec)->parent)->getElement($nc(ec)->index));
 	if (this->offset != 0) {
 		$var($Element, var$0, ec->parent);
 		$var($AttributeSet, var$1, $nc(child)->getAttributes());
@@ -859,74 +763,68 @@ void DefaultStyledDocument$ElementBuffer::fractureDeepestLeaf($DefaultStyledDocu
 }
 
 void DefaultStyledDocument$ElementBuffer::insertFirstContent($DefaultStyledDocument$ElementSpecArray* specs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultStyledDocument$ElementSpec, firstSpec, $nc(specs)->get(0));
 	$var($DefaultStyledDocument$ElementBuffer$ElemChanges, ec, $cast($DefaultStyledDocument$ElementBuffer$ElemChanges, $nc(this->path)->peek()));
-	$var($Element, child, $nc($nc(ec)->parent)->getElement(ec->index));
+	$var($Element, child, $nc($nc(ec)->parent)->getElement($nc(ec)->index));
 	int32_t firstEndOffset = this->offset + $nc(firstSpec)->getLength();
 	bool isOnlyContent = (specs->length == 1);
 	{
-		$var($Element, newE, nullptr)
+		$var($Element, newE, nullptr);
 		switch (firstSpec->getDirection()) {
 		case $DefaultStyledDocument$ElementSpec::JoinPreviousDirection:
-			{
-				if ($nc(child)->getEndOffset() != firstEndOffset && !isOnlyContent) {
-					$var($Element, var$0, ec->parent);
-					$var($AttributeSet, var$1, child->getAttributes());
-					$var($Element, newE, this->this$0->createLeafElement(var$0, var$1, child->getStartOffset(), firstEndOffset));
-					$nc(ec->added)->addElement(newE);
-					$nc(ec->removed)->addElement(child);
-					if (child->getEndOffset() != this->endOffset) {
-						this->recreateLeafs = true;
-					} else {
-						this->offsetLastIndex = true;
-					}
-				} else {
-					this->offsetLastIndex = true;
-					this->offsetLastIndexOnReplace = true;
-				}
-				break;
-			}
-		case $DefaultStyledDocument$ElementSpec::JoinNextDirection:
-			{
-				if (this->offset != 0) {
-					$var($Element, var$2, ec->parent);
-					$var($AttributeSet, var$3, $nc(child)->getAttributes());
-					$var($Element, newE, this->this$0->createLeafElement(var$2, var$3, child->getStartOffset(), this->offset));
-					$nc(ec->added)->addElement(newE);
-					$var($Element, nextChild, $nc(ec->parent)->getElement(ec->index + 1));
-					if (isOnlyContent) {
-						$var($Element, var$4, ec->parent);
-						$var($AttributeSet, var$5, $nc(nextChild)->getAttributes());
-						int32_t var$6 = this->offset;
-						$assign(newE, this->this$0->createLeafElement(var$4, var$5, var$6, nextChild->getEndOffset()));
-					} else {
-						$assign(newE, this->this$0->createLeafElement(ec->parent, $($nc(nextChild)->getAttributes()), this->offset, firstEndOffset));
-					}
-					$nc(ec->added)->addElement(newE);
-					$nc(ec->removed)->addElement(child);
-					$nc(ec->removed)->addElement(nextChild);
-				}
-				break;
-			}
-		default:
-			{
-				if ($nc(child)->getStartOffset() != this->offset) {
-					$var($Element, var$7, ec->parent);
-					$var($AttributeSet, var$8, child->getAttributes());
-					$var($Element, newE, this->this$0->createLeafElement(var$7, var$8, child->getStartOffset(), this->offset));
-					$nc(ec->added)->addElement(newE);
-				}
-				$nc(ec->removed)->addElement(child);
-				$assign(newE, this->this$0->createLeafElement(ec->parent, $(firstSpec->getAttributes()), this->offset, firstEndOffset));
+			if ($nc(child)->getEndOffset() != firstEndOffset && !isOnlyContent) {
+				$var($Element, var$0, ec->parent);
+				$var($AttributeSet, var$1, child->getAttributes());
+				$var($Element, newE, this->this$0->createLeafElement(var$0, var$1, child->getStartOffset(), firstEndOffset));
 				$nc(ec->added)->addElement(newE);
-				if ($nc(child)->getEndOffset() != this->endOffset) {
+				$nc(ec->removed)->addElement(child);
+				if (child->getEndOffset() != this->endOffset) {
 					this->recreateLeafs = true;
 				} else {
 					this->offsetLastIndex = true;
 				}
-				break;
+			} else {
+				this->offsetLastIndex = true;
+				this->offsetLastIndexOnReplace = true;
 			}
+			break;
+		case $DefaultStyledDocument$ElementSpec::JoinNextDirection:
+			if (this->offset != 0) {
+				$var($Element, var$2, ec->parent);
+				$var($AttributeSet, var$3, $nc(child)->getAttributes());
+				$var($Element, newE, this->this$0->createLeafElement(var$2, var$3, child->getStartOffset(), this->offset));
+				$nc(ec->added)->addElement(newE);
+				$var($Element, nextChild, $nc(ec->parent)->getElement(ec->index + 1));
+				if (isOnlyContent) {
+					$var($Element, var$4, ec->parent);
+					$var($AttributeSet, var$5, $nc(nextChild)->getAttributes());
+					int32_t var$6 = this->offset;
+					$assign(newE, this->this$0->createLeafElement(var$4, var$5, var$6, nextChild->getEndOffset()));
+				} else {
+					$assign(newE, this->this$0->createLeafElement(ec->parent, $($nc(nextChild)->getAttributes()), this->offset, firstEndOffset));
+				}
+				$nc(ec->added)->addElement(newE);
+				$nc(ec->removed)->addElement(child);
+				ec->removed->addElement(nextChild);
+			}
+			break;
+		default:
+			if ($nc(child)->getStartOffset() != this->offset) {
+				$var($Element, var$7, ec->parent);
+				$var($AttributeSet, var$8, child->getAttributes());
+				$var($Element, newE, this->this$0->createLeafElement(var$7, var$8, child->getStartOffset(), this->offset));
+				$nc(ec->added)->addElement(newE);
+			}
+			$nc(ec->removed)->addElement(child);
+			$assign(newE, this->this$0->createLeafElement(ec->parent, $(firstSpec->getAttributes()), this->offset, firstEndOffset));
+			$nc(ec->added)->addElement(newE);
+			if (child->getEndOffset() != this->endOffset) {
+				this->recreateLeafs = true;
+			} else {
+				this->offsetLastIndex = true;
+			}
+			break;
 		}
 	}
 }
@@ -935,7 +833,78 @@ DefaultStyledDocument$ElementBuffer::DefaultStyledDocument$ElementBuffer() {
 }
 
 $Class* DefaultStyledDocument$ElementBuffer::load$($String* name, bool initialize) {
-	$loadClass(DefaultStyledDocument$ElementBuffer, name, initialize, &_DefaultStyledDocument$ElementBuffer_ClassInfo_, allocate$DefaultStyledDocument$ElementBuffer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/DefaultStyledDocument;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultStyledDocument$ElementBuffer, this$0)},
+		{"root", "Ljavax/swing/text/Element;", nullptr, 0, $field(DefaultStyledDocument$ElementBuffer, root)},
+		{"pos", "I", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, pos)},
+		{"offset", "I", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, offset)},
+		{"length", "I", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, length)},
+		{"endOffset", "I", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, endOffset)},
+		{"changes", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/DefaultStyledDocument$ElementBuffer$ElemChanges;>;", $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, changes)},
+		{"path", "Ljava/util/Stack;", "Ljava/util/Stack<Ljavax/swing/text/DefaultStyledDocument$ElementBuffer$ElemChanges;>;", $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, path)},
+		{"insertOp", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, insertOp)},
+		{"recreateLeafs", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, recreateLeafs)},
+		{"insertPath", "[Ljavax/swing/text/DefaultStyledDocument$ElementBuffer$ElemChanges;", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, insertPath)},
+		{"createdFracture", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, createdFracture)},
+		{"fracturedParent", "Ljavax/swing/text/Element;", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, fracturedParent)},
+		{"fracturedChild", "Ljavax/swing/text/Element;", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, fracturedChild)},
+		{"offsetLastIndex", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, offsetLastIndex)},
+		{"offsetLastIndexOnReplace", "Z", nullptr, $TRANSIENT, $field(DefaultStyledDocument$ElementBuffer, offsetLastIndexOnReplace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/DefaultStyledDocument;Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(DefaultStyledDocument$ElementBuffer, init$, void, $DefaultStyledDocument*, $Element*)},
+		{"advance", "(I)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, advance, void, int32_t)},
+		{"beginEdits", "(II)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, beginEdits, void, int32_t, int32_t)},
+		{"canJoin", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;)Z", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, canJoin, bool, $Element*, $Element*)},
+		{"change", "(IILjavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, change, void, int32_t, int32_t, $AbstractDocument$DefaultDocumentEvent*)},
+		{"changeUpdate", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument$ElementBuffer, changeUpdate, void)},
+		{"clone", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;)Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, clone, $Element*, $Element*, $Element*)},
+		{"cloneAsNecessary", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;II)Ljavax/swing/text/Element;", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, cloneAsNecessary, $Element*, $Element*, $Element*, int32_t, int32_t)},
+		{"create", "(I[Ljavax/swing/text/DefaultStyledDocument$ElementSpec;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, create, void, int32_t, $DefaultStyledDocument$ElementSpecArray*, $AbstractDocument$DefaultDocumentEvent*)},
+		{"endEdits", "(Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, endEdits, void, $AbstractDocument$DefaultDocumentEvent*)},
+		{"fracture", "(I)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, fracture, void, int32_t)},
+		{"fractureDeepestLeaf", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, fractureDeepestLeaf, void, $DefaultStyledDocument$ElementSpecArray*)},
+		{"fractureFrom", "([Ljavax/swing/text/DefaultStyledDocument$ElementBuffer$ElemChanges;II)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, fractureFrom, void, $DefaultStyledDocument$ElementBuffer$ElemChangesArray*, int32_t, int32_t)},
+		{"getRootElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, getRootElement, $Element*)},
+		{"insert", "(II[Ljavax/swing/text/DefaultStyledDocument$ElementSpec;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, insert, void, int32_t, int32_t, $DefaultStyledDocument$ElementSpecArray*, $AbstractDocument$DefaultDocumentEvent*)},
+		{"insertElement", "(Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, insertElement, void, $DefaultStyledDocument$ElementSpec*)},
+		{"insertFirstContent", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, insertFirstContent, void, $DefaultStyledDocument$ElementSpecArray*)},
+		{"insertUpdate", "([Ljavax/swing/text/DefaultStyledDocument$ElementSpec;)V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument$ElementBuffer, insertUpdate, void, $DefaultStyledDocument$ElementSpecArray*)},
+		{"join", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;Ljavax/swing/text/Element;II)Ljavax/swing/text/Element;", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, join, $Element*, $Element*, $Element*, $Element*, int32_t, int32_t)},
+		{"pop", "()V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, pop, void)},
+		{"push", "(Ljavax/swing/text/Element;IZ)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, push, void, $Element*, int32_t, bool)},
+		{"push", "(Ljavax/swing/text/Element;I)V", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, push, void, $Element*, int32_t)},
+		{"recreateFracturedElement", "(Ljavax/swing/text/Element;Ljavax/swing/text/Element;)Ljavax/swing/text/Element;", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, recreateFracturedElement, $Element*, $Element*, $Element*)},
+		{"remove", "(IILjavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementBuffer, remove, void, int32_t, int32_t, $AbstractDocument$DefaultDocumentEvent*)},
+		{"removeElements", "(Ljavax/swing/text/Element;II)Z", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, removeElements, bool, $Element*, int32_t, int32_t)},
+		{"removeUpdate", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultStyledDocument$ElementBuffer, removeUpdate, void)},
+		{"split", "(II)Z", nullptr, 0, $virtualMethod(DefaultStyledDocument$ElementBuffer, split, bool, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultStyledDocument$ElementBuffer", "javax.swing.text.DefaultStyledDocument", "ElementBuffer", $PUBLIC},
+		{"javax.swing.text.DefaultStyledDocument$ElementBuffer$ElemChanges", "javax.swing.text.DefaultStyledDocument$ElementBuffer", "ElemChanges", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultStyledDocument$ElementBuffer",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultStyledDocument"
+	};
+	$loadClass(DefaultStyledDocument$ElementBuffer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultStyledDocument$ElementBuffer);
+	});
 	return class$;
 }
 

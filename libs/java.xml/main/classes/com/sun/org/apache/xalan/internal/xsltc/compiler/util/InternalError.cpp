@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/InternalError.h>
-
 #include <java/lang/Error.h>
 #include <jcpp.h>
 
@@ -18,29 +17,6 @@ namespace com {
 							namespace compiler {
 								namespace util {
 
-$FieldInfo _InternalError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InternalError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InternalError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InternalError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InternalError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.InternalError",
-	"java.lang.Error",
-	nullptr,
-	_InternalError_FieldInfo_,
-	_InternalError_MethodInfo_
-};
-
-$Object* allocate$InternalError($Class* clazz) {
-	return $of($alloc(InternalError));
-}
-
 void InternalError::init$($String* msg) {
 	$Error::init$(msg);
 }
@@ -56,7 +32,25 @@ void InternalError::throw$() {
 }
 
 $Class* InternalError::load$($String* name, bool initialize) {
-	$loadClass(InternalError, name, initialize, &_InternalError_ClassInfo_, allocate$InternalError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InternalError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InternalError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.InternalError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InternalError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalError);
+	});
 	return class$;
 }
 

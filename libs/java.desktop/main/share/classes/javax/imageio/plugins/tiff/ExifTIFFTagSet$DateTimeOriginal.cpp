@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$DateTimeOriginal.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$DateTimeOriginal_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$DateTimeOriginal, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$DateTimeOriginal_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$DateTimeOriginal", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "DateTimeOriginal", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$DateTimeOriginal_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$DateTimeOriginal",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$DateTimeOriginal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$DateTimeOriginal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$DateTimeOriginal($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$DateTimeOriginal));
-}
-
 void ExifTIFFTagSet$DateTimeOriginal::init$() {
 	$TIFFTag::init$("DateTimeOriginal"_s, 0x00009003, $sl(1, $TIFFTag::TIFF_ASCII), 20);
 }
@@ -54,7 +23,32 @@ ExifTIFFTagSet$DateTimeOriginal::ExifTIFFTagSet$DateTimeOriginal() {
 }
 
 $Class* ExifTIFFTagSet$DateTimeOriginal::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$DateTimeOriginal, name, initialize, &_ExifTIFFTagSet$DateTimeOriginal_ClassInfo_, allocate$ExifTIFFTagSet$DateTimeOriginal);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$DateTimeOriginal, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$DateTimeOriginal", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "DateTimeOriginal", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$DateTimeOriginal",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$DateTimeOriginal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$DateTimeOriginal);
+	});
 	return class$;
 }
 

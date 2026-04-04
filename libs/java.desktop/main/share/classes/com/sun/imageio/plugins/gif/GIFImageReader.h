@@ -78,6 +78,7 @@ public:
 	GIFImageReader();
 	using ::javax::imageio::ImageReader::getStreamMetadata;
 	using ::javax::imageio::ImageReader::getImageMetadata;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::imageio::spi::ImageReaderSpi* originatingProvider);
 	void checkIndex(int32_t imageIndex);
 	void computeDecodeThisRow();

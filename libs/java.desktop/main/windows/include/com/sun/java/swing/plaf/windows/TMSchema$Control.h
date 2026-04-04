@@ -51,6 +51,7 @@ class $import TMSchema$Control : public ::java::lang::Enum {
 public:
 	TMSchema$Control();
 	static $Array<::com::sun::java::swing::plaf::windows::TMSchema$Control>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::java::swing::plaf::windows::TMSchema$Control* valueOf($String* name);
 	static $Array<::com::sun::java::swing::plaf::windows::TMSchema$Control>* values();

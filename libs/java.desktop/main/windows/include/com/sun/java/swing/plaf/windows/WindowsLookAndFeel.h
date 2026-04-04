@@ -48,6 +48,7 @@ class $import WindowsLookAndFeel : public ::javax::swing::plaf::basic::BasicLook
 	$class(WindowsLookAndFeel, 0, ::javax::swing::plaf::basic::BasicLookAndFeel)
 public:
 	WindowsLookAndFeel();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void calculateBaseUnits();
 	virtual ::javax::swing::Action* createAudioAction(Object$* key) override;

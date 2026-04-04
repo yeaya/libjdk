@@ -95,7 +95,7 @@ public:
 	virtual ::org::w3c::dom::Text* splitText(int32_t offset) override;
 	virtual $String* substringData(int32_t offset, int32_t count) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x20EB4A4713EDB7F4;
+	static const int64_t serialVersionUID = (int64_t)0x20eb4a4713edb7f4;
 };
 
 						} // dom

@@ -25,6 +25,7 @@ class $export MenuItemIconTest : public ::java::lang::Object {
 	$class(MenuItemIconTest, 0, ::java::lang::Object)
 public:
 	MenuItemIconTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkPixeclColor(int32_t x, int32_t y);
 	static ::javax::swing::ImageIcon* createIcon();

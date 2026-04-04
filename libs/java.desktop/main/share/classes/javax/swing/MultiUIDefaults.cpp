@@ -1,6 +1,4 @@
 #include <javax/swing/MultiUIDefaults.h>
-
-#include <java/util/Collection.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashSet.h>
 #include <java/util/Hashtable.h>
@@ -19,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Enumeration = ::java::util::Enumeration;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
@@ -30,54 +27,6 @@ using $UIDefaults = ::javax::swing::UIDefaults;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _MultiUIDefaults_FieldInfo_[] = {
-	{"tables", "[Ljavax/swing/UIDefaults;", nullptr, $PRIVATE, $field(MultiUIDefaults, tables)},
-	{}
-};
-
-$MethodInfo _MultiUIDefaults_MethodInfo_[] = {
-	{"<init>", "([Ljavax/swing/UIDefaults;)V", nullptr, $PUBLIC, $method(MultiUIDefaults, init$, void, $UIDefaultsArray*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MultiUIDefaults, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, clear, void)},
-	{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(MultiUIDefaults, elements, $Enumeration*)},
-	{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(MultiUIDefaults, entrySet, $Set*)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, get, $Object*, Object$*)},
-	{"get", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, get, $Object*, Object$*, $Locale*)},
-	{"getUIError", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MultiUIDefaults, getUIError, void, $String*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, isEmpty, bool)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(MultiUIDefaults, keySet, $Set*)},
-	{"keys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(MultiUIDefaults, keys, $Enumeration*)},
-	{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, remove, $Object*, Object$*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, size, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MultiUIDefaults, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _MultiUIDefaults_InnerClassesInfo_[] = {
-	{"javax.swing.MultiUIDefaults$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator", "javax.swing.MultiUIDefaults", "MultiUIDefaultsEnumerator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MultiUIDefaults_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.MultiUIDefaults",
-	"javax.swing.UIDefaults",
-	nullptr,
-	_MultiUIDefaults_FieldInfo_,
-	_MultiUIDefaults_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultiUIDefaults_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.MultiUIDefaults$1,javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator,javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator$Type"
-};
-
-$Object* allocate$MultiUIDefaults($Class* clazz) {
-	return $of($alloc(MultiUIDefaults));
-}
 
 void MultiUIDefaults::init$($UIDefaultsArray* defaults) {
 	$UIDefaults::init$();
@@ -90,53 +39,49 @@ void MultiUIDefaults::init$() {
 }
 
 $Object* MultiUIDefaults::get(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $UIDefaults::get(key));
 	if (value != nullptr) {
-		return $of(value);
+		return value;
 	}
 	{
 		$var($UIDefaultsArray, arr$, this->tables);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIDefaults, table, arr$->get(i$));
 			{
-				$assign(value, (table != nullptr) ? $nc(table)->get(key) : ($Object*)nullptr);
+				$assign(value, (table != nullptr) ? table->get(key) : ($Object*)nullptr);
 				if (value != nullptr) {
-					return $of(value);
+					return value;
 				}
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* MultiUIDefaults::get(Object$* key, $Locale* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $UIDefaults::get(key, l));
 	if (value != nullptr) {
-		return $of(value);
+		return value;
 	}
 	{
 		$var($UIDefaultsArray, arr$, this->tables);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIDefaults, table, arr$->get(i$));
 			{
-				$assign(value, (table != nullptr) ? $nc(table)->get(key, l) : ($Object*)nullptr);
+				$assign(value, (table != nullptr) ? table->get(key, l) : ($Object*)nullptr);
 				if (value != nullptr) {
-					return $of(value);
+					return value;
 				}
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 int32_t MultiUIDefaults::size() {
-	return $nc($(entrySet()))->size();
+	return $$nc(entrySet())->size();
 }
 
 bool MultiUIDefaults::isEmpty() {
@@ -149,11 +94,11 @@ $Enumeration* MultiUIDefaults::keys() {
 }
 
 $Set* MultiUIDefaults::keySet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, set, $new($HashSet));
 	for (int32_t i = $nc(this->tables)->length - 1; i >= 0; --i) {
-		if ($nc(this->tables)->get(i) != nullptr) {
-			set->addAll($($nc($nc(this->tables)->get(i))->keySet()));
+		if (this->tables->get(i) != nullptr) {
+			set->addAll($($nc(this->tables->get(i))->keySet()));
 		}
 	}
 	set->addAll($($UIDefaults::keySet()));
@@ -166,11 +111,11 @@ $Enumeration* MultiUIDefaults::elements() {
 }
 
 $Set* MultiUIDefaults::entrySet() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, set, $new($HashSet));
 	for (int32_t i = $nc(this->tables)->length - 1; i >= 0; --i) {
-		if ($nc(this->tables)->get(i) != nullptr) {
-			set->addAll($($nc($nc(this->tables)->get(i))->entrySet()));
+		if (this->tables->get(i) != nullptr) {
+			set->addAll($($nc(this->tables->get(i))->entrySet()));
 		}
 	}
 	set->addAll($($UIDefaults::entrySet()));
@@ -178,19 +123,19 @@ $Set* MultiUIDefaults::entrySet() {
 }
 
 void MultiUIDefaults::getUIError($String* msg) {
-	if (this->tables != nullptr && $nc(this->tables)->length > 0 && $nc(this->tables)->get(0) != nullptr) {
-		$nc($nc(this->tables)->get(0))->getUIError(msg);
+	if (this->tables != nullptr && this->tables->length > 0 && this->tables->get(0) != nullptr) {
+		$nc(this->tables->get(0))->getUIError(msg);
 	} else {
 		$UIDefaults::getUIError(msg);
 	}
 }
 
 $Object* MultiUIDefaults::remove(Object$* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, nullptr);
 	for (int32_t i = $nc(this->tables)->length - 1; i >= 0; --i) {
-		if ($nc(this->tables)->get(i) != nullptr) {
-			$var($Object, v, $nc($nc(this->tables)->get(i))->remove(key));
+		if (this->tables->get(i) != nullptr) {
+			$var($Object, v, $nc(this->tables->get(i))->remove(key));
 			if (v != nullptr) {
 				$assign(value, v);
 			}
@@ -200,22 +145,18 @@ $Object* MultiUIDefaults::remove(Object$* key) {
 	if (v != nullptr) {
 		$assign(value, v);
 	}
-	return $of(value);
+	return value;
 }
 
 void MultiUIDefaults::clear() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$UIDefaults::clear();
 	{
 		$var($UIDefaultsArray, arr$, this->tables);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIDefaults, table, arr$->get(i$));
-			{
-				if (table != nullptr) {
-					table->clear();
-				}
+			if (table != nullptr) {
+				table->clear();
 			}
 		}
 	}
@@ -223,15 +164,18 @@ void MultiUIDefaults::clear() {
 
 $String* MultiUIDefaults::toString() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($StringBuilder, sb, $new($StringBuilder));
 		sb->append("{"_s);
 		$var($Enumeration, keys, this->keys());
 		while ($nc(keys)->hasMoreElements()) {
 			$var($Object, key, keys->nextElement());
-			$var($String, var$1, $$str({key, "="_s}));
-			$var($String, var$0, $$concat(var$1, $(get(key))));
-			sb->append($$concat(var$0, ", "_s));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append(key);
+			var$0->append("="_s);
+			var$0->append($(get(key)));
+			var$0->append(", "_s);
+			sb->append($$str(var$0));
 		}
 		int32_t length = sb->length();
 		if (length > 1) {
@@ -246,7 +190,49 @@ MultiUIDefaults::MultiUIDefaults() {
 }
 
 $Class* MultiUIDefaults::load$($String* name, bool initialize) {
-	$loadClass(MultiUIDefaults, name, initialize, &_MultiUIDefaults_ClassInfo_, allocate$MultiUIDefaults);
+	$FieldInfo fieldInfos$$[] = {
+		{"tables", "[Ljavax/swing/UIDefaults;", nullptr, $PRIVATE, $field(MultiUIDefaults, tables)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljavax/swing/UIDefaults;)V", nullptr, $PUBLIC, $method(MultiUIDefaults, init$, void, $UIDefaultsArray*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MultiUIDefaults, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, clear, void)},
+		{"elements", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(MultiUIDefaults, elements, $Enumeration*)},
+		{"entrySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/util/Map$Entry<Ljava/lang/Object;Ljava/lang/Object;>;>;", $PUBLIC, $virtualMethod(MultiUIDefaults, entrySet, $Set*)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, get, $Object*, Object$*)},
+		{"get", "(Ljava/lang/Object;Ljava/util/Locale;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, get, $Object*, Object$*, $Locale*)},
+		{"getUIError", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MultiUIDefaults, getUIError, void, $String*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, isEmpty, bool)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(MultiUIDefaults, keySet, $Set*)},
+		{"keys", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(MultiUIDefaults, keys, $Enumeration*)},
+		{"remove", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, remove, $Object*, Object$*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(MultiUIDefaults, size, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MultiUIDefaults, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.MultiUIDefaults$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator", "javax.swing.MultiUIDefaults", "MultiUIDefaultsEnumerator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.MultiUIDefaults",
+		"javax.swing.UIDefaults",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.MultiUIDefaults$1,javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator,javax.swing.MultiUIDefaults$MultiUIDefaultsEnumerator$Type"
+	};
+	$loadClass(MultiUIDefaults, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MultiUIDefaults));
+	});
 	return class$;
 }
 

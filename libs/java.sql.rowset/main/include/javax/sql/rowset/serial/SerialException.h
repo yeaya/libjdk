@@ -16,10 +16,13 @@ public:
 	SerialException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xF933E670223588CE;
+	static const int64_t serialVersionUID = (int64_t)0xf933e670223588ce;
 	SerialException(const SerialException& e);
 	virtual void throw$() override;
-	inline SerialException* operator ->() {
+	inline SerialException* operator ->() const {
+		return (SerialException*)throwing$;
+	}
+	inline operator SerialException*() const {
 		return (SerialException*)throwing$;
 	}
 };

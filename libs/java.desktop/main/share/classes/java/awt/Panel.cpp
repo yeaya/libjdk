@@ -1,5 +1,4 @@
 #include <java/awt/Panel.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
@@ -15,61 +14,14 @@ using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Panel$AccessibleAWTPanel = ::java::awt::Panel$AccessibleAWTPanel;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Panel_FieldInfo_[] = {
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Panel, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Panel, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Panel, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Panel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Panel, init$, void)},
-	{"<init>", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $method(Panel, init$, void, $LayoutManager*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Panel, addNotify, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Panel, constructComponentName, $String*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Panel, getAccessibleContext, $AccessibleContext*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Panel_InnerClassesInfo_[] = {
-	{"java.awt.Panel$AccessibleAWTPanel", "java.awt.Panel", "AccessibleAWTPanel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Panel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Panel",
-	"java.awt.Container",
-	"javax.accessibility.Accessible",
-	_Panel_FieldInfo_,
-	_Panel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Panel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Panel$AccessibleAWTPanel"
-};
-
-$Object* allocate$Panel($Class* clazz) {
-	return $of($alloc(Panel));
-}
 
 $String* Panel::toString() {
 	 return this->$Container::toString();
@@ -104,17 +56,18 @@ void Panel::init$($LayoutManager* layout) {
 }
 
 $String* Panel::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(Panel::class$) {
-		$var($String, var$0, Panel::base);
-		return $concat(var$0, $$str(Panel::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(Panel::base);
+		var$0->append(Panel::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void Panel::addNotify() {
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createPanel(this));
+			$set(this, peer, $$nc(getComponentFactory())->createPanel(this));
 		}
 		$Container::addNotify();
 	}
@@ -127,7 +80,7 @@ $AccessibleContext* Panel::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$Panel($Class* class$) {
+void Panel::clinit$($Class* clazz) {
 	$assignStatic(Panel::base, "panel"_s);
 	Panel::nameCounter = 0;
 }
@@ -136,7 +89,46 @@ Panel::Panel() {
 }
 
 $Class* Panel::load$($String* name, bool initialize) {
-	$loadClass(Panel, name, initialize, &_Panel_ClassInfo_, clinit$Panel, allocate$Panel);
+	$FieldInfo fieldInfos$$[] = {
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Panel, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Panel, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Panel, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Panel, init$, void)},
+		{"<init>", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $method(Panel, init$, void, $LayoutManager*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Panel, addNotify, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Panel, constructComponentName, $String*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Panel, getAccessibleContext, $AccessibleContext*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Panel$AccessibleAWTPanel", "java.awt.Panel", "AccessibleAWTPanel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Panel",
+		"java.awt.Container",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Panel$AccessibleAWTPanel"
+	};
+	$loadClass(Panel, name, initialize, &classInfo$$, Panel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Panel));
+	});
 	return class$;
 }
 

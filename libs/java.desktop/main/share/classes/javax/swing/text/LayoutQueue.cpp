@@ -1,5 +1,4 @@
 #include <javax/swing/text/LayoutQueue.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
@@ -40,66 +39,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$addTask$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LayoutQueue$$Lambda$lambda$addTask$0>());
-	}
 	LayoutQueue* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LayoutQueue$$Lambda$lambda$addTask$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LayoutQueue$$Lambda$lambda$addTask$0, inst$)},
-	{}
-};
-$MethodInfo LayoutQueue$$Lambda$lambda$addTask$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/text/LayoutQueue;)V", nullptr, $PUBLIC, $method(LayoutQueue$$Lambda$lambda$addTask$0, init$, void, LayoutQueue*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LayoutQueue$$Lambda$lambda$addTask$0, run, void)},
-	{}
-};
-$ClassInfo LayoutQueue$$Lambda$lambda$addTask$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.swing.text.LayoutQueue$$Lambda$lambda$addTask$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* LayoutQueue$$Lambda$lambda$addTask$0::load$($String* name, bool initialize) {
-	$loadClass(LayoutQueue$$Lambda$lambda$addTask$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LayoutQueue$$Lambda$lambda$addTask$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/LayoutQueue;)V", nullptr, $PUBLIC, $method(LayoutQueue$$Lambda$lambda$addTask$0, init$, void, LayoutQueue*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LayoutQueue$$Lambda$lambda$addTask$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.swing.text.LayoutQueue$$Lambda$lambda$addTask$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LayoutQueue$$Lambda$lambda$addTask$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LayoutQueue$$Lambda$lambda$addTask$0);
+	});
 	return class$;
 }
 $Class* LayoutQueue$$Lambda$lambda$addTask$0::class$ = nullptr;
-
-$FieldInfo _LayoutQueue_FieldInfo_[] = {
-	{"DEFAULT_QUEUE", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LayoutQueue, DEFAULT_QUEUE)},
-	{"tasks", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Runnable;>;", $PRIVATE, $field(LayoutQueue, tasks)},
-	{"worker", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(LayoutQueue, worker)},
-	{}
-};
-
-$MethodInfo _LayoutQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LayoutQueue, init$, void)},
-	{"addTask", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LayoutQueue, addTask, void, $Runnable*)},
-	{"getDefaultQueue", "()Ljavax/swing/text/LayoutQueue;", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutQueue, getDefaultQueue, LayoutQueue*)},
-	{"lambda$addTask$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(LayoutQueue, lambda$addTask$0, void)},
-	{"setDefaultQueue", "(Ljavax/swing/text/LayoutQueue;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutQueue, setDefaultQueue, void, LayoutQueue*)},
-	{"waitForWork", "()Ljava/lang/Runnable;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(LayoutQueue, waitForWork, $Runnable*)},
-	{}
-};
-
-$ClassInfo _LayoutQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.LayoutQueue",
-	"java.lang.Object",
-	nullptr,
-	_LayoutQueue_FieldInfo_,
-	_LayoutQueue_MethodInfo_
-};
-
-$Object* allocate$LayoutQueue($Class* clazz) {
-	return $of($alloc(LayoutQueue));
-}
 
 $Object* LayoutQueue::DEFAULT_QUEUE = nullptr;
 
@@ -109,7 +74,7 @@ void LayoutQueue::init$() {
 
 LayoutQueue* LayoutQueue::getDefaultQueue() {
 	$init(LayoutQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, ac, $AppContext::getAppContext());
 	$synchronized(LayoutQueue::DEFAULT_QUEUE) {
 		$var(LayoutQueue, defaultQueue, $cast(LayoutQueue, $nc(ac)->get(LayoutQueue::DEFAULT_QUEUE)));
@@ -124,17 +89,17 @@ LayoutQueue* LayoutQueue::getDefaultQueue() {
 void LayoutQueue::setDefaultQueue(LayoutQueue* q) {
 	$init(LayoutQueue);
 	$synchronized(LayoutQueue::DEFAULT_QUEUE) {
-		$nc($($AppContext::getAppContext()))->put(LayoutQueue::DEFAULT_QUEUE, q);
+		$$nc($AppContext::getAppContext())->put(LayoutQueue::DEFAULT_QUEUE, q);
 	}
 }
 
 void LayoutQueue::addTask($Runnable* task) {
 	$synchronized(this) {
 		if (this->worker == nullptr) {
-			$var($Runnable, workerRunnable, static_cast<$Runnable*>($new(LayoutQueue$$Lambda$lambda$addTask$0, this)));
+			$var($Runnable, workerRunnable, $new(LayoutQueue$$Lambda$lambda$addTask$0, this));
 			$set(this, worker, $new($Thread, nullptr, workerRunnable, "text-layout"_s, 0, false));
-			$nc(this->worker)->setPriority($Thread::MIN_PRIORITY);
-			$nc(this->worker)->start();
+			this->worker->setPriority($Thread::MIN_PRIORITY);
+			this->worker->start();
 		}
 		$nc(this->tasks)->addElement(task);
 		$of(this)->notifyAll();
@@ -150,8 +115,8 @@ $Runnable* LayoutQueue::waitForWork() {
 				return nullptr;
 			}
 		}
-		$var($Runnable, work, $cast($Runnable, $nc(this->tasks)->firstElement()));
-		$nc(this->tasks)->removeElementAt(0);
+		$var($Runnable, work, $cast($Runnable, this->tasks->firstElement()));
+		this->tasks->removeElementAt(0);
 		return work;
 	}
 }
@@ -166,7 +131,7 @@ void LayoutQueue::lambda$addTask$0() {
 	} while (work != nullptr);
 }
 
-void clinit$LayoutQueue($Class* class$) {
+void LayoutQueue::clinit$($Class* clazz) {
 	$assignStatic(LayoutQueue::DEFAULT_QUEUE, $new($Object));
 }
 
@@ -175,11 +140,36 @@ LayoutQueue::LayoutQueue() {
 
 $Class* LayoutQueue::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LayoutQueue$$Lambda$lambda$addTask$0::classInfo$.name)) {
+		if (name->equals("javax.swing.text.LayoutQueue$$Lambda$lambda$addTask$0")) {
 			return LayoutQueue$$Lambda$lambda$addTask$0::load$(name, initialize);
 		}
 	}
-	$loadClass(LayoutQueue, name, initialize, &_LayoutQueue_ClassInfo_, clinit$LayoutQueue, allocate$LayoutQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_QUEUE", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LayoutQueue, DEFAULT_QUEUE)},
+		{"tasks", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Runnable;>;", $PRIVATE, $field(LayoutQueue, tasks)},
+		{"worker", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(LayoutQueue, worker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LayoutQueue, init$, void)},
+		{"addTask", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LayoutQueue, addTask, void, $Runnable*)},
+		{"getDefaultQueue", "()Ljavax/swing/text/LayoutQueue;", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutQueue, getDefaultQueue, LayoutQueue*)},
+		{"lambda$addTask$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(LayoutQueue, lambda$addTask$0, void)},
+		{"setDefaultQueue", "(Ljavax/swing/text/LayoutQueue;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(LayoutQueue, setDefaultQueue, void, LayoutQueue*)},
+		{"waitForWork", "()Ljava/lang/Runnable;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(LayoutQueue, waitForWork, $Runnable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.LayoutQueue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LayoutQueue, name, initialize, &classInfo$$, LayoutQueue::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LayoutQueue);
+	});
 	return class$;
 }
 

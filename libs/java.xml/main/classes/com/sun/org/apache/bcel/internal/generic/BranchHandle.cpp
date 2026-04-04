@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
@@ -21,37 +20,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _BranchHandle_FieldInfo_[] = {
-	{"bi", "Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PRIVATE, $field(BranchHandle, bi)},
-	{}
-};
-
-$MethodInfo _BranchHandle_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)V", nullptr, $PRIVATE, $method(BranchHandle, init$, void, $BranchInstruction*)},
-	{"getBranchHandle", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $STATIC, $staticMethod(BranchHandle, getBranchHandle, BranchHandle*, $BranchInstruction*)},
-	{"getPosition", "()I", nullptr, $PUBLIC, $virtualMethod(BranchHandle, getPosition, int32_t)},
-	{"getTarget", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $method(BranchHandle, getTarget, $InstructionHandle*)},
-	{"setInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $virtualMethod(BranchHandle, setInstruction, void, $Instruction*)},
-	{"setPosition", "(I)V", nullptr, 0, $virtualMethod(BranchHandle, setPosition, void, int32_t)},
-	{"setTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(BranchHandle, setTarget, void, $InstructionHandle*)},
-	{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(BranchHandle, updatePosition, int32_t, int32_t, int32_t)},
-	{"updateTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(BranchHandle, updateTarget, void, $InstructionHandle*, $InstructionHandle*)},
-	{}
-};
-
-$ClassInfo _BranchHandle_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.BranchHandle",
-	"com.sun.org.apache.bcel.internal.generic.InstructionHandle",
-	nullptr,
-	_BranchHandle_FieldInfo_,
-	_BranchHandle_MethodInfo_
-};
-
-$Object* allocate$BranchHandle($Class* clazz) {
-	return $of($alloc(BranchHandle));
-}
 
 void BranchHandle::init$($BranchInstruction* i) {
 	$InstructionHandle::init$(i);
@@ -102,7 +70,33 @@ BranchHandle::BranchHandle() {
 }
 
 $Class* BranchHandle::load$($String* name, bool initialize) {
-	$loadClass(BranchHandle, name, initialize, &_BranchHandle_ClassInfo_, allocate$BranchHandle);
+	$FieldInfo fieldInfos$$[] = {
+		{"bi", "Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PRIVATE, $field(BranchHandle, bi)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)V", nullptr, $PRIVATE, $method(BranchHandle, init$, void, $BranchInstruction*)},
+		{"getBranchHandle", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)Lcom/sun/org/apache/bcel/internal/generic/BranchHandle;", nullptr, $STATIC, $staticMethod(BranchHandle, getBranchHandle, BranchHandle*, $BranchInstruction*)},
+		{"getPosition", "()I", nullptr, $PUBLIC, $virtualMethod(BranchHandle, getPosition, int32_t)},
+		{"getTarget", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;", nullptr, $PUBLIC, $method(BranchHandle, getTarget, $InstructionHandle*)},
+		{"setInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)V", nullptr, $PUBLIC, $virtualMethod(BranchHandle, setInstruction, void, $Instruction*)},
+		{"setPosition", "(I)V", nullptr, 0, $virtualMethod(BranchHandle, setPosition, void, int32_t)},
+		{"setTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(BranchHandle, setTarget, void, $InstructionHandle*)},
+		{"updatePosition", "(II)I", nullptr, $PROTECTED, $virtualMethod(BranchHandle, updatePosition, int32_t, int32_t, int32_t)},
+		{"updateTarget", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(BranchHandle, updateTarget, void, $InstructionHandle*, $InstructionHandle*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.BranchHandle",
+		"com.sun.org.apache.bcel.internal.generic.InstructionHandle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BranchHandle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BranchHandle);
+	});
 	return class$;
 }
 

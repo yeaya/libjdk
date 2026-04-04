@@ -36,6 +36,7 @@ class $export bug6263446JTree : public ::java::lang::Object {
 	$class(bug6263446JTree, 0, ::java::lang::Object)
 public:
 	bug6263446JTree();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void assertEditing();
 	static void assertEditingNoTreeLock(bool editing);

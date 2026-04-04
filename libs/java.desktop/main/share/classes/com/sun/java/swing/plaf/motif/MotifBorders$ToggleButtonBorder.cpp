@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifBorders$ToggleButtonBorder.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifBorders$ButtonBorder.h>
 #include <com/sun/java/swing/plaf/motif/MotifBorders.h>
 #include <java/awt/Color.h>
@@ -29,63 +28,25 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifBorders$ToggleButtonBorder_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$ToggleButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$ToggleButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$ToggleButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MotifBorders$ToggleButtonBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifBorders$ToggleButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifBorders$ToggleButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifBorders$ToggleButtonBorder",
-	"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder",
-	nullptr,
-	nullptr,
-	_MotifBorders$ToggleButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifBorders$ToggleButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifBorders"
-};
-
-$Object* allocate$MotifBorders$ToggleButtonBorder($Class* clazz) {
-	return $of($alloc(MotifBorders$ToggleButtonBorder));
-}
-
 void MotifBorders$ToggleButtonBorder::init$($Color* shadow, $Color* highlight, $Color* darkShadow, $Color* focus) {
 	$MotifBorders$ButtonBorder::init$(shadow, highlight, darkShadow, focus);
 }
 
 void MotifBorders$ToggleButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($AbstractButton, c)) {
 		$var($AbstractButton, b, $cast($AbstractButton, c));
-		$var($ButtonModel, model, $nc(b)->getModel());
+		$var($ButtonModel, model, b->getModel());
 		bool var$1 = $nc(model)->isArmed();
 		bool var$0 = var$1 && model->isPressed();
-		if (var$0 || $nc(model)->isSelected()) {
-			$var($Graphics, var$2, g);
-			int32_t var$3 = x;
-			int32_t var$4 = y;
-			int32_t var$5 = width;
-			int32_t var$6 = height;
-			bool var$8 = model->isPressed();
-			bool var$7 = (var$8 || model->isSelected());
-			bool var$9 = b->isFocusPainted();
-			$MotifBorders::drawBezel(var$2, var$3, var$4, var$5, var$6, var$7, var$9 && b->hasFocus(), this->shadow, this->highlight, this->darkShadow, this->focus);
+		if (var$0 || model->isSelected()) {
+			bool var$3 = model->isPressed();
+			bool var$2 = var$3 || model->isSelected();
+			bool var$4 = b->isFocusPainted();
+			$MotifBorders::drawBezel(g, x, y, width, height, var$2, var$4 && b->hasFocus(), this->shadow, this->highlight, this->darkShadow, this->focus);
 		} else {
-			bool var$10 = b->isFocusPainted();
-			$MotifBorders::drawBezel(g, x, y, width, height, false, var$10 && b->hasFocus(), this->shadow, this->highlight, this->darkShadow, this->focus);
+			bool var$5 = b->isFocusPainted();
+			$MotifBorders::drawBezel(g, x, y, width, height, false, var$5 && b->hasFocus(), this->shadow, this->highlight, this->darkShadow, this->focus);
 		}
 	} else {
 		$MotifBorders::drawBezel(g, x, y, width, height, false, false, this->shadow, this->highlight, this->darkShadow, this->focus);
@@ -101,7 +62,35 @@ MotifBorders$ToggleButtonBorder::MotifBorders$ToggleButtonBorder() {
 }
 
 $Class* MotifBorders$ToggleButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(MotifBorders$ToggleButtonBorder, name, initialize, &_MotifBorders$ToggleButtonBorder_ClassInfo_, allocate$MotifBorders$ToggleButtonBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$ToggleButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$ToggleButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$ToggleButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifBorders$ToggleButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifBorders$ToggleButtonBorder",
+		"com.sun.java.swing.plaf.motif.MotifBorders$ButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifBorders"
+	};
+	$loadClass(MotifBorders$ToggleButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifBorders$ToggleButtonBorder));
+	});
 	return class$;
 }
 

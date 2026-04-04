@@ -26,6 +26,7 @@ class HierarchicalNameParser : public ::javax::naming::NameParser {
 	$class(HierarchicalNameParser, 0, ::javax::naming::NameParser)
 public:
 	HierarchicalNameParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::naming::Name* parse($String* name) override;
 	static ::java::util::Properties* mySyntax;

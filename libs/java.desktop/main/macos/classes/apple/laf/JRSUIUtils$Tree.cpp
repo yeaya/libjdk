@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIUtils$Tree.h>
-
 #include <apple/laf/JRSUIUtils.h>
 #include <jcpp.h>
 
@@ -10,37 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace apple {
 	namespace laf {
-
-$MethodInfo _JRSUIUtils$Tree_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$Tree, init$, void)},
-	{"useLegacyTreeKnobs", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$Tree, useLegacyTreeKnobs, bool)},
-	{}
-};
-
-$InnerClassInfo _JRSUIUtils$Tree_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIUtils$Tree", "apple.laf.JRSUIUtils", "Tree", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIUtils$Tree_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIUtils$Tree",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JRSUIUtils$Tree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIUtils$Tree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIUtils"
-};
-
-$Object* allocate$JRSUIUtils$Tree($Class* clazz) {
-	return $of($alloc(JRSUIUtils$Tree));
-}
 
 void JRSUIUtils$Tree::init$() {
 }
@@ -54,7 +22,33 @@ JRSUIUtils$Tree::JRSUIUtils$Tree() {
 }
 
 $Class* JRSUIUtils$Tree::load$($String* name, bool initialize) {
-	$loadClass(JRSUIUtils$Tree, name, initialize, &_JRSUIUtils$Tree_ClassInfo_, allocate$JRSUIUtils$Tree);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JRSUIUtils$Tree, init$, void)},
+		{"useLegacyTreeKnobs", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(JRSUIUtils$Tree, useLegacyTreeKnobs, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIUtils$Tree", "apple.laf.JRSUIUtils", "Tree", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIUtils$Tree",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIUtils"
+	};
+	$loadClass(JRSUIUtils$Tree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIUtils$Tree);
+	});
 	return class$;
 }
 

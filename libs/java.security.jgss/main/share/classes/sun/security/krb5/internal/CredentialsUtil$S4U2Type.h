@@ -23,6 +23,7 @@ class CredentialsUtil$S4U2Type : public ::java::lang::Enum {
 public:
 	CredentialsUtil$S4U2Type();
 	static $Array<::sun::security::krb5::internal::CredentialsUtil$S4U2Type>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::security::krb5::internal::CredentialsUtil$S4U2Type* valueOf($String* name);
 	static $Array<::sun::security::krb5::internal::CredentialsUtil$S4U2Type>* values();

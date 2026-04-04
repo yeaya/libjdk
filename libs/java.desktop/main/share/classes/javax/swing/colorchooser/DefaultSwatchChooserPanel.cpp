@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/DefaultSwatchChooserPanel.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -37,13 +36,9 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $KeyListener = ::java::awt::event::KeyListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -65,62 +60,10 @@ using $DefaultSwatchChooserPanel$RecentSwatchKeyListener = ::javax::swing::color
 using $DefaultSwatchChooserPanel$RecentSwatchListener = ::javax::swing::colorchooser::DefaultSwatchChooserPanel$RecentSwatchListener;
 using $MainSwatchPanel = ::javax::swing::colorchooser::MainSwatchPanel;
 using $RecentSwatchPanel = ::javax::swing::colorchooser::RecentSwatchPanel;
-using $SwatchPanel = ::javax::swing::colorchooser::SwatchPanel;
 
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$FieldInfo _DefaultSwatchChooserPanel_FieldInfo_[] = {
-	{"swatchPanel", "Ljavax/swing/colorchooser/SwatchPanel;", nullptr, 0, $field(DefaultSwatchChooserPanel, swatchPanel)},
-	{"recentSwatchPanel", "Ljavax/swing/colorchooser/RecentSwatchPanel;", nullptr, 0, $field(DefaultSwatchChooserPanel, recentSwatchPanel)},
-	{"mainSwatchListener", "Ljava/awt/event/MouseListener;", nullptr, 0, $field(DefaultSwatchChooserPanel, mainSwatchListener)},
-	{"recentSwatchListener", "Ljava/awt/event/MouseListener;", nullptr, 0, $field(DefaultSwatchChooserPanel, recentSwatchListener)},
-	{"mainSwatchKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(DefaultSwatchChooserPanel, mainSwatchKeyListener)},
-	{"recentSwatchKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(DefaultSwatchChooserPanel, recentSwatchKeyListener)},
-	{}
-};
-
-$MethodInfo _DefaultSwatchChooserPanel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSwatchChooserPanel, init$, void)},
-	{"buildChooser", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultSwatchChooserPanel, buildChooser, void)},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getDisplayName, $String*)},
-	{"getDisplayedMnemonicIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getDisplayedMnemonicIndex, int32_t)},
-	{"getLargeDisplayIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getLargeDisplayIcon, $Icon*)},
-	{"getMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getMnemonic, int32_t)},
-	{"getSmallDisplayIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getSmallDisplayIcon, $Icon*)},
-	{"installChooserPanel", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, installChooserPanel, void, $JColorChooser*)},
-	{"uninstallChooserPanel", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, uninstallChooserPanel, void, $JColorChooser*)},
-	{"updateChooser", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, updateChooser, void)},
-	{}
-};
-
-$InnerClassInfo _DefaultSwatchChooserPanel_InnerClassesInfo_[] = {
-	{"javax.swing.colorchooser.DefaultSwatchChooserPanel$MainSwatchListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "MainSwatchListener", 0},
-	{"javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "RecentSwatchListener", 0},
-	{"javax.swing.colorchooser.DefaultSwatchChooserPanel$MainSwatchKeyListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "MainSwatchKeyListener", $PRIVATE},
-	{"javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchKeyListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "RecentSwatchKeyListener", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DefaultSwatchChooserPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.DefaultSwatchChooserPanel",
-	"javax.swing.colorchooser.AbstractColorChooserPanel",
-	nullptr,
-	_DefaultSwatchChooserPanel_FieldInfo_,
-	_DefaultSwatchChooserPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultSwatchChooserPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.colorchooser.DefaultSwatchChooserPanel$MainSwatchListener,javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchListener,javax.swing.colorchooser.DefaultSwatchChooserPanel$MainSwatchKeyListener,javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchKeyListener"
-};
-
-$Object* allocate$DefaultSwatchChooserPanel($Class* clazz) {
-	return $of($alloc(DefaultSwatchChooserPanel));
-}
 
 void DefaultSwatchChooserPanel::init$() {
 	$AbstractColorChooserPanel::init$();
@@ -128,7 +71,7 @@ void DefaultSwatchChooserPanel::init$() {
 }
 
 $String* DefaultSwatchChooserPanel::getDisplayName() {
-	return $UIManager::getString($of("ColorChooser.swatchesNameText"_s), $(getLocale()));
+	return $UIManager::getString("ColorChooser.swatchesNameText"_s, $(getLocale()));
 }
 
 int32_t DefaultSwatchChooserPanel::getMnemonic() {
@@ -152,17 +95,17 @@ void DefaultSwatchChooserPanel::installChooserPanel($JColorChooser* enclosingCho
 }
 
 void DefaultSwatchChooserPanel::buildChooser() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, recentStr, $UIManager::getString($of("ColorChooser.swatchesRecentText"_s), $(getLocale())));
+	$useLocalObjectStack();
+	$var($String, recentStr, $UIManager::getString("ColorChooser.swatchesRecentText"_s, $(getLocale())));
 	$var($GridBagLayout, gb, $new($GridBagLayout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
-	$var($JPanel, superHolder, $new($JPanel, static_cast<$LayoutManager*>(gb)));
+	$var($JPanel, superHolder, $new($JPanel, gb));
 	$set(this, swatchPanel, $new($MainSwatchPanel));
 	$init($AccessibleContext);
-	$nc(this->swatchPanel)->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, $(getDisplayName()));
+	this->swatchPanel->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, $(getDisplayName()));
 	$nc(this->swatchPanel)->setInheritsPopupMenu(true);
 	$set(this, recentSwatchPanel, $new($RecentSwatchPanel));
-	$nc(this->recentSwatchPanel)->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, recentStr);
+	this->recentSwatchPanel->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, recentStr);
 	$set(this, mainSwatchKeyListener, $new($DefaultSwatchChooserPanel$MainSwatchKeyListener, this));
 	$set(this, mainSwatchListener, $new($DefaultSwatchChooserPanel$MainSwatchListener, this));
 	$nc(this->swatchPanel)->addMouseListener(this->mainSwatchListener);
@@ -171,37 +114,36 @@ void DefaultSwatchChooserPanel::buildChooser() {
 	$set(this, recentSwatchKeyListener, $new($DefaultSwatchChooserPanel$RecentSwatchKeyListener, this));
 	$nc(this->recentSwatchPanel)->addMouseListener(this->recentSwatchListener);
 	$nc(this->recentSwatchPanel)->addKeyListener(this->recentSwatchKeyListener);
-	$var($JPanel, mainHolder, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$var($JPanel, mainHolder, $new($JPanel, $$new($BorderLayout)));
 	$init($Color);
-	$var($Border, var$0, static_cast<$Border*>($new($LineBorder, $Color::black)));
+	$var($Border, var$0, $new($LineBorder, $Color::black));
 	$var($Border, border, $new($CompoundBorder, var$0, $$new($LineBorder, $Color::white)));
 	mainHolder->setBorder(border);
-	$init($BorderLayout);
-	mainHolder->add(static_cast<$Component*>(this->swatchPanel), $of($BorderLayout::CENTER));
+	mainHolder->add(this->swatchPanel, $BorderLayout::CENTER);
 	gbc->anchor = $GridBagConstraints::LAST_LINE_START;
 	gbc->gridwidth = 1;
 	gbc->gridheight = 2;
 	$var($Insets, oldInsets, gbc->insets);
 	$set(gbc, insets, $new($Insets, 0, 0, 0, 10));
-	superHolder->add(static_cast<$Component*>(mainHolder), $of(gbc));
+	superHolder->add(mainHolder, gbc);
 	$set(gbc, insets, oldInsets);
 	$nc(this->recentSwatchPanel)->setInheritsPopupMenu(true);
-	$var($JPanel, recentHolder, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$var($JPanel, recentHolder, $new($JPanel, $$new($BorderLayout)));
 	recentHolder->setBorder(border);
 	recentHolder->setInheritsPopupMenu(true);
-	recentHolder->add(static_cast<$Component*>(this->recentSwatchPanel), $of($BorderLayout::CENTER));
+	recentHolder->add(this->recentSwatchPanel, $BorderLayout::CENTER);
 	$var($JLabel, l, $new($JLabel, recentStr));
 	l->setLabelFor(this->recentSwatchPanel);
 	gbc->gridwidth = $GridBagConstraints::REMAINDER;
 	gbc->gridheight = 1;
 	gbc->weighty = 1.0;
-	superHolder->add(static_cast<$Component*>(l), $of(gbc));
-	gbc->weighty = (double)0;
+	superHolder->add(l, gbc);
+	gbc->weighty = 0;
 	gbc->gridheight = $GridBagConstraints::REMAINDER;
 	$set(gbc, insets, $new($Insets, 0, 0, 0, 2));
-	superHolder->add(static_cast<$Component*>(recentHolder), $of(gbc));
+	superHolder->add(recentHolder, gbc);
 	superHolder->setInheritsPopupMenu(true);
-	add(static_cast<$Component*>(superHolder));
+	add(superHolder);
 }
 
 void DefaultSwatchChooserPanel::uninstallChooserPanel($JColorChooser* enclosingChooser) {
@@ -226,7 +168,52 @@ DefaultSwatchChooserPanel::DefaultSwatchChooserPanel() {
 }
 
 $Class* DefaultSwatchChooserPanel::load$($String* name, bool initialize) {
-	$loadClass(DefaultSwatchChooserPanel, name, initialize, &_DefaultSwatchChooserPanel_ClassInfo_, allocate$DefaultSwatchChooserPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"swatchPanel", "Ljavax/swing/colorchooser/SwatchPanel;", nullptr, 0, $field(DefaultSwatchChooserPanel, swatchPanel)},
+		{"recentSwatchPanel", "Ljavax/swing/colorchooser/RecentSwatchPanel;", nullptr, 0, $field(DefaultSwatchChooserPanel, recentSwatchPanel)},
+		{"mainSwatchListener", "Ljava/awt/event/MouseListener;", nullptr, 0, $field(DefaultSwatchChooserPanel, mainSwatchListener)},
+		{"recentSwatchListener", "Ljava/awt/event/MouseListener;", nullptr, 0, $field(DefaultSwatchChooserPanel, recentSwatchListener)},
+		{"mainSwatchKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(DefaultSwatchChooserPanel, mainSwatchKeyListener)},
+		{"recentSwatchKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE, $field(DefaultSwatchChooserPanel, recentSwatchKeyListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSwatchChooserPanel, init$, void)},
+		{"buildChooser", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultSwatchChooserPanel, buildChooser, void)},
+		{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getDisplayName, $String*)},
+		{"getDisplayedMnemonicIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getDisplayedMnemonicIndex, int32_t)},
+		{"getLargeDisplayIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getLargeDisplayIcon, $Icon*)},
+		{"getMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getMnemonic, int32_t)},
+		{"getSmallDisplayIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, getSmallDisplayIcon, $Icon*)},
+		{"installChooserPanel", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, installChooserPanel, void, $JColorChooser*)},
+		{"uninstallChooserPanel", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, uninstallChooserPanel, void, $JColorChooser*)},
+		{"updateChooser", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultSwatchChooserPanel, updateChooser, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.colorchooser.DefaultSwatchChooserPanel$MainSwatchListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "MainSwatchListener", 0},
+		{"javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "RecentSwatchListener", 0},
+		{"javax.swing.colorchooser.DefaultSwatchChooserPanel$MainSwatchKeyListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "MainSwatchKeyListener", $PRIVATE},
+		{"javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchKeyListener", "javax.swing.colorchooser.DefaultSwatchChooserPanel", "RecentSwatchKeyListener", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.DefaultSwatchChooserPanel",
+		"javax.swing.colorchooser.AbstractColorChooserPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.colorchooser.DefaultSwatchChooserPanel$MainSwatchListener,javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchListener,javax.swing.colorchooser.DefaultSwatchChooserPanel$MainSwatchKeyListener,javax.swing.colorchooser.DefaultSwatchChooserPanel$RecentSwatchKeyListener"
+	};
+	$loadClass(DefaultSwatchChooserPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultSwatchChooserPanel));
+	});
 	return class$;
 }
 

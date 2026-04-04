@@ -53,6 +53,7 @@ class $export ExtendedSocketOptions : public ::java::lang::Object {
 	$class(ExtendedSocketOptions, 0, ::java::lang::Object)
 public:
 	ExtendedSocketOptions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getIncomingNapiId(::java::io::FileDescriptor* fd);
 	static $Object* getQuickAckOption(::java::io::FileDescriptor* fd);

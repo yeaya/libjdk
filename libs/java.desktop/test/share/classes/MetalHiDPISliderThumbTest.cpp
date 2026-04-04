@@ -1,8 +1,6 @@
 #include <MetalHiDPISliderThumbTest.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/io/Serializable.h>
@@ -24,7 +22,6 @@
 #undef VERTICAL
 
 using $Dimension = ::java::awt::Dimension;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Serializable = ::java::io::Serializable;
@@ -35,7 +32,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JSlider = ::javax::swing::JSlider;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
@@ -48,61 +44,37 @@ public:
 	virtual void run() override {
 		MetalHiDPISliderThumbTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MetalHiDPISliderThumbTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MetalHiDPISliderThumbTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo MetalHiDPISliderThumbTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"MetalHiDPISliderThumbTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* MetalHiDPISliderThumbTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"MetalHiDPISliderThumbTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* MetalHiDPISliderThumbTest$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _MetalHiDPISliderThumbTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalHiDPISliderThumbTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalHiDPISliderThumbTest, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalHiDPISliderThumbTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"testSliderThumb", "(Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalHiDPISliderThumbTest, testSliderThumb, bool, bool)},
-	{}
-};
-
-$ClassInfo _MetalHiDPISliderThumbTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MetalHiDPISliderThumbTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_MetalHiDPISliderThumbTest_MethodInfo_
-};
-
-$Object* allocate$MetalHiDPISliderThumbTest($Class* clazz) {
-	return $of($alloc(MetalHiDPISliderThumbTest));
-}
 
 void MetalHiDPISliderThumbTest::init$() {
 }
 
 void MetalHiDPISliderThumbTest::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0));
 }
 
 bool MetalHiDPISliderThumbTest::testSliderThumb(bool horizontal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t scale = 3;
 	int32_t w = horizontal ? 100 : 20;
 	int32_t h = horizontal ? 20 : 100;
@@ -178,9 +150,9 @@ bool MetalHiDPISliderThumbTest::testSliderThumb(bool horizontal) {
 
 void MetalHiDPISliderThumbTest::lambda$main$0() {
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 	if (!testSliderThumb(true)) {
 		$throwNew($RuntimeException, "Horizontal Slider Thumb is not scaled!"_s);
@@ -195,11 +167,28 @@ MetalHiDPISliderThumbTest::MetalHiDPISliderThumbTest() {
 
 $Class* MetalHiDPISliderThumbTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MetalHiDPISliderThumbTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("MetalHiDPISliderThumbTest$$Lambda$lambda$main$0")) {
 			return MetalHiDPISliderThumbTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MetalHiDPISliderThumbTest, name, initialize, &_MetalHiDPISliderThumbTest_ClassInfo_, allocate$MetalHiDPISliderThumbTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalHiDPISliderThumbTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MetalHiDPISliderThumbTest, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalHiDPISliderThumbTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"testSliderThumb", "(Z)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MetalHiDPISliderThumbTest, testSliderThumb, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MetalHiDPISliderThumbTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MetalHiDPISliderThumbTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalHiDPISliderThumbTest);
+	});
 	return class$;
 }
 

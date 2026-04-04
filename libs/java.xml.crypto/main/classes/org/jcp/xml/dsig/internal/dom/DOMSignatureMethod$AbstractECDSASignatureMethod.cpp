@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractECDSASignatureMethod.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureECDSA.h>
 #include <java/security/Key.h>
 #include <java/security/interfaces/ECPrivateKey.h>
@@ -19,9 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Key = ::java::security::Key;
 using $ECPrivateKey = ::java::security::interfaces::ECPrivateKey;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $ECField = ::java::security::spec::ECField;
-using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
-using $EllipticCurve = ::java::security::spec::EllipticCurve;
 using $DOMSignatureMethod$AbstractP1363FormatSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractP1363FormatSignatureMethod;
 using $Element = ::org::w3c::dom::Element;
 
@@ -32,40 +28,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMSignatureMethod$AbstractECDSASignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractECDSASignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractECDSASignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractECDSASignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
-	{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractECDSASignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _DOMSignatureMethod$AbstractECDSASignatureMethod_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractECDSASignatureMethod", $STATIC | $ABSTRACT},
-	{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractP1363FormatSignatureMethod", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DOMSignatureMethod$AbstractECDSASignatureMethod_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod",
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod",
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$AbstractECDSASignatureMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMSignatureMethod$AbstractECDSASignatureMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
-};
-
-$Object* allocate$DOMSignatureMethod$AbstractECDSASignatureMethod($Class* clazz) {
-	return $of($alloc(DOMSignatureMethod$AbstractECDSASignatureMethod));
-}
-
 void DOMSignatureMethod$AbstractECDSASignatureMethod::init$($AlgorithmParameterSpec* params) {
 	$DOMSignatureMethod$AbstractP1363FormatSignatureMethod::init$(params);
 }
@@ -75,12 +37,12 @@ void DOMSignatureMethod$AbstractECDSASignatureMethod::init$($Element* dmElem) {
 }
 
 $bytes* DOMSignatureMethod$AbstractECDSASignatureMethod::postSignFormat($Key* key, $bytes* sig) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->asn1) {
 		int32_t rawLen = -1;
 		if ($instanceOf($ECPrivateKey, key)) {
 			$var($ECPrivateKey, ecKey, $cast($ECPrivateKey, key));
-			rawLen = ($nc($($nc($($nc($($nc(ecKey)->getParams()))->getCurve()))->getField()))->getFieldSize() + 7) / 8;
+			rawLen = ($$nc($$nc($$nc(ecKey->getParams())->getCurve())->getField())->getFieldSize() + 7) / 8;
 		}
 		return $SignatureECDSA::convertASN1toXMLDSIG(sig, rawLen);
 	} else {
@@ -100,7 +62,36 @@ DOMSignatureMethod$AbstractECDSASignatureMethod::DOMSignatureMethod$AbstractECDS
 }
 
 $Class* DOMSignatureMethod$AbstractECDSASignatureMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMSignatureMethod$AbstractECDSASignatureMethod, name, initialize, &_DOMSignatureMethod$AbstractECDSASignatureMethod_ClassInfo_, allocate$DOMSignatureMethod$AbstractECDSASignatureMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractECDSASignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMSignatureMethod$AbstractECDSASignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"postSignFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractECDSASignatureMethod, postSignFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
+		{"preVerifyFormat", "(Ljava/security/Key;[B)[B", nullptr, 0, $virtualMethod(DOMSignatureMethod$AbstractECDSASignatureMethod, preVerifyFormat, $bytes*, $Key*, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractECDSASignatureMethod", $STATIC | $ABSTRACT},
+		{"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod", "org.jcp.xml.dsig.internal.dom.DOMSignatureMethod", "AbstractP1363FormatSignatureMethod", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractECDSASignatureMethod",
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod$AbstractP1363FormatSignatureMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMSignatureMethod"
+	};
+	$loadClass(DOMSignatureMethod$AbstractECDSASignatureMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMSignatureMethod$AbstractECDSASignatureMethod));
+	});
 	return class$;
 }
 

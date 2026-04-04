@@ -1,5 +1,4 @@
 #include <MockServer$Connection.h>
-
 #include <MockServer.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -21,78 +20,16 @@
 
 using $MockServer = ::MockServer;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $List = ::java::util::List;
 using $ArrayBlockingQueue = ::java::util::concurrent::ArrayBlockingQueue;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-
-$FieldInfo _MockServer$Connection_FieldInfo_[] = {
-	{"this$0", "LMockServer;", nullptr, $FINAL | $SYNTHETIC, $field(MockServer$Connection, this$0)},
-	{"socket", "Ljava/net/Socket;", nullptr, $FINAL, $field(MockServer$Connection, socket)},
-	{"id", "I", nullptr, $FINAL, $field(MockServer$Connection, id)},
-	{"is", "Ljava/io/InputStream;", nullptr, $FINAL, $field(MockServer$Connection, is)},
-	{"os", "Ljava/io/OutputStream;", nullptr, $FINAL, $field(MockServer$Connection, os)},
-	{"incoming", "Ljava/util/concurrent/ArrayBlockingQueue;", "Ljava/util/concurrent/ArrayBlockingQueue<Ljava/lang/String;>;", $FINAL, $field(MockServer$Connection, incoming)},
-	{"statusLine", "Ljava/lang/String;", nullptr, $VOLATILE, $field(MockServer$Connection, statusLine)},
-	{"CRLF", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MockServer$Connection, CRLF)},
-	{"CLOSED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MockServer$Connection, CLOSED)},
-	{"closed", "Z", nullptr, $VOLATILE, $field(MockServer$Connection, closed)},
-	{"released", "Z", nullptr, $VOLATILE, $field(MockServer$Connection, released)},
-	{}
-};
-
-$MethodInfo _MockServer$Connection_MethodInfo_[] = {
-	{"<init>", "(LMockServer;Ljava/net/Socket;)V", nullptr, 0, $method(MockServer$Connection, init$, void, $MockServer*, $Socket*), "java.io.IOException"},
-	{"cleanup", "()V", nullptr, $PRIVATE, $method(MockServer$Connection, cleanup, void)},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MockServer$Connection, close, void)},
-	{"nextInput", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, nextInput, $String*, int64_t, $TimeUnit*)},
-	{"nextInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, nextInput, $String*)},
-	{"poll", "()Z", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, poll, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, run, void)},
-	{"send", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, send, void, $String*), "java.io.IOException"},
-	{"sendHttpResponse", "(ILjava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MockServer$Connection, sendHttpResponse, void, int32_t, $String*, $StringArray*), "java.io.IOException"},
-	{"sendIncompleteHttpResponseBody", "(I)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, sendIncompleteHttpResponseBody, void, int32_t), "java.io.IOException"},
-	{"sendIncompleteHttpResponseHeaders", "(I)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, sendIncompleteHttpResponseHeaders, void, int32_t), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _MockServer$Connection_InnerClassesInfo_[] = {
-	{"MockServer$Connection", "MockServer", "Connection", 0},
-	{}
-};
-
-$ClassInfo _MockServer$Connection_ClassInfo_ = {
-	$ACC_SUPER,
-	"MockServer$Connection",
-	"java.lang.Thread",
-	nullptr,
-	_MockServer$Connection_FieldInfo_,
-	_MockServer$Connection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MockServer$Connection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MockServer"
-};
-
-$Object* allocate$MockServer$Connection($Class* clazz) {
-	return $of($alloc(MockServer$Connection));
-}
 
 $String* MockServer$Connection::CRLF = nullptr;
 $String* MockServer$Connection::CLOSED = nullptr;
@@ -112,7 +49,7 @@ void MockServer$Connection::init$($MockServer* this$0, $Socket* s) {
 }
 
 void MockServer$Connection::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, buf, $new($bytes, 256));
 	$var($String, s, ""_s);
 	try {
@@ -126,13 +63,13 @@ void MockServer$Connection::run() {
 			$var($String, s0, $new($String, buf, 0, n, $StandardCharsets::ISO_8859_1));
 			$assign(s, $str({s, s0}));
 			int32_t i = 0;
-			while ((i = $nc(s)->indexOf(MockServer$Connection::CRLF)) != -1) {
+			while ((i = s->indexOf(MockServer$Connection::CRLF)) != -1) {
 				$var($String, s1, s->substring(0, i + 2));
 				$nc($System::out)->println($$str({"Server got: "_s, $(s1->substring(0, i))}));
 				if (this->statusLine == nullptr) {
 					$set(this, statusLine, s1->substring(0, i));
 				}
-				$nc(this->incoming)->put(s1);
+				this->incoming->put(s1);
 				if (i + 2 == s->length()) {
 					$assign(s, ""_s);
 					break;
@@ -156,13 +93,13 @@ $String* MockServer$Connection::toString() {
 }
 
 void MockServer$Connection::sendHttpResponse(int32_t code, $String* body, $StringArray* headers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, r1, $str({"HTTP/1.1 "_s, $($Integer::toString(code)), " status"_s, MockServer$Connection::CRLF}));
 	for (int32_t i = 0; i < $nc(headers)->length; i += 2) {
 		$plusAssign(r1, $$str({headers->get(i), ": "_s, headers->get(i + 1), MockServer$Connection::CRLF}));
 	}
 	$init($StandardCharsets);
-	int32_t clen = body == nullptr ? 0 : $($nc(body)->getBytes($StandardCharsets::ISO_8859_1))->length;
+	int32_t clen = body == nullptr ? 0 : $(body->getBytes($StandardCharsets::ISO_8859_1))->length;
 	$plusAssign(r1, $$str({"Content-Length: "_s, $($Integer::toString(clen)), MockServer$Connection::CRLF}));
 	$plusAssign(r1, MockServer$Connection::CRLF);
 	if (body != nullptr) {
@@ -172,7 +109,7 @@ void MockServer$Connection::sendHttpResponse(int32_t code, $String* body, $Strin
 }
 
 void MockServer$Connection::sendIncompleteHttpResponseBody(int32_t code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, body, "Hello World Helloworld Goodbye World"_s);
 	$var($String, r1, $str({"HTTP/1.1 "_s, $($Integer::toString(code)), " status"_s, MockServer$Connection::CRLF}));
 	$init($StandardCharsets);
@@ -186,19 +123,23 @@ void MockServer$Connection::sendIncompleteHttpResponseBody(int32_t code) {
 }
 
 void MockServer$Connection::sendIncompleteHttpResponseHeaders(int32_t code) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, r1, $str({"HTTP/1.1 "_s, $($Integer::toString(code)), " status"_s, MockServer$Connection::CRLF}));
 	send(r1);
 }
 
 void MockServer$Connection::send($String* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($StandardCharsets);
 		$nc(this->os)->write($($nc(r)->getBytes($StandardCharsets::ISO_8859_1)));
 	} catch ($IOException& x) {
-		$var($String, var$0, $$str({"MockServer["_s, $$str($nc(this->this$0->ss)->getLocalPort()), "] Failed while writing bytes: "_s}));
-		$var($IOException, suppressed, $new($IOException, $$concat(var$0, $(x->getMessage()))));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("MockServer["_s);
+		var$0->append($nc(this->this$0->ss)->getLocalPort());
+		var$0->append("] Failed while writing bytes: "_s);
+		var$0->append($(x->getMessage()));
+		$var($IOException, suppressed, $new($IOException, $$str(var$0)));
 		x->addSuppressed(suppressed);
 		$nc($System::err)->println($$str({"WARNING: "_s, suppressed}));
 		$throw(x);
@@ -209,16 +150,16 @@ void MockServer$Connection::close() {
 	$synchronized(this) {
 		cleanup();
 		this->closed = true;
-		$nc(this->incoming)->clear();
+		this->incoming->clear();
 	}
 }
 
 $String* MockServer$Connection::nextInput(int64_t timeout, $TimeUnit* unit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, result, ""_s);
 	while (poll()) {
 		try {
-			$var($String, s, $cast($String, $nc(this->incoming)->poll(timeout, unit)));
+			$var($String, s, $cast($String, this->incoming->poll(timeout, unit)));
 			if (s == nullptr && this->closed) {
 				return MockServer$Connection::CLOSED;
 			} else {
@@ -237,7 +178,7 @@ $String* MockServer$Connection::nextInput() {
 }
 
 bool MockServer$Connection::poll() {
-	return $nc(this->incoming)->peek() != nullptr;
+	return this->incoming->peek() != nullptr;
 }
 
 void MockServer$Connection::cleanup() {
@@ -255,20 +196,70 @@ void MockServer$Connection::cleanup() {
 	} catch ($Throwable& e) {
 	}
 	$synchronized(this->this$0->removals) {
-		$nc(this->this$0->removals)->add(this);
+		this->this$0->removals->add(this);
 	}
 }
 
 MockServer$Connection::MockServer$Connection() {
 }
 
-void clinit$MockServer$Connection($Class* class$) {
+void MockServer$Connection::clinit$($Class* clazz) {
 	$assignStatic(MockServer$Connection::CRLF, "\r\n"_s);
 	$assignStatic(MockServer$Connection::CLOSED, "C.L.O.S.E.D"_s);
 }
 
 $Class* MockServer$Connection::load$($String* name, bool initialize) {
-	$loadClass(MockServer$Connection, name, initialize, &_MockServer$Connection_ClassInfo_, clinit$MockServer$Connection, allocate$MockServer$Connection);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LMockServer;", nullptr, $FINAL | $SYNTHETIC, $field(MockServer$Connection, this$0)},
+		{"socket", "Ljava/net/Socket;", nullptr, $FINAL, $field(MockServer$Connection, socket)},
+		{"id", "I", nullptr, $FINAL, $field(MockServer$Connection, id)},
+		{"is", "Ljava/io/InputStream;", nullptr, $FINAL, $field(MockServer$Connection, is)},
+		{"os", "Ljava/io/OutputStream;", nullptr, $FINAL, $field(MockServer$Connection, os)},
+		{"incoming", "Ljava/util/concurrent/ArrayBlockingQueue;", "Ljava/util/concurrent/ArrayBlockingQueue<Ljava/lang/String;>;", $FINAL, $field(MockServer$Connection, incoming)},
+		{"statusLine", "Ljava/lang/String;", nullptr, $VOLATILE, $field(MockServer$Connection, statusLine)},
+		{"CRLF", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MockServer$Connection, CRLF)},
+		{"CLOSED", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MockServer$Connection, CLOSED)},
+		{"closed", "Z", nullptr, $VOLATILE, $field(MockServer$Connection, closed)},
+		{"released", "Z", nullptr, $VOLATILE, $field(MockServer$Connection, released)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LMockServer;Ljava/net/Socket;)V", nullptr, 0, $method(MockServer$Connection, init$, void, $MockServer*, $Socket*), "java.io.IOException"},
+		{"cleanup", "()V", nullptr, $PRIVATE, $method(MockServer$Connection, cleanup, void)},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(MockServer$Connection, close, void)},
+		{"nextInput", "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, nextInput, $String*, int64_t, $TimeUnit*)},
+		{"nextInput", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, nextInput, $String*)},
+		{"poll", "()Z", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, poll, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, run, void)},
+		{"send", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, send, void, $String*), "java.io.IOException"},
+		{"sendHttpResponse", "(ILjava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(MockServer$Connection, sendHttpResponse, void, int32_t, $String*, $StringArray*), "java.io.IOException"},
+		{"sendIncompleteHttpResponseBody", "(I)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, sendIncompleteHttpResponseBody, void, int32_t), "java.io.IOException"},
+		{"sendIncompleteHttpResponseHeaders", "(I)V", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, sendIncompleteHttpResponseHeaders, void, int32_t), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockServer$Connection, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MockServer$Connection", "MockServer", "Connection", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MockServer$Connection",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MockServer"
+	};
+	$loadClass(MockServer$Connection, name, initialize, &classInfo$$, MockServer$Connection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MockServer$Connection);
+	});
 	return class$;
 }
 

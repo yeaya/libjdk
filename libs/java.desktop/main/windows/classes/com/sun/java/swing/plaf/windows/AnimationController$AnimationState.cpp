@@ -1,10 +1,8 @@
 #include <com/sun/java/swing/plaf/windows/AnimationController$AnimationState.h>
-
 #include <com/sun/java/swing/plaf/windows/AnimationController.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
 #include <java/awt/AlphaComposite.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/lang/AssertionError.h>
@@ -16,7 +14,6 @@ using $AnimationController = ::com::sun::java::swing::plaf::windows::AnimationCo
 using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Composite = ::java::awt::Composite;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $AssertionError = ::java::lang::AssertionError;
@@ -35,50 +32,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _AnimationController$AnimationState_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AnimationController$AnimationState, $assertionsDisabled)},
-	{"startState", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE | $FINAL, $field(AnimationController$AnimationState, startState)},
-	{"duration", "J", nullptr, $PRIVATE | $FINAL, $field(AnimationController$AnimationState, duration)},
-	{"startTime", "J", nullptr, $PRIVATE, $field(AnimationController$AnimationState, startTime)},
-	{"isForward", "Z", nullptr, $PRIVATE, $field(AnimationController$AnimationState, isForward)},
-	{"isForwardAndReverse", "Z", nullptr, $PRIVATE, $field(AnimationController$AnimationState, isForwardAndReverse)},
-	{"progress", "F", nullptr, $PRIVATE, $field(AnimationController$AnimationState, progress)},
-	{}
-};
-
-$MethodInfo _AnimationController$AnimationState_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$State;JZ)V", nullptr, 0, $method(AnimationController$AnimationState, init$, void, $TMSchema$State*, int64_t, bool)},
-	{"isDone", "()Z", nullptr, 0, $virtualMethod(AnimationController$AnimationState, isDone, bool)},
-	{"paintSkin", "(Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;Ljava/awt/Graphics;IIIILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(AnimationController$AnimationState, paintSkin, void, $XPStyle$Skin*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*)},
-	{"updateProgress", "()V", nullptr, $PRIVATE, $method(AnimationController$AnimationState, updateProgress, void)},
-	{}
-};
-
-$InnerClassInfo _AnimationController$AnimationState_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.AnimationController$AnimationState", "com.sun.java.swing.plaf.windows.AnimationController", "AnimationState", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AnimationController$AnimationState_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.AnimationController$AnimationState",
-	"java.lang.Object",
-	nullptr,
-	_AnimationController$AnimationState_FieldInfo_,
-	_AnimationController$AnimationState_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AnimationController$AnimationState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.AnimationController"
-};
-
-$Object* allocate$AnimationController$AnimationState($Class* clazz) {
-	return $of($alloc(AnimationController$AnimationState));
-}
-
 bool AnimationController$AnimationState::$assertionsDisabled = false;
 
 void AnimationController$AnimationState::init$($TMSchema$State* startState, int64_t milliseconds, bool isForwardAndReverse) {
@@ -90,7 +43,7 @@ void AnimationController$AnimationState::init$($TMSchema$State* startState, int6
 		$throwNew($AssertionError);
 	}
 	$set(this, startState, startState);
-	this->duration = milliseconds * 0x000F4240;
+	this->duration = milliseconds * 1000000;
 	this->startTime = $System::nanoTime();
 	this->isForwardAndReverse = isForwardAndReverse;
 	this->progress = 0.0f;
@@ -107,17 +60,17 @@ void AnimationController$AnimationState::updateProgress() {
 	this->progress = ((float)(currentTime - this->startTime)) / this->duration;
 	this->progress = $Math::max(this->progress, (float)0);
 	if (this->progress >= 1) {
-		this->progress = (float)1;
+		this->progress = 1;
 		if (this->isForwardAndReverse) {
 			this->startTime = currentTime;
-			this->progress = (float)0;
+			this->progress = 0;
 			this->isForward = !this->isForward;
 		}
 	}
 }
 
 void AnimationController$AnimationState::paintSkin($XPStyle$Skin* skin, $Graphics* _g, int32_t dx, int32_t dy, int32_t dw, int32_t dh, $TMSchema$State* state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!AnimationController$AnimationState::$assertionsDisabled && !$SwingUtilities::isEventDispatchThread()) {
 		$throwNew($AssertionError);
 	}
@@ -155,7 +108,7 @@ bool AnimationController$AnimationState::isDone() {
 	return this->progress >= 1;
 }
 
-void clinit$AnimationController$AnimationState($Class* class$) {
+void AnimationController$AnimationState::clinit$($Class* clazz) {
 	$load($AnimationController);
 	AnimationController$AnimationState::$assertionsDisabled = !$AnimationController::class$->desiredAssertionStatus();
 }
@@ -164,7 +117,45 @@ AnimationController$AnimationState::AnimationController$AnimationState() {
 }
 
 $Class* AnimationController$AnimationState::load$($String* name, bool initialize) {
-	$loadClass(AnimationController$AnimationState, name, initialize, &_AnimationController$AnimationState_ClassInfo_, clinit$AnimationController$AnimationState, allocate$AnimationController$AnimationState);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(AnimationController$AnimationState, $assertionsDisabled)},
+		{"startState", "Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $PRIVATE | $FINAL, $field(AnimationController$AnimationState, startState)},
+		{"duration", "J", nullptr, $PRIVATE | $FINAL, $field(AnimationController$AnimationState, duration)},
+		{"startTime", "J", nullptr, $PRIVATE, $field(AnimationController$AnimationState, startTime)},
+		{"isForward", "Z", nullptr, $PRIVATE, $field(AnimationController$AnimationState, isForward)},
+		{"isForwardAndReverse", "Z", nullptr, $PRIVATE, $field(AnimationController$AnimationState, isForwardAndReverse)},
+		{"progress", "F", nullptr, $PRIVATE, $field(AnimationController$AnimationState, progress)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$State;JZ)V", nullptr, 0, $method(AnimationController$AnimationState, init$, void, $TMSchema$State*, int64_t, bool)},
+		{"isDone", "()Z", nullptr, 0, $virtualMethod(AnimationController$AnimationState, isDone, bool)},
+		{"paintSkin", "(Lcom/sun/java/swing/plaf/windows/XPStyle$Skin;Ljava/awt/Graphics;IIIILcom/sun/java/swing/plaf/windows/TMSchema$State;)V", nullptr, 0, $virtualMethod(AnimationController$AnimationState, paintSkin, void, $XPStyle$Skin*, $Graphics*, int32_t, int32_t, int32_t, int32_t, $TMSchema$State*)},
+		{"updateProgress", "()V", nullptr, $PRIVATE, $method(AnimationController$AnimationState, updateProgress, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.AnimationController$AnimationState", "com.sun.java.swing.plaf.windows.AnimationController", "AnimationState", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.AnimationController$AnimationState",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.AnimationController"
+	};
+	$loadClass(AnimationController$AnimationState, name, initialize, &classInfo$$, AnimationController$AnimationState::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AnimationController$AnimationState);
+	});
 	return class$;
 }
 

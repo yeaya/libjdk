@@ -1,5 +1,4 @@
 #include <HeadlessJSpinner.h>
-
 #include <HeadlessJSpinner$1.h>
 #include <HeadlessJSpinner$2.h>
 #include <HeadlessJSpinner$3.h>
@@ -49,7 +48,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -60,43 +58,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JSpinner = ::javax::swing::JSpinner;
 
-$MethodInfo _HeadlessJSpinner_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJSpinner, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJSpinner, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJSpinner_InnerClassesInfo_[] = {
-	{"HeadlessJSpinner$3", nullptr, nullptr, 0},
-	{"HeadlessJSpinner$2", nullptr, nullptr, 0},
-	{"HeadlessJSpinner$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJSpinner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJSpinner",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJSpinner_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJSpinner_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJSpinner$3,HeadlessJSpinner$2,HeadlessJSpinner$1"
-};
-
-$Object* allocate$HeadlessJSpinner($Class* clazz) {
-	return $of($alloc(HeadlessJSpinner));
-}
-
 void HeadlessJSpinner::init$() {
 }
 
 void HeadlessJSpinner::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSpinner, s, $new($JSpinner));
 	s->getAccessibleContext();
 	s->isFocusTraversable();
@@ -108,9 +74,9 @@ void HeadlessJSpinner::main($StringArray* args) {
 	s->getMaximumSize();
 	s->getMinimumSize();
 	s->contains(1, 2);
-	$var($Component, c1, s->add(static_cast<$Component*>($$new($HeadlessJSpinner$1))));
-	$var($Component, c2, s->add(static_cast<$Component*>($$new($HeadlessJSpinner$2))));
-	$var($Component, c3, s->add(static_cast<$Component*>($$new($HeadlessJSpinner$3))));
+	$var($Component, c1, s->add($$new($HeadlessJSpinner$1)));
+	$var($Component, c2, s->add($$new($HeadlessJSpinner$2)));
+	$var($Component, c3, s->add($$new($HeadlessJSpinner$3)));
 	$var($Insets, ins, s->getInsets());
 	s->getAlignmentY();
 	s->getAlignmentX();
@@ -121,26 +87,22 @@ void HeadlessJSpinner::main($StringArray* args) {
 	s->setForeground($Color::red);
 	s->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					s->setFont(f1);
-					s->setFont(f2);
-					s->setFont(f3);
-					s->setFont(f4);
-					s->getFontMetrics(f1);
-					s->getFontMetrics(f2);
-					s->getFontMetrics(f3);
-					s->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				s->setFont(f1);
+				s->setFont(f2);
+				s->setFont(f3);
+				s->setFont(f4);
+				s->getFontMetrics(f1);
+				s->getFontMetrics(f2);
+				s->getFontMetrics(f3);
+				s->getFontMetrics(f4);
 			}
 		}
 	}
@@ -205,13 +167,11 @@ void HeadlessJSpinner::main($StringArray* args) {
 	s->getFont();
 	s->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(s));
+	c->add(s);
 	s->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			s->setLocale(locale);
 		}
@@ -268,7 +228,34 @@ HeadlessJSpinner::HeadlessJSpinner() {
 }
 
 $Class* HeadlessJSpinner::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJSpinner, name, initialize, &_HeadlessJSpinner_ClassInfo_, allocate$HeadlessJSpinner);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJSpinner, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJSpinner, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJSpinner$3", nullptr, nullptr, 0},
+		{"HeadlessJSpinner$2", nullptr, nullptr, 0},
+		{"HeadlessJSpinner$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJSpinner",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJSpinner$3,HeadlessJSpinner$2,HeadlessJSpinner$1"
+	};
+	$loadClass(HeadlessJSpinner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJSpinner);
+	});
 	return class$;
 }
 

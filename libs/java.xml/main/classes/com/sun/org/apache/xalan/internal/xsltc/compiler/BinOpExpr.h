@@ -70,6 +70,7 @@ class BinOpExpr : public ::com::sun::org::apache::xalan::internal::xsltc::compil
 	$class(BinOpExpr, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression)
 public:
 	BinOpExpr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t op, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression* left, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression* right);
 	virtual bool hasLastCall() override;
 	virtual bool hasPositionCall() override;

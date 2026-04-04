@@ -1,5 +1,4 @@
 #include <Test6657026MetalBorders$3.h>
-
 #include <Test6657026MetalBorders.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/plaf/metal/MetalBorders$MenuItemBorder.h>
@@ -14,43 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MetalBorders$MenuItemBorder = ::javax::swing::plaf::metal::MetalBorders$MenuItemBorder;
 
-$MethodInfo _Test6657026MetalBorders$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Test6657026MetalBorders$3, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _Test6657026MetalBorders$3_EnclosingMethodInfo_ = {
-	"Test6657026MetalBorders",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _Test6657026MetalBorders$3_InnerClassesInfo_[] = {
-	{"Test6657026MetalBorders$3", nullptr, nullptr, 0},
-	{"javax.swing.plaf.metal.MetalBorders$MenuItemBorder", "javax.swing.plaf.metal.MetalBorders", "MenuItemBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Test6657026MetalBorders$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"Test6657026MetalBorders$3",
-	"javax.swing.plaf.metal.MetalBorders$MenuItemBorder",
-	nullptr,
-	nullptr,
-	_Test6657026MetalBorders$3_MethodInfo_,
-	nullptr,
-	&_Test6657026MetalBorders$3_EnclosingMethodInfo_,
-	_Test6657026MetalBorders$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"Test6657026MetalBorders"
-};
-
-$Object* allocate$Test6657026MetalBorders$3($Class* clazz) {
-	return $of($alloc(Test6657026MetalBorders$3));
-}
-
 void Test6657026MetalBorders$3::init$() {
 	$MetalBorders$MenuItemBorder::init$();
 	{
@@ -64,7 +26,38 @@ Test6657026MetalBorders$3::Test6657026MetalBorders$3() {
 }
 
 $Class* Test6657026MetalBorders$3::load$($String* name, bool initialize) {
-	$loadClass(Test6657026MetalBorders$3, name, initialize, &_Test6657026MetalBorders$3_ClassInfo_, allocate$Test6657026MetalBorders$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Test6657026MetalBorders$3, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"Test6657026MetalBorders",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test6657026MetalBorders$3", nullptr, nullptr, 0},
+		{"javax.swing.plaf.metal.MetalBorders$MenuItemBorder", "javax.swing.plaf.metal.MetalBorders", "MenuItemBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"Test6657026MetalBorders$3",
+		"javax.swing.plaf.metal.MetalBorders$MenuItemBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"Test6657026MetalBorders"
+	};
+	$loadClass(Test6657026MetalBorders$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test6657026MetalBorders$3));
+	});
 	return class$;
 }
 

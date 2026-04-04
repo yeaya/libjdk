@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAbstractParticleTraverser$ParticleArray.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDAbstractParticleTraverser.h>
 #include <jcpp.h>
@@ -21,47 +20,6 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$FieldInfo _XSDAbstractParticleTraverser$ParticleArray_FieldInfo_[] = {
-	{"fParticles", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $field(XSDAbstractParticleTraverser$ParticleArray, fParticles)},
-	{"fPos", "[I", nullptr, 0, $field(XSDAbstractParticleTraverser$ParticleArray, fPos)},
-	{"fContextCount", "I", nullptr, 0, $field(XSDAbstractParticleTraverser$ParticleArray, fContextCount)},
-	{}
-};
-
-$MethodInfo _XSDAbstractParticleTraverser$ParticleArray_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(XSDAbstractParticleTraverser$ParticleArray, init$, void)},
-	{"addParticle", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)V", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser$ParticleArray, addParticle, void, $XSParticleDecl*)},
-	{"getParticleCount", "()I", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser$ParticleArray, getParticleCount, int32_t)},
-	{"popContext", "()[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser$ParticleArray, popContext, $XSParticleDeclArray*)},
-	{"pushContext", "()V", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser$ParticleArray, pushContext, void)},
-	{}
-};
-
-$InnerClassInfo _XSDAbstractParticleTraverser$ParticleArray_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser$ParticleArray", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser", "ParticleArray", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _XSDAbstractParticleTraverser$ParticleArray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser$ParticleArray",
-	"java.lang.Object",
-	nullptr,
-	_XSDAbstractParticleTraverser$ParticleArray_FieldInfo_,
-	_XSDAbstractParticleTraverser$ParticleArray_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSDAbstractParticleTraverser$ParticleArray_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser"
-};
-
-$Object* allocate$XSDAbstractParticleTraverser$ParticleArray($Class* clazz) {
-	return $of($alloc(XSDAbstractParticleTraverser$ParticleArray));
-}
-
 void XSDAbstractParticleTraverser$ParticleArray::init$() {
 	$set(this, fParticles, $new($XSParticleDeclArray, 10));
 	$set(this, fPos, $new($ints, 5));
@@ -76,7 +34,7 @@ void XSDAbstractParticleTraverser$ParticleArray::pushContext() {
 		$System::arraycopy(this->fPos, 0, newArray, 0, this->fContextCount);
 		$set(this, fPos, newArray);
 	}
-	$nc(this->fPos)->set(this->fContextCount, $nc(this->fPos)->get(this->fContextCount - 1));
+	this->fPos->set(this->fContextCount, this->fPos->get(this->fContextCount - 1));
 }
 
 int32_t XSDAbstractParticleTraverser$ParticleArray::getParticleCount() {
@@ -85,12 +43,12 @@ int32_t XSDAbstractParticleTraverser$ParticleArray::getParticleCount() {
 
 void XSDAbstractParticleTraverser$ParticleArray::addParticle($XSParticleDecl* particle) {
 	if ($nc(this->fPos)->get(this->fContextCount) == $nc(this->fParticles)->length) {
-		int32_t newSize = $nc(this->fPos)->get(this->fContextCount) * 2;
+		int32_t newSize = this->fPos->get(this->fContextCount) * 2;
 		$var($XSParticleDeclArray, newArray, $new($XSParticleDeclArray, newSize));
-		$System::arraycopy(this->fParticles, 0, newArray, 0, $nc(this->fPos)->get(this->fContextCount));
+		$System::arraycopy(this->fParticles, 0, newArray, 0, this->fPos->get(this->fContextCount));
 		$set(this, fParticles, newArray);
 	}
-	$nc(this->fParticles)->set((*$nc(this->fPos))[this->fContextCount]++, particle);
+	this->fParticles->set((*this->fPos)[this->fContextCount]++, particle);
 }
 
 $XSParticleDeclArray* XSDAbstractParticleTraverser$ParticleArray::popContext() {
@@ -98,8 +56,8 @@ $XSParticleDeclArray* XSDAbstractParticleTraverser$ParticleArray::popContext() {
 	$var($XSParticleDeclArray, array, nullptr);
 	if (count != 0) {
 		$assign(array, $new($XSParticleDeclArray, count));
-		$System::arraycopy(this->fParticles, $nc(this->fPos)->get(this->fContextCount - 1), array, 0, count);
-		for (int32_t i = $nc(this->fPos)->get(this->fContextCount - 1); i < $nc(this->fPos)->get(this->fContextCount); ++i) {
+		$System::arraycopy(this->fParticles, this->fPos->get(this->fContextCount - 1), array, 0, count);
+		for (int32_t i = this->fPos->get(this->fContextCount - 1); i < this->fPos->get(this->fContextCount); ++i) {
 			$nc(this->fParticles)->set(i, nullptr);
 		}
 	}
@@ -111,7 +69,42 @@ XSDAbstractParticleTraverser$ParticleArray::XSDAbstractParticleTraverser$Particl
 }
 
 $Class* XSDAbstractParticleTraverser$ParticleArray::load$($String* name, bool initialize) {
-	$loadClass(XSDAbstractParticleTraverser$ParticleArray, name, initialize, &_XSDAbstractParticleTraverser$ParticleArray_ClassInfo_, allocate$XSDAbstractParticleTraverser$ParticleArray);
+	$FieldInfo fieldInfos$$[] = {
+		{"fParticles", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $field(XSDAbstractParticleTraverser$ParticleArray, fParticles)},
+		{"fPos", "[I", nullptr, 0, $field(XSDAbstractParticleTraverser$ParticleArray, fPos)},
+		{"fContextCount", "I", nullptr, 0, $field(XSDAbstractParticleTraverser$ParticleArray, fContextCount)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(XSDAbstractParticleTraverser$ParticleArray, init$, void)},
+		{"addParticle", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)V", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser$ParticleArray, addParticle, void, $XSParticleDecl*)},
+		{"getParticleCount", "()I", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser$ParticleArray, getParticleCount, int32_t)},
+		{"popContext", "()[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser$ParticleArray, popContext, $XSParticleDeclArray*)},
+		{"pushContext", "()V", nullptr, 0, $virtualMethod(XSDAbstractParticleTraverser$ParticleArray, pushContext, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser$ParticleArray", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser", "ParticleArray", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser$ParticleArray",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser"
+	};
+	$loadClass(XSDAbstractParticleTraverser$ParticleArray, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDAbstractParticleTraverser$ParticleArray);
+	});
 	return class$;
 }
 

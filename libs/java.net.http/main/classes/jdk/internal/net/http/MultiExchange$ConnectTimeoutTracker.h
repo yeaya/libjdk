@@ -29,6 +29,7 @@ class $export MultiExchange$ConnectTimeoutTracker : public ::java::lang::Object 
 	$class(MultiExchange$ConnectTimeoutTracker, 0, ::java::lang::Object)
 public:
 	MultiExchange$ConnectTimeoutTracker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::time::Duration* connectTimeout);
 	::java::time::Duration* getRemaining();
 	void reset();

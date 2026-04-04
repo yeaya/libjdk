@@ -36,6 +36,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* text);
 	void init$($String* text, int32_t alignment);
@@ -57,7 +58,7 @@ public:
 	int32_t alignment = 0;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x2AF08BE4B03C342C;
+	static const int64_t serialVersionUID = (int64_t)0x2af08be4b03c342c;
 };
 
 	} // awt

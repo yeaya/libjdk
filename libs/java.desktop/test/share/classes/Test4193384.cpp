@@ -1,10 +1,8 @@
 #include <Test4193384.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/lang/Error.h>
 #include <javax/swing/JColorChooser.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <jcpp.h>
 
@@ -14,34 +12,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
-
-$MethodInfo _Test4193384_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4193384, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4193384, main, void, $StringArray*)},
-	{"test", "([Ljava/awt/Color;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test4193384, test, void, $ColorArray*)},
-	{}
-};
-
-$ClassInfo _Test4193384_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4193384",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Test4193384_MethodInfo_
-};
-
-$Object* allocate$Test4193384($Class* clazz) {
-	return $of($alloc(Test4193384));
-}
 
 void Test4193384::init$() {
 }
 
 void Test4193384::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test($$new($ColorArray, {
 		$$new($Color, 11, 12, 13),
 		$$new($Color, 204, 0, 204),
@@ -50,7 +27,7 @@ void Test4193384::main($StringArray* args) {
 }
 
 void Test4193384::test($ColorArray* colors) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $new($JLabel, "Preview Panel"_s));
 	$var($JColorChooser, chooser, $new($JColorChooser));
 	chooser->setPreviewPanel(label);
@@ -60,14 +37,14 @@ void Test4193384::test($ColorArray* colors) {
 		int32_t var$0 = $nc(color)->getRed();
 		int32_t var$1 = color->getGreen();
 		$Color::RGBtoHSB(var$0, var$1, color->getBlue(), hsb);
-		if (!$nc(color)->equals($($Color::getHSBColor(hsb->get(0), hsb->get(1), hsb->get(2))))) {
+		if (!color->equals($($Color::getHSBColor(hsb->get(0), hsb->get(1), hsb->get(2))))) {
 			$throwNew($Error, "color conversion is failed"_s);
 		}
-		if (!$nc(color)->equals($($$new($JColorChooser, color)->getColor()))) {
+		if (!color->equals($($$new($JColorChooser, color)->getColor()))) {
 			$throwNew($Error, "constructor sets incorrect initial color"_s);
 		}
 		chooser->setColor(color);
-		if (!$nc(color)->equals($(label->getForeground()))) {
+		if (!color->equals($(label->getForeground()))) {
 			$throwNew($Error, "a custom preview panel doesn\'t handle colors"_s);
 		}
 	}
@@ -77,7 +54,23 @@ Test4193384::Test4193384() {
 }
 
 $Class* Test4193384::load$($String* name, bool initialize) {
-	$loadClass(Test4193384, name, initialize, &_Test4193384_ClassInfo_, allocate$Test4193384);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4193384, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test4193384, main, void, $StringArray*)},
+		{"test", "([Ljava/awt/Color;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test4193384, test, void, $ColorArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4193384",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test4193384, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test4193384);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Import.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Param.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
@@ -65,33 +64,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _Import_FieldInfo_[] = {
-	{"_imported", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(Import, _imported)},
-	{}
-};
-
-$MethodInfo _Import_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Import, init$, void)},
-	{"getImportedStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(Import, getImportedStylesheet, $Stylesheet*)},
-	{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Import, parseContents, void, $Parser*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Import, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Import, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _Import_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Import",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
-	nullptr,
-	_Import_FieldInfo_,
-	_Import_MethodInfo_
-};
-
-$Object* allocate$Import($Class* clazz) {
-	return $of($alloc(Import));
-}
-
 void Import::init$() {
 	$TopLevelElement::init$();
 	$set(this, _imported, nullptr);
@@ -102,111 +74,109 @@ $Stylesheet* Import::getImportedStylesheet() {
 }
 
 void Import::parseContents($Parser* parser) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSLTC, xsltc, $nc(parser)->getXSLTC());
 	$var($Stylesheet, context, parser->getCurrentStylesheet());
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$var($String, docToLoad, getAttribute("href"_s));
-				if ($nc(context)->checkForLoop(docToLoad)) {
-					$init($ErrorMsg);
-					$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CIRCULAR_INCLUDE_ERR, $of(docToLoad), static_cast<$SyntaxTreeNode*>(this)));
-					parser->reportError($Constants::FATAL, msg);
-					return$1 = true;
-					goto $finally;
-				}
-				$var($InputSource, input, nullptr);
-				$var($XMLReader, reader, nullptr);
-				$var($String, currLoadedDoc, $nc(context)->getSystemId());
-				$var($SourceLoader, loader, context->getSourceLoader());
-				if (loader != nullptr) {
-					$assign(input, loader->loadSource(docToLoad, currLoadedDoc, xsltc));
-					if (input != nullptr) {
-						$assign(docToLoad, input->getSystemId());
-						$assign(reader, $nc(xsltc)->getXMLReader());
-					} else if (parser->errorsFound()) {
-						return$1 = true;
-						goto $finally;
-					}
-				}
-				if (input == nullptr) {
-					$assign(docToLoad, $SystemIDResolver::getAbsoluteURI(docToLoad, currLoadedDoc));
-					$init($XMLConstants);
-					$init($JdkConstants);
-					$var($String, accessError, $SecuritySupport::checkAccess(docToLoad, $cast($String, $($nc(xsltc)->getProperty($XMLConstants::ACCESS_EXTERNAL_STYLESHEET))), $JdkConstants::ACCESS_EXTERNAL_ALL));
-					if (accessError != nullptr) {
-						$init($ErrorMsg);
-						$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ACCESSING_XSLT_TARGET_ERR, $($SecuritySupport::sanitizePath(docToLoad)), accessError, this));
-						parser->reportError($Constants::FATAL, msg);
-						return$1 = true;
-						goto $finally;
-					}
-					$assign(input, $new($InputSource, docToLoad));
-				}
-				if (input == nullptr) {
-					$init($ErrorMsg);
-					$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::FILE_NOT_FOUND_ERR, $of(docToLoad), static_cast<$SyntaxTreeNode*>(this)));
-					parser->reportError($Constants::FATAL, msg);
-					return$1 = true;
-					goto $finally;
-				}
-				$var($SyntaxTreeNode, root, nullptr);
-				if (reader != nullptr) {
-					$assign(root, parser->parse(reader, input));
-				} else {
-					$assign(root, parser->parse(input));
-				}
-				if (root == nullptr) {
-					return$1 = true;
-					goto $finally;
-				}
-				$set(this, _imported, parser->makeStylesheet(root));
-				if (this->_imported == nullptr) {
-					return$1 = true;
-					goto $finally;
-				}
-				$nc(this->_imported)->setSourceLoader(loader);
-				$nc(this->_imported)->setSystemId(docToLoad);
-				$nc(this->_imported)->setParentStylesheet(context);
-				$nc(this->_imported)->setImportingStylesheet(context);
-				$nc(this->_imported)->setTemplateInlining(context->getTemplateInlining());
-				int32_t currPrecedence = parser->getCurrentImportPrecedence();
-				int32_t nextPrecedence = parser->getNextImportPrecedence();
-				$nc(this->_imported)->setImportPrecedence(currPrecedence);
-				context->setImportPrecedence(nextPrecedence);
-				parser->setCurrentStylesheet(this->_imported);
-				$nc(this->_imported)->parseContents(parser);
-				$var($Iterator, elements, $nc(this->_imported)->elements());
-				$var($Stylesheet, topStylesheet, parser->getTopLevelStylesheet());
-				while ($nc(elements)->hasNext()) {
-					$var($Object, element, elements->next());
-					if ($instanceOf($TopLevelElement, element)) {
-						if ($instanceOf($Variable, element)) {
-							$nc(topStylesheet)->addVariable($cast($Variable, element));
-						} else if ($instanceOf($Param, element)) {
-							$nc(topStylesheet)->addParam($cast($Param, element));
-						} else {
-							$nc(topStylesheet)->addElement($cast($TopLevelElement, element));
-						}
-					}
-				}
-			} catch ($Exception& e) {
-				e->printStackTrace();
+			$var($String, docToLoad, getAttribute("href"_s));
+			if ($nc(context)->checkForLoop(docToLoad)) {
+				$init($ErrorMsg);
+				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::CIRCULAR_INCLUDE_ERR, docToLoad, this));
+				parser->reportError($Constants::FATAL, msg);
+				return$1 = true;
+				goto $finally;
 			}
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} $finally: {
-			parser->setCurrentStylesheet(context);
+			$var($InputSource, input, nullptr);
+			$var($XMLReader, reader, nullptr);
+			$var($String, currLoadedDoc, context->getSystemId());
+			$var($SourceLoader, loader, context->getSourceLoader());
+			if (loader != nullptr) {
+				$assign(input, loader->loadSource(docToLoad, currLoadedDoc, xsltc));
+				if (input != nullptr) {
+					$assign(docToLoad, input->getSystemId());
+					$assign(reader, $nc(xsltc)->getXMLReader());
+				} else if (parser->errorsFound()) {
+					return$1 = true;
+					goto $finally;
+				}
+			}
+			if (input == nullptr) {
+				$assign(docToLoad, $SystemIDResolver::getAbsoluteURI(docToLoad, currLoadedDoc));
+				$init($XMLConstants);
+				$init($JdkConstants);
+				$var($String, accessError, $SecuritySupport::checkAccess(docToLoad, $$cast($String, $nc(xsltc)->getProperty($XMLConstants::ACCESS_EXTERNAL_STYLESHEET)), $JdkConstants::ACCESS_EXTERNAL_ALL));
+				if (accessError != nullptr) {
+					$init($ErrorMsg);
+					$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::ACCESSING_XSLT_TARGET_ERR, $($SecuritySupport::sanitizePath(docToLoad)), accessError, this));
+					parser->reportError($Constants::FATAL, msg);
+					return$1 = true;
+					goto $finally;
+				}
+				$assign(input, $new($InputSource, docToLoad));
+			}
+			if (input == nullptr) {
+				$init($ErrorMsg);
+				$var($ErrorMsg, msg, $new($ErrorMsg, $ErrorMsg::FILE_NOT_FOUND_ERR, docToLoad, this));
+				parser->reportError($Constants::FATAL, msg);
+				return$1 = true;
+				goto $finally;
+			}
+			$var($SyntaxTreeNode, root, nullptr);
+			if (reader != nullptr) {
+				$assign(root, parser->parse(reader, input));
+			} else {
+				$assign(root, parser->parse(input));
+			}
+			if (root == nullptr) {
+				return$1 = true;
+				goto $finally;
+			}
+			$set(this, _imported, parser->makeStylesheet(root));
+			if (this->_imported == nullptr) {
+				return$1 = true;
+				goto $finally;
+			}
+			$nc(this->_imported)->setSourceLoader(loader);
+			$nc(this->_imported)->setSystemId(docToLoad);
+			$nc(this->_imported)->setParentStylesheet(context);
+			$nc(this->_imported)->setImportingStylesheet(context);
+			$nc(this->_imported)->setTemplateInlining(context->getTemplateInlining());
+			int32_t currPrecedence = parser->getCurrentImportPrecedence();
+			int32_t nextPrecedence = parser->getNextImportPrecedence();
+			$nc(this->_imported)->setImportPrecedence(currPrecedence);
+			context->setImportPrecedence(nextPrecedence);
+			parser->setCurrentStylesheet(this->_imported);
+			$nc(this->_imported)->parseContents(parser);
+			$var($Iterator, elements, $nc(this->_imported)->elements());
+			$var($Stylesheet, topStylesheet, parser->getTopLevelStylesheet());
+			while ($nc(elements)->hasNext()) {
+				$var($Object, element, elements->next());
+				if ($instanceOf($TopLevelElement, element)) {
+					if ($instanceOf($Variable, element)) {
+						$nc(topStylesheet)->addVariable($cast($Variable, element));
+					} else if ($instanceOf($Param, element)) {
+						$nc(topStylesheet)->addParam($cast($Param, element));
+					} else {
+						$nc(topStylesheet)->addElement($cast($TopLevelElement, element));
+					}
+				}
+			}
+		} catch ($Exception& e) {
+			e->printStackTrace();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} $finally: {
+		parser->setCurrentStylesheet(context);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
@@ -222,7 +192,29 @@ Import::Import() {
 }
 
 $Class* Import::load$($String* name, bool initialize) {
-	$loadClass(Import, name, initialize, &_Import_ClassInfo_, allocate$Import);
+	$FieldInfo fieldInfos$$[] = {
+		{"_imported", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(Import, _imported)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Import, init$, void)},
+		{"getImportedStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(Import, getImportedStylesheet, $Stylesheet*)},
+		{"parseContents", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(Import, parseContents, void, $Parser*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(Import, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(Import, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Import",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.TopLevelElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Import, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Import);
+	});
 	return class$;
 }
 

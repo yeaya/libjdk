@@ -25,6 +25,7 @@ class ModelConnectionBlock : public ::java::lang::Object {
 	$class(ModelConnectionBlock, 0, ::java::lang::Object)
 public:
 	ModelConnectionBlock();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(double scale, ::com::sun::media::sound::ModelDestination* destination);
 	void init$(::com::sun::media::sound::ModelSource* source, ::com::sun::media::sound::ModelDestination* destination);

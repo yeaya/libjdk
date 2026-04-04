@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/LastReq.h>
-
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/util/Vector.h>
@@ -31,34 +30,8 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 
-$FieldInfo _LastReq_FieldInfo_[] = {
-	{"entry", "[Lsun/security/krb5/internal/LastReqEntry;", nullptr, $PRIVATE, $field(LastReq, entry)},
-	{}
-};
-
-$MethodInfo _LastReq_MethodInfo_[] = {
-	{"<init>", "([Lsun/security/krb5/internal/LastReqEntry;)V", nullptr, $PUBLIC, $method(LastReq, init$, void, $LastReqEntryArray*), "java.io.IOException"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(LastReq, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(LastReq, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/LastReq;", nullptr, $PUBLIC | $STATIC, $staticMethod(LastReq, parse, LastReq*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LastReq_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.LastReq",
-	"java.lang.Object",
-	nullptr,
-	_LastReq_FieldInfo_,
-	_LastReq_MethodInfo_
-};
-
-$Object* allocate$LastReq($Class* clazz) {
-	return $of($alloc(LastReq));
-}
-
 void LastReq::init$($LastReqEntryArray* entries) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, entry, nullptr);
 	if (entries != nullptr) {
 		$set(this, entry, $new($LastReqEntryArray, entries->length));
@@ -66,21 +39,21 @@ void LastReq::init$($LastReqEntryArray* entries) {
 			if (entries->get(i) == nullptr) {
 				$throwNew($IOException, "Cannot create a LastReqEntry"_s);
 			} else {
-				$nc(this->entry)->set(i, $cast($LastReqEntry, $($nc(entries->get(i))->clone())));
+				$nc(this->entry)->set(i, $$cast($LastReqEntry, $nc(entries->get(i))->clone()));
 			}
 		}
 	}
 }
 
 void LastReq::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, entry, nullptr);
 	$var($Vector, v, $new($Vector));
 	if ($nc(encoding)->getTag() != $DerValue::tag_Sequence) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	}
-	while ($nc($($nc(encoding)->getData()))->available() > 0) {
-		v->addElement($$new($LastReqEntry, $($nc($(encoding->getData()))->getDerValue())));
+	while ($$nc(encoding->getData())->available() > 0) {
+		v->addElement($$new($LastReqEntry, $($$nc(encoding->getData())->getDerValue())));
 	}
 	if (v->size() > 0) {
 		$set(this, entry, $new($LastReqEntryArray, v->size()));
@@ -89,12 +62,12 @@ void LastReq::init$($DerValue* encoding) {
 }
 
 $bytes* LastReq::asn1Encode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DerOutputStream, bytes, $new($DerOutputStream));
-	if (this->entry != nullptr && $nc(this->entry)->length > 0) {
+	if (this->entry != nullptr && this->entry->length > 0) {
 		$var($DerOutputStream, temp, $new($DerOutputStream));
 		for (int32_t i = 0; i < $nc(this->entry)->length; ++i) {
-			temp->write($($nc($nc(this->entry)->get(i))->asn1Encode()));
+			temp->write($($nc(this->entry->get(i))->asn1Encode()));
 		}
 		bytes->write($DerValue::tag_Sequence, temp);
 		return bytes->toByteArray();
@@ -103,15 +76,15 @@ $bytes* LastReq::asn1Encode() {
 }
 
 LastReq* LastReq::parse($DerInputStream* data, int8_t explicitTag, bool optional) {
-	$useLocalCurrentObjectStackCache();
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	$useLocalObjectStack();
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, der, $nc(data)->getDerValue());
-	if (explicitTag != ((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31))) {
+	if (explicitTag != ($nc(der)->getTag() & (int8_t)31)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	} else {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		return $new(LastReq, subDer);
 	}
 }
@@ -120,7 +93,28 @@ LastReq::LastReq() {
 }
 
 $Class* LastReq::load$($String* name, bool initialize) {
-	$loadClass(LastReq, name, initialize, &_LastReq_ClassInfo_, allocate$LastReq);
+	$FieldInfo fieldInfos$$[] = {
+		{"entry", "[Lsun/security/krb5/internal/LastReqEntry;", nullptr, $PRIVATE, $field(LastReq, entry)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lsun/security/krb5/internal/LastReqEntry;)V", nullptr, $PUBLIC, $method(LastReq, init$, void, $LastReqEntryArray*), "java.io.IOException"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(LastReq, init$, void, $DerValue*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"asn1Encode", "()[B", nullptr, $PUBLIC, $virtualMethod(LastReq, asn1Encode, $bytes*), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/LastReq;", nullptr, $PUBLIC | $STATIC, $staticMethod(LastReq, parse, LastReq*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.LastReq",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LastReq, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LastReq);
+	});
 	return class$;
 }
 

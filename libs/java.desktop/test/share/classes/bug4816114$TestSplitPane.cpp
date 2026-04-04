@@ -1,5 +1,4 @@
 #include <bug4816114$TestSplitPane.h>
-
 #include <bug4816114.h>
 #include <javax/swing/JSplitPane.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JSplitPane = ::javax::swing::JSplitPane;
-
-$FieldInfo _bug4816114$TestSplitPane_FieldInfo_[] = {
-	{"this$0", "Lbug4816114;", nullptr, $FINAL | $SYNTHETIC, $field(bug4816114$TestSplitPane, this$0)},
-	{}
-};
-
-$MethodInfo _bug4816114$TestSplitPane_MethodInfo_[] = {
-	{"<init>", "(Lbug4816114;)V", nullptr, 0, $method(bug4816114$TestSplitPane, init$, void, $bug4816114*)},
-	{"setDividerLocation", "(I)V", nullptr, $PUBLIC, $virtualMethod(bug4816114$TestSplitPane, setDividerLocation, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _bug4816114$TestSplitPane_InnerClassesInfo_[] = {
-	{"bug4816114$TestSplitPane", "bug4816114", "TestSplitPane", 0},
-	{}
-};
-
-$ClassInfo _bug4816114$TestSplitPane_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4816114$TestSplitPane",
-	"javax.swing.JSplitPane",
-	nullptr,
-	_bug4816114$TestSplitPane_FieldInfo_,
-	_bug4816114$TestSplitPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4816114$TestSplitPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4816114"
-};
-
-$Object* allocate$bug4816114$TestSplitPane($Class* clazz) {
-	return $of($alloc(bug4816114$TestSplitPane));
-}
 
 void bug4816114$TestSplitPane::init$($bug4816114* this$0) {
 	$set(this, this$0, this$0);
@@ -58,9 +21,8 @@ void bug4816114$TestSplitPane::setDividerLocation(int32_t location) {
 		this->this$0->setPassed(getOrientation(), true);
 	}
 	$synchronized(this->this$0) {
-		$init($bug4816114);
 		$nc(this->this$0->resized)->set($bug4816114::step, true);
-		$of(this->this$0)->notifyAll();
+		this->this$0->notifyAll();
 	}
 }
 
@@ -68,7 +30,37 @@ bug4816114$TestSplitPane::bug4816114$TestSplitPane() {
 }
 
 $Class* bug4816114$TestSplitPane::load$($String* name, bool initialize) {
-	$loadClass(bug4816114$TestSplitPane, name, initialize, &_bug4816114$TestSplitPane_ClassInfo_, allocate$bug4816114$TestSplitPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug4816114;", nullptr, $FINAL | $SYNTHETIC, $field(bug4816114$TestSplitPane, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4816114;)V", nullptr, 0, $method(bug4816114$TestSplitPane, init$, void, $bug4816114*)},
+		{"setDividerLocation", "(I)V", nullptr, $PUBLIC, $virtualMethod(bug4816114$TestSplitPane, setDividerLocation, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4816114$TestSplitPane", "bug4816114", "TestSplitPane", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4816114$TestSplitPane",
+		"javax.swing.JSplitPane",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4816114"
+	};
+	$loadClass(bug4816114$TestSplitPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4816114$TestSplitPane));
+	});
 	return class$;
 }
 

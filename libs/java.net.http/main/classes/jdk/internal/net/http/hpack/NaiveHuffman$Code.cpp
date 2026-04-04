@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/hpack/NaiveHuffman$Code.h>
-
 #include <jdk/internal/net/http/hpack/NaiveHuffman.h>
 #include <jcpp.h>
 
@@ -15,45 +14,6 @@ namespace jdk {
 			namespace http {
 				namespace hpack {
 
-$FieldInfo _NaiveHuffman$Code_FieldInfo_[] = {
-	{"code", "I", nullptr, $FINAL, $field(NaiveHuffman$Code, code)},
-	{"length", "I", nullptr, $FINAL, $field(NaiveHuffman$Code, length)},
-	{}
-};
-
-$MethodInfo _NaiveHuffman$Code_MethodInfo_[] = {
-	{"<init>", "(II)V", nullptr, $PRIVATE, $method(NaiveHuffman$Code, init$, void, int32_t, int32_t)},
-	{"getCode", "()I", nullptr, $PUBLIC, $method(NaiveHuffman$Code, getCode, int32_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $method(NaiveHuffman$Code, getLength, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Code, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _NaiveHuffman$Code_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.hpack.NaiveHuffman$Code", "jdk.internal.net.http.hpack.NaiveHuffman", "Code", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NaiveHuffman$Code_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.hpack.NaiveHuffman$Code",
-	"java.lang.Object",
-	nullptr,
-	_NaiveHuffman$Code_FieldInfo_,
-	_NaiveHuffman$Code_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NaiveHuffman$Code_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.hpack.NaiveHuffman"
-};
-
-$Object* allocate$NaiveHuffman$Code($Class* clazz) {
-	return $of($alloc(NaiveHuffman$Code));
-}
-
 void NaiveHuffman$Code::init$(int32_t code, int32_t length) {
 	this->code = code;
 	this->length = length;
@@ -68,16 +28,49 @@ int32_t NaiveHuffman$Code::getLength() {
 }
 
 $String* NaiveHuffman$Code::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t p = $sl(1, this->length);
-	return $str({$($nc($($Long::toBinaryString(this->code + p)))->substring(1)), ", length="_s, $$str(this->length)});
+	return $str({$($$nc($Long::toBinaryString(this->code + p))->substring(1)), ", length="_s, $$str(this->length)});
 }
 
 NaiveHuffman$Code::NaiveHuffman$Code() {
 }
 
 $Class* NaiveHuffman$Code::load$($String* name, bool initialize) {
-	$loadClass(NaiveHuffman$Code, name, initialize, &_NaiveHuffman$Code_ClassInfo_, allocate$NaiveHuffman$Code);
+	$FieldInfo fieldInfos$$[] = {
+		{"code", "I", nullptr, $FINAL, $field(NaiveHuffman$Code, code)},
+		{"length", "I", nullptr, $FINAL, $field(NaiveHuffman$Code, length)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(II)V", nullptr, $PRIVATE, $method(NaiveHuffman$Code, init$, void, int32_t, int32_t)},
+		{"getCode", "()I", nullptr, $PUBLIC, $method(NaiveHuffman$Code, getCode, int32_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $method(NaiveHuffman$Code, getLength, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NaiveHuffman$Code, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.hpack.NaiveHuffman$Code", "jdk.internal.net.http.hpack.NaiveHuffman", "Code", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.hpack.NaiveHuffman$Code",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.hpack.NaiveHuffman"
+	};
+	$loadClass(NaiveHuffman$Code, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NaiveHuffman$Code);
+	});
 	return class$;
 }
 

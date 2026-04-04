@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/IntHashTable.h>
-
 #include <jcpp.h>
 
 #undef DEFAULT_INITIAL_SIZE
@@ -14,42 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _IntHashTable_FieldInfo_[] = {
-	{"DEFAULT_INITIAL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntHashTable, DEFAULT_INITIAL_SIZE)},
-	{"objs", "[Ljava/lang/Object;", nullptr, $PROTECTED, $field(IntHashTable, objs)},
-	{"ints", "[I", nullptr, $PROTECTED, $field(IntHashTable, ints)},
-	{"mask", "I", nullptr, $PROTECTED, $field(IntHashTable, mask)},
-	{"num_bindings", "I", nullptr, $PROTECTED, $field(IntHashTable, num_bindings)},
-	{"DELETED", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntHashTable, DELETED)},
-	{}
-};
-
-$MethodInfo _IntHashTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntHashTable, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntHashTable, init$, void, int32_t)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IntHashTable, clear, void)},
-	{"get", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, get, int32_t, Object$*)},
-	{"hash", "(Ljava/lang/Object;)I", nullptr, $PROTECTED, $virtualMethod(IntHashTable, hash, int32_t, Object$*)},
-	{"lookup", "(Ljava/lang/Object;)I", nullptr, $PROTECTED, $virtualMethod(IntHashTable, lookup, int32_t, Object$*)},
-	{"put", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, put, int32_t, Object$*, int32_t)},
-	{"rehash", "()V", nullptr, $PROTECTED, $virtualMethod(IntHashTable, rehash, void)},
-	{"remove", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, remove, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _IntHashTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.IntHashTable",
-	"java.lang.Object",
-	nullptr,
-	_IntHashTable_FieldInfo_,
-	_IntHashTable_MethodInfo_
-};
-
-$Object* allocate$IntHashTable($Class* clazz) {
-	return $of($alloc(IntHashTable));
-}
 
 $Object* IntHashTable::DELETED = nullptr;
 
@@ -80,7 +43,7 @@ int32_t IntHashTable::lookup(Object$* key) {
 	int32_t hash1 = hash ^ ((int32_t)((uint32_t)hash >> 15));
 	int32_t hash2 = (hash ^ (hash << 6)) | 1;
 	int32_t deleted = -1;
-	for (int32_t i = (int32_t)(hash1 & (uint32_t)this->mask);; i = (int32_t)((i + hash2) & (uint32_t)this->mask)) {
+	for (int32_t i = hash1 & this->mask;; i = (i + hash2) & this->mask) {
 		$assign(node, $nc(this->objs)->get(i));
 		if ($equals(node, key)) {
 			return i;
@@ -104,18 +67,18 @@ int32_t IntHashTable::put(Object$* key, int32_t value) {
 	int32_t index = lookup(key);
 	$var($Object0, old, $nc(this->objs)->get(index));
 	if (old == nullptr || $equals(old, IntHashTable::DELETED)) {
-		$nc(this->objs)->set(index, key);
+		this->objs->set(index, key);
 		$nc(this->ints)->set(index, value);
 		if (!$equals(old, IntHashTable::DELETED)) {
 			++this->num_bindings;
 		}
-		if (3 * this->num_bindings >= 2 * $nc(this->objs)->length) {
+		if (3 * this->num_bindings >= 2 * this->objs->length) {
 			rehash();
 		}
 		return -1;
 	} else {
 		int32_t oldValue = $nc(this->ints)->get(index);
-		$nc(this->ints)->set(index, value);
+		this->ints->set(index, value);
 		return oldValue;
 	}
 }
@@ -126,12 +89,12 @@ int32_t IntHashTable::remove(Object$* key) {
 	if (old == nullptr || $equals(old, IntHashTable::DELETED)) {
 		return -1;
 	}
-	$nc(this->objs)->set(index, IntHashTable::DELETED);
+	this->objs->set(index, IntHashTable::DELETED);
 	return $nc(this->ints)->get(index);
 }
 
 void IntHashTable::rehash() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, oldObjsTable, this->objs);
 	$var($ints, oldIntsTable, this->ints);
 	int32_t newCapacity = $nc(oldObjsTable)->length << 1;
@@ -150,12 +113,12 @@ void IntHashTable::rehash() {
 
 void IntHashTable::clear() {
 	for (int32_t i = $nc(this->objs)->length; --i >= 0;) {
-		$nc(this->objs)->set(i, nullptr);
+		this->objs->set(i, nullptr);
 	}
 	this->num_bindings = 0;
 }
 
-void clinit$IntHashTable($Class* class$) {
+void IntHashTable::clinit$($Class* clazz) {
 	$assignStatic(IntHashTable::DELETED, $new($Object));
 }
 
@@ -163,7 +126,38 @@ IntHashTable::IntHashTable() {
 }
 
 $Class* IntHashTable::load$($String* name, bool initialize) {
-	$loadClass(IntHashTable, name, initialize, &_IntHashTable_ClassInfo_, clinit$IntHashTable, allocate$IntHashTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_INITIAL_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntHashTable, DEFAULT_INITIAL_SIZE)},
+		{"objs", "[Ljava/lang/Object;", nullptr, $PROTECTED, $field(IntHashTable, objs)},
+		{"ints", "[I", nullptr, $PROTECTED, $field(IntHashTable, ints)},
+		{"mask", "I", nullptr, $PROTECTED, $field(IntHashTable, mask)},
+		{"num_bindings", "I", nullptr, $PROTECTED, $field(IntHashTable, num_bindings)},
+		{"DELETED", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntHashTable, DELETED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntHashTable, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntHashTable, init$, void, int32_t)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(IntHashTable, clear, void)},
+		{"get", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, get, int32_t, Object$*)},
+		{"hash", "(Ljava/lang/Object;)I", nullptr, $PROTECTED, $virtualMethod(IntHashTable, hash, int32_t, Object$*)},
+		{"lookup", "(Ljava/lang/Object;)I", nullptr, $PROTECTED, $virtualMethod(IntHashTable, lookup, int32_t, Object$*)},
+		{"put", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, put, int32_t, Object$*, int32_t)},
+		{"rehash", "()V", nullptr, $PROTECTED, $virtualMethod(IntHashTable, rehash, void)},
+		{"remove", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(IntHashTable, remove, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.IntHashTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntHashTable, name, initialize, &classInfo$$, IntHashTable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IntHashTable);
+	});
 	return class$;
 }
 

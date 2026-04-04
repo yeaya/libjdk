@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/CRTable$CRTEntry.h>
-
 #include <com/sun/tools/javac/jvm/CRTable.h>
 #include <jcpp.h>
 
@@ -14,44 +13,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _CRTable$CRTEntry_FieldInfo_[] = {
-	{"tree", "Ljava/lang/Object;", nullptr, 0, $field(CRTable$CRTEntry, tree)},
-	{"flags", "I", nullptr, 0, $field(CRTable$CRTEntry, flags)},
-	{"startPc", "I", nullptr, 0, $field(CRTable$CRTEntry, startPc)},
-	{"endPc", "I", nullptr, 0, $field(CRTable$CRTEntry, endPc)},
-	{}
-};
-
-$MethodInfo _CRTable$CRTEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;III)V", nullptr, 0, $method(CRTable$CRTEntry, init$, void, Object$*, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CRTable$CRTEntry_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.CRTable$CRTEntry", "com.sun.tools.javac.jvm.CRTable", "CRTEntry", $STATIC},
-	{}
-};
-
-$ClassInfo _CRTable$CRTEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.CRTable$CRTEntry",
-	"java.lang.Object",
-	nullptr,
-	_CRTable$CRTEntry_FieldInfo_,
-	_CRTable$CRTEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CRTable$CRTEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.CRTable"
-};
-
-$Object* allocate$CRTable$CRTEntry($Class* clazz) {
-	return $of($alloc(CRTable$CRTEntry));
-}
-
 void CRTable$CRTEntry::init$(Object$* tree, int32_t flags, int32_t startPc, int32_t endPc) {
 	$set(this, tree, tree);
 	this->flags = flags;
@@ -63,7 +24,39 @@ CRTable$CRTEntry::CRTable$CRTEntry() {
 }
 
 $Class* CRTable$CRTEntry::load$($String* name, bool initialize) {
-	$loadClass(CRTable$CRTEntry, name, initialize, &_CRTable$CRTEntry_ClassInfo_, allocate$CRTable$CRTEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"tree", "Ljava/lang/Object;", nullptr, 0, $field(CRTable$CRTEntry, tree)},
+		{"flags", "I", nullptr, 0, $field(CRTable$CRTEntry, flags)},
+		{"startPc", "I", nullptr, 0, $field(CRTable$CRTEntry, startPc)},
+		{"endPc", "I", nullptr, 0, $field(CRTable$CRTEntry, endPc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;III)V", nullptr, 0, $method(CRTable$CRTEntry, init$, void, Object$*, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.CRTable$CRTEntry", "com.sun.tools.javac.jvm.CRTable", "CRTEntry", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.CRTable$CRTEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.CRTable"
+	};
+	$loadClass(CRTable$CRTEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CRTable$CRTEntry);
+	});
 	return class$;
 }
 

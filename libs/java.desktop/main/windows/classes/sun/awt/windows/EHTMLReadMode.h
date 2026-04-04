@@ -30,6 +30,7 @@ class EHTMLReadMode : public ::java::lang::Enum {
 public:
 	EHTMLReadMode();
 	static $Array<::sun::awt::windows::EHTMLReadMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::awt::windows::EHTMLReadMode* getEHTMLReadMode(::java::awt::datatransfer::DataFlavor* df);
 	static ::sun::awt::windows::EHTMLReadMode* valueOf($String* name);

@@ -14,10 +14,13 @@ public:
 	InsufficientResourcesException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x566D235195EBC834;
+	static const int64_t serialVersionUID = (int64_t)0x566d235195ebc834;
 	InsufficientResourcesException(const InsufficientResourcesException& e);
 	virtual void throw$() override;
-	inline InsufficientResourcesException* operator ->() {
+	inline InsufficientResourcesException* operator ->() const {
+		return (InsufficientResourcesException*)throwing$;
+	}
+	inline operator InsufficientResourcesException*() const {
 		return (InsufficientResourcesException*)throwing$;
 	}
 };

@@ -49,6 +49,7 @@ class GraphicComponent : public ::sun::font::TextLineComponent, public ::sun::fo
 	$class(GraphicComponent, 0, ::sun::font::TextLineComponent, ::sun::font::Decoration$Label)
 public:
 	GraphicComponent();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/jpeg/JPEGQTable.h>
-
 #include <java/util/Arrays.h>
 #include <jcpp.h>
 
@@ -15,41 +14,6 @@ namespace javax {
 	namespace imageio {
 		namespace plugins {
 			namespace jpeg {
-
-$FieldInfo _JPEGQTable_FieldInfo_[] = {
-	{"k1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPEGQTable, k1)},
-	{"k1div2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPEGQTable, k1div2)},
-	{"k2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPEGQTable, k2)},
-	{"k2div2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPEGQTable, k2div2)},
-	{"K1Luminance", "Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEGQTable, K1Luminance)},
-	{"K1Div2Luminance", "Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEGQTable, K1Div2Luminance)},
-	{"K2Chrominance", "Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEGQTable, K2Chrominance)},
-	{"K2Div2Chrominance", "Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEGQTable, K2Div2Chrominance)},
-	{"qTable", "[I", nullptr, $PRIVATE, $field(JPEGQTable, qTable)},
-	{}
-};
-
-$MethodInfo _JPEGQTable_MethodInfo_[] = {
-	{"<init>", "([IZ)V", nullptr, $PRIVATE, $method(JPEGQTable, init$, void, $ints*, bool)},
-	{"<init>", "([I)V", nullptr, $PUBLIC, $method(JPEGQTable, init$, void, $ints*)},
-	{"getScaledInstance", "(FZ)Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC, $virtualMethod(JPEGQTable, getScaledInstance, JPEGQTable*, float, bool)},
-	{"getTable", "()[I", nullptr, $PUBLIC, $virtualMethod(JPEGQTable, getTable, $ints*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPEGQTable, toString, $String*)},
-	{}
-};
-
-$ClassInfo _JPEGQTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.plugins.jpeg.JPEGQTable",
-	"java.lang.Object",
-	nullptr,
-	_JPEGQTable_FieldInfo_,
-	_JPEGQTable_MethodInfo_
-};
-
-$Object* allocate$JPEGQTable($Class* clazz) {
-	return $of($alloc(JPEGQTable));
-}
 
 $ints* JPEGQTable::k1 = nullptr;
 $ints* JPEGQTable::k1div2 = nullptr;
@@ -71,7 +35,7 @@ void JPEGQTable::init$($ints* table) {
 	if ($nc(table)->length != 64) {
 		$throwNew($IllegalArgumentException, "table.length != 64"_s);
 	}
-	$set(this, qTable, $Arrays::copyOf(table, $nc(table)->length));
+	$set(this, qTable, $Arrays::copyOf(table, table->length));
 }
 
 $ints* JPEGQTable::getTable() {
@@ -81,8 +45,8 @@ $ints* JPEGQTable::getTable() {
 JPEGQTable* JPEGQTable::getScaledInstance(float scaleFactor, bool forceBaseline) {
 	int32_t max = (forceBaseline) ? 255 : 32767;
 	$var($ints, scaledTable, $new($ints, $nc(this->qTable)->length));
-	for (int32_t i = 0; i < $nc(this->qTable)->length; ++i) {
-		int32_t sv = $cast(int32_t, (($nc(this->qTable)->get(i) * scaleFactor) + 0.5f));
+	for (int32_t i = 0; i < this->qTable->length; ++i) {
+		int32_t sv = $cast(int32_t, ((this->qTable->get(i) * scaleFactor) + 0.5f));
 		if (sv < 1) {
 			sv = 1;
 		}
@@ -95,20 +59,20 @@ JPEGQTable* JPEGQTable::getScaledInstance(float scaleFactor, bool forceBaseline)
 }
 
 $String* JPEGQTable::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, ls, $System::getProperty("line.separator"_s, "\n"_s));
 	$var($StringBuilder, sb, $new($StringBuilder, $$str({"JPEGQTable:"_s, ls})));
 	for (int32_t i = 0; i < $nc(this->qTable)->length; ++i) {
 		if (i % 8 == 0) {
 			sb->append(u'\t');
 		}
-		sb->append($nc(this->qTable)->get(i));
-		sb->append(((i % 8) == 7) ? $of(ls) : $($of($Character::valueOf(u' '))));
+		sb->append(this->qTable->get(i));
+		sb->append(((i % 8) == 7) ? $of(ls) : $$of($Character::valueOf(u' ')));
 	}
 	return sb->toString();
 }
 
-void clinit$JPEGQTable($Class* class$) {
+void JPEGQTable::clinit$($Class* clazz) {
 	$assignStatic(JPEGQTable::k1, $new($ints, {
 		16,
 		11,
@@ -383,7 +347,37 @@ JPEGQTable::JPEGQTable() {
 }
 
 $Class* JPEGQTable::load$($String* name, bool initialize) {
-	$loadClass(JPEGQTable, name, initialize, &_JPEGQTable_ClassInfo_, clinit$JPEGQTable, allocate$JPEGQTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"k1", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPEGQTable, k1)},
+		{"k1div2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPEGQTable, k1div2)},
+		{"k2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPEGQTable, k2)},
+		{"k2div2", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JPEGQTable, k2div2)},
+		{"K1Luminance", "Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEGQTable, K1Luminance)},
+		{"K1Div2Luminance", "Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEGQTable, K1Div2Luminance)},
+		{"K2Chrominance", "Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEGQTable, K2Chrominance)},
+		{"K2Div2Chrominance", "Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JPEGQTable, K2Div2Chrominance)},
+		{"qTable", "[I", nullptr, $PRIVATE, $field(JPEGQTable, qTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([IZ)V", nullptr, $PRIVATE, $method(JPEGQTable, init$, void, $ints*, bool)},
+		{"<init>", "([I)V", nullptr, $PUBLIC, $method(JPEGQTable, init$, void, $ints*)},
+		{"getScaledInstance", "(FZ)Ljavax/imageio/plugins/jpeg/JPEGQTable;", nullptr, $PUBLIC, $virtualMethod(JPEGQTable, getScaledInstance, JPEGQTable*, float, bool)},
+		{"getTable", "()[I", nullptr, $PUBLIC, $virtualMethod(JPEGQTable, getTable, $ints*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPEGQTable, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.plugins.jpeg.JPEGQTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGQTable, name, initialize, &classInfo$$, JPEGQTable::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGQTable);
+	});
 	return class$;
 }
 

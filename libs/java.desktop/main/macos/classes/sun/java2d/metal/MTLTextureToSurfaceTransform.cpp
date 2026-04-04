@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLTextureToSurfaceTransform.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/BufferedImage.h>
@@ -30,25 +29,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLTextureToSurfaceTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MTLTextureToSurfaceTransform, init$, void)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLTextureToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MTLTextureToSurfaceTransform_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLTextureToSurfaceTransform",
-	"sun.java2d.loops.TransformBlit",
-	nullptr,
-	nullptr,
-	_MTLTextureToSurfaceTransform_MethodInfo_
-};
-
-$Object* allocate$MTLTextureToSurfaceTransform($Class* clazz) {
-	return $of($alloc(MTLTextureToSurfaceTransform));
-}
-
 void MTLTextureToSurfaceTransform::init$() {
 	$init($MTLSurfaceData);
 	$init($CompositeType);
@@ -63,7 +43,22 @@ MTLTextureToSurfaceTransform::MTLTextureToSurfaceTransform() {
 }
 
 $Class* MTLTextureToSurfaceTransform::load$($String* name, bool initialize) {
-	$loadClass(MTLTextureToSurfaceTransform, name, initialize, &_MTLTextureToSurfaceTransform_ClassInfo_, allocate$MTLTextureToSurfaceTransform);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MTLTextureToSurfaceTransform, init$, void)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(MTLTextureToSurfaceTransform, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLTextureToSurfaceTransform",
+		"sun.java2d.loops.TransformBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MTLTextureToSurfaceTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLTextureToSurfaceTransform);
+	});
 	return class$;
 }
 

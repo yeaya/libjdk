@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/BinaryTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,27 +11,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _BinaryTree_MethodInfo_[] = {
-	{"getLeftOperand", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryTree, getLeftOperand, $ExpressionTree*)},
-	{"getRightOperand", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryTree, getRightOperand, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _BinaryTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.BinaryTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_BinaryTree_MethodInfo_
-};
-
-$Object* allocate$BinaryTree($Class* clazz) {
-	return $of($alloc(BinaryTree));
-}
-
 $Class* BinaryTree::load$($String* name, bool initialize) {
-	$loadClass(BinaryTree, name, initialize, &_BinaryTree_ClassInfo_, allocate$BinaryTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getLeftOperand", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryTree, getLeftOperand, $ExpressionTree*)},
+		{"getRightOperand", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(BinaryTree, getRightOperand, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.BinaryTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BinaryTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BinaryTree);
+	});
 	return class$;
 }
 

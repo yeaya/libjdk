@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWComponentPeer$1.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Rectangle.h>
 #include <javax/swing/JComponent.h>
@@ -8,7 +7,6 @@
 #include <sun/lwawt/LWComponentPeer.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -23,65 +21,57 @@ using $LWComponentPeer = ::sun::lwawt::LWComponentPeer;
 namespace sun {
 	namespace lwawt {
 
-$FieldInfo _LWComponentPeer$1_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/LWComponentPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWComponentPeer$1, this$0)},
-	{}
-};
-
-$MethodInfo _LWComponentPeer$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWComponentPeer;)V", nullptr, 0, $method(LWComponentPeer$1, init$, void, $LWComponentPeer*)},
-	{"addDirtyRegion", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC, $virtualMethod(LWComponentPeer$1, addDirtyRegion, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _LWComponentPeer$1_EnclosingMethodInfo_ = {
-	"sun.lwawt.LWComponentPeer",
-	"<init>",
-	"(Ljava/awt/Component;Lsun/lwawt/PlatformComponent;)V"
-};
-
-$InnerClassInfo _LWComponentPeer$1_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWComponentPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWComponentPeer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.LWComponentPeer$1",
-	"javax.swing.RepaintManager",
-	nullptr,
-	_LWComponentPeer$1_FieldInfo_,
-	_LWComponentPeer$1_MethodInfo_,
-	nullptr,
-	&_LWComponentPeer$1_EnclosingMethodInfo_,
-	_LWComponentPeer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWComponentPeer"
-};
-
-$Object* allocate$LWComponentPeer$1($Class* clazz) {
-	return $of($alloc(LWComponentPeer$1));
-}
-
 void LWComponentPeer$1::init$($LWComponentPeer* this$0) {
 	$set(this, this$0, this$0);
 	$RepaintManager::init$();
 }
 
 void LWComponentPeer$1::addDirtyRegion($JComponent* c, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, var$0, static_cast<$Component*>(c));
-	$var($Rectangle, var$1, $new($Rectangle, x, y, w, h));
-	this->this$0->repaintPeer($($SwingUtilities::convertRectangle(var$0, var$1, $(this->this$0->getDelegate()))));
+	$useLocalObjectStack();
+	$var($Rectangle, var$0, $new($Rectangle, x, y, w, h));
+	this->this$0->repaintPeer($($SwingUtilities::convertRectangle(c, var$0, $(this->this$0->getDelegate()))));
 }
 
 LWComponentPeer$1::LWComponentPeer$1() {
 }
 
 $Class* LWComponentPeer$1::load$($String* name, bool initialize) {
-	$loadClass(LWComponentPeer$1, name, initialize, &_LWComponentPeer$1_ClassInfo_, allocate$LWComponentPeer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/LWComponentPeer;", nullptr, $FINAL | $SYNTHETIC, $field(LWComponentPeer$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWComponentPeer;)V", nullptr, 0, $method(LWComponentPeer$1, init$, void, $LWComponentPeer*)},
+		{"addDirtyRegion", "(Ljavax/swing/JComponent;IIII)V", nullptr, $PUBLIC, $virtualMethod(LWComponentPeer$1, addDirtyRegion, void, $JComponent*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.LWComponentPeer",
+		"<init>",
+		"(Ljava/awt/Component;Lsun/lwawt/PlatformComponent;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWComponentPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.LWComponentPeer$1",
+		"javax.swing.RepaintManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWComponentPeer"
+	};
+	$loadClass(LWComponentPeer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWComponentPeer$1);
+	});
 	return class$;
 }
 

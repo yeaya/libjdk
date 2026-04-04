@@ -67,6 +67,7 @@ class $export Target : public ::java::lang::Object {
 	$class(Target, 0, ::java::lang::Object)
 public:
 	Target();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::rmi::Remote* impl, ::sun::rmi::server::Dispatcher* disp, ::java::rmi::Remote* stub, ::java::rmi::server::ObjID* id, bool permanent);
 	static bool checkLoaderAncestry(::java::lang::ClassLoader* child, ::java::lang::ClassLoader* ancestor);
 	void decrementCallCount();

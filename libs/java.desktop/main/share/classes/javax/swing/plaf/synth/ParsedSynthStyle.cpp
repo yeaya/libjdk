@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/ParsedSynthStyle.h>
-
 #include <javax/swing/plaf/synth/ParsedSynthStyle$DelegatingPainter.h>
 #include <javax/swing/plaf/synth/ParsedSynthStyle$PainterInfo.h>
 #include <javax/swing/plaf/synth/ParsedSynthStyle$StateInfo.h>
@@ -29,57 +28,11 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _ParsedSynthStyle_FieldInfo_[] = {
-	{"DELEGATING_PAINTER_INSTANCE", "Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE | $STATIC, $staticField(ParsedSynthStyle, DELEGATING_PAINTER_INSTANCE)},
-	{"_painters", "[Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;", nullptr, $PRIVATE, $field(ParsedSynthStyle, _painters)},
-	{}
-};
-
-$MethodInfo _ParsedSynthStyle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ParsedSynthStyle, init$, void)},
-	{"<init>", "(Lsun/swing/plaf/synth/DefaultSynthStyle;)V", nullptr, $PUBLIC, $method(ParsedSynthStyle, init$, void, $DefaultSynthStyle*)},
-	{"addTo", "(Lsun/swing/plaf/synth/DefaultSynthStyle;)Lsun/swing/plaf/synth/DefaultSynthStyle;", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle, addTo, $DefaultSynthStyle*, $DefaultSynthStyle*)},
-	{"getBestPainter", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;I)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE, $method(ParsedSynthStyle, getBestPainter, $SynthPainter*, $SynthContext*, $String*, int32_t)},
-	{"getBestPainter", "([Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;Ljava/lang/String;I)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE, $method(ParsedSynthStyle, getBestPainter, $SynthPainter*, $ParsedSynthStyle$PainterInfoArray*, $String*, int32_t)},
-	{"getPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle, getPainter, $SynthPainter*, $SynthContext*)},
-	{"mergePainterInfo", "([Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;[Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;)[Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParsedSynthStyle, mergePainterInfo, $ParsedSynthStyle$PainterInfoArray*, $ParsedSynthStyle$PainterInfoArray*, $ParsedSynthStyle$PainterInfoArray*)},
-	{"setPainters", "([Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;)V", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle, setPainters, void, $ParsedSynthStyle$PainterInfoArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ParsedSynthStyle_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.ParsedSynthStyle$DelegatingPainter", "javax.swing.plaf.synth.ParsedSynthStyle", "DelegatingPainter", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.synth.ParsedSynthStyle$AggregatePainter", "javax.swing.plaf.synth.ParsedSynthStyle", "AggregatePainter", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.synth.ParsedSynthStyle$PainterInfo", "javax.swing.plaf.synth.ParsedSynthStyle", "PainterInfo", $STATIC},
-	{"javax.swing.plaf.synth.ParsedSynthStyle$StateInfo", "javax.swing.plaf.synth.ParsedSynthStyle", "StateInfo", $STATIC},
-	{}
-};
-
-$ClassInfo _ParsedSynthStyle_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.ParsedSynthStyle",
-	"sun.swing.plaf.synth.DefaultSynthStyle",
-	nullptr,
-	_ParsedSynthStyle_FieldInfo_,
-	_ParsedSynthStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ParsedSynthStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.ParsedSynthStyle$DelegatingPainter,javax.swing.plaf.synth.ParsedSynthStyle$AggregatePainter,javax.swing.plaf.synth.ParsedSynthStyle$PainterInfo,javax.swing.plaf.synth.ParsedSynthStyle$StateInfo"
-};
-
-$Object* allocate$ParsedSynthStyle($Class* clazz) {
-	return $of($alloc(ParsedSynthStyle));
-}
-
 $SynthPainter* ParsedSynthStyle::DELEGATING_PAINTER_INSTANCE = nullptr;
 
 $ParsedSynthStyle$PainterInfoArray* ParsedSynthStyle::mergePainterInfo($ParsedSynthStyle$PainterInfoArray* old, $ParsedSynthStyle$PainterInfoArray* newPI) {
 	$init(ParsedSynthStyle);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (old == nullptr) {
 		return newPI;
 	}
@@ -121,7 +74,7 @@ void ParsedSynthStyle::init$($DefaultSynthStyle* style) {
 	$DefaultSynthStyle::init$(style);
 	if ($instanceOf(ParsedSynthStyle, style)) {
 		$var(ParsedSynthStyle, pStyle, $cast(ParsedSynthStyle, style));
-		if ($nc(pStyle)->_painters != nullptr) {
+		if (pStyle->_painters != nullptr) {
 			$set(this, _painters, pStyle->_painters);
 		}
 	}
@@ -136,18 +89,18 @@ void ParsedSynthStyle::setPainters($ParsedSynthStyle$PainterInfoArray* info) {
 }
 
 $DefaultSynthStyle* ParsedSynthStyle::addTo($DefaultSynthStyle* style$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultSynthStyle, style, style$renamed);
 	if (!($instanceOf(ParsedSynthStyle, style))) {
 		$assign(style, $new(ParsedSynthStyle, style));
 	}
 	$var(ParsedSynthStyle, pStyle, $cast(ParsedSynthStyle, $DefaultSynthStyle::addTo(style)));
-	$set($nc(pStyle), _painters, mergePainterInfo(pStyle->_painters, this->_painters));
+	$set($nc(pStyle), _painters, mergePainterInfo($nc(pStyle)->_painters, this->_painters));
 	return pStyle;
 }
 
 $SynthPainter* ParsedSynthStyle::getBestPainter($SynthContext* context, $String* method, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ParsedSynthStyle$StateInfo, info, $cast($ParsedSynthStyle$StateInfo, getStateInfo($nc(context)->getComponentState())));
 	$var($SynthPainter, painter, nullptr);
 	if (info != nullptr) {
@@ -163,7 +116,7 @@ $SynthPainter* ParsedSynthStyle::getBestPainter($SynthContext* context, $String*
 }
 
 $SynthPainter* ParsedSynthStyle::getBestPainter($ParsedSynthStyle$PainterInfoArray* info, $String* method, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (info != nullptr) {
 		$var($SynthPainter, nullPainter, nullptr);
 		$var($SynthPainter, methodPainter, nullptr);
@@ -188,19 +141,19 @@ $SynthPainter* ParsedSynthStyle::getBestPainter($ParsedSynthStyle$PainterInfoArr
 }
 
 $String* ParsedSynthStyle::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, text, $new($StringBuilder, $($DefaultSynthStyle::toString())));
 	if (this->_painters != nullptr) {
 		text->append(",painters=["_s);
 		for (int32_t i = 0; i < +$nc(this->_painters)->length; ++i) {
-			text->append($($nc($nc(this->_painters)->get(i))->toString()));
+			text->append($($nc(this->_painters->get(i))->toString()));
 		}
 		text->append("]"_s);
 	}
 	return text->toString();
 }
 
-void clinit$ParsedSynthStyle($Class* class$) {
+void ParsedSynthStyle::clinit$($Class* clazz) {
 	$assignStatic(ParsedSynthStyle::DELEGATING_PAINTER_INSTANCE, $new($ParsedSynthStyle$DelegatingPainter));
 }
 
@@ -208,7 +161,47 @@ ParsedSynthStyle::ParsedSynthStyle() {
 }
 
 $Class* ParsedSynthStyle::load$($String* name, bool initialize) {
-	$loadClass(ParsedSynthStyle, name, initialize, &_ParsedSynthStyle_ClassInfo_, clinit$ParsedSynthStyle, allocate$ParsedSynthStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"DELEGATING_PAINTER_INSTANCE", "Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE | $STATIC, $staticField(ParsedSynthStyle, DELEGATING_PAINTER_INSTANCE)},
+		{"_painters", "[Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;", nullptr, $PRIVATE, $field(ParsedSynthStyle, _painters)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ParsedSynthStyle, init$, void)},
+		{"<init>", "(Lsun/swing/plaf/synth/DefaultSynthStyle;)V", nullptr, $PUBLIC, $method(ParsedSynthStyle, init$, void, $DefaultSynthStyle*)},
+		{"addTo", "(Lsun/swing/plaf/synth/DefaultSynthStyle;)Lsun/swing/plaf/synth/DefaultSynthStyle;", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle, addTo, $DefaultSynthStyle*, $DefaultSynthStyle*)},
+		{"getBestPainter", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/lang/String;I)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE, $method(ParsedSynthStyle, getBestPainter, $SynthPainter*, $SynthContext*, $String*, int32_t)},
+		{"getBestPainter", "([Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;Ljava/lang/String;I)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PRIVATE, $method(ParsedSynthStyle, getBestPainter, $SynthPainter*, $ParsedSynthStyle$PainterInfoArray*, $String*, int32_t)},
+		{"getPainter", "(Ljavax/swing/plaf/synth/SynthContext;)Ljavax/swing/plaf/synth/SynthPainter;", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle, getPainter, $SynthPainter*, $SynthContext*)},
+		{"mergePainterInfo", "([Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;[Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;)[Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(ParsedSynthStyle, mergePainterInfo, $ParsedSynthStyle$PainterInfoArray*, $ParsedSynthStyle$PainterInfoArray*, $ParsedSynthStyle$PainterInfoArray*)},
+		{"setPainters", "([Ljavax/swing/plaf/synth/ParsedSynthStyle$PainterInfo;)V", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle, setPainters, void, $ParsedSynthStyle$PainterInfoArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ParsedSynthStyle, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.ParsedSynthStyle$DelegatingPainter", "javax.swing.plaf.synth.ParsedSynthStyle", "DelegatingPainter", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.synth.ParsedSynthStyle$AggregatePainter", "javax.swing.plaf.synth.ParsedSynthStyle", "AggregatePainter", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.synth.ParsedSynthStyle$PainterInfo", "javax.swing.plaf.synth.ParsedSynthStyle", "PainterInfo", $STATIC},
+		{"javax.swing.plaf.synth.ParsedSynthStyle$StateInfo", "javax.swing.plaf.synth.ParsedSynthStyle", "StateInfo", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.ParsedSynthStyle",
+		"sun.swing.plaf.synth.DefaultSynthStyle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.ParsedSynthStyle$DelegatingPainter,javax.swing.plaf.synth.ParsedSynthStyle$AggregatePainter,javax.swing.plaf.synth.ParsedSynthStyle$PainterInfo,javax.swing.plaf.synth.ParsedSynthStyle$StateInfo"
+	};
+	$loadClass(ParsedSynthStyle, name, initialize, &classInfo$$, ParsedSynthStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ParsedSynthStyle));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/CustomCursor.h>
-
 #include <java/awt/Canvas.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
@@ -8,7 +7,6 @@
 #include <java/awt/MediaTracker.h>
 #include <java/awt/Point.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/ImageProducer.h>
 #include <java/awt/image/PixelGrabber.h>
 #include <java/lang/IndexOutOfBoundsException.h>
@@ -25,7 +23,6 @@ using $Image = ::java::awt::Image;
 using $MediaTracker = ::java::awt::MediaTracker;
 using $Point = ::java::awt::Point;
 using $Toolkit = ::java::awt::Toolkit;
-using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ImageProducer = ::java::awt::image::ImageProducer;
 using $PixelGrabber = ::java::awt::image::PixelGrabber;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -37,32 +34,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _CustomCursor_FieldInfo_[] = {
-	{"image", "Ljava/awt/Image;", nullptr, $PROTECTED, $field(CustomCursor, image)},
-	{}
-};
-
-$MethodInfo _CustomCursor_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CustomCursor, init$, void, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException"},
-	{"createNativeCursor", "(Ljava/awt/Image;[IIIII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CustomCursor, createNativeCursor, void, $Image*, $ints*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _CustomCursor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.CustomCursor",
-	"java.awt.Cursor",
-	nullptr,
-	_CustomCursor_FieldInfo_,
-	_CustomCursor_MethodInfo_
-};
-
-$Object* allocate$CustomCursor($Class* clazz) {
-	return $of($alloc(CustomCursor));
-}
-
 void CustomCursor::init$($Image* cursor$renamed, $Point* hotSpot, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Image, cursor, cursor$renamed);
 	$Cursor::init$(name);
 	$set(this, image, cursor);
@@ -77,32 +50,51 @@ void CustomCursor::init$($Image* cursor$renamed, $Point* hotSpot, $String* name)
 	int32_t width = $nc(cursor)->getWidth(c);
 	int32_t height = cursor->getHeight(c);
 	if (tracker->isErrorAny() || width < 0 || height < 0) {
-		$nc(hotSpot)->x = (hotSpot->y = 0);
+		$nc(hotSpot)->x = ($nc(hotSpot)->y = 0);
 	}
 	$var($Dimension, nativeSize, $nc(toolkit)->getBestCursorSize(width, height));
-	if (($nc(nativeSize)->width != width || $nc(nativeSize)->height != height) && (nativeSize->width != 0 && nativeSize->height != 0)) {
+	if (($nc(nativeSize)->width != width || nativeSize->height != height) && (nativeSize->width != 0 && nativeSize->height != 0)) {
 		$assign(cursor, cursor->getScaledInstance(nativeSize->width, nativeSize->height, $Image::SCALE_DEFAULT));
 		width = nativeSize->width;
 		height = nativeSize->height;
 	}
-	if ($nc(hotSpot)->x >= width || $nc(hotSpot)->y >= height || $nc(hotSpot)->x < 0 || $nc(hotSpot)->y < 0) {
+	if ($nc(hotSpot)->x >= width || hotSpot->y >= height || hotSpot->x < 0 || hotSpot->y < 0) {
 		$throwNew($IndexOutOfBoundsException, "invalid hotSpot"_s);
 	}
 	$var($ints, pixels, $new($ints, width * height));
-	$var($ImageProducer, ip, cursor->getSource());
+	$var($ImageProducer, ip, $nc(cursor)->getSource());
 	$var($PixelGrabber, pg, $new($PixelGrabber, ip, 0, 0, width, height, pixels, 0, width));
 	try {
 		pg->grabPixels();
 	} catch ($InterruptedException& e) {
 	}
-	createNativeCursor(this->image, pixels, width, height, $nc(hotSpot)->x, hotSpot->y);
+	createNativeCursor(this->image, pixels, width, height, hotSpot->x, hotSpot->y);
 }
 
 CustomCursor::CustomCursor() {
 }
 
 $Class* CustomCursor::load$($String* name, bool initialize) {
-	$loadClass(CustomCursor, name, initialize, &_CustomCursor_ClassInfo_, allocate$CustomCursor);
+	$FieldInfo fieldInfos$$[] = {
+		{"image", "Ljava/awt/Image;", nullptr, $PROTECTED, $field(CustomCursor, image)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CustomCursor, init$, void, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException"},
+		{"createNativeCursor", "(Ljava/awt/Image;[IIIII)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(CustomCursor, createNativeCursor, void, $Image*, $ints*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.CustomCursor",
+		"java.awt.Cursor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CustomCursor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CustomCursor);
+	});
 	return class$;
 }
 

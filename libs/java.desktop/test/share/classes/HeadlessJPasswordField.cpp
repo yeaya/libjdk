@@ -1,5 +1,4 @@
 #include <HeadlessJPasswordField.h>
-
 #include <javax/swing/JPasswordField.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
@@ -7,25 +6,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPasswordField = ::javax::swing::JPasswordField;
-
-$MethodInfo _HeadlessJPasswordField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJPasswordField, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJPasswordField, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessJPasswordField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJPasswordField",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJPasswordField_MethodInfo_
-};
-
-$Object* allocate$HeadlessJPasswordField($Class* clazz) {
-	return $of($alloc(HeadlessJPasswordField));
-}
 
 void HeadlessJPasswordField::init$() {
 }
@@ -41,7 +21,22 @@ HeadlessJPasswordField::HeadlessJPasswordField() {
 }
 
 $Class* HeadlessJPasswordField::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJPasswordField, name, initialize, &_HeadlessJPasswordField_ClassInfo_, allocate$HeadlessJPasswordField);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJPasswordField, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJPasswordField, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJPasswordField",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessJPasswordField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJPasswordField);
+	});
 	return class$;
 }
 

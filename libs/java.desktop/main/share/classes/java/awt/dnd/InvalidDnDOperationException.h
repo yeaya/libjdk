@@ -13,13 +13,17 @@ class $export InvalidDnDOperationException : public ::java::lang::IllegalStateEx
 	$class(InvalidDnDOperationException, 0, ::java::lang::IllegalStateException)
 public:
 	InvalidDnDOperationException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xABDD6DD9CABF42BA;
+	static const int64_t serialVersionUID = (int64_t)0xabdd6dd9cabf42ba;
 	static $String* dft_msg;
 	InvalidDnDOperationException(const InvalidDnDOperationException& e);
 	virtual void throw$() override;
-	inline InvalidDnDOperationException* operator ->() {
+	inline InvalidDnDOperationException* operator ->() const {
+		return (InvalidDnDOperationException*)throwing$;
+	}
+	inline operator InvalidDnDOperationException*() const {
 		return (InvalidDnDOperationException*)throwing$;
 	}
 };

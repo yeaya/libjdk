@@ -15,6 +15,7 @@ class JavacTaskImpl$3 : public ::java::lang::Object {
 	$class(JavacTaskImpl$3, 0, ::java::lang::Object)
 public:
 	JavacTaskImpl$3();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 };
 

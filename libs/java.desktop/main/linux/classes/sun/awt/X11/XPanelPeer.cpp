@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XPanelPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -68,90 +67,11 @@ using $SunGraphicsCallback$PaintHeavyweightComponentsCallback = ::sun::awt::SunG
 using $SunGraphicsCallback$PrintHeavyweightComponentsCallback = ::sun::awt::SunGraphicsCallback$PrintHeavyweightComponentsCallback;
 using $XCanvasPeer = ::sun::awt::X11::XCanvasPeer;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
-using $XEmbeddingContainer = ::sun::awt::X11::XEmbeddingContainer;
-using $XWindow = ::sun::awt::X11::XWindow;
 using $Region = ::sun::java2d::pipe::Region;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XPanelPeer_FieldInfo_[] = {
-	{"embedder", "Lsun/awt/X11/XEmbeddingContainer;", nullptr, 0, $field(XPanelPeer, embedder)},
-	{}
-};
-
-$MethodInfo _XPanelPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(XPanelPeer, init$, void)},
-	{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XPanelPeer, init$, void, $XCreateWindowParams*)},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(XPanelPeer, init$, void, $Component*)},
-	{"disableBackgroundErase", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPanelPeer, disableBackgroundErase, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, dispose, void)},
-	{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPanelPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, getInsets, $Insets*)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, paint, void, $Graphics*)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XPanelPeer, postInit, void, $XCreateWindowParams*)},
-	{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, print, void, $Graphics*)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, setBackground, void, $Color*)},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, setForeground, void, $Color*)},
-	{"setForegroundForHierarchy", "(Ljava/awt/Container;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(XPanelPeer, setForegroundForHierarchy, void, $Container*, $Color*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldFocusOnClick", "()Z", nullptr, $PROTECTED, $virtualMethod(XPanelPeer, shouldFocusOnClick, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"xembed", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, xembed, void, int64_t)},
-	{}
-};
-
-$ClassInfo _XPanelPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XPanelPeer",
-	"sun.awt.X11.XCanvasPeer",
-	"java.awt.peer.PanelPeer",
-	_XPanelPeer_FieldInfo_,
-	_XPanelPeer_MethodInfo_
-};
-
-$Object* allocate$XPanelPeer($Class* clazz) {
-	return $of($alloc(XPanelPeer));
-}
 
 void XPanelPeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XCanvasPeer::reparent(newNativeParent);
@@ -315,7 +235,7 @@ void XPanelPeer::finalize() {
 
 void XPanelPeer::xembed(int64_t window) {
 	if (this->embedder != nullptr) {
-		$nc(this->embedder)->add(window);
+		this->embedder->add(window);
 	}
 }
 
@@ -337,7 +257,7 @@ void XPanelPeer::init$($Component* target) {
 void XPanelPeer::postInit($XCreateWindowParams* params) {
 	$XCanvasPeer::postInit(params);
 	if (this->embedder != nullptr) {
-		$nc(this->embedder)->install(this);
+		this->embedder->install(this);
 	}
 }
 
@@ -346,19 +266,19 @@ $Insets* XPanelPeer::getInsets() {
 }
 
 void XPanelPeer::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XCanvasPeer::paint(g);
-	$nc($($SunGraphicsCallback$PaintHeavyweightComponentsCallback::getInstance()))->runComponents($($nc(($cast($Container, this->target)))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
+	$$nc($SunGraphicsCallback$PaintHeavyweightComponentsCallback::getInstance())->runComponents($($nc($cast($Container, this->target))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
 }
 
 void XPanelPeer::print($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XCanvasPeer::print(g);
-	$nc($($SunGraphicsCallback$PrintHeavyweightComponentsCallback::getInstance()))->runComponents($($nc(($cast($Container, this->target)))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
+	$$nc($SunGraphicsCallback$PrintHeavyweightComponentsCallback::getInstance())->runComponents($($nc($cast($Container, this->target))->getComponents()), g, $SunGraphicsCallback::LIGHTWEIGHTS | $SunGraphicsCallback::HEAVYWEIGHTS);
 }
 
 void XPanelPeer::setBackground($Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, comp, nullptr);
 	int32_t i = 0;
 	$var($Container, cont, $cast($Container, this->target));
@@ -370,7 +290,7 @@ void XPanelPeer::setBackground($Color* c) {
 			$var($ComponentPeer, peer, $nc(acc)->getPeer(comp));
 			if (peer != nullptr) {
 				$var($Color, color, $nc(comp)->getBackground());
-				if (color == nullptr || $nc(color)->equals(c)) {
+				if (color == nullptr || color->equals(c)) {
 					peer->setBackground(c);
 				}
 			}
@@ -384,14 +304,14 @@ void XPanelPeer::setForeground($Color* c) {
 }
 
 void XPanelPeer::setForegroundForHierarchy($Container* cont, $Color* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized($nc(this->target)->getTreeLock()) {
 		$var($AWTAccessor$ComponentAccessor, acc, $AWTAccessor::getComponentAccessor());
 		int32_t n = $nc(cont)->getComponentCount();
 		for (int32_t i = 0; i < n; ++i) {
 			$var($Component, comp, cont->getComponent(i));
 			$var($Color, color, $nc(comp)->getForeground());
-			if (color == nullptr || $nc(color)->equals(c)) {
+			if (color == nullptr || color->equals(c)) {
 				$var($ComponentPeer, cpeer, $nc(acc)->getPeer(comp));
 				if (cpeer != nullptr) {
 					cpeer->setForeground(c);
@@ -406,13 +326,13 @@ void XPanelPeer::setForegroundForHierarchy($Container* cont, $Color* c) {
 
 void XPanelPeer::dispose() {
 	if (this->embedder != nullptr) {
-		$nc(this->embedder)->deinstall();
+		this->embedder->deinstall();
 	}
 	$XCanvasPeer::dispose();
 }
 
 bool XPanelPeer::shouldFocusOnClick() {
-	return $nc(($cast($Container, this->target)))->getComponentCount() == 0;
+	return $nc($cast($Container, this->target))->getComponentCount() == 0;
 }
 
 void XPanelPeer::disableBackgroundErase() {
@@ -427,7 +347,79 @@ XPanelPeer::XPanelPeer() {
 }
 
 $Class* XPanelPeer::load$($String* name, bool initialize) {
-	$loadClass(XPanelPeer, name, initialize, &_XPanelPeer_ClassInfo_, allocate$XPanelPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"embedder", "Lsun/awt/X11/XEmbeddingContainer;", nullptr, 0, $field(XPanelPeer, embedder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(XPanelPeer, init$, void)},
+		{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XPanelPeer, init$, void, $XCreateWindowParams*)},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(XPanelPeer, init$, void, $Component*)},
+		{"disableBackgroundErase", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPanelPeer, disableBackgroundErase, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, dispose, void)},
+		{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XPanelPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, getInsets, $Insets*)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, paint, void, $Graphics*)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XPanelPeer, postInit, void, $XCreateWindowParams*)},
+		{"print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, print, void, $Graphics*)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, setBackground, void, $Color*)},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, setForeground, void, $Color*)},
+		{"setForegroundForHierarchy", "(Ljava/awt/Container;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(XPanelPeer, setForegroundForHierarchy, void, $Container*, $Color*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldFocusOnClick", "()Z", nullptr, $PROTECTED, $virtualMethod(XPanelPeer, shouldFocusOnClick, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"xembed", "(J)V", nullptr, $PUBLIC, $virtualMethod(XPanelPeer, xembed, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XPanelPeer",
+		"sun.awt.X11.XCanvasPeer",
+		"java.awt.peer.PanelPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPanelPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XPanelPeer));
+	});
 	return class$;
 }
 

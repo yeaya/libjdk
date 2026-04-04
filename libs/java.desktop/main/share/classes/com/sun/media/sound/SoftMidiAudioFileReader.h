@@ -50,6 +50,7 @@ public:
 	SoftMidiAudioFileReader();
 	using ::com::sun::media::sound::SunFileReader::getAudioFileFormat;
 	using ::com::sun::media::sound::SunFileReader::getAudioInputStream;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::media::sound::StandardFileFormat* getAudioFileFormat(::javax::sound::midi::Sequence* seq);
 	virtual ::com::sun::media::sound::StandardFileFormat* getAudioFileFormatImpl(::java::io::InputStream* stream) override;

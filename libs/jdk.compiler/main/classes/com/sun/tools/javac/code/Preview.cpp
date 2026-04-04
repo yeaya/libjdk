@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Preview.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/code/Lint.h>
 #include <com/sun/tools/javac/code/Preview$1.h>
@@ -62,7 +61,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
@@ -70,64 +68,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Preview_FieldInfo_[] = {
-	{"enabled", "Z", nullptr, $PRIVATE | $FINAL, $field(Preview, enabled)},
-	{"previewHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE | $FINAL, $field(Preview, previewHandler)},
-	{"forcePreview", "Z", nullptr, $PRIVATE | $FINAL, $field(Preview, forcePreview)},
-	{"majorVersionToSource", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/tools/javac/code/Source;>;", $PRIVATE | $FINAL, $field(Preview, majorVersionToSource)},
-	{"sourcesWithPreviewFeatures", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $FINAL, $field(Preview, sourcesWithPreviewFeatures)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PRIVATE | $FINAL, $field(Preview, lint)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Preview, log)},
-	{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(Preview, source)},
-	{"previewKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/Preview;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Preview, previewKey)},
-	{}
-};
-
-$MethodInfo _Preview_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(Preview, init$, void, $Context*)},
-	{"checkSourceLevel", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PUBLIC, $virtualMethod(Preview, checkSourceLevel, void, $JCDiagnostic$DiagnosticPosition*, $Source$Feature*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Preview, clear, void)},
-	{"declaredUsingPreviewFeature", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Preview, declaredUsingPreviewFeature, bool, $Symbol*)},
-	{"disabledError", "(Lcom/sun/tools/javac/code/Source$Feature;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC, $virtualMethod(Preview, disabledError, $JCDiagnostic$Error*, $Source$Feature*)},
-	{"disabledError", "(Ljavax/tools/JavaFileObject;I)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC, $virtualMethod(Preview, disabledError, $JCDiagnostic$Error*, $JavaFileObject*, int32_t)},
-	{"initMajorVersionToSourceMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/tools/javac/code/Source;>;", $PRIVATE, $method(Preview, initMajorVersionToSourceMap, $Map*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Preview;", nullptr, $PUBLIC | $STATIC, $staticMethod(Preview, instance, Preview*, $Context*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(Preview, isEnabled, bool)},
-	{"isPreview", "(Lcom/sun/tools/javac/code/Source$Feature;)Z", nullptr, $PUBLIC, $virtualMethod(Preview, isPreview, bool, $Source$Feature*)},
-	{"markUsesPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $virtualMethod(Preview, markUsesPreview, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC, $virtualMethod(Preview, reportDeferredDiagnostics, void)},
-	{"reportPreviewWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Preview, reportPreviewWarning, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
-	{"usesPreview", "(Ljavax/tools/JavaFileObject;)Z", nullptr, $PUBLIC, $virtualMethod(Preview, usesPreview, bool, $JavaFileObject*)},
-	{"warnPreview", "(ILcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PUBLIC, $virtualMethod(Preview, warnPreview, void, int32_t, $Source$Feature*)},
-	{"warnPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PUBLIC, $virtualMethod(Preview, warnPreview, void, $JCDiagnostic$DiagnosticPosition*, $Source$Feature*)},
-	{"warnPreview", "(Ljavax/tools/JavaFileObject;I)V", nullptr, $PUBLIC, $virtualMethod(Preview, warnPreview, void, $JavaFileObject*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Preview_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Preview$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _Preview_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Preview",
-	"java.lang.Object",
-	nullptr,
-	_Preview_FieldInfo_,
-	_Preview_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Preview_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Preview$1"
-};
-
-$Object* allocate$Preview($Class* clazz) {
-	return $of($alloc(Preview));
-}
 
 $Context$Key* Preview::previewKey = nullptr;
 
@@ -142,7 +82,7 @@ Preview* Preview::instance($Context* context) {
 
 void Preview::init$($Context* context) {
 	$set(this, sourcesWithPreviewFeatures, $new($HashSet));
-	$nc(context)->put(Preview::previewKey, $of(this));
+	$nc(context)->put(Preview::previewKey, this);
 	$var($Options, options, $Options::instance(context));
 	$init($Option);
 	this->enabled = $nc(options)->isSet($Option::PREVIEW);
@@ -156,13 +96,11 @@ void Preview::init$($Context* context) {
 }
 
 $Map* Preview::initMajorVersionToSourceMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, majorVersionToSource, $new($HashMap));
 	{
 		$var($TargetArray, arr$, $Target::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Target* t = arr$->get(i$);
 			{
 				int32_t major = $nc(t)->majorVersion;
@@ -177,32 +115,32 @@ $Map* Preview::initMajorVersionToSourceMap() {
 }
 
 void Preview::warnPreview(int32_t pos, $Source$Feature* feature) {
-	warnPreview(static_cast<$JCDiagnostic$DiagnosticPosition*>($$new($JCDiagnostic$SimpleDiagnosticPosition, pos)), feature);
+	warnPreview($$new($JCDiagnostic$SimpleDiagnosticPosition, pos), feature);
 }
 
 void Preview::warnPreview($JCDiagnostic$DiagnosticPosition* pos, $Source$Feature* feature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check(isEnabled());
 	$Assert::check(isPreview(feature));
 	$init($Lint$LintCategory);
 	if (!$nc(this->lint)->isSuppressed($Lint$LintCategory::PREVIEW)) {
-		$nc(this->sourcesWithPreviewFeatures)->add($($nc(this->log)->currentSourceFile()));
-		$nc(this->previewHandler)->report(pos, $nc(feature)->isPlural() ? $($CompilerProperties$Warnings::PreviewFeatureUsePlural($($nc(feature)->nameFragment()))) : $($CompilerProperties$Warnings::PreviewFeatureUse($($nc(feature)->nameFragment()))));
+		this->sourcesWithPreviewFeatures->add($($nc(this->log)->currentSourceFile()));
+		$nc(this->previewHandler)->report(pos, $nc(feature)->isPlural() ? $($CompilerProperties$Warnings::PreviewFeatureUsePlural($(feature->nameFragment()))) : $($CompilerProperties$Warnings::PreviewFeatureUse($(feature->nameFragment()))));
 	}
 }
 
 void Preview::warnPreview($JavaFileObject* classfile, int32_t majorVersion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check(isEnabled());
 	$init($Lint$LintCategory);
 	if ($nc(this->lint)->isEnabled($Lint$LintCategory::PREVIEW)) {
-		$nc(this->sourcesWithPreviewFeatures)->add($($nc(this->log)->currentSourceFile()));
-		$nc(this->log)->mandatoryWarning($Lint$LintCategory::PREVIEW, nullptr, $($CompilerProperties$Warnings::PreviewFeatureUseClassfile(classfile, $nc(($cast($Source, $($nc(this->majorVersionToSource)->get($($Integer::valueOf(majorVersion)))))))->name$)));
+		this->sourcesWithPreviewFeatures->add($($nc(this->log)->currentSourceFile()));
+		this->log->mandatoryWarning($Lint$LintCategory::PREVIEW, nullptr, $($CompilerProperties$Warnings::PreviewFeatureUseClassfile(classfile, $nc(($$cast($Source, $nc(this->majorVersionToSource)->get($($Integer::valueOf(majorVersion))))))->name$)));
 	}
 }
 
 void Preview::markUsesPreview($JCDiagnostic$DiagnosticPosition* pos) {
-	$nc(this->sourcesWithPreviewFeatures)->add($($nc(this->log)->currentSourceFile()));
+	this->sourcesWithPreviewFeatures->add($($nc(this->log)->currentSourceFile()));
 }
 
 void Preview::reportPreviewWarning($JCDiagnostic$DiagnosticPosition* pos, $JCDiagnostic$Warning* warnKey) {
@@ -210,7 +148,7 @@ void Preview::reportPreviewWarning($JCDiagnostic$DiagnosticPosition* pos, $JCDia
 }
 
 bool Preview::usesPreview($JavaFileObject* file) {
-	return $nc(this->sourcesWithPreviewFeatures)->contains(file);
+	return this->sourcesWithPreviewFeatures->contains(file);
 }
 
 bool Preview::isEnabled() {
@@ -219,38 +157,31 @@ bool Preview::isEnabled() {
 
 bool Preview::isPreview($Source$Feature* feature) {
 	$init($Preview$1);
-
 	bool var$0 = false;
 	switch ($nc($Preview$1::$SwitchMap$com$sun$tools$javac$code$Source$Feature)->get($nc((feature))->ordinal())) {
 	case 1:
-		{
-			var$0 = true;
-			break;
-		}
+		var$0 = true;
+		break;
 	case 2:
-		{
-			var$0 = true;
-			break;
-		}
+		var$0 = true;
+		break;
 	default:
-		{
-			var$0 = this->forcePreview;
-			break;
-		}
+		var$0 = this->forcePreview;
+		break;
 	}
 	return var$0;
 }
 
 $JCDiagnostic$Error* Preview::disabledError($Source$Feature* feature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check(!isEnabled());
-	return $nc(feature)->isPlural() ? $CompilerProperties$Errors::PreviewFeatureDisabledPlural($($nc(feature)->nameFragment())) : $CompilerProperties$Errors::PreviewFeatureDisabled($($nc(feature)->nameFragment()));
+	return $nc(feature)->isPlural() ? $CompilerProperties$Errors::PreviewFeatureDisabledPlural($(feature->nameFragment())) : $CompilerProperties$Errors::PreviewFeatureDisabled($(feature->nameFragment()));
 }
 
 $JCDiagnostic$Error* Preview::disabledError($JavaFileObject* classfile, int32_t majorVersion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::check(!isEnabled());
-	return $CompilerProperties$Errors::PreviewFeatureDisabledClassfile(classfile, $nc(($cast($Source, $($nc(this->majorVersionToSource)->get($($Integer::valueOf(majorVersion)))))))->name$);
+	return $CompilerProperties$Errors::PreviewFeatureDisabledClassfile(classfile, $nc(($$cast($Source, $nc(this->majorVersionToSource)->get($($Integer::valueOf(majorVersion))))))->name$);
 }
 
 bool Preview::declaredUsingPreviewFeature($Symbol* sym) {
@@ -266,7 +197,7 @@ void Preview::clear() {
 }
 
 void Preview::checkSourceLevel($JCDiagnostic$DiagnosticPosition* pos, $Source$Feature* feature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isPreview(feature);
 	if (var$0 && !isEnabled()) {
 		$init($JCDiagnostic$DiagnosticFlag);
@@ -283,7 +214,7 @@ void Preview::checkSourceLevel($JCDiagnostic$DiagnosticPosition* pos, $Source$Fe
 	}
 }
 
-void clinit$Preview($Class* class$) {
+void Preview::clinit$($Class* clazz) {
 	$assignStatic(Preview::previewKey, $new($Context$Key));
 }
 
@@ -291,7 +222,59 @@ Preview::Preview() {
 }
 
 $Class* Preview::load$($String* name, bool initialize) {
-	$loadClass(Preview, name, initialize, &_Preview_ClassInfo_, clinit$Preview, allocate$Preview);
+	$FieldInfo fieldInfos$$[] = {
+		{"enabled", "Z", nullptr, $PRIVATE | $FINAL, $field(Preview, enabled)},
+		{"previewHandler", "Lcom/sun/tools/javac/util/MandatoryWarningHandler;", nullptr, $PRIVATE | $FINAL, $field(Preview, previewHandler)},
+		{"forcePreview", "Z", nullptr, $PRIVATE | $FINAL, $field(Preview, forcePreview)},
+		{"majorVersionToSource", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/tools/javac/code/Source;>;", $PRIVATE | $FINAL, $field(Preview, majorVersionToSource)},
+		{"sourcesWithPreviewFeatures", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $FINAL, $field(Preview, sourcesWithPreviewFeatures)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PRIVATE | $FINAL, $field(Preview, lint)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Preview, log)},
+		{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(Preview, source)},
+		{"previewKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/code/Preview;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Preview, previewKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(Preview, init$, void, $Context*)},
+		{"checkSourceLevel", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PUBLIC, $virtualMethod(Preview, checkSourceLevel, void, $JCDiagnostic$DiagnosticPosition*, $Source$Feature*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Preview, clear, void)},
+		{"declaredUsingPreviewFeature", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PUBLIC, $virtualMethod(Preview, declaredUsingPreviewFeature, bool, $Symbol*)},
+		{"disabledError", "(Lcom/sun/tools/javac/code/Source$Feature;)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC, $virtualMethod(Preview, disabledError, $JCDiagnostic$Error*, $Source$Feature*)},
+		{"disabledError", "(Ljavax/tools/JavaFileObject;I)Lcom/sun/tools/javac/util/JCDiagnostic$Error;", nullptr, $PUBLIC, $virtualMethod(Preview, disabledError, $JCDiagnostic$Error*, $JavaFileObject*, int32_t)},
+		{"initMajorVersionToSourceMap", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/Integer;Lcom/sun/tools/javac/code/Source;>;", $PRIVATE, $method(Preview, initMajorVersionToSourceMap, $Map*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/code/Preview;", nullptr, $PUBLIC | $STATIC, $staticMethod(Preview, instance, Preview*, $Context*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(Preview, isEnabled, bool)},
+		{"isPreview", "(Lcom/sun/tools/javac/code/Source$Feature;)Z", nullptr, $PUBLIC, $virtualMethod(Preview, isPreview, bool, $Source$Feature*)},
+		{"markUsesPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $virtualMethod(Preview, markUsesPreview, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"reportDeferredDiagnostics", "()V", nullptr, $PUBLIC, $virtualMethod(Preview, reportDeferredDiagnostics, void)},
+		{"reportPreviewWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(Preview, reportPreviewWarning, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+		{"usesPreview", "(Ljavax/tools/JavaFileObject;)Z", nullptr, $PUBLIC, $virtualMethod(Preview, usesPreview, bool, $JavaFileObject*)},
+		{"warnPreview", "(ILcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PUBLIC, $virtualMethod(Preview, warnPreview, void, int32_t, $Source$Feature*)},
+		{"warnPreview", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Source$Feature;)V", nullptr, $PUBLIC, $virtualMethod(Preview, warnPreview, void, $JCDiagnostic$DiagnosticPosition*, $Source$Feature*)},
+		{"warnPreview", "(Ljavax/tools/JavaFileObject;I)V", nullptr, $PUBLIC, $virtualMethod(Preview, warnPreview, void, $JavaFileObject*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Preview$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Preview",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Preview$1"
+	};
+	$loadClass(Preview, name, initialize, &classInfo$$, Preview::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Preview);
+	});
 	return class$;
 }
 

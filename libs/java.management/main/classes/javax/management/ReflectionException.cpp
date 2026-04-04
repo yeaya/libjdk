@@ -1,5 +1,4 @@
 #include <javax/management/ReflectionException.h>
-
 #include <javax/management/JMException.h>
 #include <jcpp.h>
 
@@ -11,33 +10,6 @@ using $JMException = ::javax::management::JMException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _ReflectionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReflectionException, serialVersionUID)},
-	{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(ReflectionException, exception)},
-	{}
-};
-
-$MethodInfo _ReflectionException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ReflectionException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectionException, init$, void, $Exception*, $String*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ReflectionException, getCause, $Throwable*)},
-	{"getTargetException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(ReflectionException, getTargetException, $Exception*)},
-	{}
-};
-
-$ClassInfo _ReflectionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.ReflectionException",
-	"javax.management.JMException",
-	nullptr,
-	_ReflectionException_FieldInfo_,
-	_ReflectionException_MethodInfo_
-};
-
-$Object* allocate$ReflectionException($Class* clazz) {
-	return $of($alloc(ReflectionException));
-}
 
 void ReflectionException::init$($Exception* e) {
 	$JMException::init$();
@@ -68,7 +40,29 @@ void ReflectionException::throw$() {
 }
 
 $Class* ReflectionException::load$($String* name, bool initialize) {
-	$loadClass(ReflectionException, name, initialize, &_ReflectionException_ClassInfo_, allocate$ReflectionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReflectionException, serialVersionUID)},
+		{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(ReflectionException, exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(ReflectionException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ReflectionException, init$, void, $Exception*, $String*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(ReflectionException, getCause, $Throwable*)},
+		{"getTargetException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(ReflectionException, getTargetException, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.ReflectionException",
+		"javax.management.JMException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ReflectionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReflectionException);
+	});
 	return class$;
 }
 

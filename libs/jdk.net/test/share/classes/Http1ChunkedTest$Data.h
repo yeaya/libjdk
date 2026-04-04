@@ -30,6 +30,7 @@ class $export Http1ChunkedTest$Data : public ::java::lang::Object {
 	$class(Http1ChunkedTest$Data, 0, ::java::lang::Object)
 public:
 	Http1ChunkedTest$Data();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* RESPONSE_HEADERS;
 	static ::java::util::List* REQ0_RESPONSE_BODY;

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin.h>
-
 #include <java/lang/Enum.h>
 #include <javax/swing/text/html/StyleSheet$BoxPainter.h>
 #include <javax/swing/text/html/StyleSheet.h>
@@ -19,47 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _StyleSheet$BoxPainter$HorizontalMargin_FieldInfo_[] = {
-	{"LEFT", "Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StyleSheet$BoxPainter$HorizontalMargin, LEFT)},
-	{"RIGHT", "Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StyleSheet$BoxPainter$HorizontalMargin, RIGHT)},
-	{"$VALUES", "[Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StyleSheet$BoxPainter$HorizontalMargin, $VALUES)},
-	{}
-};
-
-$MethodInfo _StyleSheet$BoxPainter$HorizontalMargin_MethodInfo_[] = {
-	{"$values", "()[Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StyleSheet$BoxPainter$HorizontalMargin, $values, $StyleSheet$BoxPainter$HorizontalMarginArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StyleSheet$BoxPainter$HorizontalMargin, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleSheet$BoxPainter$HorizontalMargin, valueOf, StyleSheet$BoxPainter$HorizontalMargin*, $String*)},
-	{"values", "()[Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleSheet$BoxPainter$HorizontalMargin, values, $StyleSheet$BoxPainter$HorizontalMarginArray*)},
-	{}
-};
-
-$InnerClassInfo _StyleSheet$BoxPainter$HorizontalMargin_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.StyleSheet$BoxPainter", "javax.swing.text.html.StyleSheet", "BoxPainter", $PUBLIC | $STATIC},
-	{"javax.swing.text.html.StyleSheet$BoxPainter$HorizontalMargin", "javax.swing.text.html.StyleSheet$BoxPainter", "HorizontalMargin", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _StyleSheet$BoxPainter$HorizontalMargin_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"javax.swing.text.html.StyleSheet$BoxPainter$HorizontalMargin",
-	"java.lang.Enum",
-	nullptr,
-	_StyleSheet$BoxPainter$HorizontalMargin_FieldInfo_,
-	_StyleSheet$BoxPainter$HorizontalMargin_MethodInfo_,
-	"Ljava/lang/Enum<Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;>;",
-	nullptr,
-	_StyleSheet$BoxPainter$HorizontalMargin_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.StyleSheet"
-};
-
-$Object* allocate$StyleSheet$BoxPainter$HorizontalMargin($Class* clazz) {
-	return $of($alloc(StyleSheet$BoxPainter$HorizontalMargin));
-}
 
 StyleSheet$BoxPainter$HorizontalMargin* StyleSheet$BoxPainter$HorizontalMargin::LEFT = nullptr;
 StyleSheet$BoxPainter$HorizontalMargin* StyleSheet$BoxPainter$HorizontalMargin::RIGHT = nullptr;
@@ -87,7 +45,7 @@ void StyleSheet$BoxPainter$HorizontalMargin::init$($String* $enum$name, int32_t 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$StyleSheet$BoxPainter$HorizontalMargin($Class* class$) {
+void StyleSheet$BoxPainter$HorizontalMargin::clinit$($Class* clazz) {
 	$assignStatic(StyleSheet$BoxPainter$HorizontalMargin::LEFT, $new(StyleSheet$BoxPainter$HorizontalMargin, "LEFT"_s, 0));
 	$assignStatic(StyleSheet$BoxPainter$HorizontalMargin::RIGHT, $new(StyleSheet$BoxPainter$HorizontalMargin, "RIGHT"_s, 1));
 	$assignStatic(StyleSheet$BoxPainter$HorizontalMargin::$VALUES, StyleSheet$BoxPainter$HorizontalMargin::$values());
@@ -97,7 +55,42 @@ StyleSheet$BoxPainter$HorizontalMargin::StyleSheet$BoxPainter$HorizontalMargin()
 }
 
 $Class* StyleSheet$BoxPainter$HorizontalMargin::load$($String* name, bool initialize) {
-	$loadClass(StyleSheet$BoxPainter$HorizontalMargin, name, initialize, &_StyleSheet$BoxPainter$HorizontalMargin_ClassInfo_, clinit$StyleSheet$BoxPainter$HorizontalMargin, allocate$StyleSheet$BoxPainter$HorizontalMargin);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEFT", "Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StyleSheet$BoxPainter$HorizontalMargin, LEFT)},
+		{"RIGHT", "Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(StyleSheet$BoxPainter$HorizontalMargin, RIGHT)},
+		{"$VALUES", "[Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(StyleSheet$BoxPainter$HorizontalMargin, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(StyleSheet$BoxPainter$HorizontalMargin, $values, $StyleSheet$BoxPainter$HorizontalMarginArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(StyleSheet$BoxPainter$HorizontalMargin, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleSheet$BoxPainter$HorizontalMargin, valueOf, StyleSheet$BoxPainter$HorizontalMargin*, $String*)},
+		{"values", "()[Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;", nullptr, $PUBLIC | $STATIC, $staticMethod(StyleSheet$BoxPainter$HorizontalMargin, values, $StyleSheet$BoxPainter$HorizontalMarginArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.StyleSheet$BoxPainter", "javax.swing.text.html.StyleSheet", "BoxPainter", $PUBLIC | $STATIC},
+		{"javax.swing.text.html.StyleSheet$BoxPainter$HorizontalMargin", "javax.swing.text.html.StyleSheet$BoxPainter", "HorizontalMargin", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"javax.swing.text.html.StyleSheet$BoxPainter$HorizontalMargin",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljavax/swing/text/html/StyleSheet$BoxPainter$HorizontalMargin;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.StyleSheet"
+	};
+	$loadClass(StyleSheet$BoxPainter$HorizontalMargin, name, initialize, &classInfo$$, StyleSheet$BoxPainter$HorizontalMargin::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StyleSheet$BoxPainter$HorizontalMargin));
+	});
 	return class$;
 }
 

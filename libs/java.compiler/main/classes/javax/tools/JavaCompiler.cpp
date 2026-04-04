@@ -1,5 +1,4 @@
 #include <javax/tools/JavaCompiler.h>
-
 #include <java/io/Writer.h>
 #include <java/lang/Iterable.h>
 #include <java/nio/charset/Charset.h>
@@ -27,41 +26,6 @@ using $Tool = ::javax::tools::Tool;
 namespace javax {
 	namespace tools {
 
-$MethodInfo _JavaCompiler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", $PUBLIC | $ABSTRACT, $virtualMethod(JavaCompiler, getStandardFileManager, $StandardJavaFileManager*, $DiagnosticListener*, $Locale*, $Charset*)},
-	{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljavax/tools/JavaCompiler$CompilationTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Ljavax/tools/JavaCompiler$CompilationTask;", $PUBLIC | $ABSTRACT, $virtualMethod(JavaCompiler, getTask, $JavaCompiler$CompilationTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*)},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JavaCompiler_InnerClassesInfo_[] = {
-	{"javax.tools.JavaCompiler$CompilationTask", "javax.tools.JavaCompiler", "CompilationTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavaCompiler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.tools.JavaCompiler",
-	nullptr,
-	"javax.tools.Tool,javax.tools.OptionChecker",
-	nullptr,
-	_JavaCompiler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaCompiler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.tools.JavaCompiler$CompilationTask"
-};
-
-$Object* allocate$JavaCompiler($Class* clazz) {
-	return $of($alloc(JavaCompiler));
-}
-
 int32_t JavaCompiler::hashCode() {
 	 return this->$Tool::hashCode();
 }
@@ -83,7 +47,37 @@ void JavaCompiler::finalize() {
 }
 
 $Class* JavaCompiler::load$($String* name, bool initialize) {
-	$loadClass(JavaCompiler, name, initialize, &_JavaCompiler_ClassInfo_, allocate$JavaCompiler);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getStandardFileManager", "(Ljavax/tools/DiagnosticListener;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", "(Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/util/Locale;Ljava/nio/charset/Charset;)Ljavax/tools/StandardJavaFileManager;", $PUBLIC | $ABSTRACT, $virtualMethod(JavaCompiler, getStandardFileManager, $StandardJavaFileManager*, $DiagnosticListener*, $Locale*, $Charset*)},
+		{"getTask", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener;Ljava/lang/Iterable;Ljava/lang/Iterable;Ljava/lang/Iterable;)Ljavax/tools/JavaCompiler$CompilationTask;", "(Ljava/io/Writer;Ljavax/tools/JavaFileManager;Ljavax/tools/DiagnosticListener<-Ljavax/tools/JavaFileObject;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<Ljava/lang/String;>;Ljava/lang/Iterable<+Ljavax/tools/JavaFileObject;>;)Ljavax/tools/JavaCompiler$CompilationTask;", $PUBLIC | $ABSTRACT, $virtualMethod(JavaCompiler, getTask, $JavaCompiler$CompilationTask*, $Writer*, $JavaFileManager*, $DiagnosticListener*, $Iterable*, $Iterable*, $Iterable*)},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.JavaCompiler$CompilationTask", "javax.tools.JavaCompiler", "CompilationTask", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.tools.JavaCompiler",
+		nullptr,
+		"javax.tools.Tool,javax.tools.OptionChecker",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.tools.JavaCompiler$CompilationTask"
+	};
+	$loadClass(JavaCompiler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavaCompiler));
+	});
 	return class$;
 }
 

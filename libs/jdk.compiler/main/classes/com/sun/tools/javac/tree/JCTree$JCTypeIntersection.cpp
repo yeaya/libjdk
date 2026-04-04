@@ -1,6 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCTypeIntersection.h>
-
-#include <com/sun/source/tree/IntersectionTypeTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -14,7 +12,6 @@
 #undef INTERSECTION_TYPE
 #undef TYPEINTERSECTION
 
-using $IntersectionTypeTree = ::com::sun::source::tree::IntersectionTypeTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -32,52 +29,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCTypeIntersection_FieldInfo_[] = {
-	{"bounds", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $field(JCTree$JCTypeIntersection, bounds)},
-	{}
-};
-
-$MethodInfo _JCTree$JCTypeIntersection_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(JCTree$JCTypeIntersection, init$, void, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getBounds", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, getBounds, $1List*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, getKind, $Tree$Kind*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCTypeIntersection_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCTypeIntersection", "com.sun.tools.javac.tree.JCTree", "JCTypeIntersection", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCTypeIntersection_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCTypeIntersection",
-	"com.sun.tools.javac.tree.JCTree$JCExpression",
-	"com.sun.source.tree.IntersectionTypeTree",
-	_JCTree$JCTypeIntersection_FieldInfo_,
-	_JCTree$JCTypeIntersection_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCTypeIntersection_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCTypeIntersection($Class* clazz) {
-	return $of($alloc(JCTree$JCTypeIntersection));
-}
 
 $String* JCTree$JCTypeIntersection::toString() {
 	 return this->$JCTree$JCExpression::toString();
@@ -118,7 +69,7 @@ $1List* JCTree$JCTypeIntersection::getBounds() {
 }
 
 $Object* JCTree$JCTypeIntersection::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitIntersectionType(this, d));
+	return $nc(v)->visitIntersectionType(this, d);
 }
 
 $JCTree$Tag* JCTree$JCTypeIntersection::getTag() {
@@ -130,7 +81,47 @@ JCTree$JCTypeIntersection::JCTree$JCTypeIntersection() {
 }
 
 $Class* JCTree$JCTypeIntersection::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCTypeIntersection, name, initialize, &_JCTree$JCTypeIntersection_ClassInfo_, allocate$JCTree$JCTypeIntersection);
+	$FieldInfo fieldInfos$$[] = {
+		{"bounds", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $field(JCTree$JCTypeIntersection, bounds)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;)V", $PROTECTED, $method(JCTree$JCTypeIntersection, init$, void, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getBounds", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCExpression;>;", $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, getBounds, $1List*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, getKind, $Tree$Kind*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCTypeIntersection, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCTypeIntersection", "com.sun.tools.javac.tree.JCTree", "JCTypeIntersection", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCExpression", "com.sun.tools.javac.tree.JCTree", "JCExpression", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCTypeIntersection",
+		"com.sun.tools.javac.tree.JCTree$JCExpression",
+		"com.sun.source.tree.IntersectionTypeTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCTypeIntersection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCTypeIntersection));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Enter.h>
-
 #include <com/sun/source/tree/PackageTree.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Kinds$KindName.h>
@@ -8,7 +7,6 @@
 #include <com/sun/tools/javac/code/Scope$NamedImportScope.h>
 #include <com/sun/tools/javac/code/Scope$StarImportScope.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
-#include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$Completer.h>
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
@@ -77,7 +75,6 @@
 #include <java/util/function/Predicate.h>
 #include <java/util/function/Supplier.h>
 #include <java/util/stream/Stream.h>
-#include <javax/tools/FileObject.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/JavaFileObject$Kind.h>
 #include <javax/tools/JavaFileObject.h>
@@ -98,7 +95,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindName = ::com::sun::tools::javac::code::Kinds$KindName;
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
 using $Lint = ::com::sun::tools::javac::code::Lint;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$NamedImportScope = ::com::sun::tools::javac::code::Scope$NamedImportScope;
 using $Scope$StarImportScope = ::com::sun::tools::javac::code::Scope$StarImportScope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
@@ -140,7 +136,6 @@ using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
@@ -164,8 +159,6 @@ using $Map = ::java::util::Map;
 using $Optional = ::java::util::Optional;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
-using $Stream = ::java::util::stream::Stream;
-using $FileObject = ::javax::tools::FileObject;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
@@ -185,33 +178,29 @@ public:
 	virtual bool test(Object$* m) override {
 		 return Enter::lambda$visitTopLevel$0(tree, $cast($Symbol$ModuleSymbol, m));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Enter$$Lambda$lambda$visitTopLevel$0>());
-	}
 	$JCTree$JCCompilationUnit* tree = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Enter$$Lambda$lambda$visitTopLevel$0::fieldInfos[2] = {
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitTopLevel$0, tree)},
-	{}
-};
-$MethodInfo Enter$$Lambda$lambda$visitTopLevel$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(Enter$$Lambda$lambda$visitTopLevel$0, init$, void, $JCTree$JCCompilationUnit*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Enter$$Lambda$lambda$visitTopLevel$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Enter$$Lambda$lambda$visitTopLevel$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitTopLevel$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Enter$$Lambda$lambda$visitTopLevel$0::load$($String* name, bool initialize) {
-	$loadClass(Enter$$Lambda$lambda$visitTopLevel$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitTopLevel$0, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(Enter$$Lambda$lambda$visitTopLevel$0, init$, void, $JCTree$JCCompilationUnit*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Enter$$Lambda$lambda$visitTopLevel$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitTopLevel$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Enter$$Lambda$lambda$visitTopLevel$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Enter$$Lambda$lambda$visitTopLevel$0);
+	});
 	return class$;
 }
 $Class* Enter$$Lambda$lambda$visitTopLevel$0::class$ = nullptr;
@@ -227,37 +216,33 @@ public:
 	virtual bool test(Object$* cand) override {
 		 return $nc(inst$)->lambda$visitTopLevel$1(visiblePackages, tree, $cast($Symbol$ModuleSymbol, cand));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Enter$$Lambda$lambda$visitTopLevel$1$1>());
-	}
 	Enter* inst$ = nullptr;
 	$Map* visiblePackages = nullptr;
 	$JCTree$JCCompilationUnit* tree = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Enter$$Lambda$lambda$visitTopLevel$1$1::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitTopLevel$1$1, inst$)},
-	{"visiblePackages", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitTopLevel$1$1, visiblePackages)},
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitTopLevel$1$1, tree)},
-	{}
-};
-$MethodInfo Enter$$Lambda$lambda$visitTopLevel$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Enter;Ljava/util/Map;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(Enter$$Lambda$lambda$visitTopLevel$1$1, init$, void, Enter*, $Map*, $JCTree$JCCompilationUnit*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Enter$$Lambda$lambda$visitTopLevel$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Enter$$Lambda$lambda$visitTopLevel$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitTopLevel$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Enter$$Lambda$lambda$visitTopLevel$1$1::load$($String* name, bool initialize) {
-	$loadClass(Enter$$Lambda$lambda$visitTopLevel$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitTopLevel$1$1, inst$)},
+		{"visiblePackages", "Ljava/util/Map;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitTopLevel$1$1, visiblePackages)},
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitTopLevel$1$1, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Enter;Ljava/util/Map;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(Enter$$Lambda$lambda$visitTopLevel$1$1, init$, void, Enter*, $Map*, $JCTree$JCCompilationUnit*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Enter$$Lambda$lambda$visitTopLevel$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitTopLevel$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Enter$$Lambda$lambda$visitTopLevel$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Enter$$Lambda$lambda$visitTopLevel$1$1);
+	});
 	return class$;
 }
 $Class* Enter$$Lambda$lambda$visitTopLevel$1$1::class$ = nullptr;
@@ -271,33 +256,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->toString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Enter$$Lambda$toString$2>());
-	}
 	$Symbol* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Enter$$Lambda$toString$2::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Enter$$Lambda$toString$2, inst$)},
-	{}
-};
-$MethodInfo Enter$$Lambda$toString$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Enter$$Lambda$toString$2, init$, void, $Symbol*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Enter$$Lambda$toString$2, get, $Object*)},
-	{}
-};
-$ClassInfo Enter$$Lambda$toString$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Enter$$Lambda$toString$2",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Enter$$Lambda$toString$2::load$($String* name, bool initialize) {
-	$loadClass(Enter$$Lambda$toString$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Enter$$Lambda$toString$2, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Enter$$Lambda$toString$2, init$, void, $Symbol*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Enter$$Lambda$toString$2, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Enter$$Lambda$toString$2",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Enter$$Lambda$toString$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Enter$$Lambda$toString$2);
+	});
 	return class$;
 }
 $Class* Enter$$Lambda$toString$2::class$ = nullptr;
@@ -311,118 +292,32 @@ public:
 	virtual $Object* get() override {
 		 return $of(Enter::lambda$visitClassDef$2(c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Enter$$Lambda$lambda$visitClassDef$2$3>());
-	}
 	$Symbol$ClassSymbol* c = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Enter$$Lambda$lambda$visitClassDef$2$3::fieldInfos[2] = {
-	{"c", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitClassDef$2$3, c)},
-	{}
-};
-$MethodInfo Enter$$Lambda$lambda$visitClassDef$2$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $method(Enter$$Lambda$lambda$visitClassDef$2$3, init$, void, $Symbol$ClassSymbol*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Enter$$Lambda$lambda$visitClassDef$2$3, get, $Object*)},
-	{}
-};
-$ClassInfo Enter$$Lambda$lambda$visitClassDef$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitClassDef$2$3",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* Enter$$Lambda$lambda$visitClassDef$2$3::load$($String* name, bool initialize) {
-	$loadClass(Enter$$Lambda$lambda$visitClassDef$2$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"c", "Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $field(Enter$$Lambda$lambda$visitClassDef$2$3, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PUBLIC, $method(Enter$$Lambda$lambda$visitClassDef$2$3, init$, void, $Symbol$ClassSymbol*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Enter$$Lambda$lambda$visitClassDef$2$3, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitClassDef$2$3",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Enter$$Lambda$lambda$visitClassDef$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Enter$$Lambda$lambda$visitClassDef$2$3);
+	});
 	return class$;
 }
 $Class* Enter$$Lambda$lambda$visitClassDef$2$3::class$ = nullptr;
-
-$FieldInfo _Enter_FieldInfo_[] = {
-	{"enterKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Enter;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Enter, enterKey)},
-	{"annotate", "Lcom/sun/tools/javac/comp/Annotate;", nullptr, 0, $field(Enter, annotate)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, 0, $field(Enter, log)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, 0, $field(Enter, syms)},
-	{"chk", "Lcom/sun/tools/javac/comp/Check;", nullptr, 0, $field(Enter, chk)},
-	{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, 0, $field(Enter, make)},
-	{"typeEnter", "Lcom/sun/tools/javac/comp/TypeEnter;", nullptr, 0, $field(Enter, typeEnter)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, 0, $field(Enter, types)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $field(Enter, lint)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, 0, $field(Enter, names)},
-	{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, 0, $field(Enter, fileManager)},
-	{"pkginfoOpt", "Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, 0, $field(Enter, pkginfoOpt)},
-	{"typeEnvs", "Lcom/sun/tools/javac/comp/TypeEnvs;", nullptr, 0, $field(Enter, typeEnvs)},
-	{"modules", "Lcom/sun/tools/javac/comp/Modules;", nullptr, 0, $field(Enter, modules)},
-	{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, 0, $field(Enter, diags)},
-	{"todo", "Lcom/sun/tools/javac/comp/Todo;", nullptr, $PRIVATE | $FINAL, $field(Enter, todo)},
-	{"uncompleted", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", 0, $field(Enter, uncompleted)},
-	{"unfinishedModules", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", 0, $field(Enter, unfinishedModules)},
-	{"predefClassDef", "Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PRIVATE, $field(Enter, predefClassDef)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PROTECTED, $field(Enter, env)},
-	{"result", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Enter, result)},
-	{"setPackageSymbols", "Lcom/sun/tools/javac/tree/TreeScanner;", nullptr, $PRIVATE | $FINAL, $field(Enter, setPackageSymbols)},
-	{}
-};
-
-$MethodInfo _Enter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Enter, init$, void, $Context*)},
-	{"classEnter", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Type;", 0, $virtualMethod(Enter, classEnter, $Type*, $JCTree*, $Env*)},
-	{"classEnter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Enter, classEnter, $List*, $List*, $Env*)},
-	{"classEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, classEnv, $Env*, $JCTree$JCClassDecl*, $Env*)},
-	{"classNameMatchesFileName", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PRIVATE | $STATIC, $staticMethod(Enter, classNameMatchesFileName, bool, $Symbol$ClassSymbol*, $Env*)},
-	{"complete", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", $PUBLIC, $virtualMethod(Enter, complete, void, $List*, $Symbol$ClassSymbol*)},
-	{"duplicateClass", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PROTECTED, $virtualMethod(Enter, duplicateClass, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
-	{"enterScope", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", 0, $virtualMethod(Enter, enterScope, $Scope$WriteableScope*, $Env*)},
-	{"getClassEnv", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, getClassEnv, $Env*, $Symbol$TypeSymbol*)},
-	{"getEnv", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, getEnv, $Env*, $Symbol$TypeSymbol*)},
-	{"getEnvs", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(Enter, getEnvs, $Iterable*)},
-	{"getTopLevelEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, getTopLevelEnv, $Env*, $JCTree$JCCompilationUnit*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Enter;", nullptr, $PUBLIC | $STATIC, $staticMethod(Enter, instance, Enter*, $Context*)},
-	{"lambda$visitClassDef$2", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Enter, lambda$visitClassDef$2, $String*, $Symbol$ClassSymbol*)},
-	{"lambda$visitTopLevel$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Enter, lambda$visitTopLevel$0, bool, $JCTree$JCCompilationUnit*, $Symbol$ModuleSymbol*)},
-	{"lambda$visitTopLevel$1", "(Ljava/util/Map;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Enter, lambda$visitTopLevel$1, bool, $Map*, $JCTree$JCCompilationUnit*, $Symbol$ModuleSymbol*)},
-	{"main", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PUBLIC, $virtualMethod(Enter, main, void, $List*)},
-	{"moduleEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, moduleEnv, $Env*, $JCTree$JCModuleDecl*, $Env*)},
-	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(Enter, newRound, void)},
-	{"topLevelEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(Enter, topLevelEnv, $Env*, $JCTree$JCCompilationUnit*)},
-	{"unenter", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Enter, unenter, void, $JCTree$JCCompilationUnit*, $JCTree*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitModuleDef, void, $JCTree$JCModuleDecl*)},
-	{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
-	{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitTree, void, $JCTree*)},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
-	{}
-};
-
-$InnerClassInfo _Enter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Enter$UnenterScanner", "com.sun.tools.javac.comp.Enter", "UnenterScanner", 0},
-	{"com.sun.tools.javac.comp.Enter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Enter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Enter",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_Enter_FieldInfo_,
-	_Enter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Enter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Enter$UnenterScanner,com.sun.tools.javac.comp.Enter$1"
-};
-
-$Object* allocate$Enter($Class* clazz) {
-	return $of($alloc(Enter));
-}
 
 $Context$Key* Enter::enterKey = nullptr;
 
@@ -436,11 +331,11 @@ Enter* Enter::instance($Context* context) {
 }
 
 void Enter::init$($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JCTree$Visitor::init$();
 	$set(this, unfinishedModules, $new($ListBuffer));
 	$set(this, setPackageSymbols, $new($Enter$1, this));
-	$nc(context)->put(Enter::enterKey, $of(this));
+	$nc(context)->put(Enter::enterKey, this);
 	$set(this, log, $Log::instance(context));
 	$set(this, make, $TreeMaker::instance(context));
 	$set(this, syms, $Symtab::instance(context));
@@ -475,7 +370,7 @@ $Iterable* Enter::getEnvs() {
 }
 
 $Env* Enter::getClassEnv($Symbol$TypeSymbol* sym) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, localEnv, getEnv(sym));
 	if (localEnv == nullptr) {
 		return nullptr;
@@ -484,102 +379,100 @@ $Env* Enter::getClassEnv($Symbol$TypeSymbol* sym) {
 	while ($nc(($cast($AttrContext, $nc(lintEnv)->info)))->lint == nullptr) {
 		$assign(lintEnv, lintEnv->next);
 	}
-	$set($nc($cast($AttrContext, $nc(localEnv)->info)), lint, $nc($nc(($cast($AttrContext, $nc(lintEnv)->info)))->lint)->augment(static_cast<$Symbol*>(sym)));
+	$set($nc($cast($AttrContext, $nc(localEnv)->info)), lint, $nc(($cast($AttrContext, $nc(lintEnv)->info))->lint)->augment(sym));
 	return localEnv;
 }
 
 $Env* Enter::classEnv($JCTree$JCClassDecl* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
-	$var($Env, localEnv, $nc(env)->dup(tree, $($nc(($cast($AttrContext, env->info)))->dup($($Scope$WriteableScope::create($nc(tree)->sym))))));
+	$useLocalObjectStack();
+	$var($Env, localEnv, $nc(env)->dup(tree, $($nc($cast($AttrContext, $nc(env)->info))->dup($($Scope$WriteableScope::create($nc(tree)->sym))))));
 	$set($nc(localEnv), enclClass, tree);
 	$set(localEnv, outer, env);
 	$nc(($cast($AttrContext, localEnv->info)))->isSelfCall = false;
-	$set($nc($cast($AttrContext, localEnv->info)), lint, nullptr);
-	$nc(($cast($AttrContext, localEnv->info)))->isAnonymousDiamond = $TreeInfo::isDiamond(env->tree);
+	$set($cast($AttrContext, localEnv->info), lint, nullptr);
+	($cast($AttrContext, localEnv->info))->isAnonymousDiamond = $TreeInfo::isDiamond(env->tree);
 	return localEnv;
 }
 
 $Env* Enter::topLevelEnv($JCTree$JCCompilationUnit* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, localEnv, $new($Env, tree, $$new($AttrContext)));
 	$set(localEnv, toplevel, tree);
 	$set(localEnv, enclClass, this->predefClassDef);
-	$set($nc(tree), toplevelScope, $Scope$WriteableScope::create(tree->packge));
+	$set($nc(tree), toplevelScope, $Scope$WriteableScope::create($nc(tree)->packge));
 	$set(tree, namedImportScope, $new($Scope$NamedImportScope, tree->packge));
 	$set(tree, starImportScope, $new($Scope$StarImportScope, tree->packge));
 	$set($nc($cast($AttrContext, localEnv->info)), scope, tree->toplevelScope);
-	$set($nc($cast($AttrContext, localEnv->info)), lint, this->lint);
+	$set($cast($AttrContext, localEnv->info), lint, this->lint);
 	return localEnv;
 }
 
 $Env* Enter::getTopLevelEnv($JCTree$JCCompilationUnit* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, localEnv, $new($Env, tree, $$new($AttrContext)));
 	$set(localEnv, toplevel, tree);
 	$set(localEnv, enclClass, this->predefClassDef);
 	$set($nc($cast($AttrContext, localEnv->info)), scope, $nc(tree)->toplevelScope);
-	$set($nc($cast($AttrContext, localEnv->info)), lint, this->lint);
+	$set($cast($AttrContext, localEnv->info), lint, this->lint);
 	return localEnv;
 }
 
 $Scope$WriteableScope* Enter::enterScope($Env* env) {
 	$init($JCTree$Tag);
-	return ($nc($nc(env)->tree)->hasTag($JCTree$Tag::CLASSDEF)) ? $nc($nc(($cast($JCTree$JCClassDecl, $nc(env)->tree)))->sym)->members_field : $nc(($cast($AttrContext, env->info)))->scope;
+	return ($nc($nc(env)->tree)->hasTag($JCTree$Tag::CLASSDEF)) ? $nc($cast($JCTree$JCClassDecl, env->tree)->sym)->members_field : $nc(($cast($AttrContext, env->info)))->scope;
 }
 
 $Env* Enter::moduleEnv($JCTree$JCModuleDecl* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Assert::checkNonNull($nc(tree)->sym);
-	$var($Env, localEnv, $nc(env)->dup(tree, $($nc(($cast($AttrContext, env->info)))->dup($($Scope$WriteableScope::create($nc(tree)->sym))))));
+	$var($Env, localEnv, $nc(env)->dup(tree, $($nc($cast($AttrContext, $nc(env)->info))->dup($($Scope$WriteableScope::create(tree->sym))))));
 	$set($nc(localEnv), enclClass, this->predefClassDef);
 	$set(localEnv, outer, env);
 	$nc(($cast($AttrContext, localEnv->info)))->isSelfCall = false;
-	$set($nc($cast($AttrContext, localEnv->info)), lint, nullptr);
+	$set($cast($AttrContext, localEnv->info), lint, nullptr);
 	return localEnv;
 }
 
 $Type* Enter::classEnter($JCTree* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Env, prevEnv, this->env);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Type, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($Type, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$set(this, env, env);
-				$nc(this->annotate)->blockAnnotations();
-				$nc(tree)->accept(this);
-				$assign(var$2, this->result);
-				return$1 = true;
-				goto $finally;
-			} catch ($Symbol$CompletionFailure& ex) {
-				$assign(var$2, $nc(this->chk)->completionError($($nc(tree)->pos()), ex));
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$nc(this->annotate)->unblockAnnotations();
-			$set(this, env, prevEnv);
+			$set(this, env, env);
+			$nc(this->annotate)->blockAnnotations();
+			$nc(tree)->accept(this);
+			$assign(var$2, this->result);
+			return$1 = true;
+			goto $finally;
+		} catch ($Symbol$CompletionFailure& ex) {
+			$assign(var$2, $nc(this->chk)->completionError($($nc(tree)->pos()), ex));
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$nc(this->annotate)->unblockAnnotations();
+		$set(this, env, prevEnv);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $List* Enter::classEnter($List* trees, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, ts, $new($ListBuffer));
 	{
 		$var($List, l, trees);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$var($Type, t, classEnter($cast($JCTree, l->head), env));
 			if (t != nullptr) {
 				ts->append(t);
@@ -590,11 +483,11 @@ $List* Enter::classEnter($List* trees, $Env* env) {
 }
 
 void Enter::visitTopLevel($JCTree$JCCompilationUnit* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, prev, $nc(this->log)->useSource($nc(tree)->sourcefile));
 	bool addEnv = false;
 	$init($JavaFileObject$Kind);
-	bool isPkgInfo = $nc($nc(tree)->sourcefile)->isNameCompatible("package-info"_s, $JavaFileObject$Kind::SOURCE);
+	bool isPkgInfo = $nc(tree->sourcefile)->isNameCompatible("package-info"_s, $JavaFileObject$Kind::SOURCE);
 	if ($TreeInfo::isModuleInfo(tree)) {
 		$var($JCTree$JCPackageDecl, pd, $cast($JCTree$JCPackageDecl, tree->getPackage()));
 		if (pd != nullptr) {
@@ -608,24 +501,24 @@ void Enter::visitTopLevel($JCTree$JCCompilationUnit* tree) {
 	} else {
 		$var($JCTree$JCPackageDecl, pd, $cast($JCTree$JCPackageDecl, tree->getPackage()));
 		if (pd != nullptr) {
-			$set(tree, packge, ($set(pd, packge, $nc(this->syms)->enterPackage(tree->modle, $($TreeInfo::fullName(pd->pid))))));
-			$nc(this->setPackageSymbols)->scan(static_cast<$JCTree*>(pd));
+			$set(tree, packge, $set(pd, packge, $nc(this->syms)->enterPackage(tree->modle, $($TreeInfo::fullName(pd->pid)))));
+			this->setPackageSymbols->scan(pd);
 			$init($Option$PkgInfo);
 			if ($nc(pd->annotations)->nonEmpty() || this->pkginfoOpt == $Option$PkgInfo::ALWAYS || tree->docComments != nullptr) {
 				if (isPkgInfo) {
 					addEnv = true;
 				} else if ($nc(pd->annotations)->nonEmpty()) {
 					$init($CompilerProperties$Errors);
-					$nc(this->log)->error($($nc(($cast($JCTree$JCAnnotation, $nc(pd->annotations)->head)))->pos()), $CompilerProperties$Errors::PkgAnnotationsSbInPackageInfoJava);
+					$nc(this->log)->error($($nc($cast($JCTree$JCAnnotation, $nc(pd->annotations)->head))->pos()), $CompilerProperties$Errors::PkgAnnotationsSbInPackageInfoJava);
 				}
 			}
 		} else {
 			$set(tree, packge, $nc(tree->modle)->unnamedPackage);
 		}
 		$var($Map, visiblePackages, $nc(tree->modle)->visiblePackages);
-		$var($Optional, dependencyWithPackage, $nc($($nc($($nc($($nc($($nc(this->syms)->listPackageModules($nc(tree->packge)->fullname)))->stream()))->filter(static_cast<$Predicate*>($$new(Enter$$Lambda$lambda$visitTopLevel$0, tree)))))->filter(static_cast<$Predicate*>($$new(Enter$$Lambda$lambda$visitTopLevel$1$1, this, visiblePackages, tree)))))->findAny());
+		$var($Optional, dependencyWithPackage, $$nc($$nc($$nc($$nc($nc(this->syms)->listPackageModules($nc(tree->packge)->fullname))->stream())->filter($$new(Enter$$Lambda$lambda$visitTopLevel$0, tree)))->filter($$new(Enter$$Lambda$lambda$visitTopLevel$1$1, this, visiblePackages, tree)))->findAny());
 		if ($nc(dependencyWithPackage)->isPresent()) {
-			$nc(this->log)->error(static_cast<$JCDiagnostic$DiagnosticPosition*>(pd), $($CompilerProperties$Errors::PackageInOtherModule($cast($Symbol, $(dependencyWithPackage->get())))));
+			$nc(this->log)->error(pd, $($CompilerProperties$Errors::PackageInOtherModule($$cast($Symbol, dependencyWithPackage->get()))));
 		}
 		$nc(tree->packge)->complete();
 		$var($Env, topEnv, topLevelEnv(tree));
@@ -635,15 +528,15 @@ void Enter::visitTopLevel($JCTree$JCCompilationUnit* tree) {
 			if (env0 != nullptr) {
 				$var($JCTree$JCCompilationUnit, tree0, env0->toplevel);
 				if (!$nc(this->fileManager)->isSameFile(tree->sourcefile, $nc(tree0)->sourcefile)) {
-					$var($JCDiagnostic$DiagnosticPosition, var$0, pd != nullptr ? $nc($nc(pd)->pid)->pos() : ($JCDiagnostic$DiagnosticPosition*)nullptr);
+					$var($JCDiagnostic$DiagnosticPosition, var$0, pd != nullptr ? $nc(pd->pid)->pos() : ($JCDiagnostic$DiagnosticPosition*)nullptr);
 					$nc(this->log)->warning(var$0, $($CompilerProperties$Warnings::PkgInfoAlreadySeen(tree->packge)));
 				}
 			}
 			$nc(this->typeEnvs)->put(tree->packge, packageEnv);
-			$init($Kinds$Kind);
 			{
+				$init($Kinds$Kind);
 				$var($Symbol, q, tree->packge);
-				for (; q != nullptr && q->kind == $Kinds$Kind::PCK; $assign(q, $nc(q)->owner)) {
+				for (; q != nullptr && q->kind == $Kinds$Kind::PCK; $assign(q, q->owner)) {
 					q->flags_field |= 0x00800000;
 				}
 			}
@@ -655,7 +548,7 @@ void Enter::visitTopLevel($JCTree$JCCompilationUnit* tree) {
 			$set(c, completer, $Symbol$Completer::NULL_COMPLETER);
 			$set(c, members_field, $Scope$WriteableScope::create(c));
 			$set($nc(tree->packge), package_info, c);
-			$set($nc(tree->packge), sourcefile, tree->sourcefile);
+			$set(tree->packge, sourcefile, tree->sourcefile);
 		}
 		classEnter(tree->defs, topEnv);
 		if (addEnv) {
@@ -667,7 +560,7 @@ void Enter::visitTopLevel($JCTree$JCCompilationUnit* tree) {
 }
 
 void Enter::visitClassDef($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol, owner, $nc($nc(($cast($AttrContext, $nc(this->env)->info)))->scope)->owner);
 	$var($Scope$WriteableScope, enclScope, enterScope(this->env));
 	$var($Symbol$ClassSymbol, c, nullptr);
@@ -681,13 +574,13 @@ void Enter::visitClassDef($JCTree$JCClassDecl* tree) {
 			}
 		}
 		$assign(c, $nc(this->syms)->enterClass($nc($nc(this->env)->toplevel)->modle, $nc(tree)->name, packge));
-		$nc($(packge->members()))->enterIfAbsent(c);
-		if (((int64_t)($nc($nc(tree)->mods)->flags & (uint64_t)(int64_t)1)) != 0 && !classNameMatchesFileName(c, this->env)) {
+		$$nc(packge->members())->enterIfAbsent(c);
+		if (($nc(tree->mods)->flags & 1) != 0 && !classNameMatchesFileName(c, this->env)) {
 			$init($Kinds$KindName);
 			$Kinds$KindName* topElement = $Kinds$KindName::CLASS;
-			if (((int64_t)($nc(tree->mods)->flags & (uint64_t)(int64_t)16384)) != 0) {
+			if (($nc(tree->mods)->flags & 0x4000) != 0) {
 				topElement = $Kinds$KindName::ENUM;
-			} else if (((int64_t)($nc(tree->mods)->flags & (uint64_t)(int64_t)512)) != 0) {
+			} else if ((tree->mods->flags & 0x0200) != 0) {
 				topElement = $Kinds$KindName::INTERFACE;
 			}
 			$var($JCDiagnostic$DiagnosticPosition, var$0, tree->pos());
@@ -700,9 +593,9 @@ void Enter::visitClassDef($JCTree$JCClassDecl* tree) {
 			return;
 		}
 		if (owner->kind == $Kinds$Kind::TYP) {
-			$assign(c, $nc(this->syms)->enterClass($nc($nc(this->env)->toplevel)->modle, $nc(tree)->name, $cast($Symbol$TypeSymbol, owner)));
+			$assign(c, $nc(this->syms)->enterClass($nc($nc(this->env)->toplevel)->modle, tree->name, $cast($Symbol$TypeSymbol, owner)));
 			if ($nc(c)->owner != owner) {
-				if (c->name != $nc(tree)->name) {
+				if (c->name != tree->name) {
 					$var($JCDiagnostic$DiagnosticPosition, var$2, tree->pos());
 					$nc(this->log)->error(var$2, $($CompilerProperties$Errors::SameBinaryName(c->name, tree->name)));
 					$init($Type);
@@ -710,22 +603,22 @@ void Enter::visitClassDef($JCTree$JCClassDecl* tree) {
 					$set(tree, sym, $cast($Symbol$ClassSymbol, $nc(this->result)->tsym));
 					return;
 				}
-				$Assert::check($nc(owner->owner)->kind != $Kinds$Kind::TYP, static_cast<$Supplier*>($$new(Enter$$Lambda$toString$2, static_cast<$Symbol*>(owner))));
-				$Assert::check($nc(c->owner)->kind == $Kinds$Kind::TYP, static_cast<$Supplier*>($$new(Enter$$Lambda$lambda$visitClassDef$2$3, c)));
+				$Assert::check($nc(owner->owner)->kind != $Kinds$Kind::TYP, $$new(Enter$$Lambda$toString$2, owner));
+				$Assert::check($nc(c->owner)->kind == $Kinds$Kind::TYP, $$new(Enter$$Lambda$lambda$visitClassDef$2$3, c));
 				$var($Symbol$ClassSymbol, cowner, $cast($Symbol$ClassSymbol, c->owner));
 				if ($nc(cowner)->members_field != nullptr) {
-					$nc(cowner->members_field)->remove(c);
+					cowner->members_field->remove(c);
 				}
 				$set(c, owner, owner);
 			}
-			if (((int64_t)(owner->flags_field & (uint64_t)(int64_t)512)) != 0) {
-				$nc($nc(tree)->mods)->flags |= 1 | 8;
+			if ((owner->flags_field & 0x0200) != 0) {
+				$nc(tree->mods)->flags |= 1 | 8;
 			}
 		} else {
-			$assign(c, $nc(this->syms)->defineClass($nc(tree)->name, owner));
+			$assign(c, $nc(this->syms)->defineClass(tree->name, owner));
 			$set($nc(c), flatname, $nc(this->chk)->localClassName(c));
 			if (!$nc(c->name)->isEmpty()) {
-				$nc(this->chk)->checkTransparentClass($($nc(tree)->pos()), c, $nc(($cast($AttrContext, $nc(this->env)->info)))->scope);
+				$nc(this->chk)->checkTransparentClass($(tree->pos()), c, $nc(($cast($AttrContext, $nc(this->env)->info)))->scope);
 			}
 		}
 	}
@@ -748,10 +641,10 @@ void Enter::visitClassDef($JCTree$JCClassDecl* tree) {
 	$set(c, members_field, $Scope$WriteableScope::create(c));
 	c->clearAnnotationMetadata();
 	$var($Type$ClassType, ct, $cast($Type$ClassType, c->type));
-	if ($nc(owner)->kind != $Kinds$Kind::PCK && ((int64_t)(c->flags_field & (uint64_t)(int64_t)8)) == 0) {
+	if (owner->kind != $Kinds$Kind::PCK && (c->flags_field & 8) == 0) {
 		$var($Symbol, owner1, owner);
 		$init($Kinds$KindSelector);
-		while ($nc($nc(owner1)->kind)->matches($Kinds$KindSelector::VAL_MTH) && ((int64_t)(owner1->flags_field & (uint64_t)(int64_t)8)) == 0) {
+		while ($nc($nc(owner1)->kind)->matches($Kinds$KindSelector::VAL_MTH) && (owner1->flags_field & 8) == 0) {
 			$assign(owner1, owner1->owner);
 		}
 		if ($nc(owner1)->kind == $Kinds$Kind::TYP) {
@@ -762,7 +655,7 @@ void Enter::visitClassDef($JCTree$JCClassDecl* tree) {
 	$set(ct, allparams_field, nullptr);
 	$set(c, completer, this->typeEnter);
 	if (!c->isDirectlyOrIndirectlyLocal() && this->uncompleted != nullptr) {
-		$nc(this->uncompleted)->append(c);
+		this->uncompleted->append(c);
 	}
 	classEnter(tree->defs, localEnv);
 	$set(this, result, c->type);
@@ -779,11 +672,11 @@ void Enter::duplicateClass($JCDiagnostic$DiagnosticPosition* pos, $Symbol$ClassS
 }
 
 void Enter::visitTypeParameter($JCTree$JCTypeParameter* tree) {
-	$useLocalCurrentObjectStackCache();
-	$var($Type$TypeVar, a, ($nc(tree)->type != nullptr) ? $cast($Type$TypeVar, $nc(tree)->type) : $new($Type$TypeVar, tree->name, $nc($nc(($cast($AttrContext, $nc(this->env)->info)))->scope)->owner, $nc(this->syms)->botType));
+	$useLocalObjectStack();
+	$var($Type$TypeVar, a, ($nc(tree)->type != nullptr) ? $cast($Type$TypeVar, tree->type) : $new($Type$TypeVar, tree->name, $nc($nc(($cast($AttrContext, $nc(this->env)->info)))->scope)->owner, $nc(this->syms)->botType));
 	$set(tree, type, a);
 	if ($nc(this->chk)->checkUnique($(tree->pos()), $nc(a)->tsym, $nc(($cast($AttrContext, $nc(this->env)->info)))->scope)) {
-		$nc($nc(($cast($AttrContext, $nc(this->env)->info)))->scope)->enter($nc(a)->tsym);
+		$nc($nc(($cast($AttrContext, $nc(this->env)->info)))->scope)->enter(a->tsym);
 	}
 	$set(this, result, a);
 }
@@ -791,7 +684,7 @@ void Enter::visitTypeParameter($JCTree$JCTypeParameter* tree) {
 void Enter::visitModuleDef($JCTree$JCModuleDecl* tree) {
 	$var($Env, moduleEnv, this->moduleEnv(tree, this->env));
 	$nc(this->typeEnvs)->put($nc(tree)->sym, moduleEnv);
-	if ($nc(this->modules)->isInModuleGraph($nc(tree)->sym)) {
+	if ($nc(this->modules)->isInModuleGraph(tree->sym)) {
 		$nc(this->todo)->append(moduleEnv);
 	}
 }
@@ -805,54 +698,48 @@ void Enter::main($List* trees) {
 }
 
 void Enter::complete($List* trees, $Symbol$ClassSymbol* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->annotate)->blockAnnotations();
 	$var($ListBuffer, prevUncompleted, this->uncompleted);
 	if ($nc(this->typeEnter)->completionEnabled) {
 		$set(this, uncompleted, $new($ListBuffer));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			classEnter(trees, ($Env*)nullptr);
-			if ($nc(this->typeEnter)->completionEnabled) {
-				while ($nc(this->uncompleted)->nonEmpty()) {
-					$var($Symbol$ClassSymbol, clazz, $cast($Symbol$ClassSymbol, $nc(this->uncompleted)->next()));
-					if (c == nullptr || c == clazz || prevUncompleted == nullptr) {
-						$nc(clazz)->complete();
-					} else {
-						$nc(prevUncompleted)->append(clazz);
-					}
-				}
-				if (!$nc(this->modules)->modulesInitialized()) {
-					{
-						$var($Iterator, i$, $nc(trees)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($JCTree$JCCompilationUnit, cut, $cast($JCTree$JCCompilationUnit, i$->next()));
-							{
-								if ($nc(cut)->getModuleDecl() != nullptr) {
-									$nc(this->unfinishedModules)->append(cut);
-								} else {
-									$nc(this->typeEnter)->ensureImportsChecked($($List::of(cut)));
-								}
-							}
-						}
-					}
+	$var($Throwable, var$0, nullptr);
+	try {
+		classEnter(trees, nullptr);
+		if ($nc(this->typeEnter)->completionEnabled) {
+			while ($nc(this->uncompleted)->nonEmpty()) {
+				$var($Symbol$ClassSymbol, clazz, $cast($Symbol$ClassSymbol, this->uncompleted->next()));
+				if (c == nullptr || c == clazz || prevUncompleted == nullptr) {
+					$nc(clazz)->complete();
 				} else {
-					$nc(this->typeEnter)->ensureImportsChecked($($nc(this->unfinishedModules)->toList()));
-					$nc(this->unfinishedModules)->clear();
-					$nc(this->typeEnter)->ensureImportsChecked(trees);
+					prevUncompleted->append(clazz);
 				}
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, uncompleted, prevUncompleted);
-			$nc(this->annotate)->unblockAnnotations();
+			if (!$nc(this->modules)->modulesInitialized()) {
+				$var($Iterator, i$, $nc(trees)->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($JCTree$JCCompilationUnit, cut, $cast($JCTree$JCCompilationUnit, i$->next()));
+					if ($nc(cut)->getModuleDecl() != nullptr) {
+						$nc(this->unfinishedModules)->append(cut);
+					} else {
+						$nc(this->typeEnter)->ensureImportsChecked($($List::of(cut)));
+					}
+				}
+			} else {
+				$nc(this->typeEnter)->ensureImportsChecked($($nc(this->unfinishedModules)->toList()));
+				$nc(this->unfinishedModules)->clear();
+				$nc(this->typeEnter)->ensureImportsChecked(trees);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, uncompleted, prevUncompleted);
+		$nc(this->annotate)->unblockAnnotations();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -878,7 +765,7 @@ bool Enter::lambda$visitTopLevel$0($JCTree$JCCompilationUnit* tree, $Symbol$Modu
 	return m != $nc(tree)->modle;
 }
 
-void clinit$Enter($Class* class$) {
+void Enter::clinit$($Class* clazz) {
 	$assignStatic(Enter::enterKey, $new($Context$Key));
 }
 
@@ -887,20 +774,96 @@ Enter::Enter() {
 
 $Class* Enter::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Enter$$Lambda$lambda$visitTopLevel$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitTopLevel$0")) {
 			return Enter$$Lambda$lambda$visitTopLevel$0::load$(name, initialize);
 		}
-		if (name->equals(Enter$$Lambda$lambda$visitTopLevel$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitTopLevel$1$1")) {
 			return Enter$$Lambda$lambda$visitTopLevel$1$1::load$(name, initialize);
 		}
-		if (name->equals(Enter$$Lambda$toString$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Enter$$Lambda$toString$2")) {
 			return Enter$$Lambda$toString$2::load$(name, initialize);
 		}
-		if (name->equals(Enter$$Lambda$lambda$visitClassDef$2$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Enter$$Lambda$lambda$visitClassDef$2$3")) {
 			return Enter$$Lambda$lambda$visitClassDef$2$3::load$(name, initialize);
 		}
 	}
-	$loadClass(Enter, name, initialize, &_Enter_ClassInfo_, clinit$Enter, allocate$Enter);
+	$FieldInfo fieldInfos$$[] = {
+		{"enterKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Enter;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Enter, enterKey)},
+		{"annotate", "Lcom/sun/tools/javac/comp/Annotate;", nullptr, 0, $field(Enter, annotate)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, 0, $field(Enter, log)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, 0, $field(Enter, syms)},
+		{"chk", "Lcom/sun/tools/javac/comp/Check;", nullptr, 0, $field(Enter, chk)},
+		{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, 0, $field(Enter, make)},
+		{"typeEnter", "Lcom/sun/tools/javac/comp/TypeEnter;", nullptr, 0, $field(Enter, typeEnter)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, 0, $field(Enter, types)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, 0, $field(Enter, lint)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, 0, $field(Enter, names)},
+		{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, 0, $field(Enter, fileManager)},
+		{"pkginfoOpt", "Lcom/sun/tools/javac/main/Option$PkgInfo;", nullptr, 0, $field(Enter, pkginfoOpt)},
+		{"typeEnvs", "Lcom/sun/tools/javac/comp/TypeEnvs;", nullptr, 0, $field(Enter, typeEnvs)},
+		{"modules", "Lcom/sun/tools/javac/comp/Modules;", nullptr, 0, $field(Enter, modules)},
+		{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, 0, $field(Enter, diags)},
+		{"todo", "Lcom/sun/tools/javac/comp/Todo;", nullptr, $PRIVATE | $FINAL, $field(Enter, todo)},
+		{"uncompleted", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", 0, $field(Enter, uncompleted)},
+		{"unfinishedModules", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", 0, $field(Enter, unfinishedModules)},
+		{"predefClassDef", "Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;", nullptr, $PRIVATE, $field(Enter, predefClassDef)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", "Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PROTECTED, $field(Enter, env)},
+		{"result", "Lcom/sun/tools/javac/code/Type;", nullptr, 0, $field(Enter, result)},
+		{"setPackageSymbols", "Lcom/sun/tools/javac/tree/TreeScanner;", nullptr, $PRIVATE | $FINAL, $field(Enter, setPackageSymbols)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Enter, init$, void, $Context*)},
+		{"classEnter", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Type;", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Type;", 0, $virtualMethod(Enter, classEnter, $Type*, $JCTree*, $Env*)},
+		{"classEnter", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/util/List;", "<T:Lcom/sun/tools/javac/tree/JCTree;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", 0, $virtualMethod(Enter, classEnter, $List*, $List*, $Env*)},
+		{"classEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, classEnv, $Env*, $JCTree$JCClassDecl*, $Env*)},
+		{"classNameMatchesFileName", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PRIVATE | $STATIC, $staticMethod(Enter, classNameMatchesFileName, bool, $Symbol$ClassSymbol*, $Env*)},
+		{"complete", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", $PUBLIC, $virtualMethod(Enter, complete, void, $List*, $Symbol$ClassSymbol*)},
+		{"duplicateClass", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)V", nullptr, $PROTECTED, $virtualMethod(Enter, duplicateClass, void, $JCDiagnostic$DiagnosticPosition*, $Symbol$ClassSymbol*)},
+		{"enterScope", "(Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Scope$WriteableScope;", 0, $virtualMethod(Enter, enterScope, $Scope$WriteableScope*, $Env*)},
+		{"getClassEnv", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, getClassEnv, $Env*, $Symbol$TypeSymbol*)},
+		{"getEnv", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, getEnv, $Env*, $Symbol$TypeSymbol*)},
+		{"getEnvs", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(Enter, getEnvs, $Iterable*)},
+		{"getTopLevelEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, getTopLevelEnv, $Env*, $JCTree$JCCompilationUnit*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Enter;", nullptr, $PUBLIC | $STATIC, $staticMethod(Enter, instance, Enter*, $Context*)},
+		{"lambda$visitClassDef$2", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Enter, lambda$visitClassDef$2, $String*, $Symbol$ClassSymbol*)},
+		{"lambda$visitTopLevel$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Enter, lambda$visitTopLevel$0, bool, $JCTree$JCCompilationUnit*, $Symbol$ModuleSymbol*)},
+		{"lambda$visitTopLevel$1", "(Ljava/util/Map;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Enter, lambda$visitTopLevel$1, bool, $Map*, $JCTree$JCCompilationUnit*, $Symbol$ModuleSymbol*)},
+		{"main", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;)V", $PUBLIC, $virtualMethod(Enter, main, void, $List*)},
+		{"moduleEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Enter, moduleEnv, $Env*, $JCTree$JCModuleDecl*, $Env*)},
+		{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(Enter, newRound, void)},
+		{"topLevelEnv", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", 0, $virtualMethod(Enter, topLevelEnv, $Env*, $JCTree$JCCompilationUnit*)},
+		{"unenter", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Enter, unenter, void, $JCTree$JCCompilationUnit*, $JCTree*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+		{"visitTopLevel", "(Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitTopLevel, void, $JCTree$JCCompilationUnit*)},
+		{"visitTree", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitTree, void, $JCTree*)},
+		{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(Enter, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Enter$UnenterScanner", "com.sun.tools.javac.comp.Enter", "UnenterScanner", 0},
+		{"com.sun.tools.javac.comp.Enter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Enter",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Enter$UnenterScanner,com.sun.tools.javac.comp.Enter$1"
+	};
+	$loadClass(Enter, name, initialize, &classInfo$$, Enter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Enter);
+	});
 	return class$;
 }
 

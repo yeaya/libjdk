@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/MinimalFuture.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -48,85 +47,32 @@ public:
 	virtual void accept(Object$* r, Object$* t) override {
 		MinimalFuture::lambda$of$0(cf, r, $cast($Throwable, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MinimalFuture$$Lambda$lambda$of$0>());
-	}
 	MinimalFuture* cf = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MinimalFuture$$Lambda$lambda$of$0::fieldInfos[2] = {
-	{"cf", "Ljdk/internal/net/http/common/MinimalFuture;", nullptr, $PUBLIC, $field(MinimalFuture$$Lambda$lambda$of$0, cf)},
-	{}
-};
-$MethodInfo MinimalFuture$$Lambda$lambda$of$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/MinimalFuture;)V", nullptr, $PUBLIC, $method(MinimalFuture$$Lambda$lambda$of$0, init$, void, MinimalFuture*)},
-	{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MinimalFuture$$Lambda$lambda$of$0, accept, void, Object$*, Object$*)},
-	{}
-};
-$ClassInfo MinimalFuture$$Lambda$lambda$of$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.MinimalFuture$$Lambda$lambda$of$0",
-	"java.lang.Object",
-	"java.util.function.BiConsumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* MinimalFuture$$Lambda$lambda$of$0::load$($String* name, bool initialize) {
-	$loadClass(MinimalFuture$$Lambda$lambda$of$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"cf", "Ljdk/internal/net/http/common/MinimalFuture;", nullptr, $PUBLIC, $field(MinimalFuture$$Lambda$lambda$of$0, cf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/MinimalFuture;)V", nullptr, $PUBLIC, $method(MinimalFuture$$Lambda$lambda$of$0, init$, void, MinimalFuture*)},
+		{"accept", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(MinimalFuture$$Lambda$lambda$of$0, accept, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.MinimalFuture$$Lambda$lambda$of$0",
+		"java.lang.Object",
+		"java.util.function.BiConsumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MinimalFuture$$Lambda$lambda$of$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MinimalFuture$$Lambda$lambda$of$0);
+	});
 	return class$;
 }
 $Class* MinimalFuture$$Lambda$lambda$of$0::class$ = nullptr;
-
-$FieldInfo _MinimalFuture_FieldInfo_[] = {
-	{"TOKENS", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MinimalFuture, TOKENS)},
-	{"id", "J", nullptr, $PRIVATE | $FINAL, $field(MinimalFuture, id)},
-	{"cancelable", "Ljdk/internal/net/http/common/Cancelable;", nullptr, $PRIVATE | $FINAL, $field(MinimalFuture, cancelable$)},
-	{}
-};
-
-$MethodInfo _MinimalFuture_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MinimalFuture, init$, void)},
-	{"<init>", "(Ljdk/internal/net/http/common/Cancelable;)V", nullptr, $PUBLIC, $method(MinimalFuture, init$, void, $Cancelable*)},
-	{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(MinimalFuture, cancel, bool, bool)},
-	{"cancelable", "()Ljdk/internal/net/http/common/Cancelable;", nullptr, $PRIVATE, $method(MinimalFuture, cancelable, $Cancelable*)},
-	{"complete", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletableFuture<TU;>;TU;Ljava/lang/Throwable;)V", $PRIVATE | $STATIC, $staticMethod(MinimalFuture, complete, void, $CompletableFuture*, Object$*, $Throwable*)},
-	{"completedFuture", "(Ljava/lang/Object;)Ljdk/internal/net/http/common/MinimalFuture;", "<U:Ljava/lang/Object;>(TU;)Ljdk/internal/net/http/common/MinimalFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(MinimalFuture, completedFuture, MinimalFuture*, Object$*)},
-	{"failedFuture", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(MinimalFuture, failedFuture, $CompletableFuture*, $Throwable*)},
-	{"lambda$of$0", "(Ljdk/internal/net/http/common/MinimalFuture;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MinimalFuture, lambda$of$0, void, MinimalFuture*, Object$*, $Throwable*)},
-	{"newIncompleteFuture", "()Ljdk/internal/net/http/common/MinimalFuture;", "<U:Ljava/lang/Object;>()Ljdk/internal/net/http/common/MinimalFuture<TU;>;", $PUBLIC, $virtualMethod(MinimalFuture, newIncompleteFuture, MinimalFuture*)},
-	{"obtrudeException", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(MinimalFuture, obtrudeException, void, $Throwable*)},
-	{"obtrudeValue", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(MinimalFuture, obtrudeValue, void, Object$*)},
-	{"of", "(Ljava/util/concurrent/CompletionStage;)Ljdk/internal/net/http/common/MinimalFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<TU;>;)Ljdk/internal/net/http/common/MinimalFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(MinimalFuture, of, MinimalFuture*, $CompletionStage*)},
-	{"supply", "(Ljdk/internal/net/http/common/MinimalFuture$ExceptionalSupplier;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljdk/internal/net/http/common/MinimalFuture$ExceptionalSupplier<TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(MinimalFuture, supply, $CompletableFuture*, $MinimalFuture$ExceptionalSupplier*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MinimalFuture, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _MinimalFuture_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.MinimalFuture$ExceptionalSupplier", "jdk.internal.net.http.common.MinimalFuture", "ExceptionalSupplier", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MinimalFuture_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.MinimalFuture",
-	"java.util.concurrent.CompletableFuture",
-	nullptr,
-	_MinimalFuture_FieldInfo_,
-	_MinimalFuture_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture<TT;>;",
-	nullptr,
-	_MinimalFuture_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.MinimalFuture$ExceptionalSupplier"
-};
-
-$Object* allocate$MinimalFuture($Class* clazz) {
-	return $of($alloc(MinimalFuture));
-}
 
 $AtomicLong* MinimalFuture::TOKENS = nullptr;
 
@@ -147,7 +93,7 @@ $CompletableFuture* MinimalFuture::failedFuture($Throwable* ex) {
 
 $CompletableFuture* MinimalFuture::supply($MinimalFuture$ExceptionalSupplier* supplier) {
 	$init(MinimalFuture);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, cf, $new(MinimalFuture));
 	try {
 		$var($Object, value, $nc(supplier)->get());
@@ -164,7 +110,7 @@ void MinimalFuture::init$() {
 
 void MinimalFuture::init$($Cancelable* cancelable) {
 	$CompletableFuture::init$();
-	this->id = $nc(MinimalFuture::TOKENS)->incrementAndGet();
+	this->id = MinimalFuture::TOKENS->incrementAndGet();
 	$set(this, cancelable$, cancelable);
 }
 
@@ -181,14 +127,14 @@ void MinimalFuture::obtrudeException($Throwable* ex) {
 }
 
 $String* MinimalFuture::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($CompletableFuture::toString()), " (id="_s, $$str(this->id), ")"_s});
 }
 
 bool MinimalFuture::cancel(bool mayInterruptIfRunning) {
 	bool result = false;
 	if (this->cancelable$ != nullptr && !isDone()) {
-		result = $nc(this->cancelable$)->cancel(mayInterruptIfRunning);
+		result = this->cancelable$->cancel(mayInterruptIfRunning);
 	}
 	return $CompletableFuture::cancel(mayInterruptIfRunning) || result;
 }
@@ -199,10 +145,10 @@ $Cancelable* MinimalFuture::cancelable() {
 
 MinimalFuture* MinimalFuture::of($CompletionStage* stage) {
 	$init(MinimalFuture);
-	$useLocalCurrentObjectStackCache();
-	$var($Cancelable, cancelable, $instanceOf(MinimalFuture, stage) ? $nc(($cast(MinimalFuture, stage)))->cancelable() : ($Cancelable*)nullptr);
+	$useLocalObjectStack();
+	$var($Cancelable, cancelable, $instanceOf(MinimalFuture, stage) ? $cast(MinimalFuture, stage)->cancelable() : ($Cancelable*)nullptr);
 	$var(MinimalFuture, cf, $new(MinimalFuture, cancelable));
-	$nc(stage)->whenComplete(static_cast<$BiConsumer*>($$new(MinimalFuture$$Lambda$lambda$of$0, cf)));
+	$nc(stage)->whenComplete($$new(MinimalFuture$$Lambda$lambda$of$0, cf));
 	return cf;
 }
 
@@ -220,7 +166,7 @@ void MinimalFuture::lambda$of$0(MinimalFuture* cf, Object$* r, $Throwable* t) {
 	complete(cf, r, t);
 }
 
-void clinit$MinimalFuture($Class* class$) {
+void MinimalFuture::clinit$($Class* clazz) {
 	$assignStatic(MinimalFuture::TOKENS, $new($AtomicLong));
 }
 
@@ -229,11 +175,54 @@ MinimalFuture::MinimalFuture() {
 
 $Class* MinimalFuture::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MinimalFuture$$Lambda$lambda$of$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.MinimalFuture$$Lambda$lambda$of$0")) {
 			return MinimalFuture$$Lambda$lambda$of$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MinimalFuture, name, initialize, &_MinimalFuture_ClassInfo_, clinit$MinimalFuture, allocate$MinimalFuture);
+	$FieldInfo fieldInfos$$[] = {
+		{"TOKENS", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MinimalFuture, TOKENS)},
+		{"id", "J", nullptr, $PRIVATE | $FINAL, $field(MinimalFuture, id)},
+		{"cancelable", "Ljdk/internal/net/http/common/Cancelable;", nullptr, $PRIVATE | $FINAL, $field(MinimalFuture, cancelable$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MinimalFuture, init$, void)},
+		{"<init>", "(Ljdk/internal/net/http/common/Cancelable;)V", nullptr, $PUBLIC, $method(MinimalFuture, init$, void, $Cancelable*)},
+		{"cancel", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(MinimalFuture, cancel, bool, bool)},
+		{"cancelable", "()Ljdk/internal/net/http/common/Cancelable;", nullptr, $PRIVATE, $method(MinimalFuture, cancelable, $Cancelable*)},
+		{"complete", "(Ljava/util/concurrent/CompletableFuture;Ljava/lang/Object;Ljava/lang/Throwable;)V", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletableFuture<TU;>;TU;Ljava/lang/Throwable;)V", $PRIVATE | $STATIC, $staticMethod(MinimalFuture, complete, void, $CompletableFuture*, Object$*, $Throwable*)},
+		{"completedFuture", "(Ljava/lang/Object;)Ljdk/internal/net/http/common/MinimalFuture;", "<U:Ljava/lang/Object;>(TU;)Ljdk/internal/net/http/common/MinimalFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(MinimalFuture, completedFuture, MinimalFuture*, Object$*)},
+		{"failedFuture", "(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljava/lang/Throwable;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(MinimalFuture, failedFuture, $CompletableFuture*, $Throwable*)},
+		{"lambda$of$0", "(Ljdk/internal/net/http/common/MinimalFuture;Ljava/lang/Object;Ljava/lang/Throwable;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MinimalFuture, lambda$of$0, void, MinimalFuture*, Object$*, $Throwable*)},
+		{"newIncompleteFuture", "()Ljdk/internal/net/http/common/MinimalFuture;", "<U:Ljava/lang/Object;>()Ljdk/internal/net/http/common/MinimalFuture<TU;>;", $PUBLIC, $virtualMethod(MinimalFuture, newIncompleteFuture, MinimalFuture*)},
+		{"obtrudeException", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(MinimalFuture, obtrudeException, void, $Throwable*)},
+		{"obtrudeValue", "(Ljava/lang/Object;)V", "(TT;)V", $PUBLIC, $virtualMethod(MinimalFuture, obtrudeValue, void, Object$*)},
+		{"of", "(Ljava/util/concurrent/CompletionStage;)Ljdk/internal/net/http/common/MinimalFuture;", "<U:Ljava/lang/Object;>(Ljava/util/concurrent/CompletionStage<TU;>;)Ljdk/internal/net/http/common/MinimalFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(MinimalFuture, of, MinimalFuture*, $CompletionStage*)},
+		{"supply", "(Ljdk/internal/net/http/common/MinimalFuture$ExceptionalSupplier;)Ljava/util/concurrent/CompletableFuture;", "<U:Ljava/lang/Object;>(Ljdk/internal/net/http/common/MinimalFuture$ExceptionalSupplier<TU;>;)Ljava/util/concurrent/CompletableFuture<TU;>;", $PUBLIC | $STATIC, $staticMethod(MinimalFuture, supply, $CompletableFuture*, $MinimalFuture$ExceptionalSupplier*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MinimalFuture, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.MinimalFuture$ExceptionalSupplier", "jdk.internal.net.http.common.MinimalFuture", "ExceptionalSupplier", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.MinimalFuture",
+		"java.util.concurrent.CompletableFuture",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/util/concurrent/CompletableFuture<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.MinimalFuture$ExceptionalSupplier"
+	};
+	$loadClass(MinimalFuture, name, initialize, &classInfo$$, MinimalFuture::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MinimalFuture));
+	});
 	return class$;
 }
 

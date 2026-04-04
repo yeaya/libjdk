@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifBorders$FrameBorder.h>
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconActionListener.h>
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconMouseListener.h>
@@ -12,7 +11,6 @@
 #include <java/awt/Font.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
@@ -41,12 +39,9 @@ using $MotifDesktopIconUI$IconButton = ::com::sun::java::swing::plaf::motif::Mot
 using $MotifDesktopIconUI$IconLabel = ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI$IconLabel;
 using $MotifInternalFrameTitlePane = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -56,7 +51,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
-using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
@@ -68,75 +62,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifDesktopIconUI_FieldInfo_[] = {
-	{"desktopIconActionListener", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconActionListener;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, desktopIconActionListener)},
-	{"desktopIconMouseListener", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconMouseListener;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, desktopIconMouseListener)},
-	{"defaultIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, defaultIcon)},
-	{"iconButton", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconButton;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, iconButton)},
-	{"iconLabel", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconLabel;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, iconLabel)},
-	{"sysMenuTitlePane", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $PRIVATE, $field(MotifDesktopIconUI, sysMenuTitlePane)},
-	{"systemMenu", "Ljavax/swing/JPopupMenu;", nullptr, 0, $field(MotifDesktopIconUI, systemMenu)},
-	{"mml", "Ljava/util/EventListener;", nullptr, 0, $field(MotifDesktopIconUI, mml)},
-	{"LABEL_HEIGHT", "I", nullptr, $STATIC | $FINAL, $constField(MotifDesktopIconUI, LABEL_HEIGHT)},
-	{"LABEL_DIVIDER", "I", nullptr, $STATIC | $FINAL, $constField(MotifDesktopIconUI, LABEL_DIVIDER)},
-	{"defaultTitleFont", "Ljava/awt/Font;", nullptr, $STATIC | $FINAL, $staticField(MotifDesktopIconUI, defaultTitleFont)},
-	{}
-};
-
-$MethodInfo _MotifDesktopIconUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifDesktopIconUI, init$, void)},
-	{"createDesktopIconActionListener", "()Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconActionListener;", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, createDesktopIconActionListener, $MotifDesktopIconUI$DesktopIconActionListener*)},
-	{"createDesktopIconMouseListener", "()Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconMouseListener;", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, createDesktopIconMouseListener, $MotifDesktopIconUI$DesktopIconMouseListener*)},
-	{"createIconButton", "(Ljavax/swing/Icon;)Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconButton;", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, createIconButton, $MotifDesktopIconUI$IconButton*, $Icon*)},
-	{"createIconLabel", "(Ljavax/swing/JInternalFrame;)Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconLabel;", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, createIconLabel, $MotifDesktopIconUI$IconLabel*, $JInternalFrame*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDesktopIconUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getDefaultIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, getDefaultIcon, $Icon*)},
-	{"getDesktopIcon", "()Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, 0, $virtualMethod(MotifDesktopIconUI, getDesktopIcon, $JInternalFrame$JDesktopIcon*)},
-	{"getFrame", "()Ljavax/swing/JInternalFrame;", nullptr, 0, $virtualMethod(MotifDesktopIconUI, getFrame, $JInternalFrame*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"hideSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, hideSystemMenu, void)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, installListeners, void)},
-	{"setDefaultIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, setDefaultIcon, void, $Icon*)},
-	{"setDesktopIcon", "(Ljavax/swing/JInternalFrame$JDesktopIcon;)V", nullptr, 0, $virtualMethod(MotifDesktopIconUI, setDesktopIcon, void, $JInternalFrame$JDesktopIcon*)},
-	{"setFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, 0, $virtualMethod(MotifDesktopIconUI, setFrame, void, $JInternalFrame*)},
-	{"showSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, showSystemMenu, void)},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, uninstallListeners, void)},
-	{}
-};
-
-$InnerClassInfo _MotifDesktopIconUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconMouseListener", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "DesktopIconMouseListener", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconActionListener", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "DesktopIconActionListener", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "IconButton", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "IconLabel", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifDesktopIconUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifDesktopIconUI",
-	"javax.swing.plaf.basic.BasicDesktopIconUI",
-	nullptr,
-	_MotifDesktopIconUI_FieldInfo_,
-	_MotifDesktopIconUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifDesktopIconUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconMouseListener,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconActionListener,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton$2,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton$1,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel$2,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel$1"
-};
-
-$Object* allocate$MotifDesktopIconUI($Class* clazz) {
-	return $of($alloc(MotifDesktopIconUI));
-}
 
 $Font* MotifDesktopIconUI::defaultTitleFont = nullptr;
 
@@ -150,23 +75,22 @@ void MotifDesktopIconUI::init$() {
 }
 
 void MotifDesktopIconUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicDesktopIconUI::installDefaults();
 	setDefaultIcon($($UIManager::getIcon("DesktopIcon.icon"_s)));
 	$set(this, iconButton, createIconButton(this->defaultIcon));
 	$set(this, sysMenuTitlePane, $new($MotifInternalFrameTitlePane, this->frame));
-	$set(this, systemMenu, $nc(this->sysMenuTitlePane)->getSystemMenu());
+	$set(this, systemMenu, this->sysMenuTitlePane->getSystemMenu());
 	$var($MotifBorders$FrameBorder, border, $new($MotifBorders$FrameBorder, this->desktopIcon));
 	$nc(this->desktopIcon)->setLayout($$new($BorderLayout));
 	$nc(this->iconButton)->setBorder(border);
-	$init($BorderLayout);
-	$nc(this->desktopIcon)->add(static_cast<$Component*>(this->iconButton), $of($BorderLayout::CENTER));
+	$nc(this->desktopIcon)->add(this->iconButton, $BorderLayout::CENTER);
 	$set(this, iconLabel, createIconLabel(this->frame));
 	$nc(this->iconLabel)->setBorder(border);
-	$nc(this->desktopIcon)->add(static_cast<$Component*>(this->iconLabel), $of($BorderLayout::SOUTH));
+	$nc(this->desktopIcon)->add(this->iconLabel, $BorderLayout::SOUTH);
 	$nc(this->desktopIcon)->setSize($($nc(this->desktopIcon)->getPreferredSize()));
 	$nc(this->desktopIcon)->validate();
-	$JLayeredPane::putLayer(this->desktopIcon, $JLayeredPane::getLayer(static_cast<$JComponent*>(this->frame)));
+	$JLayeredPane::putLayer(this->desktopIcon, $JLayeredPane::getLayer(this->frame));
 }
 
 void MotifDesktopIconUI::installComponents() {
@@ -201,7 +125,7 @@ void MotifDesktopIconUI::setFrame($JInternalFrame* f) {
 }
 
 void MotifDesktopIconUI::showSystemMenu() {
-	$nc(this->systemMenu)->show(this->iconButton, 0, $nc($(getDesktopIcon()))->getHeight());
+	$nc(this->systemMenu)->show(this->iconButton, 0, $$nc(getDesktopIcon())->getHeight());
 }
 
 void MotifDesktopIconUI::hideSystemMenu() {
@@ -227,8 +151,8 @@ $MotifDesktopIconUI$DesktopIconMouseListener* MotifDesktopIconUI::createDesktopI
 void MotifDesktopIconUI::uninstallDefaults() {
 	$BasicDesktopIconUI::uninstallDefaults();
 	$nc(this->desktopIcon)->setLayout(nullptr);
-	$nc(this->desktopIcon)->remove(static_cast<$Component*>(this->iconButton));
-	$nc(this->desktopIcon)->remove(static_cast<$Component*>(this->iconLabel));
+	$nc(this->desktopIcon)->remove(this->iconButton);
+	$nc(this->desktopIcon)->remove(this->iconLabel);
 }
 
 void MotifDesktopIconUI::uninstallListeners() {
@@ -239,7 +163,7 @@ void MotifDesktopIconUI::uninstallListeners() {
 }
 
 $Dimension* MotifDesktopIconUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame, iframe, $nc(this->desktopIcon)->getInternalFrame());
 	int32_t w = $nc(this->defaultIcon)->getIconWidth();
 	int32_t h = $nc(this->defaultIcon)->getIconHeight() + MotifDesktopIconUI::LABEL_HEIGHT + MotifDesktopIconUI::LABEL_DIVIDER;
@@ -269,7 +193,7 @@ void MotifDesktopIconUI::setDefaultIcon($Icon* newIcon) {
 	$set(this, defaultIcon, newIcon);
 }
 
-void clinit$MotifDesktopIconUI($Class* class$) {
+void MotifDesktopIconUI::clinit$($Class* clazz) {
 	$init($Font);
 	$assignStatic(MotifDesktopIconUI::defaultTitleFont, $new($Font, $Font::SANS_SERIF, $Font::PLAIN, 12));
 }
@@ -278,7 +202,70 @@ MotifDesktopIconUI::MotifDesktopIconUI() {
 }
 
 $Class* MotifDesktopIconUI::load$($String* name, bool initialize) {
-	$loadClass(MotifDesktopIconUI, name, initialize, &_MotifDesktopIconUI_ClassInfo_, clinit$MotifDesktopIconUI, allocate$MotifDesktopIconUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"desktopIconActionListener", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconActionListener;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, desktopIconActionListener)},
+		{"desktopIconMouseListener", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconMouseListener;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, desktopIconMouseListener)},
+		{"defaultIcon", "Ljavax/swing/Icon;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, defaultIcon)},
+		{"iconButton", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconButton;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, iconButton)},
+		{"iconLabel", "Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconLabel;", nullptr, $PROTECTED, $field(MotifDesktopIconUI, iconLabel)},
+		{"sysMenuTitlePane", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, $PRIVATE, $field(MotifDesktopIconUI, sysMenuTitlePane)},
+		{"systemMenu", "Ljavax/swing/JPopupMenu;", nullptr, 0, $field(MotifDesktopIconUI, systemMenu)},
+		{"mml", "Ljava/util/EventListener;", nullptr, 0, $field(MotifDesktopIconUI, mml)},
+		{"LABEL_HEIGHT", "I", nullptr, $STATIC | $FINAL, $constField(MotifDesktopIconUI, LABEL_HEIGHT)},
+		{"LABEL_DIVIDER", "I", nullptr, $STATIC | $FINAL, $constField(MotifDesktopIconUI, LABEL_DIVIDER)},
+		{"defaultTitleFont", "Ljava/awt/Font;", nullptr, $STATIC | $FINAL, $staticField(MotifDesktopIconUI, defaultTitleFont)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifDesktopIconUI, init$, void)},
+		{"createDesktopIconActionListener", "()Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconActionListener;", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, createDesktopIconActionListener, $MotifDesktopIconUI$DesktopIconActionListener*)},
+		{"createDesktopIconMouseListener", "()Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$DesktopIconMouseListener;", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, createDesktopIconMouseListener, $MotifDesktopIconUI$DesktopIconMouseListener*)},
+		{"createIconButton", "(Ljavax/swing/Icon;)Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconButton;", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, createIconButton, $MotifDesktopIconUI$IconButton*, $Icon*)},
+		{"createIconLabel", "(Ljavax/swing/JInternalFrame;)Lcom/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconLabel;", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, createIconLabel, $MotifDesktopIconUI$IconLabel*, $JInternalFrame*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifDesktopIconUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getDefaultIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, getDefaultIcon, $Icon*)},
+		{"getDesktopIcon", "()Ljavax/swing/JInternalFrame$JDesktopIcon;", nullptr, 0, $virtualMethod(MotifDesktopIconUI, getDesktopIcon, $JInternalFrame$JDesktopIcon*)},
+		{"getFrame", "()Ljavax/swing/JInternalFrame;", nullptr, 0, $virtualMethod(MotifDesktopIconUI, getFrame, $JInternalFrame*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"hideSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, hideSystemMenu, void)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, installListeners, void)},
+		{"setDefaultIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(MotifDesktopIconUI, setDefaultIcon, void, $Icon*)},
+		{"setDesktopIcon", "(Ljavax/swing/JInternalFrame$JDesktopIcon;)V", nullptr, 0, $virtualMethod(MotifDesktopIconUI, setDesktopIcon, void, $JInternalFrame$JDesktopIcon*)},
+		{"setFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, 0, $virtualMethod(MotifDesktopIconUI, setFrame, void, $JInternalFrame*)},
+		{"showSystemMenu", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, showSystemMenu, void)},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MotifDesktopIconUI, uninstallListeners, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconMouseListener", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "DesktopIconMouseListener", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconActionListener", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "DesktopIconActionListener", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "IconButton", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel", "com.sun.java.swing.plaf.motif.MotifDesktopIconUI", "IconLabel", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifDesktopIconUI",
+		"javax.swing.plaf.basic.BasicDesktopIconUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconMouseListener,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$DesktopIconActionListener,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton$2,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconButton$1,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel$2,com.sun.java.swing.plaf.motif.MotifDesktopIconUI$IconLabel$1"
+	};
+	$loadClass(MotifDesktopIconUI, name, initialize, &classInfo$$, MotifDesktopIconUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifDesktopIconUI);
+	});
 	return class$;
 }
 

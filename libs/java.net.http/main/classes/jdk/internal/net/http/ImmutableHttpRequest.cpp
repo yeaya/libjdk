@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ImmutableHttpRequest.h>
-
 #include <java/net/URI.h>
 #include <java/net/http/HttpHeaders.h>
 #include <java/net/http/HttpRequest$BodyPublisher.h>
@@ -25,7 +24,6 @@ using $HttpRequest = ::java::net::http::HttpRequest;
 using $Objects = ::java::util::Objects;
 using $Optional = ::java::util::Optional;
 using $HttpRequestBuilderImpl = ::jdk::internal::net::http::HttpRequestBuilderImpl;
-using $HttpHeadersBuilder = ::jdk::internal::net::http::common::HttpHeadersBuilder;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {
@@ -33,52 +31,15 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _ImmutableHttpRequest_FieldInfo_[] = {
-	{"method", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ImmutableHttpRequest, method$)},
-	{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(ImmutableHttpRequest, uri$)},
-	{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(ImmutableHttpRequest, headers$)},
-	{"requestPublisher", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PRIVATE | $FINAL, $field(ImmutableHttpRequest, requestPublisher)},
-	{"expectContinue", "Z", nullptr, $PRIVATE | $FINAL, $field(ImmutableHttpRequest, expectContinue$)},
-	{"timeout", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/time/Duration;>;", $PRIVATE | $FINAL, $field(ImmutableHttpRequest, timeout$)},
-	{"version", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PRIVATE | $FINAL, $field(ImmutableHttpRequest, version$)},
-	{}
-};
-
-$MethodInfo _ImmutableHttpRequest_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpRequestBuilderImpl;)V", nullptr, 0, $method(ImmutableHttpRequest, init$, void, $HttpRequestBuilderImpl*)},
-	{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, bodyPublisher, $Optional*)},
-	{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, expectContinue, bool)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, headers, $HttpHeaders*)},
-	{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, method, $String*)},
-	{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, timeout, $Optional*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, toString, $String*)},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, uri, $URI*)},
-	{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, version, $Optional*)},
-	{}
-};
-
-$ClassInfo _ImmutableHttpRequest_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.ImmutableHttpRequest",
-	"java.net.http.HttpRequest",
-	nullptr,
-	_ImmutableHttpRequest_FieldInfo_,
-	_ImmutableHttpRequest_MethodInfo_
-};
-
-$Object* allocate$ImmutableHttpRequest($Class* clazz) {
-	return $of($alloc(ImmutableHttpRequest));
-}
-
 void ImmutableHttpRequest::init$($HttpRequestBuilderImpl* builder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$HttpRequest::init$();
 	$set(this, method$, $cast($String, $Objects::requireNonNull($($nc(builder)->method()))));
-	$set(this, uri$, $cast($URI, $Objects::requireNonNull($($nc(builder)->uri()))));
+	$set(this, uri$, $cast($URI, $Objects::requireNonNull($(builder->uri()))));
 	$init($Utils);
-	$set(this, headers$, $HttpHeaders::of($($nc($($nc(builder)->headersBuilder()))->map()), $Utils::ALLOWED_HEADERS));
-	$set(this, requestPublisher, $Optional::ofNullable($($nc(builder)->bodyPublisher())));
-	this->expectContinue$ = $nc(builder)->expectContinue();
+	$set(this, headers$, $HttpHeaders::of($($$nc(builder->headersBuilder())->map()), $Utils::ALLOWED_HEADERS));
+	$set(this, requestPublisher, $Optional::ofNullable($(builder->bodyPublisher())));
+	this->expectContinue$ = builder->expectContinue();
 	$set(this, timeout$, $Optional::ofNullable($(builder->timeout())));
 	$set(this, version$, $cast($Optional, $Objects::requireNonNull($(builder->version()))));
 }
@@ -119,7 +80,39 @@ ImmutableHttpRequest::ImmutableHttpRequest() {
 }
 
 $Class* ImmutableHttpRequest::load$($String* name, bool initialize) {
-	$loadClass(ImmutableHttpRequest, name, initialize, &_ImmutableHttpRequest_ClassInfo_, allocate$ImmutableHttpRequest);
+	$FieldInfo fieldInfos$$[] = {
+		{"method", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ImmutableHttpRequest, method$)},
+		{"uri", "Ljava/net/URI;", nullptr, $PRIVATE | $FINAL, $field(ImmutableHttpRequest, uri$)},
+		{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(ImmutableHttpRequest, headers$)},
+		{"requestPublisher", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PRIVATE | $FINAL, $field(ImmutableHttpRequest, requestPublisher)},
+		{"expectContinue", "Z", nullptr, $PRIVATE | $FINAL, $field(ImmutableHttpRequest, expectContinue$)},
+		{"timeout", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/time/Duration;>;", $PRIVATE | $FINAL, $field(ImmutableHttpRequest, timeout$)},
+		{"version", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PRIVATE | $FINAL, $field(ImmutableHttpRequest, version$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpRequestBuilderImpl;)V", nullptr, 0, $method(ImmutableHttpRequest, init$, void, $HttpRequestBuilderImpl*)},
+		{"bodyPublisher", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpRequest$BodyPublisher;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, bodyPublisher, $Optional*)},
+		{"expectContinue", "()Z", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, expectContinue, bool)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, headers, $HttpHeaders*)},
+		{"method", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, method, $String*)},
+		{"timeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, timeout, $Optional*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, toString, $String*)},
+		{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ImmutableHttpRequest, uri, $URI*)},
+		{"version", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpClient$Version;>;", $PUBLIC, $virtualMethod(ImmutableHttpRequest, version, $Optional*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.ImmutableHttpRequest",
+		"java.net.http.HttpRequest",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImmutableHttpRequest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImmutableHttpRequest);
+	});
 	return class$;
 }
 

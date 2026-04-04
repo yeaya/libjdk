@@ -74,6 +74,7 @@ public:
 	using ::javax::swing::JTextField::add;
 	using ::javax::swing::JTextField::getMousePosition;
 	using ::javax::swing::JTextField::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(Object$* value);
 	void init$(::java::text::Format* format);

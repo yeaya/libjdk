@@ -1,5 +1,4 @@
 #include <bug4331767$BrokenLookAndFeel.h>
-
 #include <bug4331767$BrokenUIDefaults.h>
 #include <bug4331767.h>
 #include <javax/swing/UIDefaults.h>
@@ -14,42 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 
-$FieldInfo _bug4331767$BrokenLookAndFeel_FieldInfo_[] = {
-	{"defaults", "Ljavax/swing/UIDefaults;", nullptr, 0, $field(bug4331767$BrokenLookAndFeel, defaults)},
-	{}
-};
-
-$MethodInfo _bug4331767$BrokenLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4331767$BrokenLookAndFeel, init$, void)},
-	{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(bug4331767$BrokenLookAndFeel, getDefaults, $UIDefaults*)},
-	{}
-};
-
-$InnerClassInfo _bug4331767$BrokenLookAndFeel_InnerClassesInfo_[] = {
-	{"bug4331767$BrokenLookAndFeel", "bug4331767", "BrokenLookAndFeel", $STATIC},
-	{}
-};
-
-$ClassInfo _bug4331767$BrokenLookAndFeel_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4331767$BrokenLookAndFeel",
-	"javax.swing.plaf.metal.MetalLookAndFeel",
-	nullptr,
-	_bug4331767$BrokenLookAndFeel_FieldInfo_,
-	_bug4331767$BrokenLookAndFeel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4331767$BrokenLookAndFeel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4331767"
-};
-
-$Object* allocate$bug4331767$BrokenLookAndFeel($Class* clazz) {
-	return $of($alloc(bug4331767$BrokenLookAndFeel));
-}
-
 void bug4331767$BrokenLookAndFeel::init$() {
 	$MetalLookAndFeel::init$();
 	$set(this, defaults, $new($bug4331767$BrokenUIDefaults, $($MetalLookAndFeel::getDefaults())));
@@ -63,7 +26,37 @@ bug4331767$BrokenLookAndFeel::bug4331767$BrokenLookAndFeel() {
 }
 
 $Class* bug4331767$BrokenLookAndFeel::load$($String* name, bool initialize) {
-	$loadClass(bug4331767$BrokenLookAndFeel, name, initialize, &_bug4331767$BrokenLookAndFeel_ClassInfo_, allocate$bug4331767$BrokenLookAndFeel);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaults", "Ljavax/swing/UIDefaults;", nullptr, 0, $field(bug4331767$BrokenLookAndFeel, defaults)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4331767$BrokenLookAndFeel, init$, void)},
+		{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(bug4331767$BrokenLookAndFeel, getDefaults, $UIDefaults*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4331767$BrokenLookAndFeel", "bug4331767", "BrokenLookAndFeel", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4331767$BrokenLookAndFeel",
+		"javax.swing.plaf.metal.MetalLookAndFeel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4331767"
+	};
+	$loadClass(bug4331767$BrokenLookAndFeel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4331767$BrokenLookAndFeel));
+	});
 	return class$;
 }
 

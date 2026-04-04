@@ -50,7 +50,7 @@ public:
 	void init$();
 	virtual bool bool$(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
 	virtual ::com::sun::org::apache::xpath::internal::objects::XObject* execute(::com::sun::org::apache::xpath::internal::XPathContext* xctxt) override;
-	static const int64_t serialVersionUID = (int64_t)0x0571D62061D42386;
+	static const int64_t serialVersionUID = (int64_t)0x0571d62061d42386;
 };
 
 						} // operations

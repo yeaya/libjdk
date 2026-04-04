@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/PSVIDOMImplementationImpl.h>
-
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/PSVIDocumentImpl.h>
@@ -24,32 +23,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$FieldInfo _PSVIDOMImplementationImpl_FieldInfo_[] = {
-	{"singleton", "Lcom/sun/org/apache/xerces/internal/dom/PSVIDOMImplementationImpl;", nullptr, $STATIC | $FINAL, $staticField(PSVIDOMImplementationImpl, singleton)},
-	{}
-};
-
-$MethodInfo _PSVIDOMImplementationImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PSVIDOMImplementationImpl, init$, void)},
-	{"createDocument", "(Lorg/w3c/dom/DocumentType;)Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;", nullptr, $PROTECTED, $virtualMethod(PSVIDOMImplementationImpl, createDocument, $CoreDocumentImpl*, $DocumentType*)},
-	{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $STATIC, $staticMethod(PSVIDOMImplementationImpl, getDOMImplementation, $DOMImplementation*)},
-	{"hasFeature", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PSVIDOMImplementationImpl, hasFeature, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _PSVIDOMImplementationImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.PSVIDOMImplementationImpl",
-	"com.sun.org.apache.xerces.internal.dom.DOMImplementationImpl",
-	nullptr,
-	_PSVIDOMImplementationImpl_FieldInfo_,
-	_PSVIDOMImplementationImpl_MethodInfo_
-};
-
-$Object* allocate$PSVIDOMImplementationImpl($Class* clazz) {
-	return $of($alloc(PSVIDOMImplementationImpl));
-}
-
 PSVIDOMImplementationImpl* PSVIDOMImplementationImpl::singleton = nullptr;
 
 void PSVIDOMImplementationImpl::init$() {
@@ -70,7 +43,7 @@ $CoreDocumentImpl* PSVIDOMImplementationImpl::createDocument($DocumentType* doct
 	return $new($PSVIDocumentImpl, doctype);
 }
 
-void clinit$PSVIDOMImplementationImpl($Class* class$) {
+void PSVIDOMImplementationImpl::clinit$($Class* clazz) {
 	$assignStatic(PSVIDOMImplementationImpl::singleton, $new(PSVIDOMImplementationImpl));
 }
 
@@ -78,7 +51,28 @@ PSVIDOMImplementationImpl::PSVIDOMImplementationImpl() {
 }
 
 $Class* PSVIDOMImplementationImpl::load$($String* name, bool initialize) {
-	$loadClass(PSVIDOMImplementationImpl, name, initialize, &_PSVIDOMImplementationImpl_ClassInfo_, clinit$PSVIDOMImplementationImpl, allocate$PSVIDOMImplementationImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"singleton", "Lcom/sun/org/apache/xerces/internal/dom/PSVIDOMImplementationImpl;", nullptr, $STATIC | $FINAL, $staticField(PSVIDOMImplementationImpl, singleton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PSVIDOMImplementationImpl, init$, void)},
+		{"createDocument", "(Lorg/w3c/dom/DocumentType;)Lcom/sun/org/apache/xerces/internal/dom/CoreDocumentImpl;", nullptr, $PROTECTED, $virtualMethod(PSVIDOMImplementationImpl, createDocument, $CoreDocumentImpl*, $DocumentType*)},
+		{"getDOMImplementation", "()Lorg/w3c/dom/DOMImplementation;", nullptr, $PUBLIC | $STATIC, $staticMethod(PSVIDOMImplementationImpl, getDOMImplementation, $DOMImplementation*)},
+		{"hasFeature", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PSVIDOMImplementationImpl, hasFeature, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.PSVIDOMImplementationImpl",
+		"com.sun.org.apache.xerces.internal.dom.DOMImplementationImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PSVIDOMImplementationImpl, name, initialize, &classInfo$$, PSVIDOMImplementationImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PSVIDOMImplementationImpl));
+	});
 	return class$;
 }
 

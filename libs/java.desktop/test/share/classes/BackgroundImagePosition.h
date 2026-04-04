@@ -25,6 +25,7 @@ class $export BackgroundImagePosition : public ::java::lang::Object {
 	$class(BackgroundImagePosition, 0, ::java::lang::Object)
 public:
 	BackgroundImagePosition();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void compareImages(::java::awt::image::BufferedImage* img1, ::java::awt::image::BufferedImage* img2);
 	static void lambda$test$0($String* x, $String* y, ::java::awt::image::BufferedImage* bi);

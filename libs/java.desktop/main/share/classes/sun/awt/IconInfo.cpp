@@ -1,5 +1,4 @@
 #include <sun/awt/IconInfo.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -27,8 +26,6 @@
 #undef TYPE_INT
 
 using $Graphics = ::java::awt::Graphics;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
@@ -54,55 +51,8 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _IconInfo_FieldInfo_[] = {
-	{"intIconData", "[I", nullptr, $PRIVATE, $field(IconInfo, intIconData)},
-	{"longIconData", "[J", nullptr, $PRIVATE, $field(IconInfo, longIconData)},
-	{"image", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(IconInfo, image)},
-	{"width", "I", nullptr, $PRIVATE | $FINAL, $field(IconInfo, width)},
-	{"height", "I", nullptr, $PRIVATE | $FINAL, $field(IconInfo, height)},
-	{"scaledWidth", "I", nullptr, $PRIVATE, $field(IconInfo, scaledWidth)},
-	{"scaledHeight", "I", nullptr, $PRIVATE, $field(IconInfo, scaledHeight)},
-	{"rawLength", "I", nullptr, $PRIVATE, $field(IconInfo, rawLength)},
-	{}
-};
-
-$MethodInfo _IconInfo_MethodInfo_[] = {
-	{"<init>", "([I)V", nullptr, $PUBLIC, $method(IconInfo, init$, void, $ints*)},
-	{"<init>", "([J)V", nullptr, $PUBLIC, $method(IconInfo, init$, void, $longs*)},
-	{"<init>", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(IconInfo, init$, void, $Image*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(IconInfo, getHeight, int32_t)},
-	{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(IconInfo, getImage, $Image*)},
-	{"getIntData", "()[I", nullptr, $PUBLIC, $virtualMethod(IconInfo, getIntData, $ints*)},
-	{"getLongData", "()[J", nullptr, $PUBLIC, $virtualMethod(IconInfo, getLongData, $longs*)},
-	{"getRawLength", "()I", nullptr, $PUBLIC, $virtualMethod(IconInfo, getRawLength, int32_t)},
-	{"getScaledRawLength", "(II)I", nullptr, $PRIVATE, $method(IconInfo, getScaledRawLength, int32_t, int32_t, int32_t)},
-	{"getScaledWidthAndHeight", "(II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(IconInfo, getScaledWidthAndHeight, $ints*, int32_t, int32_t)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(IconInfo, getWidth, int32_t)},
-	{"imageToIntArray", "(Ljava/awt/Image;II)[I", nullptr, $STATIC, $staticMethod(IconInfo, imageToIntArray, $ints*, $Image*, int32_t, int32_t)},
-	{"intArrayToImage", "([I)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(IconInfo, intArrayToImage, $Image*, $ints*)},
-	{"intArrayToLongArray", "([I)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(IconInfo, intArrayToLongArray, $longs*, $ints*)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(IconInfo, isValid, bool)},
-	{"longArrayToIntArray", "([J)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(IconInfo, longArrayToIntArray, $ints*, $longs*)},
-	{"setScaledSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(IconInfo, setScaledSize, void, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IconInfo, toString, $String*)},
-	{}
-};
-
-$ClassInfo _IconInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.IconInfo",
-	"java.lang.Object",
-	nullptr,
-	_IconInfo_FieldInfo_,
-	_IconInfo_MethodInfo_
-};
-
-$Object* allocate$IconInfo($Class* clazz) {
-	return $of($alloc(IconInfo));
-}
-
 void IconInfo::init$($ints* intIconData) {
-	$set(this, intIconData, (nullptr == intIconData) ? ($ints*)nullptr : $Arrays::copyOf(intIconData, $nc(intIconData)->length));
+	$set(this, intIconData, (nullptr == intIconData) ? ($ints*)nullptr : $Arrays::copyOf(intIconData, intIconData->length));
 	this->width = $nc(intIconData)->get(0);
 	this->height = intIconData->get(1);
 	this->scaledWidth = this->width;
@@ -111,7 +61,7 @@ void IconInfo::init$($ints* intIconData) {
 }
 
 void IconInfo::init$($longs* longIconData) {
-	$set(this, longIconData, (nullptr == longIconData) ? ($longs*)nullptr : $Arrays::copyOf(longIconData, $nc(longIconData)->length));
+	$set(this, longIconData, (nullptr == longIconData) ? ($longs*)nullptr : $Arrays::copyOf(longIconData, longIconData->length));
 	this->width = (int32_t)$nc(longIconData)->get(0);
 	this->height = (int32_t)longIconData->get(1);
 	this->scaledWidth = this->width;
@@ -122,7 +72,7 @@ void IconInfo::init$($longs* longIconData) {
 void IconInfo::init$($Image* image) {
 	$set(this, image, image);
 	if ($instanceOf($ToolkitImage, image)) {
-		$var($ImageRepresentation, ir, $nc(($cast($ToolkitImage, image)))->getImageRep());
+		$var($ImageRepresentation, ir, $cast($ToolkitImage, image)->getImageRep());
 		$nc(ir)->reconstruct($ImageObserver::ALLBITS);
 		this->width = ir->getWidth();
 		this->height = ir->getHeight();
@@ -143,14 +93,14 @@ void IconInfo::setScaledSize(int32_t width, int32_t height) {
 
 int32_t IconInfo::getScaledRawLength(int32_t w, int32_t h) {
 	$var($ints, scaledWidthAndHeight, getScaledWidthAndHeight(w, h));
-	return $nc(scaledWidthAndHeight)->get(0) * scaledWidthAndHeight->get(1) + 2;
+	return $nc(scaledWidthAndHeight)->get(0) * $nc(scaledWidthAndHeight)->get(1) + 2;
 }
 
 $ints* IconInfo::getScaledWidthAndHeight(int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
-	$var($AffineTransform, tx, $nc($($nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration()))->getDefaultTransform());
+	$useLocalObjectStack();
+	$var($AffineTransform, tx, $$nc($$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration())->getDefaultTransform());
 	int32_t w = $Region::clipScale(width, $nc(tx)->getScaleX());
-	int32_t h = $Region::clipScale(height, $nc(tx)->getScaleY());
+	int32_t h = $Region::clipScale(height, tx->getScaleY());
 	return $new($ints, {
 		w,
 		h
@@ -170,7 +120,7 @@ int32_t IconInfo::getHeight() {
 }
 
 $String* IconInfo::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"IconInfo[w="_s, $$str(this->width), ",h="_s, $$str(this->height), ",sw="_s, $$str(this->scaledWidth), ",sh="_s, $$str(this->scaledHeight), "]"_s});
 }
 
@@ -230,36 +180,36 @@ $longs* IconInfo::intArrayToLongArray($ints* intData) {
 }
 
 $Image* IconInfo::intArrayToImage($ints* raw) {
-	$useLocalCurrentObjectStackCache();
-	$var($ColorModel, cm, $new($DirectColorModel, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), 32, 0x00FF0000, 0x0000FF00, 255, (int32_t)0xFF000000, false, $DataBuffer::TYPE_INT));
+	$useLocalObjectStack();
+	$var($ColorModel, cm, $new($DirectColorModel, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), 32, 0x00ff0000, 0x0000ff00, 255, (int32_t)0xff000000, false, $DataBuffer::TYPE_INT));
 	$var($DataBuffer, buffer, $new($DataBufferInt, raw, $nc(raw)->length - 2, 2));
-	$var($WritableRaster, raster, $Raster::createPackedRaster(buffer, $nc(raw)->get(0), raw->get(1), raw->get(0), $$new($ints, {
-		0x00FF0000,
-		0x0000FF00,
-		255,
-		(int32_t)0xFF000000
-	}), ($Point*)nullptr));
-	$var($BufferedImage, im, $new($BufferedImage, cm, raster, false, ($Hashtable*)nullptr));
+	$var($WritableRaster, raster, $Raster::createPackedRaster(buffer, raw->get(0), raw->get(1), raw->get(0), $$new($ints, {
+		0x00ff0000,
+		0x0000ff00,
+		0x000000ff,
+		(int32_t)0xff000000
+	}), nullptr));
+	$var($BufferedImage, im, $new($BufferedImage, cm, raster, false, nullptr));
 	return im;
 }
 
 $ints* IconInfo::imageToIntArray($Image* image, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (width <= 0 || height <= 0) {
 		return nullptr;
 	}
-	$var($ColorModel, cm, $new($DirectColorModel, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), 32, 0x00FF0000, 0x0000FF00, 255, (int32_t)0xFF000000, false, $DataBuffer::TYPE_INT));
+	$var($ColorModel, cm, $new($DirectColorModel, $($ColorSpace::getInstance($ColorSpace::CS_sRGB)), 32, 0x00ff0000, 0x0000ff00, 255, (int32_t)0xff000000, false, $DataBuffer::TYPE_INT));
 	$var($ints, scaledWidthAndHeight, getScaledWidthAndHeight(width, height));
 	width = $nc(scaledWidthAndHeight)->get(0);
 	height = scaledWidthAndHeight->get(1);
 	$var($DataBufferInt, buffer, $new($DataBufferInt, width * height));
-	$var($WritableRaster, raster, $Raster::createPackedRaster(static_cast<$DataBuffer*>(buffer), width, height, width, $$new($ints, {
-		0x00FF0000,
-		0x0000FF00,
-		255,
-		(int32_t)0xFF000000
-	}), ($Point*)nullptr));
-	$var($BufferedImage, im, $new($BufferedImage, cm, raster, false, ($Hashtable*)nullptr));
+	$var($WritableRaster, raster, $Raster::createPackedRaster(buffer, width, height, width, $$new($ints, {
+		0x00ff0000,
+		0x0000ff00,
+		0x000000ff,
+		(int32_t)0xff000000
+	}), nullptr));
+	$var($BufferedImage, im, $new($BufferedImage, cm, raster, false, nullptr));
 	$var($Graphics, g, im->getGraphics());
 	$nc(g)->drawImage(image, 0, 0, width, height, nullptr);
 	g->dispose();
@@ -275,7 +225,49 @@ IconInfo::IconInfo() {
 }
 
 $Class* IconInfo::load$($String* name, bool initialize) {
-	$loadClass(IconInfo, name, initialize, &_IconInfo_ClassInfo_, allocate$IconInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"intIconData", "[I", nullptr, $PRIVATE, $field(IconInfo, intIconData)},
+		{"longIconData", "[J", nullptr, $PRIVATE, $field(IconInfo, longIconData)},
+		{"image", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(IconInfo, image)},
+		{"width", "I", nullptr, $PRIVATE | $FINAL, $field(IconInfo, width)},
+		{"height", "I", nullptr, $PRIVATE | $FINAL, $field(IconInfo, height)},
+		{"scaledWidth", "I", nullptr, $PRIVATE, $field(IconInfo, scaledWidth)},
+		{"scaledHeight", "I", nullptr, $PRIVATE, $field(IconInfo, scaledHeight)},
+		{"rawLength", "I", nullptr, $PRIVATE, $field(IconInfo, rawLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([I)V", nullptr, $PUBLIC, $method(IconInfo, init$, void, $ints*)},
+		{"<init>", "([J)V", nullptr, $PUBLIC, $method(IconInfo, init$, void, $longs*)},
+		{"<init>", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $method(IconInfo, init$, void, $Image*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(IconInfo, getHeight, int32_t)},
+		{"getImage", "()Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(IconInfo, getImage, $Image*)},
+		{"getIntData", "()[I", nullptr, $PUBLIC, $virtualMethod(IconInfo, getIntData, $ints*)},
+		{"getLongData", "()[J", nullptr, $PUBLIC, $virtualMethod(IconInfo, getLongData, $longs*)},
+		{"getRawLength", "()I", nullptr, $PUBLIC, $virtualMethod(IconInfo, getRawLength, int32_t)},
+		{"getScaledRawLength", "(II)I", nullptr, $PRIVATE, $method(IconInfo, getScaledRawLength, int32_t, int32_t, int32_t)},
+		{"getScaledWidthAndHeight", "(II)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(IconInfo, getScaledWidthAndHeight, $ints*, int32_t, int32_t)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(IconInfo, getWidth, int32_t)},
+		{"imageToIntArray", "(Ljava/awt/Image;II)[I", nullptr, $STATIC, $staticMethod(IconInfo, imageToIntArray, $ints*, $Image*, int32_t, int32_t)},
+		{"intArrayToImage", "([I)Ljava/awt/Image;", nullptr, $STATIC, $staticMethod(IconInfo, intArrayToImage, $Image*, $ints*)},
+		{"intArrayToLongArray", "([I)[J", nullptr, $PRIVATE | $STATIC, $staticMethod(IconInfo, intArrayToLongArray, $longs*, $ints*)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(IconInfo, isValid, bool)},
+		{"longArrayToIntArray", "([J)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(IconInfo, longArrayToIntArray, $ints*, $longs*)},
+		{"setScaledSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(IconInfo, setScaledSize, void, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IconInfo, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.IconInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IconInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IconInfo);
+	});
 	return class$;
 }
 

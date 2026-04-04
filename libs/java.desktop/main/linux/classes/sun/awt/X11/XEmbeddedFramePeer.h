@@ -62,6 +62,7 @@ public:
 	using ::sun::awt::X11::XFramePeer::addDropTarget;
 	using ::sun::awt::X11::XFramePeer::handleKeyPress;
 	using ::sun::awt::X11::XFramePeer::getGraphics;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::EmbeddedFrame* target);
 	virtual void addDropTarget() override;
 	virtual void addToplevelStateListener(::sun::awt::X11::ToplevelStateListener* l) override;

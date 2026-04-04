@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI$CollapsedIcon.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI$ExpandedIcon.h>
 #include <com/sun/java/swing/plaf/windows/WindowsTreeUI.h>
@@ -28,39 +27,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsTreeUI$CollapsedIcon_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTreeUI$CollapsedIcon, init$, void)},
-	{"createCollapsedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTreeUI$CollapsedIcon, createCollapsedIcon, $Icon*)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$CollapsedIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _WindowsTreeUI$CollapsedIcon_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTreeUI$CollapsedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "CollapsedIcon", $PUBLIC | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "ExpandedIcon", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsTreeUI$CollapsedIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI$CollapsedIcon",
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon",
-	nullptr,
-	nullptr,
-	_WindowsTreeUI$CollapsedIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTreeUI$CollapsedIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTreeUI"
-};
-
-$Object* allocate$WindowsTreeUI$CollapsedIcon($Class* clazz) {
-	return $of($alloc(WindowsTreeUI$CollapsedIcon));
-}
-
 void WindowsTreeUI$CollapsedIcon::init$() {
 	$WindowsTreeUI$ExpandedIcon::init$();
 }
@@ -85,7 +51,35 @@ WindowsTreeUI$CollapsedIcon::WindowsTreeUI$CollapsedIcon() {
 }
 
 $Class* WindowsTreeUI$CollapsedIcon::load$($String* name, bool initialize) {
-	$loadClass(WindowsTreeUI$CollapsedIcon, name, initialize, &_WindowsTreeUI$CollapsedIcon_ClassInfo_, allocate$WindowsTreeUI$CollapsedIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTreeUI$CollapsedIcon, init$, void)},
+		{"createCollapsedIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTreeUI$CollapsedIcon, createCollapsedIcon, $Icon*)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(WindowsTreeUI$CollapsedIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTreeUI$CollapsedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "CollapsedIcon", $PUBLIC | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon", "com.sun.java.swing.plaf.windows.WindowsTreeUI", "ExpandedIcon", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI$CollapsedIcon",
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI$ExpandedIcon",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTreeUI"
+	};
+	$loadClass(WindowsTreeUI$CollapsedIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTreeUI$CollapsedIcon));
+	});
 	return class$;
 }
 

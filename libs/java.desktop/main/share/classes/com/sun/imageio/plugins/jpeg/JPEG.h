@@ -173,6 +173,7 @@ class JPEG : public ::java::lang::Object {
 	$class(JPEG, 0, ::java::lang::Object)
 public:
 	JPEG();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static float convertToLinearQuality(float quality);
 	static $Array<::javax::imageio::plugins::jpeg::JPEGHuffmanTable>* getDefaultHuffmanTables(bool wantDC);

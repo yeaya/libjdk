@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/WebSocketRequest.h>
-
 #include <java/net/Proxy.h>
 #include <jcpp.h>
 
@@ -13,28 +12,24 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$MethodInfo _WebSocketRequest_MethodInfo_[] = {
-	{"isWebSocket", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, isWebSocket, void, bool)},
-	{"setProxy", "(Ljava/net/Proxy;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, setProxy, void, $Proxy*)},
-	{"setSystemHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, setSystemHeader, void, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _WebSocketRequest_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.websocket.WebSocketRequest",
-	nullptr,
-	nullptr,
-	nullptr,
-	_WebSocketRequest_MethodInfo_
-};
-
-$Object* allocate$WebSocketRequest($Class* clazz) {
-	return $of($alloc(WebSocketRequest));
-}
-
 $Class* WebSocketRequest::load$($String* name, bool initialize) {
-	$loadClass(WebSocketRequest, name, initialize, &_WebSocketRequest_ClassInfo_, allocate$WebSocketRequest);
+	$MethodInfo methodInfos$$[] = {
+		{"isWebSocket", "(Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, isWebSocket, void, bool)},
+		{"setProxy", "(Ljava/net/Proxy;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, setProxy, void, $Proxy*)},
+		{"setSystemHeader", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WebSocketRequest, setSystemHeader, void, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.websocket.WebSocketRequest",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WebSocketRequest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WebSocketRequest);
+	});
 	return class$;
 }
 

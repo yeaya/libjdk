@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TestSupport$1.h>
-
 #include <java/util/List.h>
 #include <java/util/NoSuchElementException.h>
 #include <jdk/internal/net/http/websocket/TestSupport$F.h>
@@ -21,54 +20,6 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$FieldInfo _TestSupport$1_FieldInfo_[] = {
-	{"val$function", "Ljdk/internal/net/http/websocket/TestSupport$F;", nullptr, $FINAL | $SYNTHETIC, $field(TestSupport$1, val$function)},
-	{"val$params", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(TestSupport$1, val$params)},
-	{"arity", "I", nullptr, $PRIVATE | $FINAL, $field(TestSupport$1, arity)},
-	{"coordinates", "[I", nullptr, $PRIVATE | $FINAL, $field(TestSupport$1, coordinates)},
-	{"hasNext", "Z", nullptr, $PRIVATE, $field(TestSupport$1, hasNext$)},
-	{}
-};
-
-$MethodInfo _TestSupport$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F;)V", nullptr, 0, $method(TestSupport$1, init$, void, $List*, $TestSupport$F*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TestSupport$1, hasNext, bool)},
-	{"next", "()Ljava/lang/Object;", "()TR;", $PUBLIC, $virtualMethod(TestSupport$1, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _TestSupport$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.websocket.TestSupport",
-	"cartesianIterator",
-	"(Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F;)Ljava/util/Iterator;"
-};
-
-$InnerClassInfo _TestSupport$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TestSupport$1", nullptr, nullptr, 0},
-	{"jdk.internal.net.http.websocket.TestSupport$F", "jdk.internal.net.http.websocket.TestSupport", "F", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TestSupport$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.websocket.TestSupport$1",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_TestSupport$1_FieldInfo_,
-	_TestSupport$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<TR;>;",
-	&_TestSupport$1_EnclosingMethodInfo_,
-	_TestSupport$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TestSupport"
-};
-
-$Object* allocate$TestSupport$1($Class* clazz) {
-	return $of($alloc(TestSupport$1));
-}
-
 void TestSupport$1::init$($List* val$params, $TestSupport$F* val$function) {
 	$set(this, val$params, val$params);
 	$set(this, val$function, val$function);
@@ -82,34 +33,75 @@ bool TestSupport$1::hasNext() {
 }
 
 $Object* TestSupport$1::next() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->hasNext$) {
 		$throwNew($NoSuchElementException);
 	}
 	$var($ObjectArray, array, $new($ObjectArray, this->arity));
 	for (int32_t i = 0; i < this->arity; ++i) {
-		array->set(i, $($nc(($cast($List, $($nc(this->val$params)->get(i)))))->get($nc(this->coordinates)->get(i))));
+		array->set(i, $($$sure($List, $nc(this->val$params)->get(i))->get(this->coordinates->get(i))));
 	}
 	int32_t p = this->arity - 1;
-	while (p >= 0 && $nc(this->coordinates)->get(p) == $nc(($cast($List, $($nc(this->val$params)->get(p)))))->size() - 1) {
+	while (p >= 0 && this->coordinates->get(p) == $$sure($List, $nc(this->val$params)->get(p))->size() - 1) {
 		--p;
 	}
 	if (p < 0) {
 		this->hasNext$ = false;
 	} else {
-		++(*$nc(this->coordinates))[p];
+		++(*this->coordinates)[p];
 		for (int32_t i = p + 1; i < this->arity; ++i) {
-			$nc(this->coordinates)->set(i, 0);
+			this->coordinates->set(i, 0);
 		}
 	}
-	return $of($nc(this->val$function)->apply(array));
+	return $nc(this->val$function)->apply(array);
 }
 
 TestSupport$1::TestSupport$1() {
 }
 
 $Class* TestSupport$1::load$($String* name, bool initialize) {
-	$loadClass(TestSupport$1, name, initialize, &_TestSupport$1_ClassInfo_, allocate$TestSupport$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$function", "Ljdk/internal/net/http/websocket/TestSupport$F;", nullptr, $FINAL | $SYNTHETIC, $field(TestSupport$1, val$function)},
+		{"val$params", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(TestSupport$1, val$params)},
+		{"arity", "I", nullptr, $PRIVATE | $FINAL, $field(TestSupport$1, arity)},
+		{"coordinates", "[I", nullptr, $PRIVATE | $FINAL, $field(TestSupport$1, coordinates)},
+		{"hasNext", "Z", nullptr, $PRIVATE, $field(TestSupport$1, hasNext$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F;)V", nullptr, 0, $method(TestSupport$1, init$, void, $List*, $TestSupport$F*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(TestSupport$1, hasNext, bool)},
+		{"next", "()Ljava/lang/Object;", "()TR;", $PUBLIC, $virtualMethod(TestSupport$1, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.websocket.TestSupport",
+		"cartesianIterator",
+		"(Ljava/util/List;Ljdk/internal/net/http/websocket/TestSupport$F;)Ljava/util/Iterator;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TestSupport$1", nullptr, nullptr, 0},
+		{"jdk.internal.net.http.websocket.TestSupport$F", "jdk.internal.net.http.websocket.TestSupport", "F", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.websocket.TestSupport$1",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<TR;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TestSupport"
+	};
+	$loadClass(TestSupport$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestSupport$1);
+	});
 	return class$;
 }
 

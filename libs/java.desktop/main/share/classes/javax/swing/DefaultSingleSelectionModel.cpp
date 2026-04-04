@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultSingleSelectionModel.h>
-
 #include <java/util/EventListener.h>
 #include <javax/swing/SingleSelectionModel.h>
 #include <javax/swing/event/ChangeEvent.h>
@@ -12,7 +11,6 @@ using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $SingleSelectionModel = ::javax::swing::SingleSelectionModel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
@@ -20,45 +18,6 @@ using $EventListenerList = ::javax::swing::event::EventListenerList;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DefaultSingleSelectionModel_FieldInfo_[] = {
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultSingleSelectionModel, changeEvent)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultSingleSelectionModel, listenerList)},
-	{"index", "I", nullptr, $PRIVATE, $field(DefaultSingleSelectionModel, index)},
-	{}
-};
-
-$MethodInfo _DefaultSingleSelectionModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSingleSelectionModel, init$, void)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, addChangeListener, void, $ChangeListener*)},
-	{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, clearSelection, void)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultSingleSelectionModel, fireStateChanged, void)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, getChangeListeners, $ChangeListenerArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, getListeners, $EventListenerArray*, $Class*)},
-	{"getSelectedIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, getSelectedIndex, int32_t)},
-	{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, isSelected, bool)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, removeChangeListener, void, $ChangeListener*)},
-	{"setSelectedIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, setSelectedIndex, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DefaultSingleSelectionModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.DefaultSingleSelectionModel",
-	"java.lang.Object",
-	"javax.swing.SingleSelectionModel,java.io.Serializable",
-	_DefaultSingleSelectionModel_FieldInfo_,
-	_DefaultSingleSelectionModel_MethodInfo_
-};
-
-$Object* allocate$DefaultSingleSelectionModel($Class* clazz) {
-	return $of($alloc(DefaultSingleSelectionModel));
-}
 
 int32_t DefaultSingleSelectionModel::hashCode() {
 	 return this->$SingleSelectionModel::hashCode();
@@ -121,7 +80,7 @@ void DefaultSingleSelectionModel::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* DefaultSingleSelectionModel::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void DefaultSingleSelectionModel::fireStateChanged() {
@@ -132,7 +91,7 @@ void DefaultSingleSelectionModel::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
@@ -145,7 +104,41 @@ DefaultSingleSelectionModel::DefaultSingleSelectionModel() {
 }
 
 $Class* DefaultSingleSelectionModel::load$($String* name, bool initialize) {
-	$loadClass(DefaultSingleSelectionModel, name, initialize, &_DefaultSingleSelectionModel_ClassInfo_, allocate$DefaultSingleSelectionModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultSingleSelectionModel, changeEvent)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultSingleSelectionModel, listenerList)},
+		{"index", "I", nullptr, $PRIVATE, $field(DefaultSingleSelectionModel, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultSingleSelectionModel, init$, void)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, addChangeListener, void, $ChangeListener*)},
+		{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, clearSelection, void)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultSingleSelectionModel, fireStateChanged, void)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, getChangeListeners, $ChangeListenerArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, getListeners, $EventListenerArray*, $Class*)},
+		{"getSelectedIndex", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, getSelectedIndex, int32_t)},
+		{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, isSelected, bool)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, removeChangeListener, void, $ChangeListener*)},
+		{"setSelectedIndex", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultSingleSelectionModel, setSelectedIndex, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.DefaultSingleSelectionModel",
+		"java.lang.Object",
+		"javax.swing.SingleSelectionModel,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultSingleSelectionModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultSingleSelectionModel));
+	});
 	return class$;
 }
 

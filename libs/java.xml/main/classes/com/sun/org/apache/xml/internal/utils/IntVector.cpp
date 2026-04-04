@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/IntVector.h>
-
 #include <jcpp.h>
 
 #undef MIN_VALUE
@@ -16,51 +15,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _IntVector_FieldInfo_[] = {
-	{"m_blocksize", "I", nullptr, $PROTECTED, $field(IntVector, m_blocksize)},
-	{"m_map", "[I", nullptr, $PROTECTED, $field(IntVector, m_map)},
-	{"m_firstFree", "I", nullptr, $PROTECTED, $field(IntVector, m_firstFree)},
-	{"m_mapSize", "I", nullptr, $PROTECTED, $field(IntVector, m_mapSize)},
-	{}
-};
-
-$MethodInfo _IntVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntVector, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntVector, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(IntVector, init$, void, int32_t, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/IntVector;)V", nullptr, $PUBLIC, $method(IntVector, init$, void, IntVector*)},
-	{"addElement", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, addElement, void, int32_t)},
-	{"addElements", "(II)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, addElements, void, int32_t, int32_t)},
-	{"addElements", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, addElements, void, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntVector, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"contains", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(IntVector, contains, bool, int32_t)},
-	{"elementAt", "(I)I", nullptr, $PUBLIC | $FINAL, $method(IntVector, elementAt, int32_t, int32_t)},
-	{"indexOf", "(II)I", nullptr, $PUBLIC | $FINAL, $method(IntVector, indexOf, int32_t, int32_t, int32_t)},
-	{"indexOf", "(I)I", nullptr, $PUBLIC | $FINAL, $method(IntVector, indexOf, int32_t, int32_t)},
-	{"insertElementAt", "(II)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, insertElementAt, void, int32_t, int32_t)},
-	{"lastIndexOf", "(I)I", nullptr, $PUBLIC | $FINAL, $method(IntVector, lastIndexOf, int32_t, int32_t)},
-	{"removeAllElements", "()V", nullptr, $PUBLIC | $FINAL, $method(IntVector, removeAllElements, void)},
-	{"removeElement", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(IntVector, removeElement, bool, int32_t)},
-	{"removeElementAt", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, removeElementAt, void, int32_t)},
-	{"setElementAt", "(II)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, setElementAt, void, int32_t, int32_t)},
-	{"setSize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, setSize, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(IntVector, size, int32_t)},
-	{}
-};
-
-$ClassInfo _IntVector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.IntVector",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_IntVector_FieldInfo_,
-	_IntVector_MethodInfo_
-};
-
-$Object* allocate$IntVector($Class* clazz) {
-	return $of($alloc(IntVector));
-}
 
 void IntVector::init$() {
 	this->m_firstFree = 0;
@@ -161,7 +115,7 @@ bool IntVector::removeElement(int32_t s) {
 			if ((i + 1) < this->m_firstFree) {
 				$System::arraycopy(this->m_map, i + 1, this->m_map, i - 1, this->m_firstFree - i);
 			} else {
-				$nc(this->m_map)->set(i, $Integer::MIN_VALUE);
+				this->m_map->set(i, $Integer::MIN_VALUE);
 			}
 			--this->m_firstFree;
 			return true;
@@ -224,14 +178,54 @@ int32_t IntVector::lastIndexOf(int32_t elem) {
 }
 
 $Object* IntVector::clone() {
-	return $of($new(IntVector, this));
+	return $new(IntVector, this);
 }
 
 IntVector::IntVector() {
 }
 
 $Class* IntVector::load$($String* name, bool initialize) {
-	$loadClass(IntVector, name, initialize, &_IntVector_ClassInfo_, allocate$IntVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_blocksize", "I", nullptr, $PROTECTED, $field(IntVector, m_blocksize)},
+		{"m_map", "[I", nullptr, $PROTECTED, $field(IntVector, m_map)},
+		{"m_firstFree", "I", nullptr, $PROTECTED, $field(IntVector, m_firstFree)},
+		{"m_mapSize", "I", nullptr, $PROTECTED, $field(IntVector, m_mapSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntVector, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(IntVector, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(IntVector, init$, void, int32_t, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/IntVector;)V", nullptr, $PUBLIC, $method(IntVector, init$, void, IntVector*)},
+		{"addElement", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, addElement, void, int32_t)},
+		{"addElements", "(II)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, addElements, void, int32_t, int32_t)},
+		{"addElements", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, addElements, void, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IntVector, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"contains", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(IntVector, contains, bool, int32_t)},
+		{"elementAt", "(I)I", nullptr, $PUBLIC | $FINAL, $method(IntVector, elementAt, int32_t, int32_t)},
+		{"indexOf", "(II)I", nullptr, $PUBLIC | $FINAL, $method(IntVector, indexOf, int32_t, int32_t, int32_t)},
+		{"indexOf", "(I)I", nullptr, $PUBLIC | $FINAL, $method(IntVector, indexOf, int32_t, int32_t)},
+		{"insertElementAt", "(II)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, insertElementAt, void, int32_t, int32_t)},
+		{"lastIndexOf", "(I)I", nullptr, $PUBLIC | $FINAL, $method(IntVector, lastIndexOf, int32_t, int32_t)},
+		{"removeAllElements", "()V", nullptr, $PUBLIC | $FINAL, $method(IntVector, removeAllElements, void)},
+		{"removeElement", "(I)Z", nullptr, $PUBLIC | $FINAL, $method(IntVector, removeElement, bool, int32_t)},
+		{"removeElementAt", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, removeElementAt, void, int32_t)},
+		{"setElementAt", "(II)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, setElementAt, void, int32_t, int32_t)},
+		{"setSize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(IntVector, setSize, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(IntVector, size, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.IntVector",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntVector);
+	});
 	return class$;
 }
 

@@ -28,6 +28,7 @@ public:
 	DocFlavor();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* mimeType, $String* className);
 	virtual bool equals(Object$* obj) override;
 	virtual $String* getMediaSubtype();
@@ -40,7 +41,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* s);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xC161DE6BD3035007;
+	static const int64_t serialVersionUID = (int64_t)0xc161de6bd3035007;
 	static $String* hostEncoding;
 	::javax::print::MimeType* myMimeType = nullptr;
 	$String* myClassName = nullptr;

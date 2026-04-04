@@ -1,5 +1,4 @@
 #include <S$3.h>
-
 #include <S$3$1.h>
 #include <S.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
@@ -18,50 +17,6 @@ using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Stream = ::java::util::stream::Stream;
 
-$FieldInfo _S$3_FieldInfo_[] = {
-	{"val$stream", "Ljava/util/stream/Stream;", nullptr, $FINAL | $SYNTHETIC, $field(S$3, val$stream)},
-	{}
-};
-
-$MethodInfo _S$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/stream/Stream;)V", "()V", 0, $method(S$3, init$, void, $Stream*)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC, $virtualMethod(S$3, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$EnclosingMethodInfo _S$3_EnclosingMethodInfo_ = {
-	"S",
-	"publisherOfStream",
-	"(Ljava/util/stream/Stream;)Ljava/util/concurrent/Flow$Publisher;"
-};
-
-$InnerClassInfo _S$3_InnerClassesInfo_[] = {
-	{"S$3", nullptr, nullptr, 0},
-	{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"S$3$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _S$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"S$3",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Publisher",
-	_S$3_FieldInfo_,
-	_S$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<TT;>;",
-	&_S$3_EnclosingMethodInfo_,
-	_S$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"S"
-};
-
-$Object* allocate$S$3($Class* clazz) {
-	return $of($alloc(S$3));
-}
-
 void S$3::init$($Stream* val$stream) {
 	$set(this, val$stream, val$stream);
 }
@@ -78,7 +33,44 @@ S$3::S$3() {
 }
 
 $Class* S$3::load$($String* name, bool initialize) {
-	$loadClass(S$3, name, initialize, &_S$3_ClassInfo_, allocate$S$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$stream", "Ljava/util/stream/Stream;", nullptr, $FINAL | $SYNTHETIC, $field(S$3, val$stream)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/stream/Stream;)V", "()V", 0, $method(S$3, init$, void, $Stream*)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC, $virtualMethod(S$3, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"S",
+		"publisherOfStream",
+		"(Ljava/util/stream/Stream;)Ljava/util/concurrent/Flow$Publisher;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"S$3", nullptr, nullptr, 0},
+		{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"S$3$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"S$3",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Publisher",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<TT;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"S"
+	};
+	$loadClass(S$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(S$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/IntrospectionException.h>
-
 #include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _IntrospectionException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntrospectionException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _IntrospectionException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntrospectionException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IntrospectionException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _IntrospectionException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.IntrospectionException",
-	"javax.management.OperationsException",
-	nullptr,
-	_IntrospectionException_FieldInfo_,
-	_IntrospectionException_MethodInfo_
-};
-
-$Object* allocate$IntrospectionException($Class* clazz) {
-	return $of($alloc(IntrospectionException));
-}
 
 void IntrospectionException::init$() {
 	$OperationsException::init$();
@@ -54,7 +29,26 @@ void IntrospectionException::throw$() {
 }
 
 $Class* IntrospectionException::load$($String* name, bool initialize) {
-	$loadClass(IntrospectionException, name, initialize, &_IntrospectionException_ClassInfo_, allocate$IntrospectionException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(IntrospectionException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntrospectionException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IntrospectionException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.IntrospectionException",
+		"javax.management.OperationsException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IntrospectionException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntrospectionException);
+	});
 	return class$;
 }
 

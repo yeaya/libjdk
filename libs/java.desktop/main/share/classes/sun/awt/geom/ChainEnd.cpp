@@ -1,5 +1,4 @@
 #include <sun/awt/geom/ChainEnd.h>
-
 #include <java/lang/InternalError.h>
 #include <sun/awt/geom/AreaOp.h>
 #include <sun/awt/geom/CurveLink.h>
@@ -18,38 +17,6 @@ using $CurveLink = ::sun::awt::geom::CurveLink;
 namespace sun {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _ChainEnd_FieldInfo_[] = {
-	{"head", "Lsun/awt/geom/CurveLink;", nullptr, 0, $field(ChainEnd, head)},
-	{"tail", "Lsun/awt/geom/CurveLink;", nullptr, 0, $field(ChainEnd, tail)},
-	{"partner", "Lsun/awt/geom/ChainEnd;", nullptr, 0, $field(ChainEnd, partner)},
-	{"etag", "I", nullptr, 0, $field(ChainEnd, etag)},
-	{}
-};
-
-$MethodInfo _ChainEnd_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/geom/CurveLink;Lsun/awt/geom/ChainEnd;)V", nullptr, $PUBLIC, $method(ChainEnd, init$, void, $CurveLink*, ChainEnd*)},
-	{"addLink", "(Lsun/awt/geom/CurveLink;)V", nullptr, $PUBLIC, $method(ChainEnd, addLink, void, $CurveLink*)},
-	{"getChain", "()Lsun/awt/geom/CurveLink;", nullptr, $PUBLIC, $method(ChainEnd, getChain, $CurveLink*)},
-	{"getPartner", "()Lsun/awt/geom/ChainEnd;", nullptr, $PUBLIC, $method(ChainEnd, getPartner, ChainEnd*)},
-	{"getX", "()D", nullptr, $PUBLIC, $method(ChainEnd, getX, double)},
-	{"linkTo", "(Lsun/awt/geom/ChainEnd;)Lsun/awt/geom/CurveLink;", nullptr, $PUBLIC, $method(ChainEnd, linkTo, $CurveLink*, ChainEnd*)},
-	{"setOtherEnd", "(Lsun/awt/geom/ChainEnd;)V", nullptr, $PUBLIC, $method(ChainEnd, setOtherEnd, void, ChainEnd*)},
-	{}
-};
-
-$ClassInfo _ChainEnd_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.geom.ChainEnd",
-	"java.lang.Object",
-	nullptr,
-	_ChainEnd_FieldInfo_,
-	_ChainEnd_MethodInfo_
-};
-
-$Object* allocate$ChainEnd($Class* clazz) {
-	return $of($alloc(ChainEnd));
-}
 
 void ChainEnd::init$($CurveLink* first, ChainEnd* partner) {
 	$set(this, head, first);
@@ -71,7 +38,7 @@ ChainEnd* ChainEnd::getPartner() {
 }
 
 $CurveLink* ChainEnd::linkTo(ChainEnd* that) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->etag == $AreaOp::ETAG_IGNORE || $nc(that)->etag == $AreaOp::ETAG_IGNORE) {
 		$throwNew($InternalError, "ChainEnd linked more than once!"_s);
 	}
@@ -88,9 +55,9 @@ $CurveLink* ChainEnd::linkTo(ChainEnd* that) {
 		$assign(exit, this);
 	}
 	this->etag = $AreaOp::ETAG_IGNORE;
-	$nc(that)->etag = $AreaOp::ETAG_IGNORE;
+	that->etag = $AreaOp::ETAG_IGNORE;
 	$nc($nc(enter)->tail)->setNext($nc(exit)->head);
-	$set(enter, tail, $nc(exit)->tail);
+	$set(enter, tail, exit->tail);
 	if (this->partner == that) {
 		return enter->head;
 	}
@@ -131,7 +98,34 @@ ChainEnd::ChainEnd() {
 }
 
 $Class* ChainEnd::load$($String* name, bool initialize) {
-	$loadClass(ChainEnd, name, initialize, &_ChainEnd_ClassInfo_, allocate$ChainEnd);
+	$FieldInfo fieldInfos$$[] = {
+		{"head", "Lsun/awt/geom/CurveLink;", nullptr, 0, $field(ChainEnd, head)},
+		{"tail", "Lsun/awt/geom/CurveLink;", nullptr, 0, $field(ChainEnd, tail)},
+		{"partner", "Lsun/awt/geom/ChainEnd;", nullptr, 0, $field(ChainEnd, partner)},
+		{"etag", "I", nullptr, 0, $field(ChainEnd, etag)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/geom/CurveLink;Lsun/awt/geom/ChainEnd;)V", nullptr, $PUBLIC, $method(ChainEnd, init$, void, $CurveLink*, ChainEnd*)},
+		{"addLink", "(Lsun/awt/geom/CurveLink;)V", nullptr, $PUBLIC, $method(ChainEnd, addLink, void, $CurveLink*)},
+		{"getChain", "()Lsun/awt/geom/CurveLink;", nullptr, $PUBLIC, $method(ChainEnd, getChain, $CurveLink*)},
+		{"getPartner", "()Lsun/awt/geom/ChainEnd;", nullptr, $PUBLIC, $method(ChainEnd, getPartner, ChainEnd*)},
+		{"getX", "()D", nullptr, $PUBLIC, $method(ChainEnd, getX, double)},
+		{"linkTo", "(Lsun/awt/geom/ChainEnd;)Lsun/awt/geom/CurveLink;", nullptr, $PUBLIC, $method(ChainEnd, linkTo, $CurveLink*, ChainEnd*)},
+		{"setOtherEnd", "(Lsun/awt/geom/ChainEnd;)V", nullptr, $PUBLIC, $method(ChainEnd, setOtherEnd, void, ChainEnd*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.geom.ChainEnd",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChainEnd, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ChainEnd);
+	});
 	return class$;
 }
 

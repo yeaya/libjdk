@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/BasisLibrary$2.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/lang/ThreadLocal.h>
 #include <jcpp.h>
@@ -20,43 +19,6 @@ namespace com {
 						namespace xsltc {
 							namespace runtime {
 
-$MethodInfo _BasisLibrary$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BasisLibrary$2, init$, void)},
-	{"initialValue", "()Ljava/lang/StringBuffer;", nullptr, $PROTECTED, $virtualMethod(BasisLibrary$2, initialValue, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _BasisLibrary$2_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _BasisLibrary$2_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasisLibrary$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$2",
-	"java.lang.ThreadLocal",
-	nullptr,
-	nullptr,
-	_BasisLibrary$2_MethodInfo_,
-	"Ljava/lang/ThreadLocal<Ljava/lang/StringBuffer;>;",
-	&_BasisLibrary$2_EnclosingMethodInfo_,
-	_BasisLibrary$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary"
-};
-
-$Object* allocate$BasisLibrary$2($Class* clazz) {
-	return $of($alloc(BasisLibrary$2));
-}
-
 void BasisLibrary$2::init$() {
 	$ThreadLocal::init$();
 }
@@ -69,7 +31,38 @@ BasisLibrary$2::BasisLibrary$2() {
 }
 
 $Class* BasisLibrary$2::load$($String* name, bool initialize) {
-	$loadClass(BasisLibrary$2, name, initialize, &_BasisLibrary$2_ClassInfo_, allocate$BasisLibrary$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BasisLibrary$2, init$, void)},
+		{"initialValue", "()Ljava/lang/StringBuffer;", nullptr, $PROTECTED, $virtualMethod(BasisLibrary$2, initialValue, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary$2",
+		"java.lang.ThreadLocal",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/ThreadLocal<Ljava/lang/StringBuffer;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary"
+	};
+	$loadClass(BasisLibrary$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasisLibrary$2);
+	});
 	return class$;
 }
 

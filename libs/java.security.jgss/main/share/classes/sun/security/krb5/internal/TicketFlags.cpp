@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/TicketFlags.h>
-
 #include <sun/security/krb5/Asn1Exception.h>
 #include <sun/security/krb5/internal/KDCOptions.h>
 #include <sun/security/krb5/internal/Krb5.h>
@@ -29,7 +28,6 @@ using $KDCOptions = ::sun::security::krb5::internal::KDCOptions;
 using $Krb5 = ::sun::security::krb5::internal::Krb5;
 using $LoginOptions = ::sun::security::krb5::internal::LoginOptions;
 using $KerberosFlags = ::sun::security::krb5::internal::util::KerberosFlags;
-using $BitArray = ::sun::security::util::BitArray;
 using $DerInputStream = ::sun::security::util::DerInputStream;
 using $DerValue = ::sun::security::util::DerValue;
 
@@ -37,32 +35,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$MethodInfo _TicketFlags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TicketFlags, init$, void)},
-	{"<init>", "([Z)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, $booleans*), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, int32_t, $bytes*), "sun.security.krb5.Asn1Exception"},
-	{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, $DerValue*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TicketFlags, clone, $Object*)},
-	{"match", "(Lsun/security/krb5/internal/LoginOptions;)Z", nullptr, $PUBLIC, $virtualMethod(TicketFlags, match, bool, $LoginOptions*)},
-	{"match", "(Lsun/security/krb5/internal/TicketFlags;)Z", nullptr, $PUBLIC, $virtualMethod(TicketFlags, match, bool, TicketFlags*)},
-	{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(TicketFlags, parse, TicketFlags*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TicketFlags, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TicketFlags_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.TicketFlags",
-	"sun.security.krb5.internal.util.KerberosFlags",
-	nullptr,
-	nullptr,
-	_TicketFlags_MethodInfo_
-};
-
-$Object* allocate$TicketFlags($Class* clazz) {
-	return $of($alloc(TicketFlags));
-}
 
 void TicketFlags::init$() {
 	$KerberosFlags::init$($Krb5::TKT_OPTS_MAX + 1);
@@ -83,30 +55,30 @@ void TicketFlags::init$(int32_t size, $bytes* data) {
 }
 
 void TicketFlags::init$($DerValue* encoding) {
-	$useLocalCurrentObjectStackCache();
-	TicketFlags::init$($($nc($($nc(encoding)->getUnalignedBitString(true)))->toBooleanArray()));
+	$useLocalObjectStack();
+	TicketFlags::init$($($$nc($nc(encoding)->getUnalignedBitString(true))->toBooleanArray()));
 }
 
 TicketFlags* TicketFlags::parse($DerInputStream* data, int8_t explicitTag, bool optional) {
 	$init(TicketFlags);
-	$useLocalCurrentObjectStackCache();
-	if ((optional) && (((int32_t)((int8_t)$nc(data)->peekByte() & (uint32_t)(int32_t)(int8_t)31)) != explicitTag)) {
+	$useLocalObjectStack();
+	if ((optional) && (((int8_t)$nc(data)->peekByte() & (int8_t)31) != explicitTag)) {
 		return nullptr;
 	}
 	$var($DerValue, der, $nc(data)->getDerValue());
-	if (explicitTag != ((int32_t)($nc(der)->getTag() & (uint32_t)(int32_t)(int8_t)31))) {
+	if (explicitTag != ($nc(der)->getTag() & (int8_t)31)) {
 		$throwNew($Asn1Exception, $Krb5::ASN1_BAD_ID);
 	} else {
-		$var($DerValue, subDer, $nc($(der->getData()))->getDerValue());
+		$var($DerValue, subDer, $$nc(der->getData())->getDerValue());
 		return $new(TicketFlags, subDer);
 	}
 }
 
 $Object* TicketFlags::clone() {
 	try {
-		return $of($new(TicketFlags, $(this->toBooleanArray())));
+		return $new(TicketFlags, $(this->toBooleanArray()));
 	} catch ($Exception& e) {
-		return $of(nullptr);
+		return nullptr;
 	}
 	$shouldNotReachHere();
 }
@@ -138,82 +110,56 @@ bool TicketFlags::match(TicketFlags* flags) {
 }
 
 $String* TicketFlags::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	$var($booleans, flags, toBooleanArray());
 	for (int32_t i = 0; i < $nc(flags)->length; ++i) {
 		if (flags->get(i) == true) {
 			switch (i) {
 			case 0:
-				{
-					sb->append("RESERVED;"_s);
-					break;
-				}
+				sb->append("RESERVED;"_s);
+				break;
 			case 1:
-				{
-					sb->append("FORWARDABLE;"_s);
-					break;
-				}
+				sb->append("FORWARDABLE;"_s);
+				break;
 			case 2:
-				{
-					sb->append("FORWARDED;"_s);
-					break;
-				}
+				sb->append("FORWARDED;"_s);
+				break;
 			case 3:
-				{
-					sb->append("PROXIABLE;"_s);
-					break;
-				}
+				sb->append("PROXIABLE;"_s);
+				break;
 			case 4:
-				{
-					sb->append("PROXY;"_s);
-					break;
-				}
+				sb->append("PROXY;"_s);
+				break;
 			case 5:
-				{
-					sb->append("MAY-POSTDATE;"_s);
-					break;
-				}
+				sb->append("MAY-POSTDATE;"_s);
+				break;
 			case 6:
-				{
-					sb->append("POSTDATED;"_s);
-					break;
-				}
+				sb->append("POSTDATED;"_s);
+				break;
 			case 7:
-				{
-					sb->append("INVALID;"_s);
-					break;
-				}
+				sb->append("INVALID;"_s);
+				break;
 			case 8:
-				{
-					sb->append("RENEWABLE;"_s);
-					break;
-				}
+				sb->append("RENEWABLE;"_s);
+				break;
 			case 9:
-				{
-					sb->append("INITIAL;"_s);
-					break;
-				}
+				sb->append("INITIAL;"_s);
+				break;
 			case 10:
-				{
-					sb->append("PRE-AUTHENT;"_s);
-					break;
-				}
+				sb->append("PRE-AUTHENT;"_s);
+				break;
 			case 11:
-				{
-					sb->append("HW-AUTHENT;"_s);
-					break;
-				}
+				sb->append("HW-AUTHENT;"_s);
+				break;
 			case 15:
-				{
-					sb->append("ENC-PA-REP;"_s);
-					break;
-				}
+				sb->append("ENC-PA-REP;"_s);
+				break;
 			}
 		}
 	}
 	$var($String, result, sb->toString());
-	if ($nc(result)->length() > 0) {
+	if (result->length() > 0) {
 		$assign(result, result->substring(0, result->length() - 1));
 	}
 	return result;
@@ -223,7 +169,29 @@ TicketFlags::TicketFlags() {
 }
 
 $Class* TicketFlags::load$($String* name, bool initialize) {
-	$loadClass(TicketFlags, name, initialize, &_TicketFlags_ClassInfo_, allocate$TicketFlags);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TicketFlags, init$, void)},
+		{"<init>", "([Z)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, $booleans*), "sun.security.krb5.Asn1Exception"},
+		{"<init>", "(I[B)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, int32_t, $bytes*), "sun.security.krb5.Asn1Exception"},
+		{"<init>", "(Lsun/security/util/DerValue;)V", nullptr, $PUBLIC, $method(TicketFlags, init$, void, $DerValue*), "java.io.IOException,sun.security.krb5.Asn1Exception"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(TicketFlags, clone, $Object*)},
+		{"match", "(Lsun/security/krb5/internal/LoginOptions;)Z", nullptr, $PUBLIC, $virtualMethod(TicketFlags, match, bool, $LoginOptions*)},
+		{"match", "(Lsun/security/krb5/internal/TicketFlags;)Z", nullptr, $PUBLIC, $virtualMethod(TicketFlags, match, bool, TicketFlags*)},
+		{"parse", "(Lsun/security/util/DerInputStream;BZ)Lsun/security/krb5/internal/TicketFlags;", nullptr, $PUBLIC | $STATIC, $staticMethod(TicketFlags, parse, TicketFlags*, $DerInputStream*, int8_t, bool), "sun.security.krb5.Asn1Exception,java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TicketFlags, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.TicketFlags",
+		"sun.security.krb5.internal.util.KerberosFlags",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TicketFlags, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TicketFlags);
+	});
 	return class$;
 }
 

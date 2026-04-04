@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Todo$FileQueue.h>
-
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Todo.h>
 #include <java/util/AbstractQueue.h>
@@ -22,48 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Todo$FileQueue_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Todo;", nullptr, $FINAL | $SYNTHETIC, $field(Todo$FileQueue, this$0)},
-	{"fileContents", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", 0, $field(Todo$FileQueue, fileContents)},
-	{}
-};
-
-$MethodInfo _Todo$FileQueue_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Todo;)V", nullptr, 0, $method(Todo$FileQueue, init$, void, $Todo*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, iterator, $Iterator*)},
-	{"offer", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PUBLIC, $virtualMethod(Todo$FileQueue, offer, bool, $Env*)},
-	{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Todo$FileQueue, offer, bool, Object$*)},
-	{"peek", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, peek, $Object*)},
-	{"poll", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, poll, $Object*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Todo$FileQueue, size, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Todo$FileQueue_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Todo$FileQueue", "com.sun.tools.javac.comp.Todo", "FileQueue", 0},
-	{}
-};
-
-$ClassInfo _Todo$FileQueue_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Todo$FileQueue",
-	"java.util.AbstractQueue",
-	nullptr,
-	_Todo$FileQueue_FieldInfo_,
-	_Todo$FileQueue_MethodInfo_,
-	"Ljava/util/AbstractQueue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;",
-	nullptr,
-	_Todo$FileQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Todo"
-};
-
-$Object* allocate$Todo$FileQueue($Class* clazz) {
-	return $of($alloc(Todo$FileQueue));
-}
 
 void Todo$FileQueue::init$($Todo* this$0) {
 	$set(this, this$0, this$0);
@@ -89,15 +46,15 @@ bool Todo$FileQueue::offer($Env* e) {
 
 $Object* Todo$FileQueue::poll() {
 	if ($nc(this->fileContents)->size() == 0) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	$var($Env, env, $cast($Env, $nc(this->fileContents)->remove(0)));
-	$nc(this->this$0->contents)->remove($of(env));
-	return $of(env);
+	$var($Env, env, $cast($Env, this->fileContents->remove(0)));
+	$nc(this->this$0->contents)->remove(env);
+	return env;
 }
 
 $Object* Todo$FileQueue::peek() {
-	return $of(($nc(this->fileContents)->size() == 0 ? ($Env*)nullptr : $cast($Env, $nc(this->fileContents)->get(0))));
+	return ($nc(this->fileContents)->size() == 0 ? ($Env*)nullptr : $cast($Env, this->fileContents->get(0)));
 }
 
 bool Todo$FileQueue::offer(Object$* e) {
@@ -108,7 +65,43 @@ Todo$FileQueue::Todo$FileQueue() {
 }
 
 $Class* Todo$FileQueue::load$($String* name, bool initialize) {
-	$loadClass(Todo$FileQueue, name, initialize, &_Todo$FileQueue_ClassInfo_, allocate$Todo$FileQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Todo;", nullptr, $FINAL | $SYNTHETIC, $field(Todo$FileQueue, this$0)},
+		{"fileContents", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", 0, $field(Todo$FileQueue, fileContents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Todo;)V", nullptr, 0, $method(Todo$FileQueue, init$, void, $Todo*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, iterator, $Iterator*)},
+		{"offer", "(Lcom/sun/tools/javac/comp/Env;)Z", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Z", $PUBLIC, $virtualMethod(Todo$FileQueue, offer, bool, $Env*)},
+		{"offer", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Todo$FileQueue, offer, bool, Object$*)},
+		{"peek", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, peek, $Object*)},
+		{"poll", "()Lcom/sun/tools/javac/comp/Env;", "()Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PUBLIC, $virtualMethod(Todo$FileQueue, poll, $Object*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Todo$FileQueue, size, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Todo$FileQueue", "com.sun.tools.javac.comp.Todo", "FileQueue", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Todo$FileQueue",
+		"java.util.AbstractQueue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/AbstractQueue<Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Todo"
+	};
+	$loadClass(Todo$FileQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Todo$FileQueue));
+	});
 	return class$;
 }
 

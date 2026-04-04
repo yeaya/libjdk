@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/GOTO_W.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/GotoInstruction.h>
@@ -13,10 +12,8 @@
 #undef GOTO_W
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $GotoInstruction = ::com::sun::org::apache::bcel::internal::generic::GotoInstruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
-using $UnconditionalBranch = ::com::sun::org::apache::bcel::internal::generic::UnconditionalBranch;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;
@@ -30,28 +27,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _GOTO_W_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(GOTO_W, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(GOTO_W, init$, void, $InstructionHandle*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(GOTO_W, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GOTO_W, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(GOTO_W, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _GOTO_W_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.GOTO_W",
-	"com.sun.org.apache.bcel.internal.generic.GotoInstruction",
-	nullptr,
-	nullptr,
-	_GOTO_W_MethodInfo_
-};
-
-$Object* allocate$GOTO_W($Class* clazz) {
-	return $of($alloc(GOTO_W));
-}
 
 void GOTO_W::init$() {
 	$GotoInstruction::init$();
@@ -84,7 +59,25 @@ GOTO_W::GOTO_W() {
 }
 
 $Class* GOTO_W::load$($String* name, bool initialize) {
-	$loadClass(GOTO_W, name, initialize, &_GOTO_W_ClassInfo_, allocate$GOTO_W);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(GOTO_W, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;)V", nullptr, $PUBLIC, $method(GOTO_W, init$, void, $InstructionHandle*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(GOTO_W, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(GOTO_W, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"initFromFile", "(Lcom/sun/org/apache/bcel/internal/util/ByteSequence;Z)V", nullptr, $PROTECTED, $virtualMethod(GOTO_W, initFromFile, void, $ByteSequence*, bool), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.GOTO_W",
+		"com.sun.org.apache.bcel.internal.generic.GotoInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(GOTO_W, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GOTO_W));
+	});
 	return class$;
 }
 

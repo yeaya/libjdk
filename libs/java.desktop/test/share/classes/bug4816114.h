@@ -16,6 +16,7 @@ class $export bug4816114 : public ::java::lang::Object {
 	$class(bug4816114, 0, ::java::lang::Object)
 public:
 	bug4816114();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void createAndShowGUI();
 	virtual void doTest(int32_t width, int32_t height);

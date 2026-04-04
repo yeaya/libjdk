@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/parser/XMLParserException.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <jcpp.h>
 
@@ -17,33 +16,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace parser {
-
-$FieldInfo _XMLParserException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLParserException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _XMLParserException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $Exception*, $String*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $Exception*, $String*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _XMLParserException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.parser.XMLParserException",
-	"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
-	nullptr,
-	_XMLParserException_FieldInfo_,
-	_XMLParserException_MethodInfo_
-};
-
-$Object* allocate$XMLParserException($Class* clazz) {
-	return $of($alloc(XMLParserException));
-}
 
 void XMLParserException::init$() {
 	$XMLSecurityException::init$();
@@ -76,7 +48,29 @@ void XMLParserException::throw$() {
 }
 
 $Class* XMLParserException::load$($String* name, bool initialize) {
-	$loadClass(XMLParserException, name, initialize, &_XMLParserException_ClassInfo_, allocate$XMLParserException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLParserException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLParserException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $Exception*, $String*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLParserException, init$, void, $Exception*, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.parser.XMLParserException",
+		"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLParserException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLParserException);
+	});
 	return class$;
 }
 

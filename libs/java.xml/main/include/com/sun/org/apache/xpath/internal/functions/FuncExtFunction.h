@@ -69,7 +69,7 @@ public:
 	virtual void reportWrongNumberArgs() override;
 	virtual void setArg(::com::sun::org::apache::xpath::internal::Expression* arg, int32_t argNum) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x481C4F9119667BAE;
+	static const int64_t serialVersionUID = (int64_t)0x481c4f9119667bae;
 	$String* m_namespace = nullptr;
 	$String* m_extensionName = nullptr;
 	$Object* m_methodKey = nullptr;

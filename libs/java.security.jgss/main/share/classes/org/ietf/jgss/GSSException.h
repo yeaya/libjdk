@@ -59,6 +59,7 @@ class $export GSSException : public ::java::lang::Exception {
 	$class(GSSException, 0, ::java::lang::Exception)
 public:
 	GSSException();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t majorCode);
 	void init$(int32_t majorCode, $String* majorString);
 	void init$(int32_t majorCode, int32_t minorCode, $String* minorString);
@@ -70,7 +71,7 @@ public:
 	virtual void setMinor(int32_t minorCode, $String* message);
 	virtual $String* toString() override;
 	bool validateMajor(int32_t major);
-	static const int64_t serialVersionUID = (int64_t)0xDA7194351D44E0B0;
+	static const int64_t serialVersionUID = (int64_t)0xda7194351d44e0b0;
 	static const int32_t BAD_BINDINGS = 1;
 	static const int32_t BAD_MECH = 2;
 	static const int32_t BAD_NAME = 3;
@@ -100,7 +101,10 @@ public:
 	$String* majorString = nullptr;
 	GSSException(const GSSException& e);
 	virtual void throw$() override;
-	inline GSSException* operator ->() {
+	inline GSSException* operator ->() const {
+		return (GSSException*)throwing$;
+	}
+	inline operator GSSException*() const {
 		return (GSSException*)throwing$;
 	}
 };

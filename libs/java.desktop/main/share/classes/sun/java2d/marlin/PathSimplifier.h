@@ -18,6 +18,7 @@ class PathSimplifier : public ::sun::java2d::marlin::DPathConsumer2D {
 	$class(PathSimplifier, 0, ::sun::java2d::marlin::DPathConsumer2D)
 public:
 	PathSimplifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void closePath() override;
 	virtual void curveTo(double x1, double y1, double x2, double y2, double xe, double ye) override;

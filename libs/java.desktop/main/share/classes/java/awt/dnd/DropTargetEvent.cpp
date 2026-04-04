@@ -1,5 +1,4 @@
 #include <java/awt/dnd/DropTargetEvent.h>
-
 #include <java/awt/dnd/DropTarget.h>
 #include <java/awt/dnd/DropTargetContext.h>
 #include <java/util/EventObject.h>
@@ -15,31 +14,6 @@ namespace java {
 	namespace awt {
 		namespace dnd {
 
-$FieldInfo _DropTargetEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DropTargetEvent, serialVersionUID)},
-	{"context", "Ljava/awt/dnd/DropTargetContext;", nullptr, $PROTECTED, $field(DropTargetEvent, context)},
-	{}
-};
-
-$MethodInfo _DropTargetEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/dnd/DropTargetContext;)V", nullptr, $PUBLIC, $method(DropTargetEvent, init$, void, $DropTargetContext*)},
-	{"getDropTargetContext", "()Ljava/awt/dnd/DropTargetContext;", nullptr, $PUBLIC, $virtualMethod(DropTargetEvent, getDropTargetContext, $DropTargetContext*)},
-	{}
-};
-
-$ClassInfo _DropTargetEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.dnd.DropTargetEvent",
-	"java.util.EventObject",
-	nullptr,
-	_DropTargetEvent_FieldInfo_,
-	_DropTargetEvent_MethodInfo_
-};
-
-$Object* allocate$DropTargetEvent($Class* clazz) {
-	return $of($alloc(DropTargetEvent));
-}
-
 void DropTargetEvent::init$($DropTargetContext* dtc) {
 	$EventObject::init$($($nc(dtc)->getDropTarget()));
 	$set(this, context, dtc);
@@ -53,7 +27,27 @@ DropTargetEvent::DropTargetEvent() {
 }
 
 $Class* DropTargetEvent::load$($String* name, bool initialize) {
-	$loadClass(DropTargetEvent, name, initialize, &_DropTargetEvent_ClassInfo_, allocate$DropTargetEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DropTargetEvent, serialVersionUID)},
+		{"context", "Ljava/awt/dnd/DropTargetContext;", nullptr, $PROTECTED, $field(DropTargetEvent, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/dnd/DropTargetContext;)V", nullptr, $PUBLIC, $method(DropTargetEvent, init$, void, $DropTargetContext*)},
+		{"getDropTargetContext", "()Ljava/awt/dnd/DropTargetContext;", nullptr, $PUBLIC, $virtualMethod(DropTargetEvent, getDropTargetContext, $DropTargetContext*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.dnd.DropTargetEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DropTargetEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DropTargetEvent);
+	});
 	return class$;
 }
 

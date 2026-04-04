@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$RootLogger.h>
-
 #include <java/lang/Module.h>
 #include <java/util/logging/Handler.h>
 #include <java/util/logging/LogManager.h>
@@ -21,45 +20,6 @@ using $Logger = ::java::util::logging::Logger;
 namespace java {
 	namespace util {
 		namespace logging {
-
-$FieldInfo _LogManager$RootLogger_FieldInfo_[] = {
-	{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$RootLogger, this$0)},
-	{}
-};
-
-$MethodInfo _LogManager$RootLogger_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(LogManager$RootLogger, init$, void, $LogManager*)},
-	{"accessCheckedHandlers", "()[Ljava/util/logging/Handler;", nullptr, 0, $virtualMethod(LogManager$RootLogger, accessCheckedHandlers, $HandlerArray*)},
-	{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, addHandler, void, $Handler*)},
-	{"log", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, log, void, $LogRecord*)},
-	{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, removeHandler, void, $Handler*)},
-	{}
-};
-
-$InnerClassInfo _LogManager$RootLogger_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$RootLogger", "java.util.logging.LogManager", "RootLogger", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _LogManager$RootLogger_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.LogManager$RootLogger",
-	"java.util.logging.Logger",
-	nullptr,
-	_LogManager$RootLogger_FieldInfo_,
-	_LogManager$RootLogger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LogManager$RootLogger_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$RootLogger($Class* clazz) {
-	return $of($alloc(LogManager$RootLogger));
-}
 
 void LogManager$RootLogger::init$($LogManager* this$0) {
 	$set(this, this$0, this$0);
@@ -90,7 +50,40 @@ LogManager$RootLogger::LogManager$RootLogger() {
 }
 
 $Class* LogManager$RootLogger::load$($String* name, bool initialize) {
-	$loadClass(LogManager$RootLogger, name, initialize, &_LogManager$RootLogger_ClassInfo_, allocate$LogManager$RootLogger);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$RootLogger, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/LogManager;)V", nullptr, $PRIVATE, $method(LogManager$RootLogger, init$, void, $LogManager*)},
+		{"accessCheckedHandlers", "()[Ljava/util/logging/Handler;", nullptr, 0, $virtualMethod(LogManager$RootLogger, accessCheckedHandlers, $HandlerArray*)},
+		{"addHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, addHandler, void, $Handler*)},
+		{"log", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, log, void, $LogRecord*)},
+		{"removeHandler", "(Ljava/util/logging/Handler;)V", nullptr, $PUBLIC, $virtualMethod(LogManager$RootLogger, removeHandler, void, $Handler*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$RootLogger", "java.util.logging.LogManager", "RootLogger", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.LogManager$RootLogger",
+		"java.util.logging.Logger",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$RootLogger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$RootLogger);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGImageWriterSpi.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGImageWriter.h>
 #include <java/awt/image/ColorModel.h>
@@ -30,33 +29,6 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JPEGImageWriterSpi_FieldInfo_[] = {
-	{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageWriterSpi, readerSpiNames)},
-	{}
-};
-
-$MethodInfo _JPEGImageWriterSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGImageWriterSpi, init$, void)},
-	{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
-	{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*), "javax.imageio.IIOException"},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriterSpi, getDescription, $String*, $Locale*)},
-	{"isFormatLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriterSpi, isFormatLossless, bool)},
-	{}
-};
-
-$ClassInfo _JPEGImageWriterSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGImageWriterSpi",
-	"javax.imageio.spi.ImageWriterSpi",
-	nullptr,
-	_JPEGImageWriterSpi_FieldInfo_,
-	_JPEGImageWriterSpi_MethodInfo_
-};
-
-$Object* allocate$JPEGImageWriterSpi($Class* clazz) {
-	return $of($alloc(JPEGImageWriterSpi));
-}
-
 $StringArray* JPEGImageWriterSpi::readerSpiNames = nullptr;
 
 void JPEGImageWriterSpi::init$() {
@@ -74,7 +46,7 @@ bool JPEGImageWriterSpi::isFormatLossless() {
 }
 
 bool JPEGImageWriterSpi::canEncodeImage($ImageTypeSpecifier* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SampleModel, sampleModel, $nc(type)->getSampleModel());
 	$var($ColorModel, cm, type->getColorModel());
 	if ($nc(cm)->hasAlpha()) {
@@ -97,7 +69,7 @@ $ImageWriter* JPEGImageWriterSpi::createWriterInstance(Object$* extension) {
 	return $new($JPEGImageWriter, this);
 }
 
-void clinit$JPEGImageWriterSpi($Class* class$) {
+void JPEGImageWriterSpi::clinit$($Class* clazz) {
 	$assignStatic(JPEGImageWriterSpi::readerSpiNames, $new($StringArray, {"com.sun.imageio.plugins.jpeg.JPEGImageReaderSpi"_s}));
 }
 
@@ -105,7 +77,29 @@ JPEGImageWriterSpi::JPEGImageWriterSpi() {
 }
 
 $Class* JPEGImageWriterSpi::load$($String* name, bool initialize) {
-	$loadClass(JPEGImageWriterSpi, name, initialize, &_JPEGImageWriterSpi_ClassInfo_, clinit$JPEGImageWriterSpi, allocate$JPEGImageWriterSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"readerSpiNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGImageWriterSpi, readerSpiNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JPEGImageWriterSpi, init$, void)},
+		{"canEncodeImage", "(Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriterSpi, canEncodeImage, bool, $ImageTypeSpecifier*)},
+		{"createWriterInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageWriter;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriterSpi, createWriterInstance, $ImageWriter*, Object$*), "javax.imageio.IIOException"},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriterSpi, getDescription, $String*, $Locale*)},
+		{"isFormatLossless", "()Z", nullptr, $PUBLIC, $virtualMethod(JPEGImageWriterSpi, isFormatLossless, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGImageWriterSpi",
+		"javax.imageio.spi.ImageWriterSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGImageWriterSpi, name, initialize, &classInfo$$, JPEGImageWriterSpi::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGImageWriterSpi);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$UnselectAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -17,37 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$UnselectAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$UnselectAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$UnselectAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$UnselectAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$UnselectAction", "javax.swing.text.DefaultEditorKit", "UnselectAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$UnselectAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$UnselectAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$UnselectAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$UnselectAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$UnselectAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$UnselectAction));
-}
-
 void DefaultEditorKit$UnselectAction::init$() {
 	$TextAction::init$("unselect"_s);
 }
@@ -63,7 +31,33 @@ DefaultEditorKit$UnselectAction::DefaultEditorKit$UnselectAction() {
 }
 
 $Class* DefaultEditorKit$UnselectAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$UnselectAction, name, initialize, &_DefaultEditorKit$UnselectAction_ClassInfo_, allocate$DefaultEditorKit$UnselectAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$UnselectAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$UnselectAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$UnselectAction", "javax.swing.text.DefaultEditorKit", "UnselectAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$UnselectAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$UnselectAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$UnselectAction));
+	});
 	return class$;
 }
 

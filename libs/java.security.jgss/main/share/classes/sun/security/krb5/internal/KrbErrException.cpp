@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/KrbErrException.h>
-
 #include <sun/security/krb5/KrbException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 			namespace internal {
-
-$FieldInfo _KrbErrException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbErrException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _KrbErrException_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(KrbErrException, init$, void, int32_t)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(KrbErrException, init$, void, int32_t, $String*)},
-	{}
-};
-
-$ClassInfo _KrbErrException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.KrbErrException",
-	"sun.security.krb5.KrbException",
-	nullptr,
-	_KrbErrException_FieldInfo_,
-	_KrbErrException_MethodInfo_
-};
-
-$Object* allocate$KrbErrException($Class* clazz) {
-	return $of($alloc(KrbErrException));
-}
 
 void KrbErrException::init$(int32_t i) {
 	$KrbException::init$(i);
@@ -56,7 +31,26 @@ void KrbErrException::throw$() {
 }
 
 $Class* KrbErrException::load$($String* name, bool initialize) {
-	$loadClass(KrbErrException, name, initialize, &_KrbErrException_ClassInfo_, allocate$KrbErrException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbErrException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(KrbErrException, init$, void, int32_t)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(KrbErrException, init$, void, int32_t, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.KrbErrException",
+		"sun.security.krb5.KrbException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbErrException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbErrException);
+	});
 	return class$;
 }
 

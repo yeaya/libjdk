@@ -1,5 +1,4 @@
 #include <javax/xml/transform/dom/DOMResult.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -18,42 +17,6 @@ namespace javax {
 	namespace xml {
 		namespace transform {
 			namespace dom {
-
-$FieldInfo _DOMResult_FieldInfo_[] = {
-	{"FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMResult, FEATURE)},
-	{"node", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMResult, node)},
-	{"nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMResult, nextSibling)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMResult, systemId)},
-	{}
-};
-
-$MethodInfo _DOMResult_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMResult, init$, void)},
-	{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMResult, init$, void, $Node*)},
-	{"<init>", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMResult, init$, void, $Node*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMResult, init$, void, $Node*, $Node*)},
-	{"<init>", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMResult, init$, void, $Node*, $Node*, $String*)},
-	{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMResult, getNextSibling, $Node*)},
-	{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMResult, getNode, $Node*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMResult, getSystemId, $String*)},
-	{"setNextSibling", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMResult, setNextSibling, void, $Node*)},
-	{"setNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMResult, setNode, void, $Node*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMResult, setSystemId, void, $String*)},
-	{}
-};
-
-$ClassInfo _DOMResult_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.transform.dom.DOMResult",
-	"java.lang.Object",
-	"javax.xml.transform.Result",
-	_DOMResult_FieldInfo_,
-	_DOMResult_MethodInfo_
-};
-
-$Object* allocate$DOMResult($Class* clazz) {
-	return $of($alloc(DOMResult));
-}
 
 $String* DOMResult::FEATURE = nullptr;
 
@@ -92,7 +55,7 @@ void DOMResult::init$($Node* node, $Node* nextSibling) {
 		if (node == nullptr) {
 			$throwNew($IllegalArgumentException, "Cannot create a DOMResult when the nextSibling is contained by the \"null\" node."_s);
 		}
-		if (((int32_t)($nc(node)->compareDocumentPosition(nextSibling) & (uint32_t)(int32_t)$Node::DOCUMENT_POSITION_CONTAINED_BY)) == 0) {
+		if (($nc(node)->compareDocumentPosition(nextSibling) & $Node::DOCUMENT_POSITION_CONTAINED_BY) == 0) {
 			$throwNew($IllegalArgumentException, "Cannot create a DOMResult when the nextSibling is not contained by the node."_s);
 		}
 	}
@@ -109,7 +72,7 @@ void DOMResult::init$($Node* node, $Node* nextSibling, $String* systemId) {
 		if (node == nullptr) {
 			$throwNew($IllegalArgumentException, "Cannot create a DOMResult when the nextSibling is contained by the \"null\" node."_s);
 		}
-		if (((int32_t)($nc(node)->compareDocumentPosition(nextSibling) & (uint32_t)(int32_t)$Node::DOCUMENT_POSITION_CONTAINED_BY)) == 0) {
+		if (($nc(node)->compareDocumentPosition(nextSibling) & $Node::DOCUMENT_POSITION_CONTAINED_BY) == 0) {
 			$throwNew($IllegalArgumentException, "Cannot create a DOMResult when the nextSibling is not contained by the node."_s);
 		}
 	}
@@ -123,7 +86,7 @@ void DOMResult::setNode($Node* node) {
 		if (node == nullptr) {
 			$throwNew($IllegalStateException, "Cannot create a DOMResult when the nextSibling is contained by the \"null\" node."_s);
 		}
-		if (((int32_t)($nc(node)->compareDocumentPosition(this->nextSibling) & (uint32_t)(int32_t)$Node::DOCUMENT_POSITION_CONTAINED_BY)) == 0) {
+		if (($nc(node)->compareDocumentPosition(this->nextSibling) & $Node::DOCUMENT_POSITION_CONTAINED_BY) == 0) {
 			$throwNew($IllegalArgumentException, "Cannot create a DOMResult when the nextSibling is not contained by the node."_s);
 		}
 	}
@@ -139,7 +102,7 @@ void DOMResult::setNextSibling($Node* nextSibling) {
 		if (this->node == nullptr) {
 			$throwNew($IllegalStateException, "Cannot create a DOMResult when the nextSibling is contained by the \"null\" node."_s);
 		}
-		if (((int32_t)($nc(this->node)->compareDocumentPosition(nextSibling) & (uint32_t)(int32_t)$Node::DOCUMENT_POSITION_CONTAINED_BY)) == 0) {
+		if (($nc(this->node)->compareDocumentPosition(nextSibling) & $Node::DOCUMENT_POSITION_CONTAINED_BY) == 0) {
 			$throwNew($IllegalArgumentException, "Cannot create a DOMResult when the nextSibling is not contained by the node."_s);
 		}
 	}
@@ -161,12 +124,43 @@ $String* DOMResult::getSystemId() {
 DOMResult::DOMResult() {
 }
 
-void clinit$DOMResult($Class* class$) {
+void DOMResult::clinit$($Class* clazz) {
 	$assignStatic(DOMResult::FEATURE, "http://javax.xml.transform.dom.DOMResult/feature"_s);
 }
 
 $Class* DOMResult::load$($String* name, bool initialize) {
-	$loadClass(DOMResult, name, initialize, &_DOMResult_ClassInfo_, clinit$DOMResult, allocate$DOMResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMResult, FEATURE)},
+		{"node", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMResult, node)},
+		{"nextSibling", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMResult, nextSibling)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMResult, systemId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMResult, init$, void)},
+		{"<init>", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMResult, init$, void, $Node*)},
+		{"<init>", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMResult, init$, void, $Node*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $method(DOMResult, init$, void, $Node*, $Node*)},
+		{"<init>", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DOMResult, init$, void, $Node*, $Node*, $String*)},
+		{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMResult, getNextSibling, $Node*)},
+		{"getNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DOMResult, getNode, $Node*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMResult, getSystemId, $String*)},
+		{"setNextSibling", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMResult, setNextSibling, void, $Node*)},
+		{"setNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(DOMResult, setNode, void, $Node*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMResult, setSystemId, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.transform.dom.DOMResult",
+		"java.lang.Object",
+		"javax.xml.transform.Result",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMResult, name, initialize, &classInfo$$, DOMResult::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMResult);
+	});
 	return class$;
 }
 

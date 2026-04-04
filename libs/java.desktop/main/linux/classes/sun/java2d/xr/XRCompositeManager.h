@@ -58,6 +58,7 @@ class XRCompositeManager : public ::java::lang::Object {
 	$class(XRCompositeManager, 0, ::java::lang::Object)
 public:
 	XRCompositeManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::xr::XRSurfaceData* surface);
 	virtual void XRComposite(int32_t src, int32_t mask, int32_t dst, int32_t srcX, int32_t srcY, int32_t maskX, int32_t maskY, int32_t dstX, int32_t dstY, int32_t width, int32_t height);
 	virtual void XRCompositeRectangles(::sun::java2d::xr::XRSurfaceData* dst, ::sun::java2d::xr::GrowableRectArray* rects);

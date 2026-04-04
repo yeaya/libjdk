@@ -1,5 +1,4 @@
 #include <CustomTableModel.h>
-
 #include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <jcpp.h>
@@ -9,32 +8,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 
-$MethodInfo _CustomTableModel_MethodInfo_[] = {
-	{"<init>", "([[Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CustomTableModel, init$, void, $ObjectArray2*, $ObjectArray*)},
-	{"getColumnClass", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(CustomTableModel, getColumnClass, $Class*, int32_t)},
-	{}
-};
-
-$ClassInfo _CustomTableModel_ClassInfo_ = {
-	$ACC_SUPER,
-	"CustomTableModel",
-	"javax.swing.table.DefaultTableModel",
-	nullptr,
-	nullptr,
-	_CustomTableModel_MethodInfo_
-};
-
-$Object* allocate$CustomTableModel($Class* clazz) {
-	return $of($alloc(CustomTableModel));
-}
-
 void CustomTableModel::init$($ObjectArray2* data, $ObjectArray* columnNames) {
 	$DefaultTableModel::init$(data, columnNames);
 }
 
 $Class* CustomTableModel::getColumnClass(int32_t columnIndex) {
 	if (getRowCount() > 0) {
-		return $nc($of($(getValueAt(0, columnIndex))))->getClass();
+		return $$nc(getValueAt(0, columnIndex))->getClass();
 	}
 	return $DefaultTableModel::getColumnClass(columnIndex);
 }
@@ -43,7 +23,22 @@ CustomTableModel::CustomTableModel() {
 }
 
 $Class* CustomTableModel::load$($String* name, bool initialize) {
-	$loadClass(CustomTableModel, name, initialize, &_CustomTableModel_ClassInfo_, allocate$CustomTableModel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([[Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CustomTableModel, init$, void, $ObjectArray2*, $ObjectArray*)},
+		{"getColumnClass", "(I)Ljava/lang/Class;", "(I)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(CustomTableModel, getColumnClass, $Class*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"CustomTableModel",
+		"javax.swing.table.DefaultTableModel",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CustomTableModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CustomTableModel));
+	});
 	return class$;
 }
 

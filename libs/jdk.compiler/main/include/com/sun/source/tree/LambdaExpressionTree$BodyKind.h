@@ -21,6 +21,7 @@ class $import LambdaExpressionTree$BodyKind : public ::java::lang::Enum {
 public:
 	LambdaExpressionTree$BodyKind();
 	static $Array<::com::sun::source::tree::LambdaExpressionTree$BodyKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::source::tree::LambdaExpressionTree$BodyKind* valueOf($String* name);
 	static $Array<::com::sun::source::tree::LambdaExpressionTree$BodyKind>* values();

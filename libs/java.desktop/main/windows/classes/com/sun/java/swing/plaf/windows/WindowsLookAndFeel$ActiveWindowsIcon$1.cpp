@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon$1.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$TriggerDesktopProperty.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
@@ -22,51 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$ActiveWindowsIcon$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$ActiveWindowsIcon$1, this$1)},
-	{"val$this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$ActiveWindowsIcon$1, val$this$0)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$ActiveWindowsIcon$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon;Ljava/lang/String;Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;)V", nullptr, 0, $method(WindowsLookAndFeel$ActiveWindowsIcon$1, init$, void, $WindowsLookAndFeel$ActiveWindowsIcon*, $String*, $WindowsLookAndFeel*)},
-	{"updateUI", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$ActiveWindowsIcon$1, updateUI, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsLookAndFeel$ActiveWindowsIcon$1_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon",
-	"<init>",
-	"(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _WindowsLookAndFeel$ActiveWindowsIcon$1_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "ActiveWindowsIcon", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon$1", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "TriggerDesktopProperty", $PRIVATE},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$ActiveWindowsIcon$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon$1",
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty",
-	nullptr,
-	_WindowsLookAndFeel$ActiveWindowsIcon$1_FieldInfo_,
-	_WindowsLookAndFeel$ActiveWindowsIcon$1_MethodInfo_,
-	nullptr,
-	&_WindowsLookAndFeel$ActiveWindowsIcon$1_EnclosingMethodInfo_,
-	_WindowsLookAndFeel$ActiveWindowsIcon$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$ActiveWindowsIcon$1($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$ActiveWindowsIcon$1));
-}
-
 void WindowsLookAndFeel$ActiveWindowsIcon$1::init$($WindowsLookAndFeel$ActiveWindowsIcon* this$1, $String* key, $WindowsLookAndFeel* val$this$0) {
 	$set(this, this$1, this$1);
 	$set(this, val$this$0, val$this$0);
@@ -82,7 +36,45 @@ WindowsLookAndFeel$ActiveWindowsIcon$1::WindowsLookAndFeel$ActiveWindowsIcon$1()
 }
 
 $Class* WindowsLookAndFeel$ActiveWindowsIcon$1::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$ActiveWindowsIcon$1, name, initialize, &_WindowsLookAndFeel$ActiveWindowsIcon$1_ClassInfo_, allocate$WindowsLookAndFeel$ActiveWindowsIcon$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$ActiveWindowsIcon$1, this$1)},
+		{"val$this$0", "Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsLookAndFeel$ActiveWindowsIcon$1, val$this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon;Ljava/lang/String;Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;)V", nullptr, 0, $method(WindowsLookAndFeel$ActiveWindowsIcon$1, init$, void, $WindowsLookAndFeel$ActiveWindowsIcon*, $String*, $WindowsLookAndFeel*)},
+		{"updateUI", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsLookAndFeel$ActiveWindowsIcon$1, updateUI, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon",
+		"<init>",
+		"(Lcom/sun/java/swing/plaf/windows/WindowsLookAndFeel;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "ActiveWindowsIcon", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon$1", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "TriggerDesktopProperty", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$ActiveWindowsIcon$1",
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$TriggerDesktopProperty",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$ActiveWindowsIcon$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$ActiveWindowsIcon$1);
+	});
 	return class$;
 }
 

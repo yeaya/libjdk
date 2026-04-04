@@ -1,5 +1,4 @@
 #include <sun/print/ProxyGraphics2D.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
 #include <java/awt/Font.h>
@@ -70,110 +69,6 @@ using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 namespace sun {
 	namespace print {
 
-$FieldInfo _ProxyGraphics2D_FieldInfo_[] = {
-	{"mGraphics", "Ljava/awt/Graphics2D;", nullptr, 0, $field(ProxyGraphics2D, mGraphics)},
-	{"mPrinterJob", "Ljava/awt/print/PrinterJob;", nullptr, 0, $field(ProxyGraphics2D, mPrinterJob)},
-	{}
-};
-
-$MethodInfo _ProxyGraphics2D_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;)V", nullptr, $PUBLIC, $method(ProxyGraphics2D, init$, void, $Graphics2D*, $PrinterJob*)},
-	{"addRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(ProxyGraphics2D, addRenderingHints, void, $Map*)},
-	{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"clip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, clip, void, $Shape*)},
-	{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, create, $Graphics*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, dispose, void)},
-	{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, draw, void, $Shape*)},
-	{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawGlyphVector", "(Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawGlyphVector, void, $GlyphVector*, float, float)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
-	{"drawImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, void, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
-	{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawPolygon, void, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawPolyline, void, $ints*, $ints*, int32_t)},
-	{"drawRenderableImage", "(Ljava/awt/image/renderable/RenderableImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawRenderableImage, void, $RenderableImage*, $AffineTransform*)},
-	{"drawRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawRenderedImage, void, $RenderedImage*, $AffineTransform*)},
-	{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawString, void, $String*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
-	{"drawString", "(Ljava/text/AttributedCharacterIterator;FF)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawString, void, $AttributedCharacterIterator*, float, float)},
-	{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawString, void, $String*, float, float)},
-	{"fill", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fill, void, $Shape*)},
-	{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillPolygon, void, $ints*, $ints*, int32_t)},
-	{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, finalize, void)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getBackground, $Color*)},
-	{"getBufferedImageCopy", "(Ljava/awt/Image;Ljava/awt/Color;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(ProxyGraphics2D, getBufferedImageCopy, $BufferedImage*, $Image*, $Color*)},
-	{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getClip, $Shape*)},
-	{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getClipBounds, $Rectangle*)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getColor, $Color*)},
-	{"getComposite", "()Ljava/awt/Composite;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getComposite, $Composite*)},
-	{"getDelegate", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getDelegate, $Graphics2D*)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getFontRenderContext, $FontRenderContext*)},
-	{"getPaint", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getPaint, $Paint*)},
-	{"getPrinterJob", "()Ljava/awt/print/PrinterJob;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getPrinterJob, $PrinterJob*)},
-	{"getRenderingHint", "(Ljava/awt/RenderingHints$Key;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getRenderingHint, $Object*, $RenderingHints$Key*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getRenderingHints, $RenderingHints*)},
-	{"getStroke", "()Ljava/awt/Stroke;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getStroke, $Stroke*)},
-	{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getTransform, $AffineTransform*)},
-	{"hit", "(Ljava/awt/Rectangle;Ljava/awt/Shape;Z)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, hit, bool, $Rectangle*, $Shape*, bool)},
-	{"needToCopyBgColorImage", "(Ljava/awt/Image;)Z", nullptr, $PRIVATE, $method(ProxyGraphics2D, needToCopyBgColorImage, bool, $Image*)},
-	{"rotate", "(D)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, rotate, void, double)},
-	{"rotate", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, rotate, void, double, double, double)},
-	{"scale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, scale, void, double, double)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setBackground, void, $Color*)},
-	{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setClip, void, int32_t, int32_t, int32_t, int32_t)},
-	{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setClip, void, $Shape*)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setColor, void, $Color*)},
-	{"setComposite", "(Ljava/awt/Composite;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setComposite, void, $Composite*)},
-	{"setDelegate", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setDelegate, void, $Graphics2D*)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setFont, void, $Font*)},
-	{"setPaint", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setPaint, void, $Paint*)},
-	{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setPaintMode, void)},
-	{"setRenderingHint", "(Ljava/awt/RenderingHints$Key;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setRenderingHint, void, $RenderingHints$Key*, Object$*)},
-	{"setRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(ProxyGraphics2D, setRenderingHints, void, $Map*)},
-	{"setStroke", "(Ljava/awt/Stroke;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setStroke, void, $Stroke*)},
-	{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setTransform, void, $AffineTransform*)},
-	{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setXORMode, void, $Color*)},
-	{"shear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, shear, void, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, transform, void, $AffineTransform*)},
-	{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, translate, void, int32_t, int32_t)},
-	{"translate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, translate, void, double, double)},
-	{}
-};
-
-$ClassInfo _ProxyGraphics2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.ProxyGraphics2D",
-	"java.awt.Graphics2D",
-	"java.awt.print.PrinterGraphics",
-	_ProxyGraphics2D_FieldInfo_,
-	_ProxyGraphics2D_MethodInfo_
-};
-
-$Object* allocate$ProxyGraphics2D($Class* clazz) {
-	return $of($alloc(ProxyGraphics2D));
-}
-
 $String* ProxyGraphics2D::toString() {
 	 return this->$Graphics2D::toString();
 }
@@ -209,11 +104,11 @@ $PrinterJob* ProxyGraphics2D::getPrinterJob() {
 }
 
 $GraphicsConfiguration* ProxyGraphics2D::getDeviceConfiguration() {
-	return $nc(($cast($RasterPrinterJob, this->mPrinterJob)))->getPrinterGraphicsConfig();
+	return $nc($cast($RasterPrinterJob, this->mPrinterJob))->getPrinterGraphicsConfig();
 }
 
 $Graphics* ProxyGraphics2D::create() {
-	return $new(ProxyGraphics2D, $cast($Graphics2D, $($nc(this->mGraphics)->create())), this->mPrinterJob);
+	return $new(ProxyGraphics2D, $$cast($Graphics2D, $nc(this->mGraphics)->create()), this->mPrinterJob);
 }
 
 void ProxyGraphics2D::translate(int32_t x, int32_t y) {
@@ -413,11 +308,11 @@ bool ProxyGraphics2D::drawImage($Image* img, int32_t dx1, int32_t dy1, int32_t d
 bool ProxyGraphics2D::needToCopyBgColorImage($Image* img) {
 	bool needToCopy = false;
 	$var($AffineTransform, transform, getTransform());
-	return ((int32_t)($nc(transform)->getType() & (uint32_t)($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM))) != 0;
+	return ($nc(transform)->getType() & ($AffineTransform::TYPE_GENERAL_ROTATION | $AffineTransform::TYPE_GENERAL_TRANSFORM)) != 0;
 }
 
 $BufferedImage* ProxyGraphics2D::getBufferedImageCopy($Image* img, $Color* bgcolor) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, imageCopy, nullptr);
 	int32_t width = $nc(img)->getWidth(nullptr);
 	int32_t height = img->getHeight(nullptr);
@@ -444,7 +339,7 @@ void ProxyGraphics2D::drawRenderedImage($RenderedImage* img, $AffineTransform* x
 }
 
 void ProxyGraphics2D::drawRenderableImage($RenderableImage* img, $AffineTransform* xform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (img == nullptr) {
 		return;
 	}
@@ -515,7 +410,7 @@ void ProxyGraphics2D::setRenderingHint($RenderingHints$Key* hintCategory, Object
 }
 
 $Object* ProxyGraphics2D::getRenderingHint($RenderingHints$Key* hintCategory) {
-	return $of($nc(this->mGraphics)->getRenderingHint(hintCategory));
+	return $nc(this->mGraphics)->getRenderingHint(hintCategory);
 }
 
 void ProxyGraphics2D::setRenderingHints($Map* hints) {
@@ -570,7 +465,106 @@ ProxyGraphics2D::ProxyGraphics2D() {
 }
 
 $Class* ProxyGraphics2D::load$($String* name, bool initialize) {
-	$loadClass(ProxyGraphics2D, name, initialize, &_ProxyGraphics2D_ClassInfo_, allocate$ProxyGraphics2D);
+	$FieldInfo fieldInfos$$[] = {
+		{"mGraphics", "Ljava/awt/Graphics2D;", nullptr, 0, $field(ProxyGraphics2D, mGraphics)},
+		{"mPrinterJob", "Ljava/awt/print/PrinterJob;", nullptr, 0, $field(ProxyGraphics2D, mPrinterJob)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Graphics2D;Ljava/awt/print/PrinterJob;)V", nullptr, $PUBLIC, $method(ProxyGraphics2D, init$, void, $Graphics2D*, $PrinterJob*)},
+		{"addRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(ProxyGraphics2D, addRenderingHints, void, $Map*)},
+		{"clearRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, clearRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"clip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, clip, void, $Shape*)},
+		{"clipRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, clipRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, copyArea, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"create", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, create, $Graphics*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, dispose, void)},
+		{"draw", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, draw, void, $Shape*)},
+		{"drawArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawGlyphVector", "(Ljava/awt/font/GlyphVector;FF)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawGlyphVector, void, $GlyphVector*, float, float)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;IIIIIIIILjava/awt/Color;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, $Color*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/Image;Ljava/awt/geom/AffineTransform;Ljava/awt/image/ImageObserver;)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, bool, $Image*, $AffineTransform*, $ImageObserver*)},
+		{"drawImage", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImageOp;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawImage, void, $BufferedImage*, $BufferedImageOp*, int32_t, int32_t)},
+		{"drawLine", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawLine, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawPolygon, void, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawPolyline, void, $ints*, $ints*, int32_t)},
+		{"drawRenderableImage", "(Ljava/awt/image/renderable/RenderableImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawRenderableImage, void, $RenderableImage*, $AffineTransform*)},
+		{"drawRenderedImage", "(Ljava/awt/image/RenderedImage;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawRenderedImage, void, $RenderedImage*, $AffineTransform*)},
+		{"drawRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawString", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawString, void, $String*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawString, void, $AttributedCharacterIterator*, int32_t, int32_t)},
+		{"drawString", "(Ljava/text/AttributedCharacterIterator;FF)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawString, void, $AttributedCharacterIterator*, float, float)},
+		{"drawString", "(Ljava/lang/String;FF)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, drawString, void, $String*, float, float)},
+		{"fill", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fill, void, $Shape*)},
+		{"fillArc", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillArc, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillOval, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "([I[II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillPolygon, void, $ints*, $ints*, int32_t)},
+		{"fillRect", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillRect, void, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(IIIIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, fillRoundRect, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"finalize", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, finalize, void)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getBackground, $Color*)},
+		{"getBufferedImageCopy", "(Ljava/awt/Image;Ljava/awt/Color;)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $method(ProxyGraphics2D, getBufferedImageCopy, $BufferedImage*, $Image*, $Color*)},
+		{"getClip", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getClip, $Shape*)},
+		{"getClipBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getClipBounds, $Rectangle*)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getColor, $Color*)},
+		{"getComposite", "()Ljava/awt/Composite;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getComposite, $Composite*)},
+		{"getDelegate", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getDelegate, $Graphics2D*)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getFontRenderContext", "()Ljava/awt/font/FontRenderContext;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getFontRenderContext, $FontRenderContext*)},
+		{"getPaint", "()Ljava/awt/Paint;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getPaint, $Paint*)},
+		{"getPrinterJob", "()Ljava/awt/print/PrinterJob;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getPrinterJob, $PrinterJob*)},
+		{"getRenderingHint", "(Ljava/awt/RenderingHints$Key;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getRenderingHint, $Object*, $RenderingHints$Key*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getRenderingHints, $RenderingHints*)},
+		{"getStroke", "()Ljava/awt/Stroke;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getStroke, $Stroke*)},
+		{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, getTransform, $AffineTransform*)},
+		{"hit", "(Ljava/awt/Rectangle;Ljava/awt/Shape;Z)Z", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, hit, bool, $Rectangle*, $Shape*, bool)},
+		{"needToCopyBgColorImage", "(Ljava/awt/Image;)Z", nullptr, $PRIVATE, $method(ProxyGraphics2D, needToCopyBgColorImage, bool, $Image*)},
+		{"rotate", "(D)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, rotate, void, double)},
+		{"rotate", "(DDD)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, rotate, void, double, double, double)},
+		{"scale", "(DD)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, scale, void, double, double)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setBackground, void, $Color*)},
+		{"setClip", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setClip, void, int32_t, int32_t, int32_t, int32_t)},
+		{"setClip", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setClip, void, $Shape*)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setColor, void, $Color*)},
+		{"setComposite", "(Ljava/awt/Composite;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setComposite, void, $Composite*)},
+		{"setDelegate", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setDelegate, void, $Graphics2D*)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setFont, void, $Font*)},
+		{"setPaint", "(Ljava/awt/Paint;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setPaint, void, $Paint*)},
+		{"setPaintMode", "()V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setPaintMode, void)},
+		{"setRenderingHint", "(Ljava/awt/RenderingHints$Key;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setRenderingHint, void, $RenderingHints$Key*, Object$*)},
+		{"setRenderingHints", "(Ljava/util/Map;)V", "(Ljava/util/Map<**>;)V", $PUBLIC, $virtualMethod(ProxyGraphics2D, setRenderingHints, void, $Map*)},
+		{"setStroke", "(Ljava/awt/Stroke;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setStroke, void, $Stroke*)},
+		{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setTransform, void, $AffineTransform*)},
+		{"setXORMode", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, setXORMode, void, $Color*)},
+		{"shear", "(DD)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, shear, void, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"transform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, transform, void, $AffineTransform*)},
+		{"translate", "(II)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, translate, void, int32_t, int32_t)},
+		{"translate", "(DD)V", nullptr, $PUBLIC, $virtualMethod(ProxyGraphics2D, translate, void, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.ProxyGraphics2D",
+		"java.awt.Graphics2D",
+		"java.awt.print.PrinterGraphics",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProxyGraphics2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProxyGraphics2D));
+	});
 	return class$;
 }
 

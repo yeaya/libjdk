@@ -27,7 +27,7 @@ public:
 	PrimitiveTypeDesc();
 	void init$(::javax::lang::model::type::TypeKind* typeKind);
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x53F9B40D34028D92;
+	static const int64_t serialVersionUID = (int64_t)0x53f9b40d34028d92;
 };
 
 				} // pubapi

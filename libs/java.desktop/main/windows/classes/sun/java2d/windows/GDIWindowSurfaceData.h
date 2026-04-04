@@ -72,6 +72,7 @@ class GDIWindowSurfaceData : public ::sun::java2d::SurfaceData {
 public:
 	GDIWindowSurfaceData();
 	using ::sun::java2d::SurfaceData::getSurfaceType;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::windows::WComponentPeer* peer, ::sun::java2d::loops::SurfaceType* sType);
 	virtual bool copyArea(::sun::java2d::SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h, int32_t dx, int32_t dy) override;
 	static ::sun::java2d::windows::GDIWindowSurfaceData* createData(::sun::awt::windows::WComponentPeer* peer);

@@ -30,10 +30,13 @@ public:
 	virtual $Object* getReferralInfo() {return nullptr;}
 	virtual void retryReferral() {}
 	virtual bool skipReferral() {return false;}
-	static const int64_t serialVersionUID = (int64_t)0xD80356D970425244;
+	static const int64_t serialVersionUID = (int64_t)0xd80356d970425244;
 	ReferralException(const ReferralException& e);
 	virtual void throw$() override;
-	inline ReferralException* operator ->() {
+	inline ReferralException* operator ->() const {
+		return (ReferralException*)throwing$;
+	}
+	inline operator ReferralException*() const {
 		return (ReferralException*)throwing$;
 	}
 };

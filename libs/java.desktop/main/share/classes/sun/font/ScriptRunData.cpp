@@ -1,5 +1,4 @@
 #include <sun/font/ScriptRunData.h>
-
 #include <jcpp.h>
 
 #undef CHAR_LIMIT
@@ -14,35 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace font {
 
-$FieldInfo _ScriptRunData_FieldInfo_[] = {
-	{"CHAR_START", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScriptRunData, CHAR_START)},
-	{"CHAR_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScriptRunData, CHAR_LIMIT)},
-	{"cache", "I", nullptr, $PRIVATE | $STATIC, $staticField(ScriptRunData, cache)},
-	{"data", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScriptRunData, data)},
-	{"dataPower", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScriptRunData, dataPower)},
-	{"dataExtra", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScriptRunData, dataExtra)},
-	{}
-};
-
-$MethodInfo _ScriptRunData_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ScriptRunData, init$, void)},
-	{"getScript", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ScriptRunData, getScript, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ScriptRunData_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.ScriptRunData",
-	"java.lang.Object",
-	nullptr,
-	_ScriptRunData_FieldInfo_,
-	_ScriptRunData_MethodInfo_
-};
-
-$Object* allocate$ScriptRunData($Class* clazz) {
-	return $of($alloc(ScriptRunData));
-}
-
 int32_t ScriptRunData::cache = 0;
 $ints* ScriptRunData::data = nullptr;
 int32_t ScriptRunData::dataExtra = 0;
@@ -52,28 +22,28 @@ void ScriptRunData::init$() {
 
 int32_t ScriptRunData::getScript(int32_t cp) {
 	$init(ScriptRunData);
-	if (cp >= $nc(ScriptRunData::data)->get(ScriptRunData::cache) && cp < $nc(ScriptRunData::data)->get(ScriptRunData::cache + 2)) {
-		return $nc(ScriptRunData::data)->get(ScriptRunData::cache + 1);
+	if (cp >= ScriptRunData::data->get(ScriptRunData::cache) && cp < ScriptRunData::data->get(ScriptRunData::cache + 2)) {
+		return ScriptRunData::data->get(ScriptRunData::cache + 1);
 	}
 	if ((cp >= ScriptRunData::CHAR_START) && (cp < ScriptRunData::CHAR_LIMIT)) {
 		int32_t probe = ScriptRunData::dataPower;
 		int32_t index = 0;
-		if (cp >= $nc(ScriptRunData::data)->get(ScriptRunData::dataExtra)) {
+		if (cp >= ScriptRunData::data->get(ScriptRunData::dataExtra)) {
 			index = ScriptRunData::dataExtra;
 		}
 		while (probe > 2) {
 			probe >>= 1;
-			if (cp >= $nc(ScriptRunData::data)->get(index + probe)) {
+			if (cp >= ScriptRunData::data->get(index + probe)) {
 				index += probe;
 			}
 		}
 		ScriptRunData::cache = index;
-		return $nc(ScriptRunData::data)->get(index + 1);
+		return ScriptRunData::data->get(index + 1);
 	}
 	$throwNew($IllegalArgumentException, $($Integer::toString(cp)));
 }
 
-void clinit$ScriptRunData($Class* class$) {
+void ScriptRunData::clinit$($Class* clazz) {
 	ScriptRunData::cache = 0;
 	$assignStatic(ScriptRunData::data, $new($ints, {
 		0,
@@ -1328,161 +1298,161 @@ void clinit$ScriptRunData($Class* class$) {
 		0,
 		19968,
 		17,
-		0x00009FA6,
+		0x00009fa6,
 		0,
-		0x0000A000,
+		0x0000a000,
 		41,
-		0x0000A48D,
+		0x0000a48d,
 		0,
-		0x0000A490,
+		0x0000a490,
 		41,
-		0x0000A4A2,
+		0x0000a4a2,
 		0,
-		0x0000A4A4,
+		0x0000a4a4,
 		41,
-		0x0000A4B4,
+		0x0000a4b4,
 		0,
-		0x0000A4B5,
+		0x0000a4b5,
 		41,
-		0x0000A4C1,
+		0x0000a4c1,
 		0,
-		0x0000A4C2,
+		0x0000a4c2,
 		41,
-		0x0000A4C5,
+		0x0000a4c5,
 		0,
-		0x0000A4C6,
+		0x0000a4c6,
 		41,
-		0x0000A4C7,
+		0x0000a4c7,
 		0,
-		0x0000AC00,
+		0x0000ac00,
 		18,
-		0x0000D7A4,
+		0x0000d7a4,
 		0,
-		0x0000F900,
+		0x0000f900,
 		17,
-		0x0000FA2E,
+		0x0000fa2e,
 		0,
-		0x0000FA30,
+		0x0000fa30,
 		17,
-		0x0000FA6B,
+		0x0000fa6b,
 		0,
-		0x0000FB00,
+		0x0000fb00,
 		25,
-		0x0000FB07,
+		0x0000fb07,
 		0,
-		0x0000FB13,
+		0x0000fb13,
 		3,
-		0x0000FB18,
+		0x0000fb18,
 		0,
-		0x0000FB1D,
+		0x0000fb1d,
 		19,
-		0x0000FB1E,
+		0x0000fb1e,
 		1,
-		0x0000FB1F,
+		0x0000fb1f,
 		19,
-		0x0000FB29,
+		0x0000fb29,
 		0,
-		0x0000FB2A,
+		0x0000fb2a,
 		19,
-		0x0000FB37,
+		0x0000fb37,
 		0,
-		0x0000FB38,
+		0x0000fb38,
 		19,
-		0x0000FB3D,
+		0x0000fb3d,
 		0,
-		0x0000FB3E,
+		0x0000fb3e,
 		19,
-		0x0000FB3F,
+		0x0000fb3f,
 		0,
-		0x0000FB40,
+		0x0000fb40,
 		19,
-		0x0000FB42,
+		0x0000fb42,
 		0,
-		0x0000FB43,
+		0x0000fb43,
 		19,
-		0x0000FB45,
+		0x0000fb45,
 		0,
-		0x0000FB46,
+		0x0000fb46,
 		19,
-		0x0000FB50,
+		0x0000fb50,
 		2,
-		0x0000FBB2,
+		0x0000fbb2,
 		0,
-		0x0000FBD3,
+		0x0000fbd3,
 		2,
-		0x0000FD3E,
+		0x0000fd3e,
 		0,
-		0x0000FD50,
+		0x0000fd50,
 		2,
-		0x0000FD90,
+		0x0000fd90,
 		0,
-		0x0000FD92,
+		0x0000fd92,
 		2,
-		0x0000FDC8,
+		0x0000fdc8,
 		0,
-		0x0000FDF0,
+		0x0000fdf0,
 		2,
-		0x0000FDFC,
+		0x0000fdfc,
 		0,
-		0x0000FE00,
+		0x0000fe00,
 		1,
-		0x0000FE10,
+		0x0000fe10,
 		0,
-		0x0000FE20,
+		0x0000fe20,
 		1,
-		0x0000FE24,
+		0x0000fe24,
 		0,
-		0x0000FE70,
+		0x0000fe70,
 		2,
-		0x0000FE75,
+		0x0000fe75,
 		0,
-		0x0000FE76,
+		0x0000fe76,
 		2,
-		0x0000FEFD,
+		0x0000fefd,
 		0,
-		0x0000FF21,
+		0x0000ff21,
 		25,
-		0x0000FF3B,
+		0x0000ff3b,
 		0,
-		0x0000FF41,
+		0x0000ff41,
 		25,
-		0x0000FF5B,
+		0x0000ff5b,
 		0,
-		0x0000FF66,
+		0x0000ff66,
 		22,
-		0x0000FF70,
+		0x0000ff70,
 		0,
-		0x0000FF71,
+		0x0000ff71,
 		22,
-		0x0000FF9E,
+		0x0000ff9e,
 		0,
-		0x0000FFA0,
+		0x0000ffa0,
 		18,
-		0x0000FFBF,
+		0x0000ffbf,
 		0,
-		0x0000FFC2,
+		0x0000ffc2,
 		18,
-		0x0000FFC8,
+		0x0000ffc8,
 		0,
-		0x0000FFCA,
+		0x0000ffca,
 		18,
-		0x0000FFD0,
+		0x0000ffd0,
 		0,
-		0x0000FFD2,
+		0x0000ffd2,
 		18,
-		0x0000FFD8,
+		0x0000ffd8,
 		0,
-		0x0000FFDA,
+		0x0000ffda,
 		18,
-		0x0000FFDD,
+		0x0000ffdd,
 		0,
 		0x00010300,
 		30,
-		0x0001031F,
+		0x0001031f,
 		0,
 		0x00010330,
 		13,
-		0x0001034B,
+		0x0001034b,
 		0,
 		0x00010400,
 		9,
@@ -1490,43 +1460,67 @@ void clinit$ScriptRunData($Class* class$) {
 		0,
 		0x00010428,
 		9,
-		0x0001044E,
+		0x0001044e,
 		0,
-		0x0001D167,
+		0x0001d167,
 		1,
-		0x0001D16A,
+		0x0001d16a,
 		0,
-		0x0001D17B,
+		0x0001d17b,
 		1,
-		0x0001D183,
+		0x0001d183,
 		0,
-		0x0001D185,
+		0x0001d185,
 		1,
-		0x0001D18C,
+		0x0001d18c,
 		0,
-		0x0001D1AA,
+		0x0001d1aa,
 		1,
-		0x0001D1AE,
+		0x0001d1ae,
 		0,
 		0x00020000,
 		17,
-		0x0002A6D7,
+		0x0002a6d7,
 		0,
-		0x0002F800,
+		0x0002f800,
 		17,
-		0x0002FA1E,
+		0x0002fa1e,
 		0,
 		0x00110000,
 		-1
 	}));
-	ScriptRunData::dataExtra = $nc(ScriptRunData::data)->length - ScriptRunData::dataPower;
+	ScriptRunData::dataExtra = ScriptRunData::data->length - ScriptRunData::dataPower;
 }
 
 ScriptRunData::ScriptRunData() {
 }
 
 $Class* ScriptRunData::load$($String* name, bool initialize) {
-	$loadClass(ScriptRunData, name, initialize, &_ScriptRunData_ClassInfo_, clinit$ScriptRunData, allocate$ScriptRunData);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHAR_START", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScriptRunData, CHAR_START)},
+		{"CHAR_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScriptRunData, CHAR_LIMIT)},
+		{"cache", "I", nullptr, $PRIVATE | $STATIC, $staticField(ScriptRunData, cache)},
+		{"data", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScriptRunData, data)},
+		{"dataPower", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ScriptRunData, dataPower)},
+		{"dataExtra", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScriptRunData, dataExtra)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ScriptRunData, init$, void)},
+		{"getScript", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(ScriptRunData, getScript, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.ScriptRunData",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScriptRunData, name, initialize, &classInfo$$, ScriptRunData::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScriptRunData);
+	});
 	return class$;
 }
 

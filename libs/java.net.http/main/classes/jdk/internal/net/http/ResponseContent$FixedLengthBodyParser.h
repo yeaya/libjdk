@@ -53,6 +53,7 @@ class $export ResponseContent$FixedLengthBodyParser : public ::jdk::internal::ne
 	$class(ResponseContent$FixedLengthBodyParser, 0, ::jdk::internal::net::http::ResponseContent$BodyParser)
 public:
 	ResponseContent$FixedLengthBodyParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::ResponseContent* this$0, int64_t contentLength, ::java::util::function::Consumer* onComplete);
 	virtual void accept(::java::nio::ByteBuffer* b);
 	virtual void accept(Object$* b) override;

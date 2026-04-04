@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/Logger.h>
-
 #include <java/lang/System$Logger$Level.h>
 #include <java/util/function/Supplier.h>
 #include <jcpp.h>
@@ -17,38 +16,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$MethodInfo _Logger_MethodInfo_[] = {
-	{"log", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $String*)},
-	{"log", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Supplier*)},
-	{"log", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, Object$*)},
-	{"log", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $String*, $Throwable*)},
-	{"log", "(Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/Throwable;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Supplier*, $Throwable*)},
-	{"log", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, log, void, $String*, $ObjectArray*)},
-	{"on", "()Z", nullptr, $PUBLIC, $virtualMethod(Logger, on, bool)},
-	{}
-};
-
-$InnerClassInfo _Logger_InnerClassesInfo_[] = {
-	{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Logger_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"jdk.internal.net.http.common.Logger",
-	nullptr,
-	"java.lang.System$Logger",
-	nullptr,
-	_Logger_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Logger_InnerClassesInfo_
-};
-
-$Object* allocate$Logger($Class* clazz) {
-	return $of($alloc(Logger));
-}
 
 bool Logger::on() {
 	$init($System$Logger$Level);
@@ -86,7 +53,34 @@ void Logger::log($String* format, $ObjectArray* params) {
 }
 
 $Class* Logger::load$($String* name, bool initialize) {
-	$loadClass(Logger, name, initialize, &_Logger_ClassInfo_, allocate$Logger);
+	$MethodInfo methodInfos$$[] = {
+		{"log", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $String*)},
+		{"log", "(Ljava/util/function/Supplier;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Supplier*)},
+		{"log", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, Object$*)},
+		{"log", "(Ljava/lang/String;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(Logger, log, void, $String*, $Throwable*)},
+		{"log", "(Ljava/util/function/Supplier;Ljava/lang/Throwable;)V", "(Ljava/util/function/Supplier<Ljava/lang/String;>;Ljava/lang/Throwable;)V", $PUBLIC, $virtualMethod(Logger, log, void, $Supplier*, $Throwable*)},
+		{"log", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(Logger, log, void, $String*, $ObjectArray*)},
+		{"on", "()Z", nullptr, $PUBLIC, $virtualMethod(Logger, on, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.lang.System$Logger", "java.lang.System", "Logger", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"jdk.internal.net.http.common.Logger",
+		nullptr,
+		"java.lang.System$Logger",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(Logger, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Logger);
+	});
 	return class$;
 }
 

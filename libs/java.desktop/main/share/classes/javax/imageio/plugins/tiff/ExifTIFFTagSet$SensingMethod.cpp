@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$SensingMethod.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,38 +15,8 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$SensingMethod_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SensingMethod, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$SensingMethod_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SensingMethod", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SensingMethod", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$SensingMethod_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$SensingMethod",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SensingMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SensingMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$SensingMethod($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$SensingMethod));
-}
-
 void ExifTIFFTagSet$SensingMethod::init$() {
-	$TIFFTag::init$("SensingMethod"_s, 0x0000A217, $sl(1, $TIFFTag::TIFF_SHORT), 1);
+	$TIFFTag::init$("SensingMethod"_s, 0x0000a217, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(1, "Not Defined"_s);
 	addValueName(2, "One-chip color area sensor"_s);
 	addValueName(3, "Two-chip color area sensor"_s);
@@ -61,7 +30,32 @@ ExifTIFFTagSet$SensingMethod::ExifTIFFTagSet$SensingMethod() {
 }
 
 $Class* ExifTIFFTagSet$SensingMethod::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$SensingMethod, name, initialize, &_ExifTIFFTagSet$SensingMethod_ClassInfo_, allocate$ExifTIFFTagSet$SensingMethod);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SensingMethod, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SensingMethod", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SensingMethod", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$SensingMethod",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$SensingMethod, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$SensingMethod);
+	});
 	return class$;
 }
 

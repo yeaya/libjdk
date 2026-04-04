@@ -23,13 +23,16 @@ class XSException : public ::java::lang::RuntimeException {
 public:
 	XSException();
 	void init$(int16_t code, $String* message);
-	static const int64_t serialVersionUID = (int64_t)0x2B2FAA45E338CC2E;
+	static const int64_t serialVersionUID = (int64_t)0x2b2faa45e338cc2e;
 	int16_t code = 0;
 	static const int16_t NOT_SUPPORTED_ERR = 1;
 	static const int16_t INDEX_SIZE_ERR = 2;
 	XSException(const XSException& e);
 	virtual void throw$() override;
-	inline XSException* operator ->() {
+	inline XSException* operator ->() const {
+		return (XSException*)throwing$;
+	}
+	inline operator XSException*() const {
 		return (XSException*)throwing$;
 	}
 };

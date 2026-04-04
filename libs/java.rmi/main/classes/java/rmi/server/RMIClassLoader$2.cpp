@@ -1,5 +1,4 @@
 #include <java/rmi/server/RMIClassLoader$2.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/rmi/server/RMIClassLoader.h>
 #include <java/rmi/server/RMIClassLoaderSpi.h>
@@ -17,46 +16,6 @@ using $LoaderHandler = ::sun::rmi::server::LoaderHandler;
 namespace java {
 	namespace rmi {
 		namespace server {
-
-$MethodInfo _RMIClassLoader$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RMIClassLoader$2, init$, void)},
-	{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(RMIClassLoader$2, getClassAnnotation, $String*, $Class*)},
-	{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RMIClassLoader$2, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException"},
-	{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RMIClassLoader$2, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RMIClassLoader$2, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$EnclosingMethodInfo _RMIClassLoader$2_EnclosingMethodInfo_ = {
-	"java.rmi.server.RMIClassLoader",
-	"newDefaultProviderInstance",
-	"()Ljava/rmi/server/RMIClassLoaderSpi;"
-};
-
-$InnerClassInfo _RMIClassLoader$2_InnerClassesInfo_[] = {
-	{"java.rmi.server.RMIClassLoader$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RMIClassLoader$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.rmi.server.RMIClassLoader$2",
-	"java.rmi.server.RMIClassLoaderSpi",
-	nullptr,
-	nullptr,
-	_RMIClassLoader$2_MethodInfo_,
-	nullptr,
-	&_RMIClassLoader$2_EnclosingMethodInfo_,
-	_RMIClassLoader$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.rmi.server.RMIClassLoader"
-};
-
-$Object* allocate$RMIClassLoader$2($Class* clazz) {
-	return $of($alloc(RMIClassLoader$2));
-}
 
 void RMIClassLoader$2::init$() {
 	$RMIClassLoaderSpi::init$();
@@ -82,7 +41,41 @@ RMIClassLoader$2::RMIClassLoader$2() {
 }
 
 $Class* RMIClassLoader$2::load$($String* name, bool initialize) {
-	$loadClass(RMIClassLoader$2, name, initialize, &_RMIClassLoader$2_ClassInfo_, allocate$RMIClassLoader$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RMIClassLoader$2, init$, void)},
+		{"getClassAnnotation", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC, $virtualMethod(RMIClassLoader$2, getClassAnnotation, $String*, $Class*)},
+		{"getClassLoader", "(Ljava/lang/String;)Ljava/lang/ClassLoader;", nullptr, $PUBLIC, $virtualMethod(RMIClassLoader$2, getClassLoader, $ClassLoader*, $String*), "java.net.MalformedURLException"},
+		{"loadClass", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RMIClassLoader$2, loadClass, $Class*, $String*, $String*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+		{"loadProxyClass", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RMIClassLoader$2, loadProxyClass, $Class*, $String*, $StringArray*, $ClassLoader*), "java.net.MalformedURLException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.rmi.server.RMIClassLoader",
+		"newDefaultProviderInstance",
+		"()Ljava/rmi/server/RMIClassLoaderSpi;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.rmi.server.RMIClassLoader$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.rmi.server.RMIClassLoader$2",
+		"java.rmi.server.RMIClassLoaderSpi",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.rmi.server.RMIClassLoader"
+	};
+	$loadClass(RMIClassLoader$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIClassLoader$2);
+	});
 	return class$;
 }
 

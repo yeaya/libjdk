@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthToolTipUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolTip.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -23,7 +21,6 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <javax/swing/text/View.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -34,16 +31,13 @@
 #undef X_AXIS
 #undef Y_AXIS
 
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -55,11 +49,7 @@ using $BasicToolTipUI = ::javax::swing::plaf::basic::BasicToolTipUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
-using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
-using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 using $View = ::javax::swing::text::View;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
@@ -67,49 +57,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthToolTipUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthToolTipUI, style)},
-	{}
-};
-
-$MethodInfo _SynthToolTipUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthToolTipUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthToolTipUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthToolTipUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthToolTipUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, installDefaults, void, $JComponent*)},
-	{"installListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, installListeners, void, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, uninstallDefaults, void, $JComponent*)},
-	{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, uninstallListeners, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthToolTipUI, updateStyle, void, $JComponent*)},
-	{}
-};
-
-$ClassInfo _SynthToolTipUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthToolTipUI",
-	"javax.swing.plaf.basic.BasicToolTipUI",
-	"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
-	_SynthToolTipUI_FieldInfo_,
-	_SynthToolTipUI_MethodInfo_
-};
-
-$Object* allocate$SynthToolTipUI($Class* clazz) {
-	return $of($alloc(SynthToolTipUI));
-}
 
 int32_t SynthToolTipUI::hashCode() {
 	 return this->$BasicToolTipUI::hashCode();
@@ -172,7 +119,7 @@ $SynthContext* SynthToolTipUI::getContext($JComponent* c, int32_t state) {
 }
 
 int32_t SynthToolTipUI::getComponentState($JComponent* c) {
-	$var($JComponent, comp, $nc(($cast($JToolTip, c)))->getComponent());
+	$var($JComponent, comp, $nc($cast($JToolTip, c))->getComponent());
 	if (comp != nullptr && !comp->isEnabled()) {
 		return $SynthConstants::DISABLED;
 	}
@@ -180,18 +127,16 @@ int32_t SynthToolTipUI::getComponentState($JComponent* c) {
 }
 
 void SynthToolTipUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintToolTipBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintToolTipBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
 void SynthToolTipUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintToolTipBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintToolTipBorder(context, g, x, y, w, h);
 }
 
 void SynthToolTipUI::paint($Graphics* g, $JComponent* c) {
@@ -200,7 +145,7 @@ void SynthToolTipUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void SynthToolTipUI::paint($SynthContext* context, $Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JToolTip, tip, $cast($JToolTip, $nc(context)->getComponent()));
 	$var($Insets, insets, $nc(tip)->getInsets());
 	$init($BasicHTML);
@@ -213,27 +158,27 @@ void SynthToolTipUI::paint($SynthContext* context, $Graphics* g) {
 		v->paint(g, paintTextR);
 	} else {
 		$init($ColorType);
-		$nc(g)->setColor($($nc($(context->getStyle()))->getColor(context, $ColorType::TEXT_FOREGROUND)));
+		$nc(g)->setColor($($$nc(context->getStyle())->getColor(context, $ColorType::TEXT_FOREGROUND)));
 		g->setFont($($nc(this->style)->getFont(context)));
-		$nc($($nc($(context->getStyle()))->getGraphicsUtils(context)))->paintText(context, g, $(tip->getTipText()), $nc(insets)->left, insets->top, -1);
+		$$nc($$nc(context->getStyle())->getGraphicsUtils(context))->paintText(context, g, $(tip->getTipText()), $nc(insets)->left, $nc(insets)->top, -1);
 	}
 }
 
 $Dimension* SynthToolTipUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$var($Insets, insets, $nc(c)->getInsets());
-	$var($Dimension, prefSize, $new($Dimension, $nc(insets)->left + insets->right, insets->top + insets->bottom));
-	$var($String, text, $nc(($cast($JToolTip, c)))->getTipText());
+	$var($Dimension, prefSize, $new($Dimension, $nc(insets)->left + $nc(insets)->right, $nc(insets)->top + $nc(insets)->bottom));
+	$var($String, text, $cast($JToolTip, c)->getTipText());
 	if (text != nullptr) {
 		$var($View, v, (c != nullptr) ? $cast($View, c->getClientProperty("html"_s)) : ($View*)nullptr);
 		if (v != nullptr) {
 			prefSize->width += $cast(int32_t, v->getPreferredSpan($View::X_AXIS));
 			prefSize->height += $cast(int32_t, v->getPreferredSpan($View::Y_AXIS));
 		} else {
-			$var($Font, font, $nc($($nc(context)->getStyle()))->getFont(context));
+			$var($Font, font, $$nc($nc(context)->getStyle())->getFont(context));
 			$var($FontMetrics, fm, c->getFontMetrics(font));
-			prefSize->width += $nc($($nc($(context->getStyle()))->getGraphicsUtils(context)))->computeStringWidth(context, font, fm, text);
+			prefSize->width += $$nc($$nc(context->getStyle())->getGraphicsUtils(context))->computeStringWidth(context, font, fm, text);
 			prefSize->height += $nc(fm)->getHeight();
 		}
 	}
@@ -241,9 +186,9 @@ $Dimension* SynthToolTipUI::getPreferredSize($JComponent* c) {
 }
 
 void SynthToolTipUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($SynthLookAndFeel::shouldUpdateStyle(e)) {
-		updateStyle($cast($JToolTip, $($nc(e)->getSource())));
+		updateStyle($$cast($JToolTip, $nc(e)->getSource()));
 	}
 	$var($String, name, $nc(e)->getPropertyName());
 	bool var$2 = $nc(name)->equals("tiptext"_s);
@@ -260,7 +205,45 @@ SynthToolTipUI::SynthToolTipUI() {
 }
 
 $Class* SynthToolTipUI::load$($String* name, bool initialize) {
-	$loadClass(SynthToolTipUI, name, initialize, &_SynthToolTipUI_ClassInfo_, allocate$SynthToolTipUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthToolTipUI, style)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthToolTipUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthToolTipUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthToolTipUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthToolTipUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, installDefaults, void, $JComponent*)},
+		{"installListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, installListeners, void, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallDefaults", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, uninstallDefaults, void, $JComponent*)},
+		{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(SynthToolTipUI, uninstallListeners, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthToolTipUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthToolTipUI, updateStyle, void, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthToolTipUI",
+		"javax.swing.plaf.basic.BasicToolTipUI",
+		"java.beans.PropertyChangeListener,javax.swing.plaf.synth.SynthUI",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SynthToolTipUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthToolTipUI));
+	});
 	return class$;
 }
 

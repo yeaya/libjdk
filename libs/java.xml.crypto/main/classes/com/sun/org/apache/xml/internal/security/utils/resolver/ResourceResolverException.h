@@ -42,7 +42,10 @@ public:
 	$String* baseURI = nullptr;
 	ResourceResolverException(const ResourceResolverException& e);
 	virtual void throw$() override;
-	inline ResourceResolverException* operator ->() {
+	inline ResourceResolverException* operator ->() const {
+		return (ResourceResolverException*)throwing$;
+	}
+	inline operator ResourceResolverException*() const {
 		return (ResourceResolverException*)throwing$;
 	}
 };

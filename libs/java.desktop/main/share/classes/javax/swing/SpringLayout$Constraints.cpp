@@ -1,5 +1,4 @@
 #include <javax/swing/SpringLayout$Constraints.h>
-
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -19,7 +18,6 @@
 
 using $SpringArray = $Array<::javax::swing::Spring>;
 using $Component = ::java::awt::Component;
-using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
 using $Dimension = ::java::awt::Dimension;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -37,87 +35,6 @@ using $SpringLayout$Constraints$2 = ::javax::swing::SpringLayout$Constraints$2;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _SpringLayout$Constraints_FieldInfo_[] = {
-	{"x", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, x)},
-	{"y", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, y)},
-	{"width", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, width)},
-	{"height", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, height)},
-	{"east", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, east)},
-	{"south", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, south)},
-	{"horizontalCenter", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, horizontalCenter)},
-	{"verticalCenter", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, verticalCenter)},
-	{"baseline", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, baseline)},
-	{"horizontalHistory", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SpringLayout$Constraints, horizontalHistory)},
-	{"verticalHistory", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SpringLayout$Constraints, verticalHistory)},
-	{"c", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, c)},
-	{}
-};
-
-$MethodInfo _SpringLayout$Constraints_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpringLayout$Constraints, init$, void)},
-	{"<init>", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(SpringLayout$Constraints, init$, void, $Spring*, $Spring*)},
-	{"<init>", "(Ljavax/swing/Spring;Ljavax/swing/Spring;Ljavax/swing/Spring;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(SpringLayout$Constraints, init$, void, $Spring*, $Spring*, $Spring*, $Spring*)},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(SpringLayout$Constraints, init$, void, $Component*)},
-	{"defined", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z", "(Ljava/util/List<*>;Ljava/lang/String;Ljava/lang/String;)Z", $PRIVATE, $method(SpringLayout$Constraints, defined, bool, $List*, $String*, $String*)},
-	{"difference", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, difference, $Spring*, $Spring*, $Spring*)},
-	{"getBaseline", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getBaseline, $Spring*)},
-	{"getBaselineFromHeight", "(I)I", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getBaselineFromHeight, int32_t, int32_t)},
-	{"getConstraint", "(Ljava/lang/String;)Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getConstraint, $Spring*, $String*)},
-	{"getEast", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getEast, $Spring*)},
-	{"getHeight", "()Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getHeight, $Spring*)},
-	{"getHeightFromBaseLine", "(I)I", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getHeightFromBaseLine, int32_t, int32_t)},
-	{"getHorizontalCenter", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getHorizontalCenter, $Spring*)},
-	{"getSouth", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getSouth, $Spring*)},
-	{"getVerticalCenter", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getVerticalCenter, $Spring*)},
-	{"getWidth", "()Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getWidth, $Spring*)},
-	{"getX", "()Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getX, $Spring*)},
-	{"getY", "()Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getY, $Spring*)},
-	{"heightToRelativeBaseline", "(Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, heightToRelativeBaseline, $Spring*, $Spring*)},
-	{"pushConstraint", "(Ljava/lang/String;Ljavax/swing/Spring;Z)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, pushConstraint, void, $String*, $Spring*, bool)},
-	{"relativeBaselineToHeight", "(Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, relativeBaselineToHeight, $Spring*, $Spring*)},
-	{"reset", "()V", nullptr, 0, $virtualMethod(SpringLayout$Constraints, reset, void)},
-	{"scale", "(Ljavax/swing/Spring;F)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, scale, $Spring*, $Spring*, float)},
-	{"setBaseline", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setBaseline, void, $Spring*)},
-	{"setConstraint", "(Ljava/lang/String;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setConstraint, void, $String*, $Spring*)},
-	{"setEast", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setEast, void, $Spring*)},
-	{"setHeight", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setHeight, void, $Spring*)},
-	{"setHorizontalCenter", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setHorizontalCenter, void, $Spring*)},
-	{"setSouth", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setSouth, void, $Spring*)},
-	{"setVerticalCenter", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setVerticalCenter, void, $Spring*)},
-	{"setWidth", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setWidth, void, $Spring*)},
-	{"setX", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setX, void, $Spring*)},
-	{"setY", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setY, void, $Spring*)},
-	{"sum", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, sum, $Spring*, $Spring*, $Spring*)},
-	{}
-};
-
-$InnerClassInfo _SpringLayout$Constraints_InnerClassesInfo_[] = {
-	{"javax.swing.SpringLayout$Constraints", "javax.swing.SpringLayout", "Constraints", $PUBLIC | $STATIC},
-	{"javax.swing.SpringLayout$Constraints$2", nullptr, nullptr, 0},
-	{"javax.swing.SpringLayout$Constraints$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SpringLayout$Constraints_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.SpringLayout$Constraints",
-	"java.lang.Object",
-	nullptr,
-	_SpringLayout$Constraints_FieldInfo_,
-	_SpringLayout$Constraints_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SpringLayout$Constraints_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.SpringLayout"
-};
-
-$Object* allocate$SpringLayout$Constraints($Class* clazz) {
-	return $of($alloc(SpringLayout$Constraints));
-}
 
 void SpringLayout$Constraints::init$() {
 	$set(this, horizontalHistory, $new($ArrayList, 2));
@@ -141,43 +58,39 @@ void SpringLayout$Constraints::init$($Spring* x, $Spring* y, $Spring* width, $Sp
 }
 
 void SpringLayout$Constraints::init$($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, horizontalHistory, $new($ArrayList, 2));
 	$set(this, verticalHistory, $new($ArrayList, 2));
 	$set(this, c, c);
 	setX($($Spring::constant($nc(c)->getX())));
-	setY($($Spring::constant($nc(c)->getY())));
+	setY($($Spring::constant(c->getY())));
 	setWidth($($Spring::width(c)));
 	setHeight($($Spring::height(c)));
 }
 
 void SpringLayout$Constraints::pushConstraint($String* name, $Spring* value, bool horizontal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool valid = true;
 	$var($List, history, horizontal ? this->horizontalHistory : this->verticalHistory);
 	if ($nc(history)->contains(name)) {
-		history->remove($of(name));
+		history->remove(name);
 		valid = false;
 	} else if (history->size() == 2 && value != nullptr) {
 		history->remove(0);
 		valid = false;
 	}
 	if (value != nullptr) {
-		$nc(history)->add(name);
+		history->add(name);
 	}
 	if (!valid) {
 		$init($SpringLayout);
 		$var($StringArray, all, horizontal ? $SpringLayout::ALL_HORIZONTAL : $SpringLayout::ALL_VERTICAL);
 		{
 			$var($StringArray, arr$, all);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, s, arr$->get(i$));
-				{
-					if (!$nc(history)->contains(s)) {
-						setConstraint(s, nullptr);
-					}
+				if (!history->contains(s)) {
+					setConstraint(s, nullptr);
 				}
 			}
 		}
@@ -197,7 +110,7 @@ $Spring* SpringLayout$Constraints::scale($Spring* s, float factor) {
 }
 
 int32_t SpringLayout$Constraints::getBaselineFromHeight(int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (height < 0) {
 		return -$nc(this->c)->getBaseline($nc($($nc(this->c)->getPreferredSize()))->width, -height);
 	}
@@ -205,7 +118,7 @@ int32_t SpringLayout$Constraints::getBaselineFromHeight(int32_t height) {
 }
 
 int32_t SpringLayout$Constraints::getHeightFromBaseLine(int32_t baseline) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, prefSize, $nc(this->c)->getPreferredSize());
 	int32_t prefHeight = $nc(prefSize)->height;
 	int32_t prefBaseline = $nc(this->c)->getBaseline(prefSize->width, prefHeight);
@@ -213,19 +126,14 @@ int32_t SpringLayout$Constraints::getHeightFromBaseLine(int32_t baseline) {
 		return prefHeight;
 	}
 	$init($SpringLayout$1);
-	switch ($nc($SpringLayout$1::$SwitchMap$java$awt$Component$BaselineResizeBehavior)->get($nc(($($nc(this->c)->getBaselineResizeBehavior())))->ordinal())) {
+	switch ($nc($SpringLayout$1::$SwitchMap$java$awt$Component$BaselineResizeBehavior)->get(($$nc($nc(this->c)->getBaselineResizeBehavior()))->ordinal())) {
 	case 1:
-		{
-			return prefHeight + (baseline - prefBaseline);
-		}
+		return prefHeight + (baseline - prefBaseline);
 	case 2:
-		{
-			return prefHeight + 2 * (baseline - prefBaseline);
-		}
+		return prefHeight + 2 * (baseline - prefBaseline);
 	case 3:
-		{}
 	default:
-		{}
+		break;
 	}
 	return $Integer::MIN_VALUE;
 }
@@ -249,7 +157,7 @@ void SpringLayout$Constraints::setX($Spring* x) {
 }
 
 $Spring* SpringLayout$Constraints::getX() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->x == nullptr) {
 		if (defined(this->horizontalHistory, "East"_s, "Width"_s)) {
 			$set(this, x, difference(this->east, this->width));
@@ -268,7 +176,7 @@ void SpringLayout$Constraints::setY($Spring* y) {
 }
 
 $Spring* SpringLayout$Constraints::getY() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->y == nullptr) {
 		if (defined(this->verticalHistory, "South"_s, "Height"_s)) {
 			$set(this, y, difference(this->south, this->height));
@@ -291,11 +199,11 @@ void SpringLayout$Constraints::setWidth($Spring* width) {
 }
 
 $Spring* SpringLayout$Constraints::getWidth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->width == nullptr) {
 		if ($nc(this->horizontalHistory)->contains("East"_s)) {
 			$set(this, width, difference(this->east, $(getX())));
-		} else if ($nc(this->horizontalHistory)->contains("HorizontalCenter"_s)) {
+		} else if (this->horizontalHistory->contains("HorizontalCenter"_s)) {
 			$set(this, width, scale($(difference(this->horizontalCenter, $(getX()))), 2.0f));
 		}
 	}
@@ -308,11 +216,11 @@ void SpringLayout$Constraints::setHeight($Spring* height) {
 }
 
 $Spring* SpringLayout$Constraints::getHeight() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->height == nullptr) {
 		if ($nc(this->verticalHistory)->contains("South"_s)) {
 			$set(this, height, difference(this->south, $(getY())));
-		} else if ($nc(this->verticalHistory)->contains("VerticalCenter"_s)) {
+		} else if (this->verticalHistory->contains("VerticalCenter"_s)) {
 			$set(this, height, scale($(difference(this->verticalCenter, $(getY()))), 2.0f));
 		} else if ($nc(this->verticalHistory)->contains("Baseline"_s)) {
 			$set(this, height, relativeBaselineToHeight($(difference(this->baseline, $(getY())))));
@@ -327,7 +235,7 @@ void SpringLayout$Constraints::setEast($Spring* east) {
 }
 
 $Spring* SpringLayout$Constraints::getEast() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->east == nullptr) {
 		$var($Spring, var$0, getX());
 		$set(this, east, sum(var$0, $(getWidth())));
@@ -341,7 +249,7 @@ void SpringLayout$Constraints::setSouth($Spring* south) {
 }
 
 $Spring* SpringLayout$Constraints::getSouth() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->south == nullptr) {
 		$var($Spring, var$0, getY());
 		$set(this, south, sum(var$0, $(getHeight())));
@@ -350,7 +258,7 @@ $Spring* SpringLayout$Constraints::getSouth() {
 }
 
 $Spring* SpringLayout$Constraints::getHorizontalCenter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->horizontalCenter == nullptr) {
 		$var($Spring, var$0, getX());
 		$set(this, horizontalCenter, sum(var$0, $(scale($(getWidth()), 0.5f))));
@@ -364,7 +272,7 @@ void SpringLayout$Constraints::setHorizontalCenter($Spring* horizontalCenter) {
 }
 
 $Spring* SpringLayout$Constraints::getVerticalCenter() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->verticalCenter == nullptr) {
 		$var($Spring, var$0, getY());
 		$set(this, verticalCenter, sum(var$0, $(scale($(getHeight()), 0.5f))));
@@ -378,7 +286,7 @@ void SpringLayout$Constraints::setVerticalCenter($Spring* verticalCenter) {
 }
 
 $Spring* SpringLayout$Constraints::getBaseline() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->baseline == nullptr) {
 		$var($Spring, var$0, getY());
 		$set(this, baseline, sum(var$0, $(heightToRelativeBaseline($(getHeight())))));
@@ -422,7 +330,7 @@ $Spring* SpringLayout$Constraints::getConstraint($String* edgeName$renamed) {
 }
 
 void SpringLayout$Constraints::reset() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpringArray, allSprings, $new($SpringArray, {
 		this->x,
 		this->y,
@@ -436,14 +344,10 @@ void SpringLayout$Constraints::reset() {
 	}));
 	{
 		$var($SpringArray, arr$, allSprings);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Spring, s, arr$->get(i$));
-			{
-				if (s != nullptr) {
-					s->setValue($Spring::UNSET);
-				}
+			if (s != nullptr) {
+				s->setValue($Spring::UNSET);
 			}
 		}
 	}
@@ -453,7 +357,82 @@ SpringLayout$Constraints::SpringLayout$Constraints() {
 }
 
 $Class* SpringLayout$Constraints::load$($String* name, bool initialize) {
-	$loadClass(SpringLayout$Constraints, name, initialize, &_SpringLayout$Constraints_ClassInfo_, allocate$SpringLayout$Constraints);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, x)},
+		{"y", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, y)},
+		{"width", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, width)},
+		{"height", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, height)},
+		{"east", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, east)},
+		{"south", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, south)},
+		{"horizontalCenter", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, horizontalCenter)},
+		{"verticalCenter", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, verticalCenter)},
+		{"baseline", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, baseline)},
+		{"horizontalHistory", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SpringLayout$Constraints, horizontalHistory)},
+		{"verticalHistory", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(SpringLayout$Constraints, verticalHistory)},
+		{"c", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(SpringLayout$Constraints, c)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpringLayout$Constraints, init$, void)},
+		{"<init>", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(SpringLayout$Constraints, init$, void, $Spring*, $Spring*)},
+		{"<init>", "(Ljavax/swing/Spring;Ljavax/swing/Spring;Ljavax/swing/Spring;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(SpringLayout$Constraints, init$, void, $Spring*, $Spring*, $Spring*, $Spring*)},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $method(SpringLayout$Constraints, init$, void, $Component*)},
+		{"defined", "(Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)Z", "(Ljava/util/List<*>;Ljava/lang/String;Ljava/lang/String;)Z", $PRIVATE, $method(SpringLayout$Constraints, defined, bool, $List*, $String*, $String*)},
+		{"difference", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, difference, $Spring*, $Spring*, $Spring*)},
+		{"getBaseline", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getBaseline, $Spring*)},
+		{"getBaselineFromHeight", "(I)I", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getBaselineFromHeight, int32_t, int32_t)},
+		{"getConstraint", "(Ljava/lang/String;)Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getConstraint, $Spring*, $String*)},
+		{"getEast", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getEast, $Spring*)},
+		{"getHeight", "()Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getHeight, $Spring*)},
+		{"getHeightFromBaseLine", "(I)I", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getHeightFromBaseLine, int32_t, int32_t)},
+		{"getHorizontalCenter", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getHorizontalCenter, $Spring*)},
+		{"getSouth", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getSouth, $Spring*)},
+		{"getVerticalCenter", "()Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, getVerticalCenter, $Spring*)},
+		{"getWidth", "()Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getWidth, $Spring*)},
+		{"getX", "()Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getX, $Spring*)},
+		{"getY", "()Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, getY, $Spring*)},
+		{"heightToRelativeBaseline", "(Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, heightToRelativeBaseline, $Spring*, $Spring*)},
+		{"pushConstraint", "(Ljava/lang/String;Ljavax/swing/Spring;Z)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, pushConstraint, void, $String*, $Spring*, bool)},
+		{"relativeBaselineToHeight", "(Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, relativeBaselineToHeight, $Spring*, $Spring*)},
+		{"reset", "()V", nullptr, 0, $virtualMethod(SpringLayout$Constraints, reset, void)},
+		{"scale", "(Ljavax/swing/Spring;F)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, scale, $Spring*, $Spring*, float)},
+		{"setBaseline", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setBaseline, void, $Spring*)},
+		{"setConstraint", "(Ljava/lang/String;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setConstraint, void, $String*, $Spring*)},
+		{"setEast", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setEast, void, $Spring*)},
+		{"setHeight", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setHeight, void, $Spring*)},
+		{"setHorizontalCenter", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setHorizontalCenter, void, $Spring*)},
+		{"setSouth", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setSouth, void, $Spring*)},
+		{"setVerticalCenter", "(Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout$Constraints, setVerticalCenter, void, $Spring*)},
+		{"setWidth", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setWidth, void, $Spring*)},
+		{"setX", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setX, void, $Spring*)},
+		{"setY", "(Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout$Constraints, setY, void, $Spring*)},
+		{"sum", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout$Constraints, sum, $Spring*, $Spring*, $Spring*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.SpringLayout$Constraints", "javax.swing.SpringLayout", "Constraints", $PUBLIC | $STATIC},
+		{"javax.swing.SpringLayout$Constraints$2", nullptr, nullptr, 0},
+		{"javax.swing.SpringLayout$Constraints$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.SpringLayout$Constraints",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.SpringLayout"
+	};
+	$loadClass(SpringLayout$Constraints, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SpringLayout$Constraints);
+	});
 	return class$;
 }
 

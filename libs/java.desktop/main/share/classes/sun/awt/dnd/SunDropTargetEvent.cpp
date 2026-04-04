@@ -1,5 +1,4 @@
 #include <sun/awt/dnd/SunDropTargetEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/event/InputEvent.h>
@@ -21,35 +20,6 @@ namespace sun {
 	namespace awt {
 		namespace dnd {
 
-$FieldInfo _SunDropTargetEvent_FieldInfo_[] = {
-	{"MOUSE_DROPPED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunDropTargetEvent, MOUSE_DROPPED)},
-	{"dispatcher", "Lsun/awt/dnd/SunDropTargetContextPeer$EventDispatcher;", nullptr, $PRIVATE | $FINAL, $field(SunDropTargetEvent, dispatcher)},
-	{}
-};
-
-$MethodInfo _SunDropTargetEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;IIILsun/awt/dnd/SunDropTargetContextPeer$EventDispatcher;)V", nullptr, $PUBLIC, $method(SunDropTargetEvent, init$, void, $Component*, int32_t, int32_t, int32_t, $SunDropTargetContextPeer$EventDispatcher*)},
-	{"consume", "()V", nullptr, $PUBLIC, $virtualMethod(SunDropTargetEvent, consume, void)},
-	{"dispatch", "()V", nullptr, $PUBLIC, $method(SunDropTargetEvent, dispatch, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $method(SunDropTargetEvent, dispose, void)},
-	{"getDispatcher", "()Lsun/awt/dnd/SunDropTargetContextPeer$EventDispatcher;", nullptr, $PUBLIC, $method(SunDropTargetEvent, getDispatcher, $SunDropTargetContextPeer$EventDispatcher*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetEvent, paramString, $String*)},
-	{}
-};
-
-$ClassInfo _SunDropTargetEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.dnd.SunDropTargetEvent",
-	"java.awt.event.MouseEvent",
-	nullptr,
-	_SunDropTargetEvent_FieldInfo_,
-	_SunDropTargetEvent_MethodInfo_
-};
-
-$Object* allocate$SunDropTargetEvent($Class* clazz) {
-	return $of($alloc(SunDropTargetEvent));
-}
-
 void SunDropTargetEvent::init$($Component* source, int32_t id, int32_t x, int32_t y, $SunDropTargetContextPeer$EventDispatcher* d) {
 	$MouseEvent::init$(source, id, $System::currentTimeMillis(), 0, x, y, 0, 0, 0, false, $MouseEvent::NOBUTTON);
 	$set(this, dispatcher, d);
@@ -57,18 +27,16 @@ void SunDropTargetEvent::init$($Component* source, int32_t id, int32_t x, int32_
 }
 
 void SunDropTargetEvent::dispatch() {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->dispatcher)->dispatchEvent(this);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->dispatcher)->dispatchEvent(this);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -89,29 +57,54 @@ $SunDropTargetContextPeer$EventDispatcher* SunDropTargetEvent::getDispatcher() {
 }
 
 $String* SunDropTargetEvent::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, typeStr, nullptr);
 	switch (this->id) {
 	case SunDropTargetEvent::MOUSE_DROPPED:
-		{
-			$assign(typeStr, "MOUSE_DROPPED"_s);
-			break;
-		}
+		$assign(typeStr, "MOUSE_DROPPED"_s);
+		break;
 	default:
-		{
-			return $MouseEvent::paramString();
-		}
+		return $MouseEvent::paramString();
 	}
-	$var($String, var$1, $$str({typeStr, ",("_s, $$str(getX()), ","_s}));
-	$var($String, var$0, $$concat(var$1, $$str(getY())));
-	return $concat(var$0, ")"_s);
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(typeStr);
+	var$0->append(",("_s);
+	var$0->append(getX());
+	var$0->append(","_s);
+	var$0->append(getY());
+	var$0->append(")"_s);
+	return $str(var$0);
 }
 
 SunDropTargetEvent::SunDropTargetEvent() {
 }
 
 $Class* SunDropTargetEvent::load$($String* name, bool initialize) {
-	$loadClass(SunDropTargetEvent, name, initialize, &_SunDropTargetEvent_ClassInfo_, allocate$SunDropTargetEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"MOUSE_DROPPED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SunDropTargetEvent, MOUSE_DROPPED)},
+		{"dispatcher", "Lsun/awt/dnd/SunDropTargetContextPeer$EventDispatcher;", nullptr, $PRIVATE | $FINAL, $field(SunDropTargetEvent, dispatcher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;IIILsun/awt/dnd/SunDropTargetContextPeer$EventDispatcher;)V", nullptr, $PUBLIC, $method(SunDropTargetEvent, init$, void, $Component*, int32_t, int32_t, int32_t, $SunDropTargetContextPeer$EventDispatcher*)},
+		{"consume", "()V", nullptr, $PUBLIC, $virtualMethod(SunDropTargetEvent, consume, void)},
+		{"dispatch", "()V", nullptr, $PUBLIC, $method(SunDropTargetEvent, dispatch, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $method(SunDropTargetEvent, dispose, void)},
+		{"getDispatcher", "()Lsun/awt/dnd/SunDropTargetContextPeer$EventDispatcher;", nullptr, $PUBLIC, $method(SunDropTargetEvent, getDispatcher, $SunDropTargetContextPeer$EventDispatcher*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SunDropTargetEvent, paramString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.dnd.SunDropTargetEvent",
+		"java.awt.event.MouseEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SunDropTargetEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunDropTargetEvent);
+	});
 	return class$;
 }
 

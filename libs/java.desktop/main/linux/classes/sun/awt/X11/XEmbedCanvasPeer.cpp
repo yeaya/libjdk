@@ -1,12 +1,10 @@
 #include <sun/awt/X11/XEmbedCanvasPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsConfiguration.h>
-#include <java/awt/KeyEventPostProcessor.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
@@ -19,12 +17,10 @@
 #include <java/awt/event/InvocationEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/WindowEvent.h>
-#include <java/awt/event/WindowFocusListener.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/Runnable.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Map.h>
@@ -34,7 +30,6 @@
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/ModalityEvent.h>
-#include <sun/awt/ModalityListener.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XAtom.h>
@@ -67,7 +62,6 @@
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XErrorHandlerUtil.h>
 #include <sun/awt/X11/XEvent.h>
-#include <sun/awt/X11/XEventDispatcher.h>
 #include <sun/awt/X11/XKeyEvent.h>
 #include <sun/awt/X11/XReparentEvent.h>
 #include <sun/awt/X11/XSizeHints.h>
@@ -100,7 +94,6 @@ using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $KeyEventPostProcessor = ::java::awt::KeyEventPostProcessor;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -112,7 +105,6 @@ using $InputEvent = ::java::awt::event::InputEvent;
 using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
-using $WindowFocusListener = ::java::awt::event::WindowFocusListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -124,20 +116,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$AWTEventAccessor = ::sun::awt::AWTAccessor$AWTEventAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $ModalityEvent = ::sun::awt::ModalityEvent;
-using $ModalityListener = ::sun::awt::ModalityListener;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $Native = ::sun::awt::X11::Native;
-using $XAtom = ::sun::awt::X11::XAtom;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XCanvasPeer = ::sun::awt::X11::XCanvasPeer;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
@@ -161,12 +146,9 @@ using $XEmbedCanvasPeer$XEmbedDropTarget = ::sun::awt::X11::XEmbedCanvasPeer$XEm
 using $XEmbedCanvasPeer$XEmbedServer = ::sun::awt::X11::XEmbedCanvasPeer$XEmbedServer;
 using $XEmbedHelper = ::sun::awt::X11::XEmbedHelper;
 using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
-using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
-using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XEvent = ::sun::awt::X11::XEvent;
-using $XEventDispatcher = ::sun::awt::X11::XEventDispatcher;
 using $XKeyEvent = ::sun::awt::X11::XKeyEvent;
 using $XReparentEvent = ::sun::awt::X11::XReparentEvent;
 using $XSizeHints = ::sun::awt::X11::XSizeHints;
@@ -181,115 +163,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XEmbedCanvasPeer_FieldInfo_[] = {
-	{"xembedLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XEmbedCanvasPeer, xembedLog)},
-	{"applicationActive", "Z", nullptr, 0, $field(XEmbedCanvasPeer, applicationActive)},
-	{"xembed", "Lsun/awt/X11/XEmbedCanvasPeer$XEmbedServer;", nullptr, 0, $field(XEmbedCanvasPeer, xembed)},
-	{"accelerators", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/awt/AWTKeyStroke;>;", 0, $field(XEmbedCanvasPeer, accelerators)},
-	{"accel_lookup", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/AWTKeyStroke;Ljava/lang/Long;>;", 0, $field(XEmbedCanvasPeer, accel_lookup)},
-	{"grabbed_keys", "Ljava/util/Set;", "Ljava/util/Set<Lsun/awt/X11/XEmbedCanvasPeer$GrabbedKey;>;", 0, $field(XEmbedCanvasPeer, grabbed_keys)},
-	{"ACCEL_LOCK", "Ljava/lang/Object;", nullptr, 0, $field(XEmbedCanvasPeer, ACCEL_LOCK)},
-	{"GRAB_LOCK", "Ljava/lang/Object;", nullptr, 0, $field(XEmbedCanvasPeer, GRAB_LOCK)},
-	{}
-};
-
-$MethodInfo _XEmbedCanvasPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getWindow", "()J", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(XEmbedCanvasPeer, init$, void)},
-	{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XEmbedCanvasPeer, init$, void, $XCreateWindowParams*)},
-	{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(XEmbedCanvasPeer, init$, void, $Component*)},
-	{"canvasFocusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, canvasFocusGained, void, $FocusEvent*)},
-	{"canvasFocusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, canvasFocusLost, void, $FocusEvent*)},
-	{"childDestroyed", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, childDestroyed, void)},
-	{"childResized", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, childResized, void)},
-	{"deinstallAcceleratorListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, deinstallAcceleratorListener, void)},
-	{"deinstallActivateListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, deinstallActivateListener, void)},
-	{"deinstallModalityListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, deinstallModalityListener, void)},
-	{"detachChild", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, detachChild, void)},
-	{"disableBackgroundErase", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEmbedCanvasPeer, disableBackgroundErase, void)},
-	{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, dispatchEvent, void, $XEvent*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, dispose, void)},
-	{"embedChild", "(J)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, embedChild, void, int64_t)},
-	{"endDispatching", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, endDispatching, void)},
-	{"focusNext", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, focusNext, void)},
-	{"focusPrev", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, focusPrev, void)},
-	{"forwardKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, forwardKeyEvent, void, $KeyEvent*)},
-	{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEmbedCanvasPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
-	{"getBData", "(Ljava/awt/event/KeyEvent;)[B", nullptr, $STATIC, $staticMethod(XEmbedCanvasPeer, getBData, $bytes*, $KeyEvent*)},
-	{"getClientBounds", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, getClientBounds, $Rectangle*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, getPreferredSize, $Dimension*)},
-	{"getTopLevel", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, getTopLevel, $Window*, $Component*)},
-	{"grabKey", "(JJ)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, grabKey, void, int64_t, int64_t)},
-	{"handleClientMessage", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, handleClientMessage, void, $XEvent*)},
-	{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, handleEvent, void, $AWTEvent*)},
-	{"initDispatching", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, initDispatching, void)},
-	{"installAcceleratorListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, installAcceleratorListener, void)},
-	{"installActivateListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, installActivateListener, void)},
-	{"installModalityListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, installModalityListener, void)},
-	{"isApplicationActive", "()Z", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, isApplicationActive, bool)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, isFocusable, bool)},
-	{"isXEmbedActive", "()Z", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, isXEmbedActive, bool)},
-	{"modalityPopped", "(Lsun/awt/ModalityEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, modalityPopped, void, $ModalityEvent*)},
-	{"modalityPushed", "(Lsun/awt/ModalityEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, modalityPushed, void, $ModalityEvent*)},
-	{"notifyChildEmbedded", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, notifyChildEmbedded, void)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PROTECTED, $virtualMethod(XEmbedCanvasPeer, postInit, void, $XCreateWindowParams*)},
-	{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, postProcessKeyEvent, bool, $KeyEvent*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PROTECTED, $virtualMethod(XEmbedCanvasPeer, preInit, void, $XCreateWindowParams*)},
-	{"processXEmbedDnDEvent", "(JI)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, processXEmbedDnDEvent, bool, int64_t, int32_t)},
-	{"propogateRegisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, propogateRegisterAccelerator, void, $AWTKeyStroke*)},
-	{"propogateUnRegisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, propogateUnRegisterAccelerator, void, $AWTKeyStroke*)},
-	{"registerAccelerator", "(JJJ)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, registerAccelerator, void, int64_t, int64_t, int64_t)},
-	{"removeXEmbedDropTarget", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, removeXEmbedDropTarget, void)},
-	{"requestXEmbedFocus", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, requestXEmbedFocus, void)},
-	{"setXEmbedDropTarget", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, setXEmbedDropTarget, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"ungrabKey", "(JJ)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, ungrabKey, void, int64_t, int64_t)},
-	{"unregisterAccelerator", "(J)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, unregisterAccelerator, void, int64_t)},
-	{"windowGainedFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, windowGainedFocus, void, $WindowEvent*)},
-	{"windowLostFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, windowLostFocus, void, $WindowEvent*)},
-	{}
-};
-
-$InnerClassInfo _XEmbedCanvasPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XEmbedCanvasPeer$GrabbedKey", "sun.awt.X11.XEmbedCanvasPeer", "GrabbedKey", $STATIC},
-	{"sun.awt.X11.XEmbedCanvasPeer$XEmbedServer", "sun.awt.X11.XEmbedCanvasPeer", "XEmbedServer", 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$XEmbedDropTarget", "sun.awt.X11.XEmbedCanvasPeer", "XEmbedDropTarget", $PRIVATE | $STATIC},
-	{"sun.awt.X11.XEmbedCanvasPeer$9", nullptr, nullptr, 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$8", nullptr, nullptr, 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$7", nullptr, nullptr, 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$6", nullptr, nullptr, 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$5", nullptr, nullptr, 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$4", nullptr, nullptr, 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$3", nullptr, nullptr, 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$2", nullptr, nullptr, 0},
-	{"sun.awt.X11.XEmbedCanvasPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XEmbedCanvasPeer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XEmbedCanvasPeer",
-	"sun.awt.X11.XCanvasPeer",
-	"java.awt.event.WindowFocusListener,java.awt.KeyEventPostProcessor,sun.awt.ModalityListener,sun.awt.WindowIDProvider",
-	_XEmbedCanvasPeer_FieldInfo_,
-	_XEmbedCanvasPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XEmbedCanvasPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XEmbedCanvasPeer$GrabbedKey,sun.awt.X11.XEmbedCanvasPeer$XEmbedServer,sun.awt.X11.XEmbedCanvasPeer$XEmbedDropTarget,sun.awt.X11.XEmbedCanvasPeer$9,sun.awt.X11.XEmbedCanvasPeer$8,sun.awt.X11.XEmbedCanvasPeer$7,sun.awt.X11.XEmbedCanvasPeer$6,sun.awt.X11.XEmbedCanvasPeer$5,sun.awt.X11.XEmbedCanvasPeer$4,sun.awt.X11.XEmbedCanvasPeer$3,sun.awt.X11.XEmbedCanvasPeer$2,sun.awt.X11.XEmbedCanvasPeer$1"
-};
-
-$Object* allocate$XEmbedCanvasPeer($Class* clazz) {
-	return $of($alloc(XEmbedCanvasPeer));
-}
 
 int64_t XEmbedCanvasPeer::getWindow() {
 	 return this->$XCanvasPeer::getWindow();
@@ -362,19 +235,19 @@ void XEmbedCanvasPeer::preInit($XCreateWindowParams* params) {
 }
 
 void XEmbedCanvasPeer::installModalityListener() {
-	$nc(($cast($SunToolkit, $($Toolkit::getDefaultToolkit()))))->addModalityListener(this);
+	$$sure($SunToolkit, $Toolkit::getDefaultToolkit())->addModalityListener(this);
 }
 
 void XEmbedCanvasPeer::deinstallModalityListener() {
-	$nc(($cast($SunToolkit, $($Toolkit::getDefaultToolkit()))))->removeModalityListener(this);
+	$$sure($SunToolkit, $Toolkit::getDefaultToolkit())->removeModalityListener(this);
 }
 
 void XEmbedCanvasPeer::installAcceleratorListener() {
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->addKeyEventPostProcessor(this);
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->addKeyEventPostProcessor(this);
 }
 
 void XEmbedCanvasPeer::deinstallAcceleratorListener() {
-	$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->removeKeyEventPostProcessor(this);
+	$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->removeKeyEventPostProcessor(this);
 }
 
 void XEmbedCanvasPeer::installActivateListener() {
@@ -401,51 +274,47 @@ bool XEmbedCanvasPeer::isApplicationActive() {
 }
 
 void XEmbedCanvasPeer::initDispatching() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XEmbedCanvasPeer::xembedLog)->fine($$str({"Init embedding for "_s, $($Long::toHexString($nc(this->xembed)->handle))}));
+		XEmbedCanvasPeer::xembedLog->fine($$str({"Init embedding for "_s, $($Long::toHexString($nc(this->xembed)->handle))}));
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XToolkit::addEventDispatcher($nc(this->xembed)->handle, this->xembed);
-			$XlibWrapper::XSelectInput($XToolkit::getDisplay(), $nc(this->xembed)->handle, $XConstants::StructureNotifyMask | $XConstants::PropertyChangeMask);
-			$nc($($XDropTargetRegistry::getRegistry()))->registerXEmbedClient(getWindow(), $nc(this->xembed)->handle);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XToolkit::addEventDispatcher($nc(this->xembed)->handle, this->xembed);
+		$XlibWrapper::XSelectInput($XToolkit::getDisplay(), $nc(this->xembed)->handle, $XConstants::StructureNotifyMask | $XConstants::PropertyChangeMask);
+		$$nc($XDropTargetRegistry::getRegistry())->registerXEmbedClient(getWindow(), $nc(this->xembed)->handle);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$nc(this->xembed)->processXEmbedInfo();
 	notifyChildEmbedded();
 }
 
 void XEmbedCanvasPeer::endDispatching() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XEmbedCanvasPeer::xembedLog)->fine($$str({"End dispatching for "_s, $($Long::toHexString($nc(this->xembed)->handle))}));
+		XEmbedCanvasPeer::xembedLog->fine($$str({"End dispatching for "_s, $($Long::toHexString($nc(this->xembed)->handle))}));
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc($($XDropTargetRegistry::getRegistry()))->unregisterXEmbedClient(getWindow(), $nc(this->xembed)->handle);
-			$XToolkit::removeEventDispatcher($nc(this->xembed)->handle, this->xembed);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$$nc($XDropTargetRegistry::getRegistry())->unregisterXEmbedClient(getWindow(), $nc(this->xembed)->handle);
+		$XToolkit::removeEventDispatcher($nc(this->xembed)->handle, this->xembed);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -458,10 +327,10 @@ void XEmbedCanvasPeer::embedChild(int64_t child) {
 }
 
 void XEmbedCanvasPeer::childDestroyed() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XEmbedCanvasPeer::xembedLog)->fine($$str({"Child "_s, $($Long::toHexString($nc(this->xembed)->handle)), " has self-destroyed."_s}));
+		XEmbedCanvasPeer::xembedLog->fine($$str({"Child "_s, $($Long::toHexString($nc(this->xembed)->handle)), " has self-destroyed."_s}));
 	}
 	endDispatching();
 	$nc(this->xembed)->handle = 0;
@@ -472,81 +341,75 @@ void XEmbedCanvasPeer::handleEvent($AWTEvent* e) {
 	if (isXEmbedActive()) {
 		switch ($nc(e)->getID()) {
 		case $FocusEvent::FOCUS_GAINED:
-			{
-				canvasFocusGained($cast($FocusEvent, e));
-				break;
-			}
+			canvasFocusGained($cast($FocusEvent, e));
+			break;
 		case $FocusEvent::FOCUS_LOST:
-			{
-				canvasFocusLost($cast($FocusEvent, e));
-				break;
-			}
+			canvasFocusLost($cast($FocusEvent, e));
+			break;
 		case $KeyEvent::KEY_PRESSED:
-			{}
 		case $KeyEvent::KEY_RELEASED:
-			{
-				if (!$nc(($cast($InputEvent, e)))->isConsumed()) {
-					forwardKeyEvent($cast($KeyEvent, e));
-				}
-				break;
+			if (!$cast($InputEvent, e)->isConsumed()) {
+				forwardKeyEvent($cast($KeyEvent, e));
 			}
+			break;
 		}
 	}
 }
 
 void XEmbedCanvasPeer::dispatchEvent($XEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XCanvasPeer::dispatchEvent(ev);
 	{
-		$var($XCreateWindowEvent, cr, nullptr)
-		$var($XDestroyWindowEvent, dn, nullptr)
-		$var($XReparentEvent, rep, nullptr)
+		$var($XCreateWindowEvent, cr, nullptr);
+		$var($XDestroyWindowEvent, dn, nullptr);
+		$var($XReparentEvent, rep, nullptr);
 		switch ($nc(ev)->get_type()) {
 		case $XConstants::CreateNotify:
-			{
-				$assign(cr, ev->get_xcreatewindow());
-				$init($PlatformLogger$Level);
-				if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-					$nc(XEmbedCanvasPeer::xembedLog)->finest($$str({"Message on embedder: "_s, cr}));
-				}
-				$init($PlatformLogger$Level);
-				if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$var($String, var$0, $$str({"Create notify for parent "_s, $($Long::toHexString($nc(cr)->get_parent())), ", window "_s}));
-					$nc(XEmbedCanvasPeer::xembedLog)->finer($$concat(var$0, $($Long::toHexString($nc(cr)->get_window()))));
-				}
-				embedChild($nc(cr)->get_window());
-				break;
+			$assign(cr, ev->get_xcreatewindow());
+			$init($PlatformLogger$Level);
+			if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINEST)) {
+				XEmbedCanvasPeer::xembedLog->finest($$str({"Message on embedder: "_s, cr}));
 			}
+			if (XEmbedCanvasPeer::xembedLog->isLoggable($PlatformLogger$Level::FINER)) {
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("Create notify for parent "_s);
+				var$0->append($($Long::toHexString($nc(cr)->get_parent())));
+				var$0->append(", window "_s);
+				var$0->append($($Long::toHexString(cr->get_window())));
+				XEmbedCanvasPeer::xembedLog->finer($$str(var$0));
+			}
+			embedChild($nc(cr)->get_window());
+			break;
 		case $XConstants::DestroyNotify:
-			{
-				$assign(dn, ev->get_xdestroywindow());
-				$init($PlatformLogger$Level);
-				if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-					$nc(XEmbedCanvasPeer::xembedLog)->finest($$str({"Message on embedder: "_s, dn}));
-				}
-				$init($PlatformLogger$Level);
-				if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$nc(XEmbedCanvasPeer::xembedLog)->finer($$str({"Destroy notify for parent: "_s, dn}));
-				}
-				childDestroyed();
-				break;
+			$assign(dn, ev->get_xdestroywindow());
+			$init($PlatformLogger$Level);
+			if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINEST)) {
+				XEmbedCanvasPeer::xembedLog->finest($$str({"Message on embedder: "_s, dn}));
 			}
+			if (XEmbedCanvasPeer::xembedLog->isLoggable($PlatformLogger$Level::FINER)) {
+				XEmbedCanvasPeer::xembedLog->finer($$str({"Destroy notify for parent: "_s, dn}));
+			}
+			childDestroyed();
+			break;
 		case $XConstants::ReparentNotify:
 			{
 				$assign(rep, ev->get_xreparent());
 				$init($PlatformLogger$Level);
 				if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-					$nc(XEmbedCanvasPeer::xembedLog)->finest($$str({"Message on embedder: "_s, rep}));
+					XEmbedCanvasPeer::xembedLog->finest($$str({"Message on embedder: "_s, rep}));
 				}
-				$init($PlatformLogger$Level);
-				if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-					$var($String, var$3, $$str({"Reparent notify for parent "_s, $($Long::toHexString($nc(rep)->get_parent())), ", window "_s}));
-					$var($String, var$2, $$concat(var$3, $($Long::toHexString($nc(rep)->get_window()))));
-					$var($String, var$1, $$concat(var$2, ", event "_s));
-					$nc(XEmbedCanvasPeer::xembedLog)->finer($$concat(var$1, $($Long::toHexString($nc(rep)->get_event()))));
+				if (XEmbedCanvasPeer::xembedLog->isLoggable($PlatformLogger$Level::FINER)) {
+					$var($StringBuilder, var$1, $new($StringBuilder));
+					var$1->append("Reparent notify for parent "_s);
+					var$1->append($($Long::toHexString($nc(rep)->get_parent())));
+					var$1->append(", window "_s);
+					var$1->append($($Long::toHexString(rep->get_window())));
+					var$1->append(", event "_s);
+					var$1->append($($Long::toHexString(rep->get_event())));
+					XEmbedCanvasPeer::xembedLog->finer($$str(var$1));
 				}
-				int64_t var$4 = $nc(rep)->get_parent();
-				if (var$4 == getWindow()) {
+				int64_t var$2 = $nc(rep)->get_parent();
+				if (var$2 == getWindow()) {
 					embedChild(rep->get_window());
 				} else {
 					childDestroyed();
@@ -558,34 +421,32 @@ void XEmbedCanvasPeer::dispatchEvent($XEvent* ev) {
 }
 
 $Dimension* XEmbedCanvasPeer::getPreferredSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isXEmbedActive()) {
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Dimension, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				int64_t p_hints = $XlibWrapper::XAllocSizeHints();
-				$var($XSizeHints, hints, $new($XSizeHints, p_hints));
-				$XlibWrapper::XGetWMNormalHints($XToolkit::getDisplay(), $nc(this->xembed)->handle, p_hints, $XlibWrapper::larg1);
-				int32_t var$3 = hints->get_width();
-				$var($Dimension, res, $new($Dimension, var$3, hints->get_height()));
-				$XlibWrapper::XFree(p_hints);
-				$assign(var$2, res);
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
-			} $finally: {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		$var($Throwable, var$0, nullptr);
+		$var($Dimension, var$2, nullptr);
+		bool return$1 = false;
+		try {
+			int64_t p_hints = $XlibWrapper::XAllocSizeHints();
+			$var($XSizeHints, hints, $new($XSizeHints, p_hints));
+			$XlibWrapper::XGetWMNormalHints($XToolkit::getDisplay(), $nc(this->xembed)->handle, p_hints, $XlibWrapper::larg1);
+			int32_t var$3 = hints->get_width();
+			$var($Dimension, res, $new($Dimension, var$3, hints->get_height()));
+			$XlibWrapper::XFree(p_hints);
+			$assign(var$2, res);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} $finally: {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} else {
 		return $XCanvasPeer::getPreferredSize();
@@ -593,34 +454,32 @@ $Dimension* XEmbedCanvasPeer::getPreferredSize() {
 }
 
 $Dimension* XEmbedCanvasPeer::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isXEmbedActive()) {
 		$XToolkit::awtLock();
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($Dimension, var$2, nullptr);
-			bool return$1 = false;
-			try {
-				int64_t p_hints = $XlibWrapper::XAllocSizeHints();
-				$var($XSizeHints, hints, $new($XSizeHints, p_hints));
-				$XlibWrapper::XGetWMNormalHints($XToolkit::getDisplay(), $nc(this->xembed)->handle, p_hints, $XlibWrapper::larg1);
-				int32_t var$3 = hints->get_min_width();
-				$var($Dimension, res, $new($Dimension, var$3, hints->get_min_height()));
-				$XlibWrapper::XFree(p_hints);
-				$assign(var$2, res);
-				return$1 = true;
-				goto $finally;
-			} catch ($Throwable& var$4) {
-				$assign(var$0, var$4);
-			} $finally: {
-				$XToolkit::awtUnlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		$var($Throwable, var$0, nullptr);
+		$var($Dimension, var$2, nullptr);
+		bool return$1 = false;
+		try {
+			int64_t p_hints = $XlibWrapper::XAllocSizeHints();
+			$var($XSizeHints, hints, $new($XSizeHints, p_hints));
+			$XlibWrapper::XGetWMNormalHints($XToolkit::getDisplay(), $nc(this->xembed)->handle, p_hints, $XlibWrapper::larg1);
+			int32_t var$3 = hints->get_min_width();
+			$var($Dimension, res, $new($Dimension, var$3, hints->get_min_height()));
+			$XlibWrapper::XFree(p_hints);
+			$assign(var$2, res);
+			return$1 = true;
+			goto $finally;
+		} catch ($Throwable& var$4) {
+			$assign(var$0, var$4);
+		} $finally: {
+			$XToolkit::awtUnlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} else {
 		return $XCanvasPeer::getMinimumSize();
@@ -650,75 +509,71 @@ $Window* XEmbedCanvasPeer::getTopLevel($Component* comp$renamed) {
 }
 
 $Rectangle* XEmbedCanvasPeer::getClientBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Rectangle, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($Rectangle, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($XWindowAttributes, wattr, $new($XWindowAttributes));
+		$var($Throwable, var$3, nullptr);
+		$var($Rectangle, var$5, nullptr);
+		bool return$4 = false;
 		try {
-			$var($XWindowAttributes, wattr, $new($XWindowAttributes));
-			{
-				$var($Throwable, var$3, nullptr);
-				$var($Rectangle, var$5, nullptr);
-				bool return$4 = false;
-				try {
-					$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-					int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), $nc(this->xembed)->handle, wattr->pData);
-					$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-					if ((status == 0) || (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success))) {
-						$assign(var$5, nullptr);
-						return$4 = true;
-						goto $finally1;
-					}
-					int32_t var$6 = wattr->get_x();
-					int32_t var$7 = wattr->get_y();
-					int32_t var$8 = wattr->get_width();
-					$assign(var$5, $new($Rectangle, var$6, var$7, var$8, wattr->get_height()));
-					return$4 = true;
-					goto $finally1;
-				} catch ($Throwable& var$9) {
-					$assign(var$3, var$9);
-				} $finally1: {
-					wattr->dispose();
-				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
-				}
-				if (return$4) {
-					$assign(var$2, var$5);
-					return$1 = true;
-					goto $finally;
-				}
+			$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+			int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), $nc(this->xembed)->handle, wattr->pData);
+			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+			if ((status == 0) || (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success))) {
+				$assign(var$5, nullptr);
+				return$4 = true;
+				goto $finally1;
 			}
-		} catch ($Throwable& var$10) {
-			$assign(var$0, var$10);
-		} $finally: {
-			$XToolkit::awtUnlock();
+			int32_t var$6 = wattr->get_x();
+			int32_t var$7 = wattr->get_y();
+			int32_t var$8 = wattr->get_width();
+			$assign(var$5, $new($Rectangle, var$6, var$7, var$8, wattr->get_height()));
+			return$4 = true;
+			goto $finally1;
+		} catch ($Throwable& var$9) {
+			$assign(var$3, var$9);
+		} $finally1: {
+			wattr->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$3 != nullptr) {
+			$throw(var$3);
 		}
-		if (return$1) {
-			return var$2;
+		if (return$4) {
+			$assign(var$2, var$5);
+			return$1 = true;
+			goto $finally;
 		}
+	} catch ($Throwable& var$10) {
+		$assign(var$0, var$10);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XEmbedCanvasPeer::childResized() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
 		$var($Rectangle, bounds, getClientBounds());
-		$nc(XEmbedCanvasPeer::xembedLog)->finer($$str({"Child resized: "_s, bounds}));
+		XEmbedCanvasPeer::xembedLog->finer($$str({"Child resized: "_s, bounds}));
 	}
 	$var($AppContext, var$0, $XToolkit::targetToAppContext(this->target));
 	$XToolkit::postEvent(var$0, $$new($ComponentEvent, this->target, $ComponentEvent::COMPONENT_RESIZED));
 }
 
 void XEmbedCanvasPeer::focusNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isXEmbedActive()) {
 		$nc(XEmbedCanvasPeer::xembedLog)->fine("Requesting focus for the next component after embedder"_s);
 		postEvent($$new($InvocationEvent, this->target, $$new($XEmbedCanvasPeer$1, this)));
@@ -728,7 +583,7 @@ void XEmbedCanvasPeer::focusNext() {
 }
 
 void XEmbedCanvasPeer::focusPrev() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isXEmbedActive()) {
 		$nc(XEmbedCanvasPeer::xembedLog)->fine("Requesting focus for the next component after embedder"_s);
 		postEvent($$new($InvocationEvent, this->target, $$new($XEmbedCanvasPeer$2, this)));
@@ -738,7 +593,7 @@ void XEmbedCanvasPeer::focusPrev() {
 }
 
 void XEmbedCanvasPeer::requestXEmbedFocus() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isXEmbedActive()) {
 		$nc(XEmbedCanvasPeer::xembedLog)->fine("Requesting focus for client"_s);
 		postEvent($$new($InvocationEvent, this->target, $$new($XEmbedCanvasPeer$3, this)));
@@ -750,39 +605,37 @@ void XEmbedCanvasPeer::requestXEmbedFocus() {
 void XEmbedCanvasPeer::notifyChildEmbedded() {
 	int64_t var$0 = $nc(this->xembed)->handle;
 	int64_t var$1 = getWindow();
-	$nc(this->xembed)->sendMessage(var$0, 0, var$1, $Math::min($nc(this->xembed)->version, (int64_t)0), 0);
+	$nc(this->xembed)->sendMessage(var$0, 0, var$1, $Math::min(this->xembed->version, (int64_t)0), 0);
 	if (isApplicationActive()) {
 		$nc(XEmbedCanvasPeer::xembedLog)->fine("Sending WINDOW_ACTIVATE during initialization"_s);
 		$nc(this->xembed)->sendMessage($nc(this->xembed)->handle, 1);
 		if (hasFocus()) {
-			$nc(XEmbedCanvasPeer::xembedLog)->fine("Sending FOCUS_GAINED during initialization"_s);
+			XEmbedCanvasPeer::xembedLog->fine("Sending FOCUS_GAINED during initialization"_s);
 			$nc(this->xembed)->sendMessage($nc(this->xembed)->handle, 4, 0, 0, 0);
 		}
 	}
 }
 
 void XEmbedCanvasPeer::detachChild() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XEmbedCanvasPeer::xembedLog)->fine($$str({"Detaching child "_s, $($Long::toHexString($nc(this->xembed)->handle))}));
+		XEmbedCanvasPeer::xembedLog->fine($$str({"Detaching child "_s, $($Long::toHexString($nc(this->xembed)->handle))}));
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XUnmapWindow($XToolkit::getDisplay(), $nc(this->xembed)->handle);
-			int64_t var$1 = $XToolkit::getDisplay();
-			int64_t var$2 = $nc(this->xembed)->handle;
-			$XlibWrapper::XReparentWindow(var$1, var$2, $XToolkit::getDefaultRootWindow(), 0, 0);
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XUnmapWindow($XToolkit::getDisplay(), $nc(this->xembed)->handle);
+		int64_t var$1 = $XToolkit::getDisplay();
+		int64_t var$2 = $nc(this->xembed)->handle;
+		$XlibWrapper::XReparentWindow(var$1, var$2, $XToolkit::getDefaultRootWindow(), 0, 0);
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	endDispatching();
 	$nc(this->xembed)->handle = 0;
@@ -811,23 +664,21 @@ void XEmbedCanvasPeer::canvasFocusGained($FocusEvent* e) {
 		$init($FocusEvent$Cause);
 		if ($nc(e)->getCause() == $FocusEvent$Cause::TRAVERSAL_FORWARD) {
 			flavor = 1;
-		} else {
-			if (e->getCause() == $FocusEvent$Cause::TRAVERSAL_BACKWARD) {
-				flavor = 2;
-			}
+		} else if (e->getCause() == $FocusEvent$Cause::TRAVERSAL_BACKWARD) {
+			flavor = 2;
 		}
 		$nc(this->xembed)->sendMessage($nc(this->xembed)->handle, 4, flavor, 0, 0);
 	}
 }
 
 void XEmbedCanvasPeer::canvasFocusLost($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool var$0 = isXEmbedActive();
 	if (var$0 && !$nc(e)->isTemporary()) {
 		$nc(XEmbedCanvasPeer::xembedLog)->fine("Forwarding FOCUS_LOST"_s);
 		int32_t num = 0;
-		if ($nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.xembed.testing"_s)))))))->booleanValue()) {
+		if ($$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.xembed.testing"_s)))->booleanValue()) {
 			$var($Component, opp, e->getOppositeComponent());
 			try {
 				num = $Integer::parseInt($($nc(opp)->getName()));
@@ -840,74 +691,70 @@ void XEmbedCanvasPeer::canvasFocusLost($FocusEvent* e) {
 
 $bytes* XEmbedCanvasPeer::getBData($KeyEvent* e) {
 	$init(XEmbedCanvasPeer);
-	return $nc($($AWTAccessor::getAWTEventAccessor()))->getBData(e);
+	return $$nc($AWTAccessor::getAWTEventAccessor())->getBData(e);
 }
 
 void XEmbedCanvasPeer::forwardKeyEvent($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(XEmbedCanvasPeer::xembedLog)->fine("Try to forward key event"_s);
 	$var($bytes, bdata, getBData(e));
 	int64_t data = $Native::toData(bdata);
 	if (data == 0) {
 		return;
 	}
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($XKeyEvent, ke, $new($XKeyEvent, data));
+		ke->set_window($nc(this->xembed)->handle);
+		$init($PlatformLogger$Level);
+		if (XEmbedCanvasPeer::xembedLog->isLoggable($PlatformLogger$Level::FINE)) {
+			XEmbedCanvasPeer::xembedLog->fine($$str({"Forwarding native key event: "_s, ke}));
+		}
+		$XToolkit::awtLock();
+		$var($Throwable, var$1, nullptr);
 		try {
-			$var($XKeyEvent, ke, $new($XKeyEvent, data));
-			ke->set_window($nc(this->xembed)->handle);
-			$init($PlatformLogger$Level);
-			if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(XEmbedCanvasPeer::xembedLog)->fine($$str({"Forwarding native key event: "_s, ke}));
-			}
-			$XToolkit::awtLock();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					$XlibWrapper::XSendEvent($XToolkit::getDisplay(), $nc(this->xembed)->handle, false, $XConstants::NoEventMask, data);
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					$XToolkit::awtUnlock();
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
+			$XlibWrapper::XSendEvent($XToolkit::getDisplay(), $nc(this->xembed)->handle, false, $XConstants::NoEventMask, data);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			$init($XlibWrapper);
-			$nc($XlibWrapper::unsafe)->freeMemory(data);
+			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$init($XlibWrapper);
+		$nc($XlibWrapper::unsafe)->freeMemory(data);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XEmbedCanvasPeer::grabKey(int64_t keysym, int64_t modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent($$new($InvocationEvent, this->target, $$new($XEmbedCanvasPeer$4, this, keysym, modifiers)));
 }
 
 void XEmbedCanvasPeer::ungrabKey(int64_t keysym, int64_t modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent($$new($InvocationEvent, this->target, $$new($XEmbedCanvasPeer$5, this, keysym, modifiers)));
 }
 
 void XEmbedCanvasPeer::registerAccelerator(int64_t accel_id, int64_t keysym, int64_t modifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent($$new($InvocationEvent, this->target, $$new($XEmbedCanvasPeer$6, this, keysym, modifiers, accel_id)));
 }
 
 void XEmbedCanvasPeer::unregisterAccelerator(int64_t accel_id) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	postEvent($$new($InvocationEvent, this->target, $$new($XEmbedCanvasPeer$7, this, accel_id)));
 }
 
 void XEmbedCanvasPeer::propogateRegisterAccelerator($AWTKeyStroke* stroke) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XWindowPeer, parent, getToplevelXWindow());
 	if (parent != nullptr && $instanceOf($XEmbeddedFramePeer, parent)) {
 		$var($XEmbeddedFramePeer, embedded, $cast($XEmbeddedFramePeer, parent));
@@ -916,7 +763,7 @@ void XEmbedCanvasPeer::propogateRegisterAccelerator($AWTKeyStroke* stroke) {
 }
 
 void XEmbedCanvasPeer::propogateUnRegisterAccelerator($AWTKeyStroke* stroke) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XWindowPeer, parent, getToplevelXWindow());
 	if (parent != nullptr && $instanceOf($XEmbeddedFramePeer, parent)) {
 		$var($XEmbeddedFramePeer, embedded, $cast($XEmbeddedFramePeer, parent));
@@ -925,16 +772,16 @@ void XEmbedCanvasPeer::propogateUnRegisterAccelerator($AWTKeyStroke* stroke) {
 }
 
 bool XEmbedCanvasPeer::postProcessKeyEvent($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XWindowPeer, parent, getToplevelXWindow());
-	bool var$0 = parent == nullptr || !$nc(($cast($Window, $($nc(parent)->getTarget()))))->isFocused();
+	bool var$0 = parent == nullptr || !$$sure($Window, parent->getTarget())->isFocused();
 	if (var$0 || $nc(this->target)->isFocusOwner()) {
 		return false;
 	}
 	bool result = false;
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XEmbedCanvasPeer::xembedLog)->finer($$str({"Post-processing event "_s, e}));
+		XEmbedCanvasPeer::xembedLog->finer($$str({"Post-processing event "_s, e}));
 	}
 	$var($AWTKeyStroke, stroke, $AWTKeyStroke::getAWTKeyStrokeForEvent(e));
 	int64_t accel_id = 0;
@@ -942,12 +789,12 @@ bool XEmbedCanvasPeer::postProcessKeyEvent($KeyEvent* e) {
 	$synchronized(this->ACCEL_LOCK) {
 		exists = $nc(this->accel_lookup)->containsKey(stroke);
 		if (exists) {
-			accel_id = $nc(($cast($Long, $($nc(this->accel_lookup)->get(stroke)))))->longValue();
+			accel_id = $$sure($Long, this->accel_lookup->get(stroke))->longValue();
 		}
 	}
 	if (exists) {
-		if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XEmbedCanvasPeer::xembedLog)->fine($$str({"Activating accelerator "_s, $$str(accel_id)}));
+		if (XEmbedCanvasPeer::xembedLog->isLoggable($PlatformLogger$Level::FINE)) {
+			XEmbedCanvasPeer::xembedLog->fine($$str({"Activating accelerator "_s, $$str(accel_id)}));
 		}
 		$nc(this->xembed)->sendMessage($nc(this->xembed)->handle, 14, accel_id, 0, 0);
 		result = true;
@@ -958,8 +805,8 @@ bool XEmbedCanvasPeer::postProcessKeyEvent($KeyEvent* e) {
 		exists = $nc(this->grabbed_keys)->contains(key);
 	}
 	if (exists) {
-		if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XEmbedCanvasPeer::xembedLog)->fine($$str({"Forwarding grabbed key "_s, e}));
+		if (XEmbedCanvasPeer::xembedLog->isLoggable($PlatformLogger$Level::FINE)) {
+			XEmbedCanvasPeer::xembedLog->fine($$str({"Forwarding grabbed key "_s, e}));
 		}
 		forwardKeyEvent(e);
 		result = true;
@@ -976,37 +823,31 @@ void XEmbedCanvasPeer::modalityPopped($ModalityEvent* ev) {
 }
 
 void XEmbedCanvasPeer::handleClientMessage($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XCanvasPeer::handleClientMessage(xev);
 	$var($XClientMessageEvent, msg, $nc(xev)->get_xclient());
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XEmbedCanvasPeer::xembedLog)->finer($$str({"Client message to embedder: "_s, msg}));
+		XEmbedCanvasPeer::xembedLog->finer($$str({"Client message to embedder: "_s, msg}));
 	}
 	int64_t var$0 = $nc(msg)->get_message_type();
 	$init($XEmbedHelper);
 	if (var$0 == $nc($XEmbedHelper::XEmbed)->getAtom()) {
-		if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XEmbedCanvasPeer::xembedLog)->fine($($XEmbedHelper::XEmbedMessageToString(msg)));
+		if (XEmbedCanvasPeer::xembedLog->isLoggable($PlatformLogger$Level::FINE)) {
+			XEmbedCanvasPeer::xembedLog->fine($($XEmbedHelper::XEmbedMessageToString(msg)));
 		}
 	}
 	if (isXEmbedActive()) {
-		switch ((int32_t)$nc(msg)->get_data(1)) {
+		switch ((int32_t)msg->get_data(1)) {
 		case 3:
-			{
-				requestXEmbedFocus();
-				break;
-			}
+			requestXEmbedFocus();
+			break;
 		case 6:
-			{
-				focusNext();
-				break;
-			}
+			focusNext();
+			break;
 		case 7:
-			{
-				focusPrev();
-				break;
-			}
+			focusPrev();
+			break;
 		case 12:
 			{
 				int64_t var$1 = msg->get_data(2);
@@ -1015,10 +856,8 @@ void XEmbedCanvasPeer::handleClientMessage($XEvent* xev) {
 				break;
 			}
 		case 13:
-			{
-				unregisterAccelerator(msg->get_data(2));
-				break;
-			}
+			unregisterAccelerator(msg->get_data(2));
+			break;
 		case 108:
 			{
 				int64_t var$3 = msg->get_data(3);
@@ -1033,7 +872,7 @@ void XEmbedCanvasPeer::handleClientMessage($XEvent* xev) {
 			}
 		}
 	} else {
-		$nc(XEmbedCanvasPeer::xembedLog)->finer("But XEmbed is not Active!"_s);
+		XEmbedCanvasPeer::xembedLog->finer("But XEmbed is not Active!"_s);
 	}
 }
 
@@ -1048,10 +887,10 @@ void XEmbedCanvasPeer::removeXEmbedDropTarget() {
 }
 
 bool XEmbedCanvasPeer::processXEmbedDnDEvent(int64_t ctxt, int32_t eventID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XEmbedCanvasPeer::xembedLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XEmbedCanvasPeer::xembedLog)->finest($$str({"     Drop target="_s, $($nc(this->target)->getDropTarget())}));
+		XEmbedCanvasPeer::xembedLog->finest($$str({"     Drop target="_s, $($nc(this->target)->getDropTarget())}));
 	}
 	if ($instanceOf($XEmbedCanvasPeer$XEmbedDropTarget, $($nc(this->target)->getDropTarget()))) {
 		$var($AppContext, appContext, $XToolkit::targetToAppContext($(getTarget())));
@@ -1071,7 +910,7 @@ $GraphicsConfiguration* XEmbedCanvasPeer::getAppropriateGraphicsConfiguration($G
 	return $XCanvasPeer::getAppropriateGraphicsConfiguration(gc);
 }
 
-void clinit$XEmbedCanvasPeer($Class* class$) {
+void XEmbedCanvasPeer::clinit$($Class* clazz) {
 	$assignStatic(XEmbedCanvasPeer::xembedLog, $PlatformLogger::getLogger("sun.awt.X11.xembed.XEmbedCanvasPeer"_s));
 }
 
@@ -1079,7 +918,110 @@ XEmbedCanvasPeer::XEmbedCanvasPeer() {
 }
 
 $Class* XEmbedCanvasPeer::load$($String* name, bool initialize) {
-	$loadClass(XEmbedCanvasPeer, name, initialize, &_XEmbedCanvasPeer_ClassInfo_, clinit$XEmbedCanvasPeer, allocate$XEmbedCanvasPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"xembedLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XEmbedCanvasPeer, xembedLog)},
+		{"applicationActive", "Z", nullptr, 0, $field(XEmbedCanvasPeer, applicationActive)},
+		{"xembed", "Lsun/awt/X11/XEmbedCanvasPeer$XEmbedServer;", nullptr, 0, $field(XEmbedCanvasPeer, xembed)},
+		{"accelerators", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/awt/AWTKeyStroke;>;", 0, $field(XEmbedCanvasPeer, accelerators)},
+		{"accel_lookup", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/AWTKeyStroke;Ljava/lang/Long;>;", 0, $field(XEmbedCanvasPeer, accel_lookup)},
+		{"grabbed_keys", "Ljava/util/Set;", "Ljava/util/Set<Lsun/awt/X11/XEmbedCanvasPeer$GrabbedKey;>;", 0, $field(XEmbedCanvasPeer, grabbed_keys)},
+		{"ACCEL_LOCK", "Ljava/lang/Object;", nullptr, 0, $field(XEmbedCanvasPeer, ACCEL_LOCK)},
+		{"GRAB_LOCK", "Ljava/lang/Object;", nullptr, 0, $field(XEmbedCanvasPeer, GRAB_LOCK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getWindow", "()J", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(XEmbedCanvasPeer, init$, void)},
+		{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XEmbedCanvasPeer, init$, void, $XCreateWindowParams*)},
+		{"<init>", "(Ljava/awt/Component;)V", nullptr, 0, $method(XEmbedCanvasPeer, init$, void, $Component*)},
+		{"canvasFocusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, canvasFocusGained, void, $FocusEvent*)},
+		{"canvasFocusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, canvasFocusLost, void, $FocusEvent*)},
+		{"childDestroyed", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, childDestroyed, void)},
+		{"childResized", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, childResized, void)},
+		{"deinstallAcceleratorListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, deinstallAcceleratorListener, void)},
+		{"deinstallActivateListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, deinstallActivateListener, void)},
+		{"deinstallModalityListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, deinstallModalityListener, void)},
+		{"detachChild", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, detachChild, void)},
+		{"disableBackgroundErase", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEmbedCanvasPeer, disableBackgroundErase, void)},
+		{"dispatchEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, dispatchEvent, void, $XEvent*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, dispose, void)},
+		{"embedChild", "(J)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, embedChild, void, int64_t)},
+		{"endDispatching", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, endDispatching, void)},
+		{"focusNext", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, focusNext, void)},
+		{"focusPrev", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, focusPrev, void)},
+		{"forwardKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, forwardKeyEvent, void, $KeyEvent*)},
+		{"getAppropriateGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XEmbedCanvasPeer, getAppropriateGraphicsConfiguration, $GraphicsConfiguration*, $GraphicsConfiguration*)},
+		{"getBData", "(Ljava/awt/event/KeyEvent;)[B", nullptr, $STATIC, $staticMethod(XEmbedCanvasPeer, getBData, $bytes*, $KeyEvent*)},
+		{"getClientBounds", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, getClientBounds, $Rectangle*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, getPreferredSize, $Dimension*)},
+		{"getTopLevel", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, getTopLevel, $Window*, $Component*)},
+		{"grabKey", "(JJ)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, grabKey, void, int64_t, int64_t)},
+		{"handleClientMessage", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, handleClientMessage, void, $XEvent*)},
+		{"handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, handleEvent, void, $AWTEvent*)},
+		{"initDispatching", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, initDispatching, void)},
+		{"installAcceleratorListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, installAcceleratorListener, void)},
+		{"installActivateListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, installActivateListener, void)},
+		{"installModalityListener", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, installModalityListener, void)},
+		{"isApplicationActive", "()Z", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, isApplicationActive, bool)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, isFocusable, bool)},
+		{"isXEmbedActive", "()Z", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, isXEmbedActive, bool)},
+		{"modalityPopped", "(Lsun/awt/ModalityEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, modalityPopped, void, $ModalityEvent*)},
+		{"modalityPushed", "(Lsun/awt/ModalityEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, modalityPushed, void, $ModalityEvent*)},
+		{"notifyChildEmbedded", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, notifyChildEmbedded, void)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PROTECTED, $virtualMethod(XEmbedCanvasPeer, postInit, void, $XCreateWindowParams*)},
+		{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, postProcessKeyEvent, bool, $KeyEvent*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PROTECTED, $virtualMethod(XEmbedCanvasPeer, preInit, void, $XCreateWindowParams*)},
+		{"processXEmbedDnDEvent", "(JI)Z", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, processXEmbedDnDEvent, bool, int64_t, int32_t)},
+		{"propogateRegisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, propogateRegisterAccelerator, void, $AWTKeyStroke*)},
+		{"propogateUnRegisterAccelerator", "(Ljava/awt/AWTKeyStroke;)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, propogateUnRegisterAccelerator, void, $AWTKeyStroke*)},
+		{"registerAccelerator", "(JJJ)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, registerAccelerator, void, int64_t, int64_t, int64_t)},
+		{"removeXEmbedDropTarget", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, removeXEmbedDropTarget, void)},
+		{"requestXEmbedFocus", "()V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, requestXEmbedFocus, void)},
+		{"setXEmbedDropTarget", "()V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, setXEmbedDropTarget, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"ungrabKey", "(JJ)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, ungrabKey, void, int64_t, int64_t)},
+		{"unregisterAccelerator", "(J)V", nullptr, 0, $virtualMethod(XEmbedCanvasPeer, unregisterAccelerator, void, int64_t)},
+		{"windowGainedFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, windowGainedFocus, void, $WindowEvent*)},
+		{"windowLostFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(XEmbedCanvasPeer, windowLostFocus, void, $WindowEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XEmbedCanvasPeer$GrabbedKey", "sun.awt.X11.XEmbedCanvasPeer", "GrabbedKey", $STATIC},
+		{"sun.awt.X11.XEmbedCanvasPeer$XEmbedServer", "sun.awt.X11.XEmbedCanvasPeer", "XEmbedServer", 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$XEmbedDropTarget", "sun.awt.X11.XEmbedCanvasPeer", "XEmbedDropTarget", $PRIVATE | $STATIC},
+		{"sun.awt.X11.XEmbedCanvasPeer$9", nullptr, nullptr, 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$8", nullptr, nullptr, 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$7", nullptr, nullptr, 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$6", nullptr, nullptr, 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$5", nullptr, nullptr, 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$4", nullptr, nullptr, 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$3", nullptr, nullptr, 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$2", nullptr, nullptr, 0},
+		{"sun.awt.X11.XEmbedCanvasPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XEmbedCanvasPeer",
+		"sun.awt.X11.XCanvasPeer",
+		"java.awt.event.WindowFocusListener,java.awt.KeyEventPostProcessor,sun.awt.ModalityListener,sun.awt.WindowIDProvider",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XEmbedCanvasPeer$GrabbedKey,sun.awt.X11.XEmbedCanvasPeer$XEmbedServer,sun.awt.X11.XEmbedCanvasPeer$XEmbedDropTarget,sun.awt.X11.XEmbedCanvasPeer$9,sun.awt.X11.XEmbedCanvasPeer$8,sun.awt.X11.XEmbedCanvasPeer$7,sun.awt.X11.XEmbedCanvasPeer$6,sun.awt.X11.XEmbedCanvasPeer$5,sun.awt.X11.XEmbedCanvasPeer$4,sun.awt.X11.XEmbedCanvasPeer$3,sun.awt.X11.XEmbedCanvasPeer$2,sun.awt.X11.XEmbedCanvasPeer$1"
+	};
+	$loadClass(XEmbedCanvasPeer, name, initialize, &classInfo$$, XEmbedCanvasPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XEmbedCanvasPeer));
+	});
 	return class$;
 }
 

@@ -41,6 +41,7 @@ class $export Preferences : public ::java::lang::Object {
 	$class(Preferences, 0, ::java::lang::Object)
 public:
 	Preferences();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* absolutePath() {return nullptr;}
 	virtual void addNodeChangeListener(::java::util::prefs::NodeChangeListener* ncl) {}

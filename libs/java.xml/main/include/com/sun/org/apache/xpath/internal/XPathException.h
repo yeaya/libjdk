@@ -63,12 +63,15 @@ public:
 	virtual void printStackTrace(::java::io::PrintStream* s) override;
 	virtual void printStackTrace(::java::io::PrintWriter* s) override;
 	virtual void setStylesheetNode(Object$* styleNode);
-	static const int64_t serialVersionUID = (int64_t)0x3B2B2BE100E6764B;
+	static const int64_t serialVersionUID = (int64_t)0x3b2b2be100e6764b;
 	$Object* m_styleNode = nullptr;
 	::java::lang::Exception* m_exception = nullptr;
 	XPathException(const XPathException& e);
 	virtual void throw$() override;
-	inline XPathException* operator ->() {
+	inline XPathException* operator ->() const {
+		return (XPathException*)throwing$;
+	}
+	inline operator XPathException*() const {
 		return (XPathException*)throwing$;
 	}
 };

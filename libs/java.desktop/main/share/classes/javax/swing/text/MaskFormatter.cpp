@@ -1,5 +1,4 @@
 #include <javax/swing/text/MaskFormatter.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/Math.h>
@@ -54,94 +53,6 @@ using $MaskFormatter$UpperCaseCharacter = ::javax::swing::text::MaskFormatter$Up
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _MaskFormatter_FieldInfo_[] = {
-	{"DIGIT_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, DIGIT_KEY)},
-	{"LITERAL_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, LITERAL_KEY)},
-	{"UPPERCASE_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, UPPERCASE_KEY)},
-	{"LOWERCASE_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, LOWERCASE_KEY)},
-	{"ALPHA_NUMERIC_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, ALPHA_NUMERIC_KEY)},
-	{"CHARACTER_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, CHARACTER_KEY)},
-	{"ANYTHING_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, ANYTHING_KEY)},
-	{"HEX_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, HEX_KEY)},
-	{"EmptyMaskChars", "[Ljavax/swing/text/MaskFormatter$MaskCharacter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MaskFormatter, EmptyMaskChars)},
-	{"mask", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MaskFormatter, mask)},
-	{"maskChars", "[Ljavax/swing/text/MaskFormatter$MaskCharacter;", nullptr, $PRIVATE | $TRANSIENT, $field(MaskFormatter, maskChars)},
-	{"validCharacters", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MaskFormatter, validCharacters)},
-	{"invalidCharacters", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MaskFormatter, invalidCharacters)},
-	{"placeholderString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MaskFormatter, placeholderString)},
-	{"placeholder", "C", nullptr, $PRIVATE, $field(MaskFormatter, placeholder)},
-	{"containsLiteralChars", "Z", nullptr, $PRIVATE, $field(MaskFormatter, containsLiteralChars)},
-	{}
-};
-
-$MethodInfo _MaskFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MaskFormatter, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MaskFormatter, init$, void, $String*), "java.text.ParseException"},
-	{"append", "(Ljava/lang/StringBuilder;Ljava/lang/String;[ILjava/lang/String;[Ljavax/swing/text/MaskFormatter$MaskCharacter;)V", nullptr, $PRIVATE, $method(MaskFormatter, append, void, $StringBuilder*, $String*, $ints*, $String*, $MaskFormatter$MaskCharacterArray*), "java.text.ParseException"},
-	{"canReplace", "(Ljavax/swing/text/DefaultFormatter$ReplaceHolder;)Z", nullptr, 0, $virtualMethod(MaskFormatter, canReplace, bool, $DefaultFormatter$ReplaceHolder*)},
-	{"getCharacter", "(IC)C", nullptr, $PRIVATE, $method(MaskFormatter, getCharacter, char16_t, int32_t, char16_t)},
-	{"getInvalidCharacters", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getInvalidCharacters, $String*)},
-	{"getInvalidOffset", "(Ljava/lang/String;Z)I", nullptr, $PRIVATE, $method(MaskFormatter, getInvalidOffset, int32_t, $String*, bool)},
-	{"getLiteral", "(I)C", nullptr, $PRIVATE, $method(MaskFormatter, getLiteral, char16_t, int32_t)},
-	{"getMask", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getMask, $String*)},
-	{"getMaskCharacter", "(I)Ljavax/swing/text/MaskFormatter$MaskCharacter;", nullptr, $PRIVATE, $method(MaskFormatter, getMaskCharacter, $MaskFormatter$MaskCharacter*, int32_t)},
-	{"getMaxLength", "()I", nullptr, $PRIVATE, $method(MaskFormatter, getMaxLength, int32_t)},
-	{"getPlaceholder", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getPlaceholder, $String*)},
-	{"getPlaceholderCharacter", "()C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getPlaceholderCharacter, char16_t)},
-	{"getValidCharacters", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getValidCharacters, $String*)},
-	{"getValueContainsLiteralCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getValueContainsLiteralCharacters, bool)},
-	{"install", "(Ljavax/swing/JFormattedTextField;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, install, void, $JFormattedTextField*)},
-	{"isLiteral", "(I)Z", nullptr, $PRIVATE, $method(MaskFormatter, isLiteral, bool, int32_t)},
-	{"isNavigatable", "(I)Z", nullptr, 0, $virtualMethod(MaskFormatter, isNavigatable, bool, int32_t)},
-	{"isPlaceholder", "(IC)Z", nullptr, $PRIVATE, $method(MaskFormatter, isPlaceholder, bool, int32_t, char16_t)},
-	{"isValidCharacter", "(IC)Z", nullptr, $PRIVATE, $method(MaskFormatter, isValidCharacter, bool, int32_t, char16_t)},
-	{"isValidEdit", "(Ljavax/swing/text/DefaultFormatter$ReplaceHolder;)Z", nullptr, 0, $virtualMethod(MaskFormatter, isValidEdit, bool, $DefaultFormatter$ReplaceHolder*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MaskFormatter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setInvalidCharacters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setInvalidCharacters, void, $String*)},
-	{"setMask", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setMask, void, $String*), "java.text.ParseException"},
-	{"setPlaceholder", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setPlaceholder, void, $String*)},
-	{"setPlaceholderCharacter", "(C)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setPlaceholderCharacter, void, char16_t)},
-	{"setValidCharacters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setValidCharacters, void, $String*)},
-	{"setValueContainsLiteralCharacters", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setValueContainsLiteralCharacters, void, bool)},
-	{"stringToValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, stringToValue, $Object*, $String*), "java.text.ParseException"},
-	{"stringToValue", "(Ljava/lang/String;Z)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MaskFormatter, stringToValue, $Object*, $String*, bool), "java.text.ParseException"},
-	{"stripLiteralChars", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MaskFormatter, stripLiteralChars, $String*, $String*)},
-	{"updateInternalMask", "()V", nullptr, $PRIVATE, $method(MaskFormatter, updateInternalMask, void), "java.text.ParseException"},
-	{"valueToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, valueToString, $String*, Object$*), "java.text.ParseException"},
-	{}
-};
-
-$InnerClassInfo _MaskFormatter_InnerClassesInfo_[] = {
-	{"javax.swing.text.MaskFormatter$HexCharacter", "javax.swing.text.MaskFormatter", "HexCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$CharCharacter", "javax.swing.text.MaskFormatter", "CharCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$AlphaNumericCharacter", "javax.swing.text.MaskFormatter", "AlphaNumericCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$LowerCaseCharacter", "javax.swing.text.MaskFormatter", "LowerCaseCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$UpperCaseCharacter", "javax.swing.text.MaskFormatter", "UpperCaseCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$DigitMaskCharacter", "javax.swing.text.MaskFormatter", "DigitMaskCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$LiteralCharacter", "javax.swing.text.MaskFormatter", "LiteralCharacter", $PRIVATE},
-	{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MaskFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.MaskFormatter",
-	"javax.swing.text.DefaultFormatter",
-	nullptr,
-	_MaskFormatter_FieldInfo_,
-	_MaskFormatter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MaskFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.MaskFormatter$HexCharacter,javax.swing.text.MaskFormatter$CharCharacter,javax.swing.text.MaskFormatter$AlphaNumericCharacter,javax.swing.text.MaskFormatter$LowerCaseCharacter,javax.swing.text.MaskFormatter$UpperCaseCharacter,javax.swing.text.MaskFormatter$DigitMaskCharacter,javax.swing.text.MaskFormatter$LiteralCharacter,javax.swing.text.MaskFormatter$MaskCharacter"
-};
-
-$Object* allocate$MaskFormatter($Class* clazz) {
-	return $of($alloc(MaskFormatter));
-}
 
 $MaskFormatter$MaskCharacterArray* MaskFormatter::EmptyMaskChars = nullptr;
 
@@ -208,12 +119,12 @@ bool MaskFormatter::getValueContainsLiteralCharacters() {
 }
 
 $Object* MaskFormatter::stringToValue($String* value) {
-	return $of(stringToValue(value, true));
+	return stringToValue(value, true);
 }
 
 $String* MaskFormatter::valueToString(Object$* value) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, sValue, (value == nullptr) ? ""_s : $nc($of(value))->toString());
+	$useLocalObjectStack();
+	$var($String, sValue, (value == nullptr) ? ""_s : $of(value)->toString());
 	$var($StringBuilder, result, $new($StringBuilder));
 	$var($String, placeholder, getPlaceholder());
 	$var($ints, valueCounter, $new($ints, {0}));
@@ -222,7 +133,7 @@ $String* MaskFormatter::valueToString(Object$* value) {
 }
 
 void MaskFormatter::install($JFormattedTextField* ftf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultFormatter::install(ftf);
 	if (ftf != nullptr) {
 		$var($Object, value, ftf->getValue());
@@ -241,7 +152,7 @@ $Object* MaskFormatter::stringToValue($String* value$renamed, bool completeMatch
 		if (!getValueContainsLiteralCharacters()) {
 			$assign(value, stripLiteralChars(value));
 		}
-		return $of($DefaultFormatter::stringToValue(value));
+		return $DefaultFormatter::stringToValue(value);
 	}
 	$throwNew($ParseException, "stringToValue passed invalid value"_s, errorOffset);
 }
@@ -251,91 +162,61 @@ int32_t MaskFormatter::getInvalidOffset($String* string, bool completeMatch) {
 	if (iLength != getMaxLength()) {
 		return iLength;
 	}
-	{
-		int32_t counter = 0;
-		int32_t max = string->length();
-		for (; counter < max; ++counter) {
-			char16_t aChar = string->charAt(counter);
-			bool var$0 = !isValidCharacter(counter, aChar);
-			if (var$0 && (completeMatch || !isPlaceholder(counter, aChar))) {
-				return counter;
-			}
+	for (int32_t counter = 0, max = string->length(); counter < max; ++counter) {
+		char16_t aChar = string->charAt(counter);
+		bool var$0 = !isValidCharacter(counter, aChar);
+		if (var$0 && (completeMatch || !isPlaceholder(counter, aChar))) {
+			return counter;
 		}
 	}
 	return -1;
 }
 
 void MaskFormatter::append($StringBuilder* result, $String* value, $ints* index, $String* placeholder, $MaskFormatter$MaskCharacterArray* mask) {
-	{
-		int32_t counter = 0;
-		int32_t maxCounter = $nc(mask)->length;
-		for (; counter < maxCounter; ++counter) {
-			$nc(mask->get(counter))->append(result, value, index, placeholder);
-		}
+	for (int32_t counter = 0, maxCounter = $nc(mask)->length; counter < maxCounter; ++counter) {
+		$nc(mask->get(counter))->append(result, value, index, placeholder);
 	}
 }
 
 void MaskFormatter::updateInternalMask() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, mask, getMask());
 	$var($ArrayList, fixed, $new($ArrayList));
 	$var($ArrayList, temp, fixed);
 	if (mask != nullptr) {
-		{
-			int32_t counter = 0;
-			int32_t maxCounter = mask->length();
-			for (; counter < maxCounter; ++counter) {
-				char16_t maskChar = mask->charAt(counter);
-				switch (maskChar) {
-				case MaskFormatter::DIGIT_KEY:
-					{
-						temp->add($$new($MaskFormatter$DigitMaskCharacter, this));
-						break;
-					}
-				case MaskFormatter::LITERAL_KEY:
-					{
-						if (++counter < maxCounter) {
-							maskChar = mask->charAt(counter);
-							temp->add($$new($MaskFormatter$LiteralCharacter, this, maskChar));
-						}
-						break;
-					}
-				case MaskFormatter::UPPERCASE_KEY:
-					{
-						temp->add($$new($MaskFormatter$UpperCaseCharacter, this));
-						break;
-					}
-				case MaskFormatter::LOWERCASE_KEY:
-					{
-						temp->add($$new($MaskFormatter$LowerCaseCharacter, this));
-						break;
-					}
-				case MaskFormatter::ALPHA_NUMERIC_KEY:
-					{
-						temp->add($$new($MaskFormatter$AlphaNumericCharacter, this));
-						break;
-					}
-				case MaskFormatter::CHARACTER_KEY:
-					{
-						temp->add($$new($MaskFormatter$CharCharacter, this));
-						break;
-					}
-				case MaskFormatter::ANYTHING_KEY:
-					{
-						temp->add($$new($MaskFormatter$MaskCharacter, this));
-						break;
-					}
-				case MaskFormatter::HEX_KEY:
-					{
-						temp->add($$new($MaskFormatter$HexCharacter, this));
-						break;
-					}
-				default:
-					{
-						temp->add($$new($MaskFormatter$LiteralCharacter, this, maskChar));
-						break;
-					}
+		for (int32_t counter = 0, maxCounter = mask->length(); counter < maxCounter; ++counter) {
+			char16_t maskChar = mask->charAt(counter);
+			switch (maskChar) {
+			case MaskFormatter::DIGIT_KEY:
+				temp->add($$new($MaskFormatter$DigitMaskCharacter, this));
+				break;
+			case MaskFormatter::LITERAL_KEY:
+				if (++counter < maxCounter) {
+					maskChar = mask->charAt(counter);
+					temp->add($$new($MaskFormatter$LiteralCharacter, this, maskChar));
 				}
+				break;
+			case MaskFormatter::UPPERCASE_KEY:
+				temp->add($$new($MaskFormatter$UpperCaseCharacter, this));
+				break;
+			case MaskFormatter::LOWERCASE_KEY:
+				temp->add($$new($MaskFormatter$LowerCaseCharacter, this));
+				break;
+			case MaskFormatter::ALPHA_NUMERIC_KEY:
+				temp->add($$new($MaskFormatter$AlphaNumericCharacter, this));
+				break;
+			case MaskFormatter::CHARACTER_KEY:
+				temp->add($$new($MaskFormatter$CharCharacter, this));
+				break;
+			case MaskFormatter::ANYTHING_KEY:
+				temp->add($$new($MaskFormatter$MaskCharacter, this));
+				break;
+			case MaskFormatter::HEX_KEY:
+				temp->add($$new($MaskFormatter$HexCharacter, this));
+				break;
+			default:
+				temp->add($$new($MaskFormatter$LiteralCharacter, this, maskChar));
+				break;
 			}
 		}
 	}
@@ -351,7 +232,7 @@ $MaskFormatter$MaskCharacter* MaskFormatter::getMaskCharacter(int32_t index) {
 	if (index >= $nc(this->maskChars)->length) {
 		return nullptr;
 	}
-	return $nc(this->maskChars)->get(index);
+	return this->maskChars->get(index);
 }
 
 bool MaskFormatter::isPlaceholder(int32_t index, char16_t aChar) {
@@ -359,11 +240,11 @@ bool MaskFormatter::isPlaceholder(int32_t index, char16_t aChar) {
 }
 
 bool MaskFormatter::isValidCharacter(int32_t index, char16_t aChar) {
-	return $nc($(getMaskCharacter(index)))->isValidCharacter(aChar);
+	return $$nc(getMaskCharacter(index))->isValidCharacter(aChar);
 }
 
 bool MaskFormatter::isLiteral(int32_t index) {
-	return $nc($(getMaskCharacter(index)))->isLiteral();
+	return $$nc(getMaskCharacter(index))->isLiteral();
 }
 
 int32_t MaskFormatter::getMaxLength() {
@@ -371,33 +252,29 @@ int32_t MaskFormatter::getMaxLength() {
 }
 
 char16_t MaskFormatter::getLiteral(int32_t index) {
-	return $nc($(getMaskCharacter(index)))->getChar((char16_t)0);
+	return $$nc(getMaskCharacter(index))->getChar((char16_t)0);
 }
 
 char16_t MaskFormatter::getCharacter(int32_t index, char16_t aChar) {
-	return $nc($(getMaskCharacter(index)))->getChar(aChar);
+	return $$nc(getMaskCharacter(index))->getChar(aChar);
 }
 
 $String* MaskFormatter::stripLiteralChars($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, nullptr);
 	int32_t last = 0;
-	{
-		int32_t counter = 0;
-		int32_t max = $nc(string)->length();
-		for (; counter < max; ++counter) {
-			if (isLiteral(counter)) {
-				if (sb == nullptr) {
-					$assign(sb, $new($StringBuilder));
-					if (counter > 0) {
-						sb->append($(string->substring(0, counter)));
-					}
-					last = counter + 1;
-				} else if (last != counter) {
-					$nc(sb)->append($(string->substring(last, counter)));
+	for (int32_t counter = 0, max = $nc(string)->length(); counter < max; ++counter) {
+		if (isLiteral(counter)) {
+			if (sb == nullptr) {
+				$assign(sb, $new($StringBuilder));
+				if (counter > 0) {
+					sb->append($(string->substring(0, counter)));
 				}
 				last = counter + 1;
+			} else if (last != counter) {
+				sb->append($(string->substring(last, counter)));
 			}
+			last = counter + 1;
 		}
 	}
 	if (sb == nullptr) {
@@ -406,19 +283,19 @@ $String* MaskFormatter::stripLiteralChars($String* string) {
 		if (sb == nullptr) {
 			return string->substring(last);
 		}
-		$nc(sb)->append($(string->substring(last)));
+		sb->append($(string->substring(last)));
 	}
 	return $nc(sb)->toString();
 }
 
 void MaskFormatter::readObject($ObjectInputStream* s) {
 	$var($ObjectInputStream$GetField, f, $nc(s)->readFields());
-	$set(this, validCharacters, $cast($String, $nc(f)->get("validCharacters"_s, ($Object*)nullptr)));
-	$set(this, invalidCharacters, $cast($String, f->get("invalidCharacters"_s, ($Object*)nullptr)));
-	$set(this, placeholderString, $cast($String, f->get("placeholderString"_s, ($Object*)nullptr)));
+	$set(this, validCharacters, $cast($String, $nc(f)->get("validCharacters"_s, nullptr)));
+	$set(this, invalidCharacters, $cast($String, f->get("invalidCharacters"_s, nullptr)));
+	$set(this, placeholderString, $cast($String, f->get("placeholderString"_s, nullptr)));
 	this->placeholder = f->get("placeholder"_s, u'\0');
 	this->containsLiteralChars = f->get("containsLiteralChars"_s, false);
-	$set(this, mask, $cast($String, f->get("mask"_s, ($Object*)nullptr)));
+	$set(this, mask, $cast($String, f->get("mask"_s, nullptr)));
 	try {
 		updateInternalMask();
 	} catch ($ParseException& pe) {
@@ -435,9 +312,9 @@ bool MaskFormatter::isNavigatable(int32_t offset) {
 
 bool MaskFormatter::isValidEdit($DefaultFormatter$ReplaceHolder* rh) {
 	if (!getAllowsInvalid()) {
-		$var($String, newString, getReplaceString($nc(rh)->offset, rh->length, rh->text));
+		$var($String, newString, getReplaceString($nc(rh)->offset, $nc(rh)->length, $nc(rh)->text));
 		try {
-			$set($nc(rh), value, stringToValue(newString, false));
+			$set(rh, value, stringToValue(newString, false));
 			return true;
 		} catch ($ParseException& pe) {
 			return false;
@@ -447,71 +324,67 @@ bool MaskFormatter::isValidEdit($DefaultFormatter$ReplaceHolder* rh) {
 }
 
 bool MaskFormatter::canReplace($DefaultFormatter$ReplaceHolder* rh) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!getAllowsInvalid()) {
 		$var($StringBuilder, replace, nullptr);
 		$var($String, text, $nc(rh)->text);
-		int32_t tl = (text != nullptr) ? $nc(text)->length() : 0;
-		if (tl == 0 && rh->length == 1 && $nc($(getFormattedTextField()))->getSelectionStart() != rh->offset) {
+		int32_t tl = (text != nullptr) ? text->length() : 0;
+		if (tl == 0 && rh->length == 1 && $$nc(getFormattedTextField())->getSelectionStart() != rh->offset) {
 			while (rh->offset > 0 && isLiteral(rh->offset)) {
 				--rh->offset;
 			}
 		}
 		int32_t var$0 = getMaxLength() - rh->offset;
 		int32_t max = $Math::min(var$0, $Math::max(tl, rh->length));
-		{
-			int32_t counter = 0;
-			int32_t textIndex = 0;
-			for (; counter < max; ++counter) {
-				if (textIndex < tl && isValidCharacter(rh->offset + counter, text->charAt(textIndex))) {
-					char16_t aChar = text->charAt(textIndex);
-					if (aChar != getCharacter(rh->offset + counter, aChar)) {
-						if (replace == nullptr) {
-							$assign(replace, $new($StringBuilder));
-							if (textIndex > 0) {
-								replace->append($(text->substring(0, textIndex)));
-							}
-						}
-					}
-					if (replace != nullptr) {
-						replace->append(getCharacter(rh->offset + counter, aChar));
-					}
-					++textIndex;
-				} else if (isLiteral(rh->offset + counter)) {
-					if (replace != nullptr) {
-						replace->append(getLiteral(rh->offset + counter));
-						if (textIndex < tl) {
-							max = $Math::min(max + 1, getMaxLength() - rh->offset);
-						}
-					} else if (textIndex > 0) {
-						$assign(replace, $new($StringBuilder, max));
-						replace->append($(text->substring(0, textIndex)));
-						replace->append(getLiteral(rh->offset + counter));
-						if (textIndex < tl) {
-							max = $Math::min(max + 1, getMaxLength() - rh->offset);
-						} else if (rh->cursorPosition == -1) {
-							rh->cursorPosition = rh->offset + counter;
-						}
-					} else {
-						++rh->offset;
-						--rh->length;
-						--counter;
-						--max;
-					}
-				} else if (textIndex >= tl) {
+		for (int32_t counter = 0, textIndex = 0; counter < max; ++counter) {
+			if (textIndex < tl && isValidCharacter(rh->offset + counter, $nc(text)->charAt(textIndex))) {
+				char16_t aChar = text->charAt(textIndex);
+				if (aChar != getCharacter(rh->offset + counter, aChar)) {
 					if (replace == nullptr) {
 						$assign(replace, $new($StringBuilder));
-						if (text != nullptr) {
-							replace->append(text);
+						if (textIndex > 0) {
+							replace->append($(text->substring(0, textIndex)));
 						}
 					}
-					$nc(replace)->append(getPlaceholderCharacter());
-					if (tl > 0 && rh->cursorPosition == -1) {
+				}
+				if (replace != nullptr) {
+					replace->append(getCharacter(rh->offset + counter, aChar));
+				}
+				++textIndex;
+			} else if (isLiteral(rh->offset + counter)) {
+				if (replace != nullptr) {
+					replace->append(getLiteral(rh->offset + counter));
+					if (textIndex < tl) {
+						max = $Math::min(max + 1, getMaxLength() - rh->offset);
+					}
+				} else if (textIndex > 0) {
+					$assign(replace, $new($StringBuilder, max));
+					replace->append($($nc(text)->substring(0, textIndex)));
+					replace->append(getLiteral(rh->offset + counter));
+					if (textIndex < tl) {
+						max = $Math::min(max + 1, getMaxLength() - rh->offset);
+					} else if (rh->cursorPosition == -1) {
 						rh->cursorPosition = rh->offset + counter;
 					}
 				} else {
-					return false;
+					++rh->offset;
+					--rh->length;
+					--counter;
+					--max;
 				}
+			} else if (textIndex >= tl) {
+				if (replace == nullptr) {
+					$assign(replace, $new($StringBuilder));
+					if (text != nullptr) {
+						replace->append(text);
+					}
+				}
+				$nc(replace)->append(getPlaceholderCharacter());
+				if (tl > 0 && rh->cursorPosition == -1) {
+					rh->cursorPosition = rh->offset + counter;
+				}
+			} else {
+				return false;
 			}
 		}
 		if (replace != nullptr) {
@@ -520,13 +393,13 @@ bool MaskFormatter::canReplace($DefaultFormatter$ReplaceHolder* rh) {
 			$set(rh, text, text->substring(0, getMaxLength() - rh->offset));
 		}
 		if (getOverwriteMode() && rh->text != nullptr) {
-			rh->length = $nc(rh->text)->length();
+			rh->length = rh->text->length();
 		}
 	}
 	return $DefaultFormatter::canReplace(rh);
 }
 
-void clinit$MaskFormatter($Class* class$) {
+void MaskFormatter::clinit$($Class* clazz) {
 	$assignStatic(MaskFormatter::EmptyMaskChars, $new($MaskFormatter$MaskCharacterArray, 0));
 }
 
@@ -534,7 +407,89 @@ MaskFormatter::MaskFormatter() {
 }
 
 $Class* MaskFormatter::load$($String* name, bool initialize) {
-	$loadClass(MaskFormatter, name, initialize, &_MaskFormatter_ClassInfo_, clinit$MaskFormatter, allocate$MaskFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"DIGIT_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, DIGIT_KEY)},
+		{"LITERAL_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, LITERAL_KEY)},
+		{"UPPERCASE_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, UPPERCASE_KEY)},
+		{"LOWERCASE_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, LOWERCASE_KEY)},
+		{"ALPHA_NUMERIC_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, ALPHA_NUMERIC_KEY)},
+		{"CHARACTER_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, CHARACTER_KEY)},
+		{"ANYTHING_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, ANYTHING_KEY)},
+		{"HEX_KEY", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MaskFormatter, HEX_KEY)},
+		{"EmptyMaskChars", "[Ljavax/swing/text/MaskFormatter$MaskCharacter;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MaskFormatter, EmptyMaskChars)},
+		{"mask", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MaskFormatter, mask)},
+		{"maskChars", "[Ljavax/swing/text/MaskFormatter$MaskCharacter;", nullptr, $PRIVATE | $TRANSIENT, $field(MaskFormatter, maskChars)},
+		{"validCharacters", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MaskFormatter, validCharacters)},
+		{"invalidCharacters", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MaskFormatter, invalidCharacters)},
+		{"placeholderString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MaskFormatter, placeholderString)},
+		{"placeholder", "C", nullptr, $PRIVATE, $field(MaskFormatter, placeholder)},
+		{"containsLiteralChars", "Z", nullptr, $PRIVATE, $field(MaskFormatter, containsLiteralChars)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MaskFormatter, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MaskFormatter, init$, void, $String*), "java.text.ParseException"},
+		{"append", "(Ljava/lang/StringBuilder;Ljava/lang/String;[ILjava/lang/String;[Ljavax/swing/text/MaskFormatter$MaskCharacter;)V", nullptr, $PRIVATE, $method(MaskFormatter, append, void, $StringBuilder*, $String*, $ints*, $String*, $MaskFormatter$MaskCharacterArray*), "java.text.ParseException"},
+		{"canReplace", "(Ljavax/swing/text/DefaultFormatter$ReplaceHolder;)Z", nullptr, 0, $virtualMethod(MaskFormatter, canReplace, bool, $DefaultFormatter$ReplaceHolder*)},
+		{"getCharacter", "(IC)C", nullptr, $PRIVATE, $method(MaskFormatter, getCharacter, char16_t, int32_t, char16_t)},
+		{"getInvalidCharacters", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getInvalidCharacters, $String*)},
+		{"getInvalidOffset", "(Ljava/lang/String;Z)I", nullptr, $PRIVATE, $method(MaskFormatter, getInvalidOffset, int32_t, $String*, bool)},
+		{"getLiteral", "(I)C", nullptr, $PRIVATE, $method(MaskFormatter, getLiteral, char16_t, int32_t)},
+		{"getMask", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getMask, $String*)},
+		{"getMaskCharacter", "(I)Ljavax/swing/text/MaskFormatter$MaskCharacter;", nullptr, $PRIVATE, $method(MaskFormatter, getMaskCharacter, $MaskFormatter$MaskCharacter*, int32_t)},
+		{"getMaxLength", "()I", nullptr, $PRIVATE, $method(MaskFormatter, getMaxLength, int32_t)},
+		{"getPlaceholder", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getPlaceholder, $String*)},
+		{"getPlaceholderCharacter", "()C", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getPlaceholderCharacter, char16_t)},
+		{"getValidCharacters", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getValidCharacters, $String*)},
+		{"getValueContainsLiteralCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, getValueContainsLiteralCharacters, bool)},
+		{"install", "(Ljavax/swing/JFormattedTextField;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, install, void, $JFormattedTextField*)},
+		{"isLiteral", "(I)Z", nullptr, $PRIVATE, $method(MaskFormatter, isLiteral, bool, int32_t)},
+		{"isNavigatable", "(I)Z", nullptr, 0, $virtualMethod(MaskFormatter, isNavigatable, bool, int32_t)},
+		{"isPlaceholder", "(IC)Z", nullptr, $PRIVATE, $method(MaskFormatter, isPlaceholder, bool, int32_t, char16_t)},
+		{"isValidCharacter", "(IC)Z", nullptr, $PRIVATE, $method(MaskFormatter, isValidCharacter, bool, int32_t, char16_t)},
+		{"isValidEdit", "(Ljavax/swing/text/DefaultFormatter$ReplaceHolder;)Z", nullptr, 0, $virtualMethod(MaskFormatter, isValidEdit, bool, $DefaultFormatter$ReplaceHolder*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MaskFormatter, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setInvalidCharacters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setInvalidCharacters, void, $String*)},
+		{"setMask", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setMask, void, $String*), "java.text.ParseException"},
+		{"setPlaceholder", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setPlaceholder, void, $String*)},
+		{"setPlaceholderCharacter", "(C)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setPlaceholderCharacter, void, char16_t)},
+		{"setValidCharacters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setValidCharacters, void, $String*)},
+		{"setValueContainsLiteralCharacters", "(Z)V", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, setValueContainsLiteralCharacters, void, bool)},
+		{"stringToValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, stringToValue, $Object*, $String*), "java.text.ParseException"},
+		{"stringToValue", "(Ljava/lang/String;Z)Ljava/lang/Object;", nullptr, $PRIVATE, $method(MaskFormatter, stringToValue, $Object*, $String*, bool), "java.text.ParseException"},
+		{"stripLiteralChars", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MaskFormatter, stripLiteralChars, $String*, $String*)},
+		{"updateInternalMask", "()V", nullptr, $PRIVATE, $method(MaskFormatter, updateInternalMask, void), "java.text.ParseException"},
+		{"valueToString", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MaskFormatter, valueToString, $String*, Object$*), "java.text.ParseException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.MaskFormatter$HexCharacter", "javax.swing.text.MaskFormatter", "HexCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$CharCharacter", "javax.swing.text.MaskFormatter", "CharCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$AlphaNumericCharacter", "javax.swing.text.MaskFormatter", "AlphaNumericCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$LowerCaseCharacter", "javax.swing.text.MaskFormatter", "LowerCaseCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$UpperCaseCharacter", "javax.swing.text.MaskFormatter", "UpperCaseCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$DigitMaskCharacter", "javax.swing.text.MaskFormatter", "DigitMaskCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$LiteralCharacter", "javax.swing.text.MaskFormatter", "LiteralCharacter", $PRIVATE},
+		{"javax.swing.text.MaskFormatter$MaskCharacter", "javax.swing.text.MaskFormatter", "MaskCharacter", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.MaskFormatter",
+		"javax.swing.text.DefaultFormatter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.MaskFormatter$HexCharacter,javax.swing.text.MaskFormatter$CharCharacter,javax.swing.text.MaskFormatter$AlphaNumericCharacter,javax.swing.text.MaskFormatter$LowerCaseCharacter,javax.swing.text.MaskFormatter$UpperCaseCharacter,javax.swing.text.MaskFormatter$DigitMaskCharacter,javax.swing.text.MaskFormatter$LiteralCharacter,javax.swing.text.MaskFormatter$MaskCharacter"
+	};
+	$loadClass(MaskFormatter, name, initialize, &classInfo$$, MaskFormatter::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MaskFormatter));
+	});
 	return class$;
 }
 

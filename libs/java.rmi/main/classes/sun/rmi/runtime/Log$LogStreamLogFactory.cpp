@@ -1,5 +1,4 @@
 #include <sun/rmi/runtime/Log$LogStreamLogFactory.h>
-
 #include <java/rmi/server/LogStream.h>
 #include <java/util/logging/Level.h>
 #include <sun/rmi/runtime/Log$LogStreamLog.h>
@@ -18,38 +17,6 @@ namespace sun {
 	namespace rmi {
 		namespace runtime {
 
-$MethodInfo _Log$LogStreamLogFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Log$LogStreamLogFactory, init$, void)},
-	{"createLog", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/logging/Level;)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC, $virtualMethod(Log$LogStreamLogFactory, createLog, $Log*, $String*, $String*, $Level*)},
-	{}
-};
-
-$InnerClassInfo _Log$LogStreamLogFactory_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.Log$LogStreamLogFactory", "sun.rmi.runtime.Log", "LogStreamLogFactory", $PRIVATE | $STATIC},
-	{"sun.rmi.runtime.Log$LogFactory", "sun.rmi.runtime.Log", "LogFactory", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Log$LogStreamLogFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.runtime.Log$LogStreamLogFactory",
-	"java.lang.Object",
-	"sun.rmi.runtime.Log$LogFactory",
-	nullptr,
-	_Log$LogStreamLogFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log$LogStreamLogFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.Log"
-};
-
-$Object* allocate$Log$LogStreamLogFactory($Class* clazz) {
-	return $of($alloc(Log$LogStreamLogFactory));
-}
-
 void Log$LogStreamLogFactory::init$() {
 }
 
@@ -65,7 +32,34 @@ Log$LogStreamLogFactory::Log$LogStreamLogFactory() {
 }
 
 $Class* Log$LogStreamLogFactory::load$($String* name, bool initialize) {
-	$loadClass(Log$LogStreamLogFactory, name, initialize, &_Log$LogStreamLogFactory_ClassInfo_, allocate$Log$LogStreamLogFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Log$LogStreamLogFactory, init$, void)},
+		{"createLog", "(Ljava/lang/String;Ljava/lang/String;Ljava/util/logging/Level;)Lsun/rmi/runtime/Log;", nullptr, $PUBLIC, $virtualMethod(Log$LogStreamLogFactory, createLog, $Log*, $String*, $String*, $Level*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.Log$LogStreamLogFactory", "sun.rmi.runtime.Log", "LogStreamLogFactory", $PRIVATE | $STATIC},
+		{"sun.rmi.runtime.Log$LogFactory", "sun.rmi.runtime.Log", "LogFactory", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.runtime.Log$LogStreamLogFactory",
+		"java.lang.Object",
+		"sun.rmi.runtime.Log$LogFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.Log"
+	};
+	$loadClass(Log$LogStreamLogFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$LogStreamLogFactory);
+	});
 	return class$;
 }
 

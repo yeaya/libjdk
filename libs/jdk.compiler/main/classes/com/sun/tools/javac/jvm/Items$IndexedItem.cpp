@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Items$IndexedItem.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/jvm/ByteCodes.h>
 #include <com/sun/tools/javac/jvm/Code.h>
@@ -22,49 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace jvm {
-
-$FieldInfo _Items$IndexedItem_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$IndexedItem, this$0)},
-	{}
-};
-
-$MethodInfo _Items$IndexedItem_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Items$IndexedItem, init$, void, $Items*, $Type*)},
-	{"drop", "()V", nullptr, 0, $virtualMethod(Items$IndexedItem, drop, void)},
-	{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$IndexedItem, duplicate, void)},
-	{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$IndexedItem, load, $Items$Item*)},
-	{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$IndexedItem, stash, void, int32_t)},
-	{"store", "()V", nullptr, 0, $virtualMethod(Items$IndexedItem, store, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$IndexedItem, toString, $String*)},
-	{"width", "()I", nullptr, 0, $virtualMethod(Items$IndexedItem, width, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Items$IndexedItem_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Items$IndexedItem", "com.sun.tools.javac.jvm.Items", "IndexedItem", 0},
-	{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Items$IndexedItem_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.Items$IndexedItem",
-	"com.sun.tools.javac.jvm.Items$Item",
-	nullptr,
-	_Items$IndexedItem_FieldInfo_,
-	_Items$IndexedItem_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Items$IndexedItem_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Items"
-};
-
-$Object* allocate$Items$IndexedItem($Class* clazz) {
-	return $of($alloc(Items$IndexedItem));
-}
 
 void Items$IndexedItem::init$($Items* this$0, $Type* type) {
 	$set(this, this$0, this$0);
@@ -105,7 +61,44 @@ Items$IndexedItem::Items$IndexedItem() {
 }
 
 $Class* Items$IndexedItem::load$($String* name, bool initialize) {
-	$loadClass(Items$IndexedItem, name, initialize, &_Items$IndexedItem_ClassInfo_, allocate$Items$IndexedItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/jvm/Items;", nullptr, $FINAL | $SYNTHETIC, $field(Items$IndexedItem, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Items;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Items$IndexedItem, init$, void, $Items*, $Type*)},
+		{"drop", "()V", nullptr, 0, $virtualMethod(Items$IndexedItem, drop, void)},
+		{"duplicate", "()V", nullptr, 0, $virtualMethod(Items$IndexedItem, duplicate, void)},
+		{"load", "()Lcom/sun/tools/javac/jvm/Items$Item;", nullptr, 0, $virtualMethod(Items$IndexedItem, load, $Items$Item*)},
+		{"stash", "(I)V", nullptr, 0, $virtualMethod(Items$IndexedItem, stash, void, int32_t)},
+		{"store", "()V", nullptr, 0, $virtualMethod(Items$IndexedItem, store, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Items$IndexedItem, toString, $String*)},
+		{"width", "()I", nullptr, 0, $virtualMethod(Items$IndexedItem, width, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Items$IndexedItem", "com.sun.tools.javac.jvm.Items", "IndexedItem", 0},
+		{"com.sun.tools.javac.jvm.Items$Item", "com.sun.tools.javac.jvm.Items", "Item", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.Items$IndexedItem",
+		"com.sun.tools.javac.jvm.Items$Item",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Items"
+	};
+	$loadClass(Items$IndexedItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Items$IndexedItem);
+	});
 	return class$;
 }
 

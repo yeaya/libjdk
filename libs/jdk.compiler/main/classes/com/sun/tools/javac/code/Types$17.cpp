@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$17.h>
-
 #include <com/sun/tools/javac/code/Type$IntersectionClassType.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -26,63 +25,18 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Types$17_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$17, this$0)},
-	{}
-};
-
-$MethodInfo _Types$17_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$17, init$, void, $Types*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Types$17, visitType, $List*, $Type*, $Void*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$17, visitType, $Object*, $Type*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$17_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$17_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$17", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$17_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$17",
-	"com.sun.tools.javac.code.Types$UnaryVisitor",
-	nullptr,
-	_Types$17_FieldInfo_,
-	_Types$17_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;>;",
-	&_Types$17_EnclosingMethodInfo_,
-	_Types$17_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$17($Class* clazz) {
-	return $of($alloc(Types$17));
-}
-
 void Types$17::init$($Types* this$0) {
 	$set(this, this$0, this$0);
 	$Types$UnaryVisitor::init$();
 }
 
 $List* Types$17::visitType($Type* type, $Void* ignored) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(type)->isIntersection()) {
 		$var($Type, sup, this->this$0->supertype(type));
-		$init($Type);
-		return ($equals(sup, $Type::noType) || sup == type || sup == nullptr) ? this->this$0->interfaces(type) : $nc($(this->this$0->interfaces(type)))->prepend(sup);
+		return ($equals(sup, $Type::noType) || sup == type || sup == nullptr) ? this->this$0->interfaces(type) : $$nc(this->this$0->interfaces(type))->prepend(sup);
 	} else {
-		return $nc(($cast($Type$IntersectionClassType, type)))->getExplicitComponents();
+		return $cast($Type$IntersectionClassType, type)->getExplicitComponents();
 	}
 }
 
@@ -94,7 +48,44 @@ Types$17::Types$17() {
 }
 
 $Class* Types$17::load$($String* name, bool initialize) {
-	$loadClass(Types$17, name, initialize, &_Types$17_ClassInfo_, allocate$Types$17);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$17, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;)V", nullptr, 0, $method(Types$17, init$, void, $Types*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;", $PUBLIC, $virtualMethod(Types$17, visitType, $List*, $Type*, $Void*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$17, visitType, $Object*, $Type*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$17", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$17",
+		"com.sun.tools.javac.code.Types$UnaryVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$17, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$17);
+	});
 	return class$;
 }
 

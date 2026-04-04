@@ -1,5 +1,4 @@
 #include <sun/rmi/server/MarshalInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectStreamClass.h>
@@ -43,7 +42,6 @@ using $AccessControlException = ::java::security::AccessControlException;
 using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
@@ -61,69 +59,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(MarshalInputStream::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MarshalInputStream$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MarshalInputStream$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MarshalInputStream$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo MarshalInputStream$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.MarshalInputStream$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* MarshalInputStream$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(MarshalInputStream$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MarshalInputStream$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.MarshalInputStream$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MarshalInputStream$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MarshalInputStream$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* MarshalInputStream$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _MarshalInputStream_FieldInfo_[] = {
-	{"useCodebaseOnlyProperty", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarshalInputStream, useCodebaseOnlyProperty)},
-	{"permittedSunClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PROTECTED | $STATIC, $staticField(MarshalInputStream, permittedSunClasses)},
-	{"skipDefaultResolveClass", "Z", nullptr, $PRIVATE, $field(MarshalInputStream, skipDefaultResolveClass$)},
-	{"doneCallbacks", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(MarshalInputStream, doneCallbacks)},
-	{"useCodebaseOnly", "Z", nullptr, $PRIVATE, $field(MarshalInputStream, useCodebaseOnly$)},
-	{}
-};
-
-$MethodInfo _MarshalInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(MarshalInputStream, init$, void, $InputStream*), "java.io.IOException,java.io.StreamCorruptedException"},
-	{"checkSunClass", "(Ljava/lang/String;Ljava/security/AccessControlException;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/security/AccessControlException;)Ljava/lang/Class<*>;", $PRIVATE, $method(MarshalInputStream, checkSunClass, $Class*, $String*, $AccessControlException*), "java.security.AccessControlException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, close, void), "java.io.IOException"},
-	{"done", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, done, void)},
-	{"getDoneCallback", "(Ljava/lang/Object;)Ljava/lang/Runnable;", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, getDoneCallback, $Runnable*, Object$*)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MarshalInputStream, lambda$static$0, $String*)},
-	{"latestUserDefinedLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(MarshalInputStream, latestUserDefinedLoader, $ClassLoader*)},
-	{"readLocation", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MarshalInputStream, readLocation, $Object*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MarshalInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MarshalInputStream, resolveProxyClass, $Class*, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setDoneCallback", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, setDoneCallback, void, Object$*, $Runnable*)},
-	{"skipDefaultResolveClass", "()V", nullptr, 0, $virtualMethod(MarshalInputStream, skipDefaultResolveClass, void)},
-	{"useCodebaseOnly", "()V", nullptr, 0, $virtualMethod(MarshalInputStream, useCodebaseOnly, void)},
-	{}
-};
-
-$ClassInfo _MarshalInputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.server.MarshalInputStream",
-	"java.io.ObjectInputStream",
-	nullptr,
-	_MarshalInputStream_FieldInfo_,
-	_MarshalInputStream_MethodInfo_
-};
-
-$Object* allocate$MarshalInputStream($Class* clazz) {
-	return $of($alloc(MarshalInputStream));
-}
 
 bool MarshalInputStream::useCodebaseOnlyProperty = false;
 $Map* MarshalInputStream::permittedSunClasses = nullptr;
@@ -136,21 +92,21 @@ void MarshalInputStream::init$($InputStream* in) {
 }
 
 $Runnable* MarshalInputStream::getDoneCallback(Object$* key) {
-	return $cast($Runnable, $nc(this->doneCallbacks)->get(key));
+	return $cast($Runnable, this->doneCallbacks->get(key));
 }
 
 void MarshalInputStream::setDoneCallback(Object$* key, $Runnable* callback) {
-	$nc(this->doneCallbacks)->put(key, callback);
+	this->doneCallbacks->put(key, callback);
 }
 
 void MarshalInputStream::done() {
-	$useLocalCurrentObjectStackCache();
-	$var($Iterator, iter, $nc($($nc(this->doneCallbacks)->values()))->iterator());
+	$useLocalObjectStack();
+	$var($Iterator, iter, $$nc(this->doneCallbacks->values())->iterator());
 	while ($nc(iter)->hasNext()) {
 		$var($Runnable, callback, $cast($Runnable, iter->next()));
 		$nc(callback)->run();
 	}
-	$nc(this->doneCallbacks)->clear();
+	this->doneCallbacks->clear();
 }
 
 void MarshalInputStream::close() {
@@ -159,7 +115,7 @@ void MarshalInputStream::close() {
 }
 
 $Class* MarshalInputStream::resolveClass($ObjectStreamClass* classDesc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, annotation, readLocation());
 	$var($String, className, $nc(classDesc)->getName());
 	$var($ClassLoader, defaultLoader, this->skipDefaultResolveClass$ ? ($ClassLoader*)nullptr : latestUserDefinedLoader());
@@ -174,7 +130,7 @@ $Class* MarshalInputStream::resolveClass($ObjectStreamClass* classDesc) {
 	} catch ($ClassNotFoundException& e) {
 		try {
 			bool var$0 = $Character::isLowerCase($nc(className)->charAt(0));
-			if (var$0 && $nc(className)->indexOf((int32_t)u'.') == -1) {
+			if (var$0 && className->indexOf(u'.') == -1) {
 				return $ObjectInputStream::resolveClass(classDesc);
 			}
 		} catch ($ClassNotFoundException& e2) {
@@ -185,7 +141,7 @@ $Class* MarshalInputStream::resolveClass($ObjectStreamClass* classDesc) {
 }
 
 $Class* MarshalInputStream::resolveProxyClass($StringArray* interfaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, annotation, readLocation());
 	$var($ClassLoader, defaultLoader, this->skipDefaultResolveClass$ ? ($ClassLoader*)nullptr : latestUserDefinedLoader());
 	$var($String, codebase, nullptr);
@@ -201,7 +157,7 @@ $ClassLoader* MarshalInputStream::latestUserDefinedLoader() {
 }
 
 $Class* MarshalInputStream::checkSunClass($String* className, $AccessControlException* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Permission, perm, $nc(e)->getPermission());
 	$var($String, name, nullptr);
 	if (perm != nullptr) {
@@ -210,8 +166,8 @@ $Class* MarshalInputStream::checkSunClass($String* className, $AccessControlExce
 	$Class* resolvedClass = $cast($Class, $nc(MarshalInputStream::permittedSunClasses)->get(className));
 	bool var$0 = (name == nullptr) || (resolvedClass == nullptr);
 	if (!var$0) {
-		bool var$1 = (!$nc(name)->equals("accessClassInPackage.sun.rmi.server"_s));
-		var$0 = (var$1 && (!name->equals("accessClassInPackage.sun.rmi.registry"_s)));
+		bool var$1 = !name->equals("accessClassInPackage.sun.rmi.server"_s);
+		var$0 = var$1 && (!name->equals("accessClassInPackage.sun.rmi.registry"_s));
 	}
 	if (var$0) {
 		$throw(e);
@@ -220,7 +176,7 @@ $Class* MarshalInputStream::checkSunClass($String* className, $AccessControlExce
 }
 
 $Object* MarshalInputStream::readLocation() {
-	return $of(readObject());
+	return readObject();
 }
 
 void MarshalInputStream::skipDefaultResolveClass() {
@@ -236,15 +192,15 @@ $String* MarshalInputStream::lambda$static$0() {
 	return $System::getProperty("java.rmi.server.useCodebaseOnly"_s, "true"_s);
 }
 
-void clinit$MarshalInputStream($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MarshalInputStream::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	MarshalInputStream::useCodebaseOnlyProperty = !$nc(($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(MarshalInputStream$$Lambda$lambda$static$0)))))))->equalsIgnoreCase("false"_s);
+	MarshalInputStream::useCodebaseOnlyProperty = !$$sure($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(MarshalInputStream$$Lambda$lambda$static$0))))->equalsIgnoreCase("false"_s);
 	$assignStatic(MarshalInputStream::permittedSunClasses, $new($HashMap, 3));
 	{
 		try {
 			$var($String, registry, "sun.rmi.registry.RegistryImpl_Stub"_s);
-			$nc(MarshalInputStream::permittedSunClasses)->put(registry, $Class::forName(registry));
+			MarshalInputStream::permittedSunClasses->put(registry, $Class::forName(registry));
 		} catch ($ClassNotFoundException& e) {
 			$throwNew($NoClassDefFoundError, $$str({"Missing system class: "_s, $(e->getMessage())}));
 		}
@@ -256,11 +212,45 @@ MarshalInputStream::MarshalInputStream() {
 
 $Class* MarshalInputStream::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MarshalInputStream$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.MarshalInputStream$$Lambda$lambda$static$0")) {
 			return MarshalInputStream$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MarshalInputStream, name, initialize, &_MarshalInputStream_ClassInfo_, clinit$MarshalInputStream, allocate$MarshalInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"useCodebaseOnlyProperty", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MarshalInputStream, useCodebaseOnlyProperty)},
+		{"permittedSunClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PROTECTED | $STATIC, $staticField(MarshalInputStream, permittedSunClasses)},
+		{"skipDefaultResolveClass", "Z", nullptr, $PRIVATE, $field(MarshalInputStream, skipDefaultResolveClass$)},
+		{"doneCallbacks", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Object;Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(MarshalInputStream, doneCallbacks)},
+		{"useCodebaseOnly", "Z", nullptr, $PRIVATE, $field(MarshalInputStream, useCodebaseOnly$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, $PUBLIC, $method(MarshalInputStream, init$, void, $InputStream*), "java.io.IOException,java.io.StreamCorruptedException"},
+		{"checkSunClass", "(Ljava/lang/String;Ljava/security/AccessControlException;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/security/AccessControlException;)Ljava/lang/Class<*>;", $PRIVATE, $method(MarshalInputStream, checkSunClass, $Class*, $String*, $AccessControlException*), "java.security.AccessControlException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, close, void), "java.io.IOException"},
+		{"done", "()V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, done, void)},
+		{"getDoneCallback", "(Ljava/lang/Object;)Ljava/lang/Runnable;", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, getDoneCallback, $Runnable*, Object$*)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MarshalInputStream, lambda$static$0, $String*)},
+		{"latestUserDefinedLoader", "()Ljava/lang/ClassLoader;", nullptr, $PRIVATE | $STATIC, $staticMethod(MarshalInputStream, latestUserDefinedLoader, $ClassLoader*)},
+		{"readLocation", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(MarshalInputStream, readLocation, $Object*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MarshalInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(MarshalInputStream, resolveProxyClass, $Class*, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setDoneCallback", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(MarshalInputStream, setDoneCallback, void, Object$*, $Runnable*)},
+		{"skipDefaultResolveClass", "()V", nullptr, 0, $virtualMethod(MarshalInputStream, skipDefaultResolveClass, void)},
+		{"useCodebaseOnly", "()V", nullptr, 0, $virtualMethod(MarshalInputStream, useCodebaseOnly, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.server.MarshalInputStream",
+		"java.io.ObjectInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MarshalInputStream, name, initialize, &classInfo$$, MarshalInputStream::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MarshalInputStream));
+	});
 	return class$;
 }
 

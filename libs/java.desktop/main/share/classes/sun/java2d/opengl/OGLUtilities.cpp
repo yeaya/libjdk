@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLUtilities.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Rectangle.h>
@@ -34,46 +33,10 @@ using $OGLGraphicsConfig = ::sun::java2d::opengl::OGLGraphicsConfig;
 using $OGLRenderQueue = ::sun::java2d::opengl::OGLRenderQueue;
 using $OGLSurfaceData = ::sun::java2d::opengl::OGLSurfaceData;
 using $Region = ::sun::java2d::pipe::Region;
-using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {
 	namespace java2d {
 		namespace opengl {
-
-$FieldInfo _OGLUtilities_FieldInfo_[] = {
-	{"UNDEFINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, UNDEFINED)},
-	{"WINDOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, WINDOW)},
-	{"TEXTURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, TEXTURE)},
-	{"FLIP_BACKBUFFER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, FLIP_BACKBUFFER)},
-	{"FBOBJECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, FBOBJECT)},
-	{}
-};
-
-$MethodInfo _OGLUtilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(OGLUtilities, init$, void)},
-	{"getOGLScissorBox", "(Ljava/awt/Graphics;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLScissorBox, $Rectangle*, $Graphics*)},
-	{"getOGLSurfaceIdentifier", "(Ljava/awt/Graphics;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLSurfaceIdentifier, $Object*, $Graphics*)},
-	{"getOGLSurfaceType", "(Ljava/awt/Graphics;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLSurfaceType, int32_t, $Graphics*)},
-	{"getOGLTextureType", "(Ljava/awt/Graphics;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLTextureType, int32_t, $Graphics*)},
-	{"getOGLViewport", "(Ljava/awt/Graphics;II)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLViewport, $Rectangle*, $Graphics*, int32_t, int32_t)},
-	{"invokeWithOGLContextCurrent", "(Ljava/awt/Graphics;Ljava/lang/Runnable;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, invokeWithOGLContextCurrent, bool, $Graphics*, $Runnable*)},
-	{"invokeWithOGLSharedContextCurrent", "(Ljava/awt/GraphicsConfiguration;Ljava/lang/Runnable;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, invokeWithOGLSharedContextCurrent, bool, $GraphicsConfiguration*, $Runnable*)},
-	{"isQueueFlusherThread", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, isQueueFlusherThread, bool)},
-	{}
-};
-
-$ClassInfo _OGLUtilities_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.opengl.OGLUtilities",
-	"java.lang.Object",
-	nullptr,
-	_OGLUtilities_FieldInfo_,
-	_OGLUtilities_MethodInfo_
-};
-
-$Object* allocate$OGLUtilities($Class* clazz) {
-	return $of($alloc(OGLUtilities));
-}
 
 void OGLUtilities::init$() {
 }
@@ -83,72 +46,68 @@ bool OGLUtilities::isQueueFlusherThread() {
 }
 
 bool OGLUtilities::invokeWithOGLContextCurrent($Graphics* g, $Runnable* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			if (g != nullptr) {
-				if (!($instanceOf($SunGraphics2D, g))) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
-				$var($SurfaceData, sData, $nc(($cast($SunGraphics2D, g)))->surfaceData);
-				if (!($instanceOf($OGLSurfaceData, sData))) {
-					var$2 = false;
-					return$1 = true;
-					goto $finally;
-				}
-				$OGLContext::validateContext($cast($OGLSurfaceData, sData));
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		if (g != nullptr) {
+			if (!($instanceOf($SunGraphics2D, g))) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
 			}
-			rq->flushAndInvokeNow(r);
-			$OGLContext::invalidateCurrentContext();
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			rq->unlock();
+			$var($SurfaceData, sData, $cast($SunGraphics2D, g)->surfaceData);
+			if (!($instanceOf($OGLSurfaceData, sData))) {
+				var$2 = false;
+				return$1 = true;
+				goto $finally;
+			}
+			$OGLContext::validateContext($cast($OGLSurfaceData, sData));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		rq->flushAndInvokeNow(r);
+		$OGLContext::invalidateCurrentContext();
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	return true;
 }
 
 bool OGLUtilities::invokeWithOGLSharedContextCurrent($GraphicsConfiguration* config, $Runnable* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($OGLGraphicsConfig, config))) {
 		return false;
 	}
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$OGLContext::setScratchSurface($cast($OGLGraphicsConfig, config));
-			rq->flushAndInvokeNow(r);
-			$OGLContext::invalidateCurrentContext();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$OGLContext::setScratchSurface($cast($OGLGraphicsConfig, config));
+		rq->flushAndInvokeNow(r);
+		$OGLContext::invalidateCurrentContext();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return true;
 }
 
 $Rectangle* OGLUtilities::getOGLViewport($Graphics* g, int32_t componentWidth, int32_t componentHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($SunGraphics2D, g))) {
 		return nullptr;
 	}
@@ -163,7 +122,7 @@ $Rectangle* OGLUtilities::getOGLViewport($Graphics* g, int32_t componentWidth, i
 }
 
 $Rectangle* OGLUtilities::getOGLScissorBox($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($SunGraphics2D, g))) {
 		return nullptr;
 	}
@@ -173,7 +132,7 @@ $Rectangle* OGLUtilities::getOGLScissorBox($Graphics* g) {
 	if (!$nc(r)->isRectangular()) {
 		return nullptr;
 	}
-	int32_t x0 = $nc(r)->getLoX();
+	int32_t x0 = r->getLoX();
 	int32_t y0 = r->getLoY();
 	int32_t w = r->getWidth();
 	int32_t h = r->getHeight();
@@ -185,38 +144,68 @@ $Rectangle* OGLUtilities::getOGLScissorBox($Graphics* g) {
 
 $Object* OGLUtilities::getOGLSurfaceIdentifier($Graphics* g) {
 	if (!($instanceOf($SunGraphics2D, g))) {
-		return $of(nullptr);
+		return nullptr;
 	}
-	return $of($nc(($cast($SunGraphics2D, g)))->surfaceData);
+	return $of($nc($cast($SunGraphics2D, g))->surfaceData);
 }
 
 int32_t OGLUtilities::getOGLSurfaceType($Graphics* g) {
 	if (!($instanceOf($SunGraphics2D, g))) {
 		return OGLUtilities::UNDEFINED;
 	}
-	$var($SurfaceData, sData, $nc(($cast($SunGraphics2D, g)))->surfaceData);
+	$var($SurfaceData, sData, $nc($cast($SunGraphics2D, g))->surfaceData);
 	if (!($instanceOf($OGLSurfaceData, sData))) {
 		return OGLUtilities::UNDEFINED;
 	}
-	return $nc(($cast($OGLSurfaceData, sData)))->getType();
+	return $nc($cast($OGLSurfaceData, sData))->getType();
 }
 
 int32_t OGLUtilities::getOGLTextureType($Graphics* g) {
 	if (!($instanceOf($SunGraphics2D, g))) {
 		return 0;
 	}
-	$var($SurfaceData, sData, $nc(($cast($SunGraphics2D, g)))->surfaceData);
+	$var($SurfaceData, sData, $nc($cast($SunGraphics2D, g))->surfaceData);
 	if (!($instanceOf($OGLSurfaceData, sData))) {
 		return 0;
 	}
-	return $nc(($cast($OGLSurfaceData, sData)))->getTextureTarget();
+	return $nc($cast($OGLSurfaceData, sData))->getTextureTarget();
 }
 
 OGLUtilities::OGLUtilities() {
 }
 
 $Class* OGLUtilities::load$($String* name, bool initialize) {
-	$loadClass(OGLUtilities, name, initialize, &_OGLUtilities_ClassInfo_, allocate$OGLUtilities);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNDEFINED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, UNDEFINED)},
+		{"WINDOW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, WINDOW)},
+		{"TEXTURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, TEXTURE)},
+		{"FLIP_BACKBUFFER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, FLIP_BACKBUFFER)},
+		{"FBOBJECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(OGLUtilities, FBOBJECT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(OGLUtilities, init$, void)},
+		{"getOGLScissorBox", "(Ljava/awt/Graphics;)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLScissorBox, $Rectangle*, $Graphics*)},
+		{"getOGLSurfaceIdentifier", "(Ljava/awt/Graphics;)Ljava/lang/Object;", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLSurfaceIdentifier, $Object*, $Graphics*)},
+		{"getOGLSurfaceType", "(Ljava/awt/Graphics;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLSurfaceType, int32_t, $Graphics*)},
+		{"getOGLTextureType", "(Ljava/awt/Graphics;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLTextureType, int32_t, $Graphics*)},
+		{"getOGLViewport", "(Ljava/awt/Graphics;II)Ljava/awt/Rectangle;", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, getOGLViewport, $Rectangle*, $Graphics*, int32_t, int32_t)},
+		{"invokeWithOGLContextCurrent", "(Ljava/awt/Graphics;Ljava/lang/Runnable;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, invokeWithOGLContextCurrent, bool, $Graphics*, $Runnable*)},
+		{"invokeWithOGLSharedContextCurrent", "(Ljava/awt/GraphicsConfiguration;Ljava/lang/Runnable;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, invokeWithOGLSharedContextCurrent, bool, $GraphicsConfiguration*, $Runnable*)},
+		{"isQueueFlusherThread", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLUtilities, isQueueFlusherThread, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.opengl.OGLUtilities",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OGLUtilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLUtilities);
+	});
 	return class$;
 }
 

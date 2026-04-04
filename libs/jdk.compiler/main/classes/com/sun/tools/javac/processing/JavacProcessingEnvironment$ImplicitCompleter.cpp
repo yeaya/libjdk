@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacProcessingEnvironment$ImplicitCompleter.h>
-
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/main/JavaCompiler.h>
@@ -9,7 +8,6 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -22,44 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace processing {
-
-$FieldInfo _JavacProcessingEnvironment$ImplicitCompleter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;", nullptr, $FINAL | $SYNTHETIC, $field(JavacProcessingEnvironment$ImplicitCompleter, this$0)},
-	{"topLevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PRIVATE | $FINAL, $field(JavacProcessingEnvironment$ImplicitCompleter, topLevel)},
-	{}
-};
-
-$MethodInfo _JavacProcessingEnvironment$ImplicitCompleter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$ImplicitCompleter, init$, void, $JavacProcessingEnvironment*, $JCTree$JCCompilationUnit*)},
-	{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ImplicitCompleter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{}
-};
-
-$InnerClassInfo _JavacProcessingEnvironment$ImplicitCompleter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacProcessingEnvironment$ImplicitCompleter", "com.sun.tools.javac.processing.JavacProcessingEnvironment", "ImplicitCompleter", 0},
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavacProcessingEnvironment$ImplicitCompleter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment$ImplicitCompleter",
-	"java.lang.Object",
-	"com.sun.tools.javac.code.Symbol$Completer",
-	_JavacProcessingEnvironment$ImplicitCompleter_FieldInfo_,
-	_JavacProcessingEnvironment$ImplicitCompleter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacProcessingEnvironment$ImplicitCompleter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment"
-};
-
-$Object* allocate$JavacProcessingEnvironment$ImplicitCompleter($Class* clazz) {
-	return $of($alloc(JavacProcessingEnvironment$ImplicitCompleter));
-}
 
 void JavacProcessingEnvironment$ImplicitCompleter::init$($JavacProcessingEnvironment* this$0, $JCTree$JCCompilationUnit* topLevel) {
 	$set(this, this$0, this$0);
@@ -74,7 +34,39 @@ JavacProcessingEnvironment$ImplicitCompleter::JavacProcessingEnvironment$Implici
 }
 
 $Class* JavacProcessingEnvironment$ImplicitCompleter::load$($String* name, bool initialize) {
-	$loadClass(JavacProcessingEnvironment$ImplicitCompleter, name, initialize, &_JavacProcessingEnvironment$ImplicitCompleter_ClassInfo_, allocate$JavacProcessingEnvironment$ImplicitCompleter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;", nullptr, $FINAL | $SYNTHETIC, $field(JavacProcessingEnvironment$ImplicitCompleter, this$0)},
+		{"topLevel", "Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;", nullptr, $PRIVATE | $FINAL, $field(JavacProcessingEnvironment$ImplicitCompleter, topLevel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/processing/JavacProcessingEnvironment;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;)V", nullptr, $PUBLIC, $method(JavacProcessingEnvironment$ImplicitCompleter, init$, void, $JavacProcessingEnvironment*, $JCTree$JCCompilationUnit*)},
+		{"complete", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$ImplicitCompleter, complete, void, $Symbol*), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacProcessingEnvironment$ImplicitCompleter", "com.sun.tools.javac.processing.JavacProcessingEnvironment", "ImplicitCompleter", 0},
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment$ImplicitCompleter",
+		"java.lang.Object",
+		"com.sun.tools.javac.code.Symbol$Completer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment"
+	};
+	$loadClass(JavacProcessingEnvironment$ImplicitCompleter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacProcessingEnvironment$ImplicitCompleter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/security/jgss/GSSCredentialImpl.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashSet.h>
@@ -63,66 +62,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 
-$FieldInfo _GSSCredentialImpl_FieldInfo_[] = {
-	{"gssManager", "Lsun/security/jgss/GSSManagerImpl;", nullptr, $PRIVATE, $field(GSSCredentialImpl, gssManager)},
-	{"destroyed", "Z", nullptr, $PRIVATE, $field(GSSCredentialImpl, destroyed)},
-	{"hashtable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lsun/security/jgss/GSSCredentialImpl$SearchKey;Lsun/security/jgss/spi/GSSCredentialSpi;>;", $PRIVATE, $field(GSSCredentialImpl, hashtable)},
-	{"tempCred", "Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PRIVATE, $field(GSSCredentialImpl, tempCred)},
-	{}
-};
-
-$MethodInfo _GSSCredentialImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GSSCredentialImpl, init$, void)},
-	{"<init>", "(Lsun/security/jgss/GSSCredentialImpl;)V", nullptr, $PROTECTED, $method(GSSCredentialImpl, init$, void, GSSCredentialImpl*)},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;I)V", nullptr, 0, $method(GSSCredentialImpl, init$, void, $GSSManagerImpl*, int32_t), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lorg/ietf/jgss/GSSName;ILorg/ietf/jgss/Oid;I)V", nullptr, 0, $method(GSSCredentialImpl, init$, void, $GSSManagerImpl*, $GSSName*, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lorg/ietf/jgss/GSSName;I[Lorg/ietf/jgss/Oid;I)V", nullptr, 0, $method(GSSCredentialImpl, init$, void, $GSSManagerImpl*, $GSSName*, int32_t, $OidArray*, int32_t), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lsun/security/jgss/spi/GSSCredentialSpi;)V", nullptr, $PUBLIC, $method(GSSCredentialImpl, init$, void, $GSSManagerImpl*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
-	{"add", "(Lorg/ietf/jgss/GSSName;IILorg/ietf/jgss/Oid;I)V", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, add, void, $GSSName*, int32_t, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, dispose, void), "org.ietf.jgss.GSSException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, equals, bool, Object$*)},
-	{"getElement", "(Lorg/ietf/jgss/Oid;Z)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getElement, $GSSCredentialSpi*, $Oid*, bool), "org.ietf.jgss.GSSException"},
-	{"getElementStr", "(Lorg/ietf/jgss/Oid;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(GSSCredentialImpl, getElementStr, $String*, $Oid*, int32_t)},
-	{"getElements", "()Ljava/util/Set;", "()Ljava/util/Set<Lsun/security/jgss/spi/GSSCredentialSpi;>;", 0, $virtualMethod(GSSCredentialImpl, getElements, $Set*)},
-	{"getMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getMechs, $OidArray*), "org.ietf.jgss.GSSException"},
-	{"getName", "()Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getName, $GSSName*), "org.ietf.jgss.GSSException"},
-	{"getName", "(Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getName, $GSSName*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getRemainingAcceptLifetime", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getRemainingAcceptLifetime, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getRemainingInitLifetime", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getRemainingInitLifetime, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getRemainingLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getRemainingLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getUsage", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getUsage, int32_t), "org.ietf.jgss.GSSException"},
-	{"getUsage", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getUsage, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, hashCode, int32_t)},
-	{"impersonate", "(Lorg/ietf/jgss/GSSName;)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, impersonate, $GSSCredential*, $GSSName*), "org.ietf.jgss.GSSException"},
-	{"init", "(Lsun/security/jgss/GSSManagerImpl;)V", nullptr, 0, $virtualMethod(GSSCredentialImpl, init, void, $GSSManagerImpl*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _GSSCredentialImpl_InnerClassesInfo_[] = {
-	{"sun.security.jgss.GSSCredentialImpl$SearchKey", "sun.security.jgss.GSSCredentialImpl", "SearchKey", $STATIC},
-	{}
-};
-
-$ClassInfo _GSSCredentialImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.GSSCredentialImpl",
-	"java.lang.Object",
-	"org.ietf.jgss.GSSCredential",
-	_GSSCredentialImpl_FieldInfo_,
-	_GSSCredentialImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GSSCredentialImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.GSSCredentialImpl$SearchKey"
-};
-
-$Object* allocate$GSSCredentialImpl($Class* clazz) {
-	return $of($alloc(GSSCredentialImpl));
-}
-
 void GSSCredentialImpl::init$() {
 	$set(this, gssManager, nullptr);
 	this->destroyed = false;
@@ -142,7 +81,7 @@ void GSSCredentialImpl::init$(GSSCredentialImpl* src) {
 }
 
 void GSSCredentialImpl::init$($GSSManagerImpl* gssManager, int32_t usage) {
-	GSSCredentialImpl::init$(gssManager, ($GSSName*)nullptr, $GSSCredential::DEFAULT_LIFETIME, ($OidArray*)nullptr, usage);
+	GSSCredentialImpl::init$(gssManager, nullptr, $GSSCredential::DEFAULT_LIFETIME, ($OidArray*)nullptr, usage);
 }
 
 void GSSCredentialImpl::init$($GSSManagerImpl* gssManager, $GSSName* name, int32_t lifetime, $Oid* mech$renamed, int32_t usage) {
@@ -160,7 +99,7 @@ void GSSCredentialImpl::init$($GSSManagerImpl* gssManager, $GSSName* name, int32
 }
 
 void GSSCredentialImpl::init$($GSSManagerImpl* gssManager, $GSSName* name, int32_t lifetime, $OidArray* mechs$renamed, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OidArray, mechs, mechs$renamed);
 	$set(this, gssManager, nullptr);
 	this->destroyed = false;
@@ -183,14 +122,14 @@ void GSSCredentialImpl::init$($GSSManagerImpl* gssManager, $GSSName* name, int32
 			}
 		}
 	}
-	bool var$0 = ($nc(this->hashtable)->size() == 0);
+	bool var$0 = $nc(this->hashtable)->size() == 0;
 	if (var$0 || (usage != getUsage())) {
 		$throwNew($GSSException, $GSSException::NO_CRED);
 	}
 }
 
 void GSSCredentialImpl::init$($GSSManagerImpl* gssManager, $GSSCredentialSpi* mechElement) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, gssManager, nullptr);
 	this->destroyed = false;
 	$set(this, hashtable, nullptr);
@@ -204,11 +143,10 @@ void GSSCredentialImpl::init$($GSSManagerImpl* gssManager, $GSSCredentialSpi* me
 			usage = $GSSCredential::INITIATE_ONLY;
 		}
 	}
-	$var($GSSCredentialImpl$SearchKey, key, $new($GSSCredentialImpl$SearchKey, $($nc(mechElement)->getMechanism()), usage));
+	$var($GSSCredentialImpl$SearchKey, key, $new($GSSCredentialImpl$SearchKey, $(mechElement->getMechanism()), usage));
 	$set(this, tempCred, mechElement);
 	$nc(this->hashtable)->put(key, this->tempCred);
-	if (!$GSSUtil::isSpNegoMech($($nc(mechElement)->getMechanism()))) {
-		$init($GSSUtil);
+	if (!$GSSUtil::isSpNegoMech($(mechElement->getMechanism()))) {
 		$assign(key, $new($GSSCredentialImpl$SearchKey, $GSSUtil::GSS_SPNEGO_MECH_OID, usage));
 		$nc(this->hashtable)->put(key, $$new($SpNegoCredElement, mechElement));
 	}
@@ -220,7 +158,7 @@ void GSSCredentialImpl::init($GSSManagerImpl* gssManager) {
 }
 
 void GSSCredentialImpl::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->destroyed) {
 		$var($GSSCredentialSpi, element, nullptr);
 		$var($Enumeration, values, $nc(this->hashtable)->elements());
@@ -233,12 +171,12 @@ void GSSCredentialImpl::dispose() {
 }
 
 $GSSCredential* GSSCredentialImpl::impersonate($GSSName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
 	}
 	$var($Oid, mech, $nc(this->tempCred)->getMechanism());
-	$var($GSSNameSpi, nameElement, name == nullptr ? ($GSSNameSpi*)nullptr : $nc(($cast($GSSNameImpl, name)))->getElement(mech));
+	$var($GSSNameSpi, nameElement, name == nullptr ? ($GSSNameSpi*)nullptr : $cast($GSSNameImpl, name)->getElement(mech));
 	$var($GSSCredentialSpi, cred, $nc(this->tempCred)->impersonate(nameElement));
 	return (cred == nullptr ? ($GSSCredential*)nullptr : $GSSManagerImpl::wrap($$new(GSSCredentialImpl, this->gssManager, cred)));
 }
@@ -251,7 +189,7 @@ $GSSName* GSSCredentialImpl::getName() {
 }
 
 $GSSName* GSSCredentialImpl::getName($Oid* mech$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, mech$renamed);
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
@@ -266,11 +204,11 @@ $GSSName* GSSCredentialImpl::getName($Oid* mech$renamed) {
 	$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
 	if (element == nullptr) {
 		$assign(key, $new($GSSCredentialImpl$SearchKey, mech, $GSSCredential::ACCEPT_ONLY));
-		$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
+		$assign(element, $cast($GSSCredentialSpi, this->hashtable->get(key)));
 	}
 	if (element == nullptr) {
 		$assign(key, $new($GSSCredentialImpl$SearchKey, mech, $GSSCredential::INITIATE_AND_ACCEPT));
-		$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
+		$assign(element, $cast($GSSCredentialSpi, this->hashtable->get(key)));
 	}
 	if (element == nullptr) {
 		$throwNew($GSSExceptionImpl, $GSSException::BAD_MECH, mech);
@@ -279,7 +217,7 @@ $GSSName* GSSCredentialImpl::getName($Oid* mech$renamed) {
 }
 
 int32_t GSSCredentialImpl::getRemainingLifetime() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
 	}
@@ -312,7 +250,7 @@ int32_t GSSCredentialImpl::getRemainingLifetime() {
 }
 
 int32_t GSSCredentialImpl::getRemainingInitLifetime($Oid* mech$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, mech$renamed);
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
@@ -348,7 +286,7 @@ int32_t GSSCredentialImpl::getRemainingInitLifetime($Oid* mech$renamed) {
 }
 
 int32_t GSSCredentialImpl::getRemainingAcceptLifetime($Oid* mech$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, mech$renamed);
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
@@ -384,7 +322,7 @@ int32_t GSSCredentialImpl::getRemainingAcceptLifetime($Oid* mech$renamed) {
 }
 
 int32_t GSSCredentialImpl::getUsage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
 	}
@@ -416,7 +354,7 @@ int32_t GSSCredentialImpl::getUsage() {
 }
 
 int32_t GSSCredentialImpl::getUsage($Oid* mech$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, mech$renamed);
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
@@ -435,12 +373,12 @@ int32_t GSSCredentialImpl::getUsage($Oid* mech$renamed) {
 		initiate = true;
 	}
 	$assign(key, $new($GSSCredentialImpl$SearchKey, mech, $GSSCredential::ACCEPT_ONLY));
-	$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
+	$assign(element, $cast($GSSCredentialSpi, this->hashtable->get(key)));
 	if (element != nullptr) {
 		accept = true;
 	}
 	$assign(key, $new($GSSCredentialImpl$SearchKey, mech, $GSSCredential::INITIATE_AND_ACCEPT));
-	$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
+	$assign(element, $cast($GSSCredentialSpi, this->hashtable->get(key)));
 	if (element != nullptr) {
 		initiate = true;
 		accept = true;
@@ -457,23 +395,23 @@ int32_t GSSCredentialImpl::getUsage($Oid* mech$renamed) {
 }
 
 $OidArray* GSSCredentialImpl::getMechs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
 	}
 	$var($Vector, result, $new($Vector, $nc(this->hashtable)->size()));
 	{
-		$var($Enumeration, e, $nc(this->hashtable)->keys());
+		$var($Enumeration, e, this->hashtable->keys());
 		for (; $nc(e)->hasMoreElements();) {
 			$var($GSSCredentialImpl$SearchKey, tempKey, $cast($GSSCredentialImpl$SearchKey, e->nextElement()));
 			result->addElement($($nc(tempKey)->getMech()));
 		}
 	}
-	return $fcast($OidArray, result->toArray($$new($OidArray, 0)));
+	return $cast($OidArray, result->toArray($$new($OidArray, 0)));
 }
 
 void GSSCredentialImpl::add($GSSName* name, int32_t initLifetime, int32_t acceptLifetime, $Oid* mech$renamed, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, mech$renamed);
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
@@ -486,13 +424,13 @@ void GSSCredentialImpl::add($GSSName* name, int32_t initLifetime, int32_t accept
 	if ($nc(this->hashtable)->containsKey(key)) {
 		$throwNew($GSSExceptionImpl, $GSSException::DUPLICATE_ELEMENT, $$str({"Duplicate element found: "_s, $(getElementStr(mech, usage))}));
 	}
-	$var($GSSNameSpi, nameElement, name == nullptr ? ($GSSNameSpi*)nullptr : $nc(($cast($GSSNameImpl, name)))->getElement(mech));
+	$var($GSSNameSpi, nameElement, name == nullptr ? ($GSSNameSpi*)nullptr : $cast($GSSNameImpl, name)->getElement(mech));
 	$set(this, tempCred, $nc(this->gssManager)->getCredentialElement(nameElement, initLifetime, acceptLifetime, mech, usage));
 	if (this->tempCred != nullptr) {
 		bool var$0 = usage == $GSSCredential::INITIATE_AND_ACCEPT;
 		if (var$0) {
-			bool var$1 = !$nc(this->tempCred)->isAcceptorCredential();
-			var$0 = (var$1 || !$nc(this->tempCred)->isInitiatorCredential());
+			bool var$1 = !this->tempCred->isAcceptorCredential();
+			var$0 = var$1 || !this->tempCred->isInitiatorCredential();
 		}
 		if (var$0) {
 			int32_t currentUsage = 0;
@@ -536,7 +474,7 @@ int32_t GSSCredentialImpl::hashCode() {
 }
 
 $GSSCredentialSpi* GSSCredentialImpl::getElement($Oid* mechOid$renamed, bool initiate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mechOid, mechOid$renamed);
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
@@ -550,11 +488,11 @@ $GSSCredentialSpi* GSSCredentialImpl::getElement($Oid* mechOid$renamed, bool ini
 		$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
 		if (element == nullptr) {
 			$assign(key, $new($GSSCredentialImpl$SearchKey, mechOid, $GSSCredential::INITIATE_AND_ACCEPT));
-			$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
+			$assign(element, $cast($GSSCredentialSpi, this->hashtable->get(key)));
 			if (element == nullptr) {
-				$var($ObjectArray, elements, $nc($($nc(this->hashtable)->entrySet()))->toArray());
+				$var($ObjectArray, elements, $$nc(this->hashtable->entrySet())->toArray());
 				for (int32_t i = 0; i < $nc(elements)->length; ++i) {
-					$assign(element, $cast($GSSCredentialSpi, $nc(($cast($Map$Entry, elements->get(i))))->getValue()));
+					$assign(element, $cast($GSSCredentialSpi, $nc($cast($Map$Entry, elements->get(i)))->getValue()));
 					if ($nc(element)->isInitiatorCredential() == initiate) {
 						break;
 					}
@@ -570,7 +508,7 @@ $GSSCredentialSpi* GSSCredentialImpl::getElement($Oid* mechOid$renamed, bool ini
 		$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
 		if (element == nullptr) {
 			$assign(key, $new($GSSCredentialImpl$SearchKey, mechOid, $GSSCredential::INITIATE_AND_ACCEPT));
-			$assign(element, $cast($GSSCredentialSpi, $nc(this->hashtable)->get(key)));
+			$assign(element, $cast($GSSCredentialSpi, this->hashtable->get(key)));
 		}
 	}
 	if (element == nullptr) {
@@ -580,9 +518,9 @@ $GSSCredentialSpi* GSSCredentialImpl::getElement($Oid* mechOid$renamed, bool ini
 }
 
 $Set* GSSCredentialImpl::getElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, retVal, $new($HashSet, $nc(this->hashtable)->size()));
-	$var($Enumeration, values, $nc(this->hashtable)->elements());
+	$var($Enumeration, values, this->hashtable->elements());
 	while ($nc(values)->hasMoreElements()) {
 		$var($GSSCredentialSpi, o, $cast($GSSCredentialSpi, values->nextElement()));
 		retVal->add(o);
@@ -604,24 +542,24 @@ $String* GSSCredentialImpl::getElementStr($Oid* mechOid, int32_t usage) {
 }
 
 $String* GSSCredentialImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IllegalStateException, "This credential is no longer valid"_s);
 	}
 	$var($GSSCredentialSpi, element, nullptr);
 	$var($StringBuilder, sb, $new($StringBuilder, "[GSSCredential: "_s));
-	$var($ObjectArray, elements, $nc($($nc(this->hashtable)->entrySet()))->toArray());
+	$var($ObjectArray, elements, $$nc($nc(this->hashtable)->entrySet())->toArray());
 	for (int32_t i = 0; i < $nc(elements)->length; ++i) {
 		try {
 			sb->append(u'\n');
-			$assign(element, $cast($GSSCredentialSpi, $nc(($cast($Map$Entry, elements->get(i))))->getValue()));
-			sb->append($($of($nc(element)->getName())));
+			$assign(element, $cast($GSSCredentialSpi, $nc($cast($Map$Entry, elements->get(i)))->getValue()));
+			sb->append($($nc(element)->getName()));
 			sb->append(u' ');
-			sb->append($($of($nc(element)->getMechanism())));
-			sb->append($nc(element)->isInitiatorCredential() ? " Initiate"_s : ""_s);
-			sb->append($nc(element)->isAcceptorCredential() ? " Accept"_s : ""_s);
+			sb->append($(element->getMechanism()));
+			sb->append(element->isInitiatorCredential() ? " Initiate"_s : ""_s);
+			sb->append(element->isAcceptorCredential() ? " Accept"_s : ""_s);
 			sb->append(" ["_s);
-			sb->append($of($nc($of(element))->getClass()));
+			sb->append(element->getClass());
 			sb->append(u']');
 		} catch ($GSSException& e) {
 		}
@@ -634,7 +572,61 @@ GSSCredentialImpl::GSSCredentialImpl() {
 }
 
 $Class* GSSCredentialImpl::load$($String* name, bool initialize) {
-	$loadClass(GSSCredentialImpl, name, initialize, &_GSSCredentialImpl_ClassInfo_, allocate$GSSCredentialImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"gssManager", "Lsun/security/jgss/GSSManagerImpl;", nullptr, $PRIVATE, $field(GSSCredentialImpl, gssManager)},
+		{"destroyed", "Z", nullptr, $PRIVATE, $field(GSSCredentialImpl, destroyed)},
+		{"hashtable", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Lsun/security/jgss/GSSCredentialImpl$SearchKey;Lsun/security/jgss/spi/GSSCredentialSpi;>;", $PRIVATE, $field(GSSCredentialImpl, hashtable)},
+		{"tempCred", "Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PRIVATE, $field(GSSCredentialImpl, tempCred)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GSSCredentialImpl, init$, void)},
+		{"<init>", "(Lsun/security/jgss/GSSCredentialImpl;)V", nullptr, $PROTECTED, $method(GSSCredentialImpl, init$, void, GSSCredentialImpl*)},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;I)V", nullptr, 0, $method(GSSCredentialImpl, init$, void, $GSSManagerImpl*, int32_t), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lorg/ietf/jgss/GSSName;ILorg/ietf/jgss/Oid;I)V", nullptr, 0, $method(GSSCredentialImpl, init$, void, $GSSManagerImpl*, $GSSName*, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lorg/ietf/jgss/GSSName;I[Lorg/ietf/jgss/Oid;I)V", nullptr, 0, $method(GSSCredentialImpl, init$, void, $GSSManagerImpl*, $GSSName*, int32_t, $OidArray*, int32_t), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/GSSManagerImpl;Lsun/security/jgss/spi/GSSCredentialSpi;)V", nullptr, $PUBLIC, $method(GSSCredentialImpl, init$, void, $GSSManagerImpl*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+		{"add", "(Lorg/ietf/jgss/GSSName;IILorg/ietf/jgss/Oid;I)V", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, add, void, $GSSName*, int32_t, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, dispose, void), "org.ietf.jgss.GSSException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, equals, bool, Object$*)},
+		{"getElement", "(Lorg/ietf/jgss/Oid;Z)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getElement, $GSSCredentialSpi*, $Oid*, bool), "org.ietf.jgss.GSSException"},
+		{"getElementStr", "(Lorg/ietf/jgss/Oid;I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(GSSCredentialImpl, getElementStr, $String*, $Oid*, int32_t)},
+		{"getElements", "()Ljava/util/Set;", "()Ljava/util/Set<Lsun/security/jgss/spi/GSSCredentialSpi;>;", 0, $virtualMethod(GSSCredentialImpl, getElements, $Set*)},
+		{"getMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getMechs, $OidArray*), "org.ietf.jgss.GSSException"},
+		{"getName", "()Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getName, $GSSName*), "org.ietf.jgss.GSSException"},
+		{"getName", "(Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getName, $GSSName*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getRemainingAcceptLifetime", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getRemainingAcceptLifetime, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getRemainingInitLifetime", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getRemainingInitLifetime, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getRemainingLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getRemainingLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getUsage", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getUsage, int32_t), "org.ietf.jgss.GSSException"},
+		{"getUsage", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, getUsage, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, hashCode, int32_t)},
+		{"impersonate", "(Lorg/ietf/jgss/GSSName;)Lorg/ietf/jgss/GSSCredential;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, impersonate, $GSSCredential*, $GSSName*), "org.ietf.jgss.GSSException"},
+		{"init", "(Lsun/security/jgss/GSSManagerImpl;)V", nullptr, 0, $virtualMethod(GSSCredentialImpl, init, void, $GSSManagerImpl*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GSSCredentialImpl, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.GSSCredentialImpl$SearchKey", "sun.security.jgss.GSSCredentialImpl", "SearchKey", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.GSSCredentialImpl",
+		"java.lang.Object",
+		"org.ietf.jgss.GSSCredential",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.GSSCredentialImpl$SearchKey"
+	};
+	$loadClass(GSSCredentialImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSCredentialImpl);
+	});
 	return class$;
 }
 

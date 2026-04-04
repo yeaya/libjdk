@@ -53,7 +53,7 @@ public:
 	static $String* removeBackslashes($String* s);
 	virtual $String* toString() override;
 	static $String* toUnicodeLowerCase($String* s);
-	static const int64_t serialVersionUID = (int64_t)0xD95721DD7B78AB3D;
+	static const int64_t serialVersionUID = (int64_t)0xd95721dd7b78ab3d;
 	$StringArray* myPieces = nullptr;
 	$String* myStringValue = nullptr;
 	::javax::print::MimeType$ParameterMapEntrySet* myEntrySet = nullptr;

@@ -42,6 +42,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void dispatchEvent(::sun::awt::X11::XEvent* xev) override;
 	virtual int64_t getEmbedder(::sun::awt::X11::XWindowPeer* embedded, ::sun::awt::X11::XClientMessageEvent* info);

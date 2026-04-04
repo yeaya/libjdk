@@ -22,6 +22,7 @@ class $export bug8048110 : public ::java::lang::Object {
 	$class(bug8048110, 0, ::java::lang::Object)
 public:
 	bug8048110();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createAndShowGUI();
 	static ::javax::swing::text::Element* findFirstElement(::javax::swing::text::Element* e, $String* name);

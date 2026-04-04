@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifBorders$InternalFrameBorder.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameUI$1.h>
@@ -36,7 +35,6 @@ using $MotifInternalFrameTitlePane = ::com::sun::java::swing::plaf::motif::Motif
 using $MotifInternalFrameUI$1 = ::com::sun::java::swing::plaf::motif::MotifInternalFrameUI$1;
 using $MotifInternalFrameUI$2 = ::com::sun::java::swing::plaf::motif::MotifInternalFrameUI$2;
 using $MotifInternalFrameUI$3 = ::com::sun::java::swing::plaf::motif::MotifInternalFrameUI$3;
-using $Color = ::java::awt::Color;
 using $Dimension = ::java::awt::Dimension;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Toolkit = ::java::awt::Toolkit;
@@ -46,7 +44,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
@@ -69,65 +66,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$CompoundAttribute _MotifInternalFrameUI_FieldAnnotations_closeMenuKey[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _MotifInternalFrameUI_FieldInfo_[] = {
-	{"color", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameUI, color)},
-	{"highlight", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameUI, highlight)},
-	{"shadow", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameUI, shadow)},
-	{"titlePane", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, 0, $field(MotifInternalFrameUI, titlePane)},
-	{"closeMenuKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(MotifInternalFrameUI, closeMenuKey), _MotifInternalFrameUI_FieldAnnotations_closeMenuKey},
-	{}
-};
-
-$MethodInfo _MotifInternalFrameUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(MotifInternalFrameUI, init$, void, $JInternalFrame*)},
-	{"activateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, activateFrame, void, $JInternalFrame*)},
-	{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
-	{"deactivateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, deactivateFrame, void, $JInternalFrame*)},
-	{"getFrame", "()Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $method(MotifInternalFrameUI, getFrame, $JInternalFrame*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, installDefaults, void)},
-	{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, installKeyboardActions, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI, installUI, void, $JComponent*)},
-	{"setColors", "(Ljavax/swing/JInternalFrame;)V", nullptr, 0, $virtualMethod(MotifInternalFrameUI, setColors, void, $JInternalFrame*)},
-	{"setupMenuCloseKey", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, setupMenuCloseKey, void)},
-	{"setupMenuOpenKey", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, setupMenuOpenKey, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, uninstallDefaults, void)},
-	{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, uninstallKeyboardActions, void)},
-	{}
-};
-
-$InnerClassInfo _MotifInternalFrameUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$3", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifInternalFrameUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameUI",
-	"javax.swing.plaf.basic.BasicInternalFrameUI",
-	nullptr,
-	_MotifInternalFrameUI_FieldInfo_,
-	_MotifInternalFrameUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifInternalFrameUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$3,com.sun.java.swing.plaf.motif.MotifInternalFrameUI$2,com.sun.java.swing.plaf.motif.MotifInternalFrameUI$1"
-};
-
-$Object* allocate$MotifInternalFrameUI($Class* clazz) {
-	return $of($alloc(MotifInternalFrameUI));
-}
-
 $ComponentUI* MotifInternalFrameUI::createUI($JComponent* w) {
 	$init(MotifInternalFrameUI);
 	return $new(MotifInternalFrameUI, $cast($JInternalFrame, w));
@@ -143,7 +81,7 @@ void MotifInternalFrameUI::installUI($JComponent* c) {
 }
 
 void MotifInternalFrameUI::installDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Border, frameBorder, $nc(this->frame)->getBorder());
 	$nc(this->frame)->setLayout($set(this, internalFrameLayout, createLayoutManager()));
 	if (frameBorder == nullptr || $instanceOf($UIResource, frameBorder)) {
@@ -172,7 +110,7 @@ $JComponent* MotifInternalFrameUI::createNorthPane($JInternalFrame* w) {
 }
 
 $Dimension* MotifInternalFrameUI::getMaximumSize($JComponent* x) {
-	return $nc($($Toolkit::getDefaultToolkit()))->getScreenSize();
+	return $$nc($Toolkit::getDefaultToolkit())->getScreenSize();
 }
 
 void MotifInternalFrameUI::uninstallKeyboardActions() {
@@ -185,7 +123,7 @@ void MotifInternalFrameUI::uninstallKeyboardActions() {
 }
 
 void MotifInternalFrameUI::setupMenuOpenKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicInternalFrameUI::setupMenuOpenKey();
 	$var($ActionMap, map, $SwingUtilities::getUIActionMap(this->frame));
 	if (map != nullptr) {
@@ -194,7 +132,7 @@ void MotifInternalFrameUI::setupMenuOpenKey() {
 }
 
 void MotifInternalFrameUI::setupMenuCloseKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $SwingUtilities::getUIActionMap(this->frame));
 	if (map != nullptr) {
 		map->put("hideSystemMenu"_s, $$new($MotifInternalFrameUI$2, this));
@@ -233,7 +171,7 @@ void MotifInternalFrameUI::setColors($JInternalFrame* frame) {
 		$set(this, color, $UIManager::getColor("InternalFrame.inactiveTitleBackground"_s));
 	}
 	$set(this, highlight, $nc(this->color)->brighter());
-	$set(this, shadow, $nc($($nc(this->color)->darker()))->darker());
+	$set(this, shadow, $$nc($nc(this->color)->darker())->darker());
 	$nc(this->titlePane)->setColors(this->color, this->highlight, this->shadow);
 }
 
@@ -241,7 +179,59 @@ MotifInternalFrameUI::MotifInternalFrameUI() {
 }
 
 $Class* MotifInternalFrameUI::load$($String* name, bool initialize) {
-	$loadClass(MotifInternalFrameUI, name, initialize, &_MotifInternalFrameUI_ClassInfo_, allocate$MotifInternalFrameUI);
+	$CompoundAttribute closeMenuKeyfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"color", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameUI, color)},
+		{"highlight", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameUI, highlight)},
+		{"shadow", "Ljava/awt/Color;", nullptr, 0, $field(MotifInternalFrameUI, shadow)},
+		{"titlePane", "Lcom/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane;", nullptr, 0, $field(MotifInternalFrameUI, titlePane)},
+		{"closeMenuKey", "Ljavax/swing/KeyStroke;", nullptr, $PROTECTED | $DEPRECATED, $field(MotifInternalFrameUI, closeMenuKey), closeMenuKeyfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $method(MotifInternalFrameUI, init$, void, $JInternalFrame*)},
+		{"activateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, activateFrame, void, $JInternalFrame*)},
+		{"createNorthPane", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JComponent;", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI, createNorthPane, $JComponent*, $JInternalFrame*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifInternalFrameUI, createUI, $ComponentUI*, $JComponent*)},
+		{"deactivateFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, deactivateFrame, void, $JInternalFrame*)},
+		{"getFrame", "()Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $method(MotifInternalFrameUI, getFrame, $JInternalFrame*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, installDefaults, void)},
+		{"installKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, installKeyboardActions, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifInternalFrameUI, installUI, void, $JComponent*)},
+		{"setColors", "(Ljavax/swing/JInternalFrame;)V", nullptr, 0, $virtualMethod(MotifInternalFrameUI, setColors, void, $JInternalFrame*)},
+		{"setupMenuCloseKey", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, setupMenuCloseKey, void)},
+		{"setupMenuOpenKey", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, setupMenuOpenKey, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, uninstallDefaults, void)},
+		{"uninstallKeyboardActions", "()V", nullptr, $PROTECTED, $virtualMethod(MotifInternalFrameUI, uninstallKeyboardActions, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$3", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameUI",
+		"javax.swing.plaf.basic.BasicInternalFrameUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifInternalFrameUI$3,com.sun.java.swing.plaf.motif.MotifInternalFrameUI$2,com.sun.java.swing.plaf.motif.MotifInternalFrameUI$1"
+	};
+	$loadClass(MotifInternalFrameUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifInternalFrameUI);
+	});
 	return class$;
 }
 

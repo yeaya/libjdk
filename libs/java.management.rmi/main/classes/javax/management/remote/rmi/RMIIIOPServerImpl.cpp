@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIIIOPServerImpl.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/rmi/Remote.h>
 #include <java/util/Map.h>
@@ -22,40 +21,6 @@ namespace javax {
 	namespace management {
 		namespace remote {
 			namespace rmi {
-
-$CompoundAttribute _RMIIIOPServerImpl_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _RMIIIOPServerImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIIIOPServerImpl, init$, void, $Map*), "java.io.IOException"},
-	{"closeClient", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, closeClient, void, $RMIConnection*), "java.io.IOException"},
-	{"closeServer", "()V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, closeServer, void), "java.io.IOException"},
-	{"doNewClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, 0, $virtualMethod(RMIIIOPServerImpl, doNewClient, $RMIConnection*, Object$*), "java.io.IOException"},
-	{"export", "()V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, export$, void), "java.io.IOException"},
-	{"getProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, getProtocol, $String*)},
-	{"makeClient", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, makeClient, $RMIConnection*, $String*, $Subject*), "java.io.IOException"},
-	{"toStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(RMIIIOPServerImpl, toStub, $Remote*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _RMIIIOPServerImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.remote.rmi.RMIIIOPServerImpl",
-	"javax.management.remote.rmi.RMIServerImpl",
-	nullptr,
-	nullptr,
-	_RMIIIOPServerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	_RMIIIOPServerImpl_Annotations_
-};
-
-$Object* allocate$RMIIIOPServerImpl($Class* clazz) {
-	return $of($alloc(RMIIIOPServerImpl));
-}
 
 void RMIIIOPServerImpl::init$($Map* env) {
 	$RMIServerImpl::init$(env);
@@ -97,7 +62,36 @@ RMIIIOPServerImpl::RMIIIOPServerImpl() {
 }
 
 $Class* RMIIIOPServerImpl::load$($String* name, bool initialize) {
-	$loadClass(RMIIIOPServerImpl, name, initialize, &_RMIIIOPServerImpl_ClassInfo_, allocate$RMIIIOPServerImpl);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(RMIIIOPServerImpl, init$, void, $Map*), "java.io.IOException"},
+		{"closeClient", "(Ljavax/management/remote/rmi/RMIConnection;)V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, closeClient, void, $RMIConnection*), "java.io.IOException"},
+		{"closeServer", "()V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, closeServer, void), "java.io.IOException"},
+		{"doNewClient", "(Ljava/lang/Object;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, 0, $virtualMethod(RMIIIOPServerImpl, doNewClient, $RMIConnection*, Object$*), "java.io.IOException"},
+		{"export", "()V", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, export$, void), "java.io.IOException"},
+		{"getProtocol", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, getProtocol, $String*)},
+		{"makeClient", "(Ljava/lang/String;Ljavax/security/auth/Subject;)Ljavax/management/remote/rmi/RMIConnection;", nullptr, $PROTECTED, $virtualMethod(RMIIIOPServerImpl, makeClient, $RMIConnection*, $String*, $Subject*), "java.io.IOException"},
+		{"toStub", "()Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(RMIIIOPServerImpl, toStub, $Remote*), "java.io.IOException"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.remote.rmi.RMIIIOPServerImpl",
+		"javax.management.remote.rmi.RMIServerImpl",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(RMIIIOPServerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RMIIIOPServerImpl));
+	});
 	return class$;
 }
 

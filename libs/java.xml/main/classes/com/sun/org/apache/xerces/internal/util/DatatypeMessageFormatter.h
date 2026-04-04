@@ -26,6 +26,7 @@ class DatatypeMessageFormatter : public ::java::lang::Object {
 	$class(DatatypeMessageFormatter, 0, ::java::lang::Object)
 public:
 	DatatypeMessageFormatter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* formatMessage(::java::util::Locale* locale, $String* key, $ObjectArray* arguments);
 	static $String* BASE_NAME;

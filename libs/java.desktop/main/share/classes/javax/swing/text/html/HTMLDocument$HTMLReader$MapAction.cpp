@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/HTMLDocument$HTMLReader$MapAction.h>
-
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
 #include <javax/swing/text/html/HTML$Tag.h>
@@ -18,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
-using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $HTMLDocument$HTMLReader = ::javax::swing::text::html::HTMLDocument$HTMLReader;
 using $HTMLDocument$HTMLReader$TagAction = ::javax::swing::text::html::HTMLDocument$HTMLReader$TagAction;
 using $Map = ::javax::swing::text::html::Map;
@@ -28,45 +26,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _HTMLDocument$HTMLReader$MapAction_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$MapAction, this$1)},
-	{}
-};
-
-$MethodInfo _HTMLDocument$HTMLReader$MapAction_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, 0, $method(HTMLDocument$HTMLReader$MapAction, init$, void, $HTMLDocument$HTMLReader*)},
-	{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$MapAction, end, void, $HTML$Tag*)},
-	{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$MapAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
-	{}
-};
-
-$InnerClassInfo _HTMLDocument$HTMLReader$MapAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$MapAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "MapAction", 0},
-	{"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "TagAction", $PUBLIC},
-	{}
-};
-
-$ClassInfo _HTMLDocument$HTMLReader$MapAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.HTMLDocument$HTMLReader$MapAction",
-	"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction",
-	nullptr,
-	_HTMLDocument$HTMLReader$MapAction_FieldInfo_,
-	_HTMLDocument$HTMLReader$MapAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HTMLDocument$HTMLReader$MapAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.HTMLDocument"
-};
-
-$Object* allocate$HTMLDocument$HTMLReader$MapAction($Class* clazz) {
-	return $of($alloc(HTMLDocument$HTMLReader$MapAction));
-}
-
 void HTMLDocument$HTMLReader$MapAction::init$($HTMLDocument$HTMLReader* this$1) {
 	$set(this, this$1, this$1);
 	$HTMLDocument$HTMLReader$TagAction::init$(this$1);
@@ -74,7 +33,7 @@ void HTMLDocument$HTMLReader$MapAction::init$($HTMLDocument$HTMLReader* this$1) 
 
 void HTMLDocument$HTMLReader$MapAction::start($HTML$Tag* t, $MutableAttributeSet* a) {
 	$init($HTML$Attribute);
-	$set(this->this$1, lastMap, $new($Map, $cast($String, $($nc(a)->getAttribute($HTML$Attribute::NAME)))));
+	$set(this->this$1, lastMap, $new($Map, $$cast($String, $nc(a)->getAttribute($HTML$Attribute::NAME))));
 	$nc(this->this$1->this$0)->addMap(this->this$1->lastMap);
 }
 
@@ -85,7 +44,40 @@ HTMLDocument$HTMLReader$MapAction::HTMLDocument$HTMLReader$MapAction() {
 }
 
 $Class* HTMLDocument$HTMLReader$MapAction::load$($String* name, bool initialize) {
-	$loadClass(HTMLDocument$HTMLReader$MapAction, name, initialize, &_HTMLDocument$HTMLReader$MapAction_ClassInfo_, allocate$HTMLDocument$HTMLReader$MapAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/text/html/HTMLDocument$HTMLReader;", nullptr, $FINAL | $SYNTHETIC, $field(HTMLDocument$HTMLReader$MapAction, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/HTMLDocument$HTMLReader;)V", nullptr, 0, $method(HTMLDocument$HTMLReader$MapAction, init$, void, $HTMLDocument$HTMLReader*)},
+		{"end", "(Ljavax/swing/text/html/HTML$Tag;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$MapAction, end, void, $HTML$Tag*)},
+		{"start", "(Ljavax/swing/text/html/HTML$Tag;Ljavax/swing/text/MutableAttributeSet;)V", nullptr, $PUBLIC, $virtualMethod(HTMLDocument$HTMLReader$MapAction, start, void, $HTML$Tag*, $MutableAttributeSet*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.HTMLDocument$HTMLReader", "javax.swing.text.html.HTMLDocument", "HTMLReader", $PUBLIC},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$MapAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "MapAction", 0},
+		{"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction", "javax.swing.text.html.HTMLDocument$HTMLReader", "TagAction", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.HTMLDocument$HTMLReader$MapAction",
+		"javax.swing.text.html.HTMLDocument$HTMLReader$TagAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.HTMLDocument"
+	};
+	$loadClass(HTMLDocument$HTMLReader$MapAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HTMLDocument$HTMLReader$MapAction);
+	});
 	return class$;
 }
 

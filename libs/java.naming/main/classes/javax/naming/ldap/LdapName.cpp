@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/LdapName.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/StreamCorruptedException.h>
@@ -7,7 +6,6 @@
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
@@ -32,7 +30,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
@@ -47,96 +44,27 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$FieldInfo _LdapName_FieldInfo_[] = {
-	{"rdns", "Ljava/util/List;", "Ljava/util/List<Ljavax/naming/ldap/Rdn;>;", $PRIVATE | $TRANSIENT, $field(LdapName, rdns)},
-	{"unparsed", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(LdapName, unparsed)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapName, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LdapName_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapName, init$, void, $String*), "javax.naming.InvalidNameException"},
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/naming/ldap/Rdn;>;)V", $PUBLIC, $method(LdapName, init$, void, $List*)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/List;II)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/naming/ldap/Rdn;>;II)V", $PRIVATE, $method(LdapName, init$, void, $String*, $List*, int32_t, int32_t)},
-	{"add", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, $String*), "javax.naming.InvalidNameException"},
-	{"add", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, $Rdn*)},
-	{"add", "(ILjava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, int32_t, $String*), "javax.naming.InvalidNameException"},
-	{"add", "(ILjavax/naming/ldap/Rdn;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, int32_t, $Rdn*)},
-	{"addAll", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, $Name*), "javax.naming.InvalidNameException"},
-	{"addAll", "(Ljava/util/List;)Ljavax/naming/Name;", "(Ljava/util/List<Ljavax/naming/ldap/Rdn;>;)Ljavax/naming/Name;", $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, $List*)},
-	{"addAll", "(ILjavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, int32_t, $Name*), "javax.naming.InvalidNameException"},
-	{"addAll", "(ILjava/util/List;)Ljavax/naming/Name;", "(ILjava/util/List<Ljavax/naming/ldap/Rdn;>;)Ljavax/naming/Name;", $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, int32_t, $List*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapName, clone, $Object*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LdapName, compareTo, int32_t, Object$*)},
-	{"doesListMatch", "(IILjava/util/List;)Z", "(IILjava/util/List<Ljavax/naming/ldap/Rdn;>;)Z", $PRIVATE, $method(LdapName, doesListMatch, bool, int32_t, int32_t, $List*)},
-	{"endsWith", "(Ljavax/naming/Name;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, endsWith, bool, $Name*)},
-	{"endsWith", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljavax/naming/ldap/Rdn;>;)Z", $PUBLIC, $virtualMethod(LdapName, endsWith, bool, $List*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, equals, bool, Object$*)},
-	{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName, get, $String*, int32_t)},
-	{"getAll", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LdapName, getAll, $Enumeration*)},
-	{"getPrefix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, getPrefix, $Name*, int32_t)},
-	{"getRdn", "(I)Ljavax/naming/ldap/Rdn;", nullptr, $PUBLIC, $virtualMethod(LdapName, getRdn, $Rdn*, int32_t)},
-	{"getRdns", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/naming/ldap/Rdn;>;", $PUBLIC, $virtualMethod(LdapName, getRdns, $List*)},
-	{"getSuffix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, getSuffix, $Name*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName, hashCode, int32_t)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName, isEmpty, bool)},
-	{"matches", "(IILjavax/naming/Name;)Z", nullptr, $PRIVATE, $method(LdapName, matches, bool, int32_t, int32_t, $Name*)},
-	{"parse", "()V", nullptr, $PRIVATE, $method(LdapName, parse, void), "javax.naming.InvalidNameException"},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LdapName, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapName, remove, $Object*, int32_t), "javax.naming.InvalidNameException"},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName, size, int32_t)},
-	{"startsWith", "(Ljavax/naming/Name;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, startsWith, bool, $Name*)},
-	{"startsWith", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljavax/naming/ldap/Rdn;>;)Z", $PUBLIC, $virtualMethod(LdapName, startsWith, bool, $List*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LdapName, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _LdapName_InnerClassesInfo_[] = {
-	{"javax.naming.ldap.LdapName$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LdapName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.ldap.LdapName",
-	"java.lang.Object",
-	"javax.naming.Name",
-	_LdapName_FieldInfo_,
-	_LdapName_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LdapName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.naming.ldap.LdapName$1"
-};
-
-$Object* allocate$LdapName($Class* clazz) {
-	return $of($alloc(LdapName));
-}
-
 void LdapName::init$($String* name) {
 	$set(this, unparsed, name);
 	parse();
 }
 
 void LdapName::init$($List* rdns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, rdns, $new($ArrayList, $nc(rdns)->size()));
-	for (int32_t i = 0; i < $nc(rdns)->size(); ++i) {
+	for (int32_t i = 0; i < rdns->size(); ++i) {
 		$var($Object, obj, rdns->get(i));
 		if (!($instanceOf($Rdn, obj))) {
 			$throwNew($IllegalArgumentException, $$str({"Entry:"_s, obj, "  not a valid type;list entries must be of type Rdn"_s}));
 		}
-		$nc(this->rdns)->add($cast($Rdn, obj));
+		this->rdns->add($cast($Rdn, obj));
 	}
 }
 
 void LdapName::init$($String* name, $List* rdns, int32_t beg, int32_t end) {
 	$set(this, unparsed, name);
 	$var($List, sList, $nc(rdns)->subList(beg, end));
-	$set(this, rdns, $new($ArrayList, static_cast<$Collection*>(sList)));
+	$set(this, rdns, $new($ArrayList, sList));
 }
 
 int32_t LdapName::size() {
@@ -153,7 +81,7 @@ $Enumeration* LdapName::getAll() {
 }
 
 $String* LdapName::get(int32_t posn) {
-	return $nc(($cast($Rdn, $($nc(this->rdns)->get(posn)))))->toString();
+	return $$sure($Rdn, $nc(this->rdns)->get(posn))->toString();
 }
 
 $Rdn* LdapName::getRdn(int32_t posn) {
@@ -161,7 +89,7 @@ $Rdn* LdapName::getRdn(int32_t posn) {
 }
 
 $Name* LdapName::getPrefix(int32_t posn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $new(LdapName, nullptr, this->rdns, 0, posn);
 	} catch ($IllegalArgumentException& e) {
@@ -171,7 +99,7 @@ $Name* LdapName::getPrefix(int32_t posn) {
 }
 
 $Name* LdapName::getSuffix(int32_t posn) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $new(LdapName, nullptr, this->rdns, posn, $nc(this->rdns)->size());
 	} catch ($IllegalArgumentException& e) {
@@ -217,9 +145,9 @@ bool LdapName::endsWith($List* rdns) {
 }
 
 bool LdapName::doesListMatch(int32_t beg, int32_t end, $List* rdns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = beg; i < end; ++i) {
-		if (!$nc(($cast($Rdn, $($nc(this->rdns)->get(i)))))->equals($($nc(rdns)->get(i - beg)))) {
+		if (!$$sure($Rdn, $nc(this->rdns)->get(i))->equals($($nc(rdns)->get(i - beg)))) {
 			return false;
 		}
 	}
@@ -227,10 +155,10 @@ bool LdapName::doesListMatch(int32_t beg, int32_t end, $List* rdns) {
 }
 
 bool LdapName::matches(int32_t beg, int32_t end, $Name* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf(LdapName, n)) {
 		$var(LdapName, ln, $cast(LdapName, n));
-		return doesListMatch(beg, end, $nc(ln)->rdns);
+		return doesListMatch(beg, end, ln->rdns);
 	} else {
 		for (int32_t i = beg; i < end; ++i) {
 			$var($Rdn, rdn, nullptr);
@@ -257,22 +185,22 @@ $Name* LdapName::addAll($List* suffixRdns) {
 }
 
 $Name* LdapName::addAll(int32_t posn, $Name* suffix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, unparsed, nullptr);
 	if ($instanceOf(LdapName, suffix)) {
 		$var(LdapName, s, $cast(LdapName, suffix));
-		$nc(this->rdns)->addAll(posn, $nc(s)->rdns);
+		$nc(this->rdns)->addAll(posn, s->rdns);
 	} else {
 		$var($Enumeration, comps, $nc(suffix)->getAll());
 		while ($nc(comps)->hasMoreElements()) {
-			$nc(this->rdns)->add(posn++, ($($$new($Rfc2253Parser, $cast($String, $(comps->nextElement())))->parseRdn())));
+			$nc(this->rdns)->add(posn++, ($($$new($Rfc2253Parser, $$cast($String, comps->nextElement()))->parseRdn())));
 		}
 	}
 	return this;
 }
 
 $Name* LdapName::addAll(int32_t posn, $List* suffixRdns) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, unparsed, nullptr);
 	for (int32_t i = 0; i < $nc(suffixRdns)->size(); ++i) {
 		$var($Object, obj, suffixRdns->get(i));
@@ -293,7 +221,7 @@ $Name* LdapName::add($Rdn* comp) {
 }
 
 $Name* LdapName::add(int32_t posn, $String* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rdn, rdn, ($$new($Rfc2253Parser, comp))->parseRdn());
 	$nc(this->rdns)->add(posn, rdn);
 	$set(this, unparsed, nullptr);
@@ -311,7 +239,7 @@ $Name* LdapName::add(int32_t posn, $Rdn* comp) {
 
 $Object* LdapName::remove(int32_t posn) {
 	$set(this, unparsed, nullptr);
-	return $of($nc(($cast($Rdn, $($nc(this->rdns)->remove(posn)))))->toString());
+	return $of($$sure($Rdn, $nc(this->rdns)->remove(posn))->toString());
 }
 
 $List* LdapName::getRdns() {
@@ -323,25 +251,25 @@ $Object* LdapName::clone() {
 }
 
 $String* LdapName::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->unparsed != nullptr) {
 		return this->unparsed;
 	}
 	$var($StringBuilder, builder, $new($StringBuilder));
 	int32_t size = $nc(this->rdns)->size();
 	if ((size - 1) >= 0) {
-		builder->append($($nc(this->rdns)->get(size - 1)));
+		builder->append($(this->rdns->get(size - 1)));
 	}
 	for (int32_t next = size - 2; next >= 0; --next) {
 		builder->append(u',');
-		builder->append($($nc(this->rdns)->get(next)));
+		builder->append($(this->rdns->get(next)));
 	}
 	$set(this, unparsed, builder->toString());
 	return this->unparsed;
 }
 
 bool LdapName::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(obj, this)) {
 		return true;
 	}
@@ -353,12 +281,12 @@ bool LdapName::equals(Object$* obj) {
 	if (var$0 != $nc($nc(that)->rdns)->size()) {
 		return false;
 	}
-	if (this->unparsed != nullptr && $nc(this->unparsed)->equalsIgnoreCase($nc(that)->unparsed)) {
+	if (this->unparsed != nullptr && this->unparsed->equalsIgnoreCase(that->unparsed)) {
 		return true;
 	}
 	for (int32_t i = 0; i < $nc(this->rdns)->size(); ++i) {
-		$var($Rdn, rdn1, $cast($Rdn, $nc(this->rdns)->get(i)));
-		$var($Rdn, rdn2, $cast($Rdn, $nc($nc(that)->rdns)->get(i)));
+		$var($Rdn, rdn1, $cast($Rdn, this->rdns->get(i)));
+		$var($Rdn, rdn2, $cast($Rdn, $nc(that->rdns)->get(i)));
 		if (!$nc(rdn1)->equals(rdn2)) {
 			return false;
 		}
@@ -367,7 +295,7 @@ bool LdapName::equals(Object$* obj) {
 }
 
 int32_t LdapName::compareTo(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(LdapName, obj))) {
 		$throwNew($ClassCastException, "The obj is not a LdapName"_s);
 	}
@@ -375,28 +303,28 @@ int32_t LdapName::compareTo(Object$* obj) {
 		return 0;
 	}
 	$var(LdapName, that, $cast(LdapName, obj));
-	if (this->unparsed != nullptr && $nc(this->unparsed)->equalsIgnoreCase($nc(that)->unparsed)) {
+	if (this->unparsed != nullptr && this->unparsed->equalsIgnoreCase($nc(that)->unparsed)) {
 		return 0;
 	}
 	int32_t var$0 = $nc(this->rdns)->size();
 	int32_t minSize = $Math::min(var$0, $nc($nc(that)->rdns)->size());
 	for (int32_t i = 0; i < minSize; ++i) {
 		$var($Rdn, rdn1, $cast($Rdn, $nc(this->rdns)->get(i)));
-		$var($Rdn, rdn2, $cast($Rdn, $nc($nc(that)->rdns)->get(i)));
+		$var($Rdn, rdn2, $cast($Rdn, $nc(that->rdns)->get(i)));
 		int32_t diff = $nc(rdn1)->compareTo(rdn2);
 		if (diff != 0) {
 			return diff;
 		}
 	}
 	int32_t var$1 = $nc(this->rdns)->size();
-	return (var$1 - $nc($nc(that)->rdns)->size());
+	return (var$1 - $nc(that->rdns)->size());
 }
 
 int32_t LdapName::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = 0;
 	for (int32_t i = 0; i < $nc(this->rdns)->size(); ++i) {
-		$var($Rdn, rdn, $cast($Rdn, $nc(this->rdns)->get(i)));
+		$var($Rdn, rdn, $cast($Rdn, this->rdns->get(i)));
 		hash += $nc(rdn)->hashCode();
 	}
 	return hash;
@@ -425,7 +353,70 @@ LdapName::LdapName() {
 }
 
 $Class* LdapName::load$($String* name, bool initialize) {
-	$loadClass(LdapName, name, initialize, &_LdapName_ClassInfo_, allocate$LdapName);
+	$FieldInfo fieldInfos$$[] = {
+		{"rdns", "Ljava/util/List;", "Ljava/util/List<Ljavax/naming/ldap/Rdn;>;", $PRIVATE | $TRANSIENT, $field(LdapName, rdns)},
+		{"unparsed", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(LdapName, unparsed)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapName, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapName, init$, void, $String*), "javax.naming.InvalidNameException"},
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/naming/ldap/Rdn;>;)V", $PUBLIC, $method(LdapName, init$, void, $List*)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/List;II)V", "(Ljava/lang/String;Ljava/util/List<Ljavax/naming/ldap/Rdn;>;II)V", $PRIVATE, $method(LdapName, init$, void, $String*, $List*, int32_t, int32_t)},
+		{"add", "(Ljava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, $String*), "javax.naming.InvalidNameException"},
+		{"add", "(Ljavax/naming/ldap/Rdn;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, $Rdn*)},
+		{"add", "(ILjava/lang/String;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, int32_t, $String*), "javax.naming.InvalidNameException"},
+		{"add", "(ILjavax/naming/ldap/Rdn;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, add, $Name*, int32_t, $Rdn*)},
+		{"addAll", "(Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, $Name*), "javax.naming.InvalidNameException"},
+		{"addAll", "(Ljava/util/List;)Ljavax/naming/Name;", "(Ljava/util/List<Ljavax/naming/ldap/Rdn;>;)Ljavax/naming/Name;", $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, $List*)},
+		{"addAll", "(ILjavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, int32_t, $Name*), "javax.naming.InvalidNameException"},
+		{"addAll", "(ILjava/util/List;)Ljavax/naming/Name;", "(ILjava/util/List<Ljavax/naming/ldap/Rdn;>;)Ljavax/naming/Name;", $PUBLIC, $virtualMethod(LdapName, addAll, $Name*, int32_t, $List*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapName, clone, $Object*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(LdapName, compareTo, int32_t, Object$*)},
+		{"doesListMatch", "(IILjava/util/List;)Z", "(IILjava/util/List<Ljavax/naming/ldap/Rdn;>;)Z", $PRIVATE, $method(LdapName, doesListMatch, bool, int32_t, int32_t, $List*)},
+		{"endsWith", "(Ljavax/naming/Name;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, endsWith, bool, $Name*)},
+		{"endsWith", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljavax/naming/ldap/Rdn;>;)Z", $PUBLIC, $virtualMethod(LdapName, endsWith, bool, $List*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, equals, bool, Object$*)},
+		{"get", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName, get, $String*, int32_t)},
+		{"getAll", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(LdapName, getAll, $Enumeration*)},
+		{"getPrefix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, getPrefix, $Name*, int32_t)},
+		{"getRdn", "(I)Ljavax/naming/ldap/Rdn;", nullptr, $PUBLIC, $virtualMethod(LdapName, getRdn, $Rdn*, int32_t)},
+		{"getRdns", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/naming/ldap/Rdn;>;", $PUBLIC, $virtualMethod(LdapName, getRdns, $List*)},
+		{"getSuffix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapName, getSuffix, $Name*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName, hashCode, int32_t)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapName, isEmpty, bool)},
+		{"matches", "(IILjavax/naming/Name;)Z", nullptr, $PRIVATE, $method(LdapName, matches, bool, int32_t, int32_t, $Name*)},
+		{"parse", "()V", nullptr, $PRIVATE, $method(LdapName, parse, void), "javax.naming.InvalidNameException"},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LdapName, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"remove", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapName, remove, $Object*, int32_t), "javax.naming.InvalidNameException"},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(LdapName, size, int32_t)},
+		{"startsWith", "(Ljavax/naming/Name;)Z", nullptr, $PUBLIC, $virtualMethod(LdapName, startsWith, bool, $Name*)},
+		{"startsWith", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljavax/naming/ldap/Rdn;>;)Z", $PUBLIC, $virtualMethod(LdapName, startsWith, bool, $List*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapName, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LdapName, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.naming.ldap.LdapName$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.ldap.LdapName",
+		"java.lang.Object",
+		"javax.naming.Name",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.naming.ldap.LdapName$1"
+	};
+	$loadClass(LdapName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LdapName));
+	});
 	return class$;
 }
 

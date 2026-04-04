@@ -1,9 +1,7 @@
 #include <com/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsScrollBarUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/DataBuffer.h>
@@ -20,7 +18,6 @@
 
 using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
-using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBuffer = ::java::awt::image::DataBuffer;
@@ -41,55 +38,18 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsScrollBarUI$Grid_FieldInfo_[] = {
-	{"BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsScrollBarUI$Grid, BUFFER_SIZE)},
-	{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/ref/WeakReference<Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid;>;>;", $PRIVATE | $STATIC, $staticField(WindowsScrollBarUI$Grid, map)},
-	{"image", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(WindowsScrollBarUI$Grid, image)},
-	{}
-};
-
-$MethodInfo _WindowsScrollBarUI$Grid_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsScrollBarUI$Grid, init$, void, $Color*, $Color*)},
-	{"getGrid", "(Ljava/awt/Color;Ljava/awt/Color;)Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsScrollBarUI$Grid, getGrid, WindowsScrollBarUI$Grid*, $Color*, $Color*)},
-	{"paint", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsScrollBarUI$Grid, paint, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintGrid", "(Ljava/awt/Graphics;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(WindowsScrollBarUI$Grid, paintGrid, void, $Graphics*, $Color*, $Color*)},
-	{}
-};
-
-$InnerClassInfo _WindowsScrollBarUI$Grid_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$Grid", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI", "Grid", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsScrollBarUI$Grid_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$Grid",
-	"java.lang.Object",
-	nullptr,
-	_WindowsScrollBarUI$Grid_FieldInfo_,
-	_WindowsScrollBarUI$Grid_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsScrollBarUI$Grid_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsScrollBarUI"
-};
-
-$Object* allocate$WindowsScrollBarUI$Grid($Class* clazz) {
-	return $of($alloc(WindowsScrollBarUI$Grid));
-}
-
 $HashMap* WindowsScrollBarUI$Grid::map = nullptr;
 
 WindowsScrollBarUI$Grid* WindowsScrollBarUI$Grid::getGrid($Color* fg, $Color* bg) {
 	$init(WindowsScrollBarUI$Grid);
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$$str($nc(fg)->getRGB()), " "_s}));
-	$var($String, key, $concat(var$0, $$str($nc(bg)->getRGB())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($nc(fg)->getRGB());
+	var$0->append(" "_s);
+	var$0->append($nc(bg)->getRGB());
+	$var($String, key, $str(var$0));
 	$var($WeakReference, ref, $cast($WeakReference, $nc(WindowsScrollBarUI$Grid::map)->get(key)));
-	$var(WindowsScrollBarUI$Grid, grid, (ref == nullptr) ? (WindowsScrollBarUI$Grid*)nullptr : $cast(WindowsScrollBarUI$Grid, $nc(ref)->get()));
+	$var(WindowsScrollBarUI$Grid, grid, (ref == nullptr) ? (WindowsScrollBarUI$Grid*)nullptr : $cast(WindowsScrollBarUI$Grid, ref->get()));
 	if (grid == nullptr) {
 		$assign(grid, $new(WindowsScrollBarUI$Grid, fg, bg));
 		$nc(WindowsScrollBarUI$Grid::map)->put(key, $$new($WeakReference, grid));
@@ -98,36 +58,34 @@ WindowsScrollBarUI$Grid* WindowsScrollBarUI$Grid::getGrid($Color* fg, $Color* bg
 }
 
 void WindowsScrollBarUI$Grid::init$($Color* fg, $Color* bg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, cmap, $new($ints, {
 		$nc(fg)->getRGB(),
 		$nc(bg)->getRGB()
 	}));
 	$var($IndexColorModel, icm, $new($IndexColorModel, 8, 2, cmap, 0, false, -1, $DataBuffer::TYPE_BYTE));
 	$set(this, image, $new($BufferedImage, WindowsScrollBarUI$Grid::BUFFER_SIZE, WindowsScrollBarUI$Grid::BUFFER_SIZE, $BufferedImage::TYPE_BYTE_INDEXED, icm));
-	$var($Graphics, g, $nc(this->image)->getGraphics());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(g)->setClip(0, 0, WindowsScrollBarUI$Grid::BUFFER_SIZE, WindowsScrollBarUI$Grid::BUFFER_SIZE);
-			paintGrid(g, fg, bg);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(g)->dispose();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Graphics, g, this->image->getGraphics());
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(g)->setClip(0, 0, WindowsScrollBarUI$Grid::BUFFER_SIZE, WindowsScrollBarUI$Grid::BUFFER_SIZE);
+		paintGrid(g, fg, bg);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$nc(g)->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void WindowsScrollBarUI$Grid::paint($Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
 	$var($Rectangle, clipRect, $nc(g)->getClipBounds());
 	int32_t minX = $Math::max(x, $nc(clipRect)->x);
-	int32_t minY = $Math::max(y, $nc(clipRect)->y);
-	int32_t maxX = $Math::min($nc(clipRect)->x + clipRect->width, x + w);
-	int32_t maxY = $Math::min($nc(clipRect)->y + clipRect->height, y + h);
+	int32_t minY = $Math::max(y, clipRect->y);
+	int32_t maxX = $Math::min(clipRect->x + clipRect->width, x + w);
+	int32_t maxY = $Math::min(clipRect->y + clipRect->height, y + h);
 	if (maxX <= minX || maxY <= minY) {
 		return;
 	}
@@ -153,10 +111,10 @@ void WindowsScrollBarUI$Grid::paint($Graphics* g, int32_t x, int32_t y, int32_t 
 void WindowsScrollBarUI$Grid::paintGrid($Graphics* g, $Color* fg, $Color* bg) {
 	$var($Rectangle, clipRect, $nc(g)->getClipBounds());
 	g->setColor(bg);
-	g->fillRect($nc(clipRect)->x, clipRect->y, clipRect->width, clipRect->height);
+	g->fillRect($nc(clipRect)->x, $nc(clipRect)->y, $nc(clipRect)->width, $nc(clipRect)->height);
 	g->setColor(fg);
-	g->translate($nc(clipRect)->x, clipRect->y);
-	int32_t width = $nc(clipRect)->width;
+	g->translate(clipRect->x, clipRect->y);
+	int32_t width = clipRect->width;
 	int32_t height = clipRect->height;
 	int32_t xCounter = clipRect->x % 2;
 	for (int32_t end = width - height; xCounter < end; xCounter += 2) {
@@ -175,7 +133,7 @@ void WindowsScrollBarUI$Grid::paintGrid($Graphics* g, $Color* fg, $Color* bg) {
 	g->translate(-clipRect->x, -clipRect->y);
 }
 
-void clinit$WindowsScrollBarUI$Grid($Class* class$) {
+void WindowsScrollBarUI$Grid::clinit$($Class* clazz) {
 	{
 		$assignStatic(WindowsScrollBarUI$Grid::map, $new($HashMap));
 	}
@@ -185,7 +143,41 @@ WindowsScrollBarUI$Grid::WindowsScrollBarUI$Grid() {
 }
 
 $Class* WindowsScrollBarUI$Grid::load$($String* name, bool initialize) {
-	$loadClass(WindowsScrollBarUI$Grid, name, initialize, &_WindowsScrollBarUI$Grid_ClassInfo_, clinit$WindowsScrollBarUI$Grid, allocate$WindowsScrollBarUI$Grid);
+	$FieldInfo fieldInfos$$[] = {
+		{"BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(WindowsScrollBarUI$Grid, BUFFER_SIZE)},
+		{"map", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/ref/WeakReference<Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid;>;>;", $PRIVATE | $STATIC, $staticField(WindowsScrollBarUI$Grid, map)},
+		{"image", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(WindowsScrollBarUI$Grid, image)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(WindowsScrollBarUI$Grid, init$, void, $Color*, $Color*)},
+		{"getGrid", "(Ljava/awt/Color;Ljava/awt/Color;)Lcom/sun/java/swing/plaf/windows/WindowsScrollBarUI$Grid;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsScrollBarUI$Grid, getGrid, WindowsScrollBarUI$Grid*, $Color*, $Color*)},
+		{"paint", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(WindowsScrollBarUI$Grid, paint, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintGrid", "(Ljava/awt/Graphics;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(WindowsScrollBarUI$Grid, paintGrid, void, $Graphics*, $Color*, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$Grid", "com.sun.java.swing.plaf.windows.WindowsScrollBarUI", "Grid", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsScrollBarUI$Grid",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsScrollBarUI"
+	};
+	$loadClass(WindowsScrollBarUI$Grid, name, initialize, &classInfo$$, WindowsScrollBarUI$Grid::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsScrollBarUI$Grid);
+	});
 	return class$;
 }
 

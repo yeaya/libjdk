@@ -82,6 +82,7 @@ class ModelDestination : public ::java::lang::Object {
 	$class(ModelDestination, 0, ::java::lang::Object)
 public:
 	ModelDestination();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::media::sound::ModelIdentifier* id);
 	::com::sun::media::sound::ModelIdentifier* getIdentifier();

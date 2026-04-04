@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRSurfaceData.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Composite.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -15,7 +14,6 @@
 #include <sun/awt/SunHints.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11ComponentPeer.h>
-#include <sun/awt/X11GraphicsConfig.h>
 #include <sun/awt/image/PixelConverter$ArgbPre.h>
 #include <sun/awt/image/PixelConverter.h>
 #include <sun/font/FontManagerNativeLibrary.h>
@@ -30,11 +28,8 @@
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/loops/XORComposite.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/PixelDrawPipe.h>
-#include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToShapeConverter.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/pipe/ShapeDrawPipe.h>
 #include <sun/java2d/pipe/TextPipe.h>
 #include <sun/java2d/x11/XSurfaceData.h>
 #include <sun/java2d/xr/MaskTileManager.h>
@@ -86,7 +81,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SunHints = ::sun::awt::SunHints;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $X11ComponentPeer = ::sun::awt::X11ComponentPeer;
-using $X11GraphicsConfig = ::sun::awt::X11GraphicsConfig;
 using $PixelConverter$ArgbPre = ::sun::awt::image::PixelConverter$ArgbPre;
 using $FontManagerNativeLibrary = ::sun::font::FontManagerNativeLibrary;
 using $InvalidPipeException = ::sun::java2d::InvalidPipeException;
@@ -98,12 +92,8 @@ using $MaskFill = ::sun::java2d::loops::MaskFill;
 using $RenderLoops = ::sun::java2d::loops::RenderLoops;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $XORComposite = ::sun::java2d::loops::XORComposite;
-using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
-using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
-using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;
 using $Region = ::sun::java2d::pipe::Region;
-using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $TextPipe = ::sun::java2d::pipe::TextPipe;
 using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 using $XRBackend = ::sun::java2d::xr::XRBackend;
@@ -124,109 +114,6 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$FieldInfo _XRSurfaceData_FieldInfo_[] = {
-	{"peer", "Lsun/awt/X11ComponentPeer;", nullptr, 0, $field(XRSurfaceData, peer)},
-	{"graphicsConfig", "Lsun/java2d/xr/XRGraphicsConfig;", nullptr, 0, $field(XRSurfaceData, graphicsConfig)},
-	{"renderQueue", "Lsun/java2d/xr/XRBackend;", nullptr, 0, $field(XRSurfaceData, renderQueue)},
-	{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PRIVATE, $field(XRSurfaceData, solidloops)},
-	{"depth", "I", nullptr, $PROTECTED, $field(XRSurfaceData, depth)},
-	{"DESC_BYTE_A8_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, DESC_BYTE_A8_X11)},
-	{"DESC_INT_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, DESC_INT_RGB_X11)},
-	{"DESC_INT_ARGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, DESC_INT_ARGB_X11)},
-	{"ByteA8X11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, ByteA8X11)},
-	{"IntRgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, IntRgbX11)},
-	{"IntArgbPreX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, IntArgbPreX11)},
-	{"xrpipe", "Lsun/java2d/xr/XRRenderer;", nullptr, $PROTECTED, $field(XRSurfaceData, xrpipe)},
-	{"xrtxpipe", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED, $field(XRSurfaceData, xrtxpipe)},
-	{"xrtextpipe", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED, $field(XRSurfaceData, xrtextpipe)},
-	{"xrDrawImage", "Lsun/java2d/xr/XRDrawImage;", nullptr, $PROTECTED, $field(XRSurfaceData, xrDrawImage)},
-	{"aaShapePipe", "Lsun/java2d/pipe/ShapeDrawPipe;", nullptr, $PROTECTED, $field(XRSurfaceData, aaShapePipe)},
-	{"aaPixelToShapeConv", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED, $field(XRSurfaceData, aaPixelToShapeConv)},
-	{"xgc", "J", nullptr, $PRIVATE, $field(XRSurfaceData, xgc)},
-	{"validatedGCForegroundPixel", "I", nullptr, $PRIVATE, $field(XRSurfaceData, validatedGCForegroundPixel)},
-	{"validatedXorComp", "Lsun/java2d/loops/XORComposite;", nullptr, $PRIVATE, $field(XRSurfaceData, validatedXorComp)},
-	{"xid", "I", nullptr, $PRIVATE, $field(XRSurfaceData, xid)},
-	{"picture", "I", nullptr, $PUBLIC, $field(XRSurfaceData, picture)},
-	{"maskBuffer", "Lsun/java2d/xr/XRCompositeManager;", nullptr, $PUBLIC, $field(XRSurfaceData, maskBuffer)},
-	{"validatedClip", "Lsun/java2d/pipe/Region;", nullptr, $PRIVATE, $field(XRSurfaceData, validatedClip)},
-	{"validatedGCClip", "Lsun/java2d/pipe/Region;", nullptr, $PRIVATE, $field(XRSurfaceData, validatedGCClip)},
-	{"validatedExposures", "Z", nullptr, $PRIVATE, $field(XRSurfaceData, validatedExposures)},
-	{"transformInUse", "Z", nullptr, 0, $field(XRSurfaceData, transformInUse)},
-	{"validatedSourceTransform", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(XRSurfaceData, validatedSourceTransform)},
-	{"staticSrcTx", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(XRSurfaceData, staticSrcTx)},
-	{"validatedRepeat", "I", nullptr, 0, $field(XRSurfaceData, validatedRepeat)},
-	{"validatedFilter", "I", nullptr, 0, $field(XRSurfaceData, validatedFilter)},
-	{}
-};
-
-$MethodInfo _XRSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/java2d/xr/XRGraphicsConfig;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;II)V", nullptr, $PROTECTED, $method(XRSurfaceData, init$, void, $X11ComponentPeer*, $XRGraphicsConfig*, $SurfaceType*, $ColorModel*, int32_t, int32_t)},
-	{"<init>", "(Lsun/java2d/xr/XRBackend;)V", nullptr, $PROTECTED, $method(XRSurfaceData, init$, void, $XRBackend*)},
-	{"XRInitSurface", "(IIIJI)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(XRSurfaceData, XRInitSurface, void, int32_t, int32_t, int32_t, int64_t, int32_t)},
-	{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XRSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"createData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/xr/XRSurfaceData$XRWindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, createData, $XRSurfaceData$XRWindowSurfaceData*, $X11ComponentPeer*)},
-	{"createData", "(Lsun/java2d/xr/XRGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;JIZ)Lsun/java2d/xr/XRSurfaceData$XRPixmapSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, createData, $XRSurfaceData$XRPixmapSurfaceData*, $XRGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int64_t, int32_t, bool)},
-	{"freeXSDOPicture", "(J)V", nullptr, $NATIVE, $virtualMethod(XRSurfaceData, freeXSDOPicture, void, int64_t)},
-	{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
-	{"getGC", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/xr/XRGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, getGC, $XRGraphicsConfig*, $X11ComponentPeer*)},
-	{"getGC", "()J", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getGC, int64_t)},
-	{"getGraphicsConfig", "()Lsun/java2d/xr/XRGraphicsConfig;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getGraphicsConfig, $XRGraphicsConfig*)},
-	{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(XRSurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
-	{"getPicture", "()I", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getPicture, int32_t)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getRenderLoops", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getRenderLoops, $RenderLoops*, $SunGraphics2D*)},
-	{"getSurfaceType", "(Lsun/java2d/xr/XRGraphicsConfig;I)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, getSurfaceType, $SurfaceType*, $XRGraphicsConfig*, int32_t)},
-	{"getTextPipe", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED, $virtualMethod(XRSurfaceData, getTextPipe, $TextPipe*, $SunGraphics2D*)},
-	{"getXid", "()I", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getXid, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XRSurfaceData, initIDs, void)},
-	{"initXRPicture", "(JI)V", nullptr, $NATIVE, $virtualMethod(XRSurfaceData, initXRPicture, void, int64_t, int32_t)},
-	{"initXRSurfaceData", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, initXRSurfaceData, void)},
-	{"initXRender", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, initXRender, void, int32_t)},
-	{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, invalidate, void)},
-	{"isXRDrawableValid", "()Z", nullptr, $PROTECTED, $virtualMethod(XRSurfaceData, isXRDrawableValid, bool)},
-	{"makePipes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XRSurfaceData, makePipes, void)},
-	{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
-	{"setStaticSrcTx", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, setStaticSrcTx, void, $AffineTransform*)},
-	{"validateAsDestination", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, validateAsDestination, void, $SunGraphics2D*, $Region*)},
-	{"validateAsSource", "(Ljava/awt/geom/AffineTransform;II)V", nullptr, 0, $virtualMethod(XRSurfaceData, validateAsSource, void, $AffineTransform*, int32_t, int32_t)},
-	{"validateCopyAreaGC", "(Lsun/java2d/pipe/Region;Z)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, validateCopyAreaGC, void, $Region*, bool)},
-	{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, validatePipe, void, $SunGraphics2D*)},
-	{}
-};
-
-#define _METHOD_INDEX_XRInitSurface 2
-#define _METHOD_INDEX_freeXSDOPicture 7
-#define _METHOD_INDEX_initIDs 19
-#define _METHOD_INDEX_initXRPicture 20
-
-$InnerClassInfo _XRSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.xr.XRSurfaceData$LazyPipe", "sun.java2d.xr.XRSurfaceData", "LazyPipe", $PUBLIC | $STATIC},
-	{"sun.java2d.xr.XRSurfaceData$XRPixmapSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRPixmapSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.xr.XRSurfaceData$XRInternalSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRInternalSurfaceData", $PUBLIC | $STATIC},
-	{"sun.java2d.xr.XRSurfaceData$XRWindowSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRWindowSurfaceData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XRSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.xr.XRSurfaceData",
-	"sun.java2d.x11.XSurfaceData",
-	nullptr,
-	_XRSurfaceData_FieldInfo_,
-	_XRSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XRSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.xr.XRSurfaceData$LazyPipe,sun.java2d.xr.XRSurfaceData$XRPixmapSurfaceData,sun.java2d.xr.XRSurfaceData$XRInternalSurfaceData,sun.java2d.xr.XRSurfaceData$XRWindowSurfaceData"
-};
-
-$Object* allocate$XRSurfaceData($Class* clazz) {
-	return $of($alloc(XRSurfaceData));
-}
-
 $String* XRSurfaceData::DESC_BYTE_A8_X11 = nullptr;
 $String* XRSurfaceData::DESC_INT_RGB_X11 = nullptr;
 $String* XRSurfaceData::DESC_INT_ARGB_X11 = nullptr;
@@ -236,25 +123,25 @@ $SurfaceType* XRSurfaceData::IntArgbPreX11 = nullptr;
 
 void XRSurfaceData::initIDs() {
 	$init(XRSurfaceData);
-	$prepareNativeStatic(XRSurfaceData, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void XRSurfaceData::XRInitSurface(int32_t depth, int32_t width, int32_t height, int64_t drawable, int32_t pictFormat) {
-	$prepareNative(XRSurfaceData, XRInitSurface, void, int32_t depth, int32_t width, int32_t height, int64_t drawable, int32_t pictFormat);
+	$prepareNative(XRInitSurface, void, int32_t depth, int32_t width, int32_t height, int64_t drawable, int32_t pictFormat);
 	$invokeNative(depth, width, height, drawable, pictFormat);
 	$finishNative();
 }
 
 void XRSurfaceData::initXRPicture(int64_t xsdo, int32_t pictForm) {
-	$prepareNative(XRSurfaceData, initXRPicture, void, int64_t xsdo, int32_t pictForm);
+	$prepareNative(initXRPicture, void, int64_t xsdo, int32_t pictForm);
 	$invokeNative(xsdo, pictForm);
 	$finishNative();
 }
 
 void XRSurfaceData::freeXSDOPicture(int64_t xsdo) {
-	$prepareNative(XRSurfaceData, freeXSDOPicture, void, int64_t xsdo);
+	$prepareNative(freeXSDOPicture, void, int64_t xsdo);
 	$invokeNative(xsdo);
 	$finishNative();
 }
@@ -277,26 +164,24 @@ void XRSurfaceData::initXRSurfaceData() {
 }
 
 bool XRSurfaceData::isXRDrawableValid() {
-	{
-		$var($Throwable, var$0, nullptr);
-		bool var$2 = false;
-		bool return$1 = false;
-		try {
-			$SunToolkit::awtLock();
-			var$2 = isDrawableValid();
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$SunToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	bool var$2 = false;
+	bool return$1 = false;
+	try {
+		$SunToolkit::awtLock();
+		var$2 = isDrawableValid();
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$SunToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -306,7 +191,7 @@ $SurfaceDataProxy* XRSurfaceData::makeProxyFor($SurfaceData* srcData) {
 }
 
 void XRSurfaceData::validatePipe($SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextPipe, textpipe, nullptr);
 	bool validated = false;
 	if (($assign(textpipe, getTextPipe(sg2d))) == nullptr) {
@@ -330,7 +215,7 @@ void XRSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 		}
 	}
 	if (txPipe != nullptr) {
-		if ($nc(sg2d)->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
+		if (sg2d->transformState >= $SunGraphics2D::TRANSFORM_TRANSLATESCALE) {
 			$set(sg2d, drawpipe, txPipe);
 			$set(sg2d, fillpipe, txPipe);
 		} else if (sg2d->strokeState != $SunGraphics2D::STROKE_THIN) {
@@ -340,19 +225,19 @@ void XRSurfaceData::validatePipe($SunGraphics2D* sg2d) {
 			$set(sg2d, drawpipe, nonTxPipe);
 			$set(sg2d, fillpipe, nonTxPipe);
 		}
-		$set($nc(sg2d), shapepipe, nonTxPipe);
+		$set(sg2d, shapepipe, nonTxPipe);
 	} else if (!validated) {
 		$XSurfaceData::validatePipe(sg2d);
 	}
-	$set($nc(sg2d), textpipe, textpipe);
+	$set(sg2d, textpipe, textpipe);
 	$set(sg2d, imagepipe, this->xrDrawImage);
 }
 
 $TextPipe* XRSurfaceData::getTextPipe($SunGraphics2D* sg2d) {
-	bool supportedPaint = $nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ALPHA && (sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR || $nc(sg2d)->composite == nullptr);
+	bool supportedPaint = $nc(sg2d)->compositeState <= $SunGraphics2D::COMP_ALPHA && (sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR || sg2d->composite == nullptr);
 	bool supportedCompOp = false;
 	if ($instanceOf($AlphaComposite, sg2d->composite)) {
-		int32_t compRule = $nc(($cast($AlphaComposite, sg2d->composite)))->getRule();
+		int32_t compRule = $cast($AlphaComposite, sg2d->composite)->getRule();
 		supportedCompOp = $XRUtils::isMaskEvaluated($XRUtils::j2dAlphaCompToXR(compRule)) || (compRule == $AlphaComposite::SRC && sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR);
 	}
 	return (supportedPaint && supportedCompOp) ? this->xrtextpipe : ($TextPipe*)nullptr;
@@ -363,7 +248,7 @@ $MaskFill* XRSurfaceData::getMaskFill($SunGraphics2D* sg2d) {
 	if ($nc(sg2d)->composite != nullptr && $instanceOf($AlphaComposite, sg2d->composite)) {
 		$assign(aComp, $cast($AlphaComposite, sg2d->composite));
 	}
-	bool supportedPaint = $nc(sg2d)->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR || $XRPaints::isValid(sg2d);
+	bool supportedPaint = sg2d->paintState <= $SunGraphics2D::PAINT_ALPHACOLOR || $XRPaints::isValid(sg2d);
 	bool supportedCompOp = false;
 	if (aComp != nullptr) {
 		int32_t rule = aComp->getRule();
@@ -385,36 +270,29 @@ $GraphicsConfiguration* XRSurfaceData::getDeviceConfiguration() {
 
 $XRSurfaceData$XRWindowSurfaceData* XRSurfaceData::createData($X11ComponentPeer* peer) {
 	$init(XRSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XRGraphicsConfig, gc, getGC(peer));
 	return $new($XRSurfaceData$XRWindowSurfaceData, peer, gc, $($nc(gc)->getSurfaceType()));
 }
 
 $XRSurfaceData$XRPixmapSurfaceData* XRSurfaceData::createData($XRGraphicsConfig* gc, int32_t width, int32_t height, $ColorModel* cm$renamed, $Image* image, int64_t drawable, int32_t transparency, bool isTexture) {
 	$init(XRSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, cm, cm$renamed);
 	int32_t depth = 0;
-	if ($nc($($nc(gc)->getColorModel()))->getPixelSize() == 32) {
+	if ($$nc($nc(gc)->getColorModel())->getPixelSize() == 32) {
 		depth = 32;
 		transparency = $Transparency::TRANSLUCENT;
 	} else {
 		depth = transparency > $Transparency::OPAQUE ? 32 : 24;
 	}
 	if (depth == 24) {
-		$assign(cm, $new($DirectColorModel, depth, 0x00FF0000, 0x0000FF00, 255));
+		$assign(cm, $new($DirectColorModel, depth, 0x00ff0000, 0x0000ff00, 255));
 	} else {
-		$assign(cm, $new($DirectColorModel, depth, 0x00FF0000, 0x0000FF00, 255, (int32_t)0xFF000000));
+		$assign(cm, $new($DirectColorModel, depth, 0x00ff0000, 0x0000ff00, 255, (int32_t)0xff000000));
 	}
-	$var($XRGraphicsConfig, var$0, gc);
-	int32_t var$1 = width;
-	int32_t var$2 = height;
-	$var($Image, var$3, image);
-	$var($SurfaceType, var$4, getSurfaceType(gc, transparency));
-	$var($ColorModel, var$5, cm);
-	int64_t var$6 = drawable;
-	int32_t var$7 = transparency;
-	return $new($XRSurfaceData$XRPixmapSurfaceData, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, $XRUtils::getPictureFormatForTransparency(transparency), depth, isTexture);
+	$var($SurfaceType, var$0, getSurfaceType(gc, transparency));
+	return $new($XRSurfaceData$XRPixmapSurfaceData, gc, width, height, image, var$0, cm, drawable, transparency, $XRUtils::getPictureFormatForTransparency(transparency), depth, isTexture);
 }
 
 void XRSurfaceData::init$($X11ComponentPeer* peer, $XRGraphicsConfig* gc, $SurfaceType* sType, $ColorModel* cm, int32_t depth, int32_t transparency) {
@@ -435,7 +313,7 @@ void XRSurfaceData::init$($X11ComponentPeer* peer, $XRGraphicsConfig* gc, $Surfa
 }
 
 void XRSurfaceData::init$($XRBackend* renderQueue) {
-	$XSurfaceData::init$(XRSurfaceData::IntRgbX11, $$new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255));
+	$XSurfaceData::init$(XRSurfaceData::IntRgbX11, $$new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255));
 	this->validatedGCForegroundPixel = 0;
 	this->validatedExposures = true;
 	this->transformInUse = false;
@@ -447,32 +325,30 @@ void XRSurfaceData::init$($XRBackend* renderQueue) {
 }
 
 void XRSurfaceData::initXRender(int32_t pictureFormat) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				$SunToolkit::awtLock();
-				initXRPicture(getNativeOps(), pictureFormat);
-				$set(this, renderQueue, $nc($($XRCompositeManager::getInstance(this)))->getBackend());
-				$set(this, maskBuffer, $XRCompositeManager::getInstance(this));
-			} catch ($Throwable& ex) {
-				ex->printStackTrace();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SunToolkit::awtUnlock();
+			$SunToolkit::awtLock();
+			initXRPicture(getNativeOps(), pictureFormat);
+			$set(this, renderQueue, $$nc($XRCompositeManager::getInstance(this))->getBackend());
+			$set(this, maskBuffer, $XRCompositeManager::getInstance(this));
+		} catch ($Throwable& ex) {
+			ex->printStackTrace();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SunToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $XRGraphicsConfig* XRSurfaceData::getGC($X11ComponentPeer* peer) {
 	$init(XRSurfaceData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (peer != nullptr) {
 		return $cast($XRGraphicsConfig, peer->getGraphicsConfiguration());
 	} else {
@@ -501,7 +377,7 @@ void XRSurfaceData::validateCopyAreaGC($Region* gcClip, bool needExposures) {
 }
 
 bool XRSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h, int32_t dx, int32_t dy) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->xrpipe == nullptr) {
 		if (!isXRDrawableValid()) {
 			return true;
@@ -512,21 +388,19 @@ bool XRSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t
 	$init($CompositeType);
 	bool var$0 = $nc($CompositeType::SrcOverNoEa)->equals(comptype);
 	if (var$0 || $nc($CompositeType::SrcNoEa)->equals(comptype)) {
-		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				$SunToolkit::awtLock();
-				bool needExposures = canSourceSendExposures(x, y, w, h);
-				validateCopyAreaGC($(sg2d->getCompClip()), needExposures);
-				$nc(this->renderQueue)->copyArea(this->xid, this->xid, this->xgc, x, y, w, h, x + dx, y + dy);
-			} catch ($Throwable& var$2) {
-				$assign(var$1, var$2);
-			} /*finally*/ {
-				$SunToolkit::awtUnlock();
-			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
-			}
+		$var($Throwable, var$1, nullptr);
+		try {
+			$SunToolkit::awtLock();
+			bool needExposures = canSourceSendExposures(x, y, w, h);
+			validateCopyAreaGC($(sg2d->getCompClip()), needExposures);
+			$nc(this->renderQueue)->copyArea(this->xid, this->xid, this->xgc, x, y, w, h, x + dx, y + dy);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
+		} /*finally*/ {
+			$SunToolkit::awtUnlock();
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 		return true;
 	}
@@ -538,17 +412,12 @@ $SurfaceType* XRSurfaceData::getSurfaceType($XRGraphicsConfig* gc, int32_t trans
 	$var($SurfaceType, sType, nullptr);
 	switch (transparency) {
 	case $Transparency::OPAQUE:
-		{
-			$assign(sType, XRSurfaceData::IntRgbX11);
-			break;
-		}
+		$assign(sType, XRSurfaceData::IntRgbX11);
+		break;
 	case $Transparency::BITMASK:
-		{}
 	case $Transparency::TRANSLUCENT:
-		{
-			$assign(sType, XRSurfaceData::IntArgbPreX11);
-			break;
-		}
+		$assign(sType, XRSurfaceData::IntArgbPreX11);
+		break;
 	}
 	return sType;
 }
@@ -575,7 +444,7 @@ void XRSurfaceData::validateAsSource($AffineTransform* sxForm, int32_t repeat, i
 			$nc(this->renderQueue)->setPictureTransform(this->picture, this->validatedSourceTransform);
 			this->transformInUse = false;
 		}
-	} else if (!this->transformInUse || (this->transformInUse && !$nc(sxForm)->equals(this->validatedSourceTransform))) {
+	} else if (!this->transformInUse || (this->transformInUse && !sxForm->equals(this->validatedSourceTransform))) {
 		double var$0 = sxForm->getScaleX();
 		double var$1 = sxForm->getShearY();
 		double var$2 = sxForm->getShearX();
@@ -625,25 +494,23 @@ void XRSurfaceData::validateAsDestination($SunGraphics2D* sg2d, $Region* clip) {
 
 void XRSurfaceData::makePipes() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->xrpipe == nullptr) {
-			{
-				$var($Throwable, var$0, nullptr);
-				try {
-					$SunToolkit::awtLock();
-					this->xgc = XCreateGC(getNativeOps());
-					$set(this, xrpipe, $new($XRRenderer, $($nc(this->maskBuffer)->getMaskBuffer())));
-					$set(this, xrtxpipe, $new($PixelToShapeConverter, this->xrpipe));
-					$set(this, xrtextpipe, $nc(this->maskBuffer)->getTextRenderer());
-					$set(this, xrDrawImage, $new($XRDrawImage));
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$SunToolkit::awtUnlock();
-				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
+			$var($Throwable, var$0, nullptr);
+			try {
+				$SunToolkit::awtLock();
+				this->xgc = XCreateGC(getNativeOps());
+				$set(this, xrpipe, $new($XRRenderer, $($nc(this->maskBuffer)->getMaskBuffer())));
+				$set(this, xrtxpipe, $new($PixelToShapeConverter, this->xrpipe));
+				$set(this, xrtextpipe, $nc(this->maskBuffer)->getTextRenderer());
+				$set(this, xrDrawImage, $new($XRDrawImage));
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				$SunToolkit::awtUnlock();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 	}
@@ -669,7 +536,7 @@ void XRSurfaceData::setStaticSrcTx($AffineTransform* staticSrcTx) {
 	$set(this, staticSrcTx, staticSrcTx);
 }
 
-void clinit$XRSurfaceData($Class* class$) {
+void XRSurfaceData::clinit$($Class* clazz) {
 	$assignStatic(XRSurfaceData::DESC_BYTE_A8_X11, "Byte A8 Pixmap"_s);
 	$assignStatic(XRSurfaceData::DESC_INT_RGB_X11, "Integer RGB Pixmap"_s);
 	$assignStatic(XRSurfaceData::DESC_INT_ARGB_X11, "Integer ARGB-Pre Pixmap"_s);
@@ -684,7 +551,99 @@ XRSurfaceData::XRSurfaceData() {
 }
 
 $Class* XRSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(XRSurfaceData, name, initialize, &_XRSurfaceData_ClassInfo_, clinit$XRSurfaceData, allocate$XRSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"peer", "Lsun/awt/X11ComponentPeer;", nullptr, 0, $field(XRSurfaceData, peer)},
+		{"graphicsConfig", "Lsun/java2d/xr/XRGraphicsConfig;", nullptr, 0, $field(XRSurfaceData, graphicsConfig)},
+		{"renderQueue", "Lsun/java2d/xr/XRBackend;", nullptr, 0, $field(XRSurfaceData, renderQueue)},
+		{"solidloops", "Lsun/java2d/loops/RenderLoops;", nullptr, $PRIVATE, $field(XRSurfaceData, solidloops)},
+		{"depth", "I", nullptr, $PROTECTED, $field(XRSurfaceData, depth)},
+		{"DESC_BYTE_A8_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, DESC_BYTE_A8_X11)},
+		{"DESC_INT_RGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, DESC_INT_RGB_X11)},
+		{"DESC_INT_ARGB_X11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, DESC_INT_ARGB_X11)},
+		{"ByteA8X11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, ByteA8X11)},
+		{"IntRgbX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, IntRgbX11)},
+		{"IntArgbPreX11", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XRSurfaceData, IntArgbPreX11)},
+		{"xrpipe", "Lsun/java2d/xr/XRRenderer;", nullptr, $PROTECTED, $field(XRSurfaceData, xrpipe)},
+		{"xrtxpipe", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED, $field(XRSurfaceData, xrtxpipe)},
+		{"xrtextpipe", "Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED, $field(XRSurfaceData, xrtextpipe)},
+		{"xrDrawImage", "Lsun/java2d/xr/XRDrawImage;", nullptr, $PROTECTED, $field(XRSurfaceData, xrDrawImage)},
+		{"aaShapePipe", "Lsun/java2d/pipe/ShapeDrawPipe;", nullptr, $PROTECTED, $field(XRSurfaceData, aaShapePipe)},
+		{"aaPixelToShapeConv", "Lsun/java2d/pipe/PixelToShapeConverter;", nullptr, $PROTECTED, $field(XRSurfaceData, aaPixelToShapeConv)},
+		{"xgc", "J", nullptr, $PRIVATE, $field(XRSurfaceData, xgc)},
+		{"validatedGCForegroundPixel", "I", nullptr, $PRIVATE, $field(XRSurfaceData, validatedGCForegroundPixel)},
+		{"validatedXorComp", "Lsun/java2d/loops/XORComposite;", nullptr, $PRIVATE, $field(XRSurfaceData, validatedXorComp)},
+		{"xid", "I", nullptr, $PRIVATE, $field(XRSurfaceData, xid)},
+		{"picture", "I", nullptr, $PUBLIC, $field(XRSurfaceData, picture)},
+		{"maskBuffer", "Lsun/java2d/xr/XRCompositeManager;", nullptr, $PUBLIC, $field(XRSurfaceData, maskBuffer)},
+		{"validatedClip", "Lsun/java2d/pipe/Region;", nullptr, $PRIVATE, $field(XRSurfaceData, validatedClip)},
+		{"validatedGCClip", "Lsun/java2d/pipe/Region;", nullptr, $PRIVATE, $field(XRSurfaceData, validatedGCClip)},
+		{"validatedExposures", "Z", nullptr, $PRIVATE, $field(XRSurfaceData, validatedExposures)},
+		{"transformInUse", "Z", nullptr, 0, $field(XRSurfaceData, transformInUse)},
+		{"validatedSourceTransform", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(XRSurfaceData, validatedSourceTransform)},
+		{"staticSrcTx", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(XRSurfaceData, staticSrcTx)},
+		{"validatedRepeat", "I", nullptr, 0, $field(XRSurfaceData, validatedRepeat)},
+		{"validatedFilter", "I", nullptr, 0, $field(XRSurfaceData, validatedFilter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11ComponentPeer;Lsun/java2d/xr/XRGraphicsConfig;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;II)V", nullptr, $PROTECTED, $method(XRSurfaceData, init$, void, $X11ComponentPeer*, $XRGraphicsConfig*, $SurfaceType*, $ColorModel*, int32_t, int32_t)},
+		{"<init>", "(Lsun/java2d/xr/XRBackend;)V", nullptr, $PROTECTED, $method(XRSurfaceData, init$, void, $XRBackend*)},
+		{"XRInitSurface", "(IIIJI)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(XRSurfaceData, XRInitSurface, void, int32_t, int32_t, int32_t, int64_t, int32_t)},
+		{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XRSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIIII)Z", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, copyArea, bool, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"createData", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/xr/XRSurfaceData$XRWindowSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, createData, $XRSurfaceData$XRWindowSurfaceData*, $X11ComponentPeer*)},
+		{"createData", "(Lsun/java2d/xr/XRGraphicsConfig;IILjava/awt/image/ColorModel;Ljava/awt/Image;JIZ)Lsun/java2d/xr/XRSurfaceData$XRPixmapSurfaceData;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, createData, $XRSurfaceData$XRPixmapSurfaceData*, $XRGraphicsConfig*, int32_t, int32_t, $ColorModel*, $Image*, int64_t, int32_t, bool)},
+		{"freeXSDOPicture", "(J)V", nullptr, $NATIVE, $virtualMethod(XRSurfaceData, freeXSDOPicture, void, int64_t)},
+		{"getDeviceConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getDeviceConfiguration, $GraphicsConfiguration*)},
+		{"getGC", "(Lsun/awt/X11ComponentPeer;)Lsun/java2d/xr/XRGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, getGC, $XRGraphicsConfig*, $X11ComponentPeer*)},
+		{"getGC", "()J", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getGC, int64_t)},
+		{"getGraphicsConfig", "()Lsun/java2d/xr/XRGraphicsConfig;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getGraphicsConfig, $XRGraphicsConfig*)},
+		{"getMaskFill", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/MaskFill;", nullptr, $PROTECTED, $virtualMethod(XRSurfaceData, getMaskFill, $MaskFill*, $SunGraphics2D*)},
+		{"getPicture", "()I", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getPicture, int32_t)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getRenderLoops", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/loops/RenderLoops;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getRenderLoops, $RenderLoops*, $SunGraphics2D*)},
+		{"getSurfaceType", "(Lsun/java2d/xr/XRGraphicsConfig;I)Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, getSurfaceType, $SurfaceType*, $XRGraphicsConfig*, int32_t)},
+		{"getTextPipe", "(Lsun/java2d/SunGraphics2D;)Lsun/java2d/pipe/TextPipe;", nullptr, $PROTECTED, $virtualMethod(XRSurfaceData, getTextPipe, $TextPipe*, $SunGraphics2D*)},
+		{"getXid", "()I", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, getXid, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(XRSurfaceData, initIDs, void)},
+		{"initXRPicture", "(JI)V", nullptr, $NATIVE, $virtualMethod(XRSurfaceData, initXRPicture, void, int64_t, int32_t)},
+		{"initXRSurfaceData", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(XRSurfaceData, initXRSurfaceData, void)},
+		{"initXRender", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, initXRender, void, int32_t)},
+		{"invalidate", "()V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, invalidate, void)},
+		{"isXRDrawableValid", "()Z", nullptr, $PROTECTED, $virtualMethod(XRSurfaceData, isXRDrawableValid, bool)},
+		{"makePipes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(XRSurfaceData, makePipes, void)},
+		{"makeProxyFor", "(Lsun/java2d/SurfaceData;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, makeProxyFor, $SurfaceDataProxy*, $SurfaceData*)},
+		{"setStaticSrcTx", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, setStaticSrcTx, void, $AffineTransform*)},
+		{"validateAsDestination", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, validateAsDestination, void, $SunGraphics2D*, $Region*)},
+		{"validateAsSource", "(Ljava/awt/geom/AffineTransform;II)V", nullptr, 0, $virtualMethod(XRSurfaceData, validateAsSource, void, $AffineTransform*, int32_t, int32_t)},
+		{"validateCopyAreaGC", "(Lsun/java2d/pipe/Region;Z)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, validateCopyAreaGC, void, $Region*, bool)},
+		{"validatePipe", "(Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(XRSurfaceData, validatePipe, void, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.xr.XRSurfaceData$LazyPipe", "sun.java2d.xr.XRSurfaceData", "LazyPipe", $PUBLIC | $STATIC},
+		{"sun.java2d.xr.XRSurfaceData$XRPixmapSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRPixmapSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.xr.XRSurfaceData$XRInternalSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRInternalSurfaceData", $PUBLIC | $STATIC},
+		{"sun.java2d.xr.XRSurfaceData$XRWindowSurfaceData", "sun.java2d.xr.XRSurfaceData", "XRWindowSurfaceData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.xr.XRSurfaceData",
+		"sun.java2d.x11.XSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.xr.XRSurfaceData$LazyPipe,sun.java2d.xr.XRSurfaceData$XRPixmapSurfaceData,sun.java2d.xr.XRSurfaceData$XRInternalSurfaceData,sun.java2d.xr.XRSurfaceData$XRWindowSurfaceData"
+	};
+	$loadClass(XRSurfaceData, name, initialize, &classInfo$$, XRSurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XRSurfaceData));
+	});
 	return class$;
 }
 

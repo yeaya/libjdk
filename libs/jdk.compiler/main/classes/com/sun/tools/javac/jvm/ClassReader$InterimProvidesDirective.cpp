@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$InterimProvidesDirective.h>
-
 #include <com/sun/tools/javac/jvm/ClassReader.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Name.h>
@@ -18,42 +17,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$InterimProvidesDirective_FieldInfo_[] = {
-	{"service", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $FINAL, $field(ClassReader$InterimProvidesDirective, service)},
-	{"impls", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $FINAL, $field(ClassReader$InterimProvidesDirective, impls)},
-	{}
-};
-
-$MethodInfo _ClassReader$InterimProvidesDirective_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;)V", $PUBLIC, $method(ClassReader$InterimProvidesDirective, init$, void, $Name*, $List*)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$InterimProvidesDirective_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$InterimProvidesDirective", "com.sun.tools.javac.jvm.ClassReader", "InterimProvidesDirective", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _ClassReader$InterimProvidesDirective_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$InterimProvidesDirective",
-	"java.lang.Object",
-	nullptr,
-	_ClassReader$InterimProvidesDirective_FieldInfo_,
-	_ClassReader$InterimProvidesDirective_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$InterimProvidesDirective_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$InterimProvidesDirective($Class* clazz) {
-	return $of($alloc(ClassReader$InterimProvidesDirective));
-}
-
 void ClassReader$InterimProvidesDirective::init$($Name* service, $List* impls) {
 	$set(this, service, service);
 	$set(this, impls, impls);
@@ -63,7 +26,37 @@ ClassReader$InterimProvidesDirective::ClassReader$InterimProvidesDirective() {
 }
 
 $Class* ClassReader$InterimProvidesDirective::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$InterimProvidesDirective, name, initialize, &_ClassReader$InterimProvidesDirective_ClassInfo_, allocate$ClassReader$InterimProvidesDirective);
+	$FieldInfo fieldInfos$$[] = {
+		{"service", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $FINAL, $field(ClassReader$InterimProvidesDirective, service)},
+		{"impls", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $FINAL, $field(ClassReader$InterimProvidesDirective, impls)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;)V", $PUBLIC, $method(ClassReader$InterimProvidesDirective, init$, void, $Name*, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$InterimProvidesDirective", "com.sun.tools.javac.jvm.ClassReader", "InterimProvidesDirective", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$InterimProvidesDirective",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$InterimProvidesDirective, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$InterimProvidesDirective);
+	});
 	return class$;
 }
 

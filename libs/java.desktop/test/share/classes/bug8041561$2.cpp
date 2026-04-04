@@ -1,5 +1,4 @@
 #include <bug8041561$2.h>
-
 #include <bug8041561.h>
 #include <java/awt/AWTException.h>
 #include <java/awt/Color.h>
@@ -22,50 +21,12 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JRadioButton = ::javax::swing::JRadioButton;
-
-$MethodInfo _bug8041561$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8041561$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8041561$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8041561$2_EnclosingMethodInfo_ = {
-	"bug8041561",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug8041561$2_InnerClassesInfo_[] = {
-	{"bug8041561$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8041561$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8041561$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug8041561$2_MethodInfo_,
-	nullptr,
-	&_bug8041561$2_EnclosingMethodInfo_,
-	_bug8041561$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8041561"
-};
-
-$Object* allocate$bug8041561$2($Class* clazz) {
-	return $of($alloc(bug8041561$2));
-}
 
 void bug8041561$2::init$() {
 }
 
 void bug8041561$2::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($bug8041561);
 		$var($Point, point, $nc($bug8041561::radioButton)->getLocationOnScreen());
@@ -80,7 +41,7 @@ void bug8041561$2::run() {
 			$throwNew($RuntimeException, "JRadioButton is opaque"_s);
 		}
 	} catch ($AWTException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -88,7 +49,38 @@ bug8041561$2::bug8041561$2() {
 }
 
 $Class* bug8041561$2::load$($String* name, bool initialize) {
-	$loadClass(bug8041561$2, name, initialize, &_bug8041561$2_ClassInfo_, allocate$bug8041561$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8041561$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8041561$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8041561",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8041561$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8041561$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8041561"
+	};
+	$loadClass(bug8041561$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8041561$2);
+	});
 	return class$;
 }
 

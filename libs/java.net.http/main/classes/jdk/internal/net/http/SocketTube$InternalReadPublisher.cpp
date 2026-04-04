@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SocketTube$InternalReadPublisher.h>
-
 #include <java/util/Objects.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <java/util/concurrent/atomic/AtomicReference.h>
@@ -25,56 +24,11 @@ using $SocketTube$InternalReadPublisher$ReadSubscription = ::jdk::internal::net:
 using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $Log = ::jdk::internal::net::http::common::Log;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 
 namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _SocketTube$InternalReadPublisher_FieldInfo_[] = {
-	{"this$0", "Ljdk/internal/net/http/SocketTube;", nullptr, $FINAL | $SYNTHETIC, $field(SocketTube$InternalReadPublisher, this$0)},
-	{"subscriptionImpl", "Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$InternalReadPublisher, subscriptionImpl)},
-	{"pendingSubscription", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljdk/internal/net/http/SocketTube$InternalReadPublisher$ReadSubscription;>;", 0, $field(SocketTube$InternalReadPublisher, pendingSubscription)},
-	{"subscription", "Ljdk/internal/net/http/SocketTube$InternalReadPublisher$ReadSubscription;", nullptr, $PRIVATE | $VOLATILE, $field(SocketTube$InternalReadPublisher, subscription)},
-	{}
-};
-
-$MethodInfo _SocketTube$InternalReadPublisher_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher, init$, void, $SocketTube*)},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(SocketTube$InternalReadPublisher, signalError, void, $Throwable*)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _SocketTube$InternalReadPublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.SocketTube$InternalReadPublisher", "jdk.internal.net.http.SocketTube", "InternalReadPublisher", $PRIVATE | $FINAL},
-	{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadEvent", "jdk.internal.net.http.SocketTube$InternalReadPublisher", "ReadEvent", $FINAL},
-	{"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription", "jdk.internal.net.http.SocketTube$InternalReadPublisher", "InternalReadSubscription", $FINAL},
-	{"jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadSubscription", "jdk.internal.net.http.SocketTube$InternalReadPublisher", "ReadSubscription", $FINAL},
-	{}
-};
-
-$ClassInfo _SocketTube$InternalReadPublisher_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.SocketTube$InternalReadPublisher",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Publisher",
-	_SocketTube$InternalReadPublisher_FieldInfo_,
-	_SocketTube$InternalReadPublisher_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
-	nullptr,
-	_SocketTube$InternalReadPublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.SocketTube"
-};
-
-$Object* allocate$SocketTube$InternalReadPublisher($Class* clazz) {
-	return $of($alloc(SocketTube$InternalReadPublisher));
-}
 
 void SocketTube$InternalReadPublisher::init$($SocketTube* this$0) {
 	$set(this, this$0, this$0);
@@ -83,52 +37,90 @@ void SocketTube$InternalReadPublisher::init$($SocketTube* this$0) {
 }
 
 void SocketTube$InternalReadPublisher::subscribe($Flow$Subscriber* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(s);
 	$var($FlowTube$TubeSubscriber, sub, $FlowTube::asTubeSubscriber(s));
 	$var($SocketTube$InternalReadPublisher$ReadSubscription, target, $new($SocketTube$InternalReadPublisher$ReadSubscription, this, this->subscriptionImpl, sub));
 	$var($SocketTube$InternalReadPublisher$ReadSubscription, previous, $cast($SocketTube$InternalReadPublisher$ReadSubscription, $nc(this->pendingSubscription)->getAndSet(target)));
 	if (previous != nullptr && previous != target) {
 		if ($nc(this->this$0->debug)->on()) {
-			$nc(this->this$0->debug)->log($$str({"read publisher: dropping pending subscriber: "_s, previous->subscriber}));
+			this->this$0->debug->log($$str({"read publisher: dropping pending subscriber: "_s, previous->subscriber}));
 		}
-		$nc(previous->errorRef)->compareAndSet(nullptr, $cast($Throwable, $($nc(this->this$0->errorRef)->get())));
+		$nc(previous->errorRef)->compareAndSet(nullptr, $$cast($Throwable, $nc(this->this$0->errorRef)->get()));
 		previous->signalOnSubscribe();
-		if ($nc(this->subscriptionImpl)->completed) {
+		if (this->subscriptionImpl->completed) {
 			previous->signalCompletion();
 		} else {
 			$nc(previous->subscriber)->dropSubscription();
 		}
 	}
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log("read publisher got subscriber"_s);
+		this->this$0->debug->log("read publisher got subscriber"_s);
 	}
-	$nc(this->subscriptionImpl)->signalSubscribe();
+	this->subscriptionImpl->signalSubscribe();
 	this->this$0->debugState("leaving read.subscribe: "_s);
 }
 
 void SocketTube$InternalReadPublisher::signalError($Throwable* error) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->this$0->debug)->on()) {
-		$nc(this->this$0->debug)->log($$str({"error signalled "_s, error}));
+		this->this$0->debug->log($$str({"error signalled "_s, error}));
 	}
 	if (!$nc(this->this$0->errorRef)->compareAndSet(nullptr, error)) {
 		return;
 	}
 	if ($Log::channel()) {
 		$Log::logChannel("Error signalled on channel {0}: {1}"_s, $$new($ObjectArray, {
-			$($of(this->this$0->channelDescr())),
-			$of(error)
+			$(this->this$0->channelDescr()),
+			error
 		}));
 	}
-	$nc(this->subscriptionImpl)->handleError();
+	this->subscriptionImpl->handleError();
 }
 
 SocketTube$InternalReadPublisher::SocketTube$InternalReadPublisher() {
 }
 
 $Class* SocketTube$InternalReadPublisher::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$InternalReadPublisher, name, initialize, &_SocketTube$InternalReadPublisher_ClassInfo_, allocate$SocketTube$InternalReadPublisher);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljdk/internal/net/http/SocketTube;", nullptr, $FINAL | $SYNTHETIC, $field(SocketTube$InternalReadPublisher, this$0)},
+		{"subscriptionImpl", "Ljdk/internal/net/http/SocketTube$InternalReadPublisher$InternalReadSubscription;", nullptr, $PRIVATE | $FINAL, $field(SocketTube$InternalReadPublisher, subscriptionImpl)},
+		{"pendingSubscription", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljdk/internal/net/http/SocketTube$InternalReadPublisher$ReadSubscription;>;", 0, $field(SocketTube$InternalReadPublisher, pendingSubscription)},
+		{"subscription", "Ljdk/internal/net/http/SocketTube$InternalReadPublisher$ReadSubscription;", nullptr, $PRIVATE | $VOLATILE, $field(SocketTube$InternalReadPublisher, subscription)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube;)V", nullptr, $PRIVATE, $method(SocketTube$InternalReadPublisher, init$, void, $SocketTube*)},
+		{"signalError", "(Ljava/lang/Throwable;)V", nullptr, 0, $method(SocketTube$InternalReadPublisher, signalError, void, $Throwable*)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $virtualMethod(SocketTube$InternalReadPublisher, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.SocketTube$InternalReadPublisher", "jdk.internal.net.http.SocketTube", "InternalReadPublisher", $PRIVATE | $FINAL},
+		{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadEvent", "jdk.internal.net.http.SocketTube$InternalReadPublisher", "ReadEvent", $FINAL},
+		{"jdk.internal.net.http.SocketTube$InternalReadPublisher$InternalReadSubscription", "jdk.internal.net.http.SocketTube$InternalReadPublisher", "InternalReadSubscription", $FINAL},
+		{"jdk.internal.net.http.SocketTube$InternalReadPublisher$ReadSubscription", "jdk.internal.net.http.SocketTube$InternalReadPublisher", "ReadSubscription", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.SocketTube$InternalReadPublisher",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Publisher",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.SocketTube"
+	};
+	$loadClass(SocketTube$InternalReadPublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$InternalReadPublisher);
+	});
 	return class$;
 }
 

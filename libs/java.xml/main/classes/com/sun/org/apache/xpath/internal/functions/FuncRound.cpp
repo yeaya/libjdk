@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/functions/FuncRound.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/functions/FunctionOneArg.h>
@@ -8,7 +7,6 @@
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $FunctionOneArg = ::com::sun::org::apache::xpath::internal::functions::FunctionOneArg;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
@@ -26,30 +24,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace functions {
-
-$FieldInfo _FuncRound_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncRound, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FuncRound_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FuncRound, init$, void)},
-	{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncRound, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
-	{}
-};
-
-$ClassInfo _FuncRound_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.functions.FuncRound",
-	"com.sun.org.apache.xpath.internal.functions.FunctionOneArg",
-	nullptr,
-	_FuncRound_FieldInfo_,
-	_FuncRound_MethodInfo_
-};
-
-$Object* allocate$FuncRound($Class* clazz) {
-	return $of($alloc(FuncRound));
-}
 
 void FuncRound::init$() {
 	$FunctionOneArg::init$();
@@ -71,7 +45,26 @@ FuncRound::FuncRound() {
 }
 
 $Class* FuncRound::load$($String* name, bool initialize) {
-	$loadClass(FuncRound, name, initialize, &_FuncRound_ClassInfo_, allocate$FuncRound);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FuncRound, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FuncRound, init$, void)},
+		{"execute", "(Lcom/sun/org/apache/xpath/internal/XPathContext;)Lcom/sun/org/apache/xpath/internal/objects/XObject;", nullptr, $PUBLIC, $virtualMethod(FuncRound, execute, $XObject*, $XPathContext*), "javax.xml.transform.TransformerException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.functions.FuncRound",
+		"com.sun.org.apache.xpath.internal.functions.FunctionOneArg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FuncRound, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FuncRound));
+	});
 	return class$;
 }
 

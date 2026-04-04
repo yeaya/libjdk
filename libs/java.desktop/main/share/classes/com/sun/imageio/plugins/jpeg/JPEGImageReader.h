@@ -121,6 +121,7 @@ public:
 	JPEGImageReader();
 	using ::javax::imageio::ImageReader::getStreamMetadata;
 	using ::javax::imageio::ImageReader::getImageMetadata;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::imageio::spi::ImageReaderSpi* originator);
 	virtual void abort() override;
 	void abortRead(int64_t structPointer);

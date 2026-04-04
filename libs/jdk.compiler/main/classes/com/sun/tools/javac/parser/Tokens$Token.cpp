@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Tokens$Token.h>
-
 #include <com/sun/tools/javac/parser/Tokens$Comment$CommentStyle.h>
 #include <com/sun/tools/javac/parser/Tokens$Comment.h>
 #include <com/sun/tools/javac/parser/Tokens$Token$Tag.h>
@@ -39,53 +38,6 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _Tokens$Token_FieldInfo_[] = {
-	{"kind", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $FINAL, $field(Tokens$Token, kind)},
-	{"pos", "I", nullptr, $PUBLIC | $FINAL, $field(Tokens$Token, pos)},
-	{"endPos", "I", nullptr, $PUBLIC | $FINAL, $field(Tokens$Token, endPos)},
-	{"comments", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;", $PUBLIC | $FINAL, $field(Tokens$Token, comments)},
-	{}
-};
-
-$MethodInfo _Tokens$Token_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;)V", 0, $method(Tokens$Token, init$, void, $Tokens$TokenKind*, int32_t, int32_t, $List*)},
-	{"checkKind", "()V", nullptr, $PROTECTED, $virtualMethod(Tokens$Token, checkKind, void)},
-	{"comment", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, comment, $Tokens$Comment*, $Tokens$Comment$CommentStyle*)},
-	{"deprecatedFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, deprecatedFlag, bool)},
-	{"getComments", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;", $PRIVATE, $method(Tokens$Token, getComments, $List*, $Tokens$Comment$CommentStyle*)},
-	{"name", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, name, $Name*)},
-	{"radix", "()I", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, radix, int32_t)},
-	{"split", "(Lcom/sun/tools/javac/parser/Tokens;)[Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, 0, $virtualMethod(Tokens$Token, split, $Tokens$TokenArray*, $Tokens*)},
-	{"stringVal", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, stringVal, $String*)},
-	{}
-};
-
-$InnerClassInfo _Tokens$Token_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.Tokens$Token", "com.sun.tools.javac.parser.Tokens", "Token", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.parser.Tokens$Token$Tag", "com.sun.tools.javac.parser.Tokens$Token", "Tag", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Tokens$Token_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.Tokens$Token",
-	"java.lang.Object",
-	nullptr,
-	_Tokens$Token_FieldInfo_,
-	_Tokens$Token_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Tokens$Token_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.Tokens"
-};
-
-$Object* allocate$Tokens$Token($Class* clazz) {
-	return $of($alloc(Tokens$Token));
-}
-
 void Tokens$Token::init$($Tokens$TokenKind* kind, int32_t pos, int32_t endPos, $List* comments) {
 	$set(this, kind, kind);
 	this->pos = pos;
@@ -95,13 +47,13 @@ void Tokens$Token::init$($Tokens$TokenKind* kind, int32_t pos, int32_t endPos, $
 }
 
 $Tokens$TokenArray* Tokens$Token::split($Tokens* tokens) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Tokens$Token$Tag);
 	if ($nc(this->kind->name$)->length() < 2 || this->kind->tag != $Tokens$Token$Tag::DEFAULT) {
-		$throwNew($AssertionError, $of($$str({"Cant split"_s, this->kind})));
+		$throwNew($AssertionError, $$of($str({"Cant split"_s, this->kind})));
 	}
-	$Tokens$TokenKind* t1 = $nc(tokens)->lookupKind($($nc(this->kind->name$)->substring(0, 1)));
-	$Tokens$TokenKind* t2 = tokens->lookupKind($($nc(this->kind->name$)->substring(1)));
+	$Tokens$TokenKind* t1 = $nc(tokens)->lookupKind($(this->kind->name$->substring(0, 1)));
+	$Tokens$TokenKind* t2 = tokens->lookupKind($(this->kind->name$->substring(1)));
 	if (t1 == nullptr || t2 == nullptr) {
 		$throwNew($AssertionError, $of("Cant split - bad subtokens"_s));
 	}
@@ -114,7 +66,7 @@ $Tokens$TokenArray* Tokens$Token::split($Tokens* tokens) {
 void Tokens$Token::checkKind() {
 	$init($Tokens$Token$Tag);
 	if (this->kind->tag != $Tokens$Token$Tag::DEFAULT) {
-		$throwNew($AssertionError, $of($$str({"Bad token kind - expected "_s, $Tokens$Token$Tag::DEFAULT})));
+		$throwNew($AssertionError, $$of($str({"Bad token kind - expected "_s, $Tokens$Token$Tag::DEFAULT})));
 	}
 }
 
@@ -136,40 +88,34 @@ int32_t Tokens$Token::radix() {
 $Tokens$Comment* Tokens$Token::comment($Tokens$Comment$CommentStyle* style) {
 	$init($Tokens$Comment$CommentStyle);
 	$var($List, comments, getComments($Tokens$Comment$CommentStyle::JAVADOC));
-	return $nc(comments)->isEmpty() ? ($Tokens$Comment*)nullptr : $cast($Tokens$Comment, $nc(comments)->head);
+	return $nc(comments)->isEmpty() ? ($Tokens$Comment*)nullptr : $cast($Tokens$Comment, comments->head);
 }
 
 bool Tokens$Token::deprecatedFlag() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$init($Tokens$Comment$CommentStyle);
-		$var($Iterator, i$, $nc($(getComments($Tokens$Comment$CommentStyle::JAVADOC)))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Tokens$Comment, c, $cast($Tokens$Comment, i$->next()));
-			{
-				if ($nc(c)->isDeprecated()) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$init($Tokens$Comment$CommentStyle);
+	$var($Iterator, i$, $$nc(getComments($Tokens$Comment$CommentStyle::JAVADOC))->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Tokens$Comment, c, $cast($Tokens$Comment, i$->next()));
+		if ($nc(c)->isDeprecated()) {
+			return true;
 		}
 	}
 	return false;
 }
 
 $List* Tokens$Token::getComments($Tokens$Comment$CommentStyle* style) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->comments == nullptr) {
 		return $List::nil();
 	} else {
 		$var($ListBuffer, buf, $new($ListBuffer));
 		{
-			$var($Iterator, i$, $nc(this->comments)->iterator());
+			$var($Iterator, i$, this->comments->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Tokens$Comment, c, $cast($Tokens$Comment, i$->next()));
-				{
-					if ($nc(c)->getStyle() == style) {
-						buf->add(c);
-					}
+				if ($nc(c)->getStyle() == style) {
+					buf->add(c);
 				}
 			}
 		}
@@ -181,7 +127,48 @@ Tokens$Token::Tokens$Token() {
 }
 
 $Class* Tokens$Token::load$($String* name, bool initialize) {
-	$loadClass(Tokens$Token, name, initialize, &_Tokens$Token_ClassInfo_, allocate$Tokens$Token);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Lcom/sun/tools/javac/parser/Tokens$TokenKind;", nullptr, $PUBLIC | $FINAL, $field(Tokens$Token, kind)},
+		{"pos", "I", nullptr, $PUBLIC | $FINAL, $field(Tokens$Token, pos)},
+		{"endPos", "I", nullptr, $PUBLIC | $FINAL, $field(Tokens$Token, endPos)},
+		{"comments", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;", $PUBLIC | $FINAL, $field(Tokens$Token, comments)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/parser/Tokens$TokenKind;IILcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;)V", 0, $method(Tokens$Token, init$, void, $Tokens$TokenKind*, int32_t, int32_t, $List*)},
+		{"checkKind", "()V", nullptr, $PROTECTED, $virtualMethod(Tokens$Token, checkKind, void)},
+		{"comment", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/parser/Tokens$Comment;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, comment, $Tokens$Comment*, $Tokens$Comment$CommentStyle*)},
+		{"deprecatedFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, deprecatedFlag, bool)},
+		{"getComments", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/parser/Tokens$Comment$CommentStyle;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/parser/Tokens$Comment;>;", $PRIVATE, $method(Tokens$Token, getComments, $List*, $Tokens$Comment$CommentStyle*)},
+		{"name", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, name, $Name*)},
+		{"radix", "()I", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, radix, int32_t)},
+		{"split", "(Lcom/sun/tools/javac/parser/Tokens;)[Lcom/sun/tools/javac/parser/Tokens$Token;", nullptr, 0, $virtualMethod(Tokens$Token, split, $Tokens$TokenArray*, $Tokens*)},
+		{"stringVal", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Tokens$Token, stringVal, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.Tokens$Token", "com.sun.tools.javac.parser.Tokens", "Token", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.parser.Tokens$Token$Tag", "com.sun.tools.javac.parser.Tokens$Token", "Tag", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.Tokens$Token",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.Tokens"
+	};
+	$loadClass(Tokens$Token, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Tokens$Token);
+	});
 	return class$;
 }
 

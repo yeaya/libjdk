@@ -1,5 +1,4 @@
 #include <HeadlessJButton.h>
-
 #include <HeadlessJButton$1.h>
 #include <HeadlessJButton$2.h>
 #include <HeadlessJButton$3.h>
@@ -50,7 +49,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,43 +59,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JButton = ::javax::swing::JButton;
 
-$MethodInfo _HeadlessJButton_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJButton, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJButton, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJButton_InnerClassesInfo_[] = {
-	{"HeadlessJButton$3", nullptr, nullptr, 0},
-	{"HeadlessJButton$2", nullptr, nullptr, 0},
-	{"HeadlessJButton$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJButton_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJButton",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJButton$3,HeadlessJButton$2,HeadlessJButton$1"
-};
-
-$Object* allocate$HeadlessJButton($Class* clazz) {
-	return $of($alloc(HeadlessJButton));
-}
-
 void HeadlessJButton::init$() {
 }
 
 void HeadlessJButton::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, b, $new($JButton));
 	$assign(b, $new($JButton, "Press me"_s));
 	b->getAccessibleContext();
@@ -110,9 +76,9 @@ void HeadlessJButton::main($StringArray* args) {
 	b->getMaximumSize();
 	b->getMinimumSize();
 	b->contains(1, 2);
-	$var($Component, c1, b->add(static_cast<$Component*>($$new($HeadlessJButton$1))));
-	$var($Component, c2, b->add(static_cast<$Component*>($$new($HeadlessJButton$2))));
-	$var($Component, c3, b->add(static_cast<$Component*>($$new($HeadlessJButton$3))));
+	$var($Component, c1, b->add($$new($HeadlessJButton$1)));
+	$var($Component, c2, b->add($$new($HeadlessJButton$2)));
+	$var($Component, c3, b->add($$new($HeadlessJButton$3)));
 	$var($Insets, ins, b->getInsets());
 	b->getAlignmentY();
 	b->getAlignmentX();
@@ -123,26 +89,22 @@ void HeadlessJButton::main($StringArray* args) {
 	b->setForeground($Color::red);
 	b->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					b->setFont(f1);
-					b->setFont(f2);
-					b->setFont(f3);
-					b->setFont(f4);
-					b->getFontMetrics(f1);
-					b->getFontMetrics(f2);
-					b->getFontMetrics(f3);
-					b->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				b->setFont(f1);
+				b->setFont(f2);
+				b->setFont(f3);
+				b->setFont(f4);
+				b->getFontMetrics(f1);
+				b->getFontMetrics(f2);
+				b->getFontMetrics(f3);
+				b->getFontMetrics(f4);
 			}
 		}
 	}
@@ -207,13 +169,11 @@ void HeadlessJButton::main($StringArray* args) {
 	b->getFont();
 	b->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(b));
+	c->add(b);
 	b->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			b->setLocale(locale);
 		}
@@ -270,7 +230,34 @@ HeadlessJButton::HeadlessJButton() {
 }
 
 $Class* HeadlessJButton::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJButton, name, initialize, &_HeadlessJButton_ClassInfo_, allocate$HeadlessJButton);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJButton, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJButton, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJButton$3", nullptr, nullptr, 0},
+		{"HeadlessJButton$2", nullptr, nullptr, 0},
+		{"HeadlessJButton$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJButton",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJButton$3,HeadlessJButton$2,HeadlessJButton$1"
+	};
+	$loadClass(HeadlessJButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJButton);
+	});
 	return class$;
 }
 

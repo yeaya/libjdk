@@ -1,5 +1,4 @@
 #include <sun/nio/cs/ext/ISO2022_KR$Encoder.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/ext/ISO2022$Encoder.h>
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $ISO2022$Encoder = ::sun::nio::cs::ext::ISO2022$Encoder;
 using $ISO2022_KR$Holder = ::sun::nio::cs::ext::ISO2022_KR$Holder;
 
@@ -23,43 +21,6 @@ namespace sun {
 	namespace nio {
 		namespace cs {
 			namespace ext {
-
-$FieldInfo _ISO2022_KR$Encoder_FieldInfo_[] = {
-	{"SOD", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_KR$Encoder, SOD)},
-	{}
-};
-
-$MethodInfo _ISO2022_KR$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ISO2022_KR$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR$Encoder, canEncode, bool, char16_t)},
-	{}
-};
-
-$InnerClassInfo _ISO2022_KR$Encoder_InnerClassesInfo_[] = {
-	{"sun.nio.cs.ext.ISO2022_KR$Encoder", "sun.nio.cs.ext.ISO2022_KR", "Encoder", $PRIVATE | $STATIC},
-	{"sun.nio.cs.ext.ISO2022$Encoder", "sun.nio.cs.ext.ISO2022", "Encoder", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _ISO2022_KR$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.nio.cs.ext.ISO2022_KR$Encoder",
-	"sun.nio.cs.ext.ISO2022$Encoder",
-	nullptr,
-	_ISO2022_KR$Encoder_FieldInfo_,
-	_ISO2022_KR$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ISO2022_KR$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.nio.cs.ext.ISO2022_KR"
-};
-
-$Object* allocate$ISO2022_KR$Encoder($Class* clazz) {
-	return $of($alloc(ISO2022_KR$Encoder));
-}
 
 $bytes* ISO2022_KR$Encoder::SOD = nullptr;
 
@@ -77,7 +38,7 @@ bool ISO2022_KR$Encoder::canEncode(char16_t c) {
 	return ($nc(this->ISOEncoder)->canEncode(c));
 }
 
-void clinit$ISO2022_KR$Encoder($Class* class$) {
+void ISO2022_KR$Encoder::clinit$($Class* clazz) {
 	$assignStatic(ISO2022_KR$Encoder::SOD, $new($bytes, {
 		(int8_t)u'$',
 		(int8_t)u')',
@@ -89,7 +50,38 @@ ISO2022_KR$Encoder::ISO2022_KR$Encoder() {
 }
 
 $Class* ISO2022_KR$Encoder::load$($String* name, bool initialize) {
-	$loadClass(ISO2022_KR$Encoder, name, initialize, &_ISO2022_KR$Encoder_ClassInfo_, clinit$ISO2022_KR$Encoder, allocate$ISO2022_KR$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"SOD", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ISO2022_KR$Encoder, SOD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(ISO2022_KR$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(ISO2022_KR$Encoder, canEncode, bool, char16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.nio.cs.ext.ISO2022_KR$Encoder", "sun.nio.cs.ext.ISO2022_KR", "Encoder", $PRIVATE | $STATIC},
+		{"sun.nio.cs.ext.ISO2022$Encoder", "sun.nio.cs.ext.ISO2022", "Encoder", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.nio.cs.ext.ISO2022_KR$Encoder",
+		"sun.nio.cs.ext.ISO2022$Encoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.nio.cs.ext.ISO2022_KR"
+	};
+	$loadClass(ISO2022_KR$Encoder, name, initialize, &classInfo$$, ISO2022_KR$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ISO2022_KR$Encoder);
+	});
 	return class$;
 }
 

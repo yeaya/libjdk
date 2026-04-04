@@ -1,5 +1,4 @@
 #include <javax/management/modelmbean/RequiredModelMBean$6.h>
-
 #include <java/lang/ClassNotFoundException.h>
 #include <javax/management/loading/ClassLoaderRepository.h>
 #include <javax/management/modelmbean/RequiredModelMBean.h>
@@ -20,50 +19,6 @@ using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 namespace javax {
 	namespace management {
 		namespace modelmbean {
-
-$FieldInfo _RequiredModelMBean$6_FieldInfo_[] = {
-	{"this$0", "Ljavax/management/modelmbean/RequiredModelMBean;", nullptr, $FINAL | $SYNTHETIC, $field(RequiredModelMBean$6, this$0)},
-	{"val$caughtException", "[Ljava/lang/ClassNotFoundException;", nullptr, $FINAL | $SYNTHETIC, $field(RequiredModelMBean$6, val$caughtException)},
-	{"val$className", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(RequiredModelMBean$6, val$className)},
-	{}
-};
-
-$MethodInfo _RequiredModelMBean$6_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;Ljava/lang/String;[Ljava/lang/ClassNotFoundException;)V", "()V", 0, $method(RequiredModelMBean$6, init$, void, $RequiredModelMBean*, $String*, $ClassNotFoundExceptionArray*)},
-	{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RequiredModelMBean$6, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _RequiredModelMBean$6_EnclosingMethodInfo_ = {
-	"javax.management.modelmbean.RequiredModelMBean",
-	"loadClass",
-	"(Ljava/lang/String;)Ljava/lang/Class;"
-};
-
-$InnerClassInfo _RequiredModelMBean$6_InnerClassesInfo_[] = {
-	{"javax.management.modelmbean.RequiredModelMBean$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RequiredModelMBean$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.modelmbean.RequiredModelMBean$6",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_RequiredModelMBean$6_FieldInfo_,
-	_RequiredModelMBean$6_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Class<*>;>;",
-	&_RequiredModelMBean$6_EnclosingMethodInfo_,
-	_RequiredModelMBean$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.modelmbean.RequiredModelMBean"
-};
-
-$Object* allocate$RequiredModelMBean$6($Class* clazz) {
-	return $of($alloc(RequiredModelMBean$6));
-}
 
 void RequiredModelMBean$6::init$($RequiredModelMBean* this$0, $String* val$className, $ClassNotFoundExceptionArray* val$caughtException) {
 	$set(this, this$0, this$0);
@@ -87,14 +42,51 @@ $Object* RequiredModelMBean$6::run() {
 			$nc(this->val$caughtException)->set(0, ex);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 RequiredModelMBean$6::RequiredModelMBean$6() {
 }
 
 $Class* RequiredModelMBean$6::load$($String* name, bool initialize) {
-	$loadClass(RequiredModelMBean$6, name, initialize, &_RequiredModelMBean$6_ClassInfo_, allocate$RequiredModelMBean$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/management/modelmbean/RequiredModelMBean;", nullptr, $FINAL | $SYNTHETIC, $field(RequiredModelMBean$6, this$0)},
+		{"val$caughtException", "[Ljava/lang/ClassNotFoundException;", nullptr, $FINAL | $SYNTHETIC, $field(RequiredModelMBean$6, val$caughtException)},
+		{"val$className", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(RequiredModelMBean$6, val$className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/modelmbean/RequiredModelMBean;Ljava/lang/String;[Ljava/lang/ClassNotFoundException;)V", "()V", 0, $method(RequiredModelMBean$6, init$, void, $RequiredModelMBean*, $String*, $ClassNotFoundExceptionArray*)},
+		{"run", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(RequiredModelMBean$6, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.management.modelmbean.RequiredModelMBean",
+		"loadClass",
+		"(Ljava/lang/String;)Ljava/lang/Class;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.modelmbean.RequiredModelMBean$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.modelmbean.RequiredModelMBean$6",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Class<*>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.modelmbean.RequiredModelMBean"
+	};
+	$loadClass(RequiredModelMBean$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequiredModelMBean$6);
+	});
 	return class$;
 }
 

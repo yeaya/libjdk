@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/BRView.h>
-
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/InlineView.h>
@@ -18,25 +17,6 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$MethodInfo _BRView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(BRView, init$, void, $Element*)},
-	{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(BRView, getBreakWeight, int32_t, int32_t, float, float)},
-	{}
-};
-
-$ClassInfo _BRView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.BRView",
-	"javax.swing.text.html.InlineView",
-	nullptr,
-	nullptr,
-	_BRView_MethodInfo_
-};
-
-$Object* allocate$BRView($Class* clazz) {
-	return $of($alloc(BRView));
-}
-
 void BRView::init$($Element* elem) {
 	$InlineView::init$(elem);
 }
@@ -53,7 +33,22 @@ BRView::BRView() {
 }
 
 $Class* BRView::load$($String* name, bool initialize) {
-	$loadClass(BRView, name, initialize, &_BRView_ClassInfo_, allocate$BRView);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(BRView, init$, void, $Element*)},
+		{"getBreakWeight", "(IFF)I", nullptr, $PUBLIC, $virtualMethod(BRView, getBreakWeight, int32_t, int32_t, float, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.BRView",
+		"javax.swing.text.html.InlineView",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(BRView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BRView));
+	});
 	return class$;
 }
 

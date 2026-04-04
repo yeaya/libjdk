@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicEditorPaneUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
@@ -16,11 +15,9 @@
 #include <javax/swing/plaf/basic/BasicTextPaneUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI$FocusAction.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
-#include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/Style.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/StyleContext.h>
@@ -59,11 +56,9 @@ using $BasicEditorPaneUI$StyleSheetUIResource = ::javax::swing::plaf::basic::Bas
 using $BasicTextPaneUI = ::javax::swing::plaf::basic::BasicTextPaneUI;
 using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $BasicTextUI$FocusAction = ::javax::swing::plaf::basic::BasicTextUI$FocusAction;
-using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $Style = ::javax::swing::text::Style;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyleContext = ::javax::swing::text::StyleContext;
@@ -76,55 +71,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicEditorPaneUI_FieldInfo_[] = {
-	{"FONT_ATTRIBUTE_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicEditorPaneUI, FONT_ATTRIBUTE_KEY)},
-	{}
-};
-
-$MethodInfo _BasicEditorPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicEditorPaneUI, init$, void)},
-	{"addActions", "(Ljavax/swing/ActionMap;[Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(BasicEditorPaneUI, addActions, void, $ActionMap*, $ActionArray*)},
-	{"cleanDisplayProperties", "()V", nullptr, 0, $virtualMethod(BasicEditorPaneUI, cleanDisplayProperties, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicEditorPaneUI, getActionMap, $ActionMap*)},
-	{"getEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(BasicEditorPaneUI, getEditorKit, $EditorKit*, $JTextComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicEditorPaneUI, getPropertyPrefix, $String*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicEditorPaneUI, installUI, void, $JComponent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicEditorPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"removeActions", "(Ljavax/swing/ActionMap;[Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(BasicEditorPaneUI, removeActions, void, $ActionMap*, $ActionArray*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicEditorPaneUI, uninstallUI, void, $JComponent*)},
-	{"updateCSS", "(Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicEditorPaneUI, updateCSS, void, $Font*, $Color*)},
-	{"updateDisplayProperties", "(Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(BasicEditorPaneUI, updateDisplayProperties, void, $Font*, $Color*)},
-	{"updateFont", "(Ljava/awt/Font;)V", nullptr, $PRIVATE, $method(BasicEditorPaneUI, updateFont, void, $Font*)},
-	{"updateForeground", "(Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicEditorPaneUI, updateForeground, void, $Color*)},
-	{"updateStyle", "(Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicEditorPaneUI, updateStyle, void, $Font*, $Color*)},
-	{}
-};
-
-$InnerClassInfo _BasicEditorPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicEditorPaneUI$StyleSheetUIResource", "javax.swing.plaf.basic.BasicEditorPaneUI", "StyleSheetUIResource", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicEditorPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicEditorPaneUI",
-	"javax.swing.plaf.basic.BasicTextUI",
-	nullptr,
-	_BasicEditorPaneUI_FieldInfo_,
-	_BasicEditorPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicEditorPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicEditorPaneUI$StyleSheetUIResource"
-};
-
-$Object* allocate$BasicEditorPaneUI($Class* clazz) {
-	return $of($alloc(BasicEditorPaneUI));
-}
 
 $String* BasicEditorPaneUI::FONT_ATTRIBUTE_KEY = nullptr;
 
@@ -142,7 +88,7 @@ $String* BasicEditorPaneUI::getPropertyPrefix() {
 }
 
 void BasicEditorPaneUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextUI::installUI(c);
 	$var($Font, var$0, $nc(c)->getFont());
 	updateDisplayProperties(var$0, $(c->getForeground()));
@@ -159,7 +105,7 @@ $EditorKit* BasicEditorPaneUI::getEditorKit($JTextComponent* tc) {
 }
 
 $ActionMap* BasicEditorPaneUI::getActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, am, $new($ActionMapUIResource));
 	am->put("requestFocus"_s, $$new($BasicTextUI$FocusAction, this));
 	$var($EditorKit, editorKit, getEditorKit($(getComponent())));
@@ -170,17 +116,17 @@ $ActionMap* BasicEditorPaneUI::getActionMap() {
 		}
 	}
 	$init($Action);
-	$var($Object, var$0, $nc($($TransferHandler::getCutAction()))->getValue($Action::NAME));
+	$var($Object, var$0, $$nc($TransferHandler::getCutAction())->getValue($Action::NAME));
 	am->put(var$0, $($TransferHandler::getCutAction()));
-	$var($Object, var$1, $nc($($TransferHandler::getCopyAction()))->getValue($Action::NAME));
+	$var($Object, var$1, $$nc($TransferHandler::getCopyAction())->getValue($Action::NAME));
 	am->put(var$1, $($TransferHandler::getCopyAction()));
-	$var($Object, var$2, $nc($($TransferHandler::getPasteAction()))->getValue($Action::NAME));
+	$var($Object, var$2, $$nc($TransferHandler::getPasteAction())->getValue($Action::NAME));
 	am->put(var$2, $($TransferHandler::getPasteAction()));
 	return am;
 }
 
 void BasicEditorPaneUI::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicTextUI::propertyChange(evt);
 	$var($String, name, $nc(evt)->getPropertyName());
 	if ("editorKit"_s->equals(name)) {
@@ -188,14 +134,14 @@ void BasicEditorPaneUI::propertyChange($PropertyChangeEvent* evt) {
 		if (map != nullptr) {
 			$var($Object, oldValue, evt->getOldValue());
 			if ($instanceOf($EditorKit, oldValue)) {
-				$var($ActionArray, actions, $nc(($cast($EditorKit, oldValue)))->getActions());
+				$var($ActionArray, actions, $cast($EditorKit, oldValue)->getActions());
 				if (actions != nullptr) {
 					removeActions(map, actions);
 				}
 			}
 			$var($Object, newValue, evt->getNewValue());
 			if ($instanceOf($EditorKit, newValue)) {
-				$var($ActionArray, actions, $nc(($cast($EditorKit, newValue)))->getActions());
+				$var($ActionArray, actions, $cast($EditorKit, newValue)->getActions());
 				if (actions != nullptr) {
 					addActions(map, actions);
 				}
@@ -205,24 +151,24 @@ void BasicEditorPaneUI::propertyChange($PropertyChangeEvent* evt) {
 	} else if ("editable"_s->equals(name)) {
 		updateFocusTraversalKeys();
 	} else {
-		bool var$7 = "foreground"_s->equals(name);
-		bool var$6 = var$7 || "font"_s->equals(name);
-		bool var$5 = var$6 || "document"_s->equals(name);
+		bool var$3 = "foreground"_s->equals(name);
+		bool var$2 = var$3 || "font"_s->equals(name);
+		bool var$1 = var$2 || "document"_s->equals(name);
 		$init($JEditorPane);
-		bool var$4 = var$5 || $nc($JEditorPane::W3C_LENGTH_UNITS)->equals(name);
-		if (var$4 || $nc($JEditorPane::HONOR_DISPLAY_PROPERTIES)->equals(name)) {
+		bool var$0 = var$1 || $nc($JEditorPane::W3C_LENGTH_UNITS)->equals(name);
+		if (var$0 || $nc($JEditorPane::HONOR_DISPLAY_PROPERTIES)->equals(name)) {
 			$var($JComponent, c, getComponent());
-			$var($Font, var$8, $nc(c)->getFont());
-			updateDisplayProperties(var$8, $(c->getForeground()));
-			bool var$9 = $nc($JEditorPane::W3C_LENGTH_UNITS)->equals(name);
-			if (var$9 || $nc($JEditorPane::HONOR_DISPLAY_PROPERTIES)->equals(name)) {
+			$var($Font, var$4, $nc(c)->getFont());
+			updateDisplayProperties(var$4, $(c->getForeground()));
+			bool var$5 = $nc($JEditorPane::W3C_LENGTH_UNITS)->equals(name);
+			if (var$5 || $nc($JEditorPane::HONOR_DISPLAY_PROPERTIES)->equals(name)) {
 				modelChanged();
 			}
 			if ("foreground"_s->equals(name)) {
-				$var($Object, honorDisplayPropertiesObject, $nc(c)->getClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES));
+				$var($Object, honorDisplayPropertiesObject, c->getClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES));
 				bool honorDisplayProperties = false;
 				if ($instanceOf($Boolean, honorDisplayPropertiesObject)) {
-					honorDisplayProperties = $nc(($cast($Boolean, honorDisplayPropertiesObject)))->booleanValue();
+					honorDisplayProperties = $cast($Boolean, honorDisplayPropertiesObject)->booleanValue();
 				}
 				if (honorDisplayProperties) {
 					modelChanged();
@@ -233,27 +179,25 @@ void BasicEditorPaneUI::propertyChange($PropertyChangeEvent* evt) {
 }
 
 void BasicEditorPaneUI::removeActions($ActionMap* map, $ActionArray* actions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(actions)->length;
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Action, a, actions->get(i));
-		$init($Action);
 		$nc(map)->remove($($nc(a)->getValue($Action::NAME)));
 	}
 }
 
 void BasicEditorPaneUI::addActions($ActionMap* map, $ActionArray* actions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(actions)->length;
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Action, a, actions->get(i));
-		$init($Action);
 		$nc(map)->put($($nc(a)->getValue($Action::NAME)), a);
 	}
 }
 
 void BasicEditorPaneUI::updateDisplayProperties($Font* font, $Color* fg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, c, getComponent());
 	$init($JEditorPane);
 	$var($Object, honorDisplayPropertiesObject, $nc(c)->getClientProperty($JEditorPane::HONOR_DISPLAY_PROPERTIES));
@@ -261,13 +205,13 @@ void BasicEditorPaneUI::updateDisplayProperties($Font* font, $Color* fg) {
 	$var($Object, w3cLengthUnitsObject, c->getClientProperty($JEditorPane::W3C_LENGTH_UNITS));
 	bool w3cLengthUnits = false;
 	if ($instanceOf($Boolean, honorDisplayPropertiesObject)) {
-		honorDisplayProperties = $nc(($cast($Boolean, honorDisplayPropertiesObject)))->booleanValue();
+		honorDisplayProperties = $cast($Boolean, honorDisplayPropertiesObject)->booleanValue();
 	}
 	if ($instanceOf($Boolean, w3cLengthUnitsObject)) {
-		w3cLengthUnits = $nc(($cast($Boolean, w3cLengthUnitsObject)))->booleanValue();
+		w3cLengthUnits = $cast($Boolean, w3cLengthUnitsObject)->booleanValue();
 	}
 	if ($instanceOf($BasicTextPaneUI, this) || honorDisplayProperties) {
-		$var($Document, doc, $nc($(getComponent()))->getDocument());
+		$var($Document, doc, $$nc(getComponent())->getDocument());
 		if ($instanceOf($StyledDocument, doc)) {
 			if ($instanceOf($HTMLDocument, doc) && honorDisplayProperties) {
 				updateCSS(font, fg);
@@ -279,45 +223,39 @@ void BasicEditorPaneUI::updateDisplayProperties($Font* font, $Color* fg) {
 		cleanDisplayProperties();
 	}
 	if (w3cLengthUnits) {
-		$var($Document, doc, $nc($(getComponent()))->getDocument());
+		$var($Document, doc, $$nc(getComponent())->getDocument());
 		if ($instanceOf($HTMLDocument, doc)) {
-			$var($StyleSheet, documentStyleSheet, $nc(($cast($HTMLDocument, doc)))->getStyleSheet());
+			$var($StyleSheet, documentStyleSheet, $cast($HTMLDocument, doc)->getStyleSheet());
 			$nc(documentStyleSheet)->addRule("W3C_LENGTH_UNITS_ENABLE"_s);
 		}
 	} else {
-		$var($Document, doc, $nc($(getComponent()))->getDocument());
+		$var($Document, doc, $$nc(getComponent())->getDocument());
 		if ($instanceOf($HTMLDocument, doc)) {
-			$var($StyleSheet, documentStyleSheet, $nc(($cast($HTMLDocument, doc)))->getStyleSheet());
+			$var($StyleSheet, documentStyleSheet, $cast($HTMLDocument, doc)->getStyleSheet());
 			$nc(documentStyleSheet)->addRule("W3C_LENGTH_UNITS_DISABLE"_s);
 		}
 	}
 }
 
 void BasicEditorPaneUI::cleanDisplayProperties() {
-	$useLocalCurrentObjectStackCache();
-	$var($Document, document, $nc($(getComponent()))->getDocument());
+	$useLocalObjectStack();
+	$var($Document, document, $$nc(getComponent())->getDocument());
 	if ($instanceOf($HTMLDocument, document)) {
-		$var($StyleSheet, documentStyleSheet, $nc(($cast($HTMLDocument, document)))->getStyleSheet());
+		$var($StyleSheet, documentStyleSheet, $cast($HTMLDocument, document)->getStyleSheet());
 		$var($StyleSheetArray, styleSheets, $nc(documentStyleSheet)->getStyleSheets());
 		if (styleSheets != nullptr) {
-			{
-				$var($StyleSheetArray, arr$, styleSheets);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($StyleSheet, s, arr$->get(i$));
-					{
-						if ($instanceOf($BasicEditorPaneUI$StyleSheetUIResource, s)) {
-							documentStyleSheet->removeStyleSheet(s);
-							documentStyleSheet->addRule("BASE_SIZE_DISABLE"_s);
-							break;
-						}
-					}
+			$var($StyleSheetArray, arr$, styleSheets);
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($StyleSheet, s, arr$->get(i$));
+				if ($instanceOf($BasicEditorPaneUI$StyleSheetUIResource, s)) {
+					documentStyleSheet->removeStyleSheet(s);
+					documentStyleSheet->addRule("BASE_SIZE_DISABLE"_s);
+					break;
 				}
 			}
 		}
 		$init($StyleContext);
-		$var($Style, style, $nc(($cast($StyledDocument, document)))->getStyle($StyleContext::DEFAULT_STYLE));
+		$var($Style, style, $cast($StyledDocument, document)->getStyle($StyleContext::DEFAULT_STYLE));
 		if ($nc(style)->getAttribute(BasicEditorPaneUI::FONT_ATTRIBUTE_KEY) != nullptr) {
 			style->removeAttribute(BasicEditorPaneUI::FONT_ATTRIBUTE_KEY);
 		}
@@ -325,36 +263,30 @@ void BasicEditorPaneUI::cleanDisplayProperties() {
 }
 
 void BasicEditorPaneUI::updateCSS($Font* font, $Color* fg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, component, getComponent());
 	$var($Document, document, $nc(component)->getDocument());
 	if ($instanceOf($HTMLDocument, document)) {
 		$var($StyleSheet, styleSheet, $new($BasicEditorPaneUI$StyleSheetUIResource));
-		$var($StyleSheet, documentStyleSheet, $nc(($cast($HTMLDocument, document)))->getStyleSheet());
+		$var($StyleSheet, documentStyleSheet, $cast($HTMLDocument, document)->getStyleSheet());
 		$var($StyleSheetArray, styleSheets, $nc(documentStyleSheet)->getStyleSheets());
 		if (styleSheets != nullptr) {
-			{
-				$var($StyleSheetArray, arr$, styleSheets);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($StyleSheet, s, arr$->get(i$));
-					{
-						if ($instanceOf($BasicEditorPaneUI$StyleSheetUIResource, s)) {
-							documentStyleSheet->removeStyleSheet(s);
-						}
-					}
+			$var($StyleSheetArray, arr$, styleSheets);
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($StyleSheet, s, arr$->get(i$));
+				if ($instanceOf($BasicEditorPaneUI$StyleSheetUIResource, s)) {
+					documentStyleSheet->removeStyleSheet(s);
 				}
 			}
 		}
 		$var($String, cssRule, $SwingUtilities2::displayPropertiesToCSS(font, fg));
 		styleSheet->addRule(cssRule);
 		documentStyleSheet->addStyleSheet(styleSheet);
-		documentStyleSheet->addRule($$str({"BASE_SIZE "_s, $$str($nc($(component->getFont()))->getSize())}));
+		documentStyleSheet->addRule($$str({"BASE_SIZE "_s, $$str($$nc(component->getFont())->getSize())}));
 		$init($StyleContext);
-		$var($Style, style, $nc(($cast($StyledDocument, document)))->getStyle($StyleContext::DEFAULT_STYLE));
+		$var($Style, style, $cast($StyledDocument, document)->getStyle($StyleContext::DEFAULT_STYLE));
 		if (!$nc(font)->equals($($nc(style)->getAttribute(BasicEditorPaneUI::FONT_ATTRIBUTE_KEY)))) {
-			$nc(style)->addAttribute(BasicEditorPaneUI::FONT_ATTRIBUTE_KEY, font);
+			style->addAttribute(BasicEditorPaneUI::FONT_ATTRIBUTE_KEY, font);
 		}
 	}
 }
@@ -365,8 +297,8 @@ void BasicEditorPaneUI::updateStyle($Font* font, $Color* fg) {
 }
 
 void BasicEditorPaneUI::updateForeground($Color* color) {
-	$useLocalCurrentObjectStackCache();
-	$var($StyledDocument, doc, $cast($StyledDocument, $nc($(getComponent()))->getDocument()));
+	$useLocalObjectStack();
+	$var($StyledDocument, doc, $cast($StyledDocument, $$nc(getComponent())->getDocument()));
 	$init($StyleContext);
 	$var($Style, style, $nc(doc)->getStyle($StyleContext::DEFAULT_STYLE));
 	if (style == nullptr) {
@@ -377,14 +309,14 @@ void BasicEditorPaneUI::updateForeground($Color* color) {
 		if ($nc(style)->getAttribute($StyleConstants::Foreground) != nullptr) {
 			style->removeAttribute($StyleConstants::Foreground);
 		}
-	} else if (!$nc(color)->equals($($StyleConstants::getForeground(style)))) {
+	} else if (!color->equals($($StyleConstants::getForeground(style)))) {
 		$StyleConstants::setForeground(style, color);
 	}
 }
 
 void BasicEditorPaneUI::updateFont($Font* font) {
-	$useLocalCurrentObjectStackCache();
-	$var($StyledDocument, doc, $cast($StyledDocument, $nc($(getComponent()))->getDocument()));
+	$useLocalObjectStack();
+	$var($StyledDocument, doc, $cast($StyledDocument, $$nc(getComponent())->getDocument()));
 	$init($StyleContext);
 	$var($Style, style, $nc(doc)->getStyle($StyleContext::DEFAULT_STYLE));
 	if (style == nullptr) {
@@ -413,34 +345,34 @@ void BasicEditorPaneUI::updateFont($Font* font) {
 			style->removeAttribute(BasicEditorPaneUI::FONT_ATTRIBUTE_KEY);
 		}
 	} else {
-		if (!$nc($($nc(font)->getName()))->equals(fontFamily)) {
+		if (!$$nc(font->getName())->equals(fontFamily)) {
 			$StyleConstants::setFontFamily(style, $(font->getName()));
 		}
 		bool var$0 = fontSize == nullptr;
 		if (!var$0) {
-			int32_t var$1 = $nc(fontSize)->intValue();
-			var$0 = var$1 != $nc(font)->getSize();
+			int32_t var$1 = fontSize->intValue();
+			var$0 = var$1 != font->getSize();
 		}
 		if (var$0) {
 			$StyleConstants::setFontSize(style, font->getSize());
 		}
 		bool var$2 = isBold == nullptr;
 		if (!var$2) {
-			bool var$3 = $nc(isBold)->booleanValue();
-			var$2 = var$3 != $nc(font)->isBold();
+			bool var$3 = isBold->booleanValue();
+			var$2 = var$3 != font->isBold();
 		}
 		if (var$2) {
 			$StyleConstants::setBold(style, font->isBold());
 		}
 		bool var$4 = isItalic == nullptr;
 		if (!var$4) {
-			bool var$5 = $nc(isItalic)->booleanValue();
-			var$4 = var$5 != $nc(font)->isItalic();
+			bool var$5 = isItalic->booleanValue();
+			var$4 = var$5 != font->isItalic();
 		}
 		if (var$4) {
 			$StyleConstants::setItalic(style, font->isItalic());
 		}
-		if (!$nc(font)->equals(fontAttribute)) {
+		if (!font->equals(fontAttribute)) {
 			style->addAttribute(BasicEditorPaneUI::FONT_ATTRIBUTE_KEY, font);
 		}
 	}
@@ -449,12 +381,55 @@ void BasicEditorPaneUI::updateFont($Font* font) {
 BasicEditorPaneUI::BasicEditorPaneUI() {
 }
 
-void clinit$BasicEditorPaneUI($Class* class$) {
+void BasicEditorPaneUI::clinit$($Class* clazz) {
 	$assignStatic(BasicEditorPaneUI::FONT_ATTRIBUTE_KEY, "FONT_ATTRIBUTE_KEY"_s);
 }
 
 $Class* BasicEditorPaneUI::load$($String* name, bool initialize) {
-	$loadClass(BasicEditorPaneUI, name, initialize, &_BasicEditorPaneUI_ClassInfo_, clinit$BasicEditorPaneUI, allocate$BasicEditorPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"FONT_ATTRIBUTE_KEY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicEditorPaneUI, FONT_ATTRIBUTE_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicEditorPaneUI, init$, void)},
+		{"addActions", "(Ljavax/swing/ActionMap;[Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(BasicEditorPaneUI, addActions, void, $ActionMap*, $ActionArray*)},
+		{"cleanDisplayProperties", "()V", nullptr, 0, $virtualMethod(BasicEditorPaneUI, cleanDisplayProperties, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(BasicEditorPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, 0, $virtualMethod(BasicEditorPaneUI, getActionMap, $ActionMap*)},
+		{"getEditorKit", "(Ljavax/swing/text/JTextComponent;)Ljavax/swing/text/EditorKit;", nullptr, $PUBLIC, $virtualMethod(BasicEditorPaneUI, getEditorKit, $EditorKit*, $JTextComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(BasicEditorPaneUI, getPropertyPrefix, $String*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicEditorPaneUI, installUI, void, $JComponent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(BasicEditorPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"removeActions", "(Ljavax/swing/ActionMap;[Ljavax/swing/Action;)V", nullptr, 0, $virtualMethod(BasicEditorPaneUI, removeActions, void, $ActionMap*, $ActionArray*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(BasicEditorPaneUI, uninstallUI, void, $JComponent*)},
+		{"updateCSS", "(Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicEditorPaneUI, updateCSS, void, $Font*, $Color*)},
+		{"updateDisplayProperties", "(Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(BasicEditorPaneUI, updateDisplayProperties, void, $Font*, $Color*)},
+		{"updateFont", "(Ljava/awt/Font;)V", nullptr, $PRIVATE, $method(BasicEditorPaneUI, updateFont, void, $Font*)},
+		{"updateForeground", "(Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicEditorPaneUI, updateForeground, void, $Color*)},
+		{"updateStyle", "(Ljava/awt/Font;Ljava/awt/Color;)V", nullptr, $PRIVATE, $method(BasicEditorPaneUI, updateStyle, void, $Font*, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicEditorPaneUI$StyleSheetUIResource", "javax.swing.plaf.basic.BasicEditorPaneUI", "StyleSheetUIResource", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicEditorPaneUI",
+		"javax.swing.plaf.basic.BasicTextUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicEditorPaneUI$StyleSheetUIResource"
+	};
+	$loadClass(BasicEditorPaneUI, name, initialize, &classInfo$$, BasicEditorPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicEditorPaneUI));
+	});
 	return class$;
 }
 

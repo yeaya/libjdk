@@ -51,6 +51,7 @@ class $import CatalogFeatures : public ::java::lang::Object {
 	$class(CatalogFeatures, 0, ::java::lang::Object)
 public:
 	CatalogFeatures();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::xml::catalog::CatalogFeatures$Builder* builder);
 	static ::javax::xml::catalog::CatalogFeatures$Builder* builder();

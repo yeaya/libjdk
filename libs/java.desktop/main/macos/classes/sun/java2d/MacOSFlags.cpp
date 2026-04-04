@@ -1,5 +1,4 @@
 #include <sun/java2d/MacOSFlags.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -18,7 +17,6 @@
 #undef ENABLED
 #undef UNSPECIFIED
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -43,75 +41,27 @@ public:
 	virtual $Object* run() override {
 		 return MacOSFlags::lambda$initJavaFlags$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MacOSFlags$$Lambda$lambda$initJavaFlags$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo MacOSFlags$$Lambda$lambda$initJavaFlags$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSFlags$$Lambda$lambda$initJavaFlags$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MacOSFlags$$Lambda$lambda$initJavaFlags$0, run, $Object*)},
-	{}
-};
-$ClassInfo MacOSFlags$$Lambda$lambda$initJavaFlags$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.MacOSFlags$$Lambda$lambda$initJavaFlags$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* MacOSFlags$$Lambda$lambda$initJavaFlags$0::load$($String* name, bool initialize) {
-	$loadClass(MacOSFlags$$Lambda$lambda$initJavaFlags$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSFlags$$Lambda$lambda$initJavaFlags$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MacOSFlags$$Lambda$lambda$initJavaFlags$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.MacOSFlags$$Lambda$lambda$initJavaFlags$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MacOSFlags$$Lambda$lambda$initJavaFlags$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSFlags$$Lambda$lambda$initJavaFlags$0);
+	});
 	return class$;
 }
 $Class* MacOSFlags$$Lambda$lambda$initJavaFlags$0::class$ = nullptr;
-
-$FieldInfo _MacOSFlags_FieldInfo_[] = {
-	{"oglEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MacOSFlags, oglEnabled)},
-	{"oglVerbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MacOSFlags, oglVerbose)},
-	{"metalEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MacOSFlags, metalEnabled)},
-	{"metalVerbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MacOSFlags, metalVerbose)},
-	{}
-};
-
-$MethodInfo _MacOSFlags_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSFlags, init$, void)},
-	{"getBooleanProp", "(Ljava/lang/String;Lsun/java2d/MacOSFlags$PropertyState;)Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PRIVATE | $STATIC, $staticMethod(MacOSFlags, getBooleanProp, $MacOSFlags$PropertyState*, $String*, $MacOSFlags$PropertyState*)},
-	{"initJavaFlags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MacOSFlags, initJavaFlags, void)},
-	{"isBooleanPropTrueVerbose", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MacOSFlags, isBooleanPropTrueVerbose, bool, $String*)},
-	{"isMetalEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags, isMetalEnabled, bool)},
-	{"isMetalVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags, isMetalVerbose, bool)},
-	{"isOGLEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags, isOGLEnabled, bool)},
-	{"isOGLVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags, isOGLVerbose, bool)},
-	{"lambda$initJavaFlags$0", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MacOSFlags, lambda$initJavaFlags$0, $Object*)},
-	{}
-};
-
-$InnerClassInfo _MacOSFlags_InnerClassesInfo_[] = {
-	{"sun.java2d.MacOSFlags$PropertyState", "sun.java2d.MacOSFlags", "PropertyState", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MacOSFlags_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.MacOSFlags",
-	"java.lang.Object",
-	nullptr,
-	_MacOSFlags_FieldInfo_,
-	_MacOSFlags_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MacOSFlags_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.MacOSFlags$PropertyState"
-};
-
-$Object* allocate$MacOSFlags($Class* clazz) {
-	return $of($alloc(MacOSFlags));
-}
 
 bool MacOSFlags::oglEnabled = false;
 bool MacOSFlags::oglVerbose = false;
@@ -134,10 +84,10 @@ $MacOSFlags$PropertyState* MacOSFlags::getBooleanProp($String* p, $MacOSFlags$Pr
 			$init($MacOSFlags$PropertyState);
 			returnVal = $MacOSFlags$PropertyState::ENABLED;
 		} else {
-			bool var$9 = propString->equals("false"_s);
-			bool var$8 = var$9 || propString->equals("f"_s);
-			bool var$7 = var$8 || propString->equals("False"_s);
-			if (var$7 || propString->equals("F"_s)) {
+			bool var$6 = propString->equals("false"_s);
+			bool var$5 = var$6 || propString->equals("f"_s);
+			bool var$4 = var$5 || propString->equals("False"_s);
+			if (var$4 || propString->equals("F"_s)) {
 				$init($MacOSFlags$PropertyState);
 				returnVal = $MacOSFlags$PropertyState::DISABLED;
 			}
@@ -161,7 +111,7 @@ bool MacOSFlags::isBooleanPropTrueVerbose($String* p) {
 void MacOSFlags::initJavaFlags() {
 	$init(MacOSFlags);
 	$beforeCallerSensitive();
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(MacOSFlags$$Lambda$lambda$initJavaFlags$0)));
+	$AccessController::doPrivileged($cast($PrivilegedAction, $$new(MacOSFlags$$Lambda$lambda$initJavaFlags$0)));
 }
 
 bool MacOSFlags::isMetalEnabled() {
@@ -201,16 +151,12 @@ $Object* MacOSFlags::lambda$initJavaFlags$0() {
 			MacOSFlags::oglEnabled = true;
 			MacOSFlags::metalEnabled = false;
 		}
-	} else {
-		if (metalState == $MacOSFlags$PropertyState::ENABLED) {
-			MacOSFlags::oglEnabled = false;
-			MacOSFlags::metalEnabled = true;
-		} else {
-			if (metalState == $MacOSFlags$PropertyState::DISABLED) {
-				MacOSFlags::oglEnabled = true;
-				MacOSFlags::metalEnabled = false;
-			}
-		}
+	} else if (metalState == $MacOSFlags$PropertyState::ENABLED) {
+		MacOSFlags::oglEnabled = false;
+		MacOSFlags::metalEnabled = true;
+	} else if (metalState == $MacOSFlags$PropertyState::DISABLED) {
+		MacOSFlags::oglEnabled = true;
+		MacOSFlags::metalEnabled = false;
 	}
 	MacOSFlags::oglVerbose = isBooleanPropTrueVerbose("sun.java2d.opengl"_s);
 	MacOSFlags::metalVerbose = isBooleanPropTrueVerbose("sun.java2d.metal"_s);
@@ -222,24 +168,22 @@ $Object* MacOSFlags::lambda$initJavaFlags$0() {
 			MacOSFlags::oglEnabled = false;
 			MacOSFlags::metalEnabled = $MTLGraphicsConfig::isMetalAvailable();
 		}
-	} else {
-		if (MacOSFlags::metalEnabled && !MacOSFlags::oglEnabled) {
-			if (!$MTLGraphicsConfig::isMetalAvailable()) {
-				if (MacOSFlags::metalVerbose) {
-					$nc($System::out)->println("Could not enable Metal pipeline (Metal framework not available)"_s);
-				}
-				MacOSFlags::metalEnabled = false;
-				MacOSFlags::oglEnabled = $CGLGraphicsConfig::isCGLAvailable();
+	} else if (MacOSFlags::metalEnabled && !MacOSFlags::oglEnabled) {
+		if (!$MTLGraphicsConfig::isMetalAvailable()) {
+			if (MacOSFlags::metalVerbose) {
+				$nc($System::out)->println("Could not enable Metal pipeline (Metal framework not available)"_s);
 			}
+			MacOSFlags::metalEnabled = false;
+			MacOSFlags::oglEnabled = $CGLGraphicsConfig::isCGLAvailable();
 		}
 	}
 	if (!MacOSFlags::metalEnabled && !MacOSFlags::oglEnabled) {
 		$throwNew($InternalError, "Error - unable to initialize any rendering pipeline."_s);
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
-void clinit$MacOSFlags($Class* class$) {
+void MacOSFlags::clinit$($Class* clazz) {
 	{
 		MacOSFlags::initJavaFlags();
 	}
@@ -250,11 +194,50 @@ MacOSFlags::MacOSFlags() {
 
 $Class* MacOSFlags::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MacOSFlags$$Lambda$lambda$initJavaFlags$0::classInfo$.name)) {
+		if (name->equals("sun.java2d.MacOSFlags$$Lambda$lambda$initJavaFlags$0")) {
 			return MacOSFlags$$Lambda$lambda$initJavaFlags$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MacOSFlags, name, initialize, &_MacOSFlags_ClassInfo_, clinit$MacOSFlags, allocate$MacOSFlags);
+	$FieldInfo fieldInfos$$[] = {
+		{"oglEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MacOSFlags, oglEnabled)},
+		{"oglVerbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MacOSFlags, oglVerbose)},
+		{"metalEnabled", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MacOSFlags, metalEnabled)},
+		{"metalVerbose", "Z", nullptr, $PRIVATE | $STATIC, $staticField(MacOSFlags, metalVerbose)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MacOSFlags, init$, void)},
+		{"getBooleanProp", "(Ljava/lang/String;Lsun/java2d/MacOSFlags$PropertyState;)Lsun/java2d/MacOSFlags$PropertyState;", nullptr, $PRIVATE | $STATIC, $staticMethod(MacOSFlags, getBooleanProp, $MacOSFlags$PropertyState*, $String*, $MacOSFlags$PropertyState*)},
+		{"initJavaFlags", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(MacOSFlags, initJavaFlags, void)},
+		{"isBooleanPropTrueVerbose", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MacOSFlags, isBooleanPropTrueVerbose, bool, $String*)},
+		{"isMetalEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags, isMetalEnabled, bool)},
+		{"isMetalVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags, isMetalVerbose, bool)},
+		{"isOGLEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags, isOGLEnabled, bool)},
+		{"isOGLVerbose", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MacOSFlags, isOGLVerbose, bool)},
+		{"lambda$initJavaFlags$0", "()Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MacOSFlags, lambda$initJavaFlags$0, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.MacOSFlags$PropertyState", "sun.java2d.MacOSFlags", "PropertyState", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.MacOSFlags",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.MacOSFlags$PropertyState"
+	};
+	$loadClass(MacOSFlags, name, initialize, &classInfo$$, MacOSFlags::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSFlags);
+	});
 	return class$;
 }
 

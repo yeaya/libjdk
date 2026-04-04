@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultHighlighter$LayeredHighlightInfo.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -30,48 +29,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultHighlighter$LayeredHighlightInfo_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/DefaultHighlighter;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultHighlighter$LayeredHighlightInfo, this$0)},
-	{"x", "I", nullptr, 0, $field(DefaultHighlighter$LayeredHighlightInfo, x)},
-	{"y", "I", nullptr, 0, $field(DefaultHighlighter$LayeredHighlightInfo, y)},
-	{"width", "I", nullptr, 0, $field(DefaultHighlighter$LayeredHighlightInfo, width)},
-	{"height", "I", nullptr, 0, $field(DefaultHighlighter$LayeredHighlightInfo, height)},
-	{}
-};
-
-$MethodInfo _DefaultHighlighter$LayeredHighlightInfo_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/DefaultHighlighter;)V", nullptr, 0, $method(DefaultHighlighter$LayeredHighlightInfo, init$, void, $DefaultHighlighter*)},
-	{"paintLayeredHighlights", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)V", nullptr, 0, $virtualMethod(DefaultHighlighter$LayeredHighlightInfo, paintLayeredHighlights, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
-	{"union", "(Ljava/awt/Shape;)V", nullptr, 0, $virtualMethod(DefaultHighlighter$LayeredHighlightInfo, union$, void, $Shape*)},
-	{}
-};
-
-$InnerClassInfo _DefaultHighlighter$LayeredHighlightInfo_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultHighlighter$LayeredHighlightInfo", "javax.swing.text.DefaultHighlighter", "LayeredHighlightInfo", 0},
-	{"javax.swing.text.DefaultHighlighter$HighlightInfo", "javax.swing.text.DefaultHighlighter", "HighlightInfo", 0},
-	{}
-};
-
-$ClassInfo _DefaultHighlighter$LayeredHighlightInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultHighlighter$LayeredHighlightInfo",
-	"javax.swing.text.DefaultHighlighter$HighlightInfo",
-	nullptr,
-	_DefaultHighlighter$LayeredHighlightInfo_FieldInfo_,
-	_DefaultHighlighter$LayeredHighlightInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultHighlighter$LayeredHighlightInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultHighlighter"
-};
-
-$Object* allocate$DefaultHighlighter$LayeredHighlightInfo($Class* clazz) {
-	return $of($alloc(DefaultHighlighter$LayeredHighlightInfo));
-}
-
 void DefaultHighlighter$LayeredHighlightInfo::init$($DefaultHighlighter* this$0) {
 	$set(this, this$0, this$0);
 	$DefaultHighlighter$HighlightInfo::init$(this$0);
@@ -93,11 +50,11 @@ void DefaultHighlighter$LayeredHighlightInfo::union$($Shape* bounds) {
 		this->width = alloc->width;
 		this->height = alloc->height;
 	} else {
-		this->width = $Math::max(this->x + this->width, $nc(alloc)->x + alloc->width);
-		this->height = $Math::max(this->y + this->height, $nc(alloc)->y + alloc->height);
-		this->x = $Math::min(this->x, $nc(alloc)->x);
+		this->width = $Math::max(this->x + this->width, $nc(alloc)->x + $nc(alloc)->width);
+		this->height = $Math::max(this->y + this->height, alloc->y + alloc->height);
+		this->x = $Math::min(this->x, alloc->x);
 		this->width -= this->x;
-		this->y = $Math::min(this->y, $nc(alloc)->y);
+		this->y = $Math::min(this->y, alloc->y);
 		this->height -= this->y;
 	}
 }
@@ -107,14 +64,50 @@ void DefaultHighlighter$LayeredHighlightInfo::paintLayeredHighlights($Graphics* 
 	int32_t end = getEndOffset();
 	p0 = $Math::max(start, p0);
 	p1 = $Math::min(end, p1);
-	union$($($nc(($cast($LayeredHighlighter$LayerPainter, this->painter)))->paintLayer(g, p0, p1, viewBounds, editor, view)));
+	union$($($nc($cast($LayeredHighlighter$LayerPainter, this->painter))->paintLayer(g, p0, p1, viewBounds, editor, view)));
 }
 
 DefaultHighlighter$LayeredHighlightInfo::DefaultHighlighter$LayeredHighlightInfo() {
 }
 
 $Class* DefaultHighlighter$LayeredHighlightInfo::load$($String* name, bool initialize) {
-	$loadClass(DefaultHighlighter$LayeredHighlightInfo, name, initialize, &_DefaultHighlighter$LayeredHighlightInfo_ClassInfo_, allocate$DefaultHighlighter$LayeredHighlightInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/DefaultHighlighter;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultHighlighter$LayeredHighlightInfo, this$0)},
+		{"x", "I", nullptr, 0, $field(DefaultHighlighter$LayeredHighlightInfo, x)},
+		{"y", "I", nullptr, 0, $field(DefaultHighlighter$LayeredHighlightInfo, y)},
+		{"width", "I", nullptr, 0, $field(DefaultHighlighter$LayeredHighlightInfo, width)},
+		{"height", "I", nullptr, 0, $field(DefaultHighlighter$LayeredHighlightInfo, height)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/DefaultHighlighter;)V", nullptr, 0, $method(DefaultHighlighter$LayeredHighlightInfo, init$, void, $DefaultHighlighter*)},
+		{"paintLayeredHighlights", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)V", nullptr, 0, $virtualMethod(DefaultHighlighter$LayeredHighlightInfo, paintLayeredHighlights, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
+		{"union", "(Ljava/awt/Shape;)V", nullptr, 0, $virtualMethod(DefaultHighlighter$LayeredHighlightInfo, union$, void, $Shape*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultHighlighter$LayeredHighlightInfo", "javax.swing.text.DefaultHighlighter", "LayeredHighlightInfo", 0},
+		{"javax.swing.text.DefaultHighlighter$HighlightInfo", "javax.swing.text.DefaultHighlighter", "HighlightInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultHighlighter$LayeredHighlightInfo",
+		"javax.swing.text.DefaultHighlighter$HighlightInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultHighlighter"
+	};
+	$loadClass(DefaultHighlighter$LayeredHighlightInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultHighlighter$LayeredHighlightInfo);
+	});
 	return class$;
 }
 

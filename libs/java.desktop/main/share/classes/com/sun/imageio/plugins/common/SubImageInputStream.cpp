@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/common/SubImageInputStream.h>
-
 #include <java/lang/Math.h>
 #include <javax/imageio/stream/ImageInputStream.h>
 #include <javax/imageio/stream/ImageInputStreamImpl.h>
@@ -17,37 +16,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace common {
-
-$FieldInfo _SubImageInputStream_FieldInfo_[] = {
-	{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(SubImageInputStream, stream)},
-	{"startingPos", "J", nullptr, 0, $field(SubImageInputStream, startingPos)},
-	{"startingLength", "I", nullptr, 0, $field(SubImageInputStream, startingLength)},
-	{"length", "I", nullptr, 0, $field(SubImageInputStream, length$)},
-	{}
-};
-
-$MethodInfo _SubImageInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/stream/ImageInputStream;I)V", nullptr, $PUBLIC, $method(SubImageInputStream, init$, void, $ImageInputStream*, int32_t), "java.io.IOException"},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(SubImageInputStream, finalize, void), "java.lang.Throwable"},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(SubImageInputStream, length, int64_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SubImageInputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SubImageInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(SubImageInputStream, seek, void, int64_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SubImageInputStream_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.imageio.plugins.common.SubImageInputStream",
-	"javax.imageio.stream.ImageInputStreamImpl",
-	nullptr,
-	_SubImageInputStream_FieldInfo_,
-	_SubImageInputStream_MethodInfo_
-};
-
-$Object* allocate$SubImageInputStream($Class* clazz) {
-	return $of($alloc(SubImageInputStream));
-}
 
 void SubImageInputStream::init$($ImageInputStream* stream, int32_t length) {
 	$ImageInputStreamImpl::init$();
@@ -91,7 +59,33 @@ SubImageInputStream::SubImageInputStream() {
 }
 
 $Class* SubImageInputStream::load$($String* name, bool initialize) {
-	$loadClass(SubImageInputStream, name, initialize, &_SubImageInputStream_ClassInfo_, allocate$SubImageInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, 0, $field(SubImageInputStream, stream)},
+		{"startingPos", "J", nullptr, 0, $field(SubImageInputStream, startingPos)},
+		{"startingLength", "I", nullptr, 0, $field(SubImageInputStream, startingLength)},
+		{"length", "I", nullptr, 0, $field(SubImageInputStream, length$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/stream/ImageInputStream;I)V", nullptr, $PUBLIC, $method(SubImageInputStream, init$, void, $ImageInputStream*, int32_t), "java.io.IOException"},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(SubImageInputStream, finalize, void), "java.lang.Throwable"},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(SubImageInputStream, length, int64_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(SubImageInputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(SubImageInputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(SubImageInputStream, seek, void, int64_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.imageio.plugins.common.SubImageInputStream",
+		"javax.imageio.stream.ImageInputStreamImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SubImageInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SubImageInputStream));
+	});
 	return class$;
 }
 

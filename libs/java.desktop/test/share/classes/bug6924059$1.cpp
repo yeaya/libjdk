@@ -1,5 +1,4 @@
 #include <bug6924059$1.h>
-
 #include <bug6924059$1$1.h>
 #include <bug6924059.h>
 #include <javax/swing/JScrollBar.h>
@@ -14,52 +13,13 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JScrollBar = ::javax::swing::JScrollBar;
-using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
-
-$MethodInfo _bug6924059$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6924059$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6924059$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6924059$1_EnclosingMethodInfo_ = {
-	"bug6924059",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6924059$1_InnerClassesInfo_[] = {
-	{"bug6924059$1", nullptr, nullptr, 0},
-	{"bug6924059$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6924059$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6924059$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6924059$1_MethodInfo_,
-	nullptr,
-	&_bug6924059$1_EnclosingMethodInfo_,
-	_bug6924059$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6924059"
-};
-
-$Object* allocate$bug6924059$1($Class* clazz) {
-	return $of($alloc(bug6924059$1));
-}
 
 void bug6924059$1::init$() {
 }
 
 void bug6924059$1::run() {
-	$useLocalCurrentObjectStackCache();
-	$$new($JScrollBar)->setUI(static_cast<$ScrollBarUI*>($$new($bug6924059$1$1, this)));
+	$useLocalObjectStack();
+	$$new($JScrollBar)->setUI($$new($bug6924059$1$1, this));
 	$init($bug6924059);
 	if (!$bug6924059::isMethodCalled) {
 		$throwNew($RuntimeException, "The configureScrollBarColors was not called"_s);
@@ -70,7 +30,39 @@ bug6924059$1::bug6924059$1() {
 }
 
 $Class* bug6924059$1::load$($String* name, bool initialize) {
-	$loadClass(bug6924059$1, name, initialize, &_bug6924059$1_ClassInfo_, allocate$bug6924059$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6924059$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6924059$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6924059",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6924059$1", nullptr, nullptr, 0},
+		{"bug6924059$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6924059$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6924059"
+	};
+	$loadClass(bug6924059$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6924059$1);
+	});
 	return class$;
 }
 

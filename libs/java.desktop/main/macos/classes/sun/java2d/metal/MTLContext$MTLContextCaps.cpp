@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLContext$MTLContextCaps.h>
-
 #include <sun/java2d/metal/MTLContext.h>
 #include <sun/java2d/pipe/hw/ContextCapabilities.h>
 #include <jcpp.h>
@@ -19,62 +18,23 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$FieldInfo _MTLContext$MTLContextCaps_FieldInfo_[] = {
-	{"CAPS_DOUBLEBUFFERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLContext$MTLContextCaps, CAPS_DOUBLEBUFFERED)},
-	{"CAPS_EXT_LCD_SHADER", "I", nullptr, $STATIC | $FINAL, $constField(MTLContext$MTLContextCaps, CAPS_EXT_LCD_SHADER)},
-	{"CAPS_EXT_BIOP_SHADER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLContext$MTLContextCaps, CAPS_EXT_BIOP_SHADER)},
-	{"CAPS_EXT_GRAD_SHADER", "I", nullptr, $STATIC | $FINAL, $constField(MTLContext$MTLContextCaps, CAPS_EXT_GRAD_SHADER)},
-	{}
-};
-
-$MethodInfo _MTLContext$MTLContextCaps_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(MTLContext$MTLContextCaps, init$, void, int32_t, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MTLContext$MTLContextCaps, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _MTLContext$MTLContextCaps_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLContext$MTLContextCaps", "sun.java2d.metal.MTLContext", "MTLContextCaps", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MTLContext$MTLContextCaps_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.metal.MTLContext$MTLContextCaps",
-	"sun.java2d.pipe.hw.ContextCapabilities",
-	nullptr,
-	_MTLContext$MTLContextCaps_FieldInfo_,
-	_MTLContext$MTLContextCaps_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLContext$MTLContextCaps_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLContext"
-};
-
-$Object* allocate$MTLContext$MTLContextCaps($Class* clazz) {
-	return $of($alloc(MTLContext$MTLContextCaps));
-}
-
 void MTLContext$MTLContextCaps::init$(int32_t caps, $String* adapterId) {
 	$ContextCapabilities::init$(caps, adapterId);
 }
 
 $String* MTLContext$MTLContextCaps::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, $($ContextCapabilities::toString())));
-	if (((int32_t)(this->caps & (uint32_t)MTLContext$MTLContextCaps::CAPS_DOUBLEBUFFERED)) != 0) {
+	if ((this->caps & MTLContext$MTLContextCaps::CAPS_DOUBLEBUFFERED) != 0) {
 		sb->append("CAPS_DOUBLEBUFFERED|"_s);
 	}
-	if (((int32_t)(this->caps & (uint32_t)MTLContext$MTLContextCaps::CAPS_EXT_LCD_SHADER)) != 0) {
+	if ((this->caps & MTLContext$MTLContextCaps::CAPS_EXT_LCD_SHADER) != 0) {
 		sb->append("CAPS_EXT_LCD_SHADER|"_s);
 	}
-	if (((int32_t)(this->caps & (uint32_t)MTLContext$MTLContextCaps::CAPS_EXT_BIOP_SHADER)) != 0) {
+	if ((this->caps & MTLContext$MTLContextCaps::CAPS_EXT_BIOP_SHADER) != 0) {
 		sb->append("CAPS_BIOP_SHADER|"_s);
 	}
-	if (((int32_t)(this->caps & (uint32_t)MTLContext$MTLContextCaps::CAPS_EXT_GRAD_SHADER)) != 0) {
+	if ((this->caps & MTLContext$MTLContextCaps::CAPS_EXT_GRAD_SHADER) != 0) {
 		sb->append("CAPS_EXT_GRAD_SHADER|"_s);
 	}
 	return sb->toString();
@@ -84,7 +44,40 @@ MTLContext$MTLContextCaps::MTLContext$MTLContextCaps() {
 }
 
 $Class* MTLContext$MTLContextCaps::load$($String* name, bool initialize) {
-	$loadClass(MTLContext$MTLContextCaps, name, initialize, &_MTLContext$MTLContextCaps_ClassInfo_, allocate$MTLContext$MTLContextCaps);
+	$FieldInfo fieldInfos$$[] = {
+		{"CAPS_DOUBLEBUFFERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLContext$MTLContextCaps, CAPS_DOUBLEBUFFERED)},
+		{"CAPS_EXT_LCD_SHADER", "I", nullptr, $STATIC | $FINAL, $constField(MTLContext$MTLContextCaps, CAPS_EXT_LCD_SHADER)},
+		{"CAPS_EXT_BIOP_SHADER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(MTLContext$MTLContextCaps, CAPS_EXT_BIOP_SHADER)},
+		{"CAPS_EXT_GRAD_SHADER", "I", nullptr, $STATIC | $FINAL, $constField(MTLContext$MTLContextCaps, CAPS_EXT_GRAD_SHADER)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(MTLContext$MTLContextCaps, init$, void, int32_t, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MTLContext$MTLContextCaps, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLContext$MTLContextCaps", "sun.java2d.metal.MTLContext", "MTLContextCaps", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.metal.MTLContext$MTLContextCaps",
+		"sun.java2d.pipe.hw.ContextCapabilities",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLContext"
+	};
+	$loadClass(MTLContext$MTLContextCaps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLContext$MTLContextCaps);
+	});
 	return class$;
 }
 

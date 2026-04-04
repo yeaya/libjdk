@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$ParameterAnnotations.h>
-
 #include <com/sun/tools/javac/jvm/ClassReader.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
@@ -16,42 +15,6 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$ParameterAnnotations_FieldInfo_[] = {
-	{"proxies", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;", 0, $field(ClassReader$ParameterAnnotations, proxies)},
-	{}
-};
-
-$MethodInfo _ClassReader$ParameterAnnotations_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ClassReader$ParameterAnnotations, init$, void)},
-	{"add", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)V", 0, $virtualMethod(ClassReader$ParameterAnnotations, add, void, $List*)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$ParameterAnnotations_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$ParameterAnnotations", "com.sun.tools.javac.jvm.ClassReader", "ParameterAnnotations", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassReader$ParameterAnnotations_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$ParameterAnnotations",
-	"java.lang.Object",
-	nullptr,
-	_ClassReader$ParameterAnnotations_FieldInfo_,
-	_ClassReader$ParameterAnnotations_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$ParameterAnnotations_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$ParameterAnnotations($Class* clazz) {
-	return $of($alloc(ClassReader$ParameterAnnotations));
-}
-
 void ClassReader$ParameterAnnotations::init$() {
 }
 
@@ -59,7 +22,7 @@ void ClassReader$ParameterAnnotations::add($List* newAnnotations) {
 	if (this->proxies == nullptr) {
 		$set(this, proxies, newAnnotations);
 	} else {
-		$set(this, proxies, $nc(this->proxies)->prependList(newAnnotations));
+		$set(this, proxies, this->proxies->prependList(newAnnotations));
 	}
 }
 
@@ -67,7 +30,37 @@ ClassReader$ParameterAnnotations::ClassReader$ParameterAnnotations() {
 }
 
 $Class* ClassReader$ParameterAnnotations::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$ParameterAnnotations, name, initialize, &_ClassReader$ParameterAnnotations_ClassInfo_, allocate$ClassReader$ParameterAnnotations);
+	$FieldInfo fieldInfos$$[] = {
+		{"proxies", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;", 0, $field(ClassReader$ParameterAnnotations, proxies)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ClassReader$ParameterAnnotations, init$, void)},
+		{"add", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy;>;)V", 0, $virtualMethod(ClassReader$ParameterAnnotations, add, void, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$ParameterAnnotations", "com.sun.tools.javac.jvm.ClassReader", "ParameterAnnotations", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$ParameterAnnotations",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$ParameterAnnotations, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$ParameterAnnotations);
+	});
 	return class$;
 }
 

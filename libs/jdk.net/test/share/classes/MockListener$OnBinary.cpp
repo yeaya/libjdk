@@ -1,5 +1,4 @@
 #include <MockListener$OnBinary.h>
-
 #include <MockListener$Invocation.h>
 #include <MockListener.h>
 #include <java/net/http/WebSocket.h>
@@ -17,46 +16,6 @@ using $WebSocket = ::java::net::http::WebSocket;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $Objects = ::java::util::Objects;
 
-$FieldInfo _MockListener$OnBinary_FieldInfo_[] = {
-	{"data", "Ljava/nio/ByteBuffer;", nullptr, $FINAL, $field(MockListener$OnBinary, data)},
-	{"last", "Z", nullptr, $FINAL, $field(MockListener$OnBinary, last)},
-	{}
-};
-
-$MethodInfo _MockListener$OnBinary_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $method(MockListener$OnBinary, init$, void, $WebSocket*, $ByteBuffer*, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _MockListener$OnBinary_InnerClassesInfo_[] = {
-	{"MockListener$OnBinary", "MockListener", "OnBinary", $PUBLIC | $STATIC | $FINAL},
-	{"MockListener$Invocation", "MockListener", "Invocation", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MockListener$OnBinary_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"MockListener$OnBinary",
-	"MockListener$Invocation",
-	nullptr,
-	_MockListener$OnBinary_FieldInfo_,
-	_MockListener$OnBinary_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MockListener$OnBinary_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MockListener"
-};
-
-$Object* allocate$MockListener$OnBinary($Class* clazz) {
-	return $of($alloc(MockListener$OnBinary));
-}
-
 void MockListener$OnBinary::init$($WebSocket* webSocket, $ByteBuffer* data, bool last) {
 	$MockListener$Invocation::init$(webSocket);
 	$set(this, data, data);
@@ -69,31 +28,31 @@ bool MockListener$OnBinary::equals(Object$* o) {
 	}
 	bool var$0 = o == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(o))->getClass();
+		var$0 = $of(this)->getClass() != $of(o)->getClass();
 	}
 	if (var$0) {
 		return false;
 	}
 	$var(MockListener$OnBinary, onBinary, $cast(MockListener$OnBinary, o));
-	bool var$1 = $Objects::equals(this->data, $nc(onBinary)->data) && this->last == $nc(onBinary)->last;
+	bool var$1 = $Objects::equals(this->data, $nc(onBinary)->data) && this->last == onBinary->last;
 	return var$1 && $Objects::equals(this->webSocket, onBinary->webSocket);
 }
 
 int32_t MockListener$OnBinary::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Objects::hash($$new($ObjectArray, {
-		$of(this->data),
-		$($of($Boolean::valueOf(this->last))),
-		$of(this->webSocket)
+		this->data,
+		$($Boolean::valueOf(this->last)),
+		this->webSocket
 	}));
 }
 
 $String* MockListener$OnBinary::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("onBinary(%s, %s, %s)"_s, $$new($ObjectArray, {
-		$of(this->webSocket),
-		$of(this->data),
-		$($of($Boolean::valueOf(this->last)))
+		this->webSocket,
+		this->data,
+		$($Boolean::valueOf(this->last))
 	}));
 }
 
@@ -101,7 +60,41 @@ MockListener$OnBinary::MockListener$OnBinary() {
 }
 
 $Class* MockListener$OnBinary::load$($String* name, bool initialize) {
-	$loadClass(MockListener$OnBinary, name, initialize, &_MockListener$OnBinary_ClassInfo_, allocate$MockListener$OnBinary);
+	$FieldInfo fieldInfos$$[] = {
+		{"data", "Ljava/nio/ByteBuffer;", nullptr, $FINAL, $field(MockListener$OnBinary, data)},
+		{"last", "Z", nullptr, $FINAL, $field(MockListener$OnBinary, last)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/WebSocket;Ljava/nio/ByteBuffer;Z)V", nullptr, $PUBLIC, $method(MockListener$OnBinary, init$, void, $WebSocket*, $ByteBuffer*, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnBinary, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MockListener$OnBinary", "MockListener", "OnBinary", $PUBLIC | $STATIC | $FINAL},
+		{"MockListener$Invocation", "MockListener", "Invocation", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"MockListener$OnBinary",
+		"MockListener$Invocation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MockListener"
+	};
+	$loadClass(MockListener$OnBinary, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MockListener$OnBinary);
+	});
 	return class$;
 }
 

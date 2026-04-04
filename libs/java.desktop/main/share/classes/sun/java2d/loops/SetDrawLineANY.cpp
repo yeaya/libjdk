@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/SetDrawLineANY.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/CompositeType.h>
@@ -24,25 +23,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$MethodInfo _SetDrawLineANY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SetDrawLineANY, init$, void)},
-	{"DrawLine", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(SetDrawLineANY, DrawLine$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SetDrawLineANY_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.SetDrawLineANY",
-	"sun.java2d.loops.DrawLine",
-	nullptr,
-	nullptr,
-	_SetDrawLineANY_MethodInfo_
-};
-
-$Object* allocate$SetDrawLineANY($Class* clazz) {
-	return $of($alloc(SetDrawLineANY));
-}
-
 void SetDrawLineANY::init$() {
 	$init($SurfaceType);
 	$init($CompositeType);
@@ -50,7 +30,7 @@ void SetDrawLineANY::init$() {
 }
 
 void SetDrawLineANY::DrawLine$($SunGraphics2D* sg2d, $SurfaceData* sData, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PixelWriter, pw, $GeneralRenderer::createSolidPixelWriter(sg2d, sData));
 	if (y1 >= y2) {
 		$GeneralRenderer::doDrawLine(sData, pw, nullptr, $($nc(sg2d)->getCompClip()), x2, y2, x1, y1);
@@ -63,7 +43,22 @@ SetDrawLineANY::SetDrawLineANY() {
 }
 
 $Class* SetDrawLineANY::load$($String* name, bool initialize) {
-	$loadClass(SetDrawLineANY, name, initialize, &_SetDrawLineANY_ClassInfo_, allocate$SetDrawLineANY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SetDrawLineANY, init$, void)},
+		{"DrawLine", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;IIII)V", nullptr, $PUBLIC, $virtualMethod(SetDrawLineANY, DrawLine$, void, $SunGraphics2D*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.SetDrawLineANY",
+		"sun.java2d.loops.DrawLine",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SetDrawLineANY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SetDrawLineANY);
+	});
 	return class$;
 }
 

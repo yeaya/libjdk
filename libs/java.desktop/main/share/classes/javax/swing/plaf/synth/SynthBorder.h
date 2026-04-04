@@ -38,6 +38,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::plaf::synth::SynthUI* ui, ::java::awt::Insets* insets);
 	void init$(::javax::swing::plaf::synth::SynthUI* ui);
 	virtual ::java::awt::Insets* getBorderInsets(::java::awt::Component* c, ::java::awt::Insets* insets) override;

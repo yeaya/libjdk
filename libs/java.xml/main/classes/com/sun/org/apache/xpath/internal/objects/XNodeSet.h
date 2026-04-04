@@ -125,6 +125,7 @@ public:
 	using ::com::sun::org::apache::xpath::internal::axes::NodeSequence::error;
 	using ::com::sun::org::apache::xpath::internal::axes::NodeSequence::bool$;
 	using ::com::sun::org::apache::xpath::internal::axes::NodeSequence::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xml::internal::dtm::DTMIterator* val);
 	void init$(::com::sun::org::apache::xpath::internal::objects::XNodeSet* val);
@@ -159,7 +160,7 @@ public:
 	virtual $String* str() override;
 	using ::com::sun::org::apache::xpath::internal::axes::NodeSequence::xstr;
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* xstr() override;
-	static const int64_t serialVersionUID = (int64_t)0x1A9717D4870BD173;
+	static const int64_t serialVersionUID = (int64_t)0x1a9717d4870bd173;
 	static ::com::sun::org::apache::xpath::internal::objects::LessThanComparator* S_LT;
 	static ::com::sun::org::apache::xpath::internal::objects::LessThanOrEqualComparator* S_LTE;
 	static ::com::sun::org::apache::xpath::internal::objects::GreaterThanComparator* S_GT;

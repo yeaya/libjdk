@@ -1,5 +1,4 @@
 #include <MotifHiDPIIconsTest$2.h>
-
 #include <MotifHiDPIIconsTest.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowAdapter.h>
@@ -16,50 +15,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JFrame = ::javax::swing::JFrame;
-
-$FieldInfo _MotifHiDPIIconsTest$2_FieldInfo_[] = {
-	{"val$mainFrame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(MotifHiDPIIconsTest$2, val$mainFrame)},
-	{}
-};
-
-$MethodInfo _MotifHiDPIIconsTest$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, 0, $method(MotifHiDPIIconsTest$2, init$, void, $JFrame*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifHiDPIIconsTest$2, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _MotifHiDPIIconsTest$2_EnclosingMethodInfo_ = {
-	"MotifHiDPIIconsTest",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _MotifHiDPIIconsTest$2_InnerClassesInfo_[] = {
-	{"MotifHiDPIIconsTest$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifHiDPIIconsTest$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"MotifHiDPIIconsTest$2",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_MotifHiDPIIconsTest$2_FieldInfo_,
-	_MotifHiDPIIconsTest$2_MethodInfo_,
-	nullptr,
-	&_MotifHiDPIIconsTest$2_EnclosingMethodInfo_,
-	_MotifHiDPIIconsTest$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MotifHiDPIIconsTest"
-};
-
-$Object* allocate$MotifHiDPIIconsTest$2($Class* clazz) {
-	return $of($alloc(MotifHiDPIIconsTest$2));
-}
 
 void MotifHiDPIIconsTest$2::init$($JFrame* val$mainFrame) {
 	$set(this, val$mainFrame, val$mainFrame);
@@ -76,7 +32,42 @@ MotifHiDPIIconsTest$2::MotifHiDPIIconsTest$2() {
 }
 
 $Class* MotifHiDPIIconsTest$2::load$($String* name, bool initialize) {
-	$loadClass(MotifHiDPIIconsTest$2, name, initialize, &_MotifHiDPIIconsTest$2_ClassInfo_, allocate$MotifHiDPIIconsTest$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$mainFrame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(MotifHiDPIIconsTest$2, val$mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", nullptr, 0, $method(MotifHiDPIIconsTest$2, init$, void, $JFrame*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(MotifHiDPIIconsTest$2, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"MotifHiDPIIconsTest",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MotifHiDPIIconsTest$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"MotifHiDPIIconsTest$2",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MotifHiDPIIconsTest"
+	};
+	$loadClass(MotifHiDPIIconsTest$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifHiDPIIconsTest$2));
+	});
 	return class$;
 }
 

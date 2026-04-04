@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Field$XPath.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Axis.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$LocationPath.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/XPath$Step.h>
@@ -35,45 +34,13 @@ namespace com {
 							namespace xs {
 								namespace identity {
 
-$MethodInfo _Field$XPath_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(Field$XPath, init$, void, $String*, $SymbolTable*, $NamespaceContext*), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
-	{"fixupXPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Field$XPath, fixupXPath, $String*, $String*)},
-	{"fixupXPath2", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Field$XPath, fixupXPath2, $String*, $String*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Field$XPath_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.identity.Field$XPath", "com.sun.org.apache.xerces.internal.impl.xs.identity.Field", "XPath", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Field$XPath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.Field$XPath",
-	"com.sun.org.apache.xerces.internal.impl.xpath.XPath",
-	nullptr,
-	nullptr,
-	_Field$XPath_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Field$XPath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.Field"
-};
-
-$Object* allocate$Field$XPath($Class* clazz) {
-	return $of($alloc(Field$XPath));
-}
-
 void Field$XPath::init$($String* xpath, $SymbolTable* symbolTable, $NamespaceContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XPath::init$($(fixupXPath(xpath)), symbolTable, context);
 	for (int32_t i = 0; i < $nc(this->fLocationPaths)->length; ++i) {
-		for (int32_t j = 0; j < $nc($nc($nc(this->fLocationPaths)->get(i))->steps)->length; ++j) {
-			$var($XPath$Axis, axis, $nc($nc($nc($nc(this->fLocationPaths)->get(i))->steps)->get(j))->axis);
-			if ($nc(axis)->type == $XPath$Axis::ATTRIBUTE && (j < $nc($nc($nc(this->fLocationPaths)->get(i))->steps)->length - 1)) {
+		for (int32_t j = 0; j < $nc($nc(this->fLocationPaths->get(i))->steps)->length; ++j) {
+			$var($XPath$Axis, axis, $nc($nc(this->fLocationPaths->get(i))->steps->get(j))->axis);
+			if ($nc(axis)->type == $XPath$Axis::ATTRIBUTE && (j < $nc(this->fLocationPaths->get(i))->steps->length - 1)) {
 				$throwNew($XPathException, "c-fields-xpaths"_s);
 			}
 		}
@@ -135,7 +102,34 @@ Field$XPath::Field$XPath() {
 }
 
 $Class* Field$XPath::load$($String* name, bool initialize) {
-	$loadClass(Field$XPath, name, initialize, &_Field$XPath_ClassInfo_, allocate$Field$XPath);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/NamespaceContext;)V", nullptr, $PUBLIC, $method(Field$XPath, init$, void, $String*, $SymbolTable*, $NamespaceContext*), "com.sun.org.apache.xerces.internal.impl.xpath.XPathException"},
+		{"fixupXPath", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Field$XPath, fixupXPath, $String*, $String*)},
+		{"fixupXPath2", "(Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Field$XPath, fixupXPath2, $String*, $String*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.identity.Field$XPath", "com.sun.org.apache.xerces.internal.impl.xs.identity.Field", "XPath", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.Field$XPath",
+		"com.sun.org.apache.xerces.internal.impl.xpath.XPath",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.Field"
+	};
+	$loadClass(Field$XPath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Field$XPath);
+	});
 	return class$;
 }
 

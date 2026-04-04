@@ -62,6 +62,7 @@ class $import X11FontManager : public ::sun::awt::FcFontManager {
 	$class(X11FontManager, 0, ::sun::awt::FcFontManager)
 public:
 	X11FontManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addFontToPlatformFontPath($String* platformName) override;
 	virtual ::sun::awt::FontConfiguration* createFontConfiguration() override;

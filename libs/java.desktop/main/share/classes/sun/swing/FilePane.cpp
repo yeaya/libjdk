@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -12,13 +11,10 @@
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/KeyListener.h>
-#include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/lang/Math.h>
@@ -29,7 +25,6 @@
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/ButtonGroup.h>
@@ -57,7 +52,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/event/ListDataListener.h>
 #include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/filechooser/FileSystemView.h>
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
@@ -141,15 +135,9 @@ using $DefaultKeyboardFocusManager = ::java::awt::DefaultKeyboardFocusManager;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $KeyListener = ::java::awt::event::KeyListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $Boolean = ::java::lang::Boolean;
@@ -166,7 +154,6 @@ using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
@@ -176,7 +163,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
 using $JMenu = ::javax::swing::JMenu;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $JPanel = ::javax::swing::JPanel;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
@@ -184,24 +170,17 @@ using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
 using $JTextField = ::javax::swing::JTextField;
-using $ListCellRenderer = ::javax::swing::ListCellRenderer;
-using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
-using $RowSorter = ::javax::swing::RowSorter;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $ListDataListener = ::javax::swing::event::ListDataListener;
 using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 using $DefaultTableColumnModel = ::javax::swing::table::DefaultTableColumnModel;
-using $JTableHeader = ::javax::swing::table::JTableHeader;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
-using $TableModel = ::javax::swing::table::TableModel;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $ShellFolderColumnInfo = ::sun::awt::shell::ShellFolderColumnInfo;
 using $FilePane$1 = ::sun::swing::FilePane$1;
@@ -228,169 +207,6 @@ using $FilePane$ViewTypeAction = ::sun::swing::FilePane$ViewTypeAction;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _FilePane_FieldInfo_[] = {
-	{"ACTION_APPROVE_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_APPROVE_SELECTION)},
-	{"ACTION_CANCEL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_CANCEL)},
-	{"ACTION_EDIT_FILE_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_EDIT_FILE_NAME)},
-	{"ACTION_REFRESH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_REFRESH)},
-	{"ACTION_CHANGE_TO_PARENT_DIRECTORY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_CHANGE_TO_PARENT_DIRECTORY)},
-	{"ACTION_NEW_FOLDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_NEW_FOLDER)},
-	{"ACTION_VIEW_LIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_VIEW_LIST)},
-	{"ACTION_VIEW_DETAILS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_VIEW_DETAILS)},
-	{"actions", "[Ljavax/swing/Action;", nullptr, $PRIVATE, $field(FilePane, actions)},
-	{"VIEWTYPE_LIST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FilePane, VIEWTYPE_LIST)},
-	{"VIEWTYPE_DETAILS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FilePane, VIEWTYPE_DETAILS)},
-	{"VIEWTYPE_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePane, VIEWTYPE_COUNT)},
-	{"viewType", "I", nullptr, $PRIVATE, $field(FilePane, viewType)},
-	{"viewPanels", "[Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(FilePane, viewPanels)},
-	{"currentViewPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(FilePane, currentViewPanel)},
-	{"viewTypeActionNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, viewTypeActionNames)},
-	{"filesListAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, filesListAccessibleName)},
-	{"filesDetailsAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, filesDetailsAccessibleName)},
-	{"contextMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE, $field(FilePane, contextMenu)},
-	{"viewMenu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE, $field(FilePane, viewMenu)},
-	{"viewMenuLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, viewMenuLabelText)},
-	{"refreshActionLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, refreshActionLabelText)},
-	{"newFolderActionLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, newFolderActionLabelText)},
-	{"kiloByteString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, kiloByteString)},
-	{"megaByteString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, megaByteString)},
-	{"gigaByteString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, gigaByteString)},
-	{"renameErrorTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, renameErrorTitleText)},
-	{"renameErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, renameErrorText)},
-	{"renameErrorFileExistsText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, renameErrorFileExistsText)},
-	{"waitCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePane, waitCursor)},
-	{"detailsKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE | $FINAL, $field(FilePane, detailsKeyListener)},
-	{"editorFocusListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE, $field(FilePane, editorFocusListener)},
-	{"repaintListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE | $STATIC, $staticField(FilePane, repaintListener)},
-	{"smallIconsView", "Z", nullptr, $PRIVATE, $field(FilePane, smallIconsView)},
-	{"listViewBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(FilePane, listViewBorder)},
-	{"listViewBackground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FilePane, listViewBackground)},
-	{"listViewWindowsStyle", "Z", nullptr, $PRIVATE, $field(FilePane, listViewWindowsStyle)},
-	{"readOnly", "Z", nullptr, $PRIVATE, $field(FilePane, readOnly)},
-	{"fullRowSelection", "Z", nullptr, $PRIVATE, $field(FilePane, fullRowSelection)},
-	{"listSelectionModel", "Ljavax/swing/ListSelectionModel;", nullptr, $PRIVATE, $field(FilePane, listSelectionModel)},
-	{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<*>;", $PRIVATE, $field(FilePane, list$)},
-	{"detailsTable", "Ljavax/swing/JTable;", nullptr, $PRIVATE, $field(FilePane, detailsTable)},
-	{"COLUMN_FILENAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePane, COLUMN_FILENAME)},
-	{"newFolderFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(FilePane, newFolderFile)},
-	{"fileChooserUIAccessor", "Lsun/swing/FilePane$FileChooserUIAccessor;", nullptr, $PRIVATE, $field(FilePane, fileChooserUIAccessor)},
-	{"detailsTableModel", "Lsun/swing/FilePane$DetailsTableModel;", nullptr, $PRIVATE, $field(FilePane, detailsTableModel)},
-	{"rowSorter", "Lsun/swing/FilePane$DetailsTableRowSorter;", nullptr, $PRIVATE, $field(FilePane, rowSorter)},
-	{"tableCellEditor", "Lsun/swing/FilePane$DetailsTableCellEditor;", nullptr, $PRIVATE, $field(FilePane, tableCellEditor)},
-	{"lastIndex", "I", nullptr, 0, $field(FilePane, lastIndex)},
-	{"editFile", "Ljava/io/File;", nullptr, 0, $field(FilePane, editFile)},
-	{"editCell", "Ljavax/swing/JTextField;", nullptr, 0, $field(FilePane, editCell)},
-	{"newFolderAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(FilePane, newFolderAction)},
-	{"handler", "Lsun/swing/FilePane$Handler;", nullptr, $PRIVATE, $field(FilePane, handler)},
-	{}
-};
-
-$MethodInfo _FilePane_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/swing/FilePane$FileChooserUIAccessor;)V", nullptr, $PUBLIC, $method(FilePane, init$, void, $FilePane$FileChooserUIAccessor*)},
-	{"addActionsToMap", "(Ljavax/swing/ActionMap;[Ljavax/swing/Action;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePane, addActionsToMap, void, $ActionMap*, $ActionArray*)},
-	{"applyEdit", "()V", nullptr, $PRIVATE, $method(FilePane, applyEdit, void)},
-	{"canWrite", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FilePane, canWrite, bool, $File*)},
-	{"cancelEdit", "()V", nullptr, $PRIVATE, $method(FilePane, cancelEdit, void)},
-	{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane, clearSelection, void)},
-	{"createActionMap", "()V", nullptr, $PROTECTED, $virtualMethod(FilePane, createActionMap, void)},
-	{"createDetailsView", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(FilePane, createDetailsView, $JPanel*)},
-	{"createList", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(FilePane, createList, $JPanel*)},
-	{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(FilePane, createListSelectionListener, $ListSelectionListener*)},
-	{"doDeselectFile", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(FilePane, doDeselectFile, void, Object$*)},
-	{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doDirectoryChanged, void, $PropertyChangeEvent*)},
-	{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
-	{"doFilterChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doFilterChanged, void, $PropertyChangeEvent*)},
-	{"doMultiSelectionChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doMultiSelectionChanged, void, $PropertyChangeEvent*)},
-	{"doSelectFile", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(FilePane, doSelectFile, void, $File*)},
-	{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doSelectedFileChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
-	{"editFileName", "(I)V", nullptr, $PRIVATE, $method(FilePane, editFileName, void, int32_t)},
-	{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(FilePane, ensureFileIsVisible, void, $JFileChooser*, $File*)},
-	{"ensureIndexIsVisible", "(I)V", nullptr, $PRIVATE, $method(FilePane, ensureIndexIsVisible, void, int32_t)},
-	{"findChildComponent", "(Ljava/awt/Container;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/awt/Container;Ljava/lang/Class<TT;>;)TT;", $PRIVATE, $method(FilePane, findChildComponent, $Object*, $Container*, $Class*)},
-	{"fixNameColumnWidth", "(I)V", nullptr, $PRIVATE, $method(FilePane, fixNameColumnWidth, void, int32_t)},
-	{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(FilePane, getActions, $ActionArray*)},
-	{"getComponentPopupMenu", "()Ljavax/swing/JPopupMenu;", nullptr, $PUBLIC, $virtualMethod(FilePane, getComponentPopupMenu, $JPopupMenu*)},
-	{"getDetailsTableCellEditor", "()Lsun/swing/FilePane$DetailsTableCellEditor;", nullptr, $PRIVATE, $method(FilePane, getDetailsTableCellEditor, $FilePane$DetailsTableCellEditor*)},
-	{"getDetailsTableModel", "()Lsun/swing/FilePane$DetailsTableModel;", nullptr, $PRIVATE, $method(FilePane, getDetailsTableModel, $FilePane$DetailsTableModel*)},
-	{"getDirectory", "()Ljava/io/File;", nullptr, $PROTECTED, $virtualMethod(FilePane, getDirectory, $File*)},
-	{"getEditIndex", "()I", nullptr, $PRIVATE, $method(FilePane, getEditIndex, int32_t)},
-	{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PROTECTED, $virtualMethod(FilePane, getFileChooser, $JFileChooser*)},
-	{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PROTECTED, $virtualMethod(FilePane, getModel, $BasicDirectoryModel*)},
-	{"getMouseHandler", "()Lsun/swing/FilePane$Handler;", nullptr, $PROTECTED, $virtualMethod(FilePane, getMouseHandler, $FilePane$Handler*)},
-	{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(FilePane, getNewFolderAction, $Action*)},
-	{"getRowSorter", "()Lsun/swing/FilePane$DetailsTableRowSorter;", nullptr, $PRIVATE, $method(FilePane, getRowSorter, $FilePane$DetailsTableRowSorter*)},
-	{"getViewMenu", "()Ljavax/swing/JMenu;", nullptr, $PUBLIC, $virtualMethod(FilePane, getViewMenu, $JMenu*)},
-	{"getViewType", "()I", nullptr, $PUBLIC, $virtualMethod(FilePane, getViewType, int32_t)},
-	{"getViewTypeAction", "(I)Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(FilePane, getViewTypeAction, $Action*, int32_t)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(FilePane, installDefaults, void)},
-	{"isDirectorySelected", "()Z", nullptr, $PROTECTED, $virtualMethod(FilePane, isDirectorySelected, bool)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane, propertyChange, void, $PropertyChangeEvent*)},
-	{"recursivelySetInheritsPopupMenu", "(Ljava/awt/Container;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePane, recursivelySetInheritsPopupMenu, void, $Container*, bool)},
-	{"rescanCurrentDirectory", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane, rescanCurrentDirectory, void)},
-	{"resetEditIndex", "()V", nullptr, $PRIVATE, $method(FilePane, resetEditIndex, void)},
-	{"setEditIndex", "(I)V", nullptr, $PRIVATE, $method(FilePane, setEditIndex, void, int32_t)},
-	{"setFileSelected", "()V", nullptr, 0, $virtualMethod(FilePane, setFileSelected, void)},
-	{"setViewType", "(I)V", nullptr, $PUBLIC, $virtualMethod(FilePane, setViewType, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallUI", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane, uninstallUI, void)},
-	{"updateDetailsColumnModel", "(Ljavax/swing/JTable;)V", nullptr, $PRIVATE, $method(FilePane, updateDetailsColumnModel, void, $JTable*)},
-	{"updateListRowCount", "(Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PRIVATE, $method(FilePane, updateListRowCount, void, $JList*)},
-	{"updateViewMenu", "()V", nullptr, $PRIVATE, $method(FilePane, updateViewMenu, void)},
-	{"usesShellFolder", "(Ljavax/swing/JFileChooser;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePane, usesShellFolder, bool, $JFileChooser*)},
-	{}
-};
-
-$InnerClassInfo _FilePane_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$FileChooserUIAccessor", "sun.swing.FilePane", "FileChooserUIAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.FilePane$Handler", "sun.swing.FilePane", "Handler", $PRIVATE},
-	{"sun.swing.FilePane$FileRenderer", "sun.swing.FilePane", "FileRenderer", $PROTECTED},
-	{"sun.swing.FilePane$EditActionListener", "sun.swing.FilePane", "EditActionListener", 0},
-	{"sun.swing.FilePane$DelayedSelectionUpdater", "sun.swing.FilePane", "DelayedSelectionUpdater", $PRIVATE},
-	{"sun.swing.FilePane$AlignableTableHeaderRenderer", "sun.swing.FilePane", "AlignableTableHeaderRenderer", $PRIVATE},
-	{"sun.swing.FilePane$DetailsTableCellRenderer", "sun.swing.FilePane", "DetailsTableCellRenderer", 0},
-	{"sun.swing.FilePane$DetailsTableCellEditor", "sun.swing.FilePane", "DetailsTableCellEditor", $PRIVATE},
-	{"sun.swing.FilePane$DirectoriesFirstComparatorWrapper", "sun.swing.FilePane", "DirectoriesFirstComparatorWrapper", $PRIVATE},
-	{"sun.swing.FilePane$DetailsTableRowSorter", "sun.swing.FilePane", "DetailsTableRowSorter", $PRIVATE},
-	{"sun.swing.FilePane$DetailsTableModel", "sun.swing.FilePane", "DetailsTableModel", 0},
-	{"sun.swing.FilePane$SortableListModel", "sun.swing.FilePane", "SortableListModel", $PRIVATE},
-	{"sun.swing.FilePane$ViewTypeAction", "sun.swing.FilePane", "ViewTypeAction", 0},
-	{"sun.swing.FilePane$9", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$8", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$7", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$6", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$5", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$4", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$1FilePaneAction", nullptr, "FilePaneAction", 0},
-	{"sun.swing.FilePane$3", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$2", nullptr, nullptr, 0},
-	{"sun.swing.FilePane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FilePane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.FilePane",
-	"javax.swing.JPanel",
-	"java.beans.PropertyChangeListener",
-	_FilePane_FieldInfo_,
-	_FilePane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane$FileChooserUIAccessor,sun.swing.FilePane$Handler,sun.swing.FilePane$FileRenderer,sun.swing.FilePane$EditActionListener,sun.swing.FilePane$DelayedSelectionUpdater,sun.swing.FilePane$AlignableTableHeaderRenderer,sun.swing.FilePane$DetailsTableCellRenderer,sun.swing.FilePane$DetailsTableCellEditor,sun.swing.FilePane$DirectoriesFirstComparatorWrapper,sun.swing.FilePane$DetailsTableRowSorter,sun.swing.FilePane$DetailsTableRowSorter$SorterModelWrapper,sun.swing.FilePane$DetailsTableRowSorter$2,sun.swing.FilePane$DetailsTableRowSorter$1,sun.swing.FilePane$DetailsTableModel,sun.swing.FilePane$DetailsTableModel$1,sun.swing.FilePane$SortableListModel,sun.swing.FilePane$ViewTypeAction,sun.swing.FilePane$9,sun.swing.FilePane$8,sun.swing.FilePane$7,sun.swing.FilePane$6,sun.swing.FilePane$5,sun.swing.FilePane$4,sun.swing.FilePane$1FilePaneAction,sun.swing.FilePane$3,sun.swing.FilePane$2,sun.swing.FilePane$1"
-};
-
-$Object* allocate$FilePane($Class* clazz) {
-	return $of($alloc(FilePane));
-}
 
 $String* FilePane::toString() {
 	 return this->$JPanel::toString();
@@ -424,7 +240,7 @@ $Cursor* FilePane::waitCursor = nullptr;
 $FocusListener* FilePane::repaintListener = nullptr;
 
 void FilePane::init$($FilePane$FileChooserUIAccessor* fileChooserUIAccessor) {
-	$JPanel::init$(static_cast<$LayoutManager*>($$new($BorderLayout)));
+	$JPanel::init$($$new($BorderLayout));
 	this->viewType = -1;
 	$set(this, viewPanels, $new($JPanelArray, FilePane::VIEWTYPE_COUNT));
 	$set(this, filesListAccessibleName, nullptr);
@@ -443,7 +259,7 @@ void FilePane::init$($FilePane$FileChooserUIAccessor* fileChooserUIAccessor) {
 
 void FilePane::uninstallUI() {
 	if (getModel() != nullptr) {
-		$nc($(getModel()))->removePropertyChangeListener(this);
+		$$nc(getModel())->removePropertyChangeListener(this);
 	}
 }
 
@@ -460,7 +276,7 @@ int32_t FilePane::getViewType() {
 }
 
 void FilePane::setViewType(int32_t viewType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (viewType == this->viewType) {
 		return;
 	}
@@ -470,44 +286,40 @@ void FilePane::setViewType(int32_t viewType) {
 	$var($Component, newFocusOwner, nullptr);
 	switch (viewType) {
 	case FilePane::VIEWTYPE_LIST:
-		{
-			if ($nc(this->viewPanels)->get(viewType) == nullptr) {
-				$assign(createdViewPanel, $nc(this->fileChooserUIAccessor)->createList());
-				if (createdViewPanel == nullptr) {
-					$assign(createdViewPanel, createList());
-				}
-				$load($JList);
-				$set(this, list$, $cast($JList, findChildComponent(createdViewPanel, $JList::class$)));
-				if (this->listSelectionModel == nullptr) {
-					$set(this, listSelectionModel, $nc(this->list$)->getSelectionModel());
-					if (this->detailsTable != nullptr) {
-						$nc(this->detailsTable)->setSelectionModel(this->listSelectionModel);
-					}
-				} else {
-					$nc(this->list$)->setSelectionModel(this->listSelectionModel);
-				}
+		if ($nc(this->viewPanels)->get(viewType) == nullptr) {
+			$assign(createdViewPanel, $nc(this->fileChooserUIAccessor)->createList());
+			if (createdViewPanel == nullptr) {
+				$assign(createdViewPanel, createList());
 			}
-			$nc(this->list$)->setLayoutOrientation($JList::VERTICAL_WRAP);
-			$assign(newFocusOwner, this->list$);
-			break;
+			$load($JList);
+			$set(this, list$, $cast($JList, findChildComponent(createdViewPanel, $JList::class$)));
+			if (this->listSelectionModel == nullptr) {
+				$set(this, listSelectionModel, $nc(this->list$)->getSelectionModel());
+				if (this->detailsTable != nullptr) {
+					this->detailsTable->setSelectionModel(this->listSelectionModel);
+				}
+			} else {
+				$nc(this->list$)->setSelectionModel(this->listSelectionModel);
+			}
 		}
+		$nc(this->list$)->setLayoutOrientation($JList::VERTICAL_WRAP);
+		$assign(newFocusOwner, this->list$);
+		break;
 	case FilePane::VIEWTYPE_DETAILS:
-		{
-			if ($nc(this->viewPanels)->get(viewType) == nullptr) {
-				$assign(createdViewPanel, $nc(this->fileChooserUIAccessor)->createDetailsView());
-				if (createdViewPanel == nullptr) {
-					$assign(createdViewPanel, createDetailsView());
-				}
-				$load($JTable);
-				$set(this, detailsTable, $cast($JTable, findChildComponent(createdViewPanel, $JTable::class$)));
-				$nc(this->detailsTable)->setRowHeight($Math::max($nc($($nc(this->detailsTable)->getFont()))->getSize() + 4, 16 + 1));
-				if (this->listSelectionModel != nullptr) {
-					$nc(this->detailsTable)->setSelectionModel(this->listSelectionModel);
-				}
+		if ($nc(this->viewPanels)->get(viewType) == nullptr) {
+			$assign(createdViewPanel, $nc(this->fileChooserUIAccessor)->createDetailsView());
+			if (createdViewPanel == nullptr) {
+				$assign(createdViewPanel, createDetailsView());
 			}
-			$assign(newFocusOwner, this->detailsTable);
-			break;
+			$load($JTable);
+			$set(this, detailsTable, $cast($JTable, findChildComponent(createdViewPanel, $JTable::class$)));
+			$nc(this->detailsTable)->setRowHeight($Math::max($$nc($nc(this->detailsTable)->getFont())->getSize() + 4, 16 + 1));
+			if (this->listSelectionModel != nullptr) {
+				$nc(this->detailsTable)->setSelectionModel(this->listSelectionModel);
+			}
 		}
+		$assign(newFocusOwner, this->detailsTable);
+		break;
 	}
 	if (createdViewPanel != nullptr) {
 		$nc(this->viewPanels)->set(viewType, createdViewPanel);
@@ -515,13 +327,13 @@ void FilePane::setViewType(int32_t viewType) {
 	}
 	bool isFocusOwner = false;
 	if (this->currentViewPanel != nullptr) {
-		$var($Component, owner, $nc($($DefaultKeyboardFocusManager::getCurrentKeyboardFocusManager()))->getPermanentFocusOwner());
+		$var($Component, owner, $$nc($DefaultKeyboardFocusManager::getCurrentKeyboardFocusManager())->getPermanentFocusOwner());
 		isFocusOwner = $equals(owner, this->detailsTable) || $equals(owner, this->list$);
-		remove(static_cast<$Component*>(this->currentViewPanel));
+		remove(this->currentViewPanel);
 	}
 	$set(this, currentViewPanel, $nc(this->viewPanels)->get(viewType));
 	$init($BorderLayout);
-	add(static_cast<$Component*>(this->currentViewPanel), $of($BorderLayout::CENTER));
+	add(this->currentViewPanel, $BorderLayout::CENTER);
 	if (isFocusOwner && newFocusOwner != nullptr) {
 		newFocusOwner->requestFocusInWindow();
 	}
@@ -537,42 +349,42 @@ $Action* FilePane::getViewTypeAction(int32_t viewType) {
 
 void FilePane::recursivelySetInheritsPopupMenu($Container* container, bool b) {
 	$init(FilePane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JComponent, container)) {
-		$nc(($cast($JComponent, container)))->setInheritsPopupMenu(b);
+		$cast($JComponent, container)->setInheritsPopupMenu(b);
 	}
 	int32_t n = $nc(container)->getComponentCount();
 	for (int32_t i = 0; i < n; ++i) {
-		recursivelySetInheritsPopupMenu($cast($Container, $(container->getComponent(i))), b);
+		recursivelySetInheritsPopupMenu($$cast($Container, container->getComponent(i)), b);
 	}
 }
 
 void FilePane::installDefaults() {
-	$useLocalCurrentObjectStackCache();
-	$var($Locale, l, $nc($(getFileChooser()))->getLocale());
+	$useLocalObjectStack();
+	$var($Locale, l, $$nc(getFileChooser())->getLocale());
 	$set(this, listViewBorder, $UIManager::getBorder("FileChooser.listViewBorder"_s));
 	$set(this, listViewBackground, $UIManager::getColor("FileChooser.listViewBackground"_s));
 	this->listViewWindowsStyle = $UIManager::getBoolean("FileChooser.listViewWindowsStyle"_s);
 	this->readOnly = $UIManager::getBoolean("FileChooser.readOnly"_s);
-	$set(this, viewMenuLabelText, $UIManager::getString($of("FileChooser.viewMenuLabelText"_s), l));
-	$set(this, refreshActionLabelText, $UIManager::getString($of("FileChooser.refreshActionLabelText"_s), l));
-	$set(this, newFolderActionLabelText, $UIManager::getString($of("FileChooser.newFolderActionLabelText"_s), l));
+	$set(this, viewMenuLabelText, $UIManager::getString("FileChooser.viewMenuLabelText"_s, l));
+	$set(this, refreshActionLabelText, $UIManager::getString("FileChooser.refreshActionLabelText"_s, l));
+	$set(this, newFolderActionLabelText, $UIManager::getString("FileChooser.newFolderActionLabelText"_s, l));
 	$set(this, viewTypeActionNames, $new($StringArray, FilePane::VIEWTYPE_COUNT));
-	$nc(this->viewTypeActionNames)->set(FilePane::VIEWTYPE_LIST, $($UIManager::getString($of("FileChooser.listViewActionLabelText"_s), l)));
-	$nc(this->viewTypeActionNames)->set(FilePane::VIEWTYPE_DETAILS, $($UIManager::getString($of("FileChooser.detailsViewActionLabelText"_s), l)));
-	$set(this, kiloByteString, $UIManager::getString($of("FileChooser.fileSizeKiloBytes"_s), l));
-	$set(this, megaByteString, $UIManager::getString($of("FileChooser.fileSizeMegaBytes"_s), l));
-	$set(this, gigaByteString, $UIManager::getString($of("FileChooser.fileSizeGigaBytes"_s), l));
+	this->viewTypeActionNames->set(FilePane::VIEWTYPE_LIST, $($UIManager::getString("FileChooser.listViewActionLabelText"_s, l)));
+	$nc(this->viewTypeActionNames)->set(FilePane::VIEWTYPE_DETAILS, $($UIManager::getString("FileChooser.detailsViewActionLabelText"_s, l)));
+	$set(this, kiloByteString, $UIManager::getString("FileChooser.fileSizeKiloBytes"_s, l));
+	$set(this, megaByteString, $UIManager::getString("FileChooser.fileSizeMegaBytes"_s, l));
+	$set(this, gigaByteString, $UIManager::getString("FileChooser.fileSizeGigaBytes"_s, l));
 	this->fullRowSelection = $UIManager::getBoolean("FileView.fullRowSelection"_s);
-	$set(this, filesListAccessibleName, $UIManager::getString($of("FileChooser.filesListAccessibleName"_s), l));
-	$set(this, filesDetailsAccessibleName, $UIManager::getString($of("FileChooser.filesDetailsAccessibleName"_s), l));
-	$set(this, renameErrorTitleText, $UIManager::getString($of("FileChooser.renameErrorTitleText"_s), l));
-	$set(this, renameErrorText, $UIManager::getString($of("FileChooser.renameErrorText"_s), l));
-	$set(this, renameErrorFileExistsText, $UIManager::getString($of("FileChooser.renameErrorFileExistsText"_s), l));
+	$set(this, filesListAccessibleName, $UIManager::getString("FileChooser.filesListAccessibleName"_s, l));
+	$set(this, filesDetailsAccessibleName, $UIManager::getString("FileChooser.filesDetailsAccessibleName"_s, l));
+	$set(this, renameErrorTitleText, $UIManager::getString("FileChooser.renameErrorTitleText"_s, l));
+	$set(this, renameErrorText, $UIManager::getString("FileChooser.renameErrorText"_s, l));
+	$set(this, renameErrorFileExistsText, $UIManager::getString("FileChooser.renameErrorFileExistsText"_s, l));
 }
 
 $ActionArray* FilePane::getActions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->actions == nullptr) {
 		{
 		}
@@ -601,35 +413,30 @@ $ActionArray* FilePane::getActions() {
 		if (action != nullptr) {
 			actionList->add(action);
 		}
-		$set(this, actions, $fcast($ActionArray, actionList->toArray($$new($ActionArray, actionList->size()))));
+		$set(this, actions, $cast($ActionArray, actionList->toArray($$new($ActionArray, actionList->size()))));
 	}
-	return $fcast($ActionArray, $Arrays::copyOf(this->actions, $nc(this->actions)->length));
+	return $cast($ActionArray, $Arrays::copyOf(this->actions, $nc(this->actions)->length));
 }
 
 void FilePane::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, var$0, $JPanel::getActionMap());
 	addActionsToMap(var$0, $(getActions()));
 }
 
 void FilePane::addActionsToMap($ActionMap* map, $ActionArray* actions) {
 	$init(FilePane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (map != nullptr && actions != nullptr) {
-		{
-			$var($ActionArray, arr$, actions);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Action, a, arr$->get(i$));
-				{
-					$init($Action);
-					$var($String, cmd, $cast($String, $nc(a)->getValue($Action::ACTION_COMMAND_KEY)));
-					if (cmd == nullptr) {
-						$assign(cmd, $cast($String, a->getValue($Action::NAME)));
-					}
-					map->put(cmd, a);
+		$var($ActionArray, arr$, actions);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Action, a, arr$->get(i$));
+			{
+				$var($String, cmd, $cast($String, $nc(a)->getValue($Action::ACTION_COMMAND_KEY)));
+				if (cmd == nullptr) {
+					$assign(cmd, $cast($String, a->getValue($Action::NAME)));
 				}
+				map->put(cmd, a);
 			}
 		}
 	}
@@ -637,27 +444,26 @@ void FilePane::addActionsToMap($ActionMap* map, $ActionArray* actions) {
 
 void FilePane::updateListRowCount($JList* list) {
 	if (this->smallIconsView) {
-		$nc(list)->setVisibleRowCount($nc($(getModel()))->getSize() / 3);
+		$nc(list)->setVisibleRowCount($$nc(getModel())->getSize() / 3);
 	} else {
 		$nc(list)->setVisibleRowCount(-1);
 	}
 }
 
 $JPanel* FilePane::createList() {
-	$useLocalCurrentObjectStackCache();
-	$var($JPanel, p, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$useLocalObjectStack();
+	$var($JPanel, p, $new($JPanel, $$new($BorderLayout)));
 	$var($JFileChooser, fileChooser, getFileChooser());
 	$var($JList, list, $new($FilePane$4, this, fileChooser));
 	list->setCellRenderer($$new($FilePane$FileRenderer, this));
 	list->setLayoutOrientation($JList::VERTICAL_WRAP);
-	$init($Boolean);
 	list->putClientProperty("List.isFileList"_s, $Boolean::TRUE);
 	if (this->listViewWindowsStyle) {
 		list->addFocusListener(FilePane::repaintListener);
 	}
 	updateListRowCount(list);
-	$nc($(getModel()))->addListDataListener($$new($FilePane$5, this, list));
-	$nc($(getModel()))->addPropertyChangeListener(this);
+	$$nc(getModel())->addListDataListener($$new($FilePane$5, this, list));
+	$$nc(getModel())->addPropertyChangeListener(this);
 	if ($nc(fileChooser)->isMultiSelectionEnabled()) {
 		list->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
 	} else {
@@ -675,8 +481,7 @@ $JPanel* FilePane::createList() {
 	}
 	$init($AccessibleContext);
 	list->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, this->filesListAccessibleName);
-	$init($BorderLayout);
-	p->add(static_cast<$Component*>(scrollpane), $of($BorderLayout::CENTER));
+	p->add(scrollpane, $BorderLayout::CENTER);
 	return p;
 }
 
@@ -688,7 +493,7 @@ $FilePane$DetailsTableModel* FilePane::getDetailsTableModel() {
 }
 
 void FilePane::updateDetailsColumnModel($JTable* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (table != nullptr) {
 		$var($ShellFolderColumnInfoArray, columns, $nc(this->detailsTableModel)->getColumns());
 		$var($TableColumnModel, columnModel, $new($DefaultTableColumnModel));
@@ -698,7 +503,7 @@ void FilePane::updateDetailsColumnModel($JTable* table) {
 			$var($String, title, $nc(dataItem)->getTitle());
 			bool var$0 = title != nullptr && title->startsWith("FileChooser."_s);
 			if (var$0 && title->endsWith("HeaderText"_s)) {
-				$var($String, uiTitle, $UIManager::getString($of(title), $(table->getLocale())));
+				$var($String, uiTitle, $UIManager::getString(title, $(table->getLocale())));
 				if (uiTitle != nullptr) {
 					$assign(title, uiTitle);
 				}
@@ -711,7 +516,7 @@ void FilePane::updateDetailsColumnModel($JTable* table) {
 			columnModel->addColumn(column);
 		}
 		if (!this->readOnly && columnModel->getColumnCount() > FilePane::COLUMN_FILENAME) {
-			$nc($(columnModel->getColumn(FilePane::COLUMN_FILENAME)))->setCellEditor($(getDetailsTableCellEditor()));
+			$$nc(columnModel->getColumn(FilePane::COLUMN_FILENAME))->setCellEditor($(getDetailsTableCellEditor()));
 		}
 		table->setColumnModel(columnModel);
 	}
@@ -732,26 +537,25 @@ $FilePane$DetailsTableCellEditor* FilePane::getDetailsTableCellEditor() {
 }
 
 $JPanel* FilePane::createDetailsView() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, getFileChooser());
-	$var($JPanel, p, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
+	$var($JPanel, p, $new($JPanel, $$new($BorderLayout)));
 	$var($JTable, detailsTable, $new($FilePane$6, this, $(getDetailsTableModel()), chooser));
 	detailsTable->setRowSorter($(getRowSorter()));
 	detailsTable->setAutoCreateColumnsFromModel(false);
 	detailsTable->setComponentOrientation($($nc(chooser)->getComponentOrientation()));
 	detailsTable->setAutoResizeMode($JTable::AUTO_RESIZE_OFF);
 	detailsTable->setShowGrid(false);
-	$init($Boolean);
 	detailsTable->putClientProperty("JTable.autoStartsEdit"_s, $Boolean::FALSE);
 	detailsTable->addKeyListener(this->detailsKeyListener);
 	$var($Font, font, $nc(this->list$)->getFont());
 	detailsTable->setFont(font);
 	detailsTable->setIntercellSpacing($$new($Dimension, 0, 0));
-	$var($TableCellRenderer, headerRenderer, $new($FilePane$AlignableTableHeaderRenderer, this, $($nc($(detailsTable->getTableHeader()))->getDefaultRenderer())));
-	$nc($(detailsTable->getTableHeader()))->setDefaultRenderer(headerRenderer);
+	$var($TableCellRenderer, headerRenderer, $new($FilePane$AlignableTableHeaderRenderer, this, $($$nc(detailsTable->getTableHeader())->getDefaultRenderer())));
+	$$nc(detailsTable->getTableHeader())->setDefaultRenderer(headerRenderer);
 	$var($TableCellRenderer, cellRenderer, $new($FilePane$DetailsTableCellRenderer, this, chooser));
 	detailsTable->setDefaultRenderer($Object::class$, cellRenderer);
-	$nc($($nc($(detailsTable->getColumnModel()))->getSelectionModel()))->setSelectionMode($ListSelectionModel::SINGLE_SELECTION);
+	$$nc($$nc(detailsTable->getColumnModel())->getSelectionModel())->setSelectionMode($ListSelectionModel::SINGLE_SELECTION);
 	detailsTable->addMouseListener($(getMouseHandler()));
 	detailsTable->putClientProperty("Table.isFileList"_s, $Boolean::TRUE);
 	if (this->listViewWindowsStyle) {
@@ -765,7 +569,7 @@ $JPanel* FilePane::createDetailsView() {
 	detailsTable->setFocusTraversalKeys($KeyboardFocusManager::FORWARD_TRAVERSAL_KEYS, nullptr);
 	detailsTable->setFocusTraversalKeys($KeyboardFocusManager::BACKWARD_TRAVERSAL_KEYS, nullptr);
 	$var($JScrollPane, scrollpane, $new($JScrollPane, detailsTable));
-	scrollpane->setComponentOrientation($($nc(chooser)->getComponentOrientation()));
+	scrollpane->setComponentOrientation($(chooser->getComponentOrientation()));
 	$LookAndFeel::installColors($(scrollpane->getViewport()), "Table.background"_s, "Table.foreground"_s);
 	scrollpane->addComponentListener($$new($FilePane$7, this));
 	scrollpane->addMouseListener($$new($FilePane$8, this));
@@ -774,8 +578,7 @@ $JPanel* FilePane::createDetailsView() {
 	if (this->listViewBorder != nullptr) {
 		scrollpane->setBorder(this->listViewBorder);
 	}
-	$init($BorderLayout);
-	p->add(static_cast<$Component*>(scrollpane), $of($BorderLayout::CENTER));
+	p->add(scrollpane, $BorderLayout::CENTER);
 	$nc(this->detailsTableModel)->fireTableStructureChanged();
 	$init($AccessibleContext);
 	detailsTable->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, this->filesDetailsAccessibleName);
@@ -783,11 +586,11 @@ $JPanel* FilePane::createDetailsView() {
 }
 
 void FilePane::fixNameColumnWidth(int32_t viewWidth) {
-	$useLocalCurrentObjectStackCache();
-	$var($TableColumn, nameCol, $nc($($nc(this->detailsTable)->getColumnModel()))->getColumn(FilePane::COLUMN_FILENAME));
+	$useLocalObjectStack();
+	$var($TableColumn, nameCol, $$nc($nc(this->detailsTable)->getColumnModel())->getColumn(FilePane::COLUMN_FILENAME));
 	int32_t tableWidth = $nc($($nc(this->detailsTable)->getPreferredSize()))->width;
 	if (tableWidth < viewWidth) {
-		$nc(nameCol)->setPreferredWidth(nameCol->getPreferredWidth() + viewWidth - tableWidth);
+		$nc(nameCol)->setPreferredWidth($nc(nameCol)->getPreferredWidth() + viewWidth - tableWidth);
 	}
 }
 
@@ -810,15 +613,15 @@ void FilePane::resetEditIndex() {
 void FilePane::cancelEdit() {
 	if (this->editFile != nullptr) {
 		$set(this, editFile, nullptr);
-		$nc(this->list$)->remove(static_cast<$Component*>(this->editCell));
+		$nc(this->list$)->remove(this->editCell);
 		repaint();
-	} else if (this->detailsTable != nullptr && $nc(this->detailsTable)->isEditing()) {
-		$nc($($nc(this->detailsTable)->getCellEditor()))->cancelCellEditing();
+	} else if (this->detailsTable != nullptr && this->detailsTable->isEditing()) {
+		$$nc(this->detailsTable->getCellEditor())->cancelCellEditing();
 	}
 }
 
 void FilePane::editFileName(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, getFileChooser());
 	$var($File, currentDirectory, $nc(chooser)->getCurrentDirectory());
 	if (this->readOnly || !canWrite(currentDirectory)) {
@@ -826,53 +629,49 @@ void FilePane::editFileName(int32_t index) {
 	}
 	ensureIndexIsVisible(index);
 	{
-		$var($Rectangle, r, nullptr)
-		$var($ComponentOrientation, orientation, nullptr)
-		$var($Icon, icon, nullptr)
+		$var($Rectangle, r, nullptr);
+		$var($ComponentOrientation, orientation, nullptr);
+		$var($Icon, icon, nullptr);
 		int32_t editX = 0;
 		switch (this->viewType) {
 		case FilePane::VIEWTYPE_LIST:
-			{
-				$set(this, editFile, $cast($File, $nc($(getModel()))->getElementAt($nc($(getRowSorter()))->convertRowIndexToModel(index))));
-				$assign(r, $nc(this->list$)->getCellBounds(index, index));
-				if (this->editCell == nullptr) {
-					$set(this, editCell, $new($JTextField));
-					$nc(this->editCell)->setName("Tree.cellEditor"_s);
-					$nc(this->editCell)->addActionListener($$new($FilePane$EditActionListener, this));
-					$nc(this->editCell)->addFocusListener(this->editorFocusListener);
-					$nc(this->editCell)->setNextFocusableComponent(this->list$);
-				}
-				$nc(this->list$)->add(static_cast<$Component*>(this->editCell));
-				$nc(this->editCell)->setText($(chooser->getName(this->editFile)));
-				$assign(orientation, $nc(this->list$)->getComponentOrientation());
-				$nc(this->editCell)->setComponentOrientation(orientation);
-				$assign(icon, chooser->getIcon(this->editFile));
-				editX = icon == nullptr ? 20 : $nc(icon)->getIconWidth() + 4;
-				if ($nc(orientation)->isLeftToRight()) {
-					$nc(this->editCell)->setBounds(editX + $nc(r)->x, r->y, r->width - editX, r->height);
-				} else {
-					$nc(this->editCell)->setBounds($nc(r)->x, r->y, r->width - editX, r->height);
-				}
-				$nc(this->editCell)->requestFocus();
-				$nc(this->editCell)->selectAll();
-				break;
+			$set(this, editFile, $cast($File, $$nc(getModel())->getElementAt($$nc(getRowSorter())->convertRowIndexToModel(index))));
+			$assign(r, $nc(this->list$)->getCellBounds(index, index));
+			if (this->editCell == nullptr) {
+				$set(this, editCell, $new($JTextField));
+				this->editCell->setName("Tree.cellEditor"_s);
+				$nc(this->editCell)->addActionListener($$new($FilePane$EditActionListener, this));
+				$nc(this->editCell)->addFocusListener(this->editorFocusListener);
+				$nc(this->editCell)->setNextFocusableComponent(this->list$);
 			}
+			$nc(this->list$)->add(this->editCell);
+			$nc(this->editCell)->setText($(chooser->getName(this->editFile)));
+			$assign(orientation, $nc(this->list$)->getComponentOrientation());
+			$nc(this->editCell)->setComponentOrientation(orientation);
+			$assign(icon, chooser->getIcon(this->editFile));
+			editX = icon == nullptr ? 20 : icon->getIconWidth() + 4;
+			if ($nc(orientation)->isLeftToRight()) {
+				$nc(this->editCell)->setBounds(editX + $nc(r)->x, $nc(r)->y, $nc(r)->width - editX, $nc(r)->height);
+			} else {
+				$nc(this->editCell)->setBounds($nc(r)->x, $nc(r)->y, $nc(r)->width - editX, $nc(r)->height);
+			}
+			$nc(this->editCell)->requestFocus();
+			$nc(this->editCell)->selectAll();
+			break;
 		case FilePane::VIEWTYPE_DETAILS:
-			{
-				$nc(this->detailsTable)->editCellAt(index, FilePane::COLUMN_FILENAME);
-				break;
-			}
+			$nc(this->detailsTable)->editCellAt(index, FilePane::COLUMN_FILENAME);
+			break;
 		}
 	}
 }
 
 void FilePane::applyEdit() {
-	$useLocalCurrentObjectStackCache();
-	if (this->editFile != nullptr && $nc(this->editFile)->exists()) {
+	$useLocalObjectStack();
+	if (this->editFile != nullptr && this->editFile->exists()) {
 		$var($JFileChooser, chooser, getFileChooser());
 		$var($String, oldDisplayName, $nc(chooser)->getName(this->editFile));
 		$var($String, oldFileName, $nc(this->editFile)->getName());
-		$var($String, newDisplayName, $nc($($nc(this->editCell)->getText()))->trim());
+		$var($String, newDisplayName, $$nc($nc(this->editCell)->getText())->trim());
 		$var($String, newFileName, nullptr);
 		if (!newDisplayName->equals(oldDisplayName)) {
 			$assign(newFileName, newDisplayName);
@@ -884,8 +683,8 @@ void FilePane::applyEdit() {
 			$var($FileSystemView, fsv, chooser->getFileSystemView());
 			$var($File, f2, $nc(fsv)->createFileObject($($nc(this->editFile)->getParentFile()), newFileName));
 			if ($nc(f2)->exists()) {
-				$JOptionPane::showMessageDialog(chooser, $($MessageFormat::format(this->renameErrorFileExistsText, $$new($ObjectArray, {$of(oldFileName)}))), this->renameErrorTitleText, $JOptionPane::ERROR_MESSAGE);
-			} else if ($nc($(getModel()))->renameFile(this->editFile, f2)) {
+				$JOptionPane::showMessageDialog(chooser, $($MessageFormat::format(this->renameErrorFileExistsText, $$new($ObjectArray, {oldFileName}))), this->renameErrorTitleText, $JOptionPane::ERROR_MESSAGE);
+			} else if ($$nc(getModel())->renameFile(this->editFile, f2)) {
 				if (fsv->isParent($(chooser->getCurrentDirectory()), f2)) {
 					if (chooser->isMultiSelectionEnabled()) {
 						chooser->setSelectedFiles($$new($FileArray, {f2}));
@@ -895,12 +694,12 @@ void FilePane::applyEdit() {
 				} else {
 				}
 			} else {
-				$JOptionPane::showMessageDialog(chooser, $($MessageFormat::format(this->renameErrorText, $$new($ObjectArray, {$of(oldFileName)}))), this->renameErrorTitleText, $JOptionPane::ERROR_MESSAGE);
+				$JOptionPane::showMessageDialog(chooser, $($MessageFormat::format(this->renameErrorText, $$new($ObjectArray, {oldFileName}))), this->renameErrorTitleText, $JOptionPane::ERROR_MESSAGE);
 			}
 		}
 	}
-	if (this->detailsTable != nullptr && $nc(this->detailsTable)->isEditing()) {
-		$nc($($nc(this->detailsTable)->getCellEditor()))->stopCellEditing();
+	if (this->detailsTable != nullptr && this->detailsTable->isEditing()) {
+		$$nc(this->detailsTable->getCellEditor())->stopCellEditing();
 	}
 	cancelEdit();
 }
@@ -913,50 +712,48 @@ $Action* FilePane::getNewFolderAction() {
 }
 
 void FilePane::setFileSelected() {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = $nc($(getFileChooser()))->isMultiSelectionEnabled();
+	$useLocalObjectStack();
+	bool var$0 = $$nc(getFileChooser())->isMultiSelectionEnabled();
 	if (var$0 && !isDirectorySelected()) {
-		$var($FileArray, files, $nc($(getFileChooser()))->getSelectedFiles());
+		$var($FileArray, files, $$nc(getFileChooser())->getSelectedFiles());
 		$var($ObjectArray, selectedObjects, $nc(this->list$)->getSelectedValues());
 		$nc(this->listSelectionModel)->setValueIsAdjusting(true);
-		{
-			$var($Throwable, var$1, nullptr);
-			try {
-				int32_t lead = $nc(this->listSelectionModel)->getLeadSelectionIndex();
-				int32_t anchor = $nc(this->listSelectionModel)->getAnchorSelectionIndex();
-				$Arrays::sort(files);
-				$Arrays::sort(selectedObjects);
-				int32_t shouldIndex = 0;
-				int32_t actuallyIndex = 0;
-				while (shouldIndex < $nc(files)->length && actuallyIndex < $nc(selectedObjects)->length) {
-					int32_t comparison = $nc(files->get(shouldIndex))->compareTo($cast($File, selectedObjects->get(actuallyIndex)));
-					if (comparison < 0) {
-						doSelectFile(files->get(shouldIndex++));
-					} else if (comparison > 0) {
-						doDeselectFile(selectedObjects->get(actuallyIndex++));
-					} else {
-						++shouldIndex;
-						++actuallyIndex;
-					}
-				}
-				while (shouldIndex < $nc(files)->length) {
+		$var($Throwable, var$1, nullptr);
+		try {
+			int32_t lead = $nc(this->listSelectionModel)->getLeadSelectionIndex();
+			int32_t anchor = $nc(this->listSelectionModel)->getAnchorSelectionIndex();
+			$Arrays::sort(files);
+			$Arrays::sort(selectedObjects);
+			int32_t shouldIndex = 0;
+			int32_t actuallyIndex = 0;
+			while (shouldIndex < $nc(files)->length && actuallyIndex < $nc(selectedObjects)->length) {
+				int32_t comparison = $nc(files->get(shouldIndex))->compareTo($cast($File, selectedObjects->get(actuallyIndex)));
+				if (comparison < 0) {
 					doSelectFile(files->get(shouldIndex++));
-				}
-				while (actuallyIndex < $nc(selectedObjects)->length) {
+				} else if (comparison > 0) {
 					doDeselectFile(selectedObjects->get(actuallyIndex++));
+				} else {
+					++shouldIndex;
+					++actuallyIndex;
 				}
-				if ($instanceOf($DefaultListSelectionModel, this->listSelectionModel)) {
-					$nc(($cast($DefaultListSelectionModel, this->listSelectionModel)))->moveLeadSelectionIndex(lead);
-					$nc(this->listSelectionModel)->setAnchorSelectionIndex(anchor);
-				}
-			} catch ($Throwable& var$2) {
-				$assign(var$1, var$2);
-			} /*finally*/ {
-				$nc(this->listSelectionModel)->setValueIsAdjusting(false);
 			}
-			if (var$1 != nullptr) {
-				$throw(var$1);
+			while (shouldIndex < files->length) {
+				doSelectFile(files->get(shouldIndex++));
 			}
+			while (actuallyIndex < $nc(selectedObjects)->length) {
+				doDeselectFile(selectedObjects->get(actuallyIndex++));
+			}
+			if ($instanceOf($DefaultListSelectionModel, this->listSelectionModel)) {
+				$cast($DefaultListSelectionModel, this->listSelectionModel)->moveLeadSelectionIndex(lead);
+				$nc(this->listSelectionModel)->setAnchorSelectionIndex(anchor);
+			}
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
+		} /*finally*/ {
+			$nc(this->listSelectionModel)->setValueIsAdjusting(false);
+		}
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
 	} else {
 		$var($JFileChooser, chooser, getFileChooser());
@@ -967,8 +764,8 @@ void FilePane::setFileSelected() {
 			$assign(f, $nc(chooser)->getSelectedFile());
 		}
 		int32_t i = 0;
-		if (f != nullptr && (i = $nc($(getModel()))->indexOf(f)) >= 0) {
-			int32_t viewIndex = $nc($(getRowSorter()))->convertRowIndexToView(i);
+		if (f != nullptr && (i = $$nc(getModel())->indexOf(f)) >= 0) {
+			int32_t viewIndex = $$nc(getRowSorter())->convertRowIndexToView(i);
 			$nc(this->listSelectionModel)->setSelectionInterval(viewIndex, viewIndex);
 			ensureIndexIsVisible(viewIndex);
 		} else {
@@ -978,34 +775,34 @@ void FilePane::setFileSelected() {
 }
 
 void FilePane::doSelectFile($File* fileToSelect) {
-	$useLocalCurrentObjectStackCache();
-	int32_t index = $nc($(getModel()))->indexOf(fileToSelect);
+	$useLocalObjectStack();
+	int32_t index = $$nc(getModel())->indexOf(fileToSelect);
 	if (index >= 0) {
-		index = $nc($(getRowSorter()))->convertRowIndexToView(index);
+		index = $$nc(getRowSorter())->convertRowIndexToView(index);
 		$nc(this->listSelectionModel)->addSelectionInterval(index, index);
 	}
 }
 
 void FilePane::doDeselectFile(Object$* fileToDeselect) {
-	$useLocalCurrentObjectStackCache();
-	int32_t index = $nc($(getRowSorter()))->convertRowIndexToView($nc($(getModel()))->indexOf(fileToDeselect));
+	$useLocalObjectStack();
+	int32_t index = $$nc(getRowSorter())->convertRowIndexToView($$nc(getModel())->indexOf(fileToDeselect));
 	$nc(this->listSelectionModel)->removeSelectionInterval(index, index);
 }
 
 void FilePane::doSelectedFileChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	applyEdit();
 	$var($File, f, $cast($File, $nc(e)->getNewValue()));
 	$var($JFileChooser, fc, getFileChooser());
 	bool var$0 = f != nullptr;
 	if (var$0) {
 		bool var$2 = $nc(fc)->isFileSelectionEnabled();
-		bool var$1 = (var$2 && !f->isDirectory());
+		bool var$1 = var$2 && !f->isDirectory();
 		if (!var$1) {
-			bool var$3 = $nc(f)->isDirectory();
-			var$1 = (var$3 && $nc(fc)->isDirectorySelectionEnabled());
+			bool var$3 = f->isDirectory();
+			var$1 = var$3 && fc->isDirectorySelectionEnabled();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		setFileSelected();
@@ -1013,14 +810,14 @@ void FilePane::doSelectedFileChanged($PropertyChangeEvent* e) {
 }
 
 void FilePane::doSelectedFilesChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	applyEdit();
 	$var($FileArray, files, $cast($FileArray, $nc(e)->getNewValue()));
 	$var($JFileChooser, fc, getFileChooser());
 	bool var$0 = files != nullptr && files->length > 0;
 	if (var$0) {
 		bool var$1 = files->length > 1 || $nc(fc)->isDirectorySelectionEnabled();
-		var$0 = (var$1 || !$nc(files->get(0))->isDirectory());
+		var$0 = var$1 || !$nc(files->get(0))->isDirectory();
 	}
 	if (var$0) {
 		setFileSelected();
@@ -1028,8 +825,8 @@ void FilePane::doSelectedFilesChanged($PropertyChangeEvent* e) {
 }
 
 void FilePane::doDirectoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getDetailsTableModel()))->updateColumnInfo();
+	$useLocalObjectStack();
+	$$nc(getDetailsTableModel())->updateColumnInfo();
 	$var($JFileChooser, fc, getFileChooser());
 	$var($FileSystemView, fsv, $nc(fc)->getFileSystemView());
 	applyEdit();
@@ -1038,12 +835,12 @@ void FilePane::doDirectoryChanged($PropertyChangeEvent* e) {
 	$var($File, currentDirectory, fc->getCurrentDirectory());
 	if (currentDirectory != nullptr) {
 		if (!this->readOnly) {
-			$nc($(getNewFolderAction()))->setEnabled(canWrite(currentDirectory));
+			$$nc(getNewFolderAction())->setEnabled(canWrite(currentDirectory));
 		}
-		$nc($($nc(this->fileChooserUIAccessor)->getChangeToParentDirectoryAction()))->setEnabled(!$nc(fsv)->isRoot(currentDirectory));
+		$$nc($nc(this->fileChooserUIAccessor)->getChangeToParentDirectoryAction())->setEnabled(!$nc(fsv)->isRoot(currentDirectory));
 	}
 	if (this->list$ != nullptr) {
-		$nc(this->list$)->clearSelection();
+		this->list$->clearSelection();
 	}
 }
 
@@ -1060,18 +857,18 @@ void FilePane::doFileSelectionModeChanged($PropertyChangeEvent* e) {
 }
 
 void FilePane::doMultiSelectionChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getFileChooser()))->isMultiSelectionEnabled()) {
+	$useLocalObjectStack();
+	if ($$nc(getFileChooser())->isMultiSelectionEnabled()) {
 		$nc(this->listSelectionModel)->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
 	} else {
 		$nc(this->listSelectionModel)->setSelectionMode($ListSelectionModel::SINGLE_SELECTION);
 		clearSelection();
-		$nc($(getFileChooser()))->setSelectedFiles(nullptr);
+		$$nc(getFileChooser())->setSelectedFiles(nullptr);
 	}
 }
 
 void FilePane::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->viewType == -1) {
 		setViewType(FilePane::VIEWTYPE_LIST);
 	}
@@ -1079,41 +876,29 @@ void FilePane::propertyChange($PropertyChangeEvent* e) {
 	$init($JFileChooser);
 	if ($nc(s)->equals($JFileChooser::SELECTED_FILE_CHANGED_PROPERTY)) {
 		doSelectedFileChanged(e);
-	} else {
-		if (s->equals($JFileChooser::SELECTED_FILES_CHANGED_PROPERTY)) {
-			doSelectedFilesChanged(e);
-		} else {
-			if (s->equals($JFileChooser::DIRECTORY_CHANGED_PROPERTY)) {
-				doDirectoryChanged(e);
-			} else {
-				if (s->equals($JFileChooser::FILE_FILTER_CHANGED_PROPERTY)) {
-					doFilterChanged(e);
-				} else {
-					if (s->equals($JFileChooser::FILE_SELECTION_MODE_CHANGED_PROPERTY)) {
-						doFileSelectionModeChanged(e);
-					} else {
-						if (s->equals($JFileChooser::MULTI_SELECTION_ENABLED_CHANGED_PROPERTY)) {
-							doMultiSelectionChanged(e);
-						} else {
-							if (s->equals($JFileChooser::CANCEL_SELECTION)) {
-								applyEdit();
-							} else if (s->equals("busy"_s)) {
-								setCursor($nc(($cast($Boolean, $(e->getNewValue()))))->booleanValue() ? FilePane::waitCursor : ($Cursor*)nullptr);
-							} else if (s->equals("componentOrientation"_s)) {
-								$var($ComponentOrientation, o, $cast($ComponentOrientation, e->getNewValue()));
-								$var($JFileChooser, cc, $cast($JFileChooser, e->getSource()));
-								if (!$equals(o, e->getOldValue())) {
-									$nc(cc)->applyComponentOrientation(o);
-								}
-								if (this->detailsTable != nullptr) {
-									$nc(this->detailsTable)->setComponentOrientation(o);
-									$nc($($nc($($nc(this->detailsTable)->getParent()))->getParent()))->setComponentOrientation(o);
-								}
-							}
-						}
-					}
-				}
-			}
+	} else if (s->equals($JFileChooser::SELECTED_FILES_CHANGED_PROPERTY)) {
+		doSelectedFilesChanged(e);
+	} else if (s->equals($JFileChooser::DIRECTORY_CHANGED_PROPERTY)) {
+		doDirectoryChanged(e);
+	} else if (s->equals($JFileChooser::FILE_FILTER_CHANGED_PROPERTY)) {
+		doFilterChanged(e);
+	} else if (s->equals($JFileChooser::FILE_SELECTION_MODE_CHANGED_PROPERTY)) {
+		doFileSelectionModeChanged(e);
+	} else if (s->equals($JFileChooser::MULTI_SELECTION_ENABLED_CHANGED_PROPERTY)) {
+		doMultiSelectionChanged(e);
+	} else if (s->equals($JFileChooser::CANCEL_SELECTION)) {
+		applyEdit();
+	} else if (s->equals("busy"_s)) {
+		setCursor($$sure($Boolean, e->getNewValue())->booleanValue() ? FilePane::waitCursor : ($Cursor*)nullptr);
+	} else if (s->equals("componentOrientation"_s)) {
+		$var($ComponentOrientation, o, $cast($ComponentOrientation, e->getNewValue()));
+		$var($JFileChooser, cc, $cast($JFileChooser, e->getSource()));
+		if (!$equals(o, e->getOldValue())) {
+			$nc(cc)->applyComponentOrientation(o);
+		}
+		if (this->detailsTable != nullptr) {
+			this->detailsTable->setComponentOrientation(o);
+			$$nc($$nc($nc(this->detailsTable)->getParent())->getParent())->setComponentOrientation(o);
 		}
 	}
 }
@@ -1121,45 +906,45 @@ void FilePane::propertyChange($PropertyChangeEvent* e) {
 void FilePane::ensureIndexIsVisible(int32_t i) {
 	if (i >= 0) {
 		if (this->list$ != nullptr) {
-			$nc(this->list$)->ensureIndexIsVisible(i);
+			this->list$->ensureIndexIsVisible(i);
 		}
 		if (this->detailsTable != nullptr) {
-			$nc(this->detailsTable)->scrollRectToVisible($($nc(this->detailsTable)->getCellRect(i, FilePane::COLUMN_FILENAME, true)));
+			this->detailsTable->scrollRectToVisible($(this->detailsTable->getCellRect(i, FilePane::COLUMN_FILENAME, true)));
 		}
 	}
 }
 
 void FilePane::ensureFileIsVisible($JFileChooser* fc, $File* f) {
-	$useLocalCurrentObjectStackCache();
-	int32_t modelIndex = $nc($(getModel()))->indexOf(f);
+	$useLocalObjectStack();
+	int32_t modelIndex = $$nc(getModel())->indexOf(f);
 	if (modelIndex >= 0) {
-		ensureIndexIsVisible($nc($(getRowSorter()))->convertRowIndexToView(modelIndex));
+		ensureIndexIsVisible($$nc(getRowSorter())->convertRowIndexToView(modelIndex));
 	}
 }
 
 void FilePane::rescanCurrentDirectory() {
-	$nc($(getModel()))->validateFileCache();
+	$$nc(getModel())->validateFileCache();
 }
 
 void FilePane::clearSelection() {
 	if (this->listSelectionModel != nullptr) {
-		$nc(this->listSelectionModel)->clearSelection();
+		this->listSelectionModel->clearSelection();
 		if ($instanceOf($DefaultListSelectionModel, this->listSelectionModel)) {
-			$nc(($cast($DefaultListSelectionModel, this->listSelectionModel)))->moveLeadSelectionIndex(-1);
+			$cast($DefaultListSelectionModel, this->listSelectionModel)->moveLeadSelectionIndex(-1);
 			$nc(this->listSelectionModel)->setAnchorSelectionIndex(-1);
 		}
 	}
 }
 
 $JMenu* FilePane::getViewMenu() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->viewMenu == nullptr) {
 		$set(this, viewMenu, $new($JMenu, this->viewMenuLabelText));
 		$var($ButtonGroup, viewButtonGroup, $new($ButtonGroup));
 		for (int32_t i = 0; i < FilePane::VIEWTYPE_COUNT; ++i) {
-			$var($JRadioButtonMenuItem, mi, $new($JRadioButtonMenuItem, static_cast<$Action*>($$new($FilePane$ViewTypeAction, this, i))));
+			$var($JRadioButtonMenuItem, mi, $new($JRadioButtonMenuItem, $$new($FilePane$ViewTypeAction, this, i)));
 			viewButtonGroup->add(mi);
-			$nc(this->viewMenu)->add(static_cast<$JMenuItem*>(mi));
+			$nc(this->viewMenu)->add(mi);
 		}
 		updateViewMenu();
 	}
@@ -1167,21 +952,17 @@ $JMenu* FilePane::getViewMenu() {
 }
 
 void FilePane::updateViewMenu() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->viewMenu != nullptr) {
-		$var($ComponentArray, comps, $nc(this->viewMenu)->getMenuComponents());
+		$var($ComponentArray, comps, this->viewMenu->getMenuComponents());
 		{
 			$var($ComponentArray, arr$, comps);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, comp, arr$->get(i$));
-				{
-					if ($instanceOf($JRadioButtonMenuItem, comp)) {
-						$var($JRadioButtonMenuItem, mi, $cast($JRadioButtonMenuItem, comp));
-						if ($nc(($cast($FilePane$ViewTypeAction, $($nc(mi)->getAction()))))->viewType == this->viewType) {
-							mi->setSelected(true);
-						}
+				if ($instanceOf($JRadioButtonMenuItem, comp)) {
+					$var($JRadioButtonMenuItem, mi, $cast($JRadioButtonMenuItem, comp));
+					if ($nc($$cast($FilePane$ViewTypeAction, mi->getAction()))->viewType == this->viewType) {
+						mi->setSelected(true);
 					}
 				}
 			}
@@ -1190,8 +971,8 @@ void FilePane::updateViewMenu() {
 }
 
 $JPopupMenu* FilePane::getComponentPopupMenu() {
-	$useLocalCurrentObjectStackCache();
-	$var($JPopupMenu, popupMenu, $nc($(getFileChooser()))->getComponentPopupMenu());
+	$useLocalObjectStack();
+	$var($JPopupMenu, popupMenu, $$nc(getFileChooser())->getComponentPopupMenu());
 	if (popupMenu != nullptr) {
 		return popupMenu;
 	}
@@ -1199,7 +980,7 @@ $JPopupMenu* FilePane::getComponentPopupMenu() {
 	if (this->contextMenu == nullptr) {
 		$set(this, contextMenu, $new($JPopupMenu));
 		if (viewMenu != nullptr) {
-			$nc(this->contextMenu)->add(static_cast<$JMenuItem*>(viewMenu));
+			this->contextMenu->add(viewMenu);
 			if (this->listViewWindowsStyle) {
 				$nc(this->contextMenu)->addSeparator();
 			}
@@ -1218,7 +999,7 @@ $JPopupMenu* FilePane::getComponentPopupMenu() {
 		}
 	}
 	if (viewMenu != nullptr) {
-		$nc($(viewMenu->getPopupMenu()))->setInvoker(viewMenu);
+		$$nc(viewMenu->getPopupMenu())->setInvoker(viewMenu);
 	}
 	return this->contextMenu;
 }
@@ -1239,38 +1020,38 @@ $File* FilePane::getDirectory() {
 }
 
 $Object* FilePane::findChildComponent($Container* container, $Class* cls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(container)->getComponentCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Component, comp, container->getComponent(i));
 		if ($nc(cls)->isInstance(comp)) {
-			return $of(cls->cast(comp));
+			return cls->cast(comp);
 		} else if ($instanceOf($Container, comp)) {
 			$var($Object, c, findChildComponent($cast($Container, comp), cls));
 			if (c != nullptr) {
-				return $of(c);
+				return c;
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 bool FilePane::canWrite($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(f)->exists()) {
 		return false;
 	}
 	try {
 		if ($instanceOf($ShellFolder, f)) {
-			return $nc(f)->canWrite();
+			return f->canWrite();
 		} else if (usesShellFolder($(getFileChooser()))) {
 			try {
-				return $nc($($ShellFolder::getShellFolder(f)))->canWrite();
+				return $$nc($ShellFolder::getShellFolder(f))->canWrite();
 			} catch ($FileNotFoundException& ex) {
 				return false;
 			}
 		} else {
-			return $nc(f)->canWrite();
+			return f->canWrite();
 		}
 	} catch ($SecurityException& e) {
 		return false;
@@ -1280,12 +1061,12 @@ bool FilePane::canWrite($File* f) {
 
 bool FilePane::usesShellFolder($JFileChooser* chooser) {
 	$init(FilePane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Boolean, prop, $cast($Boolean, $nc(chooser)->getClientProperty("FileChooser.useShellFolder"_s)));
-	return prop == nullptr ? $nc($of($(chooser->getFileSystemView())))->equals($($FileSystemView::getFileSystemView())) : $nc(prop)->booleanValue();
+	return prop == nullptr ? $$nc(chooser->getFileSystemView())->equals($($FileSystemView::getFileSystemView())) : prop->booleanValue();
 }
 
-void clinit$FilePane($Class* class$) {
+void FilePane::clinit$($Class* clazz) {
 	$assignStatic(FilePane::ACTION_APPROVE_SELECTION, "approveSelection"_s);
 	$assignStatic(FilePane::ACTION_CANCEL, "cancelSelection"_s);
 	$assignStatic(FilePane::ACTION_EDIT_FILE_NAME, "editFileName"_s);
@@ -1302,7 +1083,164 @@ FilePane::FilePane() {
 }
 
 $Class* FilePane::load$($String* name, bool initialize) {
-	$loadClass(FilePane, name, initialize, &_FilePane_ClassInfo_, clinit$FilePane, allocate$FilePane);
+	$FieldInfo fieldInfos$$[] = {
+		{"ACTION_APPROVE_SELECTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_APPROVE_SELECTION)},
+		{"ACTION_CANCEL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_CANCEL)},
+		{"ACTION_EDIT_FILE_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_EDIT_FILE_NAME)},
+		{"ACTION_REFRESH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_REFRESH)},
+		{"ACTION_CHANGE_TO_PARENT_DIRECTORY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_CHANGE_TO_PARENT_DIRECTORY)},
+		{"ACTION_NEW_FOLDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_NEW_FOLDER)},
+		{"ACTION_VIEW_LIST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_VIEW_LIST)},
+		{"ACTION_VIEW_DETAILS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FilePane, ACTION_VIEW_DETAILS)},
+		{"actions", "[Ljavax/swing/Action;", nullptr, $PRIVATE, $field(FilePane, actions)},
+		{"VIEWTYPE_LIST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FilePane, VIEWTYPE_LIST)},
+		{"VIEWTYPE_DETAILS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FilePane, VIEWTYPE_DETAILS)},
+		{"VIEWTYPE_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePane, VIEWTYPE_COUNT)},
+		{"viewType", "I", nullptr, $PRIVATE, $field(FilePane, viewType)},
+		{"viewPanels", "[Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(FilePane, viewPanels)},
+		{"currentViewPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(FilePane, currentViewPanel)},
+		{"viewTypeActionNames", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, viewTypeActionNames)},
+		{"filesListAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, filesListAccessibleName)},
+		{"filesDetailsAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, filesDetailsAccessibleName)},
+		{"contextMenu", "Ljavax/swing/JPopupMenu;", nullptr, $PRIVATE, $field(FilePane, contextMenu)},
+		{"viewMenu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE, $field(FilePane, viewMenu)},
+		{"viewMenuLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, viewMenuLabelText)},
+		{"refreshActionLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, refreshActionLabelText)},
+		{"newFolderActionLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, newFolderActionLabelText)},
+		{"kiloByteString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, kiloByteString)},
+		{"megaByteString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, megaByteString)},
+		{"gigaByteString", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, gigaByteString)},
+		{"renameErrorTitleText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, renameErrorTitleText)},
+		{"renameErrorText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, renameErrorText)},
+		{"renameErrorFileExistsText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(FilePane, renameErrorFileExistsText)},
+		{"waitCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(FilePane, waitCursor)},
+		{"detailsKeyListener", "Ljava/awt/event/KeyListener;", nullptr, $PRIVATE | $FINAL, $field(FilePane, detailsKeyListener)},
+		{"editorFocusListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE, $field(FilePane, editorFocusListener)},
+		{"repaintListener", "Ljava/awt/event/FocusListener;", nullptr, $PRIVATE | $STATIC, $staticField(FilePane, repaintListener)},
+		{"smallIconsView", "Z", nullptr, $PRIVATE, $field(FilePane, smallIconsView)},
+		{"listViewBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE, $field(FilePane, listViewBorder)},
+		{"listViewBackground", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(FilePane, listViewBackground)},
+		{"listViewWindowsStyle", "Z", nullptr, $PRIVATE, $field(FilePane, listViewWindowsStyle)},
+		{"readOnly", "Z", nullptr, $PRIVATE, $field(FilePane, readOnly)},
+		{"fullRowSelection", "Z", nullptr, $PRIVATE, $field(FilePane, fullRowSelection)},
+		{"listSelectionModel", "Ljavax/swing/ListSelectionModel;", nullptr, $PRIVATE, $field(FilePane, listSelectionModel)},
+		{"list", "Ljavax/swing/JList;", "Ljavax/swing/JList<*>;", $PRIVATE, $field(FilePane, list$)},
+		{"detailsTable", "Ljavax/swing/JTable;", nullptr, $PRIVATE, $field(FilePane, detailsTable)},
+		{"COLUMN_FILENAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FilePane, COLUMN_FILENAME)},
+		{"newFolderFile", "Ljava/io/File;", nullptr, $PRIVATE, $field(FilePane, newFolderFile)},
+		{"fileChooserUIAccessor", "Lsun/swing/FilePane$FileChooserUIAccessor;", nullptr, $PRIVATE, $field(FilePane, fileChooserUIAccessor)},
+		{"detailsTableModel", "Lsun/swing/FilePane$DetailsTableModel;", nullptr, $PRIVATE, $field(FilePane, detailsTableModel)},
+		{"rowSorter", "Lsun/swing/FilePane$DetailsTableRowSorter;", nullptr, $PRIVATE, $field(FilePane, rowSorter)},
+		{"tableCellEditor", "Lsun/swing/FilePane$DetailsTableCellEditor;", nullptr, $PRIVATE, $field(FilePane, tableCellEditor)},
+		{"lastIndex", "I", nullptr, 0, $field(FilePane, lastIndex)},
+		{"editFile", "Ljava/io/File;", nullptr, 0, $field(FilePane, editFile)},
+		{"editCell", "Ljavax/swing/JTextField;", nullptr, 0, $field(FilePane, editCell)},
+		{"newFolderAction", "Ljavax/swing/Action;", nullptr, $PROTECTED, $field(FilePane, newFolderAction)},
+		{"handler", "Lsun/swing/FilePane$Handler;", nullptr, $PRIVATE, $field(FilePane, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/swing/FilePane$FileChooserUIAccessor;)V", nullptr, $PUBLIC, $method(FilePane, init$, void, $FilePane$FileChooserUIAccessor*)},
+		{"addActionsToMap", "(Ljavax/swing/ActionMap;[Ljavax/swing/Action;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePane, addActionsToMap, void, $ActionMap*, $ActionArray*)},
+		{"applyEdit", "()V", nullptr, $PRIVATE, $method(FilePane, applyEdit, void)},
+		{"canWrite", "(Ljava/io/File;)Z", nullptr, $PUBLIC, $virtualMethod(FilePane, canWrite, bool, $File*)},
+		{"cancelEdit", "()V", nullptr, $PRIVATE, $method(FilePane, cancelEdit, void)},
+		{"clearSelection", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane, clearSelection, void)},
+		{"createActionMap", "()V", nullptr, $PROTECTED, $virtualMethod(FilePane, createActionMap, void)},
+		{"createDetailsView", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(FilePane, createDetailsView, $JPanel*)},
+		{"createList", "()Ljavax/swing/JPanel;", nullptr, $PUBLIC, $virtualMethod(FilePane, createList, $JPanel*)},
+		{"createListSelectionListener", "()Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(FilePane, createListSelectionListener, $ListSelectionListener*)},
+		{"doDeselectFile", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(FilePane, doDeselectFile, void, Object$*)},
+		{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doDirectoryChanged, void, $PropertyChangeEvent*)},
+		{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
+		{"doFilterChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doFilterChanged, void, $PropertyChangeEvent*)},
+		{"doMultiSelectionChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doMultiSelectionChanged, void, $PropertyChangeEvent*)},
+		{"doSelectFile", "(Ljava/io/File;)V", nullptr, $PRIVATE, $method(FilePane, doSelectFile, void, $File*)},
+		{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doSelectedFileChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(FilePane, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
+		{"editFileName", "(I)V", nullptr, $PRIVATE, $method(FilePane, editFileName, void, int32_t)},
+		{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(FilePane, ensureFileIsVisible, void, $JFileChooser*, $File*)},
+		{"ensureIndexIsVisible", "(I)V", nullptr, $PRIVATE, $method(FilePane, ensureIndexIsVisible, void, int32_t)},
+		{"findChildComponent", "(Ljava/awt/Container;Ljava/lang/Class;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/awt/Container;Ljava/lang/Class<TT;>;)TT;", $PRIVATE, $method(FilePane, findChildComponent, $Object*, $Container*, $Class*)},
+		{"fixNameColumnWidth", "(I)V", nullptr, $PRIVATE, $method(FilePane, fixNameColumnWidth, void, int32_t)},
+		{"getActions", "()[Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(FilePane, getActions, $ActionArray*)},
+		{"getComponentPopupMenu", "()Ljavax/swing/JPopupMenu;", nullptr, $PUBLIC, $virtualMethod(FilePane, getComponentPopupMenu, $JPopupMenu*)},
+		{"getDetailsTableCellEditor", "()Lsun/swing/FilePane$DetailsTableCellEditor;", nullptr, $PRIVATE, $method(FilePane, getDetailsTableCellEditor, $FilePane$DetailsTableCellEditor*)},
+		{"getDetailsTableModel", "()Lsun/swing/FilePane$DetailsTableModel;", nullptr, $PRIVATE, $method(FilePane, getDetailsTableModel, $FilePane$DetailsTableModel*)},
+		{"getDirectory", "()Ljava/io/File;", nullptr, $PROTECTED, $virtualMethod(FilePane, getDirectory, $File*)},
+		{"getEditIndex", "()I", nullptr, $PRIVATE, $method(FilePane, getEditIndex, int32_t)},
+		{"getFileChooser", "()Ljavax/swing/JFileChooser;", nullptr, $PROTECTED, $virtualMethod(FilePane, getFileChooser, $JFileChooser*)},
+		{"getModel", "()Ljavax/swing/plaf/basic/BasicDirectoryModel;", nullptr, $PROTECTED, $virtualMethod(FilePane, getModel, $BasicDirectoryModel*)},
+		{"getMouseHandler", "()Lsun/swing/FilePane$Handler;", nullptr, $PROTECTED, $virtualMethod(FilePane, getMouseHandler, $FilePane$Handler*)},
+		{"getNewFolderAction", "()Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(FilePane, getNewFolderAction, $Action*)},
+		{"getRowSorter", "()Lsun/swing/FilePane$DetailsTableRowSorter;", nullptr, $PRIVATE, $method(FilePane, getRowSorter, $FilePane$DetailsTableRowSorter*)},
+		{"getViewMenu", "()Ljavax/swing/JMenu;", nullptr, $PUBLIC, $virtualMethod(FilePane, getViewMenu, $JMenu*)},
+		{"getViewType", "()I", nullptr, $PUBLIC, $virtualMethod(FilePane, getViewType, int32_t)},
+		{"getViewTypeAction", "(I)Ljavax/swing/Action;", nullptr, $PUBLIC, $virtualMethod(FilePane, getViewTypeAction, $Action*, int32_t)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(FilePane, installDefaults, void)},
+		{"isDirectorySelected", "()Z", nullptr, $PROTECTED, $virtualMethod(FilePane, isDirectorySelected, bool)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane, propertyChange, void, $PropertyChangeEvent*)},
+		{"recursivelySetInheritsPopupMenu", "(Ljava/awt/Container;Z)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FilePane, recursivelySetInheritsPopupMenu, void, $Container*, bool)},
+		{"rescanCurrentDirectory", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane, rescanCurrentDirectory, void)},
+		{"resetEditIndex", "()V", nullptr, $PRIVATE, $method(FilePane, resetEditIndex, void)},
+		{"setEditIndex", "(I)V", nullptr, $PRIVATE, $method(FilePane, setEditIndex, void, int32_t)},
+		{"setFileSelected", "()V", nullptr, 0, $virtualMethod(FilePane, setFileSelected, void)},
+		{"setViewType", "(I)V", nullptr, $PUBLIC, $virtualMethod(FilePane, setViewType, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallUI", "()V", nullptr, $PUBLIC, $virtualMethod(FilePane, uninstallUI, void)},
+		{"updateDetailsColumnModel", "(Ljavax/swing/JTable;)V", nullptr, $PRIVATE, $method(FilePane, updateDetailsColumnModel, void, $JTable*)},
+		{"updateListRowCount", "(Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PRIVATE, $method(FilePane, updateListRowCount, void, $JList*)},
+		{"updateViewMenu", "()V", nullptr, $PRIVATE, $method(FilePane, updateViewMenu, void)},
+		{"usesShellFolder", "(Ljavax/swing/JFileChooser;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(FilePane, usesShellFolder, bool, $JFileChooser*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$FileChooserUIAccessor", "sun.swing.FilePane", "FileChooserUIAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.FilePane$Handler", "sun.swing.FilePane", "Handler", $PRIVATE},
+		{"sun.swing.FilePane$FileRenderer", "sun.swing.FilePane", "FileRenderer", $PROTECTED},
+		{"sun.swing.FilePane$EditActionListener", "sun.swing.FilePane", "EditActionListener", 0},
+		{"sun.swing.FilePane$DelayedSelectionUpdater", "sun.swing.FilePane", "DelayedSelectionUpdater", $PRIVATE},
+		{"sun.swing.FilePane$AlignableTableHeaderRenderer", "sun.swing.FilePane", "AlignableTableHeaderRenderer", $PRIVATE},
+		{"sun.swing.FilePane$DetailsTableCellRenderer", "sun.swing.FilePane", "DetailsTableCellRenderer", 0},
+		{"sun.swing.FilePane$DetailsTableCellEditor", "sun.swing.FilePane", "DetailsTableCellEditor", $PRIVATE},
+		{"sun.swing.FilePane$DirectoriesFirstComparatorWrapper", "sun.swing.FilePane", "DirectoriesFirstComparatorWrapper", $PRIVATE},
+		{"sun.swing.FilePane$DetailsTableRowSorter", "sun.swing.FilePane", "DetailsTableRowSorter", $PRIVATE},
+		{"sun.swing.FilePane$DetailsTableModel", "sun.swing.FilePane", "DetailsTableModel", 0},
+		{"sun.swing.FilePane$SortableListModel", "sun.swing.FilePane", "SortableListModel", $PRIVATE},
+		{"sun.swing.FilePane$ViewTypeAction", "sun.swing.FilePane", "ViewTypeAction", 0},
+		{"sun.swing.FilePane$9", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$8", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$7", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$6", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$5", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$4", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$1FilePaneAction", nullptr, "FilePaneAction", 0},
+		{"sun.swing.FilePane$3", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$2", nullptr, nullptr, 0},
+		{"sun.swing.FilePane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.FilePane",
+		"javax.swing.JPanel",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane$FileChooserUIAccessor,sun.swing.FilePane$Handler,sun.swing.FilePane$FileRenderer,sun.swing.FilePane$EditActionListener,sun.swing.FilePane$DelayedSelectionUpdater,sun.swing.FilePane$AlignableTableHeaderRenderer,sun.swing.FilePane$DetailsTableCellRenderer,sun.swing.FilePane$DetailsTableCellEditor,sun.swing.FilePane$DirectoriesFirstComparatorWrapper,sun.swing.FilePane$DetailsTableRowSorter,sun.swing.FilePane$DetailsTableRowSorter$SorterModelWrapper,sun.swing.FilePane$DetailsTableRowSorter$2,sun.swing.FilePane$DetailsTableRowSorter$1,sun.swing.FilePane$DetailsTableModel,sun.swing.FilePane$DetailsTableModel$1,sun.swing.FilePane$SortableListModel,sun.swing.FilePane$ViewTypeAction,sun.swing.FilePane$9,sun.swing.FilePane$8,sun.swing.FilePane$7,sun.swing.FilePane$6,sun.swing.FilePane$5,sun.swing.FilePane$4,sun.swing.FilePane$1FilePaneAction,sun.swing.FilePane$3,sun.swing.FilePane$2,sun.swing.FilePane$1"
+	};
+	$loadClass(FilePane, name, initialize, &classInfo$$, FilePane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FilePane));
+	});
 	return class$;
 }
 

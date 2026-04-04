@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/EnumElementValueGen.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantUtf8.h>
@@ -21,7 +20,6 @@ using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::Const
 using $ElementValueGen = ::com::sun::org::apache::bcel::internal::generic::ElementValueGen;
 using $ObjectType = ::com::sun::org::apache::bcel::internal::generic::ObjectType;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -35,41 +33,8 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _EnumElementValueGen_FieldInfo_[] = {
-	{"typeIdx", "I", nullptr, $PRIVATE, $field(EnumElementValueGen, typeIdx)},
-	{"valueIdx", "I", nullptr, $PRIVATE, $field(EnumElementValueGen, valueIdx)},
-	{}
-};
-
-$MethodInfo _EnumElementValueGen_MethodInfo_[] = {
-	{"<init>", "(IILcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PROTECTED, $method(EnumElementValueGen, init$, void, int32_t, int32_t, $ConstantPoolGen*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ObjectType;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(EnumElementValueGen, init$, void, $ObjectType*, $String*, $ConstantPoolGen*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/EnumElementValue;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(EnumElementValueGen, init$, void, $EnumElementValue*, $ConstantPoolGen*, bool)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getElementValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getElementValue, $ElementValue*)},
-	{"getEnumTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getEnumTypeString, $String*)},
-	{"getEnumValueString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getEnumValueString, $String*)},
-	{"getTypeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getTypeIndex, int32_t)},
-	{"getValueIndex", "()I", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getValueIndex, int32_t)},
-	{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, stringifyValue, $String*)},
-	{}
-};
-
-$ClassInfo _EnumElementValueGen_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.EnumElementValueGen",
-	"com.sun.org.apache.bcel.internal.generic.ElementValueGen",
-	nullptr,
-	_EnumElementValueGen_FieldInfo_,
-	_EnumElementValueGen_MethodInfo_
-};
-
-$Object* allocate$EnumElementValueGen($Class* clazz) {
-	return $of($alloc(EnumElementValueGen));
-}
-
 void EnumElementValueGen::init$(int32_t typeIdx, int32_t valueIdx, $ConstantPoolGen* cpool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementValueGen::init$($ElementValueGen::ENUM_CONSTANT, cpool);
 	if ($ElementValueGen::getElementValueType() != $ElementValueGen::ENUM_CONSTANT) {
 		$throwNew($IllegalArgumentException, $$str({"Only element values of type enum can be built with this ctor - type specified: "_s, $$str($ElementValueGen::getElementValueType())}));
@@ -79,13 +44,17 @@ void EnumElementValueGen::init$(int32_t typeIdx, int32_t valueIdx, $ConstantPool
 }
 
 $ElementValue* EnumElementValueGen::getElementValue() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({"Duplicating value: "_s, $(getEnumTypeString()), ":"_s}));
-	$nc($System::err)->println($$concat(var$0, $(getEnumValueString())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Duplicating value: "_s);
+	var$0->append($(getEnumTypeString()));
+	var$0->append(":"_s);
+	var$0->append($(getEnumValueString()));
+	$nc($System::err)->println($$str(var$0));
 	int32_t var$1 = $ElementValueGen::getElementValueType();
 	int32_t var$2 = this->typeIdx;
 	int32_t var$3 = this->valueIdx;
-	return $new($EnumElementValue, var$1, var$2, var$3, $($nc($(getConstantPool()))->getConstantPool()));
+	return $new($EnumElementValue, var$1, var$2, var$3, $($$nc(getConstantPool())->getConstantPool()));
 }
 
 void EnumElementValueGen::init$($ObjectType* t, $String* value, $ConstantPoolGen* cpool) {
@@ -95,11 +64,11 @@ void EnumElementValueGen::init$($ObjectType* t, $String* value, $ConstantPoolGen
 }
 
 void EnumElementValueGen::init$($EnumElementValue* value, $ConstantPoolGen* cpool, bool copyPoolEntries) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ElementValueGen::init$($ElementValueGen::ENUM_CONSTANT, cpool);
 	if (copyPoolEntries) {
 		this->typeIdx = $nc(cpool)->addUtf8($($nc(value)->getEnumTypeString()));
-		this->valueIdx = cpool->addUtf8($($nc(value)->getEnumValueString()));
+		this->valueIdx = cpool->addUtf8($(value->getEnumValueString()));
 	} else {
 		this->typeIdx = $nc(value)->getTypeIndex();
 		this->valueIdx = value->getValueIndex();
@@ -113,19 +82,19 @@ void EnumElementValueGen::dump($DataOutputStream* dos) {
 }
 
 $String* EnumElementValueGen::stringifyValue() {
-	$useLocalCurrentObjectStackCache();
-	$var($ConstantUtf8, cu8, $cast($ConstantUtf8, $nc($(getConstantPool()))->getConstant(this->valueIdx)));
+	$useLocalObjectStack();
+	$var($ConstantUtf8, cu8, $cast($ConstantUtf8, $$nc(getConstantPool())->getConstant(this->valueIdx)));
 	return $nc(cu8)->getBytes();
 }
 
 $String* EnumElementValueGen::getEnumTypeString() {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($ConstantUtf8, $($nc($(getConstantPool()))->getConstant(this->typeIdx)))))->getBytes();
+	$useLocalObjectStack();
+	return $$sure($ConstantUtf8, $$nc(getConstantPool())->getConstant(this->typeIdx))->getBytes();
 }
 
 $String* EnumElementValueGen::getEnumValueString() {
-	$useLocalCurrentObjectStackCache();
-	return $nc(($cast($ConstantUtf8, $($nc($(getConstantPool()))->getConstant(this->valueIdx)))))->getBytes();
+	$useLocalObjectStack();
+	return $$sure($ConstantUtf8, $$nc(getConstantPool())->getConstant(this->valueIdx))->getBytes();
 }
 
 int32_t EnumElementValueGen::getValueIndex() {
@@ -140,7 +109,35 @@ EnumElementValueGen::EnumElementValueGen() {
 }
 
 $Class* EnumElementValueGen::load$($String* name, bool initialize) {
-	$loadClass(EnumElementValueGen, name, initialize, &_EnumElementValueGen_ClassInfo_, allocate$EnumElementValueGen);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeIdx", "I", nullptr, $PRIVATE, $field(EnumElementValueGen, typeIdx)},
+		{"valueIdx", "I", nullptr, $PRIVATE, $field(EnumElementValueGen, valueIdx)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IILcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PROTECTED, $method(EnumElementValueGen, init$, void, int32_t, int32_t, $ConstantPoolGen*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ObjectType;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)V", nullptr, $PUBLIC, $method(EnumElementValueGen, init$, void, $ObjectType*, $String*, $ConstantPoolGen*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/EnumElementValue;Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(EnumElementValueGen, init$, void, $EnumElementValue*, $ConstantPoolGen*, bool)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getElementValue", "()Lcom/sun/org/apache/bcel/internal/classfile/ElementValue;", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getElementValue, $ElementValue*)},
+		{"getEnumTypeString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getEnumTypeString, $String*)},
+		{"getEnumValueString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getEnumValueString, $String*)},
+		{"getTypeIndex", "()I", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getTypeIndex, int32_t)},
+		{"getValueIndex", "()I", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, getValueIndex, int32_t)},
+		{"stringifyValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumElementValueGen, stringifyValue, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.EnumElementValueGen",
+		"com.sun.org.apache.bcel.internal.generic.ElementValueGen",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EnumElementValueGen, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnumElementValueGen);
+	});
 	return class$;
 }
 

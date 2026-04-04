@@ -1,5 +1,4 @@
 #include <com/sun/jmx/remote/internal/ClientCommunicatorAdmin$Checker.h>
-
 #include <com/sun/jmx/remote/internal/ClientCommunicatorAdmin.h>
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <com/sun/jmx/remote/util/EnvHelp.h>
@@ -9,7 +8,6 @@
 #include <jcpp.h>
 
 using $ClientCommunicatorAdmin = ::com::sun::jmx::remote::internal::ClientCommunicatorAdmin;
-using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $EnvHelp = ::com::sun::jmx::remote::util::EnvHelp;
 using $IOException = ::java::io::IOException;
 using $InterruptedIOException = ::java::io::InterruptedIOException;
@@ -26,52 +24,14 @@ namespace com {
 			namespace remote {
 				namespace internal {
 
-$FieldInfo _ClientCommunicatorAdmin$Checker_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jmx/remote/internal/ClientCommunicatorAdmin;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCommunicatorAdmin$Checker, this$0)},
-	{"myThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(ClientCommunicatorAdmin$Checker, myThread)},
-	{}
-};
-
-$MethodInfo _ClientCommunicatorAdmin$Checker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jmx/remote/internal/ClientCommunicatorAdmin;)V", nullptr, $PRIVATE, $method(ClientCommunicatorAdmin$Checker, init$, void, $ClientCommunicatorAdmin*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClientCommunicatorAdmin$Checker, run, void)},
-	{"stop", "()V", nullptr, $PRIVATE, $method(ClientCommunicatorAdmin$Checker, stop, void)},
-	{}
-};
-
-$InnerClassInfo _ClientCommunicatorAdmin$Checker_InnerClassesInfo_[] = {
-	{"com.sun.jmx.remote.internal.ClientCommunicatorAdmin$Checker", "com.sun.jmx.remote.internal.ClientCommunicatorAdmin", "Checker", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ClientCommunicatorAdmin$Checker_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.remote.internal.ClientCommunicatorAdmin$Checker",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_ClientCommunicatorAdmin$Checker_FieldInfo_,
-	_ClientCommunicatorAdmin$Checker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClientCommunicatorAdmin$Checker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.remote.internal.ClientCommunicatorAdmin"
-};
-
-$Object* allocate$ClientCommunicatorAdmin$Checker($Class* clazz) {
-	return $of($alloc(ClientCommunicatorAdmin$Checker));
-}
-
 void ClientCommunicatorAdmin$Checker::init$($ClientCommunicatorAdmin* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void ClientCommunicatorAdmin$Checker::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, myThread, $Thread::currentThread());
-	while (this->this$0->state != 3 && !$nc(this->myThread)->isInterrupted()) {
+	while (this->this$0->state != 3 && !this->myThread->isInterrupted()) {
 		try {
 			$Thread::sleep(this->this$0->period);
 		} catch ($InterruptedException& ire) {
@@ -92,29 +52,26 @@ void ClientCommunicatorAdmin$Checker::run() {
 				try {
 					this->this$0->gotIOException($cast($IOException, e));
 				} catch ($Exception& ee) {
-					$init($ClientCommunicatorAdmin);
 					$nc($ClientCommunicatorAdmin::logger)->warning("Checker-run"_s, $$str({"Failed to check connection: "_s, e}));
-					$nc($ClientCommunicatorAdmin::logger)->warning("Checker-run"_s, "stopping"_s);
-					$nc($ClientCommunicatorAdmin::logger)->debug("Checker-run"_s, static_cast<$Throwable*>(e));
+					$ClientCommunicatorAdmin::logger->warning("Checker-run"_s, "stopping"_s);
+					$ClientCommunicatorAdmin::logger->debug("Checker-run"_s, e);
 					break;
 				}
 			} else {
-				$init($ClientCommunicatorAdmin);
 				$nc($ClientCommunicatorAdmin::logger)->warning("Checker-run"_s, $$str({"Failed to check the connection: "_s, e}));
-				$nc($ClientCommunicatorAdmin::logger)->debug("Checker-run"_s, static_cast<$Throwable*>(e));
+				$ClientCommunicatorAdmin::logger->debug("Checker-run"_s, e);
 				break;
 			}
 		}
 	}
-	$init($ClientCommunicatorAdmin);
 	if ($nc($ClientCommunicatorAdmin::logger)->traceOn()) {
-		$nc($ClientCommunicatorAdmin::logger)->trace("Checker-run"_s, "Finished."_s);
+		$ClientCommunicatorAdmin::logger->trace("Checker-run"_s, "Finished."_s);
 	}
 }
 
 void ClientCommunicatorAdmin$Checker::stop() {
 	if (this->myThread != nullptr && this->myThread != $Thread::currentThread()) {
-		$nc(this->myThread)->interrupt();
+		this->myThread->interrupt();
 	}
 }
 
@@ -122,7 +79,39 @@ ClientCommunicatorAdmin$Checker::ClientCommunicatorAdmin$Checker() {
 }
 
 $Class* ClientCommunicatorAdmin$Checker::load$($String* name, bool initialize) {
-	$loadClass(ClientCommunicatorAdmin$Checker, name, initialize, &_ClientCommunicatorAdmin$Checker_ClassInfo_, allocate$ClientCommunicatorAdmin$Checker);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jmx/remote/internal/ClientCommunicatorAdmin;", nullptr, $FINAL | $SYNTHETIC, $field(ClientCommunicatorAdmin$Checker, this$0)},
+		{"myThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(ClientCommunicatorAdmin$Checker, myThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jmx/remote/internal/ClientCommunicatorAdmin;)V", nullptr, $PRIVATE, $method(ClientCommunicatorAdmin$Checker, init$, void, $ClientCommunicatorAdmin*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ClientCommunicatorAdmin$Checker, run, void)},
+		{"stop", "()V", nullptr, $PRIVATE, $method(ClientCommunicatorAdmin$Checker, stop, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.remote.internal.ClientCommunicatorAdmin$Checker", "com.sun.jmx.remote.internal.ClientCommunicatorAdmin", "Checker", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.remote.internal.ClientCommunicatorAdmin$Checker",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.remote.internal.ClientCommunicatorAdmin"
+	};
+	$loadClass(ClientCommunicatorAdmin$Checker, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClientCommunicatorAdmin$Checker);
+	});
 	return class$;
 }
 

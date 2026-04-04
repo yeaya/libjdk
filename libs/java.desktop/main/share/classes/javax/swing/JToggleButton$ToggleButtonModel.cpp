@@ -1,8 +1,6 @@
 #include <javax/swing/JToggleButton$ToggleButtonModel.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/EventQueue.h>
-#include <java/awt/ItemSelectable.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/ItemEvent.h>
@@ -20,7 +18,6 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $EventQueue = ::java::awt::EventQueue;
-using $ItemSelectable = ::java::awt::ItemSelectable;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $ItemEvent = ::java::awt::event::ItemEvent;
@@ -28,55 +25,21 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $ButtonModel = ::javax::swing::ButtonModel;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _JToggleButton$ToggleButtonModel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JToggleButton$ToggleButtonModel, init$, void)},
-	{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(JToggleButton$ToggleButtonModel, isSelected, bool)},
-	{"setPressed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToggleButton$ToggleButtonModel, setPressed, void, bool)},
-	{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToggleButton$ToggleButtonModel, setSelected, void, bool)},
-	{}
-};
-
-$InnerClassInfo _JToggleButton$ToggleButtonModel_InnerClassesInfo_[] = {
-	{"javax.swing.JToggleButton$ToggleButtonModel", "javax.swing.JToggleButton", "ToggleButtonModel", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JToggleButton$ToggleButtonModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JToggleButton$ToggleButtonModel",
-	"javax.swing.DefaultButtonModel",
-	nullptr,
-	nullptr,
-	_JToggleButton$ToggleButtonModel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JToggleButton$ToggleButtonModel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JToggleButton"
-};
-
-$Object* allocate$JToggleButton$ToggleButtonModel($Class* clazz) {
-	return $of($alloc(JToggleButton$ToggleButtonModel));
-}
 
 void JToggleButton$ToggleButtonModel::init$() {
 	$DefaultButtonModel::init$();
 }
 
 bool JToggleButton$ToggleButtonModel::isSelected() {
-	return ((int32_t)(this->stateMask & (uint32_t)$DefaultButtonModel::SELECTED)) != 0;
+	return (this->stateMask & $DefaultButtonModel::SELECTED) != 0;
 }
 
 void JToggleButton$ToggleButtonModel::setSelected(bool b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ButtonGroup, group, getGroup());
 	if (group != nullptr) {
 		group->setSelected(this, b);
@@ -95,8 +58,8 @@ void JToggleButton$ToggleButtonModel::setSelected(bool b) {
 }
 
 void JToggleButton$ToggleButtonModel::setPressed(bool b) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = (isPressed() == b);
+	$useLocalObjectStack();
+	bool var$0 = isPressed() == b;
 	if (var$0 || !isEnabled()) {
 		return;
 	}
@@ -114,9 +77,9 @@ void JToggleButton$ToggleButtonModel::setPressed(bool b) {
 		int32_t modifiers = 0;
 		$var($AWTEvent, currentEvent, $EventQueue::getCurrentEvent());
 		if ($instanceOf($InputEvent, currentEvent)) {
-			modifiers = $nc(($cast($InputEvent, currentEvent)))->getModifiers();
+			modifiers = $cast($InputEvent, currentEvent)->getModifiers();
 		} else if ($instanceOf($ActionEvent, currentEvent)) {
-			modifiers = $nc(($cast($ActionEvent, currentEvent)))->getModifiers();
+			modifiers = $cast($ActionEvent, currentEvent)->getModifiers();
 		}
 		$var($String, var$2, getActionCommand());
 		fireActionPerformed($$new($ActionEvent, this, $ActionEvent::ACTION_PERFORMED, var$2, $EventQueue::getMostRecentEventTime(), modifiers));
@@ -127,7 +90,35 @@ JToggleButton$ToggleButtonModel::JToggleButton$ToggleButtonModel() {
 }
 
 $Class* JToggleButton$ToggleButtonModel::load$($String* name, bool initialize) {
-	$loadClass(JToggleButton$ToggleButtonModel, name, initialize, &_JToggleButton$ToggleButtonModel_ClassInfo_, allocate$JToggleButton$ToggleButtonModel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JToggleButton$ToggleButtonModel, init$, void)},
+		{"isSelected", "()Z", nullptr, $PUBLIC, $virtualMethod(JToggleButton$ToggleButtonModel, isSelected, bool)},
+		{"setPressed", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToggleButton$ToggleButtonModel, setPressed, void, bool)},
+		{"setSelected", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToggleButton$ToggleButtonModel, setSelected, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JToggleButton$ToggleButtonModel", "javax.swing.JToggleButton", "ToggleButtonModel", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JToggleButton$ToggleButtonModel",
+		"javax.swing.DefaultButtonModel",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JToggleButton"
+	};
+	$loadClass(JToggleButton$ToggleButtonModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JToggleButton$ToggleButtonModel));
+	});
 	return class$;
 }
 

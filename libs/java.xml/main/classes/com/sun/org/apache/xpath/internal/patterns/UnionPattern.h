@@ -78,7 +78,7 @@ public:
 	virtual void fixupVariables(::java::util::List* vars, int32_t globalsSize) override;
 	virtual $Array<::com::sun::org::apache::xpath::internal::patterns::StepPattern>* getPatterns();
 	virtual void setPatterns($Array<::com::sun::org::apache::xpath::internal::patterns::StepPattern>* patterns);
-	static const int64_t serialVersionUID = (int64_t)0xA36DCD18B1FB12A4;
+	static const int64_t serialVersionUID = (int64_t)0xa36dcd18b1fb12a4;
 	$Array<::com::sun::org::apache::xpath::internal::patterns::StepPattern>* m_patterns = nullptr;
 };
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalToolBarUI.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -58,7 +57,6 @@ using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicToolBarUI = ::javax::swing::plaf::basic::BasicToolBarUI;
-using $BasicToolBarUI$DragWindow = ::javax::swing::plaf::basic::BasicToolBarUI$DragWindow;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalToolBarUI$MetalDockingListener = ::javax::swing::plaf::metal::MetalToolBarUI$MetalDockingListener;
 using $MetalUtils = ::javax::swing::plaf::metal::MetalUtils;
@@ -68,65 +66,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalToolBarUI_FieldInfo_[] = {
-	{"components", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/ref/WeakReference<Ljavax/swing/JComponent;>;>;", $PRIVATE | $STATIC, $staticField(MetalToolBarUI, components)},
-	{"contListener", "Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $field(MetalToolBarUI, contListener)},
-	{"rolloverListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(MetalToolBarUI, rolloverListener)},
-	{"nonRolloverBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalToolBarUI, nonRolloverBorder)},
-	{"lastMenuBar", "Ljavax/swing/JMenuBar;", nullptr, $PRIVATE, $field(MetalToolBarUI, lastMenuBar)},
-	{}
-};
-
-$MethodInfo _MetalToolBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalToolBarUI, init$, void)},
-	{"createContainerListener", "()Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createContainerListener, $ContainerListener*)},
-	{"createDockingListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createDockingListener, $MouseInputListener*)},
-	{"createNonRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createNonRolloverBorder, $Border*)},
-	{"createNonRolloverToggleBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE, $method(MetalToolBarUI, createNonRolloverToggleBorder, $Border*)},
-	{"createRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createRolloverBorder, $Border*)},
-	{"createRolloverListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createRolloverListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalToolBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doesMenuBarBorderToolBar", "(Ljavax/swing/JMenuBar;)Z", nullptr, $STATIC, $staticMethod(MetalToolBarUI, doesMenuBarBorderToolBar, bool, $JMenuBar*)},
-	{"findRegisteredComponentOfType", "(Ljavax/swing/JComponent;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljavax/swing/JComponent;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC | $SYNCHRONIZED, $staticMethod(MetalToolBarUI, findRegisteredComponentOfType, $Object*, $JComponent*, $Class*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, installListeners, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalToolBarUI, installUI, void, $JComponent*)},
-	{"register", "(Ljavax/swing/JComponent;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(MetalToolBarUI, register$, void, $JComponent*)},
-	{"setBorderToNonRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, setBorderToNonRollover, void, $Component*)},
-	{"setDragOffset", "(Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, setDragOffset, void, $Point*)},
-	{"setLastMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PRIVATE, $method(MetalToolBarUI, setLastMenuBar, void, $JMenuBar*)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, uninstallListeners, void)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalToolBarUI, uninstallUI, void, $JComponent*)},
-	{"unregister", "(Ljavax/swing/JComponent;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(MetalToolBarUI, unregister, void, $JComponent*)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalToolBarUI, update, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _MetalToolBarUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalToolBarUI$MetalDockingListener", "javax.swing.plaf.metal.MetalToolBarUI", "MetalDockingListener", $PROTECTED},
-	{"javax.swing.plaf.metal.MetalToolBarUI$MetalRolloverListener", "javax.swing.plaf.metal.MetalToolBarUI", "MetalRolloverListener", $PROTECTED},
-	{"javax.swing.plaf.metal.MetalToolBarUI$MetalContainerListener", "javax.swing.plaf.metal.MetalToolBarUI", "MetalContainerListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MetalToolBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalToolBarUI",
-	"javax.swing.plaf.basic.BasicToolBarUI",
-	nullptr,
-	_MetalToolBarUI_FieldInfo_,
-	_MetalToolBarUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalToolBarUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalToolBarUI$MetalDockingListener,javax.swing.plaf.metal.MetalToolBarUI$MetalRolloverListener,javax.swing.plaf.metal.MetalToolBarUI$MetalContainerListener"
-};
-
-$Object* allocate$MetalToolBarUI($Class* clazz) {
-	return $of($alloc(MetalToolBarUI));
-}
-
 $List* MetalToolBarUI::components = nullptr;
 $Border* MetalToolBarUI::nonRolloverBorder = nullptr;
 
@@ -135,9 +74,8 @@ void MetalToolBarUI::init$() {
 }
 
 void MetalToolBarUI::register$($JComponent* c) {
-	$load(MetalToolBarUI);
+	$init(MetalToolBarUI);
 	$synchronized(class$) {
-		$init(MetalToolBarUI);
 		if (c == nullptr) {
 			$throwNew($NullPointerException, "JComponent must be non-null"_s);
 		}
@@ -146,12 +84,11 @@ void MetalToolBarUI::register$($JComponent* c) {
 }
 
 void MetalToolBarUI::unregister($JComponent* c) {
-	$load(MetalToolBarUI);
+	$init(MetalToolBarUI);
 	$synchronized(class$) {
-		$init(MetalToolBarUI);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		for (int32_t counter = $nc(MetalToolBarUI::components)->size() - 1; counter >= 0; --counter) {
-			$var($JComponent, target, $cast($JComponent, $nc(($cast($WeakReference, $($nc(MetalToolBarUI::components)->get(counter)))))->get()));
+			$var($JComponent, target, $cast($JComponent, $$sure($WeakReference, $nc(MetalToolBarUI::components)->get(counter))->get()));
 			if (target == c || target == nullptr) {
 				$nc(MetalToolBarUI::components)->remove(counter);
 			}
@@ -160,31 +97,30 @@ void MetalToolBarUI::unregister($JComponent* c) {
 }
 
 $Object* MetalToolBarUI::findRegisteredComponentOfType($JComponent* from, $Class* target) {
-	$load(MetalToolBarUI);
+	$init(MetalToolBarUI);
 	$synchronized(class$) {
-		$init(MetalToolBarUI);
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($JRootPane, rp, $SwingUtilities::getRootPane(from));
 		if (rp != nullptr) {
 			for (int32_t counter = $nc(MetalToolBarUI::components)->size() - 1; counter >= 0; --counter) {
-				$var($Object, component, $nc(($cast($WeakReference, $($nc(MetalToolBarUI::components)->get(counter)))))->get());
+				$var($Object, component, $$sure($WeakReference, $nc(MetalToolBarUI::components)->get(counter))->get());
 				if (component == nullptr) {
 					$nc(MetalToolBarUI::components)->remove(counter);
 				} else {
-					bool var$1 = $nc(target)->isInstance(component);
-					if (var$1 && $SwingUtilities::getRootPane($cast($Component, component)) == rp) {
-						return $of(component);
+					bool var$0 = $nc(target)->isInstance(component);
+					if (var$0 && $SwingUtilities::getRootPane($cast($Component, component)) == rp) {
+						return component;
 					}
 				}
 			}
 		}
-		return $of(nullptr);
+		return nullptr;
 	}
 }
 
 bool MetalToolBarUI::doesMenuBarBorderToolBar($JMenuBar* c) {
 	$init(MetalToolBarUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($JToolBar);
 	$var($JToolBar, tb, $cast($JToolBar, MetalToolBarUI::findRegisteredComponentOfType(c, $JToolBar::class$)));
 	if (tb != nullptr && tb->getOrientation() == $JToolBar::HORIZONTAL) {
@@ -195,7 +131,7 @@ bool MetalToolBarUI::doesMenuBarBorderToolBar($JMenuBar* c) {
 		int32_t menuY = point->y;
 		point->x = (point->y = 0);
 		$assign(point, $SwingUtilities::convertPoint(tb, point, rp));
-		bool var$0 = point->x == menuX && menuY + $nc(c)->getHeight() == point->y;
+		bool var$0 = $nc(point)->x == menuX && menuY + $nc(c)->getHeight() == point->y;
 		if (var$0) {
 			int32_t var$1 = c->getWidth();
 			var$0 = var$1 == tb->getWidth();
@@ -257,10 +193,10 @@ $Border* MetalToolBarUI::createNonRolloverToggleBorder() {
 }
 
 void MetalToolBarUI::setBorderToNonRollover($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JToggleButton, c) && !($instanceOf($JCheckBox, c))) {
 		$var($JToggleButton, b, $cast($JToggleButton, c));
-		$var($Border, border, $nc(b)->getBorder());
+		$var($Border, border, b->getBorder());
 		$BasicToolBarUI::setBorderToNonRollover(c);
 		if ($instanceOf($UIResource, border)) {
 			if (MetalToolBarUI::nonRolloverBorder == nullptr) {
@@ -295,13 +231,13 @@ void MetalToolBarUI::setDragOffset($Point* p) {
 }
 
 void MetalToolBarUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (g == nullptr) {
 		$throwNew($NullPointerException, "graphics must be non-null"_s);
 	}
 	bool var$2 = $nc(c)->isOpaque();
 	bool var$1 = var$2 && ($instanceOf($UIResource, $(c->getBackground())));
-	bool var$0 = var$1 && $nc(($cast($JToolBar, c)))->getOrientation() == $JToolBar::HORIZONTAL;
+	bool var$0 = var$1 && $cast($JToolBar, c)->getOrientation() == $JToolBar::HORIZONTAL;
 	if (var$0 && $UIManager::get("MenuBar.gradient"_s) != nullptr) {
 		$var($JRootPane, rp, $SwingUtilities::getRootPane(c));
 		$load($JMenuBar);
@@ -314,20 +250,18 @@ void MetalToolBarUI::update($Graphics* g, $JComponent* c) {
 			int32_t y = point->y;
 			point->x = (point->y = 0);
 			$assign(point, $SwingUtilities::convertPoint(mb, point, rp));
-			bool var$5 = point->x == x && y == point->y + mb->getHeight();
+			bool var$5 = $nc(point)->x == x && y == point->y + mb->getHeight();
 			if (var$5) {
 				int32_t var$6 = mb->getWidth();
 				var$5 = var$6 == c->getWidth();
 			}
 			bool var$4 = var$5;
 			if (var$4) {
-				$var($Component, var$7, static_cast<$Component*>(c));
-				$var($Graphics, var$8, g);
-				$var($String, var$9, "MenuBar.gradient"_s);
-				int32_t var$10 = -mb->getHeight();
-				int32_t var$11 = c->getWidth();
-				int32_t var$12 = c->getHeight();
-				var$4 = $MetalUtils::drawGradient(var$7, var$8, var$9, 0, var$10, var$11, var$12 + mb->getHeight(), true);
+				$var($String, var$7, "MenuBar.gradient"_s);
+				int32_t var$8 = -mb->getHeight();
+				int32_t var$9 = c->getWidth();
+				int32_t var$10 = c->getHeight();
+				var$4 = $MetalUtils::drawGradient(c, g, var$7, 0, var$8, var$9, var$10 + mb->getHeight(), true);
 			}
 			if (var$4) {
 				setLastMenuBar(mb);
@@ -335,11 +269,9 @@ void MetalToolBarUI::update($Graphics* g, $JComponent* c) {
 				return;
 			}
 		}
-		$var($Component, var$13, static_cast<$Component*>(c));
-		$var($Graphics, var$14, g);
-		$var($String, var$15, "MenuBar.gradient"_s);
-		int32_t var$16 = c->getWidth();
-		if ($MetalUtils::drawGradient(var$13, var$14, var$15, 0, 0, var$16, c->getHeight(), true)) {
+		$var($String, var$11, "MenuBar.gradient"_s);
+		int32_t var$12 = c->getWidth();
+		if ($MetalUtils::drawGradient(c, g, var$11, 0, 0, var$12, c->getHeight(), true)) {
 			setLastMenuBar(nullptr);
 			paint(g, c);
 			return;
@@ -353,7 +285,7 @@ void MetalToolBarUI::setLastMenuBar($JMenuBar* lastMenuBar) {
 	if ($MetalLookAndFeel::usingOcean()) {
 		if (this->lastMenuBar != lastMenuBar) {
 			if (this->lastMenuBar != nullptr) {
-				$nc(this->lastMenuBar)->repaint();
+				this->lastMenuBar->repaint();
 			}
 			if (lastMenuBar != nullptr) {
 				lastMenuBar->repaint();
@@ -363,7 +295,7 @@ void MetalToolBarUI::setLastMenuBar($JMenuBar* lastMenuBar) {
 	}
 }
 
-void clinit$MetalToolBarUI($Class* class$) {
+void MetalToolBarUI::clinit$($Class* clazz) {
 	$assignStatic(MetalToolBarUI::components, $new($ArrayList));
 }
 
@@ -371,7 +303,60 @@ MetalToolBarUI::MetalToolBarUI() {
 }
 
 $Class* MetalToolBarUI::load$($String* name, bool initialize) {
-	$loadClass(MetalToolBarUI, name, initialize, &_MetalToolBarUI_ClassInfo_, clinit$MetalToolBarUI, allocate$MetalToolBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"components", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/ref/WeakReference<Ljavax/swing/JComponent;>;>;", $PRIVATE | $STATIC, $staticField(MetalToolBarUI, components)},
+		{"contListener", "Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $field(MetalToolBarUI, contListener)},
+		{"rolloverListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $field(MetalToolBarUI, rolloverListener)},
+		{"nonRolloverBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC, $staticField(MetalToolBarUI, nonRolloverBorder)},
+		{"lastMenuBar", "Ljavax/swing/JMenuBar;", nullptr, $PRIVATE, $field(MetalToolBarUI, lastMenuBar)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalToolBarUI, init$, void)},
+		{"createContainerListener", "()Ljava/awt/event/ContainerListener;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createContainerListener, $ContainerListener*)},
+		{"createDockingListener", "()Ljavax/swing/event/MouseInputListener;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createDockingListener, $MouseInputListener*)},
+		{"createNonRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createNonRolloverBorder, $Border*)},
+		{"createNonRolloverToggleBorder", "()Ljavax/swing/border/Border;", nullptr, $PRIVATE, $method(MetalToolBarUI, createNonRolloverToggleBorder, $Border*)},
+		{"createRolloverBorder", "()Ljavax/swing/border/Border;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createRolloverBorder, $Border*)},
+		{"createRolloverListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, createRolloverListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalToolBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doesMenuBarBorderToolBar", "(Ljavax/swing/JMenuBar;)Z", nullptr, $STATIC, $staticMethod(MetalToolBarUI, doesMenuBarBorderToolBar, bool, $JMenuBar*)},
+		{"findRegisteredComponentOfType", "(Ljavax/swing/JComponent;Ljava/lang/Class;)Ljava/lang/Object;", "(Ljavax/swing/JComponent;Ljava/lang/Class<*>;)Ljava/lang/Object;", $STATIC | $SYNCHRONIZED, $staticMethod(MetalToolBarUI, findRegisteredComponentOfType, $Object*, $JComponent*, $Class*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, installListeners, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalToolBarUI, installUI, void, $JComponent*)},
+		{"register", "(Ljavax/swing/JComponent;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(MetalToolBarUI, register$, void, $JComponent*)},
+		{"setBorderToNonRollover", "(Ljava/awt/Component;)V", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, setBorderToNonRollover, void, $Component*)},
+		{"setDragOffset", "(Ljava/awt/Point;)V", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, setDragOffset, void, $Point*)},
+		{"setLastMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PRIVATE, $method(MetalToolBarUI, setLastMenuBar, void, $JMenuBar*)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(MetalToolBarUI, uninstallListeners, void)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalToolBarUI, uninstallUI, void, $JComponent*)},
+		{"unregister", "(Ljavax/swing/JComponent;)V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(MetalToolBarUI, unregister, void, $JComponent*)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalToolBarUI, update, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalToolBarUI$MetalDockingListener", "javax.swing.plaf.metal.MetalToolBarUI", "MetalDockingListener", $PROTECTED},
+		{"javax.swing.plaf.metal.MetalToolBarUI$MetalRolloverListener", "javax.swing.plaf.metal.MetalToolBarUI", "MetalRolloverListener", $PROTECTED},
+		{"javax.swing.plaf.metal.MetalToolBarUI$MetalContainerListener", "javax.swing.plaf.metal.MetalToolBarUI", "MetalContainerListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalToolBarUI",
+		"javax.swing.plaf.basic.BasicToolBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalToolBarUI$MetalDockingListener,javax.swing.plaf.metal.MetalToolBarUI$MetalRolloverListener,javax.swing.plaf.metal.MetalToolBarUI$MetalContainerListener"
+	};
+	$loadClass(MetalToolBarUI, name, initialize, &classInfo$$, MetalToolBarUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalToolBarUI));
+	});
 	return class$;
 }
 

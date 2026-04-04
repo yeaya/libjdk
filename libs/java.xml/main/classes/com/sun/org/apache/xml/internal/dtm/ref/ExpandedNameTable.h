@@ -64,6 +64,7 @@ class ExpandedNameTable : public ::java::lang::Object {
 	$class(ExpandedNameTable, 0, ::java::lang::Object)
 public:
 	ExpandedNameTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int32_t getExpandedTypeID($String* namespace$, $String* localName, int32_t type);
 	virtual int32_t getExpandedTypeID($String* namespace$, $String* localName, int32_t type, bool searchOnly);

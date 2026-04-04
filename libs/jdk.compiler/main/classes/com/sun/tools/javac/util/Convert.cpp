@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Convert.h>
-
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Name$Table.h>
 #include <com/sun/tools/javac/util/Name.h>
@@ -11,7 +10,6 @@
 
 using $List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
-using $Names = ::com::sun::tools::javac::util::Names;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -25,50 +23,11 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _Convert_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Convert, init$, void)},
-	{"chars2utf", "([CI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, chars2utf, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t)},
-	{"chars2utf", "([CII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, chars2utf, $bytes*, $chars*, int32_t, int32_t)},
-	{"chars2utf", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, chars2utf, $bytes*, $chars*)},
-	{"classCandidates", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $STATIC, $staticMethod(Convert, classCandidates, $List*, $Name*)},
-	{"enclosingCandidates", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $STATIC, $staticMethod(Convert, enclosingCandidates, $List*, $Name*)},
-	{"escapeUnicode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, escapeUnicode, $String*, $String*)},
-	{"isPrintableAscii", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Convert, isPrintableAscii, bool, char16_t)},
-	{"packagePart", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, packagePart, $Name*, $Name*)},
-	{"packagePart", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, packagePart, $String*, $String*)},
-	{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, quote, $String*, $String*)},
-	{"quote", "(C)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, quote, $String*, char16_t)},
-	{"shortName", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, shortName, $Name*, $Name*)},
-	{"shortName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, shortName, $String*, $String*)},
-	{"string2int", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, string2int, int32_t, $String*, int32_t), "java.lang.NumberFormatException"},
-	{"string2long", "(Ljava/lang/String;I)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, string2long, int64_t, $String*, int32_t), "java.lang.NumberFormatException"},
-	{"string2utf", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, string2utf, $bytes*, $String*)},
-	{"utf2chars", "([BI[CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2chars, int32_t, $bytes*, int32_t, $chars*, int32_t, int32_t)},
-	{"utf2chars", "([BII)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2chars, $chars*, $bytes*, int32_t, int32_t)},
-	{"utf2chars", "([B)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2chars, $chars*, $bytes*)},
-	{"utf2string", "([BII)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2string, $String*, $bytes*, int32_t, int32_t)},
-	{"utf2string", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2string, $String*, $bytes*)},
-	{}
-};
-
-$ClassInfo _Convert_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Convert",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Convert_MethodInfo_
-};
-
-$Object* allocate$Convert($Class* clazz) {
-	return $of($alloc(Convert));
-}
-
 void Convert::init$() {
 }
 
 int32_t Convert::string2int($String* s, int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (radix == 10) {
 		return $Integer::parseInt(s, radix);
 	} else {
@@ -77,9 +36,7 @@ int32_t Convert::string2int($String* s, int32_t radix) {
 		int32_t n = 0;
 		{
 			$var($chars, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				char16_t c = arr$->get(i$);
 				{
 					int32_t d = $Character::digit(c, radix);
@@ -95,7 +52,7 @@ int32_t Convert::string2int($String* s, int32_t radix) {
 }
 
 int64_t Convert::string2long($String* s, int32_t radix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (radix == 10) {
 		return $Long::parseLong(s, radix);
 	} else {
@@ -104,9 +61,7 @@ int64_t Convert::string2long($String* s, int32_t radix) {
 		int64_t n = 0;
 		{
 			$var($chars, arr$, cs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				char16_t c = arr$->get(i$);
 				{
 					int32_t d = $Character::digit(c, radix);
@@ -126,14 +81,14 @@ int32_t Convert::utf2chars($bytes* src, int32_t sindex, $chars* dst, int32_t din
 	int32_t j = dindex;
 	int32_t limit = sindex + len;
 	while (i < limit) {
-		int32_t b = (int32_t)($nc(src)->get(i++) & (uint32_t)255);
+		int32_t b = $nc(src)->get(i++) & 0xff;
 		if (b >= 224) {
-			b = ((int32_t)(b & (uint32_t)15)) << 12;
-			b = b | (((int32_t)(src->get(i++) & (uint32_t)63)) << 6);
-			b = b | ((int32_t)(src->get(i++) & (uint32_t)63));
+			b = (b & 0x0f) << 12;
+			b = b | ((src->get(i++) & 0x3f) << 6);
+			b = b | (src->get(i++) & 0x3f);
 		} else if (b >= 192) {
-			b = ((int32_t)(b & (uint32_t)31)) << 6;
-			b = b | ((int32_t)(src->get(i++) & (uint32_t)63));
+			b = (b & 0x1f) << 6;
+			b = b | (src->get(i++) & 0x3f);
 		}
 		$nc(dst)->set(j++, (char16_t)b);
 	}
@@ -141,7 +96,7 @@ int32_t Convert::utf2chars($bytes* src, int32_t sindex, $chars* dst, int32_t din
 }
 
 $chars* Convert::utf2chars($bytes* src, int32_t sindex, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, dst, $new($chars, len));
 	int32_t len1 = utf2chars(src, sindex, dst, 0, len);
 	$var($chars, result, $new($chars, len1));
@@ -171,19 +126,19 @@ int32_t Convert::chars2utf($chars* src, int32_t sindex, $bytes* dst, int32_t din
 		if (1 <= ch && ch <= 127) {
 			$nc(dst)->set(j++, (int8_t)ch);
 		} else if (ch <= 2047) {
-			$nc(dst)->set(j++, (int8_t)(192 | (ch >> 6)));
-			dst->set(j++, (int8_t)(128 | ((int32_t)(ch & (uint32_t)63))));
+			$nc(dst)->set(j++, (int8_t)(0xc0 | (ch >> 6)));
+			dst->set(j++, (int8_t)(0x80 | (ch & 0x3f)));
 		} else {
-			$nc(dst)->set(j++, (int8_t)(224 | (ch >> 12)));
-			dst->set(j++, (int8_t)(128 | ((int32_t)((ch >> 6) & (uint32_t)63))));
-			dst->set(j++, (int8_t)(128 | ((int32_t)(ch & (uint32_t)63))));
+			$nc(dst)->set(j++, (int8_t)(0xe0 | (ch >> 12)));
+			dst->set(j++, (int8_t)(0x80 | ((ch >> 6) & 0x3f)));
+			dst->set(j++, (int8_t)(0x80 | (ch & 0x3f)));
 		}
 	}
 	return j;
 }
 
 $bytes* Convert::chars2utf($chars* src, int32_t sindex, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, dst, $new($bytes, len * 3));
 	int32_t len1 = chars2utf(src, sindex, dst, 0, len);
 	$var($bytes, result, $new($bytes, len1));
@@ -200,7 +155,7 @@ $bytes* Convert::string2utf($String* s) {
 }
 
 $String* Convert::quote($String* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		buf->append($(quote(s->charAt(i))));
@@ -209,44 +164,26 @@ $String* Convert::quote($String* s) {
 }
 
 $String* Convert::quote(char16_t ch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (ch) {
 	case u'\b':
-		{
-			return "\\b"_s;
-		}
+		return "\\b"_s;
 	case u'\f':
-		{
-			return "\\f"_s;
-		}
+		return "\\f"_s;
 	case u'\n':
-		{
-			return "\\n"_s;
-		}
+		return "\\n"_s;
 	case u'\r':
-		{
-			return "\\r"_s;
-		}
+		return "\\r"_s;
 	case u'\t':
-		{
-			return "\\t"_s;
-		}
+		return "\\t"_s;
 	case u'\'':
-		{
-			return "\\\'"_s;
-		}
+		return "\\\'"_s;
 	case u'\"':
-		{
-			return "\\\""_s;
-		}
+		return "\\\""_s;
 	case u'\\':
-		{
-			return "\\\\"_s;
-		}
+		return "\\\\"_s;
 	default:
-		{
-			return (isPrintableAscii(ch)) ? $String::valueOf(ch) : $String::format("\\u%04x"_s, $$new($ObjectArray, {$($of($Integer::valueOf((int32_t)ch)))}));
-		}
+		return (isPrintableAscii(ch)) ? $String::valueOf(ch) : $String::format("\\u%04x"_s, $$new($ObjectArray, {$($Integer::valueOf((int32_t)ch))}));
 	}
 }
 
@@ -255,7 +192,7 @@ bool Convert::isPrintableAscii(char16_t ch) {
 }
 
 $String* Convert::escapeUnicode($String* s$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, s$renamed);
 	int32_t len = $nc(s)->length();
 	int32_t i = 0;
@@ -296,20 +233,20 @@ $Name* Convert::shortName($Name* name) {
 }
 
 $String* Convert::shortName($String* name) {
-	return $nc(name)->substring(name->lastIndexOf((int32_t)u'.') + 1);
+	return $nc(name)->substring($nc(name)->lastIndexOf(u'.') + 1);
 }
 
 $Name* Convert::packagePart($Name* classname) {
-	return $nc(classname)->subName(0, classname->lastIndexOf((int8_t)u'.'));
+	return $nc(classname)->subName(0, $nc(classname)->lastIndexOf((int8_t)u'.'));
 }
 
 $String* Convert::packagePart($String* classname) {
-	int32_t lastDot = $nc(classname)->lastIndexOf((int32_t)u'.');
+	int32_t lastDot = $nc(classname)->lastIndexOf(u'.');
 	return (lastDot < 0 ? ""_s : classname->substring(0, lastDot));
 }
 
 $List* Convert::enclosingCandidates($Name* name$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, name, name$renamed);
 	$var($List, names, $List::nil());
 	int32_t index = 0;
@@ -321,11 +258,11 @@ $List* Convert::enclosingCandidates($Name* name$renamed) {
 }
 
 $List* Convert::classCandidates($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, names, $List::nil());
 	$var($String, nameStr, $nc(name)->toString());
 	int32_t index = -1;
-	while ((index = $nc(nameStr)->indexOf((int32_t)u'.', index + 1)) > 0) {
+	while ((index = $nc(nameStr)->indexOf(u'.', index + 1)) > 0) {
 		$var($String, pack, nameStr->substring(0, index + 1));
 		$var($String, clz, $(nameStr->substring(index + 1))->replace(u'.', u'$'));
 		$assign(names, $nc(names)->prepend($($nc($nc(name->table)->names)->fromString($$str({pack, clz})))));
@@ -337,7 +274,42 @@ Convert::Convert() {
 }
 
 $Class* Convert::load$($String* name, bool initialize) {
-	$loadClass(Convert, name, initialize, &_Convert_ClassInfo_, allocate$Convert);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Convert, init$, void)},
+		{"chars2utf", "([CI[BII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, chars2utf, int32_t, $chars*, int32_t, $bytes*, int32_t, int32_t)},
+		{"chars2utf", "([CII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, chars2utf, $bytes*, $chars*, int32_t, int32_t)},
+		{"chars2utf", "([C)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, chars2utf, $bytes*, $chars*)},
+		{"classCandidates", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $STATIC, $staticMethod(Convert, classCandidates, $List*, $Name*)},
+		{"enclosingCandidates", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $STATIC, $staticMethod(Convert, enclosingCandidates, $List*, $Name*)},
+		{"escapeUnicode", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, escapeUnicode, $String*, $String*)},
+		{"isPrintableAscii", "(C)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Convert, isPrintableAscii, bool, char16_t)},
+		{"packagePart", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, packagePart, $Name*, $Name*)},
+		{"packagePart", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, packagePart, $String*, $String*)},
+		{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, quote, $String*, $String*)},
+		{"quote", "(C)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, quote, $String*, char16_t)},
+		{"shortName", "(Lcom/sun/tools/javac/util/Name;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, shortName, $Name*, $Name*)},
+		{"shortName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, shortName, $String*, $String*)},
+		{"string2int", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, string2int, int32_t, $String*, int32_t), "java.lang.NumberFormatException"},
+		{"string2long", "(Ljava/lang/String;I)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, string2long, int64_t, $String*, int32_t), "java.lang.NumberFormatException"},
+		{"string2utf", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, string2utf, $bytes*, $String*)},
+		{"utf2chars", "([BI[CII)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2chars, int32_t, $bytes*, int32_t, $chars*, int32_t, int32_t)},
+		{"utf2chars", "([BII)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2chars, $chars*, $bytes*, int32_t, int32_t)},
+		{"utf2chars", "([B)[C", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2chars, $chars*, $bytes*)},
+		{"utf2string", "([BII)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2string, $String*, $bytes*, int32_t, int32_t)},
+		{"utf2string", "([B)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Convert, utf2string, $String*, $bytes*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Convert",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Convert, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Convert);
+	});
 	return class$;
 }
 

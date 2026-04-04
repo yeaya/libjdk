@@ -1,5 +1,4 @@
 #include <sun/awt/datatransfer/ClassLoaderObjectInputStream.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectStreamClass.h>
@@ -36,31 +35,6 @@ namespace sun {
 	namespace awt {
 		namespace datatransfer {
 
-$FieldInfo _ClassLoaderObjectInputStream_FieldInfo_[] = {
-	{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/ClassLoader;>;", $PRIVATE | $FINAL, $field(ClassLoaderObjectInputStream, map)},
-	{}
-};
-
-$MethodInfo _ClassLoaderObjectInputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/InputStream;Ljava/util/Map;)V", "(Ljava/io/InputStream;Ljava/util/Map<Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/ClassLoader;>;)V", 0, $method(ClassLoaderObjectInputStream, init$, void, $InputStream*, $Map*), "java.io.IOException"},
-	{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaderObjectInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaderObjectInputStream, resolveProxyClass, $Class*, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _ClassLoaderObjectInputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.datatransfer.ClassLoaderObjectInputStream",
-	"java.io.ObjectInputStream",
-	nullptr,
-	_ClassLoaderObjectInputStream_FieldInfo_,
-	_ClassLoaderObjectInputStream_MethodInfo_
-};
-
-$Object* allocate$ClassLoaderObjectInputStream($Class* clazz) {
-	return $of($alloc(ClassLoaderObjectInputStream));
-}
-
 void ClassLoaderObjectInputStream::init$($InputStream* is, $Map* map) {
 	$ObjectInputStream::init$(is);
 	if (map == nullptr) {
@@ -70,7 +44,7 @@ void ClassLoaderObjectInputStream::init$($InputStream* is, $Map* map) {
 }
 
 $Class* ClassLoaderObjectInputStream::resolveClass($ObjectStreamClass* classDesc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, className, $nc(classDesc)->getName());
 	$var($Set, s, $new($HashSet, 1));
@@ -84,10 +58,10 @@ $Class* ClassLoaderObjectInputStream::resolveClass($ObjectStreamClass* classDesc
 }
 
 $Class* ClassLoaderObjectInputStream::resolveProxyClass($StringArray* interfaces) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Set, s, $new($HashSet, $nc(interfaces)->length));
-	for (int32_t i = 0; i < $nc(interfaces)->length; ++i) {
+	for (int32_t i = 0; i < interfaces->length; ++i) {
 		s->add(interfaces->get(i));
 	}
 	$var($ClassLoader, classLoader, $cast($ClassLoader, $nc(this->map)->get(s)));
@@ -96,10 +70,10 @@ $Class* ClassLoaderObjectInputStream::resolveProxyClass($StringArray* interfaces
 	}
 	$var($ClassLoader, nonPublicLoader, nullptr);
 	bool hasNonPublicInterface = false;
-	$var($ClassArray, classObjs, $new($ClassArray, $nc(interfaces)->length));
+	$var($ClassArray, classObjs, $new($ClassArray, interfaces->length));
 	for (int32_t i = 0; i < interfaces->length; ++i) {
 		$Class* cl = $Class::forName(interfaces->get(i), false, classLoader);
-		if (((int32_t)($nc(cl)->getModifiers() & (uint32_t)$Modifier::PUBLIC)) == 0) {
+		if ((cl->getModifiers() & $Modifier::PUBLIC) == 0) {
 			if (hasNonPublicInterface) {
 				if (nonPublicLoader != cl->getClassLoader()) {
 					$throwNew($IllegalAccessError, "conflicting non-public interface class loaders"_s);
@@ -124,7 +98,27 @@ ClassLoaderObjectInputStream::ClassLoaderObjectInputStream() {
 }
 
 $Class* ClassLoaderObjectInputStream::load$($String* name, bool initialize) {
-	$loadClass(ClassLoaderObjectInputStream, name, initialize, &_ClassLoaderObjectInputStream_ClassInfo_, allocate$ClassLoaderObjectInputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/ClassLoader;>;", $PRIVATE | $FINAL, $field(ClassLoaderObjectInputStream, map)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/InputStream;Ljava/util/Map;)V", "(Ljava/io/InputStream;Ljava/util/Map<Ljava/util/Set<Ljava/lang/String;>;Ljava/lang/ClassLoader;>;)V", 0, $method(ClassLoaderObjectInputStream, init$, void, $InputStream*, $Map*), "java.io.IOException"},
+		{"resolveClass", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;", "(Ljava/io/ObjectStreamClass;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaderObjectInputStream, resolveClass, $Class*, $ObjectStreamClass*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"resolveProxyClass", "([Ljava/lang/String;)Ljava/lang/Class;", "([Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(ClassLoaderObjectInputStream, resolveProxyClass, $Class*, $StringArray*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.datatransfer.ClassLoaderObjectInputStream",
+		"java.io.ObjectInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClassLoaderObjectInputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ClassLoaderObjectInputStream));
+	});
 	return class$;
 }
 

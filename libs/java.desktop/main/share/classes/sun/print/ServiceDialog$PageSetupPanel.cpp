@@ -1,6 +1,4 @@
 #include <sun/print/ServiceDialog$PageSetupPanel.h>
-
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
@@ -17,11 +15,8 @@
 #undef RELATIVE
 #undef REMAINDER
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -36,47 +31,8 @@ using $ServiceDialog$OrientationPanel = ::sun::print::ServiceDialog$OrientationP
 namespace sun {
 	namespace print {
 
-$FieldInfo _ServiceDialog$PageSetupPanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$PageSetupPanel, this$0)},
-	{"pnlMedia", "Lsun/print/ServiceDialog$MediaPanel;", nullptr, $PRIVATE, $field(ServiceDialog$PageSetupPanel, pnlMedia)},
-	{"pnlOrientation", "Lsun/print/ServiceDialog$OrientationPanel;", nullptr, $PRIVATE, $field(ServiceDialog$PageSetupPanel, pnlOrientation)},
-	{"pnlMargins", "Lsun/print/ServiceDialog$MarginsPanel;", nullptr, $PRIVATE, $field(ServiceDialog$PageSetupPanel, pnlMargins)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$PageSetupPanel_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$PageSetupPanel, init$, void, $ServiceDialog*)},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PageSetupPanel, updateInfo, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$PageSetupPanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$PageSetupPanel", "sun.print.ServiceDialog", "PageSetupPanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$PageSetupPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$PageSetupPanel",
-	"javax.swing.JPanel",
-	nullptr,
-	_ServiceDialog$PageSetupPanel_FieldInfo_,
-	_ServiceDialog$PageSetupPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$PageSetupPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$PageSetupPanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$PageSetupPanel));
-}
-
 void ServiceDialog$PageSetupPanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$var($GridBagLayout, gridbag, $new($GridBagLayout));
@@ -110,7 +66,40 @@ ServiceDialog$PageSetupPanel::ServiceDialog$PageSetupPanel() {
 }
 
 $Class* ServiceDialog$PageSetupPanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$PageSetupPanel, name, initialize, &_ServiceDialog$PageSetupPanel_ClassInfo_, allocate$ServiceDialog$PageSetupPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$PageSetupPanel, this$0)},
+		{"pnlMedia", "Lsun/print/ServiceDialog$MediaPanel;", nullptr, $PRIVATE, $field(ServiceDialog$PageSetupPanel, pnlMedia)},
+		{"pnlOrientation", "Lsun/print/ServiceDialog$OrientationPanel;", nullptr, $PRIVATE, $field(ServiceDialog$PageSetupPanel, pnlOrientation)},
+		{"pnlMargins", "Lsun/print/ServiceDialog$MarginsPanel;", nullptr, $PRIVATE, $field(ServiceDialog$PageSetupPanel, pnlMargins)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$PageSetupPanel, init$, void, $ServiceDialog*)},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PageSetupPanel, updateInfo, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$PageSetupPanel", "sun.print.ServiceDialog", "PageSetupPanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$PageSetupPanel",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$PageSetupPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$PageSetupPanel));
+	});
 	return class$;
 }
 

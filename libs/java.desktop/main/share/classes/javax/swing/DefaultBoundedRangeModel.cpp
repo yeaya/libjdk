@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultBoundedRangeModel.h>
-
 #include <java/lang/Math.h>
 #include <java/util/EventListener.h>
 #include <javax/swing/BoundedRangeModel.h>
@@ -18,7 +17,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
@@ -26,57 +24,6 @@ using $EventListenerList = ::javax::swing::event::EventListenerList;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DefaultBoundedRangeModel_FieldInfo_[] = {
-	{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultBoundedRangeModel, changeEvent)},
-	{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultBoundedRangeModel, listenerList)},
-	{"value", "I", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, value)},
-	{"extent", "I", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, extent)},
-	{"min", "I", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, min)},
-	{"max", "I", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, max)},
-	{"isAdjusting", "Z", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, isAdjusting)},
-	{}
-};
-
-$MethodInfo _DefaultBoundedRangeModel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultBoundedRangeModel, init$, void)},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(DefaultBoundedRangeModel, init$, void, int32_t, int32_t, int32_t, int32_t)},
-	{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, addChangeListener, void, $ChangeListener*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultBoundedRangeModel, fireStateChanged, void)},
-	{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getChangeListeners, $ChangeListenerArray*)},
-	{"getExtent", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getExtent, int32_t)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getListeners, $EventListenerArray*, $Class*)},
-	{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getMaximum, int32_t)},
-	{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getMinimum, int32_t)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getValue, int32_t)},
-	{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getValueIsAdjusting, bool)},
-	{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, removeChangeListener, void, $ChangeListener*)},
-	{"setExtent", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setExtent, void, int32_t)},
-	{"setMaximum", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setMaximum, void, int32_t)},
-	{"setMinimum", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setMinimum, void, int32_t)},
-	{"setRangeProperties", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setRangeProperties, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setValue, void, int32_t)},
-	{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setValueIsAdjusting, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, toString, $String*)},
-	{}
-};
-
-$ClassInfo _DefaultBoundedRangeModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.DefaultBoundedRangeModel",
-	"java.lang.Object",
-	"javax.swing.BoundedRangeModel,java.io.Serializable",
-	_DefaultBoundedRangeModel_FieldInfo_,
-	_DefaultBoundedRangeModel_MethodInfo_
-};
-
-$Object* allocate$DefaultBoundedRangeModel($Class* clazz) {
-	return $of($alloc(DefaultBoundedRangeModel));
-}
 
 int32_t DefaultBoundedRangeModel::hashCode() {
 	 return this->$BoundedRangeModel::hashCode();
@@ -216,7 +163,7 @@ void DefaultBoundedRangeModel::removeChangeListener($ChangeListener* l) {
 
 $ChangeListenerArray* DefaultBoundedRangeModel::getChangeListeners() {
 	$load($ChangeListener);
-	return $fcast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
+	return $cast($ChangeListenerArray, $nc(this->listenerList)->getListeners($ChangeListener::class$));
 }
 
 void DefaultBoundedRangeModel::fireStateChanged() {
@@ -227,21 +174,25 @@ void DefaultBoundedRangeModel::fireStateChanged() {
 			if (this->changeEvent == nullptr) {
 				$set(this, changeEvent, $new($ChangeEvent, this));
 			}
-			$nc(($cast($ChangeListener, listeners->get(i + 1))))->stateChanged(this->changeEvent);
+			$nc($cast($ChangeListener, listeners->get(i + 1)))->stateChanged(this->changeEvent);
 		}
 	}
 }
 
 $String* DefaultBoundedRangeModel::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$6, $$str({"value="_s, $$str(getValue()), ", extent="_s}));
-	$var($String, var$5, $$concat(var$6, $$str(getExtent())));
-	$var($String, var$4, $$concat(var$5, ", min="_s));
-	$var($String, var$3, $$concat(var$4, $$str(getMinimum())));
-	$var($String, var$2, $$concat(var$3, ", max="_s));
-	$var($String, var$1, $$concat(var$2, $$str(getMaximum())));
-	$var($String, var$0, $$concat(var$1, ", adj="_s));
-	$var($String, modelString, $concat(var$0, $$str(getValueIsAdjusting())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("value="_s);
+	var$0->append(getValue());
+	var$0->append(", extent="_s);
+	var$0->append(getExtent());
+	var$0->append(", min="_s);
+	var$0->append(getMinimum());
+	var$0->append(", max="_s);
+	var$0->append(getMaximum());
+	var$0->append(", adj="_s);
+	var$0->append(getValueIsAdjusting());
+	$var($String, modelString, $str(var$0));
 	return $str({$($of(this)->getClass()->getName()), "["_s, modelString, "]"_s});
 }
 
@@ -253,7 +204,53 @@ DefaultBoundedRangeModel::DefaultBoundedRangeModel() {
 }
 
 $Class* DefaultBoundedRangeModel::load$($String* name, bool initialize) {
-	$loadClass(DefaultBoundedRangeModel, name, initialize, &_DefaultBoundedRangeModel_ClassInfo_, allocate$DefaultBoundedRangeModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"changeEvent", "Ljavax/swing/event/ChangeEvent;", nullptr, $PROTECTED | $TRANSIENT, $field(DefaultBoundedRangeModel, changeEvent)},
+		{"listenerList", "Ljavax/swing/event/EventListenerList;", nullptr, $PROTECTED, $field(DefaultBoundedRangeModel, listenerList)},
+		{"value", "I", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, value)},
+		{"extent", "I", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, extent)},
+		{"min", "I", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, min)},
+		{"max", "I", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, max)},
+		{"isAdjusting", "Z", nullptr, $PRIVATE, $field(DefaultBoundedRangeModel, isAdjusting)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultBoundedRangeModel, init$, void)},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(DefaultBoundedRangeModel, init$, void, int32_t, int32_t, int32_t, int32_t)},
+		{"addChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, addChangeListener, void, $ChangeListener*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(DefaultBoundedRangeModel, fireStateChanged, void)},
+		{"getChangeListeners", "()[Ljavax/swing/event/ChangeListener;", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getChangeListeners, $ChangeListenerArray*)},
+		{"getExtent", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getExtent, int32_t)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getListeners, $EventListenerArray*, $Class*)},
+		{"getMaximum", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getMaximum, int32_t)},
+		{"getMinimum", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getMinimum, int32_t)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getValue, int32_t)},
+		{"getValueIsAdjusting", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, getValueIsAdjusting, bool)},
+		{"removeChangeListener", "(Ljavax/swing/event/ChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, removeChangeListener, void, $ChangeListener*)},
+		{"setExtent", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setExtent, void, int32_t)},
+		{"setMaximum", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setMaximum, void, int32_t)},
+		{"setMinimum", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setMinimum, void, int32_t)},
+		{"setRangeProperties", "(IIIIZ)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setRangeProperties, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"setValue", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setValue, void, int32_t)},
+		{"setValueIsAdjusting", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, setValueIsAdjusting, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultBoundedRangeModel, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.DefaultBoundedRangeModel",
+		"java.lang.Object",
+		"javax.swing.BoundedRangeModel,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultBoundedRangeModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultBoundedRangeModel));
+	});
 	return class$;
 }
 

@@ -1,56 +1,23 @@
 #include <com/sun/media/sound/Printer.h>
-
 #include <java/lang/CharSequence.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
 #undef SHOW_THREADID
 #undef SHOW_TIMESTAMP
 
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _Printer_FieldInfo_[] = {
-	{"err", "Z", nullptr, $STATIC | $FINAL, $staticField(Printer, err$)},
-	{"SHOW_THREADID", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Printer, SHOW_THREADID)},
-	{"SHOW_TIMESTAMP", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Printer, SHOW_TIMESTAMP)},
-	{"startTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(Printer, startTime)},
-	{}
-};
-
-$MethodInfo _Printer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Printer, init$, void)},
-	{"err", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Printer, err, void, $String*)},
-	{"isBuildInternal", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Printer, isBuildInternal, bool)},
-	{"println", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Printer, println, void, $String*)},
-	{}
-};
-
-$ClassInfo _Printer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.Printer",
-	"java.lang.Object",
-	nullptr,
-	_Printer_FieldInfo_,
-	_Printer_MethodInfo_
-};
-
-$Object* allocate$Printer($Class* clazz) {
-	return $of($alloc(Printer));
-}
 
 bool Printer::err$ = false;
 int64_t Printer::startTime = 0;
@@ -67,15 +34,15 @@ void Printer::err($String* str) {
 
 bool Printer::isBuildInternal() {
 	$init(Printer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, javaVersion, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.version"_s)))));
+	$var($String, javaVersion, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "java.version"_s))));
 	return javaVersion != nullptr && javaVersion->contains("internal"_s);
 }
 
 void Printer::println($String* s) {
 	$init(Printer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prepend, ""_s);
 	{
 		$assign(prepend, $str({"thread "_s, $$str($($Thread::currentThread())->getId()), " "_s, prepend}));
@@ -89,7 +56,7 @@ void Printer::println($String* s) {
 	$nc($System::out)->println($$str({prepend, s}));
 }
 
-void clinit$Printer($Class* class$) {
+void Printer::clinit$($Class* clazz) {
 	Printer::err$ = Printer::isBuildInternal();
 	Printer::startTime = 0;
 }
@@ -98,7 +65,31 @@ Printer::Printer() {
 }
 
 $Class* Printer::load$($String* name, bool initialize) {
-	$loadClass(Printer, name, initialize, &_Printer_ClassInfo_, clinit$Printer, allocate$Printer);
+	$FieldInfo fieldInfos$$[] = {
+		{"err", "Z", nullptr, $STATIC | $FINAL, $staticField(Printer, err$)},
+		{"SHOW_THREADID", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Printer, SHOW_THREADID)},
+		{"SHOW_TIMESTAMP", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Printer, SHOW_TIMESTAMP)},
+		{"startTime", "J", nullptr, $PRIVATE | $STATIC, $staticField(Printer, startTime)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Printer, init$, void)},
+		{"err", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Printer, err, void, $String*)},
+		{"isBuildInternal", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Printer, isBuildInternal, bool)},
+		{"println", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Printer, println, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.Printer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Printer, name, initialize, &classInfo$$, Printer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Printer);
+	});
 	return class$;
 }
 

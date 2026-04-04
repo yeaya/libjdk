@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Warner.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <java/util/AbstractCollection.h>
@@ -18,40 +17,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Warner_FieldInfo_[] = {
-	{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $field(Warner, pos$)},
-	{"warned", "Z", nullptr, $PROTECTED, $field(Warner, warned)},
-	{"nonSilentLintSet", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Lint$LintCategory;>;", $PRIVATE, $field(Warner, nonSilentLintSet)},
-	{"silentLintSet", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Lint$LintCategory;>;", $PRIVATE, $field(Warner, silentLintSet)},
-	{}
-};
-
-$MethodInfo _Warner_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Warner, init$, void, $JCDiagnostic$DiagnosticPosition*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Warner, init$, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Warner, clear, void)},
-	{"hasLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasLint, bool, $Lint$LintCategory*)},
-	{"hasNonSilentLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasNonSilentLint, bool, $Lint$LintCategory*)},
-	{"hasSilentLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasSilentLint, bool, $Lint$LintCategory*)},
-	{"pos", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(Warner, pos, $JCDiagnostic$DiagnosticPosition*)},
-	{"silentWarn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $virtualMethod(Warner, silentWarn, void, $Lint$LintCategory*)},
-	{"warn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $virtualMethod(Warner, warn, void, $Lint$LintCategory*)},
-	{}
-};
-
-$ClassInfo _Warner_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Warner",
-	"java.lang.Object",
-	nullptr,
-	_Warner_FieldInfo_,
-	_Warner_MethodInfo_
-};
-
-$Object* allocate$Warner($Class* clazz) {
-	return $of($alloc(Warner));
-}
 
 $JCDiagnostic$DiagnosticPosition* Warner::pos() {
 	return this->pos$;
@@ -101,7 +66,36 @@ Warner::Warner() {
 }
 
 $Class* Warner::load$($String* name, bool initialize) {
-	$loadClass(Warner, name, initialize, &_Warner_ClassInfo_, allocate$Warner);
+	$FieldInfo fieldInfos$$[] = {
+		{"pos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PRIVATE, $field(Warner, pos$)},
+		{"warned", "Z", nullptr, $PROTECTED, $field(Warner, warned)},
+		{"nonSilentLintSet", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Lint$LintCategory;>;", $PRIVATE, $field(Warner, nonSilentLintSet)},
+		{"silentLintSet", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/code/Lint$LintCategory;>;", $PRIVATE, $field(Warner, silentLintSet)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Warner, init$, void, $JCDiagnostic$DiagnosticPosition*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Warner, init$, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Warner, clear, void)},
+		{"hasLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasLint, bool, $Lint$LintCategory*)},
+		{"hasNonSilentLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasNonSilentLint, bool, $Lint$LintCategory*)},
+		{"hasSilentLint", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)Z", nullptr, $PUBLIC, $virtualMethod(Warner, hasSilentLint, bool, $Lint$LintCategory*)},
+		{"pos", "()Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $virtualMethod(Warner, pos, $JCDiagnostic$DiagnosticPosition*)},
+		{"silentWarn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $virtualMethod(Warner, silentWarn, void, $Lint$LintCategory*)},
+		{"warn", "(Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $virtualMethod(Warner, warn, void, $Lint$LintCategory*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Warner",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Warner, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Warner);
+	});
 	return class$;
 }
 

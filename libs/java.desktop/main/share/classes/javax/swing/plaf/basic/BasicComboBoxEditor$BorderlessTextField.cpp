@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboBoxEditor$BorderlessTextField.h>
-
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/border/Border.h>
@@ -19,44 +18,12 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicComboBoxEditor$BorderlessTextField_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(BasicComboBoxEditor$BorderlessTextField, init$, void, $String*, int32_t)},
-	{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor$BorderlessTextField, setBorder, void, $Border*)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor$BorderlessTextField, setText, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _BasicComboBoxEditor$BorderlessTextField_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboBoxEditor$BorderlessTextField", "javax.swing.plaf.basic.BasicComboBoxEditor", "BorderlessTextField", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicComboBoxEditor$BorderlessTextField_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboBoxEditor$BorderlessTextField",
-	"javax.swing.JTextField",
-	nullptr,
-	nullptr,
-	_BasicComboBoxEditor$BorderlessTextField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboBoxEditor$BorderlessTextField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboBoxEditor"
-};
-
-$Object* allocate$BasicComboBoxEditor$BorderlessTextField($Class* clazz) {
-	return $of($alloc(BasicComboBoxEditor$BorderlessTextField));
-}
-
 void BasicComboBoxEditor$BorderlessTextField::init$($String* value, int32_t n) {
 	$JTextField::init$(value, n);
 }
 
 void BasicComboBoxEditor$BorderlessTextField::setText($String* s) {
-	if ($nc($(getText()))->equals(s)) {
+	if ($$nc(getText())->equals(s)) {
 		return;
 	}
 	$JTextField::setText(s);
@@ -72,7 +39,34 @@ BasicComboBoxEditor$BorderlessTextField::BasicComboBoxEditor$BorderlessTextField
 }
 
 $Class* BasicComboBoxEditor$BorderlessTextField::load$($String* name, bool initialize) {
-	$loadClass(BasicComboBoxEditor$BorderlessTextField, name, initialize, &_BasicComboBoxEditor$BorderlessTextField_ClassInfo_, allocate$BasicComboBoxEditor$BorderlessTextField);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(BasicComboBoxEditor$BorderlessTextField, init$, void, $String*, int32_t)},
+		{"setBorder", "(Ljavax/swing/border/Border;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor$BorderlessTextField, setBorder, void, $Border*)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboBoxEditor$BorderlessTextField, setText, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboBoxEditor$BorderlessTextField", "javax.swing.plaf.basic.BasicComboBoxEditor", "BorderlessTextField", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboBoxEditor$BorderlessTextField",
+		"javax.swing.JTextField",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboBoxEditor"
+	};
+	$loadClass(BasicComboBoxEditor$BorderlessTextField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicComboBoxEditor$BorderlessTextField));
+	});
 	return class$;
 }
 

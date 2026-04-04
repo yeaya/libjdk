@@ -1,5 +1,4 @@
 #include <java/awt/image/ImagingOpException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _ImagingOpException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImagingOpException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ImagingOpException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImagingOpException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _ImagingOpException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.ImagingOpException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_ImagingOpException_FieldInfo_,
-	_ImagingOpException_MethodInfo_
-};
-
-$Object* allocate$ImagingOpException($Class* clazz) {
-	return $of($alloc(ImagingOpException));
-}
 
 void ImagingOpException::init$($String* s) {
 	$RuntimeException::init$(s);
@@ -49,7 +25,25 @@ void ImagingOpException::throw$() {
 }
 
 $Class* ImagingOpException::load$($String* name, bool initialize) {
-	$loadClass(ImagingOpException, name, initialize, &_ImagingOpException_ClassInfo_, allocate$ImagingOpException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ImagingOpException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ImagingOpException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.ImagingOpException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImagingOpException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImagingOpException);
+	});
 	return class$;
 }
 

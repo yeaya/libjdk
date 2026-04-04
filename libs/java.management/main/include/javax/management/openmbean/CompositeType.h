@@ -39,7 +39,7 @@ public:
 	virtual bool isValue(Object$* obj) override;
 	virtual ::java::util::Set* keySet();
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xB58746EB5A079F42;
+	static const int64_t serialVersionUID = (int64_t)0xb58746eb5a079f42;
 	::java::util::TreeMap* nameToDescription = nullptr;
 	::java::util::TreeMap* nameToType = nullptr;
 	::java::lang::Integer* myHashCode = nullptr;

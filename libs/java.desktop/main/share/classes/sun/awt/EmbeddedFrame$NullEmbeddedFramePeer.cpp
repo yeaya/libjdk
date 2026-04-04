@@ -1,5 +1,4 @@
 #include <sun/awt/EmbeddedFrame$NullEmbeddedFramePeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -64,108 +63,6 @@ using $Region = ::sun::java2d::pipe::Region;
 
 namespace sun {
 	namespace awt {
-
-$MethodInfo _EmbeddedFrame$NullEmbeddedFramePeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(EmbeddedFrame$NullEmbeddedFramePeer, init$, void)},
-	{"emulateActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, emulateActivation, void, bool)},
-	{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, getBoundsPrivate, $Rectangle*)},
-	{"getGlobalHeavyweightFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, getGlobalHeavyweightFocusOwner, $Component*)},
-	{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, getState, int32_t)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isRestackSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, isRestackSupported, bool)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"repositionSecurityWarning", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, repositionSecurityWarning, void)},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"requestWindowFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, requestWindowFocus, bool)},
-	{"restack", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, restack, void)},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setIconImage, void, $Image*)},
-	{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setMaximizedBounds, void, $Rectangle*)},
-	{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setMenuBar, void, $MenuBar*)},
-	{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setModalBlocked, void, $Dialog*, bool)},
-	{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setOpacity, void, float)},
-	{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setOpaque, void, bool)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setResizable, void, bool)},
-	{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setState, void, int32_t)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setTitle, void, $String*)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, toBack, void)},
-	{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, toFront, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateAlwaysOnTop", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateAlwaysOnTop, void)},
-	{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateAlwaysOnTopState, void)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateFocusableWindowState, void)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateIconImages, void)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateMinimumSize, void)},
-	{"updateWindow", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateWindow, void)},
-	{}
-};
-
-$InnerClassInfo _EmbeddedFrame$NullEmbeddedFramePeer_InnerClassesInfo_[] = {
-	{"sun.awt.EmbeddedFrame$NullEmbeddedFramePeer", "sun.awt.EmbeddedFrame", "NullEmbeddedFramePeer", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _EmbeddedFrame$NullEmbeddedFramePeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.EmbeddedFrame$NullEmbeddedFramePeer",
-	"sun.awt.NullComponentPeer",
-	"java.awt.peer.FramePeer",
-	nullptr,
-	_EmbeddedFrame$NullEmbeddedFramePeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EmbeddedFrame$NullEmbeddedFramePeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.EmbeddedFrame"
-};
-
-$Object* allocate$EmbeddedFrame$NullEmbeddedFramePeer($Class* clazz) {
-	return $of($alloc(EmbeddedFrame$NullEmbeddedFramePeer));
-}
 
 bool EmbeddedFrame$NullEmbeddedFramePeer::isObscured() {
 	 return this->$NullComponentPeer::isObscured();
@@ -444,7 +341,104 @@ EmbeddedFrame$NullEmbeddedFramePeer::EmbeddedFrame$NullEmbeddedFramePeer() {
 }
 
 $Class* EmbeddedFrame$NullEmbeddedFramePeer::load$($String* name, bool initialize) {
-	$loadClass(EmbeddedFrame$NullEmbeddedFramePeer, name, initialize, &_EmbeddedFrame$NullEmbeddedFramePeer_ClassInfo_, allocate$EmbeddedFrame$NullEmbeddedFramePeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(EmbeddedFrame$NullEmbeddedFramePeer, init$, void)},
+		{"emulateActivation", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, emulateActivation, void, bool)},
+		{"getBoundsPrivate", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, getBoundsPrivate, $Rectangle*)},
+		{"getGlobalHeavyweightFocusOwner", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, getGlobalHeavyweightFocusOwner, $Component*)},
+		{"getState", "()I", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, getState, int32_t)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isRestackSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, isRestackSupported, bool)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"repositionSecurityWarning", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, repositionSecurityWarning, void)},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"requestWindowFocus", "()Z", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, requestWindowFocus, bool)},
+		{"restack", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, restack, void)},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setBoundsPrivate", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setBoundsPrivate, void, int32_t, int32_t, int32_t, int32_t)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"setIconImage", "(Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setIconImage, void, $Image*)},
+		{"setMaximizedBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setMaximizedBounds, void, $Rectangle*)},
+		{"setMenuBar", "(Ljava/awt/MenuBar;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setMenuBar, void, $MenuBar*)},
+		{"setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setModalBlocked, void, $Dialog*, bool)},
+		{"setOpacity", "(F)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setOpacity, void, float)},
+		{"setOpaque", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setOpaque, void, bool)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setResizable, void, bool)},
+		{"setState", "(I)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setState, void, int32_t)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, setTitle, void, $String*)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"toBack", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, toBack, void)},
+		{"toFront", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, toFront, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateAlwaysOnTop", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateAlwaysOnTop, void)},
+		{"updateAlwaysOnTopState", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateAlwaysOnTopState, void)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"updateFocusableWindowState", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateFocusableWindowState, void)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"updateIconImages", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateIconImages, void)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateMinimumSize, void)},
+		{"updateWindow", "()V", nullptr, $PUBLIC, $virtualMethod(EmbeddedFrame$NullEmbeddedFramePeer, updateWindow, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.EmbeddedFrame$NullEmbeddedFramePeer", "sun.awt.EmbeddedFrame", "NullEmbeddedFramePeer", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.EmbeddedFrame$NullEmbeddedFramePeer",
+		"sun.awt.NullComponentPeer",
+		"java.awt.peer.FramePeer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.EmbeddedFrame"
+	};
+	$loadClass(EmbeddedFrame$NullEmbeddedFramePeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EmbeddedFrame$NullEmbeddedFramePeer));
+	});
 	return class$;
 }
 

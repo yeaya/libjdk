@@ -22,6 +22,7 @@ class XSelection$IncrementalDataProvider : public ::sun::awt::X11::XEventDispatc
 	$class(XSelection$IncrementalDataProvider, 0, ::sun::awt::X11::XEventDispatcher)
 public:
 	XSelection$IncrementalDataProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t requestor, int64_t property, int64_t target, int32_t format, $bytes* data);
 	virtual void dispatchEvent(::sun::awt::X11::XEvent* ev) override;
 	static bool $assertionsDisabled;

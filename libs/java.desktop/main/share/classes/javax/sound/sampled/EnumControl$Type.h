@@ -16,6 +16,7 @@ class $export EnumControl$Type : public ::javax::sound::sampled::Control$Type {
 	$class(EnumControl$Type, 0, ::javax::sound::sampled::Control$Type)
 public:
 	EnumControl$Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static ::javax::sound::sampled::EnumControl$Type* REVERB;
 };

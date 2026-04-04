@@ -1,5 +1,4 @@
 #include <java/awt/image/renderable/RenderContext.h>
-
 #include <java/awt/RenderingHints.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -17,55 +16,6 @@ namespace java {
 	namespace awt {
 		namespace image {
 			namespace renderable {
-
-$CompoundAttribute _RenderContext_MethodAnnotations_concetenateTransform6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _RenderContext_MethodAnnotations_preConcetenateTransform11[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _RenderContext_FieldInfo_[] = {
-	{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(RenderContext, hints)},
-	{"usr2dev", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(RenderContext, usr2dev)},
-	{"aoi", "Ljava/awt/Shape;", nullptr, 0, $field(RenderContext, aoi)},
-	{}
-};
-
-$MethodInfo _RenderContext_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(RenderContext, init$, void, $AffineTransform*, $Shape*, $RenderingHints*)},
-	{"<init>", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(RenderContext, init$, void, $AffineTransform*)},
-	{"<init>", "(Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(RenderContext, init$, void, $AffineTransform*, $RenderingHints*)},
-	{"<init>", "(Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $method(RenderContext, init$, void, $AffineTransform*, $Shape*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderContext, clone, $Object*)},
-	{"concatenateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, concatenateTransform, void, $AffineTransform*)},
-	{"concetenateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(RenderContext, concetenateTransform, void, $AffineTransform*), nullptr, nullptr, _RenderContext_MethodAnnotations_concetenateTransform6},
-	{"getAreaOfInterest", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(RenderContext, getAreaOfInterest, $Shape*)},
-	{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $virtualMethod(RenderContext, getRenderingHints, $RenderingHints*)},
-	{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(RenderContext, getTransform, $AffineTransform*)},
-	{"preConcatenateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, preConcatenateTransform, void, $AffineTransform*)},
-	{"preConcetenateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(RenderContext, preConcetenateTransform, void, $AffineTransform*), nullptr, nullptr, _RenderContext_MethodAnnotations_preConcetenateTransform11},
-	{"setAreaOfInterest", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, setAreaOfInterest, void, $Shape*)},
-	{"setRenderingHints", "(Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, setRenderingHints, void, $RenderingHints*)},
-	{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, setTransform, void, $AffineTransform*)},
-	{}
-};
-
-$ClassInfo _RenderContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.image.renderable.RenderContext",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_RenderContext_FieldInfo_,
-	_RenderContext_MethodInfo_
-};
-
-$Object* allocate$RenderContext($Class* clazz) {
-	return $of($alloc(RenderContext));
-}
 
 void RenderContext::init$($AffineTransform* usr2dev, $Shape* aoi, $RenderingHints* hints) {
 	$set(this, hints, hints);
@@ -127,14 +77,56 @@ $Shape* RenderContext::getAreaOfInterest() {
 
 $Object* RenderContext::clone() {
 	$var(RenderContext, newRenderContext, $new(RenderContext, this->usr2dev, this->aoi, this->hints));
-	return $of(newRenderContext);
+	return newRenderContext;
 }
 
 RenderContext::RenderContext() {
 }
 
 $Class* RenderContext::load$($String* name, bool initialize) {
-	$loadClass(RenderContext, name, initialize, &_RenderContext_ClassInfo_, allocate$RenderContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"hints", "Ljava/awt/RenderingHints;", nullptr, 0, $field(RenderContext, hints)},
+		{"usr2dev", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(RenderContext, usr2dev)},
+		{"aoi", "Ljava/awt/Shape;", nullptr, 0, $field(RenderContext, aoi)},
+		{}
+	};
+	$CompoundAttribute concetenateTransformmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute preConcetenateTransformmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(RenderContext, init$, void, $AffineTransform*, $Shape*, $RenderingHints*)},
+		{"<init>", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(RenderContext, init$, void, $AffineTransform*)},
+		{"<init>", "(Ljava/awt/geom/AffineTransform;Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $method(RenderContext, init$, void, $AffineTransform*, $RenderingHints*)},
+		{"<init>", "(Ljava/awt/geom/AffineTransform;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $method(RenderContext, init$, void, $AffineTransform*, $Shape*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(RenderContext, clone, $Object*)},
+		{"concatenateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, concatenateTransform, void, $AffineTransform*)},
+		{"concetenateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(RenderContext, concetenateTransform, void, $AffineTransform*), nullptr, nullptr, concetenateTransformmethodAnnotations$$},
+		{"getAreaOfInterest", "()Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(RenderContext, getAreaOfInterest, $Shape*)},
+		{"getRenderingHints", "()Ljava/awt/RenderingHints;", nullptr, $PUBLIC, $virtualMethod(RenderContext, getRenderingHints, $RenderingHints*)},
+		{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(RenderContext, getTransform, $AffineTransform*)},
+		{"preConcatenateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, preConcatenateTransform, void, $AffineTransform*)},
+		{"preConcetenateTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(RenderContext, preConcetenateTransform, void, $AffineTransform*), nullptr, nullptr, preConcetenateTransformmethodAnnotations$$},
+		{"setAreaOfInterest", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, setAreaOfInterest, void, $Shape*)},
+		{"setRenderingHints", "(Ljava/awt/RenderingHints;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, setRenderingHints, void, $RenderingHints*)},
+		{"setTransform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $virtualMethod(RenderContext, setTransform, void, $AffineTransform*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.image.renderable.RenderContext",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RenderContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RenderContext);
+	});
 	return class$;
 }
 

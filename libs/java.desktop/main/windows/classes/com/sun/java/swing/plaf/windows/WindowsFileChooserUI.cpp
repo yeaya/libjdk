@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$1.h>
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$10.h>
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$11.h>
@@ -25,10 +24,8 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionListener.h>
@@ -41,14 +38,12 @@
 #include <java/io/File.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/ButtonModel.h>
-#include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JButton.h>
@@ -70,7 +65,6 @@
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/event/ListSelectionEvent.h>
 #include <javax/swing/event/ListSelectionListener.h>
-#include <javax/swing/event/PopupMenuListener.h>
 #include <javax/swing/filechooser/FileSystemView.h>
 #include <javax/swing/filechooser/FileView.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
@@ -78,7 +72,6 @@
 #include <javax/swing/plaf/InsetsUIResource.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI$BasicFileView.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
-#include <sun/swing/FilePane$FileChooserUIAccessor.h>
 #include <sun/swing/FilePane.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <sun/swing/WindowsPlacesBar.h>
@@ -139,16 +132,9 @@ using $WindowsLookAndFeel = ::com::sun::java::swing::plaf::windows::WindowsLookA
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusListener = ::java::awt::event::FocusListener;
-using $KeyListener = ::java::awt::event::KeyListener;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -162,14 +148,11 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $ButtonModel = ::javax::swing::ButtonModel;
-using $ComboBoxModel = ::javax::swing::ComboBoxModel;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JButton = ::javax::swing::JButton;
@@ -178,29 +161,23 @@ using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;
 using $JTextField = ::javax::swing::JTextField;
 using $JToolBar = ::javax::swing::JToolBar;
-using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
 using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
-using $PopupMenuListener = ::javax::swing::event::PopupMenuListener;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $FileView = ::javax::swing::filechooser::FileView;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $InsetsUIResource = ::javax::swing::plaf::InsetsUIResource;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
-using $BasicFileChooserUI$BasicFileView = ::javax::swing::plaf::basic::BasicFileChooserUI$BasicFileView;
 using $FilePane = ::sun::swing::FilePane;
-using $FilePane$FileChooserUIAccessor = ::sun::swing::FilePane$FileChooserUIAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 using $WindowsPlacesBar = ::sun::swing::WindowsPlacesBar;
 
@@ -210,157 +187,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _WindowsFileChooserUI_FieldInfo_[] = {
-	{"centerPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, centerPanel)},
-	{"lookInLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, lookInLabel)},
-	{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/io/File;>;", $PRIVATE, $field(WindowsFileChooserUI, directoryComboBox)},
-	{"directoryComboBoxModel", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$DirectoryComboBoxModel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, directoryComboBoxModel)},
-	{"directoryComboBoxAction", "Ljava/awt/event/ActionListener;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, directoryComboBoxAction)},
-	{"filterComboBoxModel", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filterComboBoxModel)},
-	{"filenameTextField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filenameTextField)},
-	{"filePane", "Lsun/swing/FilePane;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filePane)},
-	{"placesBar", "Lsun/swing/WindowsPlacesBar;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, placesBar)},
-	{"approveButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, approveButton)},
-	{"cancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, cancelButton)},
-	{"buttonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, buttonPanel)},
-	{"bottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, bottomPanel)},
-	{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(WindowsFileChooserUI, filterComboBox)},
-	{"hstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, hstrut10)},
-	{"vstrut4", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, vstrut4)},
-	{"vstrut6", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, vstrut6)},
-	{"vstrut8", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, vstrut8)},
-	{"shrinkwrap", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, shrinkwrap)},
-	{"PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, PREF_WIDTH)},
-	{"PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, PREF_HEIGHT)},
-	{"PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, PREF_SIZE)},
-	{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, MIN_WIDTH)},
-	{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, MIN_HEIGHT)},
-	{"LIST_PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, LIST_PREF_WIDTH)},
-	{"LIST_PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, LIST_PREF_HEIGHT)},
-	{"LIST_PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, LIST_PREF_SIZE)},
-	{"lookInLabelMnemonic", "I", nullptr, $PRIVATE, $field(WindowsFileChooserUI, lookInLabelMnemonic)},
-	{"lookInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, lookInLabelText)},
-	{"saveInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, saveInLabelText)},
-	{"fileNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(WindowsFileChooserUI, fileNameLabelMnemonic)},
-	{"fileNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, fileNameLabelText)},
-	{"folderNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(WindowsFileChooserUI, folderNameLabelMnemonic)},
-	{"folderNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, folderNameLabelText)},
-	{"filesOfTypeLabelMnemonic", "I", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filesOfTypeLabelMnemonic)},
-	{"filesOfTypeLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filesOfTypeLabelText)},
-	{"upFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, upFolderToolTipText)},
-	{"upFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, upFolderAccessibleName)},
-	{"newFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, newFolderToolTipText)},
-	{"newFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, newFolderAccessibleName)},
-	{"viewMenuButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, viewMenuButtonToolTipText)},
-	{"viewMenuButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, viewMenuButtonAccessibleName)},
-	{"fileView", "Ljavax/swing/plaf/basic/BasicFileChooserUI$BasicFileView;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, fileView)},
-	{"fileNameLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, fileNameLabel)},
-	{"space", "I", nullptr, $STATIC | $FINAL, $constField(WindowsFileChooserUI, space)},
-	{}
-};
-
-$MethodInfo _WindowsFileChooserUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(WindowsFileChooserUI, init$, void, $JFileChooser*)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsFileChooserUI, access$000, bool, WindowsFileChooserUI*)},
-	{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)Ljava/io/File;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsFileChooserUI, access$100, $File*, WindowsFileChooserUI*)},
-	{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsFileChooserUI, access$200, $MouseListener*, WindowsFileChooserUI*, $JFileChooser*, $JList*)},
-	{"addControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, addControlButtons, void)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createActionMap, $ActionMap*)},
-	{"createDetailsView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createDetailsView, $JPanel*, $JFileChooser*)},
-	{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createDirectoryComboBoxModel, $WindowsFileChooserUI$DirectoryComboBoxModel*, $JFileChooser*)},
-	{"createDirectoryComboBoxRenderer", "(Ljavax/swing/JFileChooser;)Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$DirectoryComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createDirectoryComboBoxRenderer, $WindowsFileChooserUI$DirectoryComboBoxRenderer*, $JFileChooser*)},
-	{"createFilterComboBoxModel", "()Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createFilterComboBoxModel, $WindowsFileChooserUI$FilterComboBoxModel*)},
-	{"createFilterComboBoxRenderer", "()Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createFilterComboBoxRenderer, $WindowsFileChooserUI$FilterComboBoxRenderer*)},
-	{"createList", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createList, $JPanel*, $JFileChooser*)},
-	{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
-	{"createToolButton", "(Ljavax/swing/Action;Ljavax/swing/Icon;Ljava/lang/String;Ljava/lang/String;)Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileChooserUI, createToolButton, $JButton*, $Action*, $Icon*, $String*, $String*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doAccessoryChanged, void, $PropertyChangeEvent*)},
-	{"doApproveButtonMnemonicChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doApproveButtonMnemonicChanged, void, $PropertyChangeEvent*)},
-	{"doApproveButtonTextChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doApproveButtonTextChanged, void, $PropertyChangeEvent*)},
-	{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
-	{"doDialogTypeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doDialogTypeChanged, void, $PropertyChangeEvent*)},
-	{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doDirectoryChanged, void, $PropertyChangeEvent*)},
-	{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
-	{"doFilterChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doFilterChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doSelectedFileChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
-	{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
-	{"fileNameString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsFileChooserUI, fileNameString, $String*, $File*)},
-	{"fileNameString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsFileChooserUI, fileNameString, $String*, $FileArray*)},
-	{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, getActionMap, $ActionMap*)},
-	{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
-	{"getBottomPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, getBottomPanel, $JPanel*)},
-	{"getButtonPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, getButtonPanel, $JPanel*)},
-	{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getDirectoryName, $String*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getFileName, $String*)},
-	{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(WindowsFileChooserUI, getMnemonic, $Integer*, $String*, $Locale*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, installComponents, void, $JFileChooser*)},
-	{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, installListeners, void, $JFileChooser*)},
-	{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, installStrings, void, $JFileChooser*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, installUI, void, $JComponent*)},
-	{"populateFileNameLabel", "()V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, populateFileNameLabel, void)},
-	{"removeControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, removeControlButtons, void)},
-	{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
-	{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, setDirectoryName, void, $String*)},
-	{"setDirectorySelected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, setDirectorySelected, void, bool)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, setFileName, void, $String*)},
-	{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, uninstallComponents, void, $JFileChooser*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, uninstallUI, void, $JComponent*)},
-	{"updateUseShellFolder", "()V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, updateUseShellFolder, void)},
-	{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, valueChanged, void, $ListSelectionEvent*)},
-	{}
-};
-
-$InnerClassInfo _WindowsFileChooserUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileView", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "WindowsFileView", $PROTECTED},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxAction", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxModel", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$IndentIcon", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "IndentIcon", 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "DirectoryComboBoxRenderer", 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileChooserUIAccessor", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "WindowsFileChooserUIAccessor", $PRIVATE},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$13", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$12", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$11", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$10", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$9", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$8", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$7", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$6", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$5", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$4", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$3", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFileChooserUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
-	"javax.swing.plaf.basic.BasicFileChooserUI",
-	nullptr,
-	_WindowsFileChooserUI_FieldInfo_,
-	_WindowsFileChooserUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsFileChooserUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileView,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxAction,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxModel,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxRenderer,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxModel,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$IndentIcon,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxRenderer,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileChooserUIAccessor,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$13,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$12,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$11,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$10,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$9,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$8,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$7,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$6,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$5,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$5$1,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$4,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$3,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$2,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$1"
-};
-
-$Object* allocate$WindowsFileChooserUI($Class* clazz) {
-	return $of($alloc(WindowsFileChooserUI));
-}
 
 $Dimension* WindowsFileChooserUI::hstrut10 = nullptr;
 $Dimension* WindowsFileChooserUI::vstrut4 = nullptr;
@@ -392,7 +218,7 @@ bool WindowsFileChooserUI::access$000(WindowsFileChooserUI* x0) {
 }
 
 void WindowsFileChooserUI::populateFileNameLabel() {
-	if ($nc($(getFileChooser()))->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY) {
+	if ($$nc(getFileChooser())->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY) {
 		$nc(this->fileNameLabel)->setText(this->folderNameLabelText);
 		$nc(this->fileNameLabel)->setDisplayedMnemonic(this->folderNameLabelMnemonic);
 	} else {
@@ -436,7 +262,7 @@ void WindowsFileChooserUI::uninstallComponents($JFileChooser* fc) {
 }
 
 void WindowsFileChooserUI::installComponents($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, filePane, $new($FilePane, $$new($WindowsFileChooserUI$WindowsFileChooserUIAccessor, this)));
 	$nc(fc)->addPropertyChangeListener(this->filePane);
 	$var($FileSystemView, fsv, fc->getFileSystemView());
@@ -445,21 +271,19 @@ void WindowsFileChooserUI::installComponents($JFileChooser* fc) {
 	updateUseShellFolder();
 	$var($JToolBar, topPanel, $new($JToolBar));
 	topPanel->setFloatable(false);
-	$init($Boolean);
 	topPanel->putClientProperty("JToolBar.isRollover"_s, $Boolean::TRUE);
-	$init($BorderLayout);
-	fc->add(static_cast<$Component*>(topPanel), $of($BorderLayout::NORTH));
+	fc->add(topPanel, $BorderLayout::NORTH);
 	$var($JLabel, tmp1, $new($WindowsFileChooserUI$1, this, this->lookInLabelText, $JLabel::TRAILING));
 	$set(this, lookInLabel, tmp1);
-	$nc(this->lookInLabel)->setDisplayedMnemonic(this->lookInLabelMnemonic);
+	this->lookInLabel->setDisplayedMnemonic(this->lookInLabelMnemonic);
 	$init($JComponent);
 	$nc(this->lookInLabel)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	$nc(this->lookInLabel)->setAlignmentY($JComponent::CENTER_ALIGNMENT);
-	topPanel->add(static_cast<$Component*>(this->lookInLabel));
+	topPanel->add(this->lookInLabel);
 	topPanel->add($($Box::createRigidArea($$new($Dimension, 8, 0))));
 	$var($JComboBox, tmp2, $new($WindowsFileChooserUI$2, this));
 	$set(this, directoryComboBox, tmp2);
-	$nc(this->directoryComboBox)->putClientProperty("JComboBox.lightweightKeyboardNavigation"_s, "Lightweight"_s);
+	this->directoryComboBox->putClientProperty("JComboBox.lightweightKeyboardNavigation"_s, "Lightweight"_s);
 	$nc(this->directoryComboBox)->putClientProperty("JComboBox.isTableCellEditor"_s, $Boolean::TRUE);
 	$nc(this->lookInLabel)->setLabelFor(this->directoryComboBox);
 	$set(this, directoryComboBoxModel, createDirectoryComboBoxModel(fc));
@@ -469,26 +293,26 @@ void WindowsFileChooserUI::installComponents($JFileChooser* fc) {
 	$nc(this->directoryComboBox)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	$nc(this->directoryComboBox)->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	$nc(this->directoryComboBox)->setMaximumRowCount(8);
-	topPanel->add(static_cast<$Component*>(this->directoryComboBox));
+	topPanel->add(this->directoryComboBox);
 	topPanel->add($($Box::createRigidArea(WindowsFileChooserUI::hstrut10)));
 	$var($JButton, upFolderButton, createToolButton($(getChangeToParentDirectoryAction()), this->upFolderIcon, this->upFolderToolTipText, this->upFolderAccessibleName));
-	topPanel->add(static_cast<$Component*>(upFolderButton));
+	topPanel->add(upFolderButton);
 	if (!$UIManager::getBoolean("FileChooser.readOnly"_s)) {
 		$var($JButton, newFolderButton, createToolButton($($nc(this->filePane)->getNewFolderAction()), this->newFolderIcon, this->newFolderToolTipText, this->newFolderAccessibleName));
-		topPanel->add(static_cast<$Component*>(newFolderButton));
+		topPanel->add(newFolderButton);
 	}
 	$var($ButtonGroup, viewButtonGroup, $new($ButtonGroup));
 	$var($JPopupMenu, viewTypePopupMenu, $new($JPopupMenu));
 	$var($JRadioButtonMenuItem, listViewMenuItem, $new($JRadioButtonMenuItem, $($nc(this->filePane)->getViewTypeAction($FilePane::VIEWTYPE_LIST))));
 	listViewMenuItem->setSelected($nc(this->filePane)->getViewType() == $FilePane::VIEWTYPE_LIST);
-	viewTypePopupMenu->add(static_cast<$JMenuItem*>(listViewMenuItem));
+	viewTypePopupMenu->add(listViewMenuItem);
 	viewButtonGroup->add(listViewMenuItem);
 	$var($JRadioButtonMenuItem, detailsViewMenuItem, $new($JRadioButtonMenuItem, $($nc(this->filePane)->getViewTypeAction($FilePane::VIEWTYPE_DETAILS))));
 	detailsViewMenuItem->setSelected($nc(this->filePane)->getViewType() == $FilePane::VIEWTYPE_DETAILS);
-	viewTypePopupMenu->add(static_cast<$JMenuItem*>(detailsViewMenuItem));
+	viewTypePopupMenu->add(detailsViewMenuItem);
 	viewButtonGroup->add(detailsViewMenuItem);
 	int32_t var$0 = $nc(this->viewMenuIcon)->getIconWidth() + 7;
-	$var($BufferedImage, image, $new($BufferedImage, var$0, $nc(this->viewMenuIcon)->getIconHeight(), $BufferedImage::TYPE_INT_ARGB));
+	$var($BufferedImage, image, $new($BufferedImage, var$0, this->viewMenuIcon->getIconHeight(), $BufferedImage::TYPE_INT_ARGB));
 	$var($Graphics, graphics, image->getGraphics());
 	$nc(this->viewMenuIcon)->paintIcon(this->filePane, graphics, 0, 0);
 	int32_t x = image->getWidth() - 5;
@@ -504,37 +328,37 @@ void WindowsFileChooserUI::installComponents($JFileChooser* fc) {
 		y,
 		y + 3
 	}), 3);
-	$var($JButton, viewMenuButton, createToolButton(nullptr, $$new($ImageIcon, static_cast<$Image*>(image)), this->viewMenuButtonToolTipText, this->viewMenuButtonAccessibleName));
+	$var($JButton, viewMenuButton, createToolButton(nullptr, $$new($ImageIcon, image), this->viewMenuButtonToolTipText, this->viewMenuButtonAccessibleName));
 	$nc(viewMenuButton)->addMouseListener($$new($WindowsFileChooserUI$3, this, viewMenuButton, viewTypePopupMenu));
 	viewMenuButton->addKeyListener($$new($WindowsFileChooserUI$4, this, viewMenuButton, viewTypePopupMenu));
 	viewTypePopupMenu->addPopupMenuListener($$new($WindowsFileChooserUI$5, this, viewMenuButton));
-	topPanel->add(static_cast<$Component*>(viewMenuButton));
+	topPanel->add(viewMenuButton);
 	topPanel->add($($Box::createRigidArea($$new($Dimension, 80, 0))));
 	$nc(this->filePane)->addPropertyChangeListener($$new($WindowsFileChooserUI$6, this, listViewMenuItem, detailsViewMenuItem));
-	$set(this, centerPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	$nc(this->centerPanel)->add($(static_cast<$Component*>(getAccessoryPanel())), $of($BorderLayout::AFTER_LINE_ENDS));
+	$set(this, centerPanel, $new($JPanel, $$new($BorderLayout)));
+	this->centerPanel->add($(getAccessoryPanel()), $BorderLayout::AFTER_LINE_ENDS);
 	$var($JComponent, accessory, fc->getAccessory());
 	if (accessory != nullptr) {
-		$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory));
+		$$nc(getAccessoryPanel())->add(accessory);
 	}
 	$nc(this->filePane)->setPreferredSize(WindowsFileChooserUI::LIST_PREF_SIZE);
-	$nc(this->centerPanel)->add(static_cast<$Component*>(this->filePane), $of($BorderLayout::CENTER));
-	fc->add(static_cast<$Component*>(this->centerPanel), $of($BorderLayout::CENTER));
-	$nc($(getBottomPanel()))->setLayout($$new($BoxLayout, $(getBottomPanel()), $BoxLayout::LINE_AXIS));
-	$nc(this->centerPanel)->add($(static_cast<$Component*>(getBottomPanel())), $of($BorderLayout::SOUTH));
+	$nc(this->centerPanel)->add(this->filePane, $BorderLayout::CENTER);
+	fc->add(this->centerPanel, $BorderLayout::CENTER);
+	$$nc(getBottomPanel())->setLayout($$new($BoxLayout, $(getBottomPanel()), $BoxLayout::LINE_AXIS));
+	$nc(this->centerPanel)->add($(getBottomPanel()), $BorderLayout::SOUTH);
 	$var($JPanel, labelPanel, $new($JPanel));
 	labelPanel->setLayout($$new($BoxLayout, labelPanel, $BoxLayout::PAGE_AXIS));
 	labelPanel->add($($Box::createRigidArea(WindowsFileChooserUI::vstrut4)));
 	$set(this, fileNameLabel, $new($JLabel));
 	populateFileNameLabel();
-	$nc(this->fileNameLabel)->setAlignmentY((float)0);
-	labelPanel->add(static_cast<$Component*>(this->fileNameLabel));
+	$nc(this->fileNameLabel)->setAlignmentY(0);
+	labelPanel->add(this->fileNameLabel);
 	labelPanel->add($($Box::createRigidArea($$new($Dimension, 1, 12))));
 	$var($JLabel, ftl, $new($JLabel, this->filesOfTypeLabelText));
 	ftl->setDisplayedMnemonic(this->filesOfTypeLabelMnemonic);
-	labelPanel->add(static_cast<$Component*>(ftl));
-	$nc($(getBottomPanel()))->add(static_cast<$Component*>(labelPanel));
-	$nc($(getBottomPanel()))->add($($Box::createRigidArea($$new($Dimension, 15, 0))));
+	labelPanel->add(ftl);
+	$$nc(getBottomPanel())->add(labelPanel);
+	$$nc(getBottomPanel())->add($($Box::createRigidArea($$new($Dimension, 15, 0))));
 	$var($JPanel, fileAndFilterPanel, $new($JPanel));
 	fileAndFilterPanel->add($($Box::createRigidArea(WindowsFileChooserUI::vstrut8)));
 	fileAndFilterPanel->setLayout($$new($BoxLayout, fileAndFilterPanel, $BoxLayout::Y_AXIS));
@@ -547,34 +371,34 @@ void WindowsFileChooserUI::installComponents($JFileChooser* fc) {
 	} else {
 		setFileName($(fileNameString($(fc->getSelectedFile()))));
 	}
-	fileAndFilterPanel->add(static_cast<$Component*>(this->filenameTextField));
+	fileAndFilterPanel->add(this->filenameTextField);
 	fileAndFilterPanel->add($($Box::createRigidArea(WindowsFileChooserUI::vstrut8)));
 	$set(this, filterComboBoxModel, createFilterComboBoxModel());
 	fc->addPropertyChangeListener(this->filterComboBoxModel);
-	$set(this, filterComboBox, $new($JComboBox, static_cast<$ComboBoxModel*>(this->filterComboBoxModel)));
+	$set(this, filterComboBox, $new($JComboBox, this->filterComboBoxModel));
 	ftl->setLabelFor(this->filterComboBox);
 	$nc(this->filterComboBox)->setRenderer($(createFilterComboBoxRenderer()));
-	fileAndFilterPanel->add(static_cast<$Component*>(this->filterComboBox));
-	$nc($(getBottomPanel()))->add(static_cast<$Component*>(fileAndFilterPanel));
-	$nc($(getBottomPanel()))->add($($Box::createRigidArea($$new($Dimension, 30, 0))));
-	$nc($(getButtonPanel()))->setLayout($$new($BoxLayout, $(getButtonPanel()), $BoxLayout::Y_AXIS));
+	fileAndFilterPanel->add(this->filterComboBox);
+	$$nc(getBottomPanel())->add(fileAndFilterPanel);
+	$$nc(getBottomPanel())->add($($Box::createRigidArea($$new($Dimension, 30, 0))));
+	$$nc(getButtonPanel())->setLayout($$new($BoxLayout, $(getButtonPanel()), $BoxLayout::Y_AXIS));
 	$var($JButton, tmp4, $new($WindowsFileChooserUI$9, this, $(getApproveButtonText(fc))));
 	$set(this, approveButton, tmp4);
-	$var($Insets, buttonMargin, $nc(this->approveButton)->getMargin());
-	$assign(buttonMargin, $new($InsetsUIResource, $nc(buttonMargin)->top, buttonMargin->left + 5, buttonMargin->bottom, buttonMargin->right + 5));
+	$var($Insets, buttonMargin, this->approveButton->getMargin());
+	$assign(buttonMargin, $new($InsetsUIResource, $nc(buttonMargin)->top, $nc(buttonMargin)->left + 5, $nc(buttonMargin)->bottom, $nc(buttonMargin)->right + 5));
 	$nc(this->approveButton)->setMargin(buttonMargin);
 	$nc(this->approveButton)->setMnemonic(getApproveButtonMnemonic(fc));
 	$nc(this->approveButton)->addActionListener($(getApproveSelectionAction()));
 	$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(fc)));
-	$nc($(getButtonPanel()))->add($($Box::createRigidArea(WindowsFileChooserUI::vstrut6)));
-	$nc($(getButtonPanel()))->add(static_cast<$Component*>(this->approveButton));
-	$nc($(getButtonPanel()))->add($($Box::createRigidArea(WindowsFileChooserUI::vstrut4)));
+	$$nc(getButtonPanel())->add($($Box::createRigidArea(WindowsFileChooserUI::vstrut6)));
+	$$nc(getButtonPanel())->add(this->approveButton);
+	$$nc(getButtonPanel())->add($($Box::createRigidArea(WindowsFileChooserUI::vstrut4)));
 	$var($JButton, tmp5, $new($WindowsFileChooserUI$10, this, this->cancelButtonText));
 	$set(this, cancelButton, tmp5);
-	$nc(this->cancelButton)->setMargin(buttonMargin);
+	this->cancelButton->setMargin(buttonMargin);
 	$nc(this->cancelButton)->setToolTipText(this->cancelButtonToolTipText);
 	$nc(this->cancelButton)->addActionListener($(getCancelSelectionAction()));
-	$nc($(getButtonPanel()))->add(static_cast<$Component*>(this->cancelButton));
+	$$nc(getButtonPanel())->add(this->cancelButton);
 	if (fc->getControlButtonsAreShown()) {
 		addControlButtons();
 	}
@@ -586,11 +410,11 @@ void WindowsFileChooserUI::updateUseShellFolder() {
 		if (this->placesBar == nullptr && !$UIManager::getBoolean("FileChooser.noPlacesBar"_s)) {
 			$set(this, placesBar, $new($WindowsPlacesBar, fc, $XPStyle::getXP() != nullptr));
 			$init($BorderLayout);
-			$nc(fc)->add(static_cast<$Component*>(this->placesBar), $of($BorderLayout::BEFORE_LINE_BEGINS));
+			$nc(fc)->add(this->placesBar, $BorderLayout::BEFORE_LINE_BEGINS);
 			fc->addPropertyChangeListener(this->placesBar);
 		}
 	} else if (this->placesBar != nullptr) {
-		$nc(fc)->remove(static_cast<$Component*>(this->placesBar));
+		$nc(fc)->remove(this->placesBar);
 		fc->removePropertyChangeListener(this->placesBar);
 		$set(this, placesBar, nullptr);
 	}
@@ -611,28 +435,28 @@ $JPanel* WindowsFileChooserUI::getBottomPanel() {
 }
 
 void WindowsFileChooserUI::installStrings($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicFileChooserUI::installStrings(fc);
 	$var($Locale, l, $nc(fc)->getLocale());
-	this->lookInLabelMnemonic = $nc($(getMnemonic("FileChooser.lookInLabelMnemonic"_s, l)))->intValue();
-	$set(this, lookInLabelText, $UIManager::getString($of("FileChooser.lookInLabelText"_s), l));
-	$set(this, saveInLabelText, $UIManager::getString($of("FileChooser.saveInLabelText"_s), l));
-	this->fileNameLabelMnemonic = $nc($(getMnemonic("FileChooser.fileNameLabelMnemonic"_s, l)))->intValue();
-	$set(this, fileNameLabelText, $UIManager::getString($of("FileChooser.fileNameLabelText"_s), l));
-	this->folderNameLabelMnemonic = $nc($(getMnemonic("FileChooser.folderNameLabelMnemonic"_s, l)))->intValue();
-	$set(this, folderNameLabelText, $UIManager::getString($of("FileChooser.folderNameLabelText"_s), l));
-	this->filesOfTypeLabelMnemonic = $nc($(getMnemonic("FileChooser.filesOfTypeLabelMnemonic"_s, l)))->intValue();
-	$set(this, filesOfTypeLabelText, $UIManager::getString($of("FileChooser.filesOfTypeLabelText"_s), l));
-	$set(this, upFolderToolTipText, $UIManager::getString($of("FileChooser.upFolderToolTipText"_s), l));
-	$set(this, upFolderAccessibleName, $UIManager::getString($of("FileChooser.upFolderAccessibleName"_s), l));
-	$set(this, newFolderToolTipText, $UIManager::getString($of("FileChooser.newFolderToolTipText"_s), l));
-	$set(this, newFolderAccessibleName, $UIManager::getString($of("FileChooser.newFolderAccessibleName"_s), l));
-	$set(this, viewMenuButtonToolTipText, $UIManager::getString($of("FileChooser.viewMenuButtonToolTipText"_s), l));
-	$set(this, viewMenuButtonAccessibleName, $UIManager::getString($of("FileChooser.viewMenuButtonAccessibleName"_s), l));
+	this->lookInLabelMnemonic = $$nc(getMnemonic("FileChooser.lookInLabelMnemonic"_s, l))->intValue();
+	$set(this, lookInLabelText, $UIManager::getString("FileChooser.lookInLabelText"_s, l));
+	$set(this, saveInLabelText, $UIManager::getString("FileChooser.saveInLabelText"_s, l));
+	this->fileNameLabelMnemonic = $$nc(getMnemonic("FileChooser.fileNameLabelMnemonic"_s, l))->intValue();
+	$set(this, fileNameLabelText, $UIManager::getString("FileChooser.fileNameLabelText"_s, l));
+	this->folderNameLabelMnemonic = $$nc(getMnemonic("FileChooser.folderNameLabelMnemonic"_s, l))->intValue();
+	$set(this, folderNameLabelText, $UIManager::getString("FileChooser.folderNameLabelText"_s, l));
+	this->filesOfTypeLabelMnemonic = $$nc(getMnemonic("FileChooser.filesOfTypeLabelMnemonic"_s, l))->intValue();
+	$set(this, filesOfTypeLabelText, $UIManager::getString("FileChooser.filesOfTypeLabelText"_s, l));
+	$set(this, upFolderToolTipText, $UIManager::getString("FileChooser.upFolderToolTipText"_s, l));
+	$set(this, upFolderAccessibleName, $UIManager::getString("FileChooser.upFolderAccessibleName"_s, l));
+	$set(this, newFolderToolTipText, $UIManager::getString("FileChooser.newFolderToolTipText"_s, l));
+	$set(this, newFolderAccessibleName, $UIManager::getString("FileChooser.newFolderAccessibleName"_s, l));
+	$set(this, viewMenuButtonToolTipText, $UIManager::getString("FileChooser.viewMenuButtonToolTipText"_s, l));
+	$set(this, viewMenuButtonAccessibleName, $UIManager::getString("FileChooser.viewMenuButtonAccessibleName"_s, l));
 }
 
 $Integer* WindowsFileChooserUI::getMnemonic($String* key, $Locale* l) {
-	return $Integer::valueOf($SwingUtilities2::getUIDefaultsInt($of(key), l));
+	return $Integer::valueOf($SwingUtilities2::getUIDefaultsInt(key, l));
 }
 
 void WindowsFileChooserUI::installListeners($JFileChooser* fc) {
@@ -646,7 +470,7 @@ $ActionMap* WindowsFileChooserUI::getActionMap() {
 }
 
 $ActionMap* WindowsFileChooserUI::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMapUIResource));
 	$FilePane::addActionsToMap(map, $($nc(this->filePane)->getActions()));
 	return map;
@@ -665,7 +489,7 @@ $ListSelectionListener* WindowsFileChooserUI::createListSelectionListener($JFile
 }
 
 void WindowsFileChooserUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->removePropertyChangeListener(this->filterComboBoxModel);
 	c->removePropertyChangeListener(this->filePane);
 	if (this->placesBar != nullptr) {
@@ -675,18 +499,18 @@ void WindowsFileChooserUI::uninstallUI($JComponent* c) {
 	$nc(this->approveButton)->removeActionListener($(getApproveSelectionAction()));
 	$nc(this->filenameTextField)->removeActionListener($(getApproveSelectionAction()));
 	if (this->filePane != nullptr) {
-		$nc(this->filePane)->uninstallUI();
+		this->filePane->uninstallUI();
 		$set(this, filePane, nullptr);
 	}
 	$BasicFileChooserUI::uninstallUI(c);
 }
 
 $Dimension* WindowsFileChooserUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t prefWidth = $nc(WindowsFileChooserUI::PREF_SIZE)->width;
-	$var($Dimension, d, $nc($($nc(c)->getLayout()))->preferredLayoutSize(c));
+	$var($Dimension, d, $$nc($nc(c)->getLayout())->preferredLayoutSize(c));
 	if (d != nullptr) {
-		return $new($Dimension, d->width < prefWidth ? prefWidth : d->width, d->height < $nc(WindowsFileChooserUI::PREF_SIZE)->height ? $nc(WindowsFileChooserUI::PREF_SIZE)->height : d->height);
+		return $new($Dimension, d->width < prefWidth ? prefWidth : d->width, d->height < $nc(WindowsFileChooserUI::PREF_SIZE)->height ? WindowsFileChooserUI::PREF_SIZE->height : d->height);
 	} else {
 		return $new($Dimension, prefWidth, $nc(WindowsFileChooserUI::PREF_SIZE)->height);
 	}
@@ -701,28 +525,28 @@ $Dimension* WindowsFileChooserUI::getMaximumSize($JComponent* c) {
 }
 
 $String* WindowsFileChooserUI::fileNameString($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (file == nullptr) {
 		return nullptr;
 	} else {
 		$var($JFileChooser, fc, getFileChooser());
 		bool var$1 = $nc(fc)->isDirectorySelectionEnabled();
-		bool var$0 = (var$1 && !fc->isFileSelectionEnabled());
+		bool var$0 = var$1 && !fc->isFileSelectionEnabled();
 		if (!var$0) {
-			bool var$3 = $nc(fc)->isDirectorySelectionEnabled();
+			bool var$3 = fc->isDirectorySelectionEnabled();
 			bool var$2 = var$3 && fc->isFileSelectionEnabled();
-			var$0 = (var$2 && $nc($(fc->getFileSystemView()))->isFileSystemRoot(file));
+			var$0 = var$2 && $$nc(fc->getFileSystemView())->isFileSystemRoot(file);
 		}
 		if (var$0) {
-			return $nc(file)->getPath();
+			return file->getPath();
 		} else {
-			return $nc(file)->getName();
+			return file->getName();
 		}
 	}
 }
 
 $String* WindowsFileChooserUI::fileNameString($FileArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	for (int32_t i = 0; files != nullptr && i < files->length; ++i) {
 		if (i > 0) {
@@ -740,18 +564,18 @@ $String* WindowsFileChooserUI::fileNameString($FileArray* files) {
 }
 
 void WindowsFileChooserUI::doSelectedFileChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($File, f, $cast($File, $nc(e)->getNewValue()));
 	$var($JFileChooser, fc, getFileChooser());
 	bool var$0 = f != nullptr;
 	if (var$0) {
 		bool var$2 = $nc(fc)->isFileSelectionEnabled();
-		bool var$1 = (var$2 && !f->isDirectory());
+		bool var$1 = var$2 && !f->isDirectory();
 		if (!var$1) {
-			bool var$3 = $nc(f)->isDirectory();
-			var$1 = (var$3 && $nc(fc)->isDirectorySelectionEnabled());
+			bool var$3 = f->isDirectory();
+			var$1 = var$3 && fc->isDirectorySelectionEnabled();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		setFileName($(fileNameString(f)));
@@ -759,13 +583,13 @@ void WindowsFileChooserUI::doSelectedFileChanged($PropertyChangeEvent* e) {
 }
 
 void WindowsFileChooserUI::doSelectedFilesChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileArray, files, $cast($FileArray, $nc(e)->getNewValue()));
 	$var($JFileChooser, fc, getFileChooser());
 	bool var$0 = files != nullptr && files->length > 0;
 	if (var$0) {
 		bool var$1 = files->length > 1 || $nc(fc)->isDirectorySelectionEnabled();
-		var$0 = (var$1 || !$nc(files->get(0))->isDirectory());
+		var$0 = var$1 || !$nc(files->get(0))->isDirectory();
 	}
 	if (var$0) {
 		setFileName($(fileNameString(files)));
@@ -773,7 +597,7 @@ void WindowsFileChooserUI::doSelectedFilesChanged($PropertyChangeEvent* e) {
 }
 
 void WindowsFileChooserUI::doDirectoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, fc, getFileChooser());
 	$var($FileSystemView, fsv, $nc(fc)->getFileSystemView());
 	clearIconCache();
@@ -796,7 +620,7 @@ void WindowsFileChooserUI::doFilterChanged($PropertyChangeEvent* e) {
 }
 
 void WindowsFileChooserUI::doFileSelectionModeChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fileNameLabel != nullptr) {
 		populateFileNameLabel();
 	}
@@ -805,7 +629,7 @@ void WindowsFileChooserUI::doFileSelectionModeChanged($PropertyChangeEvent* e) {
 	$var($File, currentDirectory, $nc(fc)->getCurrentDirectory());
 	bool var$1 = currentDirectory != nullptr && fc->isDirectorySelectionEnabled();
 	bool var$0 = var$1 && !fc->isFileSelectionEnabled();
-	if (var$0 && $nc($(fc->getFileSystemView()))->isFileSystem(currentDirectory)) {
+	if (var$0 && $$nc(fc->getFileSystemView())->isFileSystem(currentDirectory)) {
 		setFileName($(currentDirectory->getPath()));
 	} else {
 		setFileName(nullptr);
@@ -813,21 +637,21 @@ void WindowsFileChooserUI::doFileSelectionModeChanged($PropertyChangeEvent* e) {
 }
 
 void WindowsFileChooserUI::doAccessoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getAccessoryPanel() != nullptr) {
 		if ($nc(e)->getOldValue() != nullptr) {
-			$nc($(getAccessoryPanel()))->remove($cast($JComponent, $(e->getOldValue())));
+			$$nc(getAccessoryPanel())->remove($$cast($JComponent, e->getOldValue()));
 		}
-		$var($JComponent, accessory, $cast($JComponent, $nc(e)->getNewValue()));
+		$var($JComponent, accessory, $cast($JComponent, e->getNewValue()));
 		if (accessory != nullptr) {
 			$init($BorderLayout);
-			$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory), $of($BorderLayout::CENTER));
+			$$nc(getAccessoryPanel())->add(accessory, $BorderLayout::CENTER);
 		}
 	}
 }
 
 void WindowsFileChooserUI::doApproveButtonTextChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, getFileChooser());
 	$nc(this->approveButton)->setText($(getApproveButtonText(chooser)));
 	$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(chooser)));
@@ -835,7 +659,7 @@ void WindowsFileChooserUI::doApproveButtonTextChanged($PropertyChangeEvent* e) {
 }
 
 void WindowsFileChooserUI::doDialogTypeChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, getFileChooser());
 	$nc(this->approveButton)->setText($(getApproveButtonText(chooser)));
 	$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(chooser)));
@@ -852,7 +676,7 @@ void WindowsFileChooserUI::doApproveButtonMnemonicChanged($PropertyChangeEvent* 
 }
 
 void WindowsFileChooserUI::doControlButtonsChanged($PropertyChangeEvent* e) {
-	if ($nc($(getFileChooser()))->getControlButtonsAreShown()) {
+	if ($$nc(getFileChooser())->getControlButtonsAreShown()) {
 		addControlButtons();
 	} else {
 		removeControlButtons();
@@ -864,13 +688,13 @@ $PropertyChangeListener* WindowsFileChooserUI::createPropertyChangeListener($JFi
 }
 
 void WindowsFileChooserUI::removeControlButtons() {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getBottomPanel()))->remove($(static_cast<$Component*>(getButtonPanel())));
+	$useLocalObjectStack();
+	$$nc(getBottomPanel())->remove($(getButtonPanel()));
 }
 
 void WindowsFileChooserUI::addControlButtons() {
-	$useLocalCurrentObjectStackCache();
-	$nc($(getBottomPanel()))->add($(static_cast<$Component*>(getButtonPanel())));
+	$useLocalObjectStack();
+	$$nc(getBottomPanel())->add($(getButtonPanel()));
 }
 
 void WindowsFileChooserUI::ensureFileIsVisible($JFileChooser* fc, $File* f) {
@@ -883,7 +707,7 @@ void WindowsFileChooserUI::rescanCurrentDirectory($JFileChooser* fc) {
 
 $String* WindowsFileChooserUI::getFileName() {
 	if (this->filenameTextField != nullptr) {
-		return $nc(this->filenameTextField)->getText();
+		return this->filenameTextField->getText();
 	} else {
 		return nullptr;
 	}
@@ -891,12 +715,12 @@ $String* WindowsFileChooserUI::getFileName() {
 
 void WindowsFileChooserUI::setFileName($String* filename) {
 	if (this->filenameTextField != nullptr) {
-		$nc(this->filenameTextField)->setText(filename);
+		this->filenameTextField->setText(filename);
 	}
 }
 
 void WindowsFileChooserUI::setDirectorySelected(bool directorySelected) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicFileChooserUI::setDirectorySelected(directorySelected);
 	$var($JFileChooser, chooser, getFileChooser());
 	if (directorySelected) {
@@ -923,7 +747,7 @@ $WindowsFileChooserUI$DirectoryComboBoxRenderer* WindowsFileChooserUI::createDir
 
 $JButton* WindowsFileChooserUI::createToolButton($Action* a, $Icon* defaultIcon, $String* toolTipText, $String* accessibleName) {
 	$init(WindowsFileChooserUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, result, $new($JButton, a));
 	result->setText(nullptr);
 	result->setIcon(defaultIcon);
@@ -932,7 +756,6 @@ $JButton* WindowsFileChooserUI::createToolButton($Action* a, $Icon* defaultIcon,
 	$init($AccessibleContext);
 	result->putClientProperty($AccessibleContext::ACCESSIBLE_NAME_PROPERTY, accessibleName);
 	$init($WindowsLookAndFeel);
-	$init($Boolean);
 	result->putClientProperty($WindowsLookAndFeel::HI_RES_DISABLED_ICON_CLIENT_KEY, $Boolean::TRUE);
 	$init($JComponent);
 	result->setAlignmentX($JComponent::LEFT_ALIGNMENT);
@@ -957,11 +780,11 @@ $WindowsFileChooserUI$FilterComboBoxModel* WindowsFileChooserUI::createFilterCom
 }
 
 void WindowsFileChooserUI::valueChanged($ListSelectionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, fc, getFileChooser());
 	$var($File, f, $nc(fc)->getSelectedFile());
 	bool var$0 = !$nc(e)->getValueIsAdjusting() && f != nullptr;
-	if (var$0 && !$nc($(getFileChooser()))->isTraversable(f)) {
+	if (var$0 && !$$nc(getFileChooser())->isTraversable(f)) {
 		setFileName($(fileNameString(f)));
 	}
 }
@@ -974,7 +797,7 @@ $FileView* WindowsFileChooserUI::getFileView($JFileChooser* fc) {
 	return this->fileView;
 }
 
-void clinit$WindowsFileChooserUI($Class* class$) {
+void WindowsFileChooserUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsFileChooserUI::hstrut10, $new($Dimension, 10, 1));
 	$assignStatic(WindowsFileChooserUI::vstrut4, $new($Dimension, 1, 4));
 	$assignStatic(WindowsFileChooserUI::vstrut6, $new($Dimension, 1, 6));
@@ -994,7 +817,152 @@ WindowsFileChooserUI::WindowsFileChooserUI() {
 }
 
 $Class* WindowsFileChooserUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileChooserUI, name, initialize, &_WindowsFileChooserUI_ClassInfo_, clinit$WindowsFileChooserUI, allocate$WindowsFileChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"centerPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, centerPanel)},
+		{"lookInLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, lookInLabel)},
+		{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/io/File;>;", $PRIVATE, $field(WindowsFileChooserUI, directoryComboBox)},
+		{"directoryComboBoxModel", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$DirectoryComboBoxModel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, directoryComboBoxModel)},
+		{"directoryComboBoxAction", "Ljava/awt/event/ActionListener;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, directoryComboBoxAction)},
+		{"filterComboBoxModel", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filterComboBoxModel)},
+		{"filenameTextField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filenameTextField)},
+		{"filePane", "Lsun/swing/FilePane;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filePane)},
+		{"placesBar", "Lsun/swing/WindowsPlacesBar;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, placesBar)},
+		{"approveButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, approveButton)},
+		{"cancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, cancelButton)},
+		{"buttonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, buttonPanel)},
+		{"bottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, bottomPanel)},
+		{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(WindowsFileChooserUI, filterComboBox)},
+		{"hstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, hstrut10)},
+		{"vstrut4", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, vstrut4)},
+		{"vstrut6", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, vstrut6)},
+		{"vstrut8", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, vstrut8)},
+		{"shrinkwrap", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsFileChooserUI, shrinkwrap)},
+		{"PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, PREF_WIDTH)},
+		{"PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, PREF_HEIGHT)},
+		{"PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, PREF_SIZE)},
+		{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, MIN_WIDTH)},
+		{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, MIN_HEIGHT)},
+		{"LIST_PREF_WIDTH", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, LIST_PREF_WIDTH)},
+		{"LIST_PREF_HEIGHT", "I", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, LIST_PREF_HEIGHT)},
+		{"LIST_PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(WindowsFileChooserUI, LIST_PREF_SIZE)},
+		{"lookInLabelMnemonic", "I", nullptr, $PRIVATE, $field(WindowsFileChooserUI, lookInLabelMnemonic)},
+		{"lookInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, lookInLabelText)},
+		{"saveInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, saveInLabelText)},
+		{"fileNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(WindowsFileChooserUI, fileNameLabelMnemonic)},
+		{"fileNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, fileNameLabelText)},
+		{"folderNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(WindowsFileChooserUI, folderNameLabelMnemonic)},
+		{"folderNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, folderNameLabelText)},
+		{"filesOfTypeLabelMnemonic", "I", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filesOfTypeLabelMnemonic)},
+		{"filesOfTypeLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, filesOfTypeLabelText)},
+		{"upFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, upFolderToolTipText)},
+		{"upFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, upFolderAccessibleName)},
+		{"newFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, newFolderToolTipText)},
+		{"newFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, newFolderAccessibleName)},
+		{"viewMenuButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, viewMenuButtonToolTipText)},
+		{"viewMenuButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, viewMenuButtonAccessibleName)},
+		{"fileView", "Ljavax/swing/plaf/basic/BasicFileChooserUI$BasicFileView;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, fileView)},
+		{"fileNameLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(WindowsFileChooserUI, fileNameLabel)},
+		{"space", "I", nullptr, $STATIC | $FINAL, $constField(WindowsFileChooserUI, space)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(WindowsFileChooserUI, init$, void, $JFileChooser*)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsFileChooserUI, access$000, bool, WindowsFileChooserUI*)},
+		{"access$100", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;)Ljava/io/File;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsFileChooserUI, access$100, $File*, WindowsFileChooserUI*)},
+		{"access$200", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsFileChooserUI, access$200, $MouseListener*, WindowsFileChooserUI*, $JFileChooser*, $JList*)},
+		{"addControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, addControlButtons, void)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createActionMap, $ActionMap*)},
+		{"createDetailsView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createDetailsView, $JPanel*, $JFileChooser*)},
+		{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createDirectoryComboBoxModel, $WindowsFileChooserUI$DirectoryComboBoxModel*, $JFileChooser*)},
+		{"createDirectoryComboBoxRenderer", "(Ljavax/swing/JFileChooser;)Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$DirectoryComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createDirectoryComboBoxRenderer, $WindowsFileChooserUI$DirectoryComboBoxRenderer*, $JFileChooser*)},
+		{"createFilterComboBoxModel", "()Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createFilterComboBoxModel, $WindowsFileChooserUI$FilterComboBoxModel*)},
+		{"createFilterComboBoxRenderer", "()Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createFilterComboBoxRenderer, $WindowsFileChooserUI$FilterComboBoxRenderer*)},
+		{"createList", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, createList, $JPanel*, $JFileChooser*)},
+		{"createListSelectionListener", "(Ljavax/swing/JFileChooser;)Ljavax/swing/event/ListSelectionListener;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, createListSelectionListener, $ListSelectionListener*, $JFileChooser*)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
+		{"createToolButton", "(Ljavax/swing/Action;Ljavax/swing/Icon;Ljava/lang/String;Ljava/lang/String;)Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticMethod(WindowsFileChooserUI, createToolButton, $JButton*, $Action*, $Icon*, $String*, $String*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doAccessoryChanged, void, $PropertyChangeEvent*)},
+		{"doApproveButtonMnemonicChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doApproveButtonMnemonicChanged, void, $PropertyChangeEvent*)},
+		{"doApproveButtonTextChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doApproveButtonTextChanged, void, $PropertyChangeEvent*)},
+		{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
+		{"doDialogTypeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doDialogTypeChanged, void, $PropertyChangeEvent*)},
+		{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doDirectoryChanged, void, $PropertyChangeEvent*)},
+		{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
+		{"doFilterChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doFilterChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doSelectedFileChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
+		{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
+		{"fileNameString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsFileChooserUI, fileNameString, $String*, $File*)},
+		{"fileNameString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(WindowsFileChooserUI, fileNameString, $String*, $FileArray*)},
+		{"getActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, getActionMap, $ActionMap*)},
+		{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
+		{"getBottomPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, getBottomPanel, $JPanel*)},
+		{"getButtonPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, getButtonPanel, $JPanel*)},
+		{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getDirectoryName, $String*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getFileName, $String*)},
+		{"getFileView", "(Ljavax/swing/JFileChooser;)Ljavax/swing/filechooser/FileView;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getFileView, $FileView*, $JFileChooser*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(WindowsFileChooserUI, getMnemonic, $Integer*, $String*, $Locale*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, installComponents, void, $JFileChooser*)},
+		{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, installListeners, void, $JFileChooser*)},
+		{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, installStrings, void, $JFileChooser*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, installUI, void, $JComponent*)},
+		{"populateFileNameLabel", "()V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, populateFileNameLabel, void)},
+		{"removeControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, removeControlButtons, void)},
+		{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
+		{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, setDirectoryName, void, $String*)},
+		{"setDirectorySelected", "(Z)V", nullptr, $PROTECTED, $virtualMethod(WindowsFileChooserUI, setDirectorySelected, void, bool)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, setFileName, void, $String*)},
+		{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, uninstallComponents, void, $JFileChooser*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, uninstallUI, void, $JComponent*)},
+		{"updateUseShellFolder", "()V", nullptr, $PRIVATE, $method(WindowsFileChooserUI, updateUseShellFolder, void)},
+		{"valueChanged", "(Ljavax/swing/event/ListSelectionEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI, valueChanged, void, $ListSelectionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileView", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "WindowsFileView", $PROTECTED},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxAction", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "DirectoryComboBoxAction", $PROTECTED},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxModel", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "DirectoryComboBoxModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$IndentIcon", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "IndentIcon", 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxRenderer", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "DirectoryComboBoxRenderer", 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileChooserUIAccessor", "com.sun.java.swing.plaf.windows.WindowsFileChooserUI", "WindowsFileChooserUIAccessor", $PRIVATE},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$13", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$12", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$11", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$10", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$9", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$8", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$7", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$6", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$5", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$4", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$3", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
+		"javax.swing.plaf.basic.BasicFileChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileView,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxAction,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxModel,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$FilterComboBoxRenderer,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxModel,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$IndentIcon,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$DirectoryComboBoxRenderer,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$WindowsFileChooserUIAccessor,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$13,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$12,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$11,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$10,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$9,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$8,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$7,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$6,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$5,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$5$1,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$4,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$3,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$2,com.sun.java.swing.plaf.windows.WindowsFileChooserUI$1"
+	};
+	$loadClass(WindowsFileChooserUI, name, initialize, &classInfo$$, WindowsFileChooserUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileChooserUI);
+	});
 	return class$;
 }
 

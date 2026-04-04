@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/UnsyncBufferedOutputStream.h>
-
 #include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
@@ -19,35 +18,6 @@ namespace com {
 					namespace internal {
 						namespace security {
 							namespace utils {
-
-$FieldInfo _UnsyncBufferedOutputStream_FieldInfo_[] = {
-	{"buffer", "[B", nullptr, $PROTECTED, $field(UnsyncBufferedOutputStream, buffer)},
-	{"count", "I", nullptr, $PROTECTED, $field(UnsyncBufferedOutputStream, count)},
-	{}
-};
-
-$MethodInfo _UnsyncBufferedOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(UnsyncBufferedOutputStream, init$, void, $OutputStream*)},
-	{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(UnsyncBufferedOutputStream, init$, void, $OutputStream*, int32_t)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, flush, void), "java.io.IOException"},
-	{"flushInternal", "()V", nullptr, $PRIVATE, $method(UnsyncBufferedOutputStream, flushInternal, void), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, write, void, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UnsyncBufferedOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.UnsyncBufferedOutputStream",
-	"java.io.FilterOutputStream",
-	nullptr,
-	_UnsyncBufferedOutputStream_FieldInfo_,
-	_UnsyncBufferedOutputStream_MethodInfo_
-};
-
-$Object* allocate$UnsyncBufferedOutputStream($Class* clazz) {
-	return $of($alloc(UnsyncBufferedOutputStream));
-}
 
 void UnsyncBufferedOutputStream::init$($OutputStream* out) {
 	$FilterOutputStream::init$(out);
@@ -85,7 +55,7 @@ void UnsyncBufferedOutputStream::write(int32_t oneByte) {
 		$nc(this->out)->write(this->buffer, 0, this->count);
 		this->count = 0;
 	}
-	$nc(this->buffer)->set(this->count++, (int8_t)oneByte);
+	this->buffer->set(this->count++, (int8_t)oneByte);
 }
 
 void UnsyncBufferedOutputStream::flushInternal() {
@@ -99,7 +69,31 @@ UnsyncBufferedOutputStream::UnsyncBufferedOutputStream() {
 }
 
 $Class* UnsyncBufferedOutputStream::load$($String* name, bool initialize) {
-	$loadClass(UnsyncBufferedOutputStream, name, initialize, &_UnsyncBufferedOutputStream_ClassInfo_, allocate$UnsyncBufferedOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"buffer", "[B", nullptr, $PROTECTED, $field(UnsyncBufferedOutputStream, buffer)},
+		{"count", "I", nullptr, $PROTECTED, $field(UnsyncBufferedOutputStream, count)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(UnsyncBufferedOutputStream, init$, void, $OutputStream*)},
+		{"<init>", "(Ljava/io/OutputStream;I)V", nullptr, $PUBLIC, $method(UnsyncBufferedOutputStream, init$, void, $OutputStream*, int32_t)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, flush, void), "java.io.IOException"},
+		{"flushInternal", "()V", nullptr, $PRIVATE, $method(UnsyncBufferedOutputStream, flushInternal, void), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UnsyncBufferedOutputStream, write, void, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.UnsyncBufferedOutputStream",
+		"java.io.FilterOutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnsyncBufferedOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnsyncBufferedOutputStream));
+	});
 	return class$;
 }
 

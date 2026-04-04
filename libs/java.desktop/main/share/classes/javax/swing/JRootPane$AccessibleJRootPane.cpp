@@ -1,9 +1,7 @@
 #include <javax/swing/JRootPane$AccessibleJRootPane.h>
-
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
 #include <jcpp.h>
 
@@ -15,51 +13,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JRootPane = ::javax::swing::JRootPane;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JRootPane$AccessibleJRootPane_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JRootPane;", nullptr, $FINAL | $SYNTHETIC, $field(JRootPane$AccessibleJRootPane, this$0)},
-	{}
-};
-
-$MethodInfo _JRootPane$AccessibleJRootPane_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $method(JRootPane$AccessibleJRootPane, init$, void, $JRootPane*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JRootPane$AccessibleJRootPane, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JRootPane$AccessibleJRootPane, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JRootPane$AccessibleJRootPane, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _JRootPane$AccessibleJRootPane_InnerClassesInfo_[] = {
-	{"javax.swing.JRootPane$AccessibleJRootPane", "javax.swing.JRootPane", "AccessibleJRootPane", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JRootPane$AccessibleJRootPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JRootPane$AccessibleJRootPane",
-	"javax.swing.JComponent$AccessibleJComponent",
-	nullptr,
-	_JRootPane$AccessibleJRootPane_FieldInfo_,
-	_JRootPane$AccessibleJRootPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRootPane$AccessibleJRootPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JRootPane"
-};
-
-$Object* allocate$JRootPane$AccessibleJRootPane($Class* clazz) {
-	return $of($alloc(JRootPane$AccessibleJRootPane));
-}
 
 void JRootPane$AccessibleJRootPane::init$($JRootPane* this$0) {
 	$set(this, this$0, this$0);
@@ -83,7 +41,40 @@ JRootPane$AccessibleJRootPane::JRootPane$AccessibleJRootPane() {
 }
 
 $Class* JRootPane$AccessibleJRootPane::load$($String* name, bool initialize) {
-	$loadClass(JRootPane$AccessibleJRootPane, name, initialize, &_JRootPane$AccessibleJRootPane_ClassInfo_, allocate$JRootPane$AccessibleJRootPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JRootPane;", nullptr, $FINAL | $SYNTHETIC, $field(JRootPane$AccessibleJRootPane, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $method(JRootPane$AccessibleJRootPane, init$, void, $JRootPane*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JRootPane$AccessibleJRootPane, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JRootPane$AccessibleJRootPane, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JRootPane$AccessibleJRootPane, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JRootPane$AccessibleJRootPane", "javax.swing.JRootPane", "AccessibleJRootPane", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JRootPane$AccessibleJRootPane",
+		"javax.swing.JComponent$AccessibleJComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JRootPane"
+	};
+	$loadClass(JRootPane$AccessibleJRootPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JRootPane$AccessibleJRootPane));
+	});
 	return class$;
 }
 

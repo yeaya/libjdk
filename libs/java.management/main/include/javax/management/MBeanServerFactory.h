@@ -31,6 +31,7 @@ class $import MBeanServerFactory : public ::java::lang::Object {
 	$class(MBeanServerFactory, 0, ::java::lang::Object)
 public:
 	MBeanServerFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addMBeanServer(::javax::management::MBeanServer* mbs);
 	static void checkMBeanServerBuilder();

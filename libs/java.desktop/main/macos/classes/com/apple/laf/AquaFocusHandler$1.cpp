@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFocusHandler$1.h>
-
 #include <java/awt/Component.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JComponent.h>
@@ -16,50 +15,13 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaFocusHandler$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaFocusHandler$1, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFocusHandler$1, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaFocusHandler$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaFocusHandler",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaFocusHandler$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFocusHandler$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaFocusHandler$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFocusHandler$1",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	_AquaFocusHandler$1_MethodInfo_,
-	nullptr,
-	&_AquaFocusHandler$1_EnclosingMethodInfo_,
-	_AquaFocusHandler$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFocusHandler"
-};
-
-$Object* allocate$AquaFocusHandler$1($Class* clazz) {
-	return $of($alloc(AquaFocusHandler$1));
-}
-
 void AquaFocusHandler$1::init$() {
 }
 
 void AquaFocusHandler$1::propertyChange($PropertyChangeEvent* evt) {
 	$var($Object, source, $nc(evt)->getSource());
 	if ($instanceOf($JComponent, source)) {
-		$nc(($cast($JComponent, source)))->repaint();
+		$cast($JComponent, source)->repaint();
 	}
 }
 
@@ -67,7 +29,38 @@ AquaFocusHandler$1::AquaFocusHandler$1() {
 }
 
 $Class* AquaFocusHandler$1::load$($String* name, bool initialize) {
-	$loadClass(AquaFocusHandler$1, name, initialize, &_AquaFocusHandler$1_ClassInfo_, allocate$AquaFocusHandler$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaFocusHandler$1, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaFocusHandler$1, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaFocusHandler",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFocusHandler$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFocusHandler$1",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFocusHandler"
+	};
+	$loadClass(AquaFocusHandler$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFocusHandler$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaMenuUI$MenuDragMouseHandler.h>
-
 #include <com/apple/laf/AquaMenuUI.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
@@ -26,8 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JMenu = ::javax::swing::JMenu;
-using $JMenuItem = ::javax::swing::JMenuItem;
-using $MenuElement = ::javax::swing::MenuElement;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $MenuDragMouseEvent = ::javax::swing::event::MenuDragMouseEvent;
 
@@ -35,59 +32,20 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaMenuUI$MenuDragMouseHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaMenuUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaMenuUI$MenuDragMouseHandler, this$0)},
-	{}
-};
-
-$MethodInfo _AquaMenuUI$MenuDragMouseHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaMenuUI;)V", nullptr, 0, $method(AquaMenuUI$MenuDragMouseHandler, init$, void, $AquaMenuUI*)},
-	{"menuDragMouseDragged", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuUI$MenuDragMouseHandler, menuDragMouseDragged, void, $MenuDragMouseEvent*)},
-	{"menuDragMouseEntered", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuUI$MenuDragMouseHandler, menuDragMouseEntered, void, $MenuDragMouseEvent*)},
-	{"menuDragMouseExited", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuUI$MenuDragMouseHandler, menuDragMouseExited, void, $MenuDragMouseEvent*)},
-	{"menuDragMouseReleased", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuUI$MenuDragMouseHandler, menuDragMouseReleased, void, $MenuDragMouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _AquaMenuUI$MenuDragMouseHandler_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaMenuUI$MenuDragMouseHandler", "com.apple.laf.AquaMenuUI", "MenuDragMouseHandler", 0},
-	{}
-};
-
-$ClassInfo _AquaMenuUI$MenuDragMouseHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaMenuUI$MenuDragMouseHandler",
-	"java.lang.Object",
-	"javax.swing.event.MenuDragMouseListener",
-	_AquaMenuUI$MenuDragMouseHandler_FieldInfo_,
-	_AquaMenuUI$MenuDragMouseHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaMenuUI$MenuDragMouseHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaMenuUI"
-};
-
-$Object* allocate$AquaMenuUI$MenuDragMouseHandler($Class* clazz) {
-	return $of($alloc(AquaMenuUI$MenuDragMouseHandler));
-}
-
 void AquaMenuUI$MenuDragMouseHandler::init$($AquaMenuUI* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void AquaMenuUI$MenuDragMouseHandler::menuDragMouseDragged($MenuDragMouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($($AquaMenuUI::access$000(this->this$0)))->isEnabled() == false) {
+	$useLocalObjectStack();
+	if ($$nc($AquaMenuUI::access$000(this->this$0))->isEnabled() == false) {
 		return;
 	}
 	$var($MenuSelectionManager, manager, $nc(e)->getMenuSelectionManager());
 	$var($MenuElementArray, path, e->getPath());
 	$var($Point, p, e->getPoint());
-	bool var$0 = $nc(p)->x >= 0 && p->x < $nc($($AquaMenuUI::access$100(this->this$0)))->getWidth() && p->y >= 0;
-	if (var$0 && p->y < $nc($($AquaMenuUI::access$200(this->this$0)))->getHeight()) {
+	bool var$0 = $nc(p)->x >= 0 && p->x < $$nc($AquaMenuUI::access$100(this->this$0))->getWidth() && p->y >= 0;
+	if (var$0 && p->y < $$nc($AquaMenuUI::access$200(this->this$0))->getHeight()) {
 		$var($JMenu, menu, $cast($JMenu, $AquaMenuUI::access$300(this->this$0)));
 		$var($MenuElementArray, selectedPath, $nc(manager)->getSelectedPath());
 		if (!($nc(selectedPath)->length > 0 && $equals(selectedPath->get(selectedPath->length - 1), $nc(menu)->getPopupMenu()))) {
@@ -102,7 +60,7 @@ void AquaMenuUI$MenuDragMouseHandler::menuDragMouseDragged($MenuDragMouseEvent* 
 		$var($Component, var$1, e->getComponent());
 		$var($Component, comp, $nc(manager)->componentForPoint(var$1, $(e->getPoint())));
 		if (comp == nullptr) {
-			manager->clearSelectedPath();
+			$nc(manager)->clearSelectedPath();
 		}
 	}
 }
@@ -120,7 +78,40 @@ AquaMenuUI$MenuDragMouseHandler::AquaMenuUI$MenuDragMouseHandler() {
 }
 
 $Class* AquaMenuUI$MenuDragMouseHandler::load$($String* name, bool initialize) {
-	$loadClass(AquaMenuUI$MenuDragMouseHandler, name, initialize, &_AquaMenuUI$MenuDragMouseHandler_ClassInfo_, allocate$AquaMenuUI$MenuDragMouseHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaMenuUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaMenuUI$MenuDragMouseHandler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaMenuUI;)V", nullptr, 0, $method(AquaMenuUI$MenuDragMouseHandler, init$, void, $AquaMenuUI*)},
+		{"menuDragMouseDragged", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuUI$MenuDragMouseHandler, menuDragMouseDragged, void, $MenuDragMouseEvent*)},
+		{"menuDragMouseEntered", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuUI$MenuDragMouseHandler, menuDragMouseEntered, void, $MenuDragMouseEvent*)},
+		{"menuDragMouseExited", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuUI$MenuDragMouseHandler, menuDragMouseExited, void, $MenuDragMouseEvent*)},
+		{"menuDragMouseReleased", "(Ljavax/swing/event/MenuDragMouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaMenuUI$MenuDragMouseHandler, menuDragMouseReleased, void, $MenuDragMouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaMenuUI$MenuDragMouseHandler", "com.apple.laf.AquaMenuUI", "MenuDragMouseHandler", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaMenuUI$MenuDragMouseHandler",
+		"java.lang.Object",
+		"javax.swing.event.MenuDragMouseListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaMenuUI"
+	};
+	$loadClass(AquaMenuUI$MenuDragMouseHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaMenuUI$MenuDragMouseHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/ShadowEffect.h>
-
 #include <java/awt/Color.h>
 #include <javax/swing/plaf/nimbus/Effect.h>
 #include <jcpp.h>
@@ -17,46 +16,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _ShadowEffect_FieldInfo_[] = {
-	{"color", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(ShadowEffect, color)},
-	{"opacity", "F", nullptr, $PROTECTED, $field(ShadowEffect, opacity)},
-	{"angle", "I", nullptr, $PROTECTED, $field(ShadowEffect, angle)},
-	{"distance", "I", nullptr, $PROTECTED, $field(ShadowEffect, distance)},
-	{"spread", "I", nullptr, $PROTECTED, $field(ShadowEffect, spread)},
-	{"size", "I", nullptr, $PROTECTED, $field(ShadowEffect, size)},
-	{}
-};
-
-$MethodInfo _ShadowEffect_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ShadowEffect, init$, void)},
-	{"getAngle", "()I", nullptr, 0, $virtualMethod(ShadowEffect, getAngle, int32_t)},
-	{"getColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(ShadowEffect, getColor, $Color*)},
-	{"getDistance", "()I", nullptr, 0, $virtualMethod(ShadowEffect, getDistance, int32_t)},
-	{"getOpacity", "()F", nullptr, 0, $virtualMethod(ShadowEffect, getOpacity, float)},
-	{"getSize", "()I", nullptr, 0, $virtualMethod(ShadowEffect, getSize, int32_t)},
-	{"getSpread", "()I", nullptr, 0, $virtualMethod(ShadowEffect, getSpread, int32_t)},
-	{"setAngle", "(I)V", nullptr, 0, $virtualMethod(ShadowEffect, setAngle, void, int32_t)},
-	{"setColor", "(Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(ShadowEffect, setColor, void, $Color*)},
-	{"setDistance", "(I)V", nullptr, 0, $virtualMethod(ShadowEffect, setDistance, void, int32_t)},
-	{"setOpacity", "(F)V", nullptr, 0, $virtualMethod(ShadowEffect, setOpacity, void, float)},
-	{"setSize", "(I)V", nullptr, 0, $virtualMethod(ShadowEffect, setSize, void, int32_t)},
-	{"setSpread", "(I)V", nullptr, 0, $virtualMethod(ShadowEffect, setSpread, void, int32_t)},
-	{}
-};
-
-$ClassInfo _ShadowEffect_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.nimbus.ShadowEffect",
-	"javax.swing.plaf.nimbus.Effect",
-	nullptr,
-	_ShadowEffect_FieldInfo_,
-	_ShadowEffect_MethodInfo_
-};
-
-$Object* allocate$ShadowEffect($Class* clazz) {
-	return $of($alloc(ShadowEffect));
-}
 
 void ShadowEffect::init$() {
 	$Effect::init$();
@@ -127,7 +86,42 @@ ShadowEffect::ShadowEffect() {
 }
 
 $Class* ShadowEffect::load$($String* name, bool initialize) {
-	$loadClass(ShadowEffect, name, initialize, &_ShadowEffect_ClassInfo_, allocate$ShadowEffect);
+	$FieldInfo fieldInfos$$[] = {
+		{"color", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(ShadowEffect, color)},
+		{"opacity", "F", nullptr, $PROTECTED, $field(ShadowEffect, opacity)},
+		{"angle", "I", nullptr, $PROTECTED, $field(ShadowEffect, angle)},
+		{"distance", "I", nullptr, $PROTECTED, $field(ShadowEffect, distance)},
+		{"spread", "I", nullptr, $PROTECTED, $field(ShadowEffect, spread)},
+		{"size", "I", nullptr, $PROTECTED, $field(ShadowEffect, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ShadowEffect, init$, void)},
+		{"getAngle", "()I", nullptr, 0, $virtualMethod(ShadowEffect, getAngle, int32_t)},
+		{"getColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(ShadowEffect, getColor, $Color*)},
+		{"getDistance", "()I", nullptr, 0, $virtualMethod(ShadowEffect, getDistance, int32_t)},
+		{"getOpacity", "()F", nullptr, 0, $virtualMethod(ShadowEffect, getOpacity, float)},
+		{"getSize", "()I", nullptr, 0, $virtualMethod(ShadowEffect, getSize, int32_t)},
+		{"getSpread", "()I", nullptr, 0, $virtualMethod(ShadowEffect, getSpread, int32_t)},
+		{"setAngle", "(I)V", nullptr, 0, $virtualMethod(ShadowEffect, setAngle, void, int32_t)},
+		{"setColor", "(Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(ShadowEffect, setColor, void, $Color*)},
+		{"setDistance", "(I)V", nullptr, 0, $virtualMethod(ShadowEffect, setDistance, void, int32_t)},
+		{"setOpacity", "(F)V", nullptr, 0, $virtualMethod(ShadowEffect, setOpacity, void, float)},
+		{"setSize", "(I)V", nullptr, 0, $virtualMethod(ShadowEffect, setSize, void, int32_t)},
+		{"setSpread", "(I)V", nullptr, 0, $virtualMethod(ShadowEffect, setSpread, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.nimbus.ShadowEffect",
+		"javax.swing.plaf.nimbus.Effect",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShadowEffect, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShadowEffect);
+	});
 	return class$;
 }
 

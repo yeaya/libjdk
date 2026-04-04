@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$SourceFileObject.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <com/sun/tools/javac/file/PathFileObject$CannotCreateUriError.h>
 #include <com/sun/tools/javac/jvm/ClassReader.h>
@@ -42,62 +41,12 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$SourceFileObject_FieldInfo_[] = {
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $FINAL, $field(ClassReader$SourceFileObject, name)},
-	{}
-};
-
-$MethodInfo _ClassReader$SourceFileObject_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(ClassReader$SourceFileObject, init$, void, $Name*)},
-	{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, delete$, bool)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, equals, bool, Object$*)},
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getAccessLevel, $Modifier*)},
-	{"getCharContent", "(Z)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getCharContent, $CharSequence*, bool)},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getKind, $JavaFileObject$Kind*)},
-	{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getLastModified, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getName, $String*)},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getNestingKind, $NestingKind*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, hashCode, int32_t)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, openInputStream, $InputStream*)},
-	{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, openOutputStream, $OutputStream*)},
-	{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, openReader, $Reader*, bool)},
-	{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, openWriter, $Writer*)},
-	{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, toUri, $URI*)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$SourceFileObject_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$SourceFileObject", "com.sun.tools.javac.jvm.ClassReader", "SourceFileObject", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ClassReader$SourceFileObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$SourceFileObject",
-	"java.lang.Object",
-	"javax.tools.JavaFileObject",
-	_ClassReader$SourceFileObject_FieldInfo_,
-	_ClassReader$SourceFileObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$SourceFileObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$SourceFileObject($Class* clazz) {
-	return $of($alloc(ClassReader$SourceFileObject));
-}
-
 void ClassReader$SourceFileObject::init$($Name* name) {
 	$set(this, name, name);
 }
 
 $URI* ClassReader$SourceFileObject::toUri() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $new($URI, nullptr, $($nc(this->name)->toString()), nullptr);
 	} catch ($URISyntaxException& e) {
@@ -171,19 +120,63 @@ bool ClassReader$SourceFileObject::equals(Object$* other) {
 		$assign(sourceFileObject, $cast(ClassReader$SourceFileObject, other));
 		var$1 = true;
 	}
-	bool var$0 = (var$1);
-	return var$0 && $nc($of(this->name))->equals($nc(sourceFileObject)->name);
+	bool var$0 = var$1;
+	return var$0 && $nc(this->name)->equals($nc(sourceFileObject)->name);
 }
 
 int32_t ClassReader$SourceFileObject::hashCode() {
-	return $nc($of(this->name))->hashCode();
+	return $nc(this->name)->hashCode();
 }
 
 ClassReader$SourceFileObject::ClassReader$SourceFileObject() {
 }
 
 $Class* ClassReader$SourceFileObject::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$SourceFileObject, name, initialize, &_ClassReader$SourceFileObject_ClassInfo_, allocate$ClassReader$SourceFileObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PRIVATE | $FINAL, $field(ClassReader$SourceFileObject, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Name;)V", nullptr, $PUBLIC, $method(ClassReader$SourceFileObject, init$, void, $Name*)},
+		{"delete", "()Z", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, delete$, bool)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, equals, bool, Object$*)},
+		{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getAccessLevel, $Modifier*)},
+		{"getCharContent", "(Z)Ljava/nio/CharBuffer;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getCharContent, $CharSequence*, bool)},
+		{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getKind, $JavaFileObject$Kind*)},
+		{"getLastModified", "()J", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getLastModified, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getName, $String*)},
+		{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, getNestingKind, $NestingKind*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, hashCode, int32_t)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{"openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, openInputStream, $InputStream*)},
+		{"openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, openOutputStream, $OutputStream*)},
+		{"openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, openReader, $Reader*, bool)},
+		{"openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, openWriter, $Writer*)},
+		{"toUri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(ClassReader$SourceFileObject, toUri, $URI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$SourceFileObject", "com.sun.tools.javac.jvm.ClassReader", "SourceFileObject", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$SourceFileObject",
+		"java.lang.Object",
+		"javax.tools.JavaFileObject",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$SourceFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$SourceFileObject);
+	});
 	return class$;
 }
 

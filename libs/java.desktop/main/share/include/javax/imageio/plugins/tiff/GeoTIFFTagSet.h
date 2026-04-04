@@ -33,16 +33,17 @@ class $import GeoTIFFTagSet : public ::javax::imageio::plugins::tiff::TIFFTagSet
 	$class(GeoTIFFTagSet, 0, ::javax::imageio::plugins::tiff::TIFFTagSet)
 public:
 	GeoTIFFTagSet();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::imageio::plugins::tiff::GeoTIFFTagSet* getInstance();
 	static void initTags();
 	static ::javax::imageio::plugins::tiff::GeoTIFFTagSet* theInstance;
-	static const int32_t TAG_MODEL_PIXEL_SCALE = 0x0000830E;
-	static const int32_t TAG_MODEL_TRANSFORMATION = 0x000085D8;
+	static const int32_t TAG_MODEL_PIXEL_SCALE = 0x0000830e;
+	static const int32_t TAG_MODEL_TRANSFORMATION = 0x000085d8;
 	static const int32_t TAG_MODEL_TIE_POINT = 0x00008482;
-	static const int32_t TAG_GEO_KEY_DIRECTORY = 0x000087AF;
-	static const int32_t TAG_GEO_DOUBLE_PARAMS = 0x000087B0;
-	static const int32_t TAG_GEO_ASCII_PARAMS = 0x000087B1;
+	static const int32_t TAG_GEO_KEY_DIRECTORY = 0x000087af;
+	static const int32_t TAG_GEO_DOUBLE_PARAMS = 0x000087b0;
+	static const int32_t TAG_GEO_ASCII_PARAMS = 0x000087b1;
 	static ::java::util::List* tags;
 };
 

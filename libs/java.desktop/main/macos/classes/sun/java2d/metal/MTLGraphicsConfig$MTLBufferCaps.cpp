@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLGraphicsConfig$MTLBufferCaps.h>
-
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/ImageCapabilities.h>
@@ -19,36 +18,6 @@ namespace sun {
 	namespace java2d {
 		namespace metal {
 
-$MethodInfo _MTLGraphicsConfig$MTLBufferCaps_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(MTLGraphicsConfig$MTLBufferCaps, init$, void, bool)},
-	{}
-};
-
-$InnerClassInfo _MTLGraphicsConfig$MTLBufferCaps_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLGraphicsConfig$MTLBufferCaps", "sun.java2d.metal.MTLGraphicsConfig", "MTLBufferCaps", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MTLGraphicsConfig$MTLBufferCaps_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLGraphicsConfig$MTLBufferCaps",
-	"java.awt.BufferCapabilities",
-	nullptr,
-	nullptr,
-	_MTLGraphicsConfig$MTLBufferCaps_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLGraphicsConfig$MTLBufferCaps_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLGraphicsConfig"
-};
-
-$Object* allocate$MTLGraphicsConfig$MTLBufferCaps($Class* clazz) {
-	return $of($alloc(MTLGraphicsConfig$MTLBufferCaps));
-}
-
 void MTLGraphicsConfig$MTLBufferCaps::init$(bool dblBuf) {
 	$init($MTLGraphicsConfig);
 	$init($BufferCapabilities$FlipContents);
@@ -59,7 +28,32 @@ MTLGraphicsConfig$MTLBufferCaps::MTLGraphicsConfig$MTLBufferCaps() {
 }
 
 $Class* MTLGraphicsConfig$MTLBufferCaps::load$($String* name, bool initialize) {
-	$loadClass(MTLGraphicsConfig$MTLBufferCaps, name, initialize, &_MTLGraphicsConfig$MTLBufferCaps_ClassInfo_, allocate$MTLGraphicsConfig$MTLBufferCaps);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(MTLGraphicsConfig$MTLBufferCaps, init$, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLGraphicsConfig$MTLBufferCaps", "sun.java2d.metal.MTLGraphicsConfig", "MTLBufferCaps", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLGraphicsConfig$MTLBufferCaps",
+		"java.awt.BufferCapabilities",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLGraphicsConfig"
+	};
+	$loadClass(MTLGraphicsConfig$MTLBufferCaps, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLGraphicsConfig$MTLBufferCaps);
+	});
 	return class$;
 }
 

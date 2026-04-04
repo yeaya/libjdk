@@ -1,5 +1,4 @@
 #include <bug6894632$1.h>
-
 #include <bug6894632.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -19,48 +18,11 @@ using $List = ::java::util::List;
 using $RowSorter$SortKey = ::javax::swing::RowSorter$SortKey;
 using $SortOrder = ::javax::swing::SortOrder;
 
-$MethodInfo _bug6894632$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6894632$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6894632$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6894632$1_EnclosingMethodInfo_ = {
-	"bug6894632",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6894632$1_InnerClassesInfo_[] = {
-	{"bug6894632$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6894632$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6894632$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6894632$1_MethodInfo_,
-	nullptr,
-	&_bug6894632$1_EnclosingMethodInfo_,
-	_bug6894632$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6894632"
-};
-
-$Object* allocate$bug6894632$1($Class* clazz) {
-	return $of($alloc(bug6894632$1));
-}
-
 void bug6894632$1::init$() {
 }
 
 void bug6894632$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$bug6894632::test($$new($ArrayList));
 	$var($List, sortKeys, $new($ArrayList));
 	$init($SortOrder);
@@ -72,7 +34,38 @@ bug6894632$1::bug6894632$1() {
 }
 
 $Class* bug6894632$1::load$($String* name, bool initialize) {
-	$loadClass(bug6894632$1, name, initialize, &_bug6894632$1_ClassInfo_, allocate$bug6894632$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6894632$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6894632$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6894632",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6894632$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6894632$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6894632"
+	};
+	$loadClass(bug6894632$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6894632$1);
+	});
 	return class$;
 }
 

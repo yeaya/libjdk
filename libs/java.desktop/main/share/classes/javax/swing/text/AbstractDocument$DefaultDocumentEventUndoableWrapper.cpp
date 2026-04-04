@@ -1,5 +1,4 @@
 #include <javax/swing/text/AbstractDocument$DefaultDocumentEventUndoableWrapper.h>
-
 #include <javax/swing/event/DocumentEvent$EventType.h>
 #include <javax/swing/text/AbstractDocument$DefaultDocumentEvent.h>
 #include <javax/swing/text/AbstractDocument.h>
@@ -20,61 +19,6 @@ using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _AbstractDocument$DefaultDocumentEventUndoableWrapper_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$DefaultDocumentEventUndoableWrapper, this$0)},
-	{"dde", "Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;", nullptr, $FINAL, $field(AbstractDocument$DefaultDocumentEventUndoableWrapper, dde)},
-	{}
-};
-
-$MethodInfo _AbstractDocument$DefaultDocumentEventUndoableWrapper_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/AbstractDocument;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PUBLIC, $method(AbstractDocument$DefaultDocumentEventUndoableWrapper, init$, void, $AbstractDocument*, $AbstractDocument$DefaultDocumentEvent*)},
-	{"addEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, addEdit, bool, $UndoableEdit*)},
-	{"canRedo", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, canRedo, bool)},
-	{"canUndo", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, canUndo, bool)},
-	{"die", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, die, void)},
-	{"getPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, getPresentationName, $String*)},
-	{"getRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, getRedoPresentationName, $String*)},
-	{"getUndoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, getUndoPresentationName, $String*)},
-	{"isSignificant", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, isSignificant, bool)},
-	{"lockEdit", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, lockEdit, void)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"replaceEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, replaceEdit, bool, $UndoableEdit*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, undo, void), "javax.swing.undo.CannotUndoException"},
-	{"unlockEdit", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, unlockEdit, void)},
-	{}
-};
-
-$InnerClassInfo _AbstractDocument$DefaultDocumentEventUndoableWrapper_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$DefaultDocumentEventUndoableWrapper", "javax.swing.text.AbstractDocument", "DefaultDocumentEventUndoableWrapper", 0},
-	{"javax.swing.text.AbstractDocument$DefaultDocumentEvent", "javax.swing.text.AbstractDocument", "DefaultDocumentEvent", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractDocument$DefaultDocumentEventUndoableWrapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.AbstractDocument$DefaultDocumentEventUndoableWrapper",
-	"javax.swing.text.AbstractDocument$DefaultDocumentEvent",
-	"sun.swing.text.UndoableEditLockSupport",
-	_AbstractDocument$DefaultDocumentEventUndoableWrapper_FieldInfo_,
-	_AbstractDocument$DefaultDocumentEventUndoableWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDocument$DefaultDocumentEventUndoableWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AbstractDocument"
-};
-
-$Object* allocate$AbstractDocument$DefaultDocumentEventUndoableWrapper($Class* clazz) {
-	return $of($alloc(AbstractDocument$DefaultDocumentEventUndoableWrapper));
-}
 
 $String* AbstractDocument$DefaultDocumentEventUndoableWrapper::toString() {
 	 return this->$AbstractDocument$DefaultDocumentEvent::toString();
@@ -98,9 +42,8 @@ void AbstractDocument$DefaultDocumentEventUndoableWrapper::finalize() {
 
 void AbstractDocument$DefaultDocumentEventUndoableWrapper::init$($AbstractDocument* this$0, $AbstractDocument$DefaultDocumentEvent* dde) {
 	$set(this, this$0, this$0);
-	$var($AbstractDocument, var$0, this$0);
-	int32_t var$1 = $nc(dde)->getOffset();
-	$AbstractDocument$DefaultDocumentEvent::init$(var$0, var$1, dde->getLength(), dde->type);
+	int32_t var$0 = $nc(dde)->getOffset();
+	$AbstractDocument$DefaultDocumentEvent::init$(this$0, var$0, dde->getLength(), dde->type);
 	$set(this, dde, dde);
 }
 
@@ -149,18 +92,67 @@ $String* AbstractDocument$DefaultDocumentEventUndoableWrapper::getRedoPresentati
 }
 
 void AbstractDocument$DefaultDocumentEventUndoableWrapper::lockEdit() {
-	$nc(($cast($AbstractDocument, $($nc(this->dde)->getDocument()))))->writeLock();
+	$$sure($AbstractDocument, $nc(this->dde)->getDocument())->writeLock();
 }
 
 void AbstractDocument$DefaultDocumentEventUndoableWrapper::unlockEdit() {
-	$nc(($cast($AbstractDocument, $($nc(this->dde)->getDocument()))))->writeUnlock();
+	$$sure($AbstractDocument, $nc(this->dde)->getDocument())->writeUnlock();
 }
 
 AbstractDocument$DefaultDocumentEventUndoableWrapper::AbstractDocument$DefaultDocumentEventUndoableWrapper() {
 }
 
 $Class* AbstractDocument$DefaultDocumentEventUndoableWrapper::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocument$DefaultDocumentEventUndoableWrapper, name, initialize, &_AbstractDocument$DefaultDocumentEventUndoableWrapper_ClassInfo_, allocate$AbstractDocument$DefaultDocumentEventUndoableWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$DefaultDocumentEventUndoableWrapper, this$0)},
+		{"dde", "Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;", nullptr, $FINAL, $field(AbstractDocument$DefaultDocumentEventUndoableWrapper, dde)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/AbstractDocument;Ljavax/swing/text/AbstractDocument$DefaultDocumentEvent;)V", nullptr, $PUBLIC, $method(AbstractDocument$DefaultDocumentEventUndoableWrapper, init$, void, $AbstractDocument*, $AbstractDocument$DefaultDocumentEvent*)},
+		{"addEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, addEdit, bool, $UndoableEdit*)},
+		{"canRedo", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, canRedo, bool)},
+		{"canUndo", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, canUndo, bool)},
+		{"die", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, die, void)},
+		{"getPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, getPresentationName, $String*)},
+		{"getRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, getRedoPresentationName, $String*)},
+		{"getUndoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, getUndoPresentationName, $String*)},
+		{"isSignificant", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, isSignificant, bool)},
+		{"lockEdit", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, lockEdit, void)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"replaceEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, replaceEdit, bool, $UndoableEdit*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, undo, void), "javax.swing.undo.CannotUndoException"},
+		{"unlockEdit", "()V", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$DefaultDocumentEventUndoableWrapper, unlockEdit, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$DefaultDocumentEventUndoableWrapper", "javax.swing.text.AbstractDocument", "DefaultDocumentEventUndoableWrapper", 0},
+		{"javax.swing.text.AbstractDocument$DefaultDocumentEvent", "javax.swing.text.AbstractDocument", "DefaultDocumentEvent", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.AbstractDocument$DefaultDocumentEventUndoableWrapper",
+		"javax.swing.text.AbstractDocument$DefaultDocumentEvent",
+		"sun.swing.text.UndoableEditLockSupport",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AbstractDocument"
+	};
+	$loadClass(AbstractDocument$DefaultDocumentEventUndoableWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDocument$DefaultDocumentEventUndoableWrapper));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/AWTAccessor.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -80,7 +79,6 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $AccessibleBundle = ::javax::accessibility::AccessibleBundle;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AWTAccessor$AWTEventAccessor = ::sun::awt::AWTAccessor$AWTEventAccessor;
@@ -117,163 +115,6 @@ using $AWTAccessor$WindowAccessor = ::sun::awt::AWTAccessor$WindowAccessor;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _AWTAccessor_FieldInfo_[] = {
-	{"componentAccessor", "Lsun/awt/AWTAccessor$ComponentAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, componentAccessor)},
-	{"containerAccessor", "Lsun/awt/AWTAccessor$ContainerAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, containerAccessor)},
-	{"windowAccessor", "Lsun/awt/AWTAccessor$WindowAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, windowAccessor)},
-	{"awtEventAccessor", "Lsun/awt/AWTAccessor$AWTEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, awtEventAccessor)},
-	{"inputEventAccessor", "Lsun/awt/AWTAccessor$InputEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, inputEventAccessor)},
-	{"mouseEventAccessor", "Lsun/awt/AWTAccessor$MouseEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, mouseEventAccessor)},
-	{"frameAccessor", "Lsun/awt/AWTAccessor$FrameAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, frameAccessor)},
-	{"kfmAccessor", "Lsun/awt/AWTAccessor$KeyboardFocusManagerAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, kfmAccessor)},
-	{"menuComponentAccessor", "Lsun/awt/AWTAccessor$MenuComponentAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, menuComponentAccessor)},
-	{"eventQueueAccessor", "Lsun/awt/AWTAccessor$EventQueueAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, eventQueueAccessor)},
-	{"popupMenuAccessor", "Lsun/awt/AWTAccessor$PopupMenuAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, popupMenuAccessor)},
-	{"fileDialogAccessor", "Lsun/awt/AWTAccessor$FileDialogAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, fileDialogAccessor)},
-	{"scrollPaneAdjustableAccessor", "Lsun/awt/AWTAccessor$ScrollPaneAdjustableAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, scrollPaneAdjustableAccessor)},
-	{"checkboxMenuItemAccessor", "Lsun/awt/AWTAccessor$CheckboxMenuItemAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, checkboxMenuItemAccessor)},
-	{"cursorAccessor", "Lsun/awt/AWTAccessor$CursorAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, cursorAccessor)},
-	{"menuBarAccessor", "Lsun/awt/AWTAccessor$MenuBarAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, menuBarAccessor)},
-	{"menuItemAccessor", "Lsun/awt/AWTAccessor$MenuItemAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, menuItemAccessor)},
-	{"menuAccessor", "Lsun/awt/AWTAccessor$MenuAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, menuAccessor)},
-	{"keyEventAccessor", "Lsun/awt/AWTAccessor$KeyEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, keyEventAccessor)},
-	{"clientPropertyKeyAccessor", "Lsun/awt/AWTAccessor$ClientPropertyKeyAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, clientPropertyKeyAccessor)},
-	{"systemTrayAccessor", "Lsun/awt/AWTAccessor$SystemTrayAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, systemTrayAccessor)},
-	{"trayIconAccessor", "Lsun/awt/AWTAccessor$TrayIconAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, trayIconAccessor)},
-	{"defaultKeyboardFocusManagerAccessor", "Lsun/awt/AWTAccessor$DefaultKeyboardFocusManagerAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, defaultKeyboardFocusManagerAccessor)},
-	{"sequencedEventAccessor", "Lsun/awt/AWTAccessor$SequencedEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, sequencedEventAccessor)},
-	{"toolkitAccessor", "Lsun/awt/AWTAccessor$ToolkitAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, toolkitAccessor)},
-	{"invocationEventAccessor", "Lsun/awt/AWTAccessor$InvocationEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, invocationEventAccessor)},
-	{"systemColorAccessor", "Lsun/awt/AWTAccessor$SystemColorAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, systemColorAccessor)},
-	{"accessibleContextAccessor", "Lsun/awt/AWTAccessor$AccessibleContextAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, accessibleContextAccessor)},
-	{"accessibleBundleAccessor", "Lsun/awt/AWTAccessor$AccessibleBundleAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, accessibleBundleAccessor)},
-	{"dragSourceContextAccessor", "Lsun/awt/AWTAccessor$DragSourceContextAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, dragSourceContextAccessor)},
-	{"dropTargetContextAccessor", "Lsun/awt/AWTAccessor$DropTargetContextAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, dropTargetContextAccessor)},
-	{}
-};
-
-$MethodInfo _AWTAccessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(AWTAccessor, init$, void)},
-	{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(AWTAccessor, ensureClassInitialized, void, $Class*)},
-	{"getAWTEventAccessor", "()Lsun/awt/AWTAccessor$AWTEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getAWTEventAccessor, $AWTAccessor$AWTEventAccessor*)},
-	{"getAccessibleBundleAccessor", "()Lsun/awt/AWTAccessor$AccessibleBundleAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getAccessibleBundleAccessor, $AWTAccessor$AccessibleBundleAccessor*)},
-	{"getAccessibleContextAccessor", "()Lsun/awt/AWTAccessor$AccessibleContextAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getAccessibleContextAccessor, $AWTAccessor$AccessibleContextAccessor*)},
-	{"getCheckboxMenuItemAccessor", "()Lsun/awt/AWTAccessor$CheckboxMenuItemAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getCheckboxMenuItemAccessor, $AWTAccessor$CheckboxMenuItemAccessor*)},
-	{"getClientPropertyKeyAccessor", "()Lsun/awt/AWTAccessor$ClientPropertyKeyAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getClientPropertyKeyAccessor, $AWTAccessor$ClientPropertyKeyAccessor*)},
-	{"getComponentAccessor", "()Lsun/awt/AWTAccessor$ComponentAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getComponentAccessor, $AWTAccessor$ComponentAccessor*)},
-	{"getContainerAccessor", "()Lsun/awt/AWTAccessor$ContainerAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getContainerAccessor, $AWTAccessor$ContainerAccessor*)},
-	{"getCursorAccessor", "()Lsun/awt/AWTAccessor$CursorAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getCursorAccessor, $AWTAccessor$CursorAccessor*)},
-	{"getDefaultKeyboardFocusManagerAccessor", "()Lsun/awt/AWTAccessor$DefaultKeyboardFocusManagerAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getDefaultKeyboardFocusManagerAccessor, $AWTAccessor$DefaultKeyboardFocusManagerAccessor*)},
-	{"getDragSourceContextAccessor", "()Lsun/awt/AWTAccessor$DragSourceContextAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getDragSourceContextAccessor, $AWTAccessor$DragSourceContextAccessor*)},
-	{"getDropTargetContextAccessor", "()Lsun/awt/AWTAccessor$DropTargetContextAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getDropTargetContextAccessor, $AWTAccessor$DropTargetContextAccessor*)},
-	{"getEventQueueAccessor", "()Lsun/awt/AWTAccessor$EventQueueAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getEventQueueAccessor, $AWTAccessor$EventQueueAccessor*)},
-	{"getFileDialogAccessor", "()Lsun/awt/AWTAccessor$FileDialogAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getFileDialogAccessor, $AWTAccessor$FileDialogAccessor*)},
-	{"getFrameAccessor", "()Lsun/awt/AWTAccessor$FrameAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getFrameAccessor, $AWTAccessor$FrameAccessor*)},
-	{"getInputEventAccessor", "()Lsun/awt/AWTAccessor$InputEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getInputEventAccessor, $AWTAccessor$InputEventAccessor*)},
-	{"getInvocationEventAccessor", "()Lsun/awt/AWTAccessor$InvocationEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getInvocationEventAccessor, $AWTAccessor$InvocationEventAccessor*)},
-	{"getKeyEventAccessor", "()Lsun/awt/AWTAccessor$KeyEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getKeyEventAccessor, $AWTAccessor$KeyEventAccessor*)},
-	{"getKeyboardFocusManagerAccessor", "()Lsun/awt/AWTAccessor$KeyboardFocusManagerAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getKeyboardFocusManagerAccessor, $AWTAccessor$KeyboardFocusManagerAccessor*)},
-	{"getMenuAccessor", "()Lsun/awt/AWTAccessor$MenuAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMenuAccessor, $AWTAccessor$MenuAccessor*)},
-	{"getMenuBarAccessor", "()Lsun/awt/AWTAccessor$MenuBarAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMenuBarAccessor, $AWTAccessor$MenuBarAccessor*)},
-	{"getMenuComponentAccessor", "()Lsun/awt/AWTAccessor$MenuComponentAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMenuComponentAccessor, $AWTAccessor$MenuComponentAccessor*)},
-	{"getMenuItemAccessor", "()Lsun/awt/AWTAccessor$MenuItemAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMenuItemAccessor, $AWTAccessor$MenuItemAccessor*)},
-	{"getMouseEventAccessor", "()Lsun/awt/AWTAccessor$MouseEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMouseEventAccessor, $AWTAccessor$MouseEventAccessor*)},
-	{"getPopupMenuAccessor", "()Lsun/awt/AWTAccessor$PopupMenuAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getPopupMenuAccessor, $AWTAccessor$PopupMenuAccessor*)},
-	{"getScrollPaneAdjustableAccessor", "()Lsun/awt/AWTAccessor$ScrollPaneAdjustableAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getScrollPaneAdjustableAccessor, $AWTAccessor$ScrollPaneAdjustableAccessor*)},
-	{"getSequencedEventAccessor", "()Lsun/awt/AWTAccessor$SequencedEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getSequencedEventAccessor, $AWTAccessor$SequencedEventAccessor*)},
-	{"getSystemColorAccessor", "()Lsun/awt/AWTAccessor$SystemColorAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getSystemColorAccessor, $AWTAccessor$SystemColorAccessor*)},
-	{"getSystemTrayAccessor", "()Lsun/awt/AWTAccessor$SystemTrayAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getSystemTrayAccessor, $AWTAccessor$SystemTrayAccessor*)},
-	{"getToolkitAccessor", "()Lsun/awt/AWTAccessor$ToolkitAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getToolkitAccessor, $AWTAccessor$ToolkitAccessor*)},
-	{"getTrayIconAccessor", "()Lsun/awt/AWTAccessor$TrayIconAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getTrayIconAccessor, $AWTAccessor$TrayIconAccessor*)},
-	{"getWindowAccessor", "()Lsun/awt/AWTAccessor$WindowAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getWindowAccessor, $AWTAccessor$WindowAccessor*)},
-	{"setAWTEventAccessor", "(Lsun/awt/AWTAccessor$AWTEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setAWTEventAccessor, void, $AWTAccessor$AWTEventAccessor*)},
-	{"setAccessibleBundleAccessor", "(Lsun/awt/AWTAccessor$AccessibleBundleAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setAccessibleBundleAccessor, void, $AWTAccessor$AccessibleBundleAccessor*)},
-	{"setAccessibleContextAccessor", "(Lsun/awt/AWTAccessor$AccessibleContextAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setAccessibleContextAccessor, void, $AWTAccessor$AccessibleContextAccessor*)},
-	{"setCheckboxMenuItemAccessor", "(Lsun/awt/AWTAccessor$CheckboxMenuItemAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setCheckboxMenuItemAccessor, void, $AWTAccessor$CheckboxMenuItemAccessor*)},
-	{"setClientPropertyKeyAccessor", "(Lsun/awt/AWTAccessor$ClientPropertyKeyAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setClientPropertyKeyAccessor, void, $AWTAccessor$ClientPropertyKeyAccessor*)},
-	{"setComponentAccessor", "(Lsun/awt/AWTAccessor$ComponentAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setComponentAccessor, void, $AWTAccessor$ComponentAccessor*)},
-	{"setContainerAccessor", "(Lsun/awt/AWTAccessor$ContainerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setContainerAccessor, void, $AWTAccessor$ContainerAccessor*)},
-	{"setCursorAccessor", "(Lsun/awt/AWTAccessor$CursorAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setCursorAccessor, void, $AWTAccessor$CursorAccessor*)},
-	{"setDefaultKeyboardFocusManagerAccessor", "(Lsun/awt/AWTAccessor$DefaultKeyboardFocusManagerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setDefaultKeyboardFocusManagerAccessor, void, $AWTAccessor$DefaultKeyboardFocusManagerAccessor*)},
-	{"setDragSourceContextAccessor", "(Lsun/awt/AWTAccessor$DragSourceContextAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setDragSourceContextAccessor, void, $AWTAccessor$DragSourceContextAccessor*)},
-	{"setDropTargetContextAccessor", "(Lsun/awt/AWTAccessor$DropTargetContextAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setDropTargetContextAccessor, void, $AWTAccessor$DropTargetContextAccessor*)},
-	{"setEventQueueAccessor", "(Lsun/awt/AWTAccessor$EventQueueAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setEventQueueAccessor, void, $AWTAccessor$EventQueueAccessor*)},
-	{"setFileDialogAccessor", "(Lsun/awt/AWTAccessor$FileDialogAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setFileDialogAccessor, void, $AWTAccessor$FileDialogAccessor*)},
-	{"setFrameAccessor", "(Lsun/awt/AWTAccessor$FrameAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setFrameAccessor, void, $AWTAccessor$FrameAccessor*)},
-	{"setInputEventAccessor", "(Lsun/awt/AWTAccessor$InputEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setInputEventAccessor, void, $AWTAccessor$InputEventAccessor*)},
-	{"setInvocationEventAccessor", "(Lsun/awt/AWTAccessor$InvocationEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setInvocationEventAccessor, void, $AWTAccessor$InvocationEventAccessor*)},
-	{"setKeyEventAccessor", "(Lsun/awt/AWTAccessor$KeyEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setKeyEventAccessor, void, $AWTAccessor$KeyEventAccessor*)},
-	{"setKeyboardFocusManagerAccessor", "(Lsun/awt/AWTAccessor$KeyboardFocusManagerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setKeyboardFocusManagerAccessor, void, $AWTAccessor$KeyboardFocusManagerAccessor*)},
-	{"setMenuAccessor", "(Lsun/awt/AWTAccessor$MenuAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMenuAccessor, void, $AWTAccessor$MenuAccessor*)},
-	{"setMenuBarAccessor", "(Lsun/awt/AWTAccessor$MenuBarAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMenuBarAccessor, void, $AWTAccessor$MenuBarAccessor*)},
-	{"setMenuComponentAccessor", "(Lsun/awt/AWTAccessor$MenuComponentAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMenuComponentAccessor, void, $AWTAccessor$MenuComponentAccessor*)},
-	{"setMenuItemAccessor", "(Lsun/awt/AWTAccessor$MenuItemAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMenuItemAccessor, void, $AWTAccessor$MenuItemAccessor*)},
-	{"setMouseEventAccessor", "(Lsun/awt/AWTAccessor$MouseEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMouseEventAccessor, void, $AWTAccessor$MouseEventAccessor*)},
-	{"setPopupMenuAccessor", "(Lsun/awt/AWTAccessor$PopupMenuAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setPopupMenuAccessor, void, $AWTAccessor$PopupMenuAccessor*)},
-	{"setScrollPaneAdjustableAccessor", "(Lsun/awt/AWTAccessor$ScrollPaneAdjustableAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setScrollPaneAdjustableAccessor, void, $AWTAccessor$ScrollPaneAdjustableAccessor*)},
-	{"setSequencedEventAccessor", "(Lsun/awt/AWTAccessor$SequencedEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setSequencedEventAccessor, void, $AWTAccessor$SequencedEventAccessor*)},
-	{"setSystemColorAccessor", "(Lsun/awt/AWTAccessor$SystemColorAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setSystemColorAccessor, void, $AWTAccessor$SystemColorAccessor*)},
-	{"setSystemTrayAccessor", "(Lsun/awt/AWTAccessor$SystemTrayAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setSystemTrayAccessor, void, $AWTAccessor$SystemTrayAccessor*)},
-	{"setToolkitAccessor", "(Lsun/awt/AWTAccessor$ToolkitAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setToolkitAccessor, void, $AWTAccessor$ToolkitAccessor*)},
-	{"setTrayIconAccessor", "(Lsun/awt/AWTAccessor$TrayIconAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setTrayIconAccessor, void, $AWTAccessor$TrayIconAccessor*)},
-	{"setWindowAccessor", "(Lsun/awt/AWTAccessor$WindowAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setWindowAccessor, void, $AWTAccessor$WindowAccessor*)},
-	{}
-};
-
-$InnerClassInfo _AWTAccessor_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAccessor$DropTargetContextAccessor", "sun.awt.AWTAccessor", "DropTargetContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$DragSourceContextAccessor", "sun.awt.AWTAccessor", "DragSourceContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$AccessibleBundleAccessor", "sun.awt.AWTAccessor", "AccessibleBundleAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$AccessibleContextAccessor", "sun.awt.AWTAccessor", "AccessibleContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$SystemColorAccessor", "sun.awt.AWTAccessor", "SystemColorAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$InvocationEventAccessor", "sun.awt.AWTAccessor", "InvocationEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$ToolkitAccessor", "sun.awt.AWTAccessor", "ToolkitAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$SequencedEventAccessor", "sun.awt.AWTAccessor", "SequencedEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "DefaultKeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$TrayIconAccessor", "sun.awt.AWTAccessor", "TrayIconAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$SystemTrayAccessor", "sun.awt.AWTAccessor", "SystemTrayAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$ClientPropertyKeyAccessor", "sun.awt.AWTAccessor", "ClientPropertyKeyAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$KeyEventAccessor", "sun.awt.AWTAccessor", "KeyEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$MenuAccessor", "sun.awt.AWTAccessor", "MenuAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$MenuItemAccessor", "sun.awt.AWTAccessor", "MenuItemAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$MenuBarAccessor", "sun.awt.AWTAccessor", "MenuBarAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$CursorAccessor", "sun.awt.AWTAccessor", "CursorAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$CheckboxMenuItemAccessor", "sun.awt.AWTAccessor", "CheckboxMenuItemAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$ScrollPaneAdjustableAccessor", "sun.awt.AWTAccessor", "ScrollPaneAdjustableAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$FileDialogAccessor", "sun.awt.AWTAccessor", "FileDialogAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$PopupMenuAccessor", "sun.awt.AWTAccessor", "PopupMenuAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$EventQueueAccessor", "sun.awt.AWTAccessor", "EventQueueAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$MenuComponentAccessor", "sun.awt.AWTAccessor", "MenuComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$KeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "KeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$FrameAccessor", "sun.awt.AWTAccessor", "FrameAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$MouseEventAccessor", "sun.awt.AWTAccessor", "MouseEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$InputEventAccessor", "sun.awt.AWTAccessor", "InputEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$AWTEventAccessor", "sun.awt.AWTAccessor", "AWTEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$WindowAccessor", "sun.awt.AWTAccessor", "WindowAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$ContainerAccessor", "sun.awt.AWTAccessor", "ContainerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.awt.AWTAccessor$ComponentAccessor", "sun.awt.AWTAccessor", "ComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AWTAccessor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.AWTAccessor",
-	"java.lang.Object",
-	nullptr,
-	_AWTAccessor_FieldInfo_,
-	_AWTAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAccessor$DropTargetContextAccessor,sun.awt.AWTAccessor$DragSourceContextAccessor,sun.awt.AWTAccessor$AccessibleBundleAccessor,sun.awt.AWTAccessor$AccessibleContextAccessor,sun.awt.AWTAccessor$SystemColorAccessor,sun.awt.AWTAccessor$InvocationEventAccessor,sun.awt.AWTAccessor$ToolkitAccessor,sun.awt.AWTAccessor$SequencedEventAccessor,sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor,sun.awt.AWTAccessor$TrayIconAccessor,sun.awt.AWTAccessor$SystemTrayAccessor,sun.awt.AWTAccessor$ClientPropertyKeyAccessor,sun.awt.AWTAccessor$KeyEventAccessor,sun.awt.AWTAccessor$MenuAccessor,sun.awt.AWTAccessor$MenuItemAccessor,sun.awt.AWTAccessor$MenuBarAccessor,sun.awt.AWTAccessor$CursorAccessor,sun.awt.AWTAccessor$CheckboxMenuItemAccessor,sun.awt.AWTAccessor$ScrollPaneAdjustableAccessor,sun.awt.AWTAccessor$FileDialogAccessor,sun.awt.AWTAccessor$PopupMenuAccessor,sun.awt.AWTAccessor$EventQueueAccessor,sun.awt.AWTAccessor$MenuComponentAccessor,sun.awt.AWTAccessor$KeyboardFocusManagerAccessor,sun.awt.AWTAccessor$FrameAccessor,sun.awt.AWTAccessor$MouseEventAccessor,sun.awt.AWTAccessor$InputEventAccessor,sun.awt.AWTAccessor$AWTEventAccessor,sun.awt.AWTAccessor$WindowAccessor,sun.awt.AWTAccessor$ContainerAccessor,sun.awt.AWTAccessor$ComponentAccessor"
-};
-
-$Object* allocate$AWTAccessor($Class* clazz) {
-	return $of($alloc(AWTAccessor));
-}
 
 $AWTAccessor$ComponentAccessor* AWTAccessor::componentAccessor = nullptr;
 $AWTAccessor$ContainerAccessor* AWTAccessor::containerAccessor = nullptr;
@@ -748,7 +589,7 @@ void AWTAccessor::ensureClassInitialized($Class* c) {
 	$load(AWTAccessor);
 	$beforeCallerSensitive();
 	try {
-		$nc($($MethodHandles::lookup()))->ensureInitialized(c);
+		$$nc($MethodHandles::lookup())->ensureInitialized(c);
 	} catch ($IllegalAccessException& e) {
 	}
 }
@@ -757,7 +598,158 @@ AWTAccessor::AWTAccessor() {
 }
 
 $Class* AWTAccessor::load$($String* name, bool initialize) {
-	$loadClass(AWTAccessor, name, initialize, &_AWTAccessor_ClassInfo_, allocate$AWTAccessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"componentAccessor", "Lsun/awt/AWTAccessor$ComponentAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, componentAccessor)},
+		{"containerAccessor", "Lsun/awt/AWTAccessor$ContainerAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, containerAccessor)},
+		{"windowAccessor", "Lsun/awt/AWTAccessor$WindowAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, windowAccessor)},
+		{"awtEventAccessor", "Lsun/awt/AWTAccessor$AWTEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, awtEventAccessor)},
+		{"inputEventAccessor", "Lsun/awt/AWTAccessor$InputEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, inputEventAccessor)},
+		{"mouseEventAccessor", "Lsun/awt/AWTAccessor$MouseEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, mouseEventAccessor)},
+		{"frameAccessor", "Lsun/awt/AWTAccessor$FrameAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, frameAccessor)},
+		{"kfmAccessor", "Lsun/awt/AWTAccessor$KeyboardFocusManagerAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, kfmAccessor)},
+		{"menuComponentAccessor", "Lsun/awt/AWTAccessor$MenuComponentAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, menuComponentAccessor)},
+		{"eventQueueAccessor", "Lsun/awt/AWTAccessor$EventQueueAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, eventQueueAccessor)},
+		{"popupMenuAccessor", "Lsun/awt/AWTAccessor$PopupMenuAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, popupMenuAccessor)},
+		{"fileDialogAccessor", "Lsun/awt/AWTAccessor$FileDialogAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, fileDialogAccessor)},
+		{"scrollPaneAdjustableAccessor", "Lsun/awt/AWTAccessor$ScrollPaneAdjustableAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, scrollPaneAdjustableAccessor)},
+		{"checkboxMenuItemAccessor", "Lsun/awt/AWTAccessor$CheckboxMenuItemAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, checkboxMenuItemAccessor)},
+		{"cursorAccessor", "Lsun/awt/AWTAccessor$CursorAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, cursorAccessor)},
+		{"menuBarAccessor", "Lsun/awt/AWTAccessor$MenuBarAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, menuBarAccessor)},
+		{"menuItemAccessor", "Lsun/awt/AWTAccessor$MenuItemAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, menuItemAccessor)},
+		{"menuAccessor", "Lsun/awt/AWTAccessor$MenuAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, menuAccessor)},
+		{"keyEventAccessor", "Lsun/awt/AWTAccessor$KeyEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, keyEventAccessor)},
+		{"clientPropertyKeyAccessor", "Lsun/awt/AWTAccessor$ClientPropertyKeyAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, clientPropertyKeyAccessor)},
+		{"systemTrayAccessor", "Lsun/awt/AWTAccessor$SystemTrayAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, systemTrayAccessor)},
+		{"trayIconAccessor", "Lsun/awt/AWTAccessor$TrayIconAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, trayIconAccessor)},
+		{"defaultKeyboardFocusManagerAccessor", "Lsun/awt/AWTAccessor$DefaultKeyboardFocusManagerAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, defaultKeyboardFocusManagerAccessor)},
+		{"sequencedEventAccessor", "Lsun/awt/AWTAccessor$SequencedEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, sequencedEventAccessor)},
+		{"toolkitAccessor", "Lsun/awt/AWTAccessor$ToolkitAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, toolkitAccessor)},
+		{"invocationEventAccessor", "Lsun/awt/AWTAccessor$InvocationEventAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, invocationEventAccessor)},
+		{"systemColorAccessor", "Lsun/awt/AWTAccessor$SystemColorAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, systemColorAccessor)},
+		{"accessibleContextAccessor", "Lsun/awt/AWTAccessor$AccessibleContextAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, accessibleContextAccessor)},
+		{"accessibleBundleAccessor", "Lsun/awt/AWTAccessor$AccessibleBundleAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, accessibleBundleAccessor)},
+		{"dragSourceContextAccessor", "Lsun/awt/AWTAccessor$DragSourceContextAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, dragSourceContextAccessor)},
+		{"dropTargetContextAccessor", "Lsun/awt/AWTAccessor$DropTargetContextAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(AWTAccessor, dropTargetContextAccessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(AWTAccessor, init$, void)},
+		{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(AWTAccessor, ensureClassInitialized, void, $Class*)},
+		{"getAWTEventAccessor", "()Lsun/awt/AWTAccessor$AWTEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getAWTEventAccessor, $AWTAccessor$AWTEventAccessor*)},
+		{"getAccessibleBundleAccessor", "()Lsun/awt/AWTAccessor$AccessibleBundleAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getAccessibleBundleAccessor, $AWTAccessor$AccessibleBundleAccessor*)},
+		{"getAccessibleContextAccessor", "()Lsun/awt/AWTAccessor$AccessibleContextAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getAccessibleContextAccessor, $AWTAccessor$AccessibleContextAccessor*)},
+		{"getCheckboxMenuItemAccessor", "()Lsun/awt/AWTAccessor$CheckboxMenuItemAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getCheckboxMenuItemAccessor, $AWTAccessor$CheckboxMenuItemAccessor*)},
+		{"getClientPropertyKeyAccessor", "()Lsun/awt/AWTAccessor$ClientPropertyKeyAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getClientPropertyKeyAccessor, $AWTAccessor$ClientPropertyKeyAccessor*)},
+		{"getComponentAccessor", "()Lsun/awt/AWTAccessor$ComponentAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getComponentAccessor, $AWTAccessor$ComponentAccessor*)},
+		{"getContainerAccessor", "()Lsun/awt/AWTAccessor$ContainerAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getContainerAccessor, $AWTAccessor$ContainerAccessor*)},
+		{"getCursorAccessor", "()Lsun/awt/AWTAccessor$CursorAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getCursorAccessor, $AWTAccessor$CursorAccessor*)},
+		{"getDefaultKeyboardFocusManagerAccessor", "()Lsun/awt/AWTAccessor$DefaultKeyboardFocusManagerAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getDefaultKeyboardFocusManagerAccessor, $AWTAccessor$DefaultKeyboardFocusManagerAccessor*)},
+		{"getDragSourceContextAccessor", "()Lsun/awt/AWTAccessor$DragSourceContextAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getDragSourceContextAccessor, $AWTAccessor$DragSourceContextAccessor*)},
+		{"getDropTargetContextAccessor", "()Lsun/awt/AWTAccessor$DropTargetContextAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getDropTargetContextAccessor, $AWTAccessor$DropTargetContextAccessor*)},
+		{"getEventQueueAccessor", "()Lsun/awt/AWTAccessor$EventQueueAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getEventQueueAccessor, $AWTAccessor$EventQueueAccessor*)},
+		{"getFileDialogAccessor", "()Lsun/awt/AWTAccessor$FileDialogAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getFileDialogAccessor, $AWTAccessor$FileDialogAccessor*)},
+		{"getFrameAccessor", "()Lsun/awt/AWTAccessor$FrameAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getFrameAccessor, $AWTAccessor$FrameAccessor*)},
+		{"getInputEventAccessor", "()Lsun/awt/AWTAccessor$InputEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getInputEventAccessor, $AWTAccessor$InputEventAccessor*)},
+		{"getInvocationEventAccessor", "()Lsun/awt/AWTAccessor$InvocationEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getInvocationEventAccessor, $AWTAccessor$InvocationEventAccessor*)},
+		{"getKeyEventAccessor", "()Lsun/awt/AWTAccessor$KeyEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getKeyEventAccessor, $AWTAccessor$KeyEventAccessor*)},
+		{"getKeyboardFocusManagerAccessor", "()Lsun/awt/AWTAccessor$KeyboardFocusManagerAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getKeyboardFocusManagerAccessor, $AWTAccessor$KeyboardFocusManagerAccessor*)},
+		{"getMenuAccessor", "()Lsun/awt/AWTAccessor$MenuAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMenuAccessor, $AWTAccessor$MenuAccessor*)},
+		{"getMenuBarAccessor", "()Lsun/awt/AWTAccessor$MenuBarAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMenuBarAccessor, $AWTAccessor$MenuBarAccessor*)},
+		{"getMenuComponentAccessor", "()Lsun/awt/AWTAccessor$MenuComponentAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMenuComponentAccessor, $AWTAccessor$MenuComponentAccessor*)},
+		{"getMenuItemAccessor", "()Lsun/awt/AWTAccessor$MenuItemAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMenuItemAccessor, $AWTAccessor$MenuItemAccessor*)},
+		{"getMouseEventAccessor", "()Lsun/awt/AWTAccessor$MouseEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getMouseEventAccessor, $AWTAccessor$MouseEventAccessor*)},
+		{"getPopupMenuAccessor", "()Lsun/awt/AWTAccessor$PopupMenuAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getPopupMenuAccessor, $AWTAccessor$PopupMenuAccessor*)},
+		{"getScrollPaneAdjustableAccessor", "()Lsun/awt/AWTAccessor$ScrollPaneAdjustableAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getScrollPaneAdjustableAccessor, $AWTAccessor$ScrollPaneAdjustableAccessor*)},
+		{"getSequencedEventAccessor", "()Lsun/awt/AWTAccessor$SequencedEventAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getSequencedEventAccessor, $AWTAccessor$SequencedEventAccessor*)},
+		{"getSystemColorAccessor", "()Lsun/awt/AWTAccessor$SystemColorAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getSystemColorAccessor, $AWTAccessor$SystemColorAccessor*)},
+		{"getSystemTrayAccessor", "()Lsun/awt/AWTAccessor$SystemTrayAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getSystemTrayAccessor, $AWTAccessor$SystemTrayAccessor*)},
+		{"getToolkitAccessor", "()Lsun/awt/AWTAccessor$ToolkitAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getToolkitAccessor, $AWTAccessor$ToolkitAccessor*)},
+		{"getTrayIconAccessor", "()Lsun/awt/AWTAccessor$TrayIconAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getTrayIconAccessor, $AWTAccessor$TrayIconAccessor*)},
+		{"getWindowAccessor", "()Lsun/awt/AWTAccessor$WindowAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, getWindowAccessor, $AWTAccessor$WindowAccessor*)},
+		{"setAWTEventAccessor", "(Lsun/awt/AWTAccessor$AWTEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setAWTEventAccessor, void, $AWTAccessor$AWTEventAccessor*)},
+		{"setAccessibleBundleAccessor", "(Lsun/awt/AWTAccessor$AccessibleBundleAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setAccessibleBundleAccessor, void, $AWTAccessor$AccessibleBundleAccessor*)},
+		{"setAccessibleContextAccessor", "(Lsun/awt/AWTAccessor$AccessibleContextAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setAccessibleContextAccessor, void, $AWTAccessor$AccessibleContextAccessor*)},
+		{"setCheckboxMenuItemAccessor", "(Lsun/awt/AWTAccessor$CheckboxMenuItemAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setCheckboxMenuItemAccessor, void, $AWTAccessor$CheckboxMenuItemAccessor*)},
+		{"setClientPropertyKeyAccessor", "(Lsun/awt/AWTAccessor$ClientPropertyKeyAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setClientPropertyKeyAccessor, void, $AWTAccessor$ClientPropertyKeyAccessor*)},
+		{"setComponentAccessor", "(Lsun/awt/AWTAccessor$ComponentAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setComponentAccessor, void, $AWTAccessor$ComponentAccessor*)},
+		{"setContainerAccessor", "(Lsun/awt/AWTAccessor$ContainerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setContainerAccessor, void, $AWTAccessor$ContainerAccessor*)},
+		{"setCursorAccessor", "(Lsun/awt/AWTAccessor$CursorAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setCursorAccessor, void, $AWTAccessor$CursorAccessor*)},
+		{"setDefaultKeyboardFocusManagerAccessor", "(Lsun/awt/AWTAccessor$DefaultKeyboardFocusManagerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setDefaultKeyboardFocusManagerAccessor, void, $AWTAccessor$DefaultKeyboardFocusManagerAccessor*)},
+		{"setDragSourceContextAccessor", "(Lsun/awt/AWTAccessor$DragSourceContextAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setDragSourceContextAccessor, void, $AWTAccessor$DragSourceContextAccessor*)},
+		{"setDropTargetContextAccessor", "(Lsun/awt/AWTAccessor$DropTargetContextAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setDropTargetContextAccessor, void, $AWTAccessor$DropTargetContextAccessor*)},
+		{"setEventQueueAccessor", "(Lsun/awt/AWTAccessor$EventQueueAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setEventQueueAccessor, void, $AWTAccessor$EventQueueAccessor*)},
+		{"setFileDialogAccessor", "(Lsun/awt/AWTAccessor$FileDialogAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setFileDialogAccessor, void, $AWTAccessor$FileDialogAccessor*)},
+		{"setFrameAccessor", "(Lsun/awt/AWTAccessor$FrameAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setFrameAccessor, void, $AWTAccessor$FrameAccessor*)},
+		{"setInputEventAccessor", "(Lsun/awt/AWTAccessor$InputEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setInputEventAccessor, void, $AWTAccessor$InputEventAccessor*)},
+		{"setInvocationEventAccessor", "(Lsun/awt/AWTAccessor$InvocationEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setInvocationEventAccessor, void, $AWTAccessor$InvocationEventAccessor*)},
+		{"setKeyEventAccessor", "(Lsun/awt/AWTAccessor$KeyEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setKeyEventAccessor, void, $AWTAccessor$KeyEventAccessor*)},
+		{"setKeyboardFocusManagerAccessor", "(Lsun/awt/AWTAccessor$KeyboardFocusManagerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setKeyboardFocusManagerAccessor, void, $AWTAccessor$KeyboardFocusManagerAccessor*)},
+		{"setMenuAccessor", "(Lsun/awt/AWTAccessor$MenuAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMenuAccessor, void, $AWTAccessor$MenuAccessor*)},
+		{"setMenuBarAccessor", "(Lsun/awt/AWTAccessor$MenuBarAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMenuBarAccessor, void, $AWTAccessor$MenuBarAccessor*)},
+		{"setMenuComponentAccessor", "(Lsun/awt/AWTAccessor$MenuComponentAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMenuComponentAccessor, void, $AWTAccessor$MenuComponentAccessor*)},
+		{"setMenuItemAccessor", "(Lsun/awt/AWTAccessor$MenuItemAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMenuItemAccessor, void, $AWTAccessor$MenuItemAccessor*)},
+		{"setMouseEventAccessor", "(Lsun/awt/AWTAccessor$MouseEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setMouseEventAccessor, void, $AWTAccessor$MouseEventAccessor*)},
+		{"setPopupMenuAccessor", "(Lsun/awt/AWTAccessor$PopupMenuAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setPopupMenuAccessor, void, $AWTAccessor$PopupMenuAccessor*)},
+		{"setScrollPaneAdjustableAccessor", "(Lsun/awt/AWTAccessor$ScrollPaneAdjustableAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setScrollPaneAdjustableAccessor, void, $AWTAccessor$ScrollPaneAdjustableAccessor*)},
+		{"setSequencedEventAccessor", "(Lsun/awt/AWTAccessor$SequencedEventAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setSequencedEventAccessor, void, $AWTAccessor$SequencedEventAccessor*)},
+		{"setSystemColorAccessor", "(Lsun/awt/AWTAccessor$SystemColorAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setSystemColorAccessor, void, $AWTAccessor$SystemColorAccessor*)},
+		{"setSystemTrayAccessor", "(Lsun/awt/AWTAccessor$SystemTrayAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setSystemTrayAccessor, void, $AWTAccessor$SystemTrayAccessor*)},
+		{"setToolkitAccessor", "(Lsun/awt/AWTAccessor$ToolkitAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setToolkitAccessor, void, $AWTAccessor$ToolkitAccessor*)},
+		{"setTrayIconAccessor", "(Lsun/awt/AWTAccessor$TrayIconAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setTrayIconAccessor, void, $AWTAccessor$TrayIconAccessor*)},
+		{"setWindowAccessor", "(Lsun/awt/AWTAccessor$WindowAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AWTAccessor, setWindowAccessor, void, $AWTAccessor$WindowAccessor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAccessor$DropTargetContextAccessor", "sun.awt.AWTAccessor", "DropTargetContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$DragSourceContextAccessor", "sun.awt.AWTAccessor", "DragSourceContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$AccessibleBundleAccessor", "sun.awt.AWTAccessor", "AccessibleBundleAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$AccessibleContextAccessor", "sun.awt.AWTAccessor", "AccessibleContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$SystemColorAccessor", "sun.awt.AWTAccessor", "SystemColorAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$InvocationEventAccessor", "sun.awt.AWTAccessor", "InvocationEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$ToolkitAccessor", "sun.awt.AWTAccessor", "ToolkitAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$SequencedEventAccessor", "sun.awt.AWTAccessor", "SequencedEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "DefaultKeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$TrayIconAccessor", "sun.awt.AWTAccessor", "TrayIconAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$SystemTrayAccessor", "sun.awt.AWTAccessor", "SystemTrayAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$ClientPropertyKeyAccessor", "sun.awt.AWTAccessor", "ClientPropertyKeyAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$KeyEventAccessor", "sun.awt.AWTAccessor", "KeyEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$MenuAccessor", "sun.awt.AWTAccessor", "MenuAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$MenuItemAccessor", "sun.awt.AWTAccessor", "MenuItemAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$MenuBarAccessor", "sun.awt.AWTAccessor", "MenuBarAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$CursorAccessor", "sun.awt.AWTAccessor", "CursorAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$CheckboxMenuItemAccessor", "sun.awt.AWTAccessor", "CheckboxMenuItemAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$ScrollPaneAdjustableAccessor", "sun.awt.AWTAccessor", "ScrollPaneAdjustableAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$FileDialogAccessor", "sun.awt.AWTAccessor", "FileDialogAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$PopupMenuAccessor", "sun.awt.AWTAccessor", "PopupMenuAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$EventQueueAccessor", "sun.awt.AWTAccessor", "EventQueueAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$MenuComponentAccessor", "sun.awt.AWTAccessor", "MenuComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$KeyboardFocusManagerAccessor", "sun.awt.AWTAccessor", "KeyboardFocusManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$FrameAccessor", "sun.awt.AWTAccessor", "FrameAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$MouseEventAccessor", "sun.awt.AWTAccessor", "MouseEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$InputEventAccessor", "sun.awt.AWTAccessor", "InputEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$AWTEventAccessor", "sun.awt.AWTAccessor", "AWTEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$WindowAccessor", "sun.awt.AWTAccessor", "WindowAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$ContainerAccessor", "sun.awt.AWTAccessor", "ContainerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.awt.AWTAccessor$ComponentAccessor", "sun.awt.AWTAccessor", "ComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.AWTAccessor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAccessor$DropTargetContextAccessor,sun.awt.AWTAccessor$DragSourceContextAccessor,sun.awt.AWTAccessor$AccessibleBundleAccessor,sun.awt.AWTAccessor$AccessibleContextAccessor,sun.awt.AWTAccessor$SystemColorAccessor,sun.awt.AWTAccessor$InvocationEventAccessor,sun.awt.AWTAccessor$ToolkitAccessor,sun.awt.AWTAccessor$SequencedEventAccessor,sun.awt.AWTAccessor$DefaultKeyboardFocusManagerAccessor,sun.awt.AWTAccessor$TrayIconAccessor,sun.awt.AWTAccessor$SystemTrayAccessor,sun.awt.AWTAccessor$ClientPropertyKeyAccessor,sun.awt.AWTAccessor$KeyEventAccessor,sun.awt.AWTAccessor$MenuAccessor,sun.awt.AWTAccessor$MenuItemAccessor,sun.awt.AWTAccessor$MenuBarAccessor,sun.awt.AWTAccessor$CursorAccessor,sun.awt.AWTAccessor$CheckboxMenuItemAccessor,sun.awt.AWTAccessor$ScrollPaneAdjustableAccessor,sun.awt.AWTAccessor$FileDialogAccessor,sun.awt.AWTAccessor$PopupMenuAccessor,sun.awt.AWTAccessor$EventQueueAccessor,sun.awt.AWTAccessor$MenuComponentAccessor,sun.awt.AWTAccessor$KeyboardFocusManagerAccessor,sun.awt.AWTAccessor$FrameAccessor,sun.awt.AWTAccessor$MouseEventAccessor,sun.awt.AWTAccessor$InputEventAccessor,sun.awt.AWTAccessor$AWTEventAccessor,sun.awt.AWTAccessor$WindowAccessor,sun.awt.AWTAccessor$ContainerAccessor,sun.awt.AWTAccessor$ComponentAccessor"
+	};
+	$loadClass(AWTAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAccessor);
+	});
 	return class$;
 }
 

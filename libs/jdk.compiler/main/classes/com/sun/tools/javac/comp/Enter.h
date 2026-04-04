@@ -112,6 +112,7 @@ class $export Enter : public ::com::sun::tools::javac::tree::JCTree$Visitor {
 	$class(Enter, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	Enter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::code::Type* classEnter(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::comp::Env* env);
 	virtual ::com::sun::tools::javac::util::List* classEnter(::com::sun::tools::javac::util::List* trees, ::com::sun::tools::javac::comp::Env* env);

@@ -26,6 +26,7 @@ class $import TypeAnnotationPosition$TypePathEntryKind : public ::java::lang::En
 public:
 	TypeAnnotationPosition$TypePathEntryKind();
 	static $Array<::com::sun::tools::javac::code::TypeAnnotationPosition$TypePathEntryKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t tag);
 	static ::com::sun::tools::javac::code::TypeAnnotationPosition$TypePathEntryKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::code::TypeAnnotationPosition$TypePathEntryKind>* values();

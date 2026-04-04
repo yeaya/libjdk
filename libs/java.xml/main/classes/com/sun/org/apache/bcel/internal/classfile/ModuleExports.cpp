@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ModuleExports.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Utility.h>
@@ -31,41 +30,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _ModuleExports_FieldInfo_[] = {
-	{"exportsIndex", "I", nullptr, $PRIVATE | $FINAL, $field(ModuleExports, exportsIndex)},
-	{"exportsFlags", "I", nullptr, $PRIVATE | $FINAL, $field(ModuleExports, exportsFlags)},
-	{"exportsToCount", "I", nullptr, $PRIVATE | $FINAL, $field(ModuleExports, exportsToCount)},
-	{"exportsToIndex", "[I", nullptr, $PRIVATE | $FINAL, $field(ModuleExports, exportsToIndex)},
-	{}
-};
-
-$MethodInfo _ModuleExports_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ModuleExports, init$, void, $DataInput*), "java.io.IOException"},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleExports, accept, void, $Visitor*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/ModuleExports;", nullptr, $PUBLIC, $method(ModuleExports, copy, ModuleExports*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(ModuleExports, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleExports, toString, $String*)},
-	{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleExports, toString, $String*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _ModuleExports_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ModuleExports",
-	"java.lang.Object",
-	"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
-	_ModuleExports_FieldInfo_,
-	_ModuleExports_MethodInfo_
-};
-
-$Object* allocate$ModuleExports($Class* clazz) {
-	return $of($alloc(ModuleExports));
-}
-
 int32_t ModuleExports::hashCode() {
 	 return this->$Cloneable::hashCode();
 }
@@ -88,7 +52,7 @@ void ModuleExports::init$($DataInput* file) {
 	this->exportsToCount = file->readUnsignedShort();
 	$set(this, exportsToIndex, $new($ints, this->exportsToCount));
 	for (int32_t i = 0; i < this->exportsToCount; ++i) {
-		$nc(this->exportsToIndex)->set(i, file->readUnsignedShort());
+		this->exportsToIndex->set(i, file->readUnsignedShort());
 	}
 }
 
@@ -102,9 +66,7 @@ void ModuleExports::dump($DataOutputStream* file) {
 	file->writeShort(this->exportsToCount);
 	{
 		$var($ints, arr$, this->exportsToIndex);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t entry = arr$->get(i$);
 			{
 				file->writeShort(entry);
@@ -114,22 +76,20 @@ void ModuleExports::dump($DataOutputStream* file) {
 }
 
 $String* ModuleExports::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"exports("_s, $$str(this->exportsIndex), ", "_s, $$str(this->exportsFlags), ", "_s, $$str(this->exportsToCount), ", ...)"_s});
 }
 
 $String* ModuleExports::toString($ConstantPool* constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	$var($String, package_name, $nc(constant_pool)->constantToString(this->exportsIndex, $Const::CONSTANT_Package));
 	buf->append($($Utility::compactClassName(package_name, false)));
-	buf->append(", "_s)->append($($String::format("%04x"_s, $$new($ObjectArray, {$($of($Integer::valueOf(this->exportsFlags)))}))));
+	buf->append(", "_s)->append($($String::format("%04x"_s, $$new($ObjectArray, {$($Integer::valueOf(this->exportsFlags))}))));
 	buf->append(", to("_s)->append(this->exportsToCount)->append("):\n"_s);
 	{
 		$var($ints, arr$, this->exportsToIndex);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int32_t index = arr$->get(i$);
 			{
 				$var($String, module_name, constant_pool->getConstantString(index, $Const::CONSTANT_Module));
@@ -152,7 +112,37 @@ ModuleExports::ModuleExports() {
 }
 
 $Class* ModuleExports::load$($String* name, bool initialize) {
-	$loadClass(ModuleExports, name, initialize, &_ModuleExports_ClassInfo_, allocate$ModuleExports);
+	$FieldInfo fieldInfos$$[] = {
+		{"exportsIndex", "I", nullptr, $PRIVATE | $FINAL, $field(ModuleExports, exportsIndex)},
+		{"exportsFlags", "I", nullptr, $PRIVATE | $FINAL, $field(ModuleExports, exportsFlags)},
+		{"exportsToCount", "I", nullptr, $PRIVATE | $FINAL, $field(ModuleExports, exportsToCount)},
+		{"exportsToIndex", "[I", nullptr, $PRIVATE | $FINAL, $field(ModuleExports, exportsToIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ModuleExports, init$, void, $DataInput*), "java.io.IOException"},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ModuleExports, accept, void, $Visitor*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/ModuleExports;", nullptr, $PUBLIC, $method(ModuleExports, copy, ModuleExports*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(ModuleExports, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ModuleExports, toString, $String*)},
+		{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(ModuleExports, toString, $String*, $ConstantPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ModuleExports",
+		"java.lang.Object",
+		"java.lang.Cloneable,com.sun.org.apache.bcel.internal.classfile.Node",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModuleExports, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModuleExports));
+	});
 	return class$;
 }
 

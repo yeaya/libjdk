@@ -29,6 +29,7 @@ class $export bug7199708 : public ::java::lang::Object {
 	$class(bug7199708, 0, ::java::lang::Object)
 public:
 	bug7199708();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::io::File* createLargeFolder();
 	static void doAction(::java::awt::Component* component, ::bug7199708$ComponentAction* action);

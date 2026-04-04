@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CDragSourceContextPeer.h>
-
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -9,10 +8,8 @@
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
-#include <java/awt/Paint.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Stroke.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/Window.h>
 #include <java/awt/datatransfer/Transferable.h>
@@ -34,7 +31,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Map.h>
 #include <java/util/concurrent/Callable.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -72,16 +68,13 @@ using $Cursor = ::java::awt::Cursor;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
-using $Paint = ::java::awt::Paint;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $Stroke = ::java::awt::Stroke;
 using $Transparency = ::java::awt::Transparency;
 using $Window = ::java::awt::Window;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $DragGestureEvent = ::java::awt::dnd::DragGestureEvent;
 using $DragSourceContext = ::java::awt::dnd::DragSourceContext;
-using $DropTarget = ::java::awt::dnd::DropTarget;
 using $InvalidDnDOperationException = ::java::awt::dnd::InvalidDnDOperationException;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -100,7 +93,6 @@ using $Runnable = ::java::lang::Runnable;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Map = ::java::util::Map;
 using $Callable = ::java::util::concurrent::Callable;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
@@ -112,7 +104,6 @@ using $JTree = ::javax::swing::JTree;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $SunDragSourceContextPeer = ::sun::awt::dnd::SunDragSourceContextPeer;
 using $SunDropTargetContextPeer = ::sun::awt::dnd::SunDropTargetContextPeer;
 using $LWComponentPeer = ::sun::lwawt::LWComponentPeer;
@@ -120,7 +111,6 @@ using $PlatformWindow = ::sun::lwawt::PlatformWindow;
 using $CCursorManager = ::sun::lwawt::macosx::CCursorManager;
 using $CDragSourceContextPeer$1 = ::sun::lwawt::macosx::CDragSourceContextPeer$1;
 using $CImage = ::sun::lwawt::macosx::CImage;
-using $CImage$Creator = ::sun::lwawt::macosx::CImage$Creator;
 using $CPlatformWindow = ::sun::lwawt::macosx::CPlatformWindow;
 using $LWCToolkit = ::sun::lwawt::macosx::LWCToolkit;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
@@ -138,98 +128,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$startDrag$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CDragSourceContextPeer$$Lambda$lambda$startDrag$0>());
-	}
 	CDragSourceContextPeer* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CDragSourceContextPeer$$Lambda$lambda$startDrag$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, inst$)},
-	{}
-};
-$MethodInfo CDragSourceContextPeer$$Lambda$lambda$startDrag$0::methodInfos[3] = {
-	{"<init>", "(Lsun/lwawt/macosx/CDragSourceContextPeer;)V", nullptr, $PUBLIC, $method(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, init$, void, CDragSourceContextPeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, run, void)},
-	{}
-};
-$ClassInfo CDragSourceContextPeer$$Lambda$lambda$startDrag$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CDragSourceContextPeer$$Lambda$lambda$startDrag$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* CDragSourceContextPeer$$Lambda$lambda$startDrag$0::load$($String* name, bool initialize) {
-	$loadClass(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/macosx/CDragSourceContextPeer;)V", nullptr, $PUBLIC, $method(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, init$, void, CDragSourceContextPeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CDragSourceContextPeer$$Lambda$lambda$startDrag$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CDragSourceContextPeer$$Lambda$lambda$startDrag$0);
+	});
 	return class$;
 }
 $Class* CDragSourceContextPeer$$Lambda$lambda$startDrag$0::class$ = nullptr;
-
-$FieldInfo _CDragSourceContextPeer_FieldInfo_[] = {
-	{"fInstance", "Lsun/lwawt/macosx/CDragSourceContextPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CDragSourceContextPeer, fInstance)},
-	{"fDragImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(CDragSourceContextPeer, fDragImage)},
-	{"fDragCImage", "Lsun/lwawt/macosx/CImage;", nullptr, $PRIVATE, $field(CDragSourceContextPeer, fDragCImage)},
-	{"fDragImageOffset", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(CDragSourceContextPeer, fDragImageOffset)},
-	{"hoveringComponent", "Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticField(CDragSourceContextPeer, hoveringComponent)},
-	{"fMaxImageSize", "D", nullptr, $PRIVATE | $STATIC, $staticField(CDragSourceContextPeer, fMaxImageSize)},
-	{}
-};
-
-$MethodInfo _CDragSourceContextPeer_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/dnd/DragGestureEvent;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, init$, void, $DragGestureEvent*)},
-	{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Lsun/lwawt/macosx/CDragSourceContextPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(CDragSourceContextPeer, createDragSourceContextPeer, CDragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"createNativeDragSource", "(Ljava/awt/Component;JLjava/awt/datatransfer/Transferable;Ljava/awt/event/InputEvent;IIIIJJIII[JLjava/util/Map;)J", "(Ljava/awt/Component;JLjava/awt/datatransfer/Transferable;Ljava/awt/event/InputEvent;IIIIJJIII[JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;)J", $PRIVATE | $NATIVE, $method(CDragSourceContextPeer, createNativeDragSource, int64_t, $Component*, int64_t, $Transferable*, $InputEvent*, int32_t, int32_t, int32_t, int32_t, int64_t, int64_t, int32_t, int32_t, int32_t, $longs*, $Map*)},
-	{"doDragging", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CDragSourceContextPeer, doDragging, void, int64_t)},
-	{"dragMouseMoved", "(IIII)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, dragMouseMoved, void, int32_t, int32_t, int32_t, int32_t)},
-	{"getDropTargetAt", "(Ljava/awt/Component;II)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(CDragSourceContextPeer, getDropTargetAt, $Component*, $Component*, int32_t, int32_t)},
-	{"lambda$startDrag$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(CDragSourceContextPeer, lambda$startDrag$0, void)},
-	{"releaseNativeDragSource", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CDragSourceContextPeer, releaseNativeDragSource, void, int64_t)},
-	{"resetHovering", "()V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, resetHovering, void)},
-	{"setDefaultDragImage", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $Component*)},
-	{"setDefaultDragImage", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $JTextComponent*)},
-	{"setDefaultDragImage", "(Ljavax/swing/JTree;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $JTree*)},
-	{"setDefaultDragImage", "(Ljavax/swing/JTable;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $JTable*)},
-	{"setDefaultDragImage", "(Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $JList*)},
-	{"setDefaultDragImage", "()V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void)},
-	{"setNativeCursor", "(JLjava/awt/Cursor;I)V", nullptr, $PROTECTED, $virtualMethod(CDragSourceContextPeer, setNativeCursor, void, int64_t, $Cursor*, int32_t)},
-	{"setOutlineDragImage", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setOutlineDragImage, void, $Rectangle*)},
-	{"setOutlineDragImage", "(Ljava/awt/Rectangle;Ljava/lang/Boolean;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setOutlineDragImage, void, $Rectangle*, $Boolean*)},
-	{"startDrag", "(Ljava/awt/dnd/DragSourceContext;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(CDragSourceContextPeer, startDrag, void, $DragSourceContext*, $Cursor*, $Image*, $Point*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"startDrag", "(Ljava/awt/datatransfer/Transferable;[JLjava/util/Map;)V", "(Ljava/awt/datatransfer/Transferable;[JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;)V", $PROTECTED, $virtualMethod(CDragSourceContextPeer, startDrag, void, $Transferable*, $longs*, $Map*)},
-	{}
-};
-
-#define _METHOD_INDEX_createNativeDragSource 2
-#define _METHOD_INDEX_doDragging 3
-#define _METHOD_INDEX_releaseNativeDragSource 7
-
-$InnerClassInfo _CDragSourceContextPeer_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CDragSourceContextPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CDragSourceContextPeer_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CDragSourceContextPeer",
-	"sun.awt.dnd.SunDragSourceContextPeer",
-	nullptr,
-	_CDragSourceContextPeer_FieldInfo_,
-	_CDragSourceContextPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CDragSourceContextPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CDragSourceContextPeer$1"
-};
-
-$Object* allocate$CDragSourceContextPeer($Class* clazz) {
-	return $of($alloc(CDragSourceContextPeer));
-}
 
 CDragSourceContextPeer* CDragSourceContextPeer::fInstance = nullptr;
 $Component* CDragSourceContextPeer::hoveringComponent = nullptr;
@@ -241,7 +165,7 @@ void CDragSourceContextPeer::init$($DragGestureEvent* dge) {
 
 CDragSourceContextPeer* CDragSourceContextPeer::createDragSourceContextPeer($DragGestureEvent* dge) {
 	$init(CDragSourceContextPeer);
-	$nc(CDragSourceContextPeer::fInstance)->setTrigger(dge);
+	CDragSourceContextPeer::fInstance->setTrigger(dge);
 	return CDragSourceContextPeer::fInstance;
 }
 
@@ -252,21 +176,21 @@ void CDragSourceContextPeer::startDrag($DragSourceContext* dsc, $Cursor* cursor,
 }
 
 void CDragSourceContextPeer::startDrag($Transferable* transferable, $longs* formats, $Map* formatMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DragGestureEvent, trigger, getTrigger());
 	$var($InputEvent, triggerEvent, $nc(trigger)->getTriggerEvent());
 	$var($Point, dragOrigin, $new($Point, $(trigger->getDragOrigin())));
 	int32_t var$0 = $nc(triggerEvent)->getModifiers();
 	int32_t extModifiers = (var$0 | triggerEvent->getModifiersEx());
 	int64_t timestamp = triggerEvent->getWhen();
-	int32_t clickCount = (($instanceOf($MouseEvent, triggerEvent)) ? ($nc(($cast($MouseEvent, triggerEvent)))->getClickCount()) : 1);
+	int32_t clickCount = (($instanceOf($MouseEvent, triggerEvent)) ? ($cast($MouseEvent, triggerEvent)->getClickCount()) : 1);
 	$var($Component, component, trigger->getComponent());
 	$var($Point, loc, $nc(component)->getLocation());
 	$var($Component, rootComponent, component);
 	while (!($instanceOf($Window, rootComponent))) {
-		dragOrigin->translate($nc(loc)->x, loc->y);
+		dragOrigin->translate($nc(loc)->x, $nc(loc)->y);
 		$assign(rootComponent, $nc(rootComponent)->getParent());
-		$assign(loc, rootComponent->getLocation());
+		$assign(loc, $nc(rootComponent)->getLocation());
 	}
 	if (this->fDragImage == nullptr) {
 		this->setDefaultDragImage(component);
@@ -274,7 +198,7 @@ void CDragSourceContextPeer::startDrag($Transferable* transferable, $longs* form
 	$var($Point, dragImageOffset, nullptr);
 	if (this->fDragImage != nullptr) {
 		try {
-			$set(this, fDragCImage, $nc($($CImage::getCreator()))->createFromImageImmediately(this->fDragImage));
+			$set(this, fDragCImage, $$nc($CImage::getCreator())->createFromImageImmediately(this->fDragImage));
 		} catch ($Exception& e) {
 			$throwNew($InvalidDnDOperationException, "Drag image can not be created."_s);
 		}
@@ -287,25 +211,18 @@ void CDragSourceContextPeer::startDrag($Transferable* transferable, $longs* form
 		$assign(dragImageOffset, $new($Point, 0, 0));
 	}
 	try {
-		$var($LWComponentPeer, peer, $cast($LWComponentPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(rootComponent)));
+		$var($LWComponentPeer, peer, $cast($LWComponentPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(rootComponent)));
 		$var($PlatformWindow, platformWindow, $nc(peer)->getPlatformWindow());
 		int64_t nativeViewPtr = $CPlatformWindow::getNativeViewPtr(platformWindow);
-		if (nativeViewPtr == (int64_t)0) {
+		if (nativeViewPtr == 0) {
 			$throwNew($InvalidDnDOperationException, "Unsupported platform window implementation"_s);
 		}
-		$var($Component, var$1, component);
-		int64_t var$2 = nativeViewPtr;
-		$var($Transferable, var$3, transferable);
-		$var($InputEvent, var$4, triggerEvent);
-		int32_t var$5 = $cast(int32_t, (dragOrigin->getX()));
-		int32_t var$6 = $cast(int32_t, (dragOrigin->getY()));
-		int32_t var$7 = extModifiers;
-		int32_t var$8 = clickCount;
-		int64_t var$9 = timestamp;
-		int64_t var$10 = this->fDragCImage != nullptr ? $cast(int64_t, $nc(this->fDragCImage)->ptr) : (int64_t)0;
-		int32_t var$11 = $nc(dragImageOffset)->x;
-		int32_t var$12 = dragImageOffset->y;
-		int64_t nativeDragSource = createNativeDragSource(var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, $nc($(getDragSourceContext()))->getSourceActions(), formats, formatMap);
+		int32_t var$1 = $cast(int32_t, (dragOrigin->getX()));
+		int32_t var$2 = $cast(int32_t, (dragOrigin->getY()));
+		int64_t var$3 = this->fDragCImage != nullptr ? $cast(int64_t, this->fDragCImage->ptr) : 0;
+		int32_t var$4 = $nc(dragImageOffset)->x;
+		int32_t var$5 = dragImageOffset->y;
+		int64_t nativeDragSource = createNativeDragSource(component, nativeViewPtr, transferable, triggerEvent, var$1, var$2, extModifiers, clickCount, timestamp, var$3, var$4, var$5, $$nc(getDragSourceContext())->getSourceActions(), formats, formatMap);
 		if (nativeDragSource == 0) {
 			$throwNew($InvalidDnDOperationException, ""_s);
 		}
@@ -314,9 +231,9 @@ void CDragSourceContextPeer::startDrag($Transferable* transferable, $longs* form
 		$throwNew($InvalidDnDOperationException, $$str({"failed to create native peer: "_s, e}));
 	}
 	$SunDropTargetContextPeer::setCurrentJVMLocalSourceTransferable(transferable);
-	$nc($($CCursorManager::getInstance()))->setCursor($(getCursor()));
+	$$nc($CCursorManager::getInstance())->setCursor($(getCursor()));
 	try {
-		$var($Runnable, dragRunnable, static_cast<$Runnable*>($new(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, this)));
+		$var($Runnable, dragRunnable, $new(CDragSourceContextPeer$$Lambda$lambda$startDrag$0, this));
 		$$new($Thread, nullptr, dragRunnable, "Drag"_s, 0, false)->start();
 	} catch ($Exception& e) {
 		int64_t nativeDragSource = getNativeContext();
@@ -350,7 +267,7 @@ void CDragSourceContextPeer::setDefaultDragImage($Component* component) {
 }
 
 void CDragSourceContextPeer::setDefaultDragImage($JTextComponent* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DragGestureEvent, trigger, getTrigger());
 	int32_t selectionStart = $nc(component)->getSelectionStart();
 	int32_t selectionEnd = component->getSelectionEnd();
@@ -385,7 +302,7 @@ void CDragSourceContextPeer::setDefaultDragImage($JTextComponent* component) {
 }
 
 void CDragSourceContextPeer::setDefaultDragImage($JTree* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, selectedOutline, nullptr);
 	$var($ints, selectedRows, $nc(component)->getSelectionRows());
 	for (int32_t i = 0; i < $nc(selectedRows)->length; ++i) {
@@ -393,7 +310,7 @@ void CDragSourceContextPeer::setDefaultDragImage($JTree* component) {
 		if (selectedOutline == nullptr) {
 			$assign(selectedOutline, r);
 		} else {
-			$nc(selectedOutline)->add(r);
+			selectedOutline->add(r);
 		}
 	}
 	if (selectedOutline != nullptr) {
@@ -404,7 +321,7 @@ void CDragSourceContextPeer::setDefaultDragImage($JTree* component) {
 }
 
 void CDragSourceContextPeer::setDefaultDragImage($JTable* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, selectedOutline, nullptr);
 	$var($ints, selectedRows, $nc(component)->getSelectedRows());
 	$var($ints, selectedColumns, component->getSelectedColumns());
@@ -414,7 +331,7 @@ void CDragSourceContextPeer::setDefaultDragImage($JTable* component) {
 			if (selectedOutline == nullptr) {
 				$assign(selectedOutline, r);
 			} else {
-				$nc(selectedOutline)->add(r);
+				selectedOutline->add(r);
 			}
 		}
 	}
@@ -426,7 +343,7 @@ void CDragSourceContextPeer::setDefaultDragImage($JTable* component) {
 }
 
 void CDragSourceContextPeer::setDefaultDragImage($JList* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, selectedOutline, nullptr);
 	$var($ints, selectedIndices, $nc(component)->getSelectedIndices());
 	if ($nc(selectedIndices)->length > 0) {
@@ -440,7 +357,7 @@ void CDragSourceContextPeer::setDefaultDragImage($JList* component) {
 }
 
 void CDragSourceContextPeer::setDefaultDragImage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DragGestureEvent, trigger, this->getTrigger());
 	$var($Component, comp, $nc(trigger)->getComponent());
 	int32_t var$1 = $nc(comp)->getWidth();
@@ -453,7 +370,7 @@ void CDragSourceContextPeer::setOutlineDragImage($Rectangle* outline) {
 }
 
 void CDragSourceContextPeer::setOutlineDragImage($Rectangle* outline$renamed, $Boolean* shouldScale) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, outline, outline$renamed);
 	int32_t width = $cast(int32_t, $nc(outline)->getWidth());
 	int32_t height = $cast(int32_t, outline->getHeight());
@@ -477,12 +394,12 @@ void CDragSourceContextPeer::setOutlineDragImage($Rectangle* outline$renamed, $B
 	$var($Component, comp, $nc(trigger)->getComponent());
 	$var($Point, compOffset, $nc(comp)->getLocation());
 	if ($instanceOf($JComponent, comp)) {
-		$var($Rectangle, visibleBounds, $nc(($cast($JComponent, comp)))->getVisibleRect());
+		$var($Rectangle, visibleBounds, $cast($JComponent, comp)->getVisibleRect());
 		$var($Rectangle, clipedOutline, outline->intersection(visibleBounds));
 		if ($nc(clipedOutline)->isEmpty() == false) {
 			$assign(outline, clipedOutline);
 		}
-		outline->translate($nc(compOffset)->x, compOffset->y);
+		outline->translate($nc(compOffset)->x, $nc(compOffset)->y);
 	}
 	$var($GraphicsConfiguration, config, comp->getGraphicsConfiguration());
 	$var($BufferedImage, dragImage, $nc(config)->createCompatibleImage(width, height, $Transparency::TRANSLUCENT));
@@ -497,11 +414,11 @@ void CDragSourceContextPeer::setOutlineDragImage($Rectangle* outline$renamed, $B
 	g2->dispose();
 	$set(this, fDragImage, dragImage);
 	$var($Point, dragOrigin, trigger->getDragOrigin());
-	$var($Point, dragImageOffset, $new($Point, outline->x - $nc(dragOrigin)->x, outline->y - dragOrigin->y));
+	$var($Point, dragImageOffset, $new($Point, outline->x - $nc(dragOrigin)->x, outline->y - $nc(dragOrigin)->y));
 	if ($instanceOf($JComponent, comp)) {
-		dragImageOffset->translate(-$nc(compOffset)->x, -compOffset->y);
+		dragImageOffset->translate(-$nc(compOffset)->x, -$nc(compOffset)->y);
 	}
-	if ($nc((shouldScale))->booleanValue()) {
+	if ((shouldScale)->booleanValue()) {
 		dragImageOffset->x /= scale;
 		dragImageOffset->y /= scale;
 	}
@@ -509,9 +426,9 @@ void CDragSourceContextPeer::setOutlineDragImage($Rectangle* outline$renamed, $B
 }
 
 void CDragSourceContextPeer::dragMouseMoved(int32_t targetActions, int32_t modifiers, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($Callable, var$0, static_cast<$Callable*>($new($CDragSourceContextPeer$1, this, x, y)));
+		$var($Callable, var$0, $new($CDragSourceContextPeer$1, this, x, y));
 		$var($Component, componentAt, $cast($Component, $LWCToolkit::invokeAndWait(var$0, $(getComponent()))));
 		if (componentAt != CDragSourceContextPeer::hoveringComponent) {
 			if (CDragSourceContextPeer::hoveringComponent != nullptr) {
@@ -530,29 +447,25 @@ void CDragSourceContextPeer::dragMouseMoved(int32_t targetActions, int32_t modif
 
 $Component* CDragSourceContextPeer::getDropTargetAt($Component* root, int32_t x, int32_t y) {
 	$init(CDragSourceContextPeer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = !$nc(root)->contains(x, y);
-	bool var$0 = var$1 || !$nc(root)->isEnabled();
-	if (var$0 || !$nc(root)->isVisible()) {
+	bool var$0 = var$1 || !root->isEnabled();
+	if (var$0 || !root->isVisible()) {
 		return nullptr;
 	}
-	bool var$2 = $nc(root)->getDropTarget() != nullptr;
-	if (var$2 && $nc($(root->getDropTarget()))->isActive()) {
+	bool var$2 = root->getDropTarget() != nullptr;
+	if (var$2 && $$nc(root->getDropTarget())->isActive()) {
 		return root;
 	}
 	if ($instanceOf($Container, root)) {
-		{
-			$var($ComponentArray, arr$, $nc(($cast($Container, root)))->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, comp, arr$->get(i$));
-				{
-					$var($Point, loc, $nc(comp)->getLocation());
-					$var($Component, dropTarget, getDropTargetAt(comp, x - $nc(loc)->x, y - loc->y));
-					if (dropTarget != nullptr) {
-						return dropTarget;
-					}
+		$var($ComponentArray, arr$, $cast($Container, root)->getComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, comp, arr$->get(i$));
+			{
+				$var($Point, loc, $nc(comp)->getLocation());
+				$var($Component, dropTarget, getDropTargetAt(comp, x - $nc(loc)->x, y - $nc(loc)->y));
+				if (dropTarget != nullptr) {
+					return dropTarget;
 				}
 			}
 		}
@@ -565,63 +478,60 @@ void CDragSourceContextPeer::resetHovering() {
 }
 
 void CDragSourceContextPeer::setNativeCursor(int64_t nativeCtxt, $Cursor* c, int32_t cType) {
-	$nc($($CCursorManager::getInstance()))->setCursor(c);
+	$$nc($CCursorManager::getInstance())->setCursor(c);
 }
 
 int64_t CDragSourceContextPeer::createNativeDragSource($Component* component, int64_t nativePeer, $Transferable* transferable, $InputEvent* triggerEvent, int32_t dragPosX, int32_t dragPosY, int32_t extModifiers, int32_t clickCount, int64_t timestamp, int64_t nsDragImagePtr, int32_t dragImageOffsetX, int32_t dragImageOffsetY, int32_t sourceActions, $longs* formats, $Map* formatMap) {
-	int64_t $ret = 0;
-	$prepareNative(CDragSourceContextPeer, createNativeDragSource, int64_t, $Component* component, int64_t nativePeer, $Transferable* transferable, $InputEvent* triggerEvent, int32_t dragPosX, int32_t dragPosY, int32_t extModifiers, int32_t clickCount, int64_t timestamp, int64_t nsDragImagePtr, int32_t dragImageOffsetX, int32_t dragImageOffsetY, int32_t sourceActions, $longs* formats, $Map* formatMap);
-	$ret = $invokeNative(component, nativePeer, transferable, triggerEvent, dragPosX, dragPosY, extModifiers, clickCount, timestamp, nsDragImagePtr, dragImageOffsetX, dragImageOffsetY, sourceActions, formats, formatMap);
+	$prepareNative(createNativeDragSource, int64_t, $Component* component, int64_t nativePeer, $Transferable* transferable, $InputEvent* triggerEvent, int32_t dragPosX, int32_t dragPosY, int32_t extModifiers, int32_t clickCount, int64_t timestamp, int64_t nsDragImagePtr, int32_t dragImageOffsetX, int32_t dragImageOffsetY, int32_t sourceActions, $longs* formats, $Map* formatMap);
+	int64_t $ret = $invokeNative(component, nativePeer, transferable, triggerEvent, dragPosX, dragPosY, extModifiers, clickCount, timestamp, nsDragImagePtr, dragImageOffsetX, dragImageOffsetY, sourceActions, formats, formatMap);
 	$finishNative();
 	return $ret;
 }
 
 void CDragSourceContextPeer::doDragging(int64_t nativeDragSource) {
-	$prepareNative(CDragSourceContextPeer, doDragging, void, int64_t nativeDragSource);
+	$prepareNative(doDragging, void, int64_t nativeDragSource);
 	$invokeNative(nativeDragSource);
 	$finishNative();
 }
 
 void CDragSourceContextPeer::releaseNativeDragSource(int64_t nativeDragSource) {
-	$prepareNative(CDragSourceContextPeer, releaseNativeDragSource, void, int64_t nativeDragSource);
+	$prepareNative(releaseNativeDragSource, void, int64_t nativeDragSource);
 	$invokeNative(nativeDragSource);
 	$finishNative();
 }
 
 void CDragSourceContextPeer::lambda$startDrag$0() {
 	int64_t nativeDragSource = getNativeContext();
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				doDragging(nativeDragSource);
-			} catch ($Exception& e) {
-				e->printStackTrace();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			releaseNativeDragSource(nativeDragSource);
-			$set(this, fDragImage, nullptr);
-			if (this->fDragCImage != nullptr) {
-				$nc(this->fDragCImage)->dispose();
-				$set(this, fDragCImage, nullptr);
-			}
+			doDragging(nativeDragSource);
+		} catch ($Exception& e) {
+			e->printStackTrace();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		releaseNativeDragSource(nativeDragSource);
+		$set(this, fDragImage, nullptr);
+		if (this->fDragCImage != nullptr) {
+			this->fDragCImage->dispose();
+			$set(this, fDragCImage, nullptr);
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$CDragSourceContextPeer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CDragSourceContextPeer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(CDragSourceContextPeer::fInstance, $new(CDragSourceContextPeer, nullptr));
 	$assignStatic(CDragSourceContextPeer::hoveringComponent, nullptr);
 	CDragSourceContextPeer::fMaxImageSize = 128.0;
 	{
-		$var($String, propValue, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "apple.awt.dnd.defaultDragImageSize"_s)))));
+		$var($String, propValue, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "apple.awt.dnd.defaultDragImageSize"_s))));
 		if (propValue != nullptr) {
 			try {
 				double value = $Double::parseDouble(propValue);
@@ -639,11 +549,63 @@ CDragSourceContextPeer::CDragSourceContextPeer() {
 
 $Class* CDragSourceContextPeer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CDragSourceContextPeer$$Lambda$lambda$startDrag$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CDragSourceContextPeer$$Lambda$lambda$startDrag$0")) {
 			return CDragSourceContextPeer$$Lambda$lambda$startDrag$0::load$(name, initialize);
 		}
 	}
-	$loadClass(CDragSourceContextPeer, name, initialize, &_CDragSourceContextPeer_ClassInfo_, clinit$CDragSourceContextPeer, allocate$CDragSourceContextPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"fInstance", "Lsun/lwawt/macosx/CDragSourceContextPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CDragSourceContextPeer, fInstance)},
+		{"fDragImage", "Ljava/awt/Image;", nullptr, $PRIVATE, $field(CDragSourceContextPeer, fDragImage)},
+		{"fDragCImage", "Lsun/lwawt/macosx/CImage;", nullptr, $PRIVATE, $field(CDragSourceContextPeer, fDragCImage)},
+		{"fDragImageOffset", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(CDragSourceContextPeer, fDragImageOffset)},
+		{"hoveringComponent", "Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticField(CDragSourceContextPeer, hoveringComponent)},
+		{"fMaxImageSize", "D", nullptr, $PRIVATE | $STATIC, $staticField(CDragSourceContextPeer, fMaxImageSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/dnd/DragGestureEvent;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, init$, void, $DragGestureEvent*)},
+		{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Lsun/lwawt/macosx/CDragSourceContextPeer;", nullptr, $PUBLIC | $STATIC, $staticMethod(CDragSourceContextPeer, createDragSourceContextPeer, CDragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"createNativeDragSource", "(Ljava/awt/Component;JLjava/awt/datatransfer/Transferable;Ljava/awt/event/InputEvent;IIIIJJIII[JLjava/util/Map;)J", "(Ljava/awt/Component;JLjava/awt/datatransfer/Transferable;Ljava/awt/event/InputEvent;IIIIJJIII[JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;)J", $PRIVATE | $NATIVE, $method(CDragSourceContextPeer, createNativeDragSource, int64_t, $Component*, int64_t, $Transferable*, $InputEvent*, int32_t, int32_t, int32_t, int32_t, int64_t, int64_t, int32_t, int32_t, int32_t, $longs*, $Map*)},
+		{"doDragging", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CDragSourceContextPeer, doDragging, void, int64_t)},
+		{"dragMouseMoved", "(IIII)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, dragMouseMoved, void, int32_t, int32_t, int32_t, int32_t)},
+		{"getDropTargetAt", "(Ljava/awt/Component;II)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(CDragSourceContextPeer, getDropTargetAt, $Component*, $Component*, int32_t, int32_t)},
+		{"lambda$startDrag$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(CDragSourceContextPeer, lambda$startDrag$0, void)},
+		{"releaseNativeDragSource", "(J)V", nullptr, $PRIVATE | $NATIVE, $method(CDragSourceContextPeer, releaseNativeDragSource, void, int64_t)},
+		{"resetHovering", "()V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, resetHovering, void)},
+		{"setDefaultDragImage", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $Component*)},
+		{"setDefaultDragImage", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $JTextComponent*)},
+		{"setDefaultDragImage", "(Ljavax/swing/JTree;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $JTree*)},
+		{"setDefaultDragImage", "(Ljavax/swing/JTable;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $JTable*)},
+		{"setDefaultDragImage", "(Ljavax/swing/JList;)V", "(Ljavax/swing/JList<*>;)V", $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void, $JList*)},
+		{"setDefaultDragImage", "()V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setDefaultDragImage, void)},
+		{"setNativeCursor", "(JLjava/awt/Cursor;I)V", nullptr, $PROTECTED, $virtualMethod(CDragSourceContextPeer, setNativeCursor, void, int64_t, $Cursor*, int32_t)},
+		{"setOutlineDragImage", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setOutlineDragImage, void, $Rectangle*)},
+		{"setOutlineDragImage", "(Ljava/awt/Rectangle;Ljava/lang/Boolean;)V", nullptr, $PRIVATE, $method(CDragSourceContextPeer, setOutlineDragImage, void, $Rectangle*, $Boolean*)},
+		{"startDrag", "(Ljava/awt/dnd/DragSourceContext;Ljava/awt/Cursor;Ljava/awt/Image;Ljava/awt/Point;)V", nullptr, $PUBLIC, $virtualMethod(CDragSourceContextPeer, startDrag, void, $DragSourceContext*, $Cursor*, $Image*, $Point*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"startDrag", "(Ljava/awt/datatransfer/Transferable;[JLjava/util/Map;)V", "(Ljava/awt/datatransfer/Transferable;[JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;)V", $PROTECTED, $virtualMethod(CDragSourceContextPeer, startDrag, void, $Transferable*, $longs*, $Map*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CDragSourceContextPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CDragSourceContextPeer",
+		"sun.awt.dnd.SunDragSourceContextPeer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CDragSourceContextPeer$1"
+	};
+	$loadClass(CDragSourceContextPeer, name, initialize, &classInfo$$, CDragSourceContextPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CDragSourceContextPeer);
+	});
 	return class$;
 }
 

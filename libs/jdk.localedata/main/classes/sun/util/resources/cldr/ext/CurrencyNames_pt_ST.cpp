@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_pt_ST.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_pt_ST_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_pt_ST, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_pt_ST, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_pt_ST_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_pt_ST",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_pt_ST_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_pt_ST($Class* clazz) {
-	return $of($alloc(CurrencyNames_pt_ST));
-}
-
 void CurrencyNames_pt_ST::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_pt_ST::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("STN"_s),
-		$of("Db"_s)
+		"STN"_s,
+		"Db"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_pt_ST::CurrencyNames_pt_ST() {
 }
 
 $Class* CurrencyNames_pt_ST::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_pt_ST, name, initialize, &_CurrencyNames_pt_ST_ClassInfo_, allocate$CurrencyNames_pt_ST);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_pt_ST, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_pt_ST, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_pt_ST",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_pt_ST, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_pt_ST);
+	});
 	return class$;
 }
 

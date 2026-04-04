@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$ComboBoxLayoutManager.h>
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboBoxArrowIcon.h>
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup.h>
@@ -7,7 +6,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
@@ -36,8 +34,6 @@ using $MotifComboBoxUI$MotifComboPopup = ::com::sun::java::swing::plaf::motif::M
 using $MotifComboBoxUI$MotifPropertyChangeListener = ::com::sun::java::swing::plaf::motif::MotifComboBoxUI$MotifPropertyChangeListener;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -48,8 +44,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CellRendererPane = ::javax::swing::CellRendererPane;
-using $Icon = ::javax::swing::Icon;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
@@ -65,65 +59,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifComboBoxUI_FieldInfo_[] = {
-	{"arrowIcon", "Ljavax/swing/Icon;", nullptr, 0, $field(MotifComboBoxUI, arrowIcon)},
-	{"HORIZ_MARGIN", "I", nullptr, $STATIC | $FINAL, $constField(MotifComboBoxUI, HORIZ_MARGIN)},
-	{}
-};
-
-$MethodInfo _MotifComboBoxUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifComboBoxUI, init$, void)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifComboBoxUI, access$000, $JComboBox*, MotifComboBoxUI*)},
-	{"configureEditor", "()V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, configureEditor, void)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, createLayoutManager, $LayoutManager*)},
-	{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, createPopup, $ComboPopup*)},
-	{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, createPropertyChangeListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"iconAreaWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, iconAreaWidth, int32_t)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, installComponents, void)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, installUI, void, $JComponent*)},
-	{"motifGetEditor", "()Ljava/awt/Component;", nullptr, $PRIVATE, $method(MotifComboBoxUI, motifGetEditor, $Component*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintCurrentValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, paintCurrentValue, void, $Graphics*, $Rectangle*, bool)},
-	{"rectangleForArrowIcon", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, rectangleForArrowIcon, $Rectangle*)},
-	{"rectangleForCurrentValue", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, rectangleForCurrentValue, $Rectangle*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, uninstallComponents, void)},
-	{}
-};
-
-$InnerClassInfo _MotifComboBoxUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifPropertyChangeListener", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifPropertyChangeListener", $PRIVATE},
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboBoxArrowIcon", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboBoxArrowIcon", $STATIC},
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$ComboBoxLayoutManager", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "ComboBoxLayoutManager", $PUBLIC},
-	{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboPopup", $PROTECTED},
-	{}
-};
-
-$ClassInfo _MotifComboBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI",
-	"javax.swing.plaf.basic.BasicComboBoxUI",
-	"java.io.Serializable",
-	_MotifComboBoxUI_FieldInfo_,
-	_MotifComboBoxUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifComboBoxUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifPropertyChangeListener,com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboBoxArrowIcon,com.sun.java.swing.plaf.motif.MotifComboBoxUI$ComboBoxLayoutManager,com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup,com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$InvocationKeyHandler,com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$1"
-};
-
-$Object* allocate$MotifComboBoxUI($Class* clazz) {
-	return $of($alloc(MotifComboBoxUI));
-}
 
 int32_t MotifComboBoxUI::hashCode() {
 	 return this->$BasicComboBoxUI::hashCode();
@@ -160,7 +95,7 @@ $ComponentUI* MotifComboBoxUI::createUI($JComponent* c) {
 }
 
 void MotifComboBoxUI::installUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicComboBoxUI::installUI(c);
 	$var($Color, var$0, $UIManager::getColor("controlHighlight"_s));
 	$var($Color, var$1, $UIManager::getColor("controlShadow"_s));
@@ -168,14 +103,14 @@ void MotifComboBoxUI::installUI($JComponent* c) {
 }
 
 $Dimension* MotifComboBoxUI::getMinimumSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!this->isMinimumSizeDirty) {
 		return $new($Dimension, this->cachedMinimumSize);
 	}
 	$var($Dimension, size, nullptr);
 	$var($Insets, insets, getInsets());
 	$assign(size, getDisplaySize());
-	$nc(size)->height += $nc(insets)->top + insets->bottom;
+	$nc(size)->height += $nc(insets)->top + $nc(insets)->bottom;
 	int32_t buttonSize = iconAreaWidth();
 	size->width += insets->left + insets->right + buttonSize;
 	$nc(this->cachedMinimumSize)->setSize(size->width, size->height);
@@ -191,7 +126,7 @@ void MotifComboBoxUI::installComponents() {
 	if ($nc(this->comboBox)->isEditable()) {
 		addEditor();
 	}
-	$nc(this->comboBox)->add(static_cast<$Component*>(this->currentValuePane));
+	$nc(this->comboBox)->add(this->currentValuePane);
 }
 
 void MotifComboBoxUI::uninstallComponents() {
@@ -200,7 +135,7 @@ void MotifComboBoxUI::uninstallComponents() {
 }
 
 void MotifComboBoxUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool hasFocus = $nc(this->comboBox)->hasFocus();
 	$var($Rectangle, r, nullptr);
 	if ($nc(this->comboBox)->isEnabled()) {
@@ -215,7 +150,7 @@ void MotifComboBoxUI::paint($Graphics* g, $JComponent* c) {
 		paintCurrentValue(g, r, hasFocus);
 	}
 	$assign(r, rectangleForArrowIcon());
-	$nc(this->arrowIcon)->paintIcon(c, g, $nc(r)->x, r->y);
+	$nc(this->arrowIcon)->paintIcon(c, g, $nc(r)->x, $nc(r)->y);
 	if (!$nc(this->comboBox)->isEditable()) {
 		$var($Border, border, $nc(this->comboBox)->getBorder());
 		$var($Insets, in, nullptr);
@@ -224,15 +159,15 @@ void MotifComboBoxUI::paint($Graphics* g, $JComponent* c) {
 		} else {
 			$assign(in, $new($Insets, 0, 0, 0, 0));
 		}
-		if ($nc($($nc(this->comboBox)->getComponentOrientation()))->isLeftToRight()) {
-			$nc(r)->x -= (MotifComboBoxUI::HORIZ_MARGIN + 2);
+		if ($$nc($nc(this->comboBox)->getComponentOrientation())->isLeftToRight()) {
+			r->x -= (MotifComboBoxUI::HORIZ_MARGIN + 2);
 		} else {
-			$nc(r)->x += r->width + MotifComboBoxUI::HORIZ_MARGIN + 1;
+			r->x += r->width + MotifComboBoxUI::HORIZ_MARGIN + 1;
 		}
-		$nc(r)->y = $nc(in)->top;
+		r->y = $nc(in)->top;
 		r->width = 1;
 		r->height = $nc($($nc(this->comboBox)->getBounds()))->height - in->bottom - in->top;
-		g->setColor($($UIManager::getColor("controlShadow"_s)));
+		$nc(g)->setColor($($UIManager::getColor("controlShadow"_s)));
 		g->fillRect(r->x, r->y, r->width, r->height);
 		++r->x;
 		g->setColor($($UIManager::getColor("controlHighlight"_s)));
@@ -242,7 +177,7 @@ void MotifComboBoxUI::paint($Graphics* g, $JComponent* c) {
 }
 
 void MotifComboBoxUI::paintCurrentValue($Graphics* g, $Rectangle* bounds, bool hasFocus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListCellRenderer, renderer, $nc(this->comboBox)->getRenderer());
 	$var($Component, c, nullptr);
 	$var($Dimension, d, nullptr);
@@ -256,11 +191,11 @@ void MotifComboBoxUI::paintCurrentValue($Graphics* g, $Rectangle* bounds, bool h
 		c->setBackground($($UIManager::getColor("ComboBox.disabledBackground"_s)));
 	}
 	$assign(d, c->getPreferredSize());
-	$nc(this->currentValuePane)->paintComponent(g, c, this->comboBox, $nc(bounds)->x, bounds->y, bounds->width, $nc(d)->height);
+	$nc(this->currentValuePane)->paintComponent(g, c, this->comboBox, $nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(d)->height);
 }
 
 $Rectangle* MotifComboBoxUI::rectangleForArrowIcon() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, b, $nc(this->comboBox)->getBounds());
 	$var($Border, border, $nc(this->comboBox)->getBorder());
 	$var($Insets, in, nullptr);
@@ -273,7 +208,7 @@ $Rectangle* MotifComboBoxUI::rectangleForArrowIcon() {
 	b->y = in->top;
 	b->width -= (in->left + in->right);
 	b->height -= (in->top + in->bottom);
-	if ($nc($($nc(this->comboBox)->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($nc(this->comboBox)->getComponentOrientation())->isLeftToRight()) {
 		b->x = b->x + b->width - MotifComboBoxUI::HORIZ_MARGIN - $nc(this->arrowIcon)->getIconWidth();
 	} else {
 		b->x += MotifComboBoxUI::HORIZ_MARGIN;
@@ -285,12 +220,12 @@ $Rectangle* MotifComboBoxUI::rectangleForArrowIcon() {
 }
 
 $Rectangle* MotifComboBoxUI::rectangleForCurrentValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t width = $nc(this->comboBox)->getWidth();
 	int32_t height = $nc(this->comboBox)->getHeight();
 	$var($Insets, insets, getInsets());
-	if ($nc($($nc(this->comboBox)->getComponentOrientation()))->isLeftToRight()) {
-		return $new($Rectangle, $nc(insets)->left, insets->top, (width - (insets->left + insets->right)) - iconAreaWidth(), height - (insets->top + insets->bottom));
+	if ($$nc($nc(this->comboBox)->getComponentOrientation())->isLeftToRight()) {
+		return $new($Rectangle, $nc(insets)->left, $nc(insets)->top, (width - ($nc(insets)->left + $nc(insets)->right)) - iconAreaWidth(), height - ($nc(insets)->top + $nc(insets)->bottom));
 	} else {
 		int32_t var$0 = $nc(insets)->left + iconAreaWidth();
 		int32_t var$1 = insets->top;
@@ -327,7 +262,60 @@ MotifComboBoxUI::MotifComboBoxUI() {
 }
 
 $Class* MotifComboBoxUI::load$($String* name, bool initialize) {
-	$loadClass(MotifComboBoxUI, name, initialize, &_MotifComboBoxUI_ClassInfo_, allocate$MotifComboBoxUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"arrowIcon", "Ljavax/swing/Icon;", nullptr, 0, $field(MotifComboBoxUI, arrowIcon)},
+		{"HORIZ_MARGIN", "I", nullptr, $STATIC | $FINAL, $constField(MotifComboBoxUI, HORIZ_MARGIN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifComboBoxUI, init$, void)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/motif/MotifComboBoxUI;)Ljavax/swing/JComboBox;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MotifComboBoxUI, access$000, $JComboBox*, MotifComboBoxUI*)},
+		{"configureEditor", "()V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, configureEditor, void)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, createLayoutManager, $LayoutManager*)},
+		{"createPopup", "()Ljavax/swing/plaf/basic/ComboPopup;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, createPopup, $ComboPopup*)},
+		{"createPropertyChangeListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, createPropertyChangeListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifComboBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"iconAreaWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, iconAreaWidth, int32_t)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, installComponents, void)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, installUI, void, $JComponent*)},
+		{"motifGetEditor", "()Ljava/awt/Component;", nullptr, $PRIVATE, $method(MotifComboBoxUI, motifGetEditor, $Component*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintCurrentValue", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $virtualMethod(MotifComboBoxUI, paintCurrentValue, void, $Graphics*, $Rectangle*, bool)},
+		{"rectangleForArrowIcon", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, rectangleForArrowIcon, $Rectangle*)},
+		{"rectangleForCurrentValue", "()Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, rectangleForCurrentValue, $Rectangle*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(MotifComboBoxUI, uninstallComponents, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifPropertyChangeListener", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifPropertyChangeListener", $PRIVATE},
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboBoxArrowIcon", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboBoxArrowIcon", $STATIC},
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$ComboBoxLayoutManager", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "ComboBoxLayoutManager", $PUBLIC},
+		{"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup", "com.sun.java.swing.plaf.motif.MotifComboBoxUI", "MotifComboPopup", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI",
+		"javax.swing.plaf.basic.BasicComboBoxUI",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifPropertyChangeListener,com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboBoxArrowIcon,com.sun.java.swing.plaf.motif.MotifComboBoxUI$ComboBoxLayoutManager,com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup,com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$InvocationKeyHandler,com.sun.java.swing.plaf.motif.MotifComboBoxUI$MotifComboPopup$1"
+	};
+	$loadClass(MotifComboBoxUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifComboBoxUI));
+	});
 	return class$;
 }
 

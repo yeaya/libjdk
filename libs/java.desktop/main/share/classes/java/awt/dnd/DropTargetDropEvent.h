@@ -40,6 +40,7 @@ class $export DropTargetDropEvent : public ::java::awt::dnd::DropTargetEvent {
 	$class(DropTargetDropEvent, 0, ::java::awt::dnd::DropTargetEvent)
 public:
 	DropTargetDropEvent();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::dnd::DropTargetContext* dtc, ::java::awt::Point* cursorLocn, int32_t dropAction, int32_t srcActions);
 	void init$(::java::awt::dnd::DropTargetContext* dtc, ::java::awt::Point* cursorLocn, int32_t dropAction, int32_t srcActions, bool isLocal);
 	virtual void acceptDrop(int32_t dropAction);
@@ -53,7 +54,7 @@ public:
 	virtual bool isDataFlavorSupported(::java::awt::datatransfer::DataFlavor* df);
 	virtual bool isLocalTransfer();
 	virtual void rejectDrop();
-	static const int64_t serialVersionUID = (int64_t)0xE81A8AE9DF1E8BC6;
+	static const int64_t serialVersionUID = (int64_t)0xe81a8ae9df1e8bc6;
 	static ::java::awt::Point* zero;
 	::java::awt::Point* location = nullptr;
 	int32_t actions = 0;

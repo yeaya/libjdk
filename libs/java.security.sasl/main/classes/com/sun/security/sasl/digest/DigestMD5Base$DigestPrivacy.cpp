@@ -1,15 +1,12 @@
 #include <com/sun/security/sasl/digest/DigestMD5Base$DigestPrivacy.h>
-
 #include <com/sun/security/sasl/digest/DigestMD5Base$DigestIntegrity.h>
 #include <com/sun/security/sasl/digest/DigestMD5Base.h>
 #include <java/io/IOException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
-#include <java/security/Key.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
-#include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/InvalidKeySpecException.h>
 #include <java/util/Arrays.h>
 #include <java/util/logging/Level.h>
@@ -46,14 +43,11 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
-using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
 using $Arrays = ::java::util::Arrays;
 using $Level = ::java::util::logging::Level;
-using $Logger = ::java::util::logging::Logger;
 using $Cipher = ::javax::crypto::Cipher;
 using $IllegalBlockSizeException = ::javax::crypto::IllegalBlockSizeException;
 using $NoSuchPaddingException = ::javax::crypto::NoSuchPaddingException;
@@ -67,49 +61,6 @@ namespace com {
 		namespace security {
 			namespace sasl {
 				namespace digest {
-
-$FieldInfo _DigestMD5Base$DigestPrivacy_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/security/sasl/digest/DigestMD5Base;", nullptr, $FINAL | $SYNTHETIC, $field(DigestMD5Base$DigestPrivacy, this$0)},
-	{"CLIENT_CONF_MAGIC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base$DigestPrivacy, CLIENT_CONF_MAGIC)},
-	{"SVR_CONF_MAGIC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base$DigestPrivacy, SVR_CONF_MAGIC)},
-	{"encCipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE, $field(DigestMD5Base$DigestPrivacy, encCipher)},
-	{"decCipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE, $field(DigestMD5Base$DigestPrivacy, decCipher)},
-	{}
-};
-
-$MethodInfo _DigestMD5Base$DigestPrivacy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/security/sasl/digest/DigestMD5Base;Z)V", nullptr, 0, $method(DigestMD5Base$DigestPrivacy, init$, void, $DigestMD5Base*, bool), "javax.security.sasl.SaslException"},
-	{"generatePrivacyKeyPair", "(Z)V", nullptr, $PRIVATE, $method(DigestMD5Base$DigestPrivacy, generatePrivacyKeyPair, void, bool), "java.io.IOException,java.security.NoSuchAlgorithmException,javax.security.sasl.SaslException"},
-	{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestPrivacy, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestPrivacy, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$InnerClassInfo _DigestMD5Base$DigestPrivacy_InnerClassesInfo_[] = {
-	{"com.sun.security.sasl.digest.DigestMD5Base$DigestPrivacy", "com.sun.security.sasl.digest.DigestMD5Base", "DigestPrivacy", $FINAL},
-	{"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity", "com.sun.security.sasl.digest.DigestMD5Base", "DigestIntegrity", 0},
-	{}
-};
-
-$ClassInfo _DigestMD5Base$DigestPrivacy_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.digest.DigestMD5Base$DigestPrivacy",
-	"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity",
-	nullptr,
-	_DigestMD5Base$DigestPrivacy_FieldInfo_,
-	_DigestMD5Base$DigestPrivacy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DigestMD5Base$DigestPrivacy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.security.sasl.digest.DigestMD5Base"
-};
-
-$Object* allocate$DigestMD5Base$DigestPrivacy($Class* clazz) {
-	return $of($alloc(DigestMD5Base$DigestPrivacy));
-}
 
 $String* DigestMD5Base$DigestPrivacy::CLIENT_CONF_MAGIC = nullptr;
 $String* DigestMD5Base$DigestPrivacy::SVR_CONF_MAGIC = nullptr;
@@ -129,20 +80,17 @@ void DigestMD5Base$DigestPrivacy::init$($DigestMD5Base* this$0, bool clientMode)
 }
 
 void DigestMD5Base$DigestPrivacy::generatePrivacyKeyPair(bool clientMode) {
-	$useLocalCurrentObjectStackCache();
-	$var($bytes, ccmagic, $nc(DigestMD5Base$DigestPrivacy::CLIENT_CONF_MAGIC)->getBytes(this->this$0->encoding));
-	$var($bytes, scmagic, $nc(DigestMD5Base$DigestPrivacy::SVR_CONF_MAGIC)->getBytes(this->this$0->encoding));
+	$useLocalObjectStack();
+	$var($bytes, ccmagic, DigestMD5Base$DigestPrivacy::CLIENT_CONF_MAGIC->getBytes(this->this$0->encoding));
+	$var($bytes, scmagic, DigestMD5Base$DigestPrivacy::SVR_CONF_MAGIC->getBytes(this->this$0->encoding));
 	$var($MessageDigest, md5, $MessageDigest::getInstance("MD5"_s));
 	int32_t n = 0;
-	$init($DigestMD5Base);
 	if ($nc(this->this$0->negotiatedCipher)->equals($nc($DigestMD5Base::CIPHER_TOKENS)->get(4))) {
 		n = 5;
+	} else if (this->this$0->negotiatedCipher->equals($DigestMD5Base::CIPHER_TOKENS->get(3))) {
+		n = 7;
 	} else {
-		if ($nc(this->this$0->negotiatedCipher)->equals($nc($DigestMD5Base::CIPHER_TOKENS)->get(3))) {
-			n = 7;
-		} else {
-			n = 16;
-		}
+		n = 16;
 	}
 	$var($bytes, keyBuffer, $new($bytes, n + ccmagic->length));
 	$System::arraycopy(this->this$0->H_A1, 0, keyBuffer, 0, n);
@@ -153,7 +101,7 @@ void DigestMD5Base$DigestPrivacy::generatePrivacyKeyPair(bool clientMode) {
 	md5->update(keyBuffer);
 	$var($bytes, Kcs, md5->digest());
 	$init($Level);
-	if ($nc($($DigestMD5Base::access$2100()))->isLoggable($Level::FINER)) {
+	if ($$nc($DigestMD5Base::access$2100())->isLoggable($Level::FINER)) {
 		$DigestMD5Base::access$2200($DigestMD5Base::DP_CLASS_NAME, "generatePrivacyKeyPair"_s, "DIGEST24:Kcc: "_s, Kcc);
 		$DigestMD5Base::access$2300($DigestMD5Base::DP_CLASS_NAME, "generatePrivacyKeyPair"_s, "DIGEST25:Kcs: "_s, Kcs);
 	}
@@ -169,19 +117,19 @@ void DigestMD5Base$DigestPrivacy::generatePrivacyKeyPair(bool clientMode) {
 	try {
 		$var($SecretKey, encKey, nullptr);
 		$var($SecretKey, decKey, nullptr);
-		if ($nc(this->this$0->negotiatedCipher)->indexOf($nc($DigestMD5Base::CIPHER_TOKENS)->get(1)) > -1) {
+		if ($nc(this->this$0->negotiatedCipher)->indexOf($DigestMD5Base::CIPHER_TOKENS->get(1)) > -1) {
 			$set(this, encCipher, $Cipher::getInstance("RC4"_s));
 			$set(this, decCipher, $Cipher::getInstance("RC4"_s));
 			$assign(encKey, $new($SecretKeySpec, myKc, "RC4"_s));
 			$assign(decKey, $new($SecretKeySpec, peerKc, "RC4"_s));
-			$nc(this->encCipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(encKey));
-			$nc(this->decCipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(decKey));
+			$nc(this->encCipher)->init($Cipher::ENCRYPT_MODE, encKey);
+			$nc(this->decCipher)->init($Cipher::DECRYPT_MODE, decKey);
 		} else {
-			bool var$1 = ($nc(this->this$0->negotiatedCipher)->equals($nc($DigestMD5Base::CIPHER_TOKENS)->get(2)));
-			if (var$1 || ($nc(this->this$0->negotiatedCipher)->equals($nc($DigestMD5Base::CIPHER_TOKENS)->get(0)))) {
+			bool var$0 = this->this$0->negotiatedCipher->equals($DigestMD5Base::CIPHER_TOKENS->get(2));
+			if (var$0 || (this->this$0->negotiatedCipher->equals($DigestMD5Base::CIPHER_TOKENS->get(0)))) {
 				$var($String, cipherFullname, nullptr);
 				$var($String, cipherShortname, nullptr);
-				if ($nc(this->this$0->negotiatedCipher)->equals($nc($DigestMD5Base::CIPHER_TOKENS)->get(2))) {
+				if (this->this$0->negotiatedCipher->equals($DigestMD5Base::CIPHER_TOKENS->get(2))) {
 					$assign(cipherFullname, "DES/CBC/NoPadding"_s);
 					$assign(cipherShortname, "des"_s);
 				} else {
@@ -194,9 +142,9 @@ void DigestMD5Base$DigestPrivacy::generatePrivacyKeyPair(bool clientMode) {
 				$assign(decKey, $DigestMD5Base::makeDesKeys(peerKc, cipherShortname));
 				$var($IvParameterSpec, encIv, $new($IvParameterSpec, myKc, 8, 8));
 				$var($IvParameterSpec, decIv, $new($IvParameterSpec, peerKc, 8, 8));
-				$nc(this->encCipher)->init($Cipher::ENCRYPT_MODE, static_cast<$Key*>(encKey), static_cast<$AlgorithmParameterSpec*>(encIv));
-				$nc(this->decCipher)->init($Cipher::DECRYPT_MODE, static_cast<$Key*>(decKey), static_cast<$AlgorithmParameterSpec*>(decIv));
-				if ($nc($($DigestMD5Base::access$2400()))->isLoggable($Level::FINER)) {
+				$nc(this->encCipher)->init($Cipher::ENCRYPT_MODE, encKey, encIv);
+				$nc(this->decCipher)->init($Cipher::DECRYPT_MODE, decKey, decIv);
+				if ($$nc($DigestMD5Base::access$2400())->isLoggable($Level::FINER)) {
 					$DigestMD5Base::access$2500($DigestMD5Base::DP_CLASS_NAME, "generatePrivacyKeyPair"_s, $$str({"DIGEST26:"_s, this->this$0->negotiatedCipher, " IVcc: "_s}), $(encIv->getIV()));
 					$DigestMD5Base::access$2600($DigestMD5Base::DP_CLASS_NAME, "generatePrivacyKeyPair"_s, $$str({"DIGEST27:"_s, this->this$0->negotiatedCipher, " IVcs: "_s}), $(decIv->getIV()));
 					$DigestMD5Base::access$2700($DigestMD5Base::DP_CLASS_NAME, "generatePrivacyKeyPair"_s, $$str({"DIGEST28:"_s, this->this$0->negotiatedCipher, " encryption key: "_s}), $($nc(encKey)->getEncoded()));
@@ -216,7 +164,7 @@ void DigestMD5Base$DigestPrivacy::generatePrivacyKeyPair(bool clientMode) {
 }
 
 $bytes* DigestMD5Base$DigestPrivacy::wrap($bytes* outgoing, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
 		$init($DigestMD5Base);
 		return $DigestMD5Base::EMPTY_BYTE_ARRAY;
@@ -224,7 +172,7 @@ $bytes* DigestMD5Base$DigestPrivacy::wrap($bytes* outgoing, int32_t start, int32
 	incrementSeqNum();
 	$var($bytes, mac, getHMAC(this->myKi, this->sequenceNum, outgoing, start, len));
 	$init($Level);
-	if ($nc($($DigestMD5Base::access$2900()))->isLoggable($Level::FINEST)) {
+	if ($$nc($DigestMD5Base::access$2900())->isLoggable($Level::FINEST)) {
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$3000($DigestMD5Base::DP_CLASS_NAME, "wrap"_s, "DIGEST30:Outgoing: "_s, outgoing, start, len);
 		$DigestMD5Base::access$3100($DigestMD5Base::DP_CLASS_NAME, "wrap"_s, "seqNum: "_s, this->sequenceNum);
@@ -246,7 +194,7 @@ $bytes* DigestMD5Base$DigestPrivacy::wrap($bytes* outgoing, int32_t start, int32
 	$System::arraycopy(outgoing, start, toBeEncrypted, 0, len);
 	$System::arraycopy(padding, 0, toBeEncrypted, len, padding->length);
 	$System::arraycopy(mac, 0, toBeEncrypted, len + padding->length, 10);
-	if ($nc($($DigestMD5Base::access$3300()))->isLoggable($Level::FINEST)) {
+	if ($$nc($DigestMD5Base::access$3300())->isLoggable($Level::FINEST)) {
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$3400($DigestMD5Base::DP_CLASS_NAME, "wrap"_s, "DIGEST31:{msg, pad, KicMAC}: "_s, toBeEncrypted);
 	}
@@ -263,7 +211,7 @@ $bytes* DigestMD5Base$DigestPrivacy::wrap($bytes* outgoing, int32_t start, int32
 	$System::arraycopy(cipherBlock, 0, wrapped, 0, cipherBlock->length);
 	$System::arraycopy(this->messageType, 0, wrapped, cipherBlock->length, 2);
 	$System::arraycopy(this->sequenceNum, 0, wrapped, cipherBlock->length + 2, 4);
-	if ($nc($($DigestMD5Base::access$3500()))->isLoggable($Level::FINEST)) {
+	if ($$nc($DigestMD5Base::access$3500())->isLoggable($Level::FINEST)) {
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$3600($DigestMD5Base::DP_CLASS_NAME, "wrap"_s, "DIGEST32:Wrapped: "_s, wrapped);
 	}
@@ -271,7 +219,7 @@ $bytes* DigestMD5Base$DigestPrivacy::wrap($bytes* outgoing, int32_t start, int32
 }
 
 $bytes* DigestMD5Base$DigestPrivacy::unwrap($bytes* incoming, int32_t start, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (len == 0) {
 		$init($DigestMD5Base);
 		return $DigestMD5Base::EMPTY_BYTE_ARRAY;
@@ -283,8 +231,8 @@ $bytes* DigestMD5Base$DigestPrivacy::unwrap($bytes* incoming, int32_t start, int
 	$System::arraycopy(incoming, start + encryptedMsg->length, msgType, 0, 2);
 	$System::arraycopy(incoming, start + encryptedMsg->length + 2, seqNum, 0, 4);
 	$init($Level);
-	if ($nc($($DigestMD5Base::access$3700()))->isLoggable($Level::FINEST)) {
-		$nc($($DigestMD5Base::access$3800()))->log($Level::FINEST, "DIGEST33:Expecting sequence num: {0}"_s, $($of($Integer::valueOf(this->peerSeqNum))));
+	if ($$nc($DigestMD5Base::access$3700())->isLoggable($Level::FINEST)) {
+		$$nc($DigestMD5Base::access$3800())->log($Level::FINEST, "DIGEST33:Expecting sequence num: {0}"_s, $($Integer::valueOf(this->peerSeqNum)));
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$3900($DigestMD5Base::DP_CLASS_NAME, "unwrap"_s, "DIGEST34:incoming: "_s, encryptedMsg);
 	}
@@ -301,7 +249,7 @@ $bytes* DigestMD5Base$DigestPrivacy::unwrap($bytes* incoming, int32_t start, int
 	$var($bytes, mac, $new($bytes, 10));
 	$System::arraycopy(decryptedMsg, 0, msgWithPadding, 0, msgWithPadding->length);
 	$System::arraycopy(decryptedMsg, msgWithPadding->length, mac, 0, 10);
-	if ($nc($($DigestMD5Base::access$4000()))->isLoggable($Level::FINEST)) {
+	if ($$nc($DigestMD5Base::access$4000())->isLoggable($Level::FINEST)) {
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$4100($DigestMD5Base::DP_CLASS_NAME, "unwrap"_s, "DIGEST35:Unwrapped (w/padding): "_s, msgWithPadding);
 		$DigestMD5Base::access$4200($DigestMD5Base::DP_CLASS_NAME, "unwrap"_s, "DIGEST36:MAC: "_s, mac);
@@ -313,20 +261,20 @@ $bytes* DigestMD5Base$DigestPrivacy::unwrap($bytes* incoming, int32_t start, int
 	if (blockSize > 1) {
 		msgLength -= (int32_t)msgWithPadding->get(msgWithPadding->length - 1);
 		if (msgLength < 0) {
-			if ($nc($($DigestMD5Base::access$4500()))->isLoggable($Level::INFO)) {
-				$nc($($DigestMD5Base::access$4600()))->log($Level::INFO, "DIGEST39:Incorrect padding: {0}"_s, $($of($Byte::valueOf(msgWithPadding->get(msgWithPadding->length - 1)))));
+			if ($$nc($DigestMD5Base::access$4500())->isLoggable($Level::INFO)) {
+				$$nc($DigestMD5Base::access$4600())->log($Level::INFO, "DIGEST39:Incorrect padding: {0}"_s, $($Byte::valueOf(msgWithPadding->get(msgWithPadding->length - 1))));
 			}
 			$init($DigestMD5Base);
 			return $DigestMD5Base::EMPTY_BYTE_ARRAY;
 		}
 	}
 	$var($bytes, expectedMac, getHMAC(this->peerKi, seqNum, msgWithPadding, 0, msgLength));
-	if ($nc($($DigestMD5Base::access$4700()))->isLoggable($Level::FINEST)) {
+	if ($$nc($DigestMD5Base::access$4700())->isLoggable($Level::FINEST)) {
 		$init($DigestMD5Base);
 		$DigestMD5Base::access$4800($DigestMD5Base::DP_CLASS_NAME, "unwrap"_s, "DIGEST40:KisMAC: "_s, expectedMac);
 	}
 	if (!$Arrays::equals(mac, expectedMac)) {
-		$nc($($DigestMD5Base::access$4900()))->log($Level::INFO, "DIGEST41:Unmatched MACs"_s);
+		$$nc($DigestMD5Base::access$4900())->log($Level::INFO, "DIGEST41:Unmatched MACs"_s);
 		$init($DigestMD5Base);
 		return $DigestMD5Base::EMPTY_BYTE_ARRAY;
 	}
@@ -349,13 +297,50 @@ $bytes* DigestMD5Base$DigestPrivacy::unwrap($bytes* incoming, int32_t start, int
 DigestMD5Base$DigestPrivacy::DigestMD5Base$DigestPrivacy() {
 }
 
-void clinit$DigestMD5Base$DigestPrivacy($Class* class$) {
+void DigestMD5Base$DigestPrivacy::clinit$($Class* clazz) {
 	$assignStatic(DigestMD5Base$DigestPrivacy::CLIENT_CONF_MAGIC, "Digest H(A1) to client-to-server sealing key magic constant"_s);
 	$assignStatic(DigestMD5Base$DigestPrivacy::SVR_CONF_MAGIC, "Digest H(A1) to server-to-client sealing key magic constant"_s);
 }
 
 $Class* DigestMD5Base$DigestPrivacy::load$($String* name, bool initialize) {
-	$loadClass(DigestMD5Base$DigestPrivacy, name, initialize, &_DigestMD5Base$DigestPrivacy_ClassInfo_, clinit$DigestMD5Base$DigestPrivacy, allocate$DigestMD5Base$DigestPrivacy);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/security/sasl/digest/DigestMD5Base;", nullptr, $FINAL | $SYNTHETIC, $field(DigestMD5Base$DigestPrivacy, this$0)},
+		{"CLIENT_CONF_MAGIC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base$DigestPrivacy, CLIENT_CONF_MAGIC)},
+		{"SVR_CONF_MAGIC", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DigestMD5Base$DigestPrivacy, SVR_CONF_MAGIC)},
+		{"encCipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE, $field(DigestMD5Base$DigestPrivacy, encCipher)},
+		{"decCipher", "Ljavax/crypto/Cipher;", nullptr, $PRIVATE, $field(DigestMD5Base$DigestPrivacy, decCipher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/security/sasl/digest/DigestMD5Base;Z)V", nullptr, 0, $method(DigestMD5Base$DigestPrivacy, init$, void, $DigestMD5Base*, bool), "javax.security.sasl.SaslException"},
+		{"generatePrivacyKeyPair", "(Z)V", nullptr, $PRIVATE, $method(DigestMD5Base$DigestPrivacy, generatePrivacyKeyPair, void, bool), "java.io.IOException,java.security.NoSuchAlgorithmException,javax.security.sasl.SaslException"},
+		{"unwrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestPrivacy, unwrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{"wrap", "([BII)[B", nullptr, $PUBLIC, $virtualMethod(DigestMD5Base$DigestPrivacy, wrap, $bytes*, $bytes*, int32_t, int32_t), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.security.sasl.digest.DigestMD5Base$DigestPrivacy", "com.sun.security.sasl.digest.DigestMD5Base", "DigestPrivacy", $FINAL},
+		{"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity", "com.sun.security.sasl.digest.DigestMD5Base", "DigestIntegrity", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.digest.DigestMD5Base$DigestPrivacy",
+		"com.sun.security.sasl.digest.DigestMD5Base$DigestIntegrity",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.security.sasl.digest.DigestMD5Base"
+	};
+	$loadClass(DigestMD5Base$DigestPrivacy, name, initialize, &classInfo$$, DigestMD5Base$DigestPrivacy::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DigestMD5Base$DigestPrivacy);
+	});
 	return class$;
 }
 

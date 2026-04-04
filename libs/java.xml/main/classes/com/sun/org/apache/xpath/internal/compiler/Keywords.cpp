@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/compiler/Keywords.h>
-
 #include <com/sun/org/apache/xpath/internal/compiler/FunctionTable.h>
 #include <com/sun/org/apache/xpath/internal/compiler/OpCodes.h>
 #include <java/util/Collections.h>
@@ -101,91 +100,6 @@ namespace com {
 					namespace internal {
 						namespace compiler {
 
-$FieldInfo _Keywords_FieldInfo_[] = {
-	{"m_keywords", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, m_keywords)},
-	{"m_axisnames", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, m_axisnames)},
-	{"m_nodetests", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, m_nodetests)},
-	{"m_nodetypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, m_nodetypes)},
-	{"FROM_ANCESTORS_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_ANCESTORS_STRING)},
-	{"FROM_ANCESTORS_OR_SELF_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_ANCESTORS_OR_SELF_STRING)},
-	{"FROM_ATTRIBUTES_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_ATTRIBUTES_STRING)},
-	{"FROM_CHILDREN_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_CHILDREN_STRING)},
-	{"FROM_DESCENDANTS_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_DESCENDANTS_STRING)},
-	{"FROM_DESCENDANTS_OR_SELF_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_DESCENDANTS_OR_SELF_STRING)},
-	{"FROM_FOLLOWING_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_FOLLOWING_STRING)},
-	{"FROM_FOLLOWING_SIBLINGS_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_FOLLOWING_SIBLINGS_STRING)},
-	{"FROM_PARENT_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_PARENT_STRING)},
-	{"FROM_PRECEDING_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_PRECEDING_STRING)},
-	{"FROM_PRECEDING_SIBLINGS_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_PRECEDING_SIBLINGS_STRING)},
-	{"FROM_SELF_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_SELF_STRING)},
-	{"FROM_NAMESPACE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_NAMESPACE_STRING)},
-	{"FROM_SELF_ABBREVIATED_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_SELF_ABBREVIATED_STRING)},
-	{"NODETYPE_COMMENT_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_COMMENT_STRING)},
-	{"NODETYPE_TEXT_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_TEXT_STRING)},
-	{"NODETYPE_PI_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_PI_STRING)},
-	{"NODETYPE_NODE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_NODE_STRING)},
-	{"NODETYPE_ANYELEMENT_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_ANYELEMENT_STRING)},
-	{"FUNC_CURRENT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_CURRENT_STRING)},
-	{"FUNC_LAST_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_LAST_STRING)},
-	{"FUNC_POSITION_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_POSITION_STRING)},
-	{"FUNC_COUNT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_COUNT_STRING)},
-	{"FUNC_ID_STRING", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Keywords, FUNC_ID_STRING)},
-	{"FUNC_KEY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_KEY_STRING)},
-	{"FUNC_LOCAL_PART_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_LOCAL_PART_STRING)},
-	{"FUNC_NAMESPACE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NAMESPACE_STRING)},
-	{"FUNC_NAME_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NAME_STRING)},
-	{"FUNC_GENERATE_ID_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_GENERATE_ID_STRING)},
-	{"FUNC_NOT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NOT_STRING)},
-	{"FUNC_TRUE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_TRUE_STRING)},
-	{"FUNC_FALSE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_FALSE_STRING)},
-	{"FUNC_BOOLEAN_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_BOOLEAN_STRING)},
-	{"FUNC_LANG_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_LANG_STRING)},
-	{"FUNC_NUMBER_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NUMBER_STRING)},
-	{"FUNC_FLOOR_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_FLOOR_STRING)},
-	{"FUNC_CEILING_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_CEILING_STRING)},
-	{"FUNC_ROUND_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_ROUND_STRING)},
-	{"FUNC_SUM_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SUM_STRING)},
-	{"FUNC_STRING_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_STRING_STRING)},
-	{"FUNC_STARTS_WITH_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_STARTS_WITH_STRING)},
-	{"FUNC_CONTAINS_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_CONTAINS_STRING)},
-	{"FUNC_SUBSTRING_BEFORE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SUBSTRING_BEFORE_STRING)},
-	{"FUNC_SUBSTRING_AFTER_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SUBSTRING_AFTER_STRING)},
-	{"FUNC_NORMALIZE_SPACE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NORMALIZE_SPACE_STRING)},
-	{"FUNC_TRANSLATE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_TRANSLATE_STRING)},
-	{"FUNC_CONCAT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_CONCAT_STRING)},
-	{"FUNC_SYSTEM_PROPERTY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SYSTEM_PROPERTY_STRING)},
-	{"FUNC_EXT_FUNCTION_AVAILABLE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_EXT_FUNCTION_AVAILABLE_STRING)},
-	{"FUNC_EXT_ELEM_AVAILABLE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_EXT_ELEM_AVAILABLE_STRING)},
-	{"FUNC_SUBSTRING_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SUBSTRING_STRING)},
-	{"FUNC_STRING_LENGTH_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_STRING_LENGTH_STRING)},
-	{"FUNC_UNPARSED_ENTITY_URI_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_UNPARSED_ENTITY_URI_STRING)},
-	{"FUNC_HERE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_HERE_STRING)},
-	{"FUNC_DOCLOCATION_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_DOCLOCATION_STRING)},
-	{}
-};
-
-$MethodInfo _Keywords_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Keywords, init$, void)},
-	{"getAxisName", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $STATIC, $staticMethod(Keywords, getAxisName, $Integer*, $String*)},
-	{"getKeyWord", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $STATIC, $staticMethod(Keywords, getKeyWord, $Integer*, $String*)},
-	{"getNodeType", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $STATIC, $staticMethod(Keywords, getNodeType, $Integer*, $String*)},
-	{"lookupNodeTest", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $STATIC, $staticMethod(Keywords, lookupNodeTest, $Integer*, $String*)},
-	{}
-};
-
-$ClassInfo _Keywords_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.compiler.Keywords",
-	"java.lang.Object",
-	nullptr,
-	_Keywords_FieldInfo_,
-	_Keywords_MethodInfo_
-};
-
-$Object* allocate$Keywords($Class* clazz) {
-	return $of($alloc(Keywords));
-}
-
 $Map* Keywords::m_keywords = nullptr;
 $Map* Keywords::m_axisnames = nullptr;
 $Map* Keywords::m_nodetests = nullptr;
@@ -269,8 +183,8 @@ $Integer* Keywords::getNodeType($String* key) {
 	return $cast($Integer, $nc(Keywords::m_nodetypes)->get(key));
 }
 
-void clinit$Keywords($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Keywords::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Keywords::FROM_ANCESTORS_STRING, "ancestor"_s);
 	$assignStatic(Keywords::FROM_ANCESTORS_OR_SELF_STRING, "ancestor-or-self"_s);
 	$assignStatic(Keywords::FROM_ATTRIBUTES_STRING, "attribute"_s);
@@ -367,7 +281,87 @@ Keywords::Keywords() {
 }
 
 $Class* Keywords::load$($String* name, bool initialize) {
-	$loadClass(Keywords, name, initialize, &_Keywords_ClassInfo_, clinit$Keywords, allocate$Keywords);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_keywords", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, m_keywords)},
+		{"m_axisnames", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, m_axisnames)},
+		{"m_nodetests", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, m_nodetests)},
+		{"m_nodetypes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, m_nodetypes)},
+		{"FROM_ANCESTORS_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_ANCESTORS_STRING)},
+		{"FROM_ANCESTORS_OR_SELF_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_ANCESTORS_OR_SELF_STRING)},
+		{"FROM_ATTRIBUTES_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_ATTRIBUTES_STRING)},
+		{"FROM_CHILDREN_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_CHILDREN_STRING)},
+		{"FROM_DESCENDANTS_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_DESCENDANTS_STRING)},
+		{"FROM_DESCENDANTS_OR_SELF_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_DESCENDANTS_OR_SELF_STRING)},
+		{"FROM_FOLLOWING_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_FOLLOWING_STRING)},
+		{"FROM_FOLLOWING_SIBLINGS_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_FOLLOWING_SIBLINGS_STRING)},
+		{"FROM_PARENT_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_PARENT_STRING)},
+		{"FROM_PRECEDING_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_PRECEDING_STRING)},
+		{"FROM_PRECEDING_SIBLINGS_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_PRECEDING_SIBLINGS_STRING)},
+		{"FROM_SELF_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_SELF_STRING)},
+		{"FROM_NAMESPACE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_NAMESPACE_STRING)},
+		{"FROM_SELF_ABBREVIATED_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, FROM_SELF_ABBREVIATED_STRING)},
+		{"NODETYPE_COMMENT_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_COMMENT_STRING)},
+		{"NODETYPE_TEXT_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_TEXT_STRING)},
+		{"NODETYPE_PI_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_PI_STRING)},
+		{"NODETYPE_NODE_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_NODE_STRING)},
+		{"NODETYPE_ANYELEMENT_STRING", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Keywords, NODETYPE_ANYELEMENT_STRING)},
+		{"FUNC_CURRENT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_CURRENT_STRING)},
+		{"FUNC_LAST_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_LAST_STRING)},
+		{"FUNC_POSITION_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_POSITION_STRING)},
+		{"FUNC_COUNT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_COUNT_STRING)},
+		{"FUNC_ID_STRING", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(Keywords, FUNC_ID_STRING)},
+		{"FUNC_KEY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_KEY_STRING)},
+		{"FUNC_LOCAL_PART_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_LOCAL_PART_STRING)},
+		{"FUNC_NAMESPACE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NAMESPACE_STRING)},
+		{"FUNC_NAME_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NAME_STRING)},
+		{"FUNC_GENERATE_ID_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_GENERATE_ID_STRING)},
+		{"FUNC_NOT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NOT_STRING)},
+		{"FUNC_TRUE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_TRUE_STRING)},
+		{"FUNC_FALSE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_FALSE_STRING)},
+		{"FUNC_BOOLEAN_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_BOOLEAN_STRING)},
+		{"FUNC_LANG_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_LANG_STRING)},
+		{"FUNC_NUMBER_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NUMBER_STRING)},
+		{"FUNC_FLOOR_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_FLOOR_STRING)},
+		{"FUNC_CEILING_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_CEILING_STRING)},
+		{"FUNC_ROUND_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_ROUND_STRING)},
+		{"FUNC_SUM_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SUM_STRING)},
+		{"FUNC_STRING_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_STRING_STRING)},
+		{"FUNC_STARTS_WITH_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_STARTS_WITH_STRING)},
+		{"FUNC_CONTAINS_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_CONTAINS_STRING)},
+		{"FUNC_SUBSTRING_BEFORE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SUBSTRING_BEFORE_STRING)},
+		{"FUNC_SUBSTRING_AFTER_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SUBSTRING_AFTER_STRING)},
+		{"FUNC_NORMALIZE_SPACE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_NORMALIZE_SPACE_STRING)},
+		{"FUNC_TRANSLATE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_TRANSLATE_STRING)},
+		{"FUNC_CONCAT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_CONCAT_STRING)},
+		{"FUNC_SYSTEM_PROPERTY_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SYSTEM_PROPERTY_STRING)},
+		{"FUNC_EXT_FUNCTION_AVAILABLE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_EXT_FUNCTION_AVAILABLE_STRING)},
+		{"FUNC_EXT_ELEM_AVAILABLE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_EXT_ELEM_AVAILABLE_STRING)},
+		{"FUNC_SUBSTRING_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_SUBSTRING_STRING)},
+		{"FUNC_STRING_LENGTH_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_STRING_LENGTH_STRING)},
+		{"FUNC_UNPARSED_ENTITY_URI_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_UNPARSED_ENTITY_URI_STRING)},
+		{"FUNC_HERE_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_HERE_STRING)},
+		{"FUNC_DOCLOCATION_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Keywords, FUNC_DOCLOCATION_STRING)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Keywords, init$, void)},
+		{"getAxisName", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $STATIC, $staticMethod(Keywords, getAxisName, $Integer*, $String*)},
+		{"getKeyWord", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $STATIC, $staticMethod(Keywords, getKeyWord, $Integer*, $String*)},
+		{"getNodeType", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $STATIC, $staticMethod(Keywords, getNodeType, $Integer*, $String*)},
+		{"lookupNodeTest", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $STATIC, $staticMethod(Keywords, lookupNodeTest, $Integer*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.compiler.Keywords",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Keywords, name, initialize, &classInfo$$, Keywords::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Keywords);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <DockIconRepaint$1.h>
-
 #include <DockIconRepaint.h>
 #include <java/awt/Color.h>
 #include <java/awt/Graphics.h>
@@ -14,43 +13,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPanel = ::javax::swing::JPanel;
-
-$MethodInfo _DockIconRepaint$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DockIconRepaint$1, init$, void)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(DockIconRepaint$1, paintComponent, void, $Graphics*)},
-	{}
-};
-
-$EnclosingMethodInfo _DockIconRepaint$1_EnclosingMethodInfo_ = {
-	"DockIconRepaint",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _DockIconRepaint$1_InnerClassesInfo_[] = {
-	{"DockIconRepaint$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DockIconRepaint$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"DockIconRepaint$1",
-	"javax.swing.JPanel",
-	nullptr,
-	nullptr,
-	_DockIconRepaint$1_MethodInfo_,
-	nullptr,
-	&_DockIconRepaint$1_EnclosingMethodInfo_,
-	_DockIconRepaint$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DockIconRepaint"
-};
-
-$Object* allocate$DockIconRepaint$1($Class* clazz) {
-	return $of($alloc(DockIconRepaint$1));
-}
 
 void DockIconRepaint$1::init$() {
 	$JPanel::init$();
@@ -67,7 +29,38 @@ DockIconRepaint$1::DockIconRepaint$1() {
 }
 
 $Class* DockIconRepaint$1::load$($String* name, bool initialize) {
-	$loadClass(DockIconRepaint$1, name, initialize, &_DockIconRepaint$1_ClassInfo_, allocate$DockIconRepaint$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DockIconRepaint$1, init$, void)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(DockIconRepaint$1, paintComponent, void, $Graphics*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"DockIconRepaint",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DockIconRepaint$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DockIconRepaint$1",
+		"javax.swing.JPanel",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DockIconRepaint"
+	};
+	$loadClass(DockIconRepaint$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DockIconRepaint$1));
+	});
 	return class$;
 }
 

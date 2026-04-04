@@ -31,6 +31,7 @@ class XMLMessageFormatter_zh_CN : public ::com::sun::org::apache::xerces::intern
 	$class(XMLMessageFormatter_zh_CN, 0, ::com::sun::org::apache::xerces::internal::util::MessageFormatter)
 public:
 	XMLMessageFormatter_zh_CN();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* formatMessage(::java::util::Locale* locale, $String* key, $ObjectArray* arguments) override;
 	static $String* XML_DOMAIN;

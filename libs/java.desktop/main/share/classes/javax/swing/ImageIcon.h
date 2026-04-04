@@ -60,6 +60,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* filename, $String* description);
 	void init$($String* filename);
 	void init$(::java::net::URL* location, $String* description);

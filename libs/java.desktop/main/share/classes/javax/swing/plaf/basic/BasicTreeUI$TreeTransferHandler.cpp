@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/basic/BasicTreeUI$TreeTransferHandler.h>
-
 #include <java/awt/datatransfer/Transferable.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
-#include <java/util/Comparator.h>
 #include <java/util/List.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTree.h>
@@ -24,8 +22,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
-using $Comparator = ::java::util::Comparator;
-using $List = ::java::util::List;
 using $JComponent = ::javax::swing::JComponent;
 using $JTree = ::javax::swing::JTree;
 using $TransferHandler = ::javax::swing::TransferHandler;
@@ -37,52 +33,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTreeUI$TreeTransferHandler_FieldInfo_[] = {
-	{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE, $field(BasicTreeUI$TreeTransferHandler, tree)},
-	{}
-};
-
-$MethodInfo _BasicTreeUI$TreeTransferHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(BasicTreeUI$TreeTransferHandler, init$, void)},
-	{"compare", "(Ljavax/swing/tree/TreePath;Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$TreeTransferHandler, compare, int32_t, $TreePath*, $TreePath*)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicTreeUI$TreeTransferHandler, compare, int32_t, Object$*, Object$*)},
-	{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI$TreeTransferHandler, createTransferable, $Transferable*, $JComponent*)},
-	{"getDisplayOrderPaths", "([Ljavax/swing/tree/TreePath;)[Ljavax/swing/tree/TreePath;", nullptr, 0, $virtualMethod(BasicTreeUI$TreeTransferHandler, getDisplayOrderPaths, $TreePathArray*, $TreePathArray*)},
-	{"getDisplayString", "(Ljavax/swing/tree/TreePath;ZZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(BasicTreeUI$TreeTransferHandler, getDisplayString, $String*, $TreePath*, bool, bool)},
-	{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$TreeTransferHandler, getSourceActions, int32_t, $JComponent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTreeUI$TreeTransferHandler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTreeUI$TreeTransferHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeTransferHandler", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTreeUI$TreeTransferHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTreeUI$TreeTransferHandler",
-	"javax.swing.TransferHandler",
-	"javax.swing.plaf.UIResource,java.util.Comparator",
-	_BasicTreeUI$TreeTransferHandler_FieldInfo_,
-	_BasicTreeUI$TreeTransferHandler_MethodInfo_,
-	"Ljavax/swing/TransferHandler;Ljavax/swing/plaf/UIResource;Ljava/util/Comparator<Ljavax/swing/tree/TreePath;>;",
-	nullptr,
-	_BasicTreeUI$TreeTransferHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTreeUI"
-};
-
-$Object* allocate$BasicTreeUI$TreeTransferHandler($Class* clazz) {
-	return $of($alloc(BasicTreeUI$TreeTransferHandler));
-}
 
 int32_t BasicTreeUI$TreeTransferHandler::hashCode() {
 	 return this->$TransferHandler::hashCode();
@@ -109,11 +59,11 @@ void BasicTreeUI$TreeTransferHandler::init$() {
 }
 
 $Transferable* BasicTreeUI$TreeTransferHandler::createTransferable($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTree, c)) {
 		$set(this, tree, $cast($JTree, c));
-		$var($TreePathArray, paths, $nc(this->tree)->getSelectionPaths());
-		if (paths == nullptr || $nc(paths)->length == 0) {
+		$var($TreePathArray, paths, this->tree->getSelectionPaths());
+		if (paths == nullptr || paths->length == 0) {
 			return nullptr;
 		}
 		$var($StringBuilder, plainStr, $new($StringBuilder));
@@ -124,9 +74,7 @@ $Transferable* BasicTreeUI$TreeTransferHandler::createTransferable($JComponent* 
 		$var($TreePathArray, displayPaths, getDisplayOrderPaths(paths));
 		{
 			$var($TreePathArray, arr$, displayPaths);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($TreePath, path, arr$->get(i$));
 				{
 					$var($Object, node, $nc(path)->getLastPathComponent());
@@ -160,13 +108,11 @@ $String* BasicTreeUI$TreeTransferHandler::getDisplayString($TreePath* path, bool
 }
 
 $TreePathArray* BasicTreeUI$TreeTransferHandler::getDisplayOrderPaths($TreePathArray* paths) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, selOrder, $new($ArrayList));
 	{
 		$var($TreePathArray, arr$, paths);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($TreePath, path, arr$->get(i$));
 			{
 				selOrder->add(path);
@@ -177,7 +123,7 @@ $TreePathArray* BasicTreeUI$TreeTransferHandler::getDisplayOrderPaths($TreePathA
 	int32_t n = selOrder->size();
 	$var($TreePathArray, displayPaths, $new($TreePathArray, n));
 	for (int32_t i = 0; i < n; ++i) {
-		displayPaths->set(i, $cast($TreePath, $(selOrder->get(i))));
+		displayPaths->set(i, $$cast($TreePath, selOrder->get(i)));
 	}
 	return displayPaths;
 }
@@ -194,7 +140,47 @@ BasicTreeUI$TreeTransferHandler::BasicTreeUI$TreeTransferHandler() {
 }
 
 $Class* BasicTreeUI$TreeTransferHandler::load$($String* name, bool initialize) {
-	$loadClass(BasicTreeUI$TreeTransferHandler, name, initialize, &_BasicTreeUI$TreeTransferHandler_ClassInfo_, allocate$BasicTreeUI$TreeTransferHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"tree", "Ljavax/swing/JTree;", nullptr, $PRIVATE, $field(BasicTreeUI$TreeTransferHandler, tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(BasicTreeUI$TreeTransferHandler, init$, void)},
+		{"compare", "(Ljavax/swing/tree/TreePath;Ljavax/swing/tree/TreePath;)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$TreeTransferHandler, compare, int32_t, $TreePath*, $TreePath*)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(BasicTreeUI$TreeTransferHandler, compare, int32_t, Object$*, Object$*)},
+		{"createTransferable", "(Ljavax/swing/JComponent;)Ljava/awt/datatransfer/Transferable;", nullptr, $PROTECTED, $virtualMethod(BasicTreeUI$TreeTransferHandler, createTransferable, $Transferable*, $JComponent*)},
+		{"getDisplayOrderPaths", "([Ljavax/swing/tree/TreePath;)[Ljavax/swing/tree/TreePath;", nullptr, 0, $virtualMethod(BasicTreeUI$TreeTransferHandler, getDisplayOrderPaths, $TreePathArray*, $TreePathArray*)},
+		{"getDisplayString", "(Ljavax/swing/tree/TreePath;ZZ)Ljava/lang/String;", nullptr, 0, $virtualMethod(BasicTreeUI$TreeTransferHandler, getDisplayString, $String*, $TreePath*, bool, bool)},
+		{"getSourceActions", "(Ljavax/swing/JComponent;)I", nullptr, $PUBLIC, $virtualMethod(BasicTreeUI$TreeTransferHandler, getSourceActions, int32_t, $JComponent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTreeUI$TreeTransferHandler", "javax.swing.plaf.basic.BasicTreeUI", "TreeTransferHandler", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTreeUI$TreeTransferHandler",
+		"javax.swing.TransferHandler",
+		"javax.swing.plaf.UIResource,java.util.Comparator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/TransferHandler;Ljavax/swing/plaf/UIResource;Ljava/util/Comparator<Ljavax/swing/tree/TreePath;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTreeUI"
+	};
+	$loadClass(BasicTreeUI$TreeTransferHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTreeUI$TreeTransferHandler));
+	});
 	return class$;
 }
 

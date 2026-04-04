@@ -1,6 +1,4 @@
 #include <sun/awt/X11/XDecoratedPeer.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -18,7 +16,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -93,9 +90,7 @@
 #undef XA_NET_FRAME_EXTENTS
 #undef XA_WM_ICON_NAME
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
@@ -108,7 +103,6 @@ using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -118,7 +112,6 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
@@ -144,11 +137,9 @@ using $XIconWindow = ::sun::awt::X11::XIconWindow;
 using $XKeyboardFocusManagerPeer = ::sun::awt::X11::XKeyboardFocusManagerPeer;
 using $XPropertyEvent = ::sun::awt::X11::XPropertyEvent;
 using $XReparentEvent = ::sun::awt::X11::XReparentEvent;
-using $XSizeHints = ::sun::awt::X11::XSizeHints;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XUtilConstants = ::sun::awt::X11::XUtilConstants;
 using $XWM = ::sun::awt::X11::XWM;
-using $XWarningWindow = ::sun::awt::X11::XWarningWindow;
 using $XWindow = ::sun::awt::X11::XWindow;
 using $XWindowAttributes = ::sun::awt::X11::XWindowAttributes;
 using $XWindowAttributesData = ::sun::awt::X11::XWindowAttributesData;
@@ -162,142 +153,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XDecoratedPeer_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XDecoratedPeer, $assertionsDisabled)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDecoratedPeer, log)},
-	{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDecoratedPeer, insLog)},
-	{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDecoratedPeer, focusLog)},
-	{"iconLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDecoratedPeer, iconLog)},
-	{"configure_seen", "Z", nullptr, 0, $field(XDecoratedPeer, configure_seen)},
-	{"insets_corrected", "Z", nullptr, 0, $field(XDecoratedPeer, insets_corrected)},
-	{"iconWindow", "Lsun/awt/X11/XIconWindow;", nullptr, 0, $field(XDecoratedPeer, iconWindow)},
-	{"dimensions", "Lsun/awt/X11/WindowDimensions;", nullptr, $VOLATILE, $field(XDecoratedPeer, dimensions)},
-	{"content", "Lsun/awt/X11/XContentWindow;", nullptr, 0, $field(XDecoratedPeer, content)},
-	{"currentInsets", "Ljava/awt/Insets;", nullptr, $VOLATILE, $field(XDecoratedPeer, currentInsets)},
-	{"focusProxy", "Lsun/awt/X11/XFocusProxyWindow;", nullptr, 0, $field(XDecoratedPeer, focusProxy)},
-	{"lastKnownInsets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/awt/Insets;>;", $STATIC | $FINAL, $staticField(XDecoratedPeer, lastKnownInsets)},
-	{"wm_set_insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(XDecoratedPeer, wm_set_insets)},
-	{"reparent_serial", "J", nullptr, 0, $field(XDecoratedPeer, reparent_serial)},
-	{"no_reparent_artifacts", "Z", nullptr, 0, $field(XDecoratedPeer, no_reparent_artifacts)},
-	{"actualFocusedWindow", "Lsun/awt/X11/XWindowPeer;", nullptr, 0, $field(XDecoratedPeer, actualFocusedWindow)},
-	{}
-};
-
-$MethodInfo _XDecoratedPeer_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(XDecoratedPeer, init$, void, $Window*)},
-	{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XDecoratedPeer, init$, void, $XCreateWindowParams*)},
-	{"applyGuessedInsets", "()V", nullptr, $PRIVATE, $method(XDecoratedPeer, applyGuessedInsets, void)},
-	{"checkShellRect", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, checkShellRect, void, $Rectangle*)},
-	{"checkShellRectPos", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, checkShellRectPos, void, $Rectangle*)},
-	{"checkShellRectSize", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, checkShellRectSize, void, $Rectangle*)},
-	{"copy", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC, $staticMethod(XDecoratedPeer, copy, $Insets*, $Insets*)},
-	{"copyAndScaleDown", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(XDecoratedPeer, copyAndScaleDown, $Insets*, $Insets*)},
-	{"createFocusProxy", "()Lsun/awt/X11/XFocusProxyWindow;", nullptr, 0, $virtualMethod(XDecoratedPeer, createFocusProxy, $XFocusProxyWindow*)},
-	{"difference", "(Ljava/awt/Insets;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC, $staticMethod(XDecoratedPeer, difference, $Insets*, $Insets*, $Insets*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, dispose, void)},
-	{"dumpAll", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpAll, void)},
-	{"dumpContent", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpContent, void)},
-	{"dumpMe", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpMe, void)},
-	{"dumpParent", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpParent, void)},
-	{"dumpShell", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpShell, void)},
-	{"dumpTarget", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpTarget, void)},
-	{"dumpWindow", "(Ljava/lang/String;J)V", nullptr, $FINAL, $method(XDecoratedPeer, dumpWindow, void, $String*, int64_t)},
-	{"getAbsoluteX", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getAbsoluteX, int32_t)},
-	{"getAbsoluteY", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getAbsoluteY, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getBounds, $Rectangle*)},
-	{"getContentWindow", "()J", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getContentWindow, int64_t)},
-	{"getDecorations", "()I", nullptr, 0, $virtualMethod(XDecoratedPeer, getDecorations, int32_t)},
-	{"getDimensions", "()Lsun/awt/X11/WindowDimensions;", nullptr, $PUBLIC | $FINAL, $method(XDecoratedPeer, getDimensions, $WindowDimensions*)},
-	{"getFocusProxy", "()Lsun/awt/X11/XFocusProxyWindow;", nullptr, 0, $virtualMethod(XDecoratedPeer, getFocusProxy, $XFocusProxyWindow*)},
-	{"getFunctions", "()I", nullptr, 0, $virtualMethod(XDecoratedPeer, getFunctions, int32_t)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getGraphics, $Graphics*)},
-	{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getHeight, int32_t)},
-	{"getInputMethodHeight", "()I", nullptr, 0, $virtualMethod(XDecoratedPeer, getInputMethodHeight, int32_t)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getInsets, $Insets*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getLocationOnScreen, $Point*)},
-	{"getRealInsets", "()Ljava/awt/Insets;", nullptr, $PRIVATE, $method(XDecoratedPeer, getRealInsets, $Insets*)},
-	{"getShell", "()J", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getShell, int64_t)},
-	{"getShellBounds", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XDecoratedPeer, getShellBounds, $Rectangle*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getSize, $Dimension*)},
-	{"getWMName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, getWMName, $String*)},
-	{"getWMProtocols", "()Lsun/awt/X11/XAtomList;", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, getWMProtocols, $XAtomList*)},
-	{"getWMSetInsets", "(Lsun/awt/X11/XAtom;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(XDecoratedPeer, getWMSetInsets, $Insets*, $XAtom*)},
-	{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getWidth, int32_t)},
-	{"getX", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getX, int32_t)},
-	{"getY", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getY, int32_t)},
-	{"gravityBug", "()Z", nullptr, 0, $virtualMethod(XDecoratedPeer, gravityBug, bool)},
-	{"guessInsets", "()Ljava/awt/Insets;", nullptr, $PRIVATE, $method(XDecoratedPeer, guessInsets, $Insets*)},
-	{"handleClientMessage", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleClientMessage, void, $XEvent*)},
-	{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleConfigureNotifyEvent, void, $XEvent*)},
-	{"handleCorrectInsets", "(Ljava/awt/Insets;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, handleCorrectInsets, void, $Insets*)},
-	{"handleDeiconify", "()V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleDeiconify, void)},
-	{"handleFocusEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleFocusEvent, void, $XEvent*)},
-	{"handleIconify", "()V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleIconify, void)},
-	{"handleMoved", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, handleMoved, void, $WindowDimensions*)},
-	{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handlePropertyNotify, void, $XEvent*)},
-	{"handleQuit", "()V", nullptr, $PRIVATE, $method(XDecoratedPeer, handleQuit, void)},
-	{"handleReparentNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleReparentNotifyEvent, void, $XEvent*)},
-	{"handleWindowFocusIn", "(J)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleWindowFocusIn, void, int64_t)},
-	{"handleWindowFocusOut", "(Ljava/awt/Window;J)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleWindowFocusOut, void, $Window*, int64_t)},
-	{"handleWmTakeFocus", "(Lsun/awt/X11/XClientMessageEvent;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, handleWmTakeFocus, void, $XClientMessageEvent*)},
-	{"isEventDisabled", "(Lsun/awt/X11/XEvent;)Z", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, isEventDisabled, bool, $XEvent*)},
-	{"isInitialReshape", "()Z", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, isInitialReshape, bool)},
-	{"isMaximized", "()Z", nullptr, 0, $virtualMethod(XDecoratedPeer, isMaximized, bool)},
-	{"isNull", "(Ljava/awt/Insets;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XDecoratedPeer, isNull, bool, $Insets*)},
-	{"isOverrideRedirect", "()Z", nullptr, 0, $virtualMethod(XDecoratedPeer, isOverrideRedirect, bool)},
-	{"isTargetUndecorated", "()Z", nullptr, $ABSTRACT, $virtualMethod(XDecoratedPeer, isTargetUndecorated, bool)},
-	{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, postInit, void, $XCreateWindowParams*)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, preInit, void, $XCreateWindowParams*)},
-	{"reconfigureContentWindow", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, reconfigureContentWindow, void, $WindowDimensions*)},
-	{"requestWindowFocus", "(JZ)Z", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, requestWindowFocus, bool, int64_t, bool)},
-	{"requestWindowFocus", "(Lsun/awt/X11/XWindowPeer;JZ)Z", nullptr, 0, $virtualMethod(XDecoratedPeer, requestWindowFocus, bool, $XWindowPeer*, int64_t, bool)},
-	{"requestXFocus", "(JZ)V", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, requestXFocus, void, int64_t, bool)},
-	{"resetWMSetInsets", "()V", nullptr, $PRIVATE, $method(XDecoratedPeer, resetWMSetInsets, void)},
-	{"reshape", "(Lsun/awt/X11/WindowDimensions;IZ)V", nullptr, $PRIVATE, $method(XDecoratedPeer, reshape, void, $WindowDimensions*, int32_t, bool)},
-	{"reshape", "(IIIIIZ)V", nullptr, $PRIVATE, $method(XDecoratedPeer, reshape, void, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"setActualFocusedWindow", "(Lsun/awt/X11/XWindowPeer;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, setActualFocusedWindow, void, $XWindowPeer*)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setIconHints", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/awt/IconInfo;>;)V", 0, $virtualMethod(XDecoratedPeer, setIconHints, void, $List*)},
-	{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, setResizable, void, bool)},
-	{"setShellBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, setShellBounds, void, $Rectangle*)},
-	{"setShellPosition", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, setShellPosition, void, $Rectangle*)},
-	{"setShellSize", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, setShellSize, void, $Rectangle*)},
-	{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, setTitle, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, setVisible, void, bool)},
-	{"suppressWmTakeFocus", "(Z)V", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, suppressWmTakeFocus, void, bool)},
-	{"updateMinSizeHints", "()V", nullptr, $PRIVATE, $method(XDecoratedPeer, updateMinSizeHints, void)},
-	{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, updateMinimumSize, void)},
-	{"updateSizeHints", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, updateSizeHints, void, $WindowDimensions*)},
-	{"updateSizeHints", "()V", nullptr, 0, $virtualMethod(XDecoratedPeer, updateSizeHints, void)},
-	{"updateWMName", "()V", nullptr, 0, $virtualMethod(XDecoratedPeer, updateWMName, void)},
-	{}
-};
-
-$InnerClassInfo _XDecoratedPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XDecoratedPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XDecoratedPeer_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.awt.X11.XDecoratedPeer",
-	"sun.awt.X11.XWindowPeer",
-	nullptr,
-	_XDecoratedPeer_FieldInfo_,
-	_XDecoratedPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XDecoratedPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XDecoratedPeer$1"
-};
-
-$Object* allocate$XDecoratedPeer($Class* clazz) {
-	return $of($alloc(XDecoratedPeer));
-}
 
 bool XDecoratedPeer::$assertionsDisabled = false;
 $PlatformLogger* XDecoratedPeer::log = nullptr;
@@ -325,11 +180,11 @@ int64_t XDecoratedPeer::getShell() {
 }
 
 int64_t XDecoratedPeer::getContentWindow() {
-	return (this->content == nullptr) ? this->window : $nc(this->content)->getWindow();
+	return (this->content == nullptr) ? this->window : this->content->getWindow();
 }
 
 void XDecoratedPeer::preInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XWindowPeer::preInit(params);
 	$nc(this->winAttr)->initialFocus = true;
 	$set(this, currentInsets, $new($Insets, 0, 0, 0, 0));
@@ -343,10 +198,10 @@ void XDecoratedPeer::preInit($XCreateWindowParams* params) {
 	params->put($XBaseWindow::BOUNDS, $($nc(this->dimensions)->getClientRect()));
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine("Initial dimensions {0}"_s, $$new($ObjectArray, {$of(this->dimensions)}));
+		XDecoratedPeer::insLog->fine("Initial dimensions {0}"_s, $$new($ObjectArray, {this->dimensions}));
 	}
 	$var($Long, eventMask, $cast($Long, params->get($XBaseWindow::EVENT_MASK)));
-	params->add($of($XBaseWindow::EVENT_MASK), $($of($Long::valueOf((int64_t)($nc(eventMask)->longValue() & (uint64_t)~(($XConstants::FocusChangeMask | $XConstants::KeyPressMask) | $XConstants::KeyReleaseMask))))));
+	params->add($XBaseWindow::EVENT_MASK, $($Long::valueOf($nc(eventMask)->longValue() & ~(($XConstants::FocusChangeMask | $XConstants::KeyPressMask) | $XConstants::KeyReleaseMask))));
 }
 
 void XDecoratedPeer::postInit($XCreateWindowParams* params) {
@@ -356,13 +211,13 @@ void XDecoratedPeer::postInit($XCreateWindowParams* params) {
 	$XWM::requestWMExtents(getWindow());
 	$set(this, content, $XContentWindow::createContent(this));
 	if (this->warningWindow != nullptr) {
-		$nc(this->warningWindow)->toFront();
+		this->warningWindow->toFront();
 	}
 	$set(this, focusProxy, createFocusProxy());
 }
 
 void XDecoratedPeer::setIconHints($List* icons) {
-	if (!$nc($($XWM::getWM()))->setNetWMIcon(this, icons)) {
+	if (!$$nc($XWM::getWM())->setNetWMIcon(this, icons)) {
 		if ($nc(icons)->size() > 0) {
 			if (this->iconWindow == nullptr) {
 				$set(this, iconWindow, $new($XIconWindow, this));
@@ -375,28 +230,26 @@ void XDecoratedPeer::setIconHints($List* icons) {
 void XDecoratedPeer::updateMinimumSize() {
 	$XWindowPeer::updateMinimumSize();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			updateMinSizeHints();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		updateMinSizeHints();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XDecoratedPeer::updateMinSizeHints() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isResizable()) {
 		$var($Dimension, minimumSize, getTargetMinimumSize());
 		if (minimumSize != nullptr) {
 			$var($Insets, insets, getRealInsets());
-			int32_t minWidth = minimumSize->width - $nc(insets)->left - insets->right;
+			int32_t minWidth = minimumSize->width - $nc(insets)->left - $nc(insets)->right;
 			int32_t minHeight = minimumSize->height - insets->top - insets->bottom;
 			if (minWidth < 0) {
 				minWidth = 0;
@@ -404,12 +257,12 @@ void XDecoratedPeer::updateMinSizeHints() {
 			if (minHeight < 0) {
 				minHeight = 0;
 			}
-			int64_t var$0 = $XUtilConstants::PMinSize | (isLocationByPlatform() ? (int64_t)0 : ($XUtilConstants::PPosition | $XUtilConstants::USPosition));
+			int64_t var$0 = $XUtilConstants::PMinSize | (isLocationByPlatform() ? 0 : ($XUtilConstants::PPosition | $XUtilConstants::USPosition));
 			int32_t var$1 = getX();
 			setSizeHints(var$0, var$1, getY(), minWidth, minHeight);
 			if (isVisible()) {
 				$var($Rectangle, bounds, getShellBounds());
-				int32_t nw = ($nc(bounds)->width < minWidth) ? minWidth : $nc(bounds)->width;
+				int32_t nw = ($nc(bounds)->width < minWidth) ? minWidth : bounds->width;
 				int32_t nh = (bounds->height < minHeight) ? minHeight : bounds->height;
 				if (nw != bounds->width || nh != bounds->height) {
 					setShellSize($$new($Rectangle, 0, 0, nw, nh));
@@ -441,7 +294,7 @@ $XAtomList* XDecoratedPeer::getWMProtocols() {
 }
 
 $Graphics* XDecoratedPeer::getGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTAccessor$ComponentAccessor, compAccessor, $AWTAccessor::getComponentAccessor());
 	$var($SurfaceData, var$0, $nc(this->content)->surfaceData);
 	$var($Color, var$1, $nc(compAccessor)->getForeground(this->target));
@@ -450,59 +303,55 @@ $Graphics* XDecoratedPeer::getGraphics() {
 }
 
 void XDecoratedPeer::setTitle($String* title) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::log)->fine($$str({"Title is "_s, title}));
+		XDecoratedPeer::log->fine($$str({"Title is "_s, title}));
 	}
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set($nc(this->winAttr), title, title);
-			updateWMName();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set($nc(this->winAttr), title, title);
+		updateWMName();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $String* XDecoratedPeer::getWMName() {
-	if ($nc(this->winAttr)->title == nullptr || $($nc($nc(this->winAttr)->title)->trim())->isEmpty()) {
+	if ($nc(this->winAttr)->title == nullptr || $(this->winAttr->title->trim())->isEmpty()) {
 		return " "_s;
 	} else {
-		return $nc(this->winAttr)->title;
+		return this->winAttr->title;
 	}
 }
 
 void XDecoratedPeer::updateWMName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XWindowPeer::updateWMName();
-			$var($String, name, getWMName());
-			if (name == nullptr || $($nc(name)->trim())->isEmpty()) {
-				$assign(name, "Java"_s);
-			}
-			$var($XAtom, iconNameAtom, $XAtom::get($XAtom::XA_WM_ICON_NAME));
-			$nc(iconNameAtom)->setProperty(getWindow(), name);
-			$var($XAtom, netIconNameAtom, $XAtom::get("_NET_WM_ICON_NAME"_s));
-			$nc(netIconNameAtom)->setPropertyUTF8(getWindow(), name);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XWindowPeer::updateWMName();
+		$var($String, name, getWMName());
+		if (name == nullptr || $(name->trim())->isEmpty()) {
+			$assign(name, "Java"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		$var($XAtom, iconNameAtom, $XAtom::get($XAtom::XA_WM_ICON_NAME));
+		$nc(iconNameAtom)->setProperty(getWindow(), name);
+		$var($XAtom, netIconNameAtom, $XAtom::get("_NET_WM_ICON_NAME"_s));
+		$nc(netIconNameAtom)->setPropertyUTF8(getWindow(), name);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -515,12 +364,12 @@ void XDecoratedPeer::handleDeiconify() {
 }
 
 void XDecoratedPeer::handleFocusEvent($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XWindowPeer::handleFocusEvent(xev);
 	$var($XFocusChangeEvent, xfe, $nc(xev)->get_xfocus());
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XDecoratedPeer::focusLog)->finer($$str({"Received focus event on shell: "_s, xfe}));
+		XDecoratedPeer::focusLog->finer($$str({"Received focus event on shell: "_s, xfe}));
 	}
 }
 
@@ -530,24 +379,24 @@ bool XDecoratedPeer::isInitialReshape() {
 
 $Insets* XDecoratedPeer::difference($Insets* i1, $Insets* i2) {
 	$init(XDecoratedPeer);
-	return $new($Insets, $nc(i1)->top - $nc(i2)->top, i1->left - i2->left, i1->bottom - i2->bottom, i1->right - i2->right);
+	return $new($Insets, $nc(i1)->top - $nc(i2)->top, $nc(i1)->left - $nc(i2)->left, $nc(i1)->bottom - $nc(i2)->bottom, $nc(i1)->right - $nc(i2)->right);
 }
 
 bool XDecoratedPeer::isNull($Insets* i) {
 	$init(XDecoratedPeer);
-	return (i == nullptr) || (((($nc(i)->left | i->top) | i->right) | i->bottom) == 0);
+	return (i == nullptr) || ((((i->left | i->top) | i->right) | i->bottom) == 0);
 }
 
 $Insets* XDecoratedPeer::copy($Insets* i) {
 	$init(XDecoratedPeer);
-	return $new($Insets, $nc(i)->top, i->left, i->bottom, i->right);
+	return $new($Insets, $nc(i)->top, $nc(i)->left, $nc(i)->bottom, $nc(i)->right);
 }
 
 $Insets* XDecoratedPeer::copyAndScaleDown($Insets* i) {
 	int32_t var$0 = scaleDown($nc(i)->top);
-	int32_t var$1 = scaleDown($nc(i)->left);
-	int32_t var$2 = scaleDown($nc(i)->bottom);
-	return $new($Insets, var$0, var$1, var$2, scaleDown($nc(i)->right));
+	int32_t var$1 = scaleDown(i->left);
+	int32_t var$2 = scaleDown(i->bottom);
+	return $new($Insets, var$0, var$1, var$2, scaleDown(i->right));
 }
 
 $Insets* XDecoratedPeer::getWMSetInsets($XAtom* changedAtom) {
@@ -564,7 +413,7 @@ $Insets* XDecoratedPeer::getWMSetInsets($XAtom* changedAtom) {
 	}
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XDecoratedPeer::insLog)->finer("FRAME_EXTENTS: {0}"_s, $$new($ObjectArray, {$of(this->wm_set_insets)}));
+		XDecoratedPeer::insLog->finer("FRAME_EXTENTS: {0}"_s, $$new($ObjectArray, {this->wm_set_insets}));
 	}
 	if (this->wm_set_insets != nullptr) {
 		$set(this, wm_set_insets, copyAndScaleDown(this->wm_set_insets));
@@ -582,22 +431,23 @@ void XDecoratedPeer::resetWMSetInsets() {
 }
 
 void XDecoratedPeer::handlePropertyNotify($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XWindowPeer::handlePropertyNotify(xev);
 	$var($XPropertyEvent, ev, $nc(xev)->get_xproperty());
 	bool var$0 = !this->insets_corrected && isReparented();
 	if (var$0 && $XWM::getWMID() == $XWM::UNITY_COMPIZ_WM) {
-		int32_t state = $nc($($XWM::getWM()))->getState(this);
-		if (((int32_t)(state & (uint32_t)$Frame::MAXIMIZED_BOTH)) == $Frame::MAXIMIZED_BOTH) {
+		int32_t state = $$nc($XWM::getWM())->getState(this);
+		if ((state & $Frame::MAXIMIZED_BOTH) == $Frame::MAXIMIZED_BOTH) {
 			this->insets_corrected = true;
 			int64_t var$1 = $XToolkit::getDisplay();
 			$XlibWrapper::XConfigureWindow(var$1, getWindow(), 0, 0);
 		}
 	}
 	int64_t var$3 = $nc(ev)->get_atom();
+	$init($XWM);
 	bool var$2 = var$3 == $nc($XWM::XA_KDE_NET_WM_FRAME_STRUT)->getAtom();
 	if (!var$2) {
-		int64_t var$4 = $nc(ev)->get_atom();
+		int64_t var$4 = ev->get_atom();
 		var$2 = var$4 == $nc($XWM::XA_NET_FRAME_EXTENTS)->getAtom();
 	}
 	if (var$2) {
@@ -635,11 +485,11 @@ void XDecoratedPeer::handlePropertyNotify($XEvent* xev) {
 }
 
 void XDecoratedPeer::handleReparentNotifyEvent($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XReparentEvent, xe, $nc(xev)->get_xreparent());
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine($($nc(xe)->toString()));
+		XDecoratedPeer::insLog->fine($($nc(xe)->toString()));
 	}
 	this->reparent_serial = $nc(xe)->get_serial();
 	int64_t var$0 = $XToolkit::getDisplay();
@@ -658,10 +508,10 @@ void XDecoratedPeer::handleReparentNotifyEvent($XEvent* xev) {
 		this->configure_seen = false;
 		this->insets_corrected = false;
 		if (isVisible()) {
-			$nc($($XWM::getWM()))->unshadeKludge(this);
-			$nc(XDecoratedPeer::insLog)->fine("- WM exited"_s);
+			$$nc($XWM::getWM())->unshadeKludge(this);
+			XDecoratedPeer::insLog->fine("- WM exited"_s);
 		} else {
-			$nc(XDecoratedPeer::insLog)->fine(" - reparent due to hide"_s);
+			XDecoratedPeer::insLog->fine(" - reparent due to hide"_s);
 		}
 	} else {
 		setReparented(true);
@@ -671,12 +521,12 @@ void XDecoratedPeer::handleReparentNotifyEvent($XEvent* xev) {
 		}
 		$var($Insets, correctWM, getWMSetInsets(nullptr));
 		if (correctWM != nullptr) {
-			if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-				$nc(XDecoratedPeer::insLog)->finer("wm-provided insets {0}"_s, $$new($ObjectArray, {$of(correctWM)}));
+			if (XDecoratedPeer::insLog->isLoggable($PlatformLogger$Level::FINER)) {
+				XDecoratedPeer::insLog->finer("wm-provided insets {0}"_s, $$new($ObjectArray, {correctWM}));
 			}
 			$var($Insets, dimInsets, $nc(this->dimensions)->getInsets());
 			if (correctWM->equals(dimInsets)) {
-				$nc(XDecoratedPeer::insLog)->finer("Insets are the same as estimated - no additional reshapes necessary"_s);
+				XDecoratedPeer::insLog->finer("Insets are the same as estimated - no additional reshapes necessary"_s);
 				this->no_reparent_artifacts = true;
 				this->insets_corrected = true;
 				applyGuessedInsets();
@@ -684,15 +534,15 @@ void XDecoratedPeer::handleReparentNotifyEvent($XEvent* xev) {
 			}
 		} else {
 			int64_t var$1 = xe->get_window();
-			$assign(correctWM, $nc($($XWM::getWM()))->getInsets(this, var$1, xe->get_parent()));
+			$assign(correctWM, $$nc($XWM::getWM())->getInsets(this, var$1, xe->get_parent()));
 			if (correctWM != nullptr) {
 				$assign(correctWM, copyAndScaleDown(correctWM));
 			}
-			if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
+			if (XDecoratedPeer::insLog->isLoggable($PlatformLogger$Level::FINER)) {
 				if (correctWM != nullptr) {
-					$nc(XDecoratedPeer::insLog)->finer("correctWM {0}"_s, $$new($ObjectArray, {$of(correctWM)}));
+					XDecoratedPeer::insLog->finer("correctWM {0}"_s, $$new($ObjectArray, {correctWM}));
 				} else {
-					$nc(XDecoratedPeer::insLog)->finer("correctWM insets are not available, waiting for configureNotify"_s);
+					XDecoratedPeer::insLog->finer("correctWM insets are not available, waiting for configureNotify"_s);
 				}
 			}
 		}
@@ -703,19 +553,19 @@ void XDecoratedPeer::handleReparentNotifyEvent($XEvent* xev) {
 }
 
 void XDecoratedPeer::handleCorrectInsets($Insets* correctWM) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, correction, difference(correctWM, this->currentInsets));
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XDecoratedPeer::insLog)->finest("Corrention {0}"_s, $$new($ObjectArray, {$of(correction)}));
+		XDecoratedPeer::insLog->finest("Corrention {0}"_s, $$new($ObjectArray, {correction}));
 	}
 	if (!isNull(correction)) {
 		$set(this, currentInsets, copy(correctWM));
 		applyGuessedInsets();
 		updateMinSizeHints();
 	}
-	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XDecoratedPeer::insLog)->finer($$str({"Dimensions before reparent: "_s, this->dimensions}));
+	if (XDecoratedPeer::insLog->isLoggable($PlatformLogger$Level::FINER)) {
+		XDecoratedPeer::insLog->finer($$str({"Dimensions before reparent: "_s, this->dimensions}));
 	}
 	$var($WindowDimensions, newDimensions, $new($WindowDimensions, this->dimensions));
 	newDimensions->setInsets($(getRealInsets()));
@@ -724,7 +574,7 @@ void XDecoratedPeer::handleCorrectInsets($Insets* correctWM) {
 	if (isMaximized()) {
 		return;
 	}
-	if (((int64_t)($nc($(getHints()))->get_flags() & (uint64_t)($XUtilConstants::USPosition | $XUtilConstants::PPosition))) != 0) {
+	if (($$nc(getHints())->get_flags() & ($XUtilConstants::USPosition | $XUtilConstants::PPosition)) != 0) {
 		reshape(this->dimensions, $ComponentPeer::SET_BOUNDS, false);
 	} else {
 		reshape(this->dimensions, $ComponentPeer::SET_SIZE, false);
@@ -732,14 +582,14 @@ void XDecoratedPeer::handleCorrectInsets($Insets* correctWM) {
 }
 
 void XDecoratedPeer::handleMoved($WindowDimensions* dims) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, loc, $nc(dims)->getLocation());
-	$nc($($AWTAccessor::getComponentAccessor()))->setLocation(this->target, $nc(loc)->x, loc->y);
+	$$nc($AWTAccessor::getComponentAccessor())->setLocation(this->target, $nc(loc)->x, $nc(loc)->y);
 	postEvent($$new($ComponentEvent, this->target, $ComponentEvent::COMPONENT_MOVED));
 }
 
 $Insets* XDecoratedPeer::guessInsets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isEmbedded();
 	if (var$0 || isTargetUndecorated()) {
 		return $new($Insets, 0, 0, 0, 0);
@@ -748,7 +598,7 @@ $Insets* XDecoratedPeer::guessInsets() {
 	} else {
 		$var($Insets, res, getWMSetInsets(nullptr));
 		if (res == nullptr) {
-			$assign(res, $nc($($XWM::getWM()))->guessInsets(this));
+			$assign(res, $$nc($XWM::getWM())->guessInsets(this));
 			if (res != nullptr) {
 				$assign(res, copyAndScaleDown(res));
 			}
@@ -770,12 +620,12 @@ $Insets* XDecoratedPeer::getRealInsets() {
 }
 
 $Insets* XDecoratedPeer::getInsets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Insets, in, copy($(getRealInsets())));
 	$nc(in)->top += getMenuBarHeight();
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(XDecoratedPeer::insLog)->finest("Get insets returns {0}"_s, $$new($ObjectArray, {$of(in)}));
+		XDecoratedPeer::insLog->finest("Get insets returns {0}"_s, $$new($ObjectArray, {in}));
 	}
 	return in;
 }
@@ -791,7 +641,7 @@ int32_t XDecoratedPeer::getInputMethodHeight() {
 void XDecoratedPeer::updateSizeHints($WindowDimensions* dims) {
 	$var($Rectangle, rec, $nc(dims)->getClientRect());
 	checkShellRect(rec);
-	updateSizeHints($nc(rec)->x, rec->y, rec->width, rec->height);
+	updateSizeHints($nc(rec)->x, $nc(rec)->y, $nc(rec)->width, $nc(rec)->height);
 }
 
 void XDecoratedPeer::updateSizeHints() {
@@ -799,31 +649,31 @@ void XDecoratedPeer::updateSizeHints() {
 }
 
 void XDecoratedPeer::reshape($WindowDimensions* newDimensions$renamed, int32_t op, bool userReshape) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowDimensions, newDimensions, newDimensions$renamed);
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine($$str({"Reshaping "_s, this, " to "_s, newDimensions, " op "_s, $$str(op), " user reshape "_s, $$str(userReshape)}));
+		XDecoratedPeer::insLog->fine($$str({"Reshaping "_s, this, " to "_s, newDimensions, " op "_s, $$str(op), " user reshape "_s, $$str(userReshape)}));
 	}
 	if (userReshape) {
 		$var($Rectangle, newBounds, $nc(newDimensions)->getBounds());
 		$var($Insets, insets, newDimensions->getInsets());
 		if (newDimensions->isClientSizeSet()) {
-			$assign(newBounds, $new($Rectangle, $nc(newBounds)->x, newBounds->y, newBounds->width - $nc(insets)->left - insets->right, newBounds->height - insets->top - insets->bottom));
+			$assign(newBounds, $new($Rectangle, $nc(newBounds)->x, $nc(newBounds)->y, $nc(newBounds)->width - $nc(insets)->left - $nc(insets)->right, $nc(newBounds)->height - $nc(insets)->top - $nc(insets)->bottom));
 		}
 		$assign(newDimensions, $new($WindowDimensions, newBounds, insets, newDimensions->isClientSizeSet()));
 	}
 	bool var$0 = !isReparented();
 	if (var$0 || !isVisible()) {
-		if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XDecoratedPeer::insLog)->fine("- not reparented({0}) or not visible({1}), default reshape"_s, $$new($ObjectArray, {
-				$($of($Boolean::valueOf(isReparented()))),
-				$($of($Boolean::valueOf(this->visible)))
+		if (XDecoratedPeer::insLog->isLoggable($PlatformLogger$Level::FINE)) {
+			XDecoratedPeer::insLog->fine("- not reparented({0}) or not visible({1}), default reshape"_s, $$new($ObjectArray, {
+				$($Boolean::valueOf(isReparented())),
+				$($Boolean::valueOf(this->visible))
 			}));
 		}
 		$var($Point, oldLocation, getLocation());
-		int32_t var$1 = $nc($($AWTAccessor::getComponentAccessor()))->getX(this->target);
-		$var($Point, newLocation, $new($Point, var$1, $nc($($AWTAccessor::getComponentAccessor()))->getY(this->target)));
+		int32_t var$1 = $$nc($AWTAccessor::getComponentAccessor())->getX(this->target);
+		$var($Point, newLocation, $new($Point, var$1, $$nc($AWTAccessor::getComponentAccessor())->getY(this->target)));
 		if (!newLocation->equals(oldLocation)) {
 			handleMoved(newDimensions);
 		}
@@ -832,7 +682,7 @@ void XDecoratedPeer::reshape($WindowDimensions* newDimensions$renamed, int32_t o
 		$var($Rectangle, client, $nc(this->dimensions)->getClientRect());
 		checkShellRect(client);
 		setShellBounds(client);
-		if (this->content != nullptr && !$nc($($nc(this->content)->getSize()))->equals($($nc(newDimensions)->getSize()))) {
+		if (this->content != nullptr && !$$nc(this->content->getSize())->equals($($nc(newDimensions)->getSize()))) {
 			reconfigureContentWindow(newDimensions);
 		}
 		return;
@@ -842,16 +692,16 @@ void XDecoratedPeer::reshape($WindowDimensions* newDimensions$renamed, int32_t o
 	$var($Rectangle, shellRect, $nc(newDimensions)->getClientRect());
 	if (gravityBug()) {
 		$var($Insets, in, newDimensions->getInsets());
-		$nc(shellRect)->translate($nc(in)->left, in->top);
+		$nc(shellRect)->translate($nc(in)->left, $nc(in)->top);
 	}
-	if (((int32_t)(op & (uint32_t)$ComponentPeer::NO_EMBEDDED_CHECK)) == 0 && isEmbedded()) {
+	if ((op & $ComponentPeer::NO_EMBEDDED_CHECK) == 0 && isEmbedded()) {
 		$nc(shellRect)->setLocation(0, 0);
 	}
 	checkShellRectSize(shellRect);
 	if (!isEmbedded()) {
 		checkShellRectPos(shellRect);
 	}
-	op = (int32_t)(op & (uint32_t)~$ComponentPeer::NO_EMBEDDED_CHECK);
+	op = op & ~$ComponentPeer::NO_EMBEDDED_CHECK;
 	if (op == $ComponentPeer::SET_LOCATION) {
 		setShellPosition(shellRect);
 	} else if (isResizable()) {
@@ -870,43 +720,34 @@ void XDecoratedPeer::reshape($WindowDimensions* newDimensions$renamed, int32_t o
 }
 
 void XDecoratedPeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height, int32_t operation, bool userReshape) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowDimensions, dims, $new($WindowDimensions, this->dimensions));
-	switch ((int32_t)(operation & (uint32_t)(~$ComponentPeer::NO_EMBEDDED_CHECK))) {
+	switch (operation & (~$ComponentPeer::NO_EMBEDDED_CHECK)) {
 	case $ComponentPeer::SET_LOCATION:
-		{
-			dims->setLocation(x, y);
-			break;
-		}
+		dims->setLocation(x, y);
+		break;
 	case $ComponentPeer::SET_SIZE:
-		{
-			dims->setSize(width, height);
-			break;
-		}
+		dims->setSize(width, height);
+		break;
 	case $ComponentPeer::SET_CLIENT_SIZE:
 		{
-			{
-				$var($Insets, in, this->currentInsets);
-				width -= $nc(in)->left + in->right;
-				height -= in->top + in->bottom;
-				dims->setClientSize(width, height);
-				break;
-			}
-		}
-	case $ComponentPeer::SET_BOUNDS:
-		{}
-	default:
-		{
-			dims->setLocation(x, y);
-			dims->setSize(width, height);
+			$var($Insets, in, this->currentInsets);
+			width -= $nc(in)->left + $nc(in)->right;
+			height -= in->top + in->bottom;
+			dims->setClientSize(width, height);
 			break;
 		}
+	case $ComponentPeer::SET_BOUNDS:
+	default:
+		dims->setLocation(x, y);
+		dims->setSize(width, height);
+		break;
 	}
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine("For the operation {0} new dimensions are {1}"_s, $$new($ObjectArray, {
-			$($of(operationToString(operation))),
-			$of(dims)
+		XDecoratedPeer::insLog->fine("For the operation {0} new dimensions are {1}"_s, $$new($ObjectArray, {
+			$(operationToString(operation)),
+			dims
 		}));
 	}
 	reshape(dims, operation, userReshape);
@@ -914,18 +755,16 @@ void XDecoratedPeer::reshape(int32_t x, int32_t y, int32_t width, int32_t height
 
 void XDecoratedPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t height, int32_t op) {
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			reshape(x, y, width, height, op, true);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		reshape(x, y, width, height, op, true);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	validateSurface();
 }
@@ -939,7 +778,7 @@ void XDecoratedPeer::reconfigureContentWindow($WindowDimensions* dims) {
 }
 
 void XDecoratedPeer::handleConfigureNotifyEvent($XEvent* xev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($XWM::getWMID() == $XWM::UNITY_COMPIZ_WM && !this->insets_corrected) {
 		return;
 	}
@@ -949,7 +788,7 @@ void XDecoratedPeer::handleConfigureNotifyEvent($XEvent* xev) {
 	$var($XConfigureEvent, xe, $nc(xev)->get_xconfigure());
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine("Configure notify {0}"_s, $$new($ObjectArray, {$of(xe)}));
+		XDecoratedPeer::insLog->fine("Configure notify {0}"_s, $$new($ObjectArray, {xe}));
 	}
 	if (isReparented()) {
 		this->configure_seen = true;
@@ -958,28 +797,28 @@ void XDecoratedPeer::handleConfigureNotifyEvent($XEvent* xev) {
 	if (var$0) {
 		bool var$1 = $nc(xe)->get_serial() == this->reparent_serial;
 		if (!var$1) {
-			int64_t var$2 = $nc(xe)->get_window();
+			int64_t var$2 = xe->get_window();
 			var$1 = var$2 != getShell();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0 && !this->no_reparent_artifacts) {
-		$nc(XDecoratedPeer::insLog)->fine("- reparent artifact, skipping"_s);
+		XDecoratedPeer::insLog->fine("- reparent artifact, skipping"_s);
 		return;
 	}
 	this->no_reparent_artifacts = false;
 	bool var$3 = !isVisible();
 	if (var$3 && $XWM::getWMID() != $XWM::NO_WM) {
-		$nc(XDecoratedPeer::insLog)->fine(" - not visible, skipping"_s);
+		XDecoratedPeer::insLog->fine(" - not visible, skipping"_s);
 		return;
 	}
 	int32_t runningWM = $XWM::getWMID();
-	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine("reparented={0}, visible={1}, WM={2}, decorations={3}"_s, $$new($ObjectArray, {
-			$($of($Boolean::valueOf(isReparented()))),
-			$($of($Boolean::valueOf(isVisible()))),
-			$($of($Integer::valueOf(runningWM))),
-			$($of($Integer::valueOf(getDecorations())))
+	if (XDecoratedPeer::insLog->isLoggable($PlatformLogger$Level::FINE)) {
+		XDecoratedPeer::insLog->fine("reparented={0}, visible={1}, WM={2}, decorations={3}"_s, $$new($ObjectArray, {
+			$($Boolean::valueOf(isReparented())),
+			$($Boolean::valueOf(isVisible())),
+			$($Integer::valueOf(runningWM)),
+			$($Integer::valueOf(getDecorations()))
 		}));
 	}
 	bool var$6 = !isReparented();
@@ -987,17 +826,17 @@ void XDecoratedPeer::handleConfigureNotifyEvent($XEvent* xev) {
 	bool var$4 = var$5 && !$XWM::isNonReparentingWM();
 	$init($XWindowAttributesData);
 	if (var$4 && getDecorations() != $XWindowAttributesData::AWT_DECOR_NONE) {
-		$nc(XDecoratedPeer::insLog)->fine("- visible but not reparented, skipping"_s);
+		XDecoratedPeer::insLog->fine("- visible but not reparented, skipping"_s);
 		return;
 	}
 	if (!this->insets_corrected && getDecorations() != $XWindowAttributesData::AWT_DECOR_NONE) {
 		int64_t parent = $XlibUtil::getParentWindow(this->window);
-		$var($Insets, correctWM, (parent != -1) ? $nc($($XWM::getWM()))->getInsets(this, this->window, parent) : ($Insets*)nullptr);
-		if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
+		$var($Insets, correctWM, (parent != -1) ? $$nc($XWM::getWM())->getInsets(this, this->window, parent) : ($Insets*)nullptr);
+		if (XDecoratedPeer::insLog->isLoggable($PlatformLogger$Level::FINER)) {
 			if (correctWM != nullptr) {
-				$nc(XDecoratedPeer::insLog)->finer($$str({"Configure notify - insets : "_s, correctWM}));
+				XDecoratedPeer::insLog->finer($$str({"Configure notify - insets : "_s, correctWM}));
 			} else {
-				$nc(XDecoratedPeer::insLog)->finer("Configure notify - insets are still not available"_s);
+				XDecoratedPeer::insLog->finer("Configure notify - insets are still not available"_s);
 			}
 		}
 		if (correctWM != nullptr) {
@@ -1008,14 +847,13 @@ void XDecoratedPeer::handleConfigureNotifyEvent($XEvent* xev) {
 	}
 	updateChildrenSizes();
 	$var($Point, newLocation, getNewLocation(xe, $nc(this->currentInsets)->left, $nc(this->currentInsets)->top));
-	$var($Point, var$7, newLocation);
-	int32_t var$9 = scaleDown($nc(xe)->get_width());
-	$var($Dimension, var$8, $new($Dimension, var$9, scaleDown($nc(xe)->get_height())));
-	$var($WindowDimensions, newDimensions, $new($WindowDimensions, var$7, var$8, $(copy(this->currentInsets)), true));
-	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XDecoratedPeer::insLog)->finer("Insets are {0}, new dimensions {1}"_s, $$new($ObjectArray, {
-			$of(this->currentInsets),
-			$of(newDimensions)
+	int32_t var$8 = scaleDown($nc(xe)->get_width());
+	$var($Dimension, var$7, $new($Dimension, var$8, scaleDown(xe->get_height())));
+	$var($WindowDimensions, newDimensions, $new($WindowDimensions, newLocation, var$7, $(copy(this->currentInsets)), true));
+	if (XDecoratedPeer::insLog->isLoggable($PlatformLogger$Level::FINER)) {
+		XDecoratedPeer::insLog->finer("Insets are {0}, new dimensions {1}"_s, $$new($ObjectArray, {
+			this->currentInsets,
+			newDimensions
 		}));
 	}
 	checkIfOnNewScreen($(newDimensions->getBounds()));
@@ -1030,7 +868,7 @@ void XDecoratedPeer::handleConfigureNotifyEvent($XEvent* xev) {
 }
 
 void XDecoratedPeer::checkShellRectSize($Rectangle* shellRect) {
-	$nc(shellRect)->width = $Math::max($XBaseWindow::MIN_SIZE, shellRect->width);
+	$nc(shellRect)->width = $Math::max($XBaseWindow::MIN_SIZE, $nc(shellRect)->width);
 	shellRect->height = $Math::max($XBaseWindow::MIN_SIZE, shellRect->height);
 }
 
@@ -1051,83 +889,81 @@ void XDecoratedPeer::checkShellRect($Rectangle* shellRect) {
 void XDecoratedPeer::setShellBounds($Rectangle* rec) {
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine($$str({"Setting shell bounds on "_s, this, " to "_s, rec}));
+		XDecoratedPeer::insLog->fine($$str({"Setting shell bounds on "_s, this, " to "_s, rec}));
 	}
-	updateSizeHints($nc(rec)->x, rec->y, rec->width, rec->height);
+	updateSizeHints($nc(rec)->x, $nc(rec)->y, $nc(rec)->width, $nc(rec)->height);
 	int64_t var$0 = $XToolkit::getDisplay();
 	int64_t var$1 = getShell();
-	int32_t var$2 = scaleUp($nc(rec)->x);
-	int32_t var$3 = scaleUp($nc(rec)->y);
-	int32_t var$4 = scaleUp($nc(rec)->width);
-	$XlibWrapper::XMoveResizeWindow(var$0, var$1, var$2, var$3, var$4, scaleUp($nc(rec)->height));
+	int32_t var$2 = scaleUp(rec->x);
+	int32_t var$3 = scaleUp(rec->y);
+	int32_t var$4 = scaleUp(rec->width);
+	$XlibWrapper::XMoveResizeWindow(var$0, var$1, var$2, var$3, var$4, scaleUp(rec->height));
 }
 
 void XDecoratedPeer::setShellSize($Rectangle* rec) {
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine($$str({"Setting shell size on "_s, this, " to "_s, rec}));
+		XDecoratedPeer::insLog->fine($$str({"Setting shell size on "_s, this, " to "_s, rec}));
 	}
-	updateSizeHints($nc(rec)->x, rec->y, rec->width, rec->height);
+	updateSizeHints($nc(rec)->x, $nc(rec)->y, $nc(rec)->width, $nc(rec)->height);
 	int64_t var$0 = $XToolkit::getDisplay();
 	int64_t var$1 = getShell();
-	int32_t var$2 = scaleUp($nc(rec)->width);
-	$XlibWrapper::XResizeWindow(var$0, var$1, var$2, scaleUp($nc(rec)->height));
+	int32_t var$2 = scaleUp(rec->width);
+	$XlibWrapper::XResizeWindow(var$0, var$1, var$2, scaleUp(rec->height));
 }
 
 void XDecoratedPeer::setShellPosition($Rectangle* rec) {
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine($$str({"Setting shell position on "_s, this, " to "_s, rec}));
+		XDecoratedPeer::insLog->fine($$str({"Setting shell position on "_s, this, " to "_s, rec}));
 	}
-	updateSizeHints($nc(rec)->x, rec->y, rec->width, rec->height);
+	updateSizeHints($nc(rec)->x, $nc(rec)->y, $nc(rec)->width, $nc(rec)->height);
 	int64_t var$0 = $XToolkit::getDisplay();
 	int64_t var$1 = getShell();
-	int32_t var$2 = scaleUp($nc(rec)->x);
-	$XlibWrapper::XMoveWindow(var$0, var$1, var$2, scaleUp($nc(rec)->y));
+	int32_t var$2 = scaleUp(rec->x);
+	$XlibWrapper::XMoveWindow(var$0, var$1, var$2, scaleUp(rec->y));
 }
 
 void XDecoratedPeer::setResizable(bool resizable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int32_t fs = $nc(this->winAttr)->functions;
-			if (!isResizable() && resizable) {
-				resetWMSetInsets();
-				if (!isEmbedded()) {
-					setReparented(false);
-				}
-				$nc(this->winAttr)->isResizable = resizable;
-				if (((int32_t)(fs & (uint32_t)$MWMConstants::MWM_FUNC_ALL)) != 0) {
-					fs &= (uint32_t)~($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
-				} else {
-					fs |= ($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
-				}
-				$nc(this->winAttr)->functions = fs;
-				$XWM::setShellResizable(this);
-			} else if (isResizable() && !resizable) {
-				resetWMSetInsets();
-				if (!isEmbedded()) {
-					setReparented(false);
-				}
-				$nc(this->winAttr)->isResizable = resizable;
-				if (((int32_t)(fs & (uint32_t)$MWMConstants::MWM_FUNC_ALL)) != 0) {
-					fs |= ($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
-				} else {
-					fs &= (uint32_t)~($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
-				}
-				$nc(this->winAttr)->functions = fs;
-				$XWM::setShellNotResizable(this, this->dimensions, $XWM::getWMID() == $XWM::UNITY_COMPIZ_WM && this->configure_seen ? $($nc(this->dimensions)->getScreenBounds()) : $($nc(this->dimensions)->getBounds()), false);
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t fs = $nc(this->winAttr)->functions;
+		if (!isResizable() && resizable) {
+			resetWMSetInsets();
+			if (!isEmbedded()) {
+				setReparented(false);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+			$nc(this->winAttr)->isResizable = resizable;
+			if ((fs & $MWMConstants::MWM_FUNC_ALL) != 0) {
+				fs &= (uint32_t)~($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
+			} else {
+				fs |= ($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
+			}
+			this->winAttr->functions = fs;
+			$XWM::setShellResizable(this);
+		} else if (isResizable() && !resizable) {
+			resetWMSetInsets();
+			if (!isEmbedded()) {
+				setReparented(false);
+			}
+			$nc(this->winAttr)->isResizable = resizable;
+			if ((fs & $MWMConstants::MWM_FUNC_ALL) != 0) {
+				fs |= ($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
+			} else {
+				fs &= (uint32_t)~($MWMConstants::MWM_FUNC_RESIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
+			}
+			this->winAttr->functions = fs;
+			$XWM::setShellNotResizable(this, this->dimensions, $XWM::getWMID() == $XWM::UNITY_COMPIZ_WM && this->configure_seen ? $($nc(this->dimensions)->getScreenBounds()) : $($nc(this->dimensions)->getBounds()), false);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1176,36 +1012,34 @@ $WindowDimensions* XDecoratedPeer::getDimensions() {
 }
 
 $Point* XDecoratedPeer::getLocationOnScreen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Point, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			if (this->configure_seen) {
-				$assign(var$2, toGlobal(0, 0));
-				return$1 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	$var($Point, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		if (this->configure_seen) {
+			$assign(var$2, toGlobal(0, 0));
+			return$1 = true;
+			goto $finally;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$var($Point, location, $nc(this->target)->getLocation());
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::insLog)->fine("getLocationOnScreen {0} not reparented: {1} "_s, $$new($ObjectArray, {
-			$of(this),
-			$of(location)
+		XDecoratedPeer::insLog->fine("getLocationOnScreen {0} not reparented: {1} "_s, $$new($ObjectArray, {
+			this,
+			location
 		}));
 	}
 	return location;
@@ -1214,19 +1048,12 @@ $Point* XDecoratedPeer::getLocationOnScreen() {
 bool XDecoratedPeer::isEventDisabled($XEvent* e) {
 	switch ($nc(e)->get_type()) {
 	case $XConstants::ConfigureNotify:
-		{
-			return true;
-		}
+		return true;
 	case $XConstants::EnterNotify:
-		{}
 	case $XConstants::LeaveNotify:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			return $XWindowPeer::isEventDisabled(e);
-		}
+		return $XWindowPeer::isEventDisabled(e);
 	}
 }
 
@@ -1239,12 +1066,12 @@ int32_t XDecoratedPeer::getFunctions() {
 }
 
 void XDecoratedPeer::setVisible(bool vis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XDecoratedPeer::log)->finer("Setting {0} to visible {1}"_s, $$new($ObjectArray, {
-			$of(this),
-			$($of($Boolean::valueOf(vis)))
+		XDecoratedPeer::log->finer("Setting {0} to visible {1}"_s, $$new($ObjectArray, {
+			this,
+			$($Boolean::valueOf(vis))
 		}));
 	}
 	if (vis && !isVisible()) {
@@ -1269,16 +1096,16 @@ void XDecoratedPeer::suppressWmTakeFocus(bool doSuppress) {
 		$nc(protocols)->add($XWindow::wm_take_focus);
 	}
 	$init($XWindow);
-	$nc($XWindow::wm_protocols)->setAtomListProperty(static_cast<$XBaseWindow*>(this), protocols);
+	$nc($XWindow::wm_protocols)->setAtomListProperty(this, protocols);
 }
 
 void XDecoratedPeer::dispose() {
 	if (this->content != nullptr) {
-		$nc(this->content)->destroy();
+		this->content->destroy();
 	}
 	$nc(this->focusProxy)->destroy();
 	if (this->iconWindow != nullptr) {
-		$nc(this->iconWindow)->destroy();
+		this->iconWindow->destroy();
 	}
 	$XWindowPeer::dispose();
 }
@@ -1287,18 +1114,18 @@ void XDecoratedPeer::handleClientMessage($XEvent* xev) {
 	$XWindowPeer::handleClientMessage(xev);
 	$var($XClientMessageEvent, cl, $nc(xev)->get_xclient());
 	$init($XWindow);
-	bool var$0 = ($XWindow::wm_protocols != nullptr);
+	bool var$0 = $XWindow::wm_protocols != nullptr;
 	if (var$0) {
 		int64_t var$1 = $nc(cl)->get_message_type();
-		var$0 = (var$1 == $nc($XWindow::wm_protocols)->getAtom());
+		var$0 = var$1 == $XWindow::wm_protocols->getAtom();
 	}
 	if (var$0) {
-		int64_t var$2 = cl->get_data(0);
+		int64_t var$2 = $nc(cl)->get_data(0);
 		if (var$2 == $nc($XWindow::wm_delete_window)->getAtom()) {
 			handleQuit();
 		} else {
-			int64_t var$4 = cl->get_data(0);
-			if (var$4 == $nc($XWindow::wm_take_focus)->getAtom()) {
+			int64_t var$3 = cl->get_data(0);
+			if (var$3 == $nc($XWindow::wm_take_focus)->getAtom()) {
 				handleWmTakeFocus(cl);
 			}
 		}
@@ -1306,13 +1133,13 @@ void XDecoratedPeer::handleClientMessage($XEvent* xev) {
 }
 
 void XDecoratedPeer::handleWmTakeFocus($XClientMessageEvent* cl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XDecoratedPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::focusLog)->fine("WM_TAKE_FOCUS on {0}"_s, $$new($ObjectArray, {$of(this)}));
+		XDecoratedPeer::focusLog->fine("WM_TAKE_FOCUS on {0}"_s, $$new($ObjectArray, {this}));
 	}
 	if ($XWM::getWMID() == $XWM::UNITY_COMPIZ_WM) {
-		$var($Window, focusedWindow, $nc($($XKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusedWindow());
+		$var($Window, focusedWindow, $$nc($XKeyboardFocusManagerPeer::getInstance())->getCurrentFocusedWindow());
 		$var($Window, activeWindow, $XWindowPeer::getDecoratedOwner(focusedWindow));
 		if (!$equals(activeWindow, this->target)) {
 			requestWindowFocus($nc(cl)->get_data(1), true);
@@ -1326,16 +1153,16 @@ void XDecoratedPeer::handleWmTakeFocus($XClientMessageEvent* cl) {
 }
 
 void XDecoratedPeer::requestXFocus(int64_t time, bool timeProvided) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->focusProxy == nullptr) {
 		$init($PlatformLogger$Level);
 		if ($nc(XDecoratedPeer::focusLog)->isLoggable($PlatformLogger$Level::WARNING)) {
-			$nc(XDecoratedPeer::focusLog)->warning($$str({"Focus proxy is null for "_s, this}));
+			XDecoratedPeer::focusLog->warning($$str({"Focus proxy is null for "_s, this}));
 		}
 	} else {
 		$init($PlatformLogger$Level);
 		if ($nc(XDecoratedPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XDecoratedPeer::focusLog)->fine($$str({"Requesting focus to proxy: "_s, this->focusProxy}));
+			XDecoratedPeer::focusLog->fine($$str({"Requesting focus to proxy: "_s, this->focusProxy}));
 		}
 		if (timeProvided) {
 			$nc(this->focusProxy)->xRequestFocus(time);
@@ -1354,12 +1181,12 @@ void XDecoratedPeer::handleQuit() {
 }
 
 void XDecoratedPeer::dumpMe() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::err)->println($$str({">>> Peer: "_s, $$str(this->x), ", "_s, $$str(this->y), ", "_s, $$str(this->width), ", "_s, $$str(this->height)}));
 }
 
 void XDecoratedPeer::dumpTarget() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AWTAccessor$ComponentAccessor, compAccessor, $AWTAccessor::getComponentAccessor());
 	int32_t getWidth = $nc(compAccessor)->getWidth(this->target);
 	int32_t getHeight = compAccessor->getHeight(this->target);
@@ -1386,39 +1213,41 @@ void XDecoratedPeer::dumpParent() {
 }
 
 void XDecoratedPeer::dumpWindow($String* id, int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XWindowAttributes, pattr, $new($XWindowAttributes));
-	{
-		$var($Throwable, var$0, nullptr);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XToolkit::awtLock();
+		$var($Throwable, var$1, nullptr);
 		try {
-			$XToolkit::awtLock();
-			{
-				$var($Throwable, var$1, nullptr);
-				try {
-					int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), window, pattr->pData);
-				} catch ($Throwable& var$2) {
-					$assign(var$1, var$2);
-				} /*finally*/ {
-					$XToolkit::awtUnlock();
-				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-			}
-			$var($String, var$7, $$str({">>>> "_s, id, ": "_s, $$str(pattr->get_x()), ", "_s}));
-			$var($String, var$6, $$concat(var$7, $$str(pattr->get_y())));
-			$var($String, var$5, $$concat(var$6, ", "_s));
-			$var($String, var$4, $$concat(var$5, $$str(pattr->get_width())));
-			$var($String, var$3, $$concat(var$4, ", "_s));
-			$nc($System::err)->println($$concat(var$3, $$str(pattr->get_height())));
-		} catch ($Throwable& var$8) {
-			$assign(var$0, var$8);
+			int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), window, pattr->pData);
+		} catch ($Throwable& var$2) {
+			$assign(var$1, var$2);
 		} /*finally*/ {
-			pattr->dispose();
+			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		if (var$1 != nullptr) {
+			$throw(var$1);
 		}
+		$var($StringBuilder, var$3, $new($StringBuilder));
+		var$3->append(">>>> "_s);
+		var$3->append(id);
+		var$3->append(": "_s);
+		var$3->append(pattr->get_x());
+		var$3->append(", "_s);
+		var$3->append(pattr->get_y());
+		var$3->append(", "_s);
+		var$3->append(pattr->get_width());
+		var$3->append(", "_s);
+		var$3->append(pattr->get_height());
+		$nc($System::err)->println($$str(var$3));
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		pattr->dispose();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1440,47 +1269,47 @@ bool XDecoratedPeer::isOverrideRedirect() {
 }
 
 bool XDecoratedPeer::requestWindowFocus(int64_t time, bool timeProvided) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(XDecoratedPeer::focusLog)->fine("Request for decorated window focus"_s);
-	$var($Window, focusedWindow, $nc($($XKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusedWindow());
+	$var($Window, focusedWindow, $$nc($XKeyboardFocusManagerPeer::getInstance())->getCurrentFocusedWindow());
 	$var($Window, activeWindow, $XWindowPeer::getDecoratedOwner(focusedWindow));
 	$init($PlatformLogger$Level);
-	if ($nc(XDecoratedPeer::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(XDecoratedPeer::focusLog)->finer("Current window is: active={0}, focused={1}"_s, $$new($ObjectArray, {
-			$($of($Boolean::valueOf($equals(this->target, activeWindow)))),
-			$($of($Boolean::valueOf($equals(this->target, focusedWindow))))
+	if (XDecoratedPeer::focusLog->isLoggable($PlatformLogger$Level::FINER)) {
+		XDecoratedPeer::focusLog->finer("Current window is: active={0}, focused={1}"_s, $$new($ObjectArray, {
+			$($Boolean::valueOf($equals(this->target, activeWindow))),
+			$($Boolean::valueOf($equals(this->target, focusedWindow)))
 		}));
 	}
 	$var($XWindowPeer, toFocus, this);
 	while ($nc(toFocus)->nextTransientFor != nullptr) {
 		$assign(toFocus, toFocus->nextTransientFor);
 	}
-	if (toFocus == nullptr || !$nc(toFocus)->focusAllowedFor()) {
+	if (toFocus == nullptr || !toFocus->focusAllowedFor()) {
 		return false;
 	}
 	if ($equals(this, toFocus)) {
 		if (isWMStateNetHidden()) {
-			$nc(XDecoratedPeer::focusLog)->fine("The window is unmapped, so rejecting the request"_s);
+			XDecoratedPeer::focusLog->fine("The window is unmapped, so rejecting the request"_s);
 			return false;
 		}
 		if ($equals(this->target, activeWindow) && !$equals(this->target, focusedWindow)) {
-			$nc(XDecoratedPeer::focusLog)->fine("Focus is on child window - transferring it back to the owner"_s);
+			XDecoratedPeer::focusLog->fine("Focus is on child window - transferring it back to the owner"_s);
 			handleWindowFocusInSync(-1);
 			return true;
 		}
 		$var($Window, realNativeFocusedWindow, $XWindowPeer::getNativeFocusedWindow());
-		if ($nc(XDecoratedPeer::focusLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-			$nc(XDecoratedPeer::focusLog)->finest($$str({"Real native focused window: "_s, realNativeFocusedWindow, "\nKFM\'s focused window: "_s, focusedWindow}));
+		if (XDecoratedPeer::focusLog->isLoggable($PlatformLogger$Level::FINEST)) {
+			XDecoratedPeer::focusLog->finest($$str({"Real native focused window: "_s, realNativeFocusedWindow, "\nKFM\'s focused window: "_s, focusedWindow}));
 		}
 		if ($equals(this->target, realNativeFocusedWindow) && $XWM::getWMID() == $XWM::METACITY_WM) {
-			if ($nc(XDecoratedPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(XDecoratedPeer::focusLog)->fine("The window is already natively focused."_s);
+			if (XDecoratedPeer::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+				XDecoratedPeer::focusLog->fine("The window is already natively focused."_s);
 			}
 			return true;
 		}
 	}
-	if ($nc(XDecoratedPeer::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDecoratedPeer::focusLog)->fine($$str({"Requesting focus to "_s, ($equals(this, toFocus) ? $of("this window"_s) : $of(toFocus))}));
+	if (XDecoratedPeer::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+		XDecoratedPeer::focusLog->fine($$str({"Requesting focus to "_s, ($equals(this, toFocus) ? $of("this window"_s) : $of(toFocus))}));
 	}
 	if (timeProvided) {
 		$nc(toFocus)->requestXFocus(time);
@@ -1502,7 +1331,7 @@ bool XDecoratedPeer::requestWindowFocus($XWindowPeer* actualFocusedWindow, int64
 }
 
 void XDecoratedPeer::handleWindowFocusIn(int64_t serial) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (nullptr == this->actualFocusedWindow) {
 		$XWindowPeer::handleWindowFocusIn(serial);
 	} else {
@@ -1511,18 +1340,18 @@ void XDecoratedPeer::handleWindowFocusIn(int64_t serial) {
 }
 
 void XDecoratedPeer::handleWindowFocusOut($Window* oppositeWindow, int64_t serial) {
-	$useLocalCurrentObjectStackCache();
-	$var($Window, actualFocusedWindow, $nc($($XKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusedWindow());
+	$useLocalObjectStack();
+	$var($Window, actualFocusedWindow, $$nc($XKeyboardFocusManagerPeer::getInstance())->getCurrentFocusedWindow());
 	if (actualFocusedWindow != nullptr && !$equals(actualFocusedWindow, this->target)) {
 		$var($Window, owner, $XWindowPeer::getDecoratedOwner(actualFocusedWindow));
 		if (owner != nullptr && $equals(owner, this->target)) {
-			setActualFocusedWindow($cast($XWindowPeer, $($nc($($AWTAccessor::getComponentAccessor()))->getPeer(actualFocusedWindow))));
+			setActualFocusedWindow($$cast($XWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(actualFocusedWindow)));
 		}
 	}
 	$XWindowPeer::handleWindowFocusOut(oppositeWindow, serial);
 }
 
-void clinit$XDecoratedPeer($Class* class$) {
+void XDecoratedPeer::clinit$($Class* clazz) {
 	XDecoratedPeer::$assertionsDisabled = !XDecoratedPeer::class$->desiredAssertionStatus();
 	$assignStatic(XDecoratedPeer::log, $PlatformLogger::getLogger("sun.awt.X11.XDecoratedPeer"_s));
 	$assignStatic(XDecoratedPeer::insLog, $PlatformLogger::getLogger("sun.awt.X11.insets.XDecoratedPeer"_s));
@@ -1535,7 +1364,137 @@ XDecoratedPeer::XDecoratedPeer() {
 }
 
 $Class* XDecoratedPeer::load$($String* name, bool initialize) {
-	$loadClass(XDecoratedPeer, name, initialize, &_XDecoratedPeer_ClassInfo_, clinit$XDecoratedPeer, allocate$XDecoratedPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XDecoratedPeer, $assertionsDisabled)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDecoratedPeer, log)},
+		{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDecoratedPeer, insLog)},
+		{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDecoratedPeer, focusLog)},
+		{"iconLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDecoratedPeer, iconLog)},
+		{"configure_seen", "Z", nullptr, 0, $field(XDecoratedPeer, configure_seen)},
+		{"insets_corrected", "Z", nullptr, 0, $field(XDecoratedPeer, insets_corrected)},
+		{"iconWindow", "Lsun/awt/X11/XIconWindow;", nullptr, 0, $field(XDecoratedPeer, iconWindow)},
+		{"dimensions", "Lsun/awt/X11/WindowDimensions;", nullptr, $VOLATILE, $field(XDecoratedPeer, dimensions)},
+		{"content", "Lsun/awt/X11/XContentWindow;", nullptr, 0, $field(XDecoratedPeer, content)},
+		{"currentInsets", "Ljava/awt/Insets;", nullptr, $VOLATILE, $field(XDecoratedPeer, currentInsets)},
+		{"focusProxy", "Lsun/awt/X11/XFocusProxyWindow;", nullptr, 0, $field(XDecoratedPeer, focusProxy)},
+		{"lastKnownInsets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/awt/Insets;>;", $STATIC | $FINAL, $staticField(XDecoratedPeer, lastKnownInsets)},
+		{"wm_set_insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(XDecoratedPeer, wm_set_insets)},
+		{"reparent_serial", "J", nullptr, 0, $field(XDecoratedPeer, reparent_serial)},
+		{"no_reparent_artifacts", "Z", nullptr, 0, $field(XDecoratedPeer, no_reparent_artifacts)},
+		{"actualFocusedWindow", "Lsun/awt/X11/XWindowPeer;", nullptr, 0, $field(XDecoratedPeer, actualFocusedWindow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, 0, $method(XDecoratedPeer, init$, void, $Window*)},
+		{"<init>", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $method(XDecoratedPeer, init$, void, $XCreateWindowParams*)},
+		{"applyGuessedInsets", "()V", nullptr, $PRIVATE, $method(XDecoratedPeer, applyGuessedInsets, void)},
+		{"checkShellRect", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, checkShellRect, void, $Rectangle*)},
+		{"checkShellRectPos", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, checkShellRectPos, void, $Rectangle*)},
+		{"checkShellRectSize", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, checkShellRectSize, void, $Rectangle*)},
+		{"copy", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC, $staticMethod(XDecoratedPeer, copy, $Insets*, $Insets*)},
+		{"copyAndScaleDown", "(Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(XDecoratedPeer, copyAndScaleDown, $Insets*, $Insets*)},
+		{"createFocusProxy", "()Lsun/awt/X11/XFocusProxyWindow;", nullptr, 0, $virtualMethod(XDecoratedPeer, createFocusProxy, $XFocusProxyWindow*)},
+		{"difference", "(Ljava/awt/Insets;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC, $staticMethod(XDecoratedPeer, difference, $Insets*, $Insets*, $Insets*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, dispose, void)},
+		{"dumpAll", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpAll, void)},
+		{"dumpContent", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpContent, void)},
+		{"dumpMe", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpMe, void)},
+		{"dumpParent", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpParent, void)},
+		{"dumpShell", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpShell, void)},
+		{"dumpTarget", "()V", nullptr, $FINAL, $method(XDecoratedPeer, dumpTarget, void)},
+		{"dumpWindow", "(Ljava/lang/String;J)V", nullptr, $FINAL, $method(XDecoratedPeer, dumpWindow, void, $String*, int64_t)},
+		{"getAbsoluteX", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getAbsoluteX, int32_t)},
+		{"getAbsoluteY", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getAbsoluteY, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getBounds, $Rectangle*)},
+		{"getContentWindow", "()J", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getContentWindow, int64_t)},
+		{"getDecorations", "()I", nullptr, 0, $virtualMethod(XDecoratedPeer, getDecorations, int32_t)},
+		{"getDimensions", "()Lsun/awt/X11/WindowDimensions;", nullptr, $PUBLIC | $FINAL, $method(XDecoratedPeer, getDimensions, $WindowDimensions*)},
+		{"getFocusProxy", "()Lsun/awt/X11/XFocusProxyWindow;", nullptr, 0, $virtualMethod(XDecoratedPeer, getFocusProxy, $XFocusProxyWindow*)},
+		{"getFunctions", "()I", nullptr, 0, $virtualMethod(XDecoratedPeer, getFunctions, int32_t)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getGraphics, $Graphics*)},
+		{"getHeight", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getHeight, int32_t)},
+		{"getInputMethodHeight", "()I", nullptr, 0, $virtualMethod(XDecoratedPeer, getInputMethodHeight, int32_t)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getInsets, $Insets*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getLocationOnScreen, $Point*)},
+		{"getRealInsets", "()Ljava/awt/Insets;", nullptr, $PRIVATE, $method(XDecoratedPeer, getRealInsets, $Insets*)},
+		{"getShell", "()J", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getShell, int64_t)},
+		{"getShellBounds", "()Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(XDecoratedPeer, getShellBounds, $Rectangle*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getSize, $Dimension*)},
+		{"getWMName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, getWMName, $String*)},
+		{"getWMProtocols", "()Lsun/awt/X11/XAtomList;", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, getWMProtocols, $XAtomList*)},
+		{"getWMSetInsets", "(Lsun/awt/X11/XAtom;)Ljava/awt/Insets;", nullptr, $PRIVATE, $method(XDecoratedPeer, getWMSetInsets, $Insets*, $XAtom*)},
+		{"getWidth", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getWidth, int32_t)},
+		{"getX", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getX, int32_t)},
+		{"getY", "()I", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, getY, int32_t)},
+		{"gravityBug", "()Z", nullptr, 0, $virtualMethod(XDecoratedPeer, gravityBug, bool)},
+		{"guessInsets", "()Ljava/awt/Insets;", nullptr, $PRIVATE, $method(XDecoratedPeer, guessInsets, $Insets*)},
+		{"handleClientMessage", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleClientMessage, void, $XEvent*)},
+		{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleConfigureNotifyEvent, void, $XEvent*)},
+		{"handleCorrectInsets", "(Ljava/awt/Insets;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, handleCorrectInsets, void, $Insets*)},
+		{"handleDeiconify", "()V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleDeiconify, void)},
+		{"handleFocusEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleFocusEvent, void, $XEvent*)},
+		{"handleIconify", "()V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleIconify, void)},
+		{"handleMoved", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, handleMoved, void, $WindowDimensions*)},
+		{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handlePropertyNotify, void, $XEvent*)},
+		{"handleQuit", "()V", nullptr, $PRIVATE, $method(XDecoratedPeer, handleQuit, void)},
+		{"handleReparentNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleReparentNotifyEvent, void, $XEvent*)},
+		{"handleWindowFocusIn", "(J)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleWindowFocusIn, void, int64_t)},
+		{"handleWindowFocusOut", "(Ljava/awt/Window;J)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, handleWindowFocusOut, void, $Window*, int64_t)},
+		{"handleWmTakeFocus", "(Lsun/awt/X11/XClientMessageEvent;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, handleWmTakeFocus, void, $XClientMessageEvent*)},
+		{"isEventDisabled", "(Lsun/awt/X11/XEvent;)Z", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, isEventDisabled, bool, $XEvent*)},
+		{"isInitialReshape", "()Z", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, isInitialReshape, bool)},
+		{"isMaximized", "()Z", nullptr, 0, $virtualMethod(XDecoratedPeer, isMaximized, bool)},
+		{"isNull", "(Ljava/awt/Insets;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(XDecoratedPeer, isNull, bool, $Insets*)},
+		{"isOverrideRedirect", "()Z", nullptr, 0, $virtualMethod(XDecoratedPeer, isOverrideRedirect, bool)},
+		{"isTargetUndecorated", "()Z", nullptr, $ABSTRACT, $virtualMethod(XDecoratedPeer, isTargetUndecorated, bool)},
+		{"postInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, postInit, void, $XCreateWindowParams*)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, preInit, void, $XCreateWindowParams*)},
+		{"reconfigureContentWindow", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, reconfigureContentWindow, void, $WindowDimensions*)},
+		{"requestWindowFocus", "(JZ)Z", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, requestWindowFocus, bool, int64_t, bool)},
+		{"requestWindowFocus", "(Lsun/awt/X11/XWindowPeer;JZ)Z", nullptr, 0, $virtualMethod(XDecoratedPeer, requestWindowFocus, bool, $XWindowPeer*, int64_t, bool)},
+		{"requestXFocus", "(JZ)V", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, requestXFocus, void, int64_t, bool)},
+		{"resetWMSetInsets", "()V", nullptr, $PRIVATE, $method(XDecoratedPeer, resetWMSetInsets, void)},
+		{"reshape", "(Lsun/awt/X11/WindowDimensions;IZ)V", nullptr, $PRIVATE, $method(XDecoratedPeer, reshape, void, $WindowDimensions*, int32_t, bool)},
+		{"reshape", "(IIIIIZ)V", nullptr, $PRIVATE, $method(XDecoratedPeer, reshape, void, int32_t, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"setActualFocusedWindow", "(Lsun/awt/X11/XWindowPeer;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, setActualFocusedWindow, void, $XWindowPeer*)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setIconHints", "(Ljava/util/List;)V", "(Ljava/util/List<Lsun/awt/IconInfo;>;)V", 0, $virtualMethod(XDecoratedPeer, setIconHints, void, $List*)},
+		{"setResizable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, setResizable, void, bool)},
+		{"setShellBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, setShellBounds, void, $Rectangle*)},
+		{"setShellPosition", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, setShellPosition, void, $Rectangle*)},
+		{"setShellSize", "(Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XDecoratedPeer, setShellSize, void, $Rectangle*)},
+		{"setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, setTitle, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, setVisible, void, bool)},
+		{"suppressWmTakeFocus", "(Z)V", nullptr, $PROTECTED, $virtualMethod(XDecoratedPeer, suppressWmTakeFocus, void, bool)},
+		{"updateMinSizeHints", "()V", nullptr, $PRIVATE, $method(XDecoratedPeer, updateMinSizeHints, void)},
+		{"updateMinimumSize", "()V", nullptr, $PUBLIC, $virtualMethod(XDecoratedPeer, updateMinimumSize, void)},
+		{"updateSizeHints", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, 0, $virtualMethod(XDecoratedPeer, updateSizeHints, void, $WindowDimensions*)},
+		{"updateSizeHints", "()V", nullptr, 0, $virtualMethod(XDecoratedPeer, updateSizeHints, void)},
+		{"updateWMName", "()V", nullptr, 0, $virtualMethod(XDecoratedPeer, updateWMName, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XDecoratedPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.awt.X11.XDecoratedPeer",
+		"sun.awt.X11.XWindowPeer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XDecoratedPeer$1"
+	};
+	$loadClass(XDecoratedPeer, name, initialize, &classInfo$$, XDecoratedPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XDecoratedPeer));
+	});
 	return class$;
 }
 

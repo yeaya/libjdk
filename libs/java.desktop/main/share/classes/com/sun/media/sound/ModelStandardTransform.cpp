@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelStandardTransform.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
@@ -23,50 +22,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _ModelStandardTransform_FieldInfo_[] = {
-	{"DIRECTION_MIN2MAX", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, DIRECTION_MIN2MAX)},
-	{"DIRECTION_MAX2MIN", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, DIRECTION_MAX2MIN)},
-	{"POLARITY_UNIPOLAR", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, POLARITY_UNIPOLAR)},
-	{"POLARITY_BIPOLAR", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, POLARITY_BIPOLAR)},
-	{"TRANSFORM_LINEAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_LINEAR)},
-	{"TRANSFORM_CONCAVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_CONCAVE)},
-	{"TRANSFORM_CONVEX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_CONVEX)},
-	{"TRANSFORM_SWITCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_SWITCH)},
-	{"TRANSFORM_ABSOLUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_ABSOLUTE)},
-	{"direction", "Z", nullptr, $PRIVATE, $field(ModelStandardTransform, direction)},
-	{"polarity", "Z", nullptr, $PRIVATE, $field(ModelStandardTransform, polarity)},
-	{"transform", "I", nullptr, $PRIVATE, $field(ModelStandardTransform, transform$)},
-	{}
-};
-
-$MethodInfo _ModelStandardTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ModelStandardTransform, init$, void)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ModelStandardTransform, init$, void, bool)},
-	{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(ModelStandardTransform, init$, void, bool, bool)},
-	{"<init>", "(ZZI)V", nullptr, $PUBLIC, $method(ModelStandardTransform, init$, void, bool, bool, int32_t)},
-	{"getDirection", "()Z", nullptr, $PUBLIC, $method(ModelStandardTransform, getDirection, bool)},
-	{"getPolarity", "()Z", nullptr, $PUBLIC, $method(ModelStandardTransform, getPolarity, bool)},
-	{"getTransform", "()I", nullptr, $PUBLIC, $method(ModelStandardTransform, getTransform, int32_t)},
-	{"setDirection", "(Z)V", nullptr, $PUBLIC, $method(ModelStandardTransform, setDirection, void, bool)},
-	{"setPolarity", "(Z)V", nullptr, $PUBLIC, $method(ModelStandardTransform, setPolarity, void, bool)},
-	{"setTransform", "(I)V", nullptr, $PUBLIC, $method(ModelStandardTransform, setTransform, void, int32_t)},
-	{"transform", "(D)D", nullptr, $PUBLIC, $virtualMethod(ModelStandardTransform, transform, double, double)},
-	{}
-};
-
-$ClassInfo _ModelStandardTransform_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.ModelStandardTransform",
-	"java.lang.Object",
-	"com.sun.media.sound.ModelTransform",
-	_ModelStandardTransform_FieldInfo_,
-	_ModelStandardTransform_MethodInfo_
-};
-
-$Object* allocate$ModelStandardTransform($Class* clazz) {
-	return $of($alloc(ModelStandardTransform));
-}
 
 void ModelStandardTransform::init$() {
 	this->direction = ModelStandardTransform::DIRECTION_MIN2MAX;
@@ -112,12 +67,12 @@ double ModelStandardTransform::transform(double value) {
 		{
 			s = $Math::signum(value);
 			a = $Math::abs(value);
-			double var$0 = -((5.0 / 12.0) / $Math::log((double)10));
+			double var$0 = -((5.0 / 12.0) / $Math::log(10));
 			a = var$0 * $Math::log(1.0 - a);
 			if (a < 0) {
-				a = (double)0;
+				a = 0;
 			} else if (a > 1) {
-				a = (double)1;
+				a = 1;
 			}
 			return s * a;
 		}
@@ -126,32 +81,26 @@ double ModelStandardTransform::transform(double value) {
 			s = $Math::signum(value);
 			a = $Math::abs(value);
 			double var$1 = 1.0;
-			double var$3 = ((5.0 / 12.0) / $Math::log((double)10));
+			double var$3 = (5.0 / 12.0) / $Math::log(10);
 			double var$2 = var$3 * $Math::log(a);
 			a = var$1 + var$2;
 			if (a < 0) {
-				a = (double)0;
+				a = 0;
 			} else if (a > 1) {
-				a = (double)1;
+				a = 1;
 			}
 			return s * a;
 		}
 	case ModelStandardTransform::TRANSFORM_SWITCH:
-		{
-			if (this->polarity == ModelStandardTransform::POLARITY_BIPOLAR) {
-				return (double)((value > 0) ? 1 : -1);
-			} else {
-				return (double)((value > 0.5) ? 1 : 0);
-			}
+		if (this->polarity == ModelStandardTransform::POLARITY_BIPOLAR) {
+			return (double)((value > 0) ? 1 : -1);
+		} else {
+			return (double)((value > 0.5) ? 1 : 0);
 		}
 	case ModelStandardTransform::TRANSFORM_ABSOLUTE:
-		{
-			return $Math::abs(value);
-		}
+		return $Math::abs(value);
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return value;
 }
@@ -184,7 +133,46 @@ ModelStandardTransform::ModelStandardTransform() {
 }
 
 $Class* ModelStandardTransform::load$($String* name, bool initialize) {
-	$loadClass(ModelStandardTransform, name, initialize, &_ModelStandardTransform_ClassInfo_, allocate$ModelStandardTransform);
+	$FieldInfo fieldInfos$$[] = {
+		{"DIRECTION_MIN2MAX", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, DIRECTION_MIN2MAX)},
+		{"DIRECTION_MAX2MIN", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, DIRECTION_MAX2MIN)},
+		{"POLARITY_UNIPOLAR", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, POLARITY_UNIPOLAR)},
+		{"POLARITY_BIPOLAR", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, POLARITY_BIPOLAR)},
+		{"TRANSFORM_LINEAR", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_LINEAR)},
+		{"TRANSFORM_CONCAVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_CONCAVE)},
+		{"TRANSFORM_CONVEX", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_CONVEX)},
+		{"TRANSFORM_SWITCH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_SWITCH)},
+		{"TRANSFORM_ABSOLUTE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModelStandardTransform, TRANSFORM_ABSOLUTE)},
+		{"direction", "Z", nullptr, $PRIVATE, $field(ModelStandardTransform, direction)},
+		{"polarity", "Z", nullptr, $PRIVATE, $field(ModelStandardTransform, polarity)},
+		{"transform", "I", nullptr, $PRIVATE, $field(ModelStandardTransform, transform$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ModelStandardTransform, init$, void)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(ModelStandardTransform, init$, void, bool)},
+		{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(ModelStandardTransform, init$, void, bool, bool)},
+		{"<init>", "(ZZI)V", nullptr, $PUBLIC, $method(ModelStandardTransform, init$, void, bool, bool, int32_t)},
+		{"getDirection", "()Z", nullptr, $PUBLIC, $method(ModelStandardTransform, getDirection, bool)},
+		{"getPolarity", "()Z", nullptr, $PUBLIC, $method(ModelStandardTransform, getPolarity, bool)},
+		{"getTransform", "()I", nullptr, $PUBLIC, $method(ModelStandardTransform, getTransform, int32_t)},
+		{"setDirection", "(Z)V", nullptr, $PUBLIC, $method(ModelStandardTransform, setDirection, void, bool)},
+		{"setPolarity", "(Z)V", nullptr, $PUBLIC, $method(ModelStandardTransform, setPolarity, void, bool)},
+		{"setTransform", "(I)V", nullptr, $PUBLIC, $method(ModelStandardTransform, setTransform, void, int32_t)},
+		{"transform", "(D)D", nullptr, $PUBLIC, $virtualMethod(ModelStandardTransform, transform, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.ModelStandardTransform",
+		"java.lang.Object",
+		"com.sun.media.sound.ModelTransform",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModelStandardTransform, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelStandardTransform);
+	});
 	return class$;
 }
 

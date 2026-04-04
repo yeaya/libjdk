@@ -19,6 +19,7 @@ class $import ExtendedKeyCodes : public ::java::lang::Object {
 	$class(ExtendedKeyCodes, 0, ::java::lang::Object)
 public:
 	ExtendedKeyCodes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getExtendedKeyCodeForChar(int32_t c);
 	static ::java::util::HashMap* regularKeyCodesMap;

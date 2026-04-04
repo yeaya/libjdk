@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$NoFocusButton.h>
-
 #include <java/awt/Insets.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/AbstractButton.h>
@@ -24,47 +23,8 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicInternalFrameTitlePane$NoFocusButton_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$NoFocusButton, this$0)},
-	{"uiKey", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane$NoFocusButton, uiKey)},
-	{}
-};
-
-$MethodInfo _BasicInternalFrameTitlePane$NoFocusButton_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane$NoFocusButton, init$, void, $BasicInternalFrameTitlePane*, $String*, $String*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$NoFocusButton, getAccessibleContext, $AccessibleContext*)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$NoFocusButton, isFocusTraversable, bool)},
-	{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$NoFocusButton, requestFocus, void)},
-	{}
-};
-
-$InnerClassInfo _BasicInternalFrameTitlePane$NoFocusButton_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$NoFocusButton", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "NoFocusButton", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicInternalFrameTitlePane$NoFocusButton_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane$NoFocusButton",
-	"javax.swing.JButton",
-	nullptr,
-	_BasicInternalFrameTitlePane$NoFocusButton_FieldInfo_,
-	_BasicInternalFrameTitlePane$NoFocusButton_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicInternalFrameTitlePane$NoFocusButton_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
-};
-
-$Object* allocate$BasicInternalFrameTitlePane$NoFocusButton($Class* clazz) {
-	return $of($alloc(BasicInternalFrameTitlePane$NoFocusButton));
-}
-
 void BasicInternalFrameTitlePane$NoFocusButton::init$($BasicInternalFrameTitlePane* this$0, $String* uiKey, $String* opacityKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JButton::init$();
 	setFocusPainted(false);
@@ -72,7 +32,7 @@ void BasicInternalFrameTitlePane$NoFocusButton::init$($BasicInternalFrameTitlePa
 	$set(this, uiKey, uiKey);
 	$var($Object, opacity, $UIManager::get(opacityKey));
 	if ($instanceOf($Boolean, opacity)) {
-		setOpaque($nc(($cast($Boolean, opacity)))->booleanValue());
+		setOpaque($cast($Boolean, opacity)->booleanValue());
 	}
 }
 
@@ -84,7 +44,7 @@ void BasicInternalFrameTitlePane$NoFocusButton::requestFocus() {
 }
 
 $AccessibleContext* BasicInternalFrameTitlePane$NoFocusButton::getAccessibleContext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AccessibleContext, ac, $JButton::getAccessibleContext());
 	if (this->uiKey != nullptr) {
 		$nc(ac)->setAccessibleName($($UIManager::getString(this->uiKey)));
@@ -97,7 +57,40 @@ BasicInternalFrameTitlePane$NoFocusButton::BasicInternalFrameTitlePane$NoFocusBu
 }
 
 $Class* BasicInternalFrameTitlePane$NoFocusButton::load$($String* name, bool initialize) {
-	$loadClass(BasicInternalFrameTitlePane$NoFocusButton, name, initialize, &_BasicInternalFrameTitlePane$NoFocusButton_ClassInfo_, allocate$BasicInternalFrameTitlePane$NoFocusButton);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;", nullptr, $FINAL | $SYNTHETIC, $field(BasicInternalFrameTitlePane$NoFocusButton, this$0)},
+		{"uiKey", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicInternalFrameTitlePane$NoFocusButton, uiKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicInternalFrameTitlePane;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicInternalFrameTitlePane$NoFocusButton, init$, void, $BasicInternalFrameTitlePane*, $String*, $String*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$NoFocusButton, getAccessibleContext, $AccessibleContext*)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$NoFocusButton, isFocusTraversable, bool)},
+		{"requestFocus", "()V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameTitlePane$NoFocusButton, requestFocus, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicInternalFrameTitlePane$NoFocusButton", "javax.swing.plaf.basic.BasicInternalFrameTitlePane", "NoFocusButton", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane$NoFocusButton",
+		"javax.swing.JButton",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicInternalFrameTitlePane"
+	};
+	$loadClass(BasicInternalFrameTitlePane$NoFocusButton, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicInternalFrameTitlePane$NoFocusButton));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/SortResponseControl.h>
-
 #include <com/sun/jndi/ldap/Ber.h>
 #include <com/sun/jndi/ldap/BerDecoder.h>
 #include <com/sun/jndi/ldap/LdapCtx.h>
@@ -23,36 +22,6 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$FieldInfo _SortResponseControl_FieldInfo_[] = {
-	{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SortResponseControl, OID)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortResponseControl, serialVersionUID)},
-	{"resultCode", "I", nullptr, $PRIVATE, $field(SortResponseControl, resultCode)},
-	{"badAttrId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SortResponseControl, badAttrId)},
-	{}
-};
-
-$MethodInfo _SortResponseControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(SortResponseControl, init$, void, $String*, bool, $bytes*), "java.io.IOException"},
-	{"getAttributeID", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SortResponseControl, getAttributeID, $String*)},
-	{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $method(SortResponseControl, getException, $NamingException*)},
-	{"getResultCode", "()I", nullptr, $PUBLIC, $method(SortResponseControl, getResultCode, int32_t)},
-	{"isSorted", "()Z", nullptr, $PUBLIC, $method(SortResponseControl, isSorted, bool)},
-	{}
-};
-
-$ClassInfo _SortResponseControl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.naming.ldap.SortResponseControl",
-	"javax.naming.ldap.BasicControl",
-	nullptr,
-	_SortResponseControl_FieldInfo_,
-	_SortResponseControl_MethodInfo_
-};
-
-$Object* allocate$SortResponseControl($Class* clazz) {
-	return $of($alloc(SortResponseControl));
-}
-
 $String* SortResponseControl::OID = nullptr;
 
 void SortResponseControl::init$($String* id, bool criticality, $bytes* value) {
@@ -62,7 +31,7 @@ void SortResponseControl::init$($String* id, bool criticality, $bytes* value) {
 	$var($BerDecoder, ber, $new($BerDecoder, value, 0, $nc(value)->length));
 	ber->parseSeq(nullptr);
 	this->resultCode = ber->parseEnumeration();
-	bool var$0 = (ber->bytesLeft() > 0);
+	bool var$0 = ber->bytesLeft() > 0;
 	if (var$0 && (ber->peekByte() == $Ber::ASN_CONTEXT)) {
 		$set(this, badAttrId, ber->parseStringWithTag($Ber::ASN_CONTEXT, true, nullptr));
 	}
@@ -87,12 +56,37 @@ $NamingException* SortResponseControl::getException() {
 SortResponseControl::SortResponseControl() {
 }
 
-void clinit$SortResponseControl($Class* class$) {
+void SortResponseControl::clinit$($Class* clazz) {
 	$assignStatic(SortResponseControl::OID, "1.2.840.113556.1.4.474"_s);
 }
 
 $Class* SortResponseControl::load$($String* name, bool initialize) {
-	$loadClass(SortResponseControl, name, initialize, &_SortResponseControl_ClassInfo_, clinit$SortResponseControl, allocate$SortResponseControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"OID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SortResponseControl, OID)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SortResponseControl, serialVersionUID)},
+		{"resultCode", "I", nullptr, $PRIVATE, $field(SortResponseControl, resultCode)},
+		{"badAttrId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SortResponseControl, badAttrId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z[B)V", nullptr, $PUBLIC, $method(SortResponseControl, init$, void, $String*, bool, $bytes*), "java.io.IOException"},
+		{"getAttributeID", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SortResponseControl, getAttributeID, $String*)},
+		{"getException", "()Ljavax/naming/NamingException;", nullptr, $PUBLIC, $method(SortResponseControl, getException, $NamingException*)},
+		{"getResultCode", "()I", nullptr, $PUBLIC, $method(SortResponseControl, getResultCode, int32_t)},
+		{"isSorted", "()Z", nullptr, $PUBLIC, $method(SortResponseControl, isSorted, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.naming.ldap.SortResponseControl",
+		"javax.naming.ldap.BasicControl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SortResponseControl, name, initialize, &classInfo$$, SortResponseControl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SortResponseControl);
+	});
 	return class$;
 }
 

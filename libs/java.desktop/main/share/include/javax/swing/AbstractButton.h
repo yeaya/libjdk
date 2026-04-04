@@ -109,6 +109,7 @@ class $import AbstractButton : public ::javax::swing::JComponent, public ::java:
 	$class(AbstractButton, 0, ::javax::swing::JComponent, ::java::awt::ItemSelectable, ::javax::swing::SwingConstants)
 public:
 	AbstractButton();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::enable;
 	using ::javax::swing::JComponent::getBounds;

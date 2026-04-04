@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/Tree.h>
-
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <jcpp.h>
@@ -15,38 +14,33 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _Tree_MethodInfo_[] = {
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Tree, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tree, getKind, $Tree$Kind*)},
-	{}
-};
-
-$InnerClassInfo _Tree_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.Tree$Kind", "com.sun.source.tree.Tree", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Tree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Tree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Tree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.Tree$Kind"
-};
-
-$Object* allocate$Tree($Class* clazz) {
-	return $of($alloc(Tree));
-}
-
 $Class* Tree::load$($String* name, bool initialize) {
-	$loadClass(Tree, name, initialize, &_Tree_ClassInfo_, allocate$Tree);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(Tree, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Tree, getKind, $Tree$Kind*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.Tree$Kind", "com.sun.source.tree.Tree", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.Tree$Kind"
+	};
+	$loadClass(Tree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Tree);
+	});
 	return class$;
 }
 

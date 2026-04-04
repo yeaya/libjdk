@@ -1,5 +1,4 @@
 #include <com/sun/beans/introspect/ClassInfo.h>
-
 #include <com/sun/beans/introspect/ClassInfo$1.h>
 #include <com/sun/beans/introspect/EventSetInfo.h>
 #include <com/sun/beans/introspect/MethodInfo.h>
@@ -18,14 +17,14 @@
 
 using $ClassInfo$1 = ::com::sun::beans::introspect::ClassInfo$1;
 using $EventSetInfo = ::com::sun::beans::introspect::EventSetInfo;
-using $1MethodInfo = ::com::sun::beans::introspect::MethodInfo;
+using $MethodInfo = ::com::sun::beans::introspect::MethodInfo;
 using $PropertyInfo = ::com::sun::beans::introspect::PropertyInfo;
 using $Cache = ::com::sun::beans::util::Cache;
 using $Cache$Kind = ::com::sun::beans::util::Cache$Kind;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $MethodInfo = ::java::lang::MethodInfo;
+using $1MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
@@ -35,52 +34,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace introspect {
-
-$FieldInfo _ClassInfo_FieldInfo_[] = {
-	{"DEFAULT", "Lcom/sun/beans/introspect/ClassInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassInfo, DEFAULT)},
-	{"CACHE", "Lcom/sun/beans/util/Cache;", "Lcom/sun/beans/util/Cache<Ljava/lang/Class<*>;Lcom/sun/beans/introspect/ClassInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ClassInfo, CACHE)},
-	{"mutex", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ClassInfo, mutex)},
-	{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(ClassInfo, type)},
-	{"methods", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/reflect/Method;>;", $PRIVATE, $field(ClassInfo, methods)},
-	{"properties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/PropertyInfo;>;", $PRIVATE, $field(ClassInfo, properties)},
-	{"eventSets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/EventSetInfo;>;", $PRIVATE, $field(ClassInfo, eventSets)},
-	{}
-};
-
-$MethodInfo _ClassInfo_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(ClassInfo, init$, void, $Class*)},
-	{"clear", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassInfo, clear, void)},
-	{"get", "(Ljava/lang/Class;)Lcom/sun/beans/introspect/ClassInfo;", "(Ljava/lang/Class<*>;)Lcom/sun/beans/introspect/ClassInfo;", $PUBLIC | $STATIC, $staticMethod(ClassInfo, get, ClassInfo*, $Class*)},
-	{"getEventSets", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/EventSetInfo;>;", $PUBLIC, $method(ClassInfo, getEventSets, $Map*)},
-	{"getMethods", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/Method;>;", $PUBLIC, $method(ClassInfo, getMethods, $List*)},
-	{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/PropertyInfo;>;", $PUBLIC, $method(ClassInfo, getProperties, $Map*)},
-	{"remove", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(ClassInfo, remove, void, $Class*)},
-	{}
-};
-
-$InnerClassInfo _ClassInfo_InnerClassesInfo_[] = {
-	{"com.sun.beans.introspect.ClassInfo$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ClassInfo_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.introspect.ClassInfo",
-	"java.lang.Object",
-	nullptr,
-	_ClassInfo_FieldInfo_,
-	_ClassInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.beans.introspect.ClassInfo$1"
-};
-
-$Object* allocate$ClassInfo($Class* clazz) {
-	return $of($alloc(ClassInfo));
-}
 
 ClassInfo* ClassInfo::DEFAULT = nullptr;
 $Cache* ClassInfo::CACHE = nullptr;
@@ -92,7 +45,7 @@ ClassInfo* ClassInfo::get($Class* type) {
 	}
 	try {
 		$ReflectUtil::checkPackageAccess(type);
-		return $cast(ClassInfo, $nc(ClassInfo::CACHE)->get(type));
+		return $cast(ClassInfo, ClassInfo::CACHE->get(type));
 	} catch ($SecurityException& exception) {
 		return ClassInfo::DEFAULT;
 	}
@@ -101,12 +54,12 @@ ClassInfo* ClassInfo::get($Class* type) {
 
 void ClassInfo::clear() {
 	$init(ClassInfo);
-	$nc(ClassInfo::CACHE)->clear();
+	ClassInfo::CACHE->clear();
 }
 
 void ClassInfo::remove($Class* clz) {
 	$init(ClassInfo);
-	$nc(ClassInfo::CACHE)->remove(clz);
+	ClassInfo::CACHE->remove(clz);
 }
 
 void ClassInfo::init$($Class* type) {
@@ -118,7 +71,7 @@ $List* ClassInfo::getMethods() {
 	if (this->methods == nullptr) {
 		$synchronized(this->mutex) {
 			if (this->methods == nullptr) {
-				$set(this, methods, $1MethodInfo::get(this->type));
+				$set(this, methods, $MethodInfo::get(this->type));
 			}
 		}
 	}
@@ -147,7 +100,7 @@ $Map* ClassInfo::getEventSets() {
 	return this->eventSets;
 }
 
-void clinit$ClassInfo($Class* class$) {
+void ClassInfo::clinit$($Class* clazz) {
 	$assignStatic(ClassInfo::DEFAULT, $new(ClassInfo, nullptr));
 	$init($Cache$Kind);
 	$assignStatic(ClassInfo::CACHE, $new($ClassInfo$1, $Cache$Kind::SOFT, $Cache$Kind::SOFT));
@@ -157,7 +110,47 @@ ClassInfo::ClassInfo() {
 }
 
 $Class* ClassInfo::load$($String* name, bool initialize) {
-	$loadClass(ClassInfo, name, initialize, &_ClassInfo_ClassInfo_, clinit$ClassInfo, allocate$ClassInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Lcom/sun/beans/introspect/ClassInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ClassInfo, DEFAULT)},
+		{"CACHE", "Lcom/sun/beans/util/Cache;", "Lcom/sun/beans/util/Cache<Ljava/lang/Class<*>;Lcom/sun/beans/introspect/ClassInfo;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ClassInfo, CACHE)},
+		{"mutex", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(ClassInfo, mutex)},
+		{"type", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $PRIVATE | $FINAL, $field(ClassInfo, type)},
+		{"methods", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/reflect/Method;>;", $PRIVATE, $field(ClassInfo, methods)},
+		{"properties", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/PropertyInfo;>;", $PRIVATE, $field(ClassInfo, properties)},
+		{"eventSets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/EventSetInfo;>;", $PRIVATE, $field(ClassInfo, eventSets)},
+		{}
+	};
+	$1MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(ClassInfo, init$, void, $Class*)},
+		{"clear", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClassInfo, clear, void)},
+		{"get", "(Ljava/lang/Class;)Lcom/sun/beans/introspect/ClassInfo;", "(Ljava/lang/Class<*>;)Lcom/sun/beans/introspect/ClassInfo;", $PUBLIC | $STATIC, $staticMethod(ClassInfo, get, ClassInfo*, $Class*)},
+		{"getEventSets", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/EventSetInfo;>;", $PUBLIC, $method(ClassInfo, getEventSets, $Map*)},
+		{"getMethods", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/reflect/Method;>;", $PUBLIC, $method(ClassInfo, getMethods, $List*)},
+		{"getProperties", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/beans/introspect/PropertyInfo;>;", $PUBLIC, $method(ClassInfo, getProperties, $Map*)},
+		{"remove", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PUBLIC | $STATIC, $staticMethod(ClassInfo, remove, void, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.beans.introspect.ClassInfo$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.introspect.ClassInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.beans.introspect.ClassInfo$1"
+	};
+	$loadClass(ClassInfo, name, initialize, &classInfo$$, ClassInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassInfo);
+	});
 	return class$;
 }
 

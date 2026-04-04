@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaSpinnerUI$ArrowButtonHandler.h>
-
 #include <com/apple/laf/AquaSpinnerUI.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
@@ -10,7 +9,6 @@
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/CharacterIterator.h>
 #include <java/text/DateFormat$Field.h>
@@ -51,7 +49,6 @@ using $Container = ::java::awt::Container;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -60,7 +57,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $CharacterIterator = ::java::text::CharacterIterator;
 using $DateFormat$Field = ::java::text::DateFormat$Field;
 using $Format = ::java::text::Format;
@@ -76,73 +72,15 @@ using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DateEditor = ::javax::swing::JSpinner$DateEditor;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SpinnerDateModel = ::javax::swing::SpinnerDateModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
-using $Document = ::javax::swing::text::Document;
 using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaSpinnerUI$ArrowButtonHandler_FieldInfo_[] = {
-	{"autoRepeatTimer", "Ljavax/swing/Timer;", nullptr, $FINAL, $field(AquaSpinnerUI$ArrowButtonHandler, autoRepeatTimer)},
-	{"isNext", "Z", nullptr, $FINAL, $field(AquaSpinnerUI$ArrowButtonHandler, isNext)},
-	{"spinner", "Ljavax/swing/JSpinner;", nullptr, 0, $field(AquaSpinnerUI$ArrowButtonHandler, spinner)},
-	{"arrowButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaSpinnerUI$ArrowButtonHandler, arrowButton)},
-	{}
-};
-
-$MethodInfo _AquaSpinnerUI$ArrowButtonHandler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(AquaSpinnerUI$ArrowButtonHandler, init$, void, $String*, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, actionPerformed, void, $ActionEvent*)},
-	{"eventToSpinner", "(Ljava/awt/AWTEvent;)Ljavax/swing/JSpinner;", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, eventToSpinner, $JSpinner*, $AWTEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, focusLost, void, $FocusEvent*)},
-	{"focusSpinnerIfNecessary", "()V", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, focusSpinnerIfNecessary, void)},
-	{"getCalendarField", "(Ljavax/swing/JSpinner;)I", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, getCalendarField, int32_t, $JSpinner*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mouseReleased, void, $MouseEvent*)},
-	{"select", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, select, void, $JSpinner*)},
-	{"select", "(Ljavax/swing/JFormattedTextField;Ljava/text/AttributedCharacterIterator;Ljava/text/DateFormat$Field;)Z", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, select, bool, $JFormattedTextField*, $AttributedCharacterIterator*, $DateFormat$Field*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaSpinnerUI$ArrowButtonHandler_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaSpinnerUI$ArrowButtonHandler", "com.apple.laf.AquaSpinnerUI", "ArrowButtonHandler", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaSpinnerUI$ArrowButtonHandler_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaSpinnerUI$ArrowButtonHandler",
-	"javax.swing.AbstractAction",
-	"java.awt.event.FocusListener,java.awt.event.MouseListener",
-	_AquaSpinnerUI$ArrowButtonHandler_FieldInfo_,
-	_AquaSpinnerUI$ArrowButtonHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaSpinnerUI$ArrowButtonHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaSpinnerUI"
-};
-
-$Object* allocate$AquaSpinnerUI$ArrowButtonHandler($Class* clazz) {
-	return $of($alloc(AquaSpinnerUI$ArrowButtonHandler));
-}
 
 $Object* AquaSpinnerUI$ArrowButtonHandler::clone() {
 	 return this->$AbstractAction::clone();
@@ -170,28 +108,28 @@ void AquaSpinnerUI$ArrowButtonHandler::init$($String* name, bool isNext) {
 	$set(this, arrowButton, nullptr);
 	this->isNext = isNext;
 	$set(this, autoRepeatTimer, $new($Timer, 60, this));
-	$nc(this->autoRepeatTimer)->setInitialDelay(300);
+	this->autoRepeatTimer->setInitialDelay(300);
 }
 
 $JSpinner* AquaSpinnerUI$ArrowButtonHandler::eventToSpinner($AWTEvent* e) {
 	$var($Object, src, $nc(e)->getSource());
 	while (($instanceOf($Component, src)) && !($instanceOf($JSpinner, src))) {
-		$assign(src, $nc(($cast($Component, src)))->getParent());
+		$assign(src, $cast($Component, src)->getParent());
 	}
 	return ($instanceOf($JSpinner, src)) ? $cast($JSpinner, src) : ($JSpinner*)nullptr;
 }
 
 void AquaSpinnerUI$ArrowButtonHandler::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($Timer, $($nc(e)->getSource())))) {
 		$set(this, spinner, eventToSpinner(e));
 		if ($instanceOf($JButton, $(e->getSource()))) {
 			$set(this, arrowButton, $cast($JButton, e->getSource()));
 		}
 	} else {
-		bool var$1 = this->arrowButton != nullptr && !$nc($($nc(this->arrowButton)->getModel()))->isPressed();
-		if (var$1 && $nc(this->autoRepeatTimer)->isRunning()) {
-			$nc(this->autoRepeatTimer)->stop();
+		bool var$0 = this->arrowButton != nullptr && !$$nc(this->arrowButton->getModel())->isPressed();
+		if (var$0 && this->autoRepeatTimer->isRunning()) {
+			this->autoRepeatTimer->stop();
 			$set(this, spinner, nullptr);
 			$set(this, arrowButton, nullptr);
 		}
@@ -201,7 +139,7 @@ void AquaSpinnerUI$ArrowButtonHandler::actionPerformed($ActionEvent* e) {
 			int32_t calendarField = getCalendarField(this->spinner);
 			$nc(this->spinner)->commitEdit();
 			if (calendarField != -1) {
-				$nc(($cast($SpinnerDateModel, $($nc(this->spinner)->getModel()))))->setCalendarField(calendarField);
+				$$sure($SpinnerDateModel, $nc(this->spinner)->getModel())->setCalendarField(calendarField);
 			}
 			$var($Object, value, (this->isNext) ? $nc(this->spinner)->getNextValue() : $nc(this->spinner)->getPreviousValue());
 			if (value != nullptr) {
@@ -209,15 +147,15 @@ void AquaSpinnerUI$ArrowButtonHandler::actionPerformed($ActionEvent* e) {
 				select(this->spinner);
 			}
 		} catch ($IllegalArgumentException& iae) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this->spinner);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this->spinner);
 		} catch ($ParseException& pe) {
-			$nc($($UIManager::getLookAndFeel()))->provideErrorFeedback(this->spinner);
+			$$nc($UIManager::getLookAndFeel())->provideErrorFeedback(this->spinner);
 		}
 	}
 }
 
 void AquaSpinnerUI$ArrowButtonHandler::select($JSpinner* spinnerComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (spinnerComponent == nullptr) {
 		return;
 	}
@@ -247,16 +185,16 @@ void AquaSpinnerUI$ArrowButtonHandler::select($JSpinner* spinnerComponent) {
 }
 
 bool AquaSpinnerUI$ArrowButtonHandler::select($JFormattedTextField* ftf, $AttributedCharacterIterator* iterator, $DateFormat$Field* field) {
-	$useLocalCurrentObjectStackCache();
-	int32_t max = $nc($($nc(ftf)->getDocument()))->getLength();
+	$useLocalObjectStack();
+	int32_t max = $$nc($nc(ftf)->getDocument())->getLength();
 	$nc(iterator)->first();
 	do {
 		$var($Map, attrs, iterator->getAttributes());
-		if (attrs == nullptr || !$nc(attrs)->containsKey(field)) {
+		if (attrs == nullptr || !attrs->containsKey(field)) {
 			continue;
 		}
-		int32_t start = iterator->getRunStart(static_cast<$AttributedCharacterIterator$Attribute*>(field));
-		int32_t end = iterator->getRunLimit(static_cast<$AttributedCharacterIterator$Attribute*>(field));
+		int32_t start = iterator->getRunStart(field);
+		int32_t end = iterator->getRunLimit(field);
 		if (start != -1 && end != -1 && start <= max && end <= max) {
 			ftf->select(start, end);
 		}
@@ -266,7 +204,7 @@ bool AquaSpinnerUI$ArrowButtonHandler::select($JFormattedTextField* ftf, $Attrib
 }
 
 int32_t AquaSpinnerUI$ArrowButtonHandler::getCalendarField($JSpinner* spinnerComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, editor, $nc(spinnerComponent)->getEditor());
 	if (!($instanceOf($JSpinner$DateEditor, editor))) {
 		return -1;
@@ -278,12 +216,10 @@ int32_t AquaSpinnerUI$ArrowButtonHandler::getCalendarField($JSpinner* spinnerCom
 	if (!($instanceOf($InternationalFormatter, formatter))) {
 		return -1;
 	}
-	$var($Format$FieldArray, fields, $nc(($cast($InternationalFormatter, formatter)))->getFields(start));
+	$var($Format$FieldArray, fields, $nc($cast($InternationalFormatter, formatter))->getFields(start));
 	{
 		$var($Format$FieldArray, arr$, fields);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Format$Field, element, arr$->get(i$));
 			{
 				if (!($instanceOf($DateFormat$Field, element))) {
@@ -294,7 +230,7 @@ int32_t AquaSpinnerUI$ArrowButtonHandler::getCalendarField($JSpinner* spinnerCom
 				if ($equals(element, $DateFormat$Field::HOUR1)) {
 					calendarField = $Calendar::HOUR;
 				} else {
-					calendarField = $nc(($cast($DateFormat$Field, element)))->getCalendarField();
+					calendarField = $nc($cast($DateFormat$Field, element))->getCalendarField();
 				}
 				if (calendarField != -1) {
 					return calendarField;
@@ -307,16 +243,16 @@ int32_t AquaSpinnerUI$ArrowButtonHandler::getCalendarField($JSpinner* spinnerCom
 
 void AquaSpinnerUI$ArrowButtonHandler::mousePressed($MouseEvent* e) {
 	bool var$0 = !$SwingUtilities::isLeftMouseButton(e);
-	if (var$0 || !$nc($($nc(e)->getComponent()))->isEnabled()) {
+	if (var$0 || !$$nc($nc(e)->getComponent())->isEnabled()) {
 		return;
 	}
 	$set(this, spinner, eventToSpinner(e));
-	$nc(this->autoRepeatTimer)->start();
+	this->autoRepeatTimer->start();
 	focusSpinnerIfNecessary();
 }
 
 void AquaSpinnerUI$ArrowButtonHandler::mouseReleased($MouseEvent* e) {
-	$nc(this->autoRepeatTimer)->stop();
+	this->autoRepeatTimer->stop();
 	$set(this, arrowButton, nullptr);
 	$set(this, spinner, nullptr);
 }
@@ -325,21 +261,21 @@ void AquaSpinnerUI$ArrowButtonHandler::mouseClicked($MouseEvent* e) {
 }
 
 void AquaSpinnerUI$ArrowButtonHandler::mouseEntered($MouseEvent* e) {
-	bool var$0 = this->spinner != nullptr && !$nc(this->autoRepeatTimer)->isRunning();
+	bool var$0 = this->spinner != nullptr && !this->autoRepeatTimer->isRunning();
 	if (var$0 && this->spinner == eventToSpinner(e)) {
-		$nc(this->autoRepeatTimer)->start();
+		this->autoRepeatTimer->start();
 	}
 }
 
 void AquaSpinnerUI$ArrowButtonHandler::mouseExited($MouseEvent* e) {
-	if ($nc(this->autoRepeatTimer)->isRunning()) {
-		$nc(this->autoRepeatTimer)->stop();
+	if (this->autoRepeatTimer->isRunning()) {
+		this->autoRepeatTimer->stop();
 	}
 }
 
 void AquaSpinnerUI$ArrowButtonHandler::focusSpinnerIfNecessary() {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, fo, $nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getFocusOwner());
+	$useLocalObjectStack();
+	$var($Component, fo, $$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getFocusOwner());
 	bool var$0 = !$nc(this->spinner)->isRequestFocusEnabled();
 	if (var$0 || (fo != nullptr && ($SwingUtilities::isDescendingFrom(fo, this->spinner)))) {
 		return;
@@ -363,12 +299,12 @@ void AquaSpinnerUI$ArrowButtonHandler::focusGained($FocusEvent* e) {
 
 void AquaSpinnerUI$ArrowButtonHandler::focusLost($FocusEvent* e) {
 	if (this->spinner == eventToSpinner(e)) {
-		if ($nc(this->autoRepeatTimer)->isRunning()) {
-			$nc(this->autoRepeatTimer)->stop();
+		if (this->autoRepeatTimer->isRunning()) {
+			this->autoRepeatTimer->stop();
 		}
 		$set(this, spinner, nullptr);
 		if (this->arrowButton != nullptr) {
-			$var($ButtonModel, model, $nc(this->arrowButton)->getModel());
+			$var($ButtonModel, model, this->arrowButton->getModel());
 			$nc(model)->setPressed(false);
 			$set(this, arrowButton, nullptr);
 		}
@@ -379,7 +315,57 @@ AquaSpinnerUI$ArrowButtonHandler::AquaSpinnerUI$ArrowButtonHandler() {
 }
 
 $Class* AquaSpinnerUI$ArrowButtonHandler::load$($String* name, bool initialize) {
-	$loadClass(AquaSpinnerUI$ArrowButtonHandler, name, initialize, &_AquaSpinnerUI$ArrowButtonHandler_ClassInfo_, allocate$AquaSpinnerUI$ArrowButtonHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"autoRepeatTimer", "Ljavax/swing/Timer;", nullptr, $FINAL, $field(AquaSpinnerUI$ArrowButtonHandler, autoRepeatTimer)},
+		{"isNext", "Z", nullptr, $FINAL, $field(AquaSpinnerUI$ArrowButtonHandler, isNext)},
+		{"spinner", "Ljavax/swing/JSpinner;", nullptr, 0, $field(AquaSpinnerUI$ArrowButtonHandler, spinner)},
+		{"arrowButton", "Ljavax/swing/JButton;", nullptr, 0, $field(AquaSpinnerUI$ArrowButtonHandler, arrowButton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, 0, $method(AquaSpinnerUI$ArrowButtonHandler, init$, void, $String*, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, actionPerformed, void, $ActionEvent*)},
+		{"eventToSpinner", "(Ljava/awt/AWTEvent;)Ljavax/swing/JSpinner;", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, eventToSpinner, $JSpinner*, $AWTEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, focusLost, void, $FocusEvent*)},
+		{"focusSpinnerIfNecessary", "()V", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, focusSpinnerIfNecessary, void)},
+		{"getCalendarField", "(Ljavax/swing/JSpinner;)I", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, getCalendarField, int32_t, $JSpinner*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaSpinnerUI$ArrowButtonHandler, mouseReleased, void, $MouseEvent*)},
+		{"select", "(Ljavax/swing/JSpinner;)V", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, select, void, $JSpinner*)},
+		{"select", "(Ljavax/swing/JFormattedTextField;Ljava/text/AttributedCharacterIterator;Ljava/text/DateFormat$Field;)Z", nullptr, $PRIVATE, $method(AquaSpinnerUI$ArrowButtonHandler, select, bool, $JFormattedTextField*, $AttributedCharacterIterator*, $DateFormat$Field*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaSpinnerUI$ArrowButtonHandler", "com.apple.laf.AquaSpinnerUI", "ArrowButtonHandler", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaSpinnerUI$ArrowButtonHandler",
+		"javax.swing.AbstractAction",
+		"java.awt.event.FocusListener,java.awt.event.MouseListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaSpinnerUI"
+	};
+	$loadClass(AquaSpinnerUI$ArrowButtonHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaSpinnerUI$ArrowButtonHandler));
+	});
 	return class$;
 }
 

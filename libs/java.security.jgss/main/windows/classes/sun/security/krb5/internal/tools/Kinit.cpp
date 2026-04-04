@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/tools/Kinit.h>
-
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -26,7 +25,6 @@
 
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,7 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $KeyTab = ::javax::security::auth::kerberos::KeyTab;
 using $Config = ::sun::security::krb5::Config;
-using $1Credentials = ::sun::security::krb5::Credentials;
 using $KrbAsReqBuilder = ::sun::security::krb5::KrbAsReqBuilder;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
@@ -53,46 +50,21 @@ namespace sun {
 			namespace internal {
 				namespace tools {
 
-$FieldInfo _Kinit_FieldInfo_[] = {
-	{"options", "Lsun/security/krb5/internal/tools/KinitOptions;", nullptr, $PRIVATE, $field(Kinit, options)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Kinit, DEBUG)},
-	{}
-};
-
-$MethodInfo _Kinit_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Kinit, init$, void, $StringArray*), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
-	{"acquire", "()V", nullptr, $PRIVATE, $method(Kinit, acquire, void), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinit, main, void, $StringArray*)},
-	{"renew", "()V", nullptr, $PRIVATE, $method(Kinit, renew, void), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
-	{"setOptions", "(IILsun/security/krb5/internal/KDCOptions;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Kinit, setOptions, void, int32_t, int32_t, $KDCOptions*)},
-	{}
-};
-
-$ClassInfo _Kinit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.tools.Kinit",
-	"java.lang.Object",
-	nullptr,
-	_Kinit_FieldInfo_,
-	_Kinit_MethodInfo_
-};
-
-$Object* allocate$Kinit($Class* clazz) {
-	return $of($alloc(Kinit));
-}
-
 bool Kinit::DEBUG = false;
 
 void Kinit::main($StringArray* args) {
 	$init(Kinit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var(Kinit, self, $new(Kinit, args));
 	} catch ($Exception& e) {
 		$var($String, msg, nullptr);
 		if ($instanceOf($KrbException, e)) {
-			$var($String, var$0, $$str({$($nc(($cast($KrbException, e)))->krbErrorMessage()), " "_s}));
-			$assign(msg, $concat(var$0, $($nc(($cast($KrbException, e)))->returnCodeMessage())));
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append($($cast($KrbException, e)->krbErrorMessage()));
+			var$0->append(" "_s);
+			var$0->append($($cast($KrbException, e)->returnCodeMessage()));
+			$assign(msg, $str(var$0));
 		} else {
 			$assign(msg, e->getMessage());
 		}
@@ -108,32 +80,26 @@ void Kinit::main($StringArray* args) {
 }
 
 void Kinit::init$($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	if (args == nullptr || $nc(args)->length == 0) {
+	$useLocalObjectStack();
+	if (args == nullptr || args->length == 0) {
 		$set(this, options, $new($KinitOptions));
 	} else {
 		$set(this, options, $new($KinitOptions, args));
 	}
 	switch ($nc(this->options)->action) {
 	case 1:
-		{
-			acquire();
-			break;
-		}
+		acquire();
+		break;
 	case 2:
-		{
-			renew();
-			break;
-		}
+		renew();
+		break;
 	default:
-		{
-			$throwNew($KrbException, $$str({"kinit does not support action "_s, $$str($nc(this->options)->action)}));
-		}
+		$throwNew($KrbException, $$str({"kinit does not support action "_s, $$str($nc(this->options)->action)}));
 	}
 }
 
 void Kinit::renew() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PrincipalName, principal, $nc(this->options)->getPrincipal());
 	$var($String, realm, $nc(principal)->getRealmAsString());
 	$var($CredentialsCache, cache, $CredentialsCache::getInstance($nc(this->options)->cachename));
@@ -141,17 +107,17 @@ void Kinit::renew() {
 		$throwNew($IOException, $$str({"Unable to find existing cache file "_s, $nc(this->options)->cachename}));
 	}
 	$var($Credentials, credentials, $nc(cache)->getCreds($($PrincipalName::tgsService(realm, realm))));
-	$assign(credentials, $nc($($nc($($nc(credentials)->setKrbCreds()))->renew()))->toCCacheCreds());
+	$assign(credentials, $$nc($$nc($nc(credentials)->setKrbCreds())->renew())->toCCacheCreds());
 	$assign(cache, $CredentialsCache::create(principal, $nc(this->options)->cachename));
 	if (cache == nullptr) {
 		$throwNew($IOException, $$str({"Unable to create the cache file "_s, $nc(this->options)->cachename}));
 	}
-	cache->update(credentials);
+	$nc(cache)->update(credentials);
 	cache->save();
 }
 
 void Kinit::acquire() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, princName, nullptr);
 	$var($PrincipalName, principal, $nc(this->options)->getPrincipal());
 	if (principal != nullptr) {
@@ -162,17 +128,17 @@ void Kinit::acquire() {
 		$nc($System::out)->println($$str({"Principal is "_s, principal}));
 	}
 	$var($chars, psswd, $nc(this->options)->password);
-	bool useKeytab = $nc(this->options)->useKeytabFile();
+	bool useKeytab = this->options->useKeytabFile();
 	if (!useKeytab) {
 		if (princName == nullptr) {
 			$throwNew($IllegalArgumentException, " Can not obtain principal name"_s);
 		}
 		if (psswd == nullptr) {
 			$nc($System::out)->print($$str({"Password for "_s, princName, ":"_s}));
-			$nc($System::out)->flush();
+			$System::out->flush();
 			$assign(psswd, $Password::readPassword($System::in));
 			if (Kinit::DEBUG) {
-				$nc($System::out)->println($$str({">>> Kinit console input "_s, $$new($String, psswd)}));
+				$System::out->println($$str({">>> Kinit console input "_s, $$new($String, psswd)}));
 			}
 		}
 		$assign(builder, $new($KrbAsReqBuilder, principal, psswd));
@@ -197,7 +163,7 @@ void Kinit::acquire() {
 	$nc(builder)->setOptions(opt);
 	$var($String, realm, $nc(this->options)->getKDCRealm());
 	if (realm == nullptr) {
-		$assign(realm, $nc($($Config::getInstance()))->getDefaultRealm());
+		$assign(realm, $$nc($Config::getInstance())->getDefaultRealm());
 	}
 	if (Kinit::DEBUG) {
 		$nc($System::out)->println($$str({">>> Kinit realm name is "_s, realm}));
@@ -222,9 +188,9 @@ void Kinit::acquire() {
 	$nc(cache)->update(credentials);
 	cache->save();
 	if ($nc(this->options)->password == nullptr) {
-		$nc($System::out)->println($$str({"New ticket is stored in cache file "_s, $nc(this->options)->cachename}));
+		$nc($System::out)->println($$str({"New ticket is stored in cache file "_s, this->options->cachename}));
 	} else {
-		$Arrays::fill($nc(this->options)->password, u'0');
+		$Arrays::fill(this->options->password, u'0');
 	}
 	if (psswd != nullptr) {
 		$Arrays::fill(psswd, u'0');
@@ -236,22 +202,16 @@ void Kinit::setOptions(int32_t flag, int32_t option, $KDCOptions* opt) {
 	$init(Kinit);
 	switch (option) {
 	case 0:
-		{
-			break;
-		}
+		break;
 	case -1:
-		{
-			$nc(opt)->set(flag, false);
-			break;
-		}
+		$nc(opt)->set(flag, false);
+		break;
 	case 1:
-		{
-			$nc(opt)->set(flag, true);
-		}
+		$nc(opt)->set(flag, true);
 	}
 }
 
-void clinit$Kinit($Class* class$) {
+void Kinit::clinit$($Class* clazz) {
 	$init($Krb5);
 	Kinit::DEBUG = $Krb5::DEBUG;
 }
@@ -260,7 +220,30 @@ Kinit::Kinit() {
 }
 
 $Class* Kinit::load$($String* name, bool initialize) {
-	$loadClass(Kinit, name, initialize, &_Kinit_ClassInfo_, clinit$Kinit, allocate$Kinit);
+	$FieldInfo fieldInfos$$[] = {
+		{"options", "Lsun/security/krb5/internal/tools/KinitOptions;", nullptr, $PRIVATE, $field(Kinit, options)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Kinit, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/String;)V", nullptr, $PRIVATE, $method(Kinit, init$, void, $StringArray*), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
+		{"acquire", "()V", nullptr, $PRIVATE, $method(Kinit, acquire, void), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Kinit, main, void, $StringArray*)},
+		{"renew", "()V", nullptr, $PRIVATE, $method(Kinit, renew, void), "java.io.IOException,sun.security.krb5.RealmException,sun.security.krb5.KrbException"},
+		{"setOptions", "(IILsun/security/krb5/internal/KDCOptions;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Kinit, setOptions, void, int32_t, int32_t, $KDCOptions*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.tools.Kinit",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Kinit, name, initialize, &classInfo$$, Kinit::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Kinit);
+	});
 	return class$;
 }
 

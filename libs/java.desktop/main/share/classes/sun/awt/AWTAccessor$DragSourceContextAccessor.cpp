@@ -1,5 +1,4 @@
 #include <sun/awt/AWTAccessor$DragSourceContextAccessor.h>
-
 #include <java/awt/dnd/DragSourceContext.h>
 #include <java/awt/dnd/peer/DragSourceContextPeer.h>
 #include <sun/awt/AWTAccessor.h>
@@ -14,38 +13,33 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AWTAccessor$DragSourceContextAccessor_MethodInfo_[] = {
-	{"getPeer", "(Ljava/awt/dnd/DragSourceContext;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$DragSourceContextAccessor, getPeer, $DragSourceContextPeer*, $DragSourceContext*)},
-	{}
-};
-
-$InnerClassInfo _AWTAccessor$DragSourceContextAccessor_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAccessor$DragSourceContextAccessor", "sun.awt.AWTAccessor", "DragSourceContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AWTAccessor$DragSourceContextAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.AWTAccessor$DragSourceContextAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AWTAccessor$DragSourceContextAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAccessor$DragSourceContextAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAccessor"
-};
-
-$Object* allocate$AWTAccessor$DragSourceContextAccessor($Class* clazz) {
-	return $of($alloc(AWTAccessor$DragSourceContextAccessor));
-}
-
 $Class* AWTAccessor$DragSourceContextAccessor::load$($String* name, bool initialize) {
-	$loadClass(AWTAccessor$DragSourceContextAccessor, name, initialize, &_AWTAccessor$DragSourceContextAccessor_ClassInfo_, allocate$AWTAccessor$DragSourceContextAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"getPeer", "(Ljava/awt/dnd/DragSourceContext;)Ljava/awt/dnd/peer/DragSourceContextPeer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$DragSourceContextAccessor, getPeer, $DragSourceContextPeer*, $DragSourceContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAccessor$DragSourceContextAccessor", "sun.awt.AWTAccessor", "DragSourceContextAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.AWTAccessor$DragSourceContextAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAccessor"
+	};
+	$loadClass(AWTAccessor$DragSourceContextAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAccessor$DragSourceContextAccessor);
+	});
 	return class$;
 }
 

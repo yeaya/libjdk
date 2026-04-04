@@ -1,5 +1,4 @@
 #include <javax/management/remote/JMXConnectorFactory$1.h>
-
 #include <javax/management/remote/JMXConnectorFactory.h>
 #include <jcpp.h>
 
@@ -12,43 +11,6 @@ namespace javax {
 	namespace management {
 		namespace remote {
 
-$MethodInfo _JMXConnectorFactory$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JMXConnectorFactory$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorFactory$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _JMXConnectorFactory$1_EnclosingMethodInfo_ = {
-	"javax.management.remote.JMXConnectorFactory",
-	"resolvePkgs",
-	"(Ljava/util/Map;)Ljava/lang/String;"
-};
-
-$InnerClassInfo _JMXConnectorFactory$1_InnerClassesInfo_[] = {
-	{"javax.management.remote.JMXConnectorFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JMXConnectorFactory$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.remote.JMXConnectorFactory$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_JMXConnectorFactory$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_JMXConnectorFactory$1_EnclosingMethodInfo_,
-	_JMXConnectorFactory$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.JMXConnectorFactory"
-};
-
-$Object* allocate$JMXConnectorFactory$1($Class* clazz) {
-	return $of($alloc(JMXConnectorFactory$1));
-}
-
 void JMXConnectorFactory$1::init$() {
 }
 
@@ -60,7 +22,38 @@ JMXConnectorFactory$1::JMXConnectorFactory$1() {
 }
 
 $Class* JMXConnectorFactory$1::load$($String* name, bool initialize) {
-	$loadClass(JMXConnectorFactory$1, name, initialize, &_JMXConnectorFactory$1_ClassInfo_, allocate$JMXConnectorFactory$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JMXConnectorFactory$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JMXConnectorFactory$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.management.remote.JMXConnectorFactory",
+		"resolvePkgs",
+		"(Ljava/util/Map;)Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.JMXConnectorFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.remote.JMXConnectorFactory$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.JMXConnectorFactory"
+	};
+	$loadClass(JMXConnectorFactory$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JMXConnectorFactory$1);
+	});
 	return class$;
 }
 

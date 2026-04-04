@@ -29,6 +29,7 @@ class ConnectionOutputStream : public ::sun::rmi::server::MarshalOutputStream {
 	$class(ConnectionOutputStream, 0, ::sun::rmi::server::MarshalOutputStream)
 public:
 	ConnectionOutputStream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::rmi::transport::Connection* conn, bool resultStream);
 	virtual void done();
 	virtual ::sun::rmi::transport::DGCAckHandler* getDGCAckHandler();

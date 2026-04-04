@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo$PosKind.h>
-
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <java/io/Serializable.h>
@@ -42,27 +41,24 @@ public:
 	virtual int32_t applyAsInt(Object$* tree) override {
 		 return $TreeInfo::getStartPos($cast($JCTree, tree));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$PosKind$$Lambda$getStartPos>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$PosKind$$Lambda$getStartPos::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$getStartPos, init$, void)},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$getStartPos, applyAsInt, int32_t, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$PosKind$$Lambda$getStartPos::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$getStartPos",
-	"java.lang.Object",
-	"java.util.function.ToIntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$PosKind$$Lambda$getStartPos::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$PosKind$$Lambda$getStartPos, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$getStartPos, init$, void)},
+		{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$getStartPos, applyAsInt, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$getStartPos",
+		"java.lang.Object",
+		"java.util.function.ToIntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$PosKind$$Lambda$getStartPos, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$PosKind$$Lambda$getStartPos);
+	});
 	return class$;
 }
 $Class* TreeInfo$PosKind$$Lambda$getStartPos::class$ = nullptr;
@@ -75,27 +71,24 @@ public:
 	virtual int32_t applyAsInt(Object$* tree) override {
 		 return $TreeInfo::firstStatPos($cast($JCTree, tree));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$PosKind$$Lambda$firstStatPos$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$PosKind$$Lambda$firstStatPos$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$firstStatPos$1, init$, void)},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$firstStatPos$1, applyAsInt, int32_t, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$PosKind$$Lambda$firstStatPos$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$firstStatPos$1",
-	"java.lang.Object",
-	"java.util.function.ToIntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$PosKind$$Lambda$firstStatPos$1::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$PosKind$$Lambda$firstStatPos$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$firstStatPos$1, init$, void)},
+		{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$firstStatPos$1, applyAsInt, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$firstStatPos$1",
+		"java.lang.Object",
+		"java.util.function.ToIntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$PosKind$$Lambda$firstStatPos$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$PosKind$$Lambda$firstStatPos$1);
+	});
 	return class$;
 }
 $Class* TreeInfo$PosKind$$Lambda$firstStatPos$1::class$ = nullptr;
@@ -108,73 +101,27 @@ public:
 	virtual int32_t applyAsInt(Object$* tree) override {
 		 return $TreeInfo::endPos($cast($JCTree, tree));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TreeInfo$PosKind$$Lambda$endPos$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TreeInfo$PosKind$$Lambda$endPos$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$endPos$2, init$, void)},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$endPos$2, applyAsInt, int32_t, Object$*)},
-	{}
-};
-$ClassInfo TreeInfo$PosKind$$Lambda$endPos$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$endPos$2",
-	"java.lang.Object",
-	"java.util.function.ToIntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* TreeInfo$PosKind$$Lambda$endPos$2::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$PosKind$$Lambda$endPos$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TreeInfo$PosKind$$Lambda$endPos$2, init$, void)},
+		{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$PosKind$$Lambda$endPos$2, applyAsInt, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$endPos$2",
+		"java.lang.Object",
+		"java.util.function.ToIntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TreeInfo$PosKind$$Lambda$endPos$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$PosKind$$Lambda$endPos$2);
+	});
 	return class$;
 }
 $Class* TreeInfo$PosKind$$Lambda$endPos$2::class$ = nullptr;
-
-$FieldInfo _TreeInfo$PosKind_FieldInfo_[] = {
-	{"START_POS", "Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TreeInfo$PosKind, START_POS)},
-	{"FIRST_STAT_POS", "Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TreeInfo$PosKind, FIRST_STAT_POS)},
-	{"END_POS", "Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TreeInfo$PosKind, END_POS)},
-	{"$VALUES", "[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TreeInfo$PosKind, $VALUES)},
-	{"posFunc", "Ljava/util/function/ToIntFunction;", "Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/tree/JCTree;>;", $FINAL, $field(TreeInfo$PosKind, posFunc)},
-	{}
-};
-
-$MethodInfo _TreeInfo$PosKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo$PosKind, $values, $TreeInfo$PosKindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/util/function/ToIntFunction;)V", "(Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/tree/JCTree;>;)V", $PRIVATE, $method(TreeInfo$PosKind, init$, void, $String*, int32_t, $ToIntFunction*)},
-	{"toPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, 0, $method(TreeInfo$PosKind, toPos, int32_t, $JCTree*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo$PosKind, valueOf, TreeInfo$PosKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo$PosKind, values, $TreeInfo$PosKindArray*)},
-	{}
-};
-
-$InnerClassInfo _TreeInfo$PosKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$PosKind", "com.sun.tools.javac.tree.TreeInfo", "PosKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TreeInfo$PosKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.tree.TreeInfo$PosKind",
-	"java.lang.Enum",
-	nullptr,
-	_TreeInfo$PosKind_FieldInfo_,
-	_TreeInfo$PosKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/tree/TreeInfo$PosKind;>;",
-	nullptr,
-	_TreeInfo$PosKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo"
-};
-
-$Object* allocate$TreeInfo$PosKind($Class* clazz) {
-	return $of($alloc(TreeInfo$PosKind));
-}
 
 TreeInfo$PosKind* TreeInfo$PosKind::START_POS = nullptr;
 TreeInfo$PosKind* TreeInfo$PosKind::FIRST_STAT_POS = nullptr;
@@ -209,11 +156,11 @@ int32_t TreeInfo$PosKind::toPos($JCTree* tree) {
 	return $nc(this->posFunc)->applyAsInt(tree);
 }
 
-void clinit$TreeInfo$PosKind($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$assignStatic(TreeInfo$PosKind::START_POS, $new(TreeInfo$PosKind, "START_POS"_s, 0, static_cast<$ToIntFunction*>($$new(TreeInfo$PosKind$$Lambda$getStartPos))));
-	$assignStatic(TreeInfo$PosKind::FIRST_STAT_POS, $new(TreeInfo$PosKind, "FIRST_STAT_POS"_s, 1, static_cast<$ToIntFunction*>($$new(TreeInfo$PosKind$$Lambda$firstStatPos$1))));
-	$assignStatic(TreeInfo$PosKind::END_POS, $new(TreeInfo$PosKind, "END_POS"_s, 2, static_cast<$ToIntFunction*>($$new(TreeInfo$PosKind$$Lambda$endPos$2))));
+void TreeInfo$PosKind::clinit$($Class* clazz) {
+	$useLocalObjectStack();
+	$assignStatic(TreeInfo$PosKind::START_POS, $new(TreeInfo$PosKind, "START_POS"_s, 0, $$new(TreeInfo$PosKind$$Lambda$getStartPos)));
+	$assignStatic(TreeInfo$PosKind::FIRST_STAT_POS, $new(TreeInfo$PosKind, "FIRST_STAT_POS"_s, 1, $$new(TreeInfo$PosKind$$Lambda$firstStatPos$1)));
+	$assignStatic(TreeInfo$PosKind::END_POS, $new(TreeInfo$PosKind, "END_POS"_s, 2, $$new(TreeInfo$PosKind$$Lambda$endPos$2)));
 	$assignStatic(TreeInfo$PosKind::$VALUES, TreeInfo$PosKind::$values());
 }
 
@@ -222,17 +169,54 @@ TreeInfo$PosKind::TreeInfo$PosKind() {
 
 $Class* TreeInfo$PosKind::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TreeInfo$PosKind$$Lambda$getStartPos::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$getStartPos")) {
 			return TreeInfo$PosKind$$Lambda$getStartPos::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$PosKind$$Lambda$firstStatPos$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$firstStatPos$1")) {
 			return TreeInfo$PosKind$$Lambda$firstStatPos$1::load$(name, initialize);
 		}
-		if (name->equals(TreeInfo$PosKind$$Lambda$endPos$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.tree.TreeInfo$PosKind$$Lambda$endPos$2")) {
 			return TreeInfo$PosKind$$Lambda$endPos$2::load$(name, initialize);
 		}
 	}
-	$loadClass(TreeInfo$PosKind, name, initialize, &_TreeInfo$PosKind_ClassInfo_, clinit$TreeInfo$PosKind, allocate$TreeInfo$PosKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"START_POS", "Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TreeInfo$PosKind, START_POS)},
+		{"FIRST_STAT_POS", "Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TreeInfo$PosKind, FIRST_STAT_POS)},
+		{"END_POS", "Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TreeInfo$PosKind, END_POS)},
+		{"$VALUES", "[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TreeInfo$PosKind, $VALUES)},
+		{"posFunc", "Ljava/util/function/ToIntFunction;", "Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/tree/JCTree;>;", $FINAL, $field(TreeInfo$PosKind, posFunc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TreeInfo$PosKind, $values, $TreeInfo$PosKindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/util/function/ToIntFunction;)V", "(Ljava/util/function/ToIntFunction<Lcom/sun/tools/javac/tree/JCTree;>;)V", $PRIVATE, $method(TreeInfo$PosKind, init$, void, $String*, int32_t, $ToIntFunction*)},
+		{"toPos", "(Lcom/sun/tools/javac/tree/JCTree;)I", nullptr, 0, $method(TreeInfo$PosKind, toPos, int32_t, $JCTree*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo$PosKind, valueOf, TreeInfo$PosKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/tree/TreeInfo$PosKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreeInfo$PosKind, values, $TreeInfo$PosKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$PosKind", "com.sun.tools.javac.tree.TreeInfo", "PosKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.tree.TreeInfo$PosKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/tree/TreeInfo$PosKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo"
+	};
+	$loadClass(TreeInfo$PosKind, name, initialize, &classInfo$$, TreeInfo$PosKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TreeInfo$PosKind));
+	});
 	return class$;
 }
 

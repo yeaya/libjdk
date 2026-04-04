@@ -1,5 +1,4 @@
 #include <java/beans/PropertyChangeSupport.h>
-
 #include <java/beans/IndexedPropertyChangeEvent.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -41,68 +40,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $EventListener = ::java::util::EventListener;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _PropertyChangeSupport_FieldInfo_[] = {
-	{"map", "Ljava/beans/PropertyChangeSupport$PropertyChangeListenerMap;", nullptr, $PRIVATE, $field(PropertyChangeSupport, map)},
-	{"source", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyChangeSupport, source)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyChangeSupport, serialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyChangeSupport, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PropertyChangeSupport_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PropertyChangeSupport, init$, void, Object$*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"fire", "([Ljava/beans/PropertyChangeListener;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PropertyChangeSupport, fire, void, $PropertyChangeListenerArray*, $PropertyChangeEvent*)},
-	{"fireIndexedPropertyChange", "(Ljava/lang/String;ILjava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, fireIndexedPropertyChange, void, $String*, int32_t, Object$*, Object$*)},
-	{"fireIndexedPropertyChange", "(Ljava/lang/String;III)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, fireIndexedPropertyChange, void, $String*, int32_t, int32_t, int32_t)},
-	{"fireIndexedPropertyChange", "(Ljava/lang/String;IZZ)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, fireIndexedPropertyChange, void, $String*, int32_t, bool, bool)},
-	{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, firePropertyChange, void, $String*, Object$*, Object$*)},
-	{"firePropertyChange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, firePropertyChange, void, $String*, int32_t, int32_t)},
-	{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, firePropertyChange, void, $String*, bool, bool)},
-	{"firePropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, firePropertyChange, void, $PropertyChangeEvent*)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getPropertyChangeListeners", "(Ljava/lang/String;)[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, getPropertyChangeListeners, $PropertyChangeListenerArray*, $String*)},
-	{"hasListeners", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, hasListeners, bool, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PropertyChangeSupport, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PropertyChangeSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _PropertyChangeSupport_InnerClassesInfo_[] = {
-	{"java.beans.PropertyChangeSupport$PropertyChangeListenerMap", "java.beans.PropertyChangeSupport", "PropertyChangeListenerMap", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PropertyChangeSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.PropertyChangeSupport",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_PropertyChangeSupport_FieldInfo_,
-	_PropertyChangeSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PropertyChangeSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.beans.PropertyChangeSupport$PropertyChangeListenerMap"
-};
-
-$Object* allocate$PropertyChangeSupport($Class* clazz) {
-	return $of($alloc(PropertyChangeSupport));
-}
 
 $ObjectStreamFieldArray* PropertyChangeSupport::serialPersistentFields = nullptr;
 
@@ -115,35 +58,35 @@ void PropertyChangeSupport::init$(Object$* sourceBean) {
 }
 
 void PropertyChangeSupport::addPropertyChangeListener($PropertyChangeListener* listener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (listener == nullptr) {
 		return;
 	}
 	if ($instanceOf($PropertyChangeListenerProxy, listener)) {
 		$var($PropertyChangeListenerProxy, proxy, $cast($PropertyChangeListenerProxy, listener));
-		$var($String, var$0, $nc(proxy)->getPropertyName());
-		addPropertyChangeListener(var$0, $cast($PropertyChangeListener, $(proxy->getListener())));
+		$var($String, var$0, proxy->getPropertyName());
+		addPropertyChangeListener(var$0, $$cast($PropertyChangeListener, proxy->getListener()));
 	} else {
 		$nc(this->map)->add(nullptr, listener);
 	}
 }
 
 void PropertyChangeSupport::removePropertyChangeListener($PropertyChangeListener* listener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (listener == nullptr) {
 		return;
 	}
 	if ($instanceOf($PropertyChangeListenerProxy, listener)) {
 		$var($PropertyChangeListenerProxy, proxy, $cast($PropertyChangeListenerProxy, listener));
-		$var($String, var$0, $nc(proxy)->getPropertyName());
-		removePropertyChangeListener(var$0, $cast($PropertyChangeListener, $(proxy->getListener())));
+		$var($String, var$0, proxy->getPropertyName());
+		removePropertyChangeListener(var$0, $$cast($PropertyChangeListener, proxy->getListener()));
 	} else {
 		$nc(this->map)->remove(nullptr, listener);
 	}
 }
 
 $PropertyChangeListenerArray* PropertyChangeSupport::getPropertyChangeListeners() {
-	return $fcast($PropertyChangeListenerArray, $nc(this->map)->getListeners());
+	return $cast($PropertyChangeListenerArray, $nc(this->map)->getListeners());
 }
 
 void PropertyChangeSupport::addPropertyChangeListener($String* propertyName, $PropertyChangeListener* listener$renamed) {
@@ -169,41 +112,39 @@ void PropertyChangeSupport::removePropertyChangeListener($String* propertyName, 
 }
 
 $PropertyChangeListenerArray* PropertyChangeSupport::getPropertyChangeListeners($String* propertyName) {
-	return $fcast($PropertyChangeListenerArray, $nc(this->map)->getListeners(propertyName));
+	return $cast($PropertyChangeListenerArray, $nc(this->map)->getListeners(propertyName));
 }
 
 void PropertyChangeSupport::firePropertyChange($String* propertyName, Object$* oldValue, Object$* newValue) {
-	if (oldValue == nullptr || newValue == nullptr || !$nc($of(oldValue))->equals(newValue)) {
+	if (oldValue == nullptr || newValue == nullptr || !$of(oldValue)->equals(newValue)) {
 		firePropertyChange($$new($PropertyChangeEvent, this->source, propertyName, oldValue, newValue));
 	}
 }
 
 void PropertyChangeSupport::firePropertyChange($String* propertyName, int32_t oldValue, int32_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldValue != newValue) {
-		$var($String, var$0, propertyName);
-		$var($Object, var$1, $of($Integer::valueOf(oldValue)));
-		firePropertyChange(var$0, var$1, $($of($Integer::valueOf(newValue))));
+		$var($Object, var$0, $Integer::valueOf(oldValue));
+		firePropertyChange(propertyName, var$0, $($Integer::valueOf(newValue)));
 	}
 }
 
 void PropertyChangeSupport::firePropertyChange($String* propertyName, bool oldValue, bool newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldValue != newValue) {
-		$var($String, var$0, propertyName);
-		$var($Object, var$1, $of($Boolean::valueOf(oldValue)));
-		firePropertyChange(var$0, var$1, $($of($Boolean::valueOf(newValue))));
+		$var($Object, var$0, $Boolean::valueOf(oldValue));
+		firePropertyChange(propertyName, var$0, $($Boolean::valueOf(newValue)));
 	}
 }
 
 void PropertyChangeSupport::firePropertyChange($PropertyChangeEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, oldValue, $nc(event)->getOldValue());
 	$var($Object, newValue, event->getNewValue());
-	if (oldValue == nullptr || newValue == nullptr || !$nc($of(oldValue))->equals(newValue)) {
+	if (oldValue == nullptr || newValue == nullptr || !oldValue->equals(newValue)) {
 		$var($String, name, event->getPropertyName());
-		$var($PropertyChangeListenerArray, common, $fcast($PropertyChangeListenerArray, $nc(this->map)->get(nullptr)));
-		$var($PropertyChangeListenerArray, named, (name != nullptr) ? $fcast($PropertyChangeListenerArray, $nc(this->map)->get(name)) : ($PropertyChangeListenerArray*)nullptr);
+		$var($PropertyChangeListenerArray, common, $cast($PropertyChangeListenerArray, $nc(this->map)->get(nullptr)));
+		$var($PropertyChangeListenerArray, named, (name != nullptr) ? $cast($PropertyChangeListenerArray, $nc(this->map)->get(name)) : ($PropertyChangeListenerArray*)nullptr);
 		fire(common, event);
 		fire(named, event);
 	}
@@ -211,45 +152,37 @@ void PropertyChangeSupport::firePropertyChange($PropertyChangeEvent* event) {
 
 void PropertyChangeSupport::fire($PropertyChangeListenerArray* listeners, $PropertyChangeEvent* event) {
 	$init(PropertyChangeSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (listeners != nullptr) {
-		{
-			$var($PropertyChangeListenerArray, arr$, listeners);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($PropertyChangeListener, listener, arr$->get(i$));
-				{
-					$nc(listener)->propertyChange(event);
-				}
+		$var($PropertyChangeListenerArray, arr$, listeners);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($PropertyChangeListener, listener, arr$->get(i$));
+			{
+				$nc(listener)->propertyChange(event);
 			}
 		}
 	}
 }
 
 void PropertyChangeSupport::fireIndexedPropertyChange($String* propertyName, int32_t index, Object$* oldValue, Object$* newValue) {
-	if (oldValue == nullptr || newValue == nullptr || !$nc($of(oldValue))->equals(newValue)) {
+	if (oldValue == nullptr || newValue == nullptr || !$of(oldValue)->equals(newValue)) {
 		firePropertyChange($$new($IndexedPropertyChangeEvent, this->source, propertyName, oldValue, newValue, index));
 	}
 }
 
 void PropertyChangeSupport::fireIndexedPropertyChange($String* propertyName, int32_t index, int32_t oldValue, int32_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldValue != newValue) {
-		$var($String, var$0, propertyName);
-		int32_t var$1 = index;
-		$var($Object, var$2, $of($Integer::valueOf(oldValue)));
-		fireIndexedPropertyChange(var$0, var$1, var$2, $($of($Integer::valueOf(newValue))));
+		$var($Object, var$0, $Integer::valueOf(oldValue));
+		fireIndexedPropertyChange(propertyName, index, var$0, $($Integer::valueOf(newValue)));
 	}
 }
 
 void PropertyChangeSupport::fireIndexedPropertyChange($String* propertyName, int32_t index, bool oldValue, bool newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (oldValue != newValue) {
-		$var($String, var$0, propertyName);
-		int32_t var$1 = index;
-		$var($Object, var$2, $of($Boolean::valueOf(oldValue)));
-		fireIndexedPropertyChange(var$0, var$1, var$2, $($of($Boolean::valueOf(newValue))));
+		$var($Object, var$0, $Boolean::valueOf(oldValue));
+		fireIndexedPropertyChange(propertyName, index, var$0, $($Boolean::valueOf(newValue)));
 	}
 }
 
@@ -258,47 +191,39 @@ bool PropertyChangeSupport::hasListeners($String* propertyName) {
 }
 
 void PropertyChangeSupport::writeObject($ObjectOutputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Hashtable, children, nullptr);
 	$var($PropertyChangeListenerArray, listeners, nullptr);
 	$synchronized(this->map) {
-		{
-			$var($Iterator, i$, $nc($($nc(this->map)->getEntries()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					$var($String, property, $cast($String, $nc(entry)->getKey()));
-					if (property == nullptr) {
-						$assign(listeners, $cast($PropertyChangeListenerArray, entry->getValue()));
-					} else {
-						if (children == nullptr) {
-							$assign(children, $new($Hashtable));
-						}
-						$var(PropertyChangeSupport, pcs, $new(PropertyChangeSupport, this->source));
-						$nc(pcs->map)->set(nullptr, $fcast($EventListenerArray, $cast($PropertyChangeListenerArray, $(entry->getValue()))));
-						$nc(children)->put(property, pcs);
+		$var($Iterator, i$, $$nc(this->map->getEntries())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($String, property, $cast($String, $nc(entry)->getKey()));
+				if (property == nullptr) {
+					$assign(listeners, $cast($PropertyChangeListenerArray, entry->getValue()));
+				} else {
+					if (children == nullptr) {
+						$assign(children, $new($Hashtable));
 					}
+					$var(PropertyChangeSupport, pcs, $new(PropertyChangeSupport, this->source));
+					$nc(pcs->map)->set(nullptr, $$cast($EventListenerArray, $cast($PropertyChangeListenerArray, entry->getValue())));
+					$nc(children)->put(property, pcs);
 				}
 			}
 		}
 	}
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
-	$nc(fields)->put("children"_s, $of(children));
+	$nc(fields)->put("children"_s, children);
 	fields->put("source"_s, this->source);
 	fields->put("propertyChangeSupportSerializedDataVersion"_s, 2);
 	s->writeFields();
 	if (listeners != nullptr) {
-		{
-			$var($PropertyChangeListenerArray, arr$, listeners);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($PropertyChangeListener, l, arr$->get(i$));
-				{
-					if ($instanceOf($Serializable, l)) {
-						s->writeObject(l);
-					}
-				}
+		$var($PropertyChangeListenerArray, arr$, listeners);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($PropertyChangeListener, l, arr$->get(i$));
+			if ($instanceOf($Serializable, l)) {
+				s->writeObject(l);
 			}
 		}
 	}
@@ -306,32 +231,26 @@ void PropertyChangeSupport::writeObject($ObjectOutputStream* s) {
 }
 
 void PropertyChangeSupport::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, map, $new($PropertyChangeSupport$PropertyChangeListenerMap));
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$var($Hashtable, children, $cast($Hashtable, $nc(fields)->get("children"_s, ($Object*)nullptr)));
-	$set(this, source, fields->get("source"_s, ($Object*)nullptr));
+	$var($Hashtable, children, $cast($Hashtable, $nc(fields)->get("children"_s, nullptr)));
+	$set(this, source, fields->get("source"_s, nullptr));
 	fields->get("propertyChangeSupportSerializedDataVersion"_s, 2);
 	$var($Object, listenerOrNull, nullptr);
 	while (nullptr != ($assign(listenerOrNull, s->readObject()))) {
 		$nc(this->map)->add(nullptr, $cast($PropertyChangeListener, listenerOrNull));
 	}
 	if (children != nullptr) {
-		{
-			$var($Iterator, i$, $nc($(children->entrySet()))->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
+		$var($Iterator, i$, $$nc(children->entrySet())->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
+			{
+				$var($PropertyChangeListenerArray, arr$, $$sure(PropertyChangeSupport, $nc(entry)->getValue())->getPropertyChangeListeners());
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+					$var($PropertyChangeListener, listener, arr$->get(i$));
 					{
-						$var($PropertyChangeListenerArray, arr$, $nc(($cast(PropertyChangeSupport, $($nc(entry)->getValue()))))->getPropertyChangeListeners());
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							$var($PropertyChangeListener, listener, arr$->get(i$));
-							{
-								$nc(this->map)->add($cast($String, $(entry->getKey())), listener);
-							}
-						}
+						$nc(this->map)->add($$cast($String, entry->getKey()), listener);
 					}
 				}
 			}
@@ -339,10 +258,9 @@ void PropertyChangeSupport::readObject($ObjectInputStream* s) {
 	}
 }
 
-void clinit$PropertyChangeSupport($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void PropertyChangeSupport::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$load($Hashtable);
-	$init($Integer);
 	$assignStatic(PropertyChangeSupport::serialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "children"_s, $Hashtable::class$),
 		$$new($ObjectStreamField, "source"_s, $Object::class$),
@@ -354,7 +272,55 @@ PropertyChangeSupport::PropertyChangeSupport() {
 }
 
 $Class* PropertyChangeSupport::load$($String* name, bool initialize) {
-	$loadClass(PropertyChangeSupport, name, initialize, &_PropertyChangeSupport_ClassInfo_, clinit$PropertyChangeSupport, allocate$PropertyChangeSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"map", "Ljava/beans/PropertyChangeSupport$PropertyChangeListenerMap;", nullptr, $PRIVATE, $field(PropertyChangeSupport, map)},
+		{"source", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(PropertyChangeSupport, source)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PropertyChangeSupport, serialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PropertyChangeSupport, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PropertyChangeSupport, init$, void, Object$*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"fire", "([Ljava/beans/PropertyChangeListener;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PropertyChangeSupport, fire, void, $PropertyChangeListenerArray*, $PropertyChangeEvent*)},
+		{"fireIndexedPropertyChange", "(Ljava/lang/String;ILjava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, fireIndexedPropertyChange, void, $String*, int32_t, Object$*, Object$*)},
+		{"fireIndexedPropertyChange", "(Ljava/lang/String;III)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, fireIndexedPropertyChange, void, $String*, int32_t, int32_t, int32_t)},
+		{"fireIndexedPropertyChange", "(Ljava/lang/String;IZZ)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, fireIndexedPropertyChange, void, $String*, int32_t, bool, bool)},
+		{"firePropertyChange", "(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, firePropertyChange, void, $String*, Object$*, Object$*)},
+		{"firePropertyChange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, firePropertyChange, void, $String*, int32_t, int32_t)},
+		{"firePropertyChange", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, firePropertyChange, void, $String*, bool, bool)},
+		{"firePropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, firePropertyChange, void, $PropertyChangeEvent*)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getPropertyChangeListeners", "(Ljava/lang/String;)[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, getPropertyChangeListeners, $PropertyChangeListenerArray*, $String*)},
+		{"hasListeners", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, hasListeners, bool, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(PropertyChangeSupport, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(PropertyChangeSupport, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(PropertyChangeSupport, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.PropertyChangeSupport$PropertyChangeListenerMap", "java.beans.PropertyChangeSupport", "PropertyChangeListenerMap", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.PropertyChangeSupport",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.beans.PropertyChangeSupport$PropertyChangeListenerMap"
+	};
+	$loadClass(PropertyChangeSupport, name, initialize, &classInfo$$, PropertyChangeSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PropertyChangeSupport);
+	});
 	return class$;
 }
 

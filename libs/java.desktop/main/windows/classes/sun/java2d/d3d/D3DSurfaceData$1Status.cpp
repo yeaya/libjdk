@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DSurfaceData$1Status.h>
-
 #include <sun/java2d/d3d/D3DSurfaceData.h>
 #include <jcpp.h>
 
@@ -14,48 +13,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DSurfaceData$1Status_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/d3d/D3DSurfaceData;", nullptr, $FINAL | $SYNTHETIC, $field(D3DSurfaceData$1Status, this$0)},
-	{"success", "Z", nullptr, 0, $field(D3DSurfaceData$1Status, success)},
-	{}
-};
-
-$MethodInfo _D3DSurfaceData$1Status_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/d3d/D3DSurfaceData;)V", nullptr, 0, $method(D3DSurfaceData$1Status, init$, void, $D3DSurfaceData*)},
-	{}
-};
-
-$EnclosingMethodInfo _D3DSurfaceData$1Status_EnclosingMethodInfo_ = {
-	"sun.java2d.d3d.D3DSurfaceData",
-	"initSurface",
-	"()V"
-};
-
-$InnerClassInfo _D3DSurfaceData$1Status_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DSurfaceData$1Status", nullptr, "Status", 0},
-	{}
-};
-
-$ClassInfo _D3DSurfaceData$1Status_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DSurfaceData$1Status",
-	"java.lang.Object",
-	nullptr,
-	_D3DSurfaceData$1Status_FieldInfo_,
-	_D3DSurfaceData$1Status_MethodInfo_,
-	nullptr,
-	&_D3DSurfaceData$1Status_EnclosingMethodInfo_,
-	_D3DSurfaceData$1Status_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DSurfaceData"
-};
-
-$Object* allocate$D3DSurfaceData$1Status($Class* clazz) {
-	return $of($alloc(D3DSurfaceData$1Status));
-}
-
 void D3DSurfaceData$1Status::init$($D3DSurfaceData* this$0) {
 	$set(this, this$0, this$0);
 	this->success = false;
@@ -65,7 +22,42 @@ D3DSurfaceData$1Status::D3DSurfaceData$1Status() {
 }
 
 $Class* D3DSurfaceData$1Status::load$($String* name, bool initialize) {
-	$loadClass(D3DSurfaceData$1Status, name, initialize, &_D3DSurfaceData$1Status_ClassInfo_, allocate$D3DSurfaceData$1Status);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/d3d/D3DSurfaceData;", nullptr, $FINAL | $SYNTHETIC, $field(D3DSurfaceData$1Status, this$0)},
+		{"success", "Z", nullptr, 0, $field(D3DSurfaceData$1Status, success)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/d3d/D3DSurfaceData;)V", nullptr, 0, $method(D3DSurfaceData$1Status, init$, void, $D3DSurfaceData*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.d3d.D3DSurfaceData",
+		"initSurface",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DSurfaceData$1Status", nullptr, "Status", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DSurfaceData$1Status",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DSurfaceData"
+	};
+	$loadClass(D3DSurfaceData$1Status, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DSurfaceData$1Status);
+	});
 	return class$;
 }
 

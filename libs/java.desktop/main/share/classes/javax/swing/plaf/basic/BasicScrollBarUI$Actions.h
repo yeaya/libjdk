@@ -40,6 +40,7 @@ class BasicScrollBarUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicScrollBarUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicScrollBarUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;
 	void scroll(::javax::swing::JScrollBar* scrollBar, int32_t dir, bool block);

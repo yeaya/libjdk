@@ -24,6 +24,7 @@ class $import JCTree$JCMemberReference$OverloadKind : public ::java::lang::Enum 
 public:
 	JCTree$JCMemberReference$OverloadKind();
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCMemberReference$OverloadKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::tree::JCTree$JCMemberReference$OverloadKind* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::tree::JCTree$JCMemberReference$OverloadKind>* values();

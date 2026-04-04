@@ -108,6 +108,7 @@ class XSDComplexTypeTraverser : public ::com::sun::org::apache::xerces::internal
 	$class(XSDComplexTypeTraverser, 0, ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDAbstractParticleTraverser)
 public:
 	XSDComplexTypeTraverser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDHandler* handler, ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSAttributeChecker* gAttrCheck);
 	void addAnnotation(::com::sun::org::apache::xerces::internal::impl::xs::XSAnnotationImpl* annotation);
 	void contentBackup();

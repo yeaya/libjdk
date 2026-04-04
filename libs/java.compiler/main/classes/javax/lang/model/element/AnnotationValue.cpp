@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/AnnotationValue.h>
-
 #include <javax/lang/model/element/AnnotationValueVisitor.h>
 #include <jcpp.h>
 
@@ -12,32 +11,28 @@ namespace javax {
 		namespace model {
 			namespace element {
 
-$MethodInfo _AnnotationValue_MethodInfo_[] = {
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationValue, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationValue, getValue, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AnnotationValue_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.element.AnnotationValue",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AnnotationValue_MethodInfo_
-};
-
-$Object* allocate$AnnotationValue($Class* clazz) {
-	return $of($alloc(AnnotationValue));
-}
-
 $String* AnnotationValue::toString() {
 	 return this->$Object::toString();
 }
 
 $Class* AnnotationValue::load$($String* name, bool initialize) {
-	$loadClass(AnnotationValue, name, initialize, &_AnnotationValue_ClassInfo_, allocate$AnnotationValue);
+	$MethodInfo methodInfos$$[] = {
+		{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationValue, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AnnotationValue, getValue, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.element.AnnotationValue",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AnnotationValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AnnotationValue);
+	});
 	return class$;
 }
 

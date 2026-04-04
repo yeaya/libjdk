@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/UlawCodec$UlawCodecStream.h>
-
 #include <com/sun/media/sound/UlawCodec.h>
 #include <java/io/InputStream.h>
 #include <javax/sound/sampled/AudioFormat$Encoding.h>
@@ -15,7 +14,6 @@
 #undef ULAW_TABL
 
 using $UlawCodec = ::com::sun::media::sound::UlawCodec;
-using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -31,57 +29,8 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _UlawCodec$UlawCodecStream_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/UlawCodec;", nullptr, $FINAL | $SYNTHETIC, $field(UlawCodec$UlawCodecStream, this$0)},
-	{"tempBufferSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UlawCodec$UlawCodecStream, tempBufferSize)},
-	{"tempBuffer", "[B", nullptr, $PRIVATE, $field(UlawCodec$UlawCodecStream, tempBuffer)},
-	{"encode", "Z", nullptr, 0, $field(UlawCodec$UlawCodecStream, encode)},
-	{"encodeFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, 0, $field(UlawCodec$UlawCodecStream, encodeFormat)},
-	{"decodeFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, 0, $field(UlawCodec$UlawCodecStream, decodeFormat)},
-	{"tabByte1", "[B", nullptr, 0, $field(UlawCodec$UlawCodecStream, tabByte1)},
-	{"tabByte2", "[B", nullptr, 0, $field(UlawCodec$UlawCodecStream, tabByte2)},
-	{"highByte", "I", nullptr, 0, $field(UlawCodec$UlawCodecStream, highByte)},
-	{"lowByte", "I", nullptr, 0, $field(UlawCodec$UlawCodecStream, lowByte)},
-	{}
-};
-
-$MethodInfo _UlawCodec$UlawCodecStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/UlawCodec;Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFormat;)V", nullptr, 0, $method(UlawCodec$UlawCodecStream, init$, void, $UlawCodec*, $AudioInputStream*, $AudioFormat*)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(UlawCodec$UlawCodecStream, read, int32_t), "java.io.IOException"},
-	{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(UlawCodec$UlawCodecStream, read, int32_t, $bytes*), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(UlawCodec$UlawCodecStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"search", "(S[SS)S", nullptr, $PRIVATE, $method(UlawCodec$UlawCodecStream, search, int16_t, int16_t, $shorts*, int16_t)},
-	{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(UlawCodec$UlawCodecStream, skip, int64_t, int64_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _UlawCodec$UlawCodecStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.UlawCodec$UlawCodecStream", "com.sun.media.sound.UlawCodec", "UlawCodecStream", $PRIVATE | $FINAL},
-	{}
-};
-
-$ClassInfo _UlawCodec$UlawCodecStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.UlawCodec$UlawCodecStream",
-	"javax.sound.sampled.AudioInputStream",
-	nullptr,
-	_UlawCodec$UlawCodecStream_FieldInfo_,
-	_UlawCodec$UlawCodecStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UlawCodec$UlawCodecStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.UlawCodec"
-};
-
-$Object* allocate$UlawCodec$UlawCodecStream($Class* clazz) {
-	return $of($alloc(UlawCodec$UlawCodecStream));
-}
-
 void UlawCodec$UlawCodecStream::init$($UlawCodec* this$0, $AudioInputStream* stream, $AudioFormat* outputFormat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$AudioInputStream::init$(stream, outputFormat, $AudioSystem::NOT_SPECIFIED);
 	$set(this, tempBuffer, nullptr);
@@ -92,8 +41,12 @@ void UlawCodec$UlawCodecStream::init$($UlawCodec* this$0, $AudioInputStream* str
 	this->lowByte = 1;
 	$var($AudioFormat, inputFormat, $nc(stream)->getFormat());
 	if (!(this$0->isConversionSupported(outputFormat, inputFormat))) {
-		$var($String, var$0, $$str({"Unsupported conversion: "_s, $($nc(inputFormat)->toString()), " to "_s}));
-		$throwNew($IllegalArgumentException, $$concat(var$0, $($nc(outputFormat)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unsupported conversion: "_s);
+		var$0->append($($nc(inputFormat)->toString()));
+		var$0->append(" to "_s);
+		var$0->append($($nc(outputFormat)->toString()));
+		$throwNew($IllegalArgumentException, $$str(var$0));
 	}
 	bool PCMIsBigEndian = false;
 	$init($AudioFormat$Encoding);
@@ -106,7 +59,7 @@ void UlawCodec$UlawCodecStream::init$($UlawCodec* this$0, $AudioInputStream* str
 		this->encode = true;
 		$set(this, encodeFormat, outputFormat);
 		$set(this, decodeFormat, inputFormat);
-		PCMIsBigEndian = $nc(inputFormat)->isBigEndian();
+		PCMIsBigEndian = inputFormat->isBigEndian();
 		$set(this, tempBuffer, $new($bytes, UlawCodec$UlawCodecStream::tempBufferSize));
 	}
 	if (PCMIsBigEndian) {
@@ -124,14 +77,14 @@ void UlawCodec$UlawCodecStream::init$($UlawCodec* this$0, $AudioInputStream* str
 		this->frameLength = stream->getFrameLength();
 	}
 	this->framePos = 0;
-	this->frameSize = $nc(inputFormat)->getFrameSize();
+	this->frameSize = inputFormat->getFrameSize();
 	if (this->frameSize == $AudioSystem::NOT_SPECIFIED) {
 		this->frameSize = 1;
 	}
 }
 
 int16_t UlawCodec$UlawCodecStream::search(int16_t val, $shorts* table, int16_t size) {
-	for (int16_t i = (int16_t)0; i < size; ++i) {
+	for (int16_t i = 0; i < size; ++i) {
 		if (val <= $nc(table)->get(i)) {
 			return i;
 		}
@@ -142,7 +95,7 @@ int16_t UlawCodec$UlawCodecStream::search(int16_t val, $shorts* table, int16_t s
 int32_t UlawCodec$UlawCodecStream::read() {
 	$var($bytes, b, $new($bytes, 1));
 	if (read(b, 0, b->length) == 1) {
-		return (int32_t)(b->get(1) & (uint32_t)255);
+		return b->get(1) & 0xff;
 	}
 	return -1;
 }
@@ -156,7 +109,7 @@ int32_t UlawCodec$UlawCodecStream::read($bytes* b, int32_t off, int32_t len) {
 		len -= ($mod(len, this->frameSize));
 	}
 	if (this->encode) {
-		int16_t BIAS = (int16_t)132;
+		int16_t BIAS = 132;
 		int16_t mask = 0;
 		int16_t seg = 0;
 		int32_t i = 0;
@@ -168,21 +121,21 @@ int32_t UlawCodec$UlawCodecStream::read($bytes* b, int32_t off, int32_t len) {
 		int32_t readLen = ((readLeft > UlawCodec$UlawCodecStream::tempBufferSize) ? UlawCodec$UlawCodecStream::tempBufferSize : readLeft);
 		while ((readCount = $AudioInputStream::read(this->tempBuffer, 0, readLen)) > 0) {
 			for (i = 0; i < readCount; i += 2) {
-				sample = (int16_t)((int32_t)((($nc(this->tempBuffer)->get(i + this->highByte)) << 8) & (uint32_t)0x0000FF00));
-				sample |= (int16_t)((int32_t)((int16_t)($nc(this->tempBuffer)->get(i + this->lowByte)) & (uint32_t)255));
+				sample = (int16_t)((($nc(this->tempBuffer)->get(i + this->highByte)) << 8) & 0xff00);
+				sample |= (int16_t)((int16_t)(this->tempBuffer->get(i + this->lowByte)) & 0xff);
 				if (sample < 0) {
 					sample = (int16_t)(BIAS - sample);
-					mask = (int16_t)127;
+					mask = 127;
 				} else {
 					sample += BIAS;
-					mask = (int16_t)255;
+					mask = 255;
 				}
 				$init($UlawCodec);
 				seg = search(sample, $UlawCodec::seg_end, (int16_t)8);
 				if (seg >= 8) {
-					enc = (int8_t)(127 ^ mask);
+					enc = (int8_t)(0x7f ^ mask);
 				} else {
-					enc = (int8_t)((seg << 4) | ((int32_t)(($sr((int32_t)sample, seg + 3)) & (uint32_t)15)));
+					enc = (int8_t)((seg << 4) | (($sr(sample, seg + 3)) & 0x0f));
 					enc ^= mask;
 				}
 				$nc(b)->set(currentPos, enc);
@@ -204,8 +157,8 @@ int32_t UlawCodec$UlawCodecStream::read($bytes* b, int32_t off, int32_t len) {
 			return readCount;
 		}
 		for (i = off; i < (off + (readCount * 2)); i += 2) {
-			$nc(b)->set(i, $nc(this->tabByte1)->get((int32_t)(b->get(readOffset) & (uint32_t)255)));
-			b->set(i + 1, $nc(this->tabByte2)->get((int32_t)(b->get(readOffset) & (uint32_t)255)));
+			$nc(b)->set(i, $nc(this->tabByte1)->get($nc(b)->get(readOffset) & 0xff));
+			b->set(i + 1, $nc(this->tabByte2)->get(b->get(readOffset) & 0xff));
 			++readOffset;
 		}
 		return (i - off);
@@ -220,7 +173,50 @@ UlawCodec$UlawCodecStream::UlawCodec$UlawCodecStream() {
 }
 
 $Class* UlawCodec$UlawCodecStream::load$($String* name, bool initialize) {
-	$loadClass(UlawCodec$UlawCodecStream, name, initialize, &_UlawCodec$UlawCodecStream_ClassInfo_, allocate$UlawCodec$UlawCodecStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/UlawCodec;", nullptr, $FINAL | $SYNTHETIC, $field(UlawCodec$UlawCodecStream, this$0)},
+		{"tempBufferSize", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UlawCodec$UlawCodecStream, tempBufferSize)},
+		{"tempBuffer", "[B", nullptr, $PRIVATE, $field(UlawCodec$UlawCodecStream, tempBuffer)},
+		{"encode", "Z", nullptr, 0, $field(UlawCodec$UlawCodecStream, encode)},
+		{"encodeFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, 0, $field(UlawCodec$UlawCodecStream, encodeFormat)},
+		{"decodeFormat", "Ljavax/sound/sampled/AudioFormat;", nullptr, 0, $field(UlawCodec$UlawCodecStream, decodeFormat)},
+		{"tabByte1", "[B", nullptr, 0, $field(UlawCodec$UlawCodecStream, tabByte1)},
+		{"tabByte2", "[B", nullptr, 0, $field(UlawCodec$UlawCodecStream, tabByte2)},
+		{"highByte", "I", nullptr, 0, $field(UlawCodec$UlawCodecStream, highByte)},
+		{"lowByte", "I", nullptr, 0, $field(UlawCodec$UlawCodecStream, lowByte)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/UlawCodec;Ljavax/sound/sampled/AudioInputStream;Ljavax/sound/sampled/AudioFormat;)V", nullptr, 0, $method(UlawCodec$UlawCodecStream, init$, void, $UlawCodec*, $AudioInputStream*, $AudioFormat*)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(UlawCodec$UlawCodecStream, read, int32_t), "java.io.IOException"},
+		{"read", "([B)I", nullptr, $PUBLIC, $virtualMethod(UlawCodec$UlawCodecStream, read, int32_t, $bytes*), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(UlawCodec$UlawCodecStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"search", "(S[SS)S", nullptr, $PRIVATE, $method(UlawCodec$UlawCodecStream, search, int16_t, int16_t, $shorts*, int16_t)},
+		{"skip", "(J)J", nullptr, $PUBLIC, $virtualMethod(UlawCodec$UlawCodecStream, skip, int64_t, int64_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.UlawCodec$UlawCodecStream", "com.sun.media.sound.UlawCodec", "UlawCodecStream", $PRIVATE | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.UlawCodec$UlawCodecStream",
+		"javax.sound.sampled.AudioInputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.UlawCodec"
+	};
+	$loadClass(UlawCodec$UlawCodecStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UlawCodec$UlawCodecStream);
+	});
 	return class$;
 }
 

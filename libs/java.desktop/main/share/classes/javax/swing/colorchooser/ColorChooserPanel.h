@@ -80,7 +80,7 @@ public:
 	using ::javax::swing::colorchooser::AbstractColorChooserPanel::setUI;
 	virtual $String* toString() override;
 	virtual void updateChooser() override;
-	static const int32_t MASK = 0xFF000000;
+	static const int32_t MASK = 0xff000000;
 	::javax::swing::colorchooser::ColorModel* model = nullptr;
 	::javax::swing::colorchooser::ColorPanel* panel = nullptr;
 	::javax::swing::colorchooser::DiagramComponent* slider = nullptr;

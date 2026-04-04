@@ -34,7 +34,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	XMLParserException(const XMLParserException& e);
 	virtual void throw$() override;
-	inline XMLParserException* operator ->() {
+	inline XMLParserException* operator ->() const {
+		return (XMLParserException*)throwing$;
+	}
+	inline operator XMLParserException*() const {
 		return (XMLParserException*)throwing$;
 	}
 };

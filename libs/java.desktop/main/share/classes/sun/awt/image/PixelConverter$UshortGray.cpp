@@ -1,5 +1,4 @@
 #include <sun/awt/image/PixelConverter$UshortGray.h>
-
 #include <java/awt/image/ColorModel.h>
 #include <sun/awt/image/PixelConverter$ByteGray.h>
 #include <sun/awt/image/PixelConverter.h>
@@ -26,48 +25,6 @@ namespace sun {
 	namespace awt {
 		namespace image {
 
-$FieldInfo _PixelConverter$UshortGray_FieldInfo_[] = {
-	{"SHORT_MULT", "D", nullptr, $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, SHORT_MULT)},
-	{"USHORT_RED_MULT", "D", nullptr, $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, USHORT_RED_MULT)},
-	{"USHORT_GRN_MULT", "D", nullptr, $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, USHORT_GRN_MULT)},
-	{"USHORT_BLU_MULT", "D", nullptr, $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, USHORT_BLU_MULT)},
-	{"instance", "Lsun/awt/image/PixelConverter;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, instance)},
-	{}
-};
-
-$MethodInfo _PixelConverter$UshortGray_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PixelConverter$UshortGray, init$, void)},
-	{"pixelToRgb", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$UshortGray, pixelToRgb, int32_t, int32_t, $ColorModel*)},
-	{"rgbToPixel", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$UshortGray, rgbToPixel, int32_t, int32_t, $ColorModel*)},
-	{}
-};
-
-$InnerClassInfo _PixelConverter$UshortGray_InnerClassesInfo_[] = {
-	{"sun.awt.image.PixelConverter$UshortGray", "sun.awt.image.PixelConverter", "UshortGray", $PUBLIC | $STATIC},
-	{"sun.awt.image.PixelConverter$ByteGray", "sun.awt.image.PixelConverter", "ByteGray", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PixelConverter$UshortGray_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.image.PixelConverter$UshortGray",
-	"sun.awt.image.PixelConverter$ByteGray",
-	nullptr,
-	_PixelConverter$UshortGray_FieldInfo_,
-	_PixelConverter$UshortGray_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PixelConverter$UshortGray_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.image.PixelConverter"
-};
-
-$Object* allocate$PixelConverter$UshortGray($Class* clazz) {
-	return $of($alloc(PixelConverter$UshortGray));
-}
-
 double PixelConverter$UshortGray::SHORT_MULT = 0.0;
 double PixelConverter$UshortGray::USHORT_RED_MULT = 0.0;
 double PixelConverter$UshortGray::USHORT_GRN_MULT = 0.0;
@@ -79,9 +36,9 @@ void PixelConverter$UshortGray::init$() {
 }
 
 int32_t PixelConverter$UshortGray::rgbToPixel(int32_t rgb, $ColorModel* cm) {
-	int32_t red = (int32_t)((rgb >> 16) & (uint32_t)255);
-	int32_t grn = (int32_t)((rgb >> 8) & (uint32_t)255);
-	int32_t blu = (int32_t)((rgb) & (uint32_t)255);
+	int32_t red = (rgb >> 16) & 0xff;
+	int32_t grn = (rgb >> 8) & 0xff;
+	int32_t blu = (rgb) & 0xff;
 	return $cast(int32_t, (red * PixelConverter$UshortGray::USHORT_RED_MULT + grn * PixelConverter$UshortGray::USHORT_GRN_MULT + blu * PixelConverter$UshortGray::USHORT_BLU_MULT + 0.5));
 }
 
@@ -90,7 +47,7 @@ int32_t PixelConverter$UshortGray::pixelToRgb(int32_t pixel, $ColorModel* cm) {
 	return ((((((255 << 8) | pixel) << 8) | pixel) << 8) | pixel);
 }
 
-void clinit$PixelConverter$UshortGray($Class* class$) {
+void PixelConverter$UshortGray::clinit$($Class* clazz) {
 	PixelConverter$UshortGray::SHORT_MULT = 257.0;
 	$init($PixelConverter$ByteGray);
 	PixelConverter$UshortGray::USHORT_RED_MULT = $PixelConverter$ByteGray::RED_MULT * PixelConverter$UshortGray::SHORT_MULT;
@@ -103,7 +60,43 @@ PixelConverter$UshortGray::PixelConverter$UshortGray() {
 }
 
 $Class* PixelConverter$UshortGray::load$($String* name, bool initialize) {
-	$loadClass(PixelConverter$UshortGray, name, initialize, &_PixelConverter$UshortGray_ClassInfo_, clinit$PixelConverter$UshortGray, allocate$PixelConverter$UshortGray);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHORT_MULT", "D", nullptr, $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, SHORT_MULT)},
+		{"USHORT_RED_MULT", "D", nullptr, $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, USHORT_RED_MULT)},
+		{"USHORT_GRN_MULT", "D", nullptr, $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, USHORT_GRN_MULT)},
+		{"USHORT_BLU_MULT", "D", nullptr, $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, USHORT_BLU_MULT)},
+		{"instance", "Lsun/awt/image/PixelConverter;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PixelConverter$UshortGray, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PixelConverter$UshortGray, init$, void)},
+		{"pixelToRgb", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$UshortGray, pixelToRgb, int32_t, int32_t, $ColorModel*)},
+		{"rgbToPixel", "(ILjava/awt/image/ColorModel;)I", nullptr, $PUBLIC, $virtualMethod(PixelConverter$UshortGray, rgbToPixel, int32_t, int32_t, $ColorModel*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.image.PixelConverter$UshortGray", "sun.awt.image.PixelConverter", "UshortGray", $PUBLIC | $STATIC},
+		{"sun.awt.image.PixelConverter$ByteGray", "sun.awt.image.PixelConverter", "ByteGray", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.image.PixelConverter$UshortGray",
+		"sun.awt.image.PixelConverter$ByteGray",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.image.PixelConverter"
+	};
+	$loadClass(PixelConverter$UshortGray, name, initialize, &classInfo$$, PixelConverter$UshortGray::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PixelConverter$UshortGray);
+	});
 	return class$;
 }
 

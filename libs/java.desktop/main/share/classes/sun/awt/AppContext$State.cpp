@@ -1,5 +1,4 @@
 #include <sun/awt/AppContext$State.h>
-
 #include <java/lang/Enum.h>
 #include <sun/awt/AppContext.h>
 #include <jcpp.h>
@@ -17,47 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _AppContext$State_FieldInfo_[] = {
-	{"VALID", "Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AppContext$State, VALID)},
-	{"BEING_DISPOSED", "Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AppContext$State, BEING_DISPOSED)},
-	{"DISPOSED", "Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AppContext$State, DISPOSED)},
-	{"$VALUES", "[Lsun/awt/AppContext$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AppContext$State, $VALUES)},
-	{}
-};
-
-$MethodInfo _AppContext$State_MethodInfo_[] = {
-	{"$values", "()[Lsun/awt/AppContext$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AppContext$State, $values, $AppContext$StateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AppContext$State, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(AppContext$State, valueOf, AppContext$State*, $String*)},
-	{"values", "()[Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(AppContext$State, values, $AppContext$StateArray*)},
-	{}
-};
-
-$InnerClassInfo _AppContext$State_InnerClassesInfo_[] = {
-	{"sun.awt.AppContext$State", "sun.awt.AppContext", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _AppContext$State_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.awt.AppContext$State",
-	"java.lang.Enum",
-	nullptr,
-	_AppContext$State_FieldInfo_,
-	_AppContext$State_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/awt/AppContext$State;>;",
-	nullptr,
-	_AppContext$State_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AppContext"
-};
-
-$Object* allocate$AppContext$State($Class* clazz) {
-	return $of($alloc(AppContext$State));
-}
 
 AppContext$State* AppContext$State::VALID = nullptr;
 AppContext$State* AppContext$State::BEING_DISPOSED = nullptr;
@@ -87,7 +45,7 @@ void AppContext$State::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AppContext$State($Class* class$) {
+void AppContext$State::clinit$($Class* clazz) {
 	$assignStatic(AppContext$State::VALID, $new(AppContext$State, "VALID"_s, 0));
 	$assignStatic(AppContext$State::BEING_DISPOSED, $new(AppContext$State, "BEING_DISPOSED"_s, 1));
 	$assignStatic(AppContext$State::DISPOSED, $new(AppContext$State, "DISPOSED"_s, 2));
@@ -98,7 +56,42 @@ AppContext$State::AppContext$State() {
 }
 
 $Class* AppContext$State::load$($String* name, bool initialize) {
-	$loadClass(AppContext$State, name, initialize, &_AppContext$State_ClassInfo_, clinit$AppContext$State, allocate$AppContext$State);
+	$FieldInfo fieldInfos$$[] = {
+		{"VALID", "Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AppContext$State, VALID)},
+		{"BEING_DISPOSED", "Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AppContext$State, BEING_DISPOSED)},
+		{"DISPOSED", "Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AppContext$State, DISPOSED)},
+		{"$VALUES", "[Lsun/awt/AppContext$State;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AppContext$State, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/awt/AppContext$State;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AppContext$State, $values, $AppContext$StateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AppContext$State, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(AppContext$State, valueOf, AppContext$State*, $String*)},
+		{"values", "()[Lsun/awt/AppContext$State;", nullptr, $PUBLIC | $STATIC, $staticMethod(AppContext$State, values, $AppContext$StateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AppContext$State", "sun.awt.AppContext", "State", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.awt.AppContext$State",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/awt/AppContext$State;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AppContext"
+	};
+	$loadClass(AppContext$State, name, initialize, &classInfo$$, AppContext$State::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AppContext$State));
+	});
 	return class$;
 }
 

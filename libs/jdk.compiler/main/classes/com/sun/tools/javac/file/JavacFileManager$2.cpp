@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/JavacFileManager$2.h>
-
 #include <com/sun/tools/javac/file/JavacFileManager.h>
 #include <java/io/File.h>
 #include <java/lang/Iterable.h>
@@ -14,57 +13,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Iterator = ::java::util::Iterator;
 
 namespace com {
 	namespace sun {
 		namespace tools {
 			namespace javac {
 				namespace file {
-
-$FieldInfo _JavacFileManager$2_FieldInfo_[] = {
-	{"val$files", "Ljava/lang/Iterable;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFileManager$2, val$files)},
-	{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<+Ljava/io/File;>;", 0, $field(JavacFileManager$2, iter)},
-	{}
-};
-
-$MethodInfo _JavacFileManager$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;)V", "()V", 0, $method(JavacFileManager$2, init$, void, $Iterable*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$2, hasNext, bool)},
-	{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$2, next, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacFileManager$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.file.JavacFileManager",
-	"asPaths",
-	"(Ljava/lang/Iterable;)Ljava/lang/Iterable;"
-};
-
-$InnerClassInfo _JavacFileManager$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.JavacFileManager$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavacFileManager$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.JavacFileManager$2",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_JavacFileManager$2_FieldInfo_,
-	_JavacFileManager$2_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
-	&_JavacFileManager$2_EnclosingMethodInfo_,
-	_JavacFileManager$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.JavacFileManager"
-};
-
-$Object* allocate$JavacFileManager$2($Class* clazz) {
-	return $of($alloc(JavacFileManager$2));
-}
 
 void JavacFileManager$2::init$($Iterable* val$files) {
 	$set(this, val$files, val$files);
@@ -76,14 +30,51 @@ bool JavacFileManager$2::hasNext() {
 }
 
 $Object* JavacFileManager$2::next() {
-	return $of($nc(($cast($File, $($nc(this->iter)->next()))))->toPath());
+	return $of($$sure($File, $nc(this->iter)->next())->toPath());
 }
 
 JavacFileManager$2::JavacFileManager$2() {
 }
 
 $Class* JavacFileManager$2::load$($String* name, bool initialize) {
-	$loadClass(JavacFileManager$2, name, initialize, &_JavacFileManager$2_ClassInfo_, allocate$JavacFileManager$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$files", "Ljava/lang/Iterable;", nullptr, $FINAL | $SYNTHETIC, $field(JavacFileManager$2, val$files)},
+		{"iter", "Ljava/util/Iterator;", "Ljava/util/Iterator<+Ljava/io/File;>;", 0, $field(JavacFileManager$2, iter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;)V", "()V", 0, $method(JavacFileManager$2, init$, void, $Iterable*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$2, hasNext, bool)},
+		{"next", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(JavacFileManager$2, next, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.file.JavacFileManager",
+		"asPaths",
+		"(Ljava/lang/Iterable;)Ljava/lang/Iterable;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.JavacFileManager$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.JavacFileManager$2",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/nio/file/Path;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.JavacFileManager"
+	};
+	$loadClass(JavacFileManager$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFileManager$2);
+	});
 	return class$;
 }
 

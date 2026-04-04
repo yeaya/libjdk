@@ -1,5 +1,4 @@
 #include <FPMethodCalledTest$WrappedPlainViewFPAPI.h>
-
 #include <FPMethodCalledTest.h>
 #include <java/awt/Graphics2D.h>
 #include <javax/swing/text/Element.h>
@@ -13,53 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::swing::text::Element;
 using $WrappedPlainView = ::javax::swing::text::WrappedPlainView;
-
-$FieldInfo _FPMethodCalledTest$WrappedPlainViewFPAPI_FieldInfo_[] = {
-	{"drawLine", "Z", nullptr, 0, $field(FPMethodCalledTest$WrappedPlainViewFPAPI, drawLine$)},
-	{"drawSelected", "Z", nullptr, 0, $field(FPMethodCalledTest$WrappedPlainViewFPAPI, drawSelected)},
-	{"drawUnselected", "Z", nullptr, 0, $field(FPMethodCalledTest$WrappedPlainViewFPAPI, drawUnselected)},
-	{}
-};
-
-$MethodInfo _FPMethodCalledTest$WrappedPlainViewFPAPI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FPMethodCalledTest$WrappedPlainViewFPAPI, init$, void, $Element*)},
-	{"drawLine", "(IILjava/awt/Graphics2D;FF)V", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$WrappedPlainViewFPAPI, drawLine, void, int32_t, int32_t, $Graphics2D*, float, float)},
-	{"drawSelectedText", "(Ljava/awt/Graphics2D;FFII)F", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$WrappedPlainViewFPAPI, drawSelectedText, float, $Graphics2D*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"drawUnselectedText", "(Ljava/awt/Graphics2D;FFII)F", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$WrappedPlainViewFPAPI, drawUnselectedText, float, $Graphics2D*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getResult", "()Z", nullptr, $PUBLIC, $virtualMethod(FPMethodCalledTest$WrappedPlainViewFPAPI, getResult, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _FPMethodCalledTest$WrappedPlainViewFPAPI_InnerClassesInfo_[] = {
-	{"FPMethodCalledTest$WrappedPlainViewFPAPI", "FPMethodCalledTest", "WrappedPlainViewFPAPI", $STATIC},
-	{"FPMethodCalledTest$Resultable", "FPMethodCalledTest", "Resultable", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FPMethodCalledTest$WrappedPlainViewFPAPI_ClassInfo_ = {
-	$ACC_SUPER,
-	"FPMethodCalledTest$WrappedPlainViewFPAPI",
-	"javax.swing.text.WrappedPlainView",
-	"FPMethodCalledTest$Resultable",
-	_FPMethodCalledTest$WrappedPlainViewFPAPI_FieldInfo_,
-	_FPMethodCalledTest$WrappedPlainViewFPAPI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FPMethodCalledTest$WrappedPlainViewFPAPI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"FPMethodCalledTest"
-};
-
-$Object* allocate$FPMethodCalledTest$WrappedPlainViewFPAPI($Class* clazz) {
-	return $of($alloc(FPMethodCalledTest$WrappedPlainViewFPAPI));
-}
 
 int32_t FPMethodCalledTest$WrappedPlainViewFPAPI::hashCode() {
 	 return this->$WrappedPlainView::hashCode();
@@ -111,7 +63,48 @@ FPMethodCalledTest$WrappedPlainViewFPAPI::FPMethodCalledTest$WrappedPlainViewFPA
 }
 
 $Class* FPMethodCalledTest$WrappedPlainViewFPAPI::load$($String* name, bool initialize) {
-	$loadClass(FPMethodCalledTest$WrappedPlainViewFPAPI, name, initialize, &_FPMethodCalledTest$WrappedPlainViewFPAPI_ClassInfo_, allocate$FPMethodCalledTest$WrappedPlainViewFPAPI);
+	$FieldInfo fieldInfos$$[] = {
+		{"drawLine", "Z", nullptr, 0, $field(FPMethodCalledTest$WrappedPlainViewFPAPI, drawLine$)},
+		{"drawSelected", "Z", nullptr, 0, $field(FPMethodCalledTest$WrappedPlainViewFPAPI, drawSelected)},
+		{"drawUnselected", "Z", nullptr, 0, $field(FPMethodCalledTest$WrappedPlainViewFPAPI, drawUnselected)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(FPMethodCalledTest$WrappedPlainViewFPAPI, init$, void, $Element*)},
+		{"drawLine", "(IILjava/awt/Graphics2D;FF)V", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$WrappedPlainViewFPAPI, drawLine, void, int32_t, int32_t, $Graphics2D*, float, float)},
+		{"drawSelectedText", "(Ljava/awt/Graphics2D;FFII)F", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$WrappedPlainViewFPAPI, drawSelectedText, float, $Graphics2D*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"drawUnselectedText", "(Ljava/awt/Graphics2D;FFII)F", nullptr, $PROTECTED, $virtualMethod(FPMethodCalledTest$WrappedPlainViewFPAPI, drawUnselectedText, float, $Graphics2D*, float, float, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getResult", "()Z", nullptr, $PUBLIC, $virtualMethod(FPMethodCalledTest$WrappedPlainViewFPAPI, getResult, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FPMethodCalledTest$WrappedPlainViewFPAPI", "FPMethodCalledTest", "WrappedPlainViewFPAPI", $STATIC},
+		{"FPMethodCalledTest$Resultable", "FPMethodCalledTest", "Resultable", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"FPMethodCalledTest$WrappedPlainViewFPAPI",
+		"javax.swing.text.WrappedPlainView",
+		"FPMethodCalledTest$Resultable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"FPMethodCalledTest"
+	};
+	$loadClass(FPMethodCalledTest$WrappedPlainViewFPAPI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FPMethodCalledTest$WrappedPlainViewFPAPI));
+	});
 	return class$;
 }
 

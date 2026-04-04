@@ -88,7 +88,7 @@ public:
 	virtual void setTextContent($String* textContent) override;
 	virtual void synchronizeChildren();
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0x2713D65863899C28;
+	static const int64_t serialVersionUID = (int64_t)0x2713d65863899c28;
 	::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl* ownerDocument$ = nullptr;
 	::com::sun::org::apache::xerces::internal::dom::ChildNode* firstChild = nullptr;
 	::com::sun::org::apache::xerces::internal::dom::NodeListCache* fNodeListCache = nullptr;

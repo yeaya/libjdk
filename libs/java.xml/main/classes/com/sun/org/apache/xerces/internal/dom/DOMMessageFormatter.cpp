@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
-
 #include <java/lang/StringBuffer.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/Locale.h>
@@ -31,39 +30,6 @@ namespace com {
 					namespace internal {
 						namespace dom {
 
-$FieldInfo _DOMMessageFormatter_FieldInfo_[] = {
-	{"DOM_DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMMessageFormatter, DOM_DOMAIN)},
-	{"XML_DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMMessageFormatter, XML_DOMAIN)},
-	{"SERIALIZER_DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMMessageFormatter, SERIALIZER_DOMAIN)},
-	{"domResourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(DOMMessageFormatter, domResourceBundle)},
-	{"xmlResourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(DOMMessageFormatter, xmlResourceBundle)},
-	{"serResourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(DOMMessageFormatter, serResourceBundle)},
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(DOMMessageFormatter, locale)},
-	{}
-};
-
-$MethodInfo _DOMMessageFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DOMMessageFormatter, init$, void)},
-	{"formatMessage", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMMessageFormatter, formatMessage, $String*, $String*, $String*, $ObjectArray*), "java.util.MissingResourceException"},
-	{"getResourceBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $STATIC, $staticMethod(DOMMessageFormatter, getResourceBundle, $ResourceBundle*, $String*)},
-	{"init", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMMessageFormatter, init, void)},
-	{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMMessageFormatter, setLocale, void, $Locale*)},
-	{}
-};
-
-$ClassInfo _DOMMessageFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.dom.DOMMessageFormatter",
-	"java.lang.Object",
-	nullptr,
-	_DOMMessageFormatter_FieldInfo_,
-	_DOMMessageFormatter_MethodInfo_
-};
-
-$Object* allocate$DOMMessageFormatter($Class* clazz) {
-	return $of($alloc(DOMMessageFormatter));
-}
-
 $String* DOMMessageFormatter::DOM_DOMAIN = nullptr;
 $String* DOMMessageFormatter::XML_DOMAIN = nullptr;
 $String* DOMMessageFormatter::SERIALIZER_DOMAIN = nullptr;
@@ -78,7 +44,7 @@ void DOMMessageFormatter::init$() {
 
 $String* DOMMessageFormatter::formatMessage($String* domain, $String* key, $ObjectArray* arguments) {
 	$init(DOMMessageFormatter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ResourceBundle, resourceBundle, getResourceBundle(domain));
 	if (resourceBundle == nullptr) {
 		init();
@@ -122,14 +88,10 @@ $ResourceBundle* DOMMessageFormatter::getResourceBundle($String* domain) {
 	$init(DOMMessageFormatter);
 	if (domain == DOMMessageFormatter::DOM_DOMAIN || $nc(domain)->equals(DOMMessageFormatter::DOM_DOMAIN)) {
 		return DOMMessageFormatter::domResourceBundle;
-	} else {
-		if (domain == DOMMessageFormatter::XML_DOMAIN || domain->equals(DOMMessageFormatter::XML_DOMAIN)) {
-			return DOMMessageFormatter::xmlResourceBundle;
-		} else {
-			if (domain == DOMMessageFormatter::SERIALIZER_DOMAIN || domain->equals(DOMMessageFormatter::SERIALIZER_DOMAIN)) {
-				return DOMMessageFormatter::serResourceBundle;
-			}
-		}
+	} else if (domain == DOMMessageFormatter::XML_DOMAIN || $nc(domain)->equals(DOMMessageFormatter::XML_DOMAIN)) {
+		return DOMMessageFormatter::xmlResourceBundle;
+	} else if (domain == DOMMessageFormatter::SERIALIZER_DOMAIN || $nc(domain)->equals(DOMMessageFormatter::SERIALIZER_DOMAIN)) {
+		return DOMMessageFormatter::serResourceBundle;
 	}
 	return nullptr;
 }
@@ -152,7 +114,7 @@ void DOMMessageFormatter::setLocale($Locale* dlocale) {
 	$assignStatic(DOMMessageFormatter::locale, dlocale);
 }
 
-void clinit$DOMMessageFormatter($Class* class$) {
+void DOMMessageFormatter::clinit$($Class* clazz) {
 	$assignStatic(DOMMessageFormatter::DOM_DOMAIN, "http://www.w3.org/dom/DOMTR"_s);
 	$assignStatic(DOMMessageFormatter::XML_DOMAIN, "http://www.w3.org/TR/1998/REC-xml-19980210"_s);
 	$assignStatic(DOMMessageFormatter::SERIALIZER_DOMAIN, "http://apache.org/xml/serializer"_s);
@@ -166,7 +128,35 @@ DOMMessageFormatter::DOMMessageFormatter() {
 }
 
 $Class* DOMMessageFormatter::load$($String* name, bool initialize) {
-	$loadClass(DOMMessageFormatter, name, initialize, &_DOMMessageFormatter_ClassInfo_, clinit$DOMMessageFormatter, allocate$DOMMessageFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOM_DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMMessageFormatter, DOM_DOMAIN)},
+		{"XML_DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMMessageFormatter, XML_DOMAIN)},
+		{"SERIALIZER_DOMAIN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMMessageFormatter, SERIALIZER_DOMAIN)},
+		{"domResourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(DOMMessageFormatter, domResourceBundle)},
+		{"xmlResourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(DOMMessageFormatter, xmlResourceBundle)},
+		{"serResourceBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(DOMMessageFormatter, serResourceBundle)},
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(DOMMessageFormatter, locale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DOMMessageFormatter, init$, void)},
+		{"formatMessage", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMMessageFormatter, formatMessage, $String*, $String*, $String*, $ObjectArray*), "java.util.MissingResourceException"},
+		{"getResourceBundle", "(Ljava/lang/String;)Ljava/util/ResourceBundle;", nullptr, $STATIC, $staticMethod(DOMMessageFormatter, getResourceBundle, $ResourceBundle*, $String*)},
+		{"init", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMMessageFormatter, init, void)},
+		{"setLocale", "(Ljava/util/Locale;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(DOMMessageFormatter, setLocale, void, $Locale*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.dom.DOMMessageFormatter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMMessageFormatter, name, initialize, &classInfo$$, DOMMessageFormatter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMMessageFormatter);
+	});
 	return class$;
 }
 

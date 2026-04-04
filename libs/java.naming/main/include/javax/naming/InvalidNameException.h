@@ -14,10 +14,13 @@ public:
 	InvalidNameException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x8BD565D1C1D2F2EF;
+	static const int64_t serialVersionUID = (int64_t)0x8bd565d1c1d2f2ef;
 	InvalidNameException(const InvalidNameException& e);
 	virtual void throw$() override;
-	inline InvalidNameException* operator ->() {
+	inline InvalidNameException* operator ->() const {
+		return (InvalidNameException*)throwing$;
+	}
+	inline operator InvalidNameException*() const {
 		return (InvalidNameException*)throwing$;
 	}
 };

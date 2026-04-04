@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaCaret.h>
-
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaHighlighter.h>
 #include <java/awt/Component.h>
@@ -11,7 +10,6 @@
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JTextArea.h>
@@ -31,7 +29,6 @@
 
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
 using $AquaHighlighter = ::com::apple::laf::AquaHighlighter;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
@@ -39,7 +36,6 @@ using $FocusEvent = ::java::awt::event::FocusEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -51,55 +47,12 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Border = ::javax::swing::border::Border;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $DefaultCaret = ::javax::swing::text::DefaultCaret;
-using $Document = ::javax::swing::text::Document;
 using $Highlighter$HighlightPainter = ::javax::swing::text::Highlighter$HighlightPainter;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaCaret_FieldInfo_[] = {
-	{"isMultiLineEditor", "Z", nullptr, $PRIVATE, $field(AquaCaret, isMultiLineEditor)},
-	{"mFocused", "Z", nullptr, $PRIVATE, $field(AquaCaret, mFocused)},
-	{"fPainting", "Z", nullptr, $PRIVATE, $field(AquaCaret, fPainting)},
-	{"shouldSelectAllOnFocus", "Z", nullptr, $PRIVATE, $field(AquaCaret, shouldSelectAllOnFocus)},
-	{}
-};
-
-$MethodInfo _AquaCaret_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaCaret, init$, void)},
-	{"damage", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AquaCaret, damage, void, $Rectangle*)},
-	{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, deinstall, void, $JTextComponent*)},
-	{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(AquaCaret, fireStateChanged, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, focusLost, void, $FocusEvent*)},
-	{"getSelectionPainter", "()Ljavax/swing/text/Highlighter$HighlightPainter;", nullptr, $PROTECTED, $virtualMethod(AquaCaret, getSelectionPainter, $Highlighter$HighlightPainter*)},
-	{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, install, void, $JTextComponent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, mousePressed, void, $MouseEvent*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, paint, void, $Graphics*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, propertyChange, void, $PropertyChangeEvent*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _AquaCaret_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaCaret",
-	"javax.swing.text.DefaultCaret",
-	"javax.swing.plaf.UIResource,java.beans.PropertyChangeListener",
-	_AquaCaret_FieldInfo_,
-	_AquaCaret_MethodInfo_
-};
-
-$Object* allocate$AquaCaret($Class* clazz) {
-	return $of($alloc(AquaCaret));
-}
 
 bool AquaCaret::equals(Object$* obj) {
 	 return this->$DefaultCaret::equals(obj);
@@ -153,18 +106,17 @@ void AquaCaret::setVisible(bool e) {
 
 void AquaCaret::fireStateChanged() {
 	if (this->mFocused) {
-		setVisible($nc($(getComponent()))->isEditable());
+		setVisible($$nc(getComponent())->isEditable());
 	}
 	$DefaultCaret::fireStateChanged();
 }
 
 void AquaCaret::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propertyName, $nc(evt)->getPropertyName());
 	$init($AquaFocusHandler);
 	if ($nc($AquaFocusHandler::FRAME_ACTIVE_PROPERTY)->equals(propertyName)) {
 		$var($JTextComponent, comp, $cast($JTextComponent, evt->getSource()));
-		$init($Boolean);
 		if ($equals(evt->getNewValue(), $Boolean::TRUE)) {
 			setVisible($nc(comp)->hasFocus());
 		} else {
@@ -172,18 +124,17 @@ void AquaCaret::propertyChange($PropertyChangeEvent* evt) {
 		}
 		int32_t var$0 = getDot();
 		if (var$0 != getMark()) {
-			$var($JTextComponent, var$1, comp);
-			int32_t var$2 = getDot();
-			$nc($($cast($TextUI, $nc(comp)->getUI())))->damageRange(var$1, var$2, getMark());
+			int32_t var$1 = getDot();
+			$$sure($TextUI, $nc(comp)->getUI())->damageRange(comp, var$1, getMark());
 		}
 	}
 }
 
 void AquaCaret::focusGained($FocusEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, component, getComponent());
 	bool var$0 = !$nc(component)->isEnabled();
-	if (var$0 || !$nc(component)->isEditable()) {
+	if (var$0 || !component->isEditable()) {
 		$DefaultCaret::focusGained(e);
 		return;
 	}
@@ -197,7 +148,7 @@ void AquaCaret::focusGained($FocusEvent* e) {
 		$DefaultCaret::focusGained(e);
 		return;
 	}
-	int32_t end = $nc($($nc(component)->getDocument()))->getLength();
+	int32_t end = $$nc(component->getDocument())->getLength();
 	int32_t dot = getDot();
 	int32_t mark = getMark();
 	if (dot == mark) {
@@ -217,7 +168,7 @@ void AquaCaret::focusLost($FocusEvent* e) {
 	this->shouldSelectAllOnFocus = true;
 	if (this->isMultiLineEditor) {
 		setVisible(false);
-		$nc($(getComponent()))->repaint();
+		$$nc(getComponent())->repaint();
 	} else {
 		$DefaultCaret::focusLost(e);
 	}
@@ -237,7 +188,7 @@ void AquaCaret::mousePressed($MouseEvent* e) {
 
 void AquaCaret::damage($Rectangle* r) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (r == nullptr || this->fPainting) {
 			return;
 		}
@@ -246,10 +197,10 @@ void AquaCaret::damage($Rectangle* r) {
 		this->width = 10;
 		this->height = r->height;
 		$var($Rectangle, caretRect, $new($Rectangle, this->x, this->y, this->width, this->height));
-		$var($Border, border, $nc($(getComponent()))->getBorder());
+		$var($Border, border, $$nc(getComponent())->getBorder());
 		if (border != nullptr) {
-			$var($Rectangle, alloc, $nc($(getComponent()))->getBounds());
-			$nc(alloc)->x = (alloc->y = 0);
+			$var($Rectangle, alloc, $$nc(getComponent())->getBounds());
+			$nc(alloc)->x = ($nc(alloc)->y = 0);
 			$var($Insets, borderInsets, border->getBorderInsets($(getComponent())));
 			alloc->x += $nc(borderInsets)->left;
 			alloc->y += borderInsets->top;
@@ -277,7 +228,44 @@ AquaCaret::AquaCaret() {
 }
 
 $Class* AquaCaret::load$($String* name, bool initialize) {
-	$loadClass(AquaCaret, name, initialize, &_AquaCaret_ClassInfo_, allocate$AquaCaret);
+	$FieldInfo fieldInfos$$[] = {
+		{"isMultiLineEditor", "Z", nullptr, $PRIVATE, $field(AquaCaret, isMultiLineEditor)},
+		{"mFocused", "Z", nullptr, $PRIVATE, $field(AquaCaret, mFocused)},
+		{"fPainting", "Z", nullptr, $PRIVATE, $field(AquaCaret, fPainting)},
+		{"shouldSelectAllOnFocus", "Z", nullptr, $PRIVATE, $field(AquaCaret, shouldSelectAllOnFocus)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaCaret, init$, void)},
+		{"damage", "(Ljava/awt/Rectangle;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(AquaCaret, damage, void, $Rectangle*)},
+		{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, deinstall, void, $JTextComponent*)},
+		{"fireStateChanged", "()V", nullptr, $PROTECTED, $virtualMethod(AquaCaret, fireStateChanged, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, focusLost, void, $FocusEvent*)},
+		{"getSelectionPainter", "()Ljavax/swing/text/Highlighter$HighlightPainter;", nullptr, $PROTECTED, $virtualMethod(AquaCaret, getSelectionPainter, $Highlighter$HighlightPainter*)},
+		{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, install, void, $JTextComponent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, mousePressed, void, $MouseEvent*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, paint, void, $Graphics*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, propertyChange, void, $PropertyChangeEvent*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AquaCaret, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaCaret",
+		"javax.swing.text.DefaultCaret",
+		"javax.swing.plaf.UIResource,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AquaCaret, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaCaret));
+	});
 	return class$;
 }
 

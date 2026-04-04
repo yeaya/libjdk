@@ -1,5 +1,4 @@
 #include <sun/swing/JLightweightFrame$4.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/ContainerEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -17,49 +16,6 @@ using $JLightweightFrame = ::sun::swing::JLightweightFrame;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _JLightweightFrame$4_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/JLightweightFrame;", nullptr, $FINAL | $SYNTHETIC, $field(JLightweightFrame$4, this$0)},
-	{}
-};
-
-$MethodInfo _JLightweightFrame$4_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/JLightweightFrame;)V", nullptr, 0, $method(JLightweightFrame$4, init$, void, $JLightweightFrame*)},
-	{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame$4, componentAdded, void, $ContainerEvent*)},
-	{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame$4, componentRemoved, void, $ContainerEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _JLightweightFrame$4_EnclosingMethodInfo_ = {
-	"sun.swing.JLightweightFrame",
-	"initInterior",
-	"()V"
-};
-
-$InnerClassInfo _JLightweightFrame$4_InnerClassesInfo_[] = {
-	{"sun.swing.JLightweightFrame$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JLightweightFrame$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.JLightweightFrame$4",
-	"java.lang.Object",
-	"java.awt.event.ContainerListener",
-	_JLightweightFrame$4_FieldInfo_,
-	_JLightweightFrame$4_MethodInfo_,
-	nullptr,
-	&_JLightweightFrame$4_EnclosingMethodInfo_,
-	_JLightweightFrame$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.JLightweightFrame"
-};
-
-$Object* allocate$JLightweightFrame$4($Class* clazz) {
-	return $of($alloc(JLightweightFrame$4));
-}
 
 void JLightweightFrame$4::init$($JLightweightFrame* this$0) {
 	$set(this, this$0, this$0);
@@ -85,7 +41,43 @@ JLightweightFrame$4::JLightweightFrame$4() {
 }
 
 $Class* JLightweightFrame$4::load$($String* name, bool initialize) {
-	$loadClass(JLightweightFrame$4, name, initialize, &_JLightweightFrame$4_ClassInfo_, allocate$JLightweightFrame$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/JLightweightFrame;", nullptr, $FINAL | $SYNTHETIC, $field(JLightweightFrame$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/JLightweightFrame;)V", nullptr, 0, $method(JLightweightFrame$4, init$, void, $JLightweightFrame*)},
+		{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame$4, componentAdded, void, $ContainerEvent*)},
+		{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(JLightweightFrame$4, componentRemoved, void, $ContainerEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.JLightweightFrame",
+		"initInterior",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.JLightweightFrame$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.JLightweightFrame$4",
+		"java.lang.Object",
+		"java.awt.event.ContainerListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.JLightweightFrame"
+	};
+	$loadClass(JLightweightFrame$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JLightweightFrame$4);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/swing/PrintingStatus$3.h>
-
 #include <sun/swing/PrintingStatus.h>
 #include <jcpp.h>
 
@@ -12,49 +11,6 @@ using $PrintingStatus = ::sun::swing::PrintingStatus;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _PrintingStatus$3_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/PrintingStatus;", nullptr, $FINAL | $SYNTHETIC, $field(PrintingStatus$3, this$0)},
-	{"val$isModal", "Z", nullptr, $FINAL | $SYNTHETIC, $field(PrintingStatus$3, val$isModal)},
-	{}
-};
-
-$MethodInfo _PrintingStatus$3_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/PrintingStatus;Z)V", "()V", 0, $method(PrintingStatus$3, init$, void, $PrintingStatus*, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintingStatus$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _PrintingStatus$3_EnclosingMethodInfo_ = {
-	"sun.swing.PrintingStatus",
-	"showModal",
-	"(Z)V"
-};
-
-$InnerClassInfo _PrintingStatus$3_InnerClassesInfo_[] = {
-	{"sun.swing.PrintingStatus$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PrintingStatus$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.PrintingStatus$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_PrintingStatus$3_FieldInfo_,
-	_PrintingStatus$3_MethodInfo_,
-	nullptr,
-	&_PrintingStatus$3_EnclosingMethodInfo_,
-	_PrintingStatus$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.PrintingStatus"
-};
-
-$Object* allocate$PrintingStatus$3($Class* clazz) {
-	return $of($alloc(PrintingStatus$3));
-}
 
 void PrintingStatus$3::init$($PrintingStatus* this$0, bool val$isModal) {
 	$set(this, this$0, this$0);
@@ -69,7 +25,43 @@ PrintingStatus$3::PrintingStatus$3() {
 }
 
 $Class* PrintingStatus$3::load$($String* name, bool initialize) {
-	$loadClass(PrintingStatus$3, name, initialize, &_PrintingStatus$3_ClassInfo_, allocate$PrintingStatus$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/PrintingStatus;", nullptr, $FINAL | $SYNTHETIC, $field(PrintingStatus$3, this$0)},
+		{"val$isModal", "Z", nullptr, $FINAL | $SYNTHETIC, $field(PrintingStatus$3, val$isModal)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/PrintingStatus;Z)V", "()V", 0, $method(PrintingStatus$3, init$, void, $PrintingStatus*, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(PrintingStatus$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.swing.PrintingStatus",
+		"showModal",
+		"(Z)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.PrintingStatus$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.PrintingStatus$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.PrintingStatus"
+	};
+	$loadClass(PrintingStatus$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintingStatus$3);
+	});
 	return class$;
 }
 

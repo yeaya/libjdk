@@ -1,11 +1,9 @@
 #include <javax/swing/table/JTableHeader$AccessibleJTableHeader.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/table/JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry.h>
 #include <javax/swing/table/JTableHeader.h>
@@ -24,59 +22,16 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JTable = ::javax::swing::JTable;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry = ::javax::swing::table::JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 
 namespace javax {
 	namespace swing {
 		namespace table {
-
-$FieldInfo _JTableHeader$AccessibleJTableHeader_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/table/JTableHeader;", nullptr, $FINAL | $SYNTHETIC, $field(JTableHeader$AccessibleJTableHeader, this$0)},
-	{}
-};
-
-$MethodInfo _JTableHeader$AccessibleJTableHeader_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/table/JTableHeader;)V", nullptr, $PROTECTED, $method(JTableHeader$AccessibleJTableHeader, init$, void, $JTableHeader*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTableHeader$AccessibleJTableHeader, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTableHeader$AccessibleJTableHeader, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTableHeader$AccessibleJTableHeader, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTableHeader$AccessibleJTableHeader, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _JTableHeader$AccessibleJTableHeader_InnerClassesInfo_[] = {
-	{"javax.swing.table.JTableHeader$AccessibleJTableHeader", "javax.swing.table.JTableHeader", "AccessibleJTableHeader", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{"javax.swing.table.JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry", "javax.swing.table.JTableHeader$AccessibleJTableHeader", "AccessibleJTableHeaderEntry", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JTableHeader$AccessibleJTableHeader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.table.JTableHeader$AccessibleJTableHeader",
-	"javax.swing.JComponent$AccessibleJComponent",
-	nullptr,
-	_JTableHeader$AccessibleJTableHeader_FieldInfo_,
-	_JTableHeader$AccessibleJTableHeader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTableHeader$AccessibleJTableHeader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.table.JTableHeader"
-};
-
-$Object* allocate$JTableHeader$AccessibleJTableHeader($Class* clazz) {
-	return $of($alloc(JTableHeader$AccessibleJTableHeader));
-}
 
 void JTableHeader$AccessibleJTableHeader::init$($JTableHeader* this$0) {
 	$set(this, this$0, this$0);
@@ -89,7 +44,7 @@ $AccessibleRole* JTableHeader$AccessibleJTableHeader::getAccessibleRole() {
 }
 
 $Accessible* JTableHeader$AccessibleJTableHeader::getAccessibleAt($Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t column = 0;
 	if ((column = this->this$0->columnAtPoint(p)) != -1) {
 		$var($TableColumn, aColumn, $nc(this->this$0->columnModel)->getColumn(column));
@@ -114,7 +69,7 @@ int32_t JTableHeader$AccessibleJTableHeader::getAccessibleChildrenCount() {
 }
 
 $Accessible* JTableHeader$AccessibleJTableHeader::getAccessibleChild(int32_t i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (i < 0 || i >= getAccessibleChildrenCount()) {
 		return nullptr;
 	} else {
@@ -137,7 +92,42 @@ JTableHeader$AccessibleJTableHeader::JTableHeader$AccessibleJTableHeader() {
 }
 
 $Class* JTableHeader$AccessibleJTableHeader::load$($String* name, bool initialize) {
-	$loadClass(JTableHeader$AccessibleJTableHeader, name, initialize, &_JTableHeader$AccessibleJTableHeader_ClassInfo_, allocate$JTableHeader$AccessibleJTableHeader);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/table/JTableHeader;", nullptr, $FINAL | $SYNTHETIC, $field(JTableHeader$AccessibleJTableHeader, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/table/JTableHeader;)V", nullptr, $PROTECTED, $method(JTableHeader$AccessibleJTableHeader, init$, void, $JTableHeader*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTableHeader$AccessibleJTableHeader, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JTableHeader$AccessibleJTableHeader, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JTableHeader$AccessibleJTableHeader, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JTableHeader$AccessibleJTableHeader, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.table.JTableHeader$AccessibleJTableHeader", "javax.swing.table.JTableHeader", "AccessibleJTableHeader", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{"javax.swing.table.JTableHeader$AccessibleJTableHeader$AccessibleJTableHeaderEntry", "javax.swing.table.JTableHeader$AccessibleJTableHeader", "AccessibleJTableHeaderEntry", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.table.JTableHeader$AccessibleJTableHeader",
+		"javax.swing.JComponent$AccessibleJComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.table.JTableHeader"
+	};
+	$loadClass(JTableHeader$AccessibleJTableHeader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTableHeader$AccessibleJTableHeader));
+	});
 	return class$;
 }
 

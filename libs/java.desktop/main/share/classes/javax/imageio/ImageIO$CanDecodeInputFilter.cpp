@@ -1,5 +1,4 @@
 #include <javax/imageio/ImageIO$CanDecodeInputFilter.h>
-
 #include <java/io/IOException.h>
 #include <javax/imageio/ImageIO.h>
 #include <javax/imageio/spi/ImageReaderSpi.h>
@@ -17,49 +16,12 @@ using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 namespace javax {
 	namespace imageio {
 
-$FieldInfo _ImageIO$CanDecodeInputFilter_FieldInfo_[] = {
-	{"input", "Ljava/lang/Object;", nullptr, 0, $field(ImageIO$CanDecodeInputFilter, input)},
-	{}
-};
-
-$MethodInfo _ImageIO$CanDecodeInputFilter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ImageIO$CanDecodeInputFilter, init$, void, Object$*)},
-	{"filter", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImageIO$CanDecodeInputFilter, filter, bool, Object$*)},
-	{}
-};
-
-$InnerClassInfo _ImageIO$CanDecodeInputFilter_InnerClassesInfo_[] = {
-	{"javax.imageio.ImageIO$CanDecodeInputFilter", "javax.imageio.ImageIO", "CanDecodeInputFilter", $STATIC},
-	{"javax.imageio.spi.ServiceRegistry$Filter", "javax.imageio.spi.ServiceRegistry", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ImageIO$CanDecodeInputFilter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.ImageIO$CanDecodeInputFilter",
-	"java.lang.Object",
-	"javax.imageio.spi.ServiceRegistry$Filter",
-	_ImageIO$CanDecodeInputFilter_FieldInfo_,
-	_ImageIO$CanDecodeInputFilter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ImageIO$CanDecodeInputFilter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.ImageIO"
-};
-
-$Object* allocate$ImageIO$CanDecodeInputFilter($Class* clazz) {
-	return $of($alloc(ImageIO$CanDecodeInputFilter));
-}
-
 void ImageIO$CanDecodeInputFilter::init$(Object$* input) {
 	$set(this, input, input);
 }
 
 bool ImageIO$CanDecodeInputFilter::filter(Object$* elt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($ImageReaderSpi, spi, $cast($ImageReaderSpi, elt));
 		$var($ImageInputStream, stream, nullptr);
@@ -70,20 +32,18 @@ bool ImageIO$CanDecodeInputFilter::filter(Object$* elt) {
 		if (stream != nullptr) {
 			stream->mark();
 		}
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				canDecode = $nc(spi)->canDecodeInput(this->input);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				if (stream != nullptr) {
-					stream->reset();
-				}
+		$var($Throwable, var$0, nullptr);
+		try {
+			canDecode = $nc(spi)->canDecodeInput(this->input);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			if (stream != nullptr) {
+				stream->reset();
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		return canDecode;
 	} catch ($IOException& e) {
@@ -96,7 +56,38 @@ ImageIO$CanDecodeInputFilter::ImageIO$CanDecodeInputFilter() {
 }
 
 $Class* ImageIO$CanDecodeInputFilter::load$($String* name, bool initialize) {
-	$loadClass(ImageIO$CanDecodeInputFilter, name, initialize, &_ImageIO$CanDecodeInputFilter_ClassInfo_, allocate$ImageIO$CanDecodeInputFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"input", "Ljava/lang/Object;", nullptr, 0, $field(ImageIO$CanDecodeInputFilter, input)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ImageIO$CanDecodeInputFilter, init$, void, Object$*)},
+		{"filter", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ImageIO$CanDecodeInputFilter, filter, bool, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.ImageIO$CanDecodeInputFilter", "javax.imageio.ImageIO", "CanDecodeInputFilter", $STATIC},
+		{"javax.imageio.spi.ServiceRegistry$Filter", "javax.imageio.spi.ServiceRegistry", "Filter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.ImageIO$CanDecodeInputFilter",
+		"java.lang.Object",
+		"javax.imageio.spi.ServiceRegistry$Filter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.ImageIO"
+	};
+	$loadClass(ImageIO$CanDecodeInputFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageIO$CanDecodeInputFilter);
+	});
 	return class$;
 }
 

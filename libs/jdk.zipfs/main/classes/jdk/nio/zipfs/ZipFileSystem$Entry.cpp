@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipFileSystem$Entry.h>
-
 #include <java/io/OutputStream.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/Math.h>
@@ -28,7 +27,6 @@
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $PosixFilePermissionArray = $Array<::java::nio::file::attribute::PosixFilePermission>;
 using $OutputStream = ::java::io::OutputStream;
-using $Appendable = ::java::lang::Appendable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -55,94 +53,6 @@ using $ZipUtils = ::jdk::nio::zipfs::ZipUtils;
 namespace jdk {
 	namespace nio {
 		namespace zipfs {
-
-$FieldInfo _ZipFileSystem$Entry_FieldInfo_[] = {
-	{"CEN", "I", nullptr, $STATIC | $FINAL, $constField(ZipFileSystem$Entry, CEN)},
-	{"NEW", "I", nullptr, $STATIC | $FINAL, $constField(ZipFileSystem$Entry, NEW)},
-	{"FILECH", "I", nullptr, $STATIC | $FINAL, $constField(ZipFileSystem$Entry, FILECH)},
-	{"COPY", "I", nullptr, $STATIC | $FINAL, $constField(ZipFileSystem$Entry, COPY)},
-	{"bytes", "[B", nullptr, 0, $field(ZipFileSystem$Entry, bytes)},
-	{"file", "Ljava/nio/file/Path;", nullptr, 0, $field(ZipFileSystem$Entry, file)},
-	{"type", "I", nullptr, 0, $field(ZipFileSystem$Entry, type)},
-	{"version", "I", nullptr, 0, $field(ZipFileSystem$Entry, version$)},
-	{"flag", "I", nullptr, 0, $field(ZipFileSystem$Entry, flag)},
-	{"posixPerms", "I", nullptr, 0, $field(ZipFileSystem$Entry, posixPerms)},
-	{"method", "I", nullptr, 0, $field(ZipFileSystem$Entry, method$)},
-	{"mtime", "J", nullptr, 0, $field(ZipFileSystem$Entry, mtime)},
-	{"atime", "J", nullptr, 0, $field(ZipFileSystem$Entry, atime)},
-	{"ctime", "J", nullptr, 0, $field(ZipFileSystem$Entry, ctime)},
-	{"crc", "J", nullptr, 0, $field(ZipFileSystem$Entry, crc$)},
-	{"csize", "J", nullptr, 0, $field(ZipFileSystem$Entry, csize)},
-	{"size", "J", nullptr, 0, $field(ZipFileSystem$Entry, size$)},
-	{"extra", "[B", nullptr, 0, $field(ZipFileSystem$Entry, extra$)},
-	{"locoff", "J", nullptr, 0, $field(ZipFileSystem$Entry, locoff)},
-	{"comment", "[B", nullptr, 0, $field(ZipFileSystem$Entry, comment$)},
-	{}
-};
-
-$MethodInfo _ZipFileSystem$Entry_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "([BZI)V", nullptr, 0, $method(ZipFileSystem$Entry, init$, void, $bytes*, bool, int32_t)},
-	{"<init>", "([BIZI[Ljava/nio/file/attribute/FileAttribute;)V", "([BIZI[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $method(ZipFileSystem$Entry, init$, void, $bytes*, int32_t, bool, int32_t, $FileAttributeArray*)},
-	{"<init>", "([BLjava/nio/file/Path;I[Ljava/nio/file/attribute/FileAttribute;)V", "([BLjava/nio/file/Path;I[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $method(ZipFileSystem$Entry, init$, void, $bytes*, $Path*, int32_t, $FileAttributeArray*)},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;II)V", nullptr, 0, $method(ZipFileSystem$Entry, init$, void, ZipFileSystem$Entry*, int32_t, int32_t)},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;I)V", nullptr, 0, $method(ZipFileSystem$Entry, init$, void, ZipFileSystem$Entry*, int32_t)},
-	{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, 0, $method(ZipFileSystem$Entry, init$, void, $ZipFileSystem*, $ZipFileSystem$IndexNode*), "java.io.IOException"},
-	{"comment", "()[B", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, comment, $bytes*)},
-	{"compressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, compressedSize, int64_t)},
-	{"crc", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, crc, int64_t)},
-	{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, creationTime, $FileTime*)},
-	{"extra", "()[B", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, extra, $bytes*)},
-	{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, fileKey, $Object*)},
-	{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, isDirectory, bool)},
-	{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, isOther, bool)},
-	{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, isRegularFile, bool)},
-	{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, isSymbolicLink, bool)},
-	{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, lastAccessTime, $FileTime*)},
-	{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, lastModifiedTime, $FileTime*)},
-	{"method", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, method, int32_t)},
-	{"readCEN", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, readCEN, void, $ZipFileSystem*, $ZipFileSystem$IndexNode*), "java.io.IOException"},
-	{"readExtra", "(Ljdk/nio/zipfs/ZipFileSystem;)V", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, readExtra, void, $ZipFileSystem*), "java.io.IOException"},
-	{"readLocEXTT", "(Ljdk/nio/zipfs/ZipFileSystem;)V", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, readLocEXTT, void, $ZipFileSystem*), "java.io.IOException"},
-	{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, size, int64_t)},
-	{"storedPermissions", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;>;", $PUBLIC, $virtualMethod(ZipFileSystem$Entry, storedPermissions, $Optional*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, toString, $String*)},
-	{"version", "(Z)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, version, int32_t, bool), "java.util.zip.ZipException"},
-	{"versionMadeBy", "(I)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, versionMadeBy, int32_t, int32_t)},
-	{"writeCEN", "(Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, writeCEN, int32_t, $OutputStream*), "java.io.IOException"},
-	{"writeEXT", "(Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, writeEXT, int32_t, $OutputStream*), "java.io.IOException"},
-	{"writeLOC", "(Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, writeLOC, int32_t, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ZipFileSystem$Entry_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipFileSystem$Entry", "jdk.nio.zipfs.ZipFileSystem", "Entry", $STATIC},
-	{"jdk.nio.zipfs.ZipFileSystem$IndexNode", "jdk.nio.zipfs.ZipFileSystem", "IndexNode", $STATIC},
-	{}
-};
-
-$ClassInfo _ZipFileSystem$Entry_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipFileSystem$Entry",
-	"jdk.nio.zipfs.ZipFileSystem$IndexNode",
-	"jdk.nio.zipfs.ZipFileAttributes",
-	_ZipFileSystem$Entry_FieldInfo_,
-	_ZipFileSystem$Entry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipFileSystem$Entry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipFileSystem"
-};
-
-$Object* allocate$ZipFileSystem$Entry($Class* clazz) {
-	return $of($alloc(ZipFileSystem$Entry));
-}
 
 bool ZipFileSystem$Entry::equals(Object$* other) {
 	 return this->$ZipFileSystem$IndexNode::equals(other);
@@ -181,19 +91,17 @@ void ZipFileSystem$Entry::init$($bytes* name, bool isdir, int32_t method) {
 }
 
 void ZipFileSystem$Entry::init$($bytes* name, int32_t type, bool isdir, int32_t method, $FileAttributeArray* attrs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ZipFileSystem$Entry::init$(name, isdir, method);
 	this->type = type;
 	{
 		$var($FileAttributeArray, arr$, attrs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($FileAttribute, attr, arr$->get(i$));
 			{
 				$var($String, attrName, $nc(attr)->name());
 				if ($nc(attrName)->equals("posix:permissions"_s)) {
-					this->posixPerms = $ZipUtils::permsToFlags($cast($Set, $(attr->value())));
+					this->posixPerms = $ZipUtils::permsToFlags($$cast($Set, attr->value()));
 				}
 			}
 		}
@@ -222,7 +130,7 @@ void ZipFileSystem$Entry::init$(ZipFileSystem$Entry* e, int32_t type) {
 	this->csize = -1;
 	this->size$ = -1;
 	name($nc(e)->name$);
-	this->isdir = $nc(e)->isdir;
+	this->isdir = e->isdir;
 	this->version$ = e->version$;
 	this->ctime = e->ctime;
 	this->atime = e->atime;
@@ -265,7 +173,7 @@ int32_t ZipFileSystem$Entry::version(bool zip64) {
 }
 
 int32_t ZipFileSystem$Entry::versionMadeBy(int32_t version) {
-	return (this->posixPerms < 0) ? version : 768 | ((int32_t)(version & (uint32_t)255));
+	return (this->posixPerms < 0) ? version : 0x0300 | (version & 0xff);
 }
 
 void ZipFileSystem$Entry::readCEN($ZipFileSystem* zipfs, $ZipFileSystem$IndexNode* inode) {
@@ -285,7 +193,7 @@ void ZipFileSystem$Entry::readCEN($ZipFileSystem* zipfs, $ZipFileSystem$IndexNod
 	int32_t elen = $ZipConstants::CENEXT(cen, pos);
 	int32_t clen = $ZipConstants::CENCOM(cen, pos);
 	if ($ZipConstants::CENVEM_FA(cen, pos) == 3) {
-		this->posixPerms = (int32_t)($ZipConstants::CENATX_PERMS(cen, pos) & (uint32_t)4095);
+		this->posixPerms = $ZipConstants::CENATX_PERMS(cen, pos) & 0x0fff;
 	}
 	this->locoff = $ZipConstants::CENOFF(cen, pos);
 	pos += 46;
@@ -312,20 +220,20 @@ int32_t ZipFileSystem$Entry::writeCEN($OutputStream* os) {
 	int32_t elenEXTT = 0;
 	bool foundExtraTime = false;
 	$var($bytes, zname, this->isdir ? $ZipUtils::toDirectoryPath(this->name$) : this->name$);
-	int32_t nlen = (zname != nullptr) ? $nc(zname)->length - 1 : 0;
-	int32_t elen = (this->extra$ != nullptr) ? $nc(this->extra$)->length : 0;
+	int32_t nlen = (zname != nullptr) ? zname->length - 1 : 0;
+	int32_t elen = (this->extra$ != nullptr) ? this->extra$->length : 0;
 	int32_t eoff = 0;
-	int32_t clen = (this->comment$ != nullptr) ? $nc(this->comment$)->length : 0;
-	if (this->csize >= (int64_t)0x00000000FFFFFFFF) {
-		csize0 = 0x00000000FFFFFFFF;
+	int32_t clen = (this->comment$ != nullptr) ? this->comment$->length : 0;
+	if (this->csize >= (int64_t)0x00000000ffffffff) {
+		csize0 = (int64_t)0x00000000ffffffff;
 		elen64 += 8;
 	}
-	if (this->size$ >= (int64_t)0x00000000FFFFFFFF) {
-		size0 = 0x00000000FFFFFFFF;
+	if (this->size$ >= (int64_t)0x00000000ffffffff) {
+		size0 = (int64_t)0x00000000ffffffff;
 		elen64 += 8;
 	}
-	if (this->locoff >= (int64_t)0x00000000FFFFFFFF) {
-		locoff0 = 0x00000000FFFFFFFF;
+	if (this->locoff >= (int64_t)0x00000000ffffffff) {
+		locoff0 = (int64_t)0x00000000ffffffff;
 		elen64 += 8;
 	}
 	if (elen64 != 0) {
@@ -362,7 +270,7 @@ int32_t ZipFileSystem$Entry::writeCEN($OutputStream* os) {
 	$ZipUtils::writeShort(os, nlen);
 	$ZipUtils::writeShort(os, elen + elen64 + elenNTFS + elenEXTT);
 	if (this->comment$ != nullptr) {
-		$ZipUtils::writeShort(os, $Math::min(clen, 0x0000FFFF));
+		$ZipUtils::writeShort(os, $Math::min(clen, 0x0000ffff));
 	} else {
 		$ZipUtils::writeShort(os, 0);
 	}
@@ -374,13 +282,13 @@ int32_t ZipFileSystem$Entry::writeCEN($OutputStream* os) {
 	if (zip64) {
 		$ZipUtils::writeShort(os, 1);
 		$ZipUtils::writeShort(os, elen64 - 4);
-		if (size0 == (int64_t)0x00000000FFFFFFFF) {
+		if (size0 == (int64_t)0x00000000ffffffff) {
 			$ZipUtils::writeLong(os, this->size$);
 		}
-		if (csize0 == (int64_t)0x00000000FFFFFFFF) {
+		if (csize0 == (int64_t)0x00000000ffffffff) {
 			$ZipUtils::writeLong(os, this->csize);
 		}
-		if (locoff0 == (int64_t)0x00000000FFFFFFFF) {
+		if (locoff0 == (int64_t)0x00000000ffffffff) {
 			$ZipUtils::writeLong(os, this->locoff);
 		}
 	}
@@ -415,8 +323,8 @@ int32_t ZipFileSystem$Entry::writeCEN($OutputStream* os) {
 
 int32_t ZipFileSystem$Entry::writeLOC($OutputStream* os) {
 	$var($bytes, zname, this->isdir ? $ZipUtils::toDirectoryPath(this->name$) : this->name$);
-	int32_t nlen = (zname != nullptr) ? $nc(zname)->length - 1 : 0;
-	int32_t elen = (this->extra$ != nullptr) ? $nc(this->extra$)->length : 0;
+	int32_t nlen = (zname != nullptr) ? zname->length - 1 : 0;
+	int32_t elen = (this->extra$ != nullptr) ? this->extra$->length : 0;
 	bool foundExtraTime = false;
 	int32_t eoff = 0;
 	int32_t elen64 = 0;
@@ -425,7 +333,7 @@ int32_t ZipFileSystem$Entry::writeLOC($OutputStream* os) {
 	int32_t elenNTFS = 0;
 	$init($ZipConstants);
 	$ZipUtils::writeInt(os, $ZipConstants::LOCSIG$);
-	if (((int32_t)(this->flag & (uint32_t)8)) != 0) {
+	if ((this->flag & 8) != 0) {
 		$ZipUtils::writeShort(os, version(false));
 		$ZipUtils::writeShort(os, this->flag);
 		$ZipUtils::writeShort(os, this->method$);
@@ -434,7 +342,7 @@ int32_t ZipFileSystem$Entry::writeLOC($OutputStream* os) {
 		$ZipUtils::writeInt(os, 0);
 		$ZipUtils::writeInt(os, 0);
 	} else {
-		if (this->csize >= (int64_t)0x00000000FFFFFFFF || this->size$ >= (int64_t)0x00000000FFFFFFFF) {
+		if (this->csize >= (int64_t)0x00000000ffffffff || this->size$ >= (int64_t)0x00000000ffffffff) {
 			elen64 = 20;
 			zip64 = true;
 		}
@@ -444,8 +352,8 @@ int32_t ZipFileSystem$Entry::writeLOC($OutputStream* os) {
 		$ZipUtils::writeInt(os, (int32_t)$ZipUtils::javaToDosTime(this->mtime));
 		$ZipUtils::writeInt(os, this->crc$);
 		if (zip64) {
-			$ZipUtils::writeInt(os, 0x00000000FFFFFFFF);
-			$ZipUtils::writeInt(os, 0x00000000FFFFFFFF);
+			$ZipUtils::writeInt(os, (int64_t)0x00000000ffffffff);
+			$ZipUtils::writeInt(os, (int64_t)0x00000000ffffffff);
 		} else {
 			$ZipUtils::writeInt(os, this->csize);
 			$ZipUtils::writeInt(os, this->size$);
@@ -521,7 +429,7 @@ int32_t ZipFileSystem$Entry::writeEXT($OutputStream* os) {
 	$init($ZipConstants);
 	$ZipUtils::writeInt(os, $ZipConstants::EXTSIG);
 	$ZipUtils::writeInt(os, this->crc$);
-	if (this->csize >= (int64_t)0x00000000FFFFFFFF || this->size$ >= (int64_t)0x00000000FFFFFFFF) {
+	if (this->csize >= (int64_t)0x00000000ffffffff || this->size$ >= (int64_t)0x00000000ffffffff) {
 		$ZipUtils::writeLong(os, this->csize);
 		$ZipUtils::writeLong(os, this->size$);
 		return 24;
@@ -550,66 +458,58 @@ void ZipFileSystem$Entry::readExtra($ZipFileSystem* zipfs) {
 		}
 		switch (tag) {
 		case 1:
-			{
-				if (this->size$ == (int64_t)0x00000000FFFFFFFF) {
-					if (pos + 8 > elen) {
-						break;
-					}
-					this->size$ = $ZipConstants::LL(this->extra$, pos);
-					pos += 8;
+			if (this->size$ == (int64_t)0x00000000ffffffff) {
+				if (pos + 8 > elen) {
+					break;
 				}
-				if (this->csize == (int64_t)0x00000000FFFFFFFF) {
-					if (pos + 8 > elen) {
-						break;
-					}
-					this->csize = $ZipConstants::LL(this->extra$, pos);
-					pos += 8;
-				}
-				if (this->locoff == (int64_t)0x00000000FFFFFFFF) {
-					if (pos + 8 > elen) {
-						break;
-					}
-					this->locoff = $ZipConstants::LL(this->extra$, pos);
-				}
-				break;
+				this->size$ = $ZipConstants::LL(this->extra$, pos);
+				pos += 8;
 			}
+			if (this->csize == (int64_t)0x00000000ffffffff) {
+				if (pos + 8 > elen) {
+					break;
+				}
+				this->csize = $ZipConstants::LL(this->extra$, pos);
+				pos += 8;
+			}
+			if (this->locoff == (int64_t)0x00000000ffffffff) {
+				if (pos + 8 > elen) {
+					break;
+				}
+				this->locoff = $ZipConstants::LL(this->extra$, pos);
+			}
+			break;
 		case 10:
-			{
-				if (sz < 32) {
-					break;
-				}
-				pos += 4;
-				if ($ZipConstants::SH(this->extra$, pos) != 1) {
-					break;
-				}
-				if ($ZipConstants::SH(this->extra$, pos + 2) != 24) {
-					break;
-				}
-				this->mtime = $ZipUtils::winToJavaTime($ZipConstants::LL(this->extra$, pos + 4));
-				this->atime = $ZipUtils::winToJavaTime($ZipConstants::LL(this->extra$, pos + 12));
-				this->ctime = $ZipUtils::winToJavaTime($ZipConstants::LL(this->extra$, pos + 20));
+			if (sz < 32) {
 				break;
 			}
+			pos += 4;
+			if ($ZipConstants::SH(this->extra$, pos) != 1) {
+				break;
+			}
+			if ($ZipConstants::SH(this->extra$, pos + 2) != 24) {
+				break;
+			}
+			this->mtime = $ZipUtils::winToJavaTime($ZipConstants::LL(this->extra$, pos + 4));
+			this->atime = $ZipUtils::winToJavaTime($ZipConstants::LL(this->extra$, pos + 12));
+			this->ctime = $ZipUtils::winToJavaTime($ZipConstants::LL(this->extra$, pos + 20));
+			break;
 		case 21589:
-			{
-				if ($nc(zipfs)->noExtt) {
-					if (sz == 5) {
-						this->mtime = $ZipUtils::unixToJavaTime($ZipConstants::LG(this->extra$, pos + 1));
-					}
-					break;
-				}
-				if (this->locoff != (int64_t)0x00000000FFFFFFFF) {
-					readLocEXTT(zipfs);
-				} else {
-					hasZip64LocOffset = true;
+			if ($nc(zipfs)->noExtt) {
+				if (sz == 5) {
+					this->mtime = $ZipUtils::unixToJavaTime($ZipConstants::LG(this->extra$, pos + 1));
 				}
 				break;
 			}
-		default:
-			{
-				$System::arraycopy(this->extra$, off, this->extra$, newOff, sz + 4);
-				newOff += (sz + 4);
+			if (this->locoff != (int64_t)0x00000000ffffffff) {
+				readLocEXTT(zipfs);
+			} else {
+				hasZip64LocOffset = true;
 			}
+			break;
+		default:
+			$System::arraycopy(this->extra$, off, this->extra$, newOff, sz + 4);
+			newOff += (sz + 4);
 		}
 		off += (sz + 4);
 	}
@@ -624,7 +524,7 @@ void ZipFileSystem$Entry::readExtra($ZipFileSystem* zipfs) {
 }
 
 void ZipFileSystem$Entry::readLocEXTT($ZipFileSystem* zipfs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, buf, $new($bytes, 30));
 	if ($nc(zipfs)->readFullyAt(buf, 0, buf->length, this->locoff) != buf->length) {
 		$throwNew($ZipException, "loc: reading failed"_s);
@@ -638,7 +538,7 @@ void ZipFileSystem$Entry::readLocEXTT($ZipFileSystem* zipfs) {
 	}
 	int32_t locNlen = $ZipConstants::LOCNAM(buf);
 	$assign(buf, $new($bytes, locElen));
-	if ($nc(zipfs)->readFullyAt(buf, 0, buf->length, this->locoff + 30 + locNlen) != buf->length) {
+	if (zipfs->readFullyAt(buf, 0, buf->length, this->locoff + 30 + locNlen) != buf->length) {
 		$throwNew($ZipException, "loc extra: reading failed"_s);
 	}
 	int32_t locPos = 0;
@@ -652,15 +552,15 @@ void ZipFileSystem$Entry::readLocEXTT($ZipFileSystem* zipfs) {
 		}
 		int32_t end = locPos + locSZ - 4;
 		int32_t flag = $ZipConstants::CH(buf, locPos++);
-		if (((int32_t)(flag & (uint32_t)1)) != 0 && locPos <= end) {
+		if ((flag & 1) != 0 && locPos <= end) {
 			this->mtime = $ZipUtils::unixToJavaTime($ZipConstants::LG(buf, locPos));
 			locPos += 4;
 		}
-		if (((int32_t)(flag & (uint32_t)2)) != 0 && locPos <= end) {
+		if ((flag & 2) != 0 && locPos <= end) {
 			this->atime = $ZipUtils::unixToJavaTime($ZipConstants::LG(buf, locPos));
 			locPos += 4;
 		}
-		if (((int32_t)(flag & (uint32_t)4)) != 0 && locPos <= end) {
+		if ((flag & 4) != 0 && locPos <= end) {
 			this->ctime = $ZipUtils::unixToJavaTime($ZipConstants::LG(buf, locPos));
 		}
 		break;
@@ -668,25 +568,25 @@ void ZipFileSystem$Entry::readLocEXTT($ZipFileSystem* zipfs) {
 }
 
 $String* ZipFileSystem$Entry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, 1024));
-	$var($Formatter, fm, $new($Formatter, static_cast<$Appendable*>(sb)));
-	fm->format("    name            : %s%n"_s, $$new($ObjectArray, {$of($$new($String, this->name$))}));
-	fm->format("    creationTime    : %tc%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($nc($(creationTime()))->toMillis())))}));
-	fm->format("    lastAccessTime  : %tc%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($nc($(lastAccessTime()))->toMillis())))}));
-	fm->format("    lastModifiedTime: %tc%n"_s, $$new($ObjectArray, {$($of($Long::valueOf($nc($(lastModifiedTime()))->toMillis())))}));
-	fm->format("    isRegularFile   : %b%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(isRegularFile())))}));
-	fm->format("    isDirectory     : %b%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(isDirectory())))}));
-	fm->format("    isSymbolicLink  : %b%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(isSymbolicLink())))}));
-	fm->format("    isOther         : %b%n"_s, $$new($ObjectArray, {$($of($Boolean::valueOf(isOther())))}));
+	$var($Formatter, fm, $new($Formatter, sb));
+	fm->format("    name            : %s%n"_s, $$new($ObjectArray, {$$new($String, this->name$)}));
+	fm->format("    creationTime    : %tc%n"_s, $$new($ObjectArray, {$($Long::valueOf($$nc(creationTime())->toMillis()))}));
+	fm->format("    lastAccessTime  : %tc%n"_s, $$new($ObjectArray, {$($Long::valueOf($$nc(lastAccessTime())->toMillis()))}));
+	fm->format("    lastModifiedTime: %tc%n"_s, $$new($ObjectArray, {$($Long::valueOf($$nc(lastModifiedTime())->toMillis()))}));
+	fm->format("    isRegularFile   : %b%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(isRegularFile()))}));
+	fm->format("    isDirectory     : %b%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(isDirectory()))}));
+	fm->format("    isSymbolicLink  : %b%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(isSymbolicLink()))}));
+	fm->format("    isOther         : %b%n"_s, $$new($ObjectArray, {$($Boolean::valueOf(isOther()))}));
 	fm->format("    fileKey         : %s%n"_s, $$new($ObjectArray, {$(fileKey())}));
-	fm->format("    size            : %d%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(size())))}));
-	fm->format("    compressedSize  : %d%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(compressedSize())))}));
-	fm->format("    crc             : %x%n"_s, $$new($ObjectArray, {$($of($Long::valueOf(crc())))}));
-	fm->format("    method          : %d%n"_s, $$new($ObjectArray, {$($of($Integer::valueOf(method())))}));
-	$var($Set, permissions, $cast($Set, $nc($(storedPermissions()))->orElse(nullptr)));
+	fm->format("    size            : %d%n"_s, $$new($ObjectArray, {$($Long::valueOf(size()))}));
+	fm->format("    compressedSize  : %d%n"_s, $$new($ObjectArray, {$($Long::valueOf(compressedSize()))}));
+	fm->format("    crc             : %x%n"_s, $$new($ObjectArray, {$($Long::valueOf(crc()))}));
+	fm->format("    method          : %d%n"_s, $$new($ObjectArray, {$($Integer::valueOf(method()))}));
+	$var($Set, permissions, $cast($Set, $$nc(storedPermissions())->orElse(nullptr)));
 	if (permissions != nullptr) {
-		fm->format("    permissions     : %s%n"_s, $$new($ObjectArray, {$of(permissions)}));
+		fm->format("    permissions     : %s%n"_s, $$new($ObjectArray, {permissions}));
 	}
 	fm->close();
 	return sb->toString();
@@ -725,7 +625,7 @@ bool ZipFileSystem$Entry::isSymbolicLink() {
 }
 
 $Object* ZipFileSystem$Entry::fileKey() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 int64_t ZipFileSystem$Entry::compressedSize() {
@@ -742,33 +642,29 @@ int32_t ZipFileSystem$Entry::method() {
 
 $bytes* ZipFileSystem$Entry::extra() {
 	if (this->extra$ != nullptr) {
-		return $Arrays::copyOf(this->extra$, $nc(this->extra$)->length);
+		return $Arrays::copyOf(this->extra$, this->extra$->length);
 	}
 	return nullptr;
 }
 
 $bytes* ZipFileSystem$Entry::comment() {
 	if (this->comment$ != nullptr) {
-		return $Arrays::copyOf(this->comment$, $nc(this->comment$)->length);
+		return $Arrays::copyOf(this->comment$, this->comment$->length);
 	}
 	return nullptr;
 }
 
 $Optional* ZipFileSystem$Entry::storedPermissions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, perms, nullptr);
 	if (this->posixPerms != -1) {
 		$assign(perms, $new($HashSet, $($PosixFilePermission::values())->length));
 		{
 			$var($PosixFilePermissionArray, arr$, $PosixFilePermission::values());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$PosixFilePermission* perm = arr$->get(i$);
-				{
-					if (((int32_t)(this->posixPerms & (uint32_t)$ZipUtils::permToFlag(perm))) != 0) {
-						perms->add(perm);
-					}
+				if ((this->posixPerms & $ZipUtils::permToFlag(perm)) != 0) {
+					perms->add(perm);
 				}
 			}
 		}
@@ -780,7 +676,89 @@ ZipFileSystem$Entry::ZipFileSystem$Entry() {
 }
 
 $Class* ZipFileSystem$Entry::load$($String* name, bool initialize) {
-	$loadClass(ZipFileSystem$Entry, name, initialize, &_ZipFileSystem$Entry_ClassInfo_, allocate$ZipFileSystem$Entry);
+	$FieldInfo fieldInfos$$[] = {
+		{"CEN", "I", nullptr, $STATIC | $FINAL, $constField(ZipFileSystem$Entry, CEN)},
+		{"NEW", "I", nullptr, $STATIC | $FINAL, $constField(ZipFileSystem$Entry, NEW)},
+		{"FILECH", "I", nullptr, $STATIC | $FINAL, $constField(ZipFileSystem$Entry, FILECH)},
+		{"COPY", "I", nullptr, $STATIC | $FINAL, $constField(ZipFileSystem$Entry, COPY)},
+		{"bytes", "[B", nullptr, 0, $field(ZipFileSystem$Entry, bytes)},
+		{"file", "Ljava/nio/file/Path;", nullptr, 0, $field(ZipFileSystem$Entry, file)},
+		{"type", "I", nullptr, 0, $field(ZipFileSystem$Entry, type)},
+		{"version", "I", nullptr, 0, $field(ZipFileSystem$Entry, version$)},
+		{"flag", "I", nullptr, 0, $field(ZipFileSystem$Entry, flag)},
+		{"posixPerms", "I", nullptr, 0, $field(ZipFileSystem$Entry, posixPerms)},
+		{"method", "I", nullptr, 0, $field(ZipFileSystem$Entry, method$)},
+		{"mtime", "J", nullptr, 0, $field(ZipFileSystem$Entry, mtime)},
+		{"atime", "J", nullptr, 0, $field(ZipFileSystem$Entry, atime)},
+		{"ctime", "J", nullptr, 0, $field(ZipFileSystem$Entry, ctime)},
+		{"crc", "J", nullptr, 0, $field(ZipFileSystem$Entry, crc$)},
+		{"csize", "J", nullptr, 0, $field(ZipFileSystem$Entry, csize)},
+		{"size", "J", nullptr, 0, $field(ZipFileSystem$Entry, size$)},
+		{"extra", "[B", nullptr, 0, $field(ZipFileSystem$Entry, extra$)},
+		{"locoff", "J", nullptr, 0, $field(ZipFileSystem$Entry, locoff)},
+		{"comment", "[B", nullptr, 0, $field(ZipFileSystem$Entry, comment$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "([BZI)V", nullptr, 0, $method(ZipFileSystem$Entry, init$, void, $bytes*, bool, int32_t)},
+		{"<init>", "([BIZI[Ljava/nio/file/attribute/FileAttribute;)V", "([BIZI[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $method(ZipFileSystem$Entry, init$, void, $bytes*, int32_t, bool, int32_t, $FileAttributeArray*)},
+		{"<init>", "([BLjava/nio/file/Path;I[Ljava/nio/file/attribute/FileAttribute;)V", "([BLjava/nio/file/Path;I[Ljava/nio/file/attribute/FileAttribute<*>;)V", $TRANSIENT, $method(ZipFileSystem$Entry, init$, void, $bytes*, $Path*, int32_t, $FileAttributeArray*)},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;II)V", nullptr, 0, $method(ZipFileSystem$Entry, init$, void, ZipFileSystem$Entry*, int32_t, int32_t)},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem$Entry;I)V", nullptr, 0, $method(ZipFileSystem$Entry, init$, void, ZipFileSystem$Entry*, int32_t)},
+		{"<init>", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, 0, $method(ZipFileSystem$Entry, init$, void, $ZipFileSystem*, $ZipFileSystem$IndexNode*), "java.io.IOException"},
+		{"comment", "()[B", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, comment, $bytes*)},
+		{"compressedSize", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, compressedSize, int64_t)},
+		{"crc", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, crc, int64_t)},
+		{"creationTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, creationTime, $FileTime*)},
+		{"extra", "()[B", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, extra, $bytes*)},
+		{"fileKey", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, fileKey, $Object*)},
+		{"isDirectory", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, isDirectory, bool)},
+		{"isOther", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, isOther, bool)},
+		{"isRegularFile", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, isRegularFile, bool)},
+		{"isSymbolicLink", "()Z", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, isSymbolicLink, bool)},
+		{"lastAccessTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, lastAccessTime, $FileTime*)},
+		{"lastModifiedTime", "()Ljava/nio/file/attribute/FileTime;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, lastModifiedTime, $FileTime*)},
+		{"method", "()I", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, method, int32_t)},
+		{"readCEN", "(Ljdk/nio/zipfs/ZipFileSystem;Ljdk/nio/zipfs/ZipFileSystem$IndexNode;)V", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, readCEN, void, $ZipFileSystem*, $ZipFileSystem$IndexNode*), "java.io.IOException"},
+		{"readExtra", "(Ljdk/nio/zipfs/ZipFileSystem;)V", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, readExtra, void, $ZipFileSystem*), "java.io.IOException"},
+		{"readLocEXTT", "(Ljdk/nio/zipfs/ZipFileSystem;)V", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, readLocEXTT, void, $ZipFileSystem*), "java.io.IOException"},
+		{"size", "()J", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, size, int64_t)},
+		{"storedPermissions", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/Set<Ljava/nio/file/attribute/PosixFilePermission;>;>;", $PUBLIC, $virtualMethod(ZipFileSystem$Entry, storedPermissions, $Optional*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ZipFileSystem$Entry, toString, $String*)},
+		{"version", "(Z)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, version, int32_t, bool), "java.util.zip.ZipException"},
+		{"versionMadeBy", "(I)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, versionMadeBy, int32_t, int32_t)},
+		{"writeCEN", "(Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, writeCEN, int32_t, $OutputStream*), "java.io.IOException"},
+		{"writeEXT", "(Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, writeEXT, int32_t, $OutputStream*), "java.io.IOException"},
+		{"writeLOC", "(Ljava/io/OutputStream;)I", nullptr, $PRIVATE, $method(ZipFileSystem$Entry, writeLOC, int32_t, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipFileSystem$Entry", "jdk.nio.zipfs.ZipFileSystem", "Entry", $STATIC},
+		{"jdk.nio.zipfs.ZipFileSystem$IndexNode", "jdk.nio.zipfs.ZipFileSystem", "IndexNode", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipFileSystem$Entry",
+		"jdk.nio.zipfs.ZipFileSystem$IndexNode",
+		"jdk.nio.zipfs.ZipFileAttributes",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipFileSystem"
+	};
+	$loadClass(ZipFileSystem$Entry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ZipFileSystem$Entry));
+	});
 	return class$;
 }
 

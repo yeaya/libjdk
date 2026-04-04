@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Method.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AccessFlags.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Attribute.h>
@@ -52,58 +51,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _Method_FieldInfo_[] = {
-	{"bcelComparator", "Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PRIVATE | $STATIC, $staticField(Method, bcelComparator)},
-	{"parameterAnnotationEntries", "[Lcom/sun/org/apache/bcel/internal/classfile/ParameterAnnotationEntry;", nullptr, $PRIVATE, $field(Method, parameterAnnotationEntries)},
-	{}
-};
-
-$MethodInfo _Method_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Method, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $method(Method, init$, void, Method*)},
-	{"<init>", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Method, init$, void, $DataInput*, $ConstantPool*), "java.io.IOException,com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
-	{"<init>", "(III[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Method, init$, void, int32_t, int32_t, int32_t, $AttributeArray*, $ConstantPool*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Method, accept, void, $Visitor*)},
-	{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $method(Method, copy, Method*, $ConstantPool*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Method, equals, bool, Object$*)},
-	{"getArgumentTypes", "()[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $method(Method, getArgumentTypes, $TypeArray*)},
-	{"getCode", "()Lcom/sun/org/apache/bcel/internal/classfile/Code;", nullptr, $PUBLIC, $method(Method, getCode, $Code*)},
-	{"getComparator", "()Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getComparator, $BCELComparator*)},
-	{"getExceptionTable", "()Lcom/sun/org/apache/bcel/internal/classfile/ExceptionTable;", nullptr, $PUBLIC, $method(Method, getExceptionTable, $ExceptionTable*)},
-	{"getLineNumberTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LineNumberTable;", nullptr, $PUBLIC, $method(Method, getLineNumberTable, $LineNumberTable*)},
-	{"getLocalVariableTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;", nullptr, $PUBLIC, $method(Method, getLocalVariableTable, $LocalVariableTable*)},
-	{"getParameterAnnotationEntries", "()[Lcom/sun/org/apache/bcel/internal/classfile/ParameterAnnotationEntry;", nullptr, $PUBLIC, $method(Method, getParameterAnnotationEntries, $ParameterAnnotationEntryArray*)},
-	{"getReturnType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $method(Method, getReturnType, $Type*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Method, hashCode, int32_t)},
-	{"setComparator", "(Lcom/sun/org/apache/bcel/internal/util/BCELComparator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, setComparator, void, $BCELComparator*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Method_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.classfile.Method$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Method_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Method",
-	"com.sun.org.apache.bcel.internal.classfile.FieldOrMethod",
-	nullptr,
-	_Method_FieldInfo_,
-	_Method_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Method_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.classfile.Method$1"
-};
-
-$Object* allocate$Method($Class* clazz) {
-	return $of($alloc(Method));
-}
-
 $BCELComparator* Method::bcelComparator = nullptr;
 
 void Method::init$() {
@@ -127,36 +74,24 @@ void Method::accept($Visitor* v) {
 }
 
 $Code* Method::getCode() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($AttributeArray, arr$, $FieldOrMethod::getAttributes());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Attribute, attribute, arr$->get(i$));
-			{
-				if ($instanceOf($Code, attribute)) {
-					return $cast($Code, attribute);
-				}
-			}
+	$useLocalObjectStack();
+	$var($AttributeArray, arr$, $FieldOrMethod::getAttributes());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Attribute, attribute, arr$->get(i$));
+		if ($instanceOf($Code, attribute)) {
+			return $cast($Code, attribute);
 		}
 	}
 	return nullptr;
 }
 
 $ExceptionTable* Method::getExceptionTable() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($AttributeArray, arr$, $FieldOrMethod::getAttributes());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Attribute, attribute, arr$->get(i$));
-			{
-				if ($instanceOf($ExceptionTable, attribute)) {
-					return $cast($ExceptionTable, attribute);
-				}
-			}
+	$useLocalObjectStack();
+	$var($AttributeArray, arr$, $FieldOrMethod::getAttributes());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Attribute, attribute, arr$->get(i$));
+		if ($instanceOf($ExceptionTable, attribute)) {
+			return $cast($ExceptionTable, attribute);
 		}
 	}
 	return nullptr;
@@ -179,24 +114,20 @@ $LineNumberTable* Method::getLineNumberTable() {
 }
 
 $String* Method::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, access, $Utility::accessToString($FieldOrMethod::getAccessFlags()));
-	$var($ConstantUtf8, c, $cast($ConstantUtf8, $nc($($FieldOrMethod::getConstantPool()))->getConstant($FieldOrMethod::getSignatureIndex(), $Const::CONSTANT_Utf8)));
+	$var($ConstantUtf8, c, $cast($ConstantUtf8, $$nc($FieldOrMethod::getConstantPool())->getConstant($FieldOrMethod::getSignatureIndex(), $Const::CONSTANT_Utf8)));
 	$var($String, signature, $nc(c)->getBytes());
-	$assign(c, $cast($ConstantUtf8, $nc($($FieldOrMethod::getConstantPool()))->getConstant($FieldOrMethod::getNameIndex(), $Const::CONSTANT_Utf8)));
-	$var($String, name, c->getBytes());
+	$assign(c, $cast($ConstantUtf8, $$nc($FieldOrMethod::getConstantPool())->getConstant($FieldOrMethod::getNameIndex(), $Const::CONSTANT_Utf8)));
+	$var($String, name, $nc(c)->getBytes());
 	$assign(signature, $Utility::methodSignatureToString(signature, name, access, true, $(getLocalVariableTable())));
 	$var($StringBuilder, buf, $new($StringBuilder, signature));
 	{
 		$var($AttributeArray, arr$, $FieldOrMethod::getAttributes());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, attribute, arr$->get(i$));
-			{
-				if (!(($instanceOf($Code, attribute)) || ($instanceOf($ExceptionTable, attribute)))) {
-					buf->append(" ["_s)->append($of(attribute))->append("]"_s);
-				}
+			if (!(($instanceOf($Code, attribute)) || ($instanceOf($ExceptionTable, attribute)))) {
+				buf->append(" ["_s)->append(attribute)->append("]"_s);
 			}
 		}
 	}
@@ -247,7 +178,7 @@ $ParameterAnnotationEntryArray* Method::getParameterAnnotationEntries() {
 	return this->parameterAnnotationEntries;
 }
 
-void clinit$Method($Class* class$) {
+void Method::clinit$($Class* clazz) {
 	$assignStatic(Method::bcelComparator, $new($Method$1));
 }
 
@@ -255,7 +186,53 @@ Method::Method() {
 }
 
 $Class* Method::load$($String* name, bool initialize) {
-	$loadClass(Method, name, initialize, &_Method_ClassInfo_, clinit$Method, allocate$Method);
+	$FieldInfo fieldInfos$$[] = {
+		{"bcelComparator", "Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PRIVATE | $STATIC, $staticField(Method, bcelComparator)},
+		{"parameterAnnotationEntries", "[Lcom/sun/org/apache/bcel/internal/classfile/ParameterAnnotationEntry;", nullptr, $PRIVATE, $field(Method, parameterAnnotationEntries)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Method, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/Method;)V", nullptr, $PUBLIC, $method(Method, init$, void, Method*)},
+		{"<init>", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(Method, init$, void, $DataInput*, $ConstantPool*), "java.io.IOException,com.sun.org.apache.bcel.internal.classfile.ClassFormatException"},
+		{"<init>", "(III[Lcom/sun/org/apache/bcel/internal/classfile/Attribute;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(Method, init$, void, int32_t, int32_t, int32_t, $AttributeArray*, $ConstantPool*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Method, accept, void, $Visitor*)},
+		{"copy", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Lcom/sun/org/apache/bcel/internal/classfile/Method;", nullptr, $PUBLIC, $method(Method, copy, Method*, $ConstantPool*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Method, equals, bool, Object$*)},
+		{"getArgumentTypes", "()[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $method(Method, getArgumentTypes, $TypeArray*)},
+		{"getCode", "()Lcom/sun/org/apache/bcel/internal/classfile/Code;", nullptr, $PUBLIC, $method(Method, getCode, $Code*)},
+		{"getComparator", "()Lcom/sun/org/apache/bcel/internal/util/BCELComparator;", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, getComparator, $BCELComparator*)},
+		{"getExceptionTable", "()Lcom/sun/org/apache/bcel/internal/classfile/ExceptionTable;", nullptr, $PUBLIC, $method(Method, getExceptionTable, $ExceptionTable*)},
+		{"getLineNumberTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LineNumberTable;", nullptr, $PUBLIC, $method(Method, getLineNumberTable, $LineNumberTable*)},
+		{"getLocalVariableTable", "()Lcom/sun/org/apache/bcel/internal/classfile/LocalVariableTable;", nullptr, $PUBLIC, $method(Method, getLocalVariableTable, $LocalVariableTable*)},
+		{"getParameterAnnotationEntries", "()[Lcom/sun/org/apache/bcel/internal/classfile/ParameterAnnotationEntry;", nullptr, $PUBLIC, $method(Method, getParameterAnnotationEntries, $ParameterAnnotationEntryArray*)},
+		{"getReturnType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $method(Method, getReturnType, $Type*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Method, hashCode, int32_t)},
+		{"setComparator", "(Lcom/sun/org/apache/bcel/internal/util/BCELComparator;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Method, setComparator, void, $BCELComparator*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Method, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.classfile.Method$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Method",
+		"com.sun.org.apache.bcel.internal.classfile.FieldOrMethod",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.classfile.Method$1"
+	};
+	$loadClass(Method, name, initialize, &classInfo$$, Method::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Method));
+	});
 	return class$;
 }
 

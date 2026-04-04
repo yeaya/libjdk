@@ -1,21 +1,15 @@
 #include <sun/print/ServiceDialog$PrintRangePanel.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/FocusListener.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/lang/Comparable.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/text/DecimalFormat.h>
-#include <java/text/NumberFormat.h>
 #include <java/util/EventObject.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/print/DocFlavor.h>
@@ -53,105 +47,33 @@
 #undef SELECTION
 
 using $intArray2 = $Array<int32_t, 2>;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
-using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $DecimalFormat = ::java::text::DecimalFormat;
-using $NumberFormat = ::java::text::NumberFormat;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $PrintService = ::javax::print::PrintService;
-using $Attribute = ::javax::print::attribute::Attribute;
-using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashAttributeSet = ::javax::print::attribute::HashAttributeSet;
-using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PageRanges = ::javax::print::attribute::standard::PageRanges;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
-using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $JRadioButton = ::javax::swing::JRadioButton;
-using $Border = ::javax::swing::border::Border;
 using $NumberFormatter = ::javax::swing::text::NumberFormatter;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $SunPageSelection = ::sun::print::SunPageSelection;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _ServiceDialog$PrintRangePanel_FieldInfo_[] = {
-	{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$PrintRangePanel, this$0)},
-	{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$PrintRangePanel, strTitle)},
-	{"prAll", "Ljavax/print/attribute/standard/PageRanges;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$PrintRangePanel, prAll)},
-	{"rbAll", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, rbAll)},
-	{"rbPages", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, rbPages)},
-	{"rbSelect", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, rbSelect)},
-	{"tfRangeFrom", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, tfRangeFrom)},
-	{"tfRangeTo", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, tfRangeTo)},
-	{"lblRangeTo", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, lblRangeTo)},
-	{"prSupported", "Z", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, prSupported)},
-	{"prPgRngSupported", "Z", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, prPgRngSupported)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$PrintRangePanel_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$PrintRangePanel, init$, void, $ServiceDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintRangePanel, actionPerformed, void, $ActionEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintRangePanel, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintRangePanel, focusLost, void, $FocusEvent*)},
-	{"setupRangeWidgets", "()V", nullptr, $PRIVATE, $method(ServiceDialog$PrintRangePanel, setupRangeWidgets, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintRangePanel, updateInfo, void)},
-	{"updateRangeAttribute", "()V", nullptr, $PRIVATE, $method(ServiceDialog$PrintRangePanel, updateRangeAttribute, void)},
-	{}
-};
-
-$InnerClassInfo _ServiceDialog$PrintRangePanel_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$PrintRangePanel", "sun.print.ServiceDialog", "PrintRangePanel", $PRIVATE},
-	{}
-};
-
-$ClassInfo _ServiceDialog$PrintRangePanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$PrintRangePanel",
-	"javax.swing.JPanel",
-	"java.awt.event.ActionListener,java.awt.event.FocusListener",
-	_ServiceDialog$PrintRangePanel_FieldInfo_,
-	_ServiceDialog$PrintRangePanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ServiceDialog$PrintRangePanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$PrintRangePanel($Class* clazz) {
-	return $of($alloc(ServiceDialog$PrintRangePanel));
-}
 
 $String* ServiceDialog$PrintRangePanel::toString() {
 	 return this->$JPanel::toString();
@@ -174,7 +96,7 @@ void ServiceDialog$PrintRangePanel::finalize() {
 }
 
 void ServiceDialog$PrintRangePanel::init$($ServiceDialog* this$0) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$JPanel::init$();
 	$set(this, strTitle, $ServiceDialog::getMsg("border.printrange"_s));
@@ -187,16 +109,16 @@ void ServiceDialog$PrintRangePanel::init$($ServiceDialog* this$0) {
 	$set(c, insets, $ServiceDialog::compInsets);
 	c->gridwidth = $GridBagConstraints::REMAINDER;
 	$var($ButtonGroup, bg, $new($ButtonGroup));
-	$var($JPanel, pnlTop, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::LEADING))));
+	$var($JPanel, pnlTop, $new($JPanel, $$new($FlowLayout, $FlowLayout::LEADING)));
 	$set(this, rbAll, $ServiceDialog::createRadioButton("radiobutton.rangeall"_s, this));
 	$nc(this->rbAll)->setSelected(true);
 	bg->add(this->rbAll);
-	pnlTop->add(static_cast<$Component*>(this->rbAll));
+	pnlTop->add(this->rbAll);
 	$ServiceDialog::addToGB(pnlTop, this, gridbag, c);
-	$var($JPanel, pnlBottom, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout, $FlowLayout::LEADING))));
+	$var($JPanel, pnlBottom, $new($JPanel, $$new($FlowLayout, $FlowLayout::LEADING)));
 	$set(this, rbPages, $ServiceDialog::createRadioButton("radiobutton.rangepages"_s, this));
 	bg->add(this->rbPages);
-	pnlBottom->add(static_cast<$Component*>(this->rbPages));
+	pnlBottom->add(this->rbPages);
 	$var($DecimalFormat, format, $new($DecimalFormat, "####0"_s));
 	format->setMinimumFractionDigits(0);
 	format->setMaximumFractionDigits(0);
@@ -209,40 +131,40 @@ void ServiceDialog$PrintRangePanel::init$($ServiceDialog* this$0) {
 	nf->setMaximum($($Integer::valueOf($Integer::MAX_VALUE)));
 	nf->setAllowsInvalid(true);
 	nf->setCommitsOnValidEdit(true);
-	$set(this, tfRangeFrom, $new($JFormattedTextField, static_cast<$JFormattedTextField$AbstractFormatter*>(nf)));
-	$nc(this->tfRangeFrom)->setColumns(4);
+	$set(this, tfRangeFrom, $new($JFormattedTextField, nf));
+	this->tfRangeFrom->setColumns(4);
 	$nc(this->tfRangeFrom)->setEnabled(false);
 	$nc(this->tfRangeFrom)->addActionListener(this);
 	$nc(this->tfRangeFrom)->addFocusListener(this);
 	$nc(this->tfRangeFrom)->setFocusLostBehavior($JFormattedTextField::PERSIST);
-	$nc($($nc(this->tfRangeFrom)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("radiobutton.rangepages"_s)));
-	pnlBottom->add(static_cast<$Component*>(this->tfRangeFrom));
+	$$nc($nc(this->tfRangeFrom)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("radiobutton.rangepages"_s)));
+	pnlBottom->add(this->tfRangeFrom);
 	$set(this, lblRangeTo, $new($JLabel, $($ServiceDialog::getMsg("label.rangeto"_s))));
 	$nc(this->lblRangeTo)->setEnabled(false);
-	pnlBottom->add(static_cast<$Component*>(this->lblRangeTo));
+	pnlBottom->add(this->lblRangeTo);
 	$var($NumberFormatter, nfto, nullptr);
 	try {
 		$assign(nfto, $cast($NumberFormatter, nf->clone()));
 	} catch ($CloneNotSupportedException& e) {
 		$assign(nfto, $new($NumberFormatter));
 	}
-	$set(this, tfRangeTo, $new($JFormattedTextField, static_cast<$JFormattedTextField$AbstractFormatter*>(nfto)));
-	$nc(this->tfRangeTo)->setColumns(4);
+	$set(this, tfRangeTo, $new($JFormattedTextField, nfto));
+	this->tfRangeTo->setColumns(4);
 	$nc(this->tfRangeTo)->setEnabled(false);
 	$nc(this->tfRangeTo)->addFocusListener(this);
-	$nc($($nc(this->tfRangeTo)->getAccessibleContext()))->setAccessibleName($($ServiceDialog::getMsg("label.rangeto"_s)));
-	pnlBottom->add(static_cast<$Component*>(this->tfRangeTo));
+	$$nc($nc(this->tfRangeTo)->getAccessibleContext())->setAccessibleName($($ServiceDialog::getMsg("label.rangeto"_s)));
+	pnlBottom->add(this->tfRangeTo);
 	$ServiceDialog::addToGB(pnlBottom, this, gridbag, c);
 }
 
 void ServiceDialog$PrintRangePanel::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, source, $nc(e)->getSource());
 	$init($SunPageSelection);
 	$var($SunPageSelection, select, $SunPageSelection::ALL);
 	setupRangeWidgets();
 	if ($equals(source, this->rbAll)) {
-		$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(this->prAll)));
+		$nc(this->this$0->asCurrent)->add($cast($DocAttribute, this->prAll));
 	} else if ($equals(source, this->rbSelect)) {
 		$assign(select, $SunPageSelection::SELECTION);
 	} else if ($equals(source, this->rbPages) || $equals(source, this->tfRangeFrom) || $equals(source, this->tfRangeTo)) {
@@ -272,7 +194,7 @@ void ServiceDialog$PrintRangePanel::setupRangeWidgets() {
 }
 
 void ServiceDialog$PrintRangePanel::updateRangeAttribute() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, strFrom, $nc(this->tfRangeFrom)->getText());
 	$var($String, strTo, $nc(this->tfRangeTo)->getText());
 	int32_t min = 0;
@@ -296,17 +218,17 @@ void ServiceDialog$PrintRangePanel::updateRangeAttribute() {
 		$nc(this->tfRangeTo)->setValue($($Integer::valueOf(min)));
 	}
 	$var($PageRanges, pr, $new($PageRanges, min, max));
-	$nc(this->this$0->asCurrent)->add(static_cast<$Attribute*>(static_cast<$DocAttribute*>(pr)));
+	$nc(this->this$0->asCurrent)->add($cast($DocAttribute, pr));
 }
 
 void ServiceDialog$PrintRangePanel::updateInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($PageRanges);
 	$Class* prCategory = $PageRanges::class$;
 	this->prSupported = false;
 	if ($nc(this->this$0->psCurrent)->isAttributeCategorySupported(prCategory) || this->this$0->isAWT) {
 		this->prSupported = true;
-		this->prPgRngSupported = $nc(this->this$0->psCurrent)->isAttributeValueSupported(static_cast<$Attribute*>(static_cast<$DocAttribute*>(this->prAll)), this->this$0->docFlavor, static_cast<$AttributeSet*>(static_cast<$HashAttributeSet*>(this->this$0->asCurrent)));
+		this->prPgRngSupported = $nc(this->this$0->psCurrent)->isAttributeValueSupported($cast($DocAttribute, this->prAll), this->this$0->docFlavor, $cast($HashAttributeSet, this->this$0->asCurrent));
 	}
 	$init($SunPageSelection);
 	$var($SunPageSelection, select, $SunPageSelection::ALL);
@@ -328,11 +250,9 @@ void ServiceDialog$PrintRangePanel::updateInfo() {
 	}
 	if (select == $SunPageSelection::ALL) {
 		$nc(this->rbAll)->setSelected(true);
+	} else if (select == $SunPageSelection::SELECTION) {
 	} else {
-		if (select == $SunPageSelection::SELECTION) {
-		} else {
-			$nc(this->rbPages)->setSelected(true);
-		}
+		$nc(this->rbPages)->setSelected(true);
 	}
 	$nc(this->tfRangeFrom)->setValue($($Integer::valueOf(min)));
 	$nc(this->tfRangeTo)->setValue($($Integer::valueOf(max)));
@@ -345,7 +265,57 @@ ServiceDialog$PrintRangePanel::ServiceDialog$PrintRangePanel() {
 }
 
 $Class* ServiceDialog$PrintRangePanel::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$PrintRangePanel, name, initialize, &_ServiceDialog$PrintRangePanel_ClassInfo_, allocate$ServiceDialog$PrintRangePanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$PrintRangePanel, this$0)},
+		{"strTitle", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$PrintRangePanel, strTitle)},
+		{"prAll", "Ljavax/print/attribute/standard/PageRanges;", nullptr, $PRIVATE | $FINAL, $field(ServiceDialog$PrintRangePanel, prAll)},
+		{"rbAll", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, rbAll)},
+		{"rbPages", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, rbPages)},
+		{"rbSelect", "Ljavax/swing/JRadioButton;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, rbSelect)},
+		{"tfRangeFrom", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, tfRangeFrom)},
+		{"tfRangeTo", "Ljavax/swing/JFormattedTextField;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, tfRangeTo)},
+		{"lblRangeTo", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, lblRangeTo)},
+		{"prSupported", "Z", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, prSupported)},
+		{"prPgRngSupported", "Z", nullptr, $PRIVATE, $field(ServiceDialog$PrintRangePanel, prPgRngSupported)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/print/ServiceDialog;)V", nullptr, $PUBLIC, $method(ServiceDialog$PrintRangePanel, init$, void, $ServiceDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintRangePanel, actionPerformed, void, $ActionEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintRangePanel, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintRangePanel, focusLost, void, $FocusEvent*)},
+		{"setupRangeWidgets", "()V", nullptr, $PRIVATE, $method(ServiceDialog$PrintRangePanel, setupRangeWidgets, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateInfo", "()V", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$PrintRangePanel, updateInfo, void)},
+		{"updateRangeAttribute", "()V", nullptr, $PRIVATE, $method(ServiceDialog$PrintRangePanel, updateRangeAttribute, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$PrintRangePanel", "sun.print.ServiceDialog", "PrintRangePanel", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$PrintRangePanel",
+		"javax.swing.JPanel",
+		"java.awt.event.ActionListener,java.awt.event.FocusListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$PrintRangePanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ServiceDialog$PrintRangePanel));
+	});
 	return class$;
 }
 

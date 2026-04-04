@@ -1,5 +1,4 @@
 #include <javax/naming/directory/InitialDirContext.h>
-
 #include <java/util/Hashtable.h>
 #include <javax/naming/Context.h>
 #include <javax/naming/InitialContext.h>
@@ -32,88 +31,6 @@ using $SearchControls = ::javax::naming::directory::SearchControls;
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$MethodInfo _InitialDirContext_MethodInfo_[] = {
-	{"*addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*close", "()V", nullptr, $PUBLIC},
-	{"*composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"*destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEnvironment", "()Ljava/util/Hashtable;", nullptr, $PUBLIC},
-	{"*getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
-	{"*getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, $PROTECTED, $method(InitialDirContext, init$, void, bool), "javax.naming.NamingException"},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InitialDirContext, init$, void), "javax.naming.NamingException"},
-	{"<init>", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $method(InitialDirContext, init$, void, $Hashtable*), "javax.naming.NamingException"},
-	{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
-	{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getURLOrDefaultInitDirCtx", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(InitialDirContext, getURLOrDefaultInitDirCtx, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"getURLOrDefaultInitDirCtx", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(InitialDirContext, getURLOrDefaultInitDirCtx, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"*list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
-	{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
-	{"*removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
-	{"*unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _InitialDirContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.InitialDirContext",
-	"javax.naming.InitialContext",
-	"javax.naming.directory.DirContext",
-	nullptr,
-	_InitialDirContext_MethodInfo_
-};
-
-$Object* allocate$InitialDirContext($Class* clazz) {
-	return $of($alloc(InitialDirContext));
-}
 
 $Object* InitialDirContext::lookup($String* name) {
 	 return this->$InitialContext::lookup(name);
@@ -288,114 +205,192 @@ $DirContext* InitialDirContext::getURLOrDefaultInitDirCtx($Name* name) {
 }
 
 $Attributes* InitialDirContext::getAttributes($String* name) {
-	return getAttributes(name, ($StringArray*)nullptr);
+	return getAttributes(name, nullptr);
 }
 
 $Attributes* InitialDirContext::getAttributes($String* name, $StringArray* attrIds) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->getAttributes(name, attrIds);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->getAttributes(name, attrIds);
 }
 
 $Attributes* InitialDirContext::getAttributes($Name* name) {
-	return getAttributes(name, ($StringArray*)nullptr);
+	return getAttributes(name, nullptr);
 }
 
 $Attributes* InitialDirContext::getAttributes($Name* name, $StringArray* attrIds) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->getAttributes(name, attrIds);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->getAttributes(name, attrIds);
 }
 
 void InitialDirContext::modifyAttributes($String* name, int32_t mod_op, $Attributes* attrs) {
-	$nc($(getURLOrDefaultInitDirCtx(name)))->modifyAttributes(name, mod_op, attrs);
+	$$nc(getURLOrDefaultInitDirCtx(name))->modifyAttributes(name, mod_op, attrs);
 }
 
 void InitialDirContext::modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs) {
-	$nc($(getURLOrDefaultInitDirCtx(name)))->modifyAttributes(name, mod_op, attrs);
+	$$nc(getURLOrDefaultInitDirCtx(name))->modifyAttributes(name, mod_op, attrs);
 }
 
 void InitialDirContext::modifyAttributes($String* name, $ModificationItemArray* mods) {
-	$nc($(getURLOrDefaultInitDirCtx(name)))->modifyAttributes(name, mods);
+	$$nc(getURLOrDefaultInitDirCtx(name))->modifyAttributes(name, mods);
 }
 
 void InitialDirContext::modifyAttributes($Name* name, $ModificationItemArray* mods) {
-	$nc($(getURLOrDefaultInitDirCtx(name)))->modifyAttributes(name, mods);
+	$$nc(getURLOrDefaultInitDirCtx(name))->modifyAttributes(name, mods);
 }
 
 void InitialDirContext::bind($String* name, Object$* obj, $Attributes* attrs) {
-	$nc($(getURLOrDefaultInitDirCtx(name)))->bind(name, obj, attrs);
+	$$nc(getURLOrDefaultInitDirCtx(name))->bind(name, obj, attrs);
 }
 
 void InitialDirContext::bind($Name* name, Object$* obj, $Attributes* attrs) {
-	$nc($(getURLOrDefaultInitDirCtx(name)))->bind(name, obj, attrs);
+	$$nc(getURLOrDefaultInitDirCtx(name))->bind(name, obj, attrs);
 }
 
 void InitialDirContext::rebind($String* name, Object$* obj, $Attributes* attrs) {
-	$nc($(getURLOrDefaultInitDirCtx(name)))->rebind(name, obj, attrs);
+	$$nc(getURLOrDefaultInitDirCtx(name))->rebind(name, obj, attrs);
 }
 
 void InitialDirContext::rebind($Name* name, Object$* obj, $Attributes* attrs) {
-	$nc($(getURLOrDefaultInitDirCtx(name)))->rebind(name, obj, attrs);
+	$$nc(getURLOrDefaultInitDirCtx(name))->rebind(name, obj, attrs);
 }
 
 $DirContext* InitialDirContext::createSubcontext($String* name, $Attributes* attrs) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->createSubcontext(name, attrs);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->createSubcontext(name, attrs);
 }
 
 $DirContext* InitialDirContext::createSubcontext($Name* name, $Attributes* attrs) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->createSubcontext(name, attrs);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->createSubcontext(name, attrs);
 }
 
 $DirContext* InitialDirContext::getSchema($String* name) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->getSchema(name);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->getSchema(name);
 }
 
 $DirContext* InitialDirContext::getSchema($Name* name) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->getSchema(name);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->getSchema(name);
 }
 
 $DirContext* InitialDirContext::getSchemaClassDefinition($String* name) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->getSchemaClassDefinition(name);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->getSchemaClassDefinition(name);
 }
 
 $DirContext* InitialDirContext::getSchemaClassDefinition($Name* name) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->getSchemaClassDefinition(name);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->getSchemaClassDefinition(name);
 }
 
 $NamingEnumeration* InitialDirContext::search($String* name, $Attributes* matchingAttributes) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->search(name, matchingAttributes);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->search(name, matchingAttributes);
 }
 
 $NamingEnumeration* InitialDirContext::search($Name* name, $Attributes* matchingAttributes) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->search(name, matchingAttributes);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->search(name, matchingAttributes);
 }
 
 $NamingEnumeration* InitialDirContext::search($String* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->search(name, matchingAttributes, attributesToReturn);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->search(name, matchingAttributes, attributesToReturn);
 }
 
 $NamingEnumeration* InitialDirContext::search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->search(name, matchingAttributes, attributesToReturn);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->search(name, matchingAttributes, attributesToReturn);
 }
 
 $NamingEnumeration* InitialDirContext::search($String* name, $String* filter, $SearchControls* cons) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->search(name, filter, cons);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->search(name, filter, cons);
 }
 
 $NamingEnumeration* InitialDirContext::search($Name* name, $String* filter, $SearchControls* cons) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->search(name, filter, cons);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->search(name, filter, cons);
 }
 
 $NamingEnumeration* InitialDirContext::search($String* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->search(name, filterExpr, filterArgs, cons);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->search(name, filterExpr, filterArgs, cons);
 }
 
 $NamingEnumeration* InitialDirContext::search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons) {
-	return $nc($(getURLOrDefaultInitDirCtx(name)))->search(name, filterExpr, filterArgs, cons);
+	return $$nc(getURLOrDefaultInitDirCtx(name))->search(name, filterExpr, filterArgs, cons);
 }
 
 InitialDirContext::InitialDirContext() {
 }
 
 $Class* InitialDirContext::load$($String* name, bool initialize) {
-	$loadClass(InitialDirContext, name, initialize, &_InitialDirContext_ClassInfo_, allocate$InitialDirContext);
+	$MethodInfo methodInfos$$[] = {
+		{"*addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*close", "()V", nullptr, $PUBLIC},
+		{"*composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC},
+		{"*destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEnvironment", "()Ljava/util/Hashtable;", nullptr, $PUBLIC},
+		{"*getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
+		{"*getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Z)V", nullptr, $PROTECTED, $method(InitialDirContext, init$, void, bool), "javax.naming.NamingException"},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InitialDirContext, init$, void), "javax.naming.NamingException"},
+		{"<init>", "(Ljava/util/Hashtable;)V", "(Ljava/util/Hashtable<**>;)V", $PUBLIC, $method(InitialDirContext, init$, void, $Hashtable*), "javax.naming.NamingException"},
+		{"bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, bind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, bind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, createSubcontext, $DirContext*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, createSubcontext, $DirContext*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getAttributes, $Attributes*, $String*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getAttributes, $Attributes*, $String*, $StringArray*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getAttributes, $Attributes*, $Name*), "javax.naming.NamingException"},
+		{"getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getAttributes, $Attributes*, $Name*, $StringArray*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getSchema, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getSchema, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getSchemaClassDefinition, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, getSchemaClassDefinition, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getURLOrDefaultInitDirCtx", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(InitialDirContext, getURLOrDefaultInitDirCtx, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"getURLOrDefaultInitDirCtx", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(InitialDirContext, getURLOrDefaultInitDirCtx, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"*list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, modifyAttributes, void, $String*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, modifyAttributes, void, $Name*, int32_t, $Attributes*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, modifyAttributes, void, $String*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, modifyAttributes, void, $Name*, $ModificationItemArray*), "javax.naming.NamingException"},
+		{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, rebind, void, $String*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(InitialDirContext, rebind, void, $Name*, Object$*, $Attributes*), "javax.naming.NamingException"},
+		{"*removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $String*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $Name*, $Attributes*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $String*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $String*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $Name*, $String*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $String*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PUBLIC, $virtualMethod(InitialDirContext, search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*), "javax.naming.NamingException"},
+		{"*unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.InitialDirContext",
+		"javax.naming.InitialContext",
+		"javax.naming.directory.DirContext",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InitialDirContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InitialDirContext));
+	});
 	return class$;
 }
 

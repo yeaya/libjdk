@@ -1,5 +1,4 @@
 #include <java/awt/Cursor$CursorDisposer.h>
-
 #include <java/awt/Cursor.h>
 #include <jcpp.h>
 
@@ -11,42 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Cursor$CursorDisposer_FieldInfo_[] = {
-	{"pData", "J", nullptr, $VOLATILE, $field(Cursor$CursorDisposer, pData)},
-	{}
-};
-
-$MethodInfo _Cursor$CursorDisposer_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(Cursor$CursorDisposer, init$, void, int64_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Cursor$CursorDisposer, dispose, void)},
-	{}
-};
-
-$InnerClassInfo _Cursor$CursorDisposer_InnerClassesInfo_[] = {
-	{"java.awt.Cursor$CursorDisposer", "java.awt.Cursor", "CursorDisposer", $STATIC},
-	{}
-};
-
-$ClassInfo _Cursor$CursorDisposer_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Cursor$CursorDisposer",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	_Cursor$CursorDisposer_FieldInfo_,
-	_Cursor$CursorDisposer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Cursor$CursorDisposer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Cursor"
-};
-
-$Object* allocate$Cursor$CursorDisposer($Class* clazz) {
-	return $of($alloc(Cursor$CursorDisposer));
-}
 
 void Cursor$CursorDisposer::init$(int64_t pData) {
 	this->pData = pData;
@@ -62,7 +25,37 @@ Cursor$CursorDisposer::Cursor$CursorDisposer() {
 }
 
 $Class* Cursor$CursorDisposer::load$($String* name, bool initialize) {
-	$loadClass(Cursor$CursorDisposer, name, initialize, &_Cursor$CursorDisposer_ClassInfo_, allocate$Cursor$CursorDisposer);
+	$FieldInfo fieldInfos$$[] = {
+		{"pData", "J", nullptr, $VOLATILE, $field(Cursor$CursorDisposer, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(Cursor$CursorDisposer, init$, void, int64_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Cursor$CursorDisposer, dispose, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Cursor$CursorDisposer", "java.awt.Cursor", "CursorDisposer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Cursor$CursorDisposer",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Cursor"
+	};
+	$loadClass(Cursor$CursorDisposer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Cursor$CursorDisposer);
+	});
 	return class$;
 }
 

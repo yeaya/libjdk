@@ -1,5 +1,4 @@
 #include <com/apple/eawt/FullScreenUtilities.h>
-
 #include <com/apple/eawt/FullScreenHandler.h>
 #include <com/apple/eawt/FullScreenListener.h>
 #include <java/awt/Window.h>
@@ -18,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $JRootPane = ::javax::swing::JRootPane;
 using $RootPaneContainer = ::javax::swing::RootPaneContainer;
 using $CPlatformWindow = ::sun::lwawt::macosx::CPlatformWindow;
 
@@ -26,38 +24,17 @@ namespace com {
 	namespace apple {
 		namespace eawt {
 
-$MethodInfo _FullScreenUtilities_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FullScreenUtilities, init$, void)},
-	{"addFullScreenListenerTo", "(Ljava/awt/Window;Lcom/apple/eawt/FullScreenListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FullScreenUtilities, addFullScreenListenerTo, void, $Window*, $FullScreenListener*)},
-	{"removeFullScreenListenerFrom", "(Ljava/awt/Window;Lcom/apple/eawt/FullScreenListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FullScreenUtilities, removeFullScreenListenerFrom, void, $Window*, $FullScreenListener*)},
-	{"setWindowCanFullScreen", "(Ljava/awt/Window;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FullScreenUtilities, setWindowCanFullScreen, void, $Window*, bool)},
-	{}
-};
-
-$ClassInfo _FullScreenUtilities_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.apple.eawt.FullScreenUtilities",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FullScreenUtilities_MethodInfo_
-};
-
-$Object* allocate$FullScreenUtilities($Class* clazz) {
-	return $of($alloc(FullScreenUtilities));
-}
-
 void FullScreenUtilities::init$() {
 }
 
 void FullScreenUtilities::setWindowCanFullScreen($Window* window, bool canFullScreen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($RootPaneContainer, window))) {
 		$throwNew($IllegalArgumentException, "Can\'t mark a non-RootPaneContainer as full screen-able"_s);
 	}
 	$var($RootPaneContainer, rpc, $cast($RootPaneContainer, window));
 	$init($CPlatformWindow);
-	$nc($($nc(rpc)->getRootPane()))->putClientProperty($CPlatformWindow::WINDOW_FULLSCREENABLE, $($Boolean::valueOf(canFullScreen)));
+	$$nc($nc(rpc)->getRootPane())->putClientProperty($CPlatformWindow::WINDOW_FULLSCREENABLE, $($Boolean::valueOf(canFullScreen)));
 }
 
 void FullScreenUtilities::addFullScreenListenerTo($Window* window, $FullScreenListener* listener) {
@@ -84,7 +61,24 @@ FullScreenUtilities::FullScreenUtilities() {
 }
 
 $Class* FullScreenUtilities::load$($String* name, bool initialize) {
-	$loadClass(FullScreenUtilities, name, initialize, &_FullScreenUtilities_ClassInfo_, allocate$FullScreenUtilities);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FullScreenUtilities, init$, void)},
+		{"addFullScreenListenerTo", "(Ljava/awt/Window;Lcom/apple/eawt/FullScreenListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FullScreenUtilities, addFullScreenListenerTo, void, $Window*, $FullScreenListener*)},
+		{"removeFullScreenListenerFrom", "(Ljava/awt/Window;Lcom/apple/eawt/FullScreenListener;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FullScreenUtilities, removeFullScreenListenerFrom, void, $Window*, $FullScreenListener*)},
+		{"setWindowCanFullScreen", "(Ljava/awt/Window;Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FullScreenUtilities, setWindowCanFullScreen, void, $Window*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.apple.eawt.FullScreenUtilities",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FullScreenUtilities, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FullScreenUtilities);
+	});
 	return class$;
 }
 

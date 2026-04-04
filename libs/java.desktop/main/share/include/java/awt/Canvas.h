@@ -38,6 +38,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::GraphicsConfiguration* config);
 	virtual void addNotify() override;
@@ -53,7 +54,7 @@ public:
 	virtual void update(::java::awt::Graphics* g) override;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0xE04A7A764A4BCE12;
+	static const int64_t serialVersionUID = (int64_t)0xe04a7a764a4bce12;
 };
 
 	} // awt

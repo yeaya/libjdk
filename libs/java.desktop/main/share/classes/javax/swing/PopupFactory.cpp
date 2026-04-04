@@ -1,5 +1,4 @@
 #include <javax/swing/PopupFactory.h>
-
 #include <java/applet/Applet.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -22,7 +21,6 @@
 #include <sun/awt/EmbeddedFrame.h>
 #include <sun/awt/OSInfo$OSType.h>
 #include <sun/awt/OSInfo.h>
-#include <sun/swing/SwingAccessor$PopupFactoryAccessor.h>
 #include <sun/swing/SwingAccessor.h>
 #include <jcpp.h>
 
@@ -60,67 +58,9 @@ using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
 using $OSInfo = ::sun::awt::OSInfo;
 using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
-using $SwingAccessor$PopupFactoryAccessor = ::sun::swing::SwingAccessor$PopupFactoryAccessor;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _PopupFactory_FieldInfo_[] = {
-	{"SharedInstanceKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PopupFactory, SharedInstanceKey)},
-	{"MAX_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PopupFactory, MAX_CACHE_SIZE)},
-	{"LIGHT_WEIGHT_POPUP", "I", nullptr, $STATIC | $FINAL, $constField(PopupFactory, LIGHT_WEIGHT_POPUP)},
-	{"MEDIUM_WEIGHT_POPUP", "I", nullptr, $STATIC | $FINAL, $constField(PopupFactory, MEDIUM_WEIGHT_POPUP)},
-	{"HEAVY_WEIGHT_POPUP", "I", nullptr, $STATIC | $FINAL, $constField(PopupFactory, HEAVY_WEIGHT_POPUP)},
-	{"popupType", "I", nullptr, $PRIVATE, $field(PopupFactory, popupType)},
-	{}
-};
-
-$MethodInfo _PopupFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PopupFactory, init$, void)},
-	{"getHeadlessPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getHeadlessPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
-	{"getHeavyWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getHeavyWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
-	{"getLightWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getLightWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
-	{"getMediumWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getMediumWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
-	{"getPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(PopupFactory, getPopup, $Popup*, $Component*, $Component*, int32_t, int32_t), "java.lang.IllegalArgumentException"},
-	{"getPopup", "(Ljava/awt/Component;Ljava/awt/Component;IIZ)Ljavax/swing/Popup;", nullptr, $PROTECTED, $virtualMethod(PopupFactory, getPopup, $Popup*, $Component*, $Component*, int32_t, int32_t, bool), "java.lang.IllegalArgumentException"},
-	{"getPopup", "(Ljava/awt/Component;Ljava/awt/Component;III)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getPopup, $Popup*, $Component*, $Component*, int32_t, int32_t, int32_t)},
-	{"getPopupType", "()I", nullptr, 0, $virtualMethod(PopupFactory, getPopupType, int32_t)},
-	{"getPopupType", "(Ljava/awt/Component;Ljava/awt/Component;II)I", nullptr, $PRIVATE, $method(PopupFactory, getPopupType, int32_t, $Component*, $Component*, int32_t, int32_t)},
-	{"getSharedInstance", "()Ljavax/swing/PopupFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(PopupFactory, getSharedInstance, PopupFactory*)},
-	{"invokerInHeavyWeightPopup", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(PopupFactory, invokerInHeavyWeightPopup, bool, $Component*)},
-	{"setPopupType", "(I)V", nullptr, 0, $virtualMethod(PopupFactory, setPopupType, void, int32_t)},
-	{"setSharedInstance", "(Ljavax/swing/PopupFactory;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PopupFactory, setSharedInstance, void, PopupFactory*)},
-	{}
-};
-
-$InnerClassInfo _PopupFactory_InnerClassesInfo_[] = {
-	{"javax.swing.PopupFactory$MediumWeightPopup", "javax.swing.PopupFactory", "MediumWeightPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$LightWeightPopup", "javax.swing.PopupFactory", "LightWeightPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$HeadlessPopup", "javax.swing.PopupFactory", "HeadlessPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$ContainerPopup", "javax.swing.PopupFactory", "ContainerPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$HeavyWeightPopup", "javax.swing.PopupFactory", "HeavyWeightPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PopupFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.PopupFactory",
-	"java.lang.Object",
-	nullptr,
-	_PopupFactory_FieldInfo_,
-	_PopupFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.PopupFactory$MediumWeightPopup,javax.swing.PopupFactory$MediumWeightPopup$MediumWeightComponent,javax.swing.PopupFactory$LightWeightPopup,javax.swing.PopupFactory$HeadlessPopup,javax.swing.PopupFactory$ContainerPopup,javax.swing.PopupFactory$HeavyWeightPopup,javax.swing.PopupFactory$HeavyWeightPopup$1,javax.swing.PopupFactory$1"
-};
-
-$Object* allocate$PopupFactory($Class* clazz) {
-	return $of($alloc(PopupFactory));
-}
 
 $Object* PopupFactory::SharedInstanceKey = nullptr;
 
@@ -184,8 +124,7 @@ int32_t PopupFactory::getPopupType($Component* owner, $Component* contents, int3
 	while (c != nullptr) {
 		if ($instanceOf($JComponent, c)) {
 			$init($ClientPropertyKey);
-			$init($Boolean);
-			if ($equals($nc(($cast($JComponent, c)))->getClientProperty($ClientPropertyKey::PopupFactory_FORCE_HEAVYWEIGHT_POPUP), $Boolean::TRUE)) {
+			if ($equals($cast($JComponent, c)->getClientProperty($ClientPropertyKey::PopupFactory_FORCE_HEAVYWEIGHT_POPUP), $Boolean::TRUE)) {
 				popupType = PopupFactory::HEAVY_WEIGHT_POPUP;
 				break;
 			}
@@ -196,29 +135,25 @@ int32_t PopupFactory::getPopupType($Component* owner, $Component* contents, int3
 }
 
 $Popup* PopupFactory::getPopup($Component* owner, $Component* contents, int32_t ownerX, int32_t ownerY, int32_t popupType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($GraphicsEnvironment::isHeadless()) {
 		return getHeadlessPopup(owner, contents, ownerX, ownerY);
 	}
 	{
-		$var($Popup, popup, nullptr)
+		$var($Popup, popup, nullptr);
 		switch (popupType) {
 		case PopupFactory::LIGHT_WEIGHT_POPUP:
-			{
-				return getLightWeightPopup(owner, contents, ownerX, ownerY);
-			}
+			return getLightWeightPopup(owner, contents, ownerX, ownerY);
 		case PopupFactory::MEDIUM_WEIGHT_POPUP:
-			{
-				return getMediumWeightPopup(owner, contents, ownerX, ownerY);
-			}
+			return getMediumWeightPopup(owner, contents, ownerX, ownerY);
 		case PopupFactory::HEAVY_WEIGHT_POPUP:
 			{
 				$assign(popup, getHeavyWeightPopup(owner, contents, ownerX, ownerY));
 				$init($OSInfo$OSType);
 				bool var$0 = ($equals($AccessController::doPrivileged($($OSInfo::getOSTypeAction())), $OSInfo$OSType::MACOSX)) && (owner != nullptr);
 				if (var$0 && ($EmbeddedFrame::getAppletIfAncestorOf(owner) != nullptr)) {
-					$nc(($cast($PopupFactory$HeavyWeightPopup, popup)))->setCacheEnabled(false);
+					$nc($cast($PopupFactory$HeavyWeightPopup, popup))->setCacheEnabled(false);
 				}
 				return popup;
 			}
@@ -249,7 +184,7 @@ $Popup* PopupFactory::getHeavyWeightPopup($Component* owner, $Component* content
 bool PopupFactory::invokerInHeavyWeightPopup($Component* i) {
 	if (i != nullptr) {
 		$var($Container, parent, nullptr);
-		for ($assign(parent, i->getParent()); parent != nullptr; $assign(parent, $nc(parent)->getParent())) {
+		for ($assign(parent, i->getParent()); parent != nullptr; $assign(parent, parent->getParent())) {
 			if ($instanceOf($Popup$HeavyWeightWindow, parent)) {
 				return true;
 			}
@@ -258,7 +193,7 @@ bool PopupFactory::invokerInHeavyWeightPopup($Component* i) {
 	return false;
 }
 
-void clinit$PopupFactory($Class* class$) {
+void PopupFactory::clinit$($Class* clazz) {
 	{
 		$SwingAccessor::setPopupFactoryAccessor($$new($PopupFactory$1));
 	}
@@ -269,7 +204,58 @@ PopupFactory::PopupFactory() {
 }
 
 $Class* PopupFactory::load$($String* name, bool initialize) {
-	$loadClass(PopupFactory, name, initialize, &_PopupFactory_ClassInfo_, clinit$PopupFactory, allocate$PopupFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"SharedInstanceKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PopupFactory, SharedInstanceKey)},
+		{"MAX_CACHE_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PopupFactory, MAX_CACHE_SIZE)},
+		{"LIGHT_WEIGHT_POPUP", "I", nullptr, $STATIC | $FINAL, $constField(PopupFactory, LIGHT_WEIGHT_POPUP)},
+		{"MEDIUM_WEIGHT_POPUP", "I", nullptr, $STATIC | $FINAL, $constField(PopupFactory, MEDIUM_WEIGHT_POPUP)},
+		{"HEAVY_WEIGHT_POPUP", "I", nullptr, $STATIC | $FINAL, $constField(PopupFactory, HEAVY_WEIGHT_POPUP)},
+		{"popupType", "I", nullptr, $PRIVATE, $field(PopupFactory, popupType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PopupFactory, init$, void)},
+		{"getHeadlessPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getHeadlessPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
+		{"getHeavyWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getHeavyWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
+		{"getLightWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getLightWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
+		{"getMediumWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getMediumWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
+		{"getPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(PopupFactory, getPopup, $Popup*, $Component*, $Component*, int32_t, int32_t), "java.lang.IllegalArgumentException"},
+		{"getPopup", "(Ljava/awt/Component;Ljava/awt/Component;IIZ)Ljavax/swing/Popup;", nullptr, $PROTECTED, $virtualMethod(PopupFactory, getPopup, $Popup*, $Component*, $Component*, int32_t, int32_t, bool), "java.lang.IllegalArgumentException"},
+		{"getPopup", "(Ljava/awt/Component;Ljava/awt/Component;III)Ljavax/swing/Popup;", nullptr, $PRIVATE, $method(PopupFactory, getPopup, $Popup*, $Component*, $Component*, int32_t, int32_t, int32_t)},
+		{"getPopupType", "()I", nullptr, 0, $virtualMethod(PopupFactory, getPopupType, int32_t)},
+		{"getPopupType", "(Ljava/awt/Component;Ljava/awt/Component;II)I", nullptr, $PRIVATE, $method(PopupFactory, getPopupType, int32_t, $Component*, $Component*, int32_t, int32_t)},
+		{"getSharedInstance", "()Ljavax/swing/PopupFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(PopupFactory, getSharedInstance, PopupFactory*)},
+		{"invokerInHeavyWeightPopup", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(PopupFactory, invokerInHeavyWeightPopup, bool, $Component*)},
+		{"setPopupType", "(I)V", nullptr, 0, $virtualMethod(PopupFactory, setPopupType, void, int32_t)},
+		{"setSharedInstance", "(Ljavax/swing/PopupFactory;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(PopupFactory, setSharedInstance, void, PopupFactory*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.PopupFactory$MediumWeightPopup", "javax.swing.PopupFactory", "MediumWeightPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$LightWeightPopup", "javax.swing.PopupFactory", "LightWeightPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$HeadlessPopup", "javax.swing.PopupFactory", "HeadlessPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$ContainerPopup", "javax.swing.PopupFactory", "ContainerPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$HeavyWeightPopup", "javax.swing.PopupFactory", "HeavyWeightPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.PopupFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.PopupFactory$MediumWeightPopup,javax.swing.PopupFactory$MediumWeightPopup$MediumWeightComponent,javax.swing.PopupFactory$LightWeightPopup,javax.swing.PopupFactory$HeadlessPopup,javax.swing.PopupFactory$ContainerPopup,javax.swing.PopupFactory$HeavyWeightPopup,javax.swing.PopupFactory$HeavyWeightPopup$1,javax.swing.PopupFactory$1"
+	};
+	$loadClass(PopupFactory, name, initialize, &classInfo$$, PopupFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupFactory);
+	});
 	return class$;
 }
 

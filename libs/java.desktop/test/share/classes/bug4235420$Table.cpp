@@ -1,5 +1,4 @@
 #include <bug4235420$Table.h>
-
 #include <bug4235420.h>
 #include <java/lang/Error.h>
 #include <java/lang/Number.h>
@@ -27,47 +26,14 @@ using $JTable = ::javax::swing::JTable;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 
-$MethodInfo _bug4235420$Table_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(bug4235420$Table, init$, void)},
-	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(bug4235420$Table, test, void)},
-	{}
-};
-
-$InnerClassInfo _bug4235420$Table_InnerClassesInfo_[] = {
-	{"bug4235420$Table", "bug4235420", "Table", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _bug4235420$Table_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug4235420$Table",
-	"javax.swing.JTable",
-	nullptr,
-	nullptr,
-	_bug4235420$Table_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4235420$Table_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug4235420"
-};
-
-$Object* allocate$bug4235420$Table($Class* clazz) {
-	return $of($alloc(bug4235420$Table));
-}
-
 void bug4235420$Table::init$() {
 	$JTable::init$();
 }
 
 void bug4235420$Table::test() {
-	$useLocalCurrentObjectStackCache();
-	$load($Number);
+	$useLocalObjectStack();
 	$load($Date);
 	$load($ImageIcon);
-	$load($Boolean);
 	$var($ClassArray, rendererClasses, $new($ClassArray, {
 		$Object::class$,
 		$Number::class$,
@@ -75,12 +41,10 @@ void bug4235420$Table::test() {
 		$ImageIcon::class$,
 		$Boolean::class$
 	}));
-	$var($Map, copy, $new($HashMap, static_cast<$Map*>(this->defaultRenderersByColumnClass)));
+	$var($Map, copy, $new($HashMap, this->defaultRenderersByColumnClass));
 	{
 		$var($ClassArray, arr$, rendererClasses);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* rendererClass = arr$->get(i$);
 			{
 				$var($Object, obj, copy->get(rendererClass));
@@ -95,12 +59,10 @@ void bug4235420$Table::test() {
 		$Number::class$,
 		$Boolean::class$
 	}));
-	$assign(copy, $new($HashMap, static_cast<$Map*>(this->defaultEditorsByColumnClass)));
+	$assign(copy, $new($HashMap, this->defaultEditorsByColumnClass));
 	{
 		$var($ClassArray, arr$, editorClasses);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Class* editorClass = arr$->get(i$);
 			{
 				$var($Object, obj, copy->get(editorClass));
@@ -116,7 +78,33 @@ bug4235420$Table::bug4235420$Table() {
 }
 
 $Class* bug4235420$Table::load$($String* name, bool initialize) {
-	$loadClass(bug4235420$Table, name, initialize, &_bug4235420$Table_ClassInfo_, allocate$bug4235420$Table);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(bug4235420$Table, init$, void)},
+		{"test", "()V", nullptr, $PUBLIC, $virtualMethod(bug4235420$Table, test, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4235420$Table", "bug4235420", "Table", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug4235420$Table",
+		"javax.swing.JTable",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug4235420"
+	};
+	$loadClass(bug4235420$Table, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug4235420$Table));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifPasswordFieldUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifTextUI.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,26 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$MethodInfo _MotifPasswordFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MotifPasswordFieldUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifPasswordFieldUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _MotifPasswordFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifPasswordFieldUI",
-	"javax.swing.plaf.basic.BasicPasswordFieldUI",
-	nullptr,
-	nullptr,
-	_MotifPasswordFieldUI_MethodInfo_
-};
-
-$Object* allocate$MotifPasswordFieldUI($Class* clazz) {
-	return $of($alloc(MotifPasswordFieldUI));
-}
-
 void MotifPasswordFieldUI::init$() {
 	$BasicPasswordFieldUI::init$();
 }
@@ -59,7 +38,23 @@ MotifPasswordFieldUI::MotifPasswordFieldUI() {
 }
 
 $Class* MotifPasswordFieldUI::load$($String* name, bool initialize) {
-	$loadClass(MotifPasswordFieldUI, name, initialize, &_MotifPasswordFieldUI_ClassInfo_, allocate$MotifPasswordFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MotifPasswordFieldUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(MotifPasswordFieldUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifPasswordFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifPasswordFieldUI",
+		"javax.swing.plaf.basic.BasicPasswordFieldUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MotifPasswordFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifPasswordFieldUI));
+	});
 	return class$;
 }
 

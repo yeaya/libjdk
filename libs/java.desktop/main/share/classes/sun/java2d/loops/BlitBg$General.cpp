@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/BlitBg$General.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
@@ -47,43 +46,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _BlitBg$General_FieldInfo_[] = {
-	{"compositeType", "Lsun/java2d/loops/CompositeType;", nullptr, 0, $field(BlitBg$General, compositeType)},
-	{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(BlitBg$General, defaultFont)},
-	{}
-};
-
-$MethodInfo _BlitBg$General_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(BlitBg$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"BlitBg", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(BlitBg$General, BlitBg$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BlitBg$General_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.BlitBg$General", "sun.java2d.loops.BlitBg", "General", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BlitBg$General_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.BlitBg$General",
-	"sun.java2d.loops.BlitBg",
-	nullptr,
-	_BlitBg$General_FieldInfo_,
-	_BlitBg$General_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BlitBg$General_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.BlitBg"
-};
-
-$Object* allocate$BlitBg$General($Class* clazz) {
-	return $of($alloc(BlitBg$General));
-}
-
 $Font* BlitBg$General::defaultFont = nullptr;
 
 void BlitBg$General::init$($SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
@@ -92,7 +54,7 @@ void BlitBg$General::init$($SurfaceType* srctype, $CompositeType* comptype, $Sur
 }
 
 void BlitBg$General::BlitBg$($SurfaceData* srcData, $SurfaceData* dstData, $Composite* comp, $Region* clip, int32_t bgArgb, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ColorModel, dstModel, $nc(dstData)->getColorModel());
 	bool bgHasAlpha = ((int32_t)((uint32_t)bgArgb >> 24)) != 255;
 	if (!$nc(dstModel)->hasAlpha() && bgHasAlpha) {
@@ -100,7 +62,7 @@ void BlitBg$General::BlitBg$($SurfaceData* srcData, $SurfaceData* dstData, $Comp
 	}
 	$var($WritableRaster, wr, $nc(dstModel)->createCompatibleWritableRaster(width, height));
 	bool isPremult = dstModel->isAlphaPremultiplied();
-	$var($BufferedImage, bimg, $new($BufferedImage, dstModel, wr, isPremult, ($Hashtable*)nullptr));
+	$var($BufferedImage, bimg, $new($BufferedImage, dstModel, wr, isPremult, nullptr));
 	$var($SurfaceData, tmpData, $BufImgSurfaceData::createData(bimg));
 	$var($Color, bgColor, $new($Color, bgArgb, bgHasAlpha));
 	$var($SunGraphics2D, sg2d, $new($SunGraphics2D, tmpData, bgColor, bgColor, BlitBg$General::defaultFont));
@@ -109,8 +71,8 @@ void BlitBg$General::BlitBg$($SurfaceData* srcData, $SurfaceData* dstData, $Comp
 	$var($FillRect, fillop, $FillRect::locate($SurfaceType::AnyColor, $CompositeType::SrcNoEa, $($nc(tmpData)->getSurfaceType())));
 	$var($SurfaceType, var$0, $nc(srcData)->getSurfaceType());
 	$var($CompositeType, var$1, $CompositeType::SrcOverNoEa);
-	$var($Blit, combineop, $Blit::getFromCache(var$0, var$1, $($nc(tmpData)->getSurfaceType())));
-	$var($SurfaceType, var$2, $nc(tmpData)->getSurfaceType());
+	$var($Blit, combineop, $Blit::getFromCache(var$0, var$1, $(tmpData->getSurfaceType())));
+	$var($SurfaceType, var$2, tmpData->getSurfaceType());
 	$var($CompositeType, var$3, this->compositeType);
 	$var($Blit, blitop, $Blit::getFromCache(var$2, var$3, $(dstData->getSurfaceType())));
 	$nc(fillop)->FillRect$(sg2d, tmpData, 0, 0, width, height);
@@ -119,7 +81,7 @@ void BlitBg$General::BlitBg$($SurfaceData* srcData, $SurfaceData* dstData, $Comp
 	$nc(blitop)->Blit$(tmpData, dstData, comp, clip, 0, 0, dstx, dsty, width, height);
 }
 
-void clinit$BlitBg$General($Class* class$) {
+void BlitBg$General::clinit$($Class* clazz) {
 	$assignStatic(BlitBg$General::defaultFont, $new($Font, "Dialog"_s, $Font::PLAIN, 12));
 }
 
@@ -127,7 +89,38 @@ BlitBg$General::BlitBg$General() {
 }
 
 $Class* BlitBg$General::load$($String* name, bool initialize) {
-	$loadClass(BlitBg$General, name, initialize, &_BlitBg$General_ClassInfo_, clinit$BlitBg$General, allocate$BlitBg$General);
+	$FieldInfo fieldInfos$$[] = {
+		{"compositeType", "Lsun/java2d/loops/CompositeType;", nullptr, 0, $field(BlitBg$General, compositeType)},
+		{"defaultFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(BlitBg$General, defaultFont)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(BlitBg$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"BlitBg", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIIII)V", nullptr, $PUBLIC, $virtualMethod(BlitBg$General, BlitBg$, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.BlitBg$General", "sun.java2d.loops.BlitBg", "General", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.BlitBg$General",
+		"sun.java2d.loops.BlitBg",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.BlitBg"
+	};
+	$loadClass(BlitBg$General, name, initialize, &classInfo$$, BlitBg$General::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BlitBg$General);
+	});
 	return class$;
 }
 

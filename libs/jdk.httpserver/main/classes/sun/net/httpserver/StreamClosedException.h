@@ -14,10 +14,13 @@ class StreamClosedException : public ::java::io::IOException {
 public:
 	StreamClosedException();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xC1BECE29EC940FFF;
+	static const int64_t serialVersionUID = (int64_t)0xc1bece29ec940fff;
 	StreamClosedException(const StreamClosedException& e);
 	virtual void throw$() override;
-	inline StreamClosedException* operator ->() {
+	inline StreamClosedException* operator ->() const {
+		return (StreamClosedException*)throwing$;
+	}
+	inline operator StreamClosedException*() const {
 		return (StreamClosedException*)throwing$;
 	}
 };

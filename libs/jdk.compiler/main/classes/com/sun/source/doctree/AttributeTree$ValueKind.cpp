@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/AttributeTree$ValueKind.h>
-
 #include <com/sun/source/doctree/AttributeTree.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -20,48 +19,6 @@ namespace com {
 	namespace sun {
 		namespace source {
 			namespace doctree {
-
-$FieldInfo _AttributeTree$ValueKind_FieldInfo_[] = {
-	{"EMPTY", "Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AttributeTree$ValueKind, EMPTY)},
-	{"UNQUOTED", "Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AttributeTree$ValueKind, UNQUOTED)},
-	{"SINGLE", "Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AttributeTree$ValueKind, SINGLE)},
-	{"DOUBLE", "Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AttributeTree$ValueKind, DOUBLE)},
-	{"$VALUES", "[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AttributeTree$ValueKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _AttributeTree$ValueKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AttributeTree$ValueKind, $values, $AttributeTree$ValueKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AttributeTree$ValueKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeTree$ValueKind, valueOf, AttributeTree$ValueKind*, $String*)},
-	{"values", "()[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeTree$ValueKind, values, $AttributeTree$ValueKindArray*)},
-	{}
-};
-
-$InnerClassInfo _AttributeTree$ValueKind_InnerClassesInfo_[] = {
-	{"com.sun.source.doctree.AttributeTree$ValueKind", "com.sun.source.doctree.AttributeTree", "ValueKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _AttributeTree$ValueKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.source.doctree.AttributeTree$ValueKind",
-	"java.lang.Enum",
-	nullptr,
-	_AttributeTree$ValueKind_FieldInfo_,
-	_AttributeTree$ValueKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/source/doctree/AttributeTree$ValueKind;>;",
-	nullptr,
-	_AttributeTree$ValueKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.doctree.AttributeTree"
-};
-
-$Object* allocate$AttributeTree$ValueKind($Class* clazz) {
-	return $of($alloc(AttributeTree$ValueKind));
-}
 
 AttributeTree$ValueKind* AttributeTree$ValueKind::EMPTY = nullptr;
 AttributeTree$ValueKind* AttributeTree$ValueKind::UNQUOTED = nullptr;
@@ -93,7 +50,7 @@ void AttributeTree$ValueKind::init$($String* $enum$name, int32_t $enum$ordinal) 
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$AttributeTree$ValueKind($Class* class$) {
+void AttributeTree$ValueKind::clinit$($Class* clazz) {
 	$assignStatic(AttributeTree$ValueKind::EMPTY, $new(AttributeTree$ValueKind, "EMPTY"_s, 0));
 	$assignStatic(AttributeTree$ValueKind::UNQUOTED, $new(AttributeTree$ValueKind, "UNQUOTED"_s, 1));
 	$assignStatic(AttributeTree$ValueKind::SINGLE, $new(AttributeTree$ValueKind, "SINGLE"_s, 2));
@@ -105,7 +62,43 @@ AttributeTree$ValueKind::AttributeTree$ValueKind() {
 }
 
 $Class* AttributeTree$ValueKind::load$($String* name, bool initialize) {
-	$loadClass(AttributeTree$ValueKind, name, initialize, &_AttributeTree$ValueKind_ClassInfo_, clinit$AttributeTree$ValueKind, allocate$AttributeTree$ValueKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"EMPTY", "Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AttributeTree$ValueKind, EMPTY)},
+		{"UNQUOTED", "Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AttributeTree$ValueKind, UNQUOTED)},
+		{"SINGLE", "Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AttributeTree$ValueKind, SINGLE)},
+		{"DOUBLE", "Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(AttributeTree$ValueKind, DOUBLE)},
+		{"$VALUES", "[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(AttributeTree$ValueKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(AttributeTree$ValueKind, $values, $AttributeTree$ValueKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(AttributeTree$ValueKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeTree$ValueKind, valueOf, AttributeTree$ValueKind*, $String*)},
+		{"values", "()[Lcom/sun/source/doctree/AttributeTree$ValueKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(AttributeTree$ValueKind, values, $AttributeTree$ValueKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.doctree.AttributeTree$ValueKind", "com.sun.source.doctree.AttributeTree", "ValueKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.source.doctree.AttributeTree$ValueKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/source/doctree/AttributeTree$ValueKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.doctree.AttributeTree"
+	};
+	$loadClass(AttributeTree$ValueKind, name, initialize, &classInfo$$, AttributeTree$ValueKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AttributeTree$ValueKind));
+	});
 	return class$;
 }
 

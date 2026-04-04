@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$Warning.h>
-
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticType.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
@@ -19,37 +18,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$MethodInfo _JCDiagnostic$Warning_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(JCDiagnostic$Warning, init$, void, $String*, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _JCDiagnostic$Warning_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JCDiagnostic$Warning", "com.sun.tools.javac.util.JCDiagnostic", "Warning", $PUBLIC | $STATIC | $FINAL},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticInfo", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCDiagnostic$Warning_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.tools.javac.util.JCDiagnostic$Warning",
-	"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo",
-	nullptr,
-	nullptr,
-	_JCDiagnostic$Warning_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCDiagnostic$Warning_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JCDiagnostic"
-};
-
-$Object* allocate$JCDiagnostic$Warning($Class* clazz) {
-	return $of($alloc(JCDiagnostic$Warning));
-}
-
 void JCDiagnostic$Warning::init$($String* prefix, $String* key, $ObjectArray* args) {
 	$init($JCDiagnostic$DiagnosticType);
 	$JCDiagnostic$DiagnosticInfo::init$($JCDiagnostic$DiagnosticType::WARNING, prefix, key, args);
@@ -59,7 +27,33 @@ JCDiagnostic$Warning::JCDiagnostic$Warning() {
 }
 
 $Class* JCDiagnostic$Warning::load$($String* name, bool initialize) {
-	$loadClass(JCDiagnostic$Warning, name, initialize, &_JCDiagnostic$Warning_ClassInfo_, allocate$JCDiagnostic$Warning);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC | $TRANSIENT, $method(JCDiagnostic$Warning, init$, void, $String*, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JCDiagnostic$Warning", "com.sun.tools.javac.util.JCDiagnostic", "Warning", $PUBLIC | $STATIC | $FINAL},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticInfo", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.tools.javac.util.JCDiagnostic$Warning",
+		"com.sun.tools.javac.util.JCDiagnostic$DiagnosticInfo",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JCDiagnostic"
+	};
+	$loadClass(JCDiagnostic$Warning, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JCDiagnostic$Warning);
+	});
 	return class$;
 }
 

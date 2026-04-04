@@ -1,5 +1,4 @@
 #include <java/util/logging/SocketHandler.h>
-
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -17,7 +16,6 @@
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -34,37 +32,8 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _SocketHandler_FieldInfo_[] = {
-	{"sock", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(SocketHandler, sock)},
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SocketHandler, host)},
-	{"port", "I", nullptr, $PRIVATE, $field(SocketHandler, port)},
-	{}
-};
-
-$MethodInfo _SocketHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SocketHandler, init$, void), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SocketHandler, init$, void, $String*, int32_t), "java.io.IOException"},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SocketHandler, close, void), "java.lang.SecurityException"},
-	{"connect", "()V", nullptr, $PRIVATE, $method(SocketHandler, connect, void), "java.io.IOException"},
-	{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SocketHandler, publish, void, $LogRecord*)},
-	{}
-};
-
-$ClassInfo _SocketHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.util.logging.SocketHandler",
-	"java.util.logging.StreamHandler",
-	nullptr,
-	_SocketHandler_FieldInfo_,
-	_SocketHandler_MethodInfo_
-};
-
-$Object* allocate$SocketHandler($Class* clazz) {
-	return $of($alloc(SocketHandler));
-}
-
 void SocketHandler::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Level);
 	$StreamHandler::init$($Level::ALL, $$new($XMLFormatter), nullptr);
 	$var($LogManager, manager, $LogManager::getLogManager());
@@ -88,7 +57,7 @@ void SocketHandler::init$($String* host, int32_t port) {
 }
 
 void SocketHandler::connect() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->port == 0) {
 		$throwNew($IllegalArgumentException, $$str({"Bad port: "_s, $$str(this->port)}));
 	}
@@ -96,7 +65,7 @@ void SocketHandler::connect() {
 		$throwNew($IllegalArgumentException, $$str({"Null host name: "_s, this->host}));
 	}
 	$set(this, sock, $new($Socket, this->host, this->port));
-	$var($OutputStream, out, $nc(this->sock)->getOutputStream());
+	$var($OutputStream, out, this->sock->getOutputStream());
 	$var($BufferedOutputStream, bout, $new($BufferedOutputStream, out));
 	setOutputStreamPrivileged(bout);
 }
@@ -106,7 +75,7 @@ void SocketHandler::close() {
 		$StreamHandler::close();
 		if (this->sock != nullptr) {
 			try {
-				$nc(this->sock)->close();
+				this->sock->close();
 			} catch ($IOException& ix) {
 			}
 		}
@@ -128,7 +97,31 @@ SocketHandler::SocketHandler() {
 }
 
 $Class* SocketHandler::load$($String* name, bool initialize) {
-	$loadClass(SocketHandler, name, initialize, &_SocketHandler_ClassInfo_, allocate$SocketHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"sock", "Ljava/net/Socket;", nullptr, $PRIVATE, $field(SocketHandler, sock)},
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SocketHandler, host)},
+		{"port", "I", nullptr, $PRIVATE, $field(SocketHandler, port)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SocketHandler, init$, void), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(SocketHandler, init$, void, $String*, int32_t), "java.io.IOException"},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SocketHandler, close, void), "java.lang.SecurityException"},
+		{"connect", "()V", nullptr, $PRIVATE, $method(SocketHandler, connect, void), "java.io.IOException"},
+		{"publish", "(Ljava/util/logging/LogRecord;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(SocketHandler, publish, void, $LogRecord*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.util.logging.SocketHandler",
+		"java.util.logging.StreamHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketHandler);
+	});
 	return class$;
 }
 

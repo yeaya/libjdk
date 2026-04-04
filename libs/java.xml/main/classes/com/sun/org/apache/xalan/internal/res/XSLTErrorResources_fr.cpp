@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/res/XSLTErrorResources_fr.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -266,277 +265,6 @@ namespace com {
 					namespace internal {
 						namespace res {
 
-$FieldInfo _XSLTErrorResources_fr_FieldInfo_[] = {
-	{"ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX)},
-	{"ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT)},
-	{"ER_NO_CURLYBRACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_CURLYBRACE)},
-	{"ER_FUNCTION_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FUNCTION_NOT_SUPPORTED)},
-	{"ER_ILLEGAL_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_ATTRIBUTE)},
-	{"ER_NULL_SOURCENODE_APPLYIMPORTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_SOURCENODE_APPLYIMPORTS)},
-	{"ER_CANNOT_ADD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_ADD)},
-	{"ER_NULL_SOURCENODE_HANDLEAPPLYTEMPLATES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_SOURCENODE_HANDLEAPPLYTEMPLATES)},
-	{"ER_NO_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_NAME_ATTRIB)},
-	{"ER_TEMPLATE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TEMPLATE_NOT_FOUND)},
-	{"ER_CANT_RESOLVE_NAME_AVT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_RESOLVE_NAME_AVT)},
-	{"ER_REQUIRES_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REQUIRES_ATTRIB)},
-	{"ER_MUST_HAVE_TEST_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MUST_HAVE_TEST_ATTRIB)},
-	{"ER_BAD_VAL_ON_LEVEL_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BAD_VAL_ON_LEVEL_ATTRIB)},
-	{"ER_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML)},
-	{"ER_PROCESSINGINSTRUCTION_NOTVALID_NCNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSINGINSTRUCTION_NOTVALID_NCNAME)},
-	{"ER_NEED_MATCH_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_MATCH_ATTRIB)},
-	{"ER_NEED_NAME_OR_MATCH_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_NAME_OR_MATCH_ATTRIB)},
-	{"ER_CANT_RESOLVE_NSPREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_RESOLVE_NSPREFIX)},
-	{"ER_ILLEGAL_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_VALUE)},
-	{"ER_NO_OWNERDOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_OWNERDOC)},
-	{"ER_ELEMTEMPLATEELEM_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ELEMTEMPLATEELEM_ERR)},
-	{"ER_NULL_CHILD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_CHILD)},
-	{"ER_NEED_SELECT_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_SELECT_ATTRIB)},
-	{"ER_NEED_TEST_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_TEST_ATTRIB)},
-	{"ER_NEED_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_NAME_ATTRIB)},
-	{"ER_NO_CONTEXT_OWNERDOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_CONTEXT_OWNERDOC)},
-	{"ER_COULD_NOT_CREATE_XML_PROC_LIAISON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULD_NOT_CREATE_XML_PROC_LIAISON)},
-	{"ER_PROCESS_NOT_SUCCESSFUL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESS_NOT_SUCCESSFUL)},
-	{"ER_NOT_SUCCESSFUL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_SUCCESSFUL)},
-	{"ER_ENCODING_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ENCODING_NOT_SUPPORTED)},
-	{"ER_COULD_NOT_CREATE_TRACELISTENER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULD_NOT_CREATE_TRACELISTENER)},
-	{"ER_KEY_REQUIRES_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_KEY_REQUIRES_NAME_ATTRIB)},
-	{"ER_KEY_REQUIRES_MATCH_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_KEY_REQUIRES_MATCH_ATTRIB)},
-	{"ER_KEY_REQUIRES_USE_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_KEY_REQUIRES_USE_ATTRIB)},
-	{"ER_REQUIRES_ELEMENTS_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REQUIRES_ELEMENTS_ATTRIB)},
-	{"ER_MISSING_PREFIX_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_PREFIX_ATTRIB)},
-	{"ER_BAD_STYLESHEET_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BAD_STYLESHEET_URL)},
-	{"ER_FILE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FILE_NOT_FOUND)},
-	{"ER_IOEXCEPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_IOEXCEPTION)},
-	{"ER_NO_HREF_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_HREF_ATTRIB)},
-	{"ER_STYLESHEET_INCLUDES_ITSELF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_STYLESHEET_INCLUDES_ITSELF)},
-	{"ER_PROCESSINCLUDE_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSINCLUDE_ERROR)},
-	{"ER_MISSING_LANG_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_LANG_ATTRIB)},
-	{"ER_MISSING_CONTAINER_ELEMENT_COMPONENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_CONTAINER_ELEMENT_COMPONENT)},
-	{"ER_CAN_ONLY_OUTPUT_TO_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CAN_ONLY_OUTPUT_TO_ELEMENT)},
-	{"ER_PROCESS_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESS_ERROR)},
-	{"ER_UNIMPLNODE_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNIMPLNODE_ERROR)},
-	{"ER_NO_SELECT_EXPRESSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_SELECT_EXPRESSION)},
-	{"ER_CANNOT_SERIALIZE_XSLPROCESSOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_SERIALIZE_XSLPROCESSOR)},
-	{"ER_NO_INPUT_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_INPUT_STYLESHEET)},
-	{"ER_FAILED_PROCESS_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FAILED_PROCESS_STYLESHEET)},
-	{"ER_COULDNT_PARSE_DOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULDNT_PARSE_DOC)},
-	{"ER_COULDNT_FIND_FRAGMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULDNT_FIND_FRAGMENT)},
-	{"ER_NODE_NOT_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NODE_NOT_ELEMENT)},
-	{"ER_FOREACH_NEED_MATCH_OR_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FOREACH_NEED_MATCH_OR_NAME_ATTRIB)},
-	{"ER_TEMPLATES_NEED_MATCH_OR_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TEMPLATES_NEED_MATCH_OR_NAME_ATTRIB)},
-	{"ER_NO_CLONE_OF_DOCUMENT_FRAG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_CLONE_OF_DOCUMENT_FRAG)},
-	{"ER_CANT_CREATE_ITEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_CREATE_ITEM)},
-	{"ER_XMLSPACE_ILLEGAL_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XMLSPACE_ILLEGAL_VALUE)},
-	{"ER_NO_XSLKEY_DECLARATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_XSLKEY_DECLARATION)},
-	{"ER_CANT_CREATE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_CREATE_URL)},
-	{"ER_XSLFUNCTIONS_UNSUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLFUNCTIONS_UNSUPPORTED)},
-	{"ER_PROCESSOR_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSOR_ERROR)},
-	{"ER_NOT_ALLOWED_INSIDE_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_ALLOWED_INSIDE_STYLESHEET)},
-	{"ER_RESULTNS_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESULTNS_NOT_SUPPORTED)},
-	{"ER_DEFAULTSPACE_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DEFAULTSPACE_NOT_SUPPORTED)},
-	{"ER_INDENTRESULT_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INDENTRESULT_NOT_SUPPORTED)},
-	{"ER_ILLEGAL_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_ATTRIB)},
-	{"ER_UNKNOWN_XSL_ELEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNKNOWN_XSL_ELEM)},
-	{"ER_BAD_XSLSORT_USE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BAD_XSLSORT_USE)},
-	{"ER_MISPLACED_XSLWHEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISPLACED_XSLWHEN)},
-	{"ER_XSLWHEN_NOT_PARENTED_BY_XSLCHOOSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLWHEN_NOT_PARENTED_BY_XSLCHOOSE)},
-	{"ER_MISPLACED_XSLOTHERWISE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISPLACED_XSLOTHERWISE)},
-	{"ER_XSLOTHERWISE_NOT_PARENTED_BY_XSLCHOOSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLOTHERWISE_NOT_PARENTED_BY_XSLCHOOSE)},
-	{"ER_NOT_ALLOWED_INSIDE_TEMPLATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_ALLOWED_INSIDE_TEMPLATE)},
-	{"ER_UNKNOWN_EXT_NS_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNKNOWN_EXT_NS_PREFIX)},
-	{"ER_IMPORTS_AS_FIRST_ELEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_IMPORTS_AS_FIRST_ELEM)},
-	{"ER_IMPORTING_ITSELF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_IMPORTING_ITSELF)},
-	{"ER_XMLSPACE_ILLEGAL_VAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XMLSPACE_ILLEGAL_VAL)},
-	{"ER_PROCESSSTYLESHEET_NOT_SUCCESSFUL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSSTYLESHEET_NOT_SUCCESSFUL)},
-	{"ER_SAX_EXCEPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SAX_EXCEPTION)},
-	{"ER_XSLT_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLT_ERROR)},
-	{"ER_CURRENCY_SIGN_ILLEGAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CURRENCY_SIGN_ILLEGAL)},
-	{"ER_DOCUMENT_FUNCTION_INVALID_IN_STYLESHEET_DOM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DOCUMENT_FUNCTION_INVALID_IN_STYLESHEET_DOM)},
-	{"ER_CANT_RESOLVE_PREFIX_OF_NON_PREFIX_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_RESOLVE_PREFIX_OF_NON_PREFIX_RESOLVER)},
-	{"ER_REDIRECT_COULDNT_GET_FILENAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REDIRECT_COULDNT_GET_FILENAME)},
-	{"ER_CANNOT_BUILD_FORMATTERLISTENER_IN_REDIRECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_BUILD_FORMATTERLISTENER_IN_REDIRECT)},
-	{"ER_INVALID_PREFIX_IN_EXCLUDERESULTPREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_PREFIX_IN_EXCLUDERESULTPREFIX)},
-	{"ER_MISSING_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_NS_URI)},
-	{"ER_MISSING_ARG_FOR_OPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_ARG_FOR_OPTION)},
-	{"ER_INVALID_OPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_OPTION)},
-	{"ER_MALFORMED_FORMAT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MALFORMED_FORMAT_STRING)},
-	{"ER_STYLESHEET_REQUIRES_VERSION_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_STYLESHEET_REQUIRES_VERSION_ATTRIB)},
-	{"ER_ILLEGAL_ATTRIBUTE_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_ATTRIBUTE_VALUE)},
-	{"ER_CHOOSE_REQUIRES_WHEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CHOOSE_REQUIRES_WHEN)},
-	{"ER_NO_APPLY_IMPORT_IN_FOR_EACH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_APPLY_IMPORT_IN_FOR_EACH)},
-	{"ER_CANT_USE_DTM_FOR_OUTPUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_USE_DTM_FOR_OUTPUT)},
-	{"ER_CANT_USE_DTM_FOR_INPUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_USE_DTM_FOR_INPUT)},
-	{"ER_CALL_TO_EXT_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CALL_TO_EXT_FAILED)},
-	{"ER_PREFIX_MUST_RESOLVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PREFIX_MUST_RESOLVE)},
-	{"ER_INVALID_UTF16_SURROGATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_UTF16_SURROGATE)},
-	{"ER_XSLATTRSET_USED_ITSELF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLATTRSET_USED_ITSELF)},
-	{"ER_CANNOT_MIX_XERCESDOM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_MIX_XERCESDOM)},
-	{"ER_TOO_MANY_LISTENERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TOO_MANY_LISTENERS)},
-	{"ER_IN_ELEMTEMPLATEELEM_READOBJECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_IN_ELEMTEMPLATEELEM_READOBJECT)},
-	{"ER_DUPLICATE_NAMED_TEMPLATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DUPLICATE_NAMED_TEMPLATE)},
-	{"ER_INVALID_KEY_CALL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_KEY_CALL)},
-	{"ER_REFERENCING_ITSELF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REFERENCING_ITSELF)},
-	{"ER_ILLEGAL_DOMSOURCE_INPUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_DOMSOURCE_INPUT)},
-	{"ER_CLASS_NOT_FOUND_FOR_OPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CLASS_NOT_FOUND_FOR_OPTION)},
-	{"ER_REQUIRED_ELEM_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REQUIRED_ELEM_NOT_FOUND)},
-	{"ER_INPUT_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INPUT_CANNOT_BE_NULL)},
-	{"ER_URI_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_URI_CANNOT_BE_NULL)},
-	{"ER_FILE_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FILE_CANNOT_BE_NULL)},
-	{"ER_SOURCE_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SOURCE_CANNOT_BE_NULL)},
-	{"ER_CANNOT_INIT_BSFMGR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_INIT_BSFMGR)},
-	{"ER_CANNOT_CMPL_EXTENSN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_CMPL_EXTENSN)},
-	{"ER_CANNOT_CREATE_EXTENSN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_CREATE_EXTENSN)},
-	{"ER_INSTANCE_MTHD_CALL_REQUIRES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INSTANCE_MTHD_CALL_REQUIRES)},
-	{"ER_INVALID_ELEMENT_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_ELEMENT_NAME)},
-	{"ER_ELEMENT_NAME_METHOD_STATIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ELEMENT_NAME_METHOD_STATIC)},
-	{"ER_EXTENSION_FUNC_UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_EXTENSION_FUNC_UNKNOWN)},
-	{"ER_MORE_MATCH_CONSTRUCTOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MORE_MATCH_CONSTRUCTOR)},
-	{"ER_MORE_MATCH_METHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MORE_MATCH_METHOD)},
-	{"ER_MORE_MATCH_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MORE_MATCH_ELEMENT)},
-	{"ER_INVALID_CONTEXT_PASSED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_CONTEXT_PASSED)},
-	{"ER_POOL_EXISTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_POOL_EXISTS)},
-	{"ER_NO_DRIVER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_DRIVER_NAME)},
-	{"ER_NO_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_URL)},
-	{"ER_POOL_SIZE_LESSTHAN_ONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_POOL_SIZE_LESSTHAN_ONE)},
-	{"ER_INVALID_DRIVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_DRIVER)},
-	{"ER_NO_STYLESHEETROOT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_STYLESHEETROOT)},
-	{"ER_ILLEGAL_XMLSPACE_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_XMLSPACE_VALUE)},
-	{"ER_PROCESSFROMNODE_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSFROMNODE_FAILED)},
-	{"ER_RESOURCE_COULD_NOT_LOAD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESOURCE_COULD_NOT_LOAD)},
-	{"ER_BUFFER_SIZE_LESSTHAN_ZERO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BUFFER_SIZE_LESSTHAN_ZERO)},
-	{"ER_UNKNOWN_ERROR_CALLING_EXTENSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNKNOWN_ERROR_CALLING_EXTENSION)},
-	{"ER_NO_NAMESPACE_DECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_NAMESPACE_DECL)},
-	{"ER_ELEM_CONTENT_NOT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ELEM_CONTENT_NOT_ALLOWED)},
-	{"ER_STYLESHEET_DIRECTED_TERMINATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_STYLESHEET_DIRECTED_TERMINATION)},
-	{"ER_ONE_OR_TWO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ONE_OR_TWO)},
-	{"ER_TWO_OR_THREE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TWO_OR_THREE)},
-	{"ER_COULD_NOT_LOAD_RESOURCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULD_NOT_LOAD_RESOURCE)},
-	{"ER_CANNOT_INIT_DEFAULT_TEMPLATES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_INIT_DEFAULT_TEMPLATES)},
-	{"ER_RESULT_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESULT_NULL)},
-	{"ER_RESULT_COULD_NOT_BE_SET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESULT_COULD_NOT_BE_SET)},
-	{"ER_NO_OUTPUT_SPECIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_OUTPUT_SPECIFIED)},
-	{"ER_CANNOT_TRANSFORM_TO_RESULT_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_TRANSFORM_TO_RESULT_TYPE)},
-	{"ER_CANNOT_TRANSFORM_SOURCE_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_TRANSFORM_SOURCE_TYPE)},
-	{"ER_NULL_CONTENT_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_CONTENT_HANDLER)},
-	{"ER_NULL_ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_ERROR_HANDLER)},
-	{"ER_CANNOT_CALL_PARSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_CALL_PARSE)},
-	{"ER_NO_PARENT_FOR_FILTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_PARENT_FOR_FILTER)},
-	{"ER_NO_STYLESHEET_IN_MEDIA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_STYLESHEET_IN_MEDIA)},
-	{"ER_NO_STYLESHEET_PI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_STYLESHEET_PI)},
-	{"ER_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_SUPPORTED)},
-	{"ER_PROPERTY_VALUE_BOOLEAN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROPERTY_VALUE_BOOLEAN)},
-	{"ER_COULD_NOT_FIND_EXTERN_SCRIPT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULD_NOT_FIND_EXTERN_SCRIPT)},
-	{"ER_RESOURCE_COULD_NOT_FIND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESOURCE_COULD_NOT_FIND)},
-	{"ER_OUTPUT_PROPERTY_NOT_RECOGNIZED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_OUTPUT_PROPERTY_NOT_RECOGNIZED)},
-	{"ER_FAILED_CREATING_ELEMLITRSLT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FAILED_CREATING_ELEMLITRSLT)},
-	{"ER_VALUE_SHOULD_BE_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_VALUE_SHOULD_BE_NUMBER)},
-	{"ER_VALUE_SHOULD_EQUAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_VALUE_SHOULD_EQUAL)},
-	{"ER_FAILED_CALLING_METHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FAILED_CALLING_METHOD)},
-	{"ER_FAILED_CREATING_ELEMTMPL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FAILED_CREATING_ELEMTMPL)},
-	{"ER_CHARS_NOT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CHARS_NOT_ALLOWED)},
-	{"ER_ATTR_NOT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ATTR_NOT_ALLOWED)},
-	{"ER_BAD_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BAD_VALUE)},
-	{"ER_ATTRIB_VALUE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ATTRIB_VALUE_NOT_FOUND)},
-	{"ER_ATTRIB_VALUE_NOT_RECOGNIZED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ATTRIB_VALUE_NOT_RECOGNIZED)},
-	{"ER_NULL_URI_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_URI_NAMESPACE)},
-	{"ER_NUMBER_TOO_BIG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NUMBER_TOO_BIG)},
-	{"ER_CANNOT_FIND_SAX1_DRIVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_FIND_SAX1_DRIVER)},
-	{"ER_SAX1_DRIVER_NOT_LOADED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SAX1_DRIVER_NOT_LOADED)},
-	{"ER_SAX1_DRIVER_NOT_INSTANTIATED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SAX1_DRIVER_NOT_INSTANTIATED)},
-	{"ER_SAX1_DRIVER_NOT_IMPLEMENT_PARSER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SAX1_DRIVER_NOT_IMPLEMENT_PARSER)},
-	{"ER_PARSER_PROPERTY_NOT_SPECIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PARSER_PROPERTY_NOT_SPECIFIED)},
-	{"ER_PARSER_ARG_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PARSER_ARG_CANNOT_BE_NULL)},
-	{"ER_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FEATURE)},
-	{"ER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROPERTY)},
-	{"ER_NULL_ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_ENTITY_RESOLVER)},
-	{"ER_NULL_DTD_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_DTD_HANDLER)},
-	{"ER_NO_DRIVER_NAME_SPECIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_DRIVER_NAME_SPECIFIED)},
-	{"ER_NO_URL_SPECIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_URL_SPECIFIED)},
-	{"ER_POOLSIZE_LESS_THAN_ONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_POOLSIZE_LESS_THAN_ONE)},
-	{"ER_INVALID_DRIVER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_DRIVER_NAME)},
-	{"ER_ERRORLISTENER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ERRORLISTENER)},
-	{"ER_ASSERT_NO_TEMPLATE_PARENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ASSERT_NO_TEMPLATE_PARENT)},
-	{"ER_ASSERT_REDUNDENT_EXPR_ELIMINATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ASSERT_REDUNDENT_EXPR_ELIMINATOR)},
-	{"ER_NOT_ALLOWED_IN_POSITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_ALLOWED_IN_POSITION)},
-	{"ER_NONWHITESPACE_NOT_ALLOWED_IN_POSITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NONWHITESPACE_NOT_ALLOWED_IN_POSITION)},
-	{"ER_NAMESPACE_CONTEXT_NULL_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NAMESPACE_CONTEXT_NULL_NAMESPACE)},
-	{"ER_NAMESPACE_CONTEXT_NULL_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NAMESPACE_CONTEXT_NULL_PREFIX)},
-	{"ER_XPATH_RESOLVER_NULL_QNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XPATH_RESOLVER_NULL_QNAME)},
-	{"ER_XPATH_RESOLVER_NEGATIVE_ARITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XPATH_RESOLVER_NEGATIVE_ARITY)},
-	{"INVALID_TCHAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_TCHAR)},
-	{"INVALID_QNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_QNAME)},
-	{"INVALID_ENUM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_ENUM)},
-	{"INVALID_NMTOKEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_NMTOKEN)},
-	{"INVALID_NCNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_NCNAME)},
-	{"INVALID_BOOLEAN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_BOOLEAN)},
-	{"INVALID_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_NUMBER)},
-	{"ER_ARG_LITERAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ARG_LITERAL)},
-	{"ER_DUPLICATE_GLOBAL_VAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DUPLICATE_GLOBAL_VAR)},
-	{"ER_DUPLICATE_VAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DUPLICATE_VAR)},
-	{"ER_TEMPLATE_NAME_MATCH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TEMPLATE_NAME_MATCH)},
-	{"ER_INVALID_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_PREFIX)},
-	{"ER_NO_ATTRIB_SET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_ATTRIB_SET)},
-	{"ER_FUNCTION_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FUNCTION_NOT_FOUND)},
-	{"ER_CANT_HAVE_CONTENT_AND_SELECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_HAVE_CONTENT_AND_SELECT)},
-	{"ER_INVALID_SET_PARAM_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_SET_PARAM_VALUE)},
-	{"ER_SET_FEATURE_NULL_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SET_FEATURE_NULL_NAME)},
-	{"ER_GET_FEATURE_NULL_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_GET_FEATURE_NULL_NAME)},
-	{"ER_UNSUPPORTED_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNSUPPORTED_FEATURE)},
-	{"ER_EXTENSION_ELEMENT_NOT_ALLOWED_IN_SECURE_PROCESSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_EXTENSION_ELEMENT_NOT_ALLOWED_IN_SECURE_PROCESSING)},
-	{"WG_FOUND_CURLYBRACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_FOUND_CURLYBRACE)},
-	{"WG_COUNT_ATTRIB_MATCHES_NO_ANCESTOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_COUNT_ATTRIB_MATCHES_NO_ANCESTOR)},
-	{"WG_EXPR_ATTRIB_CHANGED_TO_SELECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_EXPR_ATTRIB_CHANGED_TO_SELECT)},
-	{"WG_NO_LOCALE_IN_FORMATNUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_NO_LOCALE_IN_FORMATNUMBER)},
-	{"WG_LOCALE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_LOCALE_NOT_FOUND)},
-	{"WG_CANNOT_MAKE_URL_FROM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_CANNOT_MAKE_URL_FROM)},
-	{"WG_CANNOT_LOAD_REQUESTED_DOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_CANNOT_LOAD_REQUESTED_DOC)},
-	{"WG_CANNOT_FIND_COLLATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_CANNOT_FIND_COLLATOR)},
-	{"WG_FUNCTIONS_SHOULD_USE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_FUNCTIONS_SHOULD_USE_URL)},
-	{"WG_ENCODING_NOT_SUPPORTED_USING_UTF8", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ENCODING_NOT_SUPPORTED_USING_UTF8)},
-	{"WG_ENCODING_NOT_SUPPORTED_USING_JAVA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ENCODING_NOT_SUPPORTED_USING_JAVA)},
-	{"WG_SPECIFICITY_CONFLICTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_SPECIFICITY_CONFLICTS)},
-	{"WG_PARSING_AND_PREPARING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_PARSING_AND_PREPARING)},
-	{"WG_ATTR_TEMPLATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ATTR_TEMPLATE)},
-	{"WG_CONFLICT_BETWEEN_XSLSTRIPSPACE_AND_XSLPRESERVESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_CONFLICT_BETWEEN_XSLSTRIPSPACE_AND_XSLPRESERVESPACE)},
-	{"WG_ATTRIB_NOT_HANDLED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ATTRIB_NOT_HANDLED)},
-	{"WG_NO_DECIMALFORMAT_DECLARATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_NO_DECIMALFORMAT_DECLARATION)},
-	{"WG_OLD_XSLT_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_OLD_XSLT_NS)},
-	{"WG_ONE_DEFAULT_XSLDECIMALFORMAT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ONE_DEFAULT_XSLDECIMALFORMAT_ALLOWED)},
-	{"WG_XSLDECIMALFORMAT_NAMES_MUST_BE_UNIQUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_XSLDECIMALFORMAT_NAMES_MUST_BE_UNIQUE)},
-	{"WG_ILLEGAL_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ILLEGAL_ATTRIBUTE)},
-	{"WG_COULD_NOT_RESOLVE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_COULD_NOT_RESOLVE_PREFIX)},
-	{"WG_STYLESHEET_REQUIRES_VERSION_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_STYLESHEET_REQUIRES_VERSION_ATTRIB)},
-	{"WG_ILLEGAL_ATTRIBUTE_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ILLEGAL_ATTRIBUTE_NAME)},
-	{"WG_ILLEGAL_ATTRIBUTE_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ILLEGAL_ATTRIBUTE_VALUE)},
-	{"WG_EMPTY_SECOND_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_EMPTY_SECOND_ARG)},
-	{"WG_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML)},
-	{"WG_PROCESSINGINSTRUCTION_NOTVALID_NCNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_PROCESSINGINSTRUCTION_NOTVALID_NCNAME)},
-	{"WG_ILLEGAL_ATTRIBUTE_POSITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ILLEGAL_ATTRIBUTE_POSITION)},
-	{"NO_MODIFICATION_ALLOWED_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, NO_MODIFICATION_ALLOWED_ERR)},
-	{"BAD_CODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, BAD_CODE)},
-	{"FORMAT_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, FORMAT_FAILED)},
-	{}
-};
-
-$MethodInfo _XSLTErrorResources_fr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSLTErrorResources_fr, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSLTErrorResources_fr, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _XSLTErrorResources_fr_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.res.XSLTErrorResources_fr",
-	"java.util.ListResourceBundle",
-	nullptr,
-	_XSLTErrorResources_fr_FieldInfo_,
-	_XSLTErrorResources_fr_MethodInfo_
-};
-
-$Object* allocate$XSLTErrorResources_fr($Class* clazz) {
-	return $of($alloc(XSLTErrorResources_fr));
-}
-
 $String* XSLTErrorResources_fr::ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX = nullptr;
 $String* XSLTErrorResources_fr::ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT = nullptr;
 $String* XSLTErrorResources_fr::ER_NO_CURLYBRACE = nullptr;
@@ -791,1287 +519,1287 @@ void XSLTErrorResources_fr::init$() {
 }
 
 $ObjectArray2* XSLTErrorResources_fr::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("ER0000"_s),
-			$of("{0}"_s)
+			"ER0000"_s,
+			"{0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_CURLYBRACE),
-			$of(u"Erreur : l\'expression ne peut pas contenir le caractère \'{\'"_s)
+			XSLTErrorResources_fr::ER_NO_CURLYBRACE,
+			u"Erreur : l\'expression ne peut pas contenir le caractère \'{\'"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ILLEGAL_ATTRIBUTE),
-			$of("{0} a un attribut non admis : {1}"_s)
+			XSLTErrorResources_fr::ER_ILLEGAL_ATTRIBUTE,
+			"{0} a un attribut non admis : {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NULL_SOURCENODE_APPLYIMPORTS),
-			$of("La valeur de sourceNode est NULL dans xsl:apply-imports."_s)
+			XSLTErrorResources_fr::ER_NULL_SOURCENODE_APPLYIMPORTS,
+			"La valeur de sourceNode est NULL dans xsl:apply-imports."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_ADD),
-			$of(u"Impossible d\'\'ajouter {0} à {1}"_s)
+			XSLTErrorResources_fr::ER_CANNOT_ADD,
+			u"Impossible d\'\'ajouter {0} à {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NULL_SOURCENODE_HANDLEAPPLYTEMPLATES),
-			$of("La valeur de sourceNode est NULL dans handleApplyTemplatesInstruction."_s)
+			XSLTErrorResources_fr::ER_NULL_SOURCENODE_HANDLEAPPLYTEMPLATES,
+			"La valeur de sourceNode est NULL dans handleApplyTemplatesInstruction."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_NAME_ATTRIB),
-			$of("{0} doit avoir un attribut \'\'name\'\'."_s)
+			XSLTErrorResources_fr::ER_NO_NAME_ATTRIB,
+			"{0} doit avoir un attribut \'\'name\'\'."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_TEMPLATE_NOT_FOUND),
-			$of(u"Modèle nommé {0} introuvable"_s)
+			XSLTErrorResources_fr::ER_TEMPLATE_NOT_FOUND,
+			u"Modèle nommé {0} introuvable"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANT_RESOLVE_NAME_AVT),
-			$of(u"Impossible de résoudre le nom AVT dans xsl:call-template."_s)
+			XSLTErrorResources_fr::ER_CANT_RESOLVE_NAME_AVT,
+			u"Impossible de résoudre le nom AVT dans xsl:call-template."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_REQUIRES_ATTRIB),
-			$of("{0} exige l\'\'attribut : {1}"_s)
+			XSLTErrorResources_fr::ER_REQUIRES_ATTRIB,
+			"{0} exige l\'\'attribut : {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MUST_HAVE_TEST_ATTRIB),
-			$of("{0} doit avoir un attribut \'\'test\'\'."_s)
+			XSLTErrorResources_fr::ER_MUST_HAVE_TEST_ATTRIB,
+			"{0} doit avoir un attribut \'\'test\'\'."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_BAD_VAL_ON_LEVEL_ATTRIB),
-			$of("Valeur incorrecte sur l\'\'attribut de niveau : {0}"_s)
+			XSLTErrorResources_fr::ER_BAD_VAL_ON_LEVEL_ATTRIB,
+			"Valeur incorrecte sur l\'\'attribut de niveau : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML),
-			$of(u"Le nom de processing-instruction ne peut pas être \'xml\'"_s)
+			XSLTErrorResources_fr::ER_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML,
+			u"Le nom de processing-instruction ne peut pas être \'xml\'"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROCESSINGINSTRUCTION_NOTVALID_NCNAME),
-			$of(u"Le nom de processing-instruction doit être un NCName valide : {0}"_s)
+			XSLTErrorResources_fr::ER_PROCESSINGINSTRUCTION_NOTVALID_NCNAME,
+			u"Le nom de processing-instruction doit être un NCName valide : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NEED_MATCH_ATTRIB),
-			$of("{0} doit avoir un attribut de correspondance s\'\'il a un mode."_s)
+			XSLTErrorResources_fr::ER_NEED_MATCH_ATTRIB,
+			"{0} doit avoir un attribut de correspondance s\'\'il a un mode."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NEED_NAME_OR_MATCH_ATTRIB),
-			$of("{0} exige un nom ou un attribut de correspondance."_s)
+			XSLTErrorResources_fr::ER_NEED_NAME_OR_MATCH_ATTRIB,
+			"{0} exige un nom ou un attribut de correspondance."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANT_RESOLVE_NSPREFIX),
-			$of(u"Impossible de résoudre le préfixe de l\'\'espace de noms : {0}"_s)
+			XSLTErrorResources_fr::ER_CANT_RESOLVE_NSPREFIX,
+			u"Impossible de résoudre le préfixe de l\'\'espace de noms : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ILLEGAL_VALUE),
-			$of("xml:space a une valeur non admise : {0}"_s)
+			XSLTErrorResources_fr::ER_ILLEGAL_VALUE,
+			"xml:space a une valeur non admise : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_OWNERDOC),
-			$of(u"Le noeud enfant ne possède pas de document propriétaire."_s)
+			XSLTErrorResources_fr::ER_NO_OWNERDOC,
+			u"Le noeud enfant ne possède pas de document propriétaire."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ELEMTEMPLATEELEM_ERR),
-			$of("Erreur ElemTemplateElement : {0}"_s)
+			XSLTErrorResources_fr::ER_ELEMTEMPLATEELEM_ERR,
+			"Erreur ElemTemplateElement : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NULL_CHILD),
-			$of("Tentative d\'ajout d\'un enfant NULL."_s)
+			XSLTErrorResources_fr::ER_NULL_CHILD,
+			"Tentative d\'ajout d\'un enfant NULL."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NEED_SELECT_ATTRIB),
-			$of("{0} exige un attribut \"select\"."_s)
+			XSLTErrorResources_fr::ER_NEED_SELECT_ATTRIB,
+			"{0} exige un attribut \"select\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NEED_TEST_ATTRIB),
-			$of("xsl:when doit avoir un attribut \"test\"."_s)
+			XSLTErrorResources_fr::ER_NEED_TEST_ATTRIB,
+			"xsl:when doit avoir un attribut \"test\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NEED_NAME_ATTRIB),
-			$of("xsl:with-param doit avoir un attribut \"name\"."_s)
+			XSLTErrorResources_fr::ER_NEED_NAME_ATTRIB,
+			"xsl:with-param doit avoir un attribut \"name\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_CONTEXT_OWNERDOC),
-			$of(u"le contexte ne possède pas de document propriétaire."_s)
+			XSLTErrorResources_fr::ER_NO_CONTEXT_OWNERDOC,
+			u"le contexte ne possède pas de document propriétaire."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_COULD_NOT_CREATE_XML_PROC_LIAISON),
-			$of(u"Impossible de créer la liaison XML?? TransformerFactory : {0}"_s)
+			XSLTErrorResources_fr::ER_COULD_NOT_CREATE_XML_PROC_LIAISON,
+			u"Impossible de créer la liaison XML?? TransformerFactory : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROCESS_NOT_SUCCESSFUL),
-			$of(u"Xalan : le processus a échoué."_s)
+			XSLTErrorResources_fr::ER_PROCESS_NOT_SUCCESSFUL,
+			u"Xalan : le processus a échoué."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NOT_SUCCESSFUL),
-			$of(u"Xalan : échec."_s)
+			XSLTErrorResources_fr::ER_NOT_SUCCESSFUL,
+			u"Xalan : échec."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ENCODING_NOT_SUPPORTED),
-			$of("Encodage non pris en charge : {0}"_s)
+			XSLTErrorResources_fr::ER_ENCODING_NOT_SUPPORTED,
+			"Encodage non pris en charge : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_COULD_NOT_CREATE_TRACELISTENER),
-			$of(u"Impossible de créer TraceListener : {0}"_s)
+			XSLTErrorResources_fr::ER_COULD_NOT_CREATE_TRACELISTENER,
+			u"Impossible de créer TraceListener : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_KEY_REQUIRES_NAME_ATTRIB),
-			$of("xsl:key exige un attribut \"name\"."_s)
+			XSLTErrorResources_fr::ER_KEY_REQUIRES_NAME_ATTRIB,
+			"xsl:key exige un attribut \"name\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_KEY_REQUIRES_MATCH_ATTRIB),
-			$of("xsl:key exige un attribut \"match\"."_s)
+			XSLTErrorResources_fr::ER_KEY_REQUIRES_MATCH_ATTRIB,
+			"xsl:key exige un attribut \"match\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_KEY_REQUIRES_USE_ATTRIB),
-			$of("xsl:key exige un attribut \"use\"."_s)
+			XSLTErrorResources_fr::ER_KEY_REQUIRES_USE_ATTRIB,
+			"xsl:key exige un attribut \"use\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_REQUIRES_ELEMENTS_ATTRIB),
-			$of("(StylesheetHandler) {0} exige un attribut \'\'elements\'\'."_s)
+			XSLTErrorResources_fr::ER_REQUIRES_ELEMENTS_ATTRIB,
+			"(StylesheetHandler) {0} exige un attribut \'\'elements\'\'."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MISSING_PREFIX_ATTRIB),
-			$of("(StylesheetHandler) L\'\'attribut \'\'prefix\'\' {0} est manquant"_s)
+			XSLTErrorResources_fr::ER_MISSING_PREFIX_ATTRIB,
+			"(StylesheetHandler) L\'\'attribut \'\'prefix\'\' {0} est manquant"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_BAD_STYLESHEET_URL),
-			$of("L\'\'URL de feuille de style est incorrecte : {0}"_s)
+			XSLTErrorResources_fr::ER_BAD_STYLESHEET_URL,
+			"L\'\'URL de feuille de style est incorrecte : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FILE_NOT_FOUND),
-			$of("Fichier de feuille de style introuvable : {0}"_s)
+			XSLTErrorResources_fr::ER_FILE_NOT_FOUND,
+			"Fichier de feuille de style introuvable : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_IOEXCEPTION),
-			$of("Exception d\'\'E/S avec le fichier de feuille de style : {0}"_s)
+			XSLTErrorResources_fr::ER_IOEXCEPTION,
+			"Exception d\'\'E/S avec le fichier de feuille de style : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_HREF_ATTRIB),
-			$of("(StylesheetHandler) Attribut href introuvable pour {0}"_s)
+			XSLTErrorResources_fr::ER_NO_HREF_ATTRIB,
+			"(StylesheetHandler) Attribut href introuvable pour {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_STYLESHEET_INCLUDES_ITSELF),
-			$of(u"(StylesheetHandler) {0} s\'\'inclut directement ou indirectement lui-même."_s)
+			XSLTErrorResources_fr::ER_STYLESHEET_INCLUDES_ITSELF,
+			u"(StylesheetHandler) {0} s\'\'inclut directement ou indirectement lui-même."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROCESSINCLUDE_ERROR),
-			$of("Erreur StylesheetHandler.processInclude, {0}"_s)
+			XSLTErrorResources_fr::ER_PROCESSINCLUDE_ERROR,
+			"Erreur StylesheetHandler.processInclude, {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MISSING_LANG_ATTRIB),
-			$of("(StylesheetHandler) L\'\'attribut \"lang\" {0} est manquant"_s)
+			XSLTErrorResources_fr::ER_MISSING_LANG_ATTRIB,
+			"(StylesheetHandler) L\'\'attribut \"lang\" {0} est manquant"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MISSING_CONTAINER_ELEMENT_COMPONENT),
-			$of(u"(StylesheetHandler) l\'\'élément {0} est-il mal placé? Elément \'\'component\'\' du conteneur manquant"_s)
+			XSLTErrorResources_fr::ER_MISSING_CONTAINER_ELEMENT_COMPONENT,
+			u"(StylesheetHandler) l\'\'élément {0} est-il mal placé? Elément \'\'component\'\' du conteneur manquant"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CAN_ONLY_OUTPUT_TO_ELEMENT),
-			$of("Sortie unique vers Element, DocumentFragment, Document ou PrintWriter."_s)
+			XSLTErrorResources_fr::ER_CAN_ONLY_OUTPUT_TO_ELEMENT,
+			"Sortie unique vers Element, DocumentFragment, Document ou PrintWriter."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROCESS_ERROR),
-			$of("Erreur StylesheetRoot.process"_s)
+			XSLTErrorResources_fr::ER_PROCESS_ERROR,
+			"Erreur StylesheetRoot.process"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_UNIMPLNODE_ERROR),
-			$of("Erreur UnImplNode : {0}"_s)
+			XSLTErrorResources_fr::ER_UNIMPLNODE_ERROR,
+			"Erreur UnImplNode : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_SELECT_EXPRESSION),
-			$of(u"Erreur : expression de sélection Xpath introuvable (-select)."_s)
+			XSLTErrorResources_fr::ER_NO_SELECT_EXPRESSION,
+			u"Erreur : expression de sélection Xpath introuvable (-select)."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_SERIALIZE_XSLPROCESSOR),
-			$of(u"Impossible de sérialiser un processeur XSL."_s)
+			XSLTErrorResources_fr::ER_CANNOT_SERIALIZE_XSLPROCESSOR,
+			u"Impossible de sérialiser un processeur XSL."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_INPUT_STYLESHEET),
-			$of(u"L\'entrée de feuille de style n\'a pas été spécifiée."_s)
+			XSLTErrorResources_fr::ER_NO_INPUT_STYLESHEET,
+			u"L\'entrée de feuille de style n\'a pas été spécifiée."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FAILED_PROCESS_STYLESHEET),
-			$of("Echec du traitement de la feuille de style."_s)
+			XSLTErrorResources_fr::ER_FAILED_PROCESS_STYLESHEET,
+			"Echec du traitement de la feuille de style."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_COULDNT_PARSE_DOC),
-			$of("Impossible d\'\'analyser le document {0}."_s)
+			XSLTErrorResources_fr::ER_COULDNT_PARSE_DOC,
+			"Impossible d\'\'analyser le document {0}."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_COULDNT_FIND_FRAGMENT),
-			$of("Fragment introuvable : {0}"_s)
+			XSLTErrorResources_fr::ER_COULDNT_FIND_FRAGMENT,
+			"Fragment introuvable : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NODE_NOT_ELEMENT),
-			$of(u"Le noeud sur lequel pointe l\'\'identificateur de fragment n\'\'était pas un élément : {0}"_s)
+			XSLTErrorResources_fr::ER_NODE_NOT_ELEMENT,
+			u"Le noeud sur lequel pointe l\'\'identificateur de fragment n\'\'était pas un élément : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FOREACH_NEED_MATCH_OR_NAME_ATTRIB),
-			$of(u"l\'élément for-each doit avoir un attribut de nom ou de correspondance"_s)
+			XSLTErrorResources_fr::ER_FOREACH_NEED_MATCH_OR_NAME_ATTRIB,
+			u"l\'élément for-each doit avoir un attribut de nom ou de correspondance"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_TEMPLATES_NEED_MATCH_OR_NAME_ATTRIB),
-			$of(u"les modèles doivent avoir un attribut de nom ou de correspondance"_s)
+			XSLTErrorResources_fr::ER_TEMPLATES_NEED_MATCH_OR_NAME_ATTRIB,
+			u"les modèles doivent avoir un attribut de nom ou de correspondance"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_CLONE_OF_DOCUMENT_FRAG),
-			$of("Aucun clone d\'un fragment de document."_s)
+			XSLTErrorResources_fr::ER_NO_CLONE_OF_DOCUMENT_FRAG,
+			"Aucun clone d\'un fragment de document."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANT_CREATE_ITEM),
-			$of(u"Impossible de créer l\'\'élément dans l\'\'arborescence de résultats : {0}"_s)
+			XSLTErrorResources_fr::ER_CANT_CREATE_ITEM,
+			u"Impossible de créer l\'\'élément dans l\'\'arborescence de résultats : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XMLSPACE_ILLEGAL_VALUE),
-			$of("xml:space dans le fichier XML source a une valeur non admise : {0}"_s)
+			XSLTErrorResources_fr::ER_XMLSPACE_ILLEGAL_VALUE,
+			"xml:space dans le fichier XML source a une valeur non admise : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_XSLKEY_DECLARATION),
-			$of(u"Il n\'\'existe aucune déclaration xsl:key pour {0}."_s)
+			XSLTErrorResources_fr::ER_NO_XSLKEY_DECLARATION,
+			u"Il n\'\'existe aucune déclaration xsl:key pour {0}."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANT_CREATE_URL),
-			$of(u"Erreur : impossible de créer l\'\'URL pour : {0}"_s)
+			XSLTErrorResources_fr::ER_CANT_CREATE_URL,
+			u"Erreur : impossible de créer l\'\'URL pour : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XSLFUNCTIONS_UNSUPPORTED),
-			$of("xsl:functions n\'est pas pris en charge"_s)
+			XSLTErrorResources_fr::ER_XSLFUNCTIONS_UNSUPPORTED,
+			"xsl:functions n\'est pas pris en charge"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROCESSOR_ERROR),
-			$of("Erreur TransformerFactory XSLT"_s)
+			XSLTErrorResources_fr::ER_PROCESSOR_ERROR,
+			"Erreur TransformerFactory XSLT"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NOT_ALLOWED_INSIDE_STYLESHEET),
-			$of(u"(StylesheetHandler) {0} non autorisé dans une feuille de style."_s)
+			XSLTErrorResources_fr::ER_NOT_ALLOWED_INSIDE_STYLESHEET,
+			u"(StylesheetHandler) {0} non autorisé dans une feuille de style."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_RESULTNS_NOT_SUPPORTED),
-			$of(u"élément result-ns plus pris en charge. Utilisez plutôt xsl:output."_s)
+			XSLTErrorResources_fr::ER_RESULTNS_NOT_SUPPORTED,
+			u"élément result-ns plus pris en charge. Utilisez plutôt xsl:output."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_DEFAULTSPACE_NOT_SUPPORTED),
-			$of(u"élément default-space plus pris en charge. Utilisez plutôt xsl:strip-space ou xsl:preserve-space."_s)
+			XSLTErrorResources_fr::ER_DEFAULTSPACE_NOT_SUPPORTED,
+			u"élément default-space plus pris en charge. Utilisez plutôt xsl:strip-space ou xsl:preserve-space."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INDENTRESULT_NOT_SUPPORTED),
-			$of(u"élément indent-result plus pris en charge. Utilisez plutôt xsl:output."_s)
+			XSLTErrorResources_fr::ER_INDENTRESULT_NOT_SUPPORTED,
+			u"élément indent-result plus pris en charge. Utilisez plutôt xsl:output."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ILLEGAL_ATTRIB),
-			$of("(StylesheetHandler) {0} a un attribut non admis : {1}"_s)
+			XSLTErrorResources_fr::ER_ILLEGAL_ATTRIB,
+			"(StylesheetHandler) {0} a un attribut non admis : {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_UNKNOWN_XSL_ELEM),
-			$of(u"Elément XSL inconnu : {0}"_s)
+			XSLTErrorResources_fr::ER_UNKNOWN_XSL_ELEM,
+			u"Elément XSL inconnu : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_BAD_XSLSORT_USE),
-			$of(u"(StylesheetHandler) xsl:sort ne peut être utilisé qu\'avec xsl:apply-templates ou xsl:for-each."_s)
+			XSLTErrorResources_fr::ER_BAD_XSLSORT_USE,
+			u"(StylesheetHandler) xsl:sort ne peut être utilisé qu\'avec xsl:apply-templates ou xsl:for-each."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MISPLACED_XSLWHEN),
-			$of(u"(StylesheetHandler) xsl:when mal placé."_s)
+			XSLTErrorResources_fr::ER_MISPLACED_XSLWHEN,
+			u"(StylesheetHandler) xsl:when mal placé."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XSLWHEN_NOT_PARENTED_BY_XSLCHOOSE),
-			$of(u"(StylesheetHandler) xsl:choose n\'a affecté aucun parent à xsl:when."_s)
+			XSLTErrorResources_fr::ER_XSLWHEN_NOT_PARENTED_BY_XSLCHOOSE,
+			u"(StylesheetHandler) xsl:choose n\'a affecté aucun parent à xsl:when."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MISPLACED_XSLOTHERWISE),
-			$of(u"(StylesheetHandler) xsl:otherwise mal placé."_s)
+			XSLTErrorResources_fr::ER_MISPLACED_XSLOTHERWISE,
+			u"(StylesheetHandler) xsl:otherwise mal placé."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XSLOTHERWISE_NOT_PARENTED_BY_XSLCHOOSE),
-			$of(u"(StylesheetHandler) xsl:choose n\'a affecté aucun parent à xsl:otherwise."_s)
+			XSLTErrorResources_fr::ER_XSLOTHERWISE_NOT_PARENTED_BY_XSLCHOOSE,
+			u"(StylesheetHandler) xsl:choose n\'a affecté aucun parent à xsl:otherwise."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NOT_ALLOWED_INSIDE_TEMPLATE),
-			$of(u"(StylesheetHandler) {0} n\'\'est pas autorisé dans un modèle."_s)
+			XSLTErrorResources_fr::ER_NOT_ALLOWED_INSIDE_TEMPLATE,
+			u"(StylesheetHandler) {0} n\'\'est pas autorisé dans un modèle."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_UNKNOWN_EXT_NS_PREFIX),
-			$of(u"(StylesheetHandler) Préfixe {1} de l\'\'espace de noms de l\'\'extension {0} inconnu"_s)
+			XSLTErrorResources_fr::ER_UNKNOWN_EXT_NS_PREFIX,
+			u"(StylesheetHandler) Préfixe {1} de l\'\'espace de noms de l\'\'extension {0} inconnu"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_IMPORTS_AS_FIRST_ELEM),
-			$of(u"(StylesheetHandler) Les imports ne peuvent s\'appliquer que sur les premiers éléments de la feuille de style."_s)
+			XSLTErrorResources_fr::ER_IMPORTS_AS_FIRST_ELEM,
+			u"(StylesheetHandler) Les imports ne peuvent s\'appliquer que sur les premiers éléments de la feuille de style."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_IMPORTING_ITSELF),
-			$of(u"(StylesheetHandler) {0} s\'\'importe directement ou indirectement lui-même."_s)
+			XSLTErrorResources_fr::ER_IMPORTING_ITSELF,
+			u"(StylesheetHandler) {0} s\'\'importe directement ou indirectement lui-même."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XMLSPACE_ILLEGAL_VAL),
-			$of("(StylesheetHandler) xml:space a une valeur non admise : {0}"_s)
+			XSLTErrorResources_fr::ER_XMLSPACE_ILLEGAL_VAL,
+			"(StylesheetHandler) xml:space a une valeur non admise : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROCESSSTYLESHEET_NOT_SUCCESSFUL),
-			$of("Echec de processStylesheet."_s)
+			XSLTErrorResources_fr::ER_PROCESSSTYLESHEET_NOT_SUCCESSFUL,
+			"Echec de processStylesheet."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_SAX_EXCEPTION),
-			$of("Exception SAX"_s)
+			XSLTErrorResources_fr::ER_SAX_EXCEPTION,
+			"Exception SAX"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FUNCTION_NOT_SUPPORTED),
-			$of("Fonction non prise en charge."_s)
+			XSLTErrorResources_fr::ER_FUNCTION_NOT_SUPPORTED,
+			"Fonction non prise en charge."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XSLT_ERROR),
-			$of("Erreur XSLT"_s)
+			XSLTErrorResources_fr::ER_XSLT_ERROR,
+			"Erreur XSLT"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CURRENCY_SIGN_ILLEGAL),
-			$of(u"le symbole de devise n\'est pas autorisé dans la chaîne du modèle de format"_s)
+			XSLTErrorResources_fr::ER_CURRENCY_SIGN_ILLEGAL,
+			u"le symbole de devise n\'est pas autorisé dans la chaîne du modèle de format"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_DOCUMENT_FUNCTION_INVALID_IN_STYLESHEET_DOM),
-			$of("Fonction de document non prise en charge dans l\'objet DOM de la feuille de style."_s)
+			XSLTErrorResources_fr::ER_DOCUMENT_FUNCTION_INVALID_IN_STYLESHEET_DOM,
+			"Fonction de document non prise en charge dans l\'objet DOM de la feuille de style."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANT_RESOLVE_PREFIX_OF_NON_PREFIX_RESOLVER),
-			$of(u"Impossible de résoudre le préfixe du résolveur non-Prefix."_s)
+			XSLTErrorResources_fr::ER_CANT_RESOLVE_PREFIX_OF_NON_PREFIX_RESOLVER,
+			u"Impossible de résoudre le préfixe du résolveur non-Prefix."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_REDIRECT_COULDNT_GET_FILENAME),
-			$of(u"Extension Redirect : impossible d\'obtenir le nom de fichier. L\'attribut \"file\" ou \"select\" doit renvoyer une chaîne valide."_s)
+			XSLTErrorResources_fr::ER_REDIRECT_COULDNT_GET_FILENAME,
+			u"Extension Redirect : impossible d\'obtenir le nom de fichier. L\'attribut \"file\" ou \"select\" doit renvoyer une chaîne valide."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_BUILD_FORMATTERLISTENER_IN_REDIRECT),
-			$of(u"Impossible de créer FormatterListener dans l\'extension Redirect."_s)
+			XSLTErrorResources_fr::ER_CANNOT_BUILD_FORMATTERLISTENER_IN_REDIRECT,
+			u"Impossible de créer FormatterListener dans l\'extension Redirect."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_PREFIX_IN_EXCLUDERESULTPREFIX),
-			$of(u"Le préfixe de l\'\'élément exclude-result-prefixes n\'\'est pas valide : {0}"_s)
+			XSLTErrorResources_fr::ER_INVALID_PREFIX_IN_EXCLUDERESULTPREFIX,
+			u"Le préfixe de l\'\'élément exclude-result-prefixes n\'\'est pas valide : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MISSING_NS_URI),
-			$of(u"URI d\'espace de noms manquant pour le préfixe spécifié"_s)
+			XSLTErrorResources_fr::ER_MISSING_NS_URI,
+			u"URI d\'espace de noms manquant pour le préfixe spécifié"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MISSING_ARG_FOR_OPTION),
-			$of("Argument manquant pour l\'\'option : {0}"_s)
+			XSLTErrorResources_fr::ER_MISSING_ARG_FOR_OPTION,
+			"Argument manquant pour l\'\'option : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_OPTION),
-			$of("Option non valide : {0}"_s)
+			XSLTErrorResources_fr::ER_INVALID_OPTION,
+			"Option non valide : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MALFORMED_FORMAT_STRING),
-			$of(u"Format de chaîne incorrect : {0}"_s)
+			XSLTErrorResources_fr::ER_MALFORMED_FORMAT_STRING,
+			u"Format de chaîne incorrect : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_STYLESHEET_REQUIRES_VERSION_ATTRIB),
-			$of("xsl:stylesheet exige un attribut  de version."_s)
+			XSLTErrorResources_fr::ER_STYLESHEET_REQUIRES_VERSION_ATTRIB,
+			"xsl:stylesheet exige un attribut  de version."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ILLEGAL_ATTRIBUTE_VALUE),
-			$of("L\'\'attribut {0} a une valeur non admise : {1}"_s)
+			XSLTErrorResources_fr::ER_ILLEGAL_ATTRIBUTE_VALUE,
+			"L\'\'attribut {0} a une valeur non admise : {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CHOOSE_REQUIRES_WHEN),
-			$of(u"xsl:choose exige un élément xsl:when"_s)
+			XSLTErrorResources_fr::ER_CHOOSE_REQUIRES_WHEN,
+			u"xsl:choose exige un élément xsl:when"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_APPLY_IMPORT_IN_FOR_EACH),
-			$of(u"xsl:apply-imports non autorisé dans un élément xsl:for-each"_s)
+			XSLTErrorResources_fr::ER_NO_APPLY_IMPORT_IN_FOR_EACH,
+			u"xsl:apply-imports non autorisé dans un élément xsl:for-each"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANT_USE_DTM_FOR_OUTPUT),
-			$of(u"Impossible d\'utiliser un élément DTMLiaison pour un noeud DOM de sortie... Transmettez plutôt un élément com.sun.org.apache.xpath.internal.DOM2Helper."_s)
+			XSLTErrorResources_fr::ER_CANT_USE_DTM_FOR_OUTPUT,
+			u"Impossible d\'utiliser un élément DTMLiaison pour un noeud DOM de sortie... Transmettez plutôt un élément com.sun.org.apache.xpath.internal.DOM2Helper."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANT_USE_DTM_FOR_INPUT),
-			$of(u"Impossible d\'utiliser un élément DTMLiaison pour un noeud DOM d\'entrée... Transmettez plutôt un élément com.sun.org.apache.xpath.internal.DOM2Helper."_s)
+			XSLTErrorResources_fr::ER_CANT_USE_DTM_FOR_INPUT,
+			u"Impossible d\'utiliser un élément DTMLiaison pour un noeud DOM d\'entrée... Transmettez plutôt un élément com.sun.org.apache.xpath.internal.DOM2Helper."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CALL_TO_EXT_FAILED),
-			$of(u"Echec de l\'\'appel de l\'\'élément d\'\'extension : {0}"_s)
+			XSLTErrorResources_fr::ER_CALL_TO_EXT_FAILED,
+			u"Echec de l\'\'appel de l\'\'élément d\'\'extension : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PREFIX_MUST_RESOLVE),
-			$of(u"Le préfixe doit être résolu en espace de noms : {0}"_s)
+			XSLTErrorResources_fr::ER_PREFIX_MUST_RESOLVE,
+			u"Le préfixe doit être résolu en espace de noms : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_UTF16_SURROGATE),
-			$of(u"Substitut UTF-16 non valide détecté : {0} ?"_s)
+			XSLTErrorResources_fr::ER_INVALID_UTF16_SURROGATE,
+			u"Substitut UTF-16 non valide détecté : {0} ?"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XSLATTRSET_USED_ITSELF),
-			$of(u"xsl:attribute-set {0} s\'\'est utilisé lui-même, ce qui génère une boucle sans fin."_s)
+			XSLTErrorResources_fr::ER_XSLATTRSET_USED_ITSELF,
+			u"xsl:attribute-set {0} s\'\'est utilisé lui-même, ce qui génère une boucle sans fin."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_MIX_XERCESDOM),
-			$of(u"Impossible de combiner une entrée non Xerces-DOM et une sortie Xerces-DOM."_s)
+			XSLTErrorResources_fr::ER_CANNOT_MIX_XERCESDOM,
+			u"Impossible de combiner une entrée non Xerces-DOM et une sortie Xerces-DOM."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_TOO_MANY_LISTENERS),
-			$of("addTraceListenersToStylesheet - TooManyListenersException"_s)
+			XSLTErrorResources_fr::ER_TOO_MANY_LISTENERS,
+			"addTraceListenersToStylesheet - TooManyListenersException"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_IN_ELEMTEMPLATEELEM_READOBJECT),
-			$of("Dans ElemTemplateElement.readObject : {0}"_s)
+			XSLTErrorResources_fr::ER_IN_ELEMTEMPLATEELEM_READOBJECT,
+			"Dans ElemTemplateElement.readObject : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_DUPLICATE_NAMED_TEMPLATE),
-			$of(u"Plusieurs modèles nommés {0} ont été trouvés"_s)
+			XSLTErrorResources_fr::ER_DUPLICATE_NAMED_TEMPLATE,
+			u"Plusieurs modèles nommés {0} ont été trouvés"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_KEY_CALL),
-			$of(u"Appel de fonction non valide : les appels de touche récursive () ne sont pas autorisés"_s)
+			XSLTErrorResources_fr::ER_INVALID_KEY_CALL,
+			u"Appel de fonction non valide : les appels de touche récursive () ne sont pas autorisés"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_REFERENCING_ITSELF),
-			$of(u"La variable {0} fait directement ou indirectement référence à elle-même."_s)
+			XSLTErrorResources_fr::ER_REFERENCING_ITSELF,
+			u"La variable {0} fait directement ou indirectement référence à elle-même."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ILLEGAL_DOMSOURCE_INPUT),
-			$of(u"Le noeud d\'entrée ne peut pas être NULL pour un élément DOMSource de newTemplates."_s)
+			XSLTErrorResources_fr::ER_ILLEGAL_DOMSOURCE_INPUT,
+			u"Le noeud d\'entrée ne peut pas être NULL pour un élément DOMSource de newTemplates."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CLASS_NOT_FOUND_FOR_OPTION),
-			$of("Fichier de classe introuvable pour l\'\'option {0}"_s)
+			XSLTErrorResources_fr::ER_CLASS_NOT_FOUND_FOR_OPTION,
+			"Fichier de classe introuvable pour l\'\'option {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_REQUIRED_ELEM_NOT_FOUND),
-			$of(u"Elément obligatoire introuvable : {0}"_s)
+			XSLTErrorResources_fr::ER_REQUIRED_ELEM_NOT_FOUND,
+			u"Elément obligatoire introuvable : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INPUT_CANNOT_BE_NULL),
-			$of(u"InputStream ne peut pas être NULL"_s)
+			XSLTErrorResources_fr::ER_INPUT_CANNOT_BE_NULL,
+			u"InputStream ne peut pas être NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_URI_CANNOT_BE_NULL),
-			$of(u"L\'URI ne peut pas être NULL"_s)
+			XSLTErrorResources_fr::ER_URI_CANNOT_BE_NULL,
+			u"L\'URI ne peut pas être NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FILE_CANNOT_BE_NULL),
-			$of(u"Le fichier ne peut pas être NULL"_s)
+			XSLTErrorResources_fr::ER_FILE_CANNOT_BE_NULL,
+			u"Le fichier ne peut pas être NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_SOURCE_CANNOT_BE_NULL),
-			$of(u"InputSource ne peut pas être NULL"_s)
+			XSLTErrorResources_fr::ER_SOURCE_CANNOT_BE_NULL,
+			u"InputSource ne peut pas être NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_INIT_BSFMGR),
-			$of("Impossible d\'initialiser le gestionnaire BSF"_s)
+			XSLTErrorResources_fr::ER_CANNOT_INIT_BSFMGR,
+			"Impossible d\'initialiser le gestionnaire BSF"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_CMPL_EXTENSN),
-			$of("Impossible de compiler l\'extension"_s)
+			XSLTErrorResources_fr::ER_CANNOT_CMPL_EXTENSN,
+			"Impossible de compiler l\'extension"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_CREATE_EXTENSN),
-			$of(u"Impossible de créer l\'\'extension {0}. Cause : {1}"_s)
+			XSLTErrorResources_fr::ER_CANNOT_CREATE_EXTENSN,
+			u"Impossible de créer l\'\'extension {0}. Cause : {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INSTANCE_MTHD_CALL_REQUIRES),
-			$of(u"L\'\'appel de la méthode d\'\'instance {0} exige une instance d\'\'objet comme premier argument"_s)
+			XSLTErrorResources_fr::ER_INSTANCE_MTHD_CALL_REQUIRES,
+			u"L\'\'appel de la méthode d\'\'instance {0} exige une instance d\'\'objet comme premier argument"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_ELEMENT_NAME),
-			$of(u"Nom d\'\'élément spécifié {0} non valide"_s)
+			XSLTErrorResources_fr::ER_INVALID_ELEMENT_NAME,
+			u"Nom d\'\'élément spécifié {0} non valide"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ELEMENT_NAME_METHOD_STATIC),
-			$of(u"La méthode du nom d\'\'élément doit être statique {0}"_s)
+			XSLTErrorResources_fr::ER_ELEMENT_NAME_METHOD_STATIC,
+			u"La méthode du nom d\'\'élément doit être statique {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_EXTENSION_FUNC_UNKNOWN),
-			$of("La fonction d\'\'extension {0} : {1} est inconnue"_s)
+			XSLTErrorResources_fr::ER_EXTENSION_FUNC_UNKNOWN,
+			"La fonction d\'\'extension {0} : {1} est inconnue"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MORE_MATCH_CONSTRUCTOR),
-			$of("Plusieurs meilleures concordances du constructeur pour {0}"_s)
+			XSLTErrorResources_fr::ER_MORE_MATCH_CONSTRUCTOR,
+			"Plusieurs meilleures concordances du constructeur pour {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MORE_MATCH_METHOD),
-			$of(u"Plusieurs meilleures concordances pour la méthode {0}"_s)
+			XSLTErrorResources_fr::ER_MORE_MATCH_METHOD,
+			u"Plusieurs meilleures concordances pour la méthode {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_MORE_MATCH_ELEMENT),
-			$of(u"Plusieurs meilleures concordances pour la méthode d\'\'élément {0}"_s)
+			XSLTErrorResources_fr::ER_MORE_MATCH_ELEMENT,
+			u"Plusieurs meilleures concordances pour la méthode d\'\'élément {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_CONTEXT_PASSED),
-			$of(u"Contexte transmis pour évaluation {0} non valide"_s)
+			XSLTErrorResources_fr::ER_INVALID_CONTEXT_PASSED,
+			u"Contexte transmis pour évaluation {0} non valide"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_POOL_EXISTS),
-			$of(u"Le pool existe déjà"_s)
+			XSLTErrorResources_fr::ER_POOL_EXISTS,
+			u"Le pool existe déjà"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_DRIVER_NAME),
-			$of(u"Aucun nom de pilote indiqué"_s)
+			XSLTErrorResources_fr::ER_NO_DRIVER_NAME,
+			u"Aucun nom de pilote indiqué"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_URL),
-			$of(u"Aucune URL indiquée"_s)
+			XSLTErrorResources_fr::ER_NO_URL,
+			u"Aucune URL indiquée"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_POOL_SIZE_LESSTHAN_ONE),
-			$of(u"La taille de pool est inférieure à 1."_s)
+			XSLTErrorResources_fr::ER_POOL_SIZE_LESSTHAN_ONE,
+			u"La taille de pool est inférieure à 1."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_DRIVER),
-			$of(u"Nom de pilote indiqué non valide."_s)
+			XSLTErrorResources_fr::ER_INVALID_DRIVER,
+			u"Nom de pilote indiqué non valide."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_STYLESHEETROOT),
-			$of("Racine de la feuille de style introuvable."_s)
+			XSLTErrorResources_fr::ER_NO_STYLESHEETROOT,
+			"Racine de la feuille de style introuvable."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ILLEGAL_XMLSPACE_VALUE),
-			$of("Valeur non admise pour xml:space"_s)
+			XSLTErrorResources_fr::ER_ILLEGAL_XMLSPACE_VALUE,
+			"Valeur non admise pour xml:space"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROCESSFROMNODE_FAILED),
-			$of("Echec de processFromNode"_s)
+			XSLTErrorResources_fr::ER_PROCESSFROMNODE_FAILED,
+			"Echec de processFromNode"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_RESOURCE_COULD_NOT_LOAD),
-			$of("La ressource [ {0} ] n\'\'a pas pu charger : {1} \n {2} \t {3}"_s)
+			XSLTErrorResources_fr::ER_RESOURCE_COULD_NOT_LOAD,
+			"La ressource [ {0} ] n\'\'a pas pu charger : {1} \n {2} \t {3}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_BUFFER_SIZE_LESSTHAN_ZERO),
-			$of("Taille du tampon <=0"_s)
+			XSLTErrorResources_fr::ER_BUFFER_SIZE_LESSTHAN_ZERO,
+			"Taille du tampon <=0"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_UNKNOWN_ERROR_CALLING_EXTENSION),
-			$of("Erreur inconnue lors de l\'appel de l\'extension"_s)
+			XSLTErrorResources_fr::ER_UNKNOWN_ERROR_CALLING_EXTENSION,
+			"Erreur inconnue lors de l\'appel de l\'extension"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_NAMESPACE_DECL),
-			$of(u"Le préfixe {0} n\'\'a pas de déclaration d\'\'espace de noms correspondante"_s)
+			XSLTErrorResources_fr::ER_NO_NAMESPACE_DECL,
+			u"Le préfixe {0} n\'\'a pas de déclaration d\'\'espace de noms correspondante"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ELEM_CONTENT_NOT_ALLOWED),
-			$of(u"Contenu d\'\'élément non autorisé pour lang=javaclass {0}"_s)
+			XSLTErrorResources_fr::ER_ELEM_CONTENT_NOT_ALLOWED,
+			u"Contenu d\'\'élément non autorisé pour lang=javaclass {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_STYLESHEET_DIRECTED_TERMINATION),
-			$of(u"Fin du réacheminement de la feuille de style"_s)
+			XSLTErrorResources_fr::ER_STYLESHEET_DIRECTED_TERMINATION,
+			u"Fin du réacheminement de la feuille de style"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ONE_OR_TWO),
-			$of("1 ou 2"_s)
+			XSLTErrorResources_fr::ER_ONE_OR_TWO,
+			"1 ou 2"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_TWO_OR_THREE),
-			$of("2 ou 3"_s)
+			XSLTErrorResources_fr::ER_TWO_OR_THREE,
+			"2 ou 3"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_COULD_NOT_LOAD_RESOURCE),
-			$of(u"Impossible de charger {0} (vérifier CLASSPATH), les valeurs par défaut sont donc employées"_s)
+			XSLTErrorResources_fr::ER_COULD_NOT_LOAD_RESOURCE,
+			u"Impossible de charger {0} (vérifier CLASSPATH), les valeurs par défaut sont donc employées"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_INIT_DEFAULT_TEMPLATES),
-			$of(u"Impossible d\'initialiser les modèles default"_s)
+			XSLTErrorResources_fr::ER_CANNOT_INIT_DEFAULT_TEMPLATES,
+			u"Impossible d\'initialiser les modèles default"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_RESULT_NULL),
-			$of(u"Le résultat ne doit pas être NULL"_s)
+			XSLTErrorResources_fr::ER_RESULT_NULL,
+			u"Le résultat ne doit pas être NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_RESULT_COULD_NOT_BE_SET),
-			$of(u"Le résultat n\'a pas pu être défini"_s)
+			XSLTErrorResources_fr::ER_RESULT_COULD_NOT_BE_SET,
+			u"Le résultat n\'a pas pu être défini"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_OUTPUT_SPECIFIED),
-			$of(u"Aucune sortie spécifiée"_s)
+			XSLTErrorResources_fr::ER_NO_OUTPUT_SPECIFIED,
+			u"Aucune sortie spécifiée"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_TRANSFORM_TO_RESULT_TYPE),
-			$of(u"Impossible de transformer le résultat en résultat de type {0}"_s)
+			XSLTErrorResources_fr::ER_CANNOT_TRANSFORM_TO_RESULT_TYPE,
+			u"Impossible de transformer le résultat en résultat de type {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_TRANSFORM_SOURCE_TYPE),
-			$of("Impossible de transformer une source de type {0}"_s)
+			XSLTErrorResources_fr::ER_CANNOT_TRANSFORM_SOURCE_TYPE,
+			"Impossible de transformer une source de type {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NULL_CONTENT_HANDLER),
-			$of("Gestionnaire de contenu NULL"_s)
+			XSLTErrorResources_fr::ER_NULL_CONTENT_HANDLER,
+			"Gestionnaire de contenu NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NULL_ERROR_HANDLER),
-			$of("Gestionnaire d\'erreurs NULL"_s)
+			XSLTErrorResources_fr::ER_NULL_ERROR_HANDLER,
+			"Gestionnaire d\'erreurs NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_CALL_PARSE),
-			$of(u"impossible d\'appeler l\'analyse si le gestionnaire de contenu n\'est pas défini"_s)
+			XSLTErrorResources_fr::ER_CANNOT_CALL_PARSE,
+			u"impossible d\'appeler l\'analyse si le gestionnaire de contenu n\'est pas défini"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_PARENT_FOR_FILTER),
-			$of("Aucun parent pour le filtre"_s)
+			XSLTErrorResources_fr::ER_NO_PARENT_FOR_FILTER,
+			"Aucun parent pour le filtre"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_STYLESHEET_IN_MEDIA),
-			$of(u"Aucune feuille de style trouvée dans : {0}, support = {1}"_s)
+			XSLTErrorResources_fr::ER_NO_STYLESHEET_IN_MEDIA,
+			u"Aucune feuille de style trouvée dans : {0}, support = {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_STYLESHEET_PI),
-			$of(u"Aucune instruction de traitement (PI) xml-stylesheet trouvée dans : {0}"_s)
+			XSLTErrorResources_fr::ER_NO_STYLESHEET_PI,
+			u"Aucune instruction de traitement (PI) xml-stylesheet trouvée dans : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NOT_SUPPORTED),
-			$of("Non pris en charge : {0}"_s)
+			XSLTErrorResources_fr::ER_NOT_SUPPORTED,
+			"Non pris en charge : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROPERTY_VALUE_BOOLEAN),
-			$of(u"La valeur de la propriété {0} doit être une instance Boolean"_s)
+			XSLTErrorResources_fr::ER_PROPERTY_VALUE_BOOLEAN,
+			u"La valeur de la propriété {0} doit être une instance Boolean"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_COULD_NOT_FIND_EXTERN_SCRIPT),
-			$of(u"Impossible d\'\'accéder au script externe à {0}"_s)
+			XSLTErrorResources_fr::ER_COULD_NOT_FIND_EXTERN_SCRIPT,
+			u"Impossible d\'\'accéder au script externe à {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_RESOURCE_COULD_NOT_FIND),
-			$of("La ressource [ {0} ] est introuvable.\n {1}"_s)
+			XSLTErrorResources_fr::ER_RESOURCE_COULD_NOT_FIND,
+			"La ressource [ {0} ] est introuvable.\n {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_OUTPUT_PROPERTY_NOT_RECOGNIZED),
-			$of(u"Propriété de sortie non reconnue : {0}"_s)
+			XSLTErrorResources_fr::ER_OUTPUT_PROPERTY_NOT_RECOGNIZED,
+			u"Propriété de sortie non reconnue : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FAILED_CREATING_ELEMLITRSLT),
-			$of(u"Echec de la création de l\'instance ElemLiteralResult"_s)
+			XSLTErrorResources_fr::ER_FAILED_CREATING_ELEMLITRSLT,
+			u"Echec de la création de l\'instance ElemLiteralResult"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_VALUE_SHOULD_BE_NUMBER),
-			$of(u"La valeur de {0} doit contenir un nombre pouvant être analysé"_s)
+			XSLTErrorResources_fr::ER_VALUE_SHOULD_BE_NUMBER,
+			u"La valeur de {0} doit contenir un nombre pouvant être analysé"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_VALUE_SHOULD_EQUAL),
-			$of(u"La valeur de {0} doit être égale à oui ou non"_s)
+			XSLTErrorResources_fr::ER_VALUE_SHOULD_EQUAL,
+			u"La valeur de {0} doit être égale à oui ou non"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FAILED_CALLING_METHOD),
-			$of(u"Echec de l\'\'appel de la méthode {0}"_s)
+			XSLTErrorResources_fr::ER_FAILED_CALLING_METHOD,
+			u"Echec de l\'\'appel de la méthode {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FAILED_CREATING_ELEMTMPL),
-			$of(u"Echec de la création de l\'instance ElemTemplateElement"_s)
+			XSLTErrorResources_fr::ER_FAILED_CREATING_ELEMTMPL,
+			u"Echec de la création de l\'instance ElemTemplateElement"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CHARS_NOT_ALLOWED),
-			$of(u"Les caractères ne sont pas autorisés à ce point du document"_s)
+			XSLTErrorResources_fr::ER_CHARS_NOT_ALLOWED,
+			u"Les caractères ne sont pas autorisés à ce point du document"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ATTR_NOT_ALLOWED),
-			$of(u"L\'\'attribut \"{0}\" n\'\'est pas autorisé sur l\'\'élément {1}."_s)
+			XSLTErrorResources_fr::ER_ATTR_NOT_ALLOWED,
+			u"L\'\'attribut \"{0}\" n\'\'est pas autorisé sur l\'\'élément {1}."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_BAD_VALUE),
-			$of("Valeur incorrecte de {0} : {1} "_s)
+			XSLTErrorResources_fr::ER_BAD_VALUE,
+			"Valeur incorrecte de {0} : {1} "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ATTRIB_VALUE_NOT_FOUND),
-			$of("Valeur d\'\'attribut {0} introuvable "_s)
+			XSLTErrorResources_fr::ER_ATTRIB_VALUE_NOT_FOUND,
+			"Valeur d\'\'attribut {0} introuvable "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ATTRIB_VALUE_NOT_RECOGNIZED),
-			$of("Valeur d\'\'attribut {0} non reconnue "_s)
+			XSLTErrorResources_fr::ER_ATTRIB_VALUE_NOT_RECOGNIZED,
+			"Valeur d\'\'attribut {0} non reconnue "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NULL_URI_NAMESPACE),
-			$of(u"Tentative de génération d\'un préfixe d\'espace de noms avec un URI NULL"_s)
+			XSLTErrorResources_fr::ER_NULL_URI_NAMESPACE,
+			u"Tentative de génération d\'un préfixe d\'espace de noms avec un URI NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NUMBER_TOO_BIG),
-			$of(u"Tentative de formatage d\'un nombre supérieur à l\'entier de type Long le plus grand"_s)
+			XSLTErrorResources_fr::ER_NUMBER_TOO_BIG,
+			u"Tentative de formatage d\'un nombre supérieur à l\'entier de type Long le plus grand"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANNOT_FIND_SAX1_DRIVER),
-			$of("Classe de pilote SAX1 {0} introuvable"_s)
+			XSLTErrorResources_fr::ER_CANNOT_FIND_SAX1_DRIVER,
+			"Classe de pilote SAX1 {0} introuvable"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_SAX1_DRIVER_NOT_LOADED),
-			$of(u"Classe de pilote SAX1 {0} trouvée mais pas chargée"_s)
+			XSLTErrorResources_fr::ER_SAX1_DRIVER_NOT_LOADED,
+			u"Classe de pilote SAX1 {0} trouvée mais pas chargée"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_SAX1_DRIVER_NOT_INSTANTIATED),
-			$of(u"Classe de pilote SAX1 {0} chargée mais pas instanciée"_s)
+			XSLTErrorResources_fr::ER_SAX1_DRIVER_NOT_INSTANTIATED,
+			u"Classe de pilote SAX1 {0} chargée mais pas instanciée"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_SAX1_DRIVER_NOT_IMPLEMENT_PARSER),
-			$of(u"La classe de pilote SAX1 {0} n\'\'implémente pas org.xml.sax.Parser"_s)
+			XSLTErrorResources_fr::ER_SAX1_DRIVER_NOT_IMPLEMENT_PARSER,
+			u"La classe de pilote SAX1 {0} n\'\'implémente pas org.xml.sax.Parser"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PARSER_PROPERTY_NOT_SPECIFIED),
-			$of(u"Propriété système org.xml.sax.parser non indiquée"_s)
+			XSLTErrorResources_fr::ER_PARSER_PROPERTY_NOT_SPECIFIED,
+			u"Propriété système org.xml.sax.parser non indiquée"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PARSER_ARG_CANNOT_BE_NULL),
-			$of(u"L\'argument d\'analyseur ne doit pas être NULL"_s)
+			XSLTErrorResources_fr::ER_PARSER_ARG_CANNOT_BE_NULL,
+			u"L\'argument d\'analyseur ne doit pas être NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FEATURE),
-			$of(u"Fonctionnalité : {0}"_s)
+			XSLTErrorResources_fr::ER_FEATURE,
+			u"Fonctionnalité : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_PROPERTY),
-			$of(u"Propriété : {0}"_s)
+			XSLTErrorResources_fr::ER_PROPERTY,
+			u"Propriété : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NULL_ENTITY_RESOLVER),
-			$of(u"Résolveur d\'entité NULL"_s)
+			XSLTErrorResources_fr::ER_NULL_ENTITY_RESOLVER,
+			u"Résolveur d\'entité NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NULL_DTD_HANDLER),
-			$of("Gestionnaire DTD NULL"_s)
+			XSLTErrorResources_fr::ER_NULL_DTD_HANDLER,
+			"Gestionnaire DTD NULL"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_DRIVER_NAME_SPECIFIED),
-			$of(u"Aucun nom de pilote indiqué."_s)
+			XSLTErrorResources_fr::ER_NO_DRIVER_NAME_SPECIFIED,
+			u"Aucun nom de pilote indiqué."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_URL_SPECIFIED),
-			$of(u"Aucune URL indiquée."_s)
+			XSLTErrorResources_fr::ER_NO_URL_SPECIFIED,
+			u"Aucune URL indiquée."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_POOLSIZE_LESS_THAN_ONE),
-			$of(u"La taille de pool est inférieure à 1."_s)
+			XSLTErrorResources_fr::ER_POOLSIZE_LESS_THAN_ONE,
+			u"La taille de pool est inférieure à 1."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_DRIVER_NAME),
-			$of(u"Nom de pilote indiqué non valide."_s)
+			XSLTErrorResources_fr::ER_INVALID_DRIVER_NAME,
+			u"Nom de pilote indiqué non valide."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ERRORLISTENER),
-			$of("ErrorListener"_s)
+			XSLTErrorResources_fr::ER_ERRORLISTENER,
+			"ErrorListener"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ASSERT_NO_TEMPLATE_PARENT),
-			$of("Erreur du programmeur. L\'expression n\'a pas de parent ElemTemplateElement."_s)
+			XSLTErrorResources_fr::ER_ASSERT_NO_TEMPLATE_PARENT,
+			"Erreur du programmeur. L\'expression n\'a pas de parent ElemTemplateElement."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ASSERT_REDUNDENT_EXPR_ELIMINATOR),
-			$of("Assertion du programmeur dans RedundentExprEliminator : {0}"_s)
+			XSLTErrorResources_fr::ER_ASSERT_REDUNDENT_EXPR_ELIMINATOR,
+			"Assertion du programmeur dans RedundentExprEliminator : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NOT_ALLOWED_IN_POSITION),
-			$of(u"{0} n\'\'est pas autorisé à cet emplacement de la feuille de style."_s)
+			XSLTErrorResources_fr::ER_NOT_ALLOWED_IN_POSITION,
+			u"{0} n\'\'est pas autorisé à cet emplacement de la feuille de style."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NONWHITESPACE_NOT_ALLOWED_IN_POSITION),
-			$of(u"Le texte imprimable n\'est pas autorisé à cet emplacement de la feuille de style."_s)
+			XSLTErrorResources_fr::ER_NONWHITESPACE_NOT_ALLOWED_IN_POSITION,
+			u"Le texte imprimable n\'est pas autorisé à cet emplacement de la feuille de style."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::INVALID_TCHAR),
-			$of(u"Valeur non admise {1} utilisée pour l\'\'attribut CHAR : {0}. Un attribut de type CHAR ne doit être composé que d\'\'un caractère."_s)
+			XSLTErrorResources_fr::INVALID_TCHAR,
+			u"Valeur non admise {1} utilisée pour l\'\'attribut CHAR : {0}. Un attribut de type CHAR ne doit être composé que d\'\'un caractère."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::INVALID_QNAME),
-			$of(u"Valeur non admise {1} utilisée pour l\'\'attribut QNAME : {0}"_s)
+			XSLTErrorResources_fr::INVALID_QNAME,
+			u"Valeur non admise {1} utilisée pour l\'\'attribut QNAME : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::INVALID_ENUM),
-			$of(u"Valeur non admise {1} utilisée pour l\'\'attribut ENUM : {0}. Les valeurs valides sont les suivantes : {2}."_s)
+			XSLTErrorResources_fr::INVALID_ENUM,
+			u"Valeur non admise {1} utilisée pour l\'\'attribut ENUM : {0}. Les valeurs valides sont les suivantes : {2}."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::INVALID_NMTOKEN),
-			$of(u"Valeur non admise {1} utilisée pour l\'\'attribut NMTOKEN : {0} "_s)
+			XSLTErrorResources_fr::INVALID_NMTOKEN,
+			u"Valeur non admise {1} utilisée pour l\'\'attribut NMTOKEN : {0} "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::INVALID_NCNAME),
-			$of(u"Valeur non admise {1} utilisée pour l\'\'attribut NCNAME : {0} "_s)
+			XSLTErrorResources_fr::INVALID_NCNAME,
+			u"Valeur non admise {1} utilisée pour l\'\'attribut NCNAME : {0} "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::INVALID_BOOLEAN),
-			$of(u"Valeur non admise {1} utilisée pour l\'\'attribut \"boolean\" : {0} "_s)
+			XSLTErrorResources_fr::INVALID_BOOLEAN,
+			u"Valeur non admise {1} utilisée pour l\'\'attribut \"boolean\" : {0} "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::INVALID_NUMBER),
-			$of(u"Valeur non admise {1} utilisée pour l\'\'attribut \"number\" : {0} "_s)
+			XSLTErrorResources_fr::INVALID_NUMBER,
+			u"Valeur non admise {1} utilisée pour l\'\'attribut \"number\" : {0} "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_ARG_LITERAL),
-			$of(u"L\'\'argument pour {0} dans le modèle de recherche doit être un littéral."_s)
+			XSLTErrorResources_fr::ER_ARG_LITERAL,
+			u"L\'\'argument pour {0} dans le modèle de recherche doit être un littéral."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_DUPLICATE_GLOBAL_VAR),
-			$of(u"Déclaration de variable globale en double."_s)
+			XSLTErrorResources_fr::ER_DUPLICATE_GLOBAL_VAR,
+			u"Déclaration de variable globale en double."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_DUPLICATE_VAR),
-			$of(u"Déclaration de variable en double."_s)
+			XSLTErrorResources_fr::ER_DUPLICATE_VAR,
+			u"Déclaration de variable en double."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_TEMPLATE_NAME_MATCH),
-			$of("xsl:template doit avoir un attribut \"name\" ou \"match\" (ou les deux)"_s)
+			XSLTErrorResources_fr::ER_TEMPLATE_NAME_MATCH,
+			"xsl:template doit avoir un attribut \"name\" ou \"match\" (ou les deux)"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_PREFIX),
-			$of(u"Le préfixe de l\'\'élément exclude-result-prefixes n\'\'est pas valide : {0}"_s)
+			XSLTErrorResources_fr::ER_INVALID_PREFIX,
+			u"Le préfixe de l\'\'élément exclude-result-prefixes n\'\'est pas valide : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NO_ATTRIB_SET),
-			$of(u"L\'\'ensemble d\'\'attributs nommé {0} n\'\'existe pas"_s)
+			XSLTErrorResources_fr::ER_NO_ATTRIB_SET,
+			u"L\'\'ensemble d\'\'attributs nommé {0} n\'\'existe pas"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_FUNCTION_NOT_FOUND),
-			$of(u"La fonction nommée {0} n\'\'existe pas"_s)
+			XSLTErrorResources_fr::ER_FUNCTION_NOT_FOUND,
+			u"La fonction nommée {0} n\'\'existe pas"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_CANT_HAVE_CONTENT_AND_SELECT),
-			$of(u"L\'\'élément {0} ne doit pas avoir à la fois un attribut \"select\" et un attribut de contenu."_s)
+			XSLTErrorResources_fr::ER_CANT_HAVE_CONTENT_AND_SELECT,
+			u"L\'\'élément {0} ne doit pas avoir à la fois un attribut \"select\" et un attribut de contenu."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_SET_PARAM_VALUE),
-			$of(u"La valeur du paramètre {0} doit être un objet Java valide"_s)
+			XSLTErrorResources_fr::ER_INVALID_SET_PARAM_VALUE,
+			u"La valeur du paramètre {0} doit être un objet Java valide"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT),
-			$of(u"L\'attribut result-prefix d\'un élément xsl:namespace-alias a la valeur \"#default\", mais il n\'existe aucune déclaration de l\'espace de noms par défaut dans la portée pour l\'élément"_s)
+			XSLTErrorResources_fr::ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT,
+			u"L\'attribut result-prefix d\'un élément xsl:namespace-alias a la valeur \"#default\", mais il n\'existe aucune déclaration de l\'espace de noms par défaut dans la portée pour l\'élément"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX),
-			$of(u"L\'\'attribut result-prefix d\'\'un élément xsl:namespace-alias a la valeur \'\'{0}\'\', mais il n\'\'existe aucune déclaration d\'\'espace de noms pour le préfixe \'\'{0}\'\' dans la portée pour l\'\'élément."_s)
+			XSLTErrorResources_fr::ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX,
+			u"L\'\'attribut result-prefix d\'\'un élément xsl:namespace-alias a la valeur \'\'{0}\'\', mais il n\'\'existe aucune déclaration d\'\'espace de noms pour le préfixe \'\'{0}\'\' dans la portée pour l\'\'élément."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_SET_FEATURE_NULL_NAME),
-			$of(u"Le nom de la fonctionnalité ne peut pas être NULL dans TransformerFactory.setFeature (chaîne pour le nom, valeur booléenne)."_s)
+			XSLTErrorResources_fr::ER_SET_FEATURE_NULL_NAME,
+			u"Le nom de la fonctionnalité ne peut pas être NULL dans TransformerFactory.setFeature (chaîne pour le nom, valeur booléenne)."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_GET_FEATURE_NULL_NAME),
-			$of(u"Le nom de la fonctionnalité ne peut pas être NULL dans TransformerFactory.getFeature (chaîne pour le nom)."_s)
+			XSLTErrorResources_fr::ER_GET_FEATURE_NULL_NAME,
+			u"Le nom de la fonctionnalité ne peut pas être NULL dans TransformerFactory.getFeature (chaîne pour le nom)."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_UNSUPPORTED_FEATURE),
-			$of(u"Impossible de définir la fonctionnalité \'\'{0}\'\' sur cette propriété TransformerFactory."_s)
+			XSLTErrorResources_fr::ER_UNSUPPORTED_FEATURE,
+			u"Impossible de définir la fonctionnalité \'\'{0}\'\' sur cette propriété TransformerFactory."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_EXTENSION_ELEMENT_NOT_ALLOWED_IN_SECURE_PROCESSING),
-			$of(u"L\'\'utilisation de l\'\'élément d\'\'extension \'\'{0}\'\' n\'\'est pas autorisée lorsque la fonctionnalité de traitement sécurisé est définie sur True."_s)
+			XSLTErrorResources_fr::ER_EXTENSION_ELEMENT_NOT_ALLOWED_IN_SECURE_PROCESSING,
+			u"L\'\'utilisation de l\'\'élément d\'\'extension \'\'{0}\'\' n\'\'est pas autorisée lorsque la fonctionnalité de traitement sécurisé est définie sur True."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NAMESPACE_CONTEXT_NULL_NAMESPACE),
-			$of(u"Impossible d\'obtenir le préfixe pour un URI d\'espace de noms NULL."_s)
+			XSLTErrorResources_fr::ER_NAMESPACE_CONTEXT_NULL_NAMESPACE,
+			u"Impossible d\'obtenir le préfixe pour un URI d\'espace de noms NULL."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_NAMESPACE_CONTEXT_NULL_PREFIX),
-			$of(u"Impossible d\'obtenir l\'URI d\'espace de noms pour le préfixe NULL."_s)
+			XSLTErrorResources_fr::ER_NAMESPACE_CONTEXT_NULL_PREFIX,
+			u"Impossible d\'obtenir l\'URI d\'espace de noms pour le préfixe NULL."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XPATH_RESOLVER_NULL_QNAME),
-			$of(u"Le nom de fonction ne peut pas être NULL."_s)
+			XSLTErrorResources_fr::ER_XPATH_RESOLVER_NULL_QNAME,
+			u"Le nom de fonction ne peut pas être NULL."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::ER_XPATH_RESOLVER_NEGATIVE_ARITY),
-			$of(u"L\'arité ne peut pas être négative."_s)
+			XSLTErrorResources_fr::ER_XPATH_RESOLVER_NEGATIVE_ARITY,
+			u"L\'arité ne peut pas être négative."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_FOUND_CURLYBRACE),
-			$of(u"\'}\' trouvé mais aucun modèle d\'attribut ouvert."_s)
+			XSLTErrorResources_fr::WG_FOUND_CURLYBRACE,
+			u"\'}\' trouvé mais aucun modèle d\'attribut ouvert."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_COUNT_ATTRIB_MATCHES_NO_ANCESTOR),
-			$of(u"Avertissement : l\'\'attribut \"count\" ne correspond pas à un ancêtre dans xsl:number ! Cible = {0}"_s)
+			XSLTErrorResources_fr::WG_COUNT_ATTRIB_MATCHES_NO_ANCESTOR,
+			u"Avertissement : l\'\'attribut \"count\" ne correspond pas à un ancêtre dans xsl:number ! Cible = {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_EXPR_ATTRIB_CHANGED_TO_SELECT),
-			$of(u"Ancienne syntaxe : le nom de l\'attribut \"expr\" a été modifié en \"select\"."_s)
+			XSLTErrorResources_fr::WG_EXPR_ATTRIB_CHANGED_TO_SELECT,
+			u"Ancienne syntaxe : le nom de l\'attribut \"expr\" a été modifié en \"select\"."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_NO_LOCALE_IN_FORMATNUMBER),
-			$of(u"Xalan ne gère pas encore le nom de l\'environnement local dans la fonction format-number."_s)
+			XSLTErrorResources_fr::WG_NO_LOCALE_IN_FORMATNUMBER,
+			u"Xalan ne gère pas encore le nom de l\'environnement local dans la fonction format-number."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_LOCALE_NOT_FOUND),
-			$of("Avertissement : environnement local introuvable pour xml:lang={0}"_s)
+			XSLTErrorResources_fr::WG_LOCALE_NOT_FOUND,
+			"Avertissement : environnement local introuvable pour xml:lang={0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_CANNOT_MAKE_URL_FROM),
-			$of(u"Impossible de créer une URL à partir de : {0}"_s)
+			XSLTErrorResources_fr::WG_CANNOT_MAKE_URL_FROM,
+			u"Impossible de créer une URL à partir de : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_CANNOT_LOAD_REQUESTED_DOC),
-			$of(u"Impossible de charger le document demandé : {0}"_s)
+			XSLTErrorResources_fr::WG_CANNOT_LOAD_REQUESTED_DOC,
+			u"Impossible de charger le document demandé : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_CANNOT_FIND_COLLATOR),
-			$of("Collator introuvable pour <sort xml:lang={0}"_s)
+			XSLTErrorResources_fr::WG_CANNOT_FIND_COLLATOR,
+			"Collator introuvable pour <sort xml:lang={0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_FUNCTIONS_SHOULD_USE_URL),
-			$of("Ancienne syntaxe : l\'\'instruction de la fonction doit utiliser une URL de {0}"_s)
+			XSLTErrorResources_fr::WG_FUNCTIONS_SHOULD_USE_URL,
+			"Ancienne syntaxe : l\'\'instruction de la fonction doit utiliser une URL de {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ENCODING_NOT_SUPPORTED_USING_UTF8),
-			$of("encodage non pris en charge : {0}, avec UTF-8"_s)
+			XSLTErrorResources_fr::WG_ENCODING_NOT_SUPPORTED_USING_UTF8,
+			"encodage non pris en charge : {0}, avec UTF-8"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ENCODING_NOT_SUPPORTED_USING_JAVA),
-			$of("encodage non pris en charge : {0}, avec Java {1}"_s)
+			XSLTErrorResources_fr::WG_ENCODING_NOT_SUPPORTED_USING_JAVA,
+			"encodage non pris en charge : {0}, avec Java {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_SPECIFICITY_CONFLICTS),
-			$of(u"Conflits de spécificité détectés : {0} Les derniers éléments trouvés dans la feuille de style seront utilisés."_s)
+			XSLTErrorResources_fr::WG_SPECIFICITY_CONFLICTS,
+			u"Conflits de spécificité détectés : {0} Les derniers éléments trouvés dans la feuille de style seront utilisés."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_PARSING_AND_PREPARING),
-			$of(u"========= Analyse et préparation de {0} =========="_s)
+			XSLTErrorResources_fr::WG_PARSING_AND_PREPARING,
+			u"========= Analyse et préparation de {0} =========="_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ATTR_TEMPLATE),
-			$of(u"Modèle attr, {0}"_s)
+			XSLTErrorResources_fr::WG_ATTR_TEMPLATE,
+			u"Modèle attr, {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_CONFLICT_BETWEEN_XSLSTRIPSPACE_AND_XSLPRESERVESPACE),
-			$of("Conflit de correspondance entre xsl:strip-space et xsl:preserve-space"_s)
+			XSLTErrorResources_fr::WG_CONFLICT_BETWEEN_XSLSTRIPSPACE_AND_XSLPRESERVESPACE,
+			"Conflit de correspondance entre xsl:strip-space et xsl:preserve-space"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ATTRIB_NOT_HANDLED),
-			$of(u"Xalan ne gère pas encore l\'\'attribut {0}."_s)
+			XSLTErrorResources_fr::WG_ATTRIB_NOT_HANDLED,
+			u"Xalan ne gère pas encore l\'\'attribut {0}."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_NO_DECIMALFORMAT_DECLARATION),
-			$of(u"Aucune déclaration trouvée pour le format décimal : {0}"_s)
+			XSLTErrorResources_fr::WG_NO_DECIMALFORMAT_DECLARATION,
+			u"Aucune déclaration trouvée pour le format décimal : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_OLD_XSLT_NS),
-			$of("Espace de noms XSLT incorrect ou manquant. "_s)
+			XSLTErrorResources_fr::WG_OLD_XSLT_NS,
+			"Espace de noms XSLT incorrect ou manquant. "_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ONE_DEFAULT_XSLDECIMALFORMAT_ALLOWED),
-			$of(u"Une seule déclaration xsl:decimal-format par défaut est autorisée."_s)
+			XSLTErrorResources_fr::WG_ONE_DEFAULT_XSLDECIMALFORMAT_ALLOWED,
+			u"Une seule déclaration xsl:decimal-format par défaut est autorisée."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_XSLDECIMALFORMAT_NAMES_MUST_BE_UNIQUE),
-			$of(u"Les noms xsl:decimal-format doivent être uniques. Le nom \"{0}\" a été dupliqué."_s)
+			XSLTErrorResources_fr::WG_XSLDECIMALFORMAT_NAMES_MUST_BE_UNIQUE,
+			u"Les noms xsl:decimal-format doivent être uniques. Le nom \"{0}\" a été dupliqué."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ILLEGAL_ATTRIBUTE),
-			$of("{0} a un attribut non admis : {1}"_s)
+			XSLTErrorResources_fr::WG_ILLEGAL_ATTRIBUTE,
+			"{0} a un attribut non admis : {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_COULD_NOT_RESOLVE_PREFIX),
-			$of(u"Impossible de résoudre le préfixe d\'\'espace de noms : {0}. Le noeud ne sera pas pris en compte."_s)
+			XSLTErrorResources_fr::WG_COULD_NOT_RESOLVE_PREFIX,
+			u"Impossible de résoudre le préfixe d\'\'espace de noms : {0}. Le noeud ne sera pas pris en compte."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_STYLESHEET_REQUIRES_VERSION_ATTRIB),
-			$of("xsl:stylesheet exige un attribut de version."_s)
+			XSLTErrorResources_fr::WG_STYLESHEET_REQUIRES_VERSION_ATTRIB,
+			"xsl:stylesheet exige un attribut de version."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ILLEGAL_ATTRIBUTE_NAME),
-			$of("Nom d\'\'attribut non admis : {0}"_s)
+			XSLTErrorResources_fr::WG_ILLEGAL_ATTRIBUTE_NAME,
+			"Nom d\'\'attribut non admis : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ILLEGAL_ATTRIBUTE_VALUE),
-			$of(u"Valeur non admise utilisée pour l\'\'attribut {0} : {1}"_s)
+			XSLTErrorResources_fr::WG_ILLEGAL_ATTRIBUTE_VALUE,
+			u"Valeur non admise utilisée pour l\'\'attribut {0} : {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_EMPTY_SECOND_ARG),
-			$of(u"Le jeu de noeuds résultant du deuxième argument de la fonction de document est vide. Renvoyez un jeu de noeuds vide."_s)
+			XSLTErrorResources_fr::WG_EMPTY_SECOND_ARG,
+			u"Le jeu de noeuds résultant du deuxième argument de la fonction de document est vide. Renvoyez un jeu de noeuds vide."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML),
-			$of(u"La valeur de l\'attribut \"name\" du nom xsl:processing-instruction ne doit pas être \"xml\""_s)
+			XSLTErrorResources_fr::WG_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML,
+			u"La valeur de l\'attribut \"name\" du nom xsl:processing-instruction ne doit pas être \"xml\""_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_PROCESSINGINSTRUCTION_NOTVALID_NCNAME),
-			$of(u"La valeur de l\'\'attribut \'\'name\'\' de xsl:processing-instruction doit être un NCName valide : {0}"_s)
+			XSLTErrorResources_fr::WG_PROCESSINGINSTRUCTION_NOTVALID_NCNAME,
+			u"La valeur de l\'\'attribut \'\'name\'\' de xsl:processing-instruction doit être un NCName valide : {0}"_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::WG_ILLEGAL_ATTRIBUTE_POSITION),
-			$of(u"Impossible d\'\'ajouter l\'\'attribut {0} après des noeuds enfant ou avant la production d\'\'un élément. L\'\'attribut est ignoré."_s)
+			XSLTErrorResources_fr::WG_ILLEGAL_ATTRIBUTE_POSITION,
+			u"Impossible d\'\'ajouter l\'\'attribut {0} après des noeuds enfant ou avant la production d\'\'un élément. L\'\'attribut est ignoré."_s
 		}),
 		$$new($ObjectArray, {
-			$of(XSLTErrorResources_fr::NO_MODIFICATION_ALLOWED_ERR),
-			$of(u"Une tentative de modification d\'un objet a été effectuée alors que les modifications ne sont pas autorisées."_s)
+			XSLTErrorResources_fr::NO_MODIFICATION_ALLOWED_ERR,
+			u"Une tentative de modification d\'un objet a été effectuée alors que les modifications ne sont pas autorisées."_s
 		}),
 		$$new($ObjectArray, {
-			$of("ui_language"_s),
-			$of("fr"_s)
+			"ui_language"_s,
+			"fr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("help_language"_s),
-			$of("fr"_s)
+			"help_language"_s,
+			"fr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("language"_s),
-			$of("fr"_s)
+			"language"_s,
+			"fr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BAD_CODE"_s),
-			$of(u"Le paramètre createMessage était hors limites"_s)
+			"BAD_CODE"_s,
+			u"Le paramètre createMessage était hors limites"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FORMAT_FAILED"_s),
-			$of(u"Exception générée pendant l\'appel messageFormat"_s)
+			"FORMAT_FAILED"_s,
+			u"Exception générée pendant l\'appel messageFormat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("version"_s),
-			$of(">>>>>>> Version Xalan "_s)
+			"version"_s,
+			">>>>>>> Version Xalan "_s
 		}),
 		$$new($ObjectArray, {
-			$of("version2"_s),
-			$of("<<<<<<<"_s)
+			"version2"_s,
+			"<<<<<<<"_s
 		}),
 		$$new($ObjectArray, {
-			$of("yes"_s),
-			$of("oui"_s)
+			"yes"_s,
+			"oui"_s
 		}),
 		$$new($ObjectArray, {
-			$of("line"_s),
-			$of(u"Ligne n°"_s)
+			"line"_s,
+			u"Ligne n°"_s
 		}),
 		$$new($ObjectArray, {
-			$of("column"_s),
-			$of(u"Colonne n°"_s)
+			"column"_s,
+			u"Colonne n°"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xsldone"_s),
-			$of(u"XSLProcessor : terminé"_s)
+			"xsldone"_s,
+			u"XSLProcessor : terminé"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_option"_s),
-			$of("Options de classe \"Process\" de ligne de commande Xalan-J :"_s)
+			"xslProc_option"_s,
+			"Options de classe \"Process\" de ligne de commande Xalan-J :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_option"_s),
-			$of("Options de classe \"Process\" de ligne de commande Xalan-J :"_s)
+			"xslProc_option"_s,
+			"Options de classe \"Process\" de ligne de commande Xalan-J :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_invalid_xsltc_option"_s),
-			$of("L\'\'option {0} n\'\'est pas prise en charge dans le mode XSLTC."_s)
+			"xslProc_invalid_xsltc_option"_s,
+			"L\'\'option {0} n\'\'est pas prise en charge dans le mode XSLTC."_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_invalid_xalan_option"_s),
-			$of(u"L\'\'option {0} ne peut être utilisée qu\'\'avec -XSLTC."_s)
+			"xslProc_invalid_xalan_option"_s,
+			u"L\'\'option {0} ne peut être utilisée qu\'\'avec -XSLTC."_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_no_input"_s),
-			$of(u"Erreur : aucune feuille de style ou aucun fichier XML d\'entrée n\'est spécifié. Exécutez cette commande sans option concernant les instructions d\'utilisation."_s)
+			"xslProc_no_input"_s,
+			u"Erreur : aucune feuille de style ou aucun fichier XML d\'entrée n\'est spécifié. Exécutez cette commande sans option concernant les instructions d\'utilisation."_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_common_options"_s),
-			$of("-Options communes-"_s)
+			"xslProc_common_options"_s,
+			"-Options communes-"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_xalan_options"_s),
-			$of("-Options pour Xalan-"_s)
+			"xslProc_xalan_options"_s,
+			"-Options pour Xalan-"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_xsltc_options"_s),
-			$of("-Options pour XSLTC-"_s)
+			"xslProc_xsltc_options"_s,
+			"-Options pour XSLTC-"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xslProc_return_to_continue"_s),
-			$of(u"(appuyez sur la touche <Entrée> pour continuer)"_s)
+			"xslProc_return_to_continue"_s,
+			u"(appuyez sur la touche <Entrée> pour continuer)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXSLTC"_s),
-			$of("   [-XSLTC (utiliser XSLTC pour la transformation)]"_s)
+			"optionXSLTC"_s,
+			"   [-XSLTC (utiliser XSLTC pour la transformation)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionIN"_s),
-			$of("   [-IN inputXMLURL]"_s)
+			"optionIN"_s,
+			"   [-IN inputXMLURL]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXSL"_s),
-			$of("   [-XSL XSLTransformationURL]"_s)
+			"optionXSL"_s,
+			"   [-XSL XSLTransformationURL]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionOUT"_s),
-			$of("   [-OUT outputFileName]"_s)
+			"optionOUT"_s,
+			"   [-OUT outputFileName]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionLXCIN"_s),
-			$of("   [-LXCIN compiledStylesheetFileNameIn]"_s)
+			"optionLXCIN"_s,
+			"   [-LXCIN compiledStylesheetFileNameIn]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionLXCOUT"_s),
-			$of("   [-LXCOUT compiledStylesheetFileNameOutOut]"_s)
+			"optionLXCOUT"_s,
+			"   [-LXCOUT compiledStylesheetFileNameOutOut]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionPARSER"_s),
-			$of(u"   [Nom de classe qualifié complet -PARSER de liaison d\'analyseur]"_s)
+			"optionPARSER"_s,
+			u"   [Nom de classe qualifié complet -PARSER de liaison d\'analyseur]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionE"_s),
-			$of(u"   [-E (Ne pas développer les références d\'entité)]"_s)
+			"optionE"_s,
+			u"   [-E (Ne pas développer les références d\'entité)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionV"_s),
-			$of(u"   [-E (Ne pas développer les références d\'entité)]"_s)
+			"optionV"_s,
+			u"   [-E (Ne pas développer les références d\'entité)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionQC"_s),
-			$of(u"   [-QC (Avertissements de conflits de modèles en mode silencieux)]"_s)
+			"optionQC"_s,
+			u"   [-QC (Avertissements de conflits de modèles en mode silencieux)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionQ"_s),
-			$of("   [-Q  (Mode silencieux)]"_s)
+			"optionQ"_s,
+			"   [-Q  (Mode silencieux)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionLF"_s),
-			$of(u"   [-LF (Utiliser les retours à la ligne uniquement en sortie {valeur par défaut : CR/LF})]"_s)
+			"optionLF"_s,
+			u"   [-LF (Utiliser les retours à la ligne uniquement en sortie {valeur par défaut : CR/LF})]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionCR"_s),
-			$of(u"   [-CR (Utiliser les retours chariot uniquement en sortie {valeur par défaut : CR/LF})]"_s)
+			"optionCR"_s,
+			u"   [-CR (Utiliser les retours chariot uniquement en sortie {valeur par défaut : CR/LF})]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionESCAPE"_s),
-			$of(u"   [-ESCAPE (Avec caractères d\'espacement {valeur par défaut : <>&\"\'\\r\\n}]"_s)
+			"optionESCAPE"_s,
+			u"   [-ESCAPE (Avec caractères d\'espacement {valeur par défaut : <>&\"\'\\r\\n}]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionINDENT"_s),
-			$of(u"   [-INDENT (Contrôler le nombre d\'espaces à mettre en retrait {valeur par défaut : 0})]"_s)
+			"optionINDENT"_s,
+			u"   [-INDENT (Contrôler le nombre d\'espaces à mettre en retrait {valeur par défaut : 0})]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionTT"_s),
-			$of(u"   [-TT (Générer une trace des modèles pendant qu\'ils sont appelés.)]"_s)
+			"optionTT"_s,
+			u"   [-TT (Générer une trace des modèles pendant qu\'ils sont appelés.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionTG"_s),
-			$of(u"   [-TG (Générer une trace de chaque événement de génération.)]"_s)
+			"optionTG"_s,
+			u"   [-TG (Générer une trace de chaque événement de génération.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionTS"_s),
-			$of(u"   [-TS (Générer une trace de chaque événement de sélection.)]"_s)
+			"optionTS"_s,
+			u"   [-TS (Générer une trace de chaque événement de sélection.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionTTC"_s),
-			$of(u"   [-TTC (Générer une trace des enfants de modèle pendant qu\'ils sont traités.)]"_s)
+			"optionTTC"_s,
+			u"   [-TTC (Générer une trace des enfants de modèle pendant qu\'ils sont traités.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionTCLASS"_s),
-			$of("   [-TCLASS (Classe TraceListener pour les extensions de trace.)]"_s)
+			"optionTCLASS"_s,
+			"   [-TCLASS (Classe TraceListener pour les extensions de trace.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionVALIDATE"_s),
-			$of(u"   [-VALIDATE (Définir si la validation est effectuée. Par défaut, la validation est désactivée.)]"_s)
+			"optionVALIDATE"_s,
+			u"   [-VALIDATE (Définir si la validation est effectuée. Par défaut, la validation est désactivée.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionEDUMP"_s),
-			$of("   [-EDUMP {nom de fichier facultatif} (Effectuer le vidage de la pile sur l\'erreur.)]"_s)
+			"optionEDUMP"_s,
+			"   [-EDUMP {nom de fichier facultatif} (Effectuer le vidage de la pile sur l\'erreur.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXML"_s),
-			$of(u"   [-XML (Utiliser le programme de formatage XML et ajouter un en-tête XML.)]"_s)
+			"optionXML"_s,
+			u"   [-XML (Utiliser le programme de formatage XML et ajouter un en-tête XML.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionTEXT"_s),
-			$of("   [-TEXT (Utiliser le formatage de texte simple.)]"_s)
+			"optionTEXT"_s,
+			"   [-TEXT (Utiliser le formatage de texte simple.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionHTML"_s),
-			$of("   [-HTML (Utiliser le formatage HTML.)]"_s)
+			"optionHTML"_s,
+			"   [-HTML (Utiliser le formatage HTML.)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionPARAM"_s),
-			$of(u"   [-PARAM Expression de nom (Définir un paramètre de feuille de style)]"_s)
+			"optionPARAM"_s,
+			u"   [-PARAM Expression de nom (Définir un paramètre de feuille de style)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg1"_s),
-			$of("Echec du processus XSL."_s)
+			"noParsermsg1"_s,
+			"Echec du processus XSL."_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg2"_s),
-			$of("** Analyseur introuvable **"_s)
+			"noParsermsg2"_s,
+			"** Analyseur introuvable **"_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg3"_s),
-			$of(u"Vérifiez votre variable d\'environnement CLASSPATH."_s)
+			"noParsermsg3"_s,
+			u"Vérifiez votre variable d\'environnement CLASSPATH."_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg4"_s),
-			$of(u"Si vous ne disposez pas de l\'analyseur XML pour Java d\'IBM, vous pouvez le télécharger sur le site"_s)
+			"noParsermsg4"_s,
+			u"Si vous ne disposez pas de l\'analyseur XML pour Java d\'IBM, vous pouvez le télécharger sur le site"_s
 		}),
 		$$new($ObjectArray, {
-			$of("noParsermsg5"_s),
-			$of("AlphaWorks d\'IBM : http://www.alphaworks.ibm.com/formula/xml"_s)
+			"noParsermsg5"_s,
+			"AlphaWorks d\'IBM : http://www.alphaworks.ibm.com/formula/xml"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionURIRESOLVER"_s),
-			$of(u"   [-URIRESOLVER Nom de classe complet (URIResolver à utiliser pour résoudre les URI)]"_s)
+			"optionURIRESOLVER"_s,
+			u"   [-URIRESOLVER Nom de classe complet (URIResolver à utiliser pour résoudre les URI)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionENTITYRESOLVER"_s),
-			$of(u"   [-ENTITYRESOLVER Nom de classe complet (EntityResolver à utiliser pour résoudre les entités)]"_s)
+			"optionENTITYRESOLVER"_s,
+			u"   [-ENTITYRESOLVER Nom de classe complet (EntityResolver à utiliser pour résoudre les entités)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionCONTENTHANDLER"_s),
-			$of(u"   [-CONTENTHANDLER Nom de classe complet (ContentHandler à utiliser pour sérialiser la sortie)]"_s)
+			"optionCONTENTHANDLER"_s,
+			u"   [-CONTENTHANDLER Nom de classe complet (ContentHandler à utiliser pour sérialiser la sortie)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionLINENUMBERS"_s),
-			$of(u"   [-L Utiliser les numéros de ligne pour le document source]"_s)
+			"optionLINENUMBERS"_s,
+			u"   [-L Utiliser les numéros de ligne pour le document source]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionSECUREPROCESSING"_s),
-			$of(u"   [-SECURE (Définir la fonctionnalité de traitement sécurisé sur True)]"_s)
+			"optionSECUREPROCESSING"_s,
+			u"   [-SECURE (Définir la fonctionnalité de traitement sécurisé sur True)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionMEDIA"_s),
-			$of(u"   [-MEDIA mediaType (Utiliser l\'attribut de support pour trouver la feuille de style associée à un document)]"_s)
+			"optionMEDIA"_s,
+			u"   [-MEDIA mediaType (Utiliser l\'attribut de support pour trouver la feuille de style associée à un document)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionFLAVOR"_s),
-			$of("   [-FLAVOR flavorName (Utiliser explicitement s2s=SAX ou d2d=DOM pour effectuer la transformation)] "_s)
+			"optionFLAVOR"_s,
+			"   [-FLAVOR flavorName (Utiliser explicitement s2s=SAX ou d2d=DOM pour effectuer la transformation)] "_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionDIAG"_s),
-			$of(u"   [-DIAG (Afficher la durée totale de la transformation, en millisecondes)]"_s)
+			"optionDIAG"_s,
+			u"   [-DIAG (Afficher la durée totale de la transformation, en millisecondes)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionINCREMENTAL"_s),
-			$of(u"   [-INCREMENTAL (Demander la construction DTM incrémentielle en définissant http://xml.apache.org/xalan/features/incremental true)]"_s)
+			"optionINCREMENTAL"_s,
+			u"   [-INCREMENTAL (Demander la construction DTM incrémentielle en définissant http://xml.apache.org/xalan/features/incremental true)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionNOOPTIMIMIZE"_s),
-			$of(u"   [-NOOPTIMIMIZE (Ne demander aucune optimisation de la feuille de style en définissant http://xml.apache.org/xalan/features/optimize false)]"_s)
+			"optionNOOPTIMIMIZE"_s,
+			u"   [-NOOPTIMIMIZE (Ne demander aucune optimisation de la feuille de style en définissant http://xml.apache.org/xalan/features/optimize false)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionRL"_s),
-			$of(u"   [-RL recursionlimit (Assertion d\'une limite numérique sur la profondeur de récursivité de la feuille de style)]"_s)
+			"optionRL"_s,
+			u"   [-RL recursionlimit (Assertion d\'une limite numérique sur la profondeur de récursivité de la feuille de style)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXO"_s),
-			$of(u"   [-XO [transletName] (Affecter le nom au translet généré)]"_s)
+			"optionXO"_s,
+			u"   [-XO [transletName] (Affecter le nom au translet généré)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXD"_s),
-			$of(u"   [-XD destinationDirectory (Indiquer un répertoire de destination pour le translet)]"_s)
+			"optionXD"_s,
+			u"   [-XD destinationDirectory (Indiquer un répertoire de destination pour le translet)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXJ"_s),
-			$of(u"   [-XJ jarfile (Packager les classes de translet dans un fichier JAR nommé <jarfile>)]"_s)
+			"optionXJ"_s,
+			u"   [-XJ jarfile (Packager les classes de translet dans un fichier JAR nommé <jarfile>)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXP"_s),
-			$of(u"   [-XP package (Indique un préfixe de nom de package pour toutes les classes de translet générées)]"_s)
+			"optionXP"_s,
+			u"   [-XP package (Indique un préfixe de nom de package pour toutes les classes de translet générées)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXN"_s),
-			$of(u"   [-XN (Activer automatiquement l\'image \"inline\" du modèle)]"_s)
+			"optionXN"_s,
+			u"   [-XN (Activer automatiquement l\'image \"inline\" du modèle)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXX"_s),
-			$of(u"   [-XX (Activer la sortie de messages de débogage supplémentaires)]"_s)
+			"optionXX"_s,
+			u"   [-XX (Activer la sortie de messages de débogage supplémentaires)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("optionXT"_s),
-			$of("   [-XT (Utiliser le translet pour la transformation si possible)]"_s)
+			"optionXT"_s,
+			"   [-XT (Utiliser le translet pour la transformation si possible)]"_s
 		}),
 		$$new($ObjectArray, {
-			$of("diagTiming"_s),
-			$of(" --------- La transformation de {0} via {1} a pris {2} ms"_s)
+			"diagTiming"_s,
+			" --------- La transformation de {0} via {1} a pris {2} ms"_s
 		}),
 		$$new($ObjectArray, {
-			$of("recursionTooDeep"_s),
-			$of(u"Imbrication de modèle trop profonde. Imbrication = {0}, modèle {1} {2}"_s)
+			"recursionTooDeep"_s,
+			u"Imbrication de modèle trop profonde. Imbrication = {0}, modèle {1} {2}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nameIs"_s),
-			$of("le nom est"_s)
+			"nameIs"_s,
+			"le nom est"_s
 		}),
 		$$new($ObjectArray, {
-			$of("matchPatternIs"_s),
-			$of(u"le modèle de recherche est"_s)
+			"matchPatternIs"_s,
+			u"le modèle de recherche est"_s
 		})
 	});
 }
@@ -2079,7 +1807,7 @@ $ObjectArray2* XSLTErrorResources_fr::getContents() {
 XSLTErrorResources_fr::XSLTErrorResources_fr() {
 }
 
-void clinit$XSLTErrorResources_fr($Class* class$) {
+void XSLTErrorResources_fr::clinit$($Class* clazz) {
 	$assignStatic(XSLTErrorResources_fr::ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX, "ER_INVALID_SET_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX"_s);
 	$assignStatic(XSLTErrorResources_fr::ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT, "ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT"_s);
 	$assignStatic(XSLTErrorResources_fr::ER_NO_CURLYBRACE, "ER_NO_CURLYBRACE"_s);
@@ -2331,7 +2059,273 @@ void clinit$XSLTErrorResources_fr($Class* class$) {
 }
 
 $Class* XSLTErrorResources_fr::load$($String* name, bool initialize) {
-	$loadClass(XSLTErrorResources_fr, name, initialize, &_XSLTErrorResources_fr_ClassInfo_, clinit$XSLTErrorResources_fr, allocate$XSLTErrorResources_fr);
+	$FieldInfo fieldInfos$$[] = {
+		{"ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX)},
+		{"ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_NAMESPACE_URI_VALUE_FOR_RESULT_PREFIX_FOR_DEFAULT)},
+		{"ER_NO_CURLYBRACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_CURLYBRACE)},
+		{"ER_FUNCTION_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FUNCTION_NOT_SUPPORTED)},
+		{"ER_ILLEGAL_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_ATTRIBUTE)},
+		{"ER_NULL_SOURCENODE_APPLYIMPORTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_SOURCENODE_APPLYIMPORTS)},
+		{"ER_CANNOT_ADD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_ADD)},
+		{"ER_NULL_SOURCENODE_HANDLEAPPLYTEMPLATES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_SOURCENODE_HANDLEAPPLYTEMPLATES)},
+		{"ER_NO_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_NAME_ATTRIB)},
+		{"ER_TEMPLATE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TEMPLATE_NOT_FOUND)},
+		{"ER_CANT_RESOLVE_NAME_AVT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_RESOLVE_NAME_AVT)},
+		{"ER_REQUIRES_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REQUIRES_ATTRIB)},
+		{"ER_MUST_HAVE_TEST_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MUST_HAVE_TEST_ATTRIB)},
+		{"ER_BAD_VAL_ON_LEVEL_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BAD_VAL_ON_LEVEL_ATTRIB)},
+		{"ER_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML)},
+		{"ER_PROCESSINGINSTRUCTION_NOTVALID_NCNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSINGINSTRUCTION_NOTVALID_NCNAME)},
+		{"ER_NEED_MATCH_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_MATCH_ATTRIB)},
+		{"ER_NEED_NAME_OR_MATCH_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_NAME_OR_MATCH_ATTRIB)},
+		{"ER_CANT_RESOLVE_NSPREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_RESOLVE_NSPREFIX)},
+		{"ER_ILLEGAL_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_VALUE)},
+		{"ER_NO_OWNERDOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_OWNERDOC)},
+		{"ER_ELEMTEMPLATEELEM_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ELEMTEMPLATEELEM_ERR)},
+		{"ER_NULL_CHILD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_CHILD)},
+		{"ER_NEED_SELECT_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_SELECT_ATTRIB)},
+		{"ER_NEED_TEST_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_TEST_ATTRIB)},
+		{"ER_NEED_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NEED_NAME_ATTRIB)},
+		{"ER_NO_CONTEXT_OWNERDOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_CONTEXT_OWNERDOC)},
+		{"ER_COULD_NOT_CREATE_XML_PROC_LIAISON", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULD_NOT_CREATE_XML_PROC_LIAISON)},
+		{"ER_PROCESS_NOT_SUCCESSFUL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESS_NOT_SUCCESSFUL)},
+		{"ER_NOT_SUCCESSFUL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_SUCCESSFUL)},
+		{"ER_ENCODING_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ENCODING_NOT_SUPPORTED)},
+		{"ER_COULD_NOT_CREATE_TRACELISTENER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULD_NOT_CREATE_TRACELISTENER)},
+		{"ER_KEY_REQUIRES_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_KEY_REQUIRES_NAME_ATTRIB)},
+		{"ER_KEY_REQUIRES_MATCH_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_KEY_REQUIRES_MATCH_ATTRIB)},
+		{"ER_KEY_REQUIRES_USE_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_KEY_REQUIRES_USE_ATTRIB)},
+		{"ER_REQUIRES_ELEMENTS_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REQUIRES_ELEMENTS_ATTRIB)},
+		{"ER_MISSING_PREFIX_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_PREFIX_ATTRIB)},
+		{"ER_BAD_STYLESHEET_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BAD_STYLESHEET_URL)},
+		{"ER_FILE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FILE_NOT_FOUND)},
+		{"ER_IOEXCEPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_IOEXCEPTION)},
+		{"ER_NO_HREF_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_HREF_ATTRIB)},
+		{"ER_STYLESHEET_INCLUDES_ITSELF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_STYLESHEET_INCLUDES_ITSELF)},
+		{"ER_PROCESSINCLUDE_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSINCLUDE_ERROR)},
+		{"ER_MISSING_LANG_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_LANG_ATTRIB)},
+		{"ER_MISSING_CONTAINER_ELEMENT_COMPONENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_CONTAINER_ELEMENT_COMPONENT)},
+		{"ER_CAN_ONLY_OUTPUT_TO_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CAN_ONLY_OUTPUT_TO_ELEMENT)},
+		{"ER_PROCESS_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESS_ERROR)},
+		{"ER_UNIMPLNODE_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNIMPLNODE_ERROR)},
+		{"ER_NO_SELECT_EXPRESSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_SELECT_EXPRESSION)},
+		{"ER_CANNOT_SERIALIZE_XSLPROCESSOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_SERIALIZE_XSLPROCESSOR)},
+		{"ER_NO_INPUT_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_INPUT_STYLESHEET)},
+		{"ER_FAILED_PROCESS_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FAILED_PROCESS_STYLESHEET)},
+		{"ER_COULDNT_PARSE_DOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULDNT_PARSE_DOC)},
+		{"ER_COULDNT_FIND_FRAGMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULDNT_FIND_FRAGMENT)},
+		{"ER_NODE_NOT_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NODE_NOT_ELEMENT)},
+		{"ER_FOREACH_NEED_MATCH_OR_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FOREACH_NEED_MATCH_OR_NAME_ATTRIB)},
+		{"ER_TEMPLATES_NEED_MATCH_OR_NAME_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TEMPLATES_NEED_MATCH_OR_NAME_ATTRIB)},
+		{"ER_NO_CLONE_OF_DOCUMENT_FRAG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_CLONE_OF_DOCUMENT_FRAG)},
+		{"ER_CANT_CREATE_ITEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_CREATE_ITEM)},
+		{"ER_XMLSPACE_ILLEGAL_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XMLSPACE_ILLEGAL_VALUE)},
+		{"ER_NO_XSLKEY_DECLARATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_XSLKEY_DECLARATION)},
+		{"ER_CANT_CREATE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_CREATE_URL)},
+		{"ER_XSLFUNCTIONS_UNSUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLFUNCTIONS_UNSUPPORTED)},
+		{"ER_PROCESSOR_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSOR_ERROR)},
+		{"ER_NOT_ALLOWED_INSIDE_STYLESHEET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_ALLOWED_INSIDE_STYLESHEET)},
+		{"ER_RESULTNS_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESULTNS_NOT_SUPPORTED)},
+		{"ER_DEFAULTSPACE_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DEFAULTSPACE_NOT_SUPPORTED)},
+		{"ER_INDENTRESULT_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INDENTRESULT_NOT_SUPPORTED)},
+		{"ER_ILLEGAL_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_ATTRIB)},
+		{"ER_UNKNOWN_XSL_ELEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNKNOWN_XSL_ELEM)},
+		{"ER_BAD_XSLSORT_USE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BAD_XSLSORT_USE)},
+		{"ER_MISPLACED_XSLWHEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISPLACED_XSLWHEN)},
+		{"ER_XSLWHEN_NOT_PARENTED_BY_XSLCHOOSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLWHEN_NOT_PARENTED_BY_XSLCHOOSE)},
+		{"ER_MISPLACED_XSLOTHERWISE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISPLACED_XSLOTHERWISE)},
+		{"ER_XSLOTHERWISE_NOT_PARENTED_BY_XSLCHOOSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLOTHERWISE_NOT_PARENTED_BY_XSLCHOOSE)},
+		{"ER_NOT_ALLOWED_INSIDE_TEMPLATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_ALLOWED_INSIDE_TEMPLATE)},
+		{"ER_UNKNOWN_EXT_NS_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNKNOWN_EXT_NS_PREFIX)},
+		{"ER_IMPORTS_AS_FIRST_ELEM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_IMPORTS_AS_FIRST_ELEM)},
+		{"ER_IMPORTING_ITSELF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_IMPORTING_ITSELF)},
+		{"ER_XMLSPACE_ILLEGAL_VAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XMLSPACE_ILLEGAL_VAL)},
+		{"ER_PROCESSSTYLESHEET_NOT_SUCCESSFUL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSSTYLESHEET_NOT_SUCCESSFUL)},
+		{"ER_SAX_EXCEPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SAX_EXCEPTION)},
+		{"ER_XSLT_ERROR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLT_ERROR)},
+		{"ER_CURRENCY_SIGN_ILLEGAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CURRENCY_SIGN_ILLEGAL)},
+		{"ER_DOCUMENT_FUNCTION_INVALID_IN_STYLESHEET_DOM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DOCUMENT_FUNCTION_INVALID_IN_STYLESHEET_DOM)},
+		{"ER_CANT_RESOLVE_PREFIX_OF_NON_PREFIX_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_RESOLVE_PREFIX_OF_NON_PREFIX_RESOLVER)},
+		{"ER_REDIRECT_COULDNT_GET_FILENAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REDIRECT_COULDNT_GET_FILENAME)},
+		{"ER_CANNOT_BUILD_FORMATTERLISTENER_IN_REDIRECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_BUILD_FORMATTERLISTENER_IN_REDIRECT)},
+		{"ER_INVALID_PREFIX_IN_EXCLUDERESULTPREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_PREFIX_IN_EXCLUDERESULTPREFIX)},
+		{"ER_MISSING_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_NS_URI)},
+		{"ER_MISSING_ARG_FOR_OPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MISSING_ARG_FOR_OPTION)},
+		{"ER_INVALID_OPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_OPTION)},
+		{"ER_MALFORMED_FORMAT_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MALFORMED_FORMAT_STRING)},
+		{"ER_STYLESHEET_REQUIRES_VERSION_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_STYLESHEET_REQUIRES_VERSION_ATTRIB)},
+		{"ER_ILLEGAL_ATTRIBUTE_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_ATTRIBUTE_VALUE)},
+		{"ER_CHOOSE_REQUIRES_WHEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CHOOSE_REQUIRES_WHEN)},
+		{"ER_NO_APPLY_IMPORT_IN_FOR_EACH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_APPLY_IMPORT_IN_FOR_EACH)},
+		{"ER_CANT_USE_DTM_FOR_OUTPUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_USE_DTM_FOR_OUTPUT)},
+		{"ER_CANT_USE_DTM_FOR_INPUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_USE_DTM_FOR_INPUT)},
+		{"ER_CALL_TO_EXT_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CALL_TO_EXT_FAILED)},
+		{"ER_PREFIX_MUST_RESOLVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PREFIX_MUST_RESOLVE)},
+		{"ER_INVALID_UTF16_SURROGATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_UTF16_SURROGATE)},
+		{"ER_XSLATTRSET_USED_ITSELF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XSLATTRSET_USED_ITSELF)},
+		{"ER_CANNOT_MIX_XERCESDOM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_MIX_XERCESDOM)},
+		{"ER_TOO_MANY_LISTENERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TOO_MANY_LISTENERS)},
+		{"ER_IN_ELEMTEMPLATEELEM_READOBJECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_IN_ELEMTEMPLATEELEM_READOBJECT)},
+		{"ER_DUPLICATE_NAMED_TEMPLATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DUPLICATE_NAMED_TEMPLATE)},
+		{"ER_INVALID_KEY_CALL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_KEY_CALL)},
+		{"ER_REFERENCING_ITSELF", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REFERENCING_ITSELF)},
+		{"ER_ILLEGAL_DOMSOURCE_INPUT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_DOMSOURCE_INPUT)},
+		{"ER_CLASS_NOT_FOUND_FOR_OPTION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CLASS_NOT_FOUND_FOR_OPTION)},
+		{"ER_REQUIRED_ELEM_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_REQUIRED_ELEM_NOT_FOUND)},
+		{"ER_INPUT_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INPUT_CANNOT_BE_NULL)},
+		{"ER_URI_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_URI_CANNOT_BE_NULL)},
+		{"ER_FILE_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FILE_CANNOT_BE_NULL)},
+		{"ER_SOURCE_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SOURCE_CANNOT_BE_NULL)},
+		{"ER_CANNOT_INIT_BSFMGR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_INIT_BSFMGR)},
+		{"ER_CANNOT_CMPL_EXTENSN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_CMPL_EXTENSN)},
+		{"ER_CANNOT_CREATE_EXTENSN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_CREATE_EXTENSN)},
+		{"ER_INSTANCE_MTHD_CALL_REQUIRES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INSTANCE_MTHD_CALL_REQUIRES)},
+		{"ER_INVALID_ELEMENT_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_ELEMENT_NAME)},
+		{"ER_ELEMENT_NAME_METHOD_STATIC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ELEMENT_NAME_METHOD_STATIC)},
+		{"ER_EXTENSION_FUNC_UNKNOWN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_EXTENSION_FUNC_UNKNOWN)},
+		{"ER_MORE_MATCH_CONSTRUCTOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MORE_MATCH_CONSTRUCTOR)},
+		{"ER_MORE_MATCH_METHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MORE_MATCH_METHOD)},
+		{"ER_MORE_MATCH_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_MORE_MATCH_ELEMENT)},
+		{"ER_INVALID_CONTEXT_PASSED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_CONTEXT_PASSED)},
+		{"ER_POOL_EXISTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_POOL_EXISTS)},
+		{"ER_NO_DRIVER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_DRIVER_NAME)},
+		{"ER_NO_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_URL)},
+		{"ER_POOL_SIZE_LESSTHAN_ONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_POOL_SIZE_LESSTHAN_ONE)},
+		{"ER_INVALID_DRIVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_DRIVER)},
+		{"ER_NO_STYLESHEETROOT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_STYLESHEETROOT)},
+		{"ER_ILLEGAL_XMLSPACE_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ILLEGAL_XMLSPACE_VALUE)},
+		{"ER_PROCESSFROMNODE_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROCESSFROMNODE_FAILED)},
+		{"ER_RESOURCE_COULD_NOT_LOAD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESOURCE_COULD_NOT_LOAD)},
+		{"ER_BUFFER_SIZE_LESSTHAN_ZERO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BUFFER_SIZE_LESSTHAN_ZERO)},
+		{"ER_UNKNOWN_ERROR_CALLING_EXTENSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNKNOWN_ERROR_CALLING_EXTENSION)},
+		{"ER_NO_NAMESPACE_DECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_NAMESPACE_DECL)},
+		{"ER_ELEM_CONTENT_NOT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ELEM_CONTENT_NOT_ALLOWED)},
+		{"ER_STYLESHEET_DIRECTED_TERMINATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_STYLESHEET_DIRECTED_TERMINATION)},
+		{"ER_ONE_OR_TWO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ONE_OR_TWO)},
+		{"ER_TWO_OR_THREE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TWO_OR_THREE)},
+		{"ER_COULD_NOT_LOAD_RESOURCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULD_NOT_LOAD_RESOURCE)},
+		{"ER_CANNOT_INIT_DEFAULT_TEMPLATES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_INIT_DEFAULT_TEMPLATES)},
+		{"ER_RESULT_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESULT_NULL)},
+		{"ER_RESULT_COULD_NOT_BE_SET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESULT_COULD_NOT_BE_SET)},
+		{"ER_NO_OUTPUT_SPECIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_OUTPUT_SPECIFIED)},
+		{"ER_CANNOT_TRANSFORM_TO_RESULT_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_TRANSFORM_TO_RESULT_TYPE)},
+		{"ER_CANNOT_TRANSFORM_SOURCE_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_TRANSFORM_SOURCE_TYPE)},
+		{"ER_NULL_CONTENT_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_CONTENT_HANDLER)},
+		{"ER_NULL_ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_ERROR_HANDLER)},
+		{"ER_CANNOT_CALL_PARSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_CALL_PARSE)},
+		{"ER_NO_PARENT_FOR_FILTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_PARENT_FOR_FILTER)},
+		{"ER_NO_STYLESHEET_IN_MEDIA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_STYLESHEET_IN_MEDIA)},
+		{"ER_NO_STYLESHEET_PI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_STYLESHEET_PI)},
+		{"ER_NOT_SUPPORTED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_SUPPORTED)},
+		{"ER_PROPERTY_VALUE_BOOLEAN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROPERTY_VALUE_BOOLEAN)},
+		{"ER_COULD_NOT_FIND_EXTERN_SCRIPT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_COULD_NOT_FIND_EXTERN_SCRIPT)},
+		{"ER_RESOURCE_COULD_NOT_FIND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_RESOURCE_COULD_NOT_FIND)},
+		{"ER_OUTPUT_PROPERTY_NOT_RECOGNIZED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_OUTPUT_PROPERTY_NOT_RECOGNIZED)},
+		{"ER_FAILED_CREATING_ELEMLITRSLT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FAILED_CREATING_ELEMLITRSLT)},
+		{"ER_VALUE_SHOULD_BE_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_VALUE_SHOULD_BE_NUMBER)},
+		{"ER_VALUE_SHOULD_EQUAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_VALUE_SHOULD_EQUAL)},
+		{"ER_FAILED_CALLING_METHOD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FAILED_CALLING_METHOD)},
+		{"ER_FAILED_CREATING_ELEMTMPL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FAILED_CREATING_ELEMTMPL)},
+		{"ER_CHARS_NOT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CHARS_NOT_ALLOWED)},
+		{"ER_ATTR_NOT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ATTR_NOT_ALLOWED)},
+		{"ER_BAD_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_BAD_VALUE)},
+		{"ER_ATTRIB_VALUE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ATTRIB_VALUE_NOT_FOUND)},
+		{"ER_ATTRIB_VALUE_NOT_RECOGNIZED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ATTRIB_VALUE_NOT_RECOGNIZED)},
+		{"ER_NULL_URI_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_URI_NAMESPACE)},
+		{"ER_NUMBER_TOO_BIG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NUMBER_TOO_BIG)},
+		{"ER_CANNOT_FIND_SAX1_DRIVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANNOT_FIND_SAX1_DRIVER)},
+		{"ER_SAX1_DRIVER_NOT_LOADED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SAX1_DRIVER_NOT_LOADED)},
+		{"ER_SAX1_DRIVER_NOT_INSTANTIATED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SAX1_DRIVER_NOT_INSTANTIATED)},
+		{"ER_SAX1_DRIVER_NOT_IMPLEMENT_PARSER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SAX1_DRIVER_NOT_IMPLEMENT_PARSER)},
+		{"ER_PARSER_PROPERTY_NOT_SPECIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PARSER_PROPERTY_NOT_SPECIFIED)},
+		{"ER_PARSER_ARG_CANNOT_BE_NULL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PARSER_ARG_CANNOT_BE_NULL)},
+		{"ER_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FEATURE)},
+		{"ER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_PROPERTY)},
+		{"ER_NULL_ENTITY_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_ENTITY_RESOLVER)},
+		{"ER_NULL_DTD_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NULL_DTD_HANDLER)},
+		{"ER_NO_DRIVER_NAME_SPECIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_DRIVER_NAME_SPECIFIED)},
+		{"ER_NO_URL_SPECIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_URL_SPECIFIED)},
+		{"ER_POOLSIZE_LESS_THAN_ONE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_POOLSIZE_LESS_THAN_ONE)},
+		{"ER_INVALID_DRIVER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_DRIVER_NAME)},
+		{"ER_ERRORLISTENER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ERRORLISTENER)},
+		{"ER_ASSERT_NO_TEMPLATE_PARENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ASSERT_NO_TEMPLATE_PARENT)},
+		{"ER_ASSERT_REDUNDENT_EXPR_ELIMINATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ASSERT_REDUNDENT_EXPR_ELIMINATOR)},
+		{"ER_NOT_ALLOWED_IN_POSITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NOT_ALLOWED_IN_POSITION)},
+		{"ER_NONWHITESPACE_NOT_ALLOWED_IN_POSITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NONWHITESPACE_NOT_ALLOWED_IN_POSITION)},
+		{"ER_NAMESPACE_CONTEXT_NULL_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NAMESPACE_CONTEXT_NULL_NAMESPACE)},
+		{"ER_NAMESPACE_CONTEXT_NULL_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NAMESPACE_CONTEXT_NULL_PREFIX)},
+		{"ER_XPATH_RESOLVER_NULL_QNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XPATH_RESOLVER_NULL_QNAME)},
+		{"ER_XPATH_RESOLVER_NEGATIVE_ARITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_XPATH_RESOLVER_NEGATIVE_ARITY)},
+		{"INVALID_TCHAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_TCHAR)},
+		{"INVALID_QNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_QNAME)},
+		{"INVALID_ENUM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_ENUM)},
+		{"INVALID_NMTOKEN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_NMTOKEN)},
+		{"INVALID_NCNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_NCNAME)},
+		{"INVALID_BOOLEAN", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_BOOLEAN)},
+		{"INVALID_NUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, INVALID_NUMBER)},
+		{"ER_ARG_LITERAL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_ARG_LITERAL)},
+		{"ER_DUPLICATE_GLOBAL_VAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DUPLICATE_GLOBAL_VAR)},
+		{"ER_DUPLICATE_VAR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_DUPLICATE_VAR)},
+		{"ER_TEMPLATE_NAME_MATCH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_TEMPLATE_NAME_MATCH)},
+		{"ER_INVALID_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_PREFIX)},
+		{"ER_NO_ATTRIB_SET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_NO_ATTRIB_SET)},
+		{"ER_FUNCTION_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_FUNCTION_NOT_FOUND)},
+		{"ER_CANT_HAVE_CONTENT_AND_SELECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_CANT_HAVE_CONTENT_AND_SELECT)},
+		{"ER_INVALID_SET_PARAM_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_INVALID_SET_PARAM_VALUE)},
+		{"ER_SET_FEATURE_NULL_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_SET_FEATURE_NULL_NAME)},
+		{"ER_GET_FEATURE_NULL_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_GET_FEATURE_NULL_NAME)},
+		{"ER_UNSUPPORTED_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_UNSUPPORTED_FEATURE)},
+		{"ER_EXTENSION_ELEMENT_NOT_ALLOWED_IN_SECURE_PROCESSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, ER_EXTENSION_ELEMENT_NOT_ALLOWED_IN_SECURE_PROCESSING)},
+		{"WG_FOUND_CURLYBRACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_FOUND_CURLYBRACE)},
+		{"WG_COUNT_ATTRIB_MATCHES_NO_ANCESTOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_COUNT_ATTRIB_MATCHES_NO_ANCESTOR)},
+		{"WG_EXPR_ATTRIB_CHANGED_TO_SELECT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_EXPR_ATTRIB_CHANGED_TO_SELECT)},
+		{"WG_NO_LOCALE_IN_FORMATNUMBER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_NO_LOCALE_IN_FORMATNUMBER)},
+		{"WG_LOCALE_NOT_FOUND", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_LOCALE_NOT_FOUND)},
+		{"WG_CANNOT_MAKE_URL_FROM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_CANNOT_MAKE_URL_FROM)},
+		{"WG_CANNOT_LOAD_REQUESTED_DOC", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_CANNOT_LOAD_REQUESTED_DOC)},
+		{"WG_CANNOT_FIND_COLLATOR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_CANNOT_FIND_COLLATOR)},
+		{"WG_FUNCTIONS_SHOULD_USE_URL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_FUNCTIONS_SHOULD_USE_URL)},
+		{"WG_ENCODING_NOT_SUPPORTED_USING_UTF8", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ENCODING_NOT_SUPPORTED_USING_UTF8)},
+		{"WG_ENCODING_NOT_SUPPORTED_USING_JAVA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ENCODING_NOT_SUPPORTED_USING_JAVA)},
+		{"WG_SPECIFICITY_CONFLICTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_SPECIFICITY_CONFLICTS)},
+		{"WG_PARSING_AND_PREPARING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_PARSING_AND_PREPARING)},
+		{"WG_ATTR_TEMPLATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ATTR_TEMPLATE)},
+		{"WG_CONFLICT_BETWEEN_XSLSTRIPSPACE_AND_XSLPRESERVESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_CONFLICT_BETWEEN_XSLSTRIPSPACE_AND_XSLPRESERVESPACE)},
+		{"WG_ATTRIB_NOT_HANDLED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ATTRIB_NOT_HANDLED)},
+		{"WG_NO_DECIMALFORMAT_DECLARATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_NO_DECIMALFORMAT_DECLARATION)},
+		{"WG_OLD_XSLT_NS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_OLD_XSLT_NS)},
+		{"WG_ONE_DEFAULT_XSLDECIMALFORMAT_ALLOWED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ONE_DEFAULT_XSLDECIMALFORMAT_ALLOWED)},
+		{"WG_XSLDECIMALFORMAT_NAMES_MUST_BE_UNIQUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_XSLDECIMALFORMAT_NAMES_MUST_BE_UNIQUE)},
+		{"WG_ILLEGAL_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ILLEGAL_ATTRIBUTE)},
+		{"WG_COULD_NOT_RESOLVE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_COULD_NOT_RESOLVE_PREFIX)},
+		{"WG_STYLESHEET_REQUIRES_VERSION_ATTRIB", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_STYLESHEET_REQUIRES_VERSION_ATTRIB)},
+		{"WG_ILLEGAL_ATTRIBUTE_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ILLEGAL_ATTRIBUTE_NAME)},
+		{"WG_ILLEGAL_ATTRIBUTE_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ILLEGAL_ATTRIBUTE_VALUE)},
+		{"WG_EMPTY_SECOND_ARG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_EMPTY_SECOND_ARG)},
+		{"WG_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_PROCESSINGINSTRUCTION_NAME_CANT_BE_XML)},
+		{"WG_PROCESSINGINSTRUCTION_NOTVALID_NCNAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_PROCESSINGINSTRUCTION_NOTVALID_NCNAME)},
+		{"WG_ILLEGAL_ATTRIBUTE_POSITION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, WG_ILLEGAL_ATTRIBUTE_POSITION)},
+		{"NO_MODIFICATION_ALLOWED_ERR", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, NO_MODIFICATION_ALLOWED_ERR)},
+		{"BAD_CODE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, BAD_CODE)},
+		{"FORMAT_FAILED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XSLTErrorResources_fr, FORMAT_FAILED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSLTErrorResources_fr, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSLTErrorResources_fr, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.res.XSLTErrorResources_fr",
+		"java.util.ListResourceBundle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSLTErrorResources_fr, name, initialize, &classInfo$$, XSLTErrorResources_fr::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSLTErrorResources_fr);
+	});
 	return class$;
 }
 

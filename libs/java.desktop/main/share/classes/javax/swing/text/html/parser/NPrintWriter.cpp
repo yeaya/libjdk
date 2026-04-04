@@ -1,10 +1,8 @@
 #include <javax/swing/text/html/parser/NPrintWriter.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <jcpp.h>
 
-using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -16,33 +14,8 @@ namespace javax {
 			namespace html {
 				namespace parser {
 
-$FieldInfo _NPrintWriter_FieldInfo_[] = {
-	{"numLines", "I", nullptr, $PRIVATE, $field(NPrintWriter, numLines)},
-	{"numPrinted", "I", nullptr, $PRIVATE, $field(NPrintWriter, numPrinted)},
-	{}
-};
-
-$MethodInfo _NPrintWriter_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(NPrintWriter, init$, void, int32_t)},
-	{"println", "([C)V", nullptr, $PUBLIC, $virtualMethod(NPrintWriter, println, void, $chars*)},
-	{}
-};
-
-$ClassInfo _NPrintWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.parser.NPrintWriter",
-	"java.io.PrintWriter",
-	nullptr,
-	_NPrintWriter_FieldInfo_,
-	_NPrintWriter_MethodInfo_
-};
-
-$Object* allocate$NPrintWriter($Class* clazz) {
-	return $of($alloc(NPrintWriter));
-}
-
 void NPrintWriter::init$(int32_t numberOfLines) {
-	$PrintWriter::init$(static_cast<$OutputStream*>($System::out));
+	$PrintWriter::init$($System::out);
 	this->numLines = 5;
 	this->numPrinted = 0;
 	this->numLines = numberOfLines;
@@ -75,7 +48,27 @@ NPrintWriter::NPrintWriter() {
 }
 
 $Class* NPrintWriter::load$($String* name, bool initialize) {
-	$loadClass(NPrintWriter, name, initialize, &_NPrintWriter_ClassInfo_, allocate$NPrintWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"numLines", "I", nullptr, $PRIVATE, $field(NPrintWriter, numLines)},
+		{"numPrinted", "I", nullptr, $PRIVATE, $field(NPrintWriter, numPrinted)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(NPrintWriter, init$, void, int32_t)},
+		{"println", "([C)V", nullptr, $PUBLIC, $virtualMethod(NPrintWriter, println, void, $chars*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.parser.NPrintWriter",
+		"java.io.PrintWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NPrintWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NPrintWriter));
+	});
 	return class$;
 }
 

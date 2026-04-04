@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FocusTraversalPolicy.h>
@@ -52,53 +51,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicSplitPaneUI$Actions_FieldInfo_[] = {
-	{"NEGATIVE_INCREMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, NEGATIVE_INCREMENT)},
-	{"POSITIVE_INCREMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, POSITIVE_INCREMENT)},
-	{"SELECT_MIN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, SELECT_MIN)},
-	{"SELECT_MAX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, SELECT_MAX)},
-	{"START_RESIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, START_RESIZE)},
-	{"TOGGLE_FOCUS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, TOGGLE_FOCUS)},
-	{"FOCUS_OUT_FORWARD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, FOCUS_OUT_FORWARD)},
-	{"FOCUS_OUT_BACKWARD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, FOCUS_OUT_BACKWARD)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicSplitPaneUI$Actions, init$, void, $String*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"getFirstAvailableComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Actions, getFirstAvailableComponent, $Component*, $Component*)},
-	{"getNextSide", "(Ljavax/swing/JSplitPane;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Actions, getNextSide, $Component*, $JSplitPane*, $Component*)},
-	{"moveFocus", "(Ljavax/swing/JSplitPane;I)V", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Actions, moveFocus, void, $JSplitPane*, int32_t)},
-	{"toggleFocus", "(Ljavax/swing/JSplitPane;)V", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Actions, toggleFocus, void, $JSplitPane*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$Actions", "javax.swing.plaf.basic.BasicSplitPaneUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicSplitPaneUI$Actions_FieldInfo_,
-	_BasicSplitPaneUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneUI"
-};
-
-$Object* allocate$BasicSplitPaneUI$Actions($Class* clazz) {
-	return $of($alloc(BasicSplitPaneUI$Actions));
-}
-
 $String* BasicSplitPaneUI$Actions::NEGATIVE_INCREMENT = nullptr;
 $String* BasicSplitPaneUI$Actions::POSITIVE_INCREMENT = nullptr;
 $String* BasicSplitPaneUI$Actions::SELECT_MIN = nullptr;
@@ -113,7 +65,7 @@ void BasicSplitPaneUI$Actions::init$($String* key) {
 }
 
 void BasicSplitPaneUI$Actions::actionPerformed($ActionEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSplitPane, splitPane, $cast($JSplitPane, $nc(ev)->getSource()));
 	$load($BasicSplitPaneUI);
 	$var($BasicSplitPaneUI, ui, $cast($BasicSplitPaneUI, $BasicLookAndFeel::getUIOfType($($nc(splitPane)->getUI()), $BasicSplitPaneUI::class$)));
@@ -124,21 +76,21 @@ void BasicSplitPaneUI$Actions::actionPerformed($ActionEvent* ev) {
 	if (key == BasicSplitPaneUI$Actions::NEGATIVE_INCREMENT) {
 		if ($nc(ui)->dividerKeyboardResize) {
 			int32_t var$0 = ui->getDividerLocation(splitPane);
-			$nc(splitPane)->setDividerLocation($Math::max(0, var$0 - ui->getKeyboardMoveIncrement()));
+			splitPane->setDividerLocation($Math::max(0, var$0 - ui->getKeyboardMoveIncrement()));
 		}
 	} else if (key == BasicSplitPaneUI$Actions::POSITIVE_INCREMENT) {
 		if ($nc(ui)->dividerKeyboardResize) {
 			int32_t var$1 = ui->getDividerLocation(splitPane);
-			$nc(splitPane)->setDividerLocation(var$1 + ui->getKeyboardMoveIncrement());
+			splitPane->setDividerLocation(var$1 + ui->getKeyboardMoveIncrement());
 		}
 	} else if (key == BasicSplitPaneUI$Actions::SELECT_MIN) {
 		if ($nc(ui)->dividerKeyboardResize) {
-			$nc(splitPane)->setDividerLocation(0);
+			splitPane->setDividerLocation(0);
 		}
 	} else if (key == BasicSplitPaneUI$Actions::SELECT_MAX) {
 		if ($nc(ui)->dividerKeyboardResize) {
-			$var($Insets, insets, $nc(splitPane)->getInsets());
-			int32_t bottomI = (insets != nullptr) ? $nc(insets)->bottom : 0;
+			$var($Insets, insets, splitPane->getInsets());
+			int32_t bottomI = (insets != nullptr) ? insets->bottom : 0;
 			int32_t rightI = (insets != nullptr) ? insets->right : 0;
 			if (ui->orientation == $JSplitPane::VERTICAL_SPLIT) {
 				splitPane->setDividerLocation(splitPane->getHeight() - bottomI);
@@ -148,7 +100,7 @@ void BasicSplitPaneUI$Actions::actionPerformed($ActionEvent* ev) {
 		}
 	} else if (key == BasicSplitPaneUI$Actions::START_RESIZE) {
 		if (!$nc(ui)->dividerKeyboardResize) {
-			$nc(splitPane)->requestFocus();
+			splitPane->requestFocus();
 		} else {
 			$var($JSplitPane, parentSplitPane, $cast($JSplitPane, $SwingUtilities::getAncestorOfClass($JSplitPane::class$, splitPane)));
 			if (parentSplitPane != nullptr) {
@@ -165,10 +117,10 @@ void BasicSplitPaneUI$Actions::actionPerformed($ActionEvent* ev) {
 }
 
 void BasicSplitPaneUI$Actions::moveFocus($JSplitPane* splitPane, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, rootAncestor, $nc(splitPane)->getFocusCycleRootAncestor());
 	$var($FocusTraversalPolicy, policy, $nc(rootAncestor)->getFocusTraversalPolicy());
-	$var($Component, focusOn, (direction > 0) ? $nc(policy)->getComponentAfter(rootAncestor, splitPane) : policy->getComponentBefore(rootAncestor, splitPane));
+	$var($Component, focusOn, (direction > 0) ? $nc(policy)->getComponentAfter(rootAncestor, splitPane) : $nc(policy)->getComponentBefore(rootAncestor, splitPane));
 	$var($HashSet, focusFrom, $new($HashSet));
 	if (splitPane->isAncestorOf(focusOn)) {
 		bool var$0 = false;
@@ -176,7 +128,7 @@ void BasicSplitPaneUI$Actions::moveFocus($JSplitPane* splitPane, int32_t directi
 			focusFrom->add(focusOn);
 			$assign(rootAncestor, $nc(focusOn)->getFocusCycleRootAncestor());
 			$assign(policy, $nc(rootAncestor)->getFocusTraversalPolicy());
-			$assign(focusOn, (direction > 0) ? $nc(policy)->getComponentAfter(rootAncestor, focusOn) : policy->getComponentBefore(rootAncestor, focusOn));
+			$assign(focusOn, (direction > 0) ? $nc(policy)->getComponentAfter(rootAncestor, focusOn) : $nc(policy)->getComponentBefore(rootAncestor, focusOn));
 			var$0 = splitPane->isAncestorOf(focusOn);
 		} while (var$0 && !focusFrom->contains(focusOn));
 	}
@@ -186,7 +138,7 @@ void BasicSplitPaneUI$Actions::moveFocus($JSplitPane* splitPane, int32_t directi
 }
 
 void BasicSplitPaneUI$Actions::toggleFocus($JSplitPane* splitPane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, left, $nc(splitPane)->getLeftComponent());
 	$var($Component, right, splitPane->getRightComponent());
 	$var($KeyboardFocusManager, manager, $KeyboardFocusManager::getCurrentKeyboardFocusManager());
@@ -196,12 +148,12 @@ void BasicSplitPaneUI$Actions::toggleFocus($JSplitPane* splitPane) {
 		bool var$0 = focus != nullptr;
 		if (var$0) {
 			bool var$2 = $SwingUtilities::isDescendingFrom(focus, left);
-			bool var$1 = (var$2 && $SwingUtilities::isDescendingFrom(focusOn, left));
+			bool var$1 = var$2 && $SwingUtilities::isDescendingFrom(focusOn, left);
 			if (!var$1) {
 				bool var$3 = $SwingUtilities::isDescendingFrom(focus, right);
-				var$1 = (var$3 && $SwingUtilities::isDescendingFrom(focusOn, right));
+				var$1 = var$3 && $SwingUtilities::isDescendingFrom(focusOn, right);
 			}
-			var$0 = (var$1);
+			var$0 = var$1;
 		}
 		if (var$0) {
 			return;
@@ -211,7 +163,7 @@ void BasicSplitPaneUI$Actions::toggleFocus($JSplitPane* splitPane) {
 }
 
 $Component* BasicSplitPaneUI$Actions::getNextSide($JSplitPane* splitPane, $Component* focus) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, left, $nc(splitPane)->getLeftComponent());
 	$var($Component, right, splitPane->getRightComponent());
 	$var($Component, next, nullptr);
@@ -234,7 +186,7 @@ $Component* BasicSplitPaneUI$Actions::getNextSide($JSplitPane* splitPane, $Compo
 }
 
 $Component* BasicSplitPaneUI$Actions::getFirstAvailableComponent($Component* c$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, c$renamed);
 	if (c != nullptr && $instanceOf($JSplitPane, c)) {
 		$var($JSplitPane, sp, $cast($JSplitPane, c));
@@ -251,7 +203,7 @@ $Component* BasicSplitPaneUI$Actions::getFirstAvailableComponent($Component* c$r
 BasicSplitPaneUI$Actions::BasicSplitPaneUI$Actions() {
 }
 
-void clinit$BasicSplitPaneUI$Actions($Class* class$) {
+void BasicSplitPaneUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicSplitPaneUI$Actions::NEGATIVE_INCREMENT, "negativeIncrement"_s);
 	$assignStatic(BasicSplitPaneUI$Actions::POSITIVE_INCREMENT, "positiveIncrement"_s);
 	$assignStatic(BasicSplitPaneUI$Actions::SELECT_MIN, "selectMin"_s);
@@ -263,7 +215,48 @@ void clinit$BasicSplitPaneUI$Actions($Class* class$) {
 }
 
 $Class* BasicSplitPaneUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneUI$Actions, name, initialize, &_BasicSplitPaneUI$Actions_ClassInfo_, clinit$BasicSplitPaneUI$Actions, allocate$BasicSplitPaneUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"NEGATIVE_INCREMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, NEGATIVE_INCREMENT)},
+		{"POSITIVE_INCREMENT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, POSITIVE_INCREMENT)},
+		{"SELECT_MIN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, SELECT_MIN)},
+		{"SELECT_MAX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, SELECT_MAX)},
+		{"START_RESIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, START_RESIZE)},
+		{"TOGGLE_FOCUS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, TOGGLE_FOCUS)},
+		{"FOCUS_OUT_FORWARD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, FOCUS_OUT_FORWARD)},
+		{"FOCUS_OUT_BACKWARD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicSplitPaneUI$Actions, FOCUS_OUT_BACKWARD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicSplitPaneUI$Actions, init$, void, $String*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"getFirstAvailableComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Actions, getFirstAvailableComponent, $Component*, $Component*)},
+		{"getNextSide", "(Ljavax/swing/JSplitPane;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Actions, getNextSide, $Component*, $JSplitPane*, $Component*)},
+		{"moveFocus", "(Ljavax/swing/JSplitPane;I)V", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Actions, moveFocus, void, $JSplitPane*, int32_t)},
+		{"toggleFocus", "(Ljavax/swing/JSplitPane;)V", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Actions, toggleFocus, void, $JSplitPane*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$Actions", "javax.swing.plaf.basic.BasicSplitPaneUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneUI"
+	};
+	$loadClass(BasicSplitPaneUI$Actions, name, initialize, &classInfo$$, BasicSplitPaneUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneUI$Actions);
+	});
 	return class$;
 }
 

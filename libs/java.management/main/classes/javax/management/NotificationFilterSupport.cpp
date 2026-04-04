@@ -1,5 +1,4 @@
 #include <javax/management/NotificationFilterSupport.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
@@ -12,41 +11,11 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $Notification = ::javax::management::Notification;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _NotificationFilterSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotificationFilterSupport, serialVersionUID)},
-	{"enabledTypes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(NotificationFilterSupport, enabledTypes)},
-	{}
-};
-
-$MethodInfo _NotificationFilterSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NotificationFilterSupport, init$, void)},
-	{"disableAllTypes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, disableAllTypes, void)},
-	{"disableType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, disableType, void, $String*)},
-	{"enableType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, enableType, void, $String*), "java.lang.IllegalArgumentException"},
-	{"getEnabledTypes", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, getEnabledTypes, $Vector*)},
-	{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, isNotificationEnabled, bool, $Notification*)},
-	{}
-};
-
-$ClassInfo _NotificationFilterSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.NotificationFilterSupport",
-	"java.lang.Object",
-	"javax.management.NotificationFilter",
-	_NotificationFilterSupport_FieldInfo_,
-	_NotificationFilterSupport_MethodInfo_
-};
-
-$Object* allocate$NotificationFilterSupport($Class* clazz) {
-	return $of($alloc(NotificationFilterSupport));
-}
 
 void NotificationFilterSupport::init$() {
 	$set(this, enabledTypes, $new($Vector));
@@ -54,21 +23,17 @@ void NotificationFilterSupport::init$() {
 
 bool NotificationFilterSupport::isNotificationEnabled($Notification* notification) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, type, $nc(notification)->getType());
 		if (type == nullptr) {
 			return false;
 		}
 		try {
-			{
-				$var($Iterator, i$, $nc(this->enabledTypes)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($String, prefix, $cast($String, i$->next()));
-					{
-						if ($nc(type)->startsWith(prefix)) {
-							return true;
-						}
-					}
+			$var($Iterator, i$, $nc(this->enabledTypes)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($String, prefix, $cast($String, i$->next()));
+				if ($nc(type)->startsWith(prefix)) {
+					return true;
 				}
 			}
 		} catch ($NullPointerException& e) {
@@ -84,14 +49,14 @@ void NotificationFilterSupport::enableType($String* prefix) {
 			$throwNew($IllegalArgumentException, "The prefix cannot be null."_s);
 		}
 		if (!$nc(this->enabledTypes)->contains(prefix)) {
-			$nc(this->enabledTypes)->add(prefix);
+			this->enabledTypes->add(prefix);
 		}
 	}
 }
 
 void NotificationFilterSupport::disableType($String* prefix) {
 	$synchronized(this) {
-		$nc(this->enabledTypes)->remove($of(prefix));
+		$nc(this->enabledTypes)->remove(prefix);
 	}
 }
 
@@ -111,7 +76,31 @@ NotificationFilterSupport::NotificationFilterSupport() {
 }
 
 $Class* NotificationFilterSupport::load$($String* name, bool initialize) {
-	$loadClass(NotificationFilterSupport, name, initialize, &_NotificationFilterSupport_ClassInfo_, allocate$NotificationFilterSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NotificationFilterSupport, serialVersionUID)},
+		{"enabledTypes", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(NotificationFilterSupport, enabledTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NotificationFilterSupport, init$, void)},
+		{"disableAllTypes", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, disableAllTypes, void)},
+		{"disableType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, disableType, void, $String*)},
+		{"enableType", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, enableType, void, $String*), "java.lang.IllegalArgumentException"},
+		{"getEnabledTypes", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/lang/String;>;", $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, getEnabledTypes, $Vector*)},
+		{"isNotificationEnabled", "(Ljavax/management/Notification;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(NotificationFilterSupport, isNotificationEnabled, bool, $Notification*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.NotificationFilterSupport",
+		"java.lang.Object",
+		"javax.management.NotificationFilter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotificationFilterSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationFilterSupport);
+	});
 	return class$;
 }
 

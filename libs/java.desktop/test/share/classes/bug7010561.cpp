@@ -1,7 +1,5 @@
 #include <bug7010561.h>
-
 #include <bug7010561$1.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/SwingUtilities.h>
@@ -20,49 +18,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-
-$FieldInfo _bug7010561_FieldInfo_[] = {
-	{"TAB_PLACEMENT", "[I", nullptr, $PRIVATE | $STATIC, $staticField(bug7010561, TAB_PLACEMENT)},
-	{"IS_SELECTED", "[Z", nullptr, $PRIVATE | $STATIC, $staticField(bug7010561, IS_SELECTED)},
-	{"RETURN_VALUE", "[I", nullptr, $PRIVATE | $STATIC, $staticField(bug7010561, RETURN_VALUE)},
-	{}
-};
-
-$MethodInfo _bug7010561_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7010561, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7010561, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug7010561_InnerClassesInfo_[] = {
-	{"bug7010561$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7010561_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7010561",
-	"java.lang.Object",
-	nullptr,
-	_bug7010561_FieldInfo_,
-	_bug7010561_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7010561_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug7010561$1"
-};
-
-$Object* allocate$bug7010561($Class* clazz) {
-	return $of($alloc(bug7010561));
-}
 
 $ints* bug7010561::TAB_PLACEMENT = nullptr;
 $booleans* bug7010561::IS_SELECTED = nullptr;
@@ -73,12 +32,12 @@ void bug7010561::init$() {
 
 void bug7010561::main($StringArray* args) {
 	$init(bug7010561);
-	$useLocalCurrentObjectStackCache();
-	$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($SynthLookAndFeel)));
+	$useLocalObjectStack();
+	$UIManager::setLookAndFeel($$new($SynthLookAndFeel));
 	$SwingUtilities::invokeAndWait($$new($bug7010561$1));
 }
 
-void clinit$bug7010561($Class* class$) {
+void bug7010561::clinit$($Class* clazz) {
 	$assignStatic(bug7010561::TAB_PLACEMENT, $new($ints, {
 		$SwingConstants::BOTTOM,
 		$SwingConstants::BOTTOM,
@@ -103,7 +62,38 @@ bug7010561::bug7010561() {
 }
 
 $Class* bug7010561::load$($String* name, bool initialize) {
-	$loadClass(bug7010561, name, initialize, &_bug7010561_ClassInfo_, clinit$bug7010561, allocate$bug7010561);
+	$FieldInfo fieldInfos$$[] = {
+		{"TAB_PLACEMENT", "[I", nullptr, $PRIVATE | $STATIC, $staticField(bug7010561, TAB_PLACEMENT)},
+		{"IS_SELECTED", "[Z", nullptr, $PRIVATE | $STATIC, $staticField(bug7010561, IS_SELECTED)},
+		{"RETURN_VALUE", "[I", nullptr, $PRIVATE | $STATIC, $staticField(bug7010561, RETURN_VALUE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7010561, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7010561, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7010561$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7010561",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug7010561$1"
+	};
+	$loadClass(bug7010561, name, initialize, &classInfo$$, bug7010561::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7010561);
+	});
 	return class$;
 }
 

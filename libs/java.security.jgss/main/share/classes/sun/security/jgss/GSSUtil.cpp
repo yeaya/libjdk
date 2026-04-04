@@ -1,11 +1,9 @@
 #include <sun/security/jgss/GSSUtil.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/net/InetAddress.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/Security.h>
 #include <java/util/Date.h>
 #include <java/util/HashSet.h>
@@ -18,7 +16,6 @@
 #include <javax/security/auth/kerberos/KerberosKey.h>
 #include <javax/security/auth/kerberos/KerberosPrincipal.h>
 #include <javax/security/auth/kerberos/KerberosTicket.h>
-#include <javax/security/auth/login/Configuration.h>
 #include <javax/security/auth/login/LoginContext.h>
 #include <org/ietf/jgss/GSSCredential.h>
 #include <org/ietf/jgss/GSSException.h>
@@ -49,7 +46,6 @@
 #undef GSS_SPNEGO_MECH_OID
 #undef NT_GSS_KRB5_PRINCIPAL
 
-using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -58,20 +54,17 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Security = ::java::security::Security;
 using $Date = ::java::util::Date;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;
-using $SecretKey = ::javax::crypto::SecretKey;
 using $Subject = ::javax::security::auth::Subject;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $KerberosKey = ::javax::security::auth::kerberos::KerberosKey;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
-using $Configuration = ::javax::security::auth::login::Configuration;
 using $LoginContext = ::javax::security::auth::login::LoginContext;
 using $GSSCredential = ::org::ietf::jgss::GSSCredential;
 using $GSSException = ::org::ietf::jgss::GSSException;
@@ -89,63 +82,11 @@ using $LoginConfigImpl = ::sun::security::jgss::LoginConfigImpl;
 using $Krb5NameElement = ::sun::security::jgss::krb5::Krb5NameElement;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 using $SpNegoCredElement = ::sun::security::jgss::spnego::SpNegoCredElement;
-using $PrincipalName = ::sun::security::krb5::PrincipalName;
 using $ConsoleCallbackHandler = ::sun::security::util::ConsoleCallbackHandler;
 
 namespace sun {
 	namespace security {
 		namespace jgss {
-
-$FieldInfo _GSSUtil_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GSSUtil, $assertionsDisabled)},
-	{"GSS_KRB5_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, GSS_KRB5_MECH_OID)},
-	{"GSS_KRB5_MECH_OID2", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, GSS_KRB5_MECH_OID2)},
-	{"GSS_KRB5_MECH_OID_MS", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, GSS_KRB5_MECH_OID_MS)},
-	{"GSS_SPNEGO_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, GSS_SPNEGO_MECH_OID)},
-	{"NT_GSS_KRB5_PRINCIPAL", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, NT_GSS_KRB5_PRINCIPAL)},
-	{"DEBUG", "Z", nullptr, $STATIC | $FINAL, $staticField(GSSUtil, DEBUG)},
-	{}
-};
-
-$MethodInfo _GSSUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GSSUtil, init$, void)},
-	{"createOid", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, createOid, $Oid*, $String*)},
-	{"debug", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GSSUtil, debug, void, $String*)},
-	{"getMechStr", "(Lorg/ietf/jgss/Oid;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, getMechStr, $String*, $Oid*)},
-	{"getSubject", "(Lorg/ietf/jgss/GSSName;Lorg/ietf/jgss/GSSCredential;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, getSubject, $Subject*, $GSSName*, $GSSCredential*)},
-	{"isKerberosMech", "(Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, isKerberosMech, bool, $Oid*)},
-	{"isSpNegoMech", "(Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, isSpNegoMech, bool, $Oid*)},
-	{"login", "(Lsun/security/jgss/GSSCaller;Lorg/ietf/jgss/Oid;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, login, $Subject*, $GSSCaller*, $Oid*), "javax.security.auth.login.LoginException"},
-	{"populateCredentials", "(Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/Object;>;Ljava/util/Set<*>;)V", $PRIVATE | $STATIC, $staticMethod(GSSUtil, populateCredentials, void, $Set*, $Set*)},
-	{"searchSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Lorg/ietf/jgss/Oid;ZLjava/lang/Class;)Ljava/util/Vector;", "<T::Lsun/security/jgss/spi/GSSCredentialSpi;>(Lsun/security/jgss/spi/GSSNameSpi;Lorg/ietf/jgss/Oid;ZLjava/lang/Class<+TT;>;)Ljava/util/Vector<TT;>;", $PUBLIC | $STATIC, $staticMethod(GSSUtil, searchSubject, $Vector*, $GSSNameSpi*, $Oid*, bool, $Class*)},
-	{"useMSInterop", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, useMSInterop, bool)},
-	{"useSubjectCredsOnly", "(Lsun/security/jgss/GSSCaller;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, useSubjectCredsOnly, bool, $GSSCaller*)},
-	{}
-};
-
-$InnerClassInfo _GSSUtil_InnerClassesInfo_[] = {
-	{"sun.security.jgss.GSSUtil$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GSSUtil_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.GSSUtil",
-	"java.lang.Object",
-	nullptr,
-	_GSSUtil_FieldInfo_,
-	_GSSUtil_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GSSUtil_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.GSSUtil$1"
-};
-
-$Object* allocate$GSSUtil($Class* clazz) {
-	return $of($alloc(GSSUtil));
-}
 
 bool GSSUtil::$assertionsDisabled = false;
 $Oid* GSSUtil::GSS_KRB5_MECH_OID = nullptr;
@@ -204,17 +145,17 @@ $String* GSSUtil::getMechStr($Oid* oid) {
 
 $Subject* GSSUtil::getSubject($GSSName* name, $GSSCredential* creds) {
 	$init(GSSUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, privCredentials, nullptr);
 	$var($HashSet, pubCredentials, $new($HashSet));
 	$var($Set, gssCredentials, nullptr);
 	$var($Set, krb5Principals, $new($HashSet));
 	if ($instanceOf($GSSNameImpl, name)) {
 		try {
-			$var($GSSNameSpi, ne, $nc(($cast($GSSNameImpl, name)))->getElement(GSSUtil::GSS_KRB5_MECH_OID));
+			$var($GSSNameSpi, ne, $cast($GSSNameImpl, name)->getElement(GSSUtil::GSS_KRB5_MECH_OID));
 			$var($String, krbName, $nc(ne)->toString());
 			if ($instanceOf($Krb5NameElement, ne)) {
-				$assign(krbName, $nc($($nc(($cast($Krb5NameElement, ne)))->getKrb5PrincipalName()))->getName());
+				$assign(krbName, $$nc($cast($Krb5NameElement, ne)->getKrb5PrincipalName())->getName());
 			}
 			$var($KerberosPrincipal, krbPrinc, $new($KerberosPrincipal, krbName));
 			krb5Principals->add(krbPrinc);
@@ -223,7 +164,7 @@ $Subject* GSSUtil::getSubject($GSSName* name, $GSSCredential* creds) {
 		}
 	}
 	if ($instanceOf($GSSCredentialImpl, creds)) {
-		$assign(gssCredentials, $nc(($cast($GSSCredentialImpl, creds)))->getElements());
+		$assign(gssCredentials, $cast($GSSCredentialImpl, creds)->getElements());
 		$assign(privCredentials, $new($HashSet, $nc(gssCredentials)->size()));
 		populateCredentials(privCredentials, gssCredentials);
 	} else {
@@ -238,21 +179,21 @@ $Subject* GSSUtil::getSubject($GSSName* name, $GSSCredential* creds) {
 
 void GSSUtil::populateCredentials($Set* credentials, $Set* gssCredentials) {
 	$init(GSSUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, cred, nullptr);
 	$var($Iterator, elements, $nc(gssCredentials)->iterator());
 	while ($nc(elements)->hasNext()) {
 		$assign(cred, elements->next());
 		if ($instanceOf($SpNegoCredElement, cred)) {
-			$assign(cred, $nc(($cast($SpNegoCredElement, cred)))->getInternalCred());
+			$assign(cred, $cast($SpNegoCredElement, cred)->getInternalCred());
 		}
 		if ($instanceOf($KerberosTicket, cred)) {
-			if (!$nc($($nc($of(cred))->getClass()->getName()))->equals("javax.security.auth.kerberos.KerberosTicket"_s)) {
+			if (!$$nc(cred->getClass()->getName())->equals("javax.security.auth.kerberos.KerberosTicket"_s)) {
 				$var($KerberosTicket, tempTkt, $cast($KerberosTicket, cred));
 				$var($bytes, var$0, tempTkt->getEncoded());
 				$var($KerberosPrincipal, var$1, tempTkt->getClient());
 				$var($KerberosPrincipal, var$2, tempTkt->getServer());
-				$var($bytes, var$3, $nc($(tempTkt->getSessionKey()))->getEncoded());
+				$var($bytes, var$3, $$nc(tempTkt->getSessionKey())->getEncoded());
 				int32_t var$4 = tempTkt->getSessionKeyType();
 				$var($booleans, var$5, tempTkt->getFlags());
 				$var($Date, var$6, tempTkt->getAuthTime());
@@ -263,7 +204,7 @@ void GSSUtil::populateCredentials($Set* credentials, $Set* gssCredentials) {
 			}
 			$nc(credentials)->add(cred);
 		} else if ($instanceOf($KerberosKey, cred)) {
-			if (!$nc($($nc($of(cred))->getClass()->getName()))->equals("javax.security.auth.kerberos.KerberosKey"_s)) {
+			if (!$$nc(cred->getClass()->getName())->equals("javax.security.auth.kerberos.KerberosKey"_s)) {
 				$var($KerberosKey, tempKey, $cast($KerberosKey, cred));
 				$var($KerberosPrincipal, var$10, tempKey->getPrincipal());
 				$var($bytes, var$11, tempKey->getEncoded());
@@ -279,10 +220,10 @@ void GSSUtil::populateCredentials($Set* credentials, $Set* gssCredentials) {
 
 $Subject* GSSUtil::login($GSSCaller* caller, $Oid* mech) {
 	$init(GSSUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CallbackHandler, cb, nullptr);
 	if ($instanceOf($HttpCaller, caller)) {
-		$assign(cb, $new($NegotiateCallbackHandler, $($nc(($cast($HttpCaller, caller)))->info())));
+		$assign(cb, $new($NegotiateCallbackHandler, $($cast($HttpCaller, caller)->info())));
 	} else {
 		$var($String, defaultHandler, $Security::getProperty("auth.login.defaultCallbackHandler"_s));
 		if ((defaultHandler != nullptr) && (defaultHandler->length() != 0)) {
@@ -314,16 +255,21 @@ bool GSSUtil::useMSInterop() {
 
 $Vector* GSSUtil::searchSubject($GSSNameSpi* name, $Oid* mech, bool initiate, $Class* credCls) {
 	$init(GSSUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, var$3, $$str({"Search Subject for "_s, $(getMechStr(mech)), (initiate ? " INIT"_s : " ACCEPT"_s), " cred ("_s}));
-	$var($String, var$2, $$concat(var$3, (name == nullptr ? "<<DEF>>"_s : $($nc(name)->toString()))));
-	$var($String, var$1, $$concat(var$2, ", "_s));
-	$var($String, var$0, $$concat(var$1, $($nc(credCls)->getName())));
-	debug($$concat(var$0, ")"_s));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Search Subject for "_s);
+	var$0->append($(getMechStr(mech)));
+	var$0->append(initiate ? " INIT"_s : " ACCEPT"_s);
+	var$0->append(" cred ("_s);
+	var$0->append(name == nullptr ? "<<DEF>>"_s : $(name->toString()));
+	var$0->append(", "_s);
+	var$0->append($($nc(credCls)->getName()));
+	var$0->append(")"_s);
+	debug($$str(var$0));
 	$var($AccessControlContext, acc, $AccessController::getContext());
 	try {
-		$var($Vector, creds, $cast($Vector, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($GSSUtil$1, acc, mech, initiate, credCls, name)))));
+		$var($Vector, creds, $cast($Vector, $AccessController::doPrivileged($$new($GSSUtil$1, acc, mech, initiate, credCls, name))));
 		return creds;
 	} catch ($PrivilegedActionException& pae) {
 		debug("Unexpected exception when searching Subject:"_s);
@@ -335,7 +281,7 @@ $Vector* GSSUtil::searchSubject($GSSNameSpi* name, $Oid* mech, bool initiate, $C
 	$shouldNotReachHere();
 }
 
-void clinit$GSSUtil($Class* class$) {
+void GSSUtil::clinit$($Class* clazz) {
 	GSSUtil::$assertionsDisabled = !GSSUtil::class$->desiredAssertionStatus();
 	$assignStatic(GSSUtil::GSS_KRB5_MECH_OID, GSSUtil::createOid("1.2.840.113554.1.2.2"_s));
 	$assignStatic(GSSUtil::GSS_KRB5_MECH_OID2, GSSUtil::createOid("1.3.5.1.5.2"_s));
@@ -349,7 +295,52 @@ GSSUtil::GSSUtil() {
 }
 
 $Class* GSSUtil::load$($String* name, bool initialize) {
-	$loadClass(GSSUtil, name, initialize, &_GSSUtil_ClassInfo_, clinit$GSSUtil, allocate$GSSUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(GSSUtil, $assertionsDisabled)},
+		{"GSS_KRB5_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, GSS_KRB5_MECH_OID)},
+		{"GSS_KRB5_MECH_OID2", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, GSS_KRB5_MECH_OID2)},
+		{"GSS_KRB5_MECH_OID_MS", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, GSS_KRB5_MECH_OID_MS)},
+		{"GSS_SPNEGO_MECH_OID", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, GSS_SPNEGO_MECH_OID)},
+		{"NT_GSS_KRB5_PRINCIPAL", "Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GSSUtil, NT_GSS_KRB5_PRINCIPAL)},
+		{"DEBUG", "Z", nullptr, $STATIC | $FINAL, $staticField(GSSUtil, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GSSUtil, init$, void)},
+		{"createOid", "(Ljava/lang/String;)Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, createOid, $Oid*, $String*)},
+		{"debug", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(GSSUtil, debug, void, $String*)},
+		{"getMechStr", "(Lorg/ietf/jgss/Oid;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, getMechStr, $String*, $Oid*)},
+		{"getSubject", "(Lorg/ietf/jgss/GSSName;Lorg/ietf/jgss/GSSCredential;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, getSubject, $Subject*, $GSSName*, $GSSCredential*)},
+		{"isKerberosMech", "(Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, isKerberosMech, bool, $Oid*)},
+		{"isSpNegoMech", "(Lorg/ietf/jgss/Oid;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, isSpNegoMech, bool, $Oid*)},
+		{"login", "(Lsun/security/jgss/GSSCaller;Lorg/ietf/jgss/Oid;)Ljavax/security/auth/Subject;", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, login, $Subject*, $GSSCaller*, $Oid*), "javax.security.auth.login.LoginException"},
+		{"populateCredentials", "(Ljava/util/Set;Ljava/util/Set;)V", "(Ljava/util/Set<Ljava/lang/Object;>;Ljava/util/Set<*>;)V", $PRIVATE | $STATIC, $staticMethod(GSSUtil, populateCredentials, void, $Set*, $Set*)},
+		{"searchSubject", "(Lsun/security/jgss/spi/GSSNameSpi;Lorg/ietf/jgss/Oid;ZLjava/lang/Class;)Ljava/util/Vector;", "<T::Lsun/security/jgss/spi/GSSCredentialSpi;>(Lsun/security/jgss/spi/GSSNameSpi;Lorg/ietf/jgss/Oid;ZLjava/lang/Class<+TT;>;)Ljava/util/Vector<TT;>;", $PUBLIC | $STATIC, $staticMethod(GSSUtil, searchSubject, $Vector*, $GSSNameSpi*, $Oid*, bool, $Class*)},
+		{"useMSInterop", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, useMSInterop, bool)},
+		{"useSubjectCredsOnly", "(Lsun/security/jgss/GSSCaller;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GSSUtil, useSubjectCredsOnly, bool, $GSSCaller*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.GSSUtil$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.GSSUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.GSSUtil$1"
+	};
+	$loadClass(GSSUtil, name, initialize, &classInfo$$, GSSUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSUtil);
+	});
 	return class$;
 }
 

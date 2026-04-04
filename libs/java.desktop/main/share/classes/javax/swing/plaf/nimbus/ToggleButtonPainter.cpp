@@ -1,14 +1,11 @@
 #include <javax/swing/plaf/nimbus/ToggleButtonPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
@@ -38,9 +35,7 @@ using $Color = ::java::awt::Color;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
@@ -59,141 +54,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _ToggleButtonPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_MOUSEOVER)},
-	{"BACKGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_MOUSEOVER_FOCUSED)},
-	{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_PRESSED)},
-	{"BACKGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_PRESSED_FOCUSED)},
-	{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_SELECTED)},
-	{"BACKGROUND_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_SELECTED_FOCUSED)},
-	{"BACKGROUND_PRESSED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_PRESSED_SELECTED)},
-	{"BACKGROUND_PRESSED_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_PRESSED_SELECTED_FOCUSED)},
-	{"BACKGROUND_MOUSEOVER_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_MOUSEOVER_SELECTED)},
-	{"BACKGROUND_MOUSEOVER_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_MOUSEOVER_SELECTED_FOCUSED)},
-	{"BACKGROUND_DISABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_DISABLED_SELECTED)},
-	{"state", "I", nullptr, $PRIVATE, $field(ToggleButtonPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ToggleButtonPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ToggleButtonPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ToggleButtonPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ToggleButtonPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ToggleButtonPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color34)},
-	{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color35)},
-	{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color36)},
-	{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color37)},
-	{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color38)},
-	{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color39)},
-	{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color40)},
-	{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color41)},
-	{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color42)},
-	{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color43)},
-	{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color44)},
-	{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color45)},
-	{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color46)},
-	{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color47)},
-	{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color48)},
-	{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color49)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ToggleButtonPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _ToggleButtonPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ToggleButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient11, $Paint*, $Shape*)},
-	{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient12, $Paint*, $Shape*)},
-	{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient13, $Paint*, $Shape*)},
-	{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient14, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect2, $RoundRectangle2D*)},
-	{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect3, $RoundRectangle2D*)},
-	{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect4, $RoundRectangle2D*)},
-	{"decodeRoundRect5", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect5, $RoundRectangle2D*)},
-	{"decodeRoundRect6", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect6, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ToggleButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getExtendedCacheKeys", "(Ljavax/swing/JComponent;)[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ToggleButtonPainter, getExtendedCacheKeys, $ObjectArray*, $JComponent*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ToggleButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundDisabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundDisabledAndSelected, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundFocused, void, $Graphics2D*)},
-	{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundMouseOverAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundMouseOverAndSelected, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundMouseOverAndSelectedAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundPressedAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundPressedAndSelected, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundPressedAndSelectedAndFocused, void, $Graphics2D*)},
-	{"paintBackgroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundSelected, void, $Graphics2D*)},
-	{"paintBackgroundSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundSelectedAndFocused, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _ToggleButtonPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.ToggleButtonPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_ToggleButtonPainter_FieldInfo_,
-	_ToggleButtonPainter_MethodInfo_
-};
-
-$Object* allocate$ToggleButtonPainter($Class* clazz) {
-	return $of($alloc(ToggleButtonPainter));
-}
-
 void ToggleButtonPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusBlueGrey"_s, -0.027777791f, -0.06885965f, -0.36862746f, -232));
 	$set(this, color2, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.06766917f, 0.07843137f, 0));
 	$set(this, color3, decodeColor("nimbusBlueGrey"_s, 0.0f, -0.06484103f, 0.027450979f, 0));
@@ -251,200 +117,148 @@ void ToggleButtonPainter::doPaint($Graphics2D* g, $JComponent* c, int32_t width,
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case ToggleButtonPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_FOCUSED:
-		{
-			paintBackgroundFocused(g);
-			break;
-		}
+		paintBackgroundFocused(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_MOUSEOVER:
-		{
-			paintBackgroundMouseOver(g);
-			break;
-		}
+		paintBackgroundMouseOver(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_MOUSEOVER_FOCUSED:
-		{
-			paintBackgroundMouseOverAndFocused(g);
-			break;
-		}
+		paintBackgroundMouseOverAndFocused(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_PRESSED:
-		{
-			paintBackgroundPressed(g);
-			break;
-		}
+		paintBackgroundPressed(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_PRESSED_FOCUSED:
-		{
-			paintBackgroundPressedAndFocused(g);
-			break;
-		}
+		paintBackgroundPressedAndFocused(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_SELECTED:
-		{
-			paintBackgroundSelected(g);
-			break;
-		}
+		paintBackgroundSelected(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_SELECTED_FOCUSED:
-		{
-			paintBackgroundSelectedAndFocused(g);
-			break;
-		}
+		paintBackgroundSelectedAndFocused(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_PRESSED_SELECTED:
-		{
-			paintBackgroundPressedAndSelected(g);
-			break;
-		}
+		paintBackgroundPressedAndSelected(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_PRESSED_SELECTED_FOCUSED:
-		{
-			paintBackgroundPressedAndSelectedAndFocused(g);
-			break;
-		}
+		paintBackgroundPressedAndSelectedAndFocused(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_MOUSEOVER_SELECTED:
-		{
-			paintBackgroundMouseOverAndSelected(g);
-			break;
-		}
+		paintBackgroundMouseOverAndSelected(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_MOUSEOVER_SELECTED_FOCUSED:
-		{
-			paintBackgroundMouseOverAndSelectedAndFocused(g);
-			break;
-		}
+		paintBackgroundMouseOverAndSelectedAndFocused(g);
+		break;
 	case ToggleButtonPainter::BACKGROUND_DISABLED_SELECTED:
-		{
-			paintBackgroundDisabledAndSelected(g);
-			break;
-		}
+		paintBackgroundDisabledAndSelected(g);
+		break;
 	}
 }
 
 $ObjectArray* ToggleButtonPainter::getExtendedCacheKeys($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, extendedCacheKeys, nullptr);
 	switch (this->state) {
 	case ToggleButtonPainter::BACKGROUND_ENABLED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color12, -0.10655806f, 0.24313724f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color13, -0.09823123f, 0.2117647f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color6, -0.07016757f, 0.12941176f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color14, -0.0749532f, 0.24705881f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color15, -0.110526316f, 0.25490195f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color12, -0.10655806f, 0.24313724f, 0)),
+			$(getComponentColor(c, "background"_s, this->color13, -0.09823123f, 0.2117647f, 0)),
+			$(getComponentColor(c, "background"_s, this->color6, -0.07016757f, 0.12941176f, 0)),
+			$(getComponentColor(c, "background"_s, this->color14, -0.0749532f, 0.24705881f, 0)),
+			$(getComponentColor(c, "background"_s, this->color15, -0.110526316f, 0.25490195f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color12, -0.10655806f, 0.24313724f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color13, -0.09823123f, 0.2117647f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color6, -0.07016757f, 0.12941176f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color14, -0.0749532f, 0.24705881f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color15, -0.110526316f, 0.25490195f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color12, -0.10655806f, 0.24313724f, 0)),
+			$(getComponentColor(c, "background"_s, this->color13, -0.09823123f, 0.2117647f, 0)),
+			$(getComponentColor(c, "background"_s, this->color6, -0.07016757f, 0.12941176f, 0)),
+			$(getComponentColor(c, "background"_s, this->color14, -0.0749532f, 0.24705881f, 0)),
+			$(getComponentColor(c, "background"_s, this->color15, -0.110526316f, 0.25490195f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_MOUSEOVER:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color19, -0.10658931f, 0.25098038f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color20, -0.098526314f, 0.2352941f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color21, -0.07333623f, 0.20392156f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color15, -0.110526316f, 0.25490195f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color19, -0.10658931f, 0.25098038f, 0)),
+			$(getComponentColor(c, "background"_s, this->color20, -0.098526314f, 0.2352941f, 0)),
+			$(getComponentColor(c, "background"_s, this->color21, -0.07333623f, 0.20392156f, 0)),
+			$(getComponentColor(c, "background"_s, this->color15, -0.110526316f, 0.25490195f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_MOUSEOVER_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color19, -0.10658931f, 0.25098038f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color20, -0.098526314f, 0.2352941f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color21, -0.07333623f, 0.20392156f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color15, -0.110526316f, 0.25490195f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color19, -0.10658931f, 0.25098038f, 0)),
+			$(getComponentColor(c, "background"_s, this->color20, -0.098526314f, 0.2352941f, 0)),
+			$(getComponentColor(c, "background"_s, this->color21, -0.07333623f, 0.20392156f, 0)),
+			$(getComponentColor(c, "background"_s, this->color15, -0.110526316f, 0.25490195f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_PRESSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color25, -0.05960039f, 0.10196078f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color26, -0.04772438f, 0.06666666f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color27, -0.0018306673f, -0.02352941f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color28, -0.0212406f, 0.13333333f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color29, -0.030845039f, 0.23921567f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color25, -0.05960039f, 0.10196078f, 0)),
+			$(getComponentColor(c, "background"_s, this->color26, -0.04772438f, 0.06666666f, 0)),
+			$(getComponentColor(c, "background"_s, this->color27, -0.0018306673f, -0.02352941f, 0)),
+			$(getComponentColor(c, "background"_s, this->color28, -0.0212406f, 0.13333333f, 0)),
+			$(getComponentColor(c, "background"_s, this->color29, -0.030845039f, 0.23921567f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_PRESSED_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color25, -0.05960039f, 0.10196078f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color26, -0.04772438f, 0.06666666f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color27, -0.0018306673f, -0.02352941f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color28, -0.0212406f, 0.13333333f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color29, -0.030845039f, 0.23921567f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color25, -0.05960039f, 0.10196078f, 0)),
+			$(getComponentColor(c, "background"_s, this->color26, -0.04772438f, 0.06666666f, 0)),
+			$(getComponentColor(c, "background"_s, this->color27, -0.0018306673f, -0.02352941f, 0)),
+			$(getComponentColor(c, "background"_s, this->color28, -0.0212406f, 0.13333333f, 0)),
+			$(getComponentColor(c, "background"_s, this->color29, -0.030845039f, 0.23921567f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_SELECTED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color33, -0.06401469f, -0.07058823f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color34, -0.06530018f, 0.035294116f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color35, -0.06507177f, 0.031372547f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color33, -0.06401469f, -0.07058823f, 0)),
+			$(getComponentColor(c, "background"_s, this->color34, -0.06530018f, 0.035294116f, 0)),
+			$(getComponentColor(c, "background"_s, this->color35, -0.06507177f, 0.031372547f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_SELECTED_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color33, -0.06401469f, -0.07058823f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color34, -0.06530018f, 0.035294116f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color35, -0.06507177f, 0.031372547f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color33, -0.06401469f, -0.07058823f, 0)),
+			$(getComponentColor(c, "background"_s, this->color34, -0.06530018f, 0.035294116f, 0)),
+			$(getComponentColor(c, "background"_s, this->color35, -0.06507177f, 0.031372547f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_PRESSED_SELECTED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color38, -0.03909774f, -0.2509804f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color39, -0.040013492f, -0.13333333f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color40, -0.039558575f, -0.1372549f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color38, -0.03909774f, -0.2509804f, 0)),
+			$(getComponentColor(c, "background"_s, this->color39, -0.040013492f, -0.13333333f, 0)),
+			$(getComponentColor(c, "background"_s, this->color40, -0.039558575f, -0.1372549f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_PRESSED_SELECTED_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color38, -0.03909774f, -0.2509804f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color39, -0.040013492f, -0.13333333f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color40, -0.039558575f, -0.1372549f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color38, -0.03909774f, -0.2509804f, 0)),
+			$(getComponentColor(c, "background"_s, this->color39, -0.040013492f, -0.13333333f, 0)),
+			$(getComponentColor(c, "background"_s, this->color40, -0.039558575f, -0.1372549f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_MOUSEOVER_SELECTED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color43, -0.0595709f, -0.12941176f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color44, -0.061075766f, -0.031372547f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color45, -0.06080256f, -0.035294116f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color43, -0.0595709f, -0.12941176f, 0)),
+			$(getComponentColor(c, "background"_s, this->color44, -0.061075766f, -0.031372547f, 0)),
+			$(getComponentColor(c, "background"_s, this->color45, -0.06080256f, -0.035294116f, 0))
+		}));
+		break;
 	case ToggleButtonPainter::BACKGROUND_MOUSEOVER_SELECTED_FOCUSED:
-		{
-			$assign(extendedCacheKeys, $new($ObjectArray, {
-				$($of(getComponentColor(c, "background"_s, this->color43, -0.0595709f, -0.12941176f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color44, -0.061075766f, -0.031372547f, 0))),
-				$($of(getComponentColor(c, "background"_s, this->color45, -0.06080256f, -0.035294116f, 0)))
-			}));
-			break;
-		}
+		$assign(extendedCacheKeys, $new($ObjectArray, {
+			$(getComponentColor(c, "background"_s, this->color43, -0.0595709f, -0.12941176f, 0)),
+			$(getComponentColor(c, "background"_s, this->color44, -0.061075766f, -0.031372547f, 0)),
+			$(getComponentColor(c, "background"_s, this->color45, -0.06080256f, -0.035294116f, 0))
+		}));
+		break;
 	}
 	return extendedCacheKeys;
 }
@@ -454,7 +268,7 @@ $AbstractRegionPainter$PaintContext* ToggleButtonPainter::getPaintContext() {
 }
 
 void ToggleButtonPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color1);
 	g->fill(this->roundRect);
@@ -467,7 +281,7 @@ void ToggleButtonPainter::paintBackgroundDisabled($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->roundRect);
@@ -480,7 +294,7 @@ void ToggleButtonPainter::paintBackgroundEnabled($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color16);
 	g->fill(this->roundRect);
@@ -493,7 +307,7 @@ void ToggleButtonPainter::paintBackgroundFocused($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color9);
 	g->fill(this->roundRect);
@@ -506,7 +320,7 @@ void ToggleButtonPainter::paintBackgroundMouseOver($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundMouseOverAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color16);
 	g->fill(this->roundRect);
@@ -519,7 +333,7 @@ void ToggleButtonPainter::paintBackgroundMouseOverAndFocused($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint(this->color22);
 	g->fill(this->roundRect);
@@ -532,7 +346,7 @@ void ToggleButtonPainter::paintBackgroundPressed($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundPressedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect4());
 	$nc(g)->setPaint(this->color16);
 	g->fill(this->roundRect);
@@ -545,7 +359,7 @@ void ToggleButtonPainter::paintBackgroundPressedAndFocused($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color30);
 	g->fill(this->roundRect);
@@ -558,7 +372,7 @@ void ToggleButtonPainter::paintBackgroundSelected($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect6());
 	$nc(g)->setPaint(this->color16);
 	g->fill(this->roundRect);
@@ -571,7 +385,7 @@ void ToggleButtonPainter::paintBackgroundSelectedAndFocused($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundPressedAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color30);
 	g->fill(this->roundRect);
@@ -584,7 +398,7 @@ void ToggleButtonPainter::paintBackgroundPressedAndSelected($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundPressedAndSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect6());
 	$nc(g)->setPaint(this->color16);
 	g->fill(this->roundRect);
@@ -597,7 +411,7 @@ void ToggleButtonPainter::paintBackgroundPressedAndSelectedAndFocused($Graphics2
 }
 
 void ToggleButtonPainter::paintBackgroundMouseOverAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color30);
 	g->fill(this->roundRect);
@@ -610,7 +424,7 @@ void ToggleButtonPainter::paintBackgroundMouseOverAndSelected($Graphics2D* g) {
 }
 
 void ToggleButtonPainter::paintBackgroundMouseOverAndSelectedAndFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect6());
 	$nc(g)->setPaint(this->color16);
 	g->fill(this->roundRect);
@@ -623,7 +437,7 @@ void ToggleButtonPainter::paintBackgroundMouseOverAndSelectedAndFocused($Graphic
 }
 
 void ToggleButtonPainter::paintBackgroundDisabledAndSelected($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect5());
 	$nc(g)->setPaint(this->color46);
 	g->fill(this->roundRect);
@@ -636,67 +450,67 @@ void ToggleButtonPainter::paintBackgroundDisabledAndSelected($Graphics2D* g) {
 }
 
 $RoundRectangle2D* ToggleButtonPainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(0.2857143f);
-	double var$1 = (double)decodeY(0.42857143f);
+	double var$0 = decodeX(0.2857143f);
+	double var$1 = decodeY(0.42857143f);
 	float var$3 = decodeX(2.7142859f);
-	double var$2 = (double)(var$3 - decodeX(0.2857143f));
+	double var$2 = var$3 - decodeX(0.2857143f);
 	float var$4 = decodeY(2.857143f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.42857143f), 12.0f, 12.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToggleButtonPainter::decodeRoundRect2() {
-	double var$0 = (double)decodeX(0.2857143f);
-	double var$1 = (double)decodeY(0.2857143f);
+	double var$0 = decodeX(0.2857143f);
+	double var$1 = decodeY(0.2857143f);
 	float var$3 = decodeX(2.7142859f);
-	double var$2 = (double)(var$3 - decodeX(0.2857143f));
+	double var$2 = var$3 - decodeX(0.2857143f);
 	float var$4 = decodeY(2.7142859f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.2857143f), 9.0f, 9.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToggleButtonPainter::decodeRoundRect3() {
-	double var$0 = (double)decodeX(0.42857143f);
-	double var$1 = (double)decodeY(0.42857143f);
+	double var$0 = decodeX(0.42857143f);
+	double var$1 = decodeY(0.42857143f);
 	float var$3 = decodeX(2.5714285f);
-	double var$2 = (double)(var$3 - decodeX(0.42857143f));
+	double var$2 = var$3 - decodeX(0.42857143f);
 	float var$4 = decodeY(2.5714285f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.42857143f), 7.0f, 7.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToggleButtonPainter::decodeRoundRect4() {
-	double var$0 = (double)decodeX(0.08571429f);
-	double var$1 = (double)decodeY(0.08571429f);
+	double var$0 = decodeX(0.08571429f);
+	double var$1 = decodeY(0.08571429f);
 	float var$3 = decodeX(2.914286f);
-	double var$2 = (double)(var$3 - decodeX(0.08571429f));
+	double var$2 = var$3 - decodeX(0.08571429f);
 	float var$4 = decodeY(2.914286f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.08571429f), 11.0f, 11.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToggleButtonPainter::decodeRoundRect5() {
-	double var$0 = (double)decodeX(0.2857143f);
-	double var$1 = (double)decodeY(0.42857143f);
+	double var$0 = decodeX(0.2857143f);
+	double var$1 = decodeY(0.42857143f);
 	float var$3 = decodeX(2.7142859f);
-	double var$2 = (double)(var$3 - decodeX(0.2857143f));
+	double var$2 = var$3 - decodeX(0.2857143f);
 	float var$4 = decodeY(2.857143f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.42857143f), 9.0f, 9.0f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* ToggleButtonPainter::decodeRoundRect6() {
-	double var$0 = (double)decodeX(0.08571429f);
-	double var$1 = (double)decodeY(0.08571429f);
+	double var$0 = decodeX(0.08571429f);
+	double var$1 = decodeY(0.08571429f);
 	float var$3 = decodeX(2.914286f);
-	double var$2 = (double)(var$3 - decodeX(0.08571429f));
+	double var$2 = var$3 - decodeX(0.08571429f);
 	float var$4 = decodeY(2.9142857f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(0.08571429f), 11.0f, 11.0f);
 	return this->roundRect;
 }
 
 $Paint* ToggleButtonPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -714,7 +528,7 @@ $Paint* ToggleButtonPainter::decodeGradient1($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -748,7 +562,7 @@ $Paint* ToggleButtonPainter::decodeGradient2($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -766,7 +580,7 @@ $Paint* ToggleButtonPainter::decodeGradient3($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -800,7 +614,7 @@ $Paint* ToggleButtonPainter::decodeGradient4($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -834,7 +648,7 @@ $Paint* ToggleButtonPainter::decodeGradient5($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -852,7 +666,7 @@ $Paint* ToggleButtonPainter::decodeGradient6($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -886,7 +700,7 @@ $Paint* ToggleButtonPainter::decodeGradient7($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -904,7 +718,7 @@ $Paint* ToggleButtonPainter::decodeGradient8($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -922,7 +736,7 @@ $Paint* ToggleButtonPainter::decodeGradient9($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -944,7 +758,7 @@ $Paint* ToggleButtonPainter::decodeGradient10($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient11($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -962,7 +776,7 @@ $Paint* ToggleButtonPainter::decodeGradient11($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient12($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -980,7 +794,7 @@ $Paint* ToggleButtonPainter::decodeGradient12($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient13($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -998,7 +812,7 @@ $Paint* ToggleButtonPainter::decodeGradient13($Shape* s) {
 }
 
 $Paint* ToggleButtonPainter::decodeGradient14($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1023,7 +837,131 @@ ToggleButtonPainter::ToggleButtonPainter() {
 }
 
 $Class* ToggleButtonPainter::load$($String* name, bool initialize) {
-	$loadClass(ToggleButtonPainter, name, initialize, &_ToggleButtonPainter_ClassInfo_, allocate$ToggleButtonPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_MOUSEOVER)},
+		{"BACKGROUND_MOUSEOVER_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_MOUSEOVER_FOCUSED)},
+		{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_PRESSED)},
+		{"BACKGROUND_PRESSED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_PRESSED_FOCUSED)},
+		{"BACKGROUND_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_SELECTED)},
+		{"BACKGROUND_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_SELECTED_FOCUSED)},
+		{"BACKGROUND_PRESSED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_PRESSED_SELECTED)},
+		{"BACKGROUND_PRESSED_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_PRESSED_SELECTED_FOCUSED)},
+		{"BACKGROUND_MOUSEOVER_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_MOUSEOVER_SELECTED)},
+		{"BACKGROUND_MOUSEOVER_SELECTED_FOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_MOUSEOVER_SELECTED_FOCUSED)},
+		{"BACKGROUND_DISABLED_SELECTED", "I", nullptr, $STATIC | $FINAL, $constField(ToggleButtonPainter, BACKGROUND_DISABLED_SELECTED)},
+		{"state", "I", nullptr, $PRIVATE, $field(ToggleButtonPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(ToggleButtonPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(ToggleButtonPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(ToggleButtonPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(ToggleButtonPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(ToggleButtonPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color34)},
+		{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color35)},
+		{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color36)},
+		{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color37)},
+		{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color38)},
+		{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color39)},
+		{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color40)},
+		{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color41)},
+		{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color42)},
+		{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color43)},
+		{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color44)},
+		{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color45)},
+		{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color46)},
+		{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color47)},
+		{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color48)},
+		{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ToggleButtonPainter, color49)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(ToggleButtonPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(ToggleButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient11, $Paint*, $Shape*)},
+		{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient12, $Paint*, $Shape*)},
+		{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient13, $Paint*, $Shape*)},
+		{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient14, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect2, $RoundRectangle2D*)},
+		{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect3, $RoundRectangle2D*)},
+		{"decodeRoundRect4", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect4, $RoundRectangle2D*)},
+		{"decodeRoundRect5", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect5, $RoundRectangle2D*)},
+		{"decodeRoundRect6", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(ToggleButtonPainter, decodeRoundRect6, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(ToggleButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getExtendedCacheKeys", "(Ljavax/swing/JComponent;)[Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(ToggleButtonPainter, getExtendedCacheKeys, $ObjectArray*, $JComponent*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(ToggleButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundDisabledAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundDisabledAndSelected, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundFocused, void, $Graphics2D*)},
+		{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundMouseOverAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundMouseOverAndSelected, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundMouseOverAndSelectedAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundPressedAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundPressedAndSelected, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundPressedAndSelectedAndFocused, void, $Graphics2D*)},
+		{"paintBackgroundSelected", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundSelected, void, $Graphics2D*)},
+		{"paintBackgroundSelectedAndFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(ToggleButtonPainter, paintBackgroundSelectedAndFocused, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.ToggleButtonPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ToggleButtonPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ToggleButtonPainter);
+	});
 	return class$;
 }
 

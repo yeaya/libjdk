@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLabelUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -36,32 +35,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLabelUI_FieldInfo_[] = {
-	{"WINDOWS_LABEL_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsLabelUI, WINDOWS_LABEL_UI_KEY)},
-	{}
-};
-
-$MethodInfo _WindowsLabelUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLabelUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsLabelUI, createUI, $ComponentUI*, $JComponent*)},
-	{"paintDisabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(WindowsLabelUI, paintDisabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
-	{"paintEnabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(WindowsLabelUI, paintEnabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _WindowsLabelUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLabelUI",
-	"javax.swing.plaf.basic.BasicLabelUI",
-	nullptr,
-	_WindowsLabelUI_FieldInfo_,
-	_WindowsLabelUI_MethodInfo_
-};
-
-$Object* allocate$WindowsLabelUI($Class* clazz) {
-	return $of($alloc(WindowsLabelUI));
-}
-
 $Object* WindowsLabelUI::WINDOWS_LABEL_UI_KEY = nullptr;
 
 void WindowsLabelUI::init$() {
@@ -70,7 +43,7 @@ void WindowsLabelUI::init$() {
 
 $ComponentUI* WindowsLabelUI::createUI($JComponent* c) {
 	$init(WindowsLabelUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(WindowsLabelUI, windowsLabelUI, $cast(WindowsLabelUI, $nc(appContext)->get(WindowsLabelUI::WINDOWS_LABEL_UI_KEY)));
 	if (windowsLabelUI == nullptr) {
@@ -90,7 +63,7 @@ void WindowsLabelUI::paintEnabledText($JLabel* l, $Graphics* g, $String* s, int3
 }
 
 void WindowsLabelUI::paintDisabledText($JLabel* l, $Graphics* g, $String* s, int32_t textX, int32_t textY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t mnemonicIndex = $nc(l)->getDisplayedMnemonicIndex();
 	if ($WindowsLookAndFeel::isMnemonicHidden() == true) {
 		mnemonicIndex = -1;
@@ -105,12 +78,12 @@ void WindowsLabelUI::paintDisabledText($JLabel* l, $Graphics* g, $String* s, int
 		$var($Color, background, l->getBackground());
 		$nc(g)->setColor($($nc(background)->brighter()));
 		$SwingUtilities2::drawStringUnderlineCharAt(l, g, s, mnemonicIndex, textX + 1, textY + 1);
-		g->setColor($($nc(background)->darker()));
+		g->setColor($(background->darker()));
 		$SwingUtilities2::drawStringUnderlineCharAt(l, g, s, mnemonicIndex, textX, textY);
 	}
 }
 
-void clinit$WindowsLabelUI($Class* class$) {
+void WindowsLabelUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsLabelUI::WINDOWS_LABEL_UI_KEY, $new($Object));
 }
 
@@ -118,7 +91,28 @@ WindowsLabelUI::WindowsLabelUI() {
 }
 
 $Class* WindowsLabelUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsLabelUI, name, initialize, &_WindowsLabelUI_ClassInfo_, clinit$WindowsLabelUI, allocate$WindowsLabelUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"WINDOWS_LABEL_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsLabelUI, WINDOWS_LABEL_UI_KEY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsLabelUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsLabelUI, createUI, $ComponentUI*, $JComponent*)},
+		{"paintDisabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(WindowsLabelUI, paintDisabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
+		{"paintEnabledText", "(Ljavax/swing/JLabel;Ljava/awt/Graphics;Ljava/lang/String;II)V", nullptr, $PROTECTED, $virtualMethod(WindowsLabelUI, paintEnabledText, void, $JLabel*, $Graphics*, $String*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLabelUI",
+		"javax.swing.plaf.basic.BasicLabelUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsLabelUI, name, initialize, &classInfo$$, WindowsLabelUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsLabelUI));
+	});
 	return class$;
 }
 

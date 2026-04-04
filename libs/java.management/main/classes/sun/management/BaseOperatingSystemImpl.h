@@ -31,6 +31,7 @@ class $export BaseOperatingSystemImpl : public ::java::lang::management::Operati
 	$class(BaseOperatingSystemImpl, 0, ::java::lang::management::OperatingSystemMXBean)
 public:
 	BaseOperatingSystemImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::management::VMManagement* vm);
 	virtual $String* getArch() override;
 	virtual int32_t getAvailableProcessors() override;

@@ -1,9 +1,7 @@
 #include <sun/font/SunLayoutEngine$FaceRef.h>
-
 #include <sun/font/Font2D.h>
 #include <sun/font/SunLayoutEngine.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,48 +12,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Font2D = ::sun::font::Font2D;
 using $SunLayoutEngine = ::sun::font::SunLayoutEngine;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _SunLayoutEngine$FaceRef_FieldInfo_[] = {
-	{"font", "Lsun/font/Font2D;", nullptr, $PRIVATE, $field(SunLayoutEngine$FaceRef, font)},
-	{"facePtr", "Ljava/lang/Long;", nullptr, $PRIVATE, $field(SunLayoutEngine$FaceRef, facePtr)},
-	{}
-};
-
-$MethodInfo _SunLayoutEngine$FaceRef_MethodInfo_[] = {
-	{"<init>", "(Lsun/font/Font2D;)V", nullptr, $PRIVATE, $method(SunLayoutEngine$FaceRef, init$, void, $Font2D*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine$FaceRef, dispose, void)},
-	{"getNativePtr", "()J", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SunLayoutEngine$FaceRef, getNativePtr, int64_t)},
-	{}
-};
-
-$InnerClassInfo _SunLayoutEngine$FaceRef_InnerClassesInfo_[] = {
-	{"sun.font.SunLayoutEngine$FaceRef", "sun.font.SunLayoutEngine", "FaceRef", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SunLayoutEngine$FaceRef_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.font.SunLayoutEngine$FaceRef",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	_SunLayoutEngine$FaceRef_FieldInfo_,
-	_SunLayoutEngine$FaceRef_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SunLayoutEngine$FaceRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.font.SunLayoutEngine"
-};
-
-$Object* allocate$SunLayoutEngine$FaceRef($Class* clazz) {
-	return $of($alloc(SunLayoutEngine$FaceRef));
-}
 
 void SunLayoutEngine$FaceRef::init$($Font2D* font) {
 	$set(this, font, font);
@@ -82,7 +41,39 @@ SunLayoutEngine$FaceRef::SunLayoutEngine$FaceRef() {
 }
 
 $Class* SunLayoutEngine$FaceRef::load$($String* name, bool initialize) {
-	$loadClass(SunLayoutEngine$FaceRef, name, initialize, &_SunLayoutEngine$FaceRef_ClassInfo_, allocate$SunLayoutEngine$FaceRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"font", "Lsun/font/Font2D;", nullptr, $PRIVATE, $field(SunLayoutEngine$FaceRef, font)},
+		{"facePtr", "Ljava/lang/Long;", nullptr, $PRIVATE, $field(SunLayoutEngine$FaceRef, facePtr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/font/Font2D;)V", nullptr, $PRIVATE, $method(SunLayoutEngine$FaceRef, init$, void, $Font2D*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(SunLayoutEngine$FaceRef, dispose, void)},
+		{"getNativePtr", "()J", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SunLayoutEngine$FaceRef, getNativePtr, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.font.SunLayoutEngine$FaceRef", "sun.font.SunLayoutEngine", "FaceRef", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.font.SunLayoutEngine$FaceRef",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.font.SunLayoutEngine"
+	};
+	$loadClass(SunLayoutEngine$FaceRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SunLayoutEngine$FaceRef);
+	});
 	return class$;
 }
 

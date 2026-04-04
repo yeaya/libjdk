@@ -1,5 +1,4 @@
 #include <bug6917744.h>
-
 #include <bug6917744$1.h>
 #include <bug6917744$2.h>
 #include <bug6917744$3.h>
@@ -59,79 +58,32 @@ public:
 	virtual void run() override {
 		bug6917744::lambda$blockTillDisplayed$0(comp);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6917744$$Lambda$lambda$blockTillDisplayed$0>());
-	}
 	$JComponent* comp = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug6917744$$Lambda$lambda$blockTillDisplayed$0::fieldInfos[2] = {
-	{"comp", "Ljavax/swing/JComponent;", nullptr, $PUBLIC, $field(bug6917744$$Lambda$lambda$blockTillDisplayed$0, comp)},
-	{}
-};
-$MethodInfo bug6917744$$Lambda$lambda$blockTillDisplayed$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(bug6917744$$Lambda$lambda$blockTillDisplayed$0, init$, void, $JComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6917744$$Lambda$lambda$blockTillDisplayed$0, run, void)},
-	{}
-};
-$ClassInfo bug6917744$$Lambda$lambda$blockTillDisplayed$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6917744$$Lambda$lambda$blockTillDisplayed$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug6917744$$Lambda$lambda$blockTillDisplayed$0::load$($String* name, bool initialize) {
-	$loadClass(bug6917744$$Lambda$lambda$blockTillDisplayed$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"comp", "Ljavax/swing/JComponent;", nullptr, $PUBLIC, $field(bug6917744$$Lambda$lambda$blockTillDisplayed$0, comp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(bug6917744$$Lambda$lambda$blockTillDisplayed$0, init$, void, $JComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6917744$$Lambda$lambda$blockTillDisplayed$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6917744$$Lambda$lambda$blockTillDisplayed$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug6917744$$Lambda$lambda$blockTillDisplayed$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6917744$$Lambda$lambda$blockTillDisplayed$0);
+	});
 	return class$;
 }
 $Class* bug6917744$$Lambda$lambda$blockTillDisplayed$0::class$ = nullptr;
-
-$FieldInfo _bug6917744_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, frame)},
-	{"editorPane", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, editorPane)},
-	{"scrollPane", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, scrollPane)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, robot)},
-	{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, p)},
-	{}
-};
-
-$MethodInfo _bug6917744_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6917744, init$, void)},
-	{"blockTillDisplayed", "(Ljavax/swing/JComponent;)V", nullptr, $STATIC, $staticMethod(bug6917744, blockTillDisplayed, void, $JComponent*), "java.lang.Exception"},
-	{"lambda$blockTillDisplayed$0", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6917744, lambda$blockTillDisplayed$0, void, $JComponent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6917744, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6917744_InnerClassesInfo_[] = {
-	{"bug6917744$3", nullptr, nullptr, 0},
-	{"bug6917744$2", nullptr, nullptr, 0},
-	{"bug6917744$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6917744_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6917744",
-	"java.lang.Object",
-	nullptr,
-	_bug6917744_FieldInfo_,
-	_bug6917744_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6917744_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6917744$3,bug6917744$2,bug6917744$1"
-};
-
-$Object* allocate$bug6917744($Class* clazz) {
-	return $of($alloc(bug6917744));
-}
 
 $JFrame* bug6917744::frame = nullptr;
 $JEditorPane* bug6917744::editorPane = nullptr;
@@ -144,10 +96,10 @@ void bug6917744::init$() {
 
 void bug6917744::blockTillDisplayed($JComponent* comp) {
 	$init(bug6917744);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (bug6917744::p == nullptr) {
 		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6917744$$Lambda$lambda$blockTillDisplayed$0, comp)));
+			$SwingUtilities::invokeAndWait($$new(bug6917744$$Lambda$lambda$blockTillDisplayed$0, comp));
 		} catch ($IllegalStateException& e) {
 			try {
 				$Thread::sleep(1000);
@@ -159,9 +111,9 @@ void bug6917744::blockTillDisplayed($JComponent* comp) {
 
 void bug6917744::main($StringArray* args) {
 	$init(bug6917744);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(bug6917744::robot, $new($Robot));
-	$nc(bug6917744::robot)->setAutoDelay(100);
+	bug6917744::robot->setAutoDelay(100);
 	$SwingUtilities::invokeAndWait($$new($bug6917744$1));
 	blockTillDisplayed(bug6917744::editorPane);
 	$nc(bug6917744::robot)->mouseMove($nc(bug6917744::p)->x + 50, $nc(bug6917744::p)->y + 50);
@@ -190,7 +142,7 @@ void bug6917744::lambda$blockTillDisplayed$0($JComponent* comp) {
 	$assignStatic(bug6917744::p, $nc(comp)->getLocationOnScreen());
 }
 
-void clinit$bug6917744($Class* class$) {
+void bug6917744::clinit$($Class* clazz) {
 	$assignStatic(bug6917744::p, nullptr);
 }
 
@@ -199,11 +151,48 @@ bug6917744::bug6917744() {
 
 $Class* bug6917744::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6917744$$Lambda$lambda$blockTillDisplayed$0::classInfo$.name)) {
+		if (name->equals("bug6917744$$Lambda$lambda$blockTillDisplayed$0")) {
 			return bug6917744$$Lambda$lambda$blockTillDisplayed$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6917744, name, initialize, &_bug6917744_ClassInfo_, clinit$bug6917744, allocate$bug6917744);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, frame)},
+		{"editorPane", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, editorPane)},
+		{"scrollPane", "Ljavax/swing/JScrollPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, scrollPane)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, robot)},
+		{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(bug6917744, p)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6917744, init$, void)},
+		{"blockTillDisplayed", "(Ljavax/swing/JComponent;)V", nullptr, $STATIC, $staticMethod(bug6917744, blockTillDisplayed, void, $JComponent*), "java.lang.Exception"},
+		{"lambda$blockTillDisplayed$0", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6917744, lambda$blockTillDisplayed$0, void, $JComponent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6917744, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6917744$3", nullptr, nullptr, 0},
+		{"bug6917744$2", nullptr, nullptr, 0},
+		{"bug6917744$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6917744",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6917744$3,bug6917744$2,bug6917744$1"
+	};
+	$loadClass(bug6917744, name, initialize, &classInfo$$, bug6917744::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6917744);
+	});
 	return class$;
 }
 

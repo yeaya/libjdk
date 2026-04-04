@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipCoder$UTF8.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <jdk/nio/zipfs/ZipCoder.h>
@@ -17,38 +16,6 @@ namespace jdk {
 	namespace nio {
 		namespace zipfs {
 
-$MethodInfo _ZipCoder$UTF8_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(ZipCoder$UTF8, init$, void)},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder$UTF8, getBytes, $bytes*, $String*)},
-	{"toString", "([B)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder$UTF8, toString, $String*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _ZipCoder$UTF8_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipCoder$UTF8", "jdk.nio.zipfs.ZipCoder", "UTF8", $STATIC},
-	{}
-};
-
-$ClassInfo _ZipCoder$UTF8_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipCoder$UTF8",
-	"jdk.nio.zipfs.ZipCoder",
-	nullptr,
-	nullptr,
-	_ZipCoder$UTF8_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipCoder$UTF8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipCoder"
-};
-
-$Object* allocate$ZipCoder$UTF8($Class* clazz) {
-	return $of($alloc(ZipCoder$UTF8));
-}
-
 void ZipCoder$UTF8::init$() {
 	$init($StandardCharsets);
 	$ZipCoder::init$($StandardCharsets::UTF_8);
@@ -61,20 +28,16 @@ $bytes* ZipCoder$UTF8::getBytes($String* s) {
 		}
 	}
 	$init($StandardCharsets);
-	return $nc(s)->getBytes($StandardCharsets::ISO_8859_1);
+	return s->getBytes($StandardCharsets::ISO_8859_1);
 }
 
 $String* ZipCoder$UTF8::toString($bytes* ba) {
 	{
 		$var($bytes, arr$, ba);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			int8_t b = arr$->get(i$);
-			{
-				if (b < 0) {
-					return $ZipCoder::toString(ba);
-				}
+			if (b < 0) {
+				return $ZipCoder::toString(ba);
 			}
 		}
 	}
@@ -86,7 +49,34 @@ ZipCoder$UTF8::ZipCoder$UTF8() {
 }
 
 $Class* ZipCoder$UTF8::load$($String* name, bool initialize) {
-	$loadClass(ZipCoder$UTF8, name, initialize, &_ZipCoder$UTF8_ClassInfo_, allocate$ZipCoder$UTF8);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(ZipCoder$UTF8, init$, void)},
+		{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder$UTF8, getBytes, $bytes*, $String*)},
+		{"toString", "([B)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder$UTF8, toString, $String*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipCoder$UTF8", "jdk.nio.zipfs.ZipCoder", "UTF8", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipCoder$UTF8",
+		"jdk.nio.zipfs.ZipCoder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipCoder"
+	};
+	$loadClass(ZipCoder$UTF8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipCoder$UTF8);
+	});
 	return class$;
 }
 

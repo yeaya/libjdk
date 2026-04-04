@@ -23,11 +23,14 @@ public:
 	void init$(::java::lang::Error* e, $String* message);
 	virtual $Throwable* getCause() override;
 	virtual ::java::lang::Error* getTargetError();
-	static const int64_t serialVersionUID = (int64_t)0x09C650883A4CD664;
+	static const int64_t serialVersionUID = (int64_t)0x09c650883a4cd664;
 	::java::lang::Error* error = nullptr;
 	RuntimeErrorException(const RuntimeErrorException& e);
 	virtual void throw$() override;
-	inline RuntimeErrorException* operator ->() {
+	inline RuntimeErrorException* operator ->() const {
+		return (RuntimeErrorException*)throwing$;
+	}
+	inline operator RuntimeErrorException*() const {
 		return (RuntimeErrorException*)throwing$;
 	}
 };

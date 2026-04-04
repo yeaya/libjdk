@@ -1,15 +1,12 @@
 #include <Test4319113.h>
-
 #include <Test4319113$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/GridLayout.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/ItemListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -37,11 +34,9 @@ using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $EventQueue = ::java::awt::EventQueue;
 using $GridLayout = ::java::awt::GridLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $ItemListener = ::java::awt::event::ItemListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -68,81 +63,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$init$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test4319113$$Lambda$lambda$init$0>());
-	}
 	Test4319113* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Test4319113$$Lambda$lambda$init$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Test4319113$$Lambda$lambda$init$0, inst$)},
-	{}
-};
-$MethodInfo Test4319113$$Lambda$lambda$init$0::methodInfos[3] = {
-	{"<init>", "(LTest4319113;)V", nullptr, $PUBLIC, $method(Test4319113$$Lambda$lambda$init$0, init$, void, Test4319113*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test4319113$$Lambda$lambda$init$0, run, void)},
-	{}
-};
-$ClassInfo Test4319113$$Lambda$lambda$init$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test4319113$$Lambda$lambda$init$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Test4319113$$Lambda$lambda$init$0::load$($String* name, bool initialize) {
-	$loadClass(Test4319113$$Lambda$lambda$init$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Test4319113$$Lambda$lambda$init$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LTest4319113;)V", nullptr, $PUBLIC, $method(Test4319113$$Lambda$lambda$init$0, init$, void, Test4319113*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test4319113$$Lambda$lambda$init$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test4319113$$Lambda$lambda$init$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test4319113$$Lambda$lambda$init$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test4319113$$Lambda$lambda$init$0);
+	});
 	return class$;
 }
 $Class* Test4319113$$Lambda$lambda$init$0::class$ = nullptr;
-
-$FieldInfo _Test4319113_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $FINAL, $field(Test4319113, frame)},
-	{"cbPlaf", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE, $field(Test4319113, cbPlaf)},
-	{}
-};
-
-$MethodInfo _Test4319113_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test4319113, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test4319113, actionPerformed, void, $ActionEvent*)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4319113, init, void)},
-	{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(Test4319113, lambda$init$0, void)},
-	{"show", "(Ljava/awt/Window;)V", nullptr, $PRIVATE, $method(Test4319113, show, void, $Window*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateWindowTreeUI", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test4319113, updateWindowTreeUI, void, $Window*)},
-	{}
-};
-
-$InnerClassInfo _Test4319113_InnerClassesInfo_[] = {
-	{"Test4319113$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Test4319113_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test4319113",
-	"javax.swing.JApplet",
-	"java.awt.event.ActionListener",
-	_Test4319113_FieldInfo_,
-	_Test4319113_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Test4319113_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"Test4319113$1,Test4319113$1$1"
-};
-
-$Object* allocate$Test4319113($Class* clazz) {
-	return $of($alloc(Test4319113));
-}
 
 $String* Test4319113::toString() {
 	 return this->$JApplet::toString();
@@ -171,14 +117,14 @@ void Test4319113::init$() {
 
 void Test4319113::init() {
 	try {
-		$EventQueue::invokeLater(static_cast<$Runnable*>($$new(Test4319113$$Lambda$lambda$init$0, this)));
+		$EventQueue::invokeLater($$new(Test4319113$$Lambda$lambda$init$0, this));
 	} catch ($Exception& ex) {
 		ex->printStackTrace();
 	}
 }
 
 void Test4319113::actionPerformed($ActionEvent* actionEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, object, $nc(actionEvent)->getSource());
 	$var($Component, component, $instanceOf($Component, object) ? $cast($Component, object) : ($Component*)nullptr);
 	$init($Color);
@@ -187,21 +133,21 @@ void Test4319113::actionPerformed($ActionEvent* actionEvent) {
 }
 
 void Test4319113::show($Window* window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JButton, jButton, $new($JButton, "Show ColorChooser"_s));
 	jButton->setActionCommand("Show ColorChooser"_s);
 	jButton->addActionListener(this);
 	$set(this, cbPlaf, $new($JComboBox, $($UIManager::getInstalledLookAndFeels())));
 	$nc(this->cbPlaf)->addItemListener($$new($Test4319113$1, this));
-	$nc(window)->add(static_cast<$Component*>(this->cbPlaf));
-	window->add(static_cast<$Component*>(jButton));
+	$nc(window)->add(this->cbPlaf);
+	window->add(jButton);
 	window->pack();
 	window->setVisible(true);
 }
 
 void Test4319113::updateWindowTreeUI($Window* window) {
 	$init(Test4319113);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SwingUtilities::updateComponentTreeUI(window);
 	$var($WindowArray, arrwindow, $nc(window)->getOwnedWindows());
 	int32_t n = $nc(arrwindow)->length;
@@ -216,7 +162,7 @@ void Test4319113::updateWindowTreeUI($Window* window) {
 
 void Test4319113::lambda$init$0() {
 	$nc(this->frame)->setLayout($$new($GridLayout, 2, 1));
-	this->show(static_cast<$Window*>(this->frame));
+	this->show(this->frame);
 }
 
 Test4319113::Test4319113() {
@@ -224,11 +170,50 @@ Test4319113::Test4319113() {
 
 $Class* Test4319113::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Test4319113$$Lambda$lambda$init$0::classInfo$.name)) {
+		if (name->equals("Test4319113$$Lambda$lambda$init$0")) {
 			return Test4319113$$Lambda$lambda$init$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Test4319113, name, initialize, &_Test4319113_ClassInfo_, allocate$Test4319113);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $FINAL, $field(Test4319113, frame)},
+		{"cbPlaf", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE, $field(Test4319113, cbPlaf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test4319113, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test4319113, actionPerformed, void, $ActionEvent*)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(Test4319113, init, void)},
+		{"lambda$init$0", "()V", nullptr, $PRIVATE | $SYNTHETIC, $method(Test4319113, lambda$init$0, void)},
+		{"show", "(Ljava/awt/Window;)V", nullptr, $PRIVATE, $method(Test4319113, show, void, $Window*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateWindowTreeUI", "(Ljava/awt/Window;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test4319113, updateWindowTreeUI, void, $Window*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"Test4319113$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test4319113",
+		"javax.swing.JApplet",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"Test4319113$1,Test4319113$1$1"
+	};
+	$loadClass(Test4319113, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Test4319113));
+	});
 	return class$;
 }
 

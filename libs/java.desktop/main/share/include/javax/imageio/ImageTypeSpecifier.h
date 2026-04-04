@@ -30,6 +30,7 @@ class $import ImageTypeSpecifier : public ::java::lang::Object {
 	$class(ImageTypeSpecifier, 0, ::java::lang::Object)
 public:
 	ImageTypeSpecifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::image::ColorModel* colorModel, ::java::awt::image::SampleModel* sampleModel);
 	void init$(::java::awt::image::RenderedImage* image);

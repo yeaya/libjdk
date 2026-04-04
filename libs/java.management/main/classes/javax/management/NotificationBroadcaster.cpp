@@ -1,5 +1,4 @@
 #include <javax/management/NotificationBroadcaster.h>
-
 #include <javax/management/MBeanNotificationInfo.h>
 #include <javax/management/NotificationFilter.h>
 #include <javax/management/NotificationListener.h>
@@ -14,28 +13,24 @@ using $NotificationListener = ::javax::management::NotificationListener;
 namespace javax {
 	namespace management {
 
-$MethodInfo _NotificationBroadcaster_MethodInfo_[] = {
-	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "java.lang.IllegalArgumentException"},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
-	{}
-};
-
-$ClassInfo _NotificationBroadcaster_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.NotificationBroadcaster",
-	nullptr,
-	nullptr,
-	nullptr,
-	_NotificationBroadcaster_MethodInfo_
-};
-
-$Object* allocate$NotificationBroadcaster($Class* clazz) {
-	return $of($alloc(NotificationBroadcaster));
-}
-
 $Class* NotificationBroadcaster::load$($String* name, bool initialize) {
-	$loadClass(NotificationBroadcaster, name, initialize, &_NotificationBroadcaster_ClassInfo_, allocate$NotificationBroadcaster);
+	$MethodInfo methodInfos$$[] = {
+		{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "java.lang.IllegalArgumentException"},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NotificationBroadcaster, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.NotificationBroadcaster",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NotificationBroadcaster, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotificationBroadcaster);
+	});
 	return class$;
 }
 

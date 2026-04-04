@@ -22,6 +22,7 @@ class AquaTabbedPaneCopyFromBasicUI$LazyActionMap : public ::javax::swing::plaf:
 	$class(AquaTabbedPaneCopyFromBasicUI$LazyActionMap, 0, ::javax::swing::plaf::ActionMapUIResource)
 public:
 	AquaTabbedPaneCopyFromBasicUI$LazyActionMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Class* loader);
 	virtual $ObjectArray* allKeys() override;
 	virtual void clear() override;

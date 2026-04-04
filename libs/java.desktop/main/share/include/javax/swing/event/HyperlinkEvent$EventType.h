@@ -20,6 +20,7 @@ class $import HyperlinkEvent$EventType : public ::java::lang::Object {
 	$class(HyperlinkEvent$EventType, 0, ::java::lang::Object)
 public:
 	HyperlinkEvent$EventType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* s);
 	virtual $String* toString() override;
 	static ::javax::swing::event::HyperlinkEvent$EventType* ENTERED;

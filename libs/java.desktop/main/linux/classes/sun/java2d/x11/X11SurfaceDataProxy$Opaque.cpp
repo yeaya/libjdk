@@ -1,5 +1,4 @@
 #include <sun/java2d/x11/X11SurfaceDataProxy$Opaque.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Transparency.h>
 #include <sun/awt/X11GraphicsConfig.h>
@@ -27,38 +26,6 @@ namespace sun {
 	namespace java2d {
 		namespace x11 {
 
-$MethodInfo _X11SurfaceDataProxy$Opaque_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11GraphicsConfig;)V", nullptr, $PUBLIC, $method(X11SurfaceDataProxy$Opaque, init$, void, $X11GraphicsConfig*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy$Opaque, getTransparency, int32_t)},
-	{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy$Opaque, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{}
-};
-
-$InnerClassInfo _X11SurfaceDataProxy$Opaque_InnerClassesInfo_[] = {
-	{"sun.java2d.x11.X11SurfaceDataProxy$Opaque", "sun.java2d.x11.X11SurfaceDataProxy", "Opaque", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _X11SurfaceDataProxy$Opaque_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.x11.X11SurfaceDataProxy$Opaque",
-	"sun.java2d.x11.X11SurfaceDataProxy",
-	nullptr,
-	nullptr,
-	_X11SurfaceDataProxy$Opaque_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11SurfaceDataProxy$Opaque_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.x11.X11SurfaceDataProxy"
-};
-
-$Object* allocate$X11SurfaceDataProxy$Opaque($Class* clazz) {
-	return $of($alloc(X11SurfaceDataProxy$Opaque));
-}
-
 void X11SurfaceDataProxy$Opaque::init$($X11GraphicsConfig* x11gc) {
 	$X11SurfaceDataProxy::init$(x11gc);
 }
@@ -72,7 +39,7 @@ bool X11SurfaceDataProxy$Opaque::isSupportedOperation($SurfaceData* srcData, int
 	if (var$0) {
 		$init($CompositeType);
 		bool var$1 = $nc($CompositeType::SrcOverNoEa)->equals(comp);
-		var$0 = (var$1 || $nc($CompositeType::SrcNoEa)->equals(comp));
+		var$0 = var$1 || $nc($CompositeType::SrcNoEa)->equals(comp);
 	}
 	return (var$0);
 }
@@ -81,7 +48,34 @@ X11SurfaceDataProxy$Opaque::X11SurfaceDataProxy$Opaque() {
 }
 
 $Class* X11SurfaceDataProxy$Opaque::load$($String* name, bool initialize) {
-	$loadClass(X11SurfaceDataProxy$Opaque, name, initialize, &_X11SurfaceDataProxy$Opaque_ClassInfo_, allocate$X11SurfaceDataProxy$Opaque);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11GraphicsConfig;)V", nullptr, $PUBLIC, $method(X11SurfaceDataProxy$Opaque, init$, void, $X11GraphicsConfig*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy$Opaque, getTransparency, int32_t)},
+		{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceDataProxy$Opaque, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.x11.X11SurfaceDataProxy$Opaque", "sun.java2d.x11.X11SurfaceDataProxy", "Opaque", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.x11.X11SurfaceDataProxy$Opaque",
+		"sun.java2d.x11.X11SurfaceDataProxy",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.x11.X11SurfaceDataProxy"
+	};
+	$loadClass(X11SurfaceDataProxy$Opaque, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11SurfaceDataProxy$Opaque));
+	});
 	return class$;
 }
 

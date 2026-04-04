@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifBorders$MotifPopupMenuBorder.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifBorders.h>
 #include <com/sun/java/swing/plaf/motif/MotifGraphicsUtils.h>
 #include <java/awt/Color.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/border/AbstractBorder.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -30,7 +28,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
@@ -41,54 +38,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifBorders$MotifPopupMenuBorder_FieldInfo_[] = {
-	{"font", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, font)},
-	{"background", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, background)},
-	{"foreground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, foreground)},
-	{"shadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, shadowColor)},
-	{"highlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, highlightColor)},
-	{"TEXT_SPACING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MotifBorders$MotifPopupMenuBorder, TEXT_SPACING)},
-	{"GROOVE_HEIGHT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MotifBorders$MotifPopupMenuBorder, GROOVE_HEIGHT)},
-	{}
-};
-
-$MethodInfo _MotifBorders$MotifPopupMenuBorder_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Font;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$MotifPopupMenuBorder, init$, void, $Font*, $Color*, $Color*, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$MotifPopupMenuBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$MotifPopupMenuBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MotifBorders$MotifPopupMenuBorder_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifBorders$MotifPopupMenuBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "MotifPopupMenuBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MotifBorders$MotifPopupMenuBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifBorders$MotifPopupMenuBorder",
-	"javax.swing.border.AbstractBorder",
-	"javax.swing.plaf.UIResource",
-	_MotifBorders$MotifPopupMenuBorder_FieldInfo_,
-	_MotifBorders$MotifPopupMenuBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifBorders$MotifPopupMenuBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifBorders"
-};
-
-$Object* allocate$MotifBorders$MotifPopupMenuBorder($Class* clazz) {
-	return $of($alloc(MotifBorders$MotifPopupMenuBorder));
-}
 
 int32_t MotifBorders$MotifPopupMenuBorder::hashCode() {
 	 return this->$AbstractBorder::hashCode();
@@ -120,7 +69,7 @@ void MotifBorders$MotifPopupMenuBorder::init$($Font* titleFont, $Color* bgColor,
 }
 
 void MotifBorders$MotifPopupMenuBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JPopupMenu, c))) {
 		return;
 	}
@@ -143,26 +92,26 @@ void MotifBorders$MotifPopupMenuBorder::paintBorder($Component* c, $Graphics* g,
 	g->setColor(this->background);
 	g->fillRect(textLoc->x - MotifBorders$MotifPopupMenuBorder::TEXT_SPACING, textLoc->y - (fontHeight - descent), stringWidth + (2 * MotifBorders$MotifPopupMenuBorder::TEXT_SPACING), fontHeight - descent);
 	g->setColor(this->foreground);
-	$SwingUtilities2::drawString(static_cast<$JComponent*>(popup), g, title, textLoc->x, textLoc->y);
+	$SwingUtilities2::drawString(popup, g, title, textLoc->x, textLoc->y);
 	$MotifGraphicsUtils::drawGroove(g, x, textLoc->y + MotifBorders$MotifPopupMenuBorder::TEXT_SPACING, width, MotifBorders$MotifPopupMenuBorder::GROOVE_HEIGHT, this->shadowColor, this->highlightColor);
 	g->setFont(origFont);
 	g->setColor(origColor);
 }
 
 $Insets* MotifBorders$MotifPopupMenuBorder::getBorderInsets($Component* c, $Insets* insets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($JPopupMenu, c))) {
 		return insets;
 	}
 	$var($FontMetrics, fm, nullptr);
 	int32_t descent = 0;
 	int32_t ascent = 16;
-	$var($String, title, $nc(($cast($JPopupMenu, c)))->getLabel());
+	$var($String, title, $nc($cast($JPopupMenu, c))->getLabel());
 	if (title == nullptr) {
-		$nc(insets)->left = (insets->top = (insets->right = (insets->bottom = 0)));
+		$nc(insets)->left = ($nc(insets)->top = ($nc(insets)->right = ($nc(insets)->bottom = 0)));
 		return insets;
 	}
-	$assign(fm, $nc(c)->getFontMetrics(this->font));
+	$assign(fm, c->getFontMetrics(this->font));
 	if (fm != nullptr) {
 		descent = fm->getDescent();
 		ascent = fm->getAscent();
@@ -175,7 +124,49 @@ MotifBorders$MotifPopupMenuBorder::MotifBorders$MotifPopupMenuBorder() {
 }
 
 $Class* MotifBorders$MotifPopupMenuBorder::load$($String* name, bool initialize) {
-	$loadClass(MotifBorders$MotifPopupMenuBorder, name, initialize, &_MotifBorders$MotifPopupMenuBorder_ClassInfo_, allocate$MotifBorders$MotifPopupMenuBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"font", "Ljava/awt/Font;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, font)},
+		{"background", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, background)},
+		{"foreground", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, foreground)},
+		{"shadowColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, shadowColor)},
+		{"highlightColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(MotifBorders$MotifPopupMenuBorder, highlightColor)},
+		{"TEXT_SPACING", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MotifBorders$MotifPopupMenuBorder, TEXT_SPACING)},
+		{"GROOVE_HEIGHT", "I", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(MotifBorders$MotifPopupMenuBorder, GROOVE_HEIGHT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Font;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(MotifBorders$MotifPopupMenuBorder, init$, void, $Font*, $Color*, $Color*, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(MotifBorders$MotifPopupMenuBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MotifBorders$MotifPopupMenuBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifBorders$MotifPopupMenuBorder", "com.sun.java.swing.plaf.motif.MotifBorders", "MotifPopupMenuBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifBorders$MotifPopupMenuBorder",
+		"javax.swing.border.AbstractBorder",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifBorders"
+	};
+	$loadClass(MotifBorders$MotifPopupMenuBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifBorders$MotifPopupMenuBorder));
+	});
 	return class$;
 }
 

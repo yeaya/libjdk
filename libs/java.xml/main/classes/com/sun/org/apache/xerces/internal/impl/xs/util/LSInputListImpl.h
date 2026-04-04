@@ -53,6 +53,7 @@ public:
 	virtual int32_t lastIndexOf(Object$* arg0) override;
 	virtual ::java::util::ListIterator* listIterator() override;
 	virtual ::java::util::ListIterator* listIterator(int32_t arg0) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($Array<::org::w3c::dom::ls::LSInput>* array, int32_t length);
 	virtual $Object* get(int32_t index) override;
 	virtual int32_t getLength() override;

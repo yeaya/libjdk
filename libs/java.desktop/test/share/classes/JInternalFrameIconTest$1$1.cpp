@@ -1,5 +1,4 @@
 #include <JInternalFrameIconTest$1$1.h>
-
 #include <JInternalFrameIconTest$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -17,51 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ImageIcon = ::javax::swing::ImageIcon;
-
-$FieldInfo _JInternalFrameIconTest$1$1_FieldInfo_[] = {
-	{"this$0", "LJInternalFrameIconTest$1;", nullptr, $FINAL | $SYNTHETIC, $field(JInternalFrameIconTest$1$1, this$0)},
-	{}
-};
-
-$MethodInfo _JInternalFrameIconTest$1$1_MethodInfo_[] = {
-	{"<init>", "(LJInternalFrameIconTest$1;)V", nullptr, 0, $method(JInternalFrameIconTest$1$1, init$, void, $JInternalFrameIconTest$1*)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(JInternalFrameIconTest$1$1, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(JInternalFrameIconTest$1$1, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameIconTest$1$1, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _JInternalFrameIconTest$1$1_EnclosingMethodInfo_ = {
-	"JInternalFrameIconTest$1",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _JInternalFrameIconTest$1$1_InnerClassesInfo_[] = {
-	{"JInternalFrameIconTest$1", nullptr, nullptr, 0},
-	{"JInternalFrameIconTest$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JInternalFrameIconTest$1$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"JInternalFrameIconTest$1$1",
-	"javax.swing.ImageIcon",
-	nullptr,
-	_JInternalFrameIconTest$1$1_FieldInfo_,
-	_JInternalFrameIconTest$1$1_MethodInfo_,
-	nullptr,
-	&_JInternalFrameIconTest$1$1_EnclosingMethodInfo_,
-	_JInternalFrameIconTest$1$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JInternalFrameIconTest"
-};
-
-$Object* allocate$JInternalFrameIconTest$1$1($Class* clazz) {
-	return $of($alloc(JInternalFrameIconTest$1$1));
-}
 
 void JInternalFrameIconTest$1$1::init$($JInternalFrameIconTest$1* this$0) {
 	$set(this, this$0, this$0);
@@ -86,7 +40,45 @@ JInternalFrameIconTest$1$1::JInternalFrameIconTest$1$1() {
 }
 
 $Class* JInternalFrameIconTest$1$1::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrameIconTest$1$1, name, initialize, &_JInternalFrameIconTest$1$1_ClassInfo_, allocate$JInternalFrameIconTest$1$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "LJInternalFrameIconTest$1;", nullptr, $FINAL | $SYNTHETIC, $field(JInternalFrameIconTest$1$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(LJInternalFrameIconTest$1;)V", nullptr, 0, $method(JInternalFrameIconTest$1$1, init$, void, $JInternalFrameIconTest$1*)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(JInternalFrameIconTest$1$1, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(JInternalFrameIconTest$1$1, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameIconTest$1$1, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"JInternalFrameIconTest$1",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JInternalFrameIconTest$1", nullptr, nullptr, 0},
+		{"JInternalFrameIconTest$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JInternalFrameIconTest$1$1",
+		"javax.swing.ImageIcon",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JInternalFrameIconTest"
+	};
+	$loadClass(JInternalFrameIconTest$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JInternalFrameIconTest$1$1));
+	});
 	return class$;
 }
 

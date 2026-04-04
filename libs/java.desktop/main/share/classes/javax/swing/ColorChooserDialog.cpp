@@ -1,5 +1,4 @@
 #include <javax/swing/ColorChooserDialog.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -8,7 +7,6 @@
 #include <java/awt/Dialog.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/Frame.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/WindowListener.h>
@@ -46,16 +44,13 @@ using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Frame = ::java::awt::Frame;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ColorChooserDialog$1 = ::javax::swing::ColorChooserDialog$1;
@@ -71,57 +66,11 @@ using $JDialog = ::javax::swing::JDialog;
 using $JPanel = ::javax::swing::JPanel;
 using $JRootPane = ::javax::swing::JRootPane;
 using $KeyStroke = ::javax::swing::KeyStroke;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ColorChooserDialog_FieldInfo_[] = {
-	{"initialColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ColorChooserDialog, initialColor)},
-	{"chooserPane", "Ljavax/swing/JColorChooser;", nullptr, $PRIVATE, $field(ColorChooserDialog, chooserPane)},
-	{"cancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(ColorChooserDialog, cancelButton)},
-	{}
-};
-
-$MethodInfo _ColorChooserDialog_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;ZLjava/awt/Component;Ljavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $method(ColorChooserDialog, init$, void, $Dialog*, $String*, bool, $Component*, $JColorChooser*, $ActionListener*, $ActionListener*), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;ZLjava/awt/Component;Ljavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $method(ColorChooserDialog, init$, void, $Frame*, $String*, bool, $Component*, $JColorChooser*, $ActionListener*, $ActionListener*), "java.awt.HeadlessException"},
-	{"initColorChooserDialog", "(Ljava/awt/Component;Ljavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)V", nullptr, $PROTECTED, $virtualMethod(ColorChooserDialog, initColorChooserDialog, void, $Component*, $JColorChooser*, $ActionListener*, $ActionListener*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ColorChooserDialog, reset, void)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(ColorChooserDialog, show, void)},
-	{}
-};
-
-$InnerClassInfo _ColorChooserDialog_InnerClassesInfo_[] = {
-	{"javax.swing.ColorChooserDialog$DisposeOnClose", "javax.swing.ColorChooserDialog", "DisposeOnClose", $STATIC},
-	{"javax.swing.ColorChooserDialog$Closer", "javax.swing.ColorChooserDialog", "Closer", 0},
-	{"javax.swing.ColorChooserDialog$4", nullptr, nullptr, 0},
-	{"javax.swing.ColorChooserDialog$3", nullptr, nullptr, 0},
-	{"javax.swing.ColorChooserDialog$2", nullptr, nullptr, 0},
-	{"javax.swing.ColorChooserDialog$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ColorChooserDialog_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ColorChooserDialog",
-	"javax.swing.JDialog",
-	nullptr,
-	_ColorChooserDialog_FieldInfo_,
-	_ColorChooserDialog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ColorChooserDialog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.ColorChooserDialog$DisposeOnClose,javax.swing.ColorChooserDialog$Closer,javax.swing.ColorChooserDialog$4,javax.swing.ColorChooserDialog$3,javax.swing.ColorChooserDialog$2,javax.swing.ColorChooserDialog$1"
-};
-
-$Object* allocate$ColorChooserDialog($Class* clazz) {
-	return $of($alloc(ColorChooserDialog));
-}
 
 void ColorChooserDialog::init$($Dialog* owner, $String* title, bool modal, $Component* c, $JColorChooser* chooserPane, $ActionListener* okListener, $ActionListener* cancelListener) {
 	$JDialog::init$(owner, title, modal);
@@ -134,29 +83,28 @@ void ColorChooserDialog::init$($Frame* owner, $String* title, bool modal, $Compo
 }
 
 void ColorChooserDialog::initColorChooserDialog($Component* c, $JColorChooser* chooserPane, $ActionListener* okListener, $ActionListener* cancelListener) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, chooserPane, chooserPane);
 	$var($Locale, locale, getLocale());
-	$var($String, okString, $UIManager::getString($of("ColorChooser.okText"_s), locale));
-	$var($String, cancelString, $UIManager::getString($of("ColorChooser.cancelText"_s), locale));
-	$var($String, resetString, $UIManager::getString($of("ColorChooser.resetText"_s), locale));
+	$var($String, okString, $UIManager::getString("ColorChooser.okText"_s, locale));
+	$var($String, cancelString, $UIManager::getString("ColorChooser.cancelText"_s, locale));
+	$var($String, resetString, $UIManager::getString("ColorChooser.resetText"_s, locale));
 	$var($Container, contentPane, getContentPane());
 	$nc(contentPane)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	contentPane->add(static_cast<$Component*>(chooserPane), $of($BorderLayout::CENTER));
+	contentPane->add(chooserPane, $BorderLayout::CENTER);
 	$var($JPanel, buttonPane, $new($JPanel));
 	buttonPane->setLayout($$new($FlowLayout, $FlowLayout::CENTER));
 	$var($JButton, okButton, $new($JButton, okString));
-	$nc($(getRootPane()))->setDefaultButton(okButton);
-	$nc($(okButton->getAccessibleContext()))->setAccessibleDescription(okString);
+	$$nc(getRootPane())->setDefaultButton(okButton);
+	$$nc(okButton->getAccessibleContext())->setAccessibleDescription(okString);
 	okButton->setActionCommand("OK"_s);
 	okButton->addActionListener($$new($ColorChooserDialog$1, this));
 	if (okListener != nullptr) {
 		okButton->addActionListener(okListener);
 	}
-	buttonPane->add(static_cast<$Component*>(okButton));
+	buttonPane->add(okButton);
 	$set(this, cancelButton, $new($JButton, cancelString));
-	$nc($($nc(this->cancelButton)->getAccessibleContext()))->setAccessibleDescription(cancelString);
+	$$nc(this->cancelButton->getAccessibleContext())->setAccessibleDescription(cancelString);
 	$var($Action, cancelKeyAction, $new($ColorChooserDialog$2, this));
 	$var($KeyStroke, cancelKeyStroke, $KeyStroke::getKeyStroke($KeyEvent::VK_ESCAPE, 0));
 	$var($InputMap, inputMap, $nc(this->cancelButton)->getInputMap($JComponent::WHEN_IN_FOCUSED_WINDOW));
@@ -170,23 +118,23 @@ void ColorChooserDialog::initColorChooserDialog($Component* c, $JColorChooser* c
 	if (cancelListener != nullptr) {
 		$nc(this->cancelButton)->addActionListener(cancelListener);
 	}
-	buttonPane->add(static_cast<$Component*>(this->cancelButton));
+	buttonPane->add(this->cancelButton);
 	$var($JButton, resetButton, $new($JButton, resetString));
-	$nc($(resetButton->getAccessibleContext()))->setAccessibleDescription(resetString);
+	$$nc(resetButton->getAccessibleContext())->setAccessibleDescription(resetString);
 	resetButton->addActionListener($$new($ColorChooserDialog$4, this));
 	int32_t mnemonic = $SwingUtilities2::getUIDefaultsInt("ColorChooser.resetMnemonic"_s, locale, -1);
 	if (mnemonic != -1) {
 		resetButton->setMnemonic(mnemonic);
 	}
-	buttonPane->add(static_cast<$Component*>(resetButton));
-	contentPane->add(static_cast<$Component*>(buttonPane), $of($BorderLayout::SOUTH));
+	buttonPane->add(resetButton);
+	contentPane->add(buttonPane, $BorderLayout::SOUTH);
 	if ($JDialog::isDefaultLookAndFeelDecorated()) {
-		bool supportsWindowDecorations = $nc($($UIManager::getLookAndFeel()))->getSupportsWindowDecorations();
+		bool supportsWindowDecorations = $$nc($UIManager::getLookAndFeel())->getSupportsWindowDecorations();
 		if (supportsWindowDecorations) {
-			$nc($(getRootPane()))->setWindowDecorationStyle($JRootPane::COLOR_CHOOSER_DIALOG);
+			$$nc(getRootPane())->setWindowDecorationStyle($JRootPane::COLOR_CHOOSER_DIALOG);
 		}
 	}
-	applyComponentOrientation($($nc(((c == nullptr) ? $(static_cast<$Component*>(getRootPane())) : c))->getComponentOrientation()));
+	applyComponentOrientation($($nc(((c == nullptr) ? $$cast($Component, getRootPane()) : c))->getComponentOrientation()));
 	pack();
 	setLocationRelativeTo(c);
 	this->addWindowListener($$new($ColorChooserDialog$Closer, this));
@@ -205,7 +153,46 @@ ColorChooserDialog::ColorChooserDialog() {
 }
 
 $Class* ColorChooserDialog::load$($String* name, bool initialize) {
-	$loadClass(ColorChooserDialog, name, initialize, &_ColorChooserDialog_ClassInfo_, allocate$ColorChooserDialog);
+	$FieldInfo fieldInfos$$[] = {
+		{"initialColor", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(ColorChooserDialog, initialColor)},
+		{"chooserPane", "Ljavax/swing/JColorChooser;", nullptr, $PRIVATE, $field(ColorChooserDialog, chooserPane)},
+		{"cancelButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE, $field(ColorChooserDialog, cancelButton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Dialog;Ljava/lang/String;ZLjava/awt/Component;Ljavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $method(ColorChooserDialog, init$, void, $Dialog*, $String*, bool, $Component*, $JColorChooser*, $ActionListener*, $ActionListener*), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/awt/Frame;Ljava/lang/String;ZLjava/awt/Component;Ljavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC, $method(ColorChooserDialog, init$, void, $Frame*, $String*, bool, $Component*, $JColorChooser*, $ActionListener*, $ActionListener*), "java.awt.HeadlessException"},
+		{"initColorChooserDialog", "(Ljava/awt/Component;Ljavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)V", nullptr, $PROTECTED, $virtualMethod(ColorChooserDialog, initColorChooserDialog, void, $Component*, $JColorChooser*, $ActionListener*, $ActionListener*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(ColorChooserDialog, reset, void)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(ColorChooserDialog, show, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ColorChooserDialog$DisposeOnClose", "javax.swing.ColorChooserDialog", "DisposeOnClose", $STATIC},
+		{"javax.swing.ColorChooserDialog$Closer", "javax.swing.ColorChooserDialog", "Closer", 0},
+		{"javax.swing.ColorChooserDialog$4", nullptr, nullptr, 0},
+		{"javax.swing.ColorChooserDialog$3", nullptr, nullptr, 0},
+		{"javax.swing.ColorChooserDialog$2", nullptr, nullptr, 0},
+		{"javax.swing.ColorChooserDialog$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ColorChooserDialog",
+		"javax.swing.JDialog",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.ColorChooserDialog$DisposeOnClose,javax.swing.ColorChooserDialog$Closer,javax.swing.ColorChooserDialog$4,javax.swing.ColorChooserDialog$3,javax.swing.ColorChooserDialog$2,javax.swing.ColorChooserDialog$1"
+	};
+	$loadClass(ColorChooserDialog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ColorChooserDialog));
+	});
 	return class$;
 }
 

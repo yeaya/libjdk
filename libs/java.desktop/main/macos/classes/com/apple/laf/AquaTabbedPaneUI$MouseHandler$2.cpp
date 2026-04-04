@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneUI$MouseHandler$2.h>
-
 #include <com/apple/laf/AquaTabbedPaneUI$MouseHandler.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
@@ -23,51 +22,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTabbedPaneUI$MouseHandler$2_FieldInfo_[] = {
-	{"this$1", "Lcom/apple/laf/AquaTabbedPaneUI$MouseHandler;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$MouseHandler$2, this$1)},
-	{"val$component", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$MouseHandler$2, val$component)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneUI$MouseHandler$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI$MouseHandler;Ljava/awt/Component;)V", nullptr, 0, $method(AquaTabbedPaneUI$MouseHandler$2, init$, void, $AquaTabbedPaneUI$MouseHandler*, $Component*)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$MouseHandler$2, getPreferredSize, $Dimension*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$MouseHandler$2, paintComponent, void, $Graphics*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaTabbedPaneUI$MouseHandler$2_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaTabbedPaneUI$MouseHandler",
-	"createMenuItem",
-	"(I)Ljavax/swing/JMenuItem;"
-};
-
-$InnerClassInfo _AquaTabbedPaneUI$MouseHandler$2_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneUI$MouseHandler", "com.apple.laf.AquaTabbedPaneUI", "MouseHandler", 0},
-	{"com.apple.laf.AquaTabbedPaneUI$MouseHandler$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneUI$MouseHandler$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneUI$MouseHandler$2",
-	"javax.swing.JMenuItem",
-	nullptr,
-	_AquaTabbedPaneUI$MouseHandler$2_FieldInfo_,
-	_AquaTabbedPaneUI$MouseHandler$2_MethodInfo_,
-	nullptr,
-	&_AquaTabbedPaneUI$MouseHandler$2_EnclosingMethodInfo_,
-	_AquaTabbedPaneUI$MouseHandler$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneUI"
-};
-
-$Object* allocate$AquaTabbedPaneUI$MouseHandler$2($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneUI$MouseHandler$2));
-}
-
 void AquaTabbedPaneUI$MouseHandler$2::init$($AquaTabbedPaneUI$MouseHandler* this$1, $Component* val$component) {
 	$set(this, this$1, this$1);
 	$set(this, val$component, val$component);
@@ -75,13 +29,13 @@ void AquaTabbedPaneUI$MouseHandler$2::init$($AquaTabbedPaneUI$MouseHandler* this
 }
 
 void AquaTabbedPaneUI$MouseHandler$2::paintComponent($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JMenuItem::paintComponent(g);
 	$var($Dimension, size, $nc(this->val$component)->getSize());
-	$nc(this->val$component)->setSize($(getSize()));
-	$nc(this->val$component)->validate();
-	$nc(this->val$component)->paint(g);
-	$nc(this->val$component)->setSize(size);
+	this->val$component->setSize($(getSize()));
+	this->val$component->validate();
+	this->val$component->paint(g);
+	this->val$component->setSize(size);
 }
 
 $Dimension* AquaTabbedPaneUI$MouseHandler$2::getPreferredSize() {
@@ -92,7 +46,45 @@ AquaTabbedPaneUI$MouseHandler$2::AquaTabbedPaneUI$MouseHandler$2() {
 }
 
 $Class* AquaTabbedPaneUI$MouseHandler$2::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneUI$MouseHandler$2, name, initialize, &_AquaTabbedPaneUI$MouseHandler$2_ClassInfo_, allocate$AquaTabbedPaneUI$MouseHandler$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/apple/laf/AquaTabbedPaneUI$MouseHandler;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$MouseHandler$2, this$1)},
+		{"val$component", "Ljava/awt/Component;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$MouseHandler$2, val$component)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI$MouseHandler;Ljava/awt/Component;)V", nullptr, 0, $method(AquaTabbedPaneUI$MouseHandler$2, init$, void, $AquaTabbedPaneUI$MouseHandler*, $Component*)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$MouseHandler$2, getPreferredSize, $Dimension*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$MouseHandler$2, paintComponent, void, $Graphics*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaTabbedPaneUI$MouseHandler",
+		"createMenuItem",
+		"(I)Ljavax/swing/JMenuItem;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneUI$MouseHandler", "com.apple.laf.AquaTabbedPaneUI", "MouseHandler", 0},
+		{"com.apple.laf.AquaTabbedPaneUI$MouseHandler$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneUI$MouseHandler$2",
+		"javax.swing.JMenuItem",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneUI"
+	};
+	$loadClass(AquaTabbedPaneUI$MouseHandler$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaTabbedPaneUI$MouseHandler$2));
+	});
 	return class$;
 }
 

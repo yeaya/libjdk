@@ -1,5 +1,4 @@
 #include <javax/swing/UIClientPropertyKey.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -7,17 +6,14 @@ using $ClassInfo = ::java::lang::ClassInfo;
 namespace javax {
 	namespace swing {
 
-$ClassInfo _UIClientPropertyKey_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.UIClientPropertyKey"
-};
-
-$Object* allocate$UIClientPropertyKey($Class* clazz) {
-	return $of($alloc(UIClientPropertyKey));
-}
-
 $Class* UIClientPropertyKey::load$($String* name, bool initialize) {
-	$loadClass(UIClientPropertyKey, name, initialize, &_UIClientPropertyKey_ClassInfo_, allocate$UIClientPropertyKey);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.UIClientPropertyKey"
+	};
+	$loadClass(UIClientPropertyKey, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UIClientPropertyKey);
+	});
 	return class$;
 }
 

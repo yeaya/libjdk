@@ -1,5 +1,4 @@
 #include <javax/swing/text/AttributeSet$FontAttribute.h>
-
 #include <javax/swing/text/AttributeSet.h>
 #include <jcpp.h>
 
@@ -10,33 +9,29 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$InnerClassInfo _AttributeSet$FontAttribute_InnerClassesInfo_[] = {
-	{"javax.swing.text.AttributeSet$FontAttribute", "javax.swing.text.AttributeSet", "FontAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AttributeSet$FontAttribute_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.AttributeSet$FontAttribute",
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	nullptr,
-	_AttributeSet$FontAttribute_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AttributeSet"
-};
-
-$Object* allocate$AttributeSet$FontAttribute($Class* clazz) {
-	return $of($alloc(AttributeSet$FontAttribute));
-}
-
 $Class* AttributeSet$FontAttribute::load$($String* name, bool initialize) {
-	$loadClass(AttributeSet$FontAttribute, name, initialize, &_AttributeSet$FontAttribute_ClassInfo_, allocate$AttributeSet$FontAttribute);
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AttributeSet$FontAttribute", "javax.swing.text.AttributeSet", "FontAttribute", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.AttributeSet$FontAttribute",
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AttributeSet"
+	};
+	$loadClass(AttributeSet$FontAttribute, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AttributeSet$FontAttribute);
+	});
 	return class$;
 }
 

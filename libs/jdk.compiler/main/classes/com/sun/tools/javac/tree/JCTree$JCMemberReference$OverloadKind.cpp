@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind.h>
-
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <java/lang/Enum.h>
@@ -21,48 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCMemberReference$OverloadKind_FieldInfo_[] = {
-	{"OVERLOADED", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$OverloadKind, OVERLOADED)},
-	{"UNOVERLOADED", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$OverloadKind, UNOVERLOADED)},
-	{"ERROR", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$OverloadKind, ERROR)},
-	{"$VALUES", "[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$JCMemberReference$OverloadKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _JCTree$JCMemberReference$OverloadKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, $values, $JCTree$JCMemberReference$OverloadKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$JCMemberReference$OverloadKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, valueOf, JCTree$JCMemberReference$OverloadKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, values, $JCTree$JCMemberReference$OverloadKindArray*)},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCMemberReference$OverloadKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCMemberReference", "com.sun.tools.javac.tree.JCTree", "JCMemberReference", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCMemberReference$OverloadKind", "com.sun.tools.javac.tree.JCTree$JCMemberReference", "OverloadKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JCTree$JCMemberReference$OverloadKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.tree.JCTree$JCMemberReference$OverloadKind",
-	"java.lang.Enum",
-	nullptr,
-	_JCTree$JCMemberReference$OverloadKind_FieldInfo_,
-	_JCTree$JCMemberReference$OverloadKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;>;",
-	nullptr,
-	_JCTree$JCMemberReference$OverloadKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCMemberReference$OverloadKind($Class* clazz) {
-	return $of($alloc(JCTree$JCMemberReference$OverloadKind));
-}
 
 JCTree$JCMemberReference$OverloadKind* JCTree$JCMemberReference$OverloadKind::OVERLOADED = nullptr;
 JCTree$JCMemberReference$OverloadKind* JCTree$JCMemberReference$OverloadKind::UNOVERLOADED = nullptr;
@@ -92,7 +49,7 @@ void JCTree$JCMemberReference$OverloadKind::init$($String* $enum$name, int32_t $
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JCTree$JCMemberReference$OverloadKind($Class* class$) {
+void JCTree$JCMemberReference$OverloadKind::clinit$($Class* clazz) {
 	$assignStatic(JCTree$JCMemberReference$OverloadKind::OVERLOADED, $new(JCTree$JCMemberReference$OverloadKind, "OVERLOADED"_s, 0));
 	$assignStatic(JCTree$JCMemberReference$OverloadKind::UNOVERLOADED, $new(JCTree$JCMemberReference$OverloadKind, "UNOVERLOADED"_s, 1));
 	$assignStatic(JCTree$JCMemberReference$OverloadKind::ERROR, $new(JCTree$JCMemberReference$OverloadKind, "ERROR"_s, 2));
@@ -103,7 +60,43 @@ JCTree$JCMemberReference$OverloadKind::JCTree$JCMemberReference$OverloadKind() {
 }
 
 $Class* JCTree$JCMemberReference$OverloadKind::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCMemberReference$OverloadKind, name, initialize, &_JCTree$JCMemberReference$OverloadKind_ClassInfo_, clinit$JCTree$JCMemberReference$OverloadKind, allocate$JCTree$JCMemberReference$OverloadKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"OVERLOADED", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$OverloadKind, OVERLOADED)},
+		{"UNOVERLOADED", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$OverloadKind, UNOVERLOADED)},
+		{"ERROR", "Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JCTree$JCMemberReference$OverloadKind, ERROR)},
+		{"$VALUES", "[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JCTree$JCMemberReference$OverloadKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, $values, $JCTree$JCMemberReference$OverloadKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JCTree$JCMemberReference$OverloadKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, valueOf, JCTree$JCMemberReference$OverloadKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(JCTree$JCMemberReference$OverloadKind, values, $JCTree$JCMemberReference$OverloadKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCMemberReference", "com.sun.tools.javac.tree.JCTree", "JCMemberReference", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCMemberReference$OverloadKind", "com.sun.tools.javac.tree.JCTree$JCMemberReference", "OverloadKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.tree.JCTree$JCMemberReference$OverloadKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCMemberReference$OverloadKind, name, initialize, &classInfo$$, JCTree$JCMemberReference$OverloadKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCMemberReference$OverloadKind));
+	});
 	return class$;
 }
 

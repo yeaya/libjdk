@@ -26,6 +26,7 @@ namespace javax {
 class $export LdapContext : public ::javax::naming::directory::DirContext {
 	$interface(LdapContext, 0, ::javax::naming::directory::DirContext)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::naming::directory::DirContext::bind;
 	using ::javax::naming::directory::DirContext::createSubcontext;
 	virtual ::javax::naming::ldap::ExtendedResponse* extendedOperation(::javax::naming::ldap::ExtendedRequest* request) {return nullptr;}

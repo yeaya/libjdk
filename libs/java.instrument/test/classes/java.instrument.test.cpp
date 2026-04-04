@@ -1,5 +1,4 @@
 #include <java.instrument.test.h>
-
 #include <java.instrument.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

@@ -1,5 +1,4 @@
 #include <MockListener$OnClose.h>
-
 #include <MockListener$Invocation.h>
 #include <MockListener.h>
 #include <java/net/http/WebSocket.h>
@@ -15,46 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $WebSocket = ::java::net::http::WebSocket;
 using $Objects = ::java::util::Objects;
 
-$FieldInfo _MockListener$OnClose_FieldInfo_[] = {
-	{"statusCode", "I", nullptr, $FINAL, $field(MockListener$OnClose, statusCode)},
-	{"reason", "Ljava/lang/String;", nullptr, $FINAL, $field(MockListener$OnClose, reason)},
-	{}
-};
-
-$MethodInfo _MockListener$OnClose_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/WebSocket;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(MockListener$OnClose, init$, void, $WebSocket*, int32_t, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _MockListener$OnClose_InnerClassesInfo_[] = {
-	{"MockListener$OnClose", "MockListener", "OnClose", $PUBLIC | $STATIC | $FINAL},
-	{"MockListener$Invocation", "MockListener", "Invocation", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MockListener$OnClose_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"MockListener$OnClose",
-	"MockListener$Invocation",
-	nullptr,
-	_MockListener$OnClose_FieldInfo_,
-	_MockListener$OnClose_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MockListener$OnClose_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"MockListener"
-};
-
-$Object* allocate$MockListener$OnClose($Class* clazz) {
-	return $of($alloc(MockListener$OnClose));
-}
-
 void MockListener$OnClose::init$($WebSocket* webSocket, int32_t statusCode, $String* reason) {
 	$MockListener$Invocation::init$(webSocket);
 	this->statusCode = statusCode;
@@ -67,7 +26,7 @@ bool MockListener$OnClose::equals(Object$* o) {
 	}
 	bool var$0 = o == nullptr;
 	if (!var$0) {
-		var$0 = $of(this)->getClass() != $nc($of(o))->getClass();
+		var$0 = $of(this)->getClass() != $of(o)->getClass();
 	}
 	if (var$0) {
 		return false;
@@ -78,20 +37,20 @@ bool MockListener$OnClose::equals(Object$* o) {
 }
 
 int32_t MockListener$OnClose::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $Objects::hash($$new($ObjectArray, {
-		$($of($Integer::valueOf(this->statusCode))),
-		$of(this->reason),
-		$of(this->webSocket)
+		$($Integer::valueOf(this->statusCode)),
+		this->reason,
+		this->webSocket
 	}));
 }
 
 $String* MockListener$OnClose::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("onClose(%s, %s, %s)"_s, $$new($ObjectArray, {
-		$of(this->webSocket),
-		$($of($Integer::valueOf(this->statusCode))),
-		$of(this->reason)
+		this->webSocket,
+		$($Integer::valueOf(this->statusCode)),
+		this->reason
 	}));
 }
 
@@ -99,7 +58,41 @@ MockListener$OnClose::MockListener$OnClose() {
 }
 
 $Class* MockListener$OnClose::load$($String* name, bool initialize) {
-	$loadClass(MockListener$OnClose, name, initialize, &_MockListener$OnClose_ClassInfo_, allocate$MockListener$OnClose);
+	$FieldInfo fieldInfos$$[] = {
+		{"statusCode", "I", nullptr, $FINAL, $field(MockListener$OnClose, statusCode)},
+		{"reason", "Ljava/lang/String;", nullptr, $FINAL, $field(MockListener$OnClose, reason)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/WebSocket;ILjava/lang/String;)V", nullptr, $PUBLIC, $method(MockListener$OnClose, init$, void, $WebSocket*, int32_t, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MockListener$OnClose, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MockListener$OnClose", "MockListener", "OnClose", $PUBLIC | $STATIC | $FINAL},
+		{"MockListener$Invocation", "MockListener", "Invocation", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"MockListener$OnClose",
+		"MockListener$Invocation",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"MockListener"
+	};
+	$loadClass(MockListener$OnClose, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MockListener$OnClose);
+	});
 	return class$;
 }
 

@@ -1,7 +1,5 @@
 #include <sun/java2d/loops/DrawGlyphListColor$General.h>
-
 #include <java/awt/AlphaComposite.h>
-#include <java/awt/Composite.h>
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -13,7 +11,6 @@
 #include <jcpp.h>
 
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Composite = ::java::awt::Composite;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -31,42 +28,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _DrawGlyphListColor$General_FieldInfo_[] = {
-	{"blit", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(DrawGlyphListColor$General, blit)},
-	{}
-};
-
-$MethodInfo _DrawGlyphListColor$General_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawGlyphListColor$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"DrawGlyphListColor", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListColor$General, DrawGlyphListColor$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DrawGlyphListColor$General_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.DrawGlyphListColor$General", "sun.java2d.loops.DrawGlyphListColor", "General", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DrawGlyphListColor$General_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.loops.DrawGlyphListColor$General",
-	"sun.java2d.loops.DrawGlyphListColor",
-	nullptr,
-	_DrawGlyphListColor$General_FieldInfo_,
-	_DrawGlyphListColor$General_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DrawGlyphListColor$General_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.DrawGlyphListColor"
-};
-
-$Object* allocate$DrawGlyphListColor$General($Class* clazz) {
-	return $of($alloc(DrawGlyphListColor$General));
-}
-
 void DrawGlyphListColor$General::init$($SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
 	$DrawGlyphListColor::init$(srctype, comptype, dsttype);
 	$init($SurfaceType);
@@ -75,7 +36,7 @@ void DrawGlyphListColor$General::init$($SurfaceType* srctype, $CompositeType* co
 }
 
 void DrawGlyphListColor$General::DrawGlyphListColor$($SunGraphics2D* sg2d, $SurfaceData* dest, $GlyphList* gl, int32_t fromGlyph, int32_t toGlyph) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Region, clip, $nc(sg2d)->getCompClip());
 	int32_t cx1 = $nc(clip)->getLoX();
 	int32_t cy1 = clip->getLoY();
@@ -115,7 +76,37 @@ DrawGlyphListColor$General::DrawGlyphListColor$General() {
 }
 
 $Class* DrawGlyphListColor$General::load$($String* name, bool initialize) {
-	$loadClass(DrawGlyphListColor$General, name, initialize, &_DrawGlyphListColor$General_ClassInfo_, allocate$DrawGlyphListColor$General);
+	$FieldInfo fieldInfos$$[] = {
+		{"blit", "Lsun/java2d/loops/Blit;", nullptr, $PRIVATE | $FINAL, $field(DrawGlyphListColor$General, blit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(DrawGlyphListColor$General, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"DrawGlyphListColor", "(Lsun/java2d/SunGraphics2D;Lsun/java2d/SurfaceData;Lsun/font/GlyphList;II)V", nullptr, $PUBLIC, $virtualMethod(DrawGlyphListColor$General, DrawGlyphListColor$, void, $SunGraphics2D*, $SurfaceData*, $GlyphList*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.DrawGlyphListColor$General", "sun.java2d.loops.DrawGlyphListColor", "General", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.loops.DrawGlyphListColor$General",
+		"sun.java2d.loops.DrawGlyphListColor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.DrawGlyphListColor"
+	};
+	$loadClass(DrawGlyphListColor$General, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DrawGlyphListColor$General);
+	});
 	return class$;
 }
 

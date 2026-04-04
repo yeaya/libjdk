@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/LambdaExpressionTree$BodyKind.h>
-
 #include <com/sun/source/tree/LambdaExpressionTree.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -18,46 +17,6 @@ namespace com {
 	namespace sun {
 		namespace source {
 			namespace tree {
-
-$FieldInfo _LambdaExpressionTree$BodyKind_FieldInfo_[] = {
-	{"EXPRESSION", "Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaExpressionTree$BodyKind, EXPRESSION)},
-	{"STATEMENT", "Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaExpressionTree$BodyKind, STATEMENT)},
-	{"$VALUES", "[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaExpressionTree$BodyKind, $VALUES)},
-	{}
-};
-
-$MethodInfo _LambdaExpressionTree$BodyKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaExpressionTree$BodyKind, $values, $LambdaExpressionTree$BodyKindArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LambdaExpressionTree$BodyKind, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaExpressionTree$BodyKind, valueOf, LambdaExpressionTree$BodyKind*, $String*)},
-	{"values", "()[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaExpressionTree$BodyKind, values, $LambdaExpressionTree$BodyKindArray*)},
-	{}
-};
-
-$InnerClassInfo _LambdaExpressionTree$BodyKind_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.LambdaExpressionTree$BodyKind", "com.sun.source.tree.LambdaExpressionTree", "BodyKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LambdaExpressionTree$BodyKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.source.tree.LambdaExpressionTree$BodyKind",
-	"java.lang.Enum",
-	nullptr,
-	_LambdaExpressionTree$BodyKind_FieldInfo_,
-	_LambdaExpressionTree$BodyKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;>;",
-	nullptr,
-	_LambdaExpressionTree$BodyKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.LambdaExpressionTree"
-};
-
-$Object* allocate$LambdaExpressionTree$BodyKind($Class* clazz) {
-	return $of($alloc(LambdaExpressionTree$BodyKind));
-}
 
 LambdaExpressionTree$BodyKind* LambdaExpressionTree$BodyKind::EXPRESSION = nullptr;
 LambdaExpressionTree$BodyKind* LambdaExpressionTree$BodyKind::STATEMENT = nullptr;
@@ -85,7 +44,7 @@ void LambdaExpressionTree$BodyKind::init$($String* $enum$name, int32_t $enum$ord
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$LambdaExpressionTree$BodyKind($Class* class$) {
+void LambdaExpressionTree$BodyKind::clinit$($Class* clazz) {
 	$assignStatic(LambdaExpressionTree$BodyKind::EXPRESSION, $new(LambdaExpressionTree$BodyKind, "EXPRESSION"_s, 0));
 	$assignStatic(LambdaExpressionTree$BodyKind::STATEMENT, $new(LambdaExpressionTree$BodyKind, "STATEMENT"_s, 1));
 	$assignStatic(LambdaExpressionTree$BodyKind::$VALUES, LambdaExpressionTree$BodyKind::$values());
@@ -95,7 +54,41 @@ LambdaExpressionTree$BodyKind::LambdaExpressionTree$BodyKind() {
 }
 
 $Class* LambdaExpressionTree$BodyKind::load$($String* name, bool initialize) {
-	$loadClass(LambdaExpressionTree$BodyKind, name, initialize, &_LambdaExpressionTree$BodyKind_ClassInfo_, clinit$LambdaExpressionTree$BodyKind, allocate$LambdaExpressionTree$BodyKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXPRESSION", "Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaExpressionTree$BodyKind, EXPRESSION)},
+		{"STATEMENT", "Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(LambdaExpressionTree$BodyKind, STATEMENT)},
+		{"$VALUES", "[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(LambdaExpressionTree$BodyKind, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LambdaExpressionTree$BodyKind, $values, $LambdaExpressionTree$BodyKindArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(LambdaExpressionTree$BodyKind, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaExpressionTree$BodyKind, valueOf, LambdaExpressionTree$BodyKind*, $String*)},
+		{"values", "()[Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(LambdaExpressionTree$BodyKind, values, $LambdaExpressionTree$BodyKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.LambdaExpressionTree$BodyKind", "com.sun.source.tree.LambdaExpressionTree", "BodyKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.source.tree.LambdaExpressionTree$BodyKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.LambdaExpressionTree"
+	};
+	$loadClass(LambdaExpressionTree$BodyKind, name, initialize, &classInfo$$, LambdaExpressionTree$BodyKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LambdaExpressionTree$BodyKind));
+	});
 	return class$;
 }
 

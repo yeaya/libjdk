@@ -115,6 +115,7 @@ public:
 	Win32PrintService();
 	virtual $Object* clone() override;
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual void addPrintServiceAttributeListener(::javax::print::event::PrintServiceAttributeListener* listener) override;
 	bool addToUniqueList(::java::util::ArrayList* msnList, ::javax::print::attribute::standard::MediaSizeName* mediaName);

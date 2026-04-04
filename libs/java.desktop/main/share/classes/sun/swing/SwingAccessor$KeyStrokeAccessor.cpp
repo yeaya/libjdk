@@ -1,5 +1,4 @@
 #include <sun/swing/SwingAccessor$KeyStrokeAccessor.h>
-
 #include <javax/swing/KeyStroke.h>
 #include <sun/swing/SwingAccessor.h>
 #include <jcpp.h>
@@ -12,38 +11,33 @@ using $KeyStroke = ::javax::swing::KeyStroke;
 namespace sun {
 	namespace swing {
 
-$MethodInfo _SwingAccessor$KeyStrokeAccessor_MethodInfo_[] = {
-	{"create", "()Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingAccessor$KeyStrokeAccessor, create, $KeyStroke*)},
-	{}
-};
-
-$InnerClassInfo _SwingAccessor$KeyStrokeAccessor_InnerClassesInfo_[] = {
-	{"sun.swing.SwingAccessor$KeyStrokeAccessor", "sun.swing.SwingAccessor", "KeyStrokeAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SwingAccessor$KeyStrokeAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.swing.SwingAccessor$KeyStrokeAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SwingAccessor$KeyStrokeAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingAccessor$KeyStrokeAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.SwingAccessor"
-};
-
-$Object* allocate$SwingAccessor$KeyStrokeAccessor($Class* clazz) {
-	return $of($alloc(SwingAccessor$KeyStrokeAccessor));
-}
-
 $Class* SwingAccessor$KeyStrokeAccessor::load$($String* name, bool initialize) {
-	$loadClass(SwingAccessor$KeyStrokeAccessor, name, initialize, &_SwingAccessor$KeyStrokeAccessor_ClassInfo_, allocate$SwingAccessor$KeyStrokeAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"create", "()Ljavax/swing/KeyStroke;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SwingAccessor$KeyStrokeAccessor, create, $KeyStroke*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.SwingAccessor$KeyStrokeAccessor", "sun.swing.SwingAccessor", "KeyStrokeAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.swing.SwingAccessor$KeyStrokeAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.SwingAccessor"
+	};
+	$loadClass(SwingAccessor$KeyStrokeAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingAccessor$KeyStrokeAccessor);
+	});
 	return class$;
 }
 

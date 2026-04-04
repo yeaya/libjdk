@@ -29,6 +29,7 @@ class RTFAttributes : public ::java::lang::Object {
 	$class(RTFAttributes, 0, ::java::lang::Object)
 public:
 	RTFAttributes();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::util::Dictionary* attributesByKeyword();
 	static $Array<::javax::swing::text::rtf::RTFAttribute>* attributes;

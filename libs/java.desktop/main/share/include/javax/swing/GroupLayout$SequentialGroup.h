@@ -32,6 +32,7 @@ class $import GroupLayout$SequentialGroup : public ::javax::swing::GroupLayout$G
 	$class(GroupLayout$SequentialGroup, 0, ::javax::swing::GroupLayout$Group)
 public:
 	GroupLayout$SequentialGroup();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::GroupLayout* this$0);
 	virtual ::javax::swing::GroupLayout$SequentialGroup* addComponent(::java::awt::Component* component) override;
 	virtual ::javax::swing::GroupLayout$SequentialGroup* addComponent(bool useAsBaseline, ::java::awt::Component* component);

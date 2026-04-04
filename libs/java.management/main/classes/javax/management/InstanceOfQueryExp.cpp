@@ -1,5 +1,4 @@
 #include <javax/management/InstanceOfQueryExp.h>
-
 #include <java/lang/ClassCastException.h>
 #include <javax/management/BadStringOperationException.h>
 #include <javax/management/InstanceNotFoundException.h>
@@ -24,38 +23,6 @@ using $StringValueExp = ::javax::management::StringValueExp;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _InstanceOfQueryExp_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstanceOfQueryExp, serialVersionUID)},
-	{"classNameValue", "Ljavax/management/StringValueExp;", nullptr, $PRIVATE, $field(InstanceOfQueryExp, classNameValue)},
-	{}
-};
-
-$MethodInfo _InstanceOfQueryExp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/management/StringValueExp;)V", nullptr, $PUBLIC, $method(InstanceOfQueryExp, init$, void, $StringValueExp*)},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getClassNameValue", "()Ljavax/management/StringValueExp;", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, getClassNameValue, $StringValueExp*)},
-	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, toString, $String*)},
-	{}
-};
-
-$ClassInfo _InstanceOfQueryExp_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.InstanceOfQueryExp",
-	"javax.management.QueryEval",
-	"javax.management.QueryExp",
-	_InstanceOfQueryExp_FieldInfo_,
-	_InstanceOfQueryExp_MethodInfo_
-};
-
-$Object* allocate$InstanceOfQueryExp($Class* clazz) {
-	return $of($alloc(InstanceOfQueryExp));
-}
 
 void InstanceOfQueryExp::setMBeanServer($MBeanServer* s) {
 	this->$QueryEval::setMBeanServer(s);
@@ -90,7 +57,7 @@ $StringValueExp* InstanceOfQueryExp::getClassNameValue() {
 }
 
 bool InstanceOfQueryExp::apply($ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringValueExp, val, nullptr);
 	try {
 		$assign(val, $cast($StringValueExp, $nc(this->classNameValue)->apply(name)));
@@ -100,7 +67,7 @@ bool InstanceOfQueryExp::apply($ObjectName* name) {
 		$throw(y);
 	}
 	try {
-		return $nc($(getMBeanServer()))->isInstanceOf(name, $($nc(val)->getValue()));
+		return $$nc(getMBeanServer())->isInstanceOf(name, $($nc(val)->getValue()));
 	} catch ($InstanceNotFoundException& infe) {
 		return false;
 	}
@@ -115,7 +82,34 @@ InstanceOfQueryExp::InstanceOfQueryExp() {
 }
 
 $Class* InstanceOfQueryExp::load$($String* name, bool initialize) {
-	$loadClass(InstanceOfQueryExp, name, initialize, &_InstanceOfQueryExp_ClassInfo_, allocate$InstanceOfQueryExp);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstanceOfQueryExp, serialVersionUID)},
+		{"classNameValue", "Ljavax/management/StringValueExp;", nullptr, $PRIVATE, $field(InstanceOfQueryExp, classNameValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/management/StringValueExp;)V", nullptr, $PUBLIC, $method(InstanceOfQueryExp, init$, void, $StringValueExp*)},
+		{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"getClassNameValue", "()Ljavax/management/StringValueExp;", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, getClassNameValue, $StringValueExp*)},
+		{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InstanceOfQueryExp, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.InstanceOfQueryExp",
+		"javax.management.QueryEval",
+		"javax.management.QueryExp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstanceOfQueryExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InstanceOfQueryExp));
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <sun/security/krb5/SCDynamicStoreConfig.h>
-
 #include <java/io/IOException.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -14,14 +12,12 @@
 #undef DEBUG
 
 using $IOException = ::java::io::IOException;
-using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -33,47 +29,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _SCDynamicStoreConfig_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SCDynamicStoreConfig, DEBUG)},
-	{}
-};
-
-$MethodInfo _SCDynamicStoreConfig_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SCDynamicStoreConfig, init$, void)},
-	{"getConfig", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(SCDynamicStoreConfig, getConfig, $Hashtable*), "java.io.IOException"},
-	{"getKerberosConfig", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(SCDynamicStoreConfig, getKerberosConfig, $List*)},
-	{"installNotificationCallback", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SCDynamicStoreConfig, installNotificationCallback, void)},
-	{"v1", "(Ljava/lang/String;)Ljava/util/Vector;", "(Ljava/lang/String;)Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SCDynamicStoreConfig, v1, $Vector*, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_getKerberosConfig 2
-#define _METHOD_INDEX_installNotificationCallback 3
-
-$InnerClassInfo _SCDynamicStoreConfig_InnerClassesInfo_[] = {
-	{"sun.security.krb5.SCDynamicStoreConfig$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SCDynamicStoreConfig_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.SCDynamicStoreConfig",
-	"java.lang.Object",
-	nullptr,
-	_SCDynamicStoreConfig_FieldInfo_,
-	_SCDynamicStoreConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SCDynamicStoreConfig_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.SCDynamicStoreConfig$1"
-};
-
-$Object* allocate$SCDynamicStoreConfig($Class* clazz) {
-	return $of($alloc(SCDynamicStoreConfig));
-}
-
 bool SCDynamicStoreConfig::DEBUG = false;
 
 void SCDynamicStoreConfig::init$() {
@@ -81,23 +36,22 @@ void SCDynamicStoreConfig::init$() {
 
 void SCDynamicStoreConfig::installNotificationCallback() {
 	$init(SCDynamicStoreConfig);
-	$prepareNativeStatic(SCDynamicStoreConfig, installNotificationCallback, void);
+	$prepareNativeStatic(installNotificationCallback, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 $List* SCDynamicStoreConfig::getKerberosConfig() {
 	$init(SCDynamicStoreConfig);
-	$var($List, $ret, nullptr);
-	$prepareNativeStatic(SCDynamicStoreConfig, getKerberosConfig, $List*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getKerberosConfig, $List*);
+	$var($List, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Hashtable* SCDynamicStoreConfig::getConfig() {
 	$init(SCDynamicStoreConfig);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, list, getKerberosConfig());
 	if (list == nullptr) {
 		$throwNew($IOException, "Could not load configuration from SCDynamicStore"_s);
@@ -142,8 +96,8 @@ $Hashtable* SCDynamicStoreConfig::getConfig() {
 		if (!$nc(iterator)->hasNext()) {
 			break;
 		}
-		$var($Object, var$0, $cast($String, $nc(iterator)->next()));
-		mapping->put(var$0, $(v1($cast($String, $(iterator->next())))));
+		$var($Object, var$0, $cast($String, iterator->next()));
+		mapping->put(var$0, $(v1($$cast($String, iterator->next()))));
 	}
 	if (!mapping->isEmpty()) {
 		v->put("domain_realm"_s, mapping);
@@ -158,13 +112,13 @@ $Vector* SCDynamicStoreConfig::v1($String* s) {
 	return out;
 }
 
-void clinit$SCDynamicStoreConfig($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void SCDynamicStoreConfig::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($Krb5);
 	SCDynamicStoreConfig::DEBUG = $Krb5::DEBUG;
 	{
-		bool isMac = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SCDynamicStoreConfig$1)))))))->booleanValue();
+		bool isMac = $$sure($Boolean, $AccessController::doPrivileged($$new($SCDynamicStoreConfig$1)))->booleanValue();
 		if (isMac) {
 			SCDynamicStoreConfig::installNotificationCallback();
 		}
@@ -175,7 +129,39 @@ SCDynamicStoreConfig::SCDynamicStoreConfig() {
 }
 
 $Class* SCDynamicStoreConfig::load$($String* name, bool initialize) {
-	$loadClass(SCDynamicStoreConfig, name, initialize, &_SCDynamicStoreConfig_ClassInfo_, clinit$SCDynamicStoreConfig, allocate$SCDynamicStoreConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SCDynamicStoreConfig, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SCDynamicStoreConfig, init$, void)},
+		{"getConfig", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(SCDynamicStoreConfig, getConfig, $Hashtable*), "java.io.IOException"},
+		{"getKerberosConfig", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC | $NATIVE, $staticMethod(SCDynamicStoreConfig, getKerberosConfig, $List*)},
+		{"installNotificationCallback", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SCDynamicStoreConfig, installNotificationCallback, void)},
+		{"v1", "(Ljava/lang/String;)Ljava/util/Vector;", "(Ljava/lang/String;)Ljava/util/Vector<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(SCDynamicStoreConfig, v1, $Vector*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.SCDynamicStoreConfig$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.SCDynamicStoreConfig",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.SCDynamicStoreConfig$1"
+	};
+	$loadClass(SCDynamicStoreConfig, name, initialize, &classInfo$$, SCDynamicStoreConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SCDynamicStoreConfig);
+	});
 	return class$;
 }
 

@@ -59,6 +59,7 @@ class $import JScrollBar : public ::javax::swing::JComponent, public ::java::awt
 	$class(JScrollBar, 0, ::javax::swing::JComponent, ::java::awt::Adjustable, ::javax::accessibility::Accessible)
 public:
 	JScrollBar();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JComponent::contains;
 	using ::javax::swing::JComponent::enable;
 	using ::javax::swing::JComponent::getBounds;

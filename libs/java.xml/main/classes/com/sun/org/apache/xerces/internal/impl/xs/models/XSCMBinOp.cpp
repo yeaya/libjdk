@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/models/XSCMBinOp.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMNode.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl.h>
@@ -26,38 +25,9 @@ namespace com {
 							namespace xs {
 								namespace models {
 
-$FieldInfo _XSCMBinOp_FieldInfo_[] = {
-	{"fLeftChild", "Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $field(XSCMBinOp, fLeftChild)},
-	{"fRightChild", "Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $field(XSCMBinOp, fRightChild)},
-	{}
-};
-
-$MethodInfo _XSCMBinOp_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PUBLIC, $method(XSCMBinOp, init$, void, int32_t, $CMNode*, $CMNode*)},
-	{"calcFirstPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(XSCMBinOp, calcFirstPos, void, $CMStateSet*)},
-	{"calcLastPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(XSCMBinOp, calcLastPos, void, $CMStateSet*)},
-	{"getLeft", "()Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $FINAL, $method(XSCMBinOp, getLeft, $CMNode*)},
-	{"getRight", "()Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $FINAL, $method(XSCMBinOp, getRight, $CMNode*)},
-	{"isNullable", "()Z", nullptr, $PUBLIC, $virtualMethod(XSCMBinOp, isNullable, bool)},
-	{}
-};
-
-$ClassInfo _XSCMBinOp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMBinOp",
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.CMNode",
-	nullptr,
-	_XSCMBinOp_FieldInfo_,
-	_XSCMBinOp_MethodInfo_
-};
-
-$Object* allocate$XSCMBinOp($Class* clazz) {
-	return $of($alloc(XSCMBinOp));
-}
-
 void XSCMBinOp::init$(int32_t type, $CMNode* leftNode, $CMNode* rightNode) {
 	$CMNode::init$(type);
-	bool var$0 = (this->type() != $XSModelGroupImpl::MODELGROUP_CHOICE);
+	bool var$0 = this->type() != $XSModelGroupImpl::MODELGROUP_CHOICE;
 	if (var$0 && (this->type() != $XSModelGroupImpl::MODELGROUP_SEQUENCE)) {
 		$throwNew($RuntimeException, "ImplementationMessages.VAL_BST"_s);
 	}
@@ -86,7 +56,7 @@ bool XSCMBinOp::isNullable() {
 }
 
 void XSCMBinOp::calcFirstPos($CMStateSet* toSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type() == $XSModelGroupImpl::MODELGROUP_CHOICE) {
 		$nc(toSet)->setTo($($nc(this->fLeftChild)->firstPos()));
 		toSet->union$($($nc(this->fRightChild)->firstPos()));
@@ -101,7 +71,7 @@ void XSCMBinOp::calcFirstPos($CMStateSet* toSet) {
 }
 
 void XSCMBinOp::calcLastPos($CMStateSet* toSet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type() == $XSModelGroupImpl::MODELGROUP_CHOICE) {
 		$nc(toSet)->setTo($($nc(this->fLeftChild)->lastPos()));
 		toSet->union$($($nc(this->fRightChild)->lastPos()));
@@ -119,7 +89,31 @@ XSCMBinOp::XSCMBinOp() {
 }
 
 $Class* XSCMBinOp::load$($String* name, bool initialize) {
-	$loadClass(XSCMBinOp, name, initialize, &_XSCMBinOp_ClassInfo_, allocate$XSCMBinOp);
+	$FieldInfo fieldInfos$$[] = {
+		{"fLeftChild", "Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $field(XSCMBinOp, fLeftChild)},
+		{"fRightChild", "Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $PRIVATE, $field(XSCMBinOp, fRightChild)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;)V", nullptr, $PUBLIC, $method(XSCMBinOp, init$, void, int32_t, $CMNode*, $CMNode*)},
+		{"calcFirstPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(XSCMBinOp, calcFirstPos, void, $CMStateSet*)},
+		{"calcLastPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(XSCMBinOp, calcLastPos, void, $CMStateSet*)},
+		{"getLeft", "()Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $FINAL, $method(XSCMBinOp, getLeft, $CMNode*)},
+		{"getRight", "()Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMNode;", nullptr, $FINAL, $method(XSCMBinOp, getRight, $CMNode*)},
+		{"isNullable", "()Z", nullptr, $PUBLIC, $virtualMethod(XSCMBinOp, isNullable, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.models.XSCMBinOp",
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.CMNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSCMBinOp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSCMBinOp);
+	});
 	return class$;
 }
 

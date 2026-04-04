@@ -64,6 +64,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Container* nativeContainer);
 	virtual bool dispatchEvent(::java::awt::AWTEvent* e);
 	virtual void dispose();
@@ -80,7 +81,7 @@ public:
 	void trackDropTargetEnterExit(::java::awt::Component* targetOver, ::java::awt::event::MouseEvent* e);
 	void trackMouseEnterExit(::java::awt::Component* targetOver, ::java::awt::event::MouseEvent* e);
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0x47F24DAB87DAD089;
+	static const int64_t serialVersionUID = (int64_t)0x47f24dab87dad089;
 	static const int32_t LWD_MOUSE_DRAGGED_OVER = 1500;
 	static ::sun::util::logging::PlatformLogger* eventLog;
 	static int32_t BUTTONS_DOWN_MASK;

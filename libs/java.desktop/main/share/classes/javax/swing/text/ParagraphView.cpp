@@ -1,12 +1,10 @@
 #include <javax/swing/text/ParagraphView.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/font/TextAttribute.h>
-#include <java/awt/geom/Rectangle2D.h>
 #include <java/lang/Math.h>
 #include <javax/swing/SizeRequirements.h>
 #include <javax/swing/SwingConstants.h>
@@ -20,7 +18,6 @@
 #include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/FlowView$FlowStrategy.h>
 #include <javax/swing/text/FlowView.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/ParagraphView$Row.h>
@@ -55,7 +52,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $TextAttribute = ::java::awt::font::TextAttribute;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -76,7 +72,6 @@ using $Caret = ::javax::swing::text::Caret;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $FlowView = ::javax::swing::text::FlowView;
-using $FlowView$FlowStrategy = ::javax::swing::text::FlowView$FlowStrategy;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $ParagraphView$Row = ::javax::swing::text::ParagraphView$Row;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
@@ -93,75 +88,6 @@ using $ViewFactory = ::javax::swing::text::ViewFactory;
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _ParagraphView_FieldInfo_[] = {
-	{"justification", "I", nullptr, $PRIVATE, $field(ParagraphView, justification)},
-	{"lineSpacing", "F", nullptr, $PRIVATE, $field(ParagraphView, lineSpacing)},
-	{"firstLineIndent", "I", nullptr, $PROTECTED, $field(ParagraphView, firstLineIndent)},
-	{"tabBase", "I", nullptr, $PRIVATE, $field(ParagraphView, tabBase)},
-	{"i18nStrategy", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(ParagraphView, i18nStrategy)},
-	{"tabChars", "[C", nullptr, $STATIC, $staticField(ParagraphView, tabChars)},
-	{"tabDecimalChars", "[C", nullptr, $STATIC, $staticField(ParagraphView, tabDecimalChars)},
-	{}
-};
-
-$MethodInfo _ParagraphView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ParagraphView, init$, void, $Element*)},
-	{"breakView", "(IFLjava/awt/Shape;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(ParagraphView, breakView, $View*, int32_t, float, $Shape*)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(ParagraphView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ParagraphView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"createRow", "()Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(ParagraphView, createRow, $View*)},
-	{"findEdgeSpan", "(Ljavax/swing/text/View;IIII)F", nullptr, $PRIVATE, $method(ParagraphView, findEdgeSpan, float, $View*, int32_t, int32_t, int32_t, int32_t)},
-	{"findOffsetToCharactersInString", "([CI)I", nullptr, $PROTECTED, $virtualMethod(ParagraphView, findOffsetToCharactersInString, int32_t, $chars*, int32_t)},
-	{"flipEastAndWestAtEnds", "(ILjavax/swing/text/Position$Bias;)Z", nullptr, $PROTECTED, $virtualMethod(ParagraphView, flipEastAndWestAtEnds, bool, int32_t, $Position$Bias*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ParagraphView, getAlignment, float, int32_t)},
-	{"getBreakWeight", "(IF)I", nullptr, $PUBLIC, $virtualMethod(ParagraphView, getBreakWeight, int32_t, int32_t, float)},
-	{"getClosestPositionTo", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;II)I", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getClosestPositionTo, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getFlowSpan", "(I)I", nullptr, $PUBLIC, $virtualMethod(ParagraphView, getFlowSpan, int32_t, int32_t)},
-	{"getFlowStart", "(I)I", nullptr, $PUBLIC, $virtualMethod(ParagraphView, getFlowStart, int32_t, int32_t)},
-	{"getLayoutView", "(I)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getLayoutView, $View*, int32_t)},
-	{"getLayoutViewCount", "()I", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getLayoutViewCount, int32_t)},
-	{"getNextNorthSouthVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getNextNorthSouthVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
-	{"getPartialSize", "(II)F", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getPartialSize, float, int32_t, int32_t)},
-	{"getTabBase", "()F", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getTabBase, float)},
-	{"getTabSet", "()Ljavax/swing/text/TabSet;", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getTabSet, $TabSet*)},
-	{"nextTabStop", "(FI)F", nullptr, $PUBLIC, $virtualMethod(ParagraphView, nextTabStop, float, float, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ParagraphView, paint, void, $Graphics*, $Shape*)},
-	{"setFirstLineIndent", "(F)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView, setFirstLineIndent, void, float)},
-	{"setJustification", "(I)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView, setJustification, void, int32_t)},
-	{"setLineSpacing", "(F)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView, setLineSpacing, void, float)},
-	{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(ParagraphView, setPropertiesFromAttributes, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _ParagraphView_InnerClassesInfo_[] = {
-	{"javax.swing.text.ParagraphView$Row", "javax.swing.text.ParagraphView", "Row", 0},
-	{}
-};
-
-$ClassInfo _ParagraphView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.ParagraphView",
-	"javax.swing.text.FlowView",
-	"javax.swing.text.TabExpander",
-	_ParagraphView_FieldInfo_,
-	_ParagraphView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ParagraphView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.ParagraphView$Row"
-};
-
-$Object* allocate$ParagraphView($Class* clazz) {
-	return $of($alloc(ParagraphView));
-}
 
 int32_t ParagraphView::hashCode() {
 	 return this->$FlowView::hashCode();
@@ -188,15 +114,14 @@ $chars* ParagraphView::tabChars = nullptr;
 $chars* ParagraphView::tabDecimalChars = nullptr;
 
 void ParagraphView::init$($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$FlowView::init$(elem, $View::Y_AXIS);
 	this->firstLineIndent = 0;
 	setPropertiesFromAttributes();
 	$var($Document, doc, $nc(elem)->getDocument());
 	$init($AbstractDocument);
 	$var($Object, i18nFlag, $nc(doc)->getProperty($AbstractDocument::I18NProperty));
-	$init($Boolean);
-	if ((i18nFlag != nullptr) && $of(i18nFlag)->equals($Boolean::TRUE)) {
+	if ((i18nFlag != nullptr) && i18nFlag->equals($Boolean::TRUE)) {
 		try {
 			$set(this, strategy, $new($TextLayoutStrategy));
 		} catch ($Throwable& e) {
@@ -218,7 +143,7 @@ void ParagraphView::setFirstLineIndent(float fi) {
 }
 
 void ParagraphView::setPropertiesFromAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AttributeSet, attr, getAttributes());
 	if (attr != nullptr) {
 		setParagraphInsets(attr);
@@ -226,16 +151,16 @@ void ParagraphView::setPropertiesFromAttributes() {
 		$var($Integer, a, $cast($Integer, attr->getAttribute($StyleConstants::Alignment)));
 		int32_t alignment = 0;
 		if (a == nullptr) {
-			$var($Document, doc, $nc($(getElement()))->getDocument());
+			$var($Document, doc, $$nc(getElement())->getDocument());
 			$init($TextAttribute);
 			$var($Object, o, $nc(doc)->getProperty($TextAttribute::RUN_DIRECTION));
-			if ((o != nullptr) && $of(o)->equals($TextAttribute::RUN_DIRECTION_RTL)) {
+			if ((o != nullptr) && o->equals($TextAttribute::RUN_DIRECTION_RTL)) {
 				alignment = $StyleConstants::ALIGN_RIGHT;
 			} else {
 				alignment = $StyleConstants::ALIGN_LEFT;
 			}
 		} else {
-			alignment = $nc(a)->intValue();
+			alignment = a->intValue();
 		}
 		setJustification(alignment);
 		setLineSpacing($StyleConstants::getLineSpacing(attr));
@@ -252,7 +177,7 @@ $View* ParagraphView::getLayoutView(int32_t index) {
 }
 
 int32_t ParagraphView::getNextNorthSouthVisualPositionFrom(int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t vIndex = 0;
 	if (pos == -1) {
 		vIndex = (direction == $SwingConstants::NORTH) ? getViewCount() - 1 : 0;
@@ -275,75 +200,71 @@ int32_t ParagraphView::getNextNorthSouthVisualPositionFrom(int32_t pos, $Positio
 	$var($JTextComponent, text, $cast($JTextComponent, getContainer()));
 	$var($Caret, c, $nc(text)->getCaret());
 	$var($Point, magicPoint, nullptr);
-	$assign(magicPoint, (c != nullptr) ? $nc(c)->getMagicCaretPosition() : ($Point*)nullptr);
+	$assign(magicPoint, (c != nullptr) ? c->getMagicCaretPosition() : ($Point*)nullptr);
 	int32_t x = 0;
 	if (magicPoint == nullptr) {
 		$var($Shape, posBounds, nullptr);
 		try {
-			$assign(posBounds, $nc($($cast($TextUI, text->getUI())))->modelToView(text, pos, b));
+			$assign(posBounds, $$sure($TextUI, text->getUI())->modelToView(text, pos, b));
 		} catch ($BadLocationException& exc) {
 			$assign(posBounds, nullptr);
 		}
 		if (posBounds == nullptr) {
 			x = 0;
 		} else {
-			x = $nc($($nc(posBounds)->getBounds()))->x;
+			x = $nc($(posBounds->getBounds()))->x;
 		}
 	} else {
-		x = $nc(magicPoint)->x;
+		x = magicPoint->x;
 	}
 	return getClosestPositionTo(pos, b, a, direction, biasRet, vIndex, x);
 }
 
 int32_t ParagraphView::getClosestPositionTo(int32_t pos, $Position$Bias* b, $Shape* a, int32_t direction, $Position$BiasArray* biasRet, int32_t rowIndex, int32_t x) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, text, $cast($JTextComponent, getContainer()));
 	$var($Document, doc, getDocument());
 	$var($View, row, getView(rowIndex));
 	int32_t lastPos = -1;
 	$init($Position$Bias);
 	$nc(biasRet)->set(0, $Position$Bias::Forward);
-	{
-		int32_t vc = 0;
-		int32_t numViews = $nc(row)->getViewCount();
-		for (; vc < numViews; ++vc) {
-			$var($View, v, row->getView(vc));
-			int32_t start = $nc(v)->getStartOffset();
-			bool ltr = $AbstractDocument::isLeftToRight(doc, start, start + 1);
-			if (ltr) {
-				lastPos = start;
-				for (int32_t end = v->getEndOffset(); lastPos < end; ++lastPos) {
-					float xx = (float)$nc($($nc($($nc(text)->modelToView(lastPos)))->getBounds()))->x;
-					if (xx >= x) {
-						while (true) {
-							bool var$0 = ++lastPos < end;
-							if (!(var$0 && $nc($($nc($(text->modelToView(lastPos)))->getBounds()))->x == xx)) {
-								break;
-							}
-							{
-							}
+	for (int32_t vc = 0, numViews = $nc(row)->getViewCount(); vc < numViews; ++vc) {
+		$var($View, v, row->getView(vc));
+		int32_t start = $nc(v)->getStartOffset();
+		bool ltr = $AbstractDocument::isLeftToRight(doc, start, start + 1);
+		if (ltr) {
+			lastPos = start;
+			for (int32_t end = v->getEndOffset(); lastPos < end; ++lastPos) {
+				float xx = (float)$nc($($$nc($nc(text)->modelToView(lastPos))->getBounds()))->x;
+				if (xx >= x) {
+					while (true) {
+						bool var$0 = ++lastPos < end;
+						if (!(var$0 && $nc($($$nc(text->modelToView(lastPos))->getBounds()))->x == xx)) {
+							break;
 						}
-						return --lastPos;
-					}
-				}
-				--lastPos;
-			} else {
-				for (lastPos = v->getEndOffset() - 1; lastPos >= start; --lastPos) {
-					float xx = (float)$nc($($nc($($nc(text)->modelToView(lastPos)))->getBounds()))->x;
-					if (xx >= x) {
-						while (true) {
-							bool var$1 = --lastPos >= start;
-							if (!(var$1 && $nc($($nc($(text->modelToView(lastPos)))->getBounds()))->x == xx)) {
-								break;
-							}
-							{
-							}
+						{
 						}
-						return ++lastPos;
 					}
+					return --lastPos;
 				}
-				++lastPos;
 			}
+			--lastPos;
+		} else {
+			for (lastPos = v->getEndOffset() - 1; lastPos >= start; --lastPos) {
+				float xx = (float)$nc($($$nc($nc(text)->modelToView(lastPos))->getBounds()))->x;
+				if (xx >= x) {
+					while (true) {
+						bool var$1 = --lastPos >= start;
+						if (!(var$1 && $nc($($$nc(text->modelToView(lastPos))->getBounds()))->x == xx)) {
+							break;
+						}
+						{
+						}
+					}
+					return ++lastPos;
+				}
+			}
+			++lastPos;
 		}
 	}
 	if (lastPos == -1) {
@@ -359,24 +280,24 @@ bool ParagraphView::flipEastAndWestAtEnds(int32_t position, $Position$Bias* bias
 }
 
 int32_t ParagraphView::getFlowSpan(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, child, getView(index));
 	int32_t adjust = 0;
 	if ($instanceOf($ParagraphView$Row, child)) {
 		$var($ParagraphView$Row, row, $cast($ParagraphView$Row, child));
-		int16_t var$0 = $nc(row)->getLeftInset();
+		int16_t var$0 = row->getLeftInset();
 		adjust = var$0 + row->getRightInset();
 	}
 	return (this->layoutSpan == $Integer::MAX_VALUE) ? this->layoutSpan : (this->layoutSpan - adjust);
 }
 
 int32_t ParagraphView::getFlowStart(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($View, child, getView(index));
 	int32_t adjust = 0;
 	if ($instanceOf($ParagraphView$Row, child)) {
 		$var($ParagraphView$Row, row, $cast($ParagraphView$Row, child));
-		adjust = $nc(row)->getLeftInset();
+		adjust = row->getLeftInset();
 	}
 	return this->tabBase + adjust;
 }
@@ -386,7 +307,7 @@ $View* ParagraphView::createRow() {
 }
 
 float ParagraphView::nextTabStop(float x, int32_t tabOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->justification != $StyleConstants::ALIGN_LEFT) {
 		return x + 10.0f;
 	}
@@ -403,27 +324,17 @@ float ParagraphView::nextTabStop(float x, int32_t tabOffset) {
 	int32_t offset = 0;
 	switch (alignment) {
 	default:
-		{}
 	case $TabStop::ALIGN_LEFT:
-		{
-			return this->tabBase + tab->getPosition();
-		}
+		return this->tabBase + tab->getPosition();
 	case $TabStop::ALIGN_BAR:
-		{
-			return this->tabBase + tab->getPosition();
-		}
+		return this->tabBase + tab->getPosition();
 	case $TabStop::ALIGN_RIGHT:
-		{}
 	case $TabStop::ALIGN_CENTER:
-		{
-			offset = findOffsetToCharactersInString(ParagraphView::tabChars, tabOffset + 1);
-			break;
-		}
+		offset = findOffsetToCharactersInString(ParagraphView::tabChars, tabOffset + 1);
+		break;
 	case $TabStop::ALIGN_DECIMAL:
-		{
-			offset = findOffsetToCharactersInString(ParagraphView::tabDecimalChars, tabOffset + 1);
-			break;
-		}
+		offset = findOffsetToCharactersInString(ParagraphView::tabDecimalChars, tabOffset + 1);
+		break;
 	}
 	if (offset == -1) {
 		offset = getEndOffset();
@@ -431,43 +342,38 @@ float ParagraphView::nextTabStop(float x, int32_t tabOffset) {
 	float charsSize = getPartialSize(tabOffset + 1, offset);
 	switch (alignment) {
 	case $TabStop::ALIGN_RIGHT:
-		{}
 	case $TabStop::ALIGN_DECIMAL:
-		{
-			return this->tabBase + $Math::max(x, tab->getPosition() - charsSize);
-		}
+		return this->tabBase + $Math::max(x, tab->getPosition() - charsSize);
 	case $TabStop::ALIGN_CENTER:
-		{
-			return this->tabBase + $Math::max(x, tab->getPosition() - charsSize / 2.0f);
-		}
+		return this->tabBase + $Math::max(x, tab->getPosition() - charsSize / 2.0f);
 	}
 	return x;
 }
 
 $TabSet* ParagraphView::getTabSet() {
-	$useLocalCurrentObjectStackCache();
-	return $StyleConstants::getTabSet($($nc($(getElement()))->getAttributes()));
+	$useLocalObjectStack();
+	return $StyleConstants::getTabSet($($$nc(getElement())->getAttributes()));
 }
 
 float ParagraphView::getPartialSize(int32_t startOffset, int32_t endOffset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	float size = 0.0f;
 	int32_t viewIndex = 0;
 	int32_t numViews = getViewCount();
 	$var($View, view, nullptr);
 	int32_t viewEnd = 0;
 	int32_t tempEnd = 0;
-	viewIndex = $nc($(getElement()))->getElementIndex(startOffset);
+	viewIndex = $$nc(getElement())->getElementIndex(startOffset);
 	numViews = $nc(this->layoutPool)->getViewCount();
 	while (startOffset < endOffset && viewIndex < numViews) {
 		$assign(view, $nc(this->layoutPool)->getView(viewIndex++));
 		viewEnd = $nc(view)->getEndOffset();
 		tempEnd = $Math::min(endOffset, viewEnd);
 		if ($instanceOf($TabableView, view)) {
-			size += $nc(($cast($TabableView, view)))->getPartialSpan(startOffset, tempEnd);
+			size += $cast($TabableView, view)->getPartialSpan(startOffset, tempEnd);
 		} else {
-			bool var$1 = startOffset == view->getStartOffset();
-			if (var$1 && tempEnd == view->getEndOffset()) {
+			bool var$0 = startOffset == view->getStartOffset();
+			if (var$0 && tempEnd == view->getEndOffset()) {
 				size += view->getPreferredSpan($View::X_AXIS);
 			} else {
 				return 0.0f;
@@ -479,24 +385,20 @@ float ParagraphView::getPartialSize(int32_t startOffset, int32_t endOffset) {
 }
 
 int32_t ParagraphView::findOffsetToCharactersInString($chars* string, int32_t start) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t stringLength = $nc(string)->length;
 	int32_t end = getEndOffset();
 	$var($Segment, seg, $new($Segment));
 	try {
-		$nc($(getDocument()))->getText(start, end - start, seg);
+		$$nc(getDocument())->getText(start, end - start, seg);
 	} catch ($BadLocationException& ble) {
 		return -1;
 	}
-	{
-		int32_t counter = seg->offset;
-		int32_t maxCounter = seg->offset + seg->count;
-		for (; counter < maxCounter; ++counter) {
-			char16_t currentChar = $nc(seg->array)->get(counter);
-			for (int32_t subCounter = 0; subCounter < stringLength; ++subCounter) {
-				if (currentChar == string->get(subCounter)) {
-					return counter - seg->offset + start;
-				}
+	for (int32_t counter = seg->offset, maxCounter = seg->offset + seg->count; counter < maxCounter; ++counter) {
+		char16_t currentChar = $nc(seg->array)->get(counter);
+		for (int32_t subCounter = 0; subCounter < stringLength; ++subCounter) {
+			if (currentChar == string->get(subCounter)) {
+				return counter - seg->offset + start;
 			}
 		}
 	}
@@ -508,7 +410,7 @@ float ParagraphView::getTabBase() {
 }
 
 void ParagraphView::paint($Graphics* g, $Shape* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, alloc, ($instanceOf($Rectangle, a)) ? $cast($Rectangle, a) : $nc(a)->getBounds());
 	this->tabBase = $nc(alloc)->x + getLeftInset();
 	$FlowView::paint(g, a);
@@ -531,30 +433,22 @@ void ParagraphView::paint($Graphics* g, $Shape* a) {
 }
 
 float ParagraphView::getAlignment(int32_t axis) {
-	$useLocalCurrentObjectStackCache();
-	{
-		float a = 0;
-		switch (axis) {
-		case $View::Y_AXIS:
-			{
-				a = 0.5f;
-				if (getViewCount() != 0) {
-					int32_t paragraphSpan = $cast(int32_t, getPreferredSpan($View::Y_AXIS));
-					$var($View, v, getView(0));
-					int32_t rowSpan = $cast(int32_t, $nc(v)->getPreferredSpan($View::Y_AXIS));
-					a = (paragraphSpan != 0) ? ((float)(rowSpan / 2)) / paragraphSpan : (float)0;
-				}
-				return a;
-			}
-		case $View::X_AXIS:
-			{
-				return 0.5f;
-			}
-		default:
-			{
-				$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
-			}
+	$useLocalObjectStack();
+	float a = 0;
+	switch (axis) {
+	case $View::Y_AXIS:
+		a = 0.5f;
+		if (getViewCount() != 0) {
+			int32_t paragraphSpan = $cast(int32_t, getPreferredSpan($View::Y_AXIS));
+			$var($View, v, getView(0));
+			int32_t rowSpan = $cast(int32_t, $nc(v)->getPreferredSpan($View::Y_AXIS));
+			a = (paragraphSpan != 0) ? ((float)(rowSpan / 2)) / paragraphSpan : 0;
 		}
+		return a;
+	case $View::X_AXIS:
+		return 0.5f;
+	default:
+		$throwNew($IllegalArgumentException, $$str({"Invalid axis: "_s, $$str(axis)}));
 	}
 }
 
@@ -562,7 +456,7 @@ $View* ParagraphView::breakView(int32_t axis, float len, $Shape* a) {
 	if (axis == $View::Y_AXIS) {
 		if (a != nullptr) {
 			$var($Rectangle, alloc, a->getBounds());
-			setSize((float)$nc(alloc)->width, (float)alloc->height);
+			setSize((float)$nc(alloc)->width, (float)$nc(alloc)->height);
 		}
 		return this;
 	}
@@ -577,16 +471,16 @@ int32_t ParagraphView::getBreakWeight(int32_t axis, float len) {
 }
 
 $SizeRequirements* ParagraphView::calculateMinorAxisRequirements(int32_t axis, $SizeRequirements* r$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, r, r$renamed);
 	$assign(r, $FlowView::calculateMinorAxisRequirements(axis, r));
-	float min = (float)0;
-	float glue = (float)0;
+	float min = 0;
+	float glue = 0;
 	int32_t n = getLayoutViewCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getLayoutView(i));
 		float span = $nc(v)->getMinimumSpan(axis);
-		if (v->getBreakWeight(axis, (float)0, v->getMaximumSpan(axis)) > $View::BadBreakWeight) {
+		if (v->getBreakWeight(axis, 0, v->getMaximumSpan(axis)) > $View::BadBreakWeight) {
 			int32_t p0 = v->getStartOffset();
 			int32_t p1 = v->getEndOffset();
 			float start = findEdgeSpan(v, axis, p0, p0, p1);
@@ -599,7 +493,7 @@ $SizeRequirements* ParagraphView::calculateMinorAxisRequirements(int32_t axis, $
 			min = $Math::max(min, glue);
 		}
 	}
-	$nc(r)->minimum = $Math::max(r->minimum, $cast(int32_t, min));
+	$nc(r)->minimum = $Math::max($nc(r)->minimum, $cast(int32_t, min));
 	r->preferred = $Math::max(r->minimum, r->preferred);
 	r->maximum = $Math::max(r->preferred, r->maximum);
 	return r;
@@ -612,8 +506,8 @@ float ParagraphView::findEdgeSpan($View* v, int32_t axis, int32_t fp, int32_t p0
 	} else {
 		int32_t mid = p0 + len / 2;
 		bool startEdge = mid > fp;
-		$var($View, f, startEdge ? $nc(v)->createFragment(fp, mid) : v->createFragment(mid, fp));
-		bool breakable = $nc(f)->getBreakWeight(axis, (float)0, f->getMaximumSpan(axis)) > $View::BadBreakWeight;
+		$var($View, f, startEdge ? $nc(v)->createFragment(fp, mid) : $nc(v)->createFragment(mid, fp));
+		bool breakable = $nc(f)->getBreakWeight(axis, 0, $nc(f)->getMaximumSpan(axis)) > $View::BadBreakWeight;
 		if (breakable == startEdge) {
 			p1 = mid;
 		} else {
@@ -630,13 +524,13 @@ void ParagraphView::changedUpdate($DocumentEvent* changes, $Shape* a, $ViewFacto
 	$FlowView::changedUpdate(changes, a, f);
 }
 
-void clinit$ParagraphView($Class* class$) {
+void ParagraphView::clinit$($Class* clazz) {
 	{
 		$assignStatic(ParagraphView::tabChars, $new($chars, 1));
-		$nc(ParagraphView::tabChars)->set(0, u'\t');
+		ParagraphView::tabChars->set(0, u'\t');
 		$assignStatic(ParagraphView::tabDecimalChars, $new($chars, 2));
-		$nc(ParagraphView::tabDecimalChars)->set(0, u'\t');
-		$nc(ParagraphView::tabDecimalChars)->set(1, u'.');
+		ParagraphView::tabDecimalChars->set(0, u'\t');
+		ParagraphView::tabDecimalChars->set(1, u'.');
 	}
 }
 
@@ -644,7 +538,70 @@ ParagraphView::ParagraphView() {
 }
 
 $Class* ParagraphView::load$($String* name, bool initialize) {
-	$loadClass(ParagraphView, name, initialize, &_ParagraphView_ClassInfo_, clinit$ParagraphView, allocate$ParagraphView);
+	$FieldInfo fieldInfos$$[] = {
+		{"justification", "I", nullptr, $PRIVATE, $field(ParagraphView, justification)},
+		{"lineSpacing", "F", nullptr, $PRIVATE, $field(ParagraphView, lineSpacing)},
+		{"firstLineIndent", "I", nullptr, $PROTECTED, $field(ParagraphView, firstLineIndent)},
+		{"tabBase", "I", nullptr, $PRIVATE, $field(ParagraphView, tabBase)},
+		{"i18nStrategy", "Ljava/lang/Class;", "Ljava/lang/Class<*>;", $STATIC, $staticField(ParagraphView, i18nStrategy)},
+		{"tabChars", "[C", nullptr, $STATIC, $staticField(ParagraphView, tabChars)},
+		{"tabDecimalChars", "[C", nullptr, $STATIC, $staticField(ParagraphView, tabDecimalChars)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(ParagraphView, init$, void, $Element*)},
+		{"breakView", "(IFLjava/awt/Shape;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(ParagraphView, breakView, $View*, int32_t, float, $Shape*)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(ParagraphView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(ParagraphView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"createRow", "()Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(ParagraphView, createRow, $View*)},
+		{"findEdgeSpan", "(Ljavax/swing/text/View;IIII)F", nullptr, $PRIVATE, $method(ParagraphView, findEdgeSpan, float, $View*, int32_t, int32_t, int32_t, int32_t)},
+		{"findOffsetToCharactersInString", "([CI)I", nullptr, $PROTECTED, $virtualMethod(ParagraphView, findOffsetToCharactersInString, int32_t, $chars*, int32_t)},
+		{"flipEastAndWestAtEnds", "(ILjavax/swing/text/Position$Bias;)Z", nullptr, $PROTECTED, $virtualMethod(ParagraphView, flipEastAndWestAtEnds, bool, int32_t, $Position$Bias*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(ParagraphView, getAlignment, float, int32_t)},
+		{"getBreakWeight", "(IF)I", nullptr, $PUBLIC, $virtualMethod(ParagraphView, getBreakWeight, int32_t, int32_t, float)},
+		{"getClosestPositionTo", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;II)I", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getClosestPositionTo, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getFlowSpan", "(I)I", nullptr, $PUBLIC, $virtualMethod(ParagraphView, getFlowSpan, int32_t, int32_t)},
+		{"getFlowStart", "(I)I", nullptr, $PUBLIC, $virtualMethod(ParagraphView, getFlowStart, int32_t, int32_t)},
+		{"getLayoutView", "(I)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getLayoutView, $View*, int32_t)},
+		{"getLayoutViewCount", "()I", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getLayoutViewCount, int32_t)},
+		{"getNextNorthSouthVisualPositionFrom", "(ILjavax/swing/text/Position$Bias;Ljava/awt/Shape;I[Ljavax/swing/text/Position$Bias;)I", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getNextNorthSouthVisualPositionFrom, int32_t, int32_t, $Position$Bias*, $Shape*, int32_t, $Position$BiasArray*), "javax.swing.text.BadLocationException"},
+		{"getPartialSize", "(II)F", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getPartialSize, float, int32_t, int32_t)},
+		{"getTabBase", "()F", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getTabBase, float)},
+		{"getTabSet", "()Ljavax/swing/text/TabSet;", nullptr, $PROTECTED, $virtualMethod(ParagraphView, getTabSet, $TabSet*)},
+		{"nextTabStop", "(FI)F", nullptr, $PUBLIC, $virtualMethod(ParagraphView, nextTabStop, float, float, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(ParagraphView, paint, void, $Graphics*, $Shape*)},
+		{"setFirstLineIndent", "(F)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView, setFirstLineIndent, void, float)},
+		{"setJustification", "(I)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView, setJustification, void, int32_t)},
+		{"setLineSpacing", "(F)V", nullptr, $PROTECTED, $virtualMethod(ParagraphView, setLineSpacing, void, float)},
+		{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(ParagraphView, setPropertiesFromAttributes, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.ParagraphView$Row", "javax.swing.text.ParagraphView", "Row", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.ParagraphView",
+		"javax.swing.text.FlowView",
+		"javax.swing.text.TabExpander",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.ParagraphView$Row"
+	};
+	$loadClass(ParagraphView, name, initialize, &classInfo$$, ParagraphView::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ParagraphView));
+	});
 	return class$;
 }
 

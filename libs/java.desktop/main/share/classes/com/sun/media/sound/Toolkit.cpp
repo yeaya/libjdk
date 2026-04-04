@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/Toolkit.h>
-
 #include <com/sun/media/sound/Platform.h>
 #include <com/sun/media/sound/Printer.h>
 #include <java/lang/Math.h>
@@ -34,40 +33,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _Toolkit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Toolkit, init$, void)},
-	{"align", "(JI)J", nullptr, $STATIC, $staticMethod(Toolkit, align, int64_t, int64_t, int32_t)},
-	{"align", "(II)I", nullptr, $STATIC, $staticMethod(Toolkit, align, int32_t, int32_t, int32_t)},
-	{"bytes2micros", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, bytes2micros, int64_t, $AudioFormat*, int64_t)},
-	{"bytes2millis", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, bytes2millis, int64_t, $AudioFormat*, int64_t)},
-	{"dBToLinear", "(F)F", nullptr, $STATIC, $staticMethod(Toolkit, dBToLinear, float, float)},
-	{"frames2micros", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, frames2micros, int64_t, $AudioFormat*, int64_t)},
-	{"getByteSwapped", "([BII)V", nullptr, $STATIC, $staticMethod(Toolkit, getByteSwapped, void, $bytes*, int32_t, int32_t)},
-	{"getPCMConvertedAudioInputStream", "(Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Toolkit, getPCMConvertedAudioInputStream, $AudioInputStream*, $AudioInputStream*)},
-	{"getUnsigned8", "([BII)V", nullptr, $STATIC, $staticMethod(Toolkit, getUnsigned8, void, $bytes*, int32_t, int32_t)},
-	{"isFullySpecifiedAudioFormat", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $STATIC, $staticMethod(Toolkit, isFullySpecifiedAudioFormat, void, $AudioFormat*)},
-	{"isFullySpecifiedPCMFormat", "(Ljavax/sound/sampled/AudioFormat;)Z", nullptr, $STATIC, $staticMethod(Toolkit, isFullySpecifiedPCMFormat, bool, $AudioFormat*)},
-	{"linearToDB", "(F)F", nullptr, $STATIC, $staticMethod(Toolkit, linearToDB, float, float)},
-	{"micros2bytes", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, micros2bytes, int64_t, $AudioFormat*, int64_t)},
-	{"micros2frames", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, micros2frames, int64_t, $AudioFormat*, int64_t)},
-	{"millis2bytes", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, millis2bytes, int64_t, $AudioFormat*, int64_t)},
-	{"validateBuffer", "(II)V", nullptr, $STATIC, $staticMethod(Toolkit, validateBuffer, void, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _Toolkit_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.Toolkit",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Toolkit_MethodInfo_
-};
-
-$Object* allocate$Toolkit($Class* clazz) {
-	return $of($alloc(Toolkit));
-}
-
 void Toolkit::init$() {
 }
 
@@ -87,7 +52,7 @@ void Toolkit::getByteSwapped($bytes* b, int32_t off, int32_t len) {
 }
 
 float Toolkit::linearToDB(float linear) {
-	double var$0 = $Math::log(((linear == 0.0) ? 1.0E-4 : (double)linear));
+	double var$0 = $Math::log(((linear == 0.0) ? 1.0E-4 : linear));
 	float dB = (float)(var$0 / $Math::log(10.0) * 20.0);
 	return dB;
 }
@@ -142,66 +107,66 @@ int64_t Toolkit::frames2micros($AudioFormat* format, int64_t frames) {
 }
 
 void Toolkit::validateBuffer(int32_t frameSize, int32_t bufferSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($mod(bufferSize, frameSize) == 0) {
 		return;
 	}
 	$throwNew($IllegalArgumentException, $($String::format("Buffer size (%d) does not represent an integral number of sample frames (%d)"_s, $$new($ObjectArray, {
-		$($of($Integer::valueOf(bufferSize))),
-		$($of($Integer::valueOf(frameSize)))
+		$($Integer::valueOf(bufferSize)),
+		$($Integer::valueOf(frameSize))
 	}))));
 }
 
 void Toolkit::isFullySpecifiedAudioFormat($AudioFormat* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(format)->getFrameSize() <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"invalid frame size: "_s, ((format->getFrameSize() == -1) ? "NOT_SPECIFIED"_s : $($String::valueOf(format->getFrameSize())))}));
 	}
 	$init($AudioFormat$Encoding);
-	bool var$2 = !$nc($($nc(format)->getEncoding()))->equals($AudioFormat$Encoding::PCM_SIGNED);
-	bool var$1 = var$2 && !$nc($(format->getEncoding()))->equals($AudioFormat$Encoding::PCM_UNSIGNED);
-	bool var$0 = var$1 && !$nc($(format->getEncoding()))->equals($AudioFormat$Encoding::ULAW);
-	if (var$0 && !$nc($(format->getEncoding()))->equals($AudioFormat$Encoding::ALAW)) {
+	bool var$2 = !$$nc(format->getEncoding())->equals($AudioFormat$Encoding::PCM_SIGNED);
+	bool var$1 = var$2 && !$$nc(format->getEncoding())->equals($AudioFormat$Encoding::PCM_UNSIGNED);
+	bool var$0 = var$1 && !$$nc(format->getEncoding())->equals($AudioFormat$Encoding::ULAW);
+	if (var$0 && !$$nc(format->getEncoding())->equals($AudioFormat$Encoding::ALAW)) {
 		return;
 	}
-	if ($nc(format)->getFrameRate() <= 0) {
+	if (format->getFrameRate() <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"invalid frame rate: "_s, ((format->getFrameRate() == -1) ? "NOT_SPECIFIED"_s : $($String::valueOf(format->getFrameRate())))}));
 	}
-	if ($nc(format)->getSampleRate() <= 0) {
+	if (format->getSampleRate() <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"invalid sample rate: "_s, ((format->getSampleRate() == -1) ? "NOT_SPECIFIED"_s : $($String::valueOf(format->getSampleRate())))}));
 	}
-	if ($nc(format)->getSampleSizeInBits() <= 0) {
+	if (format->getSampleSizeInBits() <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"invalid sample size in bits: "_s, ((format->getSampleSizeInBits() == -1) ? "NOT_SPECIFIED"_s : $($String::valueOf(format->getSampleSizeInBits())))}));
 	}
-	if ($nc(format)->getChannels() <= 0) {
+	if (format->getChannels() <= 0) {
 		$throwNew($IllegalArgumentException, $$str({"invalid number of channels: "_s, ((format->getChannels() == -1) ? "NOT_SPECIFIED"_s : $($String::valueOf(format->getChannels())))}));
 	}
 }
 
 bool Toolkit::isFullySpecifiedPCMFormat($AudioFormat* format) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AudioFormat$Encoding);
-	bool var$0 = !$nc($($nc(format)->getEncoding()))->equals($AudioFormat$Encoding::PCM_SIGNED);
-	if (var$0 && !$nc($(format->getEncoding()))->equals($AudioFormat$Encoding::PCM_UNSIGNED)) {
+	bool var$0 = !$$nc($nc(format)->getEncoding())->equals($AudioFormat$Encoding::PCM_SIGNED);
+	if (var$0 && !$$nc(format->getEncoding())->equals($AudioFormat$Encoding::PCM_UNSIGNED)) {
 		return false;
 	}
-	bool var$4 = ($nc(format)->getFrameRate() <= 0);
-	bool var$3 = var$4 || ($nc(format)->getSampleRate() <= 0);
-	bool var$2 = var$3 || ($nc(format)->getSampleSizeInBits() <= 0);
-	bool var$1 = var$2 || ($nc(format)->getFrameSize() <= 0);
-	if (var$1 || ($nc(format)->getChannels() <= 0)) {
+	bool var$4 = format->getFrameRate() <= 0;
+	bool var$3 = var$4 || (format->getSampleRate() <= 0);
+	bool var$2 = var$3 || (format->getSampleSizeInBits() <= 0);
+	bool var$1 = var$2 || (format->getFrameSize() <= 0);
+	if (var$1 || (format->getChannels() <= 0)) {
 		return false;
 	}
 	return true;
 }
 
 $AudioInputStream* Toolkit::getPCMConvertedAudioInputStream($AudioInputStream* ais$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioInputStream, ais, ais$renamed);
 	$var($AudioFormat, af, $nc(ais)->getFormat());
 	$init($AudioFormat$Encoding);
-	bool var$0 = (!$nc($($nc(af)->getEncoding()))->equals($AudioFormat$Encoding::PCM_SIGNED));
-	if (var$0 && (!$nc($(af->getEncoding()))->equals($AudioFormat$Encoding::PCM_UNSIGNED))) {
+	bool var$0 = !$$nc($nc(af)->getEncoding())->equals($AudioFormat$Encoding::PCM_SIGNED);
+	if (var$0 && (!$$nc(af->getEncoding())->equals($AudioFormat$Encoding::PCM_UNSIGNED))) {
 		try {
 			$var($AudioFormat$Encoding, var$1, $AudioFormat$Encoding::PCM_SIGNED);
 			float var$2 = af->getSampleRate();
@@ -225,7 +190,37 @@ Toolkit::Toolkit() {
 }
 
 $Class* Toolkit::load$($String* name, bool initialize) {
-	$loadClass(Toolkit, name, initialize, &_Toolkit_ClassInfo_, allocate$Toolkit);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Toolkit, init$, void)},
+		{"align", "(JI)J", nullptr, $STATIC, $staticMethod(Toolkit, align, int64_t, int64_t, int32_t)},
+		{"align", "(II)I", nullptr, $STATIC, $staticMethod(Toolkit, align, int32_t, int32_t, int32_t)},
+		{"bytes2micros", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, bytes2micros, int64_t, $AudioFormat*, int64_t)},
+		{"bytes2millis", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, bytes2millis, int64_t, $AudioFormat*, int64_t)},
+		{"dBToLinear", "(F)F", nullptr, $STATIC, $staticMethod(Toolkit, dBToLinear, float, float)},
+		{"frames2micros", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, frames2micros, int64_t, $AudioFormat*, int64_t)},
+		{"getByteSwapped", "([BII)V", nullptr, $STATIC, $staticMethod(Toolkit, getByteSwapped, void, $bytes*, int32_t, int32_t)},
+		{"getPCMConvertedAudioInputStream", "(Ljavax/sound/sampled/AudioInputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC | $STATIC, $staticMethod(Toolkit, getPCMConvertedAudioInputStream, $AudioInputStream*, $AudioInputStream*)},
+		{"getUnsigned8", "([BII)V", nullptr, $STATIC, $staticMethod(Toolkit, getUnsigned8, void, $bytes*, int32_t, int32_t)},
+		{"isFullySpecifiedAudioFormat", "(Ljavax/sound/sampled/AudioFormat;)V", nullptr, $STATIC, $staticMethod(Toolkit, isFullySpecifiedAudioFormat, void, $AudioFormat*)},
+		{"isFullySpecifiedPCMFormat", "(Ljavax/sound/sampled/AudioFormat;)Z", nullptr, $STATIC, $staticMethod(Toolkit, isFullySpecifiedPCMFormat, bool, $AudioFormat*)},
+		{"linearToDB", "(F)F", nullptr, $STATIC, $staticMethod(Toolkit, linearToDB, float, float)},
+		{"micros2bytes", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, micros2bytes, int64_t, $AudioFormat*, int64_t)},
+		{"micros2frames", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, micros2frames, int64_t, $AudioFormat*, int64_t)},
+		{"millis2bytes", "(Ljavax/sound/sampled/AudioFormat;J)J", nullptr, $STATIC, $staticMethod(Toolkit, millis2bytes, int64_t, $AudioFormat*, int64_t)},
+		{"validateBuffer", "(II)V", nullptr, $STATIC, $staticMethod(Toolkit, validateBuffer, void, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.Toolkit",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Toolkit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Toolkit);
+	});
 	return class$;
 }
 

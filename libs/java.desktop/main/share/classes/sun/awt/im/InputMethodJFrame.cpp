@@ -1,5 +1,4 @@
 #include <sun/awt/im/InputMethodJFrame.h>
-
 #include <java/awt/Frame.h>
 #include <java/awt/Window.h>
 #include <java/awt/im/InputContext.h>
@@ -21,37 +20,6 @@ using $InputContext = ::sun::awt::im::InputContext;
 namespace sun {
 	namespace awt {
 		namespace im {
-
-$FieldInfo _InputMethodJFrame_FieldInfo_[] = {
-	{"inputContext", "Lsun/awt/im/InputContext;", nullptr, 0, $field(InputMethodJFrame, inputContext)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputMethodJFrame, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InputMethodJFrame_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/awt/im/InputContext;)V", nullptr, $PUBLIC, $method(InputMethodJFrame, init$, void, $String*, $InputContext*)},
-	{"getInputContext", "()Ljava/awt/im/InputContext;", nullptr, $PUBLIC, $virtualMethod(InputMethodJFrame, getInputContext, $1InputContext*)},
-	{"setInputContext", "(Lsun/awt/im/InputContext;)V", nullptr, $PUBLIC, $virtualMethod(InputMethodJFrame, setInputContext, void, $InputContext*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _InputMethodJFrame_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.im.InputMethodJFrame",
-	"javax.swing.JFrame",
-	"sun.awt.im.InputMethodWindow",
-	_InputMethodJFrame_FieldInfo_,
-	_InputMethodJFrame_MethodInfo_
-};
-
-$Object* allocate$InputMethodJFrame($Class* clazz) {
-	return $of($alloc(InputMethodJFrame));
-}
 
 $String* InputMethodJFrame::toString() {
 	 return this->$JFrame::toString();
@@ -78,7 +46,7 @@ void InputMethodJFrame::init$($String* title, $InputContext* context) {
 	$set(this, inputContext, nullptr);
 	if ($JFrame::isDefaultLookAndFeelDecorated()) {
 		this->setUndecorated(true);
-		$nc($(this->getRootPane()))->setWindowDecorationStyle($JRootPane::NONE);
+		$$nc(this->getRootPane())->setWindowDecorationStyle($JRootPane::NONE);
 	}
 	if (context != nullptr) {
 		$set(this, inputContext, context);
@@ -102,7 +70,33 @@ InputMethodJFrame::InputMethodJFrame() {
 }
 
 $Class* InputMethodJFrame::load$($String* name, bool initialize) {
-	$loadClass(InputMethodJFrame, name, initialize, &_InputMethodJFrame_ClassInfo_, allocate$InputMethodJFrame);
+	$FieldInfo fieldInfos$$[] = {
+		{"inputContext", "Lsun/awt/im/InputContext;", nullptr, 0, $field(InputMethodJFrame, inputContext)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InputMethodJFrame, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lsun/awt/im/InputContext;)V", nullptr, $PUBLIC, $method(InputMethodJFrame, init$, void, $String*, $InputContext*)},
+		{"getInputContext", "()Ljava/awt/im/InputContext;", nullptr, $PUBLIC, $virtualMethod(InputMethodJFrame, getInputContext, $1InputContext*)},
+		{"setInputContext", "(Lsun/awt/im/InputContext;)V", nullptr, $PUBLIC, $virtualMethod(InputMethodJFrame, setInputContext, void, $InputContext*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.im.InputMethodJFrame",
+		"javax.swing.JFrame",
+		"sun.awt.im.InputMethodWindow",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputMethodJFrame, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InputMethodJFrame));
+	});
 	return class$;
 }
 

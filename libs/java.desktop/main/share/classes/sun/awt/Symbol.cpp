@@ -1,5 +1,4 @@
 #include <sun/awt/Symbol.h>
-
 #include <java/lang/Error.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
@@ -18,38 +17,6 @@ using $Symbol$Encoder = ::sun::awt::Symbol$Encoder;
 
 namespace sun {
 	namespace awt {
-
-$MethodInfo _Symbol_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Symbol, init$, void)},
-	{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, contains, bool, $Charset*)},
-	{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Symbol, newDecoder, $CharsetDecoder*)},
-	{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Symbol, newEncoder, $CharsetEncoder*)},
-	{}
-};
-
-$InnerClassInfo _Symbol_InnerClassesInfo_[] = {
-	{"sun.awt.Symbol$Encoder", "sun.awt.Symbol", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Symbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.Symbol",
-	"java.nio.charset.Charset",
-	nullptr,
-	nullptr,
-	_Symbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.Symbol$Encoder"
-};
-
-$Object* allocate$Symbol($Class* clazz) {
-	return $of($alloc(Symbol));
-}
 
 void Symbol::init$() {
 	$Charset::init$("Symbol"_s, nullptr);
@@ -72,7 +39,34 @@ Symbol::Symbol() {
 }
 
 $Class* Symbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol, name, initialize, &_Symbol_ClassInfo_, allocate$Symbol);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Symbol, init$, void)},
+		{"contains", "(Ljava/nio/charset/Charset;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, contains, bool, $Charset*)},
+		{"newDecoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PUBLIC, $virtualMethod(Symbol, newDecoder, $CharsetDecoder*)},
+		{"newEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PUBLIC, $virtualMethod(Symbol, newEncoder, $CharsetEncoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.Symbol$Encoder", "sun.awt.Symbol", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.Symbol",
+		"java.nio.charset.Charset",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.Symbol$Encoder"
+	};
+	$loadClass(Symbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Symbol);
+	});
 	return class$;
 }
 

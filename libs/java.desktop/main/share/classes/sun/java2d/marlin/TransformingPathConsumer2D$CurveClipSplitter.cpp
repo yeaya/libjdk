@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter.h>
-
 #include <sun/java2d/marlin/Curve.h>
 #include <sun/java2d/marlin/DPathConsumer2D.h>
 #include <sun/java2d/marlin/Helpers.h>
@@ -32,59 +31,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _TransformingPathConsumer2D$CurveClipSplitter_FieldInfo_[] = {
-	{"LEN_TH", "D", nullptr, $STATIC | $FINAL, $staticField(TransformingPathConsumer2D$CurveClipSplitter, LEN_TH)},
-	{"DO_CHECK_LENGTH", "Z", nullptr, $STATIC | $FINAL, $staticField(TransformingPathConsumer2D$CurveClipSplitter, DO_CHECK_LENGTH)},
-	{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TransformingPathConsumer2D$CurveClipSplitter, TRACE)},
-	{"MAX_N_CURVES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TransformingPathConsumer2D$CurveClipSplitter, MAX_N_CURVES)},
-	{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, rdrCtx)},
-	{"minLength", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$CurveClipSplitter, minLength)},
-	{"clipRect", "[D", nullptr, $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, clipRect)},
-	{"clipRectPad", "[D", nullptr, $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, clipRectPad)},
-	{"init_clipRectPad", "Z", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$CurveClipSplitter, init_clipRectPad)},
-	{"middle", "[D", nullptr, $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, middle)},
-	{"subdivTs", "[D", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, subdivTs)},
-	{"curve", "Lsun/java2d/marlin/Curve;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, curve)},
-	{}
-};
-
-$MethodInfo _TransformingPathConsumer2D$CurveClipSplitter_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, init$, void, $RendererContext*)},
-	{"emitCurrent", "(I[DILsun/java2d/marlin/DPathConsumer2D;)V", nullptr, $STATIC, $staticMethod(TransformingPathConsumer2D$CurveClipSplitter, emitCurrent, void, int32_t, $doubles*, int32_t, $DPathConsumer2D*)},
-	{"init", "()V", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, init, void)},
-	{"initPaddedClip", "()V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$CurveClipSplitter, initPaddedClip, void)},
-	{"splitCurve", "(DDDDDDDDILsun/java2d/marlin/DPathConsumer2D;)Z", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, splitCurve, bool, double, double, double, double, double, double, double, double, int32_t, $DPathConsumer2D*)},
-	{"splitLine", "(DDDDILsun/java2d/marlin/DPathConsumer2D;)Z", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, splitLine, bool, double, double, double, double, int32_t, $DPathConsumer2D*)},
-	{"splitQuad", "(DDDDDDILsun/java2d/marlin/DPathConsumer2D;)Z", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, splitQuad, bool, double, double, double, double, double, double, int32_t, $DPathConsumer2D*)},
-	{"subdivideAtIntersections", "(IILsun/java2d/marlin/DPathConsumer2D;)Z", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$CurveClipSplitter, subdivideAtIntersections, bool, int32_t, int32_t, $DPathConsumer2D*)},
-	{}
-};
-
-$InnerClassInfo _TransformingPathConsumer2D$CurveClipSplitter_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.TransformingPathConsumer2D$CurveClipSplitter", "sun.java2d.marlin.TransformingPathConsumer2D", "CurveClipSplitter", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _TransformingPathConsumer2D$CurveClipSplitter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.TransformingPathConsumer2D$CurveClipSplitter",
-	"java.lang.Object",
-	nullptr,
-	_TransformingPathConsumer2D$CurveClipSplitter_FieldInfo_,
-	_TransformingPathConsumer2D$CurveClipSplitter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformingPathConsumer2D$CurveClipSplitter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.TransformingPathConsumer2D"
-};
-
-$Object* allocate$TransformingPathConsumer2D$CurveClipSplitter($Class* clazz) {
-	return $of($alloc(TransformingPathConsumer2D$CurveClipSplitter));
-}
-
 double TransformingPathConsumer2D$CurveClipSplitter::LEN_TH = 0.0;
 bool TransformingPathConsumer2D$CurveClipSplitter::DO_CHECK_LENGTH = false;
 
@@ -99,10 +45,10 @@ void TransformingPathConsumer2D$CurveClipSplitter::init$($RendererContext* rdrCt
 }
 
 void TransformingPathConsumer2D$CurveClipSplitter::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->init_clipRectPad = true;
 	if (TransformingPathConsumer2D$CurveClipSplitter::DO_CHECK_LENGTH) {
-		this->minLength = ($nc(this->rdrCtx)->clipInvScale == 0.0) ? TransformingPathConsumer2D$CurveClipSplitter::LEN_TH : (TransformingPathConsumer2D$CurveClipSplitter::LEN_TH * $nc(this->rdrCtx)->clipInvScale);
+		this->minLength = ($nc(this->rdrCtx)->clipInvScale == 0.0) ? TransformingPathConsumer2D$CurveClipSplitter::LEN_TH : (TransformingPathConsumer2D$CurveClipSplitter::LEN_TH * this->rdrCtx->clipInvScale);
 		$init($MarlinConst);
 		if ($MarlinConst::DO_LOG_CLIP) {
 			$MarlinUtils::logInfo($$str({"CurveClipSplitter.minLength = "_s, $$str(this->minLength)}));
@@ -111,16 +57,18 @@ void TransformingPathConsumer2D$CurveClipSplitter::init() {
 }
 
 void TransformingPathConsumer2D$CurveClipSplitter::initPaddedClip() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, _clipRect, this->clipRect);
 	$var($doubles, _clipRectPad, this->clipRectPad);
 	$nc(_clipRectPad)->set(0, $nc(_clipRect)->get(0) - 0.25);
 	_clipRectPad->set(1, _clipRect->get(1) + 0.25);
 	_clipRectPad->set(2, _clipRect->get(2) - 0.25);
 	_clipRectPad->set(3, _clipRect->get(3) + 0.25);
+	;
 }
 
 bool TransformingPathConsumer2D$CurveClipSplitter::splitLine(double x0, double y0, double x1, double y1, int32_t outCodeOR, $DPathConsumer2D* out) {
+	;
 	if (TransformingPathConsumer2D$CurveClipSplitter::DO_CHECK_LENGTH && $Helpers::fastLineLen(x0, y0, x1, y1) <= this->minLength) {
 		return false;
 	}
@@ -133,6 +81,7 @@ bool TransformingPathConsumer2D$CurveClipSplitter::splitLine(double x0, double y
 }
 
 bool TransformingPathConsumer2D$CurveClipSplitter::splitQuad(double x0, double y0, double x1, double y1, double x2, double y2, int32_t outCodeOR, $DPathConsumer2D* out) {
+	;
 	if (TransformingPathConsumer2D$CurveClipSplitter::DO_CHECK_LENGTH && $Helpers::fastQuadLen(x0, y0, x1, y1, x2, y2) <= this->minLength) {
 		return false;
 	}
@@ -147,6 +96,7 @@ bool TransformingPathConsumer2D$CurveClipSplitter::splitQuad(double x0, double y
 }
 
 bool TransformingPathConsumer2D$CurveClipSplitter::splitCurve(double x0, double y0, double x1, double y1, double x2, double y2, double x3, double y3, int32_t outCodeOR, $DPathConsumer2D* out) {
+	;
 	if (TransformingPathConsumer2D$CurveClipSplitter::DO_CHECK_LENGTH && $Helpers::fastCurvelen(x0, y0, x1, y1, x2, y2, x3, y3) <= this->minLength) {
 		return false;
 	}
@@ -163,7 +113,7 @@ bool TransformingPathConsumer2D$CurveClipSplitter::splitCurve(double x0, double 
 }
 
 bool TransformingPathConsumer2D$CurveClipSplitter::subdivideAtIntersections(int32_t type, int32_t outCodeOR, $DPathConsumer2D* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, mid, this->middle);
 	$var($doubles, subTs, this->subdivTs);
 	if (this->init_clipRectPad) {
@@ -171,25 +121,19 @@ bool TransformingPathConsumer2D$CurveClipSplitter::subdivideAtIntersections(int3
 		initPaddedClip();
 	}
 	int32_t nSplits = $Helpers::findClipPoints(this->curve, mid, subTs, type, outCodeOR, this->clipRectPad);
+	;
 	if (nSplits == 0) {
 		return false;
 	}
 	double prevT = 0.0;
-	{
-		int32_t i = 0;
-		int32_t off = 0;
-		for (; i < nSplits; ++i, off += type) {
-			double t = $nc(subTs)->get(i);
-			$Helpers::subdivideAt((t - prevT) / (1.0 - prevT), mid, off, mid, off, type);
-			prevT = t;
-		}
+	for (int32_t i = 0, off = 0; i < nSplits; ++i, off += type) {
+		double t = $nc(subTs)->get(i);
+		$Helpers::subdivideAt((t - prevT) / (1.0 - prevT), mid, off, mid, off, type);
+		prevT = t;
 	}
-	{
-		int32_t i = 0;
-		int32_t off = 0;
-		for (; i <= nSplits; ++i, off += type) {
-			emitCurrent(type, mid, off, out);
-		}
+	for (int32_t i = 0, off = 0; i <= nSplits; ++i, off += type) {
+		;
+		emitCurrent(type, mid, off, out);
 	}
 	return true;
 }
@@ -197,15 +141,15 @@ bool TransformingPathConsumer2D$CurveClipSplitter::subdivideAtIntersections(int3
 void TransformingPathConsumer2D$CurveClipSplitter::emitCurrent(int32_t type, $doubles* pts, int32_t off, $DPathConsumer2D* out) {
 	$init(TransformingPathConsumer2D$CurveClipSplitter);
 	if (type == 8) {
-		$nc(out)->curveTo($nc(pts)->get(off + 2), pts->get(off + 3), pts->get(off + 4), pts->get(off + 5), pts->get(off + 6), pts->get(off + 7));
+		$nc(out)->curveTo($nc(pts)->get(off + 2), $nc(pts)->get(off + 3), $nc(pts)->get(off + 4), $nc(pts)->get(off + 5), $nc(pts)->get(off + 6), $nc(pts)->get(off + 7));
 	} else if (type == 4) {
-		$nc(out)->lineTo($nc(pts)->get(off + 2), pts->get(off + 3));
+		$nc(out)->lineTo($nc(pts)->get(off + 2), $nc(pts)->get(off + 3));
 	} else {
-		$nc(out)->quadTo($nc(pts)->get(off + 2), pts->get(off + 3), pts->get(off + 4), pts->get(off + 5));
+		$nc(out)->quadTo($nc(pts)->get(off + 2), $nc(pts)->get(off + 3), $nc(pts)->get(off + 4), $nc(pts)->get(off + 5));
 	}
 }
 
-void clinit$TransformingPathConsumer2D$CurveClipSplitter($Class* class$) {
+void TransformingPathConsumer2D$CurveClipSplitter::clinit$($Class* clazz) {
 	TransformingPathConsumer2D$CurveClipSplitter::LEN_TH = $MarlinProperties::getSubdividerMinLength();
 	TransformingPathConsumer2D$CurveClipSplitter::DO_CHECK_LENGTH = (TransformingPathConsumer2D$CurveClipSplitter::LEN_TH > 0.0);
 }
@@ -214,7 +158,54 @@ TransformingPathConsumer2D$CurveClipSplitter::TransformingPathConsumer2D$CurveCl
 }
 
 $Class* TransformingPathConsumer2D$CurveClipSplitter::load$($String* name, bool initialize) {
-	$loadClass(TransformingPathConsumer2D$CurveClipSplitter, name, initialize, &_TransformingPathConsumer2D$CurveClipSplitter_ClassInfo_, clinit$TransformingPathConsumer2D$CurveClipSplitter, allocate$TransformingPathConsumer2D$CurveClipSplitter);
+	$FieldInfo fieldInfos$$[] = {
+		{"LEN_TH", "D", nullptr, $STATIC | $FINAL, $staticField(TransformingPathConsumer2D$CurveClipSplitter, LEN_TH)},
+		{"DO_CHECK_LENGTH", "Z", nullptr, $STATIC | $FINAL, $staticField(TransformingPathConsumer2D$CurveClipSplitter, DO_CHECK_LENGTH)},
+		{"TRACE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TransformingPathConsumer2D$CurveClipSplitter, TRACE)},
+		{"MAX_N_CURVES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TransformingPathConsumer2D$CurveClipSplitter, MAX_N_CURVES)},
+		{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, rdrCtx)},
+		{"minLength", "D", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$CurveClipSplitter, minLength)},
+		{"clipRect", "[D", nullptr, $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, clipRect)},
+		{"clipRectPad", "[D", nullptr, $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, clipRectPad)},
+		{"init_clipRectPad", "Z", nullptr, $PRIVATE, $field(TransformingPathConsumer2D$CurveClipSplitter, init_clipRectPad)},
+		{"middle", "[D", nullptr, $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, middle)},
+		{"subdivTs", "[D", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, subdivTs)},
+		{"curve", "Lsun/java2d/marlin/Curve;", nullptr, $PRIVATE | $FINAL, $field(TransformingPathConsumer2D$CurveClipSplitter, curve)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, init$, void, $RendererContext*)},
+		{"emitCurrent", "(I[DILsun/java2d/marlin/DPathConsumer2D;)V", nullptr, $STATIC, $staticMethod(TransformingPathConsumer2D$CurveClipSplitter, emitCurrent, void, int32_t, $doubles*, int32_t, $DPathConsumer2D*)},
+		{"init", "()V", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, init, void)},
+		{"initPaddedClip", "()V", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$CurveClipSplitter, initPaddedClip, void)},
+		{"splitCurve", "(DDDDDDDDILsun/java2d/marlin/DPathConsumer2D;)Z", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, splitCurve, bool, double, double, double, double, double, double, double, double, int32_t, $DPathConsumer2D*)},
+		{"splitLine", "(DDDDILsun/java2d/marlin/DPathConsumer2D;)Z", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, splitLine, bool, double, double, double, double, int32_t, $DPathConsumer2D*)},
+		{"splitQuad", "(DDDDDDILsun/java2d/marlin/DPathConsumer2D;)Z", nullptr, 0, $method(TransformingPathConsumer2D$CurveClipSplitter, splitQuad, bool, double, double, double, double, double, double, int32_t, $DPathConsumer2D*)},
+		{"subdivideAtIntersections", "(IILsun/java2d/marlin/DPathConsumer2D;)Z", nullptr, $PRIVATE, $method(TransformingPathConsumer2D$CurveClipSplitter, subdivideAtIntersections, bool, int32_t, int32_t, $DPathConsumer2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.TransformingPathConsumer2D$CurveClipSplitter", "sun.java2d.marlin.TransformingPathConsumer2D", "CurveClipSplitter", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.TransformingPathConsumer2D$CurveClipSplitter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.TransformingPathConsumer2D"
+	};
+	$loadClass(TransformingPathConsumer2D$CurveClipSplitter, name, initialize, &classInfo$$, TransformingPathConsumer2D$CurveClipSplitter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformingPathConsumer2D$CurveClipSplitter);
+	});
 	return class$;
 }
 

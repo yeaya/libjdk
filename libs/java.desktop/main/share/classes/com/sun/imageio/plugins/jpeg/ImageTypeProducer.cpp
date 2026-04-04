@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/ImageTypeProducer.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/BufferedImage.h>
@@ -27,36 +26,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace jpeg {
-
-$FieldInfo _ImageTypeProducer_FieldInfo_[] = {
-	{"type", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $field(ImageTypeProducer, type)},
-	{"failed", "Z", nullptr, 0, $field(ImageTypeProducer, failed)},
-	{"csCode", "I", nullptr, $PRIVATE, $field(ImageTypeProducer, csCode)},
-	{"defaultTypes", "[Lcom/sun/imageio/plugins/jpeg/ImageTypeProducer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageTypeProducer, defaultTypes)},
-	{}
-};
-
-$MethodInfo _ImageTypeProducer_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ImageTypeProducer, init$, void, int32_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ImageTypeProducer, init$, void)},
-	{"getType", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageTypeProducer, getType, $ImageTypeSpecifier*)},
-	{"getTypeProducer", "(I)Lcom/sun/imageio/plugins/jpeg/ImageTypeProducer;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ImageTypeProducer, getTypeProducer, ImageTypeProducer*, int32_t)},
-	{"produce", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PROTECTED, $virtualMethod(ImageTypeProducer, produce, $ImageTypeSpecifier*)},
-	{}
-};
-
-$ClassInfo _ImageTypeProducer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.ImageTypeProducer",
-	"java.lang.Object",
-	nullptr,
-	_ImageTypeProducer_FieldInfo_,
-	_ImageTypeProducer_MethodInfo_
-};
-
-$Object* allocate$ImageTypeProducer($Class* clazz) {
-	return $of($alloc(ImageTypeProducer));
-}
 
 $ImageTypeProducerArray* ImageTypeProducer::defaultTypes = nullptr;
 
@@ -86,40 +55,32 @@ $ImageTypeSpecifier* ImageTypeProducer::getType() {
 }
 
 ImageTypeProducer* ImageTypeProducer::getTypeProducer(int32_t csCode) {
-	$load(ImageTypeProducer);
+	$init(ImageTypeProducer);
 	$synchronized(class$) {
-		$init(ImageTypeProducer);
 		if (csCode < 0 || csCode >= $JPEG::NUM_JCS_CODES) {
 			return nullptr;
 		}
-		if ($nc(ImageTypeProducer::defaultTypes)->get(csCode) == nullptr) {
-			$nc(ImageTypeProducer::defaultTypes)->set(csCode, $$new(ImageTypeProducer, csCode));
+		if (ImageTypeProducer::defaultTypes->get(csCode) == nullptr) {
+			ImageTypeProducer::defaultTypes->set(csCode, $$new(ImageTypeProducer, csCode));
 		}
-		return $nc(ImageTypeProducer::defaultTypes)->get(csCode);
+		return ImageTypeProducer::defaultTypes->get(csCode);
 	}
 }
 
 $ImageTypeSpecifier* ImageTypeProducer::produce() {
 	switch (this->csCode) {
 	case $JPEG::JCS_GRAYSCALE:
-		{
-			return $ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_BYTE_GRAY);
-		}
+		return $ImageTypeSpecifier::createFromBufferedImageType($BufferedImage::TYPE_BYTE_GRAY);
 	case $JPEG::JCS_YCbCr:
-		{}
 	case $JPEG::JCS_RGB:
-		{
-			$init($JPEG);
-			return $ImageTypeSpecifier::createInterleaved($JPEG::sRGB, $JPEG::bOffsRGB, $DataBuffer::TYPE_BYTE, false, false);
-		}
+		$init($JPEG);
+		return $ImageTypeSpecifier::createInterleaved($JPEG::sRGB, $JPEG::bOffsRGB, $DataBuffer::TYPE_BYTE, false, false);
 	default:
-		{
-			return nullptr;
-		}
+		return nullptr;
 	}
 }
 
-void clinit$ImageTypeProducer($Class* class$) {
+void ImageTypeProducer::clinit$($Class* clazz) {
 	$assignStatic(ImageTypeProducer::defaultTypes, $new($ImageTypeProducerArray, $JPEG::NUM_JCS_CODES));
 }
 
@@ -127,7 +88,32 @@ ImageTypeProducer::ImageTypeProducer() {
 }
 
 $Class* ImageTypeProducer::load$($String* name, bool initialize) {
-	$loadClass(ImageTypeProducer, name, initialize, &_ImageTypeProducer_ClassInfo_, clinit$ImageTypeProducer, allocate$ImageTypeProducer);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PRIVATE, $field(ImageTypeProducer, type)},
+		{"failed", "Z", nullptr, 0, $field(ImageTypeProducer, failed)},
+		{"csCode", "I", nullptr, $PRIVATE, $field(ImageTypeProducer, csCode)},
+		{"defaultTypes", "[Lcom/sun/imageio/plugins/jpeg/ImageTypeProducer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ImageTypeProducer, defaultTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ImageTypeProducer, init$, void, int32_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ImageTypeProducer, init$, void)},
+		{"getType", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ImageTypeProducer, getType, $ImageTypeSpecifier*)},
+		{"getTypeProducer", "(I)Lcom/sun/imageio/plugins/jpeg/ImageTypeProducer;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ImageTypeProducer, getTypeProducer, ImageTypeProducer*, int32_t)},
+		{"produce", "()Ljavax/imageio/ImageTypeSpecifier;", nullptr, $PROTECTED, $virtualMethod(ImageTypeProducer, produce, $ImageTypeSpecifier*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.ImageTypeProducer",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ImageTypeProducer, name, initialize, &classInfo$$, ImageTypeProducer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ImageTypeProducer);
+	});
 	return class$;
 }
 

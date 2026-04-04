@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalBorders$ToggleButtonBorder.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/AbstractButton.h>
@@ -12,7 +10,6 @@
 #include <javax/swing/plaf/metal/MetalUtils.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,44 +26,12 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$MethodInfo _MetalBorders$ToggleButtonBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$ToggleButtonBorder, init$, void)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ToggleButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MetalBorders$ToggleButtonBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalBorders$ToggleButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.metal.MetalBorders$ButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalBorders$ToggleButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalBorders$ToggleButtonBorder",
-	"javax.swing.plaf.metal.MetalBorders$ButtonBorder",
-	nullptr,
-	nullptr,
-	_MetalBorders$ToggleButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalBorders$ToggleButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalBorders"
-};
-
-$Object* allocate$MetalBorders$ToggleButtonBorder($Class* clazz) {
-	return $of($alloc(MetalBorders$ToggleButtonBorder));
-}
-
 void MetalBorders$ToggleButtonBorder::init$() {
 	$MetalBorders$ButtonBorder::init$();
 }
 
 void MetalBorders$ToggleButtonBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AbstractButton, button, $cast($AbstractButton, c));
 	$var($ButtonModel, model, $nc(button)->getModel());
 	if ($MetalLookAndFeel::usingOcean()) {
@@ -82,8 +47,8 @@ void MetalBorders$ToggleButtonBorder::paintBorder($Component* c, $Graphics* g, i
 	if (!$nc(c)->isEnabled()) {
 		$MetalUtils::drawDisabledBorder(g, x, y, w - 1, h - 1);
 	} else {
-		bool var$2 = $nc(model)->isPressed();
-		if (var$2 && model->isArmed()) {
+		bool var$1 = $nc(model)->isPressed();
+		if (var$1 && model->isArmed()) {
 			$MetalUtils::drawPressed3DBorder(g, x, y, w, h);
 		} else if (model->isSelected()) {
 			$MetalUtils::drawDark3DBorder(g, x, y, w, h);
@@ -97,7 +62,34 @@ MetalBorders$ToggleButtonBorder::MetalBorders$ToggleButtonBorder() {
 }
 
 $Class* MetalBorders$ToggleButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(MetalBorders$ToggleButtonBorder, name, initialize, &_MetalBorders$ToggleButtonBorder_ClassInfo_, allocate$MetalBorders$ToggleButtonBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalBorders$ToggleButtonBorder, init$, void)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(MetalBorders$ToggleButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalBorders$ToggleButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.metal.MetalBorders$ButtonBorder", "javax.swing.plaf.metal.MetalBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalBorders$ToggleButtonBorder",
+		"javax.swing.plaf.metal.MetalBorders$ButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalBorders"
+	};
+	$loadClass(MetalBorders$ToggleButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalBorders$ToggleButtonBorder));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RealTimeSequencerProvider.h>
-
 #include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <com/sun/media/sound/MidiUtils.h>
 #include <com/sun/media/sound/RealTimeSequencer.h>
@@ -25,26 +24,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _RealTimeSequencerProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RealTimeSequencerProvider, init$, void)},
-	{"getDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencerProvider, getDevice, $MidiDevice*, $MidiDevice$Info*)},
-	{"getDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencerProvider, getDeviceInfo, $MidiDevice$InfoArray*)},
-	{}
-};
-
-$ClassInfo _RealTimeSequencerProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.RealTimeSequencerProvider",
-	"javax.sound.midi.spi.MidiDeviceProvider",
-	nullptr,
-	nullptr,
-	_RealTimeSequencerProvider_MethodInfo_
-};
-
-$Object* allocate$RealTimeSequencerProvider($Class* clazz) {
-	return $of($alloc(RealTimeSequencerProvider));
-}
-
 void RealTimeSequencerProvider::init$() {
 	$MidiDeviceProvider::init$();
 }
@@ -58,7 +37,7 @@ $MidiDevice* RealTimeSequencerProvider::getDevice($MidiDevice$Info* info) {
 	$Objects::requireNonNull(info);
 	$init($RealTimeSequencer);
 	if ($nc($RealTimeSequencer::info)->equals(info)) {
-		return static_cast<$MidiDevice*>(static_cast<$AbstractMidiDevice*>($new($RealTimeSequencer)));
+		return $cast($AbstractMidiDevice, $new($RealTimeSequencer));
 	}
 	$throw($($MidiUtils::unsupportedDevice(info)));
 }
@@ -67,7 +46,23 @@ RealTimeSequencerProvider::RealTimeSequencerProvider() {
 }
 
 $Class* RealTimeSequencerProvider::load$($String* name, bool initialize) {
-	$loadClass(RealTimeSequencerProvider, name, initialize, &_RealTimeSequencerProvider_ClassInfo_, allocate$RealTimeSequencerProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RealTimeSequencerProvider, init$, void)},
+		{"getDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencerProvider, getDevice, $MidiDevice*, $MidiDevice$Info*)},
+		{"getDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC, $virtualMethod(RealTimeSequencerProvider, getDeviceInfo, $MidiDevice$InfoArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.RealTimeSequencerProvider",
+		"javax.sound.midi.spi.MidiDeviceProvider",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RealTimeSequencerProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RealTimeSequencerProvider);
+	});
 	return class$;
 }
 

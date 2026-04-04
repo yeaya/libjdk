@@ -15,6 +15,7 @@ class TypeEnter$1 : public ::java::lang::Object {
 	$class(TypeEnter$1, 0, ::java::lang::Object)
 public:
 	TypeEnter$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag;
 };
 

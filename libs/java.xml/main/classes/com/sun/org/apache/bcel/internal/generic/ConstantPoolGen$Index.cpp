@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen$Index.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <jcpp.h>
 
@@ -16,41 +15,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _ConstantPoolGen$Index_FieldInfo_[] = {
-	{"index", "I", nullptr, $FINAL, $field(ConstantPoolGen$Index, index)},
-	{}
-};
-
-$MethodInfo _ConstantPoolGen$Index_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ConstantPoolGen$Index, init$, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _ConstantPoolGen$Index_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen$Index", "com.sun.org.apache.bcel.internal.generic.ConstantPoolGen", "Index", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ConstantPoolGen$Index_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen$Index",
-	"java.lang.Object",
-	nullptr,
-	_ConstantPoolGen$Index_FieldInfo_,
-	_ConstantPoolGen$Index_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConstantPoolGen$Index_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen"
-};
-
-$Object* allocate$ConstantPoolGen$Index($Class* clazz) {
-	return $of($alloc(ConstantPoolGen$Index));
-}
-
 void ConstantPoolGen$Index::init$(int32_t i) {
 	this->index = i;
 }
@@ -59,7 +23,36 @@ ConstantPoolGen$Index::ConstantPoolGen$Index() {
 }
 
 $Class* ConstantPoolGen$Index::load$($String* name, bool initialize) {
-	$loadClass(ConstantPoolGen$Index, name, initialize, &_ConstantPoolGen$Index_ClassInfo_, allocate$ConstantPoolGen$Index);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $FINAL, $field(ConstantPoolGen$Index, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ConstantPoolGen$Index, init$, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen$Index", "com.sun.org.apache.bcel.internal.generic.ConstantPoolGen", "Index", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen$Index",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.ConstantPoolGen"
+	};
+	$loadClass(ConstantPoolGen$Index, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ConstantPoolGen$Index);
+	});
 	return class$;
 }
 

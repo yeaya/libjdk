@@ -1,5 +1,4 @@
 #include <JInternalFrameIconTest.h>
-
 #include <JInternalFrameIconTest$1.h>
 #include <JInternalFrameIconTest$2.h>
 #include <JInternalFrameIconTest$3.h>
@@ -16,7 +15,6 @@
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <javax/imageio/ImageIO.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
@@ -37,9 +35,7 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $RenderedImage = ::java::awt::image::RenderedImage;
 using $File = ::java::io::File;
-using $PrintStream = ::java::io::PrintStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -50,7 +46,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $ImageIO = ::javax::imageio::ImageIO;
 using $Icon = ::javax::swing::Icon;
@@ -62,60 +57,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-
-$FieldInfo _JInternalFrameIconTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, frame)},
-	{"desktopPane", "Ljavax/swing/JDesktopPane;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, desktopPane)},
-	{"internalFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, internalFrame)},
-	{"titleImageIcon", "Ljavax/swing/ImageIcon;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, titleImageIcon)},
-	{"titleIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, titleIcon)},
-	{"imageIconImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, imageIconImage)},
-	{"iconImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, iconImage)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, robot)},
-	{"errorString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JInternalFrameIconTest, errorString)},
-	{}
-};
-
-$MethodInfo _JInternalFrameIconTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrameIconTest, init$, void)},
-	{"bufferedImagesEqual", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, bufferedImagesEqual, bool, $BufferedImage*, $BufferedImage*)},
-	{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, cleanUp, void), "java.lang.Exception"},
-	{"createIconUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, createIconUI, void, $String*), "java.lang.Exception"},
-	{"createImageIconUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, createImageIconUI, void, $String*), "java.lang.Exception"},
-	{"executeCase", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, executeCase, void, $String*), "java.lang.Exception"},
-	{"getIconBufferedImage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, getIconBufferedImage, void), "java.lang.Exception"},
-	{"getImageIconBufferedImage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, getImageIconBufferedImage, void), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JInternalFrameIconTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"testIfSame", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, testIfSame, void, $String*), "java.lang.Exception"},
-	{"tryLookAndFeel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, tryLookAndFeel, bool, $String*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _JInternalFrameIconTest_InnerClassesInfo_[] = {
-	{"JInternalFrameIconTest$3", nullptr, nullptr, 0},
-	{"JInternalFrameIconTest$2", nullptr, nullptr, 0},
-	{"JInternalFrameIconTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JInternalFrameIconTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JInternalFrameIconTest",
-	"java.lang.Object",
-	nullptr,
-	_JInternalFrameIconTest_FieldInfo_,
-	_JInternalFrameIconTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JInternalFrameIconTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"JInternalFrameIconTest$3,JInternalFrameIconTest$2,JInternalFrameIconTest$2$1,JInternalFrameIconTest$1,JInternalFrameIconTest$1$1"
-};
-
-$Object* allocate$JInternalFrameIconTest($Class* clazz) {
-	return $of($alloc(JInternalFrameIconTest));
-}
 
 $JFrame* JInternalFrameIconTest::frame = nullptr;
 $JDesktopPane* JInternalFrameIconTest::desktopPane = nullptr;
@@ -132,14 +73,12 @@ void JInternalFrameIconTest::init$() {
 
 void JInternalFrameIconTest::main($StringArray* args) {
 	$init(JInternalFrameIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(JInternalFrameIconTest::robot, $new($Robot));
 	$var($UIManager$LookAndFeelInfoArray, lookAndFeelArray, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, lookAndFeelArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelItem, arr$->get(i$));
 			{
 				executeCase($($nc(lookAndFeelItem)->getClassName()));
@@ -190,36 +129,36 @@ void JInternalFrameIconTest::createIconUI($String* lookAndFeelString) {
 
 void JInternalFrameIconTest::getImageIconBufferedImage() {
 	$init(JInternalFrameIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, point, $nc(JInternalFrameIconTest::internalFrame)->getLocationOnScreen());
 	$var($Rectangle, rect, $nc(JInternalFrameIconTest::internalFrame)->getBounds());
 	int32_t var$0 = $nc(point)->x + $nc($($nc(JInternalFrameIconTest::internalFrame)->getInsets()))->left;
-	int32_t var$1 = point->y + $nc($($nc(JInternalFrameIconTest::internalFrame)->getInsets()))->top;
+	int32_t var$1 = point->y + $nc($(JInternalFrameIconTest::internalFrame->getInsets()))->top;
 	int32_t var$2 = $nc(JInternalFrameIconTest::titleImageIcon)->getIconWidth();
-	$var($Rectangle, captureRect, $new($Rectangle, var$0, var$1, var$2, $nc(JInternalFrameIconTest::titleImageIcon)->getIconHeight()));
+	$var($Rectangle, captureRect, $new($Rectangle, var$0, var$1, var$2, JInternalFrameIconTest::titleImageIcon->getIconHeight()));
 	$nc($System::out)->println($$str({"imageicon captureRect "_s, captureRect}));
 	$assignStatic(JInternalFrameIconTest::imageIconImage, $nc(JInternalFrameIconTest::robot)->createScreenCapture(captureRect));
 }
 
 void JInternalFrameIconTest::getIconBufferedImage() {
 	$init(JInternalFrameIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, point, $nc(JInternalFrameIconTest::internalFrame)->getLocationOnScreen());
 	$var($Rectangle, rect, $nc(JInternalFrameIconTest::internalFrame)->getBounds());
 	int32_t var$0 = $nc(point)->x + $nc($($nc(JInternalFrameIconTest::internalFrame)->getInsets()))->left;
-	int32_t var$1 = point->y + $nc($($nc(JInternalFrameIconTest::internalFrame)->getInsets()))->top;
+	int32_t var$1 = point->y + $nc($(JInternalFrameIconTest::internalFrame->getInsets()))->top;
 	int32_t var$2 = $nc(JInternalFrameIconTest::titleIcon)->getIconWidth();
-	$var($Rectangle, captureRect, $new($Rectangle, var$0, var$1, var$2, $nc(JInternalFrameIconTest::titleIcon)->getIconHeight()));
+	$var($Rectangle, captureRect, $new($Rectangle, var$0, var$1, var$2, JInternalFrameIconTest::titleIcon->getIconHeight()));
 	$nc($System::out)->println($$str({"icon captureRect "_s, captureRect}));
 	$assignStatic(JInternalFrameIconTest::iconImage, $nc(JInternalFrameIconTest::robot)->createScreenCapture(captureRect));
 }
 
 void JInternalFrameIconTest::testIfSame($String* lookAndFeelString) {
 	$init(JInternalFrameIconTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!bufferedImagesEqual(JInternalFrameIconTest::imageIconImage, JInternalFrameIconTest::iconImage)) {
-		$ImageIO::write(static_cast<$RenderedImage*>(JInternalFrameIconTest::imageIconImage), "png"_s, $$new($File, "imageicon-fail.png"_s));
-		$ImageIO::write(static_cast<$RenderedImage*>(JInternalFrameIconTest::iconImage), "png"_s, $$new($File, "iconImage-fail.png"_s));
+		$ImageIO::write(JInternalFrameIconTest::imageIconImage, "png"_s, $$new($File, "imageicon-fail.png"_s));
+		$ImageIO::write(JInternalFrameIconTest::iconImage, "png"_s, $$new($File, "iconImage-fail.png"_s));
 		$var($String, error, $str({"["_s, lookAndFeelString, "] : ERROR: icon and imageIcon not same."_s}));
 		$plusAssignStatic(JInternalFrameIconTest::errorString, error);
 		$nc($System::err)->println(error);
@@ -245,16 +184,16 @@ bool JInternalFrameIconTest::bufferedImagesEqual($BufferedImage* bufferedImage1,
 		for (int32_t x = 0; x < bufferedImage1->getWidth(); ++x) {
 			for (int32_t y = 0; y < bufferedImage1->getHeight(); ++y) {
 				int32_t color1 = bufferedImage1->getRGB(x, y);
-				int32_t red1 = (int32_t)((color1 >> 16) & (uint32_t)255);
-				int32_t green1 = (int32_t)((color1 >> 8) & (uint32_t)255);
-				int32_t blue1 = (int32_t)((color1) & (uint32_t)255);
+				int32_t red1 = (color1 >> 16) & 0xff;
+				int32_t green1 = (color1 >> 8) & 0xff;
+				int32_t blue1 = (color1) & 0xff;
 				int32_t color2 = bufferedImage2->getRGB(x, y);
-				int32_t red2 = (int32_t)((color2 >> 16) & (uint32_t)255);
-				int32_t green2 = (int32_t)((color2 >> 8) & (uint32_t)255);
-				int32_t blue2 = (int32_t)((color2) & (uint32_t)255);
+				int32_t red2 = (color2 >> 16) & 0xff;
+				int32_t green2 = (color2 >> 8) & 0xff;
+				int32_t blue2 = (color2) & 0xff;
 				if (red1 != red2 || green1 != green2 || blue1 != blue2) {
 					++mismatchCounter;
-					bool var$5 = ($Math::abs(red1 - red2) > colorTolerance);
+					bool var$5 = $Math::abs(red1 - red2) > colorTolerance;
 					bool var$4 = var$5 || ($Math::abs(green1 - green2) > colorTolerance);
 					if (var$4 || ($Math::abs(blue1 - blue2) > colorTolerance)) {
 						flag = false;
@@ -280,7 +219,7 @@ void JInternalFrameIconTest::cleanUp() {
 bool JInternalFrameIconTest::tryLookAndFeel($String* lookAndFeelString) {
 	$init(JInternalFrameIconTest);
 	bool var$0 = $nc(lookAndFeelString)->contains("motif"_s);
-	if (var$0 || $nc(lookAndFeelString)->contains("gtk"_s)) {
+	if (var$0 || lookAndFeelString->contains("gtk"_s)) {
 		return false;
 	}
 	try {
@@ -297,7 +236,7 @@ bool JInternalFrameIconTest::tryLookAndFeel($String* lookAndFeelString) {
 	return true;
 }
 
-void clinit$JInternalFrameIconTest($Class* class$) {
+void JInternalFrameIconTest::clinit$($Class* clazz) {
 	$assignStatic(JInternalFrameIconTest::errorString, ""_s);
 }
 
@@ -305,7 +244,55 @@ JInternalFrameIconTest::JInternalFrameIconTest() {
 }
 
 $Class* JInternalFrameIconTest::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrameIconTest, name, initialize, &_JInternalFrameIconTest_ClassInfo_, clinit$JInternalFrameIconTest, allocate$JInternalFrameIconTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, frame)},
+		{"desktopPane", "Ljavax/swing/JDesktopPane;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, desktopPane)},
+		{"internalFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, internalFrame)},
+		{"titleImageIcon", "Ljavax/swing/ImageIcon;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, titleImageIcon)},
+		{"titleIcon", "Ljavax/swing/Icon;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, titleIcon)},
+		{"imageIconImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, imageIconImage)},
+		{"iconImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, iconImage)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameIconTest, robot)},
+		{"errorString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JInternalFrameIconTest, errorString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrameIconTest, init$, void)},
+		{"bufferedImagesEqual", "(Ljava/awt/image/BufferedImage;Ljava/awt/image/BufferedImage;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, bufferedImagesEqual, bool, $BufferedImage*, $BufferedImage*)},
+		{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, cleanUp, void), "java.lang.Exception"},
+		{"createIconUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, createIconUI, void, $String*), "java.lang.Exception"},
+		{"createImageIconUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, createImageIconUI, void, $String*), "java.lang.Exception"},
+		{"executeCase", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, executeCase, void, $String*), "java.lang.Exception"},
+		{"getIconBufferedImage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, getIconBufferedImage, void), "java.lang.Exception"},
+		{"getImageIconBufferedImage", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, getImageIconBufferedImage, void), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JInternalFrameIconTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"testIfSame", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, testIfSame, void, $String*), "java.lang.Exception"},
+		{"tryLookAndFeel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameIconTest, tryLookAndFeel, bool, $String*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JInternalFrameIconTest$3", nullptr, nullptr, 0},
+		{"JInternalFrameIconTest$2", nullptr, nullptr, 0},
+		{"JInternalFrameIconTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JInternalFrameIconTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"JInternalFrameIconTest$3,JInternalFrameIconTest$2,JInternalFrameIconTest$2$1,JInternalFrameIconTest$1,JInternalFrameIconTest$1$1"
+	};
+	$loadClass(JInternalFrameIconTest, name, initialize, &classInfo$$, JInternalFrameIconTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JInternalFrameIconTest);
+	});
 	return class$;
 }
 

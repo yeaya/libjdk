@@ -92,6 +92,7 @@ class KeyIndex : public ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxi
 	$class(KeyIndex, 0, ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIteratorBase)
 public:
 	KeyIndex();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t dummy);
 	virtual void add($String* value, int32_t node, int32_t rootNode);
 	virtual ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator* cloneIterator() override;

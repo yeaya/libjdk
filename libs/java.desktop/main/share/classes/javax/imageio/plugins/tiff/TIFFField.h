@@ -41,6 +41,7 @@ class $export TIFFField : public ::java::lang::Cloneable {
 	$class(TIFFField, 0, ::java::lang::Cloneable)
 public:
 	TIFFField();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::imageio::plugins::tiff::TIFFTag* tag, int32_t type, int32_t count, Object$* data);
 	void init$(::javax::imageio::plugins::tiff::TIFFTag* tag, int32_t type, int32_t count);
@@ -79,7 +80,7 @@ public:
 	bool hasDirectory();
 	static void initData(::org::w3c::dom::Node* node, $ints* otype, $ints* ocount, $ObjectArray* odata);
 	bool isIntegral();
-	static const int64_t MAX_UINT32 = (int64_t)0x00000000FFFFFFFF;
+	static const int64_t MAX_UINT32 = (int64_t)0x00000000ffffffff;
 	static $StringArray* TYPE_NAMES;
 	static $booleans* IS_INTEGRAL;
 	::javax::imageio::plugins::tiff::TIFFTag* tag = nullptr;

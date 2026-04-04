@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFIFD.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriter.h>
 #include <java/lang/ClassLoader.h>
@@ -124,7 +123,6 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeException;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
@@ -132,7 +130,6 @@ using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
 using $ExifParentTIFFTagSet = ::javax::imageio::plugins::tiff::ExifParentTIFFTagSet;
-using $TIFFDirectory = ::javax::imageio::plugins::tiff::TIFFDirectory;
 using $TIFFField = ::javax::imageio::plugins::tiff::TIFFField;
 using $TIFFTag = ::javax::imageio::plugins::tiff::TIFFTag;
 using $TIFFTagSet = ::javax::imageio::plugins::tiff::TIFFTagSet;
@@ -146,63 +143,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFImageMetadata_FieldInfo_[] = {
-	{"NATIVE_METADATA_FORMAT_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TIFFImageMetadata, NATIVE_METADATA_FORMAT_NAME)},
-	{"NATIVE_METADATA_FORMAT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TIFFImageMetadata, NATIVE_METADATA_FORMAT_CLASS_NAME)},
-	{"tagSets", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PRIVATE, $field(TIFFImageMetadata, tagSets)},
-	{"rootIFD", "Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, 0, $field(TIFFImageMetadata, rootIFD)},
-	{"colorSpaceNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFImageMetadata, colorSpaceNames)},
-	{"orientationNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFImageMetadata, orientationNames)},
-	{}
-};
-
-$MethodInfo _TIFFImageMetadata_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;)V", $PUBLIC, $method(TIFFImageMetadata, init$, void, $List*)},
-	{"<init>", "(Lcom/sun/imageio/plugins/tiff/TIFFIFD;)V", nullptr, $PUBLIC, $method(TIFFImageMetadata, init$, void, $TIFFIFD*)},
-	{"addShortOrLongField", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, addShortOrLongField, void, int32_t, int64_t)},
-	{"fatal", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFImageMetadata, fatal, void, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getAsTree, $Node*, $String*)},
-	{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFImageMetadata, getAttribute, $String*, $Node*, $String*)},
-	{"getChildNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(TIFFImageMetadata, getChildNode, $Node*, $Node*, $String*)},
-	{"getIFDAsTree", "(Lcom/sun/imageio/plugins/tiff/TIFFIFD;Ljava/lang/String;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(TIFFImageMetadata, getIFDAsTree, $Node*, $TIFFIFD*, $String*, int32_t)},
-	{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(TIFFImageMetadata, getNativeTree, $Node*)},
-	{"getRootIFD", "()Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getRootIFD, $TIFFIFD*)},
-	{"getShallowClone", "()Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getShallowClone, TIFFImageMetadata*)},
-	{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardChromaNode, $IIOMetadataNode*)},
-	{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
-	{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardDataNode, $IIOMetadataNode*)},
-	{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
-	{"getStandardDocumentNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardDocumentNode, $IIOMetadataNode*)},
-	{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardTextNode, $IIOMetadataNode*)},
-	{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
-	{"getTIFFField", "(I)Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getTIFFField, $TIFFField*, int32_t)},
-	{"initializeFromStream", "(Ljavax/imageio/stream/ImageInputStream;ZZ)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, initializeFromStream, void, $ImageInputStream*, bool, bool), "java.io.IOException"},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, isReadOnly, bool)},
-	{"listToCharArray", "(Ljava/lang/String;)[C", nullptr, $PRIVATE, $method(TIFFImageMetadata, listToCharArray, $chars*, $String*)},
-	{"listToIntArray", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(TIFFImageMetadata, listToIntArray, $ints*, $String*)},
-	{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(TIFFImageMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(TIFFImageMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"parseIFD", "(Lorg/w3c/dom/Node;)Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFImageMetadata, parseIFD, $TIFFIFD*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"removeTIFFField", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, removeTIFFField, void, int32_t)},
-	{"repeat", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(TIFFImageMetadata, repeat, $String*, $String*, int32_t)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, reset, void)},
-	{}
-};
-
-$ClassInfo _TIFFImageMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFImageMetadata",
-	"javax.imageio.metadata.IIOMetadata",
-	nullptr,
-	_TIFFImageMetadata_FieldInfo_,
-	_TIFFImageMetadata_MethodInfo_
-};
-
-$Object* allocate$TIFFImageMetadata($Class* clazz) {
-	return $of($alloc(TIFFImageMetadata));
-}
 
 $String* TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME = nullptr;
 $String* TIFFImageMetadata::NATIVE_METADATA_FORMAT_CLASS_NAME = nullptr;
@@ -226,7 +166,7 @@ void TIFFImageMetadata::initializeFromStream($ImageInputStream* stream, bool ign
 }
 
 void TIFFImageMetadata::addShortOrLongField(int32_t tagNumber, int64_t value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFField, field, $new($TIFFField, $($nc(this->rootIFD)->getTag(tagNumber)), value));
 	$nc(this->rootIFD)->addTIFFField(field);
 }
@@ -236,7 +176,7 @@ bool TIFFImageMetadata::isReadOnly() {
 }
 
 $Node* TIFFImageMetadata::getIFDAsTree($TIFFIFD* ifd, $String* parentTagName, int32_t parentTagNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, IFDRoot, $new($IIOMetadataNode, "TIFFIFD"_s));
 	if (parentTagNumber != 0) {
 		IFDRoot->setAttribute("parentTagNumber"_s, $($Integer::toString(parentTagNumber)));
@@ -250,7 +190,7 @@ $Node* TIFFImageMetadata::getIFDAsTree($TIFFIFD* ifd, $String* parentTagName, in
 		$var($StringBuilder, tagSetNames, $new($StringBuilder));
 		while ($nc(iter)->hasNext()) {
 			$var($TIFFTagSet, tagSet, $cast($TIFFTagSet, iter->next()));
-			tagSetNames->append($($nc($of(tagSet))->getClass()->getName()));
+			tagSetNames->append($($nc(tagSet)->getClass()->getName()));
 			if (iter->hasNext()) {
 				tagSetNames->append(","_s);
 			}
@@ -266,12 +206,11 @@ $Node* TIFFImageMetadata::getIFDAsTree($TIFFIFD* ifd, $String* parentTagName, in
 		if (tag == nullptr) {
 			$assign(node, f->getAsNativeNode());
 		} else {
-			bool var$1 = $nc(tag)->isIFDPointer();
-			if (var$1 && f->hasDirectory()) {
+			bool var$0 = tag->isIFDPointer();
+			if (var$0 && f->hasDirectory()) {
 				$var($TIFFIFD, subIFD, $TIFFIFD::getDirectoryAsIFD($(f->getDirectory())));
-				$var($TIFFIFD, var$2, subIFD);
-				$var($String, var$3, tag->getName());
-				$assign(node, getIFDAsTree(var$2, var$3, tag->getNumber()));
+				$var($String, var$1, tag->getName());
+				$assign(node, getIFDAsTree(subIFD, var$1, tag->getNumber()));
 			} else {
 				$assign(node, f->getAsNativeNode());
 			}
@@ -297,7 +236,7 @@ $Node* TIFFImageMetadata::getAsTree($String* formatName) {
 }
 
 $Node* TIFFImageMetadata::getNativeTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, root, $new($IIOMetadataNode, this->nativeMetadataFormatName));
 	$var($Node, IFDNode, getIFDAsTree(this->rootIFD, nullptr, 0));
 	root->appendChild(IFDNode);
@@ -305,7 +244,7 @@ $Node* TIFFImageMetadata::getNativeTree() {
 }
 
 $IIOMetadataNode* TIFFImageMetadata::getStandardChromaNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, chroma_node, $new($IIOMetadataNode, "Chroma"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$var($TIFFField, f, nullptr);
@@ -331,13 +270,13 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardChromaNode() {
 		}
 	}
 	if (photometricInterpretation != -1) {
-		if (photometricInterpretation >= 0 && photometricInterpretation < $nc(TIFFImageMetadata::colorSpaceNames)->length) {
+		if (photometricInterpretation >= 0 && photometricInterpretation < TIFFImageMetadata::colorSpaceNames->length) {
 			$assign(node, $new($IIOMetadataNode, "ColorSpaceType"_s));
 			$var($String, csName, nullptr);
 			if (photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_CMYK && numChannels == 3) {
 				$assign(csName, "CMY"_s);
 			} else {
-				$assign(csName, $nc(TIFFImageMetadata::colorSpaceNames)->get(photometricInterpretation));
+				$assign(csName, TIFFImageMetadata::colorSpaceNames->get(photometricInterpretation));
 			}
 			node->setAttribute("name"_s, csName);
 			chroma_node->appendChild(node);
@@ -359,9 +298,9 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardChromaNode() {
 		for (int32_t i = 0; i < len; ++i) {
 			$var($IIOMetadataNode, entry, $new($IIOMetadataNode, "PaletteEntry"_s));
 			entry->setAttribute("index"_s, $($Integer::toString(i)));
-			int32_t r = (f->getAsInt(i) * 255) / 0x0000FFFF;
-			int32_t g = (f->getAsInt(len + i) * 255) / 0x0000FFFF;
-			int32_t b = (f->getAsInt(2 * len + i) * 255) / 0x0000FFFF;
+			int32_t r = (f->getAsInt(i) * 255) / 0x0000ffff;
+			int32_t g = (f->getAsInt(len + i) * 255) / 0x0000ffff;
+			int32_t b = (f->getAsInt(2 * len + i) * 255) / 0x0000ffff;
 			entry->setAttribute("red"_s, $($Integer::toString(r)));
 			entry->setAttribute("green"_s, $($Integer::toString(g)));
 			entry->setAttribute("blue"_s, $($Integer::toString(b)));
@@ -377,7 +316,7 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardChromaNode() {
 }
 
 $IIOMetadataNode* TIFFImageMetadata::getStandardCompressionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, compression_node, $new($IIOMetadataNode, "Compression"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$var($TIFFField, f, nullptr);
@@ -429,7 +368,7 @@ $String* TIFFImageMetadata::repeat($String* s, int32_t times) {
 }
 
 $IIOMetadataNode* TIFFImageMetadata::getStandardDataNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, data_node, $new($IIOMetadataNode, "Data"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$var($TIFFField, f, nullptr);
@@ -479,14 +418,14 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDataNode() {
 		$assign(bitsPerSample, f->getAsInts());
 	} else {
 		$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_COMPRESSION));
-		int32_t compression = f != nullptr ? $nc(f)->getAsInt(0) : $BaselineTIFFTagSet::COMPRESSION_NONE;
+		int32_t compression = f != nullptr ? f->getAsInt(0) : $BaselineTIFFTagSet::COMPRESSION_NONE;
 		bool var$0 = getTIFFField($ExifParentTIFFTagSet::TAG_EXIF_IFD_POINTER) != nullptr || compression == $BaselineTIFFTagSet::COMPRESSION_JPEG || compression == $BaselineTIFFTagSet::COMPRESSION_OLD_JPEG;
 		if (var$0 || getTIFFField($BaselineTIFFTagSet::TAG_JPEG_INTERCHANGE_FORMAT) != nullptr) {
 			$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_PHOTOMETRIC_INTERPRETATION));
 			bool var$1 = f != nullptr;
 			if (var$1) {
 				bool var$2 = f->getAsInt(0) == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_WHITE_IS_ZERO;
-				var$1 = (var$2 || f->getAsInt(0) == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO);
+				var$1 = var$2 || f->getAsInt(0) == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO;
 			}
 			if (var$1) {
 				$assign(bitsPerSample, $new($ints, {8}));
@@ -516,9 +455,9 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDataNode() {
 	}
 	data_node->appendChild(node);
 	$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_FILL_ORDER));
-	int32_t fillOrder = f != nullptr ? $nc(f)->getAsInt(0) : $BaselineTIFFTagSet::FILL_ORDER_LEFT_TO_RIGHT;
+	int32_t fillOrder = f != nullptr ? f->getAsInt(0) : $BaselineTIFFTagSet::FILL_ORDER_LEFT_TO_RIGHT;
 	$assign(sb, $new($StringBuilder));
-	for (int32_t i = 0; i < $nc(bitsPerSample)->length; ++i) {
+	for (int32_t i = 0; i < bitsPerSample->length; ++i) {
 		if (i > 0) {
 			sb->append(" "_s);
 		}
@@ -537,7 +476,7 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDataNode() {
 }
 
 $IIOMetadataNode* TIFFImageMetadata::getStandardDimensionNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, dimension_node, $new($IIOMetadataNode, "Dimension"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$var($TIFFField, f, nullptr);
@@ -545,11 +484,11 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDimensionNode() {
 	$var($longs, yres, nullptr);
 	$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_X_RESOLUTION));
 	if (f != nullptr) {
-		$assign(xres, $cast($longs, $nc($(f->getAsRational(0)))->clone()));
+		$assign(xres, $cast($longs, $$nc(f->getAsRational(0))->clone()));
 	}
 	$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_Y_RESOLUTION));
 	if (f != nullptr) {
-		$assign(yres, $cast($longs, $nc($(f->getAsRational(0)))->clone()));
+		$assign(yres, $cast($longs, $$nc(f->getAsRational(0))->clone()));
 	}
 	if (xres != nullptr && yres != nullptr) {
 		$assign(node, $new($IIOMetadataNode, "PixelAspectRatio"_s));
@@ -559,7 +498,7 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDimensionNode() {
 	}
 	if (xres != nullptr || yres != nullptr) {
 		$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT));
-		int32_t resolutionUnit = f != nullptr ? $nc(f)->getAsInt(0) : $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH;
+		int32_t resolutionUnit = f != nullptr ? f->getAsInt(0) : $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH;
 		bool gotPixelSize = resolutionUnit != $BaselineTIFFTagSet::RESOLUTION_UNIT_NONE;
 		if (resolutionUnit == $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH) {
 			if (xres != nullptr) {
@@ -587,12 +526,12 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDimensionNode() {
 		}
 	}
 	$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT));
-	int32_t resolutionUnit = f != nullptr ? $nc(f)->getAsInt(0) : $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH;
+	int32_t resolutionUnit = f != nullptr ? f->getAsInt(0) : $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH;
 	if (resolutionUnit == $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH || resolutionUnit == $BaselineTIFFTagSet::RESOLUTION_UNIT_CENTIMETER) {
 		$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_X_POSITION));
 		if (f != nullptr) {
 			$var($longs, xpos, f->getAsRational(0));
-			float xPosition = (float)$nc(xpos)->get(0) / (float)xpos->get(1);
+			float xPosition = (float)$nc(xpos)->get(0) / (float)$nc(xpos)->get(1);
 			if (resolutionUnit == $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH) {
 				xPosition *= 254.0f;
 			} else {
@@ -605,7 +544,7 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDimensionNode() {
 		$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_Y_POSITION));
 		if (f != nullptr) {
 			$var($longs, ypos, f->getAsRational(0));
-			float yPosition = (float)$nc(ypos)->get(0) / (float)ypos->get(1);
+			float yPosition = (float)$nc(ypos)->get(0) / (float)$nc(ypos)->get(1);
 			if (resolutionUnit == $BaselineTIFFTagSet::RESOLUTION_UNIT_INCH) {
 				yPosition *= 254.0f;
 			} else {
@@ -619,9 +558,9 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDimensionNode() {
 	$assign(f, getTIFFField($BaselineTIFFTagSet::TAG_ORIENTATION));
 	if (f != nullptr) {
 		int32_t o = f->getAsInt(0);
-		if (o >= 0 && o < $nc(TIFFImageMetadata::orientationNames)->length) {
+		if (o >= 0 && o < TIFFImageMetadata::orientationNames->length) {
 			$assign(node, $new($IIOMetadataNode, "ImageOrientation"_s));
-			node->setAttribute("value"_s, $nc(TIFFImageMetadata::orientationNames)->get(o));
+			node->setAttribute("value"_s, TIFFImageMetadata::orientationNames->get(o));
 			dimension_node->appendChild(node);
 		}
 	}
@@ -629,7 +568,7 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDimensionNode() {
 }
 
 $IIOMetadataNode* TIFFImageMetadata::getStandardDocumentNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, document_node, $new($IIOMetadataNode, "Document"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$var($TIFFField, f, nullptr);
@@ -640,11 +579,11 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDocumentNode() {
 	if (f != nullptr) {
 		int32_t newSubFileType = f->getAsInt(0);
 		$var($String, value, nullptr);
-		if (((int32_t)(newSubFileType & (uint32_t)$BaselineTIFFTagSet::NEW_SUBFILE_TYPE_TRANSPARENCY)) != 0) {
+		if ((newSubFileType & $BaselineTIFFTagSet::NEW_SUBFILE_TYPE_TRANSPARENCY) != 0) {
 			$assign(value, "TransparencyMask"_s);
-		} else if (((int32_t)(newSubFileType & (uint32_t)$BaselineTIFFTagSet::NEW_SUBFILE_TYPE_REDUCED_RESOLUTION)) != 0) {
+		} else if ((newSubFileType & $BaselineTIFFTagSet::NEW_SUBFILE_TYPE_REDUCED_RESOLUTION) != 0) {
 			$assign(value, "ReducedResolution"_s);
-		} else if (((int32_t)(newSubFileType & (uint32_t)$BaselineTIFFTagSet::NEW_SUBFILE_TYPE_SINGLE_PAGE)) != 0) {
+		} else if ((newSubFileType & $BaselineTIFFTagSet::NEW_SUBFILE_TYPE_SINGLE_PAGE) != 0) {
 			$assign(value, "SinglePage"_s);
 		}
 		if (value != nullptr) {
@@ -679,7 +618,7 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardDocumentNode() {
 }
 
 $IIOMetadataNode* TIFFImageMetadata::getStandardTextNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, text_node, nullptr);
 	$var($IIOMetadataNode, node, nullptr);
 	$var($TIFFField, f, nullptr);
@@ -703,7 +642,7 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardTextNode() {
 				$assign(text_node, $new($IIOMetadataNode, "Text"_s));
 			}
 			$assign(node, $new($IIOMetadataNode, "TextEntry"_s));
-			node->setAttribute("keyword"_s, $($nc($(f->getTag()))->getName()));
+			node->setAttribute("keyword"_s, $($$nc(f->getTag())->getName()));
 			node->setAttribute("value"_s, value);
 			$nc(text_node)->appendChild(node);
 		}
@@ -712,7 +651,7 @@ $IIOMetadataNode* TIFFImageMetadata::getStandardTextNode() {
 }
 
 $IIOMetadataNode* TIFFImageMetadata::getStandardTransparencyNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, transparency_node, $new($IIOMetadataNode, "Transparency"_s));
 	$var($IIOMetadataNode, node, nullptr);
 	$var($TIFFField, f, nullptr);
@@ -742,7 +681,7 @@ void TIFFImageMetadata::fatal($Node* node, $String* reason) {
 }
 
 $ints* TIFFImageMetadata::listToIntArray($String* list) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, st, $new($StringTokenizer, list, " "_s));
 	$var($ArrayList, intList, $new($ArrayList));
 	while (st->hasMoreTokens()) {
@@ -752,13 +691,13 @@ $ints* TIFFImageMetadata::listToIntArray($String* list) {
 	}
 	$var($ints, intArray, $new($ints, intList->size()));
 	for (int32_t i = 0; i < intArray->length; ++i) {
-		intArray->set(i, $nc(($cast($Integer, $(intList->get(i)))))->intValue());
+		intArray->set(i, $$sure($Integer, intList->get(i))->intValue());
 	}
 	return intArray;
 }
 
 $chars* TIFFImageMetadata::listToCharArray($String* list) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, st, $new($StringTokenizer, list, " "_s));
 	$var($ArrayList, intList, $new($ArrayList));
 	while (st->hasMoreTokens()) {
@@ -768,18 +707,18 @@ $chars* TIFFImageMetadata::listToCharArray($String* list) {
 	}
 	$var($chars, charArray, $new($chars, intList->size()));
 	for (int32_t i = 0; i < charArray->length; ++i) {
-		charArray->set(i, (char16_t)($nc(($cast($Integer, $(intList->get(i)))))->intValue()));
+		charArray->set(i, (char16_t)($$sure($Integer, intList->get(i))->intValue()));
 	}
 	return charArray;
 }
 
 void TIFFImageMetadata::mergeStandardTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFField, f, nullptr);
 	$var($TIFFTag, tag, nullptr);
 	$var($Node, node, root);
 	$init($IIOMetadataFormatImpl);
-	if (!$nc($($nc(node)->getNodeName()))->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals($IIOMetadataFormatImpl::standardMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, $IIOMetadataFormatImpl::standardMetadataFormatName}));
 	}
 	$var($String, sampleFormat, nullptr);
@@ -798,7 +737,7 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 			isPaletteColor = true;
 		}
 	}
-	$assign(node, $nc(node)->getFirstChild());
+	$assign(node, node->getFirstChild());
 	while (node != nullptr) {
 		$var($String, name, node->getNodeName());
 		if ($nc(name)->equals("Chroma"_s)) {
@@ -846,27 +785,27 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 						int32_t paletteLength = 3 * mapSize;
 						$var($chars, paletteEntries, $new($chars, paletteLength));
 						{
-							$var($Iterator, i$, $nc($(palette->entrySet()))->iterator());
+							$var($Iterator, i$, $$nc(palette->entrySet())->iterator());
 							for (; $nc(i$)->hasNext();) {
 								$var($Map$Entry, paletteEntry, $cast($Map$Entry, i$->next()));
 								{
-									int32_t index = $nc(($cast($Integer, $($nc(paletteEntry)->getKey()))))->intValue();
+									int32_t index = $$sure($Integer, $nc(paletteEntry)->getKey())->intValue();
 									$var($chars, rgb, $cast($chars, paletteEntry->getValue()));
-									paletteEntries->set(index, (char16_t)(($nc(rgb)->get(0) * 0x0000FFFF) / 255));
-									paletteEntries->set(mapSize + index, (char16_t)((rgb->get(1) * 0x0000FFFF) / 255));
-									paletteEntries->set(2 * mapSize + index, (char16_t)((rgb->get(2) * 0x0000FFFF) / 255));
+									paletteEntries->set(index, (char16_t)(($nc(rgb)->get(0) * 0x0000ffff) / 255));
+									paletteEntries->set(mapSize + index, (char16_t)((rgb->get(1) * 0x0000ffff) / 255));
+									paletteEntries->set(2 * mapSize + index, (char16_t)((rgb->get(2) * 0x0000ffff) / 255));
 								}
 							}
 						}
 						$assign(tag, $nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_COLOR_MAP));
-						$assign(f, $new($TIFFField, tag, $TIFFTag::TIFF_SHORT, paletteLength, $of(paletteEntries)));
+						$assign(f, $new($TIFFField, tag, $TIFFTag::TIFF_SHORT, paletteLength, paletteEntries));
 						$nc(this->rootIFD)->addTIFFField(f);
 					}
 				}
 				$assign(child, child->getNextSibling());
 			}
 			int32_t photometricInterpretation = -1;
-			bool var$0 = (colorSpaceType == nullptr || $nc(colorSpaceType)->equals("GRAY"_s)) && blackIsZero != nullptr;
+			bool var$0 = (colorSpaceType == nullptr || colorSpaceType->equals("GRAY"_s)) && blackIsZero != nullptr;
 			if (var$0 && blackIsZero->equalsIgnoreCase("FALSE"_s)) {
 				photometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_WHITE_IS_ZERO;
 			} else if (colorSpaceType != nullptr) {
@@ -874,7 +813,7 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 					bool isTransparency = false;
 					if ($instanceOf($IIOMetadataNode, root)) {
 						$var($IIOMetadataNode, iioRoot, $cast($IIOMetadataNode, root));
-						$var($NodeList, siNodeList, $nc(iioRoot)->getElementsByTagName("SubimageInterpretation"_s));
+						$var($NodeList, siNodeList, iioRoot->getElementsByTagName("SubimageInterpretation"_s));
 						if ($nc(siNodeList)->getLength() == 1) {
 							$var($Node, siNode, siNodeList->item(0));
 							$var($String, value, getAttribute(siNode, "value"_s));
@@ -952,9 +891,9 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 					$var($chars, bitsPerSample, listToCharArray(bps));
 					$assign(tag, $nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_BITS_PER_SAMPLE));
 					if (isPaletteColor) {
-						$assign(f, $new($TIFFField, tag, $TIFFTag::TIFF_SHORT, 1, $of($$new($chars, {$nc(bitsPerSample)->get(0)}))));
+						$assign(f, $new($TIFFField, tag, $TIFFTag::TIFF_SHORT, 1, $$new($chars, {$nc(bitsPerSample)->get(0)})));
 					} else {
-						$assign(f, $new($TIFFField, tag, $TIFFTag::TIFF_SHORT, $nc(bitsPerSample)->length, $of(bitsPerSample)));
+						$assign(f, $new($TIFFField, tag, $TIFFTag::TIFF_SHORT, $nc(bitsPerSample)->length, bitsPerSample));
 					}
 					$nc(this->rootIFD)->addTIFFField(f);
 				} else if (childName->equals("SampleMSB"_s)) {
@@ -995,11 +934,11 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 					gotPixelAspectRatio = true;
 				} else if (childName->equals("ImageOrientation"_s)) {
 					$var($String, orientation, getAttribute(child, "value"_s));
-					for (int32_t i = 0; i < $nc(TIFFImageMetadata::orientationNames)->length; ++i) {
-						if ($nc(orientation)->equals($nc(TIFFImageMetadata::orientationNames)->get(i))) {
+					for (int32_t i = 0; i < TIFFImageMetadata::orientationNames->length; ++i) {
+						if ($nc(orientation)->equals(TIFFImageMetadata::orientationNames->get(i))) {
 							$var($chars, oData, $new($chars, 1));
 							oData->set(0, (char16_t)i);
-							$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_ORIENTATION)), $TIFFTag::TIFF_SHORT, 1, $of(oData)));
+							$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_ORIENTATION)), $TIFFTag::TIFF_SHORT, 1, oData));
 							$nc(this->rootIFD)->addTIFFField(f);
 							break;
 						}
@@ -1044,7 +983,7 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 				hData->set(0, $$new($longs, 2));
 				$nc(hData->get(0))->set(0, $cast(int64_t, (xResolution * 10000.0f)));
 				$nc(hData->get(0))->set(1, (int64_t)10000);
-				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_X_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, $of(hData)));
+				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_X_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, hData));
 				$nc(this->rootIFD)->addTIFFField(f);
 			}
 			if (gotVerticalPixelSize) {
@@ -1053,26 +992,26 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 				vData->set(0, $$new($longs, 2));
 				$nc(vData->get(0))->set(0, $cast(int64_t, (yResolution * 10000.0f)));
 				$nc(vData->get(0))->set(1, (int64_t)10000);
-				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_Y_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, $of(vData)));
+				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_Y_RESOLUTION)), $TIFFTag::TIFF_RATIONAL, 1, vData));
 				$nc(this->rootIFD)->addTIFFField(f);
 			}
 			$var($chars, res, $new($chars, 1));
 			res->set(0, (char16_t)(sizeIsAbsolute ? $BaselineTIFFTagSet::RESOLUTION_UNIT_CENTIMETER : $BaselineTIFFTagSet::RESOLUTION_UNIT_NONE));
-			$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT)), $TIFFTag::TIFF_SHORT, 1, $of(res)));
+			$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_RESOLUTION_UNIT)), $TIFFTag::TIFF_SHORT, 1, res));
 			$nc(this->rootIFD)->addTIFFField(f);
 			if (sizeIsAbsolute) {
 				if (gotHorizontalPosition) {
 					$var($longArray2, hData, $new($longArray2, 1, 2));
 					$nc(hData->get(0))->set(0, $cast(int64_t, (horizontalPosition * 10000.0f)));
-					$nc(hData->get(0))->set(1, (int64_t)0x000186A0);
-					$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_X_POSITION)), $TIFFTag::TIFF_RATIONAL, 1, $of(hData)));
+					$nc(hData->get(0))->set(1, (int64_t)100000);
+					$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_X_POSITION)), $TIFFTag::TIFF_RATIONAL, 1, hData));
 					$nc(this->rootIFD)->addTIFFField(f);
 				}
 				if (gotVerticalPosition) {
 					$var($longArray2, vData, $new($longArray2, 1, 2));
 					$nc(vData->get(0))->set(0, $cast(int64_t, (verticalPosition * 10000.0f)));
-					$nc(vData->get(0))->set(1, (int64_t)0x000186A0);
-					$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_Y_POSITION)), $TIFFTag::TIFF_RATIONAL, 1, $of(vData)));
+					$nc(vData->get(0))->set(1, (int64_t)100000);
+					$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_Y_POSITION)), $TIFFTag::TIFF_RATIONAL, 1, vData));
 					$nc(this->rootIFD)->addTIFFField(f);
 				}
 			}
@@ -1096,7 +1035,7 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 						$nc(this->rootIFD)->addTIFFField(f);
 					}
 				}
-				if ($nc(childName)->equals("ImageCreationTime"_s)) {
+				if (childName->equals("ImageCreationTime"_s)) {
 					$var($String, year, getAttribute(child, "year"_s));
 					$var($String, month, getAttribute(child, "month"_s));
 					$var($String, day, getAttribute(child, "day"_s));
@@ -1132,7 +1071,7 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 					sb->append(second);
 					$var($StringArray, dt, $new($StringArray, 1));
 					dt->set(0, $(sb->toString()));
-					$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_DATE_TIME)), $TIFFTag::TIFF_ASCII, 1, $of(dt)));
+					$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_DATE_TIME)), $TIFFTag::TIFF_ASCII, 1, dt));
 					$nc(this->rootIFD)->addTIFFField(f);
 				}
 				$assign(child, child->getNextSibling());
@@ -1181,7 +1120,7 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 								$assign(theTitle, value);
 							}
 							if (tagNumber != -1) {
-								$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag(tagNumber)), $TIFFTag::TIFF_ASCII, 1, $of($$new($StringArray, {value}))));
+								$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag(tagNumber)), $TIFFTag::TIFF_ASCII, 1, $$new($StringArray, {value})));
 								$nc(this->rootIFD)->addTIFFField(f);
 							}
 						}
@@ -1190,15 +1129,15 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 				$assign(child, child->getNextSibling());
 			}
 			if (theAuthor != nullptr && getTIFFField($BaselineTIFFTagSet::TAG_ARTIST) == nullptr) {
-				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_ARTIST)), $TIFFTag::TIFF_ASCII, 1, $of($$new($StringArray, {theAuthor}))));
+				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_ARTIST)), $TIFFTag::TIFF_ASCII, 1, $$new($StringArray, {theAuthor})));
 				$nc(this->rootIFD)->addTIFFField(f);
 			}
 			if (theDescription != nullptr && getTIFFField($BaselineTIFFTagSet::TAG_IMAGE_DESCRIPTION) == nullptr) {
-				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_IMAGE_DESCRIPTION)), $TIFFTag::TIFF_ASCII, 1, $of($$new($StringArray, {theDescription}))));
+				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_IMAGE_DESCRIPTION)), $TIFFTag::TIFF_ASCII, 1, $$new($StringArray, {theDescription})));
 				$nc(this->rootIFD)->addTIFFField(f);
 			}
 			if (theTitle != nullptr && getTIFFField($BaselineTIFFTagSet::TAG_DOCUMENT_NAME) == nullptr) {
-				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_DOCUMENT_NAME)), $TIFFTag::TIFF_ASCII, 1, $of($$new($StringArray, {theTitle}))));
+				$assign(f, $new($TIFFField, $($nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_DOCUMENT_NAME)), $TIFFTag::TIFF_ASCII, 1, $$new($StringArray, {theTitle})));
 				$nc(this->rootIFD)->addTIFFField(f);
 			}
 		} else if (name->equals("Transparency"_s)) {
@@ -1247,7 +1186,7 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 			$var($chars, sampleFormatArray, $new($chars, count));
 			$Arrays::fill(sampleFormatArray, (char16_t)sf);
 			$assign(tag, $nc(this->rootIFD)->getTag($BaselineTIFFTagSet::TAG_SAMPLE_FORMAT));
-			$assign(f, $new($TIFFField, tag, $TIFFTag::TIFF_SHORT, sampleFormatArray->length, $of(sampleFormatArray)));
+			$assign(f, $new($TIFFField, tag, $TIFFTag::TIFF_SHORT, sampleFormatArray->length, sampleFormatArray));
 			$nc(this->rootIFD)->addTIFFField(f);
 		}
 	}
@@ -1255,21 +1194,21 @@ void TIFFImageMetadata::mergeStandardTree($Node* root) {
 
 $String* TIFFImageMetadata::getAttribute($Node* node, $String* attrName) {
 	$init(TIFFImageMetadata);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamedNodeMap, attrs, $nc(node)->getAttributes());
 	$var($Node, attr, $nc(attrs)->getNamedItem(attrName));
-	return attr != nullptr ? $nc(attr)->getNodeValue() : ($String*)nullptr;
+	return attr != nullptr ? attr->getNodeValue() : ($String*)nullptr;
 }
 
 $Node* TIFFImageMetadata::getChildNode($Node* node, $String* childName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, childNode, nullptr);
 	if ($nc(node)->hasChildNodes()) {
 		$var($NodeList, childNodes, node->getChildNodes());
 		int32_t length = $nc(childNodes)->getLength();
 		for (int32_t i = 0; i < length; ++i) {
 			$var($Node, item, childNodes->item(i));
-			if ($nc($($nc(item)->getNodeName()))->equals(childName)) {
+			if ($$nc($nc(item)->getNodeName())->equals(childName)) {
 				$assign(childNode, item);
 				break;
 			}
@@ -1280,10 +1219,10 @@ $Node* TIFFImageMetadata::getChildNode($Node* node, $String* childName) {
 
 $TIFFIFD* TIFFImageMetadata::parseIFD($Node* node$renamed) {
 	$init(TIFFImageMetadata);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, node$renamed);
 	$beforeCallerSensitive();
-	if (!$nc($($nc(node)->getNodeName()))->equals("TIFFIFD"_s)) {
+	if (!$$nc($nc(node)->getNodeName())->equals("TIFFIFD"_s)) {
 		fatal(node, "Expected \"TIFFIFD\" node"_s);
 	}
 	$var($String, tagSetNames, getAttribute(node, "tagSets"_s));
@@ -1301,16 +1240,16 @@ $TIFFIFD* TIFFImageMetadata::parseIFD($Node* node$renamed) {
 				if (!$TIFFTagSet::class$->isAssignableFrom(setClass)) {
 					fatal(node, "TagSets in IFD must be subset of TIFFTagSet class"_s);
 				}
-				$var($Method, getInstanceMethod, $nc(setClass)->getMethod("getInstance"_s, ($ClassArray*)nullptr));
+				$var($Method, getInstanceMethod, setClass->getMethod("getInstance"_s, ($ClassArray*)nullptr));
 				$assign(o, $nc(getInstanceMethod)->invoke(nullptr, ($ObjectArray*)nullptr));
 			} catch ($NoSuchMethodException& e) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				$throwNew($RuntimeException, e);
 			} catch ($IllegalAccessException& e) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				$throwNew($RuntimeException, e);
 			} catch ($InvocationTargetException& e) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				$throwNew($RuntimeException, e);
 			} catch ($ClassNotFoundException& e) {
-				$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+				$throwNew($RuntimeException, e);
 			}
 			if (!($instanceOf($TIFFTagSet, o))) {
 				fatal(node, $$str({"Specified tag set class \""_s, className, "\" is not an instance of TIFFTagSet"_s}));
@@ -1320,7 +1259,7 @@ $TIFFIFD* TIFFImageMetadata::parseIFD($Node* node$renamed) {
 		}
 	}
 	$var($TIFFIFD, ifd, $new($TIFFIFD, tagSets));
-	$assign(node, $nc(node)->getFirstChild());
+	$assign(node, node->getFirstChild());
 	while (node != nullptr) {
 		$var($String, name, node->getNodeName());
 		$var($TIFFField, f, nullptr);
@@ -1340,7 +1279,7 @@ $TIFFIFD* TIFFImageMetadata::parseIFD($Node* node$renamed) {
 				type = $TIFFTag::TIFF_LONG;
 				$init($TIFFTag);
 				$assign(tag, $new($TIFFTag, $TIFFTag::UNKNOWN_TAG_NAME, 0, $sl(1, type)));
-			} else if ($nc(tag)->isDataTypeOK($TIFFTag::TIFF_IFD_POINTER)) {
+			} else if (tag->isDataTypeOK($TIFFTag::TIFF_IFD_POINTER)) {
 				type = $TIFFTag::TIFF_IFD_POINTER;
 			} else if (tag->isDataTypeOK($TIFFTag::TIFF_LONG)) {
 				type = $TIFFTag::TIFF_LONG;
@@ -1351,7 +1290,7 @@ $TIFFIFD* TIFFImageMetadata::parseIFD($Node* node$renamed) {
 					}
 				}
 			}
-			$assign(f, $new($TIFFField, tag, type, (int64_t)1, static_cast<$TIFFDirectory*>(subIFD)));
+			$assign(f, $new($TIFFField, tag, type, (int64_t)1, subIFD));
 		} else if (name->equals("TIFFField"_s)) {
 			int32_t number = $Integer::parseInt($(getAttribute(node, "number"_s)));
 			$var($TIFFTagSet, tagSet, nullptr);
@@ -1359,11 +1298,9 @@ $TIFFIFD* TIFFImageMetadata::parseIFD($Node* node$renamed) {
 				$var($Iterator, i$, tagSets->iterator());
 				for (; $nc(i$)->hasNext();) {
 					$var($TIFFTagSet, t, $cast($TIFFTagSet, i$->next()));
-					{
-						if ($nc(t)->getTag(number) != nullptr) {
-							$assign(tagSet, t);
-							break;
-						}
+					if ($nc(t)->getTag(number) != nullptr) {
+						$assign(tagSet, t);
+						break;
 					}
 				}
 			}
@@ -1378,25 +1315,23 @@ $TIFFIFD* TIFFImageMetadata::parseIFD($Node* node$renamed) {
 }
 
 void TIFFImageMetadata::mergeNativeTree($Node* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, root);
-	if (!$nc($($nc(node)->getNodeName()))->equals(this->nativeMetadataFormatName)) {
+	if (!$$nc($nc(node)->getNodeName())->equals(this->nativeMetadataFormatName)) {
 		fatal(node, $$str({"Root must be "_s, this->nativeMetadataFormatName}));
 	}
-	$assign(node, $nc(node)->getFirstChild());
-	if (node == nullptr || !$nc($(node->getNodeName()))->equals("TIFFIFD"_s)) {
+	$assign(node, node->getFirstChild());
+	if (node == nullptr || !$$nc(node->getNodeName())->equals("TIFFIFD"_s)) {
 		fatal(root, "Root must have \"TIFFIFD\" child"_s);
 	}
 	$var($TIFFIFD, ifd, parseIFD(node));
 	$var($List, rootIFDTagSets, $nc(this->rootIFD)->getTagSetList());
 	{
-		$var($Iterator, i$, $nc($($nc(ifd)->getTagSetList()))->iterator());
+		$var($Iterator, i$, $$nc($nc(ifd)->getTagSetList())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, o, i$->next());
-			{
-				if ($instanceOf($TIFFTagSet, o) && !$nc(rootIFDTagSets)->contains(o)) {
-					$nc(this->rootIFD)->addTagSet($cast($TIFFTagSet, o));
-				}
+			if ($instanceOf($TIFFTagSet, o) && !$nc(rootIFDTagSets)->contains(o)) {
+				$nc(this->rootIFD)->addTagSet($cast($TIFFTagSet, o));
 			}
 		}
 	}
@@ -1446,7 +1381,7 @@ TIFFImageMetadata* TIFFImageMetadata::getShallowClone() {
 	return $new(TIFFImageMetadata, $($nc(this->rootIFD)->getShallowClone()));
 }
 
-void clinit$TIFFImageMetadata($Class* class$) {
+void TIFFImageMetadata::clinit$($Class* clazz) {
 	$assignStatic(TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME, "javax_imageio_tiff_image_1.0"_s);
 	$assignStatic(TIFFImageMetadata::NATIVE_METADATA_FORMAT_CLASS_NAME, "javax.imageio.plugins.tiff.TIFFImageMetadataFormat"_s);
 	$assignStatic(TIFFImageMetadata::colorSpaceNames, $new($StringArray, {
@@ -1461,7 +1396,7 @@ void clinit$TIFFImageMetadata($Class* class$) {
 		"Lab"_s
 	}));
 	$assignStatic(TIFFImageMetadata::orientationNames, $new($StringArray, {
-		($String*)nullptr,
+		nullptr,
 		"Normal"_s,
 		"FlipH"_s,
 		"Rotate180"_s,
@@ -1477,7 +1412,59 @@ TIFFImageMetadata::TIFFImageMetadata() {
 }
 
 $Class* TIFFImageMetadata::load$($String* name, bool initialize) {
-	$loadClass(TIFFImageMetadata, name, initialize, &_TIFFImageMetadata_ClassInfo_, clinit$TIFFImageMetadata, allocate$TIFFImageMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"NATIVE_METADATA_FORMAT_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TIFFImageMetadata, NATIVE_METADATA_FORMAT_NAME)},
+		{"NATIVE_METADATA_FORMAT_CLASS_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TIFFImageMetadata, NATIVE_METADATA_FORMAT_CLASS_NAME)},
+		{"tagSets", "Ljava/util/List;", "Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;", $PRIVATE, $field(TIFFImageMetadata, tagSets)},
+		{"rootIFD", "Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, 0, $field(TIFFImageMetadata, rootIFD)},
+		{"colorSpaceNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFImageMetadata, colorSpaceNames)},
+		{"orientationNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TIFFImageMetadata, orientationNames)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljavax/imageio/plugins/tiff/TIFFTagSet;>;)V", $PUBLIC, $method(TIFFImageMetadata, init$, void, $List*)},
+		{"<init>", "(Lcom/sun/imageio/plugins/tiff/TIFFIFD;)V", nullptr, $PUBLIC, $method(TIFFImageMetadata, init$, void, $TIFFIFD*)},
+		{"addShortOrLongField", "(IJ)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, addShortOrLongField, void, int32_t, int64_t)},
+		{"fatal", "(Lorg/w3c/dom/Node;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFImageMetadata, fatal, void, $Node*, $String*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getAsTree, $Node*, $String*)},
+		{"getAttribute", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFImageMetadata, getAttribute, $String*, $Node*, $String*)},
+		{"getChildNode", "(Lorg/w3c/dom/Node;Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(TIFFImageMetadata, getChildNode, $Node*, $Node*, $String*)},
+		{"getIFDAsTree", "(Lcom/sun/imageio/plugins/tiff/TIFFIFD;Ljava/lang/String;I)Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(TIFFImageMetadata, getIFDAsTree, $Node*, $TIFFIFD*, $String*, int32_t)},
+		{"getNativeTree", "()Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $method(TIFFImageMetadata, getNativeTree, $Node*)},
+		{"getRootIFD", "()Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getRootIFD, $TIFFIFD*)},
+		{"getShallowClone", "()Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getShallowClone, TIFFImageMetadata*)},
+		{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardChromaNode, $IIOMetadataNode*)},
+		{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
+		{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardDataNode, $IIOMetadataNode*)},
+		{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
+		{"getStandardDocumentNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardDocumentNode, $IIOMetadataNode*)},
+		{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardTextNode, $IIOMetadataNode*)},
+		{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
+		{"getTIFFField", "(I)Ljavax/imageio/plugins/tiff/TIFFField;", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, getTIFFField, $TIFFField*, int32_t)},
+		{"initializeFromStream", "(Ljavax/imageio/stream/ImageInputStream;ZZ)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, initializeFromStream, void, $ImageInputStream*, bool, bool), "java.io.IOException"},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, isReadOnly, bool)},
+		{"listToCharArray", "(Ljava/lang/String;)[C", nullptr, $PRIVATE, $method(TIFFImageMetadata, listToCharArray, $chars*, $String*)},
+		{"listToIntArray", "(Ljava/lang/String;)[I", nullptr, $PRIVATE, $method(TIFFImageMetadata, listToIntArray, $ints*, $String*)},
+		{"mergeNativeTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(TIFFImageMetadata, mergeNativeTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeStandardTree", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(TIFFImageMetadata, mergeStandardTree, void, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"parseIFD", "(Lorg/w3c/dom/Node;)Lcom/sun/imageio/plugins/tiff/TIFFIFD;", nullptr, $PUBLIC | $STATIC, $staticMethod(TIFFImageMetadata, parseIFD, $TIFFIFD*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"removeTIFFField", "(I)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, removeTIFFField, void, int32_t)},
+		{"repeat", "(Ljava/lang/String;I)Ljava/lang/String;", nullptr, $PRIVATE, $method(TIFFImageMetadata, repeat, $String*, $String*, int32_t)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageMetadata, reset, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFImageMetadata",
+		"javax.imageio.metadata.IIOMetadata",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFImageMetadata, name, initialize, &classInfo$$, TIFFImageMetadata::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFImageMetadata);
+	});
 	return class$;
 }
 

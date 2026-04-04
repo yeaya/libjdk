@@ -98,6 +98,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addVariable(::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableRefBase* variableRef) override;
 	void compileConstructor(::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator* classGen);

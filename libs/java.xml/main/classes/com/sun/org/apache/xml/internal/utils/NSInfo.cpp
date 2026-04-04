@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/NSInfo.h>
-
 #include <jcpp.h>
 
 #undef ANCESTORHASXMLNS
@@ -17,37 +16,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _NSInfo_FieldInfo_[] = {
-	{"m_namespace", "Ljava/lang/String;", nullptr, $PUBLIC, $field(NSInfo, m_namespace)},
-	{"m_hasXMLNSAttrs", "Z", nullptr, $PUBLIC, $field(NSInfo, m_hasXMLNSAttrs)},
-	{"m_hasProcessedNS", "Z", nullptr, $PUBLIC, $field(NSInfo, m_hasProcessedNS)},
-	{"m_ancestorHasXMLNSAttrs", "I", nullptr, $PUBLIC, $field(NSInfo, m_ancestorHasXMLNSAttrs)},
-	{"ANCESTORXMLNSUNPROCESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NSInfo, ANCESTORXMLNSUNPROCESSED)},
-	{"ANCESTORHASXMLNS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NSInfo, ANCESTORHASXMLNS)},
-	{"ANCESTORNOXMLNS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NSInfo, ANCESTORNOXMLNS)},
-	{}
-};
-
-$MethodInfo _NSInfo_MethodInfo_[] = {
-	{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(NSInfo, init$, void, bool, bool)},
-	{"<init>", "(ZZI)V", nullptr, $PUBLIC, $method(NSInfo, init$, void, bool, bool, int32_t)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(NSInfo, init$, void, $String*, bool)},
-	{}
-};
-
-$ClassInfo _NSInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.NSInfo",
-	"java.lang.Object",
-	nullptr,
-	_NSInfo_FieldInfo_,
-	_NSInfo_MethodInfo_
-};
-
-$Object* allocate$NSInfo($Class* clazz) {
-	return $of($alloc(NSInfo));
-}
 
 void NSInfo::init$(bool hasProcessedNS, bool hasXMLNSAttrs) {
 	this->m_hasProcessedNS = hasProcessedNS;
@@ -74,7 +42,33 @@ NSInfo::NSInfo() {
 }
 
 $Class* NSInfo::load$($String* name, bool initialize) {
-	$loadClass(NSInfo, name, initialize, &_NSInfo_ClassInfo_, allocate$NSInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_namespace", "Ljava/lang/String;", nullptr, $PUBLIC, $field(NSInfo, m_namespace)},
+		{"m_hasXMLNSAttrs", "Z", nullptr, $PUBLIC, $field(NSInfo, m_hasXMLNSAttrs)},
+		{"m_hasProcessedNS", "Z", nullptr, $PUBLIC, $field(NSInfo, m_hasProcessedNS)},
+		{"m_ancestorHasXMLNSAttrs", "I", nullptr, $PUBLIC, $field(NSInfo, m_ancestorHasXMLNSAttrs)},
+		{"ANCESTORXMLNSUNPROCESSED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NSInfo, ANCESTORXMLNSUNPROCESSED)},
+		{"ANCESTORHASXMLNS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NSInfo, ANCESTORHASXMLNS)},
+		{"ANCESTORNOXMLNS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(NSInfo, ANCESTORNOXMLNS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZZ)V", nullptr, $PUBLIC, $method(NSInfo, init$, void, bool, bool)},
+		{"<init>", "(ZZI)V", nullptr, $PUBLIC, $method(NSInfo, init$, void, bool, bool, int32_t)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(NSInfo, init$, void, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.NSInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NSInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NSInfo);
+	});
 	return class$;
 }
 

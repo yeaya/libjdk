@@ -1,5 +1,4 @@
 #include <javax/management/MBeanException.h>
-
 #include <javax/management/JMException.h>
 #include <jcpp.h>
 
@@ -11,33 +10,6 @@ using $JMException = ::javax::management::JMException;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _MBeanException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanException, serialVersionUID)},
-	{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(MBeanException, exception)},
-	{}
-};
-
-$MethodInfo _MBeanException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MBeanException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanException, init$, void, $Exception*, $String*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(MBeanException, getCause, $Throwable*)},
-	{"getTargetException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(MBeanException, getTargetException, $Exception*)},
-	{}
-};
-
-$ClassInfo _MBeanException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanException",
-	"javax.management.JMException",
-	nullptr,
-	_MBeanException_FieldInfo_,
-	_MBeanException_MethodInfo_
-};
-
-$Object* allocate$MBeanException($Class* clazz) {
-	return $of($alloc(MBeanException));
-}
 
 void MBeanException::init$($Exception* e) {
 	$JMException::init$();
@@ -68,7 +40,29 @@ void MBeanException::throw$() {
 }
 
 $Class* MBeanException::load$($String* name, bool initialize) {
-	$loadClass(MBeanException, name, initialize, &_MBeanException_ClassInfo_, allocate$MBeanException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanException, serialVersionUID)},
+		{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE, $field(MBeanException, exception)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MBeanException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanException, init$, void, $Exception*, $String*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(MBeanException, getCause, $Throwable*)},
+		{"getTargetException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(MBeanException, getTargetException, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanException",
+		"javax.management.JMException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanException);
+	});
 	return class$;
 }
 

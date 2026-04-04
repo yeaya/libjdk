@@ -20,13 +20,16 @@ class $export LSException : public ::java::lang::RuntimeException {
 public:
 	LSException();
 	void init$(int16_t code, $String* message);
-	static const int64_t serialVersionUID = (int64_t)0x4A8C14A685408852;
+	static const int64_t serialVersionUID = (int64_t)0x4a8c14a685408852;
 	int16_t code = 0;
 	static const int16_t PARSE_ERR = 81;
 	static const int16_t SERIALIZE_ERR = 82;
 	LSException(const LSException& e);
 	virtual void throw$() override;
-	inline LSException* operator ->() {
+	inline LSException* operator ->() const {
+		return (LSException*)throwing$;
+	}
+	inline operator LSException*() const {
 		return (LSException*)throwing$;
 	}
 };

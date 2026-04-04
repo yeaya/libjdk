@@ -1,5 +1,4 @@
 #include <java/awt/Toolkit$DesktopPropertyChangeSupport.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Toolkit$DesktopPropertyChangeSupport$1.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -17,7 +16,6 @@
 #undef ULTIMATE_PRIORITY_EVENT
 
 using $PropertyChangeListenerArray = $Array<::java::beans::PropertyChangeListener>;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Toolkit$DesktopPropertyChangeSupport$1 = ::java::awt::Toolkit$DesktopPropertyChangeSupport$1;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -28,57 +26,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 using $AppContext = ::sun::awt::AppContext;
 using $PeerEvent = ::sun::awt::PeerEvent;
 using $SunToolkit = ::sun::awt::SunToolkit;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Toolkit$DesktopPropertyChangeSupport_FieldInfo_[] = {
-	{"PROP_CHANGE_SUPPORT_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Toolkit$DesktopPropertyChangeSupport, PROP_CHANGE_SUPPORT_KEY)},
-	{"source", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Toolkit$DesktopPropertyChangeSupport, source)},
-	{}
-};
-
-$MethodInfo _Toolkit$DesktopPropertyChangeSupport_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Toolkit$DesktopPropertyChangeSupport, init$, void, Object$*)},
-	{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"firePropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, firePropertyChange, void, $PropertyChangeEvent*)},
-	{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
-	{"getPropertyChangeListeners", "(Ljava/lang/String;)[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, getPropertyChangeListeners, $PropertyChangeListenerArray*, $String*)},
-	{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{}
-};
-
-$InnerClassInfo _Toolkit$DesktopPropertyChangeSupport_InnerClassesInfo_[] = {
-	{"java.awt.Toolkit$DesktopPropertyChangeSupport", "java.awt.Toolkit", "DesktopPropertyChangeSupport", $PRIVATE | $STATIC},
-	{"java.awt.Toolkit$DesktopPropertyChangeSupport$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Toolkit$DesktopPropertyChangeSupport_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Toolkit$DesktopPropertyChangeSupport",
-	"java.beans.PropertyChangeSupport",
-	nullptr,
-	_Toolkit$DesktopPropertyChangeSupport_FieldInfo_,
-	_Toolkit$DesktopPropertyChangeSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Toolkit$DesktopPropertyChangeSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Toolkit"
-};
-
-$Object* allocate$Toolkit$DesktopPropertyChangeSupport($Class* clazz) {
-	return $of($alloc(Toolkit$DesktopPropertyChangeSupport));
-}
 
 $StringBuilder* Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY = nullptr;
 
@@ -89,11 +42,11 @@ void Toolkit$DesktopPropertyChangeSupport::init$(Object$* sourceBean) {
 
 void Toolkit$DesktopPropertyChangeSupport::addPropertyChangeListener($String* propertyName, $PropertyChangeListener* listener) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $nc($($AppContext::getAppContext()))->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
+		$useLocalObjectStack();
+		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $$nc($AppContext::getAppContext())->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
 		if (nullptr == pcs) {
 			$assign(pcs, $new($PropertyChangeSupport, this->source));
-			$nc($($AppContext::getAppContext()))->put(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY, pcs);
+			$$nc($AppContext::getAppContext())->put(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY, pcs);
 		}
 		$nc(pcs)->addPropertyChangeListener(propertyName, listener);
 	}
@@ -101,8 +54,8 @@ void Toolkit$DesktopPropertyChangeSupport::addPropertyChangeListener($String* pr
 
 void Toolkit$DesktopPropertyChangeSupport::removePropertyChangeListener($String* propertyName, $PropertyChangeListener* listener) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $nc($($AppContext::getAppContext()))->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
+		$useLocalObjectStack();
+		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $$nc($AppContext::getAppContext())->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
 		if (nullptr != pcs) {
 			pcs->removePropertyChangeListener(propertyName, listener);
 		}
@@ -111,8 +64,8 @@ void Toolkit$DesktopPropertyChangeSupport::removePropertyChangeListener($String*
 
 $PropertyChangeListenerArray* Toolkit$DesktopPropertyChangeSupport::getPropertyChangeListeners() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $nc($($AppContext::getAppContext()))->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
+		$useLocalObjectStack();
+		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $$nc($AppContext::getAppContext())->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
 		if (nullptr != pcs) {
 			return pcs->getPropertyChangeListeners();
 		} else {
@@ -123,8 +76,8 @@ $PropertyChangeListenerArray* Toolkit$DesktopPropertyChangeSupport::getPropertyC
 
 $PropertyChangeListenerArray* Toolkit$DesktopPropertyChangeSupport::getPropertyChangeListeners($String* propertyName) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $nc($($AppContext::getAppContext()))->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
+		$useLocalObjectStack();
+		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $$nc($AppContext::getAppContext())->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
 		if (nullptr != pcs) {
 			return pcs->getPropertyChangeListeners(propertyName);
 		} else {
@@ -135,11 +88,11 @@ $PropertyChangeListenerArray* Toolkit$DesktopPropertyChangeSupport::getPropertyC
 
 void Toolkit$DesktopPropertyChangeSupport::addPropertyChangeListener($PropertyChangeListener* listener) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $nc($($AppContext::getAppContext()))->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
+		$useLocalObjectStack();
+		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $$nc($AppContext::getAppContext())->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
 		if (nullptr == pcs) {
 			$assign(pcs, $new($PropertyChangeSupport, this->source));
-			$nc($($AppContext::getAppContext()))->put(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY, pcs);
+			$$nc($AppContext::getAppContext())->put(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY, pcs);
 		}
 		$nc(pcs)->addPropertyChangeListener(listener);
 	}
@@ -147,8 +100,8 @@ void Toolkit$DesktopPropertyChangeSupport::addPropertyChangeListener($PropertyCh
 
 void Toolkit$DesktopPropertyChangeSupport::removePropertyChangeListener($PropertyChangeListener* listener) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
-		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $nc($($AppContext::getAppContext()))->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
+		$useLocalObjectStack();
+		$var($PropertyChangeSupport, pcs, $cast($PropertyChangeSupport, $$nc($AppContext::getAppContext())->get(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY)));
 		if (nullptr != pcs) {
 			pcs->removePropertyChangeListener(listener);
 		}
@@ -156,21 +109,21 @@ void Toolkit$DesktopPropertyChangeSupport::removePropertyChangeListener($Propert
 }
 
 void Toolkit$DesktopPropertyChangeSupport::firePropertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, oldValue, $nc(evt)->getOldValue());
 	$var($Object, newValue, evt->getNewValue());
 	$var($String, propertyName, evt->getPropertyName());
-	if (oldValue != nullptr && newValue != nullptr && $of(oldValue)->equals(newValue)) {
+	if (oldValue != nullptr && newValue != nullptr && oldValue->equals(newValue)) {
 		return;
 	}
 	$var($Runnable, updater, $new($Toolkit$DesktopPropertyChangeSupport$1, this, evt));
 	$var($AppContext, currentAppContext, $AppContext::getAppContext());
 	{
-		$var($Iterator, i$, $nc($($AppContext::getAppContexts()))->iterator());
+		$var($Iterator, i$, $$nc($AppContext::getAppContexts())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($AppContext, appContext, $cast($AppContext, i$->next()));
 			{
-				if (nullptr == appContext || $nc(appContext)->isDisposed()) {
+				if (nullptr == appContext || appContext->isDisposed()) {
 					continue;
 				}
 				if (currentAppContext == appContext) {
@@ -184,7 +137,7 @@ void Toolkit$DesktopPropertyChangeSupport::firePropertyChange($PropertyChangeEve
 	}
 }
 
-void clinit$Toolkit$DesktopPropertyChangeSupport($Class* class$) {
+void Toolkit$DesktopPropertyChangeSupport::clinit$($Class* clazz) {
 	$assignStatic(Toolkit$DesktopPropertyChangeSupport::PROP_CHANGE_SUPPORT_KEY, $new($StringBuilder, "desktop property change support key"_s));
 }
 
@@ -192,7 +145,45 @@ Toolkit$DesktopPropertyChangeSupport::Toolkit$DesktopPropertyChangeSupport() {
 }
 
 $Class* Toolkit$DesktopPropertyChangeSupport::load$($String* name, bool initialize) {
-	$loadClass(Toolkit$DesktopPropertyChangeSupport, name, initialize, &_Toolkit$DesktopPropertyChangeSupport_ClassInfo_, clinit$Toolkit$DesktopPropertyChangeSupport, allocate$Toolkit$DesktopPropertyChangeSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROP_CHANGE_SUPPORT_KEY", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Toolkit$DesktopPropertyChangeSupport, PROP_CHANGE_SUPPORT_KEY)},
+		{"source", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(Toolkit$DesktopPropertyChangeSupport, source)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(Toolkit$DesktopPropertyChangeSupport, init$, void, Object$*)},
+		{"addPropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, addPropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"firePropertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, firePropertyChange, void, $PropertyChangeEvent*)},
+		{"getPropertyChangeListeners", "()[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, getPropertyChangeListeners, $PropertyChangeListenerArray*)},
+		{"getPropertyChangeListeners", "(Ljava/lang/String;)[Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, getPropertyChangeListeners, $PropertyChangeListenerArray*, $String*)},
+		{"removePropertyChangeListener", "(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, removePropertyChangeListener, void, $String*, $PropertyChangeListener*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Toolkit$DesktopPropertyChangeSupport, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Toolkit$DesktopPropertyChangeSupport", "java.awt.Toolkit", "DesktopPropertyChangeSupport", $PRIVATE | $STATIC},
+		{"java.awt.Toolkit$DesktopPropertyChangeSupport$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Toolkit$DesktopPropertyChangeSupport",
+		"java.beans.PropertyChangeSupport",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Toolkit"
+	};
+	$loadClass(Toolkit$DesktopPropertyChangeSupport, name, initialize, &classInfo$$, Toolkit$DesktopPropertyChangeSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Toolkit$DesktopPropertyChangeSupport);
+	});
 	return class$;
 }
 

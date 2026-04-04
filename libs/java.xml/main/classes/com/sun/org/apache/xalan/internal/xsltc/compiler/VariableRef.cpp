@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/VariableRef.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
@@ -28,17 +27,14 @@ using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
-using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $Closure = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Closure;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Variable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Variable;
-using $VariableBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableBase;
 using $VariableRefBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableRefBase;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
 using $NodeSetType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::NodeSetType;
-using $Type = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::Type;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
@@ -51,31 +47,12 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$MethodInfo _VariableRef_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;)V", nullptr, $PUBLIC, $method(VariableRef, init$, void, $Variable*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(VariableRef, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _VariableRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableRef",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableRefBase",
-	nullptr,
-	nullptr,
-	_VariableRef_MethodInfo_
-};
-
-$Object* allocate$VariableRef($Class* clazz) {
-	return $of($alloc(VariableRef));
-}
-
 void VariableRef::init$($Variable* variable) {
 	$VariableRefBase::init$(variable);
 }
 
 void VariableRef::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	if ($nc(this->_type)->implementedAsMethod()) {
@@ -94,8 +71,8 @@ void VariableRef::translate($ClassGenerator* classGen, $MethodGenerator* methodG
 			}
 			if (variableClosure != nullptr) {
 				$init($Constants);
-				$nc(il)->append(static_cast<$Instruction*>($Constants::ALOAD_0));
-				il->append(static_cast<$Instruction*>($$new($GETFIELD, $nc(cpg)->addFieldref($(variableClosure->getInnerClassName()), name, signature))));
+				$nc(il)->append($Constants::ALOAD_0);
+				il->append($$new($GETFIELD, $nc(cpg)->addFieldref($(variableClosure->getInnerClassName()), name, signature)));
 			} else {
 				$nc(il)->append($($nc(this->_variable)->loadInstruction()));
 			}
@@ -106,14 +83,14 @@ void VariableRef::translate($ClassGenerator* classGen, $MethodGenerator* methodG
 		$var($String, className, classGen->getClassName());
 		$nc(il)->append($(classGen->loadTranslet()));
 		if (classGen->isExternal()) {
-			il->append(static_cast<$Instruction*>($$new($CHECKCAST, $nc(cpg)->addClass(className))));
+			il->append($$new($CHECKCAST, $nc(cpg)->addClass(className)));
 		}
-		il->append(static_cast<$Instruction*>($$new($GETFIELD, $nc(cpg)->addFieldref(className, name, signature))));
+		il->append($$new($GETFIELD, $nc(cpg)->addFieldref(className, name, signature)));
 	}
 	if ($instanceOf($NodeSetType, $($nc(this->_variable)->getType()))) {
 		$init($Constants);
 		int32_t clone = $nc(cpg)->addInterfaceMethodref($Constants::NODE_ITERATOR, "cloneIterator"_s, $$str({"()"_s, $Constants::NODE_ITERATOR_SIG}));
-		$nc(il)->append(static_cast<$Instruction*>($$new($INVOKEINTERFACE, clone, 1)));
+		$nc(il)->append($$new($INVOKEINTERFACE, clone, 1));
 	}
 }
 
@@ -121,7 +98,22 @@ VariableRef::VariableRef() {
 }
 
 $Class* VariableRef::load$($String* name, bool initialize) {
-	$loadClass(VariableRef, name, initialize, &_VariableRef_ClassInfo_, allocate$VariableRef);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;)V", nullptr, $PUBLIC, $method(VariableRef, init$, void, $Variable*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(VariableRef, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableRef",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.VariableRefBase",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(VariableRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VariableRef);
+	});
 	return class$;
 }
 

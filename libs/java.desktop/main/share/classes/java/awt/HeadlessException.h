@@ -15,10 +15,13 @@ public:
 	void init$();
 	void init$($String* msg);
 	virtual $String* getMessage() override;
-	static const int64_t serialVersionUID = (int64_t)0x0251F4A3A929DCA3;
+	static const int64_t serialVersionUID = (int64_t)0x0251f4a3a929dca3;
 	HeadlessException(const HeadlessException& e);
 	virtual void throw$() override;
-	inline HeadlessException* operator ->() {
+	inline HeadlessException* operator ->() const {
+		return (HeadlessException*)throwing$;
+	}
+	inline operator HeadlessException*() const {
 		return (HeadlessException*)throwing$;
 	}
 };

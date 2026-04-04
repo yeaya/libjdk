@@ -57,6 +57,7 @@ class $export XMLReaderManager : public ::java::lang::Object {
 	$class(XMLReaderManager, 0, ::java::lang::Object)
 public:
 	XMLReaderManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::xml::internal::utils::XMLReaderManager* getInstance(bool overrideDefaultParser);
 	virtual $Object* getProperty($String* name);

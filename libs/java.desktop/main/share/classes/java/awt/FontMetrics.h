@@ -43,6 +43,7 @@ class $export FontMetrics : public ::java::io::Serializable {
 	$class(FontMetrics, 0, ::java::io::Serializable)
 public:
 	FontMetrics();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Font* font);
 	virtual int32_t bytesWidth($bytes* data, int32_t off, int32_t len);
 	virtual int32_t charWidth(int32_t codePoint);
@@ -75,7 +76,7 @@ public:
 	virtual $String* toString() override;
 	static ::java::awt::font::FontRenderContext* DEFAULT_FRC;
 	::java::awt::Font* font = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x17548F6513F0BB23;
+	static const int64_t serialVersionUID = (int64_t)0x17548f6513f0bb23;
 };
 
 	} // awt

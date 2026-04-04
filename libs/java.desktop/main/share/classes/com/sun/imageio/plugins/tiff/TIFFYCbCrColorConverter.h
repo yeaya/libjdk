@@ -33,6 +33,7 @@ class TIFFYCbCrColorConverter : public ::com::sun::imageio::plugins::tiff::TIFFC
 	$class(TIFFYCbCrColorConverter, 0, ::com::sun::imageio::plugins::tiff::TIFFColorConverter)
 public:
 	TIFFYCbCrColorConverter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::imageio::plugins::tiff::TIFFImageMetadata* metadata);
 	virtual void fromRGB(float r, float g, float b, $floats* result) override;
 	virtual void toRGB(float x0, float x1, float x2, $floats* rgb) override;

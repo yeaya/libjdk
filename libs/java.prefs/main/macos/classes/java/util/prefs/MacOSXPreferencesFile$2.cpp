@@ -1,5 +1,4 @@
 #include <java/util/prefs/MacOSXPreferencesFile$2.h>
-
 #include <java/util/TimerTask.h>
 #include <java/util/prefs/MacOSXPreferencesFile.h>
 #include <jcpp.h>
@@ -15,43 +14,6 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$MethodInfo _MacOSXPreferencesFile$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MacOSXPreferencesFile$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _MacOSXPreferencesFile$2_EnclosingMethodInfo_ = {
-	"java.util.prefs.MacOSXPreferencesFile",
-	"initSyncTimerIfNeeded",
-	"()V"
-};
-
-$InnerClassInfo _MacOSXPreferencesFile$2_InnerClassesInfo_[] = {
-	{"java.util.prefs.MacOSXPreferencesFile$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MacOSXPreferencesFile$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.MacOSXPreferencesFile$2",
-	"java.util.TimerTask",
-	nullptr,
-	nullptr,
-	_MacOSXPreferencesFile$2_MethodInfo_,
-	nullptr,
-	&_MacOSXPreferencesFile$2_EnclosingMethodInfo_,
-	_MacOSXPreferencesFile$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.MacOSXPreferencesFile"
-};
-
-$Object* allocate$MacOSXPreferencesFile$2($Class* clazz) {
-	return $of($alloc(MacOSXPreferencesFile$2));
-}
-
 void MacOSXPreferencesFile$2::init$() {
 	$TimerTask::init$();
 }
@@ -64,7 +26,38 @@ MacOSXPreferencesFile$2::MacOSXPreferencesFile$2() {
 }
 
 $Class* MacOSXPreferencesFile$2::load$($String* name, bool initialize) {
-	$loadClass(MacOSXPreferencesFile$2, name, initialize, &_MacOSXPreferencesFile$2_ClassInfo_, allocate$MacOSXPreferencesFile$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MacOSXPreferencesFile$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFile$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.prefs.MacOSXPreferencesFile",
+		"initSyncTimerIfNeeded",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.MacOSXPreferencesFile$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.MacOSXPreferencesFile$2",
+		"java.util.TimerTask",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.MacOSXPreferencesFile"
+	};
+	$loadClass(MacOSXPreferencesFile$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXPreferencesFile$2);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/beans/finder/ClassFinder.h>
-
 #include <com/sun/beans/finder/PrimitiveTypeMap.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -20,31 +19,9 @@ namespace com {
 		namespace beans {
 			namespace finder {
 
-$MethodInfo _ClassFinder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(ClassFinder, init$, void)},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ClassFinder, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"findClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ClassFinder, findClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
-	{"resolveClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ClassFinder, resolveClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"resolveClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ClassFinder, resolveClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
-	{}
-};
-
-$ClassInfo _ClassFinder_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.beans.finder.ClassFinder",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_ClassFinder_MethodInfo_
-};
-
-$Object* allocate$ClassFinder($Class* clazz) {
-	return $of($alloc(ClassFinder));
-}
-
 $Class* ClassFinder::findClass($String* name) {
+	$useLocalObjectStack();
 	$load(ClassFinder);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
 	$ReflectUtil::checkPackageAccess(name);
 	try {
@@ -91,7 +68,25 @@ ClassFinder::ClassFinder() {
 }
 
 $Class* ClassFinder::load$($String* name, bool initialize) {
-	$loadClass(ClassFinder, name, initialize, &_ClassFinder_ClassInfo_, allocate$ClassFinder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(ClassFinder, init$, void)},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ClassFinder, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"findClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ClassFinder, findClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
+		{"resolveClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ClassFinder, resolveClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"resolveClass", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class<*>;", $PUBLIC | $STATIC, $staticMethod(ClassFinder, resolveClass, $Class*, $String*, $ClassLoader*), "java.lang.ClassNotFoundException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.beans.finder.ClassFinder",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ClassFinder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassFinder);
+	});
 	return class$;
 }
 

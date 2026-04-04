@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/nimbus/State$StandardState.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/Map.h>
 #include <javax/swing/JComponent.h>
@@ -20,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Map = ::java::util::Map;
 using $JComponent = ::javax::swing::JComponent;
 using $State = ::javax::swing::plaf::nimbus::State;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
@@ -30,47 +28,8 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _State$StandardState_FieldInfo_[] = {
-	{"state", "I", nullptr, $PRIVATE, $field(State$StandardState, state)},
-	{}
-};
-
-$MethodInfo _State$StandardState_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(State$StandardState, init$, void, int32_t)},
-	{"getState", "()I", nullptr, $PUBLIC, $method(State$StandardState, getState, int32_t)},
-	{"isInState", "(Ljavax/swing/JComponent;I)Z", nullptr, 0, $virtualMethod(State$StandardState, isInState, bool, $JComponent*, int32_t)},
-	{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(State$StandardState, isInState, bool, $JComponent*)},
-	{"toString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(State$StandardState, toString, $String*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _State$StandardState_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.State$StandardState", "javax.swing.plaf.nimbus.State", "StandardState", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _State$StandardState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.State$StandardState",
-	"javax.swing.plaf.nimbus.State",
-	nullptr,
-	_State$StandardState_FieldInfo_,
-	_State$StandardState_MethodInfo_,
-	"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;",
-	nullptr,
-	_State$StandardState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.State"
-};
-
-$Object* allocate$State$StandardState($Class* clazz) {
-	return $of($alloc(State$StandardState));
-}
-
 void State$StandardState::init$(int32_t state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$State::init$($(toString(state)));
 	this->state = state;
 	$init($State);
@@ -82,7 +41,7 @@ int32_t State$StandardState::getState() {
 }
 
 bool State$StandardState::isInState($JComponent* c, int32_t s) {
-	return ((int32_t)(s & (uint32_t)this->state)) == this->state;
+	return (s & this->state) == this->state;
 }
 
 bool State$StandardState::isInState($JComponent* c) {
@@ -93,40 +52,40 @@ bool State$StandardState::isInState($JComponent* c) {
 $String* State$StandardState::toString(int32_t state) {
 	$init(State$StandardState);
 	$var($StringBuilder, sb, $new($StringBuilder));
-	if (((int32_t)(state & (uint32_t)$SynthConstants::DEFAULT)) == $SynthConstants::DEFAULT) {
+	if ((state & $SynthConstants::DEFAULT) == $SynthConstants::DEFAULT) {
 		sb->append("Default"_s);
 	}
-	if (((int32_t)(state & (uint32_t)$SynthConstants::DISABLED)) == $SynthConstants::DISABLED) {
+	if ((state & $SynthConstants::DISABLED) == $SynthConstants::DISABLED) {
 		if (sb->length() > 0) {
 			sb->append("+"_s);
 		}
 		sb->append("Disabled"_s);
 	}
-	if (((int32_t)(state & (uint32_t)$SynthConstants::ENABLED)) == $SynthConstants::ENABLED) {
+	if ((state & $SynthConstants::ENABLED) == $SynthConstants::ENABLED) {
 		if (sb->length() > 0) {
 			sb->append("+"_s);
 		}
 		sb->append("Enabled"_s);
 	}
-	if (((int32_t)(state & (uint32_t)$SynthConstants::FOCUSED)) == $SynthConstants::FOCUSED) {
+	if ((state & $SynthConstants::FOCUSED) == $SynthConstants::FOCUSED) {
 		if (sb->length() > 0) {
 			sb->append("+"_s);
 		}
 		sb->append("Focused"_s);
 	}
-	if (((int32_t)(state & (uint32_t)$SynthConstants::MOUSE_OVER)) == $SynthConstants::MOUSE_OVER) {
+	if ((state & $SynthConstants::MOUSE_OVER) == $SynthConstants::MOUSE_OVER) {
 		if (sb->length() > 0) {
 			sb->append("+"_s);
 		}
 		sb->append("MouseOver"_s);
 	}
-	if (((int32_t)(state & (uint32_t)$SynthConstants::PRESSED)) == $SynthConstants::PRESSED) {
+	if ((state & $SynthConstants::PRESSED) == $SynthConstants::PRESSED) {
 		if (sb->length() > 0) {
 			sb->append("+"_s);
 		}
 		sb->append("Pressed"_s);
 	}
-	if (((int32_t)(state & (uint32_t)$SynthConstants::SELECTED)) == $SynthConstants::SELECTED) {
+	if ((state & $SynthConstants::SELECTED) == $SynthConstants::SELECTED) {
 		if (sb->length() > 0) {
 			sb->append("+"_s);
 		}
@@ -139,7 +98,40 @@ State$StandardState::State$StandardState() {
 }
 
 $Class* State$StandardState::load$($String* name, bool initialize) {
-	$loadClass(State$StandardState, name, initialize, &_State$StandardState_ClassInfo_, allocate$State$StandardState);
+	$FieldInfo fieldInfos$$[] = {
+		{"state", "I", nullptr, $PRIVATE, $field(State$StandardState, state)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(State$StandardState, init$, void, int32_t)},
+		{"getState", "()I", nullptr, $PUBLIC, $method(State$StandardState, getState, int32_t)},
+		{"isInState", "(Ljavax/swing/JComponent;I)Z", nullptr, 0, $virtualMethod(State$StandardState, isInState, bool, $JComponent*, int32_t)},
+		{"isInState", "(Ljavax/swing/JComponent;)Z", nullptr, $PROTECTED, $virtualMethod(State$StandardState, isInState, bool, $JComponent*)},
+		{"toString", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(State$StandardState, toString, $String*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.State$StandardState", "javax.swing.plaf.nimbus.State", "StandardState", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.State$StandardState",
+		"javax.swing.plaf.nimbus.State",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/swing/plaf/nimbus/State<Ljavax/swing/JComponent;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.State"
+	};
+	$loadClass(State$StandardState, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(State$StandardState);
+	});
 	return class$;
 }
 

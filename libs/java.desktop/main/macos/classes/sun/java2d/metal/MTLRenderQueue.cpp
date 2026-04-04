@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLRenderQueue.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -16,7 +15,6 @@
 #include <sun/java2d/pipe/RenderQueue.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -27,7 +25,6 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Set = ::java::util::Set;
 using $MTLContext = ::sun::java2d::metal::MTLContext;
 using $MTLRenderQueue$QueueFlusher = ::sun::java2d::metal::MTLRenderQueue$QueueFlusher;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
@@ -44,85 +41,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$new$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<MTLRenderQueue$$Lambda$lambda$new$0>());
+		 return $nc(inst$)->lambda$new$0();
 	}
 	MTLRenderQueue* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo MTLRenderQueue$$Lambda$lambda$new$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MTLRenderQueue$$Lambda$lambda$new$0, inst$)},
-	{}
-};
-$MethodInfo MTLRenderQueue$$Lambda$lambda$new$0::methodInfos[3] = {
-	{"<init>", "(Lsun/java2d/metal/MTLRenderQueue;)V", nullptr, $PUBLIC, $method(MTLRenderQueue$$Lambda$lambda$new$0, init$, void, MTLRenderQueue*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MTLRenderQueue$$Lambda$lambda$new$0, run, $Object*)},
-	{}
-};
-$ClassInfo MTLRenderQueue$$Lambda$lambda$new$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.java2d.metal.MTLRenderQueue$$Lambda$lambda$new$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* MTLRenderQueue$$Lambda$lambda$new$0::load$($String* name, bool initialize) {
-	$loadClass(MTLRenderQueue$$Lambda$lambda$new$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(MTLRenderQueue$$Lambda$lambda$new$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/metal/MTLRenderQueue;)V", nullptr, $PUBLIC, $method(MTLRenderQueue$$Lambda$lambda$new$0, init$, void, MTLRenderQueue*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MTLRenderQueue$$Lambda$lambda$new$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.java2d.metal.MTLRenderQueue$$Lambda$lambda$new$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MTLRenderQueue$$Lambda$lambda$new$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLRenderQueue$$Lambda$lambda$new$0);
+	});
 	return class$;
 }
 $Class* MTLRenderQueue$$Lambda$lambda$new$0::class$ = nullptr;
-
-$FieldInfo _MTLRenderQueue_FieldInfo_[] = {
-	{"theInstance", "Lsun/java2d/metal/MTLRenderQueue;", nullptr, $PRIVATE | $STATIC, $staticField(MTLRenderQueue, theInstance)},
-	{"flusher", "Lsun/java2d/metal/MTLRenderQueue$QueueFlusher;", nullptr, $PRIVATE | $FINAL, $field(MTLRenderQueue, flusher)},
-	{}
-};
-
-$MethodInfo _MTLRenderQueue_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MTLRenderQueue, init$, void)},
-	{"access$000", "(Lsun/java2d/metal/MTLRenderQueue;)Lsun/java2d/pipe/RenderBuffer;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MTLRenderQueue, access$000, $RenderBuffer*, MTLRenderQueue*)},
-	{"disposeGraphicsConfig", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLRenderQueue, disposeGraphicsConfig, void, int64_t)},
-	{"flushAndInvokeNow", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderQueue, flushAndInvokeNow, void, $Runnable*)},
-	{"flushBuffer", "(JI)V", nullptr, $PRIVATE | $NATIVE, $method(MTLRenderQueue, flushBuffer, void, int64_t, int32_t)},
-	{"flushBuffer", "()V", nullptr, $PRIVATE, $method(MTLRenderQueue, flushBuffer, void)},
-	{"flushNow", "()V", nullptr, $PUBLIC, $virtualMethod(MTLRenderQueue, flushNow, void)},
-	{"getInstance", "()Lsun/java2d/metal/MTLRenderQueue;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(MTLRenderQueue, getInstance, MTLRenderQueue*)},
-	{"isQueueFlusherThread", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLRenderQueue, isQueueFlusherThread, bool)},
-	{"lambda$new$0", "()Lsun/java2d/metal/MTLRenderQueue$QueueFlusher;", nullptr, $PRIVATE | $SYNTHETIC, $method(MTLRenderQueue, lambda$new$0, $MTLRenderQueue$QueueFlusher*)},
-	{"sync", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLRenderQueue, sync, void)},
-	{}
-};
-
-#define _METHOD_INDEX_flushBuffer 4
-
-$InnerClassInfo _MTLRenderQueue_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLRenderQueue$QueueFlusher", "sun.java2d.metal.MTLRenderQueue", "QueueFlusher", $PRIVATE},
-	{}
-};
-
-$ClassInfo _MTLRenderQueue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.metal.MTLRenderQueue",
-	"sun.java2d.pipe.RenderQueue",
-	nullptr,
-	_MTLRenderQueue_FieldInfo_,
-	_MTLRenderQueue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLRenderQueue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLRenderQueue$QueueFlusher"
-};
-
-$Object* allocate$MTLRenderQueue($Class* clazz) {
-	return $of($alloc(MTLRenderQueue));
-}
 
 MTLRenderQueue* MTLRenderQueue::theInstance = nullptr;
 
@@ -134,13 +80,12 @@ $RenderBuffer* MTLRenderQueue::access$000(MTLRenderQueue* x0) {
 void MTLRenderQueue::init$() {
 	$beforeCallerSensitive();
 	$RenderQueue::init$();
-	$set(this, flusher, $cast($MTLRenderQueue$QueueFlusher, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(MTLRenderQueue$$Lambda$lambda$new$0, this)))));
+	$set(this, flusher, $cast($MTLRenderQueue$QueueFlusher, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(MTLRenderQueue$$Lambda$lambda$new$0, this)))));
 }
 
 MTLRenderQueue* MTLRenderQueue::getInstance() {
-	$load(MTLRenderQueue);
+	$init(MTLRenderQueue);
 	$synchronized(class$) {
-		$init(MTLRenderQueue);
 		if (MTLRenderQueue::theInstance == nullptr) {
 			$assignStatic(MTLRenderQueue::theInstance, $new(MTLRenderQueue));
 		}
@@ -150,49 +95,45 @@ MTLRenderQueue* MTLRenderQueue::getInstance() {
 
 void MTLRenderQueue::sync() {
 	$init(MTLRenderQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (MTLRenderQueue::theInstance != nullptr) {
-		$nc(MTLRenderQueue::theInstance)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(MTLRenderQueue::theInstance)->ensureCapacity(4);
-				$nc($($nc(MTLRenderQueue::theInstance)->getBuffer()))->putInt(76);
-				$nc(MTLRenderQueue::theInstance)->flushNow();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(MTLRenderQueue::theInstance)->unlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		MTLRenderQueue::theInstance->lock();
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(MTLRenderQueue::theInstance)->ensureCapacity(4);
+			$$nc($nc(MTLRenderQueue::theInstance)->getBuffer())->putInt(76);
+			$nc(MTLRenderQueue::theInstance)->flushNow();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(MTLRenderQueue::theInstance)->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void MTLRenderQueue::disposeGraphicsConfig(int64_t pConfigInfo) {
 	$init(MTLRenderQueue);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(MTLRenderQueue, rq, getInstance());
 	$nc(rq)->lock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$MTLContext::setScratchSurface(pConfigInfo);
-			$var($RenderBuffer, buf, rq->getBuffer());
-			rq->ensureCapacityAndAlignment(12, 4);
-			$nc(buf)->putInt(74);
-			buf->putLong(pConfigInfo);
-			rq->flushNow();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			rq->unlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$MTLContext::setScratchSurface(pConfigInfo);
+		$var($RenderBuffer, buf, rq->getBuffer());
+		rq->ensureCapacityAndAlignment(12, 4);
+		$nc(buf)->putInt(74);
+		buf->putLong(pConfigInfo);
+		rq->flushNow();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		rq->unlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -220,7 +161,7 @@ void MTLRenderQueue::flushAndInvokeNow($Runnable* r) {
 }
 
 void MTLRenderQueue::flushBuffer(int64_t buf, int32_t limit) {
-	$prepareNative(MTLRenderQueue, flushBuffer, void, int64_t buf, int32_t limit);
+	$prepareNative(flushBuffer, void, int64_t buf, int32_t limit);
 	$invokeNative(buf, limit);
 	$finishNative();
 }
@@ -243,11 +184,50 @@ MTLRenderQueue::MTLRenderQueue() {
 
 $Class* MTLRenderQueue::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(MTLRenderQueue$$Lambda$lambda$new$0::classInfo$.name)) {
+		if (name->equals("sun.java2d.metal.MTLRenderQueue$$Lambda$lambda$new$0")) {
 			return MTLRenderQueue$$Lambda$lambda$new$0::load$(name, initialize);
 		}
 	}
-	$loadClass(MTLRenderQueue, name, initialize, &_MTLRenderQueue_ClassInfo_, allocate$MTLRenderQueue);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Lsun/java2d/metal/MTLRenderQueue;", nullptr, $PRIVATE | $STATIC, $staticField(MTLRenderQueue, theInstance)},
+		{"flusher", "Lsun/java2d/metal/MTLRenderQueue$QueueFlusher;", nullptr, $PRIVATE | $FINAL, $field(MTLRenderQueue, flusher)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MTLRenderQueue, init$, void)},
+		{"access$000", "(Lsun/java2d/metal/MTLRenderQueue;)Lsun/java2d/pipe/RenderBuffer;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(MTLRenderQueue, access$000, $RenderBuffer*, MTLRenderQueue*)},
+		{"disposeGraphicsConfig", "(J)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLRenderQueue, disposeGraphicsConfig, void, int64_t)},
+		{"flushAndInvokeNow", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(MTLRenderQueue, flushAndInvokeNow, void, $Runnable*)},
+		{"flushBuffer", "(JI)V", nullptr, $PRIVATE | $NATIVE, $method(MTLRenderQueue, flushBuffer, void, int64_t, int32_t)},
+		{"flushBuffer", "()V", nullptr, $PRIVATE, $method(MTLRenderQueue, flushBuffer, void)},
+		{"flushNow", "()V", nullptr, $PUBLIC, $virtualMethod(MTLRenderQueue, flushNow, void)},
+		{"getInstance", "()Lsun/java2d/metal/MTLRenderQueue;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(MTLRenderQueue, getInstance, MTLRenderQueue*)},
+		{"isQueueFlusherThread", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLRenderQueue, isQueueFlusherThread, bool)},
+		{"lambda$new$0", "()Lsun/java2d/metal/MTLRenderQueue$QueueFlusher;", nullptr, $PRIVATE | $SYNTHETIC, $method(MTLRenderQueue, lambda$new$0, $MTLRenderQueue$QueueFlusher*)},
+		{"sync", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(MTLRenderQueue, sync, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLRenderQueue$QueueFlusher", "sun.java2d.metal.MTLRenderQueue", "QueueFlusher", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.metal.MTLRenderQueue",
+		"sun.java2d.pipe.RenderQueue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLRenderQueue$QueueFlusher"
+	};
+	$loadClass(MTLRenderQueue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLRenderQueue);
+	});
 	return class$;
 }
 

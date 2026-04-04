@@ -59,6 +59,7 @@ class MessageQueue : public ::java::lang::Object {
 	$class(MessageQueue, 0, ::java::lang::Object)
 public:
 	MessageQueue();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t capacity);
 	void add(::jdk::internal::net::http::websocket::MessageQueue$Type* type, ::java::util::function::Supplier* binarySupplier, ::java::nio::ByteBuffer* binary, ::java::nio::CharBuffer* text, bool isLast, int32_t statusCode, Object$* attachment, ::java::util::function::BiConsumer* action, ::java::util::concurrent::CompletableFuture* future);
 	virtual void addBinary(::java::nio::ByteBuffer* message, bool isLast, Object$* attachment, ::java::util::function::BiConsumer* action, ::java::util::concurrent::CompletableFuture* future);

@@ -1,5 +1,4 @@
 #include <sun/security/jgss/wrapper/NativeGSSFactory.h>
-
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/Provider.h>
@@ -55,43 +54,8 @@ namespace sun {
 		namespace jgss {
 			namespace wrapper {
 
-$FieldInfo _NativeGSSFactory_FieldInfo_[] = {
-	{"cStub", "Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, 0, $field(NativeGSSFactory, cStub)},
-	{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(NativeGSSFactory, caller)},
-	{}
-};
-
-$MethodInfo _NativeGSSFactory_MethodInfo_[] = {
-	{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(NativeGSSFactory, init$, void, $GSSCaller*)},
-	{"getCredFromSubject", "(Lsun/security/jgss/wrapper/GSSNameElement;Z)Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $method(NativeGSSFactory, getCredFromSubject, $GSSCredElement*, $GSSNameElement*, bool), "org.ietf.jgss.GSSException"},
-	{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
-	{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
-	{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(NativeGSSFactory, getMechanismOid, $Oid*)},
-	{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getNameElement, $GSSNameSpi*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getNameElement, $GSSNameSpi*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getNameTypes, $OidArray*), "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getProvider, $Provider*)},
-	{"setMech", "(Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $method(NativeGSSFactory, setMech, void, $Oid*), "org.ietf.jgss.GSSException"},
-	{}
-};
-
-$ClassInfo _NativeGSSFactory_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.security.jgss.wrapper.NativeGSSFactory",
-	"java.lang.Object",
-	"sun.security.jgss.spi.MechanismFactory",
-	_NativeGSSFactory_FieldInfo_,
-	_NativeGSSFactory_MethodInfo_
-};
-
-$Object* allocate$NativeGSSFactory($Class* clazz) {
-	return $of($alloc(NativeGSSFactory));
-}
-
 $GSSCredElement* NativeGSSFactory::getCredFromSubject($GSSNameElement* name, bool initiate) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Oid, mech, $nc(this->cStub)->getMech());
 	$load($GSSCredElement);
 	$var($Vector, creds, $GSSUtil::searchSubject(name, mech, initiate, $GSSCredElement::class$));
@@ -100,7 +64,7 @@ $GSSCredElement* NativeGSSFactory::getCredFromSubject($GSSNameElement* name, boo
 			$throwNew($GSSException, $GSSException::NO_CRED);
 		}
 	}
-	$var($GSSCredElement, result, (creds == nullptr || $nc(creds)->isEmpty()) ? ($GSSCredElement*)nullptr : $cast($GSSCredElement, $nc(creds)->firstElement()));
+	$var($GSSCredElement, result, (creds == nullptr || creds->isEmpty()) ? ($GSSCredElement*)nullptr : $cast($GSSCredElement, creds->firstElement()));
 	if (result != nullptr) {
 		result->doServicePermCheck();
 	}
@@ -118,7 +82,7 @@ void NativeGSSFactory::setMech($Oid* mech) {
 
 $GSSNameSpi* NativeGSSFactory::getNameElement($String* nameStr, $Oid* nameType) {
 	$init($StandardCharsets);
-	$var($bytes, nameBytes, nameStr == nullptr ? ($bytes*)nullptr : $nc(nameStr)->getBytes($StandardCharsets::UTF_8));
+	$var($bytes, nameBytes, nameStr == nullptr ? ($bytes*)nullptr : nameStr->getBytes($StandardCharsets::UTF_8));
 	return $new($GSSNameElement, nameBytes, nameType, this->cStub);
 }
 
@@ -127,7 +91,7 @@ $GSSNameSpi* NativeGSSFactory::getNameElement($bytes* name, $Oid* nameType) {
 }
 
 $GSSCredentialSpi* NativeGSSFactory::getCredentialElement($GSSNameSpi* name, int32_t initLifetime, int32_t acceptLifetime, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GSSNameElement, nname, nullptr);
 	if (name != nullptr && !($instanceOf($GSSNameElement, name))) {
 		$var($String, var$0, name->toString());
@@ -156,13 +120,13 @@ $GSSCredentialSpi* NativeGSSFactory::getCredentialElement($GSSNameSpi* name, int
 }
 
 $GSSContextSpi* NativeGSSFactory::getMechanismContext($GSSNameSpi* peer$renamed, $GSSCredentialSpi* myCred$renamed, int32_t lifetime) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GSSCredentialSpi, myCred, myCred$renamed);
 	$var($GSSNameSpi, peer, peer$renamed);
 	if (peer == nullptr) {
 		$throwNew($GSSException, $GSSException::BAD_NAME);
 	} else if (!($instanceOf($GSSNameElement, peer))) {
-		$var($String, var$0, $nc(peer)->toString());
+		$var($String, var$0, peer->toString());
 		$assign(peer, $cast($GSSNameElement, getNameElement(var$0, $(peer->getStringNameType()))));
 	}
 	if (myCred == nullptr) {
@@ -204,7 +168,37 @@ NativeGSSFactory::NativeGSSFactory() {
 }
 
 $Class* NativeGSSFactory::load$($String* name, bool initialize) {
-	$loadClass(NativeGSSFactory, name, initialize, &_NativeGSSFactory_ClassInfo_, allocate$NativeGSSFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"cStub", "Lsun/security/jgss/wrapper/GSSLibStub;", nullptr, 0, $field(NativeGSSFactory, cStub)},
+		{"caller", "Lsun/security/jgss/GSSCaller;", nullptr, $PRIVATE | $FINAL, $field(NativeGSSFactory, caller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/security/jgss/GSSCaller;)V", nullptr, $PUBLIC, $method(NativeGSSFactory, init$, void, $GSSCaller*)},
+		{"getCredFromSubject", "(Lsun/security/jgss/wrapper/GSSNameElement;Z)Lsun/security/jgss/wrapper/GSSCredElement;", nullptr, $PRIVATE, $method(NativeGSSFactory, getCredFromSubject, $GSSCredElement*, $GSSNameElement*, bool), "org.ietf.jgss.GSSException"},
+		{"getCredentialElement", "(Lsun/security/jgss/spi/GSSNameSpi;III)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getCredentialElement, $GSSCredentialSpi*, $GSSNameSpi*, int32_t, int32_t, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "(Lsun/security/jgss/spi/GSSNameSpi;Lsun/security/jgss/spi/GSSCredentialSpi;I)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getMechanismContext, $GSSContextSpi*, $GSSNameSpi*, $GSSCredentialSpi*, int32_t), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "(Lsun/security/jgss/spi/GSSCredentialSpi;)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getMechanismContext, $GSSContextSpi*, $GSSCredentialSpi*), "org.ietf.jgss.GSSException"},
+		{"getMechanismContext", "([B)Lsun/security/jgss/spi/GSSContextSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getMechanismContext, $GSSContextSpi*, $bytes*), "org.ietf.jgss.GSSException"},
+		{"getMechanismOid", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(NativeGSSFactory, getMechanismOid, $Oid*)},
+		{"getNameElement", "(Ljava/lang/String;Lorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getNameElement, $GSSNameSpi*, $String*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getNameElement", "([BLorg/ietf/jgss/Oid;)Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getNameElement, $GSSNameSpi*, $bytes*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getNameTypes", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getNameTypes, $OidArray*), "org.ietf.jgss.GSSException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC, $virtualMethod(NativeGSSFactory, getProvider, $Provider*)},
+		{"setMech", "(Lorg/ietf/jgss/Oid;)V", nullptr, $PUBLIC, $method(NativeGSSFactory, setMech, void, $Oid*), "org.ietf.jgss.GSSException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.security.jgss.wrapper.NativeGSSFactory",
+		"java.lang.Object",
+		"sun.security.jgss.spi.MechanismFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NativeGSSFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeGSSFactory);
+	});
 	return class$;
 }
 

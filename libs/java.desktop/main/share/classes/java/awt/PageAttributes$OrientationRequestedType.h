@@ -24,6 +24,7 @@ class $export PageAttributes$OrientationRequestedType : public ::java::awt::Attr
 	$class(PageAttributes$OrientationRequestedType, 0, ::java::awt::AttributeValue)
 public:
 	PageAttributes$OrientationRequestedType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	virtual int32_t hashCode() override;
 	virtual $String* toString() override;

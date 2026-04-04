@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/MBeanServerDelegateImpl.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/SecurityException.h>
@@ -39,7 +38,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $Attribute = ::javax::management::Attribute;
 using $AttributeList = ::javax::management::AttributeList;
@@ -58,46 +56,6 @@ namespace com {
 	namespace sun {
 		namespace jmx {
 			namespace mbeanserver {
-
-$FieldInfo _MBeanServerDelegateImpl_FieldInfo_[] = {
-	{"attributeNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerDelegateImpl, attributeNames)},
-	{"attributeInfos", "[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerDelegateImpl, attributeInfos)},
-	{"delegateInfo", "Ljavax/management/MBeanInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerDelegateImpl, delegateInfo)},
-	{}
-};
-
-$MethodInfo _MBeanServerDelegateImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MBeanServerDelegateImpl, init$, void)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, getAttributes, $AttributeList*, $StringArray*)},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, getMBeanInfo, $MBeanInfo*)},
-	{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"postDeregister", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanServerDelegateImpl, postDeregister, void)},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanServerDelegateImpl, postRegister, void, $Boolean*)},
-	{"preDeregister", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanServerDelegateImpl, preDeregister, void), "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanServerDelegateImpl, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, setAttributes, $AttributeList*, $AttributeList*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _MBeanServerDelegateImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.MBeanServerDelegateImpl",
-	"javax.management.MBeanServerDelegate",
-	"javax.management.DynamicMBean,javax.management.MBeanRegistration",
-	_MBeanServerDelegateImpl_FieldInfo_,
-	_MBeanServerDelegateImpl_MethodInfo_
-};
-
-$Object* allocate$MBeanServerDelegateImpl($Class* clazz) {
-	return $of($alloc(MBeanServerDelegateImpl));
-}
 
 int32_t MBeanServerDelegateImpl::hashCode() {
 	 return this->$MBeanServerDelegate::hashCode();
@@ -181,8 +139,8 @@ $Object* MBeanServerDelegateImpl::getAttribute($String* attribute) {
 }
 
 void MBeanServerDelegateImpl::setAttribute($Attribute* attribute) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, attname, attribute == nullptr ? ($String*)nullptr : $nc(attribute)->getName());
+	$useLocalObjectStack();
+	$var($String, attname, attribute == nullptr ? ($String*)nullptr : attribute->getName());
 	if (attname == nullptr) {
 		$var($RuntimeException, r, $new($IllegalArgumentException, "Attribute name cannot be null"_s));
 		$throwNew($RuntimeOperationsException, r, "Exception occurred trying to invoke the setter on the MBean"_s);
@@ -192,7 +150,7 @@ void MBeanServerDelegateImpl::setAttribute($Attribute* attribute) {
 }
 
 $AttributeList* MBeanServerDelegateImpl::getAttributes($StringArray* attributes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, attn, attributes == nullptr ? MBeanServerDelegateImpl::attributeNames : attributes);
 	int32_t len = $nc(attn)->length;
 	$var($AttributeList, list, $new($AttributeList, len));
@@ -204,7 +162,7 @@ $AttributeList* MBeanServerDelegateImpl::getAttributes($StringArray* attributes)
 			$init($JmxProperties);
 			$init($System$Logger$Level);
 			if ($nc($JmxProperties::MBEANSERVER_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-				$nc($JmxProperties::MBEANSERVER_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Attribute "_s, attn->get(i), " not found"_s}));
+				$JmxProperties::MBEANSERVER_LOGGER->log($System$Logger$Level::TRACE, $$str({"Attribute "_s, attn->get(i), " not found"_s}));
 			}
 		}
 	}
@@ -216,7 +174,7 @@ $AttributeList* MBeanServerDelegateImpl::setAttributes($AttributeList* attribute
 }
 
 $Object* MBeanServerDelegateImpl::invoke($String* actionName, $ObjectArray* params, $StringArray* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (actionName == nullptr) {
 		$var($RuntimeException, r, $new($IllegalArgumentException, "Operation name  cannot be null"_s));
 		$throwNew($RuntimeOperationsException, r, "Exception occurred trying to invoke the operation on the MBean"_s);
@@ -229,8 +187,8 @@ $MBeanInfo* MBeanServerDelegateImpl::getMBeanInfo() {
 	return this->delegateInfo;
 }
 
-void clinit$MBeanServerDelegateImpl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MBeanServerDelegateImpl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(MBeanServerDelegateImpl::attributeNames, $new($StringArray, {
 		"MBeanServerId"_s,
 		"SpecificationName"_s,
@@ -255,7 +213,42 @@ MBeanServerDelegateImpl::MBeanServerDelegateImpl() {
 }
 
 $Class* MBeanServerDelegateImpl::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerDelegateImpl, name, initialize, &_MBeanServerDelegateImpl_ClassInfo_, clinit$MBeanServerDelegateImpl, allocate$MBeanServerDelegateImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"attributeNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerDelegateImpl, attributeNames)},
+		{"attributeInfos", "[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerDelegateImpl, attributeInfos)},
+		{"delegateInfo", "Ljavax/management/MBeanInfo;", nullptr, $PRIVATE | $FINAL, $field(MBeanServerDelegateImpl, delegateInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MBeanServerDelegateImpl, init$, void)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, getAttributes, $AttributeList*, $StringArray*)},
+		{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, getMBeanInfo, $MBeanInfo*)},
+		{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
+		{"postDeregister", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanServerDelegateImpl, postDeregister, void)},
+		{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanServerDelegateImpl, postRegister, void, $Boolean*)},
+		{"preDeregister", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanServerDelegateImpl, preDeregister, void), "java.lang.Exception"},
+		{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $FINAL, $virtualMethod(MBeanServerDelegateImpl, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(MBeanServerDelegateImpl, setAttributes, $AttributeList*, $AttributeList*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.MBeanServerDelegateImpl",
+		"javax.management.MBeanServerDelegate",
+		"javax.management.DynamicMBean,javax.management.MBeanRegistration",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanServerDelegateImpl, name, initialize, &classInfo$$, MBeanServerDelegateImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanServerDelegateImpl));
+	});
 	return class$;
 }
 

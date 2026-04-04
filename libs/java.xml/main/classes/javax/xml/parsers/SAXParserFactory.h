@@ -36,6 +36,7 @@ class $export SAXParserFactory : public ::java::lang::Object {
 	$class(SAXParserFactory, 0, ::java::lang::Object)
 public:
 	SAXParserFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool getFeature($String* name) {return false;}
 	virtual ::javax::xml::validation::Schema* getSchema();

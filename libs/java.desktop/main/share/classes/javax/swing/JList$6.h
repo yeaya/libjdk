@@ -12,6 +12,7 @@ class JList$6 : public ::java::lang::Object {
 	$class(JList$6, 0, ::java::lang::Object)
 public:
 	JList$6();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$DropMode;
 };
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Main.h>
-
 #include <com/sun/source/util/JavacTask.h>
 #include <com/sun/tools/javac/api/BasicJavacTask.h>
 #include <com/sun/tools/javac/file/BaseFileManager.h>
@@ -38,7 +37,6 @@
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessError.h>
 #include <java/lang/IllegalStateException.h>
@@ -106,7 +104,7 @@ using $Context = ::com::sun::tools::javac::util::Context;
 using $Dependencies$GraphDependencies = ::com::sun::tools::javac::util::Dependencies$GraphDependencies;
 using $FatalError = ::com::sun::tools::javac::util::FatalError;
 using $JCDiagnostic$DiagnosticInfo = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticInfo;
-using $1List = ::com::sun::tools::javac::util::List;
+using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Log$PrefixKind = ::com::sun::tools::javac::util::Log$PrefixKind;
 using $Log$WriterKind = ::com::sun::tools::javac::util::Log$WriterKind;
@@ -115,12 +113,9 @@ using $PropagatedException = ::com::sun::tools::javac::util::PropagatedException
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;
 using $Byte = ::java::lang::Byte;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -141,12 +136,10 @@ using $CodeSource = ::java::security::CodeSource;
 using $DigestInputStream = ::java::security::DigestInputStream;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $Calendar = ::java::util::Calendar;
 using $Collection = ::java::util::Collection;
-using $List = ::java::util::List;
 using $Set = ::java::util::Set;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
@@ -158,63 +151,6 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$FieldInfo _Main_FieldInfo_[] = {
-	{"ownName", "Ljava/lang/String;", nullptr, 0, $field(Main, ownName)},
-	{"stdOut", "Ljava/io/PrintWriter;", nullptr, 0, $field(Main, stdOut)},
-	{"stdErr", "Ljava/io/PrintWriter;", nullptr, 0, $field(Main, stdErr)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $field(Main, log)},
-	{"apiMode", "Z", nullptr, 0, $field(Main, apiMode)},
-	{"ENV_OPT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, ENV_OPT_NAME)},
-	{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE, $field(Main, fileManager)},
-	{"javacBundleName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Main, javacBundleName)},
-	{}
-};
-
-$MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*, $PrintWriter*)},
-	{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*, $PrintWriter*, $PrintWriter*)},
-	{"apMessage", "(Lcom/sun/tools/javac/processing/AnnotationProcessingError;)V", nullptr, 0, $virtualMethod(Main, apMessage, void, $AnnotationProcessingError*)},
-	{"bugMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, bugMessage, void, $Throwable*)},
-	{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(Main, compile, $Main$Result*, $StringArray*)},
-	{"compile", "([Ljava/lang/String;Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(Main, compile, $Main$Result*, $StringArray*, $Context*)},
-	{"feMessage", "(Ljava/lang/Throwable;Lcom/sun/tools/javac/util/Options;)V", nullptr, 0, $virtualMethod(Main, feMessage, void, $Throwable*, $Options*)},
-	{"ioMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, ioMessage, void, $Throwable*)},
-	{"pluginMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, pluginMessage, void, $Throwable*)},
-	{"printArgumentsToFile", "([Ljava/lang/String;)V", nullptr, $TRANSIENT, $virtualMethod(Main, printArgumentsToFile, void, $StringArray*)},
-	{"reportDiag", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0, $virtualMethod(Main, reportDiag, void, $JCDiagnostic$DiagnosticInfo*)},
-	{"reportHelper", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0, $virtualMethod(Main, reportHelper, void, $JCDiagnostic$DiagnosticInfo*)},
-	{"resourceMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, resourceMessage, void, $Throwable*)},
-	{"showClass", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, showClass, void, $String*)},
-	{"twoClassLoadersInUse", "(Ljava/lang/IllegalAccessError;)Z", nullptr, $PRIVATE, $method(Main, twoClassLoadersInUse, bool, $IllegalAccessError*)},
-	{}
-};
-
-$InnerClassInfo _Main_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Main$Result", "com.sun.tools.javac.main.Main", "Result", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.main.Main$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Main_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.main.Main",
-	"java.lang.Object",
-	nullptr,
-	_Main_FieldInfo_,
-	_Main_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Main$Result,com.sun.tools.javac.main.Main$1"
-};
-
-$Object* allocate$Main($Class* clazz) {
-	return $of($alloc(Main));
-}
-
 $String* Main::ENV_OPT_NAME = nullptr;
 $String* Main::javacBundleName = nullptr;
 
@@ -224,7 +160,7 @@ void Main::init$($String* name) {
 
 void Main::init$($String* name, $PrintWriter* out) {
 	$set(this, ownName, name);
-	$set(this, stdOut, ($set(this, stdErr, out)));
+	$set(this, stdOut, $set(this, stdErr, out));
 }
 
 void Main::init$($String* name, $PrintWriter* out, $PrintWriter* err) {
@@ -234,18 +170,18 @@ void Main::init$($String* name, $PrintWriter* out, $PrintWriter* err) {
 }
 
 void Main::reportDiag($JCDiagnostic$DiagnosticInfo* diag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->apiMode) {
 		$var($String, msg, $nc(this->log)->localize(diag));
 		$throwNew($PropagatedException, $$new($IllegalStateException, msg));
 	}
 	reportHelper(diag);
 	$init($Log$PrefixKind);
-	$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.usage"_s, $$new($ObjectArray, {$of(this->ownName)}));
+	$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.usage"_s, $$new($ObjectArray, {this->ownName}));
 }
 
 void Main::reportHelper($JCDiagnostic$DiagnosticInfo* diag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, msg, $nc(this->log)->localize(diag));
 	$init($CompilerProperties$Errors);
 	$var($String, errorPrefix, $nc(this->log)->localize($CompilerProperties$Errors::Error));
@@ -259,7 +195,7 @@ $Main$Result* Main::compile($StringArray* args) {
 	$Main$Result* result = compile(args, context);
 	try {
 		if (this->fileManager != nullptr) {
-			$nc(this->fileManager)->close();
+			this->fileManager->close();
 		}
 	} catch ($IOException& ex) {
 		bugMessage(ex);
@@ -268,14 +204,14 @@ $Main$Result* Main::compile($StringArray* args) {
 }
 
 $Main$Result* Main::compile($StringArray* argv, $Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stdOut != nullptr) {
 		$init($Log);
-		$nc(context)->put($Log::outKey, $of(this->stdOut));
+		$nc(context)->put($Log::outKey, this->stdOut);
 	}
 	if (this->stdErr != nullptr) {
 		$init($Log);
-		$nc(context)->put($Log::errKey, $of(this->stdErr));
+		$nc(context)->put($Log::errKey, this->stdErr);
 	}
 	$set(this, log, $Log::instance(context));
 	if ($nc(argv)->length == 0) {
@@ -290,7 +226,7 @@ $Main$Result* Main::compile($StringArray* argv, $Context* context) {
 	}
 	$var($Iterable, allArgs, nullptr);
 	try {
-		$assign(allArgs, $CommandLine::parse(Main::ENV_OPT_NAME, $($1List::from(argv))));
+		$assign(allArgs, $CommandLine::parse(Main::ENV_OPT_NAME, $($List::from(argv))));
 	} catch ($CommandLine$UnmatchedQuote& ex) {
 		reportDiag($($CompilerProperties$Errors::UnmatchedQuote(ex->variableName)));
 		$init($Main$Result);
@@ -321,7 +257,7 @@ $Main$Result* Main::compile($StringArray* argv, $Context* context) {
 	bool forceStdOut = $nc(options)->isSet("stdout"_s);
 	if (forceStdOut) {
 		$nc(this->log)->flush();
-		$nc(this->log)->setWriters($$new($PrintWriter, static_cast<$OutputStream*>($System::out), true));
+		$nc(this->log)->setWriters($$new($PrintWriter, $System::out, true));
 	}
 	bool var$0 = options->isUnset("nonBatchMode"_s);
 	bool batchMode = (var$0 && $System::getProperty("nonBatchMode"_s) == nullptr);
@@ -376,178 +312,172 @@ $Main$Result* Main::compile($StringArray* argv, $Context* context) {
 	$init($Option);
 	if ($nc(this->fileManager)->isSupportedOption($Option::MULTIRELEASE->primaryName) == 1) {
 		$Target* target = $Target::instance(context);
-		$var($1List, list, $1List::of($($nc(target)->multiReleaseValue())));
+		$var($List, list, $List::of($($nc(target)->multiReleaseValue())));
 		$nc(this->fileManager)->handleOption($Option::MULTIRELEASE->primaryName, $($nc(list)->iterator()));
 	}
 	$var($JavaCompiler, comp, $JavaCompiler::instance(context));
-	$var($1List, docLintOpts, args->getDocLintOpts());
+	$var($List, docLintOpts, args->getDocLintOpts());
 	if (!$nc(docLintOpts)->isEmpty()) {
 		t->initDocLint(docLintOpts);
 	}
 	if (options->get($Option::XSTDOUT) != nullptr) {
 		$init($Log$WriterKind);
-		$set($nc(comp), closeables, $nc(comp->closeables)->prepend($($nc(this->log)->getWriter($Log$WriterKind::NOTICE))));
+		$set($nc(comp), closeables, $nc($nc(comp)->closeables)->prepend($($nc(this->log)->getWriter($Log$WriterKind::NOTICE))));
 	}
 	bool printArgsToFile = options->isSet("printArgsToFile"_s);
-	{
-		$var($Throwable, var$3, nullptr);
-		$var($Main$Result, var$5, nullptr);
-		bool return$4 = false;
+	$var($Throwable, var$3, nullptr);
+	$var($Main$Result, var$5, nullptr);
+	bool return$4 = false;
+	try {
 		try {
+			$var($Collection, var$6, args->getFileObjects());
+			$var($Collection, var$7, args->getClassNames());
+			$nc(comp)->compile(var$6, var$7, nullptr, $$cast($AbstractCollection, $List::nil()));
+			if ($nc(this->log)->expectDiagKeys != nullptr) {
+				if (this->log->expectDiagKeys->isEmpty()) {
+					this->log->printRawLines("all expected diagnostics found"_s);
+					$init($Main$Result);
+					$assign(var$5, $Main$Result::OK);
+					return$4 = true;
+					goto $finally;
+				} else {
+					$nc(this->log)->printRawLines($$str({"expected diagnostic keys not found: "_s, $nc(this->log)->expectDiagKeys}));
+					$init($Main$Result);
+					$assign(var$5, $Main$Result::ERROR);
+					return$4 = true;
+					goto $finally;
+				}
+			}
+			$init($Main$Result);
+			$assign(var$5, ($nc(comp)->errorCount() == 0) ? $Main$Result::OK : $Main$Result::ERROR);
+			return$4 = true;
+			goto $finally;
+		} catch ($OutOfMemoryError& ex) {
+			resourceMessage(ex);
+			$init($Main$Result);
+			$assign(var$5, $Main$Result::SYSERR);
+			return$4 = true;
+			goto $finally;
+		} catch ($StackOverflowError& ex) {
+			resourceMessage(ex);
+			$init($Main$Result);
+			$assign(var$5, $Main$Result::SYSERR);
+			return$4 = true;
+			goto $finally;
+		} catch ($FatalError& ex) {
+			feMessage(ex, options);
+			$init($Main$Result);
+			$assign(var$5, $Main$Result::SYSERR);
+			return$4 = true;
+			goto $finally;
+		} catch ($AnnotationProcessingError& ex) {
+			apMessage(ex);
+			$init($Main$Result);
+			$assign(var$5, $Main$Result::SYSERR);
+			return$4 = true;
+			goto $finally;
+		} catch ($PropagatedException& ex) {
+			$throw($(ex->getCause()));
+		} catch ($IllegalAccessError& iae) {
+			if (twoClassLoadersInUse(iae)) {
+				bugMessage(iae);
+			}
+			printArgsToFile = true;
+			$init($Main$Result);
+			$assign(var$5, $Main$Result::ABNORMAL);
+			return$4 = true;
+			goto $finally;
+		} catch ($Throwable& ex) {
+			bool var$8 = comp == nullptr || comp->errorCount() == 0;
+			if (var$8 || options->isSet("dev"_s)) {
+				bugMessage(ex);
+			}
+			printArgsToFile = true;
+			$init($Main$Result);
+			$assign(var$5, $Main$Result::ABNORMAL);
+			return$4 = true;
+			goto $finally;
+		}
+	} catch ($Throwable& var$9) {
+		$assign(var$3, var$9);
+	} $finally: {
+		if (printArgsToFile) {
+			printArgumentsToFile(argv);
+		}
+		if (comp != nullptr) {
 			try {
-				$var($Collection, var$6, static_cast<$Collection*>(args->getFileObjects()));
-				$var($Collection, var$7, static_cast<$Collection*>(args->getClassNames()));
-				$nc(comp)->compile(var$6, var$7, nullptr, $(static_cast<$Collection*>(static_cast<$AbstractCollection*>($1List::nil()))));
-				if ($nc(this->log)->expectDiagKeys != nullptr) {
-					if ($nc($nc(this->log)->expectDiagKeys)->isEmpty()) {
-						$nc(this->log)->printRawLines("all expected diagnostics found"_s);
-						$init($Main$Result);
-						$assign(var$5, $Main$Result::OK);
-						return$4 = true;
-						goto $finally;
-					} else {
-						$nc(this->log)->printRawLines($$str({"expected diagnostic keys not found: "_s, $nc(this->log)->expectDiagKeys}));
-						$init($Main$Result);
-						$assign(var$5, $Main$Result::ERROR);
-						return$4 = true;
-						goto $finally;
-					}
-				}
-				$init($Main$Result);
-				$assign(var$5, (comp->errorCount() == 0) ? $Main$Result::OK : $Main$Result::ERROR);
-				return$4 = true;
-				goto $finally;
-			} catch ($OutOfMemoryError& ex) {
-				resourceMessage(ex);
-				$init($Main$Result);
-				$assign(var$5, $Main$Result::SYSERR);
-				return$4 = true;
-				goto $finally;
-			} catch ($StackOverflowError& ex) {
-				resourceMessage(ex);
-				$init($Main$Result);
-				$assign(var$5, $Main$Result::SYSERR);
-				return$4 = true;
-				goto $finally;
-			} catch ($FatalError& ex) {
-				feMessage(ex, options);
-				$init($Main$Result);
-				$assign(var$5, $Main$Result::SYSERR);
-				return$4 = true;
-				goto $finally;
-			} catch ($AnnotationProcessingError& ex) {
-				apMessage(ex);
-				$init($Main$Result);
-				$assign(var$5, $Main$Result::SYSERR);
-				return$4 = true;
-				goto $finally;
-			} catch ($PropagatedException& ex) {
-				$throw($(ex->getCause()));
-			} catch ($IllegalAccessError& iae) {
-				if (twoClassLoadersInUse(iae)) {
-					bugMessage(iae);
-				}
-				printArgsToFile = true;
-				$init($Main$Result);
-				$assign(var$5, $Main$Result::ABNORMAL);
-				return$4 = true;
-				goto $finally;
-			} catch ($Throwable& ex) {
-				bool var$8 = comp == nullptr || $nc(comp)->errorCount() == 0;
-				if (var$8 || options->isSet("dev"_s)) {
-					bugMessage(ex);
-				}
-				printArgsToFile = true;
-				$init($Main$Result);
-				$assign(var$5, $Main$Result::ABNORMAL);
-				return$4 = true;
-				goto $finally;
-			}
-		} catch ($Throwable& var$9) {
-			$assign(var$3, var$9);
-		} $finally: {
-			if (printArgsToFile) {
-				printArgumentsToFile(argv);
-			}
-			if (comp != nullptr) {
-				try {
-					comp->close();
-				} catch ($ClientCodeException& ex) {
-					$throwNew($RuntimeException, $(ex->getCause()));
-				}
+				comp->close();
+			} catch ($ClientCodeException& ex) {
+				$throwNew($RuntimeException, $(ex->getCause()));
 			}
 		}
-		if (var$3 != nullptr) {
-			$throw(var$3);
-		}
-		if (return$4) {
-			return var$5;
-		}
+	}
+	if (var$3 != nullptr) {
+		$throw(var$3);
+	}
+	if (return$4) {
+		return var$5;
 	}
 	$shouldNotReachHere();
 }
 
 void Main::printArgumentsToFile($StringArray* params) {
-	$useLocalCurrentObjectStackCache();
-	$var($Path, out, $Paths::get($($String::format("javac.%s.args"_s, $$new($ObjectArray, {$($of($$new($SimpleDateFormat, "yyyyMMdd_HHmmss"_s)->format($($nc($($Calendar::getInstance()))->getTime()))))}))), $$new($StringArray, 0)));
+	$useLocalObjectStack();
+	$var($Path, out, $Paths::get($($String::format("javac.%s.args"_s, $$new($ObjectArray, {$($$new($SimpleDateFormat, "yyyyMMdd_HHmmss"_s)->format($($$nc($Calendar::getInstance())->getTime())))}))), $$new($StringArray, 0)));
 	$var($String, strOut, ""_s);
 	try {
 		{
 			$var($Writer, w, $Files::newBufferedWriter(out, $$new($OpenOptionArray, 0)));
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						{
-							$var($StringArray, arr$, params);
-							int32_t len$ = $nc(arr$)->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
-								$var($String, param, arr$->get(i$));
-								{
-									$assign(param, $nc(param)->replaceAll("\\\\"_s, "\\\\\\\\"_s));
-									if (param->matches(".*\\s+.*"_s)) {
-										$assign(param, $str({"\""_s, param, "\""_s}));
-									}
-									$plusAssign(strOut, $$str({param, $$str(u'\n')}));
+					{
+						$var($StringArray, arr$, params);
+						for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+							$var($String, param, arr$->get(i$));
+							{
+								$assign(param, $nc(param)->replaceAll("\\\\"_s, "\\\\\\\\"_s));
+								if (param->matches(".*\\s+.*"_s)) {
+									$assign(param, $str({"\""_s, param, "\""_s}));
 								}
+								$plusAssign(strOut, $$str({param, $$str(u'\n')}));
 							}
 						}
-						$nc(w)->write(strOut);
-					} catch ($Throwable& t$) {
-						if (w != nullptr) {
-							try {
-								w->close();
-							} catch ($Throwable& x2) {
-								t$->addSuppressed(x2);
-							}
-						}
-						$throw(t$);
 					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
+					$nc(w)->write(strOut);
+				} catch ($Throwable& t$) {
 					if (w != nullptr) {
-						w->close();
+						try {
+							w->close();
+						} catch ($Throwable& x2) {
+							t$->addSuppressed(x2);
+						}
 					}
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (w != nullptr) {
+					w->close();
 				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		$init($Log$PrefixKind);
-		$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.parameters.output"_s, $$new($ObjectArray, {$($of($nc(out)->toAbsolutePath()))}));
+		$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.parameters.output"_s, $$new($ObjectArray, {$($nc(out)->toAbsolutePath())}));
 	} catch ($IOException& ioe) {
 		$init($Log$PrefixKind);
-		$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.parameters.output.error"_s, $$new($ObjectArray, {$($of($nc(out)->toAbsolutePath()))}));
+		$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.parameters.output.error"_s, $$new($ObjectArray, {$($nc(out)->toAbsolutePath())}));
 		$nc($System::err)->println(strOut);
-		$nc($System::err)->println();
+		$System::err->println();
 	}
 }
 
 bool Main::twoClassLoadersInUse($IllegalAccessError* iae) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, msg, $nc(iae)->getMessage());
 	$var($Pattern, pattern, $Pattern::compile("(?i)(?<=tried to access class )([a-z_$][a-z\\d_$]*\\.)*[a-z_$][a-z\\d_$]*"_s));
@@ -556,11 +486,11 @@ bool Main::twoClassLoadersInUse($IllegalAccessError* iae) {
 		try {
 			$var($String, otherClassName, matcher->group(0));
 			$Class* otherClass = $Class::forName(otherClassName);
-			$var($ClassLoader, otherClassLoader, $nc(otherClass)->getClassLoader());
-			$var($ClassLoader, javacClassLoader, $of(this)->getClass()->getClassLoader());
+			$var($ClassLoader, otherClassLoader, otherClass->getClassLoader());
+			$var($ClassLoader, javacClassLoader, this->getClass()->getClassLoader());
 			if (javacClassLoader != otherClassLoader) {
-				$var($CodeSource, otherClassCodeSource, $nc($(otherClass->getProtectionDomain()))->getCodeSource());
-				$var($CodeSource, javacCodeSource, $nc($($of(this)->getClass()->getProtectionDomain()))->getCodeSource());
+				$var($CodeSource, otherClassCodeSource, $$nc(otherClass->getProtectionDomain())->getCodeSource());
+				$var($CodeSource, javacCodeSource, $$nc(this->getClass()->getProtectionDomain())->getCodeSource());
 				if (otherClassCodeSource != nullptr && javacCodeSource != nullptr) {
 					$var($URL, var$0, otherClassCodeSource->getLocation());
 					$nc(this->log)->printLines($($CompilerProperties$Errors::TwoClassLoaders2(var$0, $(javacCodeSource->getLocation()))));
@@ -578,25 +508,25 @@ bool Main::twoClassLoadersInUse($IllegalAccessError* iae) {
 }
 
 void Main::bugMessage($Throwable* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$PrefixKind);
-	$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.bug"_s, $$new($ObjectArray, {$($of($JavaCompiler::version()))}));
+	$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.bug"_s, $$new($ObjectArray, {$($JavaCompiler::version())}));
 	$init($Log$WriterKind);
 	$nc(ex)->printStackTrace($($nc(this->log)->getWriter($Log$WriterKind::NOTICE)));
 }
 
 void Main::feMessage($Throwable* ex, $Options* options) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->log)->printRawLines($($nc(ex)->getMessage()));
-	bool var$0 = $nc(ex)->getCause() != nullptr;
+	bool var$0 = ex->getCause() != nullptr;
 	if (var$0 && $nc(options)->isSet("dev"_s)) {
 		$init($Log$WriterKind);
-		$nc($(ex->getCause()))->printStackTrace($($nc(this->log)->getWriter($Log$WriterKind::NOTICE)));
+		$$nc(ex->getCause())->printStackTrace($($nc(this->log)->getWriter($Log$WriterKind::NOTICE)));
 	}
 }
 
 void Main::ioMessage($Throwable* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$PrefixKind);
 	$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.io"_s, $$new($ObjectArray, 0));
 	$init($Log$WriterKind);
@@ -604,7 +534,7 @@ void Main::ioMessage($Throwable* ex) {
 }
 
 void Main::resourceMessage($Throwable* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$PrefixKind);
 	$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.resource"_s, $$new($ObjectArray, 0));
 	$init($Log$WriterKind);
@@ -612,15 +542,15 @@ void Main::resourceMessage($Throwable* ex) {
 }
 
 void Main::apMessage($AnnotationProcessingError* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$PrefixKind);
 	$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.proc.annotation.uncaught.exception"_s, $$new($ObjectArray, 0));
 	$init($Log$WriterKind);
-	$nc($($nc(ex)->getCause()))->printStackTrace($($nc(this->log)->getWriter($Log$WriterKind::NOTICE)));
+	$$nc($nc(ex)->getCause())->printStackTrace($($nc(this->log)->getWriter($Log$WriterKind::NOTICE)));
 }
 
 void Main::pluginMessage($Throwable* ex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log$PrefixKind);
 	$nc(this->log)->printLines($Log$PrefixKind::JAVAC, "msg.plugin.uncaught.exception"_s, $$new($ObjectArray, 0));
 	$init($Log$WriterKind);
@@ -628,7 +558,7 @@ void Main::pluginMessage($Throwable* ex) {
 }
 
 void Main::showClass($String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($Log$WriterKind);
 	$var($PrintWriter, pw, $nc(this->log)->getWriter($Log$WriterKind::NOTICE));
@@ -638,75 +568,69 @@ void Main::showClass($String* className) {
 		pw->println($$str({"  "_s, url}));
 	}
 	try {
-		$var($InputStream, in, $of(this)->getClass()->getResourceAsStream($$str({$$str(u'/'), $($nc(className)->replace(u'.', u'/')), ".class"_s})));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($InputStream, in, $of(this)->getClass()->getResourceAsStream($$str({$$str(u'/'), $(className->replace(u'.', u'/')), ".class"_s})));
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($String, algorithm, "SHA-256"_s);
-					$var($bytes, digest, nullptr);
-					$var($MessageDigest, md, $MessageDigest::getInstance(algorithm));
-					{
-						$var($DigestInputStream, din, $new($DigestInputStream, in, md));
-						{
-							$var($Throwable, var$1, nullptr);
-							try {
-								try {
-									$var($bytes, buf, $new($bytes, 8192));
-									int32_t n = 0;
-									do {
-										n = din->read(buf);
-									} while (n > 0);
-									$assign(digest, $nc(md)->digest());
-								} catch ($Throwable& t$) {
-									try {
-										din->close();
-									} catch ($Throwable& x2) {
-										t$->addSuppressed(x2);
-									}
-									$throw(t$);
-								}
-							} catch ($Throwable& var$2) {
-								$assign(var$1, var$2);
-							} /*finally*/ {
-								din->close();
-							}
-							if (var$1 != nullptr) {
-								$throw(var$1);
-							}
-						}
-					}
-					$var($StringBuilder, sb, $new($StringBuilder));
-					{
-						$var($bytes, arr$, digest);
-						int32_t len$ = $nc(arr$)->length;
-						int32_t i$ = 0;
-						for (; i$ < len$; ++i$) {
-							int8_t b = arr$->get(i$);
-							sb->append($($String::format("%02x"_s, $$new($ObjectArray, {$($of($Byte::valueOf(b)))}))));
-						}
-					}
-					pw->println($$str({"  "_s, algorithm, " checksum: "_s, sb}));
-				} catch ($Throwable& t$) {
-					if (in != nullptr) {
+				$var($String, algorithm, "SHA-256"_s);
+				$var($bytes, digest, nullptr);
+				$var($MessageDigest, md, $MessageDigest::getInstance(algorithm));
+				{
+					$var($DigestInputStream, din, $new($DigestInputStream, in, md));
+					$var($Throwable, var$1, nullptr);
+					try {
 						try {
-							in->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
+							$var($bytes, buf, $new($bytes, 8192));
+							int32_t n = 0;
+							do {
+								n = din->read(buf);
+							} while (n > 0);
+							$assign(digest, $nc(md)->digest());
+						} catch ($Throwable& t$) {
+							try {
+								din->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
+							$throw(t$);
 						}
+					} catch ($Throwable& var$2) {
+						$assign(var$1, var$2);
+					} /*finally*/ {
+						din->close();
 					}
-					$throw(t$);
+					if (var$1 != nullptr) {
+						$throw(var$1);
+					}
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} /*finally*/ {
+				$var($StringBuilder, sb, $new($StringBuilder));
+				{
+					$var($bytes, arr$, digest);
+					for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+						int8_t b = arr$->get(i$);
+						sb->append($($String::format("%02x"_s, $$new($ObjectArray, {$($Byte::valueOf(b))}))));
+					}
+				}
+				pw->println($$str({"  "_s, algorithm, " checksum: "_s, sb}));
+			} catch ($Throwable& t$) {
 				if (in != nullptr) {
-					in->close();
+					try {
+						in->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
+					}
 				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} /*finally*/ {
+			if (in != nullptr) {
+				in->close();
 			}
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} catch ($NoSuchAlgorithmException& e) {
 		pw->println($$str({"  cannot compute digest: "_s, e}));
@@ -718,13 +642,64 @@ void Main::showClass($String* className) {
 Main::Main() {
 }
 
-void clinit$Main($Class* class$) {
+void Main::clinit$($Class* clazz) {
 	$assignStatic(Main::ENV_OPT_NAME, "JDK_JAVAC_OPTIONS"_s);
 	$assignStatic(Main::javacBundleName, "com.sun.tools.javac.resources.javac"_s);
 }
 
 $Class* Main::load$($String* name, bool initialize) {
-	$loadClass(Main, name, initialize, &_Main_ClassInfo_, clinit$Main, allocate$Main);
+	$FieldInfo fieldInfos$$[] = {
+		{"ownName", "Ljava/lang/String;", nullptr, 0, $field(Main, ownName)},
+		{"stdOut", "Ljava/io/PrintWriter;", nullptr, 0, $field(Main, stdOut)},
+		{"stdErr", "Ljava/io/PrintWriter;", nullptr, 0, $field(Main, stdErr)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PUBLIC, $field(Main, log)},
+		{"apiMode", "Z", nullptr, 0, $field(Main, apiMode)},
+		{"ENV_OPT_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, ENV_OPT_NAME)},
+		{"fileManager", "Ljavax/tools/JavaFileManager;", nullptr, $PRIVATE, $field(Main, fileManager)},
+		{"javacBundleName", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Main, javacBundleName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*, $PrintWriter*)},
+		{"<init>", "(Ljava/lang/String;Ljava/io/PrintWriter;Ljava/io/PrintWriter;)V", nullptr, $PUBLIC, $method(Main, init$, void, $String*, $PrintWriter*, $PrintWriter*)},
+		{"apMessage", "(Lcom/sun/tools/javac/processing/AnnotationProcessingError;)V", nullptr, 0, $virtualMethod(Main, apMessage, void, $AnnotationProcessingError*)},
+		{"bugMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, bugMessage, void, $Throwable*)},
+		{"compile", "([Ljava/lang/String;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(Main, compile, $Main$Result*, $StringArray*)},
+		{"compile", "([Ljava/lang/String;Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/main/Main$Result;", nullptr, $PUBLIC, $virtualMethod(Main, compile, $Main$Result*, $StringArray*, $Context*)},
+		{"feMessage", "(Ljava/lang/Throwable;Lcom/sun/tools/javac/util/Options;)V", nullptr, 0, $virtualMethod(Main, feMessage, void, $Throwable*, $Options*)},
+		{"ioMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, ioMessage, void, $Throwable*)},
+		{"pluginMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, pluginMessage, void, $Throwable*)},
+		{"printArgumentsToFile", "([Ljava/lang/String;)V", nullptr, $TRANSIENT, $virtualMethod(Main, printArgumentsToFile, void, $StringArray*)},
+		{"reportDiag", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0, $virtualMethod(Main, reportDiag, void, $JCDiagnostic$DiagnosticInfo*)},
+		{"reportHelper", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticInfo;)V", nullptr, 0, $virtualMethod(Main, reportHelper, void, $JCDiagnostic$DiagnosticInfo*)},
+		{"resourceMessage", "(Ljava/lang/Throwable;)V", nullptr, 0, $virtualMethod(Main, resourceMessage, void, $Throwable*)},
+		{"showClass", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(Main, showClass, void, $String*)},
+		{"twoClassLoadersInUse", "(Ljava/lang/IllegalAccessError;)Z", nullptr, $PRIVATE, $method(Main, twoClassLoadersInUse, bool, $IllegalAccessError*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Main$Result", "com.sun.tools.javac.main.Main", "Result", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.main.Main$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.main.Main",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Main$Result,com.sun.tools.javac.main.Main$1"
+	};
+	$loadClass(Main, name, initialize, &classInfo$$, Main::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Main);
+	});
 	return class$;
 }
 

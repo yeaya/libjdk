@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/sasl/LdapSasl.h>
-
 #include <com/sun/jndi/ldap/Connection.h>
 #include <com/sun/jndi/ldap/LdapClient.h>
 #include <com/sun/jndi/ldap/LdapResult.h>
@@ -12,7 +11,6 @@
 #include <java/io/OutputStream.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/Hashtable.h>
-#include <java/util/Map.h>
 #include <java/util/StringTokenizer.h>
 #include <java/util/Vector.h>
 #include <javax/naming/AuthenticationException.h>
@@ -52,7 +50,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Hashtable = ::java::util::Hashtable;
-using $Map = ::java::util::Map;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $Vector = ::java::util::Vector;
 using $AuthenticationException = ::javax::naming::AuthenticationException;
@@ -69,36 +66,6 @@ namespace com {
 			namespace ldap {
 				namespace sasl {
 
-$FieldInfo _LdapSasl_FieldInfo_[] = {
-	{"SASL_CALLBACK", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSasl, SASL_CALLBACK)},
-	{"SASL_AUTHZ_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSasl, SASL_AUTHZ_ID)},
-	{"SASL_REALM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSasl, SASL_REALM)},
-	{"LDAP_SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSasl, LDAP_SUCCESS)},
-	{"LDAP_SASL_BIND_IN_PROGRESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSasl, LDAP_SASL_BIND_IN_PROGRESS)},
-	{"NO_BYTES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSasl, NO_BYTES)},
-	{}
-};
-
-$MethodInfo _LdapSasl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LdapSasl, init$, void)},
-	{"getSaslMechanismNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapSasl, getSaslMechanismNames, $StringArray*, $String*)},
-	{"saslBind", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Lcom/sun/jndi/ldap/LdapResult;", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Lcom/sun/jndi/ldap/LdapResult;", $PUBLIC | $STATIC, $staticMethod(LdapSasl, saslBind, $LdapResult*, $LdapClient*, $Connection*, $String*, $String*, Object$*, $String*, $Hashtable*, $ControlArray*), "java.io.IOException,javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _LdapSasl_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.sasl.LdapSasl",
-	"java.lang.Object",
-	nullptr,
-	_LdapSasl_FieldInfo_,
-	_LdapSasl_MethodInfo_
-};
-
-$Object* allocate$LdapSasl($Class* clazz) {
-	return $of($alloc(LdapSasl));
-}
-
 $String* LdapSasl::SASL_CALLBACK = nullptr;
 $String* LdapSasl::SASL_AUTHZ_ID = nullptr;
 $String* LdapSasl::SASL_REALM = nullptr;
@@ -109,105 +76,103 @@ void LdapSasl::init$() {
 
 $LdapResult* LdapSasl::saslBind($LdapClient* clnt, $Connection* conn, $String* server, $String* dn, Object$* pw, $String* authMech, $Hashtable* env, $ControlArray* bindCtls) {
 	$init(LdapSasl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SaslClient, saslClnt, nullptr);
 	bool cleanupHandler = false;
-	$var($CallbackHandler, cbh, (env != nullptr) ? $cast($CallbackHandler, $nc(env)->get(LdapSasl::SASL_CALLBACK)) : ($CallbackHandler*)nullptr);
+	$var($CallbackHandler, cbh, (env != nullptr) ? $cast($CallbackHandler, env->get(LdapSasl::SASL_CALLBACK)) : ($CallbackHandler*)nullptr);
 	if (cbh == nullptr) {
-		$assign(cbh, $new($DefaultCallbackHandler, dn, pw, $cast($String, $(env->get(LdapSasl::SASL_REALM)))));
+		$assign(cbh, $new($DefaultCallbackHandler, dn, pw, $$cast($String, $nc(env)->get(LdapSasl::SASL_REALM))));
 		cleanupHandler = true;
 	}
 	$var($String, authzId, (env != nullptr) ? $cast($String, env->get(LdapSasl::SASL_AUTHZ_ID)) : ($String*)nullptr);
 	$var($StringArray, mechs, getSaslMechanismNames(authMech));
 	$init($TlsChannelBinding);
-	if (env->get($TlsChannelBinding::CHANNEL_BINDING) != nullptr) {
+	if ($nc(env)->get($TlsChannelBinding::CHANNEL_BINDING) != nullptr) {
 		$throwNew($NamingException, $$str({$TlsChannelBinding::CHANNEL_BINDING, " property cannot be set explicitly"_s}));
 	}
 	$var($Hashtable, envProps, env);
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($LdapResult, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($LdapResult, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				if ($nc(conn)->isTlsConnection()) {
-					$TlsChannelBinding$TlsChannelBindingType* cbType = $TlsChannelBinding::parseType($cast($String, $(env->get($TlsChannelBinding::CHANNEL_BINDING_TYPE))));
-					$init($TlsChannelBinding$TlsChannelBindingType);
-					if (cbType == $TlsChannelBinding$TlsChannelBindingType::TLS_SERVER_END_POINT) {
-						$var($X509Certificate, cert, conn->getTlsServerCertificate());
-						if (cert != nullptr) {
-							$var($TlsChannelBinding, tlsCB, $TlsChannelBinding::create(cert));
-							$assign(envProps, $cast($Hashtable, env->clone()));
-							$nc(envProps)->put($TlsChannelBinding::CHANNEL_BINDING, $($nc(tlsCB)->getData()));
-						} else {
-							$throwNew($SaslException, "No suitable certificate to generate TLS Channel Binding data"_s);
-						}
-					}
-				}
-				$assign(saslClnt, $Sasl::createSaslClient(mechs, authzId, "ldap"_s, server, envProps, cbh));
-				if (saslClnt == nullptr) {
-					$throwNew($AuthenticationNotSupportedException, authMech);
-				}
-				$var($LdapResult, res, nullptr);
-				$var($String, mechName, $nc(saslClnt)->getMechanismName());
-				$var($bytes, response, saslClnt->hasInitialResponse() ? saslClnt->evaluateChallenge(LdapSasl::NO_BYTES) : ($bytes*)nullptr);
-				$assign(res, $nc(clnt)->ldapBind(nullptr, response, bindCtls, mechName, true));
-				while (!saslClnt->isComplete() && ($nc(res)->status == LdapSasl::LDAP_SASL_BIND_IN_PROGRESS || $nc(res)->status == LdapSasl::LDAP_SUCCESS)) {
-					$assign(response, saslClnt->evaluateChallenge(res->serverCreds != nullptr ? res->serverCreds : LdapSasl::NO_BYTES));
-					if (res->status == LdapSasl::LDAP_SUCCESS) {
-						if (response != nullptr) {
-							$throwNew($AuthenticationException, "SASL client generated response after success"_s);
-						}
-						break;
-					}
-					$assign(res, clnt->ldapBind(nullptr, response, bindCtls, mechName, true));
-				}
-				if ($nc(res)->status == LdapSasl::LDAP_SUCCESS) {
-					if (!saslClnt->isComplete()) {
-						$throwNew($AuthenticationException, "SASL authentication not complete despite server claims"_s);
-					}
-					$var($String, qop, $cast($String, saslClnt->getNegotiatedProperty($Sasl::QOP)));
-					bool var$3 = qop != nullptr;
-					if (var$3) {
-						bool var$4 = qop->equalsIgnoreCase("auth-int"_s);
-						var$3 = (var$4 || qop->equalsIgnoreCase("auth-conf"_s));
-					}
-					if (var$3) {
-						$var($InputStream, newIn, $new($SaslInputStream, saslClnt, $nc(conn)->inStream));
-						$var($OutputStream, newOut, $new($SaslOutputStream, saslClnt, $nc(conn)->outStream));
-						$nc(conn)->replaceStreams(newIn, newOut);
+			if ($nc(conn)->isTlsConnection()) {
+				$TlsChannelBinding$TlsChannelBindingType* cbType = $TlsChannelBinding::parseType($$cast($String, env->get($TlsChannelBinding::CHANNEL_BINDING_TYPE)));
+				$init($TlsChannelBinding$TlsChannelBindingType);
+				if (cbType == $TlsChannelBinding$TlsChannelBindingType::TLS_SERVER_END_POINT) {
+					$var($X509Certificate, cert, conn->getTlsServerCertificate());
+					if (cert != nullptr) {
+						$var($TlsChannelBinding, tlsCB, $TlsChannelBinding::create(cert));
+						$assign(envProps, $cast($Hashtable, env->clone()));
+						$nc(envProps)->put($TlsChannelBinding::CHANNEL_BINDING, $($nc(tlsCB)->getData()));
 					} else {
-						saslClnt->dispose();
+						$throwNew($SaslException, "No suitable certificate to generate TLS Channel Binding data"_s);
 					}
 				}
-				$assign(var$2, res);
-				return$1 = true;
-				goto $finally;
-			} catch ($SaslException& e) {
-				$var($NamingException, ne, $new($AuthenticationException, authMech));
-				ne->setRootCause(e);
-				$throw(ne);
 			}
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			if (cleanupHandler) {
-				$nc(($cast($DefaultCallbackHandler, cbh)))->clearPassword();
+			$assign(saslClnt, $Sasl::createSaslClient(mechs, authzId, "ldap"_s, server, envProps, cbh));
+			if (saslClnt == nullptr) {
+				$throwNew($AuthenticationNotSupportedException, authMech);
 			}
+			$var($LdapResult, res, nullptr);
+			$var($String, mechName, $nc(saslClnt)->getMechanismName());
+			$var($bytes, response, saslClnt->hasInitialResponse() ? saslClnt->evaluateChallenge(LdapSasl::NO_BYTES) : ($bytes*)nullptr);
+			$assign(res, $nc(clnt)->ldapBind(nullptr, response, bindCtls, mechName, true));
+			while (!saslClnt->isComplete() && ($nc(res)->status == LdapSasl::LDAP_SASL_BIND_IN_PROGRESS || res->status == LdapSasl::LDAP_SUCCESS)) {
+				$assign(response, saslClnt->evaluateChallenge(res->serverCreds != nullptr ? res->serverCreds : LdapSasl::NO_BYTES));
+				if (res->status == LdapSasl::LDAP_SUCCESS) {
+					if (response != nullptr) {
+						$throwNew($AuthenticationException, "SASL client generated response after success"_s);
+					}
+					break;
+				}
+				$assign(res, clnt->ldapBind(nullptr, response, bindCtls, mechName, true));
+			}
+			if ($nc(res)->status == LdapSasl::LDAP_SUCCESS) {
+				if (!saslClnt->isComplete()) {
+					$throwNew($AuthenticationException, "SASL authentication not complete despite server claims"_s);
+				}
+				$var($String, qop, $cast($String, saslClnt->getNegotiatedProperty($Sasl::QOP)));
+				bool var$3 = qop != nullptr;
+				if (var$3) {
+					bool var$4 = qop->equalsIgnoreCase("auth-int"_s);
+					var$3 = var$4 || qop->equalsIgnoreCase("auth-conf"_s);
+				}
+				if (var$3) {
+					$var($InputStream, newIn, $new($SaslInputStream, saslClnt, conn->inStream));
+					$var($OutputStream, newOut, $new($SaslOutputStream, saslClnt, conn->outStream));
+					conn->replaceStreams(newIn, newOut);
+				} else {
+					saslClnt->dispose();
+				}
+			}
+			$assign(var$2, res);
+			return$1 = true;
+			goto $finally;
+		} catch ($SaslException& e) {
+			$var($NamingException, ne, $new($AuthenticationException, authMech));
+			ne->setRootCause(e);
+			$throw(ne);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		if (cleanupHandler) {
+			$nc($cast($DefaultCallbackHandler, cbh))->clearPassword();
 		}
-		if (return$1) {
-			return var$2;
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $StringArray* LdapSasl::getSaslMechanismNames($String* str) {
 	$init(LdapSasl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, parser, $new($StringTokenizer, str));
 	$var($Vector, mechs, $new($Vector, 10));
 	while (parser->hasMoreTokens()) {
@@ -215,12 +180,12 @@ $StringArray* LdapSasl::getSaslMechanismNames($String* str) {
 	}
 	$var($StringArray, mechNames, $new($StringArray, mechs->size()));
 	for (int32_t i = 0; i < mechs->size(); ++i) {
-		mechNames->set(i, $cast($String, $(mechs->elementAt(i))));
+		mechNames->set(i, $$cast($String, mechs->elementAt(i)));
 	}
 	return mechNames;
 }
 
-void clinit$LdapSasl($Class* class$) {
+void LdapSasl::clinit$($Class* clazz) {
 	$assignStatic(LdapSasl::SASL_CALLBACK, "java.naming.security.sasl.callback"_s);
 	$assignStatic(LdapSasl::SASL_AUTHZ_ID, "java.naming.security.sasl.authorizationId"_s);
 	$assignStatic(LdapSasl::SASL_REALM, "java.naming.security.sasl.realm"_s);
@@ -231,7 +196,32 @@ LdapSasl::LdapSasl() {
 }
 
 $Class* LdapSasl::load$($String* name, bool initialize) {
-	$loadClass(LdapSasl, name, initialize, &_LdapSasl_ClassInfo_, clinit$LdapSasl, allocate$LdapSasl);
+	$FieldInfo fieldInfos$$[] = {
+		{"SASL_CALLBACK", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSasl, SASL_CALLBACK)},
+		{"SASL_AUTHZ_ID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSasl, SASL_AUTHZ_ID)},
+		{"SASL_REALM", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSasl, SASL_REALM)},
+		{"LDAP_SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSasl, LDAP_SUCCESS)},
+		{"LDAP_SASL_BIND_IN_PROGRESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapSasl, LDAP_SASL_BIND_IN_PROGRESS)},
+		{"NO_BYTES", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapSasl, NO_BYTES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LdapSasl, init$, void)},
+		{"getSaslMechanismNames", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapSasl, getSaslMechanismNames, $StringArray*, $String*)},
+		{"saslBind", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/Hashtable;[Ljavax/naming/ldap/Control;)Lcom/sun/jndi/ldap/LdapResult;", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/Connection;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;Ljava/util/Hashtable<**>;[Ljavax/naming/ldap/Control;)Lcom/sun/jndi/ldap/LdapResult;", $PUBLIC | $STATIC, $staticMethod(LdapSasl, saslBind, $LdapResult*, $LdapClient*, $Connection*, $String*, $String*, Object$*, $String*, $Hashtable*, $ControlArray*), "java.io.IOException,javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.sasl.LdapSasl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapSasl, name, initialize, &classInfo$$, LdapSasl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapSasl);
+	});
 	return class$;
 }
 

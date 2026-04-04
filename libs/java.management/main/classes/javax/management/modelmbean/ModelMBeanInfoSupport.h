@@ -73,6 +73,7 @@ public:
 	virtual $Array<::javax::management::MBeanNotificationInfo>* getNotifications() override;
 	virtual $Array<::javax::management::MBeanOperationInfo>* getOperations() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::modelmbean::ModelMBeanInfo* mbi);
 	void init$($String* className, $String* description, $Array<::javax::management::modelmbean::ModelMBeanAttributeInfo>* attributes, $Array<::javax::management::modelmbean::ModelMBeanConstructorInfo>* constructors, $Array<::javax::management::modelmbean::ModelMBeanOperationInfo>* operations, $Array<::javax::management::modelmbean::ModelMBeanNotificationInfo>* notifications);
 	void init$($String* className, $String* description, $Array<::javax::management::modelmbean::ModelMBeanAttributeInfo>* attributes, $Array<::javax::management::modelmbean::ModelMBeanConstructorInfo>* constructors, $Array<::javax::management::modelmbean::ModelMBeanOperationInfo>* operations, $Array<::javax::management::modelmbean::ModelMBeanNotificationInfo>* notifications, ::javax::management::Descriptor* mbeandescriptor);
@@ -94,8 +95,8 @@ public:
 	virtual $String* toString() override;
 	::javax::management::Descriptor* validDescriptor(::javax::management::Descriptor* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0xC943CCF46E372743;
-	static const int64_t newSerialVersionUID = (int64_t)0xE522EE8F42424E9F;
+	static const int64_t oldSerialVersionUID = (int64_t)0xc943ccf46e372743;
+	static const int64_t newSerialVersionUID = (int64_t)0xe522ee8f42424e9f;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

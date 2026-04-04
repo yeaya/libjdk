@@ -58,6 +58,7 @@ class $import MatchBindingsComputer : public ::com::sun::tools::javac::tree::Tre
 	$class(MatchBindingsComputer, 0, ::com::sun::tools::javac::tree::TreeScanner)
 public:
 	MatchBindingsComputer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::comp::MatchBindingsComputer$MatchBindings* andOperation(::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos, ::com::sun::tools::javac::comp::MatchBindingsComputer$MatchBindings* lhsBindings, ::com::sun::tools::javac::comp::MatchBindingsComputer$MatchBindings* rhsBindings);
 	virtual ::com::sun::tools::javac::comp::MatchBindingsComputer$MatchBindings* binary(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::comp::MatchBindingsComputer$MatchBindings* lhsBindings, ::com::sun::tools::javac::comp::MatchBindingsComputer$MatchBindings* rhsBindings);

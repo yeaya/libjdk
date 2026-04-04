@@ -59,6 +59,7 @@ class $export GSSManagerImpl : public ::org::ietf::jgss::GSSManager {
 	$class(GSSManagerImpl, 0, ::org::ietf::jgss::GSSManager)
 public:
 	GSSManagerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::GSSCaller* caller, bool useNative);
 	void init$(::sun::security::jgss::GSSCaller* caller);
 	void init$();

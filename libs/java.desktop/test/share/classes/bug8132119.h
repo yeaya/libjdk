@@ -47,6 +47,7 @@ class $export bug8132119 : public ::java::lang::Object {
 	$class(bug8132119, 0, ::java::lang::Object)
 public:
 	bug8132119();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void checkClippedString($String* str, $String* res, $String* golden);
 	static void checkImageContainsSymbol(::java::awt::image::BufferedImage* buffImage, int32_t x, int32_t intersections);

@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapClientFactory.h>
-
 #include <com/sun/jndi/ldap/LdapClient.h>
 #include <com/sun/jndi/ldap/pool/PoolCallback.h>
 #include <com/sun/jndi/ldap/pool/PooledConnection.h>
@@ -18,36 +17,6 @@ namespace com {
 	namespace sun {
 		namespace jndi {
 			namespace ldap {
-
-$FieldInfo _LdapClientFactory_FieldInfo_[] = {
-	{"host", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, host)},
-	{"port", "I", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, port)},
-	{"socketFactory", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, socketFactory)},
-	{"connTimeout", "I", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, connTimeout)},
-	{"readTimeout", "I", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, readTimeout)},
-	{"trace", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, trace)},
-	{}
-};
-
-$MethodInfo _LdapClientFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;)V", nullptr, 0, $method(LdapClientFactory, init$, void, $String*, int32_t, $String*, int32_t, int32_t, $OutputStream*)},
-	{"createPooledConnection", "(Lcom/sun/jndi/ldap/pool/PoolCallback;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC, $virtualMethod(LdapClientFactory, createPooledConnection, $PooledConnection*, $PoolCallback*), "javax.naming.NamingException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapClientFactory, toString, $String*)},
-	{}
-};
-
-$ClassInfo _LdapClientFactory_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapClientFactory",
-	"java.lang.Object",
-	"com.sun.jndi.ldap.pool.PooledConnectionFactory",
-	_LdapClientFactory_FieldInfo_,
-	_LdapClientFactory_MethodInfo_
-};
-
-$Object* allocate$LdapClientFactory($Class* clazz) {
-	return $of($alloc(LdapClientFactory));
-}
 
 void LdapClientFactory::init$($String* host, int32_t port, $String* socketFactory, int32_t connTimeout, int32_t readTimeout, $OutputStream* trace) {
 	$set(this, host, host);
@@ -70,7 +39,32 @@ LdapClientFactory::LdapClientFactory() {
 }
 
 $Class* LdapClientFactory::load$($String* name, bool initialize) {
-	$loadClass(LdapClientFactory, name, initialize, &_LdapClientFactory_ClassInfo_, allocate$LdapClientFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"host", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, host)},
+		{"port", "I", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, port)},
+		{"socketFactory", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, socketFactory)},
+		{"connTimeout", "I", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, connTimeout)},
+		{"readTimeout", "I", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, readTimeout)},
+		{"trace", "Ljava/io/OutputStream;", nullptr, $PRIVATE | $FINAL, $field(LdapClientFactory, trace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;IILjava/io/OutputStream;)V", nullptr, 0, $method(LdapClientFactory, init$, void, $String*, int32_t, $String*, int32_t, int32_t, $OutputStream*)},
+		{"createPooledConnection", "(Lcom/sun/jndi/ldap/pool/PoolCallback;)Lcom/sun/jndi/ldap/pool/PooledConnection;", nullptr, $PUBLIC, $virtualMethod(LdapClientFactory, createPooledConnection, $PooledConnection*, $PoolCallback*), "javax.naming.NamingException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapClientFactory, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapClientFactory",
+		"java.lang.Object",
+		"com.sun.jndi.ldap.pool.PooledConnectionFactory",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapClientFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapClientFactory);
+	});
 	return class$;
 }
 

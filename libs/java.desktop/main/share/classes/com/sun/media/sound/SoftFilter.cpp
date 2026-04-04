@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftFilter.h>
-
 #include <com/sun/media/sound/SoftAudioBuffer.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -26,84 +25,14 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftFilter_FieldInfo_[] = {
-	{"FILTERTYPE_LP6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_LP6)},
-	{"FILTERTYPE_LP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_LP12)},
-	{"FILTERTYPE_HP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_HP12)},
-	{"FILTERTYPE_BP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_BP12)},
-	{"FILTERTYPE_NP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_NP12)},
-	{"FILTERTYPE_LP24", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_LP24)},
-	{"FILTERTYPE_HP24", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_HP24)},
-	{"filtertype", "I", nullptr, $PRIVATE, $field(SoftFilter, filtertype)},
-	{"samplerate", "F", nullptr, $PRIVATE | $FINAL, $field(SoftFilter, samplerate)},
-	{"x1", "F", nullptr, $PRIVATE, $field(SoftFilter, x1)},
-	{"x2", "F", nullptr, $PRIVATE, $field(SoftFilter, x2)},
-	{"y1", "F", nullptr, $PRIVATE, $field(SoftFilter, y1)},
-	{"y2", "F", nullptr, $PRIVATE, $field(SoftFilter, y2)},
-	{"xx1", "F", nullptr, $PRIVATE, $field(SoftFilter, xx1)},
-	{"xx2", "F", nullptr, $PRIVATE, $field(SoftFilter, xx2)},
-	{"yy1", "F", nullptr, $PRIVATE, $field(SoftFilter, yy1)},
-	{"yy2", "F", nullptr, $PRIVATE, $field(SoftFilter, yy2)},
-	{"a0", "F", nullptr, $PRIVATE, $field(SoftFilter, a0)},
-	{"a1", "F", nullptr, $PRIVATE, $field(SoftFilter, a1)},
-	{"a2", "F", nullptr, $PRIVATE, $field(SoftFilter, a2)},
-	{"b1", "F", nullptr, $PRIVATE, $field(SoftFilter, b1)},
-	{"b2", "F", nullptr, $PRIVATE, $field(SoftFilter, b2)},
-	{"q", "F", nullptr, $PRIVATE, $field(SoftFilter, q)},
-	{"gain", "F", nullptr, $PRIVATE, $field(SoftFilter, gain)},
-	{"wet", "F", nullptr, $PRIVATE, $field(SoftFilter, wet)},
-	{"last_wet", "F", nullptr, $PRIVATE, $field(SoftFilter, last_wet)},
-	{"last_a0", "F", nullptr, $PRIVATE, $field(SoftFilter, last_a0)},
-	{"last_a1", "F", nullptr, $PRIVATE, $field(SoftFilter, last_a1)},
-	{"last_a2", "F", nullptr, $PRIVATE, $field(SoftFilter, last_a2)},
-	{"last_b1", "F", nullptr, $PRIVATE, $field(SoftFilter, last_b1)},
-	{"last_b2", "F", nullptr, $PRIVATE, $field(SoftFilter, last_b2)},
-	{"last_q", "F", nullptr, $PRIVATE, $field(SoftFilter, last_q)},
-	{"last_gain", "F", nullptr, $PRIVATE, $field(SoftFilter, last_gain)},
-	{"last_set", "Z", nullptr, $PRIVATE, $field(SoftFilter, last_set)},
-	{"cutoff", "D", nullptr, $PRIVATE, $field(SoftFilter, cutoff)},
-	{"resonancedB", "D", nullptr, $PRIVATE, $field(SoftFilter, resonancedB)},
-	{"dirty", "Z", nullptr, $PRIVATE, $field(SoftFilter, dirty)},
-	{}
-};
-
-$MethodInfo _SoftFilter_MethodInfo_[] = {
-	{"<init>", "(F)V", nullptr, $PUBLIC, $method(SoftFilter, init$, void, float)},
-	{"filter1", "(Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $method(SoftFilter, filter1, void, $SoftAudioBuffer*)},
-	{"filter1calc", "()V", nullptr, $PUBLIC, $method(SoftFilter, filter1calc, void)},
-	{"filter2", "(Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $method(SoftFilter, filter2, void, $SoftAudioBuffer*)},
-	{"filter2calc", "()V", nullptr, $PUBLIC, $method(SoftFilter, filter2calc, void)},
-	{"filter4", "(Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $method(SoftFilter, filter4, void, $SoftAudioBuffer*)},
-	{"processAudio", "(Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $method(SoftFilter, processAudio, void, $SoftAudioBuffer*)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(SoftFilter, reset, void)},
-	{"setFilterType", "(I)V", nullptr, $PUBLIC, $method(SoftFilter, setFilterType, void, int32_t)},
-	{"setFrequency", "(D)V", nullptr, $PUBLIC, $method(SoftFilter, setFrequency, void, double)},
-	{"setResonance", "(D)V", nullptr, $PUBLIC, $method(SoftFilter, setResonance, void, double)},
-	{"sinh", "(D)D", nullptr, $PRIVATE, $method(SoftFilter, sinh, double, double)},
-	{}
-};
-
-$ClassInfo _SoftFilter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftFilter",
-	"java.lang.Object",
-	nullptr,
-	_SoftFilter_FieldInfo_,
-	_SoftFilter_MethodInfo_
-};
-
-$Object* allocate$SoftFilter($Class* clazz) {
-	return $of($alloc(SoftFilter));
-}
-
 void SoftFilter::init$(float samplerate) {
 	this->filtertype = SoftFilter::FILTERTYPE_LP6;
-	this->gain = (float)1;
-	this->wet = (float)0;
-	this->last_wet = (float)0;
+	this->gain = 1;
+	this->wet = 0;
+	this->last_wet = 0;
 	this->last_set = false;
-	this->cutoff = (double)0x0000AC44;
-	this->resonancedB = (double)0;
+	this->cutoff = 0x0000ac44;
+	this->resonancedB = 0;
 	this->dirty = true;
 	this->samplerate = samplerate;
 	this->dirty = true;
@@ -128,21 +57,21 @@ void SoftFilter::setResonance(double db) {
 void SoftFilter::reset() {
 	this->dirty = true;
 	this->last_set = false;
-	this->x1 = (float)0;
-	this->x2 = (float)0;
-	this->y1 = (float)0;
-	this->y2 = (float)0;
-	this->xx1 = (float)0;
-	this->xx2 = (float)0;
-	this->yy1 = (float)0;
-	this->yy2 = (float)0;
+	this->x1 = 0;
+	this->x2 = 0;
+	this->y1 = 0;
+	this->y2 = 0;
+	this->xx1 = 0;
+	this->xx2 = 0;
+	this->yy1 = 0;
+	this->yy2 = 0;
 	this->wet = 0.0f;
 	this->gain = 1.0f;
-	this->a0 = (float)0;
-	this->a1 = (float)0;
-	this->a2 = (float)0;
-	this->b1 = (float)0;
-	this->b2 = (float)0;
+	this->a0 = 0;
+	this->a1 = 0;
+	this->a2 = 0;
+	this->b1 = 0;
+	this->b2 = 0;
 }
 
 void SoftFilter::setFilterType(int32_t filtertype) {
@@ -276,16 +205,16 @@ void SoftFilter::filter4($SoftAudioBuffer* sbuffer) {
 			}
 		}
 		if ($Math::abs(x1) < 1.0E-8) {
-			x1 = (float)0;
+			x1 = 0;
 		}
 		if ($Math::abs(x2) < 1.0E-8) {
-			x2 = (float)0;
+			x2 = 0;
 		}
 		if ($Math::abs(y1) < 1.0E-8) {
-			y1 = (float)0;
+			y1 = 0;
 		}
 		if ($Math::abs(y2) < 1.0E-8) {
-			y2 = (float)0;
+			y2 = 0;
 		}
 		this->x1 = x1;
 		this->x2 = x2;
@@ -313,16 +242,16 @@ double SoftFilter::sinh(double x) {
 void SoftFilter::filter2calc() {
 	double resonancedB = this->resonancedB;
 	if (resonancedB < 0) {
-		resonancedB = (double)0;
+		resonancedB = 0;
 	}
 	if (resonancedB > 30) {
-		resonancedB = (double)30;
+		resonancedB = 30;
 	}
 	if (this->filtertype == SoftFilter::FILTERTYPE_LP24 || this->filtertype == SoftFilter::FILTERTYPE_HP24) {
 		resonancedB *= 0.6;
 	}
 	if (this->filtertype == SoftFilter::FILTERTYPE_BP12) {
-		this->wet = (float)1;
+		this->wet = 1;
 		double r = (this->cutoff / this->samplerate);
 		if (r > 0.45) {
 			r = 0.45;
@@ -332,9 +261,9 @@ void SoftFilter::filter2calc() {
 		double omega = 2 * $Math::PI * r;
 		double cs = $Math::cos(omega);
 		double sn = $Math::sin(omega);
-		double alpha = sn * sinh(($Math::log((double)2) * bandwidth * omega) / (sn * 2));
+		double alpha = sn * sinh(($Math::log(2) * bandwidth * omega) / (sn * 2));
 		double b0 = alpha;
-		double b1 = (double)0;
+		double b1 = 0;
 		double b2 = -alpha;
 		double a0 = 1 + alpha;
 		double a1 = -2 * cs;
@@ -347,7 +276,7 @@ void SoftFilter::filter2calc() {
 		this->a2 = (float)(b2 * cf);
 	}
 	if (this->filtertype == SoftFilter::FILTERTYPE_NP12) {
-		this->wet = (float)1;
+		this->wet = 1;
 		double r = (this->cutoff / this->samplerate);
 		if (r > 0.45) {
 			r = 0.45;
@@ -357,10 +286,10 @@ void SoftFilter::filter2calc() {
 		double omega = 2 * $Math::PI * r;
 		double cs = $Math::cos(omega);
 		double sn = $Math::sin(omega);
-		double alpha = sn * sinh(($Math::log((double)2) * bandwidth * omega) / (sn * 2));
-		double b0 = (double)1;
+		double alpha = sn * sinh(($Math::log(2) * bandwidth * omega) / (sn * 2));
+		double b0 = 1;
 		double b1 = -2 * cs;
-		double b2 = (double)1;
+		double b2 = 1;
 		double a0 = 1 + alpha;
 		double a1 = -2 * cs;
 		double a2 = 1 - alpha;
@@ -510,16 +439,16 @@ void SoftFilter::filter2($SoftAudioBuffer* sbuffer) {
 			}
 		}
 		if ($Math::abs(x1) < 1.0E-8) {
-			x1 = (float)0;
+			x1 = 0;
 		}
 		if ($Math::abs(x2) < 1.0E-8) {
-			x2 = (float)0;
+			x2 = 0;
 		}
 		if ($Math::abs(y1) < 1.0E-8) {
-			y1 = (float)0;
+			y1 = 0;
 		}
 		if ($Math::abs(y2) < 1.0E-8) {
-			y2 = (float)0;
+			y2 = 0;
 		}
 		this->x1 = x1;
 		this->x2 = x2;
@@ -538,24 +467,24 @@ void SoftFilter::filter2($SoftAudioBuffer* sbuffer) {
 
 void SoftFilter::filter1calc() {
 	if (this->cutoff < 120) {
-		this->cutoff = (double)120;
+		this->cutoff = 120;
 	}
 	$init($Math);
 	double c = (7.0 / 6.0) * $Math::PI * 2 * this->cutoff / this->samplerate;
 	if (c > 1) {
-		c = (double)1;
+		c = 1;
 	}
 	double var$0 = $Math::sqrt(1 - $Math::cos(c));
 	this->a0 = (float)(var$0 * $Math::sqrt(0.5 * $Math::PI));
 	if (this->resonancedB < 0) {
-		this->resonancedB = (double)0;
+		this->resonancedB = 0;
 	}
 	if (this->resonancedB > 20) {
-		this->resonancedB = (double)20;
+		this->resonancedB = 20;
 	}
 	double var$1 = $Math::sqrt(0.5);
 	this->q = (float)(var$1 * $Math::pow(10.0, -(this->resonancedB / 20)));
-	this->gain = (float)$Math::pow((double)10, -(this->resonancedB) / 40.0);
+	this->gain = (float)$Math::pow(10, -(this->resonancedB) / 40.0);
 	if (this->wet == 0.0f) {
 		if (this->resonancedB > 1.0E-5 || c < 0.9999999) {
 			this->wet = 1.0f;
@@ -618,10 +547,10 @@ void SoftFilter::filter1($SoftAudioBuffer* sbuffer) {
 			}
 		}
 		if ($Math::abs(y2) < 1.0E-8) {
-			y2 = (float)0;
+			y2 = 0;
 		}
 		if ($Math::abs(y1) < 1.0E-8) {
-			y1 = (float)0;
+			y1 = 0;
 		}
 		this->y2 = y2;
 		this->y1 = y1;
@@ -636,7 +565,72 @@ SoftFilter::SoftFilter() {
 }
 
 $Class* SoftFilter::load$($String* name, bool initialize) {
-	$loadClass(SoftFilter, name, initialize, &_SoftFilter_ClassInfo_, allocate$SoftFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"FILTERTYPE_LP6", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_LP6)},
+		{"FILTERTYPE_LP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_LP12)},
+		{"FILTERTYPE_HP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_HP12)},
+		{"FILTERTYPE_BP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_BP12)},
+		{"FILTERTYPE_NP12", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_NP12)},
+		{"FILTERTYPE_LP24", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_LP24)},
+		{"FILTERTYPE_HP24", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SoftFilter, FILTERTYPE_HP24)},
+		{"filtertype", "I", nullptr, $PRIVATE, $field(SoftFilter, filtertype)},
+		{"samplerate", "F", nullptr, $PRIVATE | $FINAL, $field(SoftFilter, samplerate)},
+		{"x1", "F", nullptr, $PRIVATE, $field(SoftFilter, x1)},
+		{"x2", "F", nullptr, $PRIVATE, $field(SoftFilter, x2)},
+		{"y1", "F", nullptr, $PRIVATE, $field(SoftFilter, y1)},
+		{"y2", "F", nullptr, $PRIVATE, $field(SoftFilter, y2)},
+		{"xx1", "F", nullptr, $PRIVATE, $field(SoftFilter, xx1)},
+		{"xx2", "F", nullptr, $PRIVATE, $field(SoftFilter, xx2)},
+		{"yy1", "F", nullptr, $PRIVATE, $field(SoftFilter, yy1)},
+		{"yy2", "F", nullptr, $PRIVATE, $field(SoftFilter, yy2)},
+		{"a0", "F", nullptr, $PRIVATE, $field(SoftFilter, a0)},
+		{"a1", "F", nullptr, $PRIVATE, $field(SoftFilter, a1)},
+		{"a2", "F", nullptr, $PRIVATE, $field(SoftFilter, a2)},
+		{"b1", "F", nullptr, $PRIVATE, $field(SoftFilter, b1)},
+		{"b2", "F", nullptr, $PRIVATE, $field(SoftFilter, b2)},
+		{"q", "F", nullptr, $PRIVATE, $field(SoftFilter, q)},
+		{"gain", "F", nullptr, $PRIVATE, $field(SoftFilter, gain)},
+		{"wet", "F", nullptr, $PRIVATE, $field(SoftFilter, wet)},
+		{"last_wet", "F", nullptr, $PRIVATE, $field(SoftFilter, last_wet)},
+		{"last_a0", "F", nullptr, $PRIVATE, $field(SoftFilter, last_a0)},
+		{"last_a1", "F", nullptr, $PRIVATE, $field(SoftFilter, last_a1)},
+		{"last_a2", "F", nullptr, $PRIVATE, $field(SoftFilter, last_a2)},
+		{"last_b1", "F", nullptr, $PRIVATE, $field(SoftFilter, last_b1)},
+		{"last_b2", "F", nullptr, $PRIVATE, $field(SoftFilter, last_b2)},
+		{"last_q", "F", nullptr, $PRIVATE, $field(SoftFilter, last_q)},
+		{"last_gain", "F", nullptr, $PRIVATE, $field(SoftFilter, last_gain)},
+		{"last_set", "Z", nullptr, $PRIVATE, $field(SoftFilter, last_set)},
+		{"cutoff", "D", nullptr, $PRIVATE, $field(SoftFilter, cutoff)},
+		{"resonancedB", "D", nullptr, $PRIVATE, $field(SoftFilter, resonancedB)},
+		{"dirty", "Z", nullptr, $PRIVATE, $field(SoftFilter, dirty)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(F)V", nullptr, $PUBLIC, $method(SoftFilter, init$, void, float)},
+		{"filter1", "(Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $method(SoftFilter, filter1, void, $SoftAudioBuffer*)},
+		{"filter1calc", "()V", nullptr, $PUBLIC, $method(SoftFilter, filter1calc, void)},
+		{"filter2", "(Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $method(SoftFilter, filter2, void, $SoftAudioBuffer*)},
+		{"filter2calc", "()V", nullptr, $PUBLIC, $method(SoftFilter, filter2calc, void)},
+		{"filter4", "(Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $method(SoftFilter, filter4, void, $SoftAudioBuffer*)},
+		{"processAudio", "(Lcom/sun/media/sound/SoftAudioBuffer;)V", nullptr, $PUBLIC, $method(SoftFilter, processAudio, void, $SoftAudioBuffer*)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(SoftFilter, reset, void)},
+		{"setFilterType", "(I)V", nullptr, $PUBLIC, $method(SoftFilter, setFilterType, void, int32_t)},
+		{"setFrequency", "(D)V", nullptr, $PUBLIC, $method(SoftFilter, setFrequency, void, double)},
+		{"setResonance", "(D)V", nullptr, $PUBLIC, $method(SoftFilter, setResonance, void, double)},
+		{"sinh", "(D)D", nullptr, $PRIVATE, $method(SoftFilter, sinh, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftFilter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SoftFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftFilter);
+	});
 	return class$;
 }
 

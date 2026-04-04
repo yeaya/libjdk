@@ -29,7 +29,7 @@ public:
 	void init$();
 	virtual ::java::awt::GraphicsConfiguration* getBestConfiguration($Array<::java::awt::GraphicsConfiguration>* gc) {return nullptr;}
 	virtual bool isGraphicsConfigSupported(::java::awt::GraphicsConfiguration* gc) {return false;}
-	static const int64_t serialVersionUID = (int64_t)0x90204359E8B62239;
+	static const int64_t serialVersionUID = (int64_t)0x90204359e8b62239;
 	static const int32_t REQUIRED = 1;
 	static const int32_t PREFERRED = 2;
 	static const int32_t UNNECESSARY = 3;

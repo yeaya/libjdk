@@ -23,6 +23,7 @@ class Metacity$Privileged : public ::java::security::PrivilegedAction {
 	$class(Metacity$Privileged, 0, ::java::security::PrivilegedAction)
 public:
 	Metacity$Privileged();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* doPrivileged(int32_t type, Object$* arg);
 	virtual $Object* run() override;

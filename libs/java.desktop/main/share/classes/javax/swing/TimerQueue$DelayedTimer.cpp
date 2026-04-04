@@ -1,5 +1,4 @@
 #include <javax/swing/TimerQueue$DelayedTimer.h>
-
 #include <java/util/concurrent/Delayed.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <java/util/concurrent/atomic/AtomicLong.h>
@@ -22,55 +21,12 @@ using $TimerQueue = ::javax::swing::TimerQueue;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _TimerQueue$DelayedTimer_FieldInfo_[] = {
-	{"sequencer", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue$DelayedTimer, sequencer)},
-	{"sequenceNumber", "J", nullptr, $PRIVATE | $FINAL, $field(TimerQueue$DelayedTimer, sequenceNumber)},
-	{"time", "J", nullptr, $PRIVATE | $VOLATILE, $field(TimerQueue$DelayedTimer, time)},
-	{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE | $FINAL, $field(TimerQueue$DelayedTimer, timer)},
-	{}
-};
-
-$MethodInfo _TimerQueue$DelayedTimer_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/Timer;J)V", nullptr, 0, $method(TimerQueue$DelayedTimer, init$, void, $Timer*, int64_t)},
-	{"compareTo", "(Ljava/util/concurrent/Delayed;)I", nullptr, $PUBLIC, $virtualMethod(TimerQueue$DelayedTimer, compareTo, int32_t, $Delayed*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TimerQueue$DelayedTimer, compareTo, int32_t, Object$*)},
-	{"getDelay", "(Ljava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(TimerQueue$DelayedTimer, getDelay, int64_t, $TimeUnit*)},
-	{"getTimer", "()Ljavax/swing/Timer;", nullptr, $FINAL, $method(TimerQueue$DelayedTimer, getTimer, $Timer*)},
-	{"setTime", "(J)V", nullptr, $FINAL, $method(TimerQueue$DelayedTimer, setTime, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _TimerQueue$DelayedTimer_InnerClassesInfo_[] = {
-	{"javax.swing.TimerQueue$DelayedTimer", "javax.swing.TimerQueue", "DelayedTimer", $STATIC},
-	{}
-};
-
-$ClassInfo _TimerQueue$DelayedTimer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.TimerQueue$DelayedTimer",
-	"java.lang.Object",
-	"java.util.concurrent.Delayed",
-	_TimerQueue$DelayedTimer_FieldInfo_,
-	_TimerQueue$DelayedTimer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TimerQueue$DelayedTimer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.TimerQueue"
-};
-
-$Object* allocate$TimerQueue$DelayedTimer($Class* clazz) {
-	return $of($alloc(TimerQueue$DelayedTimer));
-}
-
 $AtomicLong* TimerQueue$DelayedTimer::sequencer = nullptr;
 
 void TimerQueue$DelayedTimer::init$($Timer* timer, int64_t nanos) {
 	$set(this, timer, timer);
 	this->time = nanos;
-	this->sequenceNumber = $nc(TimerQueue$DelayedTimer::sequencer)->getAndIncrement();
+	this->sequenceNumber = TimerQueue$DelayedTimer::sequencer->getAndIncrement();
 }
 
 int64_t TimerQueue$DelayedTimer::getDelay($TimeUnit* unit) {
@@ -92,7 +48,7 @@ int32_t TimerQueue$DelayedTimer::compareTo($Delayed* other) {
 	}
 	if ($instanceOf(TimerQueue$DelayedTimer, other)) {
 		$var(TimerQueue$DelayedTimer, x, $cast(TimerQueue$DelayedTimer, other));
-		int64_t diff = this->time - $nc(x)->time;
+		int64_t diff = this->time - x->time;
 		if (diff < 0) {
 			return -1;
 		} else if (diff > 0) {
@@ -113,7 +69,7 @@ int32_t TimerQueue$DelayedTimer::compareTo(Object$* other) {
 	return this->compareTo($cast($Delayed, other));
 }
 
-void clinit$TimerQueue$DelayedTimer($Class* class$) {
+void TimerQueue$DelayedTimer::clinit$($Class* clazz) {
 	$assignStatic(TimerQueue$DelayedTimer::sequencer, $new($AtomicLong));
 }
 
@@ -121,7 +77,44 @@ TimerQueue$DelayedTimer::TimerQueue$DelayedTimer() {
 }
 
 $Class* TimerQueue$DelayedTimer::load$($String* name, bool initialize) {
-	$loadClass(TimerQueue$DelayedTimer, name, initialize, &_TimerQueue$DelayedTimer_ClassInfo_, clinit$TimerQueue$DelayedTimer, allocate$TimerQueue$DelayedTimer);
+	$FieldInfo fieldInfos$$[] = {
+		{"sequencer", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TimerQueue$DelayedTimer, sequencer)},
+		{"sequenceNumber", "J", nullptr, $PRIVATE | $FINAL, $field(TimerQueue$DelayedTimer, sequenceNumber)},
+		{"time", "J", nullptr, $PRIVATE | $VOLATILE, $field(TimerQueue$DelayedTimer, time)},
+		{"timer", "Ljavax/swing/Timer;", nullptr, $PRIVATE | $FINAL, $field(TimerQueue$DelayedTimer, timer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/Timer;J)V", nullptr, 0, $method(TimerQueue$DelayedTimer, init$, void, $Timer*, int64_t)},
+		{"compareTo", "(Ljava/util/concurrent/Delayed;)I", nullptr, $PUBLIC, $virtualMethod(TimerQueue$DelayedTimer, compareTo, int32_t, $Delayed*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(TimerQueue$DelayedTimer, compareTo, int32_t, Object$*)},
+		{"getDelay", "(Ljava/util/concurrent/TimeUnit;)J", nullptr, $PUBLIC | $FINAL, $virtualMethod(TimerQueue$DelayedTimer, getDelay, int64_t, $TimeUnit*)},
+		{"getTimer", "()Ljavax/swing/Timer;", nullptr, $FINAL, $method(TimerQueue$DelayedTimer, getTimer, $Timer*)},
+		{"setTime", "(J)V", nullptr, $FINAL, $method(TimerQueue$DelayedTimer, setTime, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.TimerQueue$DelayedTimer", "javax.swing.TimerQueue", "DelayedTimer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.TimerQueue$DelayedTimer",
+		"java.lang.Object",
+		"java.util.concurrent.Delayed",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.TimerQueue"
+	};
+	$loadClass(TimerQueue$DelayedTimer, name, initialize, &classInfo$$, TimerQueue$DelayedTimer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TimerQueue$DelayedTimer);
+	});
 	return class$;
 }
 

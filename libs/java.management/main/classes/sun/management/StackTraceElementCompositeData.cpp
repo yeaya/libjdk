@@ -1,5 +1,4 @@
 #include <sun/management/StackTraceElementCompositeData.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/reflect/Type.h>
@@ -37,7 +36,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $StackTraceElement = ::java::lang::StackTraceElement;
-using $Type = ::java::lang::reflect::Type;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
@@ -49,48 +47,6 @@ using $MappedMXBeanType = ::sun::management::MappedMXBeanType;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _StackTraceElementCompositeData_FieldInfo_[] = {
-	{"ste", "Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $FINAL, $field(StackTraceElementCompositeData, ste)},
-	{"CLASS_LOADER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, CLASS_LOADER_NAME)},
-	{"MODULE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, MODULE_NAME)},
-	{"MODULE_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, MODULE_VERSION)},
-	{"CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, CLASS_NAME)},
-	{"METHOD_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, METHOD_NAME)},
-	{"FILE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, FILE_NAME)},
-	{"LINE_NUMBER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, LINE_NUMBER)},
-	{"NATIVE_METHOD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, NATIVE_METHOD)},
-	{"V5_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, V5_ATTRIBUTES)},
-	{"V9_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, V9_ATTRIBUTES)},
-	{"STACK_TRACE_ELEMENT_COMPOSITE_TYPE", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, STACK_TRACE_ELEMENT_COMPOSITE_TYPE)},
-	{"V5_COMPOSITE_TYPE", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, V5_COMPOSITE_TYPE)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackTraceElementCompositeData, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _StackTraceElementCompositeData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE, $method(StackTraceElementCompositeData, init$, void, $StackTraceElement*)},
-	{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, from, $StackTraceElement*, $CompositeData*)},
-	{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(StackTraceElementCompositeData, getCompositeData, $CompositeData*)},
-	{"getStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(StackTraceElementCompositeData, getStackTraceElement, $StackTraceElement*)},
-	{"toCompositeData", "(Ljava/lang/StackTraceElement;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, toCompositeData, $CompositeData*, $StackTraceElement*)},
-	{"v5CompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(StackTraceElementCompositeData, v5CompositeType, $CompositeType*)},
-	{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, validateCompositeData, void, $CompositeData*)},
-	{}
-};
-
-$ClassInfo _StackTraceElementCompositeData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.StackTraceElementCompositeData",
-	"sun.management.LazyCompositeData",
-	nullptr,
-	_StackTraceElementCompositeData_FieldInfo_,
-	_StackTraceElementCompositeData_MethodInfo_
-};
-
-$Object* allocate$StackTraceElementCompositeData($Class* clazz) {
-	return $of($alloc(StackTraceElementCompositeData));
-}
 
 $String* StackTraceElementCompositeData::CLASS_LOADER_NAME = nullptr;
 $String* StackTraceElementCompositeData::MODULE_NAME = nullptr;
@@ -116,7 +72,7 @@ $StackTraceElement* StackTraceElementCompositeData::getStackTraceElement() {
 
 $StackTraceElement* StackTraceElementCompositeData::from($CompositeData* cd) {
 	$init(StackTraceElementCompositeData);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	validateCompositeData(cd);
 	if ($nc(StackTraceElementCompositeData::STACK_TRACE_ELEMENT_COMPOSITE_TYPE)->equals($($nc(cd)->getCompositeType()))) {
 		$var($String, var$0, getString(cd, StackTraceElementCompositeData::CLASS_LOADER_NAME));
@@ -141,16 +97,16 @@ $CompositeData* StackTraceElementCompositeData::toCompositeData($StackTraceEleme
 }
 
 $CompositeData* StackTraceElementCompositeData::getCompositeData() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, items, $new($HashMap));
 	items->put(StackTraceElementCompositeData::CLASS_LOADER_NAME, $($nc(this->ste)->getClassLoaderName()));
-	items->put(StackTraceElementCompositeData::MODULE_NAME, $($nc(this->ste)->getModuleName()));
-	items->put(StackTraceElementCompositeData::MODULE_VERSION, $($nc(this->ste)->getModuleVersion()));
-	items->put(StackTraceElementCompositeData::CLASS_NAME, $($nc(this->ste)->getClassName()));
-	items->put(StackTraceElementCompositeData::METHOD_NAME, $($nc(this->ste)->getMethodName()));
-	items->put(StackTraceElementCompositeData::FILE_NAME, $($nc(this->ste)->getFileName()));
-	items->put(StackTraceElementCompositeData::LINE_NUMBER, $($Integer::valueOf($nc(this->ste)->getLineNumber())));
-	items->put(StackTraceElementCompositeData::NATIVE_METHOD, $($Boolean::valueOf($nc(this->ste)->isNativeMethod())));
+	items->put(StackTraceElementCompositeData::MODULE_NAME, $(this->ste->getModuleName()));
+	items->put(StackTraceElementCompositeData::MODULE_VERSION, $(this->ste->getModuleVersion()));
+	items->put(StackTraceElementCompositeData::CLASS_NAME, $(this->ste->getClassName()));
+	items->put(StackTraceElementCompositeData::METHOD_NAME, $(this->ste->getMethodName()));
+	items->put(StackTraceElementCompositeData::FILE_NAME, $(this->ste->getFileName()));
+	items->put(StackTraceElementCompositeData::LINE_NUMBER, $($Integer::valueOf(this->ste->getLineNumber())));
+	items->put(StackTraceElementCompositeData::NATIVE_METHOD, $($Boolean::valueOf(this->ste->isNativeMethod())));
 	try {
 		return $new($CompositeDataSupport, StackTraceElementCompositeData::STACK_TRACE_ELEMENT_COMPOSITE_TYPE, items);
 	} catch ($OpenDataException& e) {
@@ -176,8 +132,8 @@ void StackTraceElementCompositeData::validateCompositeData($CompositeData* cd) {
 	}
 }
 
-void clinit$StackTraceElementCompositeData($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void StackTraceElementCompositeData::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(StackTraceElementCompositeData::CLASS_LOADER_NAME, "classLoaderName"_s);
 	$assignStatic(StackTraceElementCompositeData::MODULE_NAME, "moduleName"_s);
 	$assignStatic(StackTraceElementCompositeData::MODULE_VERSION, "moduleVersion"_s);
@@ -202,9 +158,9 @@ void clinit$StackTraceElementCompositeData($Class* class$) {
 		try {
 			$load($StackTraceElement);
 			$assignStatic(StackTraceElementCompositeData::STACK_TRACE_ELEMENT_COMPOSITE_TYPE, $cast($CompositeType, $MappedMXBeanType::toOpenType($StackTraceElement::class$)));
-			$var($OpenTypeArray, types, $new($OpenTypeArray, $nc(StackTraceElementCompositeData::V5_ATTRIBUTES)->length));
-			for (int32_t i = 0; i < $nc(StackTraceElementCompositeData::V5_ATTRIBUTES)->length; ++i) {
-				$var($String, name, $nc(StackTraceElementCompositeData::V5_ATTRIBUTES)->get(i));
+			$var($OpenTypeArray, types, $new($OpenTypeArray, StackTraceElementCompositeData::V5_ATTRIBUTES->length));
+			for (int32_t i = 0; i < StackTraceElementCompositeData::V5_ATTRIBUTES->length; ++i) {
+				$var($String, name, StackTraceElementCompositeData::V5_ATTRIBUTES->get(i));
 				types->set(i, $($nc(StackTraceElementCompositeData::STACK_TRACE_ELEMENT_COMPOSITE_TYPE)->getType(name)));
 			}
 			$assignStatic(StackTraceElementCompositeData::V5_COMPOSITE_TYPE, $new($CompositeType, "StackTraceElement"_s, "JDK 5 StackTraceElement"_s, StackTraceElementCompositeData::V5_ATTRIBUTES, StackTraceElementCompositeData::V5_ATTRIBUTES, types));
@@ -218,7 +174,44 @@ StackTraceElementCompositeData::StackTraceElementCompositeData() {
 }
 
 $Class* StackTraceElementCompositeData::load$($String* name, bool initialize) {
-	$loadClass(StackTraceElementCompositeData, name, initialize, &_StackTraceElementCompositeData_ClassInfo_, clinit$StackTraceElementCompositeData, allocate$StackTraceElementCompositeData);
+	$FieldInfo fieldInfos$$[] = {
+		{"ste", "Ljava/lang/StackTraceElement;", nullptr, $PRIVATE | $FINAL, $field(StackTraceElementCompositeData, ste)},
+		{"CLASS_LOADER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, CLASS_LOADER_NAME)},
+		{"MODULE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, MODULE_NAME)},
+		{"MODULE_VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, MODULE_VERSION)},
+		{"CLASS_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, CLASS_NAME)},
+		{"METHOD_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, METHOD_NAME)},
+		{"FILE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, FILE_NAME)},
+		{"LINE_NUMBER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, LINE_NUMBER)},
+		{"NATIVE_METHOD", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, NATIVE_METHOD)},
+		{"V5_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, V5_ATTRIBUTES)},
+		{"V9_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, V9_ATTRIBUTES)},
+		{"STACK_TRACE_ELEMENT_COMPOSITE_TYPE", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, STACK_TRACE_ELEMENT_COMPOSITE_TYPE)},
+		{"V5_COMPOSITE_TYPE", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StackTraceElementCompositeData, V5_COMPOSITE_TYPE)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(StackTraceElementCompositeData, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/StackTraceElement;)V", nullptr, $PRIVATE, $method(StackTraceElementCompositeData, init$, void, $StackTraceElement*)},
+		{"from", "(Ljavax/management/openmbean/CompositeData;)Ljava/lang/StackTraceElement;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, from, $StackTraceElement*, $CompositeData*)},
+		{"getCompositeData", "()Ljavax/management/openmbean/CompositeData;", nullptr, $PROTECTED, $virtualMethod(StackTraceElementCompositeData, getCompositeData, $CompositeData*)},
+		{"getStackTraceElement", "()Ljava/lang/StackTraceElement;", nullptr, $PUBLIC, $virtualMethod(StackTraceElementCompositeData, getStackTraceElement, $StackTraceElement*)},
+		{"toCompositeData", "(Ljava/lang/StackTraceElement;)Ljavax/management/openmbean/CompositeData;", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, toCompositeData, $CompositeData*, $StackTraceElement*)},
+		{"v5CompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $STATIC, $staticMethod(StackTraceElementCompositeData, v5CompositeType, $CompositeType*)},
+		{"validateCompositeData", "(Ljavax/management/openmbean/CompositeData;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(StackTraceElementCompositeData, validateCompositeData, void, $CompositeData*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.StackTraceElementCompositeData",
+		"sun.management.LazyCompositeData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StackTraceElementCompositeData, name, initialize, &classInfo$$, StackTraceElementCompositeData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StackTraceElementCompositeData));
+	});
 	return class$;
 }
 

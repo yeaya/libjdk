@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/ReturnTree.h>
-
 #include <com/sun/source/doctree/BlockTagTree.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -13,33 +12,6 @@ namespace com {
 	namespace sun {
 		namespace source {
 			namespace doctree {
-
-$MethodInfo _ReturnTree_MethodInfo_[] = {
-	{"*accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ReturnTree, getDescription, $List*)},
-	{"*getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"isInline", "()Z", nullptr, $PUBLIC, $virtualMethod(ReturnTree, isInline, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ReturnTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.ReturnTree",
-	nullptr,
-	"com.sun.source.doctree.BlockTagTree,com.sun.source.doctree.InlineTagTree",
-	nullptr,
-	_ReturnTree_MethodInfo_
-};
-
-$Object* allocate$ReturnTree($Class* clazz) {
-	return $of($alloc(ReturnTree));
-}
 
 int32_t ReturnTree::hashCode() {
 	 return this->$BlockTagTree::hashCode();
@@ -66,7 +38,30 @@ bool ReturnTree::isInline() {
 }
 
 $Class* ReturnTree::load$($String* name, bool initialize) {
-	$loadClass(ReturnTree, name, initialize, &_ReturnTree_ClassInfo_, allocate$ReturnTree);
+	$MethodInfo methodInfos$$[] = {
+		{"*accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ReturnTree, getDescription, $List*)},
+		{"*getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"isInline", "()Z", nullptr, $PUBLIC, $virtualMethod(ReturnTree, isInline, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.ReturnTree",
+		nullptr,
+		"com.sun.source.doctree.BlockTagTree,com.sun.source.doctree.InlineTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ReturnTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ReturnTree));
+	});
 	return class$;
 }
 

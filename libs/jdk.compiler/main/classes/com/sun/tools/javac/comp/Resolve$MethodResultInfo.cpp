@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodResultInfo.h>
-
 #include <com/sun/tools/javac/code/Kinds$KindSelector.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
@@ -22,13 +21,9 @@
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
-using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
-using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -42,62 +37,21 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$MethodResultInfo_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodResultInfo, this$0)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodResultInfo_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(Resolve$MethodResultInfo, init$, void, $Resolve*, $Type*, $Check$CheckContext*)},
-	{"U", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Resolve$MethodResultInfo, U, $Type*, $Type*)},
-	{"check", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, check, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Resolve$MethodResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, Resolve$MethodResultInfo*, $Type*)},
-	{"dup", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, $Attr$ResultInfo*, $Check$CheckContext*)},
-	{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, $Attr$ResultInfo*, $Type*, $Check$CheckContext*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$MethodResultInfo_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodResultInfo", "com.sun.tools.javac.comp.Resolve", "MethodResultInfo", 0},
-	{"com.sun.tools.javac.comp.Attr$ResultInfo", "com.sun.tools.javac.comp.Attr", "ResultInfo", 0},
-	{}
-};
-
-$ClassInfo _Resolve$MethodResultInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodResultInfo",
-	"com.sun.tools.javac.comp.Attr$ResultInfo",
-	nullptr,
-	_Resolve$MethodResultInfo_FieldInfo_,
-	_Resolve$MethodResultInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$MethodResultInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodResultInfo($Class* clazz) {
-	return $of($alloc(Resolve$MethodResultInfo));
-}
-
 void Resolve$MethodResultInfo::init$($Resolve* this$0, $Type* pt, $Check$CheckContext* checkContext) {
 	$set(this, this$0, this$0);
 	$init($Kinds$KindSelector);
-	$Attr$ResultInfo::init$(static_cast<$Attr*>($nc(this$0->attr)), $Kinds$KindSelector::VAL, pt, checkContext);
+	$Attr$ResultInfo::init$($nc(this$0->attr), $Kinds$KindSelector::VAL, pt, checkContext);
 }
 
 $Type* Resolve$MethodResultInfo::check($JCDiagnostic$DiagnosticPosition* pos, $Type* found) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	if ($nc(found)->hasTag($TypeTag::DEFERRED)) {
 		$var($DeferredAttr$DeferredType, dt, $cast($DeferredAttr$DeferredType, found));
 		return dt->check(this);
 	} else {
 		$var($Type, uResult, U(found));
-		$var($Type, capturedType, pos == nullptr || $nc(pos)->getTree() == nullptr ? $nc(this->this$0->types)->capture(uResult) : $nc($($nc(this->checkContext)->inferenceContext()))->cachedCapture($($nc(pos)->getTree()), uResult, true));
+		$var($Type, capturedType, pos == nullptr || pos->getTree() == nullptr ? $nc(this->this$0->types)->capture(uResult) : $$nc($nc(this->checkContext)->inferenceContext())->cachedCapture($(pos->getTree()), uResult, true));
 		return $Attr$ResultInfo::check(pos, $($nc(this->this$0->chk)->checkNonVoid(pos, capturedType)));
 	}
 }
@@ -122,7 +76,42 @@ Resolve$MethodResultInfo::Resolve$MethodResultInfo() {
 }
 
 $Class* Resolve$MethodResultInfo::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodResultInfo, name, initialize, &_Resolve$MethodResultInfo_ClassInfo_, allocate$Resolve$MethodResultInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodResultInfo, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)V", nullptr, $PUBLIC, $method(Resolve$MethodResultInfo, init$, void, $Resolve*, $Type*, $Check$CheckContext*)},
+		{"U", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Resolve$MethodResultInfo, U, $Type*, $Type*)},
+		{"check", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, check, $Type*, $JCDiagnostic$DiagnosticPosition*, $Type*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Resolve$MethodResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, Resolve$MethodResultInfo*, $Type*)},
+		{"dup", "(Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, $Attr$ResultInfo*, $Check$CheckContext*)},
+		{"dup", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Check$CheckContext;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PROTECTED, $virtualMethod(Resolve$MethodResultInfo, dup, $Attr$ResultInfo*, $Type*, $Check$CheckContext*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodResultInfo", "com.sun.tools.javac.comp.Resolve", "MethodResultInfo", 0},
+		{"com.sun.tools.javac.comp.Attr$ResultInfo", "com.sun.tools.javac.comp.Attr", "ResultInfo", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodResultInfo",
+		"com.sun.tools.javac.comp.Attr$ResultInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodResultInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResultInfo);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/naming/ldap/HasControls.h>
-
 #include <javax/naming/ldap/Control.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace naming {
 		namespace ldap {
 
-$MethodInfo _HasControls_MethodInfo_[] = {
-	{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HasControls, getControls, $ControlArray*), "javax.naming.NamingException"},
-	{}
-};
-
-$ClassInfo _HasControls_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.naming.ldap.HasControls",
-	nullptr,
-	nullptr,
-	nullptr,
-	_HasControls_MethodInfo_
-};
-
-$Object* allocate$HasControls($Class* clazz) {
-	return $of($alloc(HasControls));
-}
-
 $Class* HasControls::load$($String* name, bool initialize) {
-	$loadClass(HasControls, name, initialize, &_HasControls_ClassInfo_, allocate$HasControls);
+	$MethodInfo methodInfos$$[] = {
+		{"getControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HasControls, getControls, $ControlArray*), "javax.naming.NamingException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.naming.ldap.HasControls",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HasControls, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HasControls);
+	});
 	return class$;
 }
 

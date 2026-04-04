@@ -1,5 +1,4 @@
 #include <sun/awt/AWTAccessor$MouseEventAccessor.h>
-
 #include <java/awt/event/MouseEvent.h>
 #include <sun/awt/AWTAccessor.h>
 #include <jcpp.h>
@@ -12,39 +11,34 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AWTAccessor$MouseEventAccessor_MethodInfo_[] = {
-	{"isCausedByTouchEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$MouseEventAccessor, isCausedByTouchEvent, bool, $MouseEvent*)},
-	{"setCausedByTouchEvent", "(Ljava/awt/event/MouseEvent;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$MouseEventAccessor, setCausedByTouchEvent, void, $MouseEvent*, bool)},
-	{}
-};
-
-$InnerClassInfo _AWTAccessor$MouseEventAccessor_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAccessor$MouseEventAccessor", "sun.awt.AWTAccessor", "MouseEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AWTAccessor$MouseEventAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.AWTAccessor$MouseEventAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AWTAccessor$MouseEventAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAccessor$MouseEventAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAccessor"
-};
-
-$Object* allocate$AWTAccessor$MouseEventAccessor($Class* clazz) {
-	return $of($alloc(AWTAccessor$MouseEventAccessor));
-}
-
 $Class* AWTAccessor$MouseEventAccessor::load$($String* name, bool initialize) {
-	$loadClass(AWTAccessor$MouseEventAccessor, name, initialize, &_AWTAccessor$MouseEventAccessor_ClassInfo_, allocate$AWTAccessor$MouseEventAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"isCausedByTouchEvent", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$MouseEventAccessor, isCausedByTouchEvent, bool, $MouseEvent*)},
+		{"setCausedByTouchEvent", "(Ljava/awt/event/MouseEvent;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$MouseEventAccessor, setCausedByTouchEvent, void, $MouseEvent*, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAccessor$MouseEventAccessor", "sun.awt.AWTAccessor", "MouseEventAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.AWTAccessor$MouseEventAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAccessor"
+	};
+	$loadClass(AWTAccessor$MouseEventAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAccessor$MouseEventAccessor);
+	});
 	return class$;
 }
 

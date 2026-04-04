@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol.h>
-
 #include <com/sun/tools/javac/code/AnnoConstruct.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
@@ -51,7 +50,6 @@
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $AnnoConstruct = ::com::sun::tools::javac::code::AnnoConstruct;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
-using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
@@ -77,7 +75,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Annotation = ::java::lang::annotation::Annotation;
 using $Iterator = ::java::util::Iterator;
@@ -93,153 +90,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Symbol_FieldInfo_[] = {
-	{"kind", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC, $field(Symbol, kind)},
-	{"flags_field", "J", nullptr, $PUBLIC, $field(Symbol, flags_field)},
-	{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(Symbol, name)},
-	{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Symbol, type)},
-	{"owner", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Symbol, owner)},
-	{"completer", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC, $field(Symbol, completer)},
-	{"erasure_field", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Symbol, erasure_field)},
-	{"metadata", "Lcom/sun/tools/javac/code/SymbolMetadata;", nullptr, $PROTECTED, $field(Symbol, metadata)},
-	{}
-};
-
-$MethodInfo _Symbol_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol, init$, void, $Kinds$Kind*, int64_t, $Name*, $Type*, Symbol*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
-	{"annotationsPendingCompletion", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, annotationsPendingCompletion, bool)},
-	{"apiComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol, apiComplete, void), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"appendAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)V", $PUBLIC, $virtualMethod(Symbol, appendAttributes, void, $List*)},
-	{"appendClassInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, appendClassInitTypeAttributes, void, $List*)},
-	{"appendInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, appendInitTypeAttributes, void, $List*)},
-	{"appendUniqueTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, appendUniqueTypeAttributes, void, $List*)},
-	{"asMemberOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, asMemberOf, Symbol*, $Type*, $Types*)},
-	{"asType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol, asType, $TypeMirror*)},
-	{"attribute", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Symbol, attribute, $Attribute$Compound*, Symbol*)},
-	{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, baseSymbol, Symbol*)},
-	{"clone", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, clone, Symbol*, Symbol*)},
-	{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol, complete, void), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
-	{"enclClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, enclClass, $Symbol$ClassSymbol*)},
-	{"erasure", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol, erasure, $Type*, $Types*)},
-	{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, exists, bool)},
-	{"externalType", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol, externalType, $Type*, $Types*)},
-	{"flags", "()J", nullptr, $PUBLIC, $virtualMethod(Symbol, flags, int64_t)},
-	{"flatName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol, flatName, $Name*)},
-	{"getAnnotationMirrors", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol, getAnnotationMirrors, $1List*)},
-	{"getClassInitTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Symbol, getClassInitTypeAttributes, $List*)},
-	{"getDeclarationAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol, getDeclarationAttributes, $List*)},
-	{"getEnclosedElements", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Symbol, getEnclosedElements, $1List*)},
-	{"getEnclosingElement", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, getEnclosingElement, $Element*)},
-	{"getInitTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Symbol, getInitTypeAttributes, $List*)},
-	{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol, getKind, $ElementKind*)},
-	{"getMetadata", "()Lcom/sun/tools/javac/code/SymbolMetadata;", nullptr, $PUBLIC, $virtualMethod(Symbol, getMetadata, $SymbolMetadata*)},
-	{"getModifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC, $virtualMethod(Symbol, getModifiers, $Set*)},
-	{"getQualifiedName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol, getQualifiedName, $Name*)},
-	{"getRawAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol, getRawAttributes, $List*)},
-	{"getRawTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Symbol, getRawTypeAttributes, $List*)},
-	{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol, getSimpleName, $1Name*)},
-	{"getTypeParameters", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$TypeVariableSymbol;>;", $PUBLIC, $virtualMethod(Symbol, getTypeParameters, $List*)},
-	{"hasAnnotations", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, hasAnnotations, bool)},
-	{"hasDeprecatedAnnotation", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, hasDeprecatedAnnotation, bool)},
-	{"hasOuterInstance", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, hasOuterInstance, bool)},
-	{"hasTypeAnnotations", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, hasTypeAnnotations, bool)},
-	{"hiddenIn", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PRIVATE, $method(Symbol, hiddenIn, bool, $Symbol$ClassSymbol*, $Types*)},
-	{"hiddenInInternal", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Symbol, hiddenInInternal, Symbol*, $Symbol$ClassSymbol*, $Types*)},
-	{"initedMetadata", "()Lcom/sun/tools/javac/code/SymbolMetadata;", nullptr, $PRIVATE, $method(Symbol, initedMetadata, $SymbolMetadata*)},
-	{"isAbstract", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isAbstract, bool)},
-	{"isAccessibleIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC | $FINAL, $method(Symbol, isAccessibleIn, bool, Symbol*, $Types*)},
-	{"isAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isAnonymous, bool)},
-	{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isCompleted, bool)},
-	{"isConstructor", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isConstructor, bool)},
-	{"isDeprecatableViaAnnotation", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDeprecatableViaAnnotation, bool)},
-	{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDeprecated, bool)},
-	{"isDeprecatedForRemoval", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDeprecatedForRemoval, bool)},
-	{"isDirectlyOrIndirectlyLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDirectlyOrIndirectlyLocal, bool)},
-	{"isDynamic", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDynamic, bool)},
-	{"isEnclosedBy", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isEnclosedBy, bool, $Symbol$ClassSymbol*)},
-	{"isEnum", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isEnum, bool)},
-	{"isFinal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isFinal, bool)},
-	{"isInheritedIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isInheritedIn, bool, Symbol*, $Types*)},
-	{"isInner", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isInner, bool)},
-	{"isInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isInterface, bool)},
-	{"isMemberOf", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isMemberOf, bool, $Symbol$TypeSymbol*, $Types*)},
-	{"isNonSealed", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isNonSealed, bool)},
-	{"isPreviewApi", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isPreviewApi, bool)},
-	{"isPrivate", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isPrivate, bool)},
-	{"isPublic", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isPublic, bool)},
-	{"isSealed", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isSealed, bool)},
-	{"isStatic", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isStatic, bool)},
-	{"isSubClass", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isSubClass, bool, Symbol*, $Types*)},
-	{"location", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, location, Symbol*)},
-	{"location", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, location, Symbol*, $Type*, $Types*)},
-	{"members", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Symbol, members, $Scope$WriteableScope*)},
-	{"outermostClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, outermostClass, $Symbol$ClassSymbol*)},
-	{"overrides", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;Z)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, overrides, bool, Symbol*, $Symbol$TypeSymbol*, $Types*, bool)},
-	{"packge", "()Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, packge, $Symbol$PackageSymbol*)},
-	{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol, poolTag, int32_t)},
-	{"prependAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)V", $PUBLIC, $virtualMethod(Symbol, prependAttributes, void, $List*)},
-	{"resetAnnotations", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol, resetAnnotations, void)},
-	{"setAttributes", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symbol, setAttributes, void, Symbol*)},
-	{"setClassInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, setClassInitTypeAttributes, void, $List*)},
-	{"setDeclarationAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)V", $PUBLIC, $virtualMethod(Symbol, setDeclarationAttributes, void, $List*)},
-	{"setInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, setInitTypeAttributes, void, $List*)},
-	{"setTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, setTypeAttributes, void, $List*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Symbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.code.Symbol$Visitor", "com.sun.tools.javac.code.Symbol", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Symbol$CompletionFailure", "com.sun.tools.javac.code.Symbol", "CompletionFailure", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.code.Symbol$OperatorSymbol", "com.sun.tools.javac.code.Symbol", "OperatorSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$MethodHandleSymbol", "com.sun.tools.javac.code.Symbol", "MethodHandleSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$DynamicVarSymbol", "com.sun.tools.javac.code.Symbol", "DynamicVarSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$DynamicMethodSymbol", "com.sun.tools.javac.code.Symbol", "DynamicMethodSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$MethodSymbol", "com.sun.tools.javac.code.Symbol", "MethodSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$BindingSymbol", "com.sun.tools.javac.code.Symbol", "BindingSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$ParamSymbol", "com.sun.tools.javac.code.Symbol", "ParamSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$RecordComponent", "com.sun.tools.javac.code.Symbol", "RecordComponent", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$ClassSymbol", "com.sun.tools.javac.code.Symbol", "ClassSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$RootPackageSymbol", "com.sun.tools.javac.code.Symbol", "RootPackageSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$PackageSymbol", "com.sun.tools.javac.code.Symbol", "PackageSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$ModuleResolutionFlags", "com.sun.tools.javac.code.Symbol", "ModuleResolutionFlags", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.code.Symbol$ModuleFlags", "com.sun.tools.javac.code.Symbol", "ModuleFlags", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.code.Symbol$ModuleSymbol", "com.sun.tools.javac.code.Symbol", "ModuleSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$TypeVariableSymbol", "com.sun.tools.javac.code.Symbol", "TypeVariableSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Symbol$DelegatedSymbol", "com.sun.tools.javac.code.Symbol", "DelegatedSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Symbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Symbol",
-	"com.sun.tools.javac.code.AnnoConstruct",
-	"com.sun.tools.javac.jvm.PoolConstant,javax.lang.model.element.Element",
-	_Symbol_FieldInfo_,
-	_Symbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol$1,com.sun.tools.javac.code.Symbol$Visitor,com.sun.tools.javac.code.Symbol$CompletionFailure,com.sun.tools.javac.code.Symbol$Completer,com.sun.tools.javac.code.Symbol$Completer$1,com.sun.tools.javac.code.Symbol$OperatorSymbol,com.sun.tools.javac.code.Symbol$OperatorSymbol$AccessCode,com.sun.tools.javac.code.Symbol$MethodHandleSymbol,com.sun.tools.javac.code.Symbol$DynamicVarSymbol,com.sun.tools.javac.code.Symbol$DynamicMethodSymbol,com.sun.tools.javac.code.Symbol$MethodSymbol,com.sun.tools.javac.code.Symbol$MethodSymbol$1,com.sun.tools.javac.code.Symbol$BindingSymbol,com.sun.tools.javac.code.Symbol$ParamSymbol,com.sun.tools.javac.code.Symbol$RecordComponent,com.sun.tools.javac.code.Symbol$VarSymbol,com.sun.tools.javac.code.Symbol$VarSymbol$1,com.sun.tools.javac.code.Symbol$ClassSymbol,com.sun.tools.javac.code.Symbol$RootPackageSymbol,com.sun.tools.javac.code.Symbol$PackageSymbol,com.sun.tools.javac.code.Symbol$ModuleResolutionFlags,com.sun.tools.javac.code.Symbol$ModuleFlags,com.sun.tools.javac.code.Symbol$ModuleSymbol,com.sun.tools.javac.code.Symbol$TypeVariableSymbol,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.code.Symbol$DelegatedSymbol"
-};
-
-$Object* allocate$Symbol($Class* clazz) {
-	return $of($alloc(Symbol));
-}
 
 $AnnotationArray* Symbol::getAnnotationsByType($Class* annoType) {
 	 return this->$AnnoConstruct::getAnnotationsByType(annoType);
@@ -270,83 +120,79 @@ int64_t Symbol::flags() {
 }
 
 $List* Symbol::getRawAttributes() {
-	return (this->metadata == nullptr) ? $List::nil() : $nc(this->metadata)->getDeclarationAttributes();
+	return (this->metadata == nullptr) ? $List::nil() : this->metadata->getDeclarationAttributes();
 }
 
 $List* Symbol::getRawTypeAttributes() {
-	return (this->metadata == nullptr) ? $List::nil() : $nc(this->metadata)->getTypeAttributes();
+	return (this->metadata == nullptr) ? $List::nil() : this->metadata->getTypeAttributes();
 }
 
 $Attribute$Compound* Symbol::attribute(Symbol* anno) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($(getRawAttributes()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Attribute$Compound, a, $cast($Attribute$Compound, i$->next()));
-			{
-				if ($equals($nc($nc(a)->type)->tsym, anno)) {
-					return a;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc(getRawAttributes())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Attribute$Compound, a, $cast($Attribute$Compound, i$->next()));
+		if ($equals($nc($nc(a)->type)->tsym, anno)) {
+			return a;
 		}
 	}
 	return nullptr;
 }
 
 bool Symbol::annotationsPendingCompletion() {
-	return this->metadata == nullptr ? false : $nc(this->metadata)->pendingCompletion();
+	return this->metadata == nullptr ? false : this->metadata->pendingCompletion();
 }
 
 void Symbol::appendAttributes($List* l) {
 	if ($nc(l)->nonEmpty()) {
-		$nc($(initedMetadata()))->append(l);
+		$$nc(initedMetadata())->append(l);
 	}
 }
 
 void Symbol::appendClassInitTypeAttributes($List* l) {
 	if ($nc(l)->nonEmpty()) {
-		$nc($(initedMetadata()))->appendClassInitTypeAttributes(l);
+		$$nc(initedMetadata())->appendClassInitTypeAttributes(l);
 	}
 }
 
 void Symbol::appendInitTypeAttributes($List* l) {
 	if ($nc(l)->nonEmpty()) {
-		$nc($(initedMetadata()))->appendInitTypeAttributes(l);
+		$$nc(initedMetadata())->appendInitTypeAttributes(l);
 	}
 }
 
 void Symbol::appendUniqueTypeAttributes($List* l) {
 	if ($nc(l)->nonEmpty()) {
-		$nc($(initedMetadata()))->appendUniqueTypes(l);
+		$$nc(initedMetadata())->appendUniqueTypes(l);
 	}
 }
 
 $List* Symbol::getClassInitTypeAttributes() {
-	return (this->metadata == nullptr) ? $List::nil() : $nc(this->metadata)->getClassInitTypeAttributes();
+	return (this->metadata == nullptr) ? $List::nil() : this->metadata->getClassInitTypeAttributes();
 }
 
 $List* Symbol::getInitTypeAttributes() {
-	return (this->metadata == nullptr) ? $List::nil() : $nc(this->metadata)->getInitTypeAttributes();
+	return (this->metadata == nullptr) ? $List::nil() : this->metadata->getInitTypeAttributes();
 }
 
 void Symbol::setInitTypeAttributes($List* l) {
-	$nc($(initedMetadata()))->setInitTypeAttributes(l);
+	$$nc(initedMetadata())->setInitTypeAttributes(l);
 }
 
 void Symbol::setClassInitTypeAttributes($List* l) {
-	$nc($(initedMetadata()))->setClassInitTypeAttributes(l);
+	$$nc(initedMetadata())->setClassInitTypeAttributes(l);
 }
 
 $List* Symbol::getDeclarationAttributes() {
-	return (this->metadata == nullptr) ? $List::nil() : $nc(this->metadata)->getDeclarationAttributes();
+	return (this->metadata == nullptr) ? $List::nil() : this->metadata->getDeclarationAttributes();
 }
 
 bool Symbol::hasAnnotations() {
-	return (this->metadata != nullptr && !$nc(this->metadata)->isEmpty());
+	return (this->metadata != nullptr && !this->metadata->isEmpty());
 }
 
 bool Symbol::hasTypeAnnotations() {
-	return (this->metadata != nullptr && !$nc(this->metadata)->isTypesEmpty());
+	return (this->metadata != nullptr && !this->metadata->isTypesEmpty());
 }
 
 bool Symbol::isCompleted() {
@@ -355,23 +201,23 @@ bool Symbol::isCompleted() {
 
 void Symbol::prependAttributes($List* l) {
 	if ($nc(l)->nonEmpty()) {
-		$nc($(initedMetadata()))->prepend(l);
+		$$nc(initedMetadata())->prepend(l);
 	}
 }
 
 void Symbol::resetAnnotations() {
-	$nc($(initedMetadata()))->reset();
+	$$nc(initedMetadata())->reset();
 }
 
 void Symbol::setAttributes(Symbol* other) {
 	if (this->metadata != nullptr || $nc(other)->metadata != nullptr) {
-		$nc($(initedMetadata()))->setAttributes(other->metadata);
+		$$nc(initedMetadata())->setAttributes($nc(other)->metadata);
 	}
 }
 
 void Symbol::setDeclarationAttributes($List* a) {
 	if (this->metadata != nullptr || $nc(a)->nonEmpty()) {
-		$nc($(initedMetadata()))->setDeclarationAttributes(a);
+		$$nc(initedMetadata())->setDeclarationAttributes(a);
 	}
 }
 
@@ -418,7 +264,7 @@ Symbol* Symbol::clone(Symbol* newOwner) {
 }
 
 $Object* Symbol::accept($Symbol$Visitor* v, Object$* p) {
-	return $of($nc(v)->visitSymbol(this, p));
+	return $nc(v)->visitSymbol(this, p);
 }
 
 $String* Symbol::toString() {
@@ -428,9 +274,9 @@ $String* Symbol::toString() {
 Symbol* Symbol::location() {
 	bool var$0 = $nc(this->owner)->name == nullptr;
 	if (!var$0) {
-		bool var$1 = $nc($nc(this->owner)->name)->isEmpty();
+		bool var$1 = this->owner->name->isEmpty();
 		$init($Kinds$Kind);
-		var$0 = (var$1 && ((int64_t)($nc(this->owner)->flags() & (uint64_t)(int64_t)0x00100000)) == 0 && $nc(this->owner)->kind != $Kinds$Kind::PCK && $nc(this->owner)->kind != $Kinds$Kind::TYP);
+		var$0 = var$1 && (this->owner->flags() & 0x00100000) == 0 && this->owner->kind != $Kinds$Kind::PCK && this->owner->kind != $Kinds$Kind::TYP;
 	}
 	if (var$0) {
 		return nullptr;
@@ -439,7 +285,7 @@ Symbol* Symbol::location() {
 }
 
 Symbol* Symbol::location($Type* site, $Types* types) {
-	if ($nc(this->owner)->name == nullptr || $nc($nc(this->owner)->name)->isEmpty()) {
+	if ($nc(this->owner)->name == nullptr || this->owner->name->isEmpty()) {
 		return location();
 	}
 	$init($TypeTag);
@@ -464,11 +310,11 @@ $Type* Symbol::erasure($Types* types) {
 }
 
 $Type* Symbol::externalType($Types* types) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, t, erasure(types));
 	if (this->name == $nc($nc($nc(this->name)->table)->names)->init && $nc(this->owner)->hasOuterInstance()) {
 		$var($Type, outerThisType, $nc(types)->erasure($($nc($nc(this->owner)->type)->getEnclosingType())));
-		$var($List, var$0, $nc($($nc(t)->getParameterTypes()))->prepend(outerThisType));
+		$var($List, var$0, $$nc($nc(t)->getParameterTypes())->prepend(outerThisType));
 		$var($Type, var$1, t->getReturnType());
 		return $new($Type$MethodType, var$0, var$1, $(t->getThrownTypes()), t->tsym);
 	} else {
@@ -477,85 +323,77 @@ $Type* Symbol::externalType($Types* types) {
 }
 
 bool Symbol::isDeprecated() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)0x00020000)) != 0;
+	return (this->flags_field & 0x00020000) != 0;
 }
 
 bool Symbol::hasDeprecatedAnnotation() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)0x0040000000000000)) != 0;
+	return (this->flags_field & (int64_t)0x0040000000000000) != 0;
 }
 
 bool Symbol::isDeprecatedForRemoval() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)0x0080000000000000)) != 0;
+	return (this->flags_field & (int64_t)0x0080000000000000) != 0;
 }
 
 bool Symbol::isPreviewApi() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)0x0100000000000000)) != 0;
+	return (this->flags_field & (int64_t)0x0100000000000000) != 0;
 }
 
 bool Symbol::isDeprecatableViaAnnotation() {
 	$init($Symbol$1);
-	switch ($nc($Symbol$1::$SwitchMap$javax$lang$model$element$ElementKind)->get($nc(($(getKind())))->ordinal())) {
+	switch ($nc($Symbol$1::$SwitchMap$javax$lang$model$element$ElementKind)->get(($$nc(getKind()))->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{
-			return false;
-		}
+		return false;
 	default:
-		{
-			return true;
-		}
+		return true;
 	}
 }
 
 bool Symbol::isStatic() {
-	bool var$0 = ((int64_t)(flags() & (uint64_t)(int64_t)8)) != 0;
+	bool var$0 = (flags() & 8) != 0;
 	$init($Kinds$Kind);
-	return var$0 || ((int64_t)($nc(this->owner)->flags() & (uint64_t)(int64_t)512)) != 0 && this->kind != $Kinds$Kind::MTH && this->name != $nc($nc($nc(this->name)->table)->names)->_this;
+	return var$0 || ($nc(this->owner)->flags() & 0x0200) != 0 && this->kind != $Kinds$Kind::MTH && this->name != $nc($nc($nc(this->name)->table)->names)->_this;
 }
 
 bool Symbol::isInterface() {
-	return ((int64_t)(flags() & (uint64_t)(int64_t)512)) != 0;
+	return (flags() & 0x0200) != 0;
 }
 
 bool Symbol::isAbstract() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)1024)) != 0;
+	return (this->flags_field & 0x0400) != 0;
 }
 
 bool Symbol::isPrivate() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)$Flags::AccessFlags)) == 2;
+	return (this->flags_field & $Flags::AccessFlags) == 2;
 }
 
 bool Symbol::isPublic() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)$Flags::AccessFlags)) == 1;
+	return (this->flags_field & $Flags::AccessFlags) == 1;
 }
 
 bool Symbol::isEnum() {
-	return ((int64_t)(flags() & (uint64_t)(int64_t)16384)) != 0;
+	return (flags() & 0x4000) != 0;
 }
 
 bool Symbol::isSealed() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)0x4000000000000000)) != 0;
+	return (this->flags_field & (int64_t)0x4000000000000000) != 0;
 }
 
 bool Symbol::isNonSealed() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)0x8000000000000000)) != 0;
+	return (this->flags_field & (int64_t)0x8000000000000000) != 0;
 }
 
 bool Symbol::isFinal() {
-	return ((int64_t)(this->flags_field & (uint64_t)(int64_t)16)) != 0;
+	return (this->flags_field & 0x10) != 0;
 }
 
 bool Symbol::isDirectlyOrIndirectlyLocal() {
 	$init($Kinds$KindSelector);
 	bool var$0 = $nc($nc(this->owner)->kind)->matches($Kinds$KindSelector::VAL_MTH);
-	return (var$0 || ($nc(this->owner)->kind == $Kinds$Kind::TYP && $nc(this->owner)->isDirectlyOrIndirectlyLocal()));
+	return (var$0 || (this->owner->kind == $Kinds$Kind::TYP && this->owner->isDirectlyOrIndirectlyLocal()));
 }
 
 bool Symbol::isAnonymous() {
@@ -585,13 +423,13 @@ $Scope$WriteableScope* Symbol::members() {
 bool Symbol::isInner() {
 	$init($Kinds$Kind);
 	$init($TypeTag);
-	return this->kind == $Kinds$Kind::TYP && $nc($($nc(this->type)->getEnclosingType()))->hasTag($TypeTag::CLASS);
+	return this->kind == $Kinds$Kind::TYP && $$nc($nc(this->type)->getEnclosingType())->hasTag($TypeTag::CLASS);
 }
 
 bool Symbol::hasOuterInstance() {
 	$init($TypeTag);
-	bool var$0 = $nc($($nc(this->type)->getEnclosingType()))->hasTag($TypeTag::CLASS);
-	return var$0 && ((int64_t)(flags() & (uint64_t)(int64_t)(512 | 0x00400000))) == 0;
+	bool var$0 = $$nc($nc(this->type)->getEnclosingType())->hasTag($TypeTag::CLASS);
+	return var$0 && (flags() & (0x0200 | 0x00400000)) == 0;
 }
 
 $Symbol$ClassSymbol* Symbol::enclClass() {
@@ -602,7 +440,7 @@ $Symbol$ClassSymbol* Symbol::enclClass() {
 			$init($Kinds$KindSelector);
 			bool var$1 = !$nc(c->kind)->matches($Kinds$KindSelector::TYP);
 			$init($TypeTag);
-			var$0 = (var$1 || !$nc(c->type)->hasTag($TypeTag::CLASS));
+			var$0 = var$1 || !$nc(c->type)->hasTag($TypeTag::CLASS);
 		}
 		if (!(var$0)) {
 			break;
@@ -615,7 +453,7 @@ $Symbol$ClassSymbol* Symbol::enclClass() {
 }
 
 $Symbol$ClassSymbol* Symbol::outermostClass() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Symbol, sym, this);
 	$var(Symbol, prev, nullptr);
 	$init($Kinds$Kind);
@@ -636,7 +474,7 @@ $Symbol$PackageSymbol* Symbol::packge() {
 }
 
 bool Symbol::isSubClass(Symbol* base, $Types* types) {
-	$throwNew($AssertionError, $of($$str({"isSubClass "_s, this})));
+	$throwNew($AssertionError, $$of($str({"isSubClass "_s, this})));
 	$shouldNotReachHere();
 }
 
@@ -652,12 +490,10 @@ bool Symbol::isMemberOf($Symbol$TypeSymbol* clazz, $Types* types) {
 
 bool Symbol::isEnclosedBy($Symbol$ClassSymbol* clazz) {
 	$init($Kinds$Kind);
-	{
-		$var(Symbol, sym, this);
-		for (; sym->kind != $Kinds$Kind::PCK; $assign(sym, sym->owner)) {
-			if ($equals(sym, clazz)) {
-				return true;
-			}
+	$var(Symbol, sym, this);
+	for (; $nc(sym)->kind != $Kinds$Kind::PCK; $assign(sym, sym->owner)) {
+		if ($equals(sym, clazz)) {
+			return true;
 		}
 	}
 	return false;
@@ -670,12 +506,12 @@ bool Symbol::hiddenIn($Symbol$ClassSymbol* clazz, $Types* types) {
 }
 
 Symbol* Symbol::hiddenInInternal($Symbol$ClassSymbol* currentClass, $Types* types) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(currentClass, this->owner)) {
 		return this;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc($($nc(currentClass)->members()))->getSymbolsByName(this->name)))->iterator());
+		$var($Iterator, i$, $$nc($$nc($nc(currentClass)->members())->getSymbolsByName(this->name))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var(Symbol, sym, $cast(Symbol, i$->next()));
 			{
@@ -684,10 +520,10 @@ Symbol* Symbol::hiddenInInternal($Symbol$ClassSymbol* currentClass, $Types* type
 					$init($Kinds$Kind);
 					bool var$1 = this->kind != $Kinds$Kind::MTH;
 					if (!var$1) {
-						bool var$2 = ((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)8)) != 0;
+						bool var$2 = (sym->flags() & 8) != 0;
 						var$1 = var$2 && $nc(types)->isSubSignature(sym->type, this->type);
 					}
-					var$0 = (var$1);
+					var$0 = var$1;
 				}
 				if (var$0) {
 					return sym;
@@ -697,18 +533,16 @@ Symbol* Symbol::hiddenInInternal($Symbol$ClassSymbol* currentClass, $Types* type
 	}
 	$var(Symbol, hiddenSym, nullptr);
 	{
-		$var($Iterator, i$, $nc($($nc($($nc(types)->interfaces(currentClass->type)))->prepend($(types->supertype(currentClass->type)))))->iterator());
+		$var($Iterator, i$, $$nc($$nc($nc(types)->interfaces(currentClass->type))->prepend($($nc(types)->supertype(currentClass->type))))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, st, $cast($Type, i$->next()));
-			{
-				$init($TypeTag);
-				if (st != nullptr && (st->hasTag($TypeTag::CLASS))) {
-					$var(Symbol, sym, hiddenInInternal($cast($Symbol$ClassSymbol, st->tsym), types));
-					if (sym == this) {
-						return this;
-					} else if (sym != nullptr) {
-						$assign(hiddenSym, sym);
-					}
+			$init($TypeTag);
+			if (st != nullptr && (st->hasTag($TypeTag::CLASS))) {
+				$var(Symbol, sym, hiddenInInternal($cast($Symbol$ClassSymbol, st->tsym), types));
+				if (sym == this) {
+					return this;
+				} else if (sym != nullptr) {
+					$assign(hiddenSym, sym);
 				}
 			}
 		}
@@ -717,47 +551,38 @@ Symbol* Symbol::hiddenInInternal($Symbol$ClassSymbol* currentClass, $Types* type
 }
 
 bool Symbol::isAccessibleIn(Symbol* clazz, $Types* types) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Symbol$PackageSymbol, thisPackage, nullptr)
-		switch ((int32_t)((int64_t)(this->flags_field & (uint64_t)(int64_t)$Flags::AccessFlags))) {
-		default:
-			{}
-		case 1:
+	$useLocalObjectStack();
+	$var($Symbol$PackageSymbol, thisPackage, nullptr);
+	switch ((int32_t)(this->flags_field & $Flags::AccessFlags)) {
+	default:
+	case 1:
+		return true;
+	case 2:
+		return this->owner == clazz;
+	case 4:
+		return ($nc(clazz)->flags() & 0x0200) == 0;
+	case 0:
+		{
+			$assign(thisPackage, this->packge());
 			{
-				return true;
-			}
-		case 2:
-			{
-				return this->owner == clazz;
-			}
-		case 4:
-			{
-				return ((int64_t)($nc(clazz)->flags() & (uint64_t)(int64_t)512)) == 0;
-			}
-		case 0:
-			{
-				$assign(thisPackage, this->packge());
-				{
-					$var(Symbol, sup, clazz);
-					for (; sup != nullptr && sup != this->owner; $assign(sup, $nc($($nc(types)->supertype($nc(sup)->type)))->tsym)) {
-						$init($TypeTag);
-						while ($nc($nc(sup)->type)->hasTag($TypeTag::TYPEVAR)) {
-							$assign(sup, $nc($($nc(sup->type)->getUpperBound()))->tsym);
-						}
-						if ($nc($nc(sup)->type)->isErroneous()) {
-							return true;
-						}
-						if (((int64_t)($nc(sup)->flags() & (uint64_t)(int64_t)0x01000000)) != 0) {
-							continue;
-						}
-						if ($nc(sup)->packge() != thisPackage) {
-							return false;
-						}
+				$var(Symbol, sup, clazz);
+				for (; sup != nullptr && sup != this->owner; $assign(sup, $nc($($nc(types)->supertype($nc(sup)->type)))->tsym)) {
+					$init($TypeTag);
+					while ($nc($nc(sup)->type)->hasTag($TypeTag::TYPEVAR)) {
+						$assign(sup, $nc($(sup->type->getUpperBound()))->tsym);
+					}
+					if ($nc($nc(sup)->type)->isErroneous()) {
+						return true;
+					}
+					if ((sup->flags() & 0x01000000) != 0) {
+						continue;
+					}
+					if (sup->packge() != thisPackage) {
+						return false;
 					}
 				}
-				return ((int64_t)($nc(clazz)->flags() & (uint64_t)(int64_t)512)) == 0;
 			}
+			return ($nc(clazz)->flags() & 0x0200) == 0;
 		}
 	}
 }
@@ -828,16 +653,16 @@ $1List* Symbol::getEnclosedElements() {
 }
 
 $List* Symbol::getTypeParameters() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, l, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc($($nc(this->type)->getTypeArguments()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->type)->getTypeArguments())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, t, $cast($Type, i$->next()));
 			{
 				$init($ElementKind);
 				$Assert::check($nc($nc(t)->tsym)->getKind() == $ElementKind::TYPE_PARAMETER);
-				l->append($cast($Symbol$TypeVariableSymbol, $nc(t)->tsym));
+				l->append($cast($Symbol$TypeVariableSymbol, t->tsym));
 			}
 		}
 	}
@@ -848,7 +673,148 @@ Symbol::Symbol() {
 }
 
 $Class* Symbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol, name, initialize, &_Symbol_ClassInfo_, allocate$Symbol);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Lcom/sun/tools/javac/code/Kinds$Kind;", nullptr, $PUBLIC, $field(Symbol, kind)},
+		{"flags_field", "J", nullptr, $PUBLIC, $field(Symbol, flags_field)},
+		{"name", "Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $field(Symbol, name)},
+		{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Symbol, type)},
+		{"owner", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Symbol, owner)},
+		{"completer", "Lcom/sun/tools/javac/code/Symbol$Completer;", nullptr, $PUBLIC, $field(Symbol, completer)},
+		{"erasure_field", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Symbol, erasure_field)},
+		{"metadata", "Lcom/sun/tools/javac/code/SymbolMetadata;", nullptr, $PROTECTED, $field(Symbol, metadata)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getAnnotation", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*getAnnotationsByType", "(Ljava/lang/Class;)[Ljava/lang/annotation/Annotation;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol, init$, void, $Kinds$Kind*, int64_t, $Name*, $Type*, Symbol*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
+		{"annotationsPendingCompletion", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, annotationsPendingCompletion, bool)},
+		{"apiComplete", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol, apiComplete, void), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"appendAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)V", $PUBLIC, $virtualMethod(Symbol, appendAttributes, void, $List*)},
+		{"appendClassInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, appendClassInitTypeAttributes, void, $List*)},
+		{"appendInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, appendInitTypeAttributes, void, $List*)},
+		{"appendUniqueTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, appendUniqueTypeAttributes, void, $List*)},
+		{"asMemberOf", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, asMemberOf, Symbol*, $Type*, $Types*)},
+		{"asType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol, asType, $TypeMirror*)},
+		{"attribute", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Attribute$Compound;", nullptr, $PUBLIC, $virtualMethod(Symbol, attribute, $Attribute$Compound*, Symbol*)},
+		{"baseSymbol", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, baseSymbol, Symbol*)},
+		{"clone", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, clone, Symbol*, Symbol*)},
+		{"complete", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol, complete, void), "com.sun.tools.javac.code.Symbol$CompletionFailure"},
+		{"enclClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, enclClass, $Symbol$ClassSymbol*)},
+		{"erasure", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol, erasure, $Type*, $Types*)},
+		{"exists", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, exists, bool)},
+		{"externalType", "(Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Symbol, externalType, $Type*, $Types*)},
+		{"flags", "()J", nullptr, $PUBLIC, $virtualMethod(Symbol, flags, int64_t)},
+		{"flatName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol, flatName, $Name*)},
+		{"getAnnotationMirrors", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol, getAnnotationMirrors, $1List*)},
+		{"getClassInitTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Symbol, getClassInitTypeAttributes, $List*)},
+		{"getDeclarationAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol, getDeclarationAttributes, $List*)},
+		{"getEnclosedElements", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Symbol, getEnclosedElements, $1List*)},
+		{"getEnclosingElement", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, getEnclosingElement, $Element*)},
+		{"getInitTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Symbol, getInitTypeAttributes, $List*)},
+		{"getKind", "()Ljavax/lang/model/element/ElementKind;", nullptr, $PUBLIC, $virtualMethod(Symbol, getKind, $ElementKind*)},
+		{"getMetadata", "()Lcom/sun/tools/javac/code/SymbolMetadata;", nullptr, $PUBLIC, $virtualMethod(Symbol, getMetadata, $SymbolMetadata*)},
+		{"getModifiers", "()Ljava/util/Set;", "()Ljava/util/Set<Ljavax/lang/model/element/Modifier;>;", $PUBLIC, $virtualMethod(Symbol, getModifiers, $Set*)},
+		{"getQualifiedName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol, getQualifiedName, $Name*)},
+		{"getRawAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(Symbol, getRawAttributes, $List*)},
+		{"getRawTypeAttributes", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Symbol, getRawTypeAttributes, $List*)},
+		{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol, getSimpleName, $1Name*)},
+		{"getTypeParameters", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol$TypeVariableSymbol;>;", $PUBLIC, $virtualMethod(Symbol, getTypeParameters, $List*)},
+		{"hasAnnotations", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, hasAnnotations, bool)},
+		{"hasDeprecatedAnnotation", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, hasDeprecatedAnnotation, bool)},
+		{"hasOuterInstance", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, hasOuterInstance, bool)},
+		{"hasTypeAnnotations", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, hasTypeAnnotations, bool)},
+		{"hiddenIn", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PRIVATE, $method(Symbol, hiddenIn, bool, $Symbol$ClassSymbol*, $Types*)},
+		{"hiddenInInternal", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PRIVATE, $method(Symbol, hiddenInInternal, Symbol*, $Symbol$ClassSymbol*, $Types*)},
+		{"initedMetadata", "()Lcom/sun/tools/javac/code/SymbolMetadata;", nullptr, $PRIVATE, $method(Symbol, initedMetadata, $SymbolMetadata*)},
+		{"isAbstract", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isAbstract, bool)},
+		{"isAccessibleIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC | $FINAL, $method(Symbol, isAccessibleIn, bool, Symbol*, $Types*)},
+		{"isAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isAnonymous, bool)},
+		{"isCompleted", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isCompleted, bool)},
+		{"isConstructor", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isConstructor, bool)},
+		{"isDeprecatableViaAnnotation", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDeprecatableViaAnnotation, bool)},
+		{"isDeprecated", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDeprecated, bool)},
+		{"isDeprecatedForRemoval", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDeprecatedForRemoval, bool)},
+		{"isDirectlyOrIndirectlyLocal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDirectlyOrIndirectlyLocal, bool)},
+		{"isDynamic", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isDynamic, bool)},
+		{"isEnclosedBy", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isEnclosedBy, bool, $Symbol$ClassSymbol*)},
+		{"isEnum", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isEnum, bool)},
+		{"isFinal", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isFinal, bool)},
+		{"isInheritedIn", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isInheritedIn, bool, Symbol*, $Types*)},
+		{"isInner", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isInner, bool)},
+		{"isInterface", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isInterface, bool)},
+		{"isMemberOf", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isMemberOf, bool, $Symbol$TypeSymbol*, $Types*)},
+		{"isNonSealed", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isNonSealed, bool)},
+		{"isPreviewApi", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isPreviewApi, bool)},
+		{"isPrivate", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isPrivate, bool)},
+		{"isPublic", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isPublic, bool)},
+		{"isSealed", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isSealed, bool)},
+		{"isStatic", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isStatic, bool)},
+		{"isSubClass", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, isSubClass, bool, Symbol*, $Types*)},
+		{"location", "()Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, location, Symbol*)},
+		{"location", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Types;)Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, location, Symbol*, $Type*, $Types*)},
+		{"members", "()Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, $PUBLIC, $virtualMethod(Symbol, members, $Scope$WriteableScope*)},
+		{"outermostClass", "()Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, outermostClass, $Symbol$ClassSymbol*)},
+		{"overrides", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;Z)Z", nullptr, $PUBLIC, $virtualMethod(Symbol, overrides, bool, Symbol*, $Symbol$TypeSymbol*, $Types*, bool)},
+		{"packge", "()Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(Symbol, packge, $Symbol$PackageSymbol*)},
+		{"poolTag", "()I", nullptr, $PUBLIC, $virtualMethod(Symbol, poolTag, int32_t)},
+		{"prependAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)V", $PUBLIC, $virtualMethod(Symbol, prependAttributes, void, $List*)},
+		{"resetAnnotations", "()V", nullptr, $PUBLIC, $virtualMethod(Symbol, resetAnnotations, void)},
+		{"setAttributes", "(Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $virtualMethod(Symbol, setAttributes, void, Symbol*)},
+		{"setClassInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, setClassInitTypeAttributes, void, $List*)},
+		{"setDeclarationAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;)V", $PUBLIC, $virtualMethod(Symbol, setDeclarationAttributes, void, $List*)},
+		{"setInitTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, setInitTypeAttributes, void, $List*)},
+		{"setTypeAttributes", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;)V", $PUBLIC, $virtualMethod(Symbol, setTypeAttributes, void, $List*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Symbol, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.code.Symbol$Visitor", "com.sun.tools.javac.code.Symbol", "Visitor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Symbol$CompletionFailure", "com.sun.tools.javac.code.Symbol", "CompletionFailure", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$Completer", "com.sun.tools.javac.code.Symbol", "Completer", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.code.Symbol$OperatorSymbol", "com.sun.tools.javac.code.Symbol", "OperatorSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$MethodHandleSymbol", "com.sun.tools.javac.code.Symbol", "MethodHandleSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$DynamicVarSymbol", "com.sun.tools.javac.code.Symbol", "DynamicVarSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$DynamicMethodSymbol", "com.sun.tools.javac.code.Symbol", "DynamicMethodSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$MethodSymbol", "com.sun.tools.javac.code.Symbol", "MethodSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$BindingSymbol", "com.sun.tools.javac.code.Symbol", "BindingSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$ParamSymbol", "com.sun.tools.javac.code.Symbol", "ParamSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$RecordComponent", "com.sun.tools.javac.code.Symbol", "RecordComponent", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$ClassSymbol", "com.sun.tools.javac.code.Symbol", "ClassSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$RootPackageSymbol", "com.sun.tools.javac.code.Symbol", "RootPackageSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$PackageSymbol", "com.sun.tools.javac.code.Symbol", "PackageSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$ModuleResolutionFlags", "com.sun.tools.javac.code.Symbol", "ModuleResolutionFlags", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.code.Symbol$ModuleFlags", "com.sun.tools.javac.code.Symbol", "ModuleFlags", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.code.Symbol$ModuleSymbol", "com.sun.tools.javac.code.Symbol", "ModuleSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$TypeVariableSymbol", "com.sun.tools.javac.code.Symbol", "TypeVariableSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Symbol$DelegatedSymbol", "com.sun.tools.javac.code.Symbol", "DelegatedSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Symbol",
+		"com.sun.tools.javac.code.AnnoConstruct",
+		"com.sun.tools.javac.jvm.PoolConstant,javax.lang.model.element.Element",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol$1,com.sun.tools.javac.code.Symbol$Visitor,com.sun.tools.javac.code.Symbol$CompletionFailure,com.sun.tools.javac.code.Symbol$Completer,com.sun.tools.javac.code.Symbol$Completer$1,com.sun.tools.javac.code.Symbol$OperatorSymbol,com.sun.tools.javac.code.Symbol$OperatorSymbol$AccessCode,com.sun.tools.javac.code.Symbol$MethodHandleSymbol,com.sun.tools.javac.code.Symbol$DynamicVarSymbol,com.sun.tools.javac.code.Symbol$DynamicMethodSymbol,com.sun.tools.javac.code.Symbol$MethodSymbol,com.sun.tools.javac.code.Symbol$MethodSymbol$1,com.sun.tools.javac.code.Symbol$BindingSymbol,com.sun.tools.javac.code.Symbol$ParamSymbol,com.sun.tools.javac.code.Symbol$RecordComponent,com.sun.tools.javac.code.Symbol$VarSymbol,com.sun.tools.javac.code.Symbol$VarSymbol$1,com.sun.tools.javac.code.Symbol$ClassSymbol,com.sun.tools.javac.code.Symbol$RootPackageSymbol,com.sun.tools.javac.code.Symbol$PackageSymbol,com.sun.tools.javac.code.Symbol$ModuleResolutionFlags,com.sun.tools.javac.code.Symbol$ModuleFlags,com.sun.tools.javac.code.Symbol$ModuleSymbol,com.sun.tools.javac.code.Symbol$TypeVariableSymbol,com.sun.tools.javac.code.Symbol$TypeSymbol,com.sun.tools.javac.code.Symbol$DelegatedSymbol"
+	};
+	$loadClass(Symbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol));
+	});
 	return class$;
 }
 

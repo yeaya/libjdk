@@ -1,5 +1,4 @@
 #include <java/rmi/MarshalException.h>
-
 #include <java/rmi/RemoteException.h>
 #include <jcpp.h>
 
@@ -11,30 +10,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 
 namespace java {
 	namespace rmi {
-
-$FieldInfo _MarshalException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MarshalException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _MarshalException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*, $Exception*)},
-	{}
-};
-
-$ClassInfo _MarshalException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.rmi.MarshalException",
-	"java.rmi.RemoteException",
-	nullptr,
-	_MarshalException_FieldInfo_,
-	_MarshalException_MethodInfo_
-};
-
-$Object* allocate$MarshalException($Class* clazz) {
-	return $of($alloc(MarshalException));
-}
 
 void MarshalException::init$($String* s) {
 	$RemoteException::init$(s);
@@ -55,7 +30,26 @@ void MarshalException::throw$() {
 }
 
 $Class* MarshalException::load$($String* name, bool initialize) {
-	$loadClass(MarshalException, name, initialize, &_MarshalException_ClassInfo_, allocate$MarshalException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MarshalException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(MarshalException, init$, void, $String*, $Exception*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.rmi.MarshalException",
+		"java.rmi.RemoteException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MarshalException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MarshalException);
+	});
 	return class$;
 }
 

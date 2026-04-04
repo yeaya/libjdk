@@ -1,5 +1,4 @@
 #include <Bug8161483.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
@@ -21,8 +20,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -38,7 +35,6 @@ using $AccessibleSelection = ::javax::accessibility::AccessibleSelection;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JFrame = ::javax::swing::JFrame;
 using $JList = ::javax::swing::JList;
-using $ListModel = ::javax::swing::ListModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class Bug8161483$$Lambda$lambda$main$0 : public $Runnable {
@@ -49,27 +45,24 @@ public:
 	virtual void run() override {
 		Bug8161483::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Bug8161483$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Bug8161483$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8161483$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug8161483$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo Bug8161483$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Bug8161483$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Bug8161483$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(Bug8161483$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8161483$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug8161483$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Bug8161483$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug8161483$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug8161483$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* Bug8161483$$Lambda$lambda$main$0::class$ = nullptr;
@@ -82,58 +75,27 @@ public:
 	virtual void run() override {
 		Bug8161483::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Bug8161483$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Bug8161483$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8161483$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug8161483$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo Bug8161483$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Bug8161483$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Bug8161483$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(Bug8161483$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8161483$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Bug8161483$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Bug8161483$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Bug8161483$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Bug8161483$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* Bug8161483$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _Bug8161483_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(Bug8161483, frame)},
-	{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Bug8161483, exception)},
-	{"countryList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/lang/String;>;", $PRIVATE, $field(Bug8161483, countryList)},
-	{}
-};
-
-$MethodInfo _Bug8161483_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8161483, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8161483, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8161483, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8161483, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Bug8161483_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Bug8161483",
-	"javax.swing.JFrame",
-	nullptr,
-	_Bug8161483_FieldInfo_,
-	_Bug8161483_MethodInfo_
-};
-
-$Object* allocate$Bug8161483($Class* clazz) {
-	return $of($alloc(Bug8161483));
-}
 
 $JFrame* Bug8161483::frame = nullptr;
 $volatile($Exception*) Bug8161483::exception = nullptr;
@@ -144,45 +106,43 @@ void Bug8161483::init$() {
 
 void Bug8161483::main($StringArray* args) {
 	$init(Bug8161483);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Bug8161483$$Lambda$lambda$main$0)));
-			if (Bug8161483::exception != nullptr) {
-				$nc($System::out)->println($$str({"Test failed: "_s, $($nc(Bug8161483::exception)->getMessage())}));
-				$throw(Bug8161483::exception);
-			} else {
-				$nc($System::out)->println("Test passed."_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Bug8161483$$Lambda$lambda$main$1$1)));
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new(Bug8161483$$Lambda$lambda$main$0));
+		if (Bug8161483::exception != nullptr) {
+			$nc($System::out)->println($$str({"Test failed: "_s, $($nc(Bug8161483::exception)->getMessage())}));
+			$throw(Bug8161483::exception);
+		} else {
+			$nc($System::out)->println("Test passed."_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SwingUtilities::invokeAndWait($$new(Bug8161483$$Lambda$lambda$main$1$1));
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Bug8161483::lambda$main$1() {
 	$init(Bug8161483);
 	if (Bug8161483::frame != nullptr) {
-		$nc(Bug8161483::frame)->dispose();
+		Bug8161483::frame->dispose();
 	}
 }
 
 void Bug8161483::lambda$main$0() {
 	$init(Bug8161483);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DefaultListModel, listModel, $new($DefaultListModel));
 	listModel->addElement("one"_s);
 	listModel->addElement("two"_s);
 	listModel->addElement("three"_s);
-	$var($JList, list, $new($JList, static_cast<$ListModel*>(listModel)));
+	$var($JList, list, $new($JList, listModel));
 	$assignStatic(Bug8161483::frame, $new($JFrame));
-	$nc(Bug8161483::frame)->add(static_cast<$Component*>(list));
+	Bug8161483::frame->add(list);
 	$nc(Bug8161483::frame)->pack();
 	try {
 		$var($AccessibleContext, acList, list->getAccessibleContext());
@@ -219,7 +179,7 @@ void Bug8161483::lambda$main$0() {
 	}
 }
 
-void clinit$Bug8161483($Class* class$) {
+void Bug8161483::clinit$($Class* clazz) {
 	$assignStatic(Bug8161483::frame, nullptr);
 	$assignStatic(Bug8161483::exception, nullptr);
 }
@@ -229,14 +189,37 @@ Bug8161483::Bug8161483() {
 
 $Class* Bug8161483::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Bug8161483$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("Bug8161483$$Lambda$lambda$main$0")) {
 			return Bug8161483$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(Bug8161483$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("Bug8161483$$Lambda$lambda$main$1$1")) {
 			return Bug8161483$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Bug8161483, name, initialize, &_Bug8161483_ClassInfo_, clinit$Bug8161483, allocate$Bug8161483);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(Bug8161483, frame)},
+		{"exception", "Ljava/lang/Exception;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Bug8161483, exception)},
+		{"countryList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/lang/String;>;", $PRIVATE, $field(Bug8161483, countryList)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Bug8161483, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8161483, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Bug8161483, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Bug8161483, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Bug8161483",
+		"javax.swing.JFrame",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Bug8161483, name, initialize, &classInfo$$, Bug8161483::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Bug8161483));
+	});
 	return class$;
 }
 

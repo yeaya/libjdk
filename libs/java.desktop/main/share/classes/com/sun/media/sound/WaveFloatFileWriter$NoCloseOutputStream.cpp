@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/WaveFloatFileWriter$NoCloseOutputStream.h>
-
 #include <com/sun/media/sound/WaveFloatFileWriter.h>
 #include <java/io/OutputStream.h>
 #include <jcpp.h>
@@ -14,45 +13,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _WaveFloatFileWriter$NoCloseOutputStream_FieldInfo_[] = {
-	{"out", "Ljava/io/OutputStream;", nullptr, $FINAL, $field(WaveFloatFileWriter$NoCloseOutputStream, out)},
-	{}
-};
-
-$MethodInfo _WaveFloatFileWriter$NoCloseOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(WaveFloatFileWriter$NoCloseOutputStream, init$, void, $OutputStream*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter$NoCloseOutputStream, flush, void), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter$NoCloseOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter$NoCloseOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter$NoCloseOutputStream, write, void, $bytes*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _WaveFloatFileWriter$NoCloseOutputStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.WaveFloatFileWriter$NoCloseOutputStream", "com.sun.media.sound.WaveFloatFileWriter", "NoCloseOutputStream", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _WaveFloatFileWriter$NoCloseOutputStream_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.WaveFloatFileWriter$NoCloseOutputStream",
-	"java.io.OutputStream",
-	nullptr,
-	_WaveFloatFileWriter$NoCloseOutputStream_FieldInfo_,
-	_WaveFloatFileWriter$NoCloseOutputStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WaveFloatFileWriter$NoCloseOutputStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.WaveFloatFileWriter"
-};
-
-$Object* allocate$WaveFloatFileWriter$NoCloseOutputStream($Class* clazz) {
-	return $of($alloc(WaveFloatFileWriter$NoCloseOutputStream));
-}
 
 void WaveFloatFileWriter$NoCloseOutputStream::init$($OutputStream* out) {
 	$OutputStream::init$();
@@ -79,7 +39,40 @@ WaveFloatFileWriter$NoCloseOutputStream::WaveFloatFileWriter$NoCloseOutputStream
 }
 
 $Class* WaveFloatFileWriter$NoCloseOutputStream::load$($String* name, bool initialize) {
-	$loadClass(WaveFloatFileWriter$NoCloseOutputStream, name, initialize, &_WaveFloatFileWriter$NoCloseOutputStream_ClassInfo_, allocate$WaveFloatFileWriter$NoCloseOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/OutputStream;", nullptr, $FINAL, $field(WaveFloatFileWriter$NoCloseOutputStream, out)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, 0, $method(WaveFloatFileWriter$NoCloseOutputStream, init$, void, $OutputStream*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter$NoCloseOutputStream, flush, void), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter$NoCloseOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter$NoCloseOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "([B)V", nullptr, $PUBLIC, $virtualMethod(WaveFloatFileWriter$NoCloseOutputStream, write, void, $bytes*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.WaveFloatFileWriter$NoCloseOutputStream", "com.sun.media.sound.WaveFloatFileWriter", "NoCloseOutputStream", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.WaveFloatFileWriter$NoCloseOutputStream",
+		"java.io.OutputStream",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.WaveFloatFileWriter"
+	};
+	$loadClass(WaveFloatFileWriter$NoCloseOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WaveFloatFileWriter$NoCloseOutputStream));
+	});
 	return class$;
 }
 

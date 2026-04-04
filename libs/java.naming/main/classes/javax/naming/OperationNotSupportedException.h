@@ -14,10 +14,13 @@ public:
 	OperationNotSupportedException();
 	void init$();
 	void init$($String* explanation);
-	static const int64_t serialVersionUID = (int64_t)0x4C3BE225C9518510;
+	static const int64_t serialVersionUID = (int64_t)0x4c3be225c9518510;
 	OperationNotSupportedException(const OperationNotSupportedException& e);
 	virtual void throw$() override;
-	inline OperationNotSupportedException* operator ->() {
+	inline OperationNotSupportedException* operator ->() const {
+		return (OperationNotSupportedException*)throwing$;
+	}
+	inline operator OperationNotSupportedException*() const {
 		return (OperationNotSupportedException*)throwing$;
 	}
 };

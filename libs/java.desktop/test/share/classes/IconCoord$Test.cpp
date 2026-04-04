@@ -1,5 +1,4 @@
 #include <IconCoord$Test.h>
-
 #include <IconCoord$Test$1.h>
 #include <IconCoord.h>
 #include <java/awt/BorderLayout.h>
@@ -27,7 +26,6 @@ using $IconCoord$Test$1 = ::IconCoord$Test$1;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -40,50 +38,11 @@ using $JPanel = ::javax::swing::JPanel;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 
-$FieldInfo _IconCoord$Test_FieldInfo_[] = {
-	{"pass", "Z", nullptr, $PRIVATE, $field(IconCoord$Test, pass$)},
-	{}
-};
-
-$MethodInfo _IconCoord$Test_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(IconCoord$Test, init$, void)},
-	{"createTestFrame", "(Ljava/lang/String;Ljava/awt/Component;Ljava/lang/String;I)Ljavax/swing/JFrame;", nullptr, 0, $virtualMethod(IconCoord$Test, createTestFrame, $JFrame*, $String*, $Component*, $String*, int32_t)},
-	{"pass", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(IconCoord$Test, pass, void)},
-	{"waitTestResult", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(IconCoord$Test, waitTestResult, void), "java.lang.InterruptedException"},
-	{}
-};
-
-$InnerClassInfo _IconCoord$Test_InnerClassesInfo_[] = {
-	{"IconCoord$Test", "IconCoord", "Test", $STATIC},
-	{"IconCoord$Test$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _IconCoord$Test_ClassInfo_ = {
-	$ACC_SUPER,
-	"IconCoord$Test",
-	"java.lang.Object",
-	nullptr,
-	_IconCoord$Test_FieldInfo_,
-	_IconCoord$Test_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IconCoord$Test_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"IconCoord"
-};
-
-$Object* allocate$IconCoord$Test($Class* clazz) {
-	return $of($alloc(IconCoord$Test));
-}
-
 void IconCoord$Test::init$() {
 }
 
 $JFrame* IconCoord$Test::createTestFrame($String* name, $Component* topComponent, $String* instructions, int32_t instrHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, PASS, "Pass"_s);
 	$var($String, FAIL, "Fail"_s);
 	$var($JFrame, frame, $new($JFrame, name));
@@ -97,9 +56,8 @@ $JFrame* IconCoord$Test::createTestFrame($String* name, $Component* topComponent
 	$var($JButton, failBtn, $new($JButton, FAIL));
 	failBtn->addActionListener(btnAL);
 	failBtn->setActionCommand(FAIL);
-	$init($BorderLayout);
-	testButtonsPanel->add($BorderLayout::WEST, static_cast<$Component*>(passBtn));
-	testButtonsPanel->add($BorderLayout::EAST, static_cast<$Component*>(failBtn));
+	testButtonsPanel->add($BorderLayout::WEST, passBtn);
+	testButtonsPanel->add($BorderLayout::EAST, failBtn);
 	$var($JTextArea, instrText, $new($JTextArea));
 	instrText->setLineWrap(true);
 	instrText->setEditable(false);
@@ -108,9 +66,9 @@ $JFrame* IconCoord$Test::createTestFrame($String* name, $Component* topComponent
 	instrText->append(instructions);
 	$var($JPanel, servicePanel, $new($JPanel));
 	servicePanel->setLayout($$new($BorderLayout));
-	servicePanel->add($BorderLayout::CENTER, static_cast<$Component*>(instrScrollPane));
-	servicePanel->add($BorderLayout::SOUTH, static_cast<$Component*>(testButtonsPanel));
-	frame->add($BorderLayout::SOUTH, static_cast<$Component*>(servicePanel));
+	servicePanel->add($BorderLayout::CENTER, instrScrollPane);
+	servicePanel->add($BorderLayout::SOUTH, testButtonsPanel);
+	frame->add($BorderLayout::SOUTH, servicePanel);
 	frame->add($BorderLayout::CENTER, topComponent);
 	return frame;
 }
@@ -134,7 +92,40 @@ IconCoord$Test::IconCoord$Test() {
 }
 
 $Class* IconCoord$Test::load$($String* name, bool initialize) {
-	$loadClass(IconCoord$Test, name, initialize, &_IconCoord$Test_ClassInfo_, allocate$IconCoord$Test);
+	$FieldInfo fieldInfos$$[] = {
+		{"pass", "Z", nullptr, $PRIVATE, $field(IconCoord$Test, pass$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(IconCoord$Test, init$, void)},
+		{"createTestFrame", "(Ljava/lang/String;Ljava/awt/Component;Ljava/lang/String;I)Ljavax/swing/JFrame;", nullptr, 0, $virtualMethod(IconCoord$Test, createTestFrame, $JFrame*, $String*, $Component*, $String*, int32_t)},
+		{"pass", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(IconCoord$Test, pass, void)},
+		{"waitTestResult", "()V", nullptr, $SYNCHRONIZED, $virtualMethod(IconCoord$Test, waitTestResult, void), "java.lang.InterruptedException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"IconCoord$Test", "IconCoord", "Test", $STATIC},
+		{"IconCoord$Test$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"IconCoord$Test",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"IconCoord"
+	};
+	$loadClass(IconCoord$Test, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IconCoord$Test);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/Event.h>
-
 #include <sun/net/httpserver/ExchangeImpl.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _Event_FieldInfo_[] = {
-	{"exchange", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(Event, exchange)},
-	{}
-};
-
-$MethodInfo _Event_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/ExchangeImpl;)V", nullptr, $PROTECTED, $method(Event, init$, void, $ExchangeImpl*)},
-	{}
-};
-
-$ClassInfo _Event_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.Event",
-	"java.lang.Object",
-	nullptr,
-	_Event_FieldInfo_,
-	_Event_MethodInfo_
-};
-
-$Object* allocate$Event($Class* clazz) {
-	return $of($alloc(Event));
-}
-
 void Event::init$($ExchangeImpl* t) {
 	$set(this, exchange, t);
 }
@@ -43,7 +19,25 @@ Event::Event() {
 }
 
 $Class* Event::load$($String* name, bool initialize) {
-	$loadClass(Event, name, initialize, &_Event_ClassInfo_, allocate$Event);
+	$FieldInfo fieldInfos$$[] = {
+		{"exchange", "Lsun/net/httpserver/ExchangeImpl;", nullptr, 0, $field(Event, exchange)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/ExchangeImpl;)V", nullptr, $PROTECTED, $method(Event, init$, void, $ExchangeImpl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.Event",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Event, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Event);
+	});
 	return class$;
 }
 

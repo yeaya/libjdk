@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$6.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/AbstractButton.h>
@@ -27,50 +26,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsFileChooserUI$6_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$6, this$0)},
-	{"val$detailsViewMenuItem", "Ljavax/swing/JRadioButtonMenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$6, val$detailsViewMenuItem)},
-	{"val$listViewMenuItem", "Ljavax/swing/JRadioButtonMenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$6, val$listViewMenuItem)},
-	{}
-};
-
-$MethodInfo _WindowsFileChooserUI$6_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;Ljavax/swing/JRadioButtonMenuItem;Ljavax/swing/JRadioButtonMenuItem;)V", "()V", 0, $method(WindowsFileChooserUI$6, init$, void, $WindowsFileChooserUI*, $JRadioButtonMenuItem*, $JRadioButtonMenuItem*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$6, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _WindowsFileChooserUI$6_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _WindowsFileChooserUI$6_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsFileChooserUI$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$6",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	_WindowsFileChooserUI$6_FieldInfo_,
-	_WindowsFileChooserUI$6_MethodInfo_,
-	nullptr,
-	&_WindowsFileChooserUI$6_EnclosingMethodInfo_,
-	_WindowsFileChooserUI$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
-};
-
-$Object* allocate$WindowsFileChooserUI$6($Class* clazz) {
-	return $of($alloc(WindowsFileChooserUI$6));
-}
-
 void WindowsFileChooserUI$6::init$($WindowsFileChooserUI* this$0, $JRadioButtonMenuItem* val$listViewMenuItem, $JRadioButtonMenuItem* val$detailsViewMenuItem) {
 	$set(this, this$0, this$0);
 	$set(this, val$listViewMenuItem, val$listViewMenuItem);
@@ -81,15 +36,11 @@ void WindowsFileChooserUI$6::propertyChange($PropertyChangeEvent* e) {
 	if ("viewType"_s->equals($($nc(e)->getPropertyName()))) {
 		switch ($nc(this->this$0->filePane)->getViewType()) {
 		case $FilePane::VIEWTYPE_LIST:
-			{
-				$nc(this->val$listViewMenuItem)->setSelected(true);
-				break;
-			}
+			$nc(this->val$listViewMenuItem)->setSelected(true);
+			break;
 		case $FilePane::VIEWTYPE_DETAILS:
-			{
-				$nc(this->val$detailsViewMenuItem)->setSelected(true);
-				break;
-			}
+			$nc(this->val$detailsViewMenuItem)->setSelected(true);
+			break;
 		}
 	}
 }
@@ -98,7 +49,44 @@ WindowsFileChooserUI$6::WindowsFileChooserUI$6() {
 }
 
 $Class* WindowsFileChooserUI$6::load$($String* name, bool initialize) {
-	$loadClass(WindowsFileChooserUI$6, name, initialize, &_WindowsFileChooserUI$6_ClassInfo_, allocate$WindowsFileChooserUI$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$6, this$0)},
+		{"val$detailsViewMenuItem", "Ljavax/swing/JRadioButtonMenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$6, val$detailsViewMenuItem)},
+		{"val$listViewMenuItem", "Ljavax/swing/JRadioButtonMenuItem;", nullptr, $FINAL | $SYNTHETIC, $field(WindowsFileChooserUI$6, val$listViewMenuItem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/WindowsFileChooserUI;Ljavax/swing/JRadioButtonMenuItem;Ljavax/swing/JRadioButtonMenuItem;)V", "()V", 0, $method(WindowsFileChooserUI$6, init$, void, $WindowsFileChooserUI*, $JRadioButtonMenuItem*, $JRadioButtonMenuItem*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsFileChooserUI$6, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI$6",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsFileChooserUI"
+	};
+	$loadClass(WindowsFileChooserUI$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsFileChooserUI$6);
+	});
 	return class$;
 }
 

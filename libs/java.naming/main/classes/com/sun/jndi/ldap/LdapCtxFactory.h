@@ -52,6 +52,7 @@ class LdapCtxFactory : public ::javax::naming::spi::ObjectFactory, public ::java
 	$class(LdapCtxFactory, 0, ::javax::naming::spi::ObjectFactory, ::javax::naming::spi::InitialContextFactory)
 public:
 	LdapCtxFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

@@ -64,6 +64,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::text::AttributeSet* addAttribute(::javax::swing::text::AttributeSet* old, Object$* name, Object$* value) override;
 	virtual ::javax::swing::text::AttributeSet* addAttributes(::javax::swing::text::AttributeSet* old, ::javax::swing::text::AttributeSet* attr) override;

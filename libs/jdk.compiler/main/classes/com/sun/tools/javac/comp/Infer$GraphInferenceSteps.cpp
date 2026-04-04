@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$GraphInferenceSteps.h>
-
 #include <com/sun/tools/javac/comp/Infer$InferenceStep.h>
 #include <com/sun/tools/javac/comp/Infer.h>
 #include <java/lang/Enum.h>
@@ -28,48 +27,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Infer$GraphInferenceSteps_FieldInfo_[] = {
-	{"EQ", "Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$GraphInferenceSteps, EQ)},
-	{"EQ_LOWER", "Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$GraphInferenceSteps, EQ_LOWER)},
-	{"EQ_LOWER_THROWS_UPPER_CAPTURED", "Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$GraphInferenceSteps, EQ_LOWER_THROWS_UPPER_CAPTURED)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Infer$GraphInferenceSteps, $VALUES)},
-	{"steps", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;", $FINAL, $field(Infer$GraphInferenceSteps, steps)},
-	{}
-};
-
-$MethodInfo _Infer$GraphInferenceSteps_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$GraphInferenceSteps, $values, $Infer$GraphInferenceStepsArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/util/EnumSet;)V", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PRIVATE, $method(Infer$GraphInferenceSteps, init$, void, $String*, int32_t, $EnumSet*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$GraphInferenceSteps, valueOf, Infer$GraphInferenceSteps*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$GraphInferenceSteps, values, $Infer$GraphInferenceStepsArray*)},
-	{}
-};
-
-$InnerClassInfo _Infer$GraphInferenceSteps_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$GraphInferenceSteps", "com.sun.tools.javac.comp.Infer", "GraphInferenceSteps", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Infer$GraphInferenceSteps_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Infer$GraphInferenceSteps",
-	"java.lang.Enum",
-	nullptr,
-	_Infer$GraphInferenceSteps_FieldInfo_,
-	_Infer$GraphInferenceSteps_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;>;",
-	nullptr,
-	_Infer$GraphInferenceSteps_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$GraphInferenceSteps($Class* clazz) {
-	return $of($alloc(Infer$GraphInferenceSteps));
-}
 
 Infer$GraphInferenceSteps* Infer$GraphInferenceSteps::EQ = nullptr;
 Infer$GraphInferenceSteps* Infer$GraphInferenceSteps::EQ_LOWER = nullptr;
@@ -100,11 +57,11 @@ void Infer$GraphInferenceSteps::init$($String* $enum$name, int32_t $enum$ordinal
 	$set(this, steps, steps);
 }
 
-void clinit$Infer$GraphInferenceSteps($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Infer$GraphInferenceSteps::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($Infer$InferenceStep);
 	$assignStatic(Infer$GraphInferenceSteps::EQ, $new(Infer$GraphInferenceSteps, "EQ"_s, 0, $($EnumSet::of($Infer$InferenceStep::EQ))));
-	$assignStatic(Infer$GraphInferenceSteps::EQ_LOWER, $new(Infer$GraphInferenceSteps, "EQ_LOWER"_s, 1, $($EnumSet::of(static_cast<$Enum*>($Infer$InferenceStep::EQ), static_cast<$Enum*>($Infer$InferenceStep::LOWER)))));
+	$assignStatic(Infer$GraphInferenceSteps::EQ_LOWER, $new(Infer$GraphInferenceSteps, "EQ_LOWER"_s, 1, $($EnumSet::of($Infer$InferenceStep::EQ, $Infer$InferenceStep::LOWER))));
 	$assignStatic(Infer$GraphInferenceSteps::EQ_LOWER_THROWS_UPPER_CAPTURED, $new(Infer$GraphInferenceSteps, "EQ_LOWER_THROWS_UPPER_CAPTURED"_s, 2, $($EnumSet::of($Infer$InferenceStep::EQ, $Infer$InferenceStep::LOWER, $Infer$InferenceStep::UPPER, $Infer$InferenceStep::THROWS, $Infer$InferenceStep::CAPTURED))));
 	$assignStatic(Infer$GraphInferenceSteps::$VALUES, Infer$GraphInferenceSteps::$values());
 }
@@ -113,7 +70,43 @@ Infer$GraphInferenceSteps::Infer$GraphInferenceSteps() {
 }
 
 $Class* Infer$GraphInferenceSteps::load$($String* name, bool initialize) {
-	$loadClass(Infer$GraphInferenceSteps, name, initialize, &_Infer$GraphInferenceSteps_ClassInfo_, clinit$Infer$GraphInferenceSteps, allocate$Infer$GraphInferenceSteps);
+	$FieldInfo fieldInfos$$[] = {
+		{"EQ", "Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$GraphInferenceSteps, EQ)},
+		{"EQ_LOWER", "Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$GraphInferenceSteps, EQ_LOWER)},
+		{"EQ_LOWER_THROWS_UPPER_CAPTURED", "Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Infer$GraphInferenceSteps, EQ_LOWER_THROWS_UPPER_CAPTURED)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Infer$GraphInferenceSteps, $VALUES)},
+		{"steps", "Ljava/util/EnumSet;", "Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;", $FINAL, $field(Infer$GraphInferenceSteps, steps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Infer$GraphInferenceSteps, $values, $Infer$GraphInferenceStepsArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/util/EnumSet;)V", "(Ljava/util/EnumSet<Lcom/sun/tools/javac/comp/Infer$InferenceStep;>;)V", $PRIVATE, $method(Infer$GraphInferenceSteps, init$, void, $String*, int32_t, $EnumSet*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$GraphInferenceSteps, valueOf, Infer$GraphInferenceSteps*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;", nullptr, $PUBLIC | $STATIC, $staticMethod(Infer$GraphInferenceSteps, values, $Infer$GraphInferenceStepsArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$GraphInferenceSteps", "com.sun.tools.javac.comp.Infer", "GraphInferenceSteps", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Infer$GraphInferenceSteps",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Infer$GraphInferenceSteps;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$GraphInferenceSteps, name, initialize, &classInfo$$, Infer$GraphInferenceSteps::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$GraphInferenceSteps));
+	});
 	return class$;
 }
 

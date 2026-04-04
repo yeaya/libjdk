@@ -1,5 +1,4 @@
 #include <javax/swing/Spring$AbstractSpring.h>
-
 #include <javax/swing/Spring.h>
 #include <jcpp.h>
 
@@ -13,45 +12,6 @@ using $Spring = ::javax::swing::Spring;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _Spring$AbstractSpring_FieldInfo_[] = {
-	{"size", "I", nullptr, $PROTECTED, $field(Spring$AbstractSpring, size)},
-	{}
-};
-
-$MethodInfo _Spring$AbstractSpring_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Spring$AbstractSpring, init$, void)},
-	{"clear", "()V", nullptr, $PROTECTED, $virtualMethod(Spring$AbstractSpring, clear, void)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$AbstractSpring, getValue, int32_t)},
-	{"setNonClearValue", "(I)V", nullptr, $PROTECTED, $virtualMethod(Spring$AbstractSpring, setNonClearValue, void, int32_t)},
-	{"setValue", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Spring$AbstractSpring, setValue, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Spring$AbstractSpring_InnerClassesInfo_[] = {
-	{"javax.swing.Spring$AbstractSpring", "javax.swing.Spring", "AbstractSpring", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spring$AbstractSpring_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.swing.Spring$AbstractSpring",
-	"javax.swing.Spring",
-	nullptr,
-	_Spring$AbstractSpring_FieldInfo_,
-	_Spring$AbstractSpring_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spring$AbstractSpring_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Spring"
-};
-
-$Object* allocate$Spring$AbstractSpring($Class* clazz) {
-	return $of($alloc(Spring$AbstractSpring));
-}
 
 void Spring$AbstractSpring::init$() {
 	$Spring::init$();
@@ -85,7 +45,40 @@ Spring$AbstractSpring::Spring$AbstractSpring() {
 }
 
 $Class* Spring$AbstractSpring::load$($String* name, bool initialize) {
-	$loadClass(Spring$AbstractSpring, name, initialize, &_Spring$AbstractSpring_ClassInfo_, allocate$Spring$AbstractSpring);
+	$FieldInfo fieldInfos$$[] = {
+		{"size", "I", nullptr, $PROTECTED, $field(Spring$AbstractSpring, size)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Spring$AbstractSpring, init$, void)},
+		{"clear", "()V", nullptr, $PROTECTED, $virtualMethod(Spring$AbstractSpring, clear, void)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(Spring$AbstractSpring, getValue, int32_t)},
+		{"setNonClearValue", "(I)V", nullptr, $PROTECTED, $virtualMethod(Spring$AbstractSpring, setNonClearValue, void, int32_t)},
+		{"setValue", "(I)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Spring$AbstractSpring, setValue, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Spring$AbstractSpring", "javax.swing.Spring", "AbstractSpring", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.swing.Spring$AbstractSpring",
+		"javax.swing.Spring",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Spring"
+	};
+	$loadClass(Spring$AbstractSpring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spring$AbstractSpring);
+	});
 	return class$;
 }
 

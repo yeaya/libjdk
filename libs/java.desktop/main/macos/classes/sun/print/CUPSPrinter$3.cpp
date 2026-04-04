@@ -1,5 +1,4 @@
 #include <sun/print/CUPSPrinter$3.h>
-
 #include <java/io/OutputStream.h>
 #include <java/net/HttpURLConnection.h>
 #include <sun/print/CUPSPrinter.h>
@@ -16,48 +15,6 @@ using $HttpURLConnection = ::java::net::HttpURLConnection;
 namespace sun {
 	namespace print {
 
-$FieldInfo _CUPSPrinter$3_FieldInfo_[] = {
-	{"val$urlConnection", "Ljava/net/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(CUPSPrinter$3, val$urlConnection)},
-	{}
-};
-
-$MethodInfo _CUPSPrinter$3_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/HttpURLConnection;)V", "()V", 0, $method(CUPSPrinter$3, init$, void, $HttpURLConnection*)},
-	{"run", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(CUPSPrinter$3, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _CUPSPrinter$3_EnclosingMethodInfo_ = {
-	"sun.print.CUPSPrinter",
-	"getAllPrinters",
-	"()[Ljava/lang/String;"
-};
-
-$InnerClassInfo _CUPSPrinter$3_InnerClassesInfo_[] = {
-	{"sun.print.CUPSPrinter$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CUPSPrinter$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.CUPSPrinter$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_CUPSPrinter$3_FieldInfo_,
-	_CUPSPrinter$3_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/io/OutputStream;>;",
-	&_CUPSPrinter$3_EnclosingMethodInfo_,
-	_CUPSPrinter$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.CUPSPrinter"
-};
-
-$Object* allocate$CUPSPrinter$3($Class* clazz) {
-	return $of($alloc(CUPSPrinter$3));
-}
-
 void CUPSPrinter$3::init$($HttpURLConnection* val$urlConnection) {
 	$set(this, val$urlConnection, val$urlConnection);
 }
@@ -67,14 +24,49 @@ $Object* CUPSPrinter$3::run() {
 		return $of($nc(this->val$urlConnection)->getOutputStream());
 	} catch ($Exception& e) {
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 CUPSPrinter$3::CUPSPrinter$3() {
 }
 
 $Class* CUPSPrinter$3::load$($String* name, bool initialize) {
-	$loadClass(CUPSPrinter$3, name, initialize, &_CUPSPrinter$3_ClassInfo_, allocate$CUPSPrinter$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$urlConnection", "Ljava/net/HttpURLConnection;", nullptr, $FINAL | $SYNTHETIC, $field(CUPSPrinter$3, val$urlConnection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/HttpURLConnection;)V", "()V", 0, $method(CUPSPrinter$3, init$, void, $HttpURLConnection*)},
+		{"run", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(CUPSPrinter$3, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.print.CUPSPrinter",
+		"getAllPrinters",
+		"()[Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.CUPSPrinter$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.CUPSPrinter$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/io/OutputStream;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.CUPSPrinter"
+	};
+	$loadClass(CUPSPrinter$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CUPSPrinter$3);
+	});
 	return class$;
 }
 

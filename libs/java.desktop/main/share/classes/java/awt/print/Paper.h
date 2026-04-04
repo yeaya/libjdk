@@ -28,6 +28,7 @@ class $export Paper : public ::java::lang::Cloneable {
 	$class(Paper, 0, ::java::lang::Cloneable)
 public:
 	Paper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $Object* clone() override;
 	virtual double getHeight();

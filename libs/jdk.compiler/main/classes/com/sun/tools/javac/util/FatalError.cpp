@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/FatalError.h>
-
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <java/lang/Error.h>
 #include <jcpp.h>
@@ -15,31 +14,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _FatalError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FatalError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FatalError_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $JCDiagnostic*)},
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $JCDiagnostic*, $Throwable*)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _FatalError_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.FatalError",
-	"java.lang.Error",
-	nullptr,
-	_FatalError_FieldInfo_,
-	_FatalError_MethodInfo_
-};
-
-$Object* allocate$FatalError($Class* clazz) {
-	return $of($alloc(FatalError));
-}
 
 void FatalError::init$($JCDiagnostic* d) {
 	$Error::init$($($nc(d)->toString()));
@@ -64,7 +38,27 @@ void FatalError::throw$() {
 }
 
 $Class* FatalError::load$($String* name, bool initialize) {
-	$loadClass(FatalError, name, initialize, &_FatalError_ClassInfo_, allocate$FatalError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FatalError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $JCDiagnostic*)},
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $JCDiagnostic*, $Throwable*)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FatalError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.FatalError",
+		"java.lang.Error",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FatalError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FatalError);
+	});
 	return class$;
 }
 

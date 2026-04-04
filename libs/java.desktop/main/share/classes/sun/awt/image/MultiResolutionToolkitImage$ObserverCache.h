@@ -34,6 +34,7 @@ class MultiResolutionToolkitImage$ObserverCache : public ::java::awt::image::Ima
 	$class(MultiResolutionToolkitImage$ObserverCache, 0, ::java::awt::image::ImageObserver)
 public:
 	MultiResolutionToolkitImage$ObserverCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::image::ImageObserver* obs, bool concat, ::java::awt::Image* img);
 	virtual bool imageUpdate(::java::awt::Image* img, int32_t infoflags, int32_t x, int32_t y, int32_t width, int32_t height) override;
 	static ::java::util::Map* INSTANCE;

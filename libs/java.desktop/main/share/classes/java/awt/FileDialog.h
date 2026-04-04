@@ -35,6 +35,7 @@ public:
 	using ::java::awt::Dialog::add;
 	using ::java::awt::Dialog::getMousePosition;
 	using ::java::awt::Dialog::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Frame* parent);
 	void init$(::java::awt::Frame* parent, $String* title);
 	void init$(::java::awt::Frame* parent, $String* title, int32_t mode);
@@ -72,7 +73,7 @@ public:
 	::java::io::FilenameFilter* filter = nullptr;
 	static $String* base;
 	static int32_t nameCounter;
-	static const int64_t serialVersionUID = (int64_t)0x45E06E8260EF3F56;
+	static const int64_t serialVersionUID = (int64_t)0x45e06e8260ef3f56;
 };
 
 	} // awt

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsProgressBarUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Prop.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
@@ -10,7 +9,6 @@
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -19,7 +17,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/Stroke.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JProgressBar.h>
 #include <javax/swing/LookAndFeel.h>
@@ -51,16 +48,12 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $BasicStroke = ::java::awt::BasicStroke;
-using $Component = ::java::awt::Component;
-using $Composite = ::java::awt::Composite;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
-using $Shape = ::java::awt::Shape;
-using $Stroke = ::java::awt::Stroke;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -81,43 +74,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsProgressBarUI_FieldInfo_[] = {
-	{"previousFullBox", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(WindowsProgressBarUI, previousFullBox)},
-	{"indeterminateInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(WindowsProgressBarUI, indeterminateInsets)},
-	{}
-};
-
-$MethodInfo _WindowsProgressBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsProgressBarUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(WindowsProgressBarUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
-	{"getBox", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, getBox, $Rectangle*, $Rectangle*)},
-	{"getBoxLength", "(II)I", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, getBoxLength, int32_t, int32_t, int32_t)},
-	{"getFullChunkBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(WindowsProgressBarUI, getFullChunkBounds, $Rectangle*, $Rectangle*)},
-	{"getPreferredInnerHorizontal", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, getPreferredInnerHorizontal, $Dimension*)},
-	{"getPreferredInnerVertical", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, getPreferredInnerVertical, $Dimension*)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, installDefaults, void)},
-	{"paintDeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, paintDeterminate, void, $Graphics*, $JComponent*)},
-	{"paintIndeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, paintIndeterminate, void, $Graphics*, $JComponent*)},
-	{"paintIndeterminateFrame", "(Ljava/awt/Rectangle;Ljava/awt/Graphics2D;ZII)V", nullptr, $PRIVATE, $method(WindowsProgressBarUI, paintIndeterminateFrame, void, $Rectangle*, $Graphics2D*, bool, int32_t, int32_t)},
-	{"paintXPBackground", "(Ljava/awt/Graphics;ZII)V", nullptr, $PRIVATE, $method(WindowsProgressBarUI, paintXPBackground, void, $Graphics*, bool, int32_t, int32_t)},
-	{"setAnimationIndex", "(I)V", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, setAnimationIndex, void, int32_t)},
-	{}
-};
-
-$ClassInfo _WindowsProgressBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsProgressBarUI",
-	"javax.swing.plaf.basic.BasicProgressBarUI",
-	nullptr,
-	_WindowsProgressBarUI_FieldInfo_,
-	_WindowsProgressBarUI_MethodInfo_
-};
-
-$Object* allocate$WindowsProgressBarUI($Class* clazz) {
-	return $of($alloc(WindowsProgressBarUI));
-}
-
 void WindowsProgressBarUI::init$() {
 	$BasicProgressBarUI::init$();
 }
@@ -130,7 +86,6 @@ $ComponentUI* WindowsProgressBarUI::createUI($JComponent* x) {
 void WindowsProgressBarUI::installDefaults() {
 	$BasicProgressBarUI::installDefaults();
 	if ($XPStyle::getXP() != nullptr) {
-		$init($Boolean);
 		$LookAndFeel::installProperty(this->progressBar, "opaque"_s, $Boolean::FALSE);
 		$nc(this->progressBar)->setBorder(nullptr);
 		$set(this, indeterminateInsets, $UIManager::getInsets("ProgressBar.indeterminateInsets"_s));
@@ -138,11 +93,11 @@ void WindowsProgressBarUI::installDefaults() {
 }
 
 int32_t WindowsProgressBarUI::getBaseline($JComponent* c, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t baseline = $BasicProgressBarUI::getBaseline(c, width, height);
 	bool var$1 = $XPStyle::getXP() != nullptr;
 	bool var$0 = var$1 && $nc(this->progressBar)->isStringPainted();
-	if (var$0 && $nc(this->progressBar)->getOrientation() == $JProgressBar::HORIZONTAL) {
+	if (var$0 && this->progressBar->getOrientation() == $JProgressBar::HORIZONTAL) {
 		$var($FontMetrics, metrics, $nc(this->progressBar)->getFontMetrics($($nc(this->progressBar)->getFont())));
 		int32_t y = $nc($($nc(this->progressBar)->getInsets()))->top;
 		if ($nc(this->progressBar)->isIndeterminate()) {
@@ -162,31 +117,31 @@ int32_t WindowsProgressBarUI::getBaseline($JComponent* c, int32_t width, int32_t
 }
 
 $Dimension* WindowsProgressBarUI::getPreferredInnerHorizontal() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
 		$var($XPStyle$Skin, skin, xp->getSkin(this->progressBar, $TMSchema$Part::PP_BAR));
-		int32_t var$0 = $cast(int32_t, $nc($($BasicProgressBarUI::getPreferredInnerHorizontal()))->getWidth());
+		int32_t var$0 = $cast(int32_t, $$nc($BasicProgressBarUI::getPreferredInnerHorizontal())->getWidth());
 		return $new($Dimension, var$0, $nc(skin)->getHeight());
 	}
 	return $BasicProgressBarUI::getPreferredInnerHorizontal();
 }
 
 $Dimension* WindowsProgressBarUI::getPreferredInnerVertical() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
 		$var($XPStyle$Skin, skin, xp->getSkin(this->progressBar, $TMSchema$Part::PP_BARVERT));
 		int32_t var$0 = $nc(skin)->getWidth();
-		return $new($Dimension, var$0, $cast(int32_t, $nc($($BasicProgressBarUI::getPreferredInnerVertical()))->getHeight()));
+		return $new($Dimension, var$0, $cast(int32_t, $$nc($BasicProgressBarUI::getPreferredInnerVertical())->getHeight()));
 	}
 	return $BasicProgressBarUI::getPreferredInnerVertical();
 }
 
 void WindowsProgressBarUI::paintDeterminate($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		bool vertical = ($nc(this->progressBar)->getOrientation() == $JProgressBar::VERTICAL);
@@ -247,7 +202,7 @@ void WindowsProgressBarUI::paintDeterminate($Graphics* g, $JComponent* c) {
 }
 
 void WindowsProgressBarUI::setAnimationIndex(int32_t newValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicProgressBarUI::setAnimationIndex(newValue);
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
@@ -272,7 +227,7 @@ int32_t WindowsProgressBarUI::getBoxLength(int32_t availableLength, int32_t othe
 }
 
 $Rectangle* WindowsProgressBarUI::getBox($Rectangle* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, rect, $BasicProgressBarUI::getBox(r));
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
@@ -286,14 +241,14 @@ $Rectangle* WindowsProgressBarUI::getBox($Rectangle* r) {
 		int32_t gap = xp->getInt(this->progressBar, $TMSchema$Part::PP_PROGRESS, nullptr, $TMSchema$Prop::PROGRESSSPACESIZE, 0);
 		currentFrame = $mod(currentFrame, framecount);
 		if (!vertical) {
-			$nc(rect)->y = rect->y + $nc(ins)->top;
+			$nc(rect)->y = $nc(rect)->y + $nc(ins)->top;
 			rect->height = $nc(this->progressBar)->getHeight() - ins->top - ins->bottom;
 			int32_t len = $nc(this->progressBar)->getWidth() - ins->left - ins->right;
 			len += (rect->width + gap) * 2;
 			double delta = (double)(len) / (double)framecount;
 			rect->x = $cast(int32_t, (delta * currentFrame)) + ins->left;
 		} else {
-			$nc(rect)->x = rect->x + $nc(ins)->left;
+			$nc(rect)->x = $nc(rect)->x + $nc(ins)->left;
 			rect->width = $nc(this->progressBar)->getWidth() - ins->left - ins->right;
 			int32_t len = $nc(this->progressBar)->getHeight() - ins->top - ins->bottom;
 			len += (rect->height + gap) * 2;
@@ -305,7 +260,7 @@ $Rectangle* WindowsProgressBarUI::getBox($Rectangle* r) {
 }
 
 void WindowsProgressBarUI::paintIndeterminate($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		bool vertical = ($nc(this->progressBar)->getOrientation() == $JProgressBar::VERTICAL);
@@ -337,7 +292,7 @@ $Rectangle* WindowsProgressBarUI::getFullChunkBounds($Rectangle* box) {
 	$var($XPStyle, xp, $XPStyle::getXP());
 	$init($TMSchema$Part);
 	$init($TMSchema$Prop);
-	int32_t gap = (xp != nullptr) ? $nc(xp)->getInt(this->progressBar, $TMSchema$Part::PP_PROGRESS, nullptr, $TMSchema$Prop::PROGRESSSPACESIZE, 0) : 0;
+	int32_t gap = (xp != nullptr) ? xp->getInt(this->progressBar, $TMSchema$Part::PP_PROGRESS, nullptr, $TMSchema$Prop::PROGRESSSPACESIZE, 0) : 0;
 	if (!vertical) {
 		int32_t chunksize = $nc(box)->width + gap;
 		return $new($Rectangle, box->x - chunksize * 2, box->y, chunksize * 3, box->height);
@@ -348,7 +303,7 @@ $Rectangle* WindowsProgressBarUI::getFullChunkBounds($Rectangle* box) {
 }
 
 void WindowsProgressBarUI::paintIndeterminateFrame($Rectangle* box, $Graphics2D* g, bool vertical, int32_t bgwidth, int32_t bgheight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp == nullptr) {
 		return;
@@ -371,13 +326,13 @@ void WindowsProgressBarUI::paintIndeterminateFrame($Rectangle* box, $Graphics2D*
 	$var($Rectangle, fullBox, getFullChunkBounds(box));
 	$set(this, previousFullBox, fullBox);
 	$var($Insets, ins, this->indeterminateInsets);
-	$var($Rectangle, progbarExtents, $new($Rectangle, $nc(ins)->left, ins->top, bgwidth - ins->left - ins->right, bgheight - ins->top - ins->bottom));
+	$var($Rectangle, progbarExtents, $new($Rectangle, $nc(ins)->left, $nc(ins)->top, bgwidth - $nc(ins)->left - $nc(ins)->right, bgheight - $nc(ins)->top - $nc(ins)->bottom));
 	$var($Rectangle, repaintArea, progbarExtents->intersection(fullBox));
 	$nc(gfx)->clip(repaintArea);
 	$var($XPStyle$Skin, skin, xp->getSkin(this->progressBar, chunk));
 	gfx->setComposite($($AlphaComposite::getInstance($AlphaComposite::SRC_OVER, 0.8f)));
-	$nc(skin)->paintSkin(gfx, $nc(box)->x, box->y, box->width, box->height, nullptr);
-	$nc(box)->translate(deltax, deltay);
+	$nc(skin)->paintSkin(gfx, $nc(box)->x, $nc(box)->y, $nc(box)->width, $nc(box)->height, nullptr);
+	box->translate(deltax, deltay);
 	gfx->setComposite($($AlphaComposite::getInstance($AlphaComposite::SRC_OVER, 0.5f)));
 	skin->paintSkin(gfx, box->x, box->y, box->width, box->height, nullptr);
 	box->translate(deltax, deltay);
@@ -387,7 +342,7 @@ void WindowsProgressBarUI::paintIndeterminateFrame($Rectangle* box, $Graphics2D*
 }
 
 void WindowsProgressBarUI::paintXPBackground($Graphics* g, bool vertical, int32_t barRectWidth, int32_t barRectHeight) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp == nullptr) {
 		return;
@@ -402,7 +357,39 @@ WindowsProgressBarUI::WindowsProgressBarUI() {
 }
 
 $Class* WindowsProgressBarUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsProgressBarUI, name, initialize, &_WindowsProgressBarUI_ClassInfo_, allocate$WindowsProgressBarUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"previousFullBox", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(WindowsProgressBarUI, previousFullBox)},
+		{"indeterminateInsets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(WindowsProgressBarUI, indeterminateInsets)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsProgressBarUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsProgressBarUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getBaseline", "(Ljavax/swing/JComponent;II)I", nullptr, $PUBLIC, $virtualMethod(WindowsProgressBarUI, getBaseline, int32_t, $JComponent*, int32_t, int32_t)},
+		{"getBox", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, getBox, $Rectangle*, $Rectangle*)},
+		{"getBoxLength", "(II)I", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, getBoxLength, int32_t, int32_t, int32_t)},
+		{"getFullChunkBounds", "(Ljava/awt/Rectangle;)Ljava/awt/Rectangle;", nullptr, $PRIVATE, $method(WindowsProgressBarUI, getFullChunkBounds, $Rectangle*, $Rectangle*)},
+		{"getPreferredInnerHorizontal", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, getPreferredInnerHorizontal, $Dimension*)},
+		{"getPreferredInnerVertical", "()Ljava/awt/Dimension;", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, getPreferredInnerVertical, $Dimension*)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, installDefaults, void)},
+		{"paintDeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, paintDeterminate, void, $Graphics*, $JComponent*)},
+		{"paintIndeterminate", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, paintIndeterminate, void, $Graphics*, $JComponent*)},
+		{"paintIndeterminateFrame", "(Ljava/awt/Rectangle;Ljava/awt/Graphics2D;ZII)V", nullptr, $PRIVATE, $method(WindowsProgressBarUI, paintIndeterminateFrame, void, $Rectangle*, $Graphics2D*, bool, int32_t, int32_t)},
+		{"paintXPBackground", "(Ljava/awt/Graphics;ZII)V", nullptr, $PRIVATE, $method(WindowsProgressBarUI, paintXPBackground, void, $Graphics*, bool, int32_t, int32_t)},
+		{"setAnimationIndex", "(I)V", nullptr, $PROTECTED, $virtualMethod(WindowsProgressBarUI, setAnimationIndex, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsProgressBarUI",
+		"javax.swing.plaf.basic.BasicProgressBarUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsProgressBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsProgressBarUI);
+	});
 	return class$;
 }
 

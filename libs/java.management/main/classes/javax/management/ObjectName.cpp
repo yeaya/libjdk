@@ -1,5 +1,4 @@
 #include <javax/management/ObjectName.h>
-
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/io/InvalidObjectException.h>
@@ -11,7 +10,6 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Comparable.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -55,7 +53,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
@@ -63,7 +60,6 @@ using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $MalformedObjectNameException = ::javax::management::MalformedObjectNameException;
 using $ObjectName$PatternProperty = ::javax::management::ObjectName$PatternProperty;
@@ -71,109 +67,6 @@ using $ObjectName$Property = ::javax::management::ObjectName$Property;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _ObjectName_FieldInfo_[] = {
-	{"DOMAIN_PATTERN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, DOMAIN_PATTERN)},
-	{"PROPLIST_PATTERN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, PROPLIST_PATTERN)},
-	{"PROPVAL_PATTERN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, PROPVAL_PATTERN)},
-	{"FLAG_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, FLAG_MASK)},
-	{"DOMAIN_LENGTH_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, DOMAIN_LENGTH_MASK)},
-	{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, oldSerialVersionUID)},
-	{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, newSerialVersionUID)},
-	{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, oldSerialPersistentFields)},
-	{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, newSerialPersistentFields)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, serialVersionUID)},
-	{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, serialPersistentFields)},
-	{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ObjectName, compat)},
-	{"_Empty_property_array", "[Ljavax/management/ObjectName$Property;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, _Empty_property_array)},
-	{"_canonicalName", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectName, _canonicalName)},
-	{"_kp_array", "[Ljavax/management/ObjectName$Property;", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectName, _kp_array)},
-	{"_ca_array", "[Ljavax/management/ObjectName$Property;", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectName, _ca_array)},
-	{"_propertyList", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $field(ObjectName, _propertyList)},
-	{"_compressed_storage", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectName, _compressed_storage)},
-	{"WILDCARD", "Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectName, WILDCARD)},
-	{}
-};
-
-$MethodInfo _ObjectName_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectName, init$, void, $String*), "javax.management.MalformedObjectNameException"},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectName, init$, void, $String*, $String*, $String*), "javax.management.MalformedObjectNameException"},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Hashtable;)V", "(Ljava/lang/String;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(ObjectName, init$, void, $String*, $Hashtable*), "javax.management.MalformedObjectNameException"},
-	{"_getKeyPropertyList", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(ObjectName, _getKeyPropertyList, $Map*)},
-	{"addProperty", "(Ljavax/management/ObjectName$Property;ILjava/util/Map;Ljava/lang/String;)V", "(Ljavax/management/ObjectName$Property;ILjava/util/Map<Ljava/lang/String;Ljavax/management/ObjectName$Property;>;Ljava/lang/String;)V", $PRIVATE, $method(ObjectName, addProperty, void, $ObjectName$Property*, int32_t, $Map*, $String*), "javax.management.MalformedObjectNameException"},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, apply, bool, ObjectName*)},
-	{"checkKey", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectName, checkKey, void, $String*), "javax.management.MalformedObjectNameException"},
-	{"checkValue", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectName, checkValue, bool, $String*), "javax.management.MalformedObjectNameException"},
-	{"compareTo", "(Ljavax/management/ObjectName;)I", nullptr, $PUBLIC, $virtualMethod(ObjectName, compareTo, int32_t, ObjectName*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ObjectName, compareTo, int32_t, Object$*)},
-	{"construct", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ObjectName, construct, void, $String*), "javax.management.MalformedObjectNameException"},
-	{"construct", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(ObjectName, construct, void, $String*, $Map*), "javax.management.MalformedObjectNameException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, equals, bool, Object$*)},
-	{"getCanonicalKeyPropertyListString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getCanonicalKeyPropertyListString, $String*)},
-	{"getCanonicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getCanonicalName, $String*)},
-	{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getDomain, $String*)},
-	{"getDomainLength", "()I", nullptr, $PRIVATE, $method(ObjectName, getDomainLength, int32_t)},
-	{"getInstance", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, getInstance, ObjectName*, $String*), "javax.management.MalformedObjectNameException,java.lang.NullPointerException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, getInstance, ObjectName*, $String*, $String*, $String*), "javax.management.MalformedObjectNameException"},
-	{"getInstance", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/management/ObjectName;", "(Ljava/lang/String;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;)Ljavax/management/ObjectName;", $PUBLIC | $STATIC, $staticMethod(ObjectName, getInstance, ObjectName*, $String*, $Hashtable*), "javax.management.MalformedObjectNameException"},
-	{"getInstance", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, getInstance, ObjectName*, ObjectName*)},
-	{"getKeyProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getKeyProperty, $String*, $String*)},
-	{"getKeyPropertyList", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ObjectName, getKeyPropertyList, $Hashtable*)},
-	{"getKeyPropertyListString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getKeyPropertyListString, $String*)},
-	{"getSerializedNameString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ObjectName, getSerializedNameString, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectName, hashCode, int32_t)},
-	{"isDomain", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ObjectName, isDomain, bool, $String*)},
-	{"isDomainPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isDomainPattern, bool)},
-	{"isPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPattern, bool)},
-	{"isPropertyListPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPropertyListPattern, bool)},
-	{"isPropertyPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPropertyPattern, bool)},
-	{"isPropertyValuePattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPropertyValuePattern, bool)},
-	{"isPropertyValuePattern", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPropertyValuePattern, bool, $String*)},
-	{"matchDomains", "(Ljavax/management/ObjectName;)Z", nullptr, $PRIVATE | $FINAL, $method(ObjectName, matchDomains, bool, ObjectName*)},
-	{"matchKeys", "(Ljavax/management/ObjectName;)Z", nullptr, $PRIVATE | $FINAL, $method(ObjectName, matchKeys, bool, ObjectName*)},
-	{"parseKey", "([CI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectName, parseKey, int32_t, $chars*, int32_t), "javax.management.MalformedObjectNameException"},
-	{"parseValue", "([CI)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectName, parseValue, $ints*, $chars*, int32_t), "javax.management.MalformedObjectNameException"},
-	{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, quote, $String*, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ObjectName, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setCanonicalName", "([C[C[Ljava/lang/String;Ljava/util/Map;II)V", "([C[C[Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljavax/management/ObjectName$Property;>;II)V", $PRIVATE, $method(ObjectName, setCanonicalName, void, $chars*, $chars*, $StringArray*, $Map*, int32_t, int32_t)},
-	{"setDomainLength", "(I)V", nullptr, $PRIVATE, $method(ObjectName, setDomainLength, void, int32_t), "javax.management.MalformedObjectNameException"},
-	{"setDomainPattern", "(Z)V", nullptr, $PRIVATE, $method(ObjectName, setDomainPattern, void, bool)},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $virtualMethod(ObjectName, setMBeanServer, void, $MBeanServer*)},
-	{"setPropertyListPattern", "(Z)V", nullptr, $PRIVATE, $method(ObjectName, setPropertyListPattern, void, bool)},
-	{"setPropertyValuePattern", "(Z)V", nullptr, $PRIVATE, $method(ObjectName, setPropertyValuePattern, void, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, toString, $String*)},
-	{"unquote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, unquote, $String*, $String*)},
-	{"writeKeyPropertyListString", "([C[CI)I", nullptr, $PRIVATE, $method(ObjectName, writeKeyPropertyListString, int32_t, $chars*, $chars*, int32_t)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ObjectName, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _ObjectName_InnerClassesInfo_[] = {
-	{"javax.management.ObjectName$PatternProperty", "javax.management.ObjectName", "PatternProperty", $PRIVATE | $STATIC},
-	{"javax.management.ObjectName$Property", "javax.management.ObjectName", "Property", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ObjectName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.ObjectName",
-	"java.lang.Object",
-	"java.lang.Comparable,javax.management.QueryExp",
-	_ObjectName_FieldInfo_,
-	_ObjectName_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Ljavax/management/ObjectName;>;Ljavax/management/QueryExp;",
-	nullptr,
-	_ObjectName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.ObjectName$PatternProperty,javax.management.ObjectName$Property"
-};
-
-$Object* allocate$ObjectName($Class* clazz) {
-	return $of($alloc(ObjectName));
-}
 
 $Object* ObjectName::clone() {
 	 return this->$Comparable::clone();
@@ -192,7 +85,7 @@ $ObjectName$PropertyArray* ObjectName::_Empty_property_array = nullptr;
 ObjectName* ObjectName::WILDCARD = nullptr;
 
 void ObjectName::construct($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		$throwNew($NullPointerException, "name cannot be null"_s);
 	}
@@ -207,7 +100,7 @@ void ObjectName::construct($String* name) {
 		setPropertyValuePattern(false);
 		return;
 	}
-	$var($chars, name_chars, $nc(name)->toCharArray());
+	$var($chars, name_chars, name->toCharArray());
 	int32_t len = name_chars->length;
 	$var($chars, canonical_chars, $new($chars, len));
 	int32_t cname_index = 0;
@@ -216,53 +109,39 @@ void ObjectName::construct($String* name) {
 	char16_t c1 = 0;
 	bool domain_parsing$break = false;
 	while (index < len) {
-		{
-			int32_t i = 0;
-			switch (name_chars->get(index)) {
-			case u':':
-				{
-					setDomainLength(index++);
-					domain_parsing$break = true;
+		int32_t i = 0;
+		switch (name_chars->get(index)) {
+		case u':':
+			setDomainLength(index++);
+			domain_parsing$break = true;
+			break;
+		case u'=':
+			i = ++index;
+			while (true) {
+				bool var$0 = i < len;
+				if (!(var$0 && (name_chars->get(i++) != u':'))) {
 					break;
 				}
-			case u'=':
 				{
-					i = ++index;
-					while (true) {
-						bool var$0 = (i < len);
-						if (!(var$0 && (name_chars->get(i++) != u':'))) {
-							break;
-						}
-						{
-							if (i == len) {
-								$throwNew($MalformedObjectNameException, "Domain part must be specified"_s);
-							}
-						}
+					if (i == len) {
+						$throwNew($MalformedObjectNameException, "Domain part must be specified"_s);
 					}
-					break;
-				}
-			case u'\n':
-				{
-					$throwNew($MalformedObjectNameException, "Invalid character \'\\n\' in domain name"_s);
-				}
-			case u'*':
-				{}
-			case u'?':
-				{
-					setDomainPattern(true);
-					++index;
-					break;
-				}
-			default:
-				{
-					++index;
-					break;
 				}
 			}
-
-			if (domain_parsing$break) {
-				break;
-			}
+			break;
+		case u'\n':
+			$throwNew($MalformedObjectNameException, "Invalid character \'\\n\' in domain name"_s);
+		case u'*':
+		case u'?':
+			setDomainPattern(true);
+			++index;
+			break;
+		default:
+			++index;
+			break;
+		}
+		if (domain_parsing$break) {
+			break;
 		}
 	}
 	if (index == len) {
@@ -294,7 +173,7 @@ void ObjectName::construct($String* name) {
 				$throwNew($MalformedObjectNameException, "Cannot have several \'*\' characters in pattern property list"_s);
 			} else {
 				setPropertyListPattern(true);
-				bool var$1 = (++index < len);
+				bool var$1 = ++index < len;
 				if (var$1 && (name_chars->get(index) != u',')) {
 					$throwNew($MalformedObjectNameException, "Invalid character found after \'*\': end of name or \',\' expected"_s);
 				} else if (index == len) {
@@ -316,28 +195,20 @@ void ObjectName::construct($String* name) {
 			$throwNew($MalformedObjectNameException, "Invalid key (empty)"_s);
 		}
 		while (true) {
-			bool var$2 = (in_index < len);
+			bool var$2 = in_index < len;
 			if (!(var$2 && ((c1 = name_chars->get(in_index++)) != u'='))) {
 				break;
 			}
 			{
-				{
-					$var($String, ichar, nullptr)
-					switch (c1) {
-					case u'*':
-						{}
-					case u'?':
-						{}
-					case u',':
-						{}
-					case u':':
-						{}
-					case u'\n':
-						{
-							$assign(ichar, (c1 == u'\n') ? "\\n"_s : $str({""_s, $$str(c1)}));
-							$throwNew($MalformedObjectNameException, $$str({"Invalid character \'"_s, ichar, "\' in key part of property"_s}));
-						}
-					}
+				$var($String, ichar, nullptr);
+				switch (c1) {
+				case u'*':
+				case u'?':
+				case u',':
+				case u':':
+				case u'\n':
+					$assign(ichar, (c1 == u'\n') ? "\\n"_s : $str({""_s, $$str(c1)}));
+					$throwNew($MalformedObjectNameException, $$str({"Invalid character \'"_s, ichar, "\' in key part of property"_s}));
 				}
 			}
 		}
@@ -350,7 +221,7 @@ void ObjectName::construct($String* name) {
 		if (in_index < len && name_chars->get(in_index) == u'\"') {
 			quoted_value = true;
 			while (true) {
-				bool var$3 = (++in_index < len);
+				bool var$3 = ++in_index < len;
 				if (!(var$3 && ((c1 = name_chars->get(in_index)) != u'\"'))) {
 					break;
 				}
@@ -361,33 +232,22 @@ void ObjectName::construct($String* name) {
 						}
 						switch (c1 = name_chars->get(in_index)) {
 						case u'\\':
-							{}
 						case u'\"':
-							{}
 						case u'?':
-							{}
 						case u'*':
-							{}
 						case u'n':
-							{
-								break;
-							}
+							break;
 						default:
-							{
-								$throwNew($MalformedObjectNameException, $$str({"Invalid escape sequence \'\\"_s, $$str(c1), "\' in quoted value"_s}));
-							}
+							$throwNew($MalformedObjectNameException, $$str({"Invalid escape sequence \'\\"_s, $$str(c1), "\' in quoted value"_s}));
 						}
 					} else if (c1 == u'\n') {
 						$throwNew($MalformedObjectNameException, "Newline in quoted value"_s);
 					} else {
 						switch (c1) {
 						case u'?':
-							{}
 						case u'*':
-							{
-								value_pattern = true;
-								break;
-							}
+							value_pattern = true;
+							break;
 						}
 					}
 				}
@@ -400,34 +260,22 @@ void ObjectName::construct($String* name) {
 		} else {
 			quoted_value = false;
 			while ((in_index < len) && ((c1 = name_chars->get(in_index)) != u',')) {
-				{
-					$var($String, ichar, nullptr)
-					switch (c1) {
-					case u'*':
-						{}
-					case u'?':
-						{
-							value_pattern = true;
-							++in_index;
-							break;
-						}
-					case u'=':
-						{}
-					case u':':
-						{}
-					case u'\"':
-						{}
-					case u'\n':
-						{
-							$assign(ichar, (c1 == u'\n') ? "\\n"_s : $str({""_s, $$str(c1)}));
-							$throwNew($MalformedObjectNameException, $$str({"Invalid character \'"_s, ichar, "\' in value part of property"_s}));
-						}
-					default:
-						{
-							++in_index;
-							break;
-						}
-					}
+				$var($String, ichar, nullptr);
+				switch (c1) {
+				case u'*':
+				case u'?':
+					value_pattern = true;
+					++in_index;
+					break;
+				case u'=':
+				case u':':
+				case u'\"':
+				case u'\n':
+					$assign(ichar, (c1 == u'\n') ? "\\n"_s : $str({""_s, $$str(c1)}));
+					$throwNew($MalformedObjectNameException, $$str({"Invalid character \'"_s, ichar, "\' in value part of property"_s}));
+				default:
+					++in_index;
+					break;
 				}
 			}
 			value_length = in_index - value_index;
@@ -453,7 +301,7 @@ void ObjectName::construct($String* name) {
 			$System::arraycopy(keys, 0, tmp_string_array, 0, property_index);
 			$assign(keys, tmp_string_array);
 		}
-		$nc(keys)->set(property_index, key_name);
+		keys->set(property_index, key_name);
 		addProperty(prop, property_index, keys_map, key_name);
 		++property_index;
 		index = in_index;
@@ -462,7 +310,7 @@ void ObjectName::construct($String* name) {
 }
 
 void ObjectName::construct($String* domain, $Map* props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (domain == nullptr) {
 		$throwNew($NullPointerException, "domain cannot be null"_s);
 	}
@@ -478,7 +326,7 @@ void ObjectName::construct($String* domain, $Map* props) {
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append(domain)->append(u':');
 	setDomainLength($nc(domain)->length());
-	int32_t nb_props = $nc(props)->size();
+	int32_t nb_props = props->size();
 	$set(this, _kp_array, $new($ObjectName$PropertyArray, nb_props));
 	$var($StringArray, keys, $new($StringArray, nb_props));
 	$var($Map, keys_map, $new($HashMap));
@@ -486,7 +334,7 @@ void ObjectName::construct($String* domain, $Map* props) {
 	int32_t key_index = 0;
 	int32_t i = 0;
 	{
-		$var($Iterator, i$, $nc($(props->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(props->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
@@ -508,14 +356,12 @@ void ObjectName::construct($String* domain, $Map* props) {
 				bool value_pattern = checkValue(value);
 				sb->append(value);
 				if (!value_pattern) {
-					int32_t var$0 = key_index;
-					int32_t var$1 = $nc(key)->length();
-					$assign(prop, $new($ObjectName$Property, var$0, var$1, $nc(value)->length()));
+					int32_t var$0 = $nc(key)->length();
+					$assign(prop, $new($ObjectName$Property, key_index, var$0, $nc(value)->length()));
 				} else {
 					setPropertyValuePattern(true);
-					int32_t var$2 = key_index;
-					int32_t var$3 = $nc(key)->length();
-					$assign(prop, $new($ObjectName$PatternProperty, var$2, var$3, $nc(value)->length()));
+					int32_t var$1 = $nc(key)->length();
+					$assign(prop, $new($ObjectName$PatternProperty, key_index, var$1, $nc(value)->length()));
 				}
 				addProperty(prop, i, keys_map, key);
 				++i;
@@ -532,7 +378,7 @@ void ObjectName::construct($String* domain, $Map* props) {
 }
 
 void ObjectName::addProperty($ObjectName$Property* prop, int32_t index, $Map* keys_map, $String* key_name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(keys_map)->containsKey(key_name)) {
 		$throwNew($MalformedObjectNameException, $$str({"key `"_s, key_name, "\' already defined"_s}));
 	}
@@ -541,12 +387,12 @@ void ObjectName::addProperty($ObjectName$Property* prop, int32_t index, $Map* ke
 		$System::arraycopy(this->_kp_array, 0, tmp_prop_array, 0, index);
 		$set(this, _kp_array, tmp_prop_array);
 	}
-	$nc(this->_kp_array)->set(index, prop);
-	$nc(keys_map)->put(key_name, prop);
+	this->_kp_array->set(index, prop);
+	keys_map->put(key_name, prop);
 }
 
 void ObjectName::setCanonicalName($chars* specified_chars, $chars* canonical_chars, $StringArray* keys$renamed, $Map* keys_map, int32_t prop_index, int32_t nb_props) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, keys, keys$renamed);
 	if (this->_kp_array != ObjectName::_Empty_property_array) {
 		$var($StringArray, tmp_keys, $new($StringArray, nb_props));
@@ -558,14 +404,14 @@ void ObjectName::setCanonicalName($chars* specified_chars, $chars* canonical_cha
 		$set(this, _kp_array, tmp_props);
 		$set(this, _ca_array, $new($ObjectName$PropertyArray, nb_props));
 		for (int32_t i = 0; i < nb_props; ++i) {
-			$nc(this->_ca_array)->set(i, $cast($ObjectName$Property, $($nc(keys_map)->get(keys->get(i)))));
+			this->_ca_array->set(i, $$cast($ObjectName$Property, $nc(keys_map)->get(keys->get(i))));
 		}
 		int32_t last_index = nb_props - 1;
 		int32_t prop_len = 0;
 		$var($ObjectName$Property, prop, nullptr);
 		for (int32_t i = 0; i <= last_index; ++i) {
 			$assign(prop, $nc(this->_ca_array)->get(i));
-			prop_len = $nc(prop)->_key_length + prop->_value_length + 1;
+			prop_len = $nc(prop)->_key_length + $nc(prop)->_value_length + 1;
 			$System::arraycopy(specified_chars, prop->_key_index, canonical_chars, prop_index, prop_len);
 			prop->setKeyIndex(prop_index);
 			prop_index += prop_len;
@@ -586,40 +432,30 @@ void ObjectName::setCanonicalName($chars* specified_chars, $chars* canonical_cha
 
 int32_t ObjectName::parseKey($chars* s, int32_t startKey) {
 	$init(ObjectName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t next = startKey;
 	int32_t endKey = startKey;
 	int32_t len = $nc(s)->length;
 	while (next < len) {
 		char16_t k = s->get(next++);
 		{
-			$var($String, ichar, nullptr)
+			$var($String, ichar, nullptr);
 			switch (k) {
 			case u'*':
-				{}
 			case u'?':
-				{}
 			case u',':
-				{}
 			case u':':
-				{}
 			case u'\n':
-				{
-					$assign(ichar, (k == u'\n') ? "\\n"_s : $str({""_s, $$str(k)}));
-					$throwNew($MalformedObjectNameException, $$str({"Invalid character in key: `"_s, ichar, "\'"_s}));
-				}
+				$assign(ichar, (k == u'\n') ? "\\n"_s : $str({""_s, $$str(k)}));
+				$throwNew($MalformedObjectNameException, $$str({"Invalid character in key: `"_s, ichar, "\'"_s}));
 			case u'=':
-				{
-					endKey = next - 1;
-					break;
-				}
+				endKey = next - 1;
+				break;
 			default:
-				{
-					if (next < len) {
-						continue;
-					} else {
-						endKey = next;
-					}
+				if (next < len) {
+					continue;
+				} else {
+					endKey = next;
 				}
 			}
 		}
@@ -630,7 +466,7 @@ int32_t ObjectName::parseKey($chars* s, int32_t startKey) {
 
 $ints* ObjectName::parseValue($chars* s, int32_t startValue) {
 	$init(ObjectName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool value_pattern = false;
 	int32_t next = startValue;
 	int32_t endValue = startValue;
@@ -649,26 +485,17 @@ $ints* ObjectName::parseValue($chars* s, int32_t startValue) {
 				last = s->get(next);
 				switch (last) {
 				case u'\\':
-					{}
 				case u'?':
-					{}
 				case u'*':
-					{}
 				case u'n':
-					{
-						break;
-					}
+					break;
 				case u'\"':
-					{
-						if (next + 1 == len) {
-							$throwNew($MalformedObjectNameException, "Missing termination quote"_s);
-						}
-						break;
+					if (next + 1 == len) {
+						$throwNew($MalformedObjectNameException, "Missing termination quote"_s);
 					}
+					break;
 				default:
-					{
-						$throwNew($MalformedObjectNameException, $$str({"Invalid quoted character sequence \'\\"_s, $$str(last), "\'"_s}));
-					}
+					$throwNew($MalformedObjectNameException, $$str({"Invalid quoted character sequence \'\\"_s, $$str(last), "\'"_s}));
 				}
 			} else if (last == u'\n') {
 				$throwNew($MalformedObjectNameException, "Newline in quoted value"_s);
@@ -678,12 +505,9 @@ $ints* ObjectName::parseValue($chars* s, int32_t startValue) {
 			} else {
 				switch (last) {
 				case u'?':
-					{}
 				case u'*':
-					{
-						value_pattern = true;
-						break;
-					}
+					value_pattern = true;
+					break;
 				}
 			}
 			++next;
@@ -701,41 +525,30 @@ $ints* ObjectName::parseValue($chars* s, int32_t startValue) {
 		while (next < len) {
 			char16_t v = s->get(next++);
 			{
-				$var($String, ichar, nullptr)
+				$var($String, ichar, nullptr);
 				switch (v) {
 				case u'*':
-					{}
 				case u'?':
-					{
-						value_pattern = true;
-						if (next < len) {
-							continue;
-						} else {
-							endValue = next;
-						}
-						break;
+					value_pattern = true;
+					if (next < len) {
+						continue;
+					} else {
+						endValue = next;
 					}
+					break;
 				case u'=':
-					{}
 				case u':':
-					{}
 				case u'\n':
-					{
-						$assign(ichar, (v == u'\n') ? "\\n"_s : $str({""_s, $$str(v)}));
-						$throwNew($MalformedObjectNameException, $$str({"Invalid character `"_s, ichar, "\' in value"_s}));
-					}
+					$assign(ichar, (v == u'\n') ? "\\n"_s : $str({""_s, $$str(v)}));
+					$throwNew($MalformedObjectNameException, $$str({"Invalid character `"_s, ichar, "\' in value"_s}));
 				case u',':
-					{
-						endValue = next - 1;
-						break;
-					}
+					endValue = next - 1;
+					break;
 				default:
-					{
-						if (next < len) {
-							continue;
-						} else {
-							endValue = next;
-						}
+					if (next < len) {
+						continue;
+					} else {
+						endValue = next;
 					}
 				}
 			}
@@ -750,7 +563,7 @@ $ints* ObjectName::parseValue($chars* s, int32_t startValue) {
 
 bool ObjectName::checkValue($String* val) {
 	$init(ObjectName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (val == nullptr) {
 		$throwNew($NullPointerException, "Invalid value (null)"_s);
 	}
@@ -770,7 +583,7 @@ bool ObjectName::checkValue($String* val) {
 
 void ObjectName::checkKey($String* key) {
 	$init(ObjectName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr) {
 		$throwNew($NullPointerException, "Invalid key (null)"_s);
 	}
@@ -795,46 +608,40 @@ bool ObjectName::isDomain($String* domain) {
 		char16_t c = domain->charAt(next++);
 		switch (c) {
 		case u':':
-			{}
 		case u'\n':
-			{
-				return false;
-			}
+			return false;
 		case u'*':
-			{}
 		case u'?':
-			{
-				setDomainPattern(true);
-				break;
-			}
+			setDomainPattern(true);
+			break;
 		}
 	}
 	return true;
 }
 
 int32_t ObjectName::getDomainLength() {
-	return (int32_t)(this->_compressed_storage & (uint32_t)ObjectName::DOMAIN_LENGTH_MASK);
+	return this->_compressed_storage & ObjectName::DOMAIN_LENGTH_MASK;
 }
 
 void ObjectName::setDomainLength(int32_t length) {
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)(length & (uint32_t)ObjectName::FLAG_MASK)) != 0) {
+	$useLocalObjectStack();
+	if ((length & ObjectName::FLAG_MASK) != 0) {
 		$throwNew($MalformedObjectNameException, $$str({"Domain name too long. Maximum allowed domain name length is:"_s, $$str(ObjectName::DOMAIN_LENGTH_MASK)}));
 	}
-	this->_compressed_storage = ((int32_t)(this->_compressed_storage & (uint32_t)ObjectName::FLAG_MASK)) | length;
+	this->_compressed_storage = (this->_compressed_storage & ObjectName::FLAG_MASK) | length;
 }
 
 void ObjectName::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, cn, nullptr);
 	if (ObjectName::compat) {
 		$var($ObjectInputStream$GetField, fields, $nc(in)->readFields());
-		$var($String, propListString, $cast($String, $nc(fields)->get("propertyListString"_s, $of(""_s))));
+		$var($String, propListString, $cast($String, $nc(fields)->get("propertyListString"_s, ""_s)));
 		bool propPattern = fields->get("propertyPattern"_s, false);
 		if (propPattern) {
 			$assign(propListString, $nc(propListString)->length() == 0 ? "*"_s : ($str({propListString, ",*"_s})));
 		}
-		$assign(cn, $str({$cast($String, $(fields->get("domain"_s, $of("default"_s)))), ":"_s, propListString}));
+		$assign(cn, $str({$$cast($String, fields->get("domain"_s, "default"_s)), ":"_s, propListString}));
 	} else {
 		$nc(in)->defaultReadObject();
 		$assign(cn, $cast($String, in->readObject()));
@@ -849,14 +656,14 @@ void ObjectName::readObject($ObjectInputStream* in) {
 }
 
 void ObjectName::writeObject($ObjectOutputStream* out) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ObjectName::compat) {
 		$var($ObjectOutputStream$PutField, fields, $nc(out)->putFields());
-		$nc(fields)->put("domain"_s, $($of($nc(this->_canonicalName)->substring(0, getDomainLength()))));
-		fields->put("propertyList"_s, $($of(getKeyPropertyList())));
-		fields->put("propertyListString"_s, $($of(getKeyPropertyListString())));
-		fields->put("canonicalName"_s, $of(this->_canonicalName));
-		fields->put("pattern"_s, ((int32_t)(this->_compressed_storage & (uint32_t)(ObjectName::DOMAIN_PATTERN | ObjectName::PROPLIST_PATTERN))) != 0);
+		$nc(fields)->put("domain"_s, $($nc(this->_canonicalName)->substring(0, getDomainLength())));
+		fields->put("propertyList"_s, $(getKeyPropertyList()));
+		fields->put("propertyListString"_s, $(getKeyPropertyListString()));
+		fields->put("canonicalName"_s, this->_canonicalName);
+		fields->put("pattern"_s, (this->_compressed_storage & (ObjectName::DOMAIN_PATTERN | ObjectName::PROPLIST_PATTERN)) != 0);
 		fields->put("propertyPattern"_s, isPropertyListPattern());
 		out->writeFields();
 	} else {
@@ -882,10 +689,10 @@ ObjectName* ObjectName::getInstance($String* domain, $Hashtable* table) {
 
 ObjectName* ObjectName::getInstance(ObjectName* name) {
 	$init(ObjectName);
-	if ($of($nc($of(name))->getClass())->equals(ObjectName::class$)) {
+	if ($nc($of(name))->getClass()->equals(ObjectName::class$)) {
 		return name;
 	}
-	return $Util::newObjectName($($nc(name)->getSerializedNameString()));
+	return $Util::newObjectName($(name->getSerializedNameString()));
 }
 
 void ObjectName::init$($String* name) {
@@ -905,11 +712,11 @@ void ObjectName::init$($String* domain, $Hashtable* table) {
 }
 
 bool ObjectName::isPattern() {
-	return ((int32_t)(this->_compressed_storage & (uint32_t)ObjectName::FLAG_MASK)) != 0;
+	return (this->_compressed_storage & ObjectName::FLAG_MASK) != 0;
 }
 
 bool ObjectName::isDomainPattern() {
-	return ((int32_t)(this->_compressed_storage & (uint32_t)ObjectName::DOMAIN_PATTERN)) != 0;
+	return (this->_compressed_storage & ObjectName::DOMAIN_PATTERN) != 0;
 }
 
 void ObjectName::setDomainPattern(bool value) {
@@ -921,11 +728,11 @@ void ObjectName::setDomainPattern(bool value) {
 }
 
 bool ObjectName::isPropertyPattern() {
-	return ((int32_t)(this->_compressed_storage & (uint32_t)(ObjectName::PROPVAL_PATTERN | ObjectName::PROPLIST_PATTERN))) != 0;
+	return (this->_compressed_storage & (ObjectName::PROPVAL_PATTERN | ObjectName::PROPLIST_PATTERN)) != 0;
 }
 
 bool ObjectName::isPropertyListPattern() {
-	return ((int32_t)(this->_compressed_storage & (uint32_t)ObjectName::PROPLIST_PATTERN)) != 0;
+	return (this->_compressed_storage & ObjectName::PROPLIST_PATTERN) != 0;
 }
 
 void ObjectName::setPropertyListPattern(bool value) {
@@ -937,7 +744,7 @@ void ObjectName::setPropertyListPattern(bool value) {
 }
 
 bool ObjectName::isPropertyValuePattern() {
-	return ((int32_t)(this->_compressed_storage & (uint32_t)ObjectName::PROPVAL_PATTERN)) != 0;
+	return (this->_compressed_storage & ObjectName::PROPVAL_PATTERN) != 0;
 }
 
 void ObjectName::setPropertyValuePattern(bool value) {
@@ -949,12 +756,12 @@ void ObjectName::setPropertyValuePattern(bool value) {
 }
 
 bool ObjectName::isPropertyValuePattern($String* property) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (property == nullptr) {
 		$throwNew($NullPointerException, "key property can\'t be null"_s);
 	}
 	for (int32_t i = 0; i < $nc(this->_ca_array)->length; ++i) {
-		$var($ObjectName$Property, prop, $nc(this->_ca_array)->get(i));
+		$var($ObjectName$Property, prop, this->_ca_array->get(i));
 		$var($String, key, $nc(prop)->getKeyString(this->_canonicalName));
 		if ($nc(key)->equals(property)) {
 			return ($instanceOf($ObjectName$PatternProperty, prop));
@@ -972,11 +779,11 @@ $String* ObjectName::getDomain() {
 }
 
 $String* ObjectName::getKeyProperty($String* property) {
-	return $cast($String, $nc($(_getKeyPropertyList()))->get(property));
+	return $cast($String, $$nc(_getKeyPropertyList())->get(property));
 }
 
 $Map* ObjectName::_getKeyPropertyList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this) {
 		if (this->_propertyList == nullptr) {
 			$set(this, _propertyList, $new($HashMap));
@@ -984,7 +791,7 @@ $Map* ObjectName::_getKeyPropertyList() {
 			$var($ObjectName$Property, prop, nullptr);
 			for (int32_t i = len - 1; i >= 0; --i) {
 				$assign(prop, $nc(this->_ca_array)->get(i));
-				$var($Object, var$0, $of($nc(prop)->getKeyString(this->_canonicalName)));
+				$var($Object, var$0, $nc(prop)->getKeyString(this->_canonicalName));
 				$nc(this->_propertyList)->put(var$0, $(prop->getValueString(this->_canonicalName)));
 			}
 		}
@@ -997,7 +804,7 @@ $Hashtable* ObjectName::getKeyPropertyList() {
 }
 
 $String* ObjectName::getKeyPropertyListString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->_kp_array)->length == 0) {
 		return ""_s;
 	}
@@ -1011,10 +818,10 @@ $String* ObjectName::getKeyPropertyListString() {
 }
 
 $String* ObjectName::getSerializedNameString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t total_size = $nc(this->_canonicalName)->length();
 	$var($chars, dest_chars, $new($chars, total_size));
-	$var($chars, value, $nc(this->_canonicalName)->toCharArray());
+	$var($chars, value, this->_canonicalName->toCharArray());
 	int32_t offset = getDomainLength() + 1;
 	$System::arraycopy(value, 0, dest_chars, 0, offset);
 	int32_t end = writeKeyPropertyListString(value, dest_chars, offset);
@@ -1030,18 +837,18 @@ $String* ObjectName::getSerializedNameString() {
 }
 
 int32_t ObjectName::writeKeyPropertyListString($chars* canonicalChars, $chars* data, int32_t offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->_kp_array)->length == 0) {
 		return offset;
 	}
 	$var($chars, dest_chars, data);
 	$var($chars, value, canonicalChars);
 	int32_t index = offset;
-	int32_t len = $nc(this->_kp_array)->length;
+	int32_t len = this->_kp_array->length;
 	int32_t last = len - 1;
 	for (int32_t i = 0; i < len; ++i) {
-		$var($ObjectName$Property, prop, $nc(this->_kp_array)->get(i));
-		int32_t prop_len = $nc(prop)->_key_length + prop->_value_length + 1;
+		$var($ObjectName$Property, prop, this->_kp_array->get(i));
+		int32_t prop_len = $nc(prop)->_key_length + $nc(prop)->_value_length + 1;
 		$System::arraycopy(value, prop->_key_index, dest_chars, index, prop_len);
 		index += prop_len;
 		if (i < last) {
@@ -1067,7 +874,7 @@ $String* ObjectName::toString() {
 }
 
 bool ObjectName::equals(Object$* object) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, object)) {
 		return true;
 	}
@@ -1094,22 +901,15 @@ $String* ObjectName::quote($String* s) {
 		char16_t c = s->charAt(i);
 		switch (c) {
 		case u'\n':
-			{
-				c = u'n';
-				buf->append(u'\\');
-				break;
-			}
+			c = u'n';
+			buf->append(u'\\');
+			break;
 		case u'\\':
-			{}
 		case u'\"':
-			{}
 		case u'*':
-			{}
 		case u'?':
-			{
-				buf->append(u'\\');
-				break;
-			}
+			buf->append(u'\\');
+			break;
 		}
 		buf->append(c);
 	}
@@ -1119,7 +919,7 @@ $String* ObjectName::quote($String* s) {
 
 $String* ObjectName::unquote($String* q) {
 	$init(ObjectName);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	int32_t len = $nc(q)->length();
 	bool var$0 = len < 2 || q->charAt(0) != u'\"';
@@ -1135,37 +935,23 @@ $String* ObjectName::unquote($String* q) {
 			c = q->charAt(++i);
 			switch (c) {
 			case u'n':
-				{
-					c = u'\n';
-					break;
-				}
+				c = u'\n';
+				break;
 			case u'\\':
-				{}
 			case u'\"':
-				{}
 			case u'*':
-				{}
 			case u'?':
-				{
-					break;
-				}
+				break;
 			default:
-				{
-					$throwNew($IllegalArgumentException, $$str({"Bad character \'"_s, $$str(c), "\' after backslash"_s}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"Bad character \'"_s, $$str(c), "\' after backslash"_s}));
 			}
 		} else {
 			switch (c) {
 			case u'*':
-				{}
 			case u'?':
-				{}
 			case u'\"':
-				{}
 			case u'\n':
-				{
-					$throwNew($IllegalArgumentException, $$str({"Invalid unescaped character \'"_s, $$str(c), "\' in the string to unquote"_s}));
-				}
+				$throwNew($IllegalArgumentException, $$str({"Invalid unescaped character \'"_s, $$str(c), "\' in the string to unquote"_s}));
 			}
 		}
 		buf->append(c);
@@ -1181,23 +967,23 @@ bool ObjectName::apply(ObjectName* name) {
 		return false;
 	}
 	if (!isPattern()) {
-		return $nc(this->_canonicalName)->equals($nc(name)->_canonicalName);
+		return $nc(this->_canonicalName)->equals(name->_canonicalName);
 	}
 	bool var$0 = matchDomains(name);
 	return var$0 && matchKeys(name);
 }
 
 bool ObjectName::matchDomains(ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isDomainPattern()) {
 		$var($String, var$0, $nc(name)->getDomain());
 		return $Util::wildmatch(var$0, $(getDomain()));
 	}
-	return $nc($(getDomain()))->equals($($nc(name)->getDomain()));
+	return $$nc(getDomain())->equals($($nc(name)->getDomain()));
 }
 
 bool ObjectName::matchKeys(ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = isPropertyValuePattern();
 	if (var$0 && !isPropertyListPattern() && ($nc($nc(name)->_ca_array)->length != $nc(this->_ca_array)->length)) {
 		return false;
@@ -1236,16 +1022,16 @@ void ObjectName::setMBeanServer($MBeanServer* mbs) {
 }
 
 int32_t ObjectName::compareTo(ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == this) {
 		return 0;
 	}
-	int32_t domainValue = $nc($(this->getDomain()))->compareTo($($nc(name)->getDomain()));
+	int32_t domainValue = $$nc(this->getDomain())->compareTo($($nc(name)->getDomain()));
 	if (domainValue != 0) {
 		return domainValue;
 	}
 	$var($String, thisTypeKey, this->getKeyProperty("type"_s));
-	$var($String, anotherTypeKey, $nc(name)->getKeyProperty("type"_s));
+	$var($String, anotherTypeKey, name->getKeyProperty("type"_s));
 	if (thisTypeKey == nullptr) {
 		$assign(thisTypeKey, ""_s);
 	}
@@ -1256,18 +1042,17 @@ int32_t ObjectName::compareTo(ObjectName* name) {
 	if (typeKeyValue != 0) {
 		return typeKeyValue;
 	}
-	return $nc($(this->getCanonicalName()))->compareTo($(name->getCanonicalName()));
+	return $$nc(this->getCanonicalName())->compareTo($(name->getCanonicalName()));
 }
 
 int32_t ObjectName::compareTo(Object$* name) {
 	return this->compareTo($cast(ObjectName, name));
 }
 
-void clinit$ObjectName($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ObjectName::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($Hashtable);
-	$init($Boolean);
 	$assignStatic(ObjectName::oldSerialPersistentFields, $new($ObjectStreamFieldArray, {
 		$$new($ObjectStreamField, "domain"_s, $String::class$),
 		$$new($ObjectStreamField, "propertyList"_s, $Hashtable::class$),
@@ -1281,7 +1066,7 @@ void clinit$ObjectName($Class* class$) {
 	{
 		try {
 			$var($GetPropertyAction, act, $new($GetPropertyAction, "jmx.serial.form"_s));
-			$var($String, form, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(act))));
+			$var($String, form, $cast($String, $AccessController::doPrivileged(act)));
 			ObjectName::compat = (form != nullptr && form->equals("1.0"_s));
 		} catch ($Exception& e) {
 		}
@@ -1301,7 +1086,104 @@ ObjectName::ObjectName() {
 }
 
 $Class* ObjectName::load$($String* name, bool initialize) {
-	$loadClass(ObjectName, name, initialize, &_ObjectName_ClassInfo_, clinit$ObjectName, allocate$ObjectName);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOMAIN_PATTERN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, DOMAIN_PATTERN)},
+		{"PROPLIST_PATTERN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, PROPLIST_PATTERN)},
+		{"PROPVAL_PATTERN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, PROPVAL_PATTERN)},
+		{"FLAG_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, FLAG_MASK)},
+		{"DOMAIN_LENGTH_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, DOMAIN_LENGTH_MASK)},
+		{"oldSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, oldSerialVersionUID)},
+		{"newSerialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjectName, newSerialVersionUID)},
+		{"oldSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, oldSerialPersistentFields)},
+		{"newSerialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, newSerialPersistentFields)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, serialVersionUID)},
+		{"serialPersistentFields", "[Ljava/io/ObjectStreamField;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, serialPersistentFields)},
+		{"compat", "Z", nullptr, $PRIVATE | $STATIC, $staticField(ObjectName, compat)},
+		{"_Empty_property_array", "[Ljavax/management/ObjectName$Property;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjectName, _Empty_property_array)},
+		{"_canonicalName", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectName, _canonicalName)},
+		{"_kp_array", "[Ljavax/management/ObjectName$Property;", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectName, _kp_array)},
+		{"_ca_array", "[Ljavax/management/ObjectName$Property;", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectName, _ca_array)},
+		{"_propertyList", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE | $TRANSIENT, $field(ObjectName, _propertyList)},
+		{"_compressed_storage", "I", nullptr, $PRIVATE | $TRANSIENT, $field(ObjectName, _compressed_storage)},
+		{"WILDCARD", "Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ObjectName, WILDCARD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectName, init$, void, $String*), "javax.management.MalformedObjectNameException"},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ObjectName, init$, void, $String*, $String*, $String*), "javax.management.MalformedObjectNameException"},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Hashtable;)V", "(Ljava/lang/String;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;)V", $PUBLIC, $method(ObjectName, init$, void, $String*, $Hashtable*), "javax.management.MalformedObjectNameException"},
+		{"_getKeyPropertyList", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $method(ObjectName, _getKeyPropertyList, $Map*)},
+		{"addProperty", "(Ljavax/management/ObjectName$Property;ILjava/util/Map;Ljava/lang/String;)V", "(Ljavax/management/ObjectName$Property;ILjava/util/Map<Ljava/lang/String;Ljavax/management/ObjectName$Property;>;Ljava/lang/String;)V", $PRIVATE, $method(ObjectName, addProperty, void, $ObjectName$Property*, int32_t, $Map*, $String*), "javax.management.MalformedObjectNameException"},
+		{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, apply, bool, ObjectName*)},
+		{"checkKey", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectName, checkKey, void, $String*), "javax.management.MalformedObjectNameException"},
+		{"checkValue", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectName, checkValue, bool, $String*), "javax.management.MalformedObjectNameException"},
+		{"compareTo", "(Ljavax/management/ObjectName;)I", nullptr, $PUBLIC, $virtualMethod(ObjectName, compareTo, int32_t, ObjectName*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(ObjectName, compareTo, int32_t, Object$*)},
+		{"construct", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(ObjectName, construct, void, $String*), "javax.management.MalformedObjectNameException"},
+		{"construct", "(Ljava/lang/String;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", $PRIVATE, $method(ObjectName, construct, void, $String*, $Map*), "javax.management.MalformedObjectNameException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, equals, bool, Object$*)},
+		{"getCanonicalKeyPropertyListString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getCanonicalKeyPropertyListString, $String*)},
+		{"getCanonicalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getCanonicalName, $String*)},
+		{"getDomain", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getDomain, $String*)},
+		{"getDomainLength", "()I", nullptr, $PRIVATE, $method(ObjectName, getDomainLength, int32_t)},
+		{"getInstance", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, getInstance, ObjectName*, $String*), "javax.management.MalformedObjectNameException,java.lang.NullPointerException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, getInstance, ObjectName*, $String*, $String*, $String*), "javax.management.MalformedObjectNameException"},
+		{"getInstance", "(Ljava/lang/String;Ljava/util/Hashtable;)Ljavax/management/ObjectName;", "(Ljava/lang/String;Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;)Ljavax/management/ObjectName;", $PUBLIC | $STATIC, $staticMethod(ObjectName, getInstance, ObjectName*, $String*, $Hashtable*), "javax.management.MalformedObjectNameException"},
+		{"getInstance", "(Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, getInstance, ObjectName*, ObjectName*)},
+		{"getKeyProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getKeyProperty, $String*, $String*)},
+		{"getKeyPropertyList", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(ObjectName, getKeyPropertyList, $Hashtable*)},
+		{"getKeyPropertyListString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, getKeyPropertyListString, $String*)},
+		{"getSerializedNameString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ObjectName, getSerializedNameString, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjectName, hashCode, int32_t)},
+		{"isDomain", "(Ljava/lang/String;)Z", nullptr, $PRIVATE, $method(ObjectName, isDomain, bool, $String*)},
+		{"isDomainPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isDomainPattern, bool)},
+		{"isPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPattern, bool)},
+		{"isPropertyListPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPropertyListPattern, bool)},
+		{"isPropertyPattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPropertyPattern, bool)},
+		{"isPropertyValuePattern", "()Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPropertyValuePattern, bool)},
+		{"isPropertyValuePattern", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(ObjectName, isPropertyValuePattern, bool, $String*)},
+		{"matchDomains", "(Ljavax/management/ObjectName;)Z", nullptr, $PRIVATE | $FINAL, $method(ObjectName, matchDomains, bool, ObjectName*)},
+		{"matchKeys", "(Ljavax/management/ObjectName;)Z", nullptr, $PRIVATE | $FINAL, $method(ObjectName, matchKeys, bool, ObjectName*)},
+		{"parseKey", "([CI)I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectName, parseKey, int32_t, $chars*, int32_t), "javax.management.MalformedObjectNameException"},
+		{"parseValue", "([CI)[I", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjectName, parseValue, $ints*, $chars*, int32_t), "javax.management.MalformedObjectNameException"},
+		{"quote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, quote, $String*, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(ObjectName, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setCanonicalName", "([C[C[Ljava/lang/String;Ljava/util/Map;II)V", "([C[C[Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljavax/management/ObjectName$Property;>;II)V", $PRIVATE, $method(ObjectName, setCanonicalName, void, $chars*, $chars*, $StringArray*, $Map*, int32_t, int32_t)},
+		{"setDomainLength", "(I)V", nullptr, $PRIVATE, $method(ObjectName, setDomainLength, void, int32_t), "javax.management.MalformedObjectNameException"},
+		{"setDomainPattern", "(Z)V", nullptr, $PRIVATE, $method(ObjectName, setDomainPattern, void, bool)},
+		{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC, $virtualMethod(ObjectName, setMBeanServer, void, $MBeanServer*)},
+		{"setPropertyListPattern", "(Z)V", nullptr, $PRIVATE, $method(ObjectName, setPropertyListPattern, void, bool)},
+		{"setPropertyValuePattern", "(Z)V", nullptr, $PRIVATE, $method(ObjectName, setPropertyValuePattern, void, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjectName, toString, $String*)},
+		{"unquote", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjectName, unquote, $String*, $String*)},
+		{"writeKeyPropertyListString", "([C[CI)I", nullptr, $PRIVATE, $method(ObjectName, writeKeyPropertyListString, int32_t, $chars*, $chars*, int32_t)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(ObjectName, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.ObjectName$PatternProperty", "javax.management.ObjectName", "PatternProperty", $PRIVATE | $STATIC},
+		{"javax.management.ObjectName$Property", "javax.management.ObjectName", "Property", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.ObjectName",
+		"java.lang.Object",
+		"java.lang.Comparable,javax.management.QueryExp",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Ljavax/management/ObjectName;>;Ljavax/management/QueryExp;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.ObjectName$PatternProperty,javax.management.ObjectName$Property"
+	};
+	$loadClass(ObjectName, name, initialize, &classInfo$$, ObjectName::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ObjectName));
+	});
 	return class$;
 }
 

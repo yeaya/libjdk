@@ -13,6 +13,7 @@ class SSLStreams$1 : public ::java::lang::Object {
 	$class(SSLStreams$1, 0, ::java::lang::Object)
 public:
 	SSLStreams$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus;
 };
 

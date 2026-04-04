@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Utility$JavaWriter.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/Utility.h>
 #include <java/io/FilterWriter.h>
 #include <java/io/Writer.h>
@@ -23,60 +22,26 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$MethodInfo _Utility$JavaWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(Utility$JavaWriter, init$, void, $Writer*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Utility$JavaWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Utility$JavaWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(Utility$JavaWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Utility$JavaWriter_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.classfile.Utility$JavaWriter", "com.sun.org.apache.bcel.internal.classfile.Utility", "JavaWriter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Utility$JavaWriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.Utility$JavaWriter",
-	"java.io.FilterWriter",
-	nullptr,
-	nullptr,
-	_Utility$JavaWriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Utility$JavaWriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.classfile.Utility"
-};
-
-$Object* allocate$Utility$JavaWriter($Class* clazz) {
-	return $of($alloc(Utility$JavaWriter));
-}
-
 void Utility$JavaWriter::init$($Writer* out) {
 	$FilterWriter::init$(out);
 }
 
 void Utility$JavaWriter::write(int32_t b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($Utility::isJavaIdentifierPart((char16_t)b) && (b != u'$')) {
 		$nc(this->out)->write(b);
 	} else {
-		$nc(this->out)->write((int32_t)u'$');
+		$nc(this->out)->write(u'$');
 		if (b >= 0 && b < 48) {
-			$init($Utility);
-			$nc(this->out)->write($nc($Utility::CHAR_MAP)->get(b));
+			this->out->write($nc($Utility::CHAR_MAP)->get(b));
 		} else {
-			$var($chars, tmp, $nc($($Integer::toHexString(b)))->toCharArray());
+			$var($chars, tmp, $$nc($Integer::toHexString(b))->toCharArray());
 			if (tmp->length == 1) {
-				$nc(this->out)->write((int32_t)u'0');
-				$nc(this->out)->write((int32_t)tmp->get(0));
+				this->out->write(u'0');
+				this->out->write(tmp->get(0));
 			} else {
-				$nc(this->out)->write((int32_t)tmp->get(0));
-				$nc(this->out)->write((int32_t)tmp->get(1));
+				this->out->write(tmp->get(0));
+				this->out->write(tmp->get(1));
 			}
 		}
 	}
@@ -84,7 +49,7 @@ void Utility$JavaWriter::write(int32_t b) {
 
 void Utility$JavaWriter::write($chars* cbuf, int32_t off, int32_t len) {
 	for (int32_t i = 0; i < len; ++i) {
-		write((int32_t)$nc(cbuf)->get(off + i));
+		write($nc(cbuf)->get(off + i));
 	}
 }
 
@@ -96,7 +61,35 @@ Utility$JavaWriter::Utility$JavaWriter() {
 }
 
 $Class* Utility$JavaWriter::load$($String* name, bool initialize) {
-	$loadClass(Utility$JavaWriter, name, initialize, &_Utility$JavaWriter_ClassInfo_, allocate$Utility$JavaWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(Utility$JavaWriter, init$, void, $Writer*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(Utility$JavaWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(Utility$JavaWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(Utility$JavaWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.classfile.Utility$JavaWriter", "com.sun.org.apache.bcel.internal.classfile.Utility", "JavaWriter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.Utility$JavaWriter",
+		"java.io.FilterWriter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.classfile.Utility"
+	};
+	$loadClass(Utility$JavaWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Utility$JavaWriter));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <JViewPortBackingStoreImageTest$1.h>
-
 #include <JViewPortBackingStoreImageTest.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
@@ -14,50 +13,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JFrame = ::javax::swing::JFrame;
-
-$FieldInfo _JViewPortBackingStoreImageTest$1_FieldInfo_[] = {
-	{"val$mainFrame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(JViewPortBackingStoreImageTest$1, val$mainFrame)},
-	{}
-};
-
-$MethodInfo _JViewPortBackingStoreImageTest$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFrame;)V", "()V", 0, $method(JViewPortBackingStoreImageTest$1, init$, void, $JFrame*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JViewPortBackingStoreImageTest$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _JViewPortBackingStoreImageTest$1_EnclosingMethodInfo_ = {
-	"JViewPortBackingStoreImageTest",
-	"createUI",
-	"()V"
-};
-
-$InnerClassInfo _JViewPortBackingStoreImageTest$1_InnerClassesInfo_[] = {
-	{"JViewPortBackingStoreImageTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JViewPortBackingStoreImageTest$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"JViewPortBackingStoreImageTest$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_JViewPortBackingStoreImageTest$1_FieldInfo_,
-	_JViewPortBackingStoreImageTest$1_MethodInfo_,
-	nullptr,
-	&_JViewPortBackingStoreImageTest$1_EnclosingMethodInfo_,
-	_JViewPortBackingStoreImageTest$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"JViewPortBackingStoreImageTest"
-};
-
-$Object* allocate$JViewPortBackingStoreImageTest$1($Class* clazz) {
-	return $of($alloc(JViewPortBackingStoreImageTest$1));
-}
 
 void JViewPortBackingStoreImageTest$1::init$($JFrame* val$mainFrame) {
 	$set(this, val$mainFrame, val$mainFrame);
@@ -73,7 +29,42 @@ JViewPortBackingStoreImageTest$1::JViewPortBackingStoreImageTest$1() {
 }
 
 $Class* JViewPortBackingStoreImageTest$1::load$($String* name, bool initialize) {
-	$loadClass(JViewPortBackingStoreImageTest$1, name, initialize, &_JViewPortBackingStoreImageTest$1_ClassInfo_, allocate$JViewPortBackingStoreImageTest$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$mainFrame", "Ljavax/swing/JFrame;", nullptr, $FINAL | $SYNTHETIC, $field(JViewPortBackingStoreImageTest$1, val$mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFrame;)V", "()V", 0, $method(JViewPortBackingStoreImageTest$1, init$, void, $JFrame*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JViewPortBackingStoreImageTest$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"JViewPortBackingStoreImageTest",
+		"createUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JViewPortBackingStoreImageTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"JViewPortBackingStoreImageTest$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"JViewPortBackingStoreImageTest"
+	};
+	$loadClass(JViewPortBackingStoreImageTest$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JViewPortBackingStoreImageTest$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <ScaledFrameBackgroundTest.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -25,7 +24,6 @@
 using $RectangleArray = $Array<::java::awt::Rectangle>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $Serializable = ::java::io::Serializable;
@@ -47,27 +45,24 @@ public:
 	virtual void run() override {
 		ScaledFrameBackgroundTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ScaledFrameBackgroundTest$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ScaledFrameBackgroundTest$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScaledFrameBackgroundTest$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScaledFrameBackgroundTest$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo ScaledFrameBackgroundTest$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ScaledFrameBackgroundTest$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ScaledFrameBackgroundTest$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(ScaledFrameBackgroundTest$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScaledFrameBackgroundTest$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScaledFrameBackgroundTest$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ScaledFrameBackgroundTest$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ScaledFrameBackgroundTest$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScaledFrameBackgroundTest$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* ScaledFrameBackgroundTest$$Lambda$lambda$main$0::class$ = nullptr;
@@ -81,33 +76,29 @@ public:
 	virtual void run() override {
 		ScaledFrameBackgroundTest::lambda$main$1(rects);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1>());
-	}
 	$RectangleArray* rects = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1::fieldInfos[2] = {
-	{"rects", "[Ljava/awt/Rectangle;", nullptr, $PUBLIC, $field(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, rects)},
-	{}
-};
-$MethodInfo ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "([Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, init$, void, $RectangleArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"rects", "[Ljava/awt/Rectangle;", nullptr, $PUBLIC, $field(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, rects)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, init$, void, $RectangleArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1::class$ = nullptr;
@@ -120,58 +111,27 @@ public:
 	virtual void run() override {
 		ScaledFrameBackgroundTest::lambda$main$2();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2, run, void)},
-	{}
-};
-$ClassInfo ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2::load$($String* name, bool initialize) {
-	$loadClass(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2);
+	});
 	return class$;
 }
 $Class* ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2::class$ = nullptr;
-
-$FieldInfo _ScaledFrameBackgroundTest_FieldInfo_[] = {
-	{"BACKGROUND", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScaledFrameBackgroundTest, BACKGROUND)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ScaledFrameBackgroundTest, frame)},
-	{}
-};
-
-$MethodInfo _ScaledFrameBackgroundTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScaledFrameBackgroundTest, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ScaledFrameBackgroundTest, lambda$main$0, void)},
-	{"lambda$main$1", "([Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ScaledFrameBackgroundTest, lambda$main$1, void, $RectangleArray*)},
-	{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ScaledFrameBackgroundTest, lambda$main$2, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScaledFrameBackgroundTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ScaledFrameBackgroundTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ScaledFrameBackgroundTest",
-	"java.lang.Object",
-	nullptr,
-	_ScaledFrameBackgroundTest_FieldInfo_,
-	_ScaledFrameBackgroundTest_MethodInfo_
-};
-
-$Object* allocate$ScaledFrameBackgroundTest($Class* clazz) {
-	return $of($alloc(ScaledFrameBackgroundTest));
-}
 
 $Color* ScaledFrameBackgroundTest::BACKGROUND = nullptr;
 $JFrame* ScaledFrameBackgroundTest::frame = nullptr;
@@ -181,40 +141,38 @@ void ScaledFrameBackgroundTest::init$() {
 
 void ScaledFrameBackgroundTest::main($StringArray* args) {
 	$init(ScaledFrameBackgroundTest);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(100);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ScaledFrameBackgroundTest$$Lambda$lambda$main$0)));
-			robot->waitForIdle();
-			robot->delay(1000);
-			$var($RectangleArray, rects, $new($RectangleArray, 1));
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, rects)));
-			$var($Rectangle, bounds, rects->get(0));
-			int32_t x = $nc(bounds)->x + bounds->width / 4;
-			int32_t y = bounds->y + bounds->height / 4;
-			$var($Color, color, robot->getPixelColor(x, y));
-			if (!$nc(ScaledFrameBackgroundTest::BACKGROUND)->equals(color)) {
-				$throwNew($RuntimeException, "Wrong backgound color!"_s);
-			}
-			x = bounds->x + 3 * bounds->width / 4;
-			y = bounds->y + 3 * bounds->height / 4;
-			$assign(color, robot->getPixelColor(x, y));
-			if (!$nc(ScaledFrameBackgroundTest::BACKGROUND)->equals(color)) {
-				$throwNew($RuntimeException, "Wrong backgound color!!"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (ScaledFrameBackgroundTest::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(100);
+		$SwingUtilities::invokeAndWait($$new(ScaledFrameBackgroundTest$$Lambda$lambda$main$0));
+		robot->waitForIdle();
+		robot->delay(1000);
+		$var($RectangleArray, rects, $new($RectangleArray, 1));
+		$SwingUtilities::invokeAndWait($$new(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1, rects));
+		$var($Rectangle, bounds, rects->get(0));
+		int32_t x = $nc(bounds)->x + $nc(bounds)->width / 4;
+		int32_t y = bounds->y + bounds->height / 4;
+		$var($Color, color, robot->getPixelColor(x, y));
+		if (!$nc(ScaledFrameBackgroundTest::BACKGROUND)->equals(color)) {
+			$throwNew($RuntimeException, "Wrong backgound color!"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		x = bounds->x + 3 * bounds->width / 4;
+		y = bounds->y + 3 * bounds->height / 4;
+		$assign(color, robot->getPixelColor(x, y));
+		if (!ScaledFrameBackgroundTest::BACKGROUND->equals(color)) {
+			$throwNew($RuntimeException, "Wrong backgound color!!"_s);
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (ScaledFrameBackgroundTest::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2));
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -230,18 +188,18 @@ void ScaledFrameBackgroundTest::lambda$main$1($RectangleArray* rects) {
 
 void ScaledFrameBackgroundTest::lambda$main$0() {
 	$init(ScaledFrameBackgroundTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(ScaledFrameBackgroundTest::frame, $new($JFrame));
-	$nc(ScaledFrameBackgroundTest::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	ScaledFrameBackgroundTest::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(ScaledFrameBackgroundTest::frame)->setSize(400, 300);
 	$var($JPanel, panel, $new($JPanel));
 	panel->setBackground(ScaledFrameBackgroundTest::BACKGROUND);
-	$nc($($nc(ScaledFrameBackgroundTest::frame)->getContentPane()))->add(static_cast<$Component*>(panel));
+	$$nc($nc(ScaledFrameBackgroundTest::frame)->getContentPane())->add(panel);
 	$nc(ScaledFrameBackgroundTest::frame)->setVisible(true);
 	$nc(ScaledFrameBackgroundTest::frame)->setLocationRelativeTo(nullptr);
 }
 
-void clinit$ScaledFrameBackgroundTest($Class* class$) {
+void ScaledFrameBackgroundTest::clinit$($Class* clazz) {
 	$init($Color);
 	$assignStatic(ScaledFrameBackgroundTest::BACKGROUND, $Color::RED);
 }
@@ -251,17 +209,40 @@ ScaledFrameBackgroundTest::ScaledFrameBackgroundTest() {
 
 $Class* ScaledFrameBackgroundTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ScaledFrameBackgroundTest$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("ScaledFrameBackgroundTest$$Lambda$lambda$main$0")) {
 			return ScaledFrameBackgroundTest$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1")) {
 			return ScaledFrameBackgroundTest$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
-		if (name->equals(ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2::classInfo$.name)) {
+		if (name->equals("ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2")) {
 			return ScaledFrameBackgroundTest$$Lambda$lambda$main$2$2::load$(name, initialize);
 		}
 	}
-	$loadClass(ScaledFrameBackgroundTest, name, initialize, &_ScaledFrameBackgroundTest_ClassInfo_, clinit$ScaledFrameBackgroundTest, allocate$ScaledFrameBackgroundTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ScaledFrameBackgroundTest, BACKGROUND)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ScaledFrameBackgroundTest, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScaledFrameBackgroundTest, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ScaledFrameBackgroundTest, lambda$main$0, void)},
+		{"lambda$main$1", "([Ljava/awt/Rectangle;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ScaledFrameBackgroundTest, lambda$main$1, void, $RectangleArray*)},
+		{"lambda$main$2", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ScaledFrameBackgroundTest, lambda$main$2, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScaledFrameBackgroundTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ScaledFrameBackgroundTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScaledFrameBackgroundTest, name, initialize, &classInfo$$, ScaledFrameBackgroundTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScaledFrameBackgroundTest);
+	});
 	return class$;
 }
 

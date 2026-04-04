@@ -57,6 +57,7 @@ class $import SpringLayout : public ::java::awt::LayoutManager2 {
 	$class(SpringLayout, 0, ::java::awt::LayoutManager2)
 public:
 	SpringLayout();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::javax::swing::Spring* abandonCycles(::javax::swing::Spring* s);
 	static ::java::awt::Dimension* addInsets(int32_t width, int32_t height, ::java::awt::Container* p);

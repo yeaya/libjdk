@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/AlternativePattern.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
@@ -17,11 +16,9 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Type.h>
 #include <jcpp.h>
 
-using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Pattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Pattern;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
@@ -40,37 +37,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _AlternativePattern_FieldInfo_[] = {
-	{"_left", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE | $FINAL, $field(AlternativePattern, _left)},
-	{"_right", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE | $FINAL, $field(AlternativePattern, _right)},
-	{}
-};
-
-$MethodInfo _AlternativePattern_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;)V", nullptr, $PUBLIC, $method(AlternativePattern, init$, void, $Pattern*, $Pattern*)},
-	{"getLeft", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $method(AlternativePattern, getLeft, $Pattern*)},
-	{"getPriority", "()D", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, getPriority, double)},
-	{"getRight", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $method(AlternativePattern, getRight, $Pattern*)},
-	{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, setParser, void, $Parser*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, toString, $String*)},
-	{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, translate, void, $ClassGenerator*, $MethodGenerator*)},
-	{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
-	{}
-};
-
-$ClassInfo _AlternativePattern_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.AlternativePattern",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern",
-	nullptr,
-	_AlternativePattern_FieldInfo_,
-	_AlternativePattern_MethodInfo_
-};
-
-$Object* allocate$AlternativePattern($Class* clazz) {
-	return $of($alloc(AlternativePattern));
-}
 
 void AlternativePattern::init$($Pattern* left, $Pattern* right) {
 	$Pattern::init$();
@@ -113,23 +79,49 @@ $String* AlternativePattern::toString() {
 }
 
 void AlternativePattern::translate($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$nc(this->_left)->translate(classGen, methodGen);
-	$var($InstructionHandle, gotot, $nc(il)->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
+	$var($InstructionHandle, gotot, $nc(il)->append($$new($GOTO, nullptr)));
 	il->append($(methodGen->loadContextNode()));
 	$nc(this->_right)->translate(classGen, methodGen);
-	$nc($nc(this->_left)->_trueList)->backPatch(gotot);
-	$nc($nc(this->_left)->_falseList)->backPatch($($nc(gotot)->getNext()));
-	$nc(this->_trueList)->append($($nc($nc(this->_right)->_trueList)->add(gotot)));
-	$nc(this->_falseList)->append($nc(this->_right)->_falseList);
+	$nc(this->_left->_trueList)->backPatch(gotot);
+	$nc(this->_left->_falseList)->backPatch($($nc(gotot)->getNext()));
+	$nc(this->_trueList)->append($($nc(this->_right->_trueList)->add(gotot)));
+	$nc(this->_falseList)->append(this->_right->_falseList);
 }
 
 AlternativePattern::AlternativePattern() {
 }
 
 $Class* AlternativePattern::load$($String* name, bool initialize) {
-	$loadClass(AlternativePattern, name, initialize, &_AlternativePattern_ClassInfo_, allocate$AlternativePattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"_left", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE | $FINAL, $field(AlternativePattern, _left)},
+		{"_right", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PRIVATE | $FINAL, $field(AlternativePattern, _right)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;)V", nullptr, $PUBLIC, $method(AlternativePattern, init$, void, $Pattern*, $Pattern*)},
+		{"getLeft", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $method(AlternativePattern, getLeft, $Pattern*)},
+		{"getPriority", "()D", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, getPriority, double)},
+		{"getRight", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Pattern;", nullptr, $PUBLIC, $method(AlternativePattern, getRight, $Pattern*)},
+		{"setParser", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;)V", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, setParser, void, $Parser*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, toString, $String*)},
+		{"translate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, translate, void, $ClassGenerator*, $MethodGenerator*)},
+		{"typeCheck", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;", nullptr, $PUBLIC, $virtualMethod(AlternativePattern, typeCheck, $Type*, $SymbolTable*), "com.sun.org.apache.xalan.internal.xsltc.compiler.util.TypeCheckError"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.AlternativePattern",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AlternativePattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AlternativePattern);
+	});
 	return class$;
 }
 

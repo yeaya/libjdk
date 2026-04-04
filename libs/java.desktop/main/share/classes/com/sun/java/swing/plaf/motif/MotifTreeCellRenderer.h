@@ -35,6 +35,7 @@ public:
 	using ::javax::swing::tree::DefaultTreeCellRenderer::add;
 	using ::javax::swing::tree::DefaultTreeCellRenderer::getMousePosition;
 	using ::javax::swing::tree::DefaultTreeCellRenderer::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::Icon* loadLeafIcon();
 	using ::javax::swing::tree::DefaultTreeCellRenderer::repaint;

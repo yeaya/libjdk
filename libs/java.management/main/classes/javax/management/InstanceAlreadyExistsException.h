@@ -14,10 +14,13 @@ public:
 	InstanceAlreadyExistsException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0x7B6CECFB762166EB;
+	static const int64_t serialVersionUID = (int64_t)0x7b6cecfb762166eb;
 	InstanceAlreadyExistsException(const InstanceAlreadyExistsException& e);
 	virtual void throw$() override;
-	inline InstanceAlreadyExistsException* operator ->() {
+	inline InstanceAlreadyExistsException* operator ->() const {
+		return (InstanceAlreadyExistsException*)throwing$;
+	}
+	inline operator InstanceAlreadyExistsException*() const {
 		return (InstanceAlreadyExistsException*)throwing$;
 	}
 };

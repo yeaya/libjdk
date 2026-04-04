@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$Contrast.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,38 +15,8 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$Contrast_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$Contrast, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$Contrast_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$Contrast", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "Contrast", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$Contrast_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$Contrast",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$Contrast_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$Contrast_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$Contrast($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$Contrast));
-}
-
 void ExifTIFFTagSet$Contrast::init$() {
-	$TIFFTag::init$("Contrast"_s, 0x0000A408, $sl(1, $TIFFTag::TIFF_SHORT), 1);
+	$TIFFTag::init$("Contrast"_s, 0x0000a408, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(0, "Normal"_s);
 	addValueName(1, "Soft"_s);
 	addValueName(2, "Hard"_s);
@@ -57,7 +26,32 @@ ExifTIFFTagSet$Contrast::ExifTIFFTagSet$Contrast() {
 }
 
 $Class* ExifTIFFTagSet$Contrast::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$Contrast, name, initialize, &_ExifTIFFTagSet$Contrast_ClassInfo_, allocate$ExifTIFFTagSet$Contrast);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$Contrast, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$Contrast", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "Contrast", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$Contrast",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$Contrast, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$Contrast);
+	});
 	return class$;
 }
 

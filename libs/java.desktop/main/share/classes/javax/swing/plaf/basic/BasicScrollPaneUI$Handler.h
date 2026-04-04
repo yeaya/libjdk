@@ -55,6 +55,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::plaf::basic::BasicScrollPaneUI* this$0);
 	void hsbStateChanged(::javax::swing::JViewport* viewport, ::javax::swing::event::ChangeEvent* e);
 	virtual void mouseWheelMoved(::java::awt::event::MouseWheelEvent* e) override;

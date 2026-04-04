@@ -1,5 +1,4 @@
 #include <bug6263446JTree$6.h>
-
 #include <bug6263446JTree.h>
 #include <java/awt/Component.h>
 #include <java/lang/IllegalAccessException.h>
@@ -24,57 +23,14 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
 using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
 using $JTextField = ::javax::swing::JTextField;
-using $JTree = ::javax::swing::JTree;
 using $DefaultTreeCellEditor = ::javax::swing::tree::DefaultTreeCellEditor;
-
-$FieldInfo _bug6263446JTree$6_FieldInfo_[] = {
-	{"val$sel", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(bug6263446JTree$6, val$sel)},
-	{}
-};
-
-$MethodInfo _bug6263446JTree$6_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(bug6263446JTree$6, init$, void, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446JTree$6, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6263446JTree$6_EnclosingMethodInfo_ = {
-	"bug6263446JTree",
-	"checkSelection",
-	"(Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6263446JTree$6_InnerClassesInfo_[] = {
-	{"bug6263446JTree$6", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6263446JTree$6_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6263446JTree$6",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6263446JTree$6_FieldInfo_,
-	_bug6263446JTree$6_MethodInfo_,
-	nullptr,
-	&_bug6263446JTree$6_EnclosingMethodInfo_,
-	_bug6263446JTree$6_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6263446JTree"
-};
-
-$Object* allocate$bug6263446JTree$6($Class* clazz) {
-	return $of($alloc(bug6263446JTree$6));
-}
 
 void bug6263446JTree$6::init$($String* val$sel) {
 	$set(this, val$sel, val$sel);
 }
 
 void bug6263446JTree$6::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$init($bug6263446JTree);
@@ -89,13 +45,13 @@ void bug6263446JTree$6::run() {
 			if (text != nullptr && text->length() != 0) {
 				$throwNew($RuntimeException, $$str({"Nothing should be selected, but \""_s, text, "\" is selected."_s}));
 			}
-		} else if (!$nc(this->val$sel)->equals(text)) {
+		} else if (!this->val$sel->equals(text)) {
 			$throwNew($RuntimeException, $$str({"\""_s, this->val$sel, "\" should be selected, but \""_s, text, "\" is selected."_s}));
 		}
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($NoSuchFieldException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -103,7 +59,42 @@ bug6263446JTree$6::bug6263446JTree$6() {
 }
 
 $Class* bug6263446JTree$6::load$($String* name, bool initialize) {
-	$loadClass(bug6263446JTree$6, name, initialize, &_bug6263446JTree$6_ClassInfo_, allocate$bug6263446JTree$6);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$sel", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(bug6263446JTree$6, val$sel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", "()V", 0, $method(bug6263446JTree$6, init$, void, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6263446JTree$6, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6263446JTree",
+		"checkSelection",
+		"(Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6263446JTree$6", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6263446JTree$6",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6263446JTree"
+	};
+	$loadClass(bug6263446JTree$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6263446JTree$6);
+	});
 	return class$;
 }
 

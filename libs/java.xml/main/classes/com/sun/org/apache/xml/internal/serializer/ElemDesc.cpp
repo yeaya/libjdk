@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/ElemDesc.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/utils/StringToIntTable.h>
 #include <jcpp.h>
 
@@ -42,66 +41,13 @@ namespace com {
 					namespace internal {
 						namespace serializer {
 
-$FieldInfo _ElemDesc_FieldInfo_[] = {
-	{"m_flags", "I", nullptr, $PRIVATE, $field(ElemDesc, m_flags)},
-	{"m_attrs", "Lcom/sun/org/apache/xml/internal/serializer/utils/StringToIntTable;", nullptr, $PRIVATE, $field(ElemDesc, m_attrs)},
-	{"EMPTY", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, EMPTY)},
-	{"FLOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, FLOW)},
-	{"BLOCK", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, BLOCK)},
-	{"BLOCKFORM", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, BLOCKFORM)},
-	{"BLOCKFORMFIELDSET", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, BLOCKFORMFIELDSET)},
-	{"CDATA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, CDATA)},
-	{"PCDATA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, PCDATA)},
-	{"RAW", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, RAW)},
-	{"INLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, INLINE)},
-	{"INLINEA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, INLINEA)},
-	{"INLINELABEL", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, INLINELABEL)},
-	{"FONTSTYLE", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, FONTSTYLE)},
-	{"PHRASE", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, PHRASE)},
-	{"FORMCTRL", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, FORMCTRL)},
-	{"SPECIAL", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, SPECIAL)},
-	{"ASPECIAL", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, ASPECIAL)},
-	{"HEADMISC", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, HEADMISC)},
-	{"HEAD", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, HEAD)},
-	{"LIST", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, LIST)},
-	{"PREFORMATTED", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, PREFORMATTED)},
-	{"WHITESPACESENSITIVE", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, WHITESPACESENSITIVE)},
-	{"HEADELEM", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, HEADELEM)},
-	{"HTMLELEM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, HTMLELEM)},
-	{"ATTRURL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ElemDesc, ATTRURL)},
-	{"ATTREMPTY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ElemDesc, ATTREMPTY)},
-	{}
-};
-
-$MethodInfo _ElemDesc_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(ElemDesc, init$, void, int32_t)},
-	{"getFlags", "()I", nullptr, 0, $method(ElemDesc, getFlags, int32_t)},
-	{"is", "(I)Z", nullptr, $PRIVATE, $method(ElemDesc, is, bool, int32_t)},
-	{"isAttrFlagSet", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $method(ElemDesc, isAttrFlagSet, bool, $String*, int32_t)},
-	{"setAttr", "(Ljava/lang/String;I)V", nullptr, 0, $method(ElemDesc, setAttr, void, $String*, int32_t)},
-	{}
-};
-
-$ClassInfo _ElemDesc_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.ElemDesc",
-	"java.lang.Object",
-	nullptr,
-	_ElemDesc_FieldInfo_,
-	_ElemDesc_MethodInfo_
-};
-
-$Object* allocate$ElemDesc($Class* clazz) {
-	return $of($alloc(ElemDesc));
-}
-
 void ElemDesc::init$(int32_t flags) {
 	$set(this, m_attrs, nullptr);
 	this->m_flags = flags;
 }
 
 bool ElemDesc::is(int32_t flags) {
-	return ((int32_t)(this->m_flags & (uint32_t)flags)) != 0;
+	return (this->m_flags & flags) != 0;
 }
 
 int32_t ElemDesc::getFlags() {
@@ -116,14 +62,62 @@ void ElemDesc::setAttr($String* name, int32_t flags) {
 }
 
 bool ElemDesc::isAttrFlagSet($String* name, int32_t flags) {
-	return (nullptr != this->m_attrs) ? (((int32_t)($nc(this->m_attrs)->getIgnoreCase(name) & (uint32_t)flags)) != 0) : false;
+	return (nullptr != this->m_attrs) ? ((this->m_attrs->getIgnoreCase(name) & flags) != 0) : false;
 }
 
 ElemDesc::ElemDesc() {
 }
 
 $Class* ElemDesc::load$($String* name, bool initialize) {
-	$loadClass(ElemDesc, name, initialize, &_ElemDesc_ClassInfo_, allocate$ElemDesc);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_flags", "I", nullptr, $PRIVATE, $field(ElemDesc, m_flags)},
+		{"m_attrs", "Lcom/sun/org/apache/xml/internal/serializer/utils/StringToIntTable;", nullptr, $PRIVATE, $field(ElemDesc, m_attrs)},
+		{"EMPTY", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, EMPTY)},
+		{"FLOW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, FLOW)},
+		{"BLOCK", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, BLOCK)},
+		{"BLOCKFORM", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, BLOCKFORM)},
+		{"BLOCKFORMFIELDSET", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, BLOCKFORMFIELDSET)},
+		{"CDATA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, CDATA)},
+		{"PCDATA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, PCDATA)},
+		{"RAW", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, RAW)},
+		{"INLINE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, INLINE)},
+		{"INLINEA", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, INLINEA)},
+		{"INLINELABEL", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, INLINELABEL)},
+		{"FONTSTYLE", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, FONTSTYLE)},
+		{"PHRASE", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, PHRASE)},
+		{"FORMCTRL", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, FORMCTRL)},
+		{"SPECIAL", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, SPECIAL)},
+		{"ASPECIAL", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, ASPECIAL)},
+		{"HEADMISC", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, HEADMISC)},
+		{"HEAD", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, HEAD)},
+		{"LIST", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, LIST)},
+		{"PREFORMATTED", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, PREFORMATTED)},
+		{"WHITESPACESENSITIVE", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, WHITESPACESENSITIVE)},
+		{"HEADELEM", "I", nullptr, $STATIC | $FINAL, $constField(ElemDesc, HEADELEM)},
+		{"HTMLELEM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ElemDesc, HTMLELEM)},
+		{"ATTRURL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ElemDesc, ATTRURL)},
+		{"ATTREMPTY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ElemDesc, ATTREMPTY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(ElemDesc, init$, void, int32_t)},
+		{"getFlags", "()I", nullptr, 0, $method(ElemDesc, getFlags, int32_t)},
+		{"is", "(I)Z", nullptr, $PRIVATE, $method(ElemDesc, is, bool, int32_t)},
+		{"isAttrFlagSet", "(Ljava/lang/String;I)Z", nullptr, $PUBLIC, $method(ElemDesc, isAttrFlagSet, bool, $String*, int32_t)},
+		{"setAttr", "(Ljava/lang/String;I)V", nullptr, 0, $method(ElemDesc, setAttr, void, $String*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.ElemDesc",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ElemDesc, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ElemDesc);
+	});
 	return class$;
 }
 

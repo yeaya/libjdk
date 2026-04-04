@@ -1,5 +1,4 @@
 #include <javax/tools/ForwardingJavaFileObject.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
@@ -24,50 +23,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $Modifier = ::javax::lang::model::element::Modifier;
 using $NestingKind = ::javax::lang::model::element::NestingKind;
-using $FileObject = ::javax::tools::FileObject;
 using $ForwardingFileObject = ::javax::tools::ForwardingFileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 
 namespace javax {
 	namespace tools {
-
-$MethodInfo _ForwardingJavaFileObject_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*delete$", "()Z", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
-	{"*getLastModified", "()J", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/tools/JavaFileObject;)V", "(TF;)V", $PROTECTED, $method(ForwardingJavaFileObject, init$, void, $JavaFileObject*)},
-	{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileObject, getAccessLevel, $Modifier*)},
-	{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileObject, getKind, $JavaFileObject$Kind*)},
-	{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileObject, getNestingKind, $NestingKind*)},
-	{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
-	{"*toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
-	{"*openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
-	{"*openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
-	{"*openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC},
-	{"*openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ForwardingJavaFileObject_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.tools.ForwardingJavaFileObject",
-	"javax.tools.ForwardingFileObject",
-	"javax.tools.JavaFileObject",
-	nullptr,
-	_ForwardingJavaFileObject_MethodInfo_,
-	"<F::Ljavax/tools/JavaFileObject;>Ljavax/tools/ForwardingFileObject<TF;>;Ljavax/tools/JavaFileObject;"
-};
-
-$Object* allocate$ForwardingJavaFileObject($Class* clazz) {
-	return $of($alloc(ForwardingJavaFileObject));
-}
 
 $URI* ForwardingJavaFileObject::toUri() {
 	 return this->$ForwardingFileObject::toUri();
@@ -130,26 +91,59 @@ void ForwardingJavaFileObject::init$($JavaFileObject* fileObject) {
 }
 
 $JavaFileObject$Kind* ForwardingJavaFileObject::getKind() {
-	return $nc(($cast($JavaFileObject, this->fileObject)))->getKind();
+	return $nc($cast($JavaFileObject, this->fileObject))->getKind();
 }
 
 bool ForwardingJavaFileObject::isNameCompatible($String* simpleName, $JavaFileObject$Kind* kind) {
-	return $nc(($cast($JavaFileObject, this->fileObject)))->isNameCompatible(simpleName, kind);
+	return $nc($cast($JavaFileObject, this->fileObject))->isNameCompatible(simpleName, kind);
 }
 
 $NestingKind* ForwardingJavaFileObject::getNestingKind() {
-	return $nc(($cast($JavaFileObject, this->fileObject)))->getNestingKind();
+	return $nc($cast($JavaFileObject, this->fileObject))->getNestingKind();
 }
 
 $Modifier* ForwardingJavaFileObject::getAccessLevel() {
-	return $nc(($cast($JavaFileObject, this->fileObject)))->getAccessLevel();
+	return $nc($cast($JavaFileObject, this->fileObject))->getAccessLevel();
 }
 
 ForwardingJavaFileObject::ForwardingJavaFileObject() {
 }
 
 $Class* ForwardingJavaFileObject::load$($String* name, bool initialize) {
-	$loadClass(ForwardingJavaFileObject, name, initialize, &_ForwardingJavaFileObject_ClassInfo_, allocate$ForwardingJavaFileObject);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*delete$", "()Z", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getCharContent", "(Z)Ljava/lang/CharSequence;", nullptr, $PUBLIC},
+		{"*getLastModified", "()J", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/tools/JavaFileObject;)V", "(TF;)V", $PROTECTED, $method(ForwardingJavaFileObject, init$, void, $JavaFileObject*)},
+		{"getAccessLevel", "()Ljavax/lang/model/element/Modifier;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileObject, getAccessLevel, $Modifier*)},
+		{"getKind", "()Ljavax/tools/JavaFileObject$Kind;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileObject, getKind, $JavaFileObject$Kind*)},
+		{"getNestingKind", "()Ljavax/lang/model/element/NestingKind;", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileObject, getNestingKind, $NestingKind*)},
+		{"isNameCompatible", "(Ljava/lang/String;Ljavax/tools/JavaFileObject$Kind;)Z", nullptr, $PUBLIC, $virtualMethod(ForwardingJavaFileObject, isNameCompatible, bool, $String*, $JavaFileObject$Kind*)},
+		{"*toUri", "()Ljava/net/URI;", nullptr, $PUBLIC},
+		{"*openInputStream", "()Ljava/io/InputStream;", nullptr, $PUBLIC},
+		{"*openOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC},
+		{"*openReader", "(Z)Ljava/io/Reader;", nullptr, $PUBLIC},
+		{"*openWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.tools.ForwardingJavaFileObject",
+		"javax.tools.ForwardingFileObject",
+		"javax.tools.JavaFileObject",
+		nullptr,
+		methodInfos$$,
+		"<F::Ljavax/tools/JavaFileObject;>Ljavax/tools/ForwardingFileObject<TF;>;Ljavax/tools/JavaFileObject;"
+	};
+	$loadClass(ForwardingJavaFileObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ForwardingJavaFileObject));
+	});
 	return class$;
 }
 

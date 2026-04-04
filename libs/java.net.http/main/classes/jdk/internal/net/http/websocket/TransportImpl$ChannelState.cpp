@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/TransportImpl$ChannelState.h>
-
 #include <java/lang/Enum.h>
 #include <jdk/internal/net/http/websocket/TransportImpl.h>
 #include <jcpp.h>
@@ -21,48 +20,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace websocket {
-
-$FieldInfo _TransportImpl$ChannelState_FieldInfo_[] = {
-	{"UNREGISTERED", "Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TransportImpl$ChannelState, UNREGISTERED)},
-	{"AVAILABLE", "Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TransportImpl$ChannelState, AVAILABLE)},
-	{"WAITING", "Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TransportImpl$ChannelState, WAITING)},
-	{"CLOSED", "Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TransportImpl$ChannelState, CLOSED)},
-	{"$VALUES", "[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TransportImpl$ChannelState, $VALUES)},
-	{}
-};
-
-$MethodInfo _TransportImpl$ChannelState_MethodInfo_[] = {
-	{"$values", "()[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransportImpl$ChannelState, $values, $TransportImpl$ChannelStateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TransportImpl$ChannelState, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransportImpl$ChannelState, valueOf, TransportImpl$ChannelState*, $String*)},
-	{"values", "()[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransportImpl$ChannelState, values, $TransportImpl$ChannelStateArray*)},
-	{}
-};
-
-$InnerClassInfo _TransportImpl$ChannelState_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.TransportImpl$ChannelState", "jdk.internal.net.http.websocket.TransportImpl", "ChannelState", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TransportImpl$ChannelState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"jdk.internal.net.http.websocket.TransportImpl$ChannelState",
-	"java.lang.Enum",
-	nullptr,
-	_TransportImpl$ChannelState_FieldInfo_,
-	_TransportImpl$ChannelState_MethodInfo_,
-	"Ljava/lang/Enum<Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;>;",
-	nullptr,
-	_TransportImpl$ChannelState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.websocket.TransportImpl"
-};
-
-$Object* allocate$TransportImpl$ChannelState($Class* clazz) {
-	return $of($alloc(TransportImpl$ChannelState));
-}
 
 TransportImpl$ChannelState* TransportImpl$ChannelState::UNREGISTERED = nullptr;
 TransportImpl$ChannelState* TransportImpl$ChannelState::AVAILABLE = nullptr;
@@ -94,7 +51,7 @@ void TransportImpl$ChannelState::init$($String* $enum$name, int32_t $enum$ordina
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$TransportImpl$ChannelState($Class* class$) {
+void TransportImpl$ChannelState::clinit$($Class* clazz) {
 	$assignStatic(TransportImpl$ChannelState::UNREGISTERED, $new(TransportImpl$ChannelState, "UNREGISTERED"_s, 0));
 	$assignStatic(TransportImpl$ChannelState::AVAILABLE, $new(TransportImpl$ChannelState, "AVAILABLE"_s, 1));
 	$assignStatic(TransportImpl$ChannelState::WAITING, $new(TransportImpl$ChannelState, "WAITING"_s, 2));
@@ -106,7 +63,43 @@ TransportImpl$ChannelState::TransportImpl$ChannelState() {
 }
 
 $Class* TransportImpl$ChannelState::load$($String* name, bool initialize) {
-	$loadClass(TransportImpl$ChannelState, name, initialize, &_TransportImpl$ChannelState_ClassInfo_, clinit$TransportImpl$ChannelState, allocate$TransportImpl$ChannelState);
+	$FieldInfo fieldInfos$$[] = {
+		{"UNREGISTERED", "Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TransportImpl$ChannelState, UNREGISTERED)},
+		{"AVAILABLE", "Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TransportImpl$ChannelState, AVAILABLE)},
+		{"WAITING", "Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TransportImpl$ChannelState, WAITING)},
+		{"CLOSED", "Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TransportImpl$ChannelState, CLOSED)},
+		{"$VALUES", "[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TransportImpl$ChannelState, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TransportImpl$ChannelState, $values, $TransportImpl$ChannelStateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TransportImpl$ChannelState, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransportImpl$ChannelState, valueOf, TransportImpl$ChannelState*, $String*)},
+		{"values", "()[Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransportImpl$ChannelState, values, $TransportImpl$ChannelStateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.TransportImpl$ChannelState", "jdk.internal.net.http.websocket.TransportImpl", "ChannelState", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"jdk.internal.net.http.websocket.TransportImpl$ChannelState",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Ljdk/internal/net/http/websocket/TransportImpl$ChannelState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.websocket.TransportImpl"
+	};
+	$loadClass(TransportImpl$ChannelState, name, initialize, &classInfo$$, TransportImpl$ChannelState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TransportImpl$ChannelState));
+	});
 	return class$;
 }
 

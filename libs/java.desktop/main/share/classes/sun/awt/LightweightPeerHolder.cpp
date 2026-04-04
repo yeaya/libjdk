@@ -1,5 +1,4 @@
 #include <sun/awt/LightweightPeerHolder.h>
-
 #include <java/awt/peer/LightweightPeer.h>
 #include <sun/awt/NullComponentPeer.h>
 #include <jcpp.h>
@@ -13,35 +12,12 @@ using $NullComponentPeer = ::sun::awt::NullComponentPeer;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _LightweightPeerHolder_FieldInfo_[] = {
-	{"lightweightMarker", "Ljava/awt/peer/LightweightPeer;", nullptr, $STATIC | $FINAL, $staticField(LightweightPeerHolder, lightweightMarker)},
-	{}
-};
-
-$MethodInfo _LightweightPeerHolder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LightweightPeerHolder, init$, void)},
-	{}
-};
-
-$ClassInfo _LightweightPeerHolder_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.LightweightPeerHolder",
-	"java.lang.Object",
-	nullptr,
-	_LightweightPeerHolder_FieldInfo_,
-	_LightweightPeerHolder_MethodInfo_
-};
-
-$Object* allocate$LightweightPeerHolder($Class* clazz) {
-	return $of($alloc(LightweightPeerHolder));
-}
-
 $LightweightPeer* LightweightPeerHolder::lightweightMarker = nullptr;
 
 void LightweightPeerHolder::init$() {
 }
 
-void clinit$LightweightPeerHolder($Class* class$) {
+void LightweightPeerHolder::clinit$($Class* clazz) {
 	$assignStatic(LightweightPeerHolder::lightweightMarker, $new($NullComponentPeer));
 }
 
@@ -49,7 +25,25 @@ LightweightPeerHolder::LightweightPeerHolder() {
 }
 
 $Class* LightweightPeerHolder::load$($String* name, bool initialize) {
-	$loadClass(LightweightPeerHolder, name, initialize, &_LightweightPeerHolder_ClassInfo_, clinit$LightweightPeerHolder, allocate$LightweightPeerHolder);
+	$FieldInfo fieldInfos$$[] = {
+		{"lightweightMarker", "Ljava/awt/peer/LightweightPeer;", nullptr, $STATIC | $FINAL, $staticField(LightweightPeerHolder, lightweightMarker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LightweightPeerHolder, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.LightweightPeerHolder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LightweightPeerHolder, name, initialize, &classInfo$$, LightweightPeerHolder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LightweightPeerHolder);
+	});
 	return class$;
 }
 

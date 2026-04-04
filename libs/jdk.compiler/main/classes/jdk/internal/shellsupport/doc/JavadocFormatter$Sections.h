@@ -35,6 +35,7 @@ class JavadocFormatter$Sections : public ::java::lang::Enum {
 public:
 	JavadocFormatter$Sections();
 	static $Array<::jdk::internal::shellsupport::doc::JavadocFormatter$Sections>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	virtual bool matches(::com::sun::source::doctree::DocTree* t) {return false;}
 	static ::jdk::internal::shellsupport::doc::JavadocFormatter$Sections* valueOf($String* name);

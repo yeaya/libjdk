@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/TextBlockSupport.h>
-
 #include <com/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
@@ -23,48 +22,17 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$MethodInfo _TextBlockSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(TextBlockSupport, init$, void)},
-	{"checkWhitespace", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;>;", $STATIC, $staticMethod(TextBlockSupport, checkWhitespace, $Set*, $String*)},
-	{"indexOfNonWhitespace", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextBlockSupport, indexOfNonWhitespace, int32_t, $String*)},
-	{}
-};
-
-$InnerClassInfo _TextBlockSupport_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.TextBlockSupport$WhitespaceChecks", "com.sun.tools.javac.parser.TextBlockSupport", "WhitespaceChecks", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TextBlockSupport_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.parser.TextBlockSupport",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TextBlockSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TextBlockSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.TextBlockSupport$WhitespaceChecks"
-};
-
-$Object* allocate$TextBlockSupport($Class* clazz) {
-	return $of($alloc(TextBlockSupport));
-}
-
 void TextBlockSupport::init$() {
 }
 
 $Set* TextBlockSupport::checkWhitespace($String* string) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, checks, $new($HashSet));
 	if ($nc(string)->isEmpty()) {
 		return checks;
 	}
 	int32_t outdent = 0;
-	char16_t lastChar = $nc(string)->charAt(string->length() - 1);
+	char16_t lastChar = string->charAt(string->length() - 1);
 	bool optOut = lastChar == u'\n' || lastChar == u'\r';
 	$var($StringArray, lines, string->split("\\R"_s));
 	int32_t length = lines->length;
@@ -73,16 +41,12 @@ $Set* TextBlockSupport::checkWhitespace($String* string) {
 		outdent = indexOfNonWhitespace(lastLine);
 		{
 			$var($StringArray, arr$, lines);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, line, arr$->get(i$));
-				{
-					if (!$nc(line)->isBlank()) {
-						outdent = $Integer::min(outdent, indexOfNonWhitespace(line));
-						if (outdent == 0) {
-							break;
-						}
+				if (!$nc(line)->isBlank()) {
+					outdent = $Integer::min(outdent, indexOfNonWhitespace(line));
+					if (outdent == 0) {
+						break;
 					}
 				}
 			}
@@ -91,9 +55,7 @@ $Set* TextBlockSupport::checkWhitespace($String* string) {
 	$var($String, start, $nc(lastLine)->substring(0, outdent));
 	{
 		$var($StringArray, arr$, lines);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, line, arr$->get(i$));
 			{
 				bool var$0 = !$nc(line)->isBlank();
@@ -101,7 +63,7 @@ $Set* TextBlockSupport::checkWhitespace($String* string) {
 					$init($TextBlockSupport$WhitespaceChecks);
 					checks->add($TextBlockSupport$WhitespaceChecks::INCONSISTENT);
 				}
-				if (outdent < $nc(line)->length()) {
+				if (outdent < line->length()) {
 					lastChar = line->charAt(line->length() - 1);
 					if ($Character::isWhitespace(lastChar)) {
 						$init($TextBlockSupport$WhitespaceChecks);
@@ -123,7 +85,33 @@ TextBlockSupport::TextBlockSupport() {
 }
 
 $Class* TextBlockSupport::load$($String* name, bool initialize) {
-	$loadClass(TextBlockSupport, name, initialize, &_TextBlockSupport_ClassInfo_, allocate$TextBlockSupport);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(TextBlockSupport, init$, void)},
+		{"checkWhitespace", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Lcom/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks;>;", $STATIC, $staticMethod(TextBlockSupport, checkWhitespace, $Set*, $String*)},
+		{"indexOfNonWhitespace", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TextBlockSupport, indexOfNonWhitespace, int32_t, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.TextBlockSupport$WhitespaceChecks", "com.sun.tools.javac.parser.TextBlockSupport", "WhitespaceChecks", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.parser.TextBlockSupport",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.TextBlockSupport$WhitespaceChecks"
+	};
+	$loadClass(TextBlockSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TextBlockSupport);
+	});
 	return class$;
 }
 

@@ -54,6 +54,7 @@ class $export MetalRootPaneUI : public ::javax::swing::plaf::basic::BasicRootPan
 	$class(MetalRootPaneUI, 0, ::javax::swing::plaf::basic::BasicRootPaneUI)
 public:
 	MetalRootPaneUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::awt::LayoutManager* createLayoutManager();
 	::javax::swing::JComponent* createTitlePane(::javax::swing::JRootPane* root);

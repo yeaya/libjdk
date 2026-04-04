@@ -54,6 +54,7 @@ class ElementProxy : public ::java::lang::Object {
 	$class(ElementProxy, 0, ::java::lang::Object)
 public:
 	ElementProxy();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::org::w3c::dom::Document* doc);
 	void init$(::org::w3c::dom::Element* element, $String* baseURI);

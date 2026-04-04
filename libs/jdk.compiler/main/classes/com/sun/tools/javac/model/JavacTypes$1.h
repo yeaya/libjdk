@@ -15,6 +15,7 @@ class JavacTypes$1 : public ::java::lang::Object {
 	$class(JavacTypes$1, 0, ::java::lang::Object)
 public:
 	JavacTypes$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$lang$model$type$TypeKind;
 };
 

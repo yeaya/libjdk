@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$InternalAxisIteratorBase.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators.h>
 #include <jcpp.h>
@@ -20,44 +19,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 
-$FieldInfo _DTMDefaultBaseIterators$InternalAxisIteratorBase_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseIterators$InternalAxisIteratorBase, this$0)},
-	{"_currentNode", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$InternalAxisIteratorBase, _currentNode)},
-	{}
-};
-
-$MethodInfo _DTMDefaultBaseIterators$InternalAxisIteratorBase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;)V", nullptr, $PUBLIC, $method(DTMDefaultBaseIterators$InternalAxisIteratorBase, init$, void, $DTMDefaultBaseIterators*)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$InternalAxisIteratorBase, gotoMark, void)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$InternalAxisIteratorBase, setMark, void)},
-	{}
-};
-
-$InnerClassInfo _DTMDefaultBaseIterators$InternalAxisIteratorBase_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DTMDefaultBaseIterators$InternalAxisIteratorBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_DTMDefaultBaseIterators$InternalAxisIteratorBase_FieldInfo_,
-	_DTMDefaultBaseIterators$InternalAxisIteratorBase_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DTMDefaultBaseIterators$InternalAxisIteratorBase_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators"
-};
-
-$Object* allocate$DTMDefaultBaseIterators$InternalAxisIteratorBase($Class* clazz) {
-	return $of($alloc(DTMDefaultBaseIterators$InternalAxisIteratorBase));
-}
-
 void DTMDefaultBaseIterators$InternalAxisIteratorBase::init$($DTMDefaultBaseIterators* this$0) {
 	$set(this, this$0, this$0);
 	$DTMAxisIteratorBase::init$();
@@ -75,7 +36,39 @@ DTMDefaultBaseIterators$InternalAxisIteratorBase::DTMDefaultBaseIterators$Intern
 }
 
 $Class* DTMDefaultBaseIterators$InternalAxisIteratorBase::load$($String* name, bool initialize) {
-	$loadClass(DTMDefaultBaseIterators$InternalAxisIteratorBase, name, initialize, &_DTMDefaultBaseIterators$InternalAxisIteratorBase_ClassInfo_, allocate$DTMDefaultBaseIterators$InternalAxisIteratorBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;", nullptr, $FINAL | $SYNTHETIC, $field(DTMDefaultBaseIterators$InternalAxisIteratorBase, this$0)},
+		{"_currentNode", "I", nullptr, $PROTECTED, $field(DTMDefaultBaseIterators$InternalAxisIteratorBase, _currentNode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators;)V", nullptr, $PUBLIC, $method(DTMDefaultBaseIterators$InternalAxisIteratorBase, init$, void, $DTMDefaultBaseIterators*)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$InternalAxisIteratorBase, gotoMark, void)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(DTMDefaultBaseIterators$InternalAxisIteratorBase, setMark, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase", "com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators", "InternalAxisIteratorBase", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators$InternalAxisIteratorBase",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMDefaultBaseIterators"
+	};
+	$loadClass(DTMDefaultBaseIterators$InternalAxisIteratorBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMDefaultBaseIterators$InternalAxisIteratorBase);
+	});
 	return class$;
 }
 

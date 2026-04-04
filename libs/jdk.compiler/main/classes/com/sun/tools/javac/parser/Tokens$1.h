@@ -15,6 +15,7 @@ class Tokens$1 : public ::java::lang::Object {
 	$class(Tokens$1, 0, ::java::lang::Object)
 public:
 	Tokens$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind;
 };
 

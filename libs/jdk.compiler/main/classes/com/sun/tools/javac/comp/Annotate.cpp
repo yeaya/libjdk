@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Annotate.h>
-
 #include <com/sun/tools/javac/code/Attribute$Array.h>
 #include <com/sun/tools/javac/code/Attribute$Class.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
@@ -64,7 +63,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewArray.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
-#include <com/sun/tools/javac/tree/JCTree$Visitor.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
@@ -141,7 +139,6 @@ using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
@@ -150,7 +147,6 @@ using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeAnnotationPosition = ::com::sun::tools::javac::code::TypeAnnotationPosition;
 using $TypeMetadata$Annotations = ::com::sun::tools::javac::code::TypeMetadata$Annotations;
-using $TypeMetadata$Entry = ::com::sun::tools::javac::code::TypeMetadata$Entry;
 using $TypeMetadata$Entry$Kind = ::com::sun::tools::javac::code::TypeMetadata$Entry$Kind;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
@@ -158,7 +154,6 @@ using $Annotate$1 = ::com::sun::tools::javac::comp::Annotate$1;
 using $Annotate$2 = ::com::sun::tools::javac::comp::Annotate$2;
 using $Annotate$AnnotationContext = ::com::sun::tools::javac::comp::Annotate$AnnotationContext;
 using $Annotate$AnnotationTypeCompleter = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeCompleter;
-using $Annotate$AnnotationTypeMetadata = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeMetadata;
 using $Annotate$AnnotationTypeVisitor = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeVisitor;
 using $Annotate$AnnotationValueContext = ::com::sun::tools::javac::comp::Annotate$AnnotationValueContext;
 using $Annotate$Queues = ::com::sun::tools::javac::comp::Annotate$Queues;
@@ -166,7 +161,6 @@ using $Annotate$TypeAnnotate = ::com::sun::tools::javac::comp::Annotate$TypeAnno
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Check = ::com::sun::tools::javac::comp::Check;
-using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $ConstFold = ::com::sun::tools::javac::comp::ConstFold;
 using $Enter = ::com::sun::tools::javac::comp::Enter;
 using $Env = ::com::sun::tools::javac::comp::Env;
@@ -183,7 +177,6 @@ using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAcce
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
-using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $Assert = ::com::sun::tools::javac::util::Assert;
@@ -202,12 +195,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
@@ -233,41 +224,37 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$annotateLater$0(s, localEnv, deferPos, annotations);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Annotate$$Lambda$lambda$annotateLater$0>());
-	}
 	Annotate* inst$ = nullptr;
 	$Symbol* s = nullptr;
 	$Env* localEnv = nullptr;
 	$JCDiagnostic$DiagnosticPosition* deferPos = nullptr;
 	$List* annotations = nullptr;
-	static $FieldInfo fieldInfos[6];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Annotate$$Lambda$lambda$annotateLater$0::fieldInfos[6] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, inst$)},
-	{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, s)},
-	{"localEnv", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, localEnv)},
-	{"deferPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, deferPos)},
-	{"annotations", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, annotations)},
-	{}
-};
-$MethodInfo Annotate$$Lambda$lambda$annotateLater$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateLater$0, init$, void, Annotate*, $Symbol*, $Env*, $JCDiagnostic$DiagnosticPosition*, $List*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateLater$0, run, void)},
-	{}
-};
-$ClassInfo Annotate$$Lambda$lambda$annotateLater$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateLater$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Annotate$$Lambda$lambda$annotateLater$0::load$($String* name, bool initialize) {
-	$loadClass(Annotate$$Lambda$lambda$annotateLater$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, inst$)},
+		{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, s)},
+		{"localEnv", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, localEnv)},
+		{"deferPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, deferPos)},
+		{"annotations", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$0, annotations)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateLater$0, init$, void, Annotate*, $Symbol*, $Env*, $JCDiagnostic$DiagnosticPosition*, $List*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateLater$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateLater$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotate$$Lambda$lambda$annotateLater$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$$Lambda$lambda$annotateLater$0);
+	});
 	return class$;
 }
 $Class* Annotate$$Lambda$lambda$annotateLater$0::class$ = nullptr;
@@ -284,39 +271,35 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$annotateLater$1(localEnv, annotations, s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Annotate$$Lambda$lambda$annotateLater$1$1>());
-	}
 	Annotate* inst$ = nullptr;
 	$Env* localEnv = nullptr;
 	$List* annotations = nullptr;
 	$Symbol* s = nullptr;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Annotate$$Lambda$lambda$annotateLater$1$1::fieldInfos[5] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$1$1, inst$)},
-	{"localEnv", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$1$1, localEnv)},
-	{"annotations", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$1$1, annotations)},
-	{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$1$1, s)},
-	{}
-};
-$MethodInfo Annotate$$Lambda$lambda$annotateLater$1$1::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateLater$1$1, init$, void, Annotate*, $Env*, $List*, $Symbol*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateLater$1$1, run, void)},
-	{}
-};
-$ClassInfo Annotate$$Lambda$lambda$annotateLater$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateLater$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Annotate$$Lambda$lambda$annotateLater$1$1::load$($String* name, bool initialize) {
-	$loadClass(Annotate$$Lambda$lambda$annotateLater$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$1$1, inst$)},
+		{"localEnv", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$1$1, localEnv)},
+		{"annotations", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$1$1, annotations)},
+		{"s", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateLater$1$1, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateLater$1$1, init$, void, Annotate*, $Env*, $List*, $Symbol*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateLater$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateLater$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotate$$Lambda$lambda$annotateLater$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$$Lambda$lambda$annotateLater$1$1);
+	});
 	return class$;
 }
 $Class* Annotate$$Lambda$lambda$annotateLater$1$1::class$ = nullptr;
@@ -334,41 +317,37 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$annotateDefaultValueLater$2(localEnv, deferPos, defaultValue, m);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2>());
-	}
 	Annotate* inst$ = nullptr;
 	$Env* localEnv = nullptr;
 	$JCDiagnostic$DiagnosticPosition* deferPos = nullptr;
 	$JCTree$JCExpression* defaultValue = nullptr;
 	$Symbol$MethodSymbol* m = nullptr;
-	static $FieldInfo fieldInfos[6];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2::fieldInfos[6] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, inst$)},
-	{"localEnv", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, localEnv)},
-	{"deferPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, deferPos)},
-	{"defaultValue", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, defaultValue)},
-	{"m", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, m)},
-	{}
-};
-$MethodInfo Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, init$, void, Annotate*, $Env*, $JCDiagnostic$DiagnosticPosition*, $JCTree$JCExpression*, $Symbol$MethodSymbol*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, run, void)},
-	{}
-};
-$ClassInfo Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2::load$($String* name, bool initialize) {
-	$loadClass(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, inst$)},
+		{"localEnv", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, localEnv)},
+		{"deferPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, deferPos)},
+		{"defaultValue", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, defaultValue)},
+		{"m", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, m)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, init$, void, Annotate*, $Env*, $JCDiagnostic$DiagnosticPosition*, $JCTree$JCExpression*, $Symbol$MethodSymbol*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2);
+	});
 	return class$;
 }
 $Class* Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2::class$ = nullptr;
@@ -384,37 +363,33 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$annotateDefaultValueLater$3(localEnv, defaultValue);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3>());
-	}
 	Annotate* inst$ = nullptr;
 	$Env* localEnv = nullptr;
 	$JCTree$JCExpression* defaultValue = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, inst$)},
-	{"localEnv", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, localEnv)},
-	{"defaultValue", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, defaultValue)},
-	{}
-};
-$MethodInfo Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, init$, void, Annotate*, $Env*, $JCTree$JCExpression*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, run, void)},
-	{}
-};
-$ClassInfo Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3::load$($String* name, bool initialize) {
-	$loadClass(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, inst$)},
+		{"localEnv", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, localEnv)},
+		{"defaultValue", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, defaultValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, init$, void, Annotate*, $Env*, $JCTree$JCExpression*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3);
+	});
 	return class$;
 }
 $Class* Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3::class$ = nullptr;
@@ -432,41 +407,37 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$queueScanTreeAndTypeAnnotate$4(tree, env, sym, deferPos);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4>());
-	}
 	Annotate* inst$ = nullptr;
 	$JCTree* tree = nullptr;
 	$Env* env = nullptr;
 	$Symbol* sym = nullptr;
 	$JCDiagnostic$DiagnosticPosition* deferPos = nullptr;
-	static $FieldInfo fieldInfos[6];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4::fieldInfos[6] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, inst$)},
-	{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, tree)},
-	{"env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, env)},
-	{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, sym)},
-	{"deferPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, deferPos)},
-	{}
-};
-$MethodInfo Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, init$, void, Annotate*, $JCTree*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, run, void)},
-	{}
-};
-$ClassInfo Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4::load$($String* name, bool initialize) {
-	$loadClass(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, inst$)},
+		{"tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, tree)},
+		{"env", "Lcom/sun/tools/javac/comp/Env;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, env)},
+		{"sym", "Lcom/sun/tools/javac/code/Symbol;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, sym)},
+		{"deferPos", "Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, deferPos)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, init$, void, Annotate*, $JCTree*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4);
+	});
 	return class$;
 }
 $Class* Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4::class$ = nullptr;
@@ -482,37 +453,33 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$annotateTypeSecondStage$5(annotations, storeAt);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5>());
-	}
 	Annotate* inst$ = nullptr;
 	$List* annotations = nullptr;
 	$Type* storeAt = nullptr;
-	static $FieldInfo fieldInfos[4];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5::fieldInfos[4] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, inst$)},
-	{"annotations", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, annotations)},
-	{"storeAt", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, storeAt)},
-	{}
-};
-$MethodInfo Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, init$, void, Annotate*, $List*, $Type*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, run, void)},
-	{}
-};
-$ClassInfo Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5::load$($String* name, bool initialize) {
-	$loadClass(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, inst$)},
+		{"annotations", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, annotations)},
+		{"storeAt", "Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, storeAt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, init$, void, Annotate*, $List*, $Type*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5);
+	});
 	return class$;
 }
 $Class* Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5::class$ = nullptr;
@@ -527,155 +494,34 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$annotateTypeParameterSecondStage$6(annotations);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6>());
-	}
 	Annotate* inst$ = nullptr;
 	$List* annotations = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, inst$)},
-	{"annotations", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, annotations)},
-	{}
-};
-$MethodInfo Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, init$, void, Annotate*, $List*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, run, void)},
-	{}
-};
-$ClassInfo Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6::load$($String* name, bool initialize) {
-	$loadClass(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, inst$)},
+		{"annotations", "Lcom/sun/tools/javac/util/List;", nullptr, $PUBLIC, $field(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, annotations)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Annotate;Lcom/sun/tools/javac/util/List;)V", nullptr, $PUBLIC, $method(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, init$, void, Annotate*, $List*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6);
+	});
 	return class$;
 }
 $Class* Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6::class$ = nullptr;
-
-$FieldInfo _Annotate_FieldInfo_[] = {
-	{"annotateKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Annotate;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Annotate, annotateKey)},
-	{"attr", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $PRIVATE | $FINAL, $field(Annotate, attr)},
-	{"chk", "Lcom/sun/tools/javac/comp/Check;", nullptr, $PRIVATE | $FINAL, $field(Annotate, chk)},
-	{"cfolder", "Lcom/sun/tools/javac/comp/ConstFold;", nullptr, $PRIVATE | $FINAL, $field(Annotate, cfolder)},
-	{"deferredLintHandler", "Lcom/sun/tools/javac/code/DeferredLintHandler;", nullptr, $PRIVATE | $FINAL, $field(Annotate, deferredLintHandler)},
-	{"enter", "Lcom/sun/tools/javac/comp/Enter;", nullptr, $PRIVATE | $FINAL, $field(Annotate, enter)},
-	{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PRIVATE | $FINAL, $field(Annotate, lint)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Annotate, log)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Annotate, names)},
-	{"resolve", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(Annotate, resolve)},
-	{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE | $FINAL, $field(Annotate, make)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(Annotate, syms)},
-	{"typeEnvs", "Lcom/sun/tools/javac/comp/TypeEnvs;", nullptr, $PRIVATE | $FINAL, $field(Annotate, typeEnvs)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Annotate, types)},
-	{"theUnfinishedDefaultValue", "Lcom/sun/tools/javac/code/Attribute;", nullptr, $PRIVATE | $FINAL, $field(Annotate, theUnfinishedDefaultValue)},
-	{"allowRepeatedAnnos", "Z", nullptr, $PRIVATE | $FINAL, $field(Annotate, allowRepeatedAnnos)},
-	{"sourceName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Annotate, sourceName)},
-	{"blockCount", "I", nullptr, $PRIVATE, $field(Annotate, blockCount)},
-	{"q", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE, $field(Annotate, q)},
-	{"validateQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE, $field(Annotate, validateQ)},
-	{"flushCount", "I", nullptr, $PRIVATE, $field(Annotate, flushCount)},
-	{"typesQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", 0, $field(Annotate, typesQ)},
-	{"afterTypesQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", 0, $field(Annotate, afterTypesQ)},
-	{"theSourceCompleter", "Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter;", nullptr, $PRIVATE, $field(Annotate, theSourceCompleter)},
-	{}
-};
-
-$MethodInfo _Annotate_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Annotate, init$, void, $Context*)},
-	{"afterTypes", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Annotate, afterTypes, void, $Runnable*)},
-	{"annotateDefaultValueLater", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PUBLIC, $virtualMethod(Annotate, annotateDefaultValueLater, void, $JCTree$JCExpression*, $Env*, $Symbol$MethodSymbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"annotateLater", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PUBLIC, $virtualMethod(Annotate, annotateLater, void, $List*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"annotateNow", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;ZZ)V", "<T:Lcom/sun/tools/javac/code/Attribute$Compound;>(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;ZZ)V", $PRIVATE, $method(Annotate, annotateNow, void, $Symbol*, $List*, $Env*, bool, bool)},
-	{"annotateTypeParameterSecondStage", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PUBLIC, $virtualMethod(Annotate, annotateTypeParameterSecondStage, void, $JCTree*, $List*)},
-	{"annotateTypeSecondStage", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/code/Type;)V", $PUBLIC, $virtualMethod(Annotate, annotateTypeSecondStage, void, $JCTree*, $List*, $Type*)},
-	{"annotationTypeSourceCompleter", "()Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter;", nullptr, $PUBLIC, $virtualMethod(Annotate, annotationTypeSourceCompleter, $Annotate$AnnotationTypeCompleter*)},
-	{"annotationValueInfo", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PRIVATE, $method(Annotate, annotationValueInfo, $Attr$ResultInfo*, $Type*)},
-	{"annotationsBlocked", "()Z", nullptr, $PUBLIC, $virtualMethod(Annotate, annotationsBlocked, bool)},
-	{"attributeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute$Compound;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute$Compound;", $PUBLIC, $virtualMethod(Annotate, attributeAnnotation, $Attribute$Compound*, $JCTree$JCAnnotation*, $Type*, $Env*)},
-	{"attributeAnnotationNameValuePair", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Type;ZLcom/sun/tools/javac/comp/Env;Z)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Type;ZLcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Z)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PRIVATE, $method(Annotate, attributeAnnotationNameValuePair, $Pair*, $JCTree$JCExpression*, $Type*, bool, $Env*, bool)},
-	{"attributeAnnotationType", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Annotate, attributeAnnotationType, void, $Env*)},
-	{"attributeAnnotationValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, attributeAnnotationValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
-	{"attributeAnnotationValues", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;", $PRIVATE, $method(Annotate, attributeAnnotationValues, $List*, $JCTree$JCAnnotation*, $Type*, $Env*)},
-	{"attributeTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute$TypeCompound;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute$TypeCompound;", $PUBLIC, $virtualMethod(Annotate, attributeTypeAnnotation, $Attribute$TypeCompound*, $JCTree$JCAnnotation*, $Type*, $Env*)},
-	{"blockAnnotations", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, blockAnnotations, void)},
-	{"doneFlushing", "()V", nullptr, $PRIVATE, $method(Annotate, doneFlushing, void)},
-	{"enterDefaultValue", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", $PRIVATE, $method(Annotate, enterDefaultValue, void, $JCTree$JCExpression*, $Env*, $Symbol$MethodSymbol*)},
-	{"enterDone", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, enterDone, void)},
-	{"enterTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Z)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Z)V", $PUBLIC, $virtualMethod(Annotate, enterTypeAnnotations, void, $List*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*, bool)},
-	{"extractContainingType", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Annotate, extractContainingType, $Type*, $Attribute$Compound*, $JCDiagnostic$DiagnosticPosition*, $Symbol$TypeSymbol*)},
-	{"filterSame", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Annotate, filterSame, $Type*, $Type*, $Type*)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, flush, void)},
-	{"fromAnnotations", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Annotate, fromAnnotations, $List*, $List*)},
-	{"getAnnotationArrayValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, getAnnotationArrayValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
-	{"getAnnotationClassValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, getAnnotationClassValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
-	{"getAnnotationEnumValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, getAnnotationEnumValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
-	{"getAnnotationPrimitiveValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, getAnnotationPrimitiveValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
-	{"getContainingType", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Z)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Annotate, getContainingType, $Type*, $Attribute$Compound*, $JCDiagnostic$DiagnosticPosition*, bool)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Annotate;", nullptr, $PUBLIC | $STATIC, $staticMethod(Annotate, instance, Annotate*, $Context*)},
-	{"isAttributeTrue", "(Lcom/sun/tools/javac/code/Attribute;)Z", nullptr, $PRIVATE, $method(Annotate, isAttributeTrue, bool, $Attribute*)},
-	{"isFlushing", "()Z", nullptr, $PRIVATE, $method(Annotate, isFlushing, bool)},
-	{"lambda$annotateDefaultValueLater$2", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateDefaultValueLater$2, void, $Env*, $JCDiagnostic$DiagnosticPosition*, $JCTree$JCExpression*, $Symbol$MethodSymbol*)},
-	{"lambda$annotateDefaultValueLater$3", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateDefaultValueLater$3, void, $Env*, $JCTree$JCExpression*)},
-	{"lambda$annotateLater$0", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateLater$0, void, $Symbol*, $Env*, $JCDiagnostic$DiagnosticPosition*, $List*)},
-	{"lambda$annotateLater$1", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateLater$1, void, $Env*, $List*, $Symbol*)},
-	{"lambda$annotateTypeParameterSecondStage$6", "(Lcom/sun/tools/javac/util/List;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateTypeParameterSecondStage$6, void, $List*)},
-	{"lambda$annotateTypeSecondStage$5", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateTypeSecondStage$5, void, $List*, $Type*)},
-	{"lambda$queueScanTreeAndTypeAnnotate$4", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$queueScanTreeAndTypeAnnotate$4, void, $JCTree*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"makeContainerAnnotation", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Annotate$AnnotationContext;Lcom/sun/tools/javac/code/Symbol;Z)Lcom/sun/tools/javac/code/Attribute$Compound;", "<T:Lcom/sun/tools/javac/code/Attribute$Compound;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/Annotate$AnnotationContext<TT;>;Lcom/sun/tools/javac/code/Symbol;Z)TT;", $PRIVATE, $method(Annotate, makeContainerAnnotation, $Attribute$Compound*, $List*, $Annotate$AnnotationContext*, $Symbol*, bool)},
-	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, newRound, void)},
-	{"normal", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Annotate, normal, void, $Runnable*)},
-	{"processRepeatedAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Annotate$AnnotationContext;Lcom/sun/tools/javac/code/Symbol;Z)Lcom/sun/tools/javac/code/Attribute$Compound;", "<T:Lcom/sun/tools/javac/code/Attribute$Compound;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/Annotate$AnnotationContext<TT;>;Lcom/sun/tools/javac/code/Symbol;Z)TT;", $PRIVATE, $method(Annotate, processRepeatedAnnotations, $Attribute$Compound*, $List*, $Annotate$AnnotationContext*, $Symbol*, bool)},
-	{"queueScanTreeAndTypeAnnotate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PUBLIC, $virtualMethod(Annotate, queueScanTreeAndTypeAnnotate, void, $JCTree*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
-	{"setQueues", "(Lcom/sun/tools/javac/comp/Annotate$Queues;)Lcom/sun/tools/javac/comp/Annotate$Queues;", nullptr, $PUBLIC, $virtualMethod(Annotate, setQueues, $Annotate$Queues*, $Annotate$Queues*)},
-	{"startFlushing", "()V", nullptr, $PRIVATE, $method(Annotate, startFlushing, void)},
-	{"typeAnnotation", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Annotate, typeAnnotation, void, $Runnable*)},
-	{"unblockAnnotations", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, unblockAnnotations, void)},
-	{"unblockAnnotationsNoFlush", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, unblockAnnotationsNoFlush, void)},
-	{"unfinishedDefaultValue", "()Lcom/sun/tools/javac/code/Attribute;", nullptr, $PUBLIC, $virtualMethod(Annotate, unfinishedDefaultValue, $Attribute*)},
-	{"validate", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Annotate, validate, void, $Runnable*)},
-	{"validateContainer", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $method(Annotate, validateContainer, $Symbol$MethodSymbol*, $Type*, $Type*, $JCDiagnostic$DiagnosticPosition*)},
-	{}
-};
-
-$InnerClassInfo _Annotate_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Annotate$Queues", "com.sun.tools.javac.comp.Annotate", "Queues", $STATIC},
-	{"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata", "com.sun.tools.javac.comp.Annotate", "AnnotationTypeMetadata", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.comp.Annotate$AnnotationTypeVisitor", "com.sun.tools.javac.comp.Annotate", "AnnotationTypeVisitor", $PUBLIC},
-	{"com.sun.tools.javac.comp.Annotate$AnnotationTypeCompleter", "com.sun.tools.javac.comp.Annotate", "AnnotationTypeCompleter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.comp.Annotate$TypeAnnotate", "com.sun.tools.javac.comp.Annotate", "TypeAnnotate", $PRIVATE},
-	{"com.sun.tools.javac.comp.Annotate$AnnotationContext", "com.sun.tools.javac.comp.Annotate", "AnnotationContext", $PRIVATE},
-	{"com.sun.tools.javac.comp.Annotate$AnnotationValueContext", "com.sun.tools.javac.comp.Annotate", "AnnotationValueContext", 0},
-	{"com.sun.tools.javac.comp.Annotate$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Annotate$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Annotate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.comp.Annotate",
-	"java.lang.Object",
-	nullptr,
-	_Annotate_FieldInfo_,
-	_Annotate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Annotate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Annotate$Queues,com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata,com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata$1,com.sun.tools.javac.comp.Annotate$AnnotationTypeVisitor,com.sun.tools.javac.comp.Annotate$AnnotationTypeCompleter,com.sun.tools.javac.comp.Annotate$TypeAnnotate,com.sun.tools.javac.comp.Annotate$AnnotationContext,com.sun.tools.javac.comp.Annotate$AnnotationValueContext,com.sun.tools.javac.comp.Annotate$2,com.sun.tools.javac.comp.Annotate$1"
-};
-
-$Object* allocate$Annotate($Class* clazz) {
-	return $of($alloc(Annotate));
-}
 
 $Context$Key* Annotate::annotateKey = nullptr;
 
@@ -696,7 +542,7 @@ void Annotate::init$($Context* context) {
 	$set(this, typesQ, $new($ListBuffer));
 	$set(this, afterTypesQ, $new($ListBuffer));
 	$set(this, theSourceCompleter, $new($Annotate$2, this));
-	$nc(context)->put(Annotate::annotateKey, $of(this));
+	$nc(context)->put(Annotate::annotateKey, this);
 	$set(this, attr, $Attr::instance(context));
 	$set(this, chk, $Check::instance(context));
 	$set(this, cfolder, $ConstFold::instance(context));
@@ -742,18 +588,18 @@ void Annotate::enterDone() {
 }
 
 $List* Annotate::fromAnnotations($List* annotations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(annotations)->isEmpty()) {
 		return $List::nil();
 	}
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
-		$var($Iterator, i$, $nc(annotations)->iterator());
+		$var($Iterator, i$, annotations->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($JCTree$JCAnnotation, anno, $cast($JCTree$JCAnnotation, i$->next()));
 			{
 				$Assert::checkNonNull($nc(anno)->attribute);
-				buf->append($cast($Attribute$TypeCompound, $nc(anno)->attribute));
+				buf->append($cast($Attribute$TypeCompound, anno->attribute));
 			}
 		}
 	}
@@ -769,7 +615,7 @@ void Annotate::validate($Runnable* a) {
 }
 
 void Annotate::flush() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (annotationsBlocked()) {
 		return;
 	}
@@ -777,29 +623,27 @@ void Annotate::flush() {
 		return;
 	}
 	startFlushing();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while ($nc(this->q)->nonEmpty()) {
-				$nc(($cast($Runnable, $($nc(this->q)->next()))))->run();
-			}
-			while ($nc(this->typesQ)->nonEmpty()) {
-				$nc(($cast($Runnable, $($nc(this->typesQ)->next()))))->run();
-			}
-			while ($nc(this->afterTypesQ)->nonEmpty()) {
-				$nc(($cast($Runnable, $($nc(this->afterTypesQ)->next()))))->run();
-			}
-			while ($nc(this->validateQ)->nonEmpty()) {
-				$nc(($cast($Runnable, $($nc(this->validateQ)->next()))))->run();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			doneFlushing();
+	$var($Throwable, var$0, nullptr);
+	try {
+		while ($nc(this->q)->nonEmpty()) {
+			$$sure($Runnable, this->q->next())->run();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		while ($nc(this->typesQ)->nonEmpty()) {
+			$$sure($Runnable, this->typesQ->next())->run();
 		}
+		while ($nc(this->afterTypesQ)->nonEmpty()) {
+			$$sure($Runnable, this->afterTypesQ->next())->run();
+		}
+		while ($nc(this->validateQ)->nonEmpty()) {
+			$$sure($Runnable, this->validateQ->next())->run();
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		doneFlushing();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -824,42 +668,42 @@ void Annotate::afterTypes($Runnable* a) {
 }
 
 void Annotate::annotateLater($List* annotations, $Env* localEnv, $Symbol* s, $JCDiagnostic$DiagnosticPosition* deferPos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(annotations)->isEmpty()) {
 		return;
 	}
 	$nc(s)->resetAnnotations();
-	normal(static_cast<$Runnable*>($$new(Annotate$$Lambda$lambda$annotateLater$0, this, s, localEnv, deferPos, annotations)));
-	validate(static_cast<$Runnable*>($$new(Annotate$$Lambda$lambda$annotateLater$1$1, this, localEnv, annotations, s)));
+	normal($$new(Annotate$$Lambda$lambda$annotateLater$0, this, s, localEnv, deferPos, annotations));
+	validate($$new(Annotate$$Lambda$lambda$annotateLater$1$1, this, localEnv, annotations, s));
 }
 
 void Annotate::annotateDefaultValueLater($JCTree$JCExpression* defaultValue, $Env* localEnv, $Symbol$MethodSymbol* m, $JCDiagnostic$DiagnosticPosition* deferPos) {
-	$useLocalCurrentObjectStackCache();
-	normal(static_cast<$Runnable*>($$new(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, this, localEnv, deferPos, defaultValue, m)));
-	validate(static_cast<$Runnable*>($$new(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, this, localEnv, defaultValue)));
+	$useLocalObjectStack();
+	normal($$new(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2, this, localEnv, deferPos, defaultValue, m));
+	validate($$new(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3, this, localEnv, defaultValue));
 }
 
 void Annotate::enterDefaultValue($JCTree$JCExpression* defaultValue, $Env* localEnv, $Symbol$MethodSymbol* m) {
-	$set($nc(m), defaultValue, attributeAnnotationValue($($nc(m->type)->getReturnType()), defaultValue, localEnv));
+	$set($nc(m), defaultValue, attributeAnnotationValue($($nc($nc(m)->type)->getReturnType()), defaultValue, localEnv));
 }
 
 void Annotate::annotateNow($Symbol* toAnnotate, $List* withAnnotations, $Env* env, bool typeAnnotations, bool isTypeParam) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, annotated, $new($LinkedHashMap));
 	$var($Map, pos, $new($HashMap));
 	{
 		$var($List, al, withAnnotations);
-		for (; !$nc(al)->isEmpty(); $assign(al, $nc(al)->tail)) {
+		for (; !$nc(al)->isEmpty(); $assign(al, al->tail)) {
 			$var($JCTree$JCAnnotation, a, $cast($JCTree$JCAnnotation, al->head));
 			$var($Attribute$Compound, c, nullptr);
 			if (typeAnnotations) {
-				$var($Attribute$Compound, tmp, static_cast<$Attribute$Compound*>(attributeTypeAnnotation(a, $nc(this->syms)->annotationType, env)));
+				$var($Attribute$Compound, tmp, $cast($Attribute$Compound, attributeTypeAnnotation(a, $nc(this->syms)->annotationType, env)));
 				$assign(c, tmp);
 			} else {
 				$var($Attribute$Compound, tmp, attributeAnnotation(a, $nc(this->syms)->annotationType, env));
 				$assign(c, tmp);
 			}
-			$Assert::checkNonNull($of(c), "Failed to create annotation"_s);
+			$Assert::checkNonNull(c, "Failed to create annotation"_s);
 			if ($nc($nc($nc(a)->type)->tsym)->isAnnotationType()) {
 				if (annotated->containsKey($nc(a->type)->tsym)) {
 					if (!this->allowRepeatedAnnos) {
@@ -874,26 +718,26 @@ void Annotate::annotateNow($Symbol* toAnnotate, $List* withAnnotations, $Env* en
 					annotated->put($nc(a->type)->tsym, l);
 					pos->put(c, $(a->pos()));
 				} else {
-					annotated->put($nc(a->type)->tsym, $($ListBuffer::of(c)));
+					annotated->put(a->type->tsym, $($ListBuffer::of(c)));
 					pos->put(c, $(a->pos()));
 				}
 			}
 			$init($Kinds$Kind);
-			bool var$2 = !$nc($nc(c)->type)->isErroneous() && ($nc(toAnnotate)->kind == $Kinds$Kind::MDL || $nc($nc(toAnnotate)->owner)->kind != $Kinds$Kind::MTH);
-			if (var$2 && $nc(this->types)->isSameType($nc(c)->type, $nc(this->syms)->deprecatedType)) {
+			bool var$2 = !$nc($nc(c)->type)->isErroneous() && ($nc(toAnnotate)->kind == $Kinds$Kind::MDL || $nc(toAnnotate->owner)->kind != $Kinds$Kind::MTH);
+			if (var$2 && $nc(this->types)->isSameType(c->type, $nc(this->syms)->deprecatedType)) {
 				toAnnotate->flags_field |= ($Flags::DEPRECATED | $Flags::DEPRECATED_ANNOTATION);
-				if (isAttributeTrue($($nc(c)->member($nc(this->names)->forRemoval)))) {
+				if (isAttributeTrue($(c->member($nc(this->names)->forRemoval)))) {
 					toAnnotate->flags_field |= $Flags::DEPRECATED_REMOVAL;
 				}
 			}
-			bool var$3 = !$nc($nc(c)->type)->isErroneous();
+			bool var$3 = !$nc(c->type)->isErroneous();
 			if (var$3 && $nc(this->types)->isSameType(c->type, $nc(this->syms)->previewFeatureType)) {
 				$nc(toAnnotate)->flags_field |= $Flags::PREVIEW_API;
 				if (isAttributeTrue($(c->member($nc(this->names)->reflective)))) {
 					toAnnotate->flags_field |= $Flags::PREVIEW_REFLECTIVE;
 				}
 			}
-			bool var$4 = !$nc($nc(c)->type)->isErroneous() && $nc(toAnnotate)->kind == $Kinds$Kind::TYP;
+			bool var$4 = !$nc(c->type)->isErroneous() && $nc(toAnnotate)->kind == $Kinds$Kind::TYP;
 			if (var$4 && $nc(this->types)->isSameType(c->type, $nc(this->syms)->valueBasedType)) {
 				toAnnotate->flags_field |= $Flags::VALUE_BASED;
 			}
@@ -901,18 +745,16 @@ void Annotate::annotateNow($Symbol* toAnnotate, $List* withAnnotations, $Env* en
 	}
 	$var($List, buf, $List::nil());
 	{
-		$var($Iterator, i$, $nc($(annotated->values()))->iterator());
+		$var($Iterator, i$, $$nc(annotated->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ListBuffer, lb, $cast($ListBuffer, i$->next()));
-			{
-				if ($nc(lb)->size() == 1) {
-					$assign(buf, $nc(buf)->prepend($cast($Attribute$Compound, $(lb->first()))));
-				} else {
-					$var($Annotate$AnnotationContext, ctx, $new($Annotate$AnnotationContext, this, env, annotated, pos, typeAnnotations));
-					$var($Attribute$Compound, res, makeContainerAnnotation($(lb->toList()), ctx, toAnnotate, isTypeParam));
-					if (res != nullptr) {
-						$assign(buf, $nc(buf)->prepend(res));
-					}
+			if ($nc(lb)->size() == 1) {
+				$assign(buf, $nc(buf)->prepend($$cast($Attribute$Compound, lb->first())));
+			} else {
+				$var($Annotate$AnnotationContext, ctx, $new($Annotate$AnnotationContext, this, env, annotated, pos, typeAnnotations));
+				$var($Attribute$Compound, res, makeContainerAnnotation($(lb->toList()), ctx, toAnnotate, isTypeParam));
+				if (res != nullptr) {
+					$assign(buf, $nc(buf)->prepend(res));
 				}
 			}
 		}
@@ -934,28 +776,28 @@ bool Annotate::isAttributeTrue($Attribute* attr) {
 		$assign(constant, $cast($Attribute$Constant, attr));
 		var$2 = true;
 	}
-	bool var$1 = (var$2);
+	bool var$1 = var$2;
 	bool var$0 = var$1 && $equals($nc(constant)->type, $nc(this->syms)->booleanType);
-	return var$0 && $nc(($cast($Integer, constant->value)))->intValue() != 0;
+	return var$0 && $nc($cast($Integer, constant->value))->intValue() != 0;
 }
 
 $Attribute$Compound* Annotate::attributeAnnotation($JCTree$JCAnnotation* tree, $Type* expectedAnnotationType, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(tree)->attribute != nullptr && tree->type != nullptr) {
 		return tree->attribute;
 	}
 	$var($List, elems, attributeAnnotationValues(tree, expectedAnnotationType, env));
-	$var($Attribute$Compound, ac, $new($Attribute$Compound, $nc(tree)->type, elems));
-	return $set($nc(tree), attribute, ac);
+	$var($Attribute$Compound, ac, $new($Attribute$Compound, tree->type, elems));
+	return $set(tree, attribute, ac);
 }
 
 $Attribute$TypeCompound* Annotate::attributeTypeAnnotation($JCTree$JCAnnotation* a, $Type* expectedAnnotationType, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($Attribute$TypeCompound, typeCompound, nullptr);
-		bool var$0 = $nc(a)->attribute == nullptr || $nc(a)->type == nullptr;
+		bool var$0 = $nc(a)->attribute == nullptr || a->type == nullptr;
 		if (!var$0) {
-			$var($Attribute$Compound, patt17976$temp, $nc(a)->attribute);
+			$var($Attribute$Compound, patt17976$temp, a->attribute);
 			bool var$1 = $instanceOf($Attribute$TypeCompound, patt17976$temp);
 			if (var$1) {
 				$assign(typeCompound, $cast($Attribute$TypeCompound, patt17976$temp));
@@ -966,8 +808,8 @@ $Attribute$TypeCompound* Annotate::attributeTypeAnnotation($JCTree$JCAnnotation*
 		if (var$0) {
 			$var($List, elems, attributeAnnotationValues(a, expectedAnnotationType, env));
 			$init($TypeAnnotationPosition);
-			$var($Attribute$TypeCompound, tc, $new($Attribute$TypeCompound, $nc(a)->type, elems, $TypeAnnotationPosition::unknown));
-			$set($nc(a), attribute, tc);
+			$var($Attribute$TypeCompound, tc, $new($Attribute$TypeCompound, a->type, elems, $TypeAnnotationPosition::unknown));
+			$set(a, attribute, tc);
 			return tc;
 		} else {
 			return typeCompound;
@@ -976,8 +818,8 @@ $Attribute$TypeCompound* Annotate::attributeTypeAnnotation($JCTree$JCAnnotation*
 }
 
 $List* Annotate::attributeAnnotationValues($JCTree$JCAnnotation* a, $Type* expected, $Env* env) {
-	$useLocalCurrentObjectStackCache();
-	$var($Type, at, $nc($nc(a)->annotationType)->type != nullptr ? $nc($nc(a)->annotationType)->type : $nc(this->attr)->attribType(a->annotationType, env));
+	$useLocalObjectStack();
+	$var($Type, at, $nc($nc(a)->annotationType)->type != nullptr ? a->annotationType->type : $nc(this->attr)->attribType(a->annotationType, env));
 	$set(a, type, $nc(this->chk)->checkType($($nc(a->annotationType)->pos()), at, expected));
 	bool isError = $nc(a->type)->isErroneous();
 	if (!$nc($nc(a->type)->tsym)->isAnnotationType() && !isError) {
@@ -989,14 +831,14 @@ $List* Annotate::attributeAnnotationValues($JCTree$JCAnnotation* a, $Type* expec
 	bool elidedValue = false;
 	bool var$1 = $nc(args)->length() == 1;
 	$init($JCTree$Tag);
-	if (var$1 && !$nc(($cast($JCTree$JCExpression, args->head)))->hasTag($JCTree$Tag::ASSIGN)) {
-		$set(args, head, $nc($($nc(this->make)->at($nc(($cast($JCTree$JCExpression, args->head)))->pos$)))->Assign($($nc(this->make)->Ident($nc(this->names)->value)), $cast($JCTree$JCExpression, args->head)));
+	if (var$1 && !$nc($cast($JCTree$JCExpression, args->head))->hasTag($JCTree$Tag::ASSIGN)) {
+		$set(args, head, $$nc($nc(this->make)->at($nc(($cast($JCTree$JCExpression, args->head)))->pos$))->Assign($($nc(this->make)->Ident($nc(this->names)->value)), $cast($JCTree$JCExpression, args->head)));
 		elidedValue = true;
 	}
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
 		$var($List, tl, args);
-		for (; $nc(tl)->nonEmpty(); $assign(tl, $nc(tl)->tail)) {
+		for (; $nc(tl)->nonEmpty(); $assign(tl, tl->tail)) {
 			$var($Pair, p, attributeAnnotationNameValuePair($cast($JCTree$JCExpression, tl->head), a->type, isError, env, elidedValue));
 			if (p != nullptr && !$nc($nc(($cast($Symbol$MethodSymbol, p->fst)))->type)->isErroneous()) {
 				buf->append(p);
@@ -1007,7 +849,7 @@ $List* Annotate::attributeAnnotationValues($JCTree$JCAnnotation* a, $Type* expec
 }
 
 $Pair* Annotate::attributeAnnotationNameValuePair($JCTree$JCExpression* nameValuePair, $Type* thisAnnotationType, bool badAnnotation, $Env* env, bool elidedValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JCTree$Tag);
 	if (!$nc(nameValuePair)->hasTag($JCTree$Tag::ASSIGN)) {
 		$init($CompilerProperties$Errors);
@@ -1017,33 +859,31 @@ $Pair* Annotate::attributeAnnotationNameValuePair($JCTree$JCExpression* nameValu
 		return nullptr;
 	}
 	$var($JCTree$JCAssign, assign, $cast($JCTree$JCAssign, nameValuePair));
-	if (!$nc($nc(assign)->lhs)->hasTag($JCTree$Tag::IDENT)) {
+	if (!$nc(assign->lhs)->hasTag($JCTree$Tag::IDENT)) {
 		$init($CompilerProperties$Errors);
-		$nc(this->log)->error($($nc(nameValuePair)->pos()), $CompilerProperties$Errors::AnnotationValueMustBeNameValue);
-		$var($Type, var$1, $set($nc(nameValuePair), type, $nc(this->syms)->errType));
+		$nc(this->log)->error($(nameValuePair->pos()), $CompilerProperties$Errors::AnnotationValueMustBeNameValue);
+		$var($Type, var$1, $set(nameValuePair, type, $nc(this->syms)->errType));
 		attributeAnnotationValue(var$1, nameValuePair, env);
 		return nullptr;
 	}
-	$var($JCTree$JCIdent, left, $cast($JCTree$JCIdent, $nc(assign)->lhs));
+	$var($JCTree$JCIdent, left, $cast($JCTree$JCIdent, assign->lhs));
 	$var($JCDiagnostic$DiagnosticPosition, var$2, elidedValue ? $nc(assign->rhs)->pos() : $nc(left)->pos());
-	$var($Env, var$3, env);
-	$var($Type, var$4, thisAnnotationType);
-	$var($Name, var$5, left->name);
-	$var($Symbol, method, $nc(this->resolve)->resolveQualifiedMethod(var$2, var$3, var$4, var$5, $($List::nil()), nullptr));
-	$set($nc(left), sym, method);
+	$var($Name, var$3, $nc(left)->name);
+	$var($Symbol, method, $nc(this->resolve)->resolveQualifiedMethod(var$2, env, thisAnnotationType, var$3, $($List::nil()), nullptr));
+	$set(left, sym, method);
 	$set(left, type, $nc(method)->type);
 	if (!$equals(method->owner, $nc(thisAnnotationType)->tsym) && !badAnnotation) {
-		$var($JCDiagnostic$DiagnosticPosition, var$6, left->pos());
-		$nc(this->log)->error(var$6, $($CompilerProperties$Errors::NoAnnotationMember(left->name, thisAnnotationType)));
+		$var($JCDiagnostic$DiagnosticPosition, var$4, left->pos());
+		$nc(this->log)->error(var$4, $($CompilerProperties$Errors::NoAnnotationMember(left->name, thisAnnotationType)));
 	}
 	$var($Type, resultType, $nc(method->type)->getReturnType());
 	$var($Attribute, value, attributeAnnotationValue(resultType, assign->rhs, env));
-	$set($nc(nameValuePair), type, resultType);
+	$set(nameValuePair, type, resultType);
 	return $nc(method->type)->isErroneous() ? ($Pair*)nullptr : $new($Pair, $cast($Symbol$MethodSymbol, method), value);
 }
 
 $Attribute* Annotate::attributeAnnotationValue($Type* expectedElementType$renamed, $JCTree$JCExpression* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, expectedElementType, expectedElementType$renamed);
 	try {
 		$nc($nc(expectedElementType)->tsym)->complete();
@@ -1059,25 +899,25 @@ $Attribute* Annotate::attributeAnnotationValue($Type* expectedElementType$rename
 	}
 	$init($JCTree$Tag);
 	if ($nc(tree)->hasTag($JCTree$Tag::NEWARRAY)) {
-		if (!$nc(expectedElementType)->isErroneous()) {
+		if (!expectedElementType->isErroneous()) {
 			$init($CompilerProperties$Errors);
 			$nc(this->log)->error($(tree->pos()), $CompilerProperties$Errors::AnnotationValueNotAllowableType);
 		}
 		$var($JCTree$JCNewArray, na, $cast($JCTree$JCNewArray, tree));
 		if (na->elemtype != nullptr) {
 			$init($CompilerProperties$Errors);
-			$nc(this->log)->error($($nc(na->elemtype)->pos()), $CompilerProperties$Errors::NewNotAllowedInAnnotation);
+			$nc(this->log)->error($(na->elemtype->pos()), $CompilerProperties$Errors::NewNotAllowedInAnnotation);
 		}
 		{
 			$var($List, l, na->elems);
-			for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 				attributeAnnotationValue($nc(this->syms)->errType, $cast($JCTree$JCExpression, l->head), env);
 			}
 		}
 		return $new($Attribute$Error, $nc(this->syms)->errType);
 	}
-	if ($nc($nc(expectedElementType)->tsym)->isAnnotationType()) {
-		if ($nc(tree)->hasTag($JCTree$Tag::ANNOTATION)) {
+	if ($nc(expectedElementType->tsym)->isAnnotationType()) {
+		if (tree->hasTag($JCTree$Tag::ANNOTATION)) {
 			return attributeAnnotation($cast($JCTree$JCAnnotation, tree), expectedElementType, env);
 		} else {
 			$init($CompilerProperties$Errors);
@@ -1085,16 +925,16 @@ $Attribute* Annotate::attributeAnnotationValue($Type* expectedElementType$rename
 			$assign(expectedElementType, $nc(this->syms)->errType);
 		}
 	}
-	if ($nc(tree)->hasTag($JCTree$Tag::ANNOTATION)) {
+	if (tree->hasTag($JCTree$Tag::ANNOTATION)) {
 		if (!$nc(expectedElementType)->isErroneous()) {
 			$var($JCDiagnostic$DiagnosticPosition, var$2, tree->pos());
 			$nc(this->log)->error(var$2, $($CompilerProperties$Errors::AnnotationNotValidForType(expectedElementType)));
 		}
 		attributeAnnotation($cast($JCTree$JCAnnotation, tree), $nc(this->syms)->errType, env);
-		return $new($Attribute$Error, $nc($nc(($cast($JCTree$JCAnnotation, tree)))->annotationType)->type);
+		return $new($Attribute$Error, $nc($cast($JCTree$JCAnnotation, tree)->annotationType)->type);
 	}
 	$var($MemberEnter$InitTreeVisitor, initTreeVisitor, $new($Annotate$1, this));
-	$nc(tree)->accept(initTreeVisitor);
+	tree->accept(initTreeVisitor);
 	if (!initTreeVisitor->result) {
 		$init($CompilerProperties$Errors);
 		$nc(this->log)->error($(tree->pos()), $CompilerProperties$Errors::ExpressionNotAllowableAsAnnotationValue);
@@ -1103,19 +943,19 @@ $Attribute* Annotate::attributeAnnotationValue($Type* expectedElementType$rename
 	bool var$3 = $nc(expectedElementType)->isPrimitive();
 	if (!var$3) {
 		bool var$4 = $nc(this->types)->isSameType(expectedElementType, $nc(this->syms)->stringType);
-		var$3 = (var$4 && !$nc(expectedElementType)->hasTag($TypeTag::ERROR));
+		var$3 = var$4 && !expectedElementType->hasTag($TypeTag::ERROR);
 	}
 	if (var$3) {
 		return getAnnotationPrimitiveValue(expectedElementType, tree, env);
 	}
-	if ($nc(expectedElementType)->tsym == $nc($nc(this->syms)->classType)->tsym) {
+	if (expectedElementType->tsym == $nc($nc(this->syms)->classType)->tsym) {
 		return getAnnotationClassValue(expectedElementType, tree, env);
 	}
-	bool var$5 = $nc(expectedElementType)->hasTag($TypeTag::CLASS);
-	if (var$5 && ((int64_t)($nc(expectedElementType->tsym)->flags() & (uint64_t)(int64_t)$Flags::ENUM)) != 0) {
+	bool var$5 = expectedElementType->hasTag($TypeTag::CLASS);
+	if (var$5 && ($nc(expectedElementType->tsym)->flags() & $Flags::ENUM) != 0) {
 		return getAnnotationEnumValue(expectedElementType, tree, env);
 	}
-	if (!$nc(expectedElementType)->isErroneous()) {
+	if (!expectedElementType->isErroneous()) {
 		$init($CompilerProperties$Errors);
 		$nc(this->log)->error($(tree->pos()), $CompilerProperties$Errors::AnnotationValueNotAllowableType);
 	}
@@ -1123,12 +963,12 @@ $Attribute* Annotate::attributeAnnotationValue($Type* expectedElementType$rename
 }
 
 $Attribute* Annotate::getAnnotationEnumValue($Type* expectedElementType, $JCTree$JCExpression* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, result, $nc(this->attr)->attribTree(tree, env, $(annotationValueInfo(expectedElementType))));
 	$var($Symbol, sym, $TreeInfo::symbol(tree));
 	$init($Kinds$Kind);
-	bool var$0 = sym == nullptr || $TreeInfo::nonstaticSelect(tree) || $nc(sym)->kind != $Kinds$Kind::VAR;
-	if (var$0 || ((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)$Flags::ENUM)) == 0) {
+	bool var$0 = sym == nullptr || $TreeInfo::nonstaticSelect(tree) || sym->kind != $Kinds$Kind::VAR;
+	if (var$0 || (sym->flags() & $Flags::ENUM) == 0) {
 		$init($CompilerProperties$Errors);
 		$nc(this->log)->error($($nc(tree)->pos()), $CompilerProperties$Errors::EnumAnnotationMustBeEnumConstant);
 		return $new($Attribute$Error, $($nc(result)->getOriginalType()));
@@ -1138,12 +978,12 @@ $Attribute* Annotate::getAnnotationEnumValue($Type* expectedElementType, $JCTree
 }
 
 $Attribute* Annotate::getAnnotationClassValue($Type* expectedElementType, $JCTree$JCExpression* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, result, $nc(this->attr)->attribTree(tree, env, $(annotationValueInfo(expectedElementType))));
 	if ($nc(result)->isErroneous()) {
 		bool var$0 = $TreeInfo::name(tree) == $nc(this->names)->_class;
-		if (var$0 && $nc($nc($nc(($cast($JCTree$JCFieldAccess, tree)))->selected)->type)->isErroneous()) {
-			$var($Name, n, $nc($nc($nc((($cast($JCTree$JCFieldAccess, tree))->selected))->type)->tsym)->flatName());
+		if (var$0 && $nc($nc($nc($cast($JCTree$JCFieldAccess, tree))->selected)->type)->isErroneous()) {
+			$var($Name, n, $nc($nc($nc(($cast($JCTree$JCFieldAccess, tree)->selected))->type)->tsym)->flatName());
 			return $new($Attribute$UnresolvedClass, expectedElementType, $($nc(this->types)->createErrorType(n, $nc(this->syms)->unknownSymbol, $nc(this->syms)->classType)));
 		} else {
 			return $new($Attribute$Error, $(result->getOriginalType()));
@@ -1154,16 +994,16 @@ $Attribute* Annotate::getAnnotationClassValue($Type* expectedElementType, $JCTre
 		$nc(this->log)->error($($nc(tree)->pos()), $CompilerProperties$Errors::AnnotationValueMustBeClassLiteral);
 		return $new($Attribute$Error, $nc(this->syms)->errType);
 	}
-	return $new($Attribute$Class, this->types, $nc(($nc(($cast($JCTree$JCFieldAccess, tree)))->selected))->type);
+	return $new($Attribute$Class, this->types, $nc(($nc($cast($JCTree$JCFieldAccess, tree))->selected))->type);
 }
 
 $Attribute* Annotate::getAnnotationPrimitiveValue($Type* expectedElementType, $JCTree$JCExpression* tree, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, result, $nc(this->attr)->attribTree(tree, env, $(annotationValueInfo(expectedElementType))));
 	if ($nc(result)->isErroneous()) {
 		return $new($Attribute$Error, $(result->getOriginalType()));
 	}
-	if ($nc(result)->constValue() == nullptr) {
+	if (result->constValue() == nullptr) {
 		$init($CompilerProperties$Errors);
 		$nc(this->log)->error($($nc(tree)->pos()), $CompilerProperties$Errors::AttributeValueMustBeConstant);
 		return $new($Attribute$Error, expectedElementType);
@@ -1177,31 +1017,31 @@ $Attr$ResultInfo* Annotate::annotationValueInfo($Type* pt) {
 }
 
 $Attribute* Annotate::getAnnotationArrayValue($Type* expectedElementType, $JCTree$JCExpression* tree$renamed, $Env* env) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCTree$JCExpression, tree, tree$renamed);
 	$init($JCTree$Tag);
 	if (!$nc(tree)->hasTag($JCTree$Tag::NEWARRAY)) {
 		$var($List, var$0, $List::nil());
-		$assign(tree, $nc($($nc(this->make)->at(tree->pos$)))->NewArray(nullptr, var$0, $($List::of(tree))));
+		$assign(tree, $$nc($nc(this->make)->at(tree->pos$))->NewArray(nullptr, var$0, $($List::of(tree))));
 	}
 	$var($JCTree$JCNewArray, na, $cast($JCTree$JCNewArray, tree));
 	if ($nc(na)->elemtype != nullptr) {
 		$init($CompilerProperties$Errors);
-		$nc(this->log)->error($($nc(na->elemtype)->pos()), $CompilerProperties$Errors::NewNotAllowedInAnnotation);
+		$nc(this->log)->error($(na->elemtype->pos()), $CompilerProperties$Errors::NewNotAllowedInAnnotation);
 	}
 	$var($ListBuffer, buf, $new($ListBuffer));
 	{
-		$var($List, l, $nc(na)->elems);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		$var($List, l, na->elems);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			buf->append($(attributeAnnotationValue($($nc(this->types)->elemtype(expectedElementType)), $cast($JCTree$JCExpression, l->head), env)));
 		}
 	}
 	$set(na, type, expectedElementType);
-	return $new($Attribute$Array, expectedElementType, $fcast($AttributeArray, $(buf->toArray($$new($AttributeArray, buf->length())))));
+	return $new($Attribute$Array, expectedElementType, $$cast($AttributeArray, buf->toArray($$new($AttributeArray, buf->length()))));
 }
 
 $Attribute$Compound* Annotate::processRepeatedAnnotations($List* annotations, $Annotate$AnnotationContext* ctx, $Symbol* on, bool isTypeParam) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute$Compound, firstOccurrence, $cast($Attribute$Compound, $nc(annotations)->head));
 	$var($List, repeated, $List::nil());
 	$var($Type, origAnnoType, nullptr);
@@ -1213,22 +1053,22 @@ $Attribute$Compound* Annotate::processRepeatedAnnotations($List* annotations, $A
 	int32_t count = 0;
 	{
 		$var($List, al, annotations);
-		for (; !al->isEmpty(); $assign(al, al->tail)) {
+		for (; !$nc(al)->isEmpty(); $assign(al, al->tail)) {
 			++count;
-			$Assert::check(count > 1 || !$nc($nc(al)->tail)->isEmpty());
-			$var($Attribute$Compound, currentAnno, $cast($Attribute$Compound, $nc(al)->head));
+			$Assert::check(count > 1 || !$nc(al->tail)->isEmpty());
+			$var($Attribute$Compound, currentAnno, $cast($Attribute$Compound, al->head));
 			$assign(origAnnoType, $nc(currentAnno)->type);
 			if (arrayOfOrigAnnoType == nullptr) {
 				$assign(arrayOfOrigAnnoType, $nc(this->types)->makeArrayType(origAnnoType));
 			}
 			bool reportError = count > 1;
-			$var($Type, currentContainerType, getContainingType(currentAnno, $cast($JCDiagnostic$DiagnosticPosition, $($nc($nc(ctx)->pos)->get(currentAnno))), reportError));
+			$var($Type, currentContainerType, getContainingType(currentAnno, $$cast($JCDiagnostic$DiagnosticPosition, $nc($nc(ctx)->pos)->get(currentAnno)), reportError));
 			if (currentContainerType == nullptr) {
 				continue;
 			}
 			$Assert::check(targetContainerType == nullptr || currentContainerType == targetContainerType);
 			$assign(targetContainerType, currentContainerType);
-			$assign(containerValueSymbol, validateContainer(targetContainerType, origAnnoType, $cast($JCDiagnostic$DiagnosticPosition, $($nc($nc(ctx)->pos)->get(currentAnno)))));
+			$assign(containerValueSymbol, validateContainer(targetContainerType, origAnnoType, $$cast($JCDiagnostic$DiagnosticPosition, ctx->pos->get(currentAnno))));
 			if (containerValueSymbol == nullptr) {
 				continue;
 			}
@@ -1240,38 +1080,38 @@ $Attribute$Compound* Annotate::processRepeatedAnnotations($List* annotations, $A
 		$nc(this->log)->error(var$1, $($CompilerProperties$Errors::DuplicateAnnotationInvalidRepeated(origAnnoType)));
 		return nullptr;
 	}
-	if (!$nc(repeated)->isEmpty()) {
+	if (!repeated->isEmpty()) {
 		$assign(repeated, repeated->reverse());
 		$var($JCDiagnostic$DiagnosticPosition, pos, $cast($JCDiagnostic$DiagnosticPosition, $nc($nc(ctx)->pos)->get(firstOccurrence)));
 		$var($TreeMaker, m, $nc(this->make)->at(pos));
 		$var($Pair, p, $new($Pair, containerValueSymbol, $$new($Attribute$Array, arrayOfOrigAnnoType, repeated)));
 		if (ctx->isTypeCompound) {
-			$var($Attribute$TypeCompound, at, $new($Attribute$TypeCompound, targetContainerType, $($List::of(p)), $nc(($cast($Attribute$TypeCompound, annotations->head)))->position));
+			$var($Attribute$TypeCompound, at, $new($Attribute$TypeCompound, targetContainerType, $($List::of(p)), $nc($cast($Attribute$TypeCompound, annotations->head))->position));
 			$var($JCTree$JCAnnotation, annoTree, $nc(m)->TypeAnnotation(at));
 			if (!$nc(this->chk)->validateAnnotationDeferErrors(annoTree)) {
 				$var($JCDiagnostic$DiagnosticPosition, var$2, $nc(annoTree)->pos());
 				$nc(this->log)->error(var$2, $($CompilerProperties$Errors::DuplicateAnnotationInvalidRepeated(origAnnoType)));
 			}
-			if (!$nc(this->chk)->isTypeAnnotation(annoTree, isTypeParam)) {
+			if (!this->chk->isTypeAnnotation(annoTree, isTypeParam)) {
 				$nc(this->log)->error(pos, isTypeParam ? $($CompilerProperties$Errors::InvalidRepeatableAnnotationNotApplicable(targetContainerType, on)) : $($CompilerProperties$Errors::InvalidRepeatableAnnotationNotApplicableInContext(targetContainerType)));
 			}
 			at->setSynthesized(true);
-			$var($Attribute$Compound, x, static_cast<$Attribute$Compound*>(at));
+			$var($Attribute$Compound, x, $cast($Attribute$Compound, at));
 			return x;
 		} else {
 			$var($Attribute$Compound, c, $new($Attribute$Compound, targetContainerType, $($List::of(p))));
 			$var($JCTree$JCAnnotation, annoTree, $nc(m)->Annotation(c));
-			bool var$3 = ((int64_t)($nc(on)->flags_field & (uint64_t)$Flags::RECORD)) != 0;
+			bool var$3 = ($nc(on)->flags_field & $Flags::RECORD) != 0;
 			if (!var$3) {
-				bool var$4 = $nc(on)->enclClass() != nullptr;
-				var$3 = var$4 && $nc($(on->enclClass()))->isRecord();
+				bool var$4 = on->enclClass() != nullptr;
+				var$3 = var$4 && $$nc(on->enclClass())->isRecord();
 			}
 			bool isRecordMember = var$3;
-			if (!$nc(this->chk)->annotationApplicable(annoTree, on) && (!isRecordMember || isRecordMember && ((int64_t)(on->flags_field & (uint64_t)(int64_t)$Flags::GENERATED_MEMBER)) == 0)) {
+			if (!$nc(this->chk)->annotationApplicable(annoTree, on) && (!isRecordMember || isRecordMember && (on->flags_field & $Flags::GENERATED_MEMBER) == 0)) {
 				$var($JCDiagnostic$DiagnosticPosition, var$5, $nc(annoTree)->pos());
 				$nc(this->log)->error(var$5, $($CompilerProperties$Errors::InvalidRepeatableAnnotationNotApplicable(targetContainerType, on)));
 			}
-			if (!$nc(this->chk)->validateAnnotationDeferErrors(annoTree)) {
+			if (!this->chk->validateAnnotationDeferErrors(annoTree)) {
 				$var($JCDiagnostic$DiagnosticPosition, var$6, $nc(annoTree)->pos());
 				$nc(this->log)->error(var$6, $($CompilerProperties$Errors::DuplicateAnnotationInvalidRepeated(origAnnoType)));
 			}
@@ -1286,10 +1126,10 @@ $Attribute$Compound* Annotate::processRepeatedAnnotations($List* annotations, $A
 }
 
 $Type* Annotate::getContainingType($Attribute$Compound* currentAnno, $JCDiagnostic$DiagnosticPosition* pos, bool reportError) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, origAnnoType, $nc(currentAnno)->type);
 	$var($Symbol$TypeSymbol, origAnnoDecl, $nc(origAnnoType)->tsym);
-	$var($Attribute$Compound, ca, $nc($($nc(origAnnoDecl)->getAnnotationTypeMetadata()))->getRepeatable());
+	$var($Attribute$Compound, ca, $$nc($nc(origAnnoDecl)->getAnnotationTypeMetadata())->getRepeatable());
 	if (ca == nullptr) {
 		if (reportError) {
 			$nc(this->log)->error(pos, $($CompilerProperties$Errors::DuplicateAnnotationMissingContainer(origAnnoType)));
@@ -1307,12 +1147,12 @@ $Type* Annotate::filterSame($Type* t, $Type* s) {
 }
 
 $Type* Annotate::extractContainingType($Attribute$Compound* ca, $JCDiagnostic$DiagnosticPosition* pos, $Symbol$TypeSymbol* annoDecl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(ca)->values)->isEmpty()) {
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotation(annoDecl)));
 		return nullptr;
 	}
-	$var($Pair, p, $cast($Pair, $nc($nc(ca)->values)->head));
+	$var($Pair, p, $cast($Pair, ca->values->head));
 	$var($Name, name, $nc(($cast($Symbol$MethodSymbol, $nc(p)->fst)))->name);
 	if (name != $nc(this->names)->value) {
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotation(annoDecl)));
@@ -1333,14 +1173,14 @@ $Type* Annotate::extractContainingType($Attribute$Compound* ca, $JCDiagnostic$Di
 }
 
 $Symbol$MethodSymbol* Annotate::validateContainer($Type* targetContainerType, $Type* originalAnnoType, $JCDiagnostic$DiagnosticPosition* pos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$MethodSymbol, containerValueSymbol, nullptr);
 	bool fatalError = false;
 	$var($Scope, scope, $nc($nc(targetContainerType)->tsym)->members());
 	int32_t nr_value_elems = 0;
 	bool error = false;
 	{
-		$var($Iterator, i$, $nc($($nc(scope)->getSymbolsByName($nc(this->names)->value)))->iterator());
+		$var($Iterator, i$, $$nc($nc(scope)->getSymbolsByName($nc(this->names)->value))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, elm, $cast($Symbol, i$->next()));
 			{
@@ -1366,10 +1206,10 @@ $Symbol$MethodSymbol* Annotate::validateContainer($Type* targetContainerType, $T
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationInvalidValue(targetContainerType)));
 		fatalError = true;
 	}
-	$var($Type, valueRetType, $nc($nc(containerValueSymbol)->type)->getReturnType());
+	$var($Type, valueRetType, $nc(containerValueSymbol->type)->getReturnType());
 	$var($Type, expectedType, $nc(this->types)->makeArrayType(originalAnnoType));
-	bool var$0 = $nc(this->types)->isArray(valueRetType);
-	if (!(var$0 && $nc(this->types)->isSameType(expectedType, valueRetType))) {
+	bool var$0 = this->types->isArray(valueRetType);
+	if (!(var$0 && this->types->isSameType(expectedType, valueRetType))) {
 		$nc(this->log)->error(pos, $($CompilerProperties$Errors::InvalidRepeatableAnnotationValueReturn(targetContainerType, valueRetType, expectedType)));
 		fatalError = true;
 	}
@@ -1377,55 +1217,53 @@ $Symbol$MethodSymbol* Annotate::validateContainer($Type* targetContainerType, $T
 }
 
 $Attribute$Compound* Annotate::makeContainerAnnotation($List* toBeReplaced, $Annotate$AnnotationContext* ctx, $Symbol* sym, bool isTypeParam) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attribute$Compound, validRepeated, processRepeatedAnnotations(toBeReplaced, ctx, sym, isTypeParam));
 	if (validRepeated != nullptr) {
 		$var($ListBuffer, manualContainer, $cast($ListBuffer, $nc($nc(ctx)->annotated)->get($nc(validRepeated->type)->tsym)));
 		if (manualContainer != nullptr) {
 			$var($JCDiagnostic$DiagnosticPosition, var$0, $cast($JCDiagnostic$DiagnosticPosition, $nc(ctx->pos)->get($(manualContainer->first()))));
-			$nc(this->log)->error(var$0, $($CompilerProperties$Errors::InvalidRepeatableAnnotationRepeatedAndContainerPresent($nc($nc(($cast($Attribute$Compound, $(manualContainer->first()))))->type)->tsym)));
+			$nc(this->log)->error(var$0, $($CompilerProperties$Errors::InvalidRepeatableAnnotationRepeatedAndContainerPresent($nc($nc(($$cast($Attribute$Compound, manualContainer->first())))->type)->tsym)));
 		}
 	}
 	return validRepeated;
 }
 
 void Annotate::enterTypeAnnotations($List* annotations, $Env* env, $Symbol* s, $JCDiagnostic$DiagnosticPosition* deferPos, bool isTypeParam) {
-	$useLocalCurrentObjectStackCache();
-	$Assert::checkNonNull($of(s), "Symbol argument to actualEnterTypeAnnotations is nul/"_s);
+	$useLocalObjectStack();
+	$Assert::checkNonNull(s, "Symbol argument to actualEnterTypeAnnotations is nul/"_s);
 	$var($JavaFileObject, prev, $nc(this->log)->useSource($nc($nc(env)->toplevel)->sourcefile));
 	$var($JCDiagnostic$DiagnosticPosition, prevLintPos, nullptr);
 	if (deferPos != nullptr) {
 		$assign(prevLintPos, $nc(this->deferredLintHandler)->setPos(deferPos));
 	}
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			annotateNow(s, annotations, env, true, isTypeParam);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (prevLintPos != nullptr) {
-				$nc(this->deferredLintHandler)->setPos(prevLintPos);
-			}
-			$nc(this->log)->useSource(prev);
+	$var($Throwable, var$0, nullptr);
+	try {
+		annotateNow(s, annotations, env, true, isTypeParam);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (prevLintPos != nullptr) {
+			$nc(this->deferredLintHandler)->setPos(prevLintPos);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		this->log->useSource(prev);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Annotate::queueScanTreeAndTypeAnnotate($JCTree* tree, $Env* env, $Symbol* sym, $JCDiagnostic$DiagnosticPosition* deferPos) {
 	$Assert::checkNonNull(sym);
-	normal(static_cast<$Runnable*>($$new(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, this, tree, env, sym, deferPos)));
+	normal($$new(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4, this, tree, env, sym, deferPos));
 }
 
 void Annotate::annotateTypeSecondStage($JCTree* tree, $List* annotations, $Type* storeAt) {
-	typeAnnotation(static_cast<$Runnable*>($$new(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, this, annotations, storeAt)));
+	typeAnnotation($$new(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5, this, annotations, storeAt));
 }
 
 void Annotate::annotateTypeParameterSecondStage($JCTree* tree, $List* annotations) {
-	typeAnnotation(static_cast<$Runnable*>($$new(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, this, annotations)));
+	typeAnnotation($$new(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6, this, annotations));
 }
 
 $Annotate$AnnotationTypeCompleter* Annotate::annotationTypeSourceCompleter() {
@@ -1433,25 +1271,23 @@ $Annotate$AnnotationTypeCompleter* Annotate::annotationTypeSourceCompleter() {
 }
 
 void Annotate::attributeAnnotationType($Env* env) {
-	$useLocalCurrentObjectStackCache();
-	$Assert::check($nc($nc(($cast($JCTree$JCClassDecl, $nc(env)->tree)))->sym)->isAnnotationType(), "Trying to annotation type complete a non-annotation type"_s);
-	$var($JavaFileObject, prev, $nc(this->log)->useSource($nc($nc(env)->toplevel)->sourcefile));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($JCTree$JCClassDecl, tree, $cast($JCTree$JCClassDecl, $nc(env)->tree));
-			$var($Annotate$AnnotationTypeVisitor, v, $new($Annotate$AnnotationTypeVisitor, this, this->attr, this->chk, this->syms, this->typeEnvs));
-			v->scanAnnotationType(tree);
-			$nc($($nc($nc(tree)->sym)->getAnnotationTypeMetadata()))->setRepeatable(v->repeatable);
-			$nc($($nc(tree->sym)->getAnnotationTypeMetadata()))->setTarget(v->target);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->log)->useSource(prev);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$useLocalObjectStack();
+	$Assert::check($nc($nc($cast($JCTree$JCClassDecl, $nc(env)->tree))->sym)->isAnnotationType(), "Trying to annotation type complete a non-annotation type"_s);
+	$var($JavaFileObject, prev, $nc(this->log)->useSource($nc(env->toplevel)->sourcefile));
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($JCTree$JCClassDecl, tree, $cast($JCTree$JCClassDecl, env->tree));
+		$var($Annotate$AnnotationTypeVisitor, v, $new($Annotate$AnnotationTypeVisitor, this, this->attr, this->chk, this->syms, this->typeEnvs));
+		v->scanAnnotationType(tree);
+		$$nc($nc($nc(tree)->sym)->getAnnotationTypeMetadata())->setRepeatable(v->repeatable);
+		$$nc($nc(tree->sym)->getAnnotationTypeMetadata())->setTarget(v->target);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->log->useSource(prev);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1479,12 +1315,12 @@ void Annotate::lambda$annotateTypeParameterSecondStage$6($List* annotations) {
 }
 
 void Annotate::lambda$annotateTypeSecondStage$5($List* annotations, $Type* storeAt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, compounds, fromAnnotations(annotations));
 	int32_t var$0 = $nc(annotations)->size();
 	$Assert::check(var$0 == $nc(compounds)->size());
 	$init($TypeMetadata$Entry$Kind);
-	$nc($($nc(storeAt)->getMetadataOfKind($TypeMetadata$Entry$Kind::ANNOTATIONS)))->combine($$new($TypeMetadata$Annotations, compounds));
+	$$nc($nc(storeAt)->getMetadataOfKind($TypeMetadata$Entry$Kind::ANNOTATIONS))->combine($$new($TypeMetadata$Annotations, compounds));
 }
 
 void Annotate::lambda$queueScanTreeAndTypeAnnotate$4($JCTree* tree, $Env* env, $Symbol* sym, $JCDiagnostic$DiagnosticPosition* deferPos) {
@@ -1492,93 +1328,85 @@ void Annotate::lambda$queueScanTreeAndTypeAnnotate$4($JCTree* tree, $Env* env, $
 }
 
 void Annotate::lambda$annotateDefaultValueLater$3($Env* localEnv, $JCTree$JCExpression* defaultValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, prev, $nc(this->log)->useSource($nc($nc(localEnv)->toplevel)->sourcefile));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->chk)->validateAnnotationTree(defaultValue);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->log)->useSource(prev);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->chk)->validateAnnotationTree(defaultValue);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->log->useSource(prev);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Annotate::lambda$annotateDefaultValueLater$2($Env* localEnv, $JCDiagnostic$DiagnosticPosition* deferPos, $JCTree$JCExpression* defaultValue, $Symbol$MethodSymbol* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, prev, $nc(this->log)->useSource($nc($nc(localEnv)->toplevel)->sourcefile));
 	$var($JCDiagnostic$DiagnosticPosition, prevLintPos, $nc(this->deferredLintHandler)->setPos(deferPos));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			enterDefaultValue(defaultValue, localEnv, m);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->deferredLintHandler)->setPos(prevLintPos);
-			$nc(this->log)->useSource(prev);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		enterDefaultValue(defaultValue, localEnv, m);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->deferredLintHandler->setPos(prevLintPos);
+		this->log->useSource(prev);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Annotate::lambda$annotateLater$1($Env* localEnv, $List* annotations, $Symbol* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, prev, $nc(this->log)->useSource($nc($nc(localEnv)->toplevel)->sourcefile));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$nc(this->chk)->validateAnnotations(annotations, $($TreeInfo::declarationFor(s, $nc(localEnv)->tree)), s);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$nc(this->log)->useSource(prev);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$nc(this->chk)->validateAnnotations(annotations, $($TreeInfo::declarationFor(s, localEnv->tree)), s);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->log->useSource(prev);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Annotate::lambda$annotateLater$0($Symbol* s, $Env* localEnv, $JCDiagnostic$DiagnosticPosition* deferPos, $List* annotations) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Kinds$Kind);
-	$Assert::check($nc(s)->kind == $Kinds$Kind::PCK || $nc(s)->annotationsPendingCompletion());
+	$Assert::check($nc(s)->kind == $Kinds$Kind::PCK || s->annotationsPendingCompletion());
 	$var($JavaFileObject, prev, $nc(this->log)->useSource($nc($nc(localEnv)->toplevel)->sourcefile));
 	$var($JCDiagnostic$DiagnosticPosition, prevLintPos, deferPos != nullptr ? $nc(this->deferredLintHandler)->setPos(deferPos) : $nc(this->deferredLintHandler)->immediate());
 	$var($Lint, prevLint, deferPos != nullptr ? ($Lint*)nullptr : $nc(this->chk)->setLint(this->lint));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			bool var$1 = $nc(s)->hasAnnotations();
-			if (var$1 && $nc(annotations)->nonEmpty()) {
-				$nc(this->log)->error($nc(($cast($JCTree$JCAnnotation, annotations->head)))->pos$, $($CompilerProperties$Errors::AlreadyAnnotated($($Kinds::kindName(s)), s)));
-			}
-			$Assert::checkNonNull($of(s), "Symbol argument to actualEnterAnnotations is null"_s);
-			annotateNow(s, annotations, localEnv, false, false);
-		} catch ($Throwable& var$2) {
-			$assign(var$0, var$2);
-		} /*finally*/ {
-			if (prevLint != nullptr) {
-				$nc(this->chk)->setLint(prevLint);
-			}
-			$nc(this->deferredLintHandler)->setPos(prevLintPos);
-			$nc(this->log)->useSource(prev);
+	$var($Throwable, var$0, nullptr);
+	try {
+		bool var$1 = s->hasAnnotations();
+		if (var$1 && $nc(annotations)->nonEmpty()) {
+			this->log->error($nc(($cast($JCTree$JCAnnotation, annotations->head)))->pos$, $($CompilerProperties$Errors::AlreadyAnnotated($($Kinds::kindName(s)), s)));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$Assert::checkNonNull(s, "Symbol argument to actualEnterAnnotations is null"_s);
+		annotateNow(s, annotations, localEnv, false, false);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (prevLint != nullptr) {
+			$nc(this->chk)->setLint(prevLint);
 		}
+		$nc(this->deferredLintHandler)->setPos(prevLintPos);
+		this->log->useSource(prev);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$Annotate($Class* class$) {
+void Annotate::clinit$($Class* clazz) {
 	$assignStatic(Annotate::annotateKey, $new($Context$Key));
 }
 
@@ -1587,29 +1415,140 @@ Annotate::Annotate() {
 
 $Class* Annotate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Annotate$$Lambda$lambda$annotateLater$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateLater$0")) {
 			return Annotate$$Lambda$lambda$annotateLater$0::load$(name, initialize);
 		}
-		if (name->equals(Annotate$$Lambda$lambda$annotateLater$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateLater$1$1")) {
 			return Annotate$$Lambda$lambda$annotateLater$1$1::load$(name, initialize);
 		}
-		if (name->equals(Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2")) {
 			return Annotate$$Lambda$lambda$annotateDefaultValueLater$2$2::load$(name, initialize);
 		}
-		if (name->equals(Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3")) {
 			return Annotate$$Lambda$lambda$annotateDefaultValueLater$3$3::load$(name, initialize);
 		}
-		if (name->equals(Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4")) {
 			return Annotate$$Lambda$lambda$queueScanTreeAndTypeAnnotate$4$4::load$(name, initialize);
 		}
-		if (name->equals(Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5")) {
 			return Annotate$$Lambda$lambda$annotateTypeSecondStage$5$5::load$(name, initialize);
 		}
-		if (name->equals(Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6")) {
 			return Annotate$$Lambda$lambda$annotateTypeParameterSecondStage$6$6::load$(name, initialize);
 		}
 	}
-	$loadClass(Annotate, name, initialize, &_Annotate_ClassInfo_, clinit$Annotate, allocate$Annotate);
+	$FieldInfo fieldInfos$$[] = {
+		{"annotateKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/comp/Annotate;>;", $PROTECTED | $STATIC | $FINAL, $staticField(Annotate, annotateKey)},
+		{"attr", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $PRIVATE | $FINAL, $field(Annotate, attr)},
+		{"chk", "Lcom/sun/tools/javac/comp/Check;", nullptr, $PRIVATE | $FINAL, $field(Annotate, chk)},
+		{"cfolder", "Lcom/sun/tools/javac/comp/ConstFold;", nullptr, $PRIVATE | $FINAL, $field(Annotate, cfolder)},
+		{"deferredLintHandler", "Lcom/sun/tools/javac/code/DeferredLintHandler;", nullptr, $PRIVATE | $FINAL, $field(Annotate, deferredLintHandler)},
+		{"enter", "Lcom/sun/tools/javac/comp/Enter;", nullptr, $PRIVATE | $FINAL, $field(Annotate, enter)},
+		{"lint", "Lcom/sun/tools/javac/code/Lint;", nullptr, $PRIVATE | $FINAL, $field(Annotate, lint)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(Annotate, log)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(Annotate, names)},
+		{"resolve", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(Annotate, resolve)},
+		{"make", "Lcom/sun/tools/javac/tree/TreeMaker;", nullptr, $PRIVATE | $FINAL, $field(Annotate, make)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(Annotate, syms)},
+		{"typeEnvs", "Lcom/sun/tools/javac/comp/TypeEnvs;", nullptr, $PRIVATE | $FINAL, $field(Annotate, typeEnvs)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(Annotate, types)},
+		{"theUnfinishedDefaultValue", "Lcom/sun/tools/javac/code/Attribute;", nullptr, $PRIVATE | $FINAL, $field(Annotate, theUnfinishedDefaultValue)},
+		{"allowRepeatedAnnos", "Z", nullptr, $PRIVATE | $FINAL, $field(Annotate, allowRepeatedAnnos)},
+		{"sourceName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Annotate, sourceName)},
+		{"blockCount", "I", nullptr, $PRIVATE, $field(Annotate, blockCount)},
+		{"q", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE, $field(Annotate, q)},
+		{"validateQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", $PRIVATE, $field(Annotate, validateQ)},
+		{"flushCount", "I", nullptr, $PRIVATE, $field(Annotate, flushCount)},
+		{"typesQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", 0, $field(Annotate, typesQ)},
+		{"afterTypesQ", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<Ljava/lang/Runnable;>;", 0, $field(Annotate, afterTypesQ)},
+		{"theSourceCompleter", "Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter;", nullptr, $PRIVATE, $field(Annotate, theSourceCompleter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Annotate, init$, void, $Context*)},
+		{"afterTypes", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Annotate, afterTypes, void, $Runnable*)},
+		{"annotateDefaultValueLater", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PUBLIC, $virtualMethod(Annotate, annotateDefaultValueLater, void, $JCTree$JCExpression*, $Env*, $Symbol$MethodSymbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"annotateLater", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PUBLIC, $virtualMethod(Annotate, annotateLater, void, $List*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"annotateNow", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;ZZ)V", "<T:Lcom/sun/tools/javac/code/Attribute$Compound;>(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;ZZ)V", $PRIVATE, $method(Annotate, annotateNow, void, $Symbol*, $List*, $Env*, bool, bool)},
+		{"annotateTypeParameterSecondStage", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)V", $PUBLIC, $virtualMethod(Annotate, annotateTypeParameterSecondStage, void, $JCTree*, $List*)},
+		{"annotateTypeSecondStage", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/code/Type;)V", $PUBLIC, $virtualMethod(Annotate, annotateTypeSecondStage, void, $JCTree*, $List*, $Type*)},
+		{"annotationTypeSourceCompleter", "()Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter;", nullptr, $PUBLIC, $virtualMethod(Annotate, annotationTypeSourceCompleter, $Annotate$AnnotationTypeCompleter*)},
+		{"annotationValueInfo", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PRIVATE, $method(Annotate, annotationValueInfo, $Attr$ResultInfo*, $Type*)},
+		{"annotationsBlocked", "()Z", nullptr, $PUBLIC, $virtualMethod(Annotate, annotationsBlocked, bool)},
+		{"attributeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute$Compound;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute$Compound;", $PUBLIC, $virtualMethod(Annotate, attributeAnnotation, $Attribute$Compound*, $JCTree$JCAnnotation*, $Type*, $Env*)},
+		{"attributeAnnotationNameValuePair", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Type;ZLcom/sun/tools/javac/comp/Env;Z)Lcom/sun/tools/javac/util/Pair;", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Type;ZLcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Z)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PRIVATE, $method(Annotate, attributeAnnotationNameValuePair, $Pair*, $JCTree$JCExpression*, $Type*, bool, $Env*, bool)},
+		{"attributeAnnotationType", "(Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", $PRIVATE, $method(Annotate, attributeAnnotationType, void, $Env*)},
+		{"attributeAnnotationValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, attributeAnnotationValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
+		{"attributeAnnotationValues", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;>;", $PRIVATE, $method(Annotate, attributeAnnotationValues, $List*, $JCTree$JCAnnotation*, $Type*, $Env*)},
+		{"attributeTypeAnnotation", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute$TypeCompound;", "(Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute$TypeCompound;", $PUBLIC, $virtualMethod(Annotate, attributeTypeAnnotation, $Attribute$TypeCompound*, $JCTree$JCAnnotation*, $Type*, $Env*)},
+		{"blockAnnotations", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, blockAnnotations, void)},
+		{"doneFlushing", "()V", nullptr, $PRIVATE, $method(Annotate, doneFlushing, void)},
+		{"enterDefaultValue", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", $PRIVATE, $method(Annotate, enterDefaultValue, void, $JCTree$JCExpression*, $Env*, $Symbol$MethodSymbol*)},
+		{"enterDone", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, enterDone, void)},
+		{"enterTypeAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Z)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Z)V", $PUBLIC, $virtualMethod(Annotate, enterTypeAnnotations, void, $List*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*, bool)},
+		{"extractContainingType", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Annotate, extractContainingType, $Type*, $Attribute$Compound*, $JCDiagnostic$DiagnosticPosition*, $Symbol$TypeSymbol*)},
+		{"filterSame", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Annotate, filterSame, $Type*, $Type*, $Type*)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, flush, void)},
+		{"fromAnnotations", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/util/List;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$TypeCompound;>;", $PUBLIC, $virtualMethod(Annotate, fromAnnotations, $List*, $List*)},
+		{"getAnnotationArrayValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, getAnnotationArrayValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
+		{"getAnnotationClassValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, getAnnotationClassValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
+		{"getAnnotationEnumValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, getAnnotationEnumValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
+		{"getAnnotationPrimitiveValue", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/code/Attribute;", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/code/Attribute;", $PRIVATE, $method(Annotate, getAnnotationPrimitiveValue, $Attribute*, $Type*, $JCTree$JCExpression*, $Env*)},
+		{"getContainingType", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Z)Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE, $method(Annotate, getContainingType, $Type*, $Attribute$Compound*, $JCDiagnostic$DiagnosticPosition*, bool)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/comp/Annotate;", nullptr, $PUBLIC | $STATIC, $staticMethod(Annotate, instance, Annotate*, $Context*)},
+		{"isAttributeTrue", "(Lcom/sun/tools/javac/code/Attribute;)Z", nullptr, $PRIVATE, $method(Annotate, isAttributeTrue, bool, $Attribute*)},
+		{"isFlushing", "()Z", nullptr, $PRIVATE, $method(Annotate, isFlushing, bool)},
+		{"lambda$annotateDefaultValueLater$2", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/code/Symbol$MethodSymbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateDefaultValueLater$2, void, $Env*, $JCDiagnostic$DiagnosticPosition*, $JCTree$JCExpression*, $Symbol$MethodSymbol*)},
+		{"lambda$annotateDefaultValueLater$3", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateDefaultValueLater$3, void, $Env*, $JCTree$JCExpression*)},
+		{"lambda$annotateLater$0", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/List;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateLater$0, void, $Symbol*, $Env*, $JCDiagnostic$DiagnosticPosition*, $List*)},
+		{"lambda$annotateLater$1", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateLater$1, void, $Env*, $List*, $Symbol*)},
+		{"lambda$annotateTypeParameterSecondStage$6", "(Lcom/sun/tools/javac/util/List;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateTypeParameterSecondStage$6, void, $List*)},
+		{"lambda$annotateTypeSecondStage$5", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$annotateTypeSecondStage$5, void, $List*, $Type*)},
+		{"lambda$queueScanTreeAndTypeAnnotate$4", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(Annotate, lambda$queueScanTreeAndTypeAnnotate$4, void, $JCTree*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"makeContainerAnnotation", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Annotate$AnnotationContext;Lcom/sun/tools/javac/code/Symbol;Z)Lcom/sun/tools/javac/code/Attribute$Compound;", "<T:Lcom/sun/tools/javac/code/Attribute$Compound;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/Annotate$AnnotationContext<TT;>;Lcom/sun/tools/javac/code/Symbol;Z)TT;", $PRIVATE, $method(Annotate, makeContainerAnnotation, $Attribute$Compound*, $List*, $Annotate$AnnotationContext*, $Symbol*, bool)},
+		{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, newRound, void)},
+		{"normal", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Annotate, normal, void, $Runnable*)},
+		{"processRepeatedAnnotations", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Annotate$AnnotationContext;Lcom/sun/tools/javac/code/Symbol;Z)Lcom/sun/tools/javac/code/Attribute$Compound;", "<T:Lcom/sun/tools/javac/code/Attribute$Compound;>(Lcom/sun/tools/javac/util/List<TT;>;Lcom/sun/tools/javac/comp/Annotate$AnnotationContext<TT;>;Lcom/sun/tools/javac/code/Symbol;Z)TT;", $PRIVATE, $method(Annotate, processRepeatedAnnotations, $Attribute$Compound*, $List*, $Annotate$AnnotationContext*, $Symbol*, bool)},
+		{"queueScanTreeAndTypeAnnotate", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", "(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)V", $PUBLIC, $virtualMethod(Annotate, queueScanTreeAndTypeAnnotate, void, $JCTree*, $Env*, $Symbol*, $JCDiagnostic$DiagnosticPosition*)},
+		{"setQueues", "(Lcom/sun/tools/javac/comp/Annotate$Queues;)Lcom/sun/tools/javac/comp/Annotate$Queues;", nullptr, $PUBLIC, $virtualMethod(Annotate, setQueues, $Annotate$Queues*, $Annotate$Queues*)},
+		{"startFlushing", "()V", nullptr, $PRIVATE, $method(Annotate, startFlushing, void)},
+		{"typeAnnotation", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Annotate, typeAnnotation, void, $Runnable*)},
+		{"unblockAnnotations", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, unblockAnnotations, void)},
+		{"unblockAnnotationsNoFlush", "()V", nullptr, $PUBLIC, $virtualMethod(Annotate, unblockAnnotationsNoFlush, void)},
+		{"unfinishedDefaultValue", "()Lcom/sun/tools/javac/code/Attribute;", nullptr, $PUBLIC, $virtualMethod(Annotate, unfinishedDefaultValue, $Attribute*)},
+		{"validate", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Annotate, validate, void, $Runnable*)},
+		{"validateContainer", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PRIVATE, $method(Annotate, validateContainer, $Symbol$MethodSymbol*, $Type*, $Type*, $JCDiagnostic$DiagnosticPosition*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Annotate$Queues", "com.sun.tools.javac.comp.Annotate", "Queues", $STATIC},
+		{"com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata", "com.sun.tools.javac.comp.Annotate", "AnnotationTypeMetadata", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.comp.Annotate$AnnotationTypeVisitor", "com.sun.tools.javac.comp.Annotate", "AnnotationTypeVisitor", $PUBLIC},
+		{"com.sun.tools.javac.comp.Annotate$AnnotationTypeCompleter", "com.sun.tools.javac.comp.Annotate", "AnnotationTypeCompleter", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.comp.Annotate$TypeAnnotate", "com.sun.tools.javac.comp.Annotate", "TypeAnnotate", $PRIVATE},
+		{"com.sun.tools.javac.comp.Annotate$AnnotationContext", "com.sun.tools.javac.comp.Annotate", "AnnotationContext", $PRIVATE},
+		{"com.sun.tools.javac.comp.Annotate$AnnotationValueContext", "com.sun.tools.javac.comp.Annotate", "AnnotationValueContext", 0},
+		{"com.sun.tools.javac.comp.Annotate$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Annotate$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.comp.Annotate",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Annotate$Queues,com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata,com.sun.tools.javac.comp.Annotate$AnnotationTypeMetadata$1,com.sun.tools.javac.comp.Annotate$AnnotationTypeVisitor,com.sun.tools.javac.comp.Annotate$AnnotationTypeCompleter,com.sun.tools.javac.comp.Annotate$TypeAnnotate,com.sun.tools.javac.comp.Annotate$AnnotationContext,com.sun.tools.javac.comp.Annotate$AnnotationValueContext,com.sun.tools.javac.comp.Annotate$2,com.sun.tools.javac.comp.Annotate$1"
+	};
+	$loadClass(Annotate, name, initialize, &classInfo$$, Annotate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Annotate);
+	});
 	return class$;
 }
 

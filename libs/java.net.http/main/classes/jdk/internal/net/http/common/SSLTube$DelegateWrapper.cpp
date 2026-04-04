@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SSLTube$DelegateWrapper.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -29,7 +28,6 @@ using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $Consumer = ::java::util::function::Consumer;
 using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
-using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $SSLTube = ::jdk::internal::net::http::common::SSLTube;
 
@@ -48,86 +46,32 @@ public:
 	virtual void accept(Object$* arg0) override {
 		$nc(inst$)->onSubscribe($cast($Flow$Subscription, arg0));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLTube$DelegateWrapper$$Lambda$onSubscribe>());
-	}
 	$Flow$Subscriber* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SSLTube$DelegateWrapper$$Lambda$onSubscribe::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLTube$DelegateWrapper$$Lambda$onSubscribe, inst$)},
-	{}
-};
-$MethodInfo SSLTube$DelegateWrapper$$Lambda$onSubscribe::methodInfos[3] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC, $method(SSLTube$DelegateWrapper$$Lambda$onSubscribe, init$, void, $Flow$Subscriber*)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper$$Lambda$onSubscribe, accept, void, Object$*)},
-	{}
-};
-$ClassInfo SSLTube$DelegateWrapper$$Lambda$onSubscribe::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLTube$DelegateWrapper$$Lambda$onSubscribe",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	fieldInfos,
-	methodInfos
 };
 $Class* SSLTube$DelegateWrapper$$Lambda$onSubscribe::load$($String* name, bool initialize) {
-	$loadClass(SSLTube$DelegateWrapper$$Lambda$onSubscribe, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLTube$DelegateWrapper$$Lambda$onSubscribe, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", nullptr, $PUBLIC, $method(SSLTube$DelegateWrapper$$Lambda$onSubscribe, init$, void, $Flow$Subscriber*)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper$$Lambda$onSubscribe, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLTube$DelegateWrapper$$Lambda$onSubscribe",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLTube$DelegateWrapper$$Lambda$onSubscribe, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLTube$DelegateWrapper$$Lambda$onSubscribe);
+	});
 	return class$;
 }
 $Class* SSLTube$DelegateWrapper$$Lambda$onSubscribe::class$ = nullptr;
-
-$FieldInfo _SSLTube$DelegateWrapper_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLTube$DelegateWrapper, $assertionsDisabled)},
-	{"delegate", "Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", nullptr, $PRIVATE | $FINAL, $field(SSLTube$DelegateWrapper, delegate)},
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $FINAL, $field(SSLTube$DelegateWrapper, debug)},
-	{"subscribedCalled", "Z", nullptr, $VOLATILE, $field(SSLTube$DelegateWrapper, subscribedCalled)},
-	{"subscribedDone", "Z", nullptr, $VOLATILE, $field(SSLTube$DelegateWrapper, subscribedDone)},
-	{"completed", "Z", nullptr, $VOLATILE, $field(SSLTube$DelegateWrapper, completed)},
-	{"error", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(SSLTube$DelegateWrapper, error)},
-	{}
-};
-
-$MethodInfo _SSLTube$DelegateWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljdk/internal/net/http/common/Logger;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljdk/internal/net/http/common/Logger;)V", 0, $method(SSLTube$DelegateWrapper, init$, void, $Flow$Subscriber*, $Logger*)},
-	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, dropSubscription, void)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SSLTube$DelegateWrapper, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SSLTube$DelegateWrapper, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onSubscribe, void, $Flow$Subscription*)},
-	{"onSubscribe", "(Ljava/util/function/Consumer;Ljava/util/concurrent/Flow$Subscription;)V", "(Ljava/util/function/Consumer<Ljava/util/concurrent/Flow$Subscription;>;Ljava/util/concurrent/Flow$Subscription;)V", $PRIVATE, $method(SSLTube$DelegateWrapper, onSubscribe, void, $Consumer*, $Flow$Subscription*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _SSLTube$DelegateWrapper_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SSLTube$DelegateWrapper", "jdk.internal.net.http.common.SSLTube", "DelegateWrapper", $STATIC | $FINAL},
-	{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SSLTube$DelegateWrapper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.SSLTube$DelegateWrapper",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.FlowTube$TubeSubscriber",
-	_SSLTube$DelegateWrapper_FieldInfo_,
-	_SSLTube$DelegateWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLTube$DelegateWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SSLTube"
-};
-
-$Object* allocate$SSLTube$DelegateWrapper($Class* clazz) {
-	return $of($alloc(SSLTube$DelegateWrapper));
-}
 
 bool SSLTube$DelegateWrapper::$assertionsDisabled = false;
 
@@ -150,11 +94,11 @@ void SSLTube$DelegateWrapper::onNext($List* item) {
 }
 
 void SSLTube$DelegateWrapper::onSubscribe($Flow$Subscription* subscription) {
-	onSubscribe(static_cast<$Consumer*>($$new(SSLTube$DelegateWrapper$$Lambda$onSubscribe, static_cast<$FlowTube$TubeSubscriber*>($nc(this->delegate)))), subscription);
+	onSubscribe($$new(SSLTube$DelegateWrapper$$Lambda$onSubscribe, $nc(this->delegate)), subscription);
 }
 
 void SSLTube$DelegateWrapper::onSubscribe($Consumer* method, $Flow$Subscription* subscription) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->subscribedCalled = true;
 	$nc(method)->accept(subscription);
 	$var($Throwable, x, nullptr);
@@ -166,22 +110,22 @@ void SSLTube$DelegateWrapper::onSubscribe($Consumer* method, $Flow$Subscription*
 	}
 	if (x != nullptr) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Subscriber completed before subscribe: forwarding %s"_s, $$new($ObjectArray, {$of(x)}));
+			this->debug->log("Subscriber completed before subscribe: forwarding %s"_s, $$new($ObjectArray, {$of(x)}));
 		}
 		$nc(this->delegate)->onError(x);
 	} else if (finished) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Subscriber completed before subscribe: calling onComplete()"_s);
+			this->debug->log("Subscriber completed before subscribe: calling onComplete()"_s);
 		}
 		$nc(this->delegate)->onComplete();
 	}
 }
 
 void SSLTube$DelegateWrapper::onError($Throwable* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->completed) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("Subscriber already completed: ignoring %s"_s, $$new($ObjectArray, {$of(t)}));
+			this->debug->log("Subscriber already completed: ignoring %s"_s, $$new($ObjectArray, {$of(t)}));
 		}
 		return;
 	}
@@ -197,7 +141,7 @@ void SSLTube$DelegateWrapper::onError($Throwable* t) {
 	if (subscribed) {
 		$nc(this->delegate)->onError(t);
 	} else if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("Subscriber not yet subscribed: stored %s"_s, $$new($ObjectArray, {$of(t)}));
+		this->debug->log("Subscriber not yet subscribed: stored %s"_s, $$new($ObjectArray, {$of(t)}));
 	}
 }
 
@@ -215,16 +159,16 @@ void SSLTube$DelegateWrapper::onComplete() {
 	}
 	if (subscribed) {
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("DelegateWrapper: completing subscriber"_s);
+			this->debug->log("DelegateWrapper: completing subscriber"_s);
 		}
 		$nc(this->delegate)->onComplete();
 	} else if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("Subscriber not yet subscribed: stored completed=true"_s);
+		this->debug->log("Subscriber not yet subscribed: stored completed=true"_s);
 	}
 }
 
 $String* SSLTube$DelegateWrapper::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"DelegateWrapper[subscribedCalled: "_s, $$str(this->subscribedCalled), ", subscribedDone: "_s, $$str(this->subscribedDone), ", completed: "_s, $$str(this->completed), ", error: "_s, this->error, "]: "_s, this->delegate});
 }
 
@@ -232,7 +176,7 @@ void SSLTube$DelegateWrapper::onNext(Object$* item) {
 	this->onNext($cast($List, item));
 }
 
-void clinit$SSLTube$DelegateWrapper($Class* class$) {
+void SSLTube$DelegateWrapper::clinit$($Class* clazz) {
 	$load($SSLTube);
 	SSLTube$DelegateWrapper::$assertionsDisabled = !$SSLTube::class$->desiredAssertionStatus();
 }
@@ -242,11 +186,55 @@ SSLTube$DelegateWrapper::SSLTube$DelegateWrapper() {
 
 $Class* SSLTube$DelegateWrapper::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SSLTube$DelegateWrapper$$Lambda$onSubscribe::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLTube$DelegateWrapper$$Lambda$onSubscribe")) {
 			return SSLTube$DelegateWrapper$$Lambda$onSubscribe::load$(name, initialize);
 		}
 	}
-	$loadClass(SSLTube$DelegateWrapper, name, initialize, &_SSLTube$DelegateWrapper_ClassInfo_, clinit$SSLTube$DelegateWrapper, allocate$SSLTube$DelegateWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SSLTube$DelegateWrapper, $assertionsDisabled)},
+		{"delegate", "Ljdk/internal/net/http/common/FlowTube$TubeSubscriber;", nullptr, $PRIVATE | $FINAL, $field(SSLTube$DelegateWrapper, delegate)},
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $PRIVATE | $FINAL, $field(SSLTube$DelegateWrapper, debug)},
+		{"subscribedCalled", "Z", nullptr, $VOLATILE, $field(SSLTube$DelegateWrapper, subscribedCalled)},
+		{"subscribedDone", "Z", nullptr, $VOLATILE, $field(SSLTube$DelegateWrapper, subscribedDone)},
+		{"completed", "Z", nullptr, $VOLATILE, $field(SSLTube$DelegateWrapper, completed)},
+		{"error", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(SSLTube$DelegateWrapper, error)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;Ljdk/internal/net/http/common/Logger;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljdk/internal/net/http/common/Logger;)V", 0, $method(SSLTube$DelegateWrapper, init$, void, $Flow$Subscriber*, $Logger*)},
+		{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, dropSubscription, void)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(SSLTube$DelegateWrapper, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(SSLTube$DelegateWrapper, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, onSubscribe, void, $Flow$Subscription*)},
+		{"onSubscribe", "(Ljava/util/function/Consumer;Ljava/util/concurrent/Flow$Subscription;)V", "(Ljava/util/function/Consumer<Ljava/util/concurrent/Flow$Subscription;>;Ljava/util/concurrent/Flow$Subscription;)V", $PRIVATE, $method(SSLTube$DelegateWrapper, onSubscribe, void, $Consumer*, $Flow$Subscription*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLTube$DelegateWrapper, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SSLTube$DelegateWrapper", "jdk.internal.net.http.common.SSLTube", "DelegateWrapper", $STATIC | $FINAL},
+		{"jdk.internal.net.http.common.FlowTube$TubeSubscriber", "jdk.internal.net.http.common.FlowTube", "TubeSubscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.SSLTube$DelegateWrapper",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.FlowTube$TubeSubscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SSLTube"
+	};
+	$loadClass(SSLTube$DelegateWrapper, name, initialize, &classInfo$$, SSLTube$DelegateWrapper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLTube$DelegateWrapper);
+	});
 	return class$;
 }
 

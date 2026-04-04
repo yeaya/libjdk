@@ -1,5 +1,4 @@
 #include <TestMemLeakComboBox$MyPanel.h>
-
 #include <TestMemLeakComboBox.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -21,50 +20,16 @@ using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JPanel = ::javax::swing::JPanel;
 
-$MethodInfo _TestMemLeakComboBox$MyPanel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(TestMemLeakComboBox$MyPanel, init$, void)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(TestMemLeakComboBox$MyPanel, paint, void, $Graphics*)},
-	{"verifyChild", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(TestMemLeakComboBox$MyPanel, verifyChild, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _TestMemLeakComboBox$MyPanel_InnerClassesInfo_[] = {
-	{"TestMemLeakComboBox$MyPanel", "TestMemLeakComboBox", "MyPanel", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TestMemLeakComboBox$MyPanel_ClassInfo_ = {
-	$ACC_SUPER,
-	"TestMemLeakComboBox$MyPanel",
-	"javax.swing.JPanel",
-	nullptr,
-	nullptr,
-	_TestMemLeakComboBox$MyPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestMemLeakComboBox$MyPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"TestMemLeakComboBox"
-};
-
-$Object* allocate$TestMemLeakComboBox$MyPanel($Class* clazz) {
-	return $of($alloc(TestMemLeakComboBox$MyPanel));
-}
-
 void TestMemLeakComboBox$MyPanel::init$() {
 	$JPanel::init$();
 }
 
 void TestMemLeakComboBox$MyPanel::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::paint(g);
 	{
 		$var($ComponentArray, arr$, getComponents());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Component, child, arr$->get(i$));
 			{
 				verifyChild(child);
@@ -74,20 +39,14 @@ void TestMemLeakComboBox$MyPanel::paint($Graphics* g) {
 }
 
 void TestMemLeakComboBox$MyPanel::verifyChild($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JComboBox, c)) {
-		{
-			$var($ComponentArray, arr$, $nc(($cast($Container, c)))->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					if ($instanceOf($CellRendererPane, child) && $nc(($cast($CellRendererPane, child)))->getComponentCount() > 0) {
-						$init($TestMemLeakComboBox);
-						$assignStatic($TestMemLeakComboBox::failed, $new($String, $$str({"CellRendererPane still has children for: "_s, c})));
-					}
-				}
+		$var($ComponentArray, arr$, $cast($Container, c)->getComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			if ($instanceOf($CellRendererPane, child) && $cast($CellRendererPane, child)->getComponentCount() > 0) {
+				$init($TestMemLeakComboBox);
+				$assignStatic($TestMemLeakComboBox::failed, $new($String, $$str({"CellRendererPane still has children for: "_s, c})));
 			}
 		}
 	}
@@ -97,7 +56,34 @@ TestMemLeakComboBox$MyPanel::TestMemLeakComboBox$MyPanel() {
 }
 
 $Class* TestMemLeakComboBox$MyPanel::load$($String* name, bool initialize) {
-	$loadClass(TestMemLeakComboBox$MyPanel, name, initialize, &_TestMemLeakComboBox$MyPanel_ClassInfo_, allocate$TestMemLeakComboBox$MyPanel);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(TestMemLeakComboBox$MyPanel, init$, void)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(TestMemLeakComboBox$MyPanel, paint, void, $Graphics*)},
+		{"verifyChild", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(TestMemLeakComboBox$MyPanel, verifyChild, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestMemLeakComboBox$MyPanel", "TestMemLeakComboBox", "MyPanel", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"TestMemLeakComboBox$MyPanel",
+		"javax.swing.JPanel",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"TestMemLeakComboBox"
+	};
+	$loadClass(TestMemLeakComboBox$MyPanel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TestMemLeakComboBox$MyPanel));
+	});
 	return class$;
 }
 

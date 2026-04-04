@@ -69,6 +69,7 @@ class Package : public ::java::lang::Comparable {
 	$class(Package, 0, ::java::lang::Comparable)
 public:
 	Package();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::sjavac::Module* m, $String* n);
 	virtual void addArtifact($String* a);
 	virtual void addArtifact(::java::io::File* f);

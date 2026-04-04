@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/VarElementHandler.h>
-
 #include <com/sun/beans/decoder/ElementHandler.h>
 #include <com/sun/beans/decoder/ValueObject.h>
 #include <com/sun/beans/decoder/ValueObjectImpl.h>
@@ -17,31 +16,6 @@ namespace com {
 	namespace sun {
 		namespace beans {
 			namespace decoder {
-
-$FieldInfo _VarElementHandler_FieldInfo_[] = {
-	{"value", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $PRIVATE, $field(VarElementHandler, value)},
-	{}
-};
-
-$MethodInfo _VarElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(VarElementHandler, init$, void)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(VarElementHandler, addAttribute, void, $String*, $String*)},
-	{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED, $virtualMethod(VarElementHandler, getValueObject, $ValueObject*)},
-	{}
-};
-
-$ClassInfo _VarElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.VarElementHandler",
-	"com.sun.beans.decoder.ElementHandler",
-	nullptr,
-	_VarElementHandler_FieldInfo_,
-	_VarElementHandler_MethodInfo_
-};
-
-$Object* allocate$VarElementHandler($Class* clazz) {
-	return $of($alloc(VarElementHandler));
-}
 
 void VarElementHandler::init$() {
 	$ElementHandler::init$();
@@ -66,7 +40,27 @@ VarElementHandler::VarElementHandler() {
 }
 
 $Class* VarElementHandler::load$($String* name, bool initialize) {
-	$loadClass(VarElementHandler, name, initialize, &_VarElementHandler_ClassInfo_, allocate$VarElementHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Lcom/sun/beans/decoder/ValueObject;", nullptr, $PRIVATE, $field(VarElementHandler, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(VarElementHandler, init$, void)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(VarElementHandler, addAttribute, void, $String*, $String*)},
+		{"getValueObject", "()Lcom/sun/beans/decoder/ValueObject;", nullptr, $PROTECTED, $virtualMethod(VarElementHandler, getValueObject, $ValueObject*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.VarElementHandler",
+		"com.sun.beans.decoder.ElementHandler",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VarElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VarElementHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKColorType.h>
-
 #include <java/awt/Color.h>
 #include <java/lang/Math.h>
 #include <javax/swing/plaf/ColorUIResource.h>
@@ -32,40 +31,6 @@ namespace com {
 				namespace plaf {
 					namespace gtk {
 
-$FieldInfo _GTKColorType_FieldInfo_[] = {
-	{"LIGHT", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, LIGHT)},
-	{"DARK", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, DARK)},
-	{"MID", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, MID)},
-	{"BLACK", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, BLACK)},
-	{"WHITE", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, WHITE)},
-	{"MAX_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, MAX_COUNT)},
-	{"HLS_COLORS", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKColorType, HLS_COLORS)},
-	{"HLS_COLOR_LOCK", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKColorType, HLS_COLOR_LOCK)},
-	{}
-};
-
-$MethodInfo _GTKColorType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GTKColorType, init$, void, $String*)},
-	{"adjustColor", "(Ljava/awt/Color;FFF)Ljava/awt/Color;", nullptr, $STATIC, $staticMethod(GTKColorType, adjustColor, $Color*, $Color*, float, float, float)},
-	{"hlsToRGB", "(FFF)I", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKColorType, hlsToRGB, int32_t, float, float, float)},
-	{"hlsValue", "(FFF)F", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKColorType, hlsValue, float, float, float, float)},
-	{"rgbToHLS", "(I[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKColorType, rgbToHLS, $floats*, int32_t, $floats*)},
-	{}
-};
-
-$ClassInfo _GTKColorType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKColorType",
-	"javax.swing.plaf.synth.ColorType",
-	nullptr,
-	_GTKColorType_FieldInfo_,
-	_GTKColorType_MethodInfo_
-};
-
-$Object* allocate$GTKColorType($Class* clazz) {
-	return $of($alloc(GTKColorType));
-}
-
 $ColorType* GTKColorType::LIGHT = nullptr;
 $ColorType* GTKColorType::DARK = nullptr;
 $ColorType* GTKColorType::MID = nullptr;
@@ -86,7 +51,7 @@ int32_t GTKColorType::hlsToRGB(float h, float l, float s) {
 		if (h == 0.0) {
 			r = (g = (b = l));
 		} else {
-			r = (g = (b = (float)0));
+			r = (g = (b = 0));
 		}
 	} else {
 		r = hlsValue(m1, m2, h + 120);
@@ -116,14 +81,14 @@ float GTKColorType::hlsValue(float n1, float n2, float h) {
 $floats* GTKColorType::rgbToHLS(int32_t rgb, $floats* hls$renamed) {
 	$init(GTKColorType);
 	$var($floats, hls, hls$renamed);
-	float r = (((int32_t)(rgb & (uint32_t)0x00FF0000)) >> 16) / 255.0f;
-	float g = (((int32_t)(rgb & (uint32_t)0x0000FF00)) >> 8) / 255.0f;
-	float b = ((int32_t)(rgb & (uint32_t)255)) / 255.0f;
+	float r = ((rgb & 0x00ff0000) >> 0x10) / 255.0f;
+	float g = ((rgb & 0xff00) >> 8) / 255.0f;
+	float b = (rgb & 0xff) / 255.0f;
 	float max = $Math::max($Math::max(r, g), b);
 	float min = $Math::min($Math::min(r, g), b);
 	float l = (max + min) / 2.0f;
-	float s = (float)0;
-	float h = (float)0;
+	float s = 0;
+	float h = 0;
 	if (max != min) {
 		float delta = max - min;
 		s = (l <= 0.5f) ? (delta / (max + min)) : (delta / (2.0f - max - min));
@@ -169,7 +134,7 @@ void GTKColorType::init$($String* name) {
 	$ColorType::init$(name);
 }
 
-void clinit$GTKColorType($Class* class$) {
+void GTKColorType::clinit$($Class* clazz) {
 	$assignStatic(GTKColorType::LIGHT, $new(GTKColorType, "Light"_s));
 	$assignStatic(GTKColorType::DARK, $new(GTKColorType, "Dark"_s));
 	$assignStatic(GTKColorType::MID, $new(GTKColorType, "Mid"_s));
@@ -178,7 +143,7 @@ void clinit$GTKColorType($Class* class$) {
 	$assignStatic(GTKColorType::HLS_COLORS, $new($floats, 3));
 	$assignStatic(GTKColorType::HLS_COLOR_LOCK, $new($Object));
 	{
-		GTKColorType::MAX_COUNT = $nc(GTKColorType::WHITE)->getID() + 1;
+		GTKColorType::MAX_COUNT = GTKColorType::WHITE->getID() + 1;
 	}
 }
 
@@ -186,7 +151,36 @@ GTKColorType::GTKColorType() {
 }
 
 $Class* GTKColorType::load$($String* name, bool initialize) {
-	$loadClass(GTKColorType, name, initialize, &_GTKColorType_ClassInfo_, clinit$GTKColorType, allocate$GTKColorType);
+	$FieldInfo fieldInfos$$[] = {
+		{"LIGHT", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, LIGHT)},
+		{"DARK", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, DARK)},
+		{"MID", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, MID)},
+		{"BLACK", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, BLACK)},
+		{"WHITE", "Ljavax/swing/plaf/synth/ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, WHITE)},
+		{"MAX_COUNT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(GTKColorType, MAX_COUNT)},
+		{"HLS_COLORS", "[F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKColorType, HLS_COLORS)},
+		{"HLS_COLOR_LOCK", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(GTKColorType, HLS_COLOR_LOCK)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $method(GTKColorType, init$, void, $String*)},
+		{"adjustColor", "(Ljava/awt/Color;FFF)Ljava/awt/Color;", nullptr, $STATIC, $staticMethod(GTKColorType, adjustColor, $Color*, $Color*, float, float, float)},
+		{"hlsToRGB", "(FFF)I", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKColorType, hlsToRGB, int32_t, float, float, float)},
+		{"hlsValue", "(FFF)F", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKColorType, hlsValue, float, float, float, float)},
+		{"rgbToHLS", "(I[F)[F", nullptr, $PRIVATE | $STATIC, $staticMethod(GTKColorType, rgbToHLS, $floats*, int32_t, $floats*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKColorType",
+		"javax.swing.plaf.synth.ColorType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GTKColorType, name, initialize, &classInfo$$, GTKColorType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKColorType);
+	});
 	return class$;
 }
 

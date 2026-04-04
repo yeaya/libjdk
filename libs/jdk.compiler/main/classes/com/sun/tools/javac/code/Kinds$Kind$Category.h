@@ -26,6 +26,7 @@ class Kinds$Kind$Category : public ::java::lang::Enum {
 public:
 	Kinds$Kind$Category();
 	static $Array<::com::sun::tools::javac::code::Kinds$Kind$Category>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::code::Kinds$Kind$Category* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::code::Kinds$Kind$Category>* values();

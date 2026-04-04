@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/DocCommentParser$4.h>
-
 #include <com/sun/source/doctree/DocRootTree.h>
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/tools/javac/parser/DocCommentParser$ParseException.h>
@@ -22,7 +21,6 @@ using $DocCommentParser$TagParser = ::com::sun::tools::javac::parser::DocComment
 using $DocCommentParser$TagParser$Kind = ::com::sun::tools::javac::parser::DocCommentParser$TagParser$Kind;
 using $DocCommentParser$WhitespaceRetentionPolicy = ::com::sun::tools::javac::parser::DocCommentParser$WhitespaceRetentionPolicy;
 using $DCTree = ::com::sun::tools::javac::tree::DCTree;
-using $DocTreeMaker = ::com::sun::tools::javac::tree::DocTreeMaker;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -35,49 +33,6 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _DocCommentParser$4_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/parser/DocCommentParser;", nullptr, $FINAL | $SYNTHETIC, $field(DocCommentParser$4, this$0)},
-	{}
-};
-
-$MethodInfo _DocCommentParser$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser;Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;)V", nullptr, 0, $method(DocCommentParser$4, init$, void, $DocCommentParser*, $DocCommentParser$TagParser$Kind*, $DocTree$Kind*)},
-	{"parse", "(I)Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PUBLIC, $virtualMethod(DocCommentParser$4, parse, $DCTree*, int32_t), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
-	{}
-};
-
-$EnclosingMethodInfo _DocCommentParser$4_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.parser.DocCommentParser",
-	"createTagParsers",
-	"()Ljava/util/Map;"
-};
-
-$InnerClassInfo _DocCommentParser$4_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.DocCommentParser$4", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.parser.DocCommentParser$TagParser", "com.sun.tools.javac.parser.DocCommentParser", "TagParser", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DocCommentParser$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.parser.DocCommentParser$4",
-	"com.sun.tools.javac.parser.DocCommentParser$TagParser",
-	nullptr,
-	_DocCommentParser$4_FieldInfo_,
-	_DocCommentParser$4_MethodInfo_,
-	nullptr,
-	&_DocCommentParser$4_EnclosingMethodInfo_,
-	_DocCommentParser$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.DocCommentParser"
-};
-
-$Object* allocate$DocCommentParser$4($Class* clazz) {
-	return $of($alloc(DocCommentParser$4));
-}
-
 void DocCommentParser$4::init$($DocCommentParser* this$0, $DocCommentParser$TagParser$Kind* k, $DocTree$Kind* tk) {
 	$set(this, this$0, this$0);
 	$DocCommentParser$TagParser::init$(k, tk);
@@ -86,7 +41,7 @@ void DocCommentParser$4::init$($DocCommentParser* this$0, $DocCommentParser$TagP
 $DCTree* DocCommentParser$4::parse(int32_t pos) {
 	if (this->this$0->ch == u'}') {
 		this->this$0->nextChar();
-		return $cast($DCTree, $nc($($nc(this->this$0->m)->at(pos)))->newDocRootTree());
+		return $cast($DCTree, $$nc($nc(this->this$0->m)->at(pos))->newDocRootTree());
 	}
 	$init($DocCommentParser$WhitespaceRetentionPolicy);
 	this->this$0->inlineText($DocCommentParser$WhitespaceRetentionPolicy::REMOVE_ALL);
@@ -98,7 +53,43 @@ DocCommentParser$4::DocCommentParser$4() {
 }
 
 $Class* DocCommentParser$4::load$($String* name, bool initialize) {
-	$loadClass(DocCommentParser$4, name, initialize, &_DocCommentParser$4_ClassInfo_, allocate$DocCommentParser$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/parser/DocCommentParser;", nullptr, $FINAL | $SYNTHETIC, $field(DocCommentParser$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser;Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;)V", nullptr, 0, $method(DocCommentParser$4, init$, void, $DocCommentParser*, $DocCommentParser$TagParser$Kind*, $DocTree$Kind*)},
+		{"parse", "(I)Lcom/sun/tools/javac/tree/DCTree;", nullptr, $PUBLIC, $virtualMethod(DocCommentParser$4, parse, $DCTree*, int32_t), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.parser.DocCommentParser",
+		"createTagParsers",
+		"()Ljava/util/Map;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.DocCommentParser$4", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.parser.DocCommentParser$TagParser", "com.sun.tools.javac.parser.DocCommentParser", "TagParser", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.parser.DocCommentParser$4",
+		"com.sun.tools.javac.parser.DocCommentParser$TagParser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.DocCommentParser"
+	};
+	$loadClass(DocCommentParser$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocCommentParser$4);
+	});
 	return class$;
 }
 

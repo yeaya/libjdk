@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/objects/DTMXRTreeFrag.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <jcpp.h>
@@ -19,37 +18,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace objects {
-
-$FieldInfo _DTMXRTreeFrag_FieldInfo_[] = {
-	{"m_dtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PRIVATE, $field(DTMXRTreeFrag, m_dtm)},
-	{"m_dtmIdentity", "I", nullptr, $PRIVATE, $field(DTMXRTreeFrag, m_dtmIdentity)},
-	{"m_xctxt", "Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PRIVATE, $field(DTMXRTreeFrag, m_xctxt)},
-	{}
-};
-
-$MethodInfo _DTMXRTreeFrag_MethodInfo_[] = {
-	{"<init>", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $method(DTMXRTreeFrag, init$, void, int32_t, $XPathContext*)},
-	{"destruct", "()V", nullptr, $PUBLIC | $FINAL, $method(DTMXRTreeFrag, destruct, void)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMXRTreeFrag, equals, bool, Object$*)},
-	{"getDTM", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $FINAL, $method(DTMXRTreeFrag, getDTM, $DTM*)},
-	{"getDTMIdentity", "()I", nullptr, $PUBLIC | $FINAL, $method(DTMXRTreeFrag, getDTMIdentity, int32_t)},
-	{"getXPathContext", "()Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $FINAL, $method(DTMXRTreeFrag, getXPathContext, $XPathContext*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMXRTreeFrag, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _DTMXRTreeFrag_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.objects.DTMXRTreeFrag",
-	"java.lang.Object",
-	nullptr,
-	_DTMXRTreeFrag_FieldInfo_,
-	_DTMXRTreeFrag_MethodInfo_
-};
-
-$Object* allocate$DTMXRTreeFrag($Class* clazz) {
-	return $of($alloc(DTMXRTreeFrag));
-}
 
 void DTMXRTreeFrag::init$(int32_t dtmIdentity, $XPathContext* xctxt) {
 	this->m_dtmIdentity = $DTM::NULL;
@@ -81,7 +49,7 @@ int32_t DTMXRTreeFrag::hashCode() {
 
 bool DTMXRTreeFrag::equals(Object$* obj) {
 	if ($instanceOf(DTMXRTreeFrag, obj)) {
-		return (this->m_dtmIdentity == $nc(($cast(DTMXRTreeFrag, obj)))->getDTMIdentity());
+		return (this->m_dtmIdentity == $cast(DTMXRTreeFrag, obj)->getDTMIdentity());
 	}
 	return false;
 }
@@ -90,7 +58,33 @@ DTMXRTreeFrag::DTMXRTreeFrag() {
 }
 
 $Class* DTMXRTreeFrag::load$($String* name, bool initialize) {
-	$loadClass(DTMXRTreeFrag, name, initialize, &_DTMXRTreeFrag_ClassInfo_, allocate$DTMXRTreeFrag);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_dtm", "Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PRIVATE, $field(DTMXRTreeFrag, m_dtm)},
+		{"m_dtmIdentity", "I", nullptr, $PRIVATE, $field(DTMXRTreeFrag, m_dtmIdentity)},
+		{"m_xctxt", "Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $PRIVATE, $field(DTMXRTreeFrag, m_xctxt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILcom/sun/org/apache/xpath/internal/XPathContext;)V", nullptr, $PUBLIC, $method(DTMXRTreeFrag, init$, void, int32_t, $XPathContext*)},
+		{"destruct", "()V", nullptr, $PUBLIC | $FINAL, $method(DTMXRTreeFrag, destruct, void)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMXRTreeFrag, equals, bool, Object$*)},
+		{"getDTM", "()Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $FINAL, $method(DTMXRTreeFrag, getDTM, $DTM*)},
+		{"getDTMIdentity", "()I", nullptr, $PUBLIC | $FINAL, $method(DTMXRTreeFrag, getDTMIdentity, int32_t)},
+		{"getXPathContext", "()Lcom/sun/org/apache/xpath/internal/XPathContext;", nullptr, $FINAL, $method(DTMXRTreeFrag, getXPathContext, $XPathContext*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(DTMXRTreeFrag, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.objects.DTMXRTreeFrag",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DTMXRTreeFrag, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DTMXRTreeFrag);
+	});
 	return class$;
 }
 

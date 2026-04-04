@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/DocTreeMaker.h>
-
 #include <com/sun/source/doctree/AttributeTree$ValueKind.h>
 #include <com/sun/source/doctree/AttributeTree.h>
 #include <com/sun/source/doctree/AuthorTree.h>
@@ -232,101 +231,6 @@ namespace com {
 			namespace javac {
 				namespace tree {
 
-$FieldInfo _DocTreeMaker_FieldInfo_[] = {
-	{"treeMakerKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/tree/DocTreeMaker;>;", $PROTECTED | $STATIC | $FINAL, $staticField(DocTreeMaker, treeMakerKey)},
-	{"sentenceBreakTags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $FINAL, $field(DocTreeMaker, sentenceBreakTags)},
-	{"pos", "I", nullptr, $PUBLIC, $field(DocTreeMaker, pos)},
-	{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE | $FINAL, $field(DocTreeMaker, diags)},
-	{"trees", "Lcom/sun/tools/javac/api/JavacTrees;", nullptr, $PRIVATE | $FINAL, $field(DocTreeMaker, trees)},
-	{"referenceParser", "Lcom/sun/tools/javac/parser/ReferenceParser;", nullptr, $PRIVATE | $FINAL, $field(DocTreeMaker, referenceParser)},
-	{}
-};
-
-$MethodInfo _DocTreeMaker_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(DocTreeMaker, init$, void, $Context*)},
-	{"at", "(I)Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, at, DocTreeMaker*, int32_t)},
-	{"at", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, at, DocTreeMaker*, $JCDiagnostic$DiagnosticPosition*)},
-	{"cast", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PRIVATE, $method(DocTreeMaker, cast, $List*, $List*)},
-	{"defaultSentenceBreak", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(DocTreeMaker, defaultSentenceBreak, int32_t, $String*)},
-	{"getFirstSentence", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Ljava/util/List<Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DocTreeMaker, getFirstSentence, $List*, $List*)},
-	{"getSentenceBreak", "(Ljava/lang/String;Lcom/sun/source/doctree/DocTree;)I", nullptr, $PRIVATE, $method(DocTreeMaker, getSentenceBreak, int32_t, $String*, $DocTree*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTreeMaker, instance, DocTreeMaker*, $Context*)},
-	{"isSentenceBreak", "(Ljavax/lang/model/element/Name;)Z", nullptr, $PRIVATE, $method(DocTreeMaker, isSentenceBreak, bool, $Name*)},
-	{"isSentenceBreak", "(Lcom/sun/source/doctree/DocTree;Z)Z", nullptr, $PRIVATE, $method(DocTreeMaker, isSentenceBreak, bool, $DocTree*, bool)},
-	{"isTextTree", "(Lcom/sun/source/doctree/DocTree;)Z", nullptr, $PRIVATE, $method(DocTreeMaker, isTextTree, bool, $DocTree*)},
-	{"newAttributeTree", "(Ljavax/lang/model/element/Name;Lcom/sun/source/doctree/AttributeTree$ValueKind;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCAttribute;", "(Ljavax/lang/model/element/Name;Lcom/sun/source/doctree/AttributeTree$ValueKind;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCAttribute;", $PUBLIC, $virtualMethod(DocTreeMaker, newAttributeTree, $AttributeTree*, $Name*, $AttributeTree$ValueKind*, $List*)},
-	{"newAuthorTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCAuthor;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCAuthor;", $PUBLIC, $virtualMethod(DocTreeMaker, newAuthorTree, $AuthorTree*, $List*)},
-	{"newCodeTree", "(Lcom/sun/source/doctree/TextTree;)Lcom/sun/tools/javac/tree/DCTree$DCLiteral;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newCodeTree, $LiteralTree*, $TextTree*)},
-	{"newCommentTree", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/DCTree$DCComment;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newCommentTree, $CommentTree*, $String*)},
-	{"newDeprecatedTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCDeprecated;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCDeprecated;", $PUBLIC, $virtualMethod(DocTreeMaker, newDeprecatedTree, $DeprecatedTree*, $List*)},
-	{"newDocCommentTree", "(Ljava/util/List;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC, $virtualMethod(DocTreeMaker, newDocCommentTree, $DocCommentTree*, $List*, $List*)},
-	{"newDocCommentTree", "(Lcom/sun/tools/javac/parser/Tokens$Comment;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Lcom/sun/tools/javac/parser/Tokens$Comment;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC, $virtualMethod(DocTreeMaker, newDocCommentTree, $DCTree$DCDocComment*, $Tokens$Comment*, $List*, $List*, $List*, $List*)},
-	{"newDocCommentTree", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC, $virtualMethod(DocTreeMaker, newDocCommentTree, $DocCommentTree*, $List*, $List*, $List*, $List*)},
-	{"newDocRootTree", "()Lcom/sun/tools/javac/tree/DCTree$DCDocRoot;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newDocRootTree, $DocRootTree*)},
-	{"newDocTypeTree", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/DCTree$DCDocType;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newDocTypeTree, $DocTypeTree*, $String*)},
-	{"newEndElementTree", "(Ljavax/lang/model/element/Name;)Lcom/sun/tools/javac/tree/DCTree$DCEndElement;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newEndElementTree, $EndElementTree*, $Name*)},
-	{"newEntityTree", "(Ljavax/lang/model/element/Name;)Lcom/sun/tools/javac/tree/DCTree$DCEntity;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newEntityTree, $EntityTree*, $Name*)},
-	{"newErroneousTree", "(Ljava/lang/String;Ljavax/tools/Diagnostic;)Lcom/sun/tools/javac/tree/DCTree$DCErroneous;", "(Ljava/lang/String;Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;)Lcom/sun/tools/javac/tree/DCTree$DCErroneous;", $PUBLIC, $virtualMethod(DocTreeMaker, newErroneousTree, $ErroneousTree*, $String*, $Diagnostic*)},
-	{"newErroneousTree", "(Ljava/lang/String;Lcom/sun/tools/javac/util/DiagnosticSource;Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/tree/DCTree$DCErroneous;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DocTreeMaker, newErroneousTree, $DCTree$DCErroneous*, $String*, $DiagnosticSource*, $String*, $ObjectArray*)},
-	{"newExceptionTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCThrows;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCThrows;", $PUBLIC, $virtualMethod(DocTreeMaker, newExceptionTree, $ThrowsTree*, $ReferenceTree*, $List*)},
-	{"newHiddenTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCHidden;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCHidden;", $PUBLIC, $virtualMethod(DocTreeMaker, newHiddenTree, $HiddenTree*, $List*)},
-	{"newIdentifierTree", "(Ljavax/lang/model/element/Name;)Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newIdentifierTree, $IdentifierTree*, $Name*)},
-	{"newIndexTree", "(Lcom/sun/source/doctree/DocTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCIndex;", "(Lcom/sun/source/doctree/DocTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCIndex;", $PUBLIC, $virtualMethod(DocTreeMaker, newIndexTree, $IndexTree*, $DocTree*, $List*)},
-	{"newInheritDocTree", "()Lcom/sun/tools/javac/tree/DCTree$DCInheritDoc;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newInheritDocTree, $InheritDocTree*)},
-	{"newLinkPlainTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCLink;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCLink;", $PUBLIC, $virtualMethod(DocTreeMaker, newLinkPlainTree, $LinkTree*, $ReferenceTree*, $List*)},
-	{"newLinkTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCLink;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCLink;", $PUBLIC, $virtualMethod(DocTreeMaker, newLinkTree, $LinkTree*, $ReferenceTree*, $List*)},
-	{"newLiteralTree", "(Lcom/sun/source/doctree/TextTree;)Lcom/sun/tools/javac/tree/DCTree$DCLiteral;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newLiteralTree, $LiteralTree*, $TextTree*)},
-	{"newParamTree", "(ZLcom/sun/source/doctree/IdentifierTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCParam;", "(ZLcom/sun/source/doctree/IdentifierTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCParam;", $PUBLIC, $virtualMethod(DocTreeMaker, newParamTree, $ParamTree*, bool, $IdentifierTree*, $List*)},
-	{"newProvidesTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCProvides;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCProvides;", $PUBLIC, $virtualMethod(DocTreeMaker, newProvidesTree, $ProvidesTree*, $ReferenceTree*, $List*)},
-	{"newReferenceTree", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/DCTree$DCReference;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newReferenceTree, $ReferenceTree*, $String*)},
-	{"newReferenceTree", "(Ljava/lang/String;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;Ljavax/lang/model/element/Name;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCReference;", "(Ljava/lang/String;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;Ljavax/lang/model/element/Name;Ljava/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCReference;", $PUBLIC, $virtualMethod(DocTreeMaker, newReferenceTree, $DCTree$DCReference*, $String*, $JCTree$JCExpression*, $JCTree*, $Name*, $List*)},
-	{"newReturnTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCReturn;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCReturn;", $PUBLIC, $virtualMethod(DocTreeMaker, newReturnTree, $ReturnTree*, $List*)},
-	{"newReturnTree", "(ZLjava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCReturn;", "(ZLjava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCReturn;", $PUBLIC, $virtualMethod(DocTreeMaker, newReturnTree, $ReturnTree*, bool, $List*)},
-	{"newSeeTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSee;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSee;", $PUBLIC, $virtualMethod(DocTreeMaker, newSeeTree, $SeeTree*, $List*)},
-	{"newSerialDataTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSerialData;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSerialData;", $PUBLIC, $virtualMethod(DocTreeMaker, newSerialDataTree, $SerialDataTree*, $List*)},
-	{"newSerialFieldTree", "(Lcom/sun/source/doctree/IdentifierTree;Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSerialField;", "(Lcom/sun/source/doctree/IdentifierTree;Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSerialField;", $PUBLIC, $virtualMethod(DocTreeMaker, newSerialFieldTree, $SerialFieldTree*, $IdentifierTree*, $ReferenceTree*, $List*)},
-	{"newSerialTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSerial;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSerial;", $PUBLIC, $virtualMethod(DocTreeMaker, newSerialTree, $SerialTree*, $List*)},
-	{"newSinceTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSince;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSince;", $PUBLIC, $virtualMethod(DocTreeMaker, newSinceTree, $SinceTree*, $List*)},
-	{"newStartElementTree", "(Ljavax/lang/model/element/Name;Ljava/util/List;Z)Lcom/sun/tools/javac/tree/DCTree$DCStartElement;", "(Ljavax/lang/model/element/Name;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Z)Lcom/sun/tools/javac/tree/DCTree$DCStartElement;", $PUBLIC, $virtualMethod(DocTreeMaker, newStartElementTree, $StartElementTree*, $Name*, $List*, bool)},
-	{"newSummaryTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSummary;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSummary;", $PUBLIC, $virtualMethod(DocTreeMaker, newSummaryTree, $SummaryTree*, $List*)},
-	{"newSystemPropertyTree", "(Ljavax/lang/model/element/Name;)Lcom/sun/tools/javac/tree/DCTree$DCSystemProperty;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newSystemPropertyTree, $SystemPropertyTree*, $Name*)},
-	{"newTextTree", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/DCTree$DCText;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newTextTree, $TextTree*, $String*)},
-	{"newThrowsTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCThrows;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCThrows;", $PUBLIC, $virtualMethod(DocTreeMaker, newThrowsTree, $ThrowsTree*, $ReferenceTree*, $List*)},
-	{"newUnknownBlockTagTree", "(Ljavax/lang/model/element/Name;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCUnknownBlockTag;", "(Ljavax/lang/model/element/Name;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCUnknownBlockTag;", $PUBLIC, $virtualMethod(DocTreeMaker, newUnknownBlockTagTree, $UnknownBlockTagTree*, $Name*, $List*)},
-	{"newUnknownInlineTagTree", "(Ljavax/lang/model/element/Name;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCUnknownInlineTag;", "(Ljavax/lang/model/element/Name;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCUnknownInlineTag;", $PUBLIC, $virtualMethod(DocTreeMaker, newUnknownInlineTagTree, $UnknownInlineTagTree*, $Name*, $List*)},
-	{"newUsesTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCUses;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCUses;", $PUBLIC, $virtualMethod(DocTreeMaker, newUsesTree, $UsesTree*, $ReferenceTree*, $List*)},
-	{"newValueTree", "(Lcom/sun/source/doctree/ReferenceTree;)Lcom/sun/tools/javac/tree/DCTree$DCValue;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newValueTree, $ValueTree*, $ReferenceTree*)},
-	{"newVersionTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCVersion;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCVersion;", $PUBLIC, $virtualMethod(DocTreeMaker, newVersionTree, $VersionTree*, $List*)},
-	{"skipWhiteSpace", "(Ljava/lang/String;I)I", nullptr, $PRIVATE, $method(DocTreeMaker, skipWhiteSpace, int32_t, $String*, int32_t)},
-	{"splitBody", "(Ljava/util/Collection;)Lcom/sun/tools/javac/util/Pair;", "(Ljava/util/Collection<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/util/Pair<Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;>;", $PRIVATE, $method(DocTreeMaker, splitBody, $Pair*, $Collection*)},
-	{}
-};
-
-$InnerClassInfo _DocTreeMaker_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DocTreeMaker$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.tree.DocTreeMaker$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DocTreeMaker_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DocTreeMaker",
-	"java.lang.Object",
-	"com.sun.source.util.DocTreeFactory",
-	_DocTreeMaker_FieldInfo_,
-	_DocTreeMaker_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocTreeMaker_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DocTreeMaker$2,com.sun.tools.javac.tree.DocTreeMaker$1"
-};
-
-$Object* allocate$DocTreeMaker($Class* clazz) {
-	return $of($alloc(DocTreeMaker));
-}
-
 $Context$Key* DocTreeMaker::treeMakerKey = nullptr;
 
 DocTreeMaker* DocTreeMaker::instance($Context* context) {
@@ -340,7 +244,7 @@ DocTreeMaker* DocTreeMaker::instance($Context* context) {
 
 void DocTreeMaker::init$($Context* context) {
 	this->pos = $Position::NOPOS;
-	$nc(context)->put(DocTreeMaker::treeMakerKey, $of(this));
+	$nc(context)->put(DocTreeMaker::treeMakerKey, this);
 	$set(this, diags, $JCDiagnostic$Factory::instance(context));
 	this->pos = $Position::NOPOS;
 	$set(this, trees, $JavacTrees::instance(context));
@@ -354,19 +258,19 @@ DocTreeMaker* DocTreeMaker::at(int32_t pos) {
 }
 
 DocTreeMaker* DocTreeMaker::at($JCDiagnostic$DiagnosticPosition* pos) {
-	this->pos = (pos == nullptr ? $Position::NOPOS : $nc(pos)->getStartPosition());
+	this->pos = (pos == nullptr ? $Position::NOPOS : pos->getStartPosition());
 	return this;
 }
 
 $AttributeTree* DocTreeMaker::newAttributeTree($Name* name, $AttributeTree$ValueKind* vkind, $List* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCAttribute, tree, $new($DCTree$DCAttribute, name, vkind, $(cast(value))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $AuthorTree* DocTreeMaker::newAuthorTree($List* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCAuthor, tree, $new($DCTree$DCAuthor, $(cast(name))));
 	tree->pos$ = this->pos;
 	return tree;
@@ -386,48 +290,43 @@ $CommentTree* DocTreeMaker::newCommentTree($String* text) {
 }
 
 $DeprecatedTree* DocTreeMaker::newDeprecatedTree($List* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCDeprecated, tree, $new($DCTree$DCDeprecated, $(cast(text))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $DocCommentTree* DocTreeMaker::newDocCommentTree($List* fullBody, $List* tags) {
-	$useLocalCurrentObjectStackCache();
-	$var($List, var$0, fullBody);
-	$var($List, var$1, tags);
-	$var($List, var$2, $Collections::emptyList());
-	return newDocCommentTree(var$0, var$1, var$2, $($Collections::emptyList()));
+	$useLocalObjectStack();
+	$var($List, var$0, $Collections::emptyList());
+	return newDocCommentTree(fullBody, tags, var$0, $($Collections::emptyList()));
 }
 
 $DCTree$DCDocComment* DocTreeMaker::newDocCommentTree($Tokens$Comment* comment, $List* fullBody, $List* tags, $List* preamble, $List* postamble) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pair, pair, splitBody(fullBody));
-	$var($Tokens$Comment, var$0, comment);
-	$var($List, var$1, cast(fullBody));
-	$var($List, var$2, $cast($List, $nc(pair)->fst));
-	$var($List, var$3, $cast($List, pair->snd));
-	$var($List, var$4, cast(tags));
-	$var($List, var$5, cast(preamble));
-	$var($DCTree$DCDocComment, tree, $new($DCTree$DCDocComment, var$0, var$1, var$2, var$3, var$4, var$5, $(cast(postamble))));
+	$var($List, var$0, cast(fullBody));
+	$var($List, var$1, $cast($List, $nc(pair)->fst));
+	$var($List, var$2, $cast($List, pair->snd));
+	$var($List, var$3, cast(tags));
+	$var($List, var$4, cast(preamble));
+	$var($DCTree$DCDocComment, tree, $new($DCTree$DCDocComment, comment, var$0, var$1, var$2, var$3, var$4, $(cast(postamble))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $DocCommentTree* DocTreeMaker::newDocCommentTree($List* fullBody, $List* tags, $List* preamble, $List* postamble) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, lb, $new($ListBuffer));
 	lb->addAll($(cast(fullBody)));
 	$var($List, fBody, lb->toList());
 	$var($Tokens$Comment, c, $new($DocTreeMaker$1, this));
 	$var($Pair, pair, splitBody(fullBody));
-	$var($Tokens$Comment, var$0, c);
-	$var($List, var$1, fBody);
-	$var($List, var$2, $cast($List, $nc(pair)->fst));
-	$var($List, var$3, $cast($List, pair->snd));
-	$var($List, var$4, cast(tags));
-	$var($List, var$5, cast(preamble));
-	$var($DCTree$DCDocComment, tree, $new($DCTree$DCDocComment, var$0, var$1, var$2, var$3, var$4, var$5, $(cast(postamble))));
+	$var($List, var$0, $cast($List, $nc(pair)->fst));
+	$var($List, var$1, $cast($List, pair->snd));
+	$var($List, var$2, cast(tags));
+	$var($List, var$3, cast(preamble));
+	$var($DCTree$DCDocComment, tree, $new($DCTree$DCDocComment, c, fBody, var$0, var$1, var$2, var$3, $(cast(postamble))));
 	return tree;
 }
 
@@ -468,7 +367,7 @@ $DCTree$DCErroneous* DocTreeMaker::newErroneousTree($String* text, $DiagnosticSo
 }
 
 $ThrowsTree* DocTreeMaker::newExceptionTree($ReferenceTree* name, $List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocTree$Kind);
 	$var($DCTree$DCThrows, tree, $new($DCTree$DCThrows, $DocTree$Kind::EXCEPTION, $cast($DCTree$DCReference, name), $(cast(description))));
 	tree->pos$ = this->pos;
@@ -476,7 +375,7 @@ $ThrowsTree* DocTreeMaker::newExceptionTree($ReferenceTree* name, $List* descrip
 }
 
 $HiddenTree* DocTreeMaker::newHiddenTree($List* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCHidden, tree, $new($DCTree$DCHidden, $(cast(text))));
 	tree->pos$ = this->pos;
 	return tree;
@@ -489,7 +388,7 @@ $IdentifierTree* DocTreeMaker::newIdentifierTree($Name* name) {
 }
 
 $IndexTree* DocTreeMaker::newIndexTree($DocTree* term, $List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCIndex, tree, $new($DCTree$DCIndex, $cast($DCTree, term), $(cast(description))));
 	tree->pos$ = this->pos;
 	return tree;
@@ -502,7 +401,7 @@ $InheritDocTree* DocTreeMaker::newInheritDocTree() {
 }
 
 $LinkTree* DocTreeMaker::newLinkTree($ReferenceTree* ref, $List* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocTree$Kind);
 	$var($DCTree$DCLink, tree, $new($DCTree$DCLink, $DocTree$Kind::LINK, $cast($DCTree$DCReference, ref), $(cast(label))));
 	tree->pos$ = this->pos;
@@ -510,7 +409,7 @@ $LinkTree* DocTreeMaker::newLinkTree($ReferenceTree* ref, $List* label) {
 }
 
 $LinkTree* DocTreeMaker::newLinkPlainTree($ReferenceTree* ref, $List* label) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocTree$Kind);
 	$var($DCTree$DCLink, tree, $new($DCTree$DCLink, $DocTree$Kind::LINK_PLAIN, $cast($DCTree$DCReference, ref), $(cast(label))));
 	tree->pos$ = this->pos;
@@ -525,24 +424,24 @@ $LiteralTree* DocTreeMaker::newLiteralTree($TextTree* text) {
 }
 
 $ParamTree* DocTreeMaker::newParamTree(bool isTypeParameter, $IdentifierTree* name, $List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCParam, tree, $new($DCTree$DCParam, isTypeParameter, $cast($DCTree$DCIdentifier, name), $(cast(description))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $ProvidesTree* DocTreeMaker::newProvidesTree($ReferenceTree* name, $List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCProvides, tree, $new($DCTree$DCProvides, $cast($DCTree$DCReference, name), $(cast(description))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $ReferenceTree* DocTreeMaker::newReferenceTree($String* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($ReferenceParser$Reference, ref, $nc(this->referenceParser)->parse(signature));
-		$var($DCTree$DCReference, tree, $new($DCTree$DCReference, signature, $nc(ref)->moduleName, ref->qualExpr, ref->member, ref->paramTypes));
+		$var($ReferenceParser$Reference, ref, this->referenceParser->parse(signature));
+		$var($DCTree$DCReference, tree, $new($DCTree$DCReference, signature, $nc(ref)->moduleName, $nc(ref)->qualExpr, $nc(ref)->member, $nc(ref)->paramTypes));
 		tree->pos$ = this->pos;
 		return tree;
 	} catch ($ReferenceParser$ParseException& e) {
@@ -562,56 +461,56 @@ $ReturnTree* DocTreeMaker::newReturnTree($List* description) {
 }
 
 $ReturnTree* DocTreeMaker::newReturnTree(bool isInline, $List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCReturn, tree, $new($DCTree$DCReturn, isInline, $(cast(description))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $SeeTree* DocTreeMaker::newSeeTree($List* reference) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCSee, tree, $new($DCTree$DCSee, $(cast(reference))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $SerialTree* DocTreeMaker::newSerialTree($List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCSerial, tree, $new($DCTree$DCSerial, $(cast(description))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $SerialDataTree* DocTreeMaker::newSerialDataTree($List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCSerialData, tree, $new($DCTree$DCSerialData, $(cast(description))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $SerialFieldTree* DocTreeMaker::newSerialFieldTree($IdentifierTree* name, $ReferenceTree* type, $List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCSerialField, tree, $new($DCTree$DCSerialField, $cast($DCTree$DCIdentifier, name), $cast($DCTree$DCReference, type), $(cast(description))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $SinceTree* DocTreeMaker::newSinceTree($List* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCSince, tree, $new($DCTree$DCSince, $(cast(text))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $StartElementTree* DocTreeMaker::newStartElementTree($Name* name, $List* attrs, bool selfClosing) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCStartElement, tree, $new($DCTree$DCStartElement, name, $(cast(attrs)), selfClosing));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $SummaryTree* DocTreeMaker::newSummaryTree($List* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCSummary, tree, $new($DCTree$DCSummary, $(cast(text))));
 	tree->pos$ = this->pos;
 	return tree;
@@ -630,7 +529,7 @@ $TextTree* DocTreeMaker::newTextTree($String* text) {
 }
 
 $ThrowsTree* DocTreeMaker::newThrowsTree($ReferenceTree* name, $List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocTree$Kind);
 	$var($DCTree$DCThrows, tree, $new($DCTree$DCThrows, $DocTree$Kind::THROWS, $cast($DCTree$DCReference, name), $(cast(description))));
 	tree->pos$ = this->pos;
@@ -638,21 +537,21 @@ $ThrowsTree* DocTreeMaker::newThrowsTree($ReferenceTree* name, $List* descriptio
 }
 
 $UnknownBlockTagTree* DocTreeMaker::newUnknownBlockTagTree($Name* name, $List* content) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCUnknownBlockTag, tree, $new($DCTree$DCUnknownBlockTag, name, $(cast(content))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $UnknownInlineTagTree* DocTreeMaker::newUnknownInlineTagTree($Name* name, $List* content) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCUnknownInlineTag, tree, $new($DCTree$DCUnknownInlineTag, name, $(cast(content))));
 	tree->pos$ = this->pos;
 	return tree;
 }
 
 $UsesTree* DocTreeMaker::newUsesTree($ReferenceTree* name, $List* description) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCUses, tree, $new($DCTree$DCUses, $cast($DCTree$DCReference, name), $(cast(description))));
 	tree->pos$ = this->pos;
 	return tree;
@@ -665,7 +564,7 @@ $ValueTree* DocTreeMaker::newValueTree($ReferenceTree* ref) {
 }
 
 $VersionTree* DocTreeMaker::newVersionTree($List* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DCTree$DCVersion, tree, $new($DCTree$DCVersion, $(cast(text))));
 	tree->pos$ = this->pos;
 	return tree;
@@ -677,106 +576,97 @@ $List* DocTreeMaker::getFirstSentence($List* list) {
 }
 
 $Pair* DocTreeMaker::splitBody($Collection* list) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t savedpos = this->pos;
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Pair, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($ListBuffer, body, $new($ListBuffer));
-			$var($ListBuffer, fs, $new($ListBuffer));
-			if ($nc(list)->isEmpty()) {
-				$var($Object, var$3, $of(fs->toList()));
-				$assign(var$2, $new($Pair, var$3, $(body->toList())));
-				return$1 = true;
-				goto $finally;
-			}
-			bool foundFirstSentence = false;
-			$var($ArrayList, alist, $new($ArrayList, list));
-			$var($ListIterator, itr, alist->listIterator());
-			while ($nc(itr)->hasNext()) {
-				bool isFirst = !itr->hasPrevious();
-				$var($DocTree, dt, $cast($DocTree, itr->next()));
-				int32_t spos = $nc(($cast($DCTree, dt)))->pos$;
-				if (foundFirstSentence) {
-					body->add($cast($DCTree, dt));
-					continue;
-				}
-				$init($DocTreeMaker$2);
-				{
-					$var($DCTree$DCText, tt, nullptr)
-					$var($String, s, nullptr)
-					$var($DocTree, peekedNext, nullptr)
-					int32_t sbreak = 0;
-					switch ($nc($DocTreeMaker$2::$SwitchMap$com$sun$source$doctree$DocTree$Kind)->get($nc(($($nc(dt)->getKind())))->ordinal())) {
-					case 1:
-						{}
-					case 2:
-						{
-							foundFirstSentence = true;
-							break;
-						}
-					case 3:
-						{
-							$assign(tt, $cast($DCTree$DCText, dt));
-							$assign(s, $nc(tt)->getBody());
-							$assign(peekedNext, itr->hasNext() ? $cast($DocTree, alist->get(itr->nextIndex())) : ($DocTree*)nullptr);
-							sbreak = getSentenceBreak(s, peekedNext);
-							if (sbreak > 0) {
-								$assign(s, $($nc(s)->substring(0, sbreak))->stripTrailing());
-								$var($DCTree$DCText, text, $cast($DCTree$DCText, $nc($(this->at(spos)))->newTextTree(s)));
-								fs->add(text);
-								foundFirstSentence = true;
-								int32_t nwPos = skipWhiteSpace($(tt->getBody()), sbreak);
-								if (nwPos > 0) {
-									$var($DCTree$DCText, text2, $cast($DCTree$DCText, $nc($(this->at(spos + nwPos)))->newTextTree($($nc($(tt->getBody()))->substring(nwPos)))));
-									body->add(text2);
-								}
-								continue;
-							} else if (itr->hasNext()) {
-								$assign(peekedNext, $cast($DocTree, alist->get(itr->nextIndex())));
-								bool sbrk = isSentenceBreak(peekedNext, false);
-								if (sbrk) {
-									$var($DocTree, next, $cast($DocTree, itr->next()));
-									$assign(s, $nc(s)->stripTrailing());
-									$var($DCTree$DCText, text, $cast($DCTree$DCText, $nc($(this->at(spos)))->newTextTree(s)));
-									fs->add(text);
-									body->add($cast($DCTree, next));
-									foundFirstSentence = true;
-									continue;
-								}
-							}
-							break;
-						}
-					default:
-						{
-							if (isSentenceBreak(dt, isFirst)) {
-								body->add($cast($DCTree, dt));
-								foundFirstSentence = true;
-								continue;
-							}
-							break;
-						}
-					}
-				}
-				fs->add($cast($DCTree, dt));
-			}
-			$var($Object, var$4, $of(fs->toList()));
-			$assign(var$2, $new($Pair, var$4, $(body->toList())));
+	$var($Throwable, var$0, nullptr);
+	$var($Pair, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($ListBuffer, body, $new($ListBuffer));
+		$var($ListBuffer, fs, $new($ListBuffer));
+		if ($nc(list)->isEmpty()) {
+			$var($Object, var$3, fs->toList());
+			$assign(var$2, $new($Pair, var$3, $(body->toList())));
 			return$1 = true;
 			goto $finally;
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			this->pos = savedpos;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		bool foundFirstSentence = false;
+		$var($ArrayList, alist, $new($ArrayList, list));
+		$var($ListIterator, itr, alist->listIterator());
+		while ($nc(itr)->hasNext()) {
+			bool isFirst = !itr->hasPrevious();
+			$var($DocTree, dt, $cast($DocTree, itr->next()));
+			int32_t spos = $nc($cast($DCTree, dt))->pos$;
+			if (foundFirstSentence) {
+				body->add($cast($DCTree, dt));
+				continue;
+			}
+			{
+				$init($DocTreeMaker$2);
+				$var($DCTree$DCText, tt, nullptr);
+				$var($String, s, nullptr);
+				$var($DocTree, peekedNext, nullptr);
+				int32_t sbreak = 0;
+				switch ($nc($DocTreeMaker$2::$SwitchMap$com$sun$source$doctree$DocTree$Kind)->get(($$nc(dt->getKind()))->ordinal())) {
+				case 1:
+				case 2:
+					foundFirstSentence = true;
+					break;
+				case 3:
+					$assign(tt, $cast($DCTree$DCText, dt));
+					$assign(s, $nc(tt)->getBody());
+					$assign(peekedNext, itr->hasNext() ? $cast($DocTree, alist->get(itr->nextIndex())) : ($DocTree*)nullptr);
+					sbreak = getSentenceBreak(s, peekedNext);
+					if (sbreak > 0) {
+						$assign(s, $($nc(s)->substring(0, sbreak))->stripTrailing());
+						$var($DCTree$DCText, text, $cast($DCTree$DCText, $$nc(this->at(spos))->newTextTree(s)));
+						fs->add(text);
+						foundFirstSentence = true;
+						int32_t nwPos = skipWhiteSpace($(tt->getBody()), sbreak);
+						if (nwPos > 0) {
+							$var($DCTree$DCText, text2, $cast($DCTree$DCText, $$nc(this->at(spos + nwPos))->newTextTree($($$nc(tt->getBody())->substring(nwPos)))));
+							body->add(text2);
+						}
+						continue;
+					} else if (itr->hasNext()) {
+						$assign(peekedNext, $cast($DocTree, alist->get(itr->nextIndex())));
+						bool sbrk = isSentenceBreak(peekedNext, false);
+						if (sbrk) {
+							$var($DocTree, next, $cast($DocTree, itr->next()));
+							$assign(s, $nc(s)->stripTrailing());
+							$var($DCTree$DCText, text, $cast($DCTree$DCText, $$nc(this->at(spos))->newTextTree(s)));
+							fs->add(text);
+							body->add($cast($DCTree, next));
+							foundFirstSentence = true;
+							continue;
+						}
+					}
+					break;
+				default:
+					if (isSentenceBreak(dt, isFirst)) {
+						body->add($cast($DCTree, dt));
+						foundFirstSentence = true;
+						continue;
+					}
+					break;
+				}
+			}
+			fs->add($cast($DCTree, dt));
 		}
-		if (return$1) {
-			return var$2;
-		}
+		$var($Object, var$4, fs->toList());
+		$assign(var$2, $new($Pair, var$4, $(body->toList())));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		this->pos = savedpos;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -791,37 +681,27 @@ int32_t DocTreeMaker::defaultSentenceBreak($String* s) {
 	for (int32_t i = 0; i < $nc(s)->length(); ++i) {
 		switch (s->charAt(i)) {
 		case u'.':
-			{
-				period = i;
-				break;
-			}
+			period = i;
+			break;
 		case u' ':
-			{}
 		case u'\f':
-			{}
 		case u'\n':
-			{}
 		case u'\r':
-			{}
 		case u'\t':
-			{
-				if (period >= 0) {
-					return i;
-				}
-				break;
+			if (period >= 0) {
+				return i;
 			}
+			break;
 		default:
-			{
-				period = -1;
-				break;
-			}
+			period = -1;
+			break;
 		}
 	}
 	return -1;
 }
 
 int32_t DocTreeMaker::getSentenceBreak($String* s, $DocTree* dt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BreakIterator, breakIterator, $nc(this->trees)->getBreakIterator());
 	if (breakIterator == nullptr) {
 		return defaultSentenceBreak(s);
@@ -856,32 +736,24 @@ int32_t DocTreeMaker::getSentenceBreak($String* s, $DocTree* dt) {
 }
 
 bool DocTreeMaker::isSentenceBreak($Name* tagName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $nc(this->sentenceBreakTags)->contains($($StringUtils::toUpperCase($($nc($of(tagName))->toString()))));
 }
 
 bool DocTreeMaker::isSentenceBreak($DocTree* dt, bool isFirstDocTree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($DocTreeMaker$2);
-	{
-		$var($StartElementTree, set, nullptr)
-		$var($EndElementTree, eet, nullptr)
-		switch ($nc($DocTreeMaker$2::$SwitchMap$com$sun$source$doctree$DocTree$Kind)->get($nc(($($nc(dt)->getKind())))->ordinal())) {
-		case 4:
-			{
-				$assign(set, $cast($StartElementTree, dt));
-				return !isFirstDocTree && $nc(($cast($DCTree, dt)))->pos$ > 1 && isSentenceBreak($($nc(set)->getName()));
-			}
-		case 5:
-			{
-				$assign(eet, $cast($EndElementTree, dt));
-				return !isFirstDocTree && $nc(($cast($DCTree, dt)))->pos$ > 1 && isSentenceBreak($($nc(eet)->getName()));
-			}
-		default:
-			{
-				return false;
-			}
-		}
+	$var($StartElementTree, set, nullptr);
+	$var($EndElementTree, eet, nullptr);
+	switch ($nc($DocTreeMaker$2::$SwitchMap$com$sun$source$doctree$DocTree$Kind)->get(($$nc($nc(dt)->getKind()))->ordinal())) {
+	case 4:
+		$assign(set, $cast($StartElementTree, dt));
+		return !isFirstDocTree && $cast($DCTree, dt)->pos$ > 1 && isSentenceBreak($($nc(set)->getName()));
+	case 5:
+		$assign(eet, $cast($EndElementTree, dt));
+		return !isFirstDocTree && $cast($DCTree, dt)->pos$ > 1 && isSentenceBreak($($nc(eet)->getName()));
+	default:
+		return false;
 	}
 }
 
@@ -899,7 +771,7 @@ $List* DocTreeMaker::cast($List* list) {
 	return list;
 }
 
-void clinit$DocTreeMaker($Class* class$) {
+void DocTreeMaker::clinit$($Class* clazz) {
 	$assignStatic(DocTreeMaker::treeMakerKey, $new($Context$Key));
 }
 
@@ -907,7 +779,96 @@ DocTreeMaker::DocTreeMaker() {
 }
 
 $Class* DocTreeMaker::load$($String* name, bool initialize) {
-	$loadClass(DocTreeMaker, name, initialize, &_DocTreeMaker_ClassInfo_, clinit$DocTreeMaker, allocate$DocTreeMaker);
+	$FieldInfo fieldInfos$$[] = {
+		{"treeMakerKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/tree/DocTreeMaker;>;", $PROTECTED | $STATIC | $FINAL, $staticField(DocTreeMaker, treeMakerKey)},
+		{"sentenceBreakTags", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $FINAL, $field(DocTreeMaker, sentenceBreakTags)},
+		{"pos", "I", nullptr, $PUBLIC, $field(DocTreeMaker, pos)},
+		{"diags", "Lcom/sun/tools/javac/util/JCDiagnostic$Factory;", nullptr, $PRIVATE | $FINAL, $field(DocTreeMaker, diags)},
+		{"trees", "Lcom/sun/tools/javac/api/JavacTrees;", nullptr, $PRIVATE | $FINAL, $field(DocTreeMaker, trees)},
+		{"referenceParser", "Lcom/sun/tools/javac/parser/ReferenceParser;", nullptr, $PRIVATE | $FINAL, $field(DocTreeMaker, referenceParser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(DocTreeMaker, init$, void, $Context*)},
+		{"at", "(I)Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, at, DocTreeMaker*, int32_t)},
+		{"at", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;)Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, at, DocTreeMaker*, $JCDiagnostic$DiagnosticPosition*)},
+		{"cast", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PRIVATE, $method(DocTreeMaker, cast, $List*, $List*)},
+		{"defaultSentenceBreak", "(Ljava/lang/String;)I", nullptr, $PRIVATE, $method(DocTreeMaker, defaultSentenceBreak, int32_t, $String*)},
+		{"getFirstSentence", "(Ljava/util/List;)Ljava/util/List;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Ljava/util/List<Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DocTreeMaker, getFirstSentence, $List*, $List*)},
+		{"getSentenceBreak", "(Ljava/lang/String;Lcom/sun/source/doctree/DocTree;)I", nullptr, $PRIVATE, $method(DocTreeMaker, getSentenceBreak, int32_t, $String*, $DocTree*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/tree/DocTreeMaker;", nullptr, $PUBLIC | $STATIC, $staticMethod(DocTreeMaker, instance, DocTreeMaker*, $Context*)},
+		{"isSentenceBreak", "(Ljavax/lang/model/element/Name;)Z", nullptr, $PRIVATE, $method(DocTreeMaker, isSentenceBreak, bool, $Name*)},
+		{"isSentenceBreak", "(Lcom/sun/source/doctree/DocTree;Z)Z", nullptr, $PRIVATE, $method(DocTreeMaker, isSentenceBreak, bool, $DocTree*, bool)},
+		{"isTextTree", "(Lcom/sun/source/doctree/DocTree;)Z", nullptr, $PRIVATE, $method(DocTreeMaker, isTextTree, bool, $DocTree*)},
+		{"newAttributeTree", "(Ljavax/lang/model/element/Name;Lcom/sun/source/doctree/AttributeTree$ValueKind;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCAttribute;", "(Ljavax/lang/model/element/Name;Lcom/sun/source/doctree/AttributeTree$ValueKind;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCAttribute;", $PUBLIC, $virtualMethod(DocTreeMaker, newAttributeTree, $AttributeTree*, $Name*, $AttributeTree$ValueKind*, $List*)},
+		{"newAuthorTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCAuthor;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCAuthor;", $PUBLIC, $virtualMethod(DocTreeMaker, newAuthorTree, $AuthorTree*, $List*)},
+		{"newCodeTree", "(Lcom/sun/source/doctree/TextTree;)Lcom/sun/tools/javac/tree/DCTree$DCLiteral;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newCodeTree, $LiteralTree*, $TextTree*)},
+		{"newCommentTree", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/DCTree$DCComment;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newCommentTree, $CommentTree*, $String*)},
+		{"newDeprecatedTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCDeprecated;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCDeprecated;", $PUBLIC, $virtualMethod(DocTreeMaker, newDeprecatedTree, $DeprecatedTree*, $List*)},
+		{"newDocCommentTree", "(Ljava/util/List;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC, $virtualMethod(DocTreeMaker, newDocCommentTree, $DocCommentTree*, $List*, $List*)},
+		{"newDocCommentTree", "(Lcom/sun/tools/javac/parser/Tokens$Comment;Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Lcom/sun/tools/javac/parser/Tokens$Comment;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC, $virtualMethod(DocTreeMaker, newDocCommentTree, $DCTree$DCDocComment*, $Tokens$Comment*, $List*, $List*, $List*, $List*)},
+		{"newDocCommentTree", "(Ljava/util/List;Ljava/util/List;Ljava/util/List;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCDocComment;", $PUBLIC, $virtualMethod(DocTreeMaker, newDocCommentTree, $DocCommentTree*, $List*, $List*, $List*, $List*)},
+		{"newDocRootTree", "()Lcom/sun/tools/javac/tree/DCTree$DCDocRoot;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newDocRootTree, $DocRootTree*)},
+		{"newDocTypeTree", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/DCTree$DCDocType;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newDocTypeTree, $DocTypeTree*, $String*)},
+		{"newEndElementTree", "(Ljavax/lang/model/element/Name;)Lcom/sun/tools/javac/tree/DCTree$DCEndElement;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newEndElementTree, $EndElementTree*, $Name*)},
+		{"newEntityTree", "(Ljavax/lang/model/element/Name;)Lcom/sun/tools/javac/tree/DCTree$DCEntity;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newEntityTree, $EntityTree*, $Name*)},
+		{"newErroneousTree", "(Ljava/lang/String;Ljavax/tools/Diagnostic;)Lcom/sun/tools/javac/tree/DCTree$DCErroneous;", "(Ljava/lang/String;Ljavax/tools/Diagnostic<Ljavax/tools/JavaFileObject;>;)Lcom/sun/tools/javac/tree/DCTree$DCErroneous;", $PUBLIC, $virtualMethod(DocTreeMaker, newErroneousTree, $ErroneousTree*, $String*, $Diagnostic*)},
+		{"newErroneousTree", "(Ljava/lang/String;Lcom/sun/tools/javac/util/DiagnosticSource;Ljava/lang/String;[Ljava/lang/Object;)Lcom/sun/tools/javac/tree/DCTree$DCErroneous;", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(DocTreeMaker, newErroneousTree, $DCTree$DCErroneous*, $String*, $DiagnosticSource*, $String*, $ObjectArray*)},
+		{"newExceptionTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCThrows;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCThrows;", $PUBLIC, $virtualMethod(DocTreeMaker, newExceptionTree, $ThrowsTree*, $ReferenceTree*, $List*)},
+		{"newHiddenTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCHidden;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCHidden;", $PUBLIC, $virtualMethod(DocTreeMaker, newHiddenTree, $HiddenTree*, $List*)},
+		{"newIdentifierTree", "(Ljavax/lang/model/element/Name;)Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newIdentifierTree, $IdentifierTree*, $Name*)},
+		{"newIndexTree", "(Lcom/sun/source/doctree/DocTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCIndex;", "(Lcom/sun/source/doctree/DocTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCIndex;", $PUBLIC, $virtualMethod(DocTreeMaker, newIndexTree, $IndexTree*, $DocTree*, $List*)},
+		{"newInheritDocTree", "()Lcom/sun/tools/javac/tree/DCTree$DCInheritDoc;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newInheritDocTree, $InheritDocTree*)},
+		{"newLinkPlainTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCLink;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCLink;", $PUBLIC, $virtualMethod(DocTreeMaker, newLinkPlainTree, $LinkTree*, $ReferenceTree*, $List*)},
+		{"newLinkTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCLink;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCLink;", $PUBLIC, $virtualMethod(DocTreeMaker, newLinkTree, $LinkTree*, $ReferenceTree*, $List*)},
+		{"newLiteralTree", "(Lcom/sun/source/doctree/TextTree;)Lcom/sun/tools/javac/tree/DCTree$DCLiteral;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newLiteralTree, $LiteralTree*, $TextTree*)},
+		{"newParamTree", "(ZLcom/sun/source/doctree/IdentifierTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCParam;", "(ZLcom/sun/source/doctree/IdentifierTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCParam;", $PUBLIC, $virtualMethod(DocTreeMaker, newParamTree, $ParamTree*, bool, $IdentifierTree*, $List*)},
+		{"newProvidesTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCProvides;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCProvides;", $PUBLIC, $virtualMethod(DocTreeMaker, newProvidesTree, $ProvidesTree*, $ReferenceTree*, $List*)},
+		{"newReferenceTree", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/DCTree$DCReference;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newReferenceTree, $ReferenceTree*, $String*)},
+		{"newReferenceTree", "(Ljava/lang/String;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;Ljavax/lang/model/element/Name;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCReference;", "(Ljava/lang/String;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/tree/JCTree;Ljavax/lang/model/element/Name;Ljava/util/List<Lcom/sun/tools/javac/tree/JCTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCReference;", $PUBLIC, $virtualMethod(DocTreeMaker, newReferenceTree, $DCTree$DCReference*, $String*, $JCTree$JCExpression*, $JCTree*, $Name*, $List*)},
+		{"newReturnTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCReturn;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCReturn;", $PUBLIC, $virtualMethod(DocTreeMaker, newReturnTree, $ReturnTree*, $List*)},
+		{"newReturnTree", "(ZLjava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCReturn;", "(ZLjava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCReturn;", $PUBLIC, $virtualMethod(DocTreeMaker, newReturnTree, $ReturnTree*, bool, $List*)},
+		{"newSeeTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSee;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSee;", $PUBLIC, $virtualMethod(DocTreeMaker, newSeeTree, $SeeTree*, $List*)},
+		{"newSerialDataTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSerialData;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSerialData;", $PUBLIC, $virtualMethod(DocTreeMaker, newSerialDataTree, $SerialDataTree*, $List*)},
+		{"newSerialFieldTree", "(Lcom/sun/source/doctree/IdentifierTree;Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSerialField;", "(Lcom/sun/source/doctree/IdentifierTree;Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSerialField;", $PUBLIC, $virtualMethod(DocTreeMaker, newSerialFieldTree, $SerialFieldTree*, $IdentifierTree*, $ReferenceTree*, $List*)},
+		{"newSerialTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSerial;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSerial;", $PUBLIC, $virtualMethod(DocTreeMaker, newSerialTree, $SerialTree*, $List*)},
+		{"newSinceTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSince;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSince;", $PUBLIC, $virtualMethod(DocTreeMaker, newSinceTree, $SinceTree*, $List*)},
+		{"newStartElementTree", "(Ljavax/lang/model/element/Name;Ljava/util/List;Z)Lcom/sun/tools/javac/tree/DCTree$DCStartElement;", "(Ljavax/lang/model/element/Name;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;Z)Lcom/sun/tools/javac/tree/DCTree$DCStartElement;", $PUBLIC, $virtualMethod(DocTreeMaker, newStartElementTree, $StartElementTree*, $Name*, $List*, bool)},
+		{"newSummaryTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCSummary;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCSummary;", $PUBLIC, $virtualMethod(DocTreeMaker, newSummaryTree, $SummaryTree*, $List*)},
+		{"newSystemPropertyTree", "(Ljavax/lang/model/element/Name;)Lcom/sun/tools/javac/tree/DCTree$DCSystemProperty;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newSystemPropertyTree, $SystemPropertyTree*, $Name*)},
+		{"newTextTree", "(Ljava/lang/String;)Lcom/sun/tools/javac/tree/DCTree$DCText;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newTextTree, $TextTree*, $String*)},
+		{"newThrowsTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCThrows;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCThrows;", $PUBLIC, $virtualMethod(DocTreeMaker, newThrowsTree, $ThrowsTree*, $ReferenceTree*, $List*)},
+		{"newUnknownBlockTagTree", "(Ljavax/lang/model/element/Name;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCUnknownBlockTag;", "(Ljavax/lang/model/element/Name;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCUnknownBlockTag;", $PUBLIC, $virtualMethod(DocTreeMaker, newUnknownBlockTagTree, $UnknownBlockTagTree*, $Name*, $List*)},
+		{"newUnknownInlineTagTree", "(Ljavax/lang/model/element/Name;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCUnknownInlineTag;", "(Ljavax/lang/model/element/Name;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCUnknownInlineTag;", $PUBLIC, $virtualMethod(DocTreeMaker, newUnknownInlineTagTree, $UnknownInlineTagTree*, $Name*, $List*)},
+		{"newUsesTree", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCUses;", "(Lcom/sun/source/doctree/ReferenceTree;Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCUses;", $PUBLIC, $virtualMethod(DocTreeMaker, newUsesTree, $UsesTree*, $ReferenceTree*, $List*)},
+		{"newValueTree", "(Lcom/sun/source/doctree/ReferenceTree;)Lcom/sun/tools/javac/tree/DCTree$DCValue;", nullptr, $PUBLIC, $virtualMethod(DocTreeMaker, newValueTree, $ValueTree*, $ReferenceTree*)},
+		{"newVersionTree", "(Ljava/util/List;)Lcom/sun/tools/javac/tree/DCTree$DCVersion;", "(Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/tree/DCTree$DCVersion;", $PUBLIC, $virtualMethod(DocTreeMaker, newVersionTree, $VersionTree*, $List*)},
+		{"skipWhiteSpace", "(Ljava/lang/String;I)I", nullptr, $PRIVATE, $method(DocTreeMaker, skipWhiteSpace, int32_t, $String*, int32_t)},
+		{"splitBody", "(Ljava/util/Collection;)Lcom/sun/tools/javac/util/Pair;", "(Ljava/util/Collection<+Lcom/sun/source/doctree/DocTree;>;)Lcom/sun/tools/javac/util/Pair<Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;>;", $PRIVATE, $method(DocTreeMaker, splitBody, $Pair*, $Collection*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DocTreeMaker$2", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.tree.DocTreeMaker$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DocTreeMaker",
+		"java.lang.Object",
+		"com.sun.source.util.DocTreeFactory",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DocTreeMaker$2,com.sun.tools.javac.tree.DocTreeMaker$1"
+	};
+	$loadClass(DocTreeMaker, name, initialize, &classInfo$$, DocTreeMaker::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DocTreeMaker);
+	});
 	return class$;
 }
 

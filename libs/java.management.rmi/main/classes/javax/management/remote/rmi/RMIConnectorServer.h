@@ -86,6 +86,7 @@ class $export RMIConnectorServer : public ::javax::management::remote::JMXConnec
 	$class(RMIConnectorServer, 0, ::javax::management::remote::JMXConnectorServer)
 public:
 	RMIConnectorServer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::remote::JMXServiceURL* url, ::java::util::Map* environment);
 	void init$(::javax::management::remote::JMXServiceURL* url, ::java::util::Map* environment, ::javax::management::MBeanServer* mbeanServer);
 	void init$(::javax::management::remote::JMXServiceURL* url, ::java::util::Map* environment, ::javax::management::remote::rmi::RMIServerImpl* rmiServerImpl, ::javax::management::MBeanServer* mbeanServer);

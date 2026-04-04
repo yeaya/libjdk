@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/Tree$Kind.h>
-
 #include <com/sun/source/tree/AnnotatedTypeTree.h>
 #include <com/sun/source/tree/AnnotationTree.h>
 #include <com/sun/source/tree/ArrayAccessTree.h>
@@ -262,173 +261,6 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$CompoundAttribute _Tree$Kind_FieldAnnotations_GUARDED_PATTERN[] = {
-	{}
-};
-
-$CompoundAttribute _Tree$Kind_FieldAnnotations_PARENTHESIZED_PATTERN[] = {
-	{}
-};
-
-$CompoundAttribute _Tree$Kind_FieldAnnotations_DEFAULT_CASE_LABEL[] = {
-	{}
-};
-
-$FieldInfo _Tree$Kind_FieldInfo_[] = {
-	{"ANNOTATED_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ANNOTATED_TYPE)},
-	{"ANNOTATION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ANNOTATION)},
-	{"TYPE_ANNOTATION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, TYPE_ANNOTATION)},
-	{"ARRAY_ACCESS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ARRAY_ACCESS)},
-	{"ARRAY_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ARRAY_TYPE)},
-	{"ASSERT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ASSERT)},
-	{"ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ASSIGNMENT)},
-	{"BLOCK", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BLOCK)},
-	{"BREAK", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BREAK)},
-	{"CASE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CASE)},
-	{"CATCH", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CATCH)},
-	{"CLASS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CLASS)},
-	{"COMPILATION_UNIT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, COMPILATION_UNIT)},
-	{"CONDITIONAL_EXPRESSION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CONDITIONAL_EXPRESSION)},
-	{"CONTINUE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CONTINUE)},
-	{"DO_WHILE_LOOP", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DO_WHILE_LOOP)},
-	{"ENHANCED_FOR_LOOP", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ENHANCED_FOR_LOOP)},
-	{"EXPRESSION_STATEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EXPRESSION_STATEMENT)},
-	{"MEMBER_SELECT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MEMBER_SELECT)},
-	{"MEMBER_REFERENCE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MEMBER_REFERENCE)},
-	{"FOR_LOOP", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, FOR_LOOP)},
-	{"IDENTIFIER", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, IDENTIFIER)},
-	{"IF", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, IF)},
-	{"IMPORT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, IMPORT)},
-	{"INSTANCE_OF", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, INSTANCE_OF)},
-	{"LABELED_STATEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LABELED_STATEMENT)},
-	{"METHOD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, METHOD)},
-	{"METHOD_INVOCATION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, METHOD_INVOCATION)},
-	{"MODIFIERS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MODIFIERS)},
-	{"NEW_ARRAY", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, NEW_ARRAY)},
-	{"NEW_CLASS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, NEW_CLASS)},
-	{"LAMBDA_EXPRESSION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LAMBDA_EXPRESSION)},
-	{"PACKAGE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PACKAGE)},
-	{"PARENTHESIZED", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PARENTHESIZED)},
-	{"BINDING_PATTERN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BINDING_PATTERN)},
-	{"GUARDED_PATTERN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, GUARDED_PATTERN), _Tree$Kind_FieldAnnotations_GUARDED_PATTERN},
-	{"PARENTHESIZED_PATTERN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PARENTHESIZED_PATTERN), _Tree$Kind_FieldAnnotations_PARENTHESIZED_PATTERN},
-	{"DEFAULT_CASE_LABEL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DEFAULT_CASE_LABEL), _Tree$Kind_FieldAnnotations_DEFAULT_CASE_LABEL},
-	{"PRIMITIVE_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PRIMITIVE_TYPE)},
-	{"RETURN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, RETURN)},
-	{"EMPTY_STATEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EMPTY_STATEMENT)},
-	{"SWITCH", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, SWITCH)},
-	{"SWITCH_EXPRESSION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, SWITCH_EXPRESSION)},
-	{"SYNCHRONIZED", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, SYNCHRONIZED)},
-	{"THROW", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, THROW)},
-	{"TRY", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, TRY)},
-	{"PARAMETERIZED_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PARAMETERIZED_TYPE)},
-	{"UNION_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNION_TYPE)},
-	{"INTERSECTION_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, INTERSECTION_TYPE)},
-	{"TYPE_CAST", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, TYPE_CAST)},
-	{"TYPE_PARAMETER", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, TYPE_PARAMETER)},
-	{"VARIABLE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, VARIABLE)},
-	{"WHILE_LOOP", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, WHILE_LOOP)},
-	{"POSTFIX_INCREMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, POSTFIX_INCREMENT)},
-	{"POSTFIX_DECREMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, POSTFIX_DECREMENT)},
-	{"PREFIX_INCREMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PREFIX_INCREMENT)},
-	{"PREFIX_DECREMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PREFIX_DECREMENT)},
-	{"UNARY_PLUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNARY_PLUS)},
-	{"UNARY_MINUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNARY_MINUS)},
-	{"BITWISE_COMPLEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BITWISE_COMPLEMENT)},
-	{"LOGICAL_COMPLEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LOGICAL_COMPLEMENT)},
-	{"MULTIPLY", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MULTIPLY)},
-	{"DIVIDE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DIVIDE)},
-	{"REMAINDER", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, REMAINDER)},
-	{"PLUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PLUS)},
-	{"MINUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MINUS)},
-	{"LEFT_SHIFT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LEFT_SHIFT)},
-	{"RIGHT_SHIFT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, RIGHT_SHIFT)},
-	{"UNSIGNED_RIGHT_SHIFT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNSIGNED_RIGHT_SHIFT)},
-	{"LESS_THAN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LESS_THAN)},
-	{"GREATER_THAN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, GREATER_THAN)},
-	{"LESS_THAN_EQUAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LESS_THAN_EQUAL)},
-	{"GREATER_THAN_EQUAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, GREATER_THAN_EQUAL)},
-	{"EQUAL_TO", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EQUAL_TO)},
-	{"NOT_EQUAL_TO", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, NOT_EQUAL_TO)},
-	{"AND", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, AND)},
-	{"XOR", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, XOR)},
-	{"OR", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, OR)},
-	{"CONDITIONAL_AND", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CONDITIONAL_AND)},
-	{"CONDITIONAL_OR", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CONDITIONAL_OR)},
-	{"MULTIPLY_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MULTIPLY_ASSIGNMENT)},
-	{"DIVIDE_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DIVIDE_ASSIGNMENT)},
-	{"REMAINDER_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, REMAINDER_ASSIGNMENT)},
-	{"PLUS_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PLUS_ASSIGNMENT)},
-	{"MINUS_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MINUS_ASSIGNMENT)},
-	{"LEFT_SHIFT_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LEFT_SHIFT_ASSIGNMENT)},
-	{"RIGHT_SHIFT_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, RIGHT_SHIFT_ASSIGNMENT)},
-	{"UNSIGNED_RIGHT_SHIFT_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNSIGNED_RIGHT_SHIFT_ASSIGNMENT)},
-	{"AND_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, AND_ASSIGNMENT)},
-	{"XOR_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, XOR_ASSIGNMENT)},
-	{"OR_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, OR_ASSIGNMENT)},
-	{"INT_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, INT_LITERAL)},
-	{"LONG_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LONG_LITERAL)},
-	{"FLOAT_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, FLOAT_LITERAL)},
-	{"DOUBLE_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DOUBLE_LITERAL)},
-	{"BOOLEAN_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BOOLEAN_LITERAL)},
-	{"CHAR_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CHAR_LITERAL)},
-	{"STRING_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, STRING_LITERAL)},
-	{"NULL_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, NULL_LITERAL)},
-	{"UNBOUNDED_WILDCARD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNBOUNDED_WILDCARD)},
-	{"EXTENDS_WILDCARD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EXTENDS_WILDCARD)},
-	{"SUPER_WILDCARD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, SUPER_WILDCARD)},
-	{"ERRONEOUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ERRONEOUS)},
-	{"INTERFACE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, INTERFACE)},
-	{"ENUM", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ENUM)},
-	{"ANNOTATION_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ANNOTATION_TYPE)},
-	{"MODULE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MODULE)},
-	{"EXPORTS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EXPORTS)},
-	{"OPENS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, OPENS)},
-	{"PROVIDES", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PROVIDES)},
-	{"RECORD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, RECORD)},
-	{"REQUIRES", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, REQUIRES)},
-	{"USES", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, USES)},
-	{"OTHER", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, OTHER)},
-	{"YIELD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, YIELD)},
-	{"$VALUES", "[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Tree$Kind, $VALUES)},
-	{"associatedInterface", "Ljava/lang/Class;", "Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;", $PRIVATE | $FINAL, $field(Tree$Kind, associatedInterface)},
-	{}
-};
-
-$MethodInfo _Tree$Kind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tree$Kind, $values, $Tree$KindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/Class;)V", "(Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;)V", $PRIVATE, $method(Tree$Kind, init$, void, $String*, int32_t, $Class*)},
-	{"asInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;", $PUBLIC, $method(Tree$Kind, asInterface, $Class*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tree$Kind, valueOf, Tree$Kind*, $String*)},
-	{"values", "()[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tree$Kind, values, $Tree$KindArray*)},
-	{}
-};
-
-$InnerClassInfo _Tree$Kind_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.Tree$Kind", "com.sun.source.tree.Tree", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Tree$Kind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.source.tree.Tree$Kind",
-	"java.lang.Enum",
-	nullptr,
-	_Tree$Kind_FieldInfo_,
-	_Tree$Kind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/source/tree/Tree$Kind;>;",
-	nullptr,
-	_Tree$Kind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.Tree"
-};
-
-$Object* allocate$Tree$Kind($Class* clazz) {
-	return $of($alloc(Tree$Kind));
-}
-
 Tree$Kind* Tree$Kind::ANNOTATED_TYPE = nullptr;
 Tree$Kind* Tree$Kind::ANNOTATION = nullptr;
 Tree$Kind* Tree$Kind::TYPE_ANNOTATION = nullptr;
@@ -686,7 +518,7 @@ $Class* Tree$Kind::asInterface() {
 	return this->associatedInterface;
 }
 
-void clinit$Tree$Kind($Class* class$) {
+void Tree$Kind::clinit$($Class* clazz) {
 	$load($AnnotatedTypeTree);
 	$assignStatic(Tree$Kind::ANNOTATED_TYPE, $new(Tree$Kind, "ANNOTATED_TYPE"_s, 0, $AnnotatedTypeTree::class$));
 	$load($AnnotationTree);
@@ -874,7 +706,165 @@ Tree$Kind::Tree$Kind() {
 }
 
 $Class* Tree$Kind::load$($String* name, bool initialize) {
-	$loadClass(Tree$Kind, name, initialize, &_Tree$Kind_ClassInfo_, clinit$Tree$Kind, allocate$Tree$Kind);
+	$CompoundAttribute GUARDED_PATTERNfieldAnnotations$$[] = {
+		{}
+	};
+	$CompoundAttribute PARENTHESIZED_PATTERNfieldAnnotations$$[] = {
+		{}
+	};
+	$CompoundAttribute DEFAULT_CASE_LABELfieldAnnotations$$[] = {
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"ANNOTATED_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ANNOTATED_TYPE)},
+		{"ANNOTATION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ANNOTATION)},
+		{"TYPE_ANNOTATION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, TYPE_ANNOTATION)},
+		{"ARRAY_ACCESS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ARRAY_ACCESS)},
+		{"ARRAY_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ARRAY_TYPE)},
+		{"ASSERT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ASSERT)},
+		{"ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ASSIGNMENT)},
+		{"BLOCK", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BLOCK)},
+		{"BREAK", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BREAK)},
+		{"CASE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CASE)},
+		{"CATCH", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CATCH)},
+		{"CLASS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CLASS)},
+		{"COMPILATION_UNIT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, COMPILATION_UNIT)},
+		{"CONDITIONAL_EXPRESSION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CONDITIONAL_EXPRESSION)},
+		{"CONTINUE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CONTINUE)},
+		{"DO_WHILE_LOOP", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DO_WHILE_LOOP)},
+		{"ENHANCED_FOR_LOOP", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ENHANCED_FOR_LOOP)},
+		{"EXPRESSION_STATEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EXPRESSION_STATEMENT)},
+		{"MEMBER_SELECT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MEMBER_SELECT)},
+		{"MEMBER_REFERENCE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MEMBER_REFERENCE)},
+		{"FOR_LOOP", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, FOR_LOOP)},
+		{"IDENTIFIER", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, IDENTIFIER)},
+		{"IF", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, IF)},
+		{"IMPORT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, IMPORT)},
+		{"INSTANCE_OF", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, INSTANCE_OF)},
+		{"LABELED_STATEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LABELED_STATEMENT)},
+		{"METHOD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, METHOD)},
+		{"METHOD_INVOCATION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, METHOD_INVOCATION)},
+		{"MODIFIERS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MODIFIERS)},
+		{"NEW_ARRAY", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, NEW_ARRAY)},
+		{"NEW_CLASS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, NEW_CLASS)},
+		{"LAMBDA_EXPRESSION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LAMBDA_EXPRESSION)},
+		{"PACKAGE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PACKAGE)},
+		{"PARENTHESIZED", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PARENTHESIZED)},
+		{"BINDING_PATTERN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BINDING_PATTERN)},
+		{"GUARDED_PATTERN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, GUARDED_PATTERN), GUARDED_PATTERNfieldAnnotations$$},
+		{"PARENTHESIZED_PATTERN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PARENTHESIZED_PATTERN), PARENTHESIZED_PATTERNfieldAnnotations$$},
+		{"DEFAULT_CASE_LABEL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DEFAULT_CASE_LABEL), DEFAULT_CASE_LABELfieldAnnotations$$},
+		{"PRIMITIVE_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PRIMITIVE_TYPE)},
+		{"RETURN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, RETURN)},
+		{"EMPTY_STATEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EMPTY_STATEMENT)},
+		{"SWITCH", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, SWITCH)},
+		{"SWITCH_EXPRESSION", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, SWITCH_EXPRESSION)},
+		{"SYNCHRONIZED", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, SYNCHRONIZED)},
+		{"THROW", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, THROW)},
+		{"TRY", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, TRY)},
+		{"PARAMETERIZED_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PARAMETERIZED_TYPE)},
+		{"UNION_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNION_TYPE)},
+		{"INTERSECTION_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, INTERSECTION_TYPE)},
+		{"TYPE_CAST", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, TYPE_CAST)},
+		{"TYPE_PARAMETER", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, TYPE_PARAMETER)},
+		{"VARIABLE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, VARIABLE)},
+		{"WHILE_LOOP", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, WHILE_LOOP)},
+		{"POSTFIX_INCREMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, POSTFIX_INCREMENT)},
+		{"POSTFIX_DECREMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, POSTFIX_DECREMENT)},
+		{"PREFIX_INCREMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PREFIX_INCREMENT)},
+		{"PREFIX_DECREMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PREFIX_DECREMENT)},
+		{"UNARY_PLUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNARY_PLUS)},
+		{"UNARY_MINUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNARY_MINUS)},
+		{"BITWISE_COMPLEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BITWISE_COMPLEMENT)},
+		{"LOGICAL_COMPLEMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LOGICAL_COMPLEMENT)},
+		{"MULTIPLY", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MULTIPLY)},
+		{"DIVIDE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DIVIDE)},
+		{"REMAINDER", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, REMAINDER)},
+		{"PLUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PLUS)},
+		{"MINUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MINUS)},
+		{"LEFT_SHIFT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LEFT_SHIFT)},
+		{"RIGHT_SHIFT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, RIGHT_SHIFT)},
+		{"UNSIGNED_RIGHT_SHIFT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNSIGNED_RIGHT_SHIFT)},
+		{"LESS_THAN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LESS_THAN)},
+		{"GREATER_THAN", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, GREATER_THAN)},
+		{"LESS_THAN_EQUAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LESS_THAN_EQUAL)},
+		{"GREATER_THAN_EQUAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, GREATER_THAN_EQUAL)},
+		{"EQUAL_TO", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EQUAL_TO)},
+		{"NOT_EQUAL_TO", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, NOT_EQUAL_TO)},
+		{"AND", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, AND)},
+		{"XOR", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, XOR)},
+		{"OR", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, OR)},
+		{"CONDITIONAL_AND", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CONDITIONAL_AND)},
+		{"CONDITIONAL_OR", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CONDITIONAL_OR)},
+		{"MULTIPLY_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MULTIPLY_ASSIGNMENT)},
+		{"DIVIDE_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DIVIDE_ASSIGNMENT)},
+		{"REMAINDER_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, REMAINDER_ASSIGNMENT)},
+		{"PLUS_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PLUS_ASSIGNMENT)},
+		{"MINUS_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MINUS_ASSIGNMENT)},
+		{"LEFT_SHIFT_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LEFT_SHIFT_ASSIGNMENT)},
+		{"RIGHT_SHIFT_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, RIGHT_SHIFT_ASSIGNMENT)},
+		{"UNSIGNED_RIGHT_SHIFT_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNSIGNED_RIGHT_SHIFT_ASSIGNMENT)},
+		{"AND_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, AND_ASSIGNMENT)},
+		{"XOR_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, XOR_ASSIGNMENT)},
+		{"OR_ASSIGNMENT", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, OR_ASSIGNMENT)},
+		{"INT_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, INT_LITERAL)},
+		{"LONG_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, LONG_LITERAL)},
+		{"FLOAT_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, FLOAT_LITERAL)},
+		{"DOUBLE_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, DOUBLE_LITERAL)},
+		{"BOOLEAN_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, BOOLEAN_LITERAL)},
+		{"CHAR_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, CHAR_LITERAL)},
+		{"STRING_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, STRING_LITERAL)},
+		{"NULL_LITERAL", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, NULL_LITERAL)},
+		{"UNBOUNDED_WILDCARD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, UNBOUNDED_WILDCARD)},
+		{"EXTENDS_WILDCARD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EXTENDS_WILDCARD)},
+		{"SUPER_WILDCARD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, SUPER_WILDCARD)},
+		{"ERRONEOUS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ERRONEOUS)},
+		{"INTERFACE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, INTERFACE)},
+		{"ENUM", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ENUM)},
+		{"ANNOTATION_TYPE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, ANNOTATION_TYPE)},
+		{"MODULE", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, MODULE)},
+		{"EXPORTS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, EXPORTS)},
+		{"OPENS", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, OPENS)},
+		{"PROVIDES", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, PROVIDES)},
+		{"RECORD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, RECORD)},
+		{"REQUIRES", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, REQUIRES)},
+		{"USES", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, USES)},
+		{"OTHER", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, OTHER)},
+		{"YIELD", "Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tree$Kind, YIELD)},
+		{"$VALUES", "[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Tree$Kind, $VALUES)},
+		{"associatedInterface", "Ljava/lang/Class;", "Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;", $PRIVATE | $FINAL, $field(Tree$Kind, associatedInterface)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tree$Kind, $values, $Tree$KindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/Class;)V", "(Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;)V", $PRIVATE, $method(Tree$Kind, init$, void, $String*, int32_t, $Class*)},
+		{"asInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Lcom/sun/source/tree/Tree;>;", $PUBLIC, $method(Tree$Kind, asInterface, $Class*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tree$Kind, valueOf, Tree$Kind*, $String*)},
+		{"values", "()[Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tree$Kind, values, $Tree$KindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.Tree$Kind", "com.sun.source.tree.Tree", "Kind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.source.tree.Tree$Kind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/source/tree/Tree$Kind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.Tree"
+	};
+	$loadClass(Tree$Kind, name, initialize, &classInfo$$, Tree$Kind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Tree$Kind));
+	});
 	return class$;
 }
 

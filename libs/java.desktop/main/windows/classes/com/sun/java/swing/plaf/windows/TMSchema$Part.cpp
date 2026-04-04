@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Control.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema.h>
 #include <java/awt/Component.h>
@@ -130,140 +129,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace windows {
-
-$FieldInfo _TMSchema$Part_FieldInfo_[] = {
-	{"MENU", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MENU)},
-	{"MP_BARBACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_BARBACKGROUND)},
-	{"MP_BARITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_BARITEM)},
-	{"MP_POPUPBACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPBACKGROUND)},
-	{"MP_POPUPBORDERS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPBORDERS)},
-	{"MP_POPUPCHECK", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPCHECK)},
-	{"MP_POPUPCHECKBACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPCHECKBACKGROUND)},
-	{"MP_POPUPGUTTER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPGUTTER)},
-	{"MP_POPUPITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPITEM)},
-	{"MP_POPUPSEPARATOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPSEPARATOR)},
-	{"MP_POPUPSUBMENU", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPSUBMENU)},
-	{"BP_PUSHBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, BP_PUSHBUTTON)},
-	{"BP_RADIOBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, BP_RADIOBUTTON)},
-	{"BP_CHECKBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, BP_CHECKBOX)},
-	{"BP_GROUPBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, BP_GROUPBOX)},
-	{"CP_COMBOBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_COMBOBOX)},
-	{"CP_DROPDOWNBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_DROPDOWNBUTTON)},
-	{"CP_BACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_BACKGROUND)},
-	{"CP_TRANSPARENTBACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_TRANSPARENTBACKGROUND)},
-	{"CP_BORDER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_BORDER)},
-	{"CP_READONLY", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_READONLY)},
-	{"CP_DROPDOWNBUTTONRIGHT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_DROPDOWNBUTTONRIGHT)},
-	{"CP_DROPDOWNBUTTONLEFT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_DROPDOWNBUTTONLEFT)},
-	{"CP_CUEBANNER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_CUEBANNER)},
-	{"EP_EDIT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, EP_EDIT)},
-	{"EP_EDITTEXT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, EP_EDITTEXT)},
-	{"HP_HEADERITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, HP_HEADERITEM)},
-	{"HP_HEADERSORTARROW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, HP_HEADERSORTARROW)},
-	{"LBP_LISTBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBP_LISTBOX)},
-	{"LBCP_BORDER_HSCROLL", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_BORDER_HSCROLL)},
-	{"LBCP_BORDER_HVSCROLL", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_BORDER_HVSCROLL)},
-	{"LBCP_BORDER_NOSCROLL", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_BORDER_NOSCROLL)},
-	{"LBCP_BORDER_VSCROLL", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_BORDER_VSCROLL)},
-	{"LBCP_ITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_ITEM)},
-	{"LVP_LISTVIEW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LVP_LISTVIEW)},
-	{"PP_PROGRESS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_PROGRESS)},
-	{"PP_BAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_BAR)},
-	{"PP_BARVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_BARVERT)},
-	{"PP_CHUNK", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_CHUNK)},
-	{"PP_CHUNKVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_CHUNKVERT)},
-	{"RP_GRIPPER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, RP_GRIPPER)},
-	{"RP_GRIPPERVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, RP_GRIPPERVERT)},
-	{"SBP_SCROLLBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_SCROLLBAR)},
-	{"SBP_ARROWBTN", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_ARROWBTN)},
-	{"SBP_THUMBBTNHORZ", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_THUMBBTNHORZ)},
-	{"SBP_THUMBBTNVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_THUMBBTNVERT)},
-	{"SBP_LOWERTRACKHORZ", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_LOWERTRACKHORZ)},
-	{"SBP_UPPERTRACKHORZ", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_UPPERTRACKHORZ)},
-	{"SBP_LOWERTRACKVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_LOWERTRACKVERT)},
-	{"SBP_UPPERTRACKVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_UPPERTRACKVERT)},
-	{"SBP_GRIPPERHORZ", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_GRIPPERHORZ)},
-	{"SBP_GRIPPERVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_GRIPPERVERT)},
-	{"SBP_SIZEBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_SIZEBOX)},
-	{"SPNP_UP", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SPNP_UP)},
-	{"SPNP_DOWN", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SPNP_DOWN)},
-	{"TABP_TABITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TABP_TABITEM)},
-	{"TABP_TABITEMLEFTEDGE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TABP_TABITEMLEFTEDGE)},
-	{"TABP_TABITEMRIGHTEDGE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TABP_TABITEMRIGHTEDGE)},
-	{"TABP_PANE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TABP_PANE)},
-	{"TP_TOOLBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TP_TOOLBAR)},
-	{"TP_BUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TP_BUTTON)},
-	{"TP_SEPARATOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TP_SEPARATOR)},
-	{"TP_SEPARATORVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TP_SEPARATORVERT)},
-	{"TKP_TRACK", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_TRACK)},
-	{"TKP_TRACKVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_TRACKVERT)},
-	{"TKP_THUMB", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMB)},
-	{"TKP_THUMBBOTTOM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBBOTTOM)},
-	{"TKP_THUMBTOP", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBTOP)},
-	{"TKP_THUMBVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBVERT)},
-	{"TKP_THUMBLEFT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBLEFT)},
-	{"TKP_THUMBRIGHT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBRIGHT)},
-	{"TKP_TICS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_TICS)},
-	{"TKP_TICSVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_TICSVERT)},
-	{"TVP_TREEVIEW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TVP_TREEVIEW)},
-	{"TVP_GLYPH", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TVP_GLYPH)},
-	{"WP_WINDOW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_WINDOW)},
-	{"WP_CAPTION", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_CAPTION)},
-	{"WP_MINCAPTION", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MINCAPTION)},
-	{"WP_MAXCAPTION", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MAXCAPTION)},
-	{"WP_FRAMELEFT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_FRAMELEFT)},
-	{"WP_FRAMERIGHT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_FRAMERIGHT)},
-	{"WP_FRAMEBOTTOM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_FRAMEBOTTOM)},
-	{"WP_SYSBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_SYSBUTTON)},
-	{"WP_MDISYSBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MDISYSBUTTON)},
-	{"WP_MINBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MINBUTTON)},
-	{"WP_MDIMINBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MDIMINBUTTON)},
-	{"WP_MAXBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MAXBUTTON)},
-	{"WP_CLOSEBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_CLOSEBUTTON)},
-	{"WP_MDICLOSEBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MDICLOSEBUTTON)},
-	{"WP_RESTOREBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_RESTOREBUTTON)},
-	{"WP_MDIRESTOREBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MDIRESTOREBUTTON)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$Part, $VALUES)},
-	{"control", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PRIVATE | $FINAL, $field(TMSchema$Part, control)},
-	{"value", "I", nullptr, $PRIVATE | $FINAL, $field(TMSchema$Part, value)},
-	{}
-};
-
-$MethodInfo _TMSchema$Part_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$Part, $values, $TMSchema$PartArray*)},
-	{"<init>", "(Ljava/lang/String;ILcom/sun/java/swing/plaf/windows/TMSchema$Control;I)V", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Control;I)V", $PRIVATE, $method(TMSchema$Part, init$, void, $String*, int32_t, $TMSchema$Control*, int32_t)},
-	{"getControlName", "(Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC, $method(TMSchema$Part, getControlName, $String*, $Component*)},
-	{"getValue", "()I", nullptr, $PUBLIC, $method(TMSchema$Part, getValue, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TMSchema$Part, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Part, valueOf, TMSchema$Part*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Part, values, $TMSchema$PartArray*)},
-	{}
-};
-
-$InnerClassInfo _TMSchema$Part_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.TMSchema$Part", "com.sun.java.swing.plaf.windows.TMSchema", "Part", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _TMSchema$Part_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.windows.TMSchema$Part",
-	"java.lang.Enum",
-	nullptr,
-	_TMSchema$Part_FieldInfo_,
-	_TMSchema$Part_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$Part;>;",
-	nullptr,
-	_TMSchema$Part_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.TMSchema"
-};
-
-$Object* allocate$TMSchema$Part($Class* clazz) {
-	return $of($alloc(TMSchema$Part));
-}
 
 TMSchema$Part* TMSchema$Part::MENU = nullptr;
 TMSchema$Part* TMSchema$Part::MP_BARBACKGROUND = nullptr;
@@ -476,11 +341,11 @@ int32_t TMSchema$Part::getValue() {
 }
 
 $String* TMSchema$Part::getControlName($Component* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, ""_s);
 	if ($instanceOf($JComponent, component)) {
 		$var($JComponent, c, $cast($JComponent, component));
-		$var($String, subAppName, $cast($String, $nc(c)->getClientProperty("XPStyle.subAppName"_s)));
+		$var($String, subAppName, $cast($String, c->getClientProperty("XPStyle.subAppName"_s)));
 		if (subAppName != nullptr) {
 			$assign(str, $str({subAppName, "::"_s}));
 		}
@@ -489,12 +354,15 @@ $String* TMSchema$Part::getControlName($Component* component) {
 }
 
 $String* TMSchema$Part::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$(this->control->toString()), "."_s}));
-	return $concat(var$0, $(name()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(this->control->toString()));
+	var$0->append("."_s);
+	var$0->append($(name()));
+	return $str(var$0);
 }
 
-void clinit$TMSchema$Part($Class* class$) {
+void TMSchema$Part::clinit$($Class* clazz) {
 	$init($TMSchema$Control);
 	$assignStatic(TMSchema$Part::MENU, $new(TMSchema$Part, "MENU"_s, 0, $TMSchema$Control::MENU, 0));
 	$assignStatic(TMSchema$Part::MP_BARBACKGROUND, $new(TMSchema$Part, "MP_BARBACKGROUND"_s, 1, $TMSchema$Control::MENU, 7));
@@ -594,7 +462,135 @@ TMSchema$Part::TMSchema$Part() {
 }
 
 $Class* TMSchema$Part::load$($String* name, bool initialize) {
-	$loadClass(TMSchema$Part, name, initialize, &_TMSchema$Part_ClassInfo_, clinit$TMSchema$Part, allocate$TMSchema$Part);
+	$FieldInfo fieldInfos$$[] = {
+		{"MENU", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MENU)},
+		{"MP_BARBACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_BARBACKGROUND)},
+		{"MP_BARITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_BARITEM)},
+		{"MP_POPUPBACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPBACKGROUND)},
+		{"MP_POPUPBORDERS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPBORDERS)},
+		{"MP_POPUPCHECK", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPCHECK)},
+		{"MP_POPUPCHECKBACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPCHECKBACKGROUND)},
+		{"MP_POPUPGUTTER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPGUTTER)},
+		{"MP_POPUPITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPITEM)},
+		{"MP_POPUPSEPARATOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPSEPARATOR)},
+		{"MP_POPUPSUBMENU", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, MP_POPUPSUBMENU)},
+		{"BP_PUSHBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, BP_PUSHBUTTON)},
+		{"BP_RADIOBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, BP_RADIOBUTTON)},
+		{"BP_CHECKBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, BP_CHECKBOX)},
+		{"BP_GROUPBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, BP_GROUPBOX)},
+		{"CP_COMBOBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_COMBOBOX)},
+		{"CP_DROPDOWNBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_DROPDOWNBUTTON)},
+		{"CP_BACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_BACKGROUND)},
+		{"CP_TRANSPARENTBACKGROUND", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_TRANSPARENTBACKGROUND)},
+		{"CP_BORDER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_BORDER)},
+		{"CP_READONLY", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_READONLY)},
+		{"CP_DROPDOWNBUTTONRIGHT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_DROPDOWNBUTTONRIGHT)},
+		{"CP_DROPDOWNBUTTONLEFT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_DROPDOWNBUTTONLEFT)},
+		{"CP_CUEBANNER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, CP_CUEBANNER)},
+		{"EP_EDIT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, EP_EDIT)},
+		{"EP_EDITTEXT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, EP_EDITTEXT)},
+		{"HP_HEADERITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, HP_HEADERITEM)},
+		{"HP_HEADERSORTARROW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, HP_HEADERSORTARROW)},
+		{"LBP_LISTBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBP_LISTBOX)},
+		{"LBCP_BORDER_HSCROLL", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_BORDER_HSCROLL)},
+		{"LBCP_BORDER_HVSCROLL", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_BORDER_HVSCROLL)},
+		{"LBCP_BORDER_NOSCROLL", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_BORDER_NOSCROLL)},
+		{"LBCP_BORDER_VSCROLL", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_BORDER_VSCROLL)},
+		{"LBCP_ITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LBCP_ITEM)},
+		{"LVP_LISTVIEW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, LVP_LISTVIEW)},
+		{"PP_PROGRESS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_PROGRESS)},
+		{"PP_BAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_BAR)},
+		{"PP_BARVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_BARVERT)},
+		{"PP_CHUNK", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_CHUNK)},
+		{"PP_CHUNKVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, PP_CHUNKVERT)},
+		{"RP_GRIPPER", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, RP_GRIPPER)},
+		{"RP_GRIPPERVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, RP_GRIPPERVERT)},
+		{"SBP_SCROLLBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_SCROLLBAR)},
+		{"SBP_ARROWBTN", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_ARROWBTN)},
+		{"SBP_THUMBBTNHORZ", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_THUMBBTNHORZ)},
+		{"SBP_THUMBBTNVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_THUMBBTNVERT)},
+		{"SBP_LOWERTRACKHORZ", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_LOWERTRACKHORZ)},
+		{"SBP_UPPERTRACKHORZ", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_UPPERTRACKHORZ)},
+		{"SBP_LOWERTRACKVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_LOWERTRACKVERT)},
+		{"SBP_UPPERTRACKVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_UPPERTRACKVERT)},
+		{"SBP_GRIPPERHORZ", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_GRIPPERHORZ)},
+		{"SBP_GRIPPERVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_GRIPPERVERT)},
+		{"SBP_SIZEBOX", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SBP_SIZEBOX)},
+		{"SPNP_UP", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SPNP_UP)},
+		{"SPNP_DOWN", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, SPNP_DOWN)},
+		{"TABP_TABITEM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TABP_TABITEM)},
+		{"TABP_TABITEMLEFTEDGE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TABP_TABITEMLEFTEDGE)},
+		{"TABP_TABITEMRIGHTEDGE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TABP_TABITEMRIGHTEDGE)},
+		{"TABP_PANE", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TABP_PANE)},
+		{"TP_TOOLBAR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TP_TOOLBAR)},
+		{"TP_BUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TP_BUTTON)},
+		{"TP_SEPARATOR", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TP_SEPARATOR)},
+		{"TP_SEPARATORVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TP_SEPARATORVERT)},
+		{"TKP_TRACK", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_TRACK)},
+		{"TKP_TRACKVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_TRACKVERT)},
+		{"TKP_THUMB", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMB)},
+		{"TKP_THUMBBOTTOM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBBOTTOM)},
+		{"TKP_THUMBTOP", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBTOP)},
+		{"TKP_THUMBVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBVERT)},
+		{"TKP_THUMBLEFT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBLEFT)},
+		{"TKP_THUMBRIGHT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_THUMBRIGHT)},
+		{"TKP_TICS", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_TICS)},
+		{"TKP_TICSVERT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TKP_TICSVERT)},
+		{"TVP_TREEVIEW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TVP_TREEVIEW)},
+		{"TVP_GLYPH", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, TVP_GLYPH)},
+		{"WP_WINDOW", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_WINDOW)},
+		{"WP_CAPTION", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_CAPTION)},
+		{"WP_MINCAPTION", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MINCAPTION)},
+		{"WP_MAXCAPTION", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MAXCAPTION)},
+		{"WP_FRAMELEFT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_FRAMELEFT)},
+		{"WP_FRAMERIGHT", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_FRAMERIGHT)},
+		{"WP_FRAMEBOTTOM", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_FRAMEBOTTOM)},
+		{"WP_SYSBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_SYSBUTTON)},
+		{"WP_MDISYSBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MDISYSBUTTON)},
+		{"WP_MINBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MINBUTTON)},
+		{"WP_MDIMINBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MDIMINBUTTON)},
+		{"WP_MAXBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MAXBUTTON)},
+		{"WP_CLOSEBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_CLOSEBUTTON)},
+		{"WP_MDICLOSEBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MDICLOSEBUTTON)},
+		{"WP_RESTOREBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_RESTOREBUTTON)},
+		{"WP_MDIRESTOREBUTTON", "Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TMSchema$Part, WP_MDIRESTOREBUTTON)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TMSchema$Part, $VALUES)},
+		{"control", "Lcom/sun/java/swing/plaf/windows/TMSchema$Control;", nullptr, $PRIVATE | $FINAL, $field(TMSchema$Part, control)},
+		{"value", "I", nullptr, $PRIVATE | $FINAL, $field(TMSchema$Part, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TMSchema$Part, $values, $TMSchema$PartArray*)},
+		{"<init>", "(Ljava/lang/String;ILcom/sun/java/swing/plaf/windows/TMSchema$Control;I)V", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Control;I)V", $PRIVATE, $method(TMSchema$Part, init$, void, $String*, int32_t, $TMSchema$Control*, int32_t)},
+		{"getControlName", "(Ljava/awt/Component;)Ljava/lang/String;", nullptr, $PUBLIC, $method(TMSchema$Part, getControlName, $String*, $Component*)},
+		{"getValue", "()I", nullptr, $PUBLIC, $method(TMSchema$Part, getValue, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TMSchema$Part, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Part, valueOf, TMSchema$Part*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $PUBLIC | $STATIC, $staticMethod(TMSchema$Part, values, $TMSchema$PartArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.TMSchema$Part", "com.sun.java.swing.plaf.windows.TMSchema", "Part", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.windows.TMSchema$Part",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/windows/TMSchema$Part;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.TMSchema"
+	};
+	$loadClass(TMSchema$Part, name, initialize, &classInfo$$, TMSchema$Part::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TMSchema$Part));
+	});
 	return class$;
 }
 

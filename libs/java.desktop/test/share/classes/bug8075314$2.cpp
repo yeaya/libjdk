@@ -1,5 +1,4 @@
 #include <bug8075314$2.h>
-
 #include <bug8075314.h>
 #include <java/beans/PropertyVetoException.h>
 #include <javax/swing/JInternalFrame.h>
@@ -12,44 +11,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
-
-$MethodInfo _bug8075314$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8075314$2, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8075314$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug8075314$2_EnclosingMethodInfo_ = {
-	"bug8075314",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug8075314$2_InnerClassesInfo_[] = {
-	{"bug8075314$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug8075314$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8075314$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug8075314$2_MethodInfo_,
-	nullptr,
-	&_bug8075314$2_EnclosingMethodInfo_,
-	_bug8075314$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8075314"
-};
-
-$Object* allocate$bug8075314$2($Class* clazz) {
-	return $of($alloc(bug8075314$2));
-}
 
 void bug8075314$2::init$() {
 }
@@ -63,7 +24,7 @@ void bug8075314$2::run() {
 			$throwNew($RuntimeException, "Frame2 is maximized!"_s);
 		}
 	} catch ($PropertyVetoException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
@@ -71,7 +32,38 @@ bug8075314$2::bug8075314$2() {
 }
 
 $Class* bug8075314$2::load$($String* name, bool initialize) {
-	$loadClass(bug8075314$2, name, initialize, &_bug8075314$2_ClassInfo_, allocate$bug8075314$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8075314$2, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug8075314$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug8075314",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8075314$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8075314$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8075314"
+	};
+	$loadClass(bug8075314$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug8075314$2);
+	});
 	return class$;
 }
 

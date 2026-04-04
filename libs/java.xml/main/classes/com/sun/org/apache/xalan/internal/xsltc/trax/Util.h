@@ -50,6 +50,7 @@ class Util : public ::java::lang::Object {
 	$class(Util, 0, ::java::lang::Object)
 public:
 	Util();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* baseName($String* name);
 	static ::org::xml::sax::InputSource* getInputSource(::com::sun::org::apache::xalan::internal::xsltc::compiler::XSLTC* xsltc, ::javax::xml::transform::Source* source);

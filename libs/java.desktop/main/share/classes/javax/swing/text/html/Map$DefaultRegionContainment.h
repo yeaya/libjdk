@@ -14,6 +14,7 @@ class Map$DefaultRegionContainment : public ::javax::swing::text::html::Map$Regi
 	$class(Map$DefaultRegionContainment, 0, ::javax::swing::text::html::Map$RegionContainment)
 public:
 	Map$DefaultRegionContainment();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool contains(int32_t x, int32_t y, int32_t width, int32_t height) override;
 	static ::javax::swing::text::html::Map$DefaultRegionContainment* sharedInstance();

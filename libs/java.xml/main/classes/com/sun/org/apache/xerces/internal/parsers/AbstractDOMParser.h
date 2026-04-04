@@ -152,6 +152,7 @@ class AbstractDOMParser : public ::com::sun::org::apache::xerces::internal::pars
 	$class(AbstractDOMParser, 0, ::com::sun::org::apache::xerces::internal::parsers::AbstractXMLDocumentParser)
 public:
 	AbstractDOMParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration* config);
 	virtual void abort();
 	virtual void attributeDecl($String* elementName, $String* attributeName, $String* type, $StringArray* enumeration, $String* defaultType, ::com::sun::org::apache::xerces::internal::xni::XMLString* defaultValue, ::com::sun::org::apache::xerces::internal::xni::XMLString* nonNormalizedDefaultValue, ::com::sun::org::apache::xerces::internal::xni::Augmentations* augs) override;

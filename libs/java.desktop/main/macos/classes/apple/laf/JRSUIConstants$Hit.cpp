@@ -1,5 +1,4 @@
 #include <apple/laf/JRSUIConstants$Hit.h>
-
 #include <apple/laf/JRSUIConstants.h>
 #include <jcpp.h>
 
@@ -14,50 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace apple {
 	namespace laf {
-
-$FieldInfo _JRSUIConstants$Hit_FieldInfo_[] = {
-	{"_unknown", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Hit, _unknown)},
-	{"UNKNOWN", "Lapple/laf/JRSUIConstants$Hit;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Hit, UNKNOWN)},
-	{"_none", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Hit, _none)},
-	{"NONE", "Lapple/laf/JRSUIConstants$Hit;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Hit, NONE)},
-	{"_hit", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Hit, _hit)},
-	{"HIT", "Lapple/laf/JRSUIConstants$Hit;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Hit, HIT)},
-	{"hit", "I", nullptr, $FINAL, $field(JRSUIConstants$Hit, hit)},
-	{}
-};
-
-$MethodInfo _JRSUIConstants$Hit_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, 0, $method(JRSUIConstants$Hit, init$, void, int32_t)},
-	{"getConstantName", "(Lapple/laf/JRSUIConstants$Hit;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JRSUIConstants$Hit, getConstantName, $String*, JRSUIConstants$Hit*)},
-	{"isHit", "()Z", nullptr, $PUBLIC, $virtualMethod(JRSUIConstants$Hit, isHit, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRSUIConstants$Hit, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JRSUIConstants$Hit_InnerClassesInfo_[] = {
-	{"apple.laf.JRSUIConstants$Hit", "apple.laf.JRSUIConstants", "Hit", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JRSUIConstants$Hit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"apple.laf.JRSUIConstants$Hit",
-	"java.lang.Object",
-	nullptr,
-	_JRSUIConstants$Hit_FieldInfo_,
-	_JRSUIConstants$Hit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JRSUIConstants$Hit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"apple.laf.JRSUIConstants"
-};
-
-$Object* allocate$JRSUIConstants$Hit($Class* clazz) {
-	return $of($alloc(JRSUIConstants$Hit));
-}
 
 JRSUIConstants$Hit* JRSUIConstants$Hit::UNKNOWN = nullptr;
 JRSUIConstants$Hit* JRSUIConstants$Hit::NONE = nullptr;
@@ -86,7 +41,7 @@ $String* JRSUIConstants$Hit::toString() {
 	return getConstantName(this);
 }
 
-void clinit$JRSUIConstants$Hit($Class* class$) {
+void JRSUIConstants$Hit::clinit$($Class* clazz) {
 	$assignStatic(JRSUIConstants$Hit::UNKNOWN, $new(JRSUIConstants$Hit, JRSUIConstants$Hit::_unknown));
 	$assignStatic(JRSUIConstants$Hit::NONE, $new(JRSUIConstants$Hit, JRSUIConstants$Hit::_none));
 	$assignStatic(JRSUIConstants$Hit::HIT, $new(JRSUIConstants$Hit, JRSUIConstants$Hit::_hit));
@@ -96,7 +51,45 @@ JRSUIConstants$Hit::JRSUIConstants$Hit() {
 }
 
 $Class* JRSUIConstants$Hit::load$($String* name, bool initialize) {
-	$loadClass(JRSUIConstants$Hit, name, initialize, &_JRSUIConstants$Hit_ClassInfo_, clinit$JRSUIConstants$Hit, allocate$JRSUIConstants$Hit);
+	$FieldInfo fieldInfos$$[] = {
+		{"_unknown", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Hit, _unknown)},
+		{"UNKNOWN", "Lapple/laf/JRSUIConstants$Hit;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Hit, UNKNOWN)},
+		{"_none", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Hit, _none)},
+		{"NONE", "Lapple/laf/JRSUIConstants$Hit;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Hit, NONE)},
+		{"_hit", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JRSUIConstants$Hit, _hit)},
+		{"HIT", "Lapple/laf/JRSUIConstants$Hit;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JRSUIConstants$Hit, HIT)},
+		{"hit", "I", nullptr, $FINAL, $field(JRSUIConstants$Hit, hit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, 0, $method(JRSUIConstants$Hit, init$, void, int32_t)},
+		{"getConstantName", "(Lapple/laf/JRSUIConstants$Hit;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JRSUIConstants$Hit, getConstantName, $String*, JRSUIConstants$Hit*)},
+		{"isHit", "()Z", nullptr, $PUBLIC, $virtualMethod(JRSUIConstants$Hit, isHit, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JRSUIConstants$Hit, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"apple.laf.JRSUIConstants$Hit", "apple.laf.JRSUIConstants", "Hit", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"apple.laf.JRSUIConstants$Hit",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"apple.laf.JRSUIConstants"
+	};
+	$loadClass(JRSUIConstants$Hit, name, initialize, &classInfo$$, JRSUIConstants$Hit::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JRSUIConstants$Hit);
+	});
 	return class$;
 }
 

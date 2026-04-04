@@ -42,6 +42,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool accept(::java::awt::Component* aComponent);
 	void enumerateCycle(::java::awt::Container* container, ::java::util::List* cycle);
@@ -60,7 +61,7 @@ public:
 	static ::sun::util::logging::PlatformLogger* log;
 	static const int32_t FORWARD_TRAVERSAL = 0;
 	static const int32_t BACKWARD_TRAVERSAL = 1;
-	static const int64_t serialVersionUID = (int64_t)0x06C1EFA1FE0F814F;
+	static const int64_t serialVersionUID = (int64_t)0x06c1efa1fe0f814f;
 	bool implicitDownCycleTraversal = false;
 	::java::awt::Container* cachedRoot = nullptr;
 	::java::util::List* cachedCycle = nullptr;

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/TypeEnter$DefaultConstructorHelper.h>
-
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -23,47 +22,42 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _TypeEnter$DefaultConstructorHelper_MethodInfo_[] = {
-	{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, constructorSymbol, $Symbol$MethodSymbol*)},
-	{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, constructorType, $Type*)},
-	{"enclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, enclosingType, $Type*)},
-	{"finalAdjustment", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$DefaultConstructorHelper, finalAdjustment, $JCTree$JCMethodDecl*, $JCTree$JCMethodDecl*)},
-	{"owner", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, owner, $Symbol$TypeSymbol*)},
-	{"superArgs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, superArgs, $List*)},
-	{}
-};
-
-$InnerClassInfo _TypeEnter$DefaultConstructorHelper_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.TypeEnter$DefaultConstructorHelper", "com.sun.tools.javac.comp.TypeEnter", "DefaultConstructorHelper", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TypeEnter$DefaultConstructorHelper_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.TypeEnter$DefaultConstructorHelper",
-	nullptr,
-	nullptr,
-	nullptr,
-	_TypeEnter$DefaultConstructorHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TypeEnter$DefaultConstructorHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.TypeEnter"
-};
-
-$Object* allocate$TypeEnter$DefaultConstructorHelper($Class* clazz) {
-	return $of($alloc(TypeEnter$DefaultConstructorHelper));
-}
-
 $JCTree$JCMethodDecl* TypeEnter$DefaultConstructorHelper::finalAdjustment($JCTree$JCMethodDecl* md) {
 	return md;
 }
 
 $Class* TypeEnter$DefaultConstructorHelper::load$($String* name, bool initialize) {
-	$loadClass(TypeEnter$DefaultConstructorHelper, name, initialize, &_TypeEnter$DefaultConstructorHelper_ClassInfo_, allocate$TypeEnter$DefaultConstructorHelper);
+	$MethodInfo methodInfos$$[] = {
+		{"constructorSymbol", "()Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, constructorSymbol, $Symbol$MethodSymbol*)},
+		{"constructorType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, constructorType, $Type*)},
+		{"enclosingType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, enclosingType, $Type*)},
+		{"finalAdjustment", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;", nullptr, $PUBLIC, $virtualMethod(TypeEnter$DefaultConstructorHelper, finalAdjustment, $JCTree$JCMethodDecl*, $JCTree$JCMethodDecl*)},
+		{"owner", "()Lcom/sun/tools/javac/code/Symbol$TypeSymbol;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, owner, $Symbol$TypeSymbol*)},
+		{"superArgs", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/Name;>;", $PUBLIC | $ABSTRACT, $virtualMethod(TypeEnter$DefaultConstructorHelper, superArgs, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.TypeEnter$DefaultConstructorHelper", "com.sun.tools.javac.comp.TypeEnter", "DefaultConstructorHelper", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.TypeEnter$DefaultConstructorHelper",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.TypeEnter"
+	};
+	$loadClass(TypeEnter$DefaultConstructorHelper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TypeEnter$DefaultConstructorHelper);
+	});
 	return class$;
 }
 

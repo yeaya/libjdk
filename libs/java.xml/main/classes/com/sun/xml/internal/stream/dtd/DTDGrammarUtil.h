@@ -98,6 +98,7 @@ class DTDGrammarUtil : public ::java::lang::Object {
 	$class(DTDGrammarUtil, 0, ::java::lang::Object)
 public:
 	DTDGrammarUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);
 	void init$(::com::sun::xml::internal::stream::dtd::nonvalidating::DTDGrammar* grammar, ::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);
 	void init$(::com::sun::xml::internal::stream::dtd::nonvalidating::DTDGrammar* grammar, ::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable, ::com::sun::org::apache::xerces::internal::xni::NamespaceContext* namespaceContext);

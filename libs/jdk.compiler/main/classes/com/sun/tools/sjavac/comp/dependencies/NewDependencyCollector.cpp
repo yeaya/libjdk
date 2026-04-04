@@ -1,10 +1,8 @@
 #include <com/sun/tools/sjavac/comp/dependencies/NewDependencyCollector.h>
-
 #include <com/sun/source/util/TaskEvent$Kind.h>
 #include <com/sun/source/util/TaskEvent.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
-#include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/util/Context.h>
 #include <com/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode.h>
@@ -48,7 +46,6 @@
 
 using $TaskEvent = ::com::sun::source::util::TaskEvent;
 using $TaskEvent$Kind = ::com::sun::source::util::TaskEvent$Kind;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -58,8 +55,6 @@ using $Dependencies$GraphDependencies$CompletionNode = ::com::sun::tools::javac:
 using $Dependencies$GraphDependencies$Node = ::com::sun::tools::javac::util::Dependencies$GraphDependencies$Node;
 using $GraphUtils$DependencyKind = ::com::sun::tools::javac::util::GraphUtils$DependencyKind;
 using $GraphUtils$Node = ::com::sun::tools::javac::util::GraphUtils$Node;
-using $List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $Util = ::com::sun::tools::sjavac::Util;
 using $JavaFileObjectWithLocation = ::com::sun::tools::sjavac::comp::JavaFileObjectWithLocation;
 using $PubAPIs = ::com::sun::tools::sjavac::comp::PubAPIs;
@@ -79,7 +74,6 @@ using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
-using $Element = ::javax::lang::model::element::Element;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $StandardLocation = ::javax::tools::StandardLocation;
@@ -99,27 +93,24 @@ public:
 	virtual $Object* apply(Object$* n) override {
 		 return $of(NewDependencyCollector::lambda$getDependencyNodes$0($cast($Dependencies$GraphDependencies$Node, n)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0::load$($String* name, bool initialize) {
-	$loadClass(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0);
+	});
 	return class$;
 }
 $Class* NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0::class$ = nullptr;
@@ -132,27 +123,24 @@ public:
 	virtual bool test(Object$* n) override {
 		 return NewDependencyCollector::lambda$getDependencyNodes$1($cast($Dependencies$GraphDependencies$CompletionNode, n));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1::load$($String* name, bool initialize) {
-	$loadClass(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1);
+	});
 	return class$;
 }
 $Class* NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1::class$ = nullptr;
@@ -167,35 +155,31 @@ public:
 	virtual bool test(Object$* n) override {
 		 return NewDependencyCollector::lambda$getDependencyNodes$2(explicits, explicitJFOs, $cast($Dependencies$GraphDependencies$CompletionNode, n));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2>());
-	}
 	bool explicits = false;
 	$Collection* explicitJFOs = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2::fieldInfos[3] = {
-	{"explicits", "Z", nullptr, $PUBLIC, $field(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, explicits)},
-	{"explicitJFOs", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, explicitJFOs)},
-	{}
-};
-$MethodInfo NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2::methodInfos[3] = {
-	{"<init>", "(ZLjava/util/Collection;)V", nullptr, $PUBLIC, $method(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, init$, void, bool, $Collection*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2::load$($String* name, bool initialize) {
-	$loadClass(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"explicits", "Z", nullptr, $PUBLIC, $field(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, explicits)},
+		{"explicitJFOs", "Ljava/util/Collection;", nullptr, $PUBLIC, $field(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, explicitJFOs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLjava/util/Collection;)V", nullptr, $PUBLIC, $method(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, init$, void, bool, $Collection*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2);
+	});
 	return class$;
 }
 $Class* NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2::class$ = nullptr;
@@ -207,77 +191,34 @@ public:
 		$set(this, cnode, cnode);
 	}
 	virtual $Object* apply(Object$* dk) override {
-		 return $of(NewDependencyCollector::lambda$getAllDependencies$3(cnode, $cast($GraphUtils$DependencyKind, dk)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3>());
+		 return NewDependencyCollector::lambda$getAllDependencies$3(cnode, $cast($GraphUtils$DependencyKind, dk));
 	}
 	$Dependencies$GraphDependencies$CompletionNode* cnode = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3::fieldInfos[2] = {
-	{"cnode", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;", nullptr, $PUBLIC, $field(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, cnode)},
-	{}
-};
-$MethodInfo NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)V", nullptr, $PUBLIC, $method(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, init$, void, $Dependencies$GraphDependencies$CompletionNode*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3::load$($String* name, bool initialize) {
-	$loadClass(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"cnode", "Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;", nullptr, $PUBLIC, $field(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, cnode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)V", nullptr, $PUBLIC, $method(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, init$, void, $Dependencies$GraphDependencies$CompletionNode*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3);
+	});
 	return class$;
 }
 $Class* NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3::class$ = nullptr;
-
-$FieldInfo _NewDependencyCollector_FieldInfo_[] = {
-	{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, $PRIVATE | $FINAL, $field(NewDependencyCollector, context)},
-	{"explicitJFOs", "Ljava/util/Collection;", "Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $FINAL, $field(NewDependencyCollector, explicitJFOs)},
-	{"deps", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;", $PRIVATE, $field(NewDependencyCollector, deps)},
-	{"cpDeps", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;", $PRIVATE, $field(NewDependencyCollector, cpDeps)},
-	{}
-};
-
-$MethodInfo _NewDependencyCollector_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $method(NewDependencyCollector, init$, void, $Context*, $Collection*)},
-	{"allSupertypes", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/util/Set;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $method(NewDependencyCollector, allSupertypes, $Set*, $Symbol$TypeSymbol*)},
-	{"collectPubApisOfDependencies", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;)V", $PRIVATE, $method(NewDependencyCollector, collectPubApisOfDependencies, void, $Context*, $Collection*)},
-	{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector, finished, void, $TaskEvent*)},
-	{"getAllDependencies", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)Ljava/util/Collection<+Lcom/sun/tools/javac/util/GraphUtils$Node<**>;>;", $PRIVATE, $method(NewDependencyCollector, getAllDependencies, $Collection*, $Dependencies$GraphDependencies$CompletionNode*)},
-	{"getDependencies", "(Z)Ljava/util/Map;", "(Z)Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;", $PUBLIC, $virtualMethod(NewDependencyCollector, getDependencies, $Map*, bool)},
-	{"getDependencies", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;Z)Ljava/util/Map;", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Z)Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;", $PRIVATE, $method(NewDependencyCollector, getDependencies, $Map*, $Context*, $Collection*, bool)},
-	{"getDependencyNodes", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;Z)Ljava/util/Set;", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Z)Ljava/util/Set<Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;>;", $PRIVATE, $method(NewDependencyCollector, getDependencyNodes, $Set*, $Context*, $Collection*, bool)},
-	{"getLocationOf", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PRIVATE, $method(NewDependencyCollector, getLocationOf, $JavaFileManager$Location*, $Symbol$ClassSymbol*)},
-	{"isSymbolRelevant", "(ZLcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector, isSymbolRelevant, bool, bool, $Symbol$ClassSymbol*)},
-	{"lambda$getAllDependencies$3", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NewDependencyCollector, lambda$getAllDependencies$3, $Stream*, $Dependencies$GraphDependencies$CompletionNode*, $GraphUtils$DependencyKind*)},
-	{"lambda$getDependencyNodes$0", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NewDependencyCollector, lambda$getDependencyNodes$0, $Dependencies$GraphDependencies$CompletionNode*, $Dependencies$GraphDependencies$Node*)},
-	{"lambda$getDependencyNodes$1", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NewDependencyCollector, lambda$getDependencyNodes$1, bool, $Dependencies$GraphDependencies$CompletionNode*)},
-	{"lambda$getDependencyNodes$2", "(ZLjava/util/Collection;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NewDependencyCollector, lambda$getDependencyNodes$2, bool, bool, $Collection*, $Dependencies$GraphDependencies$CompletionNode*)},
-	{}
-};
-
-$ClassInfo _NewDependencyCollector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector",
-	"java.lang.Object",
-	"com.sun.source.util.TaskListener",
-	_NewDependencyCollector_FieldInfo_,
-	_NewDependencyCollector_MethodInfo_
-};
-
-$Object* allocate$NewDependencyCollector($Class* clazz) {
-	return $of($alloc(NewDependencyCollector));
-}
 
 void NewDependencyCollector::init$($Context* context, $Collection* explicitJFOs) {
 	$set(this, context, context);
@@ -298,24 +239,24 @@ $Map* NewDependencyCollector::getDependencies(bool cp) {
 }
 
 $Set* NewDependencyCollector::getDependencyNodes($Context* context, $Collection* explicitJFOs, bool explicits) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dependencies$GraphDependencies, deps, $cast($Dependencies$GraphDependencies, $Dependencies$GraphDependencies::instance(context)));
-	return $cast($Set, $nc($($nc($($nc($($nc($($nc($($nc(deps)->getNodes()))->stream()))->map(static_cast<$Function*>($$new(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0)))))->filter(static_cast<$Predicate*>($$new(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1)))))->filter(static_cast<$Predicate*>($$new(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, explicits, explicitJFOs)))))->collect($($Collectors::toSet())));
+	return $cast($Set, $$nc($$nc($$nc($$nc($$nc($nc(deps)->getNodes())->stream())->map($$new(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0)))->filter($$new(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1)))->filter($$new(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2, explicits, explicitJFOs)))->collect($($Collectors::toSet())));
 }
 
 void NewDependencyCollector::collectPubApisOfDependencies($Context* context, $Collection* explicitJFOs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PubAPIs, pubApis, $PubAPIs::instance(context));
 	{
-		$var($Iterator, i$, $nc($(getDependencyNodes(context, explicitJFOs, false)))->iterator());
+		$var($Iterator, i$, $$nc(getDependencyNodes(context, explicitJFOs, false))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Dependencies$GraphDependencies$CompletionNode, cDepNode, $cast($Dependencies$GraphDependencies$CompletionNode, i$->next()));
 			{
-				$var($Symbol$ClassSymbol, cs, $nc($($nc(cDepNode)->getClassSymbol()))->outermostClass());
+				$var($Symbol$ClassSymbol, cs, $$nc($nc(cDepNode)->getClassSymbol())->outermostClass());
 				$var($JavaFileManager$Location, loc, getLocationOf(cs));
 				$init($StandardLocation);
 				if ($equals(loc, $StandardLocation::CLASS_PATH) || $equals(loc, $StandardLocation::SOURCE_PATH)) {
-					$nc(pubApis)->visitPubapi(static_cast<$Element*>(static_cast<$Symbol*>(static_cast<$Symbol$TypeSymbol*>(cs))));
+					$nc(pubApis)->visitPubapi($cast($Symbol$TypeSymbol, cs));
 				}
 			}
 		}
@@ -323,7 +264,7 @@ void NewDependencyCollector::collectPubApisOfDependencies($Context* context, $Co
 }
 
 $JavaFileManager$Location* NewDependencyCollector::getLocationOf($Symbol$ClassSymbol* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileObject, jfo, $nc($($nc(cs)->outermostClass()))->classfile);
 	{
 		$var($JavaFileObjectWithLocation, javaFileObjectWithLocation, nullptr);
@@ -340,14 +281,14 @@ $JavaFileManager$Location* NewDependencyCollector::getLocationOf($Symbol$ClassSy
 }
 
 $Map* NewDependencyCollector::getDependencies($Context* context, $Collection* explicitJFOs, bool cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, result, $new($HashMap));
 	{
-		$var($Iterator, i$, $nc($(getDependencyNodes(context, explicitJFOs, true)))->iterator());
+		$var($Iterator, i$, $$nc(getDependencyNodes(context, explicitJFOs, true))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Dependencies$GraphDependencies$CompletionNode, cnode, $cast($Dependencies$GraphDependencies$CompletionNode, i$->next()));
 			{
-				$var($String, fqDep, $nc($nc($($nc($($nc(cnode)->getClassSymbol()))->outermostClass()))->flatname)->toString());
+				$var($String, fqDep, $nc($nc($($$nc($nc(cnode)->getClassSymbol())->outermostClass()))->flatname)->toString());
 				$var($String, depPkg, $Util::pkgNameOfClassName(fqDep));
 				$var($Map, depsForThisClass, $cast($Map, result->get(depPkg)));
 				if (depsForThisClass == nullptr) {
@@ -358,7 +299,7 @@ $Map* NewDependencyCollector::getDependencies($Context* context, $Collection* ex
 					depsForThisClass->put(fqDep, $assign(fqDeps, $new($HashSet)));
 				}
 				{
-					$var($Iterator, i$, $nc($(getAllDependencies(cnode)))->iterator());
+					$var($Iterator, i$, $$nc(getAllDependencies(cnode))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($GraphUtils$Node, depNode, $cast($GraphUtils$Node, i$->next()));
 						{
@@ -369,20 +310,18 @@ $Map* NewDependencyCollector::getDependencies($Context* context, $Collection* ex
 							if ($nc($($nc(cDepNode)->getClassSymbol()))->fullname == nullptr) {
 								continue;
 							}
-							if (isSymbolRelevant(cp, $($nc(cDepNode)->getClassSymbol()))) {
-								$nc(fqDeps)->add($($nc($nc($($nc($($nc(cDepNode)->getClassSymbol()))->outermostClass()))->flatname)->toString()));
+							if (isSymbolRelevant(cp, $(cDepNode->getClassSymbol()))) {
+								$nc(fqDeps)->add($($nc($nc($($$nc(cDepNode->getClassSymbol())->outermostClass()))->flatname)->toString()));
 							}
 						}
 					}
 				}
 				{
-					$var($Iterator, i$, $nc($(allSupertypes($(cnode->getClassSymbol()))))->iterator());
+					$var($Iterator, i$, $$nc(allSupertypes($(cnode->getClassSymbol())))->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($Symbol$ClassSymbol, cs, $cast($Symbol$ClassSymbol, i$->next()));
-						{
-							if (isSymbolRelevant(cp, cs)) {
-								$nc(fqDeps)->add($($nc($nc($($nc(cs)->outermostClass()))->flatname)->toString()));
-							}
+						if (isSymbolRelevant(cp, cs)) {
+							$nc(fqDeps)->add($($nc($nc($($nc(cs)->outermostClass()))->flatname)->toString()));
 						}
 					}
 				}
@@ -393,15 +332,15 @@ $Map* NewDependencyCollector::getDependencies($Context* context, $Collection* ex
 }
 
 bool NewDependencyCollector::isSymbolRelevant(bool cp, $Symbol$ClassSymbol* cs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JavaFileManager$Location, csLoc, getLocationOf(cs));
 	$init($StandardLocation);
-	$var($JavaFileManager$Location, relevantLocation, cp ? static_cast<$JavaFileManager$Location*>($StandardLocation::CLASS_PATH) : static_cast<$JavaFileManager$Location*>($StandardLocation::SOURCE_PATH));
+	$var($JavaFileManager$Location, relevantLocation, cp ? $StandardLocation::CLASS_PATH : $StandardLocation::SOURCE_PATH);
 	return csLoc == relevantLocation;
 }
 
 $Set* NewDependencyCollector::allSupertypes($Symbol$TypeSymbol* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Symbol$ClassSymbol, classSymbol, nullptr);
 	bool var$0 = t == nullptr;
 	if (!var$0) {
@@ -419,7 +358,7 @@ $Set* NewDependencyCollector::allSupertypes($Symbol$TypeSymbol* t) {
 	result->add(classSymbol);
 	result->addAll($(allSupertypes($nc($($nc(classSymbol)->getSuperclass()))->tsym)));
 	{
-		$var($Iterator, i$, $nc($($nc(classSymbol)->getInterfaces()))->iterator());
+		$var($Iterator, i$, $$nc(classSymbol->getInterfaces())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, it, $cast($Type, i$->next()));
 			{
@@ -431,13 +370,13 @@ $Set* NewDependencyCollector::allSupertypes($Symbol$TypeSymbol* t) {
 }
 
 $Collection* NewDependencyCollector::getAllDependencies($Dependencies$GraphDependencies$CompletionNode* cnode) {
-	$useLocalCurrentObjectStackCache();
-	return $cast($Collection, $nc($($nc($($Stream::of($($nc(cnode)->getSupportedDependencyKinds()))))->flatMap(static_cast<$Function*>($$new(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, cnode)))))->collect($($Collectors::toSet())));
+	$useLocalObjectStack();
+	return $cast($Collection, $$nc($$nc($Stream::of($($nc(cnode)->getSupportedDependencyKinds())))->flatMap($$new(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3, cnode)))->collect($($Collectors::toSet())));
 }
 
 $Stream* NewDependencyCollector::lambda$getAllDependencies$3($Dependencies$GraphDependencies$CompletionNode* cnode, $GraphUtils$DependencyKind* dk) {
 	$init(NewDependencyCollector);
-	return $nc($($nc(cnode)->getDependenciesByKind(dk)))->stream();
+	return $$nc($nc(cnode)->getDependenciesByKind(dk))->stream();
 }
 
 bool NewDependencyCollector::lambda$getDependencyNodes$2(bool explicits, $Collection* explicitJFOs, $Dependencies$GraphDependencies$CompletionNode* n) {
@@ -460,20 +399,54 @@ NewDependencyCollector::NewDependencyCollector() {
 
 $Class* NewDependencyCollector::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0")) {
 			return NewDependencyCollector$$Lambda$lambda$getDependencyNodes$0::load$(name, initialize);
 		}
-		if (name->equals(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1")) {
 			return NewDependencyCollector$$Lambda$lambda$getDependencyNodes$1$1::load$(name, initialize);
 		}
-		if (name->equals(NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2")) {
 			return NewDependencyCollector$$Lambda$lambda$getDependencyNodes$2$2::load$(name, initialize);
 		}
-		if (name->equals(NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3")) {
 			return NewDependencyCollector$$Lambda$lambda$getAllDependencies$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(NewDependencyCollector, name, initialize, &_NewDependencyCollector_ClassInfo_, allocate$NewDependencyCollector);
+	$FieldInfo fieldInfos$$[] = {
+		{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, $PRIVATE | $FINAL, $field(NewDependencyCollector, context)},
+		{"explicitJFOs", "Ljava/util/Collection;", "Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;", $PRIVATE | $FINAL, $field(NewDependencyCollector, explicitJFOs)},
+		{"deps", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;", $PRIVATE, $field(NewDependencyCollector, deps)},
+		{"cpDeps", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;", $PRIVATE, $field(NewDependencyCollector, cpDeps)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;)V", $PUBLIC, $method(NewDependencyCollector, init$, void, $Context*, $Collection*)},
+		{"allSupertypes", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/util/Set;", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;)Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol$ClassSymbol;>;", $PRIVATE, $method(NewDependencyCollector, allSupertypes, $Set*, $Symbol$TypeSymbol*)},
+		{"collectPubApisOfDependencies", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;)V", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;)V", $PRIVATE, $method(NewDependencyCollector, collectPubApisOfDependencies, void, $Context*, $Collection*)},
+		{"finished", "(Lcom/sun/source/util/TaskEvent;)V", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector, finished, void, $TaskEvent*)},
+		{"getAllDependencies", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)Ljava/util/Collection;", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)Ljava/util/Collection<+Lcom/sun/tools/javac/util/GraphUtils$Node<**>;>;", $PRIVATE, $method(NewDependencyCollector, getAllDependencies, $Collection*, $Dependencies$GraphDependencies$CompletionNode*)},
+		{"getDependencies", "(Z)Ljava/util/Map;", "(Z)Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;", $PUBLIC, $virtualMethod(NewDependencyCollector, getDependencies, $Map*, bool)},
+		{"getDependencies", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;Z)Ljava/util/Map;", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Z)Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/util/Set<Ljava/lang/String;>;>;>;", $PRIVATE, $method(NewDependencyCollector, getDependencies, $Map*, $Context*, $Collection*, bool)},
+		{"getDependencyNodes", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection;Z)Ljava/util/Set;", "(Lcom/sun/tools/javac/util/Context;Ljava/util/Collection<Ljavax/tools/JavaFileObject;>;Z)Ljava/util/Set<Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;>;", $PRIVATE, $method(NewDependencyCollector, getDependencyNodes, $Set*, $Context*, $Collection*, bool)},
+		{"getLocationOf", "(Lcom/sun/tools/javac/code/Symbol$ClassSymbol;)Ljavax/tools/JavaFileManager$Location;", nullptr, $PRIVATE, $method(NewDependencyCollector, getLocationOf, $JavaFileManager$Location*, $Symbol$ClassSymbol*)},
+		{"isSymbolRelevant", "(ZLcom/sun/tools/javac/code/Symbol$ClassSymbol;)Z", nullptr, $PUBLIC, $virtualMethod(NewDependencyCollector, isSymbolRelevant, bool, bool, $Symbol$ClassSymbol*)},
+		{"lambda$getAllDependencies$3", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NewDependencyCollector, lambda$getAllDependencies$3, $Stream*, $Dependencies$GraphDependencies$CompletionNode*, $GraphUtils$DependencyKind*)},
+		{"lambda$getDependencyNodes$0", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$Node;)Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NewDependencyCollector, lambda$getDependencyNodes$0, $Dependencies$GraphDependencies$CompletionNode*, $Dependencies$GraphDependencies$Node*)},
+		{"lambda$getDependencyNodes$1", "(Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NewDependencyCollector, lambda$getDependencyNodes$1, bool, $Dependencies$GraphDependencies$CompletionNode*)},
+		{"lambda$getDependencyNodes$2", "(ZLjava/util/Collection;Lcom/sun/tools/javac/util/Dependencies$GraphDependencies$CompletionNode;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(NewDependencyCollector, lambda$getDependencyNodes$2, bool, bool, $Collection*, $Dependencies$GraphDependencies$CompletionNode*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.comp.dependencies.NewDependencyCollector",
+		"java.lang.Object",
+		"com.sun.source.util.TaskListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NewDependencyCollector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NewDependencyCollector);
+	});
 	return class$;
 }
 

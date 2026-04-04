@@ -1,7 +1,5 @@
 #include <com/sun/tools/javac/tree/JCTree$JCGuardPattern.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
-#include <com/sun/source/tree/GuardedPatternTree.h>
 #include <com/sun/source/tree/PatternTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
@@ -16,7 +14,6 @@
 #undef GUARDPATTERN
 
 using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
-using $GuardedPatternTree = ::com::sun::source::tree::GuardedPatternTree;
 using $PatternTree = ::com::sun::source::tree::PatternTree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
@@ -34,54 +31,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _JCTree$JCGuardPattern_FieldInfo_[] = {
-	{"patt", "Lcom/sun/tools/javac/tree/JCTree$JCPattern;", nullptr, $PUBLIC, $field(JCTree$JCGuardPattern, patt)},
-	{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCGuardPattern, expr)},
-	{}
-};
-
-$MethodInfo _JCTree$JCGuardPattern_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PUBLIC, $method(JCTree$JCGuardPattern, init$, void, $JCTree$JCPattern*, $JCTree$JCExpression*)},
-	{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, accept, void, $JCTree$Visitor*)},
-	{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, accept, $Object*, $TreeVisitor*, Object$*)},
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, getExpression, $ExpressionTree*)},
-	{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, getKind, $Tree$Kind*)},
-	{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, getPattern, $PatternTree*)},
-	{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, getTag, $JCTree$Tag*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JCTree$JCGuardPattern_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.JCTree$JCGuardPattern", "com.sun.tools.javac.tree.JCTree", "JCGuardPattern", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.JCTree$JCPattern", "com.sun.tools.javac.tree.JCTree", "JCPattern", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JCTree$JCGuardPattern_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.JCTree$JCGuardPattern",
-	"com.sun.tools.javac.tree.JCTree$JCPattern",
-	"com.sun.source.tree.GuardedPatternTree",
-	_JCTree$JCGuardPattern_FieldInfo_,
-	_JCTree$JCGuardPattern_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCTree$JCGuardPattern_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.JCTree"
-};
-
-$Object* allocate$JCTree$JCGuardPattern($Class* clazz) {
-	return $of($alloc(JCTree$JCGuardPattern));
-}
 
 $String* JCTree$JCGuardPattern::toString() {
 	 return this->$JCTree$JCPattern::toString();
@@ -127,7 +76,7 @@ $Tree$Kind* JCTree$JCGuardPattern::getKind() {
 }
 
 $Object* JCTree$JCGuardPattern::accept($TreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitGuardedPattern(this, d));
+	return $nc(v)->visitGuardedPattern(this, d);
 }
 
 $JCTree$Tag* JCTree$JCGuardPattern::getTag() {
@@ -139,7 +88,49 @@ JCTree$JCGuardPattern::JCTree$JCGuardPattern() {
 }
 
 $Class* JCTree$JCGuardPattern::load$($String* name, bool initialize) {
-	$loadClass(JCTree$JCGuardPattern, name, initialize, &_JCTree$JCGuardPattern_ClassInfo_, allocate$JCTree$JCGuardPattern);
+	$FieldInfo fieldInfos$$[] = {
+		{"patt", "Lcom/sun/tools/javac/tree/JCTree$JCPattern;", nullptr, $PUBLIC, $field(JCTree$JCGuardPattern, patt)},
+		{"expr", "Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC, $field(JCTree$JCGuardPattern, expr)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree$JCPattern;Lcom/sun/tools/javac/tree/JCTree$JCExpression;)V", nullptr, $PUBLIC, $method(JCTree$JCGuardPattern, init$, void, $JCTree$JCPattern*, $JCTree$JCExpression*)},
+		{"accept", "(Lcom/sun/tools/javac/tree/JCTree$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, accept, void, $JCTree$Visitor*)},
+		{"accept", "(Lcom/sun/source/tree/TreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/tree/TreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, accept, $Object*, $TreeVisitor*, Object$*)},
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, getExpression, $ExpressionTree*)},
+		{"getKind", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, getKind, $Tree$Kind*)},
+		{"getPattern", "()Lcom/sun/source/tree/PatternTree;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, getPattern, $PatternTree*)},
+		{"getTag", "()Lcom/sun/tools/javac/tree/JCTree$Tag;", nullptr, $PUBLIC, $virtualMethod(JCTree$JCGuardPattern, getTag, $JCTree$Tag*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.JCTree$JCGuardPattern", "com.sun.tools.javac.tree.JCTree", "JCGuardPattern", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.JCTree$JCPattern", "com.sun.tools.javac.tree.JCTree", "JCPattern", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.JCTree$JCGuardPattern",
+		"com.sun.tools.javac.tree.JCTree$JCPattern",
+		"com.sun.source.tree.GuardedPatternTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.JCTree"
+	};
+	$loadClass(JCTree$JCGuardPattern, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JCTree$JCGuardPattern));
+	});
 	return class$;
 }
 

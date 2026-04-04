@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultNode.h>
-
 #include <org/w3c/dom/DOMException.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/NamedNodeMap.h>
@@ -29,61 +28,6 @@ namespace com {
 							namespace xs {
 								namespace opti {
 
-$MethodInfo _DefaultNode_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultNode, init$, void)},
-	{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, appendChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, cloneNode, $Node*, bool)},
-	{"compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC, $virtualMethod(DefaultNode, compareDocumentPosition, int16_t, $Node*)},
-	{"getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getAttributes, $NamedNodeMap*)},
-	{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getBaseURI, $String*)},
-	{"getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getChildNodes, $NodeList*)},
-	{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getFeature, $Object*, $String*, $String*)},
-	{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getFirstChild, $Node*)},
-	{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getLastChild, $Node*)},
-	{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getLocalName, $String*)},
-	{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNamespaceURI, $String*)},
-	{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNextSibling, $Node*)},
-	{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNodeName, $String*)},
-	{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNodeType, int16_t)},
-	{"getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNodeValue, $String*), "org.w3c.dom.DOMException"},
-	{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getOwnerDocument, $Document*)},
-	{"getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getParentNode, $Node*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getPrefix, $String*)},
-	{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getPreviousSibling, $Node*)},
-	{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getTextContent, $String*), "org.w3c.dom.DOMException"},
-	{"getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getUserData, $Object*, $String*)},
-	{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, hasAttributes, bool)},
-	{"hasChildNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, hasChildNodes, bool)},
-	{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, insertBefore, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, isDefaultNamespace, bool, $String*)},
-	{"isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, isEqualNode, bool, $Node*)},
-	{"isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, isSameNode, bool, $Node*)},
-	{"isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, isSupported, bool, $String*, $String*)},
-	{"lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, lookupNamespaceURI, $String*, $String*)},
-	{"lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, lookupPrefix, $String*, $String*)},
-	{"normalize", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultNode, normalize, void)},
-	{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, removeChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, replaceChild, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
-	{"setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultNode, setNodeValue, void, $String*), "org.w3c.dom.DOMException"},
-	{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultNode, setPrefix, void, $String*), "org.w3c.dom.DOMException"},
-	{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultNode, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
-	{"setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, setUserData, $Object*, $String*, Object$*, $UserDataHandler*)},
-	{}
-};
-
-$ClassInfo _DefaultNode_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultNode",
-	"java.lang.Object",
-	"org.w3c.dom.Node",
-	nullptr,
-	_DefaultNode_MethodInfo_
-};
-
-$Object* allocate$DefaultNode($Class* clazz) {
-	return $of($alloc(DefaultNode));
-}
-
 void DefaultNode::init$() {
 }
 
@@ -96,7 +40,7 @@ $String* DefaultNode::getNodeValue() {
 }
 
 int16_t DefaultNode::getNodeType() {
-	return (int16_t)-1;
+	return -1;
 }
 
 $Node* DefaultNode::getParentNode() {
@@ -234,7 +178,7 @@ bool DefaultNode::isEqualNode($Node* arg) {
 }
 
 $Object* DefaultNode::getFeature($String* feature, $String* version) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* DefaultNode::setUserData($String* key, Object$* data, $UserDataHandler* handler) {
@@ -243,14 +187,65 @@ $Object* DefaultNode::setUserData($String* key, Object$* data, $UserDataHandler*
 }
 
 $Object* DefaultNode::getUserData($String* key) {
-	return $of(nullptr);
+	return nullptr;
 }
 
 DefaultNode::DefaultNode() {
 }
 
 $Class* DefaultNode::load$($String* name, bool initialize) {
-	$loadClass(DefaultNode, name, initialize, &_DefaultNode_ClassInfo_, allocate$DefaultNode);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultNode, init$, void)},
+		{"appendChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, appendChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"cloneNode", "(Z)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, cloneNode, $Node*, bool)},
+		{"compareDocumentPosition", "(Lorg/w3c/dom/Node;)S", nullptr, $PUBLIC, $virtualMethod(DefaultNode, compareDocumentPosition, int16_t, $Node*)},
+		{"getAttributes", "()Lorg/w3c/dom/NamedNodeMap;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getAttributes, $NamedNodeMap*)},
+		{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getBaseURI, $String*)},
+		{"getChildNodes", "()Lorg/w3c/dom/NodeList;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getChildNodes, $NodeList*)},
+		{"getFeature", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getFeature, $Object*, $String*, $String*)},
+		{"getFirstChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getFirstChild, $Node*)},
+		{"getLastChild", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getLastChild, $Node*)},
+		{"getLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getLocalName, $String*)},
+		{"getNamespaceURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNamespaceURI, $String*)},
+		{"getNextSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNextSibling, $Node*)},
+		{"getNodeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNodeName, $String*)},
+		{"getNodeType", "()S", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNodeType, int16_t)},
+		{"getNodeValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getNodeValue, $String*), "org.w3c.dom.DOMException"},
+		{"getOwnerDocument", "()Lorg/w3c/dom/Document;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getOwnerDocument, $Document*)},
+		{"getParentNode", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getParentNode, $Node*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getPrefix, $String*)},
+		{"getPreviousSibling", "()Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getPreviousSibling, $Node*)},
+		{"getTextContent", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getTextContent, $String*), "org.w3c.dom.DOMException"},
+		{"getUserData", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, getUserData, $Object*, $String*)},
+		{"hasAttributes", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, hasAttributes, bool)},
+		{"hasChildNodes", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, hasChildNodes, bool)},
+		{"insertBefore", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, insertBefore, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"isDefaultNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, isDefaultNamespace, bool, $String*)},
+		{"isEqualNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, isEqualNode, bool, $Node*)},
+		{"isSameNode", "(Lorg/w3c/dom/Node;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, isSameNode, bool, $Node*)},
+		{"isSupported", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultNode, isSupported, bool, $String*, $String*)},
+		{"lookupNamespaceURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, lookupNamespaceURI, $String*, $String*)},
+		{"lookupPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, lookupPrefix, $String*, $String*)},
+		{"normalize", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultNode, normalize, void)},
+		{"removeChild", "(Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, removeChild, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"replaceChild", "(Lorg/w3c/dom/Node;Lorg/w3c/dom/Node;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, replaceChild, $Node*, $Node*, $Node*), "org.w3c.dom.DOMException"},
+		{"setNodeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultNode, setNodeValue, void, $String*), "org.w3c.dom.DOMException"},
+		{"setPrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultNode, setPrefix, void, $String*), "org.w3c.dom.DOMException"},
+		{"setTextContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DefaultNode, setTextContent, void, $String*), "org.w3c.dom.DOMException"},
+		{"setUserData", "(Ljava/lang/String;Ljava/lang/Object;Lorg/w3c/dom/UserDataHandler;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultNode, setUserData, $Object*, $String*, Object$*, $UserDataHandler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.opti.DefaultNode",
+		"java.lang.Object",
+		"org.w3c.dom.Node",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DefaultNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultNode);
+	});
 	return class$;
 }
 

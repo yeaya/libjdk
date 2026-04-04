@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/bmp/BMPImageWriteParam.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPCompressionTypes.h>
 #include <com/sun/imageio/plugins/bmp/BMPConstants.h>
 #include <java/util/Locale.h>
@@ -21,32 +20,6 @@ namespace javax {
 	namespace imageio {
 		namespace plugins {
 			namespace bmp {
-
-$FieldInfo _BMPImageWriteParam_FieldInfo_[] = {
-	{"topDown", "Z", nullptr, $PRIVATE, $field(BMPImageWriteParam, topDown)},
-	{}
-};
-
-$MethodInfo _BMPImageWriteParam_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BMPImageWriteParam, init$, void, $Locale*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BMPImageWriteParam, init$, void)},
-	{"isTopDown", "()Z", nullptr, $PUBLIC, $virtualMethod(BMPImageWriteParam, isTopDown, bool)},
-	{"setTopDown", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriteParam, setTopDown, void, bool)},
-	{}
-};
-
-$ClassInfo _BMPImageWriteParam_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.plugins.bmp.BMPImageWriteParam",
-	"javax.imageio.ImageWriteParam",
-	nullptr,
-	_BMPImageWriteParam_FieldInfo_,
-	_BMPImageWriteParam_MethodInfo_
-};
-
-$Object* allocate$BMPImageWriteParam($Class* clazz) {
-	return $of($alloc(BMPImageWriteParam));
-}
 
 void BMPImageWriteParam::init$($Locale* locale) {
 	$ImageWriteParam::init$(locale);
@@ -73,7 +46,28 @@ BMPImageWriteParam::BMPImageWriteParam() {
 }
 
 $Class* BMPImageWriteParam::load$($String* name, bool initialize) {
-	$loadClass(BMPImageWriteParam, name, initialize, &_BMPImageWriteParam_ClassInfo_, allocate$BMPImageWriteParam);
+	$FieldInfo fieldInfos$$[] = {
+		{"topDown", "Z", nullptr, $PRIVATE, $field(BMPImageWriteParam, topDown)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Locale;)V", nullptr, $PUBLIC, $method(BMPImageWriteParam, init$, void, $Locale*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BMPImageWriteParam, init$, void)},
+		{"isTopDown", "()Z", nullptr, $PUBLIC, $virtualMethod(BMPImageWriteParam, isTopDown, bool)},
+		{"setTopDown", "(Z)V", nullptr, $PUBLIC, $virtualMethod(BMPImageWriteParam, setTopDown, void, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.plugins.bmp.BMPImageWriteParam",
+		"javax.imageio.ImageWriteParam",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BMPImageWriteParam, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPImageWriteParam);
+	});
 	return class$;
 }
 

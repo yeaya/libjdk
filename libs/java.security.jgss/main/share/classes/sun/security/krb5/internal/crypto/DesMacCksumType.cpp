@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/DesMacCksumType.h>
-
 #include <java/security/InvalidKeyException.h>
 #include <javax/crypto/spec/DESKeySpec.h>
 #include <sun/security/krb5/Checksum.h>
@@ -27,33 +26,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace crypto {
-
-$MethodInfo _DesMacCksumType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DesMacCksumType, init$, void)},
-	{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, cksumSize, int32_t)},
-	{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, cksumType, int32_t)},
-	{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, confounderSize, int32_t)},
-	{"decryptKeyedChecksum", "([B[B)[B", nullptr, $PRIVATE, $method(DesMacCksumType, decryptKeyedChecksum, $bytes*, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
-	{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, isKeyed, bool)},
-	{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, keySize, int32_t)},
-	{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, keyType, int32_t)},
-	{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
-	{}
-};
-
-$ClassInfo _DesMacCksumType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.DesMacCksumType",
-	"sun.security.krb5.internal.crypto.CksumType",
-	nullptr,
-	nullptr,
-	_DesMacCksumType_MethodInfo_
-};
-
-$Object* allocate$DesMacCksumType($Class* clazz) {
-	return $of($alloc(DesMacCksumType));
-}
 
 void DesMacCksumType::init$() {
 	$CksumType::init$();
@@ -84,14 +56,14 @@ int32_t DesMacCksumType::keySize() {
 }
 
 $bytes* DesMacCksumType::calculateChecksum($bytes* data, int32_t size, $bytes* key, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, new_data, $new($bytes, size + confounderSize()));
 	$var($bytes, conf, $Confounder::bytes(confounderSize()));
 	$System::arraycopy(conf, 0, new_data, 0, confounderSize());
 	$System::arraycopy(data, 0, new_data, confounderSize(), size);
 	try {
 		if ($DESKeySpec::isWeak(key, 0)) {
-			$nc(key)->set(7, (int8_t)(key->get(7) ^ 240));
+			$nc(key)->set(7, (int8_t)($nc(key)->get(7) ^ 0xf0));
 		}
 	} catch ($InvalidKeyException& ex) {
 	}
@@ -99,19 +71,17 @@ $bytes* DesMacCksumType::calculateChecksum($bytes* data, int32_t size, $bytes* k
 	$var($bytes, residue, $Des::des_cksum(residue_ivec, new_data, key));
 	$var($bytes, cksum, $new($bytes, cksumSize()));
 	$System::arraycopy(conf, 0, cksum, 0, confounderSize());
-	$var($Object, var$0, $of(residue));
-	$var($Object, var$1, $of(cksum));
-	int32_t var$2 = confounderSize();
-	int32_t var$3 = cksumSize();
-	$System::arraycopy(var$0, 0, var$1, var$2, var$3 - confounderSize());
+	int32_t var$0 = confounderSize();
+	int32_t var$1 = cksumSize();
+	$System::arraycopy(residue, 0, cksum, var$0, var$1 - confounderSize());
 	$var($bytes, new_key, $new($bytes, keySize()));
 	$System::arraycopy(key, 0, new_key, 0, key->length);
 	for (int32_t i = 0; i < new_key->length; ++i) {
-		new_key->set(i, (int8_t)(new_key->get(i) ^ 240));
+		new_key->set(i, (int8_t)(new_key->get(i) ^ 0xf0));
 	}
 	try {
 		if ($DESKeySpec::isWeak(new_key, 0)) {
-			new_key->set(7, (int8_t)(new_key->get(7) ^ 240));
+			new_key->set(7, (int8_t)(new_key->get(7) ^ 0xf0));
 		}
 	} catch ($InvalidKeyException& ex) {
 	}
@@ -122,14 +92,14 @@ $bytes* DesMacCksumType::calculateChecksum($bytes* data, int32_t size, $bytes* k
 }
 
 bool DesMacCksumType::verifyChecksum($bytes* data, int32_t size, $bytes* key, $bytes* checksum, int32_t usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, cksum, decryptKeyedChecksum(checksum, key));
 	$var($bytes, new_data, $new($bytes, size + confounderSize()));
 	$System::arraycopy(cksum, 0, new_data, 0, confounderSize());
 	$System::arraycopy(data, 0, new_data, confounderSize(), size);
 	try {
 		if ($DESKeySpec::isWeak(key, 0)) {
-			$nc(key)->set(7, (int8_t)(key->get(7) ^ 240));
+			$nc(key)->set(7, (int8_t)($nc(key)->get(7) ^ 0xf0));
 		}
 	} catch ($InvalidKeyException& ex) {
 	}
@@ -137,24 +107,22 @@ bool DesMacCksumType::verifyChecksum($bytes* data, int32_t size, $bytes* key, $b
 	$var($bytes, new_cksum, $Des::des_cksum(ivec, new_data, key));
 	int32_t var$0 = cksumSize();
 	$var($bytes, orig_cksum, $new($bytes, var$0 - confounderSize()));
-	$var($Object, var$1, $of(cksum));
-	int32_t var$2 = confounderSize();
-	$var($Object, var$3, $of(orig_cksum));
-	int32_t var$4 = cksumSize();
-	$System::arraycopy(var$1, var$2, var$3, 0, var$4 - confounderSize());
+	int32_t var$1 = confounderSize();
+	int32_t var$2 = cksumSize();
+	$System::arraycopy(cksum, var$1, orig_cksum, 0, var$2 - confounderSize());
 	return isChecksumEqual(orig_cksum, new_cksum);
 }
 
 $bytes* DesMacCksumType::decryptKeyedChecksum($bytes* enc_cksum, $bytes* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, new_key, $new($bytes, keySize()));
 	$System::arraycopy(key, 0, new_key, 0, $nc(key)->length);
 	for (int32_t i = 0; i < new_key->length; ++i) {
-		new_key->set(i, (int8_t)(new_key->get(i) ^ 240));
+		new_key->set(i, (int8_t)(new_key->get(i) ^ 0xf0));
 	}
 	try {
 		if ($DESKeySpec::isWeak(new_key, 0)) {
-			new_key->set(7, (int8_t)(new_key->get(7) ^ 240));
+			new_key->set(7, (int8_t)(new_key->get(7) ^ 0xf0));
 		}
 	} catch ($InvalidKeyException& ex) {
 	}
@@ -168,7 +136,30 @@ DesMacCksumType::DesMacCksumType() {
 }
 
 $Class* DesMacCksumType::load$($String* name, bool initialize) {
-	$loadClass(DesMacCksumType, name, initialize, &_DesMacCksumType_ClassInfo_, allocate$DesMacCksumType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DesMacCksumType, init$, void)},
+		{"calculateChecksum", "([BI[BI)[B", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{"cksumSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, cksumSize, int32_t)},
+		{"cksumType", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, cksumType, int32_t)},
+		{"confounderSize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, confounderSize, int32_t)},
+		{"decryptKeyedChecksum", "([B[B)[B", nullptr, $PRIVATE, $method(DesMacCksumType, decryptKeyedChecksum, $bytes*, $bytes*, $bytes*), "sun.security.krb5.KrbCryptoException"},
+		{"isKeyed", "()Z", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, isKeyed, bool)},
+		{"keySize", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, keySize, int32_t)},
+		{"keyType", "()I", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, keyType, int32_t)},
+		{"verifyChecksum", "([BI[B[BI)Z", nullptr, $PUBLIC, $virtualMethod(DesMacCksumType, verifyChecksum, bool, $bytes*, int32_t, $bytes*, $bytes*, int32_t), "sun.security.krb5.KrbCryptoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.DesMacCksumType",
+		"sun.security.krb5.internal.crypto.CksumType",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DesMacCksumType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DesMacCksumType);
+	});
 	return class$;
 }
 

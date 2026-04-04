@@ -25,6 +25,7 @@ class GroupLayout$ComponentSpring : public ::javax::swing::GroupLayout$Spring {
 	$class(GroupLayout$ComponentSpring, 0, ::javax::swing::GroupLayout$Spring)
 public:
 	GroupLayout$ComponentSpring();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::GroupLayout* this$0, ::java::awt::Component* component, int32_t min, int32_t pref, int32_t max);
 	virtual int32_t calculateMaximumSize(int32_t axis) override;
 	virtual int32_t calculateMinimumSize(int32_t axis) override;

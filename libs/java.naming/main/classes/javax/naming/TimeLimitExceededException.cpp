@@ -1,5 +1,4 @@
 #include <javax/naming/TimeLimitExceededException.h>
-
 #include <javax/naming/LimitExceededException.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $LimitExceededException = ::javax::naming::LimitExceededException;
 
 namespace javax {
 	namespace naming {
-
-$FieldInfo _TimeLimitExceededException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeLimitExceededException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _TimeLimitExceededException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TimeLimitExceededException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TimeLimitExceededException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _TimeLimitExceededException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.TimeLimitExceededException",
-	"javax.naming.LimitExceededException",
-	nullptr,
-	_TimeLimitExceededException_FieldInfo_,
-	_TimeLimitExceededException_MethodInfo_
-};
-
-$Object* allocate$TimeLimitExceededException($Class* clazz) {
-	return $of($alloc(TimeLimitExceededException));
-}
 
 void TimeLimitExceededException::init$() {
 	$LimitExceededException::init$();
@@ -54,7 +29,26 @@ void TimeLimitExceededException::throw$() {
 }
 
 $Class* TimeLimitExceededException::load$($String* name, bool initialize) {
-	$loadClass(TimeLimitExceededException, name, initialize, &_TimeLimitExceededException_ClassInfo_, allocate$TimeLimitExceededException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TimeLimitExceededException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TimeLimitExceededException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TimeLimitExceededException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.TimeLimitExceededException",
+		"javax.naming.LimitExceededException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TimeLimitExceededException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimeLimitExceededException);
+	});
 	return class$;
 }
 

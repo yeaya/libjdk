@@ -70,6 +70,7 @@ class Utility : public ::java::lang::Object {
 public:
 	Utility();
 	using ::java::lang::Object::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* accessToString(int32_t access_flags);
 	static $String* accessToString(int32_t access_flags, bool for_class);

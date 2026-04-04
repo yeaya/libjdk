@@ -23,6 +23,7 @@ class $export RowFilter$ComparisonType : public ::java::lang::Enum {
 public:
 	RowFilter$ComparisonType();
 	static $Array<::javax::swing::RowFilter$ComparisonType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::RowFilter$ComparisonType* valueOf($String* name);
 	static $Array<::javax::swing::RowFilter$ComparisonType>* values();

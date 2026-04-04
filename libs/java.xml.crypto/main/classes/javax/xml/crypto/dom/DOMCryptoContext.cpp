@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
-
 #include <java/net/URI.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -20,8 +19,6 @@ using $URI = ::java::net::URI;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $KeySelector = ::javax::xml::crypto::KeySelector;
 using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
 using $Element = ::org::w3c::dom::Element;
@@ -30,53 +27,6 @@ namespace javax {
 	namespace xml {
 		namespace crypto {
 			namespace dom {
-
-$FieldInfo _DOMCryptoContext_FieldInfo_[] = {
-	{"nsMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(DOMCryptoContext, nsMap)},
-	{"idMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(DOMCryptoContext, idMap)},
-	{"objMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(DOMCryptoContext, objMap)},
-	{"baseURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMCryptoContext, baseURI)},
-	{"ks", "Ljavax/xml/crypto/KeySelector;", nullptr, $PRIVATE, $field(DOMCryptoContext, ks)},
-	{"dereferencer", "Ljavax/xml/crypto/URIDereferencer;", nullptr, $PRIVATE, $field(DOMCryptoContext, dereferencer)},
-	{"propMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(DOMCryptoContext, propMap)},
-	{"defaultPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMCryptoContext, defaultPrefix)},
-	{}
-};
-
-$MethodInfo _DOMCryptoContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(DOMCryptoContext, init$, void)},
-	{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, get, $Object*, Object$*)},
-	{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getBaseURI, $String*)},
-	{"getDefaultNamespacePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getDefaultNamespacePrefix, $String*)},
-	{"getElementById", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getElementById, $Element*, $String*)},
-	{"getKeySelector", "()Ljavax/xml/crypto/KeySelector;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getKeySelector, $KeySelector*)},
-	{"getNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getNamespacePrefix, $String*, $String*, $String*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getProperty, $Object*, $String*)},
-	{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getURIDereferencer, $URIDereferencer*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Lorg/w3c/dom/Element;>;>;", $PUBLIC, $virtualMethod(DOMCryptoContext, iterator, $Iterator*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, put, $Object*, Object$*, Object$*)},
-	{"putNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, putNamespacePrefix, $String*, $String*, $String*)},
-	{"setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setBaseURI, void, $String*)},
-	{"setDefaultNamespacePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setDefaultNamespacePrefix, void, $String*)},
-	{"setIdAttributeNS", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setIdAttributeNS, void, $Element*, $String*, $String*)},
-	{"setKeySelector", "(Ljavax/xml/crypto/KeySelector;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setKeySelector, void, $KeySelector*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setProperty, $Object*, $String*, Object$*)},
-	{"setURIDereferencer", "(Ljavax/xml/crypto/URIDereferencer;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setURIDereferencer, void, $URIDereferencer*)},
-	{}
-};
-
-$ClassInfo _DOMCryptoContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.crypto.dom.DOMCryptoContext",
-	"java.lang.Object",
-	"javax.xml.crypto.XMLCryptoContext",
-	_DOMCryptoContext_FieldInfo_,
-	_DOMCryptoContext_MethodInfo_
-};
-
-$Object* allocate$DOMCryptoContext($Class* clazz) {
-	return $of($alloc(DOMCryptoContext));
-}
 
 void DOMCryptoContext::init$() {
 	$set(this, nsMap, $new($HashMap));
@@ -131,14 +81,14 @@ $Object* DOMCryptoContext::getProperty($String* name) {
 	if (name == nullptr) {
 		$throwNew($NullPointerException, "name is null"_s);
 	}
-	return $of($nc(this->propMap)->get(name));
+	return $nc(this->propMap)->get(name);
 }
 
 $Object* DOMCryptoContext::setProperty($String* name, Object$* value) {
 	if (name == nullptr) {
 		$throwNew($NullPointerException, "name is null"_s);
 	}
-	return $of($nc(this->propMap)->put(name, value));
+	return $nc(this->propMap)->put(name, value);
 }
 
 $KeySelector* DOMCryptoContext::getKeySelector() {
@@ -157,7 +107,7 @@ $Element* DOMCryptoContext::getElementById($String* idValue) {
 }
 
 void DOMCryptoContext::setIdAttributeNS($Element* element, $String* namespaceURI, $String* localName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		$throwNew($NullPointerException, "element is null"_s);
 	}
@@ -165,30 +115,72 @@ void DOMCryptoContext::setIdAttributeNS($Element* element, $String* namespaceURI
 		$throwNew($NullPointerException, "localName is null"_s);
 	}
 	$var($String, idValue, $nc(element)->getAttributeNS(namespaceURI, localName));
-	if (idValue == nullptr || $nc(idValue)->length() == 0) {
+	if (idValue == nullptr || idValue->length() == 0) {
 		$throwNew($IllegalArgumentException, $$str({localName, " is not an attribute"_s}));
 	}
 	$nc(this->idMap)->put(idValue, element);
 }
 
 $Iterator* DOMCryptoContext::iterator() {
-	$useLocalCurrentObjectStackCache();
-	return $nc($($nc($($Collections::unmodifiableMap(this->idMap)))->entrySet()))->iterator();
+	$useLocalObjectStack();
+	return $$nc($$nc($Collections::unmodifiableMap(this->idMap))->entrySet())->iterator();
 }
 
 $Object* DOMCryptoContext::get(Object$* key) {
-	return $of($nc(this->objMap)->get(key));
+	return $nc(this->objMap)->get(key);
 }
 
 $Object* DOMCryptoContext::put(Object$* key, Object$* value) {
-	return $of($nc(this->objMap)->put(key, value));
+	return $nc(this->objMap)->put(key, value);
 }
 
 DOMCryptoContext::DOMCryptoContext() {
 }
 
 $Class* DOMCryptoContext::load$($String* name, bool initialize) {
-	$loadClass(DOMCryptoContext, name, initialize, &_DOMCryptoContext_ClassInfo_, allocate$DOMCryptoContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"nsMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(DOMCryptoContext, nsMap)},
+		{"idMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Lorg/w3c/dom/Element;>;", $PRIVATE, $field(DOMCryptoContext, idMap)},
+		{"objMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;Ljava/lang/Object;>;", $PRIVATE, $field(DOMCryptoContext, objMap)},
+		{"baseURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMCryptoContext, baseURI)},
+		{"ks", "Ljavax/xml/crypto/KeySelector;", nullptr, $PRIVATE, $field(DOMCryptoContext, ks)},
+		{"dereferencer", "Ljavax/xml/crypto/URIDereferencer;", nullptr, $PRIVATE, $field(DOMCryptoContext, dereferencer)},
+		{"propMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE, $field(DOMCryptoContext, propMap)},
+		{"defaultPrefix", "Ljava/lang/String;", nullptr, $PRIVATE, $field(DOMCryptoContext, defaultPrefix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(DOMCryptoContext, init$, void)},
+		{"get", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, get, $Object*, Object$*)},
+		{"getBaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getBaseURI, $String*)},
+		{"getDefaultNamespacePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getDefaultNamespacePrefix, $String*)},
+		{"getElementById", "(Ljava/lang/String;)Lorg/w3c/dom/Element;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getElementById, $Element*, $String*)},
+		{"getKeySelector", "()Ljavax/xml/crypto/KeySelector;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getKeySelector, $KeySelector*)},
+		{"getNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getNamespacePrefix, $String*, $String*, $String*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getProperty, $Object*, $String*)},
+		{"getURIDereferencer", "()Ljavax/xml/crypto/URIDereferencer;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, getURIDereferencer, $URIDereferencer*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Lorg/w3c/dom/Element;>;>;", $PUBLIC, $virtualMethod(DOMCryptoContext, iterator, $Iterator*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, put, $Object*, Object$*, Object$*)},
+		{"putNamespacePrefix", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, putNamespacePrefix, $String*, $String*, $String*)},
+		{"setBaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setBaseURI, void, $String*)},
+		{"setDefaultNamespacePrefix", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setDefaultNamespacePrefix, void, $String*)},
+		{"setIdAttributeNS", "(Lorg/w3c/dom/Element;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setIdAttributeNS, void, $Element*, $String*, $String*)},
+		{"setKeySelector", "(Ljavax/xml/crypto/KeySelector;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setKeySelector, void, $KeySelector*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setProperty, $Object*, $String*, Object$*)},
+		{"setURIDereferencer", "(Ljavax/xml/crypto/URIDereferencer;)V", nullptr, $PUBLIC, $virtualMethod(DOMCryptoContext, setURIDereferencer, void, $URIDereferencer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.crypto.dom.DOMCryptoContext",
+		"java.lang.Object",
+		"javax.xml.crypto.XMLCryptoContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMCryptoContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMCryptoContext);
+	});
 	return class$;
 }
 

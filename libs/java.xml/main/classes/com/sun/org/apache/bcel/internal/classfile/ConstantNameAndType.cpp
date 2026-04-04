@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantNameAndType.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -25,41 +24,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace classfile {
-
-$FieldInfo _ConstantNameAndType_FieldInfo_[] = {
-	{"nameIndex", "I", nullptr, $PRIVATE, $field(ConstantNameAndType, nameIndex)},
-	{"signatureIndex", "I", nullptr, $PRIVATE, $field(ConstantNameAndType, signatureIndex)},
-	{}
-};
-
-$MethodInfo _ConstantNameAndType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantNameAndType;)V", nullptr, $PUBLIC, $method(ConstantNameAndType, init$, void, ConstantNameAndType*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantNameAndType, init$, void, $DataInput*), "java.io.IOException"},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ConstantNameAndType, init$, void, int32_t, int32_t)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantNameAndType, accept, void, $Visitor*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantNameAndType, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getName", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(ConstantNameAndType, getName, $String*, $ConstantPool*)},
-	{"getNameIndex", "()I", nullptr, $PUBLIC, $method(ConstantNameAndType, getNameIndex, int32_t)},
-	{"getSignature", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(ConstantNameAndType, getSignature, $String*, $ConstantPool*)},
-	{"getSignatureIndex", "()I", nullptr, $PUBLIC, $method(ConstantNameAndType, getSignatureIndex, int32_t)},
-	{"setNameIndex", "(I)V", nullptr, $PUBLIC, $method(ConstantNameAndType, setNameIndex, void, int32_t)},
-	{"setSignatureIndex", "(I)V", nullptr, $PUBLIC, $method(ConstantNameAndType, setSignatureIndex, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantNameAndType, toString, $String*)},
-	{}
-};
-
-$ClassInfo _ConstantNameAndType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantNameAndType",
-	"com.sun.org.apache.bcel.internal.classfile.Constant",
-	nullptr,
-	_ConstantNameAndType_FieldInfo_,
-	_ConstantNameAndType_MethodInfo_
-};
-
-$Object* allocate$ConstantNameAndType($Class* clazz) {
-	return $of($alloc(ConstantNameAndType));
-}
 
 void ConstantNameAndType::init$(ConstantNameAndType* c) {
 	int32_t var$0 = $nc(c)->getNameIndex();
@@ -112,7 +76,7 @@ void ConstantNameAndType::setSignatureIndex(int32_t signatureIndex) {
 }
 
 $String* ConstantNameAndType::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($Constant::toString()), "(nameIndex = "_s, $$str(this->nameIndex), ", signatureIndex = "_s, $$str(this->signatureIndex), ")"_s});
 }
 
@@ -120,7 +84,37 @@ ConstantNameAndType::ConstantNameAndType() {
 }
 
 $Class* ConstantNameAndType::load$($String* name, bool initialize) {
-	$loadClass(ConstantNameAndType, name, initialize, &_ConstantNameAndType_ClassInfo_, allocate$ConstantNameAndType);
+	$FieldInfo fieldInfos$$[] = {
+		{"nameIndex", "I", nullptr, $PRIVATE, $field(ConstantNameAndType, nameIndex)},
+		{"signatureIndex", "I", nullptr, $PRIVATE, $field(ConstantNameAndType, signatureIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantNameAndType;)V", nullptr, $PUBLIC, $method(ConstantNameAndType, init$, void, ConstantNameAndType*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantNameAndType, init$, void, $DataInput*), "java.io.IOException"},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ConstantNameAndType, init$, void, int32_t, int32_t)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantNameAndType, accept, void, $Visitor*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantNameAndType, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getName", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(ConstantNameAndType, getName, $String*, $ConstantPool*)},
+		{"getNameIndex", "()I", nullptr, $PUBLIC, $method(ConstantNameAndType, getNameIndex, int32_t)},
+		{"getSignature", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $method(ConstantNameAndType, getSignature, $String*, $ConstantPool*)},
+		{"getSignatureIndex", "()I", nullptr, $PUBLIC, $method(ConstantNameAndType, getSignatureIndex, int32_t)},
+		{"setNameIndex", "(I)V", nullptr, $PUBLIC, $method(ConstantNameAndType, setNameIndex, void, int32_t)},
+		{"setSignatureIndex", "(I)V", nullptr, $PUBLIC, $method(ConstantNameAndType, setSignatureIndex, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantNameAndType, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantNameAndType",
+		"com.sun.org.apache.bcel.internal.classfile.Constant",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConstantNameAndType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantNameAndType));
+	});
 	return class$;
 }
 

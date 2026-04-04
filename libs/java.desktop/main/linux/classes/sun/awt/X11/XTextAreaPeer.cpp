@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XTextAreaPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -33,8 +32,6 @@
 #include <java/util/HashMap.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
-#include <javax/swing/JTextArea.h>
-#include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/Document.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -94,13 +91,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $HashMap = ::java::util::HashMap;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
-using $JTextArea = ::javax::swing::JTextArea;
-using $DocumentListener = ::javax::swing::event::DocumentListener;
-using $Caret = ::javax::swing::text::Caret;
-using $Document = ::javax::swing::text::Document;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
@@ -109,124 +101,11 @@ using $XTextAreaPeer$AWTTextArea = ::sun::awt::X11::XTextAreaPeer$AWTTextArea;
 using $XTextAreaPeer$AWTTextPane = ::sun::awt::X11::XTextAreaPeer$AWTTextPane;
 using $XTextAreaPeer$JavaMouseEventHandler = ::sun::awt::X11::XTextAreaPeer$JavaMouseEventHandler;
 using $XToolkit = ::sun::awt::X11::XToolkit;
-using $XWindow = ::sun::awt::X11::XWindow;
 using $Region = ::sun::java2d::pipe::Region;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XTextAreaPeer_FieldInfo_[] = {
-	{"textPane", "Lsun/awt/X11/XTextAreaPeer$AWTTextPane;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer, textPane)},
-	{"jtext", "Lsun/awt/X11/XTextAreaPeer$AWTTextArea;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer, jtext)},
-	{"firstChangeSkipped", "Z", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer, firstChangeSkipped)},
-	{"javaMouseEventHandler", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer, javaMouseEventHandler)},
-	{}
-};
-
-$MethodInfo _XTextAreaPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/TextArea;)V", nullptr, 0, $method(XTextAreaPeer, init$, void, $TextArea*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, dispose, void)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, focusLost, void, $FocusEvent*)},
-	{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getCaretPosition, int32_t)},
-	{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getInputMethodRequests, $InputMethodRequests*)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getMinimumSize, $Dimension*)},
-	{"getMinimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getMinimumSize, $Dimension*, int32_t, int32_t)},
-	{"getPreferredSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getPreferredSize, $Dimension*, int32_t, int32_t)},
-	{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getSelectionEnd, int32_t)},
-	{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getSelectionStart, int32_t)},
-	{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getText, $String*)},
-	{"handleJavaInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, 0, $virtualMethod(XTextAreaPeer, handleJavaInputMethodEvent, void, $InputMethodEvent*)},
-	{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XTextAreaPeer, handleJavaKeyEvent, void, $KeyEvent*)},
-	{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, handleJavaMouseEvent, void, $MouseEvent*)},
-	{"handleJavaMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(XTextAreaPeer, handleJavaMouseWheelEvent, void, $MouseWheelEvent*)},
-	{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, handlesWheelScrolling, bool)},
-	{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, insert, void, $String*, int32_t)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"pSetCursor", "(Ljava/awt/Cursor;Z)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, pSetCursor, void, $Cursor*, bool)},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XTextAreaPeer, paintPeer, void, $Graphics*)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, repaint, void)},
-	{"repaintText", "()V", nullptr, 0, $method(XTextAreaPeer, repaintText, void)},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"replaceRange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, replaceRange, void, $String*, int32_t, int32_t)},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"select", "(II)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, select, void, int32_t, int32_t)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setBackground, void, $Color*)},
-	{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setCaretPosition, void, int32_t)},
-	{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setEditable, void, bool)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setForeground, void, $Color*)},
-	{"setScrollBarVisibility", "()V", nullptr, $PRIVATE, $method(XTextAreaPeer, setScrollBarVisibility, void)},
-	{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setText, void, $String*)},
-	{"setTextImpl", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XTextAreaPeer, setTextImpl, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setVisible, void, bool)},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _XTextAreaPeer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XTextAreaPeer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "sun.awt.X11.XTextAreaPeer", "JavaMouseEventHandler", $PRIVATE | $STATIC | $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$BevelBorder", "sun.awt.X11.XTextAreaPeer", "BevelBorder", $STATIC},
-	{"sun.awt.X11.XTextAreaPeer$AWTTextPane", "sun.awt.X11.XTextAreaPeer", "AWTTextPane", $PRIVATE},
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollPaneUI", $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$AWTTextArea", "sun.awt.X11.XTextAreaPeer", "AWTTextArea", $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollBarUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollBarUI", $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$XAWTScrollBarButton", "sun.awt.X11.XTextAreaPeer", "XAWTScrollBarButton", $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$XAWTCaret", "sun.awt.X11.XTextAreaPeer", "XAWTCaret", $STATIC | $FINAL},
-	{"sun.awt.X11.XTextAreaPeer$AWTTextAreaUI", "sun.awt.X11.XTextAreaPeer", "AWTTextAreaUI", $FINAL},
-	{}
-};
-
-$ClassInfo _XTextAreaPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XTextAreaPeer",
-	"sun.awt.X11.XComponentPeer",
-	"java.awt.peer.TextAreaPeer",
-	_XTextAreaPeer_FieldInfo_,
-	_XTextAreaPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XTextAreaPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XTextAreaPeer$1,sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler,sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer,sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer$Type,sun.awt.X11.XTextAreaPeer$BevelBorder,sun.awt.X11.XTextAreaPeer$AWTTextPane,sun.awt.X11.XTextAreaPeer$AWTTextPane$XAWTScrollBar,sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI,sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI$1,sun.awt.X11.XTextAreaPeer$AWTTextArea,sun.awt.X11.XTextAreaPeer$XAWTScrollBarUI,sun.awt.X11.XTextAreaPeer$XAWTScrollBarButton,sun.awt.X11.XTextAreaPeer$XAWTCaret,sun.awt.X11.XTextAreaPeer$AWTTextAreaUI"
-};
-
-$Object* allocate$XTextAreaPeer($Class* clazz) {
-	return $of($alloc(XTextAreaPeer));
-}
 
 void XTextAreaPeer::reparent($ContainerPeer* newNativeParent) {
 	this->$XComponentPeer::reparent(newNativeParent);
@@ -353,20 +232,20 @@ void XTextAreaPeer::finalize() {
 }
 
 void XTextAreaPeer::init$($TextArea* target) {
-	$useLocalCurrentObjectStackCache();
-	$XComponentPeer::init$(static_cast<$Component*>(target));
+	$useLocalObjectStack();
+	$XComponentPeer::init$(target);
 	$set(this, javaMouseEventHandler, $new($XTextAreaPeer$JavaMouseEventHandler, this));
 	$set(this, target, target);
 	$var($String, text, $nc(target)->getText());
 	$set(this, jtext, $new($XTextAreaPeer$AWTTextArea, this, text, this));
-	$nc(this->jtext)->setWrapStyleWord(true);
-	$nc($($nc(this->jtext)->getDocument()))->addDocumentListener(this->jtext);
+	this->jtext->setWrapStyleWord(true);
+	$$nc(this->jtext->getDocument())->addDocumentListener(this->jtext);
 	$init($XToolkit);
 	$nc($XToolkit::specialPeerMap)->put(this->jtext, this);
 	$set(this, textPane, $new($XTextAreaPeer$AWTTextPane, this, this->jtext, this, $(target->getParent())));
 	setBounds(this->x, this->y, this->width, this->height, $ComponentPeer::SET_BOUNDS);
-	$nc(this->textPane)->setVisible(true);
-	$nc(this->textPane)->validate();
+	this->textPane->setVisible(true);
+	this->textPane->validate();
 	$var($AWTAccessor$ComponentAccessor, compAccessor, $AWTAccessor::getComponentAccessor());
 	$set(this, foreground, $nc(compAccessor)->getForeground(target));
 	if (this->foreground == nullptr) {
@@ -403,48 +282,48 @@ void XTextAreaPeer::init$($TextArea* target) {
 	setEditable(target->isEditable());
 	setScrollBarVisibility();
 	this->firstChangeSkipped = true;
-	compAccessor->setPeer(this->textPane, static_cast<$ComponentPeer*>(static_cast<$XComponentPeer*>(this)));
+	compAccessor->setPeer(this->textPane, $cast($XComponentPeer, this));
 }
 
 void XTextAreaPeer::dispose() {
 	$init($XToolkit);
 	$nc($XToolkit::specialPeerMap)->remove(this->jtext);
-	$nc($($nc(this->jtext)->getCaret()))->setVisible(false);
-	$nc(this->jtext)->removeNotify();
+	$$nc(this->jtext->getCaret())->setVisible(false);
+	this->jtext->removeNotify();
 	$XComponentPeer::dispose();
 }
 
 void XTextAreaPeer::pSetCursor($Cursor* cursor, bool ignoreSubComponents) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ignoreSubComponents || this->javaMouseEventHandler == nullptr) {
 		$XComponentPeer::pSetCursor(cursor, true);
 		return;
 	}
 	$var($Point, cursorPos, $new($Point));
-	$nc(($cast($XGlobalCursorManager, $($XGlobalCursorManager::getCursorManager()))))->getCursorPos(cursorPos);
+	$$sure($XGlobalCursorManager, $XGlobalCursorManager::getCursorManager())->getCursorPos(cursorPos);
 	$var($Point, onScreen, getLocationOnScreen());
-	$var($Point, localPoint, $new($Point, cursorPos->x - $nc(onScreen)->x, cursorPos->y - onScreen->y));
-	$nc(this->javaMouseEventHandler)->setPointerToUnderPoint(localPoint);
-	$nc(this->javaMouseEventHandler)->setCursor();
+	$var($Point, localPoint, $new($Point, cursorPos->x - $nc(onScreen)->x, cursorPos->y - $nc(onScreen)->y));
+	this->javaMouseEventHandler->setPointerToUnderPoint(localPoint);
+	this->javaMouseEventHandler->setCursor();
 }
 
 void XTextAreaPeer::setScrollBarVisibility() {
-	int32_t visibility = $nc(($cast($TextArea, this->target)))->getScrollbarVisibility();
-	$nc(this->jtext)->setLineWrap(false);
+	int32_t visibility = $nc($cast($TextArea, this->target))->getScrollbarVisibility();
+	this->jtext->setLineWrap(false);
 	if (visibility == $TextArea::SCROLLBARS_NONE) {
-		$nc(this->textPane)->setHorizontalScrollBarPolicy($JScrollPane::HORIZONTAL_SCROLLBAR_NEVER);
-		$nc(this->textPane)->setVerticalScrollBarPolicy($JScrollPane::VERTICAL_SCROLLBAR_NEVER);
-		$nc(this->jtext)->setLineWrap(true);
+		this->textPane->setHorizontalScrollBarPolicy($JScrollPane::HORIZONTAL_SCROLLBAR_NEVER);
+		this->textPane->setVerticalScrollBarPolicy($JScrollPane::VERTICAL_SCROLLBAR_NEVER);
+		this->jtext->setLineWrap(true);
 	} else if (visibility == $TextArea::SCROLLBARS_BOTH) {
-		$nc(this->textPane)->setHorizontalScrollBarPolicy($JScrollPane::HORIZONTAL_SCROLLBAR_ALWAYS);
-		$nc(this->textPane)->setVerticalScrollBarPolicy($JScrollPane::VERTICAL_SCROLLBAR_ALWAYS);
+		this->textPane->setHorizontalScrollBarPolicy($JScrollPane::HORIZONTAL_SCROLLBAR_ALWAYS);
+		this->textPane->setVerticalScrollBarPolicy($JScrollPane::VERTICAL_SCROLLBAR_ALWAYS);
 	} else if (visibility == $TextArea::SCROLLBARS_VERTICAL_ONLY) {
-		$nc(this->textPane)->setHorizontalScrollBarPolicy($JScrollPane::HORIZONTAL_SCROLLBAR_NEVER);
-		$nc(this->textPane)->setVerticalScrollBarPolicy($JScrollPane::VERTICAL_SCROLLBAR_ALWAYS);
-		$nc(this->jtext)->setLineWrap(true);
+		this->textPane->setHorizontalScrollBarPolicy($JScrollPane::HORIZONTAL_SCROLLBAR_NEVER);
+		this->textPane->setVerticalScrollBarPolicy($JScrollPane::VERTICAL_SCROLLBAR_ALWAYS);
+		this->jtext->setLineWrap(true);
 	} else if (visibility == $TextArea::SCROLLBARS_HORIZONTAL_ONLY) {
-		$nc(this->textPane)->setVerticalScrollBarPolicy($JScrollPane::VERTICAL_SCROLLBAR_NEVER);
-		$nc(this->textPane)->setHorizontalScrollBarPolicy($JScrollPane::HORIZONTAL_SCROLLBAR_ALWAYS);
+		this->textPane->setVerticalScrollBarPolicy($JScrollPane::VERTICAL_SCROLLBAR_NEVER);
+		this->textPane->setHorizontalScrollBarPolicy($JScrollPane::HORIZONTAL_SCROLLBAR_ALWAYS);
 	}
 }
 
@@ -457,19 +336,19 @@ $Dimension* XTextAreaPeer::getPreferredSize(int32_t rows, int32_t cols) {
 }
 
 $Dimension* XTextAreaPeer::getMinimumSize(int32_t rows, int32_t cols) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t vsbwidth = 0;
 	int32_t hsbheight = 0;
-	$var($JScrollBar, vsb, $nc(this->textPane)->getVerticalScrollBar());
+	$var($JScrollBar, vsb, this->textPane->getVerticalScrollBar());
 	if (vsb != nullptr) {
 		vsbwidth = $nc($(vsb->getMinimumSize()))->width;
 	}
-	$var($JScrollBar, hsb, $nc(this->textPane)->getHorizontalScrollBar());
+	$var($JScrollBar, hsb, this->textPane->getHorizontalScrollBar());
 	if (hsb != nullptr) {
 		hsbheight = $nc($(hsb->getMinimumSize()))->height;
 	}
-	$var($Font, f, $nc(this->jtext)->getFont());
-	$var($FontMetrics, fm, $nc(this->jtext)->getFontMetrics(f));
+	$var($Font, f, this->jtext->getFont());
+	$var($FontMetrics, fm, this->jtext->getFontMetrics(f));
 	int32_t var$0 = $nc(fm)->charWidth(u'0') * cols + vsbwidth;
 	return $new($Dimension, var$0, fm->getHeight() * rows + hsbheight);
 }
@@ -481,33 +360,33 @@ bool XTextAreaPeer::isFocusable() {
 void XTextAreaPeer::setVisible(bool b) {
 	$XComponentPeer::setVisible(b);
 	if (this->textPane != nullptr) {
-		$nc(this->textPane)->setVisible(b);
+		this->textPane->setVisible(b);
 	}
 }
 
 void XTextAreaPeer::repaintText() {
-	$nc(this->jtext)->repaintNow();
+	this->jtext->repaintNow();
 }
 
 void XTextAreaPeer::focusGained($FocusEvent* e) {
 	$XComponentPeer::focusGained(e);
-	$nc(this->jtext)->forwardFocusGained(e);
+	this->jtext->forwardFocusGained(e);
 }
 
 void XTextAreaPeer::focusLost($FocusEvent* e) {
 	$XComponentPeer::focusLost(e);
-	$nc(this->jtext)->forwardFocusLost(e);
+	this->jtext->forwardFocusLost(e);
 }
 
 void XTextAreaPeer::repaint() {
 	if (this->textPane != nullptr) {
-		$nc(this->textPane)->repaint();
+		this->textPane->repaint();
 	}
 }
 
 void XTextAreaPeer::paintPeer($Graphics* g) {
 	if (this->textPane != nullptr) {
-		$nc(this->textPane)->paint(g);
+		this->textPane->paint(g);
 	}
 }
 
@@ -522,13 +401,13 @@ void XTextAreaPeer::setBounds(int32_t x, int32_t y, int32_t width, int32_t heigh
 			childY -= parent->getY();
 			$assign(parent, parent->getParent());
 		}
-		$nc(this->textPane)->setBounds(childX, childY, width, height);
-		$nc(this->textPane)->validate();
+		this->textPane->setBounds(childX, childY, width, height);
+		this->textPane->validate();
 	}
 }
 
 void XTextAreaPeer::handleJavaKeyEvent($KeyEvent* e) {
-	$nc($($AWTAccessor::getComponentAccessor()))->processEvent(this->jtext, e);
+	$$nc($AWTAccessor::getComponentAccessor())->processEvent(this->jtext, e);
 }
 
 bool XTextAreaPeer::handlesWheelScrolling() {
@@ -536,53 +415,53 @@ bool XTextAreaPeer::handlesWheelScrolling() {
 }
 
 void XTextAreaPeer::handleJavaMouseWheelEvent($MouseWheelEvent* e) {
-	$nc($($AWTAccessor::getComponentAccessor()))->processEvent(this->textPane, e);
+	$$nc($AWTAccessor::getComponentAccessor())->processEvent(this->textPane, e);
 }
 
 void XTextAreaPeer::handleJavaMouseEvent($MouseEvent* e) {
 	$XComponentPeer::handleJavaMouseEvent(e);
-	$nc(this->javaMouseEventHandler)->handle(e);
+	this->javaMouseEventHandler->handle(e);
 }
 
 void XTextAreaPeer::handleJavaInputMethodEvent($InputMethodEvent* e) {
 	if (this->jtext != nullptr) {
-		$nc(this->jtext)->processInputMethodEventPublic(e);
+		this->jtext->processInputMethodEventPublic(e);
 	}
 }
 
 void XTextAreaPeer::select(int32_t s, int32_t e) {
-	$nc(this->jtext)->select(s, e);
-	$nc(this->jtext)->repaint();
+	this->jtext->select(s, e);
+	this->jtext->repaint();
 }
 
 void XTextAreaPeer::setBackground($Color* c) {
 	$XComponentPeer::setBackground(c);
 	if (this->jtext != nullptr) {
-		$nc(this->jtext)->setBackground(c);
-		$nc(this->jtext)->setSelectedTextColor(c);
+		this->jtext->setBackground(c);
+		this->jtext->setSelectedTextColor(c);
 	}
 }
 
 void XTextAreaPeer::setForeground($Color* c) {
 	$XComponentPeer::setForeground(c);
 	if (this->jtext != nullptr) {
-		$nc(this->jtext)->setForeground(this->foreground);
-		$nc(this->jtext)->setSelectionColor(this->foreground);
-		$nc(this->jtext)->setCaretColor(this->foreground);
+		this->jtext->setForeground(this->foreground);
+		this->jtext->setSelectionColor(this->foreground);
+		this->jtext->setCaretColor(this->foreground);
 	}
 }
 
 void XTextAreaPeer::setFont($Font* f) {
 	$XComponentPeer::setFont(f);
 	if (this->jtext != nullptr) {
-		$nc(this->jtext)->setFont(this->font);
+		this->jtext->setFont(this->font);
 	}
-	$nc(this->textPane)->validate();
+	this->textPane->validate();
 }
 
 void XTextAreaPeer::setEditable(bool editable) {
 	if (this->jtext != nullptr) {
-		$nc(this->jtext)->setEditable(editable);
+		this->jtext->setEditable(editable);
 	}
 	repaintText();
 }
@@ -590,29 +469,29 @@ void XTextAreaPeer::setEditable(bool editable) {
 void XTextAreaPeer::setEnabled(bool enabled) {
 	$XComponentPeer::setEnabled(enabled);
 	if (this->jtext != nullptr) {
-		$nc(this->jtext)->setEnabled(enabled);
-		$nc(this->jtext)->repaint();
+		this->jtext->setEnabled(enabled);
+		this->jtext->repaint();
 	}
 }
 
 $InputMethodRequests* XTextAreaPeer::getInputMethodRequests() {
 	if (this->jtext != nullptr) {
-		return $nc(this->jtext)->getInputMethodRequests();
+		return this->jtext->getInputMethodRequests();
 	} else {
 		return nullptr;
 	}
 }
 
 int32_t XTextAreaPeer::getSelectionStart() {
-	return $nc(this->jtext)->getSelectionStart();
+	return this->jtext->getSelectionStart();
 }
 
 int32_t XTextAreaPeer::getSelectionEnd() {
-	return $nc(this->jtext)->getSelectionEnd();
+	return this->jtext->getSelectionEnd();
 }
 
 $String* XTextAreaPeer::getText() {
-	return $nc(this->jtext)->getText();
+	return this->jtext->getText();
 }
 
 void XTextAreaPeer::setText($String* text) {
@@ -621,26 +500,26 @@ void XTextAreaPeer::setText($String* text) {
 }
 
 void XTextAreaPeer::setTextImpl($String* txt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->jtext != nullptr) {
-		$nc($($nc(this->jtext)->getDocument()))->removeDocumentListener(this->jtext);
-		$nc(this->jtext)->setText(txt);
+		$$nc(this->jtext->getDocument())->removeDocumentListener(this->jtext);
+		this->jtext->setText(txt);
 		if (this->firstChangeSkipped) {
 			postEvent($$new($TextEvent, this->target, $TextEvent::TEXT_VALUE_CHANGED));
 		}
-		$nc($($nc(this->jtext)->getDocument()))->addDocumentListener(this->jtext);
+		$$nc(this->jtext->getDocument())->addDocumentListener(this->jtext);
 	}
 }
 
 void XTextAreaPeer::insert($String* txt, int32_t p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->jtext != nullptr) {
-		bool var$0 = p >= $nc($($nc(this->jtext)->getDocument()))->getLength();
-		bool doScroll = (var$0 && $nc($($nc(this->jtext)->getDocument()))->getLength() != 0);
-		$nc(this->jtext)->insert(txt, p);
-		$nc(this->textPane)->validate();
+		bool var$0 = p >= $$nc(this->jtext->getDocument())->getLength();
+		bool doScroll = (var$0 && $$nc(this->jtext->getDocument())->getLength() != 0);
+		this->jtext->insert(txt, p);
+		this->textPane->validate();
 		if (doScroll) {
-			$var($JScrollBar, bar, $nc(this->textPane)->getVerticalScrollBar());
+			$var($JScrollBar, bar, this->textPane->getVerticalScrollBar());
 			if (bar != nullptr) {
 				int32_t var$1 = bar->getMaximum();
 				bar->setValue(var$1 - bar->getVisibleAmount());
@@ -650,28 +529,134 @@ void XTextAreaPeer::insert($String* txt, int32_t p) {
 }
 
 void XTextAreaPeer::replaceRange($String* txt, int32_t s, int32_t e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->jtext != nullptr) {
-		$nc($($nc(this->jtext)->getDocument()))->removeDocumentListener(this->jtext);
-		$nc(this->jtext)->replaceRange(txt, s, e);
+		$$nc(this->jtext->getDocument())->removeDocumentListener(this->jtext);
+		this->jtext->replaceRange(txt, s, e);
 		postEvent($$new($TextEvent, this->target, $TextEvent::TEXT_VALUE_CHANGED));
-		$nc($($nc(this->jtext)->getDocument()))->addDocumentListener(this->jtext);
+		$$nc(this->jtext->getDocument())->addDocumentListener(this->jtext);
 	}
 }
 
 void XTextAreaPeer::setCaretPosition(int32_t position) {
-	$nc(this->jtext)->setCaretPosition(position);
+	this->jtext->setCaretPosition(position);
 }
 
 int32_t XTextAreaPeer::getCaretPosition() {
-	return $nc(this->jtext)->getCaretPosition();
+	return this->jtext->getCaretPosition();
 }
 
 XTextAreaPeer::XTextAreaPeer() {
 }
 
 $Class* XTextAreaPeer::load$($String* name, bool initialize) {
-	$loadClass(XTextAreaPeer, name, initialize, &_XTextAreaPeer_ClassInfo_, allocate$XTextAreaPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"textPane", "Lsun/awt/X11/XTextAreaPeer$AWTTextPane;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer, textPane)},
+		{"jtext", "Lsun/awt/X11/XTextAreaPeer$AWTTextArea;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer, jtext)},
+		{"firstChangeSkipped", "Z", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer, firstChangeSkipped)},
+		{"javaMouseEventHandler", "Lsun/awt/X11/XTextAreaPeer$JavaMouseEventHandler;", nullptr, $PRIVATE | $FINAL, $field(XTextAreaPeer, javaMouseEventHandler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/TextArea;)V", nullptr, 0, $method(XTextAreaPeer, init$, void, $TextArea*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, dispose, void)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, focusLost, void, $FocusEvent*)},
+		{"getCaretPosition", "()I", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getCaretPosition, int32_t)},
+		{"getInputMethodRequests", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getInputMethodRequests, $InputMethodRequests*)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getMinimumSize, $Dimension*)},
+		{"getMinimumSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getMinimumSize, $Dimension*, int32_t, int32_t)},
+		{"getPreferredSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getPreferredSize, $Dimension*, int32_t, int32_t)},
+		{"getSelectionEnd", "()I", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getSelectionEnd, int32_t)},
+		{"getSelectionStart", "()I", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getSelectionStart, int32_t)},
+		{"getText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, getText, $String*)},
+		{"handleJavaInputMethodEvent", "(Ljava/awt/event/InputMethodEvent;)V", nullptr, 0, $virtualMethod(XTextAreaPeer, handleJavaInputMethodEvent, void, $InputMethodEvent*)},
+		{"handleJavaKeyEvent", "(Ljava/awt/event/KeyEvent;)V", nullptr, 0, $virtualMethod(XTextAreaPeer, handleJavaKeyEvent, void, $KeyEvent*)},
+		{"handleJavaMouseEvent", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, handleJavaMouseEvent, void, $MouseEvent*)},
+		{"handleJavaMouseWheelEvent", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, 0, $virtualMethod(XTextAreaPeer, handleJavaMouseWheelEvent, void, $MouseWheelEvent*)},
+		{"handlesWheelScrolling", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, handlesWheelScrolling, bool)},
+		{"insert", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, insert, void, $String*, int32_t)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"pSetCursor", "(Ljava/awt/Cursor;Z)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, pSetCursor, void, $Cursor*, bool)},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"paintPeer", "(Ljava/awt/Graphics;)V", nullptr, 0, $virtualMethod(XTextAreaPeer, paintPeer, void, $Graphics*)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"repaint", "()V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, repaint, void)},
+		{"repaintText", "()V", nullptr, 0, $method(XTextAreaPeer, repaintText, void)},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"replaceRange", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, replaceRange, void, $String*, int32_t, int32_t)},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"select", "(II)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, select, void, int32_t, int32_t)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setBackground, void, $Color*)},
+		{"setBounds", "(IIIII)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setBounds, void, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setCaretPosition", "(I)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setCaretPosition, void, int32_t)},
+		{"setEditable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setEditable, void, bool)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setForeground, void, $Color*)},
+		{"setScrollBarVisibility", "()V", nullptr, $PRIVATE, $method(XTextAreaPeer, setScrollBarVisibility, void)},
+		{"setText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setText, void, $String*)},
+		{"setTextImpl", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(XTextAreaPeer, setTextImpl, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XTextAreaPeer, setVisible, void, bool)},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XTextAreaPeer$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler", "sun.awt.X11.XTextAreaPeer", "JavaMouseEventHandler", $PRIVATE | $STATIC | $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$BevelBorder", "sun.awt.X11.XTextAreaPeer", "BevelBorder", $STATIC},
+		{"sun.awt.X11.XTextAreaPeer$AWTTextPane", "sun.awt.X11.XTextAreaPeer", "AWTTextPane", $PRIVATE},
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollPaneUI", $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$AWTTextArea", "sun.awt.X11.XTextAreaPeer", "AWTTextArea", $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollBarUI", "sun.awt.X11.XTextAreaPeer", "XAWTScrollBarUI", $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$XAWTScrollBarButton", "sun.awt.X11.XTextAreaPeer", "XAWTScrollBarButton", $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$XAWTCaret", "sun.awt.X11.XTextAreaPeer", "XAWTCaret", $STATIC | $FINAL},
+		{"sun.awt.X11.XTextAreaPeer$AWTTextAreaUI", "sun.awt.X11.XTextAreaPeer", "AWTTextAreaUI", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XTextAreaPeer",
+		"sun.awt.X11.XComponentPeer",
+		"java.awt.peer.TextAreaPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XTextAreaPeer$1,sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler,sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer,sun.awt.X11.XTextAreaPeer$JavaMouseEventHandler$Pointer$Type,sun.awt.X11.XTextAreaPeer$BevelBorder,sun.awt.X11.XTextAreaPeer$AWTTextPane,sun.awt.X11.XTextAreaPeer$AWTTextPane$XAWTScrollBar,sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI,sun.awt.X11.XTextAreaPeer$XAWTScrollPaneUI$1,sun.awt.X11.XTextAreaPeer$AWTTextArea,sun.awt.X11.XTextAreaPeer$XAWTScrollBarUI,sun.awt.X11.XTextAreaPeer$XAWTScrollBarButton,sun.awt.X11.XTextAreaPeer$XAWTCaret,sun.awt.X11.XTextAreaPeer$AWTTextAreaUI"
+	};
+	$loadClass(XTextAreaPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XTextAreaPeer));
+	});
 	return class$;
 }
 

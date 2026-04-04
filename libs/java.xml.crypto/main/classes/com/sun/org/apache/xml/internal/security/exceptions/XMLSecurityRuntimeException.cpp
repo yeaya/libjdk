@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityRuntimeException.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/I18n.h>
 #include <java/text/MessageFormat.h>
@@ -23,38 +22,6 @@ namespace com {
 						namespace security {
 							namespace exceptions {
 
-$FieldInfo _XMLSecurityRuntimeException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSecurityRuntimeException, serialVersionUID)},
-	{"msgID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLSecurityRuntimeException, msgID)},
-	{}
-};
-
-$MethodInfo _XMLSecurityRuntimeException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $Exception*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $String*, $Exception*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $String*, $ObjectArray*, $Exception*)},
-	{"getMsgID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityRuntimeException, getMsgID, $String*)},
-	{"getOriginalException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityRuntimeException, getOriginalException, $Exception*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityRuntimeException, toString, $String*)},
-	{}
-};
-
-$ClassInfo _XMLSecurityRuntimeException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityRuntimeException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_XMLSecurityRuntimeException_FieldInfo_,
-	_XMLSecurityRuntimeException_MethodInfo_
-};
-
-$Object* allocate$XMLSecurityRuntimeException($Class* clazz) {
-	return $of($alloc(XMLSecurityRuntimeException));
-}
-
 void XMLSecurityRuntimeException::init$() {
 	$RuntimeException::init$("Missing message string"_s);
 	$set(this, msgID, nullptr);
@@ -66,16 +33,22 @@ void XMLSecurityRuntimeException::init$($String* msgID) {
 }
 
 void XMLSecurityRuntimeException::init$($String* msgID, $ObjectArray* exArgs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RuntimeException::init$($($MessageFormat::format($($I18n::getExceptionMessage(msgID)), exArgs)));
 	$set(this, msgID, msgID);
 }
 
 void XMLSecurityRuntimeException::init$($Exception* originalException) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Missing message ID to locate message string in resource bundle \""_s);
 	$init($Constants);
-	$var($String, var$0, $$str({"Missing message ID to locate message string in resource bundle \""_s, $Constants::exceptionMessagesResourceBundleBase, "\". Original Exception was a "_s, $($nc($of(originalException))->getClass()->getName()), " and message "_s}));
-	$RuntimeException::init$($$concat(var$0, $(originalException->getMessage())), originalException);
+	var$0->append($Constants::exceptionMessagesResourceBundleBase);
+	var$0->append("\". Original Exception was a "_s);
+	var$0->append($($nc($of(originalException))->getClass()->getName()));
+	var$0->append(" and message "_s);
+	var$0->append($(originalException->getMessage()));
+	$RuntimeException::init$($$str(var$0), originalException);
 }
 
 void XMLSecurityRuntimeException::init$($String* msgID, $Exception* originalException) {
@@ -84,7 +57,7 @@ void XMLSecurityRuntimeException::init$($String* msgID, $Exception* originalExce
 }
 
 void XMLSecurityRuntimeException::init$($String* msgID, $ObjectArray* exArgs, $Exception* originalException) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$RuntimeException::init$($($MessageFormat::format($($I18n::getExceptionMessage(msgID)), exArgs)), originalException);
 	$set(this, msgID, msgID);
 }
@@ -97,8 +70,8 @@ $String* XMLSecurityRuntimeException::getMsgID() {
 }
 
 $String* XMLSecurityRuntimeException::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, s, $of(this)->getClass()->getName());
+	$useLocalObjectStack();
+	$var($String, s, this->getClass()->getName());
 	$var($String, message, $RuntimeException::getLocalizedMessage());
 	if (message != nullptr) {
 		$assign(message, $str({s, ": "_s, message}));
@@ -106,7 +79,7 @@ $String* XMLSecurityRuntimeException::toString() {
 		$assign(message, s);
 	}
 	if (this->getCause() != nullptr) {
-		$assign(message, $str({message, "\nOriginal Exception was "_s, $($nc($(this->getCause()))->toString())}));
+		$assign(message, $str({message, "\nOriginal Exception was "_s, $($$nc(this->getCause())->toString())}));
 	}
 	return message;
 }
@@ -129,7 +102,34 @@ void XMLSecurityRuntimeException::throw$() {
 }
 
 $Class* XMLSecurityRuntimeException::load$($String* name, bool initialize) {
-	$loadClass(XMLSecurityRuntimeException, name, initialize, &_XMLSecurityRuntimeException_ClassInfo_, allocate$XMLSecurityRuntimeException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XMLSecurityRuntimeException, serialVersionUID)},
+		{"msgID", "Ljava/lang/String;", nullptr, $PROTECTED, $field(XMLSecurityRuntimeException, msgID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $Exception*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $String*, $Exception*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;)V", nullptr, $PUBLIC, $method(XMLSecurityRuntimeException, init$, void, $String*, $ObjectArray*, $Exception*)},
+		{"getMsgID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityRuntimeException, getMsgID, $String*)},
+		{"getOriginalException", "()Ljava/lang/Exception;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityRuntimeException, getOriginalException, $Exception*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSecurityRuntimeException, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityRuntimeException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLSecurityRuntimeException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSecurityRuntimeException);
+	});
 	return class$;
 }
 

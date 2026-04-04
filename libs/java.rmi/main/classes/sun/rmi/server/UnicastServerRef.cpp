@@ -1,5 +1,4 @@
 #include <sun/rmi/server/UnicastServerRef.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectInputFilter.h>
@@ -41,7 +40,6 @@
 #include <java/util/WeakHashMap.h>
 #include <java/util/logging/Level.h>
 #include <sun/rmi/runtime/Log.h>
-#include <sun/rmi/server/Dispatcher.h>
 #include <sun/rmi/server/MarshalInputStream.h>
 #include <sun/rmi/server/UnicastRef.h>
 #include <sun/rmi/server/UnicastServerRef$HashToMethod_Maps.h>
@@ -88,13 +86,11 @@ using $ServerError = ::java::rmi::ServerError;
 using $ServerException = ::java::rmi::ServerException;
 using $UnmarshalException = ::java::rmi::UnmarshalException;
 using $ExportException = ::java::rmi::server::ExportException;
-using $ObjID = ::java::rmi::server::ObjID;
 using $RemoteCall = ::java::rmi::server::RemoteCall;
 using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $RemoteStub = ::java::rmi::server::RemoteStub;
 using $ServerNotActiveException = ::java::rmi::server::ServerNotActiveException;
-using $Skeleton = ::java::rmi::server::Skeleton;
 using $SkeletonNotFoundException = ::java::rmi::server::SkeletonNotFoundException;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
@@ -103,7 +99,6 @@ using $Date = ::java::util::Date;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $Log = ::sun::rmi::runtime::Log;
-using $Dispatcher = ::sun::rmi::server::Dispatcher;
 using $MarshalInputStream = ::sun::rmi::server::MarshalInputStream;
 using $UnicastRef = ::sun::rmi::server::UnicastRef;
 using $UnicastServerRef$HashToMethod_Maps = ::sun::rmi::server::UnicastServerRef$HashToMethod_Maps;
@@ -126,27 +121,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(UnicastServerRef::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UnicastServerRef$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UnicastServerRef$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo UnicastServerRef$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* UnicastServerRef$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(UnicastServerRef$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnicastServerRef$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicastServerRef$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* UnicastServerRef$$Lambda$lambda$static$0::class$ = nullptr;
@@ -159,27 +151,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(UnicastServerRef::lambda$static$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UnicastServerRef$$Lambda$lambda$static$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UnicastServerRef$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo UnicastServerRef$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* UnicastServerRef$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(UnicastServerRef$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnicastServerRef$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicastServerRef$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* UnicastServerRef$$Lambda$lambda$static$1$1::class$ = nullptr;
@@ -192,27 +181,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(UnicastServerRef::lambda$static$2());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UnicastServerRef$$Lambda$lambda$static$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UnicastServerRef$$Lambda$lambda$static$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$2$2, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$2$2, run, $Object*)},
-	{}
-};
-$ClassInfo UnicastServerRef$$Lambda$lambda$static$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$2$2",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* UnicastServerRef$$Lambda$lambda$static$2$2::load$($String* name, bool initialize) {
-	$loadClass(UnicastServerRef$$Lambda$lambda$static$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$static$2$2, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$static$2$2, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$2$2",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UnicastServerRef$$Lambda$lambda$static$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicastServerRef$$Lambda$lambda$static$2$2);
+	});
 	return class$;
 }
 $Class* UnicastServerRef$$Lambda$lambda$static$2$2::class$ = nullptr;
@@ -225,118 +211,36 @@ public:
 		$set(this, ois, ois);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$unmarshalCustomCallData$3(ois));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3>());
+		 return $nc(inst$)->lambda$unmarshalCustomCallData$3(ois);
 	}
 	UnicastServerRef* inst$ = nullptr;
 	$ObjectInputStream* ois = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, inst$)},
-	{"ois", "Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $field(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, ois)},
-	{}
-};
-$MethodInfo UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/server/UnicastServerRef;Ljava/io/ObjectInputStream;)V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, init$, void, UnicastServerRef*, $ObjectInputStream*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, run, $Object*)},
-	{}
-};
-$ClassInfo UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::load$($String* name, bool initialize) {
-	$loadClass(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, inst$)},
+		{"ois", "Ljava/io/ObjectInputStream;", nullptr, $PUBLIC, $field(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, ois)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/server/UnicastServerRef;Ljava/io/ObjectInputStream;)V", nullptr, $PUBLIC, $method(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, init$, void, UnicastServerRef*, $ObjectInputStream*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3);
+	});
 	return class$;
 }
 $Class* UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::class$ = nullptr;
-
-$FieldInfo _UnicastServerRef_FieldInfo_[] = {
-	{"logCalls", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UnicastServerRef, logCalls)},
-	{"callLog", "Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UnicastServerRef, callLog)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnicastServerRef, serialVersionUID)},
-	{"wantExceptionLog", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnicastServerRef, wantExceptionLog)},
-	{"forceStubUse", "Z", nullptr, $PRIVATE, $field(UnicastServerRef, forceStubUse)},
-	{"suppressStackTraces", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnicastServerRef, suppressStackTraces)},
-	{"skel", "Ljava/rmi/server/Skeleton;", nullptr, $PRIVATE | $TRANSIENT, $field(UnicastServerRef, skel)},
-	{"filter", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(UnicastServerRef, filter)},
-	{"hashToMethod_Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/reflect/Method;>;", $PRIVATE | $TRANSIENT, $field(UnicastServerRef, hashToMethod_Map)},
-	{"hashToMethod_Maps", "Lsun/rmi/server/WeakClassHashMap;", "Lsun/rmi/server/WeakClassHashMap<Ljava/util/Map<Ljava/lang/Long;Ljava/lang/reflect/Method;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnicastServerRef, hashToMethod_Maps)},
-	{"withoutSkeletons", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnicastServerRef, withoutSkeletons)},
-	{}
-};
-
-$MethodInfo _UnicastServerRef_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void)},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, $LiveRef*)},
-	{"<init>", "(Lsun/rmi/transport/LiveRef;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, $LiveRef*, $ObjectInputFilter*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, int32_t)},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, bool)},
-	{"clearStackTraces", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicastServerRef, clearStackTraces, void, $Throwable*)},
-	{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, dispatch, void, $Remote*, $RemoteCall*), "java.io.IOException"},
-	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, exportObject, $RemoteStub*, $Remote*, Object$*), "java.rmi.RemoteException"},
-	{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;Z)Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, exportObject, $Remote*, $Remote*, Object$*, bool), "java.rmi.RemoteException"},
-	{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
-	{"getClientRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef, getClientRef, $RemoteRef*)},
-	{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, getRefClass, $String*, $ObjectOutput*)},
-	{"*invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$0, $Boolean*)},
-	{"lambda$static$1", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$1, $Boolean*)},
-	{"lambda$static$2", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$2, $Boolean*)},
-	{"lambda$unmarshalCustomCallData$3", "(Ljava/io/ObjectInputStream;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(UnicastServerRef, lambda$unmarshalCustomCallData$3, $Void*, $ObjectInputStream*)},
-	{"logCall", "(Ljava/rmi/Remote;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(UnicastServerRef, logCall, void, $Remote*, Object$*)},
-	{"logCallException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(UnicastServerRef, logCallException, void, $Throwable*)},
-	{"*newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC},
-	{"oldDispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;I)V", nullptr, $PRIVATE, $method(UnicastServerRef, oldDispatch, void, $Remote*, $RemoteCall*, int32_t), "java.lang.Exception"},
-	{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"*remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC},
-	{"*remoteHashCode", "()I", nullptr, $PUBLIC},
-	{"*remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"setSkeleton", "(Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, setSkeleton, void, $Remote*), "java.rmi.RemoteException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unmarshalCustomCallData", "(Ljava/io/ObjectInput;)V", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef, unmarshalCustomCallData, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _UnicastServerRef_InnerClassesInfo_[] = {
-	{"sun.rmi.server.UnicastServerRef$HashToMethod_Maps", "sun.rmi.server.UnicastServerRef", "HashToMethod_Maps", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _UnicastServerRef_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.server.UnicastServerRef",
-	"sun.rmi.server.UnicastRef",
-	"java.rmi.server.ServerRef,sun.rmi.server.Dispatcher",
-	_UnicastServerRef_FieldInfo_,
-	_UnicastServerRef_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UnicastServerRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.server.UnicastServerRef$HashToMethod_Maps,sun.rmi.server.UnicastServerRef$HashToMethod_Maps$1"
-};
-
-$Object* allocate$UnicastServerRef($Class* clazz) {
-	return $of($alloc(UnicastServerRef));
-}
 
 $Object* UnicastServerRef::invoke($Remote* obj, $Method* method, $ObjectArray* params, int64_t opnum) {
 	 return this->$UnicastRef::invoke(obj, method, params, opnum);
@@ -432,7 +336,7 @@ $RemoteStub* UnicastServerRef::exportObject($Remote* impl, Object$* data) {
 }
 
 $Remote* UnicastServerRef::exportObject($Remote* impl, Object$* data, bool permanent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Class* implClass = $nc($of(impl))->getClass();
 	$var($Remote, stub, nullptr);
 	try {
@@ -445,7 +349,7 @@ $Remote* UnicastServerRef::exportObject($Remote* impl, Object$* data, bool perma
 	}
 	$var($Target, target, $new($Target, impl, this, stub, $($nc(this->ref)->getObjID()), permanent));
 	$nc(this->ref)->exportObject(target);
-	$set(this, hashToMethod_Map, $cast($Map, $nc(UnicastServerRef::hashToMethod_Maps)->get(implClass)));
+	$set(this, hashToMethod_Map, $cast($Map, UnicastServerRef::hashToMethod_Maps->get(implClass)));
 	return stub;
 }
 
@@ -458,143 +362,138 @@ void UnicastServerRef::setSkeleton($Remote* impl) {
 		try {
 			$set(this, skel, $Util::createSkeleton(impl));
 		} catch ($SkeletonNotFoundException& e) {
-			$nc(UnicastServerRef::withoutSkeletons)->put($nc($of(impl))->getClass(), nullptr);
+			UnicastServerRef::withoutSkeletons->put($of(impl)->getClass(), nullptr);
 		}
 	}
 }
 
 void UnicastServerRef::dispatch($Remote* obj, $RemoteCall* call) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int32_t num = 0;
 	int64_t op = 0;
-	{
-		$var($Throwable, var$0, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	bool return$1 = false;
+	try {
 		try {
+			$var($ObjectInput, in, nullptr);
 			try {
-				$var($ObjectInput, in, nullptr);
-				try {
-					$assign(in, $nc(call)->getInputStream());
-					num = $nc(in)->readInt();
-				} catch ($Exception& readEx) {
-					$throwNew($UnmarshalException, "error unmarshalling call header"_s, readEx);
-				}
-				if (this->skel != nullptr) {
-					oldDispatch(obj, call, num);
-					return$1 = true;
-					goto $finally;
-				} else if (num >= 0) {
-					$throwNew($UnmarshalException, "skeleton class not found but required for client version"_s);
-				}
-				try {
-					op = $nc(in)->readLong();
-				} catch ($Exception& readEx) {
-					$throwNew($UnmarshalException, "error unmarshalling call header"_s, readEx);
-				}
-				$var($MarshalInputStream, marshalStream, $cast($MarshalInputStream, in));
-				$nc(marshalStream)->skipDefaultResolveClass();
-				$var($Method, method, $cast($Method, $nc(this->hashToMethod_Map)->get($($Long::valueOf(op)))));
-				if (method == nullptr) {
-					$throwNew($UnmarshalException, "unrecognized method hash: method not supported by remote object"_s);
-				}
-				logCall(obj, method);
-				$var($ClassArray, types, $nc(method)->getParameterTypes());
-				$var($ObjectArray, params, $new($ObjectArray, $nc(types)->length));
-				{
-					$var($Throwable, var$2, nullptr);
-					try {
-						try {
-							unmarshalCustomCallData(in);
-							for (int32_t i = 0; i < types->length; ++i) {
-								params->set(i, $(unmarshalValue(types->get(i), in)));
-							}
-						} catch ($AccessException& aex) {
-							$nc(($cast($StreamRemoteCall, call)))->discardPendingRefs();
-							$throw(aex);
-						} catch ($IOException& e) {
-							$nc(($cast($StreamRemoteCall, call)))->discardPendingRefs();
-							$throwNew($UnmarshalException, "error unmarshalling arguments"_s, e);
-						} catch ($ClassNotFoundException& e) {
-							$nc(($cast($StreamRemoteCall, call)))->discardPendingRefs();
-							$throwNew($UnmarshalException, "error unmarshalling arguments"_s, e);
-						}
-					} catch ($Throwable& var$3) {
-						$assign(var$2, var$3);
-					} /*finally*/ {
-						$nc(call)->releaseInputStream();
-					}
-					if (var$2 != nullptr) {
-						$throw(var$2);
-					}
-				}
-				$var($Object, result, nullptr);
-				try {
-					$assign(result, method->invoke(obj, params));
-				} catch ($InvocationTargetException& e) {
-					$throw($(e->getTargetException()));
-				}
-				try {
-					$var($ObjectOutput, out, call->getResultStream(true));
-					$Class* rtype = method->getReturnType();
-					$init($Void);
-					if (rtype != $Void::TYPE) {
-						marshalValue(rtype, result, out);
-					}
-				} catch ($IOException& ex) {
-					$throwNew($MarshalException, "error marshalling return"_s, ex);
-				}
-			} catch ($Throwable& e) {
-				$var($Throwable, origEx, e);
-				logCallException(e);
-				$var($ObjectOutput, out, $nc(call)->getResultStream(false));
-				if ($instanceOf($Error, e)) {
-					$assign(e, $new($ServerError, "Error occurred in server thread"_s, $cast($Error, e)));
-				} else if ($instanceOf($RemoteException, e)) {
-					$assign(e, $new($ServerException, "RemoteException occurred in server thread"_s, $cast($Exception, e)));
-				}
-				if (UnicastServerRef::suppressStackTraces) {
-					clearStackTraces(e);
-				}
-				$nc(out)->writeObject(e);
-				if ($instanceOf($AccessException, origEx)) {
-					$throwNew($IOException, "Connection is not reusable"_s, origEx);
-				}
+				$assign(in, $nc(call)->getInputStream());
+				num = $nc(in)->readInt();
+			} catch ($Exception& readEx) {
+				$throwNew($UnmarshalException, "error unmarshalling call header"_s, readEx);
 			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} $finally: {
-			$nc(call)->releaseInputStream();
-			call->releaseOutputStream();
+			if (this->skel != nullptr) {
+				oldDispatch(obj, call, num);
+				return$1 = true;
+				goto $finally;
+			} else if (num >= 0) {
+				$throwNew($UnmarshalException, "skeleton class not found but required for client version"_s);
+			}
+			try {
+				op = $nc(in)->readLong();
+			} catch ($Exception& readEx) {
+				$throwNew($UnmarshalException, "error unmarshalling call header"_s, readEx);
+			}
+			$var($MarshalInputStream, marshalStream, $cast($MarshalInputStream, in));
+			$nc(marshalStream)->skipDefaultResolveClass();
+			$var($Method, method, $cast($Method, $nc(this->hashToMethod_Map)->get($($Long::valueOf(op)))));
+			if (method == nullptr) {
+				$throwNew($UnmarshalException, "unrecognized method hash: method not supported by remote object"_s);
+			}
+			logCall(obj, method);
+			$var($ClassArray, types, $nc(method)->getParameterTypes());
+			$var($ObjectArray, params, $new($ObjectArray, $nc(types)->length));
+			$var($Throwable, var$2, nullptr);
+			try {
+				try {
+					unmarshalCustomCallData(in);
+					for (int32_t i = 0; i < types->length; ++i) {
+						params->set(i, $(unmarshalValue(types->get(i), in)));
+					}
+				} catch ($AccessException& aex) {
+					$nc($cast($StreamRemoteCall, call))->discardPendingRefs();
+					$throw(aex);
+				} catch ($IOException& e) {
+					$nc($cast($StreamRemoteCall, call))->discardPendingRefs();
+					$throwNew($UnmarshalException, "error unmarshalling arguments"_s, e);
+				} catch ($ClassNotFoundException& e) {
+					$nc($cast($StreamRemoteCall, call))->discardPendingRefs();
+					$throwNew($UnmarshalException, "error unmarshalling arguments"_s, e);
+				}
+			} catch ($Throwable& var$3) {
+				$assign(var$2, var$3);
+			} /*finally*/ {
+				$nc(call)->releaseInputStream();
+			}
+			if (var$2 != nullptr) {
+				$throw(var$2);
+			}
+			$var($Object, result, nullptr);
+			try {
+				$assign(result, method->invoke(obj, params));
+			} catch ($InvocationTargetException& e) {
+				$throw($(e->getTargetException()));
+			}
+			try {
+				$var($ObjectOutput, out, $nc(call)->getResultStream(true));
+				$Class* rtype = method->getReturnType();
+				if (rtype != $Void::TYPE) {
+					marshalValue(rtype, result, out);
+				}
+			} catch ($IOException& ex) {
+				$throwNew($MarshalException, "error marshalling return"_s, ex);
+			}
+		} catch ($Throwable& e) {
+			$var($Throwable, origEx, e);
+			logCallException(e);
+			$var($ObjectOutput, out, $nc(call)->getResultStream(false));
+			if ($instanceOf($Error, e)) {
+				$assign(e, $new($ServerError, "Error occurred in server thread"_s, $cast($Error, e)));
+			} else if ($instanceOf($RemoteException, e)) {
+				$assign(e, $new($ServerException, "RemoteException occurred in server thread"_s, $cast($Exception, e)));
+			}
+			if (UnicastServerRef::suppressStackTraces) {
+				clearStackTraces(e);
+			}
+			$nc(out)->writeObject(e);
+			if ($instanceOf($AccessException, origEx)) {
+				$throwNew($IOException, "Connection is not reusable"_s, origEx);
+			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return;
-		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} $finally: {
+		$nc(call)->releaseInputStream();
+		call->releaseOutputStream();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return;
 	}
 }
 
 void UnicastServerRef::unmarshalCustomCallData($ObjectInput* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (this->filter != nullptr && $instanceOf($ObjectInputStream, in)) {
 		$var($ObjectInputStream, ois, $cast($ObjectInputStream, in));
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, this, ois)));
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3, this, ois)));
 	}
 }
 
 void UnicastServerRef::oldDispatch($Remote* obj, $RemoteCall* call, int32_t op) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	int64_t hash = 0;
 	$var($ObjectInput, in, nullptr);
 	$assign(in, $nc(call)->getInputStream());
 	try {
 		$Class* clazz = $Class::forName("sun.rmi.transport.DGCImpl_Skel"_s);
-		if ($nc(clazz)->isAssignableFrom($nc($of(this->skel))->getClass())) {
-			$nc(($cast($MarshalInputStream, in)))->useCodebaseOnly();
+		if (clazz->isAssignableFrom($nc(this->skel)->getClass())) {
+			$nc($cast($MarshalInputStream, in))->useCodebaseOnly();
 		}
 	} catch ($ClassNotFoundException& ignore) {
 	}
@@ -604,14 +503,14 @@ void UnicastServerRef::oldDispatch($Remote* obj, $RemoteCall* call, int32_t op) 
 		$throwNew($UnmarshalException, "error unmarshalling call header"_s, ioe);
 	}
 	$var($OperationArray, operations, $nc(this->skel)->getOperations());
-	logCall(obj, op >= 0 && op < $nc(operations)->length ? $of($nc(operations)->get(op)) : $of($$str({"op: "_s, $$str(op)})));
+	logCall(obj, op >= 0 && op < $nc(operations)->length ? $$of(operations->get(op)) : $$of($str({"op: "_s, $$str(op)})));
 	unmarshalCustomCallData(in);
 	$nc(this->skel)->dispatch(obj, call, op, hash);
 }
 
 void UnicastServerRef::clearStackTraces($Throwable* t$renamed) {
 	$init(UnicastServerRef);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Throwable, t, t$renamed);
 	$var($StackTraceElementArray, empty, $new($StackTraceElementArray, 0));
 	while (t != nullptr) {
@@ -621,7 +520,7 @@ void UnicastServerRef::clearStackTraces($Throwable* t$renamed) {
 }
 
 void UnicastServerRef::logCall($Remote* obj, Object$* method) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log);
 	if ($nc(UnicastServerRef::callLog)->isLoggable($Log::VERBOSE)) {
 		$var($String, clientHost, nullptr);
@@ -630,16 +529,21 @@ void UnicastServerRef::logCall($Remote* obj, Object$* method) {
 		} catch ($ServerNotActiveException& snae) {
 			$assign(clientHost, "(local)"_s);
 		}
-		$var($String, var$3, $$str({"["_s, clientHost, ": "_s, $($nc($of(obj))->getClass()->getName())}));
-		$var($String, var$2, $$concat(var$3, $($nc($($nc(this->ref)->getObjID()))->toString())));
-		$var($String, var$1, $$concat(var$2, ": "_s));
-		$var($String, var$0, $$concat(var$1, $(method)));
-		$nc(UnicastServerRef::callLog)->log($Log::VERBOSE, $$concat(var$0, "]"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("["_s);
+		var$0->append(clientHost);
+		var$0->append(": "_s);
+		var$0->append($($nc($of(obj))->getClass()->getName()));
+		var$0->append($($$nc($nc(this->ref)->getObjID())->toString()));
+		var$0->append(": "_s);
+		var$0->append(method);
+		var$0->append("]"_s);
+		UnicastServerRef::callLog->log($Log::VERBOSE, $$str(var$0));
 	}
 }
 
 void UnicastServerRef::logCallException($Throwable* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Log);
 	if ($nc(UnicastServerRef::callLog)->isLoggable($Log::BRIEF)) {
 		$var($String, clientHost, ""_s);
@@ -647,17 +551,21 @@ void UnicastServerRef::logCallException($Throwable* e) {
 			$assign(clientHost, $str({"["_s, $(getClientHost()), "] "_s}));
 		} catch ($ServerNotActiveException& snae) {
 		}
-		$nc(UnicastServerRef::callLog)->log($Log::BRIEF, $$str({clientHost, "exception: "_s}), e);
+		UnicastServerRef::callLog->log($Log::BRIEF, $$str({clientHost, "exception: "_s}), e);
 	}
 	if (UnicastServerRef::wantExceptionLog) {
 		$var($PrintStream, log, $System::err);
 		$synchronized(log) {
-			$nc(log)->println();
-			$var($String, var$3, $$str({"Exception dispatching call to "_s, $($nc(this->ref)->getObjID()), " in thread \""_s}));
-			$var($String, var$2, $$concat(var$3, $($($Thread::currentThread())->getName())));
-			$var($String, var$1, $$concat(var$2, "\" at "_s));
-			$var($String, var$0, $$concat(var$1, $(($new($Date)))));
-			log->println($$concat(var$0, ":"_s));
+			log->println();
+			$var($StringBuilder, var$0, $new($StringBuilder));
+			var$0->append("Exception dispatching call to "_s);
+			var$0->append($($nc(this->ref)->getObjID()));
+			var$0->append(" in thread \""_s);
+			var$0->append($($($Thread::currentThread())->getName()));
+			var$0->append("\" at "_s);
+			var$0->append($$new($Date));
+			var$0->append(":"_s);
+			log->println($$str(var$0));
 			$nc(e)->printStackTrace(log);
 		}
 	}
@@ -699,13 +607,13 @@ $Boolean* UnicastServerRef::lambda$static$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("java.rmi.server.logCalls"_s));
 }
 
-void clinit$UnicastServerRef($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void UnicastServerRef::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	UnicastServerRef::logCalls = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(UnicastServerRef$$Lambda$lambda$static$0)))))))->booleanValue();
+	UnicastServerRef::logCalls = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(UnicastServerRef$$Lambda$lambda$static$0))))->booleanValue();
 	$assignStatic(UnicastServerRef::callLog, $Log::getLog("sun.rmi.server.call"_s, "RMI"_s, UnicastServerRef::logCalls));
-	UnicastServerRef::wantExceptionLog = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(UnicastServerRef$$Lambda$lambda$static$1$1)))))))->booleanValue();
-	UnicastServerRef::suppressStackTraces = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(UnicastServerRef$$Lambda$lambda$static$2$2)))))))->booleanValue();
+	UnicastServerRef::wantExceptionLog = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(UnicastServerRef$$Lambda$lambda$static$1$1))))->booleanValue();
+	UnicastServerRef::suppressStackTraces = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(UnicastServerRef$$Lambda$lambda$static$2$2))))->booleanValue();
 	$assignStatic(UnicastServerRef::hashToMethod_Maps, $new($UnicastServerRef$HashToMethod_Maps));
 	$assignStatic(UnicastServerRef::withoutSkeletons, $Collections::synchronizedMap($$new($WeakHashMap)));
 }
@@ -715,20 +623,92 @@ UnicastServerRef::UnicastServerRef() {
 
 $Class* UnicastServerRef::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(UnicastServerRef$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$0")) {
 			return UnicastServerRef$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(UnicastServerRef$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$1$1")) {
 			return UnicastServerRef$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
-		if (name->equals(UnicastServerRef$$Lambda$lambda$static$2$2::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.UnicastServerRef$$Lambda$lambda$static$2$2")) {
 			return UnicastServerRef$$Lambda$lambda$static$2$2::load$(name, initialize);
 		}
-		if (name->equals(UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3")) {
 			return UnicastServerRef$$Lambda$lambda$unmarshalCustomCallData$3$3::load$(name, initialize);
 		}
 	}
-	$loadClass(UnicastServerRef, name, initialize, &_UnicastServerRef_ClassInfo_, clinit$UnicastServerRef, allocate$UnicastServerRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"logCalls", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UnicastServerRef, logCalls)},
+		{"callLog", "Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(UnicastServerRef, callLog)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(UnicastServerRef, serialVersionUID)},
+		{"wantExceptionLog", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnicastServerRef, wantExceptionLog)},
+		{"forceStubUse", "Z", nullptr, $PRIVATE, $field(UnicastServerRef, forceStubUse)},
+		{"suppressStackTraces", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UnicastServerRef, suppressStackTraces)},
+		{"skel", "Ljava/rmi/server/Skeleton;", nullptr, $PRIVATE | $TRANSIENT, $field(UnicastServerRef, skel)},
+		{"filter", "Ljava/io/ObjectInputFilter;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(UnicastServerRef, filter)},
+		{"hashToMethod_Map", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Long;Ljava/lang/reflect/Method;>;", $PRIVATE | $TRANSIENT, $field(UnicastServerRef, hashToMethod_Map)},
+		{"hashToMethod_Maps", "Lsun/rmi/server/WeakClassHashMap;", "Lsun/rmi/server/WeakClassHashMap<Ljava/util/Map<Ljava/lang/Long;Ljava/lang/reflect/Method;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnicastServerRef, hashToMethod_Maps)},
+		{"withoutSkeletons", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;*>;", $PRIVATE | $STATIC | $FINAL, $staticField(UnicastServerRef, withoutSkeletons)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*done", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void)},
+		{"<init>", "(Lsun/rmi/transport/LiveRef;)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, $LiveRef*)},
+		{"<init>", "(Lsun/rmi/transport/LiveRef;Ljava/io/ObjectInputFilter;)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, $LiveRef*, $ObjectInputFilter*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, int32_t)},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(UnicastServerRef, init$, void, bool)},
+		{"clearStackTraces", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UnicastServerRef, clearStackTraces, void, $Throwable*)},
+		{"dispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, dispatch, void, $Remote*, $RemoteCall*), "java.io.IOException"},
+		{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;)Ljava/rmi/server/RemoteStub;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, exportObject, $RemoteStub*, $Remote*, Object$*), "java.rmi.RemoteException"},
+		{"exportObject", "(Ljava/rmi/Remote;Ljava/lang/Object;Z)Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, exportObject, $Remote*, $Remote*, Object$*, bool), "java.rmi.RemoteException"},
+		{"getClientHost", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, getClientHost, $String*), "java.rmi.server.ServerNotActiveException"},
+		{"getClientRef", "()Ljava/rmi/server/RemoteRef;", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef, getClientRef, $RemoteRef*)},
+		{"getRefClass", "(Ljava/io/ObjectOutput;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, getRefClass, $String*, $ObjectOutput*)},
+		{"*invoke", "(Ljava/rmi/Remote;Ljava/lang/reflect/Method;[Ljava/lang/Object;J)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*invoke", "(Ljava/rmi/server/RemoteCall;)V", nullptr, $PUBLIC},
+		{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$0, $Boolean*)},
+		{"lambda$static$1", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$1, $Boolean*)},
+		{"lambda$static$2", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UnicastServerRef, lambda$static$2, $Boolean*)},
+		{"lambda$unmarshalCustomCallData$3", "(Ljava/io/ObjectInputStream;)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(UnicastServerRef, lambda$unmarshalCustomCallData$3, $Void*, $ObjectInputStream*)},
+		{"logCall", "(Ljava/rmi/Remote;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(UnicastServerRef, logCall, void, $Remote*, Object$*)},
+		{"logCallException", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(UnicastServerRef, logCallException, void, $Throwable*)},
+		{"*newCall", "(Ljava/rmi/server/RemoteObject;[Ljava/rmi/server/Operation;IJ)Ljava/rmi/server/RemoteCall;", nullptr, $PUBLIC},
+		{"oldDispatch", "(Ljava/rmi/Remote;Ljava/rmi/server/RemoteCall;I)V", nullptr, $PRIVATE, $method(UnicastServerRef, oldDispatch, void, $Remote*, $RemoteCall*, int32_t), "java.lang.Exception"},
+		{"readExternal", "(Ljava/io/ObjectInput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, readExternal, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"*remoteEquals", "(Ljava/rmi/server/RemoteRef;)Z", nullptr, $PUBLIC},
+		{"*remoteHashCode", "()I", nullptr, $PUBLIC},
+		{"*remoteToString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"setSkeleton", "(Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, setSkeleton, void, $Remote*), "java.rmi.RemoteException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unmarshalCustomCallData", "(Ljava/io/ObjectInput;)V", nullptr, $PROTECTED, $virtualMethod(UnicastServerRef, unmarshalCustomCallData, void, $ObjectInput*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"writeExternal", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $virtualMethod(UnicastServerRef, writeExternal, void, $ObjectOutput*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.server.UnicastServerRef$HashToMethod_Maps", "sun.rmi.server.UnicastServerRef", "HashToMethod_Maps", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.server.UnicastServerRef",
+		"sun.rmi.server.UnicastRef",
+		"java.rmi.server.ServerRef,sun.rmi.server.Dispatcher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.server.UnicastServerRef$HashToMethod_Maps,sun.rmi.server.UnicastServerRef$HashToMethod_Maps$1"
+	};
+	$loadClass(UnicastServerRef, name, initialize, &classInfo$$, UnicastServerRef::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UnicastServerRef));
+	});
 	return class$;
 }
 

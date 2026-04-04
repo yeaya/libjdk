@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Analyzer$TreeRewriter.h>
-
 #include <com/sun/source/tree/VariableTree.h>
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/comp/Analyzer$AnalyzerCopier.h>
@@ -34,48 +33,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Analyzer$TreeRewriter_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$TreeRewriter, this$0)},
-	{"rewriting", "Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;", nullptr, 0, $field(Analyzer$TreeRewriter, rewriting)},
-	{"wrappedTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$TreeRewriter, wrappedTree)},
-	{}
-};
-
-$MethodInfo _Analyzer$TreeRewriter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(Analyzer$TreeRewriter, init$, void, $Analyzer*, $Analyzer$RewritingContext*, $JCTree*)},
-	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", "<Z:Lcom/sun/tools/javac/tree/JCTree;>(TZ;Ljava/lang/Void;)TZ;", $PUBLIC, $virtualMethod(Analyzer$TreeRewriter, copy, $JCTree*, $JCTree*, $Void*)},
-	{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$TreeRewriter, copy, $JCTree*, $JCTree*, Object$*)},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(Analyzer$TreeRewriter, visitVariable, $JCTree*, $VariableTree*, $Void*)},
-	{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$TreeRewriter, visitVariable, $Object*, $VariableTree*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Analyzer$TreeRewriter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Analyzer$TreeRewriter", "com.sun.tools.javac.comp.Analyzer", "TreeRewriter", 0},
-	{"com.sun.tools.javac.comp.Analyzer$AnalyzerCopier", "com.sun.tools.javac.comp.Analyzer", "AnalyzerCopier", 0},
-	{}
-};
-
-$ClassInfo _Analyzer$TreeRewriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Analyzer$TreeRewriter",
-	"com.sun.tools.javac.comp.Analyzer$AnalyzerCopier",
-	nullptr,
-	_Analyzer$TreeRewriter_FieldInfo_,
-	_Analyzer$TreeRewriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Analyzer$TreeRewriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Analyzer"
-};
-
-$Object* allocate$Analyzer$TreeRewriter($Class* clazz) {
-	return $of($alloc(Analyzer$TreeRewriter));
-}
-
 void Analyzer$TreeRewriter::init$($Analyzer* this$0, $Analyzer$RewritingContext* rewriting, $JCTree* wrappedTree) {
 	$set(this, this$0, this$0);
 	$Analyzer$AnalyzerCopier::init$(this$0);
@@ -84,9 +41,9 @@ void Analyzer$TreeRewriter::init$($Analyzer* this$0, $Analyzer$RewritingContext*
 }
 
 $JCTree* Analyzer$TreeRewriter::copy($JCTree* tree, $Void* _unused) {
-	$var($JCTree, newTree, $Analyzer$AnalyzerCopier::copy(tree, ($Object*)nullptr));
+	$var($JCTree, newTree, $Analyzer$AnalyzerCopier::copy(tree, nullptr));
 	if (tree != nullptr && tree == $nc(this->rewriting)->oldTree) {
-		$Assert::checkNonNull($nc(this->rewriting)->replacement);
+		$Assert::checkNonNull(this->rewriting->replacement);
 		$assign(newTree, $nc(this->rewriting)->replacement);
 	}
 	return newTree;
@@ -95,7 +52,7 @@ $JCTree* Analyzer$TreeRewriter::copy($JCTree* tree, $Void* _unused) {
 $JCTree* Analyzer$TreeRewriter::visitVariable($VariableTree* node, $Void* p) {
 	$var($JCTree, result, $cast($JCTree, $Analyzer$AnalyzerCopier::visitVariable(node, p)));
 	if ($equals(node, this->wrappedTree)) {
-		$nc($nc(($cast($JCTree$JCVariableDecl, result)))->mods)->flags &= (uint64_t)$Flags::FINAL;
+		$nc($nc($cast($JCTree$JCVariableDecl, result))->mods)->flags &= (uint64_t)$Flags::FINAL;
 	}
 	return result;
 }
@@ -112,7 +69,43 @@ Analyzer$TreeRewriter::Analyzer$TreeRewriter() {
 }
 
 $Class* Analyzer$TreeRewriter::load$($String* name, bool initialize) {
-	$loadClass(Analyzer$TreeRewriter, name, initialize, &_Analyzer$TreeRewriter_ClassInfo_, allocate$Analyzer$TreeRewriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Analyzer;", nullptr, $FINAL | $SYNTHETIC, $field(Analyzer$TreeRewriter, this$0)},
+		{"rewriting", "Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;", nullptr, 0, $field(Analyzer$TreeRewriter, rewriting)},
+		{"wrappedTree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, 0, $field(Analyzer$TreeRewriter, wrappedTree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Analyzer;Lcom/sun/tools/javac/comp/Analyzer$RewritingContext;Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $method(Analyzer$TreeRewriter, init$, void, $Analyzer*, $Analyzer$RewritingContext*, $JCTree*)},
+		{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", "<Z:Lcom/sun/tools/javac/tree/JCTree;>(TZ;Ljava/lang/Void;)TZ;", $PUBLIC, $virtualMethod(Analyzer$TreeRewriter, copy, $JCTree*, $JCTree*, $Void*)},
+		{"copy", "(Lcom/sun/tools/javac/tree/JCTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$TreeRewriter, copy, $JCTree*, $JCTree*, Object$*)},
+		{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Void;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(Analyzer$TreeRewriter, visitVariable, $JCTree*, $VariableTree*, $Void*)},
+		{"visitVariable", "(Lcom/sun/source/tree/VariableTree;Ljava/lang/Object;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Analyzer$TreeRewriter, visitVariable, $Object*, $VariableTree*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Analyzer$TreeRewriter", "com.sun.tools.javac.comp.Analyzer", "TreeRewriter", 0},
+		{"com.sun.tools.javac.comp.Analyzer$AnalyzerCopier", "com.sun.tools.javac.comp.Analyzer", "AnalyzerCopier", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Analyzer$TreeRewriter",
+		"com.sun.tools.javac.comp.Analyzer$AnalyzerCopier",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Analyzer"
+	};
+	$loadClass(Analyzer$TreeRewriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Analyzer$TreeRewriter);
+	});
 	return class$;
 }
 

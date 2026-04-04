@@ -1,5 +1,4 @@
 #include <javax/annotation/processing/FilerException.h>
-
 #include <java/io/IOException.h>
 #include <jcpp.h>
 
@@ -11,29 +10,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace annotation {
 		namespace processing {
-
-$FieldInfo _FilerException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FilerException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _FilerException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FilerException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _FilerException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.annotation.processing.FilerException",
-	"java.io.IOException",
-	nullptr,
-	_FilerException_FieldInfo_,
-	_FilerException_MethodInfo_
-};
-
-$Object* allocate$FilerException($Class* clazz) {
-	return $of($alloc(FilerException));
-}
 
 void FilerException::init$($String* s) {
 	$IOException::init$(s);
@@ -50,7 +26,25 @@ void FilerException::throw$() {
 }
 
 $Class* FilerException::load$($String* name, bool initialize) {
-	$loadClass(FilerException, name, initialize, &_FilerException_ClassInfo_, allocate$FilerException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(FilerException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(FilerException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.annotation.processing.FilerException",
+		"java.io.IOException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FilerException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilerException);
+	});
 	return class$;
 }
 

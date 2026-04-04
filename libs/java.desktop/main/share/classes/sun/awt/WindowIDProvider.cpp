@@ -1,5 +1,4 @@
 #include <sun/awt/WindowIDProvider.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,26 +7,22 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _WindowIDProvider_MethodInfo_[] = {
-	{"getWindow", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WindowIDProvider, getWindow, int64_t)},
-	{}
-};
-
-$ClassInfo _WindowIDProvider_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.WindowIDProvider",
-	nullptr,
-	nullptr,
-	nullptr,
-	_WindowIDProvider_MethodInfo_
-};
-
-$Object* allocate$WindowIDProvider($Class* clazz) {
-	return $of($alloc(WindowIDProvider));
-}
-
 $Class* WindowIDProvider::load$($String* name, bool initialize) {
-	$loadClass(WindowIDProvider, name, initialize, &_WindowIDProvider_ClassInfo_, allocate$WindowIDProvider);
+	$MethodInfo methodInfos$$[] = {
+		{"getWindow", "()J", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WindowIDProvider, getWindow, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.WindowIDProvider",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowIDProvider, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowIDProvider);
+	});
 	return class$;
 }
 

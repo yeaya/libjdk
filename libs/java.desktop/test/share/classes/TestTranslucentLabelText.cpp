@@ -1,5 +1,4 @@
 #include <TestTranslucentLabelText.h>
-
 #include <TestTranslucentLabelText$1.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
@@ -8,7 +7,6 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/Font.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -42,10 +40,8 @@ using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -73,33 +69,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TestTranslucentLabelText::lambda$doTest$0(dialog, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTranslucentLabelText$$Lambda$lambda$doTest$0>());
-	}
 	$JDialog* dialog = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestTranslucentLabelText$$Lambda$lambda$doTest$0::fieldInfos[2] = {
-	{"dialog", "Ljavax/swing/JDialog;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$0, dialog)},
-	{}
-};
-$MethodInfo TestTranslucentLabelText$$Lambda$lambda$doTest$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JDialog;)V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$lambda$doTest$0, init$, void, $JDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$lambda$doTest$0, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestTranslucentLabelText$$Lambda$lambda$doTest$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTranslucentLabelText$$Lambda$lambda$doTest$0",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestTranslucentLabelText$$Lambda$lambda$doTest$0::load$($String* name, bool initialize) {
-	$loadClass(TestTranslucentLabelText$$Lambda$lambda$doTest$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"dialog", "Ljavax/swing/JDialog;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$0, dialog)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JDialog;)V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$lambda$doTest$0, init$, void, $JDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$lambda$doTest$0, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTranslucentLabelText$$Lambda$lambda$doTest$0",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestTranslucentLabelText$$Lambda$lambda$doTest$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTranslucentLabelText$$Lambda$lambda$doTest$0);
+	});
 	return class$;
 }
 $Class* TestTranslucentLabelText$$Lambda$lambda$doTest$0::class$ = nullptr;
@@ -113,33 +105,29 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TestTranslucentLabelText::lambda$doTest$1(dialog, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTranslucentLabelText$$Lambda$lambda$doTest$1$1>());
-	}
 	$JDialog* dialog = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestTranslucentLabelText$$Lambda$lambda$doTest$1$1::fieldInfos[2] = {
-	{"dialog", "Ljavax/swing/JDialog;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, dialog)},
-	{}
-};
-$MethodInfo TestTranslucentLabelText$$Lambda$lambda$doTest$1$1::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JDialog;)V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, init$, void, $JDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestTranslucentLabelText$$Lambda$lambda$doTest$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTranslucentLabelText$$Lambda$lambda$doTest$1$1",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestTranslucentLabelText$$Lambda$lambda$doTest$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"dialog", "Ljavax/swing/JDialog;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, dialog)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JDialog;)V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, init$, void, $JDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTranslucentLabelText$$Lambda$lambda$doTest$1$1",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1);
+	});
 	return class$;
 }
 $Class* TestTranslucentLabelText$$Lambda$lambda$doTest$1$1::class$ = nullptr;
@@ -156,39 +144,35 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		TestTranslucentLabelText::lambda$doTest$2(testButton, action, passButton, failButton, e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTranslucentLabelText$$Lambda$lambda$doTest$2$2>());
-	}
 	$JButton* testButton = nullptr;
 	$Runnable* action = nullptr;
 	$JButton* passButton = nullptr;
 	$JButton* failButton = nullptr;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestTranslucentLabelText$$Lambda$lambda$doTest$2$2::fieldInfos[5] = {
-	{"testButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, testButton)},
-	{"action", "Ljava/lang/Runnable;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, action)},
-	{"passButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, passButton)},
-	{"failButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, failButton)},
-	{}
-};
-$MethodInfo TestTranslucentLabelText$$Lambda$lambda$doTest$2$2::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/JButton;Ljava/lang/Runnable;Ljavax/swing/JButton;Ljavax/swing/JButton;)V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, init$, void, $JButton*, $Runnable*, $JButton*, $JButton*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo TestTranslucentLabelText$$Lambda$lambda$doTest$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTranslucentLabelText$$Lambda$lambda$doTest$2$2",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestTranslucentLabelText$$Lambda$lambda$doTest$2$2::load$($String* name, bool initialize) {
-	$loadClass(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"testButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, testButton)},
+		{"action", "Ljava/lang/Runnable;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, action)},
+		{"passButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, passButton)},
+		{"failButton", "Ljavax/swing/JButton;", nullptr, $PUBLIC, $field(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, failButton)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JButton;Ljava/lang/Runnable;Ljavax/swing/JButton;Ljavax/swing/JButton;)V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, init$, void, $JButton*, $Runnable*, $JButton*, $JButton*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTranslucentLabelText$$Lambda$lambda$doTest$2$2",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2);
+	});
 	return class$;
 }
 $Class* TestTranslucentLabelText$$Lambda$lambda$doTest$2$2::class$ = nullptr;
@@ -201,27 +185,24 @@ public:
 	virtual void run() override {
 		TestTranslucentLabelText::lambda$main$3();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTranslucentLabelText$$Lambda$lambda$main$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestTranslucentLabelText$$Lambda$lambda$main$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$lambda$main$3$3, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$lambda$main$3$3, run, void)},
-	{}
-};
-$ClassInfo TestTranslucentLabelText$$Lambda$lambda$main$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTranslucentLabelText$$Lambda$lambda$main$3$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestTranslucentLabelText$$Lambda$lambda$main$3$3::load$($String* name, bool initialize) {
-	$loadClass(TestTranslucentLabelText$$Lambda$lambda$main$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$lambda$main$3$3, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$lambda$main$3$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTranslucentLabelText$$Lambda$lambda$main$3$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestTranslucentLabelText$$Lambda$lambda$main$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTranslucentLabelText$$Lambda$lambda$main$3$3);
+	});
 	return class$;
 }
 $Class* TestTranslucentLabelText$$Lambda$lambda$main$3$3::class$ = nullptr;
@@ -234,82 +215,27 @@ public:
 	virtual void run() override {
 		TestTranslucentLabelText::runTest();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestTranslucentLabelText$$Lambda$runTest$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestTranslucentLabelText$$Lambda$runTest$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$runTest$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$runTest$4, run, void)},
-	{}
-};
-$ClassInfo TestTranslucentLabelText$$Lambda$runTest$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestTranslucentLabelText$$Lambda$runTest$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestTranslucentLabelText$$Lambda$runTest$4::load$($String* name, bool initialize) {
-	$loadClass(TestTranslucentLabelText$$Lambda$runTest$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTranslucentLabelText$$Lambda$runTest$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestTranslucentLabelText$$Lambda$runTest$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestTranslucentLabelText$$Lambda$runTest$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestTranslucentLabelText$$Lambda$runTest$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTranslucentLabelText$$Lambda$runTest$4);
+	});
 	return class$;
 }
 $Class* TestTranslucentLabelText$$Lambda$runTest$4::class$ = nullptr;
-
-$FieldInfo _TestTranslucentLabelText_FieldInfo_[] = {
-	{"background", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, background)},
-	{"foreground", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, foreground)},
-	{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, font)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, frame)},
-	{"testResult", "Z", nullptr, $STATIC, $staticField(TestTranslucentLabelText, testResult)},
-	{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(TestTranslucentLabelText, latch)},
-	{"mainThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, mainThread)},
-	{"testPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, testPassed)},
-	{"testGeneratedInterrupt", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, testGeneratedInterrupt)},
-	{}
-};
-
-$MethodInfo _TestTranslucentLabelText_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestTranslucentLabelText, init$, void)},
-	{"create", "(Ljava/lang/String;)Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTranslucentLabelText, create, $JLabel*, $String*)},
-	{"doTest", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTranslucentLabelText, doTest, void, $Runnable*)},
-	{"fail", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TestTranslucentLabelText, fail, void)},
-	{"lambda$doTest$0", "(Ljavax/swing/JDialog;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTranslucentLabelText, lambda$doTest$0, void, $JDialog*, $ActionEvent*)},
-	{"lambda$doTest$1", "(Ljavax/swing/JDialog;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTranslucentLabelText, lambda$doTest$1, void, $JDialog*, $ActionEvent*)},
-	{"lambda$doTest$2", "(Ljavax/swing/JButton;Ljava/lang/Runnable;Ljavax/swing/JButton;Ljavax/swing/JButton;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTranslucentLabelText, lambda$doTest$2, void, $JButton*, $Runnable*, $JButton*, $JButton*, $ActionEvent*)},
-	{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTranslucentLabelText, lambda$main$3, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTranslucentLabelText, main, void, $StringArray*), "java.lang.Exception"},
-	{"pass", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TestTranslucentLabelText, pass, void)},
-	{"runTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTranslucentLabelText, runTest, void)},
-	{}
-};
-
-$InnerClassInfo _TestTranslucentLabelText_InnerClassesInfo_[] = {
-	{"TestTranslucentLabelText$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestTranslucentLabelText_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestTranslucentLabelText",
-	"java.lang.Object",
-	nullptr,
-	_TestTranslucentLabelText_FieldInfo_,
-	_TestTranslucentLabelText_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestTranslucentLabelText_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestTranslucentLabelText$1"
-};
-
-$Object* allocate$TestTranslucentLabelText($Class* clazz) {
-	return $of($alloc(TestTranslucentLabelText));
-}
 
 $Color* TestTranslucentLabelText::background = nullptr;
 $Color* TestTranslucentLabelText::foreground = nullptr;
@@ -326,7 +252,7 @@ void TestTranslucentLabelText::init$() {
 
 void TestTranslucentLabelText::doTest($Runnable* action) {
 	$init(TestTranslucentLabelText);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, description, " A frame with 2 labels will be shown in middle of screen.\n Left side label text should be opaque.\n  Right side label text should be translucent.\n If Right side label text is translucent, press PASS else press FAIL"_s);
 	$var($JDialog, dialog, $new($JDialog));
 	dialog->setTitle("JLabelTranslucentTest"_s);
@@ -335,29 +261,27 @@ void TestTranslucentLabelText::doTest($Runnable* action) {
 	$var($JButton, testButton, $new($JButton, "Start Test"_s));
 	$var($JButton, passButton, $new($JButton, "PASS"_s));
 	passButton->setEnabled(false);
-	passButton->addActionListener(static_cast<$ActionListener*>($$new(TestTranslucentLabelText$$Lambda$lambda$doTest$0, dialog)));
+	passButton->addActionListener($$new(TestTranslucentLabelText$$Lambda$lambda$doTest$0, dialog));
 	$var($JButton, failButton, $new($JButton, "FAIL"_s));
 	failButton->setEnabled(false);
-	failButton->addActionListener(static_cast<$ActionListener*>($$new(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, dialog)));
-	testButton->addActionListener(static_cast<$ActionListener*>($$new(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, testButton, action, passButton, failButton)));
-	$var($JPanel, mainPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout))));
-	$init($BorderLayout);
-	mainPanel->add(static_cast<$Component*>(textArea), $of($BorderLayout::CENTER));
-	$var($JPanel, buttonPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($FlowLayout))));
-	buttonPanel->add(static_cast<$Component*>(testButton));
-	buttonPanel->add(static_cast<$Component*>(passButton));
-	buttonPanel->add(static_cast<$Component*>(failButton));
-	mainPanel->add(static_cast<$Component*>(buttonPanel), $of($BorderLayout::SOUTH));
-	dialog->add(static_cast<$Component*>(mainPanel));
+	failButton->addActionListener($$new(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1, dialog));
+	testButton->addActionListener($$new(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2, testButton, action, passButton, failButton));
+	$var($JPanel, mainPanel, $new($JPanel, $$new($BorderLayout)));
+	mainPanel->add(textArea, $BorderLayout::CENTER);
+	$var($JPanel, buttonPanel, $new($JPanel, $$new($FlowLayout)));
+	buttonPanel->add(testButton);
+	buttonPanel->add(passButton);
+	buttonPanel->add(failButton);
+	mainPanel->add(buttonPanel, $BorderLayout::SOUTH);
+	dialog->add(mainPanel);
 	dialog->pack();
 	dialog->setVisible(true);
 	dialog->addWindowListener($$new($TestTranslucentLabelText$1));
 }
 
 void TestTranslucentLabelText::pass() {
-	$load(TestTranslucentLabelText);
+	$init(TestTranslucentLabelText);
 	$synchronized(class$) {
-		$init(TestTranslucentLabelText);
 		TestTranslucentLabelText::testPassed = true;
 		TestTranslucentLabelText::testGeneratedInterrupt = true;
 		$nc(TestTranslucentLabelText::mainThread)->interrupt();
@@ -365,9 +289,8 @@ void TestTranslucentLabelText::pass() {
 }
 
 void TestTranslucentLabelText::fail() {
-	$load(TestTranslucentLabelText);
+	$init(TestTranslucentLabelText);
 	$synchronized(class$) {
-		$init(TestTranslucentLabelText);
 		TestTranslucentLabelText::testPassed = false;
 		TestTranslucentLabelText::testGeneratedInterrupt = true;
 		$nc(TestTranslucentLabelText::mainThread)->interrupt();
@@ -376,22 +299,22 @@ void TestTranslucentLabelText::fail() {
 
 $JLabel* TestTranslucentLabelText::create($String* text) {
 	$init(TestTranslucentLabelText);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $new($JLabel, text));
 	label->setOpaque(true);
 	label->setBackground(TestTranslucentLabelText::background);
 	label->setForeground(TestTranslucentLabelText::foreground);
 	label->setFont(TestTranslucentLabelText::font);
 	label->setPreferredSize($$new($Dimension, 200, 40));
-	$nc(TestTranslucentLabelText::frame)->add(static_cast<$Component*>(label));
+	$nc(TestTranslucentLabelText::frame)->add(label);
 	return label;
 }
 
 void TestTranslucentLabelText::runTest() {
 	$init(TestTranslucentLabelText);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(TestTranslucentLabelText::frame, $new($JFrame));
-	$nc(TestTranslucentLabelText::frame)->setUndecorated(true);
+	TestTranslucentLabelText::frame->setUndecorated(true);
 	$nc(TestTranslucentLabelText::frame)->setLayout($$new($FlowLayout));
 	$var($JLabel, opqLabel, create("<html><p style=\"color:rgba(255, 0, 0, 1.00)\">TestLabel</p></html>"_s));
 	$var($JLabel, tranLabel, create("<html><p style=\"color:rgba(255, 0, 0, 0.5)\">TestLabel</p></html>"_s));
@@ -403,10 +326,10 @@ void TestTranslucentLabelText::runTest() {
 
 void TestTranslucentLabelText::main($StringArray* args) {
 	$init(TestTranslucentLabelText);
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestTranslucentLabelText$$Lambda$lambda$main$3$3)));
+	$SwingUtilities::invokeAndWait($$new(TestTranslucentLabelText$$Lambda$lambda$main$3$3));
 	$assignStatic(TestTranslucentLabelText::mainThread, $Thread::currentThread());
 	try {
-		$Thread::sleep(0x0002BF20);
+		$Thread::sleep(180000);
 	} catch ($InterruptedException& e) {
 		if (!TestTranslucentLabelText::testPassed && TestTranslucentLabelText::testGeneratedInterrupt) {
 			$throwNew($RuntimeException, "Label HTML text does not support translucent text colors"_s);
@@ -419,7 +342,7 @@ void TestTranslucentLabelText::main($StringArray* args) {
 
 void TestTranslucentLabelText::lambda$main$3() {
 	$init(TestTranslucentLabelText);
-	doTest(static_cast<$Runnable*>($$new(TestTranslucentLabelText$$Lambda$runTest$4)));
+	doTest($$new(TestTranslucentLabelText$$Lambda$runTest$4));
 }
 
 void TestTranslucentLabelText::lambda$doTest$2($JButton* testButton, $Runnable* action, $JButton* passButton, $JButton* failButton, $ActionEvent* e) {
@@ -444,7 +367,7 @@ void TestTranslucentLabelText::lambda$doTest$0($JDialog* dialog, $ActionEvent* e
 	pass();
 }
 
-void clinit$TestTranslucentLabelText($Class* class$) {
+void TestTranslucentLabelText::clinit$($Class* clazz) {
 	$assignStatic(TestTranslucentLabelText::background, $new($Color, 0, 150, 0));
 	$assignStatic(TestTranslucentLabelText::foreground, $new($Color, 255, 255, 255, 120));
 	$assignStatic(TestTranslucentLabelText::font, $new($Font, "Sans Serif"_s, $Font::PLAIN, 24));
@@ -455,23 +378,69 @@ TestTranslucentLabelText::TestTranslucentLabelText() {
 
 $Class* TestTranslucentLabelText::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestTranslucentLabelText$$Lambda$lambda$doTest$0::classInfo$.name)) {
+		if (name->equals("TestTranslucentLabelText$$Lambda$lambda$doTest$0")) {
 			return TestTranslucentLabelText$$Lambda$lambda$doTest$0::load$(name, initialize);
 		}
-		if (name->equals(TestTranslucentLabelText$$Lambda$lambda$doTest$1$1::classInfo$.name)) {
+		if (name->equals("TestTranslucentLabelText$$Lambda$lambda$doTest$1$1")) {
 			return TestTranslucentLabelText$$Lambda$lambda$doTest$1$1::load$(name, initialize);
 		}
-		if (name->equals(TestTranslucentLabelText$$Lambda$lambda$doTest$2$2::classInfo$.name)) {
+		if (name->equals("TestTranslucentLabelText$$Lambda$lambda$doTest$2$2")) {
 			return TestTranslucentLabelText$$Lambda$lambda$doTest$2$2::load$(name, initialize);
 		}
-		if (name->equals(TestTranslucentLabelText$$Lambda$lambda$main$3$3::classInfo$.name)) {
+		if (name->equals("TestTranslucentLabelText$$Lambda$lambda$main$3$3")) {
 			return TestTranslucentLabelText$$Lambda$lambda$main$3$3::load$(name, initialize);
 		}
-		if (name->equals(TestTranslucentLabelText$$Lambda$runTest$4::classInfo$.name)) {
+		if (name->equals("TestTranslucentLabelText$$Lambda$runTest$4")) {
 			return TestTranslucentLabelText$$Lambda$runTest$4::load$(name, initialize);
 		}
 	}
-	$loadClass(TestTranslucentLabelText, name, initialize, &_TestTranslucentLabelText_ClassInfo_, clinit$TestTranslucentLabelText, allocate$TestTranslucentLabelText);
+	$FieldInfo fieldInfos$$[] = {
+		{"background", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, background)},
+		{"foreground", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, foreground)},
+		{"font", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, font)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, frame)},
+		{"testResult", "Z", nullptr, $STATIC, $staticField(TestTranslucentLabelText, testResult)},
+		{"latch", "Ljava/util/concurrent/CountDownLatch;", nullptr, $STATIC, $staticField(TestTranslucentLabelText, latch)},
+		{"mainThread", "Ljava/lang/Thread;", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, mainThread)},
+		{"testPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, testPassed)},
+		{"testGeneratedInterrupt", "Z", nullptr, $PRIVATE | $STATIC, $staticField(TestTranslucentLabelText, testGeneratedInterrupt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestTranslucentLabelText, init$, void)},
+		{"create", "(Ljava/lang/String;)Ljavax/swing/JLabel;", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTranslucentLabelText, create, $JLabel*, $String*)},
+		{"doTest", "(Ljava/lang/Runnable;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTranslucentLabelText, doTest, void, $Runnable*)},
+		{"fail", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TestTranslucentLabelText, fail, void)},
+		{"lambda$doTest$0", "(Ljavax/swing/JDialog;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTranslucentLabelText, lambda$doTest$0, void, $JDialog*, $ActionEvent*)},
+		{"lambda$doTest$1", "(Ljavax/swing/JDialog;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTranslucentLabelText, lambda$doTest$1, void, $JDialog*, $ActionEvent*)},
+		{"lambda$doTest$2", "(Ljavax/swing/JButton;Ljava/lang/Runnable;Ljavax/swing/JButton;Ljavax/swing/JButton;Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTranslucentLabelText, lambda$doTest$2, void, $JButton*, $Runnable*, $JButton*, $JButton*, $ActionEvent*)},
+		{"lambda$main$3", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestTranslucentLabelText, lambda$main$3, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestTranslucentLabelText, main, void, $StringArray*), "java.lang.Exception"},
+		{"pass", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(TestTranslucentLabelText, pass, void)},
+		{"runTest", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestTranslucentLabelText, runTest, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestTranslucentLabelText$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestTranslucentLabelText",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestTranslucentLabelText$1"
+	};
+	$loadClass(TestTranslucentLabelText, name, initialize, &classInfo$$, TestTranslucentLabelText::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestTranslucentLabelText);
+	});
 	return class$;
 }
 

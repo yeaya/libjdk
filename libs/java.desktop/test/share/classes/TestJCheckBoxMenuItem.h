@@ -32,6 +32,7 @@ class $export TestJCheckBoxMenuItem : public ::java::lang::Object {
 	$class(TestJCheckBoxMenuItem, 0, ::java::lang::Object)
 public:
 	TestJCheckBoxMenuItem();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createInstructionUI();
 	static void createTestUI();

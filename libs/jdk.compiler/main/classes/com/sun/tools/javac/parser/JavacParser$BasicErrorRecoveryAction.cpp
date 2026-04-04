@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction.h>
-
 #include <com/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction$1.h>
 #include <com/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction$2.h>
 #include <com/sun/tools/javac/parser/JavacParser.h>
@@ -23,54 +22,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _JavacParser$BasicErrorRecoveryAction_FieldInfo_[] = {
-	{"BLOCK_STMT", "Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$BasicErrorRecoveryAction, BLOCK_STMT)},
-	{"CATCH_CLAUSE", "Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$BasicErrorRecoveryAction, CATCH_CLAUSE)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$BasicErrorRecoveryAction, $VALUES)},
-	{}
-};
-
-$MethodInfo _JavacParser$BasicErrorRecoveryAction_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, $values, $JavacParser$BasicErrorRecoveryActionArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$BasicErrorRecoveryAction, init$, void, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, valueOf, JavacParser$BasicErrorRecoveryAction*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, values, $JavacParser$BasicErrorRecoveryActionArray*)},
-	{}
-};
-
-$InnerClassInfo _JavacParser$BasicErrorRecoveryAction_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "BasicErrorRecoveryAction", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.parser.JavacParser$ErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "ErrorRecoveryAction", $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _JavacParser$BasicErrorRecoveryAction_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT | $ENUM,
-	"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction",
-	"java.lang.Enum",
-	"com.sun.tools.javac.parser.JavacParser$ErrorRecoveryAction",
-	_JavacParser$BasicErrorRecoveryAction_FieldInfo_,
-	_JavacParser$BasicErrorRecoveryAction_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;>;Lcom/sun/tools/javac/parser/JavacParser$ErrorRecoveryAction;",
-	nullptr,
-	_JavacParser$BasicErrorRecoveryAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavacParser"
-};
-
-$Object* allocate$JavacParser$BasicErrorRecoveryAction($Class* clazz) {
-	return $of($alloc(JavacParser$BasicErrorRecoveryAction));
-}
 
 $String* JavacParser$BasicErrorRecoveryAction::toString() {
 	 return this->$Enum::toString();
@@ -118,7 +69,7 @@ void JavacParser$BasicErrorRecoveryAction::init$($String* $enum$name, int32_t $e
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$JavacParser$BasicErrorRecoveryAction($Class* class$) {
+void JavacParser$BasicErrorRecoveryAction::clinit$($Class* clazz) {
 	$assignStatic(JavacParser$BasicErrorRecoveryAction::BLOCK_STMT, $new($JavacParser$BasicErrorRecoveryAction$1, "BLOCK_STMT"_s, 0));
 	$assignStatic(JavacParser$BasicErrorRecoveryAction::CATCH_CLAUSE, $new($JavacParser$BasicErrorRecoveryAction$2, "CATCH_CLAUSE"_s, 1));
 	$assignStatic(JavacParser$BasicErrorRecoveryAction::$VALUES, JavacParser$BasicErrorRecoveryAction::$values());
@@ -128,7 +79,49 @@ JavacParser$BasicErrorRecoveryAction::JavacParser$BasicErrorRecoveryAction() {
 }
 
 $Class* JavacParser$BasicErrorRecoveryAction::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$BasicErrorRecoveryAction, name, initialize, &_JavacParser$BasicErrorRecoveryAction_ClassInfo_, clinit$JavacParser$BasicErrorRecoveryAction, allocate$JavacParser$BasicErrorRecoveryAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"BLOCK_STMT", "Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$BasicErrorRecoveryAction, BLOCK_STMT)},
+		{"CATCH_CLAUSE", "Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(JavacParser$BasicErrorRecoveryAction, CATCH_CLAUSE)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$BasicErrorRecoveryAction, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, $values, $JavacParser$BasicErrorRecoveryActionArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(JavacParser$BasicErrorRecoveryAction, init$, void, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, valueOf, JavacParser$BasicErrorRecoveryAction*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacParser$BasicErrorRecoveryAction, values, $JavacParser$BasicErrorRecoveryActionArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "BasicErrorRecoveryAction", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.parser.JavacParser$ErrorRecoveryAction", "com.sun.tools.javac.parser.JavacParser", "ErrorRecoveryAction", $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT | $ENUM,
+		"com.sun.tools.javac.parser.JavacParser$BasicErrorRecoveryAction",
+		"java.lang.Enum",
+		"com.sun.tools.javac.parser.JavacParser$ErrorRecoveryAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/JavacParser$BasicErrorRecoveryAction;>;Lcom/sun/tools/javac/parser/JavacParser$ErrorRecoveryAction;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavacParser"
+	};
+	$loadClass(JavacParser$BasicErrorRecoveryAction, name, initialize, &classInfo$$, JavacParser$BasicErrorRecoveryAction::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JavacParser$BasicErrorRecoveryAction));
+	});
 	return class$;
 }
 

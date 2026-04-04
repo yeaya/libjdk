@@ -1,5 +1,4 @@
 #include <bug6777378$1.h>
-
 #include <bug6777378$1$1.h>
 #include <bug6777378.h>
 #include <java/awt/Component.h>
@@ -19,7 +18,6 @@
 
 using $bug6777378 = ::bug6777378;
 using $bug6777378$1$1 = ::bug6777378$1$1;
-using $Component = ::java::awt::Component;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;
@@ -27,57 +25,17 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
-using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
-using $TableModel = ::javax::swing::table::TableModel;
-
-$MethodInfo _bug6777378$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6777378$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6777378$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6777378$1_EnclosingMethodInfo_ = {
-	"bug6777378",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6777378$1_InnerClassesInfo_[] = {
-	{"bug6777378$1", nullptr, nullptr, 0},
-	{"bug6777378$1$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6777378$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6777378$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	_bug6777378$1_MethodInfo_,
-	nullptr,
-	&_bug6777378$1_EnclosingMethodInfo_,
-	_bug6777378$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6777378"
-};
-
-$Object* allocate$bug6777378$1($Class* clazz) {
-	return $of($alloc(bug6777378$1));
-}
 
 void bug6777378$1::init$() {
 }
 
 void bug6777378$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$UIManager::setLookAndFeel(static_cast<$LookAndFeel*>($$new($MetalLookAndFeel)));
+		$UIManager::setLookAndFeel($$new($MetalLookAndFeel));
 	} catch ($Exception& e) {
 		e->printStackTrace();
 	}
@@ -86,8 +44,8 @@ void bug6777378$1::run() {
 	$assignStatic($bug6777378::header, $new($JTableHeader, $(table->getColumnModel())));
 	$nc($bug6777378::header)->setToolTipText("hello"_s);
 	$assignStatic($bug6777378::frame, $new($JFrame));
-	$nc($bug6777378::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
-	$nc($bug6777378::frame)->add(static_cast<$Component*>($bug6777378::header));
+	$bug6777378::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	$nc($bug6777378::frame)->add($bug6777378::header);
 	$nc($bug6777378::frame)->setSize(300, 300);
 	$nc($bug6777378::frame)->setVisible(true);
 }
@@ -96,7 +54,39 @@ bug6777378$1::bug6777378$1() {
 }
 
 $Class* bug6777378$1::load$($String* name, bool initialize) {
-	$loadClass(bug6777378$1, name, initialize, &_bug6777378$1_ClassInfo_, allocate$bug6777378$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6777378$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6777378$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6777378",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6777378$1", nullptr, nullptr, 0},
+		{"bug6777378$1$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6777378$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6777378"
+	};
+	$loadClass(bug6777378$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6777378$1);
+	});
 	return class$;
 }
 

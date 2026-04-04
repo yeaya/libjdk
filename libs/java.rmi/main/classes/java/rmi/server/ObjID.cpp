@@ -1,7 +1,4 @@
 #include <java/rmi/server/ObjID.h>
-
-#include <java/io/DataInput.h>
-#include <java/io/DataOutput.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectOutput.h>
 #include <java/io/Serializable.h>
@@ -21,8 +18,6 @@
 #undef DGC_ID
 #undef REGISTRY_ID
 
-using $DataInput = ::java::io::DataInput;
-using $DataOutput = ::java::io::DataOutput;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectOutput = ::java::io::ObjectOutput;
 using $Serializable = ::java::io::Serializable;
@@ -49,70 +44,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(ObjID::lambda$useRandomIDs$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ObjID$$Lambda$lambda$useRandomIDs$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ObjID$$Lambda$lambda$useRandomIDs$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjID$$Lambda$lambda$useRandomIDs$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjID$$Lambda$lambda$useRandomIDs$0, run, $Object*)},
-	{}
-};
-$ClassInfo ObjID$$Lambda$lambda$useRandomIDs$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"java.rmi.server.ObjID$$Lambda$lambda$useRandomIDs$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* ObjID$$Lambda$lambda$useRandomIDs$0::load$($String* name, bool initialize) {
-	$loadClass(ObjID$$Lambda$lambda$useRandomIDs$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ObjID$$Lambda$lambda$useRandomIDs$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjID$$Lambda$lambda$useRandomIDs$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"java.rmi.server.ObjID$$Lambda$lambda$useRandomIDs$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ObjID$$Lambda$lambda$useRandomIDs$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjID$$Lambda$lambda$useRandomIDs$0);
+	});
 	return class$;
 }
 $Class* ObjID$$Lambda$lambda$useRandomIDs$0::class$ = nullptr;
-
-$FieldInfo _ObjID_FieldInfo_[] = {
-	{"REGISTRY_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjID, REGISTRY_ID)},
-	{"ACTIVATOR_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjID, ACTIVATOR_ID)},
-	{"DGC_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjID, DGC_ID)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjID, serialVersionUID)},
-	{"nextObjNum", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjID, nextObjNum)},
-	{"mySpace", "Ljava/rmi/server/UID;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjID, mySpace)},
-	{"secureRandom", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjID, secureRandom)},
-	{"objNum", "J", nullptr, $PRIVATE | $FINAL, $field(ObjID, objNum)},
-	{"space", "Ljava/rmi/server/UID;", nullptr, $PRIVATE | $FINAL, $field(ObjID, space)},
-	{}
-};
-
-$MethodInfo _ObjID_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjID, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ObjID, init$, void, int32_t)},
-	{"<init>", "(JLjava/rmi/server/UID;)V", nullptr, $PRIVATE, $method(ObjID, init$, void, int64_t, $UID*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjID, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjID, hashCode, int32_t)},
-	{"lambda$useRandomIDs$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjID, lambda$useRandomIDs$0, $String*)},
-	{"read", "(Ljava/io/ObjectInput;)Ljava/rmi/server/ObjID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjID, read, ObjID*, $ObjectInput*), "java.io.IOException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjID, toString, $String*)},
-	{"useRandomIDs", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjID, useRandomIDs, bool)},
-	{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $method(ObjID, write, void, $ObjectOutput*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ObjID_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.rmi.server.ObjID",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_ObjID_FieldInfo_,
-	_ObjID_MethodInfo_
-};
-
-$Object* allocate$ObjID($Class* clazz) {
-	return $of($alloc(ObjID));
-}
 
 $AtomicLong* ObjID::nextObjNum = nullptr;
 $UID* ObjID::mySpace = nullptr;
@@ -121,10 +73,10 @@ $SecureRandom* ObjID::secureRandom = nullptr;
 void ObjID::init$() {
 	if (useRandomIDs()) {
 		$set(this, space, $new($UID));
-		this->objNum = $nc(ObjID::secureRandom)->nextLong();
+		this->objNum = ObjID::secureRandom->nextLong();
 	} else {
 		$set(this, space, ObjID::mySpace);
-		this->objNum = $nc(ObjID::nextObjNum)->getAndIncrement();
+		this->objNum = ObjID::nextObjNum->getAndIncrement();
 	}
 }
 
@@ -157,22 +109,22 @@ int32_t ObjID::hashCode() {
 bool ObjID::equals(Object$* obj) {
 	if ($instanceOf(ObjID, obj)) {
 		$var(ObjID, id, $cast(ObjID, obj));
-		return this->objNum == $nc(id)->objNum && $nc(this->space)->equals(id->space);
+		return this->objNum == id->objNum && $nc(this->space)->equals(id->space);
 	} else {
 		return false;
 	}
 }
 
 $String* ObjID::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"["_s, ($nc(this->space)->equals(ObjID::mySpace) ? ""_s : $$str({this->space, ", "_s})), $$str(this->objNum), "]"_s});
 }
 
 bool ObjID::useRandomIDs() {
 	$init(ObjID);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, value, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(ObjID$$Lambda$lambda$useRandomIDs$0)))));
+	$var($String, value, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(ObjID$$Lambda$lambda$useRandomIDs$0)))));
 	return value == nullptr ? true : $Boolean::parseBoolean(value);
 }
 
@@ -181,7 +133,7 @@ $String* ObjID::lambda$useRandomIDs$0() {
 	return $System::getProperty("java.rmi.server.randomIDs"_s);
 }
 
-void clinit$ObjID($Class* class$) {
+void ObjID::clinit$($Class* clazz) {
 	$assignStatic(ObjID::nextObjNum, $new($AtomicLong));
 	$assignStatic(ObjID::mySpace, $new($UID));
 	$assignStatic(ObjID::secureRandom, $new($SecureRandom));
@@ -192,11 +144,46 @@ ObjID::ObjID() {
 
 $Class* ObjID::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ObjID$$Lambda$lambda$useRandomIDs$0::classInfo$.name)) {
+		if (name->equals("java.rmi.server.ObjID$$Lambda$lambda$useRandomIDs$0")) {
 			return ObjID$$Lambda$lambda$useRandomIDs$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ObjID, name, initialize, &_ObjID_ClassInfo_, clinit$ObjID, allocate$ObjID);
+	$FieldInfo fieldInfos$$[] = {
+		{"REGISTRY_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjID, REGISTRY_ID)},
+		{"ACTIVATOR_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjID, ACTIVATOR_ID)},
+		{"DGC_ID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ObjID, DGC_ID)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ObjID, serialVersionUID)},
+		{"nextObjNum", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjID, nextObjNum)},
+		{"mySpace", "Ljava/rmi/server/UID;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjID, mySpace)},
+		{"secureRandom", "Ljava/security/SecureRandom;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ObjID, secureRandom)},
+		{"objNum", "J", nullptr, $PRIVATE | $FINAL, $field(ObjID, objNum)},
+		{"space", "Ljava/rmi/server/UID;", nullptr, $PRIVATE | $FINAL, $field(ObjID, space)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ObjID, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ObjID, init$, void, int32_t)},
+		{"<init>", "(JLjava/rmi/server/UID;)V", nullptr, $PRIVATE, $method(ObjID, init$, void, int64_t, $UID*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(ObjID, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(ObjID, hashCode, int32_t)},
+		{"lambda$useRandomIDs$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ObjID, lambda$useRandomIDs$0, $String*)},
+		{"read", "(Ljava/io/ObjectInput;)Ljava/rmi/server/ObjID;", nullptr, $PUBLIC | $STATIC, $staticMethod(ObjID, read, ObjID*, $ObjectInput*), "java.io.IOException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ObjID, toString, $String*)},
+		{"useRandomIDs", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ObjID, useRandomIDs, bool)},
+		{"write", "(Ljava/io/ObjectOutput;)V", nullptr, $PUBLIC, $method(ObjID, write, void, $ObjectOutput*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.rmi.server.ObjID",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjID, name, initialize, &classInfo$$, ObjID::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjID);
+	});
 	return class$;
 }
 

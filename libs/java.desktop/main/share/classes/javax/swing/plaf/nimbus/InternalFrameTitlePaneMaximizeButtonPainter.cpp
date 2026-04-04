@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/nimbus/InternalFrameTitlePaneMaximizeButtonPainter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
@@ -38,7 +36,6 @@ using $Color = ::java::awt::Color;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
@@ -59,176 +56,12 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _InternalFrameTitlePaneMaximizeButtonPainter_FieldInfo_[] = {
-	{"BACKGROUND_DISABLED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_DISABLED_WINDOWMAXIMIZED)},
-	{"BACKGROUND_ENABLED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_ENABLED_WINDOWMAXIMIZED)},
-	{"BACKGROUND_MOUSEOVER_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_MOUSEOVER_WINDOWMAXIMIZED)},
-	{"BACKGROUND_PRESSED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_PRESSED_WINDOWMAXIMIZED)},
-	{"BACKGROUND_ENABLED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_ENABLED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED)},
-	{"BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED_WINDOWMAXIMIZED)},
-	{"BACKGROUND_PRESSED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_PRESSED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED)},
-	{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_DISABLED)},
-	{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_ENABLED)},
-	{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_MOUSEOVER)},
-	{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_PRESSED)},
-	{"BACKGROUND_ENABLED_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_ENABLED_WINDOWNOTFOCUSED)},
-	{"BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED)},
-	{"BACKGROUND_PRESSED_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_PRESSED_WINDOWNOTFOCUSED)},
-	{"state", "I", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, state)},
-	{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, ctx)},
-	{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, path)},
-	{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, rect)},
-	{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, roundRect)},
-	{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, ellipse)},
-	{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color1)},
-	{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color2)},
-	{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color3)},
-	{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color4)},
-	{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color5)},
-	{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color6)},
-	{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color7)},
-	{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color8)},
-	{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color9)},
-	{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color10)},
-	{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color11)},
-	{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color12)},
-	{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color13)},
-	{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color14)},
-	{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color15)},
-	{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color16)},
-	{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color17)},
-	{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color18)},
-	{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color19)},
-	{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color20)},
-	{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color21)},
-	{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color22)},
-	{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color23)},
-	{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color24)},
-	{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color25)},
-	{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color26)},
-	{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color27)},
-	{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color28)},
-	{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color29)},
-	{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color30)},
-	{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color31)},
-	{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color32)},
-	{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color33)},
-	{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color34)},
-	{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color35)},
-	{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color36)},
-	{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color37)},
-	{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color38)},
-	{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color39)},
-	{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color40)},
-	{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color41)},
-	{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color42)},
-	{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color43)},
-	{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color44)},
-	{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color45)},
-	{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color46)},
-	{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color47)},
-	{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color48)},
-	{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color49)},
-	{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color50)},
-	{"color51", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color51)},
-	{"color52", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color52)},
-	{"color53", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color53)},
-	{"color54", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color54)},
-	{"color55", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color55)},
-	{"color56", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color56)},
-	{"color57", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color57)},
-	{"color58", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color58)},
-	{"color59", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color59)},
-	{"color60", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color60)},
-	{"color61", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color61)},
-	{"color62", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color62)},
-	{"color63", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color63)},
-	{"color64", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color64)},
-	{"color65", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color65)},
-	{"color66", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color66)},
-	{"color67", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color67)},
-	{"color68", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color68)},
-	{"color69", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color69)},
-	{"color70", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color70)},
-	{"color71", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color71)},
-	{"color72", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color72)},
-	{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, componentColors)},
-	{}
-};
-
-$MethodInfo _InternalFrameTitlePaneMaximizeButtonPainter_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(InternalFrameTitlePaneMaximizeButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
-	{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient1, $Paint*, $Shape*)},
-	{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient10, $Paint*, $Shape*)},
-	{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient11, $Paint*, $Shape*)},
-	{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient12, $Paint*, $Shape*)},
-	{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient13, $Paint*, $Shape*)},
-	{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient14, $Paint*, $Shape*)},
-	{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient15, $Paint*, $Shape*)},
-	{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient16, $Paint*, $Shape*)},
-	{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient2, $Paint*, $Shape*)},
-	{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient3, $Paint*, $Shape*)},
-	{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient4, $Paint*, $Shape*)},
-	{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient5, $Paint*, $Shape*)},
-	{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient6, $Paint*, $Shape*)},
-	{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient7, $Paint*, $Shape*)},
-	{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient8, $Paint*, $Shape*)},
-	{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient9, $Paint*, $Shape*)},
-	{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodePath1, $Path2D*)},
-	{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodePath2, $Path2D*)},
-	{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodePath3, $Path2D*)},
-	{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodePath4, $Path2D*)},
-	{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect1, $Rectangle2D*)},
-	{"decodeRect10", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect10, $Rectangle2D*)},
-	{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect2, $Rectangle2D*)},
-	{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect3, $Rectangle2D*)},
-	{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect4, $Rectangle2D*)},
-	{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect5, $Rectangle2D*)},
-	{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect6, $Rectangle2D*)},
-	{"decodeRect7", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect7, $Rectangle2D*)},
-	{"decodeRect8", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect8, $Rectangle2D*)},
-	{"decodeRect9", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect9, $Rectangle2D*)},
-	{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRoundRect1, $RoundRectangle2D*)},
-	{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRoundRect2, $RoundRectangle2D*)},
-	{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRoundRect3, $RoundRectangle2D*)},
-	{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneMaximizeButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
-	{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(InternalFrameTitlePaneMaximizeButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
-	{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundDisabled, void, $Graphics2D*)},
-	{"paintBackgroundDisabledAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundDisabledAndWindowMaximized, void, $Graphics2D*)},
-	{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundEnabled, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundEnabledAndWindowMaximized, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundEnabledAndWindowNotFocused, void, $Graphics2D*)},
-	{"paintBackgroundEnabledAndWindowNotFocusedAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundEnabledAndWindowNotFocusedAndWindowMaximized, void, $Graphics2D*)},
-	{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundMouseOverAndWindowMaximized, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundMouseOverAndWindowNotFocused, void, $Graphics2D*)},
-	{"paintBackgroundMouseOverAndWindowNotFocusedAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundMouseOverAndWindowNotFocusedAndWindowMaximized, void, $Graphics2D*)},
-	{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundPressedAndWindowMaximized, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundPressedAndWindowNotFocused, void, $Graphics2D*)},
-	{"paintBackgroundPressedAndWindowNotFocusedAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundPressedAndWindowNotFocusedAndWindowMaximized, void, $Graphics2D*)},
-	{}
-};
-
-$ClassInfo _InternalFrameTitlePaneMaximizeButtonPainter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.InternalFrameTitlePaneMaximizeButtonPainter",
-	"javax.swing.plaf.nimbus.AbstractRegionPainter",
-	nullptr,
-	_InternalFrameTitlePaneMaximizeButtonPainter_FieldInfo_,
-	_InternalFrameTitlePaneMaximizeButtonPainter_MethodInfo_
-};
-
-$Object* allocate$InternalFrameTitlePaneMaximizeButtonPainter($Class* clazz) {
-	return $of($alloc(InternalFrameTitlePaneMaximizeButtonPainter));
-}
-
 void InternalFrameTitlePaneMaximizeButtonPainter::init$($AbstractRegionPainter$PaintContext* ctx, int32_t state) {
 	$AbstractRegionPainter::init$();
 	$set(this, path, $new($Path2D$Float));
-	$set(this, rect, $new($Rectangle2D$Float, (float)0, (float)0, (float)0, (float)0));
-	$set(this, roundRect, $new($RoundRectangle2D$Float, (float)0, (float)0, (float)0, (float)0, (float)0, (float)0));
-	$set(this, ellipse, $new($Ellipse2D$Float, (float)0, (float)0, (float)0, (float)0));
+	$set(this, rect, $new($Rectangle2D$Float, 0, 0, 0, 0));
+	$set(this, roundRect, $new($RoundRectangle2D$Float, 0, 0, 0, 0, 0, 0));
+	$set(this, ellipse, $new($Ellipse2D$Float, 0, 0, 0, 0));
 	$set(this, color1, decodeColor("nimbusGreen"_s, 0.43362403f, -0.6792196f, 0.054901958f, 0));
 	$set(this, color2, decodeColor("nimbusGreen"_s, 0.44056845f, -0.631913f, -0.039215684f, 0));
 	$set(this, color3, decodeColor("nimbusGreen"_s, 0.44056845f, -0.67475206f, 0.06666666f, 0));
@@ -309,75 +142,47 @@ void InternalFrameTitlePaneMaximizeButtonPainter::doPaint($Graphics2D* g, $JComp
 	$set(this, componentColors, extendedCacheKeys);
 	switch (this->state) {
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_DISABLED_WINDOWMAXIMIZED:
-		{
-			paintBackgroundDisabledAndWindowMaximized(g);
-			break;
-		}
+		paintBackgroundDisabledAndWindowMaximized(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_ENABLED_WINDOWMAXIMIZED:
-		{
-			paintBackgroundEnabledAndWindowMaximized(g);
-			break;
-		}
+		paintBackgroundEnabledAndWindowMaximized(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_MOUSEOVER_WINDOWMAXIMIZED:
-		{
-			paintBackgroundMouseOverAndWindowMaximized(g);
-			break;
-		}
+		paintBackgroundMouseOverAndWindowMaximized(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_PRESSED_WINDOWMAXIMIZED:
-		{
-			paintBackgroundPressedAndWindowMaximized(g);
-			break;
-		}
+		paintBackgroundPressedAndWindowMaximized(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_ENABLED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED:
-		{
-			paintBackgroundEnabledAndWindowNotFocusedAndWindowMaximized(g);
-			break;
-		}
+		paintBackgroundEnabledAndWindowNotFocusedAndWindowMaximized(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED_WINDOWMAXIMIZED:
-		{
-			paintBackgroundMouseOverAndWindowNotFocusedAndWindowMaximized(g);
-			break;
-		}
+		paintBackgroundMouseOverAndWindowNotFocusedAndWindowMaximized(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_PRESSED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED:
-		{
-			paintBackgroundPressedAndWindowNotFocusedAndWindowMaximized(g);
-			break;
-		}
+		paintBackgroundPressedAndWindowNotFocusedAndWindowMaximized(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_DISABLED:
-		{
-			paintBackgroundDisabled(g);
-			break;
-		}
+		paintBackgroundDisabled(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_ENABLED:
-		{
-			paintBackgroundEnabled(g);
-			break;
-		}
+		paintBackgroundEnabled(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_MOUSEOVER:
-		{
-			paintBackgroundMouseOver(g);
-			break;
-		}
+		paintBackgroundMouseOver(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_PRESSED:
-		{
-			paintBackgroundPressed(g);
-			break;
-		}
+		paintBackgroundPressed(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_ENABLED_WINDOWNOTFOCUSED:
-		{
-			paintBackgroundEnabledAndWindowNotFocused(g);
-			break;
-		}
+		paintBackgroundEnabledAndWindowNotFocused(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED:
-		{
-			paintBackgroundMouseOverAndWindowNotFocused(g);
-			break;
-		}
+		paintBackgroundMouseOverAndWindowNotFocused(g);
+		break;
 	case InternalFrameTitlePaneMaximizeButtonPainter::BACKGROUND_PRESSED_WINDOWNOTFOCUSED:
-		{
-			paintBackgroundPressedAndWindowNotFocused(g);
-			break;
-		}
+		paintBackgroundPressedAndWindowNotFocused(g);
+		break;
 	}
 }
 
@@ -386,7 +191,7 @@ $AbstractRegionPainter$PaintContext* InternalFrameTitlePaneMaximizeButtonPainter
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundDisabledAndWindowMaximized($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint($(decodeGradient1(this->roundRect)));
 	g->fill(this->roundRect);
@@ -426,7 +231,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundDisabledAndWind
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundEnabledAndWindowMaximized($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->roundRect);
@@ -472,7 +277,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundEnabledAndWindo
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundMouseOverAndWindowMaximized($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->roundRect);
@@ -518,7 +323,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundMouseOverAndWin
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundPressedAndWindowMaximized($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->roundRect);
@@ -564,7 +369,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundPressedAndWindo
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundEnabledAndWindowNotFocusedAndWindowMaximized($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint($(decodeGradient10(this->roundRect)));
 	g->fill(this->roundRect);
@@ -592,7 +397,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundEnabledAndWindo
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundMouseOverAndWindowNotFocusedAndWindowMaximized($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->roundRect);
@@ -638,7 +443,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundMouseOverAndWin
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundPressedAndWindowNotFocusedAndWindowMaximized($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->roundRect);
@@ -684,7 +489,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundPressedAndWindo
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundDisabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint($(decodeGradient1(this->roundRect)));
 	g->fill(this->roundRect);
@@ -703,7 +508,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundDisabled($Graph
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundEnabled($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color13);
 	g->fill(this->roundRect);
@@ -725,7 +530,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundEnabled($Graphi
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundMouseOver($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color66);
 	g->fill(this->roundRect);
@@ -747,7 +552,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundMouseOver($Grap
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundPressed($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color69);
 	g->fill(this->roundRect);
@@ -769,7 +574,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundPressed($Graphi
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundEnabledAndWindowNotFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect1());
 	$nc(g)->setPaint($(decodeGradient10(this->roundRect)));
 	g->fill(this->roundRect);
@@ -785,7 +590,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundEnabledAndWindo
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundMouseOverAndWindowNotFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color66);
 	g->fill(this->roundRect);
@@ -807,7 +612,7 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundMouseOverAndWin
 }
 
 void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundPressedAndWindowNotFocused($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, roundRect, decodeRoundRect3());
 	$nc(g)->setPaint(this->color69);
 	g->fill(this->roundRect);
@@ -829,100 +634,100 @@ void InternalFrameTitlePaneMaximizeButtonPainter::paintBackgroundPressedAndWindo
 }
 
 $RoundRectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRoundRect1() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.9444444f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.0f), 8.6f, 8.6f);
 	return this->roundRect;
 }
 
 $RoundRectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRoundRect2() {
-	double var$0 = (double)decodeX(1.0526316f);
-	double var$1 = (double)decodeY(1.0555556f);
+	double var$0 = decodeX(1.0526316f);
+	double var$1 = decodeY(1.0555556f);
 	float var$3 = decodeX(1.9473684f);
-	double var$2 = (double)(var$3 - decodeX(1.0526316f));
+	double var$2 = var$3 - decodeX(1.0526316f);
 	float var$4 = decodeY(1.8888888f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.0555556f), 6.75f, 6.75f);
 	return this->roundRect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect1() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.0f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.0f);
 	float var$3 = decodeX(1.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(1.0f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.0f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect2() {
-	double var$0 = (double)decodeX(1.2165072f);
-	double var$1 = (double)decodeY(1.2790405f);
+	double var$0 = decodeX(1.2165072f);
+	double var$1 = decodeY(1.2790405f);
 	float var$3 = decodeX(1.6746411f);
-	double var$2 = (double)(var$3 - decodeX(1.2165072f));
+	double var$2 = var$3 - decodeX(1.2165072f);
 	float var$4 = decodeY(1.3876263f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.2790405f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect3() {
-	double var$0 = (double)decodeX(1.2212919f);
-	double var$1 = (double)decodeY(1.6047981f);
+	double var$0 = decodeX(1.2212919f);
+	double var$1 = decodeY(1.6047981f);
 	float var$3 = decodeX(1.270335f);
-	double var$2 = (double)(var$3 - decodeX(1.2212919f));
+	double var$2 = var$3 - decodeX(1.2212919f);
 	float var$4 = decodeY(1.3876263f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.6047981f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect4() {
-	double var$0 = (double)decodeX(1.2643541f);
-	double var$1 = (double)decodeY(1.5542929f);
+	double var$0 = decodeX(1.2643541f);
+	double var$1 = decodeY(1.5542929f);
 	float var$3 = decodeX(1.6315789f);
-	double var$2 = (double)(var$3 - decodeX(1.2643541f));
+	double var$2 = var$3 - decodeX(1.2643541f);
 	float var$4 = decodeY(1.5997474f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.5542929f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect5() {
-	double var$0 = (double)decodeX(1.6267943f);
-	double var$1 = (double)decodeY(1.3888888f);
+	double var$0 = decodeX(1.6267943f);
+	double var$1 = decodeY(1.3888888f);
 	float var$3 = decodeX(1.673445f);
-	double var$2 = (double)(var$3 - decodeX(1.6267943f));
+	double var$2 = var$3 - decodeX(1.6267943f);
 	float var$4 = decodeY(1.6085858f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.3888888f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect6() {
-	double var$0 = (double)decodeX(1.3684211f);
-	double var$1 = (double)decodeY(1.6111112f);
+	double var$0 = decodeX(1.3684211f);
+	double var$1 = decodeY(1.6111112f);
 	float var$3 = decodeX(1.4210527f);
-	double var$2 = (double)(var$3 - decodeX(1.3684211f));
+	double var$2 = var$3 - decodeX(1.3684211f);
 	float var$4 = decodeY(1.7777778f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.6111112f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect7() {
-	double var$0 = (double)decodeX(1.4389952f);
-	double var$1 = (double)decodeY(1.7209597f);
+	double var$0 = decodeX(1.4389952f);
+	double var$1 = decodeY(1.7209597f);
 	float var$3 = decodeX(1.7882775f);
-	double var$2 = (double)(var$3 - decodeX(1.4389952f));
+	double var$2 = var$3 - decodeX(1.4389952f);
 	float var$4 = decodeY(1.7765152f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.7209597f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect8() {
-	double var$0 = (double)decodeX(1.5645933f);
-	double var$1 = (double)decodeY(1.4078283f);
+	double var$0 = decodeX(1.5645933f);
+	double var$1 = decodeY(1.4078283f);
 	float var$3 = decodeX(1.7870812f);
-	double var$2 = (double)(var$3 - decodeX(1.5645933f));
+	double var$2 = var$3 - decodeX(1.5645933f);
 	float var$4 = decodeY(1.5239899f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.4078283f));
 	return this->rect;
@@ -930,27 +735,27 @@ $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect8() {
 
 $Path2D* InternalFrameTitlePaneMaximizeButtonPainter::decodePath1() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.2105263f);
+	double var$0 = decodeX(1.2105263f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2222222f));
-	double var$1 = (double)decodeX(1.6315789f);
+	double var$1 = decodeX(1.6315789f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.2222222f));
-	double var$2 = (double)decodeX(1.6315789f);
+	double var$2 = decodeX(1.6315789f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.5555556f));
-	double var$3 = (double)decodeX(1.2105263f);
+	double var$3 = decodeX(1.2105263f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.5555556f));
-	double var$4 = (double)decodeX(1.2105263f);
+	double var$4 = decodeX(1.2105263f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.3333334f));
-	double var$5 = (double)decodeX(1.2631578f);
+	double var$5 = decodeX(1.2631578f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.3333334f));
-	double var$6 = (double)decodeX(1.2631578f);
+	double var$6 = decodeX(1.2631578f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.5f));
-	double var$7 = (double)decodeX(1.5789473f);
+	double var$7 = decodeX(1.5789473f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.5f));
-	double var$8 = (double)decodeX(1.5789473f);
+	double var$8 = decodeX(1.5789473f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.3333334f));
-	double var$9 = (double)decodeX(1.2105263f);
+	double var$9 = decodeX(1.2105263f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.3333334f));
-	double var$10 = (double)decodeX(1.2105263f);
+	double var$10 = decodeX(1.2105263f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.2222222f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -958,57 +763,57 @@ $Path2D* InternalFrameTitlePaneMaximizeButtonPainter::decodePath1() {
 
 $Path2D* InternalFrameTitlePaneMaximizeButtonPainter::decodePath2() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.6842105f);
+	double var$0 = decodeX(1.6842105f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.3888888f));
-	double var$1 = (double)decodeX(1.6842105f);
+	double var$1 = decodeX(1.6842105f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.5f));
-	double var$2 = (double)decodeX(1.7368422f);
+	double var$2 = decodeX(1.7368422f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.5f));
-	double var$3 = (double)decodeX(1.7368422f);
+	double var$3 = decodeX(1.7368422f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.6666667f));
-	double var$4 = (double)decodeX(1.4210527f);
+	double var$4 = decodeX(1.4210527f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.6666667f));
-	double var$5 = (double)decodeX(1.4210527f);
+	double var$5 = decodeX(1.4210527f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.6111112f));
-	double var$6 = (double)decodeX(1.3684211f);
+	double var$6 = decodeX(1.3684211f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.6111112f));
-	double var$7 = (double)decodeX(1.3684211f);
+	double var$7 = decodeX(1.3684211f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.7222222f));
-	double var$8 = (double)decodeX(1.7894738f);
+	double var$8 = decodeX(1.7894738f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.7222222f));
-	double var$9 = (double)decodeX(1.7894738f);
+	double var$9 = decodeX(1.7894738f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.3888888f));
-	double var$10 = (double)decodeX(1.6842105f);
+	double var$10 = decodeX(1.6842105f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.3888888f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $RoundRectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRoundRect3() {
-	double var$0 = (double)decodeX(1.0f);
-	double var$1 = (double)decodeY(1.6111112f);
+	double var$0 = decodeX(1.0f);
+	double var$1 = decodeY(1.6111112f);
 	float var$3 = decodeX(2.0f);
-	double var$2 = (double)(var$3 - decodeX(1.0f));
+	double var$2 = var$3 - decodeX(1.0f);
 	float var$4 = decodeY(2.0f);
 	$nc(this->roundRect)->setRoundRect(var$0, var$1, var$2, var$4 - decodeY(1.6111112f), 6.0f, 6.0f);
 	return this->roundRect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect9() {
-	double var$0 = (double)decodeX(1.3815789f);
-	double var$1 = (double)decodeY(1.6111112f);
+	double var$0 = decodeX(1.3815789f);
+	double var$1 = decodeY(1.6111112f);
 	float var$3 = decodeX(1.4366028f);
-	double var$2 = (double)(var$3 - decodeX(1.3815789f));
+	double var$2 = var$3 - decodeX(1.3815789f);
 	float var$4 = decodeY(1.7739899f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.6111112f));
 	return this->rect;
 }
 
 $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect10() {
-	double var$0 = (double)decodeX(1.7918661f);
-	double var$1 = (double)decodeY(1.7752526f);
+	double var$0 = decodeX(1.7918661f);
+	double var$1 = decodeY(1.7752526f);
 	float var$3 = decodeX(1.8349283f);
-	double var$2 = (double)(var$3 - decodeX(1.7918661f));
+	double var$2 = var$3 - decodeX(1.7918661f);
 	float var$4 = decodeY(1.4217172f);
 	$nc(this->rect)->setRect(var$0, var$1, var$2, var$4 - decodeY(1.7752526f));
 	return this->rect;
@@ -1016,27 +821,27 @@ $Rectangle2D* InternalFrameTitlePaneMaximizeButtonPainter::decodeRect10() {
 
 $Path2D* InternalFrameTitlePaneMaximizeButtonPainter::decodePath3() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.1913875f);
+	double var$0 = decodeX(1.1913875f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2916666f));
-	double var$1 = (double)decodeX(1.1925838f);
+	double var$1 = decodeX(1.1925838f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.7462121f));
-	double var$2 = (double)decodeX(1.8157895f);
+	double var$2 = decodeX(1.8157895f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.7449496f));
-	double var$3 = (double)decodeX(1.819378f);
+	double var$3 = decodeX(1.819378f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.2916666f));
-	double var$4 = (double)decodeX(1.722488f);
+	double var$4 = decodeX(1.722488f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.2916666f));
-	double var$5 = (double)decodeX(1.7320573f);
+	double var$5 = decodeX(1.7320573f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.669192f));
-	double var$6 = (double)decodeX(1.2799044f);
+	double var$6 = decodeX(1.2799044f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.6565657f));
-	double var$7 = (double)decodeX(1.284689f);
+	double var$7 = decodeX(1.284689f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.3863636f));
-	double var$8 = (double)decodeX(1.7260766f);
+	double var$8 = decodeX(1.7260766f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.385101f));
-	double var$9 = (double)decodeX(1.722488f);
+	double var$9 = decodeX(1.722488f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.2904041f));
-	double var$10 = (double)decodeX(1.1913875f);
+	double var$10 = decodeX(1.1913875f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.2916666f));
 	$nc(this->path)->closePath();
 	return this->path;
@@ -1044,34 +849,34 @@ $Path2D* InternalFrameTitlePaneMaximizeButtonPainter::decodePath3() {
 
 $Path2D* InternalFrameTitlePaneMaximizeButtonPainter::decodePath4() {
 	$nc(this->path)->reset();
-	double var$0 = (double)decodeX(1.2105263f);
+	double var$0 = decodeX(1.2105263f);
 	$nc(this->path)->moveTo(var$0, decodeY(1.2222222f));
-	double var$1 = (double)decodeX(1.2105263f);
+	double var$1 = decodeX(1.2105263f);
 	$nc(this->path)->lineTo(var$1, decodeY(1.7222222f));
-	double var$2 = (double)decodeX(1.7894738f);
+	double var$2 = decodeX(1.7894738f);
 	$nc(this->path)->lineTo(var$2, decodeY(1.7222222f));
-	double var$3 = (double)decodeX(1.7894738f);
+	double var$3 = decodeX(1.7894738f);
 	$nc(this->path)->lineTo(var$3, decodeY(1.3333334f));
-	double var$4 = (double)decodeX(1.7368422f);
+	double var$4 = decodeX(1.7368422f);
 	$nc(this->path)->lineTo(var$4, decodeY(1.3333334f));
-	double var$5 = (double)decodeX(1.7368422f);
+	double var$5 = decodeX(1.7368422f);
 	$nc(this->path)->lineTo(var$5, decodeY(1.6666667f));
-	double var$6 = (double)decodeX(1.2631578f);
+	double var$6 = decodeX(1.2631578f);
 	$nc(this->path)->lineTo(var$6, decodeY(1.6666667f));
-	double var$7 = (double)decodeX(1.2631578f);
+	double var$7 = decodeX(1.2631578f);
 	$nc(this->path)->lineTo(var$7, decodeY(1.3333334f));
-	double var$8 = (double)decodeX(1.7894738f);
+	double var$8 = decodeX(1.7894738f);
 	$nc(this->path)->lineTo(var$8, decodeY(1.3333334f));
-	double var$9 = (double)decodeX(1.7894738f);
+	double var$9 = decodeX(1.7894738f);
 	$nc(this->path)->lineTo(var$9, decodeY(1.2222222f));
-	double var$10 = (double)decodeX(1.2105263f);
+	double var$10 = decodeX(1.2105263f);
 	$nc(this->path)->lineTo(var$10, decodeY(1.2222222f));
 	$nc(this->path)->closePath();
 	return this->path;
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient1($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1089,7 +894,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient1($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient2($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1107,7 +912,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient2($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient3($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1125,7 +930,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient3($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient4($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1143,7 +948,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient4($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient5($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1169,7 +974,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient5($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient6($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1187,7 +992,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient6($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient7($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1213,7 +1018,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient7($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient8($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1231,7 +1036,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient8($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient9($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1257,7 +1062,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient9($Shape* s) 
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient10($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1275,7 +1080,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient10($Shape* s)
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient11($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1301,7 +1106,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient11($Shape* s)
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient12($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1327,7 +1132,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient12($Shape* s)
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient13($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1345,7 +1150,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient13($Shape* s)
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient14($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1371,7 +1176,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient14($Shape* s)
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient15($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1397,7 +1202,7 @@ $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient15($Shape* s)
 }
 
 $Paint* InternalFrameTitlePaneMaximizeButtonPainter::decodeGradient16($Shape* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle2D, bounds, $nc(s)->getBounds2D());
 	float x = (float)$nc(bounds)->getX();
 	float y = (float)bounds->getY();
@@ -1426,7 +1231,166 @@ InternalFrameTitlePaneMaximizeButtonPainter::InternalFrameTitlePaneMaximizeButto
 }
 
 $Class* InternalFrameTitlePaneMaximizeButtonPainter::load$($String* name, bool initialize) {
-	$loadClass(InternalFrameTitlePaneMaximizeButtonPainter, name, initialize, &_InternalFrameTitlePaneMaximizeButtonPainter_ClassInfo_, allocate$InternalFrameTitlePaneMaximizeButtonPainter);
+	$FieldInfo fieldInfos$$[] = {
+		{"BACKGROUND_DISABLED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_DISABLED_WINDOWMAXIMIZED)},
+		{"BACKGROUND_ENABLED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_ENABLED_WINDOWMAXIMIZED)},
+		{"BACKGROUND_MOUSEOVER_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_MOUSEOVER_WINDOWMAXIMIZED)},
+		{"BACKGROUND_PRESSED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_PRESSED_WINDOWMAXIMIZED)},
+		{"BACKGROUND_ENABLED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_ENABLED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED)},
+		{"BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED_WINDOWMAXIMIZED)},
+		{"BACKGROUND_PRESSED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_PRESSED_WINDOWNOTFOCUSED_WINDOWMAXIMIZED)},
+		{"BACKGROUND_DISABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_DISABLED)},
+		{"BACKGROUND_ENABLED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_ENABLED)},
+		{"BACKGROUND_MOUSEOVER", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_MOUSEOVER)},
+		{"BACKGROUND_PRESSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_PRESSED)},
+		{"BACKGROUND_ENABLED_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_ENABLED_WINDOWNOTFOCUSED)},
+		{"BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_MOUSEOVER_WINDOWNOTFOCUSED)},
+		{"BACKGROUND_PRESSED_WINDOWNOTFOCUSED", "I", nullptr, $STATIC | $FINAL, $constField(InternalFrameTitlePaneMaximizeButtonPainter, BACKGROUND_PRESSED_WINDOWNOTFOCUSED)},
+		{"state", "I", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, state)},
+		{"ctx", "Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, ctx)},
+		{"path", "Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, path)},
+		{"rect", "Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, rect)},
+		{"roundRect", "Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, roundRect)},
+		{"ellipse", "Ljava/awt/geom/Ellipse2D;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, ellipse)},
+		{"color1", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color1)},
+		{"color2", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color2)},
+		{"color3", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color3)},
+		{"color4", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color4)},
+		{"color5", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color5)},
+		{"color6", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color6)},
+		{"color7", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color7)},
+		{"color8", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color8)},
+		{"color9", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color9)},
+		{"color10", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color10)},
+		{"color11", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color11)},
+		{"color12", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color12)},
+		{"color13", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color13)},
+		{"color14", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color14)},
+		{"color15", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color15)},
+		{"color16", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color16)},
+		{"color17", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color17)},
+		{"color18", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color18)},
+		{"color19", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color19)},
+		{"color20", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color20)},
+		{"color21", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color21)},
+		{"color22", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color22)},
+		{"color23", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color23)},
+		{"color24", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color24)},
+		{"color25", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color25)},
+		{"color26", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color26)},
+		{"color27", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color27)},
+		{"color28", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color28)},
+		{"color29", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color29)},
+		{"color30", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color30)},
+		{"color31", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color31)},
+		{"color32", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color32)},
+		{"color33", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color33)},
+		{"color34", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color34)},
+		{"color35", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color35)},
+		{"color36", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color36)},
+		{"color37", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color37)},
+		{"color38", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color38)},
+		{"color39", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color39)},
+		{"color40", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color40)},
+		{"color41", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color41)},
+		{"color42", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color42)},
+		{"color43", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color43)},
+		{"color44", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color44)},
+		{"color45", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color45)},
+		{"color46", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color46)},
+		{"color47", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color47)},
+		{"color48", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color48)},
+		{"color49", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color49)},
+		{"color50", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color50)},
+		{"color51", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color51)},
+		{"color52", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color52)},
+		{"color53", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color53)},
+		{"color54", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color54)},
+		{"color55", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color55)},
+		{"color56", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color56)},
+		{"color57", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color57)},
+		{"color58", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color58)},
+		{"color59", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color59)},
+		{"color60", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color60)},
+		{"color61", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color61)},
+		{"color62", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color62)},
+		{"color63", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color63)},
+		{"color64", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color64)},
+		{"color65", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color65)},
+		{"color66", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color66)},
+		{"color67", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color67)},
+		{"color68", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color68)},
+		{"color69", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color69)},
+		{"color70", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color70)},
+		{"color71", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color71)},
+		{"color72", "Ljava/awt/Color;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, color72)},
+		{"componentColors", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(InternalFrameTitlePaneMaximizeButtonPainter, componentColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;I)V", nullptr, $PUBLIC, $method(InternalFrameTitlePaneMaximizeButtonPainter, init$, void, $AbstractRegionPainter$PaintContext*, int32_t)},
+		{"decodeGradient1", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient1, $Paint*, $Shape*)},
+		{"decodeGradient10", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient10, $Paint*, $Shape*)},
+		{"decodeGradient11", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient11, $Paint*, $Shape*)},
+		{"decodeGradient12", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient12, $Paint*, $Shape*)},
+		{"decodeGradient13", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient13, $Paint*, $Shape*)},
+		{"decodeGradient14", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient14, $Paint*, $Shape*)},
+		{"decodeGradient15", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient15, $Paint*, $Shape*)},
+		{"decodeGradient16", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient16, $Paint*, $Shape*)},
+		{"decodeGradient2", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient2, $Paint*, $Shape*)},
+		{"decodeGradient3", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient3, $Paint*, $Shape*)},
+		{"decodeGradient4", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient4, $Paint*, $Shape*)},
+		{"decodeGradient5", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient5, $Paint*, $Shape*)},
+		{"decodeGradient6", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient6, $Paint*, $Shape*)},
+		{"decodeGradient7", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient7, $Paint*, $Shape*)},
+		{"decodeGradient8", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient8, $Paint*, $Shape*)},
+		{"decodeGradient9", "(Ljava/awt/Shape;)Ljava/awt/Paint;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeGradient9, $Paint*, $Shape*)},
+		{"decodePath1", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodePath1, $Path2D*)},
+		{"decodePath2", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodePath2, $Path2D*)},
+		{"decodePath3", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodePath3, $Path2D*)},
+		{"decodePath4", "()Ljava/awt/geom/Path2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodePath4, $Path2D*)},
+		{"decodeRect1", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect1, $Rectangle2D*)},
+		{"decodeRect10", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect10, $Rectangle2D*)},
+		{"decodeRect2", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect2, $Rectangle2D*)},
+		{"decodeRect3", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect3, $Rectangle2D*)},
+		{"decodeRect4", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect4, $Rectangle2D*)},
+		{"decodeRect5", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect5, $Rectangle2D*)},
+		{"decodeRect6", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect6, $Rectangle2D*)},
+		{"decodeRect7", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect7, $Rectangle2D*)},
+		{"decodeRect8", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect8, $Rectangle2D*)},
+		{"decodeRect9", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRect9, $Rectangle2D*)},
+		{"decodeRoundRect1", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRoundRect1, $RoundRectangle2D*)},
+		{"decodeRoundRect2", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRoundRect2, $RoundRectangle2D*)},
+		{"decodeRoundRect3", "()Ljava/awt/geom/RoundRectangle2D;", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, decodeRoundRect3, $RoundRectangle2D*)},
+		{"doPaint", "(Ljava/awt/Graphics2D;Ljavax/swing/JComponent;II[Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(InternalFrameTitlePaneMaximizeButtonPainter, doPaint, void, $Graphics2D*, $JComponent*, int32_t, int32_t, $ObjectArray*)},
+		{"getPaintContext", "()Ljavax/swing/plaf/nimbus/AbstractRegionPainter$PaintContext;", nullptr, $PROTECTED | $FINAL, $virtualMethod(InternalFrameTitlePaneMaximizeButtonPainter, getPaintContext, $AbstractRegionPainter$PaintContext*)},
+		{"paintBackgroundDisabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundDisabled, void, $Graphics2D*)},
+		{"paintBackgroundDisabledAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundDisabledAndWindowMaximized, void, $Graphics2D*)},
+		{"paintBackgroundEnabled", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundEnabled, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundEnabledAndWindowMaximized, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundEnabledAndWindowNotFocused, void, $Graphics2D*)},
+		{"paintBackgroundEnabledAndWindowNotFocusedAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundEnabledAndWindowNotFocusedAndWindowMaximized, void, $Graphics2D*)},
+		{"paintBackgroundMouseOver", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundMouseOver, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundMouseOverAndWindowMaximized, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundMouseOverAndWindowNotFocused, void, $Graphics2D*)},
+		{"paintBackgroundMouseOverAndWindowNotFocusedAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundMouseOverAndWindowNotFocusedAndWindowMaximized, void, $Graphics2D*)},
+		{"paintBackgroundPressed", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundPressed, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundPressedAndWindowMaximized, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndWindowNotFocused", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundPressedAndWindowNotFocused, void, $Graphics2D*)},
+		{"paintBackgroundPressedAndWindowNotFocusedAndWindowMaximized", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(InternalFrameTitlePaneMaximizeButtonPainter, paintBackgroundPressedAndWindowNotFocusedAndWindowMaximized, void, $Graphics2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.InternalFrameTitlePaneMaximizeButtonPainter",
+		"javax.swing.plaf.nimbus.AbstractRegionPainter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InternalFrameTitlePaneMaximizeButtonPainter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InternalFrameTitlePaneMaximizeButtonPainter);
+	});
 	return class$;
 }
 

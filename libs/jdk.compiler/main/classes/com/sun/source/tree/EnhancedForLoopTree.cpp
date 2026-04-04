@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/EnhancedForLoopTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/StatementTree.h>
 #include <com/sun/source/tree/VariableTree.h>
@@ -16,28 +15,24 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _EnhancedForLoopTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EnhancedForLoopTree, getExpression, $ExpressionTree*)},
-	{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EnhancedForLoopTree, getStatement, $StatementTree*)},
-	{"getVariable", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EnhancedForLoopTree, getVariable, $VariableTree*)},
-	{}
-};
-
-$ClassInfo _EnhancedForLoopTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.EnhancedForLoopTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_EnhancedForLoopTree_MethodInfo_
-};
-
-$Object* allocate$EnhancedForLoopTree($Class* clazz) {
-	return $of($alloc(EnhancedForLoopTree));
-}
-
 $Class* EnhancedForLoopTree::load$($String* name, bool initialize) {
-	$loadClass(EnhancedForLoopTree, name, initialize, &_EnhancedForLoopTree_ClassInfo_, allocate$EnhancedForLoopTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EnhancedForLoopTree, getExpression, $ExpressionTree*)},
+		{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EnhancedForLoopTree, getStatement, $StatementTree*)},
+		{"getVariable", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(EnhancedForLoopTree, getVariable, $VariableTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.EnhancedForLoopTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(EnhancedForLoopTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnhancedForLoopTree);
+	});
 	return class$;
 }
 

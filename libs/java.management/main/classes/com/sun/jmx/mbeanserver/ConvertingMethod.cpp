@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/ConvertingMethod.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/Introspector.h>
 #include <com/sun/jmx/mbeanserver/MXBeanLookup.h>
@@ -8,7 +7,6 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedElement.h>
-#include <java/lang/reflect/Executable.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <javax/management/Descriptor.h>
@@ -30,13 +28,10 @@ using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $MXBeanMappingFactory = ::com::sun::jmx::mbeanserver::MXBeanMappingFactory;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleObject = ::java::lang::reflect::AccessibleObject;
-using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
-using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
 using $Type = ::java::lang::reflect::Type;
 using $Descriptor = ::javax::management::Descriptor;
@@ -50,64 +45,21 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _ConvertingMethod_FieldInfo_[] = {
-	{"noStrings", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConvertingMethod, noStrings)},
-	{"method", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $FINAL, $field(ConvertingMethod, method)},
-	{"returnMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(ConvertingMethod, returnMapping)},
-	{"paramMappings", "[Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(ConvertingMethod, paramMappings)},
-	{"paramConversionIsIdentity", "Z", nullptr, $PRIVATE | $FINAL, $field(ConvertingMethod, paramConversionIsIdentity)},
-	{}
-};
-
-$MethodInfo _ConvertingMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(ConvertingMethod, init$, void, $Method*), "javax.management.openmbean.OpenDataException"},
-	{"checkCallFromOpen", "()V", nullptr, 0, $method(ConvertingMethod, checkCallFromOpen, void)},
-	{"checkCallToOpen", "()V", nullptr, 0, $method(ConvertingMethod, checkCallToOpen, void)},
-	{"from", "(Ljava/lang/reflect/Method;)Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, $STATIC, $staticMethod(ConvertingMethod, from, ConvertingMethod*, $Method*)},
-	{"fromOpenParameter", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, fromOpenParameter, $Object*, $MXBeanLookup*, Object$*, int32_t), "java.io.InvalidObjectException"},
-	{"fromOpenParameters", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, fromOpenParameters, $ObjectArray*, $ObjectArray*), "java.io.InvalidObjectException"},
-	{"fromOpenReturnValue", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, fromOpenReturnValue, $Object*, $MXBeanLookup*, Object$*), "java.io.InvalidObjectException"},
-	{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, 0, $method(ConvertingMethod, getDescriptor, $Descriptor*)},
-	{"getGenericParameterTypes", "()[Ljava/lang/reflect/Type;", nullptr, 0, $method(ConvertingMethod, getGenericParameterTypes, $TypeArray*)},
-	{"getGenericReturnType", "()Ljava/lang/reflect/Type;", nullptr, 0, $method(ConvertingMethod, getGenericReturnType, $Type*)},
-	{"getMethod", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(ConvertingMethod, getMethod, $Method*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $method(ConvertingMethod, getName, $String*)},
-	{"getOpenParameterTypes", "()[Ljavax/management/openmbean/OpenType;", "()[Ljavax/management/openmbean/OpenType<*>;", 0, $method(ConvertingMethod, getOpenParameterTypes, $OpenTypeArray*)},
-	{"getOpenReturnType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", 0, $method(ConvertingMethod, getOpenReturnType, $OpenType*)},
-	{"getOpenSignature", "()[Ljava/lang/String;", nullptr, 0, $method(ConvertingMethod, getOpenSignature, $StringArray*)},
-	{"invokeWithOpenReturn", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(ConvertingMethod, invokeWithOpenReturn, $Object*, $MXBeanLookup*, Object$*, $ObjectArray*), "javax.management.MBeanException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
-	{"invokeWithOpenReturn", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(ConvertingMethod, invokeWithOpenReturn, $Object*, Object$*, $ObjectArray*), "javax.management.MBeanException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
-	{"methodName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ConvertingMethod, methodName, $String*)},
-	{"toOpenParameter", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, toOpenParameter, $Object*, $MXBeanLookup*, Object$*, int32_t), "javax.management.openmbean.OpenDataException"},
-	{"toOpenParameters", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;[Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, toOpenParameters, $ObjectArray*, $MXBeanLookup*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
-	{"toOpenReturnValue", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, toOpenReturnValue, $Object*, $MXBeanLookup*, Object$*), "javax.management.openmbean.OpenDataException"},
-	{}
-};
-
-$ClassInfo _ConvertingMethod_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.ConvertingMethod",
-	"java.lang.Object",
-	nullptr,
-	_ConvertingMethod_FieldInfo_,
-	_ConvertingMethod_MethodInfo_
-};
-
-$Object* allocate$ConvertingMethod($Class* clazz) {
-	return $of($alloc(ConvertingMethod));
-}
-
 $StringArray* ConvertingMethod::noStrings = nullptr;
 
 ConvertingMethod* ConvertingMethod::from($Method* m) {
 	$init(ConvertingMethod);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		return $new(ConvertingMethod, m);
 	} catch ($OpenDataException& ode) {
-		$var($String, var$1, $$str({"Method "_s, $($nc($nc(m)->getDeclaringClass())->getName()), "."_s}));
-		$var($String, var$0, $$concat(var$1, $(m->getName())));
-		$var($String, msg, $concat(var$0, " has parameter or return type that cannot be translated into an open type"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Method "_s);
+		var$0->append($($nc($nc(m)->getDeclaringClass())->getName()));
+		var$0->append("."_s);
+		var$0->append($(m->getName()));
+		var$0->append(" has parameter or return type that cannot be translated into an open type"_s);
+		$var($String, msg, $str(var$0));
 		$throwNew($IllegalArgumentException, msg, ode);
 	}
 	$shouldNotReachHere();
@@ -118,7 +70,7 @@ $Method* ConvertingMethod::getMethod() {
 }
 
 $Descriptor* ConvertingMethod::getDescriptor() {
-	return $Introspector::descriptorForElement(static_cast<$AnnotatedElement*>(static_cast<$AccessibleObject*>(static_cast<$Executable*>(this->method))));
+	return $Introspector::descriptorForElement($cast($AccessibleObject, this->method));
 }
 
 $Type* ConvertingMethod::getGenericReturnType() {
@@ -138,28 +90,24 @@ $OpenType* ConvertingMethod::getOpenReturnType() {
 }
 
 $OpenTypeArray* ConvertingMethod::getOpenParameterTypes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($OpenTypeArray, types, $new($OpenTypeArray, $nc(this->paramMappings)->length));
-	for (int32_t i = 0; i < $nc(this->paramMappings)->length; ++i) {
-		types->set(i, $($nc($nc(this->paramMappings)->get(i))->getOpenType()));
+	for (int32_t i = 0; i < this->paramMappings->length; ++i) {
+		types->set(i, $($nc(this->paramMappings->get(i))->getOpenType()));
 	}
 	return types;
 }
 
 void ConvertingMethod::checkCallFromOpen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		{
-			$var($MXBeanMappingArray, arr$, this->paramMappings);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($MXBeanMapping, paramConverter, arr$->get(i$));
-				$nc(paramConverter)->checkReconstructible();
-			}
+		$var($MXBeanMappingArray, arr$, this->paramMappings);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($MXBeanMapping, paramConverter, arr$->get(i$));
+			$nc(paramConverter)->checkReconstructible();
 		}
 	} catch ($InvalidObjectException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 }
 
@@ -167,32 +115,32 @@ void ConvertingMethod::checkCallToOpen() {
 	try {
 		$nc(this->returnMapping)->checkReconstructible();
 	} catch ($InvalidObjectException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 }
 
 $StringArray* ConvertingMethod::getOpenSignature() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->paramMappings)->length == 0) {
 		return ConvertingMethod::noStrings;
 	}
-	$var($StringArray, sig, $new($StringArray, $nc(this->paramMappings)->length));
-	for (int32_t i = 0; i < $nc(this->paramMappings)->length; ++i) {
-		sig->set(i, $($nc($nc($nc(this->paramMappings)->get(i))->getOpenClass())->getName()));
+	$var($StringArray, sig, $new($StringArray, this->paramMappings->length));
+	for (int32_t i = 0; i < this->paramMappings->length; ++i) {
+		sig->set(i, $($nc($nc(this->paramMappings->get(i))->getOpenClass())->getName()));
 	}
 	return sig;
 }
 
 $Object* ConvertingMethod::toOpenReturnValue($MXBeanLookup* lookup, Object$* ret) {
-	return $of($nc(this->returnMapping)->toOpenValue(ret));
+	return $nc(this->returnMapping)->toOpenValue(ret);
 }
 
 $Object* ConvertingMethod::fromOpenReturnValue($MXBeanLookup* lookup, Object$* ret) {
-	return $of($nc(this->returnMapping)->fromOpenValue(ret));
+	return $nc(this->returnMapping)->fromOpenValue(ret);
 }
 
 $ObjectArray* ConvertingMethod::toOpenParameters($MXBeanLookup* lookup, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->paramConversionIsIdentity || params == nullptr) {
 		return params;
 	}
@@ -204,7 +152,7 @@ $ObjectArray* ConvertingMethod::toOpenParameters($MXBeanLookup* lookup, $ObjectA
 }
 
 $ObjectArray* ConvertingMethod::fromOpenParameters($ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->paramConversionIsIdentity || params == nullptr) {
 		return params;
 	}
@@ -216,42 +164,40 @@ $ObjectArray* ConvertingMethod::fromOpenParameters($ObjectArray* params) {
 }
 
 $Object* ConvertingMethod::toOpenParameter($MXBeanLookup* lookup, Object$* param, int32_t paramNo) {
-	return $of($nc($nc(this->paramMappings)->get(paramNo))->toOpenValue(param));
+	return $nc($nc(this->paramMappings)->get(paramNo))->toOpenValue(param);
 }
 
 $Object* ConvertingMethod::fromOpenParameter($MXBeanLookup* lookup, Object$* param, int32_t paramNo) {
-	return $of($nc($nc(this->paramMappings)->get(paramNo))->fromOpenValue(param));
+	return $nc($nc(this->paramMappings)->get(paramNo))->fromOpenValue(param);
 }
 
 $Object* ConvertingMethod::invokeWithOpenReturn($MXBeanLookup* lookup, Object$* obj, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MXBeanLookup, old, $MXBeanLookup::getLookup());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$MXBeanLookup::setLookup(lookup);
-			$assign(var$2, invokeWithOpenReturn(obj, params));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$MXBeanLookup::setLookup(old);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$MXBeanLookup::setLookup(lookup);
+		$assign(var$2, invokeWithOpenReturn(obj, params));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$MXBeanLookup::setLookup(old);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $Object* ConvertingMethod::invokeWithOpenReturn(Object$* obj, $ObjectArray* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, javaParams, nullptr);
 	try {
 		$assign(javaParams, fromOpenParameters(params));
@@ -261,7 +207,7 @@ $Object* ConvertingMethod::invokeWithOpenReturn(Object$* obj, $ObjectArray* para
 	}
 	$var($Object, javaReturn, $MethodUtil::invoke(this->method, obj, javaParams));
 	try {
-		return $of($nc(this->returnMapping)->toOpenValue(javaReturn));
+		return $nc(this->returnMapping)->toOpenValue(javaReturn);
 	} catch ($OpenDataException& e) {
 		$var($String, msg, $str({$(methodName()), ": cannot convert return value to open value: "_s, e}));
 		$throwNew($MBeanException, e, msg);
@@ -270,28 +216,31 @@ $Object* ConvertingMethod::invokeWithOpenReturn(Object$* obj, $ObjectArray* para
 }
 
 $String* ConvertingMethod::methodName() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$nc(this->method)->getDeclaringClass(), "."_s}));
-	return $concat(var$0, $($nc(this->method)->getName()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($nc(this->method)->getDeclaringClass());
+	var$0->append("."_s);
+	var$0->append($(this->method->getName()));
+	return $str(var$0);
 }
 
 void ConvertingMethod::init$($Method* m) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, method, m);
 	$init($MXBeanMappingFactory);
 	$var($MXBeanMappingFactory, mappingFactory, $MXBeanMappingFactory::DEFAULT);
 	$set(this, returnMapping, $nc(mappingFactory)->mappingForType($($nc(m)->getGenericReturnType()), mappingFactory));
-	$var($TypeArray, params, $nc(m)->getGenericParameterTypes());
+	$var($TypeArray, params, m->getGenericParameterTypes());
 	$set(this, paramMappings, $new($MXBeanMappingArray, $nc(params)->length));
 	bool identity = true;
 	for (int32_t i = 0; i < params->length; ++i) {
-		$nc(this->paramMappings)->set(i, $(mappingFactory->mappingForType(params->get(i), mappingFactory)));
-		identity &= $DefaultMXBeanMappingFactory::isIdentity($nc(this->paramMappings)->get(i));
+		this->paramMappings->set(i, $(mappingFactory->mappingForType(params->get(i), mappingFactory)));
+		identity &= $DefaultMXBeanMappingFactory::isIdentity(this->paramMappings->get(i));
 	}
 	this->paramConversionIsIdentity = identity;
 }
 
-void clinit$ConvertingMethod($Class* class$) {
+void ConvertingMethod::clinit$($Class* clazz) {
 	$assignStatic(ConvertingMethod::noStrings, $new($StringArray, 0));
 }
 
@@ -299,7 +248,49 @@ ConvertingMethod::ConvertingMethod() {
 }
 
 $Class* ConvertingMethod::load$($String* name, bool initialize) {
-	$loadClass(ConvertingMethod, name, initialize, &_ConvertingMethod_ClassInfo_, clinit$ConvertingMethod, allocate$ConvertingMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"noStrings", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ConvertingMethod, noStrings)},
+		{"method", "Ljava/lang/reflect/Method;", nullptr, $PRIVATE | $FINAL, $field(ConvertingMethod, method)},
+		{"returnMapping", "Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(ConvertingMethod, returnMapping)},
+		{"paramMappings", "[Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(ConvertingMethod, paramMappings)},
+		{"paramConversionIsIdentity", "Z", nullptr, $PRIVATE | $FINAL, $field(ConvertingMethod, paramConversionIsIdentity)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE, $method(ConvertingMethod, init$, void, $Method*), "javax.management.openmbean.OpenDataException"},
+		{"checkCallFromOpen", "()V", nullptr, 0, $method(ConvertingMethod, checkCallFromOpen, void)},
+		{"checkCallToOpen", "()V", nullptr, 0, $method(ConvertingMethod, checkCallToOpen, void)},
+		{"from", "(Ljava/lang/reflect/Method;)Lcom/sun/jmx/mbeanserver/ConvertingMethod;", nullptr, $STATIC, $staticMethod(ConvertingMethod, from, ConvertingMethod*, $Method*)},
+		{"fromOpenParameter", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, fromOpenParameter, $Object*, $MXBeanLookup*, Object$*, int32_t), "java.io.InvalidObjectException"},
+		{"fromOpenParameters", "([Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, fromOpenParameters, $ObjectArray*, $ObjectArray*), "java.io.InvalidObjectException"},
+		{"fromOpenReturnValue", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, fromOpenReturnValue, $Object*, $MXBeanLookup*, Object$*), "java.io.InvalidObjectException"},
+		{"getDescriptor", "()Ljavax/management/Descriptor;", nullptr, 0, $method(ConvertingMethod, getDescriptor, $Descriptor*)},
+		{"getGenericParameterTypes", "()[Ljava/lang/reflect/Type;", nullptr, 0, $method(ConvertingMethod, getGenericParameterTypes, $TypeArray*)},
+		{"getGenericReturnType", "()Ljava/lang/reflect/Type;", nullptr, 0, $method(ConvertingMethod, getGenericReturnType, $Type*)},
+		{"getMethod", "()Ljava/lang/reflect/Method;", nullptr, 0, $method(ConvertingMethod, getMethod, $Method*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $method(ConvertingMethod, getName, $String*)},
+		{"getOpenParameterTypes", "()[Ljavax/management/openmbean/OpenType;", "()[Ljavax/management/openmbean/OpenType<*>;", 0, $method(ConvertingMethod, getOpenParameterTypes, $OpenTypeArray*)},
+		{"getOpenReturnType", "()Ljavax/management/openmbean/OpenType;", "()Ljavax/management/openmbean/OpenType<*>;", 0, $method(ConvertingMethod, getOpenReturnType, $OpenType*)},
+		{"getOpenSignature", "()[Ljava/lang/String;", nullptr, 0, $method(ConvertingMethod, getOpenSignature, $StringArray*)},
+		{"invokeWithOpenReturn", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, 0, $method(ConvertingMethod, invokeWithOpenReturn, $Object*, $MXBeanLookup*, Object$*, $ObjectArray*), "javax.management.MBeanException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
+		{"invokeWithOpenReturn", "(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PRIVATE, $method(ConvertingMethod, invokeWithOpenReturn, $Object*, Object$*, $ObjectArray*), "javax.management.MBeanException,java.lang.IllegalAccessException,java.lang.reflect.InvocationTargetException"},
+		{"methodName", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(ConvertingMethod, methodName, $String*)},
+		{"toOpenParameter", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;I)Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, toOpenParameter, $Object*, $MXBeanLookup*, Object$*, int32_t), "javax.management.openmbean.OpenDataException"},
+		{"toOpenParameters", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;[Ljava/lang/Object;)[Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, toOpenParameters, $ObjectArray*, $MXBeanLookup*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
+		{"toOpenReturnValue", "(Lcom/sun/jmx/mbeanserver/MXBeanLookup;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $FINAL, $method(ConvertingMethod, toOpenReturnValue, $Object*, $MXBeanLookup*, Object$*), "javax.management.openmbean.OpenDataException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.ConvertingMethod",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConvertingMethod, name, initialize, &classInfo$$, ConvertingMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ConvertingMethod);
+	});
 	return class$;
 }
 

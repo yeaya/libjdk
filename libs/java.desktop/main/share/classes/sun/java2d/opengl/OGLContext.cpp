@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLContext.h>
-
 #include <sun/java2d/opengl/OGLGraphicsConfig.h>
 #include <sun/java2d/opengl/OGLRenderQueue.h>
 #include <sun/java2d/pipe/BufferedContext.h>
@@ -20,41 +19,6 @@ namespace sun {
 	namespace java2d {
 		namespace opengl {
 
-$MethodInfo _OGLContext_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, 0, $method(OGLContext, init$, void, $RenderQueue*)},
-	{"getOGLIdString", "()Ljava/lang/String;", nullptr, $STATIC | $FINAL | $NATIVE, $staticMethod(OGLContext, getOGLIdString, $String*)},
-	{"invalidateCurrentContext", "()V", nullptr, $STATIC, $staticMethod(OGLContext, invalidateCurrentContext, void)},
-	{"setScratchSurface", "(Lsun/java2d/opengl/OGLGraphicsConfig;)V", nullptr, $STATIC, $staticMethod(OGLContext, setScratchSurface, void, $OGLGraphicsConfig*)},
-	{"setScratchSurface", "(J)V", nullptr, $STATIC, $staticMethod(OGLContext, setScratchSurface, void, int64_t)},
-	{}
-};
-
-#define _METHOD_INDEX_getOGLIdString 1
-
-$InnerClassInfo _OGLContext_InnerClassesInfo_[] = {
-	{"sun.java2d.opengl.OGLContext$OGLContextCaps", "sun.java2d.opengl.OGLContext", "OGLContextCaps", $STATIC},
-	{}
-};
-
-$ClassInfo _OGLContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.opengl.OGLContext",
-	"sun.java2d.pipe.BufferedContext",
-	nullptr,
-	nullptr,
-	_OGLContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OGLContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.opengl.OGLContext$OGLContextCaps"
-};
-
-$Object* allocate$OGLContext($Class* clazz) {
-	return $of($alloc(OGLContext));
-}
-
 void OGLContext::init$($RenderQueue* rq) {
 	$BufferedContext::init$(rq);
 }
@@ -66,7 +30,7 @@ void OGLContext::setScratchSurface($OGLGraphicsConfig* gc) {
 
 void OGLContext::setScratchSurface(int64_t pConfigInfo) {
 	$init(OGLContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BufferedContext);
 	$assignStatic($BufferedContext::currentContext, nullptr);
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
@@ -78,23 +42,22 @@ void OGLContext::setScratchSurface(int64_t pConfigInfo) {
 
 void OGLContext::invalidateCurrentContext() {
 	$init(OGLContext);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($BufferedContext);
 	if ($BufferedContext::currentContext != nullptr) {
-		$nc($BufferedContext::currentContext)->invalidateContext();
+		$BufferedContext::currentContext->invalidateContext();
 		$assignStatic($BufferedContext::currentContext, nullptr);
 	}
 	$var($OGLRenderQueue, rq, $OGLRenderQueue::getInstance());
 	$nc(rq)->ensureCapacity(4);
-	$nc($(rq->getBuffer()))->putInt(75);
+	$$nc(rq->getBuffer())->putInt(75);
 	rq->flushNow();
 }
 
 $String* OGLContext::getOGLIdString() {
 	$init(OGLContext);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(OGLContext, getOGLIdString, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getOGLIdString, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
@@ -103,7 +66,35 @@ OGLContext::OGLContext() {
 }
 
 $Class* OGLContext::load$($String* name, bool initialize) {
-	$loadClass(OGLContext, name, initialize, &_OGLContext_ClassInfo_, allocate$OGLContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/RenderQueue;)V", nullptr, 0, $method(OGLContext, init$, void, $RenderQueue*)},
+		{"getOGLIdString", "()Ljava/lang/String;", nullptr, $STATIC | $FINAL | $NATIVE, $staticMethod(OGLContext, getOGLIdString, $String*)},
+		{"invalidateCurrentContext", "()V", nullptr, $STATIC, $staticMethod(OGLContext, invalidateCurrentContext, void)},
+		{"setScratchSurface", "(Lsun/java2d/opengl/OGLGraphicsConfig;)V", nullptr, $STATIC, $staticMethod(OGLContext, setScratchSurface, void, $OGLGraphicsConfig*)},
+		{"setScratchSurface", "(J)V", nullptr, $STATIC, $staticMethod(OGLContext, setScratchSurface, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.opengl.OGLContext$OGLContextCaps", "sun.java2d.opengl.OGLContext", "OGLContextCaps", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.opengl.OGLContext",
+		"sun.java2d.pipe.BufferedContext",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.opengl.OGLContext$OGLContextCaps"
+	};
+	$loadClass(OGLContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OGLContext);
+	});
 	return class$;
 }
 

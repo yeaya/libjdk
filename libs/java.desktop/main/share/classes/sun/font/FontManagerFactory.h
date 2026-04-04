@@ -21,6 +21,7 @@ class FontManagerFactory : public ::java::lang::Object {
 	$class(FontManagerFactory, 0, ::java::lang::Object)
 public:
 	FontManagerFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::font::FontManager* getInstance();
 	static ::sun::font::FontManager* instance;

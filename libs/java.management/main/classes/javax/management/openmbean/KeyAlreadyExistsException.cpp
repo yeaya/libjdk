@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/KeyAlreadyExistsException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$FieldInfo _KeyAlreadyExistsException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyAlreadyExistsException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _KeyAlreadyExistsException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(KeyAlreadyExistsException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyAlreadyExistsException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _KeyAlreadyExistsException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.KeyAlreadyExistsException",
-	"java.lang.IllegalArgumentException",
-	nullptr,
-	_KeyAlreadyExistsException_FieldInfo_,
-	_KeyAlreadyExistsException_MethodInfo_
-};
-
-$Object* allocate$KeyAlreadyExistsException($Class* clazz) {
-	return $of($alloc(KeyAlreadyExistsException));
-}
 
 void KeyAlreadyExistsException::init$() {
 	$IllegalArgumentException::init$();
@@ -54,7 +29,26 @@ void KeyAlreadyExistsException::throw$() {
 }
 
 $Class* KeyAlreadyExistsException::load$($String* name, bool initialize) {
-	$loadClass(KeyAlreadyExistsException, name, initialize, &_KeyAlreadyExistsException_ClassInfo_, allocate$KeyAlreadyExistsException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyAlreadyExistsException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(KeyAlreadyExistsException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KeyAlreadyExistsException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.KeyAlreadyExistsException",
+		"java.lang.IllegalArgumentException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyAlreadyExistsException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeyAlreadyExistsException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <Test7022041.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
 #include <javax/swing/UIDefaults.h>
@@ -16,50 +15,24 @@
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Color = ::java::awt::Color;
 using $Font = ::java::awt::Font;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
-
-$MethodInfo _Test7022041_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test7022041, init$, void)},
-	{"checkTitleColor", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7022041, checkTitleColor, void)},
-	{"checkTitleFont", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7022041, checkTitleFont, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test7022041, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Test7022041_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test7022041",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Test7022041_MethodInfo_
-};
-
-$Object* allocate$Test7022041($Class* clazz) {
-	return $of($alloc(Test7022041));
-}
 
 void Test7022041::init$() {
 }
 
 void Test7022041::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIManager$LookAndFeelInfoArray, installedLookAndFeels, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, installedLookAndFeels);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeel, arr$->get(i$));
 			{
 				$var($String, name, $nc(lookAndFeel)->getName());
@@ -67,11 +40,11 @@ void Test7022041::main($StringArray* args) {
 				try {
 					$UIManager::setLookAndFeel($(lookAndFeel->getClassName()));
 					checkTitleColor();
-					$nc($System::out)->println("    titleColor test ok"_s);
+					$System::out->println("    titleColor test ok"_s);
 					checkTitleFont();
-					$nc($System::out)->println("    titleFont test ok"_s);
+					$System::out->println("    titleFont test ok"_s);
 				} catch ($UnsupportedLookAndFeelException& e) {
-					$nc($System::out)->println($$str({"    Note: LookAndFeel "_s, name, " is not supported on this configuration"_s}));
+					$System::out->println($$str({"    Note: LookAndFeel "_s, name, " is not supported on this configuration"_s}));
 				}
 			}
 		}
@@ -79,9 +52,9 @@ void Test7022041::main($StringArray* args) {
 }
 
 void Test7022041::checkTitleColor() {
-	$useLocalCurrentObjectStackCache();
-	$var($TitledBorder, titledBorder, $new($TitledBorder, static_cast<$Border*>($$new($EmptyBorder, 1, 1, 1, 1))));
-	$var($Color, defaultColor, $nc($($UIManager::getLookAndFeelDefaults()))->getColor("TitledBorder.titleColor"_s));
+	$useLocalObjectStack();
+	$var($TitledBorder, titledBorder, $new($TitledBorder, $$new($EmptyBorder, 1, 1, 1, 1)));
+	$var($Color, defaultColor, $$nc($UIManager::getLookAndFeelDefaults())->getColor("TitledBorder.titleColor"_s));
 	$var($Color, titledBorderColor, titledBorder->getTitleColor());
 	if (defaultColor == nullptr) {
 		if (titledBorderColor == nullptr) {
@@ -91,8 +64,12 @@ void Test7022041::checkTitleColor() {
 		}
 	}
 	if (!$nc(defaultColor)->equals(titledBorderColor)) {
-		$var($String, var$0, $$str({"L&F default color "_s, $(defaultColor->toString()), " differs from TitledBorder color "_s}));
-		$throwNew($RuntimeException, $$concat(var$0, $($nc(titledBorderColor)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("L&F default color "_s);
+		var$0->append($(defaultColor->toString()));
+		var$0->append(" differs from TitledBorder color "_s);
+		var$0->append($($nc(titledBorderColor)->toString()));
+		$throwNew($RuntimeException, $$str(var$0));
 	}
 	$var($Color, color, $Color::green);
 	titledBorder->setTitleColor(color);
@@ -100,16 +77,20 @@ void Test7022041::checkTitleColor() {
 		$throwNew($RuntimeException, $$str({"TitledBorder color should be "_s, $(color->toString())}));
 	}
 	titledBorder->setTitleColor(nullptr);
-	if (!$nc(defaultColor)->equals($(titledBorder->getTitleColor()))) {
-		$var($String, var$1, $$str({"L&F default color "_s, $(defaultColor->toString()), " differs from TitledBorder color "_s}));
-		$throwNew($RuntimeException, $$concat(var$1, $($nc(titledBorderColor)->toString())));
+	if (!defaultColor->equals($(titledBorder->getTitleColor()))) {
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("L&F default color "_s);
+		var$1->append($(defaultColor->toString()));
+		var$1->append(" differs from TitledBorder color "_s);
+		var$1->append($($nc(titledBorderColor)->toString()));
+		$throwNew($RuntimeException, $$str(var$1));
 	}
 }
 
 void Test7022041::checkTitleFont() {
-	$useLocalCurrentObjectStackCache();
-	$var($TitledBorder, titledBorder, $new($TitledBorder, static_cast<$Border*>($$new($EmptyBorder, 1, 1, 1, 1))));
-	$var($Font, defaultFont, $nc($($UIManager::getLookAndFeelDefaults()))->getFont("TitledBorder.font"_s));
+	$useLocalObjectStack();
+	$var($TitledBorder, titledBorder, $new($TitledBorder, $$new($EmptyBorder, 1, 1, 1, 1)));
+	$var($Font, defaultFont, $$nc($UIManager::getLookAndFeelDefaults())->getFont("TitledBorder.font"_s));
 	$var($Font, titledBorderFont, titledBorder->getTitleFont());
 	if (defaultFont == nullptr) {
 		if (titledBorderFont == nullptr) {
@@ -119,8 +100,12 @@ void Test7022041::checkTitleFont() {
 		}
 	}
 	if (!$nc(defaultFont)->equals(titledBorderFont)) {
-		$var($String, var$0, $$str({"L&F default font "_s, $(defaultFont->toString()), " differs from TitledBorder font "_s}));
-		$throwNew($RuntimeException, $$concat(var$0, $($nc(titledBorderFont)->toString())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("L&F default font "_s);
+		var$0->append($(defaultFont->toString()));
+		var$0->append(" differs from TitledBorder font "_s);
+		var$0->append($($nc(titledBorderFont)->toString()));
+		$throwNew($RuntimeException, $$str(var$0));
 	}
 	$var($Font, font, $new($Font, "Dialog"_s, $Font::PLAIN, 10));
 	titledBorder->setTitleFont(font);
@@ -128,9 +113,13 @@ void Test7022041::checkTitleFont() {
 		$throwNew($RuntimeException, $$str({"TitledBorder font should be "_s, $(font->toString())}));
 	}
 	titledBorder->setTitleFont(nullptr);
-	if (!$nc(defaultFont)->equals($(titledBorder->getTitleFont()))) {
-		$var($String, var$1, $$str({"L&F default font "_s, $(defaultFont->toString()), " differs from TitledBorder font "_s}));
-		$throwNew($RuntimeException, $$concat(var$1, $($nc(titledBorderFont)->toString())));
+	if (!defaultFont->equals($(titledBorder->getTitleFont()))) {
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("L&F default font "_s);
+		var$1->append($(defaultFont->toString()));
+		var$1->append(" differs from TitledBorder font "_s);
+		var$1->append($($nc(titledBorderFont)->toString()));
+		$throwNew($RuntimeException, $$str(var$1));
 	}
 }
 
@@ -138,7 +127,24 @@ Test7022041::Test7022041() {
 }
 
 $Class* Test7022041::load$($String* name, bool initialize) {
-	$loadClass(Test7022041, name, initialize, &_Test7022041_ClassInfo_, allocate$Test7022041);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test7022041, init$, void)},
+		{"checkTitleColor", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7022041, checkTitleColor, void)},
+		{"checkTitleFont", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test7022041, checkTitleFont, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test7022041, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test7022041",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test7022041, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test7022041);
+	});
 	return class$;
 }
 

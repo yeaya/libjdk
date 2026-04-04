@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/OceanTheme$COIcon.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/Icon.h>
@@ -23,42 +22,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _OceanTheme$COIcon_FieldInfo_[] = {
-	{"rtl", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(OceanTheme$COIcon, rtl)},
-	{}
-};
-
-$MethodInfo _OceanTheme$COIcon_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/Icon;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(OceanTheme$COIcon, init$, void, $Icon*, $Icon*)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(OceanTheme$COIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _OceanTheme$COIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.OceanTheme$COIcon", "javax.swing.plaf.metal.OceanTheme", "COIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _OceanTheme$COIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.OceanTheme$COIcon",
-	"javax.swing.plaf.IconUIResource",
-	nullptr,
-	_OceanTheme$COIcon_FieldInfo_,
-	_OceanTheme$COIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_OceanTheme$COIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.OceanTheme"
-};
-
-$Object* allocate$OceanTheme$COIcon($Class* clazz) {
-	return $of($alloc(OceanTheme$COIcon));
-}
-
 void OceanTheme$COIcon::init$($Icon* ltr, $Icon* rtl) {
 	$IconUIResource::init$(ltr);
 	$set(this, rtl, rtl);
@@ -76,7 +39,37 @@ OceanTheme$COIcon::OceanTheme$COIcon() {
 }
 
 $Class* OceanTheme$COIcon::load$($String* name, bool initialize) {
-	$loadClass(OceanTheme$COIcon, name, initialize, &_OceanTheme$COIcon_ClassInfo_, allocate$OceanTheme$COIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"rtl", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(OceanTheme$COIcon, rtl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/Icon;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $method(OceanTheme$COIcon, init$, void, $Icon*, $Icon*)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(OceanTheme$COIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.OceanTheme$COIcon", "javax.swing.plaf.metal.OceanTheme", "COIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.OceanTheme$COIcon",
+		"javax.swing.plaf.IconUIResource",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.OceanTheme"
+	};
+	$loadClass(OceanTheme$COIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OceanTheme$COIcon));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/ValueTree.h>
-
 #include <com/sun/source/doctree/ReferenceTree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _ValueTree_MethodInfo_[] = {
-	{"getReference", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueTree, getReference, $ReferenceTree*)},
-	{}
-};
-
-$ClassInfo _ValueTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.ValueTree",
-	nullptr,
-	"com.sun.source.doctree.InlineTagTree",
-	nullptr,
-	_ValueTree_MethodInfo_
-};
-
-$Object* allocate$ValueTree($Class* clazz) {
-	return $of($alloc(ValueTree));
-}
-
 $Class* ValueTree::load$($String* name, bool initialize) {
-	$loadClass(ValueTree, name, initialize, &_ValueTree_ClassInfo_, allocate$ValueTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getReference", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ValueTree, getReference, $ReferenceTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.ValueTree",
+		nullptr,
+		"com.sun.source.doctree.InlineTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ValueTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ValueTree);
+	});
 	return class$;
 }
 

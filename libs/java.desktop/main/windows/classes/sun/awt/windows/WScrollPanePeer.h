@@ -70,6 +70,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Component* target);
 	int32_t _getHScrollbarHeight();
 	int32_t _getVScrollbarWidth();

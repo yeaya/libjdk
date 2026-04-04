@@ -16,7 +16,10 @@ public:
 	void init$();
 	CannotUndoException(const CannotUndoException& e);
 	virtual void throw$() override;
-	inline CannotUndoException* operator ->() {
+	inline CannotUndoException* operator ->() const {
+		return (CannotUndoException*)throwing$;
+	}
+	inline operator CannotUndoException*() const {
 		return (CannotUndoException*)throwing$;
 	}
 };

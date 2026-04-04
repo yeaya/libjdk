@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ccache/FileCCacheConstants.h>
-
 #include <jcpp.h>
 
 #undef FCC_TAG_DELTATIME
@@ -29,41 +28,37 @@ namespace sun {
 			namespace internal {
 				namespace ccache {
 
-$FieldInfo _FileCCacheConstants_FieldInfo_[] = {
-	{"KRB5_FCC_FVNO_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_FCC_FVNO_1)},
-	{"KRB5_FCC_FVNO_2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_FCC_FVNO_2)},
-	{"KRB5_FCC_FVNO_3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_FCC_FVNO_3)},
-	{"KRB5_FCC_FVNO_4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_FCC_FVNO_4)},
-	{"FCC_TAG_DELTATIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, FCC_TAG_DELTATIME)},
-	{"KRB5_NT_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_NT_UNKNOWN)},
-	{"TKT_FLG_FORWARDABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_FORWARDABLE)},
-	{"TKT_FLG_FORWARDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_FORWARDED)},
-	{"TKT_FLG_PROXIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_PROXIABLE)},
-	{"TKT_FLG_PROXY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_PROXY)},
-	{"TKT_FLG_MAY_POSTDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_MAY_POSTDATE)},
-	{"TKT_FLG_POSTDATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_POSTDATED)},
-	{"TKT_FLG_INVALID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_INVALID)},
-	{"TKT_FLG_RENEWABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_RENEWABLE)},
-	{"TKT_FLG_INITIAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_INITIAL)},
-	{"TKT_FLG_PRE_AUTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_PRE_AUTH)},
-	{"TKT_FLG_HW_AUTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_HW_AUTH)},
-	{}
-};
-
-$ClassInfo _FileCCacheConstants_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.security.krb5.internal.ccache.FileCCacheConstants",
-	nullptr,
-	nullptr,
-	_FileCCacheConstants_FieldInfo_
-};
-
-$Object* allocate$FileCCacheConstants($Class* clazz) {
-	return $of($alloc(FileCCacheConstants));
-}
-
 $Class* FileCCacheConstants::load$($String* name, bool initialize) {
-	$loadClass(FileCCacheConstants, name, initialize, &_FileCCacheConstants_ClassInfo_, allocate$FileCCacheConstants);
+	$FieldInfo fieldInfos$$[] = {
+		{"KRB5_FCC_FVNO_1", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_FCC_FVNO_1)},
+		{"KRB5_FCC_FVNO_2", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_FCC_FVNO_2)},
+		{"KRB5_FCC_FVNO_3", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_FCC_FVNO_3)},
+		{"KRB5_FCC_FVNO_4", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_FCC_FVNO_4)},
+		{"FCC_TAG_DELTATIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, FCC_TAG_DELTATIME)},
+		{"KRB5_NT_UNKNOWN", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, KRB5_NT_UNKNOWN)},
+		{"TKT_FLG_FORWARDABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_FORWARDABLE)},
+		{"TKT_FLG_FORWARDED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_FORWARDED)},
+		{"TKT_FLG_PROXIABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_PROXIABLE)},
+		{"TKT_FLG_PROXY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_PROXY)},
+		{"TKT_FLG_MAY_POSTDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_MAY_POSTDATE)},
+		{"TKT_FLG_POSTDATED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_POSTDATED)},
+		{"TKT_FLG_INVALID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_INVALID)},
+		{"TKT_FLG_RENEWABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_RENEWABLE)},
+		{"TKT_FLG_INITIAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_INITIAL)},
+		{"TKT_FLG_PRE_AUTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_PRE_AUTH)},
+		{"TKT_FLG_HW_AUTH", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(FileCCacheConstants, TKT_FLG_HW_AUTH)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.security.krb5.internal.ccache.FileCCacheConstants",
+		nullptr,
+		nullptr,
+		fieldInfos$$
+	};
+	$loadClass(FileCCacheConstants, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileCCacheConstants);
+	});
 	return class$;
 }
 

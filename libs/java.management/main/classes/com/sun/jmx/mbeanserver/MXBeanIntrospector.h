@@ -50,6 +50,7 @@ class MXBeanIntrospector : public ::com::sun::jmx::mbeanserver::MBeanIntrospecto
 	$class(MXBeanIntrospector, 0, ::com::sun::jmx::mbeanserver::MBeanIntrospector)
 public:
 	MXBeanIntrospector();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool canUseOpenInfo(::java::lang::reflect::Type* type);
 	virtual void checkMethod(::com::sun::jmx::mbeanserver::ConvertingMethod* m);

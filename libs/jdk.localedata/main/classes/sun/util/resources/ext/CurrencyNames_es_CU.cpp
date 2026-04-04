@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/CurrencyNames_es_CU.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,39 +12,20 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CurrencyNames_es_CU_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_es_CU, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_es_CU, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_es_CU_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.CurrencyNames_es_CU",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_es_CU_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_es_CU($Class* clazz) {
-	return $of($alloc(CurrencyNames_es_CU));
-}
-
 void CurrencyNames_es_CU::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_es_CU::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("CUC"_s),
-			$of("CUC$"_s)
+			"CUC"_s,
+			"CUC$"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CUP"_s),
-			$of("CU$"_s)
+			"CUP"_s,
+			"CU$"_s
 		})
 	});
 }
@@ -54,7 +34,22 @@ CurrencyNames_es_CU::CurrencyNames_es_CU() {
 }
 
 $Class* CurrencyNames_es_CU::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_es_CU, name, initialize, &_CurrencyNames_es_CU_ClassInfo_, allocate$CurrencyNames_es_CU);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_es_CU, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_es_CU, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.CurrencyNames_es_CU",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_es_CU, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_es_CU);
+	});
 	return class$;
 }
 

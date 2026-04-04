@@ -26,10 +26,13 @@ public:
 	void init$($String* reason, $Throwable* cause);
 	void init$($String* reason, $String* SQLState, $Throwable* cause);
 	void init$($String* reason, $String* SQLState, int32_t vendorCode, $Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xFF1C409D46A31D16;
+	static const int64_t serialVersionUID = (int64_t)0xff1c409d46a31d16;
 	SQLInvalidAuthorizationSpecException(const SQLInvalidAuthorizationSpecException& e);
 	virtual void throw$() override;
-	inline SQLInvalidAuthorizationSpecException* operator ->() {
+	inline SQLInvalidAuthorizationSpecException* operator ->() const {
+		return (SQLInvalidAuthorizationSpecException*)throwing$;
+	}
+	inline operator SQLInvalidAuthorizationSpecException*() const {
 		return (SQLInvalidAuthorizationSpecException*)throwing$;
 	}
 };

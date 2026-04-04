@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$24.h>
-
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Types$HashCodeVisitor.h>
 #include <jcpp.h>
@@ -19,45 +18,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Types$24_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Types$24, init$, void)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$24, visitTypeVar, $Integer*, $Type$TypeVar*, $Void*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$24, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _Types$24_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Types",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Types$24_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$24", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.code.Types$HashCodeVisitor", "com.sun.tools.javac.code.Types", "HashCodeVisitor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Types$24_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$24",
-	"com.sun.tools.javac.code.Types$HashCodeVisitor",
-	nullptr,
-	nullptr,
-	_Types$24_MethodInfo_,
-	nullptr,
-	&_Types$24_EnclosingMethodInfo_,
-	_Types$24_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$24($Class* clazz) {
-	return $of($alloc(Types$24));
-}
-
 void Types$24::init$() {
 	$Types$HashCodeVisitor::init$();
 }
@@ -74,7 +34,40 @@ Types$24::Types$24() {
 }
 
 $Class* Types$24::load$($String* name, bool initialize) {
-	$loadClass(Types$24, name, initialize, &_Types$24_ClassInfo_, allocate$Types$24);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Types$24, init$, void)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$24, visitTypeVar, $Integer*, $Type$TypeVar*, $Void*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$24, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Types",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$24", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.code.Types$HashCodeVisitor", "com.sun.tools.javac.code.Types", "HashCodeVisitor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$24",
+		"com.sun.tools.javac.code.Types$HashCodeVisitor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$24, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$24);
+	});
 	return class$;
 }
 

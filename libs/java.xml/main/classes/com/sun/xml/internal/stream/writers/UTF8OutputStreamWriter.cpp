@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/writers/UTF8OutputStreamWriter.h>
-
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -23,38 +22,6 @@ namespace com {
 				namespace stream {
 					namespace writers {
 
-$FieldInfo _UTF8OutputStreamWriter_FieldInfo_[] = {
-	{"out", "Ljava/io/OutputStream;", nullptr, 0, $field(UTF8OutputStreamWriter, out)},
-	{"lastUTF16CodePoint", "I", nullptr, 0, $field(UTF8OutputStreamWriter, lastUTF16CodePoint)},
-	{}
-};
-
-$MethodInfo _UTF8OutputStreamWriter_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(UTF8OutputStreamWriter, init$, void, $OutputStream*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, close, void), "java.io.IOException"},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, flush, void), "java.io.IOException"},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UTF8OutputStreamWriter, getEncoding, $String*)},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, int32_t), "java.io.IOException"},
-	{"write", "([C)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, $chars*), "java.io.IOException"},
-	{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, $String*), "java.io.IOException"},
-	{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UTF8OutputStreamWriter_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.xml.internal.stream.writers.UTF8OutputStreamWriter",
-	"java.io.Writer",
-	nullptr,
-	_UTF8OutputStreamWriter_FieldInfo_,
-	_UTF8OutputStreamWriter_MethodInfo_
-};
-
-$Object* allocate$UTF8OutputStreamWriter($Class* clazz) {
-	return $of($alloc(UTF8OutputStreamWriter));
-}
-
 void UTF8OutputStreamWriter::init$($OutputStream* out) {
 	$Writer::init$();
 	this->lastUTF16CodePoint = 0;
@@ -66,30 +33,30 @@ $String* UTF8OutputStreamWriter::getEncoding() {
 }
 
 void UTF8OutputStreamWriter::write(int32_t c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->lastUTF16CodePoint != 0) {
-		int32_t uc = ((((int32_t)(this->lastUTF16CodePoint & (uint32_t)1023)) << 10) | ((int32_t)(c & (uint32_t)1023))) + 0x00010000;
+		int32_t uc = (((this->lastUTF16CodePoint & 0x03ff) << 10) | (c & 0x03ff)) + 0x00010000;
 		if (uc < 0 || uc >= 0x00200000) {
 			$throwNew($IOException, $$str({"Atttempting to write invalid Unicode code point \'"_s, $$str(uc), "\'"_s}));
 		}
-		$nc(this->out)->write(240 | (uc >> 18));
-		$nc(this->out)->write(128 | ((int32_t)((uc >> 12) & (uint32_t)63)));
-		$nc(this->out)->write(128 | ((int32_t)((uc >> 6) & (uint32_t)63)));
-		$nc(this->out)->write(128 | ((int32_t)(uc & (uint32_t)63)));
+		$nc(this->out)->write(0xf0 | (uc >> 18));
+		this->out->write(0x80 | ((uc >> 12) & 0x3f));
+		this->out->write(0x80 | ((uc >> 6) & 0x3f));
+		this->out->write(0x80 | (uc & 0x3f));
 		this->lastUTF16CodePoint = 0;
 		return;
 	}
 	if (c < 128) {
 		$nc(this->out)->write(c);
 	} else if (c < 2048) {
-		$nc(this->out)->write(192 | (c >> 6));
-		$nc(this->out)->write(128 | ((int32_t)(c & (uint32_t)63)));
-	} else if (c <= (char16_t)0xFFFF) {
+		$nc(this->out)->write(0xc0 | (c >> 6));
+		this->out->write(0x80 | (c & 0x3f));
+	} else if (c <= (char16_t)0xffff) {
 		bool var$0 = !$XMLChar::isHighSurrogate(c);
 		if (var$0 && !$XMLChar::isLowSurrogate(c)) {
-			$nc(this->out)->write(224 | (c >> 12));
-			$nc(this->out)->write(128 | ((int32_t)((c >> 6) & (uint32_t)63)));
-			$nc(this->out)->write(128 | ((int32_t)(c & (uint32_t)63)));
+			$nc(this->out)->write(0xe0 | (c >> 12));
+			this->out->write(0x80 | ((c >> 6) & 0x3f));
+			this->out->write(0x80 | (c & 0x3f));
 		} else {
 			this->lastUTF16CodePoint = c;
 		}
@@ -98,26 +65,26 @@ void UTF8OutputStreamWriter::write(int32_t c) {
 
 void UTF8OutputStreamWriter::write($chars* cbuf) {
 	for (int32_t i = 0; i < $nc(cbuf)->length; ++i) {
-		write((int32_t)cbuf->get(i));
+		write(cbuf->get(i));
 	}
 }
 
 void UTF8OutputStreamWriter::write($chars* cbuf, int32_t off, int32_t len) {
 	for (int32_t i = 0; i < len; ++i) {
-		write((int32_t)$nc(cbuf)->get(off + i));
+		write($nc(cbuf)->get(off + i));
 	}
 }
 
 void UTF8OutputStreamWriter::write($String* str) {
 	int32_t len = $nc(str)->length();
 	for (int32_t i = 0; i < len; ++i) {
-		write((int32_t)str->charAt(i));
+		write(str->charAt(i));
 	}
 }
 
 void UTF8OutputStreamWriter::write($String* str, int32_t off, int32_t len) {
 	for (int32_t i = 0; i < len; ++i) {
-		write((int32_t)$nc(str)->charAt(off + i));
+		write($nc(str)->charAt(off + i));
 	}
 }
 
@@ -136,7 +103,34 @@ UTF8OutputStreamWriter::UTF8OutputStreamWriter() {
 }
 
 $Class* UTF8OutputStreamWriter::load$($String* name, bool initialize) {
-	$loadClass(UTF8OutputStreamWriter, name, initialize, &_UTF8OutputStreamWriter_ClassInfo_, allocate$UTF8OutputStreamWriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"out", "Ljava/io/OutputStream;", nullptr, 0, $field(UTF8OutputStreamWriter, out)},
+		{"lastUTF16CodePoint", "I", nullptr, 0, $field(UTF8OutputStreamWriter, lastUTF16CodePoint)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $method(UTF8OutputStreamWriter, init$, void, $OutputStream*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, close, void), "java.io.IOException"},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, flush, void), "java.io.IOException"},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(UTF8OutputStreamWriter, getEncoding, $String*)},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, int32_t), "java.io.IOException"},
+		{"write", "([C)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, $chars*), "java.io.IOException"},
+		{"write", "([CII)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, $String*), "java.io.IOException"},
+		{"write", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $virtualMethod(UTF8OutputStreamWriter, write, void, $String*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.xml.internal.stream.writers.UTF8OutputStreamWriter",
+		"java.io.Writer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UTF8OutputStreamWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UTF8OutputStreamWriter));
+	});
 	return class$;
 }
 

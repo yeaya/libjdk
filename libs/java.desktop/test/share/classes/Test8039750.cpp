@@ -1,5 +1,4 @@
 #include <Test8039750.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -33,90 +32,65 @@ public:
 	virtual void run() override {
 		Test8039750::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8039750$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Test8039750$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8039750$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8039750$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo Test8039750$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8039750$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Test8039750$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(Test8039750$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8039750$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8039750$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8039750$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8039750$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8039750$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* Test8039750$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _Test8039750_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8039750, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8039750, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8039750, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8039750, test, void, Object$*, $String*)},
-	{"test", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8039750, test, void, Object$*, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Test8039750_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test8039750",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Test8039750_MethodInfo_
-};
-
-$Object* allocate$Test8039750($Class* clazz) {
-	return $of($alloc(Test8039750));
-}
 
 void Test8039750::init$() {
 }
 
 void Test8039750::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Test8039750$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(Test8039750$$Lambda$lambda$main$0));
 }
 
 void Test8039750::test(Object$* value, $String* name) {
-	if (!$nc($($nc($of(value))->getClass()->getName()))->equals(name)) {
+	if (!$$nc($nc($of(value))->getClass()->getName())->equals(name)) {
 		$throwNew($RuntimeException, name);
 	}
 }
 
 void Test8039750::test(Object$* value, $String* one, $String* two) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($CompoundBorder, value)) {
 		$var($CompoundBorder, border, $cast($CompoundBorder, value));
-		test($($nc(border)->getOutsideBorder()), one);
-		test($($nc(border)->getInsideBorder()), two);
+		test($(border->getOutsideBorder()), one);
+		test($(border->getInsideBorder()), two);
 	} else {
 		$throwNew($RuntimeException, "CompoundBorder"_s);
 	}
 }
 
 void Test8039750::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIDefaults, table, $$new($MetalLookAndFeel)->getDefaults());
 	test($($nc(table)->get("ToolBar.rolloverBorder"_s)), "javax.swing.plaf.metal.MetalBorders$ButtonBorder"_s, "javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder"_s);
-	test($($nc(table)->get("ToolBar.nonrolloverBorder"_s)), "javax.swing.plaf.metal.MetalBorders$ButtonBorder"_s, "javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder"_s);
-	test($($nc(table)->get("RootPane.frameBorder"_s)), "javax.swing.plaf.metal.MetalBorders$FrameBorder"_s);
-	test($($nc(table)->get("RootPane.plainDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$DialogBorder"_s);
-	test($($nc(table)->get("RootPane.informationDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$DialogBorder"_s);
-	test($($nc(table)->get("RootPane.errorDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder"_s);
-	test($($nc(table)->get("RootPane.colorChooserDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder"_s);
-	test($($nc(table)->get("RootPane.fileChooserDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder"_s);
-	test($($nc(table)->get("RootPane.questionDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder"_s);
-	test($($nc(table)->get("RootPane.warningDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$WarningDialogBorder"_s);
+	test($(table->get("ToolBar.nonrolloverBorder"_s)), "javax.swing.plaf.metal.MetalBorders$ButtonBorder"_s, "javax.swing.plaf.metal.MetalBorders$RolloverMarginBorder"_s);
+	test($(table->get("RootPane.frameBorder"_s)), "javax.swing.plaf.metal.MetalBorders$FrameBorder"_s);
+	test($(table->get("RootPane.plainDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$DialogBorder"_s);
+	test($(table->get("RootPane.informationDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$DialogBorder"_s);
+	test($(table->get("RootPane.errorDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$ErrorDialogBorder"_s);
+	test($(table->get("RootPane.colorChooserDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder"_s);
+	test($(table->get("RootPane.fileChooserDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder"_s);
+	test($(table->get("RootPane.questionDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$QuestionDialogBorder"_s);
+	test($(table->get("RootPane.warningDialogBorder"_s)), "javax.swing.plaf.metal.MetalBorders$WarningDialogBorder"_s);
 }
 
 Test8039750::Test8039750() {
@@ -124,11 +98,29 @@ Test8039750::Test8039750() {
 
 $Class* Test8039750::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Test8039750$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("Test8039750$$Lambda$lambda$main$0")) {
 			return Test8039750$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Test8039750, name, initialize, &_Test8039750_ClassInfo_, allocate$Test8039750);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8039750, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8039750, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8039750, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "(Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8039750, test, void, Object$*, $String*)},
+		{"test", "(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8039750, test, void, Object$*, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test8039750",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8039750, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8039750);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class ArcFourCrypto : public ::sun::security::krb5::internal::crypto::dk::DkCryp
 public:
 	ArcFourCrypto();
 	using ::sun::security::krb5::internal::crypto::dk::DkCrypto::decryptRaw;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t length);
 	int32_t arcfour_translate_usage(int32_t usage);
 	virtual $bytes* calculateChecksum($bytes* baseKey, int32_t usage, $bytes* input, int32_t start, int32_t len) override;

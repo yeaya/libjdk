@@ -1,5 +1,4 @@
 #include <javax/swing/undo/CompoundEdit.h>
-
 #include <java/util/Enumeration.h>
 #include <java/util/Vector.h>
 #include <javax/swing/undo/AbstractUndoableEdit.h>
@@ -18,44 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace undo {
 
-$FieldInfo _CompoundEdit_FieldInfo_[] = {
-	{"inProgress", "Z", nullptr, 0, $field(CompoundEdit, inProgress)},
-	{"edits", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/undo/UndoableEdit;>;", $PROTECTED, $field(CompoundEdit, edits)},
-	{}
-};
-
-$MethodInfo _CompoundEdit_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CompoundEdit, init$, void)},
-	{"addEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, addEdit, bool, $UndoableEdit*)},
-	{"canRedo", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, canRedo, bool)},
-	{"canUndo", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, canUndo, bool)},
-	{"die", "()V", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, die, void)},
-	{"end", "()V", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, end, void)},
-	{"getPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, getPresentationName, $String*)},
-	{"getRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, getRedoPresentationName, $String*)},
-	{"getUndoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, getUndoPresentationName, $String*)},
-	{"isInProgress", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, isInProgress, bool)},
-	{"isSignificant", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, isSignificant, bool)},
-	{"lastEdit", "()Ljavax/swing/undo/UndoableEdit;", nullptr, $PROTECTED, $virtualMethod(CompoundEdit, lastEdit, $UndoableEdit*)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, toString, $String*)},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, undo, void), "javax.swing.undo.CannotUndoException"},
-	{}
-};
-
-$ClassInfo _CompoundEdit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.undo.CompoundEdit",
-	"javax.swing.undo.AbstractUndoableEdit",
-	nullptr,
-	_CompoundEdit_FieldInfo_,
-	_CompoundEdit_MethodInfo_
-};
-
-$Object* allocate$CompoundEdit($Class* clazz) {
-	return $of($alloc(CompoundEdit));
-}
-
 void CompoundEdit::init$() {
 	$AbstractUndoableEdit::init$();
 	this->inProgress = true;
@@ -63,7 +24,7 @@ void CompoundEdit::init$() {
 }
 
 void CompoundEdit::undo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractUndoableEdit::undo();
 	int32_t i = $nc(this->edits)->size();
 	while (i-- > 0) {
@@ -73,25 +34,25 @@ void CompoundEdit::undo() {
 }
 
 void CompoundEdit::redo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AbstractUndoableEdit::redo();
 	$var($Enumeration, cursor, $nc(this->edits)->elements());
 	while ($nc(cursor)->hasMoreElements()) {
-		$nc(($cast($UndoableEdit, $(cursor->nextElement()))))->redo();
+		$$sure($UndoableEdit, cursor->nextElement())->redo();
 	}
 }
 
 $UndoableEdit* CompoundEdit::lastEdit() {
 	int32_t count = $nc(this->edits)->size();
 	if (count > 0) {
-		return $cast($UndoableEdit, $nc(this->edits)->elementAt(count - 1));
+		return $cast($UndoableEdit, this->edits->elementAt(count - 1));
 	} else {
 		return nullptr;
 	}
 }
 
 void CompoundEdit::die() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = $nc(this->edits)->size();
 	for (int32_t i = size - 1; i >= 0; --i) {
 		$var($UndoableEdit, e, $cast($UndoableEdit, $nc(this->edits)->elementAt(i)));
@@ -107,7 +68,7 @@ bool CompoundEdit::addEdit($UndoableEdit* anEdit) {
 		$var($UndoableEdit, last, lastEdit());
 		if (last == nullptr) {
 			$nc(this->edits)->addElement(anEdit);
-		} else if (!$nc(last)->addEdit(anEdit)) {
+		} else if (!last->addEdit(anEdit)) {
 			if ($nc(anEdit)->replaceEdit(last)) {
 				$nc(this->edits)->removeElementAt($nc(this->edits)->size() - 1);
 			}
@@ -136,10 +97,10 @@ bool CompoundEdit::isInProgress() {
 }
 
 bool CompoundEdit::isSignificant() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Enumeration, cursor, $nc(this->edits)->elements());
 	while ($nc(cursor)->hasMoreElements()) {
-		if ($nc(($cast($UndoableEdit, $(cursor->nextElement()))))->isSignificant()) {
+		if ($$sure($UndoableEdit, cursor->nextElement())->isSignificant()) {
 			return true;
 		}
 	}
@@ -174,7 +135,7 @@ $String* CompoundEdit::getRedoPresentationName() {
 }
 
 $String* CompoundEdit::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($AbstractUndoableEdit::toString()), " inProgress: "_s, $$str(this->inProgress), " edits: "_s, this->edits});
 }
 
@@ -182,7 +143,40 @@ CompoundEdit::CompoundEdit() {
 }
 
 $Class* CompoundEdit::load$($String* name, bool initialize) {
-	$loadClass(CompoundEdit, name, initialize, &_CompoundEdit_ClassInfo_, allocate$CompoundEdit);
+	$FieldInfo fieldInfos$$[] = {
+		{"inProgress", "Z", nullptr, 0, $field(CompoundEdit, inProgress)},
+		{"edits", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/undo/UndoableEdit;>;", $PROTECTED, $field(CompoundEdit, edits)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CompoundEdit, init$, void)},
+		{"addEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, addEdit, bool, $UndoableEdit*)},
+		{"canRedo", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, canRedo, bool)},
+		{"canUndo", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, canUndo, bool)},
+		{"die", "()V", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, die, void)},
+		{"end", "()V", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, end, void)},
+		{"getPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, getPresentationName, $String*)},
+		{"getRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, getRedoPresentationName, $String*)},
+		{"getUndoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, getUndoPresentationName, $String*)},
+		{"isInProgress", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, isInProgress, bool)},
+		{"isSignificant", "()Z", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, isSignificant, bool)},
+		{"lastEdit", "()Ljavax/swing/undo/UndoableEdit;", nullptr, $PROTECTED, $virtualMethod(CompoundEdit, lastEdit, $UndoableEdit*)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, toString, $String*)},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(CompoundEdit, undo, void), "javax.swing.undo.CannotUndoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.undo.CompoundEdit",
+		"javax.swing.undo.AbstractUndoableEdit",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompoundEdit, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompoundEdit));
+	});
 	return class$;
 }
 

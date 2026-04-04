@@ -40,6 +40,7 @@ class KrbDelegationPermissionCollection : public ::java::security::PermissionCol
 	$class(KrbDelegationPermissionCollection, 0, ::java::security::PermissionCollection)
 public:
 	KrbDelegationPermissionCollection();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void add(::java::security::Permission* permission) override;
 	virtual ::java::util::Enumeration* elements() override;
@@ -47,7 +48,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
 	::java::util::concurrent::ConcurrentHashMap* perms = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xD109D748F83B419C;
+	static const int64_t serialVersionUID = (int64_t)0xd109d748f83b419c;
 	static $Array<::java::io::ObjectStreamField>* serialPersistentFields;
 };
 

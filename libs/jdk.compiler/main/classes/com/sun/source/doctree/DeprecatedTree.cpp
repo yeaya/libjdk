@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/DeprecatedTree.h>
-
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _DeprecatedTree_MethodInfo_[] = {
-	{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeprecatedTree, getBody, $List*)},
-	{}
-};
-
-$ClassInfo _DeprecatedTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.DeprecatedTree",
-	nullptr,
-	"com.sun.source.doctree.BlockTagTree",
-	nullptr,
-	_DeprecatedTree_MethodInfo_
-};
-
-$Object* allocate$DeprecatedTree($Class* clazz) {
-	return $of($alloc(DeprecatedTree));
-}
-
 $Class* DeprecatedTree::load$($String* name, bool initialize) {
-	$loadClass(DeprecatedTree, name, initialize, &_DeprecatedTree_ClassInfo_, allocate$DeprecatedTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBody", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(DeprecatedTree, getBody, $List*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.DeprecatedTree",
+		nullptr,
+		"com.sun.source.doctree.BlockTagTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DeprecatedTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DeprecatedTree);
+	});
 	return class$;
 }
 

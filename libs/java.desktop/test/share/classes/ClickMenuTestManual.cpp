@@ -1,5 +1,4 @@
 #include <ClickMenuTestManual.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -35,10 +34,8 @@
 #undef TEST_STRING
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
@@ -67,72 +64,27 @@ public:
 	virtual void actionPerformed($ActionEvent* e) override {
 		ClickMenuTestManual::lambda$createControlPanelUI$0(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-$ClassInfo ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	nullptr,
-	methodInfos
 };
 $Class* ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0::load$($String* name, bool initialize) {
-	$loadClass(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0);
+	});
 	return class$;
 }
 $Class* ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0::class$ = nullptr;
-
-$FieldInfo _ClickMenuTestManual_FieldInfo_[] = {
-	{"TEST_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClickMenuTestManual, TEST_STRING)},
-	{"layout", "Ljava/awt/GridBagLayout;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, layout)},
-	{"mainControlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, mainControlPanel)},
-	{"instructionPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, instructionPanel)},
-	{"testPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, testPanel)},
-	{"resultButtonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, resultButtonPanel)},
-	{"controlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, controlPanel)},
-	{"instructionTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, instructionTextArea)},
-	{"testTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, testTextArea)},
-	{"passButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, passButton)},
-	{"failButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, failButton)},
-	{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, menu)},
-	{"menuBar", "Ljavax/swing/JMenuBar;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, menuBar)},
-	{"menuItem", "Ljavax/swing/JMenuItem;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, menuItem)},
-	{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, mainFrame)},
-	{}
-};
-
-$MethodInfo _ClickMenuTestManual_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ClickMenuTestManual, init$, void), "java.lang.Exception"},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClickMenuTestManual, actionPerformed, void, $ActionEvent*)},
-	{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ClickMenuTestManual, cleanUp, void)},
-	{"createControlPanelUI", "()V", nullptr, $PUBLIC | $FINAL, $method(ClickMenuTestManual, createControlPanelUI, void), "java.lang.Exception"},
-	{"lambda$createControlPanelUI$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClickMenuTestManual, lambda$createControlPanelUI$0, void, $ActionEvent*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClickMenuTestManual, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _ClickMenuTestManual_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ClickMenuTestManual",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_ClickMenuTestManual_FieldInfo_,
-	_ClickMenuTestManual_MethodInfo_
-};
-
-$Object* allocate$ClickMenuTestManual($Class* clazz) {
-	return $of($alloc(ClickMenuTestManual));
-}
 
 $String* ClickMenuTestManual::TEST_STRING = nullptr;
 $GridBagLayout* ClickMenuTestManual::layout = nullptr;
@@ -161,17 +113,17 @@ void ClickMenuTestManual::init$() {
 }
 
 void ClickMenuTestManual::createControlPanelUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(ClickMenuTestManual::layout, $new($GridBagLayout));
-	$assignStatic(ClickMenuTestManual::mainControlPanel, $new($JPanel, static_cast<$LayoutManager*>(ClickMenuTestManual::layout)));
-	$assignStatic(ClickMenuTestManual::instructionPanel, $new($JPanel, static_cast<$LayoutManager*>(ClickMenuTestManual::layout)));
-	$assignStatic(ClickMenuTestManual::testPanel, $new($JPanel, static_cast<$LayoutManager*>(ClickMenuTestManual::layout)));
-	$assignStatic(ClickMenuTestManual::resultButtonPanel, $new($JPanel, static_cast<$LayoutManager*>(ClickMenuTestManual::layout)));
-	$assignStatic(ClickMenuTestManual::controlPanel, $new($JPanel, static_cast<$LayoutManager*>(ClickMenuTestManual::layout)));
+	$assignStatic(ClickMenuTestManual::mainControlPanel, $new($JPanel, ClickMenuTestManual::layout));
+	$assignStatic(ClickMenuTestManual::instructionPanel, $new($JPanel, ClickMenuTestManual::layout));
+	$assignStatic(ClickMenuTestManual::testPanel, $new($JPanel, ClickMenuTestManual::layout));
+	$assignStatic(ClickMenuTestManual::resultButtonPanel, $new($JPanel, ClickMenuTestManual::layout));
+	$assignStatic(ClickMenuTestManual::controlPanel, $new($JPanel, ClickMenuTestManual::layout));
 	$var($GridBagConstraints, gbc, $new($GridBagConstraints));
 	$var($String, instructions, "1) Click on MENU using mouse \n2) Click on MENU ITEM using mouse \n3) Check output on textArea if equal to STRING \n\n If correct string, press \"Pass\" \n Otherwise, press \"Fail\" "_s);
 	$assignStatic(ClickMenuTestManual::instructionTextArea, $new($JTextArea));
-	$nc(ClickMenuTestManual::instructionTextArea)->setText(instructions);
+	ClickMenuTestManual::instructionTextArea->setText(instructions);
 	$nc(ClickMenuTestManual::instructionTextArea)->setEnabled(false);
 	$init($Color);
 	$nc(ClickMenuTestManual::instructionTextArea)->setDisabledTextColor($Color::black);
@@ -180,46 +132,46 @@ void ClickMenuTestManual::createControlPanelUI() {
 	gbc->gridx = 0;
 	gbc->gridy = 0;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	$nc(ClickMenuTestManual::instructionPanel)->add(static_cast<$Component*>(ClickMenuTestManual::instructionTextArea), $of(gbc));
+	$nc(ClickMenuTestManual::instructionPanel)->add(ClickMenuTestManual::instructionTextArea, gbc);
 	$assignStatic(ClickMenuTestManual::testTextArea, $new($JTextArea));
-	$nc(ClickMenuTestManual::testTextArea)->setEnabled(true);
+	ClickMenuTestManual::testTextArea->setEnabled(true);
 	$nc(ClickMenuTestManual::testTextArea)->setDisabledTextColor($Color::black);
 	$nc(ClickMenuTestManual::testTextArea)->setBackground($Color::white);
 	$nc(ClickMenuTestManual::testTextArea)->setBorder($($BorderFactory::createLineBorder($Color::black)));
 	gbc->gridx = 0;
 	gbc->gridy = 0;
 	gbc->fill = $GridBagConstraints::HORIZONTAL;
-	$nc(ClickMenuTestManual::testPanel)->add(static_cast<$Component*>(ClickMenuTestManual::testTextArea), $of(gbc));
+	$nc(ClickMenuTestManual::testPanel)->add(ClickMenuTestManual::testTextArea, gbc);
 	$assignStatic(ClickMenuTestManual::passButton, $new($JButton, "Pass"_s));
-	$nc(ClickMenuTestManual::passButton)->setActionCommand("Pass"_s);
+	ClickMenuTestManual::passButton->setActionCommand("Pass"_s);
 	$nc(ClickMenuTestManual::passButton)->addActionListener(this);
 	$assignStatic(ClickMenuTestManual::failButton, $new($JButton, "Fail"_s));
-	$nc(ClickMenuTestManual::failButton)->setActionCommand("Fail"_s);
+	ClickMenuTestManual::failButton->setActionCommand("Fail"_s);
 	$nc(ClickMenuTestManual::failButton)->addActionListener(this);
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	$nc(ClickMenuTestManual::resultButtonPanel)->add(static_cast<$Component*>(ClickMenuTestManual::passButton), $of(gbc));
+	$nc(ClickMenuTestManual::resultButtonPanel)->add(ClickMenuTestManual::passButton, gbc);
 	gbc->gridx = 1;
 	gbc->gridy = 0;
-	$nc(ClickMenuTestManual::resultButtonPanel)->add(static_cast<$Component*>(ClickMenuTestManual::failButton), $of(gbc));
+	$nc(ClickMenuTestManual::resultButtonPanel)->add(ClickMenuTestManual::failButton, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 0;
-	$nc(ClickMenuTestManual::mainControlPanel)->add(static_cast<$Component*>(ClickMenuTestManual::instructionPanel), $of(gbc));
+	$nc(ClickMenuTestManual::mainControlPanel)->add(ClickMenuTestManual::instructionPanel, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 1;
-	$nc(ClickMenuTestManual::mainControlPanel)->add(static_cast<$Component*>(ClickMenuTestManual::testPanel), $of(gbc));
+	$nc(ClickMenuTestManual::mainControlPanel)->add(ClickMenuTestManual::testPanel, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 2;
-	$nc(ClickMenuTestManual::mainControlPanel)->add(static_cast<$Component*>(ClickMenuTestManual::resultButtonPanel), $of(gbc));
+	$nc(ClickMenuTestManual::mainControlPanel)->add(ClickMenuTestManual::resultButtonPanel, gbc);
 	gbc->gridx = 0;
 	gbc->gridy = 3;
-	$nc(ClickMenuTestManual::mainControlPanel)->add(static_cast<$Component*>(ClickMenuTestManual::controlPanel), $of(gbc));
+	$nc(ClickMenuTestManual::mainControlPanel)->add(ClickMenuTestManual::controlPanel, gbc);
 	$assignStatic(ClickMenuTestManual::mainFrame, $new($JFrame, "Control Panel"_s));
-	$nc(ClickMenuTestManual::mainFrame)->add(static_cast<$Component*>(ClickMenuTestManual::mainControlPanel));
+	ClickMenuTestManual::mainFrame->add(ClickMenuTestManual::mainControlPanel);
 	$assignStatic(ClickMenuTestManual::menuBar, $new($JMenuBar));
 	$assignStatic(ClickMenuTestManual::menu, $new($JMenu, "MENU"_s));
 	$assignStatic(ClickMenuTestManual::menuItem, $new($JMenuItem, "MENU ITEM"_s));
-	$nc(ClickMenuTestManual::menuItem)->addActionListener(static_cast<$ActionListener*>($$new(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0)));
+	ClickMenuTestManual::menuItem->addActionListener($$new(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0));
 	$nc(ClickMenuTestManual::menu)->add(ClickMenuTestManual::menuItem);
 	$nc(ClickMenuTestManual::menuBar)->add(ClickMenuTestManual::menu);
 	$nc(ClickMenuTestManual::mainFrame)->setJMenuBar(ClickMenuTestManual::menuBar);
@@ -229,23 +181,23 @@ void ClickMenuTestManual::createControlPanelUI() {
 }
 
 void ClickMenuTestManual::actionPerformed($ActionEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($instanceOf($JButton, $($nc(evt)->getSource()))) {
 		$var($JButton, btn, $cast($JButton, evt->getSource()));
-		if ($nc($($nc(btn)->getActionCommand()))->equals("Pass"_s)) {
+		if ($$nc($nc(btn)->getActionCommand())->equals("Pass"_s)) {
 			try {
 				cleanUp();
 			} catch ($Exception& ex) {
 				$init($Level);
-				$nc($($Logger::getLogger($(ClickMenuTestManual::class$->getName()))))->log($Level::SEVERE, ($String*)nullptr, static_cast<$Throwable*>(ex));
+				$$nc($Logger::getLogger($(ClickMenuTestManual::class$->getName())))->log($Level::SEVERE, nullptr, ex);
 			}
-		} else if ($nc($(btn->getActionCommand()))->equals("Fail"_s)) {
+		} else if ($$nc(btn->getActionCommand())->equals("Fail"_s)) {
 			try {
 				cleanUp();
 			} catch ($Exception& ex) {
 				$init($Level);
-				$nc($($Logger::getLogger($(ClickMenuTestManual::class$->getName()))))->log($Level::SEVERE, ($String*)nullptr, static_cast<$Throwable*>(ex));
+				$$nc($Logger::getLogger($(ClickMenuTestManual::class$->getName())))->log($Level::SEVERE, nullptr, ex);
 			}
 			$throwNew($AssertionError, $of("Test case has failed"_s));
 		}
@@ -265,17 +217,54 @@ void ClickMenuTestManual::lambda$createControlPanelUI$0($ActionEvent* e) {
 ClickMenuTestManual::ClickMenuTestManual() {
 }
 
-void clinit$ClickMenuTestManual($Class* class$) {
+void ClickMenuTestManual::clinit$($Class* clazz) {
 	$assignStatic(ClickMenuTestManual::TEST_STRING, "STRING"_s);
 }
 
 $Class* ClickMenuTestManual::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0::classInfo$.name)) {
+		if (name->equals("ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0")) {
 			return ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0::load$(name, initialize);
 		}
 	}
-	$loadClass(ClickMenuTestManual, name, initialize, &_ClickMenuTestManual_ClassInfo_, clinit$ClickMenuTestManual, allocate$ClickMenuTestManual);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_STRING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(ClickMenuTestManual, TEST_STRING)},
+		{"layout", "Ljava/awt/GridBagLayout;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, layout)},
+		{"mainControlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, mainControlPanel)},
+		{"instructionPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, instructionPanel)},
+		{"testPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, testPanel)},
+		{"resultButtonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, resultButtonPanel)},
+		{"controlPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, controlPanel)},
+		{"instructionTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, instructionTextArea)},
+		{"testTextArea", "Ljavax/swing/JTextArea;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, testTextArea)},
+		{"passButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, passButton)},
+		{"failButton", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, failButton)},
+		{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, menu)},
+		{"menuBar", "Ljavax/swing/JMenuBar;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, menuBar)},
+		{"menuItem", "Ljavax/swing/JMenuItem;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, menuItem)},
+		{"mainFrame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ClickMenuTestManual, mainFrame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ClickMenuTestManual, init$, void), "java.lang.Exception"},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ClickMenuTestManual, actionPerformed, void, $ActionEvent*)},
+		{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ClickMenuTestManual, cleanUp, void)},
+		{"createControlPanelUI", "()V", nullptr, $PUBLIC | $FINAL, $method(ClickMenuTestManual, createControlPanelUI, void), "java.lang.Exception"},
+		{"lambda$createControlPanelUI$0", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ClickMenuTestManual, lambda$createControlPanelUI$0, void, $ActionEvent*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ClickMenuTestManual, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ClickMenuTestManual",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ClickMenuTestManual, name, initialize, &classInfo$$, ClickMenuTestManual::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ClickMenuTestManual);
+	});
 	return class$;
 }
 

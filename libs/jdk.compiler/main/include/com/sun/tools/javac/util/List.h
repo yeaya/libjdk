@@ -68,6 +68,7 @@ public:
 	virtual bool containsAll(::java::util::Collection* arg0) override;
 	virtual void finalize() override;
 	virtual void forEach(::java::util::function::Consumer* arg0) override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* head, ::com::sun::tools::javac::util::List* tail);
 	virtual void add(int32_t index, Object$* element) override;
 	virtual bool addAll(int32_t index, ::java::util::Collection* c) override;

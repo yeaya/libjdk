@@ -23,10 +23,11 @@ class $import QueryEval : public ::java::io::Serializable {
 	$class(QueryEval, 0, ::java::io::Serializable)
 public:
 	QueryEval();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::management::MBeanServer* getMBeanServer();
 	virtual void setMBeanServer(::javax::management::MBeanServer* s);
-	static const int64_t serialVersionUID = (int64_t)0x2522B4345F40C32C;
+	static const int64_t serialVersionUID = (int64_t)0x2522b4345f40c32c;
 	static ::java::lang::ThreadLocal* server;
 };
 

@@ -1,5 +1,4 @@
 #include <javax/lang/model/element/ModuleElement$ExportsDirective.h>
-
 #include <java/util/List.h>
 #include <javax/lang/model/element/ModuleElement.h>
 #include <javax/lang/model/element/PackageElement.h>
@@ -16,40 +15,35 @@ namespace javax {
 		namespace model {
 			namespace element {
 
-$MethodInfo _ModuleElement$ExportsDirective_MethodInfo_[] = {
-	{"getPackage", "()Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ExportsDirective, getPackage, $PackageElement*)},
-	{"getTargetModules", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ExportsDirective, getTargetModules, $List*)},
-	{}
-};
-
-$InnerClassInfo _ModuleElement$ExportsDirective_InnerClassesInfo_[] = {
-	{"javax.lang.model.element.ModuleElement$ExportsDirective", "javax.lang.model.element.ModuleElement", "ExportsDirective", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.lang.model.element.ModuleElement$Directive", "javax.lang.model.element.ModuleElement", "Directive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ModuleElement$ExportsDirective_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.lang.model.element.ModuleElement$ExportsDirective",
-	nullptr,
-	"javax.lang.model.element.ModuleElement$Directive",
-	nullptr,
-	_ModuleElement$ExportsDirective_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ModuleElement$ExportsDirective_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.lang.model.element.ModuleElement"
-};
-
-$Object* allocate$ModuleElement$ExportsDirective($Class* clazz) {
-	return $of($alloc(ModuleElement$ExportsDirective));
-}
-
 $Class* ModuleElement$ExportsDirective::load$($String* name, bool initialize) {
-	$loadClass(ModuleElement$ExportsDirective, name, initialize, &_ModuleElement$ExportsDirective_ClassInfo_, allocate$ModuleElement$ExportsDirective);
+	$MethodInfo methodInfos$$[] = {
+		{"getPackage", "()Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ExportsDirective, getPackage, $PackageElement*)},
+		{"getTargetModules", "()Ljava/util/List;", "()Ljava/util/List<+Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ModuleElement$ExportsDirective, getTargetModules, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.lang.model.element.ModuleElement$ExportsDirective", "javax.lang.model.element.ModuleElement", "ExportsDirective", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.lang.model.element.ModuleElement$Directive", "javax.lang.model.element.ModuleElement", "Directive", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.lang.model.element.ModuleElement$ExportsDirective",
+		nullptr,
+		"javax.lang.model.element.ModuleElement$Directive",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.lang.model.element.ModuleElement"
+	};
+	$loadClass(ModuleElement$ExportsDirective, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModuleElement$ExportsDirective);
+	});
 	return class$;
 }
 

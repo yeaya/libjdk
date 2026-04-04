@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/TransformC14N.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315OmitComments.h>
@@ -37,27 +36,6 @@ namespace com {
 							namespace transforms {
 								namespace implementations {
 
-$MethodInfo _TransformC14N_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TransformC14N, init$, void)},
-	{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, engineGetURI, $String*)},
-	{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
-	{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, getCanonicalizer, $Canonicalizer20010315*)},
-	{}
-};
-
-$ClassInfo _TransformC14N_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformC14N",
-	"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
-	nullptr,
-	nullptr,
-	_TransformC14N_MethodInfo_
-};
-
-$Object* allocate$TransformC14N($Class* clazz) {
-	return $of($alloc(TransformC14N));
-}
-
 void TransformC14N::init$() {
 	$TransformSpi::init$();
 }
@@ -68,46 +46,44 @@ $String* TransformC14N::engineGetURI() {
 }
 
 $XMLSignatureInput* TransformC14N::enginePerformTransform($XMLSignatureInput* input, $OutputStream* os, $Element* transformElement, $String* baseURI, bool secureValidation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Canonicalizer20010315, c14n, getCanonicalizer());
 	if (os == nullptr) {
 		try {
 			$var($ByteArrayOutputStream, writer, $new($ByteArrayOutputStream));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($XMLSignatureInput, var$2, nullptr);
-				bool return$1 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($XMLSignatureInput, var$2, nullptr);
+			bool return$1 = false;
+			try {
 				try {
+					$nc(c14n)->engineCanonicalize(input, writer, secureValidation);
+					writer->flush();
+					$var($XMLSignatureInput, output, $new($XMLSignatureInput, $(writer->toByteArray())));
+					output->setSecureValidation(secureValidation);
+					$assign(var$2, output);
+					return$1 = true;
+					goto $finally;
+				} catch ($Throwable& t$) {
 					try {
-						$nc(c14n)->engineCanonicalize(input, static_cast<$OutputStream*>(writer), secureValidation);
-						writer->flush();
-						$var($XMLSignatureInput, output, $new($XMLSignatureInput, $(writer->toByteArray())));
-						output->setSecureValidation(secureValidation);
-						$assign(var$2, output);
-						return$1 = true;
-						goto $finally;
-					} catch ($Throwable& t$) {
-						try {
-							writer->close();
-						} catch ($Throwable& x2) {
-							t$->addSuppressed(x2);
-						}
-						$throw(t$);
+						writer->close();
+					} catch ($Throwable& x2) {
+						t$->addSuppressed(x2);
 					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					writer->close();
+					$throw(t$);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (return$1) {
-					return var$2;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				writer->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (return$1) {
+				return var$2;
 			}
 		} catch ($IOException& ex) {
-			$throwNew($CanonicalizationException, "empty"_s, $$new($ObjectArray, {$($of(ex->getMessage()))}));
+			$throwNew($CanonicalizationException, "empty"_s, $$new($ObjectArray, {$(ex->getMessage())}));
 		}
 	} else {
 		$nc(c14n)->engineCanonicalize(input, os, secureValidation);
@@ -126,7 +102,24 @@ TransformC14N::TransformC14N() {
 }
 
 $Class* TransformC14N::load$($String* name, bool initialize) {
-	$loadClass(TransformC14N, name, initialize, &_TransformC14N_ClassInfo_, allocate$TransformC14N);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TransformC14N, init$, void)},
+		{"engineGetURI", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, engineGetURI, $String*)},
+		{"enginePerformTransform", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;Ljava/io/OutputStream;Lorg/w3c/dom/Element;Ljava/lang/String;Z)Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, enginePerformTransform, $XMLSignatureInput*, $XMLSignatureInput*, $OutputStream*, $Element*, $String*, bool), "com.sun.org.apache.xml.internal.security.c14n.CanonicalizationException"},
+		{"getCanonicalizer", "()Lcom/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315;", nullptr, $PROTECTED, $virtualMethod(TransformC14N, getCanonicalizer, $Canonicalizer20010315*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.transforms.implementations.TransformC14N",
+		"com.sun.org.apache.xml.internal.security.transforms.TransformSpi",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TransformC14N, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformC14N);
+	});
 	return class$;
 }
 

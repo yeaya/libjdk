@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/ViewportUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _ViewportUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ViewportUI, init$, void)},
-	{}
-};
-
-$ClassInfo _ViewportUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.ViewportUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_ViewportUI_MethodInfo_
-};
-
-$Object* allocate$ViewportUI($Class* clazz) {
-	return $of($alloc(ViewportUI));
-}
-
 void ViewportUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ ViewportUI::ViewportUI() {
 }
 
 $Class* ViewportUI::load$($String* name, bool initialize) {
-	$loadClass(ViewportUI, name, initialize, &_ViewportUI_ClassInfo_, allocate$ViewportUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ViewportUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.ViewportUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ViewportUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ViewportUI);
+	});
 	return class$;
 }
 

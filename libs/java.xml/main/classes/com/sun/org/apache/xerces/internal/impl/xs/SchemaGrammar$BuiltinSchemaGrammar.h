@@ -133,6 +133,7 @@ class SchemaGrammar$BuiltinSchemaGrammar : public ::com::sun::org::apache::xerce
 	$class(SchemaGrammar$BuiltinSchemaGrammar, 0, ::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar)
 public:
 	SchemaGrammar$BuiltinSchemaGrammar();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t grammar, int16_t schemaVersion);
 	virtual void addComplexTypeDecl(::com::sun::org::apache::xerces::internal::impl::xs::XSComplexTypeDecl* decl, ::com::sun::org::apache::xerces::internal::impl::xs::util::SimpleLocator* locator) override;
 	virtual void addDocument(Object$* document, $String* location) override;

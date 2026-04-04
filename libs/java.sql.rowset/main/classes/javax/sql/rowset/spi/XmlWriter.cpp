@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/spi/XmlWriter.h>
-
 #include <java/io/Writer.h>
 #include <javax/sql/rowset/WebRowSet.h>
 #include <jcpp.h>
@@ -14,26 +13,22 @@ namespace javax {
 		namespace rowset {
 			namespace spi {
 
-$MethodInfo _XmlWriter_MethodInfo_[] = {
-	{"writeXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Writer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XmlWriter, writeXML, void, $WebRowSet*, $Writer*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _XmlWriter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.rowset.spi.XmlWriter",
-	nullptr,
-	"javax.sql.RowSetWriter",
-	nullptr,
-	_XmlWriter_MethodInfo_
-};
-
-$Object* allocate$XmlWriter($Class* clazz) {
-	return $of($alloc(XmlWriter));
-}
-
 $Class* XmlWriter::load$($String* name, bool initialize) {
-	$loadClass(XmlWriter, name, initialize, &_XmlWriter_ClassInfo_, allocate$XmlWriter);
+	$MethodInfo methodInfos$$[] = {
+		{"writeXML", "(Ljavax/sql/rowset/WebRowSet;Ljava/io/Writer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XmlWriter, writeXML, void, $WebRowSet*, $Writer*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.rowset.spi.XmlWriter",
+		nullptr,
+		"javax.sql.RowSetWriter",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XmlWriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XmlWriter);
+	});
 	return class$;
 }
 

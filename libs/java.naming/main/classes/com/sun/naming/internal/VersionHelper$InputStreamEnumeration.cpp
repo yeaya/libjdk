@@ -1,5 +1,4 @@
 #include <com/sun/naming/internal/VersionHelper$InputStreamEnumeration.h>
-
 #include <com/sun/naming/internal/VersionHelper.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -43,82 +42,34 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$getNextElement$0());
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0>());
+		 return $nc(inst$)->lambda$getNextElement$0();
 	}
 	VersionHelper$InputStreamEnumeration* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, inst$)},
-	{}
-};
-$MethodInfo VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/naming/internal/VersionHelper$InputStreamEnumeration;)V", nullptr, $PUBLIC, $method(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, init$, void, VersionHelper$InputStreamEnumeration*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, run, $Object*)},
-	{}
-};
-$ClassInfo VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.naming.internal.VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::load$($String* name, bool initialize) {
-	$loadClass(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/naming/internal/VersionHelper$InputStreamEnumeration;)V", nullptr, $PUBLIC, $method(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, init$, void, VersionHelper$InputStreamEnumeration*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.naming.internal.VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0);
+	});
 	return class$;
 }
 $Class* VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::class$ = nullptr;
-
-$FieldInfo _VersionHelper$InputStreamEnumeration_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/naming/internal/VersionHelper;", nullptr, $FINAL | $SYNTHETIC, $field(VersionHelper$InputStreamEnumeration, this$0)},
-	{"urls", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/net/URL;>;", $PRIVATE | $FINAL, $field(VersionHelper$InputStreamEnumeration, urls)},
-	{"nextElement", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(VersionHelper$InputStreamEnumeration, nextElement$)},
-	{}
-};
-
-$MethodInfo _VersionHelper$InputStreamEnumeration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/naming/internal/VersionHelper;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljava/net/URL;>;)V", 0, $method(VersionHelper$InputStreamEnumeration, init$, void, $VersionHelper*, $Enumeration*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, close, void)},
-	{"getNextElement", "()Ljava/io/InputStream;", nullptr, $PRIVATE, $method(VersionHelper$InputStreamEnumeration, getNextElement, $InputStream*)},
-	{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, hasMore, bool)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, hasMoreElements, bool)},
-	{"lambda$getNextElement$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNTHETIC, $method(VersionHelper$InputStreamEnumeration, lambda$getNextElement$0, $InputStream*)},
-	{"next", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, next, $Object*)},
-	{"nextElement", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, nextElement, $Object*)},
-	{}
-};
-
-$InnerClassInfo _VersionHelper$InputStreamEnumeration_InnerClassesInfo_[] = {
-	{"com.sun.naming.internal.VersionHelper$InputStreamEnumeration", "com.sun.naming.internal.VersionHelper", "InputStreamEnumeration", $PRIVATE},
-	{}
-};
-
-$ClassInfo _VersionHelper$InputStreamEnumeration_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.naming.internal.VersionHelper$InputStreamEnumeration",
-	"java.lang.Object",
-	"javax.naming.NamingEnumeration",
-	_VersionHelper$InputStreamEnumeration_FieldInfo_,
-	_VersionHelper$InputStreamEnumeration_MethodInfo_,
-	"Ljava/lang/Object;Ljavax/naming/NamingEnumeration<Ljava/io/InputStream;>;",
-	nullptr,
-	_VersionHelper$InputStreamEnumeration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.naming.internal.VersionHelper"
-};
-
-$Object* allocate$VersionHelper$InputStreamEnumeration($Class* clazz) {
-	return $of($alloc(VersionHelper$InputStreamEnumeration));
-}
 
 void VersionHelper$InputStreamEnumeration::init$($VersionHelper* this$0, $Enumeration* urls) {
 	$set(this, this$0, this$0);
@@ -127,7 +78,7 @@ void VersionHelper$InputStreamEnumeration::init$($VersionHelper* this$0, $Enumer
 
 $InputStream* VersionHelper$InputStreamEnumeration::getNextElement() {
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, act, static_cast<$PrivilegedAction*>($new(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, this)));
+	$var($PrivilegedAction, act, $new(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0, this));
 	return $cast($InputStream, $AccessController::doPrivileged(act));
 }
 
@@ -147,24 +98,24 @@ $Object* VersionHelper$InputStreamEnumeration::next() {
 	if (hasMore()) {
 		$var($InputStream, res, this->nextElement$);
 		$set(this, nextElement$, nullptr);
-		return $of(res);
+		return res;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
 }
 
 $Object* VersionHelper$InputStreamEnumeration::nextElement() {
-	return $of(next());
+	return next();
 }
 
 void VersionHelper$InputStreamEnumeration::close() {
 }
 
 $InputStream* VersionHelper$InputStreamEnumeration::lambda$getNextElement$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->urls)->hasMoreElements()) {
 		try {
-			return $nc(($cast($URL, $($nc(this->urls)->nextElement()))))->openStream();
+			return $$sure($URL, this->urls->nextElement())->openStream();
 		} catch ($IOException& e) {
 		}
 	}
@@ -176,11 +127,49 @@ VersionHelper$InputStreamEnumeration::VersionHelper$InputStreamEnumeration() {
 
 $Class* VersionHelper$InputStreamEnumeration::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::classInfo$.name)) {
+		if (name->equals("com.sun.naming.internal.VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0")) {
 			return VersionHelper$InputStreamEnumeration$$Lambda$lambda$getNextElement$0::load$(name, initialize);
 		}
 	}
-	$loadClass(VersionHelper$InputStreamEnumeration, name, initialize, &_VersionHelper$InputStreamEnumeration_ClassInfo_, allocate$VersionHelper$InputStreamEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/naming/internal/VersionHelper;", nullptr, $FINAL | $SYNTHETIC, $field(VersionHelper$InputStreamEnumeration, this$0)},
+		{"urls", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/net/URL;>;", $PRIVATE | $FINAL, $field(VersionHelper$InputStreamEnumeration, urls)},
+		{"nextElement", "Ljava/io/InputStream;", nullptr, $PRIVATE, $field(VersionHelper$InputStreamEnumeration, nextElement$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/naming/internal/VersionHelper;Ljava/util/Enumeration;)V", "(Ljava/util/Enumeration<Ljava/net/URL;>;)V", 0, $method(VersionHelper$InputStreamEnumeration, init$, void, $VersionHelper*, $Enumeration*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, close, void)},
+		{"getNextElement", "()Ljava/io/InputStream;", nullptr, $PRIVATE, $method(VersionHelper$InputStreamEnumeration, getNextElement, $InputStream*)},
+		{"hasMore", "()Z", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, hasMore, bool)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, hasMoreElements, bool)},
+		{"lambda$getNextElement$0", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $SYNTHETIC, $method(VersionHelper$InputStreamEnumeration, lambda$getNextElement$0, $InputStream*)},
+		{"next", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, next, $Object*)},
+		{"nextElement", "()Ljava/io/InputStream;", nullptr, $PUBLIC, $virtualMethod(VersionHelper$InputStreamEnumeration, nextElement, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.naming.internal.VersionHelper$InputStreamEnumeration", "com.sun.naming.internal.VersionHelper", "InputStreamEnumeration", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.naming.internal.VersionHelper$InputStreamEnumeration",
+		"java.lang.Object",
+		"javax.naming.NamingEnumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljavax/naming/NamingEnumeration<Ljava/io/InputStream;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.naming.internal.VersionHelper"
+	};
+	$loadClass(VersionHelper$InputStreamEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(VersionHelper$InputStreamEnumeration);
+	});
 	return class$;
 }
 

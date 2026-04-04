@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantUtf8.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantUtf8$Cache.h>
@@ -28,7 +27,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $HashMap = ::java::util::HashMap;
 
 namespace com {
 	namespace sun {
@@ -38,60 +36,9 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$CompoundAttribute _ConstantUtf8_MethodAnnotations_setBytes10[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ConstantUtf8_FieldInfo_[] = {
-	{"value", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ConstantUtf8, value)},
-	{}
-};
-
-$MethodInfo _ConstantUtf8_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantUtf8;)V", nullptr, $PUBLIC, $method(ConstantUtf8, init$, void, ConstantUtf8*)},
-	{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantUtf8, init$, void, $DataInput*), "java.io.IOException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConstantUtf8, init$, void, $String*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantUtf8, accept, void, $Visitor*)},
-	{"clearCache", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ConstantUtf8, clearCache, void)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantUtf8, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getBytes", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ConstantUtf8, getBytes, $String*)},
-	{"getCachedInstance", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/classfile/ConstantUtf8;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantUtf8, getCachedInstance, ConstantUtf8*, $String*)},
-	{"getInstance", "(Ljava/io/DataInput;)Lcom/sun/org/apache/bcel/internal/classfile/ConstantUtf8;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantUtf8, getInstance, ConstantUtf8*, $DataInput*), "java.io.IOException"},
-	{"getInstance", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/classfile/ConstantUtf8;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantUtf8, getInstance, ConstantUtf8*, $String*)},
-	{"setBytes", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ConstantUtf8, setBytes, void, $String*), nullptr, nullptr, _ConstantUtf8_MethodAnnotations_setBytes10},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantUtf8, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ConstantUtf8_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.classfile.ConstantUtf8$Cache", "com.sun.org.apache.bcel.internal.classfile.ConstantUtf8", "Cache", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ConstantUtf8_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantUtf8",
-	"com.sun.org.apache.bcel.internal.classfile.Constant",
-	nullptr,
-	_ConstantUtf8_FieldInfo_,
-	_ConstantUtf8_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ConstantUtf8_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.classfile.ConstantUtf8$Cache,com.sun.org.apache.bcel.internal.classfile.ConstantUtf8$Cache$1"
-};
-
-$Object* allocate$ConstantUtf8($Class* clazz) {
-	return $of($alloc(ConstantUtf8));
-}
-
 void ConstantUtf8::clearCache() {
-	$load(ConstantUtf8);
+	$init(ConstantUtf8);
 	$synchronized(class$) {
-		$init(ConstantUtf8);
 		$init($ConstantUtf8$Cache);
 		$nc($ConstantUtf8$Cache::CACHE)->clear();
 	}
@@ -109,7 +56,7 @@ ConstantUtf8* ConstantUtf8::getCachedInstance($String* value) {
 			return result;
 		}
 		$assign(result, $new(ConstantUtf8, value));
-		$nc($ConstantUtf8$Cache::CACHE)->put(value, result);
+		$ConstantUtf8$Cache::CACHE->put(value, result);
 		return result;
 	}
 }
@@ -159,17 +106,63 @@ void ConstantUtf8::setBytes($String* bytes) {
 }
 
 $String* ConstantUtf8::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($Constant::toString()), "(\""_s}));
-	$var($String, var$0, $$concat(var$1, $($Utility::replace(this->value, "\n"_s, "\\n"_s))));
-	return $concat(var$0, "\")"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Constant::toString()));
+	var$0->append("(\""_s);
+	var$0->append($($Utility::replace(this->value, "\n"_s, "\\n"_s)));
+	var$0->append("\")"_s);
+	return $str(var$0);
 }
 
 ConstantUtf8::ConstantUtf8() {
 }
 
 $Class* ConstantUtf8::load$($String* name, bool initialize) {
-	$loadClass(ConstantUtf8, name, initialize, &_ConstantUtf8_ClassInfo_, allocate$ConstantUtf8);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(ConstantUtf8, value)},
+		{}
+	};
+	$CompoundAttribute setBytesmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantUtf8;)V", nullptr, $PUBLIC, $method(ConstantUtf8, init$, void, ConstantUtf8*)},
+		{"<init>", "(Ljava/io/DataInput;)V", nullptr, 0, $method(ConstantUtf8, init$, void, $DataInput*), "java.io.IOException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ConstantUtf8, init$, void, $String*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ConstantUtf8, accept, void, $Visitor*)},
+		{"clearCache", "()V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(ConstantUtf8, clearCache, void)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $virtualMethod(ConstantUtf8, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getBytes", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(ConstantUtf8, getBytes, $String*)},
+		{"getCachedInstance", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/classfile/ConstantUtf8;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantUtf8, getCachedInstance, ConstantUtf8*, $String*)},
+		{"getInstance", "(Ljava/io/DataInput;)Lcom/sun/org/apache/bcel/internal/classfile/ConstantUtf8;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantUtf8, getInstance, ConstantUtf8*, $DataInput*), "java.io.IOException"},
+		{"getInstance", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/classfile/ConstantUtf8;", nullptr, $PUBLIC | $STATIC, $staticMethod(ConstantUtf8, getInstance, ConstantUtf8*, $String*)},
+		{"setBytes", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ConstantUtf8, setBytes, void, $String*), nullptr, nullptr, setBytesmethodAnnotations$$},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ConstantUtf8, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.classfile.ConstantUtf8$Cache", "com.sun.org.apache.bcel.internal.classfile.ConstantUtf8", "Cache", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantUtf8",
+		"com.sun.org.apache.bcel.internal.classfile.Constant",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.classfile.ConstantUtf8$Cache,com.sun.org.apache.bcel.internal.classfile.ConstantUtf8$Cache$1"
+	};
+	$loadClass(ConstantUtf8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ConstantUtf8));
+	});
 	return class$;
 }
 

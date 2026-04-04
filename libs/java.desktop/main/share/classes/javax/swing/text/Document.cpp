@@ -1,5 +1,4 @@
 #include <javax/swing/text/Document.h>
-
 #include <java/lang/Runnable.h>
 #include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/event/UndoableEditListener.h>
@@ -25,56 +24,51 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _Document_FieldInfo_[] = {
-	{"StreamDescriptionProperty", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Document, StreamDescriptionProperty)},
-	{"TitleProperty", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Document, TitleProperty)},
-	{}
-};
-
-$MethodInfo _Document_MethodInfo_[] = {
-	{"addDocumentListener", "(Ljavax/swing/event/DocumentListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, addDocumentListener, void, $DocumentListener*)},
-	{"addUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, addUndoableEditListener, void, $UndoableEditListener*)},
-	{"createPosition", "(I)Ljavax/swing/text/Position;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, createPosition, $Position*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getDefaultRootElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getDefaultRootElement, $Element*)},
-	{"getEndPosition", "()Ljavax/swing/text/Position;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getEndPosition, $Position*)},
-	{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getLength, int32_t)},
-	{"getProperty", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getProperty, $Object*, Object$*)},
-	{"getRootElements", "()[Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getRootElements, $ElementArray*)},
-	{"getStartPosition", "()Ljavax/swing/text/Position;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getStartPosition, $Position*)},
-	{"getText", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getText, $String*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"getText", "(IILjavax/swing/text/Segment;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getText, void, int32_t, int32_t, $Segment*), "javax.swing.text.BadLocationException"},
-	{"insertString", "(ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, insertString, void, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
-	{"putProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, putProperty, void, Object$*, Object$*)},
-	{"remove", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, remove, void, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"removeDocumentListener", "(Ljavax/swing/event/DocumentListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, removeDocumentListener, void, $DocumentListener*)},
-	{"removeUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, removeUndoableEditListener, void, $UndoableEditListener*)},
-	{"render", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, render, void, $Runnable*)},
-	{}
-};
-
-$ClassInfo _Document_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.text.Document",
-	nullptr,
-	nullptr,
-	_Document_FieldInfo_,
-	_Document_MethodInfo_
-};
-
-$Object* allocate$Document($Class* clazz) {
-	return $of($alloc(Document));
-}
-
 $String* Document::StreamDescriptionProperty = nullptr;
 $String* Document::TitleProperty = nullptr;
 
-void clinit$Document($Class* class$) {
+void Document::clinit$($Class* clazz) {
 	$assignStatic(Document::StreamDescriptionProperty, "stream"_s);
 	$assignStatic(Document::TitleProperty, "title"_s);
 }
 
 $Class* Document::load$($String* name, bool initialize) {
-	$loadClass(Document, name, initialize, &_Document_ClassInfo_, clinit$Document, allocate$Document);
+	$FieldInfo fieldInfos$$[] = {
+		{"StreamDescriptionProperty", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Document, StreamDescriptionProperty)},
+		{"TitleProperty", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Document, TitleProperty)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"addDocumentListener", "(Ljavax/swing/event/DocumentListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, addDocumentListener, void, $DocumentListener*)},
+		{"addUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, addUndoableEditListener, void, $UndoableEditListener*)},
+		{"createPosition", "(I)Ljavax/swing/text/Position;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, createPosition, $Position*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getDefaultRootElement", "()Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getDefaultRootElement, $Element*)},
+		{"getEndPosition", "()Ljavax/swing/text/Position;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getEndPosition, $Position*)},
+		{"getLength", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getLength, int32_t)},
+		{"getProperty", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getProperty, $Object*, Object$*)},
+		{"getRootElements", "()[Ljavax/swing/text/Element;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getRootElements, $ElementArray*)},
+		{"getStartPosition", "()Ljavax/swing/text/Position;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getStartPosition, $Position*)},
+		{"getText", "(II)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getText, $String*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"getText", "(IILjavax/swing/text/Segment;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, getText, void, int32_t, int32_t, $Segment*), "javax.swing.text.BadLocationException"},
+		{"insertString", "(ILjava/lang/String;Ljavax/swing/text/AttributeSet;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, insertString, void, int32_t, $String*, $AttributeSet*), "javax.swing.text.BadLocationException"},
+		{"putProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, putProperty, void, Object$*, Object$*)},
+		{"remove", "(II)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, remove, void, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"removeDocumentListener", "(Ljavax/swing/event/DocumentListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, removeDocumentListener, void, $DocumentListener*)},
+		{"removeUndoableEditListener", "(Ljavax/swing/event/UndoableEditListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, removeUndoableEditListener, void, $UndoableEditListener*)},
+		{"render", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Document, render, void, $Runnable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.text.Document",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Document, name, initialize, &classInfo$$, Document::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Document);
+	});
 	return class$;
 }
 

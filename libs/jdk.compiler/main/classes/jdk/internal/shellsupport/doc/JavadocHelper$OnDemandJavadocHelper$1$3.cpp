@@ -1,5 +1,4 @@
 #include <jdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1$3.h>
-
 #include <com/sun/source/doctree/ReturnTree.h>
 #include <com/sun/source/util/DocTreeScanner.h>
 #include <java/util/List.h>
@@ -22,52 +21,6 @@ namespace jdk {
 		namespace shellsupport {
 			namespace doc {
 
-$FieldInfo _JavadocHelper$OnDemandJavadocHelper$1$3_FieldInfo_[] = {
-	{"this$1", "Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$1$3, this$1)},
-	{"val$inheritedText", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$1$3, val$inheritedText)},
-	{}
-};
-
-$MethodInfo _JavadocHelper$OnDemandJavadocHelper$1$3_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;Ljava/util/List;)V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$1$3, init$, void, $JavadocHelper$OnDemandJavadocHelper$1*, $List*)},
-	{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$3, visitReturn, $Void*, $ReturnTree*, $Void*)},
-	{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$3, visitReturn, $Object*, $ReturnTree*, Object$*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavadocHelper$OnDemandJavadocHelper$1$3_EnclosingMethodInfo_ = {
-	"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$1",
-	"visitInheritDoc",
-	"(Lcom/sun/source/doctree/InheritDocTree;Ljava/lang/Void;)Ljava/lang/Void;"
-};
-
-$InnerClassInfo _JavadocHelper$OnDemandJavadocHelper$1$3_InnerClassesInfo_[] = {
-	{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper", "jdk.internal.shellsupport.doc.JavadocHelper", "OnDemandJavadocHelper", $PRIVATE | $STATIC | $FINAL},
-	{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$1", nullptr, nullptr, 0},
-	{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$1$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavadocHelper$OnDemandJavadocHelper$1$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$1$3",
-	"com.sun.source.util.DocTreeScanner",
-	nullptr,
-	_JavadocHelper$OnDemandJavadocHelper$1$3_FieldInfo_,
-	_JavadocHelper$OnDemandJavadocHelper$1$3_MethodInfo_,
-	"Lcom/sun/source/util/DocTreeScanner<Ljava/lang/Void;Ljava/lang/Void;>;",
-	&_JavadocHelper$OnDemandJavadocHelper$1$3_EnclosingMethodInfo_,
-	_JavadocHelper$OnDemandJavadocHelper$1$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.shellsupport.doc.JavadocHelper"
-};
-
-$Object* allocate$JavadocHelper$OnDemandJavadocHelper$1$3($Class* clazz) {
-	return $of($alloc(JavadocHelper$OnDemandJavadocHelper$1$3));
-}
-
 void JavadocHelper$OnDemandJavadocHelper$1$3::init$($JavadocHelper$OnDemandJavadocHelper$1* this$1, $List* val$inheritedText) {
 	$set(this, this$1, this$1);
 	$set(this, val$inheritedText, val$inheritedText);
@@ -80,14 +33,53 @@ $Void* JavadocHelper$OnDemandJavadocHelper$1$3::visitReturn($ReturnTree* node, $
 }
 
 $Object* JavadocHelper$OnDemandJavadocHelper$1$3::visitReturn($ReturnTree* node, Object$* p) {
-	return $of(this->visitReturn(node, $cast($Void, p)));
+	return this->visitReturn(node, $cast($Void, p));
 }
 
 JavadocHelper$OnDemandJavadocHelper$1$3::JavadocHelper$OnDemandJavadocHelper$1$3() {
 }
 
 $Class* JavadocHelper$OnDemandJavadocHelper$1$3::load$($String* name, bool initialize) {
-	$loadClass(JavadocHelper$OnDemandJavadocHelper$1$3, name, initialize, &_JavadocHelper$OnDemandJavadocHelper$1$3_ClassInfo_, allocate$JavadocHelper$OnDemandJavadocHelper$1$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$1$3, this$1)},
+		{"val$inheritedText", "Ljava/util/List;", nullptr, $FINAL | $SYNTHETIC, $field(JavadocHelper$OnDemandJavadocHelper$1$3, val$inheritedText)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/shellsupport/doc/JavadocHelper$OnDemandJavadocHelper$1;Ljava/util/List;)V", nullptr, 0, $method(JavadocHelper$OnDemandJavadocHelper$1$3, init$, void, $JavadocHelper$OnDemandJavadocHelper$1*, $List*)},
+		{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Void;)Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$3, visitReturn, $Void*, $ReturnTree*, $Void*)},
+		{"visitReturn", "(Lcom/sun/source/doctree/ReturnTree;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JavadocHelper$OnDemandJavadocHelper$1$3, visitReturn, $Object*, $ReturnTree*, Object$*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$1",
+		"visitInheritDoc",
+		"(Lcom/sun/source/doctree/InheritDocTree;Ljava/lang/Void;)Ljava/lang/Void;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper", "jdk.internal.shellsupport.doc.JavadocHelper", "OnDemandJavadocHelper", $PRIVATE | $STATIC | $FINAL},
+		{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$1", nullptr, nullptr, 0},
+		{"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$1$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.shellsupport.doc.JavadocHelper$OnDemandJavadocHelper$1$3",
+		"com.sun.source.util.DocTreeScanner",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/source/util/DocTreeScanner<Ljava/lang/Void;Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.shellsupport.doc.JavadocHelper"
+	};
+	$loadClass(JavadocHelper$OnDemandJavadocHelper$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavadocHelper$OnDemandJavadocHelper$1$3);
+	});
 	return class$;
 }
 

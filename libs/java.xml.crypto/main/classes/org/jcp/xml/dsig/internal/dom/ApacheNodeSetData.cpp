@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/ApacheNodeSetData.h>
-
 #include <com/sun/org/apache/xml/internal/security/signature/NodeFilter.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
@@ -36,38 +35,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _ApacheNodeSetData_FieldInfo_[] = {
-	{"xi", "Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $field(ApacheNodeSetData, xi)},
-	{}
-};
-
-$MethodInfo _ApacheNodeSetData_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PUBLIC, $method(ApacheNodeSetData, init$, void, $XMLSignatureInput*)},
-	{"getNodeSet", "(Ljava/util/List;)Ljava/util/Set;", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(ApacheNodeSetData, getNodeSet, $Set*, $List*)},
-	{"getXMLSignatureInput", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ApacheNodeSetData, getXMLSignatureInput, $XMLSignatureInput*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(ApacheNodeSetData, iterator, $Iterator*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ApacheNodeSetData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.ApacheNodeSetData",
-	"java.lang.Object",
-	"org.jcp.xml.dsig.internal.dom.ApacheData,javax.xml.crypto.NodeSetData",
-	_ApacheNodeSetData_FieldInfo_,
-	_ApacheNodeSetData_MethodInfo_,
-	"Ljava/lang/Object;Lorg/jcp/xml/dsig/internal/dom/ApacheData;Ljavax/xml/crypto/NodeSetData<Lorg/w3c/dom/Node;>;"
-};
-
-$Object* allocate$ApacheNodeSetData($Class* clazz) {
-	return $of($alloc(ApacheNodeSetData));
-}
-
 int32_t ApacheNodeSetData::hashCode() {
 	 return this->$ApacheData::hashCode();
 }
@@ -93,13 +60,13 @@ void ApacheNodeSetData::init$($XMLSignatureInput* xi) {
 }
 
 $Iterator* ApacheNodeSetData::iterator() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(this->xi)->getNodeFilters() != nullptr;
-	if (var$0 && !$nc($($nc(this->xi)->getNodeFilters()))->isEmpty()) {
-		return $nc($($Collections::unmodifiableSet($(getNodeSet($($nc(this->xi)->getNodeFilters()))))))->iterator();
+	if (var$0 && !$$nc(this->xi->getNodeFilters())->isEmpty()) {
+		return $$nc($Collections::unmodifiableSet($(getNodeSet($($nc(this->xi)->getNodeFilters())))))->iterator();
 	}
 	try {
-		return $nc($($Collections::unmodifiableSet($($nc(this->xi)->getNodeSet()))))->iterator();
+		return $$nc($Collections::unmodifiableSet($($nc(this->xi)->getNodeSet())))->iterator();
 	} catch ($Exception& e) {
 		$throwNew($RuntimeException, "unrecoverable error retrieving nodeset"_s, e);
 	}
@@ -111,14 +78,13 @@ $XMLSignatureInput* ApacheNodeSetData::getXMLSignatureInput() {
 }
 
 $Set* ApacheNodeSetData::getNodeSet($List* nodeFilters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->xi)->isNeedsToBeExpanded()) {
 		$XMLUtils::circumventBug2650($($XMLUtils::getOwnerDocument($($nc(this->xi)->getSubNode()))));
 	}
 	$var($Set, inputSet, $new($LinkedHashSet));
 	$var($Node, var$0, $nc(this->xi)->getSubNode());
-	$var($Set, var$1, inputSet);
-	$XMLUtils::getSet(var$0, var$1, nullptr, !$nc(this->xi)->isExcludeComments());
+	$XMLUtils::getSet(var$0, inputSet, nullptr, !this->xi->isExcludeComments());
 	$var($Set, nodeSet, $new($LinkedHashSet));
 	{
 		$var($Iterator, i$, inputSet->iterator());
@@ -146,7 +112,34 @@ ApacheNodeSetData::ApacheNodeSetData() {
 }
 
 $Class* ApacheNodeSetData::load$($String* name, bool initialize) {
-	$loadClass(ApacheNodeSetData, name, initialize, &_ApacheNodeSetData_ClassInfo_, allocate$ApacheNodeSetData);
+	$FieldInfo fieldInfos$$[] = {
+		{"xi", "Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PRIVATE, $field(ApacheNodeSetData, xi)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;)V", nullptr, $PUBLIC, $method(ApacheNodeSetData, init$, void, $XMLSignatureInput*)},
+		{"getNodeSet", "(Ljava/util/List;)Ljava/util/Set;", "(Ljava/util/List<Lcom/sun/org/apache/xml/internal/security/signature/NodeFilter;>;)Ljava/util/Set<Lorg/w3c/dom/Node;>;", $PRIVATE, $method(ApacheNodeSetData, getNodeSet, $Set*, $List*)},
+		{"getXMLSignatureInput", "()Lcom/sun/org/apache/xml/internal/security/signature/XMLSignatureInput;", nullptr, $PUBLIC, $virtualMethod(ApacheNodeSetData, getXMLSignatureInput, $XMLSignatureInput*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lorg/w3c/dom/Node;>;", $PUBLIC, $virtualMethod(ApacheNodeSetData, iterator, $Iterator*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.ApacheNodeSetData",
+		"java.lang.Object",
+		"org.jcp.xml.dsig.internal.dom.ApacheData,javax.xml.crypto.NodeSetData",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lorg/jcp/xml/dsig/internal/dom/ApacheData;Ljavax/xml/crypto/NodeSetData<Lorg/w3c/dom/Node;>;"
+	};
+	$loadClass(ApacheNodeSetData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ApacheNodeSetData));
+	});
 	return class$;
 }
 

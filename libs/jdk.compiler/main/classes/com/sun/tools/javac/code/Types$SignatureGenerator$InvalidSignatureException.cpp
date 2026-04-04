@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$SignatureGenerator$InvalidSignatureException.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$SignatureGenerator.h>
 #include <jcpp.h>
@@ -16,44 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$SignatureGenerator$InvalidSignatureException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Types$SignatureGenerator$InvalidSignatureException, serialVersionUID)},
-	{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(Types$SignatureGenerator$InvalidSignatureException, type$)},
-	{}
-};
-
-$MethodInfo _Types$SignatureGenerator$InvalidSignatureException_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$SignatureGenerator$InvalidSignatureException, init$, void, $Type*)},
-	{"type", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator$InvalidSignatureException, type, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Types$SignatureGenerator$InvalidSignatureException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$SignatureGenerator", "com.sun.tools.javac.code.Types", "SignatureGenerator", $PUBLIC | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.code.Types$SignatureGenerator$InvalidSignatureException", "com.sun.tools.javac.code.Types$SignatureGenerator", "InvalidSignatureException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Types$SignatureGenerator$InvalidSignatureException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Types$SignatureGenerator$InvalidSignatureException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_Types$SignatureGenerator$InvalidSignatureException_FieldInfo_,
-	_Types$SignatureGenerator$InvalidSignatureException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$SignatureGenerator$InvalidSignatureException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$SignatureGenerator$InvalidSignatureException($Class* clazz) {
-	return $of($alloc(Types$SignatureGenerator$InvalidSignatureException));
-}
 
 void Types$SignatureGenerator$InvalidSignatureException::init$($Type* type) {
 	$RuntimeException::init$();
@@ -75,7 +36,39 @@ void Types$SignatureGenerator$InvalidSignatureException::throw$() {
 }
 
 $Class* Types$SignatureGenerator$InvalidSignatureException::load$($String* name, bool initialize) {
-	$loadClass(Types$SignatureGenerator$InvalidSignatureException, name, initialize, &_Types$SignatureGenerator$InvalidSignatureException_ClassInfo_, allocate$Types$SignatureGenerator$InvalidSignatureException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Types$SignatureGenerator$InvalidSignatureException, serialVersionUID)},
+		{"type", "Lcom/sun/tools/javac/code/Type;", nullptr, $PRIVATE | $FINAL | $TRANSIENT, $field(Types$SignatureGenerator$InvalidSignatureException, type$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$SignatureGenerator$InvalidSignatureException, init$, void, $Type*)},
+		{"type", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Types$SignatureGenerator$InvalidSignatureException, type, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$SignatureGenerator", "com.sun.tools.javac.code.Types", "SignatureGenerator", $PUBLIC | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.code.Types$SignatureGenerator$InvalidSignatureException", "com.sun.tools.javac.code.Types$SignatureGenerator", "InvalidSignatureException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Types$SignatureGenerator$InvalidSignatureException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$SignatureGenerator$InvalidSignatureException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$SignatureGenerator$InvalidSignatureException);
+	});
 	return class$;
 }
 

@@ -55,6 +55,7 @@ class HTMLSerializer : public ::com::sun::org::apache::xml::internal::serialize:
 	$class(HTMLSerializer, 0, ::com::sun::org::apache::xml::internal::serialize::BaseMarkupSerializer)
 public:
 	HTMLSerializer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool xhtml, ::com::sun::org::apache::xml::internal::serialize::OutputFormat* format);
 	void init$();
 	void init$(::com::sun::org::apache::xml::internal::serialize::OutputFormat* format);

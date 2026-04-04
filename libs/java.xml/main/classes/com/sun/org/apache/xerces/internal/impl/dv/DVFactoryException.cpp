@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/DVFactoryException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -15,30 +14,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace dv {
-
-$FieldInfo _DVFactoryException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DVFactoryException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DVFactoryException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DVFactoryException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DVFactoryException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _DVFactoryException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.DVFactoryException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_DVFactoryException_FieldInfo_,
-	_DVFactoryException_MethodInfo_
-};
-
-$Object* allocate$DVFactoryException($Class* clazz) {
-	return $of($alloc(DVFactoryException));
-}
 
 void DVFactoryException::init$() {
 	$RuntimeException::init$();
@@ -59,7 +34,26 @@ void DVFactoryException::throw$() {
 }
 
 $Class* DVFactoryException::load$($String* name, bool initialize) {
-	$loadClass(DVFactoryException, name, initialize, &_DVFactoryException_ClassInfo_, allocate$DVFactoryException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(DVFactoryException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DVFactoryException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DVFactoryException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.DVFactoryException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DVFactoryException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DVFactoryException);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet$Copyright.h>
-
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _BaselineTIFFTagSet$Copyright_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Copyright, init$, void)},
-	{}
-};
-
-$InnerClassInfo _BaselineTIFFTagSet$Copyright_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Copyright", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Copyright", $STATIC},
-	{}
-};
-
-$ClassInfo _BaselineTIFFTagSet$Copyright_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Copyright",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Copyright_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaselineTIFFTagSet$Copyright_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
-};
-
-$Object* allocate$BaselineTIFFTagSet$Copyright($Class* clazz) {
-	return $of($alloc(BaselineTIFFTagSet$Copyright));
-}
-
 void BaselineTIFFTagSet$Copyright::init$() {
 	$TIFFTag::init$("Copyright"_s, 0x00008298, $sl(1, $TIFFTag::TIFF_ASCII));
 }
@@ -54,7 +23,32 @@ BaselineTIFFTagSet$Copyright::BaselineTIFFTagSet$Copyright() {
 }
 
 $Class* BaselineTIFFTagSet$Copyright::load$($String* name, bool initialize) {
-	$loadClass(BaselineTIFFTagSet$Copyright, name, initialize, &_BaselineTIFFTagSet$Copyright_ClassInfo_, allocate$BaselineTIFFTagSet$Copyright);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BaselineTIFFTagSet$Copyright, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Copyright", "javax.imageio.plugins.tiff.BaselineTIFFTagSet", "Copyright", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet$Copyright",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.BaselineTIFFTagSet"
+	};
+	$loadClass(BaselineTIFFTagSet$Copyright, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaselineTIFFTagSet$Copyright);
+	});
 	return class$;
 }
 

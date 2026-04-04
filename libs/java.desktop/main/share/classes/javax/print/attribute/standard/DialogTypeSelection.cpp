@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/DialogTypeSelection.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <jcpp.h>
 
@@ -17,42 +16,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _DialogTypeSelection_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DialogTypeSelection, serialVersionUID)},
-	{"NATIVE", "Ljavax/print/attribute/standard/DialogTypeSelection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DialogTypeSelection, NATIVE)},
-	{"COMMON", "Ljavax/print/attribute/standard/DialogTypeSelection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DialogTypeSelection, COMMON)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DialogTypeSelection, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/DialogTypeSelection;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DialogTypeSelection, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _DialogTypeSelection_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(DialogTypeSelection, init$, void, int32_t)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(DialogTypeSelection, getCategory, $Class*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(DialogTypeSelection, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DialogTypeSelection, getName, $String*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DialogTypeSelection, getStringTable, $StringArray*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DialogTypeSelection_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.DialogTypeSelection",
-	"javax.print.attribute.EnumSyntax",
-	"javax.print.attribute.PrintRequestAttribute",
-	_DialogTypeSelection_FieldInfo_,
-	_DialogTypeSelection_MethodInfo_
-};
-
-$Object* allocate$DialogTypeSelection($Class* clazz) {
-	return $of($alloc(DialogTypeSelection));
-}
 
 $Object* DialogTypeSelection::clone() {
 	 return this->$EnumSyntax::clone();
@@ -88,7 +51,7 @@ $StringArray* DialogTypeSelection::getStringTable() {
 }
 
 $EnumSyntaxArray* DialogTypeSelection::getEnumValueTable() {
-	return $fcast($EnumSyntaxArray, DialogTypeSelection::myEnumValueTable);
+	return $cast($EnumSyntaxArray, DialogTypeSelection::myEnumValueTable);
 }
 
 $Class* DialogTypeSelection::getCategory() {
@@ -99,7 +62,7 @@ $String* DialogTypeSelection::getName() {
 	return "dialog-type-selection"_s;
 }
 
-void clinit$DialogTypeSelection($Class* class$) {
+void DialogTypeSelection::clinit$($Class* clazz) {
 	$assignStatic(DialogTypeSelection::NATIVE, $new(DialogTypeSelection, 0));
 	$assignStatic(DialogTypeSelection::COMMON, $new(DialogTypeSelection, 1));
 	$assignStatic(DialogTypeSelection::myStringTable, $new($StringArray, {
@@ -116,7 +79,38 @@ DialogTypeSelection::DialogTypeSelection() {
 }
 
 $Class* DialogTypeSelection::load$($String* name, bool initialize) {
-	$loadClass(DialogTypeSelection, name, initialize, &_DialogTypeSelection_ClassInfo_, clinit$DialogTypeSelection, allocate$DialogTypeSelection);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DialogTypeSelection, serialVersionUID)},
+		{"NATIVE", "Ljavax/print/attribute/standard/DialogTypeSelection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DialogTypeSelection, NATIVE)},
+		{"COMMON", "Ljavax/print/attribute/standard/DialogTypeSelection;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DialogTypeSelection, COMMON)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DialogTypeSelection, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/DialogTypeSelection;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DialogTypeSelection, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(DialogTypeSelection, init$, void, int32_t)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(DialogTypeSelection, getCategory, $Class*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(DialogTypeSelection, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DialogTypeSelection, getName, $String*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(DialogTypeSelection, getStringTable, $StringArray*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.DialogTypeSelection",
+		"javax.print.attribute.EnumSyntax",
+		"javax.print.attribute.PrintRequestAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DialogTypeSelection, name, initialize, &classInfo$$, DialogTypeSelection::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DialogTypeSelection));
+	});
 	return class$;
 }
 

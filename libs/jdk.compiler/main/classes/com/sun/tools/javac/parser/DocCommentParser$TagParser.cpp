@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/DocCommentParser$TagParser.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/tools/javac/parser/DocCommentParser$TagParser$Kind.h>
 #include <com/sun/tools/javac/parser/DocCommentParser.h>
@@ -26,50 +25,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _DocCommentParser$TagParser_FieldInfo_[] = {
-	{"kind", "Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $FINAL, $field(DocCommentParser$TagParser, kind)},
-	{"treeKind", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $FINAL, $field(DocCommentParser$TagParser, treeKind)},
-	{"retainWhiteSpace", "Z", nullptr, $FINAL, $field(DocCommentParser$TagParser, retainWhiteSpace)},
-	{}
-};
-
-$MethodInfo _DocCommentParser$TagParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;)V", nullptr, 0, $method(DocCommentParser$TagParser, init$, void, $DocCommentParser$TagParser$Kind*, $DocTree$Kind*)},
-	{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;Z)V", nullptr, 0, $method(DocCommentParser$TagParser, init$, void, $DocCommentParser$TagParser$Kind*, $DocTree$Kind*, bool)},
-	{"allowsBlock", "()Z", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, allowsBlock, bool)},
-	{"allowsInline", "()Z", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, allowsInline, bool)},
-	{"getTreeKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, getTreeKind, $DocTree$Kind*)},
-	{"parse", "(ILcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;)Lcom/sun/tools/javac/tree/DCTree;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, parse, $DCTree*, int32_t, $DocCommentParser$TagParser$Kind*), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
-	{"parse", "(I)Lcom/sun/tools/javac/tree/DCTree;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, parse, $DCTree*, int32_t), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
-	{}
-};
-
-$InnerClassInfo _DocCommentParser$TagParser_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.DocCommentParser$TagParser", "com.sun.tools.javac.parser.DocCommentParser", "TagParser", $PRIVATE | $STATIC | $ABSTRACT},
-	{"com.sun.tools.javac.parser.DocCommentParser$TagParser$Kind", "com.sun.tools.javac.parser.DocCommentParser$TagParser", "Kind", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _DocCommentParser$TagParser_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.parser.DocCommentParser$TagParser",
-	"java.lang.Object",
-	nullptr,
-	_DocCommentParser$TagParser_FieldInfo_,
-	_DocCommentParser$TagParser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocCommentParser$TagParser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.DocCommentParser"
-};
-
-$Object* allocate$DocCommentParser$TagParser($Class* clazz) {
-	return $of($alloc(DocCommentParser$TagParser));
-}
 
 void DocCommentParser$TagParser::init$($DocCommentParser$TagParser$Kind* k, $DocTree$Kind* tk) {
 	$set(this, kind, k);
@@ -114,7 +69,45 @@ DocCommentParser$TagParser::DocCommentParser$TagParser() {
 }
 
 $Class* DocCommentParser$TagParser::load$($String* name, bool initialize) {
-	$loadClass(DocCommentParser$TagParser, name, initialize, &_DocCommentParser$TagParser_ClassInfo_, allocate$DocCommentParser$TagParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"kind", "Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;", nullptr, $FINAL, $field(DocCommentParser$TagParser, kind)},
+		{"treeKind", "Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $FINAL, $field(DocCommentParser$TagParser, treeKind)},
+		{"retainWhiteSpace", "Z", nullptr, $FINAL, $field(DocCommentParser$TagParser, retainWhiteSpace)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;)V", nullptr, 0, $method(DocCommentParser$TagParser, init$, void, $DocCommentParser$TagParser$Kind*, $DocTree$Kind*)},
+		{"<init>", "(Lcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;Lcom/sun/source/doctree/DocTree$Kind;Z)V", nullptr, 0, $method(DocCommentParser$TagParser, init$, void, $DocCommentParser$TagParser$Kind*, $DocTree$Kind*, bool)},
+		{"allowsBlock", "()Z", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, allowsBlock, bool)},
+		{"allowsInline", "()Z", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, allowsInline, bool)},
+		{"getTreeKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, getTreeKind, $DocTree$Kind*)},
+		{"parse", "(ILcom/sun/tools/javac/parser/DocCommentParser$TagParser$Kind;)Lcom/sun/tools/javac/tree/DCTree;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, parse, $DCTree*, int32_t, $DocCommentParser$TagParser$Kind*), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
+		{"parse", "(I)Lcom/sun/tools/javac/tree/DCTree;", nullptr, 0, $virtualMethod(DocCommentParser$TagParser, parse, $DCTree*, int32_t), "com.sun.tools.javac.parser.DocCommentParser$ParseException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.DocCommentParser$TagParser", "com.sun.tools.javac.parser.DocCommentParser", "TagParser", $PRIVATE | $STATIC | $ABSTRACT},
+		{"com.sun.tools.javac.parser.DocCommentParser$TagParser$Kind", "com.sun.tools.javac.parser.DocCommentParser$TagParser", "Kind", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.parser.DocCommentParser$TagParser",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.DocCommentParser"
+	};
+	$loadClass(DocCommentParser$TagParser, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DocCommentParser$TagParser);
+	});
 	return class$;
 }
 

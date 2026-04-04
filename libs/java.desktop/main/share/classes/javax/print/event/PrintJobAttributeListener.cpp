@@ -1,5 +1,4 @@
 #include <javax/print/event/PrintJobAttributeListener.h>
-
 #include <javax/print/event/PrintJobAttributeEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace print {
 		namespace event {
 
-$MethodInfo _PrintJobAttributeListener_MethodInfo_[] = {
-	{"attributeUpdate", "(Ljavax/print/event/PrintJobAttributeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintJobAttributeListener, attributeUpdate, void, $PrintJobAttributeEvent*)},
-	{}
-};
-
-$ClassInfo _PrintJobAttributeListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.print.event.PrintJobAttributeListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PrintJobAttributeListener_MethodInfo_
-};
-
-$Object* allocate$PrintJobAttributeListener($Class* clazz) {
-	return $of($alloc(PrintJobAttributeListener));
-}
-
 $Class* PrintJobAttributeListener::load$($String* name, bool initialize) {
-	$loadClass(PrintJobAttributeListener, name, initialize, &_PrintJobAttributeListener_ClassInfo_, allocate$PrintJobAttributeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"attributeUpdate", "(Ljavax/print/event/PrintJobAttributeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PrintJobAttributeListener, attributeUpdate, void, $PrintJobAttributeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.print.event.PrintJobAttributeListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PrintJobAttributeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintJobAttributeListener);
+	});
 	return class$;
 }
 

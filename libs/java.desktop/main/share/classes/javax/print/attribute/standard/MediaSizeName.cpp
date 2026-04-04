@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/MediaSizeName.h>
-
 #include <javax/print/attribute/EnumSyntax.h>
 #include <javax/print/attribute/standard/Media.h>
 #include <jcpp.h>
@@ -86,106 +85,6 @@ namespace javax {
 		namespace attribute {
 			namespace standard {
 
-$FieldInfo _MediaSizeName_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaSizeName, serialVersionUID)},
-	{"ISO_A0", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A0)},
-	{"ISO_A1", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A1)},
-	{"ISO_A2", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A2)},
-	{"ISO_A3", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A3)},
-	{"ISO_A4", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A4)},
-	{"ISO_A5", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A5)},
-	{"ISO_A6", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A6)},
-	{"ISO_A7", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A7)},
-	{"ISO_A8", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A8)},
-	{"ISO_A9", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A9)},
-	{"ISO_A10", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A10)},
-	{"ISO_B0", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B0)},
-	{"ISO_B1", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B1)},
-	{"ISO_B2", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B2)},
-	{"ISO_B3", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B3)},
-	{"ISO_B4", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B4)},
-	{"ISO_B5", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B5)},
-	{"ISO_B6", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B6)},
-	{"ISO_B7", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B7)},
-	{"ISO_B8", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B8)},
-	{"ISO_B9", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B9)},
-	{"ISO_B10", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B10)},
-	{"JIS_B0", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B0)},
-	{"JIS_B1", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B1)},
-	{"JIS_B2", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B2)},
-	{"JIS_B3", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B3)},
-	{"JIS_B4", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B4)},
-	{"JIS_B5", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B5)},
-	{"JIS_B6", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B6)},
-	{"JIS_B7", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B7)},
-	{"JIS_B8", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B8)},
-	{"JIS_B9", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B9)},
-	{"JIS_B10", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B10)},
-	{"ISO_C0", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C0)},
-	{"ISO_C1", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C1)},
-	{"ISO_C2", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C2)},
-	{"ISO_C3", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C3)},
-	{"ISO_C4", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C4)},
-	{"ISO_C5", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C5)},
-	{"ISO_C6", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C6)},
-	{"NA_LETTER", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_LETTER)},
-	{"NA_LEGAL", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_LEGAL)},
-	{"EXECUTIVE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, EXECUTIVE)},
-	{"LEDGER", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, LEDGER)},
-	{"TABLOID", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, TABLOID)},
-	{"INVOICE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, INVOICE)},
-	{"FOLIO", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, FOLIO)},
-	{"QUARTO", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, QUARTO)},
-	{"JAPANESE_POSTCARD", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JAPANESE_POSTCARD)},
-	{"JAPANESE_DOUBLE_POSTCARD", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JAPANESE_DOUBLE_POSTCARD)},
-	{"A", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, A)},
-	{"B", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, B)},
-	{"C", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, C)},
-	{"D", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, D)},
-	{"E", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, E)},
-	{"ISO_DESIGNATED_LONG", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_DESIGNATED_LONG)},
-	{"ITALY_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ITALY_ENVELOPE)},
-	{"MONARCH_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, MONARCH_ENVELOPE)},
-	{"PERSONAL_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, PERSONAL_ENVELOPE)},
-	{"NA_NUMBER_9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_9_ENVELOPE)},
-	{"NA_NUMBER_10_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_10_ENVELOPE)},
-	{"NA_NUMBER_11_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_11_ENVELOPE)},
-	{"NA_NUMBER_12_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_12_ENVELOPE)},
-	{"NA_NUMBER_14_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_14_ENVELOPE)},
-	{"NA_6X9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_6X9_ENVELOPE)},
-	{"NA_7X9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_7X9_ENVELOPE)},
-	{"NA_9X11_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_9X11_ENVELOPE)},
-	{"NA_9X12_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_9X12_ENVELOPE)},
-	{"NA_10X13_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_10X13_ENVELOPE)},
-	{"NA_10X14_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_10X14_ENVELOPE)},
-	{"NA_10X15_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_10X15_ENVELOPE)},
-	{"NA_5X7", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_5X7)},
-	{"NA_8X10", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_8X10)},
-	{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaSizeName, myStringTable)},
-	{"myEnumValueTable", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaSizeName, myEnumValueTable)},
-	{}
-};
-
-$MethodInfo _MediaSizeName_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(MediaSizeName, init$, void, int32_t)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(MediaSizeName, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MediaSizeName, getStringTable, $StringArray*)},
-	{}
-};
-
-$ClassInfo _MediaSizeName_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.attribute.standard.MediaSizeName",
-	"javax.print.attribute.standard.Media",
-	nullptr,
-	_MediaSizeName_FieldInfo_,
-	_MediaSizeName_MethodInfo_
-};
-
-$Object* allocate$MediaSizeName($Class* clazz) {
-	return $of($alloc(MediaSizeName));
-}
-
 MediaSizeName* MediaSizeName::ISO_A0 = nullptr;
 MediaSizeName* MediaSizeName::ISO_A1 = nullptr;
 MediaSizeName* MediaSizeName::ISO_A2 = nullptr;
@@ -267,14 +166,14 @@ void MediaSizeName::init$(int32_t value) {
 }
 
 $StringArray* MediaSizeName::getStringTable() {
-	return $cast($StringArray, $nc(MediaSizeName::myStringTable)->clone());
+	return $cast($StringArray, MediaSizeName::myStringTable->clone());
 }
 
 $EnumSyntaxArray* MediaSizeName::getEnumValueTable() {
-	return $cast($EnumSyntaxArray, $nc(MediaSizeName::myEnumValueTable)->clone());
+	return $cast($EnumSyntaxArray, MediaSizeName::myEnumValueTable->clone());
 }
 
-void clinit$MediaSizeName($Class* class$) {
+void MediaSizeName::clinit$($Class* clazz) {
 	$assignStatic(MediaSizeName::ISO_A0, $new(MediaSizeName, 0));
 	$assignStatic(MediaSizeName::ISO_A1, $new(MediaSizeName, 1));
 	$assignStatic(MediaSizeName::ISO_A2, $new(MediaSizeName, 2));
@@ -504,7 +403,102 @@ MediaSizeName::MediaSizeName() {
 }
 
 $Class* MediaSizeName::load$($String* name, bool initialize) {
-	$loadClass(MediaSizeName, name, initialize, &_MediaSizeName_ClassInfo_, clinit$MediaSizeName, allocate$MediaSizeName);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MediaSizeName, serialVersionUID)},
+		{"ISO_A0", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A0)},
+		{"ISO_A1", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A1)},
+		{"ISO_A2", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A2)},
+		{"ISO_A3", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A3)},
+		{"ISO_A4", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A4)},
+		{"ISO_A5", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A5)},
+		{"ISO_A6", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A6)},
+		{"ISO_A7", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A7)},
+		{"ISO_A8", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A8)},
+		{"ISO_A9", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A9)},
+		{"ISO_A10", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_A10)},
+		{"ISO_B0", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B0)},
+		{"ISO_B1", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B1)},
+		{"ISO_B2", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B2)},
+		{"ISO_B3", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B3)},
+		{"ISO_B4", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B4)},
+		{"ISO_B5", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B5)},
+		{"ISO_B6", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B6)},
+		{"ISO_B7", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B7)},
+		{"ISO_B8", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B8)},
+		{"ISO_B9", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B9)},
+		{"ISO_B10", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_B10)},
+		{"JIS_B0", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B0)},
+		{"JIS_B1", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B1)},
+		{"JIS_B2", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B2)},
+		{"JIS_B3", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B3)},
+		{"JIS_B4", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B4)},
+		{"JIS_B5", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B5)},
+		{"JIS_B6", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B6)},
+		{"JIS_B7", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B7)},
+		{"JIS_B8", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B8)},
+		{"JIS_B9", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B9)},
+		{"JIS_B10", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JIS_B10)},
+		{"ISO_C0", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C0)},
+		{"ISO_C1", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C1)},
+		{"ISO_C2", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C2)},
+		{"ISO_C3", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C3)},
+		{"ISO_C4", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C4)},
+		{"ISO_C5", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C5)},
+		{"ISO_C6", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_C6)},
+		{"NA_LETTER", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_LETTER)},
+		{"NA_LEGAL", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_LEGAL)},
+		{"EXECUTIVE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, EXECUTIVE)},
+		{"LEDGER", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, LEDGER)},
+		{"TABLOID", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, TABLOID)},
+		{"INVOICE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, INVOICE)},
+		{"FOLIO", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, FOLIO)},
+		{"QUARTO", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, QUARTO)},
+		{"JAPANESE_POSTCARD", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JAPANESE_POSTCARD)},
+		{"JAPANESE_DOUBLE_POSTCARD", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, JAPANESE_DOUBLE_POSTCARD)},
+		{"A", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, A)},
+		{"B", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, B)},
+		{"C", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, C)},
+		{"D", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, D)},
+		{"E", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, E)},
+		{"ISO_DESIGNATED_LONG", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ISO_DESIGNATED_LONG)},
+		{"ITALY_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, ITALY_ENVELOPE)},
+		{"MONARCH_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, MONARCH_ENVELOPE)},
+		{"PERSONAL_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, PERSONAL_ENVELOPE)},
+		{"NA_NUMBER_9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_9_ENVELOPE)},
+		{"NA_NUMBER_10_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_10_ENVELOPE)},
+		{"NA_NUMBER_11_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_11_ENVELOPE)},
+		{"NA_NUMBER_12_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_12_ENVELOPE)},
+		{"NA_NUMBER_14_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_NUMBER_14_ENVELOPE)},
+		{"NA_6X9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_6X9_ENVELOPE)},
+		{"NA_7X9_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_7X9_ENVELOPE)},
+		{"NA_9X11_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_9X11_ENVELOPE)},
+		{"NA_9X12_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_9X12_ENVELOPE)},
+		{"NA_10X13_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_10X13_ENVELOPE)},
+		{"NA_10X14_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_10X14_ENVELOPE)},
+		{"NA_10X15_ENVELOPE", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_10X15_ENVELOPE)},
+		{"NA_5X7", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_5X7)},
+		{"NA_8X10", "Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(MediaSizeName, NA_8X10)},
+		{"myStringTable", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaSizeName, myStringTable)},
+		{"myEnumValueTable", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MediaSizeName, myEnumValueTable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(MediaSizeName, init$, void, int32_t)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(MediaSizeName, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(MediaSizeName, getStringTable, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.attribute.standard.MediaSizeName",
+		"javax.print.attribute.standard.Media",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MediaSizeName, name, initialize, &classInfo$$, MediaSizeName::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MediaSizeName));
+	});
 	return class$;
 }
 

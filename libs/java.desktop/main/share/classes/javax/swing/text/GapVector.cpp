@@ -1,5 +1,4 @@
 #include <javax/swing/text/GapVector.h>
-
 #include <java/lang/Math.h>
 #include <jcpp.h>
 
@@ -12,46 +11,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _GapVector_FieldInfo_[] = {
-	{"array", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(GapVector, array)},
-	{"g0", "I", nullptr, $PRIVATE, $field(GapVector, g0)},
-	{"g1", "I", nullptr, $PRIVATE, $field(GapVector, g1)},
-	{}
-};
-
-$MethodInfo _GapVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(GapVector, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(GapVector, init$, void, int32_t)},
-	{"allocateArray", "(I)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(GapVector, allocateArray, $Object*, int32_t)},
-	{"close", "(II)V", nullptr, 0, $virtualMethod(GapVector, close, void, int32_t, int32_t)},
-	{"getArray", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(GapVector, getArray, $Object*)},
-	{"getArrayLength", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(GapVector, getArrayLength, int32_t)},
-	{"getGapEnd", "()I", nullptr, $PROTECTED | $FINAL, $method(GapVector, getGapEnd, int32_t)},
-	{"getGapStart", "()I", nullptr, $PROTECTED | $FINAL, $method(GapVector, getGapStart, int32_t)},
-	{"getNewArraySize", "(I)I", nullptr, 0, $virtualMethod(GapVector, getNewArraySize, int32_t, int32_t)},
-	{"open", "(II)I", nullptr, 0, $virtualMethod(GapVector, open, int32_t, int32_t, int32_t)},
-	{"replace", "(IILjava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, replace, void, int32_t, int32_t, Object$*, int32_t)},
-	{"resize", "(I)V", nullptr, 0, $virtualMethod(GapVector, resize, void, int32_t)},
-	{"shiftEnd", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, shiftEnd, void, int32_t)},
-	{"shiftGap", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, shiftGap, void, int32_t)},
-	{"shiftGapEndUp", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, shiftGapEndUp, void, int32_t)},
-	{"shiftGapStartDown", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, shiftGapStartDown, void, int32_t)},
-	{}
-};
-
-$ClassInfo _GapVector_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"javax.swing.text.GapVector",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_GapVector_FieldInfo_,
-	_GapVector_MethodInfo_
-};
-
-$Object* allocate$GapVector($Class* clazz) {
-	return $of($alloc(GapVector));
-}
-
 void GapVector::init$() {
 	GapVector::init$(10);
 }
@@ -63,7 +22,7 @@ void GapVector::init$(int32_t initialLength) {
 }
 
 $Object* GapVector::getArray() {
-	return $of(this->array);
+	return this->array;
 }
 
 int32_t GapVector::getGapStart() {
@@ -182,7 +141,42 @@ GapVector::GapVector() {
 }
 
 $Class* GapVector::load$($String* name, bool initialize) {
-	$loadClass(GapVector, name, initialize, &_GapVector_ClassInfo_, allocate$GapVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"array", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(GapVector, array)},
+		{"g0", "I", nullptr, $PRIVATE, $field(GapVector, g0)},
+		{"g1", "I", nullptr, $PRIVATE, $field(GapVector, g1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(GapVector, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(GapVector, init$, void, int32_t)},
+		{"allocateArray", "(I)Ljava/lang/Object;", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(GapVector, allocateArray, $Object*, int32_t)},
+		{"close", "(II)V", nullptr, 0, $virtualMethod(GapVector, close, void, int32_t, int32_t)},
+		{"getArray", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $method(GapVector, getArray, $Object*)},
+		{"getArrayLength", "()I", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(GapVector, getArrayLength, int32_t)},
+		{"getGapEnd", "()I", nullptr, $PROTECTED | $FINAL, $method(GapVector, getGapEnd, int32_t)},
+		{"getGapStart", "()I", nullptr, $PROTECTED | $FINAL, $method(GapVector, getGapStart, int32_t)},
+		{"getNewArraySize", "(I)I", nullptr, 0, $virtualMethod(GapVector, getNewArraySize, int32_t, int32_t)},
+		{"open", "(II)I", nullptr, 0, $virtualMethod(GapVector, open, int32_t, int32_t, int32_t)},
+		{"replace", "(IILjava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, replace, void, int32_t, int32_t, Object$*, int32_t)},
+		{"resize", "(I)V", nullptr, 0, $virtualMethod(GapVector, resize, void, int32_t)},
+		{"shiftEnd", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, shiftEnd, void, int32_t)},
+		{"shiftGap", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, shiftGap, void, int32_t)},
+		{"shiftGapEndUp", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, shiftGapEndUp, void, int32_t)},
+		{"shiftGapStartDown", "(I)V", nullptr, $PROTECTED, $virtualMethod(GapVector, shiftGapStartDown, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"javax.swing.text.GapVector",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GapVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GapVector);
+	});
 	return class$;
 }
 

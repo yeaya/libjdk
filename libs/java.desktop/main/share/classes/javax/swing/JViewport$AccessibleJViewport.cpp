@@ -1,8 +1,6 @@
 #include <javax/swing/JViewport$AccessibleJViewport.h>
-
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JViewport.h>
 #include <jcpp.h>
 
@@ -13,49 +11,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JViewport = ::javax::swing::JViewport;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JViewport$AccessibleJViewport_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JViewport;", nullptr, $FINAL | $SYNTHETIC, $field(JViewport$AccessibleJViewport, this$0)},
-	{}
-};
-
-$MethodInfo _JViewport$AccessibleJViewport_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JViewport;)V", nullptr, $PROTECTED, $method(JViewport$AccessibleJViewport, init$, void, $JViewport*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JViewport$AccessibleJViewport, getAccessibleRole, $AccessibleRole*)},
-	{}
-};
-
-$InnerClassInfo _JViewport$AccessibleJViewport_InnerClassesInfo_[] = {
-	{"javax.swing.JViewport$AccessibleJViewport", "javax.swing.JViewport", "AccessibleJViewport", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JViewport$AccessibleJViewport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JViewport$AccessibleJViewport",
-	"javax.swing.JComponent$AccessibleJComponent",
-	nullptr,
-	_JViewport$AccessibleJViewport_FieldInfo_,
-	_JViewport$AccessibleJViewport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JViewport$AccessibleJViewport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JViewport"
-};
-
-$Object* allocate$JViewport$AccessibleJViewport($Class* clazz) {
-	return $of($alloc(JViewport$AccessibleJViewport));
-}
 
 void JViewport$AccessibleJViewport::init$($JViewport* this$0) {
 	$set(this, this$0, this$0);
@@ -71,7 +31,38 @@ JViewport$AccessibleJViewport::JViewport$AccessibleJViewport() {
 }
 
 $Class* JViewport$AccessibleJViewport::load$($String* name, bool initialize) {
-	$loadClass(JViewport$AccessibleJViewport, name, initialize, &_JViewport$AccessibleJViewport_ClassInfo_, allocate$JViewport$AccessibleJViewport);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JViewport;", nullptr, $FINAL | $SYNTHETIC, $field(JViewport$AccessibleJViewport, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JViewport;)V", nullptr, $PROTECTED, $method(JViewport$AccessibleJViewport, init$, void, $JViewport*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JViewport$AccessibleJViewport, getAccessibleRole, $AccessibleRole*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JViewport$AccessibleJViewport", "javax.swing.JViewport", "AccessibleJViewport", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JViewport$AccessibleJViewport",
+		"javax.swing.JComponent$AccessibleJComponent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JViewport"
+	};
+	$loadClass(JViewport$AccessibleJViewport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JViewport$AccessibleJViewport));
+	});
 	return class$;
 }
 

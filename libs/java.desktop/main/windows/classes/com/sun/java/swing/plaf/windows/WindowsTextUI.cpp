@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI$WindowsCaret.h>
 #include <com/sun/java/swing/plaf/windows/WindowsTextUI$WindowsHighlightPainter.h>
 #include <java/awt/Color.h>
@@ -26,42 +25,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsTextUI_FieldInfo_[] = {
-	{"WindowsPainter", "Ljavax/swing/text/LayeredHighlighter$LayerPainter;", nullptr, $STATIC, $staticField(WindowsTextUI, WindowsPainter)},
-	{}
-};
-
-$MethodInfo _WindowsTextUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTextUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsTextUI, createCaret, $Caret*)},
-	{}
-};
-
-$InnerClassInfo _WindowsTextUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsHighlightPainter", "com.sun.java.swing.plaf.windows.WindowsTextUI", "WindowsHighlightPainter", $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsCaret", "com.sun.java.swing.plaf.windows.WindowsTextUI", "WindowsCaret", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsTextUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.java.swing.plaf.windows.WindowsTextUI",
-	"javax.swing.plaf.basic.BasicTextUI",
-	nullptr,
-	_WindowsTextUI_FieldInfo_,
-	_WindowsTextUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTextUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsHighlightPainter,com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsCaret"
-};
-
-$Object* allocate$WindowsTextUI($Class* clazz) {
-	return $of($alloc(WindowsTextUI));
-}
-
 $LayeredHighlighter$LayerPainter* WindowsTextUI::WindowsPainter = nullptr;
 
 void WindowsTextUI::init$() {
@@ -72,7 +35,7 @@ $Caret* WindowsTextUI::createCaret() {
 	return $new($WindowsTextUI$WindowsCaret);
 }
 
-void clinit$WindowsTextUI($Class* class$) {
+void WindowsTextUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsTextUI::WindowsPainter, $new($WindowsTextUI$WindowsHighlightPainter, nullptr));
 }
 
@@ -80,7 +43,37 @@ WindowsTextUI::WindowsTextUI() {
 }
 
 $Class* WindowsTextUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsTextUI, name, initialize, &_WindowsTextUI_ClassInfo_, clinit$WindowsTextUI, allocate$WindowsTextUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"WindowsPainter", "Ljavax/swing/text/LayeredHighlighter$LayerPainter;", nullptr, $STATIC, $staticField(WindowsTextUI, WindowsPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTextUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsTextUI, createCaret, $Caret*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsHighlightPainter", "com.sun.java.swing.plaf.windows.WindowsTextUI", "WindowsHighlightPainter", $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsCaret", "com.sun.java.swing.plaf.windows.WindowsTextUI", "WindowsCaret", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.java.swing.plaf.windows.WindowsTextUI",
+		"javax.swing.plaf.basic.BasicTextUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsHighlightPainter,com.sun.java.swing.plaf.windows.WindowsTextUI$WindowsCaret"
+	};
+	$loadClass(WindowsTextUI, name, initialize, &classInfo$$, WindowsTextUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTextUI));
+	});
 	return class$;
 }
 

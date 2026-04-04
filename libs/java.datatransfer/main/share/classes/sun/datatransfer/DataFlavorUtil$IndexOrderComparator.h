@@ -27,6 +27,7 @@ class DataFlavorUtil$IndexOrderComparator : public ::java::util::Comparator {
 	$class(DataFlavorUtil$IndexOrderComparator, 0, ::java::util::Comparator)
 public:
 	DataFlavorUtil$IndexOrderComparator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* indexMap);
 	virtual int32_t compare(::java::lang::Long* obj1, ::java::lang::Long* obj2);
 	virtual int32_t compare(Object$* obj1, Object$* obj2) override;

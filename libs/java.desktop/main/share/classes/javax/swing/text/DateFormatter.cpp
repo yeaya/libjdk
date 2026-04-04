@@ -1,5 +1,4 @@
 #include <javax/swing/text/DateFormatter.h>
-
 #include <java/text/DateFormat$Field.h>
 #include <java/text/DateFormat.h>
 #include <java/text/Format.h>
@@ -23,36 +22,11 @@ using $Calendar = ::java::util::Calendar;
 using $Date = ::java::util::Date;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$MethodInfo _DateFormatter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DateFormatter, init$, void)},
-	{"<init>", "(Ljava/text/DateFormat;)V", nullptr, $PUBLIC, $method(DateFormatter, init$, void, $DateFormat*)},
-	{"adjustValue", "(Ljava/lang/Object;Ljava/util/Map;Ljava/lang/Object;I)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/util/Map<**>;Ljava/lang/Object;I)Ljava/lang/Object;", 0, $virtualMethod(DateFormatter, adjustValue, $Object*, Object$*, $Map*, Object$*, int32_t), "javax.swing.text.BadLocationException,java.text.ParseException"},
-	{"getAdjustField", "(ILjava/util/Map;)Ljava/lang/Object;", "(ILjava/util/Map<**>;)Ljava/lang/Object;", 0, $virtualMethod(DateFormatter, getAdjustField, $Object*, int32_t, $Map*)},
-	{"getCalendar", "()Ljava/util/Calendar;", nullptr, $PRIVATE, $method(DateFormatter, getCalendar, $Calendar*)},
-	{"getSupportsIncrement", "()Z", nullptr, 0, $virtualMethod(DateFormatter, getSupportsIncrement, bool)},
-	{"setFormat", "(Ljava/text/DateFormat;)V", nullptr, $PUBLIC, $virtualMethod(DateFormatter, setFormat, void, $DateFormat*)},
-	{}
-};
-
-$ClassInfo _DateFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DateFormatter",
-	"javax.swing.text.InternationalFormatter",
-	nullptr,
-	nullptr,
-	_DateFormatter_MethodInfo_
-};
-
-$Object* allocate$DateFormatter($Class* clazz) {
-	return $of($alloc(DateFormatter));
-}
 
 void DateFormatter::init$() {
 	DateFormatter::init$($($DateFormat::getDateInstance()));
@@ -70,7 +44,7 @@ void DateFormatter::setFormat($DateFormat* format) {
 $Calendar* DateFormatter::getCalendar() {
 	$var($Format, f, getFormat());
 	if ($instanceOf($DateFormat, f)) {
-		return $nc(($cast($DateFormat, f)))->getCalendar();
+		return $cast($DateFormat, f)->getCalendar();
 	}
 	return $Calendar::getInstance();
 }
@@ -80,24 +54,20 @@ bool DateFormatter::getSupportsIncrement() {
 }
 
 $Object* DateFormatter::getAdjustField(int32_t start, $Map* attributes) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc($($nc(attributes)->keySet()))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Object, key, i$->next());
-			{
-				$init($DateFormat$Field);
-				if (($instanceOf($DateFormat$Field, key)) && ($equals(key, $DateFormat$Field::HOUR1) || $nc(($cast($DateFormat$Field, key)))->getCalendarField() != -1)) {
-					return $of(key);
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $$nc($nc(attributes)->keySet())->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Object, key, i$->next());
+		$init($DateFormat$Field);
+		if (($instanceOf($DateFormat$Field, key)) && ($equals(key, $DateFormat$Field::HOUR1) || $cast($DateFormat$Field, key)->getCalendarField() != -1)) {
+			return key;
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Object* DateFormatter::adjustValue(Object$* value$renamed, $Map* attributes, Object$* key$renamed, int32_t direction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, value$renamed);
 	$var($Object, key, key$renamed);
 	if (key != nullptr) {
@@ -106,7 +76,7 @@ $Object* DateFormatter::adjustValue(Object$* value$renamed, $Map* attributes, Ob
 		if ($equals(key, $DateFormat$Field::HOUR1)) {
 			$assign(key, $DateFormat$Field::HOUR0);
 		}
-		field = $nc(($cast($DateFormat$Field, key)))->getCalendarField();
+		field = $nc($cast($DateFormat$Field, key))->getCalendarField();
 		$var($Calendar, calendar, getCalendar());
 		if (calendar != nullptr) {
 			calendar->setTime($cast($Date, value));
@@ -120,14 +90,34 @@ $Object* DateFormatter::adjustValue(Object$* value$renamed, $Map* attributes, Ob
 			return $of(value);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 DateFormatter::DateFormatter() {
 }
 
 $Class* DateFormatter::load$($String* name, bool initialize) {
-	$loadClass(DateFormatter, name, initialize, &_DateFormatter_ClassInfo_, allocate$DateFormatter);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DateFormatter, init$, void)},
+		{"<init>", "(Ljava/text/DateFormat;)V", nullptr, $PUBLIC, $method(DateFormatter, init$, void, $DateFormat*)},
+		{"adjustValue", "(Ljava/lang/Object;Ljava/util/Map;Ljava/lang/Object;I)Ljava/lang/Object;", "(Ljava/lang/Object;Ljava/util/Map<**>;Ljava/lang/Object;I)Ljava/lang/Object;", 0, $virtualMethod(DateFormatter, adjustValue, $Object*, Object$*, $Map*, Object$*, int32_t), "javax.swing.text.BadLocationException,java.text.ParseException"},
+		{"getAdjustField", "(ILjava/util/Map;)Ljava/lang/Object;", "(ILjava/util/Map<**>;)Ljava/lang/Object;", 0, $virtualMethod(DateFormatter, getAdjustField, $Object*, int32_t, $Map*)},
+		{"getCalendar", "()Ljava/util/Calendar;", nullptr, $PRIVATE, $method(DateFormatter, getCalendar, $Calendar*)},
+		{"getSupportsIncrement", "()Z", nullptr, 0, $virtualMethod(DateFormatter, getSupportsIncrement, bool)},
+		{"setFormat", "(Ljava/text/DateFormat;)V", nullptr, $PUBLIC, $virtualMethod(DateFormatter, setFormat, void, $DateFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DateFormatter",
+		"javax.swing.text.InternationalFormatter",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DateFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DateFormatter));
+	});
 	return class$;
 }
 

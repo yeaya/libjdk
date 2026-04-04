@@ -32,7 +32,10 @@ public:
 	::com::sun::tools::javac::comp::Infer$GraphSolver$InferenceGraph* graph = nullptr;
 	Infer$GraphStrategy$NodeNotFoundException(const Infer$GraphStrategy$NodeNotFoundException& e);
 	virtual void throw$() override;
-	inline Infer$GraphStrategy$NodeNotFoundException* operator ->() {
+	inline Infer$GraphStrategy$NodeNotFoundException* operator ->() const {
+		return (Infer$GraphStrategy$NodeNotFoundException*)throwing$;
+	}
+	inline operator Infer$GraphStrategy$NodeNotFoundException*() const {
 		return (Infer$GraphStrategy$NodeNotFoundException*)throwing$;
 	}
 };

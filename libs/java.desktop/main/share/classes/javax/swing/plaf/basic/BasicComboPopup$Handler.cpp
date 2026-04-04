@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicComboPopup$Handler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Dimension.h>
@@ -43,8 +42,6 @@ using $ComboBoxModel = ::javax::swing::ComboBoxModel;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
-using $JScrollPane = ::javax::swing::JScrollPane;
-using $ListModel = ::javax::swing::ListModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
 
@@ -52,56 +49,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicComboPopup$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicComboPopup$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;)V", nullptr, $PRIVATE, $method(BasicComboPopup$Handler, init$, void, $BasicComboPopup*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, itemStateChanged, void, $ItemEvent*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseReleased, void, $MouseEvent*)},
-	{"mouseWheelMoved", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseWheelMoved, void, $MouseWheelEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicComboPopup$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicComboPopup$Handler", "javax.swing.plaf.basic.BasicComboPopup", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicComboPopup$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicComboPopup$Handler",
-	"java.lang.Object",
-	"java.awt.event.ItemListener,java.awt.event.MouseListener,java.awt.event.MouseMotionListener,java.awt.event.MouseWheelListener,java.beans.PropertyChangeListener,java.io.Serializable",
-	_BasicComboPopup$Handler_FieldInfo_,
-	_BasicComboPopup$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicComboPopup$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicComboPopup"
-};
-
-$Object* allocate$BasicComboPopup$Handler($Class* clazz) {
-	return $of($alloc(BasicComboPopup$Handler));
-}
 
 int32_t BasicComboPopup$Handler::hashCode() {
 	 return this->$ItemListener::hashCode();
@@ -131,7 +78,7 @@ void BasicComboPopup$Handler::mouseClicked($MouseEvent* e) {
 }
 
 void BasicComboPopup$Handler::mousePressed($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals($nc(e)->getSource(), this->this$0->list$)) {
 		return;
 	}
@@ -140,8 +87,8 @@ void BasicComboPopup$Handler::mousePressed($MouseEvent* e) {
 		return;
 	}
 	if ($nc(this->this$0->comboBox)->isEditable()) {
-		$var($Component, comp, $nc($($nc(this->this$0->comboBox)->getEditor()))->getEditorComponent());
-		if ((!($instanceOf($JComponent, comp))) || $nc(($cast($JComponent, comp)))->isRequestFocusEnabled()) {
+		$var($Component, comp, $$nc($nc(this->this$0->comboBox)->getEditor())->getEditorComponent());
+		if ((!($instanceOf($JComponent, comp))) || $cast($JComponent, comp)->isRequestFocusEnabled()) {
 			$nc(comp)->requestFocus();
 		}
 	} else if ($nc(this->this$0->comboBox)->isRequestFocusEnabled()) {
@@ -151,26 +98,26 @@ void BasicComboPopup$Handler::mousePressed($MouseEvent* e) {
 }
 
 void BasicComboPopup$Handler::mouseReleased($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals($nc(e)->getSource(), this->this$0->list$)) {
-		if ($nc($($nc(this->this$0->list$)->getModel()))->getSize() > 0) {
+		if ($$nc($nc(this->this$0->list$)->getModel())->getSize() > 0) {
 			int32_t var$0 = $nc(this->this$0->comboBox)->getSelectedIndex();
 			if (var$0 == $nc(this->this$0->list$)->getSelectedIndex()) {
-				$nc($($nc(this->this$0->comboBox)->getEditor()))->setItem($($nc(this->this$0->list$)->getSelectedValue()));
+				$$nc($nc(this->this$0->comboBox)->getEditor())->setItem($($nc(this->this$0->list$)->getSelectedValue()));
 			}
 			$nc(this->this$0->comboBox)->setSelectedIndex($nc(this->this$0->list$)->getSelectedIndex());
 		}
 		$nc(this->this$0->comboBox)->setPopupVisible(false);
 		bool var$1 = $nc(this->this$0->comboBox)->isEditable();
-		if (var$1 && $nc(this->this$0->comboBox)->getEditor() != nullptr) {
+		if (var$1 && this->this$0->comboBox->getEditor() != nullptr) {
 			$var($ComboBoxEditor, var$2, $nc(this->this$0->comboBox)->getEditor());
-			$nc(this->this$0->comboBox)->configureEditor(var$2, $($nc(this->this$0->comboBox)->getSelectedItem()));
+			$nc(this->this$0->comboBox)->configureEditor(var$2, $(this->this$0->comboBox->getSelectedItem()));
 		}
 		return;
 	}
-	$var($Component, source, $cast($Component, $nc(e)->getSource()));
+	$var($Component, source, $cast($Component, e->getSource()));
 	$var($Dimension, size, $nc(source)->getSize());
-	$var($Rectangle, bounds, $new($Rectangle, 0, 0, $nc(size)->width, size->height));
+	$var($Rectangle, bounds, $new($Rectangle, 0, 0, $nc(size)->width, $nc(size)->height));
 	if (!bounds->contains($(e->getPoint()))) {
 		$var($MouseEvent, newEvent, this->this$0->convertMouseEvent(e));
 		$var($Point, location, $nc(newEvent)->getPoint());
@@ -179,7 +126,7 @@ void BasicComboPopup$Handler::mouseReleased($MouseEvent* e) {
 		if (r->contains(location)) {
 			int32_t var$3 = $nc(this->this$0->comboBox)->getSelectedIndex();
 			if (var$3 == $nc(this->this$0->list$)->getSelectedIndex()) {
-				$nc($($nc(this->this$0->comboBox)->getEditor()))->setItem($($nc(this->this$0->list$)->getSelectedValue()));
+				$$nc($nc(this->this$0->comboBox)->getEditor())->setItem($($nc(this->this$0->list$)->getSelectedValue()));
 			}
 			$nc(this->this$0->comboBox)->setSelectedIndex($nc(this->this$0->list$)->getSelectedIndex());
 		}
@@ -196,7 +143,7 @@ void BasicComboPopup$Handler::mouseExited($MouseEvent* e) {
 }
 
 void BasicComboPopup$Handler::mouseMoved($MouseEvent* anEvent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals($nc(anEvent)->getSource(), this->this$0->list$)) {
 		$var($Point, location, anEvent->getPoint());
 		$var($Rectangle, r, $new($Rectangle));
@@ -208,7 +155,7 @@ void BasicComboPopup$Handler::mouseMoved($MouseEvent* anEvent) {
 }
 
 void BasicComboPopup$Handler::mouseDragged($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals($nc(e)->getSource(), this->this$0->list$)) {
 		return;
 	}
@@ -234,7 +181,7 @@ void BasicComboPopup$Handler::mouseDragged($MouseEvent* e) {
 			} else if (!this->this$0->isAutoScrolling) {
 				this->this$0->startAutoScrolling(directionToScroll);
 			}
-		} else if ($nc($($nc(e)->getPoint()))->y < 0) {
+		} else if ($nc($(e->getPoint()))->y < 0) {
 			this->this$0->hasEntered = true;
 			this->this$0->startAutoScrolling(0);
 		}
@@ -242,7 +189,7 @@ void BasicComboPopup$Handler::mouseDragged($MouseEvent* e) {
 }
 
 void BasicComboPopup$Handler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComboBox, comboBox, $cast($JComboBox, $nc(e)->getSource()));
 	$var($String, propertyName, e->getPropertyName());
 	if (propertyName == "model"_s) {
@@ -265,8 +212,8 @@ void BasicComboPopup$Handler::propertyChange($PropertyChangeEvent* e) {
 		if (list != nullptr && list->getComponentOrientation() != o) {
 			list->setComponentOrientation(o);
 		}
-		if (this->this$0->scroller != nullptr && $nc(this->this$0->scroller)->getComponentOrientation() != o) {
-			$nc(this->this$0->scroller)->setComponentOrientation(o);
+		if (this->this$0->scroller != nullptr && this->this$0->scroller->getComponentOrientation() != o) {
+			this->this$0->scroller->setComponentOrientation(o);
 		}
 		if (o != this->this$0->getComponentOrientation()) {
 			this->this$0->setComponentOrientation(o);
@@ -293,7 +240,51 @@ BasicComboPopup$Handler::BasicComboPopup$Handler() {
 }
 
 $Class* BasicComboPopup$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicComboPopup$Handler, name, initialize, &_BasicComboPopup$Handler_ClassInfo_, allocate$BasicComboPopup$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicComboPopup;", nullptr, $FINAL | $SYNTHETIC, $field(BasicComboPopup$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicComboPopup;)V", nullptr, $PRIVATE, $method(BasicComboPopup$Handler, init$, void, $BasicComboPopup*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, itemStateChanged, void, $ItemEvent*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseReleased, void, $MouseEvent*)},
+		{"mouseWheelMoved", "(Ljava/awt/event/MouseWheelEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, mouseWheelMoved, void, $MouseWheelEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicComboPopup$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicComboPopup$Handler", "javax.swing.plaf.basic.BasicComboPopup", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicComboPopup$Handler",
+		"java.lang.Object",
+		"java.awt.event.ItemListener,java.awt.event.MouseListener,java.awt.event.MouseMotionListener,java.awt.event.MouseWheelListener,java.beans.PropertyChangeListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicComboPopup"
+	};
+	$loadClass(BasicComboPopup$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicComboPopup$Handler));
+	});
 	return class$;
 }
 

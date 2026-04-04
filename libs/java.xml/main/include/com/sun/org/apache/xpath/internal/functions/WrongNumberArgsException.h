@@ -18,10 +18,13 @@ class $import WrongNumberArgsException : public ::java::lang::Exception {
 public:
 	WrongNumberArgsException();
 	void init$($String* argsExpected);
-	static const int64_t serialVersionUID = (int64_t)0xC0D58CBEBB2A2300;
+	static const int64_t serialVersionUID = (int64_t)0xc0d58cbebb2a2300;
 	WrongNumberArgsException(const WrongNumberArgsException& e);
 	virtual void throw$() override;
-	inline WrongNumberArgsException* operator ->() {
+	inline WrongNumberArgsException* operator ->() const {
+		return (WrongNumberArgsException*)throwing$;
+	}
+	inline operator WrongNumberArgsException*() const {
 		return (WrongNumberArgsException*)throwing$;
 	}
 };

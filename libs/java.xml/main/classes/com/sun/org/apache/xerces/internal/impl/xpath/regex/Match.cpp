@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Match.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/REUtil.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/text/CharacterIterator.h>
@@ -22,45 +21,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _Match_FieldInfo_[] = {
-	{"beginpos", "[I", nullptr, 0, $field(Match, beginpos)},
-	{"endpos", "[I", nullptr, 0, $field(Match, endpos)},
-	{"nofgroups", "I", nullptr, 0, $field(Match, nofgroups)},
-	{"ciSource", "Ljava/text/CharacterIterator;", nullptr, 0, $field(Match, ciSource)},
-	{"strSource", "Ljava/lang/String;", nullptr, 0, $field(Match, strSource)},
-	{"charSource", "[C", nullptr, 0, $field(Match, charSource)},
-	{}
-};
-
-$MethodInfo _Match_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Match, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Match, clone, $Object*)},
-	{"getBeginning", "(I)I", nullptr, $PUBLIC, $virtualMethod(Match, getBeginning, int32_t, int32_t)},
-	{"getCapturedText", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Match, getCapturedText, $String*, int32_t)},
-	{"getEnd", "(I)I", nullptr, $PUBLIC, $virtualMethod(Match, getEnd, int32_t, int32_t)},
-	{"getNumberOfGroups", "()I", nullptr, $PUBLIC, $virtualMethod(Match, getNumberOfGroups, int32_t)},
-	{"setBeginning", "(II)V", nullptr, $PROTECTED, $virtualMethod(Match, setBeginning, void, int32_t, int32_t)},
-	{"setEnd", "(II)V", nullptr, $PROTECTED, $virtualMethod(Match, setEnd, void, int32_t, int32_t)},
-	{"setNumberOfGroups", "(I)V", nullptr, $PROTECTED, $virtualMethod(Match, setNumberOfGroups, void, int32_t)},
-	{"setSource", "(Ljava/text/CharacterIterator;)V", nullptr, $PROTECTED, $virtualMethod(Match, setSource, void, $CharacterIterator*)},
-	{"setSource", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Match, setSource, void, $String*)},
-	{"setSource", "([C)V", nullptr, $PROTECTED, $virtualMethod(Match, setSource, void, $chars*)},
-	{}
-};
-
-$ClassInfo _Match_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.Match",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_Match_FieldInfo_,
-	_Match_MethodInfo_
-};
-
-$Object* allocate$Match($Class* clazz) {
-	return $of($alloc(Match));
-}
 
 void Match::init$() {
 	$set(this, beginpos, nullptr);
@@ -87,7 +47,7 @@ $Object* Match::clone() {
 				ma->setEnd(i, this->getEnd(i));
 			}
 		}
-		return $of(ma);
+		return ma;
 	}
 }
 
@@ -138,7 +98,7 @@ int32_t Match::getNumberOfGroups() {
 }
 
 int32_t Match::getBeginning(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->beginpos == nullptr) {
 		$throwNew($IllegalStateException, "A result is not set."_s);
 	}
@@ -149,7 +109,7 @@ int32_t Match::getBeginning(int32_t index) {
 }
 
 int32_t Match::getEnd(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->endpos == nullptr) {
 		$throwNew($IllegalStateException, "A result is not set."_s);
 	}
@@ -160,7 +120,7 @@ int32_t Match::getEnd(int32_t index) {
 }
 
 $String* Match::getCapturedText(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->beginpos == nullptr) {
 		$throwNew($IllegalStateException, "match() has never been called."_s);
 	}
@@ -176,7 +136,7 @@ $String* Match::getCapturedText(int32_t index) {
 	if (this->ciSource != nullptr) {
 		$assign(ret, $REUtil::substring(this->ciSource, begin, end));
 	} else if (this->strSource != nullptr) {
-		$assign(ret, $nc(this->strSource)->substring(begin, end));
+		$assign(ret, this->strSource->substring(begin, end));
 	} else {
 		$assign(ret, $new($String, this->charSource, begin, end - begin));
 	}
@@ -187,7 +147,41 @@ Match::Match() {
 }
 
 $Class* Match::load$($String* name, bool initialize) {
-	$loadClass(Match, name, initialize, &_Match_ClassInfo_, allocate$Match);
+	$FieldInfo fieldInfos$$[] = {
+		{"beginpos", "[I", nullptr, 0, $field(Match, beginpos)},
+		{"endpos", "[I", nullptr, 0, $field(Match, endpos)},
+		{"nofgroups", "I", nullptr, 0, $field(Match, nofgroups)},
+		{"ciSource", "Ljava/text/CharacterIterator;", nullptr, 0, $field(Match, ciSource)},
+		{"strSource", "Ljava/lang/String;", nullptr, 0, $field(Match, strSource)},
+		{"charSource", "[C", nullptr, 0, $field(Match, charSource)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Match, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(Match, clone, $Object*)},
+		{"getBeginning", "(I)I", nullptr, $PUBLIC, $virtualMethod(Match, getBeginning, int32_t, int32_t)},
+		{"getCapturedText", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Match, getCapturedText, $String*, int32_t)},
+		{"getEnd", "(I)I", nullptr, $PUBLIC, $virtualMethod(Match, getEnd, int32_t, int32_t)},
+		{"getNumberOfGroups", "()I", nullptr, $PUBLIC, $virtualMethod(Match, getNumberOfGroups, int32_t)},
+		{"setBeginning", "(II)V", nullptr, $PROTECTED, $virtualMethod(Match, setBeginning, void, int32_t, int32_t)},
+		{"setEnd", "(II)V", nullptr, $PROTECTED, $virtualMethod(Match, setEnd, void, int32_t, int32_t)},
+		{"setNumberOfGroups", "(I)V", nullptr, $PROTECTED, $virtualMethod(Match, setNumberOfGroups, void, int32_t)},
+		{"setSource", "(Ljava/text/CharacterIterator;)V", nullptr, $PROTECTED, $virtualMethod(Match, setSource, void, $CharacterIterator*)},
+		{"setSource", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(Match, setSource, void, $String*)},
+		{"setSource", "([C)V", nullptr, $PROTECTED, $virtualMethod(Match, setSource, void, $chars*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.Match",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Match, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Match);
+	});
 	return class$;
 }
 

@@ -78,6 +78,7 @@ class $export BCELifier : public ::com::sun::org::apache::bcel::internal::classf
 	$class(BCELifier, 0, ::com::sun::org::apache::bcel::internal::classfile::EmptyVisitor)
 public:
 	BCELifier();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::bcel::internal::classfile::JavaClass* clazz, ::java::io::OutputStream* out);
 	static ::com::sun::org::apache::bcel::internal::classfile::JavaClass* getJavaClass($String* name);
 	static void main($StringArray* argv);

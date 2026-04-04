@@ -1,5 +1,4 @@
 #include <javax/print/MimeType$ParameterMapEntry.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Map$Entry.h>
 #include <javax/print/MimeType.h>
@@ -15,49 +14,6 @@ using $MimeType = ::javax::print::MimeType;
 
 namespace javax {
 	namespace print {
-
-$FieldInfo _MimeType$ParameterMapEntry_FieldInfo_[] = {
-	{"this$0", "Ljavax/print/MimeType;", nullptr, $FINAL | $SYNTHETIC, $field(MimeType$ParameterMapEntry, this$0)},
-	{"myIndex", "I", nullptr, $PRIVATE, $field(MimeType$ParameterMapEntry, myIndex)},
-	{}
-};
-
-$MethodInfo _MimeType$ParameterMapEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/print/MimeType;I)V", nullptr, $PUBLIC, $method(MimeType$ParameterMapEntry, init$, void, $MimeType*, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, equals, bool, Object$*)},
-	{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, getKey, $Object*)},
-	{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, getValue, $Object*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, hashCode, int32_t)},
-	{"setValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, setValue, $String*, $String*)},
-	{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MimeType$ParameterMapEntry, setValue, $Object*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _MimeType$ParameterMapEntry_InnerClassesInfo_[] = {
-	{"javax.print.MimeType$ParameterMapEntry", "javax.print.MimeType", "ParameterMapEntry", $PRIVATE},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MimeType$ParameterMapEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.MimeType$ParameterMapEntry",
-	"java.lang.Object",
-	"java.util.Map$Entry",
-	_MimeType$ParameterMapEntry_FieldInfo_,
-	_MimeType$ParameterMapEntry_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;",
-	nullptr,
-	_MimeType$ParameterMapEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.MimeType"
-};
-
-$Object* allocate$MimeType$ParameterMapEntry($Class* clazz) {
-	return $of($alloc(MimeType$ParameterMapEntry));
-}
 
 void MimeType$ParameterMapEntry::init$($MimeType* this$0, int32_t theIndex) {
 	$set(this, this$0, this$0);
@@ -78,15 +34,15 @@ $String* MimeType$ParameterMapEntry::setValue($String* value) {
 }
 
 bool MimeType$ParameterMapEntry::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = o != nullptr && $instanceOf($Map$Entry, o) && $nc($($cast($String, getKey())))->equals($($nc(($cast($Map$Entry, o)))->getKey()));
-	return (var$0 && $nc($($cast($String, getValue())))->equals($($nc(($cast($Map$Entry, o)))->getValue())));
+	$useLocalObjectStack();
+	bool var$0 = o != nullptr && $instanceOf($Map$Entry, o) && $$sure($String, getKey())->equals($($cast($Map$Entry, o)->getKey()));
+	return (var$0 && $$sure($String, getValue())->equals($($cast($Map$Entry, o)->getValue())));
 }
 
 int32_t MimeType$ParameterMapEntry::hashCode() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$0 = $nc($($cast($String, getKey())))->hashCode();
-	return var$0 ^ $nc($($cast($String, getValue())))->hashCode();
+	$useLocalObjectStack();
+	int32_t var$0 = $$sure($String, getKey())->hashCode();
+	return var$0 ^ $$sure($String, getValue())->hashCode();
 }
 
 $Object* MimeType$ParameterMapEntry::setValue(Object$* value) {
@@ -97,7 +53,44 @@ MimeType$ParameterMapEntry::MimeType$ParameterMapEntry() {
 }
 
 $Class* MimeType$ParameterMapEntry::load$($String* name, bool initialize) {
-	$loadClass(MimeType$ParameterMapEntry, name, initialize, &_MimeType$ParameterMapEntry_ClassInfo_, allocate$MimeType$ParameterMapEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/print/MimeType;", nullptr, $FINAL | $SYNTHETIC, $field(MimeType$ParameterMapEntry, this$0)},
+		{"myIndex", "I", nullptr, $PRIVATE, $field(MimeType$ParameterMapEntry, myIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/print/MimeType;I)V", nullptr, $PUBLIC, $method(MimeType$ParameterMapEntry, init$, void, $MimeType*, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, equals, bool, Object$*)},
+		{"getKey", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, getKey, $Object*)},
+		{"getValue", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, getValue, $Object*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, hashCode, int32_t)},
+		{"setValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntry, setValue, $String*, $String*)},
+		{"setValue", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(MimeType$ParameterMapEntry, setValue, $Object*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.MimeType$ParameterMapEntry", "javax.print.MimeType", "ParameterMapEntry", $PRIVATE},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.MimeType$ParameterMapEntry",
+		"java.lang.Object",
+		"java.util.Map$Entry",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.MimeType"
+	};
+	$loadClass(MimeType$ParameterMapEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MimeType$ParameterMapEntry);
+	});
 	return class$;
 }
 

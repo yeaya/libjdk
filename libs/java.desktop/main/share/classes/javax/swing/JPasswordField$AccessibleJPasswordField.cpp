@@ -1,12 +1,10 @@
 #include <javax/swing/JPasswordField$AccessibleJPasswordField.h>
-
 #include <java/util/Arrays.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/accessibility/AccessibleText.h>
 #include <javax/accessibility/AccessibleTextSequence.h>
 #include <javax/swing/JPasswordField.h>
 #include <javax/swing/JTextField$AccessibleJTextField.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/JTextComponent$AccessibleJTextComponent.h>
 #include <jcpp.h>
@@ -23,58 +21,10 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleText = ::javax::accessibility::AccessibleText;
 using $AccessibleTextSequence = ::javax::accessibility::AccessibleTextSequence;
 using $JPasswordField = ::javax::swing::JPasswordField;
-using $JTextField = ::javax::swing::JTextField;
 using $JTextField$AccessibleJTextField = ::javax::swing::JTextField$AccessibleJTextField;
-using $Document = ::javax::swing::text::Document;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JPasswordField$AccessibleJPasswordField_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JPasswordField;", nullptr, $FINAL | $SYNTHETIC, $field(JPasswordField$AccessibleJPasswordField, this$0)},
-	{}
-};
-
-$MethodInfo _JPasswordField$AccessibleJPasswordField_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JPasswordField;)V", nullptr, $PROTECTED, $method(JPasswordField$AccessibleJPasswordField, init$, void, $JPasswordField*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getAccessibleText, $AccessibleText*)},
-	{"getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getAfterIndex, $String*, int32_t, int32_t)},
-	{"getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getAtIndex, $String*, int32_t, int32_t)},
-	{"getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getBeforeIndex, $String*, int32_t, int32_t)},
-	{"getEchoString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JPasswordField$AccessibleJPasswordField, getEchoString, $String*, $String*)},
-	{"getTextRange", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getTextRange, $String*, int32_t, int32_t)},
-	{"getTextSequenceAfter", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getTextSequenceAfter, $AccessibleTextSequence*, int32_t, int32_t)},
-	{"getTextSequenceAt", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getTextSequenceAt, $AccessibleTextSequence*, int32_t, int32_t)},
-	{"getTextSequenceBefore", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getTextSequenceBefore, $AccessibleTextSequence*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _JPasswordField$AccessibleJPasswordField_InnerClassesInfo_[] = {
-	{"javax.swing.JPasswordField$AccessibleJPasswordField", "javax.swing.JPasswordField", "AccessibleJPasswordField", $PROTECTED},
-	{"javax.swing.JTextField$AccessibleJTextField", "javax.swing.JTextField", "AccessibleJTextField", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JPasswordField$AccessibleJPasswordField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JPasswordField$AccessibleJPasswordField",
-	"javax.swing.JTextField$AccessibleJTextField",
-	nullptr,
-	_JPasswordField$AccessibleJPasswordField_FieldInfo_,
-	_JPasswordField$AccessibleJPasswordField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JPasswordField$AccessibleJPasswordField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JPasswordField"
-};
-
-$Object* allocate$JPasswordField$AccessibleJPasswordField($Class* clazz) {
-	return $of($alloc(JPasswordField$AccessibleJPasswordField));
-}
 
 void JPasswordField$AccessibleJPasswordField::init$($JPasswordField* this$0) {
 	$set(this, this$0, this$0);
@@ -100,11 +50,11 @@ $String* JPasswordField$AccessibleJPasswordField::getEchoString($String* str) {
 }
 
 $String* JPasswordField$AccessibleJPasswordField::getAtIndex(int32_t part, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (part == $AccessibleText::CHARACTER) {
 		return getEchoString($($JTextField$AccessibleJTextField::getAtIndex(part, index)));
 	} else {
-		int32_t length = $nc($(this->this$0->getDocument()))->getLength();
+		int32_t length = $$nc(this->this$0->getDocument())->getLength();
 		if (index < 0 || index >= length) {
 			return nullptr;
 		}
@@ -136,15 +86,15 @@ $String* JPasswordField$AccessibleJPasswordField::getTextRange(int32_t startInde
 }
 
 $AccessibleTextSequence* JPasswordField$AccessibleJPasswordField::getTextSequenceAt(int32_t part, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (part == $AccessibleText::CHARACTER) {
 		$var($AccessibleTextSequence, seq, $JTextField$AccessibleJTextField::getTextSequenceAt(part, index));
 		if (seq == nullptr) {
 			return nullptr;
 		}
-		return $new($AccessibleTextSequence, $nc(seq)->startIndex, seq->endIndex, $(getEchoString(seq->text)));
+		return $new($AccessibleTextSequence, $nc(seq)->startIndex, $nc(seq)->endIndex, $(getEchoString($nc(seq)->text)));
 	} else {
-		int32_t length = $nc($(this->this$0->getDocument()))->getLength();
+		int32_t length = $$nc(this->this$0->getDocument())->getLength();
 		if (index < 0 || index >= length) {
 			return nullptr;
 		}
@@ -156,26 +106,26 @@ $AccessibleTextSequence* JPasswordField$AccessibleJPasswordField::getTextSequenc
 }
 
 $AccessibleTextSequence* JPasswordField$AccessibleJPasswordField::getTextSequenceAfter(int32_t part, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (part == $AccessibleText::CHARACTER) {
 		$var($AccessibleTextSequence, seq, $JTextField$AccessibleJTextField::getTextSequenceAfter(part, index));
 		if (seq == nullptr) {
 			return nullptr;
 		}
-		return $new($AccessibleTextSequence, $nc(seq)->startIndex, seq->endIndex, $(getEchoString(seq->text)));
+		return $new($AccessibleTextSequence, $nc(seq)->startIndex, $nc(seq)->endIndex, $(getEchoString($nc(seq)->text)));
 	} else {
 		return nullptr;
 	}
 }
 
 $AccessibleTextSequence* JPasswordField$AccessibleJPasswordField::getTextSequenceBefore(int32_t part, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (part == $AccessibleText::CHARACTER) {
 		$var($AccessibleTextSequence, seq, $JTextField$AccessibleJTextField::getTextSequenceBefore(part, index));
 		if (seq == nullptr) {
 			return nullptr;
 		}
-		return $new($AccessibleTextSequence, $nc(seq)->startIndex, seq->endIndex, $(getEchoString(seq->text)));
+		return $new($AccessibleTextSequence, $nc(seq)->startIndex, $nc(seq)->endIndex, $(getEchoString($nc(seq)->text)));
 	} else {
 		return nullptr;
 	}
@@ -185,7 +135,47 @@ JPasswordField$AccessibleJPasswordField::JPasswordField$AccessibleJPasswordField
 }
 
 $Class* JPasswordField$AccessibleJPasswordField::load$($String* name, bool initialize) {
-	$loadClass(JPasswordField$AccessibleJPasswordField, name, initialize, &_JPasswordField$AccessibleJPasswordField_ClassInfo_, allocate$JPasswordField$AccessibleJPasswordField);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JPasswordField;", nullptr, $FINAL | $SYNTHETIC, $field(JPasswordField$AccessibleJPasswordField, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JPasswordField;)V", nullptr, $PROTECTED, $method(JPasswordField$AccessibleJPasswordField, init$, void, $JPasswordField*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleText", "()Ljavax/accessibility/AccessibleText;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getAccessibleText, $AccessibleText*)},
+		{"getAfterIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getAfterIndex, $String*, int32_t, int32_t)},
+		{"getAtIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getAtIndex, $String*, int32_t, int32_t)},
+		{"getBeforeIndex", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getBeforeIndex, $String*, int32_t, int32_t)},
+		{"getEchoString", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(JPasswordField$AccessibleJPasswordField, getEchoString, $String*, $String*)},
+		{"getTextRange", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getTextRange, $String*, int32_t, int32_t)},
+		{"getTextSequenceAfter", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getTextSequenceAfter, $AccessibleTextSequence*, int32_t, int32_t)},
+		{"getTextSequenceAt", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getTextSequenceAt, $AccessibleTextSequence*, int32_t, int32_t)},
+		{"getTextSequenceBefore", "(II)Ljavax/accessibility/AccessibleTextSequence;", nullptr, $PUBLIC, $virtualMethod(JPasswordField$AccessibleJPasswordField, getTextSequenceBefore, $AccessibleTextSequence*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JPasswordField$AccessibleJPasswordField", "javax.swing.JPasswordField", "AccessibleJPasswordField", $PROTECTED},
+		{"javax.swing.JTextField$AccessibleJTextField", "javax.swing.JTextField", "AccessibleJTextField", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JPasswordField$AccessibleJPasswordField",
+		"javax.swing.JTextField$AccessibleJTextField",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JPasswordField"
+	};
+	$loadClass(JPasswordField$AccessibleJPasswordField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JPasswordField$AccessibleJPasswordField));
+	});
 	return class$;
 }
 

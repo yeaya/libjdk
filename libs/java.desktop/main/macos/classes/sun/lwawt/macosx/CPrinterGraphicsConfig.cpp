@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPrinterGraphicsConfig.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Rectangle.h>
@@ -31,42 +30,6 @@ using $CPrinterDevice = ::sun::lwawt::macosx::CPrinterDevice;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$FieldInfo _CPrinterGraphicsConfig_FieldInfo_[] = {
-	{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(CPrinterGraphicsConfig, device)},
-	{"pf", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE | $FINAL, $field(CPrinterGraphicsConfig, pf)},
-	{}
-};
-
-$MethodInfo _CPrinterGraphicsConfig_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/print/PageFormat;)V", nullptr, $PUBLIC, $method(CPrinterGraphicsConfig, init$, void, $PageFormat*)},
-	{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
-	{"createCompatibleImage", "(III)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t, int32_t)},
-	{"createCompatibleVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t)},
-	{"createCompatibleVolatileImage", "(III)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
-	{"getConfig", "(Ljava/awt/print/PageFormat;)Lsun/lwawt/macosx/CPrinterGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(CPrinterGraphicsConfig, getConfig, CPrinterGraphicsConfig*, $PageFormat*)},
-	{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getDefaultTransform, $AffineTransform*)},
-	{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getDevice, $GraphicsDevice*)},
-	{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getNormalizingTransform, $AffineTransform*)},
-	{"getPageFormat", "()Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $method(CPrinterGraphicsConfig, getPageFormat, $PageFormat*)},
-	{}
-};
-
-$ClassInfo _CPrinterGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterGraphicsConfig",
-	"java.awt.GraphicsConfiguration",
-	nullptr,
-	_CPrinterGraphicsConfig_FieldInfo_,
-	_CPrinterGraphicsConfig_MethodInfo_
-};
-
-$Object* allocate$CPrinterGraphicsConfig($Class* clazz) {
-	return $of($alloc(CPrinterGraphicsConfig));
-}
 
 CPrinterGraphicsConfig* CPrinterGraphicsConfig::getConfig($PageFormat* pf) {
 	$init(CPrinterGraphicsConfig);
@@ -121,14 +84,45 @@ $AffineTransform* CPrinterGraphicsConfig::getNormalizingTransform() {
 
 $Rectangle* CPrinterGraphicsConfig::getBounds() {
 	int32_t var$0 = $cast(int32_t, $nc(this->pf)->getWidth());
-	return $new($Rectangle, 0, 0, var$0, $cast(int32_t, $nc(this->pf)->getHeight()));
+	return $new($Rectangle, 0, 0, var$0, $cast(int32_t, this->pf->getHeight()));
 }
 
 CPrinterGraphicsConfig::CPrinterGraphicsConfig() {
 }
 
 $Class* CPrinterGraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(CPrinterGraphicsConfig, name, initialize, &_CPrinterGraphicsConfig_ClassInfo_, allocate$CPrinterGraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Ljava/awt/GraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(CPrinterGraphicsConfig, device)},
+		{"pf", "Ljava/awt/print/PageFormat;", nullptr, $PRIVATE | $FINAL, $field(CPrinterGraphicsConfig, pf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/print/PageFormat;)V", nullptr, $PUBLIC, $method(CPrinterGraphicsConfig, init$, void, $PageFormat*)},
+		{"createCompatibleImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t)},
+		{"createCompatibleImage", "(III)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, createCompatibleImage, $BufferedImage*, int32_t, int32_t, int32_t)},
+		{"createCompatibleVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t)},
+		{"createCompatibleVolatileImage", "(III)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
+		{"getConfig", "(Ljava/awt/print/PageFormat;)Lsun/lwawt/macosx/CPrinterGraphicsConfig;", nullptr, $PUBLIC | $STATIC, $staticMethod(CPrinterGraphicsConfig, getConfig, CPrinterGraphicsConfig*, $PageFormat*)},
+		{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getDefaultTransform, $AffineTransform*)},
+		{"getDevice", "()Ljava/awt/GraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getDevice, $GraphicsDevice*)},
+		{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(CPrinterGraphicsConfig, getNormalizingTransform, $AffineTransform*)},
+		{"getPageFormat", "()Ljava/awt/print/PageFormat;", nullptr, $PUBLIC, $method(CPrinterGraphicsConfig, getPageFormat, $PageFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterGraphicsConfig",
+		"java.awt.GraphicsConfiguration",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPrinterGraphicsConfig, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPrinterGraphicsConfig);
+	});
 	return class$;
 }
 

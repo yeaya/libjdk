@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/ProcessingInstructionEvent.h>
-
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
 #include <javax/xml/namespace/QName.h>
@@ -30,59 +29,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _ProcessingInstructionEvent_FieldInfo_[] = {
-	{"fName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProcessingInstructionEvent, fName)},
-	{"fContent", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProcessingInstructionEvent, fContent)},
-	{}
-};
-
-$MethodInfo _ProcessingInstructionEvent_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessingInstructionEvent, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProcessingInstructionEvent, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/stream/Location;)V", nullptr, $PUBLIC, $method(ProcessingInstructionEvent, init$, void, $String*, $String*, $Location*)},
-	{"getData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, getData, $String*)},
-	{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, getTarget, $String*)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(ProcessingInstructionEvent, init, void)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, setData, void, $String*)},
-	{"setTarget", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, setTarget, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, toString, $String*)},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(ProcessingInstructionEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _ProcessingInstructionEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.ProcessingInstructionEvent",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.ProcessingInstruction",
-	_ProcessingInstructionEvent_FieldInfo_,
-	_ProcessingInstructionEvent_MethodInfo_
-};
-
-$Object* allocate$ProcessingInstructionEvent($Class* clazz) {
-	return $of($alloc(ProcessingInstructionEvent));
-}
 
 int32_t ProcessingInstructionEvent::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -223,7 +169,55 @@ ProcessingInstructionEvent::ProcessingInstructionEvent() {
 }
 
 $Class* ProcessingInstructionEvent::load$($String* name, bool initialize) {
-	$loadClass(ProcessingInstructionEvent, name, initialize, &_ProcessingInstructionEvent_ClassInfo_, allocate$ProcessingInstructionEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"fName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProcessingInstructionEvent, fName)},
+		{"fContent", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ProcessingInstructionEvent, fContent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ProcessingInstructionEvent, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ProcessingInstructionEvent, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/xml/stream/Location;)V", nullptr, $PUBLIC, $method(ProcessingInstructionEvent, init$, void, $String*, $String*, $Location*)},
+		{"getData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, getData, $String*)},
+		{"getTarget", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, getTarget, $String*)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(ProcessingInstructionEvent, init, void)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, setData, void, $String*)},
+		{"setTarget", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, setTarget, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ProcessingInstructionEvent, toString, $String*)},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(ProcessingInstructionEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.ProcessingInstructionEvent",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.ProcessingInstruction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ProcessingInstructionEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProcessingInstructionEvent));
+	});
 	return class$;
 }
 

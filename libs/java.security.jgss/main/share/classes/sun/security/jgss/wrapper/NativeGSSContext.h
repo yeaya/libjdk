@@ -78,6 +78,7 @@ class NativeGSSContext : public ::sun::security::jgss::spi::GSSContextSpi {
 	$class(NativeGSSContext, $HAS_FINALIZE, ::sun::security::jgss::spi::GSSContextSpi)
 public:
 	NativeGSSContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::jgss::wrapper::GSSNameElement* peer, ::sun::security::jgss::wrapper::GSSCredElement* myCred, int32_t time, ::sun::security::jgss::wrapper::GSSLibStub* stub);
 	void init$(::sun::security::jgss::wrapper::GSSCredElement* myCred, ::sun::security::jgss::wrapper::GSSLibStub* stub);
 	void init$(int64_t pCtxt, ::sun::security::jgss::wrapper::GSSLibStub* stub);

@@ -66,6 +66,7 @@ class $export BufferingSubscriber : public ::jdk::internal::net::http::ResponseS
 	$class(BufferingSubscriber, 0, ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber)
 public:
 	BufferingSubscriber();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::net::http::HttpResponse$BodySubscriber* downstreamSubscriber, int32_t bufferSize);
 	::java::util::List* fromInternalBuffers();
 	virtual ::java::util::concurrent::CompletionStage* getBody() override;

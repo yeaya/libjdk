@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WEmbeddedFrame$2.h>
-
 #include <java/awt/peer/FramePeer.h>
 #include <sun/awt/windows/WEmbeddedFrame.h>
 #include <jcpp.h>
@@ -16,49 +15,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WEmbeddedFrame$2_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/windows/WEmbeddedFrame;", nullptr, $FINAL | $SYNTHETIC, $field(WEmbeddedFrame$2, this$0)},
-	{"val$peer", "Ljava/awt/peer/FramePeer;", nullptr, $FINAL | $SYNTHETIC, $field(WEmbeddedFrame$2, val$peer)},
-	{}
-};
-
-$MethodInfo _WEmbeddedFrame$2_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WEmbeddedFrame;Ljava/awt/peer/FramePeer;)V", "()V", 0, $method(WEmbeddedFrame$2, init$, void, $WEmbeddedFrame*, $FramePeer*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame$2, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WEmbeddedFrame$2_EnclosingMethodInfo_ = {
-	"sun.awt.windows.WEmbeddedFrame",
-	"synthesizeWindowActivation",
-	"(Z)V"
-};
-
-$InnerClassInfo _WEmbeddedFrame$2_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WEmbeddedFrame$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WEmbeddedFrame$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WEmbeddedFrame$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WEmbeddedFrame$2_FieldInfo_,
-	_WEmbeddedFrame$2_MethodInfo_,
-	nullptr,
-	&_WEmbeddedFrame$2_EnclosingMethodInfo_,
-	_WEmbeddedFrame$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WEmbeddedFrame"
-};
-
-$Object* allocate$WEmbeddedFrame$2($Class* clazz) {
-	return $of($alloc(WEmbeddedFrame$2));
-}
-
 void WEmbeddedFrame$2::init$($WEmbeddedFrame* this$0, $FramePeer* val$peer) {
 	$set(this, this$0, this$0);
 	$set(this, val$peer, val$peer);
@@ -72,7 +28,43 @@ WEmbeddedFrame$2::WEmbeddedFrame$2() {
 }
 
 $Class* WEmbeddedFrame$2::load$($String* name, bool initialize) {
-	$loadClass(WEmbeddedFrame$2, name, initialize, &_WEmbeddedFrame$2_ClassInfo_, allocate$WEmbeddedFrame$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/windows/WEmbeddedFrame;", nullptr, $FINAL | $SYNTHETIC, $field(WEmbeddedFrame$2, this$0)},
+		{"val$peer", "Ljava/awt/peer/FramePeer;", nullptr, $FINAL | $SYNTHETIC, $field(WEmbeddedFrame$2, val$peer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WEmbeddedFrame;Ljava/awt/peer/FramePeer;)V", "()V", 0, $method(WEmbeddedFrame$2, init$, void, $WEmbeddedFrame*, $FramePeer*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WEmbeddedFrame$2, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.windows.WEmbeddedFrame",
+		"synthesizeWindowActivation",
+		"(Z)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WEmbeddedFrame$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WEmbeddedFrame$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WEmbeddedFrame"
+	};
+	$loadClass(WEmbeddedFrame$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WEmbeddedFrame$2);
+	});
 	return class$;
 }
 

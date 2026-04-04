@@ -1,5 +1,4 @@
 #include <sun/awt/geom/Curve.h>
-
 #include <java/awt/geom/IllegalPathStateException.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -26,7 +25,6 @@
 using $IllegalPathStateException = ::java::awt::geom::IllegalPathStateException;
 using $PathIterator = ::java::awt::geom::PathIterator;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -44,84 +42,6 @@ namespace sun {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _Curve_FieldInfo_[] = {
-	{"INCREASING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Curve, INCREASING)},
-	{"DECREASING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Curve, DECREASING)},
-	{"direction", "I", nullptr, $PROTECTED, $field(Curve, direction)},
-	{"RECT_INTERSECTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Curve, RECT_INTERSECTS)},
-	{"TMIN", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Curve, TMIN)},
-	{}
-};
-
-$MethodInfo _Curve_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Curve, init$, void, int32_t)},
-	{"TforY", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, TforY, double, double)},
-	{"XforT", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, XforT, double, double)},
-	{"XforY", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, XforY, double, double)},
-	{"YforT", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, YforT, double, double)},
-	{"accumulateCrossings", "(Lsun/awt/geom/Crossings;)Z", nullptr, $PUBLIC, $virtualMethod(Curve, accumulateCrossings, bool, $Crossings*)},
-	{"compareTo", "(Lsun/awt/geom/Curve;[D)I", nullptr, $PUBLIC, $virtualMethod(Curve, compareTo, int32_t, Curve*, $doubles*)},
-	{"controlPointString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Curve, controlPointString, $String*)},
-	{"crossingsFor", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Curve, crossingsFor, int32_t, double, double)},
-	{"dXforT", "(DI)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, dXforT, double, double, int32_t)},
-	{"dYforT", "(DI)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, dYforT, double, double, int32_t)},
-	{"diffbits", "(DD)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, diffbits, int64_t, double, double)},
-	{"enlarge", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, enlarge, void, $Rectangle2D*)},
-	{"fairlyClose", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Curve, fairlyClose, bool, double, double)},
-	{"findIntersect", "(Lsun/awt/geom/Curve;[DDIIDDDDDDDDDDDD)Z", nullptr, $PUBLIC, $virtualMethod(Curve, findIntersect, bool, Curve*, $doubles*, double, int32_t, int32_t, double, double, double, double, double, double, double, double, double, double, double, double)},
-	{"getDirection", "()I", nullptr, $PUBLIC | $FINAL, $method(Curve, getDirection, int32_t)},
-	{"getOrder", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getOrder, int32_t)},
-	{"getReversedCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getReversedCurve, Curve*)},
-	{"getSegment", "([D)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getSegment, int32_t, $doubles*)},
-	{"getSubCurve", "(DD)Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Curve, getSubCurve, Curve*, double, double)},
-	{"getSubCurve", "(DDI)Lsun/awt/geom/Curve;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getSubCurve, Curve*, double, double, int32_t)},
-	{"getWithDirection", "(I)Lsun/awt/geom/Curve;", nullptr, $PUBLIC | $FINAL, $method(Curve, getWithDirection, Curve*, int32_t)},
-	{"getX0", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getX0, double)},
-	{"getX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getX1, double)},
-	{"getXBot", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getXBot, double)},
-	{"getXMax", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getXMax, double)},
-	{"getXMin", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getXMin, double)},
-	{"getXTop", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getXTop, double)},
-	{"getY0", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getY0, double)},
-	{"getY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getY1, double)},
-	{"getYBot", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getYBot, double)},
-	{"getYTop", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getYTop, double)},
-	{"insertCubic", "(Ljava/util/Vector;DD[D)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DD[D)V", $PUBLIC | $STATIC, $staticMethod(Curve, insertCubic, void, $Vector*, double, double, $doubles*)},
-	{"insertLine", "(Ljava/util/Vector;DDDD)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DDDD)V", $PUBLIC | $STATIC, $staticMethod(Curve, insertLine, void, $Vector*, double, double, double, double)},
-	{"insertMove", "(Ljava/util/Vector;DD)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DD)V", $PUBLIC | $STATIC, $staticMethod(Curve, insertMove, void, $Vector*, double, double)},
-	{"insertQuad", "(Ljava/util/Vector;DD[D)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DD[D)V", $PUBLIC | $STATIC, $staticMethod(Curve, insertQuad, void, $Vector*, double, double, $doubles*)},
-	{"next", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, next, double, double)},
-	{"nextVertical", "(DD)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, nextVertical, double, double, double)},
-	{"orderof", "(DD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, orderof, int32_t, double, double)},
-	{"pointCrossingsForCubic", "(DDDDDDDDDDI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, pointCrossingsForCubic, int32_t, double, double, double, double, double, double, double, double, double, double, int32_t)},
-	{"pointCrossingsForLine", "(DDDDDD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, pointCrossingsForLine, int32_t, double, double, double, double, double, double)},
-	{"pointCrossingsForPath", "(Ljava/awt/geom/PathIterator;DD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, pointCrossingsForPath, int32_t, $PathIterator*, double, double)},
-	{"pointCrossingsForQuad", "(DDDDDDDDI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, pointCrossingsForQuad, int32_t, double, double, double, double, double, double, double, double, int32_t)},
-	{"prev", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, prev, double, double)},
-	{"rectCrossingsForCubic", "(IDDDDDDDDDDDDI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, rectCrossingsForCubic, int32_t, int32_t, double, double, double, double, double, double, double, double, double, double, double, double, int32_t)},
-	{"rectCrossingsForLine", "(IDDDDDDDD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, rectCrossingsForLine, int32_t, int32_t, double, double, double, double, double, double, double, double)},
-	{"rectCrossingsForPath", "(Ljava/awt/geom/PathIterator;DDDD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, rectCrossingsForPath, int32_t, $PathIterator*, double, double, double, double)},
-	{"rectCrossingsForQuad", "(IDDDDDDDDDDI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, rectCrossingsForQuad, int32_t, int32_t, double, double, double, double, double, double, double, double, double, double, int32_t)},
-	{"refineTforY", "(DDD)D", nullptr, $PUBLIC, $virtualMethod(Curve, refineTforY, double, double, double, double)},
-	{"round", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, round, double, double)},
-	{"signeddiffbits", "(DD)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, signeddiffbits, int64_t, double, double)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Curve, toString, $String*)},
-	{}
-};
-
-$ClassInfo _Curve_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.geom.Curve",
-	"java.lang.Object",
-	nullptr,
-	_Curve_FieldInfo_,
-	_Curve_MethodInfo_
-};
-
-$Object* allocate$Curve($Class* clazz) {
-	return $of($alloc(Curve));
-}
-
 double Curve::TMIN = 0.0;
 
 void Curve::insertMove($Vector* curves, double x, double y) {
@@ -131,7 +51,7 @@ void Curve::insertMove($Vector* curves, double x, double y) {
 
 void Curve::insertLine($Vector* curves, double x0, double y0, double x1, double y1) {
 	$init(Curve);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (y0 < y1) {
 		$nc(curves)->add($$new($Order1, x0, y0, x1, y1, Curve::INCREASING));
 	} else if (y0 > y1) {
@@ -170,10 +90,10 @@ int32_t Curve::pointCrossingsForPath($PathIterator* pi, double px, double py) {
 		return 0;
 	}
 	$var($doubles, coords, $new($doubles, 6));
-	if ($nc(pi)->currentSegment(coords) != $PathIterator::SEG_MOVETO) {
+	if (pi->currentSegment(coords) != $PathIterator::SEG_MOVETO) {
 		$throwNew($IllegalPathStateException, "missing initial moveto in path definition"_s);
 	}
-	$nc(pi)->next();
+	pi->next();
 	double movx = coords->get(0);
 	double movy = coords->get(1);
 	double curx = movx;
@@ -184,50 +104,40 @@ int32_t Curve::pointCrossingsForPath($PathIterator* pi, double px, double py) {
 	while (!pi->isDone()) {
 		switch (pi->currentSegment(coords)) {
 		case $PathIterator::SEG_MOVETO:
-			{
-				if (cury != movy) {
-					crossings += pointCrossingsForLine(px, py, curx, cury, movx, movy);
-				}
-				movx = (curx = coords->get(0));
-				movy = (cury = coords->get(1));
-				break;
+			if (cury != movy) {
+				crossings += pointCrossingsForLine(px, py, curx, cury, movx, movy);
 			}
+			movx = (curx = coords->get(0));
+			movy = (cury = coords->get(1));
+			break;
 		case $PathIterator::SEG_LINETO:
-			{
-				endx = coords->get(0);
-				endy = coords->get(1);
-				crossings += pointCrossingsForLine(px, py, curx, cury, endx, endy);
-				curx = endx;
-				cury = endy;
-				break;
-			}
+			endx = coords->get(0);
+			endy = coords->get(1);
+			crossings += pointCrossingsForLine(px, py, curx, cury, endx, endy);
+			curx = endx;
+			cury = endy;
+			break;
 		case $PathIterator::SEG_QUADTO:
-			{
-				endx = coords->get(2);
-				endy = coords->get(3);
-				crossings += pointCrossingsForQuad(px, py, curx, cury, coords->get(0), coords->get(1), endx, endy, 0);
-				curx = endx;
-				cury = endy;
-				break;
-			}
+			endx = coords->get(2);
+			endy = coords->get(3);
+			crossings += pointCrossingsForQuad(px, py, curx, cury, coords->get(0), coords->get(1), endx, endy, 0);
+			curx = endx;
+			cury = endy;
+			break;
 		case $PathIterator::SEG_CUBICTO:
-			{
-				endx = coords->get(4);
-				endy = coords->get(5);
-				crossings += pointCrossingsForCubic(px, py, curx, cury, coords->get(0), coords->get(1), coords->get(2), coords->get(3), endx, endy, 0);
-				curx = endx;
-				cury = endy;
-				break;
-			}
+			endx = coords->get(4);
+			endy = coords->get(5);
+			crossings += pointCrossingsForCubic(px, py, curx, cury, coords->get(0), coords->get(1), coords->get(2), coords->get(3), endx, endy, 0);
+			curx = endx;
+			cury = endy;
+			break;
 		case $PathIterator::SEG_CLOSE:
-			{
-				if (cury != movy) {
-					crossings += pointCrossingsForLine(px, py, curx, cury, movx, movy);
-				}
-				curx = movx;
-				cury = movy;
-				break;
+			if (cury != movy) {
+				crossings += pointCrossingsForLine(px, py, curx, cury, movx, movy);
 			}
+			curx = movx;
+			cury = movy;
+			break;
 		}
 		pi->next();
 	}
@@ -349,10 +259,10 @@ int32_t Curve::rectCrossingsForPath($PathIterator* pi, double rxmin, double rymi
 		return 0;
 	}
 	$var($doubles, coords, $new($doubles, 6));
-	if ($nc(pi)->currentSegment(coords) != $PathIterator::SEG_MOVETO) {
+	if (pi->currentSegment(coords) != $PathIterator::SEG_MOVETO) {
 		$throwNew($IllegalPathStateException, "missing initial moveto in path definition"_s);
 	}
-	$nc(pi)->next();
+	pi->next();
 	double curx = 0.0;
 	double cury = 0.0;
 	double movx = 0.0;
@@ -365,50 +275,40 @@ int32_t Curve::rectCrossingsForPath($PathIterator* pi, double rxmin, double rymi
 	while (crossings != Curve::RECT_INTERSECTS && !pi->isDone()) {
 		switch (pi->currentSegment(coords)) {
 		case $PathIterator::SEG_MOVETO:
-			{
-				if (curx != movx || cury != movy) {
-					crossings = rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, movx, movy);
-				}
-				movx = (curx = coords->get(0));
-				movy = (cury = coords->get(1));
-				break;
+			if (curx != movx || cury != movy) {
+				crossings = rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, movx, movy);
 			}
+			movx = (curx = coords->get(0));
+			movy = (cury = coords->get(1));
+			break;
 		case $PathIterator::SEG_LINETO:
-			{
-				endx = coords->get(0);
-				endy = coords->get(1);
-				crossings = rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, endx, endy);
-				curx = endx;
-				cury = endy;
-				break;
-			}
+			endx = coords->get(0);
+			endy = coords->get(1);
+			crossings = rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, endx, endy);
+			curx = endx;
+			cury = endy;
+			break;
 		case $PathIterator::SEG_QUADTO:
-			{
-				endx = coords->get(2);
-				endy = coords->get(3);
-				crossings = rectCrossingsForQuad(crossings, rxmin, rymin, rxmax, rymax, curx, cury, coords->get(0), coords->get(1), endx, endy, 0);
-				curx = endx;
-				cury = endy;
-				break;
-			}
+			endx = coords->get(2);
+			endy = coords->get(3);
+			crossings = rectCrossingsForQuad(crossings, rxmin, rymin, rxmax, rymax, curx, cury, coords->get(0), coords->get(1), endx, endy, 0);
+			curx = endx;
+			cury = endy;
+			break;
 		case $PathIterator::SEG_CUBICTO:
-			{
-				endx = coords->get(4);
-				endy = coords->get(5);
-				crossings = rectCrossingsForCubic(crossings, rxmin, rymin, rxmax, rymax, curx, cury, coords->get(0), coords->get(1), coords->get(2), coords->get(3), endx, endy, 0);
-				curx = endx;
-				cury = endy;
-				break;
-			}
+			endx = coords->get(4);
+			endy = coords->get(5);
+			crossings = rectCrossingsForCubic(crossings, rxmin, rymin, rxmax, rymax, curx, cury, coords->get(0), coords->get(1), coords->get(2), coords->get(3), endx, endy, 0);
+			curx = endx;
+			cury = endy;
+			break;
 		case $PathIterator::SEG_CLOSE:
-			{
-				if (curx != movx || cury != movy) {
-					crossings = rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, movx, movy);
-				}
-				curx = movx;
-				cury = movy;
-				break;
+			if (curx != movx || cury != movy) {
+				crossings = rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, movx, movy);
 			}
+			curx = movx;
+			cury = movy;
+			break;
 		}
 		pi->next();
 	}
@@ -647,17 +547,25 @@ double Curve::next(double v) {
 }
 
 $String* Curve::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$4, $$str({"Curve["_s, $$str(getOrder()), ", "_s}));
-	$var($String, var$6, $$str({"("_s, $$str(round(getX0())), ", "_s}));
-	$var($String, var$5, $$concat(var$6, $$str(round(getY0()))));
-	$var($String, var$3, $$concat(var$4, ($$concat(var$5, "), "_s))));
-	$var($String, var$2, $$concat(var$3, $(controlPointString())));
-	$var($String, var$8, $$str({"("_s, $$str(round(getX1())), ", "_s}));
-	$var($String, var$7, $$concat(var$8, $$str(round(getY1()))));
-	$var($String, var$1, $$concat(var$2, ($$concat(var$7, "), "_s))));
-	$var($String, var$0, $$concat(var$1, (this->direction == Curve::INCREASING ? "D"_s : "U"_s)));
-	return ($concat(var$0, "]"_s));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("Curve["_s);
+	var$0->append(getOrder());
+	var$0->append(", "_s);
+	var$0->append("("_s);
+	var$0->append(round(getX0()));
+	var$0->append(", "_s);
+	var$0->append(round(getY0()));
+	var$0->append("), "_s);
+	var$0->append($(controlPointString()));
+	var$0->append("("_s);
+	var$0->append(round(getX1()));
+	var$0->append(", "_s);
+	var$0->append(round(getY1()));
+	var$0->append("), "_s);
+	var$0->append(this->direction == Curve::INCREASING ? "D"_s : "U"_s);
+	var$0->append("]"_s);
+	return ($str(var$0));
 }
 
 $String* Curve::controlPointString() {
@@ -670,7 +578,7 @@ int32_t Curve::crossingsFor(double x, double y) {
 		bool var$1 = x < getXMax();
 		if (var$1) {
 			bool var$2 = x < getXMin();
-			var$1 = (var$2 || x < XforY(y));
+			var$1 = var$2 || x < XforY(y);
 		}
 		if (var$1) {
 			return 1;
@@ -704,14 +612,14 @@ bool Curve::accumulateCrossings($Crossings* c) {
 			return false;
 		}
 		ystart = y0;
-		tstart = (double)0;
+		tstart = 0;
 	}
 	if (y1 > yhi) {
 		yend = yhi;
 		tend = TforY(yhi);
 	} else {
 		yend = y1;
-		tend = (double)1;
+		tend = 1;
 	}
 	bool hitLo = false;
 	bool hitHi = false;
@@ -744,20 +652,20 @@ Curve* Curve::getSubCurve(double ystart, double yend) {
 }
 
 int32_t Curve::compareTo(Curve* that, $doubles* yrange) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double y0 = $nc(yrange)->get(0);
 	double y1 = yrange->get(1);
 	double var$0 = $Math::min(y1, this->getYBot());
 	y1 = $Math::min(var$0, $nc(that)->getYBot());
 	if (y1 <= yrange->get(0)) {
 		$nc($System::err)->println($$str({"this == "_s, this}));
-		$nc($System::err)->println($$str({"that == "_s, that}));
+		$System::err->println($$str({"that == "_s, that}));
 		$nc($System::out)->println($$str({"target range = "_s, $$str(yrange->get(0)), "=>"_s, $$str(yrange->get(1))}));
 		$throwNew($InternalError, $$str({"backstepping from "_s, $$str(yrange->get(0)), " to "_s, $$str(y1)}));
 	}
 	yrange->set(1, y1);
 	double var$1 = this->getXMax();
-	if (var$1 <= $nc(that)->getXMin()) {
+	if (var$1 <= that->getXMin()) {
 		double var$2 = this->getXMin();
 		if (var$2 == that->getXMax()) {
 			return 0;
@@ -765,7 +673,7 @@ int32_t Curve::compareTo(Curve* that, $doubles* yrange) {
 		return -1;
 	}
 	double var$3 = this->getXMin();
-	if (var$3 >= $nc(that)->getXMax()) {
+	if (var$3 >= that->getXMax()) {
 		return 1;
 	}
 	double s0 = this->TforY(y0);
@@ -778,7 +686,7 @@ int32_t Curve::compareTo(Curve* that, $doubles* yrange) {
 	if (this->YforT(s1) < y0) {
 		s1 = refineTforY(s1, this->YforT(s1), y0);
 	}
-	double t0 = $nc(that)->TforY(y0);
+	double t0 = that->TforY(y0);
 	double yt0 = that->YforT(t0);
 	if (yt0 < y0) {
 		t0 = that->refineTforY(t0, yt0, y0);
@@ -843,10 +751,10 @@ int32_t Curve::compareTo(Curve* that, $doubles* yrange) {
 			}
 		} catch ($Throwable& t) {
 			$nc($System::err)->println($$str({"Error: "_s, t}));
-			$nc($System::err)->println($$str({"y range was "_s, $$str(yrange->get(0)), "=>"_s, $$str(yrange->get(1))}));
-			$nc($System::err)->println($$str({"s y range is "_s, $$str(ys0), "=>"_s, $$str(ysh)}));
-			$nc($System::err)->println($$str({"t y range is "_s, $$str(yt0), "=>"_s, $$str(yth)}));
-			$nc($System::err)->println($$str({"ymin is "_s, $$str(ymin)}));
+			$System::err->println($$str({"y range was "_s, $$str(yrange->get(0)), "=>"_s, $$str(yrange->get(1))}));
+			$System::err->println($$str({"s y range is "_s, $$str(ys0), "=>"_s, $$str(ysh)}));
+			$System::err->println($$str({"t y range is "_s, $$str(yt0), "=>"_s, $$str(yth)}));
+			$System::err->println($$str({"ymin is "_s, $$str(ymin)}));
 			return 0;
 		}
 		if (ysh < yth) {
@@ -877,7 +785,7 @@ int32_t Curve::compareTo(Curve* that, $doubles* yrange) {
 }
 
 bool Curve::findIntersect(Curve* that, $doubles* yrange, double ymin, int32_t slevel, int32_t tlevel, double s0, double xs0, double ys0, double s1, double xs1, double ys1, double t0, double xt0, double yt0, double t1, double xt1, double yt1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ys0 > yt1 || yt0 > ys1) {
 		return false;
 	}
@@ -896,7 +804,7 @@ bool Curve::findIntersect(Curve* that, $doubles* yrange, double ymin, int32_t sl
 		double ys = this->YforT(s);
 		if (s == s0 || s == s1) {
 			$nc($System::out)->println($$str({"s0 = "_s, $$str(s0)}));
-			$nc($System::out)->println($$str({"s1 = "_s, $$str(s1)}));
+			$System::out->println($$str({"s1 = "_s, $$str(s1)}));
 			$throwNew($InternalError, "no s progress!"_s);
 		}
 		if (t1 - t0 > Curve::TMIN) {
@@ -905,7 +813,7 @@ bool Curve::findIntersect(Curve* that, $doubles* yrange, double ymin, int32_t sl
 			double yt = that->YforT(t);
 			if (t == t0 || t == t1) {
 				$nc($System::out)->println($$str({"t0 = "_s, $$str(t0)}));
-				$nc($System::out)->println($$str({"t1 = "_s, $$str(t1)}));
+				$System::out->println($$str({"t1 = "_s, $$str(t1)}));
 				$throwNew($InternalError, "no t progress!"_s);
 			}
 			if (ys >= yt0 && yt >= ys0) {
@@ -946,7 +854,7 @@ bool Curve::findIntersect(Curve* that, $doubles* yrange, double ymin, int32_t sl
 		double yt = that->YforT(t);
 		if (t == t0 || t == t1) {
 			$nc($System::out)->println($$str({"t0 = "_s, $$str(t0)}));
-			$nc($System::out)->println($$str({"t1 = "_s, $$str(t1)}));
+			$System::out->println($$str({"t1 = "_s, $$str(t1)}));
 			$throwNew($InternalError, "no t progress!"_s);
 		}
 		if (yt >= ys0) {
@@ -990,7 +898,7 @@ bool Curve::findIntersect(Curve* that, $doubles* yrange, double ymin, int32_t sl
 }
 
 double Curve::refineTforY(double t0, double yt0, double y0) {
-	double t1 = (double)1;
+	double t1 = 1;
 	while (true) {
 		double th = (t0 + t1) / 2;
 		if (th == t0 || th == t1) {
@@ -1018,12 +926,85 @@ bool Curve::fairlyClose(double v1, double v2) {
 Curve::Curve() {
 }
 
-void clinit$Curve($Class* class$) {
+void Curve::clinit$($Class* clazz) {
 	Curve::TMIN = 0.001;
 }
 
 $Class* Curve::load$($String* name, bool initialize) {
-	$loadClass(Curve, name, initialize, &_Curve_ClassInfo_, clinit$Curve, allocate$Curve);
+	$FieldInfo fieldInfos$$[] = {
+		{"INCREASING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Curve, INCREASING)},
+		{"DECREASING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Curve, DECREASING)},
+		{"direction", "I", nullptr, $PROTECTED, $field(Curve, direction)},
+		{"RECT_INTERSECTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Curve, RECT_INTERSECTS)},
+		{"TMIN", "D", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Curve, TMIN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Curve, init$, void, int32_t)},
+		{"TforY", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, TforY, double, double)},
+		{"XforT", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, XforT, double, double)},
+		{"XforY", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, XforY, double, double)},
+		{"YforT", "(D)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, YforT, double, double)},
+		{"accumulateCrossings", "(Lsun/awt/geom/Crossings;)Z", nullptr, $PUBLIC, $virtualMethod(Curve, accumulateCrossings, bool, $Crossings*)},
+		{"compareTo", "(Lsun/awt/geom/Curve;[D)I", nullptr, $PUBLIC, $virtualMethod(Curve, compareTo, int32_t, Curve*, $doubles*)},
+		{"controlPointString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Curve, controlPointString, $String*)},
+		{"crossingsFor", "(DD)I", nullptr, $PUBLIC, $virtualMethod(Curve, crossingsFor, int32_t, double, double)},
+		{"dXforT", "(DI)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, dXforT, double, double, int32_t)},
+		{"dYforT", "(DI)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, dYforT, double, double, int32_t)},
+		{"diffbits", "(DD)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, diffbits, int64_t, double, double)},
+		{"enlarge", "(Ljava/awt/geom/Rectangle2D;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, enlarge, void, $Rectangle2D*)},
+		{"fairlyClose", "(DD)Z", nullptr, $PUBLIC, $virtualMethod(Curve, fairlyClose, bool, double, double)},
+		{"findIntersect", "(Lsun/awt/geom/Curve;[DDIIDDDDDDDDDDDD)Z", nullptr, $PUBLIC, $virtualMethod(Curve, findIntersect, bool, Curve*, $doubles*, double, int32_t, int32_t, double, double, double, double, double, double, double, double, double, double, double, double)},
+		{"getDirection", "()I", nullptr, $PUBLIC | $FINAL, $method(Curve, getDirection, int32_t)},
+		{"getOrder", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getOrder, int32_t)},
+		{"getReversedCurve", "()Lsun/awt/geom/Curve;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getReversedCurve, Curve*)},
+		{"getSegment", "([D)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getSegment, int32_t, $doubles*)},
+		{"getSubCurve", "(DD)Lsun/awt/geom/Curve;", nullptr, $PUBLIC, $virtualMethod(Curve, getSubCurve, Curve*, double, double)},
+		{"getSubCurve", "(DDI)Lsun/awt/geom/Curve;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getSubCurve, Curve*, double, double, int32_t)},
+		{"getWithDirection", "(I)Lsun/awt/geom/Curve;", nullptr, $PUBLIC | $FINAL, $method(Curve, getWithDirection, Curve*, int32_t)},
+		{"getX0", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getX0, double)},
+		{"getX1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getX1, double)},
+		{"getXBot", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getXBot, double)},
+		{"getXMax", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getXMax, double)},
+		{"getXMin", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getXMin, double)},
+		{"getXTop", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getXTop, double)},
+		{"getY0", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getY0, double)},
+		{"getY1", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getY1, double)},
+		{"getYBot", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getYBot, double)},
+		{"getYTop", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, getYTop, double)},
+		{"insertCubic", "(Ljava/util/Vector;DD[D)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DD[D)V", $PUBLIC | $STATIC, $staticMethod(Curve, insertCubic, void, $Vector*, double, double, $doubles*)},
+		{"insertLine", "(Ljava/util/Vector;DDDD)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DDDD)V", $PUBLIC | $STATIC, $staticMethod(Curve, insertLine, void, $Vector*, double, double, double, double)},
+		{"insertMove", "(Ljava/util/Vector;DD)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DD)V", $PUBLIC | $STATIC, $staticMethod(Curve, insertMove, void, $Vector*, double, double)},
+		{"insertQuad", "(Ljava/util/Vector;DD[D)V", "(Ljava/util/Vector<Lsun/awt/geom/Curve;>;DD[D)V", $PUBLIC | $STATIC, $staticMethod(Curve, insertQuad, void, $Vector*, double, double, $doubles*)},
+		{"next", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, next, double, double)},
+		{"nextVertical", "(DD)D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Curve, nextVertical, double, double, double)},
+		{"orderof", "(DD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, orderof, int32_t, double, double)},
+		{"pointCrossingsForCubic", "(DDDDDDDDDDI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, pointCrossingsForCubic, int32_t, double, double, double, double, double, double, double, double, double, double, int32_t)},
+		{"pointCrossingsForLine", "(DDDDDD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, pointCrossingsForLine, int32_t, double, double, double, double, double, double)},
+		{"pointCrossingsForPath", "(Ljava/awt/geom/PathIterator;DD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, pointCrossingsForPath, int32_t, $PathIterator*, double, double)},
+		{"pointCrossingsForQuad", "(DDDDDDDDI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, pointCrossingsForQuad, int32_t, double, double, double, double, double, double, double, double, int32_t)},
+		{"prev", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, prev, double, double)},
+		{"rectCrossingsForCubic", "(IDDDDDDDDDDDDI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, rectCrossingsForCubic, int32_t, int32_t, double, double, double, double, double, double, double, double, double, double, double, double, int32_t)},
+		{"rectCrossingsForLine", "(IDDDDDDDD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, rectCrossingsForLine, int32_t, int32_t, double, double, double, double, double, double, double, double)},
+		{"rectCrossingsForPath", "(Ljava/awt/geom/PathIterator;DDDD)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, rectCrossingsForPath, int32_t, $PathIterator*, double, double, double, double)},
+		{"rectCrossingsForQuad", "(IDDDDDDDDDDI)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, rectCrossingsForQuad, int32_t, int32_t, double, double, double, double, double, double, double, double, double, double, int32_t)},
+		{"refineTforY", "(DDD)D", nullptr, $PUBLIC, $virtualMethod(Curve, refineTforY, double, double, double, double)},
+		{"round", "(D)D", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, round, double, double)},
+		{"signeddiffbits", "(DD)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Curve, signeddiffbits, int64_t, double, double)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Curve, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.geom.Curve",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Curve, name, initialize, &classInfo$$, Curve::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Curve);
+	});
 	return class$;
 }
 

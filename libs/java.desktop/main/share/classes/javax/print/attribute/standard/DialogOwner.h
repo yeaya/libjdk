@@ -29,6 +29,7 @@ class $export DialogOwner : public ::javax::print::attribute::PrintRequestAttrib
 	$class(DialogOwner, 0, ::javax::print::attribute::PrintRequestAttribute)
 public:
 	DialogOwner();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::Window* owner);
 	void init$(int64_t id);
@@ -37,7 +38,7 @@ public:
 	virtual $String* getName() override;
 	::java::awt::Window* getOwner();
 	static ::javax::print::attribute::standard::DialogOwner$Accessor* accessor;
-	static const int64_t serialVersionUID = (int64_t)0xE59B0F0D755A07FD;
+	static const int64_t serialVersionUID = (int64_t)0xe59b0f0d755a07fd;
 	::java::awt::Window* owner = nullptr;
 	int64_t id = 0;
 };

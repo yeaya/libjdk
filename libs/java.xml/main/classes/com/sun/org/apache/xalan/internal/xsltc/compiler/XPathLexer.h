@@ -71,6 +71,7 @@ class XPathLexer : public ::com::sun::java_cup::internal::runtime::Scanner {
 	$class(XPathLexer, 0, ::com::sun::java_cup::internal::runtime::Scanner)
 public:
 	XPathLexer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::io::Reader* reader);
 	void init$(::java::io::InputStream* instream);
 	void init$();

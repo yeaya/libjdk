@@ -137,6 +137,7 @@ class $import DocTreeMaker : public ::com::sun::source::util::DocTreeFactory {
 	$class(DocTreeMaker, 0, ::com::sun::source::util::DocTreeFactory)
 public:
 	DocTreeMaker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::tree::DocTreeMaker* at(int32_t pos) override;
 	virtual ::com::sun::tools::javac::tree::DocTreeMaker* at(::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition* pos);

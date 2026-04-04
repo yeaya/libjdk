@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/PixelToShapeConverter.h>
-
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Arc2D$Float.h>
@@ -36,47 +35,6 @@ using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$FieldInfo _PixelToShapeConverter_FieldInfo_[] = {
-	{"outpipe", "Lsun/java2d/pipe/ShapeDrawPipe;", nullptr, 0, $field(PixelToShapeConverter, outpipe)},
-	{}
-};
-
-$MethodInfo _PixelToShapeConverter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/pipe/ShapeDrawPipe;)V", nullptr, $PUBLIC, $method(PixelToShapeConverter, init$, void, $ShapeDrawPipe*)},
-	{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
-	{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
-	{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"makePoly", "([I[IIZ)Ljava/awt/Shape;", nullptr, $PRIVATE, $method(PixelToShapeConverter, makePoly, $Shape*, $ints*, $ints*, int32_t, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _PixelToShapeConverter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.PixelToShapeConverter",
-	"java.lang.Object",
-	"sun.java2d.pipe.PixelDrawPipe,sun.java2d.pipe.PixelFillPipe",
-	_PixelToShapeConverter_FieldInfo_,
-	_PixelToShapeConverter_MethodInfo_
-};
-
-$Object* allocate$PixelToShapeConverter($Class* clazz) {
-	return $of($alloc(PixelToShapeConverter));
-}
 
 int32_t PixelToShapeConverter::hashCode() {
 	 return this->$PixelDrawPipe::hashCode();
@@ -143,7 +101,7 @@ $Shape* PixelToShapeConverter::makePoly($ints* xPoints, $ints* yPoints, int32_t 
 	if (nPoints > 0) {
 		gp->moveTo((float)$nc(xPoints)->get(0), (float)$nc(yPoints)->get(0));
 		for (int32_t i = 1; i < nPoints; ++i) {
-			gp->lineTo((float)$nc(xPoints)->get(i), (float)$nc(yPoints)->get(i));
+			gp->lineTo((float)xPoints->get(i), (float)yPoints->get(i));
 		}
 		if (close) {
 			gp->closePath();
@@ -168,7 +126,43 @@ PixelToShapeConverter::PixelToShapeConverter() {
 }
 
 $Class* PixelToShapeConverter::load$($String* name, bool initialize) {
-	$loadClass(PixelToShapeConverter, name, initialize, &_PixelToShapeConverter_ClassInfo_, allocate$PixelToShapeConverter);
+	$FieldInfo fieldInfos$$[] = {
+		{"outpipe", "Lsun/java2d/pipe/ShapeDrawPipe;", nullptr, 0, $field(PixelToShapeConverter, outpipe)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/pipe/ShapeDrawPipe;)V", nullptr, $PUBLIC, $method(PixelToShapeConverter, init$, void, $ShapeDrawPipe*)},
+		{"drawArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"drawLine", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawLine, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawPolyline", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawPolyline, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"drawRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"drawRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, drawRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillArc", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillArc, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"fillOval", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillOval, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillPolygon", "(Lsun/java2d/SunGraphics2D;[I[II)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillPolygon, void, $SunGraphics2D*, $ints*, $ints*, int32_t)},
+		{"fillRect", "(Lsun/java2d/SunGraphics2D;IIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t)},
+		{"fillRoundRect", "(Lsun/java2d/SunGraphics2D;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(PixelToShapeConverter, fillRoundRect, void, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"makePoly", "([I[IIZ)Ljava/awt/Shape;", nullptr, $PRIVATE, $method(PixelToShapeConverter, makePoly, $Shape*, $ints*, $ints*, int32_t, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.PixelToShapeConverter",
+		"java.lang.Object",
+		"sun.java2d.pipe.PixelDrawPipe,sun.java2d.pipe.PixelFillPipe",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PixelToShapeConverter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PixelToShapeConverter));
+	});
 	return class$;
 }
 

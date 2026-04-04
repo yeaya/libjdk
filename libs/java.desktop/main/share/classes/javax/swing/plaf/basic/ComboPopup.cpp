@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/ComboPopup.h>
-
 #include <java/awt/event/KeyListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
@@ -18,33 +17,29 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _ComboPopup_MethodInfo_[] = {
-	{"getKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, getKeyListener, $KeyListener*)},
-	{"getList", "()Ljavax/swing/JList;", "()Ljavax/swing/JList<Ljava/lang/Object;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, getList, $JList*)},
-	{"getMouseListener", "()Ljava/awt/event/MouseListener;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, getMouseListener, $MouseListener*)},
-	{"getMouseMotionListener", "()Ljava/awt/event/MouseMotionListener;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, getMouseMotionListener, $MouseMotionListener*)},
-	{"hide", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, hide, void)},
-	{"isVisible", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, isVisible, bool)},
-	{"show", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, show, void)},
-	{"uninstallingUI", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, uninstallingUI, void)},
-	{}
-};
-
-$ClassInfo _ComboPopup_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.swing.plaf.basic.ComboPopup",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ComboPopup_MethodInfo_
-};
-
-$Object* allocate$ComboPopup($Class* clazz) {
-	return $of($alloc(ComboPopup));
-}
-
 $Class* ComboPopup::load$($String* name, bool initialize) {
-	$loadClass(ComboPopup, name, initialize, &_ComboPopup_ClassInfo_, allocate$ComboPopup);
+	$MethodInfo methodInfos$$[] = {
+		{"getKeyListener", "()Ljava/awt/event/KeyListener;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, getKeyListener, $KeyListener*)},
+		{"getList", "()Ljavax/swing/JList;", "()Ljavax/swing/JList<Ljava/lang/Object;>;", $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, getList, $JList*)},
+		{"getMouseListener", "()Ljava/awt/event/MouseListener;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, getMouseListener, $MouseListener*)},
+		{"getMouseMotionListener", "()Ljava/awt/event/MouseMotionListener;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, getMouseMotionListener, $MouseMotionListener*)},
+		{"hide", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, hide, void)},
+		{"isVisible", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, isVisible, bool)},
+		{"show", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, show, void)},
+		{"uninstallingUI", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ComboPopup, uninstallingUI, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.swing.plaf.basic.ComboPopup",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ComboPopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ComboPopup);
+	});
 	return class$;
 }
 

@@ -20,6 +20,7 @@ class LightweightPeerHolder : public ::java::lang::Object {
 	$class(LightweightPeerHolder, 0, ::java::lang::Object)
 public:
 	LightweightPeerHolder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::peer::LightweightPeer* lightweightMarker;
 };

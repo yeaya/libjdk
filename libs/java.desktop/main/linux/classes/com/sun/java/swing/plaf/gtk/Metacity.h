@@ -97,6 +97,7 @@ class Metacity : public ::javax::swing::plaf::synth::SynthConstants {
 	$class(Metacity, 0, ::javax::swing::plaf::synth::SynthConstants)
 public:
 	Metacity();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* themeName);
 	virtual ::java::awt::Dimension* calculateButtonSize(::javax::swing::JComponent* titlePane);
 	virtual ::java::awt::Rectangle* calculateTitleArea(::javax::swing::JInternalFrame* jif);

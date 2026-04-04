@@ -1,5 +1,4 @@
 #include <javax/management/StandardMBean.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/mbeanserver/DescriptorCache.h>
 #include <com/sun/jmx/mbeanserver/Introspector.h>
@@ -12,7 +11,6 @@
 #include <java/lang/System$Logger.h>
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
@@ -73,10 +71,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
@@ -109,95 +105,6 @@ using $OpenType = ::javax::management::openmbean::OpenType;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _StandardMBean_FieldInfo_[] = {
-	{"descriptors", "Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StandardMBean, descriptors)},
-	{"mbean", "Lcom/sun/jmx/mbeanserver/MBeanSupport;", "Lcom/sun/jmx/mbeanserver/MBeanSupport<*>;", $PRIVATE | $VOLATILE, $field(StandardMBean, mbean)},
-	{"cachedMBeanInfo", "Ljavax/management/MBeanInfo;", nullptr, $PRIVATE | $VOLATILE, $field(StandardMBean, cachedMBeanInfo)},
-	{"mbeanInfoSafeMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StandardMBean, mbeanInfoSafeMap)},
-	{}
-};
-
-$MethodInfo _StandardMBean_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", $PUBLIC, $method(StandardMBean, init$, void, Object$*, $Class*), "javax.management.NotCompliantMBeanException"},
-	{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $method(StandardMBean, init$, void, $Class*), "javax.management.NotCompliantMBeanException"},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;Z)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;Z)V", $PUBLIC, $method(StandardMBean, init$, void, Object$*, $Class*, bool)},
-	{"<init>", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PROTECTED, $method(StandardMBean, init$, void, $Class*, bool)},
-	{"cacheMBeanInfo", "(Ljavax/management/MBeanInfo;)V", nullptr, $PROTECTED, $virtualMethod(StandardMBean, cacheMBeanInfo, void, $MBeanInfo*)},
-	{"construct", "(Ljava/lang/Object;Ljava/lang/Class;ZZ)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;ZZ)V", $PRIVATE, $method(StandardMBean, construct, void, Object$*, $Class*, bool, bool), "javax.management.NotCompliantMBeanException"},
-	{"customize", "(Ljavax/management/MBeanParameterInfo;Ljava/lang/String;Ljava/lang/String;)Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, customize, $MBeanParameterInfo*, $MBeanParameterInfo*, $String*, $String*)},
-	{"customize", "(Ljavax/management/MBeanConstructorInfo;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;)Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, customize, $MBeanConstructorInfo*, $MBeanConstructorInfo*, $String*, $MBeanParameterInfoArray*)},
-	{"customize", "(Ljavax/management/MBeanOperationInfo;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;I)Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, customize, $MBeanOperationInfo*, $MBeanOperationInfo*, $String*, $MBeanParameterInfoArray*, int32_t)},
-	{"customize", "(Ljavax/management/MBeanAttributeInfo;Ljava/lang/String;)Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, customize, $MBeanAttributeInfo*, $MBeanAttributeInfo*, $String*)},
-	{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>(TT;TT;)Z", $PRIVATE | $STATIC, $staticMethod(StandardMBean, equal, bool, Object$*, Object$*)},
-	{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, getAttributes, $AttributeList*, $StringArray*)},
-	{"getAttributes", "(Ljavax/management/MBeanInfo;)[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE, $method(StandardMBean, getAttributes, $MBeanAttributeInfoArray*, $MBeanInfo*)},
-	{"getCachedMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getCachedMBeanInfo, $MBeanInfo*)},
-	{"getClassName", "(Ljavax/management/MBeanInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getClassName, $String*, $MBeanInfo*)},
-	{"getConstructors", "([Ljavax/management/MBeanConstructorInfo;Ljava/lang/Object;)[Ljavax/management/MBeanConstructorInfo;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getConstructors, $MBeanConstructorInfoArray*, $MBeanConstructorInfoArray*, Object$*)},
-	{"getConstructors", "(Ljavax/management/MBeanInfo;Ljava/lang/Object;)[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE, $method(StandardMBean, getConstructors, $MBeanConstructorInfoArray*, $MBeanInfo*, Object$*)},
-	{"getDescription", "(Ljavax/management/MBeanInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanInfo*)},
-	{"getDescription", "(Ljavax/management/MBeanFeatureInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanFeatureInfo*)},
-	{"getDescription", "(Ljavax/management/MBeanAttributeInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanAttributeInfo*)},
-	{"getDescription", "(Ljavax/management/MBeanConstructorInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanConstructorInfo*)},
-	{"getDescription", "(Ljavax/management/MBeanConstructorInfo;Ljavax/management/MBeanParameterInfo;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanConstructorInfo*, $MBeanParameterInfo*, int32_t)},
-	{"getDescription", "(Ljavax/management/MBeanOperationInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanOperationInfo*)},
-	{"getDescription", "(Ljavax/management/MBeanOperationInfo;Ljavax/management/MBeanParameterInfo;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanOperationInfo*, $MBeanParameterInfo*, int32_t)},
-	{"getDescriptor", "(Ljavax/management/MBeanInfo;Z)Ljavax/management/Descriptor;", nullptr, 0, $virtualMethod(StandardMBean, getDescriptor, $Descriptor*, $MBeanInfo*, bool)},
-	{"getImpact", "(Ljavax/management/MBeanOperationInfo;)I", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getImpact, int32_t, $MBeanOperationInfo*)},
-	{"getImplementation", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, getImplementation, $Object*)},
-	{"getImplementationClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(StandardMBean, getImplementationClass, $Class*)},
-	{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, getMBeanInfo, $MBeanInfo*)},
-	{"getMBeanInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $method(StandardMBean, getMBeanInterface, $Class*)},
-	{"getNotifications", "(Ljavax/management/MBeanInfo;)[Ljavax/management/MBeanNotificationInfo;", nullptr, 0, $virtualMethod(StandardMBean, getNotifications, $MBeanNotificationInfoArray*, $MBeanInfo*)},
-	{"getOperations", "(Ljavax/management/MBeanInfo;)[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE, $method(StandardMBean, getOperations, $MBeanOperationInfoArray*, $MBeanInfo*)},
-	{"getParameterName", "(Ljavax/management/MBeanConstructorInfo;Ljavax/management/MBeanParameterInfo;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getParameterName, $String*, $MBeanConstructorInfo*, $MBeanParameterInfo*, int32_t)},
-	{"getParameterName", "(Ljavax/management/MBeanOperationInfo;Ljavax/management/MBeanParameterInfo;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getParameterName, $String*, $MBeanOperationInfo*, $MBeanParameterInfo*, int32_t)},
-	{"identicalArrays", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>([TT;[TT;)Z", $PRIVATE | $STATIC, $staticMethod(StandardMBean, identicalArrays, bool, $ObjectArray*, $ObjectArray*)},
-	{"immutableInfo", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/management/StandardMBean;>;)Z", $STATIC, $staticMethod(StandardMBean, immutableInfo, bool, $Class*)},
-	{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
-	{"isMXBean", "()Z", nullptr, $PRIVATE, $method(StandardMBean, isMXBean, bool)},
-	{"overrides", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Z", $STATIC | $TRANSIENT, $staticMethod(StandardMBean, overrides, bool, $Class*, $Class*, $String*, $ClassArray*)},
-	{"paramsToOpenParams", "([Ljavax/management/MBeanParameterInfo;)[Ljavax/management/openmbean/OpenMBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, paramsToOpenParams, $OpenMBeanParameterInfoArray*, $MBeanParameterInfoArray*)},
-	{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, postDeregister, void)},
-	{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, postRegister, void, $Boolean*)},
-	{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, preDeregister, void), "java.lang.Exception"},
-	{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
-	{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
-	{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, setAttributes, $AttributeList*, $AttributeList*)},
-	{"setImplementation", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, setImplementation, void, Object$*), "javax.management.NotCompliantMBeanException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _StandardMBean_InnerClassesInfo_[] = {
-	{"javax.management.StandardMBean$MBeanInfoSafeAction", "javax.management.StandardMBean", "MBeanInfoSafeAction", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _StandardMBean_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.StandardMBean",
-	"java.lang.Object",
-	"javax.management.DynamicMBean,javax.management.MBeanRegistration",
-	_StandardMBean_FieldInfo_,
-	_StandardMBean_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StandardMBean_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.management.StandardMBean$MBeanInfoSafeAction"
-};
-
-$Object* allocate$StandardMBean($Class* clazz) {
-	return $of($alloc(StandardMBean));
-}
 
 int32_t StandardMBean::hashCode() {
 	 return this->$DynamicMBean::hashCode();
@@ -256,7 +163,7 @@ void StandardMBean::init$(Object$* implementation, $Class* mbeanInterface, bool 
 	try {
 		construct(implementation, mbeanInterface, false, isMXBean);
 	} catch ($NotCompliantMBeanException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 }
 
@@ -264,24 +171,24 @@ void StandardMBean::init$($Class* mbeanInterface, bool isMXBean) {
 	try {
 		construct(nullptr, mbeanInterface, true, isMXBean);
 	} catch ($NotCompliantMBeanException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 }
 
 void StandardMBean::setImplementation(Object$* implementation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (implementation == nullptr) {
 		$throwNew($IllegalArgumentException, "implementation is null"_s);
 	}
 	if (isMXBean()) {
-		$set(this, mbean, $new($MXBeanSupport, implementation, $cast($Class, $($Util::cast(getMBeanInterface())))));
+		$set(this, mbean, $new($MXBeanSupport, implementation, $$cast($Class, $Util::cast(getMBeanInterface()))));
 	} else {
-		$set(this, mbean, $new($StandardMBeanSupport, implementation, $cast($Class, $($Util::cast(getMBeanInterface())))));
+		$set(this, mbean, $new($StandardMBeanSupport, implementation, $$cast($Class, $Util::cast(getMBeanInterface()))));
 	}
 }
 
 $Object* StandardMBean::getImplementation() {
-	return $of($nc(this->mbean)->getResource());
+	return $nc(this->mbean)->getResource();
 }
 
 $Class* StandardMBean::getMBeanInterface() {
@@ -289,11 +196,11 @@ $Class* StandardMBean::getMBeanInterface() {
 }
 
 $Class* StandardMBean::getImplementationClass() {
-	return $nc($of($($nc(this->mbean)->getResource())))->getClass();
+	return $$nc($nc(this->mbean)->getResource())->getClass();
 }
 
 $Object* StandardMBean::getAttribute($String* attribute) {
-	return $of($nc(this->mbean)->getAttribute(attribute));
+	return $nc(this->mbean)->getAttribute(attribute);
 }
 
 void StandardMBean::setAttribute($Attribute* attribute) {
@@ -309,11 +216,11 @@ $AttributeList* StandardMBean::setAttributes($AttributeList* attributes) {
 }
 
 $Object* StandardMBean::invoke($String* actionName, $ObjectArray* params, $StringArray* signature) {
-	return $of($nc(this->mbean)->invoke(actionName, params, signature));
+	return $nc(this->mbean)->invoke(actionName, params, signature);
 }
 
 $MBeanInfo* StandardMBean::getMBeanInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($MBeanInfo, cached, getCachedMBeanInfo());
 		if (cached != nullptr) {
@@ -323,13 +230,13 @@ $MBeanInfo* StandardMBean::getMBeanInfo() {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
 		if ($nc($JmxProperties::MISC_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-			$nc($JmxProperties::MISC_LOGGER)->log($System$Logger$Level::DEBUG, "Failed to get cached MBeanInfo"_s, static_cast<$Throwable*>(x));
+			$JmxProperties::MISC_LOGGER->log($System$Logger$Level::DEBUG, "Failed to get cached MBeanInfo"_s, x);
 		}
 	}
 	$init($JmxProperties);
 	$init($System$Logger$Level);
 	if ($nc($JmxProperties::MISC_LOGGER)->isLoggable($System$Logger$Level::TRACE)) {
-		$nc($JmxProperties::MISC_LOGGER)->log($System$Logger$Level::TRACE, $$str({"Building MBeanInfo for "_s, $($nc(getImplementationClass())->getName())}));
+		$JmxProperties::MISC_LOGGER->log($System$Logger$Level::TRACE, $$str({"Building MBeanInfo for "_s, $($nc(getImplementationClass())->getName())}));
 	}
 	$var($MBeanSupport, msupport, this->mbean);
 	$var($MBeanInfo, bi, $nc(msupport)->getMBeanInfo());
@@ -346,8 +253,8 @@ $MBeanInfo* StandardMBean::getMBeanInfo() {
 	try {
 		cacheMBeanInfo(nmbi);
 	} catch ($RuntimeException& x) {
-		if ($nc($JmxProperties::MISC_LOGGER)->isLoggable($System$Logger$Level::DEBUG)) {
-			$nc($JmxProperties::MISC_LOGGER)->log($System$Logger$Level::DEBUG, "Failed to cache MBeanInfo"_s, static_cast<$Throwable*>(x));
+		if ($JmxProperties::MISC_LOGGER->isLoggable($System$Logger$Level::DEBUG)) {
+			$JmxProperties::MISC_LOGGER->log($System$Logger$Level::DEBUG, "Failed to cache MBeanInfo"_s, x);
 		}
 	}
 	return nmbi;
@@ -375,11 +282,11 @@ $String* StandardMBean::getDescription($MBeanFeatureInfo* info) {
 }
 
 $String* StandardMBean::getDescription($MBeanAttributeInfo* info) {
-	return getDescription(static_cast<$MBeanFeatureInfo*>(info));
+	return getDescription($cast($MBeanFeatureInfo, info));
 }
 
 $String* StandardMBean::getDescription($MBeanConstructorInfo* info) {
-	return getDescription(static_cast<$MBeanFeatureInfo*>(info));
+	return getDescription($cast($MBeanFeatureInfo, info));
 }
 
 $String* StandardMBean::getDescription($MBeanConstructorInfo* ctor, $MBeanParameterInfo* param, int32_t sequence) {
@@ -397,7 +304,7 @@ $String* StandardMBean::getParameterName($MBeanConstructorInfo* ctor, $MBeanPara
 }
 
 $String* StandardMBean::getDescription($MBeanOperationInfo* info) {
-	return getDescription(static_cast<$MBeanFeatureInfo*>(info));
+	return getDescription($cast($MBeanFeatureInfo, info));
 }
 
 int32_t StandardMBean::getImpact($MBeanOperationInfo* info) {
@@ -436,10 +343,10 @@ $MBeanNotificationInfoArray* StandardMBean::getNotifications($MBeanInfo* info) {
 }
 
 $Descriptor* StandardMBean::getDescriptor($MBeanInfo* info, bool immutableInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImmutableDescriptor, desc, nullptr);
-	bool var$0 = info == nullptr || $nc(info)->getDescriptor() == nullptr;
-	if (var$0 || $nc($($nc($($nc(info)->getDescriptor()))->getFieldNames()))->length == 0) {
+	bool var$0 = info == nullptr || info->getDescriptor() == nullptr;
+	if (var$0 || $nc($($$nc(info->getDescriptor())->getFieldNames()))->length == 0) {
 		$var($String, interfaceClassNameS, $str({"interfaceClassName="_s, $($nc(getMBeanInterface())->getName())}));
 		$var($String, immutableInfoS, $str({"immutableInfo="_s, $$str(immutableInfo)}));
 		$assign(desc, $new($ImmutableDescriptor, $$new($StringArray, {
@@ -452,16 +359,12 @@ $Descriptor* StandardMBean::getDescriptor($MBeanInfo* info, bool immutableInfo) 
 		$var($Map, fields, $new($HashMap));
 		{
 			$var($StringArray, arr$, $nc(d)->getFieldNames());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, fieldName, arr$->get(i$));
-				{
-					if ($nc(fieldName)->equals("immutableInfo"_s)) {
-						fields->put(fieldName, $($Boolean::toString(immutableInfo)));
-					} else {
-						fields->put(fieldName, $(d->getFieldValue(fieldName)));
-					}
+				if ($nc(fieldName)->equals("immutableInfo"_s)) {
+					fields->put(fieldName, $($Boolean::toString(immutableInfo)));
+				} else {
+					fields->put(fieldName, $(d->getFieldValue(fieldName)));
 				}
 			}
 		}
@@ -487,7 +390,7 @@ bool StandardMBean::identicalArrays($ObjectArray* a, $ObjectArray* b) {
 	if (a == b) {
 		return true;
 	}
-	if (a == nullptr || b == nullptr || $nc(a)->length != $nc(b)->length) {
+	if (a == nullptr || b == nullptr || a->length != b->length) {
 		return false;
 	}
 	for (int32_t i = 0; i < $nc(a)->length; ++i) {
@@ -511,110 +414,94 @@ bool StandardMBean::equal(Object$* a, Object$* b) {
 
 $MBeanParameterInfo* StandardMBean::customize($MBeanParameterInfo* pi, $String* name, $String* description) {
 	$init(StandardMBean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = equal(name, $($nc(pi)->getName()));
-	if (var$0 && equal(description, $($nc(pi)->getDescription()))) {
+	if (var$0 && equal(description, $(pi->getDescription()))) {
 		return pi;
 	} else if ($instanceOf($OpenMBeanParameterInfo, pi)) {
 		$var($OpenMBeanParameterInfo, opi, $cast($OpenMBeanParameterInfo, pi));
-		$var($String, var$1, name);
-		$var($String, var$2, description);
-		$var($OpenType, var$3, $nc(opi)->getOpenType());
-		return $new($OpenMBeanParameterInfoSupport, var$1, var$2, var$3, $($nc(pi)->getDescriptor()));
+		$var($OpenType, var$1, opi->getOpenType());
+		return $new($OpenMBeanParameterInfoSupport, name, description, var$1, $(pi->getDescriptor()));
 	} else {
-		$var($String, var$4, name);
-		$var($String, var$5, $nc(pi)->getType());
-		$var($String, var$6, description);
-		return $new($MBeanParameterInfo, var$4, var$5, var$6, $(pi->getDescriptor()));
+		$var($String, var$2, pi->getType());
+		return $new($MBeanParameterInfo, name, var$2, description, $(pi->getDescriptor()));
 	}
 }
 
 $MBeanConstructorInfo* StandardMBean::customize($MBeanConstructorInfo* ci, $String* description, $MBeanParameterInfoArray* signature) {
 	$init(StandardMBean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = equal(description, $($nc(ci)->getDescription()));
-	if (var$0 && identicalArrays(signature, $($nc(ci)->getSignature()))) {
+	if (var$0 && identicalArrays(signature, $(ci->getSignature()))) {
 		return ci;
 	}
 	if ($instanceOf($OpenMBeanConstructorInfo, ci)) {
 		$var($OpenMBeanParameterInfoArray, oparams, paramsToOpenParams(signature));
-		$var($String, var$1, $nc(ci)->getName());
-		$var($String, var$2, description);
-		$var($OpenMBeanParameterInfoArray, var$3, oparams);
-		return $new($OpenMBeanConstructorInfoSupport, var$1, var$2, var$3, $(ci->getDescriptor()));
+		$var($String, var$1, ci->getName());
+		return $new($OpenMBeanConstructorInfoSupport, var$1, description, oparams, $(ci->getDescriptor()));
 	} else {
-		$var($String, var$4, $nc(ci)->getName());
-		$var($String, var$5, description);
-		$var($MBeanParameterInfoArray, var$6, signature);
-		return $new($MBeanConstructorInfo, var$4, var$5, var$6, $(ci->getDescriptor()));
+		$var($String, var$2, ci->getName());
+		return $new($MBeanConstructorInfo, var$2, description, signature, $(ci->getDescriptor()));
 	}
 }
 
 $MBeanOperationInfo* StandardMBean::customize($MBeanOperationInfo* oi, $String* description, $MBeanParameterInfoArray* signature, int32_t impact) {
 	$init(StandardMBean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$1 = equal(description, $($nc(oi)->getDescription()));
-	bool var$0 = var$1 && identicalArrays(signature, $($nc(oi)->getSignature()));
-	if (var$0 && impact == $nc(oi)->getImpact()) {
+	bool var$0 = var$1 && identicalArrays(signature, $(oi->getSignature()));
+	if (var$0 && impact == oi->getImpact()) {
 		return oi;
 	}
 	if ($instanceOf($OpenMBeanOperationInfo, oi)) {
 		$var($OpenMBeanOperationInfo, ooi, $cast($OpenMBeanOperationInfo, oi));
 		$var($OpenMBeanParameterInfoArray, oparams, paramsToOpenParams(signature));
-		$var($String, var$2, $nc(oi)->getName());
-		$var($String, var$3, description);
-		$var($OpenMBeanParameterInfoArray, var$4, oparams);
-		$var($OpenType, var$5, $nc(ooi)->getReturnOpenType());
-		int32_t var$6 = impact;
-		return $new($OpenMBeanOperationInfoSupport, var$2, var$3, var$4, var$5, var$6, $(oi->getDescriptor()));
+		$var($String, var$2, oi->getName());
+		$var($OpenType, var$3, ooi->getReturnOpenType());
+		return $new($OpenMBeanOperationInfoSupport, var$2, description, oparams, var$3, impact, $(oi->getDescriptor()));
 	} else {
-		$var($String, var$7, $nc(oi)->getName());
-		$var($String, var$8, description);
-		$var($MBeanParameterInfoArray, var$9, signature);
-		$var($String, var$10, oi->getReturnType());
-		int32_t var$11 = impact;
-		return $new($MBeanOperationInfo, var$7, var$8, var$9, var$10, var$11, $(oi->getDescriptor()));
+		$var($String, var$4, oi->getName());
+		$var($String, var$5, oi->getReturnType());
+		return $new($MBeanOperationInfo, var$4, description, signature, var$5, impact, $(oi->getDescriptor()));
 	}
 }
 
 $MBeanAttributeInfo* StandardMBean::customize($MBeanAttributeInfo* ai, $String* description) {
 	$init(StandardMBean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (equal(description, $($nc(ai)->getDescription()))) {
 		return ai;
 	}
 	if ($instanceOf($OpenMBeanAttributeInfo, ai)) {
 		$var($OpenMBeanAttributeInfo, oai, $cast($OpenMBeanAttributeInfo, ai));
-		$var($String, var$0, $nc(ai)->getName());
-		$var($String, var$1, description);
-		$var($OpenType, var$2, $nc(oai)->getOpenType());
-		bool var$3 = ai->isReadable();
-		bool var$4 = ai->isWritable();
-		bool var$5 = ai->isIs();
-		return $new($OpenMBeanAttributeInfoSupport, var$0, var$1, var$2, var$3, var$4, var$5, $(ai->getDescriptor()));
+		$var($String, var$0, ai->getName());
+		$var($OpenType, var$1, oai->getOpenType());
+		bool var$2 = ai->isReadable();
+		bool var$3 = ai->isWritable();
+		bool var$4 = ai->isIs();
+		return $new($OpenMBeanAttributeInfoSupport, var$0, description, var$1, var$2, var$3, var$4, $(ai->getDescriptor()));
 	} else {
-		$var($String, var$6, $nc(ai)->getName());
-		$var($String, var$7, ai->getType());
-		$var($String, var$8, description);
-		bool var$9 = ai->isReadable();
-		bool var$10 = ai->isWritable();
-		bool var$11 = ai->isIs();
-		return $new($MBeanAttributeInfo, var$6, var$7, var$8, var$9, var$10, var$11, $(ai->getDescriptor()));
+		$var($String, var$5, ai->getName());
+		$var($String, var$6, ai->getType());
+		bool var$7 = ai->isReadable();
+		bool var$8 = ai->isWritable();
+		bool var$9 = ai->isIs();
+		return $new($MBeanAttributeInfo, var$5, var$6, description, var$7, var$8, var$9, $(ai->getDescriptor()));
 	}
 }
 
 $OpenMBeanParameterInfoArray* StandardMBean::paramsToOpenParams($MBeanParameterInfoArray* params) {
 	$init(StandardMBean);
 	if ($instanceOf($OpenMBeanParameterInfoArray, params)) {
-		return $fcast($OpenMBeanParameterInfoArray, params);
+		return $cast($OpenMBeanParameterInfoArray, params);
 	}
-	$var($OpenMBeanParameterInfoArray, oparams, $fcast($OpenMBeanParameterInfoArray, $new($OpenMBeanParameterInfoSupportArray, $nc(params)->length)));
+	$var($OpenMBeanParameterInfoArray, oparams, $cast($OpenMBeanParameterInfoArray, $new($OpenMBeanParameterInfoSupportArray, $nc(params)->length)));
 	$System::arraycopy(params, 0, oparams, 0, params->length);
 	return oparams;
 }
 
 $MBeanConstructorInfoArray* StandardMBean::getConstructors($MBeanInfo* info, Object$* impl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MBeanConstructorInfoArray, ctors, getConstructors($($nc(info)->getConstructors()), impl));
 	if (ctors == nullptr) {
 		return nullptr;
@@ -630,9 +517,8 @@ $MBeanConstructorInfoArray* StandardMBean::getConstructors($MBeanInfo* info, Obj
 			$assign(nps, $new($MBeanParameterInfoArray, plen));
 			for (int32_t ii = 0; ii < plen; ++ii) {
 				$var($MBeanParameterInfo, p, params->get(ii));
-				$var($MBeanParameterInfo, var$0, p);
-				$var($String, var$1, getParameterName(c, p, ii));
-				nps->set(ii, $(customize(var$0, var$1, $(getDescription(c, p, ii)))));
+				$var($String, var$0, getParameterName(c, p, ii));
+				nps->set(ii, $(customize(p, var$0, $(getDescription(c, p, ii)))));
 			}
 		} else {
 			$assign(nps, nullptr);
@@ -643,7 +529,7 @@ $MBeanConstructorInfoArray* StandardMBean::getConstructors($MBeanInfo* info, Obj
 }
 
 $MBeanOperationInfoArray* StandardMBean::getOperations($MBeanInfo* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MBeanOperationInfoArray, ops, $nc(info)->getOperations());
 	if (ops == nullptr) {
 		return nullptr;
@@ -659,23 +545,20 @@ $MBeanOperationInfoArray* StandardMBean::getOperations($MBeanInfo* info) {
 			$assign(nps, $new($MBeanParameterInfoArray, plen));
 			for (int32_t ii = 0; ii < plen; ++ii) {
 				$var($MBeanParameterInfo, p, params->get(ii));
-				$var($MBeanParameterInfo, var$0, p);
-				$var($String, var$1, getParameterName(o, p, ii));
-				nps->set(ii, $(customize(var$0, var$1, $(getDescription(o, p, ii)))));
+				$var($String, var$0, getParameterName(o, p, ii));
+				nps->set(ii, $(customize(p, var$0, $(getDescription(o, p, ii)))));
 			}
 		} else {
 			$assign(nps, nullptr);
 		}
-		$var($MBeanOperationInfo, var$2, o);
-		$var($String, var$3, getDescription(o));
-		$var($MBeanParameterInfoArray, var$4, nps);
-		nops->set(i, $(customize(var$2, var$3, var$4, getImpact(o))));
+		$var($String, var$1, getDescription(o));
+		nops->set(i, $(customize(o, var$1, nps, getImpact(o))));
 	}
 	return nops;
 }
 
 $MBeanAttributeInfoArray* StandardMBean::getAttributes($MBeanInfo* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MBeanAttributeInfoArray, atts, $nc(info)->getAttributes());
 	if (atts == nullptr) {
 		return nullptr;
@@ -710,22 +593,22 @@ void StandardMBean::postDeregister() {
 
 bool StandardMBean::immutableInfo($Class* subclass) {
 	$init(StandardMBean);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($StandardEmitterMBean);
 	if (subclass == StandardMBean::class$ || subclass == $StandardEmitterMBean::class$) {
 		return true;
 	}
 	$synchronized(StandardMBean::mbeanInfoSafeMap) {
-		$var($Boolean, safe, $cast($Boolean, $nc(StandardMBean::mbeanInfoSafeMap)->get(subclass)));
+		$var($Boolean, safe, $cast($Boolean, StandardMBean::mbeanInfoSafeMap->get(subclass)));
 		if (safe == nullptr) {
 			try {
 				$var($StandardMBean$MBeanInfoSafeAction, action, $new($StandardMBean$MBeanInfoSafeAction, subclass));
-				$assign(safe, $cast($Boolean, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(action))));
+				$assign(safe, $cast($Boolean, $AccessController::doPrivileged(action)));
 			} catch ($Exception& e) {
 				$assign(safe, $Boolean::valueOf(false));
 			}
-			$nc(StandardMBean::mbeanInfoSafeMap)->put(subclass, safe);
+			StandardMBean::mbeanInfoSafeMap->put(subclass, safe);
 		}
 		return $nc(safe)->booleanValue();
 	}
@@ -734,20 +617,18 @@ bool StandardMBean::immutableInfo($Class* subclass) {
 bool StandardMBean::overrides($Class* subclass, $Class* superclass, $String* name, $ClassArray* params) {
 	$init(StandardMBean);
 	$beforeCallerSensitive();
-	{
-		$Class* c = subclass;
-		for (; c != superclass; c = $nc(c)->getSuperclass()) {
-			try {
-				c->getDeclaredMethod(name, params);
-				return true;
-			} catch ($NoSuchMethodException& e) {
-			}
+	$Class* c = subclass;
+	for (; c != superclass; c = $nc(c)->getSuperclass()) {
+		try {
+			$nc(c)->getDeclaredMethod(name, params);
+			return true;
+		} catch ($NoSuchMethodException& e) {
 		}
 	}
 	return false;
 }
 
-void clinit$StandardMBean($Class* class$) {
+void StandardMBean::clinit$($Class* clazz) {
 	$init($JMX);
 	$assignStatic(StandardMBean::descriptors, $DescriptorCache::getInstance($JMX::proof));
 	$assignStatic(StandardMBean::mbeanInfoSafeMap, $new($WeakHashMap));
@@ -757,7 +638,90 @@ StandardMBean::StandardMBean() {
 }
 
 $Class* StandardMBean::load$($String* name, bool initialize) {
-	$loadClass(StandardMBean, name, initialize, &_StandardMBean_ClassInfo_, clinit$StandardMBean, allocate$StandardMBean);
+	$FieldInfo fieldInfos$$[] = {
+		{"descriptors", "Lcom/sun/jmx/mbeanserver/DescriptorCache;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StandardMBean, descriptors)},
+		{"mbean", "Lcom/sun/jmx/mbeanserver/MBeanSupport;", "Lcom/sun/jmx/mbeanserver/MBeanSupport<*>;", $PRIVATE | $VOLATILE, $field(StandardMBean, mbean)},
+		{"cachedMBeanInfo", "Ljavax/management/MBeanInfo;", nullptr, $PRIVATE | $VOLATILE, $field(StandardMBean, cachedMBeanInfo)},
+		{"mbeanInfoSafeMap", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Boolean;>;", $PRIVATE | $STATIC | $FINAL, $staticField(StandardMBean, mbeanInfoSafeMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;)V", $PUBLIC, $method(StandardMBean, init$, void, Object$*, $Class*), "javax.management.NotCompliantMBeanException"},
+		{"<init>", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PROTECTED, $method(StandardMBean, init$, void, $Class*), "javax.management.NotCompliantMBeanException"},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;Z)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;Z)V", $PUBLIC, $method(StandardMBean, init$, void, Object$*, $Class*, bool)},
+		{"<init>", "(Ljava/lang/Class;Z)V", "(Ljava/lang/Class<*>;Z)V", $PROTECTED, $method(StandardMBean, init$, void, $Class*, bool)},
+		{"cacheMBeanInfo", "(Ljavax/management/MBeanInfo;)V", nullptr, $PROTECTED, $virtualMethod(StandardMBean, cacheMBeanInfo, void, $MBeanInfo*)},
+		{"construct", "(Ljava/lang/Object;Ljava/lang/Class;ZZ)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;ZZ)V", $PRIVATE, $method(StandardMBean, construct, void, Object$*, $Class*, bool, bool), "javax.management.NotCompliantMBeanException"},
+		{"customize", "(Ljavax/management/MBeanParameterInfo;Ljava/lang/String;Ljava/lang/String;)Ljavax/management/MBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, customize, $MBeanParameterInfo*, $MBeanParameterInfo*, $String*, $String*)},
+		{"customize", "(Ljavax/management/MBeanConstructorInfo;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;)Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, customize, $MBeanConstructorInfo*, $MBeanConstructorInfo*, $String*, $MBeanParameterInfoArray*)},
+		{"customize", "(Ljavax/management/MBeanOperationInfo;Ljava/lang/String;[Ljavax/management/MBeanParameterInfo;I)Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, customize, $MBeanOperationInfo*, $MBeanOperationInfo*, $String*, $MBeanParameterInfoArray*, int32_t)},
+		{"customize", "(Ljavax/management/MBeanAttributeInfo;Ljava/lang/String;)Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, customize, $MBeanAttributeInfo*, $MBeanAttributeInfo*, $String*)},
+		{"equal", "(Ljava/lang/Object;Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>(TT;TT;)Z", $PRIVATE | $STATIC, $staticMethod(StandardMBean, equal, bool, Object$*, Object$*)},
+		{"getAttribute", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, getAttribute, $Object*, $String*), "javax.management.AttributeNotFoundException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"getAttributes", "([Ljava/lang/String;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, getAttributes, $AttributeList*, $StringArray*)},
+		{"getAttributes", "(Ljavax/management/MBeanInfo;)[Ljavax/management/MBeanAttributeInfo;", nullptr, $PRIVATE, $method(StandardMBean, getAttributes, $MBeanAttributeInfoArray*, $MBeanInfo*)},
+		{"getCachedMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getCachedMBeanInfo, $MBeanInfo*)},
+		{"getClassName", "(Ljavax/management/MBeanInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getClassName, $String*, $MBeanInfo*)},
+		{"getConstructors", "([Ljavax/management/MBeanConstructorInfo;Ljava/lang/Object;)[Ljavax/management/MBeanConstructorInfo;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getConstructors, $MBeanConstructorInfoArray*, $MBeanConstructorInfoArray*, Object$*)},
+		{"getConstructors", "(Ljavax/management/MBeanInfo;Ljava/lang/Object;)[Ljavax/management/MBeanConstructorInfo;", nullptr, $PRIVATE, $method(StandardMBean, getConstructors, $MBeanConstructorInfoArray*, $MBeanInfo*, Object$*)},
+		{"getDescription", "(Ljavax/management/MBeanInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanInfo*)},
+		{"getDescription", "(Ljavax/management/MBeanFeatureInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanFeatureInfo*)},
+		{"getDescription", "(Ljavax/management/MBeanAttributeInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanAttributeInfo*)},
+		{"getDescription", "(Ljavax/management/MBeanConstructorInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanConstructorInfo*)},
+		{"getDescription", "(Ljavax/management/MBeanConstructorInfo;Ljavax/management/MBeanParameterInfo;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanConstructorInfo*, $MBeanParameterInfo*, int32_t)},
+		{"getDescription", "(Ljavax/management/MBeanOperationInfo;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanOperationInfo*)},
+		{"getDescription", "(Ljavax/management/MBeanOperationInfo;Ljavax/management/MBeanParameterInfo;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getDescription, $String*, $MBeanOperationInfo*, $MBeanParameterInfo*, int32_t)},
+		{"getDescriptor", "(Ljavax/management/MBeanInfo;Z)Ljavax/management/Descriptor;", nullptr, 0, $virtualMethod(StandardMBean, getDescriptor, $Descriptor*, $MBeanInfo*, bool)},
+		{"getImpact", "(Ljavax/management/MBeanOperationInfo;)I", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getImpact, int32_t, $MBeanOperationInfo*)},
+		{"getImplementation", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, getImplementation, $Object*)},
+		{"getImplementationClass", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC, $virtualMethod(StandardMBean, getImplementationClass, $Class*)},
+		{"getMBeanInfo", "()Ljavax/management/MBeanInfo;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, getMBeanInfo, $MBeanInfo*)},
+		{"getMBeanInterface", "()Ljava/lang/Class;", "()Ljava/lang/Class<*>;", $PUBLIC | $FINAL, $method(StandardMBean, getMBeanInterface, $Class*)},
+		{"getNotifications", "(Ljavax/management/MBeanInfo;)[Ljavax/management/MBeanNotificationInfo;", nullptr, 0, $virtualMethod(StandardMBean, getNotifications, $MBeanNotificationInfoArray*, $MBeanInfo*)},
+		{"getOperations", "(Ljavax/management/MBeanInfo;)[Ljavax/management/MBeanOperationInfo;", nullptr, $PRIVATE, $method(StandardMBean, getOperations, $MBeanOperationInfoArray*, $MBeanInfo*)},
+		{"getParameterName", "(Ljavax/management/MBeanConstructorInfo;Ljavax/management/MBeanParameterInfo;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getParameterName, $String*, $MBeanConstructorInfo*, $MBeanParameterInfo*, int32_t)},
+		{"getParameterName", "(Ljavax/management/MBeanOperationInfo;Ljavax/management/MBeanParameterInfo;I)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(StandardMBean, getParameterName, $String*, $MBeanOperationInfo*, $MBeanParameterInfo*, int32_t)},
+		{"identicalArrays", "([Ljava/lang/Object;[Ljava/lang/Object;)Z", "<T:Ljava/lang/Object;>([TT;[TT;)Z", $PRIVATE | $STATIC, $staticMethod(StandardMBean, identicalArrays, bool, $ObjectArray*, $ObjectArray*)},
+		{"immutableInfo", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<+Ljavax/management/StandardMBean;>;)Z", $STATIC, $staticMethod(StandardMBean, immutableInfo, bool, $Class*)},
+		{"invoke", "(Ljava/lang/String;[Ljava/lang/Object;[Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, invoke, $Object*, $String*, $ObjectArray*, $StringArray*), "javax.management.MBeanException,javax.management.ReflectionException"},
+		{"isMXBean", "()Z", nullptr, $PRIVATE, $method(StandardMBean, isMXBean, bool)},
+		{"overrides", "(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;Ljava/lang/Class<*>;Ljava/lang/String;[Ljava/lang/Class<*>;)Z", $STATIC | $TRANSIENT, $staticMethod(StandardMBean, overrides, bool, $Class*, $Class*, $String*, $ClassArray*)},
+		{"paramsToOpenParams", "([Ljavax/management/MBeanParameterInfo;)[Ljavax/management/openmbean/OpenMBeanParameterInfo;", nullptr, $PRIVATE | $STATIC, $staticMethod(StandardMBean, paramsToOpenParams, $OpenMBeanParameterInfoArray*, $MBeanParameterInfoArray*)},
+		{"postDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, postDeregister, void)},
+		{"postRegister", "(Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, postRegister, void, $Boolean*)},
+		{"preDeregister", "()V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, preDeregister, void), "java.lang.Exception"},
+		{"preRegister", "(Ljavax/management/MBeanServer;Ljavax/management/ObjectName;)Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, preRegister, $ObjectName*, $MBeanServer*, $ObjectName*), "java.lang.Exception"},
+		{"setAttribute", "(Ljavax/management/Attribute;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, setAttribute, void, $Attribute*), "javax.management.AttributeNotFoundException,javax.management.InvalidAttributeValueException,javax.management.MBeanException,javax.management.ReflectionException"},
+		{"setAttributes", "(Ljavax/management/AttributeList;)Ljavax/management/AttributeList;", nullptr, $PUBLIC, $virtualMethod(StandardMBean, setAttributes, $AttributeList*, $AttributeList*)},
+		{"setImplementation", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StandardMBean, setImplementation, void, Object$*), "javax.management.NotCompliantMBeanException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.StandardMBean$MBeanInfoSafeAction", "javax.management.StandardMBean", "MBeanInfoSafeAction", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.StandardMBean",
+		"java.lang.Object",
+		"javax.management.DynamicMBean,javax.management.MBeanRegistration",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.management.StandardMBean$MBeanInfoSafeAction"
+	};
+	$loadClass(StandardMBean, name, initialize, &classInfo$$, StandardMBean::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardMBean));
+	});
 	return class$;
 }
 

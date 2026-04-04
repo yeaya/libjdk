@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RedirectFilter$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <java/net/http/HttpClient$Redirect.h>
 #include <java/net/http/HttpClient.h>
@@ -22,57 +21,21 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _RedirectFilter$1_FieldInfo_[] = {
-	{"$SwitchMap$java$net$http$HttpClient$Redirect", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RedirectFilter$1, $SwitchMap$java$net$http$HttpClient$Redirect)},
-	{}
-};
-
-$EnclosingMethodInfo _RedirectFilter$1_EnclosingMethodInfo_ = {
-	"jdk.internal.net.http.RedirectFilter",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _RedirectFilter$1_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RedirectFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _RedirectFilter$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"jdk.internal.net.http.RedirectFilter$1",
-	"java.lang.Object",
-	nullptr,
-	_RedirectFilter$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_RedirectFilter$1_EnclosingMethodInfo_,
-	_RedirectFilter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RedirectFilter"
-};
-
-$Object* allocate$RedirectFilter$1($Class* clazz) {
-	return $of($alloc(RedirectFilter$1));
-}
-
 $ints* RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect = nullptr;
 
-void clinit$RedirectFilter$1($Class* class$) {
+void RedirectFilter$1::clinit$($Class* clazz) {
 	$assignStatic(RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect, $new($ints, $($HttpClient$Redirect::values())->length));
 	{
 		try {
-			$nc(RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect)->set($HttpClient$Redirect::ALWAYS->ordinal(), 1);
+			RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect->set($HttpClient$Redirect::ALWAYS->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect)->set($HttpClient$Redirect::NEVER->ordinal(), 2);
+			RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect->set($HttpClient$Redirect::NEVER->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect)->set($HttpClient$Redirect::NORMAL->ordinal(), 3);
+			RedirectFilter$1::$SwitchMap$java$net$http$HttpClient$Redirect->set($HttpClient$Redirect::NORMAL->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -82,7 +45,37 @@ RedirectFilter$1::RedirectFilter$1() {
 }
 
 $Class* RedirectFilter$1::load$($String* name, bool initialize) {
-	$loadClass(RedirectFilter$1, name, initialize, &_RedirectFilter$1_ClassInfo_, clinit$RedirectFilter$1, allocate$RedirectFilter$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$java$net$http$HttpClient$Redirect", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RedirectFilter$1, $SwitchMap$java$net$http$HttpClient$Redirect)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"jdk.internal.net.http.RedirectFilter",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RedirectFilter$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"jdk.internal.net.http.RedirectFilter$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RedirectFilter"
+	};
+	$loadClass(RedirectFilter$1, name, initialize, &classInfo$$, RedirectFilter$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RedirectFilter$1);
+	});
 	return class$;
 }
 

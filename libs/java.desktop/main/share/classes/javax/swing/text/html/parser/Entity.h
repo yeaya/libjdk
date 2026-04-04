@@ -22,6 +22,7 @@ class $export Entity : public ::javax::swing::text::html::parser::DTDConstants {
 	$class(Entity, 0, ::javax::swing::text::html::parser::DTDConstants)
 public:
 	Entity();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, int32_t type, $chars* data);
 	$chars* getData();
 	$String* getName();

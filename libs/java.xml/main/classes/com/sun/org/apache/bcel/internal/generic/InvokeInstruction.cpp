@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantCP.h>
@@ -36,43 +35,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$CompoundAttribute _InvokeInstruction_MethodAnnotations_getClassName4[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$MethodInfo _InvokeInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(InvokeInstruction, init$, void)},
-	{"<init>", "(SI)V", nullptr, $PROTECTED, $method(InvokeInstruction, init$, void, int16_t, int32_t)},
-	{"consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, consumeStack, int32_t, $ConstantPoolGen*)},
-	{"getArgumentTypes", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, getArgumentTypes, $TypeArray*, $ConstantPoolGen*)},
-	{"getClassName", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InvokeInstruction, getClassName, $String*, $ConstantPoolGen*), nullptr, nullptr, _InvokeInstruction_MethodAnnotations_getClassName4},
-	{"getMethodName", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, getMethodName, $String*, $ConstantPoolGen*)},
-	{"getReturnType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, getReturnType, $Type*, $ConstantPoolGen*)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{"produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, produceStack, int32_t, $ConstantPoolGen*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, toString, $String*, $ConstantPool*)},
-	{}
-};
-
-$ClassInfo _InvokeInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.InvokeInstruction",
-	"com.sun.org.apache.bcel.internal.generic.FieldOrMethod",
-	"com.sun.org.apache.bcel.internal.generic.ExceptionThrower,com.sun.org.apache.bcel.internal.generic.StackConsumer,com.sun.org.apache.bcel.internal.generic.StackProducer",
-	nullptr,
-	_InvokeInstruction_MethodInfo_
-};
-
-$Object* allocate$InvokeInstruction($Class* clazz) {
-	return $of($alloc(InvokeInstruction));
-}
-
 $String* InvokeInstruction::toString() {
 	 return this->$FieldOrMethod::toString();
 }
@@ -102,14 +64,14 @@ void InvokeInstruction::init$(int16_t opcode, int32_t index) {
 }
 
 $String* InvokeInstruction::toString($ConstantPool* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Constant, c, $nc(cp)->getConstant($FieldOrMethod::getIndex()));
 	$var($StringTokenizer, tok, $new($StringTokenizer, $(cp->constantToString(c))));
 	$var($String, opcodeName, $Const::getOpcodeName($FieldOrMethod::getOpcode()));
 	$var($StringBuilder, sb, $new($StringBuilder, opcodeName));
 	if (tok->hasMoreTokens()) {
 		sb->append(" "_s);
-		sb->append($($nc($(tok->nextToken()))->replace(u'.', u'/')));
+		sb->append($($$nc(tok->nextToken())->replace(u'.', u'/')));
 		if (tok->hasMoreTokens()) {
 			sb->append($(tok->nextToken()));
 		}
@@ -119,7 +81,7 @@ $String* InvokeInstruction::toString($ConstantPool* cp) {
 
 int32_t InvokeInstruction::consumeStack($ConstantPoolGen* cpg) {
 	int32_t sum = 0;
-	bool var$0 = ($FieldOrMethod::getOpcode() == $Const::INVOKESTATIC);
+	bool var$0 = $FieldOrMethod::getOpcode() == $Const::INVOKESTATIC;
 	if (var$0 || ($FieldOrMethod::getOpcode() == $Const::INVOKEDYNAMIC)) {
 		sum = 0;
 	} else {
@@ -136,7 +98,7 @@ int32_t InvokeInstruction::produceStack($ConstantPoolGen* cpg) {
 }
 
 $String* InvokeInstruction::getClassName($ConstantPoolGen* cpg) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPool, cp, $nc(cpg)->getConstantPool());
 	$var($ConstantCP, cmr, $cast($ConstantCP, $nc(cp)->getConstant($FieldOrMethod::getIndex())));
 	$var($String, className, cp->getConstantString($nc(cmr)->getClassIndex(), $Const::CONSTANT_Class));
@@ -163,7 +125,39 @@ InvokeInstruction::InvokeInstruction() {
 }
 
 $Class* InvokeInstruction::load$($String* name, bool initialize) {
-	$loadClass(InvokeInstruction, name, initialize, &_InvokeInstruction_ClassInfo_, allocate$InvokeInstruction);
+	$CompoundAttribute getClassNamemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(InvokeInstruction, init$, void)},
+		{"<init>", "(SI)V", nullptr, $PROTECTED, $method(InvokeInstruction, init$, void, int16_t, int32_t)},
+		{"consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, consumeStack, int32_t, $ConstantPoolGen*)},
+		{"getArgumentTypes", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, getArgumentTypes, $TypeArray*, $ConstantPoolGen*)},
+		{"getClassName", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Ljava/lang/String;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(InvokeInstruction, getClassName, $String*, $ConstantPoolGen*), nullptr, nullptr, getClassNamemethodAnnotations$$},
+		{"getMethodName", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, getMethodName, $String*, $ConstantPoolGen*)},
+		{"getReturnType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, getReturnType, $Type*, $ConstantPoolGen*)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{"produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, produceStack, int32_t, $ConstantPoolGen*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"toString", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(InvokeInstruction, toString, $String*, $ConstantPool*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.InvokeInstruction",
+		"com.sun.org.apache.bcel.internal.generic.FieldOrMethod",
+		"com.sun.org.apache.bcel.internal.generic.ExceptionThrower,com.sun.org.apache.bcel.internal.generic.StackConsumer,com.sun.org.apache.bcel.internal.generic.StackProducer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(InvokeInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InvokeInstruction));
+	});
 	return class$;
 }
 

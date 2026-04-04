@@ -38,6 +38,7 @@ class $export ArrayType : public ::javax::management::openmbean::OpenType {
 	$class(ArrayType, 0, ::javax::management::openmbean::OpenType)
 public:
 	ArrayType();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t dimension, ::javax::management::openmbean::OpenType* elementType);
 	void init$(::javax::management::openmbean::SimpleType* elementType, bool primitiveArray);
 	void init$($String* className, $String* typeName, $String* description, int32_t dimension, ::javax::management::openmbean::OpenType* elementType, bool primitiveArray);
@@ -64,7 +65,7 @@ public:
 	$Object* readResolve();
 	virtual $String* toString() override;
 	$Object* writeReplace();
-	static const int64_t serialVersionUID = (int64_t)0x09FFBEF62721878A;
+	static const int64_t serialVersionUID = (int64_t)0x09ffbef62721878a;
 	int32_t dimension = 0;
 	::javax::management::openmbean::OpenType* elementType = nullptr;
 	bool primitiveArray = false;

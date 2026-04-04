@@ -55,6 +55,7 @@ class LdapNamingEnumeration : public ::com::sun::jndi::ldap::AbstractLdapNamingE
 	$class(LdapNamingEnumeration, 0, ::com::sun::jndi::ldap::AbstractLdapNamingEnumeration)
 public:
 	LdapNamingEnumeration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::jndi::ldap::LdapCtx* homeCtx, ::com::sun::jndi::ldap::LdapResult* answer, ::javax::naming::Name* listArg, ::com::sun::jndi::toolkit::ctx::Continuation* cont);
 	virtual ::javax::naming::NameClassPair* createItem($String* dn, ::javax::naming::directory::Attributes* attrs, ::java::util::Vector* respCtls) override;
 	virtual ::com::sun::jndi::ldap::AbstractLdapNamingEnumeration* getReferredResults(::com::sun::jndi::ldap::LdapReferralContext* refCtx) override;

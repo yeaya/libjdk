@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/XColors$XColor.h>
-
 #include <com/sun/java/swing/plaf/gtk/XColors.h>
 #include <java/awt/Color.h>
 #include <javax/swing/plaf/ColorUIResource.h>
@@ -18,47 +17,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _XColors$XColor_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(XColors$XColor, name)},
-	{"red", "I", nullptr, 0, $field(XColors$XColor, red)},
-	{"green", "I", nullptr, 0, $field(XColors$XColor, green)},
-	{"blue", "I", nullptr, 0, $field(XColors$XColor, blue)},
-	{}
-};
-
-$MethodInfo _XColors$XColor_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;III)V", nullptr, 0, $method(XColors$XColor, init$, void, $String*, int32_t, int32_t, int32_t)},
-	{"compareTo", "(Lcom/sun/java/swing/plaf/gtk/XColors$XColor;)I", nullptr, $PUBLIC, $virtualMethod(XColors$XColor, compareTo, int32_t, XColors$XColor*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColors$XColor, compareTo, int32_t, Object$*)},
-	{"toColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XColors$XColor, toColor, $Color*)},
-	{}
-};
-
-$InnerClassInfo _XColors$XColor_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.XColors$XColor", "com.sun.java.swing.plaf.gtk.XColors", "XColor", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XColors$XColor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.XColors$XColor",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_XColors$XColor_FieldInfo_,
-	_XColors$XColor_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lcom/sun/java/swing/plaf/gtk/XColors$XColor;>;",
-	nullptr,
-	_XColors$XColor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.XColors"
-};
-
-$Object* allocate$XColors$XColor($Class* clazz) {
-	return $of($alloc(XColors$XColor));
-}
 
 void XColors$XColor::init$($String* name, int32_t red, int32_t green, int32_t blue) {
 	$set(this, name, name);
@@ -83,7 +41,42 @@ XColors$XColor::XColors$XColor() {
 }
 
 $Class* XColors$XColor::load$($String* name, bool initialize) {
-	$loadClass(XColors$XColor, name, initialize, &_XColors$XColor_ClassInfo_, allocate$XColors$XColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(XColors$XColor, name)},
+		{"red", "I", nullptr, 0, $field(XColors$XColor, red)},
+		{"green", "I", nullptr, 0, $field(XColors$XColor, green)},
+		{"blue", "I", nullptr, 0, $field(XColors$XColor, blue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;III)V", nullptr, 0, $method(XColors$XColor, init$, void, $String*, int32_t, int32_t, int32_t)},
+		{"compareTo", "(Lcom/sun/java/swing/plaf/gtk/XColors$XColor;)I", nullptr, $PUBLIC, $virtualMethod(XColors$XColor, compareTo, int32_t, XColors$XColor*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColors$XColor, compareTo, int32_t, Object$*)},
+		{"toColor", "()Ljava/awt/Color;", nullptr, 0, $virtualMethod(XColors$XColor, toColor, $Color*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.XColors$XColor", "com.sun.java.swing.plaf.gtk.XColors", "XColor", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.XColors$XColor",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lcom/sun/java/swing/plaf/gtk/XColors$XColor;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.XColors"
+	};
+	$loadClass(XColors$XColor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XColors$XColor);
+	});
 	return class$;
 }
 

@@ -17,6 +17,7 @@ class $export Test6593649 : public ::java::lang::Object {
 	$class(Test6593649, 0, ::java::lang::Object)
 public:
 	Test6593649();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::javax::swing::JFrame* frame;

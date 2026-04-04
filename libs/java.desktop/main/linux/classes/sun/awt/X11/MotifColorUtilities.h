@@ -22,6 +22,7 @@ class MotifColorUtilities : public ::java::lang::Object {
 	$class(MotifColorUtilities, 0, ::java::lang::Object)
 public:
 	MotifColorUtilities();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t brightness(int32_t red, int32_t green, int32_t blue);
 	static int32_t calculateBottomShadowFromBackground(int32_t r, int32_t g, int32_t b);
@@ -39,15 +40,15 @@ public:
 	static const int32_t XmINTENSITY_FACTOR = 75;
 	static const int32_t XmLIGHT_FACTOR = 0;
 	static const int32_t XmLUMINOSITY_FACTOR = 25;
-	static const int32_t XmMAX_SHORT = 0x0000FFFF;
+	static const int32_t XmMAX_SHORT = 0x0000ffff;
 	static const int32_t XmCOLOR_PERCENTILE = 655; // (XmMAX_SHORT / 100)
 	static const int32_t XmDEFAULT_DARK_THRESHOLD = 20;
 	static const int32_t XmDEFAULT_LIGHT_THRESHOLD = 93;
 	static const int32_t XmDEFAULT_FOREGROUND_THRESHOLD = 70;
-	static const int32_t BLACK = 0xFF000000;
+	static const int32_t BLACK = 0xff000000;
 	static const int32_t WHITE = (-1);
-	static const int32_t MOTIF_WINDOW_COLOR = 0xFFDFDFDF;
-	static const int32_t DEFAULT_COLOR = 0xFFC4C4C4;
+	static const int32_t MOTIF_WINDOW_COLOR = 0xffdfdfdf;
+	static const int32_t DEFAULT_COLOR = 0xffc4c4c4;
 	static const int32_t XmCOLOR_LITE_THRESHOLD = 60915; // XmDEFAULT_LIGHT_THRESHOLD * XmCOLOR_PERCENTILE
 	static const int32_t XmCOLOR_DARK_THRESHOLD = 13100; // XmDEFAULT_DARK_THRESHOLD * XmCOLOR_PERCENTILE
 	static const int32_t XmFOREGROUND_THRESHOLD = 45850; // XmDEFAULT_FOREGROUND_THRESHOLD * XmCOLOR_PERCENTILE

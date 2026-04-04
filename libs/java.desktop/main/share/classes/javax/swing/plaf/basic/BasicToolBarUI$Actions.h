@@ -31,6 +31,7 @@ class BasicToolBarUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicToolBarUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicToolBarUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual void actionPerformed(::java::awt::event::ActionEvent* evt) override;
 	static $String* NAVIGATE_RIGHT;

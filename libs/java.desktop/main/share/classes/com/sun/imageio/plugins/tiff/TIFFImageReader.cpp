@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFImageReader.h>
-
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
 #include <com/sun/imageio/plugins/tiff/TIFFCIELabColorConverter.h>
 #include <com/sun/imageio/plugins/tiff/TIFFColorConverter.h>
@@ -120,7 +119,6 @@ using $TIFFColorConverter = ::com::sun::imageio::plugins::tiff::TIFFColorConvert
 using $TIFFDecompressor = ::com::sun::imageio::plugins::tiff::TIFFDecompressor;
 using $TIFFDeflateDecompressor = ::com::sun::imageio::plugins::tiff::TIFFDeflateDecompressor;
 using $TIFFFaxDecompressor = ::com::sun::imageio::plugins::tiff::TIFFFaxDecompressor;
-using $TIFFIFD = ::com::sun::imageio::plugins::tiff::TIFFIFD;
 using $TIFFImageMetadata = ::com::sun::imageio::plugins::tiff::TIFFImageMetadata;
 using $TIFFImageWriter = ::com::sun::imageio::plugins::tiff::TIFFImageWriter;
 using $TIFFJPEGDecompressor = ::com::sun::imageio::plugins::tiff::TIFFJPEGDecompressor;
@@ -144,7 +142,6 @@ using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $SampleModel = ::java::awt::image::SampleModel;
-using $WritableRaster = ::java::awt::image::WritableRaster;
 using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -182,113 +179,6 @@ namespace com {
 		namespace imageio {
 			namespace plugins {
 				namespace tiff {
-
-$FieldInfo _TIFFImageReader_FieldInfo_[] = {
-	{"SAMPLES_PER_PIXEL_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFImageReader, SAMPLES_PER_PIXEL_MAX)},
-	{"BITS_PER_SAMPLE_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFImageReader, BITS_PER_SAMPLE_MAX)},
-	{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PRIVATE, $field(TIFFImageReader, stream)},
-	{"gotHeader", "Z", nullptr, $PRIVATE, $field(TIFFImageReader, gotHeader)},
-	{"imageReadParam", "Ljavax/imageio/ImageReadParam;", nullptr, $PRIVATE, $field(TIFFImageReader, imageReadParam)},
-	{"streamMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFStreamMetadata;", nullptr, $PRIVATE, $field(TIFFImageReader, streamMetadata)},
-	{"currIndex", "I", nullptr, $PRIVATE, $field(TIFFImageReader, currIndex)},
-	{"imageMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $field(TIFFImageReader, imageMetadata)},
-	{"imageStartPosition", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Long;>;", $PRIVATE, $field(TIFFImageReader, imageStartPosition)},
-	{"numImages", "I", nullptr, $PRIVATE, $field(TIFFImageReader, numImages)},
-	{"imageTypeMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Integer;Ljava/util/List<Ljavax/imageio/ImageTypeSpecifier;>;>;", $PRIVATE, $field(TIFFImageReader, imageTypeMap)},
-	{"theImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(TIFFImageReader, theImage)},
-	{"width", "I", nullptr, $PRIVATE, $field(TIFFImageReader, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(TIFFImageReader, height)},
-	{"numBands", "I", nullptr, $PRIVATE, $field(TIFFImageReader, numBands)},
-	{"tileOrStripWidth", "I", nullptr, $PRIVATE, $field(TIFFImageReader, tileOrStripWidth)},
-	{"tileOrStripHeight", "I", nullptr, $PRIVATE, $field(TIFFImageReader, tileOrStripHeight)},
-	{"planarConfiguration", "I", nullptr, $PRIVATE, $field(TIFFImageReader, planarConfiguration)},
-	{"compression", "I", nullptr, $PRIVATE, $field(TIFFImageReader, compression)},
-	{"photometricInterpretation", "I", nullptr, $PRIVATE, $field(TIFFImageReader, photometricInterpretation)},
-	{"samplesPerPixel", "I", nullptr, $PRIVATE, $field(TIFFImageReader, samplesPerPixel)},
-	{"sampleFormat", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, sampleFormat)},
-	{"bitsPerSample", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, bitsPerSample)},
-	{"extraSamples", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, extraSamples)},
-	{"colorMap", "[C", nullptr, $PRIVATE, $field(TIFFImageReader, colorMap)},
-	{"sourceXOffset", "I", nullptr, $PRIVATE, $field(TIFFImageReader, sourceXOffset)},
-	{"sourceYOffset", "I", nullptr, $PRIVATE, $field(TIFFImageReader, sourceYOffset)},
-	{"srcXSubsampling", "I", nullptr, $PRIVATE, $field(TIFFImageReader, srcXSubsampling)},
-	{"srcYSubsampling", "I", nullptr, $PRIVATE, $field(TIFFImageReader, srcYSubsampling)},
-	{"dstWidth", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstWidth)},
-	{"dstHeight", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstHeight)},
-	{"dstMinX", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstMinX)},
-	{"dstMinY", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstMinY)},
-	{"dstXOffset", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstXOffset)},
-	{"dstYOffset", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstYOffset)},
-	{"tilesAcross", "I", nullptr, $PRIVATE, $field(TIFFImageReader, tilesAcross)},
-	{"tilesDown", "I", nullptr, $PRIVATE, $field(TIFFImageReader, tilesDown)},
-	{"pixelsRead", "I", nullptr, $PRIVATE, $field(TIFFImageReader, pixelsRead)},
-	{"pixelsToRead", "I", nullptr, $PRIVATE, $field(TIFFImageReader, pixelsToRead)},
-	{"sourceBands", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, sourceBands)},
-	{"destinationBands", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, destinationBands)},
-	{"decompressor", "Lcom/sun/imageio/plugins/tiff/TIFFDecompressor;", nullptr, $PRIVATE, $field(TIFFImageReader, decompressor)},
-	{}
-};
-
-$MethodInfo _TIFFImageReader_MethodInfo_[] = {
-	{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(TIFFImageReader, init$, void, $ImageReaderSpi*)},
-	{"canReadRaster", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, canReadRaster, bool)},
-	{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(TIFFImageReader, checkIndex, void, int32_t)},
-	{"decodeTile", "(III)V", nullptr, $PRIVATE, $method(TIFFImageReader, decodeTile, void, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"forwardWarningMessage", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TIFFImageReader, forwardWarningMessage, void, $String*)},
-	{"getCompression", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getCompression, int32_t)},
-	{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getDefaultReadParam, $ImageReadParam*)},
-	{"getHeight", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getHeight, int32_t)},
-	{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getHeight, int32_t, int32_t), "java.io.IOException"},
-	{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getImageMetadata, $IIOMetadata*, int32_t), "javax.imageio.IIOException"},
-	{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(TIFFImageReader, getImageTypes, $Iterator*, int32_t), "javax.imageio.IIOException"},
-	{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getNumImages, int32_t, bool), "java.io.IOException"},
-	{"getNumThumbnails", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getNumThumbnails, int32_t, int32_t), "java.io.IOException"},
-	{"getPlanarConfiguration", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getPlanarConfiguration, int32_t)},
-	{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getStreamMetadata, $IIOMetadata*), "javax.imageio.IIOException"},
-	{"getStreamMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getStreamMetadata, $IIOMetadata*, int32_t), "javax.imageio.IIOException"},
-	{"getTileHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getTileHeight, int32_t, int32_t), "java.io.IOException"},
-	{"getTileOrStripByteCount", "(I)J", nullptr, $PRIVATE, $method(TIFFImageReader, getTileOrStripByteCount, int64_t, int32_t), "java.io.IOException"},
-	{"getTileOrStripHeight", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getTileOrStripHeight, int32_t)},
-	{"getTileOrStripOffset", "(I)J", nullptr, $PRIVATE, $method(TIFFImageReader, getTileOrStripOffset, int64_t, int32_t), "javax.imageio.IIOException"},
-	{"getTileOrStripWidth", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getTileOrStripWidth, int32_t)},
-	{"getTileWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getTileWidth, int32_t, int32_t), "java.io.IOException"},
-	{"getWidth", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getWidth, int32_t)},
-	{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getWidth, int32_t, int32_t), "java.io.IOException"},
-	{"hasThumbnails", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, hasThumbnails, bool, int32_t)},
-	{"iceil", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFImageReader, iceil, int32_t, int32_t, int32_t)},
-	{"ifloor", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFImageReader, ifloor, int32_t, int32_t, int32_t)},
-	{"initializeFromMetadata", "()V", nullptr, $PRIVATE, $method(TIFFImageReader, initializeFromMetadata, void), "javax.imageio.IIOException"},
-	{"isImageTiled", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, isImageTiled, bool, int32_t), "java.io.IOException"},
-	{"isRandomAccessEasy", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, isRandomAccessEasy, bool, int32_t), "java.io.IOException"},
-	{"locateImage", "(I)I", nullptr, $PRIVATE, $method(TIFFImageReader, locateImage, int32_t, int32_t), "javax.imageio.IIOException"},
-	{"prepareRead", "(ILjavax/imageio/ImageReadParam;)V", nullptr, $PRIVATE, $method(TIFFImageReader, prepareRead, void, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"readAsRenderedImage", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, readAsRenderedImage, $RenderedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"readHeader", "()V", nullptr, $PRIVATE, $method(TIFFImageReader, readHeader, void), "javax.imageio.IIOException"},
-	{"readMetadata", "()V", nullptr, $PRIVATE, $method(TIFFImageReader, readMetadata, void), "javax.imageio.IIOException"},
-	{"readRaster", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, readRaster, $Raster*, int32_t, $ImageReadParam*), "java.io.IOException"},
-	{"readSupportsThumbnails", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, readSupportsThumbnails, bool)},
-	{"readTile", "(III)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, readTile, $BufferedImage*, int32_t, int32_t, int32_t), "java.io.IOException"},
-	{"reportProgress", "()V", nullptr, $PRIVATE, $method(TIFFImageReader, reportProgress, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, reset, void)},
-	{"resetLocal", "()V", nullptr, $PROTECTED, $virtualMethod(TIFFImageReader, resetLocal, void)},
-	{"seekToImage", "(I)V", nullptr, $PRIVATE, $method(TIFFImageReader, seekToImage, void, int32_t), "javax.imageio.IIOException"},
-	{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, setInput, void, Object$*, bool, bool)},
-	{}
-};
-
-$ClassInfo _TIFFImageReader_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFImageReader",
-	"javax.imageio.ImageReader",
-	nullptr,
-	_TIFFImageReader_FieldInfo_,
-	_TIFFImageReader_MethodInfo_
-};
-
-$Object* allocate$TIFFImageReader($Class* clazz) {
-	return $of($alloc(TIFFImageReader));
-}
 
 void TIFFImageReader::init$($ImageReaderSpi* originatingProvider) {
 	$ImageReader::init$(originatingProvider);
@@ -361,11 +251,11 @@ void TIFFImageReader::readHeader() {
 }
 
 int32_t TIFFImageReader::locateImage(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	readHeader();
 	int32_t index = $Math::min(imageIndex, $nc(this->imageStartPosition)->size() - 1);
 	try {
-		$var($Long, l, $cast($Long, $nc(this->imageStartPosition)->get(index)));
+		$var($Long, l, $cast($Long, this->imageStartPosition->get(index)));
 		$nc(this->stream)->seek($nc(l)->longValue());
 		while (index < imageIndex) {
 			int32_t count = $nc(this->stream)->readUnsignedShort();
@@ -436,7 +326,7 @@ void TIFFImageReader::seekToImage(int32_t imageIndex) {
 }
 
 void TIFFImageReader::readMetadata() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, "Input not set!"_s);
 	}
@@ -473,7 +363,7 @@ int32_t TIFFImageReader::getHeight() {
 
 int32_t TIFFImageReader::getTileOrStripWidth() {
 	$var($TIFFField, f, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_TILE_WIDTH));
-	return (f == nullptr) ? getWidth() : $nc(f)->getAsInt(0);
+	return (f == nullptr) ? getWidth() : f->getAsInt(0);
 }
 
 int32_t TIFFImageReader::getTileOrStripHeight() {
@@ -482,12 +372,12 @@ int32_t TIFFImageReader::getTileOrStripHeight() {
 		return f->getAsInt(0);
 	}
 	$assign(f, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_ROWS_PER_STRIP));
-	int32_t h = (f == nullptr) ? -1 : $nc(f)->getAsInt(0);
+	int32_t h = (f == nullptr) ? -1 : f->getAsInt(0);
 	return (h == -1) ? getHeight() : h;
 }
 
 int32_t TIFFImageReader::getPlanarConfiguration() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFField, f, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_PLANAR_CONFIGURATION));
 	if (f != nullptr) {
 		int32_t planarConfigurationValue = f->getAsInt(0);
@@ -513,7 +403,7 @@ int32_t TIFFImageReader::getPlanarConfiguration() {
 				} else {
 					int32_t rowsPerStrip = getTileOrStripHeight();
 					int32_t stripsPerImage = $div((getHeight() + rowsPerStrip - 1), rowsPerStrip);
-					$var($longs, offsetArray, $nc(offsetField)->getAsLongs());
+					$var($longs, offsetArray, offsetField->getAsLongs());
 					if (offsetArray != nullptr && offsetArray->length == stripsPerImage) {
 						processWarningOccurred("PlanarConfiguration \"Planar\" value inconsistent with StripOffsets field value count; resetting to \"Chunky\"."_s);
 						planarConfigurationValue = $BaselineTIFFTagSet::PLANAR_CONFIGURATION_CHUNKY;
@@ -555,7 +445,7 @@ int64_t TIFFImageReader::getTileOrStripByteCount(int32_t tileIndex) {
 		processWarningOccurred("TIFF directory contains neither StripByteCounts nor TileByteCounts field: attempting to calculate from strip or tile width and height."_s);
 		int32_t bitsPerPixel = $nc(this->bitsPerSample)->get(0);
 		for (int32_t i = 1; i < this->samplesPerPixel; ++i) {
-			bitsPerPixel += $nc(this->bitsPerSample)->get(i);
+			bitsPerPixel += this->bitsPerSample->get(i);
 		}
 		int32_t bytesPerRow = (getTileOrStripWidth() * bitsPerPixel + 7) / 8;
 		tileOrStripByteCount = bytesPerRow * getTileOrStripHeight();
@@ -574,7 +464,7 @@ int32_t TIFFImageReader::getCompression() {
 	if (f == nullptr) {
 		return $BaselineTIFFTagSet::COMPRESSION_NONE;
 	} else {
-		return $nc(f)->getAsInt(0);
+		return f->getAsInt(0);
 	}
 }
 
@@ -589,14 +479,14 @@ int32_t TIFFImageReader::getHeight(int32_t imageIndex) {
 }
 
 void TIFFImageReader::initializeFromMetadata() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TIFFField, f, nullptr);
 	$assign(f, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_COMPRESSION));
 	if (f == nullptr) {
 		processWarningOccurred("Compression field is missing; assuming no compression"_s);
 		this->compression = $BaselineTIFFTagSet::COMPRESSION_NONE;
 	} else {
-		this->compression = $nc(f)->getAsInt(0);
+		this->compression = f->getAsInt(0);
 	}
 	bool isMissingDimension = false;
 	$assign(f, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_IMAGE_WIDTH));
@@ -637,10 +527,10 @@ void TIFFImageReader::initializeFromMetadata() {
 				}
 				$var($ImageTypeSpecifier, imageType, jreader->getRawImageType(0));
 				if ($nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_SAMPLES_PER_PIXEL) == nullptr) {
-					this->samplesPerPixel = imageType != nullptr ? $nc($($nc(imageType)->getSampleModel()))->getNumBands() : 3;
+					this->samplesPerPixel = imageType != nullptr ? $$nc(imageType->getSampleModel())->getNumBands() : 3;
 				}
 				$nc(this->stream)->reset();
-				defaultBitDepth = imageType != nullptr ? $nc($($nc(imageType)->getColorModel()))->getComponentSize(0) : 8;
+				defaultBitDepth = imageType != nullptr ? $$nc(imageType->getColorModel())->getComponentSize(0) : 8;
 			} catch ($IOException& e) {
 			}
 			$nc(jreader)->dispose();
@@ -671,7 +561,7 @@ void TIFFImageReader::initializeFromMetadata() {
 			this->photometricInterpretation = $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_BLACK_IS_ZERO;
 		}
 	} else {
-		this->photometricInterpretation = $nc(f)->getAsInt(0);
+		this->photometricInterpretation = f->getAsInt(0);
 	}
 	bool replicateFirst = false;
 	int32_t first = -1;
@@ -681,13 +571,13 @@ void TIFFImageReader::initializeFromMetadata() {
 	if (f == nullptr) {
 		replicateFirst = true;
 		first = $BaselineTIFFTagSet::SAMPLE_FORMAT_UNDEFINED;
-	} else if ($nc(f)->getCount() != this->samplesPerPixel) {
+	} else if (f->getCount() != this->samplesPerPixel) {
 		replicateFirst = true;
 		first = f->getAsInt(0);
 	}
 	for (int32_t i = 0; i < this->samplesPerPixel; ++i) {
 		$nc(this->sampleFormat)->set(i, replicateFirst ? first : $nc(f)->getAsInt(i));
-		if ($nc(this->sampleFormat)->get(i) != $BaselineTIFFTagSet::SAMPLE_FORMAT_UNSIGNED_INTEGER && $nc(this->sampleFormat)->get(i) != $BaselineTIFFTagSet::SAMPLE_FORMAT_SIGNED_INTEGER && $nc(this->sampleFormat)->get(i) != $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT && $nc(this->sampleFormat)->get(i) != $BaselineTIFFTagSet::SAMPLE_FORMAT_UNDEFINED) {
+		if ($nc(this->sampleFormat)->get(i) != $BaselineTIFFTagSet::SAMPLE_FORMAT_UNSIGNED_INTEGER && this->sampleFormat->get(i) != $BaselineTIFFTagSet::SAMPLE_FORMAT_SIGNED_INTEGER && this->sampleFormat->get(i) != $BaselineTIFFTagSet::SAMPLE_FORMAT_FLOATING_POINT && this->sampleFormat->get(i) != $BaselineTIFFTagSet::SAMPLE_FORMAT_UNDEFINED) {
 			processWarningOccurred("Illegal value for SAMPLE_FORMAT, assuming SAMPLE_FORMAT_UNDEFINED"_s);
 			$nc(this->sampleFormat)->set(i, $BaselineTIFFTagSet::SAMPLE_FORMAT_UNDEFINED);
 		}
@@ -698,14 +588,14 @@ void TIFFImageReader::initializeFromMetadata() {
 	if (f == nullptr) {
 		replicateFirst = true;
 		first = defaultBitDepth;
-	} else if ($nc(f)->getCount() != this->samplesPerPixel) {
+	} else if (f->getCount() != this->samplesPerPixel) {
 		replicateFirst = true;
 		first = f->getAsInt(0);
 	}
 	for (int32_t i = 0; i < this->samplesPerPixel; ++i) {
 		$nc(this->bitsPerSample)->set(i, replicateFirst ? first : $nc(f)->getAsInt(i));
 		if ($nc(this->bitsPerSample)->get(i) > TIFFImageReader::BITS_PER_SAMPLE_MAX) {
-			$throwNew($IIOException, $$str({"Bits per sample ("_s, $$str($nc(this->bitsPerSample)->get(i)), ") greater than allowed maximum ("_s, $$str(TIFFImageReader::BITS_PER_SAMPLE_MAX), ")"_s}));
+			$throwNew($IIOException, $$str({"Bits per sample ("_s, $$str(this->bitsPerSample->get(i)), ") greater than allowed maximum ("_s, $$str(TIFFImageReader::BITS_PER_SAMPLE_MAX), ")"_s}));
 		}
 	}
 	$set(this, extraSamples, nullptr);
@@ -716,11 +606,11 @@ void TIFFImageReader::initializeFromMetadata() {
 }
 
 $Iterator* TIFFImageReader::getImageTypes(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, nullptr);
 	$var($Integer, imageIndexInteger, $Integer::valueOf(imageIndex));
 	if ($nc(this->imageTypeMap)->containsKey(imageIndexInteger)) {
-		$assign(l, $cast($List, $nc(this->imageTypeMap)->get(imageIndexInteger)));
+		$assign(l, $cast($List, this->imageTypeMap->get(imageIndexInteger)));
 	} else {
 		$assign(l, $new($ArrayList, 1));
 		seekToImage(imageIndex);
@@ -745,20 +635,14 @@ $Iterator* TIFFImageReader::getImageTypes(int32_t imageIndex) {
 				if (iccColorSpace != nullptr) {
 					switch (iccColorSpace->getType()) {
 					case $ColorSpace::TYPE_GRAY:
-						{
-							$assign(iccColorSpace, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
-							break;
-						}
+						$assign(iccColorSpace, $ColorSpace::getInstance($ColorSpace::CS_GRAY));
+						break;
 					case $ColorSpace::TYPE_RGB:
-						{
-							$assign(iccColorSpace, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-							break;
-						}
+						$assign(iccColorSpace, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+						break;
 					default:
-						{
-							$assign(iccColorSpace, csRaw);
-							break;
-						}
+						$assign(iccColorSpace, csRaw);
+						break;
 					}
 				} else {
 					$assign(iccColorSpace, csRaw);
@@ -769,20 +653,17 @@ $Iterator* TIFFImageReader::getImageTypes(int32_t imageIndex) {
 			if (numBands == numComponents || numBands == numComponents + 1) {
 				bool hasAlpha = numComponents != numBands;
 				bool isAlphaPre = hasAlpha && cmRaw->isAlphaPremultiplied();
-				$var($ColorSpace, var$0, iccColorSpace);
-				$var($ints, var$1, cmRaw->getComponentSize());
-				bool var$2 = hasAlpha;
-				bool var$3 = isAlphaPre;
-				int32_t var$4 = cmRaw->getTransparency();
-				$var($ColorModel, iccColorModel, $new($ComponentColorModel, var$0, var$1, var$2, var$3, var$4, cmRaw->getTransferType()));
+				$var($ints, var$0, cmRaw->getComponentSize());
+				int32_t var$1 = cmRaw->getTransparency();
+				$var($ColorModel, iccColorModel, $new($ComponentColorModel, iccColorSpace, var$0, hasAlpha, isAlphaPre, var$1, cmRaw->getTransferType()));
 				l->add($$new($ImageTypeSpecifier, iccColorModel, smRaw));
-				int32_t var$6 = $nc(csRaw)->getType();
-				bool var$5 = var$6 == iccColorSpace->getType();
-				if (var$5) {
-					int32_t var$7 = csRaw->getNumComponents();
-					var$5 = var$7 == iccColorSpace->getNumComponents();
+				int32_t var$3 = $nc(csRaw)->getType();
+				bool var$2 = var$3 == iccColorSpace->getType();
+				if (var$2) {
+					int32_t var$4 = csRaw->getNumComponents();
+					var$2 = var$4 == iccColorSpace->getNumComponents();
 				}
-				if (var$5) {
+				if (var$2) {
 					l->add(itsRaw);
 				}
 			} else {
@@ -797,19 +678,18 @@ $Iterator* TIFFImageReader::getImageTypes(int32_t imageIndex) {
 }
 
 $IIOMetadata* TIFFImageReader::getImageMetadata(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	seekToImage(imageIndex);
-	$var($TIFFImageMetadata, im, $new($TIFFImageMetadata, $($nc($($nc(this->imageMetadata)->getRootIFD()))->getTagSetList())));
+	$var($TIFFImageMetadata, im, $new($TIFFImageMetadata, $($$nc($nc(this->imageMetadata)->getRootIFD())->getTagSetList())));
 	$var($Node, root, $nc(this->imageMetadata)->getAsTree($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME));
 	im->setFromTree($TIFFImageMetadata::NATIVE_METADATA_FORMAT_NAME, root);
 	return im;
 }
 
 $IIOMetadata* TIFFImageReader::getStreamMetadata(int32_t imageIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	readHeader();
 	$var($TIFFStreamMetadata, sm, $new($TIFFStreamMetadata));
-	$init($TIFFStreamMetadata);
 	$var($Node, root, sm->getAsTree($TIFFStreamMetadata::NATIVE_METADATA_FORMAT_NAME));
 	sm->setFromTree($TIFFStreamMetadata::NATIVE_METADATA_FORMAT_NAME, root);
 	return sm;
@@ -857,7 +737,7 @@ int32_t TIFFImageReader::getTileHeight(int32_t imageIndex) {
 }
 
 $BufferedImage* TIFFImageReader::readTile(int32_t imageIndex, int32_t tileX, int32_t tileY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = getWidth(imageIndex);
 	int32_t h = getHeight(imageIndex);
 	int32_t tw = getTileWidth(imageIndex);
@@ -905,7 +785,7 @@ int32_t TIFFImageReader::iceil(int32_t num, int32_t den) {
 }
 
 void TIFFImageReader::prepareRead(int32_t imageIndex, $ImageReadParam* param$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ImageReadParam, param, param$renamed);
 	if (this->stream == nullptr) {
 		$throwNew($IllegalStateException, "Input not set!"_s);
@@ -922,28 +802,28 @@ void TIFFImageReader::prepareRead(int32_t imageIndex, $ImageReadParam* param$ren
 	if (this->sourceBands == nullptr) {
 		$set(this, sourceBands, $new($ints, this->numBands));
 		for (int32_t i = 0; i < this->numBands; ++i) {
-			$nc(this->sourceBands)->set(i, i);
+			this->sourceBands->set(i, i);
 		}
 	}
 	$var($Iterator, imageTypes, getImageTypes(imageIndex));
 	$var($ImageTypeSpecifier, theImageType, $ImageUtil::getDestinationType(param, imageTypes));
-	int32_t destNumBands = $nc($($nc(theImageType)->getSampleModel()))->getNumBands();
+	int32_t destNumBands = $$nc($nc(theImageType)->getSampleModel())->getNumBands();
 	$set(this, destinationBands, param->getDestinationBands());
 	if (this->destinationBands == nullptr) {
 		$set(this, destinationBands, $new($ints, destNumBands));
 		for (int32_t i = 0; i < destNumBands; ++i) {
-			$nc(this->destinationBands)->set(i, i);
+			this->destinationBands->set(i, i);
 		}
 	}
 	if ($nc(this->sourceBands)->length != $nc(this->destinationBands)->length) {
 		$throwNew($IllegalArgumentException, "sourceBands.length != destinationBands.length"_s);
 	}
-	for (int32_t i = 0; i < $nc(this->sourceBands)->length; ++i) {
-		int32_t sb = $nc(this->sourceBands)->get(i);
+	for (int32_t i = 0; i < this->sourceBands->length; ++i) {
+		int32_t sb = this->sourceBands->get(i);
 		if (sb < 0 || sb >= this->numBands) {
 			$throwNew($IllegalArgumentException, "Source band out of range!"_s);
 		}
-		int32_t db = $nc(this->destinationBands)->get(i);
+		int32_t db = this->destinationBands->get(i);
 		if (db < 0 || db >= destNumBands) {
 			$throwNew($IllegalArgumentException, "Destination band out of range!"_s);
 		}
@@ -956,12 +836,12 @@ $RenderedImage* TIFFImageReader::readAsRenderedImage(int32_t imageIndex, $ImageR
 }
 
 void TIFFImageReader::decodeTile(int32_t ti, int32_t tj, int32_t band) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, tileRect, $new($Rectangle, ti * this->tileOrStripWidth, tj * this->tileOrStripHeight, this->tileOrStripWidth, this->tileOrStripHeight));
 	if (!isImageTiled(this->currIndex)) {
 		$assign(tileRect, tileRect->intersection($$new($Rectangle, 0, 0, this->width, this->height)));
 	}
-	if (tileRect->width <= 0 || tileRect->height <= 0) {
+	if ($nc(tileRect)->width <= 0 || tileRect->height <= 0) {
 		return;
 	}
 	int32_t srcMinX = tileRect->x;
@@ -977,7 +857,7 @@ void TIFFImageReader::decodeTile(int32_t ti, int32_t tj, int32_t band) {
 	this->dstMinX += this->dstXOffset;
 	this->dstMinY += this->dstYOffset;
 	$var($Rectangle, dstRect, $new($Rectangle, this->dstMinX, this->dstMinY, this->dstWidth, this->dstHeight));
-	$assign(dstRect, dstRect->intersection($($nc($($nc(this->theImage)->getRaster()))->getBounds())));
+	$assign(dstRect, dstRect->intersection($($$nc($nc(this->theImage)->getRaster())->getBounds())));
 	this->dstMinX = $nc(dstRect)->x;
 	this->dstMinY = dstRect->y;
 	this->dstWidth = dstRect->width;
@@ -1026,7 +906,7 @@ void TIFFImageReader::reportProgress() {
 }
 
 $BufferedImage* TIFFImageReader::read(int32_t imageIndex, $ImageReadParam* param) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	prepareRead(imageIndex, param);
 	$set(this, theImage, getDestination(param, $(getImageTypes(imageIndex)), this->width, this->height));
 	this->srcXSubsampling = $nc(this->imageReadParam)->getSourceXSubsampling();
@@ -1067,21 +947,21 @@ $BufferedImage* TIFFImageReader::read(int32_t imageIndex, $ImageReadParam* param
 		$set(this, decompressor, $new($TIFFPackBitsDecompressor));
 	} else if (compression == $BaselineTIFFTagSet::COMPRESSION_LZW) {
 		$var($TIFFField, predictorField, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_PREDICTOR));
-		int32_t predictor = ((predictorField == nullptr) ? $BaselineTIFFTagSet::PREDICTOR_NONE : $nc(predictorField)->getAsInt(0));
+		int32_t predictor = ((predictorField == nullptr) ? $BaselineTIFFTagSet::PREDICTOR_NONE : predictorField->getAsInt(0));
 		$var($TIFFField, fillOrderField, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_FILL_ORDER));
-		int32_t fillOrder = ((fillOrderField == nullptr) ? $BaselineTIFFTagSet::FILL_ORDER_LEFT_TO_RIGHT : $nc(fillOrderField)->getAsInt(0));
+		int32_t fillOrder = ((fillOrderField == nullptr) ? $BaselineTIFFTagSet::FILL_ORDER_LEFT_TO_RIGHT : fillOrderField->getAsInt(0));
 		$set(this, decompressor, $new($TIFFLZWDecompressor, predictor, fillOrder));
 	} else if (compression == $BaselineTIFFTagSet::COMPRESSION_JPEG) {
 		$set(this, decompressor, $new($TIFFJPEGDecompressor));
 	} else if (compression == $BaselineTIFFTagSet::COMPRESSION_ZLIB || compression == $BaselineTIFFTagSet::COMPRESSION_DEFLATE) {
 		$var($TIFFField, predictorField, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_PREDICTOR));
-		int32_t predictor = ((predictorField == nullptr) ? $BaselineTIFFTagSet::PREDICTOR_NONE : $nc(predictorField)->getAsInt(0));
+		int32_t predictor = ((predictorField == nullptr) ? $BaselineTIFFTagSet::PREDICTOR_NONE : predictorField->getAsInt(0));
 		$set(this, decompressor, $new($TIFFDeflateDecompressor, predictor));
 	} else if (compression == $BaselineTIFFTagSet::COMPRESSION_OLD_JPEG) {
 		$var($TIFFField, JPEGProcField, $nc(this->imageMetadata)->getTIFFField($BaselineTIFFTagSet::TAG_JPEG_PROC));
 		if (JPEGProcField == nullptr) {
 			processWarningOccurred("JPEGProc field missing; assuming baseline sequential JPEG process."_s);
-		} else if ($nc(JPEGProcField)->getAsInt(0) != $BaselineTIFFTagSet::JPEG_PROC_BASELINE) {
+		} else if (JPEGProcField->getAsInt(0) != $BaselineTIFFTagSet::JPEG_PROC_BASELINE) {
 			$throwNew($IIOException, "Old-style JPEG supported for baseline sequential JPEG process only!"_s);
 		}
 		$set(this, decompressor, $new($TIFFOldJPEGDecompressor));
@@ -1089,12 +969,12 @@ $BufferedImage* TIFFImageReader::read(int32_t imageIndex, $ImageReadParam* param
 		$throwNew($IIOException, $$str({"Unsupported compression type (tag value = "_s, $$str(compression), ")!"_s}));
 	}
 	if (this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_Y_CB_CR && compression != $BaselineTIFFTagSet::COMPRESSION_JPEG && compression != $BaselineTIFFTagSet::COMPRESSION_OLD_JPEG) {
-		bool convertYCbCrToRGB = $nc($($nc($($nc(this->theImage)->getColorModel()))->getColorSpace()))->getType() == $ColorSpace::TYPE_RGB;
+		bool convertYCbCrToRGB = $$nc($$nc($nc(this->theImage)->getColorModel())->getColorSpace())->getType() == $ColorSpace::TYPE_RGB;
 		$var($TIFFDecompressor, wrappedDecompressor, $instanceOf($TIFFNullDecompressor, this->decompressor) ? ($TIFFDecompressor*)nullptr : this->decompressor);
 		$set(this, decompressor, $new($TIFFYCbCrDecompressor, wrappedDecompressor, convertYCbCrToRGB));
 	}
 	$var($TIFFColorConverter, colorConverter, nullptr);
-	if (this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_CIELAB && $nc($($nc($($nc(this->theImage)->getColorModel()))->getColorSpace()))->getType() == $ColorSpace::TYPE_RGB) {
+	if (this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_CIELAB && $$nc($$nc($nc(this->theImage)->getColorModel())->getColorSpace())->getType() == $ColorSpace::TYPE_RGB) {
 		$assign(colorConverter, $new($TIFFCIELabColorConverter));
 	} else if (this->photometricInterpretation == $BaselineTIFFTagSet::PHOTOMETRIC_INTERPRETATION_Y_CB_CR && !($instanceOf($TIFFYCbCrDecompressor, this->decompressor)) && compression != $BaselineTIFFTagSet::COMPRESSION_JPEG && compression != $BaselineTIFFTagSet::COMPRESSION_OLD_JPEG) {
 		$assign(colorConverter, $new($TIFFYCbCrColorConverter, this->imageMetadata));
@@ -1189,7 +1069,109 @@ TIFFImageReader::TIFFImageReader() {
 }
 
 $Class* TIFFImageReader::load$($String* name, bool initialize) {
-	$loadClass(TIFFImageReader, name, initialize, &_TIFFImageReader_ClassInfo_, allocate$TIFFImageReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"SAMPLES_PER_PIXEL_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFImageReader, SAMPLES_PER_PIXEL_MAX)},
+		{"BITS_PER_SAMPLE_MAX", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(TIFFImageReader, BITS_PER_SAMPLE_MAX)},
+		{"stream", "Ljavax/imageio/stream/ImageInputStream;", nullptr, $PRIVATE, $field(TIFFImageReader, stream)},
+		{"gotHeader", "Z", nullptr, $PRIVATE, $field(TIFFImageReader, gotHeader)},
+		{"imageReadParam", "Ljavax/imageio/ImageReadParam;", nullptr, $PRIVATE, $field(TIFFImageReader, imageReadParam)},
+		{"streamMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFStreamMetadata;", nullptr, $PRIVATE, $field(TIFFImageReader, streamMetadata)},
+		{"currIndex", "I", nullptr, $PRIVATE, $field(TIFFImageReader, currIndex)},
+		{"imageMetadata", "Lcom/sun/imageio/plugins/tiff/TIFFImageMetadata;", nullptr, $PRIVATE, $field(TIFFImageReader, imageMetadata)},
+		{"imageStartPosition", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/Long;>;", $PRIVATE, $field(TIFFImageReader, imageStartPosition)},
+		{"numImages", "I", nullptr, $PRIVATE, $field(TIFFImageReader, numImages)},
+		{"imageTypeMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Integer;Ljava/util/List<Ljavax/imageio/ImageTypeSpecifier;>;>;", $PRIVATE, $field(TIFFImageReader, imageTypeMap)},
+		{"theImage", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(TIFFImageReader, theImage)},
+		{"width", "I", nullptr, $PRIVATE, $field(TIFFImageReader, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(TIFFImageReader, height)},
+		{"numBands", "I", nullptr, $PRIVATE, $field(TIFFImageReader, numBands)},
+		{"tileOrStripWidth", "I", nullptr, $PRIVATE, $field(TIFFImageReader, tileOrStripWidth)},
+		{"tileOrStripHeight", "I", nullptr, $PRIVATE, $field(TIFFImageReader, tileOrStripHeight)},
+		{"planarConfiguration", "I", nullptr, $PRIVATE, $field(TIFFImageReader, planarConfiguration)},
+		{"compression", "I", nullptr, $PRIVATE, $field(TIFFImageReader, compression)},
+		{"photometricInterpretation", "I", nullptr, $PRIVATE, $field(TIFFImageReader, photometricInterpretation)},
+		{"samplesPerPixel", "I", nullptr, $PRIVATE, $field(TIFFImageReader, samplesPerPixel)},
+		{"sampleFormat", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, sampleFormat)},
+		{"bitsPerSample", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, bitsPerSample)},
+		{"extraSamples", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, extraSamples)},
+		{"colorMap", "[C", nullptr, $PRIVATE, $field(TIFFImageReader, colorMap)},
+		{"sourceXOffset", "I", nullptr, $PRIVATE, $field(TIFFImageReader, sourceXOffset)},
+		{"sourceYOffset", "I", nullptr, $PRIVATE, $field(TIFFImageReader, sourceYOffset)},
+		{"srcXSubsampling", "I", nullptr, $PRIVATE, $field(TIFFImageReader, srcXSubsampling)},
+		{"srcYSubsampling", "I", nullptr, $PRIVATE, $field(TIFFImageReader, srcYSubsampling)},
+		{"dstWidth", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstWidth)},
+		{"dstHeight", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstHeight)},
+		{"dstMinX", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstMinX)},
+		{"dstMinY", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstMinY)},
+		{"dstXOffset", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstXOffset)},
+		{"dstYOffset", "I", nullptr, $PRIVATE, $field(TIFFImageReader, dstYOffset)},
+		{"tilesAcross", "I", nullptr, $PRIVATE, $field(TIFFImageReader, tilesAcross)},
+		{"tilesDown", "I", nullptr, $PRIVATE, $field(TIFFImageReader, tilesDown)},
+		{"pixelsRead", "I", nullptr, $PRIVATE, $field(TIFFImageReader, pixelsRead)},
+		{"pixelsToRead", "I", nullptr, $PRIVATE, $field(TIFFImageReader, pixelsToRead)},
+		{"sourceBands", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, sourceBands)},
+		{"destinationBands", "[I", nullptr, $PRIVATE, $field(TIFFImageReader, destinationBands)},
+		{"decompressor", "Lcom/sun/imageio/plugins/tiff/TIFFDecompressor;", nullptr, $PRIVATE, $field(TIFFImageReader, decompressor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/spi/ImageReaderSpi;)V", nullptr, $PUBLIC, $method(TIFFImageReader, init$, void, $ImageReaderSpi*)},
+		{"canReadRaster", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, canReadRaster, bool)},
+		{"checkIndex", "(I)V", nullptr, $PRIVATE, $method(TIFFImageReader, checkIndex, void, int32_t)},
+		{"decodeTile", "(III)V", nullptr, $PRIVATE, $method(TIFFImageReader, decodeTile, void, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"forwardWarningMessage", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TIFFImageReader, forwardWarningMessage, void, $String*)},
+		{"getCompression", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getCompression, int32_t)},
+		{"getDefaultReadParam", "()Ljavax/imageio/ImageReadParam;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getDefaultReadParam, $ImageReadParam*)},
+		{"getHeight", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getHeight, int32_t)},
+		{"getHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getHeight, int32_t, int32_t), "java.io.IOException"},
+		{"getImageMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getImageMetadata, $IIOMetadata*, int32_t), "javax.imageio.IIOException"},
+		{"getImageTypes", "(I)Ljava/util/Iterator;", "(I)Ljava/util/Iterator<Ljavax/imageio/ImageTypeSpecifier;>;", $PUBLIC, $virtualMethod(TIFFImageReader, getImageTypes, $Iterator*, int32_t), "javax.imageio.IIOException"},
+		{"getNumImages", "(Z)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getNumImages, int32_t, bool), "java.io.IOException"},
+		{"getNumThumbnails", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getNumThumbnails, int32_t, int32_t), "java.io.IOException"},
+		{"getPlanarConfiguration", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getPlanarConfiguration, int32_t)},
+		{"getStreamMetadata", "()Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getStreamMetadata, $IIOMetadata*), "javax.imageio.IIOException"},
+		{"getStreamMetadata", "(I)Ljavax/imageio/metadata/IIOMetadata;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getStreamMetadata, $IIOMetadata*, int32_t), "javax.imageio.IIOException"},
+		{"getTileHeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getTileHeight, int32_t, int32_t), "java.io.IOException"},
+		{"getTileOrStripByteCount", "(I)J", nullptr, $PRIVATE, $method(TIFFImageReader, getTileOrStripByteCount, int64_t, int32_t), "java.io.IOException"},
+		{"getTileOrStripHeight", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getTileOrStripHeight, int32_t)},
+		{"getTileOrStripOffset", "(I)J", nullptr, $PRIVATE, $method(TIFFImageReader, getTileOrStripOffset, int64_t, int32_t), "javax.imageio.IIOException"},
+		{"getTileOrStripWidth", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getTileOrStripWidth, int32_t)},
+		{"getTileWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getTileWidth, int32_t, int32_t), "java.io.IOException"},
+		{"getWidth", "()I", nullptr, $PRIVATE, $method(TIFFImageReader, getWidth, int32_t)},
+		{"getWidth", "(I)I", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, getWidth, int32_t, int32_t), "java.io.IOException"},
+		{"hasThumbnails", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, hasThumbnails, bool, int32_t)},
+		{"iceil", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFImageReader, iceil, int32_t, int32_t, int32_t)},
+		{"ifloor", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TIFFImageReader, ifloor, int32_t, int32_t, int32_t)},
+		{"initializeFromMetadata", "()V", nullptr, $PRIVATE, $method(TIFFImageReader, initializeFromMetadata, void), "javax.imageio.IIOException"},
+		{"isImageTiled", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, isImageTiled, bool, int32_t), "java.io.IOException"},
+		{"isRandomAccessEasy", "(I)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, isRandomAccessEasy, bool, int32_t), "java.io.IOException"},
+		{"locateImage", "(I)I", nullptr, $PRIVATE, $method(TIFFImageReader, locateImage, int32_t, int32_t), "javax.imageio.IIOException"},
+		{"prepareRead", "(ILjavax/imageio/ImageReadParam;)V", nullptr, $PRIVATE, $method(TIFFImageReader, prepareRead, void, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"read", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, read, $BufferedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"readAsRenderedImage", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/RenderedImage;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, readAsRenderedImage, $RenderedImage*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"readHeader", "()V", nullptr, $PRIVATE, $method(TIFFImageReader, readHeader, void), "javax.imageio.IIOException"},
+		{"readMetadata", "()V", nullptr, $PRIVATE, $method(TIFFImageReader, readMetadata, void), "javax.imageio.IIOException"},
+		{"readRaster", "(ILjavax/imageio/ImageReadParam;)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, readRaster, $Raster*, int32_t, $ImageReadParam*), "java.io.IOException"},
+		{"readSupportsThumbnails", "()Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, readSupportsThumbnails, bool)},
+		{"readTile", "(III)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, readTile, $BufferedImage*, int32_t, int32_t, int32_t), "java.io.IOException"},
+		{"reportProgress", "()V", nullptr, $PRIVATE, $method(TIFFImageReader, reportProgress, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, reset, void)},
+		{"resetLocal", "()V", nullptr, $PROTECTED, $virtualMethod(TIFFImageReader, resetLocal, void)},
+		{"seekToImage", "(I)V", nullptr, $PRIVATE, $method(TIFFImageReader, seekToImage, void, int32_t), "javax.imageio.IIOException"},
+		{"setInput", "(Ljava/lang/Object;ZZ)V", nullptr, $PUBLIC, $virtualMethod(TIFFImageReader, setInput, void, Object$*, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFImageReader",
+		"javax.imageio.ImageReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFImageReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFImageReader);
+	});
 	return class$;
 }
 

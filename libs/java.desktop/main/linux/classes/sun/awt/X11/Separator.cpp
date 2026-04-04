@@ -1,5 +1,4 @@
 #include <sun/awt/X11/Separator.h>
-
 #include <java/awt/Canvas.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -22,32 +21,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _Separator_FieldInfo_[] = {
-	{"HORIZONTAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Separator, HORIZONTAL)},
-	{"VERTICAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Separator, VERTICAL)},
-	{"orientation", "I", nullptr, 0, $field(Separator, orientation)},
-	{}
-};
-
-$MethodInfo _Separator_MethodInfo_[] = {
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(Separator, init$, void, int32_t, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Separator, paint, void, $Graphics*)},
-	{}
-};
-
-$ClassInfo _Separator_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.Separator",
-	"java.awt.Canvas",
-	nullptr,
-	_Separator_FieldInfo_,
-	_Separator_MethodInfo_
-};
-
-$Object* allocate$Separator($Class* clazz) {
-	return $of($alloc(Separator));
-}
-
 void Separator::init$(int32_t length, int32_t thickness, int32_t orient) {
 	$Canvas::init$();
 	this->orientation = orient;
@@ -59,7 +32,7 @@ void Separator::init$(int32_t length, int32_t thickness, int32_t orient) {
 }
 
 void Separator::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t x1 = 0;
 	int32_t y1 = 0;
 	int32_t x2 = 0;
@@ -91,7 +64,28 @@ Separator::Separator() {
 }
 
 $Class* Separator::load$($String* name, bool initialize) {
-	$loadClass(Separator, name, initialize, &_Separator_ClassInfo_, allocate$Separator);
+	$FieldInfo fieldInfos$$[] = {
+		{"HORIZONTAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Separator, HORIZONTAL)},
+		{"VERTICAL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Separator, VERTICAL)},
+		{"orientation", "I", nullptr, 0, $field(Separator, orientation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(Separator, init$, void, int32_t, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Separator, paint, void, $Graphics*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.Separator",
+		"java.awt.Canvas",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Separator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Separator));
+	});
 	return class$;
 }
 

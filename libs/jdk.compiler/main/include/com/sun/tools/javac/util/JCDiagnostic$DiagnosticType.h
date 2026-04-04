@@ -26,6 +26,7 @@ class $import JCDiagnostic$DiagnosticType : public ::java::lang::Enum {
 public:
 	JCDiagnostic$DiagnosticType();
 	static $Array<::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* key);
 	static ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::util::JCDiagnostic$DiagnosticType>* values();

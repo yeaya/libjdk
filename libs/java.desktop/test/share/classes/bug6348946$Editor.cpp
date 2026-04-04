@@ -1,5 +1,4 @@
 #include <bug6348946$Editor.h>
-
 #include <bug6348946$Editor$1.h>
 #include <bug6348946.h>
 #include <java/awt/Component.h>
@@ -8,7 +7,6 @@
 #include <javax/swing/JSlider.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/event/CellEditorListener.h>
-#include <javax/swing/event/ChangeListener.h>
 #include <jcpp.h>
 
 using $bug6348946$Editor$1 = ::bug6348946$Editor$1;
@@ -23,56 +21,6 @@ using $AbstractCellEditor = ::javax::swing::AbstractCellEditor;
 using $JSlider = ::javax::swing::JSlider;
 using $JTable = ::javax::swing::JTable;
 using $CellEditorListener = ::javax::swing::event::CellEditorListener;
-using $ChangeListener = ::javax::swing::event::ChangeListener;
-
-$FieldInfo _bug6348946$Editor_FieldInfo_[] = {
-	{"slider", "Ljavax/swing/JSlider;", nullptr, $PRIVATE, $field(bug6348946$Editor, slider)},
-	{}
-};
-
-$MethodInfo _bug6348946$Editor_MethodInfo_[] = {
-	{"*addCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC},
-	{"*cancelCellEditing", "()V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6348946$Editor, init$, void)},
-	{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(bug6348946$Editor, getCellEditorValue, $Object*)},
-	{"getTableCellEditorComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(bug6348946$Editor, getTableCellEditorComponent, $Component*, $JTable*, Object$*, bool, int32_t, int32_t)},
-	{"*isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC},
-	{"*shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC},
-	{"*stopCellEditing", "()Z", nullptr, $PUBLIC},
-	{"*removeCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _bug6348946$Editor_InnerClassesInfo_[] = {
-	{"bug6348946$Editor", "bug6348946", "Editor", $PRIVATE | $STATIC},
-	{"bug6348946$Editor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6348946$Editor_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6348946$Editor",
-	"javax.swing.AbstractCellEditor",
-	"javax.swing.table.TableCellEditor",
-	_bug6348946$Editor_FieldInfo_,
-	_bug6348946$Editor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6348946$Editor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6348946"
-};
-
-$Object* allocate$bug6348946$Editor($Class* clazz) {
-	return $of($alloc(bug6348946$Editor));
-}
 
 bool bug6348946$Editor::isCellEditable($EventObject* arg0) {
 	 return this->$AbstractCellEditor::isCellEditable(arg0);
@@ -119,7 +67,7 @@ void bug6348946$Editor::finalize() {
 }
 
 $Component* bug6348946$Editor::getTableCellEditorComponent($JTable* table, Object$* value, bool isSelected, int32_t row, int32_t col) {
-	int32_t val = $nc(($cast($Integer, value)))->intValue();
+	int32_t val = $nc($cast($Integer, value))->intValue();
 	$nc(this->slider)->setValue(val);
 	return this->slider;
 }
@@ -127,7 +75,7 @@ $Component* bug6348946$Editor::getTableCellEditorComponent($JTable* table, Objec
 void bug6348946$Editor::init$() {
 	$AbstractCellEditor::init$();
 	$set(this, slider, $new($JSlider, 0, 10));
-	$nc(this->slider)->addChangeListener($$new($bug6348946$Editor$1, this));
+	this->slider->addChangeListener($$new($bug6348946$Editor$1, this));
 }
 
 $Object* bug6348946$Editor::getCellEditorValue() {
@@ -138,7 +86,50 @@ bug6348946$Editor::bug6348946$Editor() {
 }
 
 $Class* bug6348946$Editor::load$($String* name, bool initialize) {
-	$loadClass(bug6348946$Editor, name, initialize, &_bug6348946$Editor_ClassInfo_, allocate$bug6348946$Editor);
+	$FieldInfo fieldInfos$$[] = {
+		{"slider", "Ljavax/swing/JSlider;", nullptr, $PRIVATE, $field(bug6348946$Editor, slider)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*addCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC},
+		{"*cancelCellEditing", "()V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6348946$Editor, init$, void)},
+		{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(bug6348946$Editor, getCellEditorValue, $Object*)},
+		{"getTableCellEditorComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(bug6348946$Editor, getTableCellEditorComponent, $Component*, $JTable*, Object$*, bool, int32_t, int32_t)},
+		{"*isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC},
+		{"*shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC},
+		{"*stopCellEditing", "()Z", nullptr, $PUBLIC},
+		{"*removeCellEditorListener", "(Ljavax/swing/event/CellEditorListener;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6348946$Editor", "bug6348946", "Editor", $PRIVATE | $STATIC},
+		{"bug6348946$Editor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6348946$Editor",
+		"javax.swing.AbstractCellEditor",
+		"javax.swing.table.TableCellEditor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6348946"
+	};
+	$loadClass(bug6348946$Editor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug6348946$Editor));
+	});
 	return class$;
 }
 

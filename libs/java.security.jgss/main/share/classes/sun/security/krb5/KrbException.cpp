@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbException.h>
-
 #include <sun/security/krb5/internal/KRBError.h>
 #include <sun/security/krb5/internal/Krb5.h>
 #include <jcpp.h>
@@ -14,47 +13,6 @@ using $Krb5 = ::sun::security::krb5::internal::Krb5;
 namespace sun {
 	namespace security {
 		namespace krb5 {
-
-$FieldInfo _KrbException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbException, serialVersionUID)},
-	{"returnCode", "I", nullptr, $PRIVATE, $field(KrbException, returnCode$)},
-	{"error", "Lsun/security/krb5/internal/KRBError;", nullptr, $PRIVATE, $field(KrbException, error)},
-	{}
-};
-
-$MethodInfo _KrbException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, $Throwable*)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(KrbException, init$, void, int32_t)},
-	{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, int32_t, $String*)},
-	{"<init>", "(Lsun/security/krb5/internal/KRBError;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, $KRBError*)},
-	{"<init>", "(Lsun/security/krb5/internal/KRBError;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, $KRBError*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KrbException, equals, bool, Object$*)},
-	{"errorMessage", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbException, errorMessage, $String*, int32_t)},
-	{"getError", "()Lsun/security/krb5/internal/KRBError;", nullptr, $PUBLIC, $virtualMethod(KrbException, getError, $KRBError*)},
-	{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, getMessage, $String*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KrbException, hashCode, int32_t)},
-	{"krbErrorMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, krbErrorMessage, $String*)},
-	{"returnCode", "()I", nullptr, $PUBLIC, $virtualMethod(KrbException, returnCode, int32_t)},
-	{"returnCodeMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, returnCodeMessage, $String*)},
-	{"returnCodeSymbol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, returnCodeSymbol, $String*)},
-	{"returnCodeSymbol", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbException, returnCodeSymbol, $String*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, toString, $String*)},
-	{}
-};
-
-$ClassInfo _KrbException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.KrbException",
-	"java.lang.Exception",
-	nullptr,
-	_KrbException_FieldInfo_,
-	_KrbException_MethodInfo_
-};
-
-$Object* allocate$KrbException($Class* clazz) {
-	return $of($alloc(KrbException));
-}
 
 void KrbException::init$($String* s) {
 	$Exception::init$(s);
@@ -113,7 +71,7 @@ $String* KrbException::errorMessage(int32_t i) {
 }
 
 $String* KrbException::krbErrorMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("krb_error "_s)->append(this->returnCode$);
 	$var($String, msg, getMessage());
@@ -125,7 +83,7 @@ $String* KrbException::krbErrorMessage() {
 }
 
 $String* KrbException::getMessage() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, message, $new($StringBuilder));
 	int32_t returnCode = this->returnCode();
 	if (returnCode != 0) {
@@ -150,7 +108,7 @@ int32_t KrbException::hashCode() {
 	int32_t result = 17;
 	result = 37 * result + this->returnCode$;
 	if (this->error != nullptr) {
-		result = 37 * result + $nc(this->error)->hashCode();
+		result = 37 * result + this->error->hashCode();
 	}
 	return result;
 }
@@ -166,7 +124,7 @@ bool KrbException::equals(Object$* obj) {
 	if (this->returnCode$ != $nc(other)->returnCode$) {
 		return false;
 	}
-	return (this->error == nullptr) ? ($nc(other)->error == nullptr) : ($nc(this->error)->equals(other->error));
+	return (this->error == nullptr) ? (other->error == nullptr) : (this->error->equals(other->error));
 }
 
 KrbException::KrbException() {
@@ -180,7 +138,43 @@ void KrbException::throw$() {
 }
 
 $Class* KrbException::load$($String* name, bool initialize) {
-	$loadClass(KrbException, name, initialize, &_KrbException_ClassInfo_, allocate$KrbException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KrbException, serialVersionUID)},
+		{"returnCode", "I", nullptr, $PRIVATE, $field(KrbException, returnCode$)},
+		{"error", "Lsun/security/krb5/internal/KRBError;", nullptr, $PRIVATE, $field(KrbException, error)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, $Throwable*)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(KrbException, init$, void, int32_t)},
+		{"<init>", "(ILjava/lang/String;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, int32_t, $String*)},
+		{"<init>", "(Lsun/security/krb5/internal/KRBError;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, $KRBError*)},
+		{"<init>", "(Lsun/security/krb5/internal/KRBError;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(KrbException, init$, void, $KRBError*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KrbException, equals, bool, Object$*)},
+		{"errorMessage", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbException, errorMessage, $String*, int32_t)},
+		{"getError", "()Lsun/security/krb5/internal/KRBError;", nullptr, $PUBLIC, $virtualMethod(KrbException, getError, $KRBError*)},
+		{"getMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, getMessage, $String*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KrbException, hashCode, int32_t)},
+		{"krbErrorMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, krbErrorMessage, $String*)},
+		{"returnCode", "()I", nullptr, $PUBLIC, $virtualMethod(KrbException, returnCode, int32_t)},
+		{"returnCodeMessage", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, returnCodeMessage, $String*)},
+		{"returnCodeSymbol", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, returnCodeSymbol, $String*)},
+		{"returnCodeSymbol", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(KrbException, returnCodeSymbol, $String*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KrbException, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.KrbException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbException);
+	});
 	return class$;
 }
 

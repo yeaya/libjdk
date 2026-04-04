@@ -1,5 +1,4 @@
 #include <javax/swing/JComboBox$ComboBoxActionPropertyChangeListener.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
@@ -21,38 +20,6 @@ using $JComponent = ::javax::swing::JComponent;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JComboBox$ComboBoxActionPropertyChangeListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComboBox;Ljavax/swing/Action;)V", "(Ljavax/swing/JComboBox<*>;Ljavax/swing/Action;)V", 0, $method(JComboBox$ComboBoxActionPropertyChangeListener, init$, void, $JComboBox*, $Action*)},
-	{"actionPropertyChanged", "(Ljavax/swing/JComboBox;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", "(Ljavax/swing/JComboBox<*>;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", $PROTECTED, $virtualMethod(JComboBox$ComboBoxActionPropertyChangeListener, actionPropertyChanged, void, $JComboBox*, $Action*, $PropertyChangeEvent*)},
-	{"actionPropertyChanged", "(Ljavax/swing/JComponent;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(JComboBox$ComboBoxActionPropertyChangeListener, actionPropertyChanged, void, $JComponent*, $Action*, $PropertyChangeEvent*)},
-	{}
-};
-
-$InnerClassInfo _JComboBox$ComboBoxActionPropertyChangeListener_InnerClassesInfo_[] = {
-	{"javax.swing.JComboBox$ComboBoxActionPropertyChangeListener", "javax.swing.JComboBox", "ComboBoxActionPropertyChangeListener", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JComboBox$ComboBoxActionPropertyChangeListener_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JComboBox$ComboBoxActionPropertyChangeListener",
-	"javax.swing.ActionPropertyChangeListener",
-	nullptr,
-	nullptr,
-	_JComboBox$ComboBoxActionPropertyChangeListener_MethodInfo_,
-	"Ljavax/swing/ActionPropertyChangeListener<Ljavax/swing/JComboBox<*>;>;",
-	nullptr,
-	_JComboBox$ComboBoxActionPropertyChangeListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComboBox"
-};
-
-$Object* allocate$JComboBox$ComboBoxActionPropertyChangeListener($Class* clazz) {
-	return $of($alloc(JComboBox$ComboBoxActionPropertyChangeListener));
-}
-
 void JComboBox$ComboBoxActionPropertyChangeListener::init$($JComboBox* b, $Action* a) {
 	$ActionPropertyChangeListener::init$(b, a);
 }
@@ -73,7 +40,34 @@ JComboBox$ComboBoxActionPropertyChangeListener::JComboBox$ComboBoxActionProperty
 }
 
 $Class* JComboBox$ComboBoxActionPropertyChangeListener::load$($String* name, bool initialize) {
-	$loadClass(JComboBox$ComboBoxActionPropertyChangeListener, name, initialize, &_JComboBox$ComboBoxActionPropertyChangeListener_ClassInfo_, allocate$JComboBox$ComboBoxActionPropertyChangeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComboBox;Ljavax/swing/Action;)V", "(Ljavax/swing/JComboBox<*>;Ljavax/swing/Action;)V", 0, $method(JComboBox$ComboBoxActionPropertyChangeListener, init$, void, $JComboBox*, $Action*)},
+		{"actionPropertyChanged", "(Ljavax/swing/JComboBox;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", "(Ljavax/swing/JComboBox<*>;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", $PROTECTED, $virtualMethod(JComboBox$ComboBoxActionPropertyChangeListener, actionPropertyChanged, void, $JComboBox*, $Action*, $PropertyChangeEvent*)},
+		{"actionPropertyChanged", "(Ljavax/swing/JComponent;Ljavax/swing/Action;Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED | $VOLATILE | $SYNTHETIC, $virtualMethod(JComboBox$ComboBoxActionPropertyChangeListener, actionPropertyChanged, void, $JComponent*, $Action*, $PropertyChangeEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComboBox$ComboBoxActionPropertyChangeListener", "javax.swing.JComboBox", "ComboBoxActionPropertyChangeListener", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JComboBox$ComboBoxActionPropertyChangeListener",
+		"javax.swing.ActionPropertyChangeListener",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/ActionPropertyChangeListener<Ljavax/swing/JComboBox<*>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComboBox"
+	};
+	$loadClass(JComboBox$ComboBoxActionPropertyChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JComboBox$ComboBoxActionPropertyChangeListener));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/desktop/AppHiddenEvent.h>
-
 #include <java/awt/desktop/AppEvent.h>
 #include <jcpp.h>
 
@@ -12,29 +11,6 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$FieldInfo _AppHiddenEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AppHiddenEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AppHiddenEvent_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AppHiddenEvent, init$, void)},
-	{}
-};
-
-$ClassInfo _AppHiddenEvent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.desktop.AppHiddenEvent",
-	"java.awt.desktop.AppEvent",
-	nullptr,
-	_AppHiddenEvent_FieldInfo_,
-	_AppHiddenEvent_MethodInfo_
-};
-
-$Object* allocate$AppHiddenEvent($Class* clazz) {
-	return $of($alloc(AppHiddenEvent));
-}
-
 void AppHiddenEvent::init$() {
 	$AppEvent::init$();
 }
@@ -43,7 +19,25 @@ AppHiddenEvent::AppHiddenEvent() {
 }
 
 $Class* AppHiddenEvent::load$($String* name, bool initialize) {
-	$loadClass(AppHiddenEvent, name, initialize, &_AppHiddenEvent_ClassInfo_, allocate$AppHiddenEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AppHiddenEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AppHiddenEvent, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.desktop.AppHiddenEvent",
+		"java.awt.desktop.AppEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AppHiddenEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppHiddenEvent);
+	});
 	return class$;
 }
 

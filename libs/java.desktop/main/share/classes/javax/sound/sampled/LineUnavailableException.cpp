@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/LineUnavailableException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _LineUnavailableException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineUnavailableException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _LineUnavailableException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LineUnavailableException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LineUnavailableException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _LineUnavailableException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.sampled.LineUnavailableException",
-	"java.lang.Exception",
-	nullptr,
-	_LineUnavailableException_FieldInfo_,
-	_LineUnavailableException_MethodInfo_
-};
-
-$Object* allocate$LineUnavailableException($Class* clazz) {
-	return $of($alloc(LineUnavailableException));
-}
 
 void LineUnavailableException::init$() {
 	$Exception::init$();
@@ -54,7 +29,26 @@ void LineUnavailableException::throw$() {
 }
 
 $Class* LineUnavailableException::load$($String* name, bool initialize) {
-	$loadClass(LineUnavailableException, name, initialize, &_LineUnavailableException_ClassInfo_, allocate$LineUnavailableException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LineUnavailableException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LineUnavailableException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LineUnavailableException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.sampled.LineUnavailableException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineUnavailableException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineUnavailableException);
+	});
 	return class$;
 }
 

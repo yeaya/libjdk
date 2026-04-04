@@ -1,5 +1,4 @@
 #include <sun/awt/Symbol$Encoder.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -28,46 +27,6 @@ using $Symbol = ::sun::awt::Symbol;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _Symbol$Encoder_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Symbol$Encoder, $assertionsDisabled)},
-	{"table_math", "[B", nullptr, $PRIVATE | $STATIC, $staticField(Symbol$Encoder, table_math)},
-	{"table_greek", "[B", nullptr, $PRIVATE | $STATIC, $staticField(Symbol$Encoder, table_greek)},
-	{}
-};
-
-$MethodInfo _Symbol$Encoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Symbol$Encoder, init$, void, $Charset*)},
-	{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Encoder, canEncode, bool, char16_t)},
-	{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(Symbol$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
-	{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Encoder, isLegalReplacement, bool, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _Symbol$Encoder_InnerClassesInfo_[] = {
-	{"sun.awt.Symbol$Encoder", "sun.awt.Symbol", "Encoder", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _Symbol$Encoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.Symbol$Encoder",
-	"java.nio.charset.CharsetEncoder",
-	nullptr,
-	_Symbol$Encoder_FieldInfo_,
-	_Symbol$Encoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$Encoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.Symbol"
-};
-
-$Object* allocate$Symbol$Encoder($Class* clazz) {
-	return $of($alloc(Symbol$Encoder));
-}
-
 bool Symbol$Encoder::$assertionsDisabled = false;
 $bytes* Symbol$Encoder::table_math = nullptr;
 $bytes* Symbol$Encoder::table_greek = nullptr;
@@ -90,7 +49,7 @@ bool Symbol$Encoder::canEncode(char16_t c) {
 }
 
 $CoderResult* Symbol$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($chars, sa, $cast($chars, $nc(src)->array()));
 	int32_t var$0 = src->arrayOffset();
 	int32_t sp = var$0 + src->position();
@@ -109,47 +68,45 @@ $CoderResult* Symbol$Encoder::encodeLoop($CharBuffer* src, $ByteBuffer* dst) {
 		$throwNew($AssertionError);
 	}
 	dp = (dp <= dl ? dp : dl);
-	{
-		$var($Throwable, var$4, nullptr);
-		$var($CoderResult, var$6, nullptr);
-		bool return$5 = false;
-		try {
-			while (sp < sl) {
-				char16_t c = $nc(sa)->get(sp);
-				if (dl - dp < 1) {
-					$init($CoderResult);
-					$assign(var$6, $CoderResult::OVERFLOW);
-					return$5 = true;
-					goto $finally;
-				}
-				if (!canEncode(c)) {
-					$assign(var$6, $CoderResult::unmappableForLength(1));
-					return$5 = true;
-					goto $finally;
-				}
-				++sp;
-				if (c >= 8704 && c <= 8943) {
-					$nc(da)->set(dp++, $nc(Symbol$Encoder::table_math)->get(c - 8704));
-				} else if (c >= 913 && c <= 982) {
-					$nc(da)->set(dp++, $nc(Symbol$Encoder::table_greek)->get(c - 913));
-				}
+	$var($Throwable, var$4, nullptr);
+	$var($CoderResult, var$6, nullptr);
+	bool return$5 = false;
+	try {
+		while (sp < sl) {
+			char16_t c = $nc(sa)->get(sp);
+			if (dl - dp < 1) {
+				$init($CoderResult);
+				$assign(var$6, $CoderResult::OVERFLOW);
+				return$5 = true;
+				goto $finally;
 			}
-			$init($CoderResult);
-			$assign(var$6, $CoderResult::UNDERFLOW);
-			return$5 = true;
-			goto $finally;
-		} catch ($Throwable& var$7) {
-			$assign(var$4, var$7);
-		} $finally: {
-			src->position(sp - src->arrayOffset());
-			dst->position(dp - dst->arrayOffset());
+			if (!canEncode(c)) {
+				$assign(var$6, $CoderResult::unmappableForLength(1));
+				return$5 = true;
+				goto $finally;
+			}
+			++sp;
+			if (c >= 8704 && c <= 8943) {
+				$nc(da)->set(dp++, $nc(Symbol$Encoder::table_math)->get(c - 8704));
+			} else if (c >= 913 && c <= 982) {
+				$nc(da)->set(dp++, $nc(Symbol$Encoder::table_greek)->get(c - 913));
+			}
 		}
-		if (var$4 != nullptr) {
-			$throw(var$4);
-		}
-		if (return$5) {
-			return var$6;
-		}
+		$init($CoderResult);
+		$assign(var$6, $CoderResult::UNDERFLOW);
+		return$5 = true;
+		goto $finally;
+	} catch ($Throwable& var$7) {
+		$assign(var$4, var$7);
+	} $finally: {
+		src->position(sp - src->arrayOffset());
+		dst->position(dp - dst->arrayOffset());
+	}
+	if (var$4 != nullptr) {
+		$throw(var$4);
+	}
+	if (return$5) {
+		return var$6;
 	}
 	$shouldNotReachHere();
 }
@@ -158,7 +115,7 @@ bool Symbol$Encoder::isLegalReplacement($bytes* repl) {
 	return true;
 }
 
-void clinit$Symbol$Encoder($Class* class$) {
+void Symbol$Encoder::clinit$($Class* clazz) {
 	$load($Symbol);
 	Symbol$Encoder::$assertionsDisabled = !$Symbol::class$->desiredAssertionStatus();
 	$assignStatic(Symbol$Encoder::table_math, $new($bytes, {
@@ -481,7 +438,41 @@ Symbol$Encoder::Symbol$Encoder() {
 }
 
 $Class* Symbol$Encoder::load$($String* name, bool initialize) {
-	$loadClass(Symbol$Encoder, name, initialize, &_Symbol$Encoder_ClassInfo_, clinit$Symbol$Encoder, allocate$Symbol$Encoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Symbol$Encoder, $assertionsDisabled)},
+		{"table_math", "[B", nullptr, $PRIVATE | $STATIC, $staticField(Symbol$Encoder, table_math)},
+		{"table_greek", "[B", nullptr, $PRIVATE | $STATIC, $staticField(Symbol$Encoder, table_greek)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PUBLIC, $method(Symbol$Encoder, init$, void, $Charset*)},
+		{"canEncode", "(C)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Encoder, canEncode, bool, char16_t)},
+		{"encodeLoop", "(Ljava/nio/CharBuffer;Ljava/nio/ByteBuffer;)Ljava/nio/charset/CoderResult;", nullptr, $PROTECTED, $virtualMethod(Symbol$Encoder, encodeLoop, $CoderResult*, $CharBuffer*, $ByteBuffer*)},
+		{"isLegalReplacement", "([B)Z", nullptr, $PUBLIC, $virtualMethod(Symbol$Encoder, isLegalReplacement, bool, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.Symbol$Encoder", "sun.awt.Symbol", "Encoder", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.Symbol$Encoder",
+		"java.nio.charset.CharsetEncoder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.Symbol"
+	};
+	$loadClass(Symbol$Encoder, name, initialize, &classInfo$$, Symbol$Encoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Symbol$Encoder);
+	});
 	return class$;
 }
 

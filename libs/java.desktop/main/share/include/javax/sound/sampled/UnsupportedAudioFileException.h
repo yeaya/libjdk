@@ -15,10 +15,13 @@ public:
 	UnsupportedAudioFileException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xFE11B85AF813CBD0;
+	static const int64_t serialVersionUID = (int64_t)0xfe11b85af813cbd0;
 	UnsupportedAudioFileException(const UnsupportedAudioFileException& e);
 	virtual void throw$() override;
-	inline UnsupportedAudioFileException* operator ->() {
+	inline UnsupportedAudioFileException* operator ->() const {
+		return (UnsupportedAudioFileException*)throwing$;
+	}
+	inline operator UnsupportedAudioFileException*() const {
 		return (UnsupportedAudioFileException*)throwing$;
 	}
 };

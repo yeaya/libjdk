@@ -1,5 +1,4 @@
 #include <sun/text/resources/ext/FormatData_fr_FR.h>
-
 #include <sun/util/resources/ParallelListResourceBundle.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _FormatData_fr_FR_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_fr_FR, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_fr_FR, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _FormatData_fr_FR_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.text.resources.ext.FormatData_fr_FR",
-	"sun.util.resources.ParallelListResourceBundle",
-	nullptr,
-	nullptr,
-	_FormatData_fr_FR_MethodInfo_
-};
-
-$Object* allocate$FormatData_fr_FR($Class* clazz) {
-	return $of($alloc(FormatData_fr_FR));
-}
-
 void FormatData_fr_FR::init$() {
 	$ParallelListResourceBundle::init$();
 }
@@ -44,7 +24,22 @@ FormatData_fr_FR::FormatData_fr_FR() {
 }
 
 $Class* FormatData_fr_FR::load$($String* name, bool initialize) {
-	$loadClass(FormatData_fr_FR, name, initialize, &_FormatData_fr_FR_ClassInfo_, allocate$FormatData_fr_FR);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FormatData_fr_FR, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(FormatData_fr_FR, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.text.resources.ext.FormatData_fr_FR",
+		"sun.util.resources.ParallelListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FormatData_fr_FR, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FormatData_fr_FR);
+	});
 	return class$;
 }
 

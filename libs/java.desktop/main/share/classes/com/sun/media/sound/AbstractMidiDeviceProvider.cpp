@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/AbstractMidiDeviceProvider.h>
-
 #include <com/sun/media/sound/AbstractMidiDeviceProvider$Info.h>
 #include <com/sun/media/sound/MidiUtils.h>
 #include <com/sun/media/sound/Platform.h>
@@ -29,50 +28,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _AbstractMidiDeviceProvider_FieldInfo_[] = {
-	{"enabled", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractMidiDeviceProvider, enabled)},
-	{}
-};
-
-$MethodInfo _AbstractMidiDeviceProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractMidiDeviceProvider, init$, void)},
-	{"createDevice", "(Lcom/sun/media/sound/AbstractMidiDeviceProvider$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, createDevice, $MidiDevice*, $AbstractMidiDeviceProvider$Info*)},
-	{"createInfo", "(I)Lcom/sun/media/sound/AbstractMidiDeviceProvider$Info;", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, createInfo, $AbstractMidiDeviceProvider$Info*, int32_t)},
-	{"getDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMidiDeviceProvider, getDevice, $MidiDevice*, $MidiDevice$Info*)},
-	{"getDeviceCache", "()[Ljavax/sound/midi/MidiDevice;", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, getDeviceCache, $MidiDeviceArray*)},
-	{"getDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMidiDeviceProvider, getDeviceInfo, $MidiDevice$InfoArray*)},
-	{"getInfoCache", "()[Lcom/sun/media/sound/AbstractMidiDeviceProvider$Info;", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, getInfoCache, $AbstractMidiDeviceProvider$InfoArray*)},
-	{"getNumDevices", "()I", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, getNumDevices, int32_t)},
-	{"readDeviceInfos", "()V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMidiDeviceProvider, readDeviceInfos, void)},
-	{"setDeviceCache", "([Ljavax/sound/midi/MidiDevice;)V", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, setDeviceCache, void, $MidiDeviceArray*)},
-	{"setInfoCache", "([Lcom/sun/media/sound/AbstractMidiDeviceProvider$Info;)V", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, setInfoCache, void, $AbstractMidiDeviceProvider$InfoArray*)},
-	{}
-};
-
-$InnerClassInfo _AbstractMidiDeviceProvider_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.AbstractMidiDeviceProvider$Info", "com.sun.media.sound.AbstractMidiDeviceProvider", "Info", $STATIC},
-	{}
-};
-
-$ClassInfo _AbstractMidiDeviceProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.media.sound.AbstractMidiDeviceProvider",
-	"javax.sound.midi.spi.MidiDeviceProvider",
-	nullptr,
-	_AbstractMidiDeviceProvider_FieldInfo_,
-	_AbstractMidiDeviceProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractMidiDeviceProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.AbstractMidiDeviceProvider$Info"
-};
-
-$Object* allocate$AbstractMidiDeviceProvider($Class* clazz) {
-	return $of($alloc(AbstractMidiDeviceProvider));
-}
-
 bool AbstractMidiDeviceProvider::enabled = false;
 
 void AbstractMidiDeviceProvider::init$() {
@@ -81,19 +36,19 @@ void AbstractMidiDeviceProvider::init$() {
 
 void AbstractMidiDeviceProvider::readDeviceInfos() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($AbstractMidiDeviceProvider$InfoArray, infos, getInfoCache());
 		$var($MidiDeviceArray, devices, getDeviceCache());
 		if (!AbstractMidiDeviceProvider::enabled) {
-			if (infos == nullptr || $nc(infos)->length != 0) {
+			if (infos == nullptr || infos->length != 0) {
 				setInfoCache($$new($AbstractMidiDeviceProvider$InfoArray, 0));
 			}
-			if (devices == nullptr || $nc(devices)->length != 0) {
+			if (devices == nullptr || devices->length != 0) {
 				setDeviceCache($$new($MidiDeviceArray, 0));
 			}
 			return;
 		}
-		int32_t oldNumDevices = (infos == nullptr) ? -1 : $nc(infos)->length;
+		int32_t oldNumDevices = (infos == nullptr) ? -1 : infos->length;
 		int32_t newNumDevices = getNumDevices();
 		if (oldNumDevices != newNumDevices) {
 			$var($AbstractMidiDeviceProvider$InfoArray, newInfos, $new($AbstractMidiDeviceProvider$InfoArray, newNumDevices));
@@ -131,7 +86,7 @@ void AbstractMidiDeviceProvider::readDeviceInfos() {
 }
 
 $MidiDevice$InfoArray* AbstractMidiDeviceProvider::getDeviceInfo() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	readDeviceInfos();
 	$var($AbstractMidiDeviceProvider$InfoArray, infos, getInfoCache());
 	$var($MidiDevice$InfoArray, localArray, $new($MidiDevice$InfoArray, $nc(infos)->length));
@@ -140,7 +95,7 @@ $MidiDevice$InfoArray* AbstractMidiDeviceProvider::getDeviceInfo() {
 }
 
 $MidiDevice* AbstractMidiDeviceProvider::getDevice($MidiDevice$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Objects::requireNonNull(info);
 	if ($instanceOf($AbstractMidiDeviceProvider$Info, info)) {
 		readDeviceInfos();
@@ -160,7 +115,7 @@ $MidiDevice* AbstractMidiDeviceProvider::getDevice($MidiDevice$Info* info) {
 	$throw($($MidiUtils::unsupportedDevice(info)));
 }
 
-void clinit$AbstractMidiDeviceProvider($Class* class$) {
+void AbstractMidiDeviceProvider::clinit$($Class* clazz) {
 	{
 		$Platform::initialize();
 		AbstractMidiDeviceProvider::enabled = $Platform::isMidiIOEnabled();
@@ -171,7 +126,45 @@ AbstractMidiDeviceProvider::AbstractMidiDeviceProvider() {
 }
 
 $Class* AbstractMidiDeviceProvider::load$($String* name, bool initialize) {
-	$loadClass(AbstractMidiDeviceProvider, name, initialize, &_AbstractMidiDeviceProvider_ClassInfo_, clinit$AbstractMidiDeviceProvider, allocate$AbstractMidiDeviceProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"enabled", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractMidiDeviceProvider, enabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AbstractMidiDeviceProvider, init$, void)},
+		{"createDevice", "(Lcom/sun/media/sound/AbstractMidiDeviceProvider$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, createDevice, $MidiDevice*, $AbstractMidiDeviceProvider$Info*)},
+		{"createInfo", "(I)Lcom/sun/media/sound/AbstractMidiDeviceProvider$Info;", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, createInfo, $AbstractMidiDeviceProvider$Info*, int32_t)},
+		{"getDevice", "(Ljavax/sound/midi/MidiDevice$Info;)Ljavax/sound/midi/MidiDevice;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMidiDeviceProvider, getDevice, $MidiDevice*, $MidiDevice$Info*)},
+		{"getDeviceCache", "()[Ljavax/sound/midi/MidiDevice;", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, getDeviceCache, $MidiDeviceArray*)},
+		{"getDeviceInfo", "()[Ljavax/sound/midi/MidiDevice$Info;", nullptr, $PUBLIC | $FINAL, $virtualMethod(AbstractMidiDeviceProvider, getDeviceInfo, $MidiDevice$InfoArray*)},
+		{"getInfoCache", "()[Lcom/sun/media/sound/AbstractMidiDeviceProvider$Info;", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, getInfoCache, $AbstractMidiDeviceProvider$InfoArray*)},
+		{"getNumDevices", "()I", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, getNumDevices, int32_t)},
+		{"readDeviceInfos", "()V", nullptr, $FINAL | $SYNCHRONIZED, $method(AbstractMidiDeviceProvider, readDeviceInfos, void)},
+		{"setDeviceCache", "([Ljavax/sound/midi/MidiDevice;)V", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, setDeviceCache, void, $MidiDeviceArray*)},
+		{"setInfoCache", "([Lcom/sun/media/sound/AbstractMidiDeviceProvider$Info;)V", nullptr, $ABSTRACT, $virtualMethod(AbstractMidiDeviceProvider, setInfoCache, void, $AbstractMidiDeviceProvider$InfoArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.AbstractMidiDeviceProvider$Info", "com.sun.media.sound.AbstractMidiDeviceProvider", "Info", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.media.sound.AbstractMidiDeviceProvider",
+		"javax.sound.midi.spi.MidiDeviceProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.AbstractMidiDeviceProvider$Info"
+	};
+	$loadClass(AbstractMidiDeviceProvider, name, initialize, &classInfo$$, AbstractMidiDeviceProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractMidiDeviceProvider);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/FailWebSocketException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,33 +11,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace websocket {
-
-$FieldInfo _FailWebSocketException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FailWebSocketException, serialVersionUID)},
-	{"statusCode", "I", nullptr, $PRIVATE | $FINAL, $field(FailWebSocketException, statusCode)},
-	{}
-};
-
-$MethodInfo _FailWebSocketException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(FailWebSocketException, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(FailWebSocketException, init$, void, $String*, int32_t)},
-	{"getStatusCode", "()I", nullptr, 0, $method(FailWebSocketException, getStatusCode, int32_t)},
-	{"initCause", "(Ljava/lang/Throwable;)Ljdk/internal/net/http/websocket/FailWebSocketException;", nullptr, $PUBLIC, $virtualMethod(FailWebSocketException, initCause, FailWebSocketException*, $Throwable*)},
-	{}
-};
-
-$ClassInfo _FailWebSocketException_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.websocket.FailWebSocketException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_FailWebSocketException_FieldInfo_,
-	_FailWebSocketException_MethodInfo_
-};
-
-$Object* allocate$FailWebSocketException($Class* clazz) {
-	return $of($alloc(FailWebSocketException));
-}
 
 void FailWebSocketException::init$($String* detail) {
 	FailWebSocketException::init$(detail, 1002);
@@ -68,7 +40,29 @@ void FailWebSocketException::throw$() {
 }
 
 $Class* FailWebSocketException::load$($String* name, bool initialize) {
-	$loadClass(FailWebSocketException, name, initialize, &_FailWebSocketException_ClassInfo_, allocate$FailWebSocketException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(FailWebSocketException, serialVersionUID)},
+		{"statusCode", "I", nullptr, $PRIVATE | $FINAL, $field(FailWebSocketException, statusCode)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(FailWebSocketException, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, 0, $method(FailWebSocketException, init$, void, $String*, int32_t)},
+		{"getStatusCode", "()I", nullptr, 0, $method(FailWebSocketException, getStatusCode, int32_t)},
+		{"initCause", "(Ljava/lang/Throwable;)Ljdk/internal/net/http/websocket/FailWebSocketException;", nullptr, $PUBLIC, $virtualMethod(FailWebSocketException, initCause, FailWebSocketException*, $Throwable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.websocket.FailWebSocketException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FailWebSocketException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FailWebSocketException);
+	});
 	return class$;
 }
 

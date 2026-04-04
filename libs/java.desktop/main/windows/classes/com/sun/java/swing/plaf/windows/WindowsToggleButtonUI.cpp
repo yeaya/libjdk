@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsToggleButtonUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/WindowsButtonUI.h>
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
@@ -29,7 +28,6 @@ using $WindowsButtonUI = ::com::sun::java::swing::plaf::windows::WindowsButtonUI
 using $WindowsGraphicsUtils = ::com::sun::java::swing::plaf::windows::WindowsGraphicsUtils;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -55,47 +53,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsToggleButtonUI_FieldInfo_[] = {
-	{"dashedRectGapX", "I", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, dashedRectGapX)},
-	{"dashedRectGapY", "I", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, dashedRectGapY)},
-	{"dashedRectGapWidth", "I", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, dashedRectGapWidth)},
-	{"dashedRectGapHeight", "I", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, dashedRectGapHeight)},
-	{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, focusColor)},
-	{"WINDOWS_TOGGLE_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsToggleButtonUI, WINDOWS_TOGGLE_BUTTON_UI_KEY)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(WindowsToggleButtonUI, defaults_initialized)},
-	{"cachedSelectedColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $TRANSIENT, $field(WindowsToggleButtonUI, cachedSelectedColor)},
-	{"cachedBackgroundColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $TRANSIENT, $field(WindowsToggleButtonUI, cachedBackgroundColor)},
-	{"cachedHighlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $TRANSIENT, $field(WindowsToggleButtonUI, cachedHighlightColor)},
-	{}
-};
-
-$MethodInfo _WindowsToggleButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsToggleButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, getFocusColor, $Color*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsToggleButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, installDefaults, void, $AbstractButton*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsToggleButtonUI, paint, void, $Graphics*, $JComponent*)},
-	{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
-	{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, uninstallDefaults, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _WindowsToggleButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsToggleButtonUI",
-	"javax.swing.plaf.basic.BasicToggleButtonUI",
-	nullptr,
-	_WindowsToggleButtonUI_FieldInfo_,
-	_WindowsToggleButtonUI_MethodInfo_
-};
-
-$Object* allocate$WindowsToggleButtonUI($Class* clazz) {
-	return $of($alloc(WindowsToggleButtonUI));
-}
-
 $Object* WindowsToggleButtonUI::WINDOWS_TOGGLE_BUTTON_UI_KEY = nullptr;
 
 void WindowsToggleButtonUI::init$() {
@@ -108,7 +65,7 @@ void WindowsToggleButtonUI::init$() {
 
 $ComponentUI* WindowsToggleButtonUI::createUI($JComponent* b) {
 	$init(WindowsToggleButtonUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(WindowsToggleButtonUI, windowsToggleButtonUI, $cast(WindowsToggleButtonUI, $nc(appContext)->get(WindowsToggleButtonUI::WINDOWS_TOGGLE_BUTTON_UI_KEY)));
 	if (windowsToggleButtonUI == nullptr) {
@@ -119,21 +76,20 @@ $ComponentUI* WindowsToggleButtonUI::createUI($JComponent* b) {
 }
 
 void WindowsToggleButtonUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicToggleButtonUI::installDefaults(b);
 	if (!this->defaults_initialized) {
 		$var($String, pp, getPropertyPrefix());
-		this->dashedRectGapX = $nc(($cast($Integer, $($UIManager::get("Button.dashedRectGapX"_s)))))->intValue();
-		this->dashedRectGapY = $nc(($cast($Integer, $($UIManager::get("Button.dashedRectGapY"_s)))))->intValue();
-		this->dashedRectGapWidth = $nc(($cast($Integer, $($UIManager::get("Button.dashedRectGapWidth"_s)))))->intValue();
-		this->dashedRectGapHeight = $nc(($cast($Integer, $($UIManager::get("Button.dashedRectGapHeight"_s)))))->intValue();
+		this->dashedRectGapX = $$sure($Integer, $UIManager::get("Button.dashedRectGapX"_s))->intValue();
+		this->dashedRectGapY = $$sure($Integer, $UIManager::get("Button.dashedRectGapY"_s))->intValue();
+		this->dashedRectGapWidth = $$sure($Integer, $UIManager::get("Button.dashedRectGapWidth"_s))->intValue();
+		this->dashedRectGapHeight = $$sure($Integer, $UIManager::get("Button.dashedRectGapHeight"_s))->intValue();
 		$set(this, focusColor, $UIManager::getColor($$str({pp, "focus"_s})));
 		this->defaults_initialized = true;
 	}
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$nc(b)->setBorder($(xp->getBorder(b, $($WindowsButtonUI::getXPButtonType(b)))));
-		$init($Boolean);
 		$LookAndFeel::installProperty(b, "opaque"_s, $Boolean::FALSE);
 		$LookAndFeel::installProperty(b, "rolloverEnabled"_s, $Boolean::TRUE);
 	}
@@ -149,7 +105,7 @@ $Color* WindowsToggleButtonUI::getFocusColor() {
 }
 
 void WindowsToggleButtonUI::paintButtonPressed($Graphics* g, $AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $XPStyle::getXP() == nullptr;
 	if (var$0 && $nc(b)->isContentAreaFilled()) {
 		$var($Color, oldColor, $nc(g)->getColor());
@@ -190,17 +146,15 @@ void WindowsToggleButtonUI::paintText($Graphics* g, $AbstractButton* b, $Rectang
 }
 
 void WindowsToggleButtonUI::paintFocus($Graphics* g, $AbstractButton* b, $Rectangle* viewRect, $Rectangle* textRect, $Rectangle* iconRect) {
-	$useLocalCurrentObjectStackCache();
 	$nc(g)->setColor($(getFocusColor()));
-	$var($Graphics, var$0, g);
-	int32_t var$1 = this->dashedRectGapX;
-	int32_t var$2 = this->dashedRectGapY;
-	int32_t var$3 = $nc(b)->getWidth() - this->dashedRectGapWidth;
-	$BasicGraphicsUtils::drawDashedRect(var$0, var$1, var$2, var$3, b->getHeight() - this->dashedRectGapHeight);
+	int32_t var$0 = this->dashedRectGapX;
+	int32_t var$1 = this->dashedRectGapY;
+	int32_t var$2 = $nc(b)->getWidth() - this->dashedRectGapWidth;
+	$BasicGraphicsUtils::drawDashedRect(g, var$0, var$1, var$2, b->getHeight() - this->dashedRectGapHeight);
 }
 
 $Dimension* WindowsToggleButtonUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $BasicToggleButtonUI::getPreferredSize(c));
 	$var($AbstractButton, b, $cast($AbstractButton, c));
 	if (d != nullptr && $nc(b)->isFocusPainted()) {
@@ -214,7 +168,7 @@ $Dimension* WindowsToggleButtonUI::getPreferredSize($JComponent* c) {
 	return d;
 }
 
-void clinit$WindowsToggleButtonUI($Class* class$) {
+void WindowsToggleButtonUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsToggleButtonUI::WINDOWS_TOGGLE_BUTTON_UI_KEY, $new($Object));
 }
 
@@ -222,7 +176,43 @@ WindowsToggleButtonUI::WindowsToggleButtonUI() {
 }
 
 $Class* WindowsToggleButtonUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsToggleButtonUI, name, initialize, &_WindowsToggleButtonUI_ClassInfo_, clinit$WindowsToggleButtonUI, allocate$WindowsToggleButtonUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"dashedRectGapX", "I", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, dashedRectGapX)},
+		{"dashedRectGapY", "I", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, dashedRectGapY)},
+		{"dashedRectGapWidth", "I", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, dashedRectGapWidth)},
+		{"dashedRectGapHeight", "I", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, dashedRectGapHeight)},
+		{"focusColor", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(WindowsToggleButtonUI, focusColor)},
+		{"WINDOWS_TOGGLE_BUTTON_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsToggleButtonUI, WINDOWS_TOGGLE_BUTTON_UI_KEY)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(WindowsToggleButtonUI, defaults_initialized)},
+		{"cachedSelectedColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $TRANSIENT, $field(WindowsToggleButtonUI, cachedSelectedColor)},
+		{"cachedBackgroundColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $TRANSIENT, $field(WindowsToggleButtonUI, cachedBackgroundColor)},
+		{"cachedHighlightColor", "Ljava/awt/Color;", nullptr, $PRIVATE | $TRANSIENT, $field(WindowsToggleButtonUI, cachedHighlightColor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsToggleButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getFocusColor", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, getFocusColor, $Color*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsToggleButtonUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, installDefaults, void, $AbstractButton*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsToggleButtonUI, paint, void, $Graphics*, $JComponent*)},
+		{"paintButtonPressed", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, paintButtonPressed, void, $Graphics*, $AbstractButton*)},
+		{"paintFocus", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/awt/Rectangle;Ljava/awt/Rectangle;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, paintFocus, void, $Graphics*, $AbstractButton*, $Rectangle*, $Rectangle*, $Rectangle*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/AbstractButton;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, paintText, void, $Graphics*, $AbstractButton*, $Rectangle*, $String*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(WindowsToggleButtonUI, uninstallDefaults, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsToggleButtonUI",
+		"javax.swing.plaf.basic.BasicToggleButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowsToggleButtonUI, name, initialize, &classInfo$$, WindowsToggleButtonUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsToggleButtonUI);
+	});
 	return class$;
 }
 

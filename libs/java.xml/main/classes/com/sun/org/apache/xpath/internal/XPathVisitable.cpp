@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/XPathVisitable.h>
-
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
 #include <jcpp.h>
@@ -16,26 +15,22 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 
-$MethodInfo _XPathVisitable_MethodInfo_[] = {
-	{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathVisitable, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
-	{}
-};
-
-$ClassInfo _XPathVisitable_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xpath.internal.XPathVisitable",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XPathVisitable_MethodInfo_
-};
-
-$Object* allocate$XPathVisitable($Class* clazz) {
-	return $of($alloc(XPathVisitable));
-}
-
 $Class* XPathVisitable::load$($String* name, bool initialize) {
-	$loadClass(XPathVisitable, name, initialize, &_XPathVisitable_ClassInfo_, allocate$XPathVisitable);
+	$MethodInfo methodInfos$$[] = {
+		{"callVisitors", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/XPathVisitor;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathVisitable, callVisitors, void, $ExpressionOwner*, $XPathVisitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xpath.internal.XPathVisitable",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XPathVisitable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathVisitable);
+	});
 	return class$;
 }
 

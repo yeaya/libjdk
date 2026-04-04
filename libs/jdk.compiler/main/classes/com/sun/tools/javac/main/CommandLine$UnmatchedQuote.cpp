@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/CommandLine$UnmatchedQuote.h>
-
 #include <com/sun/tools/javac/main/CommandLine.h>
 #include <jcpp.h>
 
@@ -14,42 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace main {
-
-$FieldInfo _CommandLine$UnmatchedQuote_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CommandLine$UnmatchedQuote, serialVersionUID)},
-	{"variableName", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(CommandLine$UnmatchedQuote, variableName)},
-	{}
-};
-
-$MethodInfo _CommandLine$UnmatchedQuote_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CommandLine$UnmatchedQuote, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _CommandLine$UnmatchedQuote_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.CommandLine$UnmatchedQuote", "com.sun.tools.javac.main.CommandLine", "UnmatchedQuote", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _CommandLine$UnmatchedQuote_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.main.CommandLine$UnmatchedQuote",
-	"java.lang.Exception",
-	nullptr,
-	_CommandLine$UnmatchedQuote_FieldInfo_,
-	_CommandLine$UnmatchedQuote_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CommandLine$UnmatchedQuote_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.CommandLine"
-};
-
-$Object* allocate$CommandLine$UnmatchedQuote($Class* clazz) {
-	return $of($alloc(CommandLine$UnmatchedQuote));
-}
 
 void CommandLine$UnmatchedQuote::init$($String* variable) {
 	$Exception::init$();
@@ -67,7 +30,37 @@ void CommandLine$UnmatchedQuote::throw$() {
 }
 
 $Class* CommandLine$UnmatchedQuote::load$($String* name, bool initialize) {
-	$loadClass(CommandLine$UnmatchedQuote, name, initialize, &_CommandLine$UnmatchedQuote_ClassInfo_, allocate$CommandLine$UnmatchedQuote);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(CommandLine$UnmatchedQuote, serialVersionUID)},
+		{"variableName", "Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $field(CommandLine$UnmatchedQuote, variableName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CommandLine$UnmatchedQuote, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.CommandLine$UnmatchedQuote", "com.sun.tools.javac.main.CommandLine", "UnmatchedQuote", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.main.CommandLine$UnmatchedQuote",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.CommandLine"
+	};
+	$loadClass(CommandLine$UnmatchedQuote, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CommandLine$UnmatchedQuote);
+	});
 	return class$;
 }
 

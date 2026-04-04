@@ -22,6 +22,7 @@ class $export DiagnosticFormatter$Configuration$MultilineLimit : public ::java::
 public:
 	DiagnosticFormatter$Configuration$MultilineLimit();
 	static $Array<::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$MultilineLimit>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$MultilineLimit* valueOf($String* name);
 	static $Array<::com::sun::tools::javac::api::DiagnosticFormatter$Configuration$MultilineLimit>* values();

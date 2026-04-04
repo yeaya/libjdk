@@ -36,6 +36,7 @@ class XErrorHandlerUtil : public ::java::lang::Object {
 	$class(XErrorHandlerUtil, 0, ::java::lang::Object)
 public:
 	XErrorHandlerUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void RESTORE_XERROR_HANDLER();
 	static int32_t SAVED_XERROR_HANDLER(int64_t display, ::sun::awt::X11::XErrorEvent* error);

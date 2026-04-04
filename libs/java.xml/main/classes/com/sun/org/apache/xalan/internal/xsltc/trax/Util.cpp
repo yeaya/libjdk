@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/Util.h>
-
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityManager$Limit.h>
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC.h>
@@ -82,7 +81,6 @@ using $JdkXmlFeatures = ::jdk::xml::internal::JdkXmlFeatures;
 using $JdkXmlFeatures$XmlFeature = ::jdk::xml::internal::JdkXmlFeatures$XmlFeature;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $Document = ::org::w3c::dom::Document;
-using $Node = ::org::w3c::dom::Node;
 using $InputSource = ::org::xml::sax::InputSource;
 using $SAXException = ::org::xml::sax::SAXException;
 using $SAXNotRecognizedException = ::org::xml::sax::SAXNotRecognizedException;
@@ -97,33 +95,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace trax {
-
-$FieldInfo _Util_FieldInfo_[] = {
-	{"property", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Util, property)},
-	{}
-};
-
-$MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
-	{"baseName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, baseName, $String*, $String*)},
-	{"getInputSource", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;Ljavax/xml/transform/Source;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getInputSource, $InputSource*, $XSLTC*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
-	{"noExtName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, noExtName, $String*, $String*)},
-	{"toJavaName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, toJavaName, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Util_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.Util",
-	"java.lang.Object",
-	nullptr,
-	_Util_FieldInfo_,
-	_Util_MethodInfo_
-};
-
-$Object* allocate$Util($Class* clazz) {
-	return $of($alloc(Util));
-}
 
 $String* Util::property = nullptr;
 
@@ -147,7 +118,7 @@ $String* Util::toJavaName($String* name) {
 
 $InputSource* Util::getInputSource($XSLTC* xsltc, $Source* source) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputSource, input, nullptr);
 	$var($String, systemId, $nc(source)->getSystemId());
 	try {
@@ -162,22 +133,20 @@ $InputSource* Util::getInputSource($XSLTC* xsltc, $Source* source) {
 					$assign(reader, $JdkXmlUtils::getXMLReader(overrideDefaultParser, xsltc->isSecureProcessing()));
 				} else {
 					$init($JdkXmlUtils);
-					$nc(reader)->setFeature($JdkXmlUtils::NAMESPACES_FEATURE, true);
+					reader->setFeature($JdkXmlUtils::NAMESPACES_FEATURE, true);
 					reader->setFeature($JdkXmlUtils::NAMESPACE_PREFIXES_FEATURE, false);
 				}
 				$init($XMLConstants);
 				$JdkXmlUtils::setXMLReaderPropertyIfSupport(reader, $XMLConstants::ACCESS_EXTERNAL_DTD, $($nc(xsltc)->getProperty($XMLConstants::ACCESS_EXTERNAL_DTD)), true);
 				$init($JdkConstants);
-				$JdkXmlUtils::setXMLReaderPropertyIfSupport(reader, $JdkConstants::CDATA_CHUNK_SIZE, $($nc(xsltc)->getProperty($JdkConstants::CDATA_CHUNK_SIZE)), false);
+				$JdkXmlUtils::setXMLReaderPropertyIfSupport(reader, $JdkConstants::CDATA_CHUNK_SIZE, $(xsltc->getProperty($JdkConstants::CDATA_CHUNK_SIZE)), false);
 				$var($String, lastProperty, ""_s);
 				try {
-					$var($XMLSecurityManager, securityManager, $cast($XMLSecurityManager, $nc(xsltc)->getProperty($JdkConstants::SECURITY_MANAGER)));
+					$var($XMLSecurityManager, securityManager, $cast($XMLSecurityManager, xsltc->getProperty($JdkConstants::SECURITY_MANAGER)));
 					if (securityManager != nullptr) {
 						{
 							$var($XMLSecurityManager$LimitArray, arr$, $XMLSecurityManager$Limit::values());
-							int32_t len$ = $nc(arr$)->length;
-							int32_t i$ = 0;
-							for (; i$ < len$; ++i$) {
+							for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 								$XMLSecurityManager$Limit* limit = arr$->get(i$);
 								{
 									$assign(lastProperty, $nc(limit)->apiProperty());
@@ -191,11 +160,11 @@ $InputSource* Util::getInputSource($XSLTC* xsltc, $Source* source) {
 						}
 					}
 				} catch ($SAXException& se) {
-					$XMLSecurityManager::printWarning($($nc($of(reader))->getClass()->getName()), lastProperty, se);
+					$XMLSecurityManager::printWarning($($nc(reader)->getClass()->getName()), lastProperty, se);
 				}
 				bool supportCatalog = true;
 				$init($JdkXmlFeatures$XmlFeature);
-				bool useCatalog = $nc(xsltc)->getFeature($JdkXmlFeatures$XmlFeature::USE_CATALOG);
+				bool useCatalog = xsltc->getFeature($JdkXmlFeatures$XmlFeature::USE_CATALOG);
 				try {
 					$nc(reader)->setFeature($JdkXmlUtils::USE_CATALOG, useCatalog);
 				} catch ($SAXNotRecognizedException& e) {
@@ -208,16 +177,12 @@ $InputSource* Util::getInputSource($XSLTC* xsltc, $Source* source) {
 						$init($JdkXmlFeatures);
 						$var($CatalogFeatures, cf, $cast($CatalogFeatures, xsltc->getProperty($JdkXmlFeatures::CATALOG_FEATURES)));
 						if (cf != nullptr) {
-							{
-								$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
-								int32_t len$ = $nc(arr$)->length;
-								int32_t i$ = 0;
-								for (; i$ < len$; ++i$) {
-									$CatalogFeatures$Feature* f = arr$->get(i$);
-									{
-										$var($String, var$0, $nc(f)->getPropertyName());
-										$nc(reader)->setProperty(var$0, $(cf->get(f)));
-									}
+							$var($CatalogFeatures$FeatureArray, arr$, $CatalogFeatures$Feature::values());
+							for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+								$CatalogFeatures$Feature* f = arr$->get(i$);
+								{
+									$var($String, var$0, $nc(f)->getPropertyName());
+									$nc(reader)->setProperty(var$0, $(cf->get(f)));
 								}
 							}
 						}
@@ -226,9 +191,9 @@ $InputSource* Util::getInputSource($XSLTC* xsltc, $Source* source) {
 				}
 				xsltc->setXMLReader(reader);
 			} catch ($SAXNotRecognizedException& snre) {
-				$throwNew($TransformerConfigurationException, "SAXNotRecognizedException "_s, static_cast<$Throwable*>(snre));
+				$throwNew($TransformerConfigurationException, "SAXNotRecognizedException "_s, snre);
 			} catch ($SAXNotSupportedException& snse) {
-				$throwNew($TransformerConfigurationException, "SAXNotSupportedException "_s, static_cast<$Throwable*>(snse));
+				$throwNew($TransformerConfigurationException, "SAXNotSupportedException "_s, snse);
 			}
 		} else if ($instanceOf($DOMSource, source)) {
 			$var($DOMSource, domsrc, $cast($DOMSource, source));
@@ -276,11 +241,11 @@ $InputSource* Util::getInputSource($XSLTC* xsltc, $Source* source) {
 		$nc(input)->setSystemId(systemId);
 	} catch ($NullPointerException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_NO_SOURCE_ERR, $of("TransformerFactory.newTemplates()"_s)));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::JAXP_NO_SOURCE_ERR, "TransformerFactory.newTemplates()"_s));
 		$throwNew($TransformerConfigurationException, $(err->toString()));
 	} catch ($SecurityException& e) {
 		$init($ErrorMsg);
-		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::FILE_ACCESS_ERR, $of(systemId)));
+		$var($ErrorMsg, err, $new($ErrorMsg, $ErrorMsg::FILE_ACCESS_ERR, systemId));
 		$throwNew($TransformerConfigurationException, $(err->toString()));
 	}
 	return input;
@@ -289,12 +254,34 @@ $InputSource* Util::getInputSource($XSLTC* xsltc, $Source* source) {
 Util::Util() {
 }
 
-void clinit$Util($Class* class$) {
+void Util::clinit$($Class* clazz) {
 	$assignStatic(Util::property, "org.xml.sax.driver"_s);
 }
 
 $Class* Util::load$($String* name, bool initialize) {
-	$loadClass(Util, name, initialize, &_Util_ClassInfo_, clinit$Util, allocate$Util);
+	$FieldInfo fieldInfos$$[] = {
+		{"property", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Util, property)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
+		{"baseName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, baseName, $String*, $String*)},
+		{"getInputSource", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC;Ljavax/xml/transform/Source;)Lorg/xml/sax/InputSource;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, getInputSource, $InputSource*, $XSLTC*, $Source*), "javax.xml.transform.TransformerConfigurationException"},
+		{"noExtName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, noExtName, $String*, $String*)},
+		{"toJavaName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, toJavaName, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.Util",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Util, name, initialize, &classInfo$$, Util::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Util);
+	});
 	return class$;
 }
 

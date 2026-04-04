@@ -17,6 +17,7 @@ class JPEGImageWriter$CallBackLock$State : public ::java::lang::Enum {
 public:
 	JPEGImageWriter$CallBackLock$State();
 	static $Array<::com::sun::imageio::plugins::jpeg::JPEGImageWriter$CallBackLock$State>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::com::sun::imageio::plugins::jpeg::JPEGImageWriter$CallBackLock$State* valueOf($String* name);
 	static $Array<::com::sun::imageio::plugins::jpeg::JPEGImageWriter$CallBackLock$State>* values();

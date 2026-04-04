@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/SwatchPanel$2.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Dimension.h>
@@ -15,7 +14,6 @@
 #undef VK_RIGHT
 #undef VK_UP
 
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,109 +27,55 @@ namespace javax {
 	namespace swing {
 		namespace colorchooser {
 
-$FieldInfo _SwatchPanel$2_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/colorchooser/SwatchPanel;", nullptr, $FINAL | $SYNTHETIC, $field(SwatchPanel$2, this$0)},
-	{}
-};
-
-$MethodInfo _SwatchPanel$2_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/colorchooser/SwatchPanel;)V", nullptr, 0, $method(SwatchPanel$2, init$, void, $SwatchPanel*)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(SwatchPanel$2, keyPressed, void, $KeyEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _SwatchPanel$2_EnclosingMethodInfo_ = {
-	"javax.swing.colorchooser.SwatchPanel",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _SwatchPanel$2_InnerClassesInfo_[] = {
-	{"javax.swing.colorchooser.SwatchPanel$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SwatchPanel$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.colorchooser.SwatchPanel$2",
-	"java.awt.event.KeyAdapter",
-	nullptr,
-	_SwatchPanel$2_FieldInfo_,
-	_SwatchPanel$2_MethodInfo_,
-	nullptr,
-	&_SwatchPanel$2_EnclosingMethodInfo_,
-	_SwatchPanel$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.colorchooser.SwatchPanel"
-};
-
-$Object* allocate$SwatchPanel$2($Class* clazz) {
-	return $of($alloc(SwatchPanel$2));
-}
-
 void SwatchPanel$2::init$($SwatchPanel* this$0) {
 	$set(this, this$0, this$0);
 	$KeyAdapter::init$();
 }
 
 void SwatchPanel$2::keyPressed($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t typed = $nc(e)->getKeyCode();
 	switch (typed) {
 	case $KeyEvent::VK_UP:
-		{
-			if (this->this$0->selRow > 0) {
-				--this->this$0->selRow;
-				this->this$0->repaint();
-			}
-			break;
+		if (this->this$0->selRow > 0) {
+			--this->this$0->selRow;
+			this->this$0->repaint();
 		}
+		break;
 	case $KeyEvent::VK_DOWN:
-		{
-			if (this->this$0->selRow < $nc(this->this$0->numSwatches)->height - 1) {
-				++this->this$0->selRow;
-				this->this$0->repaint();
-			}
-			break;
+		if (this->this$0->selRow < $nc(this->this$0->numSwatches)->height - 1) {
+			++this->this$0->selRow;
+			this->this$0->repaint();
 		}
+		break;
 	case $KeyEvent::VK_LEFT:
-		{
-			if (this->this$0->selCol > 0 && $nc($(this->this$0->getComponentOrientation()))->isLeftToRight()) {
-				--this->this$0->selCol;
-				this->this$0->repaint();
-			} else if (this->this$0->selCol < $nc(this->this$0->numSwatches)->width - 1 && !$nc($(this->this$0->getComponentOrientation()))->isLeftToRight()) {
-				++this->this$0->selCol;
-				this->this$0->repaint();
-			}
-			break;
+		if (this->this$0->selCol > 0 && $$nc(this->this$0->getComponentOrientation())->isLeftToRight()) {
+			--this->this$0->selCol;
+			this->this$0->repaint();
+		} else if (this->this$0->selCol < $nc(this->this$0->numSwatches)->width - 1 && !$$nc(this->this$0->getComponentOrientation())->isLeftToRight()) {
+			++this->this$0->selCol;
+			this->this$0->repaint();
 		}
+		break;
 	case $KeyEvent::VK_RIGHT:
-		{
-			if (this->this$0->selCol < $nc(this->this$0->numSwatches)->width - 1 && $nc($(this->this$0->getComponentOrientation()))->isLeftToRight()) {
-				++this->this$0->selCol;
-				this->this$0->repaint();
-			} else if (this->this$0->selCol > 0 && !$nc($(this->this$0->getComponentOrientation()))->isLeftToRight()) {
-				--this->this$0->selCol;
-				this->this$0->repaint();
-			}
-			break;
+		if (this->this$0->selCol < $nc(this->this$0->numSwatches)->width - 1 && $$nc(this->this$0->getComponentOrientation())->isLeftToRight()) {
+			++this->this$0->selCol;
+			this->this$0->repaint();
+		} else if (this->this$0->selCol > 0 && !$$nc(this->this$0->getComponentOrientation())->isLeftToRight()) {
+			--this->this$0->selCol;
+			this->this$0->repaint();
 		}
+		break;
 	case $KeyEvent::VK_HOME:
-		{
-			this->this$0->selCol = 0;
-			this->this$0->selRow = 0;
-			this->this$0->repaint();
-			break;
-		}
+		this->this$0->selCol = 0;
+		this->this$0->selRow = 0;
+		this->this$0->repaint();
+		break;
 	case $KeyEvent::VK_END:
-		{
-			this->this$0->selCol = $nc(this->this$0->numSwatches)->width - 1;
-			this->this$0->selRow = $nc(this->this$0->numSwatches)->height - 1;
-			this->this$0->repaint();
-			break;
-		}
+		this->this$0->selCol = $nc(this->this$0->numSwatches)->width - 1;
+		this->this$0->selRow = this->this$0->numSwatches->height - 1;
+		this->this$0->repaint();
+		break;
 	}
 }
 
@@ -139,7 +83,42 @@ SwatchPanel$2::SwatchPanel$2() {
 }
 
 $Class* SwatchPanel$2::load$($String* name, bool initialize) {
-	$loadClass(SwatchPanel$2, name, initialize, &_SwatchPanel$2_ClassInfo_, allocate$SwatchPanel$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/colorchooser/SwatchPanel;", nullptr, $FINAL | $SYNTHETIC, $field(SwatchPanel$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/colorchooser/SwatchPanel;)V", nullptr, 0, $method(SwatchPanel$2, init$, void, $SwatchPanel*)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(SwatchPanel$2, keyPressed, void, $KeyEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.colorchooser.SwatchPanel",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.colorchooser.SwatchPanel$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.colorchooser.SwatchPanel$2",
+		"java.awt.event.KeyAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.colorchooser.SwatchPanel"
+	};
+	$loadClass(SwatchPanel$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwatchPanel$2);
+	});
 	return class$;
 }
 

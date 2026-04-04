@@ -1,5 +1,4 @@
 #include <java/awt/VKCollection.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -11,38 +10,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $Map = ::java::util::Map;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _VKCollection_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(VKCollection, $assertionsDisabled)},
-	{"code2name", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/String;>;", 0, $field(VKCollection, code2name)},
-	{"name2code", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", 0, $field(VKCollection, name2code)},
-	{}
-};
-
-$MethodInfo _VKCollection_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(VKCollection, init$, void)},
-	{"findCode", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(VKCollection, findCode, $Integer*, $String*)},
-	{"findName", "(Ljava/lang/Integer;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(VKCollection, findName, $String*, $Integer*)},
-	{"put", "(Ljava/lang/String;Ljava/lang/Integer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(VKCollection, put, void, $String*, $Integer*)},
-	{}
-};
-
-$ClassInfo _VKCollection_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.VKCollection",
-	"java.lang.Object",
-	nullptr,
-	_VKCollection_FieldInfo_,
-	_VKCollection_MethodInfo_
-};
-
-$Object* allocate$VKCollection($Class* clazz) {
-	return $of($alloc(VKCollection));
-}
 
 bool VKCollection::$assertionsDisabled = false;
 
@@ -85,7 +55,7 @@ $String* VKCollection::findName($Integer* code) {
 	}
 }
 
-void clinit$VKCollection($Class* class$) {
+void VKCollection::clinit$($Class* clazz) {
 	VKCollection::$assertionsDisabled = !VKCollection::class$->desiredAssertionStatus();
 }
 
@@ -93,7 +63,30 @@ VKCollection::VKCollection() {
 }
 
 $Class* VKCollection::load$($String* name, bool initialize) {
-	$loadClass(VKCollection, name, initialize, &_VKCollection_ClassInfo_, clinit$VKCollection, allocate$VKCollection);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(VKCollection, $assertionsDisabled)},
+		{"code2name", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Integer;Ljava/lang/String;>;", 0, $field(VKCollection, code2name)},
+		{"name2code", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", 0, $field(VKCollection, name2code)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(VKCollection, init$, void)},
+		{"findCode", "(Ljava/lang/String;)Ljava/lang/Integer;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(VKCollection, findCode, $Integer*, $String*)},
+		{"findName", "(Ljava/lang/Integer;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(VKCollection, findName, $String*, $Integer*)},
+		{"put", "(Ljava/lang/String;Ljava/lang/Integer;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(VKCollection, put, void, $String*, $Integer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.VKCollection",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(VKCollection, name, initialize, &classInfo$$, VKCollection::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(VKCollection);
+	});
 	return class$;
 }
 

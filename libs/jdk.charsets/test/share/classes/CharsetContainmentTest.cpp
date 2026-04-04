@@ -1,5 +1,4 @@
 #include <CharsetContainmentTest.h>
-
 #include <java/nio/charset/Charset.h>
 #include <jcpp.h>
 
@@ -10,31 +9,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 
-$FieldInfo _CharsetContainmentTest_FieldInfo_[] = {
-	{"encodings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(CharsetContainmentTest, encodings)},
-	{"contains", "[[Ljava/lang/String;", nullptr, $STATIC, $staticField(CharsetContainmentTest, contains)},
-	{}
-};
-
-$MethodInfo _CharsetContainmentTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CharsetContainmentTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CharsetContainmentTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _CharsetContainmentTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"CharsetContainmentTest",
-	"java.lang.Object",
-	nullptr,
-	_CharsetContainmentTest_FieldInfo_,
-	_CharsetContainmentTest_MethodInfo_
-};
-
-$Object* allocate$CharsetContainmentTest($Class* clazz) {
-	return $of($alloc(CharsetContainmentTest));
-}
-
 $StringArray* CharsetContainmentTest::encodings = nullptr;
 $StringArray2* CharsetContainmentTest::contains = nullptr;
 
@@ -43,21 +17,21 @@ void CharsetContainmentTest::init$() {
 
 void CharsetContainmentTest::main($StringArray* args) {
 	$init(CharsetContainmentTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(CharsetContainmentTest::encodings)->length; ++i) {
-		$var($Charset, c, $Charset::forName($nc(CharsetContainmentTest::encodings)->get(i)));
+		$var($Charset, c, $Charset::forName(CharsetContainmentTest::encodings->get(i)));
 		for (int32_t j = 0; j < $nc($nc(CharsetContainmentTest::contains)->get(i))->length; ++j) {
-			if ($nc(c)->contains($($Charset::forName($nc($nc(CharsetContainmentTest::contains)->get(i))->get(j))))) {
+			if ($nc(c)->contains($($Charset::forName($nc(CharsetContainmentTest::contains->get(i))->get(j))))) {
 				continue;
 			} else {
-				$throwNew($Exception, $$str({"Error: charset "_s, $nc(CharsetContainmentTest::encodings)->get(i), "doesn\'t contain "_s, $nc($nc(CharsetContainmentTest::contains)->get(i))->get(j)}));
+				$throwNew($Exception, $$str({"Error: charset "_s, CharsetContainmentTest::encodings->get(i), "doesn\'t contain "_s, $nc(CharsetContainmentTest::contains->get(i))->get(j)}));
 			}
 		}
 	}
 }
 
-void clinit$CharsetContainmentTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void CharsetContainmentTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(CharsetContainmentTest::encodings, $new($StringArray, {
 		"US-ASCII"_s,
 		"UTF-16"_s,
@@ -271,7 +245,27 @@ CharsetContainmentTest::CharsetContainmentTest() {
 }
 
 $Class* CharsetContainmentTest::load$($String* name, bool initialize) {
-	$loadClass(CharsetContainmentTest, name, initialize, &_CharsetContainmentTest_ClassInfo_, clinit$CharsetContainmentTest, allocate$CharsetContainmentTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"encodings", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(CharsetContainmentTest, encodings)},
+		{"contains", "[[Ljava/lang/String;", nullptr, $STATIC, $staticField(CharsetContainmentTest, contains)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CharsetContainmentTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(CharsetContainmentTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"CharsetContainmentTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharsetContainmentTest, name, initialize, &classInfo$$, CharsetContainmentTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CharsetContainmentTest);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug4765271.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -25,7 +24,6 @@
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/HTMLDocument.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
@@ -39,11 +37,8 @@
 #undef TRUE
 #undef W3C_LENGTH_UNITS
 
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $Shape = ::java::awt::Shape;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -59,8 +54,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument$AbstractElement = ::javax::swing::text::AbstractDocument$AbstractElement;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $EditorKit = ::javax::swing::text::EditorKit;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $View = ::javax::swing::text::View;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
@@ -76,67 +69,32 @@ public:
 	virtual void run() override {
 		bug4765271::lambda$main$0(test);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4765271$$Lambda$lambda$main$0>());
-	}
 	bug4765271* test = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug4765271$$Lambda$lambda$main$0::fieldInfos[2] = {
-	{"test", "Lbug4765271;", nullptr, $PUBLIC, $field(bug4765271$$Lambda$lambda$main$0, test)},
-	{}
-};
-$MethodInfo bug4765271$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "(Lbug4765271;)V", nullptr, $PUBLIC, $method(bug4765271$$Lambda$lambda$main$0, init$, void, bug4765271*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4765271$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug4765271$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4765271$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug4765271$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug4765271$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"test", "Lbug4765271;", nullptr, $PUBLIC, $field(bug4765271$$Lambda$lambda$main$0, test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4765271;)V", nullptr, $PUBLIC, $method(bug4765271$$Lambda$lambda$main$0, init$, void, bug4765271*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4765271$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4765271$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4765271$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4765271$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug4765271$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug4765271_FieldInfo_[] = {
-	{"RES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug4765271, RES)},
-	{"TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4765271, TEXT)},
-	{"jep", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(bug4765271, jep)},
-	{"showFrame", "Z", nullptr, $PRIVATE | $FINAL, $field(bug4765271, showFrame)},
-	{"passed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(bug4765271, passed)},
-	{}
-};
-
-$MethodInfo _bug4765271_MethodInfo_[] = {
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(bug4765271, init$, void, bool)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4765271, init, void)},
-	{"lambda$main$0", "(Lbug4765271;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4765271, lambda$main$0, void, bug4765271*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4765271, main, void, $StringArray*), "java.lang.Exception"},
-	{"test", "()V", nullptr, $PUBLIC, $virtualMethod(bug4765271, test, void)},
-	{}
-};
-
-$ClassInfo _bug4765271_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4765271",
-	"java.lang.Object",
-	nullptr,
-	_bug4765271_FieldInfo_,
-	_bug4765271_MethodInfo_
-};
-
-$Object* allocate$bug4765271($Class* clazz) {
-	return $of($alloc(bug4765271));
-}
 
 $String* bug4765271::TEXT = nullptr;
 
@@ -146,19 +104,17 @@ void bug4765271::init$(bool showFrame) {
 }
 
 void bug4765271::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println($$str({"res = "_s, $$str(bug4765271::RES)}));
 	$set(this, jep, $new($JEditorPane));
-	$init($JEditorPane);
-	$init($Boolean);
-	$nc(this->jep)->putClientProperty($JEditorPane::W3C_LENGTH_UNITS, $Boolean::TRUE);
+	this->jep->putClientProperty($JEditorPane::W3C_LENGTH_UNITS, $Boolean::TRUE);
 	$nc(this->jep)->setEditorKit($$new($HTMLEditorKit));
 	$nc(this->jep)->setEditable(false);
 	$nc(this->jep)->setText(bug4765271::TEXT);
 	if (this->showFrame) {
 		$var($JFrame, f, $new($JFrame, "Reg test for bug4765271"_s));
 		f->setDefaultCloseOperation($JFrame::DISPOSE_ON_CLOSE);
-		$nc($(f->getContentPane()))->add(static_cast<$Component*>(this->jep));
+		$$nc(f->getContentPane())->add(this->jep);
 		f->pack();
 		f->setVisible(true);
 	} else {
@@ -167,11 +123,11 @@ void bug4765271::init() {
 }
 
 void bug4765271::test() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Shape, r, $nc(this->jep)->getBounds());
-	$var($View, v, $nc($($cast($TextUI, $nc(this->jep)->getUI())))->getRootView(this->jep));
+	$var($View, v, $$sure($TextUI, $nc(this->jep)->getUI())->getRootView(this->jep));
 	while (!($instanceOf($InlineView, v))) {
-		$var($String, viewName, $nc($of(v))->getClass()->getName());
+		$var($String, viewName, $nc(v)->getClass()->getName());
 		int32_t n = v->getViewCount();
 		if ($nc(viewName)->endsWith("Row"_s)) {
 			break;
@@ -184,14 +140,14 @@ void bug4765271::test() {
 	}
 	$var($Shape, sh, $nc(v)->getChildAllocation(0, r));
 	int32_t h1 = $nc($($nc(sh)->getBounds()))->height;
-	$var($StyleSheet, ss, $nc(($cast($HTMLDocument, $(v->getDocument()))))->getStyleSheet());
+	$var($StyleSheet, ss, $$sure($HTMLDocument, v->getDocument())->getStyleSheet());
 	$var($View, childView, v->getView(0));
 	$var($AttributeSet, attrs, $nc(childView)->getAttributes());
 	$var($Font, font, $nc(ss)->getFont(attrs));
 	int32_t size1 = $nc(font)->getSize();
 	$nc($System::out)->println($$str({"Font Size for InlineView #0 = "_s, $$str(size1), "; height = "_s, $$str(h1), "; element = {"_s}));
-	$nc(($cast($AbstractDocument$AbstractElement, $(childView->getElement()))))->dump($System::out, 3);
-	$nc($System::out)->println("}"_s);
+	$$sure($AbstractDocument$AbstractElement, childView->getElement())->dump($System::out, 3);
+	$System::out->println("}"_s);
 	bool testPassed = true;
 	int32_t n = v->getViewCount() - 1;
 	for (int32_t i = 1; i < n; ++i) {
@@ -201,19 +157,19 @@ void bug4765271::test() {
 		$assign(attrs, $nc(childView)->getAttributes());
 		$assign(font, ss->getFont(attrs));
 		int32_t size2 = $nc(font)->getSize();
-		$nc($System::out)->println($$str({"Font Size for InlineView #"_s, $$str(i), " = "_s, $$str(size2), "; height = "_s, $$str(h2), "; element = {"_s}));
-		$nc(($cast($AbstractDocument$AbstractElement, $(childView->getElement()))))->dump($System::out, 3);
-		$nc($System::out)->println("}"_s);
+		$System::out->println($$str({"Font Size for InlineView #"_s, $$str(i), " = "_s, $$str(size2), "; height = "_s, $$str(h2), "; element = {"_s}));
+		$$sure($AbstractDocument$AbstractElement, childView->getElement())->dump($System::out, 3);
+		$System::out->println("}"_s);
 		testPassed &= ((size1 == size2) && (h1 == h2));
 	}
-	$nc(this->passed)->set(testPassed);
+	this->passed->set(testPassed);
 }
 
 void bug4765271::main($StringArray* args) {
 	$init(bug4765271);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(bug4765271, test, $new(bug4765271, ($nc(args)->length > 0) && "-show"_s->equals(args->get(0))));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4765271$$Lambda$lambda$main$0, test)));
+	$SwingUtilities::invokeAndWait($$new(bug4765271$$Lambda$lambda$main$0, test));
 	if (!$nc(test->passed)->get()) {
 		$throwNew($RuntimeException, "Test failed"_s);
 	} else {
@@ -230,17 +186,43 @@ void bug4765271::lambda$main$0(bug4765271* test) {
 bug4765271::bug4765271() {
 }
 
-void clinit$bug4765271($Class* class$) {
+void bug4765271::clinit$($Class* clazz) {
 	$assignStatic(bug4765271::TEXT, $str({"<html><body><span style=\"font-size: 72pt  \">A</span><span style=\"font-size: 6pc   \">B</span><span style=\"font-size: "_s, $$str(bug4765271::RES), "px  \">C</span><span style=\"font-size: 25.4mm\">D</span><span style=\"font-size: 2.54cm\">E</span><span style=\"font-size: 1in   \">F</span></body></html>"_s}));
 }
 
 $Class* bug4765271::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4765271$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug4765271$$Lambda$lambda$main$0")) {
 			return bug4765271$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4765271, name, initialize, &_bug4765271_ClassInfo_, clinit$bug4765271, allocate$bug4765271);
+	$FieldInfo fieldInfos$$[] = {
+		{"RES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug4765271, RES)},
+		{"TEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug4765271, TEXT)},
+		{"jep", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(bug4765271, jep)},
+		{"showFrame", "Z", nullptr, $PRIVATE | $FINAL, $field(bug4765271, showFrame)},
+		{"passed", "Ljava/util/concurrent/atomic/AtomicBoolean;", nullptr, $PRIVATE | $FINAL, $field(bug4765271, passed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(bug4765271, init$, void, bool)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4765271, init, void)},
+		{"lambda$main$0", "(Lbug4765271;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4765271, lambda$main$0, void, bug4765271*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4765271, main, void, $StringArray*), "java.lang.Exception"},
+		{"test", "()V", nullptr, $PUBLIC, $virtualMethod(bug4765271, test, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4765271",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4765271, name, initialize, &classInfo$$, bug4765271::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4765271);
+	});
 	return class$;
 }
 

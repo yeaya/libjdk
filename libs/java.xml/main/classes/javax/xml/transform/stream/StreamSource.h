@@ -25,6 +25,7 @@ class $export StreamSource : public ::javax::xml::transform::Source {
 	$class(StreamSource, 0, ::javax::xml::transform::Source)
 public:
 	StreamSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::io::InputStream* inputStream);
 	void init$(::java::io::InputStream* inputStream, $String* systemId);

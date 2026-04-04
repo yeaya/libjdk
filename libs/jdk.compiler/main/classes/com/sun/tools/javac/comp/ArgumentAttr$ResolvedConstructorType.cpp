@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$ResolvedConstructorType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -21,7 +20,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $ArgumentAttr = ::com::sun::tools::javac::comp::ArgumentAttr;
 using $ArgumentAttr$ArgumentType = ::com::sun::tools::javac::comp::ArgumentAttr$ArgumentType;
 using $ArgumentAttr$ResolvedMemberType = ::com::sun::tools::javac::comp::ArgumentAttr$ResolvedMemberType;
-using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -39,48 +37,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _ArgumentAttr$ResolvedConstructorType_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ResolvedConstructorType, this$0)},
-	{}
-};
-
-$MethodInfo _ArgumentAttr$ResolvedConstructorType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", $PUBLIC, $method(ArgumentAttr$ResolvedConstructorType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCNewClass*)},
-	{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(ArgumentAttr$ResolvedConstructorType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCNewClass*, $Map*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;", 0, $virtualMethod(ArgumentAttr$ResolvedConstructorType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCNewClass*, $Env*)},
-	{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$ResolvedConstructorType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
-	{"methodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedConstructorType, methodType, $Type*)},
-	{"resultInfo", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedConstructorType, resultInfo, $Attr$ResultInfo*, $Attr$ResultInfo*)},
-	{}
-};
-
-$InnerClassInfo _ArgumentAttr$ResolvedConstructorType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.ArgumentAttr$ResolvedConstructorType", "com.sun.tools.javac.comp.ArgumentAttr", "ResolvedConstructorType", 0},
-	{"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType", "com.sun.tools.javac.comp.ArgumentAttr", "ResolvedMemberType", $ABSTRACT},
-	{"com.sun.tools.javac.tree.JCTree$JCNewClass", "com.sun.tools.javac.tree.JCTree", "JCNewClass", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ArgumentAttr$ResolvedConstructorType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.ArgumentAttr$ResolvedConstructorType",
-	"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType",
-	nullptr,
-	_ArgumentAttr$ResolvedConstructorType_FieldInfo_,
-	_ArgumentAttr$ResolvedConstructorType_MethodInfo_,
-	"Lcom/sun/tools/javac/comp/ArgumentAttr$ResolvedMemberType<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;",
-	nullptr,
-	_ArgumentAttr$ResolvedConstructorType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.ArgumentAttr"
-};
-
-$Object* allocate$ArgumentAttr$ResolvedConstructorType($Class* clazz) {
-	return $of($alloc(ArgumentAttr$ResolvedConstructorType));
-}
-
 void ArgumentAttr$ResolvedConstructorType::init$($ArgumentAttr* this$0, $JCTree$JCExpression* tree, $Env* env, $JCTree$JCNewClass* speculativeTree) {
 	ArgumentAttr$ResolvedConstructorType::init$(this$0, tree, env, speculativeTree, $$new($HashMap));
 }
@@ -91,11 +47,11 @@ void ArgumentAttr$ResolvedConstructorType::init$($ArgumentAttr* this$0, $JCTree$
 }
 
 $Attr$ResultInfo* ArgumentAttr$ResolvedConstructorType::resultInfo($Attr$ResultInfo* resultInfo) {
-	return $nc(resultInfo)->dup($($nc(this->this$0->attr)->diamondContext($cast($JCTree$JCNewClass, this->speculativeTree$), $nc($nc($nc(($cast($JCTree$JCNewClass, this->speculativeTree$)))->clazz)->type)->tsym, resultInfo->checkContext)));
+	return $nc(resultInfo)->dup($($nc(this->this$0->attr)->diamondContext($cast($JCTree$JCNewClass, this->speculativeTree$), $nc($nc($nc(($cast($JCTree$JCNewClass, this->speculativeTree$)))->clazz)->type)->tsym, $nc(resultInfo)->checkContext)));
 }
 
 $Type* ArgumentAttr$ResolvedConstructorType::methodType() {
-	return ($nc(($cast($JCTree$JCNewClass, this->speculativeTree$)))->constructorType != nullptr) ? $nc($nc(($cast($JCTree$JCNewClass, this->speculativeTree$)))->constructorType)->baseType() : $nc(this->this$0->syms)->errType;
+	return ($nc(($cast($JCTree$JCNewClass, this->speculativeTree$)))->constructorType != nullptr) ? ($cast($JCTree$JCNewClass, this->speculativeTree$))->constructorType->baseType() : $nc(this->this$0->syms)->errType;
 }
 
 $ArgumentAttr$ArgumentType* ArgumentAttr$ResolvedConstructorType::dup($JCTree$JCNewClass* tree, $Env* env) {
@@ -110,7 +66,43 @@ ArgumentAttr$ResolvedConstructorType::ArgumentAttr$ResolvedConstructorType() {
 }
 
 $Class* ArgumentAttr$ResolvedConstructorType::load$($String* name, bool initialize) {
-	$loadClass(ArgumentAttr$ResolvedConstructorType, name, initialize, &_ArgumentAttr$ResolvedConstructorType_ClassInfo_, allocate$ArgumentAttr$ResolvedConstructorType);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/ArgumentAttr;", nullptr, $FINAL | $SYNTHETIC, $field(ArgumentAttr$ResolvedConstructorType, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", $PUBLIC, $method(ArgumentAttr$ResolvedConstructorType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCNewClass*)},
+		{"<init>", "(Lcom/sun/tools/javac/comp/ArgumentAttr;Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Ljava/util/Map;)V", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Ljava/util/Map<Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/code/Type;>;)V", $PUBLIC, $method(ArgumentAttr$ResolvedConstructorType, init$, void, $ArgumentAttr*, $JCTree$JCExpression*, $Env*, $JCTree$JCNewClass*, $Map*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;", 0, $virtualMethod(ArgumentAttr$ResolvedConstructorType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCNewClass*, $Env*)},
+		{"dup", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;Lcom/sun/tools/javac/comp/Env;)Lcom/sun/tools/javac/comp/ArgumentAttr$ArgumentType;", nullptr, $VOLATILE | $SYNTHETIC, $virtualMethod(ArgumentAttr$ResolvedConstructorType, dup, $ArgumentAttr$ArgumentType*, $JCTree$JCExpression*, $Env*)},
+		{"methodType", "()Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedConstructorType, methodType, $Type*)},
+		{"resultInfo", "(Lcom/sun/tools/javac/comp/Attr$ResultInfo;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, 0, $virtualMethod(ArgumentAttr$ResolvedConstructorType, resultInfo, $Attr$ResultInfo*, $Attr$ResultInfo*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.ArgumentAttr$ResolvedConstructorType", "com.sun.tools.javac.comp.ArgumentAttr", "ResolvedConstructorType", 0},
+		{"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType", "com.sun.tools.javac.comp.ArgumentAttr", "ResolvedMemberType", $ABSTRACT},
+		{"com.sun.tools.javac.tree.JCTree$JCNewClass", "com.sun.tools.javac.tree.JCTree", "JCNewClass", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.ArgumentAttr$ResolvedConstructorType",
+		"com.sun.tools.javac.comp.ArgumentAttr$ResolvedMemberType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/comp/ArgumentAttr$ResolvedMemberType<Lcom/sun/tools/javac/tree/JCTree$JCNewClass;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.ArgumentAttr"
+	};
+	$loadClass(ArgumentAttr$ResolvedConstructorType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArgumentAttr$ResolvedConstructorType));
+	});
 	return class$;
 }
 

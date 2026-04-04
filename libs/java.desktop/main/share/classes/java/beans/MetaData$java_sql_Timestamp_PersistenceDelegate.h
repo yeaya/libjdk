@@ -25,6 +25,7 @@ class MetaData$java_sql_Timestamp_PersistenceDelegate : public ::java::beans::Me
 	$class(MetaData$java_sql_Timestamp_PersistenceDelegate, 0, ::java::beans::MetaData$java_util_Date_PersistenceDelegate)
 public:
 	MetaData$java_sql_Timestamp_PersistenceDelegate();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getNanos(Object$* obj);
 	static ::java::lang::reflect::Method* getNanosMethod();

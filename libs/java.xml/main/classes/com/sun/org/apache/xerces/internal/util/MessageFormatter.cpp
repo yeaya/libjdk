@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/MessageFormatter.h>
-
 #include <java/util/Locale.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace util {
 
-$MethodInfo _MessageFormatter_MethodInfo_[] = {
-	{"formatMessage", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageFormatter, formatMessage, $String*, $Locale*, $String*, $ObjectArray*), "java.util.MissingResourceException"},
-	{}
-};
-
-$ClassInfo _MessageFormatter_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.util.MessageFormatter",
-	nullptr,
-	nullptr,
-	nullptr,
-	_MessageFormatter_MethodInfo_
-};
-
-$Object* allocate$MessageFormatter($Class* clazz) {
-	return $of($alloc(MessageFormatter));
-}
-
 $Class* MessageFormatter::load$($String* name, bool initialize) {
-	$loadClass(MessageFormatter, name, initialize, &_MessageFormatter_ClassInfo_, allocate$MessageFormatter);
+	$MethodInfo methodInfos$$[] = {
+		{"formatMessage", "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MessageFormatter, formatMessage, $String*, $Locale*, $String*, $ObjectArray*), "java.util.MissingResourceException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.util.MessageFormatter",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MessageFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MessageFormatter);
+	});
 	return class$;
 }
 

@@ -84,7 +84,7 @@ public:
 	virtual void synchronizeChildren() override;
 	virtual void synchronizeData() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x958B334D20BA3746;
+	static const int64_t serialVersionUID = (int64_t)0x958b334d20ba3746;
 	int32_t fNodeIndex = 0;
 };
 

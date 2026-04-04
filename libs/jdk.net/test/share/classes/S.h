@@ -46,6 +46,7 @@ class $export S : public ::java::lang::Object {
 	$class(S, 0, ::java::lang::Object)
 public:
 	S();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $bytes* arrayOfNRandomBytes(int32_t nBytes);
 	static $bytes* arrayOfNRandomBytes(int64_t nBytes);

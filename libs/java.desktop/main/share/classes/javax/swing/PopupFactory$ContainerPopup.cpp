@@ -1,5 +1,4 @@
 #include <javax/swing/PopupFactory$ContainerPopup.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -46,69 +45,26 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _PopupFactory$ContainerPopup_FieldInfo_[] = {
-	{"owner", "Ljava/awt/Component;", nullptr, 0, $field(PopupFactory$ContainerPopup, owner)},
-	{"x", "I", nullptr, 0, $field(PopupFactory$ContainerPopup, x)},
-	{"y", "I", nullptr, 0, $field(PopupFactory$ContainerPopup, y)},
-	{}
-};
-
-$MethodInfo _PopupFactory$ContainerPopup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PopupFactory$ContainerPopup, init$, void)},
-	{"fitsOnScreen", "()Z", nullptr, 0, $virtualMethod(PopupFactory$ContainerPopup, fitsOnScreen, bool)},
-	{"getContainerPopupArea", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(PopupFactory$ContainerPopup, getContainerPopupArea, $Rectangle*, $GraphicsConfiguration*)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$ContainerPopup, hide, void)},
-	{"overlappedByOwnedWindow", "()Z", nullptr, 0, $virtualMethod(PopupFactory$ContainerPopup, overlappedByOwnedWindow, bool)},
-	{"pack", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$ContainerPopup, pack, void)},
-	{"reset", "(Ljava/awt/Component;Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(PopupFactory$ContainerPopup, reset, void, $Component*, $Component*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PopupFactory$ContainerPopup_InnerClassesInfo_[] = {
-	{"javax.swing.PopupFactory$ContainerPopup", "javax.swing.PopupFactory", "ContainerPopup", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PopupFactory$ContainerPopup_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.PopupFactory$ContainerPopup",
-	"javax.swing.Popup",
-	nullptr,
-	_PopupFactory$ContainerPopup_FieldInfo_,
-	_PopupFactory$ContainerPopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupFactory$ContainerPopup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.PopupFactory"
-};
-
-$Object* allocate$PopupFactory$ContainerPopup($Class* clazz) {
-	return $of($alloc(PopupFactory$ContainerPopup));
-}
-
 void PopupFactory$ContainerPopup::init$() {
 	$Popup::init$();
 }
 
 void PopupFactory$ContainerPopup::hide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, component, getComponent());
 	if (component != nullptr) {
 		$var($Container, parent, component->getParent());
 		if (parent != nullptr) {
 			$var($Rectangle, bounds, component->getBounds());
 			parent->remove(component);
-			parent->repaint($nc(bounds)->x, bounds->y, bounds->width, bounds->height);
+			parent->repaint($nc(bounds)->x, $nc(bounds)->y, $nc(bounds)->width, $nc(bounds)->height);
 		}
 	}
 	$set(this, owner, nullptr);
 }
 
 void PopupFactory$ContainerPopup::pack() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, component, getComponent());
 	if (component != nullptr) {
 		component->setSize($(component->getPreferredSize()));
@@ -118,7 +74,7 @@ void PopupFactory$ContainerPopup::pack() {
 void PopupFactory$ContainerPopup::reset($Component* owner$renamed, $Component* contents, int32_t ownerX, int32_t ownerY) {
 	$var($Component, owner, owner$renamed);
 	if (($instanceOf($JFrame, owner)) || ($instanceOf($JDialog, owner)) || ($instanceOf($JWindow, owner))) {
-		$assign(owner, $nc(($cast($RootPaneContainer, owner)))->getLayeredPane());
+		$assign(owner, $nc($cast($RootPaneContainer, owner))->getLayeredPane());
 	}
 	$Popup::reset(owner, contents, ownerX, ownerY);
 	this->x = ownerX;
@@ -127,7 +83,7 @@ void PopupFactory$ContainerPopup::reset($Component* owner$renamed, $Component* c
 }
 
 bool PopupFactory$ContainerPopup::overlappedByOwnedWindow() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, component, getComponent());
 	if (this->owner != nullptr && component != nullptr) {
 		$var($Window, w, $SwingUtilities::getWindowAncestor(this->owner));
@@ -139,9 +95,7 @@ bool PopupFactory$ContainerPopup::overlappedByOwnedWindow() {
 			$var($Rectangle, bnd, component->getBounds());
 			{
 				$var($WindowArray, arr$, ownedWindows);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 					$var($Window, window, arr$->get(i$));
 					{
 						bool var$0 = $nc(window)->isVisible();
@@ -157,7 +111,7 @@ bool PopupFactory$ContainerPopup::overlappedByOwnedWindow() {
 }
 
 bool PopupFactory$ContainerPopup::fitsOnScreen() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool result = false;
 	$var($Component, component, getComponent());
 	if (this->owner != nullptr && component != nullptr) {
@@ -174,12 +128,12 @@ bool PopupFactory$ContainerPopup::fitsOnScreen() {
 			if ($JPopupMenu::canPopupOverlapTaskBar()) {
 				$var($GraphicsConfiguration, gc, parent->getGraphicsConfiguration());
 				$var($Rectangle, popupArea, getContainerPopupArea(gc));
-				result = $nc($(parentBounds->intersection(popupArea)))->contains(this->x, this->y, popupWidth, popupHeight);
+				result = $$nc(parentBounds->intersection(popupArea))->contains(this->x, this->y, popupWidth, popupHeight);
 			} else {
 				result = parentBounds->contains(this->x, this->y, popupWidth, popupHeight);
 			}
 		} else if ($instanceOf($JApplet, parent)) {
-			$var($Rectangle, parentBounds, $nc(parent)->getBounds());
+			$var($Rectangle, parentBounds, parent->getBounds());
 			$var($Point, p, parent->getLocationOnScreen());
 			$nc(parentBounds)->x = $nc(p)->x;
 			parentBounds->y = p->y;
@@ -190,7 +144,7 @@ bool PopupFactory$ContainerPopup::fitsOnScreen() {
 }
 
 $Rectangle* PopupFactory$ContainerPopup::getContainerPopupArea($GraphicsConfiguration* gc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Rectangle, screenBounds, nullptr);
 	$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 	$var($Insets, insets, nullptr);
@@ -212,7 +166,44 @@ PopupFactory$ContainerPopup::PopupFactory$ContainerPopup() {
 }
 
 $Class* PopupFactory$ContainerPopup::load$($String* name, bool initialize) {
-	$loadClass(PopupFactory$ContainerPopup, name, initialize, &_PopupFactory$ContainerPopup_ClassInfo_, allocate$PopupFactory$ContainerPopup);
+	$FieldInfo fieldInfos$$[] = {
+		{"owner", "Ljava/awt/Component;", nullptr, 0, $field(PopupFactory$ContainerPopup, owner)},
+		{"x", "I", nullptr, 0, $field(PopupFactory$ContainerPopup, x)},
+		{"y", "I", nullptr, 0, $field(PopupFactory$ContainerPopup, y)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PopupFactory$ContainerPopup, init$, void)},
+		{"fitsOnScreen", "()Z", nullptr, 0, $virtualMethod(PopupFactory$ContainerPopup, fitsOnScreen, bool)},
+		{"getContainerPopupArea", "(Ljava/awt/GraphicsConfiguration;)Ljava/awt/Rectangle;", nullptr, 0, $virtualMethod(PopupFactory$ContainerPopup, getContainerPopupArea, $Rectangle*, $GraphicsConfiguration*)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$ContainerPopup, hide, void)},
+		{"overlappedByOwnedWindow", "()Z", nullptr, 0, $virtualMethod(PopupFactory$ContainerPopup, overlappedByOwnedWindow, bool)},
+		{"pack", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$ContainerPopup, pack, void)},
+		{"reset", "(Ljava/awt/Component;Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(PopupFactory$ContainerPopup, reset, void, $Component*, $Component*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.PopupFactory$ContainerPopup", "javax.swing.PopupFactory", "ContainerPopup", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.PopupFactory$ContainerPopup",
+		"javax.swing.Popup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.PopupFactory"
+	};
+	$loadClass(PopupFactory$ContainerPopup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupFactory$ContainerPopup);
+	});
 	return class$;
 }
 

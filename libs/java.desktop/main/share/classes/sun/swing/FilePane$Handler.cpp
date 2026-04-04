@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane$Handler.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
@@ -35,66 +34,22 @@ using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JList = ::javax::swing::JList;
 using $JTable = ::javax::swing::JTable;
-using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$MouseEventAccessor = ::sun::awt::AWTAccessor$MouseEventAccessor;
 using $FilePane = ::sun::swing::FilePane;
-using $FilePane$FileChooserUIAccessor = ::sun::swing::FilePane$FileChooserUIAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _FilePane$Handler_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$Handler, this$0)},
-	{"doubleClickListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $field(FilePane$Handler, doubleClickListener)},
-	{}
-};
-
-$MethodInfo _FilePane$Handler_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/FilePane;)V", nullptr, $PRIVATE, $method(FilePane$Handler, init$, void, $FilePane*)},
-	{"getDoubleClickListener", "()Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $method(FilePane$Handler, getDoubleClickListener, $MouseListener*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mouseClicked, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mouseExited, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mouseReleased, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _FilePane$Handler_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$Handler", "sun.swing.FilePane", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _FilePane$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$Handler",
-	"java.lang.Object",
-	"java.awt.event.MouseListener",
-	_FilePane$Handler_FieldInfo_,
-	_FilePane$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePane$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$Handler($Class* clazz) {
-	return $of($alloc(FilePane$Handler));
-}
 
 void FilePane$Handler::init$($FilePane* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void FilePane$Handler::mouseClicked($MouseEvent* evt$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MouseEvent, evt, evt$renamed);
 	$var($JComponent, source, $cast($JComponent, $nc(evt)->getSource()));
 	int32_t index = 0;
@@ -103,14 +58,14 @@ void FilePane$Handler::mouseClicked($MouseEvent* evt$renamed) {
 	} else if ($instanceOf($JTable, source)) {
 		$var($JTable, table, $cast($JTable, source));
 		$var($Point, p, evt->getPoint());
-		index = $nc(table)->rowAtPoint(p);
+		index = table->rowAtPoint(p);
 		bool pointOutsidePrefSize = $SwingUtilities2::pointOutsidePrefSize(table, index, table->columnAtPoint(p), p);
 		if (pointOutsidePrefSize && !this->this$0->fullRowSelection) {
 			return;
 		}
 		if (index >= 0 && this->this$0->list$ != nullptr && $nc(this->this$0->listSelectionModel)->isSelectedIndex(index)) {
-			$var($Rectangle, r, $nc(this->this$0->list$)->getCellBounds(index, index));
-			$var($Component, var$0, static_cast<$Component*>(this->this$0->list$));
+			$var($Rectangle, r, this->this$0->list$->getCellBounds(index, index));
+			$var($Component, var$0, this->this$0->list$);
 			int32_t var$1 = evt->getID();
 			int64_t var$2 = evt->getWhen();
 			int32_t var$3 = evt->getModifiers();
@@ -122,7 +77,7 @@ void FilePane$Handler::mouseClicked($MouseEvent* evt$renamed) {
 			bool var$9 = evt->isPopupTrigger();
 			$var($MouseEvent, newEvent, $new($MouseEvent, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, evt->getButton()));
 			$var($AWTAccessor$MouseEventAccessor, meAccessor, $AWTAccessor::getMouseEventAccessor());
-			$nc(meAccessor)->setCausedByTouchEvent(newEvent, meAccessor->isCausedByTouchEvent(evt));
+			$nc(meAccessor)->setCausedByTouchEvent(newEvent, $nc(meAccessor)->isCausedByTouchEvent(evt));
 			$assign(evt, newEvent);
 		}
 	} else {
@@ -132,7 +87,7 @@ void FilePane$Handler::mouseClicked($MouseEvent* evt$renamed) {
 		$var($JFileChooser, fc, this->this$0->getFileChooser());
 		if (evt->getClickCount() == 1 && $instanceOf($JList, source)) {
 			bool var$12 = !$nc(fc)->isMultiSelectionEnabled();
-			bool var$11 = (var$12 || $nc($($nc(fc)->getSelectedFiles()))->length <= 1) && index >= 0;
+			bool var$11 = (var$12 || $nc($(fc->getSelectedFiles()))->length <= 1) && index >= 0;
 			bool var$10 = var$11 && $nc(this->this$0->listSelectionModel)->isSelectedIndex(index);
 			if (var$10 && this->this$0->getEditIndex() == index && this->this$0->editFile == nullptr) {
 				this->this$0->editFileName(index);
@@ -146,54 +101,54 @@ void FilePane$Handler::mouseClicked($MouseEvent* evt$renamed) {
 		}
 	}
 	if (getDoubleClickListener() != nullptr) {
-		$nc($(getDoubleClickListener()))->mouseClicked(evt);
+		$$nc(getDoubleClickListener())->mouseClicked(evt);
 	}
 }
 
 void FilePane$Handler::mouseEntered($MouseEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, source, $cast($JComponent, $nc(evt)->getSource()));
 	if ($instanceOf($JTable, source)) {
 		$var($JTable, table, $cast($JTable, evt->getSource()));
-		$var($TransferHandler, th1, $nc($(this->this$0->getFileChooser()))->getTransferHandler());
+		$var($TransferHandler, th1, $$nc(this->this$0->getFileChooser())->getTransferHandler());
 		$var($TransferHandler, th2, $nc(table)->getTransferHandler());
 		if (th1 != th2) {
 			table->setTransferHandler(th1);
 		}
-		bool dragEnabled = $nc($(this->this$0->getFileChooser()))->getDragEnabled();
+		bool dragEnabled = $$nc(this->this$0->getFileChooser())->getDragEnabled();
 		if (dragEnabled != table->getDragEnabled()) {
 			table->setDragEnabled(dragEnabled);
 		}
 	} else if ($instanceOf($JList, source)) {
 		if (getDoubleClickListener() != nullptr) {
-			$nc($(getDoubleClickListener()))->mouseEntered(evt);
+			$$nc(getDoubleClickListener())->mouseEntered(evt);
 		}
 	}
 }
 
 void FilePane$Handler::mouseExited($MouseEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JList, $($nc(evt)->getSource()))) {
 		if (getDoubleClickListener() != nullptr) {
-			$nc($(getDoubleClickListener()))->mouseExited(evt);
+			$$nc(getDoubleClickListener())->mouseExited(evt);
 		}
 	}
 }
 
 void FilePane$Handler::mousePressed($MouseEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JList, $($nc(evt)->getSource()))) {
 		if (getDoubleClickListener() != nullptr) {
-			$nc($(getDoubleClickListener()))->mousePressed(evt);
+			$$nc(getDoubleClickListener())->mousePressed(evt);
 		}
 	}
 }
 
 void FilePane$Handler::mouseReleased($MouseEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JList, $($nc(evt)->getSource()))) {
 		if (getDoubleClickListener() != nullptr) {
-			$nc($(getDoubleClickListener()))->mouseReleased(evt);
+			$$nc(getDoubleClickListener())->mouseReleased(evt);
 		}
 	}
 }
@@ -209,7 +164,43 @@ FilePane$Handler::FilePane$Handler() {
 }
 
 $Class* FilePane$Handler::load$($String* name, bool initialize) {
-	$loadClass(FilePane$Handler, name, initialize, &_FilePane$Handler_ClassInfo_, allocate$FilePane$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$Handler, this$0)},
+		{"doubleClickListener", "Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $field(FilePane$Handler, doubleClickListener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/FilePane;)V", nullptr, $PRIVATE, $method(FilePane$Handler, init$, void, $FilePane*)},
+		{"getDoubleClickListener", "()Ljava/awt/event/MouseListener;", nullptr, $PRIVATE, $method(FilePane$Handler, getDoubleClickListener, $MouseListener*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mouseClicked, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mouseExited, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(FilePane$Handler, mouseReleased, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$Handler", "sun.swing.FilePane", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$Handler",
+		"java.lang.Object",
+		"java.awt.event.MouseListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePane$Handler);
+	});
 	return class$;
 }
 

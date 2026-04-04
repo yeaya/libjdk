@@ -1,5 +1,4 @@
 #include <TestGlyphBreak.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
@@ -19,9 +18,7 @@
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $FontMetrics = ::java::awt::FontMetrics;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -42,27 +39,24 @@ public:
 	virtual void run() override {
 		TestGlyphBreak::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestGlyphBreak$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestGlyphBreak$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestGlyphBreak$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestGlyphBreak$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestGlyphBreak$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestGlyphBreak$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestGlyphBreak$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestGlyphBreak$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestGlyphBreak$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestGlyphBreak$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestGlyphBreak$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestGlyphBreak$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestGlyphBreak$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestGlyphBreak$$Lambda$lambda$main$0::class$ = nullptr;
@@ -75,58 +69,27 @@ public:
 	virtual void run() override {
 		TestGlyphBreak::lambda$main$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestGlyphBreak$$Lambda$lambda$main$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestGlyphBreak$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestGlyphBreak$$Lambda$lambda$main$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestGlyphBreak$$Lambda$lambda$main$1$1, run, void)},
-	{}
-};
-$ClassInfo TestGlyphBreak$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestGlyphBreak$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestGlyphBreak$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestGlyphBreak$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestGlyphBreak$$Lambda$lambda$main$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestGlyphBreak$$Lambda$lambda$main$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestGlyphBreak$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestGlyphBreak$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestGlyphBreak$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* TestGlyphBreak$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _TestGlyphBreak_FieldInfo_[] = {
-	{"f", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(TestGlyphBreak, f)},
-	{"btnHeight", "I", nullptr, $STATIC, $staticField(TestGlyphBreak, btnHeight)},
-	{"fm", "Ljava/awt/FontMetrics;", nullptr, $STATIC, $staticField(TestGlyphBreak, fm)},
-	{}
-};
-
-$MethodInfo _TestGlyphBreak_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestGlyphBreak, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestGlyphBreak, lambda$main$0, void)},
-	{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestGlyphBreak, lambda$main$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestGlyphBreak, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TestGlyphBreak_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestGlyphBreak",
-	"java.lang.Object",
-	nullptr,
-	_TestGlyphBreak_FieldInfo_,
-	_TestGlyphBreak_MethodInfo_
-};
-
-$Object* allocate$TestGlyphBreak($Class* clazz) {
-	return $of($alloc(TestGlyphBreak));
-}
 
 $JFrame* TestGlyphBreak::f = nullptr;
 int32_t TestGlyphBreak::btnHeight = 0;
@@ -136,13 +99,13 @@ void TestGlyphBreak::init$() {
 }
 
 void TestGlyphBreak::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestGlyphBreak$$Lambda$lambda$main$0)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(TestGlyphBreak$$Lambda$lambda$main$0));
 	try {
 		$Thread::sleep(2000);
 	} catch ($InterruptedException& ex) {
 	}
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestGlyphBreak$$Lambda$lambda$main$1$1)));
+	$SwingUtilities::invokeAndWait($$new(TestGlyphBreak$$Lambda$lambda$main$1$1));
 	$init(TestGlyphBreak);
 	$nc($System::out)->println($$str({"metrics getHeight "_s, $$str($nc(TestGlyphBreak::fm)->getHeight()), " button height "_s, $$str(TestGlyphBreak::btnHeight)}));
 	if (TestGlyphBreak::btnHeight > 2 * $nc(TestGlyphBreak::fm)->getHeight()) {
@@ -156,13 +119,13 @@ void TestGlyphBreak::lambda$main$1() {
 }
 
 void TestGlyphBreak::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, str, "<html><font size=2 color=red><bold>Three!</font></html>"_s);
 	$var($JButton, b, $new($JButton));
 	b->setText(str);
 	$init(TestGlyphBreak);
 	$assignStatic(TestGlyphBreak::f, $new($JFrame));
-	$nc(TestGlyphBreak::f)->add(static_cast<$Component*>(b));
+	TestGlyphBreak::f->add(b);
 	$nc(TestGlyphBreak::f)->pack();
 	$nc(TestGlyphBreak::f)->setVisible(true);
 	TestGlyphBreak::btnHeight = b->getHeight();
@@ -174,14 +137,37 @@ TestGlyphBreak::TestGlyphBreak() {
 
 $Class* TestGlyphBreak::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestGlyphBreak$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestGlyphBreak$$Lambda$lambda$main$0")) {
 			return TestGlyphBreak$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestGlyphBreak$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("TestGlyphBreak$$Lambda$lambda$main$1$1")) {
 			return TestGlyphBreak$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestGlyphBreak, name, initialize, &_TestGlyphBreak_ClassInfo_, allocate$TestGlyphBreak);
+	$FieldInfo fieldInfos$$[] = {
+		{"f", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(TestGlyphBreak, f)},
+		{"btnHeight", "I", nullptr, $STATIC, $staticField(TestGlyphBreak, btnHeight)},
+		{"fm", "Ljava/awt/FontMetrics;", nullptr, $STATIC, $staticField(TestGlyphBreak, fm)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestGlyphBreak, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestGlyphBreak, lambda$main$0, void)},
+		{"lambda$main$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestGlyphBreak, lambda$main$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestGlyphBreak, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestGlyphBreak",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestGlyphBreak, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestGlyphBreak);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMidiAudioFileReader.h>
-
 #include <com/sun/media/sound/AudioSynthesizer.h>
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <com/sun/media/sound/StandardFileFormat.h>
@@ -57,34 +56,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMidiAudioFileReader_FieldInfo_[] = {
-	{"MIDI", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SoftMidiAudioFileReader, MIDI)},
-	{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SoftMidiAudioFileReader, format)},
-	{}
-};
-
-$MethodInfo _SoftMidiAudioFileReader_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftMidiAudioFileReader, init$, void)},
-	{"getAudioFileFormat", "(Ljavax/sound/midi/Sequence;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(SoftMidiAudioFileReader, getAudioFileFormat, $StandardFileFormat*, $Sequence*)},
-	{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(SoftMidiAudioFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{"getAudioInputStream", "(Ljavax/sound/midi/Sequence;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $method(SoftMidiAudioFileReader, getAudioInputStream, $AudioInputStream*, $Sequence*), "javax.sound.midi.InvalidMidiDataException"},
-	{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(SoftMidiAudioFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SoftMidiAudioFileReader_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMidiAudioFileReader",
-	"com.sun.media.sound.SunFileReader",
-	nullptr,
-	_SoftMidiAudioFileReader_FieldInfo_,
-	_SoftMidiAudioFileReader_MethodInfo_
-};
-
-$Object* allocate$SoftMidiAudioFileReader($Class* clazz) {
-	return $of($alloc(SoftMidiAudioFileReader));
-}
-
 $AudioFileFormat$Type* SoftMidiAudioFileReader::MIDI = nullptr;
 $AudioFormat* SoftMidiAudioFileReader::format = nullptr;
 
@@ -94,13 +65,13 @@ void SoftMidiAudioFileReader::init$() {
 
 $StandardFileFormat* SoftMidiAudioFileReader::getAudioFileFormat($Sequence* seq) {
 	$init(SoftMidiAudioFileReader);
-	int64_t totallen = $nc(seq)->getMicrosecondLength() / 0x000F4240;
-	int64_t len = $cast(int64_t, ($nc(SoftMidiAudioFileReader::format)->getFrameRate() * (totallen + 4)));
+	int64_t totallen = $nc(seq)->getMicrosecondLength() / 1000000;
+	int64_t len = $cast(int64_t, (SoftMidiAudioFileReader::format->getFrameRate() * (totallen + 4)));
 	return $new($StandardFileFormat, SoftMidiAudioFileReader::MIDI, SoftMidiAudioFileReader::format, len);
 }
 
 $AudioInputStream* SoftMidiAudioFileReader::getAudioInputStream($Sequence* seq) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AudioSynthesizer, synth, $new($SoftSynthesizer));
 	$var($AudioInputStream, stream, nullptr);
 	$var($Receiver, recv, nullptr);
@@ -113,7 +84,7 @@ $AudioInputStream* SoftMidiAudioFileReader::getAudioInputStream($Sequence* seq) 
 	float divtype = $nc(seq)->getDivisionType();
 	$var($TrackArray, tracks, seq->getTracks());
 	$var($ints, trackspos, $new($ints, $nc(tracks)->length));
-	int32_t mpq = 0x0007A120;
+	int32_t mpq = 500000;
 	int32_t seqres = seq->getResolution();
 	int64_t lasttick = 0;
 	int64_t curtime = 0;
@@ -128,7 +99,7 @@ $AudioInputStream* SoftMidiAudioFileReader::getAudioInputStream($Sequence* seq) 
 				bool var$0 = selevent == nullptr;
 				if (!var$0) {
 					int64_t var$1 = $nc(event)->getTick();
-					var$0 = var$1 < $nc(selevent)->getTick();
+					var$0 = var$1 < selevent->getTick();
 				}
 				if (var$0) {
 					$assign(selevent, event);
@@ -150,20 +121,20 @@ $AudioInputStream* SoftMidiAudioFileReader::getAudioInputStream($Sequence* seq) 
 		$var($MidiMessage, msg, selevent->getMessage());
 		if ($instanceOf($MetaMessage, msg)) {
 			if (divtype == $Sequence::PPQ) {
-				if ($nc(($cast($MetaMessage, msg)))->getType() == 81) {
-					$var($bytes, data, $nc(($cast($MetaMessage, msg)))->getData());
+				if ($cast($MetaMessage, msg)->getType() == 81) {
+					$var($bytes, data, $cast($MetaMessage, msg)->getData());
 					if ($nc(data)->length < 3) {
 						$throwNew($InvalidMidiDataException);
 					}
-					mpq = ((((int32_t)($nc(data)->get(0) & (uint32_t)255)) << 16) | (((int32_t)(data->get(1) & (uint32_t)255)) << 8)) | ((int32_t)(data->get(2) & (uint32_t)255));
+					mpq = (((data->get(0) & 0xff) << 16) | ((data->get(1) & 0xff) << 8)) | (data->get(2) & 0xff);
 				}
 			}
 		} else {
 			$nc(recv)->send(msg, curtime);
 		}
 	}
-	int64_t totallen = curtime / 0x000F4240;
-	int64_t len = $cast(int64_t, ($nc($($nc(stream)->getFormat()))->getFrameRate() * (totallen + 4)));
+	int64_t totallen = curtime / 1000000;
+	int64_t len = $cast(int64_t, ($$nc($nc(stream)->getFormat())->getFrameRate() * (totallen + 4)));
 	$assign(stream, $new($AudioInputStream, stream, $(stream->getFormat()), len));
 	return stream;
 }
@@ -191,16 +162,39 @@ $StandardFileFormat* SoftMidiAudioFileReader::getAudioFileFormatImpl($InputStrea
 	$shouldNotReachHere();
 }
 
-void clinit$SoftMidiAudioFileReader($Class* class$) {
+void SoftMidiAudioFileReader::clinit$($Class* clazz) {
 	$assignStatic(SoftMidiAudioFileReader::MIDI, $new($AudioFileFormat$Type, "MIDI"_s, "mid"_s));
-	$assignStatic(SoftMidiAudioFileReader::format, $new($AudioFormat, (float)0x0000AC44, 16, 2, true, false));
+	$assignStatic(SoftMidiAudioFileReader::format, $new($AudioFormat, 0x0000ac44, 16, 2, true, false));
 }
 
 SoftMidiAudioFileReader::SoftMidiAudioFileReader() {
 }
 
 $Class* SoftMidiAudioFileReader::load$($String* name, bool initialize) {
-	$loadClass(SoftMidiAudioFileReader, name, initialize, &_SoftMidiAudioFileReader_ClassInfo_, clinit$SoftMidiAudioFileReader, allocate$SoftMidiAudioFileReader);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIDI", "Ljavax/sound/sampled/AudioFileFormat$Type;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SoftMidiAudioFileReader, MIDI)},
+		{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SoftMidiAudioFileReader, format)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftMidiAudioFileReader, init$, void)},
+		{"getAudioFileFormat", "(Ljavax/sound/midi/Sequence;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, $PRIVATE | $STATIC, $staticMethod(SoftMidiAudioFileReader, getAudioFileFormat, $StandardFileFormat*, $Sequence*)},
+		{"getAudioFileFormatImpl", "(Ljava/io/InputStream;)Lcom/sun/media/sound/StandardFileFormat;", nullptr, 0, $virtualMethod(SoftMidiAudioFileReader, getAudioFileFormatImpl, $StandardFileFormat*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{"getAudioInputStream", "(Ljavax/sound/midi/Sequence;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE, $method(SoftMidiAudioFileReader, getAudioInputStream, $AudioInputStream*, $Sequence*), "javax.sound.midi.InvalidMidiDataException"},
+		{"getAudioInputStream", "(Ljava/io/InputStream;)Ljavax/sound/sampled/AudioInputStream;", nullptr, $PUBLIC, $virtualMethod(SoftMidiAudioFileReader, getAudioInputStream, $AudioInputStream*, $InputStream*), "javax.sound.sampled.UnsupportedAudioFileException,java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMidiAudioFileReader",
+		"com.sun.media.sound.SunFileReader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SoftMidiAudioFileReader, name, initialize, &classInfo$$, SoftMidiAudioFileReader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMidiAudioFileReader);
+	});
 	return class$;
 }
 

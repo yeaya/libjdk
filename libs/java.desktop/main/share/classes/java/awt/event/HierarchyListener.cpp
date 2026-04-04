@@ -1,5 +1,4 @@
 #include <java/awt/event/HierarchyListener.h>
-
 #include <java/awt/event/HierarchyEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace java {
 	namespace awt {
 		namespace event {
 
-$MethodInfo _HierarchyListener_MethodInfo_[] = {
-	{"hierarchyChanged", "(Ljava/awt/event/HierarchyEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HierarchyListener, hierarchyChanged, void, $HierarchyEvent*)},
-	{}
-};
-
-$ClassInfo _HierarchyListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.event.HierarchyListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_HierarchyListener_MethodInfo_
-};
-
-$Object* allocate$HierarchyListener($Class* clazz) {
-	return $of($alloc(HierarchyListener));
-}
-
 $Class* HierarchyListener::load$($String* name, bool initialize) {
-	$loadClass(HierarchyListener, name, initialize, &_HierarchyListener_ClassInfo_, allocate$HierarchyListener);
+	$MethodInfo methodInfos$$[] = {
+		{"hierarchyChanged", "(Ljava/awt/event/HierarchyEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(HierarchyListener, hierarchyChanged, void, $HierarchyEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.event.HierarchyListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HierarchyListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HierarchyListener);
+	});
 	return class$;
 }
 

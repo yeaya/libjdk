@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
 #include <java/lang/Enum.h>
@@ -24,61 +23,6 @@ namespace com {
 						namespace security {
 							namespace algorithms {
 								namespace implementations {
-
-$FieldInfo _SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm_FieldInfo_[] = {
-	{"SHA224", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA224)},
-	{"SHA256", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA256)},
-	{"SHA384", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA384)},
-	{"SHA512", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA512)},
-	{"SHA3_224", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA3_224)},
-	{"SHA3_256", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA3_256)},
-	{"SHA3_384", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA3_384)},
-	{"SHA3_512", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA3_512)},
-	{"$VALUES", "[Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, $VALUES)},
-	{"xmlDigestAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, xmlDigestAlgorithm)},
-	{"digestAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, digestAlgorithm)},
-	{"saltLength", "I", nullptr, $PRIVATE | $FINAL, $field(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, saltLength)},
-	{}
-};
-
-$MethodInfo _SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, $values, $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithmArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V", "(Ljava/lang/String;Ljava/lang/String;I)V", $PRIVATE, $method(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, init$, void, $String*, int32_t, $String*, $String*, int32_t)},
-	{"fromDigestAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, fromDigestAlgorithm, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"fromXmlDigestAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, fromXmlDigestAlgorithm, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, getDigestAlgorithm, $String*)},
-	{"getSaltLength", "()I", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, getSaltLength, int32_t)},
-	{"getXmlDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, getXmlDigestAlgorithm, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, valueOf, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm*, $String*)},
-	{"values", "()[Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, values, $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithmArray*)},
-	{}
-};
-
-$InnerClassInfo _SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASSAPSS", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "DigestAlgorithm", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm",
-	"java.lang.Enum",
-	nullptr,
-	_SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm_FieldInfo_,
-	_SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;>;",
-	nullptr,
-	_SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
-};
-
-$Object* allocate$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm($Class* clazz) {
-	return $of($alloc(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm));
-}
 
 SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::SHA224 = nullptr;
 SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::SHA256 = nullptr;
@@ -135,17 +79,13 @@ int32_t SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::getSaltLength() {
 
 SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromXmlDigestAlgorithm($String* xmlDigestAlgorithm) {
 	$init(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithmArray, arr$, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* value = arr$->get(i$);
-			{
-				if ($nc($($nc(value)->getXmlDigestAlgorithm()))->equals(xmlDigestAlgorithm)) {
-					return value;
-				}
+			if ($$nc($nc(value)->getXmlDigestAlgorithm())->equals(xmlDigestAlgorithm)) {
+				return value;
 			}
 		}
 	}
@@ -154,24 +94,20 @@ SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* SignatureBaseRSA$SignatureR
 
 SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromDigestAlgorithm($String* digestAlgorithm) {
 	$init(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 		$var($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithmArray, arr$, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* value = arr$->get(i$);
-			{
-				if ($nc($($nc(value)->getDigestAlgorithm()))->equals(digestAlgorithm)) {
-					return value;
-				}
+			if ($$nc($nc(value)->getDigestAlgorithm())->equals(digestAlgorithm)) {
+				return value;
 			}
 		}
 	}
 	$throwNew($XMLSignatureException);
 }
 
-void clinit$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm($Class* class$) {
+void SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::clinit$($Class* clazz) {
 	$init($DigestMethod);
 	$assignStatic(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::SHA224, $new(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, "SHA224"_s, 0, "SHA-224"_s, $DigestMethod::SHA224, 28));
 	$assignStatic(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::SHA256, $new(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, "SHA256"_s, 1, "SHA-256"_s, $DigestMethod::SHA256, 32));
@@ -188,7 +124,56 @@ SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::SignatureBaseRSA$SignatureR
 }
 
 $Class* SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::load$($String* name, bool initialize) {
-	$loadClass(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, name, initialize, &_SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm_ClassInfo_, clinit$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, allocate$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHA224", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA224)},
+		{"SHA256", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA256)},
+		{"SHA384", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA384)},
+		{"SHA512", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA512)},
+		{"SHA3_224", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA3_224)},
+		{"SHA3_256", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA3_256)},
+		{"SHA3_384", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA3_384)},
+		{"SHA3_512", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, SHA3_512)},
+		{"$VALUES", "[Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, $VALUES)},
+		{"xmlDigestAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, xmlDigestAlgorithm)},
+		{"digestAlgorithm", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, digestAlgorithm)},
+		{"saltLength", "I", nullptr, $PRIVATE | $FINAL, $field(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, saltLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, $values, $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithmArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;I)V", "(Ljava/lang/String;Ljava/lang/String;I)V", $PRIVATE, $method(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, init$, void, $String*, int32_t, $String*, $String*, int32_t)},
+		{"fromDigestAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, fromDigestAlgorithm, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"fromXmlDigestAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, fromXmlDigestAlgorithm, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm*, $String*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, getDigestAlgorithm, $String*)},
+		{"getSaltLength", "()I", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, getSaltLength, int32_t)},
+		{"getXmlDigestAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, getXmlDigestAlgorithm, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, valueOf, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm*, $String*)},
+		{"values", "()[Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PUBLIC | $STATIC, $staticMethod(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, values, $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithmArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA", "SignatureRSASSAPSS", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm", "com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS", "DigestAlgorithm", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA"
+	};
+	$loadClass(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm, name, initialize, &classInfo$$, SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm));
+	});
 	return class$;
 }
 

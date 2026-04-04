@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaOptionPaneUI.h>
-
 #include <com/apple/laf/AquaOptionPaneUI$AquaButtonAreaLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -26,12 +25,10 @@
 #undef X_AXIS
 
 using $AquaOptionPaneUI$AquaButtonAreaLayout = ::com::apple::laf::AquaOptionPaneUI$AquaButtonAreaLayout;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -51,46 +48,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaOptionPaneUI_FieldInfo_[] = {
-	{"kOKCancelButtonWidth", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaOptionPaneUI, kOKCancelButtonWidth)},
-	{"kButtonHeight", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaOptionPaneUI, kButtonHeight)},
-	{"kDialogSmallPadding", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaOptionPaneUI, kDialogSmallPadding)},
-	{"kDialogLargePadding", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaOptionPaneUI, kDialogLargePadding)},
-	{}
-};
-
-$MethodInfo _AquaOptionPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaOptionPaneUI, init$, void)},
-	{"createButtonArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(AquaOptionPaneUI, createButtonArea, $Container*)},
-	{"createMessageArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(AquaOptionPaneUI, createMessageArea, $Container*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaOptionPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaOptionPaneUI_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaOptionPaneUI$AquaButtonAreaLayout", "com.apple.laf.AquaOptionPaneUI", "AquaButtonAreaLayout", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaOptionPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaOptionPaneUI",
-	"javax.swing.plaf.basic.BasicOptionPaneUI",
-	nullptr,
-	_AquaOptionPaneUI_FieldInfo_,
-	_AquaOptionPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaOptionPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaOptionPaneUI$AquaButtonAreaLayout"
-};
-
-$Object* allocate$AquaOptionPaneUI($Class* clazz) {
-	return $of($alloc(AquaOptionPaneUI));
-}
-
 void AquaOptionPaneUI::init$() {
 	$BasicOptionPaneUI::init$();
 }
@@ -101,14 +58,14 @@ $ComponentUI* AquaOptionPaneUI::createUI($JComponent* x) {
 }
 
 $Container* AquaOptionPaneUI::createButtonArea() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, bottom, $BasicOptionPaneUI::createButtonArea());
 	$nc(bottom)->setLayout($$new($AquaOptionPaneUI$AquaButtonAreaLayout, true, AquaOptionPaneUI::kDialogSmallPadding));
 	return bottom;
 }
 
 $Container* AquaOptionPaneUI::createMessageArea() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JPanel, top, $new($JPanel));
 	top->setBorder($($UIManager::getBorder("OptionPane.messageAreaBorder"_s)));
 	top->setLayout($$new($BoxLayout, top, $BoxLayout::X_AXIS));
@@ -118,8 +75,8 @@ $Container* AquaOptionPaneUI::createMessageArea() {
 		$var($JLabel, iconLabel, $new($JLabel, sideIcon));
 		iconLabel->setVerticalAlignment($SwingConstants::TOP);
 		$var($JPanel, iconPanel, $new($JPanel));
-		iconPanel->add(static_cast<$Component*>(iconLabel));
-		top->add(static_cast<$Component*>(iconPanel));
+		iconPanel->add(iconLabel);
+		top->add(iconPanel);
 		top->add($($Box::createHorizontalStrut(AquaOptionPaneUI::kDialogLargePadding)));
 	}
 	body->setLayout($$new($GridBagLayout));
@@ -129,11 +86,9 @@ $Container* AquaOptionPaneUI::createMessageArea() {
 	cons->gridheight = 1;
 	cons->anchor = $GridBagConstraints::WEST;
 	$set(cons, insets, $new($Insets, 0, 0, 3, 0));
-	$var($Container, var$0, body);
-	$var($GridBagConstraints, var$1, cons);
-	$var($Object, var$2, getMessage());
-	addMessageComponents(var$0, var$1, var$2, getMaxCharactersPerLineCount(), false);
-	top->add(static_cast<$Component*>(body));
+	$var($Object, var$0, getMessage());
+	addMessageComponents(body, cons, var$0, getMaxCharactersPerLineCount(), false);
+	top->add(body);
 	return top;
 }
 
@@ -141,7 +96,41 @@ AquaOptionPaneUI::AquaOptionPaneUI() {
 }
 
 $Class* AquaOptionPaneUI::load$($String* name, bool initialize) {
-	$loadClass(AquaOptionPaneUI, name, initialize, &_AquaOptionPaneUI_ClassInfo_, allocate$AquaOptionPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"kOKCancelButtonWidth", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaOptionPaneUI, kOKCancelButtonWidth)},
+		{"kButtonHeight", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaOptionPaneUI, kButtonHeight)},
+		{"kDialogSmallPadding", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaOptionPaneUI, kDialogSmallPadding)},
+		{"kDialogLargePadding", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaOptionPaneUI, kDialogLargePadding)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaOptionPaneUI, init$, void)},
+		{"createButtonArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(AquaOptionPaneUI, createButtonArea, $Container*)},
+		{"createMessageArea", "()Ljava/awt/Container;", nullptr, $PROTECTED, $virtualMethod(AquaOptionPaneUI, createMessageArea, $Container*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaOptionPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaOptionPaneUI$AquaButtonAreaLayout", "com.apple.laf.AquaOptionPaneUI", "AquaButtonAreaLayout", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaOptionPaneUI",
+		"javax.swing.plaf.basic.BasicOptionPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaOptionPaneUI$AquaButtonAreaLayout"
+	};
+	$loadClass(AquaOptionPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaOptionPaneUI);
+	});
 	return class$;
 }
 

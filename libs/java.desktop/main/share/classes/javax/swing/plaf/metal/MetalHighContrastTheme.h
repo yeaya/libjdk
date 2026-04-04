@@ -27,6 +27,7 @@ class MetalHighContrastTheme : public ::javax::swing::plaf::metal::DefaultMetalT
 	$class(MetalHighContrastTheme, 0, ::javax::swing::plaf::metal::DefaultMetalTheme)
 public:
 	MetalHighContrastTheme();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addCustomEntriesToTable(::javax::swing::UIDefaults* table) override;
 	virtual ::javax::swing::plaf::ColorUIResource* getAcceleratorForeground() override;

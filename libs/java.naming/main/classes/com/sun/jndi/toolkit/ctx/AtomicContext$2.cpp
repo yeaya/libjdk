@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/ctx/AtomicContext$2.h>
-
 #include <com/sun/jndi/toolkit/ctx/AtomicContext.h>
 #include <javax/naming/RefAddr.h>
 #include <jcpp.h>
@@ -18,49 +17,6 @@ namespace com {
 			namespace toolkit {
 				namespace ctx {
 
-$FieldInfo _AtomicContext$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/jndi/toolkit/ctx/AtomicContext;", nullptr, $FINAL | $SYNTHETIC, $field(AtomicContext$2, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AtomicContext$2, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _AtomicContext$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/jndi/toolkit/ctx/AtomicContext;Ljava/lang/String;)V", nullptr, 0, $method(AtomicContext$2, init$, void, $AtomicContext*, $String*)},
-	{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AtomicContext$2, getContent, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _AtomicContext$2_EnclosingMethodInfo_ = {
-	"com.sun.jndi.toolkit.ctx.AtomicContext",
-	"a_processJunction_nns",
-	"(Lcom/sun/jndi/toolkit/ctx/Continuation;)V"
-};
-
-$InnerClassInfo _AtomicContext$2_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.ctx.AtomicContext$2", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AtomicContext$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jndi.toolkit.ctx.AtomicContext$2",
-	"javax.naming.RefAddr",
-	nullptr,
-	_AtomicContext$2_FieldInfo_,
-	_AtomicContext$2_MethodInfo_,
-	nullptr,
-	&_AtomicContext$2_EnclosingMethodInfo_,
-	_AtomicContext$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.ctx.AtomicContext"
-};
-
-$Object* allocate$AtomicContext$2($Class* clazz) {
-	return $of($alloc(AtomicContext$2));
-}
-
 void AtomicContext$2::init$($AtomicContext* this$0, $String* addrType) {
 	$set(this, this$0, this$0);
 	$RefAddr::init$(addrType);
@@ -74,7 +30,43 @@ AtomicContext$2::AtomicContext$2() {
 }
 
 $Class* AtomicContext$2::load$($String* name, bool initialize) {
-	$loadClass(AtomicContext$2, name, initialize, &_AtomicContext$2_ClassInfo_, allocate$AtomicContext$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/jndi/toolkit/ctx/AtomicContext;", nullptr, $FINAL | $SYNTHETIC, $field(AtomicContext$2, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AtomicContext$2, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/jndi/toolkit/ctx/AtomicContext;Ljava/lang/String;)V", nullptr, 0, $method(AtomicContext$2, init$, void, $AtomicContext*, $String*)},
+		{"getContent", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AtomicContext$2, getContent, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.jndi.toolkit.ctx.AtomicContext",
+		"a_processJunction_nns",
+		"(Lcom/sun/jndi/toolkit/ctx/Continuation;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.ctx.AtomicContext$2", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jndi.toolkit.ctx.AtomicContext$2",
+		"javax.naming.RefAddr",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.ctx.AtomicContext"
+	};
+	$loadClass(AtomicContext$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AtomicContext$2);
+	});
 	return class$;
 }
 

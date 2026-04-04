@@ -36,6 +36,7 @@ class ConnectionAcceptor : public ::java::lang::Runnable {
 	$class(ConnectionAcceptor, 0, ::java::lang::Runnable)
 public:
 	ConnectionAcceptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::rmi::transport::tcp::TCPTransport* transport);
 	virtual void accept(::sun::rmi::transport::Connection* conn);
 	virtual void run() override;

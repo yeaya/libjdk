@@ -1,5 +1,4 @@
 #include <javax/swing/JTable$BooleanRenderer.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <javax/swing/AbstractButton.h>
@@ -28,47 +27,6 @@ using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JTable$BooleanRenderer_FieldInfo_[] = {
-	{"noFocusBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTable$BooleanRenderer, noFocusBorder)},
-	{}
-};
-
-$MethodInfo _JTable$BooleanRenderer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JTable$BooleanRenderer, init$, void)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTable$BooleanRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JTable$BooleanRenderer_InnerClassesInfo_[] = {
-	{"javax.swing.JTable$BooleanRenderer", "javax.swing.JTable", "BooleanRenderer", $STATIC},
-	{}
-};
-
-$ClassInfo _JTable$BooleanRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JTable$BooleanRenderer",
-	"javax.swing.JCheckBox",
-	"javax.swing.table.TableCellRenderer,javax.swing.plaf.UIResource",
-	_JTable$BooleanRenderer_FieldInfo_,
-	_JTable$BooleanRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JTable$BooleanRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JTable"
-};
-
-$Object* allocate$JTable$BooleanRenderer($Class* clazz) {
-	return $of($alloc(JTable$BooleanRenderer));
-}
 
 $String* JTable$BooleanRenderer::toString() {
 	 return this->$JCheckBox::toString();
@@ -99,15 +57,15 @@ void JTable$BooleanRenderer::init$() {
 }
 
 $Component* JTable$BooleanRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (isSelected) {
 		setForeground($($nc(table)->getSelectionForeground()));
-		$JCheckBox::setBackground($($nc(table)->getSelectionBackground()));
+		$JCheckBox::setBackground($(table->getSelectionBackground()));
 	} else {
 		setForeground($($nc(table)->getForeground()));
-		setBackground($($nc(table)->getBackground()));
+		setBackground($(table->getBackground()));
 	}
-	setSelected((value != nullptr && $nc(($cast($Boolean, value)))->booleanValue()));
+	setSelected((value != nullptr && $cast($Boolean, value)->booleanValue()));
 	if (hasFocus) {
 		setBorder($($UIManager::getBorder("Table.focusCellHighlightBorder"_s)));
 	} else {
@@ -116,7 +74,7 @@ $Component* JTable$BooleanRenderer::getTableCellRendererComponent($JTable* table
 	return this;
 }
 
-void clinit$JTable$BooleanRenderer($Class* class$) {
+void JTable$BooleanRenderer::clinit$($Class* clazz) {
 	$assignStatic(JTable$BooleanRenderer::noFocusBorder, $new($EmptyBorder, 1, 1, 1, 1));
 }
 
@@ -124,7 +82,42 @@ JTable$BooleanRenderer::JTable$BooleanRenderer() {
 }
 
 $Class* JTable$BooleanRenderer::load$($String* name, bool initialize) {
-	$loadClass(JTable$BooleanRenderer, name, initialize, &_JTable$BooleanRenderer_ClassInfo_, clinit$JTable$BooleanRenderer, allocate$JTable$BooleanRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"noFocusBorder", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JTable$BooleanRenderer, noFocusBorder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JTable$BooleanRenderer, init$, void)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JTable$BooleanRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JTable$BooleanRenderer", "javax.swing.JTable", "BooleanRenderer", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JTable$BooleanRenderer",
+		"javax.swing.JCheckBox",
+		"javax.swing.table.TableCellRenderer,javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JTable"
+	};
+	$loadClass(JTable$BooleanRenderer, name, initialize, &classInfo$$, JTable$BooleanRenderer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JTable$BooleanRenderer));
+	});
 	return class$;
 }
 

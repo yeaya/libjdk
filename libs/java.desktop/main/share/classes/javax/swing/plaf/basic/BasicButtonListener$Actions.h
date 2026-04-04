@@ -27,6 +27,7 @@ class BasicButtonListener$Actions : public ::sun::swing::UIAction {
 	$class(BasicButtonListener$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicButtonListener$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual bool accept(Object$* sender) override;
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;

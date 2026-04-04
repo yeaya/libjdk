@@ -43,6 +43,7 @@ class $export bug6361367 : public ::java::lang::Object {
 	$class(bug6361367, 0, ::java::lang::Object)
 public:
 	bug6361367();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::text::JTextComponent* initialize($Class* textComponentClass, ::java::util::concurrent::atomic::AtomicReference* ref);
 	static $Object* invokeAndWait(::java::util::concurrent::Callable* callable);

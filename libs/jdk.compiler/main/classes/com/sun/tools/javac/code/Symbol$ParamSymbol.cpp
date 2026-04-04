@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$ParamSymbol.h>
-
 #include <com/sun/tools/javac/code/MissingInfoHandler.h>
 #include <com/sun/tools/javac/code/Symbol$RootPackageSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
@@ -9,7 +8,6 @@
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
-using $MissingInfoHandler = ::com::sun::tools::javac::code::MissingInfoHandler;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$RootPackageSymbol = ::com::sun::tools::javac::code::Symbol$RootPackageSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
@@ -26,52 +24,20 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Symbol$ParamSymbol_MethodInfo_[] = {
-	{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$ParamSymbol, init$, void, int64_t, $Name*, $Type*, $Symbol*)},
-	{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$ParamSymbol, getSimpleName, $1Name*)},
-	{}
-};
-
-$InnerClassInfo _Symbol$ParamSymbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$ParamSymbol", "com.sun.tools.javac.code.Symbol", "ParamSymbol", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Symbol$ParamSymbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Symbol$ParamSymbol",
-	"com.sun.tools.javac.code.Symbol$VarSymbol",
-	nullptr,
-	nullptr,
-	_Symbol$ParamSymbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$ParamSymbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$ParamSymbol($Class* clazz) {
-	return $of($alloc(Symbol$ParamSymbol));
-}
-
 void Symbol$ParamSymbol::init$(int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
 	$Symbol$VarSymbol::init$(flags, name, type, owner);
 }
 
 $1Name* Symbol$ParamSymbol::getSimpleName() {
-	$useLocalCurrentObjectStackCache();
-	if (((int64_t)(this->flags_field & (uint64_t)(int64_t)0x0010000000000000)) == 0) {
-		this->flags_field |= 0x0010000000000000;
+	$useLocalObjectStack();
+	if ((this->flags_field & (int64_t)0x0010000000000000) == 0) {
+		this->flags_field |= (int64_t)0x0010000000000000;
 		$var($Symbol, rootPack, this);
 		while (rootPack != nullptr && !($instanceOf($Symbol$RootPackageSymbol, rootPack))) {
 			$assign(rootPack, rootPack->owner);
 		}
 		if (rootPack != nullptr) {
-			$var($Name, inferredName, $nc($nc(($cast($Symbol$RootPackageSymbol, rootPack)))->missingInfoHandler)->getParameterName(this));
+			$var($Name, inferredName, $nc($cast($Symbol$RootPackageSymbol, rootPack)->missingInfoHandler)->getParameterName(this));
 			if (inferredName != nullptr) {
 				$set(this, name, inferredName);
 			}
@@ -84,7 +50,34 @@ Symbol$ParamSymbol::Symbol$ParamSymbol() {
 }
 
 $Class* Symbol$ParamSymbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol$ParamSymbol, name, initialize, &_Symbol$ParamSymbol_ClassInfo_, allocate$Symbol$ParamSymbol);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$ParamSymbol, init$, void, int64_t, $Name*, $Type*, $Symbol*)},
+		{"getSimpleName", "()Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(Symbol$ParamSymbol, getSimpleName, $1Name*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$ParamSymbol", "com.sun.tools.javac.code.Symbol", "ParamSymbol", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Symbol$VarSymbol", "com.sun.tools.javac.code.Symbol", "VarSymbol", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Symbol$ParamSymbol",
+		"com.sun.tools.javac.code.Symbol$VarSymbol",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$ParamSymbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$ParamSymbol));
+	});
 	return class$;
 }
 

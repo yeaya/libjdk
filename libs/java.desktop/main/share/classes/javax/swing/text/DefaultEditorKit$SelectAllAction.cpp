@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$SelectAllAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
@@ -19,43 +18,12 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$MethodInfo _DefaultEditorKit$SelectAllAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$SelectAllAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$SelectAllAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$SelectAllAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$SelectAllAction", "javax.swing.text.DefaultEditorKit", "SelectAllAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$SelectAllAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$SelectAllAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$SelectAllAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$SelectAllAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$SelectAllAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$SelectAllAction));
-}
-
 void DefaultEditorKit$SelectAllAction::init$() {
 	$TextAction::init$("select-all"_s);
 }
 
 void DefaultEditorKit$SelectAllAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		$var($Document, doc, target->getDocument());
@@ -68,7 +36,33 @@ DefaultEditorKit$SelectAllAction::DefaultEditorKit$SelectAllAction() {
 }
 
 $Class* DefaultEditorKit$SelectAllAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$SelectAllAction, name, initialize, &_DefaultEditorKit$SelectAllAction_ClassInfo_, allocate$DefaultEditorKit$SelectAllAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultEditorKit$SelectAllAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$SelectAllAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$SelectAllAction", "javax.swing.text.DefaultEditorKit", "SelectAllAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$SelectAllAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$SelectAllAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$SelectAllAction));
+	});
 	return class$;
 }
 

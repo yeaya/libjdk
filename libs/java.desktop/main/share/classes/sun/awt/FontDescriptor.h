@@ -21,6 +21,7 @@ class $export FontDescriptor : public ::java::lang::Cloneable {
 	$class(FontDescriptor, 0, ::java::lang::Cloneable)
 public:
 	FontDescriptor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* nativeName, ::java::nio::charset::CharsetEncoder* encoder, $ints* exclusionRanges);
 	virtual $ints* getExclusionRanges();
 	virtual ::java::nio::charset::CharsetEncoder* getFontCharsetEncoder();

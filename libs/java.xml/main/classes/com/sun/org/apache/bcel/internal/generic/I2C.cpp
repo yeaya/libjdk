@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/I2C.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConversionInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackConsumer.h>
@@ -12,9 +11,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ConversionInstruction = ::com::sun::org::apache::bcel::internal::generic::ConversionInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _I2C_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(I2C, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(I2C, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _I2C_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.I2C",
-	"com.sun.org.apache.bcel.internal.generic.ConversionInstruction",
-	nullptr,
-	nullptr,
-	_I2C_MethodInfo_
-};
-
-$Object* allocate$I2C($Class* clazz) {
-	return $of($alloc(I2C));
-}
 
 void I2C::init$() {
 	$ConversionInstruction::init$($Const::I2C);
@@ -62,7 +39,22 @@ I2C::I2C() {
 }
 
 $Class* I2C::load$($String* name, bool initialize) {
-	$loadClass(I2C, name, initialize, &_I2C_ClassInfo_, allocate$I2C);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(I2C, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(I2C, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.I2C",
+		"com.sun.org.apache.bcel.internal.generic.ConversionInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(I2C, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(I2C));
+	});
 	return class$;
 }
 

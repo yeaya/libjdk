@@ -1,20 +1,15 @@
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Image.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Math.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -27,7 +22,6 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/plaf/BorderUIResource.h>
 #include <javax/swing/plaf/ColorUIResource.h>
@@ -48,7 +42,6 @@
 #include <javax/swing/plaf/synth/SynthIcon.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthStyleFactory.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <sun/swing/ImageIconUIResource.h>
 #include <sun/swing/plaf/GTKKeybindings.h>
@@ -60,15 +53,11 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $Image = ::java::awt::Image;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -79,19 +68,16 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $GrayFilter = ::javax::swing::GrayFilter;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JToolBar = ::javax::swing::JToolBar;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 using $BorderUIResource = ::javax::swing::plaf::BorderUIResource;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
@@ -110,7 +96,6 @@ using $ToolBarSeparatorPainter = ::javax::swing::plaf::nimbus::ToolBarSeparatorP
 using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthIcon = ::javax::swing::plaf::synth::SynthIcon;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthStyleFactory = ::javax::swing::plaf::synth::SynthStyleFactory;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $ImageIconUIResource = ::sun::swing::ImageIconUIResource;
 using $GTKKeybindings = ::sun::swing::plaf::GTKKeybindings;
@@ -120,69 +105,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace nimbus {
-
-$FieldInfo _NimbusLookAndFeel_FieldInfo_[] = {
-	{"COMPONENT_KEYS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NimbusLookAndFeel, COMPONENT_KEYS)},
-	{"defaults", "Ljavax/swing/plaf/nimbus/NimbusDefaults;", nullptr, $PRIVATE, $field(NimbusLookAndFeel, defaults)},
-	{"uiDefaults", "Ljavax/swing/UIDefaults;", nullptr, $PRIVATE, $field(NimbusLookAndFeel, uiDefaults)},
-	{"defaultsListener", "Ljavax/swing/plaf/nimbus/NimbusLookAndFeel$DefaultsListener;", nullptr, $PRIVATE, $field(NimbusLookAndFeel, defaultsListener)},
-	{"compiledDefaults", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;>;", $PRIVATE, $field(NimbusLookAndFeel, compiledDefaults)},
-	{"defaultListenerAdded", "Z", nullptr, $PRIVATE, $field(NimbusLookAndFeel, defaultListenerAdded)},
-	{}
-};
-
-$MethodInfo _NimbusLookAndFeel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NimbusLookAndFeel, init$, void)},
-	{"addDefault", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(NimbusLookAndFeel, addDefault, void, $String*, Object$*)},
-	{"deriveARGB", "(Ljava/awt/Color;Ljava/awt/Color;F)I", nullptr, $STATIC, $staticMethod(NimbusLookAndFeel, deriveARGB, int32_t, $Color*, $Color*, float)},
-	{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getDefaults, $UIDefaults*)},
-	{"getDefaultsForPrefix", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, $virtualMethod(NimbusLookAndFeel, getDefaultsForPrefix, $Map*, $String*)},
-	{"getDerivedColor", "(Ljava/lang/String;FFFIZ)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getDerivedColor, $Color*, $String*, float, float, float, int32_t, bool)},
-	{"getDerivedColor", "(Ljava/awt/Color;Ljava/awt/Color;FZ)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(NimbusLookAndFeel, getDerivedColor, $Color*, $Color*, $Color*, float, bool)},
-	{"getDerivedColor", "(Ljava/awt/Color;Ljava/awt/Color;F)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(NimbusLookAndFeel, getDerivedColor, $Color*, $Color*, $Color*, float)},
-	{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getDescription, $String*)},
-	{"getDisabledIcon", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getDisabledIcon, $Icon*, $JComponent*, $Icon*)},
-	{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getID, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getName, $String*)},
-	{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/nimbus/NimbusStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(NimbusLookAndFeel, getStyle, $NimbusStyle*, $JComponent*, $Region*)},
-	{"getSystemProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(NimbusLookAndFeel, getSystemProperty, $String*, $String*)},
-	{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, initialize, void)},
-	{"parsePrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(NimbusLookAndFeel, parsePrefix, $String*, $String*)},
-	{"register", "(Ljavax/swing/plaf/synth/Region;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, register$, void, $Region*, $String*)},
-	{"resolveToolbarConstraint", "(Ljavax/swing/JToolBar;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(NimbusLookAndFeel, resolveToolbarConstraint, $Object*, $JToolBar*)},
-	{"shouldUpdateStyleOnAncestorChanged", "()Z", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, shouldUpdateStyleOnAncestorChanged, bool)},
-	{"shouldUpdateStyleOnEvent", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $PROTECTED, $virtualMethod(NimbusLookAndFeel, shouldUpdateStyleOnEvent, bool, $PropertyChangeEvent*)},
-	{"uninitialize", "()V", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, uninitialize, void)},
-	{}
-};
-
-$InnerClassInfo _NimbusLookAndFeel_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusLookAndFeel$DefaultsListener", "javax.swing.plaf.nimbus.NimbusLookAndFeel", "DefaultsListener", $PRIVATE},
-	{"javax.swing.plaf.nimbus.NimbusLookAndFeel$NimbusProperty", "javax.swing.plaf.nimbus.NimbusLookAndFeel", "NimbusProperty", $PRIVATE},
-	{"javax.swing.plaf.nimbus.NimbusLookAndFeel$LinkProperty", "javax.swing.plaf.nimbus.NimbusLookAndFeel", "LinkProperty", $PRIVATE},
-	{"javax.swing.plaf.nimbus.NimbusLookAndFeel$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.nimbus.NimbusLookAndFeel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _NimbusLookAndFeel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusLookAndFeel",
-	"javax.swing.plaf.synth.SynthLookAndFeel",
-	nullptr,
-	_NimbusLookAndFeel_FieldInfo_,
-	_NimbusLookAndFeel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NimbusLookAndFeel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusLookAndFeel$DefaultsListener,javax.swing.plaf.nimbus.NimbusLookAndFeel$NimbusProperty,javax.swing.plaf.nimbus.NimbusLookAndFeel$LinkProperty,javax.swing.plaf.nimbus.NimbusLookAndFeel$2,javax.swing.plaf.nimbus.NimbusLookAndFeel$1"
-};
-
-$Object* allocate$NimbusLookAndFeel($Class* clazz) {
-	return $of($alloc(NimbusLookAndFeel));
-}
 
 $StringArray* NimbusLookAndFeel::COMPONENT_KEYS = nullptr;
 
@@ -201,15 +123,15 @@ void NimbusLookAndFeel::initialize() {
 }
 
 void NimbusLookAndFeel::uninitialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthLookAndFeel::uninitialize();
 	$nc(this->defaults)->uninitialize();
-	$nc($($ImageCache::getInstance()))->flush();
-	$nc($($UIManager::getDefaults()))->removePropertyChangeListener(this->defaultsListener);
+	$$nc($ImageCache::getInstance())->flush();
+	$$nc($UIManager::getDefaults())->removePropertyChangeListener(this->defaultsListener);
 }
 
 $UIDefaults* NimbusLookAndFeel::getDefaults() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->uiDefaults == nullptr) {
 		$var($String, osName, getSystemProperty("os.name"_s));
 		bool isWindows = osName != nullptr && osName->contains("Windows"_s);
@@ -229,30 +151,28 @@ $UIDefaults* NimbusLookAndFeel::getDefaults() {
 		$nc(this->uiDefaults)->put("ToolBarSeparator[Enabled].backgroundPainter"_s, $$new($ToolBarSeparatorPainter));
 		{
 			$var($StringArray, arr$, NimbusLookAndFeel::COMPONENT_KEYS);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($String, componentKey, arr$->get(i$));
 				{
 					$var($String, key, $str({componentKey, ".foreground"_s}));
 					if (!$nc(this->uiDefaults)->containsKey(key)) {
-						$nc(this->uiDefaults)->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "textForeground"_s));
+						this->uiDefaults->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "textForeground"_s));
 					}
 					$assign(key, $str({componentKey, ".background"_s}));
 					if (!$nc(this->uiDefaults)->containsKey(key)) {
-						$nc(this->uiDefaults)->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "background"_s));
+						this->uiDefaults->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "background"_s));
 					}
 					$assign(key, $str({componentKey, ".font"_s}));
 					if (!$nc(this->uiDefaults)->containsKey(key)) {
-						$nc(this->uiDefaults)->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "font"_s));
+						this->uiDefaults->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "font"_s));
 					}
 					$assign(key, $str({componentKey, ".disabledText"_s}));
 					if (!$nc(this->uiDefaults)->containsKey(key)) {
-						$nc(this->uiDefaults)->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "Disabled"_s, "textForeground"_s));
+						this->uiDefaults->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "Disabled"_s, "textForeground"_s));
 					}
 					$assign(key, $str({componentKey, ".disabled"_s}));
 					if (!$nc(this->uiDefaults)->containsKey(key)) {
-						$nc(this->uiDefaults)->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "Disabled"_s, "background"_s));
+						this->uiDefaults->put(key, $$new($NimbusLookAndFeel$NimbusProperty, this, componentKey, "Disabled"_s, "background"_s));
 					}
 				}
 			}
@@ -288,7 +208,7 @@ bool NimbusLookAndFeel::shouldUpdateStyleOnAncestorChanged() {
 }
 
 bool NimbusLookAndFeel::shouldUpdateStyleOnEvent($PropertyChangeEvent* ev) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, eName, $nc(ev)->getPropertyName());
 	if ("name"_s == eName || "ancestor"_s == eName || "Nimbus.Overrides"_s == eName || "Nimbus.Overrides.InheritDefaults"_s == eName || "JComponent.sizeVariant"_s == eName) {
 		$var($JComponent, c, $cast($JComponent, ev->getSource()));
@@ -304,17 +224,17 @@ void NimbusLookAndFeel::register$($Region* region, $String* prefix) {
 
 $String* NimbusLookAndFeel::getSystemProperty($String* key) {
 	$beforeCallerSensitive();
-	return $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, key))));
+	return $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, key)));
 }
 
 $Icon* NimbusLookAndFeel::getDisabledIcon($JComponent* component, $Icon* icon) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($SynthIcon, icon)) {
 		$var($SynthIcon, si, $cast($SynthIcon, icon));
-		int32_t var$0 = $nc(si)->getIconWidth();
+		int32_t var$0 = si->getIconWidth();
 		$var($BufferedImage, img, $EffectUtils::createCompatibleTranslucentImage(var$0, si->getIconHeight()));
 		$var($Graphics2D, gfx, $nc(img)->createGraphics());
-		$nc(si)->paintIcon(component, gfx, 0, 0);
+		si->paintIcon(component, gfx, 0, 0);
 		$nc(gfx)->dispose();
 		return $new($ImageIconUIResource, $($GrayFilter::createDisabledImage(img)));
 	} else {
@@ -341,16 +261,16 @@ $Color* NimbusLookAndFeel::getDerivedColor($Color* color1, $Color* color2, float
 
 $Object* NimbusLookAndFeel::resolveToolbarConstraint($JToolBar* toolbar) {
 	$init(NimbusLookAndFeel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (toolbar != nullptr) {
 		$var($Container, parent, toolbar->getParent());
 		if (parent != nullptr) {
 			$var($LayoutManager, m, parent->getLayout());
 			if ($instanceOf($BorderLayout, m)) {
 				$var($BorderLayout, b, $cast($BorderLayout, m));
-				$var($Object, con, $nc(b)->getConstraints(toolbar));
+				$var($Object, con, b->getConstraints(toolbar));
 				if ($equals(con, "South"_s) || $equals(con, "East"_s) || $equals(con, "West"_s)) {
-					return $of(con);
+					return con;
 				}
 				return $of("North"_s);
 			}
@@ -366,18 +286,18 @@ int32_t NimbusLookAndFeel::deriveARGB($Color* color1, $Color* color2, float midP
 	int32_t var$1 = $Math::round((var$2 - color1->getRed()) * midPoint);
 	int32_t r = var$0 + var$1;
 	int32_t var$3 = color1->getGreen();
-	int32_t var$5 = $nc(color2)->getGreen();
+	int32_t var$5 = color2->getGreen();
 	int32_t var$4 = $Math::round((var$5 - color1->getGreen()) * midPoint);
 	int32_t g = var$3 + var$4;
 	int32_t var$6 = color1->getBlue();
-	int32_t var$8 = $nc(color2)->getBlue();
+	int32_t var$8 = color2->getBlue();
 	int32_t var$7 = $Math::round((var$8 - color1->getBlue()) * midPoint);
 	int32_t b = var$6 + var$7;
 	int32_t var$9 = color1->getAlpha();
-	int32_t var$11 = $nc(color2)->getAlpha();
+	int32_t var$11 = color2->getAlpha();
 	int32_t var$10 = $Math::round((var$11 - color1->getAlpha()) * midPoint);
 	int32_t a = var$9 + var$10;
-	return (((((int32_t)(a & (uint32_t)255)) << 24) | (((int32_t)(r & (uint32_t)255)) << 16)) | (((int32_t)(g & (uint32_t)255)) << 8)) | ((int32_t)(b & (uint32_t)255));
+	return ((((a & 0xff) << 24) | ((r & 0xff) << 16)) | ((g & 0xff) << 8)) | (b & 0xff);
 }
 
 $String* NimbusLookAndFeel::parsePrefix($String* key) {
@@ -398,23 +318,21 @@ $String* NimbusLookAndFeel::parsePrefix($String* key) {
 }
 
 $Map* NimbusLookAndFeel::getDefaultsForPrefix($String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->compiledDefaults == nullptr) {
 		$set(this, compiledDefaults, $new($HashMap));
 		{
-			$var($Iterator, i$, $nc($($nc($($UIManager::getDefaults()))->entrySet()))->iterator());
+			$var($Iterator, i$, $$nc($$nc($UIManager::getDefaults())->entrySet())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
-				{
-					if ($instanceOf($String, $($nc(entry)->getKey()))) {
-						$var($String, var$0, $cast($String, entry->getKey()));
-						addDefault(var$0, $(entry->getValue()));
-					}
+				if ($instanceOf($String, $($nc(entry)->getKey()))) {
+					$var($String, var$0, $cast($String, entry->getKey()));
+					addDefault(var$0, $(entry->getValue()));
 				}
 			}
 		}
 		if (!this->defaultListenerAdded) {
-			$nc($($UIManager::getDefaults()))->addPropertyChangeListener(this->defaultsListener);
+			$$nc($UIManager::getDefaults())->addPropertyChangeListener(this->defaultsListener);
 			this->defaultListenerAdded = true;
 		}
 	}
@@ -422,7 +340,7 @@ $Map* NimbusLookAndFeel::getDefaultsForPrefix($String* prefix) {
 }
 
 void NimbusLookAndFeel::addDefault($String* key, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->compiledDefaults == nullptr) {
 		return;
 	}
@@ -431,13 +349,13 @@ void NimbusLookAndFeel::addDefault($String* key, Object$* value) {
 		$var($Map, keys, $cast($Map, $nc(this->compiledDefaults)->get(prefix)));
 		if (keys == nullptr) {
 			$assign(keys, $new($HashMap));
-			$nc(this->compiledDefaults)->put(prefix, keys);
+			this->compiledDefaults->put(prefix, keys);
 		}
 		$nc(keys)->put(key, value);
 	}
 }
 
-void clinit$NimbusLookAndFeel($Class* class$) {
+void NimbusLookAndFeel::clinit$($Class* clazz) {
 	$assignStatic(NimbusLookAndFeel::COMPONENT_KEYS, $new($StringArray, {
 		"ArrowButton"_s,
 		"Button"_s,
@@ -494,7 +412,64 @@ NimbusLookAndFeel::NimbusLookAndFeel() {
 }
 
 $Class* NimbusLookAndFeel::load$($String* name, bool initialize) {
-	$loadClass(NimbusLookAndFeel, name, initialize, &_NimbusLookAndFeel_ClassInfo_, clinit$NimbusLookAndFeel, allocate$NimbusLookAndFeel);
+	$FieldInfo fieldInfos$$[] = {
+		{"COMPONENT_KEYS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(NimbusLookAndFeel, COMPONENT_KEYS)},
+		{"defaults", "Ljavax/swing/plaf/nimbus/NimbusDefaults;", nullptr, $PRIVATE, $field(NimbusLookAndFeel, defaults)},
+		{"uiDefaults", "Ljavax/swing/UIDefaults;", nullptr, $PRIVATE, $field(NimbusLookAndFeel, uiDefaults)},
+		{"defaultsListener", "Ljavax/swing/plaf/nimbus/NimbusLookAndFeel$DefaultsListener;", nullptr, $PRIVATE, $field(NimbusLookAndFeel, defaultsListener)},
+		{"compiledDefaults", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;>;", $PRIVATE, $field(NimbusLookAndFeel, compiledDefaults)},
+		{"defaultListenerAdded", "Z", nullptr, $PRIVATE, $field(NimbusLookAndFeel, defaultListenerAdded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NimbusLookAndFeel, init$, void)},
+		{"addDefault", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(NimbusLookAndFeel, addDefault, void, $String*, Object$*)},
+		{"deriveARGB", "(Ljava/awt/Color;Ljava/awt/Color;F)I", nullptr, $STATIC, $staticMethod(NimbusLookAndFeel, deriveARGB, int32_t, $Color*, $Color*, float)},
+		{"getDefaults", "()Ljavax/swing/UIDefaults;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getDefaults, $UIDefaults*)},
+		{"getDefaultsForPrefix", "(Ljava/lang/String;)Ljava/util/Map;", "(Ljava/lang/String;)Ljava/util/Map<Ljava/lang/String;Ljava/lang/Object;>;", 0, $virtualMethod(NimbusLookAndFeel, getDefaultsForPrefix, $Map*, $String*)},
+		{"getDerivedColor", "(Ljava/lang/String;FFFIZ)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getDerivedColor, $Color*, $String*, float, float, float, int32_t, bool)},
+		{"getDerivedColor", "(Ljava/awt/Color;Ljava/awt/Color;FZ)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(NimbusLookAndFeel, getDerivedColor, $Color*, $Color*, $Color*, float, bool)},
+		{"getDerivedColor", "(Ljava/awt/Color;Ljava/awt/Color;F)Ljava/awt/Color;", nullptr, $PROTECTED | $FINAL, $method(NimbusLookAndFeel, getDerivedColor, $Color*, $Color*, $Color*, float)},
+		{"getDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getDescription, $String*)},
+		{"getDisabledIcon", "(Ljavax/swing/JComponent;Ljavax/swing/Icon;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getDisabledIcon, $Icon*, $JComponent*, $Icon*)},
+		{"getID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getID, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, getName, $String*)},
+		{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/nimbus/NimbusStyle;", nullptr, $PUBLIC | $STATIC, $staticMethod(NimbusLookAndFeel, getStyle, $NimbusStyle*, $JComponent*, $Region*)},
+		{"getSystemProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(NimbusLookAndFeel, getSystemProperty, $String*, $String*)},
+		{"initialize", "()V", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, initialize, void)},
+		{"parsePrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(NimbusLookAndFeel, parsePrefix, $String*, $String*)},
+		{"register", "(Ljavax/swing/plaf/synth/Region;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, register$, void, $Region*, $String*)},
+		{"resolveToolbarConstraint", "(Ljavax/swing/JToolBar;)Ljava/lang/Object;", nullptr, $STATIC, $staticMethod(NimbusLookAndFeel, resolveToolbarConstraint, $Object*, $JToolBar*)},
+		{"shouldUpdateStyleOnAncestorChanged", "()Z", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, shouldUpdateStyleOnAncestorChanged, bool)},
+		{"shouldUpdateStyleOnEvent", "(Ljava/beans/PropertyChangeEvent;)Z", nullptr, $PROTECTED, $virtualMethod(NimbusLookAndFeel, shouldUpdateStyleOnEvent, bool, $PropertyChangeEvent*)},
+		{"uninitialize", "()V", nullptr, $PUBLIC, $virtualMethod(NimbusLookAndFeel, uninitialize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusLookAndFeel$DefaultsListener", "javax.swing.plaf.nimbus.NimbusLookAndFeel", "DefaultsListener", $PRIVATE},
+		{"javax.swing.plaf.nimbus.NimbusLookAndFeel$NimbusProperty", "javax.swing.plaf.nimbus.NimbusLookAndFeel", "NimbusProperty", $PRIVATE},
+		{"javax.swing.plaf.nimbus.NimbusLookAndFeel$LinkProperty", "javax.swing.plaf.nimbus.NimbusLookAndFeel", "LinkProperty", $PRIVATE},
+		{"javax.swing.plaf.nimbus.NimbusLookAndFeel$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.nimbus.NimbusLookAndFeel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusLookAndFeel",
+		"javax.swing.plaf.synth.SynthLookAndFeel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusLookAndFeel$DefaultsListener,javax.swing.plaf.nimbus.NimbusLookAndFeel$NimbusProperty,javax.swing.plaf.nimbus.NimbusLookAndFeel$LinkProperty,javax.swing.plaf.nimbus.NimbusLookAndFeel$2,javax.swing.plaf.nimbus.NimbusLookAndFeel$1"
+	};
+	$loadClass(NimbusLookAndFeel, name, initialize, &classInfo$$, NimbusLookAndFeel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(NimbusLookAndFeel));
+	});
 	return class$;
 }
 

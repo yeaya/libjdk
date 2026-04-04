@@ -66,6 +66,7 @@ class SjavacClient : public ::com::sun::tools::sjavac::server::Sjavac {
 	$class(SjavacClient, 0, ::com::sun::tools::sjavac::server::Sjavac)
 public:
 	SjavacClient();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::sjavac::options::Options* options);
 	virtual ::com::sun::tools::javac::main::Main$Result* compile($StringArray* args) override;
 	::java::net::Socket* makeConnectionAttempt();

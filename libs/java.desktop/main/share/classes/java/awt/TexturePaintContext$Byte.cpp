@@ -1,9 +1,7 @@
 #include <java/awt/TexturePaintContext$Byte.h>
-
 #include <java/awt/TexturePaintContext.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <sun/awt/image/ByteInterleavedRaster.h>
 #include <jcpp.h>
@@ -13,7 +11,6 @@
 using $TexturePaintContext = ::java::awt::TexturePaintContext;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -25,64 +22,17 @@ using $ByteInterleavedRaster = ::sun::awt::image::ByteInterleavedRaster;
 namespace java {
 	namespace awt {
 
-$FieldInfo _TexturePaintContext$Byte_FieldInfo_[] = {
-	{"srcRas", "Lsun/awt/image/ByteInterleavedRaster;", nullptr, 0, $field(TexturePaintContext$Byte, srcRas)},
-	{"inData", "[B", nullptr, 0, $field(TexturePaintContext$Byte, inData)},
-	{"inOff", "I", nullptr, 0, $field(TexturePaintContext$Byte, inOff)},
-	{"inSpan", "I", nullptr, 0, $field(TexturePaintContext$Byte, inSpan)},
-	{"outData", "[B", nullptr, 0, $field(TexturePaintContext$Byte, outData)},
-	{"outOff", "I", nullptr, 0, $field(TexturePaintContext$Byte, outOff)},
-	{"outSpan", "I", nullptr, 0, $field(TexturePaintContext$Byte, outSpan)},
-	{}
-};
-
-$MethodInfo _TexturePaintContext$Byte_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/image/ByteInterleavedRaster;Ljava/awt/image/ColorModel;Ljava/awt/geom/AffineTransform;I)V", nullptr, $PUBLIC, $method(TexturePaintContext$Byte, init$, void, $ByteInterleavedRaster*, $ColorModel*, $AffineTransform*, int32_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Byte, dispose, void)},
-	{"makeRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Byte, makeRaster, $WritableRaster*, int32_t, int32_t)},
-	{"setRaster", "(IIIIIIIIIIIIIIII)V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Byte, setRaster, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _TexturePaintContext$Byte_InnerClassesInfo_[] = {
-	{"java.awt.TexturePaintContext$Byte", "java.awt.TexturePaintContext", "Byte", $STATIC},
-	{}
-};
-
-$ClassInfo _TexturePaintContext$Byte_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.TexturePaintContext$Byte",
-	"java.awt.TexturePaintContext",
-	nullptr,
-	_TexturePaintContext$Byte_FieldInfo_,
-	_TexturePaintContext$Byte_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TexturePaintContext$Byte_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.TexturePaintContext"
-};
-
-$Object* allocate$TexturePaintContext$Byte($Class* clazz) {
-	return $of($alloc(TexturePaintContext$Byte));
-}
-
 void TexturePaintContext$Byte::init$($ByteInterleavedRaster* srcRas, $ColorModel* cm, $AffineTransform* xform, int32_t maxw) {
-	$useLocalCurrentObjectStackCache();
-	$var($ColorModel, var$0, cm);
-	$var($AffineTransform, var$1, xform);
-	int32_t var$2 = $nc(srcRas)->getWidth();
-	$TexturePaintContext::init$(var$0, var$1, var$2, srcRas->getHeight(), maxw);
+	int32_t var$0 = $nc(srcRas)->getWidth();
+	$TexturePaintContext::init$(cm, xform, var$0, srcRas->getHeight(), maxw);
 	$set(this, srcRas, srcRas);
-	$set(this, inData, $nc(srcRas)->getDataStorage());
+	$set(this, inData, srcRas->getDataStorage());
 	this->inSpan = srcRas->getScanlineStride();
 	this->inOff = srcRas->getDataOffset(0);
 }
 
 $WritableRaster* TexturePaintContext$Byte::makeRaster(int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WritableRaster, ras, makeByteRaster(this->srcRas, w, h));
 	$var($ByteInterleavedRaster, biRas, $cast($ByteInterleavedRaster, ras));
 	$set(this, outData, $nc(biRas)->getDataStorage());
@@ -96,7 +46,7 @@ void TexturePaintContext$Byte::dispose() {
 }
 
 void TexturePaintContext$Byte::setRaster(int32_t x, int32_t y, int32_t xerr, int32_t yerr, int32_t w, int32_t h, int32_t bWidth, int32_t bHeight, int32_t colincx, int32_t colincxerr, int32_t colincy, int32_t colincyerr, int32_t rowincx, int32_t rowincxerr, int32_t rowincy, int32_t rowincyerr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, inData, this->inData);
 	$var($bytes, outData, this->outData);
 	int32_t out = this->outOff;
@@ -179,7 +129,45 @@ TexturePaintContext$Byte::TexturePaintContext$Byte() {
 }
 
 $Class* TexturePaintContext$Byte::load$($String* name, bool initialize) {
-	$loadClass(TexturePaintContext$Byte, name, initialize, &_TexturePaintContext$Byte_ClassInfo_, allocate$TexturePaintContext$Byte);
+	$FieldInfo fieldInfos$$[] = {
+		{"srcRas", "Lsun/awt/image/ByteInterleavedRaster;", nullptr, 0, $field(TexturePaintContext$Byte, srcRas)},
+		{"inData", "[B", nullptr, 0, $field(TexturePaintContext$Byte, inData)},
+		{"inOff", "I", nullptr, 0, $field(TexturePaintContext$Byte, inOff)},
+		{"inSpan", "I", nullptr, 0, $field(TexturePaintContext$Byte, inSpan)},
+		{"outData", "[B", nullptr, 0, $field(TexturePaintContext$Byte, outData)},
+		{"outOff", "I", nullptr, 0, $field(TexturePaintContext$Byte, outOff)},
+		{"outSpan", "I", nullptr, 0, $field(TexturePaintContext$Byte, outSpan)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/image/ByteInterleavedRaster;Ljava/awt/image/ColorModel;Ljava/awt/geom/AffineTransform;I)V", nullptr, $PUBLIC, $method(TexturePaintContext$Byte, init$, void, $ByteInterleavedRaster*, $ColorModel*, $AffineTransform*, int32_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Byte, dispose, void)},
+		{"makeRaster", "(II)Ljava/awt/image/WritableRaster;", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Byte, makeRaster, $WritableRaster*, int32_t, int32_t)},
+		{"setRaster", "(IIIIIIIIIIIIIIII)V", nullptr, $PUBLIC, $virtualMethod(TexturePaintContext$Byte, setRaster, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.TexturePaintContext$Byte", "java.awt.TexturePaintContext", "Byte", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.TexturePaintContext$Byte",
+		"java.awt.TexturePaintContext",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.TexturePaintContext"
+	};
+	$loadClass(TexturePaintContext$Byte, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TexturePaintContext$Byte);
+	});
 	return class$;
 }
 

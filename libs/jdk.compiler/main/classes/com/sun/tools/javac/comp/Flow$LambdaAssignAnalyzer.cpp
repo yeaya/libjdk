@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$LambdaAssignAnalyzer.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -17,7 +16,6 @@
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
-using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Flow = ::com::sun::tools::javac::comp::Flow;
@@ -36,48 +34,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Flow$LambdaAssignAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$LambdaAssignAnalyzer, this$0)},
-	{"enclosedSymbols", "Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, 0, $field(Flow$LambdaAssignAnalyzer, enclosedSymbols)},
-	{"inLambda", "Z", nullptr, 0, $field(Flow$LambdaAssignAnalyzer, inLambda)},
-	{}
-};
-
-$MethodInfo _Flow$LambdaAssignAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Flow$LambdaAssignAnalyzer, init$, void, $Flow*, $Env*)},
-	{"trackable", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Z", nullptr, $PROTECTED, $virtualMethod(Flow$LambdaAssignAnalyzer, trackable, bool, $Symbol$VarSymbol*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$InnerClassInfo _Flow$LambdaAssignAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$LambdaAssignAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaAssignAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$AssignAnalyzer", "com.sun.tools.javac.comp.Flow", "AssignAnalyzer", $PUBLIC},
-	{}
-};
-
-$ClassInfo _Flow$LambdaAssignAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow$LambdaAssignAnalyzer",
-	"com.sun.tools.javac.comp.Flow$AssignAnalyzer",
-	nullptr,
-	_Flow$LambdaAssignAnalyzer_FieldInfo_,
-	_Flow$LambdaAssignAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$LambdaAssignAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$LambdaAssignAnalyzer($Class* clazz) {
-	return $of($alloc(Flow$LambdaAssignAnalyzer));
-}
-
 void Flow$LambdaAssignAnalyzer::init$($Flow* this$0, $Env* env) {
 	$set(this, this$0, this$0);
 	$Flow$AssignAnalyzer::init$(this$0);
@@ -89,18 +45,16 @@ void Flow$LambdaAssignAnalyzer::visitLambda($JCTree$JCLambda* tree) {
 		return;
 	}
 	this->inLambda = true;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$Flow$AssignAnalyzer::visitLambda(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->inLambda = false;
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$Flow$AssignAnalyzer::visitLambda(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->inLambda = false;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -121,7 +75,43 @@ Flow$LambdaAssignAnalyzer::Flow$LambdaAssignAnalyzer() {
 }
 
 $Class* Flow$LambdaAssignAnalyzer::load$($String* name, bool initialize) {
-	$loadClass(Flow$LambdaAssignAnalyzer, name, initialize, &_Flow$LambdaAssignAnalyzer_ClassInfo_, allocate$Flow$LambdaAssignAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$LambdaAssignAnalyzer, this$0)},
+		{"enclosedSymbols", "Lcom/sun/tools/javac/code/Scope$WriteableScope;", nullptr, 0, $field(Flow$LambdaAssignAnalyzer, enclosedSymbols)},
+		{"inLambda", "Z", nullptr, 0, $field(Flow$LambdaAssignAnalyzer, inLambda)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Flow;Lcom/sun/tools/javac/comp/Env;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;)V", 0, $method(Flow$LambdaAssignAnalyzer, init$, void, $Flow*, $Env*)},
+		{"trackable", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)Z", nullptr, $PROTECTED, $virtualMethod(Flow$LambdaAssignAnalyzer, trackable, bool, $Symbol$VarSymbol*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$LambdaAssignAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$LambdaAssignAnalyzer", "com.sun.tools.javac.comp.Flow", "LambdaAssignAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$AssignAnalyzer", "com.sun.tools.javac.comp.Flow", "AssignAnalyzer", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow$LambdaAssignAnalyzer",
+		"com.sun.tools.javac.comp.Flow$AssignAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$LambdaAssignAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$LambdaAssignAnalyzer);
+	});
 	return class$;
 }
 

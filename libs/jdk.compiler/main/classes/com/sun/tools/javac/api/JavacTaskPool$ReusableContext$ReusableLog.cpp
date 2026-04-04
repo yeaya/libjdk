@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/api/JavacTaskPool$ReusableContext$ReusableLog.h>
-
 #include <com/sun/tools/javac/api/JavacTaskPool$ReusableContext$ReusableLog$1.h>
 #include <com/sun/tools/javac/api/JavacTaskPool$ReusableContext.h>
 #include <com/sun/tools/javac/util/AbstractLog.h>
@@ -14,7 +13,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
-#include <javax/tools/DiagnosticListener.h>
 #include <jcpp.h>
 
 using $JavacTaskPool$ReusableContext$ReusableLog$1 = ::com::sun::tools::javac::api::JavacTaskPool$ReusableContext$ReusableLog$1;
@@ -27,9 +25,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
-using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 
 namespace com {
 	namespace sun {
@@ -43,71 +38,29 @@ public:
 	void init$() {
 	}
 	virtual $Object* make($Context* context) override {
-		 return $of($new(JavacTaskPool$ReusableContext$ReusableLog, context));
+		 return $new(JavacTaskPool$ReusableContext$ReusableLog, context);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog, init$, void)},
-	{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog, make, $Object*, $Context*)},
-	{}
-};
-$ClassInfo JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.Context$Factory",
-	nullptr,
-	methodInfos
 };
 $Class* JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::load$($String* name, bool initialize) {
-	$loadClass(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog, init$, void)},
+		{"make", "(Lcom/sun/tools/javac/util/Context;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog, make, $Object*, $Context*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.Context$Factory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog);
+	});
 	return class$;
 }
 $Class* JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::class$ = nullptr;
-
-$FieldInfo _JavacTaskPool$ReusableContext$ReusableLog_FieldInfo_[] = {
-	{"factory", "Lcom/sun/tools/javac/util/Context$Factory;", "Lcom/sun/tools/javac/util/Context$Factory<Lcom/sun/tools/javac/util/Log;>;", $STATIC | $FINAL, $staticField(JavacTaskPool$ReusableContext$ReusableLog, factory)},
-	{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, 0, $field(JavacTaskPool$ReusableContext$ReusableLog, context)},
-	{}
-};
-
-$MethodInfo _JavacTaskPool$ReusableContext$ReusableLog_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(JavacTaskPool$ReusableContext$ReusableLog, init$, void, $Context*)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(JavacTaskPool$ReusableContext$ReusableLog, clear, void)},
-	{}
-};
-
-$InnerClassInfo _JavacTaskPool$ReusableContext$ReusableLog_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "com.sun.tools.javac.api.JavacTaskPool", "ReusableContext", $STATIC},
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog", "com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "ReusableLog", $STATIC},
-	{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JavacTaskPool$ReusableContext$ReusableLog_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog",
-	"com.sun.tools.javac.util.Log",
-	nullptr,
-	_JavacTaskPool$ReusableContext$ReusableLog_FieldInfo_,
-	_JavacTaskPool$ReusableContext$ReusableLog_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacTaskPool$ReusableContext$ReusableLog_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.api.JavacTaskPool"
-};
-
-$Object* allocate$JavacTaskPool$ReusableContext$ReusableLog($Class* clazz) {
-	return $of($alloc(JavacTaskPool$ReusableContext$ReusableLog));
-}
 
 $Context$Factory* JavacTaskPool$ReusableContext$ReusableLog::factory = nullptr;
 
@@ -124,8 +77,8 @@ void JavacTaskPool$ReusableContext$ReusableLog::clear() {
 	$set(this, diagListener, $new($JavacTaskPool$ReusableContext$ReusableLog$1, this));
 }
 
-void clinit$JavacTaskPool$ReusableContext$ReusableLog($Class* class$) {
-	$assignStatic(JavacTaskPool$ReusableContext$ReusableLog::factory, static_cast<$Context$Factory*>($new(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog)));
+void JavacTaskPool$ReusableContext$ReusableLog::clinit$($Class* clazz) {
+	$assignStatic(JavacTaskPool$ReusableContext$ReusableLog::factory, $new(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog));
 }
 
 JavacTaskPool$ReusableContext$ReusableLog::JavacTaskPool$ReusableContext$ReusableLog() {
@@ -133,11 +86,44 @@ JavacTaskPool$ReusableContext$ReusableLog::JavacTaskPool$ReusableContext$Reusabl
 
 $Class* JavacTaskPool$ReusableContext$ReusableLog::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog")) {
 			return JavacTaskPool$ReusableContext$ReusableLog$$Lambda$ReusableLog::load$(name, initialize);
 		}
 	}
-	$loadClass(JavacTaskPool$ReusableContext$ReusableLog, name, initialize, &_JavacTaskPool$ReusableContext$ReusableLog_ClassInfo_, clinit$JavacTaskPool$ReusableContext$ReusableLog, allocate$JavacTaskPool$ReusableContext$ReusableLog);
+	$FieldInfo fieldInfos$$[] = {
+		{"factory", "Lcom/sun/tools/javac/util/Context$Factory;", "Lcom/sun/tools/javac/util/Context$Factory<Lcom/sun/tools/javac/util/Log;>;", $STATIC | $FINAL, $staticField(JavacTaskPool$ReusableContext$ReusableLog, factory)},
+		{"context", "Lcom/sun/tools/javac/util/Context;", nullptr, 0, $field(JavacTaskPool$ReusableContext$ReusableLog, context)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, 0, $method(JavacTaskPool$ReusableContext$ReusableLog, init$, void, $Context*)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(JavacTaskPool$ReusableContext$ReusableLog, clear, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "com.sun.tools.javac.api.JavacTaskPool", "ReusableContext", $STATIC},
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog", "com.sun.tools.javac.api.JavacTaskPool$ReusableContext", "ReusableLog", $STATIC},
+		{"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.api.JavacTaskPool$ReusableContext$ReusableLog",
+		"com.sun.tools.javac.util.Log",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.api.JavacTaskPool"
+	};
+	$loadClass(JavacTaskPool$ReusableContext$ReusableLog, name, initialize, &classInfo$$, JavacTaskPool$ReusableContext$ReusableLog::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacTaskPool$ReusableContext$ReusableLog);
+	});
 	return class$;
 }
 

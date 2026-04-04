@@ -22,10 +22,13 @@ class Pretty$UncheckedIOException : public ::java::lang::Error {
 public:
 	Pretty$UncheckedIOException();
 	void init$(::java::io::IOException* e);
-	static const int64_t serialVersionUID = (int64_t)0xC808FF5FDA719B51;
+	static const int64_t serialVersionUID = (int64_t)0xc808ff5fda719b51;
 	Pretty$UncheckedIOException(const Pretty$UncheckedIOException& e);
 	virtual void throw$() override;
-	inline Pretty$UncheckedIOException* operator ->() {
+	inline Pretty$UncheckedIOException* operator ->() const {
+		return (Pretty$UncheckedIOException*)throwing$;
+	}
+	inline operator Pretty$UncheckedIOException*() const {
 		return (Pretty$UncheckedIOException*)throwing$;
 	}
 };

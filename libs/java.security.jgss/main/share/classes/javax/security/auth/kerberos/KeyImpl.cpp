@@ -1,5 +1,4 @@
 #include <javax/security/auth/kerberos/KeyImpl.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -45,45 +44,6 @@ namespace javax {
 		namespace auth {
 			namespace kerberos {
 
-$FieldInfo _KeyImpl_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyImpl, serialVersionUID)},
-	{"keyBytes", "[B", nullptr, $PRIVATE | $TRANSIENT, $field(KeyImpl, keyBytes)},
-	{"keyType", "I", nullptr, $PRIVATE | $TRANSIENT, $field(KeyImpl, keyType)},
-	{"destroyed", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(KeyImpl, destroyed)},
-	{}
-};
-
-$MethodInfo _KeyImpl_MethodInfo_[] = {
-	{"<init>", "([BI)V", nullptr, $PUBLIC, $method(KeyImpl, init$, void, $bytes*, int32_t)},
-	{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[CLjava/lang/String;)V", nullptr, $PUBLIC, $method(KeyImpl, init$, void, $KerberosPrincipal*, $chars*, $String*)},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KeyImpl, destroy, void), "javax.security.auth.DestroyFailedException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyImpl, equals, bool, Object$*)},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getAlgorithm, $String*)},
-	{"getAlgorithmName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(KeyImpl, getAlgorithmName, $String*, int32_t)},
-	{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getEncoded, $bytes*)},
-	{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getFormat, $String*)},
-	{"getKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(KeyImpl, getKeyType, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyImpl, hashCode, int32_t)},
-	{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyImpl, isDestroyed, bool)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KeyImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyImpl, toString, $String*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KeyImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _KeyImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.security.auth.kerberos.KeyImpl",
-	"java.lang.Object",
-	"javax.crypto.SecretKey",
-	_KeyImpl_FieldInfo_,
-	_KeyImpl_MethodInfo_
-};
-
-$Object* allocate$KeyImpl($Class* clazz) {
-	return $of($alloc(KeyImpl));
-}
-
 void KeyImpl::init$($bytes* keyBytes, int32_t keyType) {
 	this->destroyed = false;
 	$set(this, keyBytes, $cast($bytes, $nc(keyBytes)->clone()));
@@ -91,7 +51,7 @@ void KeyImpl::init$($bytes* keyBytes, int32_t keyType) {
 }
 
 void KeyImpl::init$($KerberosPrincipal* principal, $chars* password, $String* algorithm) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->destroyed = false;
 	try {
 		$var($PrincipalName, princ, $new($PrincipalName, $($nc(principal)->getName())));
@@ -126,45 +86,25 @@ $String* KeyImpl::getAlgorithmName(int32_t eType) {
 	}
 	switch (eType) {
 	case $EncryptedData::ETYPE_DES_CBC_CRC:
-		{
-			return "des-cbc-crc"_s;
-		}
+		return "des-cbc-crc"_s;
 	case $EncryptedData::ETYPE_DES_CBC_MD5:
-		{
-			return "des-cbc-md5"_s;
-		}
+		return "des-cbc-md5"_s;
 	case $EncryptedData::ETYPE_DES3_CBC_HMAC_SHA1_KD:
-		{
-			return "des3-cbc-sha1-kd"_s;
-		}
+		return "des3-cbc-sha1-kd"_s;
 	case $EncryptedData::ETYPE_ARCFOUR_HMAC:
-		{
-			return "rc4-hmac"_s;
-		}
+		return "rc4-hmac"_s;
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA1_96:
-		{
-			return "aes128-cts-hmac-sha1-96"_s;
-		}
+		return "aes128-cts-hmac-sha1-96"_s;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA1_96:
-		{
-			return "aes256-cts-hmac-sha1-96"_s;
-		}
+		return "aes256-cts-hmac-sha1-96"_s;
 	case $EncryptedData::ETYPE_AES128_CTS_HMAC_SHA256_128:
-		{
-			return "aes128-cts-hmac-sha256-128"_s;
-		}
+		return "aes128-cts-hmac-sha256-128"_s;
 	case $EncryptedData::ETYPE_AES256_CTS_HMAC_SHA384_192:
-		{
-			return "aes256-cts-hmac-sha384-192"_s;
-		}
+		return "aes256-cts-hmac-sha384-192"_s;
 	case $EncryptedData::ETYPE_NULL:
-		{
-			return "none"_s;
-		}
+		return "none"_s;
 	default:
-		{
-			return eType > 0 ? "unknown"_s : "private"_s;
-		}
+		return eType > 0 ? "unknown"_s : "private"_s;
 	}
 }
 
@@ -194,7 +134,7 @@ bool KeyImpl::isDestroyed() {
 }
 
 void KeyImpl::writeObject($ObjectOutputStream* oos) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->destroyed) {
 		$throwNew($IOException, "This key is no longer valid"_s);
 	}
@@ -206,9 +146,9 @@ void KeyImpl::writeObject($ObjectOutputStream* oos) {
 }
 
 void KeyImpl::readObject($ObjectInputStream* ois) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		$var($EncryptionKey, encKey, $new($EncryptionKey, $$new($DerValue, $cast($bytes, $($nc(ois)->readObject())))));
+		$var($EncryptionKey, encKey, $new($EncryptionKey, $$new($DerValue, $$cast($bytes, $nc(ois)->readObject()))));
 		this->keyType = encKey->getEType();
 		$set(this, keyBytes, encKey->getBytes());
 	} catch ($Asn1Exception& ae) {
@@ -217,9 +157,9 @@ void KeyImpl::readObject($ObjectInputStream* ois) {
 }
 
 $String* KeyImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HexDumpEncoder, hd, $new($HexDumpEncoder));
-	return $str({"EncryptionKey: keyType="_s, $$str(this->keyType), " keyBytes (hex dump)="_s, (this->keyBytes == nullptr || $nc(this->keyBytes)->length == 0 ? " Empty Key"_s : $$str({$$str(u'\n'), $(hd->encodeBuffer(this->keyBytes)), $$str(u'\n')}))});
+	return $str({"EncryptionKey: keyType="_s, $$str(this->keyType), " keyBytes (hex dump)="_s, (this->keyBytes == nullptr || this->keyBytes->length == 0 ? " Empty Key"_s : $$str({$$str(u'\n'), $(hd->encodeBuffer(this->keyBytes)), $$str(u'\n')}))});
 }
 
 int32_t KeyImpl::hashCode() {
@@ -232,7 +172,7 @@ int32_t KeyImpl::hashCode() {
 }
 
 bool KeyImpl::equals(Object$* other) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(other, this)) {
 		return true;
 	}
@@ -245,7 +185,7 @@ bool KeyImpl::equals(Object$* other) {
 		return false;
 	}
 	bool var$1 = this->keyType != $nc(otherKey)->getKeyType();
-	if (var$1 || !$Arrays::equals(this->keyBytes, $($nc(otherKey)->getEncoded()))) {
+	if (var$1 || !$Arrays::equals(this->keyBytes, $(otherKey->getEncoded()))) {
 		return false;
 	}
 	return true;
@@ -255,7 +195,41 @@ KeyImpl::KeyImpl() {
 }
 
 $Class* KeyImpl::load$($String* name, bool initialize) {
-	$loadClass(KeyImpl, name, initialize, &_KeyImpl_ClassInfo_, allocate$KeyImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(KeyImpl, serialVersionUID)},
+		{"keyBytes", "[B", nullptr, $PRIVATE | $TRANSIENT, $field(KeyImpl, keyBytes)},
+		{"keyType", "I", nullptr, $PRIVATE | $TRANSIENT, $field(KeyImpl, keyType)},
+		{"destroyed", "Z", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(KeyImpl, destroyed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BI)V", nullptr, $PUBLIC, $method(KeyImpl, init$, void, $bytes*, int32_t)},
+		{"<init>", "(Ljavax/security/auth/kerberos/KerberosPrincipal;[CLjava/lang/String;)V", nullptr, $PUBLIC, $method(KeyImpl, init$, void, $KerberosPrincipal*, $chars*, $String*)},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(KeyImpl, destroy, void), "javax.security.auth.DestroyFailedException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(KeyImpl, equals, bool, Object$*)},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getAlgorithm, $String*)},
+		{"getAlgorithmName", "(I)Ljava/lang/String;", nullptr, $PRIVATE, $method(KeyImpl, getAlgorithmName, $String*, int32_t)},
+		{"getEncoded", "()[B", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getEncoded, $bytes*)},
+		{"getFormat", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(KeyImpl, getFormat, $String*)},
+		{"getKeyType", "()I", nullptr, $PUBLIC | $FINAL, $method(KeyImpl, getKeyType, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(KeyImpl, hashCode, int32_t)},
+		{"isDestroyed", "()Z", nullptr, $PUBLIC, $virtualMethod(KeyImpl, isDestroyed, bool)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(KeyImpl, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(KeyImpl, toString, $String*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(KeyImpl, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.security.auth.kerberos.KeyImpl",
+		"java.lang.Object",
+		"javax.crypto.SecretKey",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KeyImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KeyImpl));
+	});
 	return class$;
 }
 

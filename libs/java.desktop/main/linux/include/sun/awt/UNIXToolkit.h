@@ -48,6 +48,7 @@ class $import UNIXToolkit : public ::sun::awt::SunToolkit {
 public:
 	UNIXToolkit();
 	using ::sun::awt::SunToolkit::createImage;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool checkGtkVersion(int32_t major, int32_t minor, int32_t micro);
 	static bool check_gtk(int32_t version);

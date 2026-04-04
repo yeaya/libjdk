@@ -1,5 +1,4 @@
 #include <HeadlessJTree$1.h>
-
 #include <HeadlessJTree.h>
 #include <java/awt/Component.h>
 #include <javax/swing/JTree.h>
@@ -14,43 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JTree = ::javax::swing::JTree;
 using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;
 
-$MethodInfo _HeadlessJTree$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJTree$1, init$, void)},
-	{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(HeadlessJTree$1, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJTree$1_EnclosingMethodInfo_ = {
-	"HeadlessJTree",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJTree$1_InnerClassesInfo_[] = {
-	{"HeadlessJTree$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJTree$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJTree$1",
-	"javax.swing.tree.DefaultTreeCellRenderer",
-	nullptr,
-	nullptr,
-	_HeadlessJTree$1_MethodInfo_,
-	nullptr,
-	&_HeadlessJTree$1_EnclosingMethodInfo_,
-	_HeadlessJTree$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJTree"
-};
-
-$Object* allocate$HeadlessJTree$1($Class* clazz) {
-	return $of($alloc(HeadlessJTree$1));
-}
-
 void HeadlessJTree$1::init$() {
 	$DefaultTreeCellRenderer::init$();
 }
@@ -63,7 +25,38 @@ HeadlessJTree$1::HeadlessJTree$1() {
 }
 
 $Class* HeadlessJTree$1::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJTree$1, name, initialize, &_HeadlessJTree$1_ClassInfo_, allocate$HeadlessJTree$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJTree$1, init$, void)},
+		{"getTreeCellRendererComponent", "(Ljavax/swing/JTree;Ljava/lang/Object;ZZZIZ)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(HeadlessJTree$1, getTreeCellRendererComponent, $Component*, $JTree*, Object$*, bool, bool, bool, int32_t, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJTree",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJTree$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJTree$1",
+		"javax.swing.tree.DefaultTreeCellRenderer",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJTree"
+	};
+	$loadClass(HeadlessJTree$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJTree$1));
+	});
 	return class$;
 }
 

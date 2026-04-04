@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTextAreaUI$PlainParagraph.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -20,7 +19,6 @@
 #undef MAX_VALUE
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -38,46 +36,10 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicTextAreaUI$PlainParagraph_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, 0, $method(BasicTextAreaUI$PlainParagraph, init$, void, $Element*)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI$PlainParagraph, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"getFlowSpan", "(I)I", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI$PlainParagraph, getFlowSpan, int32_t, int32_t)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI$PlainParagraph, setParent, void, $View*)},
-	{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI$PlainParagraph, setPropertiesFromAttributes, void)},
-	{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI$PlainParagraph, setSize, void, float, float)},
-	{}
-};
-
-$InnerClassInfo _BasicTextAreaUI$PlainParagraph_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph", "javax.swing.plaf.basic.BasicTextAreaUI", "PlainParagraph", $STATIC},
-	{"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph$LogicalView", "javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph", "LogicalView", $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTextAreaUI$PlainParagraph_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph",
-	"javax.swing.text.ParagraphView",
-	nullptr,
-	nullptr,
-	_BasicTextAreaUI$PlainParagraph_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTextAreaUI$PlainParagraph_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTextAreaUI"
-};
-
-$Object* allocate$BasicTextAreaUI$PlainParagraph($Class* clazz) {
-	return $of($alloc(BasicTextAreaUI$PlainParagraph));
-}
-
 void BasicTextAreaUI$PlainParagraph::init$($Element* elem) {
 	$ParagraphView::init$(elem);
 	$set(this, layoutPool, $new($BasicTextAreaUI$PlainParagraph$LogicalView, elem));
-	$nc(this->layoutPool)->setParent(this);
+	this->layoutPool->setParent(this);
 }
 
 void BasicTextAreaUI$PlainParagraph::setParent($View* parent) {
@@ -88,9 +50,9 @@ void BasicTextAreaUI$PlainParagraph::setParent($View* parent) {
 }
 
 void BasicTextAreaUI$PlainParagraph::setPropertiesFromAttributes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, getContainer());
-	if ((c != nullptr) && (!$nc($(c->getComponentOrientation()))->isLeftToRight())) {
+	if ((c != nullptr) && (!$$nc(c->getComponentOrientation())->isLeftToRight())) {
 		setJustification($StyleConstants::ALIGN_RIGHT);
 	} else {
 		setJustification($StyleConstants::ALIGN_LEFT);
@@ -98,11 +60,11 @@ void BasicTextAreaUI$PlainParagraph::setPropertiesFromAttributes() {
 }
 
 int32_t BasicTextAreaUI$PlainParagraph::getFlowSpan(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, getContainer());
 	if ($instanceOf($JTextArea, c)) {
 		$var($JTextArea, area, $cast($JTextArea, c));
-		if (!$nc(area)->getLineWrap()) {
+		if (!area->getLineWrap()) {
 			return $Integer::MAX_VALUE;
 		}
 	}
@@ -110,13 +72,13 @@ int32_t BasicTextAreaUI$PlainParagraph::getFlowSpan(int32_t index) {
 }
 
 $SizeRequirements* BasicTextAreaUI$PlainParagraph::calculateMinorAxisRequirements(int32_t axis, $SizeRequirements* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, req, $ParagraphView::calculateMinorAxisRequirements(axis, r));
 	$var($Component, c, getContainer());
 	if ($instanceOf($JTextArea, c)) {
 		$var($JTextArea, area, $cast($JTextArea, c));
-		if (!$nc(area)->getLineWrap()) {
-			$nc(req)->minimum = req->preferred;
+		if (!area->getLineWrap()) {
+			$nc(req)->minimum = $nc(req)->preferred;
 		} else {
 			$nc(req)->minimum = 0;
 			req->preferred = getWidth();
@@ -139,7 +101,38 @@ BasicTextAreaUI$PlainParagraph::BasicTextAreaUI$PlainParagraph() {
 }
 
 $Class* BasicTextAreaUI$PlainParagraph::load$($String* name, bool initialize) {
-	$loadClass(BasicTextAreaUI$PlainParagraph, name, initialize, &_BasicTextAreaUI$PlainParagraph_ClassInfo_, allocate$BasicTextAreaUI$PlainParagraph);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, 0, $method(BasicTextAreaUI$PlainParagraph, init$, void, $Element*)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI$PlainParagraph, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"getFlowSpan", "(I)I", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI$PlainParagraph, getFlowSpan, int32_t, int32_t)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI$PlainParagraph, setParent, void, $View*)},
+		{"setPropertiesFromAttributes", "()V", nullptr, $PROTECTED, $virtualMethod(BasicTextAreaUI$PlainParagraph, setPropertiesFromAttributes, void)},
+		{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(BasicTextAreaUI$PlainParagraph, setSize, void, float, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph", "javax.swing.plaf.basic.BasicTextAreaUI", "PlainParagraph", $STATIC},
+		{"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph$LogicalView", "javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph", "LogicalView", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTextAreaUI$PlainParagraph",
+		"javax.swing.text.ParagraphView",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTextAreaUI"
+	};
+	$loadClass(BasicTextAreaUI$PlainParagraph, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTextAreaUI$PlainParagraph));
+	});
 	return class$;
 }
 

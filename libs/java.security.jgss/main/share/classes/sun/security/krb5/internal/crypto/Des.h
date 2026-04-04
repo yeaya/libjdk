@@ -18,6 +18,7 @@ class Des : public ::java::lang::Object {
 	$class(Des, 0, ::java::lang::Object)
 public:
 	Des();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool bad_key(int64_t key);
 	static bool bad_key($bytes* key);

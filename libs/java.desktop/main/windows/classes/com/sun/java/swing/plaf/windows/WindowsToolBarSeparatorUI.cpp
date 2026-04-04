@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsToolBarSeparatorUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
@@ -28,7 +27,6 @@ using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -50,28 +48,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsToolBarSeparatorUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsToolBarSeparatorUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsToolBarSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsToolBarSeparatorUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsToolBarSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsToolBarSeparatorUI, paint, void, $Graphics*, $JComponent*)},
-	{}
-};
-
-$ClassInfo _WindowsToolBarSeparatorUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsToolBarSeparatorUI",
-	"javax.swing.plaf.basic.BasicToolBarSeparatorUI",
-	nullptr,
-	nullptr,
-	_WindowsToolBarSeparatorUI_MethodInfo_
-};
-
-$Object* allocate$WindowsToolBarSeparatorUI($Class* clazz) {
-	return $of($alloc(WindowsToolBarSeparatorUI));
-}
-
 void WindowsToolBarSeparatorUI::init$() {
 	$BasicToolBarSeparatorUI::init$();
 }
@@ -82,22 +58,22 @@ $ComponentUI* WindowsToolBarSeparatorUI::createUI($JComponent* c) {
 }
 
 $Dimension* WindowsToolBarSeparatorUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, size, $nc(($cast($JToolBar$Separator, c)))->getSeparatorSize());
+	$useLocalObjectStack();
+	$var($Dimension, size, $nc($cast($JToolBar$Separator, c))->getSeparatorSize());
 	if (size != nullptr) {
 		$assign(size, size->getSize());
 	} else {
 		$assign(size, $new($Dimension, 6, 6));
 		$var($XPStyle, xp, $XPStyle::getXP());
 		if (xp != nullptr) {
-			bool vertical = $nc(($cast($JSeparator, c)))->getOrientation() == $SwingConstants::VERTICAL;
+			bool vertical = $cast($JSeparator, c)->getOrientation() == $SwingConstants::VERTICAL;
 			$init($TMSchema$Part);
 			$TMSchema$Part* part = vertical ? $TMSchema$Part::TP_SEPARATOR : $TMSchema$Part::TP_SEPARATORVERT;
 			$var($XPStyle$Skin, skin, xp->getSkin(c, part));
 			size->width = $nc(skin)->getWidth();
 			size->height = skin->getHeight();
 		}
-		if ($nc(($cast($JSeparator, c)))->getOrientation() == $SwingConstants::VERTICAL) {
+		if ($cast($JSeparator, c)->getOrientation() == $SwingConstants::VERTICAL) {
 			size->height = 0;
 		} else {
 			size->width = 0;
@@ -108,7 +84,7 @@ $Dimension* WindowsToolBarSeparatorUI::getPreferredSize($JComponent* c) {
 
 $Dimension* WindowsToolBarSeparatorUI::getMaximumSize($JComponent* c) {
 	$var($Dimension, pref, getPreferredSize(c));
-	if ($nc(($cast($JSeparator, c)))->getOrientation() == $SwingConstants::VERTICAL) {
+	if ($nc($cast($JSeparator, c))->getOrientation() == $SwingConstants::VERTICAL) {
 		return $new($Dimension, $nc(pref)->width, $Short::MAX_VALUE);
 	} else {
 		return $new($Dimension, $Short::MAX_VALUE, $nc(pref)->height);
@@ -116,19 +92,19 @@ $Dimension* WindowsToolBarSeparatorUI::getMaximumSize($JComponent* c) {
 }
 
 void WindowsToolBarSeparatorUI::paint($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	bool vertical = $nc(($cast($JSeparator, c)))->getOrientation() == $SwingConstants::VERTICAL;
-	$var($Dimension, size, $nc(c)->getSize());
+	$useLocalObjectStack();
+	bool vertical = $nc($cast($JSeparator, c))->getOrientation() == $SwingConstants::VERTICAL;
+	$var($Dimension, size, c->getSize());
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (xp != nullptr) {
 		$init($TMSchema$Part);
 		$TMSchema$Part* part = vertical ? $TMSchema$Part::TP_SEPARATOR : $TMSchema$Part::TP_SEPARATORVERT;
 		$var($XPStyle$Skin, skin, xp->getSkin(c, part));
 		int32_t dx = vertical ? ($nc(size)->width - $nc(skin)->getWidth()) / 2 : 0;
-		int32_t dy = vertical ? 0 : (size->height - skin->getHeight()) / 2;
-		int32_t dw = vertical ? skin->getWidth() : size->width;
-		int32_t dh = vertical ? size->height : skin->getHeight();
-		skin->paintSkin(g, dx, dy, dw, dh, nullptr);
+		int32_t dy = vertical ? 0 : ($nc(size)->height - $nc(skin)->getHeight()) / 2;
+		int32_t dw = vertical ? $nc(skin)->getWidth() : $nc(size)->width;
+		int32_t dh = vertical ? $nc(size)->height : $nc(skin)->getHeight();
+		$nc(skin)->paintSkin(g, dx, dy, dw, dh, nullptr);
 	} else {
 		$var($Color, temp, $nc(g)->getColor());
 		$var($UIDefaults, table, $UIManager::getLookAndFeelDefaults());
@@ -155,7 +131,25 @@ WindowsToolBarSeparatorUI::WindowsToolBarSeparatorUI() {
 }
 
 $Class* WindowsToolBarSeparatorUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsToolBarSeparatorUI, name, initialize, &_WindowsToolBarSeparatorUI_ClassInfo_, allocate$WindowsToolBarSeparatorUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsToolBarSeparatorUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsToolBarSeparatorUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsToolBarSeparatorUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowsToolBarSeparatorUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(WindowsToolBarSeparatorUI, paint, void, $Graphics*, $JComponent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsToolBarSeparatorUI",
+		"javax.swing.plaf.basic.BasicToolBarSeparatorUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WindowsToolBarSeparatorUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsToolBarSeparatorUI);
+	});
 	return class$;
 }
 

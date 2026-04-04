@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLDTDDescription.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -14,26 +13,22 @@ namespace com {
 						namespace xni {
 							namespace grammars {
 
-$MethodInfo _XMLDTDDescription_MethodInfo_[] = {
-	{"getRootName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDDescription, getRootName, $String*)},
-	{}
-};
-
-$ClassInfo _XMLDTDDescription_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xni.grammars.XMLDTDDescription",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xni.grammars.XMLGrammarDescription",
-	nullptr,
-	_XMLDTDDescription_MethodInfo_
-};
-
-$Object* allocate$XMLDTDDescription($Class* clazz) {
-	return $of($alloc(XMLDTDDescription));
-}
-
 $Class* XMLDTDDescription::load$($String* name, bool initialize) {
-	$loadClass(XMLDTDDescription, name, initialize, &_XMLDTDDescription_ClassInfo_, allocate$XMLDTDDescription);
+	$MethodInfo methodInfos$$[] = {
+		{"getRootName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDTDDescription, getRootName, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xni.grammars.XMLDTDDescription",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xni.grammars.XMLGrammarDescription",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLDTDDescription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLDTDDescription);
+	});
 	return class$;
 }
 

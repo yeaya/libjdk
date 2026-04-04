@@ -1,13 +1,10 @@
 #include <jdk.net.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <jdk/net/ExtendedSocketOptions.h>
 #include <jdk/net/ExtendedSocketOptions$1.h>
 #include <jdk/net/ExtendedSocketOptions$ExtSocketOption.h>
@@ -105,6 +102,7 @@ $bytes* jdk$net$GetResource($String* name) {
 
 void jdk$net::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"jdk.net", "17.35", "",
 		&_jdk$net_ModuleInfo_,

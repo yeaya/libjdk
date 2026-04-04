@@ -1,5 +1,4 @@
 #include <javax/imageio/metadata/IIOMetadata.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -55,95 +54,34 @@ public:
 	virtual $Object* run() override {
 		 return $of($nc(inst$)->lambda$getMetadataFormat$0(className));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<IIOMetadata$$Lambda$lambda$getMetadataFormat$0>());
-	}
 	IIOMetadata* inst$ = nullptr;
 	$String* className = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo IIOMetadata$$Lambda$lambda$getMetadataFormat$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, inst$)},
-	{"className", "Ljava/lang/String;", nullptr, $PUBLIC, $field(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, className)},
-	{}
-};
-$MethodInfo IIOMetadata$$Lambda$lambda$getMetadataFormat$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/imageio/metadata/IIOMetadata;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, init$, void, IIOMetadata*, $String*)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, run, $Object*)},
-	{}
-};
-$ClassInfo IIOMetadata$$Lambda$lambda$getMetadataFormat$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.imageio.metadata.IIOMetadata$$Lambda$lambda$getMetadataFormat$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* IIOMetadata$$Lambda$lambda$getMetadataFormat$0::load$($String* name, bool initialize) {
-	$loadClass(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, inst$)},
+		{"className", "Ljava/lang/String;", nullptr, $PUBLIC, $field(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, className)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/imageio/metadata/IIOMetadata;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, init$, void, IIOMetadata*, $String*)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.imageio.metadata.IIOMetadata$$Lambda$lambda$getMetadataFormat$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIOMetadata$$Lambda$lambda$getMetadataFormat$0);
+	});
 	return class$;
 }
 $Class* IIOMetadata$$Lambda$lambda$getMetadataFormat$0::class$ = nullptr;
-
-$FieldInfo _IIOMetadata_FieldInfo_[] = {
-	{"standardFormatSupported", "Z", nullptr, $PROTECTED, $field(IIOMetadata, standardFormatSupported)},
-	{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IIOMetadata, nativeMetadataFormatName)},
-	{"nativeMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IIOMetadata, nativeMetadataFormatClassName)},
-	{"extraMetadataFormatNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(IIOMetadata, extraMetadataFormatNames)},
-	{"extraMetadataFormatClassNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(IIOMetadata, extraMetadataFormatClassNames)},
-	{"defaultController", "Ljavax/imageio/metadata/IIOMetadataController;", nullptr, $PROTECTED, $field(IIOMetadata, defaultController)},
-	{"controller", "Ljavax/imageio/metadata/IIOMetadataController;", nullptr, $PROTECTED, $field(IIOMetadata, controller)},
-	{}
-};
-
-$MethodInfo _IIOMetadata_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(IIOMetadata, init$, void)},
-	{"<init>", "(ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(IIOMetadata, init$, void, bool, $String*, $String*, $StringArray*, $StringArray*)},
-	{"activateController", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, activateController, bool)},
-	{"append", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljavax/imageio/metadata/IIOMetadataNode;)V", nullptr, $PRIVATE, $method(IIOMetadata, append, void, $IIOMetadataNode*, $IIOMetadataNode*)},
-	{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IIOMetadata, getAsTree, $Node*, $String*)},
-	{"getController", "()Ljavax/imageio/metadata/IIOMetadataController;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getController, $IIOMetadataController*)},
-	{"getDefaultController", "()Ljavax/imageio/metadata/IIOMetadataController;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getDefaultController, $IIOMetadataController*)},
-	{"getExtraMetadataFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getExtraMetadataFormatNames, $StringArray*)},
-	{"getMetadataFormat", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getMetadataFormat, $IIOMetadataFormat*, $String*)},
-	{"getMetadataFormatClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(IIOMetadata, getMetadataFormatClass, $Class*, $String*)},
-	{"getMetadataFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getMetadataFormatNames, $StringArray*)},
-	{"getNativeMetadataFormatName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getNativeMetadataFormatName, $String*)},
-	{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardChromaNode, $IIOMetadataNode*)},
-	{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
-	{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardDataNode, $IIOMetadataNode*)},
-	{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
-	{"getStandardDocumentNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardDocumentNode, $IIOMetadataNode*)},
-	{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardTextNode, $IIOMetadataNode*)},
-	{"getStandardTileNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardTileNode, $IIOMetadataNode*)},
-	{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
-	{"getStandardTree", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED | $FINAL, $method(IIOMetadata, getStandardTree, $IIOMetadataNode*)},
-	{"hasController", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, hasController, bool)},
-	{"isReadOnly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IIOMetadata, isReadOnly, bool)},
-	{"isStandardMetadataFormatSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, isStandardMetadataFormatSupported, bool)},
-	{"lambda$getMetadataFormat$0", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $SYNTHETIC, $method(IIOMetadata, lambda$getMetadataFormat$0, $Class*, $String*)},
-	{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IIOMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IIOMetadata, reset, void)},
-	{"setController", "(Ljavax/imageio/metadata/IIOMetadataController;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, setController, void, $IIOMetadataController*)},
-	{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{}
-};
-
-$ClassInfo _IIOMetadata_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.imageio.metadata.IIOMetadata",
-	"java.lang.Object",
-	nullptr,
-	_IIOMetadata_FieldInfo_,
-	_IIOMetadata_MethodInfo_
-};
-
-$Object* allocate$IIOMetadata($Class* clazz) {
-	return $of($alloc(IIOMetadata));
-}
 
 void IIOMetadata::init$() {
 	$set(this, nativeMetadataFormatName, nullptr);
@@ -175,7 +113,7 @@ void IIOMetadata::init$(bool standardMetadataFormatSupported, $String* nativeMet
 			$throwNew($IllegalArgumentException, "extraMetadataFormatClassNames.length != extraMetadataFormatNames.length!"_s);
 		}
 		$set(this, extraMetadataFormatNames, $cast($StringArray, extraMetadataFormatNames->clone()));
-		$set(this, extraMetadataFormatClassNames, $cast($StringArray, $nc(extraMetadataFormatClassNames)->clone()));
+		$set(this, extraMetadataFormatClassNames, $cast($StringArray, extraMetadataFormatClassNames->clone()));
 	} else if (extraMetadataFormatClassNames != nullptr) {
 		$throwNew($IllegalArgumentException, "extraMetadataFormatNames == null && extraMetadataFormatClassNames != null!"_s);
 	}
@@ -197,7 +135,7 @@ $StringArray* IIOMetadata::getExtraMetadataFormatNames() {
 }
 
 $StringArray* IIOMetadata::getMetadataFormatNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, nativeName, getNativeMetadataFormatName());
 	$init($IIOMetadataFormatImpl);
 	$var($String, standardName, isStandardMetadataFormatSupported() ? $IIOMetadataFormatImpl::standardMetadataFormatName : ($String*)nullptr);
@@ -232,7 +170,7 @@ $StringArray* IIOMetadata::getMetadataFormatNames() {
 }
 
 $IIOMetadataFormat* IIOMetadata::getMetadataFormat($String* formatName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (formatName == nullptr) {
 		$throwNew($IllegalArgumentException, "formatName == null!"_s);
@@ -245,8 +183,8 @@ $IIOMetadataFormat* IIOMetadata::getMetadataFormat($String* formatName) {
 	if ($nc(formatName)->equals(this->nativeMetadataFormatName)) {
 		$assign(formatClassName, this->nativeMetadataFormatClassName);
 	} else if (this->extraMetadataFormatNames != nullptr) {
-		for (int32_t i = 0; i < $nc(this->extraMetadataFormatNames)->length; ++i) {
-			if (formatName->equals($nc(this->extraMetadataFormatNames)->get(i))) {
+		for (int32_t i = 0; i < this->extraMetadataFormatNames->length; ++i) {
+			if (formatName->equals(this->extraMetadataFormatNames->get(i))) {
 				$assign(formatClassName, $nc(this->extraMetadataFormatClassNames)->get(i));
 				break;
 			}
@@ -257,7 +195,7 @@ $IIOMetadataFormat* IIOMetadata::getMetadataFormat($String* formatName) {
 	}
 	try {
 		$var($String, className, formatClassName);
-		$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, this, className)));
+		$var($PrivilegedAction, pa, $new(IIOMetadata$$Lambda$lambda$getMetadataFormat$0, this, className));
 		$Class* cls = $cast($Class, $AccessController::doPrivileged(pa));
 		$var($Method, meth, $nc(cls)->getMethod("getInstance"_s, $$new($ClassArray, 0)));
 		return $cast($IIOMetadataFormat, $nc(meth)->invoke(nullptr, $$new($ObjectArray, 0)));
@@ -270,13 +208,13 @@ $IIOMetadataFormat* IIOMetadata::getMetadataFormat($String* formatName) {
 }
 
 $Class* IIOMetadata::getMetadataFormatClass($String* formatClassName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Module, thisModule, IIOMetadata::class$->getModule());
-	$var($Module, targetModule, $of(this)->getClass()->getModule());
+	$var($Module, targetModule, this->getClass()->getModule());
 	$Class* c = nullptr;
 	try {
-		$var($ClassLoader, cl, $of(this)->getClass()->getClassLoader());
+		$var($ClassLoader, cl, this->getClass()->getClassLoader());
 		c = $Class::forName(formatClassName, false, cl);
 		$load($IIOMetadataFormat);
 		if (!$IIOMetadataFormat::class$->isAssignableFrom(c)) {
@@ -284,7 +222,7 @@ $Class* IIOMetadata::getMetadataFormatClass($String* formatClassName) {
 		}
 	} catch ($ClassNotFoundException& e) {
 	}
-	if ($nc($of(thisModule))->equals(targetModule) || c == nullptr) {
+	if ($nc(thisModule)->equals(targetModule) || c == nullptr) {
 		return c;
 	}
 	if ($nc(targetModule)->isNamed()) {
@@ -336,7 +274,7 @@ void IIOMetadata::append($IIOMetadataNode* root, $IIOMetadataNode* node) {
 }
 
 $IIOMetadataNode* IIOMetadata::getStandardTree() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($IIOMetadataFormatImpl);
 	$var($IIOMetadataNode, root, $new($IIOMetadataNode, $IIOMetadataFormatImpl::standardMetadataFormatName));
 	append(root, $(getStandardChromaNode()));
@@ -375,7 +313,7 @@ bool IIOMetadata::activateController() {
 	if (!hasController()) {
 		$throwNew($IllegalStateException, "hasController() == false!"_s);
 	}
-	return $nc($(getController()))->activate(this);
+	return $$nc(getController())->activate(this);
 }
 
 $Class* IIOMetadata::lambda$getMetadataFormat$0($String* className) {
@@ -387,11 +325,63 @@ IIOMetadata::IIOMetadata() {
 
 $Class* IIOMetadata::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(IIOMetadata$$Lambda$lambda$getMetadataFormat$0::classInfo$.name)) {
+		if (name->equals("javax.imageio.metadata.IIOMetadata$$Lambda$lambda$getMetadataFormat$0")) {
 			return IIOMetadata$$Lambda$lambda$getMetadataFormat$0::load$(name, initialize);
 		}
 	}
-	$loadClass(IIOMetadata, name, initialize, &_IIOMetadata_ClassInfo_, allocate$IIOMetadata);
+	$FieldInfo fieldInfos$$[] = {
+		{"standardFormatSupported", "Z", nullptr, $PROTECTED, $field(IIOMetadata, standardFormatSupported)},
+		{"nativeMetadataFormatName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IIOMetadata, nativeMetadataFormatName)},
+		{"nativeMetadataFormatClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(IIOMetadata, nativeMetadataFormatClassName)},
+		{"extraMetadataFormatNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(IIOMetadata, extraMetadataFormatNames)},
+		{"extraMetadataFormatClassNames", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(IIOMetadata, extraMetadataFormatClassNames)},
+		{"defaultController", "Ljavax/imageio/metadata/IIOMetadataController;", nullptr, $PROTECTED, $field(IIOMetadata, defaultController)},
+		{"controller", "Ljavax/imageio/metadata/IIOMetadataController;", nullptr, $PROTECTED, $field(IIOMetadata, controller)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(IIOMetadata, init$, void)},
+		{"<init>", "(ZLjava/lang/String;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PROTECTED, $method(IIOMetadata, init$, void, bool, $String*, $String*, $StringArray*, $StringArray*)},
+		{"activateController", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, activateController, bool)},
+		{"append", "(Ljavax/imageio/metadata/IIOMetadataNode;Ljavax/imageio/metadata/IIOMetadataNode;)V", nullptr, $PRIVATE, $method(IIOMetadata, append, void, $IIOMetadataNode*, $IIOMetadataNode*)},
+		{"getAsTree", "(Ljava/lang/String;)Lorg/w3c/dom/Node;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IIOMetadata, getAsTree, $Node*, $String*)},
+		{"getController", "()Ljavax/imageio/metadata/IIOMetadataController;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getController, $IIOMetadataController*)},
+		{"getDefaultController", "()Ljavax/imageio/metadata/IIOMetadataController;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getDefaultController, $IIOMetadataController*)},
+		{"getExtraMetadataFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getExtraMetadataFormatNames, $StringArray*)},
+		{"getMetadataFormat", "(Ljava/lang/String;)Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getMetadataFormat, $IIOMetadataFormat*, $String*)},
+		{"getMetadataFormatClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PRIVATE, $method(IIOMetadata, getMetadataFormatClass, $Class*, $String*)},
+		{"getMetadataFormatNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getMetadataFormatNames, $StringArray*)},
+		{"getNativeMetadataFormatName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, getNativeMetadataFormatName, $String*)},
+		{"getStandardChromaNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardChromaNode, $IIOMetadataNode*)},
+		{"getStandardCompressionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardCompressionNode, $IIOMetadataNode*)},
+		{"getStandardDataNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardDataNode, $IIOMetadataNode*)},
+		{"getStandardDimensionNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardDimensionNode, $IIOMetadataNode*)},
+		{"getStandardDocumentNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardDocumentNode, $IIOMetadataNode*)},
+		{"getStandardTextNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardTextNode, $IIOMetadataNode*)},
+		{"getStandardTileNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardTileNode, $IIOMetadataNode*)},
+		{"getStandardTransparencyNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED, $virtualMethod(IIOMetadata, getStandardTransparencyNode, $IIOMetadataNode*)},
+		{"getStandardTree", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, $PROTECTED | $FINAL, $method(IIOMetadata, getStandardTree, $IIOMetadataNode*)},
+		{"hasController", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, hasController, bool)},
+		{"isReadOnly", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IIOMetadata, isReadOnly, bool)},
+		{"isStandardMetadataFormatSupported", "()Z", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, isStandardMetadataFormatSupported, bool)},
+		{"lambda$getMetadataFormat$0", "(Ljava/lang/String;)Ljava/lang/Class;", nullptr, $PRIVATE | $SYNTHETIC, $method(IIOMetadata, lambda$getMetadataFormat$0, $Class*, $String*)},
+		{"mergeTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IIOMetadata, mergeTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"reset", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IIOMetadata, reset, void)},
+		{"setController", "(Ljavax/imageio/metadata/IIOMetadataController;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, setController, void, $IIOMetadataController*)},
+		{"setFromTree", "(Ljava/lang/String;Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(IIOMetadata, setFromTree, void, $String*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.imageio.metadata.IIOMetadata",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(IIOMetadata, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IIOMetadata);
+	});
 	return class$;
 }
 

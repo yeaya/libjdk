@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/DatatypeException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeFacetException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeValueException.h>
@@ -199,7 +198,6 @@ using $PrecisionDecimalDV = ::com::sun::org::apache::xerces::internal::impl::dv:
 using $QNameDV = ::com::sun::org::apache::xerces::internal::impl::dv::xs::QNameDV;
 using $StringDV = ::com::sun::org::apache::xerces::internal::impl::dv::xs::StringDV;
 using $TimeDV = ::com::sun::org::apache::xerces::internal::impl::dv::xs::TimeDV;
-using $TypeValidator = ::com::sun::org::apache::xerces::internal::impl::dv::xs::TypeValidator;
 using $UnionDV = ::com::sun::org::apache::xerces::internal::impl::dv::xs::UnionDV;
 using $XSSimpleTypeDecl$1 = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$1;
 using $XSSimpleTypeDecl$2 = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$2;
@@ -253,250 +251,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _XSSimpleTypeDecl_FieldInfo_[] = {
-	{"DV_STRING", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_STRING)},
-	{"DV_BOOLEAN", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_BOOLEAN)},
-	{"DV_DECIMAL", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DECIMAL)},
-	{"DV_FLOAT", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_FLOAT)},
-	{"DV_DOUBLE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DOUBLE)},
-	{"DV_DURATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DURATION)},
-	{"DV_DATETIME", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DATETIME)},
-	{"DV_TIME", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_TIME)},
-	{"DV_DATE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DATE)},
-	{"DV_GYEARMONTH", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GYEARMONTH)},
-	{"DV_GYEAR", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GYEAR)},
-	{"DV_GMONTHDAY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GMONTHDAY)},
-	{"DV_GDAY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GDAY)},
-	{"DV_GMONTH", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GMONTH)},
-	{"DV_HEXBINARY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_HEXBINARY)},
-	{"DV_BASE64BINARY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_BASE64BINARY)},
-	{"DV_ANYURI", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ANYURI)},
-	{"DV_QNAME", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_QNAME)},
-	{"DV_PRECISIONDECIMAL", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_PRECISIONDECIMAL)},
-	{"DV_NOTATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_NOTATION)},
-	{"DV_ANYSIMPLETYPE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ANYSIMPLETYPE)},
-	{"DV_ID", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ID)},
-	{"DV_IDREF", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_IDREF)},
-	{"DV_ENTITY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ENTITY)},
-	{"DV_INTEGER", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_INTEGER)},
-	{"DV_LIST", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_LIST)},
-	{"DV_UNION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_UNION)},
-	{"DV_YEARMONTHDURATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_YEARMONTHDURATION)},
-	{"DV_DAYTIMEDURATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DAYTIMEDURATION)},
-	{"DV_ANYATOMICTYPE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ANYATOMICTYPE)},
-	{"gDVs", "[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, gDVs)},
-	{"NORMALIZE_NONE", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, NORMALIZE_NONE)},
-	{"NORMALIZE_TRIM", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, NORMALIZE_TRIM)},
-	{"NORMALIZE_FULL", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, NORMALIZE_FULL)},
-	{"fDVNormalizeType", "[S", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fDVNormalizeType)},
-	{"SPECIAL_PATTERN_NONE", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, SPECIAL_PATTERN_NONE)},
-	{"SPECIAL_PATTERN_NMTOKEN", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, SPECIAL_PATTERN_NMTOKEN)},
-	{"SPECIAL_PATTERN_NAME", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, SPECIAL_PATTERN_NAME)},
-	{"SPECIAL_PATTERN_NCNAME", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, SPECIAL_PATTERN_NCNAME)},
-	{"SPECIAL_PATTERN_STRING", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, SPECIAL_PATTERN_STRING)},
-	{"WS_FACET_STRING", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, WS_FACET_STRING)},
-	{"URI_SCHEMAFORSCHEMA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, URI_SCHEMAFORSCHEMA)},
-	{"ANY_TYPE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, ANY_TYPE)},
-	{"YEARMONTHDURATION_DT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, YEARMONTHDURATION_DT)},
-	{"DAYTIMEDURATION_DT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DAYTIMEDURATION_DT)},
-	{"PRECISIONDECIMAL_DT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, PRECISIONDECIMAL_DT)},
-	{"ANYATOMICTYPE_DT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, ANYATOMICTYPE_DT)},
-	{"DERIVATION_ANY", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_ANY)},
-	{"DERIVATION_RESTRICTION", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_RESTRICTION)},
-	{"DERIVATION_EXTENSION", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_EXTENSION)},
-	{"DERIVATION_UNION", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_UNION)},
-	{"DERIVATION_LIST", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_LIST)},
-	{"fEmptyContext", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fEmptyContext)},
-	{"fDVs", "[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fDVs)},
-	{"fIsImmutable", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fIsImmutable)},
-	{"fItemType", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fItemType)},
-	{"fMemberTypes", "[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMemberTypes)},
-	{"fBuiltInKind", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fBuiltInKind)},
-	{"fTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fTypeName)},
-	{"fTargetNamespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fTargetNamespace)},
-	{"fFinalSet", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFinalSet)},
-	{"fBase", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fBase)},
-	{"fVariety", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fVariety)},
-	{"fValidationDV", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fValidationDV)},
-	{"fFacetsDefined", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFacetsDefined)},
-	{"fFixedFacet", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFixedFacet)},
-	{"fWhiteSpace", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fWhiteSpace)},
-	{"fLength", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fLength)},
-	{"fMinLength", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMinLength)},
-	{"fMaxLength", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMaxLength)},
-	{"fTotalDigits", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fTotalDigits)},
-	{"fFractionDigits", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFractionDigits)},
-	{"fPattern", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression;>;", $PRIVATE, $field(XSSimpleTypeDecl, fPattern)},
-	{"fPatternStr", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSSimpleTypeDecl, fPatternStr)},
-	{"fEnumeration", "[Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fEnumeration)},
-	{"fEnumerationSize", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fEnumerationSize)},
-	{"fEnumerationTypeList", "Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fEnumerationTypeList)},
-	{"fEnumerationItemTypeList", "Lcom/sun/org/apache/xerces/internal/xs/datatypes/ObjectList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fEnumerationItemTypeList)},
-	{"fLexicalPattern", "Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fLexicalPattern)},
-	{"fLexicalEnumeration", "Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fLexicalEnumeration)},
-	{"fActualEnumeration", "Lcom/sun/org/apache/xerces/internal/xs/datatypes/ObjectList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fActualEnumeration)},
-	{"fMaxInclusive", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMaxInclusive)},
-	{"fMaxExclusive", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMaxExclusive)},
-	{"fMinExclusive", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMinExclusive)},
-	{"fMinInclusive", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMinInclusive)},
-	{"lengthAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, lengthAnnotation)},
-	{"minLengthAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, minLengthAnnotation)},
-	{"maxLengthAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, maxLengthAnnotation)},
-	{"whiteSpaceAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, whiteSpaceAnnotation)},
-	{"totalDigitsAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, totalDigitsAnnotation)},
-	{"fractionDigitsAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, fractionDigitsAnnotation)},
-	{"patternAnnotations", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, patternAnnotations)},
-	{"enumerationAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, enumerationAnnotations)},
-	{"maxInclusiveAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, maxInclusiveAnnotation)},
-	{"maxExclusiveAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, maxExclusiveAnnotation)},
-	{"minInclusiveAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, minInclusiveAnnotation)},
-	{"minExclusiveAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, minExclusiveAnnotation)},
-	{"fFacets", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFacets)},
-	{"fMultiValueFacets", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMultiValueFacets)},
-	{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fAnnotations)},
-	{"fPatternType", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fPatternType)},
-	{"fOrdered", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fOrdered)},
-	{"fFinite", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFinite)},
-	{"fBounded", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fBounded)},
-	{"fNumeric", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fNumeric)},
-	{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fNamespaceItem)},
-	{"fAnySimpleType", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fAnySimpleType)},
-	{"fAnyAtomicType", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fAnyAtomicType)},
-	{"fDummyContext", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fDummyContext)},
-	{"fAnonymous", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fAnonymous)},
-	{}
-};
-
-$MethodInfo _XSSimpleTypeDecl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSSimpleTypeDecl, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, XSSimpleTypeDecl*, $String*, int16_t, int16_t, bool, bool, bool, bool, int16_t)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLcom/sun/org/apache/xerces/internal/xs/XSObjectList;S)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, XSSimpleTypeDecl*, $String*, $String*, int16_t, bool, $XSObjectList*, int16_t)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLcom/sun/org/apache/xerces/internal/xs/XSObjectList;)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, XSSimpleTypeDecl*, $String*, $String*, int16_t, bool, $XSObjectList*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;ZLcom/sun/org/apache/xerces/internal/xs/XSObjectList;)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, $String*, $String*, int16_t, XSSimpleTypeDecl*, bool, $XSObjectList*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;S[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, $String*, $String*, int16_t, $XSSimpleTypeDeclArray*, $XSObjectList*)},
-	{"appendEnumString", "(Ljava/lang/StringBuffer;)V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, appendEnumString, void, $StringBuffer*)},
-	{"applyFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSLcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, applyFacets, void, $XSFacets*, int16_t, int16_t, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
-	{"applyFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSSLcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, 0, $virtualMethod(XSSimpleTypeDecl, applyFacets, void, $XSFacets*, int16_t, int16_t, int16_t, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
-	{"applyFacets1", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SS)V", nullptr, 0, $virtualMethod(XSSimpleTypeDecl, applyFacets1, void, $XSFacets*, int16_t, int16_t)},
-	{"applyFacets1", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSS)V", nullptr, 0, $virtualMethod(XSSimpleTypeDecl, applyFacets1, void, $XSFacets*, int16_t, int16_t, int16_t)},
-	{"calcFundamentalFacets", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, calcFundamentalFacets, void)},
-	{"checkExtraRules", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, checkExtraRules, void, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"checkFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, checkFacets, void, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"convertToPrimitiveKind", "(S)S", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, convertToPrimitiveKind, int16_t, int16_t)},
-	{"derivedFrom", "(Ljava/lang/String;Ljava/lang/String;S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, derivedFrom, bool, $String*, $String*, int16_t)},
-	{"derivedFromType", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, derivedFromType, bool, $XSTypeDefinition*, int16_t)},
-	{"getActualEnumValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, getActualEnumValue, $ValidatedInfo*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getActualEnumeration", "()Lcom/sun/org/apache/xerces/internal/xs/datatypes/ObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getActualEnumeration, $ObjectList*)},
-	{"getActualValue", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, getActualValue, $Object*, Object$*, $ValidationContext*, $ValidatedInfo*, bool), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getAnnotations, $XSObjectList*)},
-	{"getAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getAnonymous, bool)},
-	{"getBaseType", "()Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getBaseType, $XSTypeDefinition*)},
-	{"getBounded", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getBounded, bool)},
-	{"getBuiltInKind", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getBuiltInKind, int16_t)},
-	{"getDefinedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getDefinedFacets, int16_t)},
-	{"getEnumerationItemTypeList", "()Lcom/sun/org/apache/xerces/internal/xs/datatypes/ObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getEnumerationItemTypeList, $ObjectList*)},
-	{"getEnumerationTypeList", "()Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getEnumerationTypeList, $ShortList*)},
-	{"getFacet", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFacet, $XSObject*, int32_t)},
-	{"getFacets", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFacets, $XSObjectList*)},
-	{"getFinal", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFinal, int16_t)},
-	{"getFinite", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFinite, bool)},
-	{"getFixedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFixedFacets, int16_t)},
-	{"getGDVs", "()[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator;", nullptr, $PROTECTED | $STATIC, $staticMethod(XSSimpleTypeDecl, getGDVs, $TypeValidatorArray*)},
-	{"getItemType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getItemType, $XSSimpleTypeDefinition*)},
-	{"getLexicalEnumeration", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getLexicalEnumeration, $StringList*)},
-	{"getLexicalFacetValue", "(S)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getLexicalFacetValue, $String*, int16_t)},
-	{"getLexicalPattern", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getLexicalPattern, $StringList*)},
-	{"getMaxExclusiveValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMaxExclusiveValue, $Object*)},
-	{"getMaxInclusiveValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMaxInclusiveValue, $Object*)},
-	{"getMemberTypes", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMemberTypes, $XSObjectList*)},
-	{"getMinExclusiveValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMinExclusiveValue, $Object*)},
-	{"getMinInclusiveValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMinInclusiveValue, $Object*)},
-	{"getMultiValueFacets", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMultiValueFacets, $XSObjectList*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getNamespaceItem, $XSNamespaceItem*)},
-	{"getNumeric", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getNumeric, bool)},
-	{"getOrdered", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getOrdered, int16_t)},
-	{"getPrimitiveDV", "(S)S", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, getPrimitiveDV, int16_t, int16_t)},
-	{"getPrimitiveKind", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getPrimitiveKind, int16_t)},
-	{"getPrimitiveType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getPrimitiveType, $XSSimpleTypeDefinition*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getType, int16_t)},
-	{"getTypeCategory", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getTypeCategory, int16_t)},
-	{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getTypeName, $String*)},
-	{"getTypeNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getTypeNamespace, $String*)},
-	{"getVariety", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getVariety, int16_t)},
-	{"getWhitespace", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getWhitespace, int16_t), "com.sun.org.apache.xerces.internal.impl.dv.DatatypeException"},
-	{"isDOMDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isDOMDerivedFrom, bool, $String*, $String*, int32_t)},
-	{"isDefinedFacet", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isDefinedFacet, bool, int16_t)},
-	{"isDerivedByAny", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, isDerivedByAny, bool, $String*, $String*, $XSTypeDefinition*)},
-	{"isDerivedByList", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, isDerivedByList, bool, $String*, $String*, $XSTypeDefinition*)},
-	{"isDerivedByRestriction", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, isDerivedByRestriction, bool, $String*, $String*, $XSTypeDefinition*)},
-	{"isDerivedByUnion", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, isDerivedByUnion, bool, $String*, $String*, $XSTypeDefinition*)},
-	{"isDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isDerivedFrom, bool, $String*, $String*, int32_t)},
-	{"isEqual", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isEqual, bool, Object$*, Object$*)},
-	{"isFinal", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isFinal, bool, int16_t)},
-	{"isFixedFacet", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isFixedFacet, bool, int16_t)},
-	{"isIDType", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isIDType, bool)},
-	{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isIdentical, bool, Object$*, Object$*)},
-	{"normalize", "(Ljava/lang/String;S)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSSimpleTypeDecl, normalize, $String*, $String*, int16_t)},
-	{"normalize", "(Ljava/lang/Object;S)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, normalize, $String*, Object$*, int16_t)},
-	{"reportError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(XSSimpleTypeDecl, reportError, void, $String*, $ObjectArray*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, reset, void)},
-	{"setAnonymous", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, setAnonymous, void, bool)},
-	{"setBounded", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, setBounded, void)},
-	{"setCardinality", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, setCardinality, void)},
-	{"setDVs", "([Lcom/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator;)V", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, setDVs, void, $TypeValidatorArray*)},
-	{"setListValues", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, setListValues, XSSimpleTypeDecl*, $String*, $String*, int16_t, XSSimpleTypeDecl*, $XSObjectList*)},
-	{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, setNamespaceItem, void, $XSNamespaceItem*)},
-	{"setNumeric", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, setNumeric, void)},
-	{"setOrdered", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, setOrdered, void)},
-	{"setRestrictionValues", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, setRestrictionValues, XSSimpleTypeDecl*, XSSimpleTypeDecl*, $String*, $String*, int16_t, $XSObjectList*)},
-	{"setUnionValues", "(Ljava/lang/String;Ljava/lang/String;S[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, setUnionValues, XSSimpleTypeDecl*, $String*, $String*, int16_t, $XSSimpleTypeDeclArray*, $XSObjectList*)},
-	{"specialCardinalityCheck", "()Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, specialCardinalityCheck, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, toString, $String*)},
-	{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, validate, $Object*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"validate", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, validate, $Object*, Object$*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"validate", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, validate, void, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"validateWithInfo", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, validateWithInfo, $ValidatedInfo*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
-	{"whiteSpaceValue", "(S)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, whiteSpaceValue, $String*, int16_t)},
-	{}
-};
-
-$InnerClassInfo _XSSimpleTypeDecl_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$AbstractObjectList", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "AbstractObjectList", $PRIVATE | $STATIC | $ABSTRACT},
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$XSMVFacetImpl", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "XSMVFacetImpl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$XSFacetImpl", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "XSFacetImpl", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$ValidationContextImpl", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "ValidationContextImpl", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$4", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$3", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$2", nullptr, nullptr, 0},
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XSSimpleTypeDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.dv.XSSimpleType,org.w3c.dom.TypeInfo",
-	_XSSimpleTypeDecl_FieldInfo_,
-	_XSSimpleTypeDecl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSSimpleTypeDecl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$AbstractObjectList,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$XSMVFacetImpl,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$XSFacetImpl,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$ValidationContextImpl,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$4,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$3,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$2,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$1"
-};
-
-$Object* allocate$XSSimpleTypeDecl($Class* clazz) {
-	return $of($alloc(XSSimpleTypeDecl));
-}
-
 int32_t XSSimpleTypeDecl::hashCode() {
 	 return this->$XSSimpleType::hashCode();
 }
@@ -526,7 +280,7 @@ $ValidationContext* XSSimpleTypeDecl::fDummyContext = nullptr;
 
 $TypeValidatorArray* XSSimpleTypeDecl::getGDVs() {
 	$init(XSSimpleTypeDecl);
-	return $cast($TypeValidatorArray, $nc(XSSimpleTypeDecl::gDVs)->clone());
+	return $cast($TypeValidatorArray, XSSimpleTypeDecl::gDVs->clone());
 }
 
 void XSSimpleTypeDecl::setDVs($TypeValidatorArray* dvs) {
@@ -536,12 +290,12 @@ void XSSimpleTypeDecl::setDVs($TypeValidatorArray* dvs) {
 void XSSimpleTypeDecl::init$() {
 	$set(this, fDVs, XSSimpleTypeDecl::gDVs);
 	this->fIsImmutable = false;
-	this->fFinalSet = (int16_t)0;
-	this->fVariety = (int16_t)-1;
-	this->fValidationDV = (int16_t)-1;
-	this->fFacetsDefined = (int16_t)0;
-	this->fFixedFacet = (int16_t)0;
-	this->fWhiteSpace = (int16_t)0;
+	this->fFinalSet = 0;
+	this->fVariety = -1;
+	this->fValidationDV = -1;
+	this->fFacetsDefined = 0;
+	this->fFixedFacet = 0;
+	this->fWhiteSpace = 0;
 	this->fLength = -1;
 	this->fMinLength = -1;
 	this->fMaxLength = -1;
@@ -556,12 +310,12 @@ void XSSimpleTypeDecl::init$() {
 void XSSimpleTypeDecl::init$(XSSimpleTypeDecl* base, $String* name, int16_t validateDV, int16_t ordered, bool bounded, bool finite, bool numeric, bool isImmutable, int16_t builtInKind) {
 	$set(this, fDVs, XSSimpleTypeDecl::gDVs);
 	this->fIsImmutable = false;
-	this->fFinalSet = (int16_t)0;
-	this->fVariety = (int16_t)-1;
-	this->fValidationDV = (int16_t)-1;
-	this->fFacetsDefined = (int16_t)0;
-	this->fFixedFacet = (int16_t)0;
-	this->fWhiteSpace = (int16_t)0;
+	this->fFinalSet = 0;
+	this->fVariety = -1;
+	this->fValidationDV = -1;
+	this->fFacetsDefined = 0;
+	this->fFixedFacet = 0;
+	this->fWhiteSpace = 0;
 	this->fLength = -1;
 	this->fMinLength = -1;
 	this->fMaxLength = -1;
@@ -600,12 +354,12 @@ void XSSimpleTypeDecl::init$(XSSimpleTypeDecl* base, $String* name, $String* uri
 void XSSimpleTypeDecl::init$(XSSimpleTypeDecl* base, $String* name, $String* uri, int16_t finalSet, bool isImmutable, $XSObjectList* annotations) {
 	$set(this, fDVs, XSSimpleTypeDecl::gDVs);
 	this->fIsImmutable = false;
-	this->fFinalSet = (int16_t)0;
-	this->fVariety = (int16_t)-1;
-	this->fValidationDV = (int16_t)-1;
-	this->fFacetsDefined = (int16_t)0;
-	this->fFixedFacet = (int16_t)0;
-	this->fWhiteSpace = (int16_t)0;
+	this->fFinalSet = 0;
+	this->fVariety = -1;
+	this->fValidationDV = -1;
+	this->fFacetsDefined = 0;
+	this->fFixedFacet = 0;
+	this->fWhiteSpace = 0;
 	this->fLength = -1;
 	this->fMinLength = -1;
 	this->fMaxLength = -1;
@@ -621,52 +375,46 @@ void XSSimpleTypeDecl::init$(XSSimpleTypeDecl* base, $String* name, $String* uri
 	this->fFinalSet = finalSet;
 	$set(this, fAnnotations, annotations);
 	this->fVariety = $nc(this->fBase)->fVariety;
-	this->fValidationDV = $nc(this->fBase)->fValidationDV;
+	this->fValidationDV = this->fBase->fValidationDV;
 	switch (this->fVariety) {
 	case $XSSimpleTypeDefinition::VARIETY_ATOMIC:
-		{
-			break;
-		}
+		break;
 	case $XSSimpleTypeDefinition::VARIETY_LIST:
-		{
-			$set(this, fItemType, $nc(this->fBase)->fItemType);
-			break;
-		}
+		$set(this, fItemType, this->fBase->fItemType);
+		break;
 	case $XSSimpleTypeDefinition::VARIETY_UNION:
-		{
-			$set(this, fMemberTypes, $nc(this->fBase)->fMemberTypes);
-			break;
-		}
+		$set(this, fMemberTypes, this->fBase->fMemberTypes);
+		break;
 	}
-	this->fLength = $nc(this->fBase)->fLength;
-	this->fMinLength = $nc(this->fBase)->fMinLength;
-	this->fMaxLength = $nc(this->fBase)->fMaxLength;
-	$set(this, fPattern, $nc(this->fBase)->fPattern);
-	$set(this, fPatternStr, $nc(this->fBase)->fPatternStr);
-	$set(this, fEnumeration, $nc(this->fBase)->fEnumeration);
-	this->fEnumerationSize = $nc(this->fBase)->fEnumerationSize;
-	this->fWhiteSpace = $nc(this->fBase)->fWhiteSpace;
-	$set(this, fMaxExclusive, $nc(this->fBase)->fMaxExclusive);
-	$set(this, fMaxInclusive, $nc(this->fBase)->fMaxInclusive);
-	$set(this, fMinExclusive, $nc(this->fBase)->fMinExclusive);
-	$set(this, fMinInclusive, $nc(this->fBase)->fMinInclusive);
-	this->fTotalDigits = $nc(this->fBase)->fTotalDigits;
-	this->fFractionDigits = $nc(this->fBase)->fFractionDigits;
-	this->fPatternType = $nc(this->fBase)->fPatternType;
-	this->fFixedFacet = $nc(this->fBase)->fFixedFacet;
-	this->fFacetsDefined = $nc(this->fBase)->fFacetsDefined;
-	$set(this, lengthAnnotation, $nc(this->fBase)->lengthAnnotation);
-	$set(this, minLengthAnnotation, $nc(this->fBase)->minLengthAnnotation);
-	$set(this, maxLengthAnnotation, $nc(this->fBase)->maxLengthAnnotation);
-	$set(this, patternAnnotations, $nc(this->fBase)->patternAnnotations);
-	$set(this, enumerationAnnotations, $nc(this->fBase)->enumerationAnnotations);
-	$set(this, whiteSpaceAnnotation, $nc(this->fBase)->whiteSpaceAnnotation);
-	$set(this, maxExclusiveAnnotation, $nc(this->fBase)->maxExclusiveAnnotation);
-	$set(this, maxInclusiveAnnotation, $nc(this->fBase)->maxInclusiveAnnotation);
-	$set(this, minExclusiveAnnotation, $nc(this->fBase)->minExclusiveAnnotation);
-	$set(this, minInclusiveAnnotation, $nc(this->fBase)->minInclusiveAnnotation);
-	$set(this, totalDigitsAnnotation, $nc(this->fBase)->totalDigitsAnnotation);
-	$set(this, fractionDigitsAnnotation, $nc(this->fBase)->fractionDigitsAnnotation);
+	this->fLength = this->fBase->fLength;
+	this->fMinLength = this->fBase->fMinLength;
+	this->fMaxLength = this->fBase->fMaxLength;
+	$set(this, fPattern, this->fBase->fPattern);
+	$set(this, fPatternStr, this->fBase->fPatternStr);
+	$set(this, fEnumeration, this->fBase->fEnumeration);
+	this->fEnumerationSize = this->fBase->fEnumerationSize;
+	this->fWhiteSpace = this->fBase->fWhiteSpace;
+	$set(this, fMaxExclusive, this->fBase->fMaxExclusive);
+	$set(this, fMaxInclusive, this->fBase->fMaxInclusive);
+	$set(this, fMinExclusive, this->fBase->fMinExclusive);
+	$set(this, fMinInclusive, this->fBase->fMinInclusive);
+	this->fTotalDigits = this->fBase->fTotalDigits;
+	this->fFractionDigits = this->fBase->fFractionDigits;
+	this->fPatternType = this->fBase->fPatternType;
+	this->fFixedFacet = this->fBase->fFixedFacet;
+	this->fFacetsDefined = this->fBase->fFacetsDefined;
+	$set(this, lengthAnnotation, this->fBase->lengthAnnotation);
+	$set(this, minLengthAnnotation, this->fBase->minLengthAnnotation);
+	$set(this, maxLengthAnnotation, this->fBase->maxLengthAnnotation);
+	$set(this, patternAnnotations, this->fBase->patternAnnotations);
+	$set(this, enumerationAnnotations, this->fBase->enumerationAnnotations);
+	$set(this, whiteSpaceAnnotation, this->fBase->whiteSpaceAnnotation);
+	$set(this, maxExclusiveAnnotation, this->fBase->maxExclusiveAnnotation);
+	$set(this, maxInclusiveAnnotation, this->fBase->maxInclusiveAnnotation);
+	$set(this, minExclusiveAnnotation, this->fBase->minExclusiveAnnotation);
+	$set(this, minInclusiveAnnotation, this->fBase->minInclusiveAnnotation);
+	$set(this, totalDigitsAnnotation, this->fBase->totalDigitsAnnotation);
+	$set(this, fractionDigitsAnnotation, this->fBase->fractionDigitsAnnotation);
 	calcFundamentalFacets();
 	this->fIsImmutable = isImmutable;
 	this->fBuiltInKind = $nc(base)->fBuiltInKind;
@@ -675,12 +423,12 @@ void XSSimpleTypeDecl::init$(XSSimpleTypeDecl* base, $String* name, $String* uri
 void XSSimpleTypeDecl::init$($String* name, $String* uri, int16_t finalSet, XSSimpleTypeDecl* itemType, bool isImmutable, $XSObjectList* annotations) {
 	$set(this, fDVs, XSSimpleTypeDecl::gDVs);
 	this->fIsImmutable = false;
-	this->fFinalSet = (int16_t)0;
-	this->fVariety = (int16_t)-1;
-	this->fValidationDV = (int16_t)-1;
-	this->fFacetsDefined = (int16_t)0;
-	this->fFixedFacet = (int16_t)0;
-	this->fWhiteSpace = (int16_t)0;
+	this->fFinalSet = 0;
+	this->fVariety = -1;
+	this->fValidationDV = -1;
+	this->fFacetsDefined = 0;
+	this->fFixedFacet = 0;
+	this->fWhiteSpace = 0;
 	this->fLength = -1;
 	this->fMinLength = -1;
 	this->fMaxLength = -1;
@@ -709,12 +457,12 @@ void XSSimpleTypeDecl::init$($String* name, $String* uri, int16_t finalSet, XSSi
 void XSSimpleTypeDecl::init$($String* name, $String* uri, int16_t finalSet, $XSSimpleTypeDeclArray* memberTypes, $XSObjectList* annotations) {
 	$set(this, fDVs, XSSimpleTypeDecl::gDVs);
 	this->fIsImmutable = false;
-	this->fFinalSet = (int16_t)0;
-	this->fVariety = (int16_t)-1;
-	this->fValidationDV = (int16_t)-1;
-	this->fFacetsDefined = (int16_t)0;
-	this->fFixedFacet = (int16_t)0;
-	this->fWhiteSpace = (int16_t)0;
+	this->fFinalSet = 0;
+	this->fVariety = -1;
+	this->fValidationDV = -1;
+	this->fFacetsDefined = 0;
+	this->fFixedFacet = 0;
+	this->fWhiteSpace = 0;
 	this->fLength = -1;
 	this->fMinLength = -1;
 	this->fMaxLength = -1;
@@ -750,40 +498,34 @@ XSSimpleTypeDecl* XSSimpleTypeDecl::setRestrictionValues(XSSimpleTypeDecl* base,
 	this->fFinalSet = finalSet;
 	$set(this, fAnnotations, annotations);
 	this->fVariety = $nc(this->fBase)->fVariety;
-	this->fValidationDV = $nc(this->fBase)->fValidationDV;
+	this->fValidationDV = this->fBase->fValidationDV;
 	switch (this->fVariety) {
 	case $XSSimpleTypeDefinition::VARIETY_ATOMIC:
-		{
-			break;
-		}
+		break;
 	case $XSSimpleTypeDefinition::VARIETY_LIST:
-		{
-			$set(this, fItemType, $nc(this->fBase)->fItemType);
-			break;
-		}
+		$set(this, fItemType, this->fBase->fItemType);
+		break;
 	case $XSSimpleTypeDefinition::VARIETY_UNION:
-		{
-			$set(this, fMemberTypes, $nc(this->fBase)->fMemberTypes);
-			break;
-		}
+		$set(this, fMemberTypes, this->fBase->fMemberTypes);
+		break;
 	}
-	this->fLength = $nc(this->fBase)->fLength;
-	this->fMinLength = $nc(this->fBase)->fMinLength;
-	this->fMaxLength = $nc(this->fBase)->fMaxLength;
-	$set(this, fPattern, $nc(this->fBase)->fPattern);
-	$set(this, fPatternStr, $nc(this->fBase)->fPatternStr);
-	$set(this, fEnumeration, $nc(this->fBase)->fEnumeration);
-	this->fEnumerationSize = $nc(this->fBase)->fEnumerationSize;
-	this->fWhiteSpace = $nc(this->fBase)->fWhiteSpace;
-	$set(this, fMaxExclusive, $nc(this->fBase)->fMaxExclusive);
-	$set(this, fMaxInclusive, $nc(this->fBase)->fMaxInclusive);
-	$set(this, fMinExclusive, $nc(this->fBase)->fMinExclusive);
-	$set(this, fMinInclusive, $nc(this->fBase)->fMinInclusive);
-	this->fTotalDigits = $nc(this->fBase)->fTotalDigits;
-	this->fFractionDigits = $nc(this->fBase)->fFractionDigits;
-	this->fPatternType = $nc(this->fBase)->fPatternType;
-	this->fFixedFacet = $nc(this->fBase)->fFixedFacet;
-	this->fFacetsDefined = $nc(this->fBase)->fFacetsDefined;
+	this->fLength = this->fBase->fLength;
+	this->fMinLength = this->fBase->fMinLength;
+	this->fMaxLength = this->fBase->fMaxLength;
+	$set(this, fPattern, this->fBase->fPattern);
+	$set(this, fPatternStr, this->fBase->fPatternStr);
+	$set(this, fEnumeration, this->fBase->fEnumeration);
+	this->fEnumerationSize = this->fBase->fEnumerationSize;
+	this->fWhiteSpace = this->fBase->fWhiteSpace;
+	$set(this, fMaxExclusive, this->fBase->fMaxExclusive);
+	$set(this, fMaxInclusive, this->fBase->fMaxInclusive);
+	$set(this, fMinExclusive, this->fBase->fMinExclusive);
+	$set(this, fMinInclusive, this->fBase->fMinInclusive);
+	this->fTotalDigits = this->fBase->fTotalDigits;
+	this->fFractionDigits = this->fBase->fFractionDigits;
+	this->fPatternType = this->fBase->fPatternType;
+	this->fFixedFacet = this->fBase->fFixedFacet;
+	this->fFacetsDefined = this->fBase->fFacetsDefined;
 	calcFundamentalFacets();
 	this->fBuiltInKind = $nc(base)->fBuiltInKind;
 	return this;
@@ -855,7 +597,7 @@ int16_t XSSimpleTypeDecl::getFinal() {
 }
 
 bool XSSimpleTypeDecl::isFinal(int16_t derivation) {
-	return ((int32_t)(this->fFinalSet & (uint32_t)(int32_t)derivation)) != 0;
+	return (this->fFinalSet & derivation) != 0;
 }
 
 $XSTypeDefinition* XSSimpleTypeDecl::getBaseType() {
@@ -873,19 +615,13 @@ int16_t XSSimpleTypeDecl::getVariety() {
 bool XSSimpleTypeDecl::isIDType() {
 	switch (this->fVariety) {
 	case $XSSimpleTypeDefinition::VARIETY_ATOMIC:
-		{
-			return this->fValidationDV == XSSimpleTypeDecl::DV_ID;
-		}
+		return this->fValidationDV == XSSimpleTypeDecl::DV_ID;
 	case $XSSimpleTypeDefinition::VARIETY_LIST:
-		{
-			return $nc(this->fItemType)->isIDType();
-		}
+		return $nc(this->fItemType)->isIDType();
 	case $XSSimpleTypeDefinition::VARIETY_UNION:
-		{
-			for (int32_t i = 0; i < $nc(this->fMemberTypes)->length; ++i) {
-				if ($nc($nc(this->fMemberTypes)->get(i))->isIDType()) {
-					return true;
-				}
+		for (int32_t i = 0; i < $nc(this->fMemberTypes)->length; ++i) {
+			if ($nc(this->fMemberTypes->get(i))->isIDType()) {
+				return true;
 			}
 		}
 	}
@@ -894,7 +630,7 @@ bool XSSimpleTypeDecl::isIDType() {
 
 int16_t XSSimpleTypeDecl::getWhitespace() {
 	if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_UNION) {
-		$throwNew($DatatypeException, "dt-whitespace"_s, $$new($ObjectArray, {$of(this->fTypeName)}));
+		$throwNew($DatatypeException, "dt-whitespace"_s, $$new($ObjectArray, {this->fTypeName}));
 	}
 	return this->fWhiteSpace;
 }
@@ -939,7 +675,7 @@ $XSSimpleTypeDefinition* XSSimpleTypeDecl::getItemType() {
 
 $XSObjectList* XSSimpleTypeDecl::getMemberTypes() {
 	if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_UNION) {
-		return $new($XSObjectListImpl, $fcast($XSObjectArray, this->fMemberTypes), $nc(this->fMemberTypes)->length);
+		return $new($XSObjectListImpl, $cast($XSObjectArray, this->fMemberTypes), $nc(this->fMemberTypes)->length);
 	} else {
 		$init($XSObjectListImpl);
 		return $XSObjectListImpl::EMPTY_LIST;
@@ -973,65 +709,65 @@ void XSSimpleTypeDecl::applyFacets1($XSFacets* facets, int16_t presentFacet, int
 }
 
 void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int16_t fixedFacet, int16_t patternType, $ValidationContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fIsImmutable) {
 		return;
 	}
 	$var($ValidatedInfo, tempInfo, $new($ValidatedInfo));
-	this->fFacetsDefined = (int16_t)0;
-	this->fFixedFacet = (int16_t)0;
+	this->fFacetsDefined = 0;
+	this->fFixedFacet = 0;
 	int32_t result = 0;
 	int16_t allowedFacet = $nc($nc(this->fDVs)->get(this->fValidationDV))->getAllowedFacets();
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_LENGTH) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("length"_s),
-				$of(this->fTypeName)
+				"length"_s,
+				this->fTypeName
 			}));
 		} else {
 			this->fLength = $nc(facets)->length;
 			$set(this, lengthAnnotation, facets->lengthAnnotation);
 			this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_LENGTH;
-			if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) {
+			if ((fixedFacet & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) {
 				this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_LENGTH;
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_MINLENGTH) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("minLength"_s),
-				$of(this->fTypeName)
+				"minLength"_s,
+				this->fTypeName
 			}));
 		} else {
 			this->fMinLength = $nc(facets)->minLength;
 			$set(this, minLengthAnnotation, facets->minLengthAnnotation);
 			this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MINLENGTH;
-			if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) {
+			if ((fixedFacet & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) {
 				this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_MINLENGTH;
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_MAXLENGTH) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("maxLength"_s),
-				$of(this->fTypeName)
+				"maxLength"_s,
+				this->fTypeName
 			}));
 		} else {
 			this->fMaxLength = $nc(facets)->maxLength;
 			$set(this, maxLengthAnnotation, facets->maxLengthAnnotation);
 			this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MAXLENGTH;
-			if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) {
+			if ((fixedFacet & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) {
 				this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_MAXLENGTH;
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_PATTERN) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_PATTERN) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("pattern"_s),
-				$of(this->fTypeName)
+				"pattern"_s,
+				this->fTypeName
 			}));
 		} else {
 			$set(this, patternAnnotations, $nc(facets)->patternAnnotations);
@@ -1040,42 +776,42 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 				$assign(regex, $new($RegularExpression, facets->pattern, "X"_s, $($nc(context)->getLocale())));
 			} catch ($Exception& e) {
 				reportError("InvalidRegex"_s, $$new($ObjectArray, {
-					$of(facets->pattern),
-					$($of(e->getLocalizedMessage()))
+					facets->pattern,
+					$(e->getLocalizedMessage())
 				}));
 			}
 			if (regex != nullptr) {
 				$set(this, fPattern, $new($ArrayList));
-				$nc(this->fPattern)->add(regex);
+				this->fPattern->add(regex);
 				$set(this, fPatternStr, $new($ArrayList));
-				$nc(this->fPatternStr)->add(facets->pattern);
+				this->fPatternStr->add(facets->pattern);
 				this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_PATTERN;
-				if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) != 0) {
+				if ((fixedFacet & $XSSimpleTypeDefinition::FACET_PATTERN) != 0) {
 					this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_PATTERN;
 				}
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_WHITESPACE) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_WHITESPACE) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("whiteSpace"_s),
-				$of(this->fTypeName)
+				"whiteSpace"_s,
+				this->fTypeName
 			}));
 		} else {
 			this->fWhiteSpace = $nc(facets)->whiteSpace;
 			$set(this, whiteSpaceAnnotation, facets->whiteSpaceAnnotation);
 			this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_WHITESPACE;
-			if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) != 0) {
+			if ((fixedFacet & $XSSimpleTypeDefinition::FACET_WHITESPACE) != 0) {
 				this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_WHITESPACE;
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_ENUMERATION)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_ENUMERATION)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_ENUMERATION) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_ENUMERATION) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("enumeration"_s),
-				$of(this->fTypeName)
+				"enumeration"_s,
+				this->fTypeName
 			}));
 		} else {
 			$var($List, enumVals, $nc(facets)->enumeration);
@@ -1087,56 +823,56 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 			this->fEnumerationSize = 0;
 			for (int32_t i = 0; i < size; ++i) {
 				if (enumNSDecls != nullptr) {
-					ctx->setNSContext($cast($NamespaceContext, $(enumNSDecls->get(i))));
+					ctx->setNSContext($$cast($NamespaceContext, enumNSDecls->get(i)));
 				}
 				try {
-					$var($ValidatedInfo, info, getActualEnumValue($cast($String, $(enumVals->get(i))), ctx, nullptr));
+					$var($ValidatedInfo, info, getActualEnumValue($$cast($String, enumVals->get(i)), ctx, nullptr));
 					$nc(this->fEnumeration)->set(this->fEnumerationSize++, info);
 				} catch ($InvalidDatatypeValueException& ide) {
 					reportError("enumeration-valid-restriction"_s, $$new($ObjectArray, {
 						$(enumVals->get(i)),
-						$($of($nc($(this->getBaseType()))->getName()))
+						$($$nc(this->getBaseType())->getName())
 					}));
 				}
 			}
 			this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_ENUMERATION;
-			if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_ENUMERATION)) != 0) {
+			if ((fixedFacet & $XSSimpleTypeDefinition::FACET_ENUMERATION) != 0) {
 				this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_ENUMERATION;
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("maxInclusive"_s),
-				$of(this->fTypeName)
+				"maxInclusive"_s,
+				this->fTypeName
 			}));
 		} else {
 			$set(this, maxInclusiveAnnotation, $nc(facets)->maxInclusiveAnnotation);
 			try {
 				$set(this, fMaxInclusive, $nc(this->fBase)->getActualValue(facets->maxInclusive, context, tempInfo, true));
 				this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE;
-				if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) {
+				if ((fixedFacet & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) {
 					this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE;
 				}
 			} catch ($InvalidDatatypeValueException& ide) {
 				$var($String, var$0, ide->getKey());
 				reportError(var$0, $(ide->getArgs()));
 				reportError("FacetValueFromBase"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$of(facets->maxInclusive),
-					$of("maxInclusive"_s),
-					$($of($nc(this->fBase)->getName()))
+					this->fTypeName,
+					facets->maxInclusive,
+					"maxInclusive"_s,
+					$($nc(this->fBase)->getName())
 				}));
 			}
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) {
-				if (((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) {
-					if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMaxInclusive, $nc(this->fBase)->fMaxInclusive) != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) {
+				if ((this->fBase->fFixedFacet & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) {
+					if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMaxInclusive, this->fBase->fMaxInclusive) != 0) {
 						reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-							$of("maxInclusive"_s),
+							"maxInclusive"_s,
 							this->fMaxInclusive,
 							$nc(this->fBase)->fMaxInclusive,
-							$of(this->fTypeName)
+							this->fTypeName
 						}));
 					}
 				}
@@ -1147,47 +883,47 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 				$var($String, var$1, ide->getKey());
 				reportError(var$1, $(ide->getArgs()));
 				reportError("FacetValueFromBase"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$of(facets->maxInclusive),
-					$of("maxInclusive"_s),
-					$($of($nc(this->fBase)->getName()))
+					this->fTypeName,
+					facets->maxInclusive,
+					"maxInclusive"_s,
+					$($nc(this->fBase)->getName())
 				}));
 			}
 		}
 	}
 	bool needCheckBase = true;
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("maxExclusive"_s),
-				$of(this->fTypeName)
+				"maxExclusive"_s,
+				this->fTypeName
 			}));
 		} else {
 			$set(this, maxExclusiveAnnotation, $nc(facets)->maxExclusiveAnnotation);
 			try {
 				$set(this, fMaxExclusive, $nc(this->fBase)->getActualValue(facets->maxExclusive, context, tempInfo, true));
 				this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE;
-				if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) {
+				if ((fixedFacet & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) {
 					this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE;
 				}
 			} catch ($InvalidDatatypeValueException& ide) {
 				$var($String, var$2, ide->getKey());
 				reportError(var$2, $(ide->getArgs()));
 				reportError("FacetValueFromBase"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$of(facets->maxExclusive),
-					$of("maxExclusive"_s),
-					$($of($nc(this->fBase)->getName()))
+					this->fTypeName,
+					facets->maxExclusive,
+					"maxExclusive"_s,
+					$($nc(this->fBase)->getName())
 				}));
 			}
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) {
-				result = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMaxExclusive, $nc(this->fBase)->fMaxExclusive);
-				if (((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0 && result != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) {
+				result = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMaxExclusive, this->fBase->fMaxExclusive);
+				if (($nc(this->fBase)->fFixedFacet & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0 && result != 0) {
 					reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-						$of("maxExclusive"_s),
-						$of(facets->maxExclusive),
-						$nc(this->fBase)->fMaxExclusive,
-						$of(this->fTypeName)
+						"maxExclusive"_s,
+						facets->maxExclusive,
+						this->fBase->fMaxExclusive,
+						this->fTypeName
 					}));
 				}
 				if (result == 0) {
@@ -1201,16 +937,16 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 					$var($String, var$3, ide->getKey());
 					reportError(var$3, $(ide->getArgs()));
 					reportError("FacetValueFromBase"_s, $$new($ObjectArray, {
-						$of(this->fTypeName),
-						$of(facets->maxExclusive),
-						$of("maxExclusive"_s),
-						$($of($nc(this->fBase)->getName()))
+						this->fTypeName,
+						facets->maxExclusive,
+						"maxExclusive"_s,
+						$($nc(this->fBase)->getName())
 					}));
 				}
-			} else if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) {
-				if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMaxExclusive, $nc(this->fBase)->fMaxInclusive) > 0) {
+			} else if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) {
+				if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMaxExclusive, this->fBase->fMaxInclusive) > 0) {
 					reportError("maxExclusive-valid-restriction.2"_s, $$new($ObjectArray, {
-						$of(facets->maxExclusive),
+						facets->maxExclusive,
 						$nc(this->fBase)->fMaxInclusive
 					}));
 				}
@@ -1218,38 +954,38 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 		}
 	}
 	needCheckBase = true;
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("minExclusive"_s),
-				$of(this->fTypeName)
+				"minExclusive"_s,
+				this->fTypeName
 			}));
 		} else {
 			$set(this, minExclusiveAnnotation, $nc(facets)->minExclusiveAnnotation);
 			try {
 				$set(this, fMinExclusive, $nc(this->fBase)->getActualValue(facets->minExclusive, context, tempInfo, true));
 				this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE;
-				if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0) {
+				if ((fixedFacet & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0) {
 					this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE;
 				}
 			} catch ($InvalidDatatypeValueException& ide) {
 				$var($String, var$4, ide->getKey());
 				reportError(var$4, $(ide->getArgs()));
 				reportError("FacetValueFromBase"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$of(facets->minExclusive),
-					$of("minExclusive"_s),
-					$($of($nc(this->fBase)->getName()))
+					this->fTypeName,
+					facets->minExclusive,
+					"minExclusive"_s,
+					$($nc(this->fBase)->getName())
 				}));
 			}
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0) {
-				result = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinExclusive, $nc(this->fBase)->fMinExclusive);
-				if (((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0 && result != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0) {
+				result = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinExclusive, this->fBase->fMinExclusive);
+				if (($nc(this->fBase)->fFixedFacet & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0 && result != 0) {
 					reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-						$of("minExclusive"_s),
-						$of(facets->minExclusive),
-						$nc(this->fBase)->fMinExclusive,
-						$of(this->fTypeName)
+						"minExclusive"_s,
+						facets->minExclusive,
+						this->fBase->fMinExclusive,
+						this->fTypeName
 					}));
 				}
 				if (result == 0) {
@@ -1263,54 +999,54 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 					$var($String, var$5, ide->getKey());
 					reportError(var$5, $(ide->getArgs()));
 					reportError("FacetValueFromBase"_s, $$new($ObjectArray, {
-						$of(this->fTypeName),
-						$of(facets->minExclusive),
-						$of("minExclusive"_s),
-						$($of($nc(this->fBase)->getName()))
+						this->fTypeName,
+						facets->minExclusive,
+						"minExclusive"_s,
+						$($nc(this->fBase)->getName())
 					}));
 				}
-			} else if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) {
-				if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinExclusive, $nc(this->fBase)->fMinInclusive) < 0) {
+			} else if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) {
+				if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinExclusive, this->fBase->fMinInclusive) < 0) {
 					reportError("minExclusive-valid-restriction.3"_s, $$new($ObjectArray, {
-						$of(facets->minExclusive),
+						facets->minExclusive,
 						$nc(this->fBase)->fMinInclusive
 					}));
 				}
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("minInclusive"_s),
-				$of(this->fTypeName)
+				"minInclusive"_s,
+				this->fTypeName
 			}));
 		} else {
 			$set(this, minInclusiveAnnotation, $nc(facets)->minInclusiveAnnotation);
 			try {
 				$set(this, fMinInclusive, $nc(this->fBase)->getActualValue(facets->minInclusive, context, tempInfo, true));
 				this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MININCLUSIVE;
-				if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) {
+				if ((fixedFacet & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) {
 					this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_MININCLUSIVE;
 				}
 			} catch ($InvalidDatatypeValueException& ide) {
 				$var($String, var$6, ide->getKey());
 				reportError(var$6, $(ide->getArgs()));
 				reportError("FacetValueFromBase"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$of(facets->minInclusive),
-					$of("minInclusive"_s),
-					$($of($nc(this->fBase)->getName()))
+					this->fTypeName,
+					facets->minInclusive,
+					"minInclusive"_s,
+					$($nc(this->fBase)->getName())
 				}));
 			}
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) {
-				if (((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) {
-					if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinInclusive, $nc(this->fBase)->fMinInclusive) != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) {
+				if ((this->fBase->fFixedFacet & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) {
+					if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinInclusive, this->fBase->fMinInclusive) != 0) {
 						reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-							$of("minInclusive"_s),
-							$of(facets->minInclusive),
+							"minInclusive"_s,
+							facets->minInclusive,
 							$nc(this->fBase)->fMinInclusive,
-							$of(this->fTypeName)
+							this->fTypeName
 						}));
 					}
 				}
@@ -1321,40 +1057,40 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 				$var($String, var$7, ide->getKey());
 				reportError(var$7, $(ide->getArgs()));
 				reportError("FacetValueFromBase"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$of(facets->minInclusive),
-					$of("minInclusive"_s),
-					$($of($nc(this->fBase)->getName()))
+					this->fTypeName,
+					facets->minInclusive,
+					"minInclusive"_s,
+					$($nc(this->fBase)->getName())
 				}));
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("totalDigits"_s),
-				$of(this->fTypeName)
+				"totalDigits"_s,
+				this->fTypeName
 			}));
 		} else {
 			$set(this, totalDigitsAnnotation, $nc(facets)->totalDigitsAnnotation);
 			this->fTotalDigits = facets->totalDigits;
 			this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_TOTALDIGITS;
-			if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0) {
+			if ((fixedFacet & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0) {
 				this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_TOTALDIGITS;
 			}
 		}
 	}
-	if (((int32_t)(presentFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) {
-		if (((int32_t)(allowedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) == 0) {
+	if ((presentFacet & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) {
+		if ((allowedFacet & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) == 0) {
 			reportError("cos-applicable-facets"_s, $$new($ObjectArray, {
-				$of("fractionDigits"_s),
-				$of(this->fTypeName)
+				"fractionDigits"_s,
+				this->fTypeName
 			}));
 		} else {
 			this->fFractionDigits = $nc(facets)->fractionDigits;
 			$set(this, fractionDigitsAnnotation, facets->fractionDigitsAnnotation);
 			this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS;
-			if (((int32_t)(fixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) {
+			if ((fixedFacet & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) {
 				this->fFixedFacet |= $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS;
 			}
 		}
@@ -1363,306 +1099,306 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 		this->fPatternType = patternType;
 	}
 	if (this->fFacetsDefined != 0) {
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0)) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0)) {
 			if (this->fMinLength > this->fMaxLength) {
 				reportError("minLength-less-than-equal-to-maxLength"_s, $$new($ObjectArray, {
-					$($of($Integer::toString(this->fMinLength))),
-					$($of($Integer::toString(this->fMaxLength))),
-					$of(this->fTypeName)
+					$($Integer::toString(this->fMinLength)),
+					$($Integer::toString(this->fMaxLength)),
+					this->fTypeName
 				}));
 			}
 		}
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0)) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0)) {
 			reportError("maxInclusive-maxExclusive"_s, $$new($ObjectArray, {
 				this->fMaxInclusive,
 				this->fMaxExclusive,
-				$of(this->fTypeName)
+				this->fTypeName
 			}));
 		}
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0)) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0)) {
 			reportError("minInclusive-minExclusive"_s, $$new($ObjectArray, {
 				this->fMinInclusive,
 				this->fMinExclusive,
-				$of(this->fTypeName)
+				this->fTypeName
 			}));
 		}
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0)) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0)) {
 			result = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinInclusive, this->fMaxInclusive);
 			if (result != -1 && result != 0) {
 				reportError("minInclusive-less-than-equal-to-maxInclusive"_s, $$new($ObjectArray, {
 					this->fMinInclusive,
 					this->fMaxInclusive,
-					$of(this->fTypeName)
+					this->fTypeName
 				}));
 			}
 		}
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0)) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0)) {
 			result = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinExclusive, this->fMaxExclusive);
 			if (result != -1 && result != 0) {
 				reportError("minExclusive-less-than-equal-to-maxExclusive"_s, $$new($ObjectArray, {
 					this->fMinExclusive,
 					this->fMaxExclusive,
-					$of(this->fTypeName)
+					this->fTypeName
 				}));
 			}
 		}
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0)) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0)) {
 			if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinExclusive, this->fMaxInclusive) != -1) {
 				reportError("minExclusive-less-than-maxInclusive"_s, $$new($ObjectArray, {
 					this->fMinExclusive,
 					this->fMaxInclusive,
-					$of(this->fTypeName)
+					this->fTypeName
 				}));
 			}
 		}
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0)) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0)) {
 			if ($nc($nc(this->fDVs)->get(this->fValidationDV))->compare(this->fMinInclusive, this->fMaxExclusive) != -1) {
 				reportError("minInclusive-less-than-maxExclusive"_s, $$new($ObjectArray, {
 					this->fMinInclusive,
 					this->fMaxExclusive,
-					$of(this->fTypeName)
+					this->fTypeName
 				}));
 			}
 		}
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0)) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0)) {
 			if (this->fFractionDigits > this->fTotalDigits) {
 				reportError("fractionDigits-totalDigits"_s, $$new($ObjectArray, {
-					$($of($Integer::toString(this->fFractionDigits))),
-					$($of($Integer::toString(this->fTotalDigits))),
-					$of(this->fTypeName)
+					$($Integer::toString(this->fFractionDigits)),
+					$($Integer::toString(this->fTotalDigits)),
+					this->fTypeName
 				}));
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) {
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0 && this->fLength < $nc(this->fBase)->fMinLength) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0 && this->fLength < this->fBase->fMinLength) {
 				reportError("length-minLength-maxLength.1.1"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$($of($Integer::toString(this->fLength))),
-					$($of($Integer::toString($nc(this->fBase)->fMinLength)))
+					this->fTypeName,
+					$($Integer::toString(this->fLength)),
+					$($Integer::toString(this->fBase->fMinLength))
 				}));
 			}
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0 && this->fLength > $nc(this->fBase)->fMaxLength) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0 && this->fLength > this->fBase->fMaxLength) {
 				reportError("length-minLength-maxLength.2.1"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$($of($Integer::toString(this->fLength))),
-					$($of($Integer::toString($nc(this->fBase)->fMaxLength)))
+					this->fTypeName,
+					$($Integer::toString(this->fLength)),
+					$($Integer::toString(this->fBase->fMaxLength))
 				}));
 			}
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) {
-				if (this->fLength != $nc(this->fBase)->fLength) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) {
+				if (this->fLength != this->fBase->fLength) {
 					reportError("length-valid-restriction"_s, $$new($ObjectArray, {
-						$($of($Integer::toString(this->fLength))),
-						$($of($Integer::toString($nc(this->fBase)->fLength))),
-						$of(this->fTypeName)
+						$($Integer::toString(this->fLength)),
+						$($Integer::toString(this->fBase->fLength)),
+						this->fTypeName
 					}));
 				}
 			}
 		}
-		if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0 || ((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) {
-			if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) {
-				if ($nc(this->fBase)->fLength < this->fMinLength) {
+		if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0 || (this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) {
+			if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) {
+				if (this->fBase->fLength < this->fMinLength) {
 					reportError("length-minLength-maxLength.1.1"_s, $$new($ObjectArray, {
-						$of(this->fTypeName),
-						$($of($Integer::toString($nc(this->fBase)->fLength))),
-						$($of($Integer::toString(this->fMinLength)))
+						this->fTypeName,
+						$($Integer::toString(this->fBase->fLength)),
+						$($Integer::toString(this->fMinLength))
 					}));
 				}
-				if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) == 0) {
-					reportError("length-minLength-maxLength.1.2.a"_s, $$new($ObjectArray, {$of(this->fTypeName)}));
+				if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) == 0) {
+					reportError("length-minLength-maxLength.1.2.a"_s, $$new($ObjectArray, {this->fTypeName}));
 				}
 				if (this->fMinLength != $nc(this->fBase)->fMinLength) {
 					reportError("length-minLength-maxLength.1.2.b"_s, $$new($ObjectArray, {
-						$of(this->fTypeName),
-						$($of($Integer::toString(this->fMinLength))),
-						$($of($Integer::toString($nc(this->fBase)->fMinLength)))
+						this->fTypeName,
+						$($Integer::toString(this->fMinLength)),
+						$($Integer::toString(this->fBase->fMinLength))
 					}));
 				}
 			}
-			if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) {
+			if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) {
 				if ($nc(this->fBase)->fLength > this->fMaxLength) {
 					reportError("length-minLength-maxLength.2.1"_s, $$new($ObjectArray, {
-						$of(this->fTypeName),
-						$($of($Integer::toString($nc(this->fBase)->fLength))),
-						$($of($Integer::toString(this->fMaxLength)))
+						this->fTypeName,
+						$($Integer::toString(this->fBase->fLength)),
+						$($Integer::toString(this->fMaxLength))
 					}));
 				}
-				if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) == 0) {
-					reportError("length-minLength-maxLength.2.2.a"_s, $$new($ObjectArray, {$of(this->fTypeName)}));
+				if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) == 0) {
+					reportError("length-minLength-maxLength.2.2.a"_s, $$new($ObjectArray, {this->fTypeName}));
 				}
 				if (this->fMaxLength != $nc(this->fBase)->fMaxLength) {
 					reportError("length-minLength-maxLength.2.2.b"_s, $$new($ObjectArray, {
-						$of(this->fTypeName),
-						$($of($Integer::toString(this->fMaxLength))),
-						$($of($Integer::toString($nc($nc(this->fBase)->fBase)->fMaxLength)))
+						this->fTypeName,
+						$($Integer::toString(this->fMaxLength)),
+						$($Integer::toString($nc(this->fBase->fBase)->fMaxLength))
 					}));
 				}
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) {
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) {
-				if (this->fMinLength > $nc(this->fBase)->fMaxLength) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) {
+				if (this->fMinLength > this->fBase->fMaxLength) {
 					reportError("minLength-less-than-equal-to-maxLength"_s, $$new($ObjectArray, {
-						$($of($Integer::toString(this->fMinLength))),
-						$($of($Integer::toString($nc(this->fBase)->fMaxLength))),
-						$of(this->fTypeName)
+						$($Integer::toString(this->fMinLength)),
+						$($Integer::toString(this->fBase->fMaxLength)),
+						this->fTypeName
 					}));
 				}
-			} else if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) {
-				if (((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0 && this->fMinLength != $nc(this->fBase)->fMinLength) {
+			} else if ((this->fBase->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) {
+				if ((this->fBase->fFixedFacet & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0 && this->fMinLength != this->fBase->fMinLength) {
 					reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-						$of("minLength"_s),
-						$($of($Integer::toString(this->fMinLength))),
-						$($of($Integer::toString($nc(this->fBase)->fMinLength))),
-						$of(this->fTypeName)
+						"minLength"_s,
+						$($Integer::toString(this->fMinLength)),
+						$($Integer::toString(this->fBase->fMinLength)),
+						this->fTypeName
 					}));
 				}
 				if (this->fMinLength < $nc(this->fBase)->fMinLength) {
 					reportError("minLength-valid-restriction"_s, $$new($ObjectArray, {
-						$($of($Integer::toString(this->fMinLength))),
-						$($of($Integer::toString($nc(this->fBase)->fMinLength))),
-						$of(this->fTypeName)
+						$($Integer::toString(this->fMinLength)),
+						$($Integer::toString(this->fBase->fMinLength)),
+						this->fTypeName
 					}));
 				}
 			}
 		}
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) && (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0)) {
-			if (this->fMaxLength < $nc(this->fBase)->fMinLength) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) && (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0)) {
+			if (this->fMaxLength < this->fBase->fMinLength) {
 				reportError("minLength-less-than-equal-to-maxLength"_s, $$new($ObjectArray, {
-					$($of($Integer::toString($nc(this->fBase)->fMinLength))),
-					$($of($Integer::toString(this->fMaxLength)))
+					$($Integer::toString(this->fBase->fMinLength)),
+					$($Integer::toString(this->fMaxLength))
 				}));
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) {
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) {
-				if ((((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) && this->fMaxLength != $nc(this->fBase)->fMaxLength) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) {
+				if (((this->fBase->fFixedFacet & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) && this->fMaxLength != this->fBase->fMaxLength) {
 					reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-						$of("maxLength"_s),
-						$($of($Integer::toString(this->fMaxLength))),
-						$($of($Integer::toString($nc(this->fBase)->fMaxLength))),
-						$of(this->fTypeName)
+						"maxLength"_s,
+						$($Integer::toString(this->fMaxLength)),
+						$($Integer::toString(this->fBase->fMaxLength)),
+						this->fTypeName
 					}));
 				}
 				if (this->fMaxLength > $nc(this->fBase)->fMaxLength) {
 					reportError("maxLength-valid-restriction"_s, $$new($ObjectArray, {
-						$($of($Integer::toString(this->fMaxLength))),
-						$($of($Integer::toString($nc(this->fBase)->fMaxLength))),
-						$of(this->fTypeName)
+						$($Integer::toString(this->fMaxLength)),
+						$($Integer::toString(this->fBase->fMaxLength)),
+						this->fTypeName
 					}));
 				}
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0) {
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0) {
-				if (((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0 && this->fTotalDigits != $nc(this->fBase)->fTotalDigits) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0) {
+				if ((this->fBase->fFixedFacet & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0 && this->fTotalDigits != this->fBase->fTotalDigits) {
 					reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-						$of("totalDigits"_s),
-						$($of($Integer::toString(this->fTotalDigits))),
-						$($of($Integer::toString($nc(this->fBase)->fTotalDigits))),
-						$of(this->fTypeName)
+						"totalDigits"_s,
+						$($Integer::toString(this->fTotalDigits)),
+						$($Integer::toString(this->fBase->fTotalDigits)),
+						this->fTypeName
 					}));
 				}
 				if (this->fTotalDigits > $nc(this->fBase)->fTotalDigits) {
 					reportError("totalDigits-valid-restriction"_s, $$new($ObjectArray, {
-						$($of($Integer::toString(this->fTotalDigits))),
-						$($of($Integer::toString($nc(this->fBase)->fTotalDigits))),
-						$of(this->fTypeName)
+						$($Integer::toString(this->fTotalDigits)),
+						$($Integer::toString(this->fBase->fTotalDigits)),
+						this->fTypeName
 					}));
 				}
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) {
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0) {
-				if (this->fFractionDigits > $nc(this->fBase)->fTotalDigits) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0) {
+				if (this->fFractionDigits > this->fBase->fTotalDigits) {
 					reportError("fractionDigits-totalDigits"_s, $$new($ObjectArray, {
-						$($of($Integer::toString(this->fFractionDigits))),
-						$($of($Integer::toString(this->fTotalDigits))),
-						$of(this->fTypeName)
+						$($Integer::toString(this->fFractionDigits)),
+						$($Integer::toString(this->fTotalDigits)),
+						this->fTypeName
 					}));
 				}
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) {
-			if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) {
-				if ((((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0 && this->fFractionDigits != $nc(this->fBase)->fFractionDigits) || (this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER && this->fFractionDigits != 0)) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) {
+			if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) {
+				if (((this->fBase->fFixedFacet & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0 && this->fFractionDigits != this->fBase->fFractionDigits) || (this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER && this->fFractionDigits != 0)) {
 					reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-						$of("fractionDigits"_s),
-						$($of($Integer::toString(this->fFractionDigits))),
-						$($of($Integer::toString($nc(this->fBase)->fFractionDigits))),
-						$of(this->fTypeName)
+						"fractionDigits"_s,
+						$($Integer::toString(this->fFractionDigits)),
+						$($Integer::toString(this->fBase->fFractionDigits)),
+						this->fTypeName
 					}));
 				}
 				if (this->fFractionDigits > $nc(this->fBase)->fFractionDigits) {
 					reportError("fractionDigits-valid-restriction"_s, $$new($ObjectArray, {
-						$($of($Integer::toString(this->fFractionDigits))),
-						$($of($Integer::toString($nc(this->fBase)->fFractionDigits))),
-						$of(this->fTypeName)
+						$($Integer::toString(this->fFractionDigits)),
+						$($Integer::toString(this->fBase->fFractionDigits)),
+						this->fTypeName
 					}));
 				}
 			} else if (this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER && this->fFractionDigits != 0) {
 				reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-					$of("fractionDigits"_s),
-					$($of($Integer::toString(this->fFractionDigits))),
-					$of("0"_s),
-					$of(this->fTypeName)
+					"fractionDigits"_s,
+					$($Integer::toString(this->fFractionDigits)),
+					"0"_s,
+					this->fTypeName
 				}));
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) != 0 && ((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) != 0) {
-			if (((int32_t)($nc(this->fBase)->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) != 0 && this->fWhiteSpace != $nc(this->fBase)->fWhiteSpace) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_WHITESPACE) != 0 && ($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_WHITESPACE) != 0) {
+			if ((this->fBase->fFixedFacet & $XSSimpleTypeDefinition::FACET_WHITESPACE) != 0 && this->fWhiteSpace != this->fBase->fWhiteSpace) {
 				reportError("FixedFacetValue"_s, $$new($ObjectArray, {
-					$of("whiteSpace"_s),
-					$($of(whiteSpaceValue(this->fWhiteSpace))),
-					$($of(whiteSpaceValue($nc(this->fBase)->fWhiteSpace))),
-					$of(this->fTypeName)
+					"whiteSpace"_s,
+					$(whiteSpaceValue(this->fWhiteSpace)),
+					$(whiteSpaceValue(this->fBase->fWhiteSpace)),
+					this->fTypeName
 				}));
 			}
 			if (this->fWhiteSpace == $XSSimpleType::WS_PRESERVE && $nc(this->fBase)->fWhiteSpace == $XSSimpleType::WS_COLLAPSE) {
 				reportError("whiteSpace-valid-restriction.1"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$of("preserve"_s)
+					this->fTypeName,
+					"preserve"_s
 				}));
 			}
 			if (this->fWhiteSpace == $XSSimpleType::WS_REPLACE && $nc(this->fBase)->fWhiteSpace == $XSSimpleType::WS_COLLAPSE) {
 				reportError("whiteSpace-valid-restriction.1"_s, $$new($ObjectArray, {
-					$of(this->fTypeName),
-					$of("replace"_s)
+					this->fTypeName,
+					"replace"_s
 				}));
 			}
 			if (this->fWhiteSpace == $XSSimpleType::WS_PRESERVE && $nc(this->fBase)->fWhiteSpace == $XSSimpleType::WS_REPLACE) {
-				reportError("whiteSpace-valid-restriction.2"_s, $$new($ObjectArray, {$of(this->fTypeName)}));
+				reportError("whiteSpace-valid-restriction.2"_s, $$new($ObjectArray, {this->fTypeName}));
 			}
 		}
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) == 0 && ((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) == 0 && ($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_LENGTH;
-		this->fLength = $nc(this->fBase)->fLength;
-		$set(this, lengthAnnotation, $nc(this->fBase)->lengthAnnotation);
+		this->fLength = this->fBase->fLength;
+		$set(this, lengthAnnotation, this->fBase->lengthAnnotation);
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) == 0 && ((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) == 0 && ($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MINLENGTH;
-		this->fMinLength = $nc(this->fBase)->fMinLength;
-		$set(this, minLengthAnnotation, $nc(this->fBase)->minLengthAnnotation);
+		this->fMinLength = this->fBase->fMinLength;
+		$set(this, minLengthAnnotation, this->fBase->minLengthAnnotation);
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) == 0 && ((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) == 0 && ($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MAXLENGTH;
-		this->fMaxLength = $nc(this->fBase)->fMaxLength;
-		$set(this, maxLengthAnnotation, $nc(this->fBase)->maxLengthAnnotation);
+		this->fMaxLength = this->fBase->fMaxLength;
+		$set(this, maxLengthAnnotation, this->fBase->maxLengthAnnotation);
 	}
-	if (((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) != 0) {
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) == 0) {
+	if (($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_PATTERN) != 0) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_PATTERN) == 0) {
 			this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_PATTERN;
-			$set(this, fPattern, $nc(this->fBase)->fPattern);
-			$set(this, fPatternStr, $nc(this->fBase)->fPatternStr);
-			$set(this, patternAnnotations, $nc(this->fBase)->patternAnnotations);
+			$set(this, fPattern, this->fBase->fPattern);
+			$set(this, fPatternStr, this->fBase->fPatternStr);
+			$set(this, patternAnnotations, this->fBase->patternAnnotations);
 		} else {
-			for (int32_t i = $nc($nc(this->fBase)->fPattern)->size() - 1; i >= 0; --i) {
-				$nc(this->fPattern)->add($cast($RegularExpression, $($nc($nc(this->fBase)->fPattern)->get(i))));
-				$nc(this->fPatternStr)->add($cast($String, $($nc($nc(this->fBase)->fPatternStr)->get(i))));
+			for (int32_t i = $nc(this->fBase->fPattern)->size() - 1; i >= 0; --i) {
+				$nc(this->fPattern)->add($$cast($RegularExpression, this->fBase->fPattern->get(i)));
+				$nc(this->fPatternStr)->add($$cast($String, $nc(this->fBase->fPatternStr)->get(i)));
 			}
-			if ($nc(this->fBase)->patternAnnotations != nullptr) {
+			if (this->fBase->patternAnnotations != nullptr) {
 				if (this->patternAnnotations != nullptr) {
-					for (int32_t i = $nc($nc(this->fBase)->patternAnnotations)->getLength() - 1; i >= 0; --i) {
+					for (int32_t i = this->fBase->patternAnnotations->getLength() - 1; i >= 0; --i) {
 						$nc(this->patternAnnotations)->addXSObject($($nc($nc(this->fBase)->patternAnnotations)->item(i)));
 					}
 				} else {
@@ -1671,56 +1407,56 @@ void XSSimpleTypeDecl::applyFacets($XSFacets* facets, int16_t presentFacet, int1
 			}
 		}
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) == 0 && ((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_WHITESPACE) == 0 && ($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_WHITESPACE) != 0) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_WHITESPACE;
-		this->fWhiteSpace = $nc(this->fBase)->fWhiteSpace;
-		$set(this, whiteSpaceAnnotation, $nc(this->fBase)->whiteSpaceAnnotation);
+		this->fWhiteSpace = this->fBase->fWhiteSpace;
+		$set(this, whiteSpaceAnnotation, this->fBase->whiteSpaceAnnotation);
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_ENUMERATION)) == 0 && ((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_ENUMERATION)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_ENUMERATION) == 0 && ($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_ENUMERATION) != 0) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_ENUMERATION;
-		$set(this, fEnumeration, $nc(this->fBase)->fEnumeration);
-		this->fEnumerationSize = $nc(this->fBase)->fEnumerationSize;
-		$set(this, enumerationAnnotations, $nc(this->fBase)->enumerationAnnotations);
+		$set(this, fEnumeration, this->fBase->fEnumeration);
+		this->fEnumerationSize = this->fBase->fEnumerationSize;
+		$set(this, enumerationAnnotations, this->fBase->enumerationAnnotations);
 	}
-	if ((((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0)) {
+	if ((($nc(this->fBase)->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0)) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE;
-		$set(this, fMaxExclusive, $nc(this->fBase)->fMaxExclusive);
-		$set(this, maxExclusiveAnnotation, $nc(this->fBase)->maxExclusiveAnnotation);
+		$set(this, fMaxExclusive, this->fBase->fMaxExclusive);
+		$set(this, maxExclusiveAnnotation, this->fBase->maxExclusiveAnnotation);
 	}
-	if ((((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0)) {
+	if (((this->fBase->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0)) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE;
-		$set(this, fMaxInclusive, $nc(this->fBase)->fMaxInclusive);
-		$set(this, maxInclusiveAnnotation, $nc(this->fBase)->maxInclusiveAnnotation);
+		$set(this, fMaxInclusive, this->fBase->fMaxInclusive);
+		$set(this, maxInclusiveAnnotation, this->fBase->maxInclusiveAnnotation);
 	}
-	if ((((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0)) {
+	if (((this->fBase->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0)) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE;
-		$set(this, fMinExclusive, $nc(this->fBase)->fMinExclusive);
-		$set(this, minExclusiveAnnotation, $nc(this->fBase)->minExclusiveAnnotation);
+		$set(this, fMinExclusive, this->fBase->fMinExclusive);
+		$set(this, minExclusiveAnnotation, this->fBase->minExclusiveAnnotation);
 	}
-	if ((((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0)) {
+	if (((this->fBase->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0)) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_MININCLUSIVE;
-		$set(this, fMinInclusive, $nc(this->fBase)->fMinInclusive);
-		$set(this, minInclusiveAnnotation, $nc(this->fBase)->minInclusiveAnnotation);
+		$set(this, fMinInclusive, this->fBase->fMinInclusive);
+		$set(this, minInclusiveAnnotation, this->fBase->minInclusiveAnnotation);
 	}
-	if ((((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0)) {
+	if (((this->fBase->fFacetsDefined & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0)) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_TOTALDIGITS;
-		this->fTotalDigits = $nc(this->fBase)->fTotalDigits;
-		$set(this, totalDigitsAnnotation, $nc(this->fBase)->totalDigitsAnnotation);
+		this->fTotalDigits = this->fBase->fTotalDigits;
+		$set(this, totalDigitsAnnotation, this->fBase->totalDigitsAnnotation);
 	}
-	if ((((int32_t)($nc(this->fBase)->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) && !(((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0)) {
+	if (((this->fBase->fFacetsDefined & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) && !((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0)) {
 		this->fFacetsDefined |= $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS;
-		this->fFractionDigits = $nc(this->fBase)->fFractionDigits;
-		$set(this, fractionDigitsAnnotation, $nc(this->fBase)->fractionDigitsAnnotation);
+		this->fFractionDigits = this->fBase->fFractionDigits;
+		$set(this, fractionDigitsAnnotation, this->fBase->fractionDigitsAnnotation);
 	}
-	if ((this->fPatternType == XSSimpleTypeDecl::SPECIAL_PATTERN_NONE) && ($nc(this->fBase)->fPatternType != XSSimpleTypeDecl::SPECIAL_PATTERN_NONE)) {
-		this->fPatternType = $nc(this->fBase)->fPatternType;
+	if ((this->fPatternType == XSSimpleTypeDecl::SPECIAL_PATTERN_NONE) && (this->fBase->fPatternType != XSSimpleTypeDecl::SPECIAL_PATTERN_NONE)) {
+		this->fPatternType = this->fBase->fPatternType;
 	}
-	this->fFixedFacet |= $nc(this->fBase)->fFixedFacet;
+	this->fFixedFacet |= this->fBase->fFixedFacet;
 	calcFundamentalFacets();
 }
 
 $Object* XSSimpleTypeDecl::validate($String* content, $ValidationContext* context$renamed, $ValidatedInfo* validatedInfo$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ValidatedInfo, validatedInfo, validatedInfo$renamed);
 	$var($ValidationContext, context, context$renamed);
 	if (context == nullptr) {
@@ -1729,12 +1465,12 @@ $Object* XSSimpleTypeDecl::validate($String* content, $ValidationContext* contex
 	if (validatedInfo == nullptr) {
 		$assign(validatedInfo, $new($ValidatedInfo));
 	} else {
-		$set($nc(validatedInfo), memberType, nullptr);
+		$set(validatedInfo, memberType, nullptr);
 	}
-	bool needNormalize = context == nullptr || $nc(context)->needToNormalize();
+	bool needNormalize = context == nullptr || context->needToNormalize();
 	$var($Object, ob, getActualValue(content, context, validatedInfo, needNormalize));
 	validate(context, validatedInfo);
-	return $of(ob);
+	return ob;
 }
 
 $ValidatedInfo* XSSimpleTypeDecl::getActualEnumValue($String* lexical, $ValidationContext* ctx, $ValidatedInfo* info) {
@@ -1742,7 +1478,7 @@ $ValidatedInfo* XSSimpleTypeDecl::getActualEnumValue($String* lexical, $Validati
 }
 
 $ValidatedInfo* XSSimpleTypeDecl::validateWithInfo($String* content, $ValidationContext* context$renamed, $ValidatedInfo* validatedInfo$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ValidatedInfo, validatedInfo, validatedInfo$renamed);
 	$var($ValidationContext, context, context$renamed);
 	if (context == nullptr) {
@@ -1751,16 +1487,16 @@ $ValidatedInfo* XSSimpleTypeDecl::validateWithInfo($String* content, $Validation
 	if (validatedInfo == nullptr) {
 		$assign(validatedInfo, $new($ValidatedInfo));
 	} else {
-		$set($nc(validatedInfo), memberType, nullptr);
+		$set(validatedInfo, memberType, nullptr);
 	}
-	bool needNormalize = context == nullptr || $nc(context)->needToNormalize();
+	bool needNormalize = context == nullptr || context->needToNormalize();
 	getActualValue(content, context, validatedInfo, needNormalize);
 	validate(context, validatedInfo);
 	return validatedInfo;
 }
 
 $Object* XSSimpleTypeDecl::validate(Object$* content, $ValidationContext* context$renamed, $ValidatedInfo* validatedInfo$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ValidatedInfo, validatedInfo, validatedInfo$renamed);
 	$var($ValidationContext, context, context$renamed);
 	if (context == nullptr) {
@@ -1769,12 +1505,12 @@ $Object* XSSimpleTypeDecl::validate(Object$* content, $ValidationContext* contex
 	if (validatedInfo == nullptr) {
 		$assign(validatedInfo, $new($ValidatedInfo));
 	} else {
-		$set($nc(validatedInfo), memberType, nullptr);
+		$set(validatedInfo, memberType, nullptr);
 	}
-	bool needNormalize = context == nullptr || $nc(context)->needToNormalize();
+	bool needNormalize = context == nullptr || context->needToNormalize();
 	$var($Object, ob, getActualValue(content, context, validatedInfo, needNormalize));
 	validate(context, validatedInfo);
-	return $of(ob);
+	return ob;
 }
 
 void XSSimpleTypeDecl::validate($ValidationContext* context$renamed, $ValidatedInfo* validatedInfo) {
@@ -1785,66 +1521,66 @@ void XSSimpleTypeDecl::validate($ValidationContext* context$renamed, $ValidatedI
 	if ($nc(context)->needFacetChecking() && (this->fFacetsDefined != 0 && this->fFacetsDefined != $XSSimpleTypeDefinition::FACET_WHITESPACE)) {
 		checkFacets(validatedInfo);
 	}
-	if ($nc(context)->needExtraChecking()) {
+	if (context->needExtraChecking()) {
 		checkExtraRules(context, validatedInfo);
 	}
 }
 
 void XSSimpleTypeDecl::checkFacets($ValidatedInfo* validatedInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, ob, $nc(validatedInfo)->actualValue);
 	$var($String, content, validatedInfo->normalizedValue);
 	int16_t type = validatedInfo->actualValueType;
 	$var($ShortList, itemType, validatedInfo->itemValueTypes);
 	if (this->fValidationDV != XSSimpleTypeDecl::DV_QNAME && this->fValidationDV != XSSimpleTypeDecl::DV_NOTATION) {
 		int32_t length = $nc($nc(this->fDVs)->get(this->fValidationDV))->getDataLength(ob);
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) {
 			if (length > this->fMaxLength) {
 				$throwNew($InvalidDatatypeValueException, "cvc-maxLength-valid"_s, $$new($ObjectArray, {
-					$of(content),
-					$($of($Integer::toString(length))),
-					$($of($Integer::toString(this->fMaxLength))),
-					$of(this->fTypeName)
+					content,
+					$($Integer::toString(length)),
+					$($Integer::toString(this->fMaxLength)),
+					this->fTypeName
 				}));
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) {
 			if (length < this->fMinLength) {
 				$throwNew($InvalidDatatypeValueException, "cvc-minLength-valid"_s, $$new($ObjectArray, {
-					$of(content),
-					$($of($Integer::toString(length))),
-					$($of($Integer::toString(this->fMinLength))),
-					$of(this->fTypeName)
+					content,
+					$($Integer::toString(length)),
+					$($Integer::toString(this->fMinLength)),
+					this->fTypeName
 				}));
 			}
 		}
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) {
 			if (length != this->fLength) {
 				$throwNew($InvalidDatatypeValueException, "cvc-length-valid"_s, $$new($ObjectArray, {
-					$of(content),
-					$($of($Integer::toString(length))),
-					$($of($Integer::toString(this->fLength))),
-					$of(this->fTypeName)
+					content,
+					$($Integer::toString(length)),
+					$($Integer::toString(this->fLength)),
+					this->fTypeName
 				}));
 			}
 		}
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_ENUMERATION)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_ENUMERATION) != 0) {
 		bool present = false;
 		int32_t enumSize = this->fEnumerationSize;
 		int16_t primitiveType1 = convertToPrimitiveKind(type);
 		for (int32_t i = 0; i < enumSize; ++i) {
 			int16_t primitiveType2 = convertToPrimitiveKind($nc($nc(this->fEnumeration)->get(i))->actualValueType);
-			if ((primitiveType1 == primitiveType2 || primitiveType1 == $XSConstants::ANYSIMPLETYPE_DT && primitiveType2 == $XSConstants::STRING_DT || primitiveType1 == $XSConstants::STRING_DT && primitiveType2 == $XSConstants::ANYSIMPLETYPE_DT) && $nc($of($nc($nc(this->fEnumeration)->get(i))->actualValue))->equals(ob)) {
+			if ((primitiveType1 == primitiveType2 || primitiveType1 == $XSConstants::ANYSIMPLETYPE_DT && primitiveType2 == $XSConstants::STRING_DT || primitiveType1 == $XSConstants::STRING_DT && primitiveType2 == $XSConstants::ANYSIMPLETYPE_DT) && $nc($nc($nc(this->fEnumeration)->get(i))->actualValue)->equals(ob)) {
 				if (primitiveType1 == $XSConstants::LIST_DT || primitiveType1 == $XSConstants::LISTOFUNION_DT) {
-					$var($ShortList, enumItemType, $nc($nc(this->fEnumeration)->get(i))->itemValueTypes);
-					int32_t typeList1Length = itemType != nullptr ? $nc(itemType)->getLength() : 0;
-					int32_t typeList2Length = enumItemType != nullptr ? $nc(enumItemType)->getLength() : 0;
+					$var($ShortList, enumItemType, $nc(this->fEnumeration->get(i))->itemValueTypes);
+					int32_t typeList1Length = itemType != nullptr ? itemType->getLength() : 0;
+					int32_t typeList2Length = enumItemType != nullptr ? enumItemType->getLength() : 0;
 					if (typeList1Length == typeList2Length) {
 						int32_t j = 0;
 						for (j = 0; j < typeList1Length; ++j) {
-							int16_t primitiveItem1 = convertToPrimitiveKind(itemType->item(j));
-							int16_t primitiveItem2 = convertToPrimitiveKind(enumItemType->item(j));
+							int16_t primitiveItem1 = convertToPrimitiveKind($nc(itemType)->item(j));
+							int16_t primitiveItem2 = convertToPrimitiveKind($nc(enumItemType)->item(j));
 							if (primitiveItem1 != primitiveItem2) {
 								if (primitiveItem1 == $XSConstants::ANYSIMPLETYPE_DT && primitiveItem2 == $XSConstants::STRING_DT || primitiveItem1 == $XSConstants::STRING_DT && primitiveItem2 == $XSConstants::ANYSIMPLETYPE_DT) {
 									continue;
@@ -1867,76 +1603,76 @@ void XSSimpleTypeDecl::checkFacets($ValidatedInfo* validatedInfo) {
 			$var($StringBuffer, sb, $new($StringBuffer));
 			appendEnumString(sb);
 			$throwNew($InvalidDatatypeValueException, "cvc-enumeration-valid"_s, $$new($ObjectArray, {
-				$of(content),
-				$($of(sb->toString()))
+				content,
+				$(sb->toString())
 			}));
 		}
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) {
 		int32_t scale = $nc($nc(this->fDVs)->get(this->fValidationDV))->getFractionDigits(ob);
 		if (scale > this->fFractionDigits) {
 			$throwNew($InvalidDatatypeValueException, "cvc-fractionDigits-valid"_s, $$new($ObjectArray, {
-				$of(content),
-				$($of($Integer::toString(scale))),
-				$($of($Integer::toString(this->fFractionDigits)))
+				content,
+				$($Integer::toString(scale)),
+				$($Integer::toString(this->fFractionDigits))
 			}));
 		}
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0) {
 		int32_t totalDigits = $nc($nc(this->fDVs)->get(this->fValidationDV))->getTotalDigits(ob);
 		if (totalDigits > this->fTotalDigits) {
 			$throwNew($InvalidDatatypeValueException, "cvc-totalDigits-valid"_s, $$new($ObjectArray, {
-				$of(content),
-				$($of($Integer::toString(totalDigits))),
-				$($of($Integer::toString(this->fTotalDigits)))
+				content,
+				$($Integer::toString(totalDigits)),
+				$($Integer::toString(this->fTotalDigits))
 			}));
 		}
 	}
 	int32_t compare = 0;
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) {
 		compare = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(ob, this->fMaxInclusive);
 		if (compare != -1 && compare != 0) {
 			$throwNew($InvalidDatatypeValueException, "cvc-maxInclusive-valid"_s, $$new($ObjectArray, {
-				$of(content),
+				content,
 				this->fMaxInclusive,
-				$of(this->fTypeName)
+				this->fTypeName
 			}));
 		}
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0) {
 		compare = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(ob, this->fMaxExclusive);
 		if (compare != -1) {
 			$throwNew($InvalidDatatypeValueException, "cvc-maxExclusive-valid"_s, $$new($ObjectArray, {
-				$of(content),
+				content,
 				this->fMaxExclusive,
-				$of(this->fTypeName)
+				this->fTypeName
 			}));
 		}
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) {
 		compare = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(ob, this->fMinInclusive);
 		if (compare != 1 && compare != 0) {
 			$throwNew($InvalidDatatypeValueException, "cvc-minInclusive-valid"_s, $$new($ObjectArray, {
-				$of(content),
+				content,
 				this->fMinInclusive,
-				$of(this->fTypeName)
+				this->fTypeName
 			}));
 		}
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0) {
 		compare = $nc($nc(this->fDVs)->get(this->fValidationDV))->compare(ob, this->fMinExclusive);
 		if (compare != 1) {
 			$throwNew($InvalidDatatypeValueException, "cvc-minExclusive-valid"_s, $$new($ObjectArray, {
-				$of(content),
+				content,
 				this->fMinExclusive,
-				$of(this->fTypeName)
+				this->fTypeName
 			}));
 		}
 	}
 }
 
 void XSSimpleTypeDecl::checkExtraRules($ValidationContext* context, $ValidatedInfo* validatedInfo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, ob, $nc(validatedInfo)->actualValue);
 	if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_ATOMIC) {
 		$nc($nc(this->fDVs)->get(this->fValidationDV))->checkExtraRules(ob, context);
@@ -1944,46 +1680,44 @@ void XSSimpleTypeDecl::checkExtraRules($ValidationContext* context, $ValidatedIn
 		$var($ListDV$ListData, values, $cast($ListDV$ListData, ob));
 		$var($XSSimpleType, memberType, validatedInfo->memberType);
 		int32_t len = $nc(values)->getLength();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				if ($nc(this->fItemType)->fVariety == $XSSimpleTypeDefinition::VARIETY_UNION) {
-					$var($XSSimpleTypeDeclArray, memberTypes, $fcast($XSSimpleTypeDeclArray, validatedInfo->memberTypes));
-					for (int32_t i = len - 1; i >= 0; --i) {
-						$set(validatedInfo, actualValue, values->item(i));
-						$set(validatedInfo, memberType, $nc(memberTypes)->get(i));
-						$nc(this->fItemType)->checkExtraRules(context, validatedInfo);
-					}
-				} else {
-					for (int32_t i = len - 1; i >= 0; --i) {
-						$set(validatedInfo, actualValue, values->item(i));
-						$nc(this->fItemType)->checkExtraRules(context, validatedInfo);
-					}
+		$var($Throwable, var$0, nullptr);
+		try {
+			if ($nc(this->fItemType)->fVariety == $XSSimpleTypeDefinition::VARIETY_UNION) {
+				$var($XSSimpleTypeDeclArray, memberTypes, $cast($XSSimpleTypeDeclArray, validatedInfo->memberTypes));
+				for (int32_t i = len - 1; i >= 0; --i) {
+					$set(validatedInfo, actualValue, values->item(i));
+					$set(validatedInfo, memberType, $nc(memberTypes)->get(i));
+					$nc(this->fItemType)->checkExtraRules(context, validatedInfo);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(validatedInfo, actualValue, values);
-				$set(validatedInfo, memberType, memberType);
+			} else {
+				for (int32_t i = len - 1; i >= 0; --i) {
+					$set(validatedInfo, actualValue, values->item(i));
+					$nc(this->fItemType)->checkExtraRules(context, validatedInfo);
+				}
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$set(validatedInfo, actualValue, values);
+			$set(validatedInfo, memberType, memberType);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	} else {
-		$nc(($cast(XSSimpleTypeDecl, validatedInfo->memberType)))->checkExtraRules(context, validatedInfo);
+		$nc($cast(XSSimpleTypeDecl, validatedInfo->memberType))->checkExtraRules(context, validatedInfo);
 	}
 }
 
 $Object* XSSimpleTypeDecl::getActualValue(Object$* content, $ValidationContext* context, $ValidatedInfo* validatedInfo, bool needNormalize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, nvalue, nullptr);
 	if (needNormalize) {
 		$assign(nvalue, normalize(content, this->fWhiteSpace));
 	} else {
 		$assign(nvalue, $nc($of(content))->toString());
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) != 0) {
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_PATTERN) != 0) {
 		$var($RegularExpression, regex, nullptr);
 		for (int32_t idx = $nc(this->fPattern)->size() - 1; idx >= 0; --idx) {
 			$assign(regex, $cast($RegularExpression, $nc(this->fPattern)->get(idx)));
@@ -1991,7 +1725,7 @@ $Object* XSSimpleTypeDecl::getActualValue(Object$* content, $ValidationContext* 
 				$throwNew($InvalidDatatypeValueException, "cvc-pattern-valid"_s, $$new($ObjectArray, {
 					content,
 					$($nc(this->fPatternStr)->get(idx)),
-					$of(this->fTypeName)
+					this->fTypeName
 				}));
 			}
 		}
@@ -2008,8 +1742,8 @@ $Object* XSSimpleTypeDecl::getActualValue(Object$* content, $ValidationContext* 
 			}
 			if (seenErr) {
 				$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.1"_s, $$new($ObjectArray, {
-					$of(nvalue),
-					$of($nc(XSSimpleTypeDecl::SPECIAL_PATTERN_STRING)->get(this->fPatternType))
+					nvalue,
+					XSSimpleTypeDecl::SPECIAL_PATTERN_STRING->get(this->fPatternType)
 				}));
 			}
 		}
@@ -2018,7 +1752,7 @@ $Object* XSSimpleTypeDecl::getActualValue(Object$* content, $ValidationContext* 
 		$set(validatedInfo, actualValue, avalue);
 		validatedInfo->actualValueType = this->fBuiltInKind;
 		$set(validatedInfo, actualType, this);
-		return $of(avalue);
+		return avalue;
 	} else if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_LIST) {
 		$var($StringTokenizer, parsedList, $new($StringTokenizer, nvalue, " "_s));
 		int32_t countOfTokens = parsedList->countTokens();
@@ -2031,7 +1765,7 @@ $Object* XSSimpleTypeDecl::getActualValue(Object$* content, $ValidationContext* 
 		$var($XSSimpleTypeDeclArray, memberTypes, $new($XSSimpleTypeDeclArray, countOfTokens));
 		for (int32_t i = 0; i < countOfTokens; ++i) {
 			avalue->set(i, $($nc(this->fItemType)->getActualValue($(parsedList->nextToken()), context, validatedInfo, false)));
-			if ($nc(context)->needFacetChecking() && ($nc(this->fItemType)->fFacetsDefined != 0 && $nc(this->fItemType)->fFacetsDefined != $XSSimpleTypeDefinition::FACET_WHITESPACE)) {
+			if ($nc(context)->needFacetChecking() && ($nc(this->fItemType)->fFacetsDefined != 0 && this->fItemType->fFacetsDefined != $XSSimpleTypeDefinition::FACET_WHITESPACE)) {
 				$nc(this->fItemType)->checkFacets(validatedInfo);
 			}
 			memberTypes->set(i, $cast(XSSimpleTypeDecl, $nc(validatedInfo)->memberType));
@@ -2043,22 +1777,22 @@ $Object* XSSimpleTypeDecl::getActualValue(Object$* content, $ValidationContext* 
 		$set($nc(validatedInfo), actualValue, v);
 		validatedInfo->actualValueType = isUnion ? $XSConstants::LISTOFUNION_DT : $XSConstants::LIST_DT;
 		$set(validatedInfo, memberType, nullptr);
-		$set(validatedInfo, memberTypes, $fcast($XSSimpleTypeArray, memberTypes));
+		$set(validatedInfo, memberTypes, $cast($XSSimpleTypeArray, memberTypes));
 		$set(validatedInfo, itemValueTypes, $new($ShortListImpl, itemTypes, itemTypes->length));
 		$set(validatedInfo, normalizedValue, nvalue);
 		$set(validatedInfo, actualType, this);
 		return $of(v);
 	} else {
-		$var($Object, _content, ($nc(this->fMemberTypes)->length > 1 && content != nullptr) ? $of($nc($of(content))->toString()) : $of(content));
+		$var($Object, _content, ($nc(this->fMemberTypes)->length > 1 && content != nullptr) ? $of($of(content)->toString()) : $of(content));
 		for (int32_t i = 0; i < $nc(this->fMemberTypes)->length; ++i) {
 			try {
-				$var($Object, aValue, $nc($nc(this->fMemberTypes)->get(i))->getActualValue(_content, context, validatedInfo, true));
-				if ($nc(context)->needFacetChecking() && ($nc($nc(this->fMemberTypes)->get(i))->fFacetsDefined != 0 && $nc($nc(this->fMemberTypes)->get(i))->fFacetsDefined != $XSSimpleTypeDefinition::FACET_WHITESPACE)) {
+				$var($Object, aValue, $nc(this->fMemberTypes->get(i))->getActualValue(_content, context, validatedInfo, true));
+				if ($nc(context)->needFacetChecking() && ($nc($nc(this->fMemberTypes)->get(i))->fFacetsDefined != 0 && $nc(this->fMemberTypes->get(i))->fFacetsDefined != $XSSimpleTypeDefinition::FACET_WHITESPACE)) {
 					$nc($nc(this->fMemberTypes)->get(i))->checkFacets(validatedInfo);
 				}
 				$set($nc(validatedInfo), memberType, $nc(this->fMemberTypes)->get(i));
 				$set(validatedInfo, actualType, this);
-				return $of(aValue);
+				return aValue;
 			} catch ($InvalidDatatypeValueException& invalidValue) {
 			}
 		}
@@ -2068,22 +1802,22 @@ $Object* XSSimpleTypeDecl::getActualValue(Object$* content, $ValidationContext* 
 			if (i != 0) {
 				typesBuffer->append(" | "_s);
 			}
-			$assign(decl, $nc(this->fMemberTypes)->get(i));
+			$assign(decl, this->fMemberTypes->get(i));
 			if ($nc(decl)->fTargetNamespace != nullptr) {
 				typesBuffer->append(u'{');
 				typesBuffer->append(decl->fTargetNamespace);
 				typesBuffer->append(u'}');
 			}
-			typesBuffer->append($nc(decl)->fTypeName);
-			if ($nc(decl)->fEnumeration != nullptr) {
+			typesBuffer->append(decl->fTypeName);
+			if (decl->fEnumeration != nullptr) {
 				typesBuffer->append(" : "_s);
 				decl->appendEnumString(typesBuffer);
 			}
 		}
 		$throwNew($InvalidDatatypeValueException, "cvc-datatype-valid.1.2.3"_s, $$new($ObjectArray, {
 			content,
-			$of(this->fTypeName),
-			$($of(typesBuffer->toString()))
+			this->fTypeName,
+			$(typesBuffer->toString())
 		}));
 	}
 	$shouldNotReachHere();
@@ -2105,7 +1839,7 @@ bool XSSimpleTypeDecl::isIdentical(Object$* value1, Object$* value2) {
 
 $String* XSSimpleTypeDecl::normalize($String* content, int16_t ws) {
 	$init(XSSimpleTypeDecl);
-	int32_t len = content == nullptr ? 0 : $nc(content)->length();
+	int32_t len = content == nullptr ? 0 : content->length();
 	if (len == 0 || ws == $XSSimpleType::WS_PRESERVE) {
 		return content;
 	}
@@ -2113,7 +1847,7 @@ $String* XSSimpleTypeDecl::normalize($String* content, int16_t ws) {
 	if (ws == $XSSimpleType::WS_REPLACE) {
 		char16_t ch = 0;
 		for (int32_t i = 0; i < len; ++i) {
-			ch = content->charAt(i);
+			ch = $nc(content)->charAt(i);
 			if (ch != 9 && ch != 10 && ch != 13) {
 				sb->append(ch);
 			} else {
@@ -2125,7 +1859,7 @@ $String* XSSimpleTypeDecl::normalize($String* content, int16_t ws) {
 		int32_t i = 0;
 		bool isLeading = true;
 		for (i = 0; i < len; ++i) {
-			ch = content->charAt(i);
+			ch = $nc(content)->charAt(i);
 			if (ch != 9 && ch != 10 && ch != 13 && ch != 32) {
 				sb->append(ch);
 				isLeading = false;
@@ -2146,12 +1880,12 @@ $String* XSSimpleTypeDecl::normalize($String* content, int16_t ws) {
 }
 
 $String* XSSimpleTypeDecl::normalize(Object$* content, int16_t ws) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (content == nullptr) {
 		return nullptr;
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) == 0) {
-		int16_t norm_type = $nc(XSSimpleTypeDecl::fDVNormalizeType)->get(this->fValidationDV);
+	if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_PATTERN) == 0) {
+		int16_t norm_type = XSSimpleTypeDecl::fDVNormalizeType->get(this->fValidationDV);
 		if (norm_type == XSSimpleTypeDecl::NORMALIZE_NONE) {
 			return $nc($of(content))->toString();
 		} else if (norm_type == XSSimpleTypeDecl::NORMALIZE_TRIM) {
@@ -2210,7 +1944,7 @@ void XSSimpleTypeDecl::reportError($String* key, $ObjectArray* args) {
 }
 
 $String* XSSimpleTypeDecl::whiteSpaceValue(int16_t ws) {
-	return $nc(XSSimpleTypeDecl::WS_FACET_STRING)->get(ws);
+	return XSSimpleTypeDecl::WS_FACET_STRING->get(ws);
 }
 
 int16_t XSSimpleTypeDecl::getOrdered() {
@@ -2233,7 +1967,7 @@ bool XSSimpleTypeDecl::isDefinedFacet(int16_t facetName) {
 	if (this->fValidationDV == XSSimpleTypeDecl::DV_ANYSIMPLETYPE || this->fValidationDV == XSSimpleTypeDecl::DV_ANYATOMICTYPE) {
 		return false;
 	}
-	if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)facetName)) != 0) {
+	if ((this->fFacetsDefined & facetName) != 0) {
 		return true;
 	}
 	if (this->fPatternType != XSSimpleTypeDecl::SPECIAL_PATTERN_NONE) {
@@ -2259,7 +1993,7 @@ int16_t XSSimpleTypeDecl::getDefinedFacets() {
 }
 
 bool XSSimpleTypeDecl::isFixedFacet(int16_t facetName) {
-	if (((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)facetName)) != 0) {
+	if ((this->fFixedFacet & facetName) != 0) {
 		return true;
 	}
 	if (this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER) {
@@ -2278,51 +2012,31 @@ int16_t XSSimpleTypeDecl::getFixedFacets() {
 $String* XSSimpleTypeDecl::getLexicalFacetValue(int16_t facetName) {
 	switch (facetName) {
 	case $XSSimpleTypeDefinition::FACET_LENGTH:
-		{
-			return (this->fLength == -1) ? ($String*)nullptr : $Integer::toString(this->fLength);
-		}
+		return (this->fLength == -1) ? ($String*)nullptr : $Integer::toString(this->fLength);
 	case $XSSimpleTypeDefinition::FACET_MINLENGTH:
-		{
-			return (this->fMinLength == -1) ? ($String*)nullptr : $Integer::toString(this->fMinLength);
-		}
+		return (this->fMinLength == -1) ? ($String*)nullptr : $Integer::toString(this->fMinLength);
 	case $XSSimpleTypeDefinition::FACET_MAXLENGTH:
-		{
-			return (this->fMaxLength == -1) ? ($String*)nullptr : $Integer::toString(this->fMaxLength);
-		}
+		return (this->fMaxLength == -1) ? ($String*)nullptr : $Integer::toString(this->fMaxLength);
 	case $XSSimpleTypeDefinition::FACET_WHITESPACE:
-		{
-			if (this->fValidationDV == XSSimpleTypeDecl::DV_ANYSIMPLETYPE || this->fValidationDV == XSSimpleTypeDecl::DV_ANYATOMICTYPE) {
-				return nullptr;
-			}
-			return $nc(XSSimpleTypeDecl::WS_FACET_STRING)->get(this->fWhiteSpace);
+		if (this->fValidationDV == XSSimpleTypeDecl::DV_ANYSIMPLETYPE || this->fValidationDV == XSSimpleTypeDecl::DV_ANYATOMICTYPE) {
+			return nullptr;
 		}
+		return XSSimpleTypeDecl::WS_FACET_STRING->get(this->fWhiteSpace);
 	case $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE:
-		{
-			return (this->fMaxInclusive == nullptr) ? ($String*)nullptr : $nc($of(this->fMaxInclusive))->toString();
-		}
+		return (this->fMaxInclusive == nullptr) ? ($String*)nullptr : this->fMaxInclusive->toString();
 	case $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE:
-		{
-			return (this->fMaxExclusive == nullptr) ? ($String*)nullptr : $nc($of(this->fMaxExclusive))->toString();
-		}
+		return (this->fMaxExclusive == nullptr) ? ($String*)nullptr : this->fMaxExclusive->toString();
 	case $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE:
-		{
-			return (this->fMinExclusive == nullptr) ? ($String*)nullptr : $nc($of(this->fMinExclusive))->toString();
-		}
+		return (this->fMinExclusive == nullptr) ? ($String*)nullptr : this->fMinExclusive->toString();
 	case $XSSimpleTypeDefinition::FACET_MININCLUSIVE:
-		{
-			return (this->fMinInclusive == nullptr) ? ($String*)nullptr : $nc($of(this->fMinInclusive))->toString();
-		}
+		return (this->fMinInclusive == nullptr) ? ($String*)nullptr : this->fMinInclusive->toString();
 	case $XSSimpleTypeDefinition::FACET_TOTALDIGITS:
-		{
-			return (this->fTotalDigits == -1) ? ($String*)nullptr : $Integer::toString(this->fTotalDigits);
-		}
+		return (this->fTotalDigits == -1) ? ($String*)nullptr : $Integer::toString(this->fTotalDigits);
 	case $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS:
-		{
-			if (this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER) {
-				return "0"_s;
-			}
-			return (this->fFractionDigits == -1) ? ($String*)nullptr : $Integer::toString(this->fFractionDigits);
+		if (this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER) {
+			return "0"_s;
 		}
+		return (this->fFractionDigits == -1) ? ($String*)nullptr : $Integer::toString(this->fFractionDigits);
 	}
 	return nullptr;
 }
@@ -2376,13 +2090,13 @@ $ShortList* XSSimpleTypeDecl::getEnumerationTypeList() {
 }
 
 $StringList* XSSimpleTypeDecl::getLexicalPattern() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fPatternType == XSSimpleTypeDecl::SPECIAL_PATTERN_NONE && this->fValidationDV != XSSimpleTypeDecl::DV_INTEGER && this->fPatternStr == nullptr) {
 		$init($StringListImpl);
 		return $StringListImpl::EMPTY_LIST;
 	}
 	if (this->fLexicalPattern == nullptr) {
-		int32_t size = this->fPatternStr == nullptr ? 0 : $nc(this->fPatternStr)->size();
+		int32_t size = this->fPatternStr == nullptr ? 0 : this->fPatternStr->size();
 		$var($StringArray, strs, nullptr);
 		if (this->fPatternType == XSSimpleTypeDecl::SPECIAL_PATTERN_NMTOKEN) {
 			$assign(strs, $new($StringArray, size + 1));
@@ -2401,7 +2115,7 @@ $StringList* XSSimpleTypeDecl::getLexicalPattern() {
 			$assign(strs, $new($StringArray, size));
 		}
 		for (int32_t i = 0; i < size; ++i) {
-			$nc(strs)->set(i, $cast($String, $($nc(this->fPatternStr)->get(i))));
+			$nc(strs)->set(i, $$cast($String, $nc(this->fPatternStr)->get(i)));
 		}
 		$set(this, fLexicalPattern, $new($StringListImpl, strs, $nc(strs)->length));
 	}
@@ -2410,7 +2124,7 @@ $StringList* XSSimpleTypeDecl::getLexicalPattern() {
 
 $XSObjectList* XSSimpleTypeDecl::getAnnotations() {
 	$init($XSObjectListImpl);
-	return (this->fAnnotations != nullptr) ? this->fAnnotations : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fAnnotations != nullptr) ? this->fAnnotations : $cast($XSObjectList, $XSObjectListImpl::EMPTY_LIST);
 }
 
 void XSSimpleTypeDecl::calcFundamentalFacets() {
@@ -2431,12 +2145,12 @@ void XSSimpleTypeDecl::setOrdered() {
 			this->fOrdered = $XSSimpleTypeDefinition::ORDERED_PARTIAL;
 			return;
 		}
-		int16_t ancestorId = getPrimitiveDV($nc($nc(this->fMemberTypes)->get(0))->fValidationDV);
+		int16_t ancestorId = getPrimitiveDV($nc(this->fMemberTypes->get(0))->fValidationDV);
 		bool commonAnc = ancestorId != XSSimpleTypeDecl::DV_ANYSIMPLETYPE;
 		bool allFalse = $nc($nc(this->fMemberTypes)->get(0))->fOrdered == $XSSimpleTypeDefinition::ORDERED_FALSE;
 		for (int32_t i = 1; i < $nc(this->fMemberTypes)->length && (commonAnc || allFalse); ++i) {
 			if (commonAnc) {
-				commonAnc = ancestorId == getPrimitiveDV($nc($nc(this->fMemberTypes)->get(i))->fValidationDV);
+				commonAnc = ancestorId == getPrimitiveDV($nc(this->fMemberTypes->get(i))->fValidationDV);
 			}
 			if (allFalse) {
 				allFalse = $nc($nc(this->fMemberTypes)->get(i))->fOrdered == $XSSimpleTypeDefinition::ORDERED_FALSE;
@@ -2458,7 +2172,7 @@ void XSSimpleTypeDecl::setNumeric() {
 	} else if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_LIST) {
 		this->fNumeric = false;
 	} else if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_UNION) {
-		$var($XSSimpleTypeArray, memberTypes, $fcast($XSSimpleTypeArray, this->fMemberTypes));
+		$var($XSSimpleTypeArray, memberTypes, $cast($XSSimpleTypeArray, this->fMemberTypes));
 		for (int32_t i = 0; i < $nc(memberTypes)->length; ++i) {
 			if (!$nc(memberTypes->get(i))->getNumeric()) {
 				this->fNumeric = false;
@@ -2471,24 +2185,24 @@ void XSSimpleTypeDecl::setNumeric() {
 
 void XSSimpleTypeDecl::setBounded() {
 	if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_ATOMIC) {
-		if (((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) || (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0)) && ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) || (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0))) {
+		if ((((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) || ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0)) && (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) || ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0))) {
 			this->fBounded = true;
 		} else {
 			this->fBounded = false;
 		}
 	} else if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_LIST) {
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) || ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0))) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) || (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0))) {
 			this->fBounded = true;
 		} else {
 			this->fBounded = false;
 		}
 	} else if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_UNION) {
 		$var($XSSimpleTypeDeclArray, memberTypes, this->fMemberTypes);
-		int16_t ancestorId = (int16_t)0;
+		int16_t ancestorId = 0;
 		if ($nc(memberTypes)->length > 0) {
 			ancestorId = getPrimitiveDV($nc(memberTypes->get(0))->fValidationDV);
 		}
-		for (int32_t i = 0; i < $nc(memberTypes)->length; ++i) {
+		for (int32_t i = 0; i < memberTypes->length; ++i) {
 			bool var$0 = !$nc(memberTypes->get(i))->getBounded();
 			if (var$0 || (ancestorId != getPrimitiveDV($nc(memberTypes->get(i))->fValidationDV))) {
 				this->fBounded = false;
@@ -2500,7 +2214,7 @@ void XSSimpleTypeDecl::setBounded() {
 }
 
 bool XSSimpleTypeDecl::specialCardinalityCheck() {
-	if (($nc(this->fBase)->fValidationDV == XSSimpleTypeDecl::DV_DATE) || ($nc(this->fBase)->fValidationDV == XSSimpleTypeDecl::DV_GYEARMONTH) || ($nc(this->fBase)->fValidationDV == XSSimpleTypeDecl::DV_GYEAR) || ($nc(this->fBase)->fValidationDV == XSSimpleTypeDecl::DV_GMONTHDAY) || ($nc(this->fBase)->fValidationDV == XSSimpleTypeDecl::DV_GDAY) || ($nc(this->fBase)->fValidationDV == XSSimpleTypeDecl::DV_GMONTH)) {
+	if (($nc(this->fBase)->fValidationDV == XSSimpleTypeDecl::DV_DATE) || (this->fBase->fValidationDV == XSSimpleTypeDecl::DV_GYEARMONTH) || (this->fBase->fValidationDV == XSSimpleTypeDecl::DV_GYEAR) || (this->fBase->fValidationDV == XSSimpleTypeDecl::DV_GMONTHDAY) || (this->fBase->fValidationDV == XSSimpleTypeDecl::DV_GDAY) || (this->fBase->fValidationDV == XSSimpleTypeDecl::DV_GMONTH)) {
 		return true;
 	}
 	return false;
@@ -2510,10 +2224,10 @@ void XSSimpleTypeDecl::setCardinality() {
 	if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_ATOMIC) {
 		if ($nc(this->fBase)->fFinite) {
 			this->fFinite = true;
-		} else if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) || (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0) || (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0)) {
+		} else if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) || ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0) || ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0)) {
 			this->fFinite = true;
-		} else if (((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0) || (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0)) && ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0) || (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0))) {
-			if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0) || specialCardinalityCheck()) {
+		} else if ((((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0) || ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0)) && (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0) || ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0))) {
+			if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0) || specialCardinalityCheck()) {
 				this->fFinite = true;
 			} else {
 				this->fFinite = false;
@@ -2522,13 +2236,13 @@ void XSSimpleTypeDecl::setCardinality() {
 			this->fFinite = false;
 		}
 	} else if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_LIST) {
-		if ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0) || ((((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0) && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0))) {
+		if (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_LENGTH) != 0) || (((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0) && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0))) {
 			this->fFinite = true;
 		} else {
 			this->fFinite = false;
 		}
 	} else if (this->fVariety == $XSSimpleTypeDefinition::VARIETY_UNION) {
-		$var($XSSimpleTypeArray, memberTypes, $fcast($XSSimpleTypeArray, this->fMemberTypes));
+		$var($XSSimpleTypeArray, memberTypes, $cast($XSSimpleTypeArray, this->fMemberTypes));
 		for (int32_t i = 0; i < $nc(memberTypes)->length; ++i) {
 			if (!($nc(memberTypes->get(i))->getFinite())) {
 				this->fFinite = false;
@@ -2550,13 +2264,13 @@ int16_t XSSimpleTypeDecl::getPrimitiveDV(int16_t validationDV) {
 }
 
 bool XSSimpleTypeDecl::derivedFromType($XSTypeDefinition* ancestor$renamed, int16_t derivation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSTypeDefinition, ancestor, ancestor$renamed);
 	if (ancestor == nullptr) {
 		return false;
 	}
 	while ($instanceOf($XSSimpleTypeDelegate, ancestor)) {
-		$assign(ancestor, $nc(($cast($XSSimpleTypeDelegate, ancestor)))->type);
+		$assign(ancestor, $cast($XSSimpleTypeDelegate, ancestor)->type);
 	}
 	if ($nc(ancestor)->getBaseType() == ancestor) {
 		return true;
@@ -2569,26 +2283,26 @@ bool XSSimpleTypeDecl::derivedFromType($XSTypeDefinition* ancestor$renamed, int1
 }
 
 bool XSSimpleTypeDecl::derivedFrom($String* ancestorNS, $String* ancestorName, int16_t derivation) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ancestorName == nullptr) {
 		return false;
 	}
-	bool var$0 = $nc(XSSimpleTypeDecl::URI_SCHEMAFORSCHEMA)->equals(ancestorNS);
-	if (var$0 && $nc(XSSimpleTypeDecl::ANY_TYPE)->equals(ancestorName)) {
+	bool var$0 = XSSimpleTypeDecl::URI_SCHEMAFORSCHEMA->equals(ancestorNS);
+	if (var$0 && XSSimpleTypeDecl::ANY_TYPE->equals(ancestorName)) {
 		return true;
 	}
 	$var($XSTypeDefinition, type, this);
 	while (true) {
 		bool var$1 = $nc(ancestorName)->equals($($nc(type)->getName()));
 		if (var$1) {
-			bool var$2 = (ancestorNS == nullptr && $nc(type)->getNamespace() == nullptr);
-			var$1 = (var$2 || (ancestorNS != nullptr && ancestorNS->equals($($nc(type)->getNamespace()))));
+			bool var$2 = ancestorNS == nullptr && type->getNamespace() == nullptr;
+			var$1 = var$2 || (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace())));
 		}
 		if (!(!(var$1) && !$equals(type, XSSimpleTypeDecl::fAnySimpleType))) {
 			break;
 		}
 		{
-			$assign(type, $nc(type)->getBaseType());
+			$assign(type, type->getBaseType());
 		}
 	}
 	return !$equals(type, XSSimpleTypeDecl::fAnySimpleType);
@@ -2600,43 +2314,43 @@ bool XSSimpleTypeDecl::isDOMDerivedFrom($String* ancestorNS, $String* ancestorNa
 	}
 	$init($SchemaSymbols);
 	bool var$0 = $nc($SchemaSymbols::URI_SCHEMAFORSCHEMA)->equals(ancestorNS);
-	if (var$0 && $nc($SchemaSymbols::ATTVAL_ANYTYPE)->equals(ancestorName) && ((((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_RESTRICTION)) != 0) || (derivationMethod == XSSimpleTypeDecl::DERIVATION_ANY))) {
+	if (var$0 && $nc($SchemaSymbols::ATTVAL_ANYTYPE)->equals(ancestorName) && (((derivationMethod & XSSimpleTypeDecl::DERIVATION_RESTRICTION) != 0) || (derivationMethod == XSSimpleTypeDecl::DERIVATION_ANY))) {
 		return true;
 	}
-	if (((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_RESTRICTION)) != 0) {
+	if ((derivationMethod & XSSimpleTypeDecl::DERIVATION_RESTRICTION) != 0) {
 		if (isDerivedByRestriction(ancestorNS, ancestorName, this)) {
 			return true;
 		}
 	}
-	if (((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_LIST)) != 0) {
+	if ((derivationMethod & XSSimpleTypeDecl::DERIVATION_LIST) != 0) {
 		if (isDerivedByList(ancestorNS, ancestorName, this)) {
 			return true;
 		}
 	}
-	if (((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_UNION)) != 0) {
+	if ((derivationMethod & XSSimpleTypeDecl::DERIVATION_UNION) != 0) {
 		if (isDerivedByUnion(ancestorNS, ancestorName, this)) {
 			return true;
 		}
 	}
-	if ((((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_EXTENSION)) != 0) && ((((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_RESTRICTION)) == 0) && (((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_LIST)) == 0) && (((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_UNION)) == 0))) {
+	if (((derivationMethod & XSSimpleTypeDecl::DERIVATION_EXTENSION) != 0) && (((derivationMethod & XSSimpleTypeDecl::DERIVATION_RESTRICTION) == 0) && ((derivationMethod & XSSimpleTypeDecl::DERIVATION_LIST) == 0) && ((derivationMethod & XSSimpleTypeDecl::DERIVATION_UNION) == 0))) {
 		return false;
 	}
-	if ((((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_EXTENSION)) == 0) && ((((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_RESTRICTION)) == 0) && (((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_LIST)) == 0) && (((int32_t)(derivationMethod & (uint32_t)XSSimpleTypeDecl::DERIVATION_UNION)) == 0))) {
+	if (((derivationMethod & XSSimpleTypeDecl::DERIVATION_EXTENSION) == 0) && (((derivationMethod & XSSimpleTypeDecl::DERIVATION_RESTRICTION) == 0) && ((derivationMethod & XSSimpleTypeDecl::DERIVATION_LIST) == 0) && ((derivationMethod & XSSimpleTypeDecl::DERIVATION_UNION) == 0))) {
 		return isDerivedByAny(ancestorNS, ancestorName, this);
 	}
 	return false;
 }
 
 bool XSSimpleTypeDecl::isDerivedByAny($String* ancestorNS, $String* ancestorName, $XSTypeDefinition* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSTypeDefinition, type, type$renamed);
 	bool derivedFrom = false;
 	$var($XSTypeDefinition, oldType, nullptr);
 	while (type != nullptr && type != oldType) {
-		bool var$0 = ($nc(ancestorName)->equals($(type->getName())));
+		bool var$0 = $nc(ancestorName)->equals($(type->getName()));
 		if (var$0) {
-			bool var$1 = (ancestorNS == nullptr && type->getNamespace() == nullptr);
-			var$0 = (var$1 || (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace()))));
+			bool var$1 = ancestorNS == nullptr && type->getNamespace() == nullptr;
+			var$0 = var$1 || (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace())));
 		}
 		if (var$0) {
 			derivedFrom = true;
@@ -2650,29 +2364,29 @@ bool XSSimpleTypeDecl::isDerivedByAny($String* ancestorNS, $String* ancestorName
 			return true;
 		}
 		$assign(oldType, type);
-		bool var$2 = $nc(($cast(XSSimpleTypeDecl, type)))->getVariety() == $XSSimpleTypeDefinition::VARIETY_ABSENT;
-		if (var$2 || $nc(($cast(XSSimpleTypeDecl, type)))->getVariety() == $XSSimpleTypeDefinition::VARIETY_ATOMIC) {
+		bool var$2 = $cast(XSSimpleTypeDecl, type)->getVariety() == $XSSimpleTypeDefinition::VARIETY_ABSENT;
+		if (var$2 || $cast(XSSimpleTypeDecl, type)->getVariety() == $XSSimpleTypeDefinition::VARIETY_ATOMIC) {
 			$assign(type, type->getBaseType());
-		} else if (($cast(XSSimpleTypeDecl, type))->getVariety() == $XSSimpleTypeDefinition::VARIETY_UNION) {
-			for (int32_t i = 0; i < $nc($(($cast(XSSimpleTypeDecl, type))->getMemberTypes()))->getLength(); i++) {
-				return isDerivedByAny(ancestorNS, ancestorName, $cast($XSTypeDefinition, $($nc($(($cast(XSSimpleTypeDecl, type))->getMemberTypes()))->item(i))));
+		} else if ($cast(XSSimpleTypeDecl, type)->getVariety() == $XSSimpleTypeDefinition::VARIETY_UNION) {
+			for (int32_t i = 0; i < $$nc($cast(XSSimpleTypeDecl, type)->getMemberTypes())->getLength(); i++) {
+				return isDerivedByAny(ancestorNS, ancestorName, $$cast($XSTypeDefinition, $$nc($cast(XSSimpleTypeDecl, type)->getMemberTypes())->item(i)));
 			}
-		} else if (($cast(XSSimpleTypeDecl, type))->getVariety() == $XSSimpleTypeDefinition::VARIETY_LIST) {
-			$assign(type, ($cast(XSSimpleTypeDecl, type))->getItemType());
+		} else if ($cast(XSSimpleTypeDecl, type)->getVariety() == $XSSimpleTypeDefinition::VARIETY_LIST) {
+			$assign(type, $cast(XSSimpleTypeDecl, type)->getItemType());
 		}
 	}
 	return derivedFrom;
 }
 
 bool XSSimpleTypeDecl::isDerivedByRestriction($String* ancestorNS, $String* ancestorName, $XSTypeDefinition* type$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSTypeDefinition, type, type$renamed);
 	$var($XSTypeDefinition, oldType, nullptr);
 	while (type != nullptr && type != oldType) {
-		bool var$0 = ($nc(ancestorName)->equals($(type->getName())));
+		bool var$0 = $nc(ancestorName)->equals($(type->getName()));
 		if (var$0) {
-			bool var$1 = (ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace())));
-			var$0 = (var$1 || (type->getNamespace() == nullptr && ancestorNS == nullptr));
+			bool var$1 = ancestorNS != nullptr && ancestorNS->equals($(type->getNamespace()));
+			var$0 = var$1 || (type->getNamespace() == nullptr && ancestorNS == nullptr);
 		}
 		if (var$0) {
 			return true;
@@ -2684,8 +2398,8 @@ bool XSSimpleTypeDecl::isDerivedByRestriction($String* ancestorNS, $String* ance
 }
 
 bool XSSimpleTypeDecl::isDerivedByList($String* ancestorNS, $String* ancestorName, $XSTypeDefinition* type) {
-	if (type != nullptr && $nc(($cast($XSSimpleTypeDefinition, type)))->getVariety() == $XSSimpleTypeDefinition::VARIETY_LIST) {
-		$var($XSTypeDefinition, itemType, ($cast($XSSimpleTypeDefinition, type))->getItemType());
+	if (type != nullptr && $cast($XSSimpleTypeDefinition, type)->getVariety() == $XSSimpleTypeDefinition::VARIETY_LIST) {
+		$var($XSTypeDefinition, itemType, $cast($XSSimpleTypeDefinition, type)->getItemType());
 		if (itemType != nullptr) {
 			if (isDerivedByRestriction(ancestorNS, ancestorName, itemType)) {
 				return true;
@@ -2696,12 +2410,12 @@ bool XSSimpleTypeDecl::isDerivedByList($String* ancestorNS, $String* ancestorNam
 }
 
 bool XSSimpleTypeDecl::isDerivedByUnion($String* ancestorNS, $String* ancestorName, $XSTypeDefinition* type) {
-	$useLocalCurrentObjectStackCache();
-	if (type != nullptr && $nc(($cast($XSSimpleTypeDefinition, type)))->getVariety() == $XSSimpleTypeDefinition::VARIETY_UNION) {
-		$var($XSObjectList, memberTypes, ($cast($XSSimpleTypeDefinition, type))->getMemberTypes());
+	$useLocalObjectStack();
+	if (type != nullptr && $cast($XSSimpleTypeDefinition, type)->getVariety() == $XSSimpleTypeDefinition::VARIETY_UNION) {
+		$var($XSObjectList, memberTypes, $cast($XSSimpleTypeDefinition, type)->getMemberTypes());
 		for (int32_t i = 0; i < $nc(memberTypes)->getLength(); ++i) {
 			if (memberTypes->item(i) != nullptr) {
-				if (isDerivedByRestriction(ancestorNS, ancestorName, $cast($XSSimpleTypeDefinition, $(memberTypes->item(i))))) {
+				if (isDerivedByRestriction(ancestorNS, ancestorName, $$cast($XSSimpleTypeDefinition, memberTypes->item(i)))) {
 					return true;
 				}
 			}
@@ -2718,13 +2432,13 @@ void XSSimpleTypeDecl::reset() {
 	$set(this, fMemberTypes, nullptr);
 	$set(this, fTypeName, nullptr);
 	$set(this, fTargetNamespace, nullptr);
-	this->fFinalSet = (int16_t)0;
+	this->fFinalSet = 0;
 	$set(this, fBase, nullptr);
-	this->fVariety = (int16_t)-1;
-	this->fValidationDV = (int16_t)-1;
-	this->fFacetsDefined = (int16_t)0;
-	this->fFixedFacet = (int16_t)0;
-	this->fWhiteSpace = (int16_t)0;
+	this->fVariety = -1;
+	this->fValidationDV = -1;
+	this->fFacetsDefined = 0;
+	this->fFixedFacet = 0;
+	this->fWhiteSpace = 0;
 	this->fLength = -1;
 	this->fMinLength = -1;
 	this->fMaxLength = -1;
@@ -2772,62 +2486,62 @@ $String* XSSimpleTypeDecl::toString() {
 }
 
 $XSObjectList* XSSimpleTypeDecl::getFacets() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fFacets == nullptr && (this->fFacetsDefined != 0 || this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER)) {
 		$var($XSSimpleTypeDecl$XSFacetImplArray, facets, $new($XSSimpleTypeDecl$XSFacetImplArray, 10));
 		int32_t count = 0;
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) != 0 && this->fValidationDV != XSSimpleTypeDecl::DV_ANYSIMPLETYPE && this->fValidationDV != XSSimpleTypeDecl::DV_ANYATOMICTYPE) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_WHITESPACE, $nc(XSSimpleTypeDecl::WS_FACET_STRING)->get(this->fWhiteSpace), 0, nullptr, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_WHITESPACE)) != 0, this->whiteSpaceAnnotation));
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_WHITESPACE) != 0 && this->fValidationDV != XSSimpleTypeDecl::DV_ANYSIMPLETYPE && this->fValidationDV != XSSimpleTypeDecl::DV_ANYATOMICTYPE) {
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_WHITESPACE, XSSimpleTypeDecl::WS_FACET_STRING->get(this->fWhiteSpace), 0, nullptr, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_WHITESPACE) != 0, this->whiteSpaceAnnotation));
 			++count;
 		}
 		if (this->fLength != -1) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_LENGTH, $($Integer::toString(this->fLength)), this->fLength, nullptr, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_LENGTH)) != 0, this->lengthAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_LENGTH, $($Integer::toString(this->fLength)), this->fLength, nullptr, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_LENGTH) != 0, this->lengthAnnotation));
 			++count;
 		}
 		if (this->fMinLength != -1) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MINLENGTH, $($Integer::toString(this->fMinLength)), this->fMinLength, nullptr, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINLENGTH)) != 0, this->minLengthAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MINLENGTH, $($Integer::toString(this->fMinLength)), this->fMinLength, nullptr, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_MINLENGTH) != 0, this->minLengthAnnotation));
 			++count;
 		}
 		if (this->fMaxLength != -1) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MAXLENGTH, $($Integer::toString(this->fMaxLength)), this->fMaxLength, nullptr, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXLENGTH)) != 0, this->maxLengthAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MAXLENGTH, $($Integer::toString(this->fMaxLength)), this->fMaxLength, nullptr, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_MAXLENGTH) != 0, this->maxLengthAnnotation));
 			++count;
 		}
 		if (this->fTotalDigits != -1) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_TOTALDIGITS, $($Integer::toString(this->fTotalDigits)), this->fTotalDigits, nullptr, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_TOTALDIGITS)) != 0, this->totalDigitsAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_TOTALDIGITS, $($Integer::toString(this->fTotalDigits)), this->fTotalDigits, nullptr, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_TOTALDIGITS) != 0, this->totalDigitsAnnotation));
 			++count;
 		}
 		if (this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER) {
 			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS, "0"_s, 0, nullptr, true, this->fractionDigitsAnnotation));
 			++count;
 		} else if (this->fFractionDigits != -1) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS, $($Integer::toString(this->fFractionDigits)), this->fFractionDigits, nullptr, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_FRACTIONDIGITS)) != 0, this->fractionDigitsAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS, $($Integer::toString(this->fFractionDigits)), this->fFractionDigits, nullptr, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_FRACTIONDIGITS) != 0, this->fractionDigitsAnnotation));
 			++count;
 		}
 		if (this->fMaxInclusive != nullptr) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE, $($nc($of(this->fMaxInclusive))->toString()), 0, this->fMaxInclusive, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXINCLUSIVE)) != 0, this->maxInclusiveAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE, $(this->fMaxInclusive->toString()), 0, this->fMaxInclusive, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_MAXINCLUSIVE) != 0, this->maxInclusiveAnnotation));
 			++count;
 		}
 		if (this->fMaxExclusive != nullptr) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE, $($nc($of(this->fMaxExclusive))->toString()), 0, this->fMaxExclusive, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE)) != 0, this->maxExclusiveAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE, $(this->fMaxExclusive->toString()), 0, this->fMaxExclusive, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_MAXEXCLUSIVE) != 0, this->maxExclusiveAnnotation));
 			++count;
 		}
 		if (this->fMinExclusive != nullptr) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE, $($nc($of(this->fMinExclusive))->toString()), 0, this->fMinExclusive, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MINEXCLUSIVE)) != 0, this->minExclusiveAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE, $(this->fMinExclusive->toString()), 0, this->fMinExclusive, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_MINEXCLUSIVE) != 0, this->minExclusiveAnnotation));
 			++count;
 		}
 		if (this->fMinInclusive != nullptr) {
-			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MININCLUSIVE, $($nc($of(this->fMinInclusive))->toString()), 0, this->fMinInclusive, ((int32_t)(this->fFixedFacet & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_MININCLUSIVE)) != 0, this->minInclusiveAnnotation));
+			facets->set(count, $$new($XSSimpleTypeDecl$XSFacetImpl, $XSSimpleTypeDefinition::FACET_MININCLUSIVE, $(this->fMinInclusive->toString()), 0, this->fMinInclusive, (this->fFixedFacet & $XSSimpleTypeDefinition::FACET_MININCLUSIVE) != 0, this->minInclusiveAnnotation));
 			++count;
 		}
 		$init($XSObjectListImpl);
-		$set(this, fFacets, (count > 0) ? $new($XSObjectListImpl, $fcast($XSObjectArray, facets), count) : $XSObjectListImpl::EMPTY_LIST);
+		$set(this, fFacets, (count > 0) ? $new($XSObjectListImpl, $cast($XSObjectArray, facets), count) : $XSObjectListImpl::EMPTY_LIST);
 	}
 	$init($XSObjectListImpl);
-	return (this->fFacets != nullptr) ? static_cast<$XSObjectList*>(this->fFacets) : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fFacets != nullptr) ? this->fFacets : $XSObjectListImpl::EMPTY_LIST;
 }
 
 $XSObject* XSSimpleTypeDecl::getFacet(int32_t facetType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (facetType == $XSSimpleTypeDefinition::FACET_ENUMERATION || facetType == $XSSimpleTypeDefinition::FACET_PATTERN) {
 		$var($XSObjectList, list, getMultiValueFacets());
 		for (int32_t i = 0; i < $nc(list)->getLength(); ++i) {
@@ -2849,40 +2563,39 @@ $XSObject* XSSimpleTypeDecl::getFacet(int32_t facetType) {
 }
 
 $XSObjectList* XSSimpleTypeDecl::getMultiValueFacets() {
-	$useLocalCurrentObjectStackCache();
-	if (this->fMultiValueFacets == nullptr && (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_ENUMERATION)) != 0 || ((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) != 0 || this->fPatternType != XSSimpleTypeDecl::SPECIAL_PATTERN_NONE || this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER)) {
+	$useLocalObjectStack();
+	if (this->fMultiValueFacets == nullptr && ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_ENUMERATION) != 0 || (this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_PATTERN) != 0 || this->fPatternType != XSSimpleTypeDecl::SPECIAL_PATTERN_NONE || this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER)) {
 		$var($XSSimpleTypeDecl$XSMVFacetImplArray, facets, $new($XSSimpleTypeDecl$XSMVFacetImplArray, 2));
 		int32_t count = 0;
-		if (((int32_t)(this->fFacetsDefined & (uint32_t)(int32_t)$XSSimpleTypeDefinition::FACET_PATTERN)) != 0 || this->fPatternType != XSSimpleTypeDecl::SPECIAL_PATTERN_NONE || this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER) {
+		if ((this->fFacetsDefined & $XSSimpleTypeDefinition::FACET_PATTERN) != 0 || this->fPatternType != XSSimpleTypeDecl::SPECIAL_PATTERN_NONE || this->fValidationDV == XSSimpleTypeDecl::DV_INTEGER) {
 			facets->set(count, $$new($XSSimpleTypeDecl$XSMVFacetImpl, $XSSimpleTypeDefinition::FACET_PATTERN, $(this->getLexicalPattern()), nullptr, this->patternAnnotations));
 			++count;
 		}
 		if (this->fEnumeration != nullptr) {
-			int16_t var$0 = $XSSimpleTypeDefinition::FACET_ENUMERATION;
-			$var($StringList, var$1, this->getLexicalEnumeration());
-			facets->set(count, $$new($XSSimpleTypeDecl$XSMVFacetImpl, var$0, var$1, $$new($ObjectListImpl, this->fEnumeration, this->fEnumerationSize), this->enumerationAnnotations));
+			$var($StringList, var$0, this->getLexicalEnumeration());
+			facets->set(count, $$new($XSSimpleTypeDecl$XSMVFacetImpl, $XSSimpleTypeDefinition::FACET_ENUMERATION, var$0, $$new($ObjectListImpl, this->fEnumeration, this->fEnumerationSize), this->enumerationAnnotations));
 			++count;
 		}
-		$set(this, fMultiValueFacets, $new($XSObjectListImpl, $fcast($XSObjectArray, facets), count));
+		$set(this, fMultiValueFacets, $new($XSObjectListImpl, $cast($XSObjectArray, facets), count));
 	}
 	$init($XSObjectListImpl);
-	return (this->fMultiValueFacets != nullptr) ? static_cast<$XSObjectList*>(this->fMultiValueFacets) : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fMultiValueFacets != nullptr) ? this->fMultiValueFacets : $XSObjectListImpl::EMPTY_LIST;
 }
 
 $Object* XSSimpleTypeDecl::getMinInclusiveValue() {
-	return $of(this->fMinInclusive);
+	return this->fMinInclusive;
 }
 
 $Object* XSSimpleTypeDecl::getMinExclusiveValue() {
-	return $of(this->fMinExclusive);
+	return this->fMinExclusive;
 }
 
 $Object* XSSimpleTypeDecl::getMaxInclusiveValue() {
-	return $of(this->fMaxInclusive);
+	return this->fMaxInclusive;
 }
 
 $Object* XSSimpleTypeDecl::getMaxExclusiveValue() {
-	return $of(this->fMaxExclusive);
+	return this->fMaxExclusive;
 }
 
 void XSSimpleTypeDecl::setAnonymous(bool anon) {
@@ -2921,41 +2634,41 @@ void XSSimpleTypeDecl::appendEnumString($StringBuffer* sb) {
 	sb->append(u']');
 }
 
-void clinit$XSSimpleTypeDecl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XSSimpleTypeDecl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XSSimpleTypeDecl::URI_SCHEMAFORSCHEMA, "http://www.w3.org/2001/XMLSchema"_s);
 	$assignStatic(XSSimpleTypeDecl::ANY_TYPE, "anyType"_s);
 	$assignStatic(XSSimpleTypeDecl::gDVs, $new($TypeValidatorArray, {
-		static_cast<$TypeValidator*>($$new($AnySimpleDV)),
-		static_cast<$TypeValidator*>($$new($StringDV)),
-		static_cast<$TypeValidator*>($$new($BooleanDV)),
-		static_cast<$TypeValidator*>($$new($DecimalDV)),
-		static_cast<$TypeValidator*>($$new($FloatDV)),
-		static_cast<$TypeValidator*>($$new($DoubleDV)),
-		static_cast<$TypeValidator*>($$new($DurationDV)),
-		static_cast<$TypeValidator*>($$new($DateTimeDV)),
-		static_cast<$TypeValidator*>($$new($TimeDV)),
-		static_cast<$TypeValidator*>($$new($DateDV)),
-		static_cast<$TypeValidator*>($$new($YearMonthDV)),
-		static_cast<$TypeValidator*>($$new($YearDV)),
-		static_cast<$TypeValidator*>($$new($MonthDayDV)),
-		static_cast<$TypeValidator*>($$new($DayDV)),
-		static_cast<$TypeValidator*>($$new($MonthDV)),
-		static_cast<$TypeValidator*>($$new($HexBinaryDV)),
-		static_cast<$TypeValidator*>($$new($Base64BinaryDV)),
-		static_cast<$TypeValidator*>($$new($AnyURIDV)),
-		static_cast<$TypeValidator*>($$new($QNameDV)),
-		static_cast<$TypeValidator*>($$new($PrecisionDecimalDV)),
-		static_cast<$TypeValidator*>($$new($QNameDV)),
-		static_cast<$TypeValidator*>($$new($IDDV)),
-		static_cast<$TypeValidator*>($$new($IDREFDV)),
-		static_cast<$TypeValidator*>($$new($EntityDV)),
-		static_cast<$TypeValidator*>($$new($IntegerDV)),
-		static_cast<$TypeValidator*>($$new($ListDV)),
-		static_cast<$TypeValidator*>($$new($UnionDV)),
-		static_cast<$TypeValidator*>($$new($YearMonthDurationDV)),
-		static_cast<$TypeValidator*>($$new($DayTimeDurationDV)),
-		static_cast<$TypeValidator*>($$new($AnyAtomicDV))
+		$$new($AnySimpleDV),
+		$$new($StringDV),
+		$$new($BooleanDV),
+		$$new($DecimalDV),
+		$$new($FloatDV),
+		$$new($DoubleDV),
+		$$new($DurationDV),
+		$$new($DateTimeDV),
+		$$new($TimeDV),
+		$$new($DateDV),
+		$$new($YearMonthDV),
+		$$new($YearDV),
+		$$new($MonthDayDV),
+		$$new($DayDV),
+		$$new($MonthDV),
+		$$new($HexBinaryDV),
+		$$new($Base64BinaryDV),
+		$$new($AnyURIDV),
+		$$new($QNameDV),
+		$$new($PrecisionDecimalDV),
+		$$new($QNameDV),
+		$$new($IDDV),
+		$$new($IDREFDV),
+		$$new($EntityDV),
+		$$new($IntegerDV),
+		$$new($ListDV),
+		$$new($UnionDV),
+		$$new($YearMonthDurationDV),
+		$$new($DayTimeDurationDV),
+		$$new($AnyAtomicDV)
 	}));
 	$assignStatic(XSSimpleTypeDecl::fDVNormalizeType, $new($shorts, {
 		XSSimpleTypeDecl::NORMALIZE_NONE,
@@ -3010,7 +2723,245 @@ XSSimpleTypeDecl::XSSimpleTypeDecl() {
 }
 
 $Class* XSSimpleTypeDecl::load$($String* name, bool initialize) {
-	$loadClass(XSSimpleTypeDecl, name, initialize, &_XSSimpleTypeDecl_ClassInfo_, clinit$XSSimpleTypeDecl, allocate$XSSimpleTypeDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"DV_STRING", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_STRING)},
+		{"DV_BOOLEAN", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_BOOLEAN)},
+		{"DV_DECIMAL", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DECIMAL)},
+		{"DV_FLOAT", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_FLOAT)},
+		{"DV_DOUBLE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DOUBLE)},
+		{"DV_DURATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DURATION)},
+		{"DV_DATETIME", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DATETIME)},
+		{"DV_TIME", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_TIME)},
+		{"DV_DATE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DATE)},
+		{"DV_GYEARMONTH", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GYEARMONTH)},
+		{"DV_GYEAR", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GYEAR)},
+		{"DV_GMONTHDAY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GMONTHDAY)},
+		{"DV_GDAY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GDAY)},
+		{"DV_GMONTH", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_GMONTH)},
+		{"DV_HEXBINARY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_HEXBINARY)},
+		{"DV_BASE64BINARY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_BASE64BINARY)},
+		{"DV_ANYURI", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ANYURI)},
+		{"DV_QNAME", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_QNAME)},
+		{"DV_PRECISIONDECIMAL", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_PRECISIONDECIMAL)},
+		{"DV_NOTATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_NOTATION)},
+		{"DV_ANYSIMPLETYPE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ANYSIMPLETYPE)},
+		{"DV_ID", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ID)},
+		{"DV_IDREF", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_IDREF)},
+		{"DV_ENTITY", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ENTITY)},
+		{"DV_INTEGER", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_INTEGER)},
+		{"DV_LIST", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_LIST)},
+		{"DV_UNION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_UNION)},
+		{"DV_YEARMONTHDURATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_YEARMONTHDURATION)},
+		{"DV_DAYTIMEDURATION", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_DAYTIMEDURATION)},
+		{"DV_ANYATOMICTYPE", "S", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DV_ANYATOMICTYPE)},
+		{"gDVs", "[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, gDVs)},
+		{"NORMALIZE_NONE", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, NORMALIZE_NONE)},
+		{"NORMALIZE_TRIM", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, NORMALIZE_TRIM)},
+		{"NORMALIZE_FULL", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, NORMALIZE_FULL)},
+		{"fDVNormalizeType", "[S", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fDVNormalizeType)},
+		{"SPECIAL_PATTERN_NONE", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, SPECIAL_PATTERN_NONE)},
+		{"SPECIAL_PATTERN_NMTOKEN", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, SPECIAL_PATTERN_NMTOKEN)},
+		{"SPECIAL_PATTERN_NAME", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, SPECIAL_PATTERN_NAME)},
+		{"SPECIAL_PATTERN_NCNAME", "S", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, SPECIAL_PATTERN_NCNAME)},
+		{"SPECIAL_PATTERN_STRING", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, SPECIAL_PATTERN_STRING)},
+		{"WS_FACET_STRING", "[Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, WS_FACET_STRING)},
+		{"URI_SCHEMAFORSCHEMA", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, URI_SCHEMAFORSCHEMA)},
+		{"ANY_TYPE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, ANY_TYPE)},
+		{"YEARMONTHDURATION_DT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, YEARMONTHDURATION_DT)},
+		{"DAYTIMEDURATION_DT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DAYTIMEDURATION_DT)},
+		{"PRECISIONDECIMAL_DT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, PRECISIONDECIMAL_DT)},
+		{"ANYATOMICTYPE_DT", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSSimpleTypeDecl, ANYATOMICTYPE_DT)},
+		{"DERIVATION_ANY", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_ANY)},
+		{"DERIVATION_RESTRICTION", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_RESTRICTION)},
+		{"DERIVATION_EXTENSION", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_EXTENSION)},
+		{"DERIVATION_UNION", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_UNION)},
+		{"DERIVATION_LIST", "I", nullptr, $STATIC | $FINAL, $constField(XSSimpleTypeDecl, DERIVATION_LIST)},
+		{"fEmptyContext", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fEmptyContext)},
+		{"fDVs", "[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fDVs)},
+		{"fIsImmutable", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fIsImmutable)},
+		{"fItemType", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fItemType)},
+		{"fMemberTypes", "[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMemberTypes)},
+		{"fBuiltInKind", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fBuiltInKind)},
+		{"fTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fTypeName)},
+		{"fTargetNamespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fTargetNamespace)},
+		{"fFinalSet", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFinalSet)},
+		{"fBase", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fBase)},
+		{"fVariety", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fVariety)},
+		{"fValidationDV", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fValidationDV)},
+		{"fFacetsDefined", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFacetsDefined)},
+		{"fFixedFacet", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFixedFacet)},
+		{"fWhiteSpace", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fWhiteSpace)},
+		{"fLength", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fLength)},
+		{"fMinLength", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMinLength)},
+		{"fMaxLength", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMaxLength)},
+		{"fTotalDigits", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fTotalDigits)},
+		{"fFractionDigits", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFractionDigits)},
+		{"fPattern", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression;>;", $PRIVATE, $field(XSSimpleTypeDecl, fPattern)},
+		{"fPatternStr", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSSimpleTypeDecl, fPatternStr)},
+		{"fEnumeration", "[Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fEnumeration)},
+		{"fEnumerationSize", "I", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fEnumerationSize)},
+		{"fEnumerationTypeList", "Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fEnumerationTypeList)},
+		{"fEnumerationItemTypeList", "Lcom/sun/org/apache/xerces/internal/xs/datatypes/ObjectList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fEnumerationItemTypeList)},
+		{"fLexicalPattern", "Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fLexicalPattern)},
+		{"fLexicalEnumeration", "Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fLexicalEnumeration)},
+		{"fActualEnumeration", "Lcom/sun/org/apache/xerces/internal/xs/datatypes/ObjectList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fActualEnumeration)},
+		{"fMaxInclusive", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMaxInclusive)},
+		{"fMaxExclusive", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMaxExclusive)},
+		{"fMinExclusive", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMinExclusive)},
+		{"fMinInclusive", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMinInclusive)},
+		{"lengthAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, lengthAnnotation)},
+		{"minLengthAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, minLengthAnnotation)},
+		{"maxLengthAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, maxLengthAnnotation)},
+		{"whiteSpaceAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, whiteSpaceAnnotation)},
+		{"totalDigitsAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, totalDigitsAnnotation)},
+		{"fractionDigitsAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, fractionDigitsAnnotation)},
+		{"patternAnnotations", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, patternAnnotations)},
+		{"enumerationAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, enumerationAnnotations)},
+		{"maxInclusiveAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, maxInclusiveAnnotation)},
+		{"maxExclusiveAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, maxExclusiveAnnotation)},
+		{"minInclusiveAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, minInclusiveAnnotation)},
+		{"minExclusiveAnnotation", "Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $field(XSSimpleTypeDecl, minExclusiveAnnotation)},
+		{"fFacets", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFacets)},
+		{"fMultiValueFacets", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fMultiValueFacets)},
+		{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fAnnotations)},
+		{"fPatternType", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fPatternType)},
+		{"fOrdered", "S", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fOrdered)},
+		{"fFinite", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fFinite)},
+		{"fBounded", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fBounded)},
+		{"fNumeric", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fNumeric)},
+		{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fNamespaceItem)},
+		{"fAnySimpleType", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fAnySimpleType)},
+		{"fAnyAtomicType", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fAnyAtomicType)},
+		{"fDummyContext", "Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;", nullptr, $STATIC | $FINAL, $staticField(XSSimpleTypeDecl, fDummyContext)},
+		{"fAnonymous", "Z", nullptr, $PRIVATE, $field(XSSimpleTypeDecl, fAnonymous)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSSimpleTypeDecl, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;SSZZZZS)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, XSSimpleTypeDecl*, $String*, int16_t, int16_t, bool, bool, bool, bool, int16_t)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLcom/sun/org/apache/xerces/internal/xs/XSObjectList;S)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, XSSimpleTypeDecl*, $String*, $String*, int16_t, bool, $XSObjectList*, int16_t)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SZLcom/sun/org/apache/xerces/internal/xs/XSObjectList;)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, XSSimpleTypeDecl*, $String*, $String*, int16_t, bool, $XSObjectList*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;ZLcom/sun/org/apache/xerces/internal/xs/XSObjectList;)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, $String*, $String*, int16_t, XSSimpleTypeDecl*, bool, $XSObjectList*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;S[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)V", nullptr, $PROTECTED, $method(XSSimpleTypeDecl, init$, void, $String*, $String*, int16_t, $XSSimpleTypeDeclArray*, $XSObjectList*)},
+		{"appendEnumString", "(Ljava/lang/StringBuffer;)V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, appendEnumString, void, $StringBuffer*)},
+		{"applyFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSLcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, applyFacets, void, $XSFacets*, int16_t, int16_t, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
+		{"applyFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSSLcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;)V", nullptr, 0, $virtualMethod(XSSimpleTypeDecl, applyFacets, void, $XSFacets*, int16_t, int16_t, int16_t, $ValidationContext*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
+		{"applyFacets1", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SS)V", nullptr, 0, $virtualMethod(XSSimpleTypeDecl, applyFacets1, void, $XSFacets*, int16_t, int16_t)},
+		{"applyFacets1", "(Lcom/sun/org/apache/xerces/internal/impl/dv/XSFacets;SSS)V", nullptr, 0, $virtualMethod(XSSimpleTypeDecl, applyFacets1, void, $XSFacets*, int16_t, int16_t, int16_t)},
+		{"calcFundamentalFacets", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, calcFundamentalFacets, void)},
+		{"checkExtraRules", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, checkExtraRules, void, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"checkFacets", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, checkFacets, void, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"convertToPrimitiveKind", "(S)S", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, convertToPrimitiveKind, int16_t, int16_t)},
+		{"derivedFrom", "(Ljava/lang/String;Ljava/lang/String;S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, derivedFrom, bool, $String*, $String*, int16_t)},
+		{"derivedFromType", "(Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, derivedFromType, bool, $XSTypeDefinition*, int16_t)},
+		{"getActualEnumValue", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, getActualEnumValue, $ValidatedInfo*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getActualEnumeration", "()Lcom/sun/org/apache/xerces/internal/xs/datatypes/ObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getActualEnumeration, $ObjectList*)},
+		{"getActualValue", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;Z)Ljava/lang/Object;", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, getActualValue, $Object*, Object$*, $ValidationContext*, $ValidatedInfo*, bool), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getAnnotations, $XSObjectList*)},
+		{"getAnonymous", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getAnonymous, bool)},
+		{"getBaseType", "()Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getBaseType, $XSTypeDefinition*)},
+		{"getBounded", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getBounded, bool)},
+		{"getBuiltInKind", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getBuiltInKind, int16_t)},
+		{"getDefinedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getDefinedFacets, int16_t)},
+		{"getEnumerationItemTypeList", "()Lcom/sun/org/apache/xerces/internal/xs/datatypes/ObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getEnumerationItemTypeList, $ObjectList*)},
+		{"getEnumerationTypeList", "()Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getEnumerationTypeList, $ShortList*)},
+		{"getFacet", "(I)Lcom/sun/org/apache/xerces/internal/xs/XSObject;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFacet, $XSObject*, int32_t)},
+		{"getFacets", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFacets, $XSObjectList*)},
+		{"getFinal", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFinal, int16_t)},
+		{"getFinite", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFinite, bool)},
+		{"getFixedFacets", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getFixedFacets, int16_t)},
+		{"getGDVs", "()[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator;", nullptr, $PROTECTED | $STATIC, $staticMethod(XSSimpleTypeDecl, getGDVs, $TypeValidatorArray*)},
+		{"getItemType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getItemType, $XSSimpleTypeDefinition*)},
+		{"getLexicalEnumeration", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getLexicalEnumeration, $StringList*)},
+		{"getLexicalFacetValue", "(S)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getLexicalFacetValue, $String*, int16_t)},
+		{"getLexicalPattern", "()Lcom/sun/org/apache/xerces/internal/xs/StringList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getLexicalPattern, $StringList*)},
+		{"getMaxExclusiveValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMaxExclusiveValue, $Object*)},
+		{"getMaxInclusiveValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMaxInclusiveValue, $Object*)},
+		{"getMemberTypes", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMemberTypes, $XSObjectList*)},
+		{"getMinExclusiveValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMinExclusiveValue, $Object*)},
+		{"getMinInclusiveValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMinInclusiveValue, $Object*)},
+		{"getMultiValueFacets", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getMultiValueFacets, $XSObjectList*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getNamespaceItem, $XSNamespaceItem*)},
+		{"getNumeric", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getNumeric, bool)},
+		{"getOrdered", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getOrdered, int16_t)},
+		{"getPrimitiveDV", "(S)S", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, getPrimitiveDV, int16_t, int16_t)},
+		{"getPrimitiveKind", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getPrimitiveKind, int16_t)},
+		{"getPrimitiveType", "()Lcom/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getPrimitiveType, $XSSimpleTypeDefinition*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getType, int16_t)},
+		{"getTypeCategory", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getTypeCategory, int16_t)},
+		{"getTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getTypeName, $String*)},
+		{"getTypeNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getTypeNamespace, $String*)},
+		{"getVariety", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getVariety, int16_t)},
+		{"getWhitespace", "()S", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, getWhitespace, int16_t), "com.sun.org.apache.xerces.internal.impl.dv.DatatypeException"},
+		{"isDOMDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isDOMDerivedFrom, bool, $String*, $String*, int32_t)},
+		{"isDefinedFacet", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isDefinedFacet, bool, int16_t)},
+		{"isDerivedByAny", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, isDerivedByAny, bool, $String*, $String*, $XSTypeDefinition*)},
+		{"isDerivedByList", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, isDerivedByList, bool, $String*, $String*, $XSTypeDefinition*)},
+		{"isDerivedByRestriction", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, isDerivedByRestriction, bool, $String*, $String*, $XSTypeDefinition*)},
+		{"isDerivedByUnion", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;)Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, isDerivedByUnion, bool, $String*, $String*, $XSTypeDefinition*)},
+		{"isDerivedFrom", "(Ljava/lang/String;Ljava/lang/String;I)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isDerivedFrom, bool, $String*, $String*, int32_t)},
+		{"isEqual", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isEqual, bool, Object$*, Object$*)},
+		{"isFinal", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isFinal, bool, int16_t)},
+		{"isFixedFacet", "(S)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isFixedFacet, bool, int16_t)},
+		{"isIDType", "()Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isIDType, bool)},
+		{"isIdentical", "(Ljava/lang/Object;Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, isIdentical, bool, Object$*, Object$*)},
+		{"normalize", "(Ljava/lang/String;S)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSSimpleTypeDecl, normalize, $String*, $String*, int16_t)},
+		{"normalize", "(Ljava/lang/Object;S)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, normalize, $String*, Object$*, int16_t)},
+		{"reportError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(XSSimpleTypeDecl, reportError, void, $String*, $ObjectArray*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeFacetException"},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, reset, void)},
+		{"setAnonymous", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, setAnonymous, void, bool)},
+		{"setBounded", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, setBounded, void)},
+		{"setCardinality", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, setCardinality, void)},
+		{"setDVs", "([Lcom/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator;)V", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, setDVs, void, $TypeValidatorArray*)},
+		{"setListValues", "(Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, setListValues, XSSimpleTypeDecl*, $String*, $String*, int16_t, XSSimpleTypeDecl*, $XSObjectList*)},
+		{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, setNamespaceItem, void, $XSNamespaceItem*)},
+		{"setNumeric", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, setNumeric, void)},
+		{"setOrdered", "()V", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, setOrdered, void)},
+		{"setRestrictionValues", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Ljava/lang/String;Ljava/lang/String;SLcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, setRestrictionValues, XSSimpleTypeDecl*, XSSimpleTypeDecl*, $String*, $String*, int16_t, $XSObjectList*)},
+		{"setUnionValues", "(Ljava/lang/String;Ljava/lang/String;S[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;)Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PROTECTED, $virtualMethod(XSSimpleTypeDecl, setUnionValues, XSSimpleTypeDecl*, $String*, $String*, int16_t, $XSSimpleTypeDeclArray*, $XSObjectList*)},
+		{"specialCardinalityCheck", "()Z", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, specialCardinalityCheck, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, toString, $String*)},
+		{"validate", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, validate, $Object*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"validate", "(Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, validate, $Object*, Object$*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"validate", "(Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)V", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, validate, void, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"validateWithInfo", "(Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidationContext;Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;)Lcom/sun/org/apache/xerces/internal/impl/dv/ValidatedInfo;", nullptr, $PUBLIC, $virtualMethod(XSSimpleTypeDecl, validateWithInfo, $ValidatedInfo*, $String*, $ValidationContext*, $ValidatedInfo*), "com.sun.org.apache.xerces.internal.impl.dv.InvalidDatatypeValueException"},
+		{"whiteSpaceValue", "(S)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSSimpleTypeDecl, whiteSpaceValue, $String*, int16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$AbstractObjectList", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "AbstractObjectList", $PRIVATE | $STATIC | $ABSTRACT},
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$XSMVFacetImpl", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "XSMVFacetImpl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$XSFacetImpl", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "XSFacetImpl", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$ValidationContextImpl", "com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl", "ValidationContextImpl", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$4", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$3", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$2", nullptr, nullptr, 0},
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.dv.XSSimpleType,org.w3c.dom.TypeInfo",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$AbstractObjectList,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$XSMVFacetImpl,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$XSFacetImpl,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$ValidationContextImpl,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$4,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$3,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$2,com.sun.org.apache.xerces.internal.impl.dv.xs.XSSimpleTypeDecl$1"
+	};
+	$loadClass(XSSimpleTypeDecl, name, initialize, &classInfo$$, XSSimpleTypeDecl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XSSimpleTypeDecl));
+	});
 	return class$;
 }
 

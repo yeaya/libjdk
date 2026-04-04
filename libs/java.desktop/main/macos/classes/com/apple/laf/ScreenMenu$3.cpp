@@ -1,5 +1,4 @@
 #include <com/apple/laf/ScreenMenu$3.h>
-
 #include <com/apple/laf/ScreenMenu.h>
 #include <java/awt/Rectangle.h>
 #include <javax/swing/JMenu.h>
@@ -17,49 +16,6 @@ using $JMenu = ::javax::swing::JMenu;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _ScreenMenu$3_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/ScreenMenu;", nullptr, $FINAL | $SYNTHETIC, $field(ScreenMenu$3, this$0)},
-	{"val$invoker", "Ljavax/swing/JMenu;", nullptr, $FINAL | $SYNTHETIC, $field(ScreenMenu$3, val$invoker)},
-	{}
-};
-
-$MethodInfo _ScreenMenu$3_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/ScreenMenu;Ljavax/swing/JMenu;)V", "()V", 0, $method(ScreenMenu$3, init$, void, $ScreenMenu*, $JMenu*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenu$3, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _ScreenMenu$3_EnclosingMethodInfo_ = {
-	"com.apple.laf.ScreenMenu",
-	"invokeMenuClosing",
-	"()V"
-};
-
-$InnerClassInfo _ScreenMenu$3_InnerClassesInfo_[] = {
-	{"com.apple.laf.ScreenMenu$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ScreenMenu$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.ScreenMenu$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_ScreenMenu$3_FieldInfo_,
-	_ScreenMenu$3_MethodInfo_,
-	nullptr,
-	&_ScreenMenu$3_EnclosingMethodInfo_,
-	_ScreenMenu$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.ScreenMenu"
-};
-
-$Object* allocate$ScreenMenu$3($Class* clazz) {
-	return $of($alloc(ScreenMenu$3));
-}
 
 void ScreenMenu$3::init$($ScreenMenu* this$0, $JMenu* val$invoker) {
 	$set(this, this$0, this$0);
@@ -80,7 +36,43 @@ ScreenMenu$3::ScreenMenu$3() {
 }
 
 $Class* ScreenMenu$3::load$($String* name, bool initialize) {
-	$loadClass(ScreenMenu$3, name, initialize, &_ScreenMenu$3_ClassInfo_, allocate$ScreenMenu$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/ScreenMenu;", nullptr, $FINAL | $SYNTHETIC, $field(ScreenMenu$3, this$0)},
+		{"val$invoker", "Ljavax/swing/JMenu;", nullptr, $FINAL | $SYNTHETIC, $field(ScreenMenu$3, val$invoker)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/ScreenMenu;Ljavax/swing/JMenu;)V", "()V", 0, $method(ScreenMenu$3, init$, void, $ScreenMenu*, $JMenu*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenu$3, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.ScreenMenu",
+		"invokeMenuClosing",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.ScreenMenu$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.ScreenMenu$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.ScreenMenu"
+	};
+	$loadClass(ScreenMenu$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ScreenMenu$3);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/image/DataBufferDouble.h>
-
 #include <java/awt/image/DataBuffer.h>
 #include <sun/java2d/StateTrackable$State.h>
 #include <sun/java2d/StateTrackableDelegate.h>
@@ -15,73 +14,28 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StateTrackable$State = ::sun::java2d::StateTrackable$State;
-using $StateTrackableDelegate = ::sun::java2d::StateTrackableDelegate;
 
 namespace java {
 	namespace awt {
 		namespace image {
-
-$FieldInfo _DataBufferDouble_FieldInfo_[] = {
-	{"bankdata", "[[D", nullptr, 0, $field(DataBufferDouble, bankdata)},
-	{"data", "[D", nullptr, 0, $field(DataBufferDouble, data)},
-	{}
-};
-
-$MethodInfo _DataBufferDouble_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, int32_t, int32_t)},
-	{"<init>", "([DI)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, $doubles*, int32_t)},
-	{"<init>", "([DII)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, $doubles*, int32_t, int32_t)},
-	{"<init>", "([[DI)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, $doubleArray2*, int32_t)},
-	{"<init>", "([[DI[I)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, $doubleArray2*, int32_t, $ints*)},
-	{"getBankData", "()[[D", nullptr, $PUBLIC, $method(DataBufferDouble, getBankData, $doubleArray2*)},
-	{"getData", "()[D", nullptr, $PUBLIC, $method(DataBufferDouble, getData, $doubles*)},
-	{"getData", "(I)[D", nullptr, $PUBLIC, $method(DataBufferDouble, getData, $doubles*, int32_t)},
-	{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElem, int32_t, int32_t)},
-	{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElem, int32_t, int32_t, int32_t)},
-	{"getElemDouble", "(I)D", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElemDouble, double, int32_t)},
-	{"getElemDouble", "(II)D", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElemDouble, double, int32_t, int32_t)},
-	{"getElemFloat", "(I)F", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElemFloat, float, int32_t)},
-	{"getElemFloat", "(II)F", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElemFloat, float, int32_t, int32_t)},
-	{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElem, void, int32_t, int32_t)},
-	{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElem, void, int32_t, int32_t, int32_t)},
-	{"setElemDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElemDouble, void, int32_t, double)},
-	{"setElemDouble", "(IID)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElemDouble, void, int32_t, int32_t, double)},
-	{"setElemFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElemFloat, void, int32_t, float)},
-	{"setElemFloat", "(IIF)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElemFloat, void, int32_t, int32_t, float)},
-	{}
-};
-
-$ClassInfo _DataBufferDouble_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.image.DataBufferDouble",
-	"java.awt.image.DataBuffer",
-	nullptr,
-	_DataBufferDouble_FieldInfo_,
-	_DataBufferDouble_MethodInfo_
-};
-
-$Object* allocate$DataBufferDouble($Class* clazz) {
-	return $of($alloc(DataBufferDouble));
-}
 
 void DataBufferDouble::init$(int32_t size) {
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::STABLE, $DataBuffer::TYPE_DOUBLE, size);
 	$set(this, data, $new($doubles, size));
 	$set(this, bankdata, $new($doubleArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferDouble::init$(int32_t size, int32_t numBanks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::STABLE, $DataBuffer::TYPE_DOUBLE, size, numBanks);
 	$set(this, bankdata, $new($doubleArray2, numBanks));
 	for (int32_t i = 0; i < numBanks; ++i) {
-		$nc(this->bankdata)->set(i, $$new($doubles, size));
+		this->bankdata->set(i, $$new($doubles, size));
 	}
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, data, this->bankdata->get(0));
 }
 
 void DataBufferDouble::init$($doubles* dataArray, int32_t size) {
@@ -89,7 +43,7 @@ void DataBufferDouble::init$($doubles* dataArray, int32_t size) {
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_DOUBLE, size);
 	$set(this, data, dataArray);
 	$set(this, bankdata, $new($doubleArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferDouble::init$($doubles* dataArray, int32_t size, int32_t offset) {
@@ -97,21 +51,21 @@ void DataBufferDouble::init$($doubles* dataArray, int32_t size, int32_t offset) 
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_DOUBLE, size, 1, offset);
 	$set(this, data, dataArray);
 	$set(this, bankdata, $new($doubleArray2, 1));
-	$nc(this->bankdata)->set(0, this->data);
+	this->bankdata->set(0, this->data);
 }
 
 void DataBufferDouble::init$($doubleArray2* dataArray, int32_t size) {
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_DOUBLE, size, $nc(dataArray)->length);
-	$set(this, bankdata, $cast($doubleArray2, $nc(dataArray)->clone()));
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, bankdata, $cast($doubleArray2, dataArray->clone()));
+	$set(this, data, this->bankdata->get(0));
 }
 
 void DataBufferDouble::init$($doubleArray2* dataArray, int32_t size, $ints* offsets) {
 	$init($StateTrackable$State);
 	$DataBuffer::init$($StateTrackable$State::UNTRACKABLE, $DataBuffer::TYPE_DOUBLE, size, $nc(dataArray)->length, offsets);
-	$set(this, bankdata, $cast($doubleArray2, $nc(dataArray)->clone()));
-	$set(this, data, $nc(this->bankdata)->get(0));
+	$set(this, bankdata, $cast($doubleArray2, dataArray->clone()));
+	$set(this, data, this->bankdata->get(0));
 }
 
 $doubles* DataBufferDouble::getData() {
@@ -187,7 +141,46 @@ DataBufferDouble::DataBufferDouble() {
 }
 
 $Class* DataBufferDouble::load$($String* name, bool initialize) {
-	$loadClass(DataBufferDouble, name, initialize, &_DataBufferDouble_ClassInfo_, allocate$DataBufferDouble);
+	$FieldInfo fieldInfos$$[] = {
+		{"bankdata", "[[D", nullptr, 0, $field(DataBufferDouble, bankdata)},
+		{"data", "[D", nullptr, 0, $field(DataBufferDouble, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, int32_t, int32_t)},
+		{"<init>", "([DI)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, $doubles*, int32_t)},
+		{"<init>", "([DII)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, $doubles*, int32_t, int32_t)},
+		{"<init>", "([[DI)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, $doubleArray2*, int32_t)},
+		{"<init>", "([[DI[I)V", nullptr, $PUBLIC, $method(DataBufferDouble, init$, void, $doubleArray2*, int32_t, $ints*)},
+		{"getBankData", "()[[D", nullptr, $PUBLIC, $method(DataBufferDouble, getBankData, $doubleArray2*)},
+		{"getData", "()[D", nullptr, $PUBLIC, $method(DataBufferDouble, getData, $doubles*)},
+		{"getData", "(I)[D", nullptr, $PUBLIC, $method(DataBufferDouble, getData, $doubles*, int32_t)},
+		{"getElem", "(I)I", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElem, int32_t, int32_t)},
+		{"getElem", "(II)I", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElem, int32_t, int32_t, int32_t)},
+		{"getElemDouble", "(I)D", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElemDouble, double, int32_t)},
+		{"getElemDouble", "(II)D", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElemDouble, double, int32_t, int32_t)},
+		{"getElemFloat", "(I)F", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElemFloat, float, int32_t)},
+		{"getElemFloat", "(II)F", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, getElemFloat, float, int32_t, int32_t)},
+		{"setElem", "(II)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElem, void, int32_t, int32_t)},
+		{"setElem", "(III)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElem, void, int32_t, int32_t, int32_t)},
+		{"setElemDouble", "(ID)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElemDouble, void, int32_t, double)},
+		{"setElemDouble", "(IID)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElemDouble, void, int32_t, int32_t, double)},
+		{"setElemFloat", "(IF)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElemFloat, void, int32_t, float)},
+		{"setElemFloat", "(IIF)V", nullptr, $PUBLIC, $virtualMethod(DataBufferDouble, setElemFloat, void, int32_t, int32_t, float)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.image.DataBufferDouble",
+		"java.awt.image.DataBuffer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataBufferDouble, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataBufferDouble);
+	});
 	return class$;
 }
 

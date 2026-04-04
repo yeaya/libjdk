@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/SocketTube$SocketFlowEvent.h>
-
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -45,87 +44,34 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->lambda$abort$0(error));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0>());
-	}
 	SocketTube$SocketFlowEvent* inst$ = nullptr;
 	$IOException* error = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, inst$)},
-	{"error", "Ljava/io/IOException;", nullptr, $PUBLIC, $field(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, error)},
-	{}
-};
-$MethodInfo SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, init$, void, SocketTube$SocketFlowEvent*, $IOException*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, get, $Object*)},
-	{}
-};
-$ClassInfo SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0::load$($String* name, bool initialize) {
-	$loadClass(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, inst$)},
+		{"error", "Ljava/io/IOException;", nullptr, $PUBLIC, $field(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, error)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/SocketTube$SocketFlowEvent;Ljava/io/IOException;)V", nullptr, $PUBLIC, $method(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, init$, void, SocketTube$SocketFlowEvent*, $IOException*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0);
+	});
 	return class$;
 }
 $Class* SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0::class$ = nullptr;
-
-$FieldInfo _SocketTube$SocketFlowEvent_FieldInfo_[] = {
-	{"channel", "Ljava/nio/channels/SocketChannel;", nullptr, $FINAL, $field(SocketTube$SocketFlowEvent, channel$)},
-	{"defaultInterest", "I", nullptr, $FINAL, $field(SocketTube$SocketFlowEvent, defaultInterest)},
-	{"interestOps", "I", nullptr, $VOLATILE, $field(SocketTube$SocketFlowEvent, interestOps$)},
-	{"registered", "Z", nullptr, $VOLATILE, $field(SocketTube$SocketFlowEvent, registered$)},
-	{}
-};
-
-$MethodInfo _SocketTube$SocketFlowEvent_MethodInfo_[] = {
-	{"<init>", "(ILjava/nio/channels/SocketChannel;)V", nullptr, 0, $method(SocketTube$SocketFlowEvent, init$, void, int32_t, $SocketChannel*)},
-	{"abort", "(Ljava/io/IOException;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowEvent, abort, void, $IOException*)},
-	{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowEvent, channel, $SelectableChannel*)},
-	{"debug", "()Ljdk/internal/net/http/common/Logger;", nullptr, $ABSTRACT, $virtualMethod(SocketTube$SocketFlowEvent, debug, $Logger*)},
-	{"handle", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowEvent, handle, void)},
-	{"interestOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowEvent, interestOps, int32_t)},
-	{"lambda$abort$0", "(Ljava/io/IOException;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(SocketTube$SocketFlowEvent, lambda$abort$0, $String*, $IOException*)},
-	{"pause", "()V", nullptr, $FINAL, $method(SocketTube$SocketFlowEvent, pause, void)},
-	{"registered", "()Z", nullptr, $FINAL, $method(SocketTube$SocketFlowEvent, registered, bool)},
-	{"resume", "()V", nullptr, $FINAL, $method(SocketTube$SocketFlowEvent, resume, void)},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketTube$SocketFlowEvent, signalError, void, $Throwable*)},
-	{"signalEvent", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketTube$SocketFlowEvent, signalEvent, void)},
-	{}
-};
-
-$InnerClassInfo _SocketTube$SocketFlowEvent_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.SocketTube$SocketFlowEvent", "jdk.internal.net.http.SocketTube", "SocketFlowEvent", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SocketTube$SocketFlowEvent_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"jdk.internal.net.http.SocketTube$SocketFlowEvent",
-	"jdk.internal.net.http.AsyncEvent",
-	nullptr,
-	_SocketTube$SocketFlowEvent_FieldInfo_,
-	_SocketTube$SocketFlowEvent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SocketTube$SocketFlowEvent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.SocketTube"
-};
-
-$Object* allocate$SocketTube$SocketFlowEvent($Class* clazz) {
-	return $of($alloc(SocketTube$SocketFlowEvent));
-}
 
 void SocketTube$SocketFlowEvent::init$(int32_t defaultInterest, $SocketChannel* channel) {
 	$AsyncEvent::init$($AsyncEvent::REPEATING);
@@ -160,14 +106,14 @@ void SocketTube$SocketFlowEvent::handle() {
 }
 
 void SocketTube$SocketFlowEvent::abort($IOException* error) {
-	$useLocalCurrentObjectStackCache();
-	$nc($(debug()))->log(static_cast<$Supplier*>($$new(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, this, error)));
+	$useLocalObjectStack();
+	$$nc(debug())->log($$new(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0, this, error));
 	pause();
 	signalError(error);
 }
 
 $String* SocketTube$SocketFlowEvent::lambda$abort$0($IOException* error) {
-	return $str({$($of(this)->getClass()->getSimpleName()), " abort: "_s, error});
+	return $str({$(this->getClass()->getSimpleName()), " abort: "_s, error});
 }
 
 SocketTube$SocketFlowEvent::SocketTube$SocketFlowEvent() {
@@ -175,11 +121,54 @@ SocketTube$SocketFlowEvent::SocketTube$SocketFlowEvent() {
 
 $Class* SocketTube$SocketFlowEvent::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0")) {
 			return SocketTube$SocketFlowEvent$$Lambda$lambda$abort$0::load$(name, initialize);
 		}
 	}
-	$loadClass(SocketTube$SocketFlowEvent, name, initialize, &_SocketTube$SocketFlowEvent_ClassInfo_, allocate$SocketTube$SocketFlowEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"channel", "Ljava/nio/channels/SocketChannel;", nullptr, $FINAL, $field(SocketTube$SocketFlowEvent, channel$)},
+		{"defaultInterest", "I", nullptr, $FINAL, $field(SocketTube$SocketFlowEvent, defaultInterest)},
+		{"interestOps", "I", nullptr, $VOLATILE, $field(SocketTube$SocketFlowEvent, interestOps$)},
+		{"registered", "Z", nullptr, $VOLATILE, $field(SocketTube$SocketFlowEvent, registered$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/nio/channels/SocketChannel;)V", nullptr, 0, $method(SocketTube$SocketFlowEvent, init$, void, int32_t, $SocketChannel*)},
+		{"abort", "(Ljava/io/IOException;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowEvent, abort, void, $IOException*)},
+		{"channel", "()Ljava/nio/channels/SelectableChannel;", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowEvent, channel, $SelectableChannel*)},
+		{"debug", "()Ljdk/internal/net/http/common/Logger;", nullptr, $ABSTRACT, $virtualMethod(SocketTube$SocketFlowEvent, debug, $Logger*)},
+		{"handle", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowEvent, handle, void)},
+		{"interestOps", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(SocketTube$SocketFlowEvent, interestOps, int32_t)},
+		{"lambda$abort$0", "(Ljava/io/IOException;)Ljava/lang/String;", nullptr, $PRIVATE | $SYNTHETIC, $method(SocketTube$SocketFlowEvent, lambda$abort$0, $String*, $IOException*)},
+		{"pause", "()V", nullptr, $FINAL, $method(SocketTube$SocketFlowEvent, pause, void)},
+		{"registered", "()Z", nullptr, $FINAL, $method(SocketTube$SocketFlowEvent, registered, bool)},
+		{"resume", "()V", nullptr, $FINAL, $method(SocketTube$SocketFlowEvent, resume, void)},
+		{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketTube$SocketFlowEvent, signalError, void, $Throwable*)},
+		{"signalEvent", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(SocketTube$SocketFlowEvent, signalEvent, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.SocketTube$SocketFlowEvent", "jdk.internal.net.http.SocketTube", "SocketFlowEvent", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"jdk.internal.net.http.SocketTube$SocketFlowEvent",
+		"jdk.internal.net.http.AsyncEvent",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.SocketTube"
+	};
+	$loadClass(SocketTube$SocketFlowEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SocketTube$SocketFlowEvent);
+	});
 	return class$;
 }
 

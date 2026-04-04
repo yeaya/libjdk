@@ -1,14 +1,11 @@
 #include <javax/swing/plaf/synth/SynthDesktopIconUI.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
@@ -26,7 +23,6 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
-#include <javax/swing/plaf/synth/SynthUI.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -35,12 +31,8 @@
 #undef IS_SELECTED_PROPERTY
 
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -60,75 +52,11 @@ using $SynthDesktopIconUI$1 = ::javax::swing::plaf::synth::SynthDesktopIconUI$1;
 using $SynthDesktopIconUI$Handler = ::javax::swing::plaf::synth::SynthDesktopIconUI$Handler;
 using $SynthInternalFrameTitlePane = ::javax::swing::plaf::synth::SynthInternalFrameTitlePane;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
-using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
-using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthDesktopIconUI_FieldInfo_[] = {
-	{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthDesktopIconUI, style)},
-	{"handler", "Ljavax/swing/plaf/synth/SynthDesktopIconUI$Handler;", nullptr, $PRIVATE, $field(SynthDesktopIconUI, handler)},
-	{}
-};
-
-$MethodInfo _SynthDesktopIconUI_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthDesktopIconUI, init$, void)},
-	{"access$000", "(Ljavax/swing/plaf/synth/SynthDesktopIconUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthDesktopIconUI, access$000, $JInternalFrame*, SynthDesktopIconUI*)},
-	{"access$100", "(Ljavax/swing/plaf/synth/SynthDesktopIconUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthDesktopIconUI, access$100, $JInternalFrame*, SynthDesktopIconUI*)},
-	{"access$200", "(Ljavax/swing/plaf/synth/SynthDesktopIconUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthDesktopIconUI, access$200, $JInternalFrame*, SynthDesktopIconUI*)},
-	{"access$300", "(Ljavax/swing/plaf/synth/SynthDesktopIconUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthDesktopIconUI, access$300, $JInternalFrame*, SynthDesktopIconUI*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthDesktopIconUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthDesktopIconUI, getComponentState, int32_t, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, getContext, $SynthContext*, $JComponent*)},
-	{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthDesktopIconUI, getContext, $SynthContext*, $JComponent*, int32_t)},
-	{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, installComponents, void)},
-	{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, installDefaults, void)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, installListeners, void)},
-	{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, paint, void, $Graphics*, $JComponent*)},
-	{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, paint, void, $SynthContext*, $Graphics*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, uninstallComponents, void)},
-	{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, uninstallDefaults, void)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, uninstallListeners, void)},
-	{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, update, void, $Graphics*, $JComponent*)},
-	{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthDesktopIconUI, updateStyle, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _SynthDesktopIconUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthDesktopIconUI$Handler", "javax.swing.plaf.synth.SynthDesktopIconUI", "Handler", $PRIVATE | $FINAL},
-	{"javax.swing.plaf.synth.SynthDesktopIconUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthDesktopIconUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthDesktopIconUI",
-	"javax.swing.plaf.basic.BasicDesktopIconUI",
-	"javax.swing.plaf.synth.SynthUI,java.beans.PropertyChangeListener",
-	_SynthDesktopIconUI_FieldInfo_,
-	_SynthDesktopIconUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthDesktopIconUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthDesktopIconUI$Handler,javax.swing.plaf.synth.SynthDesktopIconUI$1"
-};
-
-$Object* allocate$SynthDesktopIconUI($Class* clazz) {
-	return $of($alloc(SynthDesktopIconUI));
-}
 
 int32_t SynthDesktopIconUI::hashCode() {
 	 return this->$BasicDesktopIconUI::hashCode();
@@ -181,30 +109,29 @@ $ComponentUI* SynthDesktopIconUI::createUI($JComponent* c) {
 }
 
 void SynthDesktopIconUI::installComponents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($UIManager::getBoolean("InternalFrame.useTaskBar"_s)) {
 		$var($String, var$0, $nc(this->frame)->getTitle());
-		$var($JToggleButton, tmp, $new($SynthDesktopIconUI$1, this, var$0, $($nc(this->frame)->getFrameIcon())));
+		$var($JToggleButton, tmp, $new($SynthDesktopIconUI$1, this, var$0, $(this->frame->getFrameIcon())));
 		$set(this, iconPane, tmp);
-		$nc($($ToolTipManager::sharedInstance()))->registerComponent(this->iconPane);
+		$$nc($ToolTipManager::sharedInstance())->registerComponent(this->iconPane);
 		$nc(this->iconPane)->setFont($($nc(this->desktopIcon)->getFont()));
 		$nc(this->iconPane)->setBackground($($nc(this->desktopIcon)->getBackground()));
 		$nc(this->iconPane)->setForeground($($nc(this->desktopIcon)->getForeground()));
 	} else {
 		$set(this, iconPane, $new($SynthInternalFrameTitlePane, this->frame));
-		$nc(this->iconPane)->setName("InternalFrame.northPane"_s);
+		this->iconPane->setName("InternalFrame.northPane"_s);
 	}
 	$nc(this->desktopIcon)->setLayout($$new($BorderLayout));
-	$init($BorderLayout);
-	$nc(this->desktopIcon)->add(static_cast<$Component*>(this->iconPane), $of($BorderLayout::CENTER));
+	$nc(this->desktopIcon)->add(this->iconPane, $BorderLayout::CENTER);
 }
 
 void SynthDesktopIconUI::uninstallComponents() {
 	if ($instanceOf($JToggleButton, this->iconPane)) {
-		$nc(($cast($JToggleButton, this->iconPane)))->removeActionListener(this->handler);
+		$cast($JToggleButton, this->iconPane)->removeActionListener(this->handler);
 		$nc(this->frame)->removePropertyChangeListener(this);
 	} else if ($instanceOf($SynthInternalFrameTitlePane, this->iconPane)) {
-		$nc(($cast($SynthInternalFrameTitlePane, this->iconPane)))->uninstallListeners();
+		$cast($SynthInternalFrameTitlePane, this->iconPane)->uninstallListeners();
 	}
 	$BasicDesktopIconUI::uninstallComponents();
 }
@@ -214,7 +141,7 @@ void SynthDesktopIconUI::installListeners() {
 	$nc(this->desktopIcon)->addPropertyChangeListener(this);
 	if ($instanceOf($JToggleButton, this->iconPane)) {
 		$nc(this->frame)->addPropertyChangeListener(this);
-		$nc(($cast($JToggleButton, this->iconPane)))->addActionListener(this->handler);
+		$nc($cast($JToggleButton, this->iconPane))->addActionListener(this->handler);
 	}
 }
 
@@ -251,13 +178,11 @@ int32_t SynthDesktopIconUI::getComponentState($JComponent* c) {
 }
 
 void SynthDesktopIconUI::update($Graphics* g, $JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SynthContext, context, getContext(c));
 	$SynthLookAndFeel::update(context, g);
-	$var($SynthContext, var$0, context);
-	$var($Graphics, var$1, g);
-	int32_t var$2 = $nc(c)->getWidth();
-	$nc($($nc(context)->getPainter()))->paintDesktopIconBackground(var$0, var$1, 0, 0, var$2, c->getHeight());
+	int32_t var$0 = $nc(c)->getWidth();
+	$$nc($nc(context)->getPainter())->paintDesktopIconBackground(context, g, 0, 0, var$0, c->getHeight());
 	paint(context, g);
 }
 
@@ -270,14 +195,14 @@ void SynthDesktopIconUI::paint($SynthContext* context, $Graphics* g) {
 }
 
 void SynthDesktopIconUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintDesktopIconBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintDesktopIconBorder(context, g, x, y, w, h);
 }
 
 void SynthDesktopIconUI::propertyChange($PropertyChangeEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JInternalFrame$JDesktopIcon, $($nc(evt)->getSource()))) {
 		if ($SynthLookAndFeel::shouldUpdateStyle(evt)) {
-			updateStyle($cast($JInternalFrame$JDesktopIcon, $(evt->getSource())));
+			updateStyle($$cast($JInternalFrame$JDesktopIcon, evt->getSource()));
 		}
 	} else if ($instanceOf($JInternalFrame, $(evt->getSource()))) {
 		$var($JInternalFrame, frame, $cast($JInternalFrame, evt->getSource()));
@@ -285,9 +210,9 @@ void SynthDesktopIconUI::propertyChange($PropertyChangeEvent* evt) {
 			$var($JToggleButton, button, $cast($JToggleButton, this->iconPane));
 			$var($String, prop, evt->getPropertyName());
 			if (prop == "title"_s) {
-				$nc(button)->setText($cast($String, $(evt->getNewValue())));
+				$nc(button)->setText($$cast($String, evt->getNewValue()));
 			} else if (prop == "frameIcon"_s) {
-				$nc(button)->setIcon($cast($Icon, $(evt->getNewValue())));
+				$nc(button)->setIcon($$cast($Icon, evt->getNewValue()));
 			} else {
 				$init($JInternalFrame);
 				if (prop == $JInternalFrame::IS_ICON_PROPERTY || prop == $JInternalFrame::IS_SELECTED_PROPERTY) {
@@ -303,7 +228,62 @@ SynthDesktopIconUI::SynthDesktopIconUI() {
 }
 
 $Class* SynthDesktopIconUI::load$($String* name, bool initialize) {
-	$loadClass(SynthDesktopIconUI, name, initialize, &_SynthDesktopIconUI_ClassInfo_, allocate$SynthDesktopIconUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"style", "Ljavax/swing/plaf/synth/SynthStyle;", nullptr, $PRIVATE, $field(SynthDesktopIconUI, style)},
+		{"handler", "Ljavax/swing/plaf/synth/SynthDesktopIconUI$Handler;", nullptr, $PRIVATE, $field(SynthDesktopIconUI, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthDesktopIconUI, init$, void)},
+		{"access$000", "(Ljavax/swing/plaf/synth/SynthDesktopIconUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthDesktopIconUI, access$000, $JInternalFrame*, SynthDesktopIconUI*)},
+		{"access$100", "(Ljavax/swing/plaf/synth/SynthDesktopIconUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthDesktopIconUI, access$100, $JInternalFrame*, SynthDesktopIconUI*)},
+		{"access$200", "(Ljavax/swing/plaf/synth/SynthDesktopIconUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthDesktopIconUI, access$200, $JInternalFrame*, SynthDesktopIconUI*)},
+		{"access$300", "(Ljavax/swing/plaf/synth/SynthDesktopIconUI;)Ljavax/swing/JInternalFrame;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthDesktopIconUI, access$300, $JInternalFrame*, SynthDesktopIconUI*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthDesktopIconUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getComponentState", "(Ljavax/swing/JComponent;)I", nullptr, $PRIVATE, $method(SynthDesktopIconUI, getComponentState, int32_t, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, getContext, $SynthContext*, $JComponent*)},
+		{"getContext", "(Ljavax/swing/JComponent;I)Ljavax/swing/plaf/synth/SynthContext;", nullptr, $PRIVATE, $method(SynthDesktopIconUI, getContext, $SynthContext*, $JComponent*, int32_t)},
+		{"installComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, installComponents, void)},
+		{"installDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, installDefaults, void)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, installListeners, void)},
+		{"paint", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, paint, void, $Graphics*, $JComponent*)},
+		{"paint", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, paint, void, $SynthContext*, $Graphics*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"uninstallComponents", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, uninstallComponents, void)},
+		{"uninstallDefaults", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, uninstallDefaults, void)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(SynthDesktopIconUI, uninstallListeners, void)},
+		{"update", "(Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopIconUI, update, void, $Graphics*, $JComponent*)},
+		{"updateStyle", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(SynthDesktopIconUI, updateStyle, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthDesktopIconUI$Handler", "javax.swing.plaf.synth.SynthDesktopIconUI", "Handler", $PRIVATE | $FINAL},
+		{"javax.swing.plaf.synth.SynthDesktopIconUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthDesktopIconUI",
+		"javax.swing.plaf.basic.BasicDesktopIconUI",
+		"javax.swing.plaf.synth.SynthUI,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthDesktopIconUI$Handler,javax.swing.plaf.synth.SynthDesktopIconUI$1"
+	};
+	$loadClass(SynthDesktopIconUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthDesktopIconUI));
+	});
 	return class$;
 }
 

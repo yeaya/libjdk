@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMCanonicalXMLC14N11Method.h>
-
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -31,32 +30,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$FieldInfo _DOMCanonicalXMLC14N11Method_FieldInfo_[] = {
-	{"C14N_11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMCanonicalXMLC14N11Method, C14N_11)},
-	{"C14N_11_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMCanonicalXMLC14N11Method, C14N_11_WITH_COMMENTS)},
-	{}
-};
-
-$MethodInfo _DOMCanonicalXMLC14N11Method_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMCanonicalXMLC14N11Method, init$, void)},
-	{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14N11Method, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14N11Method, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
-	{}
-};
-
-$ClassInfo _DOMCanonicalXMLC14N11Method_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMCanonicalXMLC14N11Method",
-	"org.jcp.xml.dsig.internal.dom.ApacheCanonicalizer",
-	nullptr,
-	_DOMCanonicalXMLC14N11Method_FieldInfo_,
-	_DOMCanonicalXMLC14N11Method_MethodInfo_
-};
-
-$Object* allocate$DOMCanonicalXMLC14N11Method($Class* clazz) {
-	return $of($alloc(DOMCanonicalXMLC14N11Method));
-}
-
 $String* DOMCanonicalXMLC14N11Method::C14N_11 = nullptr;
 $String* DOMCanonicalXMLC14N11Method::C14N_11_WITH_COMMENTS = nullptr;
 
@@ -71,10 +44,10 @@ void DOMCanonicalXMLC14N11Method::init($TransformParameterSpec* params) {
 }
 
 $Data* DOMCanonicalXMLC14N11Method::transform($Data* data, $XMLCryptoContext* xc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DOMSubTreeData, data)) {
 		$var($DOMSubTreeData, subTree, $cast($DOMSubTreeData, data));
-		if ($nc(subTree)->excludeComments()) {
+		if (subTree->excludeComments()) {
 			try {
 				$set(this, canonicalizer, $Canonicalizer::getInstance(DOMCanonicalXMLC14N11Method::C14N_11));
 			} catch ($InvalidCanonicalizerException& ice) {
@@ -88,13 +61,34 @@ $Data* DOMCanonicalXMLC14N11Method::transform($Data* data, $XMLCryptoContext* xc
 DOMCanonicalXMLC14N11Method::DOMCanonicalXMLC14N11Method() {
 }
 
-void clinit$DOMCanonicalXMLC14N11Method($Class* class$) {
+void DOMCanonicalXMLC14N11Method::clinit$($Class* clazz) {
 	$assignStatic(DOMCanonicalXMLC14N11Method::C14N_11, "http://www.w3.org/2006/12/xml-c14n11"_s);
 	$assignStatic(DOMCanonicalXMLC14N11Method::C14N_11_WITH_COMMENTS, "http://www.w3.org/2006/12/xml-c14n11#WithComments"_s);
 }
 
 $Class* DOMCanonicalXMLC14N11Method::load$($String* name, bool initialize) {
-	$loadClass(DOMCanonicalXMLC14N11Method, name, initialize, &_DOMCanonicalXMLC14N11Method_ClassInfo_, clinit$DOMCanonicalXMLC14N11Method, allocate$DOMCanonicalXMLC14N11Method);
+	$FieldInfo fieldInfos$$[] = {
+		{"C14N_11", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMCanonicalXMLC14N11Method, C14N_11)},
+		{"C14N_11_WITH_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DOMCanonicalXMLC14N11Method, C14N_11_WITH_COMMENTS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMCanonicalXMLC14N11Method, init$, void)},
+		{"init", "(Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;)V", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14N11Method, init, void, $TransformParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(DOMCanonicalXMLC14N11Method, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMCanonicalXMLC14N11Method",
+		"org.jcp.xml.dsig.internal.dom.ApacheCanonicalizer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMCanonicalXMLC14N11Method, name, initialize, &classInfo$$, DOMCanonicalXMLC14N11Method::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMCanonicalXMLC14N11Method));
+	});
 	return class$;
 }
 

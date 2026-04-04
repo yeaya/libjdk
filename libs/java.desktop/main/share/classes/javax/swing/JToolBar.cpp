@@ -1,5 +1,4 @@
 #include <javax/swing/JToolBar.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -66,190 +65,6 @@ using $ToolBarUI = ::javax::swing::plaf::ToolBarUI;
 namespace javax {
 	namespace swing {
 
-$NamedAttribute JToolBar_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{"description", 's', "A component which displays commonly used controls or Actions."},
-	{}
-};
-
-$CompoundAttribute _JToolBar_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JToolBar_Attribute_var$0},
-	{"Ljavax/swing/SwingContainer;", nullptr},
-	{}
-};
-
-$NamedAttribute JToolBar_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JToolBar_MethodAnnotations_getAccessibleContext11[] = {
-	{"Ljava/beans/BeanProperty;", JToolBar_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JToolBar_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JToolBar_MethodAnnotations_getUIClassID17[] = {
-	{"Ljava/beans/BeanProperty;", JToolBar_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JToolBar_Attribute_var$3[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "Does the tool bar paint its borders?"},
-	{}
-};
-
-$CompoundAttribute _JToolBar_MethodAnnotations_setBorderPainted23[] = {
-	{"Ljava/beans/BeanProperty;", JToolBar_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JToolBar_Attribute_var$4[] = {
-	{"preferred", 'Z', "true"},
-	{"description", 's', "Can the tool bar be made to float by the user?"},
-	{}
-};
-
-$CompoundAttribute _JToolBar_MethodAnnotations_setFloatable24[] = {
-	{"Ljava/beans/BeanProperty;", JToolBar_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JToolBar_Attribute_var$5[] = {
-	{"expert", 'Z', "true"},
-	{"description", 's', "The margin between the tool bar\'s border and contents"},
-	{}
-};
-
-$CompoundAttribute _JToolBar_MethodAnnotations_setMargin26[] = {
-	{"Ljava/beans/BeanProperty;", JToolBar_Attribute_var$5},
-	{}
-};
-
-$Attribute JToolBar_Attribute_var$7[] = {
-	{'s', "SwingConstants.HORIZONTAL"},
-	{'s', "SwingConstants.VERTICAL"},
-	{'-'}
-};
-
-$NamedAttribute JToolBar_Attribute_var$6[] = {
-	{"preferred", 'Z', "true"},
-	{"enumerationValues", '[', JToolBar_Attribute_var$7},
-	{"description", 's', "The current orientation of the tool bar"},
-	{}
-};
-
-$CompoundAttribute _JToolBar_MethodAnnotations_setOrientation27[] = {
-	{"Ljava/beans/BeanProperty;", JToolBar_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JToolBar_Attribute_var$8[] = {
-	{"preferred", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "Will draw rollover button borders in the toolbar."},
-	{}
-};
-
-$CompoundAttribute _JToolBar_MethodAnnotations_setRollover28[] = {
-	{"Ljava/beans/BeanProperty;", JToolBar_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JToolBar_Attribute_var$9[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JToolBar_MethodAnnotations_setUI29[] = {
-	{"Ljava/beans/BeanProperty;", JToolBar_Attribute_var$9},
-	{}
-};
-
-$FieldInfo _JToolBar_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JToolBar, uiClassID)},
-	{"paintBorder", "Z", nullptr, $PRIVATE, $field(JToolBar, paintBorder$)},
-	{"margin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(JToolBar, margin)},
-	{"floatable", "Z", nullptr, $PRIVATE, $field(JToolBar, floatable)},
-	{"orientation", "I", nullptr, $PRIVATE, $field(JToolBar, orientation)},
-	{}
-};
-
-$MethodInfo _JToolBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JToolBar, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(JToolBar, init$, void, int32_t)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JToolBar, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JToolBar, init$, void, $String*, int32_t)},
-	{"add", "(Ljavax/swing/Action;)Ljavax/swing/JButton;", nullptr, $PUBLIC, $virtualMethod(JToolBar, add, $JButton*, $Action*)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JToolBar, addImpl, void, $Component*, Object$*, int32_t)},
-	{"addSeparator", "()V", nullptr, $PUBLIC, $virtualMethod(JToolBar, addSeparator, void)},
-	{"addSeparator", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, addSeparator, void, $Dimension*)},
-	{"checkOrientation", "(I)V", nullptr, $PRIVATE, $method(JToolBar, checkOrientation, void, int32_t)},
-	{"createActionChangeListener", "(Ljavax/swing/JButton;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JToolBar, createActionChangeListener, $PropertyChangeListener*, $JButton*)},
-	{"createActionComponent", "(Ljavax/swing/Action;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(JToolBar, createActionComponent, $JButton*, $Action*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JToolBar_MethodAnnotations_getAccessibleContext11},
-	{"getComponentAtIndex", "(I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getComponentAtIndex, $Component*, int32_t)},
-	{"getComponentIndex", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JToolBar, getComponentIndex, int32_t, $Component*)},
-	{"getMargin", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getMargin, $Insets*)},
-	{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(JToolBar, getOrientation, int32_t)},
-	{"getUI", "()Ljavax/swing/plaf/ToolBarUI;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getUIClassID, $String*), nullptr, nullptr, _JToolBar_MethodAnnotations_getUIClassID17},
-	{"isBorderPainted", "()Z", nullptr, $PUBLIC, $virtualMethod(JToolBar, isBorderPainted, bool)},
-	{"isFloatable", "()Z", nullptr, $PUBLIC, $virtualMethod(JToolBar, isFloatable, bool)},
-	{"isRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(JToolBar, isRollover, bool)},
-	{"paintBorder", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(JToolBar, paintBorder, void, $Graphics*)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JToolBar, paramString, $String*)},
-	{"setBorderPainted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setBorderPainted, void, bool), nullptr, nullptr, _JToolBar_MethodAnnotations_setBorderPainted23},
-	{"setFloatable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setFloatable, void, bool), nullptr, nullptr, _JToolBar_MethodAnnotations_setFloatable24},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setLayout, void, $LayoutManager*)},
-	{"setMargin", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setMargin, void, $Insets*), nullptr, nullptr, _JToolBar_MethodAnnotations_setMargin26},
-	{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setOrientation, void, int32_t), nullptr, nullptr, _JToolBar_MethodAnnotations_setOrientation27},
-	{"setRollover", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setRollover, void, bool), nullptr, nullptr, _JToolBar_MethodAnnotations_setRollover28},
-	{"setUI", "(Ljavax/swing/plaf/ToolBarUI;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setUI, void, $ToolBarUI*), nullptr, nullptr, _JToolBar_MethodAnnotations_setUI29},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JToolBar, updateUI, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JToolBar, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JToolBar_InnerClassesInfo_[] = {
-	{"javax.swing.JToolBar$AccessibleJToolBar", "javax.swing.JToolBar", "AccessibleJToolBar", $PROTECTED},
-	{"javax.swing.JToolBar$DefaultToolBarLayout", "javax.swing.JToolBar", "DefaultToolBarLayout", $PRIVATE},
-	{"javax.swing.JToolBar$Separator", "javax.swing.JToolBar", "Separator", $PUBLIC | $STATIC},
-	{"javax.swing.JToolBar$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JToolBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JToolBar",
-	"javax.swing.JComponent",
-	"javax.swing.SwingConstants,javax.accessibility.Accessible",
-	_JToolBar_FieldInfo_,
-	_JToolBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JToolBar_InnerClassesInfo_,
-	_JToolBar_Annotations_,
-	nullptr,
-	"javax.swing.JToolBar$AccessibleJToolBar,javax.swing.JToolBar$DefaultToolBarLayout,javax.swing.JToolBar$Separator,javax.swing.JToolBar$1"
-};
-
-$Object* allocate$JToolBar($Class* clazz) {
-	return $of($alloc(JToolBar));
-}
-
 $String* JToolBar::toString() {
 	 return this->$JComponent::toString();
 }
@@ -308,8 +123,8 @@ void JToolBar::setUI($ToolBarUI* ui) {
 }
 
 void JToolBar::updateUI() {
-	$useLocalCurrentObjectStackCache();
-	setUI($cast($ToolBarUI, $($UIManager::getUI(this))));
+	$useLocalObjectStack();
+	setUI($$cast($ToolBarUI, $UIManager::getUI(this)));
 	if (getLayout() == nullptr) {
 		setLayout($$new($JToolBar$DefaultToolBarLayout, this, getOrientation()));
 	}
@@ -321,7 +136,7 @@ $String* JToolBar::getUIClassID() {
 }
 
 int32_t JToolBar::getComponentIndex($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ncomponents = this->getComponentCount();
 	$var($ComponentArray, component, this->getComponents());
 	for (int32_t i = 0; i < ncomponents; ++i) {
@@ -345,7 +160,7 @@ $Component* JToolBar::getComponentAtIndex(int32_t i) {
 void JToolBar::setMargin($Insets* m) {
 	$var($Insets, old, this->margin);
 	$set(this, margin, m);
-	firePropertyChange("margin"_s, $of(old), $of(m));
+	firePropertyChange("margin"_s, old, m);
 	revalidate();
 	repaint();
 }
@@ -408,7 +223,6 @@ void JToolBar::setOrientation(int32_t o) {
 }
 
 void JToolBar::setRollover(bool rollover) {
-	$init($Boolean);
 	putClientProperty("JToolBar.isRollover"_s, rollover ? $Boolean::TRUE : $Boolean::FALSE);
 }
 
@@ -423,15 +237,10 @@ bool JToolBar::isRollover() {
 void JToolBar::checkOrientation(int32_t orientation) {
 	switch (orientation) {
 	case $SwingConstants::VERTICAL:
-		{}
 	case $SwingConstants::HORIZONTAL:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, "orientation must be one of: VERTICAL, HORIZONTAL"_s);
-		}
+		$throwNew($IllegalArgumentException, "orientation must be one of: VERTICAL, HORIZONTAL"_s);
 	}
 }
 
@@ -441,13 +250,13 @@ void JToolBar::addSeparator() {
 
 void JToolBar::addSeparator($Dimension* size) {
 	$var($JToolBar$Separator, s, $new($JToolBar$Separator, size));
-	add(static_cast<$Component*>(s));
+	add(s);
 }
 
 $JButton* JToolBar::add($Action* a) {
 	$var($JButton, b, createActionComponent(a));
 	$nc(b)->setAction(a);
-	add(static_cast<$Component*>(b));
+	add(b);
 	return b;
 }
 
@@ -457,7 +266,7 @@ $JButton* JToolBar::createActionComponent($Action* a) {
 	if (var$0) {
 		$init($Action);
 		bool var$1 = a->getValue($Action::SMALL_ICON) != nullptr;
-		var$0 = (var$1 || a->getValue($Action::LARGE_ICON_KEY) != nullptr);
+		var$0 = var$1 || a->getValue($Action::LARGE_ICON_KEY) != nullptr;
 	}
 	if (var$0) {
 		b->setHideActionText(true);
@@ -474,32 +283,32 @@ $PropertyChangeListener* JToolBar::createActionChangeListener($JButton* b) {
 void JToolBar::addImpl($Component* comp, Object$* constraints, int32_t index) {
 	if ($instanceOf($JToolBar$Separator, comp)) {
 		if (getOrientation() == $SwingConstants::VERTICAL) {
-			$nc(($cast($JToolBar$Separator, comp)))->setOrientation($JSeparator::HORIZONTAL);
+			$cast($JToolBar$Separator, comp)->setOrientation($JSeparator::HORIZONTAL);
 		} else {
-			$nc(($cast($JToolBar$Separator, comp)))->setOrientation($JSeparator::VERTICAL);
+			$cast($JToolBar$Separator, comp)->setOrientation($JSeparator::VERTICAL);
 		}
 	}
 	$JComponent::addImpl(comp, constraints, index);
 	if ($instanceOf($JButton, comp)) {
-		$nc(($cast($JButton, comp)))->setDefaultCapable(false);
+		$cast($JButton, comp)->setDefaultCapable(false);
 	}
 }
 
 void JToolBar::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JToolBar::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JToolBar::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
 
 $String* JToolBar::paramString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, paintBorderString, this->paintBorder$ ? "true"_s : "false"_s);
-	$var($String, marginString, this->margin != nullptr ? $nc(this->margin)->toString() : ""_s);
+	$var($String, marginString, this->margin != nullptr ? this->margin->toString() : ""_s);
 	$var($String, floatableString, this->floatable ? "true"_s : "false"_s);
 	$var($String, orientationString, this->orientation == $SwingConstants::HORIZONTAL ? "HORIZONTAL"_s : "VERTICAL"_s);
 	return $str({$($JComponent::paramString()), ",floatable="_s, floatableString, ",margin="_s, marginString, ",orientation="_s, orientationString, ",paintBorder="_s, paintBorderString});
@@ -523,12 +332,171 @@ $AccessibleContext* JToolBar::getAccessibleContext() {
 JToolBar::JToolBar() {
 }
 
-void clinit$JToolBar($Class* class$) {
+void JToolBar::clinit$($Class* clazz) {
 	$assignStatic(JToolBar::uiClassID, "ToolBarUI"_s);
 }
 
 $Class* JToolBar::load$($String* name, bool initialize) {
-	$loadClass(JToolBar, name, initialize, &_JToolBar_ClassInfo_, clinit$JToolBar, allocate$JToolBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JToolBar, uiClassID)},
+		{"paintBorder", "Z", nullptr, $PRIVATE, $field(JToolBar, paintBorder$)},
+		{"margin", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(JToolBar, margin)},
+		{"floatable", "Z", nullptr, $PRIVATE, $field(JToolBar, floatable)},
+		{"orientation", "I", nullptr, $PRIVATE, $field(JToolBar, orientation)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setBorderPaintedmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "Does the tool bar paint its borders?"},
+		{}
+	};
+	$CompoundAttribute setBorderPaintedmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setBorderPaintedmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setFloatablemethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"description", 's', "Can the tool bar be made to float by the user?"},
+		{}
+	};
+	$CompoundAttribute setFloatablemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setFloatablemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setMarginmethodAnnotations$$$namedAttribute[] = {
+		{"expert", 'Z', "true"},
+		{"description", 's', "The margin between the tool bar\'s border and contents"},
+		{}
+	};
+	$CompoundAttribute setMarginmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setMarginmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "SwingConstants.HORIZONTAL"},
+		{'s', "SwingConstants.VERTICAL"},
+		{'-'}
+	};
+	$NamedAttribute setOrientationmethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "The current orientation of the tool bar"},
+		{}
+	};
+	$CompoundAttribute setOrientationmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setOrientationmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRollovermethodAnnotations$$$namedAttribute[] = {
+		{"preferred", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "Will draw rollover button borders in the toolbar."},
+		{}
+	};
+	$CompoundAttribute setRollovermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRollovermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JToolBar, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(JToolBar, init$, void, int32_t)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JToolBar, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(JToolBar, init$, void, $String*, int32_t)},
+		{"add", "(Ljavax/swing/Action;)Ljavax/swing/JButton;", nullptr, $PUBLIC, $virtualMethod(JToolBar, add, $JButton*, $Action*)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JToolBar, addImpl, void, $Component*, Object$*, int32_t)},
+		{"addSeparator", "()V", nullptr, $PUBLIC, $virtualMethod(JToolBar, addSeparator, void)},
+		{"addSeparator", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, addSeparator, void, $Dimension*)},
+		{"checkOrientation", "(I)V", nullptr, $PRIVATE, $method(JToolBar, checkOrientation, void, int32_t)},
+		{"createActionChangeListener", "(Ljavax/swing/JButton;)Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(JToolBar, createActionChangeListener, $PropertyChangeListener*, $JButton*)},
+		{"createActionComponent", "(Ljavax/swing/Action;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(JToolBar, createActionComponent, $JButton*, $Action*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getComponentAtIndex", "(I)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getComponentAtIndex, $Component*, int32_t)},
+		{"getComponentIndex", "(Ljava/awt/Component;)I", nullptr, $PUBLIC, $virtualMethod(JToolBar, getComponentIndex, int32_t, $Component*)},
+		{"getMargin", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getMargin, $Insets*)},
+		{"getOrientation", "()I", nullptr, $PUBLIC, $virtualMethod(JToolBar, getOrientation, int32_t)},
+		{"getUI", "()Ljavax/swing/plaf/ToolBarUI;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JToolBar, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"isBorderPainted", "()Z", nullptr, $PUBLIC, $virtualMethod(JToolBar, isBorderPainted, bool)},
+		{"isFloatable", "()Z", nullptr, $PUBLIC, $virtualMethod(JToolBar, isFloatable, bool)},
+		{"isRollover", "()Z", nullptr, $PUBLIC, $virtualMethod(JToolBar, isRollover, bool)},
+		{"paintBorder", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(JToolBar, paintBorder, void, $Graphics*)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JToolBar, paramString, $String*)},
+		{"setBorderPainted", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setBorderPainted, void, bool), nullptr, nullptr, setBorderPaintedmethodAnnotations$$},
+		{"setFloatable", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setFloatable, void, bool), nullptr, nullptr, setFloatablemethodAnnotations$$},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setLayout, void, $LayoutManager*)},
+		{"setMargin", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setMargin, void, $Insets*), nullptr, nullptr, setMarginmethodAnnotations$$},
+		{"setOrientation", "(I)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setOrientation, void, int32_t), nullptr, nullptr, setOrientationmethodAnnotations$$},
+		{"setRollover", "(Z)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setRollover, void, bool), nullptr, nullptr, setRollovermethodAnnotations$$},
+		{"setUI", "(Ljavax/swing/plaf/ToolBarUI;)V", nullptr, $PUBLIC, $virtualMethod(JToolBar, setUI, void, $ToolBarUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JToolBar, updateUI, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JToolBar, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JToolBar$AccessibleJToolBar", "javax.swing.JToolBar", "AccessibleJToolBar", $PROTECTED},
+		{"javax.swing.JToolBar$DefaultToolBarLayout", "javax.swing.JToolBar", "DefaultToolBarLayout", $PRIVATE},
+		{"javax.swing.JToolBar$Separator", "javax.swing.JToolBar", "Separator", $PUBLIC | $STATIC},
+		{"javax.swing.JToolBar$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{"description", 's', "A component which displays commonly used controls or Actions."},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{"Ljavax/swing/SwingContainer;", nullptr},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JToolBar",
+		"javax.swing.JComponent",
+		"javax.swing.SwingConstants,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JToolBar$AccessibleJToolBar,javax.swing.JToolBar$DefaultToolBarLayout,javax.swing.JToolBar$Separator,javax.swing.JToolBar$1"
+	};
+	$loadClass(JToolBar, name, initialize, &classInfo$$, JToolBar::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JToolBar));
+	});
 	return class$;
 }
 

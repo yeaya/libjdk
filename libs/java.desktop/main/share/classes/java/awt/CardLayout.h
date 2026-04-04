@@ -39,6 +39,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int32_t hgap, int32_t vgap);
 	virtual void addLayoutComponent(::java::awt::Component* comp, Object$* constraints) override;
@@ -65,7 +66,7 @@ public:
 	virtual void showDefaultComponent(::java::awt::Container* parent);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0xC3EF283B778BA917;
+	static const int64_t serialVersionUID = (int64_t)0xc3ef283b778ba917;
 	::java::util::Vector* vector = nullptr;
 	int32_t currentCard = 0;
 	int32_t hgap = 0;

@@ -1,5 +1,4 @@
 #include <java/awt/PageAttributes$ColorType.h>
-
 #include <java/awt/AttributeValue.h>
 #include <java/awt/PageAttributes.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _PageAttributes$ColorType_FieldInfo_[] = {
-	{"I_COLOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$ColorType, I_COLOR)},
-	{"I_MONOCHROME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$ColorType, I_MONOCHROME)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PageAttributes$ColorType, NAMES)},
-	{"COLOR", "Ljava/awt/PageAttributes$ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$ColorType, COLOR)},
-	{"MONOCHROME", "Ljava/awt/PageAttributes$ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$ColorType, MONOCHROME)},
-	{}
-};
-
-$MethodInfo _PageAttributes$ColorType_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(PageAttributes$ColorType, init$, void, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$ColorType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$ColorType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _PageAttributes$ColorType_InnerClassesInfo_[] = {
-	{"java.awt.PageAttributes$ColorType", "java.awt.PageAttributes", "ColorType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PageAttributes$ColorType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.PageAttributes$ColorType",
-	"java.awt.AttributeValue",
-	nullptr,
-	_PageAttributes$ColorType_FieldInfo_,
-	_PageAttributes$ColorType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PageAttributes$ColorType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.PageAttributes"
-};
-
-$Object* allocate$PageAttributes$ColorType($Class* clazz) {
-	return $of($alloc(PageAttributes$ColorType));
-}
-
 $StringArray* PageAttributes$ColorType::NAMES = nullptr;
 PageAttributes$ColorType* PageAttributes$ColorType::COLOR = nullptr;
 PageAttributes$ColorType* PageAttributes$ColorType::MONOCHROME = nullptr;
@@ -76,7 +34,7 @@ int32_t PageAttributes$ColorType::hashCode() {
 	return $AttributeValue::hashCode();
 }
 
-void clinit$PageAttributes$ColorType($Class* class$) {
+void PageAttributes$ColorType::clinit$($Class* clazz) {
 	$assignStatic(PageAttributes$ColorType::NAMES, $new($StringArray, {
 		"color"_s,
 		"monochrome"_s
@@ -89,7 +47,42 @@ PageAttributes$ColorType::PageAttributes$ColorType() {
 }
 
 $Class* PageAttributes$ColorType::load$($String* name, bool initialize) {
-	$loadClass(PageAttributes$ColorType, name, initialize, &_PageAttributes$ColorType_ClassInfo_, clinit$PageAttributes$ColorType, allocate$PageAttributes$ColorType);
+	$FieldInfo fieldInfos$$[] = {
+		{"I_COLOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$ColorType, I_COLOR)},
+		{"I_MONOCHROME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PageAttributes$ColorType, I_MONOCHROME)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PageAttributes$ColorType, NAMES)},
+		{"COLOR", "Ljava/awt/PageAttributes$ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$ColorType, COLOR)},
+		{"MONOCHROME", "Ljava/awt/PageAttributes$ColorType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(PageAttributes$ColorType, MONOCHROME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(PageAttributes$ColorType, init$, void, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$ColorType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PageAttributes$ColorType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.PageAttributes$ColorType", "java.awt.PageAttributes", "ColorType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.PageAttributes$ColorType",
+		"java.awt.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.PageAttributes"
+	};
+	$loadClass(PageAttributes$ColorType, name, initialize, &classInfo$$, PageAttributes$ColorType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PageAttributes$ColorType);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/CatchTree.h>
-
 #include <com/sun/source/tree/BlockTree.h>
 #include <com/sun/source/tree/VariableTree.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _CatchTree_MethodInfo_[] = {
-	{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CatchTree, getBlock, $BlockTree*)},
-	{"getParameter", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CatchTree, getParameter, $VariableTree*)},
-	{}
-};
-
-$ClassInfo _CatchTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.CatchTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_CatchTree_MethodInfo_
-};
-
-$Object* allocate$CatchTree($Class* clazz) {
-	return $of($alloc(CatchTree));
-}
-
 $Class* CatchTree::load$($String* name, bool initialize) {
-	$loadClass(CatchTree, name, initialize, &_CatchTree_ClassInfo_, allocate$CatchTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CatchTree, getBlock, $BlockTree*)},
+		{"getParameter", "()Lcom/sun/source/tree/VariableTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CatchTree, getParameter, $VariableTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.CatchTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CatchTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CatchTree);
+	});
 	return class$;
 }
 

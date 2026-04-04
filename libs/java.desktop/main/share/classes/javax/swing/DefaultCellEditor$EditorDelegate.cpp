@@ -1,5 +1,4 @@
 #include <javax/swing/DefaultCellEditor$EditorDelegate.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ItemEvent.h>
@@ -21,56 +20,6 @@ using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _DefaultCellEditor$EditorDelegate_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/DefaultCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$EditorDelegate, this$0)},
-	{"value", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(DefaultCellEditor$EditorDelegate, value)},
-	{}
-};
-
-$MethodInfo _DefaultCellEditor$EditorDelegate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/DefaultCellEditor;)V", nullptr, $PROTECTED, $method(DefaultCellEditor$EditorDelegate, init$, void, $DefaultCellEditor*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, actionPerformed, void, $ActionEvent*)},
-	{"cancelCellEditing", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, cancelCellEditing, void)},
-	{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, getCellEditorValue, $Object*)},
-	{"isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, isCellEditable, bool, $EventObject*)},
-	{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, itemStateChanged, void, $ItemEvent*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, setValue, void, Object$*)},
-	{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, shouldSelectCell, bool, $EventObject*)},
-	{"startCellEditing", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, startCellEditing, bool, $EventObject*)},
-	{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, stopCellEditing, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DefaultCellEditor$EditorDelegate_InnerClassesInfo_[] = {
-	{"javax.swing.DefaultCellEditor$EditorDelegate", "javax.swing.DefaultCellEditor", "EditorDelegate", $PROTECTED},
-	{}
-};
-
-$ClassInfo _DefaultCellEditor$EditorDelegate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.DefaultCellEditor$EditorDelegate",
-	"java.lang.Object",
-	"java.awt.event.ActionListener,java.awt.event.ItemListener,java.io.Serializable",
-	_DefaultCellEditor$EditorDelegate_FieldInfo_,
-	_DefaultCellEditor$EditorDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultCellEditor$EditorDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.DefaultCellEditor"
-};
-
-$Object* allocate$DefaultCellEditor$EditorDelegate($Class* clazz) {
-	return $of($alloc(DefaultCellEditor$EditorDelegate));
-}
 
 int32_t DefaultCellEditor$EditorDelegate::hashCode() {
 	 return this->$ActionListener::hashCode();
@@ -97,7 +46,7 @@ void DefaultCellEditor$EditorDelegate::init$($DefaultCellEditor* this$0) {
 }
 
 $Object* DefaultCellEditor$EditorDelegate::getCellEditorValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 void DefaultCellEditor$EditorDelegate::setValue(Object$* value) {
@@ -106,7 +55,7 @@ void DefaultCellEditor$EditorDelegate::setValue(Object$* value) {
 
 bool DefaultCellEditor$EditorDelegate::isCellEditable($EventObject* anEvent) {
 	if ($instanceOf($MouseEvent, anEvent)) {
-		return $nc(($cast($MouseEvent, anEvent)))->getClickCount() >= this->this$0->clickCountToStart;
+		return $cast($MouseEvent, anEvent)->getClickCount() >= this->this$0->clickCountToStart;
 	}
 	return true;
 }
@@ -140,7 +89,51 @@ DefaultCellEditor$EditorDelegate::DefaultCellEditor$EditorDelegate() {
 }
 
 $Class* DefaultCellEditor$EditorDelegate::load$($String* name, bool initialize) {
-	$loadClass(DefaultCellEditor$EditorDelegate, name, initialize, &_DefaultCellEditor$EditorDelegate_ClassInfo_, allocate$DefaultCellEditor$EditorDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/DefaultCellEditor;", nullptr, $FINAL | $SYNTHETIC, $field(DefaultCellEditor$EditorDelegate, this$0)},
+		{"value", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(DefaultCellEditor$EditorDelegate, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/DefaultCellEditor;)V", nullptr, $PROTECTED, $method(DefaultCellEditor$EditorDelegate, init$, void, $DefaultCellEditor*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, actionPerformed, void, $ActionEvent*)},
+		{"cancelCellEditing", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, cancelCellEditing, void)},
+		{"getCellEditorValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, getCellEditorValue, $Object*)},
+		{"isCellEditable", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, isCellEditable, bool, $EventObject*)},
+		{"itemStateChanged", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, itemStateChanged, void, $ItemEvent*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, setValue, void, Object$*)},
+		{"shouldSelectCell", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, shouldSelectCell, bool, $EventObject*)},
+		{"startCellEditing", "(Ljava/util/EventObject;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, startCellEditing, bool, $EventObject*)},
+		{"stopCellEditing", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultCellEditor$EditorDelegate, stopCellEditing, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.DefaultCellEditor$EditorDelegate", "javax.swing.DefaultCellEditor", "EditorDelegate", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.DefaultCellEditor$EditorDelegate",
+		"java.lang.Object",
+		"java.awt.event.ActionListener,java.awt.event.ItemListener,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.DefaultCellEditor"
+	};
+	$loadClass(DefaultCellEditor$EditorDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultCellEditor$EditorDelegate));
+	});
 	return class$;
 }
 

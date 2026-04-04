@@ -22,10 +22,13 @@ class $import ClientCodeException : public ::java::lang::RuntimeException {
 public:
 	ClientCodeException();
 	void init$($Throwable* cause);
-	static const int64_t serialVersionUID = (int64_t)0xB140256640399E45;
+	static const int64_t serialVersionUID = (int64_t)0xb140256640399e45;
 	ClientCodeException(const ClientCodeException& e);
 	virtual void throw$() override;
-	inline ClientCodeException* operator ->() {
+	inline ClientCodeException* operator ->() const {
+		return (ClientCodeException*)throwing$;
+	}
+	inline operator ClientCodeException*() const {
 		return (ClientCodeException*)throwing$;
 	}
 };

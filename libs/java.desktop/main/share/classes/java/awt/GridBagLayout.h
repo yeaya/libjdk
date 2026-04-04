@@ -92,7 +92,7 @@ public:
 	$doubles* rowWeights = nullptr;
 	::java::awt::Component* componentAdjusting = nullptr;
 	bool rightToLeft = false;
-	static const int64_t serialVersionUID = (int64_t)0x7AA990A858EE0F3D;
+	static const int64_t serialVersionUID = (int64_t)0x7aa990a858ee0f3d;
 };
 
 	} // awt

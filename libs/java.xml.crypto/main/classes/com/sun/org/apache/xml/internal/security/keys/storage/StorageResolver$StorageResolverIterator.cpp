@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolver$StorageResolverIterator.h>
-
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolver.h>
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -28,46 +27,6 @@ namespace com {
 							namespace keys {
 								namespace storage {
 
-$FieldInfo _StorageResolver$StorageResolverIterator_FieldInfo_[] = {
-	{"resolvers", "Ljava/util/Iterator;", "Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;>;", $PRIVATE | $FINAL, $field(StorageResolver$StorageResolverIterator, resolvers)},
-	{"currentResolver", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PRIVATE, $field(StorageResolver$StorageResolverIterator, currentResolver)},
-	{}
-};
-
-$MethodInfo _StorageResolver$StorageResolverIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;>;)V", $PUBLIC, $method(StorageResolver$StorageResolverIterator, init$, void, $Iterator*)},
-	{"findNextResolver", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PRIVATE, $method(StorageResolver$StorageResolverIterator, findNextResolver, $Iterator*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, hasNext, bool)},
-	{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _StorageResolver$StorageResolverIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolver$StorageResolverIterator", "com.sun.org.apache.xml.internal.security.keys.storage.StorageResolver", "StorageResolverIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _StorageResolver$StorageResolverIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolver$StorageResolverIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_StorageResolver$StorageResolverIterator_FieldInfo_,
-	_StorageResolver$StorageResolverIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/security/cert/Certificate;>;",
-	nullptr,
-	_StorageResolver$StorageResolverIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolver"
-};
-
-$Object* allocate$StorageResolver$StorageResolverIterator($Class* clazz) {
-	return $of($alloc(StorageResolver$StorageResolverIterator));
-}
-
 void StorageResolver$StorageResolverIterator::init$($Iterator* resolvers) {
 	$set(this, resolvers, resolvers);
 	$set(this, currentResolver, findNextResolver());
@@ -86,7 +45,7 @@ bool StorageResolver$StorageResolverIterator::hasNext() {
 
 $Object* StorageResolver$StorageResolverIterator::next() {
 	if (hasNext()) {
-		return $of($cast($Certificate, $nc(this->currentResolver)->next()));
+		return $cast($Certificate, $nc(this->currentResolver)->next());
 	}
 	$throwNew($NoSuchElementException);
 }
@@ -96,9 +55,9 @@ void StorageResolver$StorageResolverIterator::remove() {
 }
 
 $Iterator* StorageResolver$StorageResolverIterator::findNextResolver() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while ($nc(this->resolvers)->hasNext()) {
-		$var($StorageResolverSpi, resolverSpi, $cast($StorageResolverSpi, $nc(this->resolvers)->next()));
+		$var($StorageResolverSpi, resolverSpi, $cast($StorageResolverSpi, this->resolvers->next()));
 		$var($Iterator, iter, $nc(resolverSpi)->getIterator());
 		if ($nc(iter)->hasNext()) {
 			return iter;
@@ -111,7 +70,41 @@ StorageResolver$StorageResolverIterator::StorageResolver$StorageResolverIterator
 }
 
 $Class* StorageResolver$StorageResolverIterator::load$($String* name, bool initialize) {
-	$loadClass(StorageResolver$StorageResolverIterator, name, initialize, &_StorageResolver$StorageResolverIterator_ClassInfo_, allocate$StorageResolver$StorageResolverIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"resolvers", "Ljava/util/Iterator;", "Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;>;", $PRIVATE | $FINAL, $field(StorageResolver$StorageResolverIterator, resolvers)},
+		{"currentResolver", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PRIVATE, $field(StorageResolver$StorageResolverIterator, currentResolver)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Iterator;)V", "(Ljava/util/Iterator<Lcom/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi;>;)V", $PUBLIC, $method(StorageResolver$StorageResolverIterator, init$, void, $Iterator*)},
+		{"findNextResolver", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljava/security/cert/Certificate;>;", $PRIVATE, $method(StorageResolver$StorageResolverIterator, findNextResolver, $Iterator*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, hasNext, bool)},
+		{"next", "()Ljava/security/cert/Certificate;", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(StorageResolver$StorageResolverIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolver$StorageResolverIterator", "com.sun.org.apache.xml.internal.security.keys.storage.StorageResolver", "StorageResolverIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolver$StorageResolverIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/security/cert/Certificate;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.keys.storage.StorageResolver"
+	};
+	$loadClass(StorageResolver$StorageResolverIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StorageResolver$StorageResolverIterator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/PopupFactory$HeavyWeightPopup.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowListener.h>
@@ -22,7 +21,6 @@
 using $ComponentArray = $Array<::java::awt::Component>;
 using $Component = ::java::awt::Component;
 using $Window = ::java::awt::Window;
-using $WindowListener = ::java::awt::event::WindowListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -44,51 +42,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _PopupFactory$HeavyWeightPopup_FieldInfo_[] = {
-	{"heavyWeightPopupCacheKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PopupFactory$HeavyWeightPopup, heavyWeightPopupCacheKey)},
-	{"isCacheEnabled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PopupFactory$HeavyWeightPopup, isCacheEnabled)},
-	{}
-};
-
-$MethodInfo _PopupFactory$HeavyWeightPopup_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(PopupFactory$HeavyWeightPopup, init$, void)},
-	{"_dispose", "()V", nullptr, 0, $virtualMethod(PopupFactory$HeavyWeightPopup, _dispose, void)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(PopupFactory$HeavyWeightPopup, dispose, void)},
-	{"getHeavyWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $STATIC, $staticMethod(PopupFactory$HeavyWeightPopup, getHeavyWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
-	{"getHeavyWeightPopupCache", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/Window;Ljava/util/List<Ljavax/swing/PopupFactory$HeavyWeightPopup;>;>;", $PRIVATE | $STATIC, $staticMethod(PopupFactory$HeavyWeightPopup, getHeavyWeightPopupCache, $Map*)},
-	{"getRecycledHeavyWeightPopup", "(Ljava/awt/Window;)Ljavax/swing/PopupFactory$HeavyWeightPopup;", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupFactory$HeavyWeightPopup, getRecycledHeavyWeightPopup, PopupFactory$HeavyWeightPopup*, $Window*)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$HeavyWeightPopup, hide, void)},
-	{"recycleHeavyWeightPopup", "(Ljavax/swing/PopupFactory$HeavyWeightPopup;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupFactory$HeavyWeightPopup, recycleHeavyWeightPopup, void, PopupFactory$HeavyWeightPopup*)},
-	{"setCacheEnabled", "(Z)V", nullptr, 0, $virtualMethod(PopupFactory$HeavyWeightPopup, setCacheEnabled, void, bool)},
-	{}
-};
-
-$InnerClassInfo _PopupFactory$HeavyWeightPopup_InnerClassesInfo_[] = {
-	{"javax.swing.PopupFactory$HeavyWeightPopup", "javax.swing.PopupFactory", "HeavyWeightPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$HeavyWeightPopup$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PopupFactory$HeavyWeightPopup_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.PopupFactory$HeavyWeightPopup",
-	"javax.swing.Popup",
-	nullptr,
-	_PopupFactory$HeavyWeightPopup_FieldInfo_,
-	_PopupFactory$HeavyWeightPopup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupFactory$HeavyWeightPopup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.PopupFactory"
-};
-
-$Object* allocate$PopupFactory$HeavyWeightPopup($Class* clazz) {
-	return $of($alloc(PopupFactory$HeavyWeightPopup));
-}
-
 $Object* PopupFactory$HeavyWeightPopup::heavyWeightPopupCacheKey = nullptr;
 
 void PopupFactory$HeavyWeightPopup::init$() {
@@ -98,7 +51,7 @@ void PopupFactory$HeavyWeightPopup::init$() {
 
 $Popup* PopupFactory$HeavyWeightPopup::getHeavyWeightPopup($Component* owner, $Component* contents, int32_t ownerX, int32_t ownerY) {
 	$init(PopupFactory$HeavyWeightPopup);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, window, (owner != nullptr) ? $SwingUtilities::getWindowAncestor(owner) : ($Window*)nullptr);
 	$var(PopupFactory$HeavyWeightPopup, popup, nullptr);
 	if (window != nullptr) {
@@ -111,21 +64,17 @@ $Popup* PopupFactory$HeavyWeightPopup::getHeavyWeightPopup($Component* owner, $C
 			$var($ComponentArray, popComps, jpm->getComponents());
 			{
 				$var($ComponentArray, arr$, popComps);
-				int32_t len$ = $nc(arr$)->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
+				for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 					$var($Component, popComp, arr$->get(i$));
-					{
-						if (!($instanceOf($MenuElement, popComp)) && !($instanceOf($JSeparator, popComp))) {
-							focusPopup = true;
-							break;
-						}
+					if (!($instanceOf($MenuElement, popComp)) && !($instanceOf($JSeparator, popComp))) {
+						focusPopup = true;
+						break;
 					}
 				}
 			}
 		}
 	}
-	if (popup == nullptr || $nc(($cast($JWindow, $($nc(popup)->getComponent()))))->getFocusableWindowState() != focusPopup) {
+	if (popup == nullptr || $$sure($JWindow, popup->getComponent())->getFocusableWindowState() != focusPopup) {
 		if (popup != nullptr) {
 			popup->_dispose();
 		}
@@ -142,7 +91,7 @@ $Popup* PopupFactory$HeavyWeightPopup::getHeavyWeightPopup($Component* owner, $C
 
 PopupFactory$HeavyWeightPopup* PopupFactory$HeavyWeightPopup::getRecycledHeavyWeightPopup($Window* w) {
 	$init(PopupFactory$HeavyWeightPopup);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(PopupFactory$HeavyWeightPopup::class$) {
 		$var($List, cache, nullptr);
 		$var($Map, heavyPopupCache, getHeavyWeightPopupCache());
@@ -174,13 +123,13 @@ $Map* PopupFactory$HeavyWeightPopup::getHeavyWeightPopupCache() {
 
 void PopupFactory$HeavyWeightPopup::recycleHeavyWeightPopup(PopupFactory$HeavyWeightPopup* popup) {
 	$init(PopupFactory$HeavyWeightPopup);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(PopupFactory$HeavyWeightPopup::class$) {
 		$var($List, cache, nullptr);
 		$var($Window, window, $SwingUtilities::getWindowAncestor($($nc(popup)->getComponent())));
 		$var($Map, heavyPopupCache, getHeavyWeightPopupCache());
 		if ($instanceOf($Popup$DefaultFrame, window) || !$nc(window)->isVisible()) {
-			$nc(popup)->_dispose();
+			popup->_dispose();
 			return;
 		} else if ($nc(heavyPopupCache)->containsKey(window)) {
 			$assign(cache, $cast($List, heavyPopupCache->get(window)));
@@ -188,12 +137,12 @@ void PopupFactory$HeavyWeightPopup::recycleHeavyWeightPopup(PopupFactory$HeavyWe
 			$assign(cache, $new($ArrayList));
 			heavyPopupCache->put(window, cache);
 			$var($Window, w, window);
-			w->addWindowListener($$new($PopupFactory$HeavyWeightPopup$1, w));
+			$nc(w)->addWindowListener($$new($PopupFactory$HeavyWeightPopup$1, w));
 		}
 		if ($nc(cache)->size() < 5) {
 			cache->add(popup);
 		} else {
-			$nc(popup)->_dispose();
+			popup->_dispose();
 		}
 	}
 }
@@ -218,7 +167,7 @@ void PopupFactory$HeavyWeightPopup::_dispose() {
 	$Popup::dispose();
 }
 
-void clinit$PopupFactory$HeavyWeightPopup($Class* class$) {
+void PopupFactory$HeavyWeightPopup::clinit$($Class* clazz) {
 	$assignStatic(PopupFactory$HeavyWeightPopup::heavyWeightPopupCacheKey, $new($StringBuffer, "PopupFactory.heavyWeightPopupCache"_s));
 }
 
@@ -226,7 +175,46 @@ PopupFactory$HeavyWeightPopup::PopupFactory$HeavyWeightPopup() {
 }
 
 $Class* PopupFactory$HeavyWeightPopup::load$($String* name, bool initialize) {
-	$loadClass(PopupFactory$HeavyWeightPopup, name, initialize, &_PopupFactory$HeavyWeightPopup_ClassInfo_, clinit$PopupFactory$HeavyWeightPopup, allocate$PopupFactory$HeavyWeightPopup);
+	$FieldInfo fieldInfos$$[] = {
+		{"heavyWeightPopupCacheKey", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PopupFactory$HeavyWeightPopup, heavyWeightPopupCacheKey)},
+		{"isCacheEnabled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(PopupFactory$HeavyWeightPopup, isCacheEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(PopupFactory$HeavyWeightPopup, init$, void)},
+		{"_dispose", "()V", nullptr, 0, $virtualMethod(PopupFactory$HeavyWeightPopup, _dispose, void)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(PopupFactory$HeavyWeightPopup, dispose, void)},
+		{"getHeavyWeightPopup", "(Ljava/awt/Component;Ljava/awt/Component;II)Ljavax/swing/Popup;", nullptr, $STATIC, $staticMethod(PopupFactory$HeavyWeightPopup, getHeavyWeightPopup, $Popup*, $Component*, $Component*, int32_t, int32_t)},
+		{"getHeavyWeightPopupCache", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/awt/Window;Ljava/util/List<Ljavax/swing/PopupFactory$HeavyWeightPopup;>;>;", $PRIVATE | $STATIC, $staticMethod(PopupFactory$HeavyWeightPopup, getHeavyWeightPopupCache, $Map*)},
+		{"getRecycledHeavyWeightPopup", "(Ljava/awt/Window;)Ljavax/swing/PopupFactory$HeavyWeightPopup;", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupFactory$HeavyWeightPopup, getRecycledHeavyWeightPopup, PopupFactory$HeavyWeightPopup*, $Window*)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(PopupFactory$HeavyWeightPopup, hide, void)},
+		{"recycleHeavyWeightPopup", "(Ljavax/swing/PopupFactory$HeavyWeightPopup;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(PopupFactory$HeavyWeightPopup, recycleHeavyWeightPopup, void, PopupFactory$HeavyWeightPopup*)},
+		{"setCacheEnabled", "(Z)V", nullptr, 0, $virtualMethod(PopupFactory$HeavyWeightPopup, setCacheEnabled, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.PopupFactory$HeavyWeightPopup", "javax.swing.PopupFactory", "HeavyWeightPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$HeavyWeightPopup$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.PopupFactory$HeavyWeightPopup",
+		"javax.swing.Popup",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.PopupFactory"
+	};
+	$loadClass(PopupFactory$HeavyWeightPopup, name, initialize, &classInfo$$, PopupFactory$HeavyWeightPopup::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupFactory$HeavyWeightPopup);
+	});
 	return class$;
 }
 

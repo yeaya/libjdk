@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/res/XSLMessages.h>
-
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
 #include <com/sun/org/apache/xpath/internal/res/XPATHMessages.h>
 #include <java/util/ResourceBundle.h>
@@ -22,32 +21,6 @@ namespace com {
 				namespace xalan {
 					namespace internal {
 						namespace res {
-
-$FieldInfo _XSLMessages_FieldInfo_[] = {
-	{"XSLTBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(XSLMessages, XSLTBundle)},
-	{"XSLT_ERROR_RESOURCES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSLMessages, XSLT_ERROR_RESOURCES)},
-	{}
-};
-
-$MethodInfo _XSLMessages_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSLMessages, init$, void)},
-	{"createMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSLMessages, createMessage, $String*, $String*, $ObjectArray*)},
-	{"createWarning", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSLMessages, createWarning, $String*, $String*, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _XSLMessages_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.res.XSLMessages",
-	"com.sun.org.apache.xpath.internal.res.XPATHMessages",
-	nullptr,
-	_XSLMessages_FieldInfo_,
-	_XSLMessages_MethodInfo_
-};
-
-$Object* allocate$XSLMessages($Class* clazz) {
-	return $of($alloc(XSLMessages));
-}
 
 $ResourceBundle* XSLMessages::XSLTBundle = nullptr;
 $String* XSLMessages::XSLT_ERROR_RESOURCES = nullptr;
@@ -80,7 +53,7 @@ $String* XSLMessages::createWarning($String* msgKey, $ObjectArray* args) {
 	}
 }
 
-void clinit$XSLMessages($Class* class$) {
+void XSLMessages::clinit$($Class* clazz) {
 	$assignStatic(XSLMessages::XSLT_ERROR_RESOURCES, "com.sun.org.apache.xalan.internal.res.XSLTErrorResources"_s);
 	$assignStatic(XSLMessages::XSLTBundle, nullptr);
 }
@@ -89,7 +62,28 @@ XSLMessages::XSLMessages() {
 }
 
 $Class* XSLMessages::load$($String* name, bool initialize) {
-	$loadClass(XSLMessages, name, initialize, &_XSLMessages_ClassInfo_, clinit$XSLMessages, allocate$XSLMessages);
+	$FieldInfo fieldInfos$$[] = {
+		{"XSLTBundle", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(XSLMessages, XSLTBundle)},
+		{"XSLT_ERROR_RESOURCES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XSLMessages, XSLT_ERROR_RESOURCES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSLMessages, init$, void)},
+		{"createMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSLMessages, createMessage, $String*, $String*, $ObjectArray*)},
+		{"createWarning", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSLMessages, createWarning, $String*, $String*, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.res.XSLMessages",
+		"com.sun.org.apache.xpath.internal.res.XPATHMessages",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSLMessages, name, initialize, &classInfo$$, XSLMessages::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSLMessages);
+	});
 	return class$;
 }
 

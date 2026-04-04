@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/ReferenceParser$ParseException.h>
-
 #include <com/sun/tools/javac/parser/ReferenceParser.h>
 #include <jcpp.h>
 
@@ -14,41 +13,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _ReferenceParser$ParseException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReferenceParser$ParseException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _ReferenceParser$ParseException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ReferenceParser$ParseException, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _ReferenceParser$ParseException_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.ReferenceParser$ParseException", "com.sun.tools.javac.parser.ReferenceParser", "ParseException", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ReferenceParser$ParseException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.parser.ReferenceParser$ParseException",
-	"java.lang.Exception",
-	nullptr,
-	_ReferenceParser$ParseException_FieldInfo_,
-	_ReferenceParser$ParseException_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ReferenceParser$ParseException_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.ReferenceParser"
-};
-
-$Object* allocate$ReferenceParser$ParseException($Class* clazz) {
-	return $of($alloc(ReferenceParser$ParseException));
-}
 
 void ReferenceParser$ParseException::init$($String* message) {
 	$Exception::init$(message);
@@ -65,7 +29,36 @@ void ReferenceParser$ParseException::throw$() {
 }
 
 $Class* ReferenceParser$ParseException::load$($String* name, bool initialize) {
-	$loadClass(ReferenceParser$ParseException, name, initialize, &_ReferenceParser$ParseException_ClassInfo_, allocate$ReferenceParser$ParseException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ReferenceParser$ParseException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(ReferenceParser$ParseException, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.ReferenceParser$ParseException", "com.sun.tools.javac.parser.ReferenceParser", "ParseException", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.parser.ReferenceParser$ParseException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.ReferenceParser"
+	};
+	$loadClass(ReferenceParser$ParseException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ReferenceParser$ParseException);
+	});
 	return class$;
 }
 

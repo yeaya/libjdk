@@ -1,9 +1,7 @@
 #include <java/awt/DefaultKeyboardFocusManager.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Component.h>
-#include <java/awt/Conditional.h>
 #include <java/awt/Container.h>
 #include <java/awt/DefaultKeyboardFocusManager$1.h>
 #include <java/awt/DefaultKeyboardFocusManager$2.h>
@@ -31,14 +29,12 @@
 #include <java/lang/InterruptedException.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <java/util/ListIterator.h>
 #include <java/util/Set.h>
-#include <sun/awt/AWTAccessor$DefaultKeyboardFocusManagerAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/SunToolkit.h>
@@ -73,7 +69,6 @@
 using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
 using $Component = ::java::awt::Component;
-using $Conditional = ::java::awt::Conditional;
 using $Container = ::java::awt::Container;
 using $DefaultKeyboardFocusManager$1 = ::java::awt::DefaultKeyboardFocusManager$1;
 using $DefaultKeyboardFocusManager$2 = ::java::awt::DefaultKeyboardFocusManager$2;
@@ -84,7 +79,6 @@ using $DefaultKeyboardFocusManager$TypeAheadMarker = ::java::awt::DefaultKeyboar
 using $Dialog = ::java::awt::Dialog;
 using $EventDispatchThread = ::java::awt::EventDispatchThread;
 using $EventQueue = ::java::awt::EventQueue;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Frame = ::java::awt::Frame;
 using $KeyEventDispatcher = ::java::awt::KeyEventDispatcher;
 using $KeyEventPostProcessor = ::java::awt::KeyEventPostProcessor;
@@ -106,14 +100,12 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $ListIterator = ::java::util::ListIterator;
 using $Set = ::java::util::Set;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$DefaultKeyboardFocusManagerAccessor = ::sun::awt::AWTAccessor$DefaultKeyboardFocusManagerAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $TimedWindowEvent = ::sun::awt::TimedWindowEvent;
@@ -123,85 +115,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace java {
 	namespace awt {
 
-$FieldInfo _DefaultKeyboardFocusManager_FieldInfo_[] = {
-	{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultKeyboardFocusManager, focusLog)},
-	{"NULL_WINDOW_WR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultKeyboardFocusManager, NULL_WINDOW_WR)},
-	{"NULL_COMPONENT_WR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultKeyboardFocusManager, NULL_COMPONENT_WR)},
-	{"realOppositeWindowWR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;", $PRIVATE, $field(DefaultKeyboardFocusManager, realOppositeWindowWR)},
-	{"realOppositeComponentWR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE, $field(DefaultKeyboardFocusManager, realOppositeComponentWR)},
-	{"inSendMessage", "I", nullptr, $PRIVATE, $field(DefaultKeyboardFocusManager, inSendMessage)},
-	{"enqueuedKeyEvents", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/awt/event/KeyEvent;>;", $PRIVATE, $field(DefaultKeyboardFocusManager, enqueuedKeyEvents)},
-	{"typeAheadMarkers", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/awt/DefaultKeyboardFocusManager$TypeAheadMarker;>;", $PRIVATE, $field(DefaultKeyboardFocusManager, typeAheadMarkers)},
-	{"consumeNextKeyTyped", "Z", nullptr, $PRIVATE, $field(DefaultKeyboardFocusManager, consumeNextKeyTyped$)},
-	{"restoreFocusTo", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(DefaultKeyboardFocusManager, restoreFocusTo)},
-	{"fxAppThreadIsDispatchThread", "Z", nullptr, $PRIVATE | $STATIC, $staticField(DefaultKeyboardFocusManager, fxAppThreadIsDispatchThread)},
-	{}
-};
-
-$MethodInfo _DefaultKeyboardFocusManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultKeyboardFocusManager, init$, void)},
-	{"clearMarkers", "()V", nullptr, 0, $virtualMethod(DefaultKeyboardFocusManager, clearMarkers, void)},
-	{"consumeNextKeyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, consumeNextKeyTyped, void, $KeyEvent*)},
-	{"consumeProcessedKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, consumeProcessedKeyEvent, bool, $KeyEvent*)},
-	{"consumeTraversalKey", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, consumeTraversalKey, void, $KeyEvent*)},
-	{"dequeueKeyEvents", "(JLjava/awt/Component;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(DefaultKeyboardFocusManager, dequeueKeyEvents, void, int64_t, $Component*)},
-	{"discardKeyEvents", "(Ljava/awt/Component;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(DefaultKeyboardFocusManager, discardKeyEvents, void, $Component*)},
-	{"dispatchEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, dispatchEvent, bool, $AWTEvent*)},
-	{"dispatchKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, dispatchKeyEvent, bool, $KeyEvent*)},
-	{"doRestoreFocus", "(Ljava/awt/Component;Ljava/awt/Component;Z)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, doRestoreFocus, bool, $Component*, $Component*, bool)},
-	{"downFocusCycle", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, downFocusCycle, void, $Container*)},
-	{"dumpMarkers", "()V", nullptr, 0, $virtualMethod(DefaultKeyboardFocusManager, dumpMarkers, void)},
-	{"enqueueKeyEvents", "(JLjava/awt/Component;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(DefaultKeyboardFocusManager, enqueueKeyEvents, void, int64_t, $Component*)},
-	{"focusNextComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, focusNextComponent, void, $Component*)},
-	{"focusPreviousComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, focusPreviousComponent, void, $Component*)},
-	{"getOwningFrameDialog", "(Ljava/awt/Window;)Ljava/awt/Window;", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, getOwningFrameDialog, $Window*, $Window*)},
-	{"hasMarker", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, hasMarker, bool, $Component*)},
-	{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultKeyboardFocusManager, initStatic, void)},
-	{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, postProcessKeyEvent, bool, $KeyEvent*)},
-	{"preDispatchKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, preDispatchKeyEvent, bool, $KeyEvent*)},
-	{"processKeyEvent", "(Ljava/awt/Component;Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, processKeyEvent, void, $Component*, $KeyEvent*)},
-	{"pumpApprovedKeyEvents", "()V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, pumpApprovedKeyEvents, void)},
-	{"purgeStampedEvents", "(JJ)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, purgeStampedEvents, void, int64_t, int64_t)},
-	{"repostIfFollowsKeyEvents", "(Ljava/awt/event/WindowEvent;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, repostIfFollowsKeyEvents, bool, $WindowEvent*)},
-	{"restoreFocus", "(Ljava/awt/event/FocusEvent;Ljava/awt/Window;)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, restoreFocus, void, $FocusEvent*, $Window*)},
-	{"restoreFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, restoreFocus, void, $WindowEvent*)},
-	{"restoreFocus", "(Ljava/awt/Window;Ljava/awt/Component;Z)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, restoreFocus, bool, $Window*, $Component*, bool)},
-	{"restoreFocus", "(Ljava/awt/Component;Z)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, restoreFocus, bool, $Component*, bool)},
-	{"sendMessage", "(Ljava/awt/Component;Ljava/awt/AWTEvent;)Z", nullptr, $STATIC, $staticMethod(DefaultKeyboardFocusManager, sendMessage, bool, $Component*, $AWTEvent*)},
-	{"typeAheadAssertions", "(Ljava/awt/Component;Ljava/awt/AWTEvent;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, typeAheadAssertions, bool, $Component*, $AWTEvent*)},
-	{"upFocusCycle", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, upFocusCycle, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _DefaultKeyboardFocusManager_InnerClassesInfo_[] = {
-	{"java.awt.DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent", "java.awt.DefaultKeyboardFocusManager", "DefaultKeyboardFocusManagerSentEvent", $PRIVATE | $STATIC},
-	{"java.awt.DefaultKeyboardFocusManager$TypeAheadMarker", "java.awt.DefaultKeyboardFocusManager", "TypeAheadMarker", $PRIVATE | $STATIC},
-	{"java.awt.DefaultKeyboardFocusManager$4", nullptr, nullptr, 0},
-	{"java.awt.DefaultKeyboardFocusManager$3", nullptr, nullptr, 0},
-	{"java.awt.DefaultKeyboardFocusManager$2", nullptr, nullptr, 0},
-	{"java.awt.DefaultKeyboardFocusManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DefaultKeyboardFocusManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.DefaultKeyboardFocusManager",
-	"java.awt.KeyboardFocusManager",
-	nullptr,
-	_DefaultKeyboardFocusManager_FieldInfo_,
-	_DefaultKeyboardFocusManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultKeyboardFocusManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent,java.awt.DefaultKeyboardFocusManager$TypeAheadMarker,java.awt.DefaultKeyboardFocusManager$4,java.awt.DefaultKeyboardFocusManager$3,java.awt.DefaultKeyboardFocusManager$2,java.awt.DefaultKeyboardFocusManager$1"
-};
-
-$Object* allocate$DefaultKeyboardFocusManager($Class* clazz) {
-	return $of($alloc(DefaultKeyboardFocusManager));
-}
-
 $PlatformLogger* DefaultKeyboardFocusManager::focusLog = nullptr;
 $WeakReference* DefaultKeyboardFocusManager::NULL_WINDOW_WR = nullptr;
 $WeakReference* DefaultKeyboardFocusManager::NULL_COMPONENT_WR = nullptr;
@@ -209,10 +122,10 @@ bool DefaultKeyboardFocusManager::fxAppThreadIsDispatchThread = false;
 
 void DefaultKeyboardFocusManager::initStatic() {
 	$init(DefaultKeyboardFocusManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$AWTAccessor::setDefaultKeyboardFocusManagerAccessor($$new($DefaultKeyboardFocusManager$1));
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DefaultKeyboardFocusManager$2)));
+	$AccessController::doPrivileged($$new($DefaultKeyboardFocusManager$2));
 }
 
 void DefaultKeyboardFocusManager::init$() {
@@ -226,20 +139,20 @@ void DefaultKeyboardFocusManager::init$() {
 $Window* DefaultKeyboardFocusManager::getOwningFrameDialog($Window* window$renamed) {
 	$var($Window, window, window$renamed);
 	while (window != nullptr && !($instanceOf($Frame, window) || $instanceOf($Dialog, window))) {
-		$assign(window, $cast($Window, $nc(window)->getParent()));
+		$assign(window, $cast($Window, window->getParent()));
 	}
 	return window;
 }
 
 void DefaultKeyboardFocusManager::restoreFocus($FocusEvent* fe, $Window* newFocusedWindow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, realOppositeComponent, $cast($Component, $nc(this->realOppositeComponentWR)->get()));
 	$var($Component, vetoedComponent, $nc(fe)->getComponent());
 	if (newFocusedWindow != nullptr && restoreFocus(newFocusedWindow, vetoedComponent, false)) {
 	} else if (realOppositeComponent != nullptr && doRestoreFocus(realOppositeComponent, vetoedComponent, false)) {
 	} else {
-		bool var$1 = fe->getOppositeComponent() != nullptr;
-		if (var$1 && doRestoreFocus($(fe->getOppositeComponent()), vetoedComponent, false)) {
+		bool var$0 = fe->getOppositeComponent() != nullptr;
+		if (var$0 && doRestoreFocus($(fe->getOppositeComponent()), vetoedComponent, false)) {
 		} else {
 			clearGlobalFocusOwnerPriv();
 		}
@@ -247,12 +160,12 @@ void DefaultKeyboardFocusManager::restoreFocus($FocusEvent* fe, $Window* newFocu
 }
 
 void DefaultKeyboardFocusManager::restoreFocus($WindowEvent* we) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Window, realOppositeWindow, $cast($Window, $nc(this->realOppositeWindowWR)->get()));
 	if (realOppositeWindow != nullptr && restoreFocus(realOppositeWindow, nullptr, false)) {
 	} else {
-		bool var$1 = $nc(we)->getOppositeWindow() != nullptr;
-		if (var$1 && restoreFocus($(we->getOppositeWindow()), nullptr, false)) {
+		bool var$0 = $nc(we)->getOppositeWindow() != nullptr;
+		if (var$0 && restoreFocus($(we->getOppositeWindow()), nullptr, false)) {
 		} else {
 			clearGlobalFocusOwnerPriv();
 		}
@@ -307,7 +220,7 @@ bool DefaultKeyboardFocusManager::doRestoreFocus($Component* toFocus, $Component
 			$set(this, restoreFocusTo, toFocus);
 			return true;
 		}
-		$var($Component, nextFocus, toFocus->getNextFocusCandidate());
+		$var($Component, nextFocus, $nc(toFocus)->getNextFocusCandidate());
 		if (nextFocus != nullptr && nextFocus != vetoedComponent && nextFocus->requestFocusInWindow($FocusEvent$Cause::ROLLBACK)) {
 			return true;
 		} else if (clearOnFailure) {
@@ -321,7 +234,7 @@ bool DefaultKeyboardFocusManager::doRestoreFocus($Component* toFocus, $Component
 
 bool DefaultKeyboardFocusManager::sendMessage($Component* target, $AWTEvent* e) {
 	$init(DefaultKeyboardFocusManager);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(e)->isPosted = true;
 	$var($AppContext, myAppContext, $AppContext::getAppContext());
 	$var($AppContext, targetAppContext, $nc(target)->appContext);
@@ -337,19 +250,17 @@ bool DefaultKeyboardFocusManager::sendMessage($Component* target, $AWTEvent* e) 
 			if ($instanceOf($EventDispatchThread, $($Thread::currentThread()))) {
 				$var($EventDispatchThread, edt, $cast($EventDispatchThread, $Thread::currentThread()));
 				edt->pumpEvents($SentEvent::ID, $$new($DefaultKeyboardFocusManager$3, se, targetAppContext));
-			} else {
-				if (DefaultKeyboardFocusManager::fxAppThreadIsDispatchThread) {
-					$var($Thread, fxCheckDispatchThread, $new($DefaultKeyboardFocusManager$4, se, targetAppContext));
-					fxCheckDispatchThread->start();
-					try {
-						fxCheckDispatchThread->join(500);
-					} catch ($InterruptedException& ex) {
-					}
+			} else if (DefaultKeyboardFocusManager::fxAppThreadIsDispatchThread) {
+				$var($Thread, fxCheckDispatchThread, $new($DefaultKeyboardFocusManager$4, se, targetAppContext));
+				fxCheckDispatchThread->start();
+				try {
+					fxCheckDispatchThread->join(500);
+				} catch ($InterruptedException& ex) {
 				}
 			}
 		} else {
 			$synchronized(se) {
-				while (!se->dispatched$ && !$nc(targetAppContext)->isDisposed()) {
+				while (!se->dispatched$ && !targetAppContext->isDisposed()) {
 					try {
 						$of(se)->wait(1000);
 					} catch ($InterruptedException& ie) {
@@ -363,16 +274,16 @@ bool DefaultKeyboardFocusManager::sendMessage($Component* target, $AWTEvent* e) 
 }
 
 bool DefaultKeyboardFocusManager::repostIfFollowsKeyEvents($WindowEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($TimedWindowEvent, e))) {
 		return false;
 	}
 	$var($TimedWindowEvent, we, $cast($TimedWindowEvent, e));
 	int64_t time = $nc(we)->getWhen();
 	$synchronized(this) {
-		$var($KeyEvent, ke, $nc(this->enqueuedKeyEvents)->isEmpty() ? ($KeyEvent*)nullptr : $cast($KeyEvent, $nc(this->enqueuedKeyEvents)->getFirst()));
+		$var($KeyEvent, ke, $nc(this->enqueuedKeyEvents)->isEmpty() ? ($KeyEvent*)nullptr : $cast($KeyEvent, this->enqueuedKeyEvents->getFirst()));
 		if (ke != nullptr && time >= ke->getWhen()) {
-			$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $nc(this->typeAheadMarkers)->isEmpty() ? ($DefaultKeyboardFocusManager$TypeAheadMarker*)nullptr : $cast($DefaultKeyboardFocusManager$TypeAheadMarker, $nc(this->typeAheadMarkers)->getFirst()));
+			$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $nc(this->typeAheadMarkers)->isEmpty() ? ($DefaultKeyboardFocusManager$TypeAheadMarker*)nullptr : $cast($DefaultKeyboardFocusManager$TypeAheadMarker, this->typeAheadMarkers->getFirst()));
 			if (marker != nullptr) {
 				$var($Window, toplevel, $nc(marker->untilFocused)->getContainingWindow());
 				if (toplevel != nullptr && toplevel->isFocused()) {
@@ -387,328 +298,306 @@ bool DefaultKeyboardFocusManager::repostIfFollowsKeyEvents($WindowEvent* e) {
 }
 
 bool DefaultKeyboardFocusManager::dispatchEvent($AWTEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINE) && ($instanceOf($WindowEvent, e) || $instanceOf($FocusEvent, e))) {
-		$nc(DefaultKeyboardFocusManager::focusLog)->fine($$str({""_s, e}));
+		DefaultKeyboardFocusManager::focusLog->fine($$str({""_s, e}));
 	}
 	switch ($nc(e)->getID()) {
 	case $WindowEvent::WINDOW_GAINED_FOCUS:
 		{
-			{
-				if (repostIfFollowsKeyEvents($cast($WindowEvent, e))) {
-					break;
-				}
-				$var($WindowEvent, we, $cast($WindowEvent, e));
-				$var($Window, oldFocusedWindow, getGlobalFocusedWindow());
-				$var($Window, newFocusedWindow, we->getWindow());
-				if (newFocusedWindow == oldFocusedWindow) {
-					break;
-				}
-				bool var$1 = $nc(newFocusedWindow)->isFocusableWindow();
-				bool var$0 = var$1 && newFocusedWindow->isVisible();
-				if (!(var$0 && newFocusedWindow->isDisplayable())) {
-					restoreFocus(we);
-					break;
-				}
-				if (oldFocusedWindow != nullptr) {
-					bool isEventDispatched = sendMessage(oldFocusedWindow, $$new($WindowEvent, oldFocusedWindow, $WindowEvent::WINDOW_LOST_FOCUS, newFocusedWindow));
-					if (!isEventDispatched) {
-						setGlobalFocusOwner(nullptr);
-						setGlobalFocusedWindow(nullptr);
-					}
-				}
-				$var($Window, newActiveWindow, getOwningFrameDialog(newFocusedWindow));
-				$var($Window, currentActiveWindow, getGlobalActiveWindow());
-				if (newActiveWindow != currentActiveWindow) {
-					sendMessage(newActiveWindow, $$new($WindowEvent, newActiveWindow, $WindowEvent::WINDOW_ACTIVATED, currentActiveWindow));
-					if (newActiveWindow != getGlobalActiveWindow()) {
-						restoreFocus(we);
-						break;
-					}
-				}
-				setGlobalFocusedWindow(newFocusedWindow);
-				if (newFocusedWindow != getGlobalFocusedWindow()) {
-					restoreFocus(we);
-					break;
-				}
-				if (this->inSendMessage == 0) {
-					$var($Component, toFocus, $KeyboardFocusManager::getMostRecentFocusOwner(newFocusedWindow));
-					bool isFocusRestore = this->restoreFocusTo != nullptr && toFocus == this->restoreFocusTo;
-					if ((toFocus == nullptr) && $nc(newFocusedWindow)->isFocusableWindow()) {
-						$assign(toFocus, $nc($(newFocusedWindow->getFocusTraversalPolicy()))->getInitialComponent(newFocusedWindow));
-					}
-					$var($Component, tempLost, nullptr);
-					$synchronized($KeyboardFocusManager::class$) {
-						$assign(tempLost, $nc(newFocusedWindow)->setTemporaryLostComponent(nullptr));
-					}
-					if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-						$nc(DefaultKeyboardFocusManager::focusLog)->finer("tempLost {0}, toFocus {1}"_s, $$new($ObjectArray, {
-							$of(tempLost),
-							$of(toFocus)
-						}));
-					}
-					if (tempLost != nullptr) {
-						$init($FocusEvent$Cause);
-						tempLost->requestFocusInWindow(isFocusRestore && tempLost == toFocus ? $FocusEvent$Cause::ROLLBACK : $FocusEvent$Cause::ACTIVATION);
-					}
-					if (toFocus != nullptr && toFocus != tempLost) {
-						$init($FocusEvent$Cause);
-						toFocus->requestFocusInWindow($FocusEvent$Cause::ACTIVATION);
-					}
-				}
-				$set(this, restoreFocusTo, nullptr);
-				$var($Window, realOppositeWindow, $cast($Window, $nc(this->realOppositeWindowWR)->get()));
-				if (realOppositeWindow != we->getOppositeWindow()) {
-					$assign(we, $new($WindowEvent, newFocusedWindow, $WindowEvent::WINDOW_GAINED_FOCUS, realOppositeWindow));
-				}
-				return typeAheadAssertions(newFocusedWindow, we);
+			if (repostIfFollowsKeyEvents($cast($WindowEvent, e))) {
+				break;
 			}
+			$var($WindowEvent, we, $cast($WindowEvent, e));
+			$var($Window, oldFocusedWindow, getGlobalFocusedWindow());
+			$var($Window, newFocusedWindow, we->getWindow());
+			if (newFocusedWindow == oldFocusedWindow) {
+				break;
+			}
+			bool var$1 = $nc(newFocusedWindow)->isFocusableWindow();
+			bool var$0 = var$1 && newFocusedWindow->isVisible();
+			if (!(var$0 && newFocusedWindow->isDisplayable())) {
+				restoreFocus(we);
+				break;
+			}
+			if (oldFocusedWindow != nullptr) {
+				bool isEventDispatched = sendMessage(oldFocusedWindow, $$new($WindowEvent, oldFocusedWindow, $WindowEvent::WINDOW_LOST_FOCUS, newFocusedWindow));
+				if (!isEventDispatched) {
+					setGlobalFocusOwner(nullptr);
+					setGlobalFocusedWindow(nullptr);
+				}
+			}
+			$var($Window, newActiveWindow, getOwningFrameDialog(newFocusedWindow));
+			$var($Window, currentActiveWindow, getGlobalActiveWindow());
+			if (newActiveWindow != currentActiveWindow) {
+				sendMessage(newActiveWindow, $$new($WindowEvent, newActiveWindow, $WindowEvent::WINDOW_ACTIVATED, currentActiveWindow));
+				if (newActiveWindow != getGlobalActiveWindow()) {
+					restoreFocus(we);
+					break;
+				}
+			}
+			setGlobalFocusedWindow(newFocusedWindow);
+			if (newFocusedWindow != getGlobalFocusedWindow()) {
+				restoreFocus(we);
+				break;
+			}
+			if (this->inSendMessage == 0) {
+				$var($Component, toFocus, $KeyboardFocusManager::getMostRecentFocusOwner(newFocusedWindow));
+				bool isFocusRestore = this->restoreFocusTo != nullptr && toFocus == this->restoreFocusTo;
+				if ((toFocus == nullptr) && newFocusedWindow->isFocusableWindow()) {
+					$assign(toFocus, $$nc(newFocusedWindow->getFocusTraversalPolicy())->getInitialComponent(newFocusedWindow));
+				}
+				$var($Component, tempLost, nullptr);
+				$synchronized($KeyboardFocusManager::class$) {
+					$assign(tempLost, newFocusedWindow->setTemporaryLostComponent(nullptr));
+				}
+				if (DefaultKeyboardFocusManager::focusLog->isLoggable($PlatformLogger$Level::FINER)) {
+					DefaultKeyboardFocusManager::focusLog->finer("tempLost {0}, toFocus {1}"_s, $$new($ObjectArray, {
+						tempLost,
+						toFocus
+					}));
+				}
+				if (tempLost != nullptr) {
+					$init($FocusEvent$Cause);
+					tempLost->requestFocusInWindow(isFocusRestore && tempLost == toFocus ? $FocusEvent$Cause::ROLLBACK : $FocusEvent$Cause::ACTIVATION);
+				}
+				if (toFocus != nullptr && toFocus != tempLost) {
+					$init($FocusEvent$Cause);
+					toFocus->requestFocusInWindow($FocusEvent$Cause::ACTIVATION);
+				}
+			}
+			$set(this, restoreFocusTo, nullptr);
+			$var($Window, realOppositeWindow, $cast($Window, $nc(this->realOppositeWindowWR)->get()));
+			if (realOppositeWindow != we->getOppositeWindow()) {
+				$assign(we, $new($WindowEvent, newFocusedWindow, $WindowEvent::WINDOW_GAINED_FOCUS, realOppositeWindow));
+			}
+			return typeAheadAssertions(newFocusedWindow, we);
 		}
 	case $WindowEvent::WINDOW_ACTIVATED:
 		{
-			{
-				$var($WindowEvent, we, $cast($WindowEvent, e));
-				$var($Window, oldActiveWindow, getGlobalActiveWindow());
-				$var($Window, newActiveWindow, we->getWindow());
-				if (oldActiveWindow == newActiveWindow) {
-					break;
-				}
-				if (oldActiveWindow != nullptr) {
-					bool isEventDispatched = sendMessage(oldActiveWindow, $$new($WindowEvent, oldActiveWindow, $WindowEvent::WINDOW_DEACTIVATED, newActiveWindow));
-					if (!isEventDispatched) {
-						setGlobalActiveWindow(nullptr);
-					}
-					if (getGlobalActiveWindow() != nullptr) {
-						break;
-					}
-				}
-				setGlobalActiveWindow(newActiveWindow);
-				if (newActiveWindow != getGlobalActiveWindow()) {
-					break;
-				}
-				return typeAheadAssertions(newActiveWindow, we);
+			$var($WindowEvent, we, $cast($WindowEvent, e));
+			$var($Window, oldActiveWindow, getGlobalActiveWindow());
+			$var($Window, newActiveWindow, we->getWindow());
+			if (oldActiveWindow == newActiveWindow) {
+				break;
 			}
+			if (oldActiveWindow != nullptr) {
+				bool isEventDispatched = sendMessage(oldActiveWindow, $$new($WindowEvent, oldActiveWindow, $WindowEvent::WINDOW_DEACTIVATED, newActiveWindow));
+				if (!isEventDispatched) {
+					setGlobalActiveWindow(nullptr);
+				}
+				if (getGlobalActiveWindow() != nullptr) {
+					break;
+				}
+			}
+			setGlobalActiveWindow(newActiveWindow);
+			if (newActiveWindow != getGlobalActiveWindow()) {
+				break;
+			}
+			return typeAheadAssertions(newActiveWindow, we);
 		}
 	case $FocusEvent::FOCUS_GAINED:
 		{
-			{
-				$set(this, restoreFocusTo, nullptr);
-				$var($FocusEvent, fe, $cast($FocusEvent, e));
-				$var($Component, oldFocusOwner, getGlobalFocusOwner());
-				$var($Component, newFocusOwner, fe->getComponent());
-				if (oldFocusOwner == newFocusOwner) {
-					if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-						$nc(DefaultKeyboardFocusManager::focusLog)->fine("Skipping {0} because focus owner is the same"_s, $$new($ObjectArray, {$of(e)}));
+			$set(this, restoreFocusTo, nullptr);
+			$var($FocusEvent, fe, $cast($FocusEvent, e));
+			$var($Component, oldFocusOwner, getGlobalFocusOwner());
+			$var($Component, newFocusOwner, fe->getComponent());
+			if (oldFocusOwner == newFocusOwner) {
+				if (DefaultKeyboardFocusManager::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+					DefaultKeyboardFocusManager::focusLog->fine("Skipping {0} because focus owner is the same"_s, $$new($ObjectArray, {e}));
+				}
+				dequeueKeyEvents(-1, newFocusOwner);
+				break;
+			}
+			if (oldFocusOwner != nullptr) {
+				bool var$2 = fe->isTemporary();
+				bool isEventDispatched = sendMessage(oldFocusOwner, $$new($FocusEvent, oldFocusOwner, $FocusEvent::FOCUS_LOST, var$2, newFocusOwner, $(fe->getCause())));
+				if (!isEventDispatched) {
+					setGlobalFocusOwner(nullptr);
+					if (!fe->isTemporary()) {
+						setGlobalPermanentFocusOwner(nullptr);
 					}
+				}
+			}
+			$var($Window, newFocusedWindow, $SunToolkit::getContainingWindow(newFocusOwner));
+			$var($Window, currentFocusedWindow, getGlobalFocusedWindow());
+			if (newFocusedWindow != nullptr && newFocusedWindow != currentFocusedWindow) {
+				sendMessage(newFocusedWindow, $$new($WindowEvent, newFocusedWindow, $WindowEvent::WINDOW_GAINED_FOCUS, currentFocusedWindow));
+				if (newFocusedWindow != getGlobalFocusedWindow()) {
 					dequeueKeyEvents(-1, newFocusOwner);
 					break;
 				}
-				if (oldFocusOwner != nullptr) {
-					$var($Component, var$2, oldFocusOwner);
-					bool var$3 = fe->isTemporary();
-					$var($Component, var$4, newFocusOwner);
-					bool isEventDispatched = sendMessage(oldFocusOwner, $$new($FocusEvent, var$2, $FocusEvent::FOCUS_LOST, var$3, var$4, $(fe->getCause())));
-					if (!isEventDispatched) {
-						setGlobalFocusOwner(nullptr);
-						if (!fe->isTemporary()) {
-							setGlobalPermanentFocusOwner(nullptr);
-						}
+			}
+			bool var$4 = $nc(newFocusOwner)->isFocusable();
+			bool var$3 = var$4 && newFocusOwner->isShowing();
+			if (var$3) {
+				bool var$5 = newFocusOwner->isEnabled();
+				$init($FocusEvent$Cause);
+				var$3 = var$5 || $$nc(fe->getCause())->equals($FocusEvent$Cause::UNKNOWN);
+			}
+			if (!(var$3)) {
+				dequeueKeyEvents(-1, newFocusOwner);
+				if ($KeyboardFocusManager::isAutoFocusTransferEnabled()) {
+					if (newFocusedWindow == nullptr) {
+						restoreFocus(fe, currentFocusedWindow);
+					} else {
+						restoreFocus(fe, newFocusedWindow);
 					}
+					setMostRecentFocusOwner(newFocusedWindow, nullptr);
 				}
-				$var($Window, newFocusedWindow, $SunToolkit::getContainingWindow(newFocusOwner));
-				$var($Window, currentFocusedWindow, getGlobalFocusedWindow());
-				if (newFocusedWindow != nullptr && newFocusedWindow != currentFocusedWindow) {
-					sendMessage(newFocusedWindow, $$new($WindowEvent, newFocusedWindow, $WindowEvent::WINDOW_GAINED_FOCUS, currentFocusedWindow));
-					if (newFocusedWindow != getGlobalFocusedWindow()) {
-						dequeueKeyEvents(-1, newFocusOwner);
-						break;
-					}
+				break;
+			}
+			setGlobalFocusOwner(newFocusOwner);
+			if (newFocusOwner != getGlobalFocusOwner()) {
+				dequeueKeyEvents(-1, newFocusOwner);
+				if ($KeyboardFocusManager::isAutoFocusTransferEnabled()) {
+					restoreFocus(fe, newFocusedWindow);
 				}
-				bool var$6 = $nc(newFocusOwner)->isFocusable();
-				bool var$5 = var$6 && newFocusOwner->isShowing();
-				if (var$5) {
-					bool var$7 = newFocusOwner->isEnabled();
-					$init($FocusEvent$Cause);
-					var$5 = (var$7 || $nc($(fe->getCause()))->equals($FocusEvent$Cause::UNKNOWN));
-				}
-				if (!(var$5)) {
-					dequeueKeyEvents(-1, newFocusOwner);
-					if ($KeyboardFocusManager::isAutoFocusTransferEnabled()) {
-						if (newFocusedWindow == nullptr) {
-							restoreFocus(fe, currentFocusedWindow);
-						} else {
-							restoreFocus(fe, newFocusedWindow);
-						}
-						setMostRecentFocusOwner(newFocusedWindow, nullptr);
-					}
-					break;
-				}
-				setGlobalFocusOwner(newFocusOwner);
-				if (newFocusOwner != getGlobalFocusOwner()) {
+				break;
+			}
+			if (!fe->isTemporary()) {
+				setGlobalPermanentFocusOwner(newFocusOwner);
+				if (newFocusOwner != getGlobalPermanentFocusOwner()) {
 					dequeueKeyEvents(-1, newFocusOwner);
 					if ($KeyboardFocusManager::isAutoFocusTransferEnabled()) {
 						restoreFocus(fe, newFocusedWindow);
 					}
 					break;
 				}
-				if (!fe->isTemporary()) {
-					setGlobalPermanentFocusOwner(newFocusOwner);
-					if (newFocusOwner != getGlobalPermanentFocusOwner()) {
-						dequeueKeyEvents(-1, newFocusOwner);
-						if ($KeyboardFocusManager::isAutoFocusTransferEnabled()) {
-							restoreFocus(fe, newFocusedWindow);
-						}
-						break;
-					}
-				}
-				setNativeFocusOwner($(getHeavyweight(newFocusOwner)));
-				$var($Component, realOppositeComponent, $cast($Component, $nc(this->realOppositeComponentWR)->get()));
-				if (realOppositeComponent != nullptr && realOppositeComponent != fe->getOppositeComponent()) {
-					$var($Component, var$8, newFocusOwner);
-					bool var$9 = fe->isTemporary();
-					$var($Component, var$10, realOppositeComponent);
-					$assign(fe, $new($FocusEvent, var$8, $FocusEvent::FOCUS_GAINED, var$9, var$10, $(fe->getCause())));
-					$nc((static_cast<$AWTEvent*>(fe)))->isPosted = true;
-				}
-				return typeAheadAssertions(newFocusOwner, fe);
 			}
+			setNativeFocusOwner($(getHeavyweight(newFocusOwner)));
+			$var($Component, realOppositeComponent, $cast($Component, $nc(this->realOppositeComponentWR)->get()));
+			if (realOppositeComponent != nullptr && realOppositeComponent != fe->getOppositeComponent()) {
+				bool var$6 = fe->isTemporary();
+				$assign(fe, $new($FocusEvent, newFocusOwner, $FocusEvent::FOCUS_GAINED, var$6, realOppositeComponent, $(fe->getCause())));
+				$cast($AWTEvent, fe)->isPosted = true;
+			}
+			return typeAheadAssertions(newFocusOwner, fe);
 		}
 	case $FocusEvent::FOCUS_LOST:
 		{
-			{
-				$var($FocusEvent, fe, $cast($FocusEvent, e));
-				$var($Component, currentFocusOwner, getGlobalFocusOwner());
-				if (currentFocusOwner == nullptr) {
-					if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-						$nc(DefaultKeyboardFocusManager::focusLog)->fine("Skipping {0} because focus owner is null"_s, $$new($ObjectArray, {$of(e)}));
-					}
-					break;
-				}
-				if (currentFocusOwner == fe->getOppositeComponent()) {
-					if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-						$nc(DefaultKeyboardFocusManager::focusLog)->fine("Skipping {0} because current focus owner is equal to opposite"_s, $$new($ObjectArray, {$of(e)}));
-					}
-					break;
-				}
-				setGlobalFocusOwner(nullptr);
-				if (getGlobalFocusOwner() != nullptr) {
-					restoreFocus(currentFocusOwner, true);
-					break;
-				}
-				if (!fe->isTemporary()) {
-					setGlobalPermanentFocusOwner(nullptr);
-					if (getGlobalPermanentFocusOwner() != nullptr) {
-						restoreFocus(currentFocusOwner, true);
-						break;
-					}
-				} else {
-					$var($Window, owningWindow, $nc(currentFocusOwner)->getContainingWindow());
-					if (owningWindow != nullptr) {
-						owningWindow->setTemporaryLostComponent(currentFocusOwner);
-					}
-				}
-				setNativeFocusOwner(nullptr);
-				fe->setSource(currentFocusOwner);
-				$set(this, realOppositeComponentWR, (fe->getOppositeComponent() != nullptr) ? $new($WeakReference, currentFocusOwner) : DefaultKeyboardFocusManager::NULL_COMPONENT_WR);
-				return typeAheadAssertions(currentFocusOwner, fe);
-			}
-		}
-	case $WindowEvent::WINDOW_DEACTIVATED:
-		{
-			{
-				$var($WindowEvent, we, $cast($WindowEvent, e));
-				$var($Window, currentActiveWindow, getGlobalActiveWindow());
-				if (currentActiveWindow == nullptr) {
-					break;
-				}
-				if (!$equals(currentActiveWindow, e->getSource())) {
-					break;
-				}
-				setGlobalActiveWindow(nullptr);
-				if (getGlobalActiveWindow() != nullptr) {
-					break;
-				}
-				we->setSource(currentActiveWindow);
-				return typeAheadAssertions(currentActiveWindow, we);
-			}
-		}
-	case $WindowEvent::WINDOW_LOST_FOCUS:
-		{
-			{
-				if (repostIfFollowsKeyEvents($cast($WindowEvent, e))) {
-					break;
-				}
-				$var($WindowEvent, we, $cast($WindowEvent, e));
-				$var($Window, currentFocusedWindow, getGlobalFocusedWindow());
-				$var($Window, losingFocusWindow, we->getWindow());
-				$var($Window, activeWindow, getGlobalActiveWindow());
-				$var($Window, oppositeWindow, we->getOppositeWindow());
-				if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(DefaultKeyboardFocusManager::focusLog)->fine("Active {0}, Current focused {1}, losing focus {2} opposite {3}"_s, $$new($ObjectArray, {
-						$of(activeWindow),
-						$of(currentFocusedWindow),
-						$of(losingFocusWindow),
-						$of(oppositeWindow)
-					}));
-				}
-				if (currentFocusedWindow == nullptr) {
-					break;
-				}
-				if (this->inSendMessage == 0 && losingFocusWindow == activeWindow && oppositeWindow == currentFocusedWindow) {
-					break;
-				}
-				$var($Component, currentFocusOwner, getGlobalFocusOwner());
-				if (currentFocusOwner != nullptr) {
-					$var($Component, oppositeComp, nullptr);
-					if (oppositeWindow != nullptr) {
-						$assign(oppositeComp, oppositeWindow->getTemporaryLostComponent());
-						if (oppositeComp == nullptr) {
-							$assign(oppositeComp, oppositeWindow->getMostRecentFocusOwner());
-						}
-					}
-					if (oppositeComp == nullptr) {
-						$assign(oppositeComp, oppositeWindow);
-					}
-					$init($FocusEvent$Cause);
-					sendMessage(currentFocusOwner, $$new($FocusEvent, currentFocusOwner, $FocusEvent::FOCUS_LOST, true, oppositeComp, $FocusEvent$Cause::ACTIVATION));
-				}
-				setGlobalFocusedWindow(nullptr);
-				if (getGlobalFocusedWindow() != nullptr) {
-					restoreFocus(currentFocusedWindow, nullptr, true);
-					break;
-				}
-				we->setSource(currentFocusedWindow);
-				$set(this, realOppositeWindowWR, (oppositeWindow != nullptr) ? $new($WeakReference, currentFocusedWindow) : DefaultKeyboardFocusManager::NULL_WINDOW_WR);
-				typeAheadAssertions(currentFocusedWindow, we);
-				if (oppositeWindow == nullptr && activeWindow != nullptr) {
-					sendMessage(activeWindow, $$new($WindowEvent, activeWindow, $WindowEvent::WINDOW_DEACTIVATED, nullptr));
-					if (getGlobalActiveWindow() != nullptr) {
-						restoreFocus(currentFocusedWindow, nullptr, true);
-					}
+			$var($FocusEvent, fe, $cast($FocusEvent, e));
+			$var($Component, currentFocusOwner, getGlobalFocusOwner());
+			if (currentFocusOwner == nullptr) {
+				if (DefaultKeyboardFocusManager::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+					DefaultKeyboardFocusManager::focusLog->fine("Skipping {0} because focus owner is null"_s, $$new($ObjectArray, {e}));
 				}
 				break;
 			}
+			if (currentFocusOwner == fe->getOppositeComponent()) {
+				if (DefaultKeyboardFocusManager::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+					DefaultKeyboardFocusManager::focusLog->fine("Skipping {0} because current focus owner is equal to opposite"_s, $$new($ObjectArray, {e}));
+				}
+				break;
+			}
+			setGlobalFocusOwner(nullptr);
+			if (getGlobalFocusOwner() != nullptr) {
+				restoreFocus(currentFocusOwner, true);
+				break;
+			}
+			if (!fe->isTemporary()) {
+				setGlobalPermanentFocusOwner(nullptr);
+				if (getGlobalPermanentFocusOwner() != nullptr) {
+					restoreFocus(currentFocusOwner, true);
+					break;
+				}
+			} else {
+				$var($Window, owningWindow, $nc(currentFocusOwner)->getContainingWindow());
+				if (owningWindow != nullptr) {
+					owningWindow->setTemporaryLostComponent(currentFocusOwner);
+				}
+			}
+			setNativeFocusOwner(nullptr);
+			fe->setSource(currentFocusOwner);
+			$set(this, realOppositeComponentWR, (fe->getOppositeComponent() != nullptr) ? $new($WeakReference, currentFocusOwner) : DefaultKeyboardFocusManager::NULL_COMPONENT_WR);
+			return typeAheadAssertions(currentFocusOwner, fe);
+		}
+	case $WindowEvent::WINDOW_DEACTIVATED:
+		{
+			$var($WindowEvent, we, $cast($WindowEvent, e));
+			$var($Window, currentActiveWindow, getGlobalActiveWindow());
+			if (currentActiveWindow == nullptr) {
+				break;
+			}
+			if (!$equals(currentActiveWindow, e->getSource())) {
+				break;
+			}
+			setGlobalActiveWindow(nullptr);
+			if (getGlobalActiveWindow() != nullptr) {
+				break;
+			}
+			we->setSource(currentActiveWindow);
+			return typeAheadAssertions(currentActiveWindow, we);
+		}
+	case $WindowEvent::WINDOW_LOST_FOCUS:
+		{
+			if (repostIfFollowsKeyEvents($cast($WindowEvent, e))) {
+				break;
+			}
+			$var($WindowEvent, we, $cast($WindowEvent, e));
+			$var($Window, currentFocusedWindow, getGlobalFocusedWindow());
+			$var($Window, losingFocusWindow, we->getWindow());
+			$var($Window, activeWindow, getGlobalActiveWindow());
+			$var($Window, oppositeWindow, we->getOppositeWindow());
+			if (DefaultKeyboardFocusManager::focusLog->isLoggable($PlatformLogger$Level::FINE)) {
+				DefaultKeyboardFocusManager::focusLog->fine("Active {0}, Current focused {1}, losing focus {2} opposite {3}"_s, $$new($ObjectArray, {
+					activeWindow,
+					currentFocusedWindow,
+					losingFocusWindow,
+					oppositeWindow
+				}));
+			}
+			if (currentFocusedWindow == nullptr) {
+				break;
+			}
+			if (this->inSendMessage == 0 && losingFocusWindow == activeWindow && oppositeWindow == currentFocusedWindow) {
+				break;
+			}
+			$var($Component, currentFocusOwner, getGlobalFocusOwner());
+			if (currentFocusOwner != nullptr) {
+				$var($Component, oppositeComp, nullptr);
+				if (oppositeWindow != nullptr) {
+					$assign(oppositeComp, oppositeWindow->getTemporaryLostComponent());
+					if (oppositeComp == nullptr) {
+						$assign(oppositeComp, oppositeWindow->getMostRecentFocusOwner());
+					}
+				}
+				if (oppositeComp == nullptr) {
+					$assign(oppositeComp, oppositeWindow);
+				}
+				$init($FocusEvent$Cause);
+				sendMessage(currentFocusOwner, $$new($FocusEvent, currentFocusOwner, $FocusEvent::FOCUS_LOST, true, oppositeComp, $FocusEvent$Cause::ACTIVATION));
+			}
+			setGlobalFocusedWindow(nullptr);
+			if (getGlobalFocusedWindow() != nullptr) {
+				restoreFocus(currentFocusedWindow, nullptr, true);
+				break;
+			}
+			we->setSource(currentFocusedWindow);
+			$set(this, realOppositeWindowWR, (oppositeWindow != nullptr) ? $new($WeakReference, currentFocusedWindow) : DefaultKeyboardFocusManager::NULL_WINDOW_WR);
+			typeAheadAssertions(currentFocusedWindow, we);
+			if (oppositeWindow == nullptr && activeWindow != nullptr) {
+				sendMessage(activeWindow, $$new($WindowEvent, activeWindow, $WindowEvent::WINDOW_DEACTIVATED, nullptr));
+				if (getGlobalActiveWindow() != nullptr) {
+					restoreFocus(currentFocusedWindow, nullptr, true);
+				}
+			}
+			break;
 		}
 	case $KeyEvent::KEY_TYPED:
-		{}
 	case $KeyEvent::KEY_PRESSED:
-		{}
 	case $KeyEvent::KEY_RELEASED:
-		{
-			return typeAheadAssertions(nullptr, e);
-		}
+		return typeAheadAssertions(nullptr, e);
 	default:
-		{
-			return false;
-		}
+		return false;
 	}
 	return true;
 }
 
 bool DefaultKeyboardFocusManager::dispatchKeyEvent($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	$var($Component, focusOwner, ($nc((static_cast<$AWTEvent*>(e)))->isPosted) ? getFocusOwner() : $nc(e)->getComponent());
+	$useLocalObjectStack();
+	$var($Component, focusOwner, ($nc($cast($AWTEvent, e))->isPosted) ? getFocusOwner() : e->getComponent());
 	bool var$0 = focusOwner != nullptr && focusOwner->isShowing();
 	if (var$0 && focusOwner->canBeFocusOwner()) {
 		if (!e->isConsumed()) {
@@ -721,11 +610,9 @@ bool DefaultKeyboardFocusManager::dispatchKeyEvent($KeyEvent* e) {
 	bool stopPostProcessing = false;
 	$var($List, processors, getKeyEventPostProcessors());
 	if (processors != nullptr) {
-		{
-			$var($Iterator, iter, processors->iterator());
-			for (; !stopPostProcessing && $nc(iter)->hasNext();) {
-				stopPostProcessing = $nc(($cast($KeyEventPostProcessor, $(iter->next()))))->postProcessKeyEvent(e);
-			}
+		$var($Iterator, iter, processors->iterator());
+		for (; !stopPostProcessing && $nc(iter)->hasNext();) {
+			stopPostProcessing = $$sure($KeyEventPostProcessor, iter->next())->postProcessKeyEvent(e);
 		}
 	}
 	if (!stopPostProcessing) {
@@ -746,10 +633,10 @@ bool DefaultKeyboardFocusManager::dispatchKeyEvent($KeyEvent* e) {
 }
 
 bool DefaultKeyboardFocusManager::postProcessKeyEvent($KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(e)->isConsumed()) {
 		$var($Component, target, e->getComponent());
-		$var($Container, p, ($cast($Container, ($instanceOf($Container, target) ? target : static_cast<$Component*>($nc(target)->getParent())))));
+		$var($Container, p, $cast($Container, ($instanceOf($Container, target) ? target : $cast($Component, $nc(target)->getParent()))));
 		if (p != nullptr) {
 			p->postProcessKeyEvent(e);
 		}
@@ -758,15 +645,15 @@ bool DefaultKeyboardFocusManager::postProcessKeyEvent($KeyEvent* e) {
 }
 
 void DefaultKeyboardFocusManager::pumpApprovedKeyEvents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($KeyEvent, ke, nullptr);
 	do {
 		$assign(ke, nullptr);
 		$synchronized(this) {
 			if ($nc(this->enqueuedKeyEvents)->size() != 0) {
-				$assign(ke, $cast($KeyEvent, $nc(this->enqueuedKeyEvents)->getFirst()));
+				$assign(ke, $cast($KeyEvent, this->enqueuedKeyEvents->getFirst()));
 				if ($nc(this->typeAheadMarkers)->size() != 0) {
-					$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $cast($DefaultKeyboardFocusManager$TypeAheadMarker, $nc(this->typeAheadMarkers)->getFirst()));
+					$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $cast($DefaultKeyboardFocusManager$TypeAheadMarker, this->typeAheadMarkers->getFirst()));
 					if ($nc(ke)->getWhen() > $nc(marker)->after) {
 						$assign(ke, nullptr);
 					}
@@ -774,7 +661,7 @@ void DefaultKeyboardFocusManager::pumpApprovedKeyEvents() {
 				if (ke != nullptr) {
 					$init($PlatformLogger$Level);
 					if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-						$nc(DefaultKeyboardFocusManager::focusLog)->finer("Pumping approved event {0}"_s, $$new($ObjectArray, {$of(ke)}));
+						DefaultKeyboardFocusManager::focusLog->finer("Pumping approved event {0}"_s, $$new($ObjectArray, {ke}));
 					}
 					$nc(this->enqueuedKeyEvents)->removeFirst();
 				}
@@ -787,19 +674,17 @@ void DefaultKeyboardFocusManager::pumpApprovedKeyEvents() {
 }
 
 void DefaultKeyboardFocusManager::dumpMarkers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-		$nc(DefaultKeyboardFocusManager::focusLog)->finest(">>> Markers dump, time: {0}"_s, $$new($ObjectArray, {$($of($Long::valueOf($System::currentTimeMillis())))}));
+		DefaultKeyboardFocusManager::focusLog->finest(">>> Markers dump, time: {0}"_s, $$new($ObjectArray, {$($Long::valueOf($System::currentTimeMillis()))}));
 		$synchronized(this) {
 			if ($nc(this->typeAheadMarkers)->size() != 0) {
-				{
-					$var($Iterator, i$, $nc(this->typeAheadMarkers)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $cast($DefaultKeyboardFocusManager$TypeAheadMarker, i$->next()));
-						{
-							$nc(DefaultKeyboardFocusManager::focusLog)->finest("    {0}"_s, $$new($ObjectArray, {$of(marker)}));
-						}
+				$var($Iterator, i$, this->typeAheadMarkers->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $cast($DefaultKeyboardFocusManager$TypeAheadMarker, i$->next()));
+					{
+						DefaultKeyboardFocusManager::focusLog->finest("    {0}"_s, $$new($ObjectArray, {marker}));
 					}
 				}
 			}
@@ -808,86 +693,71 @@ void DefaultKeyboardFocusManager::dumpMarkers() {
 }
 
 bool DefaultKeyboardFocusManager::typeAheadAssertions($Component* target, $AWTEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	pumpApprovedKeyEvents();
 	switch ($nc(e)->getID()) {
 	case $KeyEvent::KEY_TYPED:
-		{}
 	case $KeyEvent::KEY_PRESSED:
-		{}
 	case $KeyEvent::KEY_RELEASED:
 		{
-			{
-				$var($KeyEvent, ke, $cast($KeyEvent, e));
-				$synchronized(this) {
-					if (e->isPosted && $nc(this->typeAheadMarkers)->size() != 0) {
-						$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $cast($DefaultKeyboardFocusManager$TypeAheadMarker, $nc(this->typeAheadMarkers)->getFirst()));
-						if (ke->getWhen() > $nc(marker)->after) {
-							$init($PlatformLogger$Level);
-							if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-								$nc(DefaultKeyboardFocusManager::focusLog)->finer("Storing event {0} because of marker {1}"_s, $$new($ObjectArray, {
-									$of(ke),
-									$of(marker)
-								}));
-							}
-							$nc(this->enqueuedKeyEvents)->addLast(ke);
-							return true;
+			$var($KeyEvent, ke, $cast($KeyEvent, e));
+			$synchronized(this) {
+				if (e->isPosted && $nc(this->typeAheadMarkers)->size() != 0) {
+					$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $cast($DefaultKeyboardFocusManager$TypeAheadMarker, this->typeAheadMarkers->getFirst()));
+					if (ke->getWhen() > $nc(marker)->after) {
+						$init($PlatformLogger$Level);
+						if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
+							DefaultKeyboardFocusManager::focusLog->finer("Storing event {0} because of marker {1}"_s, $$new($ObjectArray, {
+								ke,
+								marker
+							}));
 						}
+						$nc(this->enqueuedKeyEvents)->addLast(ke);
+						return true;
 					}
 				}
-				return preDispatchKeyEvent(ke);
 			}
+			return preDispatchKeyEvent(ke);
 		}
 	case $FocusEvent::FOCUS_GAINED:
-		{
-			$init($PlatformLogger$Level);
-			if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINEST)) {
-				$nc(DefaultKeyboardFocusManager::focusLog)->finest("Markers before FOCUS_GAINED on {0}"_s, $$new($ObjectArray, {$of(target)}));
-			}
-			dumpMarkers();
-			$synchronized(this) {
-				bool found = false;
-				if (hasMarker(target)) {
-					{
-						$var($Iterator, iter, $nc(this->typeAheadMarkers)->iterator());
-						for (; $nc(iter)->hasNext();) {
-							if ($nc(($cast($DefaultKeyboardFocusManager$TypeAheadMarker, $(iter->next()))))->untilFocused == target) {
-								found = true;
-							} else if (found) {
-								break;
-							}
-							iter->remove();
-						}
+		$init($PlatformLogger$Level);
+		if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINEST)) {
+			DefaultKeyboardFocusManager::focusLog->finest("Markers before FOCUS_GAINED on {0}"_s, $$new($ObjectArray, {target}));
+		}
+		dumpMarkers();
+		$synchronized(this) {
+			bool found = false;
+			if (hasMarker(target)) {
+				$var($Iterator, iter, $nc(this->typeAheadMarkers)->iterator());
+				for (; $nc(iter)->hasNext();) {
+					if ($nc(($$cast($DefaultKeyboardFocusManager$TypeAheadMarker, iter->next())))->untilFocused == target) {
+						found = true;
+					} else if (found) {
+						break;
 					}
-				} else {
-					$init($PlatformLogger$Level);
-					if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-						$nc(DefaultKeyboardFocusManager::focusLog)->finer("Event without marker {0}"_s, $$new($ObjectArray, {$of(e)}));
-					}
+					iter->remove();
 				}
+			} else if (DefaultKeyboardFocusManager::focusLog->isLoggable($PlatformLogger$Level::FINER)) {
+				DefaultKeyboardFocusManager::focusLog->finer("Event without marker {0}"_s, $$new($ObjectArray, {e}));
 			}
-			$nc(DefaultKeyboardFocusManager::focusLog)->finest("Markers after FOCUS_GAINED"_s);
-			dumpMarkers();
-			redispatchEvent(target, e);
-			pumpApprovedKeyEvents();
-			return true;
 		}
+		DefaultKeyboardFocusManager::focusLog->finest("Markers after FOCUS_GAINED"_s);
+		dumpMarkers();
+		redispatchEvent(target, e);
+		pumpApprovedKeyEvents();
+		return true;
 	default:
-		{
-			redispatchEvent(target, e);
-			return true;
-		}
+		redispatchEvent(target, e);
+		return true;
 	}
 }
 
 bool DefaultKeyboardFocusManager::hasMarker($Component* comp) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, iter, $nc(this->typeAheadMarkers)->iterator());
-		for (; $nc(iter)->hasNext();) {
-			if ($nc(($cast($DefaultKeyboardFocusManager$TypeAheadMarker, $(iter->next()))))->untilFocused == comp) {
-				return true;
-			}
+	$useLocalObjectStack();
+	$var($Iterator, iter, $nc(this->typeAheadMarkers)->iterator());
+	for (; $nc(iter)->hasNext();) {
+		if ($nc(($$cast($DefaultKeyboardFocusManager$TypeAheadMarker, iter->next())))->untilFocused == comp) {
+			return true;
 		}
 	}
 	return false;
@@ -900,17 +770,17 @@ void DefaultKeyboardFocusManager::clearMarkers() {
 }
 
 bool DefaultKeyboardFocusManager::preDispatchKeyEvent($KeyEvent* ke) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc((static_cast<$AWTEvent*>(ke)))->isPosted) {
+	$useLocalObjectStack();
+	if ($nc($cast($AWTEvent, ke))->isPosted) {
 		$var($Component, focusOwner, getFocusOwner());
-		$nc(ke)->setSource(((focusOwner != nullptr) ? $of(focusOwner) : $($of(getFocusedWindow()))));
+		ke->setSource(((focusOwner != nullptr) ? $of(focusOwner) : $$of(getFocusedWindow())));
 	}
-	if ($nc(ke)->getSource() == nullptr) {
+	if (ke->getSource() == nullptr) {
 		return true;
 	}
 	$EventQueue::setCurrentEventAndMostRecentTime(ke);
 	if ($KeyboardFocusManager::isProxyActive(ke)) {
-		$var($Component, source, $cast($Component, $nc(ke)->getSource()));
+		$var($Component, source, $cast($Component, ke->getSource()));
 		$var($Container, target, $nc(source)->getNativeContainer());
 		if (target != nullptr) {
 			$var($ComponentPeer, peer, target->peer);
@@ -923,12 +793,10 @@ bool DefaultKeyboardFocusManager::preDispatchKeyEvent($KeyEvent* ke) {
 	}
 	$var($List, dispatchers, getKeyEventDispatchers());
 	if (dispatchers != nullptr) {
-		{
-			$var($Iterator, iter, dispatchers->iterator());
-			for (; $nc(iter)->hasNext();) {
-				if ($nc(($cast($KeyEventDispatcher, $(iter->next()))))->dispatchKeyEvent(ke)) {
-					return true;
-				}
+		$var($Iterator, iter, dispatchers->iterator());
+		for (; $nc(iter)->hasNext();) {
+			if ($$sure($KeyEventDispatcher, iter->next())->dispatchKeyEvent(ke)) {
+				return true;
 			}
 		}
 	}
@@ -941,7 +809,7 @@ void DefaultKeyboardFocusManager::consumeNextKeyTyped($KeyEvent* e) {
 
 void DefaultKeyboardFocusManager::consumeTraversalKey($KeyEvent* e) {
 	$nc(e)->consume();
-	bool var$0 = (e->getID() == $KeyEvent::KEY_PRESSED);
+	bool var$0 = e->getID() == $KeyEvent::KEY_PRESSED;
 	this->consumeNextKeyTyped$ = var$0 && !e->isActionKey();
 }
 
@@ -955,7 +823,7 @@ bool DefaultKeyboardFocusManager::consumeProcessedKeyEvent($KeyEvent* e) {
 }
 
 void DefaultKeyboardFocusManager::processKeyEvent($Component* focusedComponent, $KeyEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (consumeProcessedKeyEvent(e)) {
 		return;
 	}
@@ -963,7 +831,7 @@ void DefaultKeyboardFocusManager::processKeyEvent($Component* focusedComponent, 
 		return;
 	}
 	bool var$0 = $nc(focusedComponent)->getFocusTraversalKeysEnabled();
-	if (var$0 && !$nc(e)->isConsumed()) {
+	if (var$0 && !e->isConsumed()) {
 		$var($AWTKeyStroke, stroke, $AWTKeyStroke::getAWTKeyStrokeForEvent(e));
 		int32_t var$1 = $nc(stroke)->getKeyCode();
 		int32_t var$2 = stroke->getModifiers();
@@ -984,7 +852,7 @@ void DefaultKeyboardFocusManager::processKeyEvent($Component* focusedComponent, 
 			this->consumeNextKeyTyped$ = false;
 		}
 		$assign(toTest, focusedComponent->getFocusTraversalKeys($KeyboardFocusManager::BACKWARD_TRAVERSAL_KEYS));
-		contains = toTest->contains(stroke);
+		contains = $nc(toTest)->contains(stroke);
 		containsOpp = toTest->contains(oppStroke);
 		if (contains || containsOpp) {
 			consumeTraversalKey(e);
@@ -994,7 +862,7 @@ void DefaultKeyboardFocusManager::processKeyEvent($Component* focusedComponent, 
 			return;
 		}
 		$assign(toTest, focusedComponent->getFocusTraversalKeys($KeyboardFocusManager::UP_CYCLE_TRAVERSAL_KEYS));
-		contains = toTest->contains(stroke);
+		contains = $nc(toTest)->contains(stroke);
 		containsOpp = toTest->contains(oppStroke);
 		if (contains || containsOpp) {
 			consumeTraversalKey(e);
@@ -1003,11 +871,11 @@ void DefaultKeyboardFocusManager::processKeyEvent($Component* focusedComponent, 
 			}
 			return;
 		}
-		if (!(($instanceOf($Container, focusedComponent)) && $nc(($cast($Container, focusedComponent)))->isFocusCycleRoot())) {
+		if (!(($instanceOf($Container, focusedComponent)) && $cast($Container, focusedComponent)->isFocusCycleRoot())) {
 			return;
 		}
 		$assign(toTest, focusedComponent->getFocusTraversalKeys($KeyboardFocusManager::DOWN_CYCLE_TRAVERSAL_KEYS));
-		contains = toTest->contains(stroke);
+		contains = $nc(toTest)->contains(stroke);
 		containsOpp = toTest->contains(oppStroke);
 		if (contains || containsOpp) {
 			consumeTraversalKey(e);
@@ -1020,20 +888,20 @@ void DefaultKeyboardFocusManager::processKeyEvent($Component* focusedComponent, 
 
 void DefaultKeyboardFocusManager::enqueueKeyEvents(int64_t after, $Component* untilFocused) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (untilFocused == nullptr) {
 			return;
 		}
 		$init($PlatformLogger$Level);
 		if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(DefaultKeyboardFocusManager::focusLog)->finer("Enqueue at {0} for {1}"_s, $$new($ObjectArray, {
-				$($of($Long::valueOf(after))),
-				$of(untilFocused)
+			DefaultKeyboardFocusManager::focusLog->finer("Enqueue at {0} for {1}"_s, $$new($ObjectArray, {
+				$($Long::valueOf(after)),
+				untilFocused
 			}));
 		}
 		int32_t insertionIndex = 0;
 		int32_t i = $nc(this->typeAheadMarkers)->size();
-		$var($ListIterator, iter, $nc(this->typeAheadMarkers)->listIterator(i));
+		$var($ListIterator, iter, this->typeAheadMarkers->listIterator(i));
 		for (; i > 0; --i) {
 			$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, $cast($DefaultKeyboardFocusManager$TypeAheadMarker, $nc(iter)->previous()));
 			if ($nc(marker)->after <= after) {
@@ -1041,21 +909,21 @@ void DefaultKeyboardFocusManager::enqueueKeyEvents(int64_t after, $Component* un
 				break;
 			}
 		}
-		$nc(this->typeAheadMarkers)->add(insertionIndex, $$new($DefaultKeyboardFocusManager$TypeAheadMarker, after, untilFocused));
+		this->typeAheadMarkers->add(insertionIndex, $$new($DefaultKeyboardFocusManager$TypeAheadMarker, after, untilFocused));
 	}
 }
 
 void DefaultKeyboardFocusManager::dequeueKeyEvents(int64_t after, $Component* untilFocused) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (untilFocused == nullptr) {
 			return;
 		}
 		$init($PlatformLogger$Level);
 		if ($nc(DefaultKeyboardFocusManager::focusLog)->isLoggable($PlatformLogger$Level::FINER)) {
-			$nc(DefaultKeyboardFocusManager::focusLog)->finer("Dequeue at {0} for {1}"_s, $$new($ObjectArray, {
-				$($of($Long::valueOf(after))),
-				$of(untilFocused)
+			DefaultKeyboardFocusManager::focusLog->finer("Dequeue at {0} for {1}"_s, $$new($ObjectArray, {
+				$($Long::valueOf(after)),
+				untilFocused
 			}));
 		}
 		$var($DefaultKeyboardFocusManager$TypeAheadMarker, marker, nullptr);
@@ -1082,7 +950,7 @@ void DefaultKeyboardFocusManager::dequeueKeyEvents(int64_t after, $Component* un
 
 void DefaultKeyboardFocusManager::discardKeyEvents($Component* comp) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (comp == nullptr) {
 			return;
 		}
@@ -1113,7 +981,7 @@ void DefaultKeyboardFocusManager::discardKeyEvents($Component* comp) {
 }
 
 void DefaultKeyboardFocusManager::purgeStampedEvents(int64_t start, int64_t end) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (start < 0) {
 		return;
 	}
@@ -1156,7 +1024,7 @@ void DefaultKeyboardFocusManager::downFocusCycle($Container* aContainer) {
 	}
 }
 
-void clinit$DefaultKeyboardFocusManager($Class* class$) {
+void DefaultKeyboardFocusManager::clinit$($Class* clazz) {
 	$assignStatic(DefaultKeyboardFocusManager::focusLog, $PlatformLogger::getLogger("java.awt.focus.DefaultKeyboardFocusManager"_s));
 	$assignStatic(DefaultKeyboardFocusManager::NULL_WINDOW_WR, $new($WeakReference, nullptr));
 	$assignStatic(DefaultKeyboardFocusManager::NULL_COMPONENT_WR, $new($WeakReference, nullptr));
@@ -1169,7 +1037,80 @@ DefaultKeyboardFocusManager::DefaultKeyboardFocusManager() {
 }
 
 $Class* DefaultKeyboardFocusManager::load$($String* name, bool initialize) {
-	$loadClass(DefaultKeyboardFocusManager, name, initialize, &_DefaultKeyboardFocusManager_ClassInfo_, clinit$DefaultKeyboardFocusManager, allocate$DefaultKeyboardFocusManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"focusLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultKeyboardFocusManager, focusLog)},
+		{"NULL_WINDOW_WR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultKeyboardFocusManager, NULL_WINDOW_WR)},
+		{"NULL_COMPONENT_WR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DefaultKeyboardFocusManager, NULL_COMPONENT_WR)},
+		{"realOppositeWindowWR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Window;>;", $PRIVATE, $field(DefaultKeyboardFocusManager, realOppositeWindowWR)},
+		{"realOppositeComponentWR", "Ljava/lang/ref/WeakReference;", "Ljava/lang/ref/WeakReference<Ljava/awt/Component;>;", $PRIVATE, $field(DefaultKeyboardFocusManager, realOppositeComponentWR)},
+		{"inSendMessage", "I", nullptr, $PRIVATE, $field(DefaultKeyboardFocusManager, inSendMessage)},
+		{"enqueuedKeyEvents", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/awt/event/KeyEvent;>;", $PRIVATE, $field(DefaultKeyboardFocusManager, enqueuedKeyEvents)},
+		{"typeAheadMarkers", "Ljava/util/LinkedList;", "Ljava/util/LinkedList<Ljava/awt/DefaultKeyboardFocusManager$TypeAheadMarker;>;", $PRIVATE, $field(DefaultKeyboardFocusManager, typeAheadMarkers)},
+		{"consumeNextKeyTyped", "Z", nullptr, $PRIVATE, $field(DefaultKeyboardFocusManager, consumeNextKeyTyped$)},
+		{"restoreFocusTo", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(DefaultKeyboardFocusManager, restoreFocusTo)},
+		{"fxAppThreadIsDispatchThread", "Z", nullptr, $PRIVATE | $STATIC, $staticField(DefaultKeyboardFocusManager, fxAppThreadIsDispatchThread)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultKeyboardFocusManager, init$, void)},
+		{"clearMarkers", "()V", nullptr, 0, $virtualMethod(DefaultKeyboardFocusManager, clearMarkers, void)},
+		{"consumeNextKeyTyped", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, consumeNextKeyTyped, void, $KeyEvent*)},
+		{"consumeProcessedKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, consumeProcessedKeyEvent, bool, $KeyEvent*)},
+		{"consumeTraversalKey", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, consumeTraversalKey, void, $KeyEvent*)},
+		{"dequeueKeyEvents", "(JLjava/awt/Component;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(DefaultKeyboardFocusManager, dequeueKeyEvents, void, int64_t, $Component*)},
+		{"discardKeyEvents", "(Ljava/awt/Component;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(DefaultKeyboardFocusManager, discardKeyEvents, void, $Component*)},
+		{"dispatchEvent", "(Ljava/awt/AWTEvent;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, dispatchEvent, bool, $AWTEvent*)},
+		{"dispatchKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, dispatchKeyEvent, bool, $KeyEvent*)},
+		{"doRestoreFocus", "(Ljava/awt/Component;Ljava/awt/Component;Z)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, doRestoreFocus, bool, $Component*, $Component*, bool)},
+		{"downFocusCycle", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, downFocusCycle, void, $Container*)},
+		{"dumpMarkers", "()V", nullptr, 0, $virtualMethod(DefaultKeyboardFocusManager, dumpMarkers, void)},
+		{"enqueueKeyEvents", "(JLjava/awt/Component;)V", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(DefaultKeyboardFocusManager, enqueueKeyEvents, void, int64_t, $Component*)},
+		{"focusNextComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, focusNextComponent, void, $Component*)},
+		{"focusPreviousComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, focusPreviousComponent, void, $Component*)},
+		{"getOwningFrameDialog", "(Ljava/awt/Window;)Ljava/awt/Window;", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, getOwningFrameDialog, $Window*, $Window*)},
+		{"hasMarker", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, hasMarker, bool, $Component*)},
+		{"initStatic", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultKeyboardFocusManager, initStatic, void)},
+		{"postProcessKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, postProcessKeyEvent, bool, $KeyEvent*)},
+		{"preDispatchKeyEvent", "(Ljava/awt/event/KeyEvent;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, preDispatchKeyEvent, bool, $KeyEvent*)},
+		{"processKeyEvent", "(Ljava/awt/Component;Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, processKeyEvent, void, $Component*, $KeyEvent*)},
+		{"pumpApprovedKeyEvents", "()V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, pumpApprovedKeyEvents, void)},
+		{"purgeStampedEvents", "(JJ)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, purgeStampedEvents, void, int64_t, int64_t)},
+		{"repostIfFollowsKeyEvents", "(Ljava/awt/event/WindowEvent;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, repostIfFollowsKeyEvents, bool, $WindowEvent*)},
+		{"restoreFocus", "(Ljava/awt/event/FocusEvent;Ljava/awt/Window;)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, restoreFocus, void, $FocusEvent*, $Window*)},
+		{"restoreFocus", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, restoreFocus, void, $WindowEvent*)},
+		{"restoreFocus", "(Ljava/awt/Window;Ljava/awt/Component;Z)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, restoreFocus, bool, $Window*, $Component*, bool)},
+		{"restoreFocus", "(Ljava/awt/Component;Z)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, restoreFocus, bool, $Component*, bool)},
+		{"sendMessage", "(Ljava/awt/Component;Ljava/awt/AWTEvent;)Z", nullptr, $STATIC, $staticMethod(DefaultKeyboardFocusManager, sendMessage, bool, $Component*, $AWTEvent*)},
+		{"typeAheadAssertions", "(Ljava/awt/Component;Ljava/awt/AWTEvent;)Z", nullptr, $PRIVATE, $method(DefaultKeyboardFocusManager, typeAheadAssertions, bool, $Component*, $AWTEvent*)},
+		{"upFocusCycle", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(DefaultKeyboardFocusManager, upFocusCycle, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent", "java.awt.DefaultKeyboardFocusManager", "DefaultKeyboardFocusManagerSentEvent", $PRIVATE | $STATIC},
+		{"java.awt.DefaultKeyboardFocusManager$TypeAheadMarker", "java.awt.DefaultKeyboardFocusManager", "TypeAheadMarker", $PRIVATE | $STATIC},
+		{"java.awt.DefaultKeyboardFocusManager$4", nullptr, nullptr, 0},
+		{"java.awt.DefaultKeyboardFocusManager$3", nullptr, nullptr, 0},
+		{"java.awt.DefaultKeyboardFocusManager$2", nullptr, nullptr, 0},
+		{"java.awt.DefaultKeyboardFocusManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.DefaultKeyboardFocusManager",
+		"java.awt.KeyboardFocusManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.DefaultKeyboardFocusManager$DefaultKeyboardFocusManagerSentEvent,java.awt.DefaultKeyboardFocusManager$TypeAheadMarker,java.awt.DefaultKeyboardFocusManager$4,java.awt.DefaultKeyboardFocusManager$3,java.awt.DefaultKeyboardFocusManager$2,java.awt.DefaultKeyboardFocusManager$1"
+	};
+	$loadClass(DefaultKeyboardFocusManager, name, initialize, &classInfo$$, DefaultKeyboardFocusManager::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultKeyboardFocusManager));
+	});
 	return class$;
 }
 

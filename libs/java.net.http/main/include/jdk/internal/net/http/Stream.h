@@ -148,6 +148,7 @@ class $import Stream : public ::jdk::internal::net::http::ExchangeImpl {
 	$class(Stream, 0, ::jdk::internal::net::http::ExchangeImpl)
 public:
 	Stream();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http2Connection* connection, ::jdk::internal::net::http::Exchange* e, ::jdk::internal::net::http::WindowController* windowController);
 	virtual void cancel() override;
 	virtual void cancel(::java::io::IOException* cause) override;

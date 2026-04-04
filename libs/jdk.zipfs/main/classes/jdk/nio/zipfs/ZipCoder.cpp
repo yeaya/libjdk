@@ -1,5 +1,4 @@
 #include <jdk/nio/zipfs/ZipCoder.h>
-
 #include <java/lang/ThreadLocal.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
@@ -37,64 +36,21 @@ namespace jdk {
 	namespace nio {
 		namespace zipfs {
 
-$FieldInfo _ZipCoder_FieldInfo_[] = {
-	{"utf8", "Ljdk/nio/zipfs/ZipCoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZipCoder, utf8)},
-	{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE, $field(ZipCoder, cs)},
-	{"decTL", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/nio/charset/CharsetDecoder;>;", $PRIVATE | $FINAL, $field(ZipCoder, decTL)},
-	{"encTL", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/nio/charset/CharsetEncoder;>;", $PRIVATE | $FINAL, $field(ZipCoder, encTL)},
-	{}
-};
-
-$MethodInfo _ZipCoder_MethodInfo_[] = {
-	{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ZipCoder, init$, void, $Charset*)},
-	{"decoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE, $method(ZipCoder, decoder, $CharsetDecoder*)},
-	{"encoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(ZipCoder, encoder, $CharsetEncoder*)},
-	{"get", "(Ljava/lang/String;)Ljdk/nio/zipfs/ZipCoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipCoder, get, ZipCoder*, $String*)},
-	{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder, getBytes, $bytes*, $String*)},
-	{"isUTF8", "()Z", nullptr, 0, $virtualMethod(ZipCoder, isUTF8, bool)},
-	{"toString", "([B)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder, toString, $String*, $bytes*)},
-	{}
-};
-
-$InnerClassInfo _ZipCoder_InnerClassesInfo_[] = {
-	{"jdk.nio.zipfs.ZipCoder$UTF8", "jdk.nio.zipfs.ZipCoder", "UTF8", $STATIC},
-	{}
-};
-
-$ClassInfo _ZipCoder_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.nio.zipfs.ZipCoder",
-	"java.lang.Object",
-	nullptr,
-	_ZipCoder_FieldInfo_,
-	_ZipCoder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ZipCoder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.nio.zipfs.ZipCoder$UTF8"
-};
-
-$Object* allocate$ZipCoder($Class* clazz) {
-	return $of($alloc(ZipCoder));
-}
-
 ZipCoder* ZipCoder::utf8 = nullptr;
 
 ZipCoder* ZipCoder::get($String* csn) {
 	$init(ZipCoder);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Charset, cs, $Charset::forName(csn));
-	if ($nc($($nc(cs)->name()))->equals("UTF-8"_s)) {
+	if ($$nc($nc(cs)->name())->equals("UTF-8"_s)) {
 		return ZipCoder::utf8;
 	}
 	return $new(ZipCoder, cs);
 }
 
 $String* ZipCoder::toString($bytes* ba) {
-	$useLocalCurrentObjectStackCache();
-	$var($CharsetDecoder, cd, $nc($(decoder()))->reset());
+	$useLocalObjectStack();
+	$var($CharsetDecoder, cd, $$nc(decoder())->reset());
 	int32_t clen = $cast(int32_t, ($nc(ba)->length * $nc(cd)->maxCharsPerByte()));
 	$var($chars, ca, $new($chars, clen));
 	if (clen == 0) {
@@ -114,8 +70,8 @@ $String* ZipCoder::toString($bytes* ba) {
 }
 
 $bytes* ZipCoder::getBytes($String* s) {
-	$useLocalCurrentObjectStackCache();
-	$var($CharsetEncoder, ce, $nc($(encoder()))->reset());
+	$useLocalObjectStack();
+	$var($CharsetEncoder, ce, $$nc(encoder())->reset());
 	$var($chars, ca, $nc(s)->toCharArray());
 	int32_t len = $cast(int32_t, (ca->length * $nc(ce)->maxBytesPerChar()));
 	$var($bytes, ba, $new($bytes, len));
@@ -151,28 +107,28 @@ void ZipCoder::init$($Charset* cs) {
 }
 
 $CharsetDecoder* ZipCoder::decoder() {
-	$useLocalCurrentObjectStackCache();
-	$var($CharsetDecoder, dec, $cast($CharsetDecoder, $nc(this->decTL)->get()));
+	$useLocalObjectStack();
+	$var($CharsetDecoder, dec, $cast($CharsetDecoder, this->decTL->get()));
 	if (dec == nullptr) {
 		$init($CodingErrorAction);
-		$assign(dec, $nc($($nc($($nc(this->cs)->newDecoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
-		$nc(this->decTL)->set(dec);
+		$assign(dec, $$nc($$nc($nc(this->cs)->newDecoder())->onMalformedInput($CodingErrorAction::REPORT))->onUnmappableCharacter($CodingErrorAction::REPORT));
+		this->decTL->set(dec);
 	}
 	return dec;
 }
 
 $CharsetEncoder* ZipCoder::encoder() {
-	$useLocalCurrentObjectStackCache();
-	$var($CharsetEncoder, enc, $cast($CharsetEncoder, $nc(this->encTL)->get()));
+	$useLocalObjectStack();
+	$var($CharsetEncoder, enc, $cast($CharsetEncoder, this->encTL->get()));
 	if (enc == nullptr) {
 		$init($CodingErrorAction);
-		$assign(enc, $nc($($nc($($nc(this->cs)->newEncoder()))->onMalformedInput($CodingErrorAction::REPORT)))->onUnmappableCharacter($CodingErrorAction::REPORT));
-		$nc(this->encTL)->set(enc);
+		$assign(enc, $$nc($$nc($nc(this->cs)->newEncoder())->onMalformedInput($CodingErrorAction::REPORT))->onUnmappableCharacter($CodingErrorAction::REPORT));
+		this->encTL->set(enc);
 	}
 	return enc;
 }
 
-void clinit$ZipCoder($Class* class$) {
+void ZipCoder::clinit$($Class* clazz) {
 	$assignStatic(ZipCoder::utf8, $new($ZipCoder$UTF8));
 }
 
@@ -180,7 +136,44 @@ ZipCoder::ZipCoder() {
 }
 
 $Class* ZipCoder::load$($String* name, bool initialize) {
-	$loadClass(ZipCoder, name, initialize, &_ZipCoder_ClassInfo_, clinit$ZipCoder, allocate$ZipCoder);
+	$FieldInfo fieldInfos$$[] = {
+		{"utf8", "Ljdk/nio/zipfs/ZipCoder;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ZipCoder, utf8)},
+		{"cs", "Ljava/nio/charset/Charset;", nullptr, $PRIVATE, $field(ZipCoder, cs)},
+		{"decTL", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/nio/charset/CharsetDecoder;>;", $PRIVATE | $FINAL, $field(ZipCoder, decTL)},
+		{"encTL", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Ljava/nio/charset/CharsetEncoder;>;", $PRIVATE | $FINAL, $field(ZipCoder, encTL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/nio/charset/Charset;)V", nullptr, $PRIVATE, $method(ZipCoder, init$, void, $Charset*)},
+		{"decoder", "()Ljava/nio/charset/CharsetDecoder;", nullptr, $PRIVATE, $method(ZipCoder, decoder, $CharsetDecoder*)},
+		{"encoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(ZipCoder, encoder, $CharsetEncoder*)},
+		{"get", "(Ljava/lang/String;)Ljdk/nio/zipfs/ZipCoder;", nullptr, $PUBLIC | $STATIC, $staticMethod(ZipCoder, get, ZipCoder*, $String*)},
+		{"getBytes", "(Ljava/lang/String;)[B", nullptr, 0, $virtualMethod(ZipCoder, getBytes, $bytes*, $String*)},
+		{"isUTF8", "()Z", nullptr, 0, $virtualMethod(ZipCoder, isUTF8, bool)},
+		{"toString", "([B)Ljava/lang/String;", nullptr, 0, $virtualMethod(ZipCoder, toString, $String*, $bytes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.nio.zipfs.ZipCoder$UTF8", "jdk.nio.zipfs.ZipCoder", "UTF8", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.nio.zipfs.ZipCoder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.nio.zipfs.ZipCoder$UTF8"
+	};
+	$loadClass(ZipCoder, name, initialize, &classInfo$$, ZipCoder::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ZipCoder);
+	});
 	return class$;
 }
 

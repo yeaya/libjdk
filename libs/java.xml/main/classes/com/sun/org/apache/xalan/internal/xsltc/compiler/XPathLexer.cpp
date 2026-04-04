@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/XPathLexer.h>
-
 #include <com/sun/java_cup/internal/runtime/Symbol.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/sym.h>
 #include <java/io/BufferedReader.h>
@@ -81,7 +80,6 @@ using $sym = ::com::sun::org::apache::xalan::internal::xsltc::compiler::sym;
 using $BufferedReader = ::java::io::BufferedReader;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
-using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -100,81 +98,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _XPathLexer_FieldInfo_[] = {
-	{"YY_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_BUFFER_SIZE)},
-	{"YY_F", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_F)},
-	{"YY_NO_STATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_NO_STATE)},
-	{"YY_NOT_ACCEPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_NOT_ACCEPT)},
-	{"YY_START", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_START)},
-	{"YY_END", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_END)},
-	{"YY_NO_ANCHOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_NO_ANCHOR)},
-	{"YY_BOL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_BOL)},
-	{"YY_EOF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_EOF)},
-	{"YYEOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XPathLexer, YYEOF)},
-	{"last", "I", nullptr, 0, $field(XPathLexer, last)},
-	{"beforeLast", "I", nullptr, 0, $field(XPathLexer, beforeLast)},
-	{"yy_reader", "Ljava/io/BufferedReader;", nullptr, $PRIVATE, $field(XPathLexer, yy_reader)},
-	{"yy_buffer_index", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer_index)},
-	{"yy_buffer_read", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer_read)},
-	{"yy_buffer_start", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer_start)},
-	{"yy_buffer_end", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer_end)},
-	{"yy_buffer", "[C", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer)},
-	{"yy_at_bol", "Z", nullptr, $PRIVATE, $field(XPathLexer, yy_at_bol)},
-	{"yy_lexical_state", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_lexical_state)},
-	{"yy_eof_done", "Z", nullptr, $PRIVATE, $field(XPathLexer, yy_eof_done)},
-	{"YYINITIAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YYINITIAL)},
-	{"yy_state_dtrans", "[I", nullptr, $PRIVATE | $FINAL, $field(XPathLexer, yy_state_dtrans)},
-	{"yy_last_was_cr", "Z", nullptr, $PRIVATE, $field(XPathLexer, yy_last_was_cr)},
-	{"YY_E_INTERNAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_E_INTERNAL)},
-	{"YY_E_MATCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_E_MATCH)},
-	{"yy_error_string", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(XPathLexer, yy_error_string)},
-	{"yy_acpt", "[I", nullptr, $PRIVATE, $field(XPathLexer, yy_acpt)},
-	{"yy_cmap", "[I", nullptr, $PRIVATE | $STATIC, $staticField(XPathLexer, yy_cmap)},
-	{"yy_rmap", "[I", nullptr, $PRIVATE | $STATIC, $staticField(XPathLexer, yy_rmap)},
-	{"yy_nxt", "[[I", nullptr, $PRIVATE | $STATIC, $staticField(XPathLexer, yy_nxt)},
-	{}
-};
-
-$MethodInfo _XPathLexer_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/Reader;)V", nullptr, 0, $method(XPathLexer, init$, void, $Reader*)},
-	{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(XPathLexer, init$, void, $InputStream*)},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XPathLexer, init$, void)},
-	{"disambiguateAxisOrFunction", "(I)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, disambiguateAxisOrFunction, $Symbol*, int32_t), "java.lang.Exception"},
-	{"disambiguateOperator", "(I)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, disambiguateOperator, $Symbol*, int32_t), "java.lang.Exception"},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(XPathLexer, initialize, void)},
-	{"isWhitespace", "(I)Z", nullptr, $STATIC, $staticMethod(XPathLexer, isWhitespace, bool, int32_t)},
-	{"newSymbol", "(I)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, newSymbol, $Symbol*, int32_t)},
-	{"newSymbol", "(ILjava/lang/String;)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, newSymbol, $Symbol*, int32_t, $String*)},
-	{"newSymbol", "(ILjava/lang/Long;)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, newSymbol, $Symbol*, int32_t, $Long*)},
-	{"newSymbol", "(ILjava/lang/Double;)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, newSymbol, $Symbol*, int32_t, $Double*)},
-	{"next_token", "()Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, $PUBLIC, $virtualMethod(XPathLexer, next_token, $Symbol*), "java.io.IOException,java.lang.Exception"},
-	{"unpackFromString", "(IILjava/lang/String;)[[I", nullptr, $PRIVATE | $STATIC, $staticMethod(XPathLexer, unpackFromString, $intArray2*, int32_t, int32_t, $String*)},
-	{"yy_advance", "()I", nullptr, $PRIVATE, $method(XPathLexer, yy_advance, int32_t), "java.io.IOException"},
-	{"yy_double", "([C)[C", nullptr, $PRIVATE, $method(XPathLexer, yy_double, $chars*, $chars*)},
-	{"yy_error", "(IZ)V", nullptr, $PRIVATE, $method(XPathLexer, yy_error, void, int32_t, bool)},
-	{"yy_mark_end", "()V", nullptr, $PRIVATE, $method(XPathLexer, yy_mark_end, void)},
-	{"yy_mark_start", "()V", nullptr, $PRIVATE, $method(XPathLexer, yy_mark_start, void)},
-	{"yy_move_end", "()V", nullptr, $PRIVATE, $method(XPathLexer, yy_move_end, void)},
-	{"yy_to_mark", "()V", nullptr, $PRIVATE, $method(XPathLexer, yy_to_mark, void)},
-	{"yybegin", "(I)V", nullptr, $PRIVATE, $method(XPathLexer, yybegin, void, int32_t)},
-	{"yylength", "()I", nullptr, $PRIVATE, $method(XPathLexer, yylength, int32_t)},
-	{"yytext", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(XPathLexer, yytext, $String*)},
-	{}
-};
-
-$ClassInfo _XPathLexer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.XPathLexer",
-	"java.lang.Object",
-	"com.sun.java_cup.internal.runtime.Scanner",
-	_XPathLexer_FieldInfo_,
-	_XPathLexer_MethodInfo_
-};
-
-$Object* allocate$XPathLexer($Class* clazz) {
-	return $of($alloc(XPathLexer));
-}
 
 $ints* XPathLexer::yy_cmap = nullptr;
 $ints* XPathLexer::yy_rmap = nullptr;
@@ -197,61 +120,37 @@ $Symbol* XPathLexer::disambiguateAxisOrFunction(int32_t ss) {
 	if (index >= this->yy_buffer_read) {
 		return $new($Symbol, ss);
 	}
-	return ($nc(this->yy_buffer)->get(index) == u':' && $nc(this->yy_buffer)->get(index + 1) == u':' || $nc(this->yy_buffer)->get(index) == u'(') ? newSymbol(ss) : newSymbol($sym::QNAME, $(yytext()));
+	return ($nc(this->yy_buffer)->get(index) == u':' && this->yy_buffer->get(index + 1) == u':' || this->yy_buffer->get(index) == u'(') ? newSymbol(ss) : newSymbol($sym::QNAME, $(yytext()));
 }
 
 $Symbol* XPathLexer::disambiguateOperator(int32_t ss) {
 	switch (this->last) {
 	case $sym::STAR:
-		{
-			if (this->beforeLast != $sym::QNAME) {
-				break;
-			}
+		if (this->beforeLast != $sym::QNAME) {
+			break;
 		}
 	case -1:
-		{}
 	case $sym::ATSIGN:
-		{}
 	case $sym::DCOLON:
-		{}
 	case $sym::LPAREN:
-		{}
 	case $sym::LBRACK:
-		{}
 	case $sym::COMMA:
-		{}
 	case $sym::AND:
-		{}
 	case $sym::OR:
-		{}
 	case $sym::MOD:
-		{}
 	case $sym::DIV:
-		{}
 	case $sym::SLASH:
-		{}
 	case $sym::DSLASH:
-		{}
 	case $sym::VBAR:
-		{}
 	case $sym::PLUS:
-		{}
 	case $sym::MINUS:
-		{}
 	case $sym::EQ:
-		{}
 	case $sym::NE:
-		{}
 	case $sym::LT:
-		{}
 	case $sym::LE:
-		{}
 	case $sym::GT:
-		{}
 	case $sym::GE:
-		{
-			return newSymbol($sym::QNAME, $(yytext()));
-		}
+		return newSymbol($sym::QNAME, $(yytext()));
 	}
 	return newSymbol(ss);
 }
@@ -265,19 +164,19 @@ $Symbol* XPathLexer::newSymbol(int32_t ss) {
 $Symbol* XPathLexer::newSymbol(int32_t ss, $String* value) {
 	this->beforeLast = this->last;
 	this->last = ss;
-	return $new($Symbol, ss, $of(value));
+	return $new($Symbol, ss, value);
 }
 
 $Symbol* XPathLexer::newSymbol(int32_t ss, $Long* value) {
 	this->beforeLast = this->last;
 	this->last = ss;
-	return $new($Symbol, ss, $of(value));
+	return $new($Symbol, ss, value);
 }
 
 $Symbol* XPathLexer::newSymbol(int32_t ss, $Double* value) {
 	this->beforeLast = this->last;
 	this->last = ss;
-	return $new($Symbol, ss, $of(value));
+	return $new($Symbol, ss, value);
 }
 
 void XPathLexer::init$($Reader* reader) {
@@ -289,7 +188,7 @@ void XPathLexer::init$($Reader* reader) {
 }
 
 void XPathLexer::init$($InputStream* instream) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	XPathLexer::init$();
 	if (nullptr == instream) {
 		$throw($$new($Error, "Error: Bad input stream initializer."_s));
@@ -611,7 +510,7 @@ void XPathLexer::yy_mark_end() {
 
 void XPathLexer::yy_to_mark() {
 	this->yy_buffer_index = this->yy_buffer_end;
-	this->yy_at_bol = (this->yy_buffer_end > this->yy_buffer_start) && (u'\r' == $nc(this->yy_buffer)->get(this->yy_buffer_end - 1) || u'\n' == $nc(this->yy_buffer)->get(this->yy_buffer_end - 1) || 2028 == $nc(this->yy_buffer)->get(this->yy_buffer_end - 1) || 2029 == $nc(this->yy_buffer)->get(this->yy_buffer_end - 1));
+	this->yy_at_bol = (this->yy_buffer_end > this->yy_buffer_start) && (u'\r' == $nc(this->yy_buffer)->get(this->yy_buffer_end - 1) || u'\n' == this->yy_buffer->get(this->yy_buffer_end - 1) || 2028 == this->yy_buffer->get(this->yy_buffer_end - 1) || 2029 == this->yy_buffer->get(this->yy_buffer_end - 1));
 }
 
 $String* XPathLexer::yytext() {
@@ -634,7 +533,7 @@ $chars* XPathLexer::yy_double($chars* buf) {
 
 void XPathLexer::yy_error(int32_t code, bool fatal) {
 	$nc($System::out)->print($nc(this->yy_error_string)->get(code));
-	$nc($System::out)->flush();
+	$System::out->flush();
 	if (fatal) {
 		$throwNew($Error, "Fatal Error.\n"_s);
 	}
@@ -642,7 +541,7 @@ void XPathLexer::yy_error(int32_t code, bool fatal) {
 
 $intArray2* XPathLexer::unpackFromString(int32_t size1, int32_t size2, $String* st$renamed) {
 	$init(XPathLexer);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, st, st$renamed);
 	int32_t colonIndex = -1;
 	$var($String, lengthString, nullptr);
@@ -658,10 +557,10 @@ $intArray2* XPathLexer::unpackFromString(int32_t size1, int32_t size2, $String* 
 				--sequenceLength;
 				continue;
 			}
-			commaIndex = $nc(st)->indexOf((int32_t)u',');
+			commaIndex = $nc(st)->indexOf(u',');
 			$assign(workString, (commaIndex == -1) ? st : st->substring(0, commaIndex));
 			$assign(st, st->substring(commaIndex + 1));
-			colonIndex = $nc(workString)->indexOf((int32_t)u':');
+			colonIndex = $nc(workString)->indexOf(u':');
 			if (colonIndex == -1) {
 				$nc(res->get(i))->set(j, $Integer::parseInt(workString));
 				continue;
@@ -678,7 +577,7 @@ $intArray2* XPathLexer::unpackFromString(int32_t size1, int32_t size2, $String* 
 }
 
 $Symbol* XPathLexer::next_token() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t yy_lookahead = 0;
 	int32_t yy_anchor = XPathLexer::YY_NO_ANCHOR;
 	int32_t yy_state = $nc(this->yy_state_dtrans)->get(this->yy_lexical_state);
@@ -715,2017 +614,1216 @@ $Symbol* XPathLexer::next_token() {
 			$throw($$new($Error, "Lexical Error: Unmatched Input."_s));
 		} else {
 			yy_anchor = $nc(this->yy_acpt)->get(yy_last_accept_state);
-			if (0 != ((int32_t)(XPathLexer::YY_END & (uint32_t)yy_anchor))) {
+			if (0 != (XPathLexer::YY_END & yy_anchor)) {
 				yy_move_end();
 			}
 			yy_to_mark();
 			switch (yy_last_accept_state) {
 			case 1:
-				{}
 			case -2:
-				{
-					break;
-				}
+				break;
 			case 2:
 				{
-					{
-						return newSymbol($sym::STAR);
-					}
+					return newSymbol($sym::STAR);
 				}
 			case -3:
-				{
-					break;
-				}
+				break;
 			case 3:
 				{
-					{
-						return newSymbol($sym::SLASH);
-					}
+					return newSymbol($sym::SLASH);
 				}
 			case -4:
-				{
-					break;
-				}
+				break;
 			case 4:
 				{
-					{
-						return newSymbol($sym::PLUS);
-					}
+					return newSymbol($sym::PLUS);
 				}
 			case -5:
-				{
-					break;
-				}
+				break;
 			case 5:
 				{
-					{
-						return newSymbol($sym::MINUS);
-					}
+					return newSymbol($sym::MINUS);
 				}
 			case -6:
-				{
-					break;
-				}
+				break;
 			case 6:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -7:
-				{
-					break;
-				}
+				break;
 			case 7:
 				{
-					{
-						$throwNew($Exception, $(yytext()));
-					}
+					$throwNew($Exception, $(yytext()));
 				}
 			case -8:
-				{
-					break;
-				}
+				break;
 			case 8:
 				{
-					{
-						return newSymbol($sym::COMMA);
-					}
+					return newSymbol($sym::COMMA);
 				}
 			case -9:
-				{
-					break;
-				}
+				break;
 			case 9:
 				{
-					{
-						return newSymbol($sym::ATSIGN);
-					}
+					return newSymbol($sym::ATSIGN);
 				}
 			case -10:
-				{
-					break;
-				}
+				break;
 			case 10:
 				{
-					{
-						return newSymbol($sym::DOT);
-					}
+					return newSymbol($sym::DOT);
 				}
 			case -11:
-				{
-					break;
-				}
+				break;
 			case 11:
 				{
-					{
-						return newSymbol($sym::VBAR);
-					}
+					return newSymbol($sym::VBAR);
 				}
 			case -12:
-				{
-					break;
-				}
+				break;
 			case 12:
 				{
-					{
-						return newSymbol($sym::DOLLAR);
-					}
+					return newSymbol($sym::DOLLAR);
 				}
 			case -13:
-				{
-					break;
-				}
+				break;
 			case 13:
 				{
-					{
-						return newSymbol($sym::EQ);
-					}
+					return newSymbol($sym::EQ);
 				}
 			case -14:
-				{
-					break;
-				}
+				break;
 			case 14:
 				{
-					{
-						return newSymbol($sym::LT);
-					}
+					return newSymbol($sym::LT);
 				}
 			case -15:
-				{
-					break;
-				}
+				break;
 			case 15:
 				{
-					{
-						return newSymbol($sym::GT);
-					}
+					return newSymbol($sym::GT);
 				}
 			case -16:
-				{
-					break;
-				}
+				break;
 			case 16:
 				{
-					{
-						return newSymbol($sym::LPAREN);
-					}
+					return newSymbol($sym::LPAREN);
 				}
 			case -17:
-				{
-					break;
-				}
+				break;
 			case 17:
 				{
-					{
-						return newSymbol($sym::RPAREN);
-					}
+					return newSymbol($sym::RPAREN);
 				}
 			case -18:
-				{
-					break;
-				}
+				break;
 			case 18:
 				{
-					{
-					}
 				}
 			case -19:
-				{
-					break;
-				}
+				break;
 			case 19:
 				{
-					{
-						return newSymbol($sym::LBRACK);
-					}
+					return newSymbol($sym::LBRACK);
 				}
 			case -20:
-				{
-					break;
-				}
+				break;
 			case 20:
 				{
-					{
-						return newSymbol($sym::RBRACK);
-					}
+					return newSymbol($sym::RBRACK);
 				}
 			case -21:
-				{
-					break;
-				}
+				break;
 			case 21:
 				{
-					{
-						return newSymbol($sym::INT, $($Long::valueOf($(yytext()))));
-					}
+					return newSymbol($sym::INT, $($Long::valueOf($(yytext()))));
 				}
 			case -22:
-				{
-					break;
-				}
+				break;
 			case 22:
 				{
-					{
-						return newSymbol($sym::DSLASH);
-					}
+					return newSymbol($sym::DSLASH);
 				}
 			case -23:
-				{
-					break;
-				}
+				break;
 			case 23:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::ID);
-					}
+					return disambiguateAxisOrFunction($sym::ID);
 				}
 			case -24:
-				{
-					break;
-				}
+				break;
 			case 24:
 				{
-					{
-						return disambiguateOperator($sym::OR);
-					}
+					return disambiguateOperator($sym::OR);
 				}
 			case -25:
-				{
-					break;
-				}
+				break;
 			case 25:
 				{
-					{
-						return newSymbol($sym::DCOLON);
-					}
+					return newSymbol($sym::DCOLON);
 				}
 			case -26:
-				{
-					break;
-				}
+				break;
 			case 26:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -27:
-				{
-					break;
-				}
+				break;
 			case 27:
 				{
-					{
-						return newSymbol($sym::DDOT);
-					}
+					return newSymbol($sym::DDOT);
 				}
 			case -28:
-				{
-					break;
-				}
+				break;
 			case 28:
 				{
-					{
-						return newSymbol($sym::REAL, $($Double::valueOf($(yytext()))));
-					}
+					return newSymbol($sym::REAL, $($Double::valueOf($(yytext()))));
 				}
 			case -29:
-				{
-					break;
-				}
+				break;
 			case 29:
 				{
-					{
-						return newSymbol($sym::NE);
-					}
+					return newSymbol($sym::NE);
 				}
 			case -30:
-				{
-					break;
-				}
+				break;
 			case 30:
 				{
-					{
-						return newSymbol($sym::LE);
-					}
+					return newSymbol($sym::LE);
 				}
 			case -31:
-				{
-					break;
-				}
+				break;
 			case 31:
 				{
-					{
-						return newSymbol($sym::GE);
-					}
+					return newSymbol($sym::GE);
 				}
 			case -32:
-				{
-					break;
-				}
+				break;
 			case 32:
 				{
-					{
-						return newSymbol($sym::Literal, $($nc($(yytext()))->substring(1, $nc($(yytext()))->length() - 1)));
-					}
+					return newSymbol($sym::Literal, $($$nc(yytext())->substring(1, $$nc(yytext())->length() - 1)));
 				}
 			case -33:
-				{
-					break;
-				}
+				break;
 			case 33:
 				{
-					{
-						return newSymbol($sym::Literal, $($nc($(yytext()))->substring(1, $nc($(yytext()))->length() - 1)));
-					}
+					return newSymbol($sym::Literal, $($$nc(yytext())->substring(1, $$nc(yytext())->length() - 1)));
 				}
 			case -34:
-				{
-					break;
-				}
+				break;
 			case 34:
 				{
-					{
-						return newSymbol($sym::REAL, $($Double::valueOf($(yytext()))));
-					}
+					return newSymbol($sym::REAL, $($Double::valueOf($(yytext()))));
 				}
 			case -35:
-				{
-					break;
-				}
+				break;
 			case 35:
 				{
-					{
-						return disambiguateOperator($sym::DIV);
-					}
+					return disambiguateOperator($sym::DIV);
 				}
 			case -36:
-				{
-					break;
-				}
+				break;
 			case 36:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -37:
-				{
-					break;
-				}
+				break;
 			case 37:
 				{
-					{
-						return disambiguateOperator($sym::MOD);
-					}
+					return disambiguateOperator($sym::MOD);
 				}
 			case -38:
-				{
-					break;
-				}
+				break;
 			case 38:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::KEY);
-					}
+					return disambiguateAxisOrFunction($sym::KEY);
 				}
 			case -39:
-				{
-					break;
-				}
+				break;
 			case 39:
 				{
-					{
-						return disambiguateOperator($sym::AND);
-					}
+					return disambiguateOperator($sym::AND);
 				}
 			case -40:
-				{
-					break;
-				}
+				break;
 			case 40:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::SELF);
-					}
+					return disambiguateAxisOrFunction($sym::SELF);
 				}
 			case -41:
-				{
-					break;
-				}
+				break;
 			case 41:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::CHILD);
-					}
+					return disambiguateAxisOrFunction($sym::CHILD);
 				}
 			case -42:
-				{
-					break;
-				}
+				break;
 			case 42:
 				{
-					{
-						return newSymbol($sym::TEXT);
-					}
+					return newSymbol($sym::TEXT);
 				}
 			case -43:
-				{
-					break;
-				}
+				break;
 			case 43:
 				{
-					{
-						return newSymbol($sym::NODE);
-					}
+					return newSymbol($sym::NODE);
 				}
 			case -44:
-				{
-					break;
-				}
+				break;
 			case 44:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::PARENT);
-					}
+					return disambiguateAxisOrFunction($sym::PARENT);
 				}
 			case -45:
-				{
-					break;
-				}
+				break;
 			case 45:
 				{
-					{
-						return newSymbol($sym::TEXT);
-					}
+					return newSymbol($sym::TEXT);
 				}
 			case -46:
-				{
-					break;
-				}
+				break;
 			case 46:
 				{
-					{
-						return newSymbol($sym::NODE);
-					}
+					return newSymbol($sym::NODE);
 				}
 			case -47:
-				{
-					break;
-				}
+				break;
 			case 47:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::ANCESTOR);
-					}
+					return disambiguateAxisOrFunction($sym::ANCESTOR);
 				}
 			case -48:
-				{
-					break;
-				}
+				break;
 			case 48:
 				{
-					{
-						initialize();
-						return $new($Symbol, $sym::PATTERN);
-					}
+					initialize();
+					return $new($Symbol, $sym::PATTERN);
 				}
 			case -49:
-				{
-					break;
-				}
+				break;
 			case 49:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::NAMESPACE);
-					}
+					return disambiguateAxisOrFunction($sym::NAMESPACE);
 				}
 			case -50:
-				{
-					break;
-				}
+				break;
 			case 50:
 				{
-					{
-						return newSymbol($sym::COMMENT);
-					}
+					return newSymbol($sym::COMMENT);
 				}
 			case -51:
-				{
-					break;
-				}
+				break;
 			case 51:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::PRECEDING);
-					}
+					return disambiguateAxisOrFunction($sym::PRECEDING);
 				}
 			case -52:
-				{
-					break;
-				}
+				break;
 			case 52:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::ATTRIBUTE);
-					}
+					return disambiguateAxisOrFunction($sym::ATTRIBUTE);
 				}
 			case -53:
-				{
-					break;
-				}
+				break;
 			case 53:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::FOLLOWING);
-					}
+					return disambiguateAxisOrFunction($sym::FOLLOWING);
 				}
 			case -54:
-				{
-					break;
-				}
+				break;
 			case 54:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::DESCENDANT);
-					}
+					return disambiguateAxisOrFunction($sym::DESCENDANT);
 				}
 			case -55:
-				{
-					break;
-				}
+				break;
 			case 55:
 				{
-					{
-						return newSymbol($sym::COMMENT);
-					}
+					return newSymbol($sym::COMMENT);
 				}
 			case -56:
-				{
-					break;
-				}
+				break;
 			case 56:
 				{
-					{
-						initialize();
-						return $new($Symbol, $sym::EXPRESSION);
-					}
+					initialize();
+					return $new($Symbol, $sym::EXPRESSION);
 				}
 			case -57:
-				{
-					break;
-				}
+				break;
 			case 57:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::ANCESTORORSELF);
-					}
+					return disambiguateAxisOrFunction($sym::ANCESTORORSELF);
 				}
 			case -58:
-				{
-					break;
-				}
+				break;
 			case 58:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::PRECEDINGSIBLING);
-					}
+					return disambiguateAxisOrFunction($sym::PRECEDINGSIBLING);
 				}
 			case -59:
-				{
-					break;
-				}
+				break;
 			case 59:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::FOLLOWINGSIBLING);
-					}
+					return disambiguateAxisOrFunction($sym::FOLLOWINGSIBLING);
 				}
 			case -60:
-				{
-					break;
-				}
+				break;
 			case 60:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::DESCENDANTORSELF);
-					}
+					return disambiguateAxisOrFunction($sym::DESCENDANTORSELF);
 				}
 			case -61:
-				{
-					break;
-				}
+				break;
 			case 61:
 				{
-					{
-						return disambiguateAxisOrFunction($sym::PIPARAM);
-					}
+					return disambiguateAxisOrFunction($sym::PIPARAM);
 				}
 			case -62:
-				{
-					break;
-				}
+				break;
 			case 62:
 				{
-					{
-						return newSymbol($sym::PI);
-					}
+					return newSymbol($sym::PI);
 				}
 			case -63:
-				{
-					break;
-				}
+				break;
 			case 63:
 				{
-					{
-						return newSymbol($sym::PI);
-					}
+					return newSymbol($sym::PI);
 				}
 			case -64:
-				{
-					break;
-				}
+				break;
 			case 65:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -65:
-				{
-					break;
-				}
+				break;
 			case 66:
 				{
-					{
-						$throwNew($Exception, $(yytext()));
-					}
+					$throwNew($Exception, $(yytext()));
 				}
 			case -66:
-				{
-					break;
-				}
+				break;
 			case 67:
 				{
-					{
-						return newSymbol($sym::INT, $($Long::valueOf($(yytext()))));
-					}
+					return newSymbol($sym::INT, $($Long::valueOf($(yytext()))));
 				}
 			case -67:
-				{
-					break;
-				}
+				break;
 			case 68:
 				{
-					{
-						return newSymbol($sym::REAL, $($Double::valueOf($(yytext()))));
-					}
+					return newSymbol($sym::REAL, $($Double::valueOf($(yytext()))));
 				}
 			case -68:
-				{
-					break;
-				}
+				break;
 			case 70:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -69:
-				{
-					break;
-				}
+				break;
 			case 71:
 				{
-					{
-						$throwNew($Exception, $(yytext()));
-					}
+					$throwNew($Exception, $(yytext()));
 				}
 			case -70:
-				{
-					break;
-				}
+				break;
 			case 73:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -71:
-				{
-					break;
-				}
+				break;
 			case 74:
 				{
-					{
-						$throwNew($Exception, $(yytext()));
-					}
+					$throwNew($Exception, $(yytext()));
 				}
 			case -72:
-				{
-					break;
-				}
+				break;
 			case 76:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -73:
-				{
-					break;
-				}
+				break;
 			case 77:
 				{
-					{
-						$throwNew($Exception, $(yytext()));
-					}
+					$throwNew($Exception, $(yytext()));
 				}
 			case -74:
-				{
-					break;
-				}
+				break;
 			case 79:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -75:
-				{
-					break;
-				}
+				break;
 			case 81:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -76:
-				{
-					break;
-				}
+				break;
 			case 83:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -77:
-				{
-					break;
-				}
+				break;
 			case 85:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -78:
-				{
-					break;
-				}
+				break;
 			case 87:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -79:
-				{
-					break;
-				}
+				break;
 			case 89:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -80:
-				{
-					break;
-				}
+				break;
 			case 91:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -81:
-				{
-					break;
-				}
+				break;
 			case 93:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -82:
-				{
-					break;
-				}
+				break;
 			case 95:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -83:
-				{
-					break;
-				}
+				break;
 			case 97:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -84:
-				{
-					break;
-				}
+				break;
 			case 99:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -85:
-				{
-					break;
-				}
+				break;
 			case 101:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -86:
-				{
-					break;
-				}
+				break;
 			case 103:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -87:
-				{
-					break;
-				}
+				break;
 			case 105:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -88:
-				{
-					break;
-				}
+				break;
 			case 107:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -89:
-				{
-					break;
-				}
+				break;
 			case 109:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -90:
-				{
-					break;
-				}
+				break;
 			case 111:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -91:
-				{
-					break;
-				}
+				break;
 			case 113:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -92:
-				{
-					break;
-				}
+				break;
 			case 115:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -93:
-				{
-					break;
-				}
+				break;
 			case 117:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -94:
-				{
-					break;
-				}
+				break;
 			case 119:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -95:
-				{
-					break;
-				}
+				break;
 			case 121:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -96:
-				{
-					break;
-				}
+				break;
 			case 123:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -97:
-				{
-					break;
-				}
+				break;
 			case 125:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -98:
-				{
-					break;
-				}
+				break;
 			case 127:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -99:
-				{
-					break;
-				}
+				break;
 			case 128:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -100:
-				{
-					break;
-				}
+				break;
 			case 129:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -101:
-				{
-					break;
-				}
+				break;
 			case 130:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -102:
-				{
-					break;
-				}
+				break;
 			case 131:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -103:
-				{
-					break;
-				}
+				break;
 			case 132:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -104:
-				{
-					break;
-				}
+				break;
 			case 133:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -105:
-				{
-					break;
-				}
+				break;
 			case 134:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -106:
-				{
-					break;
-				}
+				break;
 			case 135:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -107:
-				{
-					break;
-				}
+				break;
 			case 136:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -108:
-				{
-					break;
-				}
+				break;
 			case 137:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -109:
-				{
-					break;
-				}
+				break;
 			case 138:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -110:
-				{
-					break;
-				}
+				break;
 			case 139:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -111:
-				{
-					break;
-				}
+				break;
 			case 140:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -112:
-				{
-					break;
-				}
+				break;
 			case 141:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -113:
-				{
-					break;
-				}
+				break;
 			case 142:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -114:
-				{
-					break;
-				}
+				break;
 			case 143:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -115:
-				{
-					break;
-				}
+				break;
 			case 144:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -116:
-				{
-					break;
-				}
+				break;
 			case 145:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -117:
-				{
-					break;
-				}
+				break;
 			case 146:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -118:
-				{
-					break;
-				}
+				break;
 			case 147:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -119:
-				{
-					break;
-				}
+				break;
 			case 148:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -120:
-				{
-					break;
-				}
+				break;
 			case 149:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -121:
-				{
-					break;
-				}
+				break;
 			case 150:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -122:
-				{
-					break;
-				}
+				break;
 			case 151:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -123:
-				{
-					break;
-				}
+				break;
 			case 152:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -124:
-				{
-					break;
-				}
+				break;
 			case 153:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -125:
-				{
-					break;
-				}
+				break;
 			case 154:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -126:
-				{
-					break;
-				}
+				break;
 			case 155:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -127:
-				{
-					break;
-				}
+				break;
 			case 156:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -128:
-				{
-					break;
-				}
+				break;
 			case 157:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -129:
-				{
-					break;
-				}
+				break;
 			case 158:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -130:
-				{
-					break;
-				}
+				break;
 			case 159:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -131:
-				{
-					break;
-				}
+				break;
 			case 160:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -132:
-				{
-					break;
-				}
+				break;
 			case 161:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -133:
-				{
-					break;
-				}
+				break;
 			case 162:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -134:
-				{
-					break;
-				}
+				break;
 			case 163:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -135:
-				{
-					break;
-				}
+				break;
 			case 164:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -136:
-				{
-					break;
-				}
+				break;
 			case 165:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -137:
-				{
-					break;
-				}
+				break;
 			case 166:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -138:
-				{
-					break;
-				}
+				break;
 			case 167:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -139:
-				{
-					break;
-				}
+				break;
 			case 168:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -140:
-				{
-					break;
-				}
+				break;
 			case 169:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -141:
-				{
-					break;
-				}
+				break;
 			case 170:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -142:
-				{
-					break;
-				}
+				break;
 			case 171:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -143:
-				{
-					break;
-				}
+				break;
 			case 172:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -144:
-				{
-					break;
-				}
+				break;
 			case 173:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -145:
-				{
-					break;
-				}
+				break;
 			case 174:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -146:
-				{
-					break;
-				}
+				break;
 			case 175:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -147:
-				{
-					break;
-				}
+				break;
 			case 176:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -148:
-				{
-					break;
-				}
+				break;
 			case 177:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -149:
-				{
-					break;
-				}
+				break;
 			case 178:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -150:
-				{
-					break;
-				}
+				break;
 			case 179:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -151:
-				{
-					break;
-				}
+				break;
 			case 180:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -152:
-				{
-					break;
-				}
+				break;
 			case 181:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -153:
-				{
-					break;
-				}
+				break;
 			case 182:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -154:
-				{
-					break;
-				}
+				break;
 			case 183:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -155:
-				{
-					break;
-				}
+				break;
 			case 184:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -156:
-				{
-					break;
-				}
+				break;
 			case 187:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -157:
-				{
-					break;
-				}
+				break;
 			case 189:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -158:
-				{
-					break;
-				}
+				break;
 			case 191:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -159:
-				{
-					break;
-				}
+				break;
 			case 192:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -160:
-				{
-					break;
-				}
+				break;
 			case 193:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -161:
-				{
-					break;
-				}
+				break;
 			case 194:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -162:
-				{
-					break;
-				}
+				break;
 			case 195:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -163:
-				{
-					break;
-				}
+				break;
 			case 196:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -164:
-				{
-					break;
-				}
+				break;
 			case 197:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -165:
-				{
-					break;
-				}
+				break;
 			case 198:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -166:
-				{
-					break;
-				}
+				break;
 			case 199:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -167:
-				{
-					break;
-				}
+				break;
 			case 200:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -168:
-				{
-					break;
-				}
+				break;
 			case 201:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -169:
-				{
-					break;
-				}
+				break;
 			case 202:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -170:
-				{
-					break;
-				}
+				break;
 			case 203:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -171:
-				{
-					break;
-				}
+				break;
 			case 204:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -172:
-				{
-					break;
-				}
+				break;
 			case 205:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -173:
-				{
-					break;
-				}
+				break;
 			case 206:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -174:
-				{
-					break;
-				}
+				break;
 			case 207:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -175:
-				{
-					break;
-				}
+				break;
 			case 208:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -176:
-				{
-					break;
-				}
+				break;
 			case 209:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -177:
-				{
-					break;
-				}
+				break;
 			case 210:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -178:
-				{
-					break;
-				}
+				break;
 			case 211:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -179:
-				{
-					break;
-				}
+				break;
 			case 212:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -180:
-				{
-					break;
-				}
+				break;
 			case 213:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -181:
-				{
-					break;
-				}
+				break;
 			case 214:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -182:
-				{
-					break;
-				}
+				break;
 			case 215:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -183:
-				{
-					break;
-				}
+				break;
 			case 216:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -184:
-				{
-					break;
-				}
+				break;
 			case 217:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -185:
-				{
-					break;
-				}
+				break;
 			case 218:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -186:
-				{
-					break;
-				}
+				break;
 			case 219:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -187:
-				{
-					break;
-				}
+				break;
 			case 220:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -188:
-				{
-					break;
-				}
+				break;
 			case 221:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -189:
-				{
-					break;
-				}
+				break;
 			case 222:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -190:
-				{
-					break;
-				}
+				break;
 			case 223:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -191:
-				{
-					break;
-				}
+				break;
 			case 224:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -192:
-				{
-					break;
-				}
+				break;
 			case 225:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -193:
-				{
-					break;
-				}
+				break;
 			case 226:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -194:
-				{
-					break;
-				}
+				break;
 			case 227:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -195:
-				{
-					break;
-				}
+				break;
 			case 228:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -196:
-				{
-					break;
-				}
+				break;
 			case 229:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -197:
-				{
-					break;
-				}
+				break;
 			case 230:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -198:
-				{
-					break;
-				}
+				break;
 			case 231:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -199:
-				{
-					break;
-				}
+				break;
 			case 232:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -200:
-				{
-					break;
-				}
+				break;
 			case 233:
 				{
-					{
-						return newSymbol($sym::QNAME, $(yytext()));
-					}
+					return newSymbol($sym::QNAME, $(yytext()));
 				}
 			case -201:
-				{
-					break;
-				}
+				break;
 			default:
-				{
-					yy_error(XPathLexer::YY_E_INTERNAL, false);
-				}
+				yy_error(XPathLexer::YY_E_INTERNAL, false);
 			case -1:
-				{}
+				break;
 			}
 			yy_initial = true;
-			yy_state = $nc(this->yy_state_dtrans)->get(this->yy_lexical_state);
+			yy_state = this->yy_state_dtrans->get(this->yy_lexical_state);
 			yy_next_state = XPathLexer::YY_NO_STATE;
 			yy_last_accept_state = XPathLexer::YY_NO_STATE;
 			yy_mark_start();
@@ -2738,8 +1836,8 @@ $Symbol* XPathLexer::next_token() {
 	}
 }
 
-void clinit$XPathLexer($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XPathLexer::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XPathLexer::yy_cmap, $nc($(XPathLexer::unpackFromString(1, 0x00010002, "54:9,27:2,54,27:2,54:18,27,17,53,54,15,54:2,55,25,26,1,3,11,4,13,2,56:10,10,54,18,16,19,54,12,44,57:3,46,57:3,51,57:4,48,52,43,57,47,50,45,57:3,49,57:2,41,54,42,54,58,54,35,38,29,5,21,39,33,36,6,57,20,37,8,28,9,30,57,31,32,23,34,7,40,24,22,57,54,14,54:58,60,54:8,57:23,54,57:31,54,57:58,58:2,57:11,58:2,57:8,58,57:53,58,57:68,58:9,57:36,58:3,57:2,58:4,57:30,58:56,57:89,58:18,57:7,58:62,60:70,54:26,60:2,54:14,58:14,54,58:7,57,58,57:3,58,57,58,57:20,58,57:44,58,57:7,58:3,57,58,57,58,57,58,57,58,57:18,58:13,57:12,58,57:66,58,57:12,58,57:36,58:14,57:53,58:2,57:2,58:2,57:2,58:3,57:28,58:2,57:8,58:2,57:2,58:55,57:38,58:2,57,58:7,57:38,58:73,57:27,58:5,57:3,58:46,57:26,58:6,57:10,58:21,59:10,58:7,57:71,58:2,57:5,58,57:15,58,57:4,58,57,58:15,57:2,58:9,59:10,58:523,57:53,58:3,57,58:26,57:10,58:4,59:10,58:21,57:8,58:2,57:2,58:2,57:22,58,57:7,58,57,58:3,57:4,58:34,57:2,58,57:3,58:4,59:10,57:2,58:19,57:6,58:4,57:2,58:2,57:22,58,57:7,58,57:2,58,57:2,58,57:2,58:31,57:4,58,57,58:7,59:10,58:2,57:3,58:16,57:7,58,57,58,57:3,58,5"
 		"7:22,58,57:7,58,57:2,58,57:5,58:3,57,58:34,57,58:5,59:10,58:21,57:8,58:2,57:2,58:2,57:22,58,57:7,58,57:2,58:2,57:4,58:3,57,58:30,57:2,58,57:3,58:4,59:10,58:21,57:6,58:3,57:3,58,57:4,58:3,57:2,58,57,58,57:2,58:3,57:2,58:3,57:3,58:3,57:8,58,57:3,58:45,59:9,58:21,57:8,58,57:3,58,57:23,58,57:10,58,57:5,58:38,57:2,58:4,59:10,58:21,57:8,58,57:3,58,57:23,58,57:10,58,57:5,58:36,57,58,57:2,58:4,59:10,58:21,57:8,58,57:3,58,57:23,58,57:16,58:38,57:2,58:4,59:10,58:145,57:46,58,57,58,57:2,58:12,57:6,58:10,59:10,58:39,57:2,58,57,58:2,57:2,58,57,58:2,57,58:6,57:4,58,57:7,58,57:3,58,57,58,57,58:2,57:2,58,57:2,58,57,58,57:2,58:9,57,58:2,57:5,58:11,59:10,58:70,59:10,58:22,57:8,58,57:33,58:310,57:38,58:10,57:39,58:9,57,58,57:2,58,57:3,58,57,58,57:2,58,57:5,58:41,57,58,57,58,57,58:11,57,58,57,58,57,58:3,57:2,58:3,57,58:5,57:3,58,57,58,57,58,57,58,57,58:3,57:2,58:3,57:2,58,57,58:40,57,58:9,57,58:2,57,58:2,57:2,58:7,57:2,58,57,58,57:7,58:40,57,58:4,57,58:8,57,58:3078,57:156,58:4,57:90,58:6,57:22,58:2,57:6,58:2,57:38,58:2,57:6,58:2"
 		",57:8,58,57,58,57,58,57,58,57:31,58:2,57:53,58,57:7,58,57,58:3,57:3,58,57:7,58:3,57:4,58:2,57:6,58:4,57:13,58:5,57:3,58,57:7,58:3,54:12,58:2,54:98,58:182,57,58:3,57:2,58:2,57,58:81,57:3,58:13,54:2672,58:1008,54:17,58:64,57:84,58:12,57:90,58:10,57:40,58:31443,57:11172,58:92,54:8448,58:1232,54:32,58:526,54:2,0:2"_s)))->get(0));
@@ -2762,7 +1860,77 @@ XPathLexer::XPathLexer() {
 }
 
 $Class* XPathLexer::load$($String* name, bool initialize) {
-	$loadClass(XPathLexer, name, initialize, &_XPathLexer_ClassInfo_, clinit$XPathLexer, allocate$XPathLexer);
+	$FieldInfo fieldInfos$$[] = {
+		{"YY_BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_BUFFER_SIZE)},
+		{"YY_F", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_F)},
+		{"YY_NO_STATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_NO_STATE)},
+		{"YY_NOT_ACCEPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_NOT_ACCEPT)},
+		{"YY_START", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_START)},
+		{"YY_END", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_END)},
+		{"YY_NO_ANCHOR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_NO_ANCHOR)},
+		{"YY_BOL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_BOL)},
+		{"YY_EOF", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_EOF)},
+		{"YYEOF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XPathLexer, YYEOF)},
+		{"last", "I", nullptr, 0, $field(XPathLexer, last)},
+		{"beforeLast", "I", nullptr, 0, $field(XPathLexer, beforeLast)},
+		{"yy_reader", "Ljava/io/BufferedReader;", nullptr, $PRIVATE, $field(XPathLexer, yy_reader)},
+		{"yy_buffer_index", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer_index)},
+		{"yy_buffer_read", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer_read)},
+		{"yy_buffer_start", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer_start)},
+		{"yy_buffer_end", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer_end)},
+		{"yy_buffer", "[C", nullptr, $PRIVATE, $field(XPathLexer, yy_buffer)},
+		{"yy_at_bol", "Z", nullptr, $PRIVATE, $field(XPathLexer, yy_at_bol)},
+		{"yy_lexical_state", "I", nullptr, $PRIVATE, $field(XPathLexer, yy_lexical_state)},
+		{"yy_eof_done", "Z", nullptr, $PRIVATE, $field(XPathLexer, yy_eof_done)},
+		{"YYINITIAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YYINITIAL)},
+		{"yy_state_dtrans", "[I", nullptr, $PRIVATE | $FINAL, $field(XPathLexer, yy_state_dtrans)},
+		{"yy_last_was_cr", "Z", nullptr, $PRIVATE, $field(XPathLexer, yy_last_was_cr)},
+		{"YY_E_INTERNAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_E_INTERNAL)},
+		{"YY_E_MATCH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XPathLexer, YY_E_MATCH)},
+		{"yy_error_string", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(XPathLexer, yy_error_string)},
+		{"yy_acpt", "[I", nullptr, $PRIVATE, $field(XPathLexer, yy_acpt)},
+		{"yy_cmap", "[I", nullptr, $PRIVATE | $STATIC, $staticField(XPathLexer, yy_cmap)},
+		{"yy_rmap", "[I", nullptr, $PRIVATE | $STATIC, $staticField(XPathLexer, yy_rmap)},
+		{"yy_nxt", "[[I", nullptr, $PRIVATE | $STATIC, $staticField(XPathLexer, yy_nxt)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/Reader;)V", nullptr, 0, $method(XPathLexer, init$, void, $Reader*)},
+		{"<init>", "(Ljava/io/InputStream;)V", nullptr, 0, $method(XPathLexer, init$, void, $InputStream*)},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XPathLexer, init$, void)},
+		{"disambiguateAxisOrFunction", "(I)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, disambiguateAxisOrFunction, $Symbol*, int32_t), "java.lang.Exception"},
+		{"disambiguateOperator", "(I)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, disambiguateOperator, $Symbol*, int32_t), "java.lang.Exception"},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(XPathLexer, initialize, void)},
+		{"isWhitespace", "(I)Z", nullptr, $STATIC, $staticMethod(XPathLexer, isWhitespace, bool, int32_t)},
+		{"newSymbol", "(I)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, newSymbol, $Symbol*, int32_t)},
+		{"newSymbol", "(ILjava/lang/String;)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, newSymbol, $Symbol*, int32_t, $String*)},
+		{"newSymbol", "(ILjava/lang/Long;)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, newSymbol, $Symbol*, int32_t, $Long*)},
+		{"newSymbol", "(ILjava/lang/Double;)Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, 0, $virtualMethod(XPathLexer, newSymbol, $Symbol*, int32_t, $Double*)},
+		{"next_token", "()Lcom/sun/java_cup/internal/runtime/Symbol;", nullptr, $PUBLIC, $virtualMethod(XPathLexer, next_token, $Symbol*), "java.io.IOException,java.lang.Exception"},
+		{"unpackFromString", "(IILjava/lang/String;)[[I", nullptr, $PRIVATE | $STATIC, $staticMethod(XPathLexer, unpackFromString, $intArray2*, int32_t, int32_t, $String*)},
+		{"yy_advance", "()I", nullptr, $PRIVATE, $method(XPathLexer, yy_advance, int32_t), "java.io.IOException"},
+		{"yy_double", "([C)[C", nullptr, $PRIVATE, $method(XPathLexer, yy_double, $chars*, $chars*)},
+		{"yy_error", "(IZ)V", nullptr, $PRIVATE, $method(XPathLexer, yy_error, void, int32_t, bool)},
+		{"yy_mark_end", "()V", nullptr, $PRIVATE, $method(XPathLexer, yy_mark_end, void)},
+		{"yy_mark_start", "()V", nullptr, $PRIVATE, $method(XPathLexer, yy_mark_start, void)},
+		{"yy_move_end", "()V", nullptr, $PRIVATE, $method(XPathLexer, yy_move_end, void)},
+		{"yy_to_mark", "()V", nullptr, $PRIVATE, $method(XPathLexer, yy_to_mark, void)},
+		{"yybegin", "(I)V", nullptr, $PRIVATE, $method(XPathLexer, yybegin, void, int32_t)},
+		{"yylength", "()I", nullptr, $PRIVATE, $method(XPathLexer, yylength, int32_t)},
+		{"yytext", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(XPathLexer, yytext, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.XPathLexer",
+		"java.lang.Object",
+		"com.sun.java_cup.internal.runtime.Scanner",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathLexer, name, initialize, &classInfo$$, XPathLexer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathLexer);
+	});
 	return class$;
 }
 

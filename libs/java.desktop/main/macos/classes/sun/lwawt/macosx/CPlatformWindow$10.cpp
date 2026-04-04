@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CPlatformWindow$10.h>
-
 #include <com/apple/laf/ClientPropertyApplicator$Property.h>
 #include <com/apple/laf/ClientPropertyApplicator.h>
 #include <java/io/File.h>
@@ -37,27 +36,24 @@ public:
 	virtual void run(int64_t ptr) override {
 		CPlatformWindow$10::lambda$applyProperty$0(ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CPlatformWindow$10$$Lambda$lambda$applyProperty$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo CPlatformWindow$10$$Lambda$lambda$applyProperty$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CPlatformWindow$10$$Lambda$lambda$applyProperty$0, init$, void)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$10$$Lambda$lambda$applyProperty$0, run, void, int64_t)},
-	{}
-};
-$ClassInfo CPlatformWindow$10$$Lambda$lambda$applyProperty$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CPlatformWindow$10$$Lambda$lambda$applyProperty$0",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	nullptr,
-	methodInfos
 };
 $Class* CPlatformWindow$10$$Lambda$lambda$applyProperty$0::load$($String* name, bool initialize) {
-	$loadClass(CPlatformWindow$10$$Lambda$lambda$applyProperty$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CPlatformWindow$10$$Lambda$lambda$applyProperty$0, init$, void)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$10$$Lambda$lambda$applyProperty$0, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CPlatformWindow$10$$Lambda$lambda$applyProperty$0",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CPlatformWindow$10$$Lambda$lambda$applyProperty$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPlatformWindow$10$$Lambda$lambda$applyProperty$0);
+	});
 	return class$;
 }
 $Class* CPlatformWindow$10$$Lambda$lambda$applyProperty$0::class$ = nullptr;
@@ -71,90 +67,45 @@ public:
 	virtual void run(int64_t ptr) override {
 		CPlatformWindow$10::lambda$applyProperty$1(filename, ptr);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1>());
-	}
 	$String* filename = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1::fieldInfos[2] = {
-	{"filename", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, filename)},
-	{}
-};
-$MethodInfo CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, init$, void, $String*)},
-	{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, run, void, int64_t)},
-	{}
-};
-$ClassInfo CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.lwawt.macosx.CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1",
-	"java.lang.Object",
-	"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1::load$($String* name, bool initialize) {
-	$loadClass(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"filename", "Ljava/lang/String;", nullptr, $PUBLIC, $field(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, filename)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, init$, void, $String*)},
+		{"run", "(J)V", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, run, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.lwawt.macosx.CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1",
+		"java.lang.Object",
+		"sun.lwawt.macosx.CFRetainedResource$CFNativeAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1);
+	});
 	return class$;
 }
 $Class* CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1::class$ = nullptr;
-
-$MethodInfo _CPlatformWindow$10_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CPlatformWindow$10, init$, void, $String*)},
-	{"applyProperty", "(Lsun/lwawt/macosx/CPlatformWindow;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$10, applyProperty, void, $CPlatformWindow*, Object$*)},
-	{"applyProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CPlatformWindow$10, applyProperty, void, Object$*, Object$*)},
-	{"lambda$applyProperty$0", "(J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CPlatformWindow$10, lambda$applyProperty$0, void, int64_t)},
-	{"lambda$applyProperty$1", "(Ljava/lang/String;J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CPlatformWindow$10, lambda$applyProperty$1, void, $String*, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _CPlatformWindow$10_EnclosingMethodInfo_ = {
-	"sun.lwawt.macosx.CPlatformWindow",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CPlatformWindow$10_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CPlatformWindow$10", nullptr, nullptr, 0},
-	{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CPlatformWindow$10_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CPlatformWindow$10",
-	"com.apple.laf.ClientPropertyApplicator$Property",
-	nullptr,
-	nullptr,
-	_CPlatformWindow$10_MethodInfo_,
-	"Lcom/apple/laf/ClientPropertyApplicator$Property<Lsun/lwawt/macosx/CPlatformWindow;>;",
-	&_CPlatformWindow$10_EnclosingMethodInfo_,
-	_CPlatformWindow$10_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CPlatformWindow"
-};
-
-$Object* allocate$CPlatformWindow$10($Class* clazz) {
-	return $of($alloc(CPlatformWindow$10));
-}
 
 void CPlatformWindow$10::init$($String* name) {
 	$ClientPropertyApplicator$Property::init$(name);
 }
 
 void CPlatformWindow$10::applyProperty($CPlatformWindow* c, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (value == nullptr || !($instanceOf($File, value))) {
-		$nc(c)->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CPlatformWindow$10$$Lambda$lambda$applyProperty$0)));
+		$nc(c)->execute($$new(CPlatformWindow$10$$Lambda$lambda$applyProperty$0));
 		return;
 	}
-	$var($String, filename, $nc(($cast($File, value)))->getAbsolutePath());
-	$nc(c)->execute(static_cast<$CFRetainedResource$CFNativeAction*>($$new(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, filename)));
+	$var($String, filename, $nc($cast($File, value))->getAbsolutePath());
+	$nc(c)->execute($$new(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1, filename));
 }
 
 void CPlatformWindow$10::applyProperty(Object$* c, Object$* value) {
@@ -176,14 +127,49 @@ CPlatformWindow$10::CPlatformWindow$10() {
 
 $Class* CPlatformWindow$10::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(CPlatformWindow$10$$Lambda$lambda$applyProperty$0::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CPlatformWindow$10$$Lambda$lambda$applyProperty$0")) {
 			return CPlatformWindow$10$$Lambda$lambda$applyProperty$0::load$(name, initialize);
 		}
-		if (name->equals(CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1::classInfo$.name)) {
+		if (name->equals("sun.lwawt.macosx.CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1")) {
 			return CPlatformWindow$10$$Lambda$lambda$applyProperty$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(CPlatformWindow$10, name, initialize, &_CPlatformWindow$10_ClassInfo_, allocate$CPlatformWindow$10);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CPlatformWindow$10, init$, void, $String*)},
+		{"applyProperty", "(Lsun/lwawt/macosx/CPlatformWindow;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(CPlatformWindow$10, applyProperty, void, $CPlatformWindow*, Object$*)},
+		{"applyProperty", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(CPlatformWindow$10, applyProperty, void, Object$*, Object$*)},
+		{"lambda$applyProperty$0", "(J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CPlatformWindow$10, lambda$applyProperty$0, void, int64_t)},
+		{"lambda$applyProperty$1", "(Ljava/lang/String;J)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(CPlatformWindow$10, lambda$applyProperty$1, void, $String*, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.macosx.CPlatformWindow",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CPlatformWindow$10", nullptr, nullptr, 0},
+		{"com.apple.laf.ClientPropertyApplicator$Property", "com.apple.laf.ClientPropertyApplicator", "Property", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CPlatformWindow$10",
+		"com.apple.laf.ClientPropertyApplicator$Property",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/apple/laf/ClientPropertyApplicator$Property<Lsun/lwawt/macosx/CPlatformWindow;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CPlatformWindow"
+	};
+	$loadClass(CPlatformWindow$10, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CPlatformWindow$10);
+	});
 	return class$;
 }
 

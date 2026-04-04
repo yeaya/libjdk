@@ -30,6 +30,7 @@ class CMap : public ::java::lang::Object {
 	$class(CMap, 0, ::java::lang::Object)
 public:
 	CMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::font::CMap* createCMap(::java::nio::ByteBuffer* buffer, int32_t offset, $chars* xlat);
 	void createUVS(::java::nio::ByteBuffer* buffer, int32_t offset);
@@ -46,9 +47,9 @@ public:
 	static const int16_t WansungEncoding = 5;
 	static const int16_t JohabEncoding = 6;
 	static const int16_t MSUnicodeSurrogateEncoding = 10;
-	static const char16_t noSuchChar = (char16_t)0x0000FFFD;
-	static const int32_t SHORTMASK = 0x0000FFFF;
-	static const int32_t INTMASK = 0x7FFFFFFF;
+	static const char16_t noSuchChar = (char16_t)0x0000fffd;
+	static const int32_t SHORTMASK = 0x0000ffff;
+	static const int32_t INTMASK = 0x7fffffff;
 	static $Array<char16_t, 2>* converterMaps;
 	$chars* xlat = nullptr;
 	::sun::font::CMap$UVS* uvs = nullptr;

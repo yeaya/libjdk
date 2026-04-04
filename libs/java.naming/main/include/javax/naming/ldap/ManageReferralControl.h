@@ -16,10 +16,11 @@ class $import ManageReferralControl : public ::javax::naming::ldap::BasicControl
 	$class(ManageReferralControl, 0, ::javax::naming::ldap::BasicControl)
 public:
 	ManageReferralControl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(bool criticality);
 	static $String* OID;
-	static const int64_t serialVersionUID = (int64_t)0x29E1393D287C8D66;
+	static const int64_t serialVersionUID = (int64_t)0x29e1393d287c8d66;
 };
 
 		} // ldap

@@ -88,6 +88,7 @@ class AquaTabbedPaneUI : public ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI
 public:
 	AquaTabbedPaneUI();
 	using ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI::getTabBounds;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void assureRectsCreated(int32_t tabCount) override;
 	virtual int32_t calculateTabHeight(int32_t tabPlacement, int32_t tabIndex, int32_t fontHeight) override;

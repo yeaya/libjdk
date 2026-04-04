@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalCheckBoxUI.h>
-
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
@@ -27,35 +26,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalCheckBoxUI_FieldInfo_[] = {
-	{"METAL_CHECK_BOX_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalCheckBoxUI, METAL_CHECK_BOX_UI_KEY)},
-	{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalCheckBoxUI, propertyPrefix)},
-	{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MetalCheckBoxUI, defaults_initialized)},
-	{}
-};
-
-$MethodInfo _MetalCheckBoxUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalCheckBoxUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxUI, getPropertyPrefix, $String*)},
-	{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxUI, installDefaults, void, $AbstractButton*)},
-	{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalCheckBoxUI, uninstallDefaults, void, $AbstractButton*)},
-	{}
-};
-
-$ClassInfo _MetalCheckBoxUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalCheckBoxUI",
-	"javax.swing.plaf.metal.MetalRadioButtonUI",
-	nullptr,
-	_MetalCheckBoxUI_FieldInfo_,
-	_MetalCheckBoxUI_MethodInfo_
-};
-
-$Object* allocate$MetalCheckBoxUI($Class* clazz) {
-	return $of($alloc(MetalCheckBoxUI));
-}
-
 $Object* MetalCheckBoxUI::METAL_CHECK_BOX_UI_KEY = nullptr;
 $String* MetalCheckBoxUI::propertyPrefix = nullptr;
 
@@ -66,7 +36,7 @@ void MetalCheckBoxUI::init$() {
 
 $ComponentUI* MetalCheckBoxUI::createUI($JComponent* b) {
 	$init(MetalCheckBoxUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AppContext, appContext, $AppContext::getAppContext());
 	$var(MetalCheckBoxUI, checkboxUI, $cast(MetalCheckBoxUI, $nc(appContext)->get(MetalCheckBoxUI::METAL_CHECK_BOX_UI_KEY)));
 	if (checkboxUI == nullptr) {
@@ -81,7 +51,7 @@ $String* MetalCheckBoxUI::getPropertyPrefix() {
 }
 
 void MetalCheckBoxUI::installDefaults($AbstractButton* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MetalRadioButtonUI::installDefaults(b);
 	if (!this->defaults_initialized) {
 		$set(this, icon, $UIManager::getIcon($$str({$(getPropertyPrefix()), "icon"_s})));
@@ -94,7 +64,7 @@ void MetalCheckBoxUI::uninstallDefaults($AbstractButton* b) {
 	this->defaults_initialized = false;
 }
 
-void clinit$MetalCheckBoxUI($Class* class$) {
+void MetalCheckBoxUI::clinit$($Class* clazz) {
 	$assignStatic(MetalCheckBoxUI::propertyPrefix, "CheckBox."_s);
 	$assignStatic(MetalCheckBoxUI::METAL_CHECK_BOX_UI_KEY, $new($Object));
 }
@@ -103,7 +73,31 @@ MetalCheckBoxUI::MetalCheckBoxUI() {
 }
 
 $Class* MetalCheckBoxUI::load$($String* name, bool initialize) {
-	$loadClass(MetalCheckBoxUI, name, initialize, &_MetalCheckBoxUI_ClassInfo_, clinit$MetalCheckBoxUI, allocate$MetalCheckBoxUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"METAL_CHECK_BOX_UI_KEY", "Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalCheckBoxUI, METAL_CHECK_BOX_UI_KEY)},
+		{"propertyPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalCheckBoxUI, propertyPrefix)},
+		{"defaults_initialized", "Z", nullptr, $PRIVATE, $field(MetalCheckBoxUI, defaults_initialized)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalCheckBoxUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalCheckBoxUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxUI, getPropertyPrefix, $String*)},
+		{"installDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PUBLIC, $virtualMethod(MetalCheckBoxUI, installDefaults, void, $AbstractButton*)},
+		{"uninstallDefaults", "(Ljavax/swing/AbstractButton;)V", nullptr, $PROTECTED, $virtualMethod(MetalCheckBoxUI, uninstallDefaults, void, $AbstractButton*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalCheckBoxUI",
+		"javax.swing.plaf.metal.MetalRadioButtonUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MetalCheckBoxUI, name, initialize, &classInfo$$, MetalCheckBoxUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalCheckBoxUI);
+	});
 	return class$;
 }
 

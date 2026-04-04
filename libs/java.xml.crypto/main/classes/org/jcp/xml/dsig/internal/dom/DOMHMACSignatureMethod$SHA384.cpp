@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMHMACSignatureMethod$SHA384.h>
-
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMHMACSignatureMethod.h>
 #include <org/w3c/dom/Element.h>
@@ -20,40 +19,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$MethodInfo _DOMHMACSignatureMethod$SHA384_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMHMACSignatureMethod$SHA384, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMHMACSignatureMethod$SHA384, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMHMACSignatureMethod$SHA384, getAlgorithm, $String*)},
-	{"getDigestLength", "()I", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod$SHA384, getDigestLength, int32_t)},
-	{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod$SHA384, getJCAAlgorithm, $String*)},
-	{}
-};
-
-$InnerClassInfo _DOMHMACSignatureMethod$SHA384_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA384", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA384", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMHMACSignatureMethod$SHA384_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA384",
-	"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod",
-	nullptr,
-	nullptr,
-	_DOMHMACSignatureMethod$SHA384_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMHMACSignatureMethod$SHA384_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod"
-};
-
-$Object* allocate$DOMHMACSignatureMethod$SHA384($Class* clazz) {
-	return $of($alloc(DOMHMACSignatureMethod$SHA384));
-}
 
 void DOMHMACSignatureMethod$SHA384::init$($AlgorithmParameterSpec* params) {
 	$DOMHMACSignatureMethod::init$(params);
@@ -80,7 +45,36 @@ DOMHMACSignatureMethod$SHA384::DOMHMACSignatureMethod$SHA384() {
 }
 
 $Class* DOMHMACSignatureMethod$SHA384::load$($String* name, bool initialize) {
-	$loadClass(DOMHMACSignatureMethod$SHA384, name, initialize, &_DOMHMACSignatureMethod$SHA384_ClassInfo_, allocate$DOMHMACSignatureMethod$SHA384);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMHMACSignatureMethod$SHA384, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMHMACSignatureMethod$SHA384, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"getAlgorithm", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DOMHMACSignatureMethod$SHA384, getAlgorithm, $String*)},
+		{"getDigestLength", "()I", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod$SHA384, getDigestLength, int32_t)},
+		{"getJCAAlgorithm", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(DOMHMACSignatureMethod$SHA384, getJCAAlgorithm, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA384", "org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod", "SHA384", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod$SHA384",
+		"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMHMACSignatureMethod"
+	};
+	$loadClass(DOMHMACSignatureMethod$SHA384, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMHMACSignatureMethod$SHA384));
+	});
 	return class$;
 }
 

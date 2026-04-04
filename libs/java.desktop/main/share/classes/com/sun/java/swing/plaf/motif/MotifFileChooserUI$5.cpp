@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$5.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI.h>
 #include <java/awt/Dimension.h>
 #include <javax/swing/JComponent.h>
@@ -22,55 +21,13 @@ namespace com {
 				namespace plaf {
 					namespace motif {
 
-$FieldInfo _MotifFileChooserUI$5_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$5, this$0)},
-	{}
-};
-
-$MethodInfo _MotifFileChooserUI$5_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;I)V", nullptr, 0, $method(MotifFileChooserUI$5, init$, void, $MotifFileChooserUI*, int32_t)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$5, getMaximumSize, $Dimension*)},
-	{}
-};
-
-$EnclosingMethodInfo _MotifFileChooserUI$5_EnclosingMethodInfo_ = {
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _MotifFileChooserUI$5_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$5", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifFileChooserUI$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI$5",
-	"javax.swing.JTextField",
-	nullptr,
-	_MotifFileChooserUI$5_FieldInfo_,
-	_MotifFileChooserUI$5_MethodInfo_,
-	nullptr,
-	&_MotifFileChooserUI$5_EnclosingMethodInfo_,
-	_MotifFileChooserUI$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
-};
-
-$Object* allocate$MotifFileChooserUI$5($Class* clazz) {
-	return $of($alloc(MotifFileChooserUI$5));
-}
-
 void MotifFileChooserUI$5::init$($MotifFileChooserUI* this$0, int32_t columns) {
 	$set(this, this$0, this$0);
 	$JTextField::init$(columns);
 }
 
 $Dimension* MotifFileChooserUI$5::getMaximumSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, d, $JTextField::getMaximumSize());
 	$nc(d)->height = $nc($(getPreferredSize()))->height;
 	return d;
@@ -80,7 +37,42 @@ MotifFileChooserUI$5::MotifFileChooserUI$5() {
 }
 
 $Class* MotifFileChooserUI$5::load$($String* name, bool initialize) {
-	$loadClass(MotifFileChooserUI$5, name, initialize, &_MotifFileChooserUI$5_ClassInfo_, allocate$MotifFileChooserUI$5);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MotifFileChooserUI$5, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI;I)V", nullptr, 0, $method(MotifFileChooserUI$5, init$, void, $MotifFileChooserUI*, int32_t)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI$5, getMaximumSize, $Dimension*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$5", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI$5",
+		"javax.swing.JTextField",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI"
+	};
+	$loadClass(MotifFileChooserUI$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MotifFileChooserUI$5));
+	});
 	return class$;
 }
 

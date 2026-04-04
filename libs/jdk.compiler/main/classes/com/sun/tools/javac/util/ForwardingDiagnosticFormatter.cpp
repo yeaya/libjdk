@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/ForwardingDiagnosticFormatter.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$PositionKind.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
@@ -24,49 +23,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _ForwardingDiagnosticFormatter_FieldInfo_[] = {
-	{"formatter", "Lcom/sun/tools/javac/api/DiagnosticFormatter;", "TF;", $PROTECTED, $field(ForwardingDiagnosticFormatter, formatter)},
-	{"configuration", "Lcom/sun/tools/javac/util/ForwardingDiagnosticFormatter$ForwardingConfiguration;", nullptr, $PROTECTED, $field(ForwardingDiagnosticFormatter, configuration)},
-	{}
-};
-
-$MethodInfo _ForwardingDiagnosticFormatter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/DiagnosticFormatter;)V", "(TF;)V", $PUBLIC, $method(ForwardingDiagnosticFormatter, init$, void, $DiagnosticFormatter*)},
-	{"displaySource", "(Ljavax/tools/Diagnostic;)Z", "(TD;)Z", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, displaySource, bool, $Diagnostic*)},
-	{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
-	{"formatKind", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, formatKind, $String*, $Diagnostic*, $Locale*)},
-	{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
-	{"formatPosition", "(Ljavax/tools/Diagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, formatPosition, $String*, $Diagnostic*, $DiagnosticFormatter$PositionKind*, $Locale*)},
-	{"formatSource", "(Ljavax/tools/Diagnostic;ZLjava/util/Locale;)Ljava/lang/String;", "(TD;ZLjava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, formatSource, $String*, $Diagnostic*, bool, $Locale*)},
-	{"getConfiguration", "()Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
-	{"getDelegatedFormatter", "()Lcom/sun/tools/javac/api/DiagnosticFormatter;", "()TF;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, getDelegatedFormatter, $DiagnosticFormatter*)},
-	{}
-};
-
-$InnerClassInfo _ForwardingDiagnosticFormatter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.ForwardingDiagnosticFormatter$ForwardingConfiguration", "com.sun.tools.javac.util.ForwardingDiagnosticFormatter", "ForwardingConfiguration", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _ForwardingDiagnosticFormatter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.ForwardingDiagnosticFormatter",
-	"java.lang.Object",
-	"com.sun.tools.javac.api.DiagnosticFormatter",
-	_ForwardingDiagnosticFormatter_FieldInfo_,
-	_ForwardingDiagnosticFormatter_MethodInfo_,
-	"<D::Ljavax/tools/Diagnostic<*>;F::Lcom/sun/tools/javac/api/DiagnosticFormatter<TD;>;>Ljava/lang/Object;Lcom/sun/tools/javac/api/DiagnosticFormatter<TD;>;",
-	nullptr,
-	_ForwardingDiagnosticFormatter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.ForwardingDiagnosticFormatter$ForwardingConfiguration"
-};
-
-$Object* allocate$ForwardingDiagnosticFormatter($Class* clazz) {
-	return $of($alloc(ForwardingDiagnosticFormatter));
-}
 
 void ForwardingDiagnosticFormatter::init$($DiagnosticFormatter* formatter) {
 	$set(this, formatter, formatter);
@@ -109,7 +65,44 @@ ForwardingDiagnosticFormatter::ForwardingDiagnosticFormatter() {
 }
 
 $Class* ForwardingDiagnosticFormatter::load$($String* name, bool initialize) {
-	$loadClass(ForwardingDiagnosticFormatter, name, initialize, &_ForwardingDiagnosticFormatter_ClassInfo_, allocate$ForwardingDiagnosticFormatter);
+	$FieldInfo fieldInfos$$[] = {
+		{"formatter", "Lcom/sun/tools/javac/api/DiagnosticFormatter;", "TF;", $PROTECTED, $field(ForwardingDiagnosticFormatter, formatter)},
+		{"configuration", "Lcom/sun/tools/javac/util/ForwardingDiagnosticFormatter$ForwardingConfiguration;", nullptr, $PROTECTED, $field(ForwardingDiagnosticFormatter, configuration)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/DiagnosticFormatter;)V", "(TF;)V", $PUBLIC, $method(ForwardingDiagnosticFormatter, init$, void, $DiagnosticFormatter*)},
+		{"displaySource", "(Ljavax/tools/Diagnostic;)Z", "(TD;)Z", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, displaySource, bool, $Diagnostic*)},
+		{"format", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, format, $String*, $Diagnostic*, $Locale*)},
+		{"formatKind", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, formatKind, $String*, $Diagnostic*, $Locale*)},
+		{"formatMessage", "(Ljavax/tools/Diagnostic;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, formatMessage, $String*, $Diagnostic*, $Locale*)},
+		{"formatPosition", "(Ljavax/tools/Diagnostic;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", "(TD;Lcom/sun/tools/javac/api/DiagnosticFormatter$PositionKind;Ljava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, formatPosition, $String*, $Diagnostic*, $DiagnosticFormatter$PositionKind*, $Locale*)},
+		{"formatSource", "(Ljavax/tools/Diagnostic;ZLjava/util/Locale;)Ljava/lang/String;", "(TD;ZLjava/util/Locale;)Ljava/lang/String;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, formatSource, $String*, $Diagnostic*, bool, $Locale*)},
+		{"getConfiguration", "()Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, getConfiguration, $DiagnosticFormatter$Configuration*)},
+		{"getDelegatedFormatter", "()Lcom/sun/tools/javac/api/DiagnosticFormatter;", "()TF;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter, getDelegatedFormatter, $DiagnosticFormatter*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.ForwardingDiagnosticFormatter$ForwardingConfiguration", "com.sun.tools.javac.util.ForwardingDiagnosticFormatter", "ForwardingConfiguration", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.ForwardingDiagnosticFormatter",
+		"java.lang.Object",
+		"com.sun.tools.javac.api.DiagnosticFormatter",
+		fieldInfos$$,
+		methodInfos$$,
+		"<D::Ljavax/tools/Diagnostic<*>;F::Lcom/sun/tools/javac/api/DiagnosticFormatter<TD;>;>Ljava/lang/Object;Lcom/sun/tools/javac/api/DiagnosticFormatter<TD;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.ForwardingDiagnosticFormatter$ForwardingConfiguration"
+	};
+	$loadClass(ForwardingDiagnosticFormatter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForwardingDiagnosticFormatter);
+	});
 	return class$;
 }
 

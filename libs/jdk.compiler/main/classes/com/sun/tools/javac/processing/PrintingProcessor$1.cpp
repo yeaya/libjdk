@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/PrintingProcessor$1.h>
-
 #include <com/sun/tools/javac/processing/PrintingProcessor.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/lang/model/element/ElementKind.h>
@@ -26,73 +25,37 @@ namespace com {
 			namespace javac {
 				namespace processing {
 
-$FieldInfo _PrintingProcessor$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$lang$model$element$ElementKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PrintingProcessor$1, $SwitchMap$javax$lang$model$element$ElementKind)},
-	{}
-};
-
-$EnclosingMethodInfo _PrintingProcessor$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.processing.PrintingProcessor",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _PrintingProcessor$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.PrintingProcessor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _PrintingProcessor$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.processing.PrintingProcessor$1",
-	"java.lang.Object",
-	nullptr,
-	_PrintingProcessor$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_PrintingProcessor$1_EnclosingMethodInfo_,
-	_PrintingProcessor$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.PrintingProcessor"
-};
-
-$Object* allocate$PrintingProcessor$1($Class* clazz) {
-	return $of($alloc(PrintingProcessor$1));
-}
-
 $ints* PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind = nullptr;
 
-void clinit$PrintingProcessor$1($Class* class$) {
+void PrintingProcessor$1::clinit$($Class* clazz) {
 	$assignStatic(PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind, $new($ints, $($ElementKind::values())->length));
 	{
 		try {
-			$nc(PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind)->set($ElementKind::CONSTRUCTOR->ordinal(), 1);
+			PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind->set($ElementKind::CONSTRUCTOR->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind)->set($ElementKind::METHOD->ordinal(), 2);
+			PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind->set($ElementKind::METHOD->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind)->set($ElementKind::ANNOTATION_TYPE->ordinal(), 3);
+			PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind->set($ElementKind::ANNOTATION_TYPE->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind)->set($ElementKind::INTERFACE->ordinal(), 4);
+			PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind->set($ElementKind::INTERFACE->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind)->set($ElementKind::ENUM->ordinal(), 5);
+			PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind->set($ElementKind::ENUM->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind)->set($ElementKind::RECORD->ordinal(), 6);
+			PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind->set($ElementKind::RECORD->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind)->set($ElementKind::FIELD->ordinal(), 7);
+			PrintingProcessor$1::$SwitchMap$javax$lang$model$element$ElementKind->set($ElementKind::FIELD->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -102,7 +65,37 @@ PrintingProcessor$1::PrintingProcessor$1() {
 }
 
 $Class* PrintingProcessor$1::load$($String* name, bool initialize) {
-	$loadClass(PrintingProcessor$1, name, initialize, &_PrintingProcessor$1_ClassInfo_, clinit$PrintingProcessor$1, allocate$PrintingProcessor$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$lang$model$element$ElementKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PrintingProcessor$1, $SwitchMap$javax$lang$model$element$ElementKind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.processing.PrintingProcessor",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.PrintingProcessor$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.processing.PrintingProcessor$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.PrintingProcessor"
+	};
+	$loadClass(PrintingProcessor$1, name, initialize, &classInfo$$, PrintingProcessor$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintingProcessor$1);
+	});
 	return class$;
 }
 

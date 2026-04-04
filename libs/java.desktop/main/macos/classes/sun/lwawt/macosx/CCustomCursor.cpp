@@ -1,5 +1,4 @@
 #include <sun/lwawt/macosx/CCustomCursor.h>
-
 #include <java/awt/Canvas.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -17,7 +16,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/image/BufferedImage.h>
-#include <java/awt/image/ImageObserver.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
@@ -43,7 +41,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Transparency = ::java::awt::Transparency;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -52,59 +49,25 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CImage = ::sun::lwawt::macosx::CImage;
-using $CImage$Creator = ::sun::lwawt::macosx::CImage$Creator;
 
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CCustomCursor_FieldInfo_[] = {
-	{"sMaxCursorSize", "Ljava/awt/Dimension;", nullptr, $STATIC, $staticField(CCustomCursor, sMaxCursorSize)},
-	{"fImage", "Ljava/awt/Image;", nullptr, 0, $field(CCustomCursor, fImage)},
-	{"fHotspot", "Ljava/awt/Point;", nullptr, 0, $field(CCustomCursor, fHotspot)},
-	{"fWidth", "I", nullptr, 0, $field(CCustomCursor, fWidth)},
-	{"fHeight", "I", nullptr, 0, $field(CCustomCursor, fHeight)},
-	{"fCImage", "Lsun/lwawt/macosx/CImage;", nullptr, 0, $field(CCustomCursor, fCImage)},
-	{}
-};
-
-$MethodInfo _CCustomCursor_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CCustomCursor, init$, void, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException,java.awt.HeadlessException"},
-	{"createTransparentImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(CCustomCursor, createTransparentImage, $BufferedImage*, int32_t, int32_t)},
-	{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(CCustomCursor, getBestCursorSize, $Dimension*, int32_t, int32_t)},
-	{"getHotSpot", "()Ljava/awt/Point;", nullptr, 0, $virtualMethod(CCustomCursor, getHotSpot, $Point*)},
-	{"getImageData", "()J", nullptr, 0, $virtualMethod(CCustomCursor, getImageData, int64_t)},
-	{"getMaxCursorSize", "()Ljava/awt/Dimension;", nullptr, $STATIC, $staticMethod(CCustomCursor, getMaxCursorSize, $Dimension*)},
-	{}
-};
-
-$ClassInfo _CCustomCursor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CCustomCursor",
-	"java.awt.Cursor",
-	nullptr,
-	_CCustomCursor_FieldInfo_,
-	_CCustomCursor_MethodInfo_
-};
-
-$Object* allocate$CCustomCursor($Class* clazz) {
-	return $of($alloc(CCustomCursor));
-}
-
 $Dimension* CCustomCursor::sMaxCursorSize = nullptr;
 
 $Dimension* CCustomCursor::getMaxCursorSize() {
 	$init(CCustomCursor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (CCustomCursor::sMaxCursorSize != nullptr) {
 		return CCustomCursor::sMaxCursorSize;
 	}
-	$var($Rectangle, bounds, $nc($($nc($($nc($($GraphicsEnvironment::getLocalGraphicsEnvironment()))->getDefaultScreenDevice()))->getDefaultConfiguration()))->getBounds());
-	return $assignStatic(CCustomCursor::sMaxCursorSize, $new($Dimension, $nc(bounds)->width / 2, bounds->height / 2));
+	$var($Rectangle, bounds, $$nc($$nc($$nc($GraphicsEnvironment::getLocalGraphicsEnvironment())->getDefaultScreenDevice())->getDefaultConfiguration())->getBounds());
+	return $assignStatic(CCustomCursor::sMaxCursorSize, $new($Dimension, $nc(bounds)->width / 2, $nc(bounds)->height / 2));
 }
 
 void CCustomCursor::init$($Image* cursor, $Point* hotSpot, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Cursor::init$(name);
 	$set(this, fImage, cursor);
 	$set(this, fHotspot, hotSpot);
@@ -129,24 +92,24 @@ void CCustomCursor::init$($Image* cursor, $Point* hotSpot, $String* name) {
 	}
 	this->fWidth = width;
 	this->fHeight = height;
-	if ($nc(this->fHotspot)->x >= width || $nc(this->fHotspot)->y >= height || $nc(this->fHotspot)->x < 0 || $nc(this->fHotspot)->y < 0) {
+	if ($nc(this->fHotspot)->x >= width || this->fHotspot->y >= height || this->fHotspot->x < 0 || this->fHotspot->y < 0) {
 		$throwNew($IndexOutOfBoundsException, "invalid hotSpot"_s);
 	}
-	if ($nc(this->fHotspot)->x >= width) {
-		$nc(this->fHotspot)->x = width - 1;
-	} else if ($nc(this->fHotspot)->x < 0) {
-		$nc(this->fHotspot)->x = 0;
+	if (this->fHotspot->x >= width) {
+		this->fHotspot->x = width - 1;
+	} else if (this->fHotspot->x < 0) {
+		this->fHotspot->x = 0;
 	}
-	if ($nc(this->fHotspot)->y >= height) {
-		$nc(this->fHotspot)->y = height - 1;
-	} else if ($nc(this->fHotspot)->y < 0) {
-		$nc(this->fHotspot)->y = 0;
+	if (this->fHotspot->y >= height) {
+		this->fHotspot->y = height - 1;
+	} else if (this->fHotspot->y < 0) {
+		this->fHotspot->y = 0;
 	}
 }
 
 $BufferedImage* CCustomCursor::createTransparentImage(int32_t w, int32_t h) {
 	$init(CCustomCursor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsEnvironment, ge, $GraphicsEnvironment::getLocalGraphicsEnvironment());
 	$var($GraphicsDevice, gs, $nc(ge)->getDefaultScreenDevice());
 	$var($GraphicsConfiguration, gc, $nc(gs)->getDefaultConfiguration());
@@ -160,24 +123,24 @@ $BufferedImage* CCustomCursor::createTransparentImage(int32_t w, int32_t h) {
 
 $Dimension* CCustomCursor::getBestCursorSize(int32_t preferredWidth, int32_t preferredHeight) {
 	$init(CCustomCursor);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, maxCursorSize, getMaxCursorSize());
 	int32_t var$0 = $Math::max(1, $Math::abs(preferredWidth));
 	$var($Dimension, d, $new($Dimension, var$0, $Math::max(1, $Math::abs(preferredHeight))));
 	int32_t var$1 = $Math::min(d->width, $nc(maxCursorSize)->width);
-	return $new($Dimension, var$1, $Math::min(d->height, $nc(maxCursorSize)->height));
+	return $new($Dimension, var$1, $Math::min(d->height, maxCursorSize->height));
 }
 
 int64_t CCustomCursor::getImageData() {
 	if (this->fCImage != nullptr) {
-		return $nc(this->fCImage)->ptr;
+		return this->fCImage->ptr;
 	}
 	try {
-		$set(this, fCImage, $nc($($CImage::getCreator()))->createFromImage(this->fImage));
+		$set(this, fCImage, $$nc($CImage::getCreator())->createFromImage(this->fImage));
 		if (this->fCImage == nullptr) {
 			return 0;
 		} else {
-			$nc(this->fCImage)->resizeRepresentations((double)this->fWidth, (double)this->fHeight);
+			this->fCImage->resizeRepresentations((double)this->fWidth, (double)this->fHeight);
 			return $nc(this->fCImage)->ptr;
 		}
 	} catch ($IllegalArgumentException& iae) {
@@ -194,7 +157,35 @@ CCustomCursor::CCustomCursor() {
 }
 
 $Class* CCustomCursor::load$($String* name, bool initialize) {
-	$loadClass(CCustomCursor, name, initialize, &_CCustomCursor_ClassInfo_, allocate$CCustomCursor);
+	$FieldInfo fieldInfos$$[] = {
+		{"sMaxCursorSize", "Ljava/awt/Dimension;", nullptr, $STATIC, $staticField(CCustomCursor, sMaxCursorSize)},
+		{"fImage", "Ljava/awt/Image;", nullptr, 0, $field(CCustomCursor, fImage)},
+		{"fHotspot", "Ljava/awt/Point;", nullptr, 0, $field(CCustomCursor, fHotspot)},
+		{"fWidth", "I", nullptr, 0, $field(CCustomCursor, fWidth)},
+		{"fHeight", "I", nullptr, 0, $field(CCustomCursor, fHeight)},
+		{"fCImage", "Lsun/lwawt/macosx/CImage;", nullptr, 0, $field(CCustomCursor, fCImage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Image;Ljava/awt/Point;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CCustomCursor, init$, void, $Image*, $Point*, $String*), "java.lang.IndexOutOfBoundsException,java.awt.HeadlessException"},
+		{"createTransparentImage", "(II)Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE | $STATIC, $staticMethod(CCustomCursor, createTransparentImage, $BufferedImage*, int32_t, int32_t)},
+		{"getBestCursorSize", "(II)Ljava/awt/Dimension;", nullptr, $PUBLIC | $STATIC, $staticMethod(CCustomCursor, getBestCursorSize, $Dimension*, int32_t, int32_t)},
+		{"getHotSpot", "()Ljava/awt/Point;", nullptr, 0, $virtualMethod(CCustomCursor, getHotSpot, $Point*)},
+		{"getImageData", "()J", nullptr, 0, $virtualMethod(CCustomCursor, getImageData, int64_t)},
+		{"getMaxCursorSize", "()Ljava/awt/Dimension;", nullptr, $STATIC, $staticMethod(CCustomCursor, getMaxCursorSize, $Dimension*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CCustomCursor",
+		"java.awt.Cursor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CCustomCursor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CCustomCursor);
+	});
 	return class$;
 }
 

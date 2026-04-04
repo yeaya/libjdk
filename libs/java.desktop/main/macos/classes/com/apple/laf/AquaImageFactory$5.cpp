@@ -1,9 +1,7 @@
 #include <com/apple/laf/AquaImageFactory$5.h>
-
 #include <apple/laf/JRSUIConstants$AlignmentHorizontal.h>
 #include <apple/laf/JRSUIConstants$AlignmentVertical.h>
 #include <apple/laf/JRSUIConstants$Direction.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
@@ -19,10 +17,8 @@
 using $JRSUIConstants$AlignmentHorizontal = ::apple::laf::JRSUIConstants$AlignmentHorizontal;
 using $JRSUIConstants$AlignmentVertical = ::apple::laf::JRSUIConstants$AlignmentVertical;
 using $JRSUIConstants$Direction = ::apple::laf::JRSUIConstants$Direction;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -32,44 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaImageFactory$5_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaImageFactory$5, init$, void)},
-	{"initIconPainter", "(Lcom/apple/laf/AquaPainter;)V", "(Lcom/apple/laf/AquaPainter<+Lapple/laf/JRSUIState;>;)V", $PUBLIC, $virtualMethod(AquaImageFactory$5, initIconPainter, void, $AquaPainter*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaImageFactory$5_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaImageFactory",
-	"getTreeExpandedIcon",
-	"()Ljavax/swing/plaf/UIResource;"
-};
-
-$InnerClassInfo _AquaImageFactory$5_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaImageFactory$5", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaIcon$JRSUIControlSpec", "com.apple.laf.AquaIcon", "JRSUIControlSpec", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaImageFactory$5_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaImageFactory$5",
-	"java.lang.Object",
-	"com.apple.laf.AquaIcon$JRSUIControlSpec",
-	nullptr,
-	_AquaImageFactory$5_MethodInfo_,
-	nullptr,
-	&_AquaImageFactory$5_EnclosingMethodInfo_,
-	_AquaImageFactory$5_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaImageFactory"
-};
-
-$Object* allocate$AquaImageFactory$5($Class* clazz) {
-	return $of($alloc(AquaImageFactory$5));
-}
 
 void AquaImageFactory$5::init$() {
 }
@@ -91,7 +49,39 @@ AquaImageFactory$5::AquaImageFactory$5() {
 }
 
 $Class* AquaImageFactory$5::load$($String* name, bool initialize) {
-	$loadClass(AquaImageFactory$5, name, initialize, &_AquaImageFactory$5_ClassInfo_, allocate$AquaImageFactory$5);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaImageFactory$5, init$, void)},
+		{"initIconPainter", "(Lcom/apple/laf/AquaPainter;)V", "(Lcom/apple/laf/AquaPainter<+Lapple/laf/JRSUIState;>;)V", $PUBLIC, $virtualMethod(AquaImageFactory$5, initIconPainter, void, $AquaPainter*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaImageFactory",
+		"getTreeExpandedIcon",
+		"()Ljavax/swing/plaf/UIResource;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaImageFactory$5", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaIcon$JRSUIControlSpec", "com.apple.laf.AquaIcon", "JRSUIControlSpec", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaImageFactory$5",
+		"java.lang.Object",
+		"com.apple.laf.AquaIcon$JRSUIControlSpec",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaImageFactory"
+	};
+	$loadClass(AquaImageFactory$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaImageFactory$5);
+	});
 	return class$;
 }
 

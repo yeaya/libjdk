@@ -14,6 +14,7 @@ class $export JPEGHuffmanTable : public ::java::lang::Object {
 	$class(JPEGHuffmanTable, 0, ::java::lang::Object)
 public:
 	JPEGHuffmanTable();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($shorts* lengths, $shorts* values);
 	void init$($shorts* lengths, $shorts* values, bool copy);
 	virtual $shorts* getLengths();

@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$SceneCaptureType.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,38 +15,8 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$SceneCaptureType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SceneCaptureType, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$SceneCaptureType_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SceneCaptureType", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SceneCaptureType", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$SceneCaptureType_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$SceneCaptureType",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SceneCaptureType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SceneCaptureType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$SceneCaptureType($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$SceneCaptureType));
-}
-
 void ExifTIFFTagSet$SceneCaptureType::init$() {
-	$TIFFTag::init$("SceneCaptureType"_s, 0x0000A406, $sl(1, $TIFFTag::TIFF_SHORT), 1);
+	$TIFFTag::init$("SceneCaptureType"_s, 0x0000a406, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(0, "Standard"_s);
 	addValueName(1, "Landscape"_s);
 	addValueName(2, "Portrait"_s);
@@ -58,7 +27,32 @@ ExifTIFFTagSet$SceneCaptureType::ExifTIFFTagSet$SceneCaptureType() {
 }
 
 $Class* ExifTIFFTagSet$SceneCaptureType::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$SceneCaptureType, name, initialize, &_ExifTIFFTagSet$SceneCaptureType_ClassInfo_, allocate$ExifTIFFTagSet$SceneCaptureType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SceneCaptureType, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SceneCaptureType", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SceneCaptureType", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$SceneCaptureType",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$SceneCaptureType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$SceneCaptureType);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/PrinterStateReasons.h>
-
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -28,54 +27,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _PrinterStateReasons_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterStateReasons, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PrinterStateReasons_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PrinterStateReasons, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(PrinterStateReasons, init$, void, int32_t)},
-	{"<init>", "(IF)V", nullptr, $PUBLIC, $method(PrinterStateReasons, init$, void, int32_t, float)},
-	{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;>;)V", $PUBLIC, $method(PrinterStateReasons, init$, void, $Map*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterStateReasons, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterStateReasons, getName, $String*)},
-	{"printerStateReasonSet", "(Ljavax/print/attribute/standard/Severity;)Ljava/util/Set;", "(Ljavax/print/attribute/standard/Severity;)Ljava/util/Set<Ljavax/print/attribute/standard/PrinterStateReason;>;", $PUBLIC, $method(PrinterStateReasons, printerStateReasonSet, $Set*, $Severity*)},
-	{"put", "(Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;)Ljavax/print/attribute/standard/Severity;", nullptr, $PUBLIC, $method(PrinterStateReasons, put, $Severity*, $PrinterStateReason*, $Severity*)},
-	{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrinterStateReasons, put, $Object*, Object$*, Object$*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _PrinterStateReasons_InnerClassesInfo_[] = {
-	{"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSetIterator", "javax.print.attribute.standard.PrinterStateReasons", "PrinterStateReasonSetIterator", $PRIVATE},
-	{"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSet", "javax.print.attribute.standard.PrinterStateReasons", "PrinterStateReasonSet", $PRIVATE},
-	{}
-};
-
-$ClassInfo _PrinterStateReasons_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.PrinterStateReasons",
-	"java.util.HashMap",
-	"javax.print.attribute.PrintServiceAttribute",
-	_PrinterStateReasons_FieldInfo_,
-	_PrinterStateReasons_MethodInfo_,
-	"Ljava/util/HashMap<Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;>;Ljavax/print/attribute/PrintServiceAttribute;",
-	nullptr,
-	_PrinterStateReasons_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSetIterator,javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSet"
-};
-
-$Object* allocate$PrinterStateReasons($Class* clazz) {
-	return $of($alloc(PrinterStateReasons));
-}
 
 $Object* PrinterStateReasons::clone() {
 	 return this->$HashMap::clone();
@@ -110,14 +61,14 @@ void PrinterStateReasons::init$(int32_t initialCapacity, float loadFactor) {
 }
 
 void PrinterStateReasons::init$($Map* map) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	PrinterStateReasons::init$();
 	{
-		$var($Iterator, i$, $nc($($nc(map)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(map)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, e, $cast($Map$Entry, i$->next()));
 			$var($PrinterStateReason, var$0, $cast($PrinterStateReason, $nc(e)->getKey()));
-			put(var$0, $cast($Severity, $(e->getValue())));
+			put(var$0, $$cast($Severity, e->getValue()));
 		}
 	}
 }
@@ -155,7 +106,49 @@ PrinterStateReasons::PrinterStateReasons() {
 }
 
 $Class* PrinterStateReasons::load$($String* name, bool initialize) {
-	$loadClass(PrinterStateReasons, name, initialize, &_PrinterStateReasons_ClassInfo_, allocate$PrinterStateReasons);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrinterStateReasons, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PrinterStateReasons, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(PrinterStateReasons, init$, void, int32_t)},
+		{"<init>", "(IF)V", nullptr, $PUBLIC, $method(PrinterStateReasons, init$, void, int32_t, float)},
+		{"<init>", "(Ljava/util/Map;)V", "(Ljava/util/Map<Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;>;)V", $PUBLIC, $method(PrinterStateReasons, init$, void, $Map*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(PrinterStateReasons, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(PrinterStateReasons, getName, $String*)},
+		{"printerStateReasonSet", "(Ljavax/print/attribute/standard/Severity;)Ljava/util/Set;", "(Ljavax/print/attribute/standard/Severity;)Ljava/util/Set<Ljavax/print/attribute/standard/PrinterStateReason;>;", $PUBLIC, $method(PrinterStateReasons, printerStateReasonSet, $Set*, $Severity*)},
+		{"put", "(Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;)Ljavax/print/attribute/standard/Severity;", nullptr, $PUBLIC, $method(PrinterStateReasons, put, $Severity*, $PrinterStateReason*, $Severity*)},
+		{"put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PrinterStateReasons, put, $Object*, Object$*, Object$*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSetIterator", "javax.print.attribute.standard.PrinterStateReasons", "PrinterStateReasonSetIterator", $PRIVATE},
+		{"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSet", "javax.print.attribute.standard.PrinterStateReasons", "PrinterStateReasonSet", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.PrinterStateReasons",
+		"java.util.HashMap",
+		"javax.print.attribute.PrintServiceAttribute",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/HashMap<Ljavax/print/attribute/standard/PrinterStateReason;Ljavax/print/attribute/standard/Severity;>;Ljavax/print/attribute/PrintServiceAttribute;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSetIterator,javax.print.attribute.standard.PrinterStateReasons$PrinterStateReasonSet"
+	};
+	$loadClass(PrinterStateReasons, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PrinterStateReasons));
+	});
 	return class$;
 }
 

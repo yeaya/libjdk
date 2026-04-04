@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/XPathFactory.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/ClassLoaderUtils.h>
 #include <com/sun/org/apache/xml/internal/security/utils/JDKXPathFactory.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XPathAPI.h>
@@ -26,31 +25,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 
-$FieldInfo _XPathFactory_FieldInfo_[] = {
-	{"xalanInstalled", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPathFactory, xalanInstalled)},
-	{}
-};
-
-$MethodInfo _XPathFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPathFactory, init$, void)},
-	{"newInstance", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*)},
-	{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, newXPathAPI, $XPathAPI*)},
-	{}
-};
-
-$ClassInfo _XPathFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.utils.XPathFactory",
-	"java.lang.Object",
-	nullptr,
-	_XPathFactory_FieldInfo_,
-	_XPathFactory_MethodInfo_
-};
-
-$Object* allocate$XPathFactory($Class* clazz) {
-	return $of($alloc(XPathFactory));
-}
-
 bool XPathFactory::xalanInstalled = false;
 
 void XPathFactory::init$() {
@@ -64,7 +38,7 @@ XPathFactory* XPathFactory::newInstance() {
 	return $new($JDKXPathFactory);
 }
 
-void clinit$XPathFactory($Class* class$) {
+void XPathFactory::clinit$($Class* clazz) {
 	{
 		bool installed = false;
 		try {
@@ -82,7 +56,27 @@ XPathFactory::XPathFactory() {
 }
 
 $Class* XPathFactory::load$($String* name, bool initialize) {
-	$loadClass(XPathFactory, name, initialize, &_XPathFactory_ClassInfo_, clinit$XPathFactory, allocate$XPathFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"xalanInstalled", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XPathFactory, xalanInstalled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPathFactory, init$, void)},
+		{"newInstance", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathFactory;", nullptr, $PUBLIC | $STATIC, $staticMethod(XPathFactory, newInstance, XPathFactory*)},
+		{"newXPathAPI", "()Lcom/sun/org/apache/xml/internal/security/utils/XPathAPI;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XPathFactory, newXPathAPI, $XPathAPI*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.utils.XPathFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XPathFactory, name, initialize, &classInfo$$, XPathFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathFactory);
+	});
 	return class$;
 }
 

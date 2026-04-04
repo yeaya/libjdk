@@ -50,6 +50,7 @@ class $import View : public ::javax::swing::SwingConstants {
 	$class(View, 0, ::javax::swing::SwingConstants)
 public:
 	View();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::Element* elem);
 	virtual void append(::javax::swing::text::View* v);
 	virtual ::javax::swing::text::View* breakView(int32_t axis, int32_t offset, float pos, float len);

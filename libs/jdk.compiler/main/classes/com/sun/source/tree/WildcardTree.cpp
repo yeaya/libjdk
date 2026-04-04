@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/WildcardTree.h>
-
 #include <com/sun/source/tree/Tree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _WildcardTree_MethodInfo_[] = {
-	{"getBound", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardTree, getBound, $Tree*)},
-	{}
-};
-
-$ClassInfo _WildcardTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.WildcardTree",
-	nullptr,
-	"com.sun.source.tree.Tree",
-	nullptr,
-	_WildcardTree_MethodInfo_
-};
-
-$Object* allocate$WildcardTree($Class* clazz) {
-	return $of($alloc(WildcardTree));
-}
-
 $Class* WildcardTree::load$($String* name, bool initialize) {
-	$loadClass(WildcardTree, name, initialize, &_WildcardTree_ClassInfo_, allocate$WildcardTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBound", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(WildcardTree, getBound, $Tree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.WildcardTree",
+		nullptr,
+		"com.sun.source.tree.Tree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WildcardTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WildcardTree);
+	});
 	return class$;
 }
 

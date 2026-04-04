@@ -1,5 +1,4 @@
 #include <java/awt/Polygon$PolygonPathIterator.h>
-
 #include <java/awt/Polygon.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/PathIterator.h>
@@ -20,49 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Polygon$PolygonPathIterator_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Polygon;", nullptr, $FINAL | $SYNTHETIC, $field(Polygon$PolygonPathIterator, this$0)},
-	{"poly", "Ljava/awt/Polygon;", nullptr, 0, $field(Polygon$PolygonPathIterator, poly)},
-	{"transform", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(Polygon$PolygonPathIterator, transform)},
-	{"index", "I", nullptr, 0, $field(Polygon$PolygonPathIterator, index)},
-	{}
-};
-
-$MethodInfo _Polygon$PolygonPathIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Polygon;Ljava/awt/Polygon;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(Polygon$PolygonPathIterator, init$, void, $Polygon*, $Polygon*, $AffineTransform*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, next, void)},
-	{}
-};
-
-$InnerClassInfo _Polygon$PolygonPathIterator_InnerClassesInfo_[] = {
-	{"java.awt.Polygon$PolygonPathIterator", "java.awt.Polygon", "PolygonPathIterator", 0},
-	{}
-};
-
-$ClassInfo _Polygon$PolygonPathIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.Polygon$PolygonPathIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_Polygon$PolygonPathIterator_FieldInfo_,
-	_Polygon$PolygonPathIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Polygon$PolygonPathIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Polygon"
-};
-
-$Object* allocate$Polygon$PolygonPathIterator($Class* clazz) {
-	return $of($alloc(Polygon$PolygonPathIterator));
-}
 
 void Polygon$PolygonPathIterator::init$($Polygon* this$0, $Polygon* pg, $AffineTransform* at) {
 	$set(this, this$0, this$0);
@@ -89,10 +45,10 @@ int32_t Polygon$PolygonPathIterator::currentSegment($floats* coords) {
 	if (this->index >= $nc(this->poly)->npoints) {
 		return $PathIterator::SEG_CLOSE;
 	}
-	$nc(coords)->set(0, (float)$nc($nc(this->poly)->xpoints)->get(this->index));
-	coords->set(1, (float)$nc($nc(this->poly)->ypoints)->get(this->index));
+	$nc(coords)->set(0, (float)$nc(this->poly->xpoints)->get(this->index));
+	coords->set(1, (float)$nc(this->poly->ypoints)->get(this->index));
 	if (this->transform != nullptr) {
-		$nc(this->transform)->transform(coords, 0, coords, 0, 1);
+		this->transform->transform(coords, 0, coords, 0, 1);
 	}
 	return (this->index == 0 ? $PathIterator::SEG_MOVETO : $PathIterator::SEG_LINETO);
 }
@@ -101,10 +57,10 @@ int32_t Polygon$PolygonPathIterator::currentSegment($doubles* coords) {
 	if (this->index >= $nc(this->poly)->npoints) {
 		return $PathIterator::SEG_CLOSE;
 	}
-	$nc(coords)->set(0, (double)$nc($nc(this->poly)->xpoints)->get(this->index));
-	coords->set(1, (double)$nc($nc(this->poly)->ypoints)->get(this->index));
+	$nc(coords)->set(0, (double)$nc(this->poly->xpoints)->get(this->index));
+	coords->set(1, (double)$nc(this->poly->ypoints)->get(this->index));
 	if (this->transform != nullptr) {
-		$nc(this->transform)->transform(coords, 0, coords, 0, 1);
+		this->transform->transform(coords, 0, coords, 0, 1);
 	}
 	return (this->index == 0 ? $PathIterator::SEG_MOVETO : $PathIterator::SEG_LINETO);
 }
@@ -113,7 +69,44 @@ Polygon$PolygonPathIterator::Polygon$PolygonPathIterator() {
 }
 
 $Class* Polygon$PolygonPathIterator::load$($String* name, bool initialize) {
-	$loadClass(Polygon$PolygonPathIterator, name, initialize, &_Polygon$PolygonPathIterator_ClassInfo_, allocate$Polygon$PolygonPathIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Polygon;", nullptr, $FINAL | $SYNTHETIC, $field(Polygon$PolygonPathIterator, this$0)},
+		{"poly", "Ljava/awt/Polygon;", nullptr, 0, $field(Polygon$PolygonPathIterator, poly)},
+		{"transform", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(Polygon$PolygonPathIterator, transform)},
+		{"index", "I", nullptr, 0, $field(Polygon$PolygonPathIterator, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Polygon;Ljava/awt/Polygon;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(Polygon$PolygonPathIterator, init$, void, $Polygon*, $Polygon*, $AffineTransform*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(Polygon$PolygonPathIterator, next, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Polygon$PolygonPathIterator", "java.awt.Polygon", "PolygonPathIterator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.Polygon$PolygonPathIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Polygon"
+	};
+	$loadClass(Polygon$PolygonPathIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Polygon$PolygonPathIterator);
+	});
 	return class$;
 }
 

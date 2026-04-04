@@ -36,6 +36,7 @@ class $export DefaultMetalTheme : public ::javax::swing::plaf::metal::MetalTheme
 	$class(DefaultMetalTheme, 0, ::javax::swing::plaf::metal::MetalTheme)
 public:
 	DefaultMetalTheme();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::plaf::FontUIResource* getControlTextFont() override;
 	static $String* getDefaultFontName(int32_t key);

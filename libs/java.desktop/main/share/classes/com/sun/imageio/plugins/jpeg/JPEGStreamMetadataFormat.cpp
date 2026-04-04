@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JPEGStreamMetadataFormat.h>
-
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGMetadataFormat.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
@@ -23,31 +22,6 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JPEGStreamMetadataFormat_FieldInfo_[] = {
-	{"theInstance", "Lcom/sun/imageio/plugins/jpeg/JPEGStreamMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGStreamMetadataFormat, theInstance)},
-	{}
-};
-
-$MethodInfo _JPEGStreamMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JPEGStreamMetadataFormat, init$, void)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JPEGStreamMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(JPEGStreamMetadataFormat, getInstance, $IIOMetadataFormat*)},
-	{}
-};
-
-$ClassInfo _JPEGStreamMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JPEGStreamMetadataFormat",
-	"com.sun.imageio.plugins.jpeg.JPEGMetadataFormat",
-	nullptr,
-	_JPEGStreamMetadataFormat_FieldInfo_,
-	_JPEGStreamMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$JPEGStreamMetadataFormat($Class* clazz) {
-	return $of($alloc(JPEGStreamMetadataFormat));
-}
-
 JPEGStreamMetadataFormat* JPEGStreamMetadataFormat::theInstance = nullptr;
 
 void JPEGStreamMetadataFormat::init$() {
@@ -57,9 +31,8 @@ void JPEGStreamMetadataFormat::init$() {
 }
 
 $IIOMetadataFormat* JPEGStreamMetadataFormat::getInstance() {
-	$load(JPEGStreamMetadataFormat);
+	$init(JPEGStreamMetadataFormat);
 	$synchronized(class$) {
-		$init(JPEGStreamMetadataFormat);
 		if (JPEGStreamMetadataFormat::theInstance == nullptr) {
 			$assignStatic(JPEGStreamMetadataFormat::theInstance, $new(JPEGStreamMetadataFormat));
 		}
@@ -71,7 +44,7 @@ bool JPEGStreamMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpe
 	return $JPEGMetadataFormat::canNodeAppear(elementName, imageType);
 }
 
-void clinit$JPEGStreamMetadataFormat($Class* class$) {
+void JPEGStreamMetadataFormat::clinit$($Class* clazz) {
 	$assignStatic(JPEGStreamMetadataFormat::theInstance, nullptr);
 }
 
@@ -79,7 +52,27 @@ JPEGStreamMetadataFormat::JPEGStreamMetadataFormat() {
 }
 
 $Class* JPEGStreamMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(JPEGStreamMetadataFormat, name, initialize, &_JPEGStreamMetadataFormat_ClassInfo_, clinit$JPEGStreamMetadataFormat, allocate$JPEGStreamMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Lcom/sun/imageio/plugins/jpeg/JPEGStreamMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(JPEGStreamMetadataFormat, theInstance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JPEGStreamMetadataFormat, init$, void)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JPEGStreamMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(JPEGStreamMetadataFormat, getInstance, $IIOMetadataFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JPEGStreamMetadataFormat",
+		"com.sun.imageio.plugins.jpeg.JPEGMetadataFormat",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JPEGStreamMetadataFormat, name, initialize, &classInfo$$, JPEGStreamMetadataFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JPEGStreamMetadataFormat);
+	});
 	return class$;
 }
 

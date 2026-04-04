@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/writers/WriterUtility.h>
-
 #include <java/io/FileWriter.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Writer.h>
@@ -43,55 +42,6 @@ namespace com {
 				namespace stream {
 					namespace writers {
 
-$FieldInfo _WriterUtility_FieldInfo_[] = {
-	{"START_COMMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, START_COMMENT)},
-	{"END_COMMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, END_COMMENT)},
-	{"DEFAULT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, DEFAULT_ENCODING)},
-	{"DEFAULT_XMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, DEFAULT_XMLDECL)},
-	{"DEFAULT_XML_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, DEFAULT_XML_VERSION)},
-	{"CLOSE_START_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WriterUtility, CLOSE_START_TAG)},
-	{"OPEN_START_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WriterUtility, OPEN_START_TAG)},
-	{"OPEN_END_TAG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, OPEN_END_TAG)},
-	{"CLOSE_END_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WriterUtility, CLOSE_END_TAG)},
-	{"START_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, START_CDATA)},
-	{"END_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, END_CDATA)},
-	{"CLOSE_EMPTY_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, CLOSE_EMPTY_ELEMENT)},
-	{"SPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, SPACE)},
-	{"UTF_8", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, UTF_8)},
-	{"DEBUG_XML_CONTENT", "Z", nullptr, $STATIC | $FINAL, $constField(WriterUtility, DEBUG_XML_CONTENT)},
-	{"fEscapeCharacters", "Z", nullptr, 0, $field(WriterUtility, fEscapeCharacters)},
-	{"fWriter", "Ljava/io/Writer;", nullptr, 0, $field(WriterUtility, fWriter)},
-	{"fEncoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, 0, $field(WriterUtility, fEncoder)},
-	{}
-};
-
-$MethodInfo _WriterUtility_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WriterUtility, init$, void)},
-	{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(WriterUtility, init$, void, $Writer*)},
-	{"getDefaultEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(WriterUtility, getDefaultEncoder, $CharsetEncoder*)},
-	{"getEscapeCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(WriterUtility, getEscapeCharacters, bool)},
-	{"setEscapeCharacters", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, setEscapeCharacters, void, bool)},
-	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, setWriter, void, $Writer*)},
-	{"writeXMLAttributeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, writeXMLAttributeValue, void, $String*), "java.io.IOException"},
-	{"writeXMLContent", "([CII)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, writeXMLContent, void, $chars*, int32_t, int32_t), "java.io.IOException"},
-	{"writeXMLContent", "([CIIZ)V", nullptr, $PRIVATE, $method(WriterUtility, writeXMLContent, void, $chars*, int32_t, int32_t, bool), "java.io.IOException"},
-	{"writeXMLContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, writeXMLContent, void, $String*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _WriterUtility_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.writers.WriterUtility",
-	"java.lang.Object",
-	nullptr,
-	_WriterUtility_FieldInfo_,
-	_WriterUtility_MethodInfo_
-};
-
-$Object* allocate$WriterUtility($Class* clazz) {
-	return $of($alloc(WriterUtility));
-}
-
 $String* WriterUtility::START_COMMENT = nullptr;
 $String* WriterUtility::END_COMMENT = nullptr;
 $String* WriterUtility::DEFAULT_ENCODING = nullptr;
@@ -111,19 +61,19 @@ void WriterUtility::init$() {
 }
 
 void WriterUtility::init$($Writer* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->fEscapeCharacters = true;
 	$set(this, fWriter, nullptr);
 	$set(this, fWriter, writer);
 	if ($instanceOf($OutputStreamWriter, writer)) {
-		$var($String, charset, $nc(($cast($OutputStreamWriter, writer)))->getEncoding());
+		$var($String, charset, $cast($OutputStreamWriter, writer)->getEncoding());
 		if (charset != nullptr) {
-			$set(this, fEncoder, $nc($($Charset::forName(charset)))->newEncoder());
+			$set(this, fEncoder, $$nc($Charset::forName(charset))->newEncoder());
 		}
 	} else if ($instanceOf($FileWriter, writer)) {
-		$var($String, charset, $nc(($cast($FileWriter, writer)))->getEncoding());
+		$var($String, charset, $cast($FileWriter, writer)->getEncoding());
 		if (charset != nullptr) {
-			$set(this, fEncoder, $nc($($Charset::forName(charset)))->newEncoder());
+			$set(this, fEncoder, $$nc($Charset::forName(charset))->newEncoder());
 		}
 	} else {
 		$set(this, fEncoder, getDefaultEncoder());
@@ -147,7 +97,8 @@ void WriterUtility::writeXMLContent($chars* content, int32_t start, int32_t leng
 }
 
 void WriterUtility::writeXMLContent($chars* content, int32_t start, int32_t length, bool escapeCharacter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	int32_t index = 0;
 	char16_t ch = 0;
 	int32_t sc = 0;
@@ -155,54 +106,53 @@ void WriterUtility::writeXMLContent($chars* content, int32_t start, int32_t leng
 	int32_t startWritePos = start;
 	for (index = start; index < end; ++index) {
 		ch = $nc(content)->get(index);
-		if (this->fEncoder != nullptr && !$nc(this->fEncoder)->canEncode(ch)) {
+		if (this->fEncoder != nullptr && !this->fEncoder->canEncode(ch)) {
 			$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-			$nc(this->fWriter)->write("&#x"_s);
-			$nc(this->fWriter)->write($($Integer::toHexString(ch)));
-			$nc(this->fWriter)->write((int32_t)u';');
+			this->fWriter->write("&#x"_s);
+			this->fWriter->write($($Integer::toHexString(ch)));
+			this->fWriter->write(u';');
 			startWritePos = index + 1;
 		}
+		;
 		switch (ch) {
 		case u'<':
 			{
-				{
-					if (escapeCharacter) {
-						$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-						$nc(this->fWriter)->write("&lt;"_s);
-						startWritePos = index + 1;
-					}
-					break;
+				if (escapeCharacter) {
+					$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+					this->fWriter->write("&lt;"_s);
+					;
+					startWritePos = index + 1;
 				}
+				break;
 			}
 		case u'&':
 			{
-				{
-					if (escapeCharacter) {
-						$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-						$nc(this->fWriter)->write("&amp;"_s);
-						startWritePos = index + 1;
-					}
-					break;
+				if (escapeCharacter) {
+					$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+					this->fWriter->write("&amp;"_s);
+					;
+					startWritePos = index + 1;
 				}
+				break;
 			}
 		case u'>':
 			{
-				{
-					if (escapeCharacter) {
-						$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
-						$nc(this->fWriter)->write("&gt;"_s);
-						startWritePos = index + 1;
-					}
-					break;
+				if (escapeCharacter) {
+					$nc(this->fWriter)->write(content, startWritePos, index - startWritePos);
+					this->fWriter->write("&gt;"_s);
+					;
+					startWritePos = index + 1;
 				}
+				break;
 			}
 		}
 	}
+	;
 	$nc(this->fWriter)->write(content, startWritePos, end - startWritePos);
 }
 
 void WriterUtility::writeXMLContent($String* content) {
-	if (content == nullptr || $nc(content)->length() == 0) {
+	if (content == nullptr || content->length() == 0) {
 		return;
 	}
 	$var($chars, var$0, $nc(content)->toCharArray());
@@ -215,11 +165,11 @@ void WriterUtility::writeXMLAttributeValue($String* value) {
 }
 
 $CharsetEncoder* WriterUtility::getDefaultEncoder() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, encoding, $SecuritySupport::getSystemProperty("file.encoding"_s));
 		if (encoding != nullptr) {
-			return $nc($($Charset::forName(encoding)))->newEncoder();
+			return $$nc($Charset::forName(encoding))->newEncoder();
 		}
 	} catch ($Exception& ex) {
 	}
@@ -229,7 +179,7 @@ $CharsetEncoder* WriterUtility::getDefaultEncoder() {
 WriterUtility::WriterUtility() {
 }
 
-void clinit$WriterUtility($Class* class$) {
+void WriterUtility::clinit$($Class* clazz) {
 	$assignStatic(WriterUtility::START_COMMENT, "<!--"_s);
 	$assignStatic(WriterUtility::END_COMMENT, "-->"_s);
 	$assignStatic(WriterUtility::DEFAULT_ENCODING, " encoding=\"utf-8\""_s);
@@ -244,7 +194,51 @@ void clinit$WriterUtility($Class* class$) {
 }
 
 $Class* WriterUtility::load$($String* name, bool initialize) {
-	$loadClass(WriterUtility, name, initialize, &_WriterUtility_ClassInfo_, clinit$WriterUtility, allocate$WriterUtility);
+	$FieldInfo fieldInfos$$[] = {
+		{"START_COMMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, START_COMMENT)},
+		{"END_COMMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, END_COMMENT)},
+		{"DEFAULT_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, DEFAULT_ENCODING)},
+		{"DEFAULT_XMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, DEFAULT_XMLDECL)},
+		{"DEFAULT_XML_VERSION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, DEFAULT_XML_VERSION)},
+		{"CLOSE_START_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WriterUtility, CLOSE_START_TAG)},
+		{"OPEN_START_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WriterUtility, OPEN_START_TAG)},
+		{"OPEN_END_TAG", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, OPEN_END_TAG)},
+		{"CLOSE_END_TAG", "C", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(WriterUtility, CLOSE_END_TAG)},
+		{"START_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, START_CDATA)},
+		{"END_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, END_CDATA)},
+		{"CLOSE_EMPTY_ELEMENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, CLOSE_EMPTY_ELEMENT)},
+		{"SPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, SPACE)},
+		{"UTF_8", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(WriterUtility, UTF_8)},
+		{"DEBUG_XML_CONTENT", "Z", nullptr, $STATIC | $FINAL, $constField(WriterUtility, DEBUG_XML_CONTENT)},
+		{"fEscapeCharacters", "Z", nullptr, 0, $field(WriterUtility, fEscapeCharacters)},
+		{"fWriter", "Ljava/io/Writer;", nullptr, 0, $field(WriterUtility, fWriter)},
+		{"fEncoder", "Ljava/nio/charset/CharsetEncoder;", nullptr, 0, $field(WriterUtility, fEncoder)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WriterUtility, init$, void)},
+		{"<init>", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $method(WriterUtility, init$, void, $Writer*)},
+		{"getDefaultEncoder", "()Ljava/nio/charset/CharsetEncoder;", nullptr, $PRIVATE, $method(WriterUtility, getDefaultEncoder, $CharsetEncoder*)},
+		{"getEscapeCharacters", "()Z", nullptr, $PUBLIC, $virtualMethod(WriterUtility, getEscapeCharacters, bool)},
+		{"setEscapeCharacters", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, setEscapeCharacters, void, bool)},
+		{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, setWriter, void, $Writer*)},
+		{"writeXMLAttributeValue", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, writeXMLAttributeValue, void, $String*), "java.io.IOException"},
+		{"writeXMLContent", "([CII)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, writeXMLContent, void, $chars*, int32_t, int32_t), "java.io.IOException"},
+		{"writeXMLContent", "([CIIZ)V", nullptr, $PRIVATE, $method(WriterUtility, writeXMLContent, void, $chars*, int32_t, int32_t, bool), "java.io.IOException"},
+		{"writeXMLContent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WriterUtility, writeXMLContent, void, $String*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.writers.WriterUtility",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WriterUtility, name, initialize, &classInfo$$, WriterUtility::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WriterUtility);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/LambdaExpressionTree.h>
-
 #include <com/sun/source/tree/LambdaExpressionTree$BodyKind.h>
 #include <com/sun/source/tree/Tree.h>
 #include <java/util/List.h>
@@ -17,39 +16,34 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _LambdaExpressionTree_MethodInfo_[] = {
-	{"getBody", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getBody, $Tree*)},
-	{"getBodyKind", "()Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getBodyKind, $LambdaExpressionTree$BodyKind*)},
-	{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/VariableTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getParameters, $List*)},
-	{}
-};
-
-$InnerClassInfo _LambdaExpressionTree_InnerClassesInfo_[] = {
-	{"com.sun.source.tree.LambdaExpressionTree$BodyKind", "com.sun.source.tree.LambdaExpressionTree", "BodyKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _LambdaExpressionTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.LambdaExpressionTree",
-	nullptr,
-	"com.sun.source.tree.ExpressionTree",
-	nullptr,
-	_LambdaExpressionTree_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LambdaExpressionTree_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.tree.LambdaExpressionTree$BodyKind"
-};
-
-$Object* allocate$LambdaExpressionTree($Class* clazz) {
-	return $of($alloc(LambdaExpressionTree));
-}
-
 $Class* LambdaExpressionTree::load$($String* name, bool initialize) {
-	$loadClass(LambdaExpressionTree, name, initialize, &_LambdaExpressionTree_ClassInfo_, allocate$LambdaExpressionTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBody", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getBody, $Tree*)},
+		{"getBodyKind", "()Lcom/sun/source/tree/LambdaExpressionTree$BodyKind;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getBodyKind, $LambdaExpressionTree$BodyKind*)},
+		{"getParameters", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/tree/VariableTree;>;", $PUBLIC | $ABSTRACT, $virtualMethod(LambdaExpressionTree, getParameters, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.tree.LambdaExpressionTree$BodyKind", "com.sun.source.tree.LambdaExpressionTree", "BodyKind", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.LambdaExpressionTree",
+		nullptr,
+		"com.sun.source.tree.ExpressionTree",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.tree.LambdaExpressionTree$BodyKind"
+	};
+	$loadClass(LambdaExpressionTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LambdaExpressionTree);
+	});
 	return class$;
 }
 

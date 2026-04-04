@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind.h>
-
 #include <com/sun/tools/javac/util/MandatoryWarningHandler.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,50 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _MandatoryWarningHandler$DeferredDiagnosticKind_FieldInfo_[] = {
-	{"IN_FILE", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, IN_FILE)},
-	{"ADDITIONAL_IN_FILE", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, ADDITIONAL_IN_FILE)},
-	{"IN_FILES", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, IN_FILES)},
-	{"ADDITIONAL_IN_FILES", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, ADDITIONAL_IN_FILES)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, $VALUES)},
-	{"value", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler$DeferredDiagnosticKind, value)},
-	{}
-};
-
-$MethodInfo _MandatoryWarningHandler$DeferredDiagnosticKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, $values, $MandatoryWarningHandler$DeferredDiagnosticKindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(MandatoryWarningHandler$DeferredDiagnosticKind, init$, void, $String*, int32_t, $String*)},
-	{"getKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(MandatoryWarningHandler$DeferredDiagnosticKind, getKey, $String*, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, valueOf, MandatoryWarningHandler$DeferredDiagnosticKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, values, $MandatoryWarningHandler$DeferredDiagnosticKindArray*)},
-	{}
-};
-
-$InnerClassInfo _MandatoryWarningHandler$DeferredDiagnosticKind_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.MandatoryWarningHandler$DeferredDiagnosticKind", "com.sun.tools.javac.util.MandatoryWarningHandler", "DeferredDiagnosticKind", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MandatoryWarningHandler$DeferredDiagnosticKind_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.MandatoryWarningHandler$DeferredDiagnosticKind",
-	"java.lang.Enum",
-	nullptr,
-	_MandatoryWarningHandler$DeferredDiagnosticKind_FieldInfo_,
-	_MandatoryWarningHandler$DeferredDiagnosticKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;>;",
-	nullptr,
-	_MandatoryWarningHandler$DeferredDiagnosticKind_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.MandatoryWarningHandler"
-};
-
-$Object* allocate$MandatoryWarningHandler$DeferredDiagnosticKind($Class* clazz) {
-	return $of($alloc(MandatoryWarningHandler$DeferredDiagnosticKind));
-}
 
 MandatoryWarningHandler$DeferredDiagnosticKind* MandatoryWarningHandler$DeferredDiagnosticKind::IN_FILE = nullptr;
 MandatoryWarningHandler$DeferredDiagnosticKind* MandatoryWarningHandler$DeferredDiagnosticKind::ADDITIONAL_IN_FILE = nullptr;
@@ -101,7 +56,7 @@ $String* MandatoryWarningHandler$DeferredDiagnosticKind::getKey($String* prefix)
 	return $str({prefix, this->value});
 }
 
-void clinit$MandatoryWarningHandler$DeferredDiagnosticKind($Class* class$) {
+void MandatoryWarningHandler$DeferredDiagnosticKind::clinit$($Class* clazz) {
 	$assignStatic(MandatoryWarningHandler$DeferredDiagnosticKind::IN_FILE, $new(MandatoryWarningHandler$DeferredDiagnosticKind, "IN_FILE"_s, 0, ".filename"_s));
 	$assignStatic(MandatoryWarningHandler$DeferredDiagnosticKind::ADDITIONAL_IN_FILE, $new(MandatoryWarningHandler$DeferredDiagnosticKind, "ADDITIONAL_IN_FILE"_s, 1, ".filename.additional"_s));
 	$assignStatic(MandatoryWarningHandler$DeferredDiagnosticKind::IN_FILES, $new(MandatoryWarningHandler$DeferredDiagnosticKind, "IN_FILES"_s, 2, ".plural"_s));
@@ -113,7 +68,45 @@ MandatoryWarningHandler$DeferredDiagnosticKind::MandatoryWarningHandler$Deferred
 }
 
 $Class* MandatoryWarningHandler$DeferredDiagnosticKind::load$($String* name, bool initialize) {
-	$loadClass(MandatoryWarningHandler$DeferredDiagnosticKind, name, initialize, &_MandatoryWarningHandler$DeferredDiagnosticKind_ClassInfo_, clinit$MandatoryWarningHandler$DeferredDiagnosticKind, allocate$MandatoryWarningHandler$DeferredDiagnosticKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"IN_FILE", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, IN_FILE)},
+		{"ADDITIONAL_IN_FILE", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, ADDITIONAL_IN_FILE)},
+		{"IN_FILES", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, IN_FILES)},
+		{"ADDITIONAL_IN_FILES", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, ADDITIONAL_IN_FILES)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(MandatoryWarningHandler$DeferredDiagnosticKind, $VALUES)},
+		{"value", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler$DeferredDiagnosticKind, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, $values, $MandatoryWarningHandler$DeferredDiagnosticKindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(MandatoryWarningHandler$DeferredDiagnosticKind, init$, void, $String*, int32_t, $String*)},
+		{"getKey", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, 0, $method(MandatoryWarningHandler$DeferredDiagnosticKind, getKey, $String*, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, valueOf, MandatoryWarningHandler$DeferredDiagnosticKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(MandatoryWarningHandler$DeferredDiagnosticKind, values, $MandatoryWarningHandler$DeferredDiagnosticKindArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.MandatoryWarningHandler$DeferredDiagnosticKind", "com.sun.tools.javac.util.MandatoryWarningHandler", "DeferredDiagnosticKind", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.MandatoryWarningHandler$DeferredDiagnosticKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.MandatoryWarningHandler"
+	};
+	$loadClass(MandatoryWarningHandler$DeferredDiagnosticKind, name, initialize, &classInfo$$, MandatoryWarningHandler$DeferredDiagnosticKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MandatoryWarningHandler$DeferredDiagnosticKind));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper.h>
-
 #include <java/util/List.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <java/util/concurrent/Flow$Subscription.h>
@@ -20,48 +19,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_FieldInfo_[] = {
-	{"delegate", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $FINAL, $field(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, delegate)},
-	{}
-};
-
-$MethodInfo _FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, init$, void, $Flow$Subscriber*)},
-	{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, dropSubscription, void)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onNext, void, $List*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onSubscribe, void, $Flow$Subscription*)},
-	{}
-};
-
-$InnerClassInfo _FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber", "jdk.internal.net.http.common.FlowTube", "AbstractTubeSubscriber", $PUBLIC | $STATIC | $ABSTRACT},
-	{"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper", "jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber", "TubeSubscriberWrapper", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper",
-	"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber",
-	nullptr,
-	_FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_FieldInfo_,
-	_FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.FlowTube"
-};
-
-$Object* allocate$FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper($Class* clazz) {
-	return $of($alloc(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper));
-}
 
 void FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper::init$($Flow$Subscriber* delegate) {
 	$FlowTube$AbstractTubeSubscriber::init$();
@@ -95,7 +52,43 @@ FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper::FlowTube$AbstractTubeSubs
 }
 
 $Class* FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper::load$($String* name, bool initialize) {
-	$loadClass(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, name, initialize, &_FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper_ClassInfo_, allocate$FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $FINAL, $field(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, delegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $method(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, init$, void, $Flow$Subscriber*)},
+		{"dropSubscription", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, dropSubscription, void)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onNext, void, $List*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, onSubscribe, void, $Flow$Subscription*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber", "jdk.internal.net.http.common.FlowTube", "AbstractTubeSubscriber", $PUBLIC | $STATIC | $ABSTRACT},
+		{"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper", "jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber", "TubeSubscriberWrapper", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper",
+		"jdk.internal.net.http.common.FlowTube$AbstractTubeSubscriber",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.FlowTube"
+	};
+	$loadClass(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper);
+	});
 	return class$;
 }
 

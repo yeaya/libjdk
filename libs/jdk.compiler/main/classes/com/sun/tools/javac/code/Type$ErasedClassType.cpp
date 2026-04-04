@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$ErasedClassType.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -22,38 +21,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Type$ErasedClassType_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$ErasedClassType, init$, void, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"hasErasedSupertypes", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErasedClassType, hasErasedSupertypes, bool)},
-	{}
-};
-
-$InnerClassInfo _Type$ErasedClassType_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$ErasedClassType", "com.sun.tools.javac.code.Type", "ErasedClassType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Type$ErasedClassType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Type$ErasedClassType",
-	"com.sun.tools.javac.code.Type$ClassType",
-	nullptr,
-	nullptr,
-	_Type$ErasedClassType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$ErasedClassType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$ErasedClassType($Class* clazz) {
-	return $of($alloc(Type$ErasedClassType));
-}
-
 void Type$ErasedClassType::init$($Type* outer, $Symbol$TypeSymbol* tsym, $TypeMetadata* metadata) {
 	$Type$ClassType::init$(outer, $($List::nil()), tsym, metadata);
 }
@@ -66,7 +33,34 @@ Type$ErasedClassType::Type$ErasedClassType() {
 }
 
 $Class* Type$ErasedClassType::load$($String* name, bool initialize) {
-	$loadClass(Type$ErasedClassType, name, initialize, &_Type$ErasedClassType_ClassInfo_, allocate$Type$ErasedClassType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, $PUBLIC, $method(Type$ErasedClassType, init$, void, $Type*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"hasErasedSupertypes", "()Z", nullptr, $PUBLIC, $virtualMethod(Type$ErasedClassType, hasErasedSupertypes, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$ErasedClassType", "com.sun.tools.javac.code.Type", "ErasedClassType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$ClassType", "com.sun.tools.javac.code.Type", "ClassType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Type$ErasedClassType",
+		"com.sun.tools.javac.code.Type$ClassType",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$ErasedClassType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$ErasedClassType));
+	});
 	return class$;
 }
 

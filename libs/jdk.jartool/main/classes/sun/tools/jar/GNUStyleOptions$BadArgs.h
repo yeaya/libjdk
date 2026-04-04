@@ -20,7 +20,10 @@ public:
 	bool showUsage$ = false;
 	GNUStyleOptions$BadArgs(const GNUStyleOptions$BadArgs& e);
 	virtual void throw$() override;
-	inline GNUStyleOptions$BadArgs* operator ->() {
+	inline GNUStyleOptions$BadArgs* operator ->() const {
+		return (GNUStyleOptions$BadArgs*)throwing$;
+	}
+	inline operator GNUStyleOptions$BadArgs*() const {
 		return (GNUStyleOptions$BadArgs*)throwing$;
 	}
 };

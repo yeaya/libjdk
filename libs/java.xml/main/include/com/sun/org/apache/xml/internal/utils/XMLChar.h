@@ -36,6 +36,7 @@ class $import XMLChar : public ::java::lang::Object {
 	$class(XMLChar, 0, ::java::lang::Object)
 public:
 	XMLChar();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static char16_t highSurrogate(int32_t c);
 	static bool isContent(int32_t c);

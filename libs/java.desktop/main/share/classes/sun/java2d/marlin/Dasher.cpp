@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Dasher.h>
-
 #include <java/lang/InternalError.h>
 #include <java/lang/Math.h>
 #include <sun/java2d/marlin/DPathConsumer2D.h>
@@ -34,116 +33,16 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DPathConsumer2D = ::sun::java2d::marlin::DPathConsumer2D;
 using $Dasher$LengthIterator = ::sun::java2d::marlin::Dasher$LengthIterator;
-using $DoubleArrayCache$Reference = ::sun::java2d::marlin::DoubleArrayCache$Reference;
 using $FloatMath = ::sun::java2d::marlin::FloatMath;
 using $Helpers = ::sun::java2d::marlin::Helpers;
 using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 using $MarlinProperties = ::sun::java2d::marlin::MarlinProperties;
 using $RendererContext = ::sun::java2d::marlin::RendererContext;
 using $TransformingPathConsumer2D$CurveBasicMonotonizer = ::sun::java2d::marlin::TransformingPathConsumer2D$CurveBasicMonotonizer;
-using $TransformingPathConsumer2D$CurveClipSplitter = ::sun::java2d::marlin::TransformingPathConsumer2D$CurveClipSplitter;
-using $StatLong = ::sun::java2d::marlin::stats::StatLong;
 
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _Dasher_FieldInfo_[] = {
-	{"REC_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(Dasher, REC_LIMIT)},
-	{"CURVE_LEN_ERR", "D", nullptr, $STATIC | $FINAL, $staticField(Dasher, CURVE_LEN_ERR)},
-	{"MIN_T_INC", "D", nullptr, $STATIC | $FINAL, $staticField(Dasher, MIN_T_INC)},
-	{"EPS", "D", nullptr, $STATIC | $FINAL, $staticField(Dasher, EPS)},
-	{"MAX_CYCLES", "D", nullptr, $STATIC | $FINAL, $staticField(Dasher, MAX_CYCLES)},
-	{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(Dasher, out)},
-	{"dash", "[D", nullptr, $PRIVATE, $field(Dasher, dash)},
-	{"dashLen", "I", nullptr, $PRIVATE, $field(Dasher, dashLen)},
-	{"startPhase", "D", nullptr, $PRIVATE, $field(Dasher, startPhase)},
-	{"startDashOn", "Z", nullptr, $PRIVATE, $field(Dasher, startDashOn)},
-	{"startIdx", "I", nullptr, $PRIVATE, $field(Dasher, startIdx)},
-	{"starting", "Z", nullptr, $PRIVATE, $field(Dasher, starting)},
-	{"needsMoveTo", "Z", nullptr, $PRIVATE, $field(Dasher, needsMoveTo)},
-	{"idx", "I", nullptr, $PRIVATE, $field(Dasher, idx)},
-	{"dashOn", "Z", nullptr, $PRIVATE, $field(Dasher, dashOn)},
-	{"phase", "D", nullptr, $PRIVATE, $field(Dasher, phase)},
-	{"sx0", "D", nullptr, $PRIVATE, $field(Dasher, sx0)},
-	{"sy0", "D", nullptr, $PRIVATE, $field(Dasher, sy0)},
-	{"cx0", "D", nullptr, $PRIVATE, $field(Dasher, cx0)},
-	{"cy0", "D", nullptr, $PRIVATE, $field(Dasher, cy0)},
-	{"curCurvepts", "[D", nullptr, $PRIVATE | $FINAL, $field(Dasher, curCurvepts)},
-	{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $FINAL, $field(Dasher, rdrCtx)},
-	{"recycleDashes", "Z", nullptr, 0, $field(Dasher, recycleDashes)},
-	{"firstSegmentsBuffer", "[D", nullptr, $PRIVATE, $field(Dasher, firstSegmentsBuffer)},
-	{"firstSegidx", "I", nullptr, $PRIVATE, $field(Dasher, firstSegidx)},
-	{"dashes_ref", "Lsun/java2d/marlin/DoubleArrayCache$Reference;", nullptr, $FINAL, $field(Dasher, dashes_ref)},
-	{"firstSegmentsBuffer_ref", "Lsun/java2d/marlin/DoubleArrayCache$Reference;", nullptr, $FINAL, $field(Dasher, firstSegmentsBuffer_ref)},
-	{"clipRect", "[D", nullptr, $PRIVATE, $field(Dasher, clipRect)},
-	{"cOutCode", "I", nullptr, $PRIVATE, $field(Dasher, cOutCode)},
-	{"subdivide", "Z", nullptr, $PRIVATE, $field(Dasher, subdivide)},
-	{"li", "Lsun/java2d/marlin/Dasher$LengthIterator;", nullptr, $PRIVATE | $FINAL, $field(Dasher, li)},
-	{"curveSplitter", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter;", nullptr, $PRIVATE | $FINAL, $field(Dasher, curveSplitter)},
-	{"cycleLen", "D", nullptr, $PRIVATE, $field(Dasher, cycleLen)},
-	{"outside", "Z", nullptr, $PRIVATE, $field(Dasher, outside)},
-	{"totalSkipLen", "D", nullptr, $PRIVATE, $field(Dasher, totalSkipLen)},
-	{}
-};
-
-$MethodInfo _Dasher_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Dasher, init$, void, $RendererContext*)},
-	{"_curveTo", "(DDDDDD)V", nullptr, $PRIVATE, $method(Dasher, _curveTo, void, double, double, double, double, double, double)},
-	{"_lineTo", "(DD)V", nullptr, $PRIVATE, $method(Dasher, _lineTo, void, double, double)},
-	{"_quadTo", "(DDDD)V", nullptr, $PRIVATE, $method(Dasher, _quadTo, void, double, double, double, double)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(Dasher, closePath, void)},
-	{"copyDashArray", "([F)[D", nullptr, 0, $method(Dasher, copyDashArray, $doubles*, $floats*)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(Dasher, curveTo, void, double, double, double, double, double, double)},
-	{"dispose", "()V", nullptr, 0, $method(Dasher, dispose, void)},
-	{"emitFirstSegments", "()V", nullptr, $PRIVATE, $method(Dasher, emitFirstSegments, void)},
-	{"emitSeg", "([DII)V", nullptr, $PRIVATE, $method(Dasher, emitSeg, void, $doubles*, int32_t, int32_t)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(Dasher, getNativeConsumer, int64_t)},
-	{"goTo", "([DIIZ)V", nullptr, $PRIVATE, $method(Dasher, goTo, void, $doubles*, int32_t, int32_t, bool)},
-	{"goTo_starting", "([DII)V", nullptr, $PRIVATE, $method(Dasher, goTo_starting, void, $doubles*, int32_t, int32_t)},
-	{"init", "(Lsun/java2d/marlin/DPathConsumer2D;[DIDZ)Lsun/java2d/marlin/Dasher;", nullptr, 0, $method(Dasher, init, Dasher*, $DPathConsumer2D*, $doubles*, int32_t, double, bool)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Dasher, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Dasher, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(Dasher, pathDone, void)},
-	{"pointCurve", "([DI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Dasher, pointCurve, bool, $doubles*, int32_t)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Dasher, quadTo, void, double, double, double, double)},
-	{"skipCurveTo", "(DDDDDD)V", nullptr, $PRIVATE, $method(Dasher, skipCurveTo, void, double, double, double, double, double, double)},
-	{"skipLen", "()V", nullptr, $PUBLIC, $method(Dasher, skipLen, void)},
-	{"skipLineTo", "(DD)V", nullptr, $PRIVATE, $method(Dasher, skipLineTo, void, double, double)},
-	{"skipQuadTo", "(DDDD)V", nullptr, $PRIVATE, $method(Dasher, skipQuadTo, void, double, double, double, double)},
-	{"skipSomethingTo", "(I)V", nullptr, $PRIVATE, $method(Dasher, skipSomethingTo, void, int32_t)},
-	{"somethingTo", "(I)V", nullptr, $PRIVATE, $method(Dasher, somethingTo, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Dasher_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.Dasher$LengthIterator", "sun.java2d.marlin.Dasher", "LengthIterator", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Dasher_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Dasher",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D,sun.java2d.marlin.MarlinConst",
-	_Dasher_FieldInfo_,
-	_Dasher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Dasher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.Dasher$LengthIterator"
-};
-
-$Object* allocate$Dasher($Class* clazz) {
-	return $of($alloc(Dasher));
-}
 
 int32_t Dasher::hashCode() {
 	 return this->$DPathConsumer2D::hashCode();
@@ -198,7 +97,7 @@ Dasher* Dasher::init($DPathConsumer2D* out, $doubles* dash, int32_t dashLen, dou
 			phase = 0.0;
 		} else {
 			int32_t fullcycles = $FloatMath::floor_int(-cycles);
-			if (((int32_t)(((int32_t)(fullcycles & (uint32_t)dashLen)) & (uint32_t)1)) != 0) {
+			if (((fullcycles & dashLen) & 1) != 0) {
 				this->dashOn = !this->dashOn;
 			}
 			phase += fullcycles * sum;
@@ -215,7 +114,7 @@ Dasher* Dasher::init($DPathConsumer2D* out, $doubles* dash, int32_t dashLen, dou
 			phase = 0.0;
 		} else {
 			int32_t fullcycles = $FloatMath::floor_int(cycles);
-			if (((int32_t)(((int32_t)(fullcycles & (uint32_t)dashLen)) & (uint32_t)1)) != 0) {
+			if (((fullcycles & dashLen) & 1) != 0) {
 				this->dashOn = !this->dashOn;
 			}
 			phase -= fullcycles * sum;
@@ -238,7 +137,7 @@ Dasher* Dasher::init($DPathConsumer2D* out, $doubles* dash, int32_t dashLen, dou
 	this->firstSegidx = 0;
 	this->recycleDashes = recycleDashes;
 	if ($nc(this->rdrCtx)->doClip) {
-		$set(this, clipRect, $nc(this->rdrCtx)->clipRect);
+		$set(this, clipRect, this->rdrCtx->clipRect);
 	} else {
 		$set(this, clipRect, nullptr);
 		this->cOutCode = 0;
@@ -247,6 +146,7 @@ Dasher* Dasher::init($DPathConsumer2D* out, $doubles* dash, int32_t dashLen, dou
 }
 
 void Dasher::dispose() {
+	;
 	if (this->recycleDashes) {
 		$set(this, dash, $nc(this->dashes_ref)->putArray(this->dash));
 	}
@@ -296,35 +196,25 @@ void Dasher::moveTo(double x0, double y0) {
 void Dasher::emitSeg($doubles* buf, int32_t off, int32_t type) {
 	switch (type) {
 	case 4:
-		{
-			$nc(this->out)->lineTo($nc(buf)->get(off), buf->get(off + 1));
-			return;
-		}
+		$nc(this->out)->lineTo($nc(buf)->get(off), $nc(buf)->get(off + 1));
+		return;
 	case 8:
-		{
-			$nc(this->out)->curveTo($nc(buf)->get(off), buf->get(off + 1), buf->get(off + 2), buf->get(off + 3), buf->get(off + 4), buf->get(off + 5));
-			return;
-		}
+		$nc(this->out)->curveTo($nc(buf)->get(off), $nc(buf)->get(off + 1), $nc(buf)->get(off + 2), $nc(buf)->get(off + 3), $nc(buf)->get(off + 4), $nc(buf)->get(off + 5));
+		return;
 	case 6:
-		{
-			$nc(this->out)->quadTo($nc(buf)->get(off), buf->get(off + 1), buf->get(off + 2), buf->get(off + 3));
-			return;
-		}
+		$nc(this->out)->quadTo($nc(buf)->get(off), $nc(buf)->get(off + 1), $nc(buf)->get(off + 2), $nc(buf)->get(off + 3));
+		return;
 	default:
-		{}
+		break;
 	}
 }
 
 void Dasher::emitFirstSegments() {
 	$var($doubles, fSegBuf, this->firstSegmentsBuffer);
-	{
-		int32_t i = 0;
-		int32_t len = this->firstSegidx;
-		for (; i < len;) {
-			int32_t type = $cast(int32_t, $nc(fSegBuf)->get(i));
-			emitSeg(fSegBuf, i + 1, type);
-			i += (type - 1);
-		}
+	for (int32_t i = 0, len = this->firstSegidx; i < len;) {
+		int32_t type = $cast(int32_t, $nc(fSegBuf)->get(i));
+		emitSeg(fSegBuf, i + 1, type);
+		i += (type - 1);
 	}
 	this->firstSegidx = 0;
 }
@@ -362,7 +252,7 @@ void Dasher::goTo_starting($doubles* pts, int32_t off, int32_t type) {
 		if ($MarlinConst::DO_STATS) {
 			$nc($nc($nc(this->rdrCtx)->stats$)->stat_array_dasher_firstSegmentsBuffer)->add(segIdx + len);
 		}
-		$set(this, firstSegmentsBuffer, ($assign(buf, $nc(this->firstSegmentsBuffer_ref)->widenArray(buf, segIdx, segIdx + len))));
+		$set(this, firstSegmentsBuffer, $assign(buf, $nc(this->firstSegmentsBuffer_ref)->widenArray(buf, segIdx, segIdx + len)));
 	}
 	$nc(buf)->set(segIdx++, (double)type);
 	--len;
@@ -376,7 +266,7 @@ void Dasher::lineTo(double x1, double y1) {
 		int32_t outcode1 = $Helpers::outcode(x1, y1, this->clipRect);
 		int32_t orCode = (outcode0 | outcode1);
 		if (orCode != 0) {
-			int32_t sideCode = (int32_t)(outcode0 & (uint32_t)outcode1);
+			int32_t sideCode = outcode0 & outcode1;
 			if (sideCode == 0) {
 				if (this->subdivide) {
 					this->subdivide = false;
@@ -402,7 +292,7 @@ void Dasher::lineTo(double x1, double y1) {
 }
 
 void Dasher::_lineTo(double x1, double y1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double dx = x1 - this->cx0;
 	double dy = y1 - this->cy0;
 	double len = dx * dx + dy * dy;
@@ -472,11 +362,11 @@ void Dasher::skipLen() {
 	bool _dashOn = this->dashOn;
 	double _phase = this->phase;
 	int64_t fullcycles = $cast(int64_t, $Math::floor(len / this->cycleLen)) - (int64_t)2;
-	if (fullcycles > (int64_t)0) {
+	if (fullcycles > 0) {
 		len -= this->cycleLen * fullcycles;
 		int64_t iterations = fullcycles * _dashLen;
 		_idx = $mod((int32_t)(iterations + _idx), _dashLen);
-		_dashOn = ((int64_t)((iterations + (_dashOn ? (int64_t)1 : (int64_t)0)) & (uint64_t)(int64_t)1)) == (int64_t)1;
+		_dashOn = ((iterations + (_dashOn ? 1 : 0)) & (int64_t)1) == 1;
 	}
 	double leftInThisDashSegment = 0.0;
 	double rem = 0.0;
@@ -503,7 +393,7 @@ void Dasher::skipLen() {
 }
 
 void Dasher::somethingTo(int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, _curCurvepts, this->curCurvepts);
 	if (pointCurve(_curCurvepts, type)) {
 		return;
@@ -545,7 +435,7 @@ void Dasher::somethingTo(int32_t type) {
 }
 
 void Dasher::skipSomethingTo(int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, _curCurvepts, this->curCurvepts);
 	if (pointCurve(_curCurvepts, type)) {
 		return;
@@ -562,7 +452,7 @@ void Dasher::skipSomethingTo(int32_t type) {
 bool Dasher::pointCurve($doubles* curve, int32_t type) {
 	$init(Dasher);
 	for (int32_t i = 2; i < type; ++i) {
-		if ($nc(curve)->get(i) != curve->get(i - 2)) {
+		if ($nc(curve)->get(i) != $nc(curve)->get(i - 2)) {
 			return false;
 		}
 	}
@@ -577,7 +467,7 @@ void Dasher::curveTo(double x1, double y1, double x2, double y2, double x3, doub
 		int32_t outcode3 = $Helpers::outcode(x3, y3, this->clipRect);
 		int32_t orCode = (((outcode0 | outcode1) | outcode2) | outcode3);
 		if (orCode != 0) {
-			int32_t sideCode = (int32_t)(((int32_t)(((int32_t)(outcode0 & (uint32_t)outcode1)) & (uint32_t)outcode2)) & (uint32_t)outcode3);
+			int32_t sideCode = ((outcode0 & outcode1) & outcode2) & outcode3;
 			if (sideCode == 0) {
 				if (this->subdivide) {
 					this->subdivide = false;
@@ -603,18 +493,14 @@ void Dasher::curveTo(double x1, double y1, double x2, double y2, double x3, doub
 }
 
 void Dasher::_curveTo(double x1, double y1, double x2, double y2, double x3, double y3) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, _curCurvepts, this->curCurvepts);
 	$var($TransformingPathConsumer2D$CurveBasicMonotonizer, monotonizer, $nc($nc(this->rdrCtx)->monotonizer)->curve(this->cx0, this->cy0, x1, y1, x2, y2, x3, y3));
 	int32_t nSplits = $nc(monotonizer)->nbSplits;
 	$var($doubles, mid, monotonizer->middle);
-	{
-		int32_t i = 0;
-		int32_t off = 0;
-		for (; i <= nSplits; ++i, off += 6) {
-			$System::arraycopy(mid, off, _curCurvepts, 0, 8);
-			somethingTo(8);
-		}
+	for (int32_t i = 0, off = 0; i <= nSplits; ++i, off += 6) {
+		$System::arraycopy(mid, off, _curCurvepts, 0, 8);
+		somethingTo(8);
 	}
 }
 
@@ -640,7 +526,7 @@ void Dasher::quadTo(double x1, double y1, double x2, double y2) {
 		int32_t outcode2 = $Helpers::outcode(x2, y2, this->clipRect);
 		int32_t orCode = ((outcode0 | outcode1) | outcode2);
 		if (orCode != 0) {
-			int32_t sideCode = (int32_t)(((int32_t)(outcode0 & (uint32_t)outcode1)) & (uint32_t)outcode2);
+			int32_t sideCode = (outcode0 & outcode1) & outcode2;
 			if (sideCode == 0) {
 				if (this->subdivide) {
 					this->subdivide = false;
@@ -666,18 +552,14 @@ void Dasher::quadTo(double x1, double y1, double x2, double y2) {
 }
 
 void Dasher::_quadTo(double x1, double y1, double x2, double y2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, _curCurvepts, this->curCurvepts);
 	$var($TransformingPathConsumer2D$CurveBasicMonotonizer, monotonizer, $nc($nc(this->rdrCtx)->monotonizer)->quad(this->cx0, this->cy0, x1, y1, x2, y2));
 	int32_t nSplits = $nc(monotonizer)->nbSplits;
 	$var($doubles, mid, monotonizer->middle);
-	{
-		int32_t i = 0;
-		int32_t off = 0;
-		for (; i <= nSplits; ++i, off += 4) {
-			$System::arraycopy(mid, off, _curCurvepts, 0, 8);
-			somethingTo(6);
-		}
+	for (int32_t i = 0, off = 0; i <= nSplits; ++i, off += 4) {
+		$System::arraycopy(mid, off, _curCurvepts, 0, 8);
+		somethingTo(6);
 	}
 }
 
@@ -721,7 +603,7 @@ int64_t Dasher::getNativeConsumer() {
 	$shouldNotReachHere();
 }
 
-void clinit$Dasher($Class* class$) {
+void Dasher::clinit$($Class* clazz) {
 	Dasher::MIN_T_INC = $div(1.0, ($sl(1, Dasher::REC_LIMIT)));
 	Dasher::EPS = 1.0E-6;
 	Dasher::MAX_CYCLES = 1.6E7;
@@ -732,7 +614,98 @@ Dasher::Dasher() {
 }
 
 $Class* Dasher::load$($String* name, bool initialize) {
-	$loadClass(Dasher, name, initialize, &_Dasher_ClassInfo_, clinit$Dasher, allocate$Dasher);
+	$FieldInfo fieldInfos$$[] = {
+		{"REC_LIMIT", "I", nullptr, $STATIC | $FINAL, $constField(Dasher, REC_LIMIT)},
+		{"CURVE_LEN_ERR", "D", nullptr, $STATIC | $FINAL, $staticField(Dasher, CURVE_LEN_ERR)},
+		{"MIN_T_INC", "D", nullptr, $STATIC | $FINAL, $staticField(Dasher, MIN_T_INC)},
+		{"EPS", "D", nullptr, $STATIC | $FINAL, $staticField(Dasher, EPS)},
+		{"MAX_CYCLES", "D", nullptr, $STATIC | $FINAL, $staticField(Dasher, MAX_CYCLES)},
+		{"out", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(Dasher, out)},
+		{"dash", "[D", nullptr, $PRIVATE, $field(Dasher, dash)},
+		{"dashLen", "I", nullptr, $PRIVATE, $field(Dasher, dashLen)},
+		{"startPhase", "D", nullptr, $PRIVATE, $field(Dasher, startPhase)},
+		{"startDashOn", "Z", nullptr, $PRIVATE, $field(Dasher, startDashOn)},
+		{"startIdx", "I", nullptr, $PRIVATE, $field(Dasher, startIdx)},
+		{"starting", "Z", nullptr, $PRIVATE, $field(Dasher, starting)},
+		{"needsMoveTo", "Z", nullptr, $PRIVATE, $field(Dasher, needsMoveTo)},
+		{"idx", "I", nullptr, $PRIVATE, $field(Dasher, idx)},
+		{"dashOn", "Z", nullptr, $PRIVATE, $field(Dasher, dashOn)},
+		{"phase", "D", nullptr, $PRIVATE, $field(Dasher, phase)},
+		{"sx0", "D", nullptr, $PRIVATE, $field(Dasher, sx0)},
+		{"sy0", "D", nullptr, $PRIVATE, $field(Dasher, sy0)},
+		{"cx0", "D", nullptr, $PRIVATE, $field(Dasher, cx0)},
+		{"cy0", "D", nullptr, $PRIVATE, $field(Dasher, cy0)},
+		{"curCurvepts", "[D", nullptr, $PRIVATE | $FINAL, $field(Dasher, curCurvepts)},
+		{"rdrCtx", "Lsun/java2d/marlin/RendererContext;", nullptr, $FINAL, $field(Dasher, rdrCtx)},
+		{"recycleDashes", "Z", nullptr, 0, $field(Dasher, recycleDashes)},
+		{"firstSegmentsBuffer", "[D", nullptr, $PRIVATE, $field(Dasher, firstSegmentsBuffer)},
+		{"firstSegidx", "I", nullptr, $PRIVATE, $field(Dasher, firstSegidx)},
+		{"dashes_ref", "Lsun/java2d/marlin/DoubleArrayCache$Reference;", nullptr, $FINAL, $field(Dasher, dashes_ref)},
+		{"firstSegmentsBuffer_ref", "Lsun/java2d/marlin/DoubleArrayCache$Reference;", nullptr, $FINAL, $field(Dasher, firstSegmentsBuffer_ref)},
+		{"clipRect", "[D", nullptr, $PRIVATE, $field(Dasher, clipRect)},
+		{"cOutCode", "I", nullptr, $PRIVATE, $field(Dasher, cOutCode)},
+		{"subdivide", "Z", nullptr, $PRIVATE, $field(Dasher, subdivide)},
+		{"li", "Lsun/java2d/marlin/Dasher$LengthIterator;", nullptr, $PRIVATE | $FINAL, $field(Dasher, li)},
+		{"curveSplitter", "Lsun/java2d/marlin/TransformingPathConsumer2D$CurveClipSplitter;", nullptr, $PRIVATE | $FINAL, $field(Dasher, curveSplitter)},
+		{"cycleLen", "D", nullptr, $PRIVATE, $field(Dasher, cycleLen)},
+		{"outside", "Z", nullptr, $PRIVATE, $field(Dasher, outside)},
+		{"totalSkipLen", "D", nullptr, $PRIVATE, $field(Dasher, totalSkipLen)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, 0, $method(Dasher, init$, void, $RendererContext*)},
+		{"_curveTo", "(DDDDDD)V", nullptr, $PRIVATE, $method(Dasher, _curveTo, void, double, double, double, double, double, double)},
+		{"_lineTo", "(DD)V", nullptr, $PRIVATE, $method(Dasher, _lineTo, void, double, double)},
+		{"_quadTo", "(DDDD)V", nullptr, $PRIVATE, $method(Dasher, _quadTo, void, double, double, double, double)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(Dasher, closePath, void)},
+		{"copyDashArray", "([F)[D", nullptr, 0, $method(Dasher, copyDashArray, $doubles*, $floats*)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(Dasher, curveTo, void, double, double, double, double, double, double)},
+		{"dispose", "()V", nullptr, 0, $method(Dasher, dispose, void)},
+		{"emitFirstSegments", "()V", nullptr, $PRIVATE, $method(Dasher, emitFirstSegments, void)},
+		{"emitSeg", "([DII)V", nullptr, $PRIVATE, $method(Dasher, emitSeg, void, $doubles*, int32_t, int32_t)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(Dasher, getNativeConsumer, int64_t)},
+		{"goTo", "([DIIZ)V", nullptr, $PRIVATE, $method(Dasher, goTo, void, $doubles*, int32_t, int32_t, bool)},
+		{"goTo_starting", "([DII)V", nullptr, $PRIVATE, $method(Dasher, goTo_starting, void, $doubles*, int32_t, int32_t)},
+		{"init", "(Lsun/java2d/marlin/DPathConsumer2D;[DIDZ)Lsun/java2d/marlin/Dasher;", nullptr, 0, $method(Dasher, init, Dasher*, $DPathConsumer2D*, $doubles*, int32_t, double, bool)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Dasher, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(Dasher, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(Dasher, pathDone, void)},
+		{"pointCurve", "([DI)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Dasher, pointCurve, bool, $doubles*, int32_t)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(Dasher, quadTo, void, double, double, double, double)},
+		{"skipCurveTo", "(DDDDDD)V", nullptr, $PRIVATE, $method(Dasher, skipCurveTo, void, double, double, double, double, double, double)},
+		{"skipLen", "()V", nullptr, $PUBLIC, $method(Dasher, skipLen, void)},
+		{"skipLineTo", "(DD)V", nullptr, $PRIVATE, $method(Dasher, skipLineTo, void, double, double)},
+		{"skipQuadTo", "(DDDD)V", nullptr, $PRIVATE, $method(Dasher, skipQuadTo, void, double, double, double, double)},
+		{"skipSomethingTo", "(I)V", nullptr, $PRIVATE, $method(Dasher, skipSomethingTo, void, int32_t)},
+		{"somethingTo", "(I)V", nullptr, $PRIVATE, $method(Dasher, somethingTo, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.Dasher$LengthIterator", "sun.java2d.marlin.Dasher", "LengthIterator", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Dasher",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D,sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.Dasher$LengthIterator"
+	};
+	$loadClass(Dasher, name, initialize, &classInfo$$, Dasher::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Dasher));
+	});
 	return class$;
 }
 

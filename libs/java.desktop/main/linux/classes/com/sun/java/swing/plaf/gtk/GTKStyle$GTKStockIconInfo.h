@@ -32,6 +32,7 @@ class GTKStyle$GTKStockIconInfo : public ::java::lang::Object {
 	$class(GTKStyle$GTKStockIconInfo, 0, ::java::lang::Object)
 public:
 	GTKStyle$GTKStockIconInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::Dimension* getIconSize(int32_t type);
 	static $Array<::java::awt::Dimension>* getIconSizesMap();

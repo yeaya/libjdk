@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509IssuerSerial.h>
-
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/RFC2253Parser.h>
@@ -29,7 +28,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $X500Principal = ::javax::security::auth::x500::X500Principal;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 
@@ -43,42 +41,6 @@ namespace com {
 							namespace keys {
 								namespace content {
 									namespace x509 {
-
-$FieldInfo _XMLX509IssuerSerial_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLX509IssuerSerial, LOG)},
-	{}
-};
-
-$MethodInfo _XMLX509IssuerSerial_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Document*, $String*, $BigInteger*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Document*, $String*, $String*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Document*, $String*, int32_t)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Document*, $X509Certificate*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, equals, bool, Object$*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, getBaseLocalName, $String*)},
-	{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, getIssuerName, $String*)},
-	{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, getSerialNumber, $BigInteger*)},
-	{"getSerialNumberInteger", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, getSerialNumberInteger, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XMLX509IssuerSerial_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509IssuerSerial",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
-	_XMLX509IssuerSerial_FieldInfo_,
-	_XMLX509IssuerSerial_MethodInfo_
-};
-
-$Object* allocate$XMLX509IssuerSerial($Class* clazz) {
-	return $of($alloc(XMLX509IssuerSerial));
-}
 
 $Object* XMLX509IssuerSerial::clone() {
 	 return this->$SignatureElementProxy::clone();
@@ -111,27 +73,26 @@ void XMLX509IssuerSerial::init$($Document* doc, $String* x509IssuerName, $String
 }
 
 void XMLX509IssuerSerial::init$($Document* doc, $String* x509IssuerName, int32_t x509SerialNumber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	XMLX509IssuerSerial::init$(doc, x509IssuerName, $$new($BigInteger, $($Integer::toString(x509SerialNumber))));
 }
 
 void XMLX509IssuerSerial::init$($Document* doc, $X509Certificate* x509certificate) {
-	$useLocalCurrentObjectStackCache();
-	$var($Document, var$0, doc);
-	$var($String, var$1, $nc($($nc(x509certificate)->getIssuerX500Principal()))->getName());
-	XMLX509IssuerSerial::init$(var$0, var$1, $(x509certificate->getSerialNumber()));
+	$useLocalObjectStack();
+	$var($String, var$0, $$nc($nc(x509certificate)->getIssuerX500Principal())->getName());
+	XMLX509IssuerSerial::init$(doc, var$0, $(x509certificate->getSerialNumber()));
 }
 
 $BigInteger* XMLX509IssuerSerial::getSerialNumber() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Constants);
 	$var($String, text, this->getTextFromChildElement($Constants::_TAG_X509SERIALNUMBER, $Constants::SignatureSpecNS));
-	$nc(XMLX509IssuerSerial::LOG)->debug("X509SerialNumber text: {}"_s, $$new($ObjectArray, {$of(text)}));
+	$nc(XMLX509IssuerSerial::LOG)->debug("X509SerialNumber text: {}"_s, $$new($ObjectArray, {text}));
 	return $new($BigInteger, text);
 }
 
 int32_t XMLX509IssuerSerial::getSerialNumberInteger() {
-	return $nc($(this->getSerialNumber()))->intValue();
+	return $$nc(this->getSerialNumber())->intValue();
 }
 
 $String* XMLX509IssuerSerial::getIssuerName() {
@@ -140,20 +101,20 @@ $String* XMLX509IssuerSerial::getIssuerName() {
 }
 
 bool XMLX509IssuerSerial::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(XMLX509IssuerSerial, obj))) {
 		return false;
 	}
 	$var(XMLX509IssuerSerial, other, $cast(XMLX509IssuerSerial, obj));
-	bool var$0 = $nc($(this->getSerialNumber()))->equals($($nc(other)->getSerialNumber()));
-	return var$0 && $nc($(this->getIssuerName()))->equals($($nc(other)->getIssuerName()));
+	bool var$0 = $$nc(this->getSerialNumber())->equals($($nc(other)->getSerialNumber()));
+	return var$0 && $$nc(this->getIssuerName())->equals($(other->getIssuerName()));
 }
 
 int32_t XMLX509IssuerSerial::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 17;
-	result = 31 * result + $nc($(getSerialNumber()))->hashCode();
-	result = 31 * result + $nc($(getIssuerName()))->hashCode();
+	result = 31 * result + $$nc(getSerialNumber())->hashCode();
+	result = 31 * result + $$nc(getIssuerName())->hashCode();
 	return result;
 }
 
@@ -162,7 +123,7 @@ $String* XMLX509IssuerSerial::getBaseLocalName() {
 	return $Constants::_TAG_X509ISSUERSERIAL;
 }
 
-void clinit$XMLX509IssuerSerial($Class* class$) {
+void XMLX509IssuerSerial::clinit$($Class* clazz) {
 	$assignStatic(XMLX509IssuerSerial::LOG, $LoggerFactory::getLogger(XMLX509IssuerSerial::class$));
 }
 
@@ -170,7 +131,38 @@ XMLX509IssuerSerial::XMLX509IssuerSerial() {
 }
 
 $Class* XMLX509IssuerSerial::load$($String* name, bool initialize) {
-	$loadClass(XMLX509IssuerSerial, name, initialize, &_XMLX509IssuerSerial_ClassInfo_, clinit$XMLX509IssuerSerial, allocate$XMLX509IssuerSerial);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XMLX509IssuerSerial, LOG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Document*, $String*, $BigInteger*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Document*, $String*, $String*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/lang/String;I)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Document*, $String*, int32_t)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509IssuerSerial, init$, void, $Document*, $X509Certificate*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, equals, bool, Object$*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, getBaseLocalName, $String*)},
+		{"getIssuerName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, getIssuerName, $String*)},
+		{"getSerialNumber", "()Ljava/math/BigInteger;", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, getSerialNumber, $BigInteger*)},
+		{"getSerialNumberInteger", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, getSerialNumberInteger, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509IssuerSerial, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509IssuerSerial",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLX509IssuerSerial, name, initialize, &classInfo$$, XMLX509IssuerSerial::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLX509IssuerSerial));
+	});
 	return class$;
 }
 

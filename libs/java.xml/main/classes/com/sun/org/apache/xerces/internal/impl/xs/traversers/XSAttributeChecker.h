@@ -305,6 +305,7 @@ class XSAttributeChecker : public ::java::lang::Object {
 	$class(XSAttributeChecker, 0, ::java::lang::Object)
 public:
 	XSAttributeChecker();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDHandler* schemaHandler);
 	virtual $ObjectArray* checkAttributes(::org::w3c::dom::Element* element, bool isGlobal, ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo* schemaDoc);
 	virtual $ObjectArray* checkAttributes(::org::w3c::dom::Element* element, bool isGlobal, ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo* schemaDoc, bool enumAsQName);

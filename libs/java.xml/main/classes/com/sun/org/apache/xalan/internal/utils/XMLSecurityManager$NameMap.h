@@ -26,6 +26,7 @@ class XMLSecurityManager$NameMap : public ::java::lang::Enum {
 public:
 	XMLSecurityManager$NameMap();
 	static $Array<::com::sun::org::apache::xalan::internal::utils::XMLSecurityManager$NameMap>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* newName, $String* oldName);
 	virtual $String* getOldName($String* newName);
 	static ::com::sun::org::apache::xalan::internal::utils::XMLSecurityManager$NameMap* valueOf($String* name);

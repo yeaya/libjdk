@@ -1,7 +1,5 @@
 #include <com/apple/laf/AquaSliderUI$3.h>
-
 #include <apple/laf/JRSUIConstants$Orientation.h>
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaImageFactory$NineSliceMetrics.h>
 #include <com/apple/laf/AquaPainter.h>
@@ -10,7 +8,6 @@
 #undef VERTICAL
 
 using $JRSUIConstants$Orientation = ::apple::laf::JRSUIConstants$Orientation;
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaImageFactory$NineSliceMetrics = ::com::apple::laf::AquaImageFactory$NineSliceMetrics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,44 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaSliderUI$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(AquaSliderUI$3, init$, void)},
-	{"getNineSliceMetricsForState", "(Lapple/laf/JRSUIState;)Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI$3, getNineSliceMetricsForState, $AquaImageFactory$NineSliceMetrics*, $JRSUIState*)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaSliderUI$3_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaSliderUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _AquaSliderUI$3_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaSliderUI$3", nullptr, nullptr, 0},
-	{"apple.laf.JRSUIUtils$NineSliceMetricsProvider", "apple.laf.JRSUIUtils", "NineSliceMetricsProvider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AquaSliderUI$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaSliderUI$3",
-	"java.lang.Object",
-	"apple.laf.JRSUIUtils$NineSliceMetricsProvider",
-	nullptr,
-	_AquaSliderUI$3_MethodInfo_,
-	nullptr,
-	&_AquaSliderUI$3_EnclosingMethodInfo_,
-	_AquaSliderUI$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaSliderUI"
-};
-
-$Object* allocate$AquaSliderUI$3($Class* clazz) {
-	return $of($alloc(AquaSliderUI$3));
-}
 
 void AquaSliderUI$3::init$() {
 }
@@ -75,7 +34,39 @@ AquaSliderUI$3::AquaSliderUI$3() {
 }
 
 $Class* AquaSliderUI$3::load$($String* name, bool initialize) {
-	$loadClass(AquaSliderUI$3, name, initialize, &_AquaSliderUI$3_ClassInfo_, allocate$AquaSliderUI$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(AquaSliderUI$3, init$, void)},
+		{"getNineSliceMetricsForState", "(Lapple/laf/JRSUIState;)Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;", nullptr, $PUBLIC, $virtualMethod(AquaSliderUI$3, getNineSliceMetricsForState, $AquaImageFactory$NineSliceMetrics*, $JRSUIState*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaSliderUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaSliderUI$3", nullptr, nullptr, 0},
+		{"apple.laf.JRSUIUtils$NineSliceMetricsProvider", "apple.laf.JRSUIUtils", "NineSliceMetricsProvider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaSliderUI$3",
+		"java.lang.Object",
+		"apple.laf.JRSUIUtils$NineSliceMetricsProvider",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaSliderUI"
+	};
+	$loadClass(AquaSliderUI$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaSliderUI$3);
+	});
 	return class$;
 }
 

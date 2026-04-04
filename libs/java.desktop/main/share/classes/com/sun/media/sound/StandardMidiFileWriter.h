@@ -49,6 +49,7 @@ class StandardMidiFileWriter : public ::javax::sound::midi::spi::MidiFileWriter 
 	$class(StandardMidiFileWriter, 0, ::javax::sound::midi::spi::MidiFileWriter)
 public:
 	StandardMidiFileWriter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::io::InputStream* getFileStream(int32_t type, ::javax::sound::midi::Sequence* sequence);
 	virtual $ints* getMidiFileTypes() override;
@@ -58,8 +59,8 @@ public:
 	virtual int32_t write(::javax::sound::midi::Sequence* in, int32_t type, ::java::io::File* out) override;
 	::java::io::InputStream* writeTrack(::javax::sound::midi::Track* track, int32_t type);
 	int32_t writeVarInt(int64_t value);
-	static const int32_t MThd_MAGIC = 0x4D546864;
-	static const int32_t MTrk_MAGIC = 0x4D54726B;
+	static const int32_t MThd_MAGIC = 0x4d546864;
+	static const int32_t MTrk_MAGIC = 0x4d54726b;
 	static const int32_t ONE_BYTE = 1;
 	static const int32_t TWO_BYTE = 2;
 	static const int32_t SYSEX = 3;

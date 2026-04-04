@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$VerticalPageAction.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
@@ -34,46 +33,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultEditorKit$VerticalPageAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$VerticalPageAction, select)},
-	{"direction", "I", nullptr, $PRIVATE, $field(DefaultEditorKit$VerticalPageAction, direction)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$VerticalPageAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(DefaultEditorKit$VerticalPageAction, init$, void, $String*, int32_t, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$VerticalPageAction, actionPerformed, void, $ActionEvent*)},
-	{"constrainOffset", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PRIVATE, $method(DefaultEditorKit$VerticalPageAction, constrainOffset, int32_t, $JTextComponent*, int32_t)},
-	{"constrainY", "(Ljavax/swing/text/JTextComponent;II)I", nullptr, $PRIVATE, $method(DefaultEditorKit$VerticalPageAction, constrainY, int32_t, $JTextComponent*, int32_t, int32_t)},
-	{"getAdjustedY", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Rectangle;I)I", nullptr, $PRIVATE, $method(DefaultEditorKit$VerticalPageAction, getAdjustedY, int32_t, $JTextComponent*, $Rectangle*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$VerticalPageAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$VerticalPageAction", "javax.swing.text.DefaultEditorKit", "VerticalPageAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$VerticalPageAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$VerticalPageAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$VerticalPageAction_FieldInfo_,
-	_DefaultEditorKit$VerticalPageAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$VerticalPageAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$VerticalPageAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$VerticalPageAction));
-}
-
 void DefaultEditorKit$VerticalPageAction::init$($String* nm, int32_t direction, bool select) {
 	$TextAction::init$(nm);
 	this->select = select;
@@ -81,7 +40,7 @@ void DefaultEditorKit$VerticalPageAction::init$($String* nm, int32_t direction, 
 }
 
 void DefaultEditorKit$VerticalPageAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		$var($Rectangle, visible, target->getVisibleRect());
@@ -94,8 +53,8 @@ void DefaultEditorKit$VerticalPageAction::actionPerformed($ActionEvent* e) {
 		if (selectedIndex != -1) {
 			try {
 				$var($Rectangle, dotBounds, target->modelToView(selectedIndex));
-				int32_t x = (magicPosition != nullptr) ? $nc(magicPosition)->x : $nc(dotBounds)->x;
-				int32_t h = dotBounds->height;
+				int32_t x = (magicPosition != nullptr) ? magicPosition->x : $nc(dotBounds)->x;
+				int32_t h = $nc(dotBounds)->height;
 				if (h > 0) {
 					scrollAmount = $div(scrollAmount, h) * h;
 				}
@@ -172,7 +131,41 @@ DefaultEditorKit$VerticalPageAction::DefaultEditorKit$VerticalPageAction() {
 }
 
 $Class* DefaultEditorKit$VerticalPageAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$VerticalPageAction, name, initialize, &_DefaultEditorKit$VerticalPageAction_ClassInfo_, allocate$DefaultEditorKit$VerticalPageAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$VerticalPageAction, select)},
+		{"direction", "I", nullptr, $PRIVATE, $field(DefaultEditorKit$VerticalPageAction, direction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;IZ)V", nullptr, $PUBLIC, $method(DefaultEditorKit$VerticalPageAction, init$, void, $String*, int32_t, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$VerticalPageAction, actionPerformed, void, $ActionEvent*)},
+		{"constrainOffset", "(Ljavax/swing/text/JTextComponent;I)I", nullptr, $PRIVATE, $method(DefaultEditorKit$VerticalPageAction, constrainOffset, int32_t, $JTextComponent*, int32_t)},
+		{"constrainY", "(Ljavax/swing/text/JTextComponent;II)I", nullptr, $PRIVATE, $method(DefaultEditorKit$VerticalPageAction, constrainY, int32_t, $JTextComponent*, int32_t, int32_t)},
+		{"getAdjustedY", "(Ljavax/swing/text/JTextComponent;Ljava/awt/Rectangle;I)I", nullptr, $PRIVATE, $method(DefaultEditorKit$VerticalPageAction, getAdjustedY, int32_t, $JTextComponent*, $Rectangle*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$VerticalPageAction", "javax.swing.text.DefaultEditorKit", "VerticalPageAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$VerticalPageAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$VerticalPageAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$VerticalPageAction));
+	});
 	return class$;
 }
 

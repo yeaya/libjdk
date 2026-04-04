@@ -65,6 +65,7 @@ class $export Krb5MechFactory : public ::sun::security::jgss::spi::MechanismFact
 	$class(Krb5MechFactory, 0, ::sun::security::jgss::spi::MechanismFactory)
 public:
 	Krb5MechFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::security::jgss::GSSCaller* caller);
 	static void checkAcceptCredPermission(::sun::security::jgss::krb5::Krb5NameElement* name, ::sun::security::jgss::spi::GSSNameSpi* originalName);

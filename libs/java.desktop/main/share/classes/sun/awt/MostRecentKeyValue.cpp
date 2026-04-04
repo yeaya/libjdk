@@ -1,5 +1,4 @@
 #include <sun/awt/MostRecentKeyValue.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -8,31 +7,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _MostRecentKeyValue_FieldInfo_[] = {
-	{"key", "Ljava/lang/Object;", nullptr, 0, $field(MostRecentKeyValue, key)},
-	{"value", "Ljava/lang/Object;", nullptr, 0, $field(MostRecentKeyValue, value)},
-	{}
-};
-
-$MethodInfo _MostRecentKeyValue_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(MostRecentKeyValue, init$, void, Object$*, Object$*)},
-	{"setPair", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(MostRecentKeyValue, setPair, void, Object$*, Object$*)},
-	{}
-};
-
-$ClassInfo _MostRecentKeyValue_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.MostRecentKeyValue",
-	"java.lang.Object",
-	nullptr,
-	_MostRecentKeyValue_FieldInfo_,
-	_MostRecentKeyValue_MethodInfo_
-};
-
-$Object* allocate$MostRecentKeyValue($Class* clazz) {
-	return $of($alloc(MostRecentKeyValue));
-}
 
 void MostRecentKeyValue::init$(Object$* k, Object$* v) {
 	$set(this, key, k);
@@ -48,7 +22,27 @@ MostRecentKeyValue::MostRecentKeyValue() {
 }
 
 $Class* MostRecentKeyValue::load$($String* name, bool initialize) {
-	$loadClass(MostRecentKeyValue, name, initialize, &_MostRecentKeyValue_ClassInfo_, allocate$MostRecentKeyValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"key", "Ljava/lang/Object;", nullptr, 0, $field(MostRecentKeyValue, key)},
+		{"value", "Ljava/lang/Object;", nullptr, 0, $field(MostRecentKeyValue, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(MostRecentKeyValue, init$, void, Object$*, Object$*)},
+		{"setPair", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(MostRecentKeyValue, setPair, void, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.MostRecentKeyValue",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MostRecentKeyValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MostRecentKeyValue);
+	});
 	return class$;
 }
 

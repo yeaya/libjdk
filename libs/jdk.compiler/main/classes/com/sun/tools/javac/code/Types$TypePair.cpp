@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$TypePair.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <jcpp.h>
@@ -16,45 +15,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _Types$TypePair_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$TypePair, this$0)},
-	{"t1", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Types$TypePair, t1)},
-	{"t2", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Types$TypePair, t2)},
-	{}
-};
-
-$MethodInfo _Types$TypePair_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$TypePair, init$, void, $Types*, $Type*, $Type*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$TypePair, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Types$TypePair, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Types$TypePair_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$TypePair", "com.sun.tools.javac.code.Types", "TypePair", 0},
-	{}
-};
-
-$ClassInfo _Types$TypePair_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$TypePair",
-	"java.lang.Object",
-	nullptr,
-	_Types$TypePair_FieldInfo_,
-	_Types$TypePair_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Types$TypePair_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$TypePair($Class* clazz) {
-	return $of($alloc(Types$TypePair));
-}
 
 void Types$TypePair::init$($Types* this$0, $Type* t1, $Type* t2) {
 	$set(this, this$0, this$0);
@@ -74,16 +34,49 @@ bool Types$TypePair::equals(Object$* obj) {
 		$assign(typePair, $cast(Types$TypePair, obj));
 		var$2 = true;
 	}
-	bool var$1 = (var$2);
+	bool var$1 = var$2;
 	bool var$0 = var$1 && this->this$0->isSameType(this->t1, $nc(typePair)->t1);
-	return var$0 && this->this$0->isSameType(this->t2, $nc(typePair)->t2);
+	return var$0 && this->this$0->isSameType(this->t2, typePair->t2);
 }
 
 Types$TypePair::Types$TypePair() {
 }
 
 $Class* Types$TypePair::load$($String* name, bool initialize) {
-	$loadClass(Types$TypePair, name, initialize, &_Types$TypePair_ClassInfo_, allocate$Types$TypePair);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL | $SYNTHETIC, $field(Types$TypePair, this$0)},
+		{"t1", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Types$TypePair, t1)},
+		{"t2", "Lcom/sun/tools/javac/code/Type;", nullptr, $FINAL, $field(Types$TypePair, t2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $method(Types$TypePair, init$, void, $Types*, $Type*, $Type*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Types$TypePair, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Types$TypePair, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$TypePair", "com.sun.tools.javac.code.Types", "TypePair", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$TypePair",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$TypePair, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$TypePair);
+	});
 	return class$;
 }
 

@@ -36,6 +36,7 @@ class $export XPathEvaluationResult$XPathResultType : public ::java::lang::Enum 
 public:
 	XPathEvaluationResult$XPathResultType();
 	static $Array<::javax::xml::xpath::XPathEvaluationResult$XPathResultType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, ::javax::xml::namespace$::QName* qnameType, $Class* clsType);
 	bool equalsClassType($Class* clsType);
 	static ::javax::xml::namespace$::QName* getQNameType($Class* clsType);

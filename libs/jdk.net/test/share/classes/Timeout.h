@@ -26,6 +26,7 @@ class $export Timeout : public ::java::lang::Object {
 	$class(Timeout, 0, ::java::lang::Object)
 public:
 	Timeout();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void connect($String* server);
 	static void connectAsync($String* server);

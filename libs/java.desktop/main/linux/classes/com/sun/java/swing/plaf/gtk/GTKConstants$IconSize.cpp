@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$IconSize.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -25,51 +24,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKConstants$IconSize_FieldInfo_[] = {
-	{"INVALID", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, INVALID)},
-	{"MENU", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, MENU)},
-	{"SMALL_TOOLBAR", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, SMALL_TOOLBAR)},
-	{"LARGE_TOOLBAR", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, LARGE_TOOLBAR)},
-	{"BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, BUTTON)},
-	{"DND", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, DND)},
-	{"DIALOG", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, DIALOG)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$IconSize, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKConstants$IconSize_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$IconSize, $values, $GTKConstants$IconSizeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$IconSize, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$IconSize, valueOf, GTKConstants$IconSize*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$IconSize, values, $GTKConstants$IconSizeArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKConstants$IconSize_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKConstants$IconSize", "com.sun.java.swing.plaf.gtk.GTKConstants", "IconSize", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKConstants$IconSize_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKConstants$IconSize",
-	"java.lang.Enum",
-	nullptr,
-	_GTKConstants$IconSize_FieldInfo_,
-	_GTKConstants$IconSize_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;>;",
-	nullptr,
-	_GTKConstants$IconSize_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKConstants"
-};
-
-$Object* allocate$GTKConstants$IconSize($Class* clazz) {
-	return $of($alloc(GTKConstants$IconSize));
-}
 
 GTKConstants$IconSize* GTKConstants$IconSize::INVALID = nullptr;
 GTKConstants$IconSize* GTKConstants$IconSize::MENU = nullptr;
@@ -107,7 +61,7 @@ void GTKConstants$IconSize::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKConstants$IconSize($Class* class$) {
+void GTKConstants$IconSize::clinit$($Class* clazz) {
 	$assignStatic(GTKConstants$IconSize::INVALID, $new(GTKConstants$IconSize, "INVALID"_s, 0));
 	$assignStatic(GTKConstants$IconSize::MENU, $new(GTKConstants$IconSize, "MENU"_s, 1));
 	$assignStatic(GTKConstants$IconSize::SMALL_TOOLBAR, $new(GTKConstants$IconSize, "SMALL_TOOLBAR"_s, 2));
@@ -122,7 +76,46 @@ GTKConstants$IconSize::GTKConstants$IconSize() {
 }
 
 $Class* GTKConstants$IconSize::load$($String* name, bool initialize) {
-	$loadClass(GTKConstants$IconSize, name, initialize, &_GTKConstants$IconSize_ClassInfo_, clinit$GTKConstants$IconSize, allocate$GTKConstants$IconSize);
+	$FieldInfo fieldInfos$$[] = {
+		{"INVALID", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, INVALID)},
+		{"MENU", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, MENU)},
+		{"SMALL_TOOLBAR", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, SMALL_TOOLBAR)},
+		{"LARGE_TOOLBAR", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, LARGE_TOOLBAR)},
+		{"BUTTON", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, BUTTON)},
+		{"DND", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, DND)},
+		{"DIALOG", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$IconSize, DIALOG)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$IconSize, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$IconSize, $values, $GTKConstants$IconSizeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$IconSize, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$IconSize, valueOf, GTKConstants$IconSize*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$IconSize, values, $GTKConstants$IconSizeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKConstants$IconSize", "com.sun.java.swing.plaf.gtk.GTKConstants", "IconSize", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKConstants$IconSize",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$IconSize;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKConstants"
+	};
+	$loadClass(GTKConstants$IconSize, name, initialize, &classInfo$$, GTKConstants$IconSize::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKConstants$IconSize));
+	});
 	return class$;
 }
 

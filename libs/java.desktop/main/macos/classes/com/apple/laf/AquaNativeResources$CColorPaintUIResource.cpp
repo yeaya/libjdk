@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaNativeResources$CColorPaintUIResource.h>
-
 #include <com/apple/laf/AquaNativeResources.h>
 #include <java/awt/Color.h>
 #include <jcpp.h>
@@ -12,41 +11,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$MethodInfo _AquaNativeResources$CColorPaintUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(JIIII)V", nullptr, $PUBLIC, $method(AquaNativeResources$CColorPaintUIResource, init$, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaNativeResources$CColorPaintUIResource_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaNativeResources$CColorPaintUIResource", "com.apple.laf.AquaNativeResources", "CColorPaintUIResource", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaNativeResources$CColorPaintUIResource_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaNativeResources$CColorPaintUIResource",
-	"java.awt.Color",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_AquaNativeResources$CColorPaintUIResource_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaNativeResources$CColorPaintUIResource_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaNativeResources"
-};
-
-$Object* allocate$AquaNativeResources$CColorPaintUIResource($Class* clazz) {
-	return $of($alloc(AquaNativeResources$CColorPaintUIResource));
-}
 
 int32_t AquaNativeResources$CColorPaintUIResource::hashCode() {
 	 return this->$Color::hashCode();
@@ -76,7 +40,37 @@ AquaNativeResources$CColorPaintUIResource::AquaNativeResources$CColorPaintUIReso
 }
 
 $Class* AquaNativeResources$CColorPaintUIResource::load$($String* name, bool initialize) {
-	$loadClass(AquaNativeResources$CColorPaintUIResource, name, initialize, &_AquaNativeResources$CColorPaintUIResource_ClassInfo_, allocate$AquaNativeResources$CColorPaintUIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(JIIII)V", nullptr, $PUBLIC, $method(AquaNativeResources$CColorPaintUIResource, init$, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaNativeResources$CColorPaintUIResource", "com.apple.laf.AquaNativeResources", "CColorPaintUIResource", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaNativeResources$CColorPaintUIResource",
+		"java.awt.Color",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaNativeResources"
+	};
+	$loadClass(AquaNativeResources$CColorPaintUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaNativeResources$CColorPaintUIResource));
+	});
 	return class$;
 }
 

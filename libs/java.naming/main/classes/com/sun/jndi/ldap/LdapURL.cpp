@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapURL.h>
-
 #include <com/sun/jndi/toolkit/url/Uri.h>
 #include <com/sun/jndi/toolkit/url/UrlUtil.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -27,46 +26,8 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapURL_FieldInfo_[] = {
-	{"useSsl", "Z", nullptr, $PRIVATE, $field(LdapURL, useSsl$)},
-	{"DN", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, DN)},
-	{"attributes", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, attributes)},
-	{"scope", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, scope)},
-	{"filter", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, filter)},
-	{"extensions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, extensions)},
-	{}
-};
-
-$MethodInfo _LdapURL_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapURL, init$, void, $String*), "javax.naming.NamingException"},
-	{"fromList", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapURL, fromList, $StringArray*, $String*), "javax.naming.NamingException"},
-	{"getAttributes", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getAttributes, $String*)},
-	{"getDN", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getDN, $String*)},
-	{"getExtensions", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getExtensions, $String*)},
-	{"getFilter", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getFilter, $String*)},
-	{"getScope", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getScope, $String*)},
-	{"hasQueryComponents", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapURL, hasQueryComponents, bool, $String*)},
-	{"parsePathAndQuery", "()V", nullptr, $PRIVATE, $method(LdapURL, parsePathAndQuery, void), "java.net.MalformedURLException,java.io.UnsupportedEncodingException"},
-	{"toUrlString", "(Ljava/lang/String;ILjava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LdapURL, toUrlString, $String*, $String*, int32_t, $String*, bool)},
-	{"useSsl", "()Z", nullptr, $PUBLIC, $method(LdapURL, useSsl, bool)},
-	{}
-};
-
-$ClassInfo _LdapURL_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapURL",
-	"com.sun.jndi.toolkit.url.Uri",
-	nullptr,
-	_LdapURL_FieldInfo_,
-	_LdapURL_MethodInfo_
-};
-
-$Object* allocate$LdapURL($Class* clazz) {
-	return $of($alloc(LdapURL));
-}
-
 void LdapURL::init$($String* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Uri::init$();
 	this->useSsl$ = false;
 	$set(this, DN, nullptr);
@@ -77,7 +38,7 @@ void LdapURL::init$($String* url) {
 	try {
 		init(url);
 		this->useSsl$ = $nc(this->scheme)->equalsIgnoreCase("ldaps"_s);
-		if (!($nc(this->scheme)->equalsIgnoreCase("ldap"_s) || this->useSsl$)) {
+		if (!(this->scheme->equalsIgnoreCase("ldap"_s) || this->useSsl$)) {
 			$throwNew($MalformedURLException, $$str({"Not an LDAP URL: "_s, url}));
 		}
 		parsePathAndQuery();
@@ -118,7 +79,7 @@ $String* LdapURL::getExtensions() {
 
 $StringArray* LdapURL::fromList($String* urlList) {
 	$init(LdapURL);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, urls, $new($StringArray, ($nc(urlList)->length() + 1) / 2));
 	int32_t i = 0;
 	$var($StringTokenizer, st, $new($StringTokenizer, urlList, " "_s));
@@ -132,15 +93,15 @@ $StringArray* LdapURL::fromList($String* urlList) {
 
 bool LdapURL::hasQueryComponents($String* url) {
 	$init(LdapURL);
-	return ($nc(url)->lastIndexOf((int32_t)u'?') != -1);
+	return ($nc(url)->lastIndexOf(u'?') != -1);
 }
 
 $String* LdapURL::toUrlString($String* host, int32_t port, $String* dn, bool useSsl) {
 	$init(LdapURL);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, h, (host != nullptr) ? host : ""_s);
-		bool var$0 = ($nc(h)->indexOf((int32_t)u':') != -1);
+		bool var$0 = $nc(h)->indexOf(u':') != -1;
 		if (var$0 && (h->charAt(0) != u'[')) {
 			$assign(h, $str({"["_s, h, "]"_s}));
 		}
@@ -157,46 +118,46 @@ void LdapURL::parsePathAndQuery() {
 	if ($nc(this->path)->isEmpty()) {
 		return;
 	}
-	$set(this, DN, $nc(this->path)->startsWith("/"_s) ? $nc(this->path)->substring(1) : this->path);
+	$set(this, DN, this->path->startsWith("/"_s) ? this->path->substring(1) : this->path);
 	if ($nc(this->DN)->length() > 0) {
 		$set(this, DN, $UrlUtil::decode(this->DN, "UTF8"_s));
 	}
-	if (this->query == nullptr || $nc(this->query)->length() < 2) {
+	if (this->query == nullptr || this->query->length() < 2) {
 		return;
 	}
 	int32_t currentIndex = 1;
 	int32_t nextQmark = 0;
 	int32_t endIndex = 0;
-	nextQmark = $nc(this->query)->indexOf((int32_t)u'?', currentIndex);
-	endIndex = nextQmark == -1 ? $nc(this->query)->length() : nextQmark;
+	nextQmark = $nc(this->query)->indexOf(u'?', currentIndex);
+	endIndex = nextQmark == -1 ? this->query->length() : nextQmark;
 	if (endIndex - currentIndex > 0) {
-		$set(this, attributes, $nc(this->query)->substring(currentIndex, endIndex));
+		$set(this, attributes, this->query->substring(currentIndex, endIndex));
 	}
 	currentIndex = endIndex + 1;
-	if (currentIndex >= $nc(this->query)->length()) {
+	if (currentIndex >= this->query->length()) {
 		return;
 	}
-	nextQmark = $nc(this->query)->indexOf((int32_t)u'?', currentIndex);
-	endIndex = nextQmark == -1 ? $nc(this->query)->length() : nextQmark;
+	nextQmark = this->query->indexOf(u'?', currentIndex);
+	endIndex = nextQmark == -1 ? this->query->length() : nextQmark;
 	if (endIndex - currentIndex > 0) {
-		$set(this, scope, $nc(this->query)->substring(currentIndex, endIndex));
+		$set(this, scope, this->query->substring(currentIndex, endIndex));
 	}
 	currentIndex = endIndex + 1;
-	if (currentIndex >= $nc(this->query)->length()) {
+	if (currentIndex >= this->query->length()) {
 		return;
 	}
-	nextQmark = $nc(this->query)->indexOf((int32_t)u'?', currentIndex);
-	endIndex = nextQmark == -1 ? $nc(this->query)->length() : nextQmark;
+	nextQmark = this->query->indexOf(u'?', currentIndex);
+	endIndex = nextQmark == -1 ? this->query->length() : nextQmark;
 	if (endIndex - currentIndex > 0) {
-		$set(this, filter, $nc(this->query)->substring(currentIndex, endIndex));
+		$set(this, filter, this->query->substring(currentIndex, endIndex));
 		$set(this, filter, $UrlUtil::decode(this->filter, "UTF8"_s));
 	}
 	currentIndex = endIndex + 1;
 	if (currentIndex >= $nc(this->query)->length()) {
 		return;
 	}
-	if ($nc(this->query)->length() - currentIndex > 0) {
-		$set(this, extensions, $nc(this->query)->substring(currentIndex));
+	if (this->query->length() - currentIndex > 0) {
+		$set(this, extensions, this->query->substring(currentIndex));
 		$set(this, extensions, $UrlUtil::decode(this->extensions, "UTF8"_s));
 	}
 }
@@ -205,7 +166,40 @@ LdapURL::LdapURL() {
 }
 
 $Class* LdapURL::load$($String* name, bool initialize) {
-	$loadClass(LdapURL, name, initialize, &_LdapURL_ClassInfo_, allocate$LdapURL);
+	$FieldInfo fieldInfos$$[] = {
+		{"useSsl", "Z", nullptr, $PRIVATE, $field(LdapURL, useSsl$)},
+		{"DN", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, DN)},
+		{"attributes", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, attributes)},
+		{"scope", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, scope)},
+		{"filter", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, filter)},
+		{"extensions", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapURL, extensions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(LdapURL, init$, void, $String*), "javax.naming.NamingException"},
+		{"fromList", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapURL, fromList, $StringArray*, $String*), "javax.naming.NamingException"},
+		{"getAttributes", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getAttributes, $String*)},
+		{"getDN", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getDN, $String*)},
+		{"getExtensions", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getExtensions, $String*)},
+		{"getFilter", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getFilter, $String*)},
+		{"getScope", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(LdapURL, getScope, $String*)},
+		{"hasQueryComponents", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapURL, hasQueryComponents, bool, $String*)},
+		{"parsePathAndQuery", "()V", nullptr, $PRIVATE, $method(LdapURL, parsePathAndQuery, void), "java.net.MalformedURLException,java.io.UnsupportedEncodingException"},
+		{"toUrlString", "(Ljava/lang/String;ILjava/lang/String;Z)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(LdapURL, toUrlString, $String*, $String*, int32_t, $String*, bool)},
+		{"useSsl", "()Z", nullptr, $PUBLIC, $method(LdapURL, useSsl, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapURL",
+		"com.sun.jndi.toolkit.url.Uri",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LdapURL, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapURL);
+	});
 	return class$;
 }
 

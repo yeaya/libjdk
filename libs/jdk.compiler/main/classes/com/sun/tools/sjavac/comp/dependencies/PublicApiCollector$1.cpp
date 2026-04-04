@@ -1,5 +1,4 @@
 #include <com/sun/tools/sjavac/comp/dependencies/PublicApiCollector$1.h>
-
 #include <com/sun/source/util/TaskEvent$Kind.h>
 #include <com/sun/source/util/TaskEvent.h>
 #include <com/sun/tools/sjavac/comp/dependencies/PublicApiCollector.h>
@@ -23,53 +22,17 @@ namespace com {
 				namespace comp {
 					namespace dependencies {
 
-$FieldInfo _PublicApiCollector$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$source$util$TaskEvent$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PublicApiCollector$1, $SwitchMap$com$sun$source$util$TaskEvent$Kind)},
-	{}
-};
-
-$EnclosingMethodInfo _PublicApiCollector$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _PublicApiCollector$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _PublicApiCollector$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$1",
-	"java.lang.Object",
-	nullptr,
-	_PublicApiCollector$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_PublicApiCollector$1_EnclosingMethodInfo_,
-	_PublicApiCollector$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector"
-};
-
-$Object* allocate$PublicApiCollector$1($Class* clazz) {
-	return $of($alloc(PublicApiCollector$1));
-}
-
 $ints* PublicApiCollector$1::$SwitchMap$com$sun$source$util$TaskEvent$Kind = nullptr;
 
-void clinit$PublicApiCollector$1($Class* class$) {
+void PublicApiCollector$1::clinit$($Class* clazz) {
 	$assignStatic(PublicApiCollector$1::$SwitchMap$com$sun$source$util$TaskEvent$Kind, $new($ints, $($TaskEvent$Kind::values())->length));
 	{
 		try {
-			$nc(PublicApiCollector$1::$SwitchMap$com$sun$source$util$TaskEvent$Kind)->set($TaskEvent$Kind::ANALYZE->ordinal(), 1);
+			PublicApiCollector$1::$SwitchMap$com$sun$source$util$TaskEvent$Kind->set($TaskEvent$Kind::ANALYZE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(PublicApiCollector$1::$SwitchMap$com$sun$source$util$TaskEvent$Kind)->set($TaskEvent$Kind::COMPILATION->ordinal(), 2);
+			PublicApiCollector$1::$SwitchMap$com$sun$source$util$TaskEvent$Kind->set($TaskEvent$Kind::COMPILATION->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -79,7 +42,37 @@ PublicApiCollector$1::PublicApiCollector$1() {
 }
 
 $Class* PublicApiCollector$1::load$($String* name, bool initialize) {
-	$loadClass(PublicApiCollector$1, name, initialize, &_PublicApiCollector$1_ClassInfo_, clinit$PublicApiCollector$1, allocate$PublicApiCollector$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$source$util$TaskEvent$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PublicApiCollector$1, $SwitchMap$com$sun$source$util$TaskEvent$Kind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.comp.dependencies.PublicApiCollector"
+	};
+	$loadClass(PublicApiCollector$1, name, initialize, &classInfo$$, PublicApiCollector$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PublicApiCollector$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$MultilineDiagnostic.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/util/DiagnosticSource.h>
@@ -28,46 +27,8 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _JCDiagnostic$MultilineDiagnostic_FieldInfo_[] = {
-	{"subdiagnostics", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE | $FINAL, $field(JCDiagnostic$MultilineDiagnostic, subdiagnostics)},
-	{}
-};
-
-$MethodInfo _JCDiagnostic$MultilineDiagnostic_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $method(JCDiagnostic$MultilineDiagnostic, init$, void, $JCDiagnostic*, $List*)},
-	{"getSource", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, getSource, $Object*)},
-	{"getSubdiagnostics", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, getSubdiagnostics, $List*)},
-	{"isMultiline", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, isMultiline, bool)},
-	{}
-};
-
-$InnerClassInfo _JCDiagnostic$MultilineDiagnostic_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.JCDiagnostic$MultilineDiagnostic", "com.sun.tools.javac.util.JCDiagnostic", "MultilineDiagnostic", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _JCDiagnostic$MultilineDiagnostic_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.JCDiagnostic$MultilineDiagnostic",
-	"com.sun.tools.javac.util.JCDiagnostic",
-	nullptr,
-	_JCDiagnostic$MultilineDiagnostic_FieldInfo_,
-	_JCDiagnostic$MultilineDiagnostic_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JCDiagnostic$MultilineDiagnostic_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.JCDiagnostic"
-};
-
-$Object* allocate$JCDiagnostic$MultilineDiagnostic($Class* clazz) {
-	return $of($alloc(JCDiagnostic$MultilineDiagnostic));
-}
-
 void JCDiagnostic$MultilineDiagnostic::init$($JCDiagnostic* other, $List* subdiagnostics) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DiagnosticFormatter, var$0, $nc(other)->defaultFormatter);
 	$var($JCDiagnostic$DiagnosticInfo, var$1, other->diagnosticInfo);
 	$var($Lint$LintCategory, var$2, other->getLintCategory());
@@ -85,14 +46,46 @@ bool JCDiagnostic$MultilineDiagnostic::isMultiline() {
 }
 
 $Object* JCDiagnostic$MultilineDiagnostic::getSource() {
-	return $of($JCDiagnostic::getSource());
+	return $JCDiagnostic::getSource();
 }
 
 JCDiagnostic$MultilineDiagnostic::JCDiagnostic$MultilineDiagnostic() {
 }
 
 $Class* JCDiagnostic$MultilineDiagnostic::load$($String* name, bool initialize) {
-	$loadClass(JCDiagnostic$MultilineDiagnostic, name, initialize, &_JCDiagnostic$MultilineDiagnostic_ClassInfo_, allocate$JCDiagnostic$MultilineDiagnostic);
+	$FieldInfo fieldInfos$$[] = {
+		{"subdiagnostics", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PRIVATE | $FINAL, $field(JCDiagnostic$MultilineDiagnostic, subdiagnostics)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/JCDiagnostic;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;)V", $PUBLIC, $method(JCDiagnostic$MultilineDiagnostic, init$, void, $JCDiagnostic*, $List*)},
+		{"getSource", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, getSource, $Object*)},
+		{"getSubdiagnostics", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/util/JCDiagnostic;>;", $PUBLIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, getSubdiagnostics, $List*)},
+		{"isMultiline", "()Z", nullptr, $PUBLIC, $virtualMethod(JCDiagnostic$MultilineDiagnostic, isMultiline, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.JCDiagnostic$MultilineDiagnostic", "com.sun.tools.javac.util.JCDiagnostic", "MultilineDiagnostic", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.JCDiagnostic$MultilineDiagnostic",
+		"com.sun.tools.javac.util.JCDiagnostic",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.JCDiagnostic"
+	};
+	$loadClass(JCDiagnostic$MultilineDiagnostic, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JCDiagnostic$MultilineDiagnostic);
+	});
 	return class$;
 }
 

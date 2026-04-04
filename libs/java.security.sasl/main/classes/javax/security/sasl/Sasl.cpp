@@ -1,5 +1,4 @@
 #include <javax/security/sasl/Sasl.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -97,89 +96,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(Sasl::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Sasl$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Sasl$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Sasl$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Sasl$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo Sasl$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"javax.security.sasl.Sasl$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Sasl$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(Sasl$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Sasl$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Sasl$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"javax.security.sasl.Sasl$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Sasl$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Sasl$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* Sasl$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _Sasl_FieldInfo_[] = {
-	{"disabledMechanisms", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Sasl, disabledMechanisms)},
-	{"SASL_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Sasl, SASL_LOGGER_NAME)},
-	{"logger", "Ljava/util/logging/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Sasl, logger)},
-	{"QOP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, QOP)},
-	{"STRENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, STRENGTH)},
-	{"SERVER_AUTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, SERVER_AUTH)},
-	{"BOUND_SERVER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, BOUND_SERVER_NAME)},
-	{"MAX_BUFFER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, MAX_BUFFER)},
-	{"RAW_SEND_SIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, RAW_SEND_SIZE)},
-	{"REUSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, REUSE)},
-	{"POLICY_NOPLAINTEXT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_NOPLAINTEXT)},
-	{"POLICY_NOACTIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_NOACTIVE)},
-	{"POLICY_NODICTIONARY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_NODICTIONARY)},
-	{"POLICY_NOANONYMOUS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_NOANONYMOUS)},
-	{"POLICY_FORWARD_SECRECY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_FORWARD_SECRECY)},
-	{"POLICY_PASS_CREDENTIALS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_PASS_CREDENTIALS)},
-	{"CREDENTIALS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, CREDENTIALS)},
-	{}
-};
-
-$MethodInfo _Sasl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Sasl, init$, void)},
-	{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC | $STATIC, $staticMethod(Sasl, createSaslClient, $SaslClient*, $StringArray*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"createSaslServer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", $PUBLIC | $STATIC, $staticMethod(Sasl, createSaslServer, $SaslServer*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
-	{"getFactories", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(Sasl, getFactories, $Set*, $String*)},
-	{"getSaslClientFactories", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/security/sasl/SaslClientFactory;>;", $PUBLIC | $STATIC, $staticMethod(Sasl, getSaslClientFactories, $Enumeration*)},
-	{"getSaslServerFactories", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/security/sasl/SaslServerFactory;>;", $PUBLIC | $STATIC, $staticMethod(Sasl, getSaslServerFactories, $Enumeration*)},
-	{"isDisabled", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Sasl, isDisabled, bool, $String*)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Sasl, lambda$static$0, $String*)},
-	{"loadFactory", "(Ljava/security/Provider$Service;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Sasl, loadFactory, $Object*, $Provider$Service*), "javax.security.sasl.SaslException"},
-	{}
-};
-
-$InnerClassInfo _Sasl_InnerClassesInfo_[] = {
-	{"javax.security.sasl.Sasl$2", nullptr, nullptr, 0},
-	{"javax.security.sasl.Sasl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Sasl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.security.sasl.Sasl",
-	"java.lang.Object",
-	nullptr,
-	_Sasl_FieldInfo_,
-	_Sasl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Sasl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.security.sasl.Sasl$2,javax.security.sasl.Sasl$1"
-};
-
-$Object* allocate$Sasl($Class* clazz) {
-	return $of($alloc(Sasl));
-}
 
 $List* Sasl::disabledMechanisms = nullptr;
 $String* Sasl::SASL_LOGGER_NAME = nullptr;
@@ -204,7 +141,7 @@ void Sasl::init$() {
 
 $SaslClient* Sasl::createSaslClient($StringArray* mechanisms, $String* authorizationId, $String* protocol, $String* serverName, $Map* props, $CallbackHandler* cbh) {
 	$init(Sasl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SaslClient, mech, nullptr);
 	$var($SaslClientFactory, fac, nullptr);
 	$var($Provider$Service, service, nullptr);
@@ -222,77 +159,17 @@ $SaslClient* Sasl::createSaslClient($StringArray* mechanisms, $String* authoriza
 		$var($String, type, "SaslClientFactory"_s);
 		$var($ProviderArray, provs, $Security::getProviders($$str({type, "."_s, mechName})));
 		if (provs != nullptr) {
-			{
-				$var($ProviderArray, arr$, provs);
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($Provider, p, arr$->get(i$));
-					{
-						$assign(service, $nc(p)->getService(type, mechName));
-						if (service == nullptr) {
-							continue;
-						}
-						$assign(fac, $cast($SaslClientFactory, loadFactory(service)));
-						if (fac != nullptr) {
-							$assign(mech, fac->createSaslClient($$new($StringArray, {mechanisms->get(i)}), authorizationId, protocol, serverName, props, cbh));
-							if (mech != nullptr) {
-								return mech;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	return nullptr;
-}
-
-$Object* Sasl::loadFactory($Provider$Service* service) {
-	$init(Sasl);
-	$useLocalCurrentObjectStackCache();
-	try {
-		return $of($nc(service)->newInstance(nullptr));
-	} catch ($InvalidParameterException& e) {
-		$throwNew($SaslException, $$str({"Cannot instantiate service "_s, service}), e);
-	} catch ($NoSuchAlgorithmException& e) {
-		$throwNew($SaslException, $$str({"Cannot instantiate service "_s, service}), e);
-	}
-	$shouldNotReachHere();
-}
-
-$SaslServer* Sasl::createSaslServer($String* mechanism, $String* protocol, $String* serverName, $Map* props, $CallbackHandler* cbh) {
-	$init(Sasl);
-	$useLocalCurrentObjectStackCache();
-	$var($SaslServer, mech, nullptr);
-	$var($SaslServerFactory, fac, nullptr);
-	$var($Provider$Service, service, nullptr);
-	if (mechanism == nullptr) {
-		$throwNew($NullPointerException, "Mechanism name cannot be null"_s);
-	} else if ($nc(mechanism)->length() == 0) {
-		return nullptr;
-	} else if (isDisabled(mechanism)) {
-		$init($Level);
-		$nc(Sasl::logger)->log($Level::FINE, $$str({"Disabled "_s, mechanism, " mechanism ignored"_s}));
-		return nullptr;
-	}
-	$var($String, type, "SaslServerFactory"_s);
-	$var($ProviderArray, provs, $Security::getProviders($$str({type, "."_s, mechanism})));
-	if (provs != nullptr) {
-		{
 			$var($ProviderArray, arr$, provs);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Provider, p, arr$->get(i$));
 				{
-					$assign(service, $nc(p)->getService(type, mechanism));
+					$assign(service, $nc(p)->getService(type, mechName));
 					if (service == nullptr) {
-						$throwNew($SaslException, $$str({"Provider does not support "_s, mechanism, " "_s, type}));
+						continue;
 					}
-					$assign(fac, $cast($SaslServerFactory, loadFactory(service)));
+					$assign(fac, $cast($SaslClientFactory, loadFactory(service)));
 					if (fac != nullptr) {
-						$assign(mech, fac->createSaslServer(mechanism, protocol, serverName, props, cbh));
+						$assign(mech, fac->createSaslClient($$new($StringArray, {mechanisms->get(i)}), authorizationId, protocol, serverName, props, cbh));
 						if (mech != nullptr) {
 							return mech;
 						}
@@ -304,9 +181,61 @@ $SaslServer* Sasl::createSaslServer($String* mechanism, $String* protocol, $Stri
 	return nullptr;
 }
 
+$Object* Sasl::loadFactory($Provider$Service* service) {
+	$init(Sasl);
+	$useLocalObjectStack();
+	try {
+		return $nc(service)->newInstance(nullptr);
+	} catch ($InvalidParameterException& e) {
+		$throwNew($SaslException, $$str({"Cannot instantiate service "_s, service}), e);
+	} catch ($NoSuchAlgorithmException& e) {
+		$throwNew($SaslException, $$str({"Cannot instantiate service "_s, service}), e);
+	}
+	$shouldNotReachHere();
+}
+
+$SaslServer* Sasl::createSaslServer($String* mechanism, $String* protocol, $String* serverName, $Map* props, $CallbackHandler* cbh) {
+	$init(Sasl);
+	$useLocalObjectStack();
+	$var($SaslServer, mech, nullptr);
+	$var($SaslServerFactory, fac, nullptr);
+	$var($Provider$Service, service, nullptr);
+	if (mechanism == nullptr) {
+		$throwNew($NullPointerException, "Mechanism name cannot be null"_s);
+	} else if (mechanism->length() == 0) {
+		return nullptr;
+	} else if (isDisabled(mechanism)) {
+		$init($Level);
+		$nc(Sasl::logger)->log($Level::FINE, $$str({"Disabled "_s, mechanism, " mechanism ignored"_s}));
+		return nullptr;
+	}
+	$var($String, type, "SaslServerFactory"_s);
+	$var($ProviderArray, provs, $Security::getProviders($$str({type, "."_s, mechanism})));
+	if (provs != nullptr) {
+		$var($ProviderArray, arr$, provs);
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Provider, p, arr$->get(i$));
+			{
+				$assign(service, $nc(p)->getService(type, mechanism));
+				if (service == nullptr) {
+					$throwNew($SaslException, $$str({"Provider does not support "_s, mechanism, " "_s, type}));
+				}
+				$assign(fac, $cast($SaslServerFactory, loadFactory(service)));
+				if (fac != nullptr) {
+					$assign(mech, fac->createSaslServer(mechanism, protocol, serverName, props, cbh));
+					if (mech != nullptr) {
+						return mech;
+					}
+				}
+			}
+		}
+	}
+	return nullptr;
+}
+
 $Enumeration* Sasl::getSaslClientFactories() {
 	$init(Sasl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, facs, getFactories("SaslClientFactory"_s));
 	$var($Iterator, iter, $nc(facs)->iterator());
 	return $new($Sasl$1, iter);
@@ -314,7 +243,7 @@ $Enumeration* Sasl::getSaslClientFactories() {
 
 $Enumeration* Sasl::getSaslServerFactories() {
 	$init(Sasl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, facs, getFactories("SaslServerFactory"_s));
 	$var($Iterator, iter, $nc(facs)->iterator());
 	return $new($Sasl$2, iter);
@@ -322,25 +251,23 @@ $Enumeration* Sasl::getSaslServerFactories() {
 
 $Set* Sasl::getFactories($String* serviceName) {
 	$init(Sasl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HashSet, result, $new($HashSet));
-	bool var$0 = (serviceName == nullptr) || ($nc(serviceName)->length() == 0);
-	if (var$0 || ($nc(serviceName)->endsWith("."_s))) {
+	bool var$0 = (serviceName == nullptr) || (serviceName->length() == 0);
+	if (var$0 || (serviceName->endsWith("."_s))) {
 		return result;
 	}
 	$var($ProviderArray, provs, $Security::getProviders());
 	$var($Object, fac, nullptr);
 	{
 		$var($ProviderArray, arr$, provs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Provider, p, arr$->get(i$));
 			{
-				$var($Iterator, iter, $nc($($nc(p)->getServices()))->iterator());
+				$var($Iterator, iter, $$nc($nc(p)->getServices())->iterator());
 				while ($nc(iter)->hasNext()) {
 					$var($Provider$Service, s, $cast($Provider$Service, iter->next()));
-					if ($nc($($nc(s)->getType()))->equals(serviceName)) {
+					if ($$nc($nc(s)->getType())->equals(serviceName)) {
 						try {
 							$assign(fac, loadFactory(s));
 							if (fac != nullptr) {
@@ -366,8 +293,8 @@ $String* Sasl::lambda$static$0() {
 	return $Security::getProperty("jdk.sasl.disabledMechanisms"_s);
 }
 
-void clinit$Sasl($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Sasl::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Sasl::SASL_LOGGER_NAME, "javax.security.sasl"_s);
 	$assignStatic(Sasl::QOP, "javax.security.sasl.qop"_s);
 	$assignStatic(Sasl::STRENGTH, "javax.security.sasl.strength"_s);
@@ -386,19 +313,13 @@ void clinit$Sasl($Class* class$) {
 	$beforeCallerSensitive();
 	$assignStatic(Sasl::disabledMechanisms, $new($ArrayList));
 	{
-		$var($String, prop, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Sasl$$Lambda$lambda$static$0)))));
+		$var($String, prop, $cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Sasl$$Lambda$lambda$static$0)))));
 		if (prop != nullptr) {
-			{
-				$var($StringArray, arr$, prop->split("\\s*,\\s*"_s));
-				int32_t len$ = arr$->length;
-				int32_t i$ = 0;
-				for (; i$ < len$; ++i$) {
-					$var($String, s, arr$->get(i$));
-					{
-						if (!$nc(s)->isEmpty()) {
-							$nc(Sasl::disabledMechanisms)->add(s);
-						}
-					}
+			$var($StringArray, arr$, prop->split("\\s*,\\s*"_s));
+			for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+				$var($String, s, arr$->get(i$));
+				if (!$nc(s)->isEmpty()) {
+					Sasl::disabledMechanisms->add(s);
 				}
 			}
 		}
@@ -411,11 +332,64 @@ Sasl::Sasl() {
 
 $Class* Sasl::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Sasl$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("javax.security.sasl.Sasl$$Lambda$lambda$static$0")) {
 			return Sasl$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(Sasl, name, initialize, &_Sasl_ClassInfo_, clinit$Sasl, allocate$Sasl);
+	$FieldInfo fieldInfos$$[] = {
+		{"disabledMechanisms", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticField(Sasl, disabledMechanisms)},
+		{"SASL_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Sasl, SASL_LOGGER_NAME)},
+		{"logger", "Ljava/util/logging/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Sasl, logger)},
+		{"QOP", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, QOP)},
+		{"STRENGTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, STRENGTH)},
+		{"SERVER_AUTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, SERVER_AUTH)},
+		{"BOUND_SERVER_NAME", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, BOUND_SERVER_NAME)},
+		{"MAX_BUFFER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, MAX_BUFFER)},
+		{"RAW_SEND_SIZE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, RAW_SEND_SIZE)},
+		{"REUSE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, REUSE)},
+		{"POLICY_NOPLAINTEXT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_NOPLAINTEXT)},
+		{"POLICY_NOACTIVE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_NOACTIVE)},
+		{"POLICY_NODICTIONARY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_NODICTIONARY)},
+		{"POLICY_NOANONYMOUS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_NOANONYMOUS)},
+		{"POLICY_FORWARD_SECRECY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_FORWARD_SECRECY)},
+		{"POLICY_PASS_CREDENTIALS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, POLICY_PASS_CREDENTIALS)},
+		{"CREDENTIALS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Sasl, CREDENTIALS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Sasl, init$, void)},
+		{"createSaslClient", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", "([Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslClient;", $PUBLIC | $STATIC, $staticMethod(Sasl, createSaslClient, $SaslClient*, $StringArray*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"createSaslServer", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map<Ljava/lang/String;*>;Ljavax/security/auth/callback/CallbackHandler;)Ljavax/security/sasl/SaslServer;", $PUBLIC | $STATIC, $staticMethod(Sasl, createSaslServer, $SaslServer*, $String*, $String*, $String*, $Map*, $CallbackHandler*), "javax.security.sasl.SaslException"},
+		{"getFactories", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(Sasl, getFactories, $Set*, $String*)},
+		{"getSaslClientFactories", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/security/sasl/SaslClientFactory;>;", $PUBLIC | $STATIC, $staticMethod(Sasl, getSaslClientFactories, $Enumeration*)},
+		{"getSaslServerFactories", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljavax/security/sasl/SaslServerFactory;>;", $PUBLIC | $STATIC, $staticMethod(Sasl, getSaslServerFactories, $Enumeration*)},
+		{"isDisabled", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Sasl, isDisabled, bool, $String*)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Sasl, lambda$static$0, $String*)},
+		{"loadFactory", "(Ljava/security/Provider$Service;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Sasl, loadFactory, $Object*, $Provider$Service*), "javax.security.sasl.SaslException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.security.sasl.Sasl$2", nullptr, nullptr, 0},
+		{"javax.security.sasl.Sasl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.security.sasl.Sasl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.security.sasl.Sasl$2,javax.security.sasl.Sasl$1"
+	};
+	$loadClass(Sasl, name, initialize, &classInfo$$, Sasl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Sasl);
+	});
 	return class$;
 }
 

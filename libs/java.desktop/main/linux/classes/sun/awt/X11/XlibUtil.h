@@ -30,6 +30,7 @@ class XlibUtil : public ::java::lang::Object {
 	$class(XlibUtil, 0, ::java::lang::Object)
 public:
 	XlibUtil();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getButtonMask(int32_t button);
 	static ::java::util::Set* getChildWindows(int64_t window);

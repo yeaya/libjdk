@@ -213,6 +213,7 @@ class $import Attr : public ::com::sun::tools::javac::tree::JCTree$Visitor {
 	$class(Attr, 0, ::com::sun::tools::javac::tree::JCTree$Visitor)
 public:
 	Attr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	static void addVars(::com::sun::tools::javac::util::List* stats, ::com::sun::tools::javac::code::Scope$WriteableScope* switchScope);
 	virtual ::com::sun::tools::javac::code::Type* adjustMethodReturnType(::com::sun::tools::javac::code::Symbol* msym, ::com::sun::tools::javac::code::Type* qualifierType, ::com::sun::tools::javac::util::Name* methodName, ::com::sun::tools::javac::util::List* argtypes, ::com::sun::tools::javac::code::Type* restype);

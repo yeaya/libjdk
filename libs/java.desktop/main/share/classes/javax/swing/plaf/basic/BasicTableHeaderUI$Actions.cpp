@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTableHeaderUI$Actions.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/event/ActionEvent.h>
@@ -24,7 +23,6 @@
 #undef SELECT_COLUMN_TO_RIGHT
 #undef TOGGLE_SORT_ORDER
 
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -44,53 +42,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicTableHeaderUI$Actions_FieldInfo_[] = {
-	{"TOGGLE_SORT_ORDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, TOGGLE_SORT_ORDER)},
-	{"SELECT_COLUMN_TO_LEFT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, SELECT_COLUMN_TO_LEFT)},
-	{"SELECT_COLUMN_TO_RIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, SELECT_COLUMN_TO_RIGHT)},
-	{"MOVE_COLUMN_LEFT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, MOVE_COLUMN_LEFT)},
-	{"MOVE_COLUMN_RIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, MOVE_COLUMN_RIGHT)},
-	{"RESIZE_LEFT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, RESIZE_LEFT)},
-	{"RESIZE_RIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, RESIZE_RIGHT)},
-	{"FOCUS_TABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, FOCUS_TABLE)},
-	{}
-};
-
-$MethodInfo _BasicTableHeaderUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicTableHeaderUI$Actions, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$Actions, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"maybeMoveColumn", "(ZLjavax/swing/table/JTableHeader;Ljavax/swing/plaf/basic/BasicTableHeaderUI;Z)Z", nullptr, $PRIVATE, $method(BasicTableHeaderUI$Actions, maybeMoveColumn, bool, bool, $JTableHeader*, $BasicTableHeaderUI*, bool)},
-	{"moveColumn", "(ZLjavax/swing/table/JTableHeader;Ljavax/swing/plaf/basic/BasicTableHeaderUI;)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI$Actions, moveColumn, void, bool, $JTableHeader*, $BasicTableHeaderUI*)},
-	{"resize", "(ZLjavax/swing/table/JTableHeader;Ljavax/swing/plaf/basic/BasicTableHeaderUI;)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI$Actions, resize, void, bool, $JTableHeader*, $BasicTableHeaderUI*)},
-	{}
-};
-
-$InnerClassInfo _BasicTableHeaderUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTableHeaderUI$Actions", "javax.swing.plaf.basic.BasicTableHeaderUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicTableHeaderUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTableHeaderUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicTableHeaderUI$Actions_FieldInfo_,
-	_BasicTableHeaderUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTableHeaderUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTableHeaderUI"
-};
-
-$Object* allocate$BasicTableHeaderUI$Actions($Class* clazz) {
-	return $of($alloc(BasicTableHeaderUI$Actions));
-}
-
 $String* BasicTableHeaderUI$Actions::TOGGLE_SORT_ORDER = nullptr;
 $String* BasicTableHeaderUI$Actions::SELECT_COLUMN_TO_LEFT = nullptr;
 $String* BasicTableHeaderUI$Actions::SELECT_COLUMN_TO_RIGHT = nullptr;
@@ -105,10 +56,10 @@ void BasicTableHeaderUI$Actions::init$($String* name) {
 }
 
 bool BasicTableHeaderUI$Actions::accept(Object$* sender) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JTableHeader, sender)) {
 		$var($JTableHeader, th, $cast($JTableHeader, sender));
-		$var($TableColumnModel, cm, $nc(th)->getColumnModel());
+		$var($TableColumnModel, cm, th->getColumnModel());
 		if ($nc(cm)->getColumnCount() <= 0) {
 			return false;
 		}
@@ -123,7 +74,7 @@ bool BasicTableHeaderUI$Actions::accept(Object$* sender) {
 				bool var$1 = th->getReorderingAllowed();
 				return var$1 && maybeMoveColumn(false, th, ui, false);
 			} else if (key == BasicTableHeaderUI$Actions::RESIZE_LEFT || key == BasicTableHeaderUI$Actions::RESIZE_RIGHT) {
-				return $BasicTableHeaderUI::canResize($($nc(cm)->getColumn(ui->getSelectedColumnIndex())), th);
+				return $BasicTableHeaderUI::canResize($(cm->getColumn(ui->getSelectedColumnIndex())), th);
 			} else if (key == BasicTableHeaderUI$Actions::FOCUS_TABLE) {
 				return (th->getTable() != nullptr);
 			}
@@ -133,7 +84,7 @@ bool BasicTableHeaderUI$Actions::accept(Object$* sender) {
 }
 
 void BasicTableHeaderUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTableHeader, th, $cast($JTableHeader, $nc(e)->getSource()));
 	$load($BasicTableHeaderUI);
 	$var($BasicTableHeaderUI, ui, $cast($BasicTableHeaderUI, $BasicLookAndFeel::getUIOfType($($nc(th)->getUI()), $BasicTableHeaderUI::class$)));
@@ -142,21 +93,21 @@ void BasicTableHeaderUI$Actions::actionPerformed($ActionEvent* e) {
 	}
 	$var($String, name, getName());
 	if (BasicTableHeaderUI$Actions::TOGGLE_SORT_ORDER == name) {
-		$var($JTable, table, $nc(th)->getTable());
-		$var($RowSorter, sorter, table == nullptr ? ($RowSorter*)nullptr : $nc(table)->getRowSorter());
+		$var($JTable, table, th->getTable());
+		$var($RowSorter, sorter, table == nullptr ? ($RowSorter*)nullptr : table->getRowSorter());
 		if (sorter != nullptr) {
 			int32_t columnIndex = $nc(ui)->getSelectedColumnIndex();
-			columnIndex = table->convertColumnIndexToModel(columnIndex);
+			columnIndex = $nc(table)->convertColumnIndexToModel(columnIndex);
 			sorter->toggleSortOrder(columnIndex);
 		}
 	} else if (BasicTableHeaderUI$Actions::SELECT_COLUMN_TO_LEFT == name) {
-		if ($nc($($nc(th)->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc(th->getComponentOrientation())->isLeftToRight()) {
 			$nc(ui)->selectPreviousColumn(true);
 		} else {
 			$nc(ui)->selectNextColumn(true);
 		}
 	} else if (BasicTableHeaderUI$Actions::SELECT_COLUMN_TO_RIGHT == name) {
-		if ($nc($($nc(th)->getComponentOrientation()))->isLeftToRight()) {
+		if ($$nc(th->getComponentOrientation())->isLeftToRight()) {
 			$nc(ui)->selectNextColumn(true);
 		} else {
 			$nc(ui)->selectPreviousColumn(true);
@@ -170,7 +121,7 @@ void BasicTableHeaderUI$Actions::actionPerformed($ActionEvent* e) {
 	} else if (BasicTableHeaderUI$Actions::RESIZE_RIGHT == name) {
 		resize(false, th, ui);
 	} else if (BasicTableHeaderUI$Actions::FOCUS_TABLE == name) {
-		$var($JTable, table, $nc(th)->getTable());
+		$var($JTable, table, th->getTable());
 		if (table != nullptr) {
 			table->requestFocusInWindow();
 		}
@@ -182,17 +133,17 @@ void BasicTableHeaderUI$Actions::moveColumn(bool leftArrow, $JTableHeader* th, $
 }
 
 bool BasicTableHeaderUI$Actions::maybeMoveColumn(bool leftArrow, $JTableHeader* th, $BasicTableHeaderUI* ui, bool doIt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t oldIndex = $nc(ui)->getSelectedColumnIndex();
 	int32_t newIndex = 0;
-	if ($nc($($nc(th)->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc($nc(th)->getComponentOrientation())->isLeftToRight()) {
 		newIndex = leftArrow ? ui->selectPreviousColumn(doIt) : ui->selectNextColumn(doIt);
 	} else {
 		newIndex = leftArrow ? ui->selectNextColumn(doIt) : ui->selectPreviousColumn(doIt);
 	}
 	if (newIndex != oldIndex) {
 		if (doIt) {
-			$nc($($nc(th)->getColumnModel()))->moveColumn(oldIndex, newIndex);
+			$$nc(th->getColumnModel())->moveColumn(oldIndex, newIndex);
 		} else {
 			return true;
 		}
@@ -201,13 +152,13 @@ bool BasicTableHeaderUI$Actions::maybeMoveColumn(bool leftArrow, $JTableHeader* 
 }
 
 void BasicTableHeaderUI$Actions::resize(bool leftArrow, $JTableHeader* th, $BasicTableHeaderUI* ui) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t columnIndex = $nc(ui)->getSelectedColumnIndex();
-	$var($TableColumn, resizingColumn, $nc($($nc(th)->getColumnModel()))->getColumn(columnIndex));
+	$var($TableColumn, resizingColumn, $$nc($nc(th)->getColumnModel())->getColumn(columnIndex));
 	th->setResizingColumn(resizingColumn);
 	int32_t oldWidth = $nc(resizingColumn)->getWidth();
 	int32_t newWidth = oldWidth;
-	if ($nc($(th->getComponentOrientation()))->isLeftToRight()) {
+	if ($$nc(th->getComponentOrientation())->isLeftToRight()) {
 		newWidth = newWidth + (leftArrow ? -1 : 1);
 	} else {
 		newWidth = newWidth + (leftArrow ? 1 : -1);
@@ -218,7 +169,7 @@ void BasicTableHeaderUI$Actions::resize(bool leftArrow, $JTableHeader* th, $Basi
 BasicTableHeaderUI$Actions::BasicTableHeaderUI$Actions() {
 }
 
-void clinit$BasicTableHeaderUI$Actions($Class* class$) {
+void BasicTableHeaderUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicTableHeaderUI$Actions::TOGGLE_SORT_ORDER, "toggleSortOrder"_s);
 	$assignStatic(BasicTableHeaderUI$Actions::SELECT_COLUMN_TO_LEFT, "selectColumnToLeft"_s);
 	$assignStatic(BasicTableHeaderUI$Actions::SELECT_COLUMN_TO_RIGHT, "selectColumnToRight"_s);
@@ -230,7 +181,48 @@ void clinit$BasicTableHeaderUI$Actions($Class* class$) {
 }
 
 $Class* BasicTableHeaderUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicTableHeaderUI$Actions, name, initialize, &_BasicTableHeaderUI$Actions_ClassInfo_, clinit$BasicTableHeaderUI$Actions, allocate$BasicTableHeaderUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"TOGGLE_SORT_ORDER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, TOGGLE_SORT_ORDER)},
+		{"SELECT_COLUMN_TO_LEFT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, SELECT_COLUMN_TO_LEFT)},
+		{"SELECT_COLUMN_TO_RIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, SELECT_COLUMN_TO_RIGHT)},
+		{"MOVE_COLUMN_LEFT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, MOVE_COLUMN_LEFT)},
+		{"MOVE_COLUMN_RIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, MOVE_COLUMN_RIGHT)},
+		{"RESIZE_LEFT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, RESIZE_LEFT)},
+		{"RESIZE_RIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, RESIZE_RIGHT)},
+		{"FOCUS_TABLE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(BasicTableHeaderUI$Actions, FOCUS_TABLE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(BasicTableHeaderUI$Actions, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$Actions, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicTableHeaderUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"maybeMoveColumn", "(ZLjavax/swing/table/JTableHeader;Ljavax/swing/plaf/basic/BasicTableHeaderUI;Z)Z", nullptr, $PRIVATE, $method(BasicTableHeaderUI$Actions, maybeMoveColumn, bool, bool, $JTableHeader*, $BasicTableHeaderUI*, bool)},
+		{"moveColumn", "(ZLjavax/swing/table/JTableHeader;Ljavax/swing/plaf/basic/BasicTableHeaderUI;)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI$Actions, moveColumn, void, bool, $JTableHeader*, $BasicTableHeaderUI*)},
+		{"resize", "(ZLjavax/swing/table/JTableHeader;Ljavax/swing/plaf/basic/BasicTableHeaderUI;)V", nullptr, $PRIVATE, $method(BasicTableHeaderUI$Actions, resize, void, bool, $JTableHeader*, $BasicTableHeaderUI*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTableHeaderUI$Actions", "javax.swing.plaf.basic.BasicTableHeaderUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTableHeaderUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTableHeaderUI"
+	};
+	$loadClass(BasicTableHeaderUI$Actions, name, initialize, &classInfo$$, BasicTableHeaderUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicTableHeaderUI$Actions);
+	});
 	return class$;
 }
 

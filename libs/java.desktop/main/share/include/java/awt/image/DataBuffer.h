@@ -35,6 +35,7 @@ class $import DataBuffer : public ::java::lang::Object {
 	$class(DataBuffer, 0, ::java::lang::Object)
 public:
 	DataBuffer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t dataType, int32_t size);
 	void init$(::sun::java2d::StateTrackable$State* initialState, int32_t dataType, int32_t size);
 	void init$(int32_t dataType, int32_t size, int32_t numBanks);

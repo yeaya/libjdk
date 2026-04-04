@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/model/JavacElements$1Vis.h>
-
 #include <com/sun/tools/javac/model/JavacElements.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
@@ -31,55 +30,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace model {
-
-$FieldInfo _JavacElements$1Vis_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/model/JavacElements;", nullptr, $FINAL | $SYNTHETIC, $field(JavacElements$1Vis, this$0)},
-	{"result", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", 0, $field(JavacElements$1Vis, result)},
-	{}
-};
-
-$MethodInfo _JavacElements$1Vis_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;)V", nullptr, 0, $method(JavacElements$1Vis, init$, void, $JavacElements*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitModuleDef, void, $JCTree$JCModuleDecl*)},
-	{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitPackageDef, void, $JCTree$JCPackageDecl*)},
-	{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacElements$1Vis_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.model.JavacElements",
-	"matchAnnoToTree",
-	"(Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/Element;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;"
-};
-
-$InnerClassInfo _JavacElements$1Vis_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.model.JavacElements$1Vis", nullptr, "Vis", 0},
-	{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavacElements$1Vis_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.model.JavacElements$1Vis",
-	"com.sun.tools.javac.tree.JCTree$Visitor",
-	nullptr,
-	_JavacElements$1Vis_FieldInfo_,
-	_JavacElements$1Vis_MethodInfo_,
-	nullptr,
-	&_JavacElements$1Vis_EnclosingMethodInfo_,
-	_JavacElements$1Vis_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.model.JavacElements"
-};
-
-$Object* allocate$JavacElements$1Vis($Class* clazz) {
-	return $of($alloc(JavacElements$1Vis));
-}
 
 void JavacElements$1Vis::init$($JavacElements* this$0) {
 	$set(this, this$0, this$0);
@@ -115,7 +65,49 @@ JavacElements$1Vis::JavacElements$1Vis() {
 }
 
 $Class* JavacElements$1Vis::load$($String* name, bool initialize) {
-	$loadClass(JavacElements$1Vis, name, initialize, &_JavacElements$1Vis_ClassInfo_, allocate$JavacElements$1Vis);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/model/JavacElements;", nullptr, $FINAL | $SYNTHETIC, $field(JavacElements$1Vis, this$0)},
+		{"result", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;", 0, $field(JavacElements$1Vis, result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;)V", nullptr, 0, $method(JavacElements$1Vis, init$, void, $JavacElements*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+		{"visitPackageDef", "(Lcom/sun/tools/javac/tree/JCTree$JCPackageDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitPackageDef, void, $JCTree$JCPackageDecl*)},
+		{"visitTypeParameter", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeParameter;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitTypeParameter, void, $JCTree$JCTypeParameter*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(JavacElements$1Vis, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.model.JavacElements",
+		"matchAnnoToTree",
+		"(Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/Element;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.model.JavacElements$1Vis", nullptr, "Vis", 0},
+		{"com.sun.tools.javac.tree.JCTree$Visitor", "com.sun.tools.javac.tree.JCTree", "Visitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.model.JavacElements$1Vis",
+		"com.sun.tools.javac.tree.JCTree$Visitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.model.JavacElements"
+	};
+	$loadClass(JavacElements$1Vis, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacElements$1Vis);
+	});
 	return class$;
 }
 

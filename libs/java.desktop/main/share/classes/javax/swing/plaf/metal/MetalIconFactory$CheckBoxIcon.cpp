@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$CheckBoxIcon.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -13,7 +12,6 @@
 #include <javax/swing/plaf/metal/MetalUtils.h>
 #include <jcpp.h>
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,47 +27,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$MethodInfo _MetalIconFactory$CheckBoxIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$CheckBoxIcon, init$, void)},
-	{"drawCheck", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(MetalIconFactory$CheckBoxIcon, drawCheck, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"getControlSize", "()I", nullptr, $PROTECTED, $virtualMethod(MetalIconFactory$CheckBoxIcon, getControlSize, int32_t)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"paintOceanIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PRIVATE, $method(MetalIconFactory$CheckBoxIcon, paintOceanIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$CheckBoxIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$CheckBoxIcon", "javax.swing.plaf.metal.MetalIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$CheckBoxIcon_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$CheckBoxIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
-	nullptr,
-	_MetalIconFactory$CheckBoxIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$CheckBoxIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$CheckBoxIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$CheckBoxIcon));
-}
 
 int32_t MetalIconFactory$CheckBoxIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -99,8 +56,8 @@ int32_t MetalIconFactory$CheckBoxIcon::getControlSize() {
 }
 
 void MetalIconFactory$CheckBoxIcon::paintOceanIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
-	$var($ButtonModel, model, $nc(($cast($JCheckBox, c)))->getModel());
+	$useLocalObjectStack();
+	$var($ButtonModel, model, $nc($cast($JCheckBox, c))->getModel());
 	$nc(g)->translate(x, y);
 	int32_t w = getIconWidth();
 	int32_t h = getIconHeight();
@@ -132,18 +89,18 @@ void MetalIconFactory$CheckBoxIcon::paintOceanIcon($Component* c, $Graphics* g, 
 		g->drawRect(0, 0, w - 1, h - 1);
 	}
 	g->translate(-x, -y);
-	if ($nc(model)->isSelected()) {
+	if (model->isSelected()) {
 		drawCheck(c, g, x, y);
 	}
 }
 
 void MetalIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($MetalLookAndFeel::usingOcean()) {
 		paintOceanIcon(c, g, x, y);
 		return;
 	}
-	$var($ButtonModel, model, $nc(($cast($JCheckBox, c)))->getModel());
+	$var($ButtonModel, model, $nc($cast($JCheckBox, c))->getModel());
 	int32_t controlSize = getControlSize();
 	if ($nc(model)->isEnabled()) {
 		bool var$0 = model->isPressed();
@@ -154,18 +111,18 @@ void MetalIconFactory$CheckBoxIcon::paintIcon($Component* c, $Graphics* g, int32
 		} else {
 			$MetalUtils::drawFlush3DBorder(g, x, y, controlSize, controlSize);
 		}
-		$nc(g)->setColor($($nc(c)->getForeground()));
+		$nc(g)->setColor($(c->getForeground()));
 	} else {
 		$nc(g)->setColor($($MetalLookAndFeel::getControlShadow()));
 		g->drawRect(x, y, controlSize - 2, controlSize - 2);
 	}
-	if ($nc(model)->isSelected()) {
+	if (model->isSelected()) {
 		drawCheck(c, g, x, y);
 	}
 }
 
 void MetalIconFactory$CheckBoxIcon::drawCheck($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t controlSize = getControlSize();
 	int32_t csx = controlSize - 3;
 	int32_t csy1 = controlSize - 6;
@@ -208,7 +165,43 @@ MetalIconFactory$CheckBoxIcon::MetalIconFactory$CheckBoxIcon() {
 }
 
 $Class* MetalIconFactory$CheckBoxIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$CheckBoxIcon, name, initialize, &_MetalIconFactory$CheckBoxIcon_ClassInfo_, allocate$MetalIconFactory$CheckBoxIcon);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalIconFactory$CheckBoxIcon, init$, void)},
+		{"drawCheck", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PROTECTED, $virtualMethod(MetalIconFactory$CheckBoxIcon, drawCheck, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"getControlSize", "()I", nullptr, $PROTECTED, $virtualMethod(MetalIconFactory$CheckBoxIcon, getControlSize, int32_t)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$CheckBoxIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"paintOceanIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PRIVATE, $method(MetalIconFactory$CheckBoxIcon, paintOceanIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$CheckBoxIcon", "javax.swing.plaf.metal.MetalIconFactory", "CheckBoxIcon", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$CheckBoxIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,javax.swing.plaf.UIResource,java.io.Serializable",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$CheckBoxIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$CheckBoxIcon));
+	});
 	return class$;
 }
 

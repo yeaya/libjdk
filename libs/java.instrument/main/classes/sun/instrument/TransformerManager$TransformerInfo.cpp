@@ -1,5 +1,4 @@
 #include <sun/instrument/TransformerManager$TransformerInfo.h>
-
 #include <java/lang/instrument/ClassFileTransformer.h>
 #include <sun/instrument/TransformerManager.h>
 #include <jcpp.h>
@@ -13,46 +12,6 @@ using $TransformerManager = ::sun::instrument::TransformerManager;
 
 namespace sun {
 	namespace instrument {
-
-$FieldInfo _TransformerManager$TransformerInfo_FieldInfo_[] = {
-	{"this$0", "Lsun/instrument/TransformerManager;", nullptr, $FINAL | $SYNTHETIC, $field(TransformerManager$TransformerInfo, this$0)},
-	{"mTransformer", "Ljava/lang/instrument/ClassFileTransformer;", nullptr, $FINAL, $field(TransformerManager$TransformerInfo, mTransformer)},
-	{"mPrefix", "Ljava/lang/String;", nullptr, 0, $field(TransformerManager$TransformerInfo, mPrefix)},
-	{}
-};
-
-$MethodInfo _TransformerManager$TransformerInfo_MethodInfo_[] = {
-	{"<init>", "(Lsun/instrument/TransformerManager;Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, 0, $method(TransformerManager$TransformerInfo, init$, void, $TransformerManager*, $ClassFileTransformer*)},
-	{"getPrefix", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, getPrefix, $String*)},
-	{"setPrefix", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, setPrefix, void, $String*)},
-	{"transformer", "()Ljava/lang/instrument/ClassFileTransformer;", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, transformer, $ClassFileTransformer*)},
-	{}
-};
-
-$InnerClassInfo _TransformerManager$TransformerInfo_InnerClassesInfo_[] = {
-	{"sun.instrument.TransformerManager$TransformerInfo", "sun.instrument.TransformerManager", "TransformerInfo", $PRIVATE},
-	{}
-};
-
-$ClassInfo _TransformerManager$TransformerInfo_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.instrument.TransformerManager$TransformerInfo",
-	"java.lang.Object",
-	nullptr,
-	_TransformerManager$TransformerInfo_FieldInfo_,
-	_TransformerManager$TransformerInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformerManager$TransformerInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.instrument.TransformerManager"
-};
-
-$Object* allocate$TransformerManager$TransformerInfo($Class* clazz) {
-	return $of($alloc(TransformerManager$TransformerInfo));
-}
 
 void TransformerManager$TransformerInfo::init$($TransformerManager* this$0, $ClassFileTransformer* transformer) {
 	$set(this, this$0, this$0);
@@ -76,7 +35,41 @@ TransformerManager$TransformerInfo::TransformerManager$TransformerInfo() {
 }
 
 $Class* TransformerManager$TransformerInfo::load$($String* name, bool initialize) {
-	$loadClass(TransformerManager$TransformerInfo, name, initialize, &_TransformerManager$TransformerInfo_ClassInfo_, allocate$TransformerManager$TransformerInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/instrument/TransformerManager;", nullptr, $FINAL | $SYNTHETIC, $field(TransformerManager$TransformerInfo, this$0)},
+		{"mTransformer", "Ljava/lang/instrument/ClassFileTransformer;", nullptr, $FINAL, $field(TransformerManager$TransformerInfo, mTransformer)},
+		{"mPrefix", "Ljava/lang/String;", nullptr, 0, $field(TransformerManager$TransformerInfo, mPrefix)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/instrument/TransformerManager;Ljava/lang/instrument/ClassFileTransformer;)V", nullptr, 0, $method(TransformerManager$TransformerInfo, init$, void, $TransformerManager*, $ClassFileTransformer*)},
+		{"getPrefix", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, getPrefix, $String*)},
+		{"setPrefix", "(Ljava/lang/String;)V", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, setPrefix, void, $String*)},
+		{"transformer", "()Ljava/lang/instrument/ClassFileTransformer;", nullptr, 0, $virtualMethod(TransformerManager$TransformerInfo, transformer, $ClassFileTransformer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.instrument.TransformerManager$TransformerInfo", "sun.instrument.TransformerManager", "TransformerInfo", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.instrument.TransformerManager$TransformerInfo",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.instrument.TransformerManager"
+	};
+	$loadClass(TransformerManager$TransformerInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformerManager$TransformerInfo);
+	});
 	return class$;
 }
 

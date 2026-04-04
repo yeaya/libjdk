@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsTextFieldUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsTextFieldUI$WindowsFieldCaret.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
@@ -26,38 +25,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$MethodInfo _WindowsTextFieldUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTextFieldUI, init$, void)},
-	{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsTextFieldUI, createCaret, $Caret*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
-	{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsTextFieldUI, paintBackground, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _WindowsTextFieldUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret", "com.sun.java.swing.plaf.windows.WindowsTextFieldUI", "WindowsFieldCaret", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsTextFieldUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsTextFieldUI",
-	"javax.swing.plaf.basic.BasicTextFieldUI",
-	nullptr,
-	nullptr,
-	_WindowsTextFieldUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsTextFieldUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret,com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret$SafeScroller"
-};
-
-$Object* allocate$WindowsTextFieldUI($Class* clazz) {
-	return $of($alloc(WindowsTextFieldUI));
-}
-
 void WindowsTextFieldUI::init$() {
 	$BasicTextFieldUI::init$();
 }
@@ -79,7 +46,34 @@ WindowsTextFieldUI::WindowsTextFieldUI() {
 }
 
 $Class* WindowsTextFieldUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsTextFieldUI, name, initialize, &_WindowsTextFieldUI_ClassInfo_, allocate$WindowsTextFieldUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsTextFieldUI, init$, void)},
+		{"createCaret", "()Ljavax/swing/text/Caret;", nullptr, $PROTECTED, $virtualMethod(WindowsTextFieldUI, createCaret, $Caret*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsTextFieldUI, createUI, $ComponentUI*, $JComponent*)},
+		{"paintBackground", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(WindowsTextFieldUI, paintBackground, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret", "com.sun.java.swing.plaf.windows.WindowsTextFieldUI", "WindowsFieldCaret", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsTextFieldUI",
+		"javax.swing.plaf.basic.BasicTextFieldUI",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret,com.sun.java.swing.plaf.windows.WindowsTextFieldUI$WindowsFieldCaret$SafeScroller"
+	};
+	$loadClass(WindowsTextFieldUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsTextFieldUI));
+	});
 	return class$;
 }
 

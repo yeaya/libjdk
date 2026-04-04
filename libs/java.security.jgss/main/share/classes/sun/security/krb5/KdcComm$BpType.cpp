@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KdcComm$BpType.h>
-
 #include <java/lang/Enum.h>
 #include <sun/security/krb5/KdcComm.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace security {
 		namespace krb5 {
-
-$FieldInfo _KdcComm$BpType_FieldInfo_[] = {
-	{"NONE", "Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KdcComm$BpType, NONE)},
-	{"TRY_LAST", "Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KdcComm$BpType, TRY_LAST)},
-	{"TRY_LESS", "Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KdcComm$BpType, TRY_LESS)},
-	{"$VALUES", "[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(KdcComm$BpType, $VALUES)},
-	{}
-};
-
-$MethodInfo _KdcComm$BpType_MethodInfo_[] = {
-	{"$values", "()[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KdcComm$BpType, $values, $KdcComm$BpTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KdcComm$BpType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm$BpType, valueOf, KdcComm$BpType*, $String*)},
-	{"values", "()[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm$BpType, values, $KdcComm$BpTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _KdcComm$BpType_InnerClassesInfo_[] = {
-	{"sun.security.krb5.KdcComm$BpType", "sun.security.krb5.KdcComm", "BpType", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _KdcComm$BpType_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.security.krb5.KdcComm$BpType",
-	"java.lang.Enum",
-	nullptr,
-	_KdcComm$BpType_FieldInfo_,
-	_KdcComm$BpType_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/security/krb5/KdcComm$BpType;>;",
-	nullptr,
-	_KdcComm$BpType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.KdcComm"
-};
-
-$Object* allocate$KdcComm$BpType($Class* clazz) {
-	return $of($alloc(KdcComm$BpType));
-}
 
 KdcComm$BpType* KdcComm$BpType::NONE = nullptr;
 KdcComm$BpType* KdcComm$BpType::TRY_LAST = nullptr;
@@ -88,7 +46,7 @@ void KdcComm$BpType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$KdcComm$BpType($Class* class$) {
+void KdcComm$BpType::clinit$($Class* clazz) {
 	$assignStatic(KdcComm$BpType::NONE, $new(KdcComm$BpType, "NONE"_s, 0));
 	$assignStatic(KdcComm$BpType::TRY_LAST, $new(KdcComm$BpType, "TRY_LAST"_s, 1));
 	$assignStatic(KdcComm$BpType::TRY_LESS, $new(KdcComm$BpType, "TRY_LESS"_s, 2));
@@ -99,7 +57,42 @@ KdcComm$BpType::KdcComm$BpType() {
 }
 
 $Class* KdcComm$BpType::load$($String* name, bool initialize) {
-	$loadClass(KdcComm$BpType, name, initialize, &_KdcComm$BpType_ClassInfo_, clinit$KdcComm$BpType, allocate$KdcComm$BpType);
+	$FieldInfo fieldInfos$$[] = {
+		{"NONE", "Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KdcComm$BpType, NONE)},
+		{"TRY_LAST", "Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KdcComm$BpType, TRY_LAST)},
+		{"TRY_LESS", "Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(KdcComm$BpType, TRY_LESS)},
+		{"$VALUES", "[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(KdcComm$BpType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(KdcComm$BpType, $values, $KdcComm$BpTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(KdcComm$BpType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm$BpType, valueOf, KdcComm$BpType*, $String*)},
+		{"values", "()[Lsun/security/krb5/KdcComm$BpType;", nullptr, $PUBLIC | $STATIC, $staticMethod(KdcComm$BpType, values, $KdcComm$BpTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.KdcComm$BpType", "sun.security.krb5.KdcComm", "BpType", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.security.krb5.KdcComm$BpType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/security/krb5/KdcComm$BpType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.KdcComm"
+	};
+	$loadClass(KdcComm$BpType, name, initialize, &classInfo$$, KdcComm$BpType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(KdcComm$BpType));
+	});
 	return class$;
 }
 

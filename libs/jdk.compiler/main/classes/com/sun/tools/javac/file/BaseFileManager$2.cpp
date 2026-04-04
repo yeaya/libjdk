@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/BaseFileManager$2.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <com/sun/tools/javac/main/Option.h>
 #include <com/sun/tools/javac/main/OptionHelper$GrumpyHelper.h>
@@ -11,7 +10,6 @@ using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $OptionHelper$GrumpyHelper = ::com::sun::tools::javac::main::OptionHelper$GrumpyHelper;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $Options = ::com::sun::tools::javac::util::Options;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -23,52 +21,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace file {
-
-$FieldInfo _BaseFileManager$2_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/file/BaseFileManager;", nullptr, $FINAL | $SYNTHETIC, $field(BaseFileManager$2, this$0)},
-	{}
-};
-
-$MethodInfo _BaseFileManager$2_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(BaseFileManager$2, init$, void, $BaseFileManager*, $Log*)},
-	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, get, $String*, $Option*)},
-	{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, handleFileManagerOption, bool, $Option*, $String*)},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, put, void, $String*, $String*)},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, remove, void, $String*)},
-	{}
-};
-
-$EnclosingMethodInfo _BaseFileManager$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.file.BaseFileManager",
-	"handleOption",
-	"(Ljava/lang/String;Ljava/util/Iterator;)Z"
-};
-
-$InnerClassInfo _BaseFileManager$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.BaseFileManager$2", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.main.OptionHelper$GrumpyHelper", "com.sun.tools.javac.main.OptionHelper", "GrumpyHelper", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BaseFileManager$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.file.BaseFileManager$2",
-	"com.sun.tools.javac.main.OptionHelper$GrumpyHelper",
-	nullptr,
-	_BaseFileManager$2_FieldInfo_,
-	_BaseFileManager$2_MethodInfo_,
-	nullptr,
-	&_BaseFileManager$2_EnclosingMethodInfo_,
-	_BaseFileManager$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.BaseFileManager"
-};
-
-$Object* allocate$BaseFileManager$2($Class* clazz) {
-	return $of($alloc(BaseFileManager$2));
-}
 
 void BaseFileManager$2::init$($BaseFileManager* this$0, $Log* log) {
 	$set(this, this$0, this$0);
@@ -95,7 +47,46 @@ BaseFileManager$2::BaseFileManager$2() {
 }
 
 $Class* BaseFileManager$2::load$($String* name, bool initialize) {
-	$loadClass(BaseFileManager$2, name, initialize, &_BaseFileManager$2_ClassInfo_, allocate$BaseFileManager$2);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/file/BaseFileManager;", nullptr, $FINAL | $SYNTHETIC, $field(BaseFileManager$2, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/file/BaseFileManager;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(BaseFileManager$2, init$, void, $BaseFileManager*, $Log*)},
+		{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, get, $String*, $Option*)},
+		{"handleFileManagerOption", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, handleFileManagerOption, bool, $Option*, $String*)},
+		{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, put, void, $String*, $String*)},
+		{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(BaseFileManager$2, remove, void, $String*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.file.BaseFileManager",
+		"handleOption",
+		"(Ljava/lang/String;Ljava/util/Iterator;)Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.BaseFileManager$2", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.main.OptionHelper$GrumpyHelper", "com.sun.tools.javac.main.OptionHelper", "GrumpyHelper", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.file.BaseFileManager$2",
+		"com.sun.tools.javac.main.OptionHelper$GrumpyHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.BaseFileManager"
+	};
+	$loadClass(BaseFileManager$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseFileManager$2);
+	});
 	return class$;
 }
 

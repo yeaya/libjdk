@@ -42,6 +42,7 @@ class Decoration : public ::java::lang::Object {
 	$class(Decoration, 0, ::java::lang::Object)
 public:
 	Decoration();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void drawTextAndDecorations(::sun::font::Decoration$Label* label, ::java::awt::Graphics2D* g2d, float x, float y);
 	virtual ::java::awt::geom::Rectangle2D* getCharVisualBounds(::sun::font::Decoration$Label* label, int32_t index);

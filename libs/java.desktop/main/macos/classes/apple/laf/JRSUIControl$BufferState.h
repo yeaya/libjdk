@@ -23,6 +23,7 @@ class JRSUIControl$BufferState : public ::java::lang::Enum {
 public:
 	JRSUIControl$BufferState();
 	static $Array<::apple::laf::JRSUIControl$BufferState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::apple::laf::JRSUIControl$BufferState* valueOf($String* name);
 	static $Array<::apple::laf::JRSUIControl$BufferState>* values();

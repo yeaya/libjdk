@@ -24,6 +24,7 @@ class MTLPaints : public ::java::lang::Object {
 	$class(MTLPaints, 0, ::java::lang::Object)
 public:
 	MTLPaints();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool isPaintValid(::sun::java2d::SunGraphics2D* sg2d) {return false;}
 	static bool isValid(::sun::java2d::SunGraphics2D* sg2d);

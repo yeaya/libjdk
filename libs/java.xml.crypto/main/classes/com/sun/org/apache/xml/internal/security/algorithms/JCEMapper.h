@@ -55,6 +55,7 @@ class JCEMapper : public ::java::lang::Object {
 	$class(JCEMapper, 0, ::java::lang::Object)
 public:
 	JCEMapper();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::xml::internal::security::algorithms::JCEMapper$Algorithm* getAlgorithm($String* algorithmURI);
 	static $String* getAlgorithmClassFromURI($String* algorithmURI);

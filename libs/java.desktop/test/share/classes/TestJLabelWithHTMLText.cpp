@@ -1,5 +1,4 @@
 #include <TestJLabelWithHTMLText.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -33,60 +32,37 @@ public:
 	virtual void run() override {
 		TestJLabelWithHTMLText::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJLabelWithHTMLText$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJLabelWithHTMLText$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJLabelWithHTMLText$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJLabelWithHTMLText$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestJLabelWithHTMLText$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJLabelWithHTMLText$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestJLabelWithHTMLText$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestJLabelWithHTMLText$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJLabelWithHTMLText$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJLabelWithHTMLText$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJLabelWithHTMLText$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJLabelWithHTMLText$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJLabelWithHTMLText$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestJLabelWithHTMLText$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _TestJLabelWithHTMLText_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJLabelWithHTMLText, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJLabelWithHTMLText, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJLabelWithHTMLText, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TestJLabelWithHTMLText_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestJLabelWithHTMLText",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestJLabelWithHTMLText_MethodInfo_
-};
-
-$Object* allocate$TestJLabelWithHTMLText($Class* clazz) {
-	return $of($alloc(TestJLabelWithHTMLText));
-}
 
 void TestJLabelWithHTMLText::init$() {
 }
 
 void TestJLabelWithHTMLText::main($StringArray* args) {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestJLabelWithHTMLText$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(TestJLabelWithHTMLText$$Lambda$lambda$main$0));
 }
 
 void TestJLabelWithHTMLText::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLabel, label, $new($JLabel));
 	try {
 		$init($BasicHTML);
@@ -102,11 +78,27 @@ TestJLabelWithHTMLText::TestJLabelWithHTMLText() {
 
 $Class* TestJLabelWithHTMLText::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestJLabelWithHTMLText$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestJLabelWithHTMLText$$Lambda$lambda$main$0")) {
 			return TestJLabelWithHTMLText$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(TestJLabelWithHTMLText, name, initialize, &_TestJLabelWithHTMLText_ClassInfo_, allocate$TestJLabelWithHTMLText);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJLabelWithHTMLText, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJLabelWithHTMLText, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJLabelWithHTMLText, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestJLabelWithHTMLText",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJLabelWithHTMLText, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJLabelWithHTMLText);
+	});
 	return class$;
 }
 

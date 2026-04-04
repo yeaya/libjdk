@@ -1,5 +1,4 @@
 #include <sun/management/MemoryManagerImpl.h>
-
 #include <java/lang/management/ManagementFactory.h>
 #include <java/lang/management/MemoryPoolMXBean.h>
 #include <javax/management/MBeanNotificationInfo.h>
@@ -16,53 +15,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
-using $MemoryPoolMXBean = ::java::lang::management::MemoryPoolMXBean;
 using $ObjectName = ::javax::management::ObjectName;
 using $NotificationEmitterSupport = ::sun::management::NotificationEmitterSupport;
 using $Util = ::sun::management::Util;
 
 namespace sun {
 	namespace management {
-
-$FieldInfo _MemoryManagerImpl_FieldInfo_[] = {
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MemoryManagerImpl, name)},
-	{"isValid", "Z", nullptr, $PRIVATE | $FINAL, $field(MemoryManagerImpl, isValid$)},
-	{"pools", "[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE, $field(MemoryManagerImpl, pools)},
-	{"notifInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE, $field(MemoryManagerImpl, notifInfo)},
-	{}
-};
-
-$MethodInfo _MemoryManagerImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MemoryManagerImpl, init$, void, $String*)},
-	{"getMemoryPoolNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, getMemoryPoolNames, $StringArray*)},
-	{"getMemoryPools", "()[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $SYNCHRONIZED, $virtualMethod(MemoryManagerImpl, getMemoryPools, $MemoryPoolMXBeanArray*)},
-	{"getMemoryPools0", "()[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE | $NATIVE, $method(MemoryManagerImpl, getMemoryPools0, $MemoryPoolMXBeanArray*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, getName, $String*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, getObjectName, $ObjectName*)},
-	{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, isValid, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_getMemoryPools0 7
-
-$ClassInfo _MemoryManagerImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MemoryManagerImpl",
-	"sun.management.NotificationEmitterSupport",
-	"java.lang.management.MemoryManagerMXBean",
-	_MemoryManagerImpl_FieldInfo_,
-	_MemoryManagerImpl_MethodInfo_
-};
-
-$Object* allocate$MemoryManagerImpl($Class* clazz) {
-	return $of($alloc(MemoryManagerImpl));
-}
 
 int32_t MemoryManagerImpl::hashCode() {
 	 return this->$NotificationEmitterSupport::hashCode();
@@ -101,7 +59,7 @@ bool MemoryManagerImpl::isValid() {
 }
 
 $StringArray* MemoryManagerImpl::getMemoryPoolNames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MemoryPoolMXBeanArray, ps, getMemoryPools());
 	$var($StringArray, names, $new($StringArray, $nc(ps)->length));
 	for (int32_t i = 0; i < ps->length; ++i) {
@@ -120,9 +78,8 @@ $MemoryPoolMXBeanArray* MemoryManagerImpl::getMemoryPools() {
 }
 
 $MemoryPoolMXBeanArray* MemoryManagerImpl::getMemoryPools0() {
-	$var($MemoryPoolMXBeanArray, $ret, nullptr);
-	$prepareNative(MemoryManagerImpl, getMemoryPools0, $MemoryPoolMXBeanArray*);
-	$assign($ret, $invokeNativeObject());
+	$prepareNative(getMemoryPools0, $MemoryPoolMXBeanArray*);
+	$var($MemoryPoolMXBeanArray, $ret, $invokeNativeObject());
 	$finishNative();
 	return $ret;
 }
@@ -145,7 +102,40 @@ MemoryManagerImpl::MemoryManagerImpl() {
 }
 
 $Class* MemoryManagerImpl::load$($String* name, bool initialize) {
-	$loadClass(MemoryManagerImpl, name, initialize, &_MemoryManagerImpl_ClassInfo_, allocate$MemoryManagerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MemoryManagerImpl, name)},
+		{"isValid", "Z", nullptr, $PRIVATE | $FINAL, $field(MemoryManagerImpl, isValid$)},
+		{"pools", "[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE, $field(MemoryManagerImpl, pools)},
+		{"notifInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE, $field(MemoryManagerImpl, notifInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(MemoryManagerImpl, init$, void, $String*)},
+		{"getMemoryPoolNames", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, getMemoryPoolNames, $StringArray*)},
+		{"getMemoryPools", "()[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $SYNCHRONIZED, $virtualMethod(MemoryManagerImpl, getMemoryPools, $MemoryPoolMXBeanArray*)},
+		{"getMemoryPools0", "()[Ljava/lang/management/MemoryPoolMXBean;", nullptr, $PRIVATE | $NATIVE, $method(MemoryManagerImpl, getMemoryPools0, $MemoryPoolMXBeanArray*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, getName, $String*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, getObjectName, $ObjectName*)},
+		{"isValid", "()Z", nullptr, $PUBLIC, $virtualMethod(MemoryManagerImpl, isValid, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MemoryManagerImpl",
+		"sun.management.NotificationEmitterSupport",
+		"java.lang.management.MemoryManagerMXBean",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MemoryManagerImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MemoryManagerImpl));
+	});
 	return class$;
 }
 

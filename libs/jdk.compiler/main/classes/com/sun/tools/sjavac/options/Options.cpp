@@ -1,15 +1,12 @@
 #include <com/sun/tools/sjavac/options/Options.h>
-
 #include <com/sun/tools/sjavac/Transformer.h>
 #include <com/sun/tools/sjavac/options/Option.h>
 #include <com/sun/tools/sjavac/options/Options$1StateArgs.h>
 #include <com/sun/tools/sjavac/options/Options$ArgDecoderOptionHelper.h>
 #include <com/sun/tools/sjavac/options/SourceLocation.h>
 #include <java/io/File.h>
-#include <java/lang/CharSequence.h>
 #include <java/nio/file/Path.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -39,21 +36,18 @@ using $Options$1StateArgs = ::com::sun::tools::sjavac::options::Options$1StateAr
 using $Options$ArgDecoderOptionHelper = ::com::sun::tools::sjavac::options::Options$ArgDecoderOptionHelper;
 using $SourceLocation = ::com::sun::tools::sjavac::options::SourceLocation;
 using $File = ::java::io::File;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $Set = ::java::util::Set;
 using $StringJoiner = ::java::util::StringJoiner;
 
 namespace com {
@@ -61,83 +55,6 @@ namespace com {
 		namespace tools {
 			namespace sjavac {
 				namespace options {
-
-$FieldInfo _Options_FieldInfo_[] = {
-	{"destDir", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, destDir)},
-	{"genSrcDir", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, genSrcDir)},
-	{"headerDir", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, headerDir)},
-	{"stateDir", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, stateDir)},
-	{"sources", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $field(Options, sources)},
-	{"sourceSearchPaths", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $field(Options, sourceSearchPaths)},
-	{"classSearchPaths", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $field(Options, classSearchPaths)},
-	{"moduleSearchPaths", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $field(Options, moduleSearchPaths)},
-	{"logLevel", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Options, logLevel)},
-	{"permitted_artifacts", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(Options, permitted_artifacts)},
-	{"permitUnidentifiedArtifacts", "Z", nullptr, $PRIVATE, $field(Options, permitUnidentifiedArtifacts)},
-	{"permitSourcesInDefaultPackage", "Z", nullptr, $PRIVATE, $field(Options, permitSourcesInDefaultPackage)},
-	{"sourceReferenceList", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, sourceReferenceList)},
-	{"numCores", "I", nullptr, $PRIVATE, $field(Options, numCores)},
-	{"implicitPolicy", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Options, implicitPolicy)},
-	{"javacArgs", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(Options, javacArgs)},
-	{"trRules", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;", $PRIVATE, $field(Options, trRules)},
-	{"startServer", "Z", nullptr, $PRIVATE, $field(Options, startServer)},
-	{"serverConf", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Options, serverConf)},
-	{}
-};
-
-$MethodInfo _Options_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Options, init$, void)},
-	{"areUnidentifiedArtifactsPermitted", "()Z", nullptr, $PUBLIC, $virtualMethod(Options, areUnidentifiedArtifactsPermitted, bool)},
-	{"concatenateSourceLocations", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(Options, concatenateSourceLocations, $String*, $List*)},
-	{"getClassSearchPath", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PUBLIC, $virtualMethod(Options, getClassSearchPath, $List*)},
-	{"getDestDir", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getDestDir, $Path*)},
-	{"getGenSrcDir", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getGenSrcDir, $Path*)},
-	{"getHeaderDir", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getHeaderDir, $Path*)},
-	{"getImplicitPolicy", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, getImplicitPolicy, $String*)},
-	{"getJavacArgs", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Options, getJavacArgs, $List*)},
-	{"getLogLevel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, getLogLevel, $String*)},
-	{"getModuleSearchPaths", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PUBLIC, $virtualMethod(Options, getModuleSearchPaths, $List*)},
-	{"getNumCores", "()I", nullptr, $PUBLIC, $virtualMethod(Options, getNumCores, int32_t)},
-	{"getServerConf", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, getServerConf, $String*)},
-	{"getSourceReferenceList", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getSourceReferenceList, $Path*)},
-	{"getSourceSearchPaths", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PUBLIC, $virtualMethod(Options, getSourceSearchPaths, $List*)},
-	{"getSources", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PUBLIC, $virtualMethod(Options, getSources, $List*)},
-	{"getStateArgsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, getStateArgsString, $String*)},
-	{"getStateDir", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getStateDir, $Path*)},
-	{"getTranslationRules", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;", $PUBLIC, $virtualMethod(Options, getTranslationRules, $Map*)},
-	{"isDefaultPackagePermitted", "()Z", nullptr, $PUBLIC, $virtualMethod(Options, isDefaultPackagePermitted, bool)},
-	{"isJavaFilesAmongJavacArgs", "()Z", nullptr, $PUBLIC, $virtualMethod(Options, isJavaFilesAmongJavacArgs, bool)},
-	{"isUnidentifiedArtifactPermitted", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isUnidentifiedArtifactPermitted, bool, $String*)},
-	{"parseArgs", "([Ljava/lang/String;)Lcom/sun/tools/sjavac/options/Options;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Options, parseArgs, Options*, $StringArray*)},
-	{"prepJavacArgs", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, prepJavacArgs, $StringArray*)},
-	{"startServerFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(Options, startServerFlag, bool)},
-	{}
-};
-
-$InnerClassInfo _Options_InnerClassesInfo_[] = {
-	{"com.sun.tools.sjavac.options.Options$ArgDecoderOptionHelper", "com.sun.tools.sjavac.options.Options", "ArgDecoderOptionHelper", $PRIVATE},
-	{"com.sun.tools.sjavac.options.Options$1StateArgs", nullptr, "StateArgs", 0},
-	{}
-};
-
-$ClassInfo _Options_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.sjavac.options.Options",
-	"java.lang.Object",
-	nullptr,
-	_Options_FieldInfo_,
-	_Options_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Options_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.sjavac.options.Options$ArgDecoderOptionHelper,com.sun.tools.sjavac.options.Options$1StateArgs"
-};
-
-$Object* allocate$Options($Class* clazz) {
-	return $of($alloc(Options));
-}
 
 void Options::init$() {
 	$set(this, sources, $new($ArrayList));
@@ -232,46 +149,44 @@ $String* Options::getServerConf() {
 }
 
 Options* Options::parseArgs($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(Options, options, $new(Options));
-	$$new($Options$ArgDecoderOptionHelper, static_cast<Options*>(options))->traverse(args);
+	$$new($Options$ArgDecoderOptionHelper, options)->traverse(args);
 	return options;
 }
 
 bool Options::isJavaFilesAmongJavacArgs() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->javacArgs)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($String, javacArg, $cast($String, i$->next()));
-			if ($nc(javacArg)->endsWith(".java"_s)) {
-				return true;
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->javacArgs)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($String, javacArg, $cast($String, i$->next()));
+		if ($nc(javacArg)->endsWith(".java"_s)) {
+			return true;
 		}
 	}
 	return false;
 }
 
 $String* Options::getStateArgsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
 	}
 	$var($Options$1StateArgs, args, $new($Options$1StateArgs, this));
 	if (this->genSrcDir != nullptr) {
 		$init($Option);
-		args->addArg($Option::S, $($nc(this->genSrcDir)->normalize()));
+		args->addArg($Option::S, $(this->genSrcDir->normalize()));
 	}
 	if (this->headerDir != nullptr) {
 		$init($Option);
-		args->addArg($Option::H, $($nc(this->headerDir)->normalize()));
+		args->addArg($Option::H, $(this->headerDir->normalize()));
 	}
 	if (this->destDir != nullptr) {
 		$init($Option);
-		args->addArg($Option::D, $($nc(this->destDir)->normalize()));
+		args->addArg($Option::D, $(this->destDir->normalize()));
 	}
 	if (this->stateDir != nullptr) {
 		$init($Option);
-		args->addArg($Option::STATE_DIR, $($nc(this->stateDir)->normalize()));
+		args->addArg($Option::STATE_DIR, $(this->stateDir->normalize()));
 	}
 	$init($Option);
 	args->addSourceLocations($Option::SRC, this->sources);
@@ -294,12 +209,15 @@ $String* Options::getStateArgsString() {
 		args->addArg($Option::PERMIT_UNIDENTIFIED_ARTIFACTS);
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->trRules)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->trRules)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, tr, $cast($Map$Entry, i$->next()));
 			{
-				$var($String, var$0, $$str({$cast($String, $($nc(tr)->getKey())), "="_s}));
-				$var($String, val, $concat(var$0, $($nc($of(($cast($Transformer, $(tr->getValue())))))->getClass()->getName())));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append($$cast($String, $nc(tr)->getKey()));
+				var$0->append("="_s);
+				var$0->append($($$sure($Transformer, tr->getValue())->getClass()->getName()));
+				$var($String, val, $str(var$0));
 				args->addArg($Option::TR, val);
 			}
 		}
@@ -309,7 +227,7 @@ $String* Options::getStateArgsString() {
 }
 
 $StringArray* Options::prepJavacArgs() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, args, $new($ArrayList));
 	args->add("-d"_s);
 	args->add($($nc(this->destDir)->toString()));
@@ -319,7 +237,7 @@ $StringArray* Options::prepJavacArgs() {
 	}
 	if (this->headerDir != nullptr) {
 		args->add("-h"_s);
-		args->add($($nc(this->headerDir)->toString()));
+		args->add($(this->headerDir->toString()));
 	}
 	$var($List, sourcepath, $new($ArrayList));
 	sourcepath->addAll(this->sources);
@@ -335,11 +253,11 @@ $StringArray* Options::prepJavacArgs() {
 	args->add("--debug=completionDeps=source,class"_s);
 	args->add($$str({"-implicit:"_s, this->implicitPolicy}));
 	args->addAll(this->javacArgs);
-	return $fcast($StringArray, args->toArray($$new($StringArray, args->size())));
+	return $cast($StringArray, args->toArray($$new($StringArray, args->size())));
 }
 
 $String* Options::concatenateSourceLocations($List* locs) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($StringJoiner, joiner, $new($StringJoiner, $File::pathSeparator));
 	{
@@ -347,7 +265,7 @@ $String* Options::concatenateSourceLocations($List* locs) {
 		for (; $nc(i$)->hasNext();) {
 			$var($SourceLocation, loc, $cast($SourceLocation, i$->next()));
 			{
-				joiner->add($($nc($($nc(loc)->getPath()))->toString()));
+				joiner->add($($$nc($nc(loc)->getPath())->toString()));
 			}
 		}
 	}
@@ -358,7 +276,78 @@ Options::Options() {
 }
 
 $Class* Options::load$($String* name, bool initialize) {
-	$loadClass(Options, name, initialize, &_Options_ClassInfo_, allocate$Options);
+	$FieldInfo fieldInfos$$[] = {
+		{"destDir", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, destDir)},
+		{"genSrcDir", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, genSrcDir)},
+		{"headerDir", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, headerDir)},
+		{"stateDir", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, stateDir)},
+		{"sources", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $field(Options, sources)},
+		{"sourceSearchPaths", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $field(Options, sourceSearchPaths)},
+		{"classSearchPaths", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $field(Options, classSearchPaths)},
+		{"moduleSearchPaths", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PRIVATE, $field(Options, moduleSearchPaths)},
+		{"logLevel", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Options, logLevel)},
+		{"permitted_artifacts", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE, $field(Options, permitted_artifacts)},
+		{"permitUnidentifiedArtifacts", "Z", nullptr, $PRIVATE, $field(Options, permitUnidentifiedArtifacts)},
+		{"permitSourcesInDefaultPackage", "Z", nullptr, $PRIVATE, $field(Options, permitSourcesInDefaultPackage)},
+		{"sourceReferenceList", "Ljava/nio/file/Path;", nullptr, $PRIVATE, $field(Options, sourceReferenceList)},
+		{"numCores", "I", nullptr, $PRIVATE, $field(Options, numCores)},
+		{"implicitPolicy", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Options, implicitPolicy)},
+		{"javacArgs", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(Options, javacArgs)},
+		{"trRules", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;", $PRIVATE, $field(Options, trRules)},
+		{"startServer", "Z", nullptr, $PRIVATE, $field(Options, startServer)},
+		{"serverConf", "Ljava/lang/String;", nullptr, $PRIVATE, $field(Options, serverConf)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Options, init$, void)},
+		{"areUnidentifiedArtifactsPermitted", "()Z", nullptr, $PUBLIC, $virtualMethod(Options, areUnidentifiedArtifactsPermitted, bool)},
+		{"concatenateSourceLocations", "(Ljava/util/List;)Ljava/lang/String;", "(Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(Options, concatenateSourceLocations, $String*, $List*)},
+		{"getClassSearchPath", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PUBLIC, $virtualMethod(Options, getClassSearchPath, $List*)},
+		{"getDestDir", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getDestDir, $Path*)},
+		{"getGenSrcDir", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getGenSrcDir, $Path*)},
+		{"getHeaderDir", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getHeaderDir, $Path*)},
+		{"getImplicitPolicy", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, getImplicitPolicy, $String*)},
+		{"getJavacArgs", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Options, getJavacArgs, $List*)},
+		{"getLogLevel", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, getLogLevel, $String*)},
+		{"getModuleSearchPaths", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PUBLIC, $virtualMethod(Options, getModuleSearchPaths, $List*)},
+		{"getNumCores", "()I", nullptr, $PUBLIC, $virtualMethod(Options, getNumCores, int32_t)},
+		{"getServerConf", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, getServerConf, $String*)},
+		{"getSourceReferenceList", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getSourceReferenceList, $Path*)},
+		{"getSourceSearchPaths", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PUBLIC, $virtualMethod(Options, getSourceSearchPaths, $List*)},
+		{"getSources", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/tools/sjavac/options/SourceLocation;>;", $PUBLIC, $virtualMethod(Options, getSources, $List*)},
+		{"getStateArgsString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, getStateArgsString, $String*)},
+		{"getStateDir", "()Ljava/nio/file/Path;", nullptr, $PUBLIC, $virtualMethod(Options, getStateDir, $Path*)},
+		{"getTranslationRules", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/sun/tools/sjavac/Transformer;>;", $PUBLIC, $virtualMethod(Options, getTranslationRules, $Map*)},
+		{"isDefaultPackagePermitted", "()Z", nullptr, $PUBLIC, $virtualMethod(Options, isDefaultPackagePermitted, bool)},
+		{"isJavaFilesAmongJavacArgs", "()Z", nullptr, $PUBLIC, $virtualMethod(Options, isJavaFilesAmongJavacArgs, bool)},
+		{"isUnidentifiedArtifactPermitted", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isUnidentifiedArtifactPermitted, bool, $String*)},
+		{"parseArgs", "([Ljava/lang/String;)Lcom/sun/tools/sjavac/options/Options;", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(Options, parseArgs, Options*, $StringArray*)},
+		{"prepJavacArgs", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, prepJavacArgs, $StringArray*)},
+		{"startServerFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(Options, startServerFlag, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.sjavac.options.Options$ArgDecoderOptionHelper", "com.sun.tools.sjavac.options.Options", "ArgDecoderOptionHelper", $PRIVATE},
+		{"com.sun.tools.sjavac.options.Options$1StateArgs", nullptr, "StateArgs", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.sjavac.options.Options",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.sjavac.options.Options$ArgDecoderOptionHelper,com.sun.tools.sjavac.options.Options$1StateArgs"
+	};
+	$loadClass(Options, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Options);
+	});
 	return class$;
 }
 

@@ -27,6 +27,7 @@ class DescriptorCache : public ::java::lang::Object {
 	$class(DescriptorCache, 0, ::java::lang::Object)
 public:
 	DescriptorCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::management::ImmutableDescriptor* get(::javax::management::ImmutableDescriptor* descriptor);
 	static ::com::sun::jmx::mbeanserver::DescriptorCache* getInstance();

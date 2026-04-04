@@ -1,5 +1,4 @@
 #include <java/awt/desktop/AppHiddenListener.h>
-
 #include <java/awt/desktop/AppHiddenEvent.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace java {
 	namespace awt {
 		namespace desktop {
 
-$MethodInfo _AppHiddenListener_MethodInfo_[] = {
-	{"appHidden", "(Ljava/awt/desktop/AppHiddenEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppHiddenListener, appHidden, void, $AppHiddenEvent*)},
-	{"appUnhidden", "(Ljava/awt/desktop/AppHiddenEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppHiddenListener, appUnhidden, void, $AppHiddenEvent*)},
-	{}
-};
-
-$ClassInfo _AppHiddenListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.awt.desktop.AppHiddenListener",
-	nullptr,
-	"java.awt.desktop.SystemEventListener",
-	nullptr,
-	_AppHiddenListener_MethodInfo_
-};
-
-$Object* allocate$AppHiddenListener($Class* clazz) {
-	return $of($alloc(AppHiddenListener));
-}
-
 $Class* AppHiddenListener::load$($String* name, bool initialize) {
-	$loadClass(AppHiddenListener, name, initialize, &_AppHiddenListener_ClassInfo_, allocate$AppHiddenListener);
+	$MethodInfo methodInfos$$[] = {
+		{"appHidden", "(Ljava/awt/desktop/AppHiddenEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppHiddenListener, appHidden, void, $AppHiddenEvent*)},
+		{"appUnhidden", "(Ljava/awt/desktop/AppHiddenEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AppHiddenListener, appUnhidden, void, $AppHiddenEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.awt.desktop.AppHiddenListener",
+		nullptr,
+		"java.awt.desktop.SystemEventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AppHiddenListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AppHiddenListener);
+	});
 	return class$;
 }
 

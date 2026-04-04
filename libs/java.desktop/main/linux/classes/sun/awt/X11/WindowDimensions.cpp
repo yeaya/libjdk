@@ -1,5 +1,4 @@
 #include <sun/awt/X11/WindowDimensions.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
@@ -18,52 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _WindowDimensions_FieldInfo_[] = {
-	{"loc", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(WindowDimensions, loc)},
-	{"size", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(WindowDimensions, size)},
-	{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(WindowDimensions, insets)},
-	{"isClientSizeSet", "Z", nullptr, $PRIVATE, $field(WindowDimensions, isClientSizeSet$)},
-	{}
-};
-
-$MethodInfo _WindowDimensions_MethodInfo_[] = {
-	{"<init>", "(IIIIZ)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"<init>", "(Ljava/awt/Rectangle;Ljava/awt/Insets;Z)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, $Rectangle*, $Insets*, bool)},
-	{"<init>", "(Ljava/awt/Point;Ljava/awt/Dimension;Ljava/awt/Insets;Z)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, $Point*, $Dimension*, $Insets*, bool)},
-	{"<init>", "(Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, $Rectangle*, bool)},
-	{"<init>", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, WindowDimensions*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, equals, bool, Object$*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getBounds, $Rectangle*)},
-	{"getClientRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getClientRect, $Rectangle*)},
-	{"getClientSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getClientSize, $Dimension*)},
-	{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getInsets, $Insets*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getLocation, $Point*)},
-	{"getScreenBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getScreenBounds, $Rectangle*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getSize, $Dimension*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, hashCode, int32_t)},
-	{"isClientSizeSet", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, isClientSizeSet, bool)},
-	{"setClientSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setClientSize, void, $Dimension*)},
-	{"setClientSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setClientSize, void, int32_t, int32_t)},
-	{"setInsets", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setInsets, void, $Insets*)},
-	{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setLocation, void, int32_t, int32_t)},
-	{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setSize, void, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, toString, $String*)},
-	{}
-};
-
-$ClassInfo _WindowDimensions_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.WindowDimensions",
-	"java.lang.Object",
-	nullptr,
-	_WindowDimensions_FieldInfo_,
-	_WindowDimensions_MethodInfo_
-};
-
-$Object* allocate$WindowDimensions($Class* clazz) {
-	return $of($alloc(WindowDimensions));
-}
 
 void WindowDimensions::init$(int32_t x, int32_t y, int32_t width, int32_t height, bool isClient) {
 	WindowDimensions::init$($$new($Rectangle, x, y, width, height), nullptr, isClient);
@@ -89,8 +42,8 @@ void WindowDimensions::init$($Rectangle* bounds, bool isClient) {
 
 void WindowDimensions::init$(WindowDimensions* dims) {
 	$set(this, loc, $new($Point, $nc(dims)->loc));
-	$set(this, size, $new($Dimension, $nc(dims)->size));
-	$set(this, insets, ($nc(dims)->insets != nullptr) ? ($cast($Insets, $nc($nc(dims)->insets)->clone())) : $new($Insets, 0, 0, 0, 0));
+	$set(this, size, $new($Dimension, dims->size));
+	$set(this, insets, (dims->insets != nullptr) ? $cast($Insets, dims->insets->clone()) : $new($Insets, 0, 0, 0, 0));
 	this->isClientSizeSet$ = dims->isClientSizeSet$;
 }
 
@@ -98,7 +51,7 @@ $Rectangle* WindowDimensions::getClientRect() {
 	if (this->isClientSizeSet$) {
 		return $new($Rectangle, this->loc, this->size);
 	} else if (this->insets != nullptr) {
-		return $new($Rectangle, $nc(this->loc)->x, $nc(this->loc)->y, $nc(this->size)->width - ($nc(this->insets)->left + $nc(this->insets)->right), $nc(this->size)->height - ($nc(this->insets)->top + $nc(this->insets)->bottom));
+		return $new($Rectangle, $nc(this->loc)->x, $nc(this->loc)->y, $nc(this->size)->width - (this->insets->left + this->insets->right), $nc(this->size)->height - (this->insets->top + this->insets->bottom));
 	} else {
 		return $new($Rectangle, this->loc, this->size);
 	}
@@ -115,7 +68,7 @@ void WindowDimensions::setClientSize(int32_t width, int32_t height) {
 }
 
 $Dimension* WindowDimensions::getClientSize() {
-	return $nc($(getClientRect()))->getSize();
+	return $$nc(getClientRect())->getSize();
 }
 
 void WindowDimensions::setSize(int32_t width, int32_t height) {
@@ -124,7 +77,7 @@ void WindowDimensions::setSize(int32_t width, int32_t height) {
 }
 
 $Dimension* WindowDimensions::getSize() {
-	return $nc($(getBounds()))->getSize();
+	return $$nc(getBounds())->getSize();
 }
 
 $Insets* WindowDimensions::getInsets() {
@@ -135,7 +88,7 @@ $Rectangle* WindowDimensions::getBounds() {
 	if (this->isClientSizeSet$) {
 		$var($Rectangle, res, $new($Rectangle, this->loc, this->size));
 		res->width += ($nc(this->insets)->left + $nc(this->insets)->right);
-		res->height += ($nc(this->insets)->top + $nc(this->insets)->bottom);
+		res->height += (this->insets->top + this->insets->bottom);
 		return res;
 	} else {
 		return $new($Rectangle, this->loc, this->size);
@@ -151,22 +104,22 @@ void WindowDimensions::setLocation(int32_t x, int32_t y) {
 }
 
 $Rectangle* WindowDimensions::getScreenBounds() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Dimension, size, getClientSize());
 	$var($Point, location, getLocation());
 	$nc(location)->x += $nc(this->insets)->left;
-	location->y += $nc(this->insets)->top;
+	location->y += this->insets->top;
 	return $new($Rectangle, location, size);
 }
 
 void WindowDimensions::setInsets($Insets* in) {
-	$set(this, insets, (in != nullptr) ? ($cast($Insets, $nc(in)->clone())) : $new($Insets, 0, 0, 0, 0));
+	$set(this, insets, (in != nullptr) ? $cast($Insets, in->clone()) : $new($Insets, 0, 0, 0, 0));
 	if (!this->isClientSizeSet$) {
 		if ($nc(this->size)->width < ($nc(this->insets)->left + $nc(this->insets)->right)) {
-			$nc(this->size)->width = ($nc(this->insets)->left + $nc(this->insets)->right);
+			this->size->width = (this->insets->left + this->insets->right);
 		}
-		if ($nc(this->size)->height < ($nc(this->insets)->top + $nc(this->insets)->bottom)) {
-			$nc(this->size)->height = ($nc(this->insets)->top + $nc(this->insets)->bottom);
+		if (this->size->height < (this->insets->top + this->insets->bottom)) {
+			this->size->height = (this->insets->top + this->insets->bottom);
 		}
 	}
 }
@@ -180,28 +133,69 @@ $String* WindowDimensions::toString() {
 }
 
 bool WindowDimensions::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(WindowDimensions, o))) {
 		return false;
 	}
 	$var(WindowDimensions, dims, $cast(WindowDimensions, o));
-	bool var$1 = ($nc($nc(dims)->insets)->equals(this->insets));
-	bool var$0 = var$1 && ($nc($(getClientRect()))->equals($(dims->getClientRect())));
-	return var$0 && ($nc($(getBounds()))->equals($(dims->getBounds())));
+	bool var$1 = $nc($nc(dims)->insets)->equals(this->insets);
+	bool var$0 = var$1 && ($$nc(getClientRect())->equals($(dims->getClientRect())));
+	return var$0 && ($$nc(getBounds())->equals($(dims->getBounds())));
 }
 
 int32_t WindowDimensions::hashCode() {
-	$useLocalCurrentObjectStackCache();
-	int32_t var$1 = ((this->insets == nullptr) ? (0) : ($nc(this->insets)->hashCode()));
-	int32_t var$0 = var$1 ^ $nc($(getClientRect()))->hashCode();
-	return var$0 ^ $nc($(getBounds()))->hashCode();
+	$useLocalObjectStack();
+	int32_t var$1 = (this->insets == nullptr) ? (0) : (this->insets->hashCode());
+	int32_t var$0 = var$1 ^ $$nc(getClientRect())->hashCode();
+	return var$0 ^ $$nc(getBounds())->hashCode();
 }
 
 WindowDimensions::WindowDimensions() {
 }
 
 $Class* WindowDimensions::load$($String* name, bool initialize) {
-	$loadClass(WindowDimensions, name, initialize, &_WindowDimensions_ClassInfo_, allocate$WindowDimensions);
+	$FieldInfo fieldInfos$$[] = {
+		{"loc", "Ljava/awt/Point;", nullptr, $PRIVATE, $field(WindowDimensions, loc)},
+		{"size", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(WindowDimensions, size)},
+		{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE, $field(WindowDimensions, insets)},
+		{"isClientSizeSet", "Z", nullptr, $PRIVATE, $field(WindowDimensions, isClientSizeSet$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIIZ)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"<init>", "(Ljava/awt/Rectangle;Ljava/awt/Insets;Z)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, $Rectangle*, $Insets*, bool)},
+		{"<init>", "(Ljava/awt/Point;Ljava/awt/Dimension;Ljava/awt/Insets;Z)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, $Point*, $Dimension*, $Insets*, bool)},
+		{"<init>", "(Ljava/awt/Rectangle;Z)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, $Rectangle*, bool)},
+		{"<init>", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, $PUBLIC, $method(WindowDimensions, init$, void, WindowDimensions*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, equals, bool, Object$*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getBounds, $Rectangle*)},
+		{"getClientRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getClientRect, $Rectangle*)},
+		{"getClientSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getClientSize, $Dimension*)},
+		{"getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getInsets, $Insets*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getLocation, $Point*)},
+		{"getScreenBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getScreenBounds, $Rectangle*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, getSize, $Dimension*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, hashCode, int32_t)},
+		{"isClientSizeSet", "()Z", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, isClientSizeSet, bool)},
+		{"setClientSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setClientSize, void, $Dimension*)},
+		{"setClientSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setClientSize, void, int32_t, int32_t)},
+		{"setInsets", "(Ljava/awt/Insets;)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setInsets, void, $Insets*)},
+		{"setLocation", "(II)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setLocation, void, int32_t, int32_t)},
+		{"setSize", "(II)V", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, setSize, void, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(WindowDimensions, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.WindowDimensions",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WindowDimensions, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowDimensions);
+	});
 	return class$;
 }
 

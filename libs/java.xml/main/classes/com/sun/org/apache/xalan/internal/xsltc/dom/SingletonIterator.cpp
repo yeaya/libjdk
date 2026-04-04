@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SingletonIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <jcpp.h>
@@ -22,37 +21,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _SingletonIterator_FieldInfo_[] = {
-	{"_node", "I", nullptr, $PRIVATE, $field(SingletonIterator, _node)},
-	{"_isConstant", "Z", nullptr, $PRIVATE | $FINAL, $field(SingletonIterator, _isConstant)},
-	{}
-};
-
-$MethodInfo _SingletonIterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SingletonIterator, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(SingletonIterator, init$, void, int32_t)},
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(SingletonIterator, init$, void, int32_t, bool)},
-	{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, gotoMark, void)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, next, int32_t)},
-	{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, reset, $DTMAxisIterator*)},
-	{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, setMark, void)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, setStartNode, $DTMAxisIterator*, int32_t)},
-	{}
-};
-
-$ClassInfo _SingletonIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SingletonIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
-	nullptr,
-	_SingletonIterator_FieldInfo_,
-	_SingletonIterator_MethodInfo_
-};
-
-$Object* allocate$SingletonIterator($Class* clazz) {
-	return $of($alloc(SingletonIterator));
-}
 
 void SingletonIterator::init$() {
 	SingletonIterator::init$($Integer::MIN_VALUE, false);
@@ -112,7 +80,33 @@ SingletonIterator::SingletonIterator() {
 }
 
 $Class* SingletonIterator::load$($String* name, bool initialize) {
-	$loadClass(SingletonIterator, name, initialize, &_SingletonIterator_ClassInfo_, allocate$SingletonIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"_node", "I", nullptr, $PRIVATE, $field(SingletonIterator, _node)},
+		{"_isConstant", "Z", nullptr, $PRIVATE | $FINAL, $field(SingletonIterator, _isConstant)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SingletonIterator, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(SingletonIterator, init$, void, int32_t)},
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(SingletonIterator, init$, void, int32_t, bool)},
+		{"gotoMark", "()V", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, gotoMark, void)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, next, int32_t)},
+		{"reset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, reset, $DTMAxisIterator*)},
+		{"setMark", "()V", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, setMark, void)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, $PUBLIC, $virtualMethod(SingletonIterator, setStartNode, $DTMAxisIterator*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SingletonIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMAxisIteratorBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SingletonIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SingletonIterator);
+	});
 	return class$;
 }
 

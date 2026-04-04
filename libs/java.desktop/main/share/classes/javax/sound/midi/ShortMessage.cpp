@@ -1,5 +1,4 @@
 #include <javax/sound/midi/ShortMessage.h>
-
 #include <javax/sound/midi/InvalidMidiDataException.h>
 #include <javax/sound/midi/MidiMessage.h>
 #include <jcpp.h>
@@ -34,64 +33,11 @@ namespace javax {
 	namespace sound {
 		namespace midi {
 
-$FieldInfo _ShortMessage_FieldInfo_[] = {
-	{"MIDI_TIME_CODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, MIDI_TIME_CODE)},
-	{"SONG_POSITION_POINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, SONG_POSITION_POINTER)},
-	{"SONG_SELECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, SONG_SELECT)},
-	{"TUNE_REQUEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, TUNE_REQUEST)},
-	{"END_OF_EXCLUSIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, END_OF_EXCLUSIVE)},
-	{"TIMING_CLOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, TIMING_CLOCK)},
-	{"START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, START)},
-	{"CONTINUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, CONTINUE)},
-	{"STOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, STOP)},
-	{"ACTIVE_SENSING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, ACTIVE_SENSING)},
-	{"SYSTEM_RESET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, SYSTEM_RESET)},
-	{"NOTE_OFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, NOTE_OFF)},
-	{"NOTE_ON", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, NOTE_ON)},
-	{"POLY_PRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, POLY_PRESSURE)},
-	{"CONTROL_CHANGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, CONTROL_CHANGE)},
-	{"PROGRAM_CHANGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, PROGRAM_CHANGE)},
-	{"CHANNEL_PRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, CHANNEL_PRESSURE)},
-	{"PITCH_BEND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, PITCH_BEND)},
-	{}
-};
-
-$MethodInfo _ShortMessage_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortMessage, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ShortMessage, init$, void, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"<init>", "(III)V", nullptr, $PUBLIC, $method(ShortMessage, init$, void, int32_t, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(ShortMessage, init$, void, int32_t, int32_t, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"<init>", "([B)V", nullptr, $PROTECTED, $method(ShortMessage, init$, void, $bytes*)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortMessage, clone, $Object*)},
-	{"getChannel", "()I", nullptr, $PUBLIC, $virtualMethod(ShortMessage, getChannel, int32_t)},
-	{"getCommand", "()I", nullptr, $PUBLIC, $virtualMethod(ShortMessage, getCommand, int32_t)},
-	{"getData1", "()I", nullptr, $PUBLIC, $virtualMethod(ShortMessage, getData1, int32_t)},
-	{"getData2", "()I", nullptr, $PUBLIC, $virtualMethod(ShortMessage, getData2, int32_t)},
-	{"getDataLength", "(I)I", nullptr, $PROTECTED | $FINAL, $method(ShortMessage, getDataLength, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"setMessage", "(I)V", nullptr, $PUBLIC, $virtualMethod(ShortMessage, setMessage, void, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"setMessage", "(III)V", nullptr, $PUBLIC, $virtualMethod(ShortMessage, setMessage, void, int32_t, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{"setMessage", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ShortMessage, setMessage, void, int32_t, int32_t, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
-	{}
-};
-
-$ClassInfo _ShortMessage_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sound.midi.ShortMessage",
-	"javax.sound.midi.MidiMessage",
-	nullptr,
-	_ShortMessage_FieldInfo_,
-	_ShortMessage_MethodInfo_
-};
-
-$Object* allocate$ShortMessage($Class* clazz) {
-	return $of($alloc(ShortMessage));
-}
-
 void ShortMessage::init$() {
 	ShortMessage::init$($$new($bytes, 3));
-	$nc(this->data)->set(0, (int8_t)((int32_t)(ShortMessage::NOTE_ON & (uint32_t)255)));
-	$nc(this->data)->set(1, (int8_t)64);
-	$nc(this->data)->set(2, (int8_t)127);
+	$nc(this->data)->set(0, (int8_t)(ShortMessage::NOTE_ON & 0xff));
+	this->data->set(1, (int8_t)64);
+	this->data->set(2, (int8_t)127);
 	this->length = 3;
 }
 
@@ -115,7 +61,7 @@ void ShortMessage::init$($bytes* data) {
 }
 
 void ShortMessage::setMessage(int32_t status) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dataLength = getDataLength(status);
 	if (dataLength != 0) {
 		$throwNew($InvalidMidiDataException, $$str({"Status byte; "_s, $$str(status), " requires "_s, $$str(dataLength), " data bytes"_s}));
@@ -124,7 +70,7 @@ void ShortMessage::setMessage(int32_t status) {
 }
 
 void ShortMessage::setMessage(int32_t status, int32_t data1, int32_t data2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t dataLength = getDataLength(status);
 	if (dataLength > 0) {
 		if (data1 < 0 || data1 > 127) {
@@ -137,47 +83,47 @@ void ShortMessage::setMessage(int32_t status, int32_t data1, int32_t data2) {
 		}
 	}
 	this->length = dataLength + 1;
-	if (this->data == nullptr || $nc(this->data)->length < this->length) {
+	if (this->data == nullptr || this->data->length < this->length) {
 		$set(this, data, $new($bytes, 3));
 	}
-	$nc(this->data)->set(0, (int8_t)((int32_t)(status & (uint32_t)255)));
+	$nc(this->data)->set(0, (int8_t)(status & 0xff));
 	if (this->length > 1) {
-		$nc(this->data)->set(1, (int8_t)((int32_t)(data1 & (uint32_t)255)));
+		this->data->set(1, (int8_t)(data1 & 0xff));
 		if (this->length > 2) {
-			$nc(this->data)->set(2, (int8_t)((int32_t)(data2 & (uint32_t)255)));
+			this->data->set(2, (int8_t)(data2 & 0xff));
 		}
 	}
 }
 
 void ShortMessage::setMessage(int32_t command, int32_t channel, int32_t data1, int32_t data2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (command >= 240 || command < 128) {
 		$throwNew($InvalidMidiDataException, $$str({"command out of range: 0x"_s, $($Integer::toHexString(command))}));
 	}
-	if (((int32_t)(channel & (uint32_t)-16)) != 0) {
+	if ((channel & -16) != 0) {
 		$throwNew($InvalidMidiDataException, $$str({"channel out of range: "_s, $$str(channel)}));
 	}
-	setMessage(((int32_t)(command & (uint32_t)240)) | ((int32_t)(channel & (uint32_t)15)), data1, data2);
+	setMessage((command & 0xf0) | (channel & 0x0f), data1, data2);
 }
 
 int32_t ShortMessage::getChannel() {
-	return ((int32_t)(getStatus() & (uint32_t)15));
+	return (getStatus() & 0x0f);
 }
 
 int32_t ShortMessage::getCommand() {
-	return ((int32_t)(getStatus() & (uint32_t)240));
+	return (getStatus() & 0xf0);
 }
 
 int32_t ShortMessage::getData1() {
 	if (this->length > 1) {
-		return ((int32_t)($nc(this->data)->get(1) & (uint32_t)255));
+		return ($nc(this->data)->get(1) & 0xff);
 	}
 	return 0;
 }
 
 int32_t ShortMessage::getData2() {
 	if (this->length > 2) {
-		return ((int32_t)($nc(this->data)->get(2) & (uint32_t)255));
+		return ($nc(this->data)->get(2) & 0xff);
 	}
 	return 0;
 }
@@ -185,70 +131,43 @@ int32_t ShortMessage::getData2() {
 $Object* ShortMessage::clone() {
 	$var($bytes, newData, $new($bytes, this->length));
 	$System::arraycopy(this->data, 0, newData, 0, newData->length);
-	return $of($new(ShortMessage, newData));
+	return $new(ShortMessage, newData);
 }
 
 int32_t ShortMessage::getDataLength(int32_t status) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch (status) {
 	case 246:
-		{}
 	case 247:
-		{}
 	case 248:
-		{}
 	case 249:
-		{}
 	case 250:
-		{}
 	case 251:
-		{}
 	case 252:
-		{}
 	case 253:
-		{}
 	case 254:
-		{}
 	case 255:
-		{
-			return 0;
-		}
+		return 0;
 	case 241:
-		{}
 	case 243:
-		{
-			return 1;
-		}
+		return 1;
 	case 242:
-		{
-			return 2;
-		}
+		return 2;
 	default:
-		{}
+		break;
 	}
-	switch ((int32_t)(status & (uint32_t)240)) {
+	switch (status & 0xf0) {
 	case 128:
-		{}
 	case 144:
-		{}
 	case 160:
-		{}
 	case 176:
-		{}
 	case 224:
-		{
-			return 2;
-		}
+		return 2;
 	case 192:
-		{}
 	case 208:
-		{
-			return 1;
-		}
+		return 1;
 	default:
-		{
-			$throwNew($InvalidMidiDataException, $$str({"Invalid status byte: "_s, $$str(status)}));
-		}
+		$throwNew($InvalidMidiDataException, $$str({"Invalid status byte: "_s, $$str(status)}));
 	}
 }
 
@@ -256,7 +175,55 @@ ShortMessage::ShortMessage() {
 }
 
 $Class* ShortMessage::load$($String* name, bool initialize) {
-	$loadClass(ShortMessage, name, initialize, &_ShortMessage_ClassInfo_, allocate$ShortMessage);
+	$FieldInfo fieldInfos$$[] = {
+		{"MIDI_TIME_CODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, MIDI_TIME_CODE)},
+		{"SONG_POSITION_POINTER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, SONG_POSITION_POINTER)},
+		{"SONG_SELECT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, SONG_SELECT)},
+		{"TUNE_REQUEST", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, TUNE_REQUEST)},
+		{"END_OF_EXCLUSIVE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, END_OF_EXCLUSIVE)},
+		{"TIMING_CLOCK", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, TIMING_CLOCK)},
+		{"START", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, START)},
+		{"CONTINUE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, CONTINUE)},
+		{"STOP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, STOP)},
+		{"ACTIVE_SENSING", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, ACTIVE_SENSING)},
+		{"SYSTEM_RESET", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, SYSTEM_RESET)},
+		{"NOTE_OFF", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, NOTE_OFF)},
+		{"NOTE_ON", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, NOTE_ON)},
+		{"POLY_PRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, POLY_PRESSURE)},
+		{"CONTROL_CHANGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, CONTROL_CHANGE)},
+		{"PROGRAM_CHANGE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, PROGRAM_CHANGE)},
+		{"CHANNEL_PRESSURE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, CHANNEL_PRESSURE)},
+		{"PITCH_BEND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ShortMessage, PITCH_BEND)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShortMessage, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ShortMessage, init$, void, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"<init>", "(III)V", nullptr, $PUBLIC, $method(ShortMessage, init$, void, int32_t, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"<init>", "(IIII)V", nullptr, $PUBLIC, $method(ShortMessage, init$, void, int32_t, int32_t, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"<init>", "([B)V", nullptr, $PROTECTED, $method(ShortMessage, init$, void, $bytes*)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortMessage, clone, $Object*)},
+		{"getChannel", "()I", nullptr, $PUBLIC, $virtualMethod(ShortMessage, getChannel, int32_t)},
+		{"getCommand", "()I", nullptr, $PUBLIC, $virtualMethod(ShortMessage, getCommand, int32_t)},
+		{"getData1", "()I", nullptr, $PUBLIC, $virtualMethod(ShortMessage, getData1, int32_t)},
+		{"getData2", "()I", nullptr, $PUBLIC, $virtualMethod(ShortMessage, getData2, int32_t)},
+		{"getDataLength", "(I)I", nullptr, $PROTECTED | $FINAL, $method(ShortMessage, getDataLength, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"setMessage", "(I)V", nullptr, $PUBLIC, $virtualMethod(ShortMessage, setMessage, void, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"setMessage", "(III)V", nullptr, $PUBLIC, $virtualMethod(ShortMessage, setMessage, void, int32_t, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{"setMessage", "(IIII)V", nullptr, $PUBLIC, $virtualMethod(ShortMessage, setMessage, void, int32_t, int32_t, int32_t, int32_t), "javax.sound.midi.InvalidMidiDataException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sound.midi.ShortMessage",
+		"javax.sound.midi.MidiMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShortMessage, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortMessage);
+	});
 	return class$;
 }
 

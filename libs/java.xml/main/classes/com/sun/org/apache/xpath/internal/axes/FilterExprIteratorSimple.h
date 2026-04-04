@@ -83,7 +83,7 @@ public:
 	virtual int32_t nextNode() override;
 	virtual void setInnerExpression(::com::sun::org::apache::xpath::internal::Expression* expr);
 	virtual void setRoot(int32_t context, Object$* environment) override;
-	static const int64_t serialVersionUID = (int64_t)0x9F25B1397FCC2EA5;
+	static const int64_t serialVersionUID = (int64_t)0x9f25b1397fcc2ea5;
 	::com::sun::org::apache::xpath::internal::Expression* m_expr = nullptr;
 	::com::sun::org::apache::xpath::internal::objects::XNodeSet* m_exprObj = nullptr;
 	bool m_mustHardReset = false;

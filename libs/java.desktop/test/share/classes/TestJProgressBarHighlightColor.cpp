@@ -1,5 +1,4 @@
 #include <TestJProgressBarHighlightColor.h>
-
 #include <TestJProgressBarHighlightColor$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -8,7 +7,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
@@ -36,9 +34,7 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -64,27 +60,24 @@ public:
 	virtual void run() override {
 		TestJProgressBarHighlightColor::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJProgressBarHighlightColor$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestJProgressBarHighlightColor$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJProgressBarHighlightColor$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJProgressBarHighlightColor$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestJProgressBarHighlightColor$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJProgressBarHighlightColor$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestJProgressBarHighlightColor$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestJProgressBarHighlightColor$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJProgressBarHighlightColor$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJProgressBarHighlightColor$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJProgressBarHighlightColor$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestJProgressBarHighlightColor$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJProgressBarHighlightColor$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestJProgressBarHighlightColor$$Lambda$lambda$main$0::class$ = nullptr;
@@ -98,80 +91,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->dispose();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestJProgressBarHighlightColor$$Lambda$dispose$1>());
-	}
 	$Window* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo TestJProgressBarHighlightColor$$Lambda$dispose$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestJProgressBarHighlightColor$$Lambda$dispose$1, inst$)},
-	{}
-};
-$MethodInfo TestJProgressBarHighlightColor$$Lambda$dispose$1::methodInfos[3] = {
-	{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestJProgressBarHighlightColor$$Lambda$dispose$1, init$, void, $Window*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJProgressBarHighlightColor$$Lambda$dispose$1, run, void)},
-	{}
-};
-$ClassInfo TestJProgressBarHighlightColor$$Lambda$dispose$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestJProgressBarHighlightColor$$Lambda$dispose$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* TestJProgressBarHighlightColor$$Lambda$dispose$1::load$($String* name, bool initialize) {
-	$loadClass(TestJProgressBarHighlightColor$$Lambda$dispose$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(TestJProgressBarHighlightColor$$Lambda$dispose$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Window;)V", nullptr, $PUBLIC, $method(TestJProgressBarHighlightColor$$Lambda$dispose$1, init$, void, $Window*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestJProgressBarHighlightColor$$Lambda$dispose$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestJProgressBarHighlightColor$$Lambda$dispose$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestJProgressBarHighlightColor$$Lambda$dispose$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJProgressBarHighlightColor$$Lambda$dispose$1);
+	});
 	return class$;
 }
 $Class* TestJProgressBarHighlightColor$$Lambda$dispose$1::class$ = nullptr;
-
-$FieldInfo _TestJProgressBarHighlightColor_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, frame)},
-	{"progressBar", "Ljavax/swing/JProgressBar;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, progressBar)},
-	{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, point)},
-	{"rect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, rect)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, robot)},
-	{"GTK_LAF_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestJProgressBarHighlightColor, GTK_LAF_CLASS)},
-	{"minColorDifference", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, minColorDifference)},
-	{}
-};
-
-$MethodInfo _TestJProgressBarHighlightColor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestJProgressBarHighlightColor, init$, void)},
-	{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJProgressBarHighlightColor, blockTillDisplayed, void, $Component*)},
-	{"getMaxColorDiff", "(Ljava/awt/Color;Ljava/awt/Color;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJProgressBarHighlightColor, getMaxColorDiff, int32_t, $Color*, $Color*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJProgressBarHighlightColor, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJProgressBarHighlightColor, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _TestJProgressBarHighlightColor_InnerClassesInfo_[] = {
-	{"TestJProgressBarHighlightColor$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _TestJProgressBarHighlightColor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestJProgressBarHighlightColor",
-	"java.lang.Object",
-	nullptr,
-	_TestJProgressBarHighlightColor_FieldInfo_,
-	_TestJProgressBarHighlightColor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestJProgressBarHighlightColor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestJProgressBarHighlightColor$1"
-};
-
-$Object* allocate$TestJProgressBarHighlightColor($Class* clazz) {
-	return $of($alloc(TestJProgressBarHighlightColor));
-}
 
 $JFrame* TestJProgressBarHighlightColor::frame = nullptr;
 $JProgressBar* TestJProgressBarHighlightColor::progressBar = nullptr;
@@ -203,69 +148,63 @@ int32_t TestJProgressBarHighlightColor::getMaxColorDiff($Color* c1, $Color* c2) 
 	$init(TestJProgressBarHighlightColor);
 	int32_t var$1 = $nc(c1)->getRed();
 	int32_t var$0 = $Math::abs(var$1 - $nc(c2)->getRed());
-	int32_t var$3 = $nc(c1)->getGreen();
-	int32_t var$2 = $Math::abs(var$3 - $nc(c2)->getGreen());
-	int32_t var$4 = $nc(c1)->getBlue();
-	return $Math::max(var$0, $Math::max(var$2, $Math::abs(var$4 - $nc(c2)->getBlue())));
+	int32_t var$3 = c1->getGreen();
+	int32_t var$2 = $Math::abs(var$3 - c2->getGreen());
+	int32_t var$4 = c1->getBlue();
+	return $Math::max(var$0, $Math::max(var$2, $Math::abs(var$4 - c2->getBlue())));
 }
 
 void TestJProgressBarHighlightColor::main($StringArray* args) {
 	$init(TestJProgressBarHighlightColor);
-	$useLocalCurrentObjectStackCache();
-	if (!$nc($($System::getProperty("os.name"_s)))->startsWith("Linux"_s)) {
+	$useLocalObjectStack();
+	if (!$$nc($System::getProperty("os.name"_s))->startsWith("Linux"_s)) {
 		$nc($System::out)->println("This test is meant for Linux platform only"_s);
 		return;
 	}
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, $UIManager::getInstalledLookAndFeels());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelInfo, arr$->get(i$));
-			{
-				if ($nc($($nc(lookAndFeelInfo)->getClassName()))->contains(TestJProgressBarHighlightColor::GTK_LAF_CLASS)) {
-					try {
-						$UIManager::setLookAndFeel($(lookAndFeelInfo->getClassName()));
-					} catch ($UnsupportedLookAndFeelException& ignored) {
-						$nc($System::out)->println("GTK L&F could not be set, so this test can not be run in this scenario "_s);
-						return;
-					}
+			if ($$nc($nc(lookAndFeelInfo)->getClassName())->contains(TestJProgressBarHighlightColor::GTK_LAF_CLASS)) {
+				try {
+					$UIManager::setLookAndFeel($(lookAndFeelInfo->getClassName()));
+				} catch ($UnsupportedLookAndFeelException& ignored) {
+					$nc($System::out)->println("GTK L&F could not be set, so this test can not be run in this scenario "_s);
+					return;
 				}
 			}
 		}
 	}
 	$assignStatic(TestJProgressBarHighlightColor::robot, $new($Robot));
-	$nc(TestJProgressBarHighlightColor::robot)->setAutoDelay(100);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($TestJProgressBarHighlightColor$1));
-			$nc(TestJProgressBarHighlightColor::robot)->waitForIdle();
-			$nc(TestJProgressBarHighlightColor::robot)->delay(500);
-			blockTillDisplayed(TestJProgressBarHighlightColor::progressBar);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestJProgressBarHighlightColor$$Lambda$lambda$main$0)));
-			$nc(TestJProgressBarHighlightColor::robot)->waitForIdle();
-			$nc(TestJProgressBarHighlightColor::robot)->delay(500);
-			$var($Color, backgroundColor, $nc(TestJProgressBarHighlightColor::robot)->getPixelColor($nc(TestJProgressBarHighlightColor::point)->x + $nc(TestJProgressBarHighlightColor::rect)->width * 3 / 4, $nc(TestJProgressBarHighlightColor::point)->y + $nc(TestJProgressBarHighlightColor::rect)->height / 2));
-			$nc(TestJProgressBarHighlightColor::robot)->waitForIdle();
-			$nc(TestJProgressBarHighlightColor::robot)->delay(500);
-			$var($Color, highlightColor, $nc(TestJProgressBarHighlightColor::robot)->getPixelColor($nc(TestJProgressBarHighlightColor::point)->x + $nc(TestJProgressBarHighlightColor::rect)->width / 4, $nc(TestJProgressBarHighlightColor::point)->y + $nc(TestJProgressBarHighlightColor::rect)->height / 2));
-			$nc(TestJProgressBarHighlightColor::robot)->waitForIdle();
-			$nc(TestJProgressBarHighlightColor::robot)->delay(500);
-			int32_t actualColorDifference = getMaxColorDiff(backgroundColor, highlightColor);
-			if (actualColorDifference < TestJProgressBarHighlightColor::minColorDifference) {
-				$throwNew($RuntimeException, "The expected highlight color for JProgressBar was not found"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (TestJProgressBarHighlightColor::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestJProgressBarHighlightColor$$Lambda$dispose$1, static_cast<$JFrame*>($nc(TestJProgressBarHighlightColor::frame)))));
-			}
+	TestJProgressBarHighlightColor::robot->setAutoDelay(100);
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($TestJProgressBarHighlightColor$1));
+		$nc(TestJProgressBarHighlightColor::robot)->waitForIdle();
+		$nc(TestJProgressBarHighlightColor::robot)->delay(500);
+		blockTillDisplayed(TestJProgressBarHighlightColor::progressBar);
+		$SwingUtilities::invokeAndWait($$new(TestJProgressBarHighlightColor$$Lambda$lambda$main$0));
+		$nc(TestJProgressBarHighlightColor::robot)->waitForIdle();
+		$nc(TestJProgressBarHighlightColor::robot)->delay(500);
+		$var($Color, backgroundColor, $nc(TestJProgressBarHighlightColor::robot)->getPixelColor($nc(TestJProgressBarHighlightColor::point)->x + $nc(TestJProgressBarHighlightColor::rect)->width * 3 / 4, $nc(TestJProgressBarHighlightColor::point)->y + $nc(TestJProgressBarHighlightColor::rect)->height / 2));
+		$nc(TestJProgressBarHighlightColor::robot)->waitForIdle();
+		$nc(TestJProgressBarHighlightColor::robot)->delay(500);
+		$var($Color, highlightColor, $nc(TestJProgressBarHighlightColor::robot)->getPixelColor($nc(TestJProgressBarHighlightColor::point)->x + $nc(TestJProgressBarHighlightColor::rect)->width / 4, $nc(TestJProgressBarHighlightColor::point)->y + $nc(TestJProgressBarHighlightColor::rect)->height / 2));
+		$nc(TestJProgressBarHighlightColor::robot)->waitForIdle();
+		$nc(TestJProgressBarHighlightColor::robot)->delay(500);
+		int32_t actualColorDifference = getMaxColorDiff(backgroundColor, highlightColor);
+		if (actualColorDifference < TestJProgressBarHighlightColor::minColorDifference) {
+			$throwNew($RuntimeException, "The expected highlight color for JProgressBar was not found"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (TestJProgressBarHighlightColor::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(TestJProgressBarHighlightColor$$Lambda$dispose$1, TestJProgressBarHighlightColor::frame));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -275,7 +214,7 @@ void TestJProgressBarHighlightColor::lambda$main$0() {
 	$assignStatic(TestJProgressBarHighlightColor::rect, $nc(TestJProgressBarHighlightColor::progressBar)->getBounds());
 }
 
-void clinit$TestJProgressBarHighlightColor($Class* class$) {
+void TestJProgressBarHighlightColor::clinit$($Class* clazz) {
 	$assignStatic(TestJProgressBarHighlightColor::GTK_LAF_CLASS, "GTKLookAndFeel"_s);
 	TestJProgressBarHighlightColor::minColorDifference = 100;
 }
@@ -285,14 +224,52 @@ TestJProgressBarHighlightColor::TestJProgressBarHighlightColor() {
 
 $Class* TestJProgressBarHighlightColor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestJProgressBarHighlightColor$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestJProgressBarHighlightColor$$Lambda$lambda$main$0")) {
 			return TestJProgressBarHighlightColor$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestJProgressBarHighlightColor$$Lambda$dispose$1::classInfo$.name)) {
+		if (name->equals("TestJProgressBarHighlightColor$$Lambda$dispose$1")) {
 			return TestJProgressBarHighlightColor$$Lambda$dispose$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestJProgressBarHighlightColor, name, initialize, &_TestJProgressBarHighlightColor_ClassInfo_, clinit$TestJProgressBarHighlightColor, allocate$TestJProgressBarHighlightColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, frame)},
+		{"progressBar", "Ljavax/swing/JProgressBar;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, progressBar)},
+		{"point", "Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, point)},
+		{"rect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, rect)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, robot)},
+		{"GTK_LAF_CLASS", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestJProgressBarHighlightColor, GTK_LAF_CLASS)},
+		{"minColorDifference", "I", nullptr, $PRIVATE | $STATIC, $staticField(TestJProgressBarHighlightColor, minColorDifference)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestJProgressBarHighlightColor, init$, void)},
+		{"blockTillDisplayed", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJProgressBarHighlightColor, blockTillDisplayed, void, $Component*)},
+		{"getMaxColorDiff", "(Ljava/awt/Color;Ljava/awt/Color;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(TestJProgressBarHighlightColor, getMaxColorDiff, int32_t, $Color*, $Color*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestJProgressBarHighlightColor, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestJProgressBarHighlightColor, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestJProgressBarHighlightColor$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestJProgressBarHighlightColor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestJProgressBarHighlightColor$1"
+	};
+	$loadClass(TestJProgressBarHighlightColor, name, initialize, &classInfo$$, TestJProgressBarHighlightColor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TestJProgressBarHighlightColor);
+	});
 	return class$;
 }
 

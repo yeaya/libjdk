@@ -57,6 +57,7 @@ class $export AbstractSaslImpl : public ::java::lang::Object {
 	$class(AbstractSaslImpl, 0, ::java::lang::Object)
 public:
 	AbstractSaslImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Map* props, $String* className);
 	static int8_t combineMasks($bytes* in);
 	static int8_t findPreferredMask(int8_t pref, $bytes* in);

@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_de_LI.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_de_LI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_de_LI, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_de_LI, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_de_LI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_de_LI",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_de_LI_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_de_LI($Class* clazz) {
-	return $of($alloc(CurrencyNames_de_LI));
-}
-
 void CurrencyNames_de_LI::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_de_LI::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("EUR"_s),
-		$of("EUR"_s)
+		"EUR"_s,
+		"EUR"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_de_LI::CurrencyNames_de_LI() {
 }
 
 $Class* CurrencyNames_de_LI::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_de_LI, name, initialize, &_CurrencyNames_de_LI_ClassInfo_, allocate$CurrencyNames_de_LI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_de_LI, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_de_LI, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_de_LI",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_de_LI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_de_LI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/management/timer/TimerAlarmClock.h>
-
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <java/lang/Math.h>
 #include <java/lang/System$Logger$Level.h>
@@ -19,7 +18,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $Date = ::java::util::Date;
 using $TimerTask = ::java::util::TimerTask;
@@ -29,33 +27,6 @@ using $TimerAlarmClockNotification = ::javax::management::timer::TimerAlarmClock
 namespace javax {
 	namespace management {
 		namespace timer {
-
-$FieldInfo _TimerAlarmClock_FieldInfo_[] = {
-	{"listener", "Ljavax/management/timer/Timer;", nullptr, 0, $field(TimerAlarmClock, listener)},
-	{"timeout", "J", nullptr, 0, $field(TimerAlarmClock, timeout)},
-	{"next", "Ljava/util/Date;", nullptr, 0, $field(TimerAlarmClock, next)},
-	{}
-};
-
-$MethodInfo _TimerAlarmClock_MethodInfo_[] = {
-	{"<init>", "(Ljavax/management/timer/Timer;J)V", nullptr, $PUBLIC, $method(TimerAlarmClock, init$, void, $Timer*, int64_t)},
-	{"<init>", "(Ljavax/management/timer/Timer;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(TimerAlarmClock, init$, void, $Timer*, $Date*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimerAlarmClock, run, void)},
-	{}
-};
-
-$ClassInfo _TimerAlarmClock_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.timer.TimerAlarmClock",
-	"java.util.TimerTask",
-	nullptr,
-	_TimerAlarmClock_FieldInfo_,
-	_TimerAlarmClock_MethodInfo_
-};
-
-$Object* allocate$TimerAlarmClock($Class* clazz) {
-	return $of($alloc(TimerAlarmClock));
-}
 
 void TimerAlarmClock::init$($Timer* listener, int64_t timeout) {
 	$TimerTask::init$();
@@ -82,7 +53,7 @@ void TimerAlarmClock::run() {
 	} catch ($Exception& e) {
 		$init($JmxProperties);
 		$init($System$Logger$Level);
-		$nc($JmxProperties::TIMER_LOGGER)->log($System$Logger$Level::TRACE, "Got unexpected exception when sending a notification"_s, static_cast<$Throwable*>(e));
+		$nc($JmxProperties::TIMER_LOGGER)->log($System$Logger$Level::TRACE, "Got unexpected exception when sending a notification"_s, e);
 	}
 }
 
@@ -90,7 +61,29 @@ TimerAlarmClock::TimerAlarmClock() {
 }
 
 $Class* TimerAlarmClock::load$($String* name, bool initialize) {
-	$loadClass(TimerAlarmClock, name, initialize, &_TimerAlarmClock_ClassInfo_, allocate$TimerAlarmClock);
+	$FieldInfo fieldInfos$$[] = {
+		{"listener", "Ljavax/management/timer/Timer;", nullptr, 0, $field(TimerAlarmClock, listener)},
+		{"timeout", "J", nullptr, 0, $field(TimerAlarmClock, timeout)},
+		{"next", "Ljava/util/Date;", nullptr, 0, $field(TimerAlarmClock, next)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/management/timer/Timer;J)V", nullptr, $PUBLIC, $method(TimerAlarmClock, init$, void, $Timer*, int64_t)},
+		{"<init>", "(Ljavax/management/timer/Timer;Ljava/util/Date;)V", nullptr, $PUBLIC, $method(TimerAlarmClock, init$, void, $Timer*, $Date*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TimerAlarmClock, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.timer.TimerAlarmClock",
+		"java.util.TimerTask",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TimerAlarmClock, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TimerAlarmClock);
+	});
 	return class$;
 }
 

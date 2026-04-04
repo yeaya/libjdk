@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Iterable.h>
@@ -39,7 +38,6 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate$Writer.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
 #include <jdk/internal/net/http/common/SubscriberWrapper$SchedulingAction.h>
-#include <jdk/internal/net/http/common/SubscriberWrapper.h>
 #include <jdk/internal/net/http/common/Utils.h>
 #include <jcpp.h>
 
@@ -90,9 +88,7 @@ using $Supplier = ::java::util::function::Supplier;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
-using $SSLSession = ::javax::net::ssl::SSLSession;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
-using $Logger = ::jdk::internal::net::http::common::Logger;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 using $SSLFlowDelegate$1 = ::jdk::internal::net::http::common::SSLFlowDelegate$1;
 using $SSLFlowDelegate$EngineResult = ::jdk::internal::net::http::common::SSLFlowDelegate$EngineResult;
@@ -100,8 +96,6 @@ using $SSLFlowDelegate$Monitor = ::jdk::internal::net::http::common::SSLFlowDele
 using $SSLFlowDelegate$Monitorable = ::jdk::internal::net::http::common::SSLFlowDelegate$Monitorable;
 using $SSLFlowDelegate$Reader = ::jdk::internal::net::http::common::SSLFlowDelegate$Reader;
 using $SSLFlowDelegate$Writer = ::jdk::internal::net::http::common::SSLFlowDelegate$Writer;
-using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SubscriberWrapper = ::jdk::internal::net::http::common::SubscriberWrapper;
 using $SubscriberWrapper$SchedulingAction = ::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
@@ -120,33 +114,29 @@ public:
 	virtual $Object* get() override {
 		 return $of($nc(inst$)->dbgString());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$dbgString>());
-	}
 	SSLFlowDelegate* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SSLFlowDelegate$$Lambda$dbgString::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$dbgString, inst$)},
-	{}
-};
-$MethodInfo SSLFlowDelegate$$Lambda$dbgString::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$dbgString, init$, void, SSLFlowDelegate*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$dbgString, get, $Object*)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$dbgString::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$dbgString",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$dbgString::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$dbgString, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$dbgString, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$dbgString, init$, void, SSLFlowDelegate*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$dbgString, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$dbgString",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$dbgString, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$dbgString);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$dbgString::class$ = nullptr;
@@ -160,33 +150,29 @@ public:
 	virtual $String* getInfo() override {
 		 return $nc(inst$)->monitor();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$monitor$1>());
-	}
 	SSLFlowDelegate* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SSLFlowDelegate$$Lambda$monitor$1::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$monitor$1, inst$)},
-	{}
-};
-$MethodInfo SSLFlowDelegate$$Lambda$monitor$1::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$monitor$1, init$, void, SSLFlowDelegate*)},
-	{"getInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$monitor$1, getInfo, $String*)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$monitor$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$monitor$1",
-	"java.lang.Object",
-	"jdk.internal.net.http.common.SSLFlowDelegate$Monitorable",
-	fieldInfos,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$monitor$1::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$monitor$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$monitor$1, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$monitor$1, init$, void, SSLFlowDelegate*)},
+		{"getInfo", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$monitor$1, getInfo, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$monitor$1",
+		"java.lang.Object",
+		"jdk.internal.net.http.common.SSLFlowDelegate$Monitorable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$monitor$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$monitor$1);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$monitor$1::class$ = nullptr;
@@ -199,27 +185,24 @@ public:
 	virtual int32_t applyAsInt(int32_t current, int32_t ignored) override {
 		 return SSLFlowDelegate::lambda$static$0(current, ignored);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$lambda$static$0$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SSLFlowDelegate$$Lambda$lambda$static$0$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$lambda$static$0$2, init$, void)},
-	{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$lambda$static$0$2, applyAsInt, int32_t, int32_t, int32_t)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$lambda$static$0$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$static$0$2",
-	"java.lang.Object",
-	"java.util.function.IntBinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$lambda$static$0$2::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$lambda$static$0$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$lambda$static$0$2, init$, void)},
+		{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$lambda$static$0$2, applyAsInt, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$static$0$2",
+		"java.lang.Object",
+		"java.util.function.IntBinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$lambda$static$0$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$lambda$static$0$2);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$lambda$static$0$2::class$ = nullptr;
@@ -232,27 +215,24 @@ public:
 	virtual int32_t applyAsInt(int32_t current, int32_t ignored) override {
 		 return SSLFlowDelegate::lambda$static$1(current, ignored);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$lambda$static$1$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SSLFlowDelegate$$Lambda$lambda$static$1$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$lambda$static$1$3, init$, void)},
-	{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$lambda$static$1$3, applyAsInt, int32_t, int32_t, int32_t)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$lambda$static$1$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$static$1$3",
-	"java.lang.Object",
-	"java.util.function.IntBinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$lambda$static$1$3::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$lambda$static$1$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$lambda$static$1$3, init$, void)},
+		{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$lambda$static$1$3, applyAsInt, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$static$1$3",
+		"java.lang.Object",
+		"java.util.function.IntBinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$lambda$static$1$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$lambda$static$1$3);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$lambda$static$1$3::class$ = nullptr;
@@ -264,35 +244,31 @@ public:
 		$set(this, inst$, inst);
 	}
 	virtual $Object* apply(Object$* error) override {
-		 return $of($nc(inst$)->stopOnError($cast($Throwable, error)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$stopOnError$4>());
+		 return $nc(inst$)->stopOnError($cast($Throwable, error));
 	}
 	SSLFlowDelegate* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SSLFlowDelegate$$Lambda$stopOnError$4::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$stopOnError$4, inst$)},
-	{}
-};
-$MethodInfo SSLFlowDelegate$$Lambda$stopOnError$4::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$stopOnError$4, init$, void, SSLFlowDelegate*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$stopOnError$4, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$stopOnError$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$stopOnError$4",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$stopOnError$4::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$stopOnError$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$stopOnError$4, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$stopOnError$4, init$, void, SSLFlowDelegate*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$stopOnError$4, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$stopOnError$4",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$stopOnError$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$stopOnError$4);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$stopOnError$4::class$ = nullptr;
@@ -306,33 +282,29 @@ public:
 	virtual void run() override {
 		$nc(inst$)->normalStop();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$normalStop$5>());
-	}
 	SSLFlowDelegate* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SSLFlowDelegate$$Lambda$normalStop$5::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$normalStop$5, inst$)},
-	{}
-};
-$MethodInfo SSLFlowDelegate$$Lambda$normalStop$5::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$normalStop$5, init$, void, SSLFlowDelegate*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$normalStop$5, run, void)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$normalStop$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$normalStop$5",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$normalStop$5::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$normalStop$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$normalStop$5, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$normalStop$5, init$, void, SSLFlowDelegate*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$normalStop$5, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$normalStop$5",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$normalStop$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$normalStop$5);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$normalStop$5::class$ = nullptr;
@@ -345,27 +317,24 @@ public:
 	virtual int32_t applyAsInt(int32_t current, int32_t unused) override {
 		 return SSLFlowDelegate::lambda$doHandshake$2(current, unused);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6, init$, void)},
-	{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6, applyAsInt, int32_t, int32_t, int32_t)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6",
-	"java.lang.Object",
-	"java.util.function.IntBinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6, init$, void)},
+		{"applyAsInt", "(II)I", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6, applyAsInt, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6",
+		"java.lang.Object",
+		"java.util.function.IntBinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6::class$ = nullptr;
@@ -380,35 +349,31 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$executeTasks$3(tasks);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7>());
-	}
 	SSLFlowDelegate* inst$ = nullptr;
 	$List* tasks = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, inst$)},
-	{"tasks", "Ljava/util/List;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, tasks)},
-	{}
-};
-$MethodInfo SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;Ljava/util/List;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, init$, void, SSLFlowDelegate*, $List*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, run, void)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, inst$)},
+		{"tasks", "Ljava/util/List;", nullptr, $PUBLIC, $field(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, tasks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/common/SSLFlowDelegate;Ljava/util/List;)V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, init$, void, SSLFlowDelegate*, $List*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7::class$ = nullptr;
@@ -421,133 +386,27 @@ public:
 	virtual void accept(Object$* inst$) override {
 		$sure($Runnable, inst$)->run();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<SSLFlowDelegate$$Lambda$run$8>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo SSLFlowDelegate$$Lambda$run$8::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$run$8, init$, void)},
-	{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$run$8, accept, void, Object$*)},
-	{}
-};
-$ClassInfo SSLFlowDelegate$$Lambda$run$8::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$run$8",
-	"java.lang.Object",
-	"java.util.function.Consumer",
-	nullptr,
-	methodInfos
 };
 $Class* SSLFlowDelegate$$Lambda$run$8::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$$Lambda$run$8, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SSLFlowDelegate$$Lambda$run$8, init$, void)},
+		{"accept", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$$Lambda$run$8, accept, void, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$run$8",
+		"java.lang.Object",
+		"java.util.function.Consumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SSLFlowDelegate$$Lambda$run$8, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$$Lambda$run$8);
+	});
 	return class$;
 }
 $Class* SSLFlowDelegate$$Lambda$run$8::class$ = nullptr;
-
-$FieldInfo _SSLFlowDelegate_FieldInfo_[] = {
-	{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(SSLFlowDelegate, debug)},
-	{"SENTINEL", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, SENTINEL)},
-	{"HS_TRIGGER", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, HS_TRIGGER)},
-	{"NOTHING", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, NOTHING)},
-	{"monProp", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, monProp)},
-	{"isMonitored", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, isMonitored)},
-	{"exec", "Ljava/util/concurrent/Executor;", nullptr, $FINAL, $field(SSLFlowDelegate, exec)},
-	{"reader", "Ljdk/internal/net/http/common/SSLFlowDelegate$Reader;", nullptr, $FINAL, $field(SSLFlowDelegate, reader)},
-	{"writer", "Ljdk/internal/net/http/common/SSLFlowDelegate$Writer;", nullptr, $FINAL, $field(SSLFlowDelegate, writer)},
-	{"engine", "Ljavax/net/ssl/SSLEngine;", nullptr, $FINAL, $field(SSLFlowDelegate, engine)},
-	{"tubeName", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLFlowDelegate, tubeName)},
-	{"alpnCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $FINAL, $field(SSLFlowDelegate, alpnCF)},
-	{"monitor", "Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;", nullptr, $FINAL, $field(SSLFlowDelegate, monitor$)},
-	{"close_notify_received", "Z", nullptr, $VOLATILE, $field(SSLFlowDelegate, close_notify_received)},
-	{"readerCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $field(SSLFlowDelegate, readerCF)},
-	{"writerCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $field(SSLFlowDelegate, writerCF)},
-	{"stopCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $field(SSLFlowDelegate, stopCF)},
-	{"recycler", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;", $FINAL, $field(SSLFlowDelegate, recycler)},
-	{"scount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $STATIC, $staticField(SSLFlowDelegate, scount)},
-	{"id", "I", nullptr, $FINAL, $field(SSLFlowDelegate, id)},
-	{"stopped", "Z", nullptr, 0, $field(SSLFlowDelegate, stopped)},
-	{"NOT_HANDSHAKING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, NOT_HANDSHAKING)},
-	{"HANDSHAKING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, HANDSHAKING)},
-	{"DOING_TASKS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, DOING_TASKS)},
-	{"REQUESTING_TASKS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, REQUESTING_TASKS)},
-	{"TASK_BITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, TASK_BITS)},
-	{"READER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, READER)},
-	{"WRITER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, WRITER)},
-	{"handshakeState", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $FINAL, $field(SSLFlowDelegate, handshakeState)},
-	{"stateList", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Ljava/util/concurrent/ConcurrentLinkedQueue<Ljava/lang/String;>;", $FINAL, $field(SSLFlowDelegate, stateList)},
-	{"REQUEST_OR_DO_TASKS", "Ljava/util/function/IntBinaryOperator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, REQUEST_OR_DO_TASKS)},
-	{"FINISH_OR_DO_TASKS", "Ljava/util/function/IntBinaryOperator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, FINISH_OR_DO_TASKS)},
-	{"packetBufferSize", "I", nullptr, $VOLATILE, $field(SSLFlowDelegate, packetBufferSize)},
-	{"applicationBufferSize", "I", nullptr, $VOLATILE, $field(SSLFlowDelegate, applicationBufferSize)},
-	{"adaptiveAppBufferSize", "I", nullptr, $VOLATILE, $field(SSLFlowDelegate, adaptiveAppBufferSize)},
-	{}
-};
-
-$MethodInfo _SSLFlowDelegate_MethodInfo_[] = {
-	{"<init>", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(SSLFlowDelegate, init$, void, $SSLEngine*, $Executor*, $Flow$Subscriber*, $Flow$Subscriber*)},
-	{"<init>", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(SSLFlowDelegate, init$, void, $SSLEngine*, $Executor*, $Consumer*, $Flow$Subscriber*, $Flow$Subscriber*)},
-	{"alpn", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SSLFlowDelegate, alpn, $CompletableFuture*)},
-	{"checkForHandshake", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate, checkForHandshake, $Throwable*, $Throwable*)},
-	{"cleanList", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PRIVATE, $method(SSLFlowDelegate, cleanList, void, $List*)},
-	{"closeNotifyReceived", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate, closeNotifyReceived, bool)},
-	{"connect", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $virtualMethod(SSLFlowDelegate, connect, void, $Flow$Subscriber*, $Flow$Subscriber*)},
-	{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(SSLFlowDelegate, dbgString, $String*)},
-	{"doClosure", "(Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $virtualMethod(SSLFlowDelegate, doClosure, $SSLFlowDelegate$EngineResult*, $SSLFlowDelegate$EngineResult*), "java.io.IOException"},
-	{"doHandshake", "(Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;I)Z", nullptr, $PRIVATE, $method(SSLFlowDelegate, doHandshake, bool, $SSLFlowDelegate$EngineResult*, int32_t)},
-	{"enterReadScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate, enterReadScheduling, $SubscriberWrapper$SchedulingAction*)},
-	{"executeTasks", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Runnable;>;)V", $PRIVATE, $method(SSLFlowDelegate, executeTasks, void, $List*)},
-	{"getAppBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $FINAL, $method(SSLFlowDelegate, getAppBuffer, $ByteBuffer*)},
-	{"getNetBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $FINAL, $method(SSLFlowDelegate, getNetBuffer, $ByteBuffer*)},
-	{"handleError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(SSLFlowDelegate, handleError, void, $Throwable*)},
-	{"lambda$doHandshake$2", "(II)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLFlowDelegate, lambda$doHandshake$2, int32_t, int32_t, int32_t)},
-	{"lambda$executeTasks$3", "(Ljava/util/List;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SSLFlowDelegate, lambda$executeTasks$3, void, $List*)},
-	{"lambda$static$0", "(II)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLFlowDelegate, lambda$static$0, int32_t, int32_t, int32_t)},
-	{"lambda$static$1", "(II)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLFlowDelegate, lambda$static$1, int32_t, int32_t, int32_t)},
-	{"monitor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate, monitor, $String*)},
-	{"normalStop", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SSLFlowDelegate, normalStop, void)},
-	{"obtainTasks", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Runnable;>;", $PRIVATE, $method(SSLFlowDelegate, obtainTasks, $List*)},
-	{"resetReaderDemand", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate, resetReaderDemand, void)},
-	{"resumeActivity", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate, resumeActivity, void)},
-	{"resumeReader", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate, resumeReader, bool)},
-	{"setALPN", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate, setALPN, void)},
-	{"states", "(Ljava/util/concurrent/atomic/AtomicInteger;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLFlowDelegate, states, $String*, $AtomicInteger*)},
-	{"stopOnError", "(Ljava/lang/Throwable;)Ljava/lang/Void;", nullptr, $PRIVATE, $method(SSLFlowDelegate, stopOnError, $Void*, $Throwable*)},
-	{"trySetALPN", "()Z", nullptr, 0, $virtualMethod(SSLFlowDelegate, trySetALPN, bool)},
-	{"upstreamReader", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PUBLIC, $virtualMethod(SSLFlowDelegate, upstreamReader, $Flow$Subscriber*)},
-	{"upstreamWriter", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PUBLIC, $virtualMethod(SSLFlowDelegate, upstreamWriter, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _SSLFlowDelegate_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SSLFlowDelegate$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"jdk.internal.net.http.common.SSLFlowDelegate$EngineResult", "jdk.internal.net.http.common.SSLFlowDelegate", "EngineResult", $STATIC},
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Writer", "jdk.internal.net.http.common.SSLFlowDelegate", "Writer", 0},
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Monitor", "jdk.internal.net.http.common.SSLFlowDelegate", "Monitor", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Monitorable", "jdk.internal.net.http.common.SSLFlowDelegate", "Monitorable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Reader", "jdk.internal.net.http.common.SSLFlowDelegate", "Reader", $FINAL},
-	{}
-};
-
-$ClassInfo _SSLFlowDelegate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.common.SSLFlowDelegate",
-	"java.lang.Object",
-	nullptr,
-	_SSLFlowDelegate_FieldInfo_,
-	_SSLFlowDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLFlowDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SSLFlowDelegate$1,jdk.internal.net.http.common.SSLFlowDelegate$EngineResult,jdk.internal.net.http.common.SSLFlowDelegate$Writer,jdk.internal.net.http.common.SSLFlowDelegate$Writer$WriterDownstreamPusher,jdk.internal.net.http.common.SSLFlowDelegate$Monitor,jdk.internal.net.http.common.SSLFlowDelegate$Monitor$FinalMonitorable,jdk.internal.net.http.common.SSLFlowDelegate$Monitorable,jdk.internal.net.http.common.SSLFlowDelegate$Reader,jdk.internal.net.http.common.SSLFlowDelegate$Reader$ReaderDownstreamPusher"
-};
-
-$Object* allocate$SSLFlowDelegate($Class* clazz) {
-	return $of($alloc(SSLFlowDelegate));
-}
 
 $ByteBuffer* SSLFlowDelegate::SENTINEL = nullptr;
 $ByteBuffer* SSLFlowDelegate::HS_TRIGGER = nullptr;
@@ -563,13 +422,13 @@ void SSLFlowDelegate::init$($SSLEngine* engine, $Executor* exec, $Flow$Subscribe
 }
 
 void SSLFlowDelegate::init$($SSLEngine* engine, $Executor* exec, $Consumer* recycler, $Flow$Subscriber* downReader, $Flow$Subscriber* downWriter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Utils);
-	$set(this, debug, $Utils::getDebugLogger(static_cast<$Supplier*>($$new(SSLFlowDelegate$$Lambda$dbgString, this)), $Utils::DEBUG));
-	$set(this, monitor$, SSLFlowDelegate::isMonitored ? static_cast<$SSLFlowDelegate$Monitorable*>($new(SSLFlowDelegate$$Lambda$monitor$1, this)) : ($SSLFlowDelegate$Monitorable*)nullptr);
+	$set(this, debug, $Utils::getDebugLogger($$new(SSLFlowDelegate$$Lambda$dbgString, this), $Utils::DEBUG));
+	$set(this, monitor$, SSLFlowDelegate::isMonitored ? $cast($SSLFlowDelegate$Monitorable, $new(SSLFlowDelegate$$Lambda$monitor$1, this)) : ($SSLFlowDelegate$Monitorable*)nullptr);
 	$set(this, stateList, $nc(this->debug)->on() ? $new($ConcurrentLinkedQueue) : ($ConcurrentLinkedQueue*)nullptr);
 	this->id = $nc(SSLFlowDelegate::scount)->getAndIncrement();
-	$set(this, tubeName, $String::valueOf($of(downWriter)));
+	$set(this, tubeName, $String::valueOf(downWriter));
 	$set(this, recycler, recycler);
 	$set(this, reader, $new($SSLFlowDelegate$Reader, this));
 	$set(this, writer, $new($SSLFlowDelegate$Writer, this));
@@ -577,13 +436,13 @@ void SSLFlowDelegate::init$($SSLEngine* engine, $Executor* exec, $Consumer* recy
 	$set(this, exec, exec);
 	$set(this, handshakeState, $new($AtomicInteger, SSLFlowDelegate::NOT_HANDSHAKING));
 	$set(this, readerCF, $nc(this->reader)->completion());
-	$set(this, writerCF, $nc(this->reader)->completion());
-	$nc(this->readerCF)->exceptionally(static_cast<$Function*>($$new(SSLFlowDelegate$$Lambda$stopOnError$4, this)));
-	$nc(this->writerCF)->exceptionally(static_cast<$Function*>($$new(SSLFlowDelegate$$Lambda$stopOnError$4, this)));
-	$set(this, stopCF, $cast($CompletableFuture, $nc($($CompletableFuture::allOf($$new($CompletableFutureArray, {
-		$($nc(this->reader)->completion()),
+	$set(this, writerCF, this->reader->completion());
+	$nc(this->readerCF)->exceptionally($$new(SSLFlowDelegate$$Lambda$stopOnError$4, this));
+	$nc(this->writerCF)->exceptionally($$new(SSLFlowDelegate$$Lambda$stopOnError$4, this));
+	$set(this, stopCF, $cast($CompletableFuture, $$nc($CompletableFuture::allOf($$new($CompletableFutureArray, {
+		$(this->reader->completion()),
 		$($nc(this->writer)->completion())
-	}))))->thenRun(static_cast<$Runnable*>($$new(SSLFlowDelegate$$Lambda$normalStop$5, this)))));
+	})))->thenRun($$new(SSLFlowDelegate$$Lambda$normalStop$5, this))));
 	$set(this, alpnCF, $new($MinimalFuture));
 	connect(downReader, downWriter);
 	if (SSLFlowDelegate::isMonitored) {
@@ -605,28 +464,28 @@ $CompletableFuture* SSLFlowDelegate::alpn() {
 }
 
 void SSLFlowDelegate::setALPN() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->alpnCF)->isDone()) {
 		return;
 	}
 	$var($String, alpn, $nc(this->engine)->getApplicationProtocol());
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("setALPN = %s"_s, $$new($ObjectArray, {$of(alpn)}));
+		this->debug->log("setALPN = %s"_s, $$new($ObjectArray, {alpn}));
 	}
-	$nc(this->alpnCF)->complete(alpn);
+	this->alpnCF->complete(alpn);
 }
 
 $String* SSLFlowDelegate::monitor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	sb->append("SSL: id "_s)->append(this->id);
 	sb->append(" "_s)->append($(dbgString()));
 	sb->append($$str({" HS state: "_s, $(states(this->handshakeState))}));
-	sb->append($$str({" Engine state: "_s, $($nc($($nc(this->engine)->getHandshakeStatus()))->toString())}));
+	sb->append($$str({" Engine state: "_s, $($$nc($nc(this->engine)->getHandshakeStatus())->toString())}));
 	if (this->stateList != nullptr) {
 		sb->append(" LL : "_s);
 		{
-			$var($Iterator, i$, $nc(this->stateList)->iterator());
+			$var($Iterator, i$, this->stateList->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, s, $cast($String, i$->next()));
 				{
@@ -654,7 +513,7 @@ $Throwable* SSLFlowDelegate::checkForHandshake($Throwable* t) {
 
 void SSLFlowDelegate::handleError($Throwable* t) {
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("handleError"_s, t);
+		this->debug->log("handleError"_s, t);
 	}
 	$nc(this->readerCF)->completeExceptionally(t);
 	$nc(this->writerCF)->completeExceptionally(t);
@@ -673,7 +532,7 @@ void SSLFlowDelegate::normalStop() {
 		$nc(this->writer)->stop();
 		if (!$nc(this->alpnCF)->isDone()) {
 			$var($Throwable, alpn, $new($SSLHandshakeException, "Connection closed before successful ALPN negotiation"_s));
-			$nc(this->alpnCF)->completeExceptionally(alpn);
+			this->alpnCF->completeExceptionally(alpn);
 		}
 		if (SSLFlowDelegate::isMonitored) {
 			$SSLFlowDelegate$Monitor::remove(this->monitor$);
@@ -683,16 +542,16 @@ void SSLFlowDelegate::normalStop() {
 
 $Void* SSLFlowDelegate::stopOnError($Throwable* error) {
 	if (!$nc(this->alpnCF)->isDone()) {
-		$nc(this->alpnCF)->completeExceptionally(error);
+		this->alpnCF->completeExceptionally(error);
 	}
 	normalStop();
 	return nullptr;
 }
 
 void SSLFlowDelegate::cleanList($List* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(l) {
-		$var($Iterator, iter, $nc(l)->iterator());
+		$var($Iterator, iter, l->iterator());
 		while ($nc(iter)->hasNext()) {
 			$var($ByteBuffer, b, $cast($ByteBuffer, iter->next()));
 			if (!$nc(b)->hasRemaining() && b != SSLFlowDelegate::SENTINEL) {
@@ -706,27 +565,21 @@ $String* SSLFlowDelegate::states($AtomicInteger* state) {
 	$init(SSLFlowDelegate);
 	int32_t s = $nc(state)->get();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	int32_t x = (int32_t)(s & (uint32_t)~SSLFlowDelegate::TASK_BITS);
+	int32_t x = s & ~SSLFlowDelegate::TASK_BITS;
 	switch (x) {
 	case SSLFlowDelegate::NOT_HANDSHAKING:
-		{
-			sb->append(" NOT_HANDSHAKING "_s);
-			break;
-		}
+		sb->append(" NOT_HANDSHAKING "_s);
+		break;
 	case SSLFlowDelegate::HANDSHAKING:
-		{
-			sb->append(" HANDSHAKING "_s);
-			break;
-		}
+		sb->append(" HANDSHAKING "_s);
+		break;
 	default:
-		{
-			$throwNew($InternalError);
-		}
+		$throwNew($InternalError);
 	}
-	if (((int32_t)(s & (uint32_t)SSLFlowDelegate::DOING_TASKS)) > 0) {
+	if ((s & SSLFlowDelegate::DOING_TASKS) > 0) {
 		sb->append("|DOING_TASKS"_s);
 	}
-	if (((int32_t)(s & (uint32_t)SSLFlowDelegate::REQUESTING_TASKS)) > 0) {
+	if ((s & SSLFlowDelegate::REQUESTING_TASKS) > 0) {
 		sb->append("|REQUESTING_TASKS"_s);
 	}
 	return sb->toString();
@@ -738,59 +591,50 @@ void SSLFlowDelegate::resumeActivity() {
 }
 
 bool SSLFlowDelegate::doHandshake($SSLFlowDelegate$EngineResult* r, int32_t caller) {
-	$useLocalCurrentObjectStackCache();
-	$nc(this->handshakeState)->getAndAccumulate(0, static_cast<$IntBinaryOperator*>($$new(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6)));
+	$useLocalObjectStack();
+	$nc(this->handshakeState)->getAndAccumulate(0, $$new(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6));
 	if (this->stateList != nullptr && $nc(this->debug)->on()) {
-		$nc(this->stateList)->add($($nc($($nc(r)->handshakeStatus()))->toString()));
-		$nc(this->stateList)->add($($Integer::toString(caller)));
+		this->stateList->add($($$nc($nc(r)->handshakeStatus())->toString()));
+		this->stateList->add($($Integer::toString(caller)));
 	}
-	$init($SSLFlowDelegate$1);
 	{
+		$init($SSLFlowDelegate$1);
 		int32_t s = 0;
-		$var($List, tasks, nullptr)
-		switch ($nc($SSLFlowDelegate$1::$SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus)->get($nc(($($nc(r)->handshakeStatus())))->ordinal())) {
+		$var($List, tasks, nullptr);
+		switch ($nc($SSLFlowDelegate$1::$SwitchMap$javax$net$ssl$SSLEngineResult$HandshakeStatus)->get(($$nc($nc(r)->handshakeStatus()))->ordinal())) {
 		case 1:
-			{
-				s = $nc(this->handshakeState)->accumulateAndGet(0, SSLFlowDelegate::REQUEST_OR_DO_TASKS);
-				if (((int32_t)(s & (uint32_t)SSLFlowDelegate::REQUESTING_TASKS)) > 0) {
-					return false;
-				}
-				if ($nc(this->debug)->on()) {
-					$nc(this->debug)->log("obtaining and initiating task execution"_s);
-				}
-				$assign(tasks, obtainTasks());
-				executeTasks(tasks);
+			s = this->handshakeState->accumulateAndGet(0, SSLFlowDelegate::REQUEST_OR_DO_TASKS);
+			if ((s & SSLFlowDelegate::REQUESTING_TASKS) > 0) {
 				return false;
 			}
+			if ($nc(this->debug)->on()) {
+				this->debug->log("obtaining and initiating task execution"_s);
+			}
+			$assign(tasks, obtainTasks());
+			executeTasks(tasks);
+			return false;
 		case 2:
-			{
-				if (caller == SSLFlowDelegate::READER) {
-					$nc(this->writer)->triggerWrite();
-					return false;
-				}
-				break;
+			if (caller == SSLFlowDelegate::READER) {
+				$nc(this->writer)->triggerWrite();
+				return false;
 			}
+			break;
 		case 3:
-			{}
 		case 4:
-			{
-				if (caller == SSLFlowDelegate::WRITER) {
-					$nc(this->reader)->schedule();
-					return false;
-				}
-				break;
+			if (caller == SSLFlowDelegate::WRITER) {
+				$nc(this->reader)->schedule();
+				return false;
 			}
+			break;
 		default:
-			{
-				$throwNew($InternalError, $$str({"Unexpected handshake status:"_s, $(r->handshakeStatus())}));
-			}
+			$throwNew($InternalError, $$str({"Unexpected handshake status:"_s, $(r->handshakeStatus())}));
 		}
 	}
 	return true;
 }
 
 $List* SSLFlowDelegate::obtainTasks() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, l, $new($ArrayList));
 	$var($Runnable, r, nullptr);
 	while (($assign(r, $nc(this->engine)->getDelegatedTask())) != nullptr) {
@@ -800,14 +644,14 @@ $List* SSLFlowDelegate::obtainTasks() {
 }
 
 void SSLFlowDelegate::executeTasks($List* tasks) {
-	$nc(this->exec)->execute(static_cast<$Runnable*>($$new(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, this, tasks)));
+	$nc(this->exec)->execute($$new(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7, this, tasks));
 }
 
 bool SSLFlowDelegate::trySetALPN() {
-	$useLocalCurrentObjectStackCache();
-	if (((int32_t)($nc(this->handshakeState)->getAndSet(SSLFlowDelegate::NOT_HANDSHAKING) & (uint32_t)~SSLFlowDelegate::DOING_TASKS)) == SSLFlowDelegate::HANDSHAKING) {
-		this->applicationBufferSize = $nc($($nc(this->engine)->getSession()))->getApplicationBufferSize();
-		this->packetBufferSize = $nc($($nc(this->engine)->getSession()))->getPacketBufferSize();
+	$useLocalObjectStack();
+	if (($nc(this->handshakeState)->getAndSet(SSLFlowDelegate::NOT_HANDSHAKING) & ~SSLFlowDelegate::DOING_TASKS) == SSLFlowDelegate::HANDSHAKING) {
+		this->applicationBufferSize = $$nc($nc(this->engine)->getSession())->getApplicationBufferSize();
+		this->packetBufferSize = $$nc(this->engine->getSession())->getPacketBufferSize();
 		setALPN();
 		return true;
 	}
@@ -815,28 +659,28 @@ bool SSLFlowDelegate::trySetALPN() {
 }
 
 $SSLFlowDelegate$EngineResult* SSLFlowDelegate::doClosure($SSLFlowDelegate$EngineResult* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->debug)->on()) {
-		$nc(this->debug)->log("doClosure(%s): %s [isOutboundDone: %s, isInboundDone: %s]"_s, $$new($ObjectArray, {
-			$of($nc(r)->result),
-			$($of($nc(this->engine)->getHandshakeStatus())),
-			$($of($Boolean::valueOf($nc(this->engine)->isOutboundDone()))),
-			$($of($Boolean::valueOf($nc(this->engine)->isInboundDone())))
+		this->debug->log("doClosure(%s): %s [isOutboundDone: %s, isInboundDone: %s]"_s, $$new($ObjectArray, {
+			$nc(r)->result,
+			$($nc(this->engine)->getHandshakeStatus()),
+			$($Boolean::valueOf($nc(this->engine)->isOutboundDone())),
+			$($Boolean::valueOf($nc(this->engine)->isInboundDone()))
 		}));
 	}
 	$init($SSLEngineResult$HandshakeStatus);
 	if ($nc(this->engine)->getHandshakeStatus() == $SSLEngineResult$HandshakeStatus::NEED_WRAP) {
-		bool var$0 = $nc(this->engine)->isInboundDone();
-		if (var$0 && !$nc(this->engine)->isOutboundDone()) {
-			if ($nc(this->debug)->on()) {
-				$nc(this->debug)->log("doClosure: close_notify received"_s);
+		bool var$0 = this->engine->isInboundDone();
+		if (var$0 && !this->engine->isOutboundDone()) {
+			if (this->debug->on()) {
+				this->debug->log("doClosure: close_notify received"_s);
 			}
 			this->close_notify_received = true;
 			if (!$nc($nc(this->writer)->scheduler)->isStopped()) {
 				doHandshake(r, SSLFlowDelegate::READER);
 			} else {
 				$synchronized($nc(this->reader)->readBufferLock) {
-					$nc(this->reader)->completing = true;
+					this->reader->completing = true;
 				}
 			}
 		}
@@ -845,11 +689,11 @@ $SSLFlowDelegate$EngineResult* SSLFlowDelegate::doClosure($SSLFlowDelegate$Engin
 }
 
 $Flow$Subscriber* SSLFlowDelegate::upstreamReader() {
-	return static_cast<$Flow$Subscriber*>(static_cast<$FlowTube$TubeSubscriber*>(static_cast<$SubscriberWrapper*>(this->reader)));
+	return $cast($FlowTube$TubeSubscriber, this->reader);
 }
 
 $Flow$Subscriber* SSLFlowDelegate::upstreamWriter() {
-	return static_cast<$Flow$Subscriber*>(static_cast<$FlowTube$TubeSubscriber*>(static_cast<$SubscriberWrapper*>(this->writer)));
+	return $cast($FlowTube$TubeSubscriber, this->writer);
 }
 
 bool SSLFlowDelegate::resumeReader() {
@@ -863,7 +707,7 @@ void SSLFlowDelegate::resetReaderDemand() {
 $ByteBuffer* SSLFlowDelegate::getNetBuffer() {
 	int32_t netSize = this->packetBufferSize;
 	if (netSize <= 0) {
-		this->packetBufferSize = (netSize = $nc($($nc(this->engine)->getSession()))->getPacketBufferSize());
+		this->packetBufferSize = (netSize = $$nc($nc(this->engine)->getSession())->getPacketBufferSize());
 	}
 	return $ByteBuffer::allocate(netSize);
 }
@@ -871,7 +715,7 @@ $ByteBuffer* SSLFlowDelegate::getNetBuffer() {
 $ByteBuffer* SSLFlowDelegate::getAppBuffer() {
 	int32_t appSize = this->applicationBufferSize;
 	if (appSize <= 0) {
-		this->applicationBufferSize = (appSize = $nc($($nc(this->engine)->getSession()))->getApplicationBufferSize());
+		this->applicationBufferSize = (appSize = $$nc($nc(this->engine)->getSession())->getApplicationBufferSize());
 	}
 	int32_t size = this->adaptiveAppBufferSize;
 	if (size <= 0) {
@@ -887,22 +731,22 @@ $String* SSLFlowDelegate::dbgString() {
 }
 
 void SSLFlowDelegate::lambda$executeTasks$3($List* tasks) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($List, nextTasks, tasks);
 		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log($$str({"#tasks to execute: "_s, $($Integer::toString($nc(nextTasks)->size()))}));
+			this->debug->log($$str({"#tasks to execute: "_s, $($Integer::toString($nc(nextTasks)->size()))}));
 		}
 		do {
-			$nc(nextTasks)->forEach(static_cast<$Consumer*>($$new(SSLFlowDelegate$$Lambda$run$8)));
+			$nc(nextTasks)->forEach($$new(SSLFlowDelegate$$Lambda$run$8));
 			$init($SSLEngineResult$HandshakeStatus);
 			if ($nc(this->engine)->getHandshakeStatus() == $SSLEngineResult$HandshakeStatus::NEED_TASK) {
 				$assign(nextTasks, obtainTasks());
 			} else {
 				int32_t s = $nc(this->handshakeState)->accumulateAndGet(0, SSLFlowDelegate::FINISH_OR_DO_TASKS);
-				if (((int32_t)(s & (uint32_t)SSLFlowDelegate::DOING_TASKS)) != 0) {
-					if ($nc(this->debug)->on()) {
-						$nc(this->debug)->log("re-running tasks (B)"_s);
+				if ((s & SSLFlowDelegate::DOING_TASKS) != 0) {
+					if (this->debug->on()) {
+						this->debug->log("re-running tasks (B)"_s);
 					}
 					$assign(nextTasks, obtainTasks());
 					continue;
@@ -910,8 +754,8 @@ void SSLFlowDelegate::lambda$executeTasks$3($List* tasks) {
 				break;
 			}
 		} while (true);
-		if ($nc(this->debug)->on()) {
-			$nc(this->debug)->log("finished task execution"_s);
+		if (this->debug->on()) {
+			this->debug->log("finished task execution"_s);
 		}
 		$SSLEngineResult$HandshakeStatus* hs = $nc(this->engine)->getHandshakeStatus();
 		$init($SSLEngineResult$HandshakeStatus);
@@ -926,27 +770,27 @@ void SSLFlowDelegate::lambda$executeTasks$3($List* tasks) {
 
 int32_t SSLFlowDelegate::lambda$doHandshake$2(int32_t current, int32_t unused) {
 	$init(SSLFlowDelegate);
-	return SSLFlowDelegate::HANDSHAKING | ((int32_t)(current & (uint32_t)SSLFlowDelegate::TASK_BITS));
+	return SSLFlowDelegate::HANDSHAKING | (current & SSLFlowDelegate::TASK_BITS);
 }
 
 int32_t SSLFlowDelegate::lambda$static$1(int32_t current, int32_t ignored) {
 	$init(SSLFlowDelegate);
-	if (((int32_t)(current & (uint32_t)SSLFlowDelegate::REQUESTING_TASKS)) != 0) {
-		return SSLFlowDelegate::DOING_TASKS | ((int32_t)(current & (uint32_t)SSLFlowDelegate::HANDSHAKING));
+	if ((current & SSLFlowDelegate::REQUESTING_TASKS) != 0) {
+		return SSLFlowDelegate::DOING_TASKS | (current & SSLFlowDelegate::HANDSHAKING);
 	}
-	return ((int32_t)(current & (uint32_t)SSLFlowDelegate::HANDSHAKING));
+	return (current & SSLFlowDelegate::HANDSHAKING);
 }
 
 int32_t SSLFlowDelegate::lambda$static$0(int32_t current, int32_t ignored) {
 	$init(SSLFlowDelegate);
-	if (((int32_t)(current & (uint32_t)SSLFlowDelegate::DOING_TASKS)) == 0) {
-		return SSLFlowDelegate::DOING_TASKS | ((int32_t)(current & (uint32_t)SSLFlowDelegate::HANDSHAKING));
+	if ((current & SSLFlowDelegate::DOING_TASKS) == 0) {
+		return SSLFlowDelegate::DOING_TASKS | (current & SSLFlowDelegate::HANDSHAKING);
 	} else {
-		return (SSLFlowDelegate::DOING_TASKS | SSLFlowDelegate::REQUESTING_TASKS) | ((int32_t)(current & (uint32_t)SSLFlowDelegate::HANDSHAKING));
+		return (SSLFlowDelegate::DOING_TASKS | SSLFlowDelegate::REQUESTING_TASKS) | (current & SSLFlowDelegate::HANDSHAKING);
 	}
 }
 
-void clinit$SSLFlowDelegate($Class* class$) {
+void SSLFlowDelegate::clinit$($Class* clazz) {
 	$init($Utils);
 	$assignStatic(SSLFlowDelegate::SENTINEL, $Utils::EMPTY_BYTEBUFFER);
 	$assignStatic(SSLFlowDelegate::HS_TRIGGER, $ByteBuffer::allocate(0));
@@ -954,13 +798,13 @@ void clinit$SSLFlowDelegate($Class* class$) {
 	$assignStatic(SSLFlowDelegate::monProp, $Utils::getProperty("jdk.internal.httpclient.monitorFlowDelegate"_s));
 	bool var$0 = SSLFlowDelegate::monProp != nullptr;
 	if (var$0) {
-		bool var$1 = $nc(SSLFlowDelegate::monProp)->isEmpty();
-		var$0 = (var$1 || $nc(SSLFlowDelegate::monProp)->equalsIgnoreCase("true"_s));
+		bool var$1 = SSLFlowDelegate::monProp->isEmpty();
+		var$0 = var$1 || SSLFlowDelegate::monProp->equalsIgnoreCase("true"_s);
 	}
 	SSLFlowDelegate::isMonitored = var$0;
 	$assignStatic(SSLFlowDelegate::scount, $new($AtomicInteger, 1));
-	$assignStatic(SSLFlowDelegate::REQUEST_OR_DO_TASKS, static_cast<$IntBinaryOperator*>($new(SSLFlowDelegate$$Lambda$lambda$static$0$2)));
-	$assignStatic(SSLFlowDelegate::FINISH_OR_DO_TASKS, static_cast<$IntBinaryOperator*>($new(SSLFlowDelegate$$Lambda$lambda$static$1$3)));
+	$assignStatic(SSLFlowDelegate::REQUEST_OR_DO_TASKS, $new(SSLFlowDelegate$$Lambda$lambda$static$0$2));
+	$assignStatic(SSLFlowDelegate::FINISH_OR_DO_TASKS, $new(SSLFlowDelegate$$Lambda$lambda$static$1$3));
 }
 
 SSLFlowDelegate::SSLFlowDelegate() {
@@ -968,35 +812,132 @@ SSLFlowDelegate::SSLFlowDelegate() {
 
 $Class* SSLFlowDelegate::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(SSLFlowDelegate$$Lambda$dbgString::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$dbgString")) {
 			return SSLFlowDelegate$$Lambda$dbgString::load$(name, initialize);
 		}
-		if (name->equals(SSLFlowDelegate$$Lambda$monitor$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$monitor$1")) {
 			return SSLFlowDelegate$$Lambda$monitor$1::load$(name, initialize);
 		}
-		if (name->equals(SSLFlowDelegate$$Lambda$lambda$static$0$2::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$static$0$2")) {
 			return SSLFlowDelegate$$Lambda$lambda$static$0$2::load$(name, initialize);
 		}
-		if (name->equals(SSLFlowDelegate$$Lambda$lambda$static$1$3::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$static$1$3")) {
 			return SSLFlowDelegate$$Lambda$lambda$static$1$3::load$(name, initialize);
 		}
-		if (name->equals(SSLFlowDelegate$$Lambda$stopOnError$4::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$stopOnError$4")) {
 			return SSLFlowDelegate$$Lambda$stopOnError$4::load$(name, initialize);
 		}
-		if (name->equals(SSLFlowDelegate$$Lambda$normalStop$5::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$normalStop$5")) {
 			return SSLFlowDelegate$$Lambda$normalStop$5::load$(name, initialize);
 		}
-		if (name->equals(SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6")) {
 			return SSLFlowDelegate$$Lambda$lambda$doHandshake$2$6::load$(name, initialize);
 		}
-		if (name->equals(SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7")) {
 			return SSLFlowDelegate$$Lambda$lambda$executeTasks$3$7::load$(name, initialize);
 		}
-		if (name->equals(SSLFlowDelegate$$Lambda$run$8::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.common.SSLFlowDelegate$$Lambda$run$8")) {
 			return SSLFlowDelegate$$Lambda$run$8::load$(name, initialize);
 		}
 	}
-	$loadClass(SSLFlowDelegate, name, initialize, &_SSLFlowDelegate_ClassInfo_, clinit$SSLFlowDelegate, allocate$SSLFlowDelegate);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Ljdk/internal/net/http/common/Logger;", nullptr, $FINAL, $field(SSLFlowDelegate, debug)},
+		{"SENTINEL", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, SENTINEL)},
+		{"HS_TRIGGER", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, HS_TRIGGER)},
+		{"NOTHING", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, NOTHING)},
+		{"monProp", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, monProp)},
+		{"isMonitored", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, isMonitored)},
+		{"exec", "Ljava/util/concurrent/Executor;", nullptr, $FINAL, $field(SSLFlowDelegate, exec)},
+		{"reader", "Ljdk/internal/net/http/common/SSLFlowDelegate$Reader;", nullptr, $FINAL, $field(SSLFlowDelegate, reader)},
+		{"writer", "Ljdk/internal/net/http/common/SSLFlowDelegate$Writer;", nullptr, $FINAL, $field(SSLFlowDelegate, writer)},
+		{"engine", "Ljavax/net/ssl/SSLEngine;", nullptr, $FINAL, $field(SSLFlowDelegate, engine)},
+		{"tubeName", "Ljava/lang/String;", nullptr, $FINAL, $field(SSLFlowDelegate, tubeName)},
+		{"alpnCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $FINAL, $field(SSLFlowDelegate, alpnCF)},
+		{"monitor", "Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;", nullptr, $FINAL, $field(SSLFlowDelegate, monitor$)},
+		{"close_notify_received", "Z", nullptr, $VOLATILE, $field(SSLFlowDelegate, close_notify_received)},
+		{"readerCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $field(SSLFlowDelegate, readerCF)},
+		{"writerCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $field(SSLFlowDelegate, writerCF)},
+		{"stopCF", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<Ljava/lang/Void;>;", $FINAL, $field(SSLFlowDelegate, stopCF)},
+		{"recycler", "Ljava/util/function/Consumer;", "Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;", $FINAL, $field(SSLFlowDelegate, recycler)},
+		{"scount", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $STATIC, $staticField(SSLFlowDelegate, scount)},
+		{"id", "I", nullptr, $FINAL, $field(SSLFlowDelegate, id)},
+		{"stopped", "Z", nullptr, 0, $field(SSLFlowDelegate, stopped)},
+		{"NOT_HANDSHAKING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, NOT_HANDSHAKING)},
+		{"HANDSHAKING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, HANDSHAKING)},
+		{"DOING_TASKS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, DOING_TASKS)},
+		{"REQUESTING_TASKS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, REQUESTING_TASKS)},
+		{"TASK_BITS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, TASK_BITS)},
+		{"READER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, READER)},
+		{"WRITER", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SSLFlowDelegate, WRITER)},
+		{"handshakeState", "Ljava/util/concurrent/atomic/AtomicInteger;", nullptr, $FINAL, $field(SSLFlowDelegate, handshakeState)},
+		{"stateList", "Ljava/util/concurrent/ConcurrentLinkedQueue;", "Ljava/util/concurrent/ConcurrentLinkedQueue<Ljava/lang/String;>;", $FINAL, $field(SSLFlowDelegate, stateList)},
+		{"REQUEST_OR_DO_TASKS", "Ljava/util/function/IntBinaryOperator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, REQUEST_OR_DO_TASKS)},
+		{"FINISH_OR_DO_TASKS", "Ljava/util/function/IntBinaryOperator;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SSLFlowDelegate, FINISH_OR_DO_TASKS)},
+		{"packetBufferSize", "I", nullptr, $VOLATILE, $field(SSLFlowDelegate, packetBufferSize)},
+		{"applicationBufferSize", "I", nullptr, $VOLATILE, $field(SSLFlowDelegate, applicationBufferSize)},
+		{"adaptiveAppBufferSize", "I", nullptr, $VOLATILE, $field(SSLFlowDelegate, adaptiveAppBufferSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(SSLFlowDelegate, init$, void, $SSLEngine*, $Executor*, $Flow$Subscriber*, $Flow$Subscriber*)},
+		{"<init>", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljavax/net/ssl/SSLEngine;Ljava/util/concurrent/Executor;Ljava/util/function/Consumer<Ljava/nio/ByteBuffer;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", $PUBLIC, $method(SSLFlowDelegate, init$, void, $SSLEngine*, $Executor*, $Consumer*, $Flow$Subscriber*, $Flow$Subscriber*)},
+		{"alpn", "()Ljava/util/concurrent/CompletableFuture;", "()Ljava/util/concurrent/CompletableFuture<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(SSLFlowDelegate, alpn, $CompletableFuture*)},
+		{"checkForHandshake", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate, checkForHandshake, $Throwable*, $Throwable*)},
+		{"cleanList", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PRIVATE, $method(SSLFlowDelegate, cleanList, void, $List*)},
+		{"closeNotifyReceived", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate, closeNotifyReceived, bool)},
+		{"connect", "(Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/util/List<Ljava/nio/ByteBuffer;>;>;)V", 0, $virtualMethod(SSLFlowDelegate, connect, void, $Flow$Subscriber*, $Flow$Subscriber*)},
+		{"dbgString", "()Ljava/lang/String;", nullptr, $FINAL, $method(SSLFlowDelegate, dbgString, $String*)},
+		{"doClosure", "(Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;)Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;", nullptr, 0, $virtualMethod(SSLFlowDelegate, doClosure, $SSLFlowDelegate$EngineResult*, $SSLFlowDelegate$EngineResult*), "java.io.IOException"},
+		{"doHandshake", "(Ljdk/internal/net/http/common/SSLFlowDelegate$EngineResult;I)Z", nullptr, $PRIVATE, $method(SSLFlowDelegate, doHandshake, bool, $SSLFlowDelegate$EngineResult*, int32_t)},
+		{"enterReadScheduling", "()Ljdk/internal/net/http/common/SubscriberWrapper$SchedulingAction;", nullptr, $PROTECTED, $virtualMethod(SSLFlowDelegate, enterReadScheduling, $SubscriberWrapper$SchedulingAction*)},
+		{"executeTasks", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/Runnable;>;)V", $PRIVATE, $method(SSLFlowDelegate, executeTasks, void, $List*)},
+		{"getAppBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $FINAL, $method(SSLFlowDelegate, getAppBuffer, $ByteBuffer*)},
+		{"getNetBuffer", "()Ljava/nio/ByteBuffer;", nullptr, $FINAL, $method(SSLFlowDelegate, getNetBuffer, $ByteBuffer*)},
+		{"handleError", "(Ljava/lang/Throwable;)V", nullptr, $PRIVATE, $method(SSLFlowDelegate, handleError, void, $Throwable*)},
+		{"lambda$doHandshake$2", "(II)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLFlowDelegate, lambda$doHandshake$2, int32_t, int32_t, int32_t)},
+		{"lambda$executeTasks$3", "(Ljava/util/List;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(SSLFlowDelegate, lambda$executeTasks$3, void, $List*)},
+		{"lambda$static$0", "(II)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLFlowDelegate, lambda$static$0, int32_t, int32_t, int32_t)},
+		{"lambda$static$1", "(II)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(SSLFlowDelegate, lambda$static$1, int32_t, int32_t, int32_t)},
+		{"monitor", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate, monitor, $String*)},
+		{"normalStop", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(SSLFlowDelegate, normalStop, void)},
+		{"obtainTasks", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/Runnable;>;", $PRIVATE, $method(SSLFlowDelegate, obtainTasks, $List*)},
+		{"resetReaderDemand", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate, resetReaderDemand, void)},
+		{"resumeActivity", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate, resumeActivity, void)},
+		{"resumeReader", "()Z", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate, resumeReader, bool)},
+		{"setALPN", "()V", nullptr, $PRIVATE, $method(SSLFlowDelegate, setALPN, void)},
+		{"states", "(Ljava/util/concurrent/atomic/AtomicInteger;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(SSLFlowDelegate, states, $String*, $AtomicInteger*)},
+		{"stopOnError", "(Ljava/lang/Throwable;)Ljava/lang/Void;", nullptr, $PRIVATE, $method(SSLFlowDelegate, stopOnError, $Void*, $Throwable*)},
+		{"trySetALPN", "()Z", nullptr, 0, $virtualMethod(SSLFlowDelegate, trySetALPN, bool)},
+		{"upstreamReader", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PUBLIC, $virtualMethod(SSLFlowDelegate, upstreamReader, $Flow$Subscriber*)},
+		{"upstreamWriter", "()Ljava/util/concurrent/Flow$Subscriber;", "()Ljava/util/concurrent/Flow$Subscriber<Ljava/util/List<Ljava/nio/ByteBuffer;>;>;", $PUBLIC, $virtualMethod(SSLFlowDelegate, upstreamWriter, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SSLFlowDelegate$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"jdk.internal.net.http.common.SSLFlowDelegate$EngineResult", "jdk.internal.net.http.common.SSLFlowDelegate", "EngineResult", $STATIC},
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Writer", "jdk.internal.net.http.common.SSLFlowDelegate", "Writer", 0},
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Monitor", "jdk.internal.net.http.common.SSLFlowDelegate", "Monitor", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Monitorable", "jdk.internal.net.http.common.SSLFlowDelegate", "Monitorable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Reader", "jdk.internal.net.http.common.SSLFlowDelegate", "Reader", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.common.SSLFlowDelegate",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SSLFlowDelegate$1,jdk.internal.net.http.common.SSLFlowDelegate$EngineResult,jdk.internal.net.http.common.SSLFlowDelegate$Writer,jdk.internal.net.http.common.SSLFlowDelegate$Writer$WriterDownstreamPusher,jdk.internal.net.http.common.SSLFlowDelegate$Monitor,jdk.internal.net.http.common.SSLFlowDelegate$Monitor$FinalMonitorable,jdk.internal.net.http.common.SSLFlowDelegate$Monitorable,jdk.internal.net.http.common.SSLFlowDelegate$Reader,jdk.internal.net.http.common.SSLFlowDelegate$Reader$ReaderDownstreamPusher"
+	};
+	$loadClass(SSLFlowDelegate, name, initialize, &classInfo$$, SSLFlowDelegate::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate);
+	});
 	return class$;
 }
 

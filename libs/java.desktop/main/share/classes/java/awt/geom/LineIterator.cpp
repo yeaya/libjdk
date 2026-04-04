@@ -1,5 +1,4 @@
 #include <java/awt/geom/LineIterator.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Line2D.h>
 #include <java/awt/geom/PathIterator.h>
@@ -21,36 +20,6 @@ using $NoSuchElementException = ::java::util::NoSuchElementException;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _LineIterator_FieldInfo_[] = {
-	{"line", "Ljava/awt/geom/Line2D;", nullptr, 0, $field(LineIterator, line)},
-	{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(LineIterator, affine)},
-	{"index", "I", nullptr, 0, $field(LineIterator, index)},
-	{}
-};
-
-$MethodInfo _LineIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/geom/Line2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(LineIterator, init$, void, $Line2D*, $AffineTransform*)},
-	{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(LineIterator, currentSegment, int32_t, $floats*)},
-	{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(LineIterator, currentSegment, int32_t, $doubles*)},
-	{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(LineIterator, getWindingRule, int32_t)},
-	{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(LineIterator, isDone, bool)},
-	{"next", "()V", nullptr, $PUBLIC, $virtualMethod(LineIterator, next, void)},
-	{}
-};
-
-$ClassInfo _LineIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.geom.LineIterator",
-	"java.lang.Object",
-	"java.awt.geom.PathIterator",
-	_LineIterator_FieldInfo_,
-	_LineIterator_MethodInfo_
-};
-
-$Object* allocate$LineIterator($Class* clazz) {
-	return $of($alloc(LineIterator));
-}
 
 void LineIterator::init$($Line2D* l, $AffineTransform* at) {
 	$set(this, line, l);
@@ -84,7 +53,7 @@ int32_t LineIterator::currentSegment($floats* coords) {
 		type = $PathIterator::SEG_LINETO;
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+		this->affine->transform(coords, 0, coords, 0, 1);
 	}
 	return type;
 }
@@ -104,7 +73,7 @@ int32_t LineIterator::currentSegment($doubles* coords) {
 		type = $PathIterator::SEG_LINETO;
 	}
 	if (this->affine != nullptr) {
-		$nc(this->affine)->transform(coords, 0, coords, 0, 1);
+		this->affine->transform(coords, 0, coords, 0, 1);
 	}
 	return type;
 }
@@ -113,7 +82,32 @@ LineIterator::LineIterator() {
 }
 
 $Class* LineIterator::load$($String* name, bool initialize) {
-	$loadClass(LineIterator, name, initialize, &_LineIterator_ClassInfo_, allocate$LineIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"line", "Ljava/awt/geom/Line2D;", nullptr, 0, $field(LineIterator, line)},
+		{"affine", "Ljava/awt/geom/AffineTransform;", nullptr, 0, $field(LineIterator, affine)},
+		{"index", "I", nullptr, 0, $field(LineIterator, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/geom/Line2D;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(LineIterator, init$, void, $Line2D*, $AffineTransform*)},
+		{"currentSegment", "([F)I", nullptr, $PUBLIC, $virtualMethod(LineIterator, currentSegment, int32_t, $floats*)},
+		{"currentSegment", "([D)I", nullptr, $PUBLIC, $virtualMethod(LineIterator, currentSegment, int32_t, $doubles*)},
+		{"getWindingRule", "()I", nullptr, $PUBLIC, $virtualMethod(LineIterator, getWindingRule, int32_t)},
+		{"isDone", "()Z", nullptr, $PUBLIC, $virtualMethod(LineIterator, isDone, bool)},
+		{"next", "()V", nullptr, $PUBLIC, $virtualMethod(LineIterator, next, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.geom.LineIterator",
+		"java.lang.Object",
+		"java.awt.geom.PathIterator",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineIterator);
+	});
 	return class$;
 }
 

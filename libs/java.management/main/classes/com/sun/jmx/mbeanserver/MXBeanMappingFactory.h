@@ -34,6 +34,7 @@ class MXBeanMappingFactory : public ::java::lang::Object {
 	$class(MXBeanMappingFactory, 0, ::java::lang::Object)
 public:
 	MXBeanMappingFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::jmx::mbeanserver::MXBeanMapping* mappingForType(::java::lang::reflect::Type* t, ::com::sun::jmx::mbeanserver::MXBeanMappingFactory* f) {return nullptr;}
 	static ::com::sun::jmx::mbeanserver::MXBeanMappingFactory* DEFAULT;

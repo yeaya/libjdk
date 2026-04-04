@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKConstants$ArrowType.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKConstants.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -22,48 +21,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKConstants$ArrowType_FieldInfo_[] = {
-	{"UP", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ArrowType, UP)},
-	{"DOWN", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ArrowType, DOWN)},
-	{"LEFT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ArrowType, LEFT)},
-	{"RIGHT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ArrowType, RIGHT)},
-	{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$ArrowType, $VALUES)},
-	{}
-};
-
-$MethodInfo _GTKConstants$ArrowType_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$ArrowType, $values, $GTKConstants$ArrowTypeArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$ArrowType, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ArrowType, valueOf, GTKConstants$ArrowType*, $String*)},
-	{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ArrowType, values, $GTKConstants$ArrowTypeArray*)},
-	{}
-};
-
-$InnerClassInfo _GTKConstants$ArrowType_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKConstants$ArrowType", "com.sun.java.swing.plaf.gtk.GTKConstants", "ArrowType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _GTKConstants$ArrowType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.java.swing.plaf.gtk.GTKConstants$ArrowType",
-	"java.lang.Enum",
-	nullptr,
-	_GTKConstants$ArrowType_FieldInfo_,
-	_GTKConstants$ArrowType_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;>;",
-	nullptr,
-	_GTKConstants$ArrowType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKConstants"
-};
-
-$Object* allocate$GTKConstants$ArrowType($Class* clazz) {
-	return $of($alloc(GTKConstants$ArrowType));
-}
 
 GTKConstants$ArrowType* GTKConstants$ArrowType::UP = nullptr;
 GTKConstants$ArrowType* GTKConstants$ArrowType::DOWN = nullptr;
@@ -95,7 +52,7 @@ void GTKConstants$ArrowType::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$GTKConstants$ArrowType($Class* class$) {
+void GTKConstants$ArrowType::clinit$($Class* clazz) {
 	$assignStatic(GTKConstants$ArrowType::UP, $new(GTKConstants$ArrowType, "UP"_s, 0));
 	$assignStatic(GTKConstants$ArrowType::DOWN, $new(GTKConstants$ArrowType, "DOWN"_s, 1));
 	$assignStatic(GTKConstants$ArrowType::LEFT, $new(GTKConstants$ArrowType, "LEFT"_s, 2));
@@ -107,7 +64,43 @@ GTKConstants$ArrowType::GTKConstants$ArrowType() {
 }
 
 $Class* GTKConstants$ArrowType::load$($String* name, bool initialize) {
-	$loadClass(GTKConstants$ArrowType, name, initialize, &_GTKConstants$ArrowType_ClassInfo_, clinit$GTKConstants$ArrowType, allocate$GTKConstants$ArrowType);
+	$FieldInfo fieldInfos$$[] = {
+		{"UP", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ArrowType, UP)},
+		{"DOWN", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ArrowType, DOWN)},
+		{"LEFT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ArrowType, LEFT)},
+		{"RIGHT", "Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(GTKConstants$ArrowType, RIGHT)},
+		{"$VALUES", "[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(GTKConstants$ArrowType, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(GTKConstants$ArrowType, $values, $GTKConstants$ArrowTypeArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(GTKConstants$ArrowType, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ArrowType, valueOf, GTKConstants$ArrowType*, $String*)},
+		{"values", "()[Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;", nullptr, $PUBLIC | $STATIC, $staticMethod(GTKConstants$ArrowType, values, $GTKConstants$ArrowTypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKConstants$ArrowType", "com.sun.java.swing.plaf.gtk.GTKConstants", "ArrowType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.java.swing.plaf.gtk.GTKConstants$ArrowType",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/java/swing/plaf/gtk/GTKConstants$ArrowType;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKConstants"
+	};
+	$loadClass(GTKConstants$ArrowType, name, initialize, &classInfo$$, GTKConstants$ArrowType::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(GTKConstants$ArrowType));
+	});
 	return class$;
 }
 

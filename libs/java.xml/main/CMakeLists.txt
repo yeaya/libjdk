@@ -149,7 +149,12 @@ install(TARGETS ${JCPP_PROJECT_NAME}-main
 	RUNTIME DESTINATION "${JCPP_INSTALL_BIN_DIR}"
 )
 
+jcpp_add_main_app(com.sun.org.apache.bcel.internal.util.BCELifier-app "com.sun.org.apache.bcel.internal.util.BCELifier-app" "com.sun.org.apache.bcel.internal.util.BCELifier.cpp")
+jcpp_add_main_app(com.sun.org.apache.bcel.internal.util.Class2HTML-app "com.sun.org.apache.bcel.internal.util.Class2HTML-app" "com.sun.org.apache.bcel.internal.util.Class2HTML.cpp")
 jcpp_add_main_app(com.sun.org.apache.xalan.internal.xsltc.ProcessorVersion-app "com.sun.org.apache.xalan.internal.xsltc.ProcessorVersion-app" "com.sun.org.apache.xalan.internal.xsltc.ProcessorVersion.cpp")
+jcpp_add_main_app(com.sun.org.apache.xerces.internal.impl.Constants-app "com.sun.org.apache.xerces.internal.impl.Constants-app" "com.sun.org.apache.xerces.internal.impl.Constants.cpp")
+jcpp_add_main_app(com.sun.org.apache.xerces.internal.impl.xpath.XPath-app "com.sun.org.apache.xerces.internal.impl.xpath.XPath-app" "com.sun.org.apache.xerces.internal.impl.xpath.XPath.cpp")
+jcpp_add_main_app(com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil-app "com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil-app" "com.sun.org.apache.xerces.internal.impl.xpath.regex.REUtil.cpp")
 
 install(
 	DIRECTORY "include/"

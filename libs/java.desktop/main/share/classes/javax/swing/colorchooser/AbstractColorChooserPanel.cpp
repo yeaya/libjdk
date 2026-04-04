@@ -1,5 +1,4 @@
 #include <javax/swing/colorchooser/AbstractColorChooserPanel.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -19,7 +18,6 @@
 
 using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -39,68 +37,6 @@ using $ColorSelectionModel = ::javax::swing::colorchooser::ColorSelectionModel;
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$NamedAttribute AbstractColorChooserPanel_Attribute_var$0[] = {
-	{"description", 's', "Sets the transparency of a color selection on or off."},
-	{}
-};
-
-$CompoundAttribute _AbstractColorChooserPanel_MethodAnnotations_setColorTransparencySelectionEnabled13[] = {
-	{"Ljava/beans/BeanProperty;", AbstractColorChooserPanel_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _AbstractColorChooserPanel_FieldInfo_[] = {
-	{"TRANSPARENCY_ENABLED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractColorChooserPanel, TRANSPARENCY_ENABLED_PROPERTY)},
-	{"enabledListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $FINAL, $field(AbstractColorChooserPanel, enabledListener)},
-	{"chooser", "Ljavax/swing/JColorChooser;", nullptr, $PRIVATE, $field(AbstractColorChooserPanel, chooser)},
-	{}
-};
-
-$MethodInfo _AbstractColorChooserPanel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractColorChooserPanel, init$, void)},
-	{"buildChooser", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, buildChooser, void)},
-	{"getColorFromModel", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(AbstractColorChooserPanel, getColorFromModel, $Color*)},
-	{"getColorSelectionModel", "()Ljavax/swing/colorchooser/ColorSelectionModel;", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, getColorSelectionModel, $ColorSelectionModel*)},
-	{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, getDisplayName, $String*)},
-	{"getDisplayedMnemonicIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, getDisplayedMnemonicIndex, int32_t)},
-	{"getInt", "(Ljava/lang/Object;I)I", nullptr, 0, $virtualMethod(AbstractColorChooserPanel, getInt, int32_t, Object$*, int32_t)},
-	{"getLargeDisplayIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, getLargeDisplayIcon, $Icon*)},
-	{"getMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, getMnemonic, int32_t)},
-	{"getSmallDisplayIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, getSmallDisplayIcon, $Icon*)},
-	{"installChooserPanel", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, installChooserPanel, void, $JColorChooser*)},
-	{"isColorTransparencySelectionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, isColorTransparencySelectionEnabled, bool)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, paint, void, $Graphics*)},
-	{"setColorTransparencySelectionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, setColorTransparencySelectionEnabled, void, bool), nullptr, nullptr, _AbstractColorChooserPanel_MethodAnnotations_setColorTransparencySelectionEnabled13},
-	{"setSelectedColor", "(Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(AbstractColorChooserPanel, setSelectedColor, void, $Color*)},
-	{"uninstallChooserPanel", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, uninstallChooserPanel, void, $JColorChooser*)},
-	{"updateChooser", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, updateChooser, void)},
-	{}
-};
-
-$InnerClassInfo _AbstractColorChooserPanel_InnerClassesInfo_[] = {
-	{"javax.swing.colorchooser.AbstractColorChooserPanel$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AbstractColorChooserPanel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.colorchooser.AbstractColorChooserPanel",
-	"javax.swing.JPanel",
-	nullptr,
-	_AbstractColorChooserPanel_FieldInfo_,
-	_AbstractColorChooserPanel_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractColorChooserPanel_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.colorchooser.AbstractColorChooserPanel$1"
-};
-
-$Object* allocate$AbstractColorChooserPanel($Class* clazz) {
-	return $of($alloc(AbstractColorChooserPanel));
-}
 
 $String* AbstractColorChooserPanel::TRANSPARENCY_ENABLED_PROPERTY = nullptr;
 
@@ -134,12 +70,12 @@ void AbstractColorChooserPanel::uninstallChooserPanel($JColorChooser* enclosingC
 }
 
 $ColorSelectionModel* AbstractColorChooserPanel::getColorSelectionModel() {
-	return (this->chooser != nullptr) ? $nc(this->chooser)->getSelectionModel() : ($ColorSelectionModel*)nullptr;
+	return (this->chooser != nullptr) ? this->chooser->getSelectionModel() : ($ColorSelectionModel*)nullptr;
 }
 
 $Color* AbstractColorChooserPanel::getColorFromModel() {
 	$var($ColorSelectionModel, model, getColorSelectionModel());
-	return (model != nullptr) ? $nc(model)->getSelectedColor() : ($Color*)nullptr;
+	return (model != nullptr) ? model->getSelectedColor() : ($Color*)nullptr;
 }
 
 void AbstractColorChooserPanel::setSelectedColor($Color* color) {
@@ -161,10 +97,10 @@ void AbstractColorChooserPanel::paint($Graphics* g) {
 }
 
 int32_t AbstractColorChooserPanel::getInt(Object$* key, int32_t defaultValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, value, $UIManager::get(key, $(getLocale())));
 	if ($instanceOf($Integer, value)) {
-		return $nc(($cast($Integer, value)))->intValue();
+		return $cast($Integer, value)->intValue();
 	}
 	if ($instanceOf($String, value)) {
 		try {
@@ -178,12 +114,66 @@ int32_t AbstractColorChooserPanel::getInt(Object$* key, int32_t defaultValue) {
 AbstractColorChooserPanel::AbstractColorChooserPanel() {
 }
 
-void clinit$AbstractColorChooserPanel($Class* class$) {
+void AbstractColorChooserPanel::clinit$($Class* clazz) {
 	$assignStatic(AbstractColorChooserPanel::TRANSPARENCY_ENABLED_PROPERTY, "TransparencyEnabled"_s);
 }
 
 $Class* AbstractColorChooserPanel::load$($String* name, bool initialize) {
-	$loadClass(AbstractColorChooserPanel, name, initialize, &_AbstractColorChooserPanel_ClassInfo_, clinit$AbstractColorChooserPanel, allocate$AbstractColorChooserPanel);
+	$FieldInfo fieldInfos$$[] = {
+		{"TRANSPARENCY_ENABLED_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(AbstractColorChooserPanel, TRANSPARENCY_ENABLED_PROPERTY)},
+		{"enabledListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $FINAL, $field(AbstractColorChooserPanel, enabledListener)},
+		{"chooser", "Ljavax/swing/JColorChooser;", nullptr, $PRIVATE, $field(AbstractColorChooserPanel, chooser)},
+		{}
+	};
+	$NamedAttribute setColorTransparencySelectionEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Sets the transparency of a color selection on or off."},
+		{}
+	};
+	$CompoundAttribute setColorTransparencySelectionEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setColorTransparencySelectionEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(AbstractColorChooserPanel, init$, void)},
+		{"buildChooser", "()V", nullptr, $PROTECTED | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, buildChooser, void)},
+		{"getColorFromModel", "()Ljava/awt/Color;", nullptr, $PROTECTED, $virtualMethod(AbstractColorChooserPanel, getColorFromModel, $Color*)},
+		{"getColorSelectionModel", "()Ljavax/swing/colorchooser/ColorSelectionModel;", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, getColorSelectionModel, $ColorSelectionModel*)},
+		{"getDisplayName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, getDisplayName, $String*)},
+		{"getDisplayedMnemonicIndex", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, getDisplayedMnemonicIndex, int32_t)},
+		{"getInt", "(Ljava/lang/Object;I)I", nullptr, 0, $virtualMethod(AbstractColorChooserPanel, getInt, int32_t, Object$*, int32_t)},
+		{"getLargeDisplayIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, getLargeDisplayIcon, $Icon*)},
+		{"getMnemonic", "()I", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, getMnemonic, int32_t)},
+		{"getSmallDisplayIcon", "()Ljavax/swing/Icon;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, getSmallDisplayIcon, $Icon*)},
+		{"installChooserPanel", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, installChooserPanel, void, $JColorChooser*)},
+		{"isColorTransparencySelectionEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, isColorTransparencySelectionEnabled, bool)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, paint, void, $Graphics*)},
+		{"setColorTransparencySelectionEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, setColorTransparencySelectionEnabled, void, bool), nullptr, nullptr, setColorTransparencySelectionEnabledmethodAnnotations$$},
+		{"setSelectedColor", "(Ljava/awt/Color;)V", nullptr, 0, $virtualMethod(AbstractColorChooserPanel, setSelectedColor, void, $Color*)},
+		{"uninstallChooserPanel", "(Ljavax/swing/JColorChooser;)V", nullptr, $PUBLIC, $virtualMethod(AbstractColorChooserPanel, uninstallChooserPanel, void, $JColorChooser*)},
+		{"updateChooser", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AbstractColorChooserPanel, updateChooser, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.colorchooser.AbstractColorChooserPanel$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.colorchooser.AbstractColorChooserPanel",
+		"javax.swing.JPanel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.colorchooser.AbstractColorChooserPanel$1"
+	};
+	$loadClass(AbstractColorChooserPanel, name, initialize, &classInfo$$, AbstractColorChooserPanel::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractColorChooserPanel));
+	});
 	return class$;
 }
 

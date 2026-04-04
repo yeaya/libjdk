@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$SubjectLocation.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,45 +15,40 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$SubjectLocation_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SubjectLocation, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$SubjectLocation_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubjectLocation", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SubjectLocation", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$SubjectLocation_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubjectLocation",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SubjectLocation_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SubjectLocation_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$SubjectLocation($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$SubjectLocation));
-}
-
 void ExifTIFFTagSet$SubjectLocation::init$() {
-	$TIFFTag::init$("SubjectLocation"_s, 0x0000A214, $sl(1, $TIFFTag::TIFF_SHORT), 2);
+	$TIFFTag::init$("SubjectLocation"_s, 0x0000a214, $sl(1, $TIFFTag::TIFF_SHORT), 2);
 }
 
 ExifTIFFTagSet$SubjectLocation::ExifTIFFTagSet$SubjectLocation() {
 }
 
 $Class* ExifTIFFTagSet$SubjectLocation::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$SubjectLocation, name, initialize, &_ExifTIFFTagSet$SubjectLocation_ClassInfo_, allocate$ExifTIFFTagSet$SubjectLocation);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SubjectLocation, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubjectLocation", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SubjectLocation", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubjectLocation",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$SubjectLocation, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$SubjectLocation);
+	});
 	return class$;
 }
 

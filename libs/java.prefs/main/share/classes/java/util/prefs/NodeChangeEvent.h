@@ -33,7 +33,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
 	::java::util::prefs::Preferences* child = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x6FFAAA71714D271D;
+	static const int64_t serialVersionUID = (int64_t)0x6ffaaa71714d271d;
 };
 
 		} // prefs

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/SecurityManager.h>
-
 #include <jdk/xml/internal/JdkConstants.h>
 #include <jcpp.h>
 
@@ -24,41 +23,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _SecurityManager_FieldInfo_[] = {
-	{"DEFAULT_ENTITY_EXPANSION_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecurityManager, DEFAULT_ENTITY_EXPANSION_LIMIT)},
-	{"DEFAULT_MAX_OCCUR_NODE_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecurityManager, DEFAULT_MAX_OCCUR_NODE_LIMIT)},
-	{"DEFAULT_ELEMENT_ATTRIBUTE_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecurityManager, DEFAULT_ELEMENT_ATTRIBUTE_LIMIT)},
-	{"entityExpansionLimit", "I", nullptr, $PRIVATE, $field(SecurityManager, entityExpansionLimit)},
-	{"maxOccurLimit", "I", nullptr, $PRIVATE, $field(SecurityManager, maxOccurLimit)},
-	{"fElementAttributeLimit", "I", nullptr, $PRIVATE, $field(SecurityManager, fElementAttributeLimit)},
-	{}
-};
-
-$MethodInfo _SecurityManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager, init$, void)},
-	{"getElementAttrLimit", "()I", nullptr, $PUBLIC, $method(SecurityManager, getElementAttrLimit, int32_t)},
-	{"getEntityExpansionLimit", "()I", nullptr, $PUBLIC, $method(SecurityManager, getEntityExpansionLimit, int32_t)},
-	{"getMaxOccurNodeLimit", "()I", nullptr, $PUBLIC, $method(SecurityManager, getMaxOccurNodeLimit, int32_t)},
-	{"readSystemProperties", "()V", nullptr, $PRIVATE, $method(SecurityManager, readSystemProperties, void)},
-	{"setElementAttrLimit", "(I)V", nullptr, $PUBLIC, $method(SecurityManager, setElementAttrLimit, void, int32_t)},
-	{"setEntityExpansionLimit", "(I)V", nullptr, $PUBLIC, $method(SecurityManager, setEntityExpansionLimit, void, int32_t)},
-	{"setMaxOccurNodeLimit", "(I)V", nullptr, $PUBLIC, $method(SecurityManager, setMaxOccurNodeLimit, void, int32_t)},
-	{}
-};
-
-$ClassInfo _SecurityManager_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.SecurityManager",
-	"java.lang.Object",
-	nullptr,
-	_SecurityManager_FieldInfo_,
-	_SecurityManager_MethodInfo_
-};
-
-$Object* allocate$SecurityManager($Class* clazz) {
-	return $of($alloc(SecurityManager));
-}
 
 void SecurityManager::init$() {
 	this->entityExpansionLimit = SecurityManager::DEFAULT_ENTITY_EXPANSION_LIMIT;
@@ -92,7 +56,7 @@ void SecurityManager::setElementAttrLimit(int32_t limit) {
 }
 
 void SecurityManager::readSystemProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($JdkConstants);
 		$var($String, value, $System::getProperty($JdkConstants::ENTITY_EXPANSION_LIMIT));
@@ -138,7 +102,37 @@ SecurityManager::SecurityManager() {
 }
 
 $Class* SecurityManager::load$($String* name, bool initialize) {
-	$loadClass(SecurityManager, name, initialize, &_SecurityManager_ClassInfo_, allocate$SecurityManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_ENTITY_EXPANSION_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecurityManager, DEFAULT_ENTITY_EXPANSION_LIMIT)},
+		{"DEFAULT_MAX_OCCUR_NODE_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecurityManager, DEFAULT_MAX_OCCUR_NODE_LIMIT)},
+		{"DEFAULT_ELEMENT_ATTRIBUTE_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SecurityManager, DEFAULT_ELEMENT_ATTRIBUTE_LIMIT)},
+		{"entityExpansionLimit", "I", nullptr, $PRIVATE, $field(SecurityManager, entityExpansionLimit)},
+		{"maxOccurLimit", "I", nullptr, $PRIVATE, $field(SecurityManager, maxOccurLimit)},
+		{"fElementAttributeLimit", "I", nullptr, $PRIVATE, $field(SecurityManager, fElementAttributeLimit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SecurityManager, init$, void)},
+		{"getElementAttrLimit", "()I", nullptr, $PUBLIC, $method(SecurityManager, getElementAttrLimit, int32_t)},
+		{"getEntityExpansionLimit", "()I", nullptr, $PUBLIC, $method(SecurityManager, getEntityExpansionLimit, int32_t)},
+		{"getMaxOccurNodeLimit", "()I", nullptr, $PUBLIC, $method(SecurityManager, getMaxOccurNodeLimit, int32_t)},
+		{"readSystemProperties", "()V", nullptr, $PRIVATE, $method(SecurityManager, readSystemProperties, void)},
+		{"setElementAttrLimit", "(I)V", nullptr, $PUBLIC, $method(SecurityManager, setElementAttrLimit, void, int32_t)},
+		{"setEntityExpansionLimit", "(I)V", nullptr, $PUBLIC, $method(SecurityManager, setEntityExpansionLimit, void, int32_t)},
+		{"setMaxOccurNodeLimit", "(I)V", nullptr, $PUBLIC, $method(SecurityManager, setMaxOccurNodeLimit, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.SecurityManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SecurityManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SecurityManager);
+	});
 	return class$;
 }
 

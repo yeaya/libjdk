@@ -686,6 +686,7 @@ class Constants : public ::com::sun::org::apache::xml::internal::utils::Constant
 	$class(Constants, 0, ::com::sun::org::apache::xml::internal::utils::Constants)
 public:
 	Constants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t ELEMNAME_UNDEFINED = (-1);
 	static const int32_t ELEMNAME_WITHPARAM = 2;

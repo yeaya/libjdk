@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/InstructionConst.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/AALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/AASTORE.h>
@@ -355,150 +354,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _InstructionConst_FieldInfo_[] = {
-	{"NOP", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, NOP)},
-	{"ACONST_NULL", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ACONST_NULL)},
-	{"ICONST_M1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_M1)},
-	{"ICONST_0", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_0)},
-	{"ICONST_1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_1)},
-	{"ICONST_2", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_2)},
-	{"ICONST_3", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_3)},
-	{"ICONST_4", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_4)},
-	{"ICONST_5", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_5)},
-	{"LCONST_0", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LCONST_0)},
-	{"LCONST_1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LCONST_1)},
-	{"FCONST_0", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCONST_0)},
-	{"FCONST_1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCONST_1)},
-	{"FCONST_2", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCONST_2)},
-	{"DCONST_0", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DCONST_0)},
-	{"DCONST_1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DCONST_1)},
-	{"IALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IALOAD)},
-	{"LALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LALOAD)},
-	{"FALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FALOAD)},
-	{"DALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DALOAD)},
-	{"AALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, AALOAD)},
-	{"BALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, BALOAD)},
-	{"CALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, CALOAD)},
-	{"SALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, SALOAD)},
-	{"IASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IASTORE)},
-	{"LASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LASTORE)},
-	{"FASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FASTORE)},
-	{"DASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DASTORE)},
-	{"AASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, AASTORE)},
-	{"BASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, BASTORE)},
-	{"CASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, CASTORE)},
-	{"SASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, SASTORE)},
-	{"POP", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, POP)},
-	{"POP2", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, POP2)},
-	{"DUP", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP)},
-	{"DUP_X1", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP_X1)},
-	{"DUP_X2", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP_X2)},
-	{"DUP2", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP2)},
-	{"DUP2_X1", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP2_X1)},
-	{"DUP2_X2", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP2_X2)},
-	{"SWAP", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, SWAP)},
-	{"IADD", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IADD)},
-	{"LADD", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LADD)},
-	{"FADD", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FADD)},
-	{"DADD", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DADD)},
-	{"ISUB", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISUB)},
-	{"LSUB", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LSUB)},
-	{"FSUB", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FSUB)},
-	{"DSUB", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DSUB)},
-	{"IMUL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IMUL)},
-	{"LMUL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LMUL)},
-	{"FMUL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FMUL)},
-	{"DMUL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DMUL)},
-	{"IDIV", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IDIV)},
-	{"LDIV", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LDIV)},
-	{"FDIV", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FDIV)},
-	{"DDIV", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DDIV)},
-	{"IREM", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IREM)},
-	{"LREM", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LREM)},
-	{"FREM", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FREM)},
-	{"DREM", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DREM)},
-	{"INEG", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, INEG)},
-	{"LNEG", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LNEG)},
-	{"FNEG", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FNEG)},
-	{"DNEG", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DNEG)},
-	{"ISHL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISHL)},
-	{"LSHL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LSHL)},
-	{"ISHR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISHR)},
-	{"LSHR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LSHR)},
-	{"IUSHR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IUSHR)},
-	{"LUSHR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LUSHR)},
-	{"IAND", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IAND)},
-	{"LAND", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LAND)},
-	{"IOR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IOR)},
-	{"LOR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LOR)},
-	{"IXOR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IXOR)},
-	{"LXOR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LXOR)},
-	{"I2L", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2L)},
-	{"I2F", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2F)},
-	{"I2D", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2D)},
-	{"L2I", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, L2I)},
-	{"L2F", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, L2F)},
-	{"L2D", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, L2D)},
-	{"F2I", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, F2I)},
-	{"F2L", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, F2L)},
-	{"F2D", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, F2D)},
-	{"D2I", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, D2I)},
-	{"D2L", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, D2L)},
-	{"D2F", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, D2F)},
-	{"I2B", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2B)},
-	{"I2C", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2C)},
-	{"I2S", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2S)},
-	{"LCMP", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LCMP)},
-	{"FCMPL", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCMPL)},
-	{"FCMPG", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCMPG)},
-	{"DCMPL", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DCMPL)},
-	{"DCMPG", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DCMPG)},
-	{"IRETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IRETURN)},
-	{"LRETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LRETURN)},
-	{"FRETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FRETURN)},
-	{"DRETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DRETURN)},
-	{"ARETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ARETURN)},
-	{"RETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, RETURN)},
-	{"ARRAYLENGTH", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ARRAYLENGTH)},
-	{"ATHROW", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ATHROW)},
-	{"MONITORENTER", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, MONITORENTER)},
-	{"MONITOREXIT", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, MONITOREXIT)},
-	{"THIS", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, THIS)},
-	{"ALOAD_0", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ALOAD_0)},
-	{"ALOAD_1", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ALOAD_1)},
-	{"ALOAD_2", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ALOAD_2)},
-	{"ILOAD_0", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ILOAD_0)},
-	{"ILOAD_1", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ILOAD_1)},
-	{"ILOAD_2", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ILOAD_2)},
-	{"ASTORE_0", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ASTORE_0)},
-	{"ASTORE_1", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ASTORE_1)},
-	{"ASTORE_2", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ASTORE_2)},
-	{"ISTORE_0", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISTORE_0)},
-	{"ISTORE_1", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISTORE_1)},
-	{"ISTORE_2", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISTORE_2)},
-	{"INSTRUCTIONS", "[Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InstructionConst, INSTRUCTIONS)},
-	{}
-};
-
-$MethodInfo _InstructionConst_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(InstructionConst, init$, void)},
-	{"getInstruction", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstructionConst, getInstruction, $Instruction*, int32_t)},
-	{}
-};
-
-$ClassInfo _InstructionConst_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.InstructionConst",
-	"java.lang.Object",
-	nullptr,
-	_InstructionConst_FieldInfo_,
-	_InstructionConst_MethodInfo_
-};
-
-$Object* allocate$InstructionConst($Class* clazz) {
-	return $of($alloc(InstructionConst));
-}
-
 $Instruction* InstructionConst::NOP = nullptr;
 $Instruction* InstructionConst::ACONST_NULL = nullptr;
 $Instruction* InstructionConst::ICONST_M1 = nullptr;
@@ -626,10 +481,10 @@ void InstructionConst::init$() {
 
 $Instruction* InstructionConst::getInstruction(int32_t index) {
 	$init(InstructionConst);
-	return $nc(InstructionConst::INSTRUCTIONS)->get(index);
+	return InstructionConst::INSTRUCTIONS->get(index);
 }
 
-void clinit$InstructionConst($Class* class$) {
+void InstructionConst::clinit$($Class* clazz) {
 	$assignStatic(InstructionConst::NOP, $new($NOP));
 	$assignStatic(InstructionConst::ACONST_NULL, $new($ACONST_NULL));
 	$assignStatic(InstructionConst::ICONST_M1, $new($ICONST, -1));
@@ -641,11 +496,11 @@ void clinit$InstructionConst($Class* class$) {
 	$assignStatic(InstructionConst::ICONST_5, $new($ICONST, 5));
 	$assignStatic(InstructionConst::LCONST_0, $new($LCONST, 0));
 	$assignStatic(InstructionConst::LCONST_1, $new($LCONST, 1));
-	$assignStatic(InstructionConst::FCONST_0, $new($FCONST, (float)0));
-	$assignStatic(InstructionConst::FCONST_1, $new($FCONST, (float)1));
-	$assignStatic(InstructionConst::FCONST_2, $new($FCONST, (float)2));
-	$assignStatic(InstructionConst::DCONST_0, $new($DCONST, (double)0));
-	$assignStatic(InstructionConst::DCONST_1, $new($DCONST, (double)1));
+	$assignStatic(InstructionConst::FCONST_0, $new($FCONST, 0));
+	$assignStatic(InstructionConst::FCONST_1, $new($FCONST, 1));
+	$assignStatic(InstructionConst::FCONST_2, $new($FCONST, 2));
+	$assignStatic(InstructionConst::DCONST_0, $new($DCONST, 0));
+	$assignStatic(InstructionConst::DCONST_1, $new($DCONST, 1));
 	$assignStatic(InstructionConst::IALOAD, $new($IALOAD));
 	$assignStatic(InstructionConst::LALOAD, $new($LALOAD));
 	$assignStatic(InstructionConst::FALOAD, $new($FALOAD));
@@ -752,113 +607,113 @@ void clinit$InstructionConst($Class* class$) {
 	$assignStatic(InstructionConst::ISTORE_2, $new($ISTORE, 2));
 	$assignStatic(InstructionConst::INSTRUCTIONS, $new($InstructionArray, 256));
 	{
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::NOP, InstructionConst::NOP);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ACONST_NULL, InstructionConst::ACONST_NULL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ICONST_M1, InstructionConst::ICONST_M1);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ICONST_0, InstructionConst::ICONST_0);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ICONST_1, InstructionConst::ICONST_1);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ICONST_2, InstructionConst::ICONST_2);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ICONST_3, InstructionConst::ICONST_3);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ICONST_4, InstructionConst::ICONST_4);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ICONST_5, InstructionConst::ICONST_5);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LCONST_0, InstructionConst::LCONST_0);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LCONST_1, InstructionConst::LCONST_1);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FCONST_0, InstructionConst::FCONST_0);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FCONST_1, InstructionConst::FCONST_1);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FCONST_2, InstructionConst::FCONST_2);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DCONST_0, InstructionConst::DCONST_0);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DCONST_1, InstructionConst::DCONST_1);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IALOAD, InstructionConst::IALOAD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LALOAD, InstructionConst::LALOAD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FALOAD, InstructionConst::FALOAD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DALOAD, InstructionConst::DALOAD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::AALOAD, InstructionConst::AALOAD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::BALOAD, InstructionConst::BALOAD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::CALOAD, InstructionConst::CALOAD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::SALOAD, InstructionConst::SALOAD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IASTORE, InstructionConst::IASTORE);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LASTORE, InstructionConst::LASTORE);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FASTORE, InstructionConst::FASTORE);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DASTORE, InstructionConst::DASTORE);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::AASTORE, InstructionConst::AASTORE);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::BASTORE, InstructionConst::BASTORE);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::CASTORE, InstructionConst::CASTORE);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::SASTORE, InstructionConst::SASTORE);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::POP, InstructionConst::POP);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::POP2, InstructionConst::POP2);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DUP, InstructionConst::DUP);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DUP_X1, InstructionConst::DUP_X1);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DUP_X2, InstructionConst::DUP_X2);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DUP2, InstructionConst::DUP2);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DUP2_X1, InstructionConst::DUP2_X1);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DUP2_X2, InstructionConst::DUP2_X2);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::SWAP, InstructionConst::SWAP);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IADD, InstructionConst::IADD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LADD, InstructionConst::LADD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FADD, InstructionConst::FADD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DADD, InstructionConst::DADD);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ISUB, InstructionConst::ISUB);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LSUB, InstructionConst::LSUB);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FSUB, InstructionConst::FSUB);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DSUB, InstructionConst::DSUB);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IMUL, InstructionConst::IMUL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LMUL, InstructionConst::LMUL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FMUL, InstructionConst::FMUL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DMUL, InstructionConst::DMUL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IDIV, InstructionConst::IDIV);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LDIV, InstructionConst::LDIV);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FDIV, InstructionConst::FDIV);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DDIV, InstructionConst::DDIV);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IREM, InstructionConst::IREM);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LREM, InstructionConst::LREM);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FREM, InstructionConst::FREM);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DREM, InstructionConst::DREM);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::INEG, InstructionConst::INEG);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LNEG, InstructionConst::LNEG);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FNEG, InstructionConst::FNEG);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DNEG, InstructionConst::DNEG);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ISHL, InstructionConst::ISHL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LSHL, InstructionConst::LSHL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ISHR, InstructionConst::ISHR);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LSHR, InstructionConst::LSHR);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IUSHR, InstructionConst::IUSHR);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LUSHR, InstructionConst::LUSHR);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IAND, InstructionConst::IAND);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LAND, InstructionConst::LAND);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IOR, InstructionConst::IOR);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LOR, InstructionConst::LOR);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IXOR, InstructionConst::IXOR);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LXOR, InstructionConst::LXOR);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::I2L, InstructionConst::I2L);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::I2F, InstructionConst::I2F);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::I2D, InstructionConst::I2D);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::L2I, InstructionConst::L2I);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::L2F, InstructionConst::L2F);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::L2D, InstructionConst::L2D);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::F2I, InstructionConst::F2I);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::F2L, InstructionConst::F2L);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::F2D, InstructionConst::F2D);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::D2I, InstructionConst::D2I);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::D2L, InstructionConst::D2L);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::D2F, InstructionConst::D2F);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::I2B, InstructionConst::I2B);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::I2C, InstructionConst::I2C);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::I2S, InstructionConst::I2S);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LCMP, InstructionConst::LCMP);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FCMPL, InstructionConst::FCMPL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FCMPG, InstructionConst::FCMPG);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DCMPL, InstructionConst::DCMPL);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DCMPG, InstructionConst::DCMPG);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::IRETURN, InstructionConst::IRETURN);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::LRETURN, InstructionConst::LRETURN);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::FRETURN, InstructionConst::FRETURN);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::DRETURN, InstructionConst::DRETURN);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ARETURN, InstructionConst::ARETURN);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::RETURN, InstructionConst::RETURN);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ARRAYLENGTH, InstructionConst::ARRAYLENGTH);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::ATHROW, InstructionConst::ATHROW);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::MONITORENTER, InstructionConst::MONITORENTER);
-		$nc(InstructionConst::INSTRUCTIONS)->set($Const::MONITOREXIT, InstructionConst::MONITOREXIT);
+		InstructionConst::INSTRUCTIONS->set($Const::NOP, InstructionConst::NOP);
+		InstructionConst::INSTRUCTIONS->set($Const::ACONST_NULL, InstructionConst::ACONST_NULL);
+		InstructionConst::INSTRUCTIONS->set($Const::ICONST_M1, InstructionConst::ICONST_M1);
+		InstructionConst::INSTRUCTIONS->set($Const::ICONST_0, InstructionConst::ICONST_0);
+		InstructionConst::INSTRUCTIONS->set($Const::ICONST_1, InstructionConst::ICONST_1);
+		InstructionConst::INSTRUCTIONS->set($Const::ICONST_2, InstructionConst::ICONST_2);
+		InstructionConst::INSTRUCTIONS->set($Const::ICONST_3, InstructionConst::ICONST_3);
+		InstructionConst::INSTRUCTIONS->set($Const::ICONST_4, InstructionConst::ICONST_4);
+		InstructionConst::INSTRUCTIONS->set($Const::ICONST_5, InstructionConst::ICONST_5);
+		InstructionConst::INSTRUCTIONS->set($Const::LCONST_0, InstructionConst::LCONST_0);
+		InstructionConst::INSTRUCTIONS->set($Const::LCONST_1, InstructionConst::LCONST_1);
+		InstructionConst::INSTRUCTIONS->set($Const::FCONST_0, InstructionConst::FCONST_0);
+		InstructionConst::INSTRUCTIONS->set($Const::FCONST_1, InstructionConst::FCONST_1);
+		InstructionConst::INSTRUCTIONS->set($Const::FCONST_2, InstructionConst::FCONST_2);
+		InstructionConst::INSTRUCTIONS->set($Const::DCONST_0, InstructionConst::DCONST_0);
+		InstructionConst::INSTRUCTIONS->set($Const::DCONST_1, InstructionConst::DCONST_1);
+		InstructionConst::INSTRUCTIONS->set($Const::IALOAD, InstructionConst::IALOAD);
+		InstructionConst::INSTRUCTIONS->set($Const::LALOAD, InstructionConst::LALOAD);
+		InstructionConst::INSTRUCTIONS->set($Const::FALOAD, InstructionConst::FALOAD);
+		InstructionConst::INSTRUCTIONS->set($Const::DALOAD, InstructionConst::DALOAD);
+		InstructionConst::INSTRUCTIONS->set($Const::AALOAD, InstructionConst::AALOAD);
+		InstructionConst::INSTRUCTIONS->set($Const::BALOAD, InstructionConst::BALOAD);
+		InstructionConst::INSTRUCTIONS->set($Const::CALOAD, InstructionConst::CALOAD);
+		InstructionConst::INSTRUCTIONS->set($Const::SALOAD, InstructionConst::SALOAD);
+		InstructionConst::INSTRUCTIONS->set($Const::IASTORE, InstructionConst::IASTORE);
+		InstructionConst::INSTRUCTIONS->set($Const::LASTORE, InstructionConst::LASTORE);
+		InstructionConst::INSTRUCTIONS->set($Const::FASTORE, InstructionConst::FASTORE);
+		InstructionConst::INSTRUCTIONS->set($Const::DASTORE, InstructionConst::DASTORE);
+		InstructionConst::INSTRUCTIONS->set($Const::AASTORE, InstructionConst::AASTORE);
+		InstructionConst::INSTRUCTIONS->set($Const::BASTORE, InstructionConst::BASTORE);
+		InstructionConst::INSTRUCTIONS->set($Const::CASTORE, InstructionConst::CASTORE);
+		InstructionConst::INSTRUCTIONS->set($Const::SASTORE, InstructionConst::SASTORE);
+		InstructionConst::INSTRUCTIONS->set($Const::POP, InstructionConst::POP);
+		InstructionConst::INSTRUCTIONS->set($Const::POP2, InstructionConst::POP2);
+		InstructionConst::INSTRUCTIONS->set($Const::DUP, InstructionConst::DUP);
+		InstructionConst::INSTRUCTIONS->set($Const::DUP_X1, InstructionConst::DUP_X1);
+		InstructionConst::INSTRUCTIONS->set($Const::DUP_X2, InstructionConst::DUP_X2);
+		InstructionConst::INSTRUCTIONS->set($Const::DUP2, InstructionConst::DUP2);
+		InstructionConst::INSTRUCTIONS->set($Const::DUP2_X1, InstructionConst::DUP2_X1);
+		InstructionConst::INSTRUCTIONS->set($Const::DUP2_X2, InstructionConst::DUP2_X2);
+		InstructionConst::INSTRUCTIONS->set($Const::SWAP, InstructionConst::SWAP);
+		InstructionConst::INSTRUCTIONS->set($Const::IADD, InstructionConst::IADD);
+		InstructionConst::INSTRUCTIONS->set($Const::LADD, InstructionConst::LADD);
+		InstructionConst::INSTRUCTIONS->set($Const::FADD, InstructionConst::FADD);
+		InstructionConst::INSTRUCTIONS->set($Const::DADD, InstructionConst::DADD);
+		InstructionConst::INSTRUCTIONS->set($Const::ISUB, InstructionConst::ISUB);
+		InstructionConst::INSTRUCTIONS->set($Const::LSUB, InstructionConst::LSUB);
+		InstructionConst::INSTRUCTIONS->set($Const::FSUB, InstructionConst::FSUB);
+		InstructionConst::INSTRUCTIONS->set($Const::DSUB, InstructionConst::DSUB);
+		InstructionConst::INSTRUCTIONS->set($Const::IMUL, InstructionConst::IMUL);
+		InstructionConst::INSTRUCTIONS->set($Const::LMUL, InstructionConst::LMUL);
+		InstructionConst::INSTRUCTIONS->set($Const::FMUL, InstructionConst::FMUL);
+		InstructionConst::INSTRUCTIONS->set($Const::DMUL, InstructionConst::DMUL);
+		InstructionConst::INSTRUCTIONS->set($Const::IDIV, InstructionConst::IDIV);
+		InstructionConst::INSTRUCTIONS->set($Const::LDIV, InstructionConst::LDIV);
+		InstructionConst::INSTRUCTIONS->set($Const::FDIV, InstructionConst::FDIV);
+		InstructionConst::INSTRUCTIONS->set($Const::DDIV, InstructionConst::DDIV);
+		InstructionConst::INSTRUCTIONS->set($Const::IREM, InstructionConst::IREM);
+		InstructionConst::INSTRUCTIONS->set($Const::LREM, InstructionConst::LREM);
+		InstructionConst::INSTRUCTIONS->set($Const::FREM, InstructionConst::FREM);
+		InstructionConst::INSTRUCTIONS->set($Const::DREM, InstructionConst::DREM);
+		InstructionConst::INSTRUCTIONS->set($Const::INEG, InstructionConst::INEG);
+		InstructionConst::INSTRUCTIONS->set($Const::LNEG, InstructionConst::LNEG);
+		InstructionConst::INSTRUCTIONS->set($Const::FNEG, InstructionConst::FNEG);
+		InstructionConst::INSTRUCTIONS->set($Const::DNEG, InstructionConst::DNEG);
+		InstructionConst::INSTRUCTIONS->set($Const::ISHL, InstructionConst::ISHL);
+		InstructionConst::INSTRUCTIONS->set($Const::LSHL, InstructionConst::LSHL);
+		InstructionConst::INSTRUCTIONS->set($Const::ISHR, InstructionConst::ISHR);
+		InstructionConst::INSTRUCTIONS->set($Const::LSHR, InstructionConst::LSHR);
+		InstructionConst::INSTRUCTIONS->set($Const::IUSHR, InstructionConst::IUSHR);
+		InstructionConst::INSTRUCTIONS->set($Const::LUSHR, InstructionConst::LUSHR);
+		InstructionConst::INSTRUCTIONS->set($Const::IAND, InstructionConst::IAND);
+		InstructionConst::INSTRUCTIONS->set($Const::LAND, InstructionConst::LAND);
+		InstructionConst::INSTRUCTIONS->set($Const::IOR, InstructionConst::IOR);
+		InstructionConst::INSTRUCTIONS->set($Const::LOR, InstructionConst::LOR);
+		InstructionConst::INSTRUCTIONS->set($Const::IXOR, InstructionConst::IXOR);
+		InstructionConst::INSTRUCTIONS->set($Const::LXOR, InstructionConst::LXOR);
+		InstructionConst::INSTRUCTIONS->set($Const::I2L, InstructionConst::I2L);
+		InstructionConst::INSTRUCTIONS->set($Const::I2F, InstructionConst::I2F);
+		InstructionConst::INSTRUCTIONS->set($Const::I2D, InstructionConst::I2D);
+		InstructionConst::INSTRUCTIONS->set($Const::L2I, InstructionConst::L2I);
+		InstructionConst::INSTRUCTIONS->set($Const::L2F, InstructionConst::L2F);
+		InstructionConst::INSTRUCTIONS->set($Const::L2D, InstructionConst::L2D);
+		InstructionConst::INSTRUCTIONS->set($Const::F2I, InstructionConst::F2I);
+		InstructionConst::INSTRUCTIONS->set($Const::F2L, InstructionConst::F2L);
+		InstructionConst::INSTRUCTIONS->set($Const::F2D, InstructionConst::F2D);
+		InstructionConst::INSTRUCTIONS->set($Const::D2I, InstructionConst::D2I);
+		InstructionConst::INSTRUCTIONS->set($Const::D2L, InstructionConst::D2L);
+		InstructionConst::INSTRUCTIONS->set($Const::D2F, InstructionConst::D2F);
+		InstructionConst::INSTRUCTIONS->set($Const::I2B, InstructionConst::I2B);
+		InstructionConst::INSTRUCTIONS->set($Const::I2C, InstructionConst::I2C);
+		InstructionConst::INSTRUCTIONS->set($Const::I2S, InstructionConst::I2S);
+		InstructionConst::INSTRUCTIONS->set($Const::LCMP, InstructionConst::LCMP);
+		InstructionConst::INSTRUCTIONS->set($Const::FCMPL, InstructionConst::FCMPL);
+		InstructionConst::INSTRUCTIONS->set($Const::FCMPG, InstructionConst::FCMPG);
+		InstructionConst::INSTRUCTIONS->set($Const::DCMPL, InstructionConst::DCMPL);
+		InstructionConst::INSTRUCTIONS->set($Const::DCMPG, InstructionConst::DCMPG);
+		InstructionConst::INSTRUCTIONS->set($Const::IRETURN, InstructionConst::IRETURN);
+		InstructionConst::INSTRUCTIONS->set($Const::LRETURN, InstructionConst::LRETURN);
+		InstructionConst::INSTRUCTIONS->set($Const::FRETURN, InstructionConst::FRETURN);
+		InstructionConst::INSTRUCTIONS->set($Const::DRETURN, InstructionConst::DRETURN);
+		InstructionConst::INSTRUCTIONS->set($Const::ARETURN, InstructionConst::ARETURN);
+		InstructionConst::INSTRUCTIONS->set($Const::RETURN, InstructionConst::RETURN);
+		InstructionConst::INSTRUCTIONS->set($Const::ARRAYLENGTH, InstructionConst::ARRAYLENGTH);
+		InstructionConst::INSTRUCTIONS->set($Const::ATHROW, InstructionConst::ATHROW);
+		InstructionConst::INSTRUCTIONS->set($Const::MONITORENTER, InstructionConst::MONITORENTER);
+		InstructionConst::INSTRUCTIONS->set($Const::MONITOREXIT, InstructionConst::MONITOREXIT);
 	}
 }
 
@@ -866,7 +721,146 @@ InstructionConst::InstructionConst() {
 }
 
 $Class* InstructionConst::load$($String* name, bool initialize) {
-	$loadClass(InstructionConst, name, initialize, &_InstructionConst_ClassInfo_, clinit$InstructionConst, allocate$InstructionConst);
+	$FieldInfo fieldInfos$$[] = {
+		{"NOP", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, NOP)},
+		{"ACONST_NULL", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ACONST_NULL)},
+		{"ICONST_M1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_M1)},
+		{"ICONST_0", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_0)},
+		{"ICONST_1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_1)},
+		{"ICONST_2", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_2)},
+		{"ICONST_3", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_3)},
+		{"ICONST_4", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_4)},
+		{"ICONST_5", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ICONST_5)},
+		{"LCONST_0", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LCONST_0)},
+		{"LCONST_1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LCONST_1)},
+		{"FCONST_0", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCONST_0)},
+		{"FCONST_1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCONST_1)},
+		{"FCONST_2", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCONST_2)},
+		{"DCONST_0", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DCONST_0)},
+		{"DCONST_1", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DCONST_1)},
+		{"IALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IALOAD)},
+		{"LALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LALOAD)},
+		{"FALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FALOAD)},
+		{"DALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DALOAD)},
+		{"AALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, AALOAD)},
+		{"BALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, BALOAD)},
+		{"CALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, CALOAD)},
+		{"SALOAD", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, SALOAD)},
+		{"IASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IASTORE)},
+		{"LASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LASTORE)},
+		{"FASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FASTORE)},
+		{"DASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DASTORE)},
+		{"AASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, AASTORE)},
+		{"BASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, BASTORE)},
+		{"CASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, CASTORE)},
+		{"SASTORE", "Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, SASTORE)},
+		{"POP", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, POP)},
+		{"POP2", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, POP2)},
+		{"DUP", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP)},
+		{"DUP_X1", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP_X1)},
+		{"DUP_X2", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP_X2)},
+		{"DUP2", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP2)},
+		{"DUP2_X1", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP2_X1)},
+		{"DUP2_X2", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DUP2_X2)},
+		{"SWAP", "Lcom/sun/org/apache/bcel/internal/generic/StackInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, SWAP)},
+		{"IADD", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IADD)},
+		{"LADD", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LADD)},
+		{"FADD", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FADD)},
+		{"DADD", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DADD)},
+		{"ISUB", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISUB)},
+		{"LSUB", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LSUB)},
+		{"FSUB", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FSUB)},
+		{"DSUB", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DSUB)},
+		{"IMUL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IMUL)},
+		{"LMUL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LMUL)},
+		{"FMUL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FMUL)},
+		{"DMUL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DMUL)},
+		{"IDIV", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IDIV)},
+		{"LDIV", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LDIV)},
+		{"FDIV", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FDIV)},
+		{"DDIV", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DDIV)},
+		{"IREM", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IREM)},
+		{"LREM", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LREM)},
+		{"FREM", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FREM)},
+		{"DREM", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DREM)},
+		{"INEG", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, INEG)},
+		{"LNEG", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LNEG)},
+		{"FNEG", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FNEG)},
+		{"DNEG", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DNEG)},
+		{"ISHL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISHL)},
+		{"LSHL", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LSHL)},
+		{"ISHR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISHR)},
+		{"LSHR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LSHR)},
+		{"IUSHR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IUSHR)},
+		{"LUSHR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LUSHR)},
+		{"IAND", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IAND)},
+		{"LAND", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LAND)},
+		{"IOR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IOR)},
+		{"LOR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LOR)},
+		{"IXOR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IXOR)},
+		{"LXOR", "Lcom/sun/org/apache/bcel/internal/generic/ArithmeticInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LXOR)},
+		{"I2L", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2L)},
+		{"I2F", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2F)},
+		{"I2D", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2D)},
+		{"L2I", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, L2I)},
+		{"L2F", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, L2F)},
+		{"L2D", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, L2D)},
+		{"F2I", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, F2I)},
+		{"F2L", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, F2L)},
+		{"F2D", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, F2D)},
+		{"D2I", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, D2I)},
+		{"D2L", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, D2L)},
+		{"D2F", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, D2F)},
+		{"I2B", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2B)},
+		{"I2C", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2C)},
+		{"I2S", "Lcom/sun/org/apache/bcel/internal/generic/ConversionInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, I2S)},
+		{"LCMP", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LCMP)},
+		{"FCMPL", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCMPL)},
+		{"FCMPG", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FCMPG)},
+		{"DCMPL", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DCMPL)},
+		{"DCMPG", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DCMPG)},
+		{"IRETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, IRETURN)},
+		{"LRETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, LRETURN)},
+		{"FRETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, FRETURN)},
+		{"DRETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, DRETURN)},
+		{"ARETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ARETURN)},
+		{"RETURN", "Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, RETURN)},
+		{"ARRAYLENGTH", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ARRAYLENGTH)},
+		{"ATHROW", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ATHROW)},
+		{"MONITORENTER", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, MONITORENTER)},
+		{"MONITOREXIT", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, MONITOREXIT)},
+		{"THIS", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, THIS)},
+		{"ALOAD_0", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ALOAD_0)},
+		{"ALOAD_1", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ALOAD_1)},
+		{"ALOAD_2", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ALOAD_2)},
+		{"ILOAD_0", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ILOAD_0)},
+		{"ILOAD_1", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ILOAD_1)},
+		{"ILOAD_2", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ILOAD_2)},
+		{"ASTORE_0", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ASTORE_0)},
+		{"ASTORE_1", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ASTORE_1)},
+		{"ASTORE_2", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ASTORE_2)},
+		{"ISTORE_0", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISTORE_0)},
+		{"ISTORE_1", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISTORE_1)},
+		{"ISTORE_2", "Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(InstructionConst, ISTORE_2)},
+		{"INSTRUCTIONS", "[Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(InstructionConst, INSTRUCTIONS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(InstructionConst, init$, void)},
+		{"getInstruction", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC | $STATIC, $staticMethod(InstructionConst, getInstruction, $Instruction*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.InstructionConst",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstructionConst, name, initialize, &classInfo$$, InstructionConst::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(InstructionConst);
+	});
 	return class$;
 }
 

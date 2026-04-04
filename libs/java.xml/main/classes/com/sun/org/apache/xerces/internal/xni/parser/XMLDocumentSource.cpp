@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
-
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <jcpp.h>
 
@@ -16,27 +15,23 @@ namespace com {
 						namespace xni {
 							namespace parser {
 
-$MethodInfo _XMLDocumentSource_MethodInfo_[] = {
-	{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDocumentSource, getDocumentHandler, $XMLDocumentHandler*)},
-	{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDocumentSource, setDocumentHandler, void, $XMLDocumentHandler*)},
-	{}
-};
-
-$ClassInfo _XMLDocumentSource_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentSource",
-	nullptr,
-	nullptr,
-	nullptr,
-	_XMLDocumentSource_MethodInfo_
-};
-
-$Object* allocate$XMLDocumentSource($Class* clazz) {
-	return $of($alloc(XMLDocumentSource));
-}
-
 $Class* XMLDocumentSource::load$($String* name, bool initialize) {
-	$loadClass(XMLDocumentSource, name, initialize, &_XMLDocumentSource_ClassInfo_, allocate$XMLDocumentSource);
+	$MethodInfo methodInfos$$[] = {
+		{"getDocumentHandler", "()Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDocumentSource, getDocumentHandler, $XMLDocumentHandler*)},
+		{"setDocumentHandler", "(Lcom/sun/org/apache/xerces/internal/xni/XMLDocumentHandler;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XMLDocumentSource, setDocumentHandler, void, $XMLDocumentHandler*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xni.parser.XMLDocumentSource",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XMLDocumentSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLDocumentSource);
+	});
 	return class$;
 }
 

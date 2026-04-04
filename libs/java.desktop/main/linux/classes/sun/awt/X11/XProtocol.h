@@ -33,6 +33,7 @@ class XProtocol : public ::java::lang::Object {
 	$class(XProtocol, 0, ::java::lang::Object)
 public:
 	XProtocol();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual int64_t checkAnchor(::sun::awt::X11::XAtom* anchorProp, int64_t anchorType);
 	virtual int64_t checkAnchor(::sun::awt::X11::XAtom* anchorProp, ::sun::awt::X11::XAtom* anchorType);

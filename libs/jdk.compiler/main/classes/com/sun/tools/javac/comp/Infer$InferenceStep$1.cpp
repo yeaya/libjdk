@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$InferenceStep$1.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -24,44 +23,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Infer$InferenceStep$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(Infer$InferenceStep$1, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
-	{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Infer$InferenceStep$1, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
-	{}
-};
-
-$EnclosingMethodInfo _Infer$InferenceStep$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Infer$InferenceStep",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Infer$InferenceStep$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$InferenceStep", "com.sun.tools.javac.comp.Infer", "InferenceStep", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$InferenceStep$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Infer$InferenceStep$1_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Infer$InferenceStep$1",
-	"com.sun.tools.javac.comp.Infer$InferenceStep",
-	nullptr,
-	nullptr,
-	_Infer$InferenceStep$1_MethodInfo_,
-	nullptr,
-	&_Infer$InferenceStep$1_EnclosingMethodInfo_,
-	_Infer$InferenceStep$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$InferenceStep$1($Class* clazz) {
-	return $of($alloc(Infer$InferenceStep$1));
-}
-
 void Infer$InferenceStep$1::init$($String* $enum$name, int32_t $enum$ordinal, $Type$UndetVar$InferenceBound* ib) {
 	$Infer$InferenceStep::init$($enum$name, $enum$ordinal, ib);
 }
@@ -74,7 +35,39 @@ Infer$InferenceStep$1::Infer$InferenceStep$1() {
 }
 
 $Class* Infer$InferenceStep$1::load$($String* name, bool initialize) {
-	$loadClass(Infer$InferenceStep$1, name, initialize, &_Infer$InferenceStep$1_ClassInfo_, allocate$Infer$InferenceStep$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;)V", nullptr, $PRIVATE, $method(Infer$InferenceStep$1, init$, void, $String*, int32_t, $Type$UndetVar$InferenceBound*)},
+		{"solve", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/code/Type;", nullptr, 0, $virtualMethod(Infer$InferenceStep$1, solve, $Type*, $Type$UndetVar*, $InferenceContext*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Infer$InferenceStep",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$InferenceStep", "com.sun.tools.javac.comp.Infer", "InferenceStep", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$InferenceStep$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Infer$InferenceStep$1",
+		"com.sun.tools.javac.comp.Infer$InferenceStep",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$InferenceStep$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$InferenceStep$1));
+	});
 	return class$;
 }
 

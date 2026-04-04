@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpConnection$PlainHttpPublisher$HttpWriteSubscription.h>
-
 #include <java/util/List.h>
 #include <java/util/concurrent/ConcurrentLinkedDeque.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
@@ -18,13 +17,8 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $ConcurrentLinkedDeque = ::java::util::concurrent::ConcurrentLinkedDeque;
-using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
 using $HttpConnection$PlainHttpPublisher = ::jdk::internal::net::http::HttpConnection$PlainHttpPublisher;
 using $Demand = ::jdk::internal::net::http::common::Demand;
-using $Logger = ::jdk::internal::net::http::common::Logger;
-using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 
 namespace jdk {
@@ -32,70 +26,27 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _HttpConnection$PlainHttpPublisher$HttpWriteSubscription_FieldInfo_[] = {
-	{"this$1", "Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;", nullptr, $FINAL | $SYNTHETIC, $field(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, this$1)},
-	{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, demand)},
-	{}
-};
-
-$MethodInfo _HttpConnection$PlainHttpPublisher$HttpWriteSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;)V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, init$, void, $HttpConnection$PlainHttpPublisher*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, cancel, void)},
-	{"flush", "()V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, flush, void)},
-	{"isEmpty", "()Z", nullptr, $PRIVATE, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, isEmpty, bool)},
-	{"poll", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, poll, $List*)},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, request, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _HttpConnection$PlainHttpPublisher$HttpWriteSubscription_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.HttpConnection$PlainHttpPublisher", "jdk.internal.net.http.HttpConnection", "PlainHttpPublisher", $FINAL},
-	{"jdk.internal.net.http.HttpConnection$PlainHttpPublisher$HttpWriteSubscription", "jdk.internal.net.http.HttpConnection$PlainHttpPublisher", "HttpWriteSubscription", $FINAL},
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpConnection$PlainHttpPublisher$HttpWriteSubscription_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.HttpConnection$PlainHttpPublisher$HttpWriteSubscription",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription",
-	_HttpConnection$PlainHttpPublisher$HttpWriteSubscription_FieldInfo_,
-	_HttpConnection$PlainHttpPublisher$HttpWriteSubscription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpConnection$PlainHttpPublisher$HttpWriteSubscription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpConnection"
-};
-
-$Object* allocate$HttpConnection$PlainHttpPublisher$HttpWriteSubscription($Class* clazz) {
-	return $of($alloc(HttpConnection$PlainHttpPublisher$HttpWriteSubscription));
-}
-
 void HttpConnection$PlainHttpPublisher$HttpWriteSubscription::init$($HttpConnection$PlainHttpPublisher* this$1) {
 	$set(this, this$1, this$1);
 	$set(this, demand, $new($Demand));
 }
 
 void HttpConnection$PlainHttpPublisher$HttpWriteSubscription::request(int64_t n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (n <= 0) {
 		$throwNew($IllegalArgumentException, "non-positive request"_s);
 	}
-	$nc(this->demand)->increase(n);
+	this->demand->increase(n);
 	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log($$str({"HttpPublisher: got request of "_s, $$str(n), " from "_s, $($nc(this->this$1->this$0)->getConnectionFlow())}));
+		this->this$1->this$0->debug->log($$str({"HttpPublisher: got request of "_s, $$str(n), " from "_s, $(this->this$1->this$0->getConnectionFlow())}));
 	}
 	$nc(this->this$1->writeScheduler)->runOrSchedule();
 }
 
 void HttpConnection$PlainHttpPublisher$HttpWriteSubscription::cancel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-		$nc($nc(this->this$1->this$0)->debug)->log($$str({"HttpPublisher: cancelled by "_s, $($nc(this->this$1->this$0)->getConnectionFlow())}));
+		this->this$1->this$0->debug->log($$str({"HttpPublisher: cancelled by "_s, $(this->this$1->this$0->getConnectionFlow())}));
 	}
 }
 
@@ -110,19 +61,23 @@ $List* HttpConnection$PlainHttpPublisher$HttpWriteSubscription::poll() {
 }
 
 void HttpConnection$PlainHttpPublisher$HttpWriteSubscription::flush() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (true) {
 		bool var$0 = !isEmpty();
-		if (!(var$0 && $nc(this->demand)->tryDecrement())) {
+		if (!(var$0 && this->demand->tryDecrement())) {
 			break;
 		}
 		{
 			$var($List, elem, poll());
 			if ($nc($nc(this->this$1->this$0)->debug)->on()) {
-				$var($String, var$3, $$str({"HttpPublisher: sending "_s, $$str($Utils::remaining(elem)), " bytes ("_s}));
-				$var($String, var$2, $$concat(var$3, $$str($nc(elem)->size())));
-				$var($String, var$1, $$concat(var$2, " buffers) to "_s));
-				$nc($nc(this->this$1->this$0)->debug)->log($$concat(var$1, $($nc(this->this$1->this$0)->getConnectionFlow())));
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append("HttpPublisher: sending "_s);
+				var$1->append($Utils::remaining(elem));
+				var$1->append(" bytes ("_s);
+				var$1->append($nc(elem)->size());
+				var$1->append(" buffers) to "_s);
+				var$1->append($(this->this$1->this$0->getConnectionFlow()));
+				this->this$1->this$0->debug->log($$str(var$1));
 			}
 			$nc(this->this$1->subscriber)->onNext(elem);
 		}
@@ -133,7 +88,44 @@ HttpConnection$PlainHttpPublisher$HttpWriteSubscription::HttpConnection$PlainHtt
 }
 
 $Class* HttpConnection$PlainHttpPublisher$HttpWriteSubscription::load$($String* name, bool initialize) {
-	$loadClass(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, name, initialize, &_HttpConnection$PlainHttpPublisher$HttpWriteSubscription_ClassInfo_, allocate$HttpConnection$PlainHttpPublisher$HttpWriteSubscription);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;", nullptr, $FINAL | $SYNTHETIC, $field(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, this$1)},
+		{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, demand)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/HttpConnection$PlainHttpPublisher;)V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, init$, void, $HttpConnection$PlainHttpPublisher*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, cancel, void)},
+		{"flush", "()V", nullptr, 0, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, flush, void)},
+		{"isEmpty", "()Z", nullptr, $PRIVATE, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, isEmpty, bool)},
+		{"poll", "()Ljava/util/List;", "()Ljava/util/List<Ljava/nio/ByteBuffer;>;", $PRIVATE, $method(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, poll, $List*)},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, request, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.HttpConnection$PlainHttpPublisher", "jdk.internal.net.http.HttpConnection", "PlainHttpPublisher", $FINAL},
+		{"jdk.internal.net.http.HttpConnection$PlainHttpPublisher$HttpWriteSubscription", "jdk.internal.net.http.HttpConnection$PlainHttpPublisher", "HttpWriteSubscription", $FINAL},
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.HttpConnection$PlainHttpPublisher$HttpWriteSubscription",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpConnection"
+	};
+	$loadClass(HttpConnection$PlainHttpPublisher$HttpWriteSubscription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpConnection$PlainHttpPublisher$HttpWriteSubscription);
+	});
 	return class$;
 }
 

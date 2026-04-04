@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/TransformBlit.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <sun/java2d/SurfaceData.h>
@@ -31,49 +30,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _TransformBlit_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformBlit, methodSignature)},
-	{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformBlit, primTypeID)},
-	{"blitcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(TransformBlit, blitcache)},
-	{}
-};
-
-$MethodInfo _TransformBlit_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(TransformBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(TransformBlit, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(TransformBlit, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"getFromCache", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/TransformBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformBlit, getFromCache, TransformBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/TransformBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformBlit, locate, TransformBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(TransformBlit, traceWrap, $GraphicsPrimitive*)},
-	{}
-};
-
-#define _METHOD_INDEX_Transform 2
-
-$InnerClassInfo _TransformBlit_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.TransformBlit$TraceTransformBlit", "sun.java2d.loops.TransformBlit", "TraceTransformBlit", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _TransformBlit_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.TransformBlit",
-	"sun.java2d.loops.GraphicsPrimitive",
-	nullptr,
-	_TransformBlit_FieldInfo_,
-	_TransformBlit_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TransformBlit_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.TransformBlit$TraceTransformBlit"
-};
-
-$Object* allocate$TransformBlit($Class* clazz) {
-	return $of($alloc(TransformBlit));
-}
-
 $String* TransformBlit::methodSignature = nullptr;
 int32_t TransformBlit::primTypeID = 0;
 $RenderCache* TransformBlit::blitcache = nullptr;
@@ -85,7 +41,7 @@ TransformBlit* TransformBlit::locate($SurfaceType* srctype, $CompositeType* comp
 
 TransformBlit* TransformBlit::getFromCache($SurfaceType* src, $CompositeType* comp, $SurfaceType* dst) {
 	$init(TransformBlit);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, o, $nc(TransformBlit::blitcache)->get(src, comp, dst));
 	if (o != nullptr) {
 		return $cast(TransformBlit, o);
@@ -107,7 +63,7 @@ void TransformBlit::init$(int64_t pNativePrim, $SurfaceType* srctype, $Composite
 }
 
 void TransformBlit::Transform($SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, $AffineTransform* at, int32_t hint, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height) {
-	$prepareNative(TransformBlit, Transform, void, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, $AffineTransform* at, int32_t hint, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height);
+	$prepareNative(Transform, void, $SurfaceData* src, $SurfaceData* dst, $Composite* comp, $Region* clip, $AffineTransform* at, int32_t hint, int32_t srcx, int32_t srcy, int32_t dstx, int32_t dsty, int32_t width, int32_t height);
 	$invokeNative(src, dst, comp, clip, at, hint, srcx, srcy, dstx, dsty, width, height);
 	$finishNative();
 }
@@ -116,7 +72,7 @@ $GraphicsPrimitive* TransformBlit::traceWrap() {
 	return $new($TransformBlit$TraceTransformBlit, this);
 }
 
-void clinit$TransformBlit($Class* class$) {
+void TransformBlit::clinit$($Class* clazz) {
 	$assignStatic(TransformBlit::methodSignature, "TransformBlit(...)"_s->toString());
 	TransformBlit::primTypeID = $GraphicsPrimitive::makePrimTypeID();
 	$assignStatic(TransformBlit::blitcache, $new($RenderCache, 10));
@@ -126,7 +82,42 @@ TransformBlit::TransformBlit() {
 }
 
 $Class* TransformBlit::load$($String* name, bool initialize) {
-	$loadClass(TransformBlit, name, initialize, &_TransformBlit_ClassInfo_, clinit$TransformBlit, allocate$TransformBlit);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformBlit, methodSignature)},
+		{"primTypeID", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(TransformBlit, primTypeID)},
+		{"blitcache", "Lsun/java2d/loops/RenderCache;", nullptr, $PRIVATE | $STATIC, $staticField(TransformBlit, blitcache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(TransformBlit, init$, void, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PUBLIC, $method(TransformBlit, init$, void, int64_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"Transform", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;Ljava/awt/geom/AffineTransform;IIIIIII)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(TransformBlit, Transform, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, $AffineTransform*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"getFromCache", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/TransformBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformBlit, getFromCache, TransformBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"locate", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/TransformBlit;", nullptr, $PUBLIC | $STATIC, $staticMethod(TransformBlit, locate, TransformBlit*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC, $virtualMethod(TransformBlit, traceWrap, $GraphicsPrimitive*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.TransformBlit$TraceTransformBlit", "sun.java2d.loops.TransformBlit", "TraceTransformBlit", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.TransformBlit",
+		"sun.java2d.loops.GraphicsPrimitive",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.TransformBlit$TraceTransformBlit"
+	};
+	$loadClass(TransformBlit, name, initialize, &classInfo$$, TransformBlit::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(TransformBlit);
+	});
 	return class$;
 }
 

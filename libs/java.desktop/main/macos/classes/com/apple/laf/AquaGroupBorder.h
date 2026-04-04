@@ -35,6 +35,7 @@ class AquaGroupBorder : public ::com::apple::laf::AquaBorder {
 	$class(AquaGroupBorder, 0, ::com::apple::laf::AquaBorder)
 public:
 	AquaGroupBorder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::apple::laf::AquaUtilControlSize$SizeVariant* sizeVariant);
 	static ::javax::swing::border::Border* getBorderForTitledBorder();
 	static ::javax::swing::border::Border* getTabbedPaneGroupBorder();

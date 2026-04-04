@@ -1,5 +1,4 @@
 #include <javax/xml/transform/Templates.h>
-
 #include <java/util/Properties.h>
 #include <javax/xml/transform/Transformer.h>
 #include <jcpp.h>
@@ -13,27 +12,23 @@ namespace javax {
 	namespace xml {
 		namespace transform {
 
-$MethodInfo _Templates_MethodInfo_[] = {
-	{"getOutputProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Templates, getOutputProperties, $Properties*)},
-	{"newTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Templates, newTransformer, $Transformer*), "javax.xml.transform.TransformerConfigurationException"},
-	{}
-};
-
-$ClassInfo _Templates_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.xml.transform.Templates",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Templates_MethodInfo_
-};
-
-$Object* allocate$Templates($Class* clazz) {
-	return $of($alloc(Templates));
-}
-
 $Class* Templates::load$($String* name, bool initialize) {
-	$loadClass(Templates, name, initialize, &_Templates_ClassInfo_, allocate$Templates);
+	$MethodInfo methodInfos$$[] = {
+		{"getOutputProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Templates, getOutputProperties, $Properties*)},
+		{"newTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Templates, newTransformer, $Transformer*), "javax.xml.transform.TransformerConfigurationException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.xml.transform.Templates",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Templates, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Templates);
+	});
 	return class$;
 }
 

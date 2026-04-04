@@ -43,6 +43,7 @@ namespace java {
 class $export RenderableImage : public ::java::lang::Object {
 	$interface(RenderableImage, 0, ::java::lang::Object)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::awt::image::RenderedImage* createDefaultRendering() {return nullptr;}
 	virtual ::java::awt::image::RenderedImage* createRendering(::java::awt::image::renderable::RenderContext* renderContext) {return nullptr;}
 	virtual ::java::awt::image::RenderedImage* createScaledRendering(int32_t w, int32_t h, ::java::awt::RenderingHints* hints) {return nullptr;}

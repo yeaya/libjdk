@@ -1,5 +1,4 @@
 #include <javax/swing/JDesktopPane.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FocusTraversalPolicy.h>
@@ -9,7 +8,6 @@
 #include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
-#include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/List.h>
@@ -37,7 +35,6 @@
 using $JInternalFrameArray = $Array<::javax::swing::JInternalFrame>;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $Attribute = ::java::lang::Attribute;
@@ -53,7 +50,6 @@ using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
-using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
@@ -75,161 +71,6 @@ using $DesktopPaneUI = ::javax::swing::plaf::DesktopPaneUI;
 namespace javax {
 	namespace swing {
 
-$NamedAttribute JDesktopPane_Attribute_var$0[] = {
-	{"defaultProperty", 's', "UI"},
-	{}
-};
-
-$CompoundAttribute _JDesktopPane_Annotations_[] = {
-	{"Ljava/beans/JavaBean;", JDesktopPane_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute JDesktopPane_Attribute_var$1[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JDesktopPane_MethodAnnotations_getAccessibleContext3[] = {
-	{"Ljava/beans/BeanProperty;", JDesktopPane_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute JDesktopPane_Attribute_var$2[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JDesktopPane_MethodAnnotations_getAllFrames4[] = {
-	{"Ljava/beans/BeanProperty;", JDesktopPane_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JDesktopPane_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JDesktopPane_MethodAnnotations_getUIClassID15[] = {
-	{"Ljava/beans/BeanProperty;", JDesktopPane_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JDesktopPane_Attribute_var$4[] = {
-	{"description", 's', "Desktop manager to handle the internal frames in the desktop pane."},
-	{}
-};
-
-$CompoundAttribute _JDesktopPane_MethodAnnotations_setDesktopManager23[] = {
-	{"Ljava/beans/BeanProperty;", JDesktopPane_Attribute_var$4},
-	{}
-};
-
-$Attribute JDesktopPane_Attribute_var$6[] = {
-	{'s', "JDesktopPane.LIVE_DRAG_MODE"},
-	{'s', "JDesktopPane.OUTLINE_DRAG_MODE"},
-	{'-'}
-};
-
-$NamedAttribute JDesktopPane_Attribute_var$5[] = {
-	{"enumerationValues", '[', JDesktopPane_Attribute_var$6},
-	{"description", 's', "Dragging style for internal frame children."},
-	{}
-};
-
-$CompoundAttribute _JDesktopPane_MethodAnnotations_setDragMode24[] = {
-	{"Ljava/beans/BeanProperty;", JDesktopPane_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JDesktopPane_Attribute_var$7[] = {
-	{"hidden", 'Z', "true"},
-	{"visualUpdate", 'Z', "true"},
-	{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
-	{}
-};
-
-$CompoundAttribute _JDesktopPane_MethodAnnotations_setUI26[] = {
-	{"Ljava/beans/BeanProperty;", JDesktopPane_Attribute_var$7},
-	{}
-};
-
-$FieldInfo _JDesktopPane_FieldInfo_[] = {
-	{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JDesktopPane, uiClassID)},
-	{"desktopManager", "Ljavax/swing/DesktopManager;", nullptr, $TRANSIENT, $field(JDesktopPane, desktopManager)},
-	{"selectedFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $TRANSIENT, $field(JDesktopPane, selectedFrame)},
-	{"LIVE_DRAG_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JDesktopPane, LIVE_DRAG_MODE)},
-	{"OUTLINE_DRAG_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JDesktopPane, OUTLINE_DRAG_MODE)},
-	{"dragMode", "I", nullptr, $PRIVATE, $field(JDesktopPane, dragMode)},
-	{"dragModeSet", "Z", nullptr, $PRIVATE, $field(JDesktopPane, dragModeSet)},
-	{"framesCache", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/JInternalFrame;>;", $PRIVATE | $TRANSIENT, $field(JDesktopPane, framesCache)},
-	{"componentOrderCheckingEnabled", "Z", nullptr, $PRIVATE, $field(JDesktopPane, componentOrderCheckingEnabled)},
-	{"componentOrderChanged", "Z", nullptr, $PRIVATE, $field(JDesktopPane, componentOrderChanged)},
-	{}
-};
-
-$MethodInfo _JDesktopPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JDesktopPane, init$, void)},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JDesktopPane, addImpl, void, $Component*, Object$*, int32_t)},
-	{"checkComponentAttributes", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(JDesktopPane, checkComponentAttributes, void, $Component*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, _JDesktopPane_MethodAnnotations_getAccessibleContext3},
-	{"getAllFrames", "()[Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getAllFrames, $JInternalFrameArray*), nullptr, nullptr, _JDesktopPane_MethodAnnotations_getAllFrames4},
-	{"getAllFrames", "(Ljava/awt/Container;)Ljava/util/Collection;", "(Ljava/awt/Container;)Ljava/util/Collection<Ljavax/swing/JInternalFrame;>;", $PRIVATE | $STATIC, $staticMethod(JDesktopPane, getAllFrames, $Collection*, $Container*)},
-	{"getAllFramesInLayer", "(I)[Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getAllFramesInLayer, $JInternalFrameArray*, int32_t)},
-	{"getDesktopManager", "()Ljavax/swing/DesktopManager;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getDesktopManager, $DesktopManager*)},
-	{"getDragMode", "()I", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getDragMode, int32_t)},
-	{"getFrames", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/swing/JInternalFrame;>;", $PRIVATE, $method(JDesktopPane, getFrames, $List*)},
-	{"getNextFrame", "(Ljavax/swing/JInternalFrame;Z)Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $method(JDesktopPane, getNextFrame, $JInternalFrame*, $JInternalFrame*, bool)},
-	{"getNextFrame", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JInternalFrame;", nullptr, 0, $virtualMethod(JDesktopPane, getNextFrame, $JInternalFrame*, $JInternalFrame*)},
-	{"getSelectedFrame", "()Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getSelectedFrame, $JInternalFrame*)},
-	{"getTopInternalFrame", "()Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $method(JDesktopPane, getTopInternalFrame, $JInternalFrame*)},
-	{"getUI", "()Ljavax/swing/plaf/DesktopPaneUI;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getUI, $ComponentUI*)},
-	{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getUIClassID, $String*), nullptr, nullptr, _JDesktopPane_MethodAnnotations_getUIClassID15},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JDesktopPane, paramString, $String*)},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, remove, void, $Component*)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, remove, void, int32_t)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, removeAll, void)},
-	{"selectFrame", "(Z)Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, selectFrame, $JInternalFrame*, bool)},
-	{"setComponentOrderCheckingEnabled", "(Z)V", nullptr, 0, $virtualMethod(JDesktopPane, setComponentOrderCheckingEnabled, void, bool)},
-	{"setComponentZOrder", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setComponentZOrder, void, $Component*, int32_t)},
-	{"setDesktopManager", "(Ljavax/swing/DesktopManager;)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setDesktopManager, void, $DesktopManager*), nullptr, nullptr, _JDesktopPane_MethodAnnotations_setDesktopManager23},
-	{"setDragMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setDragMode, void, int32_t), nullptr, nullptr, _JDesktopPane_MethodAnnotations_setDragMode24},
-	{"setSelectedFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setSelectedFrame, void, $JInternalFrame*)},
-	{"setUI", "(Ljavax/swing/plaf/DesktopPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setUI, void, $DesktopPaneUI*), nullptr, nullptr, _JDesktopPane_MethodAnnotations_setUI26},
-	{"setUIProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(JDesktopPane, setUIProperty, void, $String*, Object$*)},
-	{"updateFramesCache", "()V", nullptr, $PRIVATE, $method(JDesktopPane, updateFramesCache, void)},
-	{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, updateUI, void)},
-	{"verifyFramesCache", "()V", nullptr, $PRIVATE, $method(JDesktopPane, verifyFramesCache, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JDesktopPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JDesktopPane_InnerClassesInfo_[] = {
-	{"javax.swing.JDesktopPane$AccessibleJDesktopPane", "javax.swing.JDesktopPane", "AccessibleJDesktopPane", $PROTECTED},
-	{"javax.swing.JDesktopPane$ComponentPosition", "javax.swing.JDesktopPane", "ComponentPosition", $PRIVATE | $STATIC},
-	{"javax.swing.JDesktopPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JDesktopPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JDesktopPane",
-	"javax.swing.JLayeredPane",
-	nullptr,
-	_JDesktopPane_FieldInfo_,
-	_JDesktopPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JDesktopPane_InnerClassesInfo_,
-	_JDesktopPane_Annotations_,
-	nullptr,
-	"javax.swing.JDesktopPane$AccessibleJDesktopPane,javax.swing.JDesktopPane$ComponentPosition,javax.swing.JDesktopPane$1"
-};
-
-$Object* allocate$JDesktopPane($Class* clazz) {
-	return $of($alloc(JDesktopPane));
-}
-
 $String* JDesktopPane::uiClassID = nullptr;
 
 void JDesktopPane::init$() {
@@ -239,7 +80,6 @@ void JDesktopPane::init$() {
 	this->dragModeSet = false;
 	this->componentOrderCheckingEnabled = true;
 	this->componentOrderChanged = false;
-	$init($Boolean);
 	setUIProperty("opaque"_s, $Boolean::TRUE);
 	setFocusCycleRoot(true);
 	setFocusTraversalPolicy($$new($JDesktopPane$1, this));
@@ -272,11 +112,11 @@ $DesktopManager* JDesktopPane::getDesktopManager() {
 void JDesktopPane::setDesktopManager($DesktopManager* d) {
 	$var($DesktopManager, oldValue, this->desktopManager);
 	$set(this, desktopManager, d);
-	firePropertyChange("desktopManager"_s, $of(oldValue), $of(this->desktopManager));
+	firePropertyChange("desktopManager"_s, oldValue, this->desktopManager);
 }
 
 void JDesktopPane::updateUI() {
-	setUI($cast($DesktopPaneUI, $($UIManager::getUI(this))));
+	setUI($$cast($DesktopPaneUI, $UIManager::getUI(this)));
 }
 
 $String* JDesktopPane::getUIClassID() {
@@ -284,23 +124,23 @@ $String* JDesktopPane::getUIClassID() {
 }
 
 $JInternalFrameArray* JDesktopPane::getAllFrames() {
-	$useLocalCurrentObjectStackCache();
-	return $fcast($JInternalFrameArray, $nc($(getAllFrames(this)))->toArray($$new($JInternalFrameArray, 0)));
+	$useLocalObjectStack();
+	return $cast($JInternalFrameArray, $$nc(getAllFrames(this))->toArray($$new($JInternalFrameArray, 0)));
 }
 
 $Collection* JDesktopPane::getAllFrames($Container* parent) {
 	$init(JDesktopPane);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	int32_t count = 0;
-	$var($Collection, results, static_cast<$Collection*>(static_cast<$AbstractCollection*>(static_cast<$AbstractSet*>(static_cast<$HashSet*>($new($LinkedHashSet))))));
+	$var($Collection, results, $cast($AbstractCollection, $new($LinkedHashSet)));
 	count = $nc(parent)->getComponentCount();
 	for (i = 0; i < count; ++i) {
 		$var($Component, next, parent->getComponent(i));
 		if ($instanceOf($JInternalFrame, next)) {
 			results->add($cast($JInternalFrame, next));
 		} else if ($instanceOf($JInternalFrame$JDesktopIcon, next)) {
-			$var($JInternalFrame, tmp, $nc(($cast($JInternalFrame$JDesktopIcon, next)))->getInternalFrame());
+			$var($JInternalFrame, tmp, $cast($JInternalFrame$JDesktopIcon, next)->getInternalFrame());
 			if (tmp != nullptr) {
 				results->add(tmp);
 			}
@@ -320,27 +160,27 @@ void JDesktopPane::setSelectedFrame($JInternalFrame* f) {
 }
 
 $JInternalFrameArray* JDesktopPane::getAllFramesInLayer(int32_t layer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Collection, allFrames, getAllFrames(this));
 	$var($Iterator, iterator, $nc(allFrames)->iterator());
 	while ($nc(iterator)->hasNext()) {
-		if ($nc(($cast($JInternalFrame, $(iterator->next()))))->getLayer() != layer) {
+		if ($$sure($JInternalFrame, iterator->next())->getLayer() != layer) {
 			iterator->remove();
 		}
 	}
-	return $fcast($JInternalFrameArray, allFrames->toArray($$new($JInternalFrameArray, 0)));
+	return $cast($JInternalFrameArray, allFrames->toArray($$new($JInternalFrameArray, 0)));
 }
 
 $List* JDesktopPane::getFrames() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, nullptr);
-	$var($Set, set, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet))));
+	$var($Set, set, $cast($AbstractSet, $new($TreeSet)));
 	for (int32_t i = 0; i < getComponentCount(); ++i) {
 		$assign(c, getComponent(i));
 		if ($instanceOf($JInternalFrame, c)) {
 			set->add($$new($JDesktopPane$ComponentPosition, $cast($JInternalFrame, c), getLayer(c), i));
 		} else if ($instanceOf($JInternalFrame$JDesktopIcon, c)) {
-			$assign(c, $nc(($cast($JInternalFrame$JDesktopIcon, c)))->getInternalFrame());
+			$assign(c, $cast($JInternalFrame$JDesktopIcon, c)->getInternalFrame());
 			set->add($$new($JDesktopPane$ComponentPosition, $cast($JInternalFrame, c), getLayer(c), i));
 		}
 	}
@@ -363,17 +203,17 @@ $JInternalFrame* JDesktopPane::getNextFrame($JInternalFrame* f, bool forward) {
 		return getTopInternalFrame();
 	}
 	int32_t i = $nc(this->framesCache)->indexOf(f);
-	if (i == -1 || $nc(this->framesCache)->size() == 1) {
+	if (i == -1 || this->framesCache->size() == 1) {
 		return nullptr;
 	}
 	if (forward) {
-		if (++i == $nc(this->framesCache)->size()) {
+		if (++i == this->framesCache->size()) {
 			i = 0;
 		}
 	} else if (--i == -1) {
-		i = $nc(this->framesCache)->size() - 1;
+		i = this->framesCache->size() - 1;
 	}
-	return $cast($JInternalFrame, $nc(this->framesCache)->get(i));
+	return $cast($JInternalFrame, this->framesCache->get(i));
 }
 
 $JInternalFrame* JDesktopPane::getNextFrame($JInternalFrame* f) {
@@ -384,7 +224,7 @@ $JInternalFrame* JDesktopPane::getTopInternalFrame() {
 	if ($nc(this->framesCache)->size() == 0) {
 		return nullptr;
 	}
-	return $cast($JInternalFrame, $nc(this->framesCache)->get(0));
+	return $cast($JInternalFrame, this->framesCache->get(0));
 }
 
 void JDesktopPane::updateFramesCache() {
@@ -404,7 +244,7 @@ void JDesktopPane::remove($Component* comp) {
 }
 
 $JInternalFrame* JDesktopPane::selectFrame(bool forward) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame, selectedFrame, getSelectedFrame());
 	$var($JInternalFrame, frameToSelect, getNextFrame(selectedFrame, forward));
 	if (frameToSelect == nullptr) {
@@ -437,9 +277,8 @@ void JDesktopPane::addImpl($Component* comp, Object$* constraints, int32_t index
 }
 
 void JDesktopPane::checkComponentAttributes($Component* comp) {
-	if ($instanceOf($JInternalFrame, comp) && $nc(($cast($JInternalFrame, comp)))->isIcon()) {
-		$init($Boolean);
-		($cast($JInternalFrame, comp))->putClientProperty("wasIconOnce"_s, $Boolean::FALSE);
+	if ($instanceOf($JInternalFrame, comp) && $cast($JInternalFrame, comp)->isIcon()) {
+		$cast($JInternalFrame, comp)->putClientProperty("wasIconOnce"_s, $Boolean::FALSE);
 	}
 }
 
@@ -454,7 +293,7 @@ void JDesktopPane::remove(int32_t index) {
 }
 
 void JDesktopPane::removeAll() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->componentOrderCheckingEnabled) {
 		int32_t count = getComponentCount();
 		for (int32_t i = 0; i < count; ++i) {
@@ -479,11 +318,11 @@ void JDesktopPane::setComponentZOrder($Component* comp, int32_t index) {
 
 void JDesktopPane::writeObject($ObjectOutputStream* s) {
 	$nc(s)->defaultWriteObject();
-	if ($nc($(getUIClassID()))->equals(JDesktopPane::uiClassID)) {
+	if ($$nc(getUIClassID())->equals(JDesktopPane::uiClassID)) {
 		int8_t count = $JComponent::getWriteObjCounter(this);
 		$JComponent::setWriteObjCounter(this, --count);
 		if (count == 0 && this->ui != nullptr) {
-			$nc(this->ui)->installUI(this);
+			this->ui->installUI(this);
 		}
 	}
 }
@@ -491,7 +330,7 @@ void JDesktopPane::writeObject($ObjectOutputStream* s) {
 void JDesktopPane::setUIProperty($String* propertyName, Object$* value) {
 	if (propertyName == "dragMode"_s) {
 		if (!this->dragModeSet) {
-			setDragMode($nc(($cast($Integer, value)))->intValue());
+			setDragMode($nc($cast($Integer, value))->intValue());
 			this->dragModeSet = false;
 		}
 	} else {
@@ -500,8 +339,8 @@ void JDesktopPane::setUIProperty($String* propertyName, Object$* value) {
 }
 
 $String* JDesktopPane::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, desktopManagerString, this->desktopManager != nullptr ? $nc($of(this->desktopManager))->toString() : ""_s);
+	$useLocalObjectStack();
+	$var($String, desktopManagerString, this->desktopManager != nullptr ? this->desktopManager->toString() : ""_s);
 	return $str({$($JLayeredPane::paramString()), ",desktopManager="_s, desktopManagerString});
 }
 
@@ -515,12 +354,146 @@ $AccessibleContext* JDesktopPane::getAccessibleContext() {
 JDesktopPane::JDesktopPane() {
 }
 
-void clinit$JDesktopPane($Class* class$) {
+void JDesktopPane::clinit$($Class* clazz) {
 	$assignStatic(JDesktopPane::uiClassID, "DesktopPaneUI"_s);
 }
 
 $Class* JDesktopPane::load$($String* name, bool initialize) {
-	$loadClass(JDesktopPane, name, initialize, &_JDesktopPane_ClassInfo_, clinit$JDesktopPane, allocate$JDesktopPane);
+	$FieldInfo fieldInfos$$[] = {
+		{"uiClassID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JDesktopPane, uiClassID)},
+		{"desktopManager", "Ljavax/swing/DesktopManager;", nullptr, $TRANSIENT, $field(JDesktopPane, desktopManager)},
+		{"selectedFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $TRANSIENT, $field(JDesktopPane, selectedFrame)},
+		{"LIVE_DRAG_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JDesktopPane, LIVE_DRAG_MODE)},
+		{"OUTLINE_DRAG_MODE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(JDesktopPane, OUTLINE_DRAG_MODE)},
+		{"dragMode", "I", nullptr, $PRIVATE, $field(JDesktopPane, dragMode)},
+		{"dragModeSet", "Z", nullptr, $PRIVATE, $field(JDesktopPane, dragModeSet)},
+		{"framesCache", "Ljava/util/List;", "Ljava/util/List<Ljavax/swing/JInternalFrame;>;", $PRIVATE | $TRANSIENT, $field(JDesktopPane, framesCache)},
+		{"componentOrderCheckingEnabled", "Z", nullptr, $PRIVATE, $field(JDesktopPane, componentOrderCheckingEnabled)},
+		{"componentOrderChanged", "Z", nullptr, $PRIVATE, $field(JDesktopPane, componentOrderChanged)},
+		{}
+	};
+	$NamedAttribute getAccessibleContextmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAccessibleContextmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAccessibleContextmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getAllFramesmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getAllFramesmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getAllFramesmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getUIClassIDmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getUIClassIDmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getUIClassIDmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setDesktopManagermethodAnnotations$$$namedAttribute[] = {
+		{"description", 's', "Desktop manager to handle the internal frames in the desktop pane."},
+		{}
+	};
+	$CompoundAttribute setDesktopManagermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDesktopManagermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "JDesktopPane.LIVE_DRAG_MODE"},
+		{'s', "JDesktopPane.OUTLINE_DRAG_MODE"},
+		{'-'}
+	};
+	$NamedAttribute setDragModemethodAnnotations$$$namedAttribute[] = {
+		{"enumerationValues", '[', $attribute},
+		{"description", 's', "Dragging style for internal frame children."},
+		{}
+	};
+	$CompoundAttribute setDragModemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setDragModemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setUImethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"visualUpdate", 'Z', "true"},
+		{"description", 's', "The UI object that implements the Component\'s LookAndFeel."},
+		{}
+	};
+	$CompoundAttribute setUImethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setUImethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JDesktopPane, init$, void)},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JDesktopPane, addImpl, void, $Component*, Object$*, int32_t)},
+		{"checkComponentAttributes", "(Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(JDesktopPane, checkComponentAttributes, void, $Component*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getAccessibleContext, $AccessibleContext*), nullptr, nullptr, getAccessibleContextmethodAnnotations$$},
+		{"getAllFrames", "()[Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getAllFrames, $JInternalFrameArray*), nullptr, nullptr, getAllFramesmethodAnnotations$$},
+		{"getAllFrames", "(Ljava/awt/Container;)Ljava/util/Collection;", "(Ljava/awt/Container;)Ljava/util/Collection<Ljavax/swing/JInternalFrame;>;", $PRIVATE | $STATIC, $staticMethod(JDesktopPane, getAllFrames, $Collection*, $Container*)},
+		{"getAllFramesInLayer", "(I)[Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getAllFramesInLayer, $JInternalFrameArray*, int32_t)},
+		{"getDesktopManager", "()Ljavax/swing/DesktopManager;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getDesktopManager, $DesktopManager*)},
+		{"getDragMode", "()I", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getDragMode, int32_t)},
+		{"getFrames", "()Ljava/util/List;", "()Ljava/util/List<Ljavax/swing/JInternalFrame;>;", $PRIVATE, $method(JDesktopPane, getFrames, $List*)},
+		{"getNextFrame", "(Ljavax/swing/JInternalFrame;Z)Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $method(JDesktopPane, getNextFrame, $JInternalFrame*, $JInternalFrame*, bool)},
+		{"getNextFrame", "(Ljavax/swing/JInternalFrame;)Ljavax/swing/JInternalFrame;", nullptr, 0, $virtualMethod(JDesktopPane, getNextFrame, $JInternalFrame*, $JInternalFrame*)},
+		{"getSelectedFrame", "()Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getSelectedFrame, $JInternalFrame*)},
+		{"getTopInternalFrame", "()Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE, $method(JDesktopPane, getTopInternalFrame, $JInternalFrame*)},
+		{"getUI", "()Ljavax/swing/plaf/DesktopPaneUI;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getUI, $ComponentUI*)},
+		{"getUIClassID", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, getUIClassID, $String*), nullptr, nullptr, getUIClassIDmethodAnnotations$$},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JDesktopPane, paramString, $String*)},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, remove, void, $Component*)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, remove, void, int32_t)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, removeAll, void)},
+		{"selectFrame", "(Z)Ljavax/swing/JInternalFrame;", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, selectFrame, $JInternalFrame*, bool)},
+		{"setComponentOrderCheckingEnabled", "(Z)V", nullptr, 0, $virtualMethod(JDesktopPane, setComponentOrderCheckingEnabled, void, bool)},
+		{"setComponentZOrder", "(Ljava/awt/Component;I)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setComponentZOrder, void, $Component*, int32_t)},
+		{"setDesktopManager", "(Ljavax/swing/DesktopManager;)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setDesktopManager, void, $DesktopManager*), nullptr, nullptr, setDesktopManagermethodAnnotations$$},
+		{"setDragMode", "(I)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setDragMode, void, int32_t), nullptr, nullptr, setDragModemethodAnnotations$$},
+		{"setSelectedFrame", "(Ljavax/swing/JInternalFrame;)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setSelectedFrame, void, $JInternalFrame*)},
+		{"setUI", "(Ljavax/swing/plaf/DesktopPaneUI;)V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, setUI, void, $DesktopPaneUI*), nullptr, nullptr, setUImethodAnnotations$$},
+		{"setUIProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, 0, $virtualMethod(JDesktopPane, setUIProperty, void, $String*, Object$*)},
+		{"updateFramesCache", "()V", nullptr, $PRIVATE, $method(JDesktopPane, updateFramesCache, void)},
+		{"updateUI", "()V", nullptr, $PUBLIC, $virtualMethod(JDesktopPane, updateUI, void)},
+		{"verifyFramesCache", "()V", nullptr, $PRIVATE, $method(JDesktopPane, verifyFramesCache, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(JDesktopPane, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JDesktopPane$AccessibleJDesktopPane", "javax.swing.JDesktopPane", "AccessibleJDesktopPane", $PROTECTED},
+		{"javax.swing.JDesktopPane$ComponentPosition", "javax.swing.JDesktopPane", "ComponentPosition", $PRIVATE | $STATIC},
+		{"javax.swing.JDesktopPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"defaultProperty", 's', "UI"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JDesktopPane",
+		"javax.swing.JLayeredPane",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JDesktopPane$AccessibleJDesktopPane,javax.swing.JDesktopPane$ComponentPosition,javax.swing.JDesktopPane$1"
+	};
+	$loadClass(JDesktopPane, name, initialize, &classInfo$$, JDesktopPane::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JDesktopPane));
+	});
 	return class$;
 }
 

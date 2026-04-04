@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/FontUIResource.h>
-
 #include <java/awt/Font.h>
 #include <jcpp.h>
 
@@ -10,30 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace swing {
 		namespace plaf {
-
-$MethodInfo _FontUIResource_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(FontUIResource, init$, void, $String*, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(FontUIResource, init$, void, $Font*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _FontUIResource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.FontUIResource",
-	"java.awt.Font",
-	"javax.swing.plaf.UIResource",
-	nullptr,
-	_FontUIResource_MethodInfo_
-};
-
-$Object* allocate$FontUIResource($Class* clazz) {
-	return $of($alloc(FontUIResource));
-}
 
 int32_t FontUIResource::hashCode() {
 	 return this->$Font::hashCode();
@@ -67,7 +42,27 @@ FontUIResource::FontUIResource() {
 }
 
 $Class* FontUIResource::load$($String* name, bool initialize) {
-	$loadClass(FontUIResource, name, initialize, &_FontUIResource_ClassInfo_, allocate$FontUIResource);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/lang/String;II)V", nullptr, $PUBLIC, $method(FontUIResource, init$, void, $String*, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $method(FontUIResource, init$, void, $Font*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.FontUIResource",
+		"java.awt.Font",
+		"javax.swing.plaf.UIResource",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FontUIResource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FontUIResource));
+	});
 	return class$;
 }
 

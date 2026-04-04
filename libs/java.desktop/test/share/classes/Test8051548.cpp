@@ -1,5 +1,4 @@
 #include <Test8051548.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -9,7 +8,6 @@
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/Serializable.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -41,7 +39,6 @@ using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
@@ -65,27 +62,24 @@ public:
 	virtual void run() override {
 		Test8051548::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8051548$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Test8051548$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo Test8051548$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8051548$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Test8051548$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(Test8051548$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8051548$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8051548$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* Test8051548$$Lambda$lambda$main$0::class$ = nullptr;
@@ -98,27 +92,24 @@ public:
 	virtual void run() override {
 		Test8051548::lambda$testColorPanels$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8051548$$Lambda$lambda$testColorPanels$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Test8051548$$Lambda$lambda$testColorPanels$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testColorPanels$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testColorPanels$1$1, run, void)},
-	{}
-};
-$ClassInfo Test8051548$$Lambda$lambda$testColorPanels$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8051548$$Lambda$lambda$testColorPanels$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Test8051548$$Lambda$lambda$testColorPanels$1$1::load$($String* name, bool initialize) {
-	$loadClass(Test8051548$$Lambda$lambda$testColorPanels$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testColorPanels$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testColorPanels$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8051548$$Lambda$lambda$testColorPanels$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8051548$$Lambda$lambda$testColorPanels$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548$$Lambda$lambda$testColorPanels$1$1);
+	});
 	return class$;
 }
 $Class* Test8051548$$Lambda$lambda$testColorPanels$1$1::class$ = nullptr;
@@ -133,35 +124,31 @@ public:
 	virtual void run() override {
 		Test8051548::lambda$testColorPanels$3(tab, initialValue);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8051548$$Lambda$lambda$testColorPanels$3$2>());
-	}
 	$String* tab = nullptr;
 	$String* initialValue = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Test8051548$$Lambda$lambda$testColorPanels$3$2::fieldInfos[3] = {
-	{"tab", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$testColorPanels$3$2, tab)},
-	{"initialValue", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$testColorPanels$3$2, initialValue)},
-	{}
-};
-$MethodInfo Test8051548$$Lambda$lambda$testColorPanels$3$2::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testColorPanels$3$2, init$, void, $String*, $String*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testColorPanels$3$2, run, void)},
-	{}
-};
-$ClassInfo Test8051548$$Lambda$lambda$testColorPanels$3$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8051548$$Lambda$lambda$testColorPanels$3$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Test8051548$$Lambda$lambda$testColorPanels$3$2::load$($String* name, bool initialize) {
-	$loadClass(Test8051548$$Lambda$lambda$testColorPanels$3$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"tab", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$testColorPanels$3$2, tab)},
+		{"initialValue", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$testColorPanels$3$2, initialValue)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testColorPanels$3$2, init$, void, $String*, $String*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testColorPanels$3$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8051548$$Lambda$lambda$testColorPanels$3$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test8051548$$Lambda$lambda$testColorPanels$3$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548$$Lambda$lambda$testColorPanels$3$2);
+	});
 	return class$;
 }
 $Class* Test8051548$$Lambda$lambda$testColorPanels$3$2::class$ = nullptr;
@@ -176,35 +163,31 @@ public:
 	virtual void run() override {
 		Test8051548::lambda$testShowDialog$4(alphaValue, colorTransparencySelectionEnabled);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8051548$$Lambda$lambda$testShowDialog$4$3>());
-	}
 	int32_t alphaValue = 0;
 	bool colorTransparencySelectionEnabled = false;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Test8051548$$Lambda$lambda$testShowDialog$4$3::fieldInfos[3] = {
-	{"alphaValue", "I", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$testShowDialog$4$3, alphaValue)},
-	{"colorTransparencySelectionEnabled", "Z", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$testShowDialog$4$3, colorTransparencySelectionEnabled)},
-	{}
-};
-$MethodInfo Test8051548$$Lambda$lambda$testShowDialog$4$3::methodInfos[3] = {
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testShowDialog$4$3, init$, void, int32_t, bool)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testShowDialog$4$3, run, void)},
-	{}
-};
-$ClassInfo Test8051548$$Lambda$lambda$testShowDialog$4$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8051548$$Lambda$lambda$testShowDialog$4$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* Test8051548$$Lambda$lambda$testShowDialog$4$3::load$($String* name, bool initialize) {
-	$loadClass(Test8051548$$Lambda$lambda$testShowDialog$4$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"alphaValue", "I", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$testShowDialog$4$3, alphaValue)},
+		{"colorTransparencySelectionEnabled", "Z", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$testShowDialog$4$3, colorTransparencySelectionEnabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testShowDialog$4$3, init$, void, int32_t, bool)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testShowDialog$4$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8051548$$Lambda$lambda$testShowDialog$4$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test8051548$$Lambda$lambda$testShowDialog$4$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548$$Lambda$lambda$testShowDialog$4$3);
+	});
 	return class$;
 }
 $Class* Test8051548$$Lambda$lambda$testShowDialog$4$3::class$ = nullptr;
@@ -217,27 +200,24 @@ public:
 	virtual void run() override {
 		Test8051548::lambda$testShowDialog$5();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8051548$$Lambda$lambda$testShowDialog$5$4>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Test8051548$$Lambda$lambda$testShowDialog$5$4::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testShowDialog$5$4, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testShowDialog$5$4, run, void)},
-	{}
-};
-$ClassInfo Test8051548$$Lambda$lambda$testShowDialog$5$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8051548$$Lambda$lambda$testShowDialog$5$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* Test8051548$$Lambda$lambda$testShowDialog$5$4::load$($String* name, bool initialize) {
-	$loadClass(Test8051548$$Lambda$lambda$testShowDialog$5$4, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testShowDialog$5$4, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testShowDialog$5$4, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8051548$$Lambda$lambda$testShowDialog$5$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8051548$$Lambda$lambda$testShowDialog$5$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548$$Lambda$lambda$testShowDialog$5$4);
+	});
 	return class$;
 }
 $Class* Test8051548$$Lambda$lambda$testShowDialog$5$4::class$ = nullptr;
@@ -251,33 +231,29 @@ public:
 	virtual bool test(Object$* comp) override {
 		 return Test8051548::lambda$findComponent$6(name, $cast($Component, comp));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8051548$$Lambda$lambda$findComponent$6$5>());
-	}
 	$String* name = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Test8051548$$Lambda$lambda$findComponent$6$5::fieldInfos[2] = {
-	{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$findComponent$6$5, name)},
-	{}
-};
-$MethodInfo Test8051548$$Lambda$lambda$findComponent$6$5::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$findComponent$6$5, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$findComponent$6$5, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Test8051548$$Lambda$lambda$findComponent$6$5::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8051548$$Lambda$lambda$findComponent$6$5",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Test8051548$$Lambda$lambda$findComponent$6$5::load$($String* name, bool initialize) {
-	$loadClass(Test8051548$$Lambda$lambda$findComponent$6$5, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$findComponent$6$5, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$findComponent$6$5, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$findComponent$6$5, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8051548$$Lambda$lambda$findComponent$6$5",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test8051548$$Lambda$lambda$findComponent$6$5, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548$$Lambda$lambda$findComponent$6$5);
+	});
 	return class$;
 }
 $Class* Test8051548$$Lambda$lambda$findComponent$6$5::class$ = nullptr;
@@ -291,33 +267,29 @@ public:
 	virtual bool test(Object$* comp) override {
 		 return Test8051548::lambda$findTextField$7(value, $cast($Component, comp));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8051548$$Lambda$lambda$findTextField$7$6>());
-	}
 	$String* value = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Test8051548$$Lambda$lambda$findTextField$7$6::fieldInfos[2] = {
-	{"value", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$findTextField$7$6, value)},
-	{}
-};
-$MethodInfo Test8051548$$Lambda$lambda$findTextField$7$6::methodInfos[3] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$findTextField$7$6, init$, void, $String*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$findTextField$7$6, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Test8051548$$Lambda$lambda$findTextField$7$6::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8051548$$Lambda$lambda$findTextField$7$6",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Test8051548$$Lambda$lambda$findTextField$7$6::load$($String* name, bool initialize) {
-	$loadClass(Test8051548$$Lambda$lambda$findTextField$7$6, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "Ljava/lang/String;", nullptr, $PUBLIC, $field(Test8051548$$Lambda$lambda$findTextField$7$6, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$findTextField$7$6, init$, void, $String*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$findTextField$7$6, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8051548$$Lambda$lambda$findTextField$7$6",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test8051548$$Lambda$lambda$findTextField$7$6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548$$Lambda$lambda$findTextField$7$6);
+	});
 	return class$;
 }
 $Class* Test8051548$$Lambda$lambda$findTextField$7$6::class$ = nullptr;
@@ -330,73 +302,27 @@ public:
 	virtual void propertyChange($PropertyChangeEvent* e) override {
 		Test8051548::lambda$testColorPanels$2(e);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Test8051548$$Lambda$lambda$testColorPanels$2$7>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Test8051548$$Lambda$lambda$testColorPanels$2$7::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testColorPanels$2$7, init$, void)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testColorPanels$2$7, propertyChange, void, $PropertyChangeEvent*)},
-	{}
-};
-$ClassInfo Test8051548$$Lambda$lambda$testColorPanels$2$7::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"Test8051548$$Lambda$lambda$testColorPanels$2$7",
-	"java.lang.Object",
-	"java.beans.PropertyChangeListener",
-	nullptr,
-	methodInfos
 };
 $Class* Test8051548$$Lambda$lambda$testColorPanels$2$7::load$($String* name, bool initialize) {
-	$loadClass(Test8051548$$Lambda$lambda$testColorPanels$2$7, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548$$Lambda$lambda$testColorPanels$2$7, init$, void)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(Test8051548$$Lambda$lambda$testColorPanels$2$7, propertyChange, void, $PropertyChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"Test8051548$$Lambda$lambda$testColorPanels$2$7",
+		"java.lang.Object",
+		"java.beans.PropertyChangeListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Test8051548$$Lambda$lambda$testColorPanels$2$7, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548$$Lambda$lambda$testColorPanels$2$7);
+	});
 	return class$;
 }
 $Class* Test8051548$$Lambda$lambda$testColorPanels$2$7::class$ = nullptr;
-
-$FieldInfo _Test8051548_FieldInfo_[] = {
-	{"TABS", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test8051548, TABS)},
-	{"colorChooser", "Ljavax/swing/JColorChooser;", nullptr, $PRIVATE | $STATIC, $staticField(Test8051548, colorChooser)},
-	{"propertyChangeListenerInvoked", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Test8051548, propertyChangeListenerInvoked)},
-	{"color", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Test8051548, color)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(Test8051548, frame)},
-	{}
-};
-
-$MethodInfo _Test8051548_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548, init$, void)},
-	{"colorHasAlpha", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, colorHasAlpha, bool)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, createAndShowGUI, void)},
-	{"findComponent", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, findComponent, $Component*, $Component*, $String*)},
-	{"findComponent", "(Ljava/awt/Component;Ljava/util/function/Predicate;)Ljava/awt/Component;", "(Ljava/awt/Component;Ljava/util/function/Predicate<Ljava/awt/Component;>;)Ljava/awt/Component;", $PRIVATE | $STATIC, $staticMethod(Test8051548, findComponent, $Component*, $Component*, $Predicate*)},
-	{"findTextField", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, findTextField, $Component*, $Component*, $String*)},
-	{"lambda$findComponent$6", "(Ljava/lang/String;Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$findComponent$6, bool, $String*, $Component*)},
-	{"lambda$findTextField$7", "(Ljava/lang/String;Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$findTextField$7, bool, $String*, $Component*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$main$0, void)},
-	{"lambda$testColorPanels$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testColorPanels$1, void)},
-	{"lambda$testColorPanels$2", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testColorPanels$2, void, $PropertyChangeEvent*)},
-	{"lambda$testColorPanels$3", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testColorPanels$3, void, $String*, $String*)},
-	{"lambda$testShowDialog$4", "(IZ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testShowDialog$4, void, int32_t, bool)},
-	{"lambda$testShowDialog$5", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testShowDialog$5, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8051548, main, void, $StringArray*), "java.lang.Exception"},
-	{"testColorPanels", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, testColorPanels, void), "java.lang.Exception"},
-	{"testShowDialog", "(Z)V", nullptr, $STATIC, $staticMethod(Test8051548, testShowDialog, void, bool), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _Test8051548_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"Test8051548",
-	"java.lang.Object",
-	nullptr,
-	_Test8051548_FieldInfo_,
-	_Test8051548_MethodInfo_
-};
-
-$Object* allocate$Test8051548($Class* clazz) {
-	return $of($alloc(Test8051548));
-}
 
 $StringArray2* Test8051548::TABS = nullptr;
 $JColorChooser* Test8051548::colorChooser = nullptr;
@@ -409,43 +335,39 @@ void Test8051548::init$() {
 
 void Test8051548::main($StringArray* args) {
 	$init(Test8051548);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			testColorPanels();
-			testShowDialog(true);
-			testShowDialog(false);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (Test8051548::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Test8051548$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		testColorPanels();
+		testShowDialog(true);
+		testShowDialog(false);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (Test8051548::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(Test8051548$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Test8051548::testColorPanels() {
 	$init(Test8051548);
-	$useLocalCurrentObjectStackCache();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Test8051548$$Lambda$lambda$testColorPanels$1$1)));
+	$useLocalObjectStack();
+	$SwingUtilities::invokeAndWait($$new(Test8051548$$Lambda$lambda$testColorPanels$1$1));
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(50);
 	robot->waitForIdle();
 	{
 		$var($StringArray2, arr$, Test8051548::TABS);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($StringArray, tabs, arr$->get(i$));
 			{
 				$var($String, tab, $nc(tabs)->get(0));
 				$var($String, initialValue, tabs->get(1));
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Test8051548$$Lambda$lambda$testColorPanels$3$2, tab, initialValue)));
+				$SwingUtilities::invokeAndWait($$new(Test8051548$$Lambda$lambda$testColorPanels$3$2, tab, initialValue));
 				robot->waitForIdle();
 			}
 		}
@@ -454,12 +376,12 @@ void Test8051548::testColorPanels() {
 
 void Test8051548::testShowDialog(bool colorTransparencySelectionEnabled) {
 	$init(Test8051548);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t alphaValue = 123;
 	$var($Robot, robot, $new($Robot));
 	robot->setAutoDelay(50);
-	$SwingUtilities::invokeLater(static_cast<$Runnable*>($$new(Test8051548$$Lambda$lambda$testShowDialog$4$3, alphaValue, colorTransparencySelectionEnabled)));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(Test8051548$$Lambda$lambda$testShowDialog$5$4)));
+	$SwingUtilities::invokeLater($$new(Test8051548$$Lambda$lambda$testShowDialog$4$3, alphaValue, colorTransparencySelectionEnabled));
+	$SwingUtilities::invokeAndWait($$new(Test8051548$$Lambda$lambda$testShowDialog$5$4));
 	robot->waitForIdle();
 	robot->keyPress($KeyEvent::VK_ENTER);
 	robot->keyRelease($KeyEvent::VK_ENTER);
@@ -468,47 +390,45 @@ void Test8051548::testShowDialog(bool colorTransparencySelectionEnabled) {
 		if ($nc(Test8051548::color)->getAlpha() != alphaValue) {
 			$throwNew($RuntimeException, "Color alpha has not bee reseted!"_s);
 		}
-	} else {
-		if ($nc(Test8051548::color)->getAlpha() != 255) {
-			$throwNew($RuntimeException, "Color alpha has not bee reseted!"_s);
-		}
+	} else if ($nc(Test8051548::color)->getAlpha() != 255) {
+		$throwNew($RuntimeException, "Color alpha has not bee reseted!"_s);
 	}
 }
 
 bool Test8051548::colorHasAlpha() {
 	$init(Test8051548);
-	return $nc($($nc(Test8051548::colorChooser)->getColor()))->getAlpha() != 255;
+	return $$nc($nc(Test8051548::colorChooser)->getColor())->getAlpha() != 255;
 }
 
 void Test8051548::createAndShowGUI() {
 	$init(Test8051548);
 	$assignStatic(Test8051548::frame, $new($JFrame));
-	$nc(Test8051548::frame)->setSize(700, 500);
+	Test8051548::frame->setSize(700, 500);
 	$nc(Test8051548::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$assignStatic(Test8051548::colorChooser, $new($JColorChooser));
-	$nc($($nc(Test8051548::frame)->getContentPane()))->add(static_cast<$Component*>(Test8051548::colorChooser));
+	$$nc($nc(Test8051548::frame)->getContentPane())->add(Test8051548::colorChooser);
 	$nc(Test8051548::frame)->setVisible(true);
 }
 
 $Component* Test8051548::findComponent($Component* component, $String* name) {
 	$init(Test8051548);
-	return findComponent(component, static_cast<$Predicate*>($$new(Test8051548$$Lambda$lambda$findComponent$6$5, name)));
+	return findComponent(component, $$new(Test8051548$$Lambda$lambda$findComponent$6$5, name));
 }
 
 $Component* Test8051548::findTextField($Component* component, $String* value) {
 	$init(Test8051548);
-	return findComponent(component, static_cast<$Predicate*>($$new(Test8051548$$Lambda$lambda$findTextField$7$6, value)));
+	return findComponent(component, $$new(Test8051548$$Lambda$lambda$findTextField$7$6, value));
 }
 
 $Component* Test8051548::findComponent($Component* component, $Predicate* predicate) {
 	$init(Test8051548);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(predicate)->test(component)) {
 		return component;
 	}
 	if ($instanceOf($Container, component)) {
 		$var($Container, container, $cast($Container, component));
-		for (int32_t i = 0; i < $nc(container)->getComponentCount(); ++i) {
+		for (int32_t i = 0; i < container->getComponentCount(); ++i) {
 			$var($Component, child, findComponent($(container->getComponent(i)), predicate));
 			if (child != nullptr) {
 				return child;
@@ -520,17 +440,17 @@ $Component* Test8051548::findComponent($Component* component, $Predicate* predic
 
 bool Test8051548::lambda$findTextField$7($String* value, $Component* comp) {
 	$init(Test8051548);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JFormattedTextField, comp)) {
 		$var($JFormattedTextField, textField, $cast($JFormattedTextField, comp));
-		return $nc(value)->equals($($nc(textField)->getText()));
+		return $nc(value)->equals($(textField->getText()));
 	}
 	return false;
 }
 
 bool Test8051548::lambda$findComponent$6($String* name, $Component* comp) {
 	$init(Test8051548);
-	return $nc($($nc($of(comp))->getClass()->getName()))->contains(name);
+	return $$nc($nc($of(comp))->getClass()->getName())->contains(name);
 }
 
 void Test8051548::lambda$testShowDialog$5() {
@@ -544,14 +464,14 @@ void Test8051548::lambda$testShowDialog$4(int32_t alphaValue, bool colorTranspar
 
 void Test8051548::lambda$testColorPanels$3($String* tab, $String* initialValue) {
 	$init(Test8051548);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(Test8051548::colorChooser)->setColor($$new($Color, 50, 100, 85));
-	$var($JTabbedPane, tabbedPane, $cast($JTabbedPane, findComponent(static_cast<$Component*>(Test8051548::colorChooser), "JTabbedPane"_s)));
+	$var($JTabbedPane, tabbedPane, $cast($JTabbedPane, findComponent(Test8051548::colorChooser, "JTabbedPane"_s)));
 	int32_t index = $nc(tabbedPane)->indexOfTab(tab);
 	tabbedPane->setSelectedIndex(index);
 	$var($AbstractColorChooserPanel, colorChooserPanel, $cast($AbstractColorChooserPanel, findComponent($(tabbedPane->getComponent(index)), "ColorChooserPanel"_s)));
 	Test8051548::propertyChangeListenerInvoked = false;
-	$nc(colorChooserPanel)->addPropertyChangeListener(static_cast<$PropertyChangeListener*>($$new(Test8051548$$Lambda$lambda$testColorPanels$2$7)));
+	$nc(colorChooserPanel)->addPropertyChangeListener($$new(Test8051548$$Lambda$lambda$testColorPanels$2$7));
 	if (!colorChooserPanel->isColorTransparencySelectionEnabled()) {
 		$throwNew($RuntimeException, "Color transparency selection should be enabled by default"_s);
 	}
@@ -559,7 +479,7 @@ void Test8051548::lambda$testColorPanels$3($String* tab, $String* initialValue) 
 	if (!$nc(transparencyTextField)->isEnabled()) {
 		$throwNew($RuntimeException, "Transparency controls are disabled by default!"_s);
 	}
-	$nc(transparencyTextField)->setValue($($Integer::valueOf(50)));
+	transparencyTextField->setValue($($Integer::valueOf(50)));
 	if (!colorHasAlpha()) {
 		$throwNew($RuntimeException, "Transparency selection should be enabled!"_s);
 	}
@@ -577,14 +497,14 @@ void Test8051548::lambda$testColorPanels$3($String* tab, $String* initialValue) 
 
 void Test8051548::lambda$testColorPanels$2($PropertyChangeEvent* e) {
 	$init(Test8051548);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AbstractColorChooserPanel);
 	if ($nc($AbstractColorChooserPanel::TRANSPARENCY_ENABLED_PROPERTY)->equals($($nc(e)->getPropertyName()))) {
 		Test8051548::propertyChangeListenerInvoked = true;
-		if (!$nc(($cast($Boolean, $($nc(e)->getOldValue()))))->booleanValue()) {
+		if (!$$sure($Boolean, e->getOldValue())->booleanValue()) {
 			$throwNew($RuntimeException, "Old color transparency selection property should be true!"_s);
 		}
-		if ($nc(($cast($Boolean, $($nc(e)->getNewValue()))))->booleanValue()) {
+		if ($$sure($Boolean, e->getNewValue())->booleanValue()) {
 			$throwNew($RuntimeException, "New color transparency selection property should be false!"_s);
 		}
 	}
@@ -600,8 +520,8 @@ void Test8051548::lambda$main$0() {
 	$nc(Test8051548::frame)->dispose();
 }
 
-void clinit$Test8051548($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Test8051548::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(Test8051548::TABS, $new($StringArray2, {
 		$$new($StringArray, {
 			"HSV"_s,
@@ -627,32 +547,70 @@ Test8051548::Test8051548() {
 
 $Class* Test8051548::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Test8051548$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("Test8051548$$Lambda$lambda$main$0")) {
 			return Test8051548$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(Test8051548$$Lambda$lambda$testColorPanels$1$1::classInfo$.name)) {
+		if (name->equals("Test8051548$$Lambda$lambda$testColorPanels$1$1")) {
 			return Test8051548$$Lambda$lambda$testColorPanels$1$1::load$(name, initialize);
 		}
-		if (name->equals(Test8051548$$Lambda$lambda$testColorPanels$3$2::classInfo$.name)) {
+		if (name->equals("Test8051548$$Lambda$lambda$testColorPanels$3$2")) {
 			return Test8051548$$Lambda$lambda$testColorPanels$3$2::load$(name, initialize);
 		}
-		if (name->equals(Test8051548$$Lambda$lambda$testShowDialog$4$3::classInfo$.name)) {
+		if (name->equals("Test8051548$$Lambda$lambda$testShowDialog$4$3")) {
 			return Test8051548$$Lambda$lambda$testShowDialog$4$3::load$(name, initialize);
 		}
-		if (name->equals(Test8051548$$Lambda$lambda$testShowDialog$5$4::classInfo$.name)) {
+		if (name->equals("Test8051548$$Lambda$lambda$testShowDialog$5$4")) {
 			return Test8051548$$Lambda$lambda$testShowDialog$5$4::load$(name, initialize);
 		}
-		if (name->equals(Test8051548$$Lambda$lambda$findComponent$6$5::classInfo$.name)) {
+		if (name->equals("Test8051548$$Lambda$lambda$findComponent$6$5")) {
 			return Test8051548$$Lambda$lambda$findComponent$6$5::load$(name, initialize);
 		}
-		if (name->equals(Test8051548$$Lambda$lambda$findTextField$7$6::classInfo$.name)) {
+		if (name->equals("Test8051548$$Lambda$lambda$findTextField$7$6")) {
 			return Test8051548$$Lambda$lambda$findTextField$7$6::load$(name, initialize);
 		}
-		if (name->equals(Test8051548$$Lambda$lambda$testColorPanels$2$7::classInfo$.name)) {
+		if (name->equals("Test8051548$$Lambda$lambda$testColorPanels$2$7")) {
 			return Test8051548$$Lambda$lambda$testColorPanels$2$7::load$(name, initialize);
 		}
 	}
-	$loadClass(Test8051548, name, initialize, &_Test8051548_ClassInfo_, clinit$Test8051548, allocate$Test8051548);
+	$FieldInfo fieldInfos$$[] = {
+		{"TABS", "[[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Test8051548, TABS)},
+		{"colorChooser", "Ljavax/swing/JColorChooser;", nullptr, $PRIVATE | $STATIC, $staticField(Test8051548, colorChooser)},
+		{"propertyChangeListenerInvoked", "Z", nullptr, $PRIVATE | $STATIC, $staticField(Test8051548, propertyChangeListenerInvoked)},
+		{"color", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(Test8051548, color)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(Test8051548, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Test8051548, init$, void)},
+		{"colorHasAlpha", "()Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, colorHasAlpha, bool)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, createAndShowGUI, void)},
+		{"findComponent", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, findComponent, $Component*, $Component*, $String*)},
+		{"findComponent", "(Ljava/awt/Component;Ljava/util/function/Predicate;)Ljava/awt/Component;", "(Ljava/awt/Component;Ljava/util/function/Predicate<Ljava/awt/Component;>;)Ljava/awt/Component;", $PRIVATE | $STATIC, $staticMethod(Test8051548, findComponent, $Component*, $Component*, $Predicate*)},
+		{"findTextField", "(Ljava/awt/Component;Ljava/lang/String;)Ljava/awt/Component;", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, findTextField, $Component*, $Component*, $String*)},
+		{"lambda$findComponent$6", "(Ljava/lang/String;Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$findComponent$6, bool, $String*, $Component*)},
+		{"lambda$findTextField$7", "(Ljava/lang/String;Ljava/awt/Component;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$findTextField$7, bool, $String*, $Component*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$main$0, void)},
+		{"lambda$testColorPanels$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testColorPanels$1, void)},
+		{"lambda$testColorPanels$2", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testColorPanels$2, void, $PropertyChangeEvent*)},
+		{"lambda$testColorPanels$3", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testColorPanels$3, void, $String*, $String*)},
+		{"lambda$testShowDialog$4", "(IZ)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testShowDialog$4, void, int32_t, bool)},
+		{"lambda$testShowDialog$5", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Test8051548, lambda$testShowDialog$5, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Test8051548, main, void, $StringArray*), "java.lang.Exception"},
+		{"testColorPanels", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Test8051548, testColorPanels, void), "java.lang.Exception"},
+		{"testShowDialog", "(Z)V", nullptr, $STATIC, $staticMethod(Test8051548, testShowDialog, void, bool), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"Test8051548",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Test8051548, name, initialize, &classInfo$$, Test8051548::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Test8051548);
+	});
 	return class$;
 }
 

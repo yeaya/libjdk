@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WCheckboxPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -21,7 +20,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
 #include <sun/awt/windows/WCheckboxPeer$1.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WObjectPeer.h>
@@ -53,7 +51,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $WCheckboxPeer$1 = ::sun::awt::windows::WCheckboxPeer$1;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;
@@ -62,90 +59,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WCheckboxPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Checkbox;)V", nullptr, 0, $method(WCheckboxPeer, init$, void, $Checkbox*)},
-	{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WCheckboxPeer, create, void, $WComponentPeer*)},
-	{"getCheckMarkSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WCheckboxPeer, getCheckMarkSize, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WCheckboxPeer, getMinimumSize, $Dimension*)},
-	{"handleAction", "(Z)V", nullptr, 0, $method(WCheckboxPeer, handleAction, void, bool)},
-	{"initialize", "()V", nullptr, 0, $virtualMethod(WCheckboxPeer, initialize, void)},
-	{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WCheckboxPeer, isFocusable, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"setCheckboxGroup", "(Ljava/awt/CheckboxGroup;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WCheckboxPeer, setCheckboxGroup, void, $CheckboxGroup*)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WCheckboxPeer, setLabel, void, $String*)},
-	{"setState", "(Z)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WCheckboxPeer, setState, void, bool)},
-	{"*setVisible", "(Z)V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WCheckboxPeer, shouldClearRectBeforePaint, bool)},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX_create 23
-#define _METHOD_INDEX_getCheckMarkSize 24
-#define _METHOD_INDEX_setCheckboxGroup 38
-#define _METHOD_INDEX_setLabel 42
-#define _METHOD_INDEX_setState 43
-
-$InnerClassInfo _WCheckboxPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WCheckboxPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WCheckboxPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WCheckboxPeer",
-	"sun.awt.windows.WComponentPeer",
-	"java.awt.peer.CheckboxPeer",
-	nullptr,
-	_WCheckboxPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WCheckboxPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WCheckboxPeer$1"
-};
-
-$Object* allocate$WCheckboxPeer($Class* clazz) {
-	return $of($alloc(WCheckboxPeer));
-}
 
 bool WCheckboxPeer::isObscured() {
 	 return this->$WComponentPeer::isObscured();
@@ -304,40 +217,39 @@ void WCheckboxPeer::finalize() {
 }
 
 void WCheckboxPeer::setState(bool state) {
-	$prepareNative(WCheckboxPeer, setState, void, bool state);
+	$prepareNative(setState, void, bool state);
 	$invokeNative(state);
 	$finishNative();
 }
 
 void WCheckboxPeer::setCheckboxGroup($CheckboxGroup* g) {
-	$prepareNative(WCheckboxPeer, setCheckboxGroup, void, $CheckboxGroup* g);
+	$prepareNative(setCheckboxGroup, void, $CheckboxGroup* g);
 	$invokeNative(g);
 	$finishNative();
 }
 
 void WCheckboxPeer::setLabel($String* label) {
-	$prepareNative(WCheckboxPeer, setLabel, void, $String* label);
+	$prepareNative(setLabel, void, $String* label);
 	$invokeNative(label);
 	$finishNative();
 }
 
 int32_t WCheckboxPeer::getCheckMarkSize() {
 	$init(WCheckboxPeer);
-	int32_t $ret = 0;
-	$prepareNativeStatic(WCheckboxPeer, getCheckMarkSize, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getCheckMarkSize, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Dimension* WCheckboxPeer::getMinimumSize() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, lbl, $nc(($cast($Checkbox, this->target)))->getLabel());
+	$useLocalObjectStack();
+	$var($String, lbl, $nc($cast($Checkbox, this->target))->getLabel());
 	int32_t marksize = getCheckMarkSize();
 	if (lbl == nullptr) {
 		$assign(lbl, ""_s);
 	}
-	$var($FontMetrics, fm, getFontMetrics($($nc(($cast($Checkbox, this->target)))->getFont())));
+	$var($FontMetrics, fm, getFontMetrics($($nc($cast($Checkbox, this->target))->getFont())));
 	int32_t var$0 = $nc(fm)->stringWidth(lbl) + marksize / 2 + marksize;
 	return $new($Dimension, var$0, $Math::max(fm->getHeight() + 8, marksize));
 }
@@ -351,17 +263,17 @@ void WCheckboxPeer::init$($Checkbox* target) {
 }
 
 void WCheckboxPeer::create($WComponentPeer* parent) {
-	$prepareNative(WCheckboxPeer, create, void, $WComponentPeer* parent);
+	$prepareNative(create, void, $WComponentPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
 
 void WCheckboxPeer::initialize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Checkbox, t, $cast($Checkbox, this->target));
 	setState($nc(t)->getState());
-	setCheckboxGroup($($nc(t)->getCheckboxGroup()));
-	$var($Color, bg, $nc(($cast($Component, this->target)))->getBackground());
+	setCheckboxGroup($(t->getCheckboxGroup()));
+	$var($Color, bg, $nc($cast($Component, this->target))->getBackground());
 	if (bg != nullptr) {
 		setBackground(bg);
 	}
@@ -373,7 +285,7 @@ bool WCheckboxPeer::shouldClearRectBeforePaint() {
 }
 
 void WCheckboxPeer::handleAction(bool state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Checkbox, cb, $cast($Checkbox, this->target));
 	$WToolkit::executeOnEventHandlerThread(cb, $$new($WCheckboxPeer$1, this, cb, state));
 }
@@ -382,7 +294,80 @@ WCheckboxPeer::WCheckboxPeer() {
 }
 
 $Class* WCheckboxPeer::load$($String* name, bool initialize) {
-	$loadClass(WCheckboxPeer, name, initialize, &_WCheckboxPeer_ClassInfo_, allocate$WCheckboxPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $NATIVE},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Checkbox;)V", nullptr, 0, $method(WCheckboxPeer, init$, void, $Checkbox*)},
+		{"create", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $NATIVE, $virtualMethod(WCheckboxPeer, create, void, $WComponentPeer*)},
+		{"getCheckMarkSize", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WCheckboxPeer, getCheckMarkSize, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(WCheckboxPeer, getMinimumSize, $Dimension*)},
+		{"handleAction", "(Z)V", nullptr, 0, $method(WCheckboxPeer, handleAction, void, bool)},
+		{"initialize", "()V", nullptr, 0, $virtualMethod(WCheckboxPeer, initialize, void)},
+		{"isFocusable", "()Z", nullptr, $PUBLIC, $virtualMethod(WCheckboxPeer, isFocusable, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC | $NATIVE},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"setCheckboxGroup", "(Ljava/awt/CheckboxGroup;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WCheckboxPeer, setCheckboxGroup, void, $CheckboxGroup*)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WCheckboxPeer, setLabel, void, $String*)},
+		{"setState", "(Z)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WCheckboxPeer, setState, void, bool)},
+		{"*setVisible", "(Z)V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"shouldClearRectBeforePaint", "()Z", nullptr, $PUBLIC, $virtualMethod(WCheckboxPeer, shouldClearRectBeforePaint, bool)},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WCheckboxPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WCheckboxPeer",
+		"sun.awt.windows.WComponentPeer",
+		"java.awt.peer.CheckboxPeer",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WCheckboxPeer$1"
+	};
+	$loadClass(WCheckboxPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WCheckboxPeer));
+	});
 	return class$;
 }
 

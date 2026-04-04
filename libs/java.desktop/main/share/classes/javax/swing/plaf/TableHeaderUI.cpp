@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/TableHeaderUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _TableHeaderUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(TableHeaderUI, init$, void)},
-	{}
-};
-
-$ClassInfo _TableHeaderUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.TableHeaderUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_TableHeaderUI_MethodInfo_
-};
-
-$Object* allocate$TableHeaderUI($Class* clazz) {
-	return $of($alloc(TableHeaderUI));
-}
-
 void TableHeaderUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ TableHeaderUI::TableHeaderUI() {
 }
 
 $Class* TableHeaderUI::load$($String* name, bool initialize) {
-	$loadClass(TableHeaderUI, name, initialize, &_TableHeaderUI_ClassInfo_, allocate$TableHeaderUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(TableHeaderUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.TableHeaderUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TableHeaderUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableHeaderUI);
+	});
 	return class$;
 }
 

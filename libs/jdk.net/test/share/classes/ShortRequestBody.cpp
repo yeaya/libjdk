@@ -1,5 +1,4 @@
 #include <ShortRequestBody.h>
-
 #include <ShortRequestBody$ByteArrayRequestBody.h>
 #include <ShortRequestBody$FileRequestBody.h>
 #include <ShortRequestBody$Server.h>
@@ -50,7 +49,6 @@ using $ShortRequestBody$Server = ::ShortRequestBody$Server;
 using $ShortRequestBody$StringRequestBody = ::ShortRequestBody$StringRequestBody;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $CharSequence = ::java::lang::CharSequence;
@@ -65,7 +63,6 @@ using $URI = ::java::net::URI;
 using $HttpClient = ::java::net::http::HttpClient;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
-using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
 using $HttpTimeoutException = ::java::net::http::HttpTimeoutException;
@@ -87,29 +84,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* get() override {
-		 return $of(ShortRequestBody::lambda$main$0());
+		 return ShortRequestBody::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ShortRequestBody$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo ShortRequestBody$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortRequestBody$$Lambda$lambda$main$0, init$, void)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$$Lambda$lambda$main$0, get, $Object*)},
-	{}
-};
-$ClassInfo ShortRequestBody$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ShortRequestBody$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	nullptr,
-	methodInfos
 };
 $Class* ShortRequestBody$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(ShortRequestBody$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShortRequestBody$$Lambda$lambda$main$0, init$, void)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$$Lambda$lambda$main$0, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ShortRequestBody$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ShortRequestBody$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortRequestBody$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* ShortRequestBody$$Lambda$lambda$main$0::class$ = nullptr;
@@ -121,92 +115,34 @@ public:
 		$set(this, sharedClient, sharedClient);
 	}
 	virtual $Object* get() override {
-		 return $of(ShortRequestBody::lambda$main$1(sharedClient));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<ShortRequestBody$$Lambda$lambda$main$1$1>());
+		 return ShortRequestBody::lambda$main$1(sharedClient);
 	}
 	$HttpClient* sharedClient = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo ShortRequestBody$$Lambda$lambda$main$1$1::fieldInfos[2] = {
-	{"sharedClient", "Ljava/net/http/HttpClient;", nullptr, $PUBLIC, $field(ShortRequestBody$$Lambda$lambda$main$1$1, sharedClient)},
-	{}
-};
-$MethodInfo ShortRequestBody$$Lambda$lambda$main$1$1::methodInfos[3] = {
-	{"<init>", "(Ljava/net/http/HttpClient;)V", nullptr, $PUBLIC, $method(ShortRequestBody$$Lambda$lambda$main$1$1, init$, void, $HttpClient*)},
-	{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$$Lambda$lambda$main$1$1, get, $Object*)},
-	{}
-};
-$ClassInfo ShortRequestBody$$Lambda$lambda$main$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"ShortRequestBody$$Lambda$lambda$main$1$1",
-	"java.lang.Object",
-	"java.util.function.Supplier",
-	fieldInfos,
-	methodInfos
 };
 $Class* ShortRequestBody$$Lambda$lambda$main$1$1::load$($String* name, bool initialize) {
-	$loadClass(ShortRequestBody$$Lambda$lambda$main$1$1, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"sharedClient", "Ljava/net/http/HttpClient;", nullptr, $PUBLIC, $field(ShortRequestBody$$Lambda$lambda$main$1$1, sharedClient)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpClient;)V", nullptr, $PUBLIC, $method(ShortRequestBody$$Lambda$lambda$main$1$1, init$, void, $HttpClient*)},
+		{"get", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$$Lambda$lambda$main$1$1, get, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"ShortRequestBody$$Lambda$lambda$main$1$1",
+		"java.lang.Object",
+		"java.util.function.Supplier",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ShortRequestBody$$Lambda$lambda$main$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortRequestBody$$Lambda$lambda$main$1$1);
+	});
 	return class$;
 }
 $Class* ShortRequestBody$$Lambda$lambda$main$1$1::class$ = nullptr;
-
-$FieldInfo _ShortRequestBody_FieldInfo_[] = {
-	{"testSrc", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, testSrc)},
-	{"STRING_BODY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, STRING_BODY)},
-	{"BYTE_ARRAY_BODY", "[B", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, BYTE_ARRAY_BODY)},
-	{"FILE_BODY", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, FILE_BODY)},
-	{"BODY_LENGTHS", "[I", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, BODY_LENGTHS)},
-	{"BODY_OFFSETS", "[I", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, BODY_OFFSETS)},
-	{"MARKER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, MARKER)},
-	{"requestEnd", "[B", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, requestEnd)},
-	{}
-};
-
-$MethodInfo _ShortRequestBody_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ShortRequestBody, init$, void)},
-	{"check", "(ZLjava/lang/Throwable;[Ljava/lang/Object;)Z", nullptr, $STATIC | $TRANSIENT, $staticMethod(ShortRequestBody, check, bool, bool, $Throwable*, $ObjectArray*)},
-	{"failureBlocking", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, failureBlocking, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
-	{"failureNonBlocking", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, failureNonBlocking, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
-	{"fileSize", "(Ljava/nio/file/Path;)I", nullptr, $STATIC, $staticMethod(ShortRequestBody, fileSize, int32_t, $Path*)},
-	{"lambda$main$0", "()Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShortRequestBody, lambda$main$0, $HttpClient*)},
-	{"lambda$main$1", "(Ljava/net/http/HttpClient;)Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShortRequestBody, lambda$main$1, $HttpClient*, $HttpClient*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortRequestBody, main, void, $StringArray*), "java.lang.Exception"},
-	{"readRequestHeaders", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ShortRequestBody, readRequestHeaders, $String*, $InputStream*), "java.io.IOException"},
-	{"success", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, success, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ShortRequestBody_InnerClassesInfo_[] = {
-	{"ShortRequestBody$Server", "ShortRequestBody", "Server", $STATIC},
-	{"ShortRequestBody$FileRequestBody", "ShortRequestBody", "FileRequestBody", $STATIC},
-	{"ShortRequestBody$ByteArrayRequestBody", "ShortRequestBody", "ByteArrayRequestBody", $STATIC},
-	{"ShortRequestBody$StringRequestBody", "ShortRequestBody", "StringRequestBody", $STATIC},
-	{"ShortRequestBody$AbstractDelegateRequestBody", "ShortRequestBody", "AbstractDelegateRequestBody", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ShortRequestBody_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ShortRequestBody",
-	"java.lang.Object",
-	nullptr,
-	_ShortRequestBody_FieldInfo_,
-	_ShortRequestBody_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ShortRequestBody_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ShortRequestBody$Server,ShortRequestBody$FileRequestBody,ShortRequestBody$ByteArrayRequestBody,ShortRequestBody$StringRequestBody,ShortRequestBody$AbstractDelegateRequestBody"
-};
-
-$Object* allocate$ShortRequestBody($Class* clazz) {
-	return $of($alloc(ShortRequestBody));
-}
 
 $Path* ShortRequestBody::testSrc = nullptr;
 $String* ShortRequestBody::STRING_BODY = nullptr;
@@ -222,83 +158,79 @@ void ShortRequestBody::init$() {
 
 void ShortRequestBody::main($StringArray* args) {
 	$init(ShortRequestBody);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpClient, sharedClient, $HttpClient::newHttpClient());
 	$var($List, clientSuppliers, $new($ArrayList));
-	clientSuppliers->add(static_cast<$Supplier*>($$new(ShortRequestBody$$Lambda$lambda$main$0)));
-	clientSuppliers->add(static_cast<$Supplier*>($$new(ShortRequestBody$$Lambda$lambda$main$1$1, sharedClient)));
+	clientSuppliers->add($$new(ShortRequestBody$$Lambda$lambda$main$0));
+	clientSuppliers->add($$new(ShortRequestBody$$Lambda$lambda$main$1$1, sharedClient));
 	{
 		$var($ShortRequestBody$Server, server, $new($ShortRequestBody$Server));
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
+				$var($Iterator, i$, clientSuppliers->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Supplier, cs, $cast($Supplier, i$->next()));
 					{
-						$var($Iterator, i$, clientSuppliers->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Supplier, cs, $cast($Supplier, i$->next()));
-							{
-								$nc($System::err)->println("\n---- next supplier ----\n"_s);
-								$var($URI, uri, $new($URI, $$str({"http://localhost:"_s, $$str(server->getPort()), "/"_s, ShortRequestBody::MARKER})));
-								success(cs, uri, $$new($ShortRequestBody$StringRequestBody, ShortRequestBody::STRING_BODY, 0));
-								success(cs, uri, $$new($ShortRequestBody$ByteArrayRequestBody, ShortRequestBody::BYTE_ARRAY_BODY, 0));
-								success(cs, uri, $$new($ShortRequestBody$FileRequestBody, ShortRequestBody::FILE_BODY, 0));
-								success(cs, uri, $$new($ShortRequestBody$StringRequestBody, ShortRequestBody::STRING_BODY, 0));
-								success(cs, uri, $$new($ShortRequestBody$ByteArrayRequestBody, ShortRequestBody::BYTE_ARRAY_BODY, 0));
-								success(cs, uri, $$new($ShortRequestBody$FileRequestBody, ShortRequestBody::FILE_BODY, 0));
-								for (int32_t i = 1; i < $nc(ShortRequestBody::BODY_OFFSETS)->length; ++i) {
-									failureBlocking(cs, uri, $$new($ShortRequestBody$StringRequestBody, ShortRequestBody::STRING_BODY, $nc(ShortRequestBody::BODY_OFFSETS)->get(i)));
-									failureBlocking(cs, uri, $$new($ShortRequestBody$ByteArrayRequestBody, ShortRequestBody::BYTE_ARRAY_BODY, $nc(ShortRequestBody::BODY_OFFSETS)->get(i)));
-									failureBlocking(cs, uri, $$new($ShortRequestBody$FileRequestBody, ShortRequestBody::FILE_BODY, $nc(ShortRequestBody::BODY_OFFSETS)->get(i)));
-									failureNonBlocking(cs, uri, $$new($ShortRequestBody$StringRequestBody, ShortRequestBody::STRING_BODY, $nc(ShortRequestBody::BODY_OFFSETS)->get(i)));
-									failureNonBlocking(cs, uri, $$new($ShortRequestBody$ByteArrayRequestBody, ShortRequestBody::BYTE_ARRAY_BODY, $nc(ShortRequestBody::BODY_OFFSETS)->get(i)));
-									failureNonBlocking(cs, uri, $$new($ShortRequestBody$FileRequestBody, ShortRequestBody::FILE_BODY, $nc(ShortRequestBody::BODY_OFFSETS)->get(i)));
-								}
-							}
+						$nc($System::err)->println("\n---- next supplier ----\n"_s);
+						$var($URI, uri, $new($URI, $$str({"http://localhost:"_s, $$str(server->getPort()), "/"_s, ShortRequestBody::MARKER})));
+						success(cs, uri, $$new($ShortRequestBody$StringRequestBody, ShortRequestBody::STRING_BODY, 0));
+						success(cs, uri, $$new($ShortRequestBody$ByteArrayRequestBody, ShortRequestBody::BYTE_ARRAY_BODY, 0));
+						success(cs, uri, $$new($ShortRequestBody$FileRequestBody, ShortRequestBody::FILE_BODY, 0));
+						success(cs, uri, $$new($ShortRequestBody$StringRequestBody, ShortRequestBody::STRING_BODY, 0));
+						success(cs, uri, $$new($ShortRequestBody$ByteArrayRequestBody, ShortRequestBody::BYTE_ARRAY_BODY, 0));
+						success(cs, uri, $$new($ShortRequestBody$FileRequestBody, ShortRequestBody::FILE_BODY, 0));
+						for (int32_t i = 1; i < ShortRequestBody::BODY_OFFSETS->length; ++i) {
+							failureBlocking(cs, uri, $$new($ShortRequestBody$StringRequestBody, ShortRequestBody::STRING_BODY, ShortRequestBody::BODY_OFFSETS->get(i)));
+							failureBlocking(cs, uri, $$new($ShortRequestBody$ByteArrayRequestBody, ShortRequestBody::BYTE_ARRAY_BODY, ShortRequestBody::BODY_OFFSETS->get(i)));
+							failureBlocking(cs, uri, $$new($ShortRequestBody$FileRequestBody, ShortRequestBody::FILE_BODY, ShortRequestBody::BODY_OFFSETS->get(i)));
+							failureNonBlocking(cs, uri, $$new($ShortRequestBody$StringRequestBody, ShortRequestBody::STRING_BODY, ShortRequestBody::BODY_OFFSETS->get(i)));
+							failureNonBlocking(cs, uri, $$new($ShortRequestBody$ByteArrayRequestBody, ShortRequestBody::BYTE_ARRAY_BODY, ShortRequestBody::BODY_OFFSETS->get(i)));
+							failureNonBlocking(cs, uri, $$new($ShortRequestBody$FileRequestBody, ShortRequestBody::FILE_BODY, ShortRequestBody::BODY_OFFSETS->get(i)));
 						}
 					}
-				} catch ($Throwable& t$) {
-					try {
-						server->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
 				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				server->close();
+			} catch ($Throwable& t$) {
+				try {
+					server->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
+				}
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			server->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 void ShortRequestBody::success($Supplier* clientSupplier, $URI* uri, $HttpRequest$BodyPublisher* publisher) {
 	$init(ShortRequestBody);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, cf, nullptr);
-	$var($HttpRequest, request, $nc($($nc($($HttpRequest::newBuilder(uri)))->POST(publisher)))->build());
-	$assign(cf, $nc(($cast($HttpClient, $($nc(clientSupplier)->get()))))->sendAsync(request, $($HttpResponse$BodyHandlers::discarding())));
+	$var($HttpRequest, request, $$nc($$nc($HttpRequest::newBuilder(uri))->POST(publisher))->build());
+	$assign(cf, $$sure($HttpClient, $nc(clientSupplier)->get())->sendAsync(request, $($HttpResponse$BodyHandlers::discarding())));
 	$init($TimeUnit);
 	$var($HttpResponse, resp, $cast($HttpResponse, $nc(cf)->get(30, $TimeUnit::SECONDS)));
 	$nc($System::err)->println($$str({"Response code: "_s, $$str($nc(resp)->statusCode())}));
-	bool var$0 = $nc(resp)->statusCode() == 200;
+	bool var$0 = resp->statusCode() == 200;
 	check(var$0, nullptr, $$new($ObjectArray, {
-		$of("Expected 200, got "_s),
-		$($of($Integer::valueOf(resp->statusCode())))
+		"Expected 200, got "_s,
+		$($Integer::valueOf(resp->statusCode()))
 	}));
 }
 
 void ShortRequestBody::failureNonBlocking($Supplier* clientSupplier, $URI* uri, $HttpRequest$BodyPublisher* publisher) {
 	$init(ShortRequestBody);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CompletableFuture, cf, nullptr);
-	$var($HttpRequest, request, $nc($($nc($($HttpRequest::newBuilder(uri)))->POST(publisher)))->build());
-	$assign(cf, $nc(($cast($HttpClient, $($nc(clientSupplier)->get()))))->sendAsync(request, $($HttpResponse$BodyHandlers::discarding())));
+	$var($HttpRequest, request, $$nc($$nc($HttpRequest::newBuilder(uri))->POST(publisher))->build());
+	$assign(cf, $$sure($HttpClient, $nc(clientSupplier)->get())->sendAsync(request, $($HttpResponse$BodyHandlers::discarding())));
 	try {
 		$init($TimeUnit);
 		$var($HttpResponse, r, $cast($HttpResponse, $nc(cf)->get(30, $TimeUnit::SECONDS)));
@@ -309,24 +241,24 @@ void ShortRequestBody::failureNonBlocking($Supplier* clientSupplier, $URI* uri, 
 		$nc($System::err)->println($$str({"Caught expected: "_s, expected}));
 		$var($Throwable, t, expected->getCause());
 		check($instanceOf($IOException, t), t, $$new($ObjectArray, {
-			$of("Expected cause IOException, but got: "_s),
-			$of(t)
+			"Expected cause IOException, but got: "_s,
+			t
 		}));
 		$var($String, msg, $nc(t)->getMessage());
 		bool var$0 = $nc(msg)->contains("Too many"_s);
-		check(var$0 || $nc(msg)->contains("Too few"_s), t, $$new($ObjectArray, {
-			$of("Expected Too many|Too few, got: "_s),
-			$of(t)
+		check(var$0 || msg->contains("Too few"_s), t, $$new($ObjectArray, {
+			"Expected Too many|Too few, got: "_s,
+			t
 		}));
 	}
 }
 
 void ShortRequestBody::failureBlocking($Supplier* clientSupplier, $URI* uri, $HttpRequest$BodyPublisher* publisher) {
 	$init(ShortRequestBody);
-	$useLocalCurrentObjectStackCache();
-	$var($HttpRequest, request, $nc($($nc($($HttpRequest::newBuilder(uri)))->POST(publisher)))->build());
+	$useLocalObjectStack();
+	$var($HttpRequest, request, $$nc($$nc($HttpRequest::newBuilder(uri))->POST(publisher))->build());
 	try {
-		$var($HttpResponse, r, $nc(($cast($HttpClient, $($nc(clientSupplier)->get()))))->send(request, $($HttpResponse$BodyHandlers::discarding())));
+		$var($HttpResponse, r, $$sure($HttpClient, $nc(clientSupplier)->get())->send(request, $($HttpResponse$BodyHandlers::discarding())));
 		$throwNew($RuntimeException, $$str({"Unexpected response: "_s, $$str($nc(r)->statusCode())}));
 	} catch ($HttpTimeoutException& x) {
 		$throwNew($RuntimeException, "Unexpected timeout"_s, x);
@@ -334,16 +266,16 @@ void ShortRequestBody::failureBlocking($Supplier* clientSupplier, $URI* uri, $Ht
 		$nc($System::err)->println($$str({"Caught expected: "_s, expected}));
 		$var($String, msg, expected->getMessage());
 		bool var$0 = $nc(msg)->contains("Too many"_s);
-		check(var$0 || $nc(msg)->contains("Too few"_s), expected, $$new($ObjectArray, {
-			$of("Expected Too many|Too few, got: "_s),
-			$of(expected)
+		check(var$0 || msg->contains("Too few"_s), expected, $$new($ObjectArray, {
+			"Expected Too many|Too few, got: "_s,
+			expected
 		}));
 	}
 }
 
 $String* ShortRequestBody::readRequestHeaders($InputStream* is) {
 	$init(ShortRequestBody);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t requestEndCount = 0;
 	int32_t r = 0;
 	int32_t eol = -1;
@@ -353,7 +285,7 @@ $String* ShortRequestBody::readRequestHeaders($InputStream* is) {
 			eol = headers->length();
 		}
 		headers->append((char16_t)r);
-		if (r == $nc(ShortRequestBody::requestEnd)->get(requestEndCount)) {
+		if (r == ShortRequestBody::requestEnd->get(requestEndCount)) {
 			++requestEndCount;
 			if (requestEndCount == 4) {
 				break;
@@ -365,7 +297,7 @@ $String* ShortRequestBody::readRequestHeaders($InputStream* is) {
 	if (eol <= 0) {
 		return nullptr;
 	}
-	$var($String, requestLine, $nc($(headers->toString()))->substring(0, eol));
+	$var($String, requestLine, $(headers->toString())->substring(0, eol));
 	if (!requestLine->contains(ShortRequestBody::MARKER)) {
 		return nullptr;
 	}
@@ -384,16 +316,14 @@ int32_t ShortRequestBody::fileSize($Path* p) {
 
 bool ShortRequestBody::check(bool cond, $Throwable* t, $ObjectArray* failedArgs) {
 	$init(ShortRequestBody);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cond) {
 		return true;
 	}
 	$var($StringBuilder, sb, $new($StringBuilder));
 	{
 		$var($ObjectArray, arr$, failedArgs);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
 			sb->append(o);
 		}
@@ -411,8 +341,8 @@ $HttpClient* ShortRequestBody::lambda$main$0() {
 	return $HttpClient::newHttpClient();
 }
 
-void clinit$ShortRequestBody($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void ShortRequestBody::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(ShortRequestBody::STRING_BODY, "Hello world"_s);
 	$assignStatic(ShortRequestBody::MARKER, "ShortRequestBody"_s);
 	$assignStatic(ShortRequestBody::testSrc, $Paths::get($($System::getProperty("test.src"_s, "."_s)), $$new($StringArray, 0)));
@@ -422,10 +352,10 @@ void clinit$ShortRequestBody($Class* class$) {
 		(int8_t)186,
 		(int8_t)190
 	}));
-	$assignStatic(ShortRequestBody::FILE_BODY, $nc($($nc($($nc(ShortRequestBody::testSrc)->resolve("docs"_s)))->resolve("files"_s)))->resolve("foo.txt"_s));
+	$assignStatic(ShortRequestBody::FILE_BODY, $$nc($$nc($nc(ShortRequestBody::testSrc)->resolve("docs"_s))->resolve("files"_s))->resolve("foo.txt"_s));
 	$assignStatic(ShortRequestBody::BODY_LENGTHS, $new($ints, {
-		$nc(ShortRequestBody::STRING_BODY)->length(),
-		$nc(ShortRequestBody::BYTE_ARRAY_BODY)->length,
+		ShortRequestBody::STRING_BODY->length(),
+		ShortRequestBody::BYTE_ARRAY_BODY->length,
 		ShortRequestBody::fileSize(ShortRequestBody::FILE_BODY)
 	}));
 	$assignStatic(ShortRequestBody::BODY_OFFSETS, $new($ints, {
@@ -450,14 +380,62 @@ ShortRequestBody::ShortRequestBody() {
 
 $Class* ShortRequestBody::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(ShortRequestBody$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("ShortRequestBody$$Lambda$lambda$main$0")) {
 			return ShortRequestBody$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(ShortRequestBody$$Lambda$lambda$main$1$1::classInfo$.name)) {
+		if (name->equals("ShortRequestBody$$Lambda$lambda$main$1$1")) {
 			return ShortRequestBody$$Lambda$lambda$main$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(ShortRequestBody, name, initialize, &_ShortRequestBody_ClassInfo_, clinit$ShortRequestBody, allocate$ShortRequestBody);
+	$FieldInfo fieldInfos$$[] = {
+		{"testSrc", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, testSrc)},
+		{"STRING_BODY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, STRING_BODY)},
+		{"BYTE_ARRAY_BODY", "[B", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, BYTE_ARRAY_BODY)},
+		{"FILE_BODY", "Ljava/nio/file/Path;", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, FILE_BODY)},
+		{"BODY_LENGTHS", "[I", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, BODY_LENGTHS)},
+		{"BODY_OFFSETS", "[I", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, BODY_OFFSETS)},
+		{"MARKER", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, MARKER)},
+		{"requestEnd", "[B", nullptr, $STATIC | $FINAL, $staticField(ShortRequestBody, requestEnd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ShortRequestBody, init$, void)},
+		{"check", "(ZLjava/lang/Throwable;[Ljava/lang/Object;)Z", nullptr, $STATIC | $TRANSIENT, $staticMethod(ShortRequestBody, check, bool, bool, $Throwable*, $ObjectArray*)},
+		{"failureBlocking", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, failureBlocking, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
+		{"failureNonBlocking", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, failureNonBlocking, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
+		{"fileSize", "(Ljava/nio/file/Path;)I", nullptr, $STATIC, $staticMethod(ShortRequestBody, fileSize, int32_t, $Path*)},
+		{"lambda$main$0", "()Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShortRequestBody, lambda$main$0, $HttpClient*)},
+		{"lambda$main$1", "(Ljava/net/http/HttpClient;)Ljava/net/http/HttpClient;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ShortRequestBody, lambda$main$1, $HttpClient*, $HttpClient*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ShortRequestBody, main, void, $StringArray*), "java.lang.Exception"},
+		{"readRequestHeaders", "(Ljava/io/InputStream;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(ShortRequestBody, readRequestHeaders, $String*, $InputStream*), "java.io.IOException"},
+		{"success", "(Ljava/util/function/Supplier;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", "(Ljava/util/function/Supplier<Ljava/net/http/HttpClient;>;Ljava/net/URI;Ljava/net/http/HttpRequest$BodyPublisher;)V", $STATIC, $staticMethod(ShortRequestBody, success, void, $Supplier*, $URI*, $HttpRequest$BodyPublisher*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ShortRequestBody$Server", "ShortRequestBody", "Server", $STATIC},
+		{"ShortRequestBody$FileRequestBody", "ShortRequestBody", "FileRequestBody", $STATIC},
+		{"ShortRequestBody$ByteArrayRequestBody", "ShortRequestBody", "ByteArrayRequestBody", $STATIC},
+		{"ShortRequestBody$StringRequestBody", "ShortRequestBody", "StringRequestBody", $STATIC},
+		{"ShortRequestBody$AbstractDelegateRequestBody", "ShortRequestBody", "AbstractDelegateRequestBody", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ShortRequestBody",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ShortRequestBody$Server,ShortRequestBody$FileRequestBody,ShortRequestBody$ByteArrayRequestBody,ShortRequestBody$StringRequestBody,ShortRequestBody$AbstractDelegateRequestBody"
+	};
+	$loadClass(ShortRequestBody, name, initialize, &classInfo$$, ShortRequestBody::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortRequestBody);
+	});
 	return class$;
 }
 

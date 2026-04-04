@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind$2.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/comp/Infer$IncorporationBinaryOpKind.h>
@@ -21,44 +20,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Infer$IncorporationBinaryOpKind$2_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Infer$IncorporationBinaryOpKind$2, init$, void, $String*, int32_t)},
-	{"apply", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/code/Types;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationBinaryOpKind$2, apply, bool, $Type*, $Type*, $Warner*, $Types*)},
-	{}
-};
-
-$EnclosingMethodInfo _Infer$IncorporationBinaryOpKind$2_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Infer$IncorporationBinaryOpKind$2_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind", "com.sun.tools.javac.comp.Infer", "IncorporationBinaryOpKind", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind$2", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Infer$IncorporationBinaryOpKind$2_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind$2",
-	"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind",
-	nullptr,
-	nullptr,
-	_Infer$IncorporationBinaryOpKind$2_MethodInfo_,
-	nullptr,
-	&_Infer$IncorporationBinaryOpKind$2_EnclosingMethodInfo_,
-	_Infer$IncorporationBinaryOpKind$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Infer"
-};
-
-$Object* allocate$Infer$IncorporationBinaryOpKind$2($Class* clazz) {
-	return $of($alloc(Infer$IncorporationBinaryOpKind$2));
-}
-
 void Infer$IncorporationBinaryOpKind$2::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Infer$IncorporationBinaryOpKind::init$($enum$name, $enum$ordinal);
 }
@@ -71,7 +32,39 @@ Infer$IncorporationBinaryOpKind$2::Infer$IncorporationBinaryOpKind$2() {
 }
 
 $Class* Infer$IncorporationBinaryOpKind$2::load$($String* name, bool initialize) {
-	$loadClass(Infer$IncorporationBinaryOpKind$2, name, initialize, &_Infer$IncorporationBinaryOpKind$2_ClassInfo_, allocate$Infer$IncorporationBinaryOpKind$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;I)V", nullptr, $PRIVATE, $method(Infer$IncorporationBinaryOpKind$2, init$, void, $String*, int32_t)},
+		{"apply", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/Warner;Lcom/sun/tools/javac/code/Types;)Z", nullptr, 0, $virtualMethod(Infer$IncorporationBinaryOpKind$2, apply, bool, $Type*, $Type*, $Warner*, $Types*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind", "com.sun.tools.javac.comp.Infer", "IncorporationBinaryOpKind", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind$2", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind$2",
+		"com.sun.tools.javac.comp.Infer$IncorporationBinaryOpKind",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Infer"
+	};
+	$loadClass(Infer$IncorporationBinaryOpKind$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Infer$IncorporationBinaryOpKind$2));
+	});
 	return class$;
 }
 

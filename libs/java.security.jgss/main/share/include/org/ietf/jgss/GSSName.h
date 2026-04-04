@@ -35,6 +35,7 @@ class $import GSSName : public ::java::lang::Object {
 public:
 	virtual bool equals(Object$* another) override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::org::ietf::jgss::GSSName* canonicalize(::org::ietf::jgss::Oid* mech) {return nullptr;}
 	virtual bool equals(::org::ietf::jgss::GSSName* another) {return false;}
 	virtual $bytes* export$() {return nullptr;}

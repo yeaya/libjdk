@@ -1,5 +1,4 @@
 #include <javax/sql/RowSetReader.h>
-
 #include <javax/sql/RowSetInternal.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $RowSetInternal = ::javax::sql::RowSetInternal;
 namespace javax {
 	namespace sql {
 
-$MethodInfo _RowSetReader_MethodInfo_[] = {
-	{"readData", "(Ljavax/sql/RowSetInternal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetReader, readData, void, $RowSetInternal*), "java.sql.SQLException"},
-	{}
-};
-
-$ClassInfo _RowSetReader_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.RowSetReader",
-	nullptr,
-	nullptr,
-	nullptr,
-	_RowSetReader_MethodInfo_
-};
-
-$Object* allocate$RowSetReader($Class* clazz) {
-	return $of($alloc(RowSetReader));
-}
-
 $Class* RowSetReader::load$($String* name, bool initialize) {
-	$loadClass(RowSetReader, name, initialize, &_RowSetReader_ClassInfo_, allocate$RowSetReader);
+	$MethodInfo methodInfos$$[] = {
+		{"readData", "(Ljavax/sql/RowSetInternal;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(RowSetReader, readData, void, $RowSetInternal*), "java.sql.SQLException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.RowSetReader",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RowSetReader, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RowSetReader);
+	});
 	return class$;
 }
 

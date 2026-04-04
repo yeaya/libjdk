@@ -69,6 +69,7 @@ class $import MetalInternalFrameUI : public ::javax::swing::plaf::basic::BasicIn
 	$class(MetalInternalFrameUI, 0, ::javax::swing::plaf::basic::BasicInternalFrameUI)
 public:
 	MetalInternalFrameUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JInternalFrame* b);
 	static ::javax::swing::JInternalFrame* access$000(::javax::swing::plaf::metal::MetalInternalFrameUI* x0);
 	static ::javax::swing::plaf::basic::BasicInternalFrameTitlePane* access$100(::javax::swing::plaf::metal::MetalInternalFrameUI* x0);

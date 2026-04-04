@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/EmptySerializer.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/DOMSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/NamespaceMappings.h>
 #include <java/io/OutputStream.h>
@@ -41,125 +40,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace serializer {
-
-$FieldInfo _EmptySerializer_FieldInfo_[] = {
-	{"ERR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(EmptySerializer, ERR)},
-	{}
-};
-
-$MethodInfo _EmptySerializer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EmptySerializer, init$, void)},
-	{"aMethodIsCalled", "()V", nullptr, 0, $virtualMethod(EmptySerializer, aMethodIsCalled, void)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addAttribute, void, $String*, $String*)},
-	{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addAttribute, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"addAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addAttributes, void, $Attributes*), "org.xml.sax.SAXException"},
-	{"addUniqueAttribute", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addUniqueAttribute, void, $String*, $String*, int32_t), "org.xml.sax.SAXException"},
-	{"addXSLAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addXSLAttribute, void, $String*, $String*, $String*)},
-	{"asContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, asContentHandler, $ContentHandler*), "java.io.IOException"},
-	{"asDOM3Serializer", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, asDOM3Serializer, $Object*), "java.io.IOException"},
-	{"asDOMSerializer", "()Lcom/sun/org/apache/xml/internal/serializer/DOMSerializer;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, asDOMSerializer, $DOMSerializer*), "java.io.IOException"},
-	{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, characters, void, $String*), "org.xml.sax.SAXException"},
-	{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"characters", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, characters, void, $Node*), "org.xml.sax.SAXException"},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, close, void)},
-	{"comment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, comment, void, $String*), "org.xml.sax.SAXException"},
-	{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"couldThrowIOException", "()V", nullptr, $PROTECTED, $virtualMethod(EmptySerializer, couldThrowIOException, void), "java.io.IOException"},
-	{"couldThrowSAXException", "()V", nullptr, $PROTECTED, $virtualMethod(EmptySerializer, couldThrowSAXException, void), "org.xml.sax.SAXException"},
-	{"couldThrowSAXException", "([CII)V", nullptr, $PROTECTED, $virtualMethod(EmptySerializer, couldThrowSAXException, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"couldThrowSAXException", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(EmptySerializer, couldThrowSAXException, void, $String*), "org.xml.sax.SAXException"},
-	{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endCDATA, void), "org.xml.sax.SAXException"},
-	{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endDTD, void), "org.xml.sax.SAXException"},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endDocument, void), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endElement, void, $String*), "org.xml.sax.SAXException"},
-	{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
-	{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, entityReference, void, $String*), "org.xml.sax.SAXException"},
-	{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{"flushPending", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, flushPending, void), "org.xml.sax.SAXException"},
-	{"getDoctypePublic", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getDoctypePublic, $String*)},
-	{"getDoctypeSystem", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getDoctypeSystem, $String*)},
-	{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getEncoding, $String*)},
-	{"getIndent", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getIndent, bool)},
-	{"getIndentAmount", "()I", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getIndentAmount, int32_t)},
-	{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getMediaType, $String*)},
-	{"getNamespaceMappings", "()Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getNamespaceMappings, $NamespaceMappings*)},
-	{"getNamespaceURI", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getNamespaceURI, $String*, $String*, bool)},
-	{"getNamespaceURIFromPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getNamespaceURIFromPrefix, $String*, $String*)},
-	{"getOmitXMLDeclaration", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOmitXMLDeclaration, bool)},
-	{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOutputFormat, $Properties*)},
-	{"getOutputProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOutputProperty, $String*, $String*)},
-	{"getOutputPropertyDefault", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOutputPropertyDefault, $String*, $String*)},
-	{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOutputStream, $OutputStream*)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getPrefix, $String*, $String*)},
-	{"getStandalone", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getStandalone, $String*)},
-	{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getTransformer, $Transformer*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getVersion, $String*)},
-	{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getWriter, $Writer*)},
-	{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
-	{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, reset, bool)},
-	{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, serialize, void, $Node*), "java.io.IOException"},
-	{"setCdataSectionElements", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(EmptySerializer, setCdataSectionElements, void, $List*)},
-	{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setContentHandler, void, $ContentHandler*)},
-	{"setDTDEntityExpansion", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDTDEntityExpansion, void, bool)},
-	{"setDoctype", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDoctype, void, $String*, $String*)},
-	{"setDoctypePublic", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDoctypePublic, void, $String*)},
-	{"setDoctypeSystem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDoctypeSystem, void, $String*)},
-	{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDocumentLocator, void, $Locator*)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setEncoding, void, $String*)},
-	{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setEscaping, bool, bool), "org.xml.sax.SAXException"},
-	{"setIndent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setIndent, void, bool)},
-	{"setIndentAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setIndentAmount, void, int32_t)},
-	{"setIsStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setIsStandalone, void, bool)},
-	{"setMediaType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setMediaType, void, $String*)},
-	{"setNamespaceMappings", "(Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setNamespaceMappings, void, $NamespaceMappings*)},
-	{"setOmitXMLDeclaration", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOmitXMLDeclaration, void, bool)},
-	{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOutputFormat, void, $Properties*)},
-	{"setOutputProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOutputProperty, void, $String*, $String*)},
-	{"setOutputPropertyDefault", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOutputPropertyDefault, void, $String*, $String*)},
-	{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOutputStream, void, $OutputStream*)},
-	{"setSourceLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setSourceLocator, void, $SourceLocator*)},
-	{"setStandalone", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setStandalone, void, $String*)},
-	{"setTransformer", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setTransformer, void, $Transformer*)},
-	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setVersion, void, $String*)},
-	{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setWriter, void, $Writer*)},
-	{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startCDATA, void), "org.xml.sax.SAXException"},
-	{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startDocument, void), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startElement, void, $String*), "org.xml.sax.SAXException"},
-	{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
-	{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startEntity, void, $String*), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
-	{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
-	{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
-	{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
-	{}
-};
-
-$ClassInfo _EmptySerializer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.EmptySerializer",
-	"java.lang.Object",
-	"com.sun.org.apache.xml.internal.serializer.SerializationHandler",
-	_EmptySerializer_FieldInfo_,
-	_EmptySerializer_MethodInfo_
-};
-
-$Object* allocate$EmptySerializer($Class* clazz) {
-	return $of($alloc(EmptySerializer));
-}
 
 $String* EmptySerializer::ERR = nullptr;
 
@@ -572,18 +452,132 @@ void EmptySerializer::setOutputPropertyDefault($String* name, $String* val) {
 
 $Object* EmptySerializer::asDOM3Serializer() {
 	couldThrowIOException();
-	return $of(nullptr);
+	return nullptr;
 }
 
 EmptySerializer::EmptySerializer() {
 }
 
-void clinit$EmptySerializer($Class* class$) {
+void EmptySerializer::clinit$($Class* clazz) {
 	$assignStatic(EmptySerializer::ERR, "EmptySerializer method not over-ridden"_s);
 }
 
 $Class* EmptySerializer::load$($String* name, bool initialize) {
-	$loadClass(EmptySerializer, name, initialize, &_EmptySerializer_ClassInfo_, clinit$EmptySerializer, allocate$EmptySerializer);
+	$FieldInfo fieldInfos$$[] = {
+		{"ERR", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(EmptySerializer, ERR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EmptySerializer, init$, void)},
+		{"aMethodIsCalled", "()V", nullptr, 0, $virtualMethod(EmptySerializer, aMethodIsCalled, void)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addAttribute, void, $String*, $String*, $String*, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addAttribute, void, $String*, $String*)},
+		{"addAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addAttribute, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"addAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addAttributes, void, $Attributes*), "org.xml.sax.SAXException"},
+		{"addUniqueAttribute", "(Ljava/lang/String;Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addUniqueAttribute, void, $String*, $String*, int32_t), "org.xml.sax.SAXException"},
+		{"addXSLAttribute", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, addXSLAttribute, void, $String*, $String*, $String*)},
+		{"asContentHandler", "()Lorg/xml/sax/ContentHandler;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, asContentHandler, $ContentHandler*), "java.io.IOException"},
+		{"asDOM3Serializer", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, asDOM3Serializer, $Object*), "java.io.IOException"},
+		{"asDOMSerializer", "()Lcom/sun/org/apache/xml/internal/serializer/DOMSerializer;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, asDOMSerializer, $DOMSerializer*), "java.io.IOException"},
+		{"attributeDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, attributeDecl, void, $String*, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"characters", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, characters, void, $String*), "org.xml.sax.SAXException"},
+		{"characters", "([CII)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, characters, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"characters", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, characters, void, $Node*), "org.xml.sax.SAXException"},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, close, void)},
+		{"comment", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, comment, void, $String*), "org.xml.sax.SAXException"},
+		{"comment", "([CII)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, comment, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"couldThrowIOException", "()V", nullptr, $PROTECTED, $virtualMethod(EmptySerializer, couldThrowIOException, void), "java.io.IOException"},
+		{"couldThrowSAXException", "()V", nullptr, $PROTECTED, $virtualMethod(EmptySerializer, couldThrowSAXException, void), "org.xml.sax.SAXException"},
+		{"couldThrowSAXException", "([CII)V", nullptr, $PROTECTED, $virtualMethod(EmptySerializer, couldThrowSAXException, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"couldThrowSAXException", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(EmptySerializer, couldThrowSAXException, void, $String*), "org.xml.sax.SAXException"},
+		{"elementDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, elementDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endCDATA, void), "org.xml.sax.SAXException"},
+		{"endDTD", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endDTD, void), "org.xml.sax.SAXException"},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endDocument, void), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endElement, void, $String*), "org.xml.sax.SAXException"},
+		{"endElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"endEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"endPrefixMapping", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, endPrefixMapping, void, $String*), "org.xml.sax.SAXException"},
+		{"entityReference", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, entityReference, void, $String*), "org.xml.sax.SAXException"},
+		{"error", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, error, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"externalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, externalEntityDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"fatalError", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, fatalError, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{"flushPending", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, flushPending, void), "org.xml.sax.SAXException"},
+		{"getDoctypePublic", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getDoctypePublic, $String*)},
+		{"getDoctypeSystem", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getDoctypeSystem, $String*)},
+		{"getEncoding", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getEncoding, $String*)},
+		{"getIndent", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getIndent, bool)},
+		{"getIndentAmount", "()I", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getIndentAmount, int32_t)},
+		{"getMediaType", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getMediaType, $String*)},
+		{"getNamespaceMappings", "()Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getNamespaceMappings, $NamespaceMappings*)},
+		{"getNamespaceURI", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getNamespaceURI, $String*, $String*, bool)},
+		{"getNamespaceURIFromPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getNamespaceURIFromPrefix, $String*, $String*)},
+		{"getOmitXMLDeclaration", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOmitXMLDeclaration, bool)},
+		{"getOutputFormat", "()Ljava/util/Properties;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOutputFormat, $Properties*)},
+		{"getOutputProperty", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOutputProperty, $String*, $String*)},
+		{"getOutputPropertyDefault", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOutputPropertyDefault, $String*, $String*)},
+		{"getOutputStream", "()Ljava/io/OutputStream;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getOutputStream, $OutputStream*)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getPrefix, $String*, $String*)},
+		{"getStandalone", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getStandalone, $String*)},
+		{"getTransformer", "()Ljavax/xml/transform/Transformer;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getTransformer, $Transformer*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getVersion, $String*)},
+		{"getWriter", "()Ljava/io/Writer;", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, getWriter, $Writer*)},
+		{"ignorableWhitespace", "([CII)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, ignorableWhitespace, void, $chars*, int32_t, int32_t), "org.xml.sax.SAXException"},
+		{"internalEntityDecl", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, internalEntityDecl, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"namespaceAfterStartElement", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, namespaceAfterStartElement, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"notationDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, notationDecl, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"processingInstruction", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, processingInstruction, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"reset", "()Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, reset, bool)},
+		{"serialize", "(Lorg/w3c/dom/Node;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, serialize, void, $Node*), "java.io.IOException"},
+		{"setCdataSectionElements", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/lang/String;>;)V", $PUBLIC, $virtualMethod(EmptySerializer, setCdataSectionElements, void, $List*)},
+		{"setContentHandler", "(Lorg/xml/sax/ContentHandler;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setContentHandler, void, $ContentHandler*)},
+		{"setDTDEntityExpansion", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDTDEntityExpansion, void, bool)},
+		{"setDoctype", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDoctype, void, $String*, $String*)},
+		{"setDoctypePublic", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDoctypePublic, void, $String*)},
+		{"setDoctypeSystem", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDoctypeSystem, void, $String*)},
+		{"setDocumentLocator", "(Lorg/xml/sax/Locator;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setDocumentLocator, void, $Locator*)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setEncoding, void, $String*)},
+		{"setEscaping", "(Z)Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setEscaping, bool, bool), "org.xml.sax.SAXException"},
+		{"setIndent", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setIndent, void, bool)},
+		{"setIndentAmount", "(I)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setIndentAmount, void, int32_t)},
+		{"setIsStandalone", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setIsStandalone, void, bool)},
+		{"setMediaType", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setMediaType, void, $String*)},
+		{"setNamespaceMappings", "(Lcom/sun/org/apache/xml/internal/serializer/NamespaceMappings;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setNamespaceMappings, void, $NamespaceMappings*)},
+		{"setOmitXMLDeclaration", "(Z)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOmitXMLDeclaration, void, bool)},
+		{"setOutputFormat", "(Ljava/util/Properties;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOutputFormat, void, $Properties*)},
+		{"setOutputProperty", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOutputProperty, void, $String*, $String*)},
+		{"setOutputPropertyDefault", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOutputPropertyDefault, void, $String*, $String*)},
+		{"setOutputStream", "(Ljava/io/OutputStream;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setOutputStream, void, $OutputStream*)},
+		{"setSourceLocator", "(Ljavax/xml/transform/SourceLocator;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setSourceLocator, void, $SourceLocator*)},
+		{"setStandalone", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setStandalone, void, $String*)},
+		{"setTransformer", "(Ljavax/xml/transform/Transformer;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setTransformer, void, $Transformer*)},
+		{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setVersion, void, $String*)},
+		{"setWriter", "(Ljava/io/Writer;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, setWriter, void, $Writer*)},
+		{"skippedEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, skippedEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startCDATA", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startCDATA, void), "org.xml.sax.SAXException"},
+		{"startDTD", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startDTD, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startDocument", "()V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startDocument, void), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startElement, void, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startElement, void, $String*), "org.xml.sax.SAXException"},
+		{"startElement", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/xml/sax/Attributes;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startElement, void, $String*, $String*, $String*, $Attributes*), "org.xml.sax.SAXException"},
+		{"startEntity", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startEntity, void, $String*), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startPrefixMapping, bool, $String*, $String*, bool), "org.xml.sax.SAXException"},
+		{"startPrefixMapping", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, startPrefixMapping, void, $String*, $String*), "org.xml.sax.SAXException"},
+		{"unparsedEntityDecl", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, unparsedEntityDecl, void, $String*, $String*, $String*, $String*), "org.xml.sax.SAXException"},
+		{"warning", "(Lorg/xml/sax/SAXParseException;)V", nullptr, $PUBLIC, $virtualMethod(EmptySerializer, warning, void, $SAXParseException*), "org.xml.sax.SAXException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.EmptySerializer",
+		"java.lang.Object",
+		"com.sun.org.apache.xml.internal.serializer.SerializationHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EmptySerializer, name, initialize, &classInfo$$, EmptySerializer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EmptySerializer));
+	});
 	return class$;
 }
 

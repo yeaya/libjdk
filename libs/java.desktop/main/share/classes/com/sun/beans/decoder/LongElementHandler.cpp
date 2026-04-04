@@ -1,5 +1,4 @@
 #include <com/sun/beans/decoder/LongElementHandler.h>
-
 #include <com/sun/beans/decoder/StringElementHandler.h>
 #include <jcpp.h>
 
@@ -13,25 +12,6 @@ namespace com {
 		namespace beans {
 			namespace decoder {
 
-$MethodInfo _LongElementHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LongElementHandler, init$, void)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LongElementHandler, getValue, $Object*, $String*)},
-	{}
-};
-
-$ClassInfo _LongElementHandler_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.beans.decoder.LongElementHandler",
-	"com.sun.beans.decoder.StringElementHandler",
-	nullptr,
-	nullptr,
-	_LongElementHandler_MethodInfo_
-};
-
-$Object* allocate$LongElementHandler($Class* clazz) {
-	return $of($alloc(LongElementHandler));
-}
-
 void LongElementHandler::init$() {
 	$StringElementHandler::init$();
 }
@@ -44,7 +24,22 @@ LongElementHandler::LongElementHandler() {
 }
 
 $Class* LongElementHandler::load$($String* name, bool initialize) {
-	$loadClass(LongElementHandler, name, initialize, &_LongElementHandler_ClassInfo_, allocate$LongElementHandler);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LongElementHandler, init$, void)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LongElementHandler, getValue, $Object*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.beans.decoder.LongElementHandler",
+		"com.sun.beans.decoder.StringElementHandler",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LongElementHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LongElementHandler);
+	});
 	return class$;
 }
 

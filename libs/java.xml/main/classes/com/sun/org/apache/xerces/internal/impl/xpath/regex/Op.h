@@ -90,6 +90,7 @@ class Op : public ::java::lang::Object {
 	$class(Op, 0, ::java::lang::Object)
 public:
 	Op();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	static ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Op$CharOp* createAnchor(int32_t data);
 	static ::com::sun::org::apache::xerces::internal::impl::xpath::regex::Op$CharOp* createBackReference(int32_t refno);

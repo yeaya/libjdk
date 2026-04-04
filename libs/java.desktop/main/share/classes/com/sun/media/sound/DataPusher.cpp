@@ -1,10 +1,8 @@
 #include <com/sun/media/sound/DataPusher.h>
-
 #include <com/sun/media/sound/JSSecurityManager.h>
 #include <com/sun/media/sound/Printer.h>
 #include <java/io/IOException.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/util/Arrays.h>
 #include <javax/sound/sampled/AudioFormat.h>
 #include <javax/sound/sampled/AudioInputStream.h>
@@ -28,7 +26,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $Arrays = ::java::util::Arrays;
 using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 using $AudioInputStream = ::javax::sound::sampled::AudioInputStream;
@@ -38,53 +35,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _DataPusher_FieldInfo_[] = {
-	{"AUTO_CLOSE_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, AUTO_CLOSE_TIME)},
-	{"source", "Ljavax/sound/sampled/SourceDataLine;", nullptr, $PRIVATE | $FINAL, $field(DataPusher, source)},
-	{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(DataPusher, format)},
-	{"ais", "Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE | $FINAL, $field(DataPusher, ais)},
-	{"audioData", "[B", nullptr, $PRIVATE | $FINAL, $field(DataPusher, audioData)},
-	{"audioDataByteLength", "I", nullptr, $PRIVATE | $FINAL, $field(DataPusher, audioDataByteLength)},
-	{"pos", "I", nullptr, $PRIVATE, $field(DataPusher, pos)},
-	{"newPos", "I", nullptr, $PRIVATE, $field(DataPusher, newPos)},
-	{"looping", "Z", nullptr, $PRIVATE, $field(DataPusher, looping)},
-	{"pushThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(DataPusher, pushThread)},
-	{"wantedState", "I", nullptr, $PRIVATE, $field(DataPusher, wantedState)},
-	{"threadState", "I", nullptr, $PRIVATE, $field(DataPusher, threadState)},
-	{"STATE_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_NONE)},
-	{"STATE_PLAYING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_PLAYING)},
-	{"STATE_WAITING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_WAITING)},
-	{"STATE_STOPPING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_STOPPING)},
-	{"STATE_STOPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_STOPPED)},
-	{"BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, BUFFER_SIZE)},
-	{}
-};
-
-$MethodInfo _DataPusher_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/SourceDataLine;Ljavax/sound/sampled/AudioFormat;[BI)V", nullptr, $PUBLIC, $method(DataPusher, init$, void, $SourceDataLine*, $AudioFormat*, $bytes*, int32_t)},
-	{"<init>", "(Ljavax/sound/sampled/SourceDataLine;Ljavax/sound/sampled/AudioInputStream;)V", nullptr, $PUBLIC, $method(DataPusher, init$, void, $SourceDataLine*, $AudioInputStream*)},
-	{"<init>", "(Ljavax/sound/sampled/SourceDataLine;Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;[BI)V", nullptr, $PRIVATE, $method(DataPusher, init$, void, $SourceDataLine*, $AudioFormat*, $AudioInputStream*, $bytes*, int32_t)},
-	{"close", "()V", nullptr, $SYNCHRONIZED, $method(DataPusher, close, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DataPusher, run, void)},
-	{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DataPusher, start, void)},
-	{"start", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DataPusher, start, void, bool)},
-	{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DataPusher, stop, void)},
-	{}
-};
-
-$ClassInfo _DataPusher_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.DataPusher",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_DataPusher_FieldInfo_,
-	_DataPusher_MethodInfo_
-};
-
-$Object* allocate$DataPusher($Class* clazz) {
-	return $of($alloc(DataPusher));
-}
 
 void DataPusher::init$($SourceDataLine* sourceLine, $AudioFormat* format, $bytes* audioData, int32_t byteLength) {
 	DataPusher::init$(sourceLine, format, nullptr, audioData, byteLength);
@@ -101,7 +51,7 @@ void DataPusher::init$($SourceDataLine* source, $AudioFormat* format, $AudioInpu
 	$set(this, format, format);
 	$set(this, ais, ais);
 	this->audioDataByteLength = audioDataByteLength;
-	$set(this, audioData, audioData == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(audioData, $nc(audioData)->length));
+	$set(this, audioData, audioData == nullptr ? ($bytes*)nullptr : $Arrays::copyOf(audioData, audioData->length));
 }
 
 void DataPusher::start() {
@@ -120,10 +70,10 @@ void DataPusher::start(bool loop) {
 			this->newPos = 0;
 			this->wantedState = DataPusher::STATE_PLAYING;
 			if (!$nc(this->source)->isOpen()) {
-				$nc(this->source)->open(this->format);
+				this->source->open(this->format);
 			}
-			$nc(this->source)->flush();
-			$nc(this->source)->start();
+			this->source->flush();
+			this->source->start();
 			if (this->pushThread == nullptr) {
 				$set(this, pushThread, $JSSecurityManager::createThread(this, nullptr, false, -1, true));
 			}
@@ -144,7 +94,7 @@ void DataPusher::stop() {
 		}
 		this->wantedState = DataPusher::STATE_WAITING;
 		if (this->source != nullptr) {
-			$nc(this->source)->flush();
+			this->source->flush();
 		}
 		$of(this)->notifyAll();
 		int32_t maxWaitCount = 50;
@@ -160,7 +110,7 @@ void DataPusher::stop() {
 void DataPusher::close() {
 	$synchronized(this) {
 		if (this->source != nullptr) {
-			$nc(this->source)->close();
+			this->source->close();
 		}
 	}
 }
@@ -220,9 +170,9 @@ void DataPusher::run() {
 	}
 	this->threadState = DataPusher::STATE_STOPPING;
 	$nc(this->source)->flush();
-	$nc(this->source)->stop();
-	$nc(this->source)->flush();
-	$nc(this->source)->close();
+	this->source->stop();
+	this->source->flush();
+	this->source->close();
 	this->threadState = DataPusher::STATE_STOPPED;
 	$synchronized(this) {
 		$set(this, pushThread, nullptr);
@@ -234,7 +184,49 @@ DataPusher::DataPusher() {
 }
 
 $Class* DataPusher::load$($String* name, bool initialize) {
-	$loadClass(DataPusher, name, initialize, &_DataPusher_ClassInfo_, allocate$DataPusher);
+	$FieldInfo fieldInfos$$[] = {
+		{"AUTO_CLOSE_TIME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, AUTO_CLOSE_TIME)},
+		{"source", "Ljavax/sound/sampled/SourceDataLine;", nullptr, $PRIVATE | $FINAL, $field(DataPusher, source)},
+		{"format", "Ljavax/sound/sampled/AudioFormat;", nullptr, $PRIVATE | $FINAL, $field(DataPusher, format)},
+		{"ais", "Ljavax/sound/sampled/AudioInputStream;", nullptr, $PRIVATE | $FINAL, $field(DataPusher, ais)},
+		{"audioData", "[B", nullptr, $PRIVATE | $FINAL, $field(DataPusher, audioData)},
+		{"audioDataByteLength", "I", nullptr, $PRIVATE | $FINAL, $field(DataPusher, audioDataByteLength)},
+		{"pos", "I", nullptr, $PRIVATE, $field(DataPusher, pos)},
+		{"newPos", "I", nullptr, $PRIVATE, $field(DataPusher, newPos)},
+		{"looping", "Z", nullptr, $PRIVATE, $field(DataPusher, looping)},
+		{"pushThread", "Ljava/lang/Thread;", nullptr, $PRIVATE, $field(DataPusher, pushThread)},
+		{"wantedState", "I", nullptr, $PRIVATE, $field(DataPusher, wantedState)},
+		{"threadState", "I", nullptr, $PRIVATE, $field(DataPusher, threadState)},
+		{"STATE_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_NONE)},
+		{"STATE_PLAYING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_PLAYING)},
+		{"STATE_WAITING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_WAITING)},
+		{"STATE_STOPPING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_STOPPING)},
+		{"STATE_STOPPED", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, STATE_STOPPED)},
+		{"BUFFER_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DataPusher, BUFFER_SIZE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/SourceDataLine;Ljavax/sound/sampled/AudioFormat;[BI)V", nullptr, $PUBLIC, $method(DataPusher, init$, void, $SourceDataLine*, $AudioFormat*, $bytes*, int32_t)},
+		{"<init>", "(Ljavax/sound/sampled/SourceDataLine;Ljavax/sound/sampled/AudioInputStream;)V", nullptr, $PUBLIC, $method(DataPusher, init$, void, $SourceDataLine*, $AudioInputStream*)},
+		{"<init>", "(Ljavax/sound/sampled/SourceDataLine;Ljavax/sound/sampled/AudioFormat;Ljavax/sound/sampled/AudioInputStream;[BI)V", nullptr, $PRIVATE, $method(DataPusher, init$, void, $SourceDataLine*, $AudioFormat*, $AudioInputStream*, $bytes*, int32_t)},
+		{"close", "()V", nullptr, $SYNCHRONIZED, $method(DataPusher, close, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DataPusher, run, void)},
+		{"start", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DataPusher, start, void)},
+		{"start", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DataPusher, start, void, bool)},
+		{"stop", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DataPusher, stop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.DataPusher",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DataPusher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DataPusher);
+	});
 	return class$;
 }
 

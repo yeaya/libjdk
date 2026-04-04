@@ -216,6 +216,7 @@ class $import SunHints : public ::java::lang::Object {
 	$class(SunHints, 0, ::java::lang::Object)
 public:
 	SunHints();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static const int32_t NUM_KEYS = 10;
 	static const int32_t VALS_PER_KEY = 8;

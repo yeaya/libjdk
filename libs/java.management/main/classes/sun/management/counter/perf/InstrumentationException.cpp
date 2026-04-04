@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/InstrumentationException.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -11,30 +10,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _InstrumentationException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstrumentationException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _InstrumentationException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InstrumentationException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstrumentationException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _InstrumentationException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.counter.perf.InstrumentationException",
-	"java.lang.RuntimeException",
-	nullptr,
-	_InstrumentationException_FieldInfo_,
-	_InstrumentationException_MethodInfo_
-};
-
-$Object* allocate$InstrumentationException($Class* clazz) {
-	return $of($alloc(InstrumentationException));
-}
 
 void InstrumentationException::init$() {
 	$RuntimeException::init$();
@@ -55,7 +30,26 @@ void InstrumentationException::throw$() {
 }
 
 $Class* InstrumentationException::load$($String* name, bool initialize) {
-	$loadClass(InstrumentationException, name, initialize, &_InstrumentationException_ClassInfo_, allocate$InstrumentationException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InstrumentationException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InstrumentationException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(InstrumentationException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.counter.perf.InstrumentationException",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InstrumentationException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstrumentationException);
+	});
 	return class$;
 }
 

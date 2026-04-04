@@ -1,5 +1,4 @@
 #include <bug4865918.h>
-
 #include <bug4865918$1.h>
 #include <bug4865918$2.h>
 #include <bug4865918$3.h>
@@ -29,8 +28,6 @@ using $bug4865918$1 = ::bug4865918$1;
 using $bug4865918$2 = ::bug4865918$2;
 using $bug4865918$3 = ::bug4865918$3;
 using $bug4865918$TestScrollBar = ::bug4865918$TestScrollBar;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Robot = ::java::awt::Robot;
 using $Serializable = ::java::io::Serializable;
@@ -53,72 +50,27 @@ public:
 	virtual void run() override {
 		bug4865918::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4865918$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug4865918$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4865918$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4865918$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug4865918$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4865918$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug4865918$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug4865918$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4865918$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4865918$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4865918$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug4865918$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4865918$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug4865918$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug4865918_FieldInfo_[] = {
-	{"sbar", "Lbug4865918$TestScrollBar;", nullptr, $PRIVATE | $STATIC, $staticField(bug4865918, sbar)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4865918, frame)},
-	{}
-};
-
-$MethodInfo _bug4865918_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4865918, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4865918, createAndShowGUI, void)},
-	{"getValue", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4865918, getValue, int32_t), "java.lang.Exception"},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4865918, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4865918, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug4865918_InnerClassesInfo_[] = {
-	{"bug4865918$TestScrollBar", "bug4865918", "TestScrollBar", $STATIC},
-	{"bug4865918$3", nullptr, nullptr, 0},
-	{"bug4865918$2", nullptr, nullptr, 0},
-	{"bug4865918$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4865918_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4865918",
-	"java.lang.Object",
-	nullptr,
-	_bug4865918_FieldInfo_,
-	_bug4865918_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4865918_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4865918$TestScrollBar,bug4865918$3,bug4865918$2,bug4865918$1"
-};
-
-$Object* allocate$bug4865918($Class* clazz) {
-	return $of($alloc(bug4865918));
-}
 
 $bug4865918$TestScrollBar* bug4865918::sbar = nullptr;
 $JFrame* bug4865918::frame = nullptr;
@@ -127,49 +79,47 @@ void bug4865918::init$() {
 }
 
 void bug4865918::main($StringArray* argv) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			$SwingUtilities::invokeAndWait($$new($bug4865918$1));
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug4865918$2));
-			robot->waitForIdle();
-			int32_t value = getValue();
-			if (value != 9) {
-				$throwNew($Error, "The scrollbar block increment is incorect"_s);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug4865918);
-			if (bug4865918::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4865918$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		$SwingUtilities::invokeAndWait($$new($bug4865918$1));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug4865918$2));
+		robot->waitForIdle();
+		int32_t value = getValue();
+		if (value != 9) {
+			$throwNew($Error, "The scrollbar block increment is incorect"_s);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug4865918);
+		if (bug4865918::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug4865918$$Lambda$lambda$main$0));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 int32_t bug4865918::getValue() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ints, result, $new($ints, 1));
 	$SwingUtilities::invokeAndWait($$new($bug4865918$3, result));
 	return result->get(0);
 }
 
 void bug4865918::createAndShowGUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug4865918);
 	$assignStatic(bug4865918::frame, $new($JFrame, "bug4865918"_s));
-	$nc(bug4865918::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug4865918::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$assignStatic(bug4865918::sbar, $new($bug4865918$TestScrollBar, $JScrollBar::HORIZONTAL, -1, 10, -100, 100));
-	$nc(bug4865918::sbar)->setPreferredSize($$new($Dimension, 200, 20));
+	bug4865918::sbar->setPreferredSize($$new($Dimension, 200, 20));
 	$nc(bug4865918::sbar)->setBlockIncrement(10);
-	$nc($($nc(bug4865918::frame)->getContentPane()))->add(static_cast<$Component*>(bug4865918::sbar));
+	$$nc($nc(bug4865918::frame)->getContentPane())->add(bug4865918::sbar);
 	$nc(bug4865918::frame)->pack();
 	$nc(bug4865918::frame)->setVisible(true);
 }
@@ -184,11 +134,47 @@ bug4865918::bug4865918() {
 
 $Class* bug4865918::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4865918$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug4865918$$Lambda$lambda$main$0")) {
 			return bug4865918$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4865918, name, initialize, &_bug4865918_ClassInfo_, allocate$bug4865918);
+	$FieldInfo fieldInfos$$[] = {
+		{"sbar", "Lbug4865918$TestScrollBar;", nullptr, $PRIVATE | $STATIC, $staticField(bug4865918, sbar)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4865918, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4865918, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4865918, createAndShowGUI, void)},
+		{"getValue", "()I", nullptr, $PRIVATE | $STATIC, $staticMethod(bug4865918, getValue, int32_t), "java.lang.Exception"},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4865918, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4865918, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4865918$TestScrollBar", "bug4865918", "TestScrollBar", $STATIC},
+		{"bug4865918$3", nullptr, nullptr, 0},
+		{"bug4865918$2", nullptr, nullptr, 0},
+		{"bug4865918$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4865918",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4865918$TestScrollBar,bug4865918$3,bug4865918$2,bug4865918$1"
+	};
+	$loadClass(bug4865918, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4865918);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/awt/X11InputMethodDescriptor.h>
-
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
 #include <java/util/Locale.h>
@@ -18,35 +17,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace sun {
 	namespace awt {
 
-$FieldInfo _X11InputMethodDescriptor_FieldInfo_[] = {
-	{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(X11InputMethodDescriptor, locale)},
-	{}
-};
-
-$MethodInfo _X11InputMethodDescriptor_MethodInfo_[] = {
-	{"createInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PUBLIC | $ABSTRACT},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(X11InputMethodDescriptor, init$, void)},
-	{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodDescriptor, getAvailableLocales, $LocaleArray*)},
-	{"getInputMethodDisplayName", "(Ljava/util/Locale;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11InputMethodDescriptor, getInputMethodDisplayName, $String*, $Locale*, $Locale*)},
-	{"getInputMethodIcon", "(Ljava/util/Locale;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodDescriptor, getInputMethodIcon, $Image*, $Locale*)},
-	{"getSupportedLocale", "()Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(X11InputMethodDescriptor, getSupportedLocale, $Locale*)},
-	{"hasDynamicLocaleList", "()Z", nullptr, $PUBLIC, $virtualMethod(X11InputMethodDescriptor, hasDynamicLocaleList, bool)},
-	{}
-};
-
-$ClassInfo _X11InputMethodDescriptor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.X11InputMethodDescriptor",
-	"java.lang.Object",
-	"java.awt.im.spi.InputMethodDescriptor",
-	_X11InputMethodDescriptor_FieldInfo_,
-	_X11InputMethodDescriptor_MethodInfo_
-};
-
-$Object* allocate$X11InputMethodDescriptor($Class* clazz) {
-	return $of($alloc(X11InputMethodDescriptor));
-}
-
 $Locale* X11InputMethodDescriptor::locale = nullptr;
 
 void X11InputMethodDescriptor::init$() {
@@ -64,9 +34,9 @@ bool X11InputMethodDescriptor::hasDynamicLocaleList() {
 
 $String* X11InputMethodDescriptor::getInputMethodDisplayName($Locale* inputLocale, $Locale* displayLanguage) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, name, "System Input Methods"_s);
-		if ($nc($($Locale::getDefault()))->equals(displayLanguage)) {
+		if ($$nc($Locale::getDefault())->equals(displayLanguage)) {
 			$assign(name, $Toolkit::getProperty("AWT.HostInputMethodDisplayName"_s, name));
 		}
 		return name;
@@ -86,7 +56,31 @@ X11InputMethodDescriptor::X11InputMethodDescriptor() {
 }
 
 $Class* X11InputMethodDescriptor::load$($String* name, bool initialize) {
-	$loadClass(X11InputMethodDescriptor, name, initialize, &_X11InputMethodDescriptor_ClassInfo_, allocate$X11InputMethodDescriptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"locale", "Ljava/util/Locale;", nullptr, $PRIVATE | $STATIC, $staticField(X11InputMethodDescriptor, locale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"createInputMethod", "()Ljava/awt/im/spi/InputMethod;", nullptr, $PUBLIC | $ABSTRACT},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(X11InputMethodDescriptor, init$, void)},
+		{"getAvailableLocales", "()[Ljava/util/Locale;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodDescriptor, getAvailableLocales, $LocaleArray*)},
+		{"getInputMethodDisplayName", "(Ljava/util/Locale;Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(X11InputMethodDescriptor, getInputMethodDisplayName, $String*, $Locale*, $Locale*)},
+		{"getInputMethodIcon", "(Ljava/util/Locale;)Ljava/awt/Image;", nullptr, $PUBLIC, $virtualMethod(X11InputMethodDescriptor, getInputMethodIcon, $Image*, $Locale*)},
+		{"getSupportedLocale", "()Ljava/util/Locale;", nullptr, $STATIC, $staticMethod(X11InputMethodDescriptor, getSupportedLocale, $Locale*)},
+		{"hasDynamicLocaleList", "()Z", nullptr, $PUBLIC, $virtualMethod(X11InputMethodDescriptor, hasDynamicLocaleList, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.X11InputMethodDescriptor",
+		"java.lang.Object",
+		"java.awt.im.spi.InputMethodDescriptor",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(X11InputMethodDescriptor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(X11InputMethodDescriptor);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/geom/QuadCurve2D$Double.h>
-
 #include <java/awt/geom/Point2D$Double.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/QuadCurve2D.h>
@@ -22,64 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _QuadCurve2D$Double_FieldInfo_[] = {
-	{"x1", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, x1)},
-	{"y1", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, y1)},
-	{"ctrlx", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, ctrlx)},
-	{"ctrly", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, ctrly)},
-	{"x2", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, x2)},
-	{"y2", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, y2)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D$Double, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _QuadCurve2D$Double_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(QuadCurve2D$Double, init$, void)},
-	{"<init>", "(DDDDDD)V", nullptr, $PUBLIC, $method(QuadCurve2D$Double, init$, void, double, double, double, double, double, double)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getBounds2D, $Rectangle2D*)},
-	{"getCtrlPt", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getCtrlPt, $Point2D*)},
-	{"getCtrlX", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getCtrlX, double)},
-	{"getCtrlY", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getCtrlY, double)},
-	{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getP1, $Point2D*)},
-	{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getP2, $Point2D*)},
-	{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getX1, double)},
-	{"getX2", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getX2, double)},
-	{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getY1, double)},
-	{"getY2", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getY2, double)},
-	{"setCurve", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, setCurve, void, double, double, double, double, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _QuadCurve2D$Double_InnerClassesInfo_[] = {
-	{"java.awt.geom.QuadCurve2D$Double", "java.awt.geom.QuadCurve2D", "Double", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _QuadCurve2D$Double_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.QuadCurve2D$Double",
-	"java.awt.geom.QuadCurve2D",
-	"java.io.Serializable",
-	_QuadCurve2D$Double_FieldInfo_,
-	_QuadCurve2D$Double_MethodInfo_,
-	nullptr,
-	nullptr,
-	_QuadCurve2D$Double_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.QuadCurve2D"
-};
-
-$Object* allocate$QuadCurve2D$Double($Class* clazz) {
-	return $of($alloc(QuadCurve2D$Double));
-}
 
 $Object* QuadCurve2D$Double::clone() {
 	 return this->$QuadCurve2D::clone();
@@ -167,7 +108,59 @@ QuadCurve2D$Double::QuadCurve2D$Double() {
 }
 
 $Class* QuadCurve2D$Double::load$($String* name, bool initialize) {
-	$loadClass(QuadCurve2D$Double, name, initialize, &_QuadCurve2D$Double_ClassInfo_, allocate$QuadCurve2D$Double);
+	$FieldInfo fieldInfos$$[] = {
+		{"x1", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, x1)},
+		{"y1", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, y1)},
+		{"ctrlx", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, ctrlx)},
+		{"ctrly", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, ctrly)},
+		{"x2", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, x2)},
+		{"y2", "D", nullptr, $PUBLIC, $field(QuadCurve2D$Double, y2)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(QuadCurve2D$Double, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(QuadCurve2D$Double, init$, void)},
+		{"<init>", "(DDDDDD)V", nullptr, $PUBLIC, $method(QuadCurve2D$Double, init$, void, double, double, double, double, double, double)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getBounds2D, $Rectangle2D*)},
+		{"getCtrlPt", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getCtrlPt, $Point2D*)},
+		{"getCtrlX", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getCtrlX, double)},
+		{"getCtrlY", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getCtrlY, double)},
+		{"getP1", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getP1, $Point2D*)},
+		{"getP2", "()Ljava/awt/geom/Point2D;", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getP2, $Point2D*)},
+		{"getX1", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getX1, double)},
+		{"getX2", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getX2, double)},
+		{"getY1", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getY1, double)},
+		{"getY2", "()D", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, getY2, double)},
+		{"setCurve", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(QuadCurve2D$Double, setCurve, void, double, double, double, double, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.QuadCurve2D$Double", "java.awt.geom.QuadCurve2D", "Double", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.QuadCurve2D$Double",
+		"java.awt.geom.QuadCurve2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.QuadCurve2D"
+	};
+	$loadClass(QuadCurve2D$Double, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(QuadCurve2D$Double));
+	});
 	return class$;
 }
 

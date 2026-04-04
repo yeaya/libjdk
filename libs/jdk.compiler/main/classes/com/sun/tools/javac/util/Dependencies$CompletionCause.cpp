@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Dependencies$CompletionCause.h>
-
 #include <com/sun/tools/javac/util/Dependencies.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -26,59 +25,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Dependencies$CompletionCause_FieldInfo_[] = {
-	{"CLASS_READER", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, CLASS_READER)},
-	{"HEADER_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, HEADER_PHASE)},
-	{"HIERARCHY_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, HIERARCHY_PHASE)},
-	{"IMPORTS_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, IMPORTS_PHASE)},
-	{"MEMBER_ENTER", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, MEMBER_ENTER)},
-	{"RECORD_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, RECORD_PHASE)},
-	{"MEMBERS_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, MEMBERS_PHASE)},
-	{"PERMITS_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, PERMITS_PHASE)},
-	{"OTHER", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, OTHER)},
-	{"$VALUES", "[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Dependencies$CompletionCause, $VALUES)},
-	{}
-};
-
-$MethodInfo _Dependencies$CompletionCause_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dependencies$CompletionCause, $values, $Dependencies$CompletionCauseArray*)},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Dependencies$CompletionCause, init$, void, $String*, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$CompletionCause, valueOf, Dependencies$CompletionCause*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$CompletionCause, values, $Dependencies$CompletionCauseArray*)},
-	{}
-};
-
-$InnerClassInfo _Dependencies$CompletionCause_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Dependencies$CompletionCause", "com.sun.tools.javac.util.Dependencies", "CompletionCause", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"com.sun.tools.javac.util.GraphUtils$DependencyKind", "com.sun.tools.javac.util.GraphUtils", "DependencyKind", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Dependencies$CompletionCause_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.util.Dependencies$CompletionCause",
-	"java.lang.Enum",
-	"com.sun.tools.javac.util.GraphUtils$DependencyKind",
-	_Dependencies$CompletionCause_FieldInfo_,
-	_Dependencies$CompletionCause_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/util/Dependencies$CompletionCause;>;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;",
-	nullptr,
-	_Dependencies$CompletionCause_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Dependencies"
-};
-
-$Object* allocate$Dependencies$CompletionCause($Class* clazz) {
-	return $of($alloc(Dependencies$CompletionCause));
-}
 
 $String* Dependencies$CompletionCause::toString() {
 	 return this->$Enum::toString();
@@ -140,7 +86,7 @@ void Dependencies$CompletionCause::init$($String* $enum$name, int32_t $enum$ordi
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Dependencies$CompletionCause($Class* class$) {
+void Dependencies$CompletionCause::clinit$($Class* clazz) {
 	$assignStatic(Dependencies$CompletionCause::CLASS_READER, $new(Dependencies$CompletionCause, "CLASS_READER"_s, 0));
 	$assignStatic(Dependencies$CompletionCause::HEADER_PHASE, $new(Dependencies$CompletionCause, "HEADER_PHASE"_s, 1));
 	$assignStatic(Dependencies$CompletionCause::HIERARCHY_PHASE, $new(Dependencies$CompletionCause, "HIERARCHY_PHASE"_s, 2));
@@ -157,7 +103,54 @@ Dependencies$CompletionCause::Dependencies$CompletionCause() {
 }
 
 $Class* Dependencies$CompletionCause::load$($String* name, bool initialize) {
-	$loadClass(Dependencies$CompletionCause, name, initialize, &_Dependencies$CompletionCause_ClassInfo_, clinit$Dependencies$CompletionCause, allocate$Dependencies$CompletionCause);
+	$FieldInfo fieldInfos$$[] = {
+		{"CLASS_READER", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, CLASS_READER)},
+		{"HEADER_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, HEADER_PHASE)},
+		{"HIERARCHY_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, HIERARCHY_PHASE)},
+		{"IMPORTS_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, IMPORTS_PHASE)},
+		{"MEMBER_ENTER", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, MEMBER_ENTER)},
+		{"RECORD_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, RECORD_PHASE)},
+		{"MEMBERS_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, MEMBERS_PHASE)},
+		{"PERMITS_PHASE", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, PERMITS_PHASE)},
+		{"OTHER", "Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Dependencies$CompletionCause, OTHER)},
+		{"$VALUES", "[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Dependencies$CompletionCause, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Dependencies$CompletionCause, $values, $Dependencies$CompletionCauseArray*)},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*finalize", "()V", nullptr, $PROTECTED | $FINAL},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $FINAL},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Dependencies$CompletionCause, init$, void, $String*, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$CompletionCause, valueOf, Dependencies$CompletionCause*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/util/Dependencies$CompletionCause;", nullptr, $PUBLIC | $STATIC, $staticMethod(Dependencies$CompletionCause, values, $Dependencies$CompletionCauseArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Dependencies$CompletionCause", "com.sun.tools.javac.util.Dependencies", "CompletionCause", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"com.sun.tools.javac.util.GraphUtils$DependencyKind", "com.sun.tools.javac.util.GraphUtils", "DependencyKind", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.util.Dependencies$CompletionCause",
+		"java.lang.Enum",
+		"com.sun.tools.javac.util.GraphUtils$DependencyKind",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/util/Dependencies$CompletionCause;>;Lcom/sun/tools/javac/util/GraphUtils$DependencyKind;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Dependencies"
+	};
+	$loadClass(Dependencies$CompletionCause, name, initialize, &classInfo$$, Dependencies$CompletionCause::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Dependencies$CompletionCause));
+	});
 	return class$;
 }
 

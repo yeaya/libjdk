@@ -1,5 +1,4 @@
 #include <sun/rmi/runtime/RuntimeUtil$GetInstanceAction.h>
-
 #include <sun/rmi/runtime/RuntimeUtil.h>
 #include <jcpp.h>
 
@@ -12,49 +11,44 @@ namespace sun {
 	namespace rmi {
 		namespace runtime {
 
-$MethodInfo _RuntimeUtil$GetInstanceAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeUtil$GetInstanceAction, init$, void)},
-	{"run", "()Lsun/rmi/runtime/RuntimeUtil;", nullptr, $PUBLIC, $virtualMethod(RuntimeUtil$GetInstanceAction, run, $Object*)},
-	{}
-};
-
-$InnerClassInfo _RuntimeUtil$GetInstanceAction_InnerClassesInfo_[] = {
-	{"sun.rmi.runtime.RuntimeUtil$GetInstanceAction", "sun.rmi.runtime.RuntimeUtil", "GetInstanceAction", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _RuntimeUtil$GetInstanceAction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.rmi.runtime.RuntimeUtil$GetInstanceAction",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_RuntimeUtil$GetInstanceAction_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/rmi/runtime/RuntimeUtil;>;",
-	nullptr,
-	_RuntimeUtil$GetInstanceAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.runtime.RuntimeUtil"
-};
-
-$Object* allocate$RuntimeUtil$GetInstanceAction($Class* clazz) {
-	return $of($alloc(RuntimeUtil$GetInstanceAction));
-}
-
 void RuntimeUtil$GetInstanceAction::init$() {
 }
 
 $Object* RuntimeUtil$GetInstanceAction::run() {
-	return $of($RuntimeUtil::getInstance());
+	return $RuntimeUtil::getInstance();
 }
 
 RuntimeUtil$GetInstanceAction::RuntimeUtil$GetInstanceAction() {
 }
 
 $Class* RuntimeUtil$GetInstanceAction::load$($String* name, bool initialize) {
-	$loadClass(RuntimeUtil$GetInstanceAction, name, initialize, &_RuntimeUtil$GetInstanceAction_ClassInfo_, allocate$RuntimeUtil$GetInstanceAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RuntimeUtil$GetInstanceAction, init$, void)},
+		{"run", "()Lsun/rmi/runtime/RuntimeUtil;", nullptr, $PUBLIC, $virtualMethod(RuntimeUtil$GetInstanceAction, run, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.runtime.RuntimeUtil$GetInstanceAction", "sun.rmi.runtime.RuntimeUtil", "GetInstanceAction", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.rmi.runtime.RuntimeUtil$GetInstanceAction",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Lsun/rmi/runtime/RuntimeUtil;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.runtime.RuntimeUtil"
+	};
+	$loadClass(RuntimeUtil$GetInstanceAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RuntimeUtil$GetInstanceAction);
+	});
 	return class$;
 }
 

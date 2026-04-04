@@ -1,6 +1,4 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$TreeControlIcon.h>
-
-#include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
@@ -20,7 +18,6 @@
 #undef BITMASK
 #undef TYPE_INT_ARGB
 
-using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
@@ -42,52 +39,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalIconFactory$TreeControlIcon_FieldInfo_[] = {
-	{"isLight", "Z", nullptr, $PROTECTED, $field(MetalIconFactory$TreeControlIcon, isLight)},
-	{"imageCacher", "Ljavax/swing/plaf/metal/MetalIconFactory$ImageCacher;", nullptr, 0, $field(MetalIconFactory$TreeControlIcon, imageCacher)},
-	{"cachedOrientation", "Z", nullptr, $TRANSIENT, $field(MetalIconFactory$TreeControlIcon, cachedOrientation)},
-	{}
-};
-
-$MethodInfo _MetalIconFactory$TreeControlIcon_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Z)V", nullptr, $PUBLIC, $method(MetalIconFactory$TreeControlIcon, init$, void, bool)},
-	{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeControlIcon, getIconHeight, int32_t)},
-	{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeControlIcon, getIconWidth, int32_t)},
-	{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeControlIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"paintMe", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeControlIcon, paintMe, void, $Component*, $Graphics*, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _MetalIconFactory$TreeControlIcon_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalIconFactory$TreeControlIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeControlIcon", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalIconFactory$TreeControlIcon_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalIconFactory$TreeControlIcon",
-	"java.lang.Object",
-	"javax.swing.Icon,java.io.Serializable",
-	_MetalIconFactory$TreeControlIcon_FieldInfo_,
-	_MetalIconFactory$TreeControlIcon_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalIconFactory$TreeControlIcon_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalIconFactory"
-};
-
-$Object* allocate$MetalIconFactory$TreeControlIcon($Class* clazz) {
-	return $of($alloc(MetalIconFactory$TreeControlIcon));
-}
 
 int32_t MetalIconFactory$TreeControlIcon::hashCode() {
 	 return this->$Icon::hashCode();
@@ -115,7 +66,7 @@ void MetalIconFactory$TreeControlIcon::init$(bool isCollapsed) {
 }
 
 void MetalIconFactory$TreeControlIcon::paintIcon($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, $nc(c)->getGraphicsConfiguration());
 	if (this->imageCacher == nullptr) {
 		$set(this, imageCacher, $new($MetalIconFactory$ImageCacher));
@@ -149,7 +100,7 @@ void MetalIconFactory$TreeControlIcon::paintIcon($Component* c, $Graphics* g, in
 }
 
 void MetalIconFactory$TreeControlIcon::paintMe($Component* c, $Graphics* g, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(g)->setColor($($MetalLookAndFeel::getPrimaryControlInfo()));
 	int32_t xoff = ($MetalUtils::isLeftToRight(c)) ? 0 : 4;
 	g->drawLine(xoff + 4, 6, xoff + 4, 9);
@@ -207,7 +158,47 @@ MetalIconFactory$TreeControlIcon::MetalIconFactory$TreeControlIcon() {
 }
 
 $Class* MetalIconFactory$TreeControlIcon::load$($String* name, bool initialize) {
-	$loadClass(MetalIconFactory$TreeControlIcon, name, initialize, &_MetalIconFactory$TreeControlIcon_ClassInfo_, allocate$MetalIconFactory$TreeControlIcon);
+	$FieldInfo fieldInfos$$[] = {
+		{"isLight", "Z", nullptr, $PROTECTED, $field(MetalIconFactory$TreeControlIcon, isLight)},
+		{"imageCacher", "Ljavax/swing/plaf/metal/MetalIconFactory$ImageCacher;", nullptr, 0, $field(MetalIconFactory$TreeControlIcon, imageCacher)},
+		{"cachedOrientation", "Z", nullptr, $TRANSIENT, $field(MetalIconFactory$TreeControlIcon, cachedOrientation)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Z)V", nullptr, $PUBLIC, $method(MetalIconFactory$TreeControlIcon, init$, void, bool)},
+		{"getIconHeight", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeControlIcon, getIconHeight, int32_t)},
+		{"getIconWidth", "()I", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeControlIcon, getIconWidth, int32_t)},
+		{"paintIcon", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeControlIcon, paintIcon, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"paintMe", "(Ljava/awt/Component;Ljava/awt/Graphics;II)V", nullptr, $PUBLIC, $virtualMethod(MetalIconFactory$TreeControlIcon, paintMe, void, $Component*, $Graphics*, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalIconFactory$TreeControlIcon", "javax.swing.plaf.metal.MetalIconFactory", "TreeControlIcon", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalIconFactory$TreeControlIcon",
+		"java.lang.Object",
+		"javax.swing.Icon,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalIconFactory"
+	};
+	$loadClass(MetalIconFactory$TreeControlIcon, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalIconFactory$TreeControlIcon));
+	});
 	return class$;
 }
 

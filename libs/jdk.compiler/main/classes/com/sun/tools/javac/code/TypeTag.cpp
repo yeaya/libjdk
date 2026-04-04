@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/TypeTag.h>
-
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/tools/javac/code/TypeTag$1.h>
 #include <java/lang/AssertionError.h>
@@ -62,79 +61,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _TypeTag_FieldInfo_[] = {
-	{"BYTE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, BYTE)},
-	{"CHAR", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, CHAR)},
-	{"SHORT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, SHORT)},
-	{"LONG", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, LONG)},
-	{"FLOAT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, FLOAT)},
-	{"INT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, INT)},
-	{"DOUBLE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, DOUBLE)},
-	{"BOOLEAN", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, BOOLEAN)},
-	{"VOID", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, VOID)},
-	{"CLASS", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, CLASS)},
-	{"ARRAY", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, ARRAY)},
-	{"METHOD", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, METHOD)},
-	{"PACKAGE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, PACKAGE)},
-	{"MODULE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, MODULE)},
-	{"TYPEVAR", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, TYPEVAR)},
-	{"WILDCARD", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, WILDCARD)},
-	{"FORALL", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, FORALL)},
-	{"DEFERRED", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, DEFERRED)},
-	{"BOT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, BOT)},
-	{"NONE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, NONE)},
-	{"ERROR", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, ERROR)},
-	{"UNKNOWN", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, UNKNOWN)},
-	{"UNDETVAR", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, UNDETVAR)},
-	{"UNINITIALIZED_THIS", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, UNINITIALIZED_THIS)},
-	{"UNINITIALIZED_OBJECT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, UNINITIALIZED_OBJECT)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeTag, $VALUES)},
-	{"superClasses", "I", nullptr, $FINAL, $field(TypeTag, superClasses)},
-	{"numericClass", "I", nullptr, $FINAL, $field(TypeTag, numericClass)},
-	{"isPrimitive", "Z", nullptr, $FINAL, $field(TypeTag, isPrimitive)},
-	{}
-};
-
-$MethodInfo _TypeTag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeTag, $values, $TypeTagArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeTag, init$, void, $String*, int32_t)},
-	{"<init>", "(Ljava/lang/String;IIIZ)V", "(IIZ)V", $PRIVATE, $method(TypeTag, init$, void, $String*, int32_t, int32_t, int32_t, bool)},
-	{"checkRange", "(I)Z", nullptr, $PUBLIC, $method(TypeTag, checkRange, bool, int32_t)},
-	{"getKindLiteral", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $method(TypeTag, getKindLiteral, $Tree$Kind*)},
-	{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $method(TypeTag, getPrimitiveTypeKind, $TypeKind*)},
-	{"getTypeTagCount", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, getTypeTagCount, int32_t)},
-	{"isStrictSubRangeOf", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $method(TypeTag, isStrictSubRangeOf, bool, TypeTag*)},
-	{"isSubRangeOf", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $method(TypeTag, isSubRangeOf, bool, TypeTag*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, valueOf, TypeTag*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, values, $TypeTagArray*)},
-	{}
-};
-
-$InnerClassInfo _TypeTag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.TypeTag$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.code.TypeTag$NumericClasses", "com.sun.tools.javac.code.TypeTag", "NumericClasses", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TypeTag_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.TypeTag",
-	"java.lang.Enum",
-	nullptr,
-	_TypeTag_FieldInfo_,
-	_TypeTag_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/TypeTag;>;",
-	nullptr,
-	_TypeTag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.TypeTag$1,com.sun.tools.javac.code.TypeTag$NumericClasses"
-};
-
-$Object* allocate$TypeTag($Class* clazz) {
-	return $of($alloc(TypeTag));
-}
 
 TypeTag* TypeTag::BYTE = nullptr;
 TypeTag* TypeTag::CHAR = nullptr;
@@ -216,11 +142,11 @@ void TypeTag::init$($String* $enum$name, int32_t $enum$ordinal, int32_t numericC
 }
 
 bool TypeTag::isStrictSubRangeOf(TypeTag* tag) {
-	return ((int32_t)(this->superClasses & (uint32_t)$nc(tag)->numericClass)) != 0 && this != tag;
+	return (this->superClasses & $nc(tag)->numericClass) != 0 && this != tag;
 }
 
 bool TypeTag::isSubRangeOf(TypeTag* tag) {
-	return ((int32_t)(this->superClasses & (uint32_t)$nc(tag)->numericClass)) != 0;
+	return (this->superClasses & $nc(tag)->numericClass) != 0;
 }
 
 int32_t TypeTag::getTypeTagCount() {
@@ -232,49 +158,31 @@ $Tree$Kind* TypeTag::getKindLiteral() {
 	$init($TypeTag$1);
 	switch ($nc($TypeTag$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get((this)->ordinal())) {
 	case 1:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::INT_LITERAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::INT_LITERAL;
 	case 2:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::LONG_LITERAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::LONG_LITERAL;
 	case 3:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::FLOAT_LITERAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::FLOAT_LITERAL;
 	case 4:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::DOUBLE_LITERAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::DOUBLE_LITERAL;
 	case 5:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::BOOLEAN_LITERAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::BOOLEAN_LITERAL;
 	case 6:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::CHAR_LITERAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::CHAR_LITERAL;
 	case 7:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::STRING_LITERAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::STRING_LITERAL;
 	case 8:
-		{
-			$init($Tree$Kind);
-			return $Tree$Kind::NULL_LITERAL;
-		}
+		$init($Tree$Kind);
+		return $Tree$Kind::NULL_LITERAL;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"unknown literal kind "_s, this})));
-		}
+		$throwNew($AssertionError, $$of($str({"unknown literal kind "_s, this})));
 	}
 }
 
@@ -282,54 +190,34 @@ $TypeKind* TypeTag::getPrimitiveTypeKind() {
 	$init($TypeTag$1);
 	switch ($nc($TypeTag$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get((this)->ordinal())) {
 	case 5:
-		{
-			$init($TypeKind);
-			return $TypeKind::BOOLEAN;
-		}
+		$init($TypeKind);
+		return $TypeKind::BOOLEAN;
 	case 9:
-		{
-			$init($TypeKind);
-			return $TypeKind::BYTE;
-		}
+		$init($TypeKind);
+		return $TypeKind::BYTE;
 	case 10:
-		{
-			$init($TypeKind);
-			return $TypeKind::SHORT;
-		}
+		$init($TypeKind);
+		return $TypeKind::SHORT;
 	case 1:
-		{
-			$init($TypeKind);
-			return $TypeKind::INT;
-		}
+		$init($TypeKind);
+		return $TypeKind::INT;
 	case 2:
-		{
-			$init($TypeKind);
-			return $TypeKind::LONG;
-		}
+		$init($TypeKind);
+		return $TypeKind::LONG;
 	case 6:
-		{
-			$init($TypeKind);
-			return $TypeKind::CHAR;
-		}
+		$init($TypeKind);
+		return $TypeKind::CHAR;
 	case 3:
-		{
-			$init($TypeKind);
-			return $TypeKind::FLOAT;
-		}
+		$init($TypeKind);
+		return $TypeKind::FLOAT;
 	case 4:
-		{
-			$init($TypeKind);
-			return $TypeKind::DOUBLE;
-		}
+		$init($TypeKind);
+		return $TypeKind::DOUBLE;
 	case 11:
-		{
-			$init($TypeKind);
-			return $TypeKind::VOID;
-		}
+		$init($TypeKind);
+		return $TypeKind::VOID;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"unknown primitive type "_s, this})));
-		}
+		$throwNew($AssertionError, $$of($str({"unknown primitive type "_s, this})));
 	}
 }
 
@@ -337,33 +225,21 @@ bool TypeTag::checkRange(int32_t value) {
 	$init($TypeTag$1);
 	switch ($nc($TypeTag$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get((this)->ordinal())) {
 	case 5:
-		{
-			return 0 <= value && value <= 1;
-		}
+		return 0 <= value && value <= 1;
 	case 9:
-		{
-			return $Byte::MIN_VALUE <= value && value <= $Byte::MAX_VALUE;
-		}
+		return $Byte::MIN_VALUE <= value && value <= $Byte::MAX_VALUE;
 	case 6:
-		{
-			return $Character::MIN_VALUE <= value && value <= $Character::MAX_VALUE;
-		}
+		return $Character::MIN_VALUE <= value && value <= $Character::MAX_VALUE;
 	case 10:
-		{
-			return $Short::MIN_VALUE <= value && value <= $Short::MAX_VALUE;
-		}
+		return $Short::MIN_VALUE <= value && value <= $Short::MAX_VALUE;
 	case 1:
-		{
-			return true;
-		}
+		return true;
 	default:
-		{
-			$throwNew($AssertionError);
-		}
+		$throwNew($AssertionError);
 	}
 }
 
-void clinit$TypeTag($Class* class$) {
+void TypeTag::clinit$($Class* clazz) {
 	$assignStatic(TypeTag::BYTE, $new(TypeTag, "BYTE"_s, 0, 1, 125, true));
 	$assignStatic(TypeTag::CHAR, $new(TypeTag, "CHAR"_s, 1, 2, 122, true));
 	$assignStatic(TypeTag::SHORT, $new(TypeTag, "SHORT"_s, 2, 4, 124, true));
@@ -396,7 +272,74 @@ TypeTag::TypeTag() {
 }
 
 $Class* TypeTag::load$($String* name, bool initialize) {
-	$loadClass(TypeTag, name, initialize, &_TypeTag_ClassInfo_, clinit$TypeTag, allocate$TypeTag);
+	$FieldInfo fieldInfos$$[] = {
+		{"BYTE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, BYTE)},
+		{"CHAR", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, CHAR)},
+		{"SHORT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, SHORT)},
+		{"LONG", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, LONG)},
+		{"FLOAT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, FLOAT)},
+		{"INT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, INT)},
+		{"DOUBLE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, DOUBLE)},
+		{"BOOLEAN", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, BOOLEAN)},
+		{"VOID", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, VOID)},
+		{"CLASS", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, CLASS)},
+		{"ARRAY", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, ARRAY)},
+		{"METHOD", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, METHOD)},
+		{"PACKAGE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, PACKAGE)},
+		{"MODULE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, MODULE)},
+		{"TYPEVAR", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, TYPEVAR)},
+		{"WILDCARD", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, WILDCARD)},
+		{"FORALL", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, FORALL)},
+		{"DEFERRED", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, DEFERRED)},
+		{"BOT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, BOT)},
+		{"NONE", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, NONE)},
+		{"ERROR", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, ERROR)},
+		{"UNKNOWN", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, UNKNOWN)},
+		{"UNDETVAR", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, UNDETVAR)},
+		{"UNINITIALIZED_THIS", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, UNINITIALIZED_THIS)},
+		{"UNINITIALIZED_OBJECT", "Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(TypeTag, UNINITIALIZED_OBJECT)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(TypeTag, $VALUES)},
+		{"superClasses", "I", nullptr, $FINAL, $field(TypeTag, superClasses)},
+		{"numericClass", "I", nullptr, $FINAL, $field(TypeTag, numericClass)},
+		{"isPrimitive", "Z", nullptr, $FINAL, $field(TypeTag, isPrimitive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TypeTag, $values, $TypeTagArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(TypeTag, init$, void, $String*, int32_t)},
+		{"<init>", "(Ljava/lang/String;IIIZ)V", "(IIZ)V", $PRIVATE, $method(TypeTag, init$, void, $String*, int32_t, int32_t, int32_t, bool)},
+		{"checkRange", "(I)Z", nullptr, $PUBLIC, $method(TypeTag, checkRange, bool, int32_t)},
+		{"getKindLiteral", "()Lcom/sun/source/tree/Tree$Kind;", nullptr, $PUBLIC, $method(TypeTag, getKindLiteral, $Tree$Kind*)},
+		{"getPrimitiveTypeKind", "()Ljavax/lang/model/type/TypeKind;", nullptr, $PUBLIC, $method(TypeTag, getPrimitiveTypeKind, $TypeKind*)},
+		{"getTypeTagCount", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, getTypeTagCount, int32_t)},
+		{"isStrictSubRangeOf", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $method(TypeTag, isStrictSubRangeOf, bool, TypeTag*)},
+		{"isSubRangeOf", "(Lcom/sun/tools/javac/code/TypeTag;)Z", nullptr, $PUBLIC, $method(TypeTag, isSubRangeOf, bool, TypeTag*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, valueOf, TypeTag*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/TypeTag;", nullptr, $PUBLIC | $STATIC, $staticMethod(TypeTag, values, $TypeTagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.TypeTag$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.code.TypeTag$NumericClasses", "com.sun.tools.javac.code.TypeTag", "NumericClasses", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.TypeTag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/TypeTag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.TypeTag$1,com.sun.tools.javac.code.TypeTag$NumericClasses"
+	};
+	$loadClass(TypeTag, name, initialize, &classInfo$$, TypeTag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(TypeTag));
+	});
 	return class$;
 }
 

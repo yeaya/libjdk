@@ -1,5 +1,4 @@
 #include <bug8031971$TestTable.h>
-
 #include <bug8031971.h>
 #include <java/util/Hashtable.h>
 #include <javax/swing/JTable.h>
@@ -10,38 +9,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Hashtable = ::java::util::Hashtable;
 using $JTable = ::javax::swing::JTable;
-
-$MethodInfo _bug8031971$TestTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug8031971$TestTable, init$, void)},
-	{"getDefaultEditorsByColumnClass", "()Ljava/util/Hashtable;", nullptr, 0, $virtualMethod(bug8031971$TestTable, getDefaultEditorsByColumnClass, $Hashtable*)},
-	{"getDefaultRenderersByColumnClass", "()Ljava/util/Hashtable;", nullptr, 0, $virtualMethod(bug8031971$TestTable, getDefaultRenderersByColumnClass, $Hashtable*)},
-	{}
-};
-
-$InnerClassInfo _bug8031971$TestTable_InnerClassesInfo_[] = {
-	{"bug8031971$TestTable", "bug8031971", "TestTable", $STATIC},
-	{}
-};
-
-$ClassInfo _bug8031971$TestTable_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug8031971$TestTable",
-	"javax.swing.JTable",
-	nullptr,
-	nullptr,
-	_bug8031971$TestTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug8031971$TestTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug8031971"
-};
-
-$Object* allocate$bug8031971$TestTable($Class* clazz) {
-	return $of($alloc(bug8031971$TestTable));
-}
 
 void bug8031971$TestTable::init$() {
 	$JTable::init$();
@@ -59,7 +26,34 @@ bug8031971$TestTable::bug8031971$TestTable() {
 }
 
 $Class* bug8031971$TestTable::load$($String* name, bool initialize) {
-	$loadClass(bug8031971$TestTable, name, initialize, &_bug8031971$TestTable_ClassInfo_, allocate$bug8031971$TestTable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug8031971$TestTable, init$, void)},
+		{"getDefaultEditorsByColumnClass", "()Ljava/util/Hashtable;", nullptr, 0, $virtualMethod(bug8031971$TestTable, getDefaultEditorsByColumnClass, $Hashtable*)},
+		{"getDefaultRenderersByColumnClass", "()Ljava/util/Hashtable;", nullptr, 0, $virtualMethod(bug8031971$TestTable, getDefaultRenderersByColumnClass, $Hashtable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug8031971$TestTable", "bug8031971", "TestTable", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug8031971$TestTable",
+		"javax.swing.JTable",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug8031971"
+	};
+	$loadClass(bug8031971$TestTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(bug8031971$TestTable));
+	});
 	return class$;
 }
 

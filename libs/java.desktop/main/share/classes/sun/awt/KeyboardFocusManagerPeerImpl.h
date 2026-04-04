@@ -40,6 +40,7 @@ class $export KeyboardFocusManagerPeerImpl : public ::java::awt::peer::KeyboardF
 	$class(KeyboardFocusManagerPeerImpl, 0, ::java::awt::peer::KeyboardFocusManagerPeer)
 public:
 	KeyboardFocusManagerPeerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void clearGlobalFocusOwner(::java::awt::Window* activeWindow) override;
 	static bool deliverFocus(::java::awt::Component* lightweightChild, ::java::awt::Component* target, bool temporary, bool focusedWindowChangeAllowed, int64_t time, ::java::awt::event::FocusEvent$Cause* cause, ::java::awt::Component* currentFocusOwner);

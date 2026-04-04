@@ -1,5 +1,4 @@
 #include <javax/print/MultiDocPrintService.h>
-
 #include <javax/print/MultiDocPrintJob.h>
 #include <jcpp.h>
 
@@ -10,26 +9,22 @@ using $MultiDocPrintJob = ::javax::print::MultiDocPrintJob;
 namespace javax {
 	namespace print {
 
-$MethodInfo _MultiDocPrintService_MethodInfo_[] = {
-	{"createMultiDocPrintJob", "()Ljavax/print/MultiDocPrintJob;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiDocPrintService, createMultiDocPrintJob, $MultiDocPrintJob*)},
-	{}
-};
-
-$ClassInfo _MultiDocPrintService_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.print.MultiDocPrintService",
-	nullptr,
-	"javax.print.PrintService",
-	nullptr,
-	_MultiDocPrintService_MethodInfo_
-};
-
-$Object* allocate$MultiDocPrintService($Class* clazz) {
-	return $of($alloc(MultiDocPrintService));
-}
-
 $Class* MultiDocPrintService::load$($String* name, bool initialize) {
-	$loadClass(MultiDocPrintService, name, initialize, &_MultiDocPrintService_ClassInfo_, allocate$MultiDocPrintService);
+	$MethodInfo methodInfos$$[] = {
+		{"createMultiDocPrintJob", "()Ljavax/print/MultiDocPrintJob;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MultiDocPrintService, createMultiDocPrintJob, $MultiDocPrintJob*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.print.MultiDocPrintService",
+		nullptr,
+		"javax.print.PrintService",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiDocPrintService, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultiDocPrintService);
+	});
 	return class$;
 }
 

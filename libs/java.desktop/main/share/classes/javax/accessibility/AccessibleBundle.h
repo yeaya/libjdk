@@ -18,6 +18,7 @@ class $export AccessibleBundle : public ::java::lang::Object {
 	$class(AccessibleBundle, 0, ::java::lang::Object)
 public:
 	AccessibleBundle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* toDisplayString($String* name, ::java::util::Locale* locale);
 	virtual $String* toDisplayString(::java::util::Locale* locale);

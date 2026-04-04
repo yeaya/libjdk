@@ -1,5 +1,4 @@
 #include <ContextMonthNamesTest.h>
-
 #include <java/text/SimpleDateFormat.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
@@ -23,33 +22,6 @@ using $Date = ::java::util::Date;
 using $GregorianCalendar = ::java::util::GregorianCalendar;
 using $Locale = ::java::util::Locale;
 
-$FieldInfo _ContextMonthNamesTest_FieldInfo_[] = {
-	{"CZECH", "Ljava/util/Locale;", nullptr, $STATIC, $staticField(ContextMonthNamesTest, CZECH)},
-	{"JAN30", "Ljava/util/Date;", nullptr, $STATIC, $staticField(ContextMonthNamesTest, JAN30)},
-	{"PATTERNS", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ContextMonthNamesTest, PATTERNS)},
-	{"EXPECTED", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ContextMonthNamesTest, EXPECTED)},
-	{}
-};
-
-$MethodInfo _ContextMonthNamesTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMonthNamesTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContextMonthNamesTest, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _ContextMonthNamesTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ContextMonthNamesTest",
-	"java.lang.Object",
-	nullptr,
-	_ContextMonthNamesTest_FieldInfo_,
-	_ContextMonthNamesTest_MethodInfo_
-};
-
-$Object* allocate$ContextMonthNamesTest($Class* clazz) {
-	return $of($alloc(ContextMonthNamesTest));
-}
-
 $Locale* ContextMonthNamesTest::CZECH = nullptr;
 $Date* ContextMonthNamesTest::JAN30 = nullptr;
 $StringArray* ContextMonthNamesTest::PATTERNS = nullptr;
@@ -60,18 +32,18 @@ void ContextMonthNamesTest::init$() {
 
 void ContextMonthNamesTest::main($StringArray* args) {
 	$init(ContextMonthNamesTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SimpleDateFormat, fmt, $new($SimpleDateFormat, ""_s, ContextMonthNamesTest::CZECH));
 	for (int32_t i = 0; i < $nc(ContextMonthNamesTest::PATTERNS)->length; ++i) {
-		fmt->applyPattern($nc(ContextMonthNamesTest::PATTERNS)->get(i));
+		fmt->applyPattern(ContextMonthNamesTest::PATTERNS->get(i));
 		$var($String, str, fmt->format(ContextMonthNamesTest::JAN30));
 		if (!$nc($nc(ContextMonthNamesTest::EXPECTED)->get(i))->equals(str)) {
-			$throwNew($RuntimeException, $$str({"bad result: got \'"_s, str, "\', expected \'"_s, $nc(ContextMonthNamesTest::EXPECTED)->get(i), "\'"_s}));
+			$throwNew($RuntimeException, $$str({"bad result: got \'"_s, str, "\', expected \'"_s, ContextMonthNamesTest::EXPECTED->get(i), "\'"_s}));
 		}
 	}
 }
 
-void clinit$ContextMonthNamesTest($Class* class$) {
+void ContextMonthNamesTest::clinit$($Class* clazz) {
 	$assignStatic(ContextMonthNamesTest::CZECH, $new($Locale, "cs"_s));
 	$assignStatic(ContextMonthNamesTest::JAN30, $$new($GregorianCalendar, 2012, $Calendar::JANUARY, 30)->getTime());
 	$assignStatic(ContextMonthNamesTest::PATTERNS, $new($StringArray, {
@@ -96,7 +68,29 @@ ContextMonthNamesTest::ContextMonthNamesTest() {
 }
 
 $Class* ContextMonthNamesTest::load$($String* name, bool initialize) {
-	$loadClass(ContextMonthNamesTest, name, initialize, &_ContextMonthNamesTest_ClassInfo_, clinit$ContextMonthNamesTest, allocate$ContextMonthNamesTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"CZECH", "Ljava/util/Locale;", nullptr, $STATIC, $staticField(ContextMonthNamesTest, CZECH)},
+		{"JAN30", "Ljava/util/Date;", nullptr, $STATIC, $staticField(ContextMonthNamesTest, JAN30)},
+		{"PATTERNS", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ContextMonthNamesTest, PATTERNS)},
+		{"EXPECTED", "[Ljava/lang/String;", nullptr, $STATIC, $staticField(ContextMonthNamesTest, EXPECTED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContextMonthNamesTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ContextMonthNamesTest, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ContextMonthNamesTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ContextMonthNamesTest, name, initialize, &classInfo$$, ContextMonthNamesTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ContextMonthNamesTest);
+	});
 	return class$;
 }
 

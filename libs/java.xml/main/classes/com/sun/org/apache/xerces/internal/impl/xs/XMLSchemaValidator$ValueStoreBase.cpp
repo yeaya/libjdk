@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ValueStoreBase.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ShortVector.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/identity/Field.h>
@@ -40,81 +39,8 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _XMLSchemaValidator$ValueStoreBase_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $FINAL | $SYNTHETIC, $field(XMLSchemaValidator$ValueStoreBase, this$0)},
-	{"fIdentityConstraint", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fIdentityConstraint)},
-	{"fFieldCount", "I", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fFieldCount)},
-	{"fFields", "[Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fFields)},
-	{"fLocalValues", "[Ljava/lang/Object;", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fLocalValues)},
-	{"fLocalValueTypes", "[S", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fLocalValueTypes)},
-	{"fLocalItemValueTypes", "[Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fLocalItemValueTypes)},
-	{"fValuesCount", "I", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fValuesCount)},
-	{"fHasValue", "Z", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fHasValue)},
-	{"fValues", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PUBLIC | $FINAL, $field(XMLSchemaValidator$ValueStoreBase, fValues)},
-	{"fValueTypes", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ShortVector;", nullptr, $PUBLIC, $field(XMLSchemaValidator$ValueStoreBase, fValueTypes)},
-	{"fItemValueTypes", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/sun/org/apache/xerces/internal/xs/ShortList;>;", $PUBLIC, $field(XMLSchemaValidator$ValueStoreBase, fItemValueTypes)},
-	{"fUseValueTypeVector", "Z", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fUseValueTypeVector)},
-	{"fValueTypesLength", "I", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fValueTypesLength)},
-	{"fValueType", "S", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fValueType)},
-	{"fUseItemValueTypeVector", "Z", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fUseItemValueTypeVector)},
-	{"fItemValueTypesLength", "I", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fItemValueTypesLength)},
-	{"fItemValueType", "Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fItemValueType)},
-	{"fTempBuffer", "Ljava/lang/StringBuilder;", nullptr, $FINAL, $field(XMLSchemaValidator$ValueStoreBase, fTempBuffer)},
-	{}
-};
-
-$MethodInfo _XMLSchemaValidator$ValueStoreBase_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;)V", nullptr, $PROTECTED, $method(XMLSchemaValidator$ValueStoreBase, init$, void, $XMLSchemaValidator*, $IdentityConstraint*)},
-	{"addItemValueType", "(Lcom/sun/org/apache/xerces/internal/xs/ShortList;)V", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, addItemValueType, void, $ShortList*)},
-	{"addValue", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;ZLjava/lang/Object;SLcom/sun/org/apache/xerces/internal/xs/ShortList;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, addValue, void, $Field*, bool, Object$*, int16_t, $ShortList*)},
-	{"addValueType", "(S)V", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, addValueType, void, int16_t)},
-	{"append", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ValueStoreBase;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, append, void, XMLSchemaValidator$ValueStoreBase*)},
-	{"checkDuplicateValues", "()V", nullptr, $PROTECTED, $virtualMethod(XMLSchemaValidator$ValueStoreBase, checkDuplicateValues, void)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, clear, void)},
-	{"contains", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, contains, bool)},
-	{"contains", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ValueStoreBase;)I", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, contains, int32_t, XMLSchemaValidator$ValueStoreBase*)},
-	{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, endDocument, void)},
-	{"endDocumentFragment", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, endDocumentFragment, void)},
-	{"endValueScope", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, endValueScope, void)},
-	{"getItemValueTypeAt", "(I)Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, getItemValueTypeAt, $ShortList*, int32_t)},
-	{"getValueTypeAt", "(I)S", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, getValueTypeAt, int16_t, int32_t)},
-	{"itemValueTypeContains", "(Lcom/sun/org/apache/xerces/internal/xs/ShortList;)Z", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, itemValueTypeContains, bool, $ShortList*)},
-	{"reportError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, reportError, void, $String*, $ObjectArray*)},
-	{"startValueScope", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, startValueScope, void)},
-	{"toString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XMLSchemaValidator$ValueStoreBase, toString, $String*, $ObjectArray*)},
-	{"toString", "(Ljava/util/Vector;II)Ljava/lang/String;", "(Ljava/util/Vector<Ljava/lang/Object;>;II)Ljava/lang/String;", $PROTECTED, $virtualMethod(XMLSchemaValidator$ValueStoreBase, toString, $String*, $Vector*, int32_t, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, toString, $String*)},
-	{"valueTypeContains", "(S)Z", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, valueTypeContains, bool, int16_t)},
-	{}
-};
-
-$InnerClassInfo _XMLSchemaValidator$ValueStoreBase_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$ValueStoreBase", "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator", "ValueStoreBase", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _XMLSchemaValidator$ValueStoreBase_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$ValueStoreBase",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.impl.xs.identity.ValueStore",
-	_XMLSchemaValidator$ValueStoreBase_FieldInfo_,
-	_XMLSchemaValidator$ValueStoreBase_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLSchemaValidator$ValueStoreBase_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator"
-};
-
-$Object* allocate$XMLSchemaValidator$ValueStoreBase($Class* clazz) {
-	return $of($alloc(XMLSchemaValidator$ValueStoreBase));
-}
-
 void XMLSchemaValidator$ValueStoreBase::init$($XMLSchemaValidator* this$0, $IdentityConstraint* identityConstraint) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	this->fFieldCount = 0;
 	$set(this, fFields, nullptr);
@@ -127,7 +53,7 @@ void XMLSchemaValidator$ValueStoreBase::init$($XMLSchemaValidator* this$0, $Iden
 	$set(this, fItemValueTypes, nullptr);
 	this->fUseValueTypeVector = false;
 	this->fValueTypesLength = 0;
-	this->fValueType = (int16_t)0;
+	this->fValueType = 0;
 	this->fUseItemValueTypeVector = false;
 	this->fItemValueTypesLength = 0;
 	$set(this, fItemValueType, nullptr);
@@ -147,23 +73,23 @@ void XMLSchemaValidator$ValueStoreBase::clear() {
 	this->fValuesCount = 0;
 	this->fUseValueTypeVector = false;
 	this->fValueTypesLength = 0;
-	this->fValueType = (int16_t)0;
+	this->fValueType = 0;
 	this->fUseItemValueTypeVector = false;
 	this->fItemValueTypesLength = 0;
 	$set(this, fItemValueType, nullptr);
-	$nc(this->fValues)->setSize(0);
+	this->fValues->setSize(0);
 	if (this->fValueTypes != nullptr) {
-		$nc(this->fValueTypes)->clear();
+		this->fValueTypes->clear();
 	}
 	if (this->fItemValueTypes != nullptr) {
-		$nc(this->fItemValueTypes)->setSize(0);
+		this->fItemValueTypes->setSize(0);
 	}
 }
 
 void XMLSchemaValidator$ValueStoreBase::append(XMLSchemaValidator$ValueStoreBase* newVal) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc($nc(newVal)->fValues)->size(); ++i) {
-		$nc(this->fValues)->add($($nc(newVal->fValues)->get(i)));
+		this->fValues->add($(newVal->fValues->get(i)));
 	}
 }
 
@@ -171,21 +97,21 @@ void XMLSchemaValidator$ValueStoreBase::startValueScope() {
 	this->fValuesCount = 0;
 	for (int32_t i = 0; i < this->fFieldCount; ++i) {
 		$nc(this->fLocalValues)->set(i, nullptr);
-		$nc(this->fLocalValueTypes)->set(i, (int16_t)0);
+		$nc(this->fLocalValueTypes)->set(i, 0);
 		$nc(this->fLocalItemValueTypes)->set(i, nullptr);
 	}
 }
 
 void XMLSchemaValidator$ValueStoreBase::endValueScope() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fValuesCount == 0) {
 		if ($nc(this->fIdentityConstraint)->getCategory() == $IdentityConstraint::IC_KEY) {
 			$var($String, code, "AbsentKeyValue"_s);
 			$var($String, eName, $nc(this->fIdentityConstraint)->getElementName());
 			$var($String, cName, $nc(this->fIdentityConstraint)->getIdentityConstraintName());
 			this->this$0->reportSchemaError(code, $$new($ObjectArray, {
-				$of(eName),
-				$of(cName)
+				eName,
+				cName
 			}));
 		}
 		return;
@@ -197,8 +123,8 @@ void XMLSchemaValidator$ValueStoreBase::endValueScope() {
 			$var($String, eName, $nc(this->fIdentityConstraint)->getElementName());
 			$var($String, cName, $nc(key)->getIdentityConstraintName());
 			this->this$0->reportSchemaError(code, $$new($ObjectArray, {
-				$of(eName),
-				$of(cName)
+				eName,
+				cName
 			}));
 		}
 		return;
@@ -216,7 +142,7 @@ void XMLSchemaValidator$ValueStoreBase::reportError($String* key, $ObjectArray* 
 }
 
 void XMLSchemaValidator$ValueStoreBase::addValue($Field* field, bool mayMatch, Object$* actualValue, int16_t valueType, $ShortList* itemValueType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = 0;
 	for (i = this->fFieldCount - 1; i > -1; --i) {
 		if ($nc(this->fFields)->get(i) == field) {
@@ -228,9 +154,9 @@ void XMLSchemaValidator$ValueStoreBase::addValue($Field* field, bool mayMatch, O
 		$var($String, eName, $nc(this->fIdentityConstraint)->getElementName());
 		$var($String, cName, $nc(this->fIdentityConstraint)->getIdentityConstraintName());
 		this->this$0->reportSchemaError(code, $$new($ObjectArray, {
-			$($of($nc(field)->toString())),
-			$of(eName),
-			$of(cName)
+			$($nc(field)->toString()),
+			eName,
+			cName
 		}));
 		return;
 	}
@@ -238,8 +164,8 @@ void XMLSchemaValidator$ValueStoreBase::addValue($Field* field, bool mayMatch, O
 		$var($String, code, "FieldMultipleMatch"_s);
 		$var($String, cName, $nc(this->fIdentityConstraint)->getIdentityConstraintName());
 		this->this$0->reportSchemaError(code, $$new($ObjectArray, {
-			$($of($nc(field)->toString())),
-			$of(cName)
+			$($nc(field)->toString()),
+			cName
 		}));
 	} else {
 		++this->fValuesCount;
@@ -251,7 +177,7 @@ void XMLSchemaValidator$ValueStoreBase::addValue($Field* field, bool mayMatch, O
 	if (this->fValuesCount == this->fFieldCount) {
 		checkDuplicateValues();
 		for (i = 0; i < this->fFieldCount; ++i) {
-			$nc(this->fValues)->add($nc(this->fLocalValues)->get(i));
+			this->fValues->add($nc(this->fLocalValues)->get(i));
 			addValueType($nc(this->fLocalValueTypes)->get(i));
 			addItemValueType($nc(this->fLocalItemValueTypes)->get(i));
 		}
@@ -259,24 +185,24 @@ void XMLSchemaValidator$ValueStoreBase::addValue($Field* field, bool mayMatch, O
 }
 
 bool XMLSchemaValidator$ValueStoreBase::contains() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t next = 0;
-	int32_t size = $nc(this->fValues)->size();
+	int32_t size = this->fValues->size();
 	bool LOOP$continue = false;
 	for (int32_t i = 0; i < size; i = next) {
 		next = i + this->fFieldCount;
 		for (int32_t j = 0; j < this->fFieldCount; ++j) {
 			$var($Object0, value1, $nc(this->fLocalValues)->get(j));
-			$var($Object, value2, $nc(this->fValues)->get(i));
+			$var($Object, value2, this->fValues->get(i));
 			int16_t valueType1 = $nc(this->fLocalValueTypes)->get(j);
 			int16_t valueType2 = getValueTypeAt(i);
-			if (value1 == nullptr || value2 == nullptr || valueType1 != valueType2 || !($nc($of(value1))->equals(value2))) {
+			if (value1 == nullptr || value2 == nullptr || valueType1 != valueType2 || !(value1->equals(value2))) {
 				LOOP$continue = true;
 				break;
 			} else if (valueType1 == $XSConstants::LIST_DT || valueType1 == $XSConstants::LISTOFUNION_DT) {
 				$var($ShortList, list1, $nc(this->fLocalItemValueTypes)->get(j));
 				$var($ShortList, list2, getItemValueTypeAt(i));
-				if (list1 == nullptr || list2 == nullptr || !$nc($of(list1))->equals(list2)) {
+				if (list1 == nullptr || list2 == nullptr || !list1->equals(list2)) {
 					LOOP$continue = true;
 					break;
 				}
@@ -293,14 +219,14 @@ bool XMLSchemaValidator$ValueStoreBase::contains() {
 }
 
 int32_t XMLSchemaValidator$ValueStoreBase::contains(XMLSchemaValidator$ValueStoreBase* vsb) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, values, $nc(vsb)->fValues);
 	int32_t size1 = $nc(values)->size();
 	if (this->fFieldCount <= 1) {
 		for (int32_t i = 0; i < size1; ++i) {
 			int16_t val = vsb->getValueTypeAt(i);
 			bool var$0 = !valueTypeContains(val);
-			if (var$0 || !$nc(this->fValues)->contains($(values->get(i)))) {
+			if (var$0 || !this->fValues->contains($(values->get(i)))) {
 				return i;
 			} else if (val == $XSConstants::LIST_DT || val == $XSConstants::LISTOFUNION_DT) {
 				$var($ShortList, list1, vsb->getItemValueTypeAt(i));
@@ -310,23 +236,23 @@ int32_t XMLSchemaValidator$ValueStoreBase::contains(XMLSchemaValidator$ValueStor
 			}
 		}
 	} else {
-		int32_t size2 = $nc(this->fValues)->size();
+		int32_t size2 = this->fValues->size();
 		bool OUTER$continue = false;
 		for (int32_t i = 0; i < size1; i += this->fFieldCount) {
 			bool INNER$continue = false;
 			for (int32_t j = 0; j < size2; j += this->fFieldCount) {
 				for (int32_t k = 0; k < this->fFieldCount; ++k) {
 					$var($Object, value1, values->get(i + k));
-					$var($Object, value2, $nc(this->fValues)->get(j + k));
+					$var($Object, value2, this->fValues->get(j + k));
 					int16_t valueType1 = vsb->getValueTypeAt(i + k);
 					int16_t valueType2 = getValueTypeAt(j + k);
-					if (!$equals(value1, value2) && (valueType1 != valueType2 || value1 == nullptr || !$nc($of(value1))->equals(value2))) {
+					if (!$equals(value1, value2) && (valueType1 != valueType2 || value1 == nullptr || !value1->equals(value2))) {
 						INNER$continue = true;
 						break;
 					} else if (valueType1 == $XSConstants::LIST_DT || valueType1 == $XSConstants::LISTOFUNION_DT) {
 						$var($ShortList, list1, vsb->getItemValueTypeAt(i + k));
 						$var($ShortList, list2, getItemValueTypeAt(j + k));
-						if (list1 == nullptr || list2 == nullptr || !$nc($of(list1))->equals(list2)) {
+						if (list1 == nullptr || list2 == nullptr || !list1->equals(list2)) {
 							INNER$continue = true;
 							break;
 						}
@@ -357,18 +283,18 @@ $String* XMLSchemaValidator$ValueStoreBase::toString($ObjectArray* values) {
 	if (size == 0) {
 		return ""_s;
 	}
-	$nc(this->fTempBuffer)->setLength(0);
+	this->fTempBuffer->setLength(0);
 	for (int32_t i = 0; i < size; ++i) {
 		if (i > 0) {
-			$nc(this->fTempBuffer)->append(u',');
+			this->fTempBuffer->append(u',');
 		}
-		$nc(this->fTempBuffer)->append(values->get(i));
+		this->fTempBuffer->append(values->get(i));
 	}
-	return $nc(this->fTempBuffer)->toString();
+	return this->fTempBuffer->toString();
 }
 
 $String* XMLSchemaValidator$ValueStoreBase::toString($Vector* values, int32_t start, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (length == 0) {
 		return ""_s;
 	}
@@ -386,13 +312,13 @@ $String* XMLSchemaValidator$ValueStoreBase::toString($Vector* values, int32_t st
 }
 
 $String* XMLSchemaValidator$ValueStoreBase::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, $ValueStore::toString());
-	int32_t index1 = $nc(s)->lastIndexOf((int32_t)u'$');
+	int32_t index1 = $nc(s)->lastIndexOf(u'$');
 	if (index1 != -1) {
 		$assign(s, s->substring(index1 + 1));
 	}
-	int32_t index2 = s->lastIndexOf((int32_t)u'.');
+	int32_t index2 = s->lastIndexOf(u'.');
 	if (index2 != -1) {
 		$assign(s, s->substring(index2 + 1));
 	}
@@ -435,7 +361,7 @@ void XMLSchemaValidator$ValueStoreBase::addItemValueType($ShortList* itemValueTy
 		$nc(this->fItemValueTypes)->add(itemValueType);
 	} else if (this->fItemValueTypesLength++ == 0) {
 		$set(this, fItemValueType, itemValueType);
-	} else if (!(this->fItemValueType == itemValueType || (this->fItemValueType != nullptr && $nc($of(this->fItemValueType))->equals(itemValueType)))) {
+	} else if (!(this->fItemValueType == itemValueType || (this->fItemValueType != nullptr && this->fItemValueType->equals(itemValueType)))) {
 		this->fUseItemValueTypeVector = true;
 		if (this->fItemValueTypes == nullptr) {
 			$set(this, fItemValueTypes, $new($Vector, this->fItemValueTypesLength * 2));
@@ -458,14 +384,81 @@ bool XMLSchemaValidator$ValueStoreBase::itemValueTypeContains($ShortList* value)
 	if (this->fUseItemValueTypeVector) {
 		return $nc(this->fItemValueTypes)->contains(value);
 	}
-	return this->fItemValueType == value || (this->fItemValueType != nullptr && $nc($of(this->fItemValueType))->equals(value));
+	return this->fItemValueType == value || (this->fItemValueType != nullptr && this->fItemValueType->equals(value));
 }
 
 XMLSchemaValidator$ValueStoreBase::XMLSchemaValidator$ValueStoreBase() {
 }
 
 $Class* XMLSchemaValidator$ValueStoreBase::load$($String* name, bool initialize) {
-	$loadClass(XMLSchemaValidator$ValueStoreBase, name, initialize, &_XMLSchemaValidator$ValueStoreBase_ClassInfo_, allocate$XMLSchemaValidator$ValueStoreBase);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $FINAL | $SYNTHETIC, $field(XMLSchemaValidator$ValueStoreBase, this$0)},
+		{"fIdentityConstraint", "Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fIdentityConstraint)},
+		{"fFieldCount", "I", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fFieldCount)},
+		{"fFields", "[Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fFields)},
+		{"fLocalValues", "[Ljava/lang/Object;", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fLocalValues)},
+		{"fLocalValueTypes", "[S", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fLocalValueTypes)},
+		{"fLocalItemValueTypes", "[Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fLocalItemValueTypes)},
+		{"fValuesCount", "I", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fValuesCount)},
+		{"fHasValue", "Z", nullptr, $PROTECTED, $field(XMLSchemaValidator$ValueStoreBase, fHasValue)},
+		{"fValues", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/Object;>;", $PUBLIC | $FINAL, $field(XMLSchemaValidator$ValueStoreBase, fValues)},
+		{"fValueTypes", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ShortVector;", nullptr, $PUBLIC, $field(XMLSchemaValidator$ValueStoreBase, fValueTypes)},
+		{"fItemValueTypes", "Ljava/util/Vector;", "Ljava/util/Vector<Lcom/sun/org/apache/xerces/internal/xs/ShortList;>;", $PUBLIC, $field(XMLSchemaValidator$ValueStoreBase, fItemValueTypes)},
+		{"fUseValueTypeVector", "Z", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fUseValueTypeVector)},
+		{"fValueTypesLength", "I", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fValueTypesLength)},
+		{"fValueType", "S", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fValueType)},
+		{"fUseItemValueTypeVector", "Z", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fUseItemValueTypeVector)},
+		{"fItemValueTypesLength", "I", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fItemValueTypesLength)},
+		{"fItemValueType", "Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PRIVATE, $field(XMLSchemaValidator$ValueStoreBase, fItemValueType)},
+		{"fTempBuffer", "Ljava/lang/StringBuilder;", nullptr, $FINAL, $field(XMLSchemaValidator$ValueStoreBase, fTempBuffer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;Lcom/sun/org/apache/xerces/internal/impl/xs/identity/IdentityConstraint;)V", nullptr, $PROTECTED, $method(XMLSchemaValidator$ValueStoreBase, init$, void, $XMLSchemaValidator*, $IdentityConstraint*)},
+		{"addItemValueType", "(Lcom/sun/org/apache/xerces/internal/xs/ShortList;)V", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, addItemValueType, void, $ShortList*)},
+		{"addValue", "(Lcom/sun/org/apache/xerces/internal/impl/xs/identity/Field;ZLjava/lang/Object;SLcom/sun/org/apache/xerces/internal/xs/ShortList;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, addValue, void, $Field*, bool, Object$*, int16_t, $ShortList*)},
+		{"addValueType", "(S)V", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, addValueType, void, int16_t)},
+		{"append", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ValueStoreBase;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, append, void, XMLSchemaValidator$ValueStoreBase*)},
+		{"checkDuplicateValues", "()V", nullptr, $PROTECTED, $virtualMethod(XMLSchemaValidator$ValueStoreBase, checkDuplicateValues, void)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, clear, void)},
+		{"contains", "()Z", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, contains, bool)},
+		{"contains", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator$ValueStoreBase;)I", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, contains, int32_t, XMLSchemaValidator$ValueStoreBase*)},
+		{"endDocument", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, endDocument, void)},
+		{"endDocumentFragment", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, endDocumentFragment, void)},
+		{"endValueScope", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, endValueScope, void)},
+		{"getItemValueTypeAt", "(I)Lcom/sun/org/apache/xerces/internal/xs/ShortList;", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, getItemValueTypeAt, $ShortList*, int32_t)},
+		{"getValueTypeAt", "(I)S", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, getValueTypeAt, int16_t, int32_t)},
+		{"itemValueTypeContains", "(Lcom/sun/org/apache/xerces/internal/xs/ShortList;)Z", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, itemValueTypeContains, bool, $ShortList*)},
+		{"reportError", "(Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, reportError, void, $String*, $ObjectArray*)},
+		{"startValueScope", "()V", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, startValueScope, void)},
+		{"toString", "([Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XMLSchemaValidator$ValueStoreBase, toString, $String*, $ObjectArray*)},
+		{"toString", "(Ljava/util/Vector;II)Ljava/lang/String;", "(Ljava/util/Vector<Ljava/lang/Object;>;II)Ljava/lang/String;", $PROTECTED, $virtualMethod(XMLSchemaValidator$ValueStoreBase, toString, $String*, $Vector*, int32_t, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLSchemaValidator$ValueStoreBase, toString, $String*)},
+		{"valueTypeContains", "(S)Z", nullptr, $PRIVATE, $method(XMLSchemaValidator$ValueStoreBase, valueTypeContains, bool, int16_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$ValueStoreBase", "com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator", "ValueStoreBase", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator$ValueStoreBase",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.impl.xs.identity.ValueStore",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.XMLSchemaValidator"
+	};
+	$loadClass(XMLSchemaValidator$ValueStoreBase, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLSchemaValidator$ValueStoreBase);
+	});
 	return class$;
 }
 

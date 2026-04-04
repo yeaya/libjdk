@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/UnconditionalBranch.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -12,17 +11,14 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$ClassInfo _UnconditionalBranch_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.UnconditionalBranch"
-};
-
-$Object* allocate$UnconditionalBranch($Class* clazz) {
-	return $of($alloc(UnconditionalBranch));
-}
-
 $Class* UnconditionalBranch::load$($String* name, bool initialize) {
-	$loadClass(UnconditionalBranch, name, initialize, &_UnconditionalBranch_ClassInfo_, allocate$UnconditionalBranch);
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.UnconditionalBranch"
+	};
+	$loadClass(UnconditionalBranch, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UnconditionalBranch);
+	});
 	return class$;
 }
 

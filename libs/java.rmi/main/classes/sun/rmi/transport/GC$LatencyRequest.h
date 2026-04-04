@@ -19,6 +19,7 @@ class GC$LatencyRequest : public ::java::lang::Comparable {
 	$class(GC$LatencyRequest, 0, ::java::lang::Comparable)
 public:
 	GC$LatencyRequest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int64_t ms);
 	static void adjustLatencyIfNeeded();
 	virtual void cancel();

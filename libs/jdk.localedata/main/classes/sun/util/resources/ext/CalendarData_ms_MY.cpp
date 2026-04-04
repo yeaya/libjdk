@@ -1,5 +1,4 @@
 #include <sun/util/resources/ext/CalendarData_ms_MY.h>
-
 #include <sun/util/resources/LocaleNamesBundle.h>
 #include <jcpp.h>
 
@@ -13,33 +12,14 @@ namespace sun {
 		namespace resources {
 			namespace ext {
 
-$MethodInfo _CalendarData_ms_MY_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarData_ms_MY, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CalendarData_ms_MY, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CalendarData_ms_MY_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.util.resources.ext.CalendarData_ms_MY",
-	"sun.util.resources.LocaleNamesBundle",
-	nullptr,
-	nullptr,
-	_CalendarData_ms_MY_MethodInfo_
-};
-
-$Object* allocate$CalendarData_ms_MY($Class* clazz) {
-	return $of($alloc(CalendarData_ms_MY));
-}
-
 void CalendarData_ms_MY::init$() {
 	$LocaleNamesBundle::init$();
 }
 
 $ObjectArray2* CalendarData_ms_MY::getContents() {
 	return $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("firstDayOfWeek"_s),
-		$of("2"_s)
+		"firstDayOfWeek"_s,
+		"2"_s
 	})});
 }
 
@@ -47,7 +27,22 @@ CalendarData_ms_MY::CalendarData_ms_MY() {
 }
 
 $Class* CalendarData_ms_MY::load$($String* name, bool initialize) {
-	$loadClass(CalendarData_ms_MY, name, initialize, &_CalendarData_ms_MY_ClassInfo_, allocate$CalendarData_ms_MY);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CalendarData_ms_MY, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CalendarData_ms_MY, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.util.resources.ext.CalendarData_ms_MY",
+		"sun.util.resources.LocaleNamesBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CalendarData_ms_MY, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CalendarData_ms_MY);
+	});
 	return class$;
 }
 

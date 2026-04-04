@@ -1,5 +1,4 @@
 #include <sun/print/ServiceDialog$IconRadioButton$1.h>
-
 #include <java/net/URL.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
@@ -21,51 +20,6 @@ using $ServiceDialog$IconRadioButton = ::sun::print::ServiceDialog$IconRadioButt
 namespace sun {
 	namespace print {
 
-$FieldInfo _ServiceDialog$IconRadioButton$1_FieldInfo_[] = {
-	{"this$1", "Lsun/print/ServiceDialog$IconRadioButton;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$IconRadioButton$1, this$1)},
-	{"val$imgURL", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$IconRadioButton$1, val$imgURL)},
-	{"val$this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$IconRadioButton$1, val$this$0)},
-	{}
-};
-
-$MethodInfo _ServiceDialog$IconRadioButton$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/print/ServiceDialog$IconRadioButton;Lsun/print/ServiceDialog;Ljava/net/URL;)V", "()V", 0, $method(ServiceDialog$IconRadioButton$1, init$, void, $ServiceDialog$IconRadioButton*, $ServiceDialog*, $URL*)},
-	{"run", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _ServiceDialog$IconRadioButton$1_EnclosingMethodInfo_ = {
-	"sun.print.ServiceDialog$IconRadioButton",
-	"<init>",
-	"(Lsun/print/ServiceDialog;Ljava/lang/String;Ljava/lang/String;ZLjavax/swing/ButtonGroup;Ljava/awt/event/ActionListener;)V"
-};
-
-$InnerClassInfo _ServiceDialog$IconRadioButton$1_InnerClassesInfo_[] = {
-	{"sun.print.ServiceDialog$IconRadioButton", "sun.print.ServiceDialog", "IconRadioButton", $PRIVATE},
-	{"sun.print.ServiceDialog$IconRadioButton$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ServiceDialog$IconRadioButton$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.print.ServiceDialog$IconRadioButton$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_ServiceDialog$IconRadioButton$1_FieldInfo_,
-	_ServiceDialog$IconRadioButton$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljavax/swing/Icon;>;",
-	&_ServiceDialog$IconRadioButton$1_EnclosingMethodInfo_,
-	_ServiceDialog$IconRadioButton$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.print.ServiceDialog"
-};
-
-$Object* allocate$ServiceDialog$IconRadioButton$1($Class* clazz) {
-	return $of($alloc(ServiceDialog$IconRadioButton$1));
-}
-
 void ServiceDialog$IconRadioButton$1::init$($ServiceDialog$IconRadioButton* this$1, $ServiceDialog* val$this$0, $URL* val$imgURL) {
 	$set(this, this$1, this$1);
 	$set(this, val$this$0, val$this$0);
@@ -74,14 +28,52 @@ void ServiceDialog$IconRadioButton$1::init$($ServiceDialog$IconRadioButton* this
 
 $Object* ServiceDialog$IconRadioButton$1::run() {
 	$var($Icon, icon, $new($ImageIcon, this->val$imgURL));
-	return $of(icon);
+	return icon;
 }
 
 ServiceDialog$IconRadioButton$1::ServiceDialog$IconRadioButton$1() {
 }
 
 $Class* ServiceDialog$IconRadioButton$1::load$($String* name, bool initialize) {
-	$loadClass(ServiceDialog$IconRadioButton$1, name, initialize, &_ServiceDialog$IconRadioButton$1_ClassInfo_, allocate$ServiceDialog$IconRadioButton$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lsun/print/ServiceDialog$IconRadioButton;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$IconRadioButton$1, this$1)},
+		{"val$imgURL", "Ljava/net/URL;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$IconRadioButton$1, val$imgURL)},
+		{"val$this$0", "Lsun/print/ServiceDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ServiceDialog$IconRadioButton$1, val$this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/print/ServiceDialog$IconRadioButton;Lsun/print/ServiceDialog;Ljava/net/URL;)V", "()V", 0, $method(ServiceDialog$IconRadioButton$1, init$, void, $ServiceDialog$IconRadioButton*, $ServiceDialog*, $URL*)},
+		{"run", "()Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(ServiceDialog$IconRadioButton$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.print.ServiceDialog$IconRadioButton",
+		"<init>",
+		"(Lsun/print/ServiceDialog;Ljava/lang/String;Ljava/lang/String;ZLjavax/swing/ButtonGroup;Ljava/awt/event/ActionListener;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.ServiceDialog$IconRadioButton", "sun.print.ServiceDialog", "IconRadioButton", $PRIVATE},
+		{"sun.print.ServiceDialog$IconRadioButton$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.print.ServiceDialog$IconRadioButton$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljavax/swing/Icon;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.print.ServiceDialog"
+	};
+	$loadClass(ServiceDialog$IconRadioButton$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ServiceDialog$IconRadioButton$1);
+	});
 	return class$;
 }
 

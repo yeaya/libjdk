@@ -89,7 +89,7 @@ public:
 	virtual $Object* setUserData($String* key, Object$* data, ::org::w3c::dom::UserDataHandler* handler) override;
 	virtual $String* substringData(int32_t offset, int32_t count) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0xDABA589464869464;
+	static const int64_t serialVersionUID = (int64_t)0xdaba589464869464;
 };
 
 						} // dom

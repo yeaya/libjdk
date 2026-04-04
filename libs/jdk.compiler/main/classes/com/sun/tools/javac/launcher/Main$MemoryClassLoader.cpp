@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/launcher/Main$MemoryClassLoader.h>
-
 #include <com/sun/tools/javac/launcher/Main$MemoryClassLoader$1.h>
 #include <com/sun/tools/javac/launcher/Main$MemoryClassLoader$MemoryURLStreamHandler.h>
 #include <com/sun/tools/javac/launcher/Main.h>
@@ -16,7 +15,6 @@
 #include <java/security/Principal.h>
 #include <java/security/ProtectionDomain.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/List.h>
@@ -37,7 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedURLException = ::java::net::MalformedURLException;
-using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $URLStreamHandler = ::java::net::URLStreamHandler;
 using $Path = ::java::nio::file::Path;
@@ -45,7 +42,6 @@ using $CodeSource = ::java::security::CodeSource;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $List = ::java::util::List;
@@ -57,66 +53,20 @@ namespace com {
 			namespace javac {
 				namespace launcher {
 
-$FieldInfo _Main$MemoryClassLoader_FieldInfo_[] = {
-	{"sourceFileClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[B>;", $PRIVATE | $FINAL, $field(Main$MemoryClassLoader, sourceFileClasses)},
-	{"domain", "Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $FINAL, $field(Main$MemoryClassLoader, domain)},
-	{"DOT_CLASS_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main$MemoryClassLoader, DOT_CLASS_LENGTH)},
-	{"PROTOCOL", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Main$MemoryClassLoader, PROTOCOL)},
-	{"handler", "Ljava/net/URLStreamHandler;", nullptr, $PRIVATE, $field(Main$MemoryClassLoader, handler)},
-	{}
-};
-
-$MethodInfo _Main$MemoryClassLoader_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/ClassLoader;Ljava/nio/file/Path;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/lang/ClassLoader;Ljava/nio/file/Path;)V", 0, $method(Main$MemoryClassLoader, init$, void, $Map*, $ClassLoader*, $Path*)},
-	{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Main$MemoryClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader, findResource, $URL*, $String*)},
-	{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(Main$MemoryClassLoader, findResources, $Enumeration*, $String*)},
-	{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader, getResource, $URL*, $String*)},
-	{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(Main$MemoryClassLoader, getResources, $Enumeration*, $String*), "java.io.IOException"},
-	{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Main$MemoryClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
-	{"toBinaryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main$MemoryClassLoader, toBinaryName, $String*, $String*)},
-	{}
-};
-
-$InnerClassInfo _Main$MemoryClassLoader_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.launcher.Main$MemoryClassLoader", "com.sun.tools.javac.launcher.Main", "MemoryClassLoader", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLConnection", "com.sun.tools.javac.launcher.Main$MemoryClassLoader", "MemoryURLConnection", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLStreamHandler", "com.sun.tools.javac.launcher.Main$MemoryClassLoader", "MemoryURLStreamHandler", $PRIVATE},
-	{"com.sun.tools.javac.launcher.Main$MemoryClassLoader$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Main$MemoryClassLoader_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.launcher.Main$MemoryClassLoader",
-	"java.lang.ClassLoader",
-	nullptr,
-	_Main$MemoryClassLoader_FieldInfo_,
-	_Main$MemoryClassLoader_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main$MemoryClassLoader_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.launcher.Main"
-};
-
-$Object* allocate$Main$MemoryClassLoader($Class* clazz) {
-	return $of($alloc(Main$MemoryClassLoader));
-}
-
 int32_t Main$MemoryClassLoader::DOT_CLASS_LENGTH = 0;
 
 void Main$MemoryClassLoader::init$($Map* sourceFileClasses, $ClassLoader* parent, $Path* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$ClassLoader::init$(parent);
-	$var($String, var$0, $$str({"sourcelauncher-"_s, $($of(this)->getClass()->getSimpleName())}));
-	$set(this, PROTOCOL, $concat(var$0, $$str(hashCode())));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("sourcelauncher-"_s);
+	var$0->append($($of(this)->getClass()->getSimpleName()));
+	var$0->append(hashCode());
+	$set(this, PROTOCOL, $str(var$0));
 	$set(this, sourceFileClasses, sourceFileClasses);
 	$var($CodeSource, codeSource, nullptr);
 	try {
-		$assign(codeSource, $new($CodeSource, $($nc($($nc(file)->toUri()))->toURL()), ($CodeSignerArray*)nullptr));
+		$assign(codeSource, $new($CodeSource, $($$nc($nc(file)->toUri())->toURL()), ($CodeSignerArray*)nullptr));
 	} catch ($MalformedURLException& e) {
 		$assign(codeSource, nullptr);
 	}
@@ -131,7 +81,7 @@ $Class* Main$MemoryClassLoader::loadClass($String* name, bool resolve) {
 			if ($nc(this->sourceFileClasses)->containsKey(name)) {
 				c = findClass(name);
 			} else {
-				c = $nc($(getParent()))->loadClass(name);
+				c = $$nc(getParent())->loadClass(name);
 			}
 			if (resolve) {
 				resolveClass(c);
@@ -142,27 +92,27 @@ $Class* Main$MemoryClassLoader::loadClass($String* name, bool resolve) {
 }
 
 $URL* Main$MemoryClassLoader::getResource($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if ($nc(this->sourceFileClasses)->containsKey($(toBinaryName(name)))) {
 		return findResource(name);
 	} else {
-		return $nc($(getParent()))->getResource(name);
+		return $$nc(getParent())->getResource(name);
 	}
 }
 
 $Enumeration* Main$MemoryClassLoader::getResources($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($URL, u, findResource(name));
-	$var($Enumeration, e, $nc($(getParent()))->getResources(name));
+	$var($Enumeration, e, $$nc(getParent())->getResources(name));
 	if (u == nullptr) {
 		return e;
 	} else {
 		$var($List, list, $new($ArrayList));
 		list->add(u);
 		while ($nc(e)->hasMoreElements()) {
-			list->add($cast($URL, $(e->nextElement())));
+			list->add($$cast($URL, e->nextElement()));
 		}
 		return $Collections::enumeration(list);
 	}
@@ -177,14 +127,14 @@ $Class* Main$MemoryClassLoader::findClass($String* name) {
 }
 
 $URL* Main$MemoryClassLoader::findResource($String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, binaryName, toBinaryName(name));
 	if (binaryName == nullptr || $nc(this->sourceFileClasses)->get(binaryName) == nullptr) {
 		return nullptr;
 	}
 	$var($URLStreamHandler, handler, this->handler);
 	if (handler == nullptr) {
-		$set(this, handler, ($assign(handler, $new($Main$MemoryClassLoader$MemoryURLStreamHandler, this))));
+		$set(this, handler, $assign(handler, $new($Main$MemoryClassLoader$MemoryURLStreamHandler, this)));
 	}
 	try {
 		return $new($URL, this->PROTOCOL, nullptr, -1, name, handler);
@@ -202,10 +152,10 @@ $String* Main$MemoryClassLoader::toBinaryName($String* name) {
 	if (!$nc(name)->endsWith(".class"_s)) {
 		return nullptr;
 	}
-	return $($nc(name)->substring(0, name->length() - Main$MemoryClassLoader::DOT_CLASS_LENGTH))->replace(u'/', u'.');
+	return $(name->substring(0, name->length() - Main$MemoryClassLoader::DOT_CLASS_LENGTH))->replace(u'/', u'.');
 }
 
-void clinit$Main$MemoryClassLoader($Class* class$) {
+void Main$MemoryClassLoader::clinit$($Class* clazz) {
 	Main$MemoryClassLoader::DOT_CLASS_LENGTH = ".class"_s->length();
 }
 
@@ -213,7 +163,50 @@ Main$MemoryClassLoader::Main$MemoryClassLoader() {
 }
 
 $Class* Main$MemoryClassLoader::load$($String* name, bool initialize) {
-	$loadClass(Main$MemoryClassLoader, name, initialize, &_Main$MemoryClassLoader_ClassInfo_, clinit$Main$MemoryClassLoader, allocate$Main$MemoryClassLoader);
+	$FieldInfo fieldInfos$$[] = {
+		{"sourceFileClasses", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;[B>;", $PRIVATE | $FINAL, $field(Main$MemoryClassLoader, sourceFileClasses)},
+		{"domain", "Ljava/security/ProtectionDomain;", nullptr, $PRIVATE | $FINAL, $field(Main$MemoryClassLoader, domain)},
+		{"DOT_CLASS_LENGTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main$MemoryClassLoader, DOT_CLASS_LENGTH)},
+		{"PROTOCOL", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Main$MemoryClassLoader, PROTOCOL)},
+		{"handler", "Ljava/net/URLStreamHandler;", nullptr, $PRIVATE, $field(Main$MemoryClassLoader, handler)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/ClassLoader;Ljava/nio/file/Path;)V", "(Ljava/util/Map<Ljava/lang/String;[B>;Ljava/lang/ClassLoader;Ljava/nio/file/Path;)V", 0, $method(Main$MemoryClassLoader, init$, void, $Map*, $ClassLoader*, $Path*)},
+		{"findClass", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Main$MemoryClassLoader, findClass, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"findResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader, findResource, $URL*, $String*)},
+		{"findResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(Main$MemoryClassLoader, findResources, $Enumeration*, $String*)},
+		{"getResource", "(Ljava/lang/String;)Ljava/net/URL;", nullptr, $PUBLIC, $virtualMethod(Main$MemoryClassLoader, getResource, $URL*, $String*)},
+		{"getResources", "(Ljava/lang/String;)Ljava/util/Enumeration;", "(Ljava/lang/String;)Ljava/util/Enumeration<Ljava/net/URL;>;", $PUBLIC, $virtualMethod(Main$MemoryClassLoader, getResources, $Enumeration*, $String*), "java.io.IOException"},
+		{"loadClass", "(Ljava/lang/String;Z)Ljava/lang/Class;", "(Ljava/lang/String;Z)Ljava/lang/Class<*>;", $PROTECTED, $virtualMethod(Main$MemoryClassLoader, loadClass, $Class*, $String*, bool), "java.lang.ClassNotFoundException"},
+		{"toBinaryName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(Main$MemoryClassLoader, toBinaryName, $String*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.launcher.Main$MemoryClassLoader", "com.sun.tools.javac.launcher.Main", "MemoryClassLoader", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLConnection", "com.sun.tools.javac.launcher.Main$MemoryClassLoader", "MemoryURLConnection", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.launcher.Main$MemoryClassLoader$MemoryURLStreamHandler", "com.sun.tools.javac.launcher.Main$MemoryClassLoader", "MemoryURLStreamHandler", $PRIVATE},
+		{"com.sun.tools.javac.launcher.Main$MemoryClassLoader$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.launcher.Main$MemoryClassLoader",
+		"java.lang.ClassLoader",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.launcher.Main"
+	};
+	$loadClass(Main$MemoryClassLoader, name, initialize, &classInfo$$, Main$MemoryClassLoader::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$MemoryClassLoader);
+	});
 	return class$;
 }
 

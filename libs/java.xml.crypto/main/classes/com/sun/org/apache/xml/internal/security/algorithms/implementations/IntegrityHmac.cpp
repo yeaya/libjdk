@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/JCEMapper.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/MessageDigestAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi.h>
@@ -39,14 +38,12 @@ using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUt
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
@@ -71,66 +68,6 @@ namespace com {
 							namespace algorithms {
 								namespace implementations {
 
-$FieldInfo _IntegrityHmac_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntegrityHmac, LOG)},
-	{"macAlgorithm", "Ljavax/crypto/Mac;", nullptr, $PRIVATE | $FINAL, $field(IntegrityHmac, macAlgorithm)},
-	{"hmacOutputLength", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac$HMACOutputLength;", nullptr, $PRIVATE, $field(IntegrityHmac, hmacOutputLength)},
-	{}
-};
-
-$MethodInfo _IntegrityHmac_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineAddContextToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineAddContextToElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetContextFromElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineGetContextFromElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineGetJCEAlgorithmString, $String*)},
-	{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineGetJCEProviderName, $String*)},
-	{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
-	{"getDigestLength", "()I", nullptr, $ABSTRACT, $virtualMethod(IntegrityHmac, getDigestLength, int32_t)},
-	{}
-};
-
-$InnerClassInfo _IntegrityHmac_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$HMACOutputLength", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "HMACOutputLength", $PRIVATE | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacMD5", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacRIPEMD160", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA512", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA512", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA384", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA256", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA224", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA224", $PUBLIC | $STATIC},
-	{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA1", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _IntegrityHmac_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac",
-	"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi",
-	nullptr,
-	_IntegrityHmac_FieldInfo_,
-	_IntegrityHmac_MethodInfo_,
-	nullptr,
-	nullptr,
-	_IntegrityHmac_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$HMACOutputLength,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA512,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA256,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA224,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA1"
-};
-
-$Object* allocate$IntegrityHmac($Class* clazz) {
-	return $of($alloc(IntegrityHmac));
-}
-
 $Logger* IntegrityHmac::LOG = nullptr;
 
 void IntegrityHmac::init$() {
@@ -138,44 +75,44 @@ void IntegrityHmac::init$() {
 }
 
 void IntegrityHmac::init$($Provider* provider) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureAlgorithmSpi::init$();
 	$var($String, algorithmID, $JCEMapper::translateURItoJCEID($(this->engineGetURI())));
-	$nc(IntegrityHmac::LOG)->debug("Created IntegrityHmacSHA1 using {}"_s, $$new($ObjectArray, {$of(algorithmID)}));
+	$nc(IntegrityHmac::LOG)->debug("Created IntegrityHmacSHA1 using {}"_s, $$new($ObjectArray, {algorithmID}));
 	try {
 		$set(this, macAlgorithm, (provider == nullptr) ? $Mac::getInstance(algorithmID) : $Mac::getInstance(algorithmID, provider));
 	} catch ($NoSuchAlgorithmException& ex) {
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(algorithmID),
-			$($of(ex->getLocalizedMessage()))
+			algorithmID,
+			$(ex->getLocalizedMessage())
 		}));
 		$throwNew($XMLSignatureException, "algorithms.NoSuchAlgorithm"_s, exArgs);
 	}
 }
 
 void IntegrityHmac::engineSetParameter($AlgorithmParameterSpec* params) {
-	$throwNew($XMLSignatureException, "empty"_s, $$new($ObjectArray, {$of("Incorrect method call"_s)}));
+	$throwNew($XMLSignatureException, "empty"_s, $$new($ObjectArray, {"Incorrect method call"_s}));
 }
 
 bool IntegrityHmac::engineVerify($bytes* signature) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		if (this->hmacOutputLength != nullptr && $nc(this->hmacOutputLength)->length < getDigestLength()) {
-			$nc(IntegrityHmac::LOG)->debug("HMACOutputLength must not be less than {}"_s, $$new($ObjectArray, {$($of($Integer::valueOf(getDigestLength())))}));
-			$var($ObjectArray, exArgs, $new($ObjectArray, {$($of($String::valueOf(getDigestLength())))}));
+		if (this->hmacOutputLength != nullptr && this->hmacOutputLength->length < getDigestLength()) {
+			$nc(IntegrityHmac::LOG)->debug("HMACOutputLength must not be less than {}"_s, $$new($ObjectArray, {$($Integer::valueOf(getDigestLength()))}));
+			$var($ObjectArray, exArgs, $new($ObjectArray, {$($String::valueOf(getDigestLength()))}));
 			$throwNew($XMLSignatureException, "algorithms.HMACOutputLengthMin"_s, exArgs);
 		} else {
 			$var($bytes, completeResult, $nc(this->macAlgorithm)->doFinal());
 			return $MessageDigestAlgorithm::isEqual(completeResult, signature);
 		}
 	} catch ($IllegalStateException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
 
 void IntegrityHmac::engineInitVerify($Key* secretKey) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($SecretKey, secretKey))) {
 		$var($String, supplied, nullptr);
 		if (secretKey != nullptr) {
@@ -184,30 +121,30 @@ void IntegrityHmac::engineInitVerify($Key* secretKey) {
 		$load($SecretKey);
 		$var($String, needed, $SecretKey::class$->getName());
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(supplied),
-			$of(needed)
+			supplied,
+			needed
 		}));
 		$throwNew($XMLSignatureException, "algorithms.WrongKeyForThisOperation"_s, exArgs);
 	}
 	try {
 		$nc(this->macAlgorithm)->init(secretKey);
 	} catch ($InvalidKeyException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
 $bytes* IntegrityHmac::engineSign() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		if (this->hmacOutputLength != nullptr && $nc(this->hmacOutputLength)->length < getDigestLength()) {
-			$nc(IntegrityHmac::LOG)->debug("HMACOutputLength must not be less than {}"_s, $$new($ObjectArray, {$($of($Integer::valueOf(getDigestLength())))}));
-			$var($ObjectArray, exArgs, $new($ObjectArray, {$($of($String::valueOf(getDigestLength())))}));
+		if (this->hmacOutputLength != nullptr && this->hmacOutputLength->length < getDigestLength()) {
+			$nc(IntegrityHmac::LOG)->debug("HMACOutputLength must not be less than {}"_s, $$new($ObjectArray, {$($Integer::valueOf(getDigestLength()))}));
+			$var($ObjectArray, exArgs, $new($ObjectArray, {$($String::valueOf(getDigestLength()))}));
 			$throwNew($XMLSignatureException, "algorithms.HMACOutputLengthMin"_s, exArgs);
 		} else {
 			return $nc(this->macAlgorithm)->doFinal();
 		}
 	} catch ($IllegalStateException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -217,7 +154,7 @@ void IntegrityHmac::engineInitSign($Key* secretKey) {
 }
 
 void IntegrityHmac::engineInitSign($Key* secretKey, $AlgorithmParameterSpec* algorithmParameterSpec) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($SecretKey, secretKey))) {
 		$var($String, supplied, nullptr);
 		if (secretKey != nullptr) {
@@ -226,8 +163,8 @@ void IntegrityHmac::engineInitSign($Key* secretKey, $AlgorithmParameterSpec* alg
 		$load($SecretKey);
 		$var($String, needed, $SecretKey::class$->getName());
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of(supplied),
-			$of(needed)
+			supplied,
+			needed
 		}));
 		$throwNew($XMLSignatureException, "algorithms.WrongKeyForThisOperation"_s, exArgs);
 	}
@@ -238,9 +175,9 @@ void IntegrityHmac::engineInitSign($Key* secretKey, $AlgorithmParameterSpec* alg
 			$nc(this->macAlgorithm)->init(secretKey, algorithmParameterSpec);
 		}
 	} catch ($InvalidKeyException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	} catch ($InvalidAlgorithmParameterException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -252,7 +189,7 @@ void IntegrityHmac::engineUpdate($bytes* input) {
 	try {
 		$nc(this->macAlgorithm)->update(input);
 	} catch ($IllegalStateException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -260,7 +197,7 @@ void IntegrityHmac::engineUpdate(int8_t input) {
 	try {
 		$nc(this->macAlgorithm)->update(input);
 	} catch ($IllegalStateException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -268,7 +205,7 @@ void IntegrityHmac::engineUpdate($bytes* buf, int32_t offset, int32_t len) {
 	try {
 		$nc(this->macAlgorithm)->update(buf, offset, len);
 	} catch ($IllegalStateException& ex) {
-		$throwNew($XMLSignatureException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSignatureException, ex);
 	}
 }
 
@@ -277,7 +214,7 @@ $String* IntegrityHmac::engineGetJCEAlgorithmString() {
 }
 
 $String* IntegrityHmac::engineGetJCEProviderName() {
-	return $nc($($nc(this->macAlgorithm)->getProvider()))->getName();
+	return $$nc($nc(this->macAlgorithm)->getProvider())->getName();
 }
 
 void IntegrityHmac::engineSetHMACOutputLength(int32_t length) {
@@ -285,7 +222,7 @@ void IntegrityHmac::engineSetHMACOutputLength(int32_t length) {
 }
 
 void IntegrityHmac::engineGetContextFromElement($Element* element) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		$throwNew($IllegalArgumentException, "element null"_s);
 	}
@@ -300,7 +237,7 @@ void IntegrityHmac::engineGetContextFromElement($Element* element) {
 }
 
 void IntegrityHmac::engineAddContextToElement($Element* element) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (element == nullptr) {
 		$throwNew($IllegalArgumentException, "null element"_s);
 	}
@@ -316,7 +253,7 @@ void IntegrityHmac::engineAddContextToElement($Element* element) {
 	}
 }
 
-void clinit$IntegrityHmac($Class* class$) {
+void IntegrityHmac::clinit$($Class* clazz) {
 	$assignStatic(IntegrityHmac::LOG, $LoggerFactory::getLogger(IntegrityHmac::class$));
 }
 
@@ -324,7 +261,61 @@ IntegrityHmac::IntegrityHmac() {
 }
 
 $Class* IntegrityHmac::load$($String* name, bool initialize) {
-	$loadClass(IntegrityHmac, name, initialize, &_IntegrityHmac_ClassInfo_, clinit$IntegrityHmac, allocate$IntegrityHmac);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(IntegrityHmac, LOG)},
+		{"macAlgorithm", "Ljavax/crypto/Mac;", nullptr, $PRIVATE | $FINAL, $field(IntegrityHmac, macAlgorithm)},
+		{"hmacOutputLength", "Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/IntegrityHmac$HMACOutputLength;", nullptr, $PRIVATE, $field(IntegrityHmac, hmacOutputLength)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(IntegrityHmac, init$, void), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"<init>", "(Ljava/security/Provider;)V", nullptr, $PUBLIC, $method(IntegrityHmac, init$, void, $Provider*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineAddContextToElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineAddContextToElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetContextFromElement", "(Lorg/w3c/dom/Element;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineGetContextFromElement, void, $Element*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineGetJCEAlgorithmString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineGetJCEAlgorithmString, $String*)},
+		{"engineGetJCEProviderName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineGetJCEProviderName, $String*)},
+		{"engineInitSign", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineInitSign, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitSign", "(Ljava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineInitSign, void, $Key*, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitSign", "(Ljava/security/Key;Ljava/security/SecureRandom;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineInitSign, void, $Key*, $SecureRandom*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineInitVerify", "(Ljava/security/Key;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineInitVerify, void, $Key*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSetHMACOutputLength", "(I)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineSetHMACOutputLength, void, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSetParameter", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineSetParameter, void, $AlgorithmParameterSpec*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineSign", "()[B", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineSign, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "([B)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineUpdate, void, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "(B)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineUpdate, void, int8_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineUpdate", "([BII)V", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineUpdate, void, $bytes*, int32_t, int32_t), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"engineVerify", "([B)Z", nullptr, $PROTECTED, $virtualMethod(IntegrityHmac, engineVerify, bool, $bytes*), "com.sun.org.apache.xml.internal.security.signature.XMLSignatureException"},
+		{"getDigestLength", "()I", nullptr, $ABSTRACT, $virtualMethod(IntegrityHmac, getDigestLength, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$HMACOutputLength", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "HMACOutputLength", $PRIVATE | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacMD5", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacRIPEMD160", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA512", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA512", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA384", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA256", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA256", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA224", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA224", $PUBLIC | $STATIC},
+		{"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA1", "com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac", "IntegrityHmacSHA1", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac",
+		"com.sun.org.apache.xml.internal.security.algorithms.SignatureAlgorithmSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$HMACOutputLength,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacMD5,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacRIPEMD160,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA512,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA384,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA256,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA224,com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac$IntegrityHmacSHA1"
+	};
+	$loadClass(IntegrityHmac, name, initialize, &classInfo$$, IntegrityHmac::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(IntegrityHmac);
+	});
 	return class$;
 }
 

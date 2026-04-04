@@ -1,5 +1,4 @@
 #include <java/beans/VetoableChangeListenerProxy.h>
-
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/VetoableChangeListener.h>
 #include <java/util/EventListener.h>
@@ -11,42 +10,10 @@ using $VetoableChangeListener = ::java::beans::VetoableChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $EventListener = ::java::util::EventListener;
 using $EventListenerProxy = ::java::util::EventListenerProxy;
 
 namespace java {
 	namespace beans {
-
-$FieldInfo _VetoableChangeListenerProxy_FieldInfo_[] = {
-	{"propertyName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(VetoableChangeListenerProxy, propertyName)},
-	{}
-};
-
-$MethodInfo _VetoableChangeListenerProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $method(VetoableChangeListenerProxy, init$, void, $String*, $VetoableChangeListener*)},
-	{"getPropertyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VetoableChangeListenerProxy, getPropertyName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"vetoableChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeListenerProxy, vetoableChange, void, $PropertyChangeEvent*), "java.beans.PropertyVetoException"},
-	{}
-};
-
-$ClassInfo _VetoableChangeListenerProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.beans.VetoableChangeListenerProxy",
-	"java.util.EventListenerProxy",
-	"java.beans.VetoableChangeListener",
-	_VetoableChangeListenerProxy_FieldInfo_,
-	_VetoableChangeListenerProxy_MethodInfo_,
-	"Ljava/util/EventListenerProxy<Ljava/beans/VetoableChangeListener;>;Ljava/beans/VetoableChangeListener;"
-};
-
-$Object* allocate$VetoableChangeListenerProxy($Class* clazz) {
-	return $of($alloc(VetoableChangeListenerProxy));
-}
 
 int32_t VetoableChangeListenerProxy::hashCode() {
 	 return this->$EventListenerProxy::hashCode();
@@ -74,7 +41,7 @@ void VetoableChangeListenerProxy::init$($String* propertyName, $VetoableChangeLi
 }
 
 void VetoableChangeListenerProxy::vetoableChange($PropertyChangeEvent* event) {
-	$nc(($cast($VetoableChangeListener, $(getListener()))))->vetoableChange(event);
+	$$sure($VetoableChangeListener, getListener())->vetoableChange(event);
 }
 
 $String* VetoableChangeListenerProxy::getPropertyName() {
@@ -85,7 +52,33 @@ VetoableChangeListenerProxy::VetoableChangeListenerProxy() {
 }
 
 $Class* VetoableChangeListenerProxy::load$($String* name, bool initialize) {
-	$loadClass(VetoableChangeListenerProxy, name, initialize, &_VetoableChangeListenerProxy_ClassInfo_, allocate$VetoableChangeListenerProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"propertyName", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(VetoableChangeListenerProxy, propertyName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V", nullptr, $PUBLIC, $method(VetoableChangeListenerProxy, init$, void, $String*, $VetoableChangeListener*)},
+		{"getPropertyName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(VetoableChangeListenerProxy, getPropertyName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"vetoableChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(VetoableChangeListenerProxy, vetoableChange, void, $PropertyChangeEvent*), "java.beans.PropertyVetoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.beans.VetoableChangeListenerProxy",
+		"java.util.EventListenerProxy",
+		"java.beans.VetoableChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/util/EventListenerProxy<Ljava/beans/VetoableChangeListener;>;Ljava/beans/VetoableChangeListener;"
+	};
+	$loadClass(VetoableChangeListenerProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(VetoableChangeListenerProxy));
+	});
 	return class$;
 }
 

@@ -67,6 +67,7 @@ class $export JMXConnectorServerFactory : public ::java::lang::Object {
 	$class(JMXConnectorServerFactory, 0, ::java::lang::Object)
 public:
 	JMXConnectorServerFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::management::remote::JMXConnectorServer* getConnectorServerAsService(::java::lang::ClassLoader* loader, ::javax::management::remote::JMXServiceURL* url, ::java::util::Map* map, ::javax::management::MBeanServer* mbs, ::java::util::function::Predicate* filter);
 	static ::javax::management::remote::JMXConnectorServer* lambda$getConnectorServerAsService$0(::javax::management::remote::JMXServiceURL* url, ::java::util::Map* map, ::javax::management::MBeanServer* mbs, ::javax::management::remote::JMXConnectorServerProvider* p);

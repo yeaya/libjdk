@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultEditorKit$PageAction.h>
-
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
@@ -26,43 +25,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultEditorKit$PageAction_FieldInfo_[] = {
-	{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$PageAction, select)},
-	{"left", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$PageAction, left)},
-	{}
-};
-
-$MethodInfo _DefaultEditorKit$PageAction_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(DefaultEditorKit$PageAction, init$, void, $String*, bool, bool)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$PageAction, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _DefaultEditorKit$PageAction_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultEditorKit$PageAction", "javax.swing.text.DefaultEditorKit", "PageAction", $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultEditorKit$PageAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.DefaultEditorKit$PageAction",
-	"javax.swing.text.TextAction",
-	nullptr,
-	_DefaultEditorKit$PageAction_FieldInfo_,
-	_DefaultEditorKit$PageAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultEditorKit$PageAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultEditorKit"
-};
-
-$Object* allocate$DefaultEditorKit$PageAction($Class* clazz) {
-	return $of($alloc(DefaultEditorKit$PageAction));
-}
-
 void DefaultEditorKit$PageAction::init$($String* nm, bool left, bool select) {
 	$TextAction::init$(nm);
 	this->select = select;
@@ -70,7 +32,7 @@ void DefaultEditorKit$PageAction::init$($String* nm, bool left, bool select) {
 }
 
 void DefaultEditorKit$PageAction::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getTextComponent(e));
 	if (target != nullptr) {
 		int32_t selectedIndex = 0;
@@ -107,7 +69,38 @@ DefaultEditorKit$PageAction::DefaultEditorKit$PageAction() {
 }
 
 $Class* DefaultEditorKit$PageAction::load$($String* name, bool initialize) {
-	$loadClass(DefaultEditorKit$PageAction, name, initialize, &_DefaultEditorKit$PageAction_ClassInfo_, allocate$DefaultEditorKit$PageAction);
+	$FieldInfo fieldInfos$$[] = {
+		{"select", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$PageAction, select)},
+		{"left", "Z", nullptr, $PRIVATE, $field(DefaultEditorKit$PageAction, left)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(DefaultEditorKit$PageAction, init$, void, $String*, bool, bool)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultEditorKit$PageAction, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultEditorKit$PageAction", "javax.swing.text.DefaultEditorKit", "PageAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.DefaultEditorKit$PageAction",
+		"javax.swing.text.TextAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultEditorKit"
+	};
+	$loadClass(DefaultEditorKit$PageAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultEditorKit$PageAction));
+	});
 	return class$;
 }
 

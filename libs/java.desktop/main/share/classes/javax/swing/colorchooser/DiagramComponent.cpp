@@ -1,13 +1,9 @@
 #include <javax/swing/colorchooser/DiagramComponent.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <javax/swing/JComponent.h>
@@ -20,13 +16,9 @@
 
 using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
-using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -37,50 +29,6 @@ using $ColorPanel = ::javax::swing::colorchooser::ColorPanel;
 namespace javax {
 	namespace swing {
 		namespace colorchooser {
-
-$FieldInfo _DiagramComponent_FieldInfo_[] = {
-	{"panel", "Ljavax/swing/colorchooser/ColorPanel;", nullptr, $PRIVATE | $FINAL, $field(DiagramComponent, panel)},
-	{"diagram", "Z", nullptr, $PRIVATE | $FINAL, $field(DiagramComponent, diagram)},
-	{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $FINAL, $field(DiagramComponent, insets$)},
-	{"width", "I", nullptr, $PRIVATE, $field(DiagramComponent, width)},
-	{"height", "I", nullptr, $PRIVATE, $field(DiagramComponent, height)},
-	{"array", "[I", nullptr, $PRIVATE, $field(DiagramComponent, array)},
-	{"image", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(DiagramComponent, image)},
-	{}
-};
-
-$MethodInfo _DiagramComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/colorchooser/ColorPanel;Z)V", nullptr, 0, $method(DiagramComponent, init$, void, $ColorPanel*, bool)},
-	{"getValue", "(FII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DiagramComponent, getValue, int32_t, float, int32_t, int32_t)},
-	{"getValue", "(III)F", nullptr, $PRIVATE | $STATIC, $staticMethod(DiagramComponent, getValue, float, int32_t, int32_t, int32_t)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseClicked, void, $MouseEvent*)},
-	{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseDragged, void, $MouseEvent*)},
-	{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseEntered, void, $MouseEvent*)},
-	{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseExited, void, $MouseEvent*)},
-	{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseMoved, void, $MouseEvent*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseReleased, void, $MouseEvent*)},
-	{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(DiagramComponent, paintComponent, void, $Graphics*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DiagramComponent_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.colorchooser.DiagramComponent",
-	"javax.swing.JComponent",
-	"java.awt.event.MouseListener,java.awt.event.MouseMotionListener",
-	_DiagramComponent_FieldInfo_,
-	_DiagramComponent_MethodInfo_
-};
-
-$Object* allocate$DiagramComponent($Class* clazz) {
-	return $of($alloc(DiagramComponent));
-}
 
 $String* DiagramComponent::toString() {
 	 return this->$JComponent::toString();
@@ -114,15 +62,15 @@ void DiagramComponent::init$($ColorPanel* panel, bool diagram) {
 void DiagramComponent::paintComponent($Graphics* g) {
 	getInsets(this->insets$);
 	this->width = getWidth() - $nc(this->insets$)->left - $nc(this->insets$)->right;
-	this->height = getHeight() - $nc(this->insets$)->top - $nc(this->insets$)->bottom;
+	this->height = getHeight() - this->insets$->top - this->insets$->bottom;
 	if ((this->width <= 0) || (this->height <= 0)) {
 		return;
 	}
-	bool var$0 = (this->image == nullptr) || (this->width != $nc(this->image)->getWidth());
-	bool update = var$0 || (this->height != $nc(this->image)->getHeight());
+	bool var$0 = (this->image == nullptr) || (this->width != this->image->getWidth());
+	bool update = var$0 || (this->height != this->image->getHeight());
 	if (update) {
 		int32_t size = this->width * this->height;
-		if ((this->array == nullptr) || ($nc(this->array)->length < size)) {
+		if ((this->array == nullptr) || (this->array->length < size)) {
 			$set(this, array, $new($ints, size));
 		}
 		$set(this, image, $new($BufferedImage, this->width, this->height, $BufferedImage::TYPE_INT_RGB));
@@ -147,7 +95,7 @@ void DiagramComponent::paintComponent($Graphics* g) {
 		}
 	}
 	$nc(this->image)->setRGB(0, 0, this->width, this->height, this->array, 0, this->width);
-	$nc(g)->drawImage(this->image, $nc(this->insets$)->left, $nc(this->insets$)->top, this->width, this->height, this);
+	$nc(g)->drawImage(this->image, this->insets$->left, this->insets$->top, this->width, this->height, this);
 	if (isEnabled()) {
 		--this->width;
 		--this->height;
@@ -155,13 +103,13 @@ void DiagramComponent::paintComponent($Graphics* g) {
 		g->setXORMode($Color::WHITE);
 		g->setColor($Color::BLACK);
 		if (this->diagram) {
-			int32_t x = getValue($nc(this->panel)->getValueX(), $nc(this->insets$)->left, this->width);
-			int32_t y = getValue($nc(this->panel)->getValueY(), $nc(this->insets$)->top, this->height);
+			int32_t x = getValue($nc(this->panel)->getValueX(), this->insets$->left, this->width);
+			int32_t y = getValue(this->panel->getValueY(), this->insets$->top, this->height);
 			g->drawLine(x - 8, y, x + 8, y);
 			g->drawLine(x, y - 8, x, y + 8);
 		} else {
-			int32_t z = getValue($nc(this->panel)->getValueZ(), $nc(this->insets$)->top, this->height);
-			g->drawLine($nc(this->insets$)->left, z, $nc(this->insets$)->left + this->width, z);
+			int32_t z = getValue($nc(this->panel)->getValueZ(), this->insets$->top, this->height);
+			g->drawLine(this->insets$->left, z, this->insets$->left + this->width, z);
 		}
 		g->setPaintMode();
 	}
@@ -190,7 +138,7 @@ void DiagramComponent::mouseDragged($MouseEvent* event) {
 	if (isEnabled()) {
 		float y = getValue($nc(event)->getY(), $nc(this->insets$)->top, this->height);
 		if (this->diagram) {
-			float x = getValue($nc(event)->getX(), $nc(this->insets$)->left, this->width);
+			float x = getValue(event->getX(), this->insets$->left, this->width);
 			$nc(this->panel)->setValue(x, y);
 		} else {
 			$nc(this->panel)->setValue(y);
@@ -216,7 +164,46 @@ DiagramComponent::DiagramComponent() {
 }
 
 $Class* DiagramComponent::load$($String* name, bool initialize) {
-	$loadClass(DiagramComponent, name, initialize, &_DiagramComponent_ClassInfo_, allocate$DiagramComponent);
+	$FieldInfo fieldInfos$$[] = {
+		{"panel", "Ljavax/swing/colorchooser/ColorPanel;", nullptr, $PRIVATE | $FINAL, $field(DiagramComponent, panel)},
+		{"diagram", "Z", nullptr, $PRIVATE | $FINAL, $field(DiagramComponent, diagram)},
+		{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $FINAL, $field(DiagramComponent, insets$)},
+		{"width", "I", nullptr, $PRIVATE, $field(DiagramComponent, width)},
+		{"height", "I", nullptr, $PRIVATE, $field(DiagramComponent, height)},
+		{"array", "[I", nullptr, $PRIVATE, $field(DiagramComponent, array)},
+		{"image", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(DiagramComponent, image)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/colorchooser/ColorPanel;Z)V", nullptr, 0, $method(DiagramComponent, init$, void, $ColorPanel*, bool)},
+		{"getValue", "(FII)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DiagramComponent, getValue, int32_t, float, int32_t, int32_t)},
+		{"getValue", "(III)F", nullptr, $PRIVATE | $STATIC, $staticMethod(DiagramComponent, getValue, float, int32_t, int32_t, int32_t)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseClicked, void, $MouseEvent*)},
+		{"mouseDragged", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseDragged, void, $MouseEvent*)},
+		{"mouseEntered", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseEntered, void, $MouseEvent*)},
+		{"mouseExited", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseExited, void, $MouseEvent*)},
+		{"mouseMoved", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseMoved, void, $MouseEvent*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(DiagramComponent, mouseReleased, void, $MouseEvent*)},
+		{"paintComponent", "(Ljava/awt/Graphics;)V", nullptr, $PROTECTED, $virtualMethod(DiagramComponent, paintComponent, void, $Graphics*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.colorchooser.DiagramComponent",
+		"javax.swing.JComponent",
+		"java.awt.event.MouseListener,java.awt.event.MouseMotionListener",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DiagramComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DiagramComponent));
+	});
 	return class$;
 }
 

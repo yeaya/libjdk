@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_bo_IN.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,34 +13,15 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_bo_IN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_bo_IN, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_bo_IN, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_bo_IN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_bo_IN",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_bo_IN_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_bo_IN($Class* clazz) {
-	return $of($alloc(CurrencyNames_bo_IN));
-}
-
 void CurrencyNames_bo_IN::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_bo_IN::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {$$new($ObjectArray, {
-		$of("CNY"_s),
-		$of(u"CN¥"_s)
+		"CNY"_s,
+		u"CN¥"_s
 	})}));
 	return data;
 }
@@ -50,7 +30,22 @@ CurrencyNames_bo_IN::CurrencyNames_bo_IN() {
 }
 
 $Class* CurrencyNames_bo_IN::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_bo_IN, name, initialize, &_CurrencyNames_bo_IN_ClassInfo_, allocate$CurrencyNames_bo_IN);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_bo_IN, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_bo_IN, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_bo_IN",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_bo_IN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_bo_IN);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameUI$1.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JComponent.h>
@@ -28,65 +27,27 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicInternalFrameUI$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicInternalFrameUI$1, init$, void, $String*)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI$1, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI$1, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _BasicInternalFrameUI$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.basic.BasicInternalFrameUI",
-	"loadActionMap",
-	"(Ljavax/swing/plaf/basic/LazyActionMap;)V"
-};
-
-$InnerClassInfo _BasicInternalFrameUI$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicInternalFrameUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BasicInternalFrameUI$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicInternalFrameUI$1",
-	"sun.swing.UIAction",
-	nullptr,
-	nullptr,
-	_BasicInternalFrameUI$1_MethodInfo_,
-	nullptr,
-	&_BasicInternalFrameUI$1_EnclosingMethodInfo_,
-	_BasicInternalFrameUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicInternalFrameUI"
-};
-
-$Object* allocate$BasicInternalFrameUI$1($Class* clazz) {
-	return $of($alloc(BasicInternalFrameUI$1));
-}
-
 void BasicInternalFrameUI$1::init$($String* name) {
 	$UIAction::init$(name);
 }
 
 void BasicInternalFrameUI$1::actionPerformed($ActionEvent* evt) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JInternalFrame, iFrame, $cast($JInternalFrame, $nc(evt)->getSource()));
-	if ($instanceOf($BasicInternalFrameUI, $($cast($InternalFrameUI, $nc(iFrame)->getUI())))) {
-		$var($JComponent, comp, $nc(($cast($BasicInternalFrameUI, $($cast($InternalFrameUI, iFrame->getUI())))))->getNorthPane());
+	if ($instanceOf($BasicInternalFrameUI, $$cast($InternalFrameUI, $nc(iFrame)->getUI()))) {
+		$var($JComponent, comp, $$sure($BasicInternalFrameUI, $cast($InternalFrameUI, iFrame->getUI()))->getNorthPane());
 		if ($instanceOf($BasicInternalFrameTitlePane, comp)) {
-			$nc(($cast($BasicInternalFrameTitlePane, comp)))->showSystemMenu();
+			$cast($BasicInternalFrameTitlePane, comp)->showSystemMenu();
 		}
 	}
 }
 
 bool BasicInternalFrameUI$1::accept(Object$* sender) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JInternalFrame, sender)) {
 		$var($JInternalFrame, iFrame, $cast($JInternalFrame, sender));
-		if ($instanceOf($BasicInternalFrameUI, $($cast($InternalFrameUI, $nc(iFrame)->getUI())))) {
-			return $nc(($cast($BasicInternalFrameUI, $($cast($InternalFrameUI, iFrame->getUI())))))->isKeyBindingActive();
+		if ($instanceOf($BasicInternalFrameUI, $$cast($InternalFrameUI, iFrame->getUI()))) {
+			return $$sure($BasicInternalFrameUI, $cast($InternalFrameUI, iFrame->getUI()))->isKeyBindingActive();
 		}
 	}
 	return false;
@@ -96,7 +57,39 @@ BasicInternalFrameUI$1::BasicInternalFrameUI$1() {
 }
 
 $Class* BasicInternalFrameUI$1::load$($String* name, bool initialize) {
-	$loadClass(BasicInternalFrameUI$1, name, initialize, &_BasicInternalFrameUI$1_ClassInfo_, allocate$BasicInternalFrameUI$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(BasicInternalFrameUI$1, init$, void, $String*)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI$1, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicInternalFrameUI$1, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.basic.BasicInternalFrameUI",
+		"loadActionMap",
+		"(Ljavax/swing/plaf/basic/LazyActionMap;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicInternalFrameUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicInternalFrameUI$1",
+		"sun.swing.UIAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicInternalFrameUI"
+	};
+	$loadClass(BasicInternalFrameUI$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicInternalFrameUI$1);
+	});
 	return class$;
 }
 

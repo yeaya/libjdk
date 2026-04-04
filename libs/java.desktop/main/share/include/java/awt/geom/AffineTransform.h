@@ -77,6 +77,7 @@ class $import AffineTransform : public ::java::lang::Cloneable, public ::java::i
 public:
 	AffineTransform();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(double m00, double m10, double m01, double m11, double m02, double m12, int32_t state);
 	void init$();
 	void init$(::java::awt::geom::AffineTransform* Tx);
@@ -181,7 +182,7 @@ public:
 	int32_t state = 0;
 	int32_t type = 0;
 	static $ints* rot90conversion;
-	static const int64_t serialVersionUID = (int64_t)0x127891154AD5FF62;
+	static const int64_t serialVersionUID = (int64_t)0x127891154ad5ff62;
 };
 
 		} // geom

@@ -1,5 +1,4 @@
 #include <java/awt/SplashScreen.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -21,7 +20,6 @@
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/image/SunWritableRaster.h>
 #include <sun/util/logging/PlatformLogger$Level.h>
 #include <sun/util/logging/PlatformLogger.h>
@@ -39,9 +37,7 @@ using $SplashScreen$1 = ::java::awt::SplashScreen$1;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
-using $SampleModel = ::java::awt::image::SampleModel;
 using $SinglePixelPackedSampleModel = ::java::awt::image::SinglePixelPackedSampleModel;
-using $WritableRaster = ::java::awt::image::WritableRaster;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
@@ -55,83 +51,12 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $SunWritableRaster = ::sun::awt::image::SunWritableRaster;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _SplashScreen_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SplashScreen, $assertionsDisabled)},
-	{"image", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(SplashScreen, image)},
-	{"splashPtr", "J", nullptr, $PRIVATE | $FINAL, $field(SplashScreen, splashPtr)},
-	{"wasClosed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SplashScreen, wasClosed)},
-	{"imageURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(SplashScreen, imageURL)},
-	{"theInstance", "Ljava/awt/SplashScreen;", nullptr, $PRIVATE | $STATIC, $staticField(SplashScreen, theInstance)},
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SplashScreen, log)},
-	{}
-};
-
-$MethodInfo _SplashScreen_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, 0, $method(SplashScreen, init$, void, int64_t)},
-	{"_close", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _close, void, int64_t)},
-	{"_getBounds", "(J)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getBounds, $Rectangle*, int64_t)},
-	{"_getImageFileName", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getImageFileName, $String*, int64_t)},
-	{"_getImageJarName", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getImageJarName, $String*, int64_t)},
-	{"_getInstance", "()J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getInstance, int64_t)},
-	{"_getScaleFactor", "(J)F", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getScaleFactor, float, int64_t)},
-	{"_isVisible", "(J)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _isVisible, bool, int64_t)},
-	{"_setImageData", "(J[B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _setImageData, bool, int64_t, $bytes*)},
-	{"_update", "(J[IIIIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _update, void, int64_t, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"checkVisible", "()V", nullptr, $PRIVATE, $method(SplashScreen, checkVisible, void)},
-	{"close", "()V", nullptr, $PUBLIC, $method(SplashScreen, close, void), "java.lang.IllegalStateException"},
-	{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $method(SplashScreen, createGraphics, $Graphics2D*), "java.lang.IllegalStateException"},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(SplashScreen, getBounds, $Rectangle*), "java.lang.IllegalStateException"},
-	{"getImageURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $method(SplashScreen, getImageURL, $URL*), "java.lang.IllegalStateException"},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $method(SplashScreen, getSize, $Dimension*), "java.lang.IllegalStateException"},
-	{"getSplashScreen", "()Ljava/awt/SplashScreen;", nullptr, $PUBLIC | $STATIC, $staticMethod(SplashScreen, getSplashScreen, SplashScreen*)},
-	{"isVisible", "()Z", nullptr, $PUBLIC, $method(SplashScreen, isVisible, bool)},
-	{"markClosed", "()V", nullptr, $STATIC, $staticMethod(SplashScreen, markClosed, void)},
-	{"setImageURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SplashScreen, setImageURL, void, $URL*), "java.lang.NullPointerException,java.io.IOException,java.lang.IllegalStateException"},
-	{"update", "()V", nullptr, $PUBLIC, $method(SplashScreen, update, void), "java.lang.IllegalStateException"},
-	{}
-};
-
-#define _METHOD_INDEX__close 1
-#define _METHOD_INDEX__getBounds 2
-#define _METHOD_INDEX__getImageFileName 3
-#define _METHOD_INDEX__getImageJarName 4
-#define _METHOD_INDEX__getInstance 5
-#define _METHOD_INDEX__getScaleFactor 6
-#define _METHOD_INDEX__isVisible 7
-#define _METHOD_INDEX__setImageData 8
-#define _METHOD_INDEX__update 9
-
-$InnerClassInfo _SplashScreen_InnerClassesInfo_[] = {
-	{"java.awt.SplashScreen$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SplashScreen_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.SplashScreen",
-	"java.lang.Object",
-	nullptr,
-	_SplashScreen_FieldInfo_,
-	_SplashScreen_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SplashScreen_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.SplashScreen$1"
-};
-
-$Object* allocate$SplashScreen($Class* clazz) {
-	return $of($alloc(SplashScreen));
-}
 
 bool SplashScreen::$assertionsDisabled = false;
 bool SplashScreen::wasClosed = false;
@@ -150,7 +75,7 @@ SplashScreen* SplashScreen::getSplashScreen() {
 			$throwNew($HeadlessException);
 		}
 		if (!SplashScreen::wasClosed && SplashScreen::theInstance == nullptr) {
-			$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($SplashScreen$1)));
+			$AccessController::doPrivileged($$new($SplashScreen$1));
 			int64_t ptr = _getInstance();
 			if (ptr != 0 && _isVisible(ptr)) {
 				$assignStatic(SplashScreen::theInstance, $new(SplashScreen, ptr));
@@ -161,7 +86,7 @@ SplashScreen* SplashScreen::getSplashScreen() {
 }
 
 void SplashScreen::setImageURL($URL* imageURL) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkVisible();
 	$var($URLConnection, connection, $nc(imageURL)->openConnection());
 	$nc(connection)->connect();
@@ -205,7 +130,7 @@ void SplashScreen::checkVisible() {
 }
 
 $URL* SplashScreen::getImageURL() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(SplashScreen::class$) {
 		checkVisible();
 		if (this->imageURL == nullptr) {
@@ -214,7 +139,7 @@ $URL* SplashScreen::getImageURL() {
 				$var($String, jarName, _getImageJarName(this->splashPtr));
 				if (fileName != nullptr) {
 					if (jarName != nullptr) {
-						$set(this, imageURL, $new($URL, $$str({"jar:"_s, ($($nc($($$new($File, jarName)->toURL()))->toString())), "!/"_s, fileName})));
+						$set(this, imageURL, $new($URL, $$str({"jar:"_s, ($($$nc($$new($File, jarName)->toURL())->toString())), "!/"_s, fileName})));
 					} else {
 						$set(this, imageURL, $$new($File, fileName)->toURL());
 					}
@@ -222,7 +147,7 @@ $URL* SplashScreen::getImageURL() {
 			} catch ($MalformedURLException& e) {
 				$init($PlatformLogger$Level);
 				if ($nc(SplashScreen::log)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(SplashScreen::log)->fine("MalformedURLException caught in the getImageURL() method"_s, static_cast<$Throwable*>(e));
+					SplashScreen::log->fine("MalformedURLException caught in the getImageURL() method"_s, e);
 				}
 			}
 		}
@@ -239,7 +164,7 @@ $Rectangle* SplashScreen::getBounds() {
 			$throwNew($AssertionError);
 		}
 		if (scale > 0 && scale != 1) {
-			int32_t var$0 = $cast(int32_t, (bounds->getWidth() / scale));
+			int32_t var$0 = $cast(int32_t, ($nc(bounds)->getWidth() / scale));
 			$nc(bounds)->setSize(var$0, $cast(int32_t, (bounds->getHeight() / scale)));
 		}
 		return bounds;
@@ -247,16 +172,16 @@ $Rectangle* SplashScreen::getBounds() {
 }
 
 $Dimension* SplashScreen::getSize() {
-	return $nc($(getBounds()))->getSize();
+	return $$nc(getBounds())->getSize();
 }
 
 $Graphics2D* SplashScreen::createGraphics() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(SplashScreen::class$) {
 		checkVisible();
 		if (this->image == nullptr) {
-			$var($Dimension, dim, $nc($(_getBounds(this->splashPtr)))->getSize());
-			$set(this, image, $new($BufferedImage, $nc(dim)->width, dim->height, $BufferedImage::TYPE_INT_ARGB));
+			$var($Dimension, dim, $$nc(_getBounds(this->splashPtr))->getSize());
+			$set(this, image, $new($BufferedImage, $nc(dim)->width, $nc(dim)->height, $BufferedImage::TYPE_INT_ARGB));
 		}
 		float scale = _getScaleFactor(this->splashPtr);
 		$var($Graphics2D, g, $nc(this->image)->createGraphics());
@@ -264,7 +189,7 @@ $Graphics2D* SplashScreen::createGraphics() {
 			$throwNew($AssertionError);
 		}
 		if (scale <= 0) {
-			scale = (float)1;
+			scale = 1;
 		}
 		$nc(g)->scale(scale, scale);
 		return g;
@@ -272,7 +197,7 @@ $Graphics2D* SplashScreen::createGraphics() {
 }
 
 void SplashScreen::update() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, image, nullptr);
 	$synchronized(SplashScreen::class$) {
 		checkVisible();
@@ -281,24 +206,24 @@ void SplashScreen::update() {
 	if (image == nullptr) {
 		$throwNew($IllegalStateException, "no overlay image available"_s);
 	}
-	$var($DataBuffer, buf, $nc($($nc(image)->getRaster()))->getDataBuffer());
+	$var($DataBuffer, buf, $$nc($nc(image)->getRaster())->getDataBuffer());
 	if (!($instanceOf($DataBufferInt, buf))) {
-		$throwNew($AssertionError, $of($$str({"Overlay image DataBuffer is of invalid type == "_s, $($nc($of(buf))->getClass()->getName())})));
+		$throwNew($AssertionError, $$of($str({"Overlay image DataBuffer is of invalid type == "_s, $($nc(buf)->getClass()->getName())})));
 	}
 	int32_t numBanks = $nc(buf)->getNumBanks();
 	if (numBanks != 1) {
-		$throwNew($AssertionError, $of($$str({"Invalid number of banks =="_s, $$str(numBanks), " in overlay image DataBuffer"_s})));
+		$throwNew($AssertionError, $$of($str({"Invalid number of banks =="_s, $$str(numBanks), " in overlay image DataBuffer"_s})));
 	}
 	if (!($instanceOf($SinglePixelPackedSampleModel, $(image->getSampleModel())))) {
-		$throwNew($AssertionError, $of($$str({"Overlay image has invalid sample model == "_s, $($nc($of($(image->getSampleModel())))->getClass()->getName())})));
+		$throwNew($AssertionError, $$of($str({"Overlay image has invalid sample model == "_s, $($$nc(image->getSampleModel())->getClass()->getName())})));
 	}
 	$var($SinglePixelPackedSampleModel, sm, $cast($SinglePixelPackedSampleModel, image->getSampleModel()));
 	int32_t scanlineStride = $nc(sm)->getScanlineStride();
-	$var($Rectangle, rect, $nc($(image->getRaster()))->getBounds());
+	$var($Rectangle, rect, $$nc(image->getRaster())->getBounds());
 	$var($ints, data, $SunWritableRaster::stealData($cast($DataBufferInt, buf), 0));
 	$synchronized(SplashScreen::class$) {
 		checkVisible();
-		_update(this->splashPtr, data, $nc(rect)->x, rect->y, rect->width, rect->height, scanlineStride);
+		_update(this->splashPtr, data, $nc(rect)->x, $nc(rect)->y, $nc(rect)->width, $nc(rect)->height, scanlineStride);
 	}
 }
 
@@ -327,82 +252,75 @@ bool SplashScreen::isVisible() {
 
 void SplashScreen::_update(int64_t splashPtr, $ints* data, int32_t x, int32_t y, int32_t width, int32_t height, int32_t scanlineStride) {
 	$init(SplashScreen);
-	$prepareNativeStatic(SplashScreen, _update, void, int64_t splashPtr, $ints* data, int32_t x, int32_t y, int32_t width, int32_t height, int32_t scanlineStride);
+	$prepareNativeStatic(_update, void, int64_t splashPtr, $ints* data, int32_t x, int32_t y, int32_t width, int32_t height, int32_t scanlineStride);
 	$invokeNativeStatic(splashPtr, data, x, y, width, height, scanlineStride);
 	$finishNativeStatic();
 }
 
 bool SplashScreen::_isVisible(int64_t splashPtr) {
 	$init(SplashScreen);
-	bool $ret = false;
-	$prepareNativeStatic(SplashScreen, _isVisible, bool, int64_t splashPtr);
-	$ret = $invokeNativeStatic(splashPtr);
+	$prepareNativeStatic(_isVisible, bool, int64_t splashPtr);
+	bool $ret = $invokeNativeStatic(splashPtr);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $Rectangle* SplashScreen::_getBounds(int64_t splashPtr) {
 	$init(SplashScreen);
-	$var($Rectangle, $ret, nullptr);
-	$prepareNativeStatic(SplashScreen, _getBounds, $Rectangle*, int64_t splashPtr);
-	$assign($ret, $invokeNativeStaticObject(splashPtr));
+	$prepareNativeStatic(_getBounds, $Rectangle*, int64_t splashPtr);
+	$var($Rectangle, $ret, $invokeNativeStaticObject(splashPtr));
 	$finishNativeStatic();
 	return $ret;
 }
 
 int64_t SplashScreen::_getInstance() {
 	$init(SplashScreen);
-	int64_t $ret = 0;
-	$prepareNativeStatic(SplashScreen, _getInstance, int64_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(_getInstance, int64_t);
+	int64_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 void SplashScreen::_close(int64_t splashPtr) {
 	$init(SplashScreen);
-	$prepareNativeStatic(SplashScreen, _close, void, int64_t splashPtr);
+	$prepareNativeStatic(_close, void, int64_t splashPtr);
 	$invokeNativeStatic(splashPtr);
 	$finishNativeStatic();
 }
 
 $String* SplashScreen::_getImageFileName(int64_t splashPtr) {
 	$init(SplashScreen);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(SplashScreen, _getImageFileName, $String*, int64_t splashPtr);
-	$assign($ret, $invokeNativeStaticObject(splashPtr));
+	$prepareNativeStatic(_getImageFileName, $String*, int64_t splashPtr);
+	$var($String, $ret, $invokeNativeStaticObject(splashPtr));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* SplashScreen::_getImageJarName(int64_t SplashPtr) {
 	$init(SplashScreen);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(SplashScreen, _getImageJarName, $String*, int64_t SplashPtr);
-	$assign($ret, $invokeNativeStaticObject(SplashPtr));
+	$prepareNativeStatic(_getImageJarName, $String*, int64_t SplashPtr);
+	$var($String, $ret, $invokeNativeStaticObject(SplashPtr));
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool SplashScreen::_setImageData(int64_t SplashPtr, $bytes* data) {
 	$init(SplashScreen);
-	bool $ret = false;
-	$prepareNativeStatic(SplashScreen, _setImageData, bool, int64_t SplashPtr, $bytes* data);
-	$ret = $invokeNativeStatic(SplashPtr, data);
+	$prepareNativeStatic(_setImageData, bool, int64_t SplashPtr, $bytes* data);
+	bool $ret = $invokeNativeStatic(SplashPtr, data);
 	$finishNativeStatic();
 	return $ret;
 }
 
 float SplashScreen::_getScaleFactor(int64_t SplashPtr) {
 	$init(SplashScreen);
-	float $ret = 0.0;
-	$prepareNativeStatic(SplashScreen, _getScaleFactor, float, int64_t SplashPtr);
-	$ret = $invokeNativeStatic(SplashPtr);
+	$prepareNativeStatic(_getScaleFactor, float, int64_t SplashPtr);
+	float $ret = $invokeNativeStatic(SplashPtr);
 	$finishNativeStatic();
 	return $ret;
 }
 
-void clinit$SplashScreen($Class* class$) {
+void SplashScreen::clinit$($Class* clazz) {
 	SplashScreen::$assertionsDisabled = !SplashScreen::class$->desiredAssertionStatus();
 	SplashScreen::wasClosed = false;
 	$assignStatic(SplashScreen::theInstance, nullptr);
@@ -413,7 +331,61 @@ SplashScreen::SplashScreen() {
 }
 
 $Class* SplashScreen::load$($String* name, bool initialize) {
-	$loadClass(SplashScreen, name, initialize, &_SplashScreen_ClassInfo_, clinit$SplashScreen, allocate$SplashScreen);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SplashScreen, $assertionsDisabled)},
+		{"image", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(SplashScreen, image)},
+		{"splashPtr", "J", nullptr, $PRIVATE | $FINAL, $field(SplashScreen, splashPtr)},
+		{"wasClosed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(SplashScreen, wasClosed)},
+		{"imageURL", "Ljava/net/URL;", nullptr, $PRIVATE, $field(SplashScreen, imageURL)},
+		{"theInstance", "Ljava/awt/SplashScreen;", nullptr, $PRIVATE | $STATIC, $staticField(SplashScreen, theInstance)},
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SplashScreen, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, 0, $method(SplashScreen, init$, void, int64_t)},
+		{"_close", "(J)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _close, void, int64_t)},
+		{"_getBounds", "(J)Ljava/awt/Rectangle;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getBounds, $Rectangle*, int64_t)},
+		{"_getImageFileName", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getImageFileName, $String*, int64_t)},
+		{"_getImageJarName", "(J)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getImageJarName, $String*, int64_t)},
+		{"_getInstance", "()J", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getInstance, int64_t)},
+		{"_getScaleFactor", "(J)F", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _getScaleFactor, float, int64_t)},
+		{"_isVisible", "(J)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _isVisible, bool, int64_t)},
+		{"_setImageData", "(J[B)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _setImageData, bool, int64_t, $bytes*)},
+		{"_update", "(J[IIIIII)V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(SplashScreen, _update, void, int64_t, $ints*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"checkVisible", "()V", nullptr, $PRIVATE, $method(SplashScreen, checkVisible, void)},
+		{"close", "()V", nullptr, $PUBLIC, $method(SplashScreen, close, void), "java.lang.IllegalStateException"},
+		{"createGraphics", "()Ljava/awt/Graphics2D;", nullptr, $PUBLIC, $method(SplashScreen, createGraphics, $Graphics2D*), "java.lang.IllegalStateException"},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $method(SplashScreen, getBounds, $Rectangle*), "java.lang.IllegalStateException"},
+		{"getImageURL", "()Ljava/net/URL;", nullptr, $PUBLIC, $method(SplashScreen, getImageURL, $URL*), "java.lang.IllegalStateException"},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $method(SplashScreen, getSize, $Dimension*), "java.lang.IllegalStateException"},
+		{"getSplashScreen", "()Ljava/awt/SplashScreen;", nullptr, $PUBLIC | $STATIC, $staticMethod(SplashScreen, getSplashScreen, SplashScreen*)},
+		{"isVisible", "()Z", nullptr, $PUBLIC, $method(SplashScreen, isVisible, bool)},
+		{"markClosed", "()V", nullptr, $STATIC, $staticMethod(SplashScreen, markClosed, void)},
+		{"setImageURL", "(Ljava/net/URL;)V", nullptr, $PUBLIC, $method(SplashScreen, setImageURL, void, $URL*), "java.lang.NullPointerException,java.io.IOException,java.lang.IllegalStateException"},
+		{"update", "()V", nullptr, $PUBLIC, $method(SplashScreen, update, void), "java.lang.IllegalStateException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.SplashScreen$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.SplashScreen",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.SplashScreen$1"
+	};
+	$loadClass(SplashScreen, name, initialize, &classInfo$$, SplashScreen::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SplashScreen);
+	});
 	return class$;
 }
 

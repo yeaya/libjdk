@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaInternalFrameUI$InternalFrameShadow$1.h>
-
 #include <com/apple/laf/AquaInternalFrameUI$InternalFrameShadow.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -24,53 +23,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaInternalFrameUI$InternalFrameShadow$1_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaInternalFrameUI$InternalFrameShadow;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameUI$InternalFrameShadow$1, this$0)},
-	{"val$bgShadow", "Ljavax/swing/border/Border;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameUI$InternalFrameShadow$1, val$bgShadow)},
-	{"val$fgShadow", "Ljavax/swing/border/Border;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameUI$InternalFrameShadow$1, val$fgShadow)},
-	{}
-};
-
-$MethodInfo _AquaInternalFrameUI$InternalFrameShadow$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaInternalFrameUI$InternalFrameShadow;Ljavax/swing/border/Border;Ljavax/swing/border/Border;)V", "()V", 0, $method(AquaInternalFrameUI$InternalFrameShadow$1, init$, void, $AquaInternalFrameUI$InternalFrameShadow*, $Border*, $Border*)},
-	{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$InternalFrameShadow$1, getBorderInsets, $Insets*, $Component*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$InternalFrameShadow$1, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$InternalFrameShadow$1, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _AquaInternalFrameUI$InternalFrameShadow$1_EnclosingMethodInfo_ = {
-	"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow",
-	"getInstance",
-	"()Ljavax/swing/border/Border;"
-};
-
-$InnerClassInfo _AquaInternalFrameUI$InternalFrameShadow$1_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow", "com.apple.laf.AquaInternalFrameUI", "InternalFrameShadow", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaInternalFrameUI$InternalFrameShadow$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow$1",
-	"java.lang.Object",
-	"javax.swing.border.Border",
-	_AquaInternalFrameUI$InternalFrameShadow$1_FieldInfo_,
-	_AquaInternalFrameUI$InternalFrameShadow$1_MethodInfo_,
-	nullptr,
-	&_AquaInternalFrameUI$InternalFrameShadow$1_EnclosingMethodInfo_,
-	_AquaInternalFrameUI$InternalFrameShadow$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaInternalFrameUI"
-};
-
-$Object* allocate$AquaInternalFrameUI$InternalFrameShadow$1($Class* clazz) {
-	return $of($alloc(AquaInternalFrameUI$InternalFrameShadow$1));
-}
-
 void AquaInternalFrameUI$InternalFrameShadow$1::init$($AquaInternalFrameUI$InternalFrameShadow* this$0, $Border* val$fgShadow, $Border* val$bgShadow) {
 	$set(this, this$0, this$0);
 	$set(this, val$fgShadow, val$fgShadow);
@@ -86,7 +38,7 @@ bool AquaInternalFrameUI$InternalFrameShadow$1::isBorderOpaque() {
 }
 
 void AquaInternalFrameUI$InternalFrameShadow$1::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	if ($nc(($cast($JInternalFrame, c)))->isSelected()) {
+	if ($nc($cast($JInternalFrame, c))->isSelected()) {
 		$nc(this->val$fgShadow)->paintBorder(c, g, x, y, w, h);
 	} else {
 		$nc(this->val$bgShadow)->paintBorder(c, g, x, y, w, h);
@@ -97,7 +49,47 @@ AquaInternalFrameUI$InternalFrameShadow$1::AquaInternalFrameUI$InternalFrameShad
 }
 
 $Class* AquaInternalFrameUI$InternalFrameShadow$1::load$($String* name, bool initialize) {
-	$loadClass(AquaInternalFrameUI$InternalFrameShadow$1, name, initialize, &_AquaInternalFrameUI$InternalFrameShadow$1_ClassInfo_, allocate$AquaInternalFrameUI$InternalFrameShadow$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaInternalFrameUI$InternalFrameShadow;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameUI$InternalFrameShadow$1, this$0)},
+		{"val$bgShadow", "Ljavax/swing/border/Border;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameUI$InternalFrameShadow$1, val$bgShadow)},
+		{"val$fgShadow", "Ljavax/swing/border/Border;", nullptr, $FINAL | $SYNTHETIC, $field(AquaInternalFrameUI$InternalFrameShadow$1, val$fgShadow)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaInternalFrameUI$InternalFrameShadow;Ljavax/swing/border/Border;Ljavax/swing/border/Border;)V", "()V", 0, $method(AquaInternalFrameUI$InternalFrameShadow$1, init$, void, $AquaInternalFrameUI$InternalFrameShadow*, $Border*, $Border*)},
+		{"getBorderInsets", "(Ljava/awt/Component;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$InternalFrameShadow$1, getBorderInsets, $Insets*, $Component*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$InternalFrameShadow$1, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaInternalFrameUI$InternalFrameShadow$1, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow",
+		"getInstance",
+		"()Ljavax/swing/border/Border;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow", "com.apple.laf.AquaInternalFrameUI", "InternalFrameShadow", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaInternalFrameUI$InternalFrameShadow$1",
+		"java.lang.Object",
+		"javax.swing.border.Border",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaInternalFrameUI"
+	};
+	$loadClass(AquaInternalFrameUI$InternalFrameShadow$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaInternalFrameUI$InternalFrameShadow$1);
+	});
 	return class$;
 }
 

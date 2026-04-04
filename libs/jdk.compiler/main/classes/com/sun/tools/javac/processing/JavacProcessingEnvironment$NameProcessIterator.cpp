@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacProcessingEnvironment$NameProcessIterator.h>
-
 #include <com/sun/tools/javac/processing/AnnotationProcessingError.h>
 #include <com/sun/tools/javac/processing/JavacProcessingEnvironment.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
@@ -36,11 +35,8 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Constructor = ::java::lang::reflect::Constructor;
 using $Method = ::java::lang::reflect::Method;
 using $Arrays = ::java::util::Arrays;
-using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Processor = ::javax::annotation::processing::Processor;
 
@@ -50,65 +46,22 @@ namespace com {
 			namespace javac {
 				namespace processing {
 
-$FieldInfo _JavacProcessingEnvironment$NameProcessIterator_FieldInfo_[] = {
-	{"nextProc", "Ljavax/annotation/processing/Processor;", nullptr, 0, $field(JavacProcessingEnvironment$NameProcessIterator, nextProc)},
-	{"names", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/lang/String;>;", 0, $field(JavacProcessingEnvironment$NameProcessIterator, names)},
-	{"processorCL", "Ljava/lang/ClassLoader;", nullptr, 0, $field(JavacProcessingEnvironment$NameProcessIterator, processorCL)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, 0, $field(JavacProcessingEnvironment$NameProcessIterator, log)},
-	{}
-};
-
-$MethodInfo _JavacProcessingEnvironment$NameProcessIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(JavacProcessingEnvironment$NameProcessIterator, init$, void, $String*, $ClassLoader*, $Log*)},
-	{"ensureReadable", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(JavacProcessingEnvironment$NameProcessIterator, ensureReadable, void, $Class*)},
-	{"getNextProcessor", "(Ljava/lang/String;)Ljavax/annotation/processing/Processor;", nullptr, $PRIVATE, $method(JavacProcessingEnvironment$NameProcessIterator, getNextProcessor, $Processor*, $String*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, hasNext, bool)},
-	{"next", "()Ljavax/annotation/processing/Processor;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _JavacProcessingEnvironment$NameProcessIterator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacProcessingEnvironment$NameProcessIterator", "com.sun.tools.javac.processing.JavacProcessingEnvironment", "NameProcessIterator", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _JavacProcessingEnvironment$NameProcessIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment$NameProcessIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_JavacProcessingEnvironment$NameProcessIterator_FieldInfo_,
-	_JavacProcessingEnvironment$NameProcessIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/annotation/processing/Processor;>;",
-	nullptr,
-	_JavacProcessingEnvironment$NameProcessIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacProcessingEnvironment"
-};
-
-$Object* allocate$JavacProcessingEnvironment$NameProcessIterator($Class* clazz) {
-	return $of($alloc(JavacProcessingEnvironment$NameProcessIterator));
-}
-
 void JavacProcessingEnvironment$NameProcessIterator::init$($String* names, $ClassLoader* processorCL, $Log* log) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, nextProc, nullptr);
-	$set(this, names, $nc($($Arrays::asList($($nc(names)->split(","_s)))))->iterator());
+	$set(this, names, $$nc($Arrays::asList($($nc(names)->split(","_s))))->iterator());
 	$set(this, processorCL, processorCL);
 	$set(this, log, log);
 }
 
 bool JavacProcessingEnvironment$NameProcessIterator::hasNext() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->nextProc != nullptr) {
 		return true;
 	} else if (!$nc(this->names)->hasNext()) {
 		return false;
 	} else {
-		$var($Processor, processor, getNextProcessor($cast($String, $($nc(this->names)->next()))));
+		$var($Processor, processor, getNextProcessor($$cast($String, this->names->next())));
 		if (processor == nullptr) {
 			return false;
 		} else {
@@ -119,13 +72,13 @@ bool JavacProcessingEnvironment$NameProcessIterator::hasNext() {
 }
 
 $Processor* JavacProcessingEnvironment$NameProcessIterator::getNextProcessor($String* processorName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		try {
 			$Class* processorClass = $nc(this->processorCL)->loadClass(processorName);
 			ensureReadable(processorClass);
-			return $cast($Processor, $nc($($nc(processorClass)->getConstructor($$new($ClassArray, 0))))->newInstance($$new($ObjectArray, 0)));
+			return $cast($Processor, $$nc($nc(processorClass)->getConstructor($$new($ClassArray, 0)))->newInstance($$new($ObjectArray, 0)));
 		} catch ($ClassNotFoundException& cnfe) {
 			$nc(this->log)->error($($CompilerProperties$Errors::ProcProcessorNotFound(processorName)));
 			return nullptr;
@@ -148,7 +101,7 @@ $Object* JavacProcessingEnvironment$NameProcessIterator::next() {
 	if (hasNext()) {
 		$var($Processor, p, this->nextProc);
 		$set(this, nextProc, nullptr);
-		return $of(p);
+		return p;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -159,18 +112,18 @@ void JavacProcessingEnvironment$NameProcessIterator::remove() {
 }
 
 void JavacProcessingEnvironment$NameProcessIterator::ensureReadable($Class* targetClass) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($Method, getModuleMethod, $Class::class$->getMethod("getModule"_s, $$new($ClassArray, 0)));
-		$var($Object, thisModule, $nc(getModuleMethod)->invoke($of(this)->getClass(), $$new($ObjectArray, 0)));
+		$var($Object, thisModule, $nc(getModuleMethod)->invoke(this->getClass(), $$new($ObjectArray, 0)));
 		$var($Object, targetModule, getModuleMethod->invoke(targetClass, $$new($ObjectArray, 0)));
 		$Class* moduleClass = getModuleMethod->getReturnType();
 		$var($Method, addReadsMethod, $nc(moduleClass)->getMethod("addReads"_s, $$new($ClassArray, {moduleClass})));
 		$nc(addReadsMethod)->invoke(thisModule, $$new($ObjectArray, {targetModule}));
 	} catch ($NoSuchMethodException& e) {
 	} catch ($Exception& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 }
 
@@ -178,7 +131,44 @@ JavacProcessingEnvironment$NameProcessIterator::JavacProcessingEnvironment$NameP
 }
 
 $Class* JavacProcessingEnvironment$NameProcessIterator::load$($String* name, bool initialize) {
-	$loadClass(JavacProcessingEnvironment$NameProcessIterator, name, initialize, &_JavacProcessingEnvironment$NameProcessIterator_ClassInfo_, allocate$JavacProcessingEnvironment$NameProcessIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"nextProc", "Ljavax/annotation/processing/Processor;", nullptr, 0, $field(JavacProcessingEnvironment$NameProcessIterator, nextProc)},
+		{"names", "Ljava/util/Iterator;", "Ljava/util/Iterator<Ljava/lang/String;>;", 0, $field(JavacProcessingEnvironment$NameProcessIterator, names)},
+		{"processorCL", "Ljava/lang/ClassLoader;", nullptr, 0, $field(JavacProcessingEnvironment$NameProcessIterator, processorCL)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, 0, $field(JavacProcessingEnvironment$NameProcessIterator, log)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/ClassLoader;Lcom/sun/tools/javac/util/Log;)V", nullptr, 0, $method(JavacProcessingEnvironment$NameProcessIterator, init$, void, $String*, $ClassLoader*, $Log*)},
+		{"ensureReadable", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE, $method(JavacProcessingEnvironment$NameProcessIterator, ensureReadable, void, $Class*)},
+		{"getNextProcessor", "(Ljava/lang/String;)Ljavax/annotation/processing/Processor;", nullptr, $PRIVATE, $method(JavacProcessingEnvironment$NameProcessIterator, getNextProcessor, $Processor*, $String*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, hasNext, bool)},
+		{"next", "()Ljavax/annotation/processing/Processor;", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(JavacProcessingEnvironment$NameProcessIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacProcessingEnvironment$NameProcessIterator", "com.sun.tools.javac.processing.JavacProcessingEnvironment", "NameProcessIterator", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment$NameProcessIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljavax/annotation/processing/Processor;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacProcessingEnvironment"
+	};
+	$loadClass(JavacProcessingEnvironment$NameProcessIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacProcessingEnvironment$NameProcessIterator);
+	});
 	return class$;
 }
 

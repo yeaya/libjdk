@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/LabeledStatementTree.h>
-
 #include <com/sun/source/tree/StatementTree.h>
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _LabeledStatementTree_MethodInfo_[] = {
-	{"getLabel", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LabeledStatementTree, getLabel, $Name*)},
-	{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LabeledStatementTree, getStatement, $StatementTree*)},
-	{}
-};
-
-$ClassInfo _LabeledStatementTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.LabeledStatementTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_LabeledStatementTree_MethodInfo_
-};
-
-$Object* allocate$LabeledStatementTree($Class* clazz) {
-	return $of($alloc(LabeledStatementTree));
-}
-
 $Class* LabeledStatementTree::load$($String* name, bool initialize) {
-	$loadClass(LabeledStatementTree, name, initialize, &_LabeledStatementTree_ClassInfo_, allocate$LabeledStatementTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getLabel", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LabeledStatementTree, getLabel, $Name*)},
+		{"getStatement", "()Lcom/sun/source/tree/StatementTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LabeledStatementTree, getStatement, $StatementTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.LabeledStatementTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LabeledStatementTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LabeledStatementTree);
+	});
 	return class$;
 }
 

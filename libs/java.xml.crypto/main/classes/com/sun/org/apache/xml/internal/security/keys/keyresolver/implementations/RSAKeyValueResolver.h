@@ -79,6 +79,7 @@ class RSAKeyValueResolver : public ::com::sun::org::apache::xml::internal::secur
 	$class(RSAKeyValueResolver, 0, ::com::sun::org::apache::xml::internal::security::keys::keyresolver::KeyResolverSpi)
 public:
 	RSAKeyValueResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool engineCanResolve(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage) override;
 	virtual ::java::security::PrivateKey* engineResolvePrivateKey(::org::w3c::dom::Element* element, $String* baseURI, ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver* storage, bool secureValidation) override;

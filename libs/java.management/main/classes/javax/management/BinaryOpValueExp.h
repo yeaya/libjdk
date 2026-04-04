@@ -36,7 +36,7 @@ public:
 	int32_t precedence(int32_t xop);
 	virtual void setMBeanServer(::javax::management::MBeanServer* s) override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x10E11E71A8F42C92;
+	static const int64_t serialVersionUID = (int64_t)0x10e11e71a8f42c92;
 	int32_t op = 0;
 	::javax::management::ValueExp* exp1 = nullptr;
 	::javax::management::ValueExp* exp2 = nullptr;

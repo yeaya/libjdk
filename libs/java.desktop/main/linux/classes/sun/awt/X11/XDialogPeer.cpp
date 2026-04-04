@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDialogPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -81,7 +80,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $MWMConstants = ::sun::awt::X11::MWMConstants;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
@@ -95,94 +93,6 @@ using $Region = ::sun::java2d::pipe::Region;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XDialogPeer_FieldInfo_[] = {
-	{"undecorated", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(XDialogPeer, undecorated)},
-	{}
-};
-
-$MethodInfo _XDialogPeer_MethodInfo_[] = {
-	{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
-	{"*beginLayout", "()V", nullptr, $PUBLIC},
-	{"*beginValidate", "()V", nullptr, $PUBLIC},
-	{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
-	{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
-	{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
-	{"*destroyBuffers", "()V", nullptr, $PUBLIC},
-	{"*dispose", "()V", nullptr, $PUBLIC},
-	{"*endLayout", "()V", nullptr, $PUBLIC},
-	{"*endValidate", "()V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
-	{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
-	{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
-	{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
-	{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
-	{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
-	{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
-	{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
-	{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
-	{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Dialog;)V", nullptr, 0, $method(XDialogPeer, init$, void, $Dialog*)},
-	{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(XDialogPeer, blockWindows, void, $List*)},
-	{"getDecorations", "()I", nullptr, 0, $virtualMethod(XDialogPeer, getDecorations, int32_t)},
-	{"getFunctions", "()I", nullptr, 0, $virtualMethod(XDialogPeer, getFunctions, int32_t)},
-	{"*isFocusable", "()Z", nullptr, $PUBLIC},
-	{"isFocusedWindowModalBlocker", "()Z", nullptr, 0, $virtualMethod(XDialogPeer, isFocusedWindowModalBlocker, bool)},
-	{"*isObscured", "()Z", nullptr, $PUBLIC},
-	{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
-	{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(XDialogPeer, isTargetUndecorated, bool)},
-	{"*layout", "()V", nullptr, $PUBLIC},
-	{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XDialogPeer, preInit, void, $XCreateWindowParams*)},
-	{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
-	{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
-	{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC},
-	{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
-	{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
-	{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
-	{"*setOpacity", "(F)V", nullptr, $PUBLIC},
-	{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
-	{"*setResizable", "(Z)V", nullptr, $PUBLIC},
-	{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XDialogPeer, setVisible, void, bool)},
-	{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
-	{"*updateIconImages", "()V", nullptr, $PUBLIC},
-	{"*toFront", "()V", nullptr, $PUBLIC},
-	{"*toBack", "()V", nullptr, $PUBLIC},
-	{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
-	{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
-	{"*updateWindow", "()V", nullptr, $PUBLIC},
-	{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
-	{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
-	{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XDialogPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XDialogPeer",
-	"sun.awt.X11.XDecoratedPeer",
-	"java.awt.peer.DialogPeer",
-	_XDialogPeer_FieldInfo_,
-	_XDialogPeer_MethodInfo_
-};
-
-$Object* allocate$XDialogPeer($Class* clazz) {
-	return $of($alloc(XDialogPeer));
-}
 
 void XDialogPeer::updateMinimumSize() {
 	this->$XDecoratedPeer::updateMinimumSize();
@@ -417,71 +327,66 @@ void XDialogPeer::finalize() {
 }
 
 void XDialogPeer::init$($Dialog* target) {
-	$XDecoratedPeer::init$(static_cast<$Window*>(target));
+	$XDecoratedPeer::init$(target);
 }
 
 void XDialogPeer::preInit($XCreateWindowParams* params) {
 	$XDecoratedPeer::preInit(params);
-	$var($Dialog, target, ($cast($Dialog, this->target)));
+	$var($Dialog, target, $cast($Dialog, this->target));
 	$set(this, undecorated, $Boolean::valueOf($nc(target)->isUndecorated()));
-	$nc(this->winAttr)->nativeDecor = !$nc(target)->isUndecorated();
+	$nc(this->winAttr)->nativeDecor = !target->isUndecorated();
 	if ($nc(this->winAttr)->nativeDecor) {
-		$init($XWindowAttributesData);
-		$nc(this->winAttr)->decorations = $XWindowAttributesData::AWT_DECOR_ALL;
+		this->winAttr->decorations = $XWindowAttributesData::AWT_DECOR_ALL;
 	} else {
-		$init($XWindowAttributesData);
-		$nc(this->winAttr)->decorations = $XWindowAttributesData::AWT_DECOR_NONE;
+		this->winAttr->decorations = $XWindowAttributesData::AWT_DECOR_NONE;
 	}
-	$nc(this->winAttr)->functions = $MWMConstants::MWM_FUNC_ALL;
-	$nc(this->winAttr)->isResizable = true;
-	$nc(this->winAttr)->initialResizability = target->isResizable();
+	this->winAttr->functions = $MWMConstants::MWM_FUNC_ALL;
+	this->winAttr->isResizable = true;
+	this->winAttr->initialResizability = target->isResizable();
 	$set($nc(this->winAttr), title, target->getTitle());
-	$init($XWindowAttributesData);
 	$nc(this->winAttr)->initialState = $XWindowAttributesData::NORMAL;
 }
 
 void XDialogPeer::setVisible(bool vis) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Dialog, target, $cast($Dialog, this->target));
-			if (vis) {
-				$init($Dialog$ModalityType);
-				if ($nc(target)->getModalityType() != $Dialog$ModalityType::MODELESS) {
-					if (!isModalBlocked()) {
-						$XBaseWindow::ungrabInput();
-					}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Dialog, target, $cast($Dialog, this->target));
+		if (vis) {
+			$init($Dialog$ModalityType);
+			if ($nc(target)->getModalityType() != $Dialog$ModalityType::MODELESS) {
+				if (!isModalBlocked()) {
+					$XBaseWindow::ungrabInput();
 				}
-			} else {
-				restoreTransientFor(this);
-				$set(this, prevTransientFor, nullptr);
-				$set(this, nextTransientFor, nullptr);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+		} else {
+			restoreTransientFor(this);
+			$set(this, prevTransientFor, nullptr);
+			$set(this, nextTransientFor, nullptr);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	$XDecoratedPeer::setVisible(vis);
 }
 
 bool XDialogPeer::isTargetUndecorated() {
 	if (this->undecorated != nullptr) {
-		return $nc(this->undecorated)->booleanValue();
+		return this->undecorated->booleanValue();
 	} else {
-		return $nc(($cast($Dialog, this->target)))->isUndecorated();
+		return $nc($cast($Dialog, this->target))->isUndecorated();
 	}
 }
 
 int32_t XDialogPeer::getDecorations() {
 	int32_t d = $XDecoratedPeer::getDecorations();
-	if (((int32_t)(d & (uint32_t)$MWMConstants::MWM_DECOR_ALL)) != 0) {
+	if ((d & $MWMConstants::MWM_DECOR_ALL) != 0) {
 		d |= ($MWMConstants::MWM_DECOR_MINIMIZE | $MWMConstants::MWM_DECOR_MAXIMIZE);
 	} else {
 		d &= (uint32_t)~($MWMConstants::MWM_DECOR_MINIMIZE | $MWMConstants::MWM_DECOR_MAXIMIZE);
@@ -491,7 +396,7 @@ int32_t XDialogPeer::getDecorations() {
 
 int32_t XDialogPeer::getFunctions() {
 	int32_t f = $XDecoratedPeer::getFunctions();
-	if (((int32_t)(f & (uint32_t)$MWMConstants::MWM_FUNC_ALL)) != 0) {
+	if ((f & $MWMConstants::MWM_FUNC_ALL) != 0) {
 		f |= ($MWMConstants::MWM_FUNC_MINIMIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
 	} else {
 		f &= (uint32_t)~($MWMConstants::MWM_FUNC_MINIMIZE | $MWMConstants::MWM_FUNC_MAXIMIZE);
@@ -500,42 +405,40 @@ int32_t XDialogPeer::getFunctions() {
 }
 
 void XDialogPeer::blockWindows($List* toBlock) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, javaToplevels, nullptr);
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$assign(javaToplevels, $XWindowPeer::collectJavaToplevels());
-			{
-				$var($Iterator, i$, $nc(toBlock)->iterator());
-				for (; $nc(i$)->hasNext();) {
-					$var($Window, w, $cast($Window, i$->next()));
-					{
-						$var($XWindowPeer, wp, $cast($XWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(w)));
-						if (wp != nullptr) {
-							wp->setModalBlocked($cast($Dialog, this->target), true, javaToplevels);
-						}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$assign(javaToplevels, $XWindowPeer::collectJavaToplevels());
+		{
+			$var($Iterator, i$, $nc(toBlock)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Window, w, $cast($Window, i$->next()));
+				{
+					$var($XWindowPeer, wp, $cast($XWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(w)));
+					if (wp != nullptr) {
+						wp->setModalBlocked($cast($Dialog, this->target), true, javaToplevels);
 					}
 				}
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 bool XDialogPeer::isFocusedWindowModalBlocker() {
-	$useLocalCurrentObjectStackCache();
-	$var($Window, focusedWindow, $nc($($XKeyboardFocusManagerPeer::getInstance()))->getCurrentFocusedWindow());
+	$useLocalObjectStack();
+	$var($Window, focusedWindow, $$nc($XKeyboardFocusManagerPeer::getInstance())->getCurrentFocusedWindow());
 	$var($XWindowPeer, focusedWindowPeer, nullptr);
 	if (focusedWindow != nullptr) {
-		$assign(focusedWindowPeer, $cast($XWindowPeer, $nc($($AWTAccessor::getComponentAccessor()))->getPeer(focusedWindow)));
+		$assign(focusedWindowPeer, $cast($XWindowPeer, $$nc($AWTAccessor::getComponentAccessor())->getPeer(focusedWindow)));
 	} else {
 		$assign(focusedWindowPeer, getNativeFocusedWindowPeer());
 	}
@@ -551,7 +454,90 @@ XDialogPeer::XDialogPeer() {
 }
 
 $Class* XDialogPeer::load$($String* name, bool initialize) {
-	$loadClass(XDialogPeer, name, initialize, &_XDialogPeer_ClassInfo_, allocate$XDialogPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"undecorated", "Ljava/lang/Boolean;", nullptr, $PRIVATE, $field(XDialogPeer, undecorated)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*applyShape", "(Lsun/java2d/pipe/Region;)V", nullptr, $PUBLIC},
+		{"*beginLayout", "()V", nullptr, $PUBLIC},
+		{"*beginValidate", "()V", nullptr, $PUBLIC},
+		{"*canDetermineObscurity", "()Z", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*coalescePaintEvent", "(Ljava/awt/event/PaintEvent;)V", nullptr, $PUBLIC},
+		{"*createBuffers", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC},
+		{"*createImage", "(II)Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*createVolatileImage", "(II)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC},
+		{"*destroyBuffers", "()V", nullptr, $PUBLIC},
+		{"*dispose", "()V", nullptr, $PUBLIC},
+		{"*endLayout", "()V", nullptr, $PUBLIC},
+		{"*endValidate", "()V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*flip", "(IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC},
+		{"*getBackBuffer", "()Ljava/awt/Image;", nullptr, $PUBLIC},
+		{"*getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC},
+		{"*getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC},
+		{"*getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $SYNTHETIC},
+		{"*getInsets", "()Ljava/awt/Insets;", nullptr, $PUBLIC},
+		{"*getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC},
+		{"*getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC},
+		{"*handleEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC},
+		{"*handlesWheelScrolling", "()Z", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Dialog;)V", nullptr, 0, $method(XDialogPeer, init$, void, $Dialog*)},
+		{"blockWindows", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/awt/Window;>;)V", $PUBLIC, $virtualMethod(XDialogPeer, blockWindows, void, $List*)},
+		{"getDecorations", "()I", nullptr, 0, $virtualMethod(XDialogPeer, getDecorations, int32_t)},
+		{"getFunctions", "()I", nullptr, 0, $virtualMethod(XDialogPeer, getFunctions, int32_t)},
+		{"*isFocusable", "()Z", nullptr, $PUBLIC},
+		{"isFocusedWindowModalBlocker", "()Z", nullptr, 0, $virtualMethod(XDialogPeer, isFocusedWindowModalBlocker, bool)},
+		{"*isObscured", "()Z", nullptr, $PUBLIC},
+		{"*isReparentSupported", "()Z", nullptr, $PUBLIC},
+		{"isTargetUndecorated", "()Z", nullptr, 0, $virtualMethod(XDialogPeer, isTargetUndecorated, bool)},
+		{"*layout", "()V", nullptr, $PUBLIC},
+		{"*paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, $PUBLIC, $virtualMethod(XDialogPeer, preInit, void, $XCreateWindowParams*)},
+		{"*print", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC},
+		{"*reparent", "(Ljava/awt/peer/ContainerPeer;)V", nullptr, $PUBLIC},
+		{"*repositionSecurityWarning", "()V", nullptr, $PUBLIC},
+		{"*requestFocus", "(Ljava/awt/Component;ZZJLjava/awt/event/FocusEvent$Cause;)Z", nullptr, $PUBLIC | $FINAL},
+		{"*setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setBounds", "(IIIII)V", nullptr, $PUBLIC},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC},
+		{"*setModalBlocked", "(Ljava/awt/Dialog;Z)V", nullptr, $PUBLIC},
+		{"*setOpacity", "(F)V", nullptr, $PUBLIC},
+		{"*setOpaque", "(Z)V", nullptr, $PUBLIC},
+		{"*setResizable", "(Z)V", nullptr, $PUBLIC},
+		{"*setTitle", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XDialogPeer, setVisible, void, bool)},
+		{"*updateMinimumSize", "()V", nullptr, $PUBLIC},
+		{"*updateIconImages", "()V", nullptr, $PUBLIC},
+		{"*toFront", "()V", nullptr, $PUBLIC},
+		{"*toBack", "()V", nullptr, $PUBLIC},
+		{"*updateAlwaysOnTopState", "()V", nullptr, $PUBLIC},
+		{"*updateFocusableWindowState", "()V", nullptr, $PUBLIC},
+		{"*updateWindow", "()V", nullptr, $PUBLIC},
+		{"*updateCursorImmediately", "()V", nullptr, $PUBLIC},
+		{"*setZOrder", "(Ljava/awt/peer/ComponentPeer;)V", nullptr, $PUBLIC},
+		{"*updateGraphicsData", "(Ljava/awt/GraphicsConfiguration;)Z", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XDialogPeer",
+		"sun.awt.X11.XDecoratedPeer",
+		"java.awt.peer.DialogPeer",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XDialogPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XDialogPeer));
+	});
 	return class$;
 }
 

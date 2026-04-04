@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthTableHeaderUI$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/swing/SortOrder.h>
 #include <javax/swing/plaf/synth/SynthTableHeaderUI.h>
@@ -21,57 +20,21 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$FieldInfo _SynthTableHeaderUI$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$swing$SortOrder", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthTableHeaderUI$1, $SwitchMap$javax$swing$SortOrder)},
-	{}
-};
-
-$EnclosingMethodInfo _SynthTableHeaderUI$1_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.synth.SynthTableHeaderUI",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _SynthTableHeaderUI$1_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthTableHeaderUI$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _SynthTableHeaderUI$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"javax.swing.plaf.synth.SynthTableHeaderUI$1",
-	"java.lang.Object",
-	nullptr,
-	_SynthTableHeaderUI$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_SynthTableHeaderUI$1_EnclosingMethodInfo_,
-	_SynthTableHeaderUI$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthTableHeaderUI"
-};
-
-$Object* allocate$SynthTableHeaderUI$1($Class* clazz) {
-	return $of($alloc(SynthTableHeaderUI$1));
-}
-
 $ints* SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder = nullptr;
 
-void clinit$SynthTableHeaderUI$1($Class* class$) {
+void SynthTableHeaderUI$1::clinit$($Class* clazz) {
 	$assignStatic(SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder, $new($ints, $($SortOrder::values())->length));
 	{
 		try {
-			$nc(SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder)->set($SortOrder::ASCENDING->ordinal(), 1);
+			SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder->set($SortOrder::ASCENDING->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder)->set($SortOrder::DESCENDING->ordinal(), 2);
+			SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder->set($SortOrder::DESCENDING->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder)->set($SortOrder::UNSORTED->ordinal(), 3);
+			SynthTableHeaderUI$1::$SwitchMap$javax$swing$SortOrder->set($SortOrder::UNSORTED->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -81,7 +44,37 @@ SynthTableHeaderUI$1::SynthTableHeaderUI$1() {
 }
 
 $Class* SynthTableHeaderUI$1::load$($String* name, bool initialize) {
-	$loadClass(SynthTableHeaderUI$1, name, initialize, &_SynthTableHeaderUI$1_ClassInfo_, clinit$SynthTableHeaderUI$1, allocate$SynthTableHeaderUI$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$swing$SortOrder", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(SynthTableHeaderUI$1, $SwitchMap$javax$swing$SortOrder)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.synth.SynthTableHeaderUI",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthTableHeaderUI$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"javax.swing.plaf.synth.SynthTableHeaderUI$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthTableHeaderUI"
+	};
+	$loadClass(SynthTableHeaderUI$1, name, initialize, &classInfo$$, SynthTableHeaderUI$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SynthTableHeaderUI$1);
+	});
 	return class$;
 }
 

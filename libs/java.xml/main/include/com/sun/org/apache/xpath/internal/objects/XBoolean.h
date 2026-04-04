@@ -32,6 +32,7 @@ public:
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::error;
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::bool$;
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool b);
 	void init$(::java::lang::Boolean* b);
 	virtual bool bool$() override;
@@ -43,7 +44,7 @@ public:
 	virtual $Object* object() override;
 	virtual $String* str() override;
 	using ::com::sun::org::apache::xpath::internal::objects::XObject::xstr;
-	static const int64_t serialVersionUID = (int64_t)0xD6DA71178379456F;
+	static const int64_t serialVersionUID = (int64_t)0xd6da71178379456f;
 	static ::com::sun::org::apache::xpath::internal::objects::XBoolean* S_TRUE;
 	static ::com::sun::org::apache::xpath::internal::objects::XBoolean* S_FALSE;
 	bool m_val = false;

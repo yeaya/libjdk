@@ -1,5 +1,4 @@
 #include <sun/tools/jar/GNUStyleOptions$Option.h>
-
 #include <sun/tools/jar/GNUStyleOptions$OptionType.h>
 #include <sun/tools/jar/GNUStyleOptions.h>
 #include <sun/tools/jar/Main.h>
@@ -15,49 +14,6 @@ using $Main = ::sun::tools::jar::Main;
 namespace sun {
 	namespace tools {
 		namespace jar {
-
-$FieldInfo _GNUStyleOptions$Option_FieldInfo_[] = {
-	{"hasArg", "Z", nullptr, $FINAL, $field(GNUStyleOptions$Option, hasArg)},
-	{"argIsOptional", "Z", nullptr, $FINAL, $field(GNUStyleOptions$Option, argIsOptional)},
-	{"aliases", "[Ljava/lang/String;", nullptr, $FINAL, $field(GNUStyleOptions$Option, aliases)},
-	{"type", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $FINAL, $field(GNUStyleOptions$Option, type)},
-	{}
-};
-
-$MethodInfo _GNUStyleOptions$Option_MethodInfo_[] = {
-	{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$Option, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
-	{"<init>", "(ZZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$Option, init$, void, bool, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
-	{"isExtra", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, isExtra, bool)},
-	{"isHidden", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, isHidden, bool)},
-	{"matches", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, matches, bool, $String*)},
-	{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $ABSTRACT, $virtualMethod(GNUStyleOptions$Option, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
-	{}
-};
-
-$InnerClassInfo _GNUStyleOptions$Option_InnerClassesInfo_[] = {
-	{"sun.tools.jar.GNUStyleOptions$Option", "sun.tools.jar.GNUStyleOptions", "Option", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GNUStyleOptions$Option_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.tools.jar.GNUStyleOptions$Option",
-	"java.lang.Object",
-	nullptr,
-	_GNUStyleOptions$Option_FieldInfo_,
-	_GNUStyleOptions$Option_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GNUStyleOptions$Option_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.tools.jar.GNUStyleOptions"
-};
-
-$Object* allocate$GNUStyleOptions$Option($Class* clazz) {
-	return $of($alloc(GNUStyleOptions$Option));
-}
 
 void GNUStyleOptions$Option::init$(bool hasArg, $GNUStyleOptions$OptionType* type, $StringArray* aliases) {
 	GNUStyleOptions$Option::init$(hasArg, false, type, aliases);
@@ -79,26 +35,20 @@ bool GNUStyleOptions$Option::isExtra() {
 }
 
 bool GNUStyleOptions$Option::matches($String* opt) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($StringArray, arr$, this->aliases);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($String, a, arr$->get(i$));
-			{
-				if ($nc(a)->equals(opt)) {
+	$useLocalObjectStack();
+	$var($StringArray, arr$, this->aliases);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($String, a, arr$->get(i$));
+		if ($nc(a)->equals(opt)) {
+			return true;
+		} else {
+			bool var$0 = $nc(opt)->startsWith("--"_s) && this->hasArg;
+			if (var$0 && opt->startsWith($$str({a, "="_s}))) {
+				return true;
+			} else {
+				bool var$1 = opt->startsWith("--help"_s);
+				if (var$1 && opt->startsWith($$str({a, ":"_s}))) {
 					return true;
-				} else {
-					bool var$1 = $nc(opt)->startsWith("--"_s) && this->hasArg;
-					if (var$1 && opt->startsWith($$str({a, "="_s}))) {
-						return true;
-					} else {
-						bool var$3 = opt->startsWith("--help"_s);
-						if (var$3 && opt->startsWith($$str({a, ":"_s}))) {
-							return true;
-						}
-					}
 				}
 			}
 		}
@@ -110,7 +60,44 @@ GNUStyleOptions$Option::GNUStyleOptions$Option() {
 }
 
 $Class* GNUStyleOptions$Option::load$($String* name, bool initialize) {
-	$loadClass(GNUStyleOptions$Option, name, initialize, &_GNUStyleOptions$Option_ClassInfo_, allocate$GNUStyleOptions$Option);
+	$FieldInfo fieldInfos$$[] = {
+		{"hasArg", "Z", nullptr, $FINAL, $field(GNUStyleOptions$Option, hasArg)},
+		{"argIsOptional", "Z", nullptr, $FINAL, $field(GNUStyleOptions$Option, argIsOptional)},
+		{"aliases", "[Ljava/lang/String;", nullptr, $FINAL, $field(GNUStyleOptions$Option, aliases)},
+		{"type", "Lsun/tools/jar/GNUStyleOptions$OptionType;", nullptr, $FINAL, $field(GNUStyleOptions$Option, type)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$Option, init$, void, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+		{"<init>", "(ZZLsun/tools/jar/GNUStyleOptions$OptionType;[Ljava/lang/String;)V", nullptr, $TRANSIENT, $method(GNUStyleOptions$Option, init$, void, bool, bool, $GNUStyleOptions$OptionType*, $StringArray*)},
+		{"isExtra", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, isExtra, bool)},
+		{"isHidden", "()Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, isHidden, bool)},
+		{"matches", "(Ljava/lang/String;)Z", nullptr, 0, $virtualMethod(GNUStyleOptions$Option, matches, bool, $String*)},
+		{"process", "(Lsun/tools/jar/Main;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $ABSTRACT, $virtualMethod(GNUStyleOptions$Option, process, void, $Main*, $String*, $String*), "sun.tools.jar.GNUStyleOptions$BadArgs"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.tools.jar.GNUStyleOptions$Option", "sun.tools.jar.GNUStyleOptions", "Option", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.tools.jar.GNUStyleOptions$Option",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.tools.jar.GNUStyleOptions"
+	};
+	$loadClass(GNUStyleOptions$Option, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GNUStyleOptions$Option);
+	});
 	return class$;
 }
 

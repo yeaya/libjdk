@@ -1,5 +1,4 @@
 #include <sun/font/StrikeMetrics.h>
-
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/awt/geom/Point2D.h>
@@ -9,7 +8,6 @@
 #undef MIN_VALUE
 
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -18,46 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _StrikeMetrics_FieldInfo_[] = {
-	{"ascentX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, ascentX)},
-	{"ascentY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, ascentY)},
-	{"descentX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, descentX)},
-	{"descentY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, descentY)},
-	{"baselineX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, baselineX)},
-	{"baselineY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, baselineY)},
-	{"leadingX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, leadingX)},
-	{"leadingY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, leadingY)},
-	{"maxAdvanceX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, maxAdvanceX)},
-	{"maxAdvanceY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, maxAdvanceY)},
-	{}
-};
-
-$MethodInfo _StrikeMetrics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(StrikeMetrics, init$, void)},
-	{"<init>", "(FFFFFFFFFF)V", nullptr, 0, $method(StrikeMetrics, init$, void, float, float, float, float, float, float, float, float, float, float)},
-	{"convertToUserSpace", "(Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(StrikeMetrics, convertToUserSpace, void, $AffineTransform*)},
-	{"getAscent", "()F", nullptr, $PUBLIC, $method(StrikeMetrics, getAscent, float)},
-	{"getDescent", "()F", nullptr, $PUBLIC, $method(StrikeMetrics, getDescent, float)},
-	{"getLeading", "()F", nullptr, $PUBLIC, $method(StrikeMetrics, getLeading, float)},
-	{"getMaxAdvance", "()F", nullptr, $PUBLIC, $method(StrikeMetrics, getMaxAdvance, float)},
-	{"merge", "(Lsun/font/StrikeMetrics;)V", nullptr, 0, $method(StrikeMetrics, merge, void, StrikeMetrics*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StrikeMetrics, toString, $String*)},
-	{}
-};
-
-$ClassInfo _StrikeMetrics_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.font.StrikeMetrics",
-	"java.lang.Object",
-	nullptr,
-	_StrikeMetrics_FieldInfo_,
-	_StrikeMetrics_MethodInfo_
-};
-
-$Object* allocate$StrikeMetrics($Class* clazz) {
-	return $of($alloc(StrikeMetrics));
-}
 
 void StrikeMetrics::init$() {
 	this->ascentX = (this->ascentY = (float)$Integer::MAX_VALUE);
@@ -101,31 +59,31 @@ void StrikeMetrics::merge(StrikeMetrics* other) {
 	if ($nc(other)->ascentX < this->ascentX) {
 		this->ascentX = other->ascentX;
 	}
-	if ($nc(other)->ascentY < this->ascentY) {
+	if (other->ascentY < this->ascentY) {
 		this->ascentY = other->ascentY;
 	}
-	if ($nc(other)->descentX > this->descentX) {
+	if (other->descentX > this->descentX) {
 		this->descentX = other->descentX;
 	}
-	if ($nc(other)->descentY > this->descentY) {
+	if (other->descentY > this->descentY) {
 		this->descentY = other->descentY;
 	}
-	if ($nc(other)->baselineX > this->baselineX) {
+	if (other->baselineX > this->baselineX) {
 		this->baselineX = other->baselineX;
 	}
-	if ($nc(other)->baselineY > this->baselineY) {
+	if (other->baselineY > this->baselineY) {
 		this->baselineY = other->baselineY;
 	}
-	if ($nc(other)->leadingX > this->leadingX) {
+	if (other->leadingX > this->leadingX) {
 		this->leadingX = other->leadingX;
 	}
-	if ($nc(other)->leadingY > this->leadingY) {
+	if (other->leadingY > this->leadingY) {
 		this->leadingY = other->leadingY;
 	}
-	if ($nc(other)->maxAdvanceX > this->maxAdvanceX) {
+	if (other->maxAdvanceX > this->maxAdvanceX) {
 		this->maxAdvanceX = other->maxAdvanceX;
 	}
-	if ($nc(other)->maxAdvanceY > this->maxAdvanceY) {
+	if (other->maxAdvanceY > this->maxAdvanceY) {
 		this->maxAdvanceY = other->maxAdvanceY;
 	}
 }
@@ -160,7 +118,7 @@ void StrikeMetrics::convertToUserSpace($AffineTransform* invTx) {
 }
 
 $String* StrikeMetrics::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"ascent:x="_s, $$str(this->ascentX), " y="_s, $$str(this->ascentY), " descent:x="_s, $$str(this->descentX), " y="_s, $$str(this->descentY), " baseline:x="_s, $$str(this->baselineX), " y="_s, $$str(this->baselineY), " leading:x="_s, $$str(this->leadingX), " y="_s, $$str(this->leadingY), 
 	" maxAdvance:x="_s, $$str(this->maxAdvanceX), " y="_s, $$str(this->maxAdvanceY)});
 }
@@ -169,7 +127,42 @@ StrikeMetrics::StrikeMetrics() {
 }
 
 $Class* StrikeMetrics::load$($String* name, bool initialize) {
-	$loadClass(StrikeMetrics, name, initialize, &_StrikeMetrics_ClassInfo_, allocate$StrikeMetrics);
+	$FieldInfo fieldInfos$$[] = {
+		{"ascentX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, ascentX)},
+		{"ascentY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, ascentY)},
+		{"descentX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, descentX)},
+		{"descentY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, descentY)},
+		{"baselineX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, baselineX)},
+		{"baselineY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, baselineY)},
+		{"leadingX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, leadingX)},
+		{"leadingY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, leadingY)},
+		{"maxAdvanceX", "F", nullptr, $PUBLIC, $field(StrikeMetrics, maxAdvanceX)},
+		{"maxAdvanceY", "F", nullptr, $PUBLIC, $field(StrikeMetrics, maxAdvanceY)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(StrikeMetrics, init$, void)},
+		{"<init>", "(FFFFFFFFFF)V", nullptr, 0, $method(StrikeMetrics, init$, void, float, float, float, float, float, float, float, float, float, float)},
+		{"convertToUserSpace", "(Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(StrikeMetrics, convertToUserSpace, void, $AffineTransform*)},
+		{"getAscent", "()F", nullptr, $PUBLIC, $method(StrikeMetrics, getAscent, float)},
+		{"getDescent", "()F", nullptr, $PUBLIC, $method(StrikeMetrics, getDescent, float)},
+		{"getLeading", "()F", nullptr, $PUBLIC, $method(StrikeMetrics, getLeading, float)},
+		{"getMaxAdvance", "()F", nullptr, $PUBLIC, $method(StrikeMetrics, getMaxAdvance, float)},
+		{"merge", "(Lsun/font/StrikeMetrics;)V", nullptr, 0, $method(StrikeMetrics, merge, void, StrikeMetrics*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StrikeMetrics, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.font.StrikeMetrics",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StrikeMetrics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StrikeMetrics);
+	});
 	return class$;
 }
 

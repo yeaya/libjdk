@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/Tokens$Token$Tag.h>
-
 #include <com/sun/tools/javac/parser/Tokens$Token.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,49 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace parser {
-
-$FieldInfo _Tokens$Token$Tag_FieldInfo_[] = {
-	{"DEFAULT", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Token$Tag, DEFAULT)},
-	{"NAMED", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Token$Tag, NAMED)},
-	{"STRING", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Token$Tag, STRING)},
-	{"NUMERIC", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Token$Tag, NUMERIC)},
-	{"$VALUES", "[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Tokens$Token$Tag, $VALUES)},
-	{}
-};
-
-$MethodInfo _Tokens$Token$Tag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$Token$Tag, $values, $Tokens$Token$TagArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$Token$Tag, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Token$Tag, valueOf, Tokens$Token$Tag*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Token$Tag, values, $Tokens$Token$TagArray*)},
-	{}
-};
-
-$InnerClassInfo _Tokens$Token$Tag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.Tokens$Token", "com.sun.tools.javac.parser.Tokens", "Token", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.parser.Tokens$Token$Tag", "com.sun.tools.javac.parser.Tokens$Token", "Tag", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Tokens$Token$Tag_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.parser.Tokens$Token$Tag",
-	"java.lang.Enum",
-	nullptr,
-	_Tokens$Token$Tag_FieldInfo_,
-	_Tokens$Token$Tag_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/Tokens$Token$Tag;>;",
-	nullptr,
-	_Tokens$Token$Tag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.Tokens"
-};
-
-$Object* allocate$Tokens$Token$Tag($Class* clazz) {
-	return $of($alloc(Tokens$Token$Tag));
-}
 
 Tokens$Token$Tag* Tokens$Token$Tag::DEFAULT = nullptr;
 Tokens$Token$Tag* Tokens$Token$Tag::NAMED = nullptr;
@@ -95,7 +51,7 @@ void Tokens$Token$Tag::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$Tokens$Token$Tag($Class* class$) {
+void Tokens$Token$Tag::clinit$($Class* clazz) {
 	$assignStatic(Tokens$Token$Tag::DEFAULT, $new(Tokens$Token$Tag, "DEFAULT"_s, 0));
 	$assignStatic(Tokens$Token$Tag::NAMED, $new(Tokens$Token$Tag, "NAMED"_s, 1));
 	$assignStatic(Tokens$Token$Tag::STRING, $new(Tokens$Token$Tag, "STRING"_s, 2));
@@ -107,7 +63,44 @@ Tokens$Token$Tag::Tokens$Token$Tag() {
 }
 
 $Class* Tokens$Token$Tag::load$($String* name, bool initialize) {
-	$loadClass(Tokens$Token$Tag, name, initialize, &_Tokens$Token$Tag_ClassInfo_, clinit$Tokens$Token$Tag, allocate$Tokens$Token$Tag);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Token$Tag, DEFAULT)},
+		{"NAMED", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Token$Tag, NAMED)},
+		{"STRING", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Token$Tag, STRING)},
+		{"NUMERIC", "Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Tokens$Token$Tag, NUMERIC)},
+		{"$VALUES", "[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Tokens$Token$Tag, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Tokens$Token$Tag, $values, $Tokens$Token$TagArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Tokens$Token$Tag, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Token$Tag, valueOf, Tokens$Token$Tag*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/parser/Tokens$Token$Tag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Tokens$Token$Tag, values, $Tokens$Token$TagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.Tokens$Token", "com.sun.tools.javac.parser.Tokens", "Token", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.parser.Tokens$Token$Tag", "com.sun.tools.javac.parser.Tokens$Token", "Tag", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.parser.Tokens$Token$Tag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/parser/Tokens$Token$Tag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.Tokens"
+	};
+	$loadClass(Tokens$Token$Tag, name, initialize, &classInfo$$, Tokens$Token$Tag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Tokens$Token$Tag));
+	});
 	return class$;
 }
 

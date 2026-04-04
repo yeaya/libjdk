@@ -46,6 +46,7 @@ class Unknown : public ::com::sun::org::apache::bcel::internal::classfile::Attri
 	$class(Unknown, 0, ::com::sun::org::apache::bcel::internal::classfile::Attribute)
 public:
 	Unknown();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::bcel::internal::classfile::Unknown* c);
 	void init$(int32_t name_index, int32_t length, $bytes* bytes, ::com::sun::org::apache::bcel::internal::classfile::ConstantPool* constant_pool);
 	void init$(int32_t name_index, int32_t length, ::java::io::DataInput* input, ::com::sun::org::apache::bcel::internal::classfile::ConstantPool* constant_pool);

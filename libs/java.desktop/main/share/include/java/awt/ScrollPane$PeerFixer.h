@@ -35,7 +35,7 @@ public:
 	virtual void adjustmentValueChanged(::java::awt::event::AdjustmentEvent* e) override;
 	virtual $String* toString() override;
 	::java::awt::ScrollPane* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0E7BD788D4E4E576;
+	static const int64_t serialVersionUID = (int64_t)0x0e7bd788d4e4e576;
 	::java::awt::ScrollPane* scroller = nullptr;
 };
 

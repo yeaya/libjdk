@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/CompositeDataSupport.h>
-
 #include <java/lang/ArrayStoreException.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
@@ -45,47 +44,6 @@ namespace javax {
 	namespace management {
 		namespace openmbean {
 
-$FieldInfo _CompositeDataSupport_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CompositeDataSupport, serialVersionUID)},
-	{"contents", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(CompositeDataSupport, contents)},
-	{"compositeType", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE | $FINAL, $field(CompositeDataSupport, compositeType)},
-	{}
-};
-
-$MethodInfo _CompositeDataSupport_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CompositeDataSupport, init$, void, $CompositeType*, $StringArray*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljavax/management/openmbean/CompositeType;Ljava/util/Map;)V", "(Ljavax/management/openmbean/CompositeType;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(CompositeDataSupport, init$, void, $CompositeType*, $Map*), "javax.management.openmbean.OpenDataException"},
-	{"<init>", "(Ljava/util/SortedMap;Ljavax/management/openmbean/CompositeType;)V", "(Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/Object;>;Ljavax/management/openmbean/CompositeType;)V", $PRIVATE, $method(CompositeDataSupport, init$, void, $SortedMap*, $CompositeType*), "javax.management.openmbean.OpenDataException"},
-	{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, containsKey, bool, $String*)},
-	{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, containsValue, bool, Object$*)},
-	{"contentString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(CompositeDataSupport, contentString, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, equals, bool, Object$*)},
-	{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, get, $Object*, $String*)},
-	{"getAll", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, getAll, $ObjectArray*, $StringArray*)},
-	{"getCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, getCompositeType, $CompositeType*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, hashCode, int32_t)},
-	{"makeMap", "([Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/SortedMap;", "([Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(CompositeDataSupport, makeMap, $SortedMap*, $StringArray*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
-	{"makeMap", "(Ljava/util/Map;)Ljava/util/SortedMap;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(CompositeDataSupport, makeMap, $SortedMap*, $Map*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, toString, $String*)},
-	{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CompositeDataSupport, values, $Collection*)},
-	{}
-};
-
-$ClassInfo _CompositeDataSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.CompositeDataSupport",
-	"java.lang.Object",
-	"javax.management.openmbean.CompositeData,java.io.Serializable",
-	_CompositeDataSupport_FieldInfo_,
-	_CompositeDataSupport_MethodInfo_
-};
-
-$Object* allocate$CompositeDataSupport($Class* clazz) {
-	return $of($alloc(CompositeDataSupport));
-}
-
 $Object* CompositeDataSupport::clone() {
 	 return this->$CompositeData::clone();
 }
@@ -100,26 +58,26 @@ void CompositeDataSupport::init$($CompositeType* compositeType, $StringArray* it
 
 $SortedMap* CompositeDataSupport::makeMap($StringArray* itemNames, $ObjectArray* itemValues) {
 	$init(CompositeDataSupport);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (itemNames == nullptr || itemValues == nullptr) {
 		$throwNew($IllegalArgumentException, "Null itemNames or itemValues"_s);
 	}
 	if ($nc(itemNames)->length == 0 || $nc(itemValues)->length == 0) {
 		$throwNew($IllegalArgumentException, "Empty itemNames or itemValues"_s);
 	}
-	if ($nc(itemNames)->length != $nc(itemValues)->length) {
+	if (itemNames->length != $nc(itemValues)->length) {
 		$throwNew($IllegalArgumentException, $$str({"Different lengths: itemNames["_s, $$str(itemNames->length), "], itemValues["_s, $$str(itemValues->length), "]"_s}));
 	}
 	$var($SortedMap, map, $new($TreeMap));
-	for (int32_t i = 0; i < $nc(itemNames)->length; ++i) {
+	for (int32_t i = 0; i < itemNames->length; ++i) {
 		$var($String, name, itemNames->get(i));
-		if (name == nullptr || $nc(name)->equals(""_s)) {
+		if (name == nullptr || name->equals(""_s)) {
 			$throwNew($IllegalArgumentException, "Null or empty item name"_s);
 		}
 		if (map->containsKey(name)) {
 			$throwNew($OpenDataException, $$str({"Duplicate item name "_s, name}));
 		}
-		map->put(itemNames->get(i), $nc(itemValues)->get(i));
+		map->put(itemNames->get(i), itemValues->get(i));
 	}
 	return map;
 }
@@ -130,17 +88,17 @@ void CompositeDataSupport::init$($CompositeType* compositeType, $Map* items) {
 
 $SortedMap* CompositeDataSupport::makeMap($Map* items) {
 	$init(CompositeDataSupport);
-	$useLocalCurrentObjectStackCache();
-	if (items == nullptr || $nc(items)->isEmpty()) {
+	$useLocalObjectStack();
+	if (items == nullptr || items->isEmpty()) {
 		$throwNew($IllegalArgumentException, "Null or empty items map"_s);
 	}
 	$var($SortedMap, map, $new($TreeMap));
 	{
-		$var($Iterator, i$, $nc($($nc(items)->keySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(items)->keySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, key, i$->next());
 			{
-				if (key == nullptr || $nc($of(key))->equals(""_s)) {
+				if (key == nullptr || key->equals(""_s)) {
 					$throwNew($IllegalArgumentException, "Null or empty item name"_s);
 				}
 				if (!($instanceOf($String, key))) {
@@ -154,16 +112,16 @@ $SortedMap* CompositeDataSupport::makeMap($Map* items) {
 }
 
 void CompositeDataSupport::init$($SortedMap* items, $CompositeType* compositeType) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (compositeType == nullptr) {
 		$throwNew($IllegalArgumentException, "Argument compositeType cannot be null."_s);
 	}
 	$var($Set, namesFromType, $nc(compositeType)->keySet());
 	$var($Set, namesFromItems, $nc(items)->keySet());
 	if (!$nc(namesFromType)->equals(namesFromItems)) {
-		$var($Set, extraFromType, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, static_cast<$Collection*>(namesFromType)))));
+		$var($Set, extraFromType, $cast($AbstractSet, $new($TreeSet, namesFromType)));
 		extraFromType->removeAll(namesFromItems);
-		$var($Set, extraFromItems, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, static_cast<$Collection*>(namesFromItems)))));
+		$var($Set, extraFromItems, $cast($AbstractSet, $new($TreeSet, namesFromItems)));
 		extraFromItems->removeAll(namesFromType);
 		bool var$0 = !extraFromType->isEmpty();
 		if (var$0 || !extraFromItems->isEmpty()) {
@@ -171,7 +129,7 @@ void CompositeDataSupport::init$($SortedMap* items, $CompositeType* compositeTyp
 		}
 	}
 	{
-		$var($Iterator, i$, $nc(namesFromType)->iterator());
+		$var($Iterator, i$, namesFromType->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, name, $cast($String, i$->next()));
 			{
@@ -194,19 +152,19 @@ $CompositeType* CompositeDataSupport::getCompositeType() {
 }
 
 $Object* CompositeDataSupport::get($String* key) {
-	$useLocalCurrentObjectStackCache();
-	if ((key == nullptr) || ($($nc(key)->trim())->equals(""_s))) {
+	$useLocalObjectStack();
+	if ((key == nullptr) || ($(key->trim())->equals(""_s))) {
 		$throwNew($IllegalArgumentException, "Argument key cannot be a null or empty String."_s);
 	}
 	if (!$nc(this->contents)->containsKey($($nc(key)->trim()))) {
-		$throwNew($InvalidKeyException, $$str({"Argument key=\""_s, $($nc(key)->trim()), "\" is not an existing item name for this CompositeData instance."_s}));
+		$throwNew($InvalidKeyException, $$str({"Argument key=\""_s, $(key->trim()), "\" is not an existing item name for this CompositeData instance."_s}));
 	}
-	return $of($nc(this->contents)->get($($nc(key)->trim())));
+	return this->contents->get($(key->trim()));
 }
 
 $ObjectArray* CompositeDataSupport::getAll($StringArray* keys) {
-	$useLocalCurrentObjectStackCache();
-	if ((keys == nullptr) || ($nc(keys)->length == 0)) {
+	$useLocalObjectStack();
+	if ((keys == nullptr) || (keys->length == 0)) {
 		return $new($ObjectArray, 0);
 	}
 	$var($ObjectArray, results, $new($ObjectArray, $nc(keys)->length));
@@ -217,7 +175,7 @@ $ObjectArray* CompositeDataSupport::getAll($StringArray* keys) {
 }
 
 bool CompositeDataSupport::containsKey($String* key) {
-	if ((key == nullptr) || ($($nc(key)->trim())->equals(""_s))) {
+	if ((key == nullptr) || ($(key->trim())->equals(""_s))) {
 		return false;
 	}
 	return $nc(this->contents)->containsKey(key);
@@ -232,7 +190,7 @@ $Collection* CompositeDataSupport::values() {
 }
 
 bool CompositeDataSupport::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals(this, obj)) {
 		return true;
 	}
@@ -240,27 +198,27 @@ bool CompositeDataSupport::equals(Object$* obj) {
 		return false;
 	}
 	$var($CompositeData, other, $cast($CompositeData, obj));
-	if (!$nc($(this->getCompositeType()))->equals($($nc(other)->getCompositeType()))) {
+	if (!$$nc(this->getCompositeType())->equals($($nc(other)->getCompositeType()))) {
 		return false;
 	}
 	int32_t var$0 = $nc(this->contents)->size();
-	if (var$0 != $nc($($nc(other)->values()))->size()) {
+	if (var$0 != $$nc(other->values())->size()) {
 		return false;
 	}
 	{
-		$var($Iterator, i$, $nc($($nc(this->contents)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc(this->contents->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
 				$var($Object, e1, $nc(entry)->getValue());
-				$var($Object, e2, $nc(other)->get($cast($String, $(entry->getKey()))));
+				$var($Object, e2, other->get($$cast($String, entry->getKey())));
 				if ($equals(e1, e2)) {
 					continue;
 				}
 				if (e1 == nullptr) {
 					return false;
 				}
-				bool eq = $nc($of(e1))->getClass()->isArray() ? $Arrays::deepEquals($$new($ObjectArray, {e1}), $$new($ObjectArray, {e2})) : $nc($of(e1))->equals(e2);
+				bool eq = $nc(e1)->getClass()->isArray() ? $Arrays::deepEquals($$new($ObjectArray, {e1}), $$new($ObjectArray, {e2})) : e1->equals(e2);
 				if (!eq) {
 					return false;
 				}
@@ -271,34 +229,32 @@ bool CompositeDataSupport::equals(Object$* obj) {
 }
 
 int32_t CompositeDataSupport::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hashcode = $nc(this->compositeType)->hashCode();
 	{
-		$var($Iterator, i$, $nc($($nc(this->contents)->values()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->contents)->values())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Object, o, i$->next());
-			{
-				if ($instanceOf($ObjectArray, o)) {
-					hashcode += $Arrays::deepHashCode($cast($ObjectArray, o));
-				} else if ($instanceOf($bytes, o)) {
-					hashcode += $Arrays::hashCode($cast($bytes, o));
-				} else if ($instanceOf($shorts, o)) {
-					hashcode += $Arrays::hashCode($cast($shorts, o));
-				} else if ($instanceOf($ints, o)) {
-					hashcode += $Arrays::hashCode($cast($ints, o));
-				} else if ($instanceOf($longs, o)) {
-					hashcode += $Arrays::hashCode($cast($longs, o));
-				} else if ($instanceOf($chars, o)) {
-					hashcode += $Arrays::hashCode($cast($chars, o));
-				} else if ($instanceOf($floats, o)) {
-					hashcode += $Arrays::hashCode($cast($floats, o));
-				} else if ($instanceOf($doubles, o)) {
-					hashcode += $Arrays::hashCode($cast($doubles, o));
-				} else if ($instanceOf($booleans, o)) {
-					hashcode += $Arrays::hashCode($cast($booleans, o));
-				} else if (o != nullptr) {
-					hashcode += $of(o)->hashCode();
-				}
+			if ($instanceOf($ObjectArray, o)) {
+				hashcode += $Arrays::deepHashCode($cast($ObjectArray, o));
+			} else if ($instanceOf($bytes, o)) {
+				hashcode += $Arrays::hashCode($cast($bytes, o));
+			} else if ($instanceOf($shorts, o)) {
+				hashcode += $Arrays::hashCode($cast($shorts, o));
+			} else if ($instanceOf($ints, o)) {
+				hashcode += $Arrays::hashCode($cast($ints, o));
+			} else if ($instanceOf($longs, o)) {
+				hashcode += $Arrays::hashCode($cast($longs, o));
+			} else if ($instanceOf($chars, o)) {
+				hashcode += $Arrays::hashCode($cast($chars, o));
+			} else if ($instanceOf($floats, o)) {
+				hashcode += $Arrays::hashCode($cast($floats, o));
+			} else if ($instanceOf($doubles, o)) {
+				hashcode += $Arrays::hashCode($cast($doubles, o));
+			} else if ($instanceOf($booleans, o)) {
+				hashcode += $Arrays::hashCode($cast($booleans, o));
+			} else if (o != nullptr) {
+				hashcode += o->hashCode();
 			}
 		}
 	}
@@ -306,22 +262,22 @@ int32_t CompositeDataSupport::hashCode() {
 }
 
 $String* CompositeDataSupport::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $$new($StringBuilder)->append($($of(this)->getClass()->getName()))->append("(compositeType="_s)->append($($nc(this->compositeType)->toString()))->append(",contents="_s)->append($(contentString()))->append(")"_s)->toString();
 }
 
 $String* CompositeDataSupport::contentString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder, "{"_s));
 	$var($String, sep, ""_s);
 	{
-		$var($Iterator, i$, $nc($($nc(this->contents)->entrySet()))->iterator());
+		$var($Iterator, i$, $$nc($nc(this->contents)->entrySet())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Map$Entry, entry, $cast($Map$Entry, i$->next()));
 			{
-				sb->append(sep)->append($cast($String, $($nc(entry)->getKey())))->append("="_s);
-				$var($String, s, $Arrays::deepToString($$new($ObjectArray, {$($nc(entry)->getValue())})));
-				sb->append($($nc(s)->substring(1, s->length() - 1)));
+				sb->append(sep)->append($$cast($String, $nc(entry)->getKey()))->append("="_s);
+				$var($String, s, $Arrays::deepToString($$new($ObjectArray, {$(entry->getValue())})));
+				sb->append($($nc(s)->substring(1, $nc(s)->length() - 1)));
 				$assign(sep, ", "_s);
 			}
 		}
@@ -334,7 +290,43 @@ CompositeDataSupport::CompositeDataSupport() {
 }
 
 $Class* CompositeDataSupport::load$($String* name, bool initialize) {
-	$loadClass(CompositeDataSupport, name, initialize, &_CompositeDataSupport_ClassInfo_, allocate$CompositeDataSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(CompositeDataSupport, serialVersionUID)},
+		{"contents", "Ljava/util/SortedMap;", "Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $FINAL, $field(CompositeDataSupport, contents)},
+		{"compositeType", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE | $FINAL, $field(CompositeDataSupport, compositeType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(CompositeDataSupport, init$, void, $CompositeType*, $StringArray*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljavax/management/openmbean/CompositeType;Ljava/util/Map;)V", "(Ljavax/management/openmbean/CompositeType;Ljava/util/Map<Ljava/lang/String;*>;)V", $PUBLIC, $method(CompositeDataSupport, init$, void, $CompositeType*, $Map*), "javax.management.openmbean.OpenDataException"},
+		{"<init>", "(Ljava/util/SortedMap;Ljavax/management/openmbean/CompositeType;)V", "(Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/Object;>;Ljavax/management/openmbean/CompositeType;)V", $PRIVATE, $method(CompositeDataSupport, init$, void, $SortedMap*, $CompositeType*), "javax.management.openmbean.OpenDataException"},
+		{"containsKey", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, containsKey, bool, $String*)},
+		{"containsValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, containsValue, bool, Object$*)},
+		{"contentString", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(CompositeDataSupport, contentString, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, equals, bool, Object$*)},
+		{"get", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, get, $Object*, $String*)},
+		{"getAll", "([Ljava/lang/String;)[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, getAll, $ObjectArray*, $StringArray*)},
+		{"getCompositeType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, getCompositeType, $CompositeType*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, hashCode, int32_t)},
+		{"makeMap", "([Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/SortedMap;", "([Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(CompositeDataSupport, makeMap, $SortedMap*, $StringArray*, $ObjectArray*), "javax.management.openmbean.OpenDataException"},
+		{"makeMap", "(Ljava/util/Map;)Ljava/util/SortedMap;", "(Ljava/util/Map<Ljava/lang/String;*>;)Ljava/util/SortedMap<Ljava/lang/String;Ljava/lang/Object;>;", $PRIVATE | $STATIC, $staticMethod(CompositeDataSupport, makeMap, $SortedMap*, $Map*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CompositeDataSupport, toString, $String*)},
+		{"values", "()Ljava/util/Collection;", "()Ljava/util/Collection<*>;", $PUBLIC, $virtualMethod(CompositeDataSupport, values, $Collection*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.CompositeDataSupport",
+		"java.lang.Object",
+		"javax.management.openmbean.CompositeData,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CompositeDataSupport, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CompositeDataSupport));
+	});
 	return class$;
 }
 

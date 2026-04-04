@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpResponseImpl.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/URI.h>
 #include <java/net/http/HttpClient$Version.h>
@@ -27,7 +26,6 @@ using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpResponse = ::java::net::http::HttpResponse;
 using $Optional = ::java::util::Optional;
 using $Exchange = ::jdk::internal::net::http::Exchange;
-using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $HttpResponseImpl$RawChannelProvider = ::jdk::internal::net::http::HttpResponseImpl$RawChannelProvider;
 using $Response = ::jdk::internal::net::http::Response;
 using $RawChannel = ::jdk::internal::net::http::websocket::RawChannel;
@@ -36,64 +34,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _HttpResponseImpl_FieldInfo_[] = {
-	{"responseCode", "I", nullptr, $FINAL, $field(HttpResponseImpl, responseCode)},
-	{"initialRequest", "Ljava/net/http/HttpRequest;", nullptr, $FINAL, $field(HttpResponseImpl, initialRequest)},
-	{"previousResponse", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $FINAL, $field(HttpResponseImpl, previousResponse$)},
-	{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $FINAL, $field(HttpResponseImpl, headers$)},
-	{"sslSession", "Ljava/util/Optional;", "Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $FINAL, $field(HttpResponseImpl, sslSession$)},
-	{"uri", "Ljava/net/URI;", nullptr, $FINAL, $field(HttpResponseImpl, uri$)},
-	{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $FINAL, $field(HttpResponseImpl, version$)},
-	{"rawChannelProvider", "Ljdk/internal/net/http/HttpResponseImpl$RawChannelProvider;", nullptr, $FINAL, $field(HttpResponseImpl, rawChannelProvider)},
-	{"body", "Ljava/lang/Object;", "TT;", $FINAL, $field(HttpResponseImpl, body$)},
-	{}
-};
-
-$MethodInfo _HttpResponseImpl_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/net/http/HttpRequest;Ljdk/internal/net/http/Response;Ljava/net/http/HttpResponse;Ljava/lang/Object;Ljdk/internal/net/http/Exchange;)V", "(Ljava/net/http/HttpRequest;Ljdk/internal/net/http/Response;Ljava/net/http/HttpResponse<TT;>;TT;Ljdk/internal/net/http/Exchange<TT;>;)V", $PUBLIC, $method(HttpResponseImpl, init$, void, $HttpRequest*, $Response*, $HttpResponse*, Object$*, $Exchange*)},
-	{"body", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(HttpResponseImpl, body, $Object*)},
-	{"closeRawChannel", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpResponseImpl, closeRawChannel, void), "java.io.IOException"},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, headers, $HttpHeaders*)},
-	{"previousResponse", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpResponseImpl, previousResponse, $Optional*)},
-	{"rawChannel", "()Ljdk/internal/net/http/websocket/RawChannel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpResponseImpl, rawChannel, $RawChannel*), "java.io.IOException"},
-	{"request", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, request, $HttpRequest*)},
-	{"sslSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC, $virtualMethod(HttpResponseImpl, sslSession, $Optional*)},
-	{"statusCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, statusCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, toString, $String*)},
-	{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, uri, $URI*)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, version, $HttpClient$Version*)},
-	{}
-};
-
-$InnerClassInfo _HttpResponseImpl_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.websocket.RawChannel$Provider", "jdk.internal.net.http.websocket.RawChannel", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.HttpResponseImpl$RawChannelProvider", "jdk.internal.net.http.HttpResponseImpl", "RawChannelProvider", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _HttpResponseImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.HttpResponseImpl",
-	"java.lang.Object",
-	"java.net.http.HttpResponse,jdk.internal.net.http.websocket.RawChannel$Provider",
-	_HttpResponseImpl_FieldInfo_,
-	_HttpResponseImpl_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/net/http/HttpResponse<TT;>;Ljdk/internal/net/http/websocket/RawChannel$Provider;",
-	nullptr,
-	_HttpResponseImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.HttpResponseImpl$RawChannelProvider"
-};
-
-$Object* allocate$HttpResponseImpl($Class* clazz) {
-	return $of($alloc(HttpResponseImpl));
-}
 
 int32_t HttpResponseImpl::hashCode() {
 	 return this->$HttpResponse::hashCode();
@@ -112,13 +52,13 @@ void HttpResponseImpl::finalize() {
 }
 
 void HttpResponseImpl::init$($HttpRequest* initialRequest, $Response* response, $HttpResponse* previousResponse, Object$* body, $Exchange* exch) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->responseCode = $nc(response)->statusCode();
 	$set(this, initialRequest, initialRequest);
 	$set(this, previousResponse$, $Optional::ofNullable(previousResponse));
 	$set(this, headers$, response->headers());
 	$set(this, sslSession$, $Optional::ofNullable($(response->getSSLSession())));
-	$set(this, uri$, $nc($(response->request()))->uri());
+	$set(this, uri$, $$nc(response->request())->uri());
 	$set(this, version$, response->version());
 	$set(this, rawChannelProvider, $HttpResponseImpl$RawChannelProvider::create(response, exch));
 	$set(this, body$, body);
@@ -141,7 +81,7 @@ $HttpHeaders* HttpResponseImpl::headers() {
 }
 
 $Object* HttpResponseImpl::body() {
-	return $of(this->body$);
+	return this->body$;
 }
 
 $Optional* HttpResponseImpl::sslSession() {
@@ -175,11 +115,11 @@ void HttpResponseImpl::closeRawChannel() {
 }
 
 $String* HttpResponseImpl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
-	$var($String, method, $nc($(request()))->method());
-	$var($URI, uri, $nc($(request()))->uri());
-	$var($String, uristring, uri == nullptr ? ""_s : $nc(uri)->toString());
+	$var($String, method, $$nc(request())->method());
+	$var($URI, uri, $$nc(request())->uri());
+	$var($String, uristring, uri == nullptr ? ""_s : uri->toString());
 	sb->append(u'(')->append(method)->append(" "_s)->append(uristring)->append(") "_s)->append(statusCode());
 	return sb->toString();
 }
@@ -188,7 +128,59 @@ HttpResponseImpl::HttpResponseImpl() {
 }
 
 $Class* HttpResponseImpl::load$($String* name, bool initialize) {
-	$loadClass(HttpResponseImpl, name, initialize, &_HttpResponseImpl_ClassInfo_, allocate$HttpResponseImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"responseCode", "I", nullptr, $FINAL, $field(HttpResponseImpl, responseCode)},
+		{"initialRequest", "Ljava/net/http/HttpRequest;", nullptr, $FINAL, $field(HttpResponseImpl, initialRequest)},
+		{"previousResponse", "Ljava/util/Optional;", "Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $FINAL, $field(HttpResponseImpl, previousResponse$)},
+		{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $FINAL, $field(HttpResponseImpl, headers$)},
+		{"sslSession", "Ljava/util/Optional;", "Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $FINAL, $field(HttpResponseImpl, sslSession$)},
+		{"uri", "Ljava/net/URI;", nullptr, $FINAL, $field(HttpResponseImpl, uri$)},
+		{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $FINAL, $field(HttpResponseImpl, version$)},
+		{"rawChannelProvider", "Ljdk/internal/net/http/HttpResponseImpl$RawChannelProvider;", nullptr, $FINAL, $field(HttpResponseImpl, rawChannelProvider)},
+		{"body", "Ljava/lang/Object;", "TT;", $FINAL, $field(HttpResponseImpl, body$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/net/http/HttpRequest;Ljdk/internal/net/http/Response;Ljava/net/http/HttpResponse;Ljava/lang/Object;Ljdk/internal/net/http/Exchange;)V", "(Ljava/net/http/HttpRequest;Ljdk/internal/net/http/Response;Ljava/net/http/HttpResponse<TT;>;TT;Ljdk/internal/net/http/Exchange<TT;>;)V", $PUBLIC, $method(HttpResponseImpl, init$, void, $HttpRequest*, $Response*, $HttpResponse*, Object$*, $Exchange*)},
+		{"body", "()Ljava/lang/Object;", "()TT;", $PUBLIC, $virtualMethod(HttpResponseImpl, body, $Object*)},
+		{"closeRawChannel", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpResponseImpl, closeRawChannel, void), "java.io.IOException"},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, headers, $HttpHeaders*)},
+		{"previousResponse", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpResponseImpl, previousResponse, $Optional*)},
+		{"rawChannel", "()Ljdk/internal/net/http/websocket/RawChannel;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(HttpResponseImpl, rawChannel, $RawChannel*), "java.io.IOException"},
+		{"request", "()Ljava/net/http/HttpRequest;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, request, $HttpRequest*)},
+		{"sslSession", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljavax/net/ssl/SSLSession;>;", $PUBLIC, $virtualMethod(HttpResponseImpl, sslSession, $Optional*)},
+		{"statusCode", "()I", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, statusCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, toString, $String*)},
+		{"uri", "()Ljava/net/URI;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, uri, $URI*)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(HttpResponseImpl, version, $HttpClient$Version*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.websocket.RawChannel$Provider", "jdk.internal.net.http.websocket.RawChannel", "Provider", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.HttpResponseImpl$RawChannelProvider", "jdk.internal.net.http.HttpResponseImpl", "RawChannelProvider", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.HttpResponseImpl",
+		"java.lang.Object",
+		"java.net.http.HttpResponse,jdk.internal.net.http.websocket.RawChannel$Provider",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/net/http/HttpResponse<TT;>;Ljdk/internal/net/http/websocket/RawChannel$Provider;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.HttpResponseImpl$RawChannelProvider"
+	};
+	$loadClass(HttpResponseImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpResponseImpl));
+	});
 	return class$;
 }
 

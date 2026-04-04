@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$SubSecTimeDigitized.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$SubSecTimeDigitized_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SubSecTimeDigitized, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$SubSecTimeDigitized_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubSecTimeDigitized", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SubSecTimeDigitized", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$SubSecTimeDigitized_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubSecTimeDigitized",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SubSecTimeDigitized_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$SubSecTimeDigitized_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$SubSecTimeDigitized($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$SubSecTimeDigitized));
-}
-
 void ExifTIFFTagSet$SubSecTimeDigitized::init$() {
 	$TIFFTag::init$("SubSecTimeDigitized"_s, 0x00009292, $sl(1, $TIFFTag::TIFF_ASCII));
 }
@@ -54,7 +23,32 @@ ExifTIFFTagSet$SubSecTimeDigitized::ExifTIFFTagSet$SubSecTimeDigitized() {
 }
 
 $Class* ExifTIFFTagSet$SubSecTimeDigitized::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$SubSecTimeDigitized, name, initialize, &_ExifTIFFTagSet$SubSecTimeDigitized_ClassInfo_, allocate$ExifTIFFTagSet$SubSecTimeDigitized);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$SubSecTimeDigitized, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubSecTimeDigitized", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "SubSecTimeDigitized", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$SubSecTimeDigitized",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$SubSecTimeDigitized, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$SubSecTimeDigitized);
+	});
 	return class$;
 }
 

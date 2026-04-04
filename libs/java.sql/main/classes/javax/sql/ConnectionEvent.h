@@ -27,7 +27,7 @@ public:
 	void init$(::javax::sql::PooledConnection* con, ::java::sql::SQLException* ex);
 	virtual ::java::sql::SQLException* getSQLException();
 	::java::sql::SQLException* ex = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xBCC96F364A957C4E;
+	static const int64_t serialVersionUID = (int64_t)0xbcc96f364a957c4e;
 };
 
 	} // sql

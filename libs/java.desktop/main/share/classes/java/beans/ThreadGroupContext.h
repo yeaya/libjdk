@@ -39,6 +39,7 @@ class ThreadGroupContext : public ::java::lang::Object {
 	$class(ThreadGroupContext, 0, ::java::lang::Object)
 public:
 	ThreadGroupContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void clearBeanInfoCache();
 	::java::beans::BeanInfo* getBeanInfo($Class* type);

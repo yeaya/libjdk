@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/XSLTCSource.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/StripFilter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
@@ -9,7 +8,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
-#include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
 #include <java/lang/ThreadLocal.h>
 #include <javax/xml/transform/Source.h>
 #include <javax/xml/transform/stream/StreamSource.h>
@@ -25,8 +23,6 @@ using $DOMWSFilter = ::com::sun::org::apache::xalan::internal::xsltc::dom::DOMWS
 using $SAXImpl = ::com::sun::org::apache::xalan::internal::xsltc::dom::SAXImpl;
 using $XSLTCDTMManager = ::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager;
 using $AbstractTranslet = ::com::sun::org::apache::xalan::internal::xsltc::runtime::AbstractTranslet;
-using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
-using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -43,35 +39,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace trax {
-
-$FieldInfo _XSLTCSource_FieldInfo_[] = {
-	{"_systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTCSource, _systemId)},
-	{"_source", "Ljavax/xml/transform/Source;", nullptr, $PRIVATE, $field(XSLTCSource, _source)},
-	{"_dom", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;>;", $PRIVATE, $field(XSLTCSource, _dom)},
-	{}
-};
-
-$MethodInfo _XSLTCSource_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTCSource, init$, void, $String*)},
-	{"<init>", "(Ljavax/xml/transform/Source;)V", nullptr, $PUBLIC, $method(XSLTCSource, init$, void, $Source*)},
-	{"getDOM", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PROTECTED, $method(XSLTCSource, getDOM, $DOM*, $XSLTCDTMManager*, $AbstractTranslet*), "org.xml.sax.SAXException"},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSLTCSource, getSystemId, $String*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XSLTCSource, setSystemId, void, $String*)},
-	{}
-};
-
-$ClassInfo _XSLTCSource_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.trax.XSLTCSource",
-	"java.lang.Object",
-	"javax.xml.transform.Source",
-	_XSLTCSource_FieldInfo_,
-	_XSLTCSource_MethodInfo_
-};
-
-$Object* allocate$XSLTCSource($Class* clazz) {
-	return $of($alloc(XSLTCSource));
-}
 
 void XSLTCSource::init$($String* systemId) {
 	$set(this, _systemId, nullptr);
@@ -90,20 +57,20 @@ void XSLTCSource::init$($Source* source) {
 void XSLTCSource::setSystemId($String* systemId) {
 	$set(this, _systemId, systemId);
 	if (this->_source != nullptr) {
-		$nc(this->_source)->setSystemId(systemId);
+		this->_source->setSystemId(systemId);
 	}
 }
 
 $String* XSLTCSource::getSystemId() {
 	if (this->_source != nullptr) {
-		return $nc(this->_source)->getSystemId();
+		return this->_source->getSystemId();
 	} else {
 		return (this->_systemId);
 	}
 }
 
 $DOM* XSLTCSource::getDOM($XSLTCDTMManager* dtmManager$renamed, $AbstractTranslet* translet) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSLTCDTMManager, dtmManager, dtmManager$renamed);
 	$var($SAXImpl, idom, $cast($SAXImpl, $nc(this->_dom)->get()));
 	if (idom != nullptr) {
@@ -113,7 +80,7 @@ $DOM* XSLTCSource::getDOM($XSLTCDTMManager* dtmManager$renamed, $AbstractTransle
 	} else {
 		$var($Source, source, this->_source);
 		if (source == nullptr) {
-			if (this->_systemId != nullptr && $nc(this->_systemId)->length() > 0) {
+			if (this->_systemId != nullptr && this->_systemId->length() > 0) {
 				$assign(source, $new($StreamSource, this->_systemId));
 			} else {
 				$init($ErrorMsg);
@@ -125,7 +92,7 @@ $DOM* XSLTCSource::getDOM($XSLTCDTMManager* dtmManager$renamed, $AbstractTransle
 		if (translet != nullptr && $instanceOf($StripFilter, translet)) {
 			$assign(wsfilter, $new($DOMWSFilter, translet));
 		}
-		bool hasIdCall = (translet != nullptr) ? $nc(translet)->hasIdCall() : false;
+		bool hasIdCall = (translet != nullptr) ? translet->hasIdCall() : false;
 		if (dtmManager == nullptr) {
 			$assign(dtmManager, $XSLTCDTMManager::newInstance());
 		}
@@ -143,7 +110,31 @@ XSLTCSource::XSLTCSource() {
 }
 
 $Class* XSLTCSource::load$($String* name, bool initialize) {
-	$loadClass(XSLTCSource, name, initialize, &_XSLTCSource_ClassInfo_, allocate$XSLTCSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"_systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTCSource, _systemId)},
+		{"_source", "Ljavax/xml/transform/Source;", nullptr, $PRIVATE, $field(XSLTCSource, _source)},
+		{"_dom", "Ljava/lang/ThreadLocal;", "Ljava/lang/ThreadLocal<Lcom/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl;>;", $PRIVATE, $field(XSLTCSource, _dom)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTCSource, init$, void, $String*)},
+		{"<init>", "(Ljavax/xml/transform/Source;)V", nullptr, $PUBLIC, $method(XSLTCSource, init$, void, $Source*)},
+		{"getDOM", "(Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;Lcom/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet;)Lcom/sun/org/apache/xalan/internal/xsltc/DOM;", nullptr, $PROTECTED, $method(XSLTCSource, getDOM, $DOM*, $XSLTCDTMManager*, $AbstractTranslet*), "org.xml.sax.SAXException"},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSLTCSource, getSystemId, $String*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(XSLTCSource, setSystemId, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.trax.XSLTCSource",
+		"java.lang.Object",
+		"javax.xml.transform.Source",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSLTCSource, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSLTCSource);
+	});
 	return class$;
 }
 

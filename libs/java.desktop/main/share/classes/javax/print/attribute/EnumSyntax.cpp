@@ -1,5 +1,4 @@
 #include <javax/print/attribute/EnumSyntax.h>
-
 #include <java/io/InvalidObjectException.h>
 #include <java/io/Serializable.h>
 #include <jcpp.h>
@@ -15,40 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace print {
 		namespace attribute {
-
-$FieldInfo _EnumSyntax_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EnumSyntax, serialVersionUID)},
-	{"value", "I", nullptr, $PRIVATE, $field(EnumSyntax, value)},
-	{}
-};
-
-$MethodInfo _EnumSyntax_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(I)V", nullptr, $PROTECTED, $method(EnumSyntax, init$, void, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumSyntax, clone, $Object*)},
-	{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(EnumSyntax, getEnumValueTable, $EnumSyntaxArray*)},
-	{"getOffset", "()I", nullptr, $PROTECTED, $virtualMethod(EnumSyntax, getOffset, int32_t)},
-	{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(EnumSyntax, getStringTable, $StringArray*)},
-	{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(EnumSyntax, getValue, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EnumSyntax, hashCode, int32_t)},
-	{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(EnumSyntax, readResolve, $Object*), "java.io.ObjectStreamException"},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumSyntax, toString, $String*)},
-	{}
-};
-
-$ClassInfo _EnumSyntax_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.print.attribute.EnumSyntax",
-	"java.lang.Object",
-	"java.io.Serializable,java.lang.Cloneable",
-	_EnumSyntax_FieldInfo_,
-	_EnumSyntax_MethodInfo_
-};
-
-$Object* allocate$EnumSyntax($Class* clazz) {
-	return $of($alloc(EnumSyntax));
-}
 
 bool EnumSyntax::equals(Object$* arg0) {
 	 return this->$Serializable::equals(arg0);
@@ -77,11 +42,11 @@ int32_t EnumSyntax::hashCode() {
 $String* EnumSyntax::toString() {
 	$var($StringArray, theTable, getStringTable());
 	int32_t theIndex = this->value - getOffset();
-	return theTable != nullptr && theIndex >= 0 && theIndex < theTable->length ? $nc(theTable)->get(theIndex) : $Integer::toString(this->value);
+	return theTable != nullptr && theIndex >= 0 && theIndex < theTable->length ? theTable->get(theIndex) : $Integer::toString(this->value);
 }
 
 $Object* EnumSyntax::readResolve() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EnumSyntaxArray, theTable, getEnumValueTable());
 	if (theTable == nullptr) {
 		$throwNew($InvalidObjectException, $$str({"Null enumeration value table for class "_s, $of(this)->getClass()}));
@@ -89,7 +54,7 @@ $Object* EnumSyntax::readResolve() {
 	int32_t theOffset = getOffset();
 	int32_t theIndex = this->value - theOffset;
 	if (0 > theIndex || theIndex >= $nc(theTable)->length) {
-		$throwNew($InvalidObjectException, $$str({"Integer value = "_s, $$str(this->value), " not in valid range "_s, $$str(theOffset), ".."_s, $$str((theOffset + theTable->length - 1)), "for class "_s, $of(this)->getClass()}));
+		$throwNew($InvalidObjectException, $$str({"Integer value = "_s, $$str(this->value), " not in valid range "_s, $$str(theOffset), ".."_s, $$str((theOffset + $nc(theTable)->length - 1)), "for class "_s, $of(this)->getClass()}));
 	}
 	$var(EnumSyntax, result, $nc(theTable)->get(theIndex));
 	if (result == nullptr) {
@@ -114,7 +79,36 @@ EnumSyntax::EnumSyntax() {
 }
 
 $Class* EnumSyntax::load$($String* name, bool initialize) {
-	$loadClass(EnumSyntax, name, initialize, &_EnumSyntax_ClassInfo_, allocate$EnumSyntax);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(EnumSyntax, serialVersionUID)},
+		{"value", "I", nullptr, $PRIVATE, $field(EnumSyntax, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(I)V", nullptr, $PROTECTED, $method(EnumSyntax, init$, void, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumSyntax, clone, $Object*)},
+		{"getEnumValueTable", "()[Ljavax/print/attribute/EnumSyntax;", nullptr, $PROTECTED, $virtualMethod(EnumSyntax, getEnumValueTable, $EnumSyntaxArray*)},
+		{"getOffset", "()I", nullptr, $PROTECTED, $virtualMethod(EnumSyntax, getOffset, int32_t)},
+		{"getStringTable", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(EnumSyntax, getStringTable, $StringArray*)},
+		{"getValue", "()I", nullptr, $PUBLIC, $virtualMethod(EnumSyntax, getValue, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(EnumSyntax, hashCode, int32_t)},
+		{"readResolve", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(EnumSyntax, readResolve, $Object*), "java.io.ObjectStreamException"},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumSyntax, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.print.attribute.EnumSyntax",
+		"java.lang.Object",
+		"java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EnumSyntax, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EnumSyntax));
+	});
 	return class$;
 }
 

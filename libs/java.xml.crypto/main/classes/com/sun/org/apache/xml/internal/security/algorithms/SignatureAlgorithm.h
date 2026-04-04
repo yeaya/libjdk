@@ -78,6 +78,7 @@ class SignatureAlgorithm : public ::com::sun::org::apache::xml::internal::securi
 	$class(SignatureAlgorithm, 0, ::com::sun::org::apache::xml::internal::security::algorithms::Algorithm)
 public:
 	SignatureAlgorithm();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::org::w3c::dom::Document* doc, $String* algorithmURI);
 	void init$(::org::w3c::dom::Document* doc, $String* algorithmURI, ::java::security::Provider* provider);
 	void init$(::org::w3c::dom::Document* doc, $String* algorithmURI, ::java::security::Provider* provider, ::java::security::spec::AlgorithmParameterSpec* parameterSpec);

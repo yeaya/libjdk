@@ -1,5 +1,4 @@
 #include <javax/swing/Spring$MaxSpring.h>
-
 #include <java/lang/Math.h>
 #include <javax/swing/Spring$AbstractSpring.h>
 #include <javax/swing/Spring$CompoundSpring.h>
@@ -15,39 +14,6 @@ using $Spring$CompoundSpring = ::javax::swing::Spring$CompoundSpring;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _Spring$MaxSpring_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(Spring$MaxSpring, init$, void, $Spring*, $Spring*)},
-	{"op", "(II)I", nullptr, $PROTECTED, $virtualMethod(Spring$MaxSpring, op, int32_t, int32_t, int32_t)},
-	{"setNonClearValue", "(I)V", nullptr, $PROTECTED, $virtualMethod(Spring$MaxSpring, setNonClearValue, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Spring$MaxSpring_InnerClassesInfo_[] = {
-	{"javax.swing.Spring$MaxSpring", "javax.swing.Spring", "MaxSpring", $PRIVATE | $STATIC},
-	{"javax.swing.Spring$CompoundSpring", "javax.swing.Spring", "CompoundSpring", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Spring$MaxSpring_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.Spring$MaxSpring",
-	"javax.swing.Spring$CompoundSpring",
-	nullptr,
-	nullptr,
-	_Spring$MaxSpring_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Spring$MaxSpring_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.Spring"
-};
-
-$Object* allocate$Spring$MaxSpring($Class* clazz) {
-	return $of($alloc(Spring$MaxSpring));
-}
 
 void Spring$MaxSpring::init$($Spring* s1, $Spring* s2) {
 	$Spring$CompoundSpring::init$(s1, s2);
@@ -67,7 +33,35 @@ Spring$MaxSpring::Spring$MaxSpring() {
 }
 
 $Class* Spring$MaxSpring::load$($String* name, bool initialize) {
-	$loadClass(Spring$MaxSpring, name, initialize, &_Spring$MaxSpring_ClassInfo_, allocate$Spring$MaxSpring);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/Spring;Ljavax/swing/Spring;)V", nullptr, $PUBLIC, $method(Spring$MaxSpring, init$, void, $Spring*, $Spring*)},
+		{"op", "(II)I", nullptr, $PROTECTED, $virtualMethod(Spring$MaxSpring, op, int32_t, int32_t, int32_t)},
+		{"setNonClearValue", "(I)V", nullptr, $PROTECTED, $virtualMethod(Spring$MaxSpring, setNonClearValue, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Spring$MaxSpring", "javax.swing.Spring", "MaxSpring", $PRIVATE | $STATIC},
+		{"javax.swing.Spring$CompoundSpring", "javax.swing.Spring", "CompoundSpring", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.Spring$MaxSpring",
+		"javax.swing.Spring$CompoundSpring",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.Spring"
+	};
+	$loadClass(Spring$MaxSpring, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spring$MaxSpring);
+	});
 	return class$;
 }
 

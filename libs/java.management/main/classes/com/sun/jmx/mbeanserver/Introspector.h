@@ -55,6 +55,7 @@ class Introspector : public ::java::lang::Object {
 public:
 	Introspector();
 	using ::java::lang::Object::equals;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* annotationToField(Object$* x);
 	static void checkCompliance($Class* mbeanClass);

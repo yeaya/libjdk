@@ -1,5 +1,4 @@
 #include <com/sun/source/util/TreePath.h>
-
 #include <com/sun/source/tree/CompilationUnitTree.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/Tree.h>
@@ -30,51 +29,6 @@ namespace com {
 		namespace source {
 			namespace util {
 
-$FieldInfo _TreePath_FieldInfo_[] = {
-	{"compilationUnit", "Lcom/sun/source/tree/CompilationUnitTree;", nullptr, $PRIVATE, $field(TreePath, compilationUnit)},
-	{"leaf", "Lcom/sun/source/tree/Tree;", nullptr, $PRIVATE, $field(TreePath, leaf)},
-	{"parent", "Lcom/sun/source/util/TreePath;", nullptr, $PRIVATE, $field(TreePath, parent)},
-	{}
-};
-
-$MethodInfo _TreePath_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, $CompilationUnitTree*)},
-	{"<init>", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, TreePath*, $Tree*)},
-	{"getCompilationUnit", "()Lcom/sun/source/tree/CompilationUnitTree;", nullptr, $PUBLIC, $virtualMethod(TreePath, getCompilationUnit, $CompilationUnitTree*)},
-	{"getLeaf", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(TreePath, getLeaf, $Tree*)},
-	{"getParentPath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath, getParentPath, TreePath*)},
-	{"getPath", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreePath, getPath, TreePath*, $CompilationUnitTree*, $Tree*)},
-	{"getPath", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreePath, getPath, TreePath*, TreePath*, $Tree*)},
-	{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/source/tree/Tree;>;", $PUBLIC, $virtualMethod(TreePath, iterator, $Iterator*)},
-	{}
-};
-
-$InnerClassInfo _TreePath_InnerClassesInfo_[] = {
-	{"com.sun.source.util.TreePath$1", nullptr, nullptr, 0},
-	{"com.sun.source.util.TreePath$1PathFinder", nullptr, "PathFinder", 0},
-	{"com.sun.source.util.TreePath$1Result", nullptr, "Result", 0},
-	{}
-};
-
-$ClassInfo _TreePath_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.source.util.TreePath",
-	"java.lang.Object",
-	"java.lang.Iterable",
-	_TreePath_FieldInfo_,
-	_TreePath_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Iterable<Lcom/sun/source/tree/Tree;>;",
-	nullptr,
-	_TreePath_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.source.util.TreePath$1,com.sun.source.util.TreePath$1PathFinder,com.sun.source.util.TreePath$1Result"
-};
-
-$Object* allocate$TreePath($Class* clazz) {
-	return $of($alloc(TreePath));
-}
-
 TreePath* TreePath::getPath($CompilationUnitTree* unit, $Tree* target) {
 	$init(TreePath);
 	return getPath($$new(TreePath, unit), target);
@@ -92,7 +46,7 @@ TreePath* TreePath::getPath(TreePath* path, $Tree* target) {
 		return path;
 	}
 	try {
-		$$new($TreePath$1PathFinder)->scan(path, $of(target));
+		$$new($TreePath$1PathFinder)->scan(path, target);
 	} catch ($TreePath$1Result& result) {
 		return result->path;
 	}
@@ -135,7 +89,46 @@ TreePath::TreePath() {
 }
 
 $Class* TreePath::load$($String* name, bool initialize) {
-	$loadClass(TreePath, name, initialize, &_TreePath_ClassInfo_, allocate$TreePath);
+	$FieldInfo fieldInfos$$[] = {
+		{"compilationUnit", "Lcom/sun/source/tree/CompilationUnitTree;", nullptr, $PRIVATE, $field(TreePath, compilationUnit)},
+		{"leaf", "Lcom/sun/source/tree/Tree;", nullptr, $PRIVATE, $field(TreePath, leaf)},
+		{"parent", "Lcom/sun/source/util/TreePath;", nullptr, $PRIVATE, $field(TreePath, parent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/source/tree/CompilationUnitTree;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, $CompilationUnitTree*)},
+		{"<init>", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)V", nullptr, $PUBLIC, $method(TreePath, init$, void, TreePath*, $Tree*)},
+		{"getCompilationUnit", "()Lcom/sun/source/tree/CompilationUnitTree;", nullptr, $PUBLIC, $virtualMethod(TreePath, getCompilationUnit, $CompilationUnitTree*)},
+		{"getLeaf", "()Lcom/sun/source/tree/Tree;", nullptr, $PUBLIC, $virtualMethod(TreePath, getLeaf, $Tree*)},
+		{"getParentPath", "()Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC, $virtualMethod(TreePath, getParentPath, TreePath*)},
+		{"getPath", "(Lcom/sun/source/tree/CompilationUnitTree;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreePath, getPath, TreePath*, $CompilationUnitTree*, $Tree*)},
+		{"getPath", "(Lcom/sun/source/util/TreePath;Lcom/sun/source/tree/Tree;)Lcom/sun/source/util/TreePath;", nullptr, $PUBLIC | $STATIC, $staticMethod(TreePath, getPath, TreePath*, TreePath*, $Tree*)},
+		{"iterator", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lcom/sun/source/tree/Tree;>;", $PUBLIC, $virtualMethod(TreePath, iterator, $Iterator*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.source.util.TreePath$1", nullptr, nullptr, 0},
+		{"com.sun.source.util.TreePath$1PathFinder", nullptr, "PathFinder", 0},
+		{"com.sun.source.util.TreePath$1Result", nullptr, "Result", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.source.util.TreePath",
+		"java.lang.Object",
+		"java.lang.Iterable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Iterable<Lcom/sun/source/tree/Tree;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.source.util.TreePath$1,com.sun.source.util.TreePath$1PathFinder,com.sun.source.util.TreePath$1Result"
+	};
+	$loadClass(TreePath, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreePath);
+	});
 	return class$;
 }
 

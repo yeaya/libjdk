@@ -14,10 +14,13 @@ public:
 	TimeLimitExceededException();
 	void init$();
 	void init$($String* explanation);
-	static const int64_t serialVersionUID = (int64_t)0xCE14DB5CA6841838;
+	static const int64_t serialVersionUID = (int64_t)0xce14db5ca6841838;
 	TimeLimitExceededException(const TimeLimitExceededException& e);
 	virtual void throw$() override;
-	inline TimeLimitExceededException* operator ->() {
+	inline TimeLimitExceededException* operator ->() const {
+		return (TimeLimitExceededException*)throwing$;
+	}
+	inline operator TimeLimitExceededException*() const {
 		return (TimeLimitExceededException*)throwing$;
 	}
 };

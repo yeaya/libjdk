@@ -1,5 +1,4 @@
 #include <java/rmi/dgc/Lease.h>
-
 #include <java/rmi/dgc/VMID.h>
 #include <jcpp.h>
 
@@ -11,33 +10,6 @@ using $VMID = ::java::rmi::dgc::VMID;
 namespace java {
 	namespace rmi {
 		namespace dgc {
-
-$FieldInfo _Lease_FieldInfo_[] = {
-	{"vmid", "Ljava/rmi/dgc/VMID;", nullptr, $PRIVATE, $field(Lease, vmid)},
-	{"value", "J", nullptr, $PRIVATE, $field(Lease, value)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Lease, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Lease_MethodInfo_[] = {
-	{"<init>", "(Ljava/rmi/dgc/VMID;J)V", nullptr, $PUBLIC, $method(Lease, init$, void, $VMID*, int64_t)},
-	{"getVMID", "()Ljava/rmi/dgc/VMID;", nullptr, $PUBLIC, $method(Lease, getVMID, $VMID*)},
-	{"getValue", "()J", nullptr, $PUBLIC, $method(Lease, getValue, int64_t)},
-	{}
-};
-
-$ClassInfo _Lease_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.rmi.dgc.Lease",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_Lease_FieldInfo_,
-	_Lease_MethodInfo_
-};
-
-$Object* allocate$Lease($Class* clazz) {
-	return $of($alloc(Lease));
-}
 
 void Lease::init$($VMID* id, int64_t duration) {
 	$set(this, vmid, id);
@@ -56,7 +28,29 @@ Lease::Lease() {
 }
 
 $Class* Lease::load$($String* name, bool initialize) {
-	$loadClass(Lease, name, initialize, &_Lease_ClassInfo_, allocate$Lease);
+	$FieldInfo fieldInfos$$[] = {
+		{"vmid", "Ljava/rmi/dgc/VMID;", nullptr, $PRIVATE, $field(Lease, vmid)},
+		{"value", "J", nullptr, $PRIVATE, $field(Lease, value)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Lease, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/rmi/dgc/VMID;J)V", nullptr, $PUBLIC, $method(Lease, init$, void, $VMID*, int64_t)},
+		{"getVMID", "()Ljava/rmi/dgc/VMID;", nullptr, $PUBLIC, $method(Lease, getVMID, $VMID*)},
+		{"getValue", "()J", nullptr, $PUBLIC, $method(Lease, getValue, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.rmi.dgc.Lease",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Lease, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lease);
+	});
 	return class$;
 }
 

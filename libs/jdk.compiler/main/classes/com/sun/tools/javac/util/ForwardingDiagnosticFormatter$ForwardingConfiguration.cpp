@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/ForwardingDiagnosticFormatter$ForwardingConfiguration.h>
-
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit.h>
 #include <com/sun/tools/javac/api/DiagnosticFormatter$Configuration.h>
 #include <com/sun/tools/javac/util/ForwardingDiagnosticFormatter.h>
@@ -19,47 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _ForwardingDiagnosticFormatter$ForwardingConfiguration_FieldInfo_[] = {
-	{"configuration", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PROTECTED, $field(ForwardingDiagnosticFormatter$ForwardingConfiguration, configuration)},
-	{}
-};
-
-$MethodInfo _ForwardingDiagnosticFormatter$ForwardingConfiguration_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;)V", nullptr, $PUBLIC, $method(ForwardingDiagnosticFormatter$ForwardingConfiguration, init$, void, $DiagnosticFormatter$Configuration*)},
-	{"getDelegatedConfiguration", "()Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getDelegatedConfiguration, $DiagnosticFormatter$Configuration*)},
-	{"getMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;)I", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getMultilineLimit, int32_t, $DiagnosticFormatter$Configuration$MultilineLimit*)},
-	{"getVisible", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getVisible, $Set*)},
-	{"setMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;I)V", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, setMultilineLimit, void, $DiagnosticFormatter$Configuration$MultilineLimit*, int32_t)},
-	{"setVisible", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, setVisible, void, $Set*)},
-	{}
-};
-
-$InnerClassInfo _ForwardingDiagnosticFormatter$ForwardingConfiguration_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.ForwardingDiagnosticFormatter$ForwardingConfiguration", "com.sun.tools.javac.util.ForwardingDiagnosticFormatter", "ForwardingConfiguration", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "com.sun.tools.javac.api.DiagnosticFormatter", "Configuration", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ForwardingDiagnosticFormatter$ForwardingConfiguration_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.ForwardingDiagnosticFormatter$ForwardingConfiguration",
-	"java.lang.Object",
-	"com.sun.tools.javac.api.DiagnosticFormatter$Configuration",
-	_ForwardingDiagnosticFormatter$ForwardingConfiguration_FieldInfo_,
-	_ForwardingDiagnosticFormatter$ForwardingConfiguration_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ForwardingDiagnosticFormatter$ForwardingConfiguration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.ForwardingDiagnosticFormatter"
-};
-
-$Object* allocate$ForwardingDiagnosticFormatter$ForwardingConfiguration($Class* clazz) {
-	return $of($alloc(ForwardingDiagnosticFormatter$ForwardingConfiguration));
-}
 
 void ForwardingDiagnosticFormatter$ForwardingConfiguration::init$($DiagnosticFormatter$Configuration* configuration) {
 	$set(this, configuration, configuration);
@@ -89,7 +47,42 @@ ForwardingDiagnosticFormatter$ForwardingConfiguration::ForwardingDiagnosticForma
 }
 
 $Class* ForwardingDiagnosticFormatter$ForwardingConfiguration::load$($String* name, bool initialize) {
-	$loadClass(ForwardingDiagnosticFormatter$ForwardingConfiguration, name, initialize, &_ForwardingDiagnosticFormatter$ForwardingConfiguration_ClassInfo_, allocate$ForwardingDiagnosticFormatter$ForwardingConfiguration);
+	$FieldInfo fieldInfos$$[] = {
+		{"configuration", "Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PROTECTED, $field(ForwardingDiagnosticFormatter$ForwardingConfiguration, configuration)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;)V", nullptr, $PUBLIC, $method(ForwardingDiagnosticFormatter$ForwardingConfiguration, init$, void, $DiagnosticFormatter$Configuration*)},
+		{"getDelegatedConfiguration", "()Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration;", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getDelegatedConfiguration, $DiagnosticFormatter$Configuration*)},
+		{"getMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;)I", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getMultilineLimit, int32_t, $DiagnosticFormatter$Configuration$MultilineLimit*)},
+		{"getVisible", "()Ljava/util/Set;", "()Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, getVisible, $Set*)},
+		{"setMultilineLimit", "(Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$MultilineLimit;I)V", nullptr, $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, setMultilineLimit, void, $DiagnosticFormatter$Configuration$MultilineLimit*, int32_t)},
+		{"setVisible", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/api/DiagnosticFormatter$Configuration$DiagnosticPart;>;)V", $PUBLIC, $virtualMethod(ForwardingDiagnosticFormatter$ForwardingConfiguration, setVisible, void, $Set*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.ForwardingDiagnosticFormatter$ForwardingConfiguration", "com.sun.tools.javac.util.ForwardingDiagnosticFormatter", "ForwardingConfiguration", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.api.DiagnosticFormatter$Configuration", "com.sun.tools.javac.api.DiagnosticFormatter", "Configuration", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.ForwardingDiagnosticFormatter$ForwardingConfiguration",
+		"java.lang.Object",
+		"com.sun.tools.javac.api.DiagnosticFormatter$Configuration",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.ForwardingDiagnosticFormatter"
+	};
+	$loadClass(ForwardingDiagnosticFormatter$ForwardingConfiguration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ForwardingDiagnosticFormatter$ForwardingConfiguration);
+	});
 	return class$;
 }
 

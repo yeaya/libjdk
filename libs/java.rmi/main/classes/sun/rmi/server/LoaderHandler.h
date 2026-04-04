@@ -57,6 +57,7 @@ class $export LoaderHandler : public ::java::lang::Object {
 	$class(LoaderHandler, 0, ::java::lang::Object)
 public:
 	LoaderHandler();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void addPermissionsForURLs($Array<::java::net::URL>* urls, ::java::security::PermissionCollection* perms, bool forLoader);
 	static $String* getClassAnnotation($Class* cl);

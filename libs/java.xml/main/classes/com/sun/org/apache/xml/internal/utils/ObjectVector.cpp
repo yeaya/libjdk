@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/utils/ObjectVector.h>
-
 #include <jcpp.h>
 
 #undef MIN_VALUE
@@ -16,52 +15,6 @@ namespace com {
 				namespace xml {
 					namespace internal {
 						namespace utils {
-
-$FieldInfo _ObjectVector_FieldInfo_[] = {
-	{"m_blocksize", "I", nullptr, $PROTECTED, $field(ObjectVector, m_blocksize)},
-	{"m_map", "[Ljava/lang/Object;", nullptr, $PROTECTED, $field(ObjectVector, m_map)},
-	{"m_firstFree", "I", nullptr, $PROTECTED, $field(ObjectVector, m_firstFree)},
-	{"m_mapSize", "I", nullptr, $PROTECTED, $field(ObjectVector, m_mapSize)},
-	{}
-};
-
-$MethodInfo _ObjectVector_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectVector, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(ObjectVector, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(ObjectVector, init$, void, int32_t, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/ObjectVector;)V", nullptr, $PUBLIC, $method(ObjectVector, init$, void, ObjectVector*)},
-	{"addElement", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, addElement, void, Object$*)},
-	{"addElements", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, addElements, void, Object$*, int32_t)},
-	{"addElements", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, addElements, void, int32_t)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectVector, clone, $Object*), "java.lang.CloneNotSupportedException"},
-	{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, contains, bool, Object$*)},
-	{"elementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, elementAt, $Object*, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, indexOf, int32_t, Object$*, int32_t)},
-	{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, indexOf, int32_t, Object$*)},
-	{"insertElementAt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, insertElementAt, void, Object$*, int32_t)},
-	{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, lastIndexOf, int32_t, Object$*)},
-	{"removeAllElements", "()V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, removeAllElements, void)},
-	{"removeElement", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, removeElement, bool, Object$*)},
-	{"removeElementAt", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, removeElementAt, void, int32_t)},
-	{"setElementAt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, setElementAt, void, Object$*, int32_t)},
-	{"setSize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, setSize, void, int32_t)},
-	{"setToSize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, setToSize, void, int32_t)},
-	{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, size, int32_t)},
-	{}
-};
-
-$ClassInfo _ObjectVector_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.utils.ObjectVector",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_ObjectVector_FieldInfo_,
-	_ObjectVector_MethodInfo_
-};
-
-$Object* allocate$ObjectVector($Class* clazz) {
-	return $of($alloc(ObjectVector));
-}
 
 void ObjectVector::init$() {
 	this->m_firstFree = 0;
@@ -162,7 +115,7 @@ bool ObjectVector::removeElement(Object$* s) {
 			if ((i + 1) < this->m_firstFree) {
 				$System::arraycopy(this->m_map, i + 1, this->m_map, i - 1, this->m_firstFree - i);
 			} else {
-				$nc(this->m_map)->set(i, nullptr);
+				this->m_map->set(i, nullptr);
 			}
 			--this->m_firstFree;
 			return true;
@@ -185,7 +138,7 @@ void ObjectVector::setElementAt(Object$* value, int32_t index) {
 }
 
 $Object* ObjectVector::elementAt(int32_t i) {
-	return $of($nc(this->m_map)->get(i));
+	return $nc(this->m_map)->get(i);
 }
 
 bool ObjectVector::contains(Object$* s) {
@@ -232,14 +185,55 @@ void ObjectVector::setToSize(int32_t size) {
 }
 
 $Object* ObjectVector::clone() {
-	return $of($new(ObjectVector, this));
+	return $new(ObjectVector, this);
 }
 
 ObjectVector::ObjectVector() {
 }
 
 $Class* ObjectVector::load$($String* name, bool initialize) {
-	$loadClass(ObjectVector, name, initialize, &_ObjectVector_ClassInfo_, allocate$ObjectVector);
+	$FieldInfo fieldInfos$$[] = {
+		{"m_blocksize", "I", nullptr, $PROTECTED, $field(ObjectVector, m_blocksize)},
+		{"m_map", "[Ljava/lang/Object;", nullptr, $PROTECTED, $field(ObjectVector, m_map)},
+		{"m_firstFree", "I", nullptr, $PROTECTED, $field(ObjectVector, m_firstFree)},
+		{"m_mapSize", "I", nullptr, $PROTECTED, $field(ObjectVector, m_mapSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ObjectVector, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(ObjectVector, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(ObjectVector, init$, void, int32_t, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/utils/ObjectVector;)V", nullptr, $PUBLIC, $method(ObjectVector, init$, void, ObjectVector*)},
+		{"addElement", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, addElement, void, Object$*)},
+		{"addElements", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, addElements, void, Object$*, int32_t)},
+		{"addElements", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, addElements, void, int32_t)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(ObjectVector, clone, $Object*), "java.lang.CloneNotSupportedException"},
+		{"contains", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, contains, bool, Object$*)},
+		{"elementAt", "(I)Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, elementAt, $Object*, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;I)I", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, indexOf, int32_t, Object$*, int32_t)},
+		{"indexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, indexOf, int32_t, Object$*)},
+		{"insertElementAt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, insertElementAt, void, Object$*, int32_t)},
+		{"lastIndexOf", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, lastIndexOf, int32_t, Object$*)},
+		{"removeAllElements", "()V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, removeAllElements, void)},
+		{"removeElement", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, removeElement, bool, Object$*)},
+		{"removeElementAt", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, removeElementAt, void, int32_t)},
+		{"setElementAt", "(Ljava/lang/Object;I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, setElementAt, void, Object$*, int32_t)},
+		{"setSize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, setSize, void, int32_t)},
+		{"setToSize", "(I)V", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, setToSize, void, int32_t)},
+		{"size", "()I", nullptr, $PUBLIC | $FINAL, $method(ObjectVector, size, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.utils.ObjectVector",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ObjectVector, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ObjectVector);
+	});
 	return class$;
 }
 

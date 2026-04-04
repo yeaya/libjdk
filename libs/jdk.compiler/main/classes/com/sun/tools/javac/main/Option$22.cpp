@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/main/Option$22.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/main/Option$OptionGroup.h>
 #include <com/sun/tools/javac/main/Option$OptionKind.h>
@@ -35,80 +34,36 @@ namespace com {
 			namespace javac {
 				namespace main {
 
-$FieldInfo _Option$22_FieldInfo_[] = {
-	{"LINT_KEY_FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Option$22, LINT_KEY_FORMAT)},
-	{}
-};
-
-$MethodInfo _Option$22_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$22, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
-	{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$22, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
-	{}
-};
-
-$EnclosingMethodInfo _Option$22_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Option$22_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.main.Option$22", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Option$22_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.main.Option$22",
-	"com.sun.tools.javac.main.Option",
-	nullptr,
-	_Option$22_FieldInfo_,
-	_Option$22_MethodInfo_,
-	nullptr,
-	&_Option$22_EnclosingMethodInfo_,
-	_Option$22_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.main.Option"
-};
-
-$Object* allocate$Option$22($Class* clazz) {
-	return $of($alloc(Option$22));
-}
-
 void Option$22::init$($String* $enum$name, int32_t $enum$ordinal, $String* text, $String* descrKey, $Option$OptionKind* kind, $Option$OptionGroup* group) {
 	$Option::init$($enum$name, $enum$ordinal, text, descrKey, kind, group);
 	$set(this, LINT_KEY_FORMAT, $str({"  "_s, "  "_s, "%-"_s, $$str((28 - "        "_s->length())), "s %s"_s}));
 }
 
 void Option$22::process($OptionHelper* helper, $String* option) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Log, log, $nc(helper)->getLog());
 	$init($Log$WriterKind);
 	$init($Log$PrefixKind);
-	$nc(log)->printRawLines($Log$WriterKind::STDOUT, $(log->localize($Log$PrefixKind::JAVAC, "opt.help.lint.header"_s, $$new($ObjectArray, 0))));
+	$nc(log)->printRawLines($Log$WriterKind::STDOUT, $($nc(log)->localize($Log$PrefixKind::JAVAC, "opt.help.lint.header"_s, $$new($ObjectArray, 0))));
 	log->printRawLines($Log$WriterKind::STDOUT, $($String::format(this->LINT_KEY_FORMAT, $$new($ObjectArray, {
-		$of("all"_s),
-		$($of(log->localize($Log$PrefixKind::JAVAC, "opt.Xlint.all"_s, $$new($ObjectArray, 0))))
+		"all"_s,
+		$(log->localize($Log$PrefixKind::JAVAC, "opt.Xlint.all"_s, $$new($ObjectArray, 0)))
 	}))));
 	{
 		$var($Lint$LintCategoryArray, arr$, $Lint$LintCategory::values());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$Lint$LintCategory* lc = arr$->get(i$);
 			{
 				log->printRawLines($Log$WriterKind::STDOUT, $($String::format(this->LINT_KEY_FORMAT, $$new($ObjectArray, {
-					$of($nc(lc)->option),
-					$($of(log->localize($Log$PrefixKind::JAVAC, $$str({"opt.Xlint.desc."_s, lc->option}), $$new($ObjectArray, 0))))
+					$nc(lc)->option,
+					$(log->localize($Log$PrefixKind::JAVAC, $$str({"opt.Xlint.desc."_s, $nc(lc)->option}), $$new($ObjectArray, 0)))
 				}))));
 			}
 		}
 	}
 	log->printRawLines($Log$WriterKind::STDOUT, $($String::format(this->LINT_KEY_FORMAT, $$new($ObjectArray, {
-		$of("none"_s),
-		$($of(log->localize($Log$PrefixKind::JAVAC, "opt.Xlint.none"_s, $$new($ObjectArray, 0))))
+		"none"_s,
+		$(log->localize($Log$PrefixKind::JAVAC, "opt.Xlint.none"_s, $$new($ObjectArray, 0)))
 	}))));
 	$Option::process(helper, option);
 }
@@ -117,7 +72,42 @@ Option$22::Option$22() {
 }
 
 $Class* Option$22::load$($String* name, bool initialize) {
-	$loadClass(Option$22, name, initialize, &_Option$22_ClassInfo_, allocate$Option$22);
+	$FieldInfo fieldInfos$$[] = {
+		{"LINT_KEY_FORMAT", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(Option$22, LINT_KEY_FORMAT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Lcom/sun/tools/javac/main/Option$OptionKind;Lcom/sun/tools/javac/main/Option$OptionGroup;)V", nullptr, $PRIVATE, $method(Option$22, init$, void, $String*, int32_t, $String*, $String*, $Option$OptionKind*, $Option$OptionGroup*)},
+		{"process", "(Lcom/sun/tools/javac/main/OptionHelper;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Option$22, process, void, $OptionHelper*, $String*), "com.sun.tools.javac.main.Option$InvalidValueException"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.main.Option$22", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.main.Option$22",
+		"com.sun.tools.javac.main.Option",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.main.Option"
+	};
+	$loadClass(Option$22, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Option$22));
+	});
 	return class$;
 }
 

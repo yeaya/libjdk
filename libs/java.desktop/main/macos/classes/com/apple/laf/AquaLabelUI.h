@@ -43,6 +43,7 @@ class AquaLabelUI : public ::javax::swing::plaf::basic::BasicLabelUI {
 	$class(AquaLabelUI, 0, ::javax::swing::plaf::basic::BasicLabelUI)
 public:
 	AquaLabelUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::plaf::ComponentUI* createUI(::javax::swing::JComponent* c);
 	virtual ::java::awt::Color* getDisabledLabelColor(::javax::swing::JLabel* label);

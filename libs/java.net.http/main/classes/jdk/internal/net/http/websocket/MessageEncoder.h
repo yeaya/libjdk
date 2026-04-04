@@ -58,6 +58,7 @@ class MessageEncoder : public ::java::lang::Object {
 	$class(MessageEncoder, 0, ::java::lang::Object)
 public:
 	MessageEncoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::nio::ByteBuffer* createIntermediateBuffer(int32_t minSize);
 	virtual bool encodeBinary(::java::nio::ByteBuffer* src, bool last, ::java::nio::ByteBuffer* dst);

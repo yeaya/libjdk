@@ -1,5 +1,4 @@
 #include <javax/swing/text/StringContent$UndoPosRef.h>
-
 #include <javax/swing/text/StringContent$PosRec.h>
 #include <javax/swing/text/StringContent.h>
 #include <jcpp.h>
@@ -15,44 +14,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _StringContent$UndoPosRef_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/StringContent;", nullptr, $FINAL | $SYNTHETIC, $field(StringContent$UndoPosRef, this$0)},
-	{"undoLocation", "I", nullptr, $PROTECTED, $field(StringContent$UndoPosRef, undoLocation)},
-	{"rec", "Ljavax/swing/text/StringContent$PosRec;", nullptr, $PROTECTED, $field(StringContent$UndoPosRef, rec)},
-	{}
-};
-
-$MethodInfo _StringContent$UndoPosRef_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/StringContent;Ljavax/swing/text/StringContent$PosRec;)V", nullptr, 0, $method(StringContent$UndoPosRef, init$, void, $StringContent*, $StringContent$PosRec*)},
-	{"resetLocation", "()V", nullptr, $PROTECTED, $method(StringContent$UndoPosRef, resetLocation, void)},
-	{}
-};
-
-$InnerClassInfo _StringContent$UndoPosRef_InnerClassesInfo_[] = {
-	{"javax.swing.text.StringContent$UndoPosRef", "javax.swing.text.StringContent", "UndoPosRef", $FINAL},
-	{}
-};
-
-$ClassInfo _StringContent$UndoPosRef_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.text.StringContent$UndoPosRef",
-	"java.lang.Object",
-	nullptr,
-	_StringContent$UndoPosRef_FieldInfo_,
-	_StringContent$UndoPosRef_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringContent$UndoPosRef_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StringContent"
-};
-
-$Object* allocate$StringContent$UndoPosRef($Class* clazz) {
-	return $of($alloc(StringContent$UndoPosRef));
-}
-
 void StringContent$UndoPosRef::init$($StringContent* this$0, $StringContent$PosRec* rec) {
 	$set(this, this$0, this$0);
 	$set(this, rec, rec);
@@ -67,7 +28,39 @@ StringContent$UndoPosRef::StringContent$UndoPosRef() {
 }
 
 $Class* StringContent$UndoPosRef::load$($String* name, bool initialize) {
-	$loadClass(StringContent$UndoPosRef, name, initialize, &_StringContent$UndoPosRef_ClassInfo_, allocate$StringContent$UndoPosRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/StringContent;", nullptr, $FINAL | $SYNTHETIC, $field(StringContent$UndoPosRef, this$0)},
+		{"undoLocation", "I", nullptr, $PROTECTED, $field(StringContent$UndoPosRef, undoLocation)},
+		{"rec", "Ljavax/swing/text/StringContent$PosRec;", nullptr, $PROTECTED, $field(StringContent$UndoPosRef, rec)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/StringContent;Ljavax/swing/text/StringContent$PosRec;)V", nullptr, 0, $method(StringContent$UndoPosRef, init$, void, $StringContent*, $StringContent$PosRec*)},
+		{"resetLocation", "()V", nullptr, $PROTECTED, $method(StringContent$UndoPosRef, resetLocation, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StringContent$UndoPosRef", "javax.swing.text.StringContent", "UndoPosRef", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.text.StringContent$UndoPosRef",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StringContent"
+	};
+	$loadClass(StringContent$UndoPosRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StringContent$UndoPosRef);
+	});
 	return class$;
 }
 

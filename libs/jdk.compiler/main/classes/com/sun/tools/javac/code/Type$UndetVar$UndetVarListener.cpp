@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$UndetVar$UndetVarListener.h>
-
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -20,44 +19,39 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Type$UndetVar$UndetVarListener_MethodInfo_[] = {
-	{"varBoundChanged", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type$UndetVar$UndetVarListener, varBoundChanged, void, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
-	{"varInstantiated", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$UndetVarListener, varInstantiated, void, $Type$UndetVar*)},
-	{}
-};
-
-$InnerClassInfo _Type$UndetVar$UndetVarListener_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$UndetVar", "com.sun.tools.javac.code.Type", "UndetVar", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$UndetVar$UndetVarListener", "com.sun.tools.javac.code.Type$UndetVar", "UndetVarListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Type$UndetVar$UndetVarListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.code.Type$UndetVar$UndetVarListener",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Type$UndetVar$UndetVarListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Type$UndetVar$UndetVarListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$UndetVar$UndetVarListener($Class* clazz) {
-	return $of($alloc(Type$UndetVar$UndetVarListener));
-}
-
 void Type$UndetVar$UndetVarListener::varInstantiated($Type$UndetVar* uv) {
 	$Assert::error();
 }
 
 $Class* Type$UndetVar$UndetVarListener::load$($String* name, bool initialize) {
-	$loadClass(Type$UndetVar$UndetVarListener, name, initialize, &_Type$UndetVar$UndetVarListener_ClassInfo_, allocate$Type$UndetVar$UndetVarListener);
+	$MethodInfo methodInfos$$[] = {
+		{"varBoundChanged", "(Lcom/sun/tools/javac/code/Type$UndetVar;Lcom/sun/tools/javac/code/Type$UndetVar$InferenceBound;Lcom/sun/tools/javac/code/Type;Z)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Type$UndetVar$UndetVarListener, varBoundChanged, void, $Type$UndetVar*, $Type$UndetVar$InferenceBound*, $Type*, bool)},
+		{"varInstantiated", "(Lcom/sun/tools/javac/code/Type$UndetVar;)V", nullptr, $PUBLIC, $virtualMethod(Type$UndetVar$UndetVarListener, varInstantiated, void, $Type$UndetVar*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$UndetVar", "com.sun.tools.javac.code.Type", "UndetVar", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$UndetVar$UndetVarListener", "com.sun.tools.javac.code.Type$UndetVar", "UndetVarListener", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.code.Type$UndetVar$UndetVarListener",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$UndetVar$UndetVarListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Type$UndetVar$UndetVarListener);
+	});
 	return class$;
 }
 

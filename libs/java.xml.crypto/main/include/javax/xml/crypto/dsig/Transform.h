@@ -39,6 +39,7 @@ namespace javax {
 class $import Transform : public ::javax::xml::crypto::XMLStructure, public ::javax::xml::crypto::AlgorithmMethod {
 	$interface(Transform, 0, ::javax::xml::crypto::XMLStructure, ::javax::xml::crypto::AlgorithmMethod)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

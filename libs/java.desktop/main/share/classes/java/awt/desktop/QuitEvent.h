@@ -14,7 +14,7 @@ class $export QuitEvent : public ::java::awt::desktop::AppEvent {
 public:
 	QuitEvent();
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0xFC7225AEEF989E36;
+	static const int64_t serialVersionUID = (int64_t)0xfc7225aeef989e36;
 };
 
 		} // desktop

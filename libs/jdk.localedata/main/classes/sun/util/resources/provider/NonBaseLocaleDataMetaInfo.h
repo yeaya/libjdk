@@ -29,6 +29,7 @@ class NonBaseLocaleDataMetaInfo : public ::sun::util::locale::provider::LocaleDa
 	$class(NonBaseLocaleDataMetaInfo, 0, ::sun::util::locale::provider::LocaleDataMetaInfo)
 public:
 	NonBaseLocaleDataMetaInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* availableLanguageTags($String* category) override;
 	static $String* getSupportedLocaleString($String* resourceName);

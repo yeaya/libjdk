@@ -1,5 +1,4 @@
 #include <javax/swing/LegacyGlueFocusTraversalPolicy.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FocusTraversalPolicy.h>
@@ -32,48 +31,6 @@ using $DefaultFocusManager = ::javax::swing::DefaultFocusManager;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _LegacyGlueFocusTraversalPolicy_FieldInfo_[] = {
-	{"delegatePolicy", "Ljava/awt/FocusTraversalPolicy;", nullptr, $PRIVATE | $TRANSIENT, $field(LegacyGlueFocusTraversalPolicy, delegatePolicy)},
-	{"delegateManager", "Ljavax/swing/DefaultFocusManager;", nullptr, $PRIVATE | $TRANSIENT, $field(LegacyGlueFocusTraversalPolicy, delegateManager)},
-	{"forwardMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/awt/Component;Ljava/awt/Component;>;", $PRIVATE, $field(LegacyGlueFocusTraversalPolicy, forwardMap)},
-	{"backwardMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/awt/Component;Ljava/awt/Component;>;", $PRIVATE, $field(LegacyGlueFocusTraversalPolicy, backwardMap)},
-	{}
-};
-
-$MethodInfo _LegacyGlueFocusTraversalPolicy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/FocusTraversalPolicy;)V", nullptr, 0, $method(LegacyGlueFocusTraversalPolicy, init$, void, $FocusTraversalPolicy*)},
-	{"<init>", "(Ljavax/swing/DefaultFocusManager;)V", nullptr, 0, $method(LegacyGlueFocusTraversalPolicy, init$, void, $DefaultFocusManager*)},
-	{"accept", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(LegacyGlueFocusTraversalPolicy, accept, bool, $Component*)},
-	{"getComponentAfter", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getComponentAfter, $Component*, $Container*, $Component*)},
-	{"getComponentBefore", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getComponentBefore, $Component*, $Container*, $Component*)},
-	{"getDefaultComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getDefaultComponent, $Component*, $Container*)},
-	{"getFirstComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getFirstComponent, $Component*, $Container*)},
-	{"getLastComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getLastComponent, $Component*, $Container*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LegacyGlueFocusTraversalPolicy, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setNextFocusableComponent", "(Ljava/awt/Component;Ljava/awt/Component;)V", nullptr, 0, $method(LegacyGlueFocusTraversalPolicy, setNextFocusableComponent, void, $Component*, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unsetNextFocusableComponent", "(Ljava/awt/Component;Ljava/awt/Component;)V", nullptr, 0, $method(LegacyGlueFocusTraversalPolicy, unsetNextFocusableComponent, void, $Component*, $Component*)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LegacyGlueFocusTraversalPolicy, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _LegacyGlueFocusTraversalPolicy_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.LegacyGlueFocusTraversalPolicy",
-	"java.awt.FocusTraversalPolicy",
-	"java.io.Serializable",
-	_LegacyGlueFocusTraversalPolicy_FieldInfo_,
-	_LegacyGlueFocusTraversalPolicy_MethodInfo_
-};
-
-$Object* allocate$LegacyGlueFocusTraversalPolicy($Class* clazz) {
-	return $of($alloc(LegacyGlueFocusTraversalPolicy));
-}
 
 int32_t LegacyGlueFocusTraversalPolicy::hashCode() {
 	 return this->$FocusTraversalPolicy::hashCode();
@@ -120,7 +77,7 @@ void LegacyGlueFocusTraversalPolicy::unsetNextFocusableComponent($Component* lef
 }
 
 $Component* LegacyGlueFocusTraversalPolicy::getComponentAfter($Container* focusCycleRoot, $Component* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, hardCoded, aComponent);
 	$var($Component, prevHardCoded, nullptr);
 	$var($HashSet, sanity, $new($HashSet));
@@ -129,9 +86,9 @@ $Component* LegacyGlueFocusTraversalPolicy::getComponentAfter($Container* focusC
 		$assign(hardCoded, $cast($Component, $nc(this->forwardMap)->get(hardCoded)));
 		if (hardCoded == nullptr) {
 			if (this->delegatePolicy != nullptr && $nc(prevHardCoded)->isFocusCycleRoot(focusCycleRoot)) {
-				return $nc(this->delegatePolicy)->getComponentAfter(focusCycleRoot, prevHardCoded);
+				return this->delegatePolicy->getComponentAfter(focusCycleRoot, prevHardCoded);
 			} else if (this->delegateManager != nullptr) {
-				return $nc(this->delegateManager)->getComponentAfter(focusCycleRoot, aComponent);
+				return this->delegateManager->getComponentAfter(focusCycleRoot, aComponent);
 			} else {
 				return nullptr;
 			}
@@ -145,7 +102,7 @@ $Component* LegacyGlueFocusTraversalPolicy::getComponentAfter($Container* focusC
 }
 
 $Component* LegacyGlueFocusTraversalPolicy::getComponentBefore($Container* focusCycleRoot, $Component* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, hardCoded, aComponent);
 	$var($Component, prevHardCoded, nullptr);
 	$var($HashSet, sanity, $new($HashSet));
@@ -154,9 +111,9 @@ $Component* LegacyGlueFocusTraversalPolicy::getComponentBefore($Container* focus
 		$assign(hardCoded, $cast($Component, $nc(this->backwardMap)->get(hardCoded)));
 		if (hardCoded == nullptr) {
 			if (this->delegatePolicy != nullptr && $nc(prevHardCoded)->isFocusCycleRoot(focusCycleRoot)) {
-				return $nc(this->delegatePolicy)->getComponentBefore(focusCycleRoot, prevHardCoded);
+				return this->delegatePolicy->getComponentBefore(focusCycleRoot, prevHardCoded);
 			} else if (this->delegateManager != nullptr) {
-				return $nc(this->delegateManager)->getComponentBefore(focusCycleRoot, aComponent);
+				return this->delegateManager->getComponentBefore(focusCycleRoot, aComponent);
 			} else {
 				return nullptr;
 			}
@@ -171,9 +128,9 @@ $Component* LegacyGlueFocusTraversalPolicy::getComponentBefore($Container* focus
 
 $Component* LegacyGlueFocusTraversalPolicy::getFirstComponent($Container* focusCycleRoot) {
 	if (this->delegatePolicy != nullptr) {
-		return $nc(this->delegatePolicy)->getFirstComponent(focusCycleRoot);
+		return this->delegatePolicy->getFirstComponent(focusCycleRoot);
 	} else if (this->delegateManager != nullptr) {
-		return $nc(this->delegateManager)->getFirstComponent(focusCycleRoot);
+		return this->delegateManager->getFirstComponent(focusCycleRoot);
 	} else {
 		return nullptr;
 	}
@@ -181,9 +138,9 @@ $Component* LegacyGlueFocusTraversalPolicy::getFirstComponent($Container* focusC
 
 $Component* LegacyGlueFocusTraversalPolicy::getLastComponent($Container* focusCycleRoot) {
 	if (this->delegatePolicy != nullptr) {
-		return $nc(this->delegatePolicy)->getLastComponent(focusCycleRoot);
+		return this->delegatePolicy->getLastComponent(focusCycleRoot);
 	} else if (this->delegateManager != nullptr) {
-		return $nc(this->delegateManager)->getLastComponent(focusCycleRoot);
+		return this->delegateManager->getLastComponent(focusCycleRoot);
 	} else {
 		return nullptr;
 	}
@@ -191,7 +148,7 @@ $Component* LegacyGlueFocusTraversalPolicy::getLastComponent($Container* focusCy
 
 $Component* LegacyGlueFocusTraversalPolicy::getDefaultComponent($Container* focusCycleRoot) {
 	if (this->delegatePolicy != nullptr) {
-		return $nc(this->delegatePolicy)->getDefaultComponent(focusCycleRoot);
+		return this->delegatePolicy->getDefaultComponent(focusCycleRoot);
 	} else {
 		return getFirstComponent(focusCycleRoot);
 	}
@@ -205,16 +162,14 @@ bool LegacyGlueFocusTraversalPolicy::accept($Component* aComponent) {
 		return false;
 	}
 	if (!($instanceOf($Window, aComponent))) {
-		{
-			$var($Container, enableTest, $nc(aComponent)->getParent());
-			for (; enableTest != nullptr; $assign(enableTest, $nc(enableTest)->getParent())) {
-				bool var$3 = enableTest->isEnabled();
-				if (!(var$3 || enableTest->isLightweight())) {
-					return false;
-				}
-				if ($instanceOf($Window, enableTest)) {
-					break;
-				}
+		$var($Container, enableTest, aComponent->getParent());
+		for (; enableTest != nullptr; $assign(enableTest, enableTest->getParent())) {
+			bool var$3 = enableTest->isEnabled();
+			if (!(var$3 || enableTest->isLightweight())) {
+				return false;
+			}
+			if ($instanceOf($Window, enableTest)) {
+				break;
 			}
 		}
 	}
@@ -236,14 +191,14 @@ void LegacyGlueFocusTraversalPolicy::writeObject($ObjectOutputStream* out) {
 }
 
 void LegacyGlueFocusTraversalPolicy::readObject($ObjectInputStream* in) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectInputStream$GetField, f, $nc(in)->readFields());
-	$var($HashMap, newForwardMap, $cast($HashMap, $nc(f)->get("forwardMap"_s, ($Object*)nullptr)));
+	$var($HashMap, newForwardMap, $cast($HashMap, $nc(f)->get("forwardMap"_s, nullptr)));
 	if (newForwardMap == nullptr) {
 		$throwNew($InvalidObjectException, "Null forwardMap"_s);
 	}
 	$set(this, forwardMap, newForwardMap);
-	$var($HashMap, newBackwardMap, $cast($HashMap, f->get("backwardMap"_s, ($Object*)nullptr)));
+	$var($HashMap, newBackwardMap, $cast($HashMap, f->get("backwardMap"_s, nullptr)));
 	if (newBackwardMap == nullptr) {
 		$throwNew($InvalidObjectException, "Null backwardMap"_s);
 	}
@@ -256,7 +211,44 @@ LegacyGlueFocusTraversalPolicy::LegacyGlueFocusTraversalPolicy() {
 }
 
 $Class* LegacyGlueFocusTraversalPolicy::load$($String* name, bool initialize) {
-	$loadClass(LegacyGlueFocusTraversalPolicy, name, initialize, &_LegacyGlueFocusTraversalPolicy_ClassInfo_, allocate$LegacyGlueFocusTraversalPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegatePolicy", "Ljava/awt/FocusTraversalPolicy;", nullptr, $PRIVATE | $TRANSIENT, $field(LegacyGlueFocusTraversalPolicy, delegatePolicy)},
+		{"delegateManager", "Ljavax/swing/DefaultFocusManager;", nullptr, $PRIVATE | $TRANSIENT, $field(LegacyGlueFocusTraversalPolicy, delegateManager)},
+		{"forwardMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/awt/Component;Ljava/awt/Component;>;", $PRIVATE, $field(LegacyGlueFocusTraversalPolicy, forwardMap)},
+		{"backwardMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/awt/Component;Ljava/awt/Component;>;", $PRIVATE, $field(LegacyGlueFocusTraversalPolicy, backwardMap)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/FocusTraversalPolicy;)V", nullptr, 0, $method(LegacyGlueFocusTraversalPolicy, init$, void, $FocusTraversalPolicy*)},
+		{"<init>", "(Ljavax/swing/DefaultFocusManager;)V", nullptr, 0, $method(LegacyGlueFocusTraversalPolicy, init$, void, $DefaultFocusManager*)},
+		{"accept", "(Ljava/awt/Component;)Z", nullptr, $PRIVATE, $method(LegacyGlueFocusTraversalPolicy, accept, bool, $Component*)},
+		{"getComponentAfter", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getComponentAfter, $Component*, $Container*, $Component*)},
+		{"getComponentBefore", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getComponentBefore, $Component*, $Container*, $Component*)},
+		{"getDefaultComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getDefaultComponent, $Component*, $Container*)},
+		{"getFirstComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getFirstComponent, $Component*, $Container*)},
+		{"getLastComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(LegacyGlueFocusTraversalPolicy, getLastComponent, $Component*, $Container*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(LegacyGlueFocusTraversalPolicy, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setNextFocusableComponent", "(Ljava/awt/Component;Ljava/awt/Component;)V", nullptr, 0, $method(LegacyGlueFocusTraversalPolicy, setNextFocusableComponent, void, $Component*, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unsetNextFocusableComponent", "(Ljava/awt/Component;Ljava/awt/Component;)V", nullptr, 0, $method(LegacyGlueFocusTraversalPolicy, unsetNextFocusableComponent, void, $Component*, $Component*)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(LegacyGlueFocusTraversalPolicy, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.LegacyGlueFocusTraversalPolicy",
+		"java.awt.FocusTraversalPolicy",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LegacyGlueFocusTraversalPolicy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LegacyGlueFocusTraversalPolicy));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DGraphicsConfig.h>
-
 #include <java/awt/AWTException.h>
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
@@ -50,8 +49,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
-using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $Image = ::java::awt::Image;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $Transparency = ::java::awt::Transparency;
@@ -88,61 +85,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$FieldInfo _D3DGraphicsConfig_FieldInfo_[] = {
-	{"imageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(D3DGraphicsConfig, imageCaps)},
-	{"bufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(D3DGraphicsConfig, bufferCaps)},
-	{"device", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(D3DGraphicsConfig, device)},
-	{}
-};
-
-$MethodInfo _D3DGraphicsConfig_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/java2d/d3d/D3DGraphicsDevice;)V", nullptr, $PROTECTED, $method(D3DGraphicsConfig, init$, void, $D3DGraphicsDevice*)},
-	{"assertOperationSupported", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, assertOperationSupported, void, $Component*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"createBackBuffer", "(Lsun/awt/windows/WComponentPeer;)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, createBackBuffer, $VolatileImage*, $WComponentPeer*)},
-	{"createCompatibleVolatileImage", "(IIII)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t, int32_t)},
-	{"createManagedSurface", "(III)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $method(D3DGraphicsConfig, createManagedSurface, $SurfaceData*, int32_t, int32_t, int32_t)},
-	{"createSurfaceData", "(Lsun/awt/windows/WComponentPeer;I)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, createSurfaceData, $SurfaceData*, $WComponentPeer*, int32_t)},
-	{"displayChanged", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DGraphicsConfig, displayChanged, void)},
-	{"flip", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Component;Ljava/awt/image/VolatileImage;IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, flip, void, $WComponentPeer*, $Component*, $VolatileImage*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
-	{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getBufferCapabilities, $BufferCapabilities*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
-	{"getContext", "()Lsun/java2d/d3d/D3DContext;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getContext, $BufferedContext*)},
-	{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getContextCapabilities, $ContextCapabilities*)},
-	{"getD3DDevice", "()Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, 0, $method(D3DGraphicsConfig, getD3DDevice, $D3DGraphicsDevice*)},
-	{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getImageCapabilities, $ImageCapabilities*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _D3DGraphicsConfig_InnerClassesInfo_[] = {
-	{"sun.java2d.d3d.D3DGraphicsConfig$D3DImageCaps", "sun.java2d.d3d.D3DGraphicsConfig", "D3DImageCaps", $PRIVATE | $STATIC},
-	{"sun.java2d.d3d.D3DGraphicsConfig$D3DBufferCaps", "sun.java2d.d3d.D3DGraphicsConfig", "D3DBufferCaps", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _D3DGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.d3d.D3DGraphicsConfig",
-	"sun.awt.Win32GraphicsConfig",
-	"sun.java2d.pipe.hw.AccelGraphicsConfig",
-	_D3DGraphicsConfig_FieldInfo_,
-	_D3DGraphicsConfig_MethodInfo_,
-	nullptr,
-	nullptr,
-	_D3DGraphicsConfig_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.d3d.D3DGraphicsConfig$D3DImageCaps,sun.java2d.d3d.D3DGraphicsConfig$D3DBufferCaps"
-};
-
-$Object* allocate$D3DGraphicsConfig($Class* clazz) {
-	return $of($alloc(D3DGraphicsConfig));
-}
-
 int32_t D3DGraphicsConfig::hashCode() {
 	 return this->$Win32GraphicsConfig::hashCode();
 }
@@ -172,48 +114,36 @@ $SurfaceData* D3DGraphicsConfig::createManagedSurface(int32_t w, int32_t h, int3
 
 void D3DGraphicsConfig::displayChanged() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$Win32GraphicsConfig::displayChanged();
 		$var($D3DRenderQueue, rq, $D3DRenderQueue::getInstance());
 		$nc(rq)->lock();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$D3DContext::invalidateCurrentContext();
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				rq->unlock();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$D3DContext::invalidateCurrentContext();
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			rq->unlock();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $ColorModel* D3DGraphicsConfig::getColorModel(int32_t transparency) {
-	{
-		$var($ColorSpace, cs, nullptr)
-		switch (transparency) {
-		case $Transparency::OPAQUE:
-			{
-				return $new($DirectColorModel, 24, 0x00FF0000, 0x0000FF00, 255);
-			}
-		case $Transparency::BITMASK:
-			{
-				return $new($DirectColorModel, 25, 0x00FF0000, 0x0000FF00, 255, 0x01000000);
-			}
-		case $Transparency::TRANSLUCENT:
-			{
-				$assign(cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
-				return $new($DirectColorModel, cs, 32, 0x00FF0000, 0x0000FF00, 255, (int32_t)0xFF000000, true, $DataBuffer::TYPE_INT);
-			}
-		default:
-			{
-				return nullptr;
-			}
-		}
+	$var($ColorSpace, cs, nullptr);
+	switch (transparency) {
+	case $Transparency::OPAQUE:
+		return $new($DirectColorModel, 24, 0x00ff0000, 0x0000ff00, 255);
+	case $Transparency::BITMASK:
+		return $new($DirectColorModel, 25, 0x00ff0000, 0x0000ff00, 255, 0x01000000);
+	case $Transparency::TRANSLUCENT:
+		$assign(cs, $ColorSpace::getInstance($ColorSpace::CS_sRGB));
+		return $new($DirectColorModel, cs, 32, 0x00ff0000, 0x0000ff00, 255, (int32_t)0xff000000, true, $DataBuffer::TYPE_INT);
+	default:
+		return nullptr;
 	}
 }
 
@@ -238,18 +168,17 @@ void D3DGraphicsConfig::assertOperationSupported($Component* target, int32_t num
 $VolatileImage* D3DGraphicsConfig::createBackBuffer($WComponentPeer* peer) {
 	$var($Component, target, $cast($Component, $nc(peer)->getTarget()));
 	int32_t w = $Math::max(1, $nc(target)->getWidth());
-	int32_t h = $Math::max(1, $nc(target)->getHeight());
-	$init($Boolean);
+	int32_t h = $Math::max(1, target->getHeight());
 	return $new($SunVolatileImage, target, w, h, $Boolean::TRUE);
 }
 
 void D3DGraphicsConfig::flip($WComponentPeer* peer, $Component* target, $VolatileImage* backBuffer, int32_t x1, int32_t y1, int32_t x2, int32_t y2, $BufferCapabilities$FlipContents* flipAction) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceManager, d3dvsm, $SurfaceManager::getManager(backBuffer));
 	$var($SurfaceData, sd, $nc(d3dvsm)->getPrimarySurfaceData());
 	if ($instanceOf($D3DSurfaceData, sd)) {
 		$var($D3DSurfaceData, d3dsd, $cast($D3DSurfaceData, sd));
-		double scaleX = $nc(sd)->getDefaultScaleX();
+		double scaleX = sd->getDefaultScaleX();
 		double scaleY = sd->getDefaultScaleY();
 		if (scaleX > 1 || scaleY > 1) {
 			int32_t sx1 = $cast(int32_t, $Math::floor(x1 * scaleX));
@@ -262,37 +191,33 @@ void D3DGraphicsConfig::flip($WComponentPeer* peer, $Component* target, $Volatil
 		}
 	} else {
 		$var($Graphics, g, $nc(peer)->getGraphics());
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				$nc(g)->drawImage(backBuffer, x1, y1, x2, y2, x1, y1, x2, y2, nullptr);
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(g)->dispose();
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			$nc(g)->drawImage(backBuffer, x1, y1, x2, y2, x1, y1, x2, y2, nullptr);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 	$init($BufferCapabilities$FlipContents);
 	if (flipAction == $BufferCapabilities$FlipContents::BACKGROUND) {
 		$var($Graphics, g, $nc(backBuffer)->getGraphics());
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				$nc(g)->setColor($($nc(target)->getBackground()));
-				int32_t var$3 = backBuffer->getWidth();
-				g->fillRect(0, 0, var$3, backBuffer->getHeight());
-			} catch ($Throwable& var$4) {
-				$assign(var$2, var$4);
-			} /*finally*/ {
-				$nc(g)->dispose();
-			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$nc(g)->setColor($($nc(target)->getBackground()));
+			int32_t var$3 = backBuffer->getWidth();
+			g->fillRect(0, 0, var$3, backBuffer->getHeight());
+		} catch ($Throwable& var$4) {
+			$assign(var$2, var$4);
+		} /*finally*/ {
+			$nc(g)->dispose();
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
@@ -317,7 +242,7 @@ $BufferedContext* D3DGraphicsConfig::getContext() {
 }
 
 $VolatileImage* D3DGraphicsConfig::createCompatibleVolatileImage(int32_t width, int32_t height, int32_t transparency, int32_t type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (type == 4 || type == 1 || type == 0 || transparency == $Transparency::BITMASK) {
 		return nullptr;
 	}
@@ -334,7 +259,7 @@ $VolatileImage* D3DGraphicsConfig::createCompatibleVolatileImage(int32_t width, 
 	}
 	$var($SunVolatileImage, vi, $new($AccelTypedVolatileImage, this, width, height, transparency, type));
 	$var($Surface, sd, vi->getDestSurface());
-	if (!($instanceOf($AccelSurface, sd)) || $nc(($cast($AccelSurface, sd)))->getType() != type) {
+	if (!($instanceOf($AccelSurface, sd)) || $cast($AccelSurface, sd)->getType() != type) {
 		vi->flush();
 		$assign(vi, nullptr);
 	}
@@ -345,7 +270,7 @@ $ContextCapabilities* D3DGraphicsConfig::getContextCapabilities() {
 	return $nc(this->device)->getContextCapabilities();
 }
 
-void clinit$D3DGraphicsConfig($Class* class$) {
+void D3DGraphicsConfig::clinit$($Class* clazz) {
 	$assignStatic(D3DGraphicsConfig::imageCaps, $new($D3DGraphicsConfig$D3DImageCaps));
 }
 
@@ -353,7 +278,56 @@ D3DGraphicsConfig::D3DGraphicsConfig() {
 }
 
 $Class* D3DGraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(D3DGraphicsConfig, name, initialize, &_D3DGraphicsConfig_ClassInfo_, clinit$D3DGraphicsConfig, allocate$D3DGraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"imageCaps", "Ljava/awt/ImageCapabilities;", nullptr, $PRIVATE | $STATIC, $staticField(D3DGraphicsConfig, imageCaps)},
+		{"bufferCaps", "Ljava/awt/BufferCapabilities;", nullptr, $PRIVATE, $field(D3DGraphicsConfig, bufferCaps)},
+		{"device", "Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(D3DGraphicsConfig, device)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/java2d/d3d/D3DGraphicsDevice;)V", nullptr, $PROTECTED, $method(D3DGraphicsConfig, init$, void, $D3DGraphicsDevice*)},
+		{"assertOperationSupported", "(Ljava/awt/Component;ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, assertOperationSupported, void, $Component*, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"createBackBuffer", "(Lsun/awt/windows/WComponentPeer;)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, createBackBuffer, $VolatileImage*, $WComponentPeer*)},
+		{"createCompatibleVolatileImage", "(IIII)Ljava/awt/image/VolatileImage;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, createCompatibleVolatileImage, $VolatileImage*, int32_t, int32_t, int32_t, int32_t)},
+		{"createManagedSurface", "(III)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $method(D3DGraphicsConfig, createManagedSurface, $SurfaceData*, int32_t, int32_t, int32_t)},
+		{"createSurfaceData", "(Lsun/awt/windows/WComponentPeer;I)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, createSurfaceData, $SurfaceData*, $WComponentPeer*, int32_t)},
+		{"displayChanged", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(D3DGraphicsConfig, displayChanged, void)},
+		{"flip", "(Lsun/awt/windows/WComponentPeer;Ljava/awt/Component;Ljava/awt/image/VolatileImage;IIIILjava/awt/BufferCapabilities$FlipContents;)V", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, flip, void, $WComponentPeer*, $Component*, $VolatileImage*, int32_t, int32_t, int32_t, int32_t, $BufferCapabilities$FlipContents*)},
+		{"getBufferCapabilities", "()Ljava/awt/BufferCapabilities;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getBufferCapabilities, $BufferCapabilities*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getColorModel, $ColorModel*, int32_t)},
+		{"getContext", "()Lsun/java2d/d3d/D3DContext;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getContext, $BufferedContext*)},
+		{"getContextCapabilities", "()Lsun/java2d/pipe/hw/ContextCapabilities;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getContextCapabilities, $ContextCapabilities*)},
+		{"getD3DDevice", "()Lsun/java2d/d3d/D3DGraphicsDevice;", nullptr, 0, $method(D3DGraphicsConfig, getD3DDevice, $D3DGraphicsDevice*)},
+		{"getImageCapabilities", "()Ljava/awt/ImageCapabilities;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, getImageCapabilities, $ImageCapabilities*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(D3DGraphicsConfig, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.d3d.D3DGraphicsConfig$D3DImageCaps", "sun.java2d.d3d.D3DGraphicsConfig", "D3DImageCaps", $PRIVATE | $STATIC},
+		{"sun.java2d.d3d.D3DGraphicsConfig$D3DBufferCaps", "sun.java2d.d3d.D3DGraphicsConfig", "D3DBufferCaps", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.d3d.D3DGraphicsConfig",
+		"sun.awt.Win32GraphicsConfig",
+		"sun.java2d.pipe.hw.AccelGraphicsConfig",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.d3d.D3DGraphicsConfig$D3DImageCaps,sun.java2d.d3d.D3DGraphicsConfig$D3DBufferCaps"
+	};
+	$loadClass(D3DGraphicsConfig, name, initialize, &classInfo$$, D3DGraphicsConfig::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(D3DGraphicsConfig));
+	});
 	return class$;
 }
 

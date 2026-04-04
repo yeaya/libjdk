@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/DecimalFormatting.h>
@@ -54,68 +53,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 
-$FieldInfo _SymbolTable_FieldInfo_[] = {
-	{"_stylesheets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;>;", $PRIVATE | $FINAL, $field(SymbolTable, _stylesheets)},
-	{"_primops", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;>;>;", $PRIVATE | $FINAL, $field(SymbolTable, _primops)},
-	{"_variables", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;>;", $PRIVATE, $field(SymbolTable, _variables)},
-	{"_templates", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;", $PRIVATE, $field(SymbolTable, _templates)},
-	{"_attributeSets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;>;", $PRIVATE, $field(SymbolTable, _attributeSets)},
-	{"_aliases", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SymbolTable, _aliases)},
-	{"_excludedURI", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(SymbolTable, _excludedURI)},
-	{"_excludedURIStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;>;", $PRIVATE, $field(SymbolTable, _excludedURIStack)},
-	{"_decimalFormats", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/DecimalFormatting;>;", $PRIVATE, $field(SymbolTable, _decimalFormats)},
-	{"_keys", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;>;", $PRIVATE, $field(SymbolTable, _keys)},
-	{"_nsCounter", "I", nullptr, $PRIVATE, $field(SymbolTable, _nsCounter)},
-	{"_current", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $field(SymbolTable, _current)},
-	{}
-};
-
-$MethodInfo _SymbolTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SymbolTable, init$, void)},
-	{"addAttributeSet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;", nullptr, $PUBLIC, $method(SymbolTable, addAttributeSet, $AttributeSet*, $AttributeSet*)},
-	{"addDecimalFormatting", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/DecimalFormatting;)V", nullptr, $PUBLIC, $method(SymbolTable, addDecimalFormatting, void, $QName*, $DecimalFormatting*)},
-	{"addKey", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;)V", nullptr, $PUBLIC, $method(SymbolTable, addKey, void, $QName*, $Key*)},
-	{"addParam", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;", nullptr, $PUBLIC, $method(SymbolTable, addParam, $Param*, $Param*)},
-	{"addPrefixAlias", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SymbolTable, addPrefixAlias, void, $String*, $String*)},
-	{"addPrimop", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;)V", nullptr, $PUBLIC, $method(SymbolTable, addPrimop, void, $String*, $MethodType*)},
-	{"addStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(SymbolTable, addStylesheet, $Stylesheet*, $QName*, $Stylesheet*)},
-	{"addTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PUBLIC, $method(SymbolTable, addTemplate, $Template*, $Template*)},
-	{"addVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;", nullptr, $PUBLIC, $method(SymbolTable, addVariable, $Variable*, $Variable*)},
-	{"excludeNamespaces", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SymbolTable, excludeNamespaces, void, $String*)},
-	{"excludeURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SymbolTable, excludeURI, void, $String*)},
-	{"generateNamespacePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SymbolTable, generateNamespacePrefix, $String*)},
-	{"getDecimalFormatting", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/DecimalFormatting;", nullptr, $PUBLIC, $method(SymbolTable, getDecimalFormatting, $DecimalFormatting*, $QName*)},
-	{"getKey", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;", nullptr, $PUBLIC, $method(SymbolTable, getKey, $Key*, $QName*)},
-	{"isExcludedNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(SymbolTable, isExcludedNamespace, bool, $String*)},
-	{"lookupAttributeSet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;", nullptr, $PUBLIC, $method(SymbolTable, lookupAttributeSet, $AttributeSet*, $QName*)},
-	{"lookupName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $method(SymbolTable, lookupName, $SyntaxTreeNode*, $QName*)},
-	{"lookupNamespace", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(SymbolTable, lookupNamespace, $String*, $String*)},
-	{"lookupParam", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;", nullptr, $PUBLIC, $method(SymbolTable, lookupParam, $Param*, $QName*)},
-	{"lookupPrefixAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(SymbolTable, lookupPrefixAlias, $String*, $String*)},
-	{"lookupPrimop", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;>;", $PUBLIC, $method(SymbolTable, lookupPrimop, $List*, $String*)},
-	{"lookupStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(SymbolTable, lookupStylesheet, $Stylesheet*, $QName*)},
-	{"lookupTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PUBLIC, $method(SymbolTable, lookupTemplate, $Template*, $QName*)},
-	{"lookupVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;", nullptr, $PUBLIC, $method(SymbolTable, lookupVariable, $Variable*, $QName*)},
-	{"popExcludedNamespacesContext", "()V", nullptr, $PUBLIC, $method(SymbolTable, popExcludedNamespacesContext, void)},
-	{"pushExcludedNamespacesContext", "()V", nullptr, $PUBLIC, $method(SymbolTable, pushExcludedNamespacesContext, void)},
-	{"setCurrentNode", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(SymbolTable, setCurrentNode, void, $SyntaxTreeNode*)},
-	{"unExcludeNamespaces", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SymbolTable, unExcludeNamespaces, void, $String*)},
-	{}
-};
-
-$ClassInfo _SymbolTable_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.SymbolTable",
-	"java.lang.Object",
-	nullptr,
-	_SymbolTable_FieldInfo_,
-	_SymbolTable_MethodInfo_
-};
-
-$Object* allocate$SymbolTable($Class* clazz) {
-	return $of($alloc(SymbolTable));
-}
-
 void SymbolTable::init$() {
 	$set(this, _stylesheets, $new($HashMap));
 	$set(this, _primops, $new($HashMap));
@@ -135,7 +72,7 @@ $DecimalFormatting* SymbolTable::getDecimalFormatting($QName* name) {
 	if (this->_decimalFormats == nullptr) {
 		return nullptr;
 	}
-	return ($cast($DecimalFormatting, $nc(this->_decimalFormats)->get($($nc(name)->getStringRep()))));
+	return $cast($DecimalFormatting, $nc(this->_decimalFormats)->get($($nc(name)->getStringRep())));
 }
 
 void SymbolTable::addDecimalFormatting($QName* name, $DecimalFormatting* symbols) {
@@ -160,15 +97,15 @@ void SymbolTable::addKey($QName* name, $Key* key) {
 }
 
 $Stylesheet* SymbolTable::addStylesheet($QName* name, $Stylesheet* node) {
-	return $cast($Stylesheet, $nc(this->_stylesheets)->put($($nc(name)->getStringRep()), node));
+	return $cast($Stylesheet, this->_stylesheets->put($($nc(name)->getStringRep()), node));
 }
 
 $Stylesheet* SymbolTable::lookupStylesheet($QName* name) {
-	return $cast($Stylesheet, $nc(this->_stylesheets)->get($($nc(name)->getStringRep())));
+	return $cast($Stylesheet, this->_stylesheets->get($($nc(name)->getStringRep())));
 }
 
 $Template* SymbolTable::addTemplate($Template* template$) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($QName, name, $nc(template$)->getName());
 	if (this->_templates == nullptr) {
 		$set(this, _templates, $new($HashMap));
@@ -184,25 +121,25 @@ $Template* SymbolTable::lookupTemplate($QName* name) {
 }
 
 $Variable* SymbolTable::addVariable($Variable* variable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_variables == nullptr) {
 		$set(this, _variables, $new($HashMap));
 	}
-	$var($VariableBase, v, $cast($VariableBase, $nc(this->_variables)->put($($nc($($nc(variable)->getName()))->getStringRep()), variable)));
+	$var($VariableBase, v, $cast($VariableBase, $nc(this->_variables)->put($($$nc($nc(variable)->getName())->getStringRep()), variable)));
 	return $instanceOf($Variable, v) ? $cast($Variable, v) : ($Variable*)nullptr;
 }
 
 $Param* SymbolTable::addParam($Param* parameter) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_variables == nullptr) {
 		$set(this, _variables, $new($HashMap));
 	}
-	$var($VariableBase, v, $cast($VariableBase, $nc(this->_variables)->put($($nc($($nc(parameter)->getName()))->getStringRep()), parameter)));
+	$var($VariableBase, v, $cast($VariableBase, $nc(this->_variables)->put($($$nc($nc(parameter)->getName())->getStringRep()), parameter)));
 	return $instanceOf($Param, v) ? $cast($Param, v) : ($Param*)nullptr;
 }
 
 $Variable* SymbolTable::lookupVariable($QName* qname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_variables == nullptr) {
 		return nullptr;
 	}
@@ -212,7 +149,7 @@ $Variable* SymbolTable::lookupVariable($QName* qname) {
 }
 
 $Param* SymbolTable::lookupParam($QName* qname) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_variables == nullptr) {
 		return nullptr;
 	}
@@ -230,11 +167,11 @@ $SyntaxTreeNode* SymbolTable::lookupName($QName* qname) {
 }
 
 $AttributeSet* SymbolTable::addAttributeSet($AttributeSet* atts) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_attributeSets == nullptr) {
 		$set(this, _attributeSets, $new($HashMap));
 	}
-	return $cast($AttributeSet, $nc(this->_attributeSets)->put($($nc($($nc(atts)->getName()))->getStringRep()), atts));
+	return $cast($AttributeSet, $nc(this->_attributeSets)->put($($$nc($nc(atts)->getName())->getStringRep()), atts));
 }
 
 $AttributeSet* SymbolTable::lookupAttributeSet($QName* name) {
@@ -245,21 +182,22 @@ $AttributeSet* SymbolTable::lookupAttributeSet($QName* name) {
 }
 
 void SymbolTable::addPrimop($String* name, $MethodType* mtype) {
-	$var($List, methods, $cast($List, $nc(this->_primops)->get(name)));
+	$var($List, methods, $cast($List, this->_primops->get(name)));
 	if (methods == nullptr) {
-		$nc(this->_primops)->put(name, $assign(methods, $new($ArrayList)));
+		this->_primops->put(name, $assign(methods, $new($ArrayList)));
 	}
 	$nc(methods)->add(mtype);
 }
 
 $List* SymbolTable::lookupPrimop($String* name) {
-	return $cast($List, $nc(this->_primops)->get(name));
+	return $cast($List, this->_primops->get(name));
 }
 
 $String* SymbolTable::generateNamespacePrefix() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, "ns"_s);
-	return ($concat(var$0, $$str((this->_nsCounter++))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("ns"_s);
+	var$0->append(this->_nsCounter++);
+	return ($str(var$0));
 }
 
 void SymbolTable::setCurrentNode($SyntaxTreeNode* node) {
@@ -299,13 +237,13 @@ void SymbolTable::excludeURI($String* uri) {
 	if (refcnt == nullptr) {
 		$assign(refcnt, $Integer::valueOf(1));
 	} else {
-		$assign(refcnt, $Integer::valueOf($nc(refcnt)->intValue() + 1));
+		$assign(refcnt, $Integer::valueOf(refcnt->intValue() + 1));
 	}
-	$nc(this->_excludedURI)->put(uri, refcnt);
+	this->_excludedURI->put(uri, refcnt);
 }
 
 void SymbolTable::excludeNamespaces($String* prefixes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (prefixes != nullptr) {
 		$var($StringTokenizer, tokens, $new($StringTokenizer, prefixes));
 		while (tokens->hasMoreTokens()) {
@@ -326,14 +264,14 @@ void SymbolTable::excludeNamespaces($String* prefixes) {
 
 bool SymbolTable::isExcludedNamespace($String* uri) {
 	if (uri != nullptr && this->_excludedURI != nullptr) {
-		$var($Integer, refcnt, $cast($Integer, $nc(this->_excludedURI)->get(uri)));
+		$var($Integer, refcnt, $cast($Integer, this->_excludedURI->get(uri)));
 		return (refcnt != nullptr && refcnt->intValue() > 0);
 	}
 	return false;
 }
 
 void SymbolTable::unExcludeNamespaces($String* prefixes) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_excludedURI == nullptr) {
 		return;
 	}
@@ -350,7 +288,7 @@ void SymbolTable::unExcludeNamespaces($String* prefixes) {
 			}
 			$var($Integer, refcnt, $cast($Integer, $nc(this->_excludedURI)->get(uri)));
 			if (refcnt != nullptr) {
-				$nc(this->_excludedURI)->put(uri, $($Integer::valueOf(refcnt->intValue() - 1)));
+				this->_excludedURI->put(uri, $($Integer::valueOf(refcnt->intValue() - 1)));
 			}
 		}
 	}
@@ -366,7 +304,7 @@ void SymbolTable::pushExcludedNamespacesContext() {
 
 void SymbolTable::popExcludedNamespacesContext() {
 	$set(this, _excludedURI, $cast($Map, $nc(this->_excludedURIStack)->pop()));
-	if ($nc(this->_excludedURIStack)->isEmpty()) {
+	if (this->_excludedURIStack->isEmpty()) {
 		$set(this, _excludedURIStack, nullptr);
 	}
 }
@@ -375,7 +313,64 @@ SymbolTable::SymbolTable() {
 }
 
 $Class* SymbolTable::load$($String* name, bool initialize) {
-	$loadClass(SymbolTable, name, initialize, &_SymbolTable_ClassInfo_, allocate$SymbolTable);
+	$FieldInfo fieldInfos$$[] = {
+		{"_stylesheets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;>;", $PRIVATE | $FINAL, $field(SymbolTable, _stylesheets)},
+		{"_primops", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;>;>;", $PRIVATE | $FINAL, $field(SymbolTable, _primops)},
+		{"_variables", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase;>;", $PRIVATE, $field(SymbolTable, _variables)},
+		{"_templates", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;>;", $PRIVATE, $field(SymbolTable, _templates)},
+		{"_attributeSets", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;>;", $PRIVATE, $field(SymbolTable, _attributeSets)},
+		{"_aliases", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(SymbolTable, _aliases)},
+		{"_excludedURI", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(SymbolTable, _excludedURI)},
+		{"_excludedURIStack", "Ljava/util/Stack;", "Ljava/util/Stack<Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;>;", $PRIVATE, $field(SymbolTable, _excludedURIStack)},
+		{"_decimalFormats", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/DecimalFormatting;>;", $PRIVATE, $field(SymbolTable, _decimalFormats)},
+		{"_keys", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;>;", $PRIVATE, $field(SymbolTable, _keys)},
+		{"_nsCounter", "I", nullptr, $PRIVATE, $field(SymbolTable, _nsCounter)},
+		{"_current", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PRIVATE, $field(SymbolTable, _current)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SymbolTable, init$, void)},
+		{"addAttributeSet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;", nullptr, $PUBLIC, $method(SymbolTable, addAttributeSet, $AttributeSet*, $AttributeSet*)},
+		{"addDecimalFormatting", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/DecimalFormatting;)V", nullptr, $PUBLIC, $method(SymbolTable, addDecimalFormatting, void, $QName*, $DecimalFormatting*)},
+		{"addKey", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;)V", nullptr, $PUBLIC, $method(SymbolTable, addKey, void, $QName*, $Key*)},
+		{"addParam", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;", nullptr, $PUBLIC, $method(SymbolTable, addParam, $Param*, $Param*)},
+		{"addPrefixAlias", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SymbolTable, addPrefixAlias, void, $String*, $String*)},
+		{"addPrimop", "(Ljava/lang/String;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;)V", nullptr, $PUBLIC, $method(SymbolTable, addPrimop, void, $String*, $MethodType*)},
+		{"addStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(SymbolTable, addStylesheet, $Stylesheet*, $QName*, $Stylesheet*)},
+		{"addTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PUBLIC, $method(SymbolTable, addTemplate, $Template*, $Template*)},
+		{"addVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;", nullptr, $PUBLIC, $method(SymbolTable, addVariable, $Variable*, $Variable*)},
+		{"excludeNamespaces", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SymbolTable, excludeNamespaces, void, $String*)},
+		{"excludeURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SymbolTable, excludeURI, void, $String*)},
+		{"generateNamespacePrefix", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(SymbolTable, generateNamespacePrefix, $String*)},
+		{"getDecimalFormatting", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/DecimalFormatting;", nullptr, $PUBLIC, $method(SymbolTable, getDecimalFormatting, $DecimalFormatting*, $QName*)},
+		{"getKey", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Key;", nullptr, $PUBLIC, $method(SymbolTable, getKey, $Key*, $QName*)},
+		{"isExcludedNamespace", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(SymbolTable, isExcludedNamespace, bool, $String*)},
+		{"lookupAttributeSet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/AttributeSet;", nullptr, $PUBLIC, $method(SymbolTable, lookupAttributeSet, $AttributeSet*, $QName*)},
+		{"lookupName", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;", nullptr, $PUBLIC, $method(SymbolTable, lookupName, $SyntaxTreeNode*, $QName*)},
+		{"lookupNamespace", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(SymbolTable, lookupNamespace, $String*, $String*)},
+		{"lookupParam", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Param;", nullptr, $PUBLIC, $method(SymbolTable, lookupParam, $Param*, $QName*)},
+		{"lookupPrefixAlias", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $method(SymbolTable, lookupPrefixAlias, $String*, $String*)},
+		{"lookupPrimop", "(Ljava/lang/String;)Ljava/util/List;", "(Ljava/lang/String;)Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodType;>;", $PUBLIC, $method(SymbolTable, lookupPrimop, $List*, $String*)},
+		{"lookupStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(SymbolTable, lookupStylesheet, $Stylesheet*, $QName*)},
+		{"lookupTemplate", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Template;", nullptr, $PUBLIC, $method(SymbolTable, lookupTemplate, $Template*, $QName*)},
+		{"lookupVariable", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Variable;", nullptr, $PUBLIC, $method(SymbolTable, lookupVariable, $Variable*, $QName*)},
+		{"popExcludedNamespacesContext", "()V", nullptr, $PUBLIC, $method(SymbolTable, popExcludedNamespacesContext, void)},
+		{"pushExcludedNamespacesContext", "()V", nullptr, $PUBLIC, $method(SymbolTable, pushExcludedNamespacesContext, void)},
+		{"setCurrentNode", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode;)V", nullptr, $PUBLIC, $method(SymbolTable, setCurrentNode, void, $SyntaxTreeNode*)},
+		{"unExcludeNamespaces", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(SymbolTable, unExcludeNamespaces, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.SymbolTable",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SymbolTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SymbolTable);
+	});
 	return class$;
 }
 

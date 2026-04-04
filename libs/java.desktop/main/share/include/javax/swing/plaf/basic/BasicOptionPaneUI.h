@@ -69,6 +69,7 @@ class $import BasicOptionPaneUI : public ::javax::swing::plaf::OptionPaneUI {
 	$class(BasicOptionPaneUI, 0, ::javax::swing::plaf::OptionPaneUI)
 public:
 	BasicOptionPaneUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addButtonComponents(::java::awt::Container* container, $ObjectArray* buttons, int32_t initialIndex);
 	virtual void addIcon(::java::awt::Container* top);

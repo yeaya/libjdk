@@ -1,5 +1,4 @@
 #include <java/awt/List.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/Component.h>
@@ -39,7 +38,6 @@ using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ItemListener = ::java::awt::event::ItemListener;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ListPeer = ::java::awt::peer::ListPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -52,185 +50,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $EventListener = ::java::util::EventListener;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$CompoundAttribute _List_MethodAnnotations_addItem6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_addItem7[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_allowsMultipleSelections10[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_clear11[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_countItems13[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_delItem14[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_delItems15[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_isSelected39[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_minimumSize41[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_minimumSize42[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_preferredSize44[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_preferredSize45[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _List_MethodAnnotations_setMultipleSelections59[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _List_FieldInfo_[] = {
-	{"items", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(List, items)},
-	{"rows", "I", nullptr, 0, $field(List, rows)},
-	{"multipleMode", "Z", nullptr, 0, $field(List, multipleMode)},
-	{"selected", "[I", nullptr, 0, $field(List, selected)},
-	{"visibleIndex", "I", nullptr, 0, $field(List, visibleIndex)},
-	{"actionListener", "Ljava/awt/event/ActionListener;", nullptr, $TRANSIENT, $field(List, actionListener)},
-	{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $TRANSIENT, $field(List, itemListener)},
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(List, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(List, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(List, serialVersionUID)},
-	{"DEFAULT_VISIBLE_ROWS", "I", nullptr, $STATIC | $FINAL, $constField(List, DEFAULT_VISIBLE_ROWS)},
-	{"listSerializedDataVersion", "I", nullptr, $PRIVATE, $field(List, listSerializedDataVersion)},
-	{}
-};
-
-$MethodInfo _List_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(List, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(List, init$, void, int32_t), "java.awt.HeadlessException"},
-	{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(List, init$, void, int32_t, bool), "java.awt.HeadlessException"},
-	{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(List, add, void, $String*)},
-	{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(List, add, void, $String*, int32_t)},
-	{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, addActionListener, void, $ActionListener*)},
-	{"addItem", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, addItem, void, $String*), nullptr, nullptr, _List_MethodAnnotations_addItem6},
-	{"addItem", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(List, addItem, void, $String*, int32_t), nullptr, nullptr, _List_MethodAnnotations_addItem7},
-	{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, addItemListener, void, $ItemListener*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(List, addNotify, void)},
-	{"allowsMultipleSelections", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, allowsMultipleSelections, bool), nullptr, nullptr, _List_MethodAnnotations_allowsMultipleSelections10},
-	{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(List, clear, void), nullptr, nullptr, _List_MethodAnnotations_clear11},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(List, constructComponentName, $String*)},
-	{"countItems", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, countItems, int32_t), nullptr, nullptr, _List_MethodAnnotations_countItems13},
-	{"delItem", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, delItem, void, int32_t), nullptr, nullptr, _List_MethodAnnotations_delItem14},
-	{"delItems", "(II)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(List, delItems, void, int32_t, int32_t), nullptr, nullptr, _List_MethodAnnotations_delItems15},
-	{"deselect", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, deselect, void, int32_t)},
-	{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(List, eventEnabled, bool, $AWTEvent*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(List, getAccessibleContext, $AccessibleContext*)},
-	{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getActionListeners, $ActionListenerArray*)},
-	{"getItem", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(List, getItem, $String*, int32_t)},
-	{"getItemCount", "()I", nullptr, $PUBLIC, $virtualMethod(List, getItemCount, int32_t)},
-	{"getItemImpl", "(I)Ljava/lang/String;", nullptr, $FINAL, $method(List, getItemImpl, $String*, int32_t)},
-	{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getItemListeners, $ItemListenerArray*)},
-	{"getItems", "()[Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getItems, $StringArray*)},
-	{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(List, getListeners, $EventListenerArray*, $Class*)},
-	{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(List, getMinimumSize, $Dimension*, int32_t)},
-	{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(List, getMinimumSize, $Dimension*)},
-	{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(List, getPreferredSize, $Dimension*, int32_t)},
-	{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(List, getPreferredSize, $Dimension*)},
-	{"getRows", "()I", nullptr, $PUBLIC, $virtualMethod(List, getRows, int32_t)},
-	{"getSelectedIndex", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getSelectedIndex, int32_t)},
-	{"getSelectedIndexes", "()[I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getSelectedIndexes, $ints*)},
-	{"getSelectedItem", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getSelectedItem, $String*)},
-	{"getSelectedItems", "()[Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getSelectedItems, $StringArray*)},
-	{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List, getSelectedObjects, $ObjectArray*)},
-	{"getVisibleIndex", "()I", nullptr, $PUBLIC, $virtualMethod(List, getVisibleIndex, int32_t)},
-	{"isIndexSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(List, isIndexSelected, bool, int32_t)},
-	{"isMultipleMode", "()Z", nullptr, $PUBLIC, $virtualMethod(List, isMultipleMode, bool)},
-	{"isSelected", "(I)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, isSelected, bool, int32_t), nullptr, nullptr, _List_MethodAnnotations_isSelected39},
-	{"makeVisible", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, makeVisible, void, int32_t)},
-	{"minimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, minimumSize, $Dimension*, int32_t), nullptr, nullptr, _List_MethodAnnotations_minimumSize41},
-	{"minimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, minimumSize, $Dimension*), nullptr, nullptr, _List_MethodAnnotations_minimumSize42},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(List, paramString, $String*)},
-	{"preferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, preferredSize, $Dimension*, int32_t), nullptr, nullptr, _List_MethodAnnotations_preferredSize44},
-	{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, preferredSize, $Dimension*), nullptr, nullptr, _List_MethodAnnotations_preferredSize45},
-	{"processActionEvent", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PROTECTED, $virtualMethod(List, processActionEvent, void, $ActionEvent*)},
-	{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(List, processEvent, void, $AWTEvent*)},
-	{"processItemEvent", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(List, processItemEvent, void, $ItemEvent*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(List, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, remove, void, $String*)},
-	{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(List, remove, void, int32_t)},
-	{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, removeActionListener, void, $ActionListener*)},
-	{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(List, removeAll, void)},
-	{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, removeItemListener, void, $ItemListener*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(List, removeNotify, void)},
-	{"replaceItem", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, replaceItem, void, $String*, int32_t)},
-	{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(List, select, void, int32_t)},
-	{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(List, setMultipleMode, void, bool)},
-	{"setMultipleSelections", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(List, setMultipleSelections, void, bool), nullptr, nullptr, _List_MethodAnnotations_setMultipleSelections59},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(List, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _List_InnerClassesInfo_[] = {
-	{"java.awt.List$AccessibleAWTList", "java.awt.List", "AccessibleAWTList", $PROTECTED},
-	{}
-};
-
-$ClassInfo _List_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.List",
-	"java.awt.Component",
-	"java.awt.ItemSelectable,javax.accessibility.Accessible",
-	_List_FieldInfo_,
-	_List_MethodInfo_,
-	nullptr,
-	nullptr,
-	_List_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.List$AccessibleAWTList,java.awt.List$AccessibleAWTList$AccessibleAWTListChild"
-};
-
-$Object* allocate$List($Class* clazz) {
-	return $of($alloc(List));
-}
 
 $String* List::toString() {
 	 return this->$Component::toString();
@@ -277,17 +99,18 @@ void List::init$(int32_t rows, bool multipleMode) {
 }
 
 $String* List::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(List::class$) {
-		$var($String, var$0, List::base);
-		return $concat(var$0, $$str(List::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(List::base);
+		var$0->append(List::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void List::addNotify() {
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createList(this));
+			$set(this, peer, $$nc(getComponentFactory())->createList(this));
 		}
 		$Component::addNotify();
 	}
@@ -322,7 +145,7 @@ $String* List::getItemImpl(int32_t index) {
 $StringArray* List::getItems() {
 	$synchronized(this) {
 		$var($StringArray, itemCopies, $new($StringArray, $nc(this->items)->size()));
-		$nc(this->items)->copyInto(itemCopies);
+		this->items->copyInto(itemCopies);
 		return itemCopies;
 	}
 }
@@ -341,7 +164,7 @@ void List::add($String* item, int32_t index) {
 
 void List::addItem($String* item$renamed, int32_t index) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, item, item$renamed);
 		if (index < -1 || index >= $nc(this->items)->size()) {
 			index = -1;
@@ -405,7 +228,7 @@ void List::delItem(int32_t position) {
 int32_t List::getSelectedIndex() {
 	$synchronized(this) {
 		$var($ints, sel, getSelectedIndexes());
-		return ($nc(sel)->length == 1) ? $nc(sel)->get(0) : -1;
+		return ($nc(sel)->length == 1) ? sel->get(0) : -1;
 	}
 }
 
@@ -428,7 +251,7 @@ $String* List::getSelectedItem() {
 
 $StringArray* List::getSelectedItems() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ints, sel, getSelectedIndexes());
 		$var($StringArray, str, $new($StringArray, $nc(sel)->length));
 		for (int32_t i = 0; i < sel->length; ++i) {
@@ -443,7 +266,7 @@ $ObjectArray* List::getSelectedObjects() {
 }
 
 void List::select(int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListPeer, peer, nullptr);
 	do {
 		$assign(peer, $cast($ListPeer, this->peer));
@@ -454,7 +277,7 @@ void List::select(int32_t index) {
 		$synchronized(this) {
 			bool alreadySelected = false;
 			for (int32_t i = 0; i < $nc(this->selected)->length; ++i) {
-				if ($nc(this->selected)->get(i) == index) {
+				if (this->selected->get(i) == index) {
 					alreadySelected = true;
 					break;
 				}
@@ -462,11 +285,11 @@ void List::select(int32_t index) {
 			if (!alreadySelected) {
 				if (!this->multipleMode) {
 					$set(this, selected, $new($ints, 1));
-					$nc(this->selected)->set(0, index);
+					this->selected->set(0, index);
 				} else {
-					$var($ints, newsel, $new($ints, $nc(this->selected)->length + 1));
-					$System::arraycopy(this->selected, 0, newsel, 0, $nc(this->selected)->length);
-					newsel->set($nc(this->selected)->length, index);
+					$var($ints, newsel, $new($ints, this->selected->length + 1));
+					$System::arraycopy(this->selected, 0, newsel, 0, this->selected->length);
+					newsel->set(this->selected->length, index);
 					$set(this, selected, newsel);
 				}
 			}
@@ -476,7 +299,7 @@ void List::select(int32_t index) {
 
 void List::deselect(int32_t index) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($ListPeer, peer, $cast($ListPeer, this->peer));
 		if (peer != nullptr) {
 			bool var$0 = isMultipleMode();
@@ -485,10 +308,10 @@ void List::deselect(int32_t index) {
 			}
 		}
 		for (int32_t i = 0; i < $nc(this->selected)->length; ++i) {
-			if ($nc(this->selected)->get(i) == index) {
-				$var($ints, newsel, $new($ints, $nc(this->selected)->length - 1));
+			if (this->selected->get(i) == index) {
+				$var($ints, newsel, $new($ints, this->selected->length - 1));
 				$System::arraycopy(this->selected, 0, newsel, 0, i);
-				$System::arraycopy(this->selected, i + 1, newsel, i, $nc(this->selected)->length - (i + 1));
+				$System::arraycopy(this->selected, i + 1, newsel, i, this->selected->length - (i + 1));
 				$set(this, selected, newsel);
 				return;
 			}
@@ -559,7 +382,7 @@ $Dimension* List::getPreferredSize(int32_t rows) {
 $Dimension* List::preferredSize(int32_t rows) {
 	$synchronized(getTreeLock()) {
 		$var($ListPeer, peer, $cast($ListPeer, this->peer));
-		return (peer != nullptr) ? $nc(peer)->getPreferredSize(rows) : $Component::preferredSize();
+		return (peer != nullptr) ? peer->getPreferredSize(rows) : $Component::preferredSize();
 	}
 }
 
@@ -580,7 +403,7 @@ $Dimension* List::getMinimumSize(int32_t rows) {
 $Dimension* List::minimumSize(int32_t rows) {
 	$synchronized(getTreeLock()) {
 		$var($ListPeer, peer, $cast($ListPeer, this->peer));
-		return (peer != nullptr) ? $nc(peer)->getMinimumSize(rows) : $Component::minimumSize();
+		return (peer != nullptr) ? peer->getMinimumSize(rows) : $Component::minimumSize();
 	}
 }
 
@@ -616,7 +439,7 @@ void List::removeItemListener($ItemListener* l) {
 $ItemListenerArray* List::getItemListeners() {
 	$synchronized(this) {
 		$load($ItemListener);
-		return $fcast($ItemListenerArray, getListeners($ItemListener::class$));
+		return $cast($ItemListenerArray, getListeners($ItemListener::class$));
 	}
 }
 
@@ -642,7 +465,7 @@ void List::removeActionListener($ActionListener* l) {
 $ActionListenerArray* List::getActionListeners() {
 	$synchronized(this) {
 		$load($ActionListener);
-		return $fcast($ActionListenerArray, getListeners($ActionListener::class$));
+		return $cast($ActionListenerArray, getListeners($ActionListener::class$));
 	}
 }
 
@@ -665,23 +488,17 @@ $EventListenerArray* List::getListeners($Class* listenerType) {
 bool List::eventEnabled($AWTEvent* e) {
 	switch ($nc(e)->id) {
 	case $ActionEvent::ACTION_PERFORMED:
-		{
-			if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::ACTION_EVENT_MASK)) != 0 || this->actionListener != nullptr) {
-				return true;
-			}
-			return false;
+		if ((this->eventMask & $AWTEvent::ACTION_EVENT_MASK) != 0 || this->actionListener != nullptr) {
+			return true;
 		}
+		return false;
 	case $ItemEvent::ITEM_STATE_CHANGED:
-		{
-			if (((int64_t)(this->eventMask & (uint64_t)$AWTEvent::ITEM_EVENT_MASK)) != 0 || this->itemListener != nullptr) {
-				return true;
-			}
-			return false;
+		if ((this->eventMask & $AWTEvent::ITEM_EVENT_MASK) != 0 || this->itemListener != nullptr) {
+			return true;
 		}
+		return false;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 	return $Component::eventEnabled(e);
 }
@@ -712,9 +529,12 @@ void List::processActionEvent($ActionEvent* e) {
 }
 
 $String* List::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$($Component::paramString()), ",selected="_s}));
-	return $concat(var$0, $(getSelectedItem()));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($Component::paramString()));
+	var$0->append(",selected="_s);
+	var$0->append($(getSelectedItem()));
+	return $str(var$0);
 }
 
 void List::delItems(int32_t start, int32_t end) {
@@ -744,21 +564,19 @@ void List::writeObject($ObjectOutputStream* s) {
 }
 
 void List::readObject($ObjectInputStream* s) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$GraphicsEnvironment::checkHeadless();
 	$nc(s)->defaultReadObject();
 	$var($Object, keyOrNull, nullptr);
 	while (nullptr != ($assign(keyOrNull, s->readObject()))) {
-		$var($String, key, $nc(($cast($String, keyOrNull)))->intern());
+		$var($String, key, $nc($cast($String, keyOrNull))->intern());
 		$init($Component);
 		if ($Component::itemListenerK == key) {
-			addItemListener(($cast($ItemListener, $(s->readObject()))));
+			addItemListener($$cast($ItemListener, s->readObject()));
+		} else if ($Component::actionListenerK == key) {
+			addActionListener($$cast($ActionListener, s->readObject()));
 		} else {
-			if ($Component::actionListenerK == key) {
-				addActionListener(($cast($ActionListener, $(s->readObject()))));
-			} else {
-				s->readObject();
-			}
+			s->readObject();
 		}
 	}
 }
@@ -770,7 +588,7 @@ $AccessibleContext* List::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$List($Class* class$) {
+void List::clinit$($Class* clazz) {
 	$assignStatic(List::base, "list"_s);
 	List::nameCounter = 0;
 }
@@ -779,7 +597,163 @@ List::List() {
 }
 
 $Class* List::load$($String* name, bool initialize) {
-	$loadClass(List, name, initialize, &_List_ClassInfo_, clinit$List, allocate$List);
+	$FieldInfo fieldInfos$$[] = {
+		{"items", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/lang/String;>;", 0, $field(List, items)},
+		{"rows", "I", nullptr, 0, $field(List, rows)},
+		{"multipleMode", "Z", nullptr, 0, $field(List, multipleMode)},
+		{"selected", "[I", nullptr, 0, $field(List, selected)},
+		{"visibleIndex", "I", nullptr, 0, $field(List, visibleIndex)},
+		{"actionListener", "Ljava/awt/event/ActionListener;", nullptr, $TRANSIENT, $field(List, actionListener)},
+		{"itemListener", "Ljava/awt/event/ItemListener;", nullptr, $TRANSIENT, $field(List, itemListener)},
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(List, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(List, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(List, serialVersionUID)},
+		{"DEFAULT_VISIBLE_ROWS", "I", nullptr, $STATIC | $FINAL, $constField(List, DEFAULT_VISIBLE_ROWS)},
+		{"listSerializedDataVersion", "I", nullptr, $PRIVATE, $field(List, listSerializedDataVersion)},
+		{}
+	};
+	$CompoundAttribute addItemmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute addItemmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute allowsMultipleSelectionsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute clearmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute countItemsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute delItemmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute delItemsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute isSelectedmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute minimumSizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute minimumSizemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute preferredSizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute preferredSizemethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setMultipleSelectionsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(List, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(List, init$, void, int32_t), "java.awt.HeadlessException"},
+		{"<init>", "(IZ)V", nullptr, $PUBLIC, $method(List, init$, void, int32_t, bool), "java.awt.HeadlessException"},
+		{"add", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(List, add, void, $String*)},
+		{"add", "(Ljava/lang/String;I)V", nullptr, $PUBLIC, $virtualMethod(List, add, void, $String*, int32_t)},
+		{"addActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, addActionListener, void, $ActionListener*)},
+		{"addItem", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, addItem, void, $String*), nullptr, nullptr, addItemmethodAnnotations$$},
+		{"addItem", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(List, addItem, void, $String*, int32_t), nullptr, nullptr, addItemmethodAnnotations$$$1},
+		{"addItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, addItemListener, void, $ItemListener*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(List, addNotify, void)},
+		{"allowsMultipleSelections", "()Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, allowsMultipleSelections, bool), nullptr, nullptr, allowsMultipleSelectionsmethodAnnotations$$},
+		{"clear", "()V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(List, clear, void), nullptr, nullptr, clearmethodAnnotations$$},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(List, constructComponentName, $String*)},
+		{"countItems", "()I", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, countItems, int32_t), nullptr, nullptr, countItemsmethodAnnotations$$},
+		{"delItem", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, delItem, void, int32_t), nullptr, nullptr, delItemmethodAnnotations$$},
+		{"delItems", "(II)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(List, delItems, void, int32_t, int32_t), nullptr, nullptr, delItemsmethodAnnotations$$},
+		{"deselect", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, deselect, void, int32_t)},
+		{"eventEnabled", "(Ljava/awt/AWTEvent;)Z", nullptr, 0, $virtualMethod(List, eventEnabled, bool, $AWTEvent*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(List, getAccessibleContext, $AccessibleContext*)},
+		{"getActionListeners", "()[Ljava/awt/event/ActionListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getActionListeners, $ActionListenerArray*)},
+		{"getItem", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(List, getItem, $String*, int32_t)},
+		{"getItemCount", "()I", nullptr, $PUBLIC, $virtualMethod(List, getItemCount, int32_t)},
+		{"getItemImpl", "(I)Ljava/lang/String;", nullptr, $FINAL, $method(List, getItemImpl, $String*, int32_t)},
+		{"getItemListeners", "()[Ljava/awt/event/ItemListener;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getItemListeners, $ItemListenerArray*)},
+		{"getItems", "()[Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getItems, $StringArray*)},
+		{"getListeners", "(Ljava/lang/Class;)[Ljava/util/EventListener;", "<T::Ljava/util/EventListener;>(Ljava/lang/Class<TT;>;)[TT;", $PUBLIC, $virtualMethod(List, getListeners, $EventListenerArray*, $Class*)},
+		{"getMinimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(List, getMinimumSize, $Dimension*, int32_t)},
+		{"getMinimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(List, getMinimumSize, $Dimension*)},
+		{"getPreferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(List, getPreferredSize, $Dimension*, int32_t)},
+		{"getPreferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(List, getPreferredSize, $Dimension*)},
+		{"getRows", "()I", nullptr, $PUBLIC, $virtualMethod(List, getRows, int32_t)},
+		{"getSelectedIndex", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getSelectedIndex, int32_t)},
+		{"getSelectedIndexes", "()[I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getSelectedIndexes, $ints*)},
+		{"getSelectedItem", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getSelectedItem, $String*)},
+		{"getSelectedItems", "()[Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, getSelectedItems, $StringArray*)},
+		{"getSelectedObjects", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(List, getSelectedObjects, $ObjectArray*)},
+		{"getVisibleIndex", "()I", nullptr, $PUBLIC, $virtualMethod(List, getVisibleIndex, int32_t)},
+		{"isIndexSelected", "(I)Z", nullptr, $PUBLIC, $virtualMethod(List, isIndexSelected, bool, int32_t)},
+		{"isMultipleMode", "()Z", nullptr, $PUBLIC, $virtualMethod(List, isMultipleMode, bool)},
+		{"isSelected", "(I)Z", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, isSelected, bool, int32_t), nullptr, nullptr, isSelectedmethodAnnotations$$},
+		{"makeVisible", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, makeVisible, void, int32_t)},
+		{"minimumSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, minimumSize, $Dimension*, int32_t), nullptr, nullptr, minimumSizemethodAnnotations$$},
+		{"minimumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, minimumSize, $Dimension*), nullptr, nullptr, minimumSizemethodAnnotations$$$1},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(List, paramString, $String*)},
+		{"preferredSize", "(I)Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, preferredSize, $Dimension*, int32_t), nullptr, nullptr, preferredSizemethodAnnotations$$},
+		{"preferredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(List, preferredSize, $Dimension*), nullptr, nullptr, preferredSizemethodAnnotations$$$1},
+		{"processActionEvent", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PROTECTED, $virtualMethod(List, processActionEvent, void, $ActionEvent*)},
+		{"processEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PROTECTED, $virtualMethod(List, processEvent, void, $AWTEvent*)},
+		{"processItemEvent", "(Ljava/awt/event/ItemEvent;)V", nullptr, $PROTECTED, $virtualMethod(List, processItemEvent, void, $ItemEvent*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(List, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException,java.awt.HeadlessException"},
+		{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, remove, void, $String*)},
+		{"remove", "(I)V", nullptr, $PUBLIC, $virtualMethod(List, remove, void, int32_t)},
+		{"removeActionListener", "(Ljava/awt/event/ActionListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, removeActionListener, void, $ActionListener*)},
+		{"removeAll", "()V", nullptr, $PUBLIC, $virtualMethod(List, removeAll, void)},
+		{"removeItemListener", "(Ljava/awt/event/ItemListener;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, removeItemListener, void, $ItemListener*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(List, removeNotify, void)},
+		{"replaceItem", "(Ljava/lang/String;I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(List, replaceItem, void, $String*, int32_t)},
+		{"select", "(I)V", nullptr, $PUBLIC, $virtualMethod(List, select, void, int32_t)},
+		{"setMultipleMode", "(Z)V", nullptr, $PUBLIC, $virtualMethod(List, setMultipleMode, void, bool)},
+		{"setMultipleSelections", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED | $DEPRECATED, $virtualMethod(List, setMultipleSelections, void, bool), nullptr, nullptr, setMultipleSelectionsmethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(List, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.List$AccessibleAWTList", "java.awt.List", "AccessibleAWTList", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.List",
+		"java.awt.Component",
+		"java.awt.ItemSelectable,javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.List$AccessibleAWTList,java.awt.List$AccessibleAWTList$AccessibleAWTListChild"
+	};
+	$loadClass(List, name, initialize, &classInfo$$, List::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(List));
+	});
 	return class$;
 }
 

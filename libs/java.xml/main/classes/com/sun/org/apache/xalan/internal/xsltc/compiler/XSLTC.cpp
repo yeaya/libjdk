@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC.h>
-
 #include <com/sun/org/apache/bcel/internal/classfile/JavaClass.h>
 #include <com/sun/org/apache/xalan/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
@@ -16,7 +15,6 @@
 #include <java/io/FileOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
@@ -35,7 +33,6 @@
 #include <java/util/jar/JarEntry.h>
 #include <java/util/jar/JarOutputStream.h>
 #include <java/util/jar/Manifest.h>
-#include <java/util/zip/ZipEntry.h>
 #include <javax/xml/XMLConstants.h>
 #include <javax/xml/catalog/CatalogFeatures.h>
 #include <jdk/xml/internal/JdkConstants.h>
@@ -83,7 +80,6 @@ using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -107,7 +103,6 @@ using $Attributes$Name = ::java::util::jar::Attributes$Name;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarOutputStream = ::java::util::jar::JarOutputStream;
 using $Manifest = ::java::util::jar::Manifest;
-using $ZipEntry = ::java::util::zip::ZipEntry;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $CatalogFeatures = ::javax::xml::catalog::CatalogFeatures;
 using $JdkConstants = ::jdk::xml::internal::JdkConstants;
@@ -125,142 +120,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace compiler {
-
-$FieldInfo _XSLTC_FieldInfo_[] = {
-	{"_parser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PRIVATE, $field(XSLTC, _parser)},
-	{"_reader", "Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE, $field(XSLTC, _reader)},
-	{"_loader", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SourceLoader;", nullptr, $PRIVATE, $field(XSLTC, _loader)},
-	{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(XSLTC, _stylesheet)},
-	{"_modeSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _modeSerial)},
-	{"_stylesheetSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _stylesheetSerial)},
-	{"_stepPatternSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _stepPatternSerial)},
-	{"_helperClassSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _helperClassSerial)},
-	{"_attributeSetSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _attributeSetSerial)},
-	{"_numberFieldIndexes", "[I", nullptr, $PRIVATE, $field(XSLTC, _numberFieldIndexes)},
-	{"_nextGType", "I", nullptr, $PRIVATE, $field(XSLTC, _nextGType)},
-	{"_namesIndex", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSLTC, _namesIndex)},
-	{"_elements", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(XSLTC, _elements)},
-	{"_attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(XSLTC, _attributes)},
-	{"_nextNSType", "I", nullptr, $PRIVATE, $field(XSLTC, _nextNSType)},
-	{"_namespaceIndex", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSLTC, _namespaceIndex)},
-	{"_namespaces", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(XSLTC, _namespaces)},
-	{"_namespacePrefixes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(XSLTC, _namespacePrefixes)},
-	{"m_characterData", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/StringBuilder;>;", $PRIVATE, $field(XSLTC, m_characterData)},
-	{"JAR_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, JAR_OUTPUT)},
-	{"BYTEARRAY_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, BYTEARRAY_OUTPUT)},
-	{"CLASSLOADER_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, CLASSLOADER_OUTPUT)},
-	{"BYTEARRAY_AND_FILE_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, BYTEARRAY_AND_FILE_OUTPUT)},
-	{"BYTEARRAY_AND_JAR_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, BYTEARRAY_AND_JAR_OUTPUT)},
-	{"_debug", "Z", nullptr, $PRIVATE, $field(XSLTC, _debug)},
-	{"_jarFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _jarFileName)},
-	{"_className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _className)},
-	{"_packageName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _packageName)},
-	{"_destDir", "Ljava/io/File;", nullptr, $PRIVATE, $field(XSLTC, _destDir)},
-	{"_outputType", "I", nullptr, $PRIVATE, $field(XSLTC, _outputType)},
-	{"_classes", "Ljava/util/List;", "Ljava/util/List<Ljava/io/ByteArrayOutputStream;>;", $PRIVATE, $field(XSLTC, _classes)},
-	{"_bcelClasses", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;>;", $PRIVATE, $field(XSLTC, _bcelClasses)},
-	{"_callsNodeset", "Z", nullptr, $PRIVATE, $field(XSLTC, _callsNodeset)},
-	{"_multiDocument", "Z", nullptr, $PRIVATE, $field(XSLTC, _multiDocument)},
-	{"_hasIdCall", "Z", nullptr, $PRIVATE, $field(XSLTC, _hasIdCall)},
-	{"_templateInlining", "Z", nullptr, $PRIVATE, $field(XSLTC, _templateInlining)},
-	{"_isSecureProcessing", "Z", nullptr, $PRIVATE, $field(XSLTC, _isSecureProcessing)},
-	{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(XSLTC, _overrideDefaultParser)},
-	{"_accessExternalStylesheet", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _accessExternalStylesheet)},
-	{"_accessExternalDTD", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _accessExternalDTD)},
-	{"_xmlSecurityManager", "Lcom/sun/org/apache/xalan/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(XSLTC, _xmlSecurityManager)},
-	{"_xmlFeatures", "Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PRIVATE | $FINAL, $field(XSLTC, _xmlFeatures)},
-	{"_extensionClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(XSLTC, _extensionClassLoader)},
-	{"_externalExtensionFunctions", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $FINAL, $field(XSLTC, _externalExtensionFunctions)},
-	{"_catalogFeatures", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, 0, $field(XSLTC, _catalogFeatures)},
-	{"_cdataChunkSize", "I", nullptr, 0, $field(XSLTC, _cdataChunkSize)},
-	{}
-};
-
-$MethodInfo _XSLTC_MethodInfo_[] = {
-	{"<init>", "(Ljdk/xml/internal/JdkXmlFeatures;Z)V", nullptr, $PUBLIC, $method(XSLTC, init$, void, $JdkXmlFeatures*, bool)},
-	{"addCharacterData", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $method(XSLTC, addCharacterData, int32_t, $String*)},
-	{"callsNodeset", "()Z", nullptr, $PUBLIC, $method(XSLTC, callsNodeset, bool)},
-	{"classFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSLTC, classFileName, $String*, $String*)},
-	{"compile", "(Ljava/net/URL;)Z", nullptr, $PUBLIC, $method(XSLTC, compile, bool, $URL*)},
-	{"compile", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XSLTC, compile, bool, $URL*, $String*)},
-	{"compile", "(Ljava/io/InputStream;Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XSLTC, compile, bool, $InputStream*, $String*)},
-	{"compile", "(Lorg/xml/sax/InputSource;Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XSLTC, compile, bool, $InputSource*, $String*)},
-	{"compile", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/net/URL;>;)Z", $PUBLIC, $method(XSLTC, compile, bool, $List*)},
-	{"compile", "(Ljava/lang/String;Lorg/xml/sax/InputSource;I)[[B", nullptr, $PUBLIC, $method(XSLTC, compile, $byteArray2*, $String*, $InputSource*, int32_t)},
-	{"compile", "(Ljava/lang/String;Lorg/xml/sax/InputSource;)[[B", nullptr, $PUBLIC, $method(XSLTC, compile, $byteArray2*, $String*, $InputSource*)},
-	{"debug", "()Z", nullptr, $PUBLIC, $method(XSLTC, debug, bool)},
-	{"dumpClass", "(Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;)V", nullptr, $PUBLIC, $method(XSLTC, dumpClass, void, $JavaClass*)},
-	{"entryName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSLTC, entryName, $String*, $File*), "java.io.IOException"},
-	{"getBytecodes", "()[[B", nullptr, $PUBLIC, $method(XSLTC, getBytecodes, $byteArray2*)},
-	{"getCharacterData", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(XSLTC, getCharacterData, $String*, int32_t)},
-	{"getCharacterDataCount", "()I", nullptr, $PUBLIC, $method(XSLTC, getCharacterDataCount, int32_t)},
-	{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XSLTC, getClassName, $String*)},
-	{"getErrors", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PUBLIC, $method(XSLTC, getErrors, $List*)},
-	{"getExternalExtensionFunctions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PUBLIC, $method(XSLTC, getExternalExtensionFunctions, $Map*)},
-	{"getFeature", "(Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;)Z", nullptr, $PUBLIC, $method(XSLTC, getFeature, bool, $JdkXmlFeatures$XmlFeature*)},
-	{"getHelperClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XSLTC, getHelperClassName, $String*)},
-	{"getJarFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XSLTC, getJarFileName, $String*)},
-	{"getNamesIndex", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(XSLTC, getNamesIndex, $List*)},
-	{"getNamespaceIndex", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(XSLTC, getNamespaceIndex, $List*)},
-	{"getNumberFieldIndexes", "()[I", nullptr, $PUBLIC, $method(XSLTC, getNumberFieldIndexes, $ints*)},
-	{"getOutputFile", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(XSLTC, getOutputFile, $File*, $String*)},
-	{"getOutputProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC, $method(XSLTC, getOutputProperties, $Properties*)},
-	{"getParser", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PUBLIC, $method(XSLTC, getParser, $Parser*)},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(XSLTC, getProperty, $Object*, $String*)},
-	{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(XSLTC, getStylesheet, $Stylesheet*)},
-	{"getTemplateInlining", "()Z", nullptr, $PUBLIC, $method(XSLTC, getTemplateInlining, bool)},
-	{"getWarnings", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PUBLIC, $method(XSLTC, getWarnings, $List*)},
-	{"getXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC, $method(XSLTC, getXMLReader, $XMLReader*)},
-	{"hasIdCall", "()Z", nullptr, $PUBLIC, $method(XSLTC, hasIdCall, bool)},
-	{"init", "()V", nullptr, $PUBLIC, $method(XSLTC, init, void)},
-	{"isMultiDocument", "()Z", nullptr, $PUBLIC, $method(XSLTC, isMultiDocument, bool)},
-	{"isSecureProcessing", "()Z", nullptr, $PUBLIC, $method(XSLTC, isSecureProcessing, bool)},
-	{"loadExternalFunction", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", 0, $method(XSLTC, loadExternalFunction, $Class*, $String*), "java.lang.ClassNotFoundException"},
-	{"nextAttributeSetSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextAttributeSetSerial, int32_t)},
-	{"nextHelperClassSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextHelperClassSerial, int32_t)},
-	{"nextModeSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextModeSerial, int32_t)},
-	{"nextStepPatternSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextStepPatternSerial, int32_t)},
-	{"nextStylesheetSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextStylesheetSerial, int32_t)},
-	{"outputToJar", "()V", nullptr, $PUBLIC, $method(XSLTC, outputToJar, void), "java.io.IOException"},
-	{"printErrors", "()V", nullptr, $PUBLIC, $method(XSLTC, printErrors, void)},
-	{"printWarnings", "()V", nullptr, $PUBLIC, $method(XSLTC, printWarnings, void)},
-	{"registerAttribute", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)I", nullptr, $PUBLIC, $method(XSLTC, registerAttribute, int32_t, $QName*)},
-	{"registerElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)I", nullptr, $PUBLIC, $method(XSLTC, registerElement, int32_t, $QName*)},
-	{"registerNamespace", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $method(XSLTC, registerNamespace, int32_t, $String*)},
-	{"registerNamespacePrefix", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)I", nullptr, $PUBLIC, $method(XSLTC, registerNamespacePrefix, int32_t, $QName*)},
-	{"reset", "()V", nullptr, $PRIVATE, $method(XSLTC, reset, void)},
-	{"setCallsNodeset", "(Z)V", nullptr, $PROTECTED, $method(XSLTC, setCallsNodeset, void, bool)},
-	{"setClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTC, setClassName, void, $String*)},
-	{"setDebug", "(Z)V", nullptr, $PUBLIC, $method(XSLTC, setDebug, void, bool)},
-	{"setDestDirectory", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XSLTC, setDestDirectory, bool, $String*)},
-	{"setExternalExtensionFunctions", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;)V", $PRIVATE, $method(XSLTC, setExternalExtensionFunctions, void, $String*, $Class*)},
-	{"setHasIdCall", "(Z)V", nullptr, $PROTECTED, $method(XSLTC, setHasIdCall, void, bool)},
-	{"setJarFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTC, setJarFileName, void, $String*)},
-	{"setMultiDocument", "(Z)V", nullptr, $PROTECTED, $method(XSLTC, setMultiDocument, void, bool)},
-	{"setOutputType", "(I)V", nullptr, $PUBLIC, $method(XSLTC, setOutputType, void, int32_t)},
-	{"setPIParameters", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTC, setPIParameters, void, $String*, $String*, $String*)},
-	{"setPackageName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTC, setPackageName, void, $String*)},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XSLTC, setProperty, void, $String*, Object$*)},
-	{"setSecureProcessing", "(Z)V", nullptr, $PUBLIC, $method(XSLTC, setSecureProcessing, void, bool)},
-	{"setSourceLoader", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SourceLoader;)V", nullptr, $PUBLIC, $method(XSLTC, setSourceLoader, void, $SourceLoader*)},
-	{"setStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(XSLTC, setStylesheet, void, $Stylesheet*)},
-	{"setTemplateInlining", "(Z)V", nullptr, $PUBLIC, $method(XSLTC, setTemplateInlining, void, bool)},
-	{"setXMLReader", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC, $method(XSLTC, setXMLReader, void, $XMLReader*)},
-	{}
-};
-
-$ClassInfo _XSLTC_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.XSLTC",
-	"java.lang.Object",
-	nullptr,
-	_XSLTC_FieldInfo_,
-	_XSLTC_MethodInfo_
-};
-
-$Object* allocate$XSLTC($Class* clazz) {
-	return $of($alloc(XSLTC));
-}
 
 void XSLTC::init$($JdkXmlFeatures* featureManager, bool hasListener) {
 	$set(this, _reader, nullptr);
@@ -301,64 +160,52 @@ bool XSLTC::isSecureProcessing() {
 }
 
 bool XSLTC::getFeature($JdkXmlFeatures$XmlFeature* name) {
-	return $nc(this->_xmlFeatures)->getFeature(name);
+	return this->_xmlFeatures->getFeature(name);
 }
 
 $Object* XSLTC::getProperty($String* name) {
 	$init($XMLConstants);
 	if ($nc(name)->equals($XMLConstants::ACCESS_EXTERNAL_STYLESHEET)) {
 		return $of(this->_accessExternalStylesheet);
+	} else if (name->equals($XMLConstants::ACCESS_EXTERNAL_DTD)) {
+		return $of(this->_accessExternalDTD);
 	} else {
-		if (name->equals($XMLConstants::ACCESS_EXTERNAL_DTD)) {
-			return $of(this->_accessExternalDTD);
+		$init($JdkConstants);
+		if (name->equals($JdkConstants::SECURITY_MANAGER)) {
+			return this->_xmlSecurityManager;
+		} else if (name->equals($JdkConstants::JDK_EXT_CLASSLOADER)) {
+			return this->_extensionClassLoader;
 		} else {
-			$init($JdkConstants);
-			if (name->equals($JdkConstants::SECURITY_MANAGER)) {
-				return $of(this->_xmlSecurityManager);
-			} else {
-				if (name->equals($JdkConstants::JDK_EXT_CLASSLOADER)) {
-					return $of(this->_extensionClassLoader);
-				} else {
-					$init($JdkXmlFeatures);
-					if ($nc($JdkXmlFeatures::CATALOG_FEATURES)->equals(name)) {
-						return $of(this->_catalogFeatures);
-					} else {
-						if ($nc($JdkConstants::CDATA_CHUNK_SIZE)->equals(name)) {
-							return $of($Integer::valueOf(this->_cdataChunkSize));
-						}
-					}
-				}
+			$init($JdkXmlFeatures);
+			if ($nc($JdkXmlFeatures::CATALOG_FEATURES)->equals(name)) {
+				return this->_catalogFeatures;
+			} else if ($nc($JdkConstants::CDATA_CHUNK_SIZE)->equals(name)) {
+				return $of($Integer::valueOf(this->_cdataChunkSize));
 			}
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void XSLTC::setProperty($String* name, Object$* value) {
 	$init($XMLConstants);
 	if ($nc(name)->equals($XMLConstants::ACCESS_EXTERNAL_STYLESHEET)) {
 		$set(this, _accessExternalStylesheet, $cast($String, value));
+	} else if (name->equals($XMLConstants::ACCESS_EXTERNAL_DTD)) {
+		$set(this, _accessExternalDTD, $cast($String, value));
 	} else {
-		if (name->equals($XMLConstants::ACCESS_EXTERNAL_DTD)) {
-			$set(this, _accessExternalDTD, $cast($String, value));
+		$init($JdkConstants);
+		if (name->equals($JdkConstants::SECURITY_MANAGER)) {
+			$set(this, _xmlSecurityManager, $cast($XMLSecurityManager, value));
+		} else if (name->equals($JdkConstants::JDK_EXT_CLASSLOADER)) {
+			$set(this, _extensionClassLoader, $cast($ClassLoader, value));
+			this->_externalExtensionFunctions->clear();
 		} else {
-			$init($JdkConstants);
-			if (name->equals($JdkConstants::SECURITY_MANAGER)) {
-				$set(this, _xmlSecurityManager, $cast($XMLSecurityManager, value));
-			} else {
-				if (name->equals($JdkConstants::JDK_EXT_CLASSLOADER)) {
-					$set(this, _extensionClassLoader, $cast($ClassLoader, value));
-					$nc(this->_externalExtensionFunctions)->clear();
-				} else {
-					$init($JdkXmlFeatures);
-					if ($nc($JdkXmlFeatures::CATALOG_FEATURES)->equals(name)) {
-						$set(this, _catalogFeatures, $cast($CatalogFeatures, value));
-					} else {
-						if ($nc($JdkConstants::CDATA_CHUNK_SIZE)->equals(name)) {
-							this->_cdataChunkSize = $Integer::parseInt($cast($String, value));
-						}
-					}
-				}
+			$init($JdkXmlFeatures);
+			if ($nc($JdkXmlFeatures::CATALOG_FEATURES)->equals(name)) {
+				$set(this, _catalogFeatures, $cast($CatalogFeatures, value));
+			} else if ($nc($JdkConstants::CDATA_CHUNK_SIZE)->equals(name)) {
+				this->_cdataChunkSize = $Integer::parseInt($cast($String, value));
 			}
 		}
 	}
@@ -384,16 +231,16 @@ void XSLTC::init() {
 }
 
 void XSLTC::setExternalExtensionFunctions($String* name, $Class* clazz) {
-	if (this->_isSecureProcessing && clazz != nullptr && !$nc(this->_externalExtensionFunctions)->containsKey(name)) {
-		$nc(this->_externalExtensionFunctions)->put(name, clazz);
+	if (this->_isSecureProcessing && clazz != nullptr && !this->_externalExtensionFunctions->containsKey(name)) {
+		this->_externalExtensionFunctions->put(name, clazz);
 	}
 }
 
 $Class* XSLTC::loadExternalFunction($String* name) {
 	$beforeCallerSensitive();
 	$Class* loaded = nullptr;
-	if ($nc(this->_externalExtensionFunctions)->containsKey(name)) {
-		loaded = $cast($Class, $nc(this->_externalExtensionFunctions)->get(name));
+	if (this->_externalExtensionFunctions->containsKey(name)) {
+		loaded = $cast($Class, this->_externalExtensionFunctions->get(name));
 	} else if (this->_extensionClassLoader != nullptr) {
 		loaded = $Class::forName(name, true, this->_extensionClassLoader);
 		setExternalExtensionFunctions(name, loaded);
@@ -413,7 +260,7 @@ void XSLTC::reset() {
 	$set(this, _elements, $new($HashMap));
 	$set(this, _attributes, $new($HashMap));
 	$set(this, _namespaces, $new($HashMap));
-	$nc(this->_namespaces)->put(""_s, $($Integer::valueOf(this->_nextNSType)));
+	this->_namespaces->put(""_s, $($Integer::valueOf(this->_nextNSType)));
 	$set(this, _namesIndex, $new($ArrayList, 128));
 	$set(this, _namespaceIndex, $new($ArrayList, 32));
 	$set(this, _namespacePrefixes, $new($HashMap));
@@ -431,7 +278,7 @@ void XSLTC::reset() {
 		-1,
 		-1
 	}));
-	$nc(this->_externalExtensionFunctions)->clear();
+	this->_externalExtensionFunctions->clear();
 }
 
 void XSLTC::setSourceLoader($SourceLoader* loader) {
@@ -451,7 +298,7 @@ void XSLTC::setPIParameters($String* media, $String* title, $String* charset) {
 }
 
 bool XSLTC::compile($URL* url) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStream, stream, $nc(url)->openStream());
 		$var($InputSource, input, $new($InputSource, stream));
@@ -459,14 +306,14 @@ bool XSLTC::compile($URL* url) {
 		return compile(input, this->_className);
 	} catch ($IOException& e) {
 		$init($ErrorMsg);
-		$nc(this->_parser)->reportError($Constants::FATAL, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
+		$nc(this->_parser)->reportError($Constants::FATAL, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
 		return false;
 	}
 	$shouldNotReachHere();
 }
 
 bool XSLTC::compile($URL* url, $String* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($InputStream, stream, $nc(url)->openStream());
 		$var($InputSource, input, $new($InputSource, stream));
@@ -474,7 +321,7 @@ bool XSLTC::compile($URL* url, $String* name) {
 		return compile(input, name);
 	} catch ($IOException& e) {
 		$init($ErrorMsg);
-		$nc(this->_parser)->reportError($Constants::FATAL, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
+		$nc(this->_parser)->reportError($Constants::FATAL, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
 		return false;
 	}
 	$shouldNotReachHere();
@@ -487,90 +334,86 @@ bool XSLTC::compile($InputStream* stream, $String* name) {
 }
 
 bool XSLTC::compile($InputSource* input, $String* name) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
 		try {
-			try {
-				reset();
-				$var($String, systemId, nullptr);
-				if (input != nullptr) {
-					$assign(systemId, input->getSystemId());
-				}
-				if (this->_className == nullptr) {
-					if (name != nullptr) {
-						setClassName(name);
-					} else if (systemId != nullptr && !systemId->equals(""_s)) {
-						setClassName($($Util::baseName(systemId)));
-					}
-					if (this->_className == nullptr || $nc(this->_className)->length() == 0) {
-						setClassName("GregorSamsa"_s);
-					}
-				}
-				$var($SyntaxTreeNode, element, nullptr);
-				if (this->_reader == nullptr) {
-					$assign(element, $nc(this->_parser)->parse(input));
-				} else {
-					$assign(element, $nc(this->_parser)->parse(this->_reader, input));
-				}
-				if ((!$nc(this->_parser)->errorsFound()) && (element != nullptr)) {
-					$set(this, _stylesheet, $nc(this->_parser)->makeStylesheet(element));
-					$nc(this->_stylesheet)->setSourceLoader(this->_loader);
-					$nc(this->_stylesheet)->setSystemId(systemId);
-					$nc(this->_stylesheet)->setParentStylesheet(nullptr);
-					$nc(this->_stylesheet)->setTemplateInlining(this->_templateInlining);
-					$nc(this->_parser)->setCurrentStylesheet(this->_stylesheet);
-					$nc(this->_parser)->createAST(this->_stylesheet);
-				}
-				if ((!$nc(this->_parser)->errorsFound()) && (this->_stylesheet != nullptr)) {
-					$nc(this->_stylesheet)->setCallsNodeset(this->_callsNodeset);
-					$nc(this->_stylesheet)->setMultiDocument(this->_multiDocument);
-					$nc(this->_stylesheet)->setHasIdCall(this->_hasIdCall);
-					$synchronized($of(this)->getClass()) {
-						$nc(this->_stylesheet)->translate();
-					}
-				}
-			} catch ($Exception& e) {
-				e->printStackTrace();
-				$init($ErrorMsg);
-				$nc(this->_parser)->reportError($Constants::FATAL, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
-			} catch ($Error& e) {
-				if (this->_debug) {
-					e->printStackTrace();
-				}
-				$init($ErrorMsg);
-				$nc(this->_parser)->reportError($Constants::FATAL, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, static_cast<$Throwable*>(e)));
+			reset();
+			$var($String, systemId, nullptr);
+			if (input != nullptr) {
+				$assign(systemId, input->getSystemId());
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, _reader, nullptr);
+			if (this->_className == nullptr) {
+				if (name != nullptr) {
+					setClassName(name);
+				} else if (systemId != nullptr && !systemId->equals(""_s)) {
+					setClassName($($Util::baseName(systemId)));
+				}
+				if (this->_className == nullptr || this->_className->length() == 0) {
+					setClassName("GregorSamsa"_s);
+				}
+			}
+			$var($SyntaxTreeNode, element, nullptr);
+			if (this->_reader == nullptr) {
+				$assign(element, $nc(this->_parser)->parse(input));
+			} else {
+				$assign(element, $nc(this->_parser)->parse(this->_reader, input));
+			}
+			if ((!$nc(this->_parser)->errorsFound()) && (element != nullptr)) {
+				$set(this, _stylesheet, $nc(this->_parser)->makeStylesheet(element));
+				$nc(this->_stylesheet)->setSourceLoader(this->_loader);
+				$nc(this->_stylesheet)->setSystemId(systemId);
+				$nc(this->_stylesheet)->setParentStylesheet(nullptr);
+				$nc(this->_stylesheet)->setTemplateInlining(this->_templateInlining);
+				$nc(this->_parser)->setCurrentStylesheet(this->_stylesheet);
+				$nc(this->_parser)->createAST(this->_stylesheet);
+			}
+			if ((!$nc(this->_parser)->errorsFound()) && (this->_stylesheet != nullptr)) {
+				this->_stylesheet->setCallsNodeset(this->_callsNodeset);
+				$nc(this->_stylesheet)->setMultiDocument(this->_multiDocument);
+				$nc(this->_stylesheet)->setHasIdCall(this->_hasIdCall);
+				$synchronized($of(this)->getClass()) {
+					$nc(this->_stylesheet)->translate();
+				}
+			}
+		} catch ($Exception& e) {
+			e->printStackTrace();
+			$init($ErrorMsg);
+			$nc(this->_parser)->reportError($Constants::FATAL, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
+		} catch ($Error& e) {
+			if (this->_debug) {
+				e->printStackTrace();
+			}
+			$init($ErrorMsg);
+			$nc(this->_parser)->reportError($Constants::FATAL, $$new($ErrorMsg, $ErrorMsg::JAXP_COMPILE_ERR, e));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, _reader, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return !$nc(this->_parser)->errorsFound();
 }
 
 bool XSLTC::compile($List* stylesheets) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(stylesheets)->size();
 	if (count == 0) {
 		return true;
 	}
 	if (count == 1) {
-		return compile($cast($URL, $(stylesheets->get(0))));
+		return compile($$cast($URL, stylesheets->get(0)));
 	} else {
-		{
-			$var($Iterator, i$, stylesheets->iterator());
-			for (; $nc(i$)->hasNext();) {
-				$var($URL, url, $cast($URL, i$->next()));
-				{
-					$set(this, _className, nullptr);
-					if (!compile(url)) {
-						return false;
-					}
+		$var($Iterator, i$, stylesheets->iterator());
+		for (; $nc(i$)->hasNext();) {
+			$var($URL, url, $cast($URL, i$->next()));
+			{
+				$set(this, _className, nullptr);
+				if (!compile(url)) {
+					return false;
 				}
 			}
 		}
@@ -579,11 +422,11 @@ bool XSLTC::compile($List* stylesheets) {
 }
 
 $byteArray2* XSLTC::getBytecodes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->_classes)->size();
 	$var($byteArray2, result, $new($byteArray2, count, 1));
 	for (int32_t i = 0; i < count; ++i) {
-		result->set(i, $($nc(($cast($ByteArrayOutputStream, $($nc(this->_classes)->get(i)))))->toByteArray()));
+		result->set(i, $($$sure($ByteArrayOutputStream, this->_classes->get(i))->toByteArray()));
 	}
 	return result;
 }
@@ -653,7 +496,7 @@ bool XSLTC::hasIdCall() {
 }
 
 void XSLTC::setClassName($String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, base, $Util::baseName(className));
 	$var($String, noext, $Util::noExtName(base));
 	$var($String, name, $Util::toJavaName(noext));
@@ -674,7 +517,7 @@ $String* XSLTC::classFileName($String* className) {
 }
 
 $File* XSLTC::getOutputFile($String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_destDir != nullptr) {
 		return $new($File, this->_destDir, $(classFileName(className)));
 	} else {
@@ -726,19 +569,19 @@ $Stylesheet* XSLTC::getStylesheet() {
 }
 
 int32_t XSLTC::registerAttribute($QName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, code, $cast($Integer, $nc(this->_attributes)->get($($nc(name)->toString()))));
 	if (code == nullptr) {
 		$assign(code, $Integer::valueOf(this->_nextGType++));
-		$nc(this->_attributes)->put($($nc(name)->toString()), code);
-		$var($String, uri, $nc(name)->getNamespace());
+		$nc(this->_attributes)->put($(name->toString()), code);
+		$var($String, uri, name->getNamespace());
 		$var($String, local, $str({"@"_s, $(name->getLocalPart())}));
 		if ((uri != nullptr) && (!uri->equals(""_s))) {
 			$nc(this->_namesIndex)->add($$str({uri, ":"_s, local}));
 		} else {
 			$nc(this->_namesIndex)->add(local);
 		}
-		if ($nc($(name->getLocalPart()))->equals("*"_s)) {
+		if ($$nc(name->getLocalPart())->equals("*"_s)) {
 			registerNamespace($(name->getNamespace()));
 		}
 	}
@@ -746,26 +589,26 @@ int32_t XSLTC::registerAttribute($QName* name) {
 }
 
 int32_t XSLTC::registerElement($QName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, code, $cast($Integer, $nc(this->_elements)->get($($nc(name)->toString()))));
 	if (code == nullptr) {
-		$var($Object, var$0, $of($nc(name)->toString()));
+		$var($Object, var$0, name->toString());
 		$nc(this->_elements)->put(var$0, $assign(code, $Integer::valueOf(this->_nextGType++)));
-		$nc(this->_namesIndex)->add($($nc(name)->toString()));
+		$nc(this->_namesIndex)->add($(name->toString()));
 	}
-	if ($nc($($nc(name)->getLocalPart()))->equals("*"_s)) {
+	if ($$nc(name->getLocalPart())->equals("*"_s)) {
 		registerNamespace($(name->getNamespace()));
 	}
 	return $nc(code)->intValue();
 }
 
 int32_t XSLTC::registerNamespacePrefix($QName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, code, $cast($Integer, $nc(this->_namespacePrefixes)->get($($nc(name)->toString()))));
 	if (code == nullptr) {
 		$assign(code, $Integer::valueOf(this->_nextGType++));
-		$nc(this->_namespacePrefixes)->put($($nc(name)->toString()), code);
-		$var($String, uri, $nc(name)->getNamespace());
+		$nc(this->_namespacePrefixes)->put($(name->toString()), code);
+		$var($String, uri, name->getNamespace());
 		if ((uri != nullptr) && (!uri->equals(""_s))) {
 			$nc(this->_namesIndex)->add("?"_s);
 		} else {
@@ -779,7 +622,7 @@ int32_t XSLTC::registerNamespace($String* namespaceURI) {
 	$var($Integer, code, $cast($Integer, $nc(this->_namespaces)->get(namespaceURI)));
 	if (code == nullptr) {
 		$assign(code, $Integer::valueOf(this->_nextNSType++));
-		$nc(this->_namespaces)->put(namespaceURI, code);
+		this->_namespaces->put(namespaceURI, code);
 		$nc(this->_namespaceIndex)->add(namespaceURI);
 	}
 	return $nc(code)->intValue();
@@ -818,13 +661,16 @@ $List* XSLTC::getNamespaceIndex() {
 }
 
 $String* XSLTC::getHelperClassName() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({$(getClassName()), $$str(u'$')}));
-	return $concat(var$0, $$str(this->_helperClassSerial++));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getClassName()));
+	var$0->append(u'$');
+	var$0->append(this->_helperClassSerial++);
+	return $str(var$0);
 }
 
 void XSLTC::dumpClass($JavaClass* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->_outputType == XSLTC::BYTEARRAY_AND_FILE_OUTPUT) {
 		$var($File, outFile, getOutputFile($($nc(clazz)->getClassName())));
 		$var($String, parentDir, $nc(outFile)->getParent());
@@ -836,33 +682,24 @@ void XSLTC::dumpClass($JavaClass* clazz) {
 		}
 	}
 	try {
-		{
-			$var($ByteArrayOutputStream, out, nullptr)
-			switch (this->_outputType) {
-			case XSLTC::JAR_OUTPUT:
-				{
-					$nc(this->_bcelClasses)->add(clazz);
-					break;
-				}
-			case XSLTC::BYTEARRAY_OUTPUT:
-				{}
-			case XSLTC::BYTEARRAY_AND_FILE_OUTPUT:
-				{}
-			case XSLTC::BYTEARRAY_AND_JAR_OUTPUT:
-				{}
-			case XSLTC::CLASSLOADER_OUTPUT:
-				{
-					$assign(out, $new($ByteArrayOutputStream, 2048));
-					$nc(clazz)->dump(static_cast<$OutputStream*>(out));
-					$nc(this->_classes)->add(out);
-					if (this->_outputType == XSLTC::BYTEARRAY_AND_FILE_OUTPUT) {
-						$nc(clazz)->dump($(getOutputFile($(clazz->getClassName()))));
-					} else if (this->_outputType == XSLTC::BYTEARRAY_AND_JAR_OUTPUT) {
-						$nc(this->_bcelClasses)->add(clazz);
-					}
-					break;
-				}
+		$var($ByteArrayOutputStream, out, nullptr);
+		switch (this->_outputType) {
+		case XSLTC::JAR_OUTPUT:
+			$nc(this->_bcelClasses)->add(clazz);
+			break;
+		case XSLTC::BYTEARRAY_OUTPUT:
+		case XSLTC::BYTEARRAY_AND_FILE_OUTPUT:
+		case XSLTC::BYTEARRAY_AND_JAR_OUTPUT:
+		case XSLTC::CLASSLOADER_OUTPUT:
+			$assign(out, $new($ByteArrayOutputStream, 2048));
+			$nc(clazz)->dump(out);
+			$nc(this->_classes)->add(out);
+			if (this->_outputType == XSLTC::BYTEARRAY_AND_FILE_OUTPUT) {
+				clazz->dump($(getOutputFile($(clazz->getClassName()))));
+			} else if (this->_outputType == XSLTC::BYTEARRAY_AND_JAR_OUTPUT) {
+				$nc(this->_bcelClasses)->add(clazz);
 			}
+			break;
 		}
 	} catch ($Exception& e) {
 		e->printStackTrace();
@@ -871,11 +708,11 @@ void XSLTC::dumpClass($JavaClass* clazz) {
 
 $String* XSLTC::entryName($File* f) {
 	$init($File);
-	return $nc($($nc(f)->getName()))->replace($File::separatorChar, u'/');
+	return $$nc($nc(f)->getName())->replace($File::separatorChar, u'/');
 }
 
 void XSLTC::outputToJar() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Manifest, manifest, $new($Manifest));
 	$var($Attributes, atrs, manifest->getMainAttributes());
 	$init($Attributes$Name);
@@ -890,13 +727,13 @@ void XSLTC::outputToJar() {
 		for (; $nc(i$)->hasNext();) {
 			$var($JavaClass, clazz, $cast($JavaClass, i$->next()));
 			{
-				$var($String, className, $nc($($nc(clazz)->getClassName()))->replace(u'.', u'/'));
+				$var($String, className, $$nc($nc(clazz)->getClassName())->replace(u'.', u'/'));
 				$var($Attributes, attr, $new($Attributes));
 				attr->put(dateAttr, now);
 				$nc(map)->put($$str({className, ".class"_s}), attr);
 				jos->putNextEntry($$new($JarEntry, $$str({className, ".class"_s})));
 				$var($ByteArrayOutputStream, out, $new($ByteArrayOutputStream, 2048));
-				clazz->dump(static_cast<$OutputStream*>(out));
+				clazz->dump(out);
 				out->writeTo(jos);
 			}
 		}
@@ -913,11 +750,11 @@ bool XSLTC::debug() {
 }
 
 $String* XSLTC::getCharacterData(int32_t index) {
-	return $nc(($cast($StringBuilder, $($nc(this->m_characterData)->get(index)))))->toString();
+	return $$sure($StringBuilder, $nc(this->m_characterData)->get(index))->toString();
 }
 
 int32_t XSLTC::getCharacterDataCount() {
-	return (this->m_characterData != nullptr) ? $nc(this->m_characterData)->size() : 0;
+	return (this->m_characterData != nullptr) ? this->m_characterData->size() : 0;
 }
 
 int32_t XSLTC::addCharacterData($String* newData) {
@@ -925,16 +762,16 @@ int32_t XSLTC::addCharacterData($String* newData) {
 	if (this->m_characterData == nullptr) {
 		$set(this, m_characterData, $new($ArrayList));
 		$assign(currData, $new($StringBuilder));
-		$nc(this->m_characterData)->add(currData);
+		this->m_characterData->add(currData);
 	} else {
-		$assign(currData, $cast($StringBuilder, $nc(this->m_characterData)->get($nc(this->m_characterData)->size() - 1)));
+		$assign(currData, $cast($StringBuilder, this->m_characterData->get(this->m_characterData->size() - 1)));
 	}
 	int32_t var$0 = $nc(newData)->length();
 	if (var$0 + $nc(currData)->length() > 21845) {
 		$assign(currData, $new($StringBuilder));
 		$nc(this->m_characterData)->add(currData);
 	}
-	int32_t newDataOffset = $nc(currData)->length();
+	int32_t newDataOffset = currData->length();
 	currData->append(newData);
 	return newDataOffset;
 }
@@ -943,7 +780,138 @@ XSLTC::XSLTC() {
 }
 
 $Class* XSLTC::load$($String* name, bool initialize) {
-	$loadClass(XSLTC, name, initialize, &_XSLTC_ClassInfo_, allocate$XSLTC);
+	$FieldInfo fieldInfos$$[] = {
+		{"_parser", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PRIVATE, $field(XSLTC, _parser)},
+		{"_reader", "Lorg/xml/sax/XMLReader;", nullptr, $PRIVATE, $field(XSLTC, _reader)},
+		{"_loader", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SourceLoader;", nullptr, $PRIVATE, $field(XSLTC, _loader)},
+		{"_stylesheet", "Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PRIVATE, $field(XSLTC, _stylesheet)},
+		{"_modeSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _modeSerial)},
+		{"_stylesheetSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _stylesheetSerial)},
+		{"_stepPatternSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _stepPatternSerial)},
+		{"_helperClassSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _helperClassSerial)},
+		{"_attributeSetSerial", "I", nullptr, $PRIVATE, $field(XSLTC, _attributeSetSerial)},
+		{"_numberFieldIndexes", "[I", nullptr, $PRIVATE, $field(XSLTC, _numberFieldIndexes)},
+		{"_nextGType", "I", nullptr, $PRIVATE, $field(XSLTC, _nextGType)},
+		{"_namesIndex", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSLTC, _namesIndex)},
+		{"_elements", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(XSLTC, _elements)},
+		{"_attributes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(XSLTC, _attributes)},
+		{"_nextNSType", "I", nullptr, $PRIVATE, $field(XSLTC, _nextNSType)},
+		{"_namespaceIndex", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(XSLTC, _namespaceIndex)},
+		{"_namespaces", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(XSLTC, _namespaces)},
+		{"_namespacePrefixes", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Integer;>;", $PRIVATE, $field(XSLTC, _namespacePrefixes)},
+		{"m_characterData", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/StringBuilder;>;", $PRIVATE, $field(XSLTC, m_characterData)},
+		{"JAR_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, JAR_OUTPUT)},
+		{"BYTEARRAY_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, BYTEARRAY_OUTPUT)},
+		{"CLASSLOADER_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, CLASSLOADER_OUTPUT)},
+		{"BYTEARRAY_AND_FILE_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, BYTEARRAY_AND_FILE_OUTPUT)},
+		{"BYTEARRAY_AND_JAR_OUTPUT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(XSLTC, BYTEARRAY_AND_JAR_OUTPUT)},
+		{"_debug", "Z", nullptr, $PRIVATE, $field(XSLTC, _debug)},
+		{"_jarFileName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _jarFileName)},
+		{"_className", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _className)},
+		{"_packageName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _packageName)},
+		{"_destDir", "Ljava/io/File;", nullptr, $PRIVATE, $field(XSLTC, _destDir)},
+		{"_outputType", "I", nullptr, $PRIVATE, $field(XSLTC, _outputType)},
+		{"_classes", "Ljava/util/List;", "Ljava/util/List<Ljava/io/ByteArrayOutputStream;>;", $PRIVATE, $field(XSLTC, _classes)},
+		{"_bcelClasses", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;>;", $PRIVATE, $field(XSLTC, _bcelClasses)},
+		{"_callsNodeset", "Z", nullptr, $PRIVATE, $field(XSLTC, _callsNodeset)},
+		{"_multiDocument", "Z", nullptr, $PRIVATE, $field(XSLTC, _multiDocument)},
+		{"_hasIdCall", "Z", nullptr, $PRIVATE, $field(XSLTC, _hasIdCall)},
+		{"_templateInlining", "Z", nullptr, $PRIVATE, $field(XSLTC, _templateInlining)},
+		{"_isSecureProcessing", "Z", nullptr, $PRIVATE, $field(XSLTC, _isSecureProcessing)},
+		{"_overrideDefaultParser", "Z", nullptr, $PRIVATE, $field(XSLTC, _overrideDefaultParser)},
+		{"_accessExternalStylesheet", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _accessExternalStylesheet)},
+		{"_accessExternalDTD", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSLTC, _accessExternalDTD)},
+		{"_xmlSecurityManager", "Lcom/sun/org/apache/xalan/internal/utils/XMLSecurityManager;", nullptr, $PRIVATE, $field(XSLTC, _xmlSecurityManager)},
+		{"_xmlFeatures", "Ljdk/xml/internal/JdkXmlFeatures;", nullptr, $PRIVATE | $FINAL, $field(XSLTC, _xmlFeatures)},
+		{"_extensionClassLoader", "Ljava/lang/ClassLoader;", nullptr, $PRIVATE, $field(XSLTC, _extensionClassLoader)},
+		{"_externalExtensionFunctions", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PRIVATE | $FINAL, $field(XSLTC, _externalExtensionFunctions)},
+		{"_catalogFeatures", "Ljavax/xml/catalog/CatalogFeatures;", nullptr, 0, $field(XSLTC, _catalogFeatures)},
+		{"_cdataChunkSize", "I", nullptr, 0, $field(XSLTC, _cdataChunkSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/xml/internal/JdkXmlFeatures;Z)V", nullptr, $PUBLIC, $method(XSLTC, init$, void, $JdkXmlFeatures*, bool)},
+		{"addCharacterData", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $method(XSLTC, addCharacterData, int32_t, $String*)},
+		{"callsNodeset", "()Z", nullptr, $PUBLIC, $method(XSLTC, callsNodeset, bool)},
+		{"classFileName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSLTC, classFileName, $String*, $String*)},
+		{"compile", "(Ljava/net/URL;)Z", nullptr, $PUBLIC, $method(XSLTC, compile, bool, $URL*)},
+		{"compile", "(Ljava/net/URL;Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XSLTC, compile, bool, $URL*, $String*)},
+		{"compile", "(Ljava/io/InputStream;Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XSLTC, compile, bool, $InputStream*, $String*)},
+		{"compile", "(Lorg/xml/sax/InputSource;Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XSLTC, compile, bool, $InputSource*, $String*)},
+		{"compile", "(Ljava/util/List;)Z", "(Ljava/util/List<Ljava/net/URL;>;)Z", $PUBLIC, $method(XSLTC, compile, bool, $List*)},
+		{"compile", "(Ljava/lang/String;Lorg/xml/sax/InputSource;I)[[B", nullptr, $PUBLIC, $method(XSLTC, compile, $byteArray2*, $String*, $InputSource*, int32_t)},
+		{"compile", "(Ljava/lang/String;Lorg/xml/sax/InputSource;)[[B", nullptr, $PUBLIC, $method(XSLTC, compile, $byteArray2*, $String*, $InputSource*)},
+		{"debug", "()Z", nullptr, $PUBLIC, $method(XSLTC, debug, bool)},
+		{"dumpClass", "(Lcom/sun/org/apache/bcel/internal/classfile/JavaClass;)V", nullptr, $PUBLIC, $method(XSLTC, dumpClass, void, $JavaClass*)},
+		{"entryName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSLTC, entryName, $String*, $File*), "java.io.IOException"},
+		{"getBytecodes", "()[[B", nullptr, $PUBLIC, $method(XSLTC, getBytecodes, $byteArray2*)},
+		{"getCharacterData", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $method(XSLTC, getCharacterData, $String*, int32_t)},
+		{"getCharacterDataCount", "()I", nullptr, $PUBLIC, $method(XSLTC, getCharacterDataCount, int32_t)},
+		{"getClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XSLTC, getClassName, $String*)},
+		{"getErrors", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PUBLIC, $method(XSLTC, getErrors, $List*)},
+		{"getExternalExtensionFunctions", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;", $PUBLIC, $method(XSLTC, getExternalExtensionFunctions, $Map*)},
+		{"getFeature", "(Ljdk/xml/internal/JdkXmlFeatures$XmlFeature;)Z", nullptr, $PUBLIC, $method(XSLTC, getFeature, bool, $JdkXmlFeatures$XmlFeature*)},
+		{"getHelperClassName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XSLTC, getHelperClassName, $String*)},
+		{"getJarFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $method(XSLTC, getJarFileName, $String*)},
+		{"getNamesIndex", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(XSLTC, getNamesIndex, $List*)},
+		{"getNamespaceIndex", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $method(XSLTC, getNamespaceIndex, $List*)},
+		{"getNumberFieldIndexes", "()[I", nullptr, $PUBLIC, $method(XSLTC, getNumberFieldIndexes, $ints*)},
+		{"getOutputFile", "(Ljava/lang/String;)Ljava/io/File;", nullptr, $PRIVATE, $method(XSLTC, getOutputFile, $File*, $String*)},
+		{"getOutputProperties", "()Ljava/util/Properties;", nullptr, $PUBLIC, $method(XSLTC, getOutputProperties, $Properties*)},
+		{"getParser", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Parser;", nullptr, $PUBLIC, $method(XSLTC, getParser, $Parser*)},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $method(XSLTC, getProperty, $Object*, $String*)},
+		{"getStylesheet", "()Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;", nullptr, $PUBLIC, $method(XSLTC, getStylesheet, $Stylesheet*)},
+		{"getTemplateInlining", "()Z", nullptr, $PUBLIC, $method(XSLTC, getTemplateInlining, bool)},
+		{"getWarnings", "()Ljava/util/List;", "()Ljava/util/List<Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg;>;", $PUBLIC, $method(XSLTC, getWarnings, $List*)},
+		{"getXMLReader", "()Lorg/xml/sax/XMLReader;", nullptr, $PUBLIC, $method(XSLTC, getXMLReader, $XMLReader*)},
+		{"hasIdCall", "()Z", nullptr, $PUBLIC, $method(XSLTC, hasIdCall, bool)},
+		{"init", "()V", nullptr, $PUBLIC, $method(XSLTC, init, void)},
+		{"isMultiDocument", "()Z", nullptr, $PUBLIC, $method(XSLTC, isMultiDocument, bool)},
+		{"isSecureProcessing", "()Z", nullptr, $PUBLIC, $method(XSLTC, isSecureProcessing, bool)},
+		{"loadExternalFunction", "(Ljava/lang/String;)Ljava/lang/Class;", "(Ljava/lang/String;)Ljava/lang/Class<*>;", 0, $method(XSLTC, loadExternalFunction, $Class*, $String*), "java.lang.ClassNotFoundException"},
+		{"nextAttributeSetSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextAttributeSetSerial, int32_t)},
+		{"nextHelperClassSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextHelperClassSerial, int32_t)},
+		{"nextModeSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextModeSerial, int32_t)},
+		{"nextStepPatternSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextStepPatternSerial, int32_t)},
+		{"nextStylesheetSerial", "()I", nullptr, $PUBLIC, $method(XSLTC, nextStylesheetSerial, int32_t)},
+		{"outputToJar", "()V", nullptr, $PUBLIC, $method(XSLTC, outputToJar, void), "java.io.IOException"},
+		{"printErrors", "()V", nullptr, $PUBLIC, $method(XSLTC, printErrors, void)},
+		{"printWarnings", "()V", nullptr, $PUBLIC, $method(XSLTC, printWarnings, void)},
+		{"registerAttribute", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)I", nullptr, $PUBLIC, $method(XSLTC, registerAttribute, int32_t, $QName*)},
+		{"registerElement", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)I", nullptr, $PUBLIC, $method(XSLTC, registerElement, int32_t, $QName*)},
+		{"registerNamespace", "(Ljava/lang/String;)I", nullptr, $PUBLIC, $method(XSLTC, registerNamespace, int32_t, $String*)},
+		{"registerNamespacePrefix", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/QName;)I", nullptr, $PUBLIC, $method(XSLTC, registerNamespacePrefix, int32_t, $QName*)},
+		{"reset", "()V", nullptr, $PRIVATE, $method(XSLTC, reset, void)},
+		{"setCallsNodeset", "(Z)V", nullptr, $PROTECTED, $method(XSLTC, setCallsNodeset, void, bool)},
+		{"setClassName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTC, setClassName, void, $String*)},
+		{"setDebug", "(Z)V", nullptr, $PUBLIC, $method(XSLTC, setDebug, void, bool)},
+		{"setDestDirectory", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $method(XSLTC, setDestDirectory, bool, $String*)},
+		{"setExternalExtensionFunctions", "(Ljava/lang/String;Ljava/lang/Class;)V", "(Ljava/lang/String;Ljava/lang/Class<*>;)V", $PRIVATE, $method(XSLTC, setExternalExtensionFunctions, void, $String*, $Class*)},
+		{"setHasIdCall", "(Z)V", nullptr, $PROTECTED, $method(XSLTC, setHasIdCall, void, bool)},
+		{"setJarFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTC, setJarFileName, void, $String*)},
+		{"setMultiDocument", "(Z)V", nullptr, $PROTECTED, $method(XSLTC, setMultiDocument, void, bool)},
+		{"setOutputType", "(I)V", nullptr, $PUBLIC, $method(XSLTC, setOutputType, void, int32_t)},
+		{"setPIParameters", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTC, setPIParameters, void, $String*, $String*, $String*)},
+		{"setPackageName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XSLTC, setPackageName, void, $String*)},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(XSLTC, setProperty, void, $String*, Object$*)},
+		{"setSecureProcessing", "(Z)V", nullptr, $PUBLIC, $method(XSLTC, setSecureProcessing, void, bool)},
+		{"setSourceLoader", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/SourceLoader;)V", nullptr, $PUBLIC, $method(XSLTC, setSourceLoader, void, $SourceLoader*)},
+		{"setStylesheet", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet;)V", nullptr, $PUBLIC, $method(XSLTC, setStylesheet, void, $Stylesheet*)},
+		{"setTemplateInlining", "(Z)V", nullptr, $PUBLIC, $method(XSLTC, setTemplateInlining, void, bool)},
+		{"setXMLReader", "(Lorg/xml/sax/XMLReader;)V", nullptr, $PUBLIC, $method(XSLTC, setXMLReader, void, $XMLReader*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.XSLTC",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSLTC, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSLTC);
+	});
 	return class$;
 }
 

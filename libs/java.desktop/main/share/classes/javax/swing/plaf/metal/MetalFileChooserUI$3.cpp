@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalFileChooserUI$3.h>
-
 #include <java/awt/Dimension.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/plaf/metal/MetalFileChooserUI.h>
@@ -22,48 +21,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalFileChooserUI$3_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$3, this$0)},
-	{}
-};
-
-$MethodInfo _MetalFileChooserUI$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;I)V", nullptr, 0, $method(MetalFileChooserUI$3, init$, void, $MetalFileChooserUI*, int32_t)},
-	{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$3, getMaximumSize, $Dimension*)},
-	{}
-};
-
-$EnclosingMethodInfo _MetalFileChooserUI$3_EnclosingMethodInfo_ = {
-	"javax.swing.plaf.metal.MetalFileChooserUI",
-	"installComponents",
-	"(Ljavax/swing/JFileChooser;)V"
-};
-
-$InnerClassInfo _MetalFileChooserUI$3_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalFileChooserUI$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalFileChooserUI$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalFileChooserUI$3",
-	"javax.swing.JTextField",
-	nullptr,
-	_MetalFileChooserUI$3_FieldInfo_,
-	_MetalFileChooserUI$3_MethodInfo_,
-	nullptr,
-	&_MetalFileChooserUI$3_EnclosingMethodInfo_,
-	_MetalFileChooserUI$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalFileChooserUI"
-};
-
-$Object* allocate$MetalFileChooserUI$3($Class* clazz) {
-	return $of($alloc(MetalFileChooserUI$3));
-}
-
 void MetalFileChooserUI$3::init$($MetalFileChooserUI* this$0, int32_t columns) {
 	$set(this, this$0, this$0);
 	$JTextField::init$(columns);
@@ -77,7 +34,42 @@ MetalFileChooserUI$3::MetalFileChooserUI$3() {
 }
 
 $Class* MetalFileChooserUI$3::load$($String* name, bool initialize) {
-	$loadClass(MetalFileChooserUI$3, name, initialize, &_MetalFileChooserUI$3_ClassInfo_, allocate$MetalFileChooserUI$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/metal/MetalFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(MetalFileChooserUI$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/metal/MetalFileChooserUI;I)V", nullptr, 0, $method(MetalFileChooserUI$3, init$, void, $MetalFileChooserUI*, int32_t)},
+		{"getMaximumSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MetalFileChooserUI$3, getMaximumSize, $Dimension*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.plaf.metal.MetalFileChooserUI",
+		"installComponents",
+		"(Ljavax/swing/JFileChooser;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalFileChooserUI$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalFileChooserUI$3",
+		"javax.swing.JTextField",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalFileChooserUI"
+	};
+	$loadClass(MetalFileChooserUI$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalFileChooserUI$3));
+	});
 	return class$;
 }
 

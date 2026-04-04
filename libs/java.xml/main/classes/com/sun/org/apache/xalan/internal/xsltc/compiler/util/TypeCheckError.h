@@ -63,12 +63,15 @@ public:
 	virtual ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg* getErrorMsg();
 	virtual $String* getMessage() override;
 	virtual $String* toString() override;
-	static const int64_t serialVersionUID = (int64_t)0x2D0CE7BDD3F033B0;
+	static const int64_t serialVersionUID = (int64_t)0x2d0ce7bdd3f033b0;
 	::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg* _error = nullptr;
 	::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode* _node = nullptr;
 	TypeCheckError(const TypeCheckError& e);
 	virtual void throw$() override;
-	inline TypeCheckError* operator ->() {
+	inline TypeCheckError* operator ->() const {
+		return (TypeCheckError*)throwing$;
+	}
+	inline operator TypeCheckError*() const {
 		return (TypeCheckError*)throwing$;
 	}
 };

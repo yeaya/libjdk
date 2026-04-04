@@ -1,5 +1,4 @@
 #include <com/sun/tools/script/shell/Main.h>
-
 #include <com/sun/tools/script/shell/Main$1.h>
 #include <com/sun/tools/script/shell/Main$2.h>
 #include <com/sun/tools/script/shell/Main$3.h>
@@ -73,7 +72,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Module = ::java::lang::Module;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
@@ -97,85 +95,6 @@ namespace com {
 			namespace script {
 				namespace shell {
 
-$FieldInfo _Main_FieldInfo_[] = {
-	{"EXIT_SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_SUCCESS)},
-	{"EXIT_CMD_NO_CLASSPATH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_CLASSPATH)},
-	{"EXIT_CMD_NO_FILE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_FILE)},
-	{"EXIT_CMD_NO_SCRIPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_SCRIPT)},
-	{"EXIT_CMD_NO_LANG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_LANG)},
-	{"EXIT_CMD_NO_ENCODING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_ENCODING)},
-	{"EXIT_CMD_NO_PROPNAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_PROPNAME)},
-	{"EXIT_UNKNOWN_OPTION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_UNKNOWN_OPTION)},
-	{"EXIT_ENGINE_NOT_FOUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_ENGINE_NOT_FOUND)},
-	{"EXIT_NO_ENCODING_FOUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_NO_ENCODING_FOUND)},
-	{"EXIT_SCRIPT_ERROR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_SCRIPT_ERROR)},
-	{"EXIT_FILE_NOT_FOUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_FILE_NOT_FOUND)},
-	{"EXIT_MULTIPLE_STDIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_MULTIPLE_STDIN)},
-	{"DEFAULT_LANGUAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, DEFAULT_LANGUAGE)},
-	{"scripts", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/script/shell/Main$Command;>;", $PRIVATE | $STATIC, $staticField(Main, scripts)},
-	{"engineManager", "Ljavax/script/ScriptEngineManager;", nullptr, $PRIVATE | $STATIC, $staticField(Main, engineManager)},
-	{"engines", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/script/ScriptEngine;>;", $PRIVATE | $STATIC, $staticField(Main, engines)},
-	{"msgRes", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(Main, msgRes)},
-	{"BUNDLE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Main, BUNDLE_NAME)},
-	{"PROGRAM_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Main, PROGRAM_NAME)},
-	{}
-};
-
-$MethodInfo _Main_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Main, init$, void)},
-	{"addFileSource", "(Ljavax/script/ScriptEngine;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, addFileSource, void, $ScriptEngine*, $String*, $String*)},
-	{"addInteractiveMode", "(Ljavax/script/ScriptEngine;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, addInteractiveMode, void, $ScriptEngine*)},
-	{"addStringSource", "(Ljavax/script/ScriptEngine;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, addStringSource, void, $ScriptEngine*, $String*)},
-	{"checkClassPath", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, checkClassPath, void, $StringArray*)},
-	{"evaluateReader", "(Ljavax/script/ScriptEngine;Ljava/io/Reader;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, evaluateReader, $Object*, $ScriptEngine*, $Reader*, $String*)},
-	{"evaluateStream", "(Ljavax/script/ScriptEngine;Ljava/io/InputStream;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, evaluateStream, $Object*, $ScriptEngine*, $InputStream*, $String*, $String*)},
-	{"evaluateString", "(Ljavax/script/ScriptEngine;Ljava/lang/String;Z)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, evaluateString, $Object*, $ScriptEngine*, $String*, bool)},
-	{"evaluateString", "(Ljavax/script/ScriptEngine;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, evaluateString, void, $ScriptEngine*, $String*)},
-	{"fileToURL", "(Ljava/io/File;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, fileToURL, $URL*, $File*)},
-	{"getError", "()Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getError, $PrintStream*)},
-	{"getIn", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getIn, $InputStream*)},
-	{"getMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getMessage, $String*, $String*, $ObjectArray*)},
-	{"getPrompt", "(Ljavax/script/ScriptEngine;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getPrompt, $String*, $ScriptEngine*)},
-	{"getScriptEngine", "(Ljava/lang/String;)Ljavax/script/ScriptEngine;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getScriptEngine, $ScriptEngine*, $String*)},
-	{"initScriptEngine", "(Ljavax/script/ScriptEngine;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, initScriptEngine, void, $ScriptEngine*)},
-	{"listScriptEngines", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, listScriptEngines, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*)},
-	{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, pathToURLs, $URLArray*, $String*)},
-	{"processOptions", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, processOptions, $StringArray*, $StringArray*)},
-	{"processSource", "(Ljavax/script/ScriptEngine;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, processSource, void, $ScriptEngine*, $String*, $String*)},
-	{"setScriptArguments", "(Ljavax/script/ScriptEngine;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, setScriptArguments, void, $ScriptEngine*, $StringArray*)},
-	{"setScriptFilename", "(Ljavax/script/ScriptEngine;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, setScriptFilename, $String*, $ScriptEngine*, $String*)},
-	{"usage", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, usage, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _Main_InnerClassesInfo_[] = {
-	{"com.sun.tools.script.shell.Main$Command", "com.sun.tools.script.shell.Main", "Command", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{"com.sun.tools.script.shell.Main$3", nullptr, nullptr, 0},
-	{"com.sun.tools.script.shell.Main$2", nullptr, nullptr, 0},
-	{"com.sun.tools.script.shell.Main$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Main_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.script.shell.Main",
-	"java.lang.Object",
-	nullptr,
-	_Main_FieldInfo_,
-	_Main_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Main_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.script.shell.Main$Command,com.sun.tools.script.shell.Main$3,com.sun.tools.script.shell.Main$2,com.sun.tools.script.shell.Main$1"
-};
-
-$Object* allocate$Main($Class* clazz) {
-	return $of($alloc(Main));
-}
-
 $String* Main::DEFAULT_LANGUAGE = nullptr;
 $List* Main::scripts = nullptr;
 $ScriptEngineManager* Main::engineManager = nullptr;
@@ -189,7 +108,7 @@ void Main::init$() {
 
 void Main::main($StringArray* args) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, scriptArgs, processOptions(args));
 	{
 		$var($Iterator, i$, $nc(Main::scripts)->iterator());
@@ -205,7 +124,7 @@ void Main::main($StringArray* args) {
 
 $StringArray* Main::processOptions($StringArray* args) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, currentLanguage, Main::DEFAULT_LANGUAGE);
 	$var($String, currentEncoding, nullptr);
 	checkClassPath(args);
@@ -214,11 +133,11 @@ $StringArray* Main::processOptions($StringArray* args) {
 	for (int32_t i = 0; i < $nc(args)->length; ++i) {
 		$var($String, arg, args->get(i));
 		bool var$0 = $nc(arg)->equals("-classpath"_s);
-		if (var$0 || $nc(arg)->equals("-cp"_s)) {
+		if (var$0 || arg->equals("-cp"_s)) {
 			++i;
 			continue;
 		}
-		if (!$nc(arg)->startsWith("-"_s)) {
+		if (!arg->startsWith("-"_s)) {
 			int32_t numScriptArgs = 0;
 			int32_t startScriptArg = 0;
 			if (seenScript) {
@@ -234,9 +153,9 @@ $StringArray* Main::processOptions($StringArray* args) {
 			$System::arraycopy(args, startScriptArg, result, 0, numScriptArgs);
 			return result;
 		}
-		if ($nc(arg)->startsWith("-D"_s)) {
+		if (arg->startsWith("-D"_s)) {
 			$var($String, value, arg->substring(2));
-			int32_t eq = value->indexOf((int32_t)u'=');
+			int32_t eq = value->indexOf(u'=');
 			if (eq != -1) {
 				$var($String, var$1, value->substring(0, eq));
 				$System::setProperty(var$1, $(value->substring(eq + 1)));
@@ -247,10 +166,10 @@ $StringArray* Main::processOptions($StringArray* args) {
 			}
 			continue;
 		} else {
-			bool var$7 = arg->equals("-?"_s);
-			bool var$6 = var$7 || arg->equals("-h"_s);
-			bool var$5 = var$6 || arg->equals("--help"_s);
-			if (var$5 || arg->equals("-help"_s)) {
+			bool var$4 = arg->equals("-?"_s);
+			bool var$3 = var$4 || arg->equals("-h"_s);
+			bool var$2 = var$3 || arg->equals("--help"_s);
+			if (var$2 || arg->equals("-help"_s)) {
 				usage(Main::EXIT_SUCCESS);
 			} else if (arg->equals("-e"_s)) {
 				seenScript = true;
@@ -319,18 +238,18 @@ void Main::addStringSource($ScriptEngine* se, $String* source) {
 
 void Main::listScriptEngines() {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, factories, $nc(Main::engineManager)->getEngineFactories());
 	{
 		$var($Iterator, i$, $nc(factories)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ScriptEngineFactory, factory, $cast($ScriptEngineFactory, i$->next()));
 			{
-				$nc($(getError()))->println($(getMessage("engine.info"_s, $$new($ObjectArray, {
-					$($of($nc(factory)->getLanguageName())),
-					$($of(factory->getLanguageVersion())),
-					$($of(factory->getEngineName())),
-					$($of(factory->getEngineVersion()))
+				$$nc(getError())->println($(getMessage("engine.info"_s, $$new($ObjectArray, {
+					$($nc(factory)->getLanguageName()),
+					$($nc(factory)->getLanguageVersion()),
+					$($nc(factory)->getEngineName()),
+					$($nc(factory)->getEngineVersion())
 				}))));
 			}
 		}
@@ -340,7 +259,7 @@ void Main::listScriptEngines() {
 
 void Main::processSource($ScriptEngine* se, $String* filename, $String* encoding) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(filename)->equals("-"_s)) {
 		$var($BufferedReader, in, $new($BufferedReader, $$new($InputStreamReader, $(getIn()))));
 		bool hitEOF = false;
@@ -348,12 +267,12 @@ void Main::processSource($ScriptEngine* se, $String* filename, $String* encoding
 		$init($ScriptEngine);
 		$nc(se)->put($ScriptEngine::FILENAME, "<STDIN>"_s);
 		while (!hitEOF) {
-			$nc($(getError()))->print(prompt);
+			$$nc(getError())->print(prompt);
 			$var($String, source, ""_s);
 			try {
 				$assign(source, in->readLine());
 			} catch ($IOException& ioe) {
-				$nc($(getError()))->println($(ioe->toString()));
+				$$nc(getError())->println($(ioe->toString()));
 			}
 			if (source == nullptr) {
 				hitEOF = true;
@@ -361,11 +280,11 @@ void Main::processSource($ScriptEngine* se, $String* filename, $String* encoding
 			}
 			$var($Object, res, evaluateString(se, source, false));
 			if (res != nullptr) {
-				$assign(res, $of(res)->toString());
+				$assign(res, res->toString());
 				if (res == nullptr) {
 					$assign(res, "null"_s);
 				}
-				$nc($(getError()))->println(res);
+				$$nc(getError())->println(res);
 			}
 		}
 	} else {
@@ -373,7 +292,7 @@ void Main::processSource($ScriptEngine* se, $String* filename, $String* encoding
 		try {
 			$assign(fis, $new($FileInputStream, filename));
 		} catch ($FileNotFoundException& fnfe) {
-			$nc($(getError()))->println($(getMessage("file.not.found"_s, $$new($ObjectArray, {$of(filename)}))));
+			$$nc(getError())->println($(getMessage("file.not.found"_s, $$new($ObjectArray, {filename}))));
 			$System::exit(Main::EXIT_FILE_NOT_FOUND);
 		}
 		evaluateStream(se, fis, filename, encoding);
@@ -382,11 +301,11 @@ void Main::processSource($ScriptEngine* se, $String* filename, $String* encoding
 
 $Object* Main::evaluateString($ScriptEngine* se, $String* script, bool exitOnError) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		return $of($nc(se)->eval(script));
+		return $nc(se)->eval(script);
 	} catch ($ScriptException& sexp) {
-		$nc($(getError()))->println($(getMessage("string.script.error"_s, $$new($ObjectArray, {$($of(sexp->getMessage()))}))));
+		$$nc(getError())->println($(getMessage("string.script.error"_s, $$new($ObjectArray, {$(sexp->getMessage())}))));
 		if (exitOnError) {
 			$System::exit(Main::EXIT_SCRIPT_ERROR);
 		}
@@ -396,7 +315,7 @@ $Object* Main::evaluateString($ScriptEngine* se, $String* script, bool exitOnErr
 			$System::exit(Main::EXIT_SCRIPT_ERROR);
 		}
 	}
-	return $of(nullptr);
+	return nullptr;
 }
 
 void Main::evaluateString($ScriptEngine* se, $String* script) {
@@ -406,71 +325,69 @@ void Main::evaluateString($ScriptEngine* se, $String* script) {
 
 $Object* Main::evaluateReader($ScriptEngine* se, $Reader* reader, $String* name) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, oldFilename, setScriptFilename(se, name));
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Object, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($Object, var$2, nullptr);
+	bool return$1 = false;
+	try {
 		try {
-			try {
-				$assign(var$2, $nc(se)->eval(reader));
-				return$1 = true;
-				goto $finally;
-			} catch ($ScriptException& sexp) {
-				$nc($(getError()))->println($(getMessage("file.script.error"_s, $$new($ObjectArray, {
-					$of(name),
-					$($of(sexp->getMessage()))
-				}))));
-				$System::exit(Main::EXIT_SCRIPT_ERROR);
-			} catch ($Exception& exp) {
-				exp->printStackTrace($(getError()));
-				$System::exit(Main::EXIT_SCRIPT_ERROR);
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			setScriptFilename(se, oldFilename);
+			$assign(var$2, $nc(se)->eval(reader));
+			return$1 = true;
+			goto $finally;
+		} catch ($ScriptException& sexp) {
+			$$nc(getError())->println($(getMessage("file.script.error"_s, $$new($ObjectArray, {
+				name,
+				$(sexp->getMessage())
+			}))));
+			$System::exit(Main::EXIT_SCRIPT_ERROR);
+		} catch ($Exception& exp) {
+			exp->printStackTrace($(getError()));
+			$System::exit(Main::EXIT_SCRIPT_ERROR);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		setScriptFilename(se, oldFilename);
 	}
-	return $of(nullptr);
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
+	}
+	return nullptr;
 }
 
 $Object* Main::evaluateStream($ScriptEngine* se, $InputStream* is, $String* name, $String* encoding) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedReader, reader, nullptr);
 	if (encoding != nullptr) {
 		try {
 			$assign(reader, $new($BufferedReader, $$new($InputStreamReader, is, encoding)));
 		} catch ($UnsupportedEncodingException& uee) {
-			$nc($(getError()))->println($(getMessage("encoding.unsupported"_s, $$new($ObjectArray, {$of(encoding)}))));
+			$$nc(getError())->println($(getMessage("encoding.unsupported"_s, $$new($ObjectArray, {encoding}))));
 			$System::exit(Main::EXIT_NO_ENCODING_FOUND);
 		}
 	} else {
 		$assign(reader, $new($BufferedReader, $$new($InputStreamReader, is)));
 	}
-	return $of(evaluateReader(se, reader, name));
+	return evaluateReader(se, reader, name);
 }
 
 void Main::usage(int32_t exitCode) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
-	$nc($(getError()))->println($(getMessage("main.usage"_s, $$new($ObjectArray, {$of(Main::PROGRAM_NAME)}))));
+	$useLocalObjectStack();
+	$$nc(getError())->println($(getMessage("main.usage"_s, $$new($ObjectArray, {Main::PROGRAM_NAME}))));
 	$System::exit(exitCode);
 }
 
 $String* Main::getPrompt($ScriptEngine* se) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
-	$var($List, names, $nc($($nc(se)->getFactory()))->getNames());
-	return $str({$cast($String, $($nc(names)->get(0))), "> "_s});
+	$useLocalObjectStack();
+	$var($List, names, $$nc($nc(se)->getFactory())->getNames());
+	return $str({$$cast($String, $nc(names)->get(0)), "> "_s});
 }
 
 $String* Main::getMessage($String* key, $ObjectArray* params) {
@@ -490,12 +407,12 @@ $PrintStream* Main::getError() {
 
 $ScriptEngine* Main::getScriptEngine($String* lang) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ScriptEngine, se, $cast($ScriptEngine, $nc(Main::engines)->get(lang)));
 	if (se == nullptr) {
 		$assign(se, $nc(Main::engineManager)->getEngineByName(lang));
 		if (se == nullptr) {
-			$nc($(getError()))->println($(getMessage("engine.not.found"_s, $$new($ObjectArray, {$of(lang)}))));
+			$$nc(getError())->println($(getMessage("engine.not.found"_s, $$new($ObjectArray, {lang}))));
 			$System::exit(Main::EXIT_ENGINE_NOT_FOUND);
 		}
 		initScriptEngine(se);
@@ -506,10 +423,10 @@ $ScriptEngine* Main::getScriptEngine($String* lang) {
 
 void Main::initScriptEngine($ScriptEngine* se) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$nc(se)->put("engine"_s, se);
-	$var($List, exts, $nc($(se->getFactory()))->getExtensions());
+	$var($List, exts, $$nc(se->getFactory())->getExtensions());
 	$var($InputStream, sysIn, nullptr);
 	$var($ClassLoader, cl, $($Thread::currentThread())->getContextClassLoader());
 	{
@@ -518,9 +435,9 @@ void Main::initScriptEngine($ScriptEngine* se) {
 			$var($String, ext, $cast($String, i$->next()));
 			{
 				try {
-					$assign(sysIn, $nc($(Main::class$->getModule()))->getResourceAsStream($$str({"com/sun/tools/script/shell/init."_s, ext})));
+					$assign(sysIn, $$nc(Main::class$->getModule())->getResourceAsStream($$str({"com/sun/tools/script/shell/init."_s, ext})));
 				} catch ($IOException& ioe) {
-					$throwNew($RuntimeException, static_cast<$Throwable*>(ioe));
+					$throwNew($RuntimeException, ioe);
 				}
 				if (sysIn != nullptr) {
 					break;
@@ -535,7 +452,7 @@ void Main::initScriptEngine($ScriptEngine* se) {
 
 void Main::checkClassPath($StringArray* args) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, classPath, nullptr);
 	for (int32_t i = 0; i < $nc(args)->length; ++i) {
 		bool var$0 = $nc(args->get(i))->equals("-classpath"_s);
@@ -557,7 +474,7 @@ void Main::checkClassPath($StringArray* args) {
 
 $URLArray* Main::pathToURLs($String* path) {
 	$init(Main);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($File);
 	$var($StringArray, components, $nc(path)->split($File::pathSeparator));
 	$var($URLArray, urls, $new($URLArray, components->length));
@@ -614,7 +531,7 @@ $String* Main::setScriptFilename($ScriptEngine* se, $String* name) {
 	return oldName;
 }
 
-void clinit$Main($Class* class$) {
+void Main::clinit$($Class* clazz) {
 	$assignStatic(Main::DEFAULT_LANGUAGE, "js"_s);
 	$beforeCallerSensitive();
 	$assignStatic(Main::BUNDLE_NAME, "com.sun.tools.script.shell.messages"_s);
@@ -630,7 +547,80 @@ Main::Main() {
 }
 
 $Class* Main::load$($String* name, bool initialize) {
-	$loadClass(Main, name, initialize, &_Main_ClassInfo_, clinit$Main, allocate$Main);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXIT_SUCCESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_SUCCESS)},
+		{"EXIT_CMD_NO_CLASSPATH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_CLASSPATH)},
+		{"EXIT_CMD_NO_FILE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_FILE)},
+		{"EXIT_CMD_NO_SCRIPT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_SCRIPT)},
+		{"EXIT_CMD_NO_LANG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_LANG)},
+		{"EXIT_CMD_NO_ENCODING", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_ENCODING)},
+		{"EXIT_CMD_NO_PROPNAME", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_CMD_NO_PROPNAME)},
+		{"EXIT_UNKNOWN_OPTION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_UNKNOWN_OPTION)},
+		{"EXIT_ENGINE_NOT_FOUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_ENGINE_NOT_FOUND)},
+		{"EXIT_NO_ENCODING_FOUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_NO_ENCODING_FOUND)},
+		{"EXIT_SCRIPT_ERROR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_SCRIPT_ERROR)},
+		{"EXIT_FILE_NOT_FOUND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_FILE_NOT_FOUND)},
+		{"EXIT_MULTIPLE_STDIN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Main, EXIT_MULTIPLE_STDIN)},
+		{"DEFAULT_LANGUAGE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Main, DEFAULT_LANGUAGE)},
+		{"scripts", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/script/shell/Main$Command;>;", $PRIVATE | $STATIC, $staticField(Main, scripts)},
+		{"engineManager", "Ljavax/script/ScriptEngineManager;", nullptr, $PRIVATE | $STATIC, $staticField(Main, engineManager)},
+		{"engines", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/script/ScriptEngine;>;", $PRIVATE | $STATIC, $staticField(Main, engines)},
+		{"msgRes", "Ljava/util/ResourceBundle;", nullptr, $PRIVATE | $STATIC, $staticField(Main, msgRes)},
+		{"BUNDLE_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Main, BUNDLE_NAME)},
+		{"PROGRAM_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(Main, PROGRAM_NAME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Main, init$, void)},
+		{"addFileSource", "(Ljavax/script/ScriptEngine;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, addFileSource, void, $ScriptEngine*, $String*, $String*)},
+		{"addInteractiveMode", "(Ljavax/script/ScriptEngine;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, addInteractiveMode, void, $ScriptEngine*)},
+		{"addStringSource", "(Ljavax/script/ScriptEngine;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, addStringSource, void, $ScriptEngine*, $String*)},
+		{"checkClassPath", "([Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, checkClassPath, void, $StringArray*)},
+		{"evaluateReader", "(Ljavax/script/ScriptEngine;Ljava/io/Reader;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, evaluateReader, $Object*, $ScriptEngine*, $Reader*, $String*)},
+		{"evaluateStream", "(Ljavax/script/ScriptEngine;Ljava/io/InputStream;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, evaluateStream, $Object*, $ScriptEngine*, $InputStream*, $String*, $String*)},
+		{"evaluateString", "(Ljavax/script/ScriptEngine;Ljava/lang/String;Z)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, evaluateString, $Object*, $ScriptEngine*, $String*, bool)},
+		{"evaluateString", "(Ljavax/script/ScriptEngine;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, evaluateString, void, $ScriptEngine*, $String*)},
+		{"fileToURL", "(Ljava/io/File;)Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, fileToURL, $URL*, $File*)},
+		{"getError", "()Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getError, $PrintStream*)},
+		{"getIn", "()Ljava/io/InputStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getIn, $InputStream*)},
+		{"getMessage", "(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getMessage, $String*, $String*, $ObjectArray*)},
+		{"getPrompt", "(Ljavax/script/ScriptEngine;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getPrompt, $String*, $ScriptEngine*)},
+		{"getScriptEngine", "(Ljava/lang/String;)Ljavax/script/ScriptEngine;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, getScriptEngine, $ScriptEngine*, $String*)},
+		{"initScriptEngine", "(Ljavax/script/ScriptEngine;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, initScriptEngine, void, $ScriptEngine*)},
+		{"listScriptEngines", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, listScriptEngines, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Main, main, void, $StringArray*)},
+		{"pathToURLs", "(Ljava/lang/String;)[Ljava/net/URL;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, pathToURLs, $URLArray*, $String*)},
+		{"processOptions", "([Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, processOptions, $StringArray*, $StringArray*)},
+		{"processSource", "(Ljavax/script/ScriptEngine;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, processSource, void, $ScriptEngine*, $String*, $String*)},
+		{"setScriptArguments", "(Ljavax/script/ScriptEngine;[Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, setScriptArguments, void, $ScriptEngine*, $StringArray*)},
+		{"setScriptFilename", "(Ljavax/script/ScriptEngine;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, setScriptFilename, $String*, $ScriptEngine*, $String*)},
+		{"usage", "(I)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Main, usage, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.script.shell.Main$Command", "com.sun.tools.script.shell.Main", "Command", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{"com.sun.tools.script.shell.Main$3", nullptr, nullptr, 0},
+		{"com.sun.tools.script.shell.Main$2", nullptr, nullptr, 0},
+		{"com.sun.tools.script.shell.Main$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.script.shell.Main",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.script.shell.Main$Command,com.sun.tools.script.shell.Main$3,com.sun.tools.script.shell.Main$2,com.sun.tools.script.shell.Main$1"
+	};
+	$loadClass(Main, name, initialize, &classInfo$$, Main::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Main);
+	});
 	return class$;
 }
 

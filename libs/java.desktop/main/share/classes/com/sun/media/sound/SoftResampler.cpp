@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftResampler.h>
-
 #include <com/sun/media/sound/SoftResamplerStreamer.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _SoftResampler_MethodInfo_[] = {
-	{"openStreamer", "()Lcom/sun/media/sound/SoftResamplerStreamer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftResampler, openStreamer, $SoftResamplerStreamer*)},
-	{}
-};
-
-$ClassInfo _SoftResampler_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.media.sound.SoftResampler",
-	nullptr,
-	nullptr,
-	nullptr,
-	_SoftResampler_MethodInfo_
-};
-
-$Object* allocate$SoftResampler($Class* clazz) {
-	return $of($alloc(SoftResampler));
-}
-
 $Class* SoftResampler::load$($String* name, bool initialize) {
-	$loadClass(SoftResampler, name, initialize, &_SoftResampler_ClassInfo_, allocate$SoftResampler);
+	$MethodInfo methodInfos$$[] = {
+		{"openStreamer", "()Lcom/sun/media/sound/SoftResamplerStreamer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SoftResampler, openStreamer, $SoftResamplerStreamer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.media.sound.SoftResampler",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SoftResampler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftResampler);
+	});
 	return class$;
 }
 

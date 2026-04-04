@@ -1,5 +1,4 @@
 #include <bug6578666$1.h>
-
 #include <bug6578666.h>
 #include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
@@ -13,44 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTree = ::javax::swing::JTree;
-
-$MethodInfo _bug6578666$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(bug6578666$1, init$, void)},
-	{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug6578666$1, keyPressed, void, $KeyEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6578666$1_EnclosingMethodInfo_ = {
-	"bug6578666",
-	"createGui",
-	"()V"
-};
-
-$InnerClassInfo _bug6578666$1_InnerClassesInfo_[] = {
-	{"bug6578666$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6578666$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6578666$1",
-	"java.awt.event.KeyAdapter",
-	nullptr,
-	nullptr,
-	_bug6578666$1_MethodInfo_,
-	nullptr,
-	&_bug6578666$1_EnclosingMethodInfo_,
-	_bug6578666$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6578666"
-};
-
-$Object* allocate$bug6578666$1($Class* clazz) {
-	return $of($alloc(bug6578666$1));
-}
 
 void bug6578666$1::init$() {
 	$KeyAdapter::init$();
@@ -65,7 +26,38 @@ bug6578666$1::bug6578666$1() {
 }
 
 $Class* bug6578666$1::load$($String* name, bool initialize) {
-	$loadClass(bug6578666$1, name, initialize, &_bug6578666$1_ClassInfo_, allocate$bug6578666$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(bug6578666$1, init$, void)},
+		{"keyPressed", "(Ljava/awt/event/KeyEvent;)V", nullptr, $PUBLIC, $virtualMethod(bug6578666$1, keyPressed, void, $KeyEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6578666",
+		"createGui",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6578666$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6578666$1",
+		"java.awt.event.KeyAdapter",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6578666"
+	};
+	$loadClass(bug6578666$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6578666$1);
+	});
 	return class$;
 }
 

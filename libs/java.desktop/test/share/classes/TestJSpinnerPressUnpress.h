@@ -34,6 +34,7 @@ class $export TestJSpinnerPressUnpress : public ::java::lang::Object {
 	$class(TestJSpinnerPressUnpress, 0, ::java::lang::Object)
 public:
 	TestJSpinnerPressUnpress();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createUI();
 	static void lambda$createUI$0(::java::awt::event::ActionEvent* e);

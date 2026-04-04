@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Options.h>
-
 #include <com/sun/tools/javac/main/Option.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
 #include <com/sun/tools/javac/util/Context.h>
@@ -25,7 +24,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
-using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 
 namespace com {
@@ -33,53 +31,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _Options_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Options, serialVersionUID)},
-	{"optionsKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/util/Options;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Options, optionsKey)},
-	{"values", "Ljava/util/LinkedHashMap;", "Ljava/util/LinkedHashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(Options, values)},
-	{"listeners", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Ljava/lang/Runnable;>;", $PRIVATE, $field(Options, listeners)},
-	{}
-};
-
-$MethodInfo _Options_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Options, init$, void, $Context*)},
-	{"addListener", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Options, addListener, void, $Runnable*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Options, clear, void)},
-	{"get", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, get, $String*, $String*)},
-	{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, get, $String*, $Option*)},
-	{"getBoolean", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, getBoolean, bool, $String*)},
-	{"getBoolean", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(Options, getBoolean, bool, $String*, bool)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Options;", nullptr, $PUBLIC | $STATIC, $staticMethod(Options, instance, Options*, $Context*)},
-	{"isLintSet", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isLintSet, bool, $String*)},
-	{"isSet", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isSet, bool, $String*)},
-	{"isSet", "(Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isSet, bool, $Option*)},
-	{"isSet", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isSet, bool, $Option*, $String*)},
-	{"isUnset", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isUnset, bool, $String*)},
-	{"isUnset", "(Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isUnset, bool, $Option*)},
-	{"isUnset", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isUnset, bool, $Option*, $String*)},
-	{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Options, keySet, $Set*)},
-	{"notifyListeners", "()V", nullptr, $PUBLIC, $virtualMethod(Options, notifyListeners, void)},
-	{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options, put, void, $String*, $String*)},
-	{"put", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options, put, void, $Option*, $String*)},
-	{"putAll", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $virtualMethod(Options, putAll, void, Options*)},
-	{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options, remove, void, $String*)},
-	{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Options, size, int32_t)},
-	{}
-};
-
-$ClassInfo _Options_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.Options",
-	"java.lang.Object",
-	nullptr,
-	_Options_FieldInfo_,
-	_Options_MethodInfo_
-};
-
-$Object* allocate$Options($Class* clazz) {
-	return $of($alloc(Options));
-}
 
 $Context$Key* Options::optionsKey = nullptr;
 
@@ -95,7 +46,7 @@ Options* Options::instance($Context* context) {
 void Options::init$($Context* context) {
 	$set(this, listeners, $List::nil());
 	$set(this, values, $new($LinkedHashMap));
-	$nc(context)->put(Options::optionsKey, $of(this));
+	$nc(context)->put(Options::optionsKey, this);
 }
 
 $String* Options::get($String* name) {
@@ -132,7 +83,7 @@ bool Options::isLintSet($String* s) {
 	bool var$0 = isSet($Option::XLINT_CUSTOM, s);
 	if (!var$0) {
 		bool var$2 = isSet($Option::XLINT);
-		bool var$1 = (var$2 || isSet($Option::XLINT_CUSTOM, "all"_s));
+		bool var$1 = var$2 || isSet($Option::XLINT_CUSTOM, "all"_s);
 		var$0 = var$1 && isUnset($Option::XLINT_CUSTOM, $$str({"-"_s, s}));
 	}
 	return var$0;
@@ -179,13 +130,11 @@ void Options::addListener($Runnable* listener) {
 }
 
 void Options::notifyListeners() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->listeners)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Runnable, r, $cast($Runnable, i$->next()));
-			$nc(r)->run();
-		}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(this->listeners)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Runnable, r, $cast($Runnable, i$->next()));
+		$nc(r)->run();
 	}
 }
 
@@ -194,7 +143,7 @@ void Options::clear() {
 	$set(this, listeners, $List::nil());
 }
 
-void clinit$Options($Class* class$) {
+void Options::clinit$($Class* clazz) {
 	$assignStatic(Options::optionsKey, $new($Context$Key));
 }
 
@@ -202,7 +151,49 @@ Options::Options() {
 }
 
 $Class* Options::load$($String* name, bool initialize) {
-	$loadClass(Options, name, initialize, &_Options_ClassInfo_, clinit$Options, allocate$Options);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Options, serialVersionUID)},
+		{"optionsKey", "Lcom/sun/tools/javac/util/Context$Key;", "Lcom/sun/tools/javac/util/Context$Key<Lcom/sun/tools/javac/util/Options;>;", $PUBLIC | $STATIC | $FINAL, $staticField(Options, optionsKey)},
+		{"values", "Ljava/util/LinkedHashMap;", "Ljava/util/LinkedHashMap<Ljava/lang/String;Ljava/lang/String;>;", $PRIVATE, $field(Options, values)},
+		{"listeners", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Ljava/lang/Runnable;>;", $PRIVATE, $field(Options, listeners)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(Options, init$, void, $Context*)},
+		{"addListener", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(Options, addListener, void, $Runnable*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(Options, clear, void)},
+		{"get", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, get, $String*, $String*)},
+		{"get", "(Lcom/sun/tools/javac/main/Option;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Options, get, $String*, $Option*)},
+		{"getBoolean", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, getBoolean, bool, $String*)},
+		{"getBoolean", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC, $virtualMethod(Options, getBoolean, bool, $String*, bool)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/util/Options;", nullptr, $PUBLIC | $STATIC, $staticMethod(Options, instance, Options*, $Context*)},
+		{"isLintSet", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isLintSet, bool, $String*)},
+		{"isSet", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isSet, bool, $String*)},
+		{"isSet", "(Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isSet, bool, $Option*)},
+		{"isSet", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isSet, bool, $Option*, $String*)},
+		{"isUnset", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isUnset, bool, $String*)},
+		{"isUnset", "(Lcom/sun/tools/javac/main/Option;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isUnset, bool, $Option*)},
+		{"isUnset", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(Options, isUnset, bool, $Option*, $String*)},
+		{"keySet", "()Ljava/util/Set;", "()Ljava/util/Set<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(Options, keySet, $Set*)},
+		{"notifyListeners", "()V", nullptr, $PUBLIC, $virtualMethod(Options, notifyListeners, void)},
+		{"put", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options, put, void, $String*, $String*)},
+		{"put", "(Lcom/sun/tools/javac/main/Option;Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options, put, void, $Option*, $String*)},
+		{"putAll", "(Lcom/sun/tools/javac/util/Options;)V", nullptr, $PUBLIC, $virtualMethod(Options, putAll, void, Options*)},
+		{"remove", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Options, remove, void, $String*)},
+		{"size", "()I", nullptr, $PUBLIC, $virtualMethod(Options, size, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.Options",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Options, name, initialize, &classInfo$$, Options::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Options);
+	});
 	return class$;
 }
 

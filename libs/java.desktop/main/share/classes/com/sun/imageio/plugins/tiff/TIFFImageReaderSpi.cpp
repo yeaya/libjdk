@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/tiff/TIFFImageReaderSpi.h>
-
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageReader.h>
 #include <com/sun/imageio/plugins/tiff/TIFFStreamMetadata.h>
@@ -30,35 +29,8 @@ namespace com {
 			namespace plugins {
 				namespace tiff {
 
-$FieldInfo _TIFFImageReaderSpi_FieldInfo_[] = {
-	{"registered", "Z", nullptr, $PRIVATE, $field(TIFFImageReaderSpi, registered)},
-	{}
-};
-
-$MethodInfo _TIFFImageReaderSpi_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFImageReaderSpi, init$, void)},
-	{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
-	{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReaderSpi, createReaderInstance, $ImageReader*, Object$*)},
-	{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReaderSpi, getDescription, $String*, $Locale*)},
-	{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(TIFFImageReaderSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
-	{}
-};
-
-$ClassInfo _TIFFImageReaderSpi_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.tiff.TIFFImageReaderSpi",
-	"javax.imageio.spi.ImageReaderSpi",
-	nullptr,
-	_TIFFImageReaderSpi_FieldInfo_,
-	_TIFFImageReaderSpi_MethodInfo_
-};
-
-$Object* allocate$TIFFImageReaderSpi($Class* clazz) {
-	return $of($alloc(TIFFImageReaderSpi));
-}
-
 void TIFFImageReaderSpi::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($ImageInputStream);
 	$init($TIFFStreamMetadata);
 	$init($TIFFImageMetadata);
@@ -79,7 +51,7 @@ $String* TIFFImageReaderSpi::getDescription($Locale* locale) {
 }
 
 bool TIFFImageReaderSpi::canDecodeInput(Object$* input) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($ImageInputStream, input))) {
 		return false;
 	}
@@ -106,7 +78,29 @@ TIFFImageReaderSpi::TIFFImageReaderSpi() {
 }
 
 $Class* TIFFImageReaderSpi::load$($String* name, bool initialize) {
-	$loadClass(TIFFImageReaderSpi, name, initialize, &_TIFFImageReaderSpi_ClassInfo_, allocate$TIFFImageReaderSpi);
+	$FieldInfo fieldInfos$$[] = {
+		{"registered", "Z", nullptr, $PRIVATE, $field(TIFFImageReaderSpi, registered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TIFFImageReaderSpi, init$, void)},
+		{"canDecodeInput", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TIFFImageReaderSpi, canDecodeInput, bool, Object$*), "java.io.IOException"},
+		{"createReaderInstance", "(Ljava/lang/Object;)Ljavax/imageio/ImageReader;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReaderSpi, createReaderInstance, $ImageReader*, Object$*)},
+		{"getDescription", "(Ljava/util/Locale;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TIFFImageReaderSpi, getDescription, $String*, $Locale*)},
+		{"onRegistration", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class;)V", "(Ljavax/imageio/spi/ServiceRegistry;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(TIFFImageReaderSpi, onRegistration, void, $ServiceRegistry*, $Class*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.tiff.TIFFImageReaderSpi",
+		"javax.imageio.spi.ImageReaderSpi",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TIFFImageReaderSpi, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TIFFImageReaderSpi);
+	});
 	return class$;
 }
 

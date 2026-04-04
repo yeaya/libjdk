@@ -42,6 +42,7 @@ class DefaultMXBeanMappingFactory$CompositeMapping : public ::com::sun::jmx::mbe
 	$class(DefaultMXBeanMappingFactory$CompositeMapping, 0, ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$NonNullMXBeanMapping)
 public:
 	DefaultMXBeanMappingFactory$CompositeMapping();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory* this$0, $Class* targetClass, ::javax::management::openmbean::CompositeType* compositeType, $StringArray* itemNames, $Array<::java::lang::reflect::Method>* getters, ::com::sun::jmx::mbeanserver::MXBeanMappingFactory* factory);
 	virtual void checkReconstructible() override;
 	virtual $Object* fromNonNullOpenValue(Object$* value) override;

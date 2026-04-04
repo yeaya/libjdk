@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaMnemonicHandler.h>
-
 #include <com/apple/laf/AquaMnemonicHandler$AltProcessor.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
@@ -32,46 +31,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaMnemonicHandler_FieldInfo_[] = {
-	{"altProcessor", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaMnemonicHandler$AltProcessor;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaMnemonicHandler, altProcessor)},
-	{"isMnemonicHidden", "Z", nullptr, $PROTECTED | $STATIC, $staticField(AquaMnemonicHandler, isMnemonicHidden$)},
-	{}
-};
-
-$MethodInfo _AquaMnemonicHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMnemonicHandler, init$, void)},
-	{"getInstance", "()Ljava/awt/KeyEventPostProcessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMnemonicHandler, getInstance, $KeyEventPostProcessor*)},
-	{"isMnemonicHidden", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMnemonicHandler, isMnemonicHidden, bool)},
-	{"repaintMnemonicsInContainer", "(Ljava/awt/Container;)V", nullptr, $STATIC, $staticMethod(AquaMnemonicHandler, repaintMnemonicsInContainer, void, $Container*)},
-	{"repaintMnemonicsInWindow", "(Ljava/awt/Window;)V", nullptr, $STATIC, $staticMethod(AquaMnemonicHandler, repaintMnemonicsInWindow, void, $Window*)},
-	{"setMnemonicHidden", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMnemonicHandler, setMnemonicHidden, void, bool)},
-	{}
-};
-
-$InnerClassInfo _AquaMnemonicHandler_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaMnemonicHandler$AltProcessor", "com.apple.laf.AquaMnemonicHandler", "AltProcessor", $STATIC},
-	{}
-};
-
-$ClassInfo _AquaMnemonicHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaMnemonicHandler",
-	"java.lang.Object",
-	nullptr,
-	_AquaMnemonicHandler_FieldInfo_,
-	_AquaMnemonicHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaMnemonicHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaMnemonicHandler$AltProcessor"
-};
-
-$Object* allocate$AquaMnemonicHandler($Class* clazz) {
-	return $of($alloc(AquaMnemonicHandler));
-}
-
 $AquaUtils$RecyclableSingleton* AquaMnemonicHandler::altProcessor = nullptr;
 bool AquaMnemonicHandler::isMnemonicHidden$ = false;
 
@@ -80,7 +39,7 @@ void AquaMnemonicHandler::init$() {
 
 $KeyEventPostProcessor* AquaMnemonicHandler::getInstance() {
 	$init(AquaMnemonicHandler);
-	return $cast($KeyEventPostProcessor, $nc(AquaMnemonicHandler::altProcessor)->get());
+	return $cast($KeyEventPostProcessor, AquaMnemonicHandler::altProcessor->get());
 }
 
 void AquaMnemonicHandler::setMnemonicHidden(bool hide) {
@@ -102,16 +61,14 @@ bool AquaMnemonicHandler::isMnemonicHidden() {
 
 void AquaMnemonicHandler::repaintMnemonicsInWindow($Window* w) {
 	$init(AquaMnemonicHandler);
-	$useLocalCurrentObjectStackCache();
-	if (w == nullptr || !$nc(w)->isShowing()) {
+	$useLocalObjectStack();
+	if (w == nullptr || !w->isShowing()) {
 		return;
 	}
 	$var($WindowArray, ownedWindows, $nc(w)->getOwnedWindows());
 	{
 		$var($WindowArray, arr$, ownedWindows);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Window, element, arr$->get(i$));
 			{
 				repaintMnemonicsInWindow(element);
@@ -123,18 +80,18 @@ void AquaMnemonicHandler::repaintMnemonicsInWindow($Window* w) {
 
 void AquaMnemonicHandler::repaintMnemonicsInContainer($Container* cont) {
 	$init(AquaMnemonicHandler);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(cont)->getComponentCount(); ++i) {
 		$var($Component, c, cont->getComponent(i));
-		if (c == nullptr || !$nc(c)->isVisible()) {
+		if (c == nullptr || !c->isVisible()) {
 			continue;
 		}
-		if ($instanceOf($AbstractButton, c) && $nc(($cast($AbstractButton, c)))->getMnemonic() != u'\0') {
-			$nc(c)->repaint();
+		if ($instanceOf($AbstractButton, c) && $cast($AbstractButton, c)->getMnemonic() != u'\0') {
+			c->repaint();
 			continue;
 		}
-		if ($instanceOf($JLabel, c) && $nc(($cast($JLabel, c)))->getDisplayedMnemonic() != u'\0') {
-			$nc(c)->repaint();
+		if ($instanceOf($JLabel, c) && $cast($JLabel, c)->getDisplayedMnemonic() != u'\0') {
+			c->repaint();
 			continue;
 		}
 		if ($instanceOf($Container, c)) {
@@ -143,7 +100,7 @@ void AquaMnemonicHandler::repaintMnemonicsInContainer($Container* cont) {
 	}
 }
 
-void clinit$AquaMnemonicHandler($Class* class$) {
+void AquaMnemonicHandler::clinit$($Class* clazz) {
 	$load($AquaMnemonicHandler$AltProcessor);
 	$assignStatic(AquaMnemonicHandler::altProcessor, $new($AquaUtils$RecyclableSingletonFromDefaultConstructor, $AquaMnemonicHandler$AltProcessor::class$));
 	AquaMnemonicHandler::isMnemonicHidden$ = true;
@@ -153,7 +110,41 @@ AquaMnemonicHandler::AquaMnemonicHandler() {
 }
 
 $Class* AquaMnemonicHandler::load$($String* name, bool initialize) {
-	$loadClass(AquaMnemonicHandler, name, initialize, &_AquaMnemonicHandler_ClassInfo_, clinit$AquaMnemonicHandler, allocate$AquaMnemonicHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"altProcessor", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Lcom/apple/laf/AquaMnemonicHandler$AltProcessor;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaMnemonicHandler, altProcessor)},
+		{"isMnemonicHidden", "Z", nullptr, $PROTECTED | $STATIC, $staticField(AquaMnemonicHandler, isMnemonicHidden$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaMnemonicHandler, init$, void)},
+		{"getInstance", "()Ljava/awt/KeyEventPostProcessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMnemonicHandler, getInstance, $KeyEventPostProcessor*)},
+		{"isMnemonicHidden", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMnemonicHandler, isMnemonicHidden, bool)},
+		{"repaintMnemonicsInContainer", "(Ljava/awt/Container;)V", nullptr, $STATIC, $staticMethod(AquaMnemonicHandler, repaintMnemonicsInContainer, void, $Container*)},
+		{"repaintMnemonicsInWindow", "(Ljava/awt/Window;)V", nullptr, $STATIC, $staticMethod(AquaMnemonicHandler, repaintMnemonicsInWindow, void, $Window*)},
+		{"setMnemonicHidden", "(Z)V", nullptr, $PUBLIC | $STATIC, $staticMethod(AquaMnemonicHandler, setMnemonicHidden, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaMnemonicHandler$AltProcessor", "com.apple.laf.AquaMnemonicHandler", "AltProcessor", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaMnemonicHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaMnemonicHandler$AltProcessor"
+	};
+	$loadClass(AquaMnemonicHandler, name, initialize, &classInfo$$, AquaMnemonicHandler::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaMnemonicHandler);
+	});
 	return class$;
 }
 

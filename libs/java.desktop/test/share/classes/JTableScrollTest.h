@@ -29,6 +29,7 @@ class $export JTableScrollTest : public ::java::lang::Object {
 	$class(JTableScrollTest, 0, ::java::lang::Object)
 public:
 	JTableScrollTest();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void createTable();
 	static void doTest(::java::lang::Runnable* action);

@@ -1,5 +1,4 @@
 #include <javax/management/StandardEmitterMBean.h>
-
 #include <java/lang/ClassCastException.h>
 #include <javax/management/MBeanInfo.h>
 #include <javax/management/MBeanNotificationInfo.h>
@@ -30,45 +29,6 @@ using $StandardMBean = ::javax::management::StandardMBean;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _StandardEmitterMBean_FieldInfo_[] = {
-	{"NO_NOTIFICATION_INFO", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StandardEmitterMBean, NO_NOTIFICATION_INFO)},
-	{"emitter", "Ljavax/management/NotificationEmitter;", nullptr, $PRIVATE | $FINAL, $field(StandardEmitterMBean, emitter)},
-	{"notificationInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $FINAL, $field(StandardEmitterMBean, notificationInfo)},
-	{}
-};
-
-$MethodInfo _StandardEmitterMBean_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;Ljavax/management/NotificationEmitter;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;Ljavax/management/NotificationEmitter;)V", $PUBLIC, $method(StandardEmitterMBean, init$, void, Object$*, $Class*, $NotificationEmitter*)},
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;ZLjavax/management/NotificationEmitter;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;ZLjavax/management/NotificationEmitter;)V", $PUBLIC, $method(StandardEmitterMBean, init$, void, Object$*, $Class*, bool, $NotificationEmitter*)},
-	{"<init>", "(Ljava/lang/Class;Ljavax/management/NotificationEmitter;)V", "(Ljava/lang/Class<*>;Ljavax/management/NotificationEmitter;)V", $PROTECTED, $method(StandardEmitterMBean, init$, void, $Class*, $NotificationEmitter*)},
-	{"<init>", "(Ljava/lang/Class;ZLjavax/management/NotificationEmitter;)V", "(Ljava/lang/Class<*>;ZLjavax/management/NotificationEmitter;)V", $PROTECTED, $method(StandardEmitterMBean, init$, void, $Class*, bool, $NotificationEmitter*)},
-	{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*)},
-	{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, getNotificationInfo, $MBeanNotificationInfoArray*)},
-	{"getNotifications", "(Ljavax/management/MBeanInfo;)[Ljavax/management/MBeanNotificationInfo;", nullptr, 0, $virtualMethod(StandardEmitterMBean, getNotifications, $MBeanNotificationInfoArray*, $MBeanInfo*)},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
-	{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
-	{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, sendNotification, void, $Notification*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _StandardEmitterMBean_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.StandardEmitterMBean",
-	"javax.management.StandardMBean",
-	"javax.management.NotificationEmitter",
-	_StandardEmitterMBean_FieldInfo_,
-	_StandardEmitterMBean_MethodInfo_
-};
-
-$Object* allocate$StandardEmitterMBean($Class* clazz) {
-	return $of($alloc(StandardEmitterMBean));
-}
 
 int32_t StandardEmitterMBean::hashCode() {
 	 return this->$StandardMBean::hashCode();
@@ -103,7 +63,7 @@ void StandardEmitterMBean::init$(Object$* implementation, $Class* mbeanInterface
 	}
 	$set(this, emitter, emitter);
 	$var($MBeanNotificationInfoArray, infos, $nc(emitter)->getNotificationInfo());
-	if (infos == nullptr || $nc(infos)->length == 0) {
+	if (infos == nullptr || infos->length == 0) {
 		$set(this, notificationInfo, StandardEmitterMBean::NO_NOTIFICATION_INFO);
 	} else {
 		$set(this, notificationInfo, $cast($MBeanNotificationInfoArray, infos->clone()));
@@ -121,7 +81,7 @@ void StandardEmitterMBean::init$($Class* mbeanInterface, bool isMXBean, $Notific
 	}
 	$set(this, emitter, emitter);
 	$var($MBeanNotificationInfoArray, infos, $nc(emitter)->getNotificationInfo());
-	if (infos == nullptr || $nc(infos)->length == 0) {
+	if (infos == nullptr || infos->length == 0) {
 		$set(this, notificationInfo, StandardEmitterMBean::NO_NOTIFICATION_INFO);
 	} else {
 		$set(this, notificationInfo, $cast($MBeanNotificationInfoArray, infos->clone()));
@@ -147,16 +107,16 @@ $MBeanNotificationInfoArray* StandardEmitterMBean::getNotificationInfo() {
 	if ($nc(this->notificationInfo)->length == 0) {
 		return this->notificationInfo;
 	} else {
-		return $cast($MBeanNotificationInfoArray, $nc(this->notificationInfo)->clone());
+		return $cast($MBeanNotificationInfoArray, this->notificationInfo->clone());
 	}
 }
 
 void StandardEmitterMBean::sendNotification($Notification* n) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($NotificationBroadcasterSupport, this->emitter)) {
-		$nc(($cast($NotificationBroadcasterSupport, this->emitter)))->sendNotification(n);
+		$cast($NotificationBroadcasterSupport, this->emitter)->sendNotification(n);
 	} else {
-		$var($String, msg, $str({"Cannot sendNotification when emitter is not an instance of NotificationBroadcasterSupport: "_s, $($nc($of(this->emitter))->getClass()->getName())}));
+		$var($String, msg, $str({"Cannot sendNotification when emitter is not an instance of NotificationBroadcasterSupport: "_s, $($nc(this->emitter)->getClass()->getName())}));
 		$throwNew($ClassCastException, msg);
 	}
 }
@@ -165,7 +125,7 @@ $MBeanNotificationInfoArray* StandardEmitterMBean::getNotifications($MBeanInfo* 
 	return getNotificationInfo();
 }
 
-void clinit$StandardEmitterMBean($Class* class$) {
+void StandardEmitterMBean::clinit$($Class* clazz) {
 	$assignStatic(StandardEmitterMBean::NO_NOTIFICATION_INFO, $new($MBeanNotificationInfoArray, 0));
 }
 
@@ -173,7 +133,41 @@ StandardEmitterMBean::StandardEmitterMBean() {
 }
 
 $Class* StandardEmitterMBean::load$($String* name, bool initialize) {
-	$loadClass(StandardEmitterMBean, name, initialize, &_StandardEmitterMBean_ClassInfo_, clinit$StandardEmitterMBean, allocate$StandardEmitterMBean);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_NOTIFICATION_INFO", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StandardEmitterMBean, NO_NOTIFICATION_INFO)},
+		{"emitter", "Ljavax/management/NotificationEmitter;", nullptr, $PRIVATE | $FINAL, $field(StandardEmitterMBean, emitter)},
+		{"notificationInfo", "[Ljavax/management/MBeanNotificationInfo;", nullptr, $PRIVATE | $FINAL, $field(StandardEmitterMBean, notificationInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;Ljavax/management/NotificationEmitter;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;Ljavax/management/NotificationEmitter;)V", $PUBLIC, $method(StandardEmitterMBean, init$, void, Object$*, $Class*, $NotificationEmitter*)},
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Class;ZLjavax/management/NotificationEmitter;)V", "<T:Ljava/lang/Object;>(TT;Ljava/lang/Class<TT;>;ZLjavax/management/NotificationEmitter;)V", $PUBLIC, $method(StandardEmitterMBean, init$, void, Object$*, $Class*, bool, $NotificationEmitter*)},
+		{"<init>", "(Ljava/lang/Class;Ljavax/management/NotificationEmitter;)V", "(Ljava/lang/Class<*>;Ljavax/management/NotificationEmitter;)V", $PROTECTED, $method(StandardEmitterMBean, init$, void, $Class*, $NotificationEmitter*)},
+		{"<init>", "(Ljava/lang/Class;ZLjavax/management/NotificationEmitter;)V", "(Ljava/lang/Class<*>;ZLjavax/management/NotificationEmitter;)V", $PROTECTED, $method(StandardEmitterMBean, init$, void, $Class*, bool, $NotificationEmitter*)},
+		{"addNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, addNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*)},
+		{"getNotificationInfo", "()[Ljavax/management/MBeanNotificationInfo;", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, getNotificationInfo, $MBeanNotificationInfoArray*)},
+		{"getNotifications", "(Ljavax/management/MBeanInfo;)[Ljavax/management/MBeanNotificationInfo;", nullptr, 0, $virtualMethod(StandardEmitterMBean, getNotifications, $MBeanNotificationInfoArray*, $MBeanInfo*)},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;)V", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, removeNotificationListener, void, $NotificationListener*), "javax.management.ListenerNotFoundException"},
+		{"removeNotificationListener", "(Ljavax/management/NotificationListener;Ljavax/management/NotificationFilter;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, removeNotificationListener, void, $NotificationListener*, $NotificationFilter*, Object$*), "javax.management.ListenerNotFoundException"},
+		{"sendNotification", "(Ljavax/management/Notification;)V", nullptr, $PUBLIC, $virtualMethod(StandardEmitterMBean, sendNotification, void, $Notification*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.StandardEmitterMBean",
+		"javax.management.StandardMBean",
+		"javax.management.NotificationEmitter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StandardEmitterMBean, name, initialize, &classInfo$$, StandardEmitterMBean::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StandardEmitterMBean));
+	});
 	return class$;
 }
 

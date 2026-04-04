@@ -1,5 +1,4 @@
 #include <bug6989617.h>
-
 #include <bug6989617$1.h>
 #include <bug6989617$2.h>
 #include <bug6989617$3.h>
@@ -46,73 +45,27 @@ public:
 	virtual void run() override {
 		bug6989617::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug6989617$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug6989617$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6989617$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6989617$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug6989617$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug6989617$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug6989617$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug6989617$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6989617$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6989617$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug6989617$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6989617$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6989617$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug6989617$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug6989617_FieldInfo_[] = {
-	{"panel", "Lbug6989617$MyPanel;", nullptr, $PRIVATE | $STATIC, $staticField(bug6989617, panel)},
-	{"button", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(bug6989617, button)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6989617, frame)},
-	{}
-};
-
-$MethodInfo _bug6989617_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6989617, init$, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6989617, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(bug6989617, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6989617_InnerClassesInfo_[] = {
-	{"bug6989617$MyPanel", "bug6989617", "MyPanel", $STATIC},
-	{"bug6989617$5", nullptr, nullptr, 0},
-	{"bug6989617$4", nullptr, nullptr, 0},
-	{"bug6989617$3", nullptr, nullptr, 0},
-	{"bug6989617$2", nullptr, nullptr, 0},
-	{"bug6989617$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6989617_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6989617",
-	"java.lang.Object",
-	nullptr,
-	_bug6989617_FieldInfo_,
-	_bug6989617_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6989617_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6989617$MyPanel,bug6989617$5,bug6989617$4,bug6989617$3,bug6989617$2,bug6989617$1"
-};
-
-$Object* allocate$bug6989617($Class* clazz) {
-	return $of($alloc(bug6989617));
-}
 
 $bug6989617$MyPanel* bug6989617::panel = nullptr;
 $JButton* bug6989617::button = nullptr;
@@ -122,31 +75,29 @@ void bug6989617::init$() {
 }
 
 void bug6989617::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			$SwingUtilities::invokeAndWait($$new($bug6989617$1));
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug6989617$2));
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug6989617$3));
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug6989617$4));
-			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug6989617$5));
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug6989617);
-			if (bug6989617::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug6989617$$Lambda$lambda$main$0)));
-			}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		$SwingUtilities::invokeAndWait($$new($bug6989617$1));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug6989617$2));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug6989617$3));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug6989617$4));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug6989617$5));
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug6989617);
+		if (bug6989617::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug6989617$$Lambda$lambda$main$0));
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -160,11 +111,48 @@ bug6989617::bug6989617() {
 
 $Class* bug6989617::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug6989617$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug6989617$$Lambda$lambda$main$0")) {
 			return bug6989617$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug6989617, name, initialize, &_bug6989617_ClassInfo_, allocate$bug6989617);
+	$FieldInfo fieldInfos$$[] = {
+		{"panel", "Lbug6989617$MyPanel;", nullptr, $PRIVATE | $STATIC, $staticField(bug6989617, panel)},
+		{"button", "Ljavax/swing/JButton;", nullptr, $PRIVATE | $STATIC, $staticField(bug6989617, button)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6989617, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6989617, init$, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug6989617, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC | $TRANSIENT, $staticMethod(bug6989617, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6989617$MyPanel", "bug6989617", "MyPanel", $STATIC},
+		{"bug6989617$5", nullptr, nullptr, 0},
+		{"bug6989617$4", nullptr, nullptr, 0},
+		{"bug6989617$3", nullptr, nullptr, 0},
+		{"bug6989617$2", nullptr, nullptr, 0},
+		{"bug6989617$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6989617",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6989617$MyPanel,bug6989617$5,bug6989617$4,bug6989617$3,bug6989617$2,bug6989617$1"
+	};
+	$loadClass(bug6989617, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6989617);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/synth/SynthToggleButtonUI.h>
-
 #include <java/awt/Graphics.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
@@ -24,28 +23,6 @@ namespace javax {
 		namespace plaf {
 			namespace synth {
 
-$MethodInfo _SynthToggleButtonUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SynthToggleButtonUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthToggleButtonUI, getPropertyPrefix, $String*)},
-	{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthToggleButtonUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
-	{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthToggleButtonUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _SynthToggleButtonUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.synth.SynthToggleButtonUI",
-	"javax.swing.plaf.synth.SynthButtonUI",
-	nullptr,
-	nullptr,
-	_SynthToggleButtonUI_MethodInfo_
-};
-
-$Object* allocate$SynthToggleButtonUI($Class* clazz) {
-	return $of($alloc(SynthToggleButtonUI));
-}
-
 void SynthToggleButtonUI::init$() {
 	$SynthButtonUI::init$();
 }
@@ -60,10 +37,10 @@ $String* SynthToggleButtonUI::getPropertyPrefix() {
 }
 
 void SynthToggleButtonUI::paintBackground($SynthContext* context, $Graphics* g, $JComponent* c) {
-	if ($nc(($cast($AbstractButton, c)))->isContentAreaFilled()) {
+	if ($nc($cast($AbstractButton, c))->isContentAreaFilled()) {
 		int32_t x = 0;
 		int32_t y = 0;
-		int32_t w = $nc(c)->getWidth();
+		int32_t w = c->getWidth();
 		int32_t h = c->getHeight();
 		$var($SynthPainter, painter, $nc(context)->getPainter());
 		$nc(painter)->paintToggleButtonBackground(context, g, x, y, w, h);
@@ -71,14 +48,32 @@ void SynthToggleButtonUI::paintBackground($SynthContext* context, $Graphics* g, 
 }
 
 void SynthToggleButtonUI::paintBorder($SynthContext* context, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$nc($($nc(context)->getPainter()))->paintToggleButtonBorder(context, g, x, y, w, h);
+	$$nc($nc(context)->getPainter())->paintToggleButtonBorder(context, g, x, y, w, h);
 }
 
 SynthToggleButtonUI::SynthToggleButtonUI() {
 }
 
 $Class* SynthToggleButtonUI::load$($String* name, bool initialize) {
-	$loadClass(SynthToggleButtonUI, name, initialize, &_SynthToggleButtonUI_ClassInfo_, allocate$SynthToggleButtonUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SynthToggleButtonUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(SynthToggleButtonUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPropertyPrefix", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(SynthToggleButtonUI, getPropertyPrefix, $String*)},
+		{"paintBackground", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(SynthToggleButtonUI, paintBackground, void, $SynthContext*, $Graphics*, $JComponent*)},
+		{"paintBorder", "(Ljavax/swing/plaf/synth/SynthContext;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(SynthToggleButtonUI, paintBorder, void, $SynthContext*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.synth.SynthToggleButtonUI",
+		"javax.swing.plaf.synth.SynthButtonUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynthToggleButtonUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthToggleButtonUI));
+	});
 	return class$;
 }
 

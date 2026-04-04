@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/keyvalues/DSAKeyValue.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
@@ -15,7 +14,6 @@
 #include <java/security/interfaces/DSAPublicKey.h>
 #include <java/security/spec/DSAPublicKeySpec.h>
 #include <java/security/spec/InvalidKeySpecException.h>
-#include <java/security/spec/KeySpec.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <jcpp.h>
@@ -35,11 +33,9 @@ using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Cons
 using $I18n = ::com::sun::org::apache::xml::internal::security::utils::I18n;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BigInteger = ::java::math::BigInteger;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Key = ::java::security::Key;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
@@ -48,7 +44,6 @@ using $DSAParams = ::java::security::interfaces::DSAParams;
 using $DSAPublicKey = ::java::security::interfaces::DSAPublicKey;
 using $DSAPublicKeySpec = ::java::security::spec::DSAPublicKeySpec;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
-using $KeySpec = ::java::security::spec::KeySpec;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 
@@ -62,33 +57,6 @@ namespace com {
 							namespace keys {
 								namespace content {
 									namespace keyvalues {
-
-$MethodInfo _DSAKeyValue_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Document*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/Key;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Document*, $Key*), "java.lang.IllegalArgumentException"},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DSAKeyValue, getBaseLocalName, $String*)},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DSAKeyValue, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DSAKeyValue_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.DSAKeyValue",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.KeyValueContent",
-	nullptr,
-	_DSAKeyValue_MethodInfo_
-};
-
-$Object* allocate$DSAKeyValue($Class* clazz) {
-	return $of($alloc(DSAKeyValue));
-}
 
 int32_t DSAKeyValue::hashCode() {
 	 return this->$SignatureElementProxy::hashCode();
@@ -125,28 +93,28 @@ void DSAKeyValue::init$($Document* doc, $BigInteger* P, $BigInteger* Q, $BigInte
 }
 
 void DSAKeyValue::init$($Document* doc, $Key* key) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SignatureElementProxy::init$(doc);
 	addReturnToSelf();
 	if ($instanceOf($DSAPublicKey, key)) {
-		$var($DSAParams, params, $nc(($cast($DSAPublicKey, key)))->getParams());
+		$var($DSAParams, params, $cast($DSAPublicKey, key)->getParams());
 		$init($Constants);
 		this->addBigIntegerElement($($nc(params)->getP()), $Constants::_TAG_P);
-		this->addBigIntegerElement($($nc(params)->getQ()), $Constants::_TAG_Q);
-		this->addBigIntegerElement($($nc(params)->getG()), $Constants::_TAG_G);
-		this->addBigIntegerElement($(($cast($DSAPublicKey, key))->getY()), $Constants::_TAG_Y);
+		this->addBigIntegerElement($(params->getQ()), $Constants::_TAG_Q);
+		this->addBigIntegerElement($(params->getG()), $Constants::_TAG_G);
+		this->addBigIntegerElement($($cast($DSAPublicKey, key)->getY()), $Constants::_TAG_Y);
 	} else {
 		$init($Constants);
 		$var($ObjectArray, exArgs, $new($ObjectArray, {
-			$of($Constants::_TAG_DSAKEYVALUE),
-			$($of($nc($of(key))->getClass()->getName()))
+			$Constants::_TAG_DSAKEYVALUE,
+			$($nc($of(key))->getClass()->getName())
 		}));
 		$throwNew($IllegalArgumentException, $($I18n::translate("KeyValue.IllegalArgument"_s, exArgs)));
 	}
 }
 
 $PublicKey* DSAKeyValue::getPublicKey() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($Constants);
 		$var($BigInteger, var$0, this->getBigIntegerFromChildElement($Constants::_TAG_Y, $Constants::SignatureSpecNS));
@@ -156,9 +124,9 @@ $PublicKey* DSAKeyValue::getPublicKey() {
 		$var($KeyFactory, dsaFactory, $KeyFactory::getInstance("DSA"_s));
 		return $nc(dsaFactory)->generatePublic(pkspec);
 	} catch ($NoSuchAlgorithmException& ex) {
-		$throwNew($XMLSecurityException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSecurityException, ex);
 	} catch ($InvalidKeySpecException& ex) {
-		$throwNew($XMLSecurityException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSecurityException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -172,7 +140,30 @@ DSAKeyValue::DSAKeyValue() {
 }
 
 $Class* DSAKeyValue::load$($String* name, bool initialize) {
-	$loadClass(DSAKeyValue, name, initialize, &_DSAKeyValue_ClassInfo_, allocate$DSAKeyValue);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;Ljava/math/BigInteger;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Document*, $BigInteger*, $BigInteger*, $BigInteger*, $BigInteger*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/Key;)V", nullptr, $PUBLIC, $method(DSAKeyValue, init$, void, $Document*, $Key*), "java.lang.IllegalArgumentException"},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DSAKeyValue, getBaseLocalName, $String*)},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(DSAKeyValue, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.DSAKeyValue",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.keyvalues.KeyValueContent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(DSAKeyValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DSAKeyValue));
+	});
 	return class$;
 }
 

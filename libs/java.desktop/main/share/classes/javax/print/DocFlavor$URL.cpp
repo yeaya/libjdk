@@ -1,5 +1,4 @@
 #include <javax/print/DocFlavor$URL.h>
-
 #include <javax/print/DocFlavor.h>
 #include <jcpp.h>
 
@@ -32,60 +31,6 @@ using $DocFlavor = ::javax::print::DocFlavor;
 namespace javax {
 	namespace print {
 
-$FieldInfo _DocFlavor$URL_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DocFlavor$URL, serialVersionUID)},
-	{"TEXT_PLAIN_HOST", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_HOST)},
-	{"TEXT_PLAIN_UTF_8", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_UTF_8)},
-	{"TEXT_PLAIN_UTF_16", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_UTF_16)},
-	{"TEXT_PLAIN_UTF_16BE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_UTF_16BE)},
-	{"TEXT_PLAIN_UTF_16LE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_UTF_16LE)},
-	{"TEXT_PLAIN_US_ASCII", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_US_ASCII)},
-	{"TEXT_HTML_HOST", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_HOST)},
-	{"TEXT_HTML_UTF_8", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_UTF_8)},
-	{"TEXT_HTML_UTF_16", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_UTF_16)},
-	{"TEXT_HTML_UTF_16BE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_UTF_16BE)},
-	{"TEXT_HTML_UTF_16LE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_UTF_16LE)},
-	{"TEXT_HTML_US_ASCII", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_US_ASCII)},
-	{"PDF", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, PDF)},
-	{"POSTSCRIPT", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, POSTSCRIPT)},
-	{"PCL", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, PCL)},
-	{"GIF", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, GIF)},
-	{"JPEG", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, JPEG)},
-	{"PNG", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, PNG)},
-	{"AUTOSENSE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, AUTOSENSE)},
-	{}
-};
-
-$MethodInfo _DocFlavor$URL_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocFlavor$URL, init$, void, $String*)},
-	{}
-};
-
-$InnerClassInfo _DocFlavor$URL_InnerClassesInfo_[] = {
-	{"javax.print.DocFlavor$URL", "javax.print.DocFlavor", "URL", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DocFlavor$URL_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.DocFlavor$URL",
-	"javax.print.DocFlavor",
-	nullptr,
-	_DocFlavor$URL_FieldInfo_,
-	_DocFlavor$URL_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DocFlavor$URL_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.DocFlavor"
-};
-
-$Object* allocate$DocFlavor$URL($Class* clazz) {
-	return $of($alloc(DocFlavor$URL));
-}
-
 DocFlavor$URL* DocFlavor$URL::TEXT_PLAIN_HOST = nullptr;
 DocFlavor$URL* DocFlavor$URL::TEXT_PLAIN_UTF_8 = nullptr;
 DocFlavor$URL* DocFlavor$URL::TEXT_PLAIN_UTF_16 = nullptr;
@@ -110,8 +55,8 @@ void DocFlavor$URL::init$($String* mimeType) {
 	$DocFlavor::init$(mimeType, "java.net.URL"_s);
 }
 
-void clinit$DocFlavor$URL($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DocFlavor$URL::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$init($DocFlavor);
 	$assignStatic(DocFlavor$URL::TEXT_PLAIN_HOST, $new(DocFlavor$URL, $$str({"text/plain; charset="_s, $DocFlavor::hostEncoding})));
 	$assignStatic(DocFlavor$URL::TEXT_PLAIN_UTF_8, $new(DocFlavor$URL, "text/plain; charset=utf-8"_s));
@@ -138,7 +83,55 @@ DocFlavor$URL::DocFlavor$URL() {
 }
 
 $Class* DocFlavor$URL::load$($String* name, bool initialize) {
-	$loadClass(DocFlavor$URL, name, initialize, &_DocFlavor$URL_ClassInfo_, clinit$DocFlavor$URL, allocate$DocFlavor$URL);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DocFlavor$URL, serialVersionUID)},
+		{"TEXT_PLAIN_HOST", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_HOST)},
+		{"TEXT_PLAIN_UTF_8", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_UTF_8)},
+		{"TEXT_PLAIN_UTF_16", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_UTF_16)},
+		{"TEXT_PLAIN_UTF_16BE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_UTF_16BE)},
+		{"TEXT_PLAIN_UTF_16LE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_UTF_16LE)},
+		{"TEXT_PLAIN_US_ASCII", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_PLAIN_US_ASCII)},
+		{"TEXT_HTML_HOST", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_HOST)},
+		{"TEXT_HTML_UTF_8", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_UTF_8)},
+		{"TEXT_HTML_UTF_16", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_UTF_16)},
+		{"TEXT_HTML_UTF_16BE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_UTF_16BE)},
+		{"TEXT_HTML_UTF_16LE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_UTF_16LE)},
+		{"TEXT_HTML_US_ASCII", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, TEXT_HTML_US_ASCII)},
+		{"PDF", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, PDF)},
+		{"POSTSCRIPT", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, POSTSCRIPT)},
+		{"PCL", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, PCL)},
+		{"GIF", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, GIF)},
+		{"JPEG", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, JPEG)},
+		{"PNG", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, PNG)},
+		{"AUTOSENSE", "Ljavax/print/DocFlavor$URL;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DocFlavor$URL, AUTOSENSE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(DocFlavor$URL, init$, void, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.DocFlavor$URL", "javax.print.DocFlavor", "URL", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.DocFlavor$URL",
+		"javax.print.DocFlavor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.DocFlavor"
+	};
+	$loadClass(DocFlavor$URL, name, initialize, &classInfo$$, DocFlavor$URL::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DocFlavor$URL));
+	});
 	return class$;
 }
 

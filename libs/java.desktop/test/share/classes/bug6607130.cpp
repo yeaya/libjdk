@@ -1,5 +1,4 @@
 #include <bug6607130.h>
-
 #include <bug6607130$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -7,14 +6,12 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/DefaultCellEditor.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/table/DefaultTableModel.h>
-#include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableColumnModel.h>
 #include <javax/swing/table/TableModel.h>
@@ -30,13 +27,11 @@ using $bug6607130$1 = ::bug6607130$1;
 using $Component = ::java::awt::Component;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
 using $JComboBox = ::javax::swing::JComboBox;
@@ -44,73 +39,23 @@ using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
-using $TableCellEditor = ::javax::swing::table::TableCellEditor;
-using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
-using $TableModel = ::javax::swing::table::TableModel;
-
-$FieldInfo _bug6607130_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(bug6607130, frame)},
-	{"cb", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE, $field(bug6607130, cb)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE, $field(bug6607130, robot)},
-	{}
-};
-
-$MethodInfo _bug6607130_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6607130, init$, void), "java.awt.AWTException"},
-	{"checkResult", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(bug6607130, checkResult, void, $String*)},
-	{"delay", "()V", nullptr, $PRIVATE, $method(bug6607130, delay, void)},
-	{"hitKey", "(I)V", nullptr, $PUBLIC, $virtualMethod(bug6607130, hitKey, void, int32_t)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6607130, main, void, $StringArray*), "java.lang.Exception"},
-	{"setupUI", "()V", nullptr, $PRIVATE, $method(bug6607130, setupUI, void)},
-	{"test", "()V", nullptr, $PRIVATE, $method(bug6607130, test, void), "java.lang.Exception"},
-	{"test1", "()V", nullptr, $PRIVATE, $method(bug6607130, test1, void), "java.lang.Exception"},
-	{"test2", "()V", nullptr, $PRIVATE, $method(bug6607130, test2, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug6607130_InnerClassesInfo_[] = {
-	{"bug6607130$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6607130_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6607130",
-	"java.lang.Object",
-	nullptr,
-	_bug6607130_FieldInfo_,
-	_bug6607130_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug6607130_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug6607130$1"
-};
-
-$Object* allocate$bug6607130($Class* clazz) {
-	return $of($alloc(bug6607130));
-}
 
 void bug6607130::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(bug6607130, test, $new(bug6607130));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$SwingUtilities::invokeAndWait($$new($bug6607130$1, test));
-			test->test();
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			if (test->frame != nullptr) {
-				$nc(test->frame)->dispose();
-			}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$SwingUtilities::invokeAndWait($$new($bug6607130$1, test));
+		test->test();
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		if (test->frame != nullptr) {
+			test->frame->dispose();
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -119,9 +64,9 @@ void bug6607130::init$() {
 }
 
 void bug6607130::setupUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, frame, $new($JFrame));
-	$nc(this->frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	this->frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$var($DefaultTableModel, model, $new($DefaultTableModel, 1, 1));
 	$var($JTable, table, $new($JTable, model));
 	$set(this, cb, $new($JComboBox, $$new($StringArray, {
@@ -129,8 +74,8 @@ void bug6607130::setupUI() {
 		"two"_s,
 		"three"_s
 	})));
-	$nc($($nc($(table->getColumnModel()))->getColumn(0)))->setCellEditor($$new($DefaultCellEditor, this->cb));
-	$nc(this->frame)->add(static_cast<$Component*>(table));
+	$$nc($$nc(table->getColumnModel())->getColumn(0))->setCellEditor($$new($DefaultCellEditor, this->cb));
+	$nc(this->frame)->add(table);
 	$nc(this->frame)->pack();
 	$nc(this->frame)->setLocationRelativeTo(nullptr);
 	$nc(this->frame)->setVisible(true);
@@ -173,7 +118,7 @@ void bug6607130::test2() {
 }
 
 void bug6607130::checkResult($String* testName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$nc(this->cb)->isShowing()) {
 		$nc($System::out)->println($$str({testName, " passed"_s}));
 	} else {
@@ -200,7 +145,45 @@ bug6607130::bug6607130() {
 }
 
 $Class* bug6607130::load$($String* name, bool initialize) {
-	$loadClass(bug6607130, name, initialize, &_bug6607130_ClassInfo_, allocate$bug6607130);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE, $field(bug6607130, frame)},
+		{"cb", "Ljavax/swing/JComboBox;", nullptr, $PRIVATE, $field(bug6607130, cb)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE, $field(bug6607130, robot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6607130, init$, void), "java.awt.AWTException"},
+		{"checkResult", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(bug6607130, checkResult, void, $String*)},
+		{"delay", "()V", nullptr, $PRIVATE, $method(bug6607130, delay, void)},
+		{"hitKey", "(I)V", nullptr, $PUBLIC, $virtualMethod(bug6607130, hitKey, void, int32_t)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6607130, main, void, $StringArray*), "java.lang.Exception"},
+		{"setupUI", "()V", nullptr, $PRIVATE, $method(bug6607130, setupUI, void)},
+		{"test", "()V", nullptr, $PRIVATE, $method(bug6607130, test, void), "java.lang.Exception"},
+		{"test1", "()V", nullptr, $PRIVATE, $method(bug6607130, test1, void), "java.lang.Exception"},
+		{"test2", "()V", nullptr, $PRIVATE, $method(bug6607130, test2, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6607130$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6607130",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug6607130$1"
+	};
+	$loadClass(bug6607130, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6607130);
+	});
 	return class$;
 }
 

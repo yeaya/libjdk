@@ -109,6 +109,7 @@ class XMLGrammarPreparser : public ::java::lang::Object {
 	$class(XMLGrammarPreparser, 0, ::java::lang::Object)
 public:
 	XMLGrammarPreparser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::com::sun::org::apache::xerces::internal::util::SymbolTable* symbolTable);
 	virtual ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver* getEntityResolver();

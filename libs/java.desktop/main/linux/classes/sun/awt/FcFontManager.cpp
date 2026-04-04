@@ -1,5 +1,4 @@
 #include <sun/awt/FcFontManager.h>
-
 #include <java/lang/InternalError.h>
 #include <sun/awt/FontConfiguration.h>
 #include <sun/font/FcFontConfiguration.h>
@@ -21,37 +20,6 @@ using $SunFontManager = ::sun::font::SunFontManager;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _FcFontManager_FieldInfo_[] = {
-	{"fcManager", "Lsun/font/FontConfigManager;", nullptr, $PRIVATE, $field(FcFontManager, fcManager)},
-	{}
-};
-
-$MethodInfo _FcFontManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FcFontManager, init$, void)},
-	{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $virtualMethod(FcFontManager, createFontConfiguration, $FontConfiguration*)},
-	{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(FcFontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
-	{"getDefaultPlatformFont", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FcFontManager, getDefaultPlatformFont, $StringArray*)},
-	{"getFontConfigManager", "()Lsun/font/FontConfigManager;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FcFontManager, getFontConfigManager, $FontConfigManager*)},
-	{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(FcFontManager, getFontPath, $String*, bool)},
-	{"getFontPathNative", "(ZZ)Ljava/lang/String;", nullptr, $NATIVE, $virtualMethod(FcFontManager, getFontPathNative, $String*, bool, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_getFontPathNative 6
-
-$ClassInfo _FcFontManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.FcFontManager",
-	"sun.font.SunFontManager",
-	nullptr,
-	_FcFontManager_FieldInfo_,
-	_FcFontManager_MethodInfo_
-};
-
-$Object* allocate$FcFontManager($Class* clazz) {
-	return $of($alloc(FcFontManager));
-}
 
 void FcFontManager::init$() {
 	$SunFontManager::init$();
@@ -86,23 +54,23 @@ $FontConfiguration* FcFontManager::createFontConfiguration(bool preferLocaleFont
 }
 
 $StringArray* FcFontManager::getDefaultPlatformFont() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringArray, info, $new($StringArray, 2));
-	$nc($(getFontConfigManager()))->initFontConfigFonts(false);
-	$var($FontConfigManager$FcCompFontArray, fontConfigFonts, $nc($(getFontConfigManager()))->getFontConfigFonts());
+	$$nc(getFontConfigManager())->initFontConfigFonts(false);
+	$var($FontConfigManager$FcCompFontArray, fontConfigFonts, $$nc(getFontConfigManager())->getFontConfigFonts());
 	if (fontConfigFonts != nullptr) {
 		for (int32_t i = 0; i < fontConfigFonts->length; ++i) {
 			if ("sans"_s->equals($nc(fontConfigFonts->get(i))->fcFamily) && 0 == $nc(fontConfigFonts->get(i))->style) {
 				info->set(0, $nc($nc(fontConfigFonts->get(i))->firstFont)->fullName);
-				info->set(1, $nc($nc(fontConfigFonts->get(i))->firstFont)->fontFile);
+				info->set(1, $nc(fontConfigFonts->get(i))->firstFont->fontFile);
 				break;
 			}
 		}
 	}
 	if (info->get(0) == nullptr) {
-		if (fontConfigFonts != nullptr && fontConfigFonts->length > 0 && $nc($nc(fontConfigFonts->get(0))->firstFont)->fontFile != nullptr && $nc($nc(fontConfigFonts->get(0))->firstFont)->fullName != nullptr) {
-			info->set(0, $nc($nc(fontConfigFonts->get(0))->firstFont)->fullName);
-			info->set(1, $nc($nc(fontConfigFonts->get(0))->firstFont)->fontFile);
+		if (fontConfigFonts != nullptr && fontConfigFonts->length > 0 && $nc($nc(fontConfigFonts->get(0))->firstFont)->fontFile != nullptr && $nc(fontConfigFonts->get(0))->firstFont->fullName != nullptr) {
+			info->set(0, $nc(fontConfigFonts->get(0))->firstFont->fullName);
+			info->set(1, $nc(fontConfigFonts->get(0))->firstFont->fontFile);
 		} else {
 			info->set(0, "Dialog"_s);
 			info->set(1, "/dialog.ttf"_s);
@@ -112,9 +80,8 @@ $StringArray* FcFontManager::getDefaultPlatformFont() {
 }
 
 $String* FcFontManager::getFontPathNative(bool noType1Fonts, bool isX11GE) {
-	$var($String, $ret, nullptr);
-	$prepareNative(FcFontManager, getFontPathNative, $String*, bool noType1Fonts, bool isX11GE);
-	$assign($ret, $invokeNativeObject(noType1Fonts, isX11GE));
+	$prepareNative(getFontPathNative, $String*, bool noType1Fonts, bool isX11GE);
+	$var($String, $ret, $invokeNativeObject(noType1Fonts, isX11GE));
 	$finishNative();
 	return $ret;
 }
@@ -129,7 +96,31 @@ FcFontManager::FcFontManager() {
 }
 
 $Class* FcFontManager::load$($String* name, bool initialize) {
-	$loadClass(FcFontManager, name, initialize, &_FcFontManager_ClassInfo_, allocate$FcFontManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"fcManager", "Lsun/font/FontConfigManager;", nullptr, $PRIVATE, $field(FcFontManager, fcManager)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FcFontManager, init$, void)},
+		{"createFontConfiguration", "()Lsun/awt/FontConfiguration;", nullptr, $PROTECTED, $virtualMethod(FcFontManager, createFontConfiguration, $FontConfiguration*)},
+		{"createFontConfiguration", "(ZZ)Lsun/awt/FontConfiguration;", nullptr, $PUBLIC, $virtualMethod(FcFontManager, createFontConfiguration, $FontConfiguration*, bool, bool)},
+		{"getDefaultPlatformFont", "()[Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(FcFontManager, getDefaultPlatformFont, $StringArray*)},
+		{"getFontConfigManager", "()Lsun/font/FontConfigManager;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(FcFontManager, getFontConfigManager, $FontConfigManager*)},
+		{"getFontPath", "(Z)Ljava/lang/String;", nullptr, $PROTECTED | $SYNCHRONIZED, $virtualMethod(FcFontManager, getFontPath, $String*, bool)},
+		{"getFontPathNative", "(ZZ)Ljava/lang/String;", nullptr, $NATIVE, $virtualMethod(FcFontManager, getFontPathNative, $String*, bool, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.FcFontManager",
+		"sun.font.SunFontManager",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FcFontManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FcFontManager));
+	});
 	return class$;
 }
 

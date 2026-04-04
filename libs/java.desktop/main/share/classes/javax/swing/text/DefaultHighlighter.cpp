@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultHighlighter.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -58,61 +57,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultHighlighter_FieldInfo_[] = {
-	{"noHighlights", "[Ljavax/swing/text/Highlighter$Highlight;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultHighlighter, noHighlights)},
-	{"highlights", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/DefaultHighlighter$HighlightInfo;>;", $PRIVATE, $field(DefaultHighlighter, highlights)},
-	{"component", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $field(DefaultHighlighter, component)},
-	{"drawsLayeredHighlights", "Z", nullptr, $PRIVATE, $field(DefaultHighlighter, drawsLayeredHighlights)},
-	{"safeDamager", "Ljavax/swing/text/DefaultHighlighter$SafeDamager;", nullptr, $PRIVATE, $field(DefaultHighlighter, safeDamager)},
-	{"DefaultPainter", "Ljavax/swing/text/LayeredHighlighter$LayerPainter;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultHighlighter, DefaultPainter)},
-	{}
-};
-
-$MethodInfo _DefaultHighlighter_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultHighlighter, init$, void)},
-	{"addHighlight", "(IILjavax/swing/text/Highlighter$HighlightPainter;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, addHighlight, $Object*, int32_t, int32_t, $Highlighter$HighlightPainter*), "javax.swing.text.BadLocationException"},
-	{"changeHighlight", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, changeHighlight, void, Object$*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, deinstall, void, $JTextComponent*)},
-	{"getDrawsLayeredHighlights", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, getDrawsLayeredHighlights, bool)},
-	{"getHighlights", "()[Ljavax/swing/text/Highlighter$Highlight;", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, getHighlights, $Highlighter$HighlightArray*)},
-	{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, install, void, $JTextComponent*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, paint, void, $Graphics*)},
-	{"paintLayeredHighlights", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, paintLayeredHighlights, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
-	{"removeAllHighlights", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, removeAllHighlights, void)},
-	{"removeHighlight", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, removeHighlight, void, Object$*)},
-	{"safeDamageRange", "(Ljavax/swing/text/Position;Ljavax/swing/text/Position;)V", nullptr, $PRIVATE, $method(DefaultHighlighter, safeDamageRange, void, $Position*, $Position*)},
-	{"safeDamageRange", "(II)V", nullptr, $PRIVATE, $method(DefaultHighlighter, safeDamageRange, void, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"setDrawsLayeredHighlights", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, setDrawsLayeredHighlights, void, bool)},
-	{}
-};
-
-$InnerClassInfo _DefaultHighlighter_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultHighlighter$SafeDamager", "javax.swing.text.DefaultHighlighter", "SafeDamager", 0},
-	{"javax.swing.text.DefaultHighlighter$LayeredHighlightInfo", "javax.swing.text.DefaultHighlighter", "LayeredHighlightInfo", 0},
-	{"javax.swing.text.DefaultHighlighter$HighlightInfo", "javax.swing.text.DefaultHighlighter", "HighlightInfo", 0},
-	{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultHighlighter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultHighlighter",
-	"javax.swing.text.LayeredHighlighter",
-	nullptr,
-	_DefaultHighlighter_FieldInfo_,
-	_DefaultHighlighter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultHighlighter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultHighlighter$SafeDamager,javax.swing.text.DefaultHighlighter$LayeredHighlightInfo,javax.swing.text.DefaultHighlighter$HighlightInfo,javax.swing.text.DefaultHighlighter$DefaultHighlightPainter"
-};
-
-$Object* allocate$DefaultHighlighter($Class* clazz) {
-	return $of($alloc(DefaultHighlighter));
-}
-
 $Highlighter$HighlightArray* DefaultHighlighter::noHighlights = nullptr;
 $LayeredHighlighter$LayerPainter* DefaultHighlighter::DefaultPainter = nullptr;
 
@@ -124,7 +68,7 @@ void DefaultHighlighter::init$() {
 }
 
 void DefaultHighlighter::paint($Graphics* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(this->highlights)->size();
 	for (int32_t i = 0; i < len; ++i) {
 		$var($DefaultHighlighter$HighlightInfo, info, $cast($DefaultHighlighter$HighlightInfo, $nc(this->highlights)->elementAt(i)));
@@ -139,9 +83,8 @@ void DefaultHighlighter::paint($Graphics* g) {
 				$assign(info, $cast($DefaultHighlighter$HighlightInfo, $nc(this->highlights)->elementAt(i)));
 				if (!($instanceOf($DefaultHighlighter$LayeredHighlightInfo, info))) {
 					$var($Highlighter$HighlightPainter, p, $nc(info)->getPainter());
-					$var($Graphics, var$0, g);
-					int32_t var$1 = info->getStartOffset();
-					$nc(p)->paint(var$0, var$1, info->getEndOffset(), a, this->component);
+					int32_t var$0 = info->getStartOffset();
+					$nc(p)->paint(g, var$0, info->getEndOffset(), a, this->component);
 				}
 			}
 		}
@@ -158,7 +101,7 @@ void DefaultHighlighter::deinstall($JTextComponent* c) {
 }
 
 $Object* DefaultHighlighter::addHighlight(int32_t p0, int32_t p1, $Highlighter$HighlightPainter* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p0 < 0) {
 		$throwNew($BadLocationException, "Invalid start offset"_s, p0);
 	}
@@ -166,31 +109,31 @@ $Object* DefaultHighlighter::addHighlight(int32_t p0, int32_t p1, $Highlighter$H
 		$throwNew($BadLocationException, "Invalid end offset"_s, p1);
 	}
 	$var($Document, doc, $nc(this->component)->getDocument());
-	$var($DefaultHighlighter$HighlightInfo, i, (getDrawsLayeredHighlights() && ($instanceOf($LayeredHighlighter$LayerPainter, p))) ? static_cast<$DefaultHighlighter$HighlightInfo*>($new($DefaultHighlighter$LayeredHighlightInfo, this)) : $new($DefaultHighlighter$HighlightInfo, this));
+	$var($DefaultHighlighter$HighlightInfo, i, (getDrawsLayeredHighlights() && ($instanceOf($LayeredHighlighter$LayerPainter, p))) ? $cast($DefaultHighlighter$HighlightInfo, $new($DefaultHighlighter$LayeredHighlightInfo, this)) : $new($DefaultHighlighter$HighlightInfo, this));
 	$set($nc(i), painter, p);
 	$set(i, p0, $nc(doc)->createPosition(p0));
 	$set(i, p1, doc->createPosition(p1));
 	$nc(this->highlights)->addElement(i);
 	safeDamageRange(p0, p1);
-	return $of(i);
+	return i;
 }
 
 void DefaultHighlighter::removeHighlight(Object$* tag) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DefaultHighlighter$LayeredHighlightInfo, tag)) {
 		$var($DefaultHighlighter$LayeredHighlightInfo, lhi, $cast($DefaultHighlighter$LayeredHighlightInfo, tag));
-		if ($nc(lhi)->width > 0 && lhi->height > 0) {
+		if (lhi->width > 0 && lhi->height > 0) {
 			$nc(this->component)->repaint(lhi->x, lhi->y, lhi->width, lhi->height);
 		}
 	} else {
 		$var($DefaultHighlighter$HighlightInfo, info, $cast($DefaultHighlighter$HighlightInfo, tag));
-		safeDamageRange($nc(info)->p0, info->p1);
+		safeDamageRange($nc(info)->p0, $nc(info)->p1);
 	}
 	$nc(this->highlights)->removeElement(tag);
 }
 
 void DefaultHighlighter::removeAllHighlights() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($TextUI, mapper, $cast($TextUI, $nc(this->component)->getUI()));
 	if (getDrawsLayeredHighlights()) {
 		int32_t len = $nc(this->highlights)->size();
@@ -205,16 +148,16 @@ void DefaultHighlighter::removeAllHighlights() {
 				$var($DefaultHighlighter$HighlightInfo, hi, $cast($DefaultHighlighter$HighlightInfo, $nc(this->highlights)->elementAt(i)));
 				if ($instanceOf($DefaultHighlighter$LayeredHighlightInfo, hi)) {
 					$var($DefaultHighlighter$LayeredHighlightInfo, info, $cast($DefaultHighlighter$LayeredHighlightInfo, hi));
-					minX = $Math::min(minX, $nc(info)->x);
-					minY = $Math::min(minY, $nc(info)->y);
-					maxX = $Math::max(maxX, $nc(info)->x + info->width);
-					maxY = $Math::max(maxY, $nc(info)->y + info->height);
+					minX = $Math::min(minX, info->x);
+					minY = $Math::min(minY, info->y);
+					maxX = $Math::max(maxX, info->x + info->width);
+					maxY = $Math::max(maxY, info->y + info->height);
 				} else if (p0 == -1) {
 					p0 = $nc($nc(hi)->p0)->getOffset();
 					p1 = $nc(hi->p1)->getOffset();
 				} else {
 					p0 = $Math::min(p0, $nc($nc(hi)->p0)->getOffset());
-					p1 = $Math::max(p1, $nc($nc(hi)->p1)->getOffset());
+					p1 = $Math::max(p1, $nc(hi->p1)->getOffset());
 				}
 			}
 			if (minX != maxX && minY != maxY) {
@@ -236,7 +179,7 @@ void DefaultHighlighter::removeAllHighlights() {
 			for (int32_t i = 0; i < len; ++i) {
 				$var($DefaultHighlighter$HighlightInfo, info, $cast($DefaultHighlighter$HighlightInfo, $nc(this->highlights)->elementAt(i)));
 				p0 = $Math::min(p0, $nc($nc(info)->p0)->getOffset());
-				p1 = $Math::max(p1, $nc($nc(info)->p1)->getOffset());
+				p1 = $Math::max(p1, $nc(info->p1)->getOffset());
 			}
 			try {
 				safeDamageRange(p0, p1);
@@ -248,7 +191,7 @@ void DefaultHighlighter::removeAllHighlights() {
 }
 
 void DefaultHighlighter::changeHighlight(Object$* tag, int32_t p0, int32_t p1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (p0 < 0) {
 		$throwNew($BadLocationException, "Invalid beginning of the range"_s, p0);
 	}
@@ -258,10 +201,10 @@ void DefaultHighlighter::changeHighlight(Object$* tag, int32_t p0, int32_t p1) {
 	$var($Document, doc, $nc(this->component)->getDocument());
 	if ($instanceOf($DefaultHighlighter$LayeredHighlightInfo, tag)) {
 		$var($DefaultHighlighter$LayeredHighlightInfo, lhi, $cast($DefaultHighlighter$LayeredHighlightInfo, tag));
-		if ($nc(lhi)->width > 0 && lhi->height > 0) {
+		if (lhi->width > 0 && lhi->height > 0) {
 			$nc(this->component)->repaint(lhi->x, lhi->y, lhi->width, lhi->height);
 		}
-		$nc(lhi)->width = (lhi->height = 0);
+		lhi->width = (lhi->height = 0);
 		$set(lhi, p0, $nc(doc)->createPosition(p0));
 		$set(lhi, p1, doc->createPosition(p1));
 		int32_t var$0 = $Math::min(p0, p1);
@@ -291,17 +234,17 @@ $Highlighter$HighlightArray* DefaultHighlighter::getHighlights() {
 		return DefaultHighlighter::noHighlights;
 	}
 	$var($Highlighter$HighlightArray, h, $new($Highlighter$HighlightArray, size));
-	$nc(this->highlights)->copyInto(h);
+	this->highlights->copyInto(h);
 	return h;
 }
 
 void DefaultHighlighter::paintLayeredHighlights($Graphics* g, int32_t p0, int32_t p1, $Shape* viewBounds, $JTextComponent* editor, $View* view) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t counter = $nc(this->highlights)->size() - 1; counter >= 0; --counter) {
 		$var($DefaultHighlighter$HighlightInfo, tag, $cast($DefaultHighlighter$HighlightInfo, $nc(this->highlights)->elementAt(counter)));
 		if ($instanceOf($DefaultHighlighter$LayeredHighlightInfo, tag)) {
 			$var($DefaultHighlighter$LayeredHighlightInfo, lhi, $cast($DefaultHighlighter$LayeredHighlightInfo, tag));
-			int32_t start = $nc(lhi)->getStartOffset();
+			int32_t start = lhi->getStartOffset();
 			int32_t end = lhi->getEndOffset();
 			if ((p0 < start && p1 > start) || (p0 >= start && p0 < end)) {
 				lhi->paintLayeredHighlights(g, p0, p1, viewBounds, editor, view);
@@ -315,7 +258,7 @@ void DefaultHighlighter::safeDamageRange($Position* p0, $Position* p1) {
 }
 
 void DefaultHighlighter::safeDamageRange(int32_t a0, int32_t a1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, doc, $nc(this->component)->getDocument());
 	$var($Position, var$0, $nc(doc)->createPosition(a0));
 	safeDamageRange(var$0, $(doc->createPosition(a1)));
@@ -329,7 +272,7 @@ bool DefaultHighlighter::getDrawsLayeredHighlights() {
 	return this->drawsLayeredHighlights;
 }
 
-void clinit$DefaultHighlighter($Class* class$) {
+void DefaultHighlighter::clinit$($Class* clazz) {
 	$assignStatic(DefaultHighlighter::noHighlights, $new($Highlighter$HighlightArray, 0));
 	$assignStatic(DefaultHighlighter::DefaultPainter, $new($DefaultHighlighter$DefaultHighlightPainter, nullptr));
 }
@@ -338,7 +281,56 @@ DefaultHighlighter::DefaultHighlighter() {
 }
 
 $Class* DefaultHighlighter::load$($String* name, bool initialize) {
-	$loadClass(DefaultHighlighter, name, initialize, &_DefaultHighlighter_ClassInfo_, clinit$DefaultHighlighter, allocate$DefaultHighlighter);
+	$FieldInfo fieldInfos$$[] = {
+		{"noHighlights", "[Ljavax/swing/text/Highlighter$Highlight;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultHighlighter, noHighlights)},
+		{"highlights", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/DefaultHighlighter$HighlightInfo;>;", $PRIVATE, $field(DefaultHighlighter, highlights)},
+		{"component", "Ljavax/swing/text/JTextComponent;", nullptr, $PRIVATE, $field(DefaultHighlighter, component)},
+		{"drawsLayeredHighlights", "Z", nullptr, $PRIVATE, $field(DefaultHighlighter, drawsLayeredHighlights)},
+		{"safeDamager", "Ljavax/swing/text/DefaultHighlighter$SafeDamager;", nullptr, $PRIVATE, $field(DefaultHighlighter, safeDamager)},
+		{"DefaultPainter", "Ljavax/swing/text/LayeredHighlighter$LayerPainter;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(DefaultHighlighter, DefaultPainter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultHighlighter, init$, void)},
+		{"addHighlight", "(IILjavax/swing/text/Highlighter$HighlightPainter;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, addHighlight, $Object*, int32_t, int32_t, $Highlighter$HighlightPainter*), "javax.swing.text.BadLocationException"},
+		{"changeHighlight", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, changeHighlight, void, Object$*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"deinstall", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, deinstall, void, $JTextComponent*)},
+		{"getDrawsLayeredHighlights", "()Z", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, getDrawsLayeredHighlights, bool)},
+		{"getHighlights", "()[Ljavax/swing/text/Highlighter$Highlight;", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, getHighlights, $Highlighter$HighlightArray*)},
+		{"install", "(Ljavax/swing/text/JTextComponent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, install, void, $JTextComponent*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, paint, void, $Graphics*)},
+		{"paintLayeredHighlights", "(Ljava/awt/Graphics;IILjava/awt/Shape;Ljavax/swing/text/JTextComponent;Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, paintLayeredHighlights, void, $Graphics*, int32_t, int32_t, $Shape*, $JTextComponent*, $View*)},
+		{"removeAllHighlights", "()V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, removeAllHighlights, void)},
+		{"removeHighlight", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, removeHighlight, void, Object$*)},
+		{"safeDamageRange", "(Ljavax/swing/text/Position;Ljavax/swing/text/Position;)V", nullptr, $PRIVATE, $method(DefaultHighlighter, safeDamageRange, void, $Position*, $Position*)},
+		{"safeDamageRange", "(II)V", nullptr, $PRIVATE, $method(DefaultHighlighter, safeDamageRange, void, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"setDrawsLayeredHighlights", "(Z)V", nullptr, $PUBLIC, $virtualMethod(DefaultHighlighter, setDrawsLayeredHighlights, void, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultHighlighter$SafeDamager", "javax.swing.text.DefaultHighlighter", "SafeDamager", 0},
+		{"javax.swing.text.DefaultHighlighter$LayeredHighlightInfo", "javax.swing.text.DefaultHighlighter", "LayeredHighlightInfo", 0},
+		{"javax.swing.text.DefaultHighlighter$HighlightInfo", "javax.swing.text.DefaultHighlighter", "HighlightInfo", 0},
+		{"javax.swing.text.DefaultHighlighter$DefaultHighlightPainter", "javax.swing.text.DefaultHighlighter", "DefaultHighlightPainter", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultHighlighter",
+		"javax.swing.text.LayeredHighlighter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultHighlighter$SafeDamager,javax.swing.text.DefaultHighlighter$LayeredHighlightInfo,javax.swing.text.DefaultHighlighter$HighlightInfo,javax.swing.text.DefaultHighlighter$DefaultHighlightPainter"
+	};
+	$loadClass(DefaultHighlighter, name, initialize, &classInfo$$, DefaultHighlighter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultHighlighter);
+	});
 	return class$;
 }
 

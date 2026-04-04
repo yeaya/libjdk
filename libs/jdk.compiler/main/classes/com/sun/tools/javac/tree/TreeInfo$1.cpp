@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/tree/TreeInfo$1.h>
-
 #include <com/sun/tools/javac/tree/EndPosTable.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
@@ -19,53 +18,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _TreeInfo$1_FieldInfo_[] = {
-	{"val$endPos", "I", nullptr, $FINAL | $SYNTHETIC, $field(TreeInfo$1, val$endPos)},
-	{"val$tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL | $SYNTHETIC, $field(TreeInfo$1, val$tree)},
-	{}
-};
-
-$MethodInfo _TreeInfo$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;I)V", "()V", 0, $method(TreeInfo$1, init$, void, $JCTree*, int32_t)},
-	{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getEndPosition, int32_t, $EndPosTable*)},
-	{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getPreferredPosition, int32_t)},
-	{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getStartPosition, int32_t)},
-	{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getTree, $JCTree*)},
-	{}
-};
-
-$EnclosingMethodInfo _TreeInfo$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.tree.TreeInfo",
-	"diagEndPos",
-	"(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;"
-};
-
-$InnerClassInfo _TreeInfo$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.TreeInfo$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _TreeInfo$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.tree.TreeInfo$1",
-	"java.lang.Object",
-	"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition",
-	_TreeInfo$1_FieldInfo_,
-	_TreeInfo$1_MethodInfo_,
-	nullptr,
-	&_TreeInfo$1_EnclosingMethodInfo_,
-	_TreeInfo$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.TreeInfo"
-};
-
-$Object* allocate$TreeInfo$1($Class* clazz) {
-	return $of($alloc(TreeInfo$1));
-}
 
 void TreeInfo$1::init$($JCTree* val$tree, int32_t val$endPos) {
 	$set(this, val$tree, val$tree);
@@ -92,7 +44,47 @@ TreeInfo$1::TreeInfo$1() {
 }
 
 $Class* TreeInfo$1::load$($String* name, bool initialize) {
-	$loadClass(TreeInfo$1, name, initialize, &_TreeInfo$1_ClassInfo_, allocate$TreeInfo$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$endPos", "I", nullptr, $FINAL | $SYNTHETIC, $field(TreeInfo$1, val$endPos)},
+		{"val$tree", "Lcom/sun/tools/javac/tree/JCTree;", nullptr, $FINAL | $SYNTHETIC, $field(TreeInfo$1, val$tree)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/tree/JCTree;I)V", "()V", 0, $method(TreeInfo$1, init$, void, $JCTree*, int32_t)},
+		{"getEndPosition", "(Lcom/sun/tools/javac/tree/EndPosTable;)I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getEndPosition, int32_t, $EndPosTable*)},
+		{"getPreferredPosition", "()I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getPreferredPosition, int32_t)},
+		{"getStartPosition", "()I", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getStartPosition, int32_t)},
+		{"getTree", "()Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(TreeInfo$1, getTree, $JCTree*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.tree.TreeInfo",
+		"diagEndPos",
+		"(Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.TreeInfo$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition", "com.sun.tools.javac.util.JCDiagnostic", "DiagnosticPosition", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.tree.TreeInfo$1",
+		"java.lang.Object",
+		"com.sun.tools.javac.util.JCDiagnostic$DiagnosticPosition",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.TreeInfo"
+	};
+	$loadClass(TreeInfo$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TreeInfo$1);
+	});
 	return class$;
 }
 

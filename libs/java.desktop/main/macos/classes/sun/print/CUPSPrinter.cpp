@@ -1,12 +1,10 @@
 #include <sun/print/CUPSPrinter.h>
-
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <javax/print/attribute/Size2DSyntax.h>
@@ -54,13 +52,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Size2DSyntax = ::javax::print::attribute::Size2DSyntax;
 using $MediaPrintableArea = ::javax::print::attribute::standard::MediaPrintableArea;
 using $MediaSize = ::javax::print::attribute::standard::MediaSize;
-using $MediaSizeName = ::javax::print::attribute::standard::MediaSizeName;
 using $MediaTray = ::javax::print::attribute::standard::MediaTray;
 using $AttributeClass = ::sun::print::AttributeClass;
 using $CUPSPrinter$1 = ::sun::print::CUPSPrinter$1;
@@ -74,87 +70,6 @@ using $PrintServiceLookupProvider = ::sun::print::PrintServiceLookupProvider;
 namespace sun {
 	namespace print {
 
-$FieldInfo _CUPSPrinter_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CUPSPrinter, $assertionsDisabled)},
-	{"debugPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CUPSPrinter, debugPrefix)},
-	{"PRINTER_DPI", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CUPSPrinter, PRINTER_DPI)},
-	{"initialized", "Z", nullptr, $PRIVATE, $field(CUPSPrinter, initialized)},
-	{"cupsMediaPrintables", "[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE, $field(CUPSPrinter, cupsMediaPrintables)},
-	{"cupsMediaSNames", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(CUPSPrinter, cupsMediaSNames)},
-	{"cupsCustomMediaSNames", "[Lsun/print/CustomMediaSizeName;", nullptr, $PRIVATE, $field(CUPSPrinter, cupsCustomMediaSNames)},
-	{"cupsMediaTrays", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE, $field(CUPSPrinter, cupsMediaTrays)},
-	{"nPageSizes", "I", nullptr, $PUBLIC, $field(CUPSPrinter, nPageSizes)},
-	{"nTrays", "I", nullptr, $PUBLIC, $field(CUPSPrinter, nTrays)},
-	{"media", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(CUPSPrinter, media)},
-	{"pageSizes", "[F", nullptr, $PRIVATE, $field(CUPSPrinter, pageSizes)},
-	{"resolutionsArray", "[I", nullptr, 0, $field(CUPSPrinter, resolutionsArray)},
-	{"printer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CUPSPrinter, printer)},
-	{"libFound", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CUPSPrinter, libFound)},
-	{"cupsServer", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CUPSPrinter, cupsServer)},
-	{"cupsPort", "I", nullptr, $PRIVATE | $STATIC, $staticField(CUPSPrinter, cupsPort)},
-	{}
-};
-
-$MethodInfo _CUPSPrinter_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CUPSPrinter, init$, void, $String*)},
-	{"canConnect", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, canConnect, bool, $String*, int32_t)},
-	{"getAllPrinters", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CUPSPrinter, getAllPrinters, $StringArray*)},
-	{"getCupsDefaultPrinter", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, getCupsDefaultPrinter, $String*)},
-	{"getCupsPort", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, getCupsPort, int32_t)},
-	{"getCupsServer", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, getCupsServer, $String*)},
-	{"getCustomMediaSizeNames", "()[Lsun/print/CustomMediaSizeName;", nullptr, 0, $virtualMethod(CUPSPrinter, getCustomMediaSizeNames, $CustomMediaSizeNameArray*)},
-	{"getDefaultMediaIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CUPSPrinter, getDefaultMediaIndex, int32_t)},
-	{"getDefaultPrinter", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CUPSPrinter, getDefaultPrinter, $StringArray*)},
-	{"getMedia", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED | $NATIVE, $staticMethod(CUPSPrinter, getMedia, $StringArray*, $String*)},
-	{"getMediaPrintableArea", "()[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, 0, $virtualMethod(CUPSPrinter, getMediaPrintableArea, $MediaPrintableAreaArray*)},
-	{"getMediaSizeNames", "()[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, 0, $virtualMethod(CUPSPrinter, getMediaSizeNames, $MediaSizeNameArray*)},
-	{"getMediaTrays", "()[Ljavax/print/attribute/standard/MediaTray;", nullptr, 0, $virtualMethod(CUPSPrinter, getMediaTrays, $MediaTrayArray*)},
-	{"getPageSizes", "(Ljava/lang/String;)[F", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED | $NATIVE, $staticMethod(CUPSPrinter, getPageSizes, $floats*, $String*)},
-	{"getPort", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(CUPSPrinter, getPort, int32_t)},
-	{"getRawResolutions", "()[I", nullptr, 0, $virtualMethod(CUPSPrinter, getRawResolutions, $ints*)},
-	{"getResolutions", "(Ljava/lang/String;Ljava/util/ArrayList;)V", "(Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/Integer;>;)V", $PRIVATE | $STATIC | $SYNCHRONIZED | $NATIVE, $staticMethod(CUPSPrinter, getResolutions, void, $String*, $ArrayList*)},
-	{"getServer", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CUPSPrinter, getServer, $String*)},
-	{"initIDs", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, initIDs, bool)},
-	{"initMedia", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CUPSPrinter, initMedia, void)},
-	{"isCupsRunning", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CUPSPrinter, isCupsRunning, bool)},
-	{}
-};
-
-#define _METHOD_INDEX_canConnect 1
-#define _METHOD_INDEX_getCupsDefaultPrinter 3
-#define _METHOD_INDEX_getCupsPort 4
-#define _METHOD_INDEX_getCupsServer 5
-#define _METHOD_INDEX_getMedia 9
-#define _METHOD_INDEX_getPageSizes 13
-#define _METHOD_INDEX_getResolutions 16
-#define _METHOD_INDEX_initIDs 18
-
-$InnerClassInfo _CUPSPrinter_InnerClassesInfo_[] = {
-	{"sun.print.CUPSPrinter$3", nullptr, nullptr, 0},
-	{"sun.print.CUPSPrinter$2", nullptr, nullptr, 0},
-	{"sun.print.CUPSPrinter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CUPSPrinter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.CUPSPrinter",
-	"java.lang.Object",
-	nullptr,
-	_CUPSPrinter_FieldInfo_,
-	_CUPSPrinter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CUPSPrinter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.print.CUPSPrinter$3,sun.print.CUPSPrinter$2,sun.print.CUPSPrinter$1"
-};
-
-$Object* allocate$CUPSPrinter($Class* clazz) {
-	return $of($alloc(CUPSPrinter));
-}
-
 bool CUPSPrinter::$assertionsDisabled = false;
 $String* CUPSPrinter::debugPrefix = nullptr;
 double CUPSPrinter::PRINTER_DPI = 0.0;
@@ -164,76 +79,69 @@ int32_t CUPSPrinter::cupsPort = 0;
 
 $String* CUPSPrinter::getCupsServer() {
 	$init(CUPSPrinter);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(CUPSPrinter, getCupsServer, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getCupsServer, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t CUPSPrinter::getCupsPort() {
 	$init(CUPSPrinter);
-	int32_t $ret = 0;
-	$prepareNativeStatic(CUPSPrinter, getCupsPort, int32_t);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(getCupsPort, int32_t);
+	int32_t $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* CUPSPrinter::getCupsDefaultPrinter() {
 	$init(CUPSPrinter);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(CUPSPrinter, getCupsDefaultPrinter, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getCupsDefaultPrinter, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool CUPSPrinter::canConnect($String* server, int32_t port) {
 	$init(CUPSPrinter);
-	bool $ret = false;
-	$prepareNativeStatic(CUPSPrinter, canConnect, bool, $String* server, int32_t port);
-	$ret = $invokeNativeStatic(server, port);
+	$prepareNativeStatic(canConnect, bool, $String* server, int32_t port);
+	bool $ret = $invokeNativeStatic(server, port);
 	$finishNativeStatic();
 	return $ret;
 }
 
 bool CUPSPrinter::initIDs() {
 	$init(CUPSPrinter);
-	bool $ret = false;
-	$prepareNativeStatic(CUPSPrinter, initIDs, bool);
-	$ret = $invokeNativeStatic();
+	$prepareNativeStatic(initIDs, bool);
+	bool $ret = $invokeNativeStatic();
 	$finishNativeStatic();
 	return $ret;
 }
 
 $StringArray* CUPSPrinter::getMedia($String* printer) {
 	$init(CUPSPrinter);
-	$var($StringArray, $ret, nullptr);
-	$prepareNativeStatic(CUPSPrinter, getMedia, $StringArray*, $String* printer);
-	$assign($ret, $invokeNativeStaticObject(printer));
+	$prepareNativeStatic(getMedia, $StringArray*, $String* printer);
+	$var($StringArray, $ret, $invokeNativeStaticObject(printer));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $floats* CUPSPrinter::getPageSizes($String* printer) {
 	$init(CUPSPrinter);
-	$var($floats, $ret, nullptr);
-	$prepareNativeStatic(CUPSPrinter, getPageSizes, $floats*, $String* printer);
-	$assign($ret, $invokeNativeStaticObject(printer));
+	$prepareNativeStatic(getPageSizes, $floats*, $String* printer);
+	$var($floats, $ret, $invokeNativeStaticObject(printer));
 	$finishNativeStatic();
 	return $ret;
 }
 
 void CUPSPrinter::getResolutions($String* printer, $ArrayList* resolutionList) {
 	$init(CUPSPrinter);
-	$prepareNativeStatic(CUPSPrinter, getResolutions, void, $String* printer, $ArrayList* resolutionList);
+	$prepareNativeStatic(getResolutions, void, $String* printer, $ArrayList* resolutionList);
 	$invokeNativeStatic(printer, resolutionList);
 	$finishNativeStatic();
 }
 
 void CUPSPrinter::init$($String* printerName) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->nPageSizes = 0;
 	this->nTrays = 0;
 	if (printerName == nullptr) {
@@ -253,7 +161,7 @@ void CUPSPrinter::init$($String* printerName) {
 		}
 		$set(this, pageSizes, getPageSizes(this->printer));
 		if (this->pageSizes != nullptr) {
-			this->nPageSizes = $nc(this->pageSizes)->length / 6;
+			this->nPageSizes = this->pageSizes->length / 6;
 			this->nTrays = $nc(this->media)->length / 2 - this->nPageSizes;
 			if (!CUPSPrinter::$assertionsDisabled && !(this->nTrays >= 0)) {
 				$throwNew($AssertionError);
@@ -263,7 +171,7 @@ void CUPSPrinter::init$($String* printerName) {
 		getResolutions(this->printer, resolutionList);
 		$set(this, resolutionsArray, $new($ints, resolutionList->size()));
 		for (int32_t i = 0; i < resolutionList->size(); ++i) {
-			$nc(this->resolutionsArray)->set(i, $nc(($cast($Integer, $(resolutionList->get(i)))))->intValue());
+			this->resolutionsArray->set(i, $$sure($Integer, resolutionList->get(i))->intValue());
 		}
 	}
 }
@@ -279,7 +187,7 @@ $CustomMediaSizeNameArray* CUPSPrinter::getCustomMediaSizeNames() {
 }
 
 int32_t CUPSPrinter::getDefaultMediaIndex() {
-	return (($nc(this->pageSizes)->length > 1) ? $cast(int32_t, ($nc(this->pageSizes)->get($nc(this->pageSizes)->length - 1))) : 0);
+	return (($nc(this->pageSizes)->length > 1) ? $cast(int32_t, (this->pageSizes->get(this->pageSizes->length - 1))) : 0);
 }
 
 $MediaPrintableAreaArray* CUPSPrinter::getMediaPrintableArea() {
@@ -298,7 +206,7 @@ $ints* CUPSPrinter::getRawResolutions() {
 
 void CUPSPrinter::initMedia() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (this->initialized) {
 			return;
 		} else {
@@ -320,19 +228,19 @@ void CUPSPrinter::initMedia() {
 		float h = 0.0;
 		for (int32_t i = 0; i < this->nPageSizes; ++i) {
 			width = (float)($div($nc(this->pageSizes)->get(i * 6), CUPSPrinter::PRINTER_DPI));
-			length = (float)($div($nc(this->pageSizes)->get(i * 6 + 1), CUPSPrinter::PRINTER_DPI));
-			x = (float)($div($nc(this->pageSizes)->get(i * 6 + 2), CUPSPrinter::PRINTER_DPI));
-			h = (float)($div($nc(this->pageSizes)->get(i * 6 + 3), CUPSPrinter::PRINTER_DPI));
-			w = (float)($div($nc(this->pageSizes)->get(i * 6 + 4), CUPSPrinter::PRINTER_DPI));
-			y = (float)($div($nc(this->pageSizes)->get(i * 6 + 5), CUPSPrinter::PRINTER_DPI));
+			length = (float)($div(this->pageSizes->get(i * 6 + 1), CUPSPrinter::PRINTER_DPI));
+			x = (float)($div(this->pageSizes->get(i * 6 + 2), CUPSPrinter::PRINTER_DPI));
+			h = (float)($div(this->pageSizes->get(i * 6 + 3), CUPSPrinter::PRINTER_DPI));
+			w = (float)($div(this->pageSizes->get(i * 6 + 4), CUPSPrinter::PRINTER_DPI));
+			y = (float)($div(this->pageSizes->get(i * 6 + 5), CUPSPrinter::PRINTER_DPI));
 			$assign(msn, $new($CustomMediaSizeName, $nc(this->media)->get(i * 2), $nc(this->media)->get(i * 2 + 1), width, length));
 			if (($nc(this->cupsMediaSNames)->set(i, $(msn->getStandardMedia()))) == nullptr) {
 				$nc(this->cupsMediaSNames)->set(i, msn);
 				if ((width > 0.0) && (length > 0.0)) {
 					try {
-						$new($MediaSize, width, length, $Size2DSyntax::INCH, static_cast<$MediaSizeName*>(msn));
+						$new($MediaSize, width, length, $Size2DSyntax::INCH, msn);
 					} catch ($IllegalArgumentException& e) {
-						$new($MediaSize, length, width, $Size2DSyntax::INCH, static_cast<$MediaSizeName*>(msn));
+						$new($MediaSize, length, width, $Size2DSyntax::INCH, msn);
 					}
 				}
 			}
@@ -351,14 +259,14 @@ void CUPSPrinter::initMedia() {
 		$var($MediaTray, mt, nullptr);
 		for (int32_t i = 0; i < this->nTrays; ++i) {
 			$assign(mt, $new($CustomMediaTray, $nc(this->media)->get((this->nPageSizes + i) * 2), $nc(this->media)->get((this->nPageSizes + i) * 2 + 1)));
-			$nc(this->cupsMediaTrays)->set(i, mt);
+			this->cupsMediaTrays->set(i, mt);
 		}
 	}
 }
 
 $StringArray* CUPSPrinter::getDefaultPrinter() {
 	$init(CUPSPrinter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($StringArray, printerInfo, $new($StringArray, 2));
 	printerInfo->set(0, $(getCupsDefaultPrinter()));
@@ -372,7 +280,7 @@ $StringArray* CUPSPrinter::getDefaultPrinter() {
 		$var($URL, url, $new($URL, var$0, var$1, getPort(), ""_s));
 		$var($HttpURLConnection, urlConnection, $IPPPrintService::getIPPConnection(url));
 		if (urlConnection != nullptr) {
-			$var($OutputStream, os, $cast($OutputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CUPSPrinter$2, urlConnection)))));
+			$var($OutputStream, os, $cast($OutputStream, $AccessController::doPrivileged($$new($CUPSPrinter$2, urlConnection))));
 			if (os == nullptr) {
 				return nullptr;
 			}
@@ -428,7 +336,7 @@ $StringArray* CUPSPrinter::getDefaultPrinter() {
 
 $StringArray* CUPSPrinter::getAllPrinters() {
 	$init(CUPSPrinter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	try {
 		$var($String, var$0, "http"_s);
@@ -436,7 +344,7 @@ $StringArray* CUPSPrinter::getAllPrinters() {
 		$var($URL, url, $new($URL, var$0, var$1, getPort(), ""_s));
 		$var($HttpURLConnection, urlConnection, $IPPPrintService::getIPPConnection(url));
 		if (urlConnection != nullptr) {
-			$var($OutputStream, os, $cast($OutputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CUPSPrinter$3, urlConnection)))));
+			$var($OutputStream, os, $cast($OutputStream, $AccessController::doPrivileged($$new($CUPSPrinter$3, urlConnection))));
 			if (os == nullptr) {
 				return nullptr;
 			}
@@ -452,7 +360,7 @@ $StringArray* CUPSPrinter::getAllPrinters() {
 				$nc(is)->close();
 				$nc(os)->close();
 				urlConnection->disconnect();
-				if (responseMap == nullptr || $nc(responseMap)->length == 0) {
+				if (responseMap == nullptr || responseMap->length == 0) {
 					return nullptr;
 				}
 				$var($ArrayList, printerNames, $new($ArrayList));
@@ -463,7 +371,7 @@ $StringArray* CUPSPrinter::getAllPrinters() {
 						printerNames->add(nameStr);
 					}
 				}
-				return $fcast($StringArray, printerNames->toArray($$new($StringArray, 0)));
+				return $cast($StringArray, printerNames->toArray($$new($StringArray, 0)));
 			} else {
 				$nc(os)->close();
 				urlConnection->disconnect();
@@ -486,11 +394,16 @@ int32_t CUPSPrinter::getPort() {
 
 bool CUPSPrinter::isCupsRunning() {
 	$init(CUPSPrinter);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$IPPPrintService::debug_println($$str({CUPSPrinter::debugPrefix, "libFound "_s, $$str(CUPSPrinter::libFound)}));
 	if (CUPSPrinter::libFound) {
-		$var($String, var$0, $$str({CUPSPrinter::debugPrefix, "CUPS server "_s, $(getServer()), " port "_s}));
-		$IPPPrintService::debug_println($$concat(var$0, $$str(getPort())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(CUPSPrinter::debugPrefix);
+		var$0->append("CUPS server "_s);
+		var$0->append($(getServer()));
+		var$0->append(" port "_s);
+		var$0->append(getPort());
+		$IPPPrintService::debug_println($$str(var$0));
 		$var($String, var$1, getServer());
 		return canConnect(var$1, getPort());
 	} else {
@@ -498,7 +411,7 @@ bool CUPSPrinter::isCupsRunning() {
 	}
 }
 
-void clinit$CUPSPrinter($Class* class$) {
+void CUPSPrinter::clinit$($Class* clazz) {
 	$assignStatic(CUPSPrinter::debugPrefix, "CUPSPrinter>> "_s);
 	CUPSPrinter::PRINTER_DPI = 72.0;
 	$beforeCallerSensitive();
@@ -506,7 +419,7 @@ void clinit$CUPSPrinter($Class* class$) {
 	$assignStatic(CUPSPrinter::cupsServer, nullptr);
 	CUPSPrinter::cupsPort = 0;
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($CUPSPrinter$1)));
+		$AccessController::doPrivileged($$new($CUPSPrinter$1));
 		CUPSPrinter::libFound = CUPSPrinter::initIDs();
 		if (CUPSPrinter::libFound) {
 			$assignStatic(CUPSPrinter::cupsServer, CUPSPrinter::getCupsServer());
@@ -519,7 +432,73 @@ CUPSPrinter::CUPSPrinter() {
 }
 
 $Class* CUPSPrinter::load$($String* name, bool initialize) {
-	$loadClass(CUPSPrinter, name, initialize, &_CUPSPrinter_ClassInfo_, clinit$CUPSPrinter, allocate$CUPSPrinter);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CUPSPrinter, $assertionsDisabled)},
+		{"debugPrefix", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CUPSPrinter, debugPrefix)},
+		{"PRINTER_DPI", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(CUPSPrinter, PRINTER_DPI)},
+		{"initialized", "Z", nullptr, $PRIVATE, $field(CUPSPrinter, initialized)},
+		{"cupsMediaPrintables", "[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, $PRIVATE, $field(CUPSPrinter, cupsMediaPrintables)},
+		{"cupsMediaSNames", "[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, $PRIVATE, $field(CUPSPrinter, cupsMediaSNames)},
+		{"cupsCustomMediaSNames", "[Lsun/print/CustomMediaSizeName;", nullptr, $PRIVATE, $field(CUPSPrinter, cupsCustomMediaSNames)},
+		{"cupsMediaTrays", "[Ljavax/print/attribute/standard/MediaTray;", nullptr, $PRIVATE, $field(CUPSPrinter, cupsMediaTrays)},
+		{"nPageSizes", "I", nullptr, $PUBLIC, $field(CUPSPrinter, nPageSizes)},
+		{"nTrays", "I", nullptr, $PUBLIC, $field(CUPSPrinter, nTrays)},
+		{"media", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(CUPSPrinter, media)},
+		{"pageSizes", "[F", nullptr, $PRIVATE, $field(CUPSPrinter, pageSizes)},
+		{"resolutionsArray", "[I", nullptr, 0, $field(CUPSPrinter, resolutionsArray)},
+		{"printer", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CUPSPrinter, printer)},
+		{"libFound", "Z", nullptr, $PRIVATE | $STATIC, $staticField(CUPSPrinter, libFound)},
+		{"cupsServer", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(CUPSPrinter, cupsServer)},
+		{"cupsPort", "I", nullptr, $PRIVATE | $STATIC, $staticField(CUPSPrinter, cupsPort)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(CUPSPrinter, init$, void, $String*)},
+		{"canConnect", "(Ljava/lang/String;I)Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, canConnect, bool, $String*, int32_t)},
+		{"getAllPrinters", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CUPSPrinter, getAllPrinters, $StringArray*)},
+		{"getCupsDefaultPrinter", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, getCupsDefaultPrinter, $String*)},
+		{"getCupsPort", "()I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, getCupsPort, int32_t)},
+		{"getCupsServer", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, getCupsServer, $String*)},
+		{"getCustomMediaSizeNames", "()[Lsun/print/CustomMediaSizeName;", nullptr, 0, $virtualMethod(CUPSPrinter, getCustomMediaSizeNames, $CustomMediaSizeNameArray*)},
+		{"getDefaultMediaIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CUPSPrinter, getDefaultMediaIndex, int32_t)},
+		{"getDefaultPrinter", "()[Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CUPSPrinter, getDefaultPrinter, $StringArray*)},
+		{"getMedia", "(Ljava/lang/String;)[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED | $NATIVE, $staticMethod(CUPSPrinter, getMedia, $StringArray*, $String*)},
+		{"getMediaPrintableArea", "()[Ljavax/print/attribute/standard/MediaPrintableArea;", nullptr, 0, $virtualMethod(CUPSPrinter, getMediaPrintableArea, $MediaPrintableAreaArray*)},
+		{"getMediaSizeNames", "()[Ljavax/print/attribute/standard/MediaSizeName;", nullptr, 0, $virtualMethod(CUPSPrinter, getMediaSizeNames, $MediaSizeNameArray*)},
+		{"getMediaTrays", "()[Ljavax/print/attribute/standard/MediaTray;", nullptr, 0, $virtualMethod(CUPSPrinter, getMediaTrays, $MediaTrayArray*)},
+		{"getPageSizes", "(Ljava/lang/String;)[F", nullptr, $PRIVATE | $STATIC | $SYNCHRONIZED | $NATIVE, $staticMethod(CUPSPrinter, getPageSizes, $floats*, $String*)},
+		{"getPort", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(CUPSPrinter, getPort, int32_t)},
+		{"getRawResolutions", "()[I", nullptr, 0, $virtualMethod(CUPSPrinter, getRawResolutions, $ints*)},
+		{"getResolutions", "(Ljava/lang/String;Ljava/util/ArrayList;)V", "(Ljava/lang/String;Ljava/util/ArrayList<Ljava/lang/Integer;>;)V", $PRIVATE | $STATIC | $SYNCHRONIZED | $NATIVE, $staticMethod(CUPSPrinter, getResolutions, void, $String*, $ArrayList*)},
+		{"getServer", "()Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(CUPSPrinter, getServer, $String*)},
+		{"initIDs", "()Z", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(CUPSPrinter, initIDs, bool)},
+		{"initMedia", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(CUPSPrinter, initMedia, void)},
+		{"isCupsRunning", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(CUPSPrinter, isCupsRunning, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.print.CUPSPrinter$3", nullptr, nullptr, 0},
+		{"sun.print.CUPSPrinter$2", nullptr, nullptr, 0},
+		{"sun.print.CUPSPrinter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.CUPSPrinter",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.print.CUPSPrinter$3,sun.print.CUPSPrinter$2,sun.print.CUPSPrinter$1"
+	};
+	$loadClass(CUPSPrinter, name, initialize, &classInfo$$, CUPSPrinter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CUPSPrinter);
+	});
 	return class$;
 }
 

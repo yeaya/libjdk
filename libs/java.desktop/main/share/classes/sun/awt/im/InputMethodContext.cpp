@@ -1,5 +1,4 @@
 #include <sun/awt/im/InputMethodContext.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -14,7 +13,6 @@
 #include <java/awt/im/spi/InputMethod.h>
 #include <java/lang/InternalError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/AttributedString.h>
@@ -50,7 +48,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $AttributedString = ::java::text::AttributedString;
 using $CharacterIterator = ::java::text::CharacterIterator;
@@ -64,62 +61,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace awt {
 		namespace im {
-
-$FieldInfo _InputMethodContext_FieldInfo_[] = {
-	{"dispatchingCommittedText", "Z", nullptr, $PRIVATE, $field(InputMethodContext, dispatchingCommittedText)},
-	{"compositionAreaHandler", "Lsun/awt/im/CompositionAreaHandler;", nullptr, $PRIVATE, $field(InputMethodContext, compositionAreaHandler)},
-	{"compositionAreaHandlerLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(InputMethodContext, compositionAreaHandlerLock)},
-	{"belowTheSpotInputRequested", "Z", nullptr, $PRIVATE | $STATIC, $staticField(InputMethodContext, belowTheSpotInputRequested)},
-	{"inputMethodSupportsBelowTheSpot", "Z", nullptr, $PRIVATE, $field(InputMethodContext, inputMethodSupportsBelowTheSpot)},
-	{}
-};
-
-$MethodInfo _InputMethodContext_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(InputMethodContext, init$, void)},
-	{"cancelLatestCommittedText", "([Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, cancelLatestCommittedText, $AttributedCharacterIterator*, $AttributedCharacterIterator$AttributeArray*)},
-	{"createInputMethodJFrame", "(Ljava/lang/String;Z)Ljavax/swing/JFrame;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, createInputMethodJFrame, $JFrame*, $String*, bool)},
-	{"createInputMethodWindow", "(Ljava/lang/String;Z)Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, createInputMethodWindow, $Window*, $String*, bool)},
-	{"createInputMethodWindow", "(Ljava/lang/String;Lsun/awt/im/InputContext;Z)Ljava/awt/Window;", nullptr, $STATIC, $staticMethod(InputMethodContext, createInputMethodWindow, $Window*, $String*, $InputContext*, bool)},
-	{"dispatchCommittedText", "(Ljava/awt/Component;Ljava/text/AttributedCharacterIterator;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(InputMethodContext, dispatchCommittedText, void, $Component*, $AttributedCharacterIterator*, int32_t)},
-	{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, dispatchEvent, void, $AWTEvent*)},
-	{"dispatchInputMethodEvent", "(ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, dispatchInputMethodEvent, void, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
-	{"enableClientWindowNotification", "(Ljava/awt/im/spi/InputMethod;Z)V", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, enableClientWindowNotification, void, $InputMethod*, bool)},
-	{"getCommittedText", "(II[Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getCommittedText, $AttributedCharacterIterator*, int32_t, int32_t, $AttributedCharacterIterator$AttributeArray*)},
-	{"getCommittedTextLength", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getCommittedTextLength, int32_t)},
-	{"getCompositionAreaHandler", "(Z)Lsun/awt/im/CompositionAreaHandler;", nullptr, $PRIVATE, $method(InputMethodContext, getCompositionAreaHandler, $CompositionAreaHandler*, bool)},
-	{"getInsertPositionOffset", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getInsertPositionOffset, int32_t)},
-	{"getLocationOffset", "(II)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getLocationOffset, $TextHitInfo*, int32_t, int32_t)},
-	{"getReq", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PRIVATE, $method(InputMethodContext, getReq, $InputMethodRequests*)},
-	{"getSelectedText", "([Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getSelectedText, $AttributedCharacterIterator*, $AttributedCharacterIterator$AttributeArray*)},
-	{"getTextLocation", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getTextLocation, $Rectangle*, $TextHitInfo*)},
-	{"grabCompositionArea", "(Z)V", nullptr, 0, $virtualMethod(InputMethodContext, grabCompositionArea, void, bool)},
-	{"haveActiveClient", "()Z", nullptr, $PRIVATE, $method(InputMethodContext, haveActiveClient, bool)},
-	{"isCompositionAreaVisible", "()Z", nullptr, 0, $virtualMethod(InputMethodContext, isCompositionAreaVisible, bool)},
-	{"releaseCompositionArea", "()V", nullptr, 0, $virtualMethod(InputMethodContext, releaseCompositionArea, void)},
-	{"setCompositionAreaUndecorated", "(Z)V", nullptr, 0, $virtualMethod(InputMethodContext, setCompositionAreaUndecorated, void, bool)},
-	{"setCompositionAreaVisible", "(Z)V", nullptr, 0, $virtualMethod(InputMethodContext, setCompositionAreaVisible, void, bool)},
-	{"setInputMethodSupportsBelowTheSpot", "(Z)V", nullptr, 0, $virtualMethod(InputMethodContext, setInputMethodSupportsBelowTheSpot, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"useBelowTheSpotInput", "()Z", nullptr, 0, $virtualMethod(InputMethodContext, useBelowTheSpotInput, bool)},
-	{}
-};
-
-$ClassInfo _InputMethodContext_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.im.InputMethodContext",
-	"sun.awt.im.InputContext",
-	"java.awt.im.spi.InputMethodContext",
-	_InputMethodContext_FieldInfo_,
-	_InputMethodContext_MethodInfo_
-};
-
-$Object* allocate$InputMethodContext($Class* clazz) {
-	return $of($alloc(InputMethodContext));
-}
 
 int32_t InputMethodContext::hashCode() {
 	 return this->$InputContext::hashCode();
@@ -162,7 +103,7 @@ bool InputMethodContext::haveActiveClient() {
 }
 
 void InputMethodContext::dispatchInputMethodEvent(int32_t id, $AttributedCharacterIterator* text, int32_t committedCharacterCount, $TextHitInfo* caret, $TextHitInfo* visiblePosition) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, source, nullptr);
 	$assign(source, getClientComponent());
 	if (source != nullptr) {
@@ -171,14 +112,14 @@ void InputMethodContext::dispatchInputMethodEvent(int32_t id, $AttributedCharact
 		if (var$0 && !useBelowTheSpotInput()) {
 			source->dispatchEvent(event);
 		} else {
-			$nc($(getCompositionAreaHandler(true)))->processInputMethodEvent(event);
+			$$nc(getCompositionAreaHandler(true))->processInputMethodEvent(event);
 		}
 	}
 }
 
 void InputMethodContext::dispatchCommittedText($Component* client, $AttributedCharacterIterator* text, int32_t committedCharacterCount) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		bool var$0 = committedCharacterCount == 0;
 		if (!var$0) {
 			int32_t var$1 = $nc(text)->getEndIndex();
@@ -189,41 +130,39 @@ void InputMethodContext::dispatchCommittedText($Component* client, $AttributedCh
 		}
 		int64_t time = $System::currentTimeMillis();
 		this->dispatchingCommittedText = true;
-		{
-			$var($Throwable, var$2, nullptr);
-			try {
-				$var($InputMethodRequests, req, $nc(client)->getInputMethodRequests());
-				if (req != nullptr) {
-					int32_t beginIndex = $nc(text)->getBeginIndex();
-					$var($AttributedCharacterIterator, toBeCommitted, ($$new($AttributedString, text, beginIndex, beginIndex + committedCharacterCount))->getIterator());
-					$var($InputMethodEvent, inputEvent, $new($InputMethodEvent, client, $InputMethodEvent::INPUT_METHOD_TEXT_CHANGED, toBeCommitted, committedCharacterCount, nullptr, nullptr));
-					client->dispatchEvent(inputEvent);
-				} else {
-					char16_t keyChar = $nc(text)->first();
-					while (committedCharacterCount-- > 0 && keyChar != $CharacterIterator::DONE) {
-						$var($KeyEvent, keyEvent, $new($KeyEvent, client, $KeyEvent::KEY_TYPED, time, 0, $KeyEvent::VK_UNDEFINED, keyChar));
-						client->dispatchEvent(keyEvent);
-						keyChar = text->next();
-					}
+		$var($Throwable, var$2, nullptr);
+		try {
+			$var($InputMethodRequests, req, $nc(client)->getInputMethodRequests());
+			if (req != nullptr) {
+				int32_t beginIndex = $nc(text)->getBeginIndex();
+				$var($AttributedCharacterIterator, toBeCommitted, ($$new($AttributedString, text, beginIndex, beginIndex + committedCharacterCount))->getIterator());
+				$var($InputMethodEvent, inputEvent, $new($InputMethodEvent, client, $InputMethodEvent::INPUT_METHOD_TEXT_CHANGED, toBeCommitted, committedCharacterCount, nullptr, nullptr));
+				client->dispatchEvent(inputEvent);
+			} else {
+				char16_t keyChar = $nc(text)->first();
+				while (committedCharacterCount-- > 0 && keyChar != $CharacterIterator::DONE) {
+					$var($KeyEvent, keyEvent, $new($KeyEvent, client, $KeyEvent::KEY_TYPED, time, 0, $KeyEvent::VK_UNDEFINED, keyChar));
+					client->dispatchEvent(keyEvent);
+					keyChar = text->next();
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$2, var$3);
-			} /*finally*/ {
-				this->dispatchingCommittedText = false;
 			}
-			if (var$2 != nullptr) {
-				$throw(var$2);
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$2, var$3);
+		} /*finally*/ {
+			this->dispatchingCommittedText = false;
+		}
+		if (var$2 != nullptr) {
+			$throw(var$2);
 		}
 	}
 }
 
 void InputMethodContext::dispatchEvent($AWTEvent* event) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($InputMethodEvent, event)) {
-		bool var$0 = $nc(($cast($Component, $($nc(event)->getSource()))))->getInputMethodRequests() == nullptr;
+		bool var$0 = $$sure($Component, event->getSource())->getInputMethodRequests() == nullptr;
 		if (var$0 || (useBelowTheSpotInput() && !this->dispatchingCommittedText)) {
-			$nc($(getCompositionAreaHandler(true)))->processInputMethodEvent($cast($InputMethodEvent, event));
+			$$nc(getCompositionAreaHandler(true))->processInputMethodEvent($cast($InputMethodEvent, event));
 		}
 	} else if (!this->dispatchingCommittedText) {
 		$InputContext::dispatchEvent(event);
@@ -246,7 +185,7 @@ $CompositionAreaHandler* InputMethodContext::getCompositionAreaHandler(bool grab
 void InputMethodContext::grabCompositionArea(bool doUpdate) {
 	$synchronized(this->compositionAreaHandlerLock) {
 		if (this->compositionAreaHandler != nullptr) {
-			$nc(this->compositionAreaHandler)->grabCompositionArea(doUpdate);
+			this->compositionAreaHandler->grabCompositionArea(doUpdate);
 		} else {
 			$CompositionAreaHandler::closeCompositionArea();
 		}
@@ -256,68 +195,68 @@ void InputMethodContext::grabCompositionArea(bool doUpdate) {
 void InputMethodContext::releaseCompositionArea() {
 	$synchronized(this->compositionAreaHandlerLock) {
 		if (this->compositionAreaHandler != nullptr) {
-			$nc(this->compositionAreaHandler)->releaseCompositionArea();
+			this->compositionAreaHandler->releaseCompositionArea();
 		}
 	}
 }
 
 bool InputMethodContext::isCompositionAreaVisible() {
 	if (this->compositionAreaHandler != nullptr) {
-		return $nc(this->compositionAreaHandler)->isCompositionAreaVisible();
+		return this->compositionAreaHandler->isCompositionAreaVisible();
 	}
 	return false;
 }
 
 void InputMethodContext::setCompositionAreaVisible(bool visible) {
 	if (this->compositionAreaHandler != nullptr) {
-		$nc(this->compositionAreaHandler)->setCompositionAreaVisible(visible);
+		this->compositionAreaHandler->setCompositionAreaVisible(visible);
 	}
 }
 
 $Rectangle* InputMethodContext::getTextLocation($TextHitInfo* offset) {
-	return $nc($(getReq()))->getTextLocation(offset);
+	return $$nc(getReq())->getTextLocation(offset);
 }
 
 $TextHitInfo* InputMethodContext::getLocationOffset(int32_t x, int32_t y) {
-	return $nc($(getReq()))->getLocationOffset(x, y);
+	return $$nc(getReq())->getLocationOffset(x, y);
 }
 
 int32_t InputMethodContext::getInsertPositionOffset() {
-	return $nc($(getReq()))->getInsertPositionOffset();
+	return $$nc(getReq())->getInsertPositionOffset();
 }
 
 $AttributedCharacterIterator* InputMethodContext::getCommittedText(int32_t beginIndex, int32_t endIndex, $AttributedCharacterIterator$AttributeArray* attributes) {
-	return $nc($(getReq()))->getCommittedText(beginIndex, endIndex, attributes);
+	return $$nc(getReq())->getCommittedText(beginIndex, endIndex, attributes);
 }
 
 int32_t InputMethodContext::getCommittedTextLength() {
-	return $nc($(getReq()))->getCommittedTextLength();
+	return $$nc(getReq())->getCommittedTextLength();
 }
 
 $AttributedCharacterIterator* InputMethodContext::cancelLatestCommittedText($AttributedCharacterIterator$AttributeArray* attributes) {
-	return $nc($(getReq()))->cancelLatestCommittedText(attributes);
+	return $$nc(getReq())->cancelLatestCommittedText(attributes);
 }
 
 $AttributedCharacterIterator* InputMethodContext::getSelectedText($AttributedCharacterIterator$AttributeArray* attributes) {
-	return $nc($(getReq()))->getSelectedText(attributes);
+	return $$nc(getReq())->getSelectedText(attributes);
 }
 
 $InputMethodRequests* InputMethodContext::getReq() {
 	bool var$0 = haveActiveClient();
 	if (var$0 && !useBelowTheSpotInput()) {
-		return $nc($(getClientComponent()))->getInputMethodRequests();
+		return $$nc(getClientComponent())->getInputMethodRequests();
 	} else {
 		return getCompositionAreaHandler(false);
 	}
 }
 
 $Window* InputMethodContext::createInputMethodWindow($String* title, bool attachToInputContext) {
-	$var($InputContext, context, attachToInputContext ? static_cast<$InputContext*>(this) : ($InputContext*)nullptr);
+	$var($InputContext, context, attachToInputContext ? $cast($InputContext, this) : ($InputContext*)nullptr);
 	return createInputMethodWindow(title, context, false);
 }
 
 $JFrame* InputMethodContext::createInputMethodJFrame($String* title, bool attachToInputContext) {
-	$var($InputContext, context, attachToInputContext ? static_cast<$InputContext*>(this) : ($InputContext*)nullptr);
+	$var($InputContext, context, attachToInputContext ? $cast($InputContext, this) : ($InputContext*)nullptr);
 	return $cast($JFrame, createInputMethodWindow(title, context, true));
 }
 
@@ -331,7 +270,7 @@ $Window* InputMethodContext::createInputMethodWindow($String* title, $InputConte
 	} else {
 		$var($Toolkit, toolkit, $Toolkit::getDefaultToolkit());
 		if ($instanceOf($InputMethodSupport, toolkit)) {
-			return $nc(($cast($InputMethodSupport, toolkit)))->createInputMethodWindow(title, context);
+			return $cast($InputMethodSupport, toolkit)->createInputMethodWindow(title, context);
 		}
 	}
 	$throwNew($InternalError, "Input methods must be supported"_s);
@@ -343,15 +282,15 @@ void InputMethodContext::enableClientWindowNotification($InputMethod* inputMetho
 
 void InputMethodContext::setCompositionAreaUndecorated(bool undecorated) {
 	if (this->compositionAreaHandler != nullptr) {
-		$nc(this->compositionAreaHandler)->setCompositionAreaUndecorated(undecorated);
+		this->compositionAreaHandler->setCompositionAreaUndecorated(undecorated);
 	}
 }
 
-void clinit$InputMethodContext($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void InputMethodContext::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	{
-		$var($String, inputStyle, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "java.awt.im.style"_s, nullptr)))));
+		$var($String, inputStyle, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "java.awt.im.style"_s, nullptr))));
 		if (inputStyle == nullptr) {
 			$assign(inputStyle, $Toolkit::getProperty("java.awt.im.style"_s, nullptr));
 		}
@@ -363,7 +302,58 @@ InputMethodContext::InputMethodContext() {
 }
 
 $Class* InputMethodContext::load$($String* name, bool initialize) {
-	$loadClass(InputMethodContext, name, initialize, &_InputMethodContext_ClassInfo_, clinit$InputMethodContext, allocate$InputMethodContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"dispatchingCommittedText", "Z", nullptr, $PRIVATE, $field(InputMethodContext, dispatchingCommittedText)},
+		{"compositionAreaHandler", "Lsun/awt/im/CompositionAreaHandler;", nullptr, $PRIVATE, $field(InputMethodContext, compositionAreaHandler)},
+		{"compositionAreaHandlerLock", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(InputMethodContext, compositionAreaHandlerLock)},
+		{"belowTheSpotInputRequested", "Z", nullptr, $PRIVATE | $STATIC, $staticField(InputMethodContext, belowTheSpotInputRequested)},
+		{"inputMethodSupportsBelowTheSpot", "Z", nullptr, $PRIVATE, $field(InputMethodContext, inputMethodSupportsBelowTheSpot)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(InputMethodContext, init$, void)},
+		{"cancelLatestCommittedText", "([Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, cancelLatestCommittedText, $AttributedCharacterIterator*, $AttributedCharacterIterator$AttributeArray*)},
+		{"createInputMethodJFrame", "(Ljava/lang/String;Z)Ljavax/swing/JFrame;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, createInputMethodJFrame, $JFrame*, $String*, bool)},
+		{"createInputMethodWindow", "(Ljava/lang/String;Z)Ljava/awt/Window;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, createInputMethodWindow, $Window*, $String*, bool)},
+		{"createInputMethodWindow", "(Ljava/lang/String;Lsun/awt/im/InputContext;Z)Ljava/awt/Window;", nullptr, $STATIC, $staticMethod(InputMethodContext, createInputMethodWindow, $Window*, $String*, $InputContext*, bool)},
+		{"dispatchCommittedText", "(Ljava/awt/Component;Ljava/text/AttributedCharacterIterator;I)V", nullptr, $SYNCHRONIZED, $virtualMethod(InputMethodContext, dispatchCommittedText, void, $Component*, $AttributedCharacterIterator*, int32_t)},
+		{"dispatchEvent", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, dispatchEvent, void, $AWTEvent*)},
+		{"dispatchInputMethodEvent", "(ILjava/text/AttributedCharacterIterator;ILjava/awt/font/TextHitInfo;Ljava/awt/font/TextHitInfo;)V", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, dispatchInputMethodEvent, void, int32_t, $AttributedCharacterIterator*, int32_t, $TextHitInfo*, $TextHitInfo*)},
+		{"enableClientWindowNotification", "(Ljava/awt/im/spi/InputMethod;Z)V", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, enableClientWindowNotification, void, $InputMethod*, bool)},
+		{"getCommittedText", "(II[Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getCommittedText, $AttributedCharacterIterator*, int32_t, int32_t, $AttributedCharacterIterator$AttributeArray*)},
+		{"getCommittedTextLength", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getCommittedTextLength, int32_t)},
+		{"getCompositionAreaHandler", "(Z)Lsun/awt/im/CompositionAreaHandler;", nullptr, $PRIVATE, $method(InputMethodContext, getCompositionAreaHandler, $CompositionAreaHandler*, bool)},
+		{"getInsertPositionOffset", "()I", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getInsertPositionOffset, int32_t)},
+		{"getLocationOffset", "(II)Ljava/awt/font/TextHitInfo;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getLocationOffset, $TextHitInfo*, int32_t, int32_t)},
+		{"getReq", "()Ljava/awt/im/InputMethodRequests;", nullptr, $PRIVATE, $method(InputMethodContext, getReq, $InputMethodRequests*)},
+		{"getSelectedText", "([Ljava/text/AttributedCharacterIterator$Attribute;)Ljava/text/AttributedCharacterIterator;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getSelectedText, $AttributedCharacterIterator*, $AttributedCharacterIterator$AttributeArray*)},
+		{"getTextLocation", "(Ljava/awt/font/TextHitInfo;)Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(InputMethodContext, getTextLocation, $Rectangle*, $TextHitInfo*)},
+		{"grabCompositionArea", "(Z)V", nullptr, 0, $virtualMethod(InputMethodContext, grabCompositionArea, void, bool)},
+		{"haveActiveClient", "()Z", nullptr, $PRIVATE, $method(InputMethodContext, haveActiveClient, bool)},
+		{"isCompositionAreaVisible", "()Z", nullptr, 0, $virtualMethod(InputMethodContext, isCompositionAreaVisible, bool)},
+		{"releaseCompositionArea", "()V", nullptr, 0, $virtualMethod(InputMethodContext, releaseCompositionArea, void)},
+		{"setCompositionAreaUndecorated", "(Z)V", nullptr, 0, $virtualMethod(InputMethodContext, setCompositionAreaUndecorated, void, bool)},
+		{"setCompositionAreaVisible", "(Z)V", nullptr, 0, $virtualMethod(InputMethodContext, setCompositionAreaVisible, void, bool)},
+		{"setInputMethodSupportsBelowTheSpot", "(Z)V", nullptr, 0, $virtualMethod(InputMethodContext, setInputMethodSupportsBelowTheSpot, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"useBelowTheSpotInput", "()Z", nullptr, 0, $virtualMethod(InputMethodContext, useBelowTheSpotInput, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.im.InputMethodContext",
+		"sun.awt.im.InputContext",
+		"java.awt.im.spi.InputMethodContext",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(InputMethodContext, name, initialize, &classInfo$$, InputMethodContext::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InputMethodContext));
+	});
 	return class$;
 }
 

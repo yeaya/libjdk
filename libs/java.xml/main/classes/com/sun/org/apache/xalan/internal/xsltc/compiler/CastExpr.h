@@ -58,6 +58,7 @@ class CastExpr : public ::com::sun::org::apache::xalan::internal::xsltc::compile
 	$class(CastExpr, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression)
 public:
 	CastExpr();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression* left, ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::Type* type);
 	::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression* getExpr();
 	virtual bool hasLastCall() override;

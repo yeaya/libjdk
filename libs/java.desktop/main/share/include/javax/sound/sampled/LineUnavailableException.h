@@ -15,10 +15,13 @@ public:
 	LineUnavailableException();
 	void init$();
 	void init$($String* message);
-	static const int64_t serialVersionUID = (int64_t)0xE39898919BDA5A3E;
+	static const int64_t serialVersionUID = (int64_t)0xe39898919bda5a3e;
 	LineUnavailableException(const LineUnavailableException& e);
 	virtual void throw$() override;
-	inline LineUnavailableException* operator ->() {
+	inline LineUnavailableException* operator ->() const {
+		return (LineUnavailableException*)throwing$;
+	}
+	inline operator LineUnavailableException*() const {
 		return (LineUnavailableException*)throwing$;
 	}
 };

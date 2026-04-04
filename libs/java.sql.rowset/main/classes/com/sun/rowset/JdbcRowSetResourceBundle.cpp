@@ -1,5 +1,4 @@
 #include <com/sun/rowset/JdbcRowSetResourceBundle.h>
-
 #include <java/lang/Module.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Locale.h>
@@ -25,40 +24,6 @@ namespace com {
 	namespace sun {
 		namespace rowset {
 
-$FieldInfo _JdbcRowSetResourceBundle_FieldInfo_[] = {
-	{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JdbcRowSetResourceBundle, fileName)},
-	{"propResBundle", "Ljava/util/PropertyResourceBundle;", nullptr, $PRIVATE | $TRANSIENT, $field(JdbcRowSetResourceBundle, propResBundle)},
-	{"jpResBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JdbcRowSetResourceBundle, jpResBundle)},
-	{"PROPERTIES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, PROPERTIES)},
-	{"UNDERSCORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, UNDERSCORE)},
-	{"DOT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, DOT)},
-	{"SLASH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, SLASH)},
-	{"PATH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, PATH)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(JdbcRowSetResourceBundle, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _JdbcRowSetResourceBundle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(JdbcRowSetResourceBundle, init$, void), "java.io.IOException"},
-	{"getJdbcRowSetResourceBundle", "()Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdbcRowSetResourceBundle, getJdbcRowSetResourceBundle, JdbcRowSetResourceBundle*), "java.io.IOException"},
-	{"getKeys", "()Ljava/util/Enumeration;", nullptr, $PUBLIC, $virtualMethod(JdbcRowSetResourceBundle, getKeys, $Enumeration*)},
-	{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JdbcRowSetResourceBundle, handleGetObject, $Object*, $String*)},
-	{}
-};
-
-$ClassInfo _JdbcRowSetResourceBundle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.rowset.JdbcRowSetResourceBundle",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_JdbcRowSetResourceBundle_FieldInfo_,
-	_JdbcRowSetResourceBundle_MethodInfo_
-};
-
-$Object* allocate$JdbcRowSetResourceBundle($Class* clazz) {
-	return $of($alloc(JdbcRowSetResourceBundle));
-}
-
 $String* JdbcRowSetResourceBundle::fileName = nullptr;
 $volatile(JdbcRowSetResourceBundle*) JdbcRowSetResourceBundle::jpResBundle = nullptr;
 $String* JdbcRowSetResourceBundle::PROPERTIES = nullptr;
@@ -68,7 +33,7 @@ $String* JdbcRowSetResourceBundle::SLASH = nullptr;
 $String* JdbcRowSetResourceBundle::PATH = nullptr;
 
 void JdbcRowSetResourceBundle::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($Locale, locale, $Locale::getDefault());
 	$set(this, propResBundle, $cast($PropertyResourceBundle, $ResourceBundle::getBundle(JdbcRowSetResourceBundle::PATH, locale, $(JdbcRowSetResourceBundle::class$->getModule()))));
@@ -91,13 +56,13 @@ $Enumeration* JdbcRowSetResourceBundle::getKeys() {
 }
 
 $Object* JdbcRowSetResourceBundle::handleGetObject($String* key) {
-	return $of($nc(this->propResBundle)->handleGetObject(key));
+	return $nc(this->propResBundle)->handleGetObject(key);
 }
 
 JdbcRowSetResourceBundle::JdbcRowSetResourceBundle() {
 }
 
-void clinit$JdbcRowSetResourceBundle($Class* class$) {
+void JdbcRowSetResourceBundle::clinit$($Class* clazz) {
 	$assignStatic(JdbcRowSetResourceBundle::PROPERTIES, "properties"_s);
 	$assignStatic(JdbcRowSetResourceBundle::UNDERSCORE, "_"_s);
 	$assignStatic(JdbcRowSetResourceBundle::DOT, "."_s);
@@ -106,7 +71,36 @@ void clinit$JdbcRowSetResourceBundle($Class* class$) {
 }
 
 $Class* JdbcRowSetResourceBundle::load$($String* name, bool initialize) {
-	$loadClass(JdbcRowSetResourceBundle, name, initialize, &_JdbcRowSetResourceBundle_ClassInfo_, clinit$JdbcRowSetResourceBundle, allocate$JdbcRowSetResourceBundle);
+	$FieldInfo fieldInfos$$[] = {
+		{"fileName", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(JdbcRowSetResourceBundle, fileName)},
+		{"propResBundle", "Ljava/util/PropertyResourceBundle;", nullptr, $PRIVATE | $TRANSIENT, $field(JdbcRowSetResourceBundle, propResBundle)},
+		{"jpResBundle", "Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(JdbcRowSetResourceBundle, jpResBundle)},
+		{"PROPERTIES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, PROPERTIES)},
+		{"UNDERSCORE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, UNDERSCORE)},
+		{"DOT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, DOT)},
+		{"SLASH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, SLASH)},
+		{"PATH", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JdbcRowSetResourceBundle, PATH)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(JdbcRowSetResourceBundle, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(JdbcRowSetResourceBundle, init$, void), "java.io.IOException"},
+		{"getJdbcRowSetResourceBundle", "()Lcom/sun/rowset/JdbcRowSetResourceBundle;", nullptr, $PUBLIC | $STATIC, $staticMethod(JdbcRowSetResourceBundle, getJdbcRowSetResourceBundle, JdbcRowSetResourceBundle*), "java.io.IOException"},
+		{"getKeys", "()Ljava/util/Enumeration;", nullptr, $PUBLIC, $virtualMethod(JdbcRowSetResourceBundle, getKeys, $Enumeration*)},
+		{"handleGetObject", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JdbcRowSetResourceBundle, handleGetObject, $Object*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.rowset.JdbcRowSetResourceBundle",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JdbcRowSetResourceBundle, name, initialize, &classInfo$$, JdbcRowSetResourceBundle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JdbcRowSetResourceBundle);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI.h>
-
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$1.h>
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$10.h>
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$2.h>
@@ -18,11 +17,9 @@
 #include <com/sun/java/swing/plaf/motif/MotifFileChooserUI$MotifFileListModel.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -31,7 +28,6 @@
 #include <javax/swing/Action.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
-#include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JComponent.h>
@@ -45,7 +41,6 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/ListCellRenderer.h>
-#include <javax/swing/ListModel.h>
 #include <javax/swing/ListSelectionModel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/ListSelectionListener.h>
@@ -93,13 +88,8 @@ using $MotifFileChooserUI$FilterComboBoxRenderer = ::com::sun::java::swing::plaf
 using $MotifFileChooserUI$MotifDirectoryListModel = ::com::sun::java::swing::plaf::motif::MotifFileChooserUI$MotifDirectoryListModel;
 using $MotifFileChooserUI$MotifFileListModel = ::com::sun::java::swing::plaf::motif::MotifFileChooserUI$MotifFileListModel;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
@@ -112,7 +102,6 @@ using $Short = ::java::lang::Short;
 using $Locale = ::java::util::Locale;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
-using $ComboBoxModel = ::javax::swing::ComboBoxModel;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
@@ -120,17 +109,12 @@ using $JFileChooser = ::javax::swing::JFileChooser;
 using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
 using $JPanel = ::javax::swing::JPanel;
-using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JSeparator = ::javax::swing::JSeparator;
 using $JTextField = ::javax::swing::JTextField;
-using $JViewport = ::javax::swing::JViewport;
-using $ListCellRenderer = ::javax::swing::ListCellRenderer;
-using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
@@ -140,117 +124,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace motif {
-
-$FieldInfo _MotifFileChooserUI_FieldInfo_[] = {
-	{"filterComboBoxModel", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(MotifFileChooserUI, filterComboBoxModel)},
-	{"directoryList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/io/File;>;", $PROTECTED, $field(MotifFileChooserUI, directoryList)},
-	{"fileList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/io/File;>;", $PROTECTED, $field(MotifFileChooserUI, fileList)},
-	{"pathField", "Ljavax/swing/JTextField;", nullptr, $PROTECTED, $field(MotifFileChooserUI, pathField)},
-	{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", $PROTECTED, $field(MotifFileChooserUI, filterComboBox)},
-	{"filenameTextField", "Ljavax/swing/JTextField;", nullptr, $PROTECTED, $field(MotifFileChooserUI, filenameTextField)},
-	{"hstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifFileChooserUI, hstrut10)},
-	{"vstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifFileChooserUI, vstrut10)},
-	{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifFileChooserUI, insets)},
-	{"prefListSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, prefListSize)},
-	{"WITH_ACCELERATOR_PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, WITH_ACCELERATOR_PREF_SIZE)},
-	{"PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, PREF_SIZE)},
-	{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MotifFileChooserUI, MIN_WIDTH)},
-	{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MotifFileChooserUI, MIN_HEIGHT)},
-	{"PREF_ACC_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, PREF_ACC_SIZE)},
-	{"ZERO_ACC_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, ZERO_ACC_SIZE)},
-	{"MAX_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, MAX_SIZE)},
-	{"buttonMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifFileChooserUI, buttonMargin)},
-	{"bottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(MotifFileChooserUI, bottomPanel)},
-	{"approveButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(MotifFileChooserUI, approveButton)},
-	{"enterFolderNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, enterFolderNameLabelText)},
-	{"enterFolderNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, enterFolderNameLabelMnemonic)},
-	{"enterFileNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, enterFileNameLabelText)},
-	{"enterFileNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, enterFileNameLabelMnemonic)},
-	{"filesLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, filesLabelText)},
-	{"filesLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, filesLabelMnemonic)},
-	{"foldersLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, foldersLabelText)},
-	{"foldersLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, foldersLabelMnemonic)},
-	{"pathLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, pathLabelText)},
-	{"pathLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, pathLabelMnemonic)},
-	{"filterLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, filterLabelText)},
-	{"filterLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, filterLabelMnemonic)},
-	{"fileNameLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(MotifFileChooserUI, fileNameLabel)},
-	{}
-};
-
-$MethodInfo _MotifFileChooserUI_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(MotifFileChooserUI, init$, void, $JFileChooser*)},
-	{"align", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, align, void, $JComponent*)},
-	{"createDirectoryList", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, createDirectoryList, $JScrollPane*)},
-	{"createFilesList", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, createFilesList, $JScrollPane*)},
-	{"createFilterComboBoxModel", "()Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, createFilterComboBoxModel, $MotifFileChooserUI$FilterComboBoxModel*)},
-	{"createFilterComboBoxRenderer", "()Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, createFilterComboBoxRenderer, $MotifFileChooserUI$FilterComboBoxRenderer*)},
-	{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
-	{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MotifFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
-	{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
-	{"fileNameString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MotifFileChooserUI, fileNameString, $String*, $File*)},
-	{"fileNameString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MotifFileChooserUI, fileNameString, $String*, $FileArray*)},
-	{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
-	{"getBottomPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, getBottomPanel, $JPanel*)},
-	{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getDirectoryName, $String*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getFileName, $String*)},
-	{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
-	{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
-	{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(MotifFileChooserUI, getMnemonic, $Integer*, $String*, $Locale*)},
-	{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
-	{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, installComponents, void, $JFileChooser*)},
-	{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, installIcons, void, $JFileChooser*)},
-	{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, installStrings, void, $JFileChooser*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, installUI, void, $JComponent*)},
-	{"populateFileNameLabel", "()V", nullptr, $PRIVATE, $method(MotifFileChooserUI, populateFileNameLabel, void)},
-	{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
-	{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, setDirectoryName, void, $String*)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, setFileName, void, $String*)},
-	{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, uninstallComponents, void, $JFileChooser*)},
-	{"uninstallIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, uninstallIcons, void, $JFileChooser*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _MotifFileChooserUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FilterComboBoxModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifFileListModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "MotifFileListModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifDirectoryListModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "MotifDirectoryListModel", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$DirectoryCellRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "DirectoryCellRenderer", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FileCellRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FileCellRenderer", $PROTECTED},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$10", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$9", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$8", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$7", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$6", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$5", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$4", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$3", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MotifFileChooserUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI",
-	"javax.swing.plaf.basic.BasicFileChooserUI",
-	nullptr,
-	_MotifFileChooserUI_FieldInfo_,
-	_MotifFileChooserUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MotifFileChooserUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxModel,com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxRenderer,com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifFileListModel,com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifDirectoryListModel,com.sun.java.swing.plaf.motif.MotifFileChooserUI$DirectoryCellRenderer,com.sun.java.swing.plaf.motif.MotifFileChooserUI$FileCellRenderer,com.sun.java.swing.plaf.motif.MotifFileChooserUI$10,com.sun.java.swing.plaf.motif.MotifFileChooserUI$9,com.sun.java.swing.plaf.motif.MotifFileChooserUI$8,com.sun.java.swing.plaf.motif.MotifFileChooserUI$7,com.sun.java.swing.plaf.motif.MotifFileChooserUI$6,com.sun.java.swing.plaf.motif.MotifFileChooserUI$5,com.sun.java.swing.plaf.motif.MotifFileChooserUI$4,com.sun.java.swing.plaf.motif.MotifFileChooserUI$3,com.sun.java.swing.plaf.motif.MotifFileChooserUI$2,com.sun.java.swing.plaf.motif.MotifFileChooserUI$1"
-};
-
-$Object* allocate$MotifFileChooserUI($Class* clazz) {
-	return $of($alloc(MotifFileChooserUI));
-}
 
 $Dimension* MotifFileChooserUI::hstrut10 = nullptr;
 $Dimension* MotifFileChooserUI::vstrut10 = nullptr;
@@ -264,7 +137,7 @@ $Dimension* MotifFileChooserUI::MAX_SIZE = nullptr;
 $Insets* MotifFileChooserUI::buttonMargin = nullptr;
 
 void MotifFileChooserUI::populateFileNameLabel() {
-	if ($nc($(getFileChooser()))->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY) {
+	if ($$nc(getFileChooser())->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY) {
 		$nc(this->fileNameLabel)->setText(this->enterFolderNameLabelText);
 		$nc(this->fileNameLabel)->setDisplayedMnemonic(this->enterFolderNameLabelMnemonic);
 	} else {
@@ -280,15 +153,15 @@ $String* MotifFileChooserUI::fileNameString($File* file) {
 		$var($JFileChooser, fc, getFileChooser());
 		bool var$0 = $nc(fc)->isDirectorySelectionEnabled();
 		if (var$0 && !fc->isFileSelectionEnabled()) {
-			return $nc(file)->getPath();
+			return file->getPath();
 		} else {
-			return $nc(file)->getName();
+			return file->getName();
 		}
 	}
 }
 
 $String* MotifFileChooserUI::fileNameString($FileArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; files != nullptr && i < files->length; ++i) {
 		if (i > 0) {
@@ -328,7 +201,7 @@ void MotifFileChooserUI::init$($JFileChooser* filechooser) {
 
 $String* MotifFileChooserUI::getFileName() {
 	if (this->filenameTextField != nullptr) {
-		return $nc(this->filenameTextField)->getText();
+		return this->filenameTextField->getText();
 	} else {
 		return nullptr;
 	}
@@ -336,7 +209,7 @@ $String* MotifFileChooserUI::getFileName() {
 
 void MotifFileChooserUI::setFileName($String* filename) {
 	if (this->filenameTextField != nullptr) {
-		$nc(this->filenameTextField)->setText(filename);
+		this->filenameTextField->setText(filename);
 	}
 }
 
@@ -352,7 +225,7 @@ void MotifFileChooserUI::ensureFileIsVisible($JFileChooser* fc, $File* f) {
 }
 
 void MotifFileChooserUI::rescanCurrentDirectory($JFileChooser* fc) {
-	$nc($(getModel()))->validateFileCache();
+	$$nc(getModel())->validateFileCache();
 }
 
 $PropertyChangeListener* MotifFileChooserUI::createPropertyChangeListener($JFileChooser* fc) {
@@ -369,7 +242,7 @@ void MotifFileChooserUI::installUI($JComponent* c) {
 }
 
 void MotifFileChooserUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(c)->removePropertyChangeListener(this->filterComboBoxModel);
 	$nc(this->approveButton)->removeActionListener($(getApproveSelectionAction()));
 	$nc(this->filenameTextField)->removeActionListener($(getApproveSelectionAction()));
@@ -377,7 +250,7 @@ void MotifFileChooserUI::uninstallUI($JComponent* c) {
 }
 
 void MotifFileChooserUI::installComponents($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(fc)->setLayout($$new($BorderLayout, 10, 10));
 	$init($JComponent);
 	fc->setAlignmentX($JComponent::CENTER_ALIGNMENT);
@@ -385,12 +258,11 @@ void MotifFileChooserUI::installComponents($JFileChooser* fc) {
 	interior->setInheritsPopupMenu(true);
 	align(interior);
 	interior->setLayout($$new($BoxLayout, interior, $BoxLayout::PAGE_AXIS));
-	$init($BorderLayout);
-	fc->add(static_cast<$Component*>(interior), $of($BorderLayout::CENTER));
+	fc->add(interior, $BorderLayout::CENTER);
 	$var($JLabel, l, $new($JLabel, this->pathLabelText));
 	l->setDisplayedMnemonic(this->pathLabelMnemonic);
 	align(l);
-	interior->add(static_cast<$Component*>(l));
+	interior->add(l);
 	$var($File, currentDirectory, fc->getCurrentDirectory());
 	$var($String, curDirName, nullptr);
 	if (currentDirectory != nullptr) {
@@ -398,11 +270,11 @@ void MotifFileChooserUI::installComponents($JFileChooser* fc) {
 	}
 	$var($JTextField, tmp1, $new($MotifFileChooserUI$3, this, curDirName, 35));
 	$set(this, pathField, tmp1);
-	$nc(this->pathField)->setInheritsPopupMenu(true);
+	this->pathField->setInheritsPopupMenu(true);
 	l->setLabelFor(this->pathField);
 	align(this->pathField);
 	$nc(this->pathField)->addActionListener($(getUpdateAction()));
-	interior->add(static_cast<$Component*>(this->pathField));
+	interior->add(this->pathField);
 	interior->add($($Box::createRigidArea(MotifFileChooserUI::vstrut10)));
 	$var($JPanel, centerPanel, $new($JPanel));
 	centerPanel->setLayout($$new($BoxLayout, centerPanel, $BoxLayout::LINE_AXIS));
@@ -413,27 +285,27 @@ void MotifFileChooserUI::installComponents($JFileChooser* fc) {
 	$assign(l, $new($JLabel, this->filterLabelText));
 	l->setDisplayedMnemonic(this->filterLabelMnemonic);
 	align(l);
-	leftPanel->add(static_cast<$Component*>(l));
+	leftPanel->add(l);
 	$var($JComboBox, tmp2, $new($MotifFileChooserUI$4, this));
 	$set(this, filterComboBox, tmp2);
-	$nc(this->filterComboBox)->setInheritsPopupMenu(true);
+	this->filterComboBox->setInheritsPopupMenu(true);
 	l->setLabelFor(this->filterComboBox);
 	$set(this, filterComboBoxModel, createFilterComboBoxModel());
 	$nc(this->filterComboBox)->setModel(this->filterComboBoxModel);
 	$nc(this->filterComboBox)->setRenderer($(createFilterComboBoxRenderer()));
 	fc->addPropertyChangeListener(this->filterComboBoxModel);
 	align(this->filterComboBox);
-	leftPanel->add(static_cast<$Component*>(this->filterComboBox));
+	leftPanel->add(this->filterComboBox);
 	$assign(l, $new($JLabel, this->foldersLabelText));
 	l->setDisplayedMnemonic(this->foldersLabelMnemonic);
 	align(l);
-	leftPanel->add(static_cast<$Component*>(l));
+	leftPanel->add(l);
 	$var($JScrollPane, sp, createDirectoryList());
-	$nc($($nc(sp)->getVerticalScrollBar()))->setFocusable(false);
-	$nc($(sp->getHorizontalScrollBar()))->setFocusable(false);
+	$$nc($nc(sp)->getVerticalScrollBar())->setFocusable(false);
+	$$nc(sp->getHorizontalScrollBar())->setFocusable(false);
 	sp->setInheritsPopupMenu(true);
-	l->setLabelFor($($nc($(sp->getViewport()))->getView()));
-	leftPanel->add(static_cast<$Component*>(sp));
+	l->setLabelFor($($$nc(sp->getViewport())->getView()));
+	leftPanel->add(sp);
 	leftPanel->setInheritsPopupMenu(true);
 	$var($JPanel, rightPanel, $new($JPanel));
 	align(rightPanel);
@@ -442,14 +314,14 @@ void MotifFileChooserUI::installComponents($JFileChooser* fc) {
 	$assign(l, $new($JLabel, this->filesLabelText));
 	l->setDisplayedMnemonic(this->filesLabelMnemonic);
 	align(l);
-	rightPanel->add(static_cast<$Component*>(l));
+	rightPanel->add(l);
 	$assign(sp, createFilesList());
-	l->setLabelFor($($nc($(sp->getViewport()))->getView()));
-	rightPanel->add(static_cast<$Component*>(sp));
+	l->setLabelFor($($$nc($nc(sp)->getViewport())->getView()));
+	rightPanel->add(sp);
 	sp->setInheritsPopupMenu(true);
-	centerPanel->add(static_cast<$Component*>(leftPanel));
+	centerPanel->add(leftPanel);
 	centerPanel->add($($Box::createRigidArea(MotifFileChooserUI::hstrut10)));
-	centerPanel->add(static_cast<$Component*>(rightPanel));
+	centerPanel->add(rightPanel);
 	centerPanel->setInheritsPopupMenu(true);
 	$var($JComponent, accessoryPanel, getAccessoryPanel());
 	$var($JComponent, accessory, fc->getAccessory());
@@ -458,43 +330,43 @@ void MotifFileChooserUI::installComponents($JFileChooser* fc) {
 			accessoryPanel->setPreferredSize(MotifFileChooserUI::ZERO_ACC_SIZE);
 			accessoryPanel->setMaximumSize(MotifFileChooserUI::ZERO_ACC_SIZE);
 		} else {
-			$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory), $of($BorderLayout::CENTER));
+			$$nc(getAccessoryPanel())->add(accessory, $BorderLayout::CENTER);
 			accessoryPanel->setPreferredSize(MotifFileChooserUI::PREF_ACC_SIZE);
 			accessoryPanel->setMaximumSize(MotifFileChooserUI::MAX_SIZE);
 		}
 		align(accessoryPanel);
-		centerPanel->add(static_cast<$Component*>(accessoryPanel));
+		centerPanel->add(accessoryPanel);
 		accessoryPanel->setInheritsPopupMenu(true);
 	}
-	interior->add(static_cast<$Component*>(centerPanel));
+	interior->add(centerPanel);
 	interior->add($($Box::createRigidArea(MotifFileChooserUI::vstrut10)));
 	$set(this, fileNameLabel, $new($JLabel));
 	populateFileNameLabel();
 	align(this->fileNameLabel);
-	interior->add(static_cast<$Component*>(this->fileNameLabel));
+	interior->add(this->fileNameLabel);
 	$var($JTextField, tmp3, $new($MotifFileChooserUI$5, this, 35));
 	$set(this, filenameTextField, tmp3);
-	$nc(this->filenameTextField)->setInheritsPopupMenu(true);
+	this->filenameTextField->setInheritsPopupMenu(true);
 	$nc(this->fileNameLabel)->setLabelFor(this->filenameTextField);
 	$nc(this->filenameTextField)->addActionListener($(getApproveSelectionAction()));
 	align(this->filenameTextField);
 	$nc(this->filenameTextField)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
-	interior->add(static_cast<$Component*>(this->filenameTextField));
+	interior->add(this->filenameTextField);
 	$set(this, bottomPanel, getBottomPanel());
-	$nc(this->bottomPanel)->add(static_cast<$Component*>($$new($JSeparator)), $of($BorderLayout::NORTH));
+	$nc(this->bottomPanel)->add($$new($JSeparator), $BorderLayout::NORTH);
 	$var($JPanel, buttonPanel, $new($JPanel));
 	align(buttonPanel);
 	buttonPanel->setLayout($$new($BoxLayout, buttonPanel, $BoxLayout::LINE_AXIS));
 	buttonPanel->add($($Box::createGlue()));
 	$var($JButton, tmp4, $new($MotifFileChooserUI$6, this, $(getApproveButtonText(fc))));
 	$set(this, approveButton, tmp4);
-	$nc(this->approveButton)->setMnemonic(getApproveButtonMnemonic(fc));
+	this->approveButton->setMnemonic(getApproveButtonMnemonic(fc));
 	$nc(this->approveButton)->setToolTipText($(getApproveButtonToolTipText(fc)));
 	$nc(this->approveButton)->setInheritsPopupMenu(true);
 	align(this->approveButton);
 	$nc(this->approveButton)->setMargin(MotifFileChooserUI::buttonMargin);
 	$nc(this->approveButton)->addActionListener($(getApproveSelectionAction()));
-	buttonPanel->add(static_cast<$Component*>(this->approveButton));
+	buttonPanel->add(this->approveButton);
 	buttonPanel->add($($Box::createGlue()));
 	$var($JButton, updateButton, $new($MotifFileChooserUI$7, this, this->updateButtonText));
 	updateButton->setMnemonic(this->updateButtonMnemonic);
@@ -503,7 +375,7 @@ void MotifFileChooserUI::installComponents($JFileChooser* fc) {
 	align(updateButton);
 	updateButton->setMargin(MotifFileChooserUI::buttonMargin);
 	updateButton->addActionListener($(getUpdateAction()));
-	buttonPanel->add(static_cast<$Component*>(updateButton));
+	buttonPanel->add(updateButton);
 	buttonPanel->add($($Box::createGlue()));
 	$var($JButton, cancelButton, $new($MotifFileChooserUI$8, this, this->cancelButtonText));
 	cancelButton->setMnemonic(this->cancelButtonMnemonic);
@@ -512,7 +384,7 @@ void MotifFileChooserUI::installComponents($JFileChooser* fc) {
 	align(cancelButton);
 	cancelButton->setMargin(MotifFileChooserUI::buttonMargin);
 	cancelButton->addActionListener($(getCancelSelectionAction()));
-	buttonPanel->add(static_cast<$Component*>(cancelButton));
+	buttonPanel->add(cancelButton);
 	buttonPanel->add($($Box::createGlue()));
 	$var($JButton, helpButton, $new($MotifFileChooserUI$9, this, this->helpButtonText));
 	helpButton->setMnemonic(this->helpButtonMnemonic);
@@ -521,30 +393,30 @@ void MotifFileChooserUI::installComponents($JFileChooser* fc) {
 	helpButton->setMargin(MotifFileChooserUI::buttonMargin);
 	helpButton->setEnabled(false);
 	helpButton->setInheritsPopupMenu(true);
-	buttonPanel->add(static_cast<$Component*>(helpButton));
+	buttonPanel->add(helpButton);
 	buttonPanel->add($($Box::createGlue()));
 	buttonPanel->setInheritsPopupMenu(true);
-	$nc(this->bottomPanel)->add(static_cast<$Component*>(buttonPanel), $of($BorderLayout::SOUTH));
+	$nc(this->bottomPanel)->add(buttonPanel, $BorderLayout::SOUTH);
 	$nc(this->bottomPanel)->setInheritsPopupMenu(true);
 	if (fc->getControlButtonsAreShown()) {
-		fc->add(static_cast<$Component*>(this->bottomPanel), $of($BorderLayout::SOUTH));
+		fc->add(this->bottomPanel, $BorderLayout::SOUTH);
 	}
 }
 
 $JPanel* MotifFileChooserUI::getBottomPanel() {
 	if (this->bottomPanel == nullptr) {
-		$set(this, bottomPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout, 0, 4))));
+		$set(this, bottomPanel, $new($JPanel, $$new($BorderLayout, 0, 4)));
 	}
 	return this->bottomPanel;
 }
 
 void MotifFileChooserUI::doControlButtonsChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc($(getFileChooser()))->getControlButtonsAreShown()) {
+	$useLocalObjectStack();
+	if ($$nc(getFileChooser())->getControlButtonsAreShown()) {
 		$init($BorderLayout);
-		$nc($(getFileChooser()))->add(static_cast<$Component*>(this->bottomPanel), $of($BorderLayout::SOUTH));
+		$$nc(getFileChooser())->add(this->bottomPanel, $BorderLayout::SOUTH);
 	} else {
-		$nc($(getFileChooser()))->remove($(static_cast<$Component*>(getBottomPanel())));
+		$$nc(getFileChooser())->remove($(getBottomPanel()));
 	}
 }
 
@@ -557,25 +429,25 @@ void MotifFileChooserUI::uninstallComponents($JFileChooser* fc) {
 }
 
 void MotifFileChooserUI::installStrings($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicFileChooserUI::installStrings(fc);
 	$var($Locale, l, $nc(fc)->getLocale());
-	$set(this, enterFolderNameLabelText, $UIManager::getString($of("FileChooser.enterFolderNameLabelText"_s), l));
-	this->enterFolderNameLabelMnemonic = $nc($(getMnemonic("FileChooser.enterFolderNameLabelMnemonic"_s, l)))->intValue();
-	$set(this, enterFileNameLabelText, $UIManager::getString($of("FileChooser.enterFileNameLabelText"_s), l));
-	this->enterFileNameLabelMnemonic = $nc($(getMnemonic("FileChooser.enterFileNameLabelMnemonic"_s, l)))->intValue();
-	$set(this, filesLabelText, $UIManager::getString($of("FileChooser.filesLabelText"_s), l));
-	this->filesLabelMnemonic = $nc($(getMnemonic("FileChooser.filesLabelMnemonic"_s, l)))->intValue();
-	$set(this, foldersLabelText, $UIManager::getString($of("FileChooser.foldersLabelText"_s), l));
-	this->foldersLabelMnemonic = $nc($(getMnemonic("FileChooser.foldersLabelMnemonic"_s, l)))->intValue();
-	$set(this, pathLabelText, $UIManager::getString($of("FileChooser.pathLabelText"_s), l));
-	this->pathLabelMnemonic = $nc($(getMnemonic("FileChooser.pathLabelMnemonic"_s, l)))->intValue();
-	$set(this, filterLabelText, $UIManager::getString($of("FileChooser.filterLabelText"_s), l));
-	this->filterLabelMnemonic = $nc($(getMnemonic("FileChooser.filterLabelMnemonic"_s, l)))->intValue();
+	$set(this, enterFolderNameLabelText, $UIManager::getString("FileChooser.enterFolderNameLabelText"_s, l));
+	this->enterFolderNameLabelMnemonic = $$nc(getMnemonic("FileChooser.enterFolderNameLabelMnemonic"_s, l))->intValue();
+	$set(this, enterFileNameLabelText, $UIManager::getString("FileChooser.enterFileNameLabelText"_s, l));
+	this->enterFileNameLabelMnemonic = $$nc(getMnemonic("FileChooser.enterFileNameLabelMnemonic"_s, l))->intValue();
+	$set(this, filesLabelText, $UIManager::getString("FileChooser.filesLabelText"_s, l));
+	this->filesLabelMnemonic = $$nc(getMnemonic("FileChooser.filesLabelMnemonic"_s, l))->intValue();
+	$set(this, foldersLabelText, $UIManager::getString("FileChooser.foldersLabelText"_s, l));
+	this->foldersLabelMnemonic = $$nc(getMnemonic("FileChooser.foldersLabelMnemonic"_s, l))->intValue();
+	$set(this, pathLabelText, $UIManager::getString("FileChooser.pathLabelText"_s, l));
+	this->pathLabelMnemonic = $$nc(getMnemonic("FileChooser.pathLabelMnemonic"_s, l))->intValue();
+	$set(this, filterLabelText, $UIManager::getString("FileChooser.filterLabelText"_s, l));
+	this->filterLabelMnemonic = $$nc(getMnemonic("FileChooser.filterLabelMnemonic"_s, l))->intValue();
 }
 
 $Integer* MotifFileChooserUI::getMnemonic($String* key, $Locale* l) {
-	return $Integer::valueOf($SwingUtilities2::getUIDefaultsInt($of(key), l));
+	return $Integer::valueOf($SwingUtilities2::getUIDefaultsInt(key, l));
 }
 
 void MotifFileChooserUI::installIcons($JFileChooser* fc) {
@@ -585,15 +457,15 @@ void MotifFileChooserUI::uninstallIcons($JFileChooser* fc) {
 }
 
 $JScrollPane* MotifFileChooserUI::createFilesList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fileList, $new($JList));
-	if ($nc($(getFileChooser()))->isMultiSelectionEnabled()) {
+	if ($$nc(getFileChooser())->isMultiSelectionEnabled()) {
 		$nc(this->fileList)->setSelectionMode($ListSelectionModel::MULTIPLE_INTERVAL_SELECTION);
 	} else {
 		$nc(this->fileList)->setSelectionMode($ListSelectionModel::SINGLE_SELECTION);
 	}
 	$nc(this->fileList)->setModel($$new($MotifFileChooserUI$MotifFileListModel, this));
-	$nc($($nc(this->fileList)->getSelectionModel()))->removeSelectionInterval(0, 0);
+	$$nc($nc(this->fileList)->getSelectionModel())->removeSelectionInterval(0, 0);
 	$nc(this->fileList)->setCellRenderer($$new($MotifFileChooserUI$FileCellRenderer, this));
 	$nc(this->fileList)->addListSelectionListener($(createListSelectionListener($(getFileChooser()))));
 	$nc(this->fileList)->addMouseListener($(createDoubleClickListener($(getFileChooser()), this->fileList)));
@@ -609,12 +481,12 @@ $JScrollPane* MotifFileChooserUI::createFilesList() {
 }
 
 $JScrollPane* MotifFileChooserUI::createDirectoryList() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, directoryList, $new($JList));
 	align(this->directoryList);
 	$nc(this->directoryList)->setCellRenderer($$new($MotifFileChooserUI$DirectoryCellRenderer, this));
 	$nc(this->directoryList)->setModel($$new($MotifFileChooserUI$MotifDirectoryListModel, this));
-	$nc($($nc(this->directoryList)->getSelectionModel()))->removeSelectionInterval(0, 0);
+	$$nc($nc(this->directoryList)->getSelectionModel())->removeSelectionInterval(0, 0);
 	$nc(this->directoryList)->addMouseListener($(createDoubleClickListener($(getFileChooser()), this->directoryList)));
 	$nc(this->directoryList)->addListSelectionListener($(createListSelectionListener($(getFileChooser()))));
 	$nc(this->directoryList)->setInheritsPopupMenu(true);
@@ -627,11 +499,11 @@ $JScrollPane* MotifFileChooserUI::createDirectoryList() {
 }
 
 $Dimension* MotifFileChooserUI::getPreferredSize($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
-	$var($Dimension, prefSize, ($nc($(getFileChooser()))->getAccessory() != nullptr) ? MotifFileChooserUI::WITH_ACCELERATOR_PREF_SIZE : MotifFileChooserUI::PREF_SIZE);
-	$var($Dimension, d, $nc($($nc(c)->getLayout()))->preferredLayoutSize(c));
+	$useLocalObjectStack();
+	$var($Dimension, prefSize, ($$nc(getFileChooser())->getAccessory() != nullptr) ? MotifFileChooserUI::WITH_ACCELERATOR_PREF_SIZE : MotifFileChooserUI::PREF_SIZE);
+	$var($Dimension, d, $$nc($nc(c)->getLayout())->preferredLayoutSize(c));
 	if (d != nullptr) {
-		return $new($Dimension, d->width < $nc(prefSize)->width ? $nc(prefSize)->width : d->width, d->height < prefSize->height ? prefSize->height : d->height);
+		return $new($Dimension, d->width < $nc(prefSize)->width ? prefSize->width : d->width, d->height < prefSize->height ? prefSize->height : d->height);
 	} else {
 		return prefSize;
 	}
@@ -663,7 +535,7 @@ $JButton* MotifFileChooserUI::getApproveButton($JFileChooser* fc) {
 	return this->approveButton;
 }
 
-void clinit$MotifFileChooserUI($Class* class$) {
+void MotifFileChooserUI::clinit$($Class* clazz) {
 	$assignStatic(MotifFileChooserUI::hstrut10, $new($Dimension, 10, 1));
 	$assignStatic(MotifFileChooserUI::vstrut10, $new($Dimension, 1, 10));
 	$assignStatic(MotifFileChooserUI::insets, $new($Insets, 10, 10, 10, 10));
@@ -680,7 +552,112 @@ MotifFileChooserUI::MotifFileChooserUI() {
 }
 
 $Class* MotifFileChooserUI::load$($String* name, bool initialize) {
-	$loadClass(MotifFileChooserUI, name, initialize, &_MotifFileChooserUI_ClassInfo_, clinit$MotifFileChooserUI, allocate$MotifFileChooserUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"filterComboBoxModel", "Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI$FilterComboBoxModel;", nullptr, $PRIVATE, $field(MotifFileChooserUI, filterComboBoxModel)},
+		{"directoryList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/io/File;>;", $PROTECTED, $field(MotifFileChooserUI, directoryList)},
+		{"fileList", "Ljavax/swing/JList;", "Ljavax/swing/JList<Ljava/io/File;>;", $PROTECTED, $field(MotifFileChooserUI, fileList)},
+		{"pathField", "Ljavax/swing/JTextField;", nullptr, $PROTECTED, $field(MotifFileChooserUI, pathField)},
+		{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", $PROTECTED, $field(MotifFileChooserUI, filterComboBox)},
+		{"filenameTextField", "Ljavax/swing/JTextField;", nullptr, $PROTECTED, $field(MotifFileChooserUI, filenameTextField)},
+		{"hstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifFileChooserUI, hstrut10)},
+		{"vstrut10", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifFileChooserUI, vstrut10)},
+		{"insets", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifFileChooserUI, insets)},
+		{"prefListSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, prefListSize)},
+		{"WITH_ACCELERATOR_PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, WITH_ACCELERATOR_PREF_SIZE)},
+		{"PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, PREF_SIZE)},
+		{"MIN_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MotifFileChooserUI, MIN_WIDTH)},
+		{"MIN_HEIGHT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MotifFileChooserUI, MIN_HEIGHT)},
+		{"PREF_ACC_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, PREF_ACC_SIZE)},
+		{"ZERO_ACC_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, ZERO_ACC_SIZE)},
+		{"MAX_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(MotifFileChooserUI, MAX_SIZE)},
+		{"buttonMargin", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MotifFileChooserUI, buttonMargin)},
+		{"bottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(MotifFileChooserUI, bottomPanel)},
+		{"approveButton", "Ljavax/swing/JButton;", nullptr, $PROTECTED, $field(MotifFileChooserUI, approveButton)},
+		{"enterFolderNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, enterFolderNameLabelText)},
+		{"enterFolderNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, enterFolderNameLabelMnemonic)},
+		{"enterFileNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, enterFileNameLabelText)},
+		{"enterFileNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, enterFileNameLabelMnemonic)},
+		{"filesLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, filesLabelText)},
+		{"filesLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, filesLabelMnemonic)},
+		{"foldersLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, foldersLabelText)},
+		{"foldersLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, foldersLabelMnemonic)},
+		{"pathLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, pathLabelText)},
+		{"pathLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, pathLabelMnemonic)},
+		{"filterLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MotifFileChooserUI, filterLabelText)},
+		{"filterLabelMnemonic", "I", nullptr, $PRIVATE, $field(MotifFileChooserUI, filterLabelMnemonic)},
+		{"fileNameLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(MotifFileChooserUI, fileNameLabel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(MotifFileChooserUI, init$, void, $JFileChooser*)},
+		{"align", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, align, void, $JComponent*)},
+		{"createDirectoryList", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, createDirectoryList, $JScrollPane*)},
+		{"createFilesList", "()Ljavax/swing/JScrollPane;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, createFilesList, $JScrollPane*)},
+		{"createFilterComboBoxModel", "()Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, createFilterComboBoxModel, $MotifFileChooserUI$FilterComboBoxModel*)},
+		{"createFilterComboBoxRenderer", "()Lcom/sun/java/swing/plaf/motif/MotifFileChooserUI$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, createFilterComboBoxRenderer, $MotifFileChooserUI$FilterComboBoxRenderer*)},
+		{"createPropertyChangeListener", "(Ljavax/swing/JFileChooser;)Ljava/beans/PropertyChangeListener;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, createPropertyChangeListener, $PropertyChangeListener*, $JFileChooser*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MotifFileChooserUI, createUI, $ComponentUI*, $JComponent*)},
+		{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PRIVATE, $method(MotifFileChooserUI, doControlButtonsChanged, void, $PropertyChangeEvent*)},
+		{"ensureFileIsVisible", "(Ljavax/swing/JFileChooser;Ljava/io/File;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, ensureFileIsVisible, void, $JFileChooser*, $File*)},
+		{"fileNameString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MotifFileChooserUI, fileNameString, $String*, $File*)},
+		{"fileNameString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(MotifFileChooserUI, fileNameString, $String*, $FileArray*)},
+		{"getApproveButton", "(Ljavax/swing/JFileChooser;)Ljavax/swing/JButton;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, getApproveButton, $JButton*, $JFileChooser*)},
+		{"getBottomPanel", "()Ljavax/swing/JPanel;", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, getBottomPanel, $JPanel*)},
+		{"getDirectoryName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getDirectoryName, $String*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getFileName, $String*)},
+		{"getMaximumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getMaximumSize, $Dimension*, $JComponent*)},
+		{"getMinimumSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getMinimumSize, $Dimension*, $JComponent*)},
+		{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/Integer;", nullptr, $PRIVATE, $method(MotifFileChooserUI, getMnemonic, $Integer*, $String*, $Locale*)},
+		{"getPreferredSize", "(Ljavax/swing/JComponent;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, getPreferredSize, $Dimension*, $JComponent*)},
+		{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, installComponents, void, $JFileChooser*)},
+		{"installIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, installIcons, void, $JFileChooser*)},
+		{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, installStrings, void, $JFileChooser*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, installUI, void, $JComponent*)},
+		{"populateFileNameLabel", "()V", nullptr, $PRIVATE, $method(MotifFileChooserUI, populateFileNameLabel, void)},
+		{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, rescanCurrentDirectory, void, $JFileChooser*)},
+		{"setDirectoryName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, setDirectoryName, void, $String*)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, setFileName, void, $String*)},
+		{"uninstallComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, uninstallComponents, void, $JFileChooser*)},
+		{"uninstallIcons", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(MotifFileChooserUI, uninstallIcons, void, $JFileChooser*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MotifFileChooserUI, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FilterComboBoxModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FilterComboBoxRenderer", $PUBLIC},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifFileListModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "MotifFileListModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifDirectoryListModel", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "MotifDirectoryListModel", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$DirectoryCellRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "DirectoryCellRenderer", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FileCellRenderer", "com.sun.java.swing.plaf.motif.MotifFileChooserUI", "FileCellRenderer", $PROTECTED},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$10", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$9", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$8", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$7", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$6", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$5", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$4", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$3", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.motif.MotifFileChooserUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI",
+		"javax.swing.plaf.basic.BasicFileChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxModel,com.sun.java.swing.plaf.motif.MotifFileChooserUI$FilterComboBoxRenderer,com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifFileListModel,com.sun.java.swing.plaf.motif.MotifFileChooserUI$MotifDirectoryListModel,com.sun.java.swing.plaf.motif.MotifFileChooserUI$DirectoryCellRenderer,com.sun.java.swing.plaf.motif.MotifFileChooserUI$FileCellRenderer,com.sun.java.swing.plaf.motif.MotifFileChooserUI$10,com.sun.java.swing.plaf.motif.MotifFileChooserUI$9,com.sun.java.swing.plaf.motif.MotifFileChooserUI$8,com.sun.java.swing.plaf.motif.MotifFileChooserUI$7,com.sun.java.swing.plaf.motif.MotifFileChooserUI$6,com.sun.java.swing.plaf.motif.MotifFileChooserUI$5,com.sun.java.swing.plaf.motif.MotifFileChooserUI$4,com.sun.java.swing.plaf.motif.MotifFileChooserUI$3,com.sun.java.swing.plaf.motif.MotifFileChooserUI$2,com.sun.java.swing.plaf.motif.MotifFileChooserUI$1"
+	};
+	$loadClass(MotifFileChooserUI, name, initialize, &classInfo$$, MotifFileChooserUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MotifFileChooserUI);
+	});
 	return class$;
 }
 

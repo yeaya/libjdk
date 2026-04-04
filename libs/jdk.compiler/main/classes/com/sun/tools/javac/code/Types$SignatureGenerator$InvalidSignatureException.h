@@ -33,7 +33,10 @@ public:
 	::com::sun::tools::javac::code::Type* type$ = nullptr;
 	Types$SignatureGenerator$InvalidSignatureException(const Types$SignatureGenerator$InvalidSignatureException& e);
 	virtual void throw$() override;
-	inline Types$SignatureGenerator$InvalidSignatureException* operator ->() {
+	inline Types$SignatureGenerator$InvalidSignatureException* operator ->() const {
+		return (Types$SignatureGenerator$InvalidSignatureException*)throwing$;
+	}
+	inline operator Types$SignatureGenerator$InvalidSignatureException*() const {
 		return (Types$SignatureGenerator$InvalidSignatureException*)throwing$;
 	}
 };

@@ -71,6 +71,7 @@ class $export TypeAnnotations : public ::java::lang::Object {
 	$class(TypeAnnotations, 0, ::java::lang::Object)
 public:
 	TypeAnnotations();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::code::TypeAnnotations$AnnotationType* annotationTargetType(::com::sun::tools::javac::code::Attribute$Compound* a, ::com::sun::tools::javac::code::Symbol* s);
 	virtual ::com::sun::tools::javac::util::List* annotationTargets(::com::sun::tools::javac::code::Symbol$TypeSymbol* tsym);

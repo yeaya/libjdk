@@ -44,6 +44,7 @@ class $export JavadocHelper : public ::java::lang::AutoCloseable {
 public:
 	JavadocHelper();
 	virtual void close() override {}
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::jdk::internal::shellsupport::doc::JavadocHelper* create(::com::sun::source::util::JavacTask* mainTask, ::java::util::Collection* sourceLocations);
 	virtual $String* getResolvedDocComment(::javax::lang::model::element::Element* forElement) {return nullptr;}

@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SingleNodeCounter.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter.h>
@@ -34,45 +33,6 @@ namespace com {
 						namespace xsltc {
 							namespace dom {
 
-$FieldInfo _SingleNodeCounter_FieldInfo_[] = {
-	{"EmptyArray", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SingleNodeCounter, EmptyArray)},
-	{"_countSiblings", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, 0, $field(SingleNodeCounter, _countSiblings)},
-	{}
-};
-
-$MethodInfo _SingleNodeCounter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(SingleNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
-	{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Z)V", nullptr, $PUBLIC, $method(SingleNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*, bool)},
-	{"getCounter", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SingleNodeCounter, getCounter, $String*)},
-	{"getDefaultNodeCounter", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(SingleNodeCounter, getDefaultNodeCounter, $NodeCounter*, $Translet*, $DOM*, $DTMAxisIterator*)},
-	{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC, $virtualMethod(SingleNodeCounter, setStartNode, $NodeCounter*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SingleNodeCounter_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xalan.internal.xsltc.dom.SingleNodeCounter$DefaultSingleNodeCounter", "com.sun.org.apache.xalan.internal.xsltc.dom.SingleNodeCounter", "DefaultSingleNodeCounter", $STATIC},
-	{}
-};
-
-$ClassInfo _SingleNodeCounter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SingleNodeCounter",
-	"com.sun.org.apache.xalan.internal.xsltc.dom.NodeCounter",
-	nullptr,
-	_SingleNodeCounter_FieldInfo_,
-	_SingleNodeCounter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SingleNodeCounter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.SingleNodeCounter$DefaultSingleNodeCounter"
-};
-
-$Object* allocate$SingleNodeCounter($Class* clazz) {
-	return $of($alloc(SingleNodeCounter));
-}
-
 $ints* SingleNodeCounter::EmptyArray = nullptr;
 
 void SingleNodeCounter::init$($Translet* translet, $DOM* document, $DTMAxisIterator* iterator) {
@@ -88,7 +48,7 @@ void SingleNodeCounter::init$($Translet* translet, $DOM* document, $DTMAxisItera
 $NodeCounter* SingleNodeCounter::setStartNode(int32_t node) {
 	this->_node = node;
 	this->_nodeType = $nc(this->_document)->getExpandedTypeID(node);
-	$set(this, _countSiblings, $nc(this->_document)->getAxisIterator($Axis::PRECEDINGSIBLING));
+	$set(this, _countSiblings, this->_document->getAxisIterator($Axis::PRECEDINGSIBLING));
 	return this;
 }
 
@@ -150,7 +110,7 @@ $NodeCounter* SingleNodeCounter::getDefaultNodeCounter($Translet* translet, $DOM
 	return $new($SingleNodeCounter$DefaultSingleNodeCounter, translet, document, iterator);
 }
 
-void clinit$SingleNodeCounter($Class* class$) {
+void SingleNodeCounter::clinit$($Class* clazz) {
 	$assignStatic(SingleNodeCounter::EmptyArray, $new($ints, 0));
 }
 
@@ -158,7 +118,40 @@ SingleNodeCounter::SingleNodeCounter() {
 }
 
 $Class* SingleNodeCounter::load$($String* name, bool initialize) {
-	$loadClass(SingleNodeCounter, name, initialize, &_SingleNodeCounter_ClassInfo_, clinit$SingleNodeCounter, allocate$SingleNodeCounter);
+	$FieldInfo fieldInfos$$[] = {
+		{"EmptyArray", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SingleNodeCounter, EmptyArray)},
+		{"_countSiblings", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;", nullptr, 0, $field(SingleNodeCounter, _countSiblings)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)V", nullptr, $PUBLIC, $method(SingleNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*)},
+		{"<init>", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;Z)V", nullptr, $PUBLIC, $method(SingleNodeCounter, init$, void, $Translet*, $DOM*, $DTMAxisIterator*, bool)},
+		{"getCounter", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SingleNodeCounter, getCounter, $String*)},
+		{"getDefaultNodeCounter", "(Lcom/sun/org/apache/xalan/internal/xsltc/Translet;Lcom/sun/org/apache/xalan/internal/xsltc/DOM;Lcom/sun/org/apache/xml/internal/dtm/DTMAxisIterator;)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC | $STATIC, $staticMethod(SingleNodeCounter, getDefaultNodeCounter, $NodeCounter*, $Translet*, $DOM*, $DTMAxisIterator*)},
+		{"setStartNode", "(I)Lcom/sun/org/apache/xalan/internal/xsltc/dom/NodeCounter;", nullptr, $PUBLIC, $virtualMethod(SingleNodeCounter, setStartNode, $NodeCounter*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xalan.internal.xsltc.dom.SingleNodeCounter$DefaultSingleNodeCounter", "com.sun.org.apache.xalan.internal.xsltc.dom.SingleNodeCounter", "DefaultSingleNodeCounter", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SingleNodeCounter",
+		"com.sun.org.apache.xalan.internal.xsltc.dom.NodeCounter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.SingleNodeCounter$DefaultSingleNodeCounter"
+	};
+	$loadClass(SingleNodeCounter, name, initialize, &classInfo$$, SingleNodeCounter::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SingleNodeCounter);
+	});
 	return class$;
 }
 

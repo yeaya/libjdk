@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/Util.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -43,40 +42,6 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
-	{"cast", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)TT;", $PUBLIC | $STATIC, $staticMethod(Util, cast, $Object*, Object$*)},
-	{"hashCode", "([Ljava/lang/String;[Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, hashCode, int32_t, $StringArray*, $ObjectArray*)},
-	{"newIdentityHashMap", "()Ljava/util/IdentityHashMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/IdentityHashMap<TK;TV;>;", $STATIC, $staticMethod(Util, newIdentityHashMap, $IdentityHashMap*)},
-	{"newInsertionOrderMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $STATIC, $staticMethod(Util, newInsertionOrderMap, $Map*)},
-	{"newList", "()Ljava/util/List;", "<E:Ljava/lang/Object;>()Ljava/util/List<TE;>;", $STATIC, $staticMethod(Util, newList, $List*)},
-	{"newList", "(Ljava/util/Collection;)Ljava/util/List;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;)Ljava/util/List<TE;>;", $STATIC, $staticMethod(Util, newList, $List*, $Collection*)},
-	{"newMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $STATIC, $staticMethod(Util, newMap, $Map*)},
-	{"newObjectName", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, newObjectName, $ObjectName*, $String*)},
-	{"newSet", "()Ljava/util/Set;", "<E:Ljava/lang/Object;>()Ljava/util/Set<TE;>;", $STATIC, $staticMethod(Util, newSet, $Set*)},
-	{"newSet", "(Ljava/util/Collection;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;)Ljava/util/Set<TE;>;", $STATIC, $staticMethod(Util, newSet, $Set*, $Collection*)},
-	{"newSortedMap", "()Ljava/util/SortedMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/SortedMap<TK;TV;>;", $STATIC, $staticMethod(Util, newSortedMap, $SortedMap*)},
-	{"newSortedMap", "(Ljava/util/Comparator;)Ljava/util/SortedMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Comparator<-TK;>;)Ljava/util/SortedMap<TK;TV;>;", $STATIC, $staticMethod(Util, newSortedMap, $SortedMap*, $Comparator*)},
-	{"newSynchronizedIdentityHashMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $STATIC, $staticMethod(Util, newSynchronizedIdentityHashMap, $Map*)},
-	{"newSynchronizedMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $STATIC, $staticMethod(Util, newSynchronizedMap, $Map*)},
-	{"wildmatch", "(Ljava/lang/String;Ljava/lang/String;IIII)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, wildmatch, bool, $String*, $String*, int32_t, int32_t, int32_t, int32_t)},
-	{"wildmatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, wildmatch, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _Util_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.jmx.mbeanserver.Util",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_Util_MethodInfo_
-};
-
-$Object* allocate$Util($Class* clazz) {
-	return $of($alloc(Util));
-}
-
 void Util::init$() {
 }
 
@@ -84,7 +49,7 @@ $ObjectName* Util::newObjectName($String* string) {
 	try {
 		return $new($ObjectName, string);
 	} catch ($MalformedObjectNameException& e) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(e));
+		$throwNew($IllegalArgumentException, e);
 	}
 	$shouldNotReachHere();
 }
@@ -139,7 +104,7 @@ $Object* Util::cast(Object$* x) {
 }
 
 int32_t Util::hashCode($StringArray* names, $ObjectArray* values) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t hash = 0;
 	for (int32_t i = 0; i < $nc(names)->length; ++i) {
 		$var($Object0, v, $nc(values)->get(i));
@@ -148,10 +113,10 @@ int32_t Util::hashCode($StringArray* names, $ObjectArray* values) {
 			h = 0;
 		} else if ($instanceOf($ObjectArray, v)) {
 			h = $Arrays::deepHashCode($cast($ObjectArray, v));
-		} else if ($nc($of(v))->getClass()->isArray()) {
+		} else if (v->getClass()->isArray()) {
 			h = $Arrays::deepHashCode($$new($ObjectArray, {v})) - 31;
 		} else {
-			h = $of(v)->hashCode();
+			h = v->hashCode();
 		}
 		hash += $($nc(names->get(i))->toLowerCase())->hashCode() ^ h;
 	}
@@ -167,30 +132,24 @@ bool Util::wildmatch($String* str, $String* pat, int32_t stri, int32_t strend, i
 			char16_t patc = $nc(pat)->charAt(pati);
 			switch (patc) {
 			case u'?':
-				{
-					if (stri == strend) {
-						break;
-					}
+				if (stri == strend) {
+					break;
+				}
+				++stri;
+				++pati;
+				continue;
+			case u'*':
+				++pati;
+				starpati = pati;
+				starstri = stri;
+				continue;
+			default:
+				if (stri < strend && $nc(str)->charAt(stri) == patc) {
 					++stri;
 					++pati;
 					continue;
 				}
-			case u'*':
-				{
-					++pati;
-					starpati = pati;
-					starstri = stri;
-					continue;
-				}
-			default:
-				{
-					if (stri < strend && $nc(str)->charAt(stri) == patc) {
-						++stri;
-						++pati;
-						continue;
-					}
-					break;
-				}
+				break;
 			}
 		} else if (stri == strend) {
 			return true;
@@ -205,18 +164,45 @@ bool Util::wildmatch($String* str, $String* pat, int32_t stri, int32_t strend, i
 }
 
 bool Util::wildmatch($String* str, $String* pat) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, str);
-	$var($String, var$1, pat);
-	int32_t var$2 = $nc(str)->length();
-	return wildmatch(var$0, var$1, 0, var$2, 0, $nc(pat)->length());
+	int32_t var$0 = $nc(str)->length();
+	return wildmatch(str, pat, 0, var$0, 0, $nc(pat)->length());
 }
 
 Util::Util() {
 }
 
 $Class* Util::load$($String* name, bool initialize) {
-	$loadClass(Util, name, initialize, &_Util_ClassInfo_, allocate$Util);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Util, init$, void)},
+		{"cast", "(Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Object;)TT;", $PUBLIC | $STATIC, $staticMethod(Util, cast, $Object*, Object$*)},
+		{"hashCode", "([Ljava/lang/String;[Ljava/lang/Object;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, hashCode, int32_t, $StringArray*, $ObjectArray*)},
+		{"newIdentityHashMap", "()Ljava/util/IdentityHashMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/IdentityHashMap<TK;TV;>;", $STATIC, $staticMethod(Util, newIdentityHashMap, $IdentityHashMap*)},
+		{"newInsertionOrderMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $STATIC, $staticMethod(Util, newInsertionOrderMap, $Map*)},
+		{"newList", "()Ljava/util/List;", "<E:Ljava/lang/Object;>()Ljava/util/List<TE;>;", $STATIC, $staticMethod(Util, newList, $List*)},
+		{"newList", "(Ljava/util/Collection;)Ljava/util/List;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;)Ljava/util/List<TE;>;", $STATIC, $staticMethod(Util, newList, $List*, $Collection*)},
+		{"newMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $STATIC, $staticMethod(Util, newMap, $Map*)},
+		{"newObjectName", "(Ljava/lang/String;)Ljavax/management/ObjectName;", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, newObjectName, $ObjectName*, $String*)},
+		{"newSet", "()Ljava/util/Set;", "<E:Ljava/lang/Object;>()Ljava/util/Set<TE;>;", $STATIC, $staticMethod(Util, newSet, $Set*)},
+		{"newSet", "(Ljava/util/Collection;)Ljava/util/Set;", "<E:Ljava/lang/Object;>(Ljava/util/Collection<TE;>;)Ljava/util/Set<TE;>;", $STATIC, $staticMethod(Util, newSet, $Set*, $Collection*)},
+		{"newSortedMap", "()Ljava/util/SortedMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/SortedMap<TK;TV;>;", $STATIC, $staticMethod(Util, newSortedMap, $SortedMap*)},
+		{"newSortedMap", "(Ljava/util/Comparator;)Ljava/util/SortedMap;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>(Ljava/util/Comparator<-TK;>;)Ljava/util/SortedMap<TK;TV;>;", $STATIC, $staticMethod(Util, newSortedMap, $SortedMap*, $Comparator*)},
+		{"newSynchronizedIdentityHashMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $STATIC, $staticMethod(Util, newSynchronizedIdentityHashMap, $Map*)},
+		{"newSynchronizedMap", "()Ljava/util/Map;", "<K:Ljava/lang/Object;V:Ljava/lang/Object;>()Ljava/util/Map<TK;TV;>;", $STATIC, $staticMethod(Util, newSynchronizedMap, $Map*)},
+		{"wildmatch", "(Ljava/lang/String;Ljava/lang/String;IIII)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, wildmatch, bool, $String*, $String*, int32_t, int32_t, int32_t, int32_t)},
+		{"wildmatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, wildmatch, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.jmx.mbeanserver.Util",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Util, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Util);
+	});
 	return class$;
 }
 

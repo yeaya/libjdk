@@ -13,6 +13,7 @@ class PlainView$2 : public ::java::lang::Object {
 	$class(PlainView$2, 0, ::java::lang::Object)
 public:
 	PlainView$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$swing$text$PlainView$FPMethodArgs;
 };
 

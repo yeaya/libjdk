@@ -33,6 +33,7 @@ class $export AbstractRegionPainter$PaintContext : public ::java::lang::Object {
 	$class(AbstractRegionPainter$PaintContext, 0, ::java::lang::Object)
 public:
 	AbstractRegionPainter$PaintContext();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Insets* insets, ::java::awt::Dimension* canvasSize, bool inverted);
 	void init$(::java::awt::Insets* insets, ::java::awt::Dimension* canvasSize, bool inverted, ::javax::swing::plaf::nimbus::AbstractRegionPainter$PaintContext$CacheMode* cacheMode, double maxH, double maxV);
 	static ::java::awt::Insets* EMPTY_INSETS;

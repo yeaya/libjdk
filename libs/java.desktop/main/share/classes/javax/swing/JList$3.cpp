@@ -1,5 +1,4 @@
 #include <javax/swing/JList$3.h>
-
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <javax/swing/AbstractListModel.h>
 #include <javax/swing/JList.h>
@@ -14,44 +13,6 @@ using $AbstractListModel = ::javax::swing::AbstractListModel;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _JList$3_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JList$3, init$, void)},
-	{"getElementAt", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(JList$3, getElementAt, $Object*, int32_t)},
-	{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(JList$3, getSize, int32_t)},
-	{}
-};
-
-$EnclosingMethodInfo _JList$3_EnclosingMethodInfo_ = {
-	"javax.swing.JList",
-	"<init>",
-	"()V"
-};
-
-$InnerClassInfo _JList$3_InnerClassesInfo_[] = {
-	{"javax.swing.JList$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JList$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JList$3",
-	"javax.swing.AbstractListModel",
-	nullptr,
-	nullptr,
-	_JList$3_MethodInfo_,
-	"Ljavax/swing/AbstractListModel<TE;>;",
-	&_JList$3_EnclosingMethodInfo_,
-	_JList$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JList"
-};
-
-$Object* allocate$JList$3($Class* clazz) {
-	return $of($alloc(JList$3));
-}
 
 void JList$3::init$() {
 	$AbstractListModel::init$();
@@ -70,7 +31,39 @@ JList$3::JList$3() {
 }
 
 $Class* JList$3::load$($String* name, bool initialize) {
-	$loadClass(JList$3, name, initialize, &_JList$3_ClassInfo_, allocate$JList$3);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JList$3, init$, void)},
+		{"getElementAt", "(I)Ljava/lang/Object;", "(I)TE;", $PUBLIC, $virtualMethod(JList$3, getElementAt, $Object*, int32_t)},
+		{"getSize", "()I", nullptr, $PUBLIC, $virtualMethod(JList$3, getSize, int32_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.JList",
+		"<init>",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JList$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JList$3",
+		"javax.swing.AbstractListModel",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/AbstractListModel<TE;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JList"
+	};
+	$loadClass(JList$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JList$3));
+	});
 	return class$;
 }
 

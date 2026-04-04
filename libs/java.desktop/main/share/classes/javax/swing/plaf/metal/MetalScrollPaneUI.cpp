@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalScrollPaneUI.h>
-
 #include <java/awt/Component.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
@@ -39,53 +38,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$CompoundAttribute _MetalScrollPaneUI_MethodAnnotations_uninstallListeners6[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _MetalScrollPaneUI_FieldInfo_[] = {
-	{"scrollBarSwapListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(MetalScrollPaneUI, scrollBarSwapListener)},
-	{}
-};
-
-$MethodInfo _MetalScrollPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalScrollPaneUI, init$, void)},
-	{"createScrollBarSwapListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MetalScrollPaneUI, createScrollBarSwapListener, $PropertyChangeListener*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalScrollPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"installListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollPaneUI, installListeners, void, $JScrollPane*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollPaneUI, installUI, void, $JComponent*)},
-	{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(MetalScrollPaneUI, uninstallListeners, void, $JComponent*)},
-	{"uninstallListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MetalScrollPaneUI, uninstallListeners, void, $JScrollPane*), nullptr, nullptr, _MetalScrollPaneUI_MethodAnnotations_uninstallListeners6},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollPaneUI, uninstallUI, void, $JComponent*)},
-	{"updateScrollbarsFreeStanding", "()V", nullptr, $PRIVATE, $method(MetalScrollPaneUI, updateScrollbarsFreeStanding, void)},
-	{}
-};
-
-$InnerClassInfo _MetalScrollPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalScrollPaneUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MetalScrollPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalScrollPaneUI",
-	"javax.swing.plaf.basic.BasicScrollPaneUI",
-	nullptr,
-	_MetalScrollPaneUI_FieldInfo_,
-	_MetalScrollPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalScrollPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalScrollPaneUI$1"
-};
-
-$Object* allocate$MetalScrollPaneUI($Class* clazz) {
-	return $of($alloc(MetalScrollPaneUI));
-}
-
 void MetalScrollPaneUI::init$() {
 	$BasicScrollPaneUI::init$();
 }
@@ -102,7 +54,7 @@ void MetalScrollPaneUI::installUI($JComponent* c) {
 }
 
 void MetalScrollPaneUI::uninstallUI($JComponent* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicScrollPaneUI::uninstallUI(c);
 	$var($JScrollPane, sp, $cast($JScrollPane, c));
 	$var($JScrollBar, hsb, $nc(sp)->getHorizontalScrollBar());
@@ -134,17 +86,15 @@ void MetalScrollPaneUI::uninstallListeners($JScrollPane* scrollPane) {
 }
 
 void MetalScrollPaneUI::updateScrollbarsFreeStanding() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->scrollpane == nullptr) {
 		return;
 	}
 	$var($Border, border, $nc(this->scrollpane)->getBorder());
 	$var($Object, value, nullptr);
 	if ($instanceOf($MetalBorders$ScrollPaneBorder, border)) {
-		$init($Boolean);
 		$assign(value, $Boolean::FALSE);
 	} else {
-		$init($Boolean);
 		$assign(value, $Boolean::TRUE);
 	}
 	$var($JScrollBar, sb, $nc(this->scrollpane)->getHorizontalScrollBar());
@@ -167,7 +117,47 @@ MetalScrollPaneUI::MetalScrollPaneUI() {
 }
 
 $Class* MetalScrollPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MetalScrollPaneUI, name, initialize, &_MetalScrollPaneUI_ClassInfo_, allocate$MetalScrollPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"scrollBarSwapListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(MetalScrollPaneUI, scrollBarSwapListener)},
+		{}
+	};
+	$CompoundAttribute uninstallListenersmethodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalScrollPaneUI, init$, void)},
+		{"createScrollBarSwapListener", "()Ljava/beans/PropertyChangeListener;", nullptr, $PROTECTED, $virtualMethod(MetalScrollPaneUI, createScrollBarSwapListener, $PropertyChangeListener*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalScrollPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"installListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollPaneUI, installListeners, void, $JScrollPane*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollPaneUI, installUI, void, $JComponent*)},
+		{"uninstallListeners", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $virtualMethod(MetalScrollPaneUI, uninstallListeners, void, $JComponent*)},
+		{"uninstallListeners", "(Ljavax/swing/JScrollPane;)V", nullptr, $PUBLIC | $DEPRECATED, $virtualMethod(MetalScrollPaneUI, uninstallListeners, void, $JScrollPane*), nullptr, nullptr, uninstallListenersmethodAnnotations$$$1},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalScrollPaneUI, uninstallUI, void, $JComponent*)},
+		{"updateScrollbarsFreeStanding", "()V", nullptr, $PRIVATE, $method(MetalScrollPaneUI, updateScrollbarsFreeStanding, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalScrollPaneUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalScrollPaneUI",
+		"javax.swing.plaf.basic.BasicScrollPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalScrollPaneUI$1"
+	};
+	$loadClass(MetalScrollPaneUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalScrollPaneUI));
+	});
 	return class$;
 }
 

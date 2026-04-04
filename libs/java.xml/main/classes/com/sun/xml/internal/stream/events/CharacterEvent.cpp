@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/CharacterEvent.h>
-
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
@@ -32,65 +31,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _CharacterEvent_FieldInfo_[] = {
-	{"fData", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CharacterEvent, fData)},
-	{"fIsCData", "Z", nullptr, $PRIVATE, $field(CharacterEvent, fIsCData)},
-	{"fIsIgnorableWhitespace", "Z", nullptr, $PRIVATE, $field(CharacterEvent, fIsIgnorableWhitespace)},
-	{"fIsSpace", "Z", nullptr, $PRIVATE, $field(CharacterEvent, fIsSpace)},
-	{"fCheckIfSpaceNeeded", "Z", nullptr, $PRIVATE, $field(CharacterEvent, fCheckIfSpaceNeeded)},
-	{}
-};
-
-$MethodInfo _CharacterEvent_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CharacterEvent, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CharacterEvent, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(CharacterEvent, init$, void, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(CharacterEvent, init$, void, $String*, bool, bool)},
-	{"checkWhiteSpace", "()V", nullptr, $PRIVATE, $method(CharacterEvent, checkWhiteSpace, void)},
-	{"getData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, getData, $String*)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(CharacterEvent, init, void)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"isCData", "()Z", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, isCData, bool)},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"isIgnorableWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, isIgnorableWhiteSpace, bool)},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"isWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, isWhiteSpace, bool)},
-	{"setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, setData, void, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, toString, $String*)},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(CharacterEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _CharacterEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.CharacterEvent",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.Characters",
-	_CharacterEvent_FieldInfo_,
-	_CharacterEvent_MethodInfo_
-};
-
-$Object* allocate$CharacterEvent($Class* clazz) {
-	return $of($alloc(CharacterEvent));
-}
 
 int32_t CharacterEvent::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -234,7 +174,7 @@ $String* CharacterEvent::toString() {
 }
 
 void CharacterEvent::writeAsEncodedUnicodeEx($Writer* writer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fIsCData) {
 		$nc(writer)->write($$str({"<![CDATA["_s, $(getData()), "]]>"_s}));
 	} else {
@@ -255,10 +195,10 @@ bool CharacterEvent::isWhiteSpace() {
 }
 
 void CharacterEvent::checkWhiteSpace() {
-	if (this->fData != nullptr && $nc(this->fData)->length() > 0) {
+	if (this->fData != nullptr && this->fData->length() > 0) {
 		this->fIsSpace = true;
 		for (int32_t i = 0; i < $nc(this->fData)->length(); ++i) {
-			if (!$XMLChar::isSpace($nc(this->fData)->charAt(i))) {
+			if (!$XMLChar::isSpace(this->fData->charAt(i))) {
 				this->fIsSpace = false;
 				break;
 			}
@@ -270,7 +210,61 @@ CharacterEvent::CharacterEvent() {
 }
 
 $Class* CharacterEvent::load$($String* name, bool initialize) {
-	$loadClass(CharacterEvent, name, initialize, &_CharacterEvent_ClassInfo_, allocate$CharacterEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"fData", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CharacterEvent, fData)},
+		{"fIsCData", "Z", nullptr, $PRIVATE, $field(CharacterEvent, fIsCData)},
+		{"fIsIgnorableWhitespace", "Z", nullptr, $PRIVATE, $field(CharacterEvent, fIsIgnorableWhitespace)},
+		{"fIsSpace", "Z", nullptr, $PRIVATE, $field(CharacterEvent, fIsSpace)},
+		{"fCheckIfSpaceNeeded", "Z", nullptr, $PRIVATE, $field(CharacterEvent, fCheckIfSpaceNeeded)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CharacterEvent, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(CharacterEvent, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(CharacterEvent, init$, void, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(CharacterEvent, init$, void, $String*, bool, bool)},
+		{"checkWhiteSpace", "()V", nullptr, $PRIVATE, $method(CharacterEvent, checkWhiteSpace, void)},
+		{"getData", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, getData, $String*)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(CharacterEvent, init, void)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"isCData", "()Z", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, isCData, bool)},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"isIgnorableWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, isIgnorableWhiteSpace, bool)},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"isWhiteSpace", "()Z", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, isWhiteSpace, bool)},
+		{"setData", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, setData, void, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CharacterEvent, toString, $String*)},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(CharacterEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.CharacterEvent",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.Characters",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharacterEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CharacterEvent));
+	});
 	return class$;
 }
 

@@ -85,6 +85,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Font* userFont, ::com::sun::java::swing::plaf::gtk::GTKEngine$WidgetType* widgetType);
 	virtual $Object* get(::javax::swing::plaf::synth::SynthContext* context, Object$* key) override;
 	::java::awt::Insets* getButtonInsets(::javax::swing::plaf::synth::SynthContext* context, ::java::awt::Insets* insets);

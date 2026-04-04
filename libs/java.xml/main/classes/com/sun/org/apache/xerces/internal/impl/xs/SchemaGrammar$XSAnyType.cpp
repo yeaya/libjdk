@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar$XSAnyType.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar$BuiltinSchemaGrammar.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar.h>
@@ -41,7 +40,6 @@ using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::u
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSNamespaceItem = ::com::sun::org::apache::xerces::internal::xs::XSNamespaceItem;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -55,46 +53,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 							namespace xs {
-
-$MethodInfo _SchemaGrammar$XSAnyType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaGrammar$XSAnyType, init$, void)},
-	{"createAttrGrp", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$XSAnyType, createAttrGrp, $XSAttributeGroupDecl*)},
-	{"createParticle", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$XSAnyType, createParticle, $XSParticleDecl*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, getAnnotations, $XSObjectList*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, getNamespaceItem, $XSNamespaceItem*)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, reset, void)},
-	{"setContainsTypeID", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setContainsTypeID, void)},
-	{"setIsAbstractType", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setIsAbstractType, void)},
-	{"setIsAnonymous", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setIsAnonymous, void)},
-	{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setName, void, $String*)},
-	{"setValues", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;SSSSZLcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setValues, void, $String*, $String*, $XSTypeDefinition*, int16_t, int16_t, int16_t, int16_t, bool, $XSAttributeGroupDecl*, $XSSimpleType*, $XSParticleDecl*)},
-	{}
-};
-
-$InnerClassInfo _SchemaGrammar$XSAnyType_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar$XSAnyType", "com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar", "XSAnyType", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _SchemaGrammar$XSAnyType_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar$XSAnyType",
-	"com.sun.org.apache.xerces.internal.impl.xs.XSComplexTypeDecl",
-	nullptr,
-	nullptr,
-	_SchemaGrammar$XSAnyType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SchemaGrammar$XSAnyType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar"
-};
-
-$Object* allocate$SchemaGrammar$XSAnyType($Class* clazz) {
-	return $of($alloc(SchemaGrammar$XSAnyType));
-}
 
 void SchemaGrammar$XSAnyType::init$() {
 	$XSComplexTypeDecl::init$();
@@ -137,7 +95,7 @@ $XSNamespaceItem* SchemaGrammar$XSAnyType::getNamespaceItem() {
 }
 
 $XSAttributeGroupDecl* SchemaGrammar$XSAnyType::createAttrGrp() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSWildcardDecl, wildcard, $new($XSWildcardDecl));
 	wildcard->fProcessContents = $XSWildcardDecl::PC_LAX;
 	$var($XSAttributeGroupDecl, attrGrp, $new($XSAttributeGroupDecl));
@@ -146,7 +104,7 @@ $XSAttributeGroupDecl* SchemaGrammar$XSAnyType::createAttrGrp() {
 }
 
 $XSParticleDecl* SchemaGrammar$XSAnyType::createParticle() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSWildcardDecl, wildcard, $new($XSWildcardDecl));
 	wildcard->fProcessContents = $XSWildcardDecl::PC_LAX;
 	$var($XSParticleDecl, particleW, $new($XSParticleDecl));
@@ -158,7 +116,7 @@ $XSParticleDecl* SchemaGrammar$XSAnyType::createParticle() {
 	group->fCompositor = $XSModelGroupImpl::MODELGROUP_SEQUENCE;
 	group->fParticleCount = 1;
 	$set(group, fParticles, $new($XSParticleDeclArray, 1));
-	$nc(group->fParticles)->set(0, particleW);
+	group->fParticles->set(0, particleW);
 	$var($XSParticleDecl, particleG, $new($XSParticleDecl));
 	particleG->fType = $XSParticleDecl::PARTICLE_MODELGROUP;
 	$set(particleG, fValue, group);
@@ -169,7 +127,42 @@ SchemaGrammar$XSAnyType::SchemaGrammar$XSAnyType() {
 }
 
 $Class* SchemaGrammar$XSAnyType::load$($String* name, bool initialize) {
-	$loadClass(SchemaGrammar$XSAnyType, name, initialize, &_SchemaGrammar$XSAnyType_ClassInfo_, allocate$SchemaGrammar$XSAnyType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SchemaGrammar$XSAnyType, init$, void)},
+		{"createAttrGrp", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$XSAnyType, createAttrGrp, $XSAttributeGroupDecl*)},
+		{"createParticle", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $method(SchemaGrammar$XSAnyType, createParticle, $XSParticleDecl*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, getAnnotations, $XSObjectList*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, getNamespaceItem, $XSNamespaceItem*)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, reset, void)},
+		{"setContainsTypeID", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setContainsTypeID, void)},
+		{"setIsAbstractType", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setIsAbstractType, void)},
+		{"setIsAnonymous", "()V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setIsAnonymous, void)},
+		{"setName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setName, void, $String*)},
+		{"setValues", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;SSSSZLcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;)V", nullptr, $PUBLIC, $virtualMethod(SchemaGrammar$XSAnyType, setValues, void, $String*, $String*, $XSTypeDefinition*, int16_t, int16_t, int16_t, int16_t, bool, $XSAttributeGroupDecl*, $XSSimpleType*, $XSParticleDecl*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar$XSAnyType", "com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar", "XSAnyType", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar$XSAnyType",
+		"com.sun.org.apache.xerces.internal.impl.xs.XSComplexTypeDecl",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar"
+	};
+	$loadClass(SchemaGrammar$XSAnyType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SchemaGrammar$XSAnyType));
+	});
 	return class$;
 }
 

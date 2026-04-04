@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodCheckDiag.h>
-
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -21,51 +20,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Resolve$MethodCheckDiag_FieldInfo_[] = {
-	{"ARITY_MISMATCH", "Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Resolve$MethodCheckDiag, ARITY_MISMATCH)},
-	{"ARG_MISMATCH", "Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Resolve$MethodCheckDiag, ARG_MISMATCH)},
-	{"VARARG_MISMATCH", "Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Resolve$MethodCheckDiag, VARARG_MISMATCH)},
-	{"INACCESSIBLE_VARARGS", "Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Resolve$MethodCheckDiag, INACCESSIBLE_VARARGS)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Resolve$MethodCheckDiag, $VALUES)},
-	{"basicKey", "Ljava/lang/String;", nullptr, $FINAL, $field(Resolve$MethodCheckDiag, basicKey)},
-	{"inferKey", "Ljava/lang/String;", nullptr, $FINAL, $field(Resolve$MethodCheckDiag, inferKey)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodCheckDiag_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$MethodCheckDiag, $values, $Resolve$MethodCheckDiagArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Resolve$MethodCheckDiag, init$, void, $String*, int32_t, $String*, $String*)},
-	{"regex", "()Ljava/lang/String;", nullptr, 0, $method(Resolve$MethodCheckDiag, regex, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$MethodCheckDiag, valueOf, Resolve$MethodCheckDiag*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$MethodCheckDiag, values, $Resolve$MethodCheckDiagArray*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$MethodCheckDiag_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodCheckDiag", "com.sun.tools.javac.comp.Resolve", "MethodCheckDiag", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Resolve$MethodCheckDiag_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.comp.Resolve$MethodCheckDiag",
-	"java.lang.Enum",
-	nullptr,
-	_Resolve$MethodCheckDiag_FieldInfo_,
-	_Resolve$MethodCheckDiag_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;>;",
-	nullptr,
-	_Resolve$MethodCheckDiag_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodCheckDiag($Class* clazz) {
-	return $of($alloc(Resolve$MethodCheckDiag));
-}
 
 Resolve$MethodCheckDiag* Resolve$MethodCheckDiag::ARITY_MISMATCH = nullptr;
 Resolve$MethodCheckDiag* Resolve$MethodCheckDiag::ARG_MISMATCH = nullptr;
@@ -101,12 +55,12 @@ void Resolve$MethodCheckDiag::init$($String* $enum$name, int32_t $enum$ordinal, 
 
 $String* Resolve$MethodCheckDiag::regex() {
 	return $String::format("([a-z]*\\.)*(%s|%s)"_s, $$new($ObjectArray, {
-		$of(this->basicKey),
-		$of(this->inferKey)
+		this->basicKey,
+		this->inferKey
 	}));
 }
 
-void clinit$Resolve$MethodCheckDiag($Class* class$) {
+void Resolve$MethodCheckDiag::clinit$($Class* clazz) {
 	$assignStatic(Resolve$MethodCheckDiag::ARITY_MISMATCH, $new(Resolve$MethodCheckDiag, "ARITY_MISMATCH"_s, 0, "arg.length.mismatch"_s, "infer.arg.length.mismatch"_s));
 	$assignStatic(Resolve$MethodCheckDiag::ARG_MISMATCH, $new(Resolve$MethodCheckDiag, "ARG_MISMATCH"_s, 1, "no.conforming.assignment.exists"_s, "infer.no.conforming.assignment.exists"_s));
 	$assignStatic(Resolve$MethodCheckDiag::VARARG_MISMATCH, $new(Resolve$MethodCheckDiag, "VARARG_MISMATCH"_s, 2, "varargs.argument.mismatch"_s, "infer.varargs.argument.mismatch"_s));
@@ -118,7 +72,46 @@ Resolve$MethodCheckDiag::Resolve$MethodCheckDiag() {
 }
 
 $Class* Resolve$MethodCheckDiag::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodCheckDiag, name, initialize, &_Resolve$MethodCheckDiag_ClassInfo_, clinit$Resolve$MethodCheckDiag, allocate$Resolve$MethodCheckDiag);
+	$FieldInfo fieldInfos$$[] = {
+		{"ARITY_MISMATCH", "Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Resolve$MethodCheckDiag, ARITY_MISMATCH)},
+		{"ARG_MISMATCH", "Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Resolve$MethodCheckDiag, ARG_MISMATCH)},
+		{"VARARG_MISMATCH", "Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Resolve$MethodCheckDiag, VARARG_MISMATCH)},
+		{"INACCESSIBLE_VARARGS", "Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Resolve$MethodCheckDiag, INACCESSIBLE_VARARGS)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Resolve$MethodCheckDiag, $VALUES)},
+		{"basicKey", "Ljava/lang/String;", nullptr, $FINAL, $field(Resolve$MethodCheckDiag, basicKey)},
+		{"inferKey", "Ljava/lang/String;", nullptr, $FINAL, $field(Resolve$MethodCheckDiag, inferKey)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Resolve$MethodCheckDiag, $values, $Resolve$MethodCheckDiagArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V", "(Ljava/lang/String;Ljava/lang/String;)V", $PRIVATE, $method(Resolve$MethodCheckDiag, init$, void, $String*, int32_t, $String*, $String*)},
+		{"regex", "()Ljava/lang/String;", nullptr, 0, $method(Resolve$MethodCheckDiag, regex, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$MethodCheckDiag, valueOf, Resolve$MethodCheckDiag*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;", nullptr, $PUBLIC | $STATIC, $staticMethod(Resolve$MethodCheckDiag, values, $Resolve$MethodCheckDiagArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodCheckDiag", "com.sun.tools.javac.comp.Resolve", "MethodCheckDiag", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.comp.Resolve$MethodCheckDiag",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Resolve$MethodCheckDiag;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodCheckDiag, name, initialize, &classInfo$$, Resolve$MethodCheckDiag::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Resolve$MethodCheckDiag));
+	});
 	return class$;
 }
 

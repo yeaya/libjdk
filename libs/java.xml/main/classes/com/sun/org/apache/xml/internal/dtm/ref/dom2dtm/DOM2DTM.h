@@ -128,6 +128,7 @@ class DOM2DTM : public ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefa
 	$class(DOM2DTM, 0, ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators)
 public:
 	DOM2DTM();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::dtm::DTMManager* mgr, ::javax::xml::transform::dom::DOMSource* domSource, int32_t dtmIdentity, ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter* whiteSpaceFilter, ::com::sun::org::apache::xml::internal::utils::XMLStringFactory* xstringfactory, bool doIndexing);
 	virtual int32_t addNode(::org::w3c::dom::Node* node, int32_t parentIndex, int32_t previousSibling, int32_t forceNodeType);
 	virtual void dispatchCharactersEvents(int32_t nodeHandle, ::org::xml::sax::ContentHandler* ch, bool normalize) override;

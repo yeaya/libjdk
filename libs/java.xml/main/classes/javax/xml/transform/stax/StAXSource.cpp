@@ -1,5 +1,4 @@
 #include <javax/xml/transform/stax/StAXSource.h>
-
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <javax/xml/stream/Location.h>
@@ -19,7 +18,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $Location = ::javax::xml::stream::Location;
 using $XMLEventReader = ::javax::xml::stream::XMLEventReader;
 using $XMLStreamConstants = ::javax::xml::stream::XMLStreamConstants;
 using $XMLStreamReader = ::javax::xml::stream::XMLStreamReader;
@@ -30,42 +28,10 @@ namespace javax {
 		namespace transform {
 			namespace stax {
 
-$FieldInfo _StAXSource_FieldInfo_[] = {
-	{"FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StAXSource, FEATURE)},
-	{"xmlEventReader", "Ljavax/xml/stream/XMLEventReader;", nullptr, $PRIVATE, $field(StAXSource, xmlEventReader)},
-	{"xmlStreamReader", "Ljavax/xml/stream/XMLStreamReader;", nullptr, $PRIVATE, $field(StAXSource, xmlStreamReader)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StAXSource, systemId)},
-	{}
-};
-
-$MethodInfo _StAXSource_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/stream/XMLEventReader;)V", nullptr, $PUBLIC, $method(StAXSource, init$, void, $XMLEventReader*), "javax.xml.stream.XMLStreamException"},
-	{"<init>", "(Ljavax/xml/stream/XMLStreamReader;)V", nullptr, $PUBLIC, $method(StAXSource, init$, void, $XMLStreamReader*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StAXSource, getSystemId, $String*)},
-	{"getXMLEventReader", "()Ljavax/xml/stream/XMLEventReader;", nullptr, $PUBLIC, $virtualMethod(StAXSource, getXMLEventReader, $XMLEventReader*)},
-	{"getXMLStreamReader", "()Ljavax/xml/stream/XMLStreamReader;", nullptr, $PUBLIC, $virtualMethod(StAXSource, getXMLStreamReader, $XMLStreamReader*)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(StAXSource, isEmpty, bool)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StAXSource, setSystemId, void, $String*)},
-	{}
-};
-
-$ClassInfo _StAXSource_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.transform.stax.StAXSource",
-	"java.lang.Object",
-	"javax.xml.transform.Source",
-	_StAXSource_FieldInfo_,
-	_StAXSource_MethodInfo_
-};
-
-$Object* allocate$StAXSource($Class* clazz) {
-	return $of($alloc(StAXSource));
-}
-
 $String* StAXSource::FEATURE = nullptr;
 
 void StAXSource::init$($XMLEventReader* xmlEventReader) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, xmlEventReader, nullptr);
 	$set(this, xmlStreamReader, nullptr);
 	$set(this, systemId, nullptr);
@@ -78,7 +44,7 @@ void StAXSource::init$($XMLEventReader* xmlEventReader) {
 		$throwNew($IllegalStateException, "StAXSource(XMLEventReader) with XMLEventReader not in XMLStreamConstants.START_DOCUMENT or XMLStreamConstants.START_ELEMENT state"_s);
 	}
 	$set(this, xmlEventReader, xmlEventReader);
-	$set(this, systemId, $nc($(event->getLocation()))->getSystemId());
+	$set(this, systemId, $$nc(event->getLocation())->getSystemId());
 }
 
 void StAXSource::init$($XMLStreamReader* xmlStreamReader) {
@@ -93,7 +59,7 @@ void StAXSource::init$($XMLStreamReader* xmlStreamReader) {
 		$throwNew($IllegalStateException, "StAXSource(XMLStreamReader) with XMLStreamReadernot in XMLStreamConstants.START_DOCUMENT or XMLStreamConstants.START_ELEMENT state"_s);
 	}
 	$set(this, xmlStreamReader, xmlStreamReader);
-	$set(this, systemId, $nc($(xmlStreamReader->getLocation()))->getSystemId());
+	$set(this, systemId, $$nc(xmlStreamReader->getLocation())->getSystemId());
 }
 
 $XMLEventReader* StAXSource::getXMLEventReader() {
@@ -119,12 +85,39 @@ bool StAXSource::isEmpty() {
 StAXSource::StAXSource() {
 }
 
-void clinit$StAXSource($Class* class$) {
+void StAXSource::clinit$($Class* clazz) {
 	$assignStatic(StAXSource::FEATURE, "http://javax.xml.transform.stax.StAXSource/feature"_s);
 }
 
 $Class* StAXSource::load$($String* name, bool initialize) {
-	$loadClass(StAXSource, name, initialize, &_StAXSource_ClassInfo_, clinit$StAXSource, allocate$StAXSource);
+	$FieldInfo fieldInfos$$[] = {
+		{"FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StAXSource, FEATURE)},
+		{"xmlEventReader", "Ljavax/xml/stream/XMLEventReader;", nullptr, $PRIVATE, $field(StAXSource, xmlEventReader)},
+		{"xmlStreamReader", "Ljavax/xml/stream/XMLStreamReader;", nullptr, $PRIVATE, $field(StAXSource, xmlStreamReader)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StAXSource, systemId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/stream/XMLEventReader;)V", nullptr, $PUBLIC, $method(StAXSource, init$, void, $XMLEventReader*), "javax.xml.stream.XMLStreamException"},
+		{"<init>", "(Ljavax/xml/stream/XMLStreamReader;)V", nullptr, $PUBLIC, $method(StAXSource, init$, void, $XMLStreamReader*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StAXSource, getSystemId, $String*)},
+		{"getXMLEventReader", "()Ljavax/xml/stream/XMLEventReader;", nullptr, $PUBLIC, $virtualMethod(StAXSource, getXMLEventReader, $XMLEventReader*)},
+		{"getXMLStreamReader", "()Ljavax/xml/stream/XMLStreamReader;", nullptr, $PUBLIC, $virtualMethod(StAXSource, getXMLStreamReader, $XMLStreamReader*)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(StAXSource, isEmpty, bool)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StAXSource, setSystemId, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.transform.stax.StAXSource",
+		"java.lang.Object",
+		"javax.xml.transform.Source",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StAXSource, name, initialize, &classInfo$$, StAXSource::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StAXSource);
+	});
 	return class$;
 }
 

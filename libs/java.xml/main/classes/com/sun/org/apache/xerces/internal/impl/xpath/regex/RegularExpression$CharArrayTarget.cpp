@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$CharArrayTarget.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ExpressionTarget.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression.h>
 #include <jcpp.h>
@@ -20,50 +19,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _RegularExpression$CharArrayTarget_FieldInfo_[] = {
-	{"target", "[C", nullptr, 0, $field(RegularExpression$CharArrayTarget, target)},
-	{}
-};
-
-$MethodInfo _RegularExpression$CharArrayTarget_MethodInfo_[] = {
-	{"<init>", "([C)V", nullptr, 0, $method(RegularExpression$CharArrayTarget, init$, void, $chars*)},
-	{"charAt", "(I)C", nullptr, 0, $virtualMethod(RegularExpression$CharArrayTarget, charAt, char16_t, int32_t)},
-	{"regionMatches", "(ZIILjava/lang/String;I)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$CharArrayTarget, regionMatches, bool, bool, int32_t, int32_t, $String*, int32_t)},
-	{"regionMatches", "(IILjava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharArrayTarget, regionMatches, bool, int32_t, int32_t, $String*, int32_t)},
-	{"regionMatches", "(ZIIII)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$CharArrayTarget, regionMatches, bool, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"regionMatches", "(IIII)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharArrayTarget, regionMatches, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"regionMatchesIgnoreCase", "(IILjava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharArrayTarget, regionMatchesIgnoreCase, bool, int32_t, int32_t, $String*, int32_t)},
-	{"regionMatchesIgnoreCase", "(IIII)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharArrayTarget, regionMatchesIgnoreCase, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"resetTarget", "([C)V", nullptr, $FINAL, $method(RegularExpression$CharArrayTarget, resetTarget, void, $chars*)},
-	{}
-};
-
-$InnerClassInfo _RegularExpression$CharArrayTarget_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharArrayTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "CharArrayTarget", $STATIC | $FINAL},
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ExpressionTarget", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RegularExpression$CharArrayTarget_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharArrayTarget",
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget",
-	nullptr,
-	_RegularExpression$CharArrayTarget_FieldInfo_,
-	_RegularExpression$CharArrayTarget_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RegularExpression$CharArrayTarget_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression"
-};
-
-$Object* allocate$RegularExpression$CharArrayTarget($Class* clazz) {
-	return $of($alloc(RegularExpression$CharArrayTarget));
-}
 
 void RegularExpression$CharArrayTarget::init$($chars* target) {
 	$RegularExpression$ExpressionTarget::init$();
@@ -137,7 +92,7 @@ bool RegularExpression$CharArrayTarget::regionMatchesIgnoreCase(int32_t offset, 
 	int32_t i = offset2;
 	while (partlen-- > 0) {
 		char16_t ch1 = $nc(this->target)->get(offset++);
-		char16_t ch2 = $nc(this->target)->get(i++);
+		char16_t ch2 = this->target->get(i++);
 		if (ch1 == ch2) {
 			continue;
 		}
@@ -158,7 +113,45 @@ RegularExpression$CharArrayTarget::RegularExpression$CharArrayTarget() {
 }
 
 $Class* RegularExpression$CharArrayTarget::load$($String* name, bool initialize) {
-	$loadClass(RegularExpression$CharArrayTarget, name, initialize, &_RegularExpression$CharArrayTarget_ClassInfo_, allocate$RegularExpression$CharArrayTarget);
+	$FieldInfo fieldInfos$$[] = {
+		{"target", "[C", nullptr, 0, $field(RegularExpression$CharArrayTarget, target)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([C)V", nullptr, 0, $method(RegularExpression$CharArrayTarget, init$, void, $chars*)},
+		{"charAt", "(I)C", nullptr, 0, $virtualMethod(RegularExpression$CharArrayTarget, charAt, char16_t, int32_t)},
+		{"regionMatches", "(ZIILjava/lang/String;I)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$CharArrayTarget, regionMatches, bool, bool, int32_t, int32_t, $String*, int32_t)},
+		{"regionMatches", "(IILjava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharArrayTarget, regionMatches, bool, int32_t, int32_t, $String*, int32_t)},
+		{"regionMatches", "(ZIIII)Z", nullptr, $FINAL, $virtualMethod(RegularExpression$CharArrayTarget, regionMatches, bool, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"regionMatches", "(IIII)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharArrayTarget, regionMatches, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"regionMatchesIgnoreCase", "(IILjava/lang/String;I)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharArrayTarget, regionMatchesIgnoreCase, bool, int32_t, int32_t, $String*, int32_t)},
+		{"regionMatchesIgnoreCase", "(IIII)Z", nullptr, $PRIVATE | $FINAL, $method(RegularExpression$CharArrayTarget, regionMatchesIgnoreCase, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"resetTarget", "([C)V", nullptr, $FINAL, $method(RegularExpression$CharArrayTarget, resetTarget, void, $chars*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharArrayTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "CharArrayTarget", $STATIC | $FINAL},
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ExpressionTarget", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$CharArrayTarget",
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ExpressionTarget",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression"
+	};
+	$loadClass(RegularExpression$CharArrayTarget, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegularExpression$CharArrayTarget);
+	});
 	return class$;
 }
 

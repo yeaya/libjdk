@@ -26,6 +26,7 @@ namespace javax {
 class $import CanonicalizationMethod : public ::javax::xml::crypto::dsig::Transform {
 	$interface(CanonicalizationMethod, 0, ::javax::xml::crypto::dsig::Transform)
 public:
+	static void clinit$(::java::lang::Class* clazz);
 	virtual ::java::security::spec::AlgorithmParameterSpec* getParameterSpec() override {return nullptr;}
 	static $String* INCLUSIVE;
 	static $String* INCLUSIVE_WITH_COMMENTS;

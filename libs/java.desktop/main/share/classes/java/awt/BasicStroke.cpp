@@ -1,5 +1,4 @@
 #include <java/awt/BasicStroke.h>
-
 #include <java/awt/Shape.h>
 #include <java/util/Arrays.h>
 #include <sun/java2d/pipe/RenderingEngine.h>
@@ -27,73 +26,6 @@ using $RenderingEngine = ::sun::java2d::pipe::RenderingEngine;
 
 namespace java {
 	namespace awt {
-
-$Attribute BasicStroke_Attribute_var$1[] = {
-	{'s', "lineWidth"},
-	{'s', "endCap"},
-	{'s', "lineJoin"},
-	{'s', "miterLimit"},
-	{'s', "dashArray"},
-	{'s', "dashPhase"},
-	{'-'}
-};
-
-$NamedAttribute BasicStroke_Attribute_var$0[] = {
-	{"value", '[', BasicStroke_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _BasicStroke_MethodAnnotations_init$0[] = {
-	{"Ljava/beans/ConstructorProperties;", BasicStroke_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _BasicStroke_FieldInfo_[] = {
-	{"JOIN_MITER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, JOIN_MITER)},
-	{"JOIN_ROUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, JOIN_ROUND)},
-	{"JOIN_BEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, JOIN_BEVEL)},
-	{"CAP_BUTT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, CAP_BUTT)},
-	{"CAP_ROUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, CAP_ROUND)},
-	{"CAP_SQUARE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, CAP_SQUARE)},
-	{"width", "F", nullptr, 0, $field(BasicStroke, width)},
-	{"join", "I", nullptr, 0, $field(BasicStroke, join)},
-	{"cap", "I", nullptr, 0, $field(BasicStroke, cap)},
-	{"miterlimit", "F", nullptr, 0, $field(BasicStroke, miterlimit)},
-	{"dash", "[F", nullptr, 0, $field(BasicStroke, dash)},
-	{"dash_phase", "F", nullptr, 0, $field(BasicStroke, dash_phase)},
-	{}
-};
-
-$MethodInfo _BasicStroke_MethodInfo_[] = {
-	{"<init>", "(FIIF[FF)V", nullptr, $PUBLIC, $method(BasicStroke, init$, void, float, int32_t, int32_t, float, $floats*, float), nullptr, nullptr, _BasicStroke_MethodAnnotations_init$0},
-	{"<init>", "(FIIF)V", nullptr, $PUBLIC, $method(BasicStroke, init$, void, float, int32_t, int32_t, float)},
-	{"<init>", "(FII)V", nullptr, $PUBLIC, $method(BasicStroke, init$, void, float, int32_t, int32_t)},
-	{"<init>", "(F)V", nullptr, $PUBLIC, $method(BasicStroke, init$, void, float)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(BasicStroke, init$, void)},
-	{"createStrokedShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BasicStroke, createStrokedShape, $Shape*, $Shape*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicStroke, equals, bool, Object$*)},
-	{"getDashArray", "()[F", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getDashArray, $floats*)},
-	{"getDashPhase", "()F", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getDashPhase, float)},
-	{"getEndCap", "()I", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getEndCap, int32_t)},
-	{"getLineJoin", "()I", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getLineJoin, int32_t)},
-	{"getLineWidth", "()F", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getLineWidth, float)},
-	{"getMiterLimit", "()F", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getMiterLimit, float)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicStroke, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _BasicStroke_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.BasicStroke",
-	"java.lang.Object",
-	"java.awt.Stroke",
-	_BasicStroke_FieldInfo_,
-	_BasicStroke_MethodInfo_
-};
-
-$Object* allocate$BasicStroke($Class* clazz) {
-	return $of($alloc(BasicStroke));
-}
 
 void BasicStroke::init$(float width, int32_t cap, int32_t join, float miterlimit, $floats* dash, float dash_phase) {
 	if (width < 0.0f) {
@@ -191,8 +123,8 @@ int32_t BasicStroke::hashCode() {
 	hash = hash * 31 + $Float::floatToIntBits(this->miterlimit);
 	if (this->dash != nullptr) {
 		hash = hash * 31 + $Float::floatToIntBits(this->dash_phase);
-		for (int32_t i = 0; i < $nc(this->dash)->length; ++i) {
-			hash = hash * 31 + $Float::floatToIntBits($nc(this->dash)->get(i));
+		for (int32_t i = 0; i < this->dash->length; ++i) {
+			hash = hash * 31 + $Float::floatToIntBits(this->dash->get(i));
 		}
 	}
 	return hash;
@@ -206,23 +138,23 @@ bool BasicStroke::equals(Object$* obj) {
 	if (this->width != $nc(bs)->width) {
 		return false;
 	}
-	if (this->join != $nc(bs)->join) {
+	if (this->join != bs->join) {
 		return false;
 	}
-	if (this->cap != $nc(bs)->cap) {
+	if (this->cap != bs->cap) {
 		return false;
 	}
-	if (this->miterlimit != $nc(bs)->miterlimit) {
+	if (this->miterlimit != bs->miterlimit) {
 		return false;
 	}
 	if (this->dash != nullptr) {
-		if (this->dash_phase != $nc(bs)->dash_phase) {
+		if (this->dash_phase != bs->dash_phase) {
 			return false;
 		}
-		if (!$Arrays::equals(this->dash, $nc(bs)->dash)) {
+		if (!$Arrays::equals(this->dash, bs->dash)) {
 			return false;
 		}
-	} else if ($nc(bs)->dash != nullptr) {
+	} else if (bs->dash != nullptr) {
 		return false;
 	}
 	return true;
@@ -232,7 +164,66 @@ BasicStroke::BasicStroke() {
 }
 
 $Class* BasicStroke::load$($String* name, bool initialize) {
-	$loadClass(BasicStroke, name, initialize, &_BasicStroke_ClassInfo_, allocate$BasicStroke);
+	$FieldInfo fieldInfos$$[] = {
+		{"JOIN_MITER", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, JOIN_MITER)},
+		{"JOIN_ROUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, JOIN_ROUND)},
+		{"JOIN_BEVEL", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, JOIN_BEVEL)},
+		{"CAP_BUTT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, CAP_BUTT)},
+		{"CAP_ROUND", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, CAP_ROUND)},
+		{"CAP_SQUARE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(BasicStroke, CAP_SQUARE)},
+		{"width", "F", nullptr, 0, $field(BasicStroke, width)},
+		{"join", "I", nullptr, 0, $field(BasicStroke, join)},
+		{"cap", "I", nullptr, 0, $field(BasicStroke, cap)},
+		{"miterlimit", "F", nullptr, 0, $field(BasicStroke, miterlimit)},
+		{"dash", "[F", nullptr, 0, $field(BasicStroke, dash)},
+		{"dash_phase", "F", nullptr, 0, $field(BasicStroke, dash_phase)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "lineWidth"},
+		{'s', "endCap"},
+		{'s', "lineJoin"},
+		{'s', "miterLimit"},
+		{'s', "dashArray"},
+		{'s', "dashPhase"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FIIF[FF)V", nullptr, $PUBLIC, $method(BasicStroke, init$, void, float, int32_t, int32_t, float, $floats*, float), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(FIIF)V", nullptr, $PUBLIC, $method(BasicStroke, init$, void, float, int32_t, int32_t, float)},
+		{"<init>", "(FII)V", nullptr, $PUBLIC, $method(BasicStroke, init$, void, float, int32_t, int32_t)},
+		{"<init>", "(F)V", nullptr, $PUBLIC, $method(BasicStroke, init$, void, float)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(BasicStroke, init$, void)},
+		{"createStrokedShape", "(Ljava/awt/Shape;)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(BasicStroke, createStrokedShape, $Shape*, $Shape*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicStroke, equals, bool, Object$*)},
+		{"getDashArray", "()[F", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getDashArray, $floats*)},
+		{"getDashPhase", "()F", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getDashPhase, float)},
+		{"getEndCap", "()I", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getEndCap, int32_t)},
+		{"getLineJoin", "()I", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getLineJoin, int32_t)},
+		{"getLineWidth", "()F", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getLineWidth, float)},
+		{"getMiterLimit", "()F", nullptr, $PUBLIC, $virtualMethod(BasicStroke, getMiterLimit, float)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(BasicStroke, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.BasicStroke",
+		"java.lang.Object",
+		"java.awt.Stroke",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BasicStroke, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicStroke);
+	});
 	return class$;
 }
 

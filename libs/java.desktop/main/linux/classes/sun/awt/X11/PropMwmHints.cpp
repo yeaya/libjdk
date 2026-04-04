@@ -1,5 +1,4 @@
 #include <sun/awt/X11/PropMwmHints.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,60 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _PropMwmHints_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(PropMwmHints, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(PropMwmHints, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(PropMwmHints, pData)},
-	{}
-};
-
-$MethodInfo _PropMwmHints_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(PropMwmHints, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PropMwmHints, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropMwmHints, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PropMwmHints, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PropMwmHints, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(PropMwmHints, getSize, int32_t)},
-	{"get_decorations", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_decorations, int64_t)},
-	{"get_flags", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_flags, int64_t)},
-	{"get_functions", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_functions, int64_t)},
-	{"get_inputMode", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_inputMode, int64_t)},
-	{"get_status", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_status, int64_t)},
-	{"set_decorations", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_decorations, void, int64_t)},
-	{"set_flags", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_flags, void, int64_t)},
-	{"set_functions", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_functions, void, int64_t)},
-	{"set_inputMode", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_inputMode, void, int64_t)},
-	{"set_status", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_status, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropMwmHints, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropMwmHints, zero, void)},
-	{}
-};
-
-$ClassInfo _PropMwmHints_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.PropMwmHints",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_PropMwmHints_FieldInfo_,
-	_PropMwmHints_MethodInfo_
-};
-
-$Object* allocate$PropMwmHints($Class* clazz) {
-	return $of($alloc(PropMwmHints));
-}
 
 int32_t PropMwmHints::getSize() {
 	$init(PropMwmHints);
@@ -103,7 +55,7 @@ void PropMwmHints::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -183,7 +135,7 @@ $String* PropMwmHints::getFieldsAsString() {
 }
 
 $Object* PropMwmHints::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void PropMwmHints::zero() {
@@ -198,7 +150,47 @@ PropMwmHints::PropMwmHints() {
 }
 
 $Class* PropMwmHints::load$($String* name, bool initialize) {
-	$loadClass(PropMwmHints, name, initialize, &_PropMwmHints_ClassInfo_, allocate$PropMwmHints);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(PropMwmHints, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(PropMwmHints, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(PropMwmHints, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(PropMwmHints, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PropMwmHints, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropMwmHints, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PropMwmHints, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PropMwmHints, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(PropMwmHints, getSize, int32_t)},
+		{"get_decorations", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_decorations, int64_t)},
+		{"get_flags", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_flags, int64_t)},
+		{"get_functions", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_functions, int64_t)},
+		{"get_inputMode", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_inputMode, int64_t)},
+		{"get_status", "()J", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, get_status, int64_t)},
+		{"set_decorations", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_decorations, void, int64_t)},
+		{"set_flags", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_flags, void, int64_t)},
+		{"set_functions", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_functions, void, int64_t)},
+		{"set_inputMode", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_inputMode, void, int64_t)},
+		{"set_status", "(J)V", nullptr, $PUBLIC, $virtualMethod(PropMwmHints, set_status, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropMwmHints, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(PropMwmHints, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.PropMwmHints",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PropMwmHints, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PropMwmHints);
+	});
 	return class$;
 }
 

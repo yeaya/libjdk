@@ -15,10 +15,13 @@ public:
 	InvalidOpenTypeException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0xD89FD714E8F6A392;
+	static const int64_t serialVersionUID = (int64_t)0xd89fd714e8f6a392;
 	InvalidOpenTypeException(const InvalidOpenTypeException& e);
 	virtual void throw$() override;
-	inline InvalidOpenTypeException* operator ->() {
+	inline InvalidOpenTypeException* operator ->() const {
+		return (InvalidOpenTypeException*)throwing$;
+	}
+	inline operator InvalidOpenTypeException*() const {
 		return (InvalidOpenTypeException*)throwing$;
 	}
 };

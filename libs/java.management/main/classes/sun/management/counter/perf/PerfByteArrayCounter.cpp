@@ -1,5 +1,4 @@
 #include <sun/management/counter/perf/PerfByteArrayCounter.h>
-
 #include <java/nio/ByteBuffer.h>
 #include <sun/management/counter/AbstractCounter.h>
 #include <sun/management/counter/Units.h>
@@ -20,46 +19,6 @@ namespace sun {
 	namespace management {
 		namespace counter {
 			namespace perf {
-
-$FieldInfo _PerfByteArrayCounter_FieldInfo_[] = {
-	{"bb", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(PerfByteArrayCounter, bb)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfByteArrayCounter, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PerfByteArrayCounter_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getFlags", "()I", nullptr, $PUBLIC},
-	{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
-	{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
-	{"*getVectorLength", "()I", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IILjava/nio/ByteBuffer;)V", nullptr, 0, $method(PerfByteArrayCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $ByteBuffer*)},
-	{"byteArrayValue", "()[B", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, byteArrayValue, $bytes*)},
-	{"byteAt", "(I)B", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, byteAt, int8_t, int32_t)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, getValue, $Object*)},
-	{"*isInternal", "()Z", nullptr, $PUBLIC},
-	{"*isVector", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, toString, $String*)},
-	{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfByteArrayCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
-	{}
-};
-
-$ClassInfo _PerfByteArrayCounter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.management.counter.perf.PerfByteArrayCounter",
-	"sun.management.counter.AbstractCounter",
-	"sun.management.counter.ByteArrayCounter",
-	_PerfByteArrayCounter_FieldInfo_,
-	_PerfByteArrayCounter_MethodInfo_
-};
-
-$Object* allocate$PerfByteArrayCounter($Class* clazz) {
-	return $of($alloc(PerfByteArrayCounter));
-}
 
 $String* PerfByteArrayCounter::getName() {
 	 return this->$AbstractCounter::getName();
@@ -111,7 +70,7 @@ void PerfByteArrayCounter::init$($String* name, $Units* u, $Variability* v, int3
 }
 
 $Object* PerfByteArrayCounter::getValue() {
-	return $of(byteArrayValue());
+	return byteArrayValue();
 }
 
 $bytes* PerfByteArrayCounter::byteArrayValue() {
@@ -127,11 +86,14 @@ int8_t PerfByteArrayCounter::byteAt(int32_t index) {
 }
 
 $String* PerfByteArrayCounter::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$2, $$str({$(getName()), ": "_s}));
-	$var($String, var$1, $$concat(var$2, $$new($String, $(byteArrayValue()))));
-	$var($String, var$0, $$concat(var$1, " "_s));
-	$var($String, result, $concat(var$0, $(getUnits())));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($(getName()));
+	var$0->append(": "_s);
+	var$0->append($$new($String, $(byteArrayValue())));
+	var$0->append(" "_s);
+	var$0->append($(getUnits()));
+	$var($String, result, $str(var$0));
 	if (isInternal()) {
 		return $str({result, " [INTERNAL]"_s});
 	} else {
@@ -140,7 +102,7 @@ $String* PerfByteArrayCounter::toString() {
 }
 
 $Object* PerfByteArrayCounter::writeReplace() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, getName());
 	$var($Units, var$1, getUnits());
 	$var($Variability, var$2, getVariability());
@@ -153,7 +115,42 @@ PerfByteArrayCounter::PerfByteArrayCounter() {
 }
 
 $Class* PerfByteArrayCounter::load$($String* name, bool initialize) {
-	$loadClass(PerfByteArrayCounter, name, initialize, &_PerfByteArrayCounter_ClassInfo_, allocate$PerfByteArrayCounter);
+	$FieldInfo fieldInfos$$[] = {
+		{"bb", "Ljava/nio/ByteBuffer;", nullptr, 0, $field(PerfByteArrayCounter, bb)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PerfByteArrayCounter, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getFlags", "()I", nullptr, $PUBLIC},
+		{"*getName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*getUnits", "()Lsun/management/counter/Units;", nullptr, $PUBLIC},
+		{"*getVariability", "()Lsun/management/counter/Variability;", nullptr, $PUBLIC},
+		{"*getVectorLength", "()I", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Lsun/management/counter/Units;Lsun/management/counter/Variability;IILjava/nio/ByteBuffer;)V", nullptr, 0, $method(PerfByteArrayCounter, init$, void, $String*, $Units*, $Variability*, int32_t, int32_t, $ByteBuffer*)},
+		{"byteArrayValue", "()[B", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, byteArrayValue, $bytes*)},
+		{"byteAt", "(I)B", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, byteAt, int8_t, int32_t)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, getValue, $Object*)},
+		{"*isInternal", "()Z", nullptr, $PUBLIC},
+		{"*isVector", "()Z", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PerfByteArrayCounter, toString, $String*)},
+		{"writeReplace", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(PerfByteArrayCounter, writeReplace, $Object*), "java.io.ObjectStreamException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.management.counter.perf.PerfByteArrayCounter",
+		"sun.management.counter.AbstractCounter",
+		"sun.management.counter.ByteArrayCounter",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PerfByteArrayCounter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PerfByteArrayCounter));
+	});
 	return class$;
 }
 

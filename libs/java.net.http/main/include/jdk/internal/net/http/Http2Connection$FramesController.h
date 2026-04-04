@@ -45,6 +45,7 @@ class $import Http2Connection$FramesController : public ::java::lang::Object {
 	$class(Http2Connection$FramesController, 0, ::java::lang::Object)
 public:
 	Http2Connection$FramesController();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::Http2Connection* this$0);
 	static $String* lambda$processReceivedData$0(::java::util::List* pending);
 	void markPrefaceSent();

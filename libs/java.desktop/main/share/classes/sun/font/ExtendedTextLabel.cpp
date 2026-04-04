@@ -1,5 +1,4 @@
 #include <sun/font/ExtendedTextLabel.h>
-
 #include <java/awt/geom/Rectangle2D.h>
 #include <sun/font/TextLabel.h>
 #include <jcpp.h>
@@ -11,50 +10,6 @@ using $TextLabel = ::sun::font::TextLabel;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _ExtendedTextLabel_MethodInfo_[] = {
-	{"applyJustificationDeltas", "([FI[Z)Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $ABSTRACT},
-	{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCharAdvance", "(I)F", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCharX", "(I)F", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCharY", "(I)F", nullptr, $PUBLIC | $ABSTRACT},
-	{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC},
-	{"getJustificationInfos", "([Ljava/awt/font/GlyphJustificationInfo;III)V", nullptr, $PUBLIC | $ABSTRACT},
-	{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC},
-	{"getNumCharacters", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"getNumJustificationInfos", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT},
-	{"getSubset", "(III)Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $ABSTRACT},
-	{"*getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedTextLabel, init$, void)},
-	{"getCharVisualBounds", "(IFF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedTextLabel, getCharVisualBounds, $Rectangle2D*, int32_t, float, float)},
-	{"getCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextLabel, getCharVisualBounds, $Rectangle2D*, int32_t)},
-	{"logicalToVisual", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedTextLabel, logicalToVisual, int32_t, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"visualToLogical", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedTextLabel, visualToLogical, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _ExtendedTextLabel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.font.ExtendedTextLabel",
-	"sun.font.TextLabel",
-	"sun.font.TextLineComponent",
-	nullptr,
-	_ExtendedTextLabel_MethodInfo_
-};
-
-$Object* allocate$ExtendedTextLabel($Class* clazz) {
-	return $of($alloc(ExtendedTextLabel));
-}
 
 $Rectangle2D* ExtendedTextLabel::getVisualBounds() {
 	 return this->$TextLabel::getVisualBounds();
@@ -93,14 +48,54 @@ void ExtendedTextLabel::init$() {
 }
 
 $Rectangle2D* ExtendedTextLabel::getCharVisualBounds(int32_t logicalIndex) {
-	return getCharVisualBounds(logicalIndex, (float)0, (float)0);
+	return getCharVisualBounds(logicalIndex, 0, 0);
 }
 
 ExtendedTextLabel::ExtendedTextLabel() {
 }
 
 $Class* ExtendedTextLabel::load$($String* name, bool initialize) {
-	$loadClass(ExtendedTextLabel, name, initialize, &_ExtendedTextLabel_ClassInfo_, allocate$ExtendedTextLabel);
+	$MethodInfo methodInfos$$[] = {
+		{"applyJustificationDeltas", "([FI[Z)Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $ABSTRACT},
+		{"caretAtOffsetIsValid", "(I)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*draw", "(Ljava/awt/Graphics2D;FF)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"getAdvanceBetween", "(II)F", nullptr, $PUBLIC | $ABSTRACT},
+		{"getCharAdvance", "(I)F", nullptr, $PUBLIC | $ABSTRACT},
+		{"getCharX", "(I)F", nullptr, $PUBLIC | $ABSTRACT},
+		{"getCharY", "(I)F", nullptr, $PUBLIC | $ABSTRACT},
+		{"getCoreMetrics", "()Lsun/font/CoreMetrics;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getItalicBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC},
+		{"getJustificationInfos", "([Ljava/awt/font/GlyphJustificationInfo;III)V", nullptr, $PUBLIC | $ABSTRACT},
+		{"getLineBreakIndex", "(IF)I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getLogicalBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC},
+		{"getNumCharacters", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"getNumJustificationInfos", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getOutline", "(FF)Ljava/awt/Shape;", nullptr, $PUBLIC | $ABSTRACT},
+		{"getSubset", "(III)Lsun/font/TextLineComponent;", nullptr, $PUBLIC | $ABSTRACT},
+		{"*getVisualBounds", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExtendedTextLabel, init$, void)},
+		{"getCharVisualBounds", "(IFF)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedTextLabel, getCharVisualBounds, $Rectangle2D*, int32_t, float, float)},
+		{"getCharVisualBounds", "(I)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(ExtendedTextLabel, getCharVisualBounds, $Rectangle2D*, int32_t)},
+		{"logicalToVisual", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedTextLabel, logicalToVisual, int32_t, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"visualToLogical", "(I)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ExtendedTextLabel, visualToLogical, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.font.ExtendedTextLabel",
+		"sun.font.TextLabel",
+		"sun.font.TextLineComponent",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ExtendedTextLabel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExtendedTextLabel));
+	});
 	return class$;
 }
 

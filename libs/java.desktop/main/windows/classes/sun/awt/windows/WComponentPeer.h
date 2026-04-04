@@ -101,6 +101,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Component* target);
 	void _dispose();
 	void _setBackground(int32_t rgb);

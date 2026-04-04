@@ -1,11 +1,9 @@
 #include <sun/security/jgss/krb5/Krb5InitCredential.h>
-
 #include <java/io/IOException.h>
 #include <java/net/InetAddress.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
-#include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/Provider.h>
 #include <java/util/Date.h>
 #include <javax/crypto/SecretKey.h>
@@ -48,10 +46,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
-using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Provider = ::java::security::Provider;
 using $Date = ::java::util::Date;
-using $SecretKey = ::javax::crypto::SecretKey;
 using $DestroyFailedException = ::javax::security::auth::DestroyFailedException;
 using $KerberosPrincipal = ::javax::security::auth::kerberos::KerberosPrincipal;
 using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
@@ -66,7 +62,6 @@ using $GSSCredentialSpi = ::sun::security::jgss::spi::GSSCredentialSpi;
 using $GSSNameSpi = ::sun::security::jgss::spi::GSSNameSpi;
 using $Credentials = ::sun::security::krb5::Credentials;
 using $EncryptionKey = ::sun::security::krb5::EncryptionKey;
-using $JavaxSecurityAuthKerberosAccess = ::sun::security::krb5::JavaxSecurityAuthKerberosAccess;
 using $KerberosSecrets = ::sun::security::krb5::KerberosSecrets;
 using $KrbException = ::sun::security::krb5::KrbException;
 using $PrincipalName = ::sun::security::krb5::PrincipalName;
@@ -75,62 +70,6 @@ namespace sun {
 	namespace security {
 		namespace jgss {
 			namespace krb5 {
-
-$FieldInfo _Krb5InitCredential_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5InitCredential, serialVersionUID)},
-	{"name", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE, $field(Krb5InitCredential, name)},
-	{"krb5Credentials", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(Krb5InitCredential, krb5Credentials)},
-	{"proxyTicket", "Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC, $field(Krb5InitCredential, proxyTicket)},
-	{}
-};
-
-$MethodInfo _Krb5InitCredential_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5NameElement;[BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[BI[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(Krb5InitCredential, init$, void, $Krb5NameElement*, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*, int32_t, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*), "org.ietf.jgss.GSSException"},
-	{"<init>", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/krb5/Credentials;[BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[BI[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(Krb5InitCredential, init$, void, $Krb5NameElement*, $Credentials*, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*, int32_t, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*), "org.ietf.jgss.GSSException"},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, dispose, void), "org.ietf.jgss.GSSException"},
-	{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getInstance", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;I)Lsun/security/jgss/krb5/Krb5InitCredential;", nullptr, $STATIC, $staticMethod(Krb5InitCredential, getInstance, Krb5InitCredential*, $GSSCaller*, $Krb5NameElement*, int32_t), "org.ietf.jgss.GSSException"},
-	{"getInstance", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/krb5/Credentials;)Lsun/security/jgss/krb5/Krb5InitCredential;", nullptr, $STATIC, $staticMethod(Krb5InitCredential, getInstance, Krb5InitCredential*, $Krb5NameElement*, $Credentials*), "org.ietf.jgss.GSSException"},
-	{"getKrb5Credentials", "()Lsun/security/krb5/Credentials;", nullptr, 0, $virtualMethod(Krb5InitCredential, getKrb5Credentials, $Credentials*)},
-	{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5InitCredential, getMechanism, $Oid*)},
-	{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5InitCredential, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5InitCredential, getProvider, $Provider*)},
-	{"getTgt", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;I)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5InitCredential, getTgt, $KerberosTicket*, $GSSCaller*, $Krb5NameElement*, int32_t), "org.ietf.jgss.GSSException"},
-	{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
-	{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
-	{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Krb5InitCredential_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.Krb5InitCredential$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Krb5InitCredential_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.jgss.krb5.Krb5InitCredential",
-	"javax.security.auth.kerberos.KerberosTicket",
-	"sun.security.jgss.krb5.Krb5CredElement",
-	_Krb5InitCredential_FieldInfo_,
-	_Krb5InitCredential_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Krb5InitCredential_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.Krb5InitCredential$1"
-};
-
-$Object* allocate$Krb5InitCredential($Class* clazz) {
-	return $of($alloc(Krb5InitCredential));
-}
 
 $String* Krb5InitCredential::toString() {
 	 return this->$KerberosTicket::toString();
@@ -153,17 +92,16 @@ void Krb5InitCredential::finalize() {
 }
 
 void Krb5InitCredential::init$($Krb5NameElement* name, $bytes* asn1Encoding, $KerberosPrincipal* client, $KerberosPrincipal* clientAlias, $KerberosPrincipal* server, $KerberosPrincipal* serverAlias, $bytes* sessionKey, int32_t keyType, $booleans* flags, $Date* authTime, $Date* startTime, $Date* endTime, $Date* renewTill, $InetAddressArray* clientAddresses) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$KerberosTicket::init$(asn1Encoding, client, server, sessionKey, keyType, flags, authTime, startTime, endTime, renewTill, clientAddresses);
-	$nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketSetClientAlias(this, clientAlias);
-	$nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketSetServerAlias(this, serverAlias);
+	$$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketSetClientAlias(this, clientAlias);
+	$$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketSetServerAlias(this, serverAlias);
 	$set(this, name, name);
 	try {
-		$var($bytes, var$0, asn1Encoding);
-		$var($String, var$1, $nc(client)->getName());
-		$var($String, var$2, (clientAlias != nullptr ? $nc(clientAlias)->getName() : ($String*)nullptr));
-		$var($String, var$3, $nc(server)->getName());
-		$set(this, krb5Credentials, $new($Credentials, var$0, var$1, var$2, var$3, (serverAlias != nullptr ? $($nc(serverAlias)->getName()) : ($String*)nullptr), sessionKey, keyType, flags, authTime, startTime, endTime, renewTill, clientAddresses));
+		$var($String, var$0, $nc(client)->getName());
+		$var($String, var$1, clientAlias != nullptr ? clientAlias->getName() : ($String*)nullptr);
+		$var($String, var$2, $nc(server)->getName());
+		$set(this, krb5Credentials, $new($Credentials, asn1Encoding, var$0, var$1, var$2, (serverAlias != nullptr ? $(serverAlias->getName()) : ($String*)nullptr), sessionKey, keyType, flags, authTime, startTime, endTime, renewTill, clientAddresses));
 	} catch ($KrbException& e) {
 		$throwNew($GSSException, $GSSException::NO_CRED, -1, $(e->getMessage()));
 	} catch ($IOException& e) {
@@ -172,50 +110,47 @@ void Krb5InitCredential::init$($Krb5NameElement* name, $bytes* asn1Encoding, $Ke
 }
 
 void Krb5InitCredential::init$($Krb5NameElement* name, $Credentials* delegatedCred, $bytes* asn1Encoding, $KerberosPrincipal* client, $KerberosPrincipal* clientAlias, $KerberosPrincipal* server, $KerberosPrincipal* serverAlias, $bytes* sessionKey, int32_t keyType, $booleans* flags, $Date* authTime, $Date* startTime, $Date* endTime, $Date* renewTill, $InetAddressArray* clientAddresses) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$KerberosTicket::init$(asn1Encoding, client, server, sessionKey, keyType, flags, authTime, startTime, endTime, renewTill, clientAddresses);
-	$nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketSetClientAlias(this, clientAlias);
-	$nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketSetServerAlias(this, serverAlias);
+	$$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketSetClientAlias(this, clientAlias);
+	$$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketSetServerAlias(this, serverAlias);
 	$set(this, name, name);
 	$set(this, krb5Credentials, delegatedCred);
 }
 
 Krb5InitCredential* Krb5InitCredential::getInstance($GSSCaller* caller, $Krb5NameElement* name$renamed, int32_t initLifetime) {
 	$init(Krb5InitCredential);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Krb5NameElement, name, name$renamed);
 	$var($KerberosTicket, tgt, getTgt(caller, name, initLifetime));
 	if (tgt == nullptr) {
 		$throwNew($GSSException, $GSSException::NO_CRED, -1, "Failed to find any Kerberos tgt"_s);
 	}
 	if (name == nullptr) {
-		$var($String, fullName, $nc($($nc(tgt)->getClient()))->getName());
+		$var($String, fullName, $$nc($nc(tgt)->getClient())->getName());
 		$init($Krb5MechFactory);
 		$assign(name, $Krb5NameElement::getInstance(fullName, $Krb5MechFactory::NT_GSS_KRB5_PRINCIPAL));
 	}
-	$var($KerberosPrincipal, clientAlias, $nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketGetClientAlias(tgt));
-	$var($KerberosPrincipal, serverAlias, $nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketGetServerAlias(tgt));
-	$var($Krb5NameElement, var$0, name);
-	$var($bytes, var$1, $nc(tgt)->getEncoded());
-	$var($KerberosPrincipal, var$2, tgt->getClient());
-	$var($KerberosPrincipal, var$3, clientAlias);
-	$var($KerberosPrincipal, var$4, tgt->getServer());
-	$var($KerberosPrincipal, var$5, serverAlias);
-	$var($bytes, var$6, $nc($(tgt->getSessionKey()))->getEncoded());
-	int32_t var$7 = tgt->getSessionKeyType();
-	$var($booleans, var$8, tgt->getFlags());
-	$var($Date, var$9, tgt->getAuthTime());
-	$var($Date, var$10, tgt->getStartTime());
-	$var($Date, var$11, tgt->getEndTime());
-	$var($Date, var$12, tgt->getRenewTill());
-	$var(Krb5InitCredential, result, $new(Krb5InitCredential, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, $(tgt->getClientAddresses())));
-	$set(result, proxyTicket, $nc($($KerberosSecrets::getJavaxSecurityAuthKerberosAccess()))->kerberosTicketGetProxy(tgt));
+	$var($KerberosPrincipal, clientAlias, $$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketGetClientAlias(tgt));
+	$var($KerberosPrincipal, serverAlias, $$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketGetServerAlias(tgt));
+	$var($bytes, var$0, $nc(tgt)->getEncoded());
+	$var($KerberosPrincipal, var$1, tgt->getClient());
+	$var($KerberosPrincipal, var$2, tgt->getServer());
+	$var($bytes, var$3, $$nc(tgt->getSessionKey())->getEncoded());
+	int32_t var$4 = tgt->getSessionKeyType();
+	$var($booleans, var$5, tgt->getFlags());
+	$var($Date, var$6, tgt->getAuthTime());
+	$var($Date, var$7, tgt->getStartTime());
+	$var($Date, var$8, tgt->getEndTime());
+	$var($Date, var$9, tgt->getRenewTill());
+	$var(Krb5InitCredential, result, $new(Krb5InitCredential, name, var$0, var$1, clientAlias, var$2, serverAlias, var$3, var$4, var$5, var$6, var$7, var$8, var$9, $(tgt->getClientAddresses())));
+	$set(result, proxyTicket, $$nc($KerberosSecrets::getJavaxSecurityAuthKerberosAccess())->kerberosTicketGetProxy(tgt));
 	return result;
 }
 
 Krb5InitCredential* Krb5InitCredential::getInstance($Krb5NameElement* name, $Credentials* delegatedCred) {
 	$init(Krb5InitCredential);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EncryptionKey, sessionKey, $nc(delegatedCred)->getSessionKey());
 	$var($PrincipalName, cPrinc, delegatedCred->getClient());
 	$var($PrincipalName, cAPrinc, delegatedCred->getClientAlias());
@@ -241,21 +176,15 @@ Krb5InitCredential* Krb5InitCredential::getInstance($Krb5NameElement* name, $Cre
 	if (sAPrinc != nullptr) {
 		$assign(serverAlias, $new($KerberosPrincipal, $(sAPrinc->getName())));
 	}
-	$var($Krb5NameElement, var$0, credName);
-	$var($Credentials, var$1, delegatedCred);
-	$var($bytes, var$2, delegatedCred->getEncoded());
-	$var($KerberosPrincipal, var$3, client);
-	$var($KerberosPrincipal, var$4, clientAlias);
-	$var($KerberosPrincipal, var$5, server);
-	$var($KerberosPrincipal, var$6, serverAlias);
-	$var($bytes, var$7, $nc(sessionKey)->getBytes());
-	int32_t var$8 = sessionKey->getEType();
-	$var($booleans, var$9, delegatedCred->getFlags());
-	$var($Date, var$10, delegatedCred->getAuthTime());
-	$var($Date, var$11, delegatedCred->getStartTime());
-	$var($Date, var$12, delegatedCred->getEndTime());
-	$var($Date, var$13, delegatedCred->getRenewTill());
-	return $new(Krb5InitCredential, var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, var$9, var$10, var$11, var$12, var$13, $(delegatedCred->getClientAddresses()));
+	$var($bytes, var$0, delegatedCred->getEncoded());
+	$var($bytes, var$1, $nc(sessionKey)->getBytes());
+	int32_t var$2 = sessionKey->getEType();
+	$var($booleans, var$3, delegatedCred->getFlags());
+	$var($Date, var$4, delegatedCred->getAuthTime());
+	$var($Date, var$5, delegatedCred->getStartTime());
+	$var($Date, var$6, delegatedCred->getEndTime());
+	$var($Date, var$7, delegatedCred->getRenewTill());
+	return $new(Krb5InitCredential, credName, delegatedCred, var$0, client, clientAlias, server, serverAlias, var$1, var$2, var$3, var$4, var$5, var$6, var$7, $(delegatedCred->getClientAddresses()));
 }
 
 $GSSNameSpi* Krb5InitCredential::getName() {
@@ -299,7 +228,7 @@ $Credentials* Krb5InitCredential::getKrb5Credentials() {
 }
 
 void Krb5InitCredential::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		destroy();
 	} catch ($DestroyFailedException& e) {
@@ -310,11 +239,11 @@ void Krb5InitCredential::dispose() {
 
 $KerberosTicket* Krb5InitCredential::getTgt($GSSCaller* caller, $Krb5NameElement* name, int32_t initLifetime) {
 	$init(Krb5InitCredential);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, clientPrincipal, nullptr);
 	if (name != nullptr) {
-		$assign(clientPrincipal, $nc(($(name->getKrb5PrincipalName())))->getName());
+		$assign(clientPrincipal, ($$nc(name->getKrb5PrincipalName()))->getName());
 	} else {
 		$assign(clientPrincipal, nullptr);
 	}
@@ -322,7 +251,7 @@ $KerberosTicket* Krb5InitCredential::getTgt($GSSCaller* caller, $Krb5NameElement
 	try {
 		$init($GSSCaller);
 		$var($GSSCaller, realCaller, (caller == $GSSCaller::CALLER_UNKNOWN) ? $GSSCaller::CALLER_INITIATE : caller);
-		return $cast($KerberosTicket, $AccessController::doPrivileged(static_cast<$PrivilegedExceptionAction*>($$new($Krb5InitCredential$1, realCaller, clientPrincipal, acc))));
+		return $cast($KerberosTicket, $AccessController::doPrivileged($$new($Krb5InitCredential$1, realCaller, clientPrincipal, acc)));
 	} catch ($PrivilegedActionException& e) {
 		$var($GSSException, ge, $new($GSSException, $GSSException::NO_CRED, -1, $$str({"Attempt to obtain new INITIATE credentials failed! ("_s, $(e->getMessage()), ")"_s})));
 		ge->initCause($(e->getException()));
@@ -332,7 +261,7 @@ $KerberosTicket* Krb5InitCredential::getTgt($GSSCaller* caller, $Krb5NameElement
 }
 
 $GSSCredentialSpi* Krb5InitCredential::impersonate($GSSNameSpi* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($Krb5NameElement, kname, $cast($Krb5NameElement, name));
 		$var($Credentials, newCred, $Credentials::acquireS4U2selfCreds($($nc(kname)->getKrb5PrincipalName()), this->krb5Credentials));
@@ -353,7 +282,57 @@ Krb5InitCredential::Krb5InitCredential() {
 }
 
 $Class* Krb5InitCredential::load$($String* name, bool initialize) {
-	$loadClass(Krb5InitCredential, name, initialize, &_Krb5InitCredential_ClassInfo_, allocate$Krb5InitCredential);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Krb5InitCredential, serialVersionUID)},
+		{"name", "Lsun/security/jgss/krb5/Krb5NameElement;", nullptr, $PRIVATE, $field(Krb5InitCredential, name)},
+		{"krb5Credentials", "Lsun/security/krb5/Credentials;", nullptr, $PRIVATE, $field(Krb5InitCredential, krb5Credentials)},
+		{"proxyTicket", "Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PUBLIC, $field(Krb5InitCredential, proxyTicket)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5NameElement;[BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[BI[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(Krb5InitCredential, init$, void, $Krb5NameElement*, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*, int32_t, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*), "org.ietf.jgss.GSSException"},
+		{"<init>", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/krb5/Credentials;[BLjavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;Ljavax/security/auth/kerberos/KerberosPrincipal;[BI[ZLjava/util/Date;Ljava/util/Date;Ljava/util/Date;Ljava/util/Date;[Ljava/net/InetAddress;)V", nullptr, $PRIVATE, $method(Krb5InitCredential, init$, void, $Krb5NameElement*, $Credentials*, $bytes*, $KerberosPrincipal*, $KerberosPrincipal*, $KerberosPrincipal*, $KerberosPrincipal*, $bytes*, int32_t, $booleans*, $Date*, $Date*, $Date*, $Date*, $InetAddressArray*), "org.ietf.jgss.GSSException"},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, dispose, void), "org.ietf.jgss.GSSException"},
+		{"getAcceptLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, getAcceptLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getInitLifetime", "()I", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, getInitLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getInstance", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;I)Lsun/security/jgss/krb5/Krb5InitCredential;", nullptr, $STATIC, $staticMethod(Krb5InitCredential, getInstance, Krb5InitCredential*, $GSSCaller*, $Krb5NameElement*, int32_t), "org.ietf.jgss.GSSException"},
+		{"getInstance", "(Lsun/security/jgss/krb5/Krb5NameElement;Lsun/security/krb5/Credentials;)Lsun/security/jgss/krb5/Krb5InitCredential;", nullptr, $STATIC, $staticMethod(Krb5InitCredential, getInstance, Krb5InitCredential*, $Krb5NameElement*, $Credentials*), "org.ietf.jgss.GSSException"},
+		{"getKrb5Credentials", "()Lsun/security/krb5/Credentials;", nullptr, 0, $virtualMethod(Krb5InitCredential, getKrb5Credentials, $Credentials*)},
+		{"getMechanism", "()Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5InitCredential, getMechanism, $Oid*)},
+		{"getName", "()Lsun/security/jgss/spi/GSSNameSpi;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5InitCredential, getName, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"getProvider", "()Ljava/security/Provider;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Krb5InitCredential, getProvider, $Provider*)},
+		{"getTgt", "(Lsun/security/jgss/GSSCaller;Lsun/security/jgss/krb5/Krb5NameElement;I)Ljavax/security/auth/kerberos/KerberosTicket;", nullptr, $PRIVATE | $STATIC, $staticMethod(Krb5InitCredential, getTgt, $KerberosTicket*, $GSSCaller*, $Krb5NameElement*, int32_t), "org.ietf.jgss.GSSException"},
+		{"impersonate", "(Lsun/security/jgss/spi/GSSNameSpi;)Lsun/security/jgss/spi/GSSCredentialSpi;", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, impersonate, $GSSCredentialSpi*, $GSSNameSpi*), "org.ietf.jgss.GSSException"},
+		{"isAcceptorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, isAcceptorCredential, bool), "org.ietf.jgss.GSSException"},
+		{"isInitiatorCredential", "()Z", nullptr, $PUBLIC, $virtualMethod(Krb5InitCredential, isInitiatorCredential, bool), "org.ietf.jgss.GSSException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.Krb5InitCredential$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.jgss.krb5.Krb5InitCredential",
+		"javax.security.auth.kerberos.KerberosTicket",
+		"sun.security.jgss.krb5.Krb5CredElement",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.Krb5InitCredential$1"
+	};
+	$loadClass(Krb5InitCredential, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Krb5InitCredential));
+	});
 	return class$;
 }
 

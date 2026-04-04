@@ -1,5 +1,4 @@
 #include <bug7161568.h>
-
 #include <bug7161568$1.h>
 #include <bug7161568$2.h>
 #include <java/awt/Component.h>
@@ -28,8 +27,6 @@
 
 using $bug7161568$1 = ::bug7161568$1;
 using $bug7161568$2 = ::bug7161568$2;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Serializable = ::java::io::Serializable;
@@ -54,70 +51,27 @@ public:
 	virtual void run() override {
 		bug7161568::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug7161568$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug7161568$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7161568$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7161568$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo bug7161568$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug7161568$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug7161568$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(bug7161568$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7161568$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug7161568$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug7161568$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug7161568$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7161568$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* bug7161568$$Lambda$lambda$main$0::class$ = nullptr;
-
-$FieldInfo _bug7161568_FieldInfo_[] = {
-	{"N", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug7161568, N)},
-	{"tabbedPane", "Ljavax/swing/JTabbedPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug7161568, tabbedPane)},
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug7161568, frame)},
-	{}
-};
-
-$MethodInfo _bug7161568_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug7161568, init$, void)},
-	{"createAndShowUI", "()V", nullptr, $STATIC, $staticMethod(bug7161568, createAndShowUI, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug7161568, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7161568, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug7161568_InnerClassesInfo_[] = {
-	{"bug7161568$2", nullptr, nullptr, 0},
-	{"bug7161568$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug7161568_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug7161568",
-	"java.lang.Object",
-	nullptr,
-	_bug7161568_FieldInfo_,
-	_bug7161568_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug7161568_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug7161568$2,bug7161568$1"
-};
-
-$Object* allocate$bug7161568($Class* clazz) {
-	return $of($alloc(bug7161568));
-}
 
 $JTabbedPane* bug7161568::tabbedPane = nullptr;
 $JFrame* bug7161568::frame = nullptr;
@@ -126,49 +80,46 @@ void bug7161568::init$() {
 }
 
 void bug7161568::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
-	$init($Boolean);
+	$useLocalObjectStack();
 	$UIManager::put("TabbedPane.selectionFollowsFocus"_s, $Boolean::FALSE);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(50);
-			$SwingUtilities::invokeAndWait($$new($bug7161568$1));
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(50);
+		$SwingUtilities::invokeAndWait($$new($bug7161568$1));
+		robot->waitForIdle();
+		$SwingUtilities::invokeAndWait($$new($bug7161568$2));
+		robot->waitForIdle();
+		for (int32_t i = 0; i < bug7161568::N; ++i) {
+			robot->keyPress($KeyEvent::VK_LEFT);
+			robot->keyRelease($KeyEvent::VK_LEFT);
 			robot->waitForIdle();
-			$SwingUtilities::invokeAndWait($$new($bug7161568$2));
-			robot->waitForIdle();
-			for (int32_t i = 0; i < bug7161568::N; ++i) {
-				robot->keyPress($KeyEvent::VK_LEFT);
-				robot->keyRelease($KeyEvent::VK_LEFT);
-				robot->waitForIdle();
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$init(bug7161568);
-			if (bug7161568::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug7161568$$Lambda$lambda$main$0)));
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$init(bug7161568);
+		if (bug7161568::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(bug7161568$$Lambda$lambda$main$0));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void bug7161568::createAndShowUI() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init(bug7161568);
 	$assignStatic(bug7161568::frame, $new($JFrame, "Test"_s));
-	$nc(bug7161568::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
+	bug7161568::frame->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(bug7161568::frame)->setSize(100, 100);
 	$assignStatic(bug7161568::tabbedPane, $new($JTabbedPane));
 	for (int32_t i = 0; i < bug7161568::N; ++i) {
 		$nc(bug7161568::tabbedPane)->addTab($$str({"Tab: "_s, $$str(i)}), $$new($JLabel, "Test"_s));
 	}
 	$nc(bug7161568::tabbedPane)->setSelectedIndex(0);
-	$nc($($nc(bug7161568::frame)->getContentPane()))->add(static_cast<$Component*>(bug7161568::tabbedPane));
+	$$nc($nc(bug7161568::frame)->getContentPane())->add(bug7161568::tabbedPane);
 	$nc(bug7161568::frame)->setVisible(true);
 }
 
@@ -182,11 +133,45 @@ bug7161568::bug7161568() {
 
 $Class* bug7161568::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug7161568$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("bug7161568$$Lambda$lambda$main$0")) {
 			return bug7161568$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(bug7161568, name, initialize, &_bug7161568_ClassInfo_, allocate$bug7161568);
+	$FieldInfo fieldInfos$$[] = {
+		{"N", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(bug7161568, N)},
+		{"tabbedPane", "Ljavax/swing/JTabbedPane;", nullptr, $PRIVATE | $STATIC, $staticField(bug7161568, tabbedPane)},
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug7161568, frame)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug7161568, init$, void)},
+		{"createAndShowUI", "()V", nullptr, $STATIC, $staticMethod(bug7161568, createAndShowUI, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug7161568, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug7161568, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug7161568$2", nullptr, nullptr, 0},
+		{"bug7161568$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug7161568",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug7161568$2,bug7161568$1"
+	};
+	$loadClass(bug7161568, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug7161568);
+	});
 	return class$;
 }
 

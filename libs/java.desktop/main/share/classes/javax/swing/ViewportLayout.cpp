@@ -1,5 +1,4 @@
 #include <javax/swing/ViewportLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -15,7 +14,6 @@
 #undef SHARED_INSTANCE
 
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
@@ -30,39 +28,6 @@ using $Scrollable = ::javax::swing::Scrollable;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ViewportLayout_FieldInfo_[] = {
-	{"SHARED_INSTANCE", "Ljavax/swing/ViewportLayout;", nullptr, $STATIC, $staticField(ViewportLayout, SHARED_INSTANCE)},
-	{}
-};
-
-$MethodInfo _ViewportLayout_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ViewportLayout, init$, void)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, removeLayoutComponent, void, $Component*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ViewportLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.ViewportLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager,java.io.Serializable",
-	_ViewportLayout_FieldInfo_,
-	_ViewportLayout_MethodInfo_
-};
-
-$Object* allocate$ViewportLayout($Class* clazz) {
-	return $of($alloc(ViewportLayout));
-}
 
 int32_t ViewportLayout::hashCode() {
 	 return this->$LayoutManager::hashCode();
@@ -96,13 +61,13 @@ void ViewportLayout::removeLayoutComponent($Component* c) {
 }
 
 $Dimension* ViewportLayout::preferredLayoutSize($Container* parent) {
-	$var($Component, view, $nc(($cast($JViewport, parent)))->getView());
+	$var($Component, view, $nc($cast($JViewport, parent))->getView());
 	if (view == nullptr) {
 		return $new($Dimension, 0, 0);
 	} else if ($instanceOf($Scrollable, view)) {
-		return $nc(($cast($Scrollable, view)))->getPreferredScrollableViewportSize();
+		return $cast($Scrollable, view)->getPreferredScrollableViewportSize();
 	} else {
-		return $nc(view)->getPreferredSize();
+		return view->getPreferredSize();
 	}
 }
 
@@ -111,7 +76,7 @@ $Dimension* ViewportLayout::minimumLayoutSize($Container* parent) {
 }
 
 void ViewportLayout::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JViewport, vp, $cast($JViewport, parent));
 	$var($Component, view, $nc(vp)->getView());
 	$var($Scrollable, scrollableView, nullptr);
@@ -135,23 +100,23 @@ void ViewportLayout::layoutContainer($Container* parent) {
 	}
 	$var($Point, viewPosition, vp->getViewPosition());
 	bool var$0 = scrollableView == nullptr || vp->getParent() == nullptr;
-	if (var$0 || $nc($($nc($(vp->getParent()))->getComponentOrientation()))->isLeftToRight()) {
+	if (var$0 || $$nc($$nc(vp->getParent())->getComponentOrientation())->isLeftToRight()) {
 		if (($nc(viewPosition)->x + $nc(extentSize)->width) > viewSize->width) {
 			viewPosition->x = $Math::max(0, viewSize->width - extentSize->width);
 		}
 	} else if ($nc(extentSize)->width > viewSize->width) {
 		$nc(viewPosition)->x = viewSize->width - extentSize->width;
 	} else {
-		$nc(viewPosition)->x = $Math::max(0, $Math::min(viewSize->width - extentSize->width, viewPosition->x));
+		$nc(viewPosition)->x = $Math::max(0, $Math::min(viewSize->width - extentSize->width, $nc(viewPosition)->x));
 	}
 	if (($nc(viewPosition)->y + $nc(extentSize)->height) > viewSize->height) {
 		viewPosition->y = $Math::max(0, viewSize->height - extentSize->height);
 	}
 	if (scrollableView == nullptr) {
-		if (($nc(viewPosition)->x == 0) && ($nc(vpSize)->width > $nc(viewPrefSize)->width)) {
+		if ((viewPosition->x == 0) && ($nc(vpSize)->width > $nc(viewPrefSize)->width)) {
 			viewSize->width = vpSize->width;
 		}
-		if (($nc(viewPosition)->y == 0) && ($nc(vpSize)->height > $nc(viewPrefSize)->height)) {
+		if ((viewPosition->y == 0) && ($nc(vpSize)->height > $nc(viewPrefSize)->height)) {
 			viewSize->height = vpSize->height;
 		}
 	}
@@ -159,7 +124,7 @@ void ViewportLayout::layoutContainer($Container* parent) {
 	vp->setViewSize(viewSize);
 }
 
-void clinit$ViewportLayout($Class* class$) {
+void ViewportLayout::clinit$($Class* clazz) {
 	$assignStatic(ViewportLayout::SHARED_INSTANCE, $new(ViewportLayout));
 }
 
@@ -167,7 +132,35 @@ ViewportLayout::ViewportLayout() {
 }
 
 $Class* ViewportLayout::load$($String* name, bool initialize) {
-	$loadClass(ViewportLayout, name, initialize, &_ViewportLayout_ClassInfo_, clinit$ViewportLayout, allocate$ViewportLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"SHARED_INSTANCE", "Ljavax/swing/ViewportLayout;", nullptr, $STATIC, $staticField(ViewportLayout, SHARED_INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ViewportLayout, init$, void)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(ViewportLayout, removeLayoutComponent, void, $Component*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.ViewportLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ViewportLayout, name, initialize, &classInfo$$, ViewportLayout::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ViewportLayout));
+	});
 	return class$;
 }
 

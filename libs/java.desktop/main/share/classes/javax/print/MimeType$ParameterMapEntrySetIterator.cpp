@@ -1,5 +1,4 @@
 #include <javax/print/MimeType$ParameterMapEntrySetIterator.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/NoSuchElementException.h>
 #include <javax/print/MimeType$ParameterMapEntry.h>
@@ -18,46 +17,6 @@ using $MimeType$ParameterMapEntry = ::javax::print::MimeType$ParameterMapEntry;
 namespace javax {
 	namespace print {
 
-$FieldInfo _MimeType$ParameterMapEntrySetIterator_FieldInfo_[] = {
-	{"this$0", "Ljavax/print/MimeType;", nullptr, $FINAL | $SYNTHETIC, $field(MimeType$ParameterMapEntrySetIterator, this$0)},
-	{"myIndex", "I", nullptr, $PRIVATE, $field(MimeType$ParameterMapEntrySetIterator, myIndex)},
-	{}
-};
-
-$MethodInfo _MimeType$ParameterMapEntrySetIterator_MethodInfo_[] = {
-	{"<init>", "(Ljavax/print/MimeType;)V", nullptr, $PRIVATE, $method(MimeType$ParameterMapEntrySetIterator, init$, void, $MimeType*)},
-	{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntrySetIterator, hasNext, bool)},
-	{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeType$ParameterMapEntrySetIterator, next, $Object*)},
-	{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntrySetIterator, remove, void)},
-	{}
-};
-
-$InnerClassInfo _MimeType$ParameterMapEntrySetIterator_InnerClassesInfo_[] = {
-	{"javax.print.MimeType$ParameterMapEntrySetIterator", "javax.print.MimeType", "ParameterMapEntrySetIterator", $PRIVATE},
-	{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _MimeType$ParameterMapEntrySetIterator_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.print.MimeType$ParameterMapEntrySetIterator",
-	"java.lang.Object",
-	"java.util.Iterator",
-	_MimeType$ParameterMapEntrySetIterator_FieldInfo_,
-	_MimeType$ParameterMapEntrySetIterator_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;",
-	nullptr,
-	_MimeType$ParameterMapEntrySetIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.print.MimeType"
-};
-
-$Object* allocate$MimeType$ParameterMapEntrySetIterator($Class* clazz) {
-	return $of($alloc(MimeType$ParameterMapEntrySetIterator));
-}
-
 void MimeType$ParameterMapEntrySetIterator::init$($MimeType* this$0) {
 	$set(this, this$0, this$0);
 	this->myIndex = 2;
@@ -71,7 +30,7 @@ $Object* MimeType$ParameterMapEntrySetIterator::next() {
 	if (hasNext()) {
 		$var($MimeType$ParameterMapEntry, result, $new($MimeType$ParameterMapEntry, this->this$0, this->myIndex));
 		this->myIndex += 2;
-		return $of(result);
+		return result;
 	} else {
 		$throwNew($NoSuchElementException);
 	}
@@ -85,7 +44,41 @@ MimeType$ParameterMapEntrySetIterator::MimeType$ParameterMapEntrySetIterator() {
 }
 
 $Class* MimeType$ParameterMapEntrySetIterator::load$($String* name, bool initialize) {
-	$loadClass(MimeType$ParameterMapEntrySetIterator, name, initialize, &_MimeType$ParameterMapEntrySetIterator_ClassInfo_, allocate$MimeType$ParameterMapEntrySetIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/print/MimeType;", nullptr, $FINAL | $SYNTHETIC, $field(MimeType$ParameterMapEntrySetIterator, this$0)},
+		{"myIndex", "I", nullptr, $PRIVATE, $field(MimeType$ParameterMapEntrySetIterator, myIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/print/MimeType;)V", nullptr, $PRIVATE, $method(MimeType$ParameterMapEntrySetIterator, init$, void, $MimeType*)},
+		{"hasNext", "()Z", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntrySetIterator, hasNext, bool)},
+		{"next", "()Ljava/util/Map$Entry;", "()Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;", $PUBLIC, $virtualMethod(MimeType$ParameterMapEntrySetIterator, next, $Object*)},
+		{"remove", "()V", nullptr, $PUBLIC, $virtualMethod(MimeType$ParameterMapEntrySetIterator, remove, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.print.MimeType$ParameterMapEntrySetIterator", "javax.print.MimeType", "ParameterMapEntrySetIterator", $PRIVATE},
+		{"java.util.Map$Entry", "java.util.Map", "Entry", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.print.MimeType$ParameterMapEntrySetIterator",
+		"java.lang.Object",
+		"java.util.Iterator",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Iterator<Ljava/util/Map$Entry<Ljava/lang/String;Ljava/lang/String;>;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.print.MimeType"
+	};
+	$loadClass(MimeType$ParameterMapEntrySetIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MimeType$ParameterMapEntrySetIterator);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <bug5074573$4.h>
-
 #include <bug5074573.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
@@ -10,49 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-
-$FieldInfo _bug5074573$4_FieldInfo_[] = {
-	{"val$result", "[Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(bug5074573$4, val$result)},
-	{}
-};
-
-$MethodInfo _bug5074573$4_MethodInfo_[] = {
-	{"<init>", "([Ljava/lang/String;)V", "()V", 0, $method(bug5074573$4, init$, void, $StringArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug5074573$4, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug5074573$4_EnclosingMethodInfo_ = {
-	"bug5074573",
-	"getText",
-	"()Ljava/lang/String;"
-};
-
-$InnerClassInfo _bug5074573$4_InnerClassesInfo_[] = {
-	{"bug5074573$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug5074573$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug5074573$4",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug5074573$4_FieldInfo_,
-	_bug5074573$4_MethodInfo_,
-	nullptr,
-	&_bug5074573$4_EnclosingMethodInfo_,
-	_bug5074573$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug5074573"
-};
-
-$Object* allocate$bug5074573$4($Class* clazz) {
-	return $of($alloc(bug5074573$4));
-}
 
 void bug5074573$4::init$($StringArray* val$result) {
 	$set(this, val$result, val$result);
@@ -67,7 +23,42 @@ bug5074573$4::bug5074573$4() {
 }
 
 $Class* bug5074573$4::load$($String* name, bool initialize) {
-	$loadClass(bug5074573$4, name, initialize, &_bug5074573$4_ClassInfo_, allocate$bug5074573$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$result", "[Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(bug5074573$4, val$result)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/lang/String;)V", "()V", 0, $method(bug5074573$4, init$, void, $StringArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug5074573$4, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug5074573",
+		"getText",
+		"()Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug5074573$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug5074573$4",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug5074573"
+	};
+	$loadClass(bug5074573$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug5074573$4);
+	});
 	return class$;
 }
 

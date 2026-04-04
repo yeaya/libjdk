@@ -24,6 +24,7 @@ class $import AudioFormat$Encoding : public ::java::lang::Object {
 	$class(AudioFormat$Encoding, 0, ::java::lang::Object)
 public:
 	AudioFormat$Encoding();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual bool equals(Object$* obj) override;
 	virtual int32_t hashCode() override;

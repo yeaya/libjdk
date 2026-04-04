@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/PrivilegedExecutor.h>
-
 #include <java/lang/Runnable.h>
 #include <java/security/AccessControlContext.h>
 #include <java/util/Objects.h>
@@ -22,42 +21,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 
-$FieldInfo _PrivilegedExecutor_FieldInfo_[] = {
-	{"executor", "Ljava/util/concurrent/Executor;", nullptr, $FINAL, $field(PrivilegedExecutor, executor)},
-	{"acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL, $field(PrivilegedExecutor, acc)},
-	{}
-};
-
-$MethodInfo _PrivilegedExecutor_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Executor;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(PrivilegedExecutor, init$, void, $Executor*, $AccessControlContext*)},
-	{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor, execute, void, $Runnable*)},
-	{}
-};
-
-$InnerClassInfo _PrivilegedExecutor_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable", "jdk.internal.net.http.PrivilegedExecutor", "PrivilegedRunnable", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PrivilegedExecutor_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.PrivilegedExecutor",
-	"java.lang.Object",
-	"java.util.concurrent.Executor",
-	_PrivilegedExecutor_FieldInfo_,
-	_PrivilegedExecutor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrivilegedExecutor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable"
-};
-
-$Object* allocate$PrivilegedExecutor($Class* clazz) {
-	return $of($alloc(PrivilegedExecutor));
-}
-
 void PrivilegedExecutor::init$($Executor* executor, $AccessControlContext* acc) {
 	$Objects::requireNonNull(executor);
 	$Objects::requireNonNull(acc);
@@ -73,7 +36,37 @@ PrivilegedExecutor::PrivilegedExecutor() {
 }
 
 $Class* PrivilegedExecutor::load$($String* name, bool initialize) {
-	$loadClass(PrivilegedExecutor, name, initialize, &_PrivilegedExecutor_ClassInfo_, allocate$PrivilegedExecutor);
+	$FieldInfo fieldInfos$$[] = {
+		{"executor", "Ljava/util/concurrent/Executor;", nullptr, $FINAL, $field(PrivilegedExecutor, executor)},
+		{"acc", "Ljava/security/AccessControlContext;", nullptr, $FINAL, $field(PrivilegedExecutor, acc)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Executor;Ljava/security/AccessControlContext;)V", nullptr, $PUBLIC, $method(PrivilegedExecutor, init$, void, $Executor*, $AccessControlContext*)},
+		{"execute", "(Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(PrivilegedExecutor, execute, void, $Runnable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable", "jdk.internal.net.http.PrivilegedExecutor", "PrivilegedRunnable", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.PrivilegedExecutor",
+		"java.lang.Object",
+		"java.util.concurrent.Executor",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.PrivilegedExecutor$PrivilegedRunnable"
+	};
+	$loadClass(PrivilegedExecutor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrivilegedExecutor);
+	});
 	return class$;
 }
 

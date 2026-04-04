@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$AliveAnalyzer.h>
-
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
@@ -102,15 +101,12 @@
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Lint = ::com::sun::tools::javac::code::Lint;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Flow = ::com::sun::tools::javac::comp::Flow;
 using $Flow$1 = ::com::sun::tools::javac::comp::Flow$1;
@@ -153,10 +149,8 @@ using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeInfo$PatternPrimaryType = ::com::sun::tools::javac::tree::TreeInfo$PatternPrimaryType;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $Assert = ::com::sun::tools::javac::util::Assert;
-using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
-using $Log = ::com::sun::tools::javac::util::Log;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -185,29 +179,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(Object$* c) override {
-		 return $of(Flow$AliveAnalyzer::lambda$visitSwitch$0($cast($JCTree$JCCase, c)));
+		 return Flow$AliveAnalyzer::lambda$visitSwitch$0($cast($JCTree$JCCase, c));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::load$($String* name, bool initialize) {
-	$loadClass(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0);
+	});
 	return class$;
 }
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::class$ = nullptr;
@@ -220,27 +211,24 @@ public:
 	virtual bool test(Object$* l) override {
 		 return Flow$AliveAnalyzer::lambda$visitSwitch$1($cast($JCTree$JCCaseLabel, l));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::load$($String* name, bool initialize) {
-	$loadClass(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1);
+	});
 	return class$;
 }
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::class$ = nullptr;
@@ -253,27 +241,24 @@ public:
 	virtual bool test(Object$* s) override {
 		 return Flow$AliveAnalyzer::lambda$transitiveCovers$2($cast($Symbol, s));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::load$($String* name, bool initialize) {
-	$loadClass(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2);
+	});
 	return class$;
 }
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::class$ = nullptr;
@@ -287,33 +272,29 @@ public:
 	virtual bool test(Object$* arg0) override {
 		 return $nc(inst$)->contains(arg0);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Flow$AliveAnalyzer$$Lambda$contains$3>());
-	}
 	$Set* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Flow$AliveAnalyzer$$Lambda$contains$3::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Flow$AliveAnalyzer$$Lambda$contains$3, inst$)},
-	{}
-};
-$MethodInfo Flow$AliveAnalyzer$$Lambda$contains$3::methodInfos[3] = {
-	{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$contains$3, init$, void, $Set*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$contains$3, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Flow$AliveAnalyzer$$Lambda$contains$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$contains$3",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Flow$AliveAnalyzer$$Lambda$contains$3::load$($String* name, bool initialize) {
-	$loadClass(Flow$AliveAnalyzer$$Lambda$contains$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Flow$AliveAnalyzer$$Lambda$contains$3, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$contains$3, init$, void, $Set*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$contains$3, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$contains$3",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Flow$AliveAnalyzer$$Lambda$contains$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$AliveAnalyzer$$Lambda$contains$3);
+	});
 	return class$;
 }
 $Class* Flow$AliveAnalyzer$$Lambda$contains$3::class$ = nullptr;
@@ -328,111 +309,34 @@ public:
 	virtual bool test(Object$* t) override {
 		 return $nc(inst$)->lambda$isExhaustive$3(covered, $cast($Type, t));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4>());
-	}
 	Flow$AliveAnalyzer* inst$ = nullptr;
 	$Set* covered = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, inst$)},
-	{"covered", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, covered)},
-	{}
-};
-$MethodInfo Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AliveAnalyzer;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, init$, void, Flow$AliveAnalyzer*, $Set*)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	fieldInfos,
-	methodInfos
 };
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::load$($String* name, bool initialize) {
-	$loadClass(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, inst$)},
+		{"covered", "Ljava/util/Set;", nullptr, $PUBLIC, $field(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, covered)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Flow$AliveAnalyzer;Ljava/util/Set;)V", nullptr, $PUBLIC, $method(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, init$, void, Flow$AliveAnalyzer*, $Set*)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4);
+	});
 	return class$;
 }
 $Class* Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::class$ = nullptr;
-
-$FieldInfo _Flow$AliveAnalyzer_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AliveAnalyzer, this$0)},
-	{"alive", "Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PRIVATE, $field(Flow$AliveAnalyzer, alive)},
-	{}
-};
-
-$MethodInfo _Flow$AliveAnalyzer_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$AliveAnalyzer, init$, void, $Flow*)},
-	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, analyzeTree, void, $Env*, $TreeMaker*)},
-	{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, analyzeTree, void, $Env*, $JCTree*, $TreeMaker*)},
-	{"clearPendingExits", "(Z)V", nullptr, $PRIVATE, $method(Flow$AliveAnalyzer, clearPendingExits, void, bool)},
-	{"handleConstantCaseLabel", "(Ljava/util/Set;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)V", $PRIVATE, $method(Flow$AliveAnalyzer, handleConstantCaseLabel, void, $Set*, $JCTree$JCCaseLabel*)},
-	{"isExhaustive", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PRIVATE, $method(Flow$AliveAnalyzer, isExhaustive, bool, $Type*, $Set*)},
-	{"lambda$isExhaustive$3", "(Ljava/util/Set;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Flow$AliveAnalyzer, lambda$isExhaustive$3, bool, $Set*, $Type*)},
-	{"lambda$transitiveCovers$2", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$transitiveCovers$2, bool, $Symbol*)},
-	{"lambda$visitSwitch$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$visitSwitch$0, $Stream*, $JCTree$JCCase*)},
-	{"lambda$visitSwitch$1", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$visitSwitch$1, bool, $JCTree$JCCaseLabel*)},
-	{"markDead", "()V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, markDead, void)},
-	{"scanDef", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, scanDef, void, $JCTree*)},
-	{"scanStat", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, scanStat, void, $JCTree*)},
-	{"scanStats", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)V", 0, $virtualMethod(Flow$AliveAnalyzer, scanStats, void, $List*)},
-	{"transitiveCovers", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)V", $PRIVATE, $method(Flow$AliveAnalyzer, transitiveCovers, void, $Set*)},
-	{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitApply, void, $JCTree$JCMethodInvocation*)},
-	{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitBlock, void, $JCTree$JCBlock*)},
-	{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitBreak, void, $JCTree$JCBreak*)},
-	{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
-	{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitContinue, void, $JCTree$JCContinue*)},
-	{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
-	{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitForLoop, void, $JCTree$JCForLoop*)},
-	{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
-	{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitIf, void, $JCTree$JCIf*)},
-	{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitLabelled, void, $JCTree$JCLabeledStatement*)},
-	{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
-	{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitMethodDef, void, $JCTree$JCMethodDecl*)},
-	{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitModuleDef, void, $JCTree$JCModuleDecl*)},
-	{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitNewClass, void, $JCTree$JCNewClass*)},
-	{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitReturn, void, $JCTree$JCReturn*)},
-	{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitSwitch, void, $JCTree$JCSwitch*)},
-	{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
-	{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitThrow, void, $JCTree$JCThrow*)},
-	{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitTry, void, $JCTree$JCTry*)},
-	{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
-	{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
-	{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitYield, void, $JCTree$JCYield*)},
-	{}
-};
-
-$InnerClassInfo _Flow$AliveAnalyzer_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
-	{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Flow$AliveAnalyzer_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Flow$AliveAnalyzer",
-	"com.sun.tools.javac.comp.Flow$BaseAnalyzer",
-	nullptr,
-	_Flow$AliveAnalyzer_FieldInfo_,
-	_Flow$AliveAnalyzer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Flow$AliveAnalyzer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$AliveAnalyzer($Class* clazz) {
-	return $of($alloc(Flow$AliveAnalyzer));
-}
 
 void Flow$AliveAnalyzer::init$($Flow* this$0) {
 	$set(this, this$0, this$0);
@@ -469,17 +373,15 @@ void Flow$AliveAnalyzer::scanStat($JCTree* tree) {
 
 void Flow$AliveAnalyzer::scanStats($List* trees) {
 	if (trees != nullptr) {
-		{
-			$var($List, l, trees);
-			for (; l->nonEmpty(); $assign(l, l->tail)) {
-				scanStat($cast($JCTree, $nc(l)->head));
-			}
+		$var($List, l, trees);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+			scanStat($cast($JCTree, l->head));
 		}
 	}
 }
 
 void Flow$AliveAnalyzer::visitClassDef($JCTree$JCClassDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(tree)->sym == nullptr) {
 		return;
 	}
@@ -487,75 +389,103 @@ void Flow$AliveAnalyzer::visitClassDef($JCTree$JCClassDecl* tree) {
 	$var($ListBuffer, pendingExitsPrev, this->pendingExits);
 	$var($Lint, lintPrev, this->this$0->lint);
 	$set(this, pendingExits, $new($ListBuffer));
-	$set(this->this$0, lint, $nc(this->this$0->lint)->augment(static_cast<$Symbol*>($nc(tree)->sym)));
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			{
-				$var($List, l, $nc(tree)->defs);
-				for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
-					$init($JCTree$Tag);
-					bool var$1 = !$nc(($cast($JCTree, l->head)))->hasTag($JCTree$Tag::METHODDEF);
-					if (var$1 && ((int64_t)($TreeInfo::flags($cast($JCTree, l->head)) & (uint64_t)(int64_t)8)) != 0) {
-						scanDef($cast($JCTree, l->head));
-						clearPendingExits(false);
-					}
+	$set(this->this$0, lint, $nc(this->this$0->lint)->augment(tree->sym));
+	$var($Throwable, var$0, nullptr);
+	try {
+		{
+			$var($List, l, tree->defs);
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				$init($JCTree$Tag);
+				bool var$1 = !$nc($cast($JCTree, l->head))->hasTag($JCTree$Tag::METHODDEF);
+				if (var$1 && ($TreeInfo::flags($cast($JCTree, l->head)) & 8) != 0) {
+					scanDef($cast($JCTree, l->head));
+					clearPendingExits(false);
 				}
 			}
-			{
-				$var($List, l, tree->defs);
-				for (; l->nonEmpty(); $assign(l, l->tail)) {
-					$init($JCTree$Tag);
-					bool var$2 = !$nc(($cast($JCTree, $nc(l)->head)))->hasTag($JCTree$Tag::METHODDEF);
-					if (var$2 && ((int64_t)($TreeInfo::flags($cast($JCTree, l->head)) & (uint64_t)(int64_t)8)) == 0) {
-						scanDef($cast($JCTree, l->head));
-						clearPendingExits(false);
-					}
-				}
-			}
-			{
-				$var($List, l, tree->defs);
-				for (; l->nonEmpty(); $assign(l, l->tail)) {
-					$init($JCTree$Tag);
-					if ($nc(($cast($JCTree, $nc(l)->head)))->hasTag($JCTree$Tag::METHODDEF)) {
-						scan($cast($JCTree, l->head));
-					}
-				}
-			}
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			$set(this, pendingExits, pendingExitsPrev);
-			$set(this, alive, alivePrev);
-			$set(this->this$0, lint, lintPrev);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		{
+			$var($List, l, tree->defs);
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				$init($JCTree$Tag);
+				bool var$2 = !$nc($cast($JCTree, l->head))->hasTag($JCTree$Tag::METHODDEF);
+				if (var$2 && ($TreeInfo::flags($cast($JCTree, l->head)) & 8) == 0) {
+					scanDef($cast($JCTree, l->head));
+					clearPendingExits(false);
+				}
+			}
 		}
+		{
+			$var($List, l, tree->defs);
+			for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
+				$init($JCTree$Tag);
+				if ($nc($cast($JCTree, l->head))->hasTag($JCTree$Tag::METHODDEF)) {
+					scan($cast($JCTree, l->head));
+				}
+			}
+		}
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		$set(this, pendingExits, pendingExitsPrev);
+		$set(this, alive, alivePrev);
+		$set(this->this$0, lint, lintPrev);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void Flow$AliveAnalyzer::visitMethodDef($JCTree$JCMethodDecl* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(tree)->body == nullptr) {
 		return;
 	}
 	$var($Lint, lintPrev, this->this$0->lint);
-	$set(this->this$0, lint, $nc(this->this$0->lint)->augment(static_cast<$Symbol*>($nc(tree)->sym)));
+	$set(this->this$0, lint, $nc(this->this$0->lint)->augment(tree->sym));
 	$Assert::check($nc(this->pendingExits)->isEmpty());
-	{
+	$var($Throwable, var$0, nullptr);
+	try {
+		$init($Flow$Liveness);
+		$set(this, alive, $Flow$Liveness::ALIVE);
+		scanStat(tree->body);
+		tree->completesNormally = this->alive != $Flow$Liveness::DEAD;
+		$init($TypeTag);
+		if (this->alive == $Flow$Liveness::ALIVE && !$$nc($nc($nc(tree->sym)->type)->getReturnType())->hasTag($TypeTag::VOID)) {
+			$init($CompilerProperties$Errors);
+			$nc(this->this$0->log)->error($($TreeInfo::diagEndPos(tree->body)), $CompilerProperties$Errors::MissingRetStmt);
+		}
+		clearPendingExits(true);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this->this$0, lint, lintPrev);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+}
+
+void Flow$AliveAnalyzer::clearPendingExits(bool inMethod) {
+	$useLocalObjectStack();
+	$var($List, exits, $nc(this->pendingExits)->toList());
+	$set(this, pendingExits, $new($ListBuffer));
+	while ($nc(exits)->nonEmpty()) {
+		$var($Flow$BaseAnalyzer$PendingExit, exit, $cast($Flow$BaseAnalyzer$PendingExit, exits->head));
+		$assign(exits, exits->tail);
+		$init($JCTree$Tag);
+		bool var$0 = inMethod && $nc($nc(exit)->tree)->hasTag($JCTree$Tag::RETURN);
+		$Assert::check(var$0 || $nc(this->this$0->log)->hasErrorOn($($nc($nc(exit)->tree)->pos())));
+	}
+}
+
+void Flow$AliveAnalyzer::visitVarDef($JCTree$JCVariableDecl* tree) {
+	$useLocalObjectStack();
+	if ($nc(tree)->init != nullptr) {
+		$var($Lint, lintPrev, this->this$0->lint);
+		$set(this->this$0, lint, $nc(this->this$0->lint)->augment(tree->sym));
 		$var($Throwable, var$0, nullptr);
 		try {
-			$init($Flow$Liveness);
-			$set(this, alive, $Flow$Liveness::ALIVE);
-			scanStat($nc(tree)->body);
-			$nc(tree)->completesNormally = this->alive != $Flow$Liveness::DEAD;
-			$init($TypeTag);
-			if (this->alive == $Flow$Liveness::ALIVE && !$nc($($nc($nc(tree->sym)->type)->getReturnType()))->hasTag($TypeTag::VOID)) {
-				$init($CompilerProperties$Errors);
-				$nc(this->this$0->log)->error($($TreeInfo::diagEndPos(tree->body)), $CompilerProperties$Errors::MissingRetStmt);
-			}
-			clearPendingExits(true);
+			scan(tree->init);
 		} catch ($Throwable& var$1) {
 			$assign(var$0, var$1);
 		} /*finally*/ {
@@ -567,98 +497,64 @@ void Flow$AliveAnalyzer::visitMethodDef($JCTree$JCMethodDecl* tree) {
 	}
 }
 
-void Flow$AliveAnalyzer::clearPendingExits(bool inMethod) {
-	$useLocalCurrentObjectStackCache();
-	$var($List, exits, $nc(this->pendingExits)->toList());
-	$set(this, pendingExits, $new($ListBuffer));
-	while ($nc(exits)->nonEmpty()) {
-		$var($Flow$BaseAnalyzer$PendingExit, exit, $cast($Flow$BaseAnalyzer$PendingExit, exits->head));
-		$assign(exits, exits->tail);
-		$init($JCTree$Tag);
-		bool var$0 = (inMethod && $nc($nc(exit)->tree)->hasTag($JCTree$Tag::RETURN));
-		$Assert::check(var$0 || $nc(this->this$0->log)->hasErrorOn($($nc($nc(exit)->tree)->pos())));
-	}
-}
-
-void Flow$AliveAnalyzer::visitVarDef($JCTree$JCVariableDecl* tree) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(tree)->init != nullptr) {
-		$var($Lint, lintPrev, this->this$0->lint);
-		$set(this->this$0, lint, $nc(this->this$0->lint)->augment(static_cast<$Symbol*>(tree->sym)));
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				scan(static_cast<$JCTree*>(tree->init));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$set(this->this$0, lint, lintPrev);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-		}
-	}
-}
-
 void Flow$AliveAnalyzer::visitBlock($JCTree$JCBlock* tree) {
 	scanStats($nc(tree)->stats);
 }
 
 void Flow$AliveAnalyzer::visitDoLoop($JCTree$JCDoWhileLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, prevPendingExits, this->pendingExits);
 	$set(this, pendingExits, $new($ListBuffer));
 	scanStat($nc(tree)->body);
 	$set(this, alive, $nc(this->alive)->or$($(resolveContinues(tree))));
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
-	$set(this, alive, $nc(this->alive)->and$(!$nc($nc($nc(tree)->cond)->type)->isTrue()));
+	scan(tree->cond);
+	$set(this, alive, $nc(this->alive)->and$(!$nc($nc(tree->cond)->type)->isTrue()));
 	$set(this, alive, $nc(this->alive)->or$($(resolveBreaks(tree, prevPendingExits))));
 }
 
 void Flow$AliveAnalyzer::visitWhileLoop($JCTree$JCWhileLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, prevPendingExits, this->pendingExits);
 	$set(this, pendingExits, $new($ListBuffer));
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
-	$set(this, alive, $Flow$Liveness::from(!$nc($nc($nc(tree)->cond)->type)->isFalse()));
-	scanStat($nc(tree)->body);
+	scan($nc(tree)->cond);
+	$set(this, alive, $Flow$Liveness::from(!$nc($nc(tree->cond)->type)->isFalse()));
+	scanStat(tree->body);
 	$set(this, alive, $nc(this->alive)->or$($(resolveContinues(tree))));
-	$set(this, alive, $nc($(resolveBreaks(tree, prevPendingExits)))->or$(!$nc($nc($nc(tree)->cond)->type)->isTrue()));
+	$set(this, alive, $$nc(resolveBreaks(tree, prevPendingExits))->or$(!$nc($nc(tree->cond)->type)->isTrue()));
 }
 
 void Flow$AliveAnalyzer::visitForLoop($JCTree$JCForLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, prevPendingExits, this->pendingExits);
 	scanStats($nc(tree)->init);
 	$set(this, pendingExits, $new($ListBuffer));
-	if ($nc(tree)->cond != nullptr) {
-		scan(static_cast<$JCTree*>(tree->cond));
+	if (tree->cond != nullptr) {
+		scan(tree->cond);
 		$set(this, alive, $Flow$Liveness::from(!$nc($nc(tree->cond)->type)->isFalse()));
 	} else {
 		$init($Flow$Liveness);
 		$set(this, alive, $Flow$Liveness::ALIVE);
 	}
-	scanStat($nc(tree)->body);
+	scanStat(tree->body);
 	$set(this, alive, $nc(this->alive)->or$($(resolveContinues(tree))));
-	scan($nc(tree)->step);
-	$set(this, alive, $nc($(resolveBreaks(tree, prevPendingExits)))->or$($nc(tree)->cond != nullptr && !$nc($nc(tree->cond)->type)->isTrue()));
+	scan(tree->step);
+	$set(this, alive, $$nc(resolveBreaks(tree, prevPendingExits))->or$(tree->cond != nullptr && !$nc(tree->cond->type)->isTrue()));
 }
 
 void Flow$AliveAnalyzer::visitForeachLoop($JCTree$JCEnhancedForLoop* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	visitVarDef($nc(tree)->var);
 	$var($ListBuffer, prevPendingExits, this->pendingExits);
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan(tree->expr);
 	$set(this, pendingExits, $new($ListBuffer));
-	scanStat($nc(tree)->body);
+	scanStat(tree->body);
 	$set(this, alive, $nc(this->alive)->or$($(resolveContinues(tree))));
 	resolveBreaks(tree, prevPendingExits);
 	$set(this, alive, $Flow$Liveness::ALIVE);
 }
 
 void Flow$AliveAnalyzer::visitLabelled($JCTree$JCLabeledStatement* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, prevPendingExits, this->pendingExits);
 	$set(this, pendingExits, $new($ListBuffer));
 	scanStat($nc(tree)->body);
@@ -666,15 +562,15 @@ void Flow$AliveAnalyzer::visitLabelled($JCTree$JCLabeledStatement* tree) {
 }
 
 void Flow$AliveAnalyzer::visitSwitch($JCTree$JCSwitch* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, prevPendingExits, this->pendingExits);
 	$set(this, pendingExits, $new($ListBuffer));
-	scan(static_cast<$JCTree*>($nc(tree)->selector));
-	bool exhaustiveSwitch = $nc(tree)->patternSwitch || $nc($($nc($($nc($nc(tree)->cases)->stream()))->flatMap(static_cast<$Function*>($$new(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0)))))->anyMatch(static_cast<$Predicate*>($$new(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1)));
-	$var($Set, constants, exhaustiveSwitch ? static_cast<$Set*>($new($HashSet)) : ($Set*)nullptr);
+	scan($nc(tree)->selector);
+	bool exhaustiveSwitch = tree->patternSwitch || $$nc($$nc($nc(tree->cases)->stream())->flatMap($$new(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0)))->anyMatch($$new(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1));
+	$var($Set, constants, exhaustiveSwitch ? $cast($Set, $new($HashSet)) : ($Set*)nullptr);
 	{
 		$var($List, l, tree->cases);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$init($Flow$Liveness);
 			$set(this, alive, $Flow$Liveness::ALIVE);
 			$var($JCTree$JCCase, c, $cast($JCTree$JCCase, l->head));
@@ -683,13 +579,12 @@ void Flow$AliveAnalyzer::visitSwitch($JCTree$JCSwitch* tree) {
 				for (; $nc(i$)->hasNext();) {
 					$var($JCTree$JCCaseLabel, pat, $cast($JCTree$JCCaseLabel, i$->next()));
 					{
-						scan(static_cast<$JCTree*>(pat));
+						scan(pat);
 						handleConstantCaseLabel(constants, pat);
 					}
 				}
 			}
 			scanStats(c->stats);
-			$init($JCTree$JCCase);
 			if (this->alive != $Flow$Liveness::DEAD && c->caseKind == $JCTree$JCCase::RULE) {
 				scanSyntheticBreak(this->this$0->make, tree);
 				$set(this, alive, $Flow$Liveness::DEAD);
@@ -699,14 +594,14 @@ void Flow$AliveAnalyzer::visitSwitch($JCTree$JCSwitch* tree) {
 			bool var$0 = var$1 && $nc(c->stats)->nonEmpty();
 			if (var$0 && $nc(l->tail)->nonEmpty()) {
 				$init($CompilerProperties$Warnings);
-				$nc(this->this$0->log)->warning($Lint$LintCategory::FALLTHROUGH, $($nc(($cast($JCTree$JCCase, $nc(l->tail)->head)))->pos()), $CompilerProperties$Warnings::PossibleFallThroughIntoCase);
+				$nc(this->this$0->log)->warning($Lint$LintCategory::FALLTHROUGH, $($nc($cast($JCTree$JCCase, $nc(l->tail)->head))->pos()), $CompilerProperties$Warnings::PossibleFallThroughIntoCase);
 			}
 		}
 	}
 	bool var$2 = !tree->hasTotalPattern && exhaustiveSwitch && !$TreeInfo::isErrorEnumSwitch(tree->selector, tree->cases);
 	if (var$2 && (constants == nullptr || !isExhaustive($nc(tree->selector)->type, constants))) {
 		$init($CompilerProperties$Errors);
-		$nc(this->this$0->log)->error(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree), $CompilerProperties$Errors::NotExhaustiveStatement);
+		$nc(this->this$0->log)->error(tree, $CompilerProperties$Errors::NotExhaustiveStatement);
 	}
 	if (!tree->hasTotalPattern) {
 		$init($Flow$Liveness);
@@ -716,15 +611,15 @@ void Flow$AliveAnalyzer::visitSwitch($JCTree$JCSwitch* tree) {
 }
 
 void Flow$AliveAnalyzer::visitSwitchExpression($JCTree$JCSwitchExpression* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, prevPendingExits, this->pendingExits);
 	$set(this, pendingExits, $new($ListBuffer));
-	scan(static_cast<$JCTree*>($nc(tree)->selector));
+	scan($nc(tree)->selector);
 	$var($Set, constants, $new($HashSet));
 	$Flow$Liveness* prevAlive = this->alive;
 	{
-		$var($List, l, $nc(tree)->cases);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		$var($List, l, tree->cases);
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$init($Flow$Liveness);
 			$set(this, alive, $Flow$Liveness::ALIVE);
 			$var($JCTree$JCCase, c, $cast($JCTree$JCCase, l->head));
@@ -733,14 +628,13 @@ void Flow$AliveAnalyzer::visitSwitchExpression($JCTree$JCSwitchExpression* tree)
 				for (; $nc(i$)->hasNext();) {
 					$var($JCTree$JCCaseLabel, pat, $cast($JCTree$JCCaseLabel, i$->next()));
 					{
-						scan(static_cast<$JCTree*>(pat));
+						scan(pat);
 						handleConstantCaseLabel(constants, pat);
 					}
 				}
 			}
 			scanStats(c->stats);
 			if (this->alive == $Flow$Liveness::ALIVE) {
-				$init($JCTree$JCCase);
 				if (c->caseKind == $JCTree$JCCase::RULE) {
 					$init($CompilerProperties$Errors);
 					$nc(this->this$0->log)->error($($TreeInfo::diagEndPos(c->body)), $CompilerProperties$Errors::RuleCompletesNormally);
@@ -754,21 +648,21 @@ void Flow$AliveAnalyzer::visitSwitchExpression($JCTree$JCSwitchExpression* tree)
 	bool var$0 = !tree->hasTotalPattern && !$TreeInfo::isErrorEnumSwitch(tree->selector, tree->cases);
 	if (var$0 && !isExhaustive($nc(tree->selector)->type, constants)) {
 		$init($CompilerProperties$Errors);
-		$nc(this->this$0->log)->error(static_cast<$JCDiagnostic$DiagnosticPosition*>(tree), $CompilerProperties$Errors::NotExhaustive);
+		$nc(this->this$0->log)->error(tree, $CompilerProperties$Errors::NotExhaustive);
 	}
 	$set(this, alive, prevAlive);
 	$set(this, alive, $nc(this->alive)->or$($(resolveYields(tree, prevPendingExits))));
 }
 
 void Flow$AliveAnalyzer::handleConstantCaseLabel($Set* constants, $JCTree$JCCaseLabel* pat) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (constants != nullptr) {
 		if ($nc(pat)->isExpression()) {
 			$var($JCTree$JCExpression, expr, $cast($JCTree$JCExpression, pat));
 			$init($JCTree$Tag);
 			bool var$0 = expr->hasTag($JCTree$Tag::IDENT);
-			if (var$0 && $nc($nc(($cast($JCTree$JCIdent, expr)))->sym)->isEnum()) {
-				constants->add($nc(($cast($JCTree$JCIdent, expr)))->sym);
+			if (var$0 && $nc($cast($JCTree$JCIdent, expr)->sym)->isEnum()) {
+				constants->add($cast($JCTree$JCIdent, expr)->sym);
 			}
 		} else if (pat->isPattern()) {
 			$var($TreeInfo$PatternPrimaryType, patternType, $TreeInfo::primaryPatternType($cast($JCTree$JCPattern, pat)));
@@ -780,8 +674,8 @@ void Flow$AliveAnalyzer::handleConstantCaseLabel($Set* constants, $JCTree$JCCase
 }
 
 void Flow$AliveAnalyzer::transitiveCovers($Set* covered) {
-	$useLocalCurrentObjectStackCache();
-	$var($List, todo, $List::from(static_cast<$Iterable*>(covered)));
+	$useLocalObjectStack();
+	$var($List, todo, $List::from(covered));
 	while ($nc(todo)->nonEmpty()) {
 		$var($Symbol, sym, $cast($Symbol, todo->head));
 		$assign(todo, todo->tail);
@@ -789,79 +683,65 @@ void Flow$AliveAnalyzer::transitiveCovers($Set* covered) {
 		switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->get($nc(($nc(sym)->kind))->ordinal())) {
 		case 1:
 			{
-				{
-					$var($Iterable, constants, $nc($($nc(sym->owner)->members()))->getSymbols(static_cast<$Predicate*>($$new(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2))));
-					bool hasAll = $nc($($StreamSupport::stream($($nc(constants)->spliterator()), false)))->allMatch(static_cast<$Predicate*>($$new(Flow$AliveAnalyzer$$Lambda$contains$3, static_cast<$Set*>($nc(covered)))));
-					if (hasAll && $nc(covered)->add(sym->owner)) {
-						$assign(todo, $nc(todo)->prepend(sym->owner));
-					}
+				$var($Iterable, constants, $$nc($nc(sym->owner)->members())->getSymbols($$new(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2)));
+				bool hasAll = $$nc($StreamSupport::stream($($nc(constants)->spliterator()), false))->allMatch($$new(Flow$AliveAnalyzer$$Lambda$contains$3, $nc(covered)));
+				if (hasAll && covered->add(sym->owner)) {
+					$assign(todo, $nc(todo)->prepend(sym->owner));
 				}
-				break;
 			}
+			break;
 		case 2:
 			{
-				{
+				$var($Iterator, i$, $$nc($nc(this->this$0->types)->directSupertypes(sym->type))->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Type, sup, $cast($Type, i$->next()));
 					{
-						$var($Iterator, i$, $nc($($nc(this->this$0->types)->directSupertypes(sym->type)))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Type, sup, $cast($Type, i$->next()));
-							{
-								$init($Kinds$Kind);
-								bool var$0 = $nc($nc(sup)->tsym)->kind == $Kinds$Kind::TYP && $nc(sup->tsym)->isAbstract();
-								if (var$0 && $nc(sup->tsym)->isSealed()) {
-									bool hasAll = $nc($($nc($nc(($cast($Symbol$ClassSymbol, sup->tsym)))->permitted)->stream()))->allMatch(static_cast<$Predicate*>($$new(Flow$AliveAnalyzer$$Lambda$contains$3, static_cast<$Set*>($nc(covered)))));
-									if (hasAll && $nc(covered)->add(sup->tsym)) {
-										$assign(todo, $nc(todo)->prepend(sup->tsym));
-									}
-								}
+						bool var$0 = $nc($nc(sup)->tsym)->kind == $Kinds$Kind::TYP && sup->tsym->isAbstract();
+						if (var$0 && sup->tsym->isSealed()) {
+							bool hasAll = $$nc($nc($nc($cast($Symbol$ClassSymbol, sup->tsym))->permitted)->stream())->allMatch($$new(Flow$AliveAnalyzer$$Lambda$contains$3, $nc(covered)));
+							if (hasAll && covered->add(sup->tsym)) {
+								$assign(todo, $nc(todo)->prepend(sup->tsym));
 							}
 						}
 					}
 				}
-				break;
 			}
+			break;
 		}
 	}
 }
 
 bool Flow$AliveAnalyzer::isExhaustive($Type* seltype, $Set* covered) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	transitiveCovers(covered);
 	$init($Flow$1);
-
 	bool var$0 = false;
-	switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(seltype)->getTag())))->ordinal())) {
+	switch ($nc($Flow$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(seltype)->getTag()))->ordinal())) {
 	case 1:
 		{
-			{
-				if (seltype->isCompound()) {
-					if (seltype->isIntersection()) {
-						var$0 = $nc($($nc($($nc(($cast($Type$IntersectionClassType, seltype)))->getComponents()))->stream()))->anyMatch(static_cast<$Predicate*>($$new(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, this, covered)));
-						break;
-					}
-					var$0 = false;
+			if (seltype->isCompound()) {
+				if (seltype->isIntersection()) {
+					var$0 = $$nc($$nc($cast($Type$IntersectionClassType, seltype)->getComponents())->stream())->anyMatch($$new(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4, this, covered));
 					break;
 				}
-				var$0 = $nc(covered)->contains(seltype->tsym);
+				var$0 = false;
 				break;
 			}
+			var$0 = $nc(covered)->contains(seltype->tsym);
+			break;
 		}
 	case 2:
-		{
-			var$0 = isExhaustive($($nc(($cast($Type$TypeVar, seltype)))->getUpperBound()), covered);
-			break;
-		}
+		var$0 = isExhaustive($($cast($Type$TypeVar, seltype)->getUpperBound()), covered);
+		break;
 	default:
-		{
-			var$0 = false;
-			break;
-		}
+		var$0 = false;
+		break;
 	}
 	return var$0;
 }
 
 void Flow$AliveAnalyzer::visitTry($JCTree$JCTry* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, prevPendingExits, this->pendingExits);
 	$set(this, pendingExits, $new($ListBuffer));
 	{
@@ -880,15 +760,15 @@ void Flow$AliveAnalyzer::visitTry($JCTree$JCTry* tree) {
 					if (var$0) {
 						visitVarDef(variableDecl);
 					} else {
-						bool var$2 = $instanceOf($JCTree$JCExpression, resource);
-						if (var$2) {
+						bool var$1 = $instanceOf($JCTree$JCExpression, resource);
+						if (var$1) {
 							$assign(expression, $cast($JCTree$JCExpression, resource));
-							var$2 = true;
+							var$1 = true;
 						}
-						if (var$2) {
-							scan(static_cast<$JCTree*>(expression));
+						if (var$1) {
+							scan(expression);
 						} else {
-							$throwNew($AssertionError, $of(tree));
+							$throwNew($AssertionError, tree);
 						}
 					}
 				}
@@ -899,11 +779,11 @@ void Flow$AliveAnalyzer::visitTry($JCTree$JCTry* tree) {
 	$Flow$Liveness* aliveEnd = this->alive;
 	{
 		$var($List, l, tree->catchers);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			$init($Flow$Liveness);
 			$set(this, alive, $Flow$Liveness::ALIVE);
 			$var($JCTree$JCVariableDecl, param, $nc(($cast($JCTree$JCCatch, l->head)))->param);
-			scan(static_cast<$JCTree*>(param));
+			scan(param);
 			scanStat($nc(($cast($JCTree$JCCatch, l->head)))->body);
 			aliveEnd = $nc(aliveEnd)->or$(this->alive);
 		}
@@ -923,7 +803,7 @@ void Flow$AliveAnalyzer::visitTry($JCTree$JCTry* tree) {
 			}
 		} else {
 			while ($nc(exits)->nonEmpty()) {
-				$nc(this->pendingExits)->append($cast($Flow$BaseAnalyzer$PendingExit, $(exits->next())));
+				$nc(this->pendingExits)->append($$cast($Flow$BaseAnalyzer$PendingExit, exits->next()));
 			}
 			$set(this, alive, aliveEnd);
 		}
@@ -932,15 +812,15 @@ void Flow$AliveAnalyzer::visitTry($JCTree$JCTry* tree) {
 		$var($ListBuffer, exits, this->pendingExits);
 		$set(this, pendingExits, prevPendingExits);
 		while ($nc(exits)->nonEmpty()) {
-			$nc(this->pendingExits)->append($cast($Flow$BaseAnalyzer$PendingExit, $(exits->next())));
+			$nc(this->pendingExits)->append($$cast($Flow$BaseAnalyzer$PendingExit, exits->next()));
 		}
 	}
 }
 
 void Flow$AliveAnalyzer::visitIf($JCTree$JCIf* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->cond));
-	scanStat($nc(tree)->thenpart);
-	if ($nc(tree)->elsepart != nullptr) {
+	scan($nc(tree)->cond);
+	scanStat(tree->thenpart);
+	if (tree->elsepart != nullptr) {
 		$Flow$Liveness* aliveAfterThen = this->alive;
 		$init($Flow$Liveness);
 		$set(this, alive, $Flow$Liveness::ALIVE);
@@ -957,7 +837,7 @@ void Flow$AliveAnalyzer::visitBreak($JCTree$JCBreak* tree) {
 }
 
 void Flow$AliveAnalyzer::visitYield($JCTree$JCYield* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->value));
+	scan($nc(tree)->value);
 	recordExit($$new($Flow$BaseAnalyzer$PendingExit, tree));
 }
 
@@ -966,52 +846,50 @@ void Flow$AliveAnalyzer::visitContinue($JCTree$JCContinue* tree) {
 }
 
 void Flow$AliveAnalyzer::visitReturn($JCTree$JCReturn* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan($nc(tree)->expr);
 	recordExit($$new($Flow$BaseAnalyzer$PendingExit, tree));
 }
 
 void Flow$AliveAnalyzer::visitThrow($JCTree$JCThrow* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->expr));
+	scan($nc(tree)->expr);
 	markDead();
 }
 
 void Flow$AliveAnalyzer::visitApply($JCTree$JCMethodInvocation* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->meth));
-	scan($nc(tree)->args);
+	scan($nc(tree)->meth);
+	scan(tree->args);
 }
 
 void Flow$AliveAnalyzer::visitNewClass($JCTree$JCNewClass* tree) {
-	scan(static_cast<$JCTree*>($nc(tree)->encl));
-	scan($nc(tree)->args);
-	if ($nc(tree)->def != nullptr) {
-		scan(static_cast<$JCTree*>(tree->def));
+	scan($nc(tree)->encl);
+	scan(tree->args);
+	if (tree->def != nullptr) {
+		scan(tree->def);
 	}
 }
 
 void Flow$AliveAnalyzer::visitLambda($JCTree$JCLambda* tree) {
-	$useLocalCurrentObjectStackCache();
-	if ($nc(tree)->type != nullptr && $nc(tree->type)->isErroneous()) {
+	$useLocalObjectStack();
+	if ($nc(tree)->type != nullptr && tree->type->isErroneous()) {
 		return;
 	}
 	$var($ListBuffer, prevPending, this->pendingExits);
 	$Flow$Liveness* prevAlive = this->alive;
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this, pendingExits, $new($ListBuffer));
-			$init($Flow$Liveness);
-			$set(this, alive, $Flow$Liveness::ALIVE);
-			scanStat($nc(tree)->body);
-			$nc(tree)->canCompleteNormally = this->alive != $Flow$Liveness::DEAD;
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, pendingExits, prevPending);
-			$set(this, alive, prevAlive);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this, pendingExits, $new($ListBuffer));
+		$init($Flow$Liveness);
+		$set(this, alive, $Flow$Liveness::ALIVE);
+		scanStat(tree->body);
+		tree->canCompleteNormally = this->alive != $Flow$Liveness::DEAD;
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, pendingExits, prevPending);
+		$set(this, alive, prevAlive);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1023,24 +901,22 @@ void Flow$AliveAnalyzer::analyzeTree($Env* env, $TreeMaker* make) {
 }
 
 void Flow$AliveAnalyzer::analyzeTree($Env* env, $JCTree* tree, $TreeMaker* make) {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$set(this->this$0, attrEnv, env);
-			$set(this->this$0, make, make);
-			$set(this, pendingExits, $new($ListBuffer));
-			$init($Flow$Liveness);
-			$set(this, alive, $Flow$Liveness::ALIVE);
-			scan(tree);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$set(this, pendingExits, nullptr);
-			$set(this->this$0, make, nullptr);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$set(this->this$0, attrEnv, env);
+		$set(this->this$0, make, make);
+		$set(this, pendingExits, $new($ListBuffer));
+		$init($Flow$Liveness);
+		$set(this, alive, $Flow$Liveness::ALIVE);
+		scan(tree);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$set(this, pendingExits, nullptr);
+		$set(this->this$0, make, nullptr);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -1069,23 +945,90 @@ Flow$AliveAnalyzer::Flow$AliveAnalyzer() {
 
 $Class* Flow$AliveAnalyzer::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0")) {
 			return Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$0::load$(name, initialize);
 		}
-		if (name->equals(Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1")) {
 			return Flow$AliveAnalyzer$$Lambda$lambda$visitSwitch$1$1::load$(name, initialize);
 		}
-		if (name->equals(Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2")) {
 			return Flow$AliveAnalyzer$$Lambda$lambda$transitiveCovers$2$2::load$(name, initialize);
 		}
-		if (name->equals(Flow$AliveAnalyzer$$Lambda$contains$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$contains$3")) {
 			return Flow$AliveAnalyzer$$Lambda$contains$3::load$(name, initialize);
 		}
-		if (name->equals(Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.comp.Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4")) {
 			return Flow$AliveAnalyzer$$Lambda$lambda$isExhaustive$3$4::load$(name, initialize);
 		}
 	}
-	$loadClass(Flow$AliveAnalyzer, name, initialize, &_Flow$AliveAnalyzer_ClassInfo_, allocate$Flow$AliveAnalyzer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Flow;", nullptr, $FINAL | $SYNTHETIC, $field(Flow$AliveAnalyzer, this$0)},
+		{"alive", "Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PRIVATE, $field(Flow$AliveAnalyzer, alive)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Flow;)V", nullptr, 0, $method(Flow$AliveAnalyzer, init$, void, $Flow*)},
+		{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, analyzeTree, void, $Env*, $TreeMaker*)},
+		{"analyzeTree", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/TreeMaker;)V", $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, analyzeTree, void, $Env*, $JCTree*, $TreeMaker*)},
+		{"clearPendingExits", "(Z)V", nullptr, $PRIVATE, $method(Flow$AliveAnalyzer, clearPendingExits, void, bool)},
+		{"handleConstantCaseLabel", "(Ljava/util/Set;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)V", $PRIVATE, $method(Flow$AliveAnalyzer, handleConstantCaseLabel, void, $Set*, $JCTree$JCCaseLabel*)},
+		{"isExhaustive", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set;)Z", "(Lcom/sun/tools/javac/code/Type;Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)Z", $PRIVATE, $method(Flow$AliveAnalyzer, isExhaustive, bool, $Type*, $Set*)},
+		{"lambda$isExhaustive$3", "(Ljava/util/Set;Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE | $SYNTHETIC, $method(Flow$AliveAnalyzer, lambda$isExhaustive$3, bool, $Set*, $Type*)},
+		{"lambda$transitiveCovers$2", "(Lcom/sun/tools/javac/code/Symbol;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$transitiveCovers$2, bool, $Symbol*)},
+		{"lambda$visitSwitch$0", "(Lcom/sun/tools/javac/tree/JCTree$JCCase;)Ljava/util/stream/Stream;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$visitSwitch$0, $Stream*, $JCTree$JCCase*)},
+		{"lambda$visitSwitch$1", "(Lcom/sun/tools/javac/tree/JCTree$JCCaseLabel;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$AliveAnalyzer, lambda$visitSwitch$1, bool, $JCTree$JCCaseLabel*)},
+		{"markDead", "()V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, markDead, void)},
+		{"scanDef", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, scanDef, void, $JCTree*)},
+		{"scanStat", "(Lcom/sun/tools/javac/tree/JCTree;)V", nullptr, 0, $virtualMethod(Flow$AliveAnalyzer, scanStat, void, $JCTree*)},
+		{"scanStats", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<+Lcom/sun/tools/javac/tree/JCTree$JCStatement;>;)V", 0, $virtualMethod(Flow$AliveAnalyzer, scanStats, void, $List*)},
+		{"transitiveCovers", "(Ljava/util/Set;)V", "(Ljava/util/Set<Lcom/sun/tools/javac/code/Symbol;>;)V", $PRIVATE, $method(Flow$AliveAnalyzer, transitiveCovers, void, $Set*)},
+		{"visitApply", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodInvocation;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitApply, void, $JCTree$JCMethodInvocation*)},
+		{"visitBlock", "(Lcom/sun/tools/javac/tree/JCTree$JCBlock;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitBlock, void, $JCTree$JCBlock*)},
+		{"visitBreak", "(Lcom/sun/tools/javac/tree/JCTree$JCBreak;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitBreak, void, $JCTree$JCBreak*)},
+		{"visitClassDef", "(Lcom/sun/tools/javac/tree/JCTree$JCClassDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitClassDef, void, $JCTree$JCClassDecl*)},
+		{"visitContinue", "(Lcom/sun/tools/javac/tree/JCTree$JCContinue;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitContinue, void, $JCTree$JCContinue*)},
+		{"visitDoLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCDoWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitDoLoop, void, $JCTree$JCDoWhileLoop*)},
+		{"visitForLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitForLoop, void, $JCTree$JCForLoop*)},
+		{"visitForeachLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCEnhancedForLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitForeachLoop, void, $JCTree$JCEnhancedForLoop*)},
+		{"visitIf", "(Lcom/sun/tools/javac/tree/JCTree$JCIf;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitIf, void, $JCTree$JCIf*)},
+		{"visitLabelled", "(Lcom/sun/tools/javac/tree/JCTree$JCLabeledStatement;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitLabelled, void, $JCTree$JCLabeledStatement*)},
+		{"visitLambda", "(Lcom/sun/tools/javac/tree/JCTree$JCLambda;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitLambda, void, $JCTree$JCLambda*)},
+		{"visitMethodDef", "(Lcom/sun/tools/javac/tree/JCTree$JCMethodDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitMethodDef, void, $JCTree$JCMethodDecl*)},
+		{"visitModuleDef", "(Lcom/sun/tools/javac/tree/JCTree$JCModuleDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitModuleDef, void, $JCTree$JCModuleDecl*)},
+		{"visitNewClass", "(Lcom/sun/tools/javac/tree/JCTree$JCNewClass;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitNewClass, void, $JCTree$JCNewClass*)},
+		{"visitReturn", "(Lcom/sun/tools/javac/tree/JCTree$JCReturn;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitReturn, void, $JCTree$JCReturn*)},
+		{"visitSwitch", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitch;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitSwitch, void, $JCTree$JCSwitch*)},
+		{"visitSwitchExpression", "(Lcom/sun/tools/javac/tree/JCTree$JCSwitchExpression;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitSwitchExpression, void, $JCTree$JCSwitchExpression*)},
+		{"visitThrow", "(Lcom/sun/tools/javac/tree/JCTree$JCThrow;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitThrow, void, $JCTree$JCThrow*)},
+		{"visitTry", "(Lcom/sun/tools/javac/tree/JCTree$JCTry;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitTry, void, $JCTree$JCTry*)},
+		{"visitVarDef", "(Lcom/sun/tools/javac/tree/JCTree$JCVariableDecl;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitVarDef, void, $JCTree$JCVariableDecl*)},
+		{"visitWhileLoop", "(Lcom/sun/tools/javac/tree/JCTree$JCWhileLoop;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitWhileLoop, void, $JCTree$JCWhileLoop*)},
+		{"visitYield", "(Lcom/sun/tools/javac/tree/JCTree$JCYield;)V", nullptr, $PUBLIC, $virtualMethod(Flow$AliveAnalyzer, visitYield, void, $JCTree$JCYield*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$AliveAnalyzer", "com.sun.tools.javac.comp.Flow", "AliveAnalyzer", 0},
+		{"com.sun.tools.javac.comp.Flow$BaseAnalyzer", "com.sun.tools.javac.comp.Flow", "BaseAnalyzer", $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Flow$AliveAnalyzer",
+		"com.sun.tools.javac.comp.Flow$BaseAnalyzer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$AliveAnalyzer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Flow$AliveAnalyzer);
+	});
 	return class$;
 }
 

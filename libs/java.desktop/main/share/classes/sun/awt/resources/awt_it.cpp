@@ -1,5 +1,4 @@
 #include <sun/awt/resources/awt_it.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -12,711 +11,692 @@ namespace sun {
 	namespace awt {
 		namespace resources {
 
-$MethodInfo _awt_it_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(awt_it, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(awt_it, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _awt_it_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.resources.awt_it",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_awt_it_MethodInfo_
-};
-
-$Object* allocate$awt_it($Class* clazz) {
-	return $of($alloc(awt_it));
-}
-
 void awt_it::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* awt_it::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("AWT.CompositionWindowTitle"_s),
-			$of("Finestra di immissione"_s)
+			"AWT.CompositionWindowTitle"_s,
+			"Finestra di immissione"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.CrosshairCursor"_s),
-			$of("Puntatore a croce"_s)
+			"AWT.CrosshairCursor"_s,
+			"Puntatore a croce"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.DefaultCursor"_s),
-			$of("Cursore predefinito"_s)
+			"AWT.DefaultCursor"_s,
+			"Cursore predefinito"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.DefaultDragCursor"_s),
-			$of("Cursore di trascinamento predefinito"_s)
+			"AWT.DefaultDragCursor"_s,
+			"Cursore di trascinamento predefinito"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.DefaultDropCursor"_s),
-			$of("Cursore di rilasciamento predefinito"_s)
+			"AWT.DefaultDropCursor"_s,
+			"Cursore di rilasciamento predefinito"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.DefaultNoDropCursor"_s),
-			$of("Cursore NoDrag predefinito"_s)
+			"AWT.DefaultNoDropCursor"_s,
+			"Cursore NoDrag predefinito"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.EResizeCursor"_s),
-			$of("Cursore di ridimensionamento orientale"_s)
+			"AWT.EResizeCursor"_s,
+			"Cursore di ridimensionamento orientale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.HandCursor"_s),
-			$of("Cursore mano"_s)
+			"AWT.HandCursor"_s,
+			"Cursore mano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.HostInputMethodDisplayName"_s),
-			$of("Metodi di immissione di sistema"_s)
+			"AWT.HostInputMethodDisplayName"_s,
+			"Metodi di immissione di sistema"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.InconsistentDLLsWarning"_s),
-			$of("Le operazioni sul testo possono non funzionare correttamente, a causa di una serie non coerente di DLL installate sul sistema. Per ulteriori informazioni su questo problema e per la soluzione suggerita, vedere le note di rilascio di Java(TM) 2 SDK, Standard Edition su java.sun.com."_s)
+			"AWT.InconsistentDLLsWarning"_s,
+			"Le operazioni sul testo possono non funzionare correttamente, a causa di una serie non coerente di DLL installate sul sistema. Per ulteriori informazioni su questo problema e per la soluzione suggerita, vedere le note di rilascio di Java(TM) 2 SDK, Standard Edition su java.sun.com."_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.InputMethodCreationFailed"_s),
-			$of("Impossibile creare {0}.  Motivo: {1}"_s)
+			"AWT.InputMethodCreationFailed"_s,
+			"Impossibile creare {0}.  Motivo: {1}"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.InputMethodLanguage.ja"_s),
-			$of("Giapponese"_s)
+			"AWT.InputMethodLanguage.ja"_s,
+			"Giapponese"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.InputMethodLanguage.ko"_s),
-			$of("Coreano"_s)
+			"AWT.InputMethodLanguage.ko"_s,
+			"Coreano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.InputMethodLanguage.zh"_s),
-			$of("Cinese"_s)
+			"AWT.InputMethodLanguage.zh"_s,
+			"Cinese"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.InputMethodLanguage.zh_CN"_s),
-			$of("Cinese semplificato"_s)
+			"AWT.InputMethodLanguage.zh_CN"_s,
+			"Cinese semplificato"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.InputMethodLanguage.zh_TW"_s),
-			$of("Cinese tradizionale"_s)
+			"AWT.InputMethodLanguage.zh_TW"_s,
+			"Cinese tradizionale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.InputMethodSelectionMenu"_s),
-			$of("Seleziona metodo di immissione"_s)
+			"AWT.InputMethodSelectionMenu"_s,
+			"Seleziona metodo di immissione"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.Less"_s),
-			$of("Minore"_s)
+			"AWT.Less"_s,
+			"Minore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.MoveCursor"_s),
-			$of("Sposta cursore"_s)
+			"AWT.MoveCursor"_s,
+			"Sposta cursore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.NEResizeCursor"_s),
-			$of("Cursore di ridimensionamento nordorientale"_s)
+			"AWT.NEResizeCursor"_s,
+			"Cursore di ridimensionamento nordorientale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.NResizeCursor"_s),
-			$of("Cursore di ridimensionamento settentrionale"_s)
+			"AWT.NResizeCursor"_s,
+			"Cursore di ridimensionamento settentrionale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.NWResizeCursor"_s),
-			$of("Cursore di ridimensionamento nordoccidentale"_s)
+			"AWT.NWResizeCursor"_s,
+			"Cursore di ridimensionamento nordoccidentale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.SEResizeCursor"_s),
-			$of("Cursore di ridimensionamento sudorientale"_s)
+			"AWT.SEResizeCursor"_s,
+			"Cursore di ridimensionamento sudorientale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.SResizeCursor"_s),
-			$of("Cursore di ridimensionamento meridionale"_s)
+			"AWT.SResizeCursor"_s,
+			"Cursore di ridimensionamento meridionale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.SWResizeCursor"_s),
-			$of("Cursore di ridimensionamento sudoccidentale"_s)
+			"AWT.SWResizeCursor"_s,
+			"Cursore di ridimensionamento sudoccidentale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.TextCursor"_s),
-			$of("Cursore testo"_s)
+			"AWT.TextCursor"_s,
+			"Cursore testo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.WResizeCursor"_s),
-			$of("Cursore di ridimensionamento occidentale"_s)
+			"AWT.WResizeCursor"_s,
+			"Cursore di ridimensionamento occidentale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.WaitCursor"_s),
-			$of("Cursore attesa"_s)
+			"AWT.WaitCursor"_s,
+			"Cursore attesa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.accept"_s),
-			$of("Accetto"_s)
+			"AWT.accept"_s,
+			"Accetto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.add"_s),
-			$of("NumPad +"_s)
+			"AWT.add"_s,
+			"NumPad +"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.again"_s),
-			$of("Ancora"_s)
+			"AWT.again"_s,
+			"Ancora"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.allCandidates"_s),
-			$of("Tutti i candidati"_s)
+			"AWT.allCandidates"_s,
+			"Tutti i candidati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.alphanumeric"_s),
-			$of("Alfanumerico"_s)
+			"AWT.alphanumeric"_s,
+			"Alfanumerico"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.alt"_s),
-			$of("Alt"_s)
+			"AWT.alt"_s,
+			"Alt"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.altGraph"_s),
-			$of("Alt Gr"_s)
+			"AWT.altGraph"_s,
+			"Alt Gr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.ampersand"_s),
-			$of("E commerciale"_s)
+			"AWT.ampersand"_s,
+			"E commerciale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.asterisk"_s),
-			$of("Asterisco"_s)
+			"AWT.asterisk"_s,
+			"Asterisco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.at"_s),
-			$of("Chiocciola"_s)
+			"AWT.at"_s,
+			"Chiocciola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.backQuote"_s),
-			$of("Apice invertito"_s)
+			"AWT.backQuote"_s,
+			"Apice invertito"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.backSlash"_s),
-			$of("Barra rovesciata"_s)
+			"AWT.backSlash"_s,
+			"Barra rovesciata"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.backSpace"_s),
-			$of("Backspace"_s)
+			"AWT.backSpace"_s,
+			"Backspace"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.begin"_s),
-			$of("Inizio"_s)
+			"AWT.begin"_s,
+			"Inizio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.braceLeft"_s),
-			$of("Parentesi graffa aperta"_s)
+			"AWT.braceLeft"_s,
+			"Parentesi graffa aperta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.braceRight"_s),
-			$of("Parentesi graffa chiusa"_s)
+			"AWT.braceRight"_s,
+			"Parentesi graffa chiusa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.cancel"_s),
-			$of("Annulla"_s)
+			"AWT.cancel"_s,
+			"Annulla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.capsLock"_s),
-			$of("Bloc Maiusc"_s)
+			"AWT.capsLock"_s,
+			"Bloc Maiusc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.circumflex"_s),
-			$of("Circonflesso"_s)
+			"AWT.circumflex"_s,
+			"Circonflesso"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.clear"_s),
-			$of("Cancella"_s)
+			"AWT.clear"_s,
+			"Cancella"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.closeBracket"_s),
-			$of("Parentesi quadra chiusa"_s)
+			"AWT.closeBracket"_s,
+			"Parentesi quadra chiusa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.codeInput"_s),
-			$of("Immissione codice"_s)
+			"AWT.codeInput"_s,
+			"Immissione codice"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.colon"_s),
-			$of("Due punti"_s)
+			"AWT.colon"_s,
+			"Due punti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.comma"_s),
-			$of("Virgola"_s)
+			"AWT.comma"_s,
+			"Virgola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.compose"_s),
-			$of("Componi"_s)
+			"AWT.compose"_s,
+			"Componi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.context"_s),
-			$of("Menu di scelta rapida"_s)
+			"AWT.context"_s,
+			"Menu di scelta rapida"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.control"_s),
-			$of("Ctrl"_s)
+			"AWT.control"_s,
+			"Ctrl"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.convert"_s),
-			$of("Converti"_s)
+			"AWT.convert"_s,
+			"Converti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.copy"_s),
-			$of("Copia"_s)
+			"AWT.copy"_s,
+			"Copia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.cut"_s),
-			$of("Taglia"_s)
+			"AWT.cut"_s,
+			"Taglia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadAboveDot"_s),
-			$of("Punto superiore non attivo"_s)
+			"AWT.deadAboveDot"_s,
+			"Punto superiore non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadAboveRing"_s),
-			$of("Cerchio superiore non attivo"_s)
+			"AWT.deadAboveRing"_s,
+			"Cerchio superiore non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadAcute"_s),
-			$of("Acuto non attivo"_s)
+			"AWT.deadAcute"_s,
+			"Acuto non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadBreve"_s),
-			$of("Breve non attivo"_s)
+			"AWT.deadBreve"_s,
+			"Breve non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadCaron"_s),
-			$of("Caron non attivo"_s)
+			"AWT.deadCaron"_s,
+			"Caron non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadCedilla"_s),
-			$of("Cediglia non attivo"_s)
+			"AWT.deadCedilla"_s,
+			"Cediglia non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadCircumflex"_s),
-			$of("Circonflesso non attivo"_s)
+			"AWT.deadCircumflex"_s,
+			"Circonflesso non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadDiaeresis"_s),
-			$of("Dieresi non attivo"_s)
+			"AWT.deadDiaeresis"_s,
+			"Dieresi non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadDoubleAcute"_s),
-			$of("Acuto doppio non attivo"_s)
+			"AWT.deadDoubleAcute"_s,
+			"Acuto doppio non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadGrave"_s),
-			$of("Grave non attivo"_s)
+			"AWT.deadGrave"_s,
+			"Grave non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadIota"_s),
-			$of("Iota non attivo"_s)
+			"AWT.deadIota"_s,
+			"Iota non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadMacron"_s),
-			$of("Macron non attivo"_s)
+			"AWT.deadMacron"_s,
+			"Macron non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadOgonek"_s),
-			$of("Ogonek non attivo"_s)
+			"AWT.deadOgonek"_s,
+			"Ogonek non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadSemivoicedSound"_s),
-			$of("Suono semivocalizzato non attivo"_s)
+			"AWT.deadSemivoicedSound"_s,
+			"Suono semivocalizzato non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadTilde"_s),
-			$of("Tilde non attivo"_s)
+			"AWT.deadTilde"_s,
+			"Tilde non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.deadVoicedSound"_s),
-			$of("Suono vocalizzato non attivo"_s)
+			"AWT.deadVoicedSound"_s,
+			"Suono vocalizzato non attivo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.decimal"_s),
-			$of("NumPad ."_s)
+			"AWT.decimal"_s,
+			"NumPad ."_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.delete"_s),
-			$of("Elimina"_s)
+			"AWT.delete"_s,
+			"Elimina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.divide"_s),
-			$of("NumPad /"_s)
+			"AWT.divide"_s,
+			"NumPad /"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.dollar"_s),
-			$of("Dollaro"_s)
+			"AWT.dollar"_s,
+			"Dollaro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.down"_s),
-			$of(u"Giù"_s)
+			"AWT.down"_s,
+			u"Giù"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.end"_s),
-			$of("Fine"_s)
+			"AWT.end"_s,
+			"Fine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.enter"_s),
-			$of("Invio"_s)
+			"AWT.enter"_s,
+			"Invio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.equals"_s),
-			$of("Uguale"_s)
+			"AWT.equals"_s,
+			"Uguale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.escape"_s),
-			$of("Esc"_s)
+			"AWT.escape"_s,
+			"Esc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.euro"_s),
-			$of("Euro"_s)
+			"AWT.euro"_s,
+			"Euro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.exclamationMark"_s),
-			$of("Punto esclamativo"_s)
+			"AWT.exclamationMark"_s,
+			"Punto esclamativo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f1"_s),
-			$of("F1"_s)
+			"AWT.f1"_s,
+			"F1"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f10"_s),
-			$of("F10"_s)
+			"AWT.f10"_s,
+			"F10"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f11"_s),
-			$of("F11"_s)
+			"AWT.f11"_s,
+			"F11"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f12"_s),
-			$of("F12"_s)
+			"AWT.f12"_s,
+			"F12"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f13"_s),
-			$of("F13"_s)
+			"AWT.f13"_s,
+			"F13"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f14"_s),
-			$of("F14"_s)
+			"AWT.f14"_s,
+			"F14"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f15"_s),
-			$of("F15"_s)
+			"AWT.f15"_s,
+			"F15"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f16"_s),
-			$of("F16"_s)
+			"AWT.f16"_s,
+			"F16"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f17"_s),
-			$of("F17"_s)
+			"AWT.f17"_s,
+			"F17"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f18"_s),
-			$of("F18"_s)
+			"AWT.f18"_s,
+			"F18"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f19"_s),
-			$of("F19"_s)
+			"AWT.f19"_s,
+			"F19"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f2"_s),
-			$of("F2"_s)
+			"AWT.f2"_s,
+			"F2"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f20"_s),
-			$of("F20"_s)
+			"AWT.f20"_s,
+			"F20"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f21"_s),
-			$of("F21"_s)
+			"AWT.f21"_s,
+			"F21"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f22"_s),
-			$of("F22"_s)
+			"AWT.f22"_s,
+			"F22"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f23"_s),
-			$of("F23"_s)
+			"AWT.f23"_s,
+			"F23"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f24"_s),
-			$of("F24"_s)
+			"AWT.f24"_s,
+			"F24"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f3"_s),
-			$of("F3"_s)
+			"AWT.f3"_s,
+			"F3"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f4"_s),
-			$of("F4"_s)
+			"AWT.f4"_s,
+			"F4"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f5"_s),
-			$of("F5"_s)
+			"AWT.f5"_s,
+			"F5"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f6"_s),
-			$of("F6"_s)
+			"AWT.f6"_s,
+			"F6"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f7"_s),
-			$of("F7"_s)
+			"AWT.f7"_s,
+			"F7"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f8"_s),
-			$of("F8"_s)
+			"AWT.f8"_s,
+			"F8"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.f9"_s),
-			$of("F9"_s)
+			"AWT.f9"_s,
+			"F9"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.final"_s),
-			$of("Finale"_s)
+			"AWT.final"_s,
+			"Finale"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.find"_s),
-			$of("Trova"_s)
+			"AWT.find"_s,
+			"Trova"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.fullWidth"_s),
-			$of("Spessore pieno"_s)
+			"AWT.fullWidth"_s,
+			"Spessore pieno"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.greater"_s),
-			$of("Maggiore"_s)
+			"AWT.greater"_s,
+			"Maggiore"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.halfWidth"_s),
-			$of("Spessore ridotto"_s)
+			"AWT.halfWidth"_s,
+			"Spessore ridotto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.help"_s),
-			$of("?"_s)
+			"AWT.help"_s,
+			"?"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.hiragana"_s),
-			$of("Hiragana"_s)
+			"AWT.hiragana"_s,
+			"Hiragana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.home"_s),
-			$of("Home"_s)
+			"AWT.home"_s,
+			"Home"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.inputMethodOnOff"_s),
-			$of("Metodo immissione On/Off"_s)
+			"AWT.inputMethodOnOff"_s,
+			"Metodo immissione On/Off"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.insert"_s),
-			$of("Ins"_s)
+			"AWT.insert"_s,
+			"Ins"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.invertedExclamationMark"_s),
-			$of("Punto esclamativo invertito"_s)
+			"AWT.invertedExclamationMark"_s,
+			"Punto esclamativo invertito"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.japaneseHiragana"_s),
-			$of("Hiragana giapponese"_s)
+			"AWT.japaneseHiragana"_s,
+			"Hiragana giapponese"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.japaneseKatakana"_s),
-			$of("Katakana giapponese"_s)
+			"AWT.japaneseKatakana"_s,
+			"Katakana giapponese"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.japaneseRoman"_s),
-			$of("Romano Giapponese"_s)
+			"AWT.japaneseRoman"_s,
+			"Romano Giapponese"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.kana"_s),
-			$of("Kana"_s)
+			"AWT.kana"_s,
+			"Kana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.kanaLock"_s),
-			$of("Blocco Kana"_s)
+			"AWT.kanaLock"_s,
+			"Blocco Kana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.kanji"_s),
-			$of("Kanji"_s)
+			"AWT.kanji"_s,
+			"Kanji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.katakana"_s),
-			$of("Katakana"_s)
+			"AWT.katakana"_s,
+			"Katakana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.left"_s),
-			$of("Sinistra"_s)
+			"AWT.left"_s,
+			"Sinistra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.leftParenthesis"_s),
-			$of("Parentesi aperta"_s)
+			"AWT.leftParenthesis"_s,
+			"Parentesi aperta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.meta"_s),
-			$of("Meta"_s)
+			"AWT.meta"_s,
+			"Meta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.minus"_s),
-			$of("Meno"_s)
+			"AWT.minus"_s,
+			"Meno"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.modechange"_s),
-			$of(u"Modifica modalità"_s)
+			"AWT.modechange"_s,
+			u"Modifica modalità"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.multiply"_s),
-			$of("NumPad *"_s)
+			"AWT.multiply"_s,
+			"NumPad *"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.noconvert"_s),
-			$of("Non convertire"_s)
+			"AWT.noconvert"_s,
+			"Non convertire"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.numLock"_s),
-			$of("Bloc Num"_s)
+			"AWT.numLock"_s,
+			"Bloc Num"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.numberSign"_s),
-			$of("Cancelletto"_s)
+			"AWT.numberSign"_s,
+			"Cancelletto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.numpad"_s),
-			$of("NumPad"_s)
+			"AWT.numpad"_s,
+			"NumPad"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.openBracket"_s),
-			$of("Parentesi quadra aperta"_s)
+			"AWT.openBracket"_s,
+			"Parentesi quadra aperta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.paste"_s),
-			$of("Incolla"_s)
+			"AWT.paste"_s,
+			"Incolla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.pause"_s),
-			$of("Sospendi"_s)
+			"AWT.pause"_s,
+			"Sospendi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.period"_s),
-			$of("Punto"_s)
+			"AWT.period"_s,
+			"Punto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.pgdn"_s),
-			$of(u"Pg Giù"_s)
+			"AWT.pgdn"_s,
+			u"Pg Giù"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.pgup"_s),
-			$of("Pg Su"_s)
+			"AWT.pgup"_s,
+			"Pg Su"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.plus"_s),
-			$of(u"Più"_s)
+			"AWT.plus"_s,
+			u"Più"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.previousCandidate"_s),
-			$of("Candidato precedente"_s)
+			"AWT.previousCandidate"_s,
+			"Candidato precedente"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.printScreen"_s),
-			$of("Stamp"_s)
+			"AWT.printScreen"_s,
+			"Stamp"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.props"_s),
-			$of(u"Proprietà"_s)
+			"AWT.props"_s,
+			u"Proprietà"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.quote"_s),
-			$of("Apice"_s)
+			"AWT.quote"_s,
+			"Apice"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.quoteDbl"_s),
-			$of("Virgolette"_s)
+			"AWT.quoteDbl"_s,
+			"Virgolette"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.right"_s),
-			$of("Destra"_s)
+			"AWT.right"_s,
+			"Destra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.rightParenthesis"_s),
-			$of("Parentesi chiusa"_s)
+			"AWT.rightParenthesis"_s,
+			"Parentesi chiusa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.romanCharacters"_s),
-			$of("Caratteri romani"_s)
+			"AWT.romanCharacters"_s,
+			"Caratteri romani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.scrollLock"_s),
-			$of("Bloc Scorr"_s)
+			"AWT.scrollLock"_s,
+			"Bloc Scorr"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.semicolon"_s),
-			$of("Punto e virgola"_s)
+			"AWT.semicolon"_s,
+			"Punto e virgola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.separater"_s),
-			$of("NumPad ,"_s)
+			"AWT.separater"_s,
+			"NumPad ,"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.separator"_s),
-			$of("NumPad ,"_s)
+			"AWT.separator"_s,
+			"NumPad ,"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.shift"_s),
-			$of("Maiusc"_s)
+			"AWT.shift"_s,
+			"Maiusc"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.slash"_s),
-			$of("Barra"_s)
+			"AWT.slash"_s,
+			"Barra"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.space"_s),
-			$of("Barra spaziatrice"_s)
+			"AWT.space"_s,
+			"Barra spaziatrice"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.stop"_s),
-			$of("Arresta"_s)
+			"AWT.stop"_s,
+			"Arresta"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.subtract"_s),
-			$of("NumPad -"_s)
+			"AWT.subtract"_s,
+			"NumPad -"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.tab"_s),
-			$of("Tabulazione"_s)
+			"AWT.tab"_s,
+			"Tabulazione"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.undefined"_s),
-			$of("Non definito"_s)
+			"AWT.undefined"_s,
+			"Non definito"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.underscore"_s),
-			$of("Sottolineatura"_s)
+			"AWT.underscore"_s,
+			"Sottolineatura"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.undo"_s),
-			$of("Annulla"_s)
+			"AWT.undo"_s,
+			"Annulla"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.unknown"_s),
-			$of("Sconosciuto"_s)
+			"AWT.unknown"_s,
+			"Sconosciuto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.up"_s),
-			$of("Su"_s)
+			"AWT.up"_s,
+			"Su"_s
 		}),
 		$$new($ObjectArray, {
-			$of("AWT.windows"_s),
-			$of("Windows"_s)
+			"AWT.windows"_s,
+			"Windows"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.awt.def.delay"_s),
-			$of("30"_s)
+			"java.awt.def.delay"_s,
+			"30"_s
 		}),
 		$$new($ObjectArray, {
-			$of("java.awt.im.style"_s),
-			$of("immediato"_s)
+			"java.awt.im.style"_s,
+			"immediato"_s
 		})
 	});
 }
@@ -725,7 +705,22 @@ awt_it::awt_it() {
 }
 
 $Class* awt_it::load$($String* name, bool initialize) {
-	$loadClass(awt_it, name, initialize, &_awt_it_ClassInfo_, allocate$awt_it);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(awt_it, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(awt_it, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.resources.awt_it",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(awt_it, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(awt_it);
+	});
 	return class$;
 }
 

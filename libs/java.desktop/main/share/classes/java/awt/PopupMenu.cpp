@@ -1,5 +1,4 @@
 #include <java/awt/PopupMenu.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Event.h>
@@ -12,7 +11,6 @@
 #include <java/awt/peer/MenuComponentPeer.h>
 #include <java/awt/peer/PopupMenuPeer.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <sun/awt/AWTAccessor$PopupMenuAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/ComponentFactory.h>
 #include <jcpp.h>
@@ -27,7 +25,6 @@ using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem = ::java::awt::MenuItem;
 using $PopupMenu$1 = ::java::awt::PopupMenu$1;
 using $PopupMenu$AccessibleAWTPopupMenu = ::java::awt::PopupMenu$AccessibleAWTPopupMenu;
-using $MenuComponentPeer = ::java::awt::peer::MenuComponentPeer;
 using $PopupMenuPeer = ::java::awt::peer::PopupMenuPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -38,55 +35,9 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$PopupMenuAccessor = ::sun::awt::AWTAccessor$PopupMenuAccessor;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _PopupMenu_FieldInfo_[] = {
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PopupMenu, base)},
-	{"nameCounter", "I", nullptr, $STATIC, $staticField(PopupMenu, nameCounter)},
-	{"isTrayIconPopup", "Z", nullptr, $VOLATILE | $TRANSIENT, $field(PopupMenu, isTrayIconPopup)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PopupMenu, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PopupMenu_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PopupMenu, init$, void), "java.awt.HeadlessException"},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PopupMenu, init$, void, $String*), "java.awt.HeadlessException"},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(PopupMenu, addNotify, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PopupMenu, constructComponentName, $String*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(PopupMenu, getAccessibleContext, $AccessibleContext*)},
-	{"getParent", "()Ljava/awt/MenuContainer;", nullptr, $PUBLIC, $virtualMethod(PopupMenu, getParent, $MenuContainer*)},
-	{"show", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $virtualMethod(PopupMenu, show, void, $Component*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PopupMenu_InnerClassesInfo_[] = {
-	{"java.awt.PopupMenu$AccessibleAWTPopupMenu", "java.awt.PopupMenu", "AccessibleAWTPopupMenu", $PROTECTED},
-	{"java.awt.PopupMenu$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _PopupMenu_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.PopupMenu",
-	"java.awt.Menu",
-	nullptr,
-	_PopupMenu_FieldInfo_,
-	_PopupMenu_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupMenu_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.PopupMenu$AccessibleAWTPopupMenu,java.awt.PopupMenu$1"
-};
-
-$Object* allocate$PopupMenu($Class* clazz) {
-	return $of($alloc(PopupMenu));
-}
 
 $String* PopupMenu::base = nullptr;
 int32_t PopupMenu::nameCounter = 0;
@@ -107,21 +58,22 @@ $MenuContainer* PopupMenu::getParent() {
 }
 
 $String* PopupMenu::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(PopupMenu::class$) {
-		$var($String, var$0, PopupMenu::base);
-		return $concat(var$0, $$str(PopupMenu::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(PopupMenu::base);
+		var$0->append(PopupMenu::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void PopupMenu::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(getTreeLock()) {
 		if (this->parent != nullptr && !($instanceOf($Component, this->parent))) {
 			$Menu::addNotify();
 		} else {
 			if (this->peer == nullptr) {
-				$set(this, peer, $nc($(getComponentFactory()))->createPopupMenu(this));
+				$set(this, peer, $$nc(getComponentFactory())->createPopupMenu(this));
 			}
 			int32_t nitems = getItemCount();
 			for (int32_t i = 0; i < nitems; ++i) {
@@ -134,7 +86,7 @@ void PopupMenu::addNotify() {
 }
 
 void PopupMenu::show($Component* origin, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MenuContainer, localParent, this->parent);
 	if (localParent == nullptr) {
 		$throwNew($NullPointerException, "parent is null"_s);
@@ -145,14 +97,14 @@ void PopupMenu::show($Component* origin, int32_t x, int32_t y) {
 	$var($Component, compParent, $cast($Component, localParent));
 	if (compParent != origin) {
 		if ($instanceOf($Container, compParent)) {
-			if (!$nc(($cast($Container, compParent)))->isAncestorOf(origin)) {
+			if (!$cast($Container, compParent)->isAncestorOf(origin)) {
 				$throwNew($IllegalArgumentException, "origin not in parent\'s hierarchy"_s);
 			}
 		} else {
 			$throwNew($IllegalArgumentException, "origin not in parent\'s hierarchy"_s);
 		}
 	}
-	if ($nc(compParent)->peer == nullptr || !$nc(compParent)->isShowing()) {
+	if ($nc(compParent)->peer == nullptr || !compParent->isShowing()) {
 		$throwNew($RuntimeException, "parent not showing on screen"_s);
 	}
 	if (this->peer == nullptr) {
@@ -160,7 +112,7 @@ void PopupMenu::show($Component* origin, int32_t x, int32_t y) {
 	}
 	$synchronized(getTreeLock()) {
 		if (this->peer != nullptr) {
-			$nc(($cast($PopupMenuPeer, this->peer)))->show($$new($Event, origin, 0, $Event::MOUSE_DOWN, x, y, 0, 0));
+			$nc($cast($PopupMenuPeer, this->peer))->show($$new($Event, origin, 0, $Event::MOUSE_DOWN, x, y, 0, 0));
 		}
 	}
 }
@@ -172,7 +124,7 @@ $AccessibleContext* PopupMenu::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$PopupMenu($Class* class$) {
+void PopupMenu::clinit$($Class* clazz) {
 	$assignStatic(PopupMenu::base, "popup"_s);
 	PopupMenu::nameCounter = 0;
 	{
@@ -184,7 +136,45 @@ PopupMenu::PopupMenu() {
 }
 
 $Class* PopupMenu::load$($String* name, bool initialize) {
-	$loadClass(PopupMenu, name, initialize, &_PopupMenu_ClassInfo_, clinit$PopupMenu, allocate$PopupMenu);
+	$FieldInfo fieldInfos$$[] = {
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PopupMenu, base)},
+		{"nameCounter", "I", nullptr, $STATIC, $staticField(PopupMenu, nameCounter)},
+		{"isTrayIconPopup", "Z", nullptr, $VOLATILE | $TRANSIENT, $field(PopupMenu, isTrayIconPopup)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PopupMenu, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PopupMenu, init$, void), "java.awt.HeadlessException"},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PopupMenu, init$, void, $String*), "java.awt.HeadlessException"},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(PopupMenu, addNotify, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(PopupMenu, constructComponentName, $String*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(PopupMenu, getAccessibleContext, $AccessibleContext*)},
+		{"getParent", "()Ljava/awt/MenuContainer;", nullptr, $PUBLIC, $virtualMethod(PopupMenu, getParent, $MenuContainer*)},
+		{"show", "(Ljava/awt/Component;II)V", nullptr, $PUBLIC, $virtualMethod(PopupMenu, show, void, $Component*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.PopupMenu$AccessibleAWTPopupMenu", "java.awt.PopupMenu", "AccessibleAWTPopupMenu", $PROTECTED},
+		{"java.awt.PopupMenu$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.PopupMenu",
+		"java.awt.Menu",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.PopupMenu$AccessibleAWTPopupMenu,java.awt.PopupMenu$1"
+	};
+	$loadClass(PopupMenu, name, initialize, &classInfo$$, PopupMenu::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PopupMenu));
+	});
 	return class$;
 }
 

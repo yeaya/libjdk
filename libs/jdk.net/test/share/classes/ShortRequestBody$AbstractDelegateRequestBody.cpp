@@ -1,5 +1,4 @@
 #include <ShortRequestBody$AbstractDelegateRequestBody.h>
-
 #include <ShortRequestBody.h>
 #include <java/net/http/HttpRequest$BodyPublisher.h>
 #include <java/util/concurrent/Flow$Publisher.h>
@@ -12,45 +11,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-
-$FieldInfo _ShortRequestBody$AbstractDelegateRequestBody_FieldInfo_[] = {
-	{"delegate", "Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $FINAL, $field(ShortRequestBody$AbstractDelegateRequestBody, delegate)},
-	{"contentLength", "J", nullptr, $FINAL, $field(ShortRequestBody$AbstractDelegateRequestBody, contentLength$)},
-	{}
-};
-
-$MethodInfo _ShortRequestBody$AbstractDelegateRequestBody_MethodInfo_[] = {
-	{"<init>", "(Ljava/net/http/HttpRequest$BodyPublisher;J)V", nullptr, 0, $method(ShortRequestBody$AbstractDelegateRequestBody, init$, void, $HttpRequest$BodyPublisher*, int64_t)},
-	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$AbstractDelegateRequestBody, contentLength, int64_t)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ShortRequestBody$AbstractDelegateRequestBody, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _ShortRequestBody$AbstractDelegateRequestBody_InnerClassesInfo_[] = {
-	{"ShortRequestBody$AbstractDelegateRequestBody", "ShortRequestBody", "AbstractDelegateRequestBody", $STATIC | $ABSTRACT},
-	{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ShortRequestBody$AbstractDelegateRequestBody_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"ShortRequestBody$AbstractDelegateRequestBody",
-	"java.lang.Object",
-	"java.net.http.HttpRequest$BodyPublisher",
-	_ShortRequestBody$AbstractDelegateRequestBody_FieldInfo_,
-	_ShortRequestBody$AbstractDelegateRequestBody_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ShortRequestBody$AbstractDelegateRequestBody_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"ShortRequestBody"
-};
-
-$Object* allocate$ShortRequestBody$AbstractDelegateRequestBody($Class* clazz) {
-	return $of($alloc(ShortRequestBody$AbstractDelegateRequestBody));
-}
 
 void ShortRequestBody$AbstractDelegateRequestBody::init$($HttpRequest$BodyPublisher* delegate, int64_t contentLength) {
 	$set(this, delegate, delegate);
@@ -69,7 +29,40 @@ ShortRequestBody$AbstractDelegateRequestBody::ShortRequestBody$AbstractDelegateR
 }
 
 $Class* ShortRequestBody$AbstractDelegateRequestBody::load$($String* name, bool initialize) {
-	$loadClass(ShortRequestBody$AbstractDelegateRequestBody, name, initialize, &_ShortRequestBody$AbstractDelegateRequestBody_ClassInfo_, allocate$ShortRequestBody$AbstractDelegateRequestBody);
+	$FieldInfo fieldInfos$$[] = {
+		{"delegate", "Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $FINAL, $field(ShortRequestBody$AbstractDelegateRequestBody, delegate)},
+		{"contentLength", "J", nullptr, $FINAL, $field(ShortRequestBody$AbstractDelegateRequestBody, contentLength$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/net/http/HttpRequest$BodyPublisher;J)V", nullptr, 0, $method(ShortRequestBody$AbstractDelegateRequestBody, init$, void, $HttpRequest$BodyPublisher*, int64_t)},
+		{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(ShortRequestBody$AbstractDelegateRequestBody, contentLength, int64_t)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(ShortRequestBody$AbstractDelegateRequestBody, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ShortRequestBody$AbstractDelegateRequestBody", "ShortRequestBody", "AbstractDelegateRequestBody", $STATIC | $ABSTRACT},
+		{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"ShortRequestBody$AbstractDelegateRequestBody",
+		"java.lang.Object",
+		"java.net.http.HttpRequest$BodyPublisher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"ShortRequestBody"
+	};
+	$loadClass(ShortRequestBody$AbstractDelegateRequestBody, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ShortRequestBody$AbstractDelegateRequestBody);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaTabbedPaneUI$FocusHandler.h>
-
 #include <com/apple/laf/AquaTabbedPaneUI.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -16,7 +15,6 @@
 using $AquaTabbedPaneUI = ::com::apple::laf::AquaTabbedPaneUI;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $FocusAdapter = ::java::awt::event::FocusAdapter;
@@ -33,47 +31,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaTabbedPaneUI$FocusHandler_FieldInfo_[] = {
-	{"this$0", "Lcom/apple/laf/AquaTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$FocusHandler, this$0)},
-	{"sWorkingRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(AquaTabbedPaneUI$FocusHandler, sWorkingRect)},
-	{}
-};
-
-$MethodInfo _AquaTabbedPaneUI$FocusHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI;)V", nullptr, $PROTECTED, $method(AquaTabbedPaneUI$FocusHandler, init$, void, $AquaTabbedPaneUI*)},
-	{"adjustPaintingRectForFocusRing", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(AquaTabbedPaneUI$FocusHandler, adjustPaintingRectForFocusRing, void, $FocusEvent*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$FocusHandler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$FocusHandler, focusLost, void, $FocusEvent*)},
-	{"getTopLevelFocusCycleRootAncestor", "(Ljava/awt/Container;)Ljava/awt/Container;", nullptr, 0, $virtualMethod(AquaTabbedPaneUI$FocusHandler, getTopLevelFocusCycleRootAncestor, $Container*, $Container*)},
-	{"isDefaultFocusReceiver", "(Ljavax/swing/JComponent;)Z", nullptr, 0, $virtualMethod(AquaTabbedPaneUI$FocusHandler, isDefaultFocusReceiver, bool, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _AquaTabbedPaneUI$FocusHandler_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaTabbedPaneUI$FocusHandler", "com.apple.laf.AquaTabbedPaneUI", "FocusHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _AquaTabbedPaneUI$FocusHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaTabbedPaneUI$FocusHandler",
-	"java.awt.event.FocusAdapter",
-	nullptr,
-	_AquaTabbedPaneUI$FocusHandler_FieldInfo_,
-	_AquaTabbedPaneUI$FocusHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaTabbedPaneUI$FocusHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaTabbedPaneUI"
-};
-
-$Object* allocate$AquaTabbedPaneUI$FocusHandler($Class* clazz) {
-	return $of($alloc(AquaTabbedPaneUI$FocusHandler));
-}
-
 void AquaTabbedPaneUI$FocusHandler::init$($AquaTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
 	$FocusAdapter::init$();
@@ -82,7 +39,7 @@ void AquaTabbedPaneUI$FocusHandler::init$($AquaTabbedPaneUI* this$0) {
 
 void AquaTabbedPaneUI$FocusHandler::focusGained($FocusEvent* e) {
 	if (isDefaultFocusReceiver(this->this$0->tabPane) && !this->this$0->hasAvoidedFirstFocus) {
-		$nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->focusNextComponent();
+		$$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->focusNextComponent();
 		this->this$0->hasAvoidedFirstFocus = true;
 	}
 	adjustPaintingRectForFocusRing(e);
@@ -97,23 +54,23 @@ void AquaTabbedPaneUI$FocusHandler::adjustPaintingRectForFocusRing($FocusEvent* 
 	int32_t tabCount = $nc(pane)->getTabCount();
 	int32_t selectedIndex = pane->getSelectedIndex();
 	if (selectedIndex != -1 && tabCount > 0 && tabCount == $nc(this->this$0->rects)->length) {
-		$nc(this->sWorkingRect)->setBounds($nc(this->this$0->rects)->get(selectedIndex));
+		$nc(this->sWorkingRect)->setBounds(this->this$0->rects->get(selectedIndex));
 		$nc(this->sWorkingRect)->grow(4, 4);
 		pane->repaint(this->sWorkingRect);
 	}
 }
 
 bool AquaTabbedPaneUI$FocusHandler::isDefaultFocusReceiver($JComponent* component) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->isDefaultFocusReceiver == nullptr) {
-		$var($Component, defaultFocusReceiver, $nc($($nc($($KeyboardFocusManager::getCurrentKeyboardFocusManager()))->getDefaultFocusTraversalPolicy()))->getDefaultComponent($(getTopLevelFocusCycleRootAncestor(component))));
-		$set(this->this$0, isDefaultFocusReceiver, $Boolean::valueOf(defaultFocusReceiver != nullptr && $of(defaultFocusReceiver)->equals(component)));
+		$var($Component, defaultFocusReceiver, $$nc($$nc($KeyboardFocusManager::getCurrentKeyboardFocusManager())->getDefaultFocusTraversalPolicy())->getDefaultComponent($(getTopLevelFocusCycleRootAncestor(component))));
+		$set(this->this$0, isDefaultFocusReceiver, $Boolean::valueOf(defaultFocusReceiver != nullptr && defaultFocusReceiver->equals(component)));
 	}
 	return $nc(this->this$0->isDefaultFocusReceiver)->booleanValue();
 }
 
 $Container* AquaTabbedPaneUI$FocusHandler::getTopLevelFocusCycleRootAncestor($Container* container$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, container, container$renamed);
 	$var($Container, ancestor, nullptr);
 	while (($assign(ancestor, $nc(container)->getFocusCycleRootAncestor())) != nullptr) {
@@ -126,7 +83,42 @@ AquaTabbedPaneUI$FocusHandler::AquaTabbedPaneUI$FocusHandler() {
 }
 
 $Class* AquaTabbedPaneUI$FocusHandler::load$($String* name, bool initialize) {
-	$loadClass(AquaTabbedPaneUI$FocusHandler, name, initialize, &_AquaTabbedPaneUI$FocusHandler_ClassInfo_, allocate$AquaTabbedPaneUI$FocusHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/apple/laf/AquaTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(AquaTabbedPaneUI$FocusHandler, this$0)},
+		{"sWorkingRect", "Ljava/awt/Rectangle;", nullptr, 0, $field(AquaTabbedPaneUI$FocusHandler, sWorkingRect)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaTabbedPaneUI;)V", nullptr, $PROTECTED, $method(AquaTabbedPaneUI$FocusHandler, init$, void, $AquaTabbedPaneUI*)},
+		{"adjustPaintingRectForFocusRing", "(Ljava/awt/event/FocusEvent;)V", nullptr, 0, $virtualMethod(AquaTabbedPaneUI$FocusHandler, adjustPaintingRectForFocusRing, void, $FocusEvent*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$FocusHandler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(AquaTabbedPaneUI$FocusHandler, focusLost, void, $FocusEvent*)},
+		{"getTopLevelFocusCycleRootAncestor", "(Ljava/awt/Container;)Ljava/awt/Container;", nullptr, 0, $virtualMethod(AquaTabbedPaneUI$FocusHandler, getTopLevelFocusCycleRootAncestor, $Container*, $Container*)},
+		{"isDefaultFocusReceiver", "(Ljavax/swing/JComponent;)Z", nullptr, 0, $virtualMethod(AquaTabbedPaneUI$FocusHandler, isDefaultFocusReceiver, bool, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaTabbedPaneUI$FocusHandler", "com.apple.laf.AquaTabbedPaneUI", "FocusHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaTabbedPaneUI$FocusHandler",
+		"java.awt.event.FocusAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaTabbedPaneUI"
+	};
+	$loadClass(AquaTabbedPaneUI$FocusHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaTabbedPaneUI$FocusHandler);
+	});
 	return class$;
 }
 

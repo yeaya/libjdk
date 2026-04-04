@@ -71,6 +71,7 @@ class SSLStreams : public ::java::lang::Object {
 	$class(SSLStreams, 0, ::java::lang::Object)
 public:
 	SSLStreams();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::net::httpserver::ServerImpl* server, ::javax::net::ssl::SSLContext* sslctx, ::java::nio::channels::SocketChannel* chan);
 	::java::nio::ByteBuffer* allocate(::sun::net::httpserver::SSLStreams$BufType* type);
 	::java::nio::ByteBuffer* allocate(::sun::net::httpserver::SSLStreams$BufType* type, int32_t len);

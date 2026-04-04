@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/SynchronizedTree.h>
-
 #include <com/sun/source/tree/BlockTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
@@ -14,27 +13,23 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _SynchronizedTree_MethodInfo_[] = {
-	{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SynchronizedTree, getBlock, $BlockTree*)},
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SynchronizedTree, getExpression, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _SynchronizedTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.SynchronizedTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_SynchronizedTree_MethodInfo_
-};
-
-$Object* allocate$SynchronizedTree($Class* clazz) {
-	return $of($alloc(SynchronizedTree));
-}
-
 $Class* SynchronizedTree::load$($String* name, bool initialize) {
-	$loadClass(SynchronizedTree, name, initialize, &_SynchronizedTree_ClassInfo_, allocate$SynchronizedTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getBlock", "()Lcom/sun/source/tree/BlockTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SynchronizedTree, getBlock, $BlockTree*)},
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(SynchronizedTree, getExpression, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.SynchronizedTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(SynchronizedTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SynchronizedTree);
+	});
 	return class$;
 }
 

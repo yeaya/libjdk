@@ -49,7 +49,7 @@ public:
 	double ctrly = 0.0;
 	double x2 = 0.0;
 	double y2 = 0.0;
-	static const int64_t serialVersionUID = (int64_t)0x3A865384388C5D69;
+	static const int64_t serialVersionUID = (int64_t)0x3a865384388c5d69;
 };
 
 		} // geom

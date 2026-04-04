@@ -1,5 +1,4 @@
 #include <java/awt/Canvas.h>
-
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Canvas$AccessibleAWTCanvas.h>
 #include <java/awt/Component.h>
@@ -19,68 +18,14 @@ using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $BufferStrategy = ::java::awt::image::BufferStrategy;
 using $CanvasPeer = ::java::awt::peer::CanvasPeer;
-using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $ComponentFactory = ::sun::awt::ComponentFactory;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Canvas_FieldInfo_[] = {
-	{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Canvas, base)},
-	{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Canvas, nameCounter)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Canvas, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Canvas_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Canvas, init$, void)},
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Canvas, init$, void, $GraphicsConfiguration*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Canvas, addNotify, void)},
-	{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Canvas, constructComponentName, $String*)},
-	{"createBufferStrategy", "(I)V", nullptr, $PUBLIC, $virtualMethod(Canvas, createBufferStrategy, void, int32_t)},
-	{"createBufferStrategy", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(Canvas, createBufferStrategy, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Canvas, getAccessibleContext, $AccessibleContext*)},
-	{"getBufferStrategy", "()Ljava/awt/image/BufferStrategy;", nullptr, $PUBLIC, $virtualMethod(Canvas, getBufferStrategy, $BufferStrategy*)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Canvas, paint, void, $Graphics*)},
-	{"postsOldMouseEvents", "()Z", nullptr, 0, $virtualMethod(Canvas, postsOldMouseEvents, bool)},
-	{"setGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $virtualMethod(Canvas, setGraphicsConfiguration, void, $GraphicsConfiguration*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Canvas, update, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _Canvas_InnerClassesInfo_[] = {
-	{"java.awt.Canvas$AccessibleAWTCanvas", "java.awt.Canvas", "AccessibleAWTCanvas", $PROTECTED},
-	{}
-};
-
-$ClassInfo _Canvas_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Canvas",
-	"java.awt.Component",
-	"javax.accessibility.Accessible",
-	_Canvas_FieldInfo_,
-	_Canvas_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Canvas_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.Canvas$AccessibleAWTCanvas"
-};
-
-$Object* allocate$Canvas($Class* clazz) {
-	return $of($alloc(Canvas));
-}
 
 $String* Canvas::toString() {
 	 return this->$Component::toString();
@@ -115,7 +60,7 @@ void Canvas::init$($GraphicsConfiguration* config) {
 }
 
 void Canvas::setGraphicsConfiguration($GraphicsConfiguration* gc$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($GraphicsConfiguration, gc, gc$renamed);
 	$synchronized(getTreeLock()) {
 		$var($CanvasPeer, peer, $cast($CanvasPeer, this->peer));
@@ -127,17 +72,18 @@ void Canvas::setGraphicsConfiguration($GraphicsConfiguration* gc$renamed) {
 }
 
 $String* Canvas::constructComponentName() {
-	$useLocalCurrentObjectStackCache();
 	$synchronized(Canvas::class$) {
-		$var($String, var$0, Canvas::base);
-		return $concat(var$0, $$str(Canvas::nameCounter++));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append(Canvas::base);
+		var$0->append(Canvas::nameCounter++);
+		return $str(var$0);
 	}
 }
 
 void Canvas::addNotify() {
 	$synchronized(getTreeLock()) {
 		if (this->peer == nullptr) {
-			$set(this, peer, $nc($(getComponentFactory()))->createCanvas(this));
+			$set(this, peer, $$nc(getComponentFactory())->createCanvas(this));
 		}
 		$Component::addNotify();
 	}
@@ -175,7 +121,7 @@ $AccessibleContext* Canvas::getAccessibleContext() {
 	return this->accessibleContext;
 }
 
-void clinit$Canvas($Class* class$) {
+void Canvas::clinit$($Class* clazz) {
 	$assignStatic(Canvas::base, "canvas"_s);
 	Canvas::nameCounter = 0;
 }
@@ -184,7 +130,53 @@ Canvas::Canvas() {
 }
 
 $Class* Canvas::load$($String* name, bool initialize) {
-	$loadClass(Canvas, name, initialize, &_Canvas_ClassInfo_, clinit$Canvas, allocate$Canvas);
+	$FieldInfo fieldInfos$$[] = {
+		{"base", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Canvas, base)},
+		{"nameCounter", "I", nullptr, $PRIVATE | $STATIC, $staticField(Canvas, nameCounter)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Canvas, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Canvas, init$, void)},
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, $PUBLIC, $method(Canvas, init$, void, $GraphicsConfiguration*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(Canvas, addNotify, void)},
+		{"constructComponentName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(Canvas, constructComponentName, $String*)},
+		{"createBufferStrategy", "(I)V", nullptr, $PUBLIC, $virtualMethod(Canvas, createBufferStrategy, void, int32_t)},
+		{"createBufferStrategy", "(ILjava/awt/BufferCapabilities;)V", nullptr, $PUBLIC, $virtualMethod(Canvas, createBufferStrategy, void, int32_t, $BufferCapabilities*), "java.awt.AWTException"},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(Canvas, getAccessibleContext, $AccessibleContext*)},
+		{"getBufferStrategy", "()Ljava/awt/image/BufferStrategy;", nullptr, $PUBLIC, $virtualMethod(Canvas, getBufferStrategy, $BufferStrategy*)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Canvas, paint, void, $Graphics*)},
+		{"postsOldMouseEvents", "()Z", nullptr, 0, $virtualMethod(Canvas, postsOldMouseEvents, bool)},
+		{"setGraphicsConfiguration", "(Ljava/awt/GraphicsConfiguration;)V", nullptr, 0, $virtualMethod(Canvas, setGraphicsConfiguration, void, $GraphicsConfiguration*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(Canvas, update, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Canvas$AccessibleAWTCanvas", "java.awt.Canvas", "AccessibleAWTCanvas", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Canvas",
+		"java.awt.Component",
+		"javax.accessibility.Accessible",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.Canvas$AccessibleAWTCanvas"
+	};
+	$loadClass(Canvas, name, initialize, &classInfo$$, Canvas::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Canvas));
+	});
 	return class$;
 }
 

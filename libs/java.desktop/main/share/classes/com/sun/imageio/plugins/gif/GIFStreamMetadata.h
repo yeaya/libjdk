@@ -31,6 +31,7 @@ class GIFStreamMetadata : public ::com::sun::imageio::plugins::gif::GIFMetadata 
 	$class(GIFStreamMetadata, 0, ::com::sun::imageio::plugins::gif::GIFMetadata)
 public:
 	GIFStreamMetadata();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(bool standardMetadataFormatSupported, $String* nativeMetadataFormatName, $String* nativeMetadataFormatClassName, $StringArray* extraMetadataFormatNames, $StringArray* extraMetadataFormatClassNames);
 	void init$();
 	virtual ::org::w3c::dom::Node* getAsTree($String* formatName) override;

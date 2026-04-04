@@ -1,5 +1,4 @@
 #include <javax/tools/JavaFileManager$Location.h>
-
 #include <javax/tools/JavaFileManager.h>
 #include <jcpp.h>
 
@@ -10,44 +9,39 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace tools {
 
-$MethodInfo _JavaFileManager$Location_MethodInfo_[] = {
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager$Location, getName, $String*)},
-	{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaFileManager$Location, isModuleOrientedLocation, bool)},
-	{"isOutputLocation", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager$Location, isOutputLocation, bool)},
-	{}
-};
-
-$InnerClassInfo _JavaFileManager$Location_InnerClassesInfo_[] = {
-	{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JavaFileManager$Location_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.tools.JavaFileManager$Location",
-	nullptr,
-	nullptr,
-	nullptr,
-	_JavaFileManager$Location_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavaFileManager$Location_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.tools.JavaFileManager"
-};
-
-$Object* allocate$JavaFileManager$Location($Class* clazz) {
-	return $of($alloc(JavaFileManager$Location));
-}
-
 bool JavaFileManager$Location::isModuleOrientedLocation() {
-	return $nc($(getName()))->matches("\\bMODULE\\b"_s);
+	return $$nc(getName())->matches("\\bMODULE\\b"_s);
 }
 
 $Class* JavaFileManager$Location::load$($String* name, bool initialize) {
-	$loadClass(JavaFileManager$Location, name, initialize, &_JavaFileManager$Location_ClassInfo_, allocate$JavaFileManager$Location);
+	$MethodInfo methodInfos$$[] = {
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager$Location, getName, $String*)},
+		{"isModuleOrientedLocation", "()Z", nullptr, $PUBLIC, $virtualMethod(JavaFileManager$Location, isModuleOrientedLocation, bool)},
+		{"isOutputLocation", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(JavaFileManager$Location, isOutputLocation, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.tools.JavaFileManager$Location", "javax.tools.JavaFileManager", "Location", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.tools.JavaFileManager$Location",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.tools.JavaFileManager"
+	};
+	$loadClass(JavaFileManager$Location, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavaFileManager$Location);
+	});
 	return class$;
 }
 

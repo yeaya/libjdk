@@ -62,6 +62,7 @@ class DOM2TO : public ::org::xml::sax::XMLReader, public ::org::xml::sax::ext::L
 	$class(DOM2TO, 0, ::org::xml::sax::XMLReader, ::org::xml::sax::ext::Locator2)
 public:
 	DOM2TO();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

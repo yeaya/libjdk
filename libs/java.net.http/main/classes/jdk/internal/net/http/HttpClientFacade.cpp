@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/HttpClientFacade.h>
-
 #include <java/lang/ref/Reference.h>
 #include <java/net/http/HttpClient$Redirect.h>
 #include <java/net/http/HttpClient$Version.h>
@@ -41,56 +40,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _HttpClientFacade_FieldInfo_[] = {
-	{"impl", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $FINAL, $field(HttpClientFacade, impl)},
-	{}
-};
-
-$MethodInfo _HttpClientFacade_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpClientFacade, init$, void, $HttpClientImpl*)},
-	{"authenticator", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/Authenticator;>;", $PUBLIC, $virtualMethod(HttpClientFacade, authenticator, $Optional*)},
-	{"connectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HttpClientFacade, connectTimeout, $Optional*)},
-	{"cookieHandler", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/CookieHandler;>;", $PUBLIC, $virtualMethod(HttpClientFacade, cookieHandler, $Optional*)},
-	{"executor", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/concurrent/Executor;>;", $PUBLIC, $virtualMethod(HttpClientFacade, executor, $Optional*)},
-	{"followRedirects", "()Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, followRedirects, $HttpClient$Redirect*)},
-	{"getOperationsTracker", "()Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, getOperationsTracker, $OperationTrackers$Tracker*)},
-	{"newWebSocketBuilder", "()Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, newWebSocketBuilder, $WebSocket$Builder*)},
-	{"proxy", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", $PUBLIC, $virtualMethod(HttpClientFacade, proxy, $Optional*)},
-	{"send", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/net/http/HttpResponse;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/net/http/HttpResponse<TT;>;", $PUBLIC, $virtualMethod(HttpClientFacade, send, $HttpResponse*, $HttpRequest*, $HttpResponse$BodyHandler*), "java.io.IOException,java.lang.InterruptedException"},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientFacade, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*)},
-	{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientFacade, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*)},
-	{"sslContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, sslContext, $SSLContext*)},
-	{"sslParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, sslParameters, $SSLParameters*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, toString, $String*)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, version, $HttpClient$Version*)},
-	{}
-};
-
-$InnerClassInfo _HttpClientFacade_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.OperationTrackers$Trackable", "jdk.internal.net.http.common.OperationTrackers", "Trackable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _HttpClientFacade_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.HttpClientFacade",
-	"java.net.http.HttpClient",
-	"jdk.internal.net.http.common.OperationTrackers$Trackable",
-	_HttpClientFacade_FieldInfo_,
-	_HttpClientFacade_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HttpClientFacade_InnerClassesInfo_
-};
-
-$Object* allocate$HttpClientFacade($Class* clazz) {
-	return $of($alloc(HttpClientFacade));
-}
 
 int32_t HttpClientFacade::hashCode() {
 	 return this->$HttpClient::hashCode();
@@ -154,101 +103,93 @@ $Optional* HttpClientFacade::executor() {
 }
 
 $HttpResponse* HttpClientFacade::send($HttpRequest* req, $HttpResponse$BodyHandler* responseBodyHandler) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($HttpResponse, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $nc(this->impl)->send(req, responseBodyHandler));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	$var($HttpResponse, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(this->impl)->send(req, responseBodyHandler));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $CompletableFuture* HttpClientFacade::sendAsync($HttpRequest* req, $HttpResponse$BodyHandler* responseBodyHandler) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CompletableFuture, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $nc(this->impl)->sendAsync(req, responseBodyHandler));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	$var($CompletableFuture, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(this->impl)->sendAsync(req, responseBodyHandler));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $CompletableFuture* HttpClientFacade::sendAsync($HttpRequest* req, $HttpResponse$BodyHandler* responseBodyHandler, $HttpResponse$PushPromiseHandler* pushPromiseHandler) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($CompletableFuture, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $nc(this->impl)->sendAsync(req, responseBodyHandler, pushPromiseHandler));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	$var($CompletableFuture, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(this->impl)->sendAsync(req, responseBodyHandler, pushPromiseHandler));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 $WebSocket$Builder* HttpClientFacade::newWebSocketBuilder() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($WebSocket$Builder, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$assign(var$2, $nc(this->impl)->newWebSocketBuilder());
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			$Reference::reachabilityFence(this);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	$var($WebSocket$Builder, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$assign(var$2, $nc(this->impl)->newWebSocketBuilder());
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		$Reference::reachabilityFence(this);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
@@ -261,7 +202,51 @@ HttpClientFacade::HttpClientFacade() {
 }
 
 $Class* HttpClientFacade::load$($String* name, bool initialize) {
-	$loadClass(HttpClientFacade, name, initialize, &_HttpClientFacade_ClassInfo_, allocate$HttpClientFacade);
+	$FieldInfo fieldInfos$$[] = {
+		{"impl", "Ljdk/internal/net/http/HttpClientImpl;", nullptr, $FINAL, $field(HttpClientFacade, impl)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljdk/internal/net/http/HttpClientImpl;)V", nullptr, 0, $method(HttpClientFacade, init$, void, $HttpClientImpl*)},
+		{"authenticator", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/Authenticator;>;", $PUBLIC, $virtualMethod(HttpClientFacade, authenticator, $Optional*)},
+		{"connectTimeout", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/time/Duration;>;", $PUBLIC, $virtualMethod(HttpClientFacade, connectTimeout, $Optional*)},
+		{"cookieHandler", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/CookieHandler;>;", $PUBLIC, $virtualMethod(HttpClientFacade, cookieHandler, $Optional*)},
+		{"executor", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/util/concurrent/Executor;>;", $PUBLIC, $virtualMethod(HttpClientFacade, executor, $Optional*)},
+		{"followRedirects", "()Ljava/net/http/HttpClient$Redirect;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, followRedirects, $HttpClient$Redirect*)},
+		{"getOperationsTracker", "()Ljdk/internal/net/http/common/OperationTrackers$Tracker;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, getOperationsTracker, $OperationTrackers$Tracker*)},
+		{"newWebSocketBuilder", "()Ljava/net/http/WebSocket$Builder;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, newWebSocketBuilder, $WebSocket$Builder*)},
+		{"proxy", "()Ljava/util/Optional;", "()Ljava/util/Optional<Ljava/net/ProxySelector;>;", $PUBLIC, $virtualMethod(HttpClientFacade, proxy, $Optional*)},
+		{"send", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/net/http/HttpResponse;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/net/http/HttpResponse<TT;>;", $PUBLIC, $virtualMethod(HttpClientFacade, send, $HttpResponse*, $HttpRequest*, $HttpResponse$BodyHandler*), "java.io.IOException,java.lang.InterruptedException"},
+		{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientFacade, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*)},
+		{"sendAsync", "(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler;Ljava/net/http/HttpResponse$PushPromiseHandler;)Ljava/util/concurrent/CompletableFuture;", "<T:Ljava/lang/Object;>(Ljava/net/http/HttpRequest;Ljava/net/http/HttpResponse$BodyHandler<TT;>;Ljava/net/http/HttpResponse$PushPromiseHandler<TT;>;)Ljava/util/concurrent/CompletableFuture<Ljava/net/http/HttpResponse<TT;>;>;", $PUBLIC, $virtualMethod(HttpClientFacade, sendAsync, $CompletableFuture*, $HttpRequest*, $HttpResponse$BodyHandler*, $HttpResponse$PushPromiseHandler*)},
+		{"sslContext", "()Ljavax/net/ssl/SSLContext;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, sslContext, $SSLContext*)},
+		{"sslParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, sslParameters, $SSLParameters*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, toString, $String*)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(HttpClientFacade, version, $HttpClient$Version*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.OperationTrackers$Trackable", "jdk.internal.net.http.common.OperationTrackers", "Trackable", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.HttpClientFacade",
+		"java.net.http.HttpClient",
+		"jdk.internal.net.http.common.OperationTrackers$Trackable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(HttpClientFacade, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HttpClientFacade));
+	});
 	return class$;
 }
 

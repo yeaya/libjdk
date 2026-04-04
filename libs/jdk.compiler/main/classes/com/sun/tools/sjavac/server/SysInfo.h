@@ -16,7 +16,7 @@ class SysInfo : public ::java::io::Serializable {
 public:
 	SysInfo();
 	void init$(int32_t nc, int64_t mm);
-	static const int64_t serialVersionUID = (int64_t)0xFFFFFD2F135932E5;
+	static const int64_t serialVersionUID = (int64_t)0xfffffd2f135932e5;
 	int32_t numCores = 0;
 	int64_t maxMemory = 0;
 };

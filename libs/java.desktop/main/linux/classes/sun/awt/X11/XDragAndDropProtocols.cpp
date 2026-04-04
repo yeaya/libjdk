@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDragAndDropProtocols.h>
-
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -38,36 +37,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XDragAndDropProtocols_FieldInfo_[] = {
-	{"dragProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/X11/XDragSourceProtocol;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XDragAndDropProtocols, dragProtocols)},
-	{"dropProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/X11/XDropTargetProtocol;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XDragAndDropProtocols, dropProtocols)},
-	{"XDnD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XDragAndDropProtocols, XDnD)},
-	{"MotifDnD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XDragAndDropProtocols, MotifDnD)},
-	{}
-};
-
-$MethodInfo _XDragAndDropProtocols_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(XDragAndDropProtocols, init$, void)},
-	{"getDragSourceProtocol", "(Ljava/lang/String;)Lsun/awt/X11/XDragSourceProtocol;", nullptr, $PUBLIC | $STATIC, $staticMethod(XDragAndDropProtocols, getDragSourceProtocol, $XDragSourceProtocol*, $String*)},
-	{"getDragSourceProtocols", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/awt/X11/XDragSourceProtocol;>;", $STATIC, $staticMethod(XDragAndDropProtocols, getDragSourceProtocols, $Iterator*)},
-	{"getDropTargetProtocol", "(Ljava/lang/String;)Lsun/awt/X11/XDropTargetProtocol;", nullptr, $PUBLIC | $STATIC, $staticMethod(XDragAndDropProtocols, getDropTargetProtocol, $XDropTargetProtocol*, $String*)},
-	{"getDropTargetProtocols", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/awt/X11/XDropTargetProtocol;>;", $STATIC, $staticMethod(XDragAndDropProtocols, getDropTargetProtocols, $Iterator*)},
-	{}
-};
-
-$ClassInfo _XDragAndDropProtocols_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XDragAndDropProtocols",
-	"java.lang.Object",
-	nullptr,
-	_XDragAndDropProtocols_FieldInfo_,
-	_XDragAndDropProtocols_MethodInfo_
-};
-
-$Object* allocate$XDragAndDropProtocols($Class* clazz) {
-	return $of($alloc(XDragAndDropProtocols));
-}
-
 $List* XDragAndDropProtocols::dragProtocols = nullptr;
 $List* XDragAndDropProtocols::dropProtocols = nullptr;
 $String* XDragAndDropProtocols::XDnD = nullptr;
@@ -88,14 +57,14 @@ $Iterator* XDragAndDropProtocols::getDropTargetProtocols() {
 
 $XDragSourceProtocol* XDragAndDropProtocols::getDragSourceProtocol($String* name) {
 	$init(XDragAndDropProtocols);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		return nullptr;
 	}
 	$var($Iterator, dragProtocols, XDragAndDropProtocols::getDragSourceProtocols());
 	while ($nc(dragProtocols)->hasNext()) {
 		$var($XDragSourceProtocol, dragProtocol, $cast($XDragSourceProtocol, dragProtocols->next()));
-		if ($nc($($nc(dragProtocol)->getProtocolName()))->equals(name)) {
+		if ($$nc($nc(dragProtocol)->getProtocolName())->equals(name)) {
 			return dragProtocol;
 		}
 	}
@@ -104,22 +73,22 @@ $XDragSourceProtocol* XDragAndDropProtocols::getDragSourceProtocol($String* name
 
 $XDropTargetProtocol* XDragAndDropProtocols::getDropTargetProtocol($String* name) {
 	$init(XDragAndDropProtocols);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (name == nullptr) {
 		return nullptr;
 	}
 	$var($Iterator, dropProtocols, XDragAndDropProtocols::getDropTargetProtocols());
 	while ($nc(dropProtocols)->hasNext()) {
 		$var($XDropTargetProtocol, dropProtocol, $cast($XDropTargetProtocol, dropProtocols->next()));
-		if ($nc($($nc(dropProtocol)->getProtocolName()))->equals(name)) {
+		if ($$nc($nc(dropProtocol)->getProtocolName())->equals(name)) {
 			return dropProtocol;
 		}
 	}
 	return nullptr;
 }
 
-void clinit$XDragAndDropProtocols($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XDragAndDropProtocols::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(XDragAndDropProtocols::XDnD, "XDnD"_s);
 	$assignStatic(XDragAndDropProtocols::MotifDnD, "MotifDnD"_s);
 	{
@@ -144,7 +113,32 @@ XDragAndDropProtocols::XDragAndDropProtocols() {
 }
 
 $Class* XDragAndDropProtocols::load$($String* name, bool initialize) {
-	$loadClass(XDragAndDropProtocols, name, initialize, &_XDragAndDropProtocols_ClassInfo_, clinit$XDragAndDropProtocols, allocate$XDragAndDropProtocols);
+	$FieldInfo fieldInfos$$[] = {
+		{"dragProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/X11/XDragSourceProtocol;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XDragAndDropProtocols, dragProtocols)},
+		{"dropProtocols", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/X11/XDropTargetProtocol;>;", $PRIVATE | $STATIC | $FINAL, $staticField(XDragAndDropProtocols, dropProtocols)},
+		{"XDnD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XDragAndDropProtocols, XDnD)},
+		{"MotifDnD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XDragAndDropProtocols, MotifDnD)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(XDragAndDropProtocols, init$, void)},
+		{"getDragSourceProtocol", "(Ljava/lang/String;)Lsun/awt/X11/XDragSourceProtocol;", nullptr, $PUBLIC | $STATIC, $staticMethod(XDragAndDropProtocols, getDragSourceProtocol, $XDragSourceProtocol*, $String*)},
+		{"getDragSourceProtocols", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/awt/X11/XDragSourceProtocol;>;", $STATIC, $staticMethod(XDragAndDropProtocols, getDragSourceProtocols, $Iterator*)},
+		{"getDropTargetProtocol", "(Ljava/lang/String;)Lsun/awt/X11/XDropTargetProtocol;", nullptr, $PUBLIC | $STATIC, $staticMethod(XDragAndDropProtocols, getDropTargetProtocol, $XDropTargetProtocol*, $String*)},
+		{"getDropTargetProtocols", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Lsun/awt/X11/XDropTargetProtocol;>;", $STATIC, $staticMethod(XDragAndDropProtocols, getDropTargetProtocols, $Iterator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XDragAndDropProtocols",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XDragAndDropProtocols, name, initialize, &classInfo$$, XDragAndDropProtocols::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XDragAndDropProtocols);
+	});
 	return class$;
 }
 

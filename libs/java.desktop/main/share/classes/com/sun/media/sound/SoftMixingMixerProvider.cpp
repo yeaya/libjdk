@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftMixingMixerProvider.h>
-
 #include <com/sun/media/sound/SoftMixingMixer.h>
 #include <javax/sound/sampled/Mixer$Info.h>
 #include <javax/sound/sampled/Mixer.h>
@@ -21,33 +20,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftMixingMixerProvider_FieldInfo_[] = {
-	{"globalmixer", "Lcom/sun/media/sound/SoftMixingMixer;", nullptr, $STATIC, $staticField(SoftMixingMixerProvider, globalmixer)},
-	{"lockthread", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(SoftMixingMixerProvider, lockthread)},
-	{"mutex", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixerProvider, mutex)},
-	{}
-};
-
-$MethodInfo _SoftMixingMixerProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SoftMixingMixerProvider, init$, void)},
-	{"getMixer", "(Ljavax/sound/sampled/Mixer$Info;)Ljavax/sound/sampled/Mixer;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixerProvider, getMixer, $Mixer*, $Mixer$Info*)},
-	{"getMixerInfo", "()[Ljavax/sound/sampled/Mixer$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixerProvider, getMixerInfo, $Mixer$InfoArray*)},
-	{}
-};
-
-$ClassInfo _SoftMixingMixerProvider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.SoftMixingMixerProvider",
-	"javax.sound.sampled.spi.MixerProvider",
-	nullptr,
-	_SoftMixingMixerProvider_FieldInfo_,
-	_SoftMixingMixerProvider_MethodInfo_
-};
-
-$Object* allocate$SoftMixingMixerProvider($Class* clazz) {
-	return $of($alloc(SoftMixingMixerProvider));
-}
-
 $SoftMixingMixer* SoftMixingMixerProvider::globalmixer = nullptr;
 $Thread* SoftMixingMixerProvider::lockthread = nullptr;
 $Object* SoftMixingMixerProvider::mutex = nullptr;
@@ -57,10 +29,10 @@ void SoftMixingMixerProvider::init$() {
 }
 
 $Mixer* SoftMixingMixerProvider::getMixer($Mixer$Info* info) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($SoftMixingMixer);
 	if (!(info == nullptr || info == $SoftMixingMixer::info)) {
-		$throwNew($IllegalArgumentException, $$str({"Mixer "_s, $($nc(info)->toString()), " not supported by this provider."_s}));
+		$throwNew($IllegalArgumentException, $$str({"Mixer "_s, $(info->toString()), " not supported by this provider."_s}));
 	}
 	$synchronized(SoftMixingMixerProvider::mutex) {
 		if (SoftMixingMixerProvider::lockthread != nullptr) {
@@ -80,7 +52,7 @@ $Mixer$InfoArray* SoftMixingMixerProvider::getMixerInfo() {
 	return $new($Mixer$InfoArray, {$SoftMixingMixer::info});
 }
 
-void clinit$SoftMixingMixerProvider($Class* class$) {
+void SoftMixingMixerProvider::clinit$($Class* clazz) {
 	$assignStatic(SoftMixingMixerProvider::globalmixer, nullptr);
 	$assignStatic(SoftMixingMixerProvider::lockthread, nullptr);
 	$assignStatic(SoftMixingMixerProvider::mutex, $new($Object));
@@ -90,7 +62,29 @@ SoftMixingMixerProvider::SoftMixingMixerProvider() {
 }
 
 $Class* SoftMixingMixerProvider::load$($String* name, bool initialize) {
-	$loadClass(SoftMixingMixerProvider, name, initialize, &_SoftMixingMixerProvider_ClassInfo_, clinit$SoftMixingMixerProvider, allocate$SoftMixingMixerProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"globalmixer", "Lcom/sun/media/sound/SoftMixingMixer;", nullptr, $STATIC, $staticField(SoftMixingMixerProvider, globalmixer)},
+		{"lockthread", "Ljava/lang/Thread;", nullptr, $STATIC, $staticField(SoftMixingMixerProvider, lockthread)},
+		{"mutex", "Ljava/lang/Object;", nullptr, $STATIC | $FINAL, $staticField(SoftMixingMixerProvider, mutex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SoftMixingMixerProvider, init$, void)},
+		{"getMixer", "(Ljavax/sound/sampled/Mixer$Info;)Ljavax/sound/sampled/Mixer;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixerProvider, getMixer, $Mixer*, $Mixer$Info*)},
+		{"getMixerInfo", "()[Ljavax/sound/sampled/Mixer$Info;", nullptr, $PUBLIC, $virtualMethod(SoftMixingMixerProvider, getMixerInfo, $Mixer$InfoArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.SoftMixingMixerProvider",
+		"javax.sound.sampled.spi.MixerProvider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SoftMixingMixerProvider, name, initialize, &classInfo$$, SoftMixingMixerProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftMixingMixerProvider);
+	});
 	return class$;
 }
 

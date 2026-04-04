@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftAbstractResampler$ModelAbstractResamplerStream.h>
-
 #include <com/sun/media/sound/AudioFloatInputStream.h>
 #include <com/sun/media/sound/ModelWavetable.h>
 #include <com/sun/media/sound/SoftAbstractResampler.h>
@@ -11,7 +10,6 @@
 #include <jcpp.h>
 
 using $floatArray2 = $Array<float, 2>;
-using $AudioFloatInputStream = ::com::sun::media::sound::AudioFloatInputStream;
 using $ModelWavetable = ::com::sun::media::sound::ModelWavetable;
 using $SoftAbstractResampler = ::com::sun::media::sound::SoftAbstractResampler;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -24,82 +22,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $MidiChannel = ::javax::sound::midi::MidiChannel;
 using $VoiceStatus = ::javax::sound::midi::VoiceStatus;
-using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 
 namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _SoftAbstractResampler$ModelAbstractResamplerStream_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftAbstractResampler;", nullptr, $FINAL | $SYNTHETIC, $field(SoftAbstractResampler$ModelAbstractResamplerStream, this$0)},
-	{"stream", "Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, stream)},
-	{"stream_eof", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, stream_eof)},
-	{"loopmode", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, loopmode)},
-	{"loopdirection", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, loopdirection)},
-	{"loopstart", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, loopstart)},
-	{"looplen", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, looplen)},
-	{"target_pitch", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, target_pitch)},
-	{"current_pitch", "[F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, current_pitch)},
-	{"started", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, started)},
-	{"eof", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, eof)},
-	{"sector_pos", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, sector_pos)},
-	{"sector_size", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, sector_size)},
-	{"sector_loopstart", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, sector_loopstart)},
-	{"markset", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, markset)},
-	{"marklimit", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, marklimit)},
-	{"streampos", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, streampos)},
-	{"nrofchannels", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, nrofchannels)},
-	{"noteOff_flag", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, noteOff_flag)},
-	{"ibuffer", "[[F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, ibuffer)},
-	{"ibuffer_order", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, ibuffer_order)},
-	{"sbuffer", "[F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, sbuffer)},
-	{"pad", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, pad)},
-	{"pad2", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, pad2)},
-	{"ix", "[F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, ix)},
-	{"ox", "[I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, ox)},
-	{"samplerateconv", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, samplerateconv)},
-	{"pitchcorrection", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, pitchcorrection)},
-	{}
-};
-
-$MethodInfo _SoftAbstractResampler$ModelAbstractResamplerStream_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftAbstractResampler;)V", nullptr, 0, $method(SoftAbstractResampler$ModelAbstractResamplerStream, init$, void, $SoftAbstractResampler*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, close, void), "java.io.IOException"},
-	{"nextBuffer", "()V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, nextBuffer, void), "java.io.IOException"},
-	{"noteOff", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, noteOff, void, int32_t)},
-	{"noteOn", "(Ljavax/sound/midi/MidiChannel;Ljavax/sound/midi/VoiceStatus;II)V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, noteOn, void, $MidiChannel*, $VoiceStatus*, int32_t, int32_t)},
-	{"open", "(Lcom/sun/media/sound/ModelWavetable;F)V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, open, void, $ModelWavetable*, float), "java.io.IOException"},
-	{"read", "([[FII)I", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, read, int32_t, $floatArray2*, int32_t, int32_t), "java.io.IOException"},
-	{"reverseBuffers", "()V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, reverseBuffers, void)},
-	{"setPitch", "(F)V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, setPitch, void, float)},
-	{}
-};
-
-$InnerClassInfo _SoftAbstractResampler$ModelAbstractResamplerStream_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftAbstractResampler$ModelAbstractResamplerStream", "com.sun.media.sound.SoftAbstractResampler", "ModelAbstractResamplerStream", $PRIVATE},
-	{}
-};
-
-$ClassInfo _SoftAbstractResampler$ModelAbstractResamplerStream_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftAbstractResampler$ModelAbstractResamplerStream",
-	"java.lang.Object",
-	"com.sun.media.sound.SoftResamplerStreamer",
-	_SoftAbstractResampler$ModelAbstractResamplerStream_FieldInfo_,
-	_SoftAbstractResampler$ModelAbstractResamplerStream_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SoftAbstractResampler$ModelAbstractResamplerStream_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftAbstractResampler"
-};
-
-$Object* allocate$SoftAbstractResampler$ModelAbstractResamplerStream($Class* clazz) {
-	return $of($alloc(SoftAbstractResampler$ModelAbstractResamplerStream));
-}
 
 void SoftAbstractResampler$ModelAbstractResamplerStream::init$($SoftAbstractResampler* this$0) {
 	$set(this, this$0, this$0);
@@ -117,8 +44,8 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::init$($SoftAbstractResa
 	this->ibuffer_order = true;
 	$set(this, ix, $new($floats, 1));
 	$set(this, ox, $new($ints, 1));
-	this->samplerateconv = (float)1;
-	this->pitchcorrection = (float)0;
+	this->samplerateconv = 1;
+	this->pitchcorrection = 0;
 	this->pad = this$0->getPadding();
 	this->pad2 = this$0->getPadding() * 2;
 	$set(this, ibuffer, $new($floatArray2, 2, this->sector_size + this->pad2));
@@ -142,7 +69,7 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::open($ModelWavetable* o
 	this->streampos = 0;
 	this->stream_eof = false;
 	this->pitchcorrection = osc->getPitchcorrection();
-	this->samplerateconv = $nc($($nc(this->stream)->getFormat()))->getSampleRate() / outputsamplerate;
+	this->samplerateconv = $$nc($nc(this->stream)->getFormat())->getSampleRate() / outputsamplerate;
 	this->looplen = osc->getLoopLength();
 	this->loopstart = osc->getLoopStart();
 	this->sector_loopstart = $cast(int32_t, (this->loopstart / this->sector_size));
@@ -165,11 +92,11 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::open($ModelWavetable* o
 	this->loopdirection = true;
 	this->noteOff_flag = false;
 	for (int32_t i = 0; i < this->nrofchannels; ++i) {
-		$Arrays::fill($nc(this->ibuffer)->get(i), this->sector_size, this->sector_size + this->pad2, (float)0);
+		$Arrays::fill($nc(this->ibuffer)->get(i), this->sector_size, this->sector_size + this->pad2, 0);
 	}
 	$nc(this->ix)->set(0, (float)this->pad);
 	this->eof = false;
-	$nc(this->ix)->set(0, (float)(this->sector_size + this->pad));
+	this->ix->set(0, (float)(this->sector_size + this->pad));
 	this->sector_pos = -1;
 	this->streampos = -this->sector_size;
 	nextBuffer();
@@ -183,14 +110,14 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::setPitch(float pitch) {
 }
 
 void SoftAbstractResampler$ModelAbstractResamplerStream::nextBuffer() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->ix)->get(0) < this->pad) {
 		if (this->markset) {
 			$nc(this->stream)->reset();
 			(*$nc(this->ix))[0] += this->streampos - (this->sector_loopstart * this->sector_size);
 			this->sector_pos = this->sector_loopstart;
 			this->streampos = this->sector_pos * this->sector_size;
-			(*$nc(this->ix))[0] += this->sector_size;
+			(*this->ix)[0] += this->sector_size;
 			this->sector_pos -= 1;
 			this->streampos -= this->sector_size;
 			this->stream_eof = false;
@@ -202,9 +129,9 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::nextBuffer() {
 			return;
 		}
 	}
-	if ($nc(this->ix)->get(0) >= this->sector_size * 4 + this->pad) {
-		int32_t skips = $cast(int32_t, (($nc(this->ix)->get(0) - this->sector_size * 4 + this->pad) / this->sector_size));
-		(*$nc(this->ix))[0] -= this->sector_size * skips;
+	if (this->ix->get(0) >= this->sector_size * 4 + this->pad) {
+		int32_t skips = $cast(int32_t, ((this->ix->get(0) - this->sector_size * 4 + this->pad) / this->sector_size));
+		(*this->ix)[0] -= this->sector_size * skips;
 		this->sector_pos += skips;
 		this->streampos += this->sector_size * skips;
 		$nc(this->stream)->skip(this->sector_size * skips);
@@ -222,7 +149,7 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::nextBuffer() {
 		for (int32_t c = 0; c < this->nrofchannels; ++c) {
 			$var($floats, cbuffer, $nc(this->ibuffer)->get(c));
 			for (int32_t i = 0; i < this->pad2; ++i) {
-				$nc(cbuffer)->set(i, cbuffer->get(i + this->sector_size));
+				$nc(cbuffer)->set(i, $nc(cbuffer)->get(i + this->sector_size));
 			}
 		}
 		int32_t ret = 0;
@@ -230,7 +157,7 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::nextBuffer() {
 			ret = $nc(this->stream)->read($nc(this->ibuffer)->get(0), this->pad2, this->sector_size);
 		} else {
 			int32_t slen = this->sector_size * this->nrofchannels;
-			if (this->sbuffer == nullptr || $nc(this->sbuffer)->length < slen) {
+			if (this->sbuffer == nullptr || this->sbuffer->length < slen) {
 				$set(this, sbuffer, $new($floats, slen));
 			}
 			int32_t sret = $nc(this->stream)->read(this->sbuffer, 0, slen);
@@ -267,7 +194,7 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::nextBuffer() {
 }
 
 void SoftAbstractResampler$ModelAbstractResamplerStream::reverseBuffers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->ibuffer_order = !this->ibuffer_order;
 	for (int32_t c = 0; c < this->nrofchannels; ++c) {
 		$var($floats, cbuff, $nc(this->ibuffer)->get(c));
@@ -282,12 +209,12 @@ void SoftAbstractResampler$ModelAbstractResamplerStream::reverseBuffers() {
 }
 
 int32_t SoftAbstractResampler$ModelAbstractResamplerStream::read($floatArray2* buffer, int32_t offset, int32_t len) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->eof) {
 		return -1;
 	}
 	if (this->noteOff_flag) {
-		if (((int32_t)(this->loopmode & (uint32_t)2)) != 0) {
+		if ((this->loopmode & 2) != 0) {
 			if (this->loopdirection) {
 				this->loopmode = 0;
 			}
@@ -309,12 +236,12 @@ int32_t SoftAbstractResampler$ModelAbstractResamplerStream::read($floatArray2* b
 			if (this->streampos < (this->loopstart + this->pad)) {
 				ixend = this->loopstart - this->streampos + this->pad2;
 				if ($nc(this->ix)->get(0) <= ixend) {
-					if (((int32_t)(this->loopmode & (uint32_t)4)) != 0) {
+					if ((this->loopmode & 4) != 0) {
 						this->loopdirection = true;
 						ixend = (float)(this->sector_size + this->pad);
 						continue;
 					}
-					(*$nc(this->ix))[0] += this->looplen;
+					(*this->ix)[0] += this->looplen;
 					ixend = (float)this->pad;
 					continue;
 				}
@@ -325,7 +252,7 @@ int32_t SoftAbstractResampler$ModelAbstractResamplerStream::read($floatArray2* b
 			$nc(this->ix)->set(0, (this->sector_size + this->pad2) - $nc(this->ix)->get(0));
 			ixend = (this->sector_size + this->pad2) - ixend;
 			++ixend;
-			float bak_ix = $nc(this->ix)->get(0);
+			float bak_ix = this->ix->get(0);
 			int32_t bak_ox = ox->get(0);
 			float bak_pitch = $nc(current_pitch)->get(0);
 			for (int32_t i = 0; i < this->nrofchannels; ++i) {
@@ -349,13 +276,13 @@ int32_t SoftAbstractResampler$ModelAbstractResamplerStream::read($floatArray2* b
 			if (this->streampos + this->sector_size > (this->looplen + this->loopstart + this->pad)) {
 				ixend = this->loopstart + this->looplen - this->streampos + this->pad2;
 				if ($nc(this->ix)->get(0) >= ixend) {
-					if (((int32_t)(this->loopmode & (uint32_t)4)) != 0 || ((int32_t)(this->loopmode & (uint32_t)8)) != 0) {
+					if ((this->loopmode & 4) != 0 || (this->loopmode & 8) != 0) {
 						this->loopdirection = false;
 						ixend = (float)this->pad;
 						continue;
 					}
 					ixend = (float)(this->sector_size + this->pad);
-					(*$nc(this->ix))[0] -= this->looplen;
+					(*this->ix)[0] -= this->looplen;
 					continue;
 				}
 			}
@@ -391,7 +318,71 @@ SoftAbstractResampler$ModelAbstractResamplerStream::SoftAbstractResampler$ModelA
 }
 
 $Class* SoftAbstractResampler$ModelAbstractResamplerStream::load$($String* name, bool initialize) {
-	$loadClass(SoftAbstractResampler$ModelAbstractResamplerStream, name, initialize, &_SoftAbstractResampler$ModelAbstractResamplerStream_ClassInfo_, allocate$SoftAbstractResampler$ModelAbstractResamplerStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftAbstractResampler;", nullptr, $FINAL | $SYNTHETIC, $field(SoftAbstractResampler$ModelAbstractResamplerStream, this$0)},
+		{"stream", "Lcom/sun/media/sound/AudioFloatInputStream;", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, stream)},
+		{"stream_eof", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, stream_eof)},
+		{"loopmode", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, loopmode)},
+		{"loopdirection", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, loopdirection)},
+		{"loopstart", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, loopstart)},
+		{"looplen", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, looplen)},
+		{"target_pitch", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, target_pitch)},
+		{"current_pitch", "[F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, current_pitch)},
+		{"started", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, started)},
+		{"eof", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, eof)},
+		{"sector_pos", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, sector_pos)},
+		{"sector_size", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, sector_size)},
+		{"sector_loopstart", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, sector_loopstart)},
+		{"markset", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, markset)},
+		{"marklimit", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, marklimit)},
+		{"streampos", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, streampos)},
+		{"nrofchannels", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, nrofchannels)},
+		{"noteOff_flag", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, noteOff_flag)},
+		{"ibuffer", "[[F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, ibuffer)},
+		{"ibuffer_order", "Z", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, ibuffer_order)},
+		{"sbuffer", "[F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, sbuffer)},
+		{"pad", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, pad)},
+		{"pad2", "I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, pad2)},
+		{"ix", "[F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, ix)},
+		{"ox", "[I", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, ox)},
+		{"samplerateconv", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, samplerateconv)},
+		{"pitchcorrection", "F", nullptr, 0, $field(SoftAbstractResampler$ModelAbstractResamplerStream, pitchcorrection)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftAbstractResampler;)V", nullptr, 0, $method(SoftAbstractResampler$ModelAbstractResamplerStream, init$, void, $SoftAbstractResampler*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, close, void), "java.io.IOException"},
+		{"nextBuffer", "()V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, nextBuffer, void), "java.io.IOException"},
+		{"noteOff", "(I)V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, noteOff, void, int32_t)},
+		{"noteOn", "(Ljavax/sound/midi/MidiChannel;Ljavax/sound/midi/VoiceStatus;II)V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, noteOn, void, $MidiChannel*, $VoiceStatus*, int32_t, int32_t)},
+		{"open", "(Lcom/sun/media/sound/ModelWavetable;F)V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, open, void, $ModelWavetable*, float), "java.io.IOException"},
+		{"read", "([[FII)I", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, read, int32_t, $floatArray2*, int32_t, int32_t), "java.io.IOException"},
+		{"reverseBuffers", "()V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, reverseBuffers, void)},
+		{"setPitch", "(F)V", nullptr, $PUBLIC, $virtualMethod(SoftAbstractResampler$ModelAbstractResamplerStream, setPitch, void, float)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftAbstractResampler$ModelAbstractResamplerStream", "com.sun.media.sound.SoftAbstractResampler", "ModelAbstractResamplerStream", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftAbstractResampler$ModelAbstractResamplerStream",
+		"java.lang.Object",
+		"com.sun.media.sound.SoftResamplerStreamer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftAbstractResampler"
+	};
+	$loadClass(SoftAbstractResampler$ModelAbstractResamplerStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftAbstractResampler$ModelAbstractResamplerStream);
+	});
 	return class$;
 }
 

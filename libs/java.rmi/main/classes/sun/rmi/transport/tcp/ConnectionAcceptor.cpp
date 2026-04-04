@@ -1,9 +1,6 @@
 #include <sun/rmi/transport/tcp/ConnectionAcceptor.h>
-
 #include <java/lang/InterruptedException.h>
-#include <java/lang/Runnable.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <sun/rmi/runtime/NewThreadAction.h>
@@ -15,11 +12,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
-using $List = ::java::util::List;
 using $NewThreadAction = ::sun::rmi::runtime::NewThreadAction;
 using $Connection = ::sun::rmi::transport::Connection;
 using $TCPTransport = ::sun::rmi::transport::tcp::TCPTransport;
@@ -29,34 +23,6 @@ namespace sun {
 		namespace transport {
 			namespace tcp {
 
-$FieldInfo _ConnectionAcceptor_FieldInfo_[] = {
-	{"transport", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $PRIVATE, $field(ConnectionAcceptor, transport)},
-	{"queue", "Ljava/util/List;", "Ljava/util/List<Lsun/rmi/transport/Connection;>;", $PRIVATE, $field(ConnectionAcceptor, queue)},
-	{"threadNum", "I", nullptr, $PRIVATE | $STATIC, $staticField(ConnectionAcceptor, threadNum)},
-	{}
-};
-
-$MethodInfo _ConnectionAcceptor_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;)V", nullptr, $PUBLIC, $method(ConnectionAcceptor, init$, void, $TCPTransport*)},
-	{"accept", "(Lsun/rmi/transport/Connection;)V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, accept, void, $Connection*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, run, void)},
-	{"startNewAcceptor", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, startNewAcceptor, void)},
-	{}
-};
-
-$ClassInfo _ConnectionAcceptor_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.tcp.ConnectionAcceptor",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_ConnectionAcceptor_FieldInfo_,
-	_ConnectionAcceptor_MethodInfo_
-};
-
-$Object* allocate$ConnectionAcceptor($Class* clazz) {
-	return $of($alloc(ConnectionAcceptor));
-}
-
 int32_t ConnectionAcceptor::threadNum = 0;
 
 void ConnectionAcceptor::init$($TCPTransport* transport) {
@@ -65,26 +31,28 @@ void ConnectionAcceptor::init$($TCPTransport* transport) {
 }
 
 void ConnectionAcceptor::startNewAcceptor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	$var($String, var$0, "TCPChannel Accept-"_s);
-	$var($Thread, t, $cast($Thread, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($NewThreadAction, this, $$concat(var$0, $$str(++ConnectionAcceptor::threadNum)), true)))));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("TCPChannel Accept-"_s);
+	var$0->append(++ConnectionAcceptor::threadNum);
+	$var($Thread, t, $cast($Thread, $AccessController::doPrivileged($$new($NewThreadAction, this, $$str(var$0), true))));
 	$nc(t)->start();
 }
 
 void ConnectionAcceptor::accept($Connection* conn) {
 	$synchronized(this->queue) {
-		$nc(this->queue)->add(conn);
-		$nc($of(this->queue))->notify();
+		this->queue->add(conn);
+		this->queue->notify();
 	}
 }
 
 void ConnectionAcceptor::run() {
 	$var($Connection, conn, nullptr);
 	$synchronized(this->queue) {
-		while ($nc(this->queue)->size() == 0) {
+		while (this->queue->size() == 0) {
 			try {
-				$nc($of(this->queue))->wait();
+				this->queue->wait();
 			} catch ($InterruptedException& e) {
 			}
 		}
@@ -94,7 +62,7 @@ void ConnectionAcceptor::run() {
 	$nc(this->transport)->handleMessages(conn, true);
 }
 
-void clinit$ConnectionAcceptor($Class* class$) {
+void ConnectionAcceptor::clinit$($Class* clazz) {
 	ConnectionAcceptor::threadNum = 0;
 }
 
@@ -102,7 +70,30 @@ ConnectionAcceptor::ConnectionAcceptor() {
 }
 
 $Class* ConnectionAcceptor::load$($String* name, bool initialize) {
-	$loadClass(ConnectionAcceptor, name, initialize, &_ConnectionAcceptor_ClassInfo_, clinit$ConnectionAcceptor, allocate$ConnectionAcceptor);
+	$FieldInfo fieldInfos$$[] = {
+		{"transport", "Lsun/rmi/transport/tcp/TCPTransport;", nullptr, $PRIVATE, $field(ConnectionAcceptor, transport)},
+		{"queue", "Ljava/util/List;", "Ljava/util/List<Lsun/rmi/transport/Connection;>;", $PRIVATE, $field(ConnectionAcceptor, queue)},
+		{"threadNum", "I", nullptr, $PRIVATE | $STATIC, $staticField(ConnectionAcceptor, threadNum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/tcp/TCPTransport;)V", nullptr, $PUBLIC, $method(ConnectionAcceptor, init$, void, $TCPTransport*)},
+		{"accept", "(Lsun/rmi/transport/Connection;)V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, accept, void, $Connection*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, run, void)},
+		{"startNewAcceptor", "()V", nullptr, $PUBLIC, $virtualMethod(ConnectionAcceptor, startNewAcceptor, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.tcp.ConnectionAcceptor",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ConnectionAcceptor, name, initialize, &classInfo$$, ConnectionAcceptor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ConnectionAcceptor);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$XPBorderValue.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$XPValue.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
@@ -29,44 +28,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsLookAndFeel$XPBorderValue_FieldInfo_[] = {
-	{"extraMargin", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $FINAL, $field(WindowsLookAndFeel$XPBorderValue, extraMargin)},
-	{}
-};
-
-$MethodInfo _WindowsLookAndFeel$XPBorderValue_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Ljava/lang/Object;)V", nullptr, 0, $method(WindowsLookAndFeel$XPBorderValue, init$, void, $TMSchema$Part*, Object$*)},
-	{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Ljava/lang/Object;Ljavax/swing/border/Border;)V", nullptr, 0, $method(WindowsLookAndFeel$XPBorderValue, init$, void, $TMSchema$Part*, Object$*, $Border*)},
-	{"getXPValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$XPBorderValue, getXPValue, $Object*, $UIDefaults*)},
-	{}
-};
-
-$InnerClassInfo _WindowsLookAndFeel$XPBorderValue_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPBorderValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPBorderValue", $PRIVATE | $STATIC},
-	{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPValue", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsLookAndFeel$XPBorderValue_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPBorderValue",
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue",
-	nullptr,
-	_WindowsLookAndFeel$XPBorderValue_FieldInfo_,
-	_WindowsLookAndFeel$XPBorderValue_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsLookAndFeel$XPBorderValue_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
-};
-
-$Object* allocate$WindowsLookAndFeel$XPBorderValue($Class* clazz) {
-	return $of($alloc(WindowsLookAndFeel$XPBorderValue));
-}
-
 void WindowsLookAndFeel$XPBorderValue::init$($TMSchema$Part* xpValue, Object$* classicValue) {
 	WindowsLookAndFeel$XPBorderValue::init$(xpValue, classicValue, nullptr);
 }
@@ -77,13 +38,13 @@ void WindowsLookAndFeel$XPBorderValue::init$($TMSchema$Part* xpValue, Object$* c
 }
 
 $Object* WindowsLookAndFeel$XPBorderValue::getXPValue($UIDefaults* table) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
-	$var($Border, xpBorder, xp != nullptr ? $nc(xp)->getBorder(nullptr, $cast($TMSchema$Part, this->xpValue)) : ($Border*)nullptr);
+	$var($Border, xpBorder, xp != nullptr ? xp->getBorder(nullptr, $cast($TMSchema$Part, this->xpValue)) : ($Border*)nullptr);
 	if (xpBorder != nullptr && this->extraMargin != nullptr) {
 		return $of($new($BorderUIResource$CompoundBorderUIResource, xpBorder, this->extraMargin));
 	} else {
-		return $of(xpBorder);
+		return xpBorder;
 	}
 }
 
@@ -91,7 +52,39 @@ WindowsLookAndFeel$XPBorderValue::WindowsLookAndFeel$XPBorderValue() {
 }
 
 $Class* WindowsLookAndFeel$XPBorderValue::load$($String* name, bool initialize) {
-	$loadClass(WindowsLookAndFeel$XPBorderValue, name, initialize, &_WindowsLookAndFeel$XPBorderValue_ClassInfo_, allocate$WindowsLookAndFeel$XPBorderValue);
+	$FieldInfo fieldInfos$$[] = {
+		{"extraMargin", "Ljavax/swing/border/Border;", nullptr, $PRIVATE | $FINAL, $field(WindowsLookAndFeel$XPBorderValue, extraMargin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Ljava/lang/Object;)V", nullptr, 0, $method(WindowsLookAndFeel$XPBorderValue, init$, void, $TMSchema$Part*, Object$*)},
+		{"<init>", "(Lcom/sun/java/swing/plaf/windows/TMSchema$Part;Ljava/lang/Object;Ljavax/swing/border/Border;)V", nullptr, 0, $method(WindowsLookAndFeel$XPBorderValue, init$, void, $TMSchema$Part*, Object$*, $Border*)},
+		{"getXPValue", "(Ljavax/swing/UIDefaults;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(WindowsLookAndFeel$XPBorderValue, getXPValue, $Object*, $UIDefaults*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPBorderValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPBorderValue", $PRIVATE | $STATIC},
+		{"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue", "com.sun.java.swing.plaf.windows.WindowsLookAndFeel", "XPValue", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPBorderValue",
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel$XPValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+	};
+	$loadClass(WindowsLookAndFeel$XPBorderValue, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsLookAndFeel$XPBorderValue);
+	});
 	return class$;
 }
 

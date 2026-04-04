@@ -26,6 +26,7 @@ class JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager : public ::java
 public:
 	JavadocHelper$OnDemandJavadocHelper$PatchModuleFileManager();
 	using ::javax::tools::ForwardingJavaFileManager::getLocationForModule;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::tools::JavaFileManager* fileManager, ::javax::tools::JavaFileObject* file, $String* moduleName);
 	virtual ::javax::tools::JavaFileManager$Location* getLocationForModule(::javax::tools::JavaFileManager$Location* location, ::javax::tools::JavaFileObject* fo) override;
 	virtual bool hasLocation(::javax::tools::JavaFileManager$Location* location) override;

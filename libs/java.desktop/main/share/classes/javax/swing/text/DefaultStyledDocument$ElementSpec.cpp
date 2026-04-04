@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultStyledDocument$ElementSpec.h>
-
 #include <java/util/Arrays.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
@@ -16,64 +15,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _DefaultStyledDocument$ElementSpec_FieldInfo_[] = {
-	{"StartTagType", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, StartTagType)},
-	{"EndTagType", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, EndTagType)},
-	{"ContentType", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, ContentType)},
-	{"JoinPreviousDirection", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, JoinPreviousDirection)},
-	{"JoinNextDirection", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, JoinNextDirection)},
-	{"OriginateDirection", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, OriginateDirection)},
-	{"JoinFractureDirection", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, JoinFractureDirection)},
-	{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, attr)},
-	{"len", "I", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, len)},
-	{"type", "S", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, type)},
-	{"direction", "S", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, direction)},
-	{"offs", "I", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, offs)},
-	{"data", "[C", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, data)},
-	{}
-};
-
-$MethodInfo _DefaultStyledDocument$ElementSpec_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AttributeSet;S)V", nullptr, $PUBLIC, $method(DefaultStyledDocument$ElementSpec, init$, void, $AttributeSet*, int16_t)},
-	{"<init>", "(Ljavax/swing/text/AttributeSet;SI)V", nullptr, $PUBLIC, $method(DefaultStyledDocument$ElementSpec, init$, void, $AttributeSet*, int16_t, int32_t)},
-	{"<init>", "(Ljavax/swing/text/AttributeSet;S[CII)V", nullptr, $PUBLIC, $method(DefaultStyledDocument$ElementSpec, init$, void, $AttributeSet*, int16_t, $chars*, int32_t, int32_t)},
-	{"getArray", "()[C", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getArray, $chars*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getAttributes, $AttributeSet*)},
-	{"getDirection", "()S", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getDirection, int16_t)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getLength, int32_t)},
-	{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getOffset, int32_t)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getType, int16_t)},
-	{"setDirection", "(S)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, setDirection, void, int16_t)},
-	{"setType", "(S)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, setType, void, int16_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _DefaultStyledDocument$ElementSpec_InnerClassesInfo_[] = {
-	{"javax.swing.text.DefaultStyledDocument$ElementSpec", "javax.swing.text.DefaultStyledDocument", "ElementSpec", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultStyledDocument$ElementSpec_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultStyledDocument$ElementSpec",
-	"java.lang.Object",
-	nullptr,
-	_DefaultStyledDocument$ElementSpec_FieldInfo_,
-	_DefaultStyledDocument$ElementSpec_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultStyledDocument$ElementSpec_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.DefaultStyledDocument"
-};
-
-$Object* allocate$DefaultStyledDocument$ElementSpec($Class* clazz) {
-	return $of($alloc(DefaultStyledDocument$ElementSpec));
-}
-
 void DefaultStyledDocument$ElementSpec::init$($AttributeSet* a, int16_t type) {
 	DefaultStyledDocument$ElementSpec::init$(a, type, nullptr, 0, 0);
 }
@@ -85,7 +26,7 @@ void DefaultStyledDocument$ElementSpec::init$($AttributeSet* a, int16_t type, in
 void DefaultStyledDocument$ElementSpec::init$($AttributeSet* a, int16_t type, $chars* txt, int32_t offs, int32_t len) {
 	$set(this, attr, a);
 	this->type = type;
-	$set(this, data, txt == nullptr ? ($chars*)nullptr : $Arrays::copyOf(txt, $nc(txt)->length));
+	$set(this, data, txt == nullptr ? ($chars*)nullptr : $Arrays::copyOf(txt, txt->length));
 	this->offs = offs;
 	this->len = len;
 	this->direction = DefaultStyledDocument$ElementSpec::OriginateDirection;
@@ -112,7 +53,7 @@ $AttributeSet* DefaultStyledDocument$ElementSpec::getAttributes() {
 }
 
 $chars* DefaultStyledDocument$ElementSpec::getArray() {
-	return this->data == nullptr ? ($chars*)nullptr : $Arrays::copyOf(this->data, $nc(this->data)->length);
+	return this->data == nullptr ? ($chars*)nullptr : $Arrays::copyOf(this->data, this->data->length);
 }
 
 int32_t DefaultStyledDocument$ElementSpec::getOffset() {
@@ -124,47 +65,33 @@ int32_t DefaultStyledDocument$ElementSpec::getLength() {
 }
 
 $String* DefaultStyledDocument$ElementSpec::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, tlbl, "??"_s);
 	$var($String, plbl, "??"_s);
 	switch (this->type) {
 	case DefaultStyledDocument$ElementSpec::StartTagType:
-		{
-			$assign(tlbl, "StartTag"_s);
-			break;
-		}
+		$assign(tlbl, "StartTag"_s);
+		break;
 	case DefaultStyledDocument$ElementSpec::ContentType:
-		{
-			$assign(tlbl, "Content"_s);
-			break;
-		}
+		$assign(tlbl, "Content"_s);
+		break;
 	case DefaultStyledDocument$ElementSpec::EndTagType:
-		{
-			$assign(tlbl, "EndTag"_s);
-			break;
-		}
+		$assign(tlbl, "EndTag"_s);
+		break;
 	}
 	switch (this->direction) {
 	case DefaultStyledDocument$ElementSpec::JoinPreviousDirection:
-		{
-			$assign(plbl, "JoinPrevious"_s);
-			break;
-		}
+		$assign(plbl, "JoinPrevious"_s);
+		break;
 	case DefaultStyledDocument$ElementSpec::JoinNextDirection:
-		{
-			$assign(plbl, "JoinNext"_s);
-			break;
-		}
+		$assign(plbl, "JoinNext"_s);
+		break;
 	case DefaultStyledDocument$ElementSpec::OriginateDirection:
-		{
-			$assign(plbl, "Originate"_s);
-			break;
-		}
+		$assign(plbl, "Originate"_s);
+		break;
 	case DefaultStyledDocument$ElementSpec::JoinFractureDirection:
-		{
-			$assign(plbl, "Fracture"_s);
-			break;
-		}
+		$assign(plbl, "Fracture"_s);
+		break;
 	}
 	return $str({tlbl, ":"_s, plbl, ":"_s, $$str(getLength())});
 }
@@ -173,7 +100,59 @@ DefaultStyledDocument$ElementSpec::DefaultStyledDocument$ElementSpec() {
 }
 
 $Class* DefaultStyledDocument$ElementSpec::load$($String* name, bool initialize) {
-	$loadClass(DefaultStyledDocument$ElementSpec, name, initialize, &_DefaultStyledDocument$ElementSpec_ClassInfo_, allocate$DefaultStyledDocument$ElementSpec);
+	$FieldInfo fieldInfos$$[] = {
+		{"StartTagType", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, StartTagType)},
+		{"EndTagType", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, EndTagType)},
+		{"ContentType", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, ContentType)},
+		{"JoinPreviousDirection", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, JoinPreviousDirection)},
+		{"JoinNextDirection", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, JoinNextDirection)},
+		{"OriginateDirection", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, OriginateDirection)},
+		{"JoinFractureDirection", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(DefaultStyledDocument$ElementSpec, JoinFractureDirection)},
+		{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, attr)},
+		{"len", "I", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, len)},
+		{"type", "S", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, type)},
+		{"direction", "S", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, direction)},
+		{"offs", "I", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, offs)},
+		{"data", "[C", nullptr, $PRIVATE, $field(DefaultStyledDocument$ElementSpec, data)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AttributeSet;S)V", nullptr, $PUBLIC, $method(DefaultStyledDocument$ElementSpec, init$, void, $AttributeSet*, int16_t)},
+		{"<init>", "(Ljavax/swing/text/AttributeSet;SI)V", nullptr, $PUBLIC, $method(DefaultStyledDocument$ElementSpec, init$, void, $AttributeSet*, int16_t, int32_t)},
+		{"<init>", "(Ljavax/swing/text/AttributeSet;S[CII)V", nullptr, $PUBLIC, $method(DefaultStyledDocument$ElementSpec, init$, void, $AttributeSet*, int16_t, $chars*, int32_t, int32_t)},
+		{"getArray", "()[C", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getArray, $chars*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getAttributes, $AttributeSet*)},
+		{"getDirection", "()S", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getDirection, int16_t)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getLength, int32_t)},
+		{"getOffset", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getOffset, int32_t)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, getType, int16_t)},
+		{"setDirection", "(S)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, setDirection, void, int16_t)},
+		{"setType", "(S)V", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, setType, void, int16_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultStyledDocument$ElementSpec, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.DefaultStyledDocument$ElementSpec", "javax.swing.text.DefaultStyledDocument", "ElementSpec", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultStyledDocument$ElementSpec",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.DefaultStyledDocument"
+	};
+	$loadClass(DefaultStyledDocument$ElementSpec, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultStyledDocument$ElementSpec);
+	});
 	return class$;
 }
 

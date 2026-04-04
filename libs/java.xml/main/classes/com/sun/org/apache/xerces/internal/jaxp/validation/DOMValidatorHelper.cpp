@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
-#include <com/sun/org/apache/xerces/internal/impl/validation/EntityState.h>
 #include <com/sun/org/apache/xerces/internal/impl/validation/ValidationManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator.h>
@@ -21,9 +19,7 @@
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
-#include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLString.h>
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
@@ -78,11 +74,9 @@
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
-using $EntityState = ::com::sun::org::apache::xerces::internal::impl::validation::EntityState;
 using $ValidationManager = ::com::sun::org::apache::xerces::internal::impl::validation::ValidationManager;
 using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
 using $SimpleLocator = ::com::sun::org::apache::xerces::internal::impl::xs::util::SimpleLocator;
-using $DOMDocumentHandler = ::com::sun::org::apache::xerces::internal::jaxp::validation::DOMDocumentHandler;
 using $DOMResultAugmentor = ::com::sun::org::apache::xerces::internal::jaxp::validation::DOMResultAugmentor;
 using $DOMResultBuilder = ::com::sun::org::apache::xerces::internal::jaxp::validation::DOMResultBuilder;
 using $DOMValidatorHelper$DOMNamespaceContext = ::com::sun::org::apache::xerces::internal::jaxp::validation::DOMValidatorHelper$DOMNamespaceContext;
@@ -97,14 +91,11 @@ using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XMLAttributes = ::com::sun::org::apache::xerces::internal::xni::XMLAttributes;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
-using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -139,82 +130,6 @@ namespace com {
 					namespace internal {
 						namespace jaxp {
 							namespace validation {
-
-$FieldInfo _DOMValidatorHelper_FieldInfo_[] = {
-	{"CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DOMValidatorHelper, CHUNK_SIZE)},
-	{"CHUNK_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DOMValidatorHelper, CHUNK_MASK)},
-	{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, ERROR_REPORTER)},
-	{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, NAMESPACE_CONTEXT)},
-	{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, SCHEMA_VALIDATOR)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, SYMBOL_TABLE)},
-	{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, VALIDATION_MANAGER)},
-	{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fErrorReporter)},
-	{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fNamespaceContext)},
-	{"fDOMNamespaceContext", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fDOMNamespaceContext)},
-	{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fSchemaValidator)},
-	{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fSymbolTable)},
-	{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fValidationManager)},
-	{"fComponentManager", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fComponentManager)},
-	{"fXMLLocator", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;", nullptr, $PRIVATE | $FINAL, $field(DOMValidatorHelper, fXMLLocator)},
-	{"fDOMValidatorHandler", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMDocumentHandler;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fDOMValidatorHandler)},
-	{"fDOMResultAugmentor", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMResultAugmentor;", nullptr, $PRIVATE | $FINAL, $field(DOMValidatorHelper, fDOMResultAugmentor)},
-	{"fDOMResultBuilder", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMResultBuilder;", nullptr, $PRIVATE | $FINAL, $field(DOMValidatorHelper, fDOMResultBuilder)},
-	{"fEntities", "Lorg/w3c/dom/NamedNodeMap;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fEntities)},
-	{"fCharBuffer", "[C", nullptr, $PRIVATE, $field(DOMValidatorHelper, fCharBuffer)},
-	{"fRoot", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fRoot)},
-	{"fCurrentElement", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fCurrentElement)},
-	{"fElementQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $FINAL, $field(DOMValidatorHelper, fElementQName)},
-	{"fAttributeQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $FINAL, $field(DOMValidatorHelper, fAttributeQName)},
-	{"fAttributes", "Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;", nullptr, $FINAL, $field(DOMValidatorHelper, fAttributes)},
-	{"fTempString", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $FINAL, $field(DOMValidatorHelper, fTempString)},
-	{}
-};
-
-$MethodInfo _DOMValidatorHelper_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;)V", nullptr, $PUBLIC, $method(DOMValidatorHelper, init$, void, $XMLSchemaValidatorComponentManager*)},
-	{"beginNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, beginNode, void, $Node*)},
-	{"fillQName", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, fillQName, void, $QName*, $Node*)},
-	{"finishNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, finishNode, void, $Node*)},
-	{"getCurrentElement", "()Lorg/w3c/dom/Node;", nullptr, 0, $method(DOMValidatorHelper, getCurrentElement, $Node*)},
-	{"isEntityDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper, isEntityDeclared, bool, $String*)},
-	{"isEntityUnparsed", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper, isEntityUnparsed, bool, $String*)},
-	{"processAttributes", "(Lorg/w3c/dom/NamedNodeMap;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, processAttributes, void, $NamedNodeMap*)},
-	{"sendCharactersToValidator", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, sendCharactersToValidator, void, $String*)},
-	{"setupDOMResultHandler", "(Ljavax/xml/transform/dom/DOMSource;Ljavax/xml/transform/dom/DOMResult;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, setupDOMResultHandler, void, $DOMSource*, $DOMResult*), "org.xml.sax.SAXException"},
-	{"setupEntityMap", "(Lorg/w3c/dom/Document;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, setupEntityMap, void, $Document*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"validate", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, validate, void, $Node*)},
-	{}
-};
-
-$InnerClassInfo _DOMValidatorHelper_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper$DOMNamespaceContext", "com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper", "DOMNamespaceContext", $FINAL},
-	{}
-};
-
-$ClassInfo _DOMValidatorHelper_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper,com.sun.org.apache.xerces.internal.impl.validation.EntityState",
-	_DOMValidatorHelper_FieldInfo_,
-	_DOMValidatorHelper_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMValidatorHelper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper$DOMNamespaceContext"
-};
-
-$Object* allocate$DOMValidatorHelper($Class* clazz) {
-	return $of($alloc(DOMValidatorHelper));
-}
 
 int32_t DOMValidatorHelper::hashCode() {
 	 return this->$ValidatorHelper::hashCode();
@@ -262,7 +177,7 @@ void DOMValidatorHelper::init$($XMLSchemaValidatorComponentManager* componentMan
 }
 
 void DOMValidatorHelper::validate($Source* source, $Result* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($DOMResult, result) || result == nullptr) {
 		$var($DOMSource, domSource, $cast($DOMSource, source));
 		$var($DOMResult, domResult, $cast($DOMResult, result));
@@ -273,35 +188,33 @@ void DOMValidatorHelper::validate($Source* source, $Result* result) {
 			$nc(this->fValidationManager)->setEntityState(this);
 			$nc(this->fDOMNamespaceContext)->reset();
 			$var($String, systemId, domSource->getSystemId());
-			$nc(this->fXMLLocator)->setLiteralSystemId(systemId);
-			$nc(this->fXMLLocator)->setExpandedSystemId(systemId);
+			this->fXMLLocator->setLiteralSystemId(systemId);
+			this->fXMLLocator->setExpandedSystemId(systemId);
 			$nc(this->fErrorReporter)->setDocumentLocator(this->fXMLLocator);
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						setupEntityMap((node->getNodeType() == $Node::DOCUMENT_NODE) ? $cast($Document, node) : $(node->getOwnerDocument()));
-						setupDOMResultHandler(domSource, domResult);
-						$nc(this->fSchemaValidator)->startDocument(this->fXMLLocator, nullptr, this->fDOMNamespaceContext, nullptr);
-						validate(node);
-						$nc(this->fSchemaValidator)->endDocument(nullptr);
-					} catch ($XMLParseException& e) {
-						$throw($($Util::toSAXParseException(e)));
-					} catch ($XNIException& e) {
-						$throw($($Util::toSAXException(e)));
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					$set(this, fRoot, nullptr);
-					$set(this, fEntities, nullptr);
-					if (this->fDOMValidatorHandler != nullptr) {
-						$nc(this->fDOMValidatorHandler)->setDOMResult(nullptr);
-					}
+					setupEntityMap((node->getNodeType() == $Node::DOCUMENT_NODE) ? $cast($Document, node) : $(node->getOwnerDocument()));
+					setupDOMResultHandler(domSource, domResult);
+					$nc(this->fSchemaValidator)->startDocument(this->fXMLLocator, nullptr, this->fDOMNamespaceContext, nullptr);
+					validate(node);
+					$nc(this->fSchemaValidator)->endDocument(nullptr);
+				} catch ($XMLParseException& e) {
+					$throw($($Util::toSAXParseException(e)));
+				} catch ($XNIException& e) {
+					$throw($($Util::toSAXException(e)));
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				$set(this, fRoot, nullptr);
+				$set(this, fEntities, nullptr);
+				if (this->fDOMValidatorHandler != nullptr) {
+					this->fDOMValidatorHandler->setDOMResult(nullptr);
 				}
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
 			}
 		}
 		return;
@@ -309,8 +222,8 @@ void DOMValidatorHelper::validate($Source* source, $Result* result) {
 	$var($Locale, var$2, $nc(this->fComponentManager)->getLocale());
 	$var($String, var$3, "SourceResultMismatch"_s);
 	$throwNew($IllegalArgumentException, $($JAXPValidationMessageFormatter::formatMessage(var$2, var$3, $$new($ObjectArray, {
-		$($of($nc($of(source))->getClass()->getName())),
-		$($of($nc($of(result))->getClass()->getName()))
+		$($nc($of(source))->getClass()->getName()),
+		$($nc($of(result))->getClass()->getName())
 	}))));
 }
 
@@ -320,7 +233,7 @@ bool DOMValidatorHelper::isEntityDeclared($String* name) {
 
 bool DOMValidatorHelper::isEntityUnparsed($String* name) {
 	if (this->fEntities != nullptr) {
-		$var($Entity, entity, $cast($Entity, $nc(this->fEntities)->getNamedItem(name)));
+		$var($Entity, entity, $cast($Entity, this->fEntities->getNamedItem(name)));
 		if (entity != nullptr) {
 			return (entity->getNotationName() != nullptr);
 		}
@@ -329,7 +242,7 @@ bool DOMValidatorHelper::isEntityUnparsed($String* name) {
 }
 
 void DOMValidatorHelper::validate($Node* node$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Node, node, node$renamed);
 	$var($Node, top, node);
 	while (node != nullptr) {
@@ -357,70 +270,56 @@ void DOMValidatorHelper::validate($Node* node$renamed) {
 }
 
 void DOMValidatorHelper::beginNode($Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	switch ($nc(node)->getNodeType()) {
 	case $Node::ELEMENT_NODE:
-		{
-			$set(this, fCurrentElement, node);
-			$nc(this->fNamespaceContext)->pushContext();
-			fillQName(this->fElementQName, node);
-			processAttributes($(node->getAttributes()));
-			$nc(this->fSchemaValidator)->startElement(this->fElementQName, this->fAttributes, nullptr);
-			break;
-		}
+		$set(this, fCurrentElement, node);
+		$nc(this->fNamespaceContext)->pushContext();
+		fillQName(this->fElementQName, node);
+		processAttributes($(node->getAttributes()));
+		$nc(this->fSchemaValidator)->startElement(this->fElementQName, this->fAttributes, nullptr);
+		break;
 	case $Node::TEXT_NODE:
-		{
-			if (this->fDOMValidatorHandler != nullptr) {
-				$nc(this->fDOMValidatorHandler)->setIgnoringCharacters(true);
-				sendCharactersToValidator($(node->getNodeValue()));
-				$nc(this->fDOMValidatorHandler)->setIgnoringCharacters(false);
-				$nc(this->fDOMValidatorHandler)->characters($cast($Text, node));
-			} else {
-				sendCharactersToValidator($(node->getNodeValue()));
-			}
-			break;
+		if (this->fDOMValidatorHandler != nullptr) {
+			this->fDOMValidatorHandler->setIgnoringCharacters(true);
+			sendCharactersToValidator($(node->getNodeValue()));
+			$nc(this->fDOMValidatorHandler)->setIgnoringCharacters(false);
+			$nc(this->fDOMValidatorHandler)->characters($cast($Text, node));
+		} else {
+			sendCharactersToValidator($(node->getNodeValue()));
 		}
+		break;
 	case $Node::CDATA_SECTION_NODE:
-		{
-			if (this->fDOMValidatorHandler != nullptr) {
-				$nc(this->fDOMValidatorHandler)->setIgnoringCharacters(true);
-				$nc(this->fSchemaValidator)->startCDATA(nullptr);
-				sendCharactersToValidator($(node->getNodeValue()));
-				$nc(this->fSchemaValidator)->endCDATA(nullptr);
-				$nc(this->fDOMValidatorHandler)->setIgnoringCharacters(false);
-				$nc(this->fDOMValidatorHandler)->cdata($cast($CDATASection, node));
-			} else {
-				$nc(this->fSchemaValidator)->startCDATA(nullptr);
-				sendCharactersToValidator($(node->getNodeValue()));
-				$nc(this->fSchemaValidator)->endCDATA(nullptr);
-			}
-			break;
+		if (this->fDOMValidatorHandler != nullptr) {
+			this->fDOMValidatorHandler->setIgnoringCharacters(true);
+			$nc(this->fSchemaValidator)->startCDATA(nullptr);
+			sendCharactersToValidator($(node->getNodeValue()));
+			$nc(this->fSchemaValidator)->endCDATA(nullptr);
+			$nc(this->fDOMValidatorHandler)->setIgnoringCharacters(false);
+			$nc(this->fDOMValidatorHandler)->cdata($cast($CDATASection, node));
+		} else {
+			$nc(this->fSchemaValidator)->startCDATA(nullptr);
+			sendCharactersToValidator($(node->getNodeValue()));
+			$nc(this->fSchemaValidator)->endCDATA(nullptr);
 		}
+		break;
 	case $Node::PROCESSING_INSTRUCTION_NODE:
-		{
-			if (this->fDOMValidatorHandler != nullptr) {
-				$nc(this->fDOMValidatorHandler)->processingInstruction($cast($ProcessingInstruction, node));
-			}
-			break;
+		if (this->fDOMValidatorHandler != nullptr) {
+			this->fDOMValidatorHandler->processingInstruction($cast($ProcessingInstruction, node));
 		}
+		break;
 	case $Node::COMMENT_NODE:
-		{
-			if (this->fDOMValidatorHandler != nullptr) {
-				$nc(this->fDOMValidatorHandler)->comment($cast($Comment, node));
-			}
-			break;
+		if (this->fDOMValidatorHandler != nullptr) {
+			this->fDOMValidatorHandler->comment($cast($Comment, node));
 		}
+		break;
 	case $Node::DOCUMENT_TYPE_NODE:
-		{
-			if (this->fDOMValidatorHandler != nullptr) {
-				$nc(this->fDOMValidatorHandler)->doctypeDecl($cast($DocumentType, node));
-			}
-			break;
+		if (this->fDOMValidatorHandler != nullptr) {
+			this->fDOMValidatorHandler->doctypeDecl($cast($DocumentType, node));
 		}
+		break;
 	default:
-		{
-			break;
-		}
+		break;
 	}
 }
 
@@ -445,7 +344,7 @@ void DOMValidatorHelper::setupEntityMap($Document* doc) {
 }
 
 void DOMValidatorHelper::setupDOMResultHandler($DOMSource* source, $DOMResult* result) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (result == nullptr) {
 		$set(this, fDOMValidatorHandler, nullptr);
 		$nc(this->fSchemaValidator)->setDocumentHandler(nullptr);
@@ -454,7 +353,7 @@ void DOMValidatorHelper::setupDOMResultHandler($DOMSource* source, $DOMResult* r
 	$var($Node, nodeResult, $nc(result)->getNode());
 	if ($nc(source)->getNode() == nodeResult) {
 		$set(this, fDOMValidatorHandler, this->fDOMResultAugmentor);
-		$nc(this->fDOMResultAugmentor)->setDOMResult(result);
+		this->fDOMResultAugmentor->setDOMResult(result);
 		$nc(this->fSchemaValidator)->setDocumentHandler(this->fDOMResultAugmentor);
 		return;
 	}
@@ -465,16 +364,16 @@ void DOMValidatorHelper::setupDOMResultHandler($DOMSource* source, $DOMResult* r
 			$var($DocumentBuilder, builder, $nc(factory)->newDocumentBuilder());
 			result->setNode($($nc(builder)->newDocument()));
 		} catch ($ParserConfigurationException& e) {
-			$throwNew($SAXException, static_cast<$Exception*>(e));
+			$throwNew($SAXException, e);
 		}
 	}
 	$set(this, fDOMValidatorHandler, this->fDOMResultBuilder);
-	$nc(this->fDOMResultBuilder)->setDOMResult(result);
+	this->fDOMResultBuilder->setDOMResult(result);
 	$nc(this->fSchemaValidator)->setDocumentHandler(this->fDOMResultBuilder);
 }
 
 void DOMValidatorHelper::fillQName($QName* toFill, $Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, $nc(node)->getPrefix());
 	$var($String, localName, node->getLocalName());
 	$var($String, rawName, node->getNodeName());
@@ -483,7 +382,7 @@ void DOMValidatorHelper::fillQName($QName* toFill, $Node* node) {
 	$init($XMLSymbols);
 	$set(toFill, rawname, (rawName != nullptr) ? $nc(this->fSymbolTable)->addSymbol(rawName) : $XMLSymbols::EMPTY_STRING);
 	if (localName == nullptr) {
-		int32_t k = $nc(rawName)->indexOf((int32_t)u':');
+		int32_t k = $nc(rawName)->indexOf(u':');
 		if (k > 0) {
 			$set(toFill, prefix, $nc(this->fSymbolTable)->addSymbol($(rawName->substring(0, k))));
 			$set(toFill, localpart, $nc(this->fSymbolTable)->addSymbol($(rawName->substring(k + 1))));
@@ -498,9 +397,9 @@ void DOMValidatorHelper::fillQName($QName* toFill, $Node* node) {
 }
 
 void DOMValidatorHelper::processAttributes($NamedNodeMap* attrMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t attrCount = $nc(attrMap)->getLength();
-	$nc(this->fAttributes)->removeAllAttributes();
+	this->fAttributes->removeAllAttributes();
 	for (int32_t i = 0; i < attrCount; ++i) {
 		$var($Attr, attr, $cast($Attr, attrMap->item(i)));
 		$var($String, value, $nc(attr)->getValue());
@@ -510,12 +409,12 @@ void DOMValidatorHelper::processAttributes($NamedNodeMap* attrMap) {
 		}
 		fillQName(this->fAttributeQName, attr);
 		$init($XMLSymbols);
-		$nc(this->fAttributes)->addAttributeNS(this->fAttributeQName, $XMLSymbols::fCDATASymbol, value);
-		$nc(this->fAttributes)->setSpecified(i, attr->getSpecified());
+		this->fAttributes->addAttributeNS(this->fAttributeQName, $XMLSymbols::fCDATASymbol, value);
+		this->fAttributes->setSpecified(i, attr->getSpecified());
 		$init($NamespaceContext);
-		if ($nc(this->fAttributeQName)->uri == $NamespaceContext::XMLNS_URI) {
-			if ($nc(this->fAttributeQName)->prefix == $XMLSymbols::PREFIX_XMLNS) {
-				$nc(this->fNamespaceContext)->declarePrefix($nc(this->fAttributeQName)->localpart, $nc(value)->length() != 0 ? $($nc(this->fSymbolTable)->addSymbol(value)) : ($String*)nullptr);
+		if (this->fAttributeQName->uri == $NamespaceContext::XMLNS_URI) {
+			if (this->fAttributeQName->prefix == $XMLSymbols::PREFIX_XMLNS) {
+				$nc(this->fNamespaceContext)->declarePrefix(this->fAttributeQName->localpart, $nc(value)->length() != 0 ? $($nc(this->fSymbolTable)->addSymbol(value)) : ($String*)nullptr);
 			} else {
 				$nc(this->fNamespaceContext)->declarePrefix($XMLSymbols::EMPTY_STRING, $nc(value)->length() != 0 ? $($nc(this->fSymbolTable)->addSymbol(value)) : ($String*)nullptr);
 			}
@@ -526,17 +425,17 @@ void DOMValidatorHelper::processAttributes($NamedNodeMap* attrMap) {
 void DOMValidatorHelper::sendCharactersToValidator($String* str) {
 	if (str != nullptr) {
 		int32_t length = str->length();
-		int32_t remainder = (int32_t)(length & (uint32_t)DOMValidatorHelper::CHUNK_MASK);
+		int32_t remainder = length & DOMValidatorHelper::CHUNK_MASK;
 		if (remainder > 0) {
 			str->getChars(0, remainder, this->fCharBuffer, 0);
-			$nc(this->fTempString)->setValues(this->fCharBuffer, 0, remainder);
+			this->fTempString->setValues(this->fCharBuffer, 0, remainder);
 			$nc(this->fSchemaValidator)->characters(this->fTempString, nullptr);
 		}
 		int32_t i = remainder;
 		while (i < length) {
 			int32_t var$0 = i;
 			str->getChars(var$0, i += DOMValidatorHelper::CHUNK_SIZE, this->fCharBuffer, 0);
-			$nc(this->fTempString)->setValues(this->fCharBuffer, 0, DOMValidatorHelper::CHUNK_SIZE);
+			this->fTempString->setValues(this->fCharBuffer, 0, DOMValidatorHelper::CHUNK_SIZE);
 			$nc(this->fSchemaValidator)->characters(this->fTempString, nullptr);
 		}
 	}
@@ -549,7 +448,7 @@ $Node* DOMValidatorHelper::getCurrentElement() {
 DOMValidatorHelper::DOMValidatorHelper() {
 }
 
-void clinit$DOMValidatorHelper($Class* class$) {
+void DOMValidatorHelper::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(DOMValidatorHelper::ERROR_REPORTER, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::ERROR_REPORTER_PROPERTY}));
 	$assignStatic(DOMValidatorHelper::NAMESPACE_CONTEXT, $str({$Constants::XERCES_PROPERTY_PREFIX, $Constants::NAMESPACE_CONTEXT_PROPERTY}));
@@ -559,7 +458,77 @@ void clinit$DOMValidatorHelper($Class* class$) {
 }
 
 $Class* DOMValidatorHelper::load$($String* name, bool initialize) {
-	$loadClass(DOMValidatorHelper, name, initialize, &_DOMValidatorHelper_ClassInfo_, clinit$DOMValidatorHelper, allocate$DOMValidatorHelper);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DOMValidatorHelper, CHUNK_SIZE)},
+		{"CHUNK_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DOMValidatorHelper, CHUNK_MASK)},
+		{"ERROR_REPORTER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, ERROR_REPORTER)},
+		{"NAMESPACE_CONTEXT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, NAMESPACE_CONTEXT)},
+		{"SCHEMA_VALIDATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, SCHEMA_VALIDATOR)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, SYMBOL_TABLE)},
+		{"VALIDATION_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMValidatorHelper, VALIDATION_MANAGER)},
+		{"fErrorReporter", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fErrorReporter)},
+		{"fNamespaceContext", "Lcom/sun/org/apache/xerces/internal/util/NamespaceSupport;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fNamespaceContext)},
+		{"fDOMNamespaceContext", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMValidatorHelper$DOMNamespaceContext;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fDOMNamespaceContext)},
+		{"fSchemaValidator", "Lcom/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fSchemaValidator)},
+		{"fSymbolTable", "Lcom/sun/org/apache/xerces/internal/util/SymbolTable;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fSymbolTable)},
+		{"fValidationManager", "Lcom/sun/org/apache/xerces/internal/impl/validation/ValidationManager;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fValidationManager)},
+		{"fComponentManager", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fComponentManager)},
+		{"fXMLLocator", "Lcom/sun/org/apache/xerces/internal/impl/xs/util/SimpleLocator;", nullptr, $PRIVATE | $FINAL, $field(DOMValidatorHelper, fXMLLocator)},
+		{"fDOMValidatorHandler", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMDocumentHandler;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fDOMValidatorHandler)},
+		{"fDOMResultAugmentor", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMResultAugmentor;", nullptr, $PRIVATE | $FINAL, $field(DOMValidatorHelper, fDOMResultAugmentor)},
+		{"fDOMResultBuilder", "Lcom/sun/org/apache/xerces/internal/jaxp/validation/DOMResultBuilder;", nullptr, $PRIVATE | $FINAL, $field(DOMValidatorHelper, fDOMResultBuilder)},
+		{"fEntities", "Lorg/w3c/dom/NamedNodeMap;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fEntities)},
+		{"fCharBuffer", "[C", nullptr, $PRIVATE, $field(DOMValidatorHelper, fCharBuffer)},
+		{"fRoot", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fRoot)},
+		{"fCurrentElement", "Lorg/w3c/dom/Node;", nullptr, $PRIVATE, $field(DOMValidatorHelper, fCurrentElement)},
+		{"fElementQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $FINAL, $field(DOMValidatorHelper, fElementQName)},
+		{"fAttributeQName", "Lcom/sun/org/apache/xerces/internal/xni/QName;", nullptr, $FINAL, $field(DOMValidatorHelper, fAttributeQName)},
+		{"fAttributes", "Lcom/sun/org/apache/xerces/internal/util/XMLAttributesImpl;", nullptr, $FINAL, $field(DOMValidatorHelper, fAttributes)},
+		{"fTempString", "Lcom/sun/org/apache/xerces/internal/xni/XMLString;", nullptr, $FINAL, $field(DOMValidatorHelper, fTempString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/jaxp/validation/XMLSchemaValidatorComponentManager;)V", nullptr, $PUBLIC, $method(DOMValidatorHelper, init$, void, $XMLSchemaValidatorComponentManager*)},
+		{"beginNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, beginNode, void, $Node*)},
+		{"fillQName", "(Lcom/sun/org/apache/xerces/internal/xni/QName;Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, fillQName, void, $QName*, $Node*)},
+		{"finishNode", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, finishNode, void, $Node*)},
+		{"getCurrentElement", "()Lorg/w3c/dom/Node;", nullptr, 0, $method(DOMValidatorHelper, getCurrentElement, $Node*)},
+		{"isEntityDeclared", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper, isEntityDeclared, bool, $String*)},
+		{"isEntityUnparsed", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper, isEntityUnparsed, bool, $String*)},
+		{"processAttributes", "(Lorg/w3c/dom/NamedNodeMap;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, processAttributes, void, $NamedNodeMap*)},
+		{"sendCharactersToValidator", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, sendCharactersToValidator, void, $String*)},
+		{"setupDOMResultHandler", "(Ljavax/xml/transform/dom/DOMSource;Ljavax/xml/transform/dom/DOMResult;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, setupDOMResultHandler, void, $DOMSource*, $DOMResult*), "org.xml.sax.SAXException"},
+		{"setupEntityMap", "(Lorg/w3c/dom/Document;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, setupEntityMap, void, $Document*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"validate", "(Ljavax/xml/transform/Source;Ljavax/xml/transform/Result;)V", nullptr, $PUBLIC, $virtualMethod(DOMValidatorHelper, validate, void, $Source*, $Result*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"validate", "(Lorg/w3c/dom/Node;)V", nullptr, $PRIVATE, $method(DOMValidatorHelper, validate, void, $Node*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper$DOMNamespaceContext", "com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper", "DOMNamespaceContext", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.jaxp.validation.ValidatorHelper,com.sun.org.apache.xerces.internal.impl.validation.EntityState",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.jaxp.validation.DOMValidatorHelper$DOMNamespaceContext"
+	};
+	$loadClass(DOMValidatorHelper, name, initialize, &classInfo$$, DOMValidatorHelper::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMValidatorHelper));
+	});
 	return class$;
 }
 

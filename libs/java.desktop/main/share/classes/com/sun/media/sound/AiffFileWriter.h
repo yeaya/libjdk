@@ -75,8 +75,8 @@ public:
 	static const int32_t DOUBLE_MANTISSA_LENGTH = 52;
 	static const int32_t DOUBLE_EXPONENT_LENGTH = 11;
 	static const int64_t DOUBLE_SIGN_MASK = (int64_t)0x8000000000000000;
-	static const int64_t DOUBLE_EXPONENT_MASK = (int64_t)0x7FF0000000000000;
-	static const int64_t DOUBLE_MANTISSA_MASK = (int64_t)0x000FFFFFFFFFFFFF;
+	static const int64_t DOUBLE_EXPONENT_MASK = (int64_t)0x7ff0000000000000;
+	static const int64_t DOUBLE_MANTISSA_MASK = (int64_t)0x000fffffffffffff;
 	static const int32_t DOUBLE_EXPONENT_OFFSET = 1023;
 	static const int32_t EXTENDED_EXPONENT_OFFSET = 16383;
 	static const int32_t EXTENDED_MANTISSA_LENGTH = 63;

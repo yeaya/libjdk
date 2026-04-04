@@ -51,7 +51,7 @@ public:
 	virtual ::javax::sound::midi::Sequence* getSequence(::java::io::InputStream* stream) override;
 	virtual ::javax::sound::midi::Sequence* getSequence(::java::net::URL* url) override;
 	virtual ::javax::sound::midi::Sequence* getSequence(::java::io::File* file) override;
-	static const int32_t MThd_MAGIC = 0x4D546864;
+	static const int32_t MThd_MAGIC = 0x4d546864;
 	static const int32_t bisBufferSize = 1024;
 };
 

@@ -24,6 +24,7 @@ class $export NonOpaquePopupMenuTest : public ::javax::swing::JFrame {
 	$class(NonOpaquePopupMenuTest, 0, ::javax::swing::JFrame)
 public:
 	NonOpaquePopupMenuTest();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JFrame::add;
 	using ::javax::swing::JFrame::getMousePosition;
 	void init$();

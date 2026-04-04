@@ -1,5 +1,4 @@
 #include <sun/java2d/xr/XRCompositeManager.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Composite.h>
 #include <java/awt/Paint.h>
@@ -7,7 +6,6 @@
 #include <java/awt/geom/NoninvertibleTransformException.h>
 #include <java/lang/InternalError.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/font/XRTextRenderer.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/loops/XORComposite.h>
@@ -46,7 +44,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $XRTextRenderer = ::sun::font::XRTextRenderer;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $XORComposite = ::sun::java2d::loops::XORComposite;
@@ -67,99 +64,12 @@ namespace sun {
 	namespace java2d {
 		namespace xr {
 
-$FieldInfo _XRCompositeManager_FieldInfo_[] = {
-	{"enableGradCache", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XRCompositeManager, enableGradCache)},
-	{"instance", "Lsun/java2d/xr/XRCompositeManager;", nullptr, $PRIVATE | $STATIC, $staticField(XRCompositeManager, instance)},
-	{"SOLID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRCompositeManager, SOLID)},
-	{"TEXTURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRCompositeManager, TEXTURE)},
-	{"GRADIENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRCompositeManager, GRADIENT)},
-	{"srcType", "I", nullptr, 0, $field(XRCompositeManager, srcType)},
-	{"solidSrc32", "Lsun/java2d/xr/XRSolidSrcPict;", nullptr, 0, $field(XRCompositeManager, solidSrc32)},
-	{"texture", "Lsun/java2d/xr/XRSurfaceData;", nullptr, 0, $field(XRCompositeManager, texture)},
-	{"gradient", "Lsun/java2d/xr/XRSurfaceData;", nullptr, 0, $field(XRCompositeManager, gradient)},
-	{"alphaMask", "I", nullptr, 0, $field(XRCompositeManager, alphaMask)},
-	{"solidColor", "Lsun/java2d/xr/XRColor;", nullptr, 0, $field(XRCompositeManager, solidColor)},
-	{"extraAlpha", "F", nullptr, 0, $field(XRCompositeManager, extraAlpha)},
-	{"compRule", "B", nullptr, 0, $field(XRCompositeManager, compRule)},
-	{"alphaColor", "Lsun/java2d/xr/XRColor;", nullptr, 0, $field(XRCompositeManager, alphaColor)},
-	{"solidSrcPict", "Lsun/java2d/xr/XRSurfaceData;", nullptr, 0, $field(XRCompositeManager, solidSrcPict)},
-	{"alphaMaskPict", "I", nullptr, 0, $field(XRCompositeManager, alphaMaskPict)},
-	{"gradCachePixmap", "I", nullptr, 0, $field(XRCompositeManager, gradCachePixmap)},
-	{"gradCachePicture", "I", nullptr, 0, $field(XRCompositeManager, gradCachePicture)},
-	{"xorEnabled", "Z", nullptr, 0, $field(XRCompositeManager, xorEnabled)},
-	{"validatedPixel", "I", nullptr, 0, $field(XRCompositeManager, validatedPixel)},
-	{"validatedComp", "Ljava/awt/Composite;", nullptr, 0, $field(XRCompositeManager, validatedComp)},
-	{"validatedPaint", "Ljava/awt/Paint;", nullptr, 0, $field(XRCompositeManager, validatedPaint)},
-	{"validatedExtraAlpha", "F", nullptr, 0, $field(XRCompositeManager, validatedExtraAlpha)},
-	{"con", "Lsun/java2d/xr/XRBackend;", nullptr, 0, $field(XRCompositeManager, con)},
-	{"maskBuffer", "Lsun/java2d/xr/MaskTileManager;", nullptr, 0, $field(XRCompositeManager, maskBuffer)},
-	{"textRenderer", "Lsun/font/XRTextRenderer;", nullptr, 0, $field(XRCompositeManager, textRenderer)},
-	{"maskImage", "Lsun/java2d/xr/XRMaskImage;", nullptr, 0, $field(XRCompositeManager, maskImage)},
-	{}
-};
-
-$MethodInfo _XRCompositeManager_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/xr/XRSurfaceData;)V", nullptr, $PRIVATE, $method(XRCompositeManager, init$, void, $XRSurfaceData*)},
-	{"XRComposite", "(IIIIIIIIIII)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, XRComposite, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"XRCompositeRectangles", "(Lsun/java2d/xr/XRSurfaceData;Lsun/java2d/xr/GrowableRectArray;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, XRCompositeRectangles, void, $XRSurfaceData*, $GrowableRectArray*)},
-	{"XRRenderRectangles", "(Lsun/java2d/xr/XRSurfaceData;Lsun/java2d/xr/GrowableRectArray;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, XRRenderRectangles, void, $XRSurfaceData*, $GrowableRectArray*)},
-	{"XRResetPaint", "()V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, XRResetPaint, void)},
-	{"compositeBlit", "(Lsun/java2d/xr/XRSurfaceData;Lsun/java2d/xr/XRSurfaceData;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, compositeBlit, void, $XRSurfaceData*, $XRSurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{"compositeText", "(Lsun/java2d/xr/XRSurfaceData;IIIILsun/java2d/xr/GrowableEltArray;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, compositeText, void, $XRSurfaceData*, int32_t, int32_t, int32_t, int32_t, $GrowableEltArray*)},
-	{"getAlphaColor", "()Lsun/java2d/xr/XRColor;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getAlphaColor, $XRColor*)},
-	{"getBackend", "()Lsun/java2d/xr/XRBackend;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getBackend, $XRBackend*)},
-	{"getCompRule", "()B", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getCompRule, int8_t)},
-	{"getCurrentSource", "()Lsun/java2d/xr/XRSurfaceData;", nullptr, $PROTECTED, $virtualMethod(XRCompositeManager, getCurrentSource, $XRSurfaceData*)},
-	{"getExtraAlpha", "()F", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getExtraAlpha, float)},
-	{"getExtraAlphaMask", "()I", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getExtraAlphaMask, int32_t)},
-	{"getInstance", "(Lsun/java2d/xr/XRSurfaceData;)Lsun/java2d/xr/XRCompositeManager;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(XRCompositeManager, getInstance, XRCompositeManager*, $XRSurfaceData*)},
-	{"getMaskBuffer", "()Lsun/java2d/xr/MaskTileManager;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getMaskBuffer, $MaskTileManager*)},
-	{"getMaskColor", "()Lsun/java2d/xr/XRColor;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getMaskColor, $XRColor*)},
-	{"getMaskImage", "()Lsun/java2d/xr/XRMaskImage;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getMaskImage, $XRMaskImage*)},
-	{"getTextRenderer", "()Lsun/font/XRTextRenderer;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getTextRenderer, $XRTextRenderer*)},
-	{"initResources", "(Lsun/java2d/xr/XRSurfaceData;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, initResources, void, $XRSurfaceData*)},
-	{"isSolidPaintActive", "()Z", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, isSolidPaintActive, bool)},
-	{"isTexturePaintActive", "()Z", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, isTexturePaintActive, bool)},
-	{"maskRequired", "()Z", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, maskRequired, bool)},
-	{"setComposite", "(Ljava/awt/Composite;)V", nullptr, $PRIVATE, $method(XRCompositeManager, setComposite, void, $Composite*)},
-	{"setForeground", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, setForeground, void, int32_t)},
-	{"setGradientPaint", "(Lsun/java2d/xr/XRSurfaceData;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, setGradientPaint, void, $XRSurfaceData*)},
-	{"setTexturePaint", "(Lsun/java2d/xr/XRSurfaceData;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, setTexturePaint, void, $XRSurfaceData*)},
-	{"validateCompositeState", "(Ljava/awt/Composite;Ljava/awt/geom/AffineTransform;Ljava/awt/Paint;Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, validateCompositeState, void, $Composite*, $AffineTransform*, $Paint*, $SunGraphics2D*)},
-	{}
-};
-
-$InnerClassInfo _XRCompositeManager_InnerClassesInfo_[] = {
-	{"sun.java2d.xr.XRCompositeManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XRCompositeManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.xr.XRCompositeManager",
-	"java.lang.Object",
-	nullptr,
-	_XRCompositeManager_FieldInfo_,
-	_XRCompositeManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XRCompositeManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.xr.XRCompositeManager$1"
-};
-
-$Object* allocate$XRCompositeManager($Class* clazz) {
-	return $of($alloc(XRCompositeManager));
-}
-
 bool XRCompositeManager::enableGradCache = false;
 XRCompositeManager* XRCompositeManager::instance = nullptr;
 
 XRCompositeManager* XRCompositeManager::getInstance($XRSurfaceData* surface) {
-	$load(XRCompositeManager);
+	$init(XRCompositeManager);
 	$synchronized(class$) {
-		$init(XRCompositeManager);
 		if (XRCompositeManager::instance == nullptr) {
 			$assignStatic(XRCompositeManager::instance, $new(XRCompositeManager, surface));
 		}
@@ -168,7 +78,7 @@ XRCompositeManager* XRCompositeManager::getInstance($XRSurfaceData* surface) {
 }
 
 void XRCompositeManager::init$($XRSurfaceData* surface) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	this->alphaMask = $XRUtils::None;
 	$set(this, solidColor, $new($XRColor));
@@ -179,18 +89,18 @@ void XRCompositeManager::init$($XRSurfaceData* surface) {
 	this->validatedPixel = 0;
 	this->validatedExtraAlpha = 1.0f;
 	$set(this, con, $new($XRBackendNative));
-	$var($String, gradProp, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($XRCompositeManager$1, this)))));
+	$var($String, gradProp, $cast($String, $AccessController::doPrivileged($$new($XRCompositeManager$1, this))));
 	bool var$0 = gradProp == nullptr;
 	if (!var$0) {
-		bool var$1 = $nc(gradProp)->equalsIgnoreCase("false"_s);
-		var$0 = !(var$1 || $nc(gradProp)->equalsIgnoreCase("f"_s));
+		bool var$1 = gradProp->equalsIgnoreCase("false"_s);
+		var$0 = !(var$1 || gradProp->equalsIgnoreCase("f"_s));
 	}
 	XRCompositeManager::enableGradCache = var$0;
 	$XRPaints::register$(this);
 	initResources(surface);
 	$set(this, maskBuffer, $new($MaskTileManager, this, $nc(surface)->getXid()));
 	$set(this, textRenderer, $new($XRTextRenderer, this));
-	$set(this, maskImage, $new($XRMaskImage, this, $nc(surface)->getXid()));
+	$set(this, maskImage, $new($XRMaskImage, this, surface->getXid()));
 }
 
 void XRCompositeManager::initResources($XRSurfaceData* surface) {
@@ -214,7 +124,7 @@ void XRCompositeManager::setForeground(int32_t pixel) {
 
 void XRCompositeManager::setGradientPaint($XRSurfaceData* gradient) {
 	if (this->gradient != nullptr) {
-		$nc(this->con)->freePicture($nc(this->gradient)->picture);
+		$nc(this->con)->freePicture(this->gradient->picture);
 	}
 	$set(this, gradient, gradient);
 	this->srcType = XRCompositeManager::GRADIENT;
@@ -230,7 +140,7 @@ void XRCompositeManager::XRResetPaint() {
 }
 
 void XRCompositeManager::validateCompositeState($Composite* comp$renamed, $AffineTransform* xform, $Paint* paint, $SunGraphics2D* sg2d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Composite, comp, comp$renamed);
 	bool updatePaint = (paint != this->validatedPaint) || paint == nullptr;
 	if (comp != this->validatedComp) {
@@ -244,7 +154,7 @@ void XRCompositeManager::validateCompositeState($Composite* comp$renamed, $Affin
 		$set(this, validatedComp, comp);
 	}
 	if (sg2d != nullptr && (this->validatedPixel != sg2d->pixel || updatePaint)) {
-		this->validatedPixel = $nc(sg2d)->pixel;
+		this->validatedPixel = sg2d->pixel;
 		setForeground(this->validatedPixel);
 	}
 	if (updatePaint) {
@@ -262,15 +172,15 @@ void XRCompositeManager::validateCompositeState($Composite* comp$renamed, $Affin
 		} catch ($NoninvertibleTransformException& e) {
 			$nc(at)->setToIdentity();
 		}
-		$nc($(getCurrentSource()))->validateAsSource(at, -1, $XRUtils::ATransOpToXRQuality($nc(sg2d)->interpolationType));
+		$$nc(getCurrentSource())->validateAsSource(at, -1, $XRUtils::ATransOpToXRQuality($nc(sg2d)->interpolationType));
 	}
 }
 
 void XRCompositeManager::setComposite($Composite* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($AlphaComposite, comp)) {
 		$var($AlphaComposite, aComp, $cast($AlphaComposite, comp));
-		this->validatedExtraAlpha = $nc(aComp)->getAlpha();
+		this->validatedExtraAlpha = aComp->getAlpha();
 		this->compRule = $XRUtils::j2dAlphaCompToXR(aComp->getRule());
 		this->extraAlpha = this->validatedExtraAlpha;
 		if (this->extraAlpha == 1.0f) {
@@ -291,15 +201,15 @@ void XRCompositeManager::setComposite($Composite* comp) {
 }
 
 bool XRCompositeManager::maskRequired() {
-	return (!this->xorEnabled) && ((this->srcType != XRCompositeManager::SOLID) || (this->srcType == XRCompositeManager::SOLID && ($nc(this->solidColor)->alpha != 0x0000FFFF) || (this->extraAlpha != 1.0f)));
+	return (!this->xorEnabled) && ((this->srcType != XRCompositeManager::SOLID) || (this->srcType == XRCompositeManager::SOLID && ($nc(this->solidColor)->alpha != 0x0000ffff) || (this->extraAlpha != 1.0f)));
 }
 
 void XRCompositeManager::XRComposite(int32_t src, int32_t mask, int32_t dst, int32_t srcX, int32_t srcY, int32_t maskX, int32_t maskY, int32_t dstX, int32_t dstY, int32_t width, int32_t height) {
 	int32_t cachedSrc = (src == $XRUtils::None) ? $nc($(getCurrentSource()))->picture : src;
 	int32_t cachedX = srcX;
 	int32_t cachedY = srcY;
-	if (XRCompositeManager::enableGradCache && this->gradient != nullptr && cachedSrc == $nc(this->gradient)->picture) {
-		$nc(this->con)->renderComposite($XRUtils::PictOpSrc, $nc(this->gradient)->picture, $XRUtils::None, this->gradCachePicture, srcX, srcY, 0, 0, 0, 0, width, height);
+	if (XRCompositeManager::enableGradCache && this->gradient != nullptr && cachedSrc == this->gradient->picture) {
+		$nc(this->con)->renderComposite($XRUtils::PictOpSrc, this->gradient->picture, $XRUtils::None, this->gradCachePicture, srcX, srcY, 0, 0, 0, 0, width, height);
 		cachedX = 0;
 		cachedY = 0;
 		cachedSrc = this->gradCachePicture;
@@ -338,17 +248,11 @@ void XRCompositeManager::XRCompositeRectangles($XRSurfaceData* dst, $GrowableRec
 $XRSurfaceData* XRCompositeManager::getCurrentSource() {
 	switch (this->srcType) {
 	case XRCompositeManager::SOLID:
-		{
-			return $nc(this->solidSrc32)->prepareSrcPict(this->validatedPixel);
-		}
+		return $nc(this->solidSrc32)->prepareSrcPict(this->validatedPixel);
 	case XRCompositeManager::TEXTURE:
-		{
-			return this->texture;
-		}
+		return this->texture;
 	case XRCompositeManager::GRADIENT:
-		{
-			return this->gradient;
-		}
+		return this->gradient;
 	}
 	return nullptr;
 }
@@ -407,7 +311,7 @@ $XRMaskImage* XRCompositeManager::getMaskImage() {
 	return this->maskImage;
 }
 
-void clinit$XRCompositeManager($Class* class$) {
+void XRCompositeManager::clinit$($Class* clazz) {
 	XRCompositeManager::enableGradCache = true;
 }
 
@@ -415,7 +319,87 @@ XRCompositeManager::XRCompositeManager() {
 }
 
 $Class* XRCompositeManager::load$($String* name, bool initialize) {
-	$loadClass(XRCompositeManager, name, initialize, &_XRCompositeManager_ClassInfo_, clinit$XRCompositeManager, allocate$XRCompositeManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"enableGradCache", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XRCompositeManager, enableGradCache)},
+		{"instance", "Lsun/java2d/xr/XRCompositeManager;", nullptr, $PRIVATE | $STATIC, $staticField(XRCompositeManager, instance)},
+		{"SOLID", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRCompositeManager, SOLID)},
+		{"TEXTURE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRCompositeManager, TEXTURE)},
+		{"GRADIENT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XRCompositeManager, GRADIENT)},
+		{"srcType", "I", nullptr, 0, $field(XRCompositeManager, srcType)},
+		{"solidSrc32", "Lsun/java2d/xr/XRSolidSrcPict;", nullptr, 0, $field(XRCompositeManager, solidSrc32)},
+		{"texture", "Lsun/java2d/xr/XRSurfaceData;", nullptr, 0, $field(XRCompositeManager, texture)},
+		{"gradient", "Lsun/java2d/xr/XRSurfaceData;", nullptr, 0, $field(XRCompositeManager, gradient)},
+		{"alphaMask", "I", nullptr, 0, $field(XRCompositeManager, alphaMask)},
+		{"solidColor", "Lsun/java2d/xr/XRColor;", nullptr, 0, $field(XRCompositeManager, solidColor)},
+		{"extraAlpha", "F", nullptr, 0, $field(XRCompositeManager, extraAlpha)},
+		{"compRule", "B", nullptr, 0, $field(XRCompositeManager, compRule)},
+		{"alphaColor", "Lsun/java2d/xr/XRColor;", nullptr, 0, $field(XRCompositeManager, alphaColor)},
+		{"solidSrcPict", "Lsun/java2d/xr/XRSurfaceData;", nullptr, 0, $field(XRCompositeManager, solidSrcPict)},
+		{"alphaMaskPict", "I", nullptr, 0, $field(XRCompositeManager, alphaMaskPict)},
+		{"gradCachePixmap", "I", nullptr, 0, $field(XRCompositeManager, gradCachePixmap)},
+		{"gradCachePicture", "I", nullptr, 0, $field(XRCompositeManager, gradCachePicture)},
+		{"xorEnabled", "Z", nullptr, 0, $field(XRCompositeManager, xorEnabled)},
+		{"validatedPixel", "I", nullptr, 0, $field(XRCompositeManager, validatedPixel)},
+		{"validatedComp", "Ljava/awt/Composite;", nullptr, 0, $field(XRCompositeManager, validatedComp)},
+		{"validatedPaint", "Ljava/awt/Paint;", nullptr, 0, $field(XRCompositeManager, validatedPaint)},
+		{"validatedExtraAlpha", "F", nullptr, 0, $field(XRCompositeManager, validatedExtraAlpha)},
+		{"con", "Lsun/java2d/xr/XRBackend;", nullptr, 0, $field(XRCompositeManager, con)},
+		{"maskBuffer", "Lsun/java2d/xr/MaskTileManager;", nullptr, 0, $field(XRCompositeManager, maskBuffer)},
+		{"textRenderer", "Lsun/font/XRTextRenderer;", nullptr, 0, $field(XRCompositeManager, textRenderer)},
+		{"maskImage", "Lsun/java2d/xr/XRMaskImage;", nullptr, 0, $field(XRCompositeManager, maskImage)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/xr/XRSurfaceData;)V", nullptr, $PRIVATE, $method(XRCompositeManager, init$, void, $XRSurfaceData*)},
+		{"XRComposite", "(IIIIIIIIIII)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, XRComposite, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"XRCompositeRectangles", "(Lsun/java2d/xr/XRSurfaceData;Lsun/java2d/xr/GrowableRectArray;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, XRCompositeRectangles, void, $XRSurfaceData*, $GrowableRectArray*)},
+		{"XRRenderRectangles", "(Lsun/java2d/xr/XRSurfaceData;Lsun/java2d/xr/GrowableRectArray;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, XRRenderRectangles, void, $XRSurfaceData*, $GrowableRectArray*)},
+		{"XRResetPaint", "()V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, XRResetPaint, void)},
+		{"compositeBlit", "(Lsun/java2d/xr/XRSurfaceData;Lsun/java2d/xr/XRSurfaceData;IIIIII)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, compositeBlit, void, $XRSurfaceData*, $XRSurfaceData*, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{"compositeText", "(Lsun/java2d/xr/XRSurfaceData;IIIILsun/java2d/xr/GrowableEltArray;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, compositeText, void, $XRSurfaceData*, int32_t, int32_t, int32_t, int32_t, $GrowableEltArray*)},
+		{"getAlphaColor", "()Lsun/java2d/xr/XRColor;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getAlphaColor, $XRColor*)},
+		{"getBackend", "()Lsun/java2d/xr/XRBackend;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getBackend, $XRBackend*)},
+		{"getCompRule", "()B", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getCompRule, int8_t)},
+		{"getCurrentSource", "()Lsun/java2d/xr/XRSurfaceData;", nullptr, $PROTECTED, $virtualMethod(XRCompositeManager, getCurrentSource, $XRSurfaceData*)},
+		{"getExtraAlpha", "()F", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getExtraAlpha, float)},
+		{"getExtraAlphaMask", "()I", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getExtraAlphaMask, int32_t)},
+		{"getInstance", "(Lsun/java2d/xr/XRSurfaceData;)Lsun/java2d/xr/XRCompositeManager;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(XRCompositeManager, getInstance, XRCompositeManager*, $XRSurfaceData*)},
+		{"getMaskBuffer", "()Lsun/java2d/xr/MaskTileManager;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getMaskBuffer, $MaskTileManager*)},
+		{"getMaskColor", "()Lsun/java2d/xr/XRColor;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getMaskColor, $XRColor*)},
+		{"getMaskImage", "()Lsun/java2d/xr/XRMaskImage;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getMaskImage, $XRMaskImage*)},
+		{"getTextRenderer", "()Lsun/font/XRTextRenderer;", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, getTextRenderer, $XRTextRenderer*)},
+		{"initResources", "(Lsun/java2d/xr/XRSurfaceData;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, initResources, void, $XRSurfaceData*)},
+		{"isSolidPaintActive", "()Z", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, isSolidPaintActive, bool)},
+		{"isTexturePaintActive", "()Z", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, isTexturePaintActive, bool)},
+		{"maskRequired", "()Z", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, maskRequired, bool)},
+		{"setComposite", "(Ljava/awt/Composite;)V", nullptr, $PRIVATE, $method(XRCompositeManager, setComposite, void, $Composite*)},
+		{"setForeground", "(I)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, setForeground, void, int32_t)},
+		{"setGradientPaint", "(Lsun/java2d/xr/XRSurfaceData;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, setGradientPaint, void, $XRSurfaceData*)},
+		{"setTexturePaint", "(Lsun/java2d/xr/XRSurfaceData;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, setTexturePaint, void, $XRSurfaceData*)},
+		{"validateCompositeState", "(Ljava/awt/Composite;Ljava/awt/geom/AffineTransform;Ljava/awt/Paint;Lsun/java2d/SunGraphics2D;)V", nullptr, $PUBLIC, $virtualMethod(XRCompositeManager, validateCompositeState, void, $Composite*, $AffineTransform*, $Paint*, $SunGraphics2D*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.xr.XRCompositeManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.xr.XRCompositeManager",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.xr.XRCompositeManager$1"
+	};
+	$loadClass(XRCompositeManager, name, initialize, &classInfo$$, XRCompositeManager::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XRCompositeManager);
+	});
 	return class$;
 }
 

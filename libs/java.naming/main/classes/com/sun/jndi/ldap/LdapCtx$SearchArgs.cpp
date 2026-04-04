@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapCtx$SearchArgs.h>
-
 #include <com/sun/jndi/ldap/LdapCtx.h>
 #include <javax/naming/Name.h>
 #include <javax/naming/directory/SearchControls.h>
@@ -17,44 +16,6 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _LdapCtx$SearchArgs_FieldInfo_[] = {
-	{"name", "Ljavax/naming/Name;", nullptr, 0, $field(LdapCtx$SearchArgs, name)},
-	{"filter", "Ljava/lang/String;", nullptr, 0, $field(LdapCtx$SearchArgs, filter)},
-	{"cons", "Ljavax/naming/directory/SearchControls;", nullptr, 0, $field(LdapCtx$SearchArgs, cons)},
-	{"reqAttrs", "[Ljava/lang/String;", nullptr, 0, $field(LdapCtx$SearchArgs, reqAttrs)},
-	{}
-};
-
-$MethodInfo _LdapCtx$SearchArgs_MethodInfo_[] = {
-	{"<init>", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;[Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx$SearchArgs, init$, void, $Name*, $String*, $SearchControls*, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _LdapCtx$SearchArgs_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.LdapCtx$SearchArgs", "com.sun.jndi.ldap.LdapCtx", "SearchArgs", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LdapCtx$SearchArgs_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapCtx$SearchArgs",
-	"java.lang.Object",
-	nullptr,
-	_LdapCtx$SearchArgs_FieldInfo_,
-	_LdapCtx$SearchArgs_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LdapCtx$SearchArgs_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.LdapCtx"
-};
-
-$Object* allocate$LdapCtx$SearchArgs($Class* clazz) {
-	return $of($alloc(LdapCtx$SearchArgs));
-}
-
 void LdapCtx$SearchArgs::init$($Name* name, $String* filter, $SearchControls* cons, $StringArray* ra) {
 	$set(this, name, name);
 	$set(this, filter, filter);
@@ -66,7 +27,39 @@ LdapCtx$SearchArgs::LdapCtx$SearchArgs() {
 }
 
 $Class* LdapCtx$SearchArgs::load$($String* name, bool initialize) {
-	$loadClass(LdapCtx$SearchArgs, name, initialize, &_LdapCtx$SearchArgs_ClassInfo_, allocate$LdapCtx$SearchArgs);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Ljavax/naming/Name;", nullptr, 0, $field(LdapCtx$SearchArgs, name)},
+		{"filter", "Ljava/lang/String;", nullptr, 0, $field(LdapCtx$SearchArgs, filter)},
+		{"cons", "Ljavax/naming/directory/SearchControls;", nullptr, 0, $field(LdapCtx$SearchArgs, cons)},
+		{"reqAttrs", "[Ljava/lang/String;", nullptr, 0, $field(LdapCtx$SearchArgs, reqAttrs)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;[Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx$SearchArgs, init$, void, $Name*, $String*, $SearchControls*, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.LdapCtx$SearchArgs", "com.sun.jndi.ldap.LdapCtx", "SearchArgs", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapCtx$SearchArgs",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.LdapCtx"
+	};
+	$loadClass(LdapCtx$SearchArgs, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapCtx$SearchArgs);
+	});
 	return class$;
 }
 

@@ -1,8 +1,6 @@
 #include <javax/swing/plaf/metal/DefaultMetalTheme.h>
-
 #include <java/awt/Font.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/FontUIResource.h>
@@ -35,7 +33,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $UIManager = ::javax::swing::UIManager;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
@@ -52,72 +49,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _DefaultMetalTheme_FieldInfo_[] = {
-	{"PLAIN_FONTS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, PLAIN_FONTS)},
-	{"fontNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, fontNames)},
-	{"fontStyles", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, fontStyles)},
-	{"fontSizes", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, fontSizes)},
-	{"defaultNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, defaultNames)},
-	{"primary1", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, primary1)},
-	{"primary2", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, primary2)},
-	{"primary3", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, primary3)},
-	{"secondary1", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, secondary1)},
-	{"secondary2", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, secondary2)},
-	{"secondary3", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, secondary3)},
-	{"fontDelegate", "Ljavax/swing/plaf/metal/DefaultMetalTheme$FontDelegate;", nullptr, $PRIVATE, $field(DefaultMetalTheme, fontDelegate)},
-	{}
-};
-
-$MethodInfo _DefaultMetalTheme_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMetalTheme, init$, void)},
-	{"getControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getControlTextFont, $FontUIResource*)},
-	{"getDefaultFontName", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultMetalTheme, getDefaultFontName, $String*, int32_t)},
-	{"getDefaultFontSize", "(I)I", nullptr, $STATIC, $staticMethod(DefaultMetalTheme, getDefaultFontSize, int32_t, int32_t)},
-	{"getDefaultFontStyle", "(I)I", nullptr, $STATIC, $staticMethod(DefaultMetalTheme, getDefaultFontStyle, int32_t, int32_t)},
-	{"getDefaultPropertyName", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultMetalTheme, getDefaultPropertyName, $String*, int32_t)},
-	{"getFont", "(I)Ljavax/swing/plaf/FontUIResource;", nullptr, $PRIVATE, $method(DefaultMetalTheme, getFont, $FontUIResource*, int32_t)},
-	{"getMenuTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getMenuTextFont, $FontUIResource*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getName, $String*)},
-	{"getPrimary1", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getPrimary1, $ColorUIResource*)},
-	{"getPrimary2", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getPrimary2, $ColorUIResource*)},
-	{"getPrimary3", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getPrimary3, $ColorUIResource*)},
-	{"getSecondary1", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getSecondary1, $ColorUIResource*)},
-	{"getSecondary2", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getSecondary2, $ColorUIResource*)},
-	{"getSecondary3", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getSecondary3, $ColorUIResource*)},
-	{"getSubTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getSubTextFont, $FontUIResource*)},
-	{"getSystemTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getSystemTextFont, $FontUIResource*)},
-	{"getUserTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getUserTextFont, $FontUIResource*)},
-	{"getWindowTitleFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getWindowTitleFont, $FontUIResource*)},
-	{"install", "()V", nullptr, 0, $virtualMethod(DefaultMetalTheme, install, void)},
-	{"isSystemTheme", "()Z", nullptr, 0, $virtualMethod(DefaultMetalTheme, isSystemTheme, bool)},
-	{}
-};
-
-$InnerClassInfo _DefaultMetalTheme_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.DefaultMetalTheme$WindowsFontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "WindowsFontDelegate", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "FontDelegate", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DefaultMetalTheme_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.DefaultMetalTheme",
-	"javax.swing.plaf.metal.MetalTheme",
-	nullptr,
-	_DefaultMetalTheme_FieldInfo_,
-	_DefaultMetalTheme_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMetalTheme_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.DefaultMetalTheme$WindowsFontDelegate,javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate,javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate$1"
-};
-
-$Object* allocate$DefaultMetalTheme($Class* clazz) {
-	return $of($alloc(DefaultMetalTheme));
-}
-
 bool DefaultMetalTheme::PLAIN_FONTS = false;
 $StringArray* DefaultMetalTheme::fontNames = nullptr;
 $ints* DefaultMetalTheme::fontStyles = nullptr;
@@ -132,40 +63,37 @@ $ColorUIResource* DefaultMetalTheme::secondary3 = nullptr;
 
 $String* DefaultMetalTheme::getDefaultFontName(int32_t key) {
 	$init(DefaultMetalTheme);
-	return $nc(DefaultMetalTheme::fontNames)->get(key);
+	return DefaultMetalTheme::fontNames->get(key);
 }
 
 int32_t DefaultMetalTheme::getDefaultFontSize(int32_t key) {
 	$init(DefaultMetalTheme);
-	return $nc(DefaultMetalTheme::fontSizes)->get(key);
+	return DefaultMetalTheme::fontSizes->get(key);
 }
 
 int32_t DefaultMetalTheme::getDefaultFontStyle(int32_t key) {
 	$init(DefaultMetalTheme);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key != $MetalTheme::WINDOW_TITLE_FONT) {
 		$var($Object, boldMetal, nullptr);
 		$init($SwingUtilities2);
-		if ($nc($($AppContext::getAppContext()))->get($SwingUtilities2::LAF_STATE_KEY) != nullptr) {
+		if ($$nc($AppContext::getAppContext())->get($SwingUtilities2::LAF_STATE_KEY) != nullptr) {
 			$assign(boldMetal, $UIManager::get("swing.boldMetal"_s));
 		}
 		if (boldMetal != nullptr) {
-			$init($Boolean);
 			if ($nc($Boolean::FALSE)->equals(boldMetal)) {
 				return $Font::PLAIN;
 			}
-		} else {
-			if (DefaultMetalTheme::PLAIN_FONTS) {
-				return $Font::PLAIN;
-			}
+		} else if (DefaultMetalTheme::PLAIN_FONTS) {
+			return $Font::PLAIN;
 		}
 	}
-	return $nc(DefaultMetalTheme::fontStyles)->get(key);
+	return DefaultMetalTheme::fontStyles->get(key);
 }
 
 $String* DefaultMetalTheme::getDefaultPropertyName(int32_t key) {
 	$init(DefaultMetalTheme);
-	return $nc(DefaultMetalTheme::defaultNames)->get(key);
+	return DefaultMetalTheme::defaultNames->get(key);
 }
 
 $String* DefaultMetalTheme::getName() {
@@ -242,8 +170,8 @@ bool DefaultMetalTheme::isSystemTheme() {
 	return ($of(this)->getClass() == DefaultMetalTheme::class$);
 }
 
-void clinit$DefaultMetalTheme($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DefaultMetalTheme::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($Font);
 	$assignStatic(DefaultMetalTheme::fontNames, $new($StringArray, {
@@ -279,7 +207,7 @@ void clinit$DefaultMetalTheme($Class* class$) {
 		"swing.plaf.metal.smallFont"_s
 	}));
 	{
-		$var($Object, boldProperty, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "swing.boldMetal"_s))));
+		$var($Object, boldProperty, $AccessController::doPrivileged($$new($GetPropertyAction, "swing.boldMetal"_s)));
 		if (boldProperty == nullptr || !"false"_s->equals(boldProperty)) {
 			DefaultMetalTheme::PLAIN_FONTS = false;
 		} else {
@@ -298,7 +226,67 @@ DefaultMetalTheme::DefaultMetalTheme() {
 }
 
 $Class* DefaultMetalTheme::load$($String* name, bool initialize) {
-	$loadClass(DefaultMetalTheme, name, initialize, &_DefaultMetalTheme_ClassInfo_, clinit$DefaultMetalTheme, allocate$DefaultMetalTheme);
+	$FieldInfo fieldInfos$$[] = {
+		{"PLAIN_FONTS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, PLAIN_FONTS)},
+		{"fontNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, fontNames)},
+		{"fontStyles", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, fontStyles)},
+		{"fontSizes", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, fontSizes)},
+		{"defaultNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, defaultNames)},
+		{"primary1", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, primary1)},
+		{"primary2", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, primary2)},
+		{"primary3", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, primary3)},
+		{"secondary1", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, secondary1)},
+		{"secondary2", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, secondary2)},
+		{"secondary3", "Ljavax/swing/plaf/ColorUIResource;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DefaultMetalTheme, secondary3)},
+		{"fontDelegate", "Ljavax/swing/plaf/metal/DefaultMetalTheme$FontDelegate;", nullptr, $PRIVATE, $field(DefaultMetalTheme, fontDelegate)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultMetalTheme, init$, void)},
+		{"getControlTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getControlTextFont, $FontUIResource*)},
+		{"getDefaultFontName", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultMetalTheme, getDefaultFontName, $String*, int32_t)},
+		{"getDefaultFontSize", "(I)I", nullptr, $STATIC, $staticMethod(DefaultMetalTheme, getDefaultFontSize, int32_t, int32_t)},
+		{"getDefaultFontStyle", "(I)I", nullptr, $STATIC, $staticMethod(DefaultMetalTheme, getDefaultFontStyle, int32_t, int32_t)},
+		{"getDefaultPropertyName", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(DefaultMetalTheme, getDefaultPropertyName, $String*, int32_t)},
+		{"getFont", "(I)Ljavax/swing/plaf/FontUIResource;", nullptr, $PRIVATE, $method(DefaultMetalTheme, getFont, $FontUIResource*, int32_t)},
+		{"getMenuTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getMenuTextFont, $FontUIResource*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getName, $String*)},
+		{"getPrimary1", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getPrimary1, $ColorUIResource*)},
+		{"getPrimary2", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getPrimary2, $ColorUIResource*)},
+		{"getPrimary3", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getPrimary3, $ColorUIResource*)},
+		{"getSecondary1", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getSecondary1, $ColorUIResource*)},
+		{"getSecondary2", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getSecondary2, $ColorUIResource*)},
+		{"getSecondary3", "()Ljavax/swing/plaf/ColorUIResource;", nullptr, $PROTECTED, $virtualMethod(DefaultMetalTheme, getSecondary3, $ColorUIResource*)},
+		{"getSubTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getSubTextFont, $FontUIResource*)},
+		{"getSystemTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getSystemTextFont, $FontUIResource*)},
+		{"getUserTextFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getUserTextFont, $FontUIResource*)},
+		{"getWindowTitleFont", "()Ljavax/swing/plaf/FontUIResource;", nullptr, $PUBLIC, $virtualMethod(DefaultMetalTheme, getWindowTitleFont, $FontUIResource*)},
+		{"install", "()V", nullptr, 0, $virtualMethod(DefaultMetalTheme, install, void)},
+		{"isSystemTheme", "()Z", nullptr, 0, $virtualMethod(DefaultMetalTheme, isSystemTheme, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.DefaultMetalTheme$WindowsFontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "WindowsFontDelegate", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate", "javax.swing.plaf.metal.DefaultMetalTheme", "FontDelegate", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.DefaultMetalTheme",
+		"javax.swing.plaf.metal.MetalTheme",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.DefaultMetalTheme$WindowsFontDelegate,javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate,javax.swing.plaf.metal.DefaultMetalTheme$FontDelegate$1"
+	};
+	$loadClass(DefaultMetalTheme, name, initialize, &classInfo$$, DefaultMetalTheme::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMetalTheme);
+	});
 	return class$;
 }
 

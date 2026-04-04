@@ -1,5 +1,4 @@
 #include <javax/management/remote/MBeanServerForwarder.h>
-
 #include <javax/management/MBeanServer.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace javax {
 	namespace management {
 		namespace remote {
 
-$MethodInfo _MBeanServerForwarder_MethodInfo_[] = {
-	{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerForwarder, getMBeanServer, $MBeanServer*)},
-	{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerForwarder, setMBeanServer, void, $MBeanServer*)},
-	{}
-};
-
-$ClassInfo _MBeanServerForwarder_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.remote.MBeanServerForwarder",
-	nullptr,
-	"javax.management.MBeanServer",
-	nullptr,
-	_MBeanServerForwarder_MethodInfo_
-};
-
-$Object* allocate$MBeanServerForwarder($Class* clazz) {
-	return $of($alloc(MBeanServerForwarder));
-}
-
 $Class* MBeanServerForwarder::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerForwarder, name, initialize, &_MBeanServerForwarder_ClassInfo_, allocate$MBeanServerForwarder);
+	$MethodInfo methodInfos$$[] = {
+		{"getMBeanServer", "()Ljavax/management/MBeanServer;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerForwarder, getMBeanServer, $MBeanServer*)},
+		{"setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(MBeanServerForwarder, setMBeanServer, void, $MBeanServer*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.remote.MBeanServerForwarder",
+		nullptr,
+		"javax.management.MBeanServer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MBeanServerForwarder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MBeanServerForwarder);
+	});
 	return class$;
 }
 

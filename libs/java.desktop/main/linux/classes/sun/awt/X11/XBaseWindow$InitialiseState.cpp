@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XBaseWindow$InitialiseState.h>
-
 #include <java/lang/Enum.h>
 #include <sun/awt/X11/XBaseWindow.h>
 #include <jcpp.h>
@@ -18,47 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XBaseWindow$InitialiseState_FieldInfo_[] = {
-	{"INITIALISING", "Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XBaseWindow$InitialiseState, INITIALISING)},
-	{"INITIALISED", "Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XBaseWindow$InitialiseState, INITIALISED)},
-	{"FAILED_INITIALISATION", "Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XBaseWindow$InitialiseState, FAILED_INITIALISATION)},
-	{"$VALUES", "[Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XBaseWindow$InitialiseState, $VALUES)},
-	{}
-};
-
-$MethodInfo _XBaseWindow$InitialiseState_MethodInfo_[] = {
-	{"$values", "()[Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XBaseWindow$InitialiseState, $values, $XBaseWindow$InitialiseStateArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(XBaseWindow$InitialiseState, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC, $staticMethod(XBaseWindow$InitialiseState, valueOf, XBaseWindow$InitialiseState*, $String*)},
-	{"values", "()[Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC, $staticMethod(XBaseWindow$InitialiseState, values, $XBaseWindow$InitialiseStateArray*)},
-	{}
-};
-
-$InnerClassInfo _XBaseWindow$InitialiseState_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XBaseWindow$InitialiseState", "sun.awt.X11.XBaseWindow", "InitialiseState", $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _XBaseWindow$InitialiseState_ClassInfo_ = {
-	$FINAL | $ACC_SUPER | $ENUM,
-	"sun.awt.X11.XBaseWindow$InitialiseState",
-	"java.lang.Enum",
-	nullptr,
-	_XBaseWindow$InitialiseState_FieldInfo_,
-	_XBaseWindow$InitialiseState_MethodInfo_,
-	"Ljava/lang/Enum<Lsun/awt/X11/XBaseWindow$InitialiseState;>;",
-	nullptr,
-	_XBaseWindow$InitialiseState_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XBaseWindow"
-};
-
-$Object* allocate$XBaseWindow$InitialiseState($Class* clazz) {
-	return $of($alloc(XBaseWindow$InitialiseState));
-}
 
 XBaseWindow$InitialiseState* XBaseWindow$InitialiseState::INITIALISING = nullptr;
 XBaseWindow$InitialiseState* XBaseWindow$InitialiseState::INITIALISED = nullptr;
@@ -88,7 +46,7 @@ void XBaseWindow$InitialiseState::init$($String* $enum$name, int32_t $enum$ordin
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$XBaseWindow$InitialiseState($Class* class$) {
+void XBaseWindow$InitialiseState::clinit$($Class* clazz) {
 	$assignStatic(XBaseWindow$InitialiseState::INITIALISING, $new(XBaseWindow$InitialiseState, "INITIALISING"_s, 0));
 	$assignStatic(XBaseWindow$InitialiseState::INITIALISED, $new(XBaseWindow$InitialiseState, "INITIALISED"_s, 1));
 	$assignStatic(XBaseWindow$InitialiseState::FAILED_INITIALISATION, $new(XBaseWindow$InitialiseState, "FAILED_INITIALISATION"_s, 2));
@@ -99,7 +57,42 @@ XBaseWindow$InitialiseState::XBaseWindow$InitialiseState() {
 }
 
 $Class* XBaseWindow$InitialiseState::load$($String* name, bool initialize) {
-	$loadClass(XBaseWindow$InitialiseState, name, initialize, &_XBaseWindow$InitialiseState_ClassInfo_, clinit$XBaseWindow$InitialiseState, allocate$XBaseWindow$InitialiseState);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIALISING", "Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XBaseWindow$InitialiseState, INITIALISING)},
+		{"INITIALISED", "Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XBaseWindow$InitialiseState, INITIALISED)},
+		{"FAILED_INITIALISATION", "Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(XBaseWindow$InitialiseState, FAILED_INITIALISATION)},
+		{"$VALUES", "[Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(XBaseWindow$InitialiseState, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(XBaseWindow$InitialiseState, $values, $XBaseWindow$InitialiseStateArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(XBaseWindow$InitialiseState, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC, $staticMethod(XBaseWindow$InitialiseState, valueOf, XBaseWindow$InitialiseState*, $String*)},
+		{"values", "()[Lsun/awt/X11/XBaseWindow$InitialiseState;", nullptr, $PUBLIC | $STATIC, $staticMethod(XBaseWindow$InitialiseState, values, $XBaseWindow$InitialiseStateArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XBaseWindow$InitialiseState", "sun.awt.X11.XBaseWindow", "InitialiseState", $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER | $ENUM,
+		"sun.awt.X11.XBaseWindow$InitialiseState",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lsun/awt/X11/XBaseWindow$InitialiseState;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XBaseWindow"
+	};
+	$loadClass(XBaseWindow$InitialiseState, name, initialize, &classInfo$$, XBaseWindow$InitialiseState::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XBaseWindow$InitialiseState));
+	});
 	return class$;
 }
 

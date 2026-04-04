@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/ClassReader$ArrayAttributeProxy.h>
-
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -24,50 +23,13 @@ namespace com {
 			namespace javac {
 				namespace jvm {
 
-$FieldInfo _ClassReader$ArrayAttributeProxy_FieldInfo_[] = {
-	{"values", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;", 0, $field(ClassReader$ArrayAttributeProxy, values)},
-	{}
-};
-
-$MethodInfo _ClassReader$ArrayAttributeProxy_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;)V", 0, $method(ClassReader$ArrayAttributeProxy, init$, void, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$ArrayAttributeProxy, accept, void, $Attribute$Visitor*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$ArrayAttributeProxy, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _ClassReader$ArrayAttributeProxy_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.ClassReader$ArrayAttributeProxy", "com.sun.tools.javac.jvm.ClassReader", "ArrayAttributeProxy", $STATIC},
-	{}
-};
-
-$ClassInfo _ClassReader$ArrayAttributeProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.jvm.ClassReader$ArrayAttributeProxy",
-	"com.sun.tools.javac.code.Attribute",
-	nullptr,
-	_ClassReader$ArrayAttributeProxy_FieldInfo_,
-	_ClassReader$ArrayAttributeProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ClassReader$ArrayAttributeProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.ClassReader"
-};
-
-$Object* allocate$ClassReader$ArrayAttributeProxy($Class* clazz) {
-	return $of($alloc(ClassReader$ArrayAttributeProxy));
-}
-
 void ClassReader$ArrayAttributeProxy::init$($List* values) {
 	$Attribute::init$(nullptr);
 	$set(this, values, values);
 }
 
 void ClassReader$ArrayAttributeProxy::accept($Attribute$Visitor* v) {
-	$nc(($cast($ClassReader$ProxyVisitor, v)))->visitArrayAttributeProxy(this);
+	$nc($cast($ClassReader$ProxyVisitor, v))->visitArrayAttributeProxy(this);
 }
 
 $String* ClassReader$ArrayAttributeProxy::toString() {
@@ -78,7 +40,38 @@ ClassReader$ArrayAttributeProxy::ClassReader$ArrayAttributeProxy() {
 }
 
 $Class* ClassReader$ArrayAttributeProxy::load$($String* name, bool initialize) {
-	$loadClass(ClassReader$ArrayAttributeProxy, name, initialize, &_ClassReader$ArrayAttributeProxy_ClassInfo_, allocate$ClassReader$ArrayAttributeProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"values", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;", 0, $field(ClassReader$ArrayAttributeProxy, values)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;)V", 0, $method(ClassReader$ArrayAttributeProxy, init$, void, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(ClassReader$ArrayAttributeProxy, accept, void, $Attribute$Visitor*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ClassReader$ArrayAttributeProxy, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.ClassReader$ArrayAttributeProxy", "com.sun.tools.javac.jvm.ClassReader", "ArrayAttributeProxy", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.jvm.ClassReader$ArrayAttributeProxy",
+		"com.sun.tools.javac.code.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.ClassReader"
+	};
+	$loadClass(ClassReader$ArrayAttributeProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ClassReader$ArrayAttributeProxy);
+	});
 	return class$;
 }
 

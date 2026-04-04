@@ -1,8 +1,6 @@
 #include <com/sun/security/sasl/Provider.h>
-
 #include <com/sun/security/sasl/Provider$1.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
 #include <sun/security/util/SecurityConstants.h>
@@ -16,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $SecurityConstants = ::sun::security::util::SecurityConstants;
@@ -25,50 +22,6 @@ namespace com {
 	namespace sun {
 		namespace security {
 			namespace sasl {
-
-$FieldInfo _Provider_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Provider, serialVersionUID)},
-	{"info", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Provider, info)},
-	{}
-};
-
-$MethodInfo _Provider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Provider, init$, void)},
-	{"access$000", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$000, void, Provider*, $Provider$Service*)},
-	{"access$100", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$100, void, Provider*, $Provider$Service*)},
-	{"access$200", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$200, void, Provider*, $Provider$Service*)},
-	{"access$300", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$300, void, Provider*, $Provider$Service*)},
-	{"access$400", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$400, void, Provider*, $Provider$Service*)},
-	{"access$500", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$500, void, Provider*, $Provider$Service*)},
-	{"access$600", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$600, void, Provider*, $Provider$Service*)},
-	{"access$700", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$700, void, Provider*, $Provider$Service*)},
-	{}
-};
-
-$InnerClassInfo _Provider_InnerClassesInfo_[] = {
-	{"com.sun.security.sasl.Provider$ProviderService", "com.sun.security.sasl.Provider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
-	{"com.sun.security.sasl.Provider$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Provider_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.security.sasl.Provider",
-	"java.security.Provider",
-	nullptr,
-	_Provider_FieldInfo_,
-	_Provider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Provider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.security.sasl.Provider$ProviderService,com.sun.security.sasl.Provider$1"
-};
-
-$Object* allocate$Provider($Class* clazz) {
-	return $of($alloc(Provider));
-}
 
 $String* Provider::info = nullptr;
 
@@ -113,23 +66,61 @@ void Provider::access$000(Provider* x0, $Provider$Service* x1) {
 }
 
 void Provider::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$init($SecurityConstants);
 	$Provider::init$("SunSASL"_s, $SecurityConstants::PROVIDER_VER, Provider::info);
 	$var(Provider, p, this);
-	$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Provider$1, this, p)));
+	$AccessController::doPrivileged($$new($Provider$1, this, p));
 }
 
 Provider::Provider() {
 }
 
-void clinit$Provider($Class* class$) {
+void Provider::clinit$($Class* clazz) {
 	$assignStatic(Provider::info, "Sun SASL provider(implements client mechanisms for: DIGEST-MD5, EXTERNAL, PLAIN, CRAM-MD5, NTLM; server mechanisms for: DIGEST-MD5, CRAM-MD5, NTLM)"_s);
 }
 
 $Class* Provider::load$($String* name, bool initialize) {
-	$loadClass(Provider, name, initialize, &_Provider_ClassInfo_, clinit$Provider, allocate$Provider);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Provider, serialVersionUID)},
+		{"info", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Provider, info)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Provider, init$, void)},
+		{"access$000", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$000, void, Provider*, $Provider$Service*)},
+		{"access$100", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$100, void, Provider*, $Provider$Service*)},
+		{"access$200", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$200, void, Provider*, $Provider$Service*)},
+		{"access$300", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$300, void, Provider*, $Provider$Service*)},
+		{"access$400", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$400, void, Provider*, $Provider$Service*)},
+		{"access$500", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$500, void, Provider*, $Provider$Service*)},
+		{"access$600", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$600, void, Provider*, $Provider$Service*)},
+		{"access$700", "(Lcom/sun/security/sasl/Provider;Ljava/security/Provider$Service;)V", nullptr, $STATIC | $SYNTHETIC, $staticMethod(Provider, access$700, void, Provider*, $Provider$Service*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.security.sasl.Provider$ProviderService", "com.sun.security.sasl.Provider", "ProviderService", $PRIVATE | $STATIC | $FINAL},
+		{"com.sun.security.sasl.Provider$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.security.sasl.Provider",
+		"java.security.Provider",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.security.sasl.Provider$ProviderService,com.sun.security.sasl.Provider$1"
+	};
+	$loadClass(Provider, name, initialize, &classInfo$$, Provider::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Provider));
+	});
 	return class$;
 }
 

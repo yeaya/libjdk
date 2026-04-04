@@ -1,5 +1,4 @@
 #include <javax/swing/text/StyleContext$KeyEnumeration.h>
-
 #include <java/util/NoSuchElementException.h>
 #include <javax/swing/text/StyleContext.h>
 #include <jcpp.h>
@@ -15,45 +14,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _StyleContext$KeyEnumeration_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/StyleContext;", nullptr, $FINAL | $SYNTHETIC, $field(StyleContext$KeyEnumeration, this$0)},
-	{"attr", "[Ljava/lang/Object;", nullptr, 0, $field(StyleContext$KeyEnumeration, attr)},
-	{"i", "I", nullptr, 0, $field(StyleContext$KeyEnumeration, i)},
-	{}
-};
-
-$MethodInfo _StyleContext$KeyEnumeration_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/StyleContext;[Ljava/lang/Object;)V", nullptr, 0, $method(StyleContext$KeyEnumeration, init$, void, $StyleContext*, $ObjectArray*)},
-	{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$KeyEnumeration, hasMoreElements, bool)},
-	{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StyleContext$KeyEnumeration, nextElement, $Object*)},
-	{}
-};
-
-$InnerClassInfo _StyleContext$KeyEnumeration_InnerClassesInfo_[] = {
-	{"javax.swing.text.StyleContext$KeyEnumeration", "javax.swing.text.StyleContext", "KeyEnumeration", 0},
-	{}
-};
-
-$ClassInfo _StyleContext$KeyEnumeration_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.StyleContext$KeyEnumeration",
-	"java.lang.Object",
-	"java.util.Enumeration",
-	_StyleContext$KeyEnumeration_FieldInfo_,
-	_StyleContext$KeyEnumeration_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/Object;>;",
-	nullptr,
-	_StyleContext$KeyEnumeration_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StyleContext"
-};
-
-$Object* allocate$StyleContext$KeyEnumeration($Class* clazz) {
-	return $of($alloc(StyleContext$KeyEnumeration));
-}
-
 void StyleContext$KeyEnumeration::init$($StyleContext* this$0, $ObjectArray* attr) {
 	$set(this, this$0, this$0);
 	$set(this, attr, attr);
@@ -66,9 +26,9 @@ bool StyleContext$KeyEnumeration::hasMoreElements() {
 
 $Object* StyleContext$KeyEnumeration::nextElement() {
 	if (this->i < $nc(this->attr)->length) {
-		$var($Object0, o, $nc(this->attr)->get(this->i));
+		$var($Object0, o, this->attr->get(this->i));
 		this->i += 2;
-		return $of(o);
+		return o;
 	}
 	$throwNew($NoSuchElementException);
 }
@@ -77,7 +37,40 @@ StyleContext$KeyEnumeration::StyleContext$KeyEnumeration() {
 }
 
 $Class* StyleContext$KeyEnumeration::load$($String* name, bool initialize) {
-	$loadClass(StyleContext$KeyEnumeration, name, initialize, &_StyleContext$KeyEnumeration_ClassInfo_, allocate$StyleContext$KeyEnumeration);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/StyleContext;", nullptr, $FINAL | $SYNTHETIC, $field(StyleContext$KeyEnumeration, this$0)},
+		{"attr", "[Ljava/lang/Object;", nullptr, 0, $field(StyleContext$KeyEnumeration, attr)},
+		{"i", "I", nullptr, 0, $field(StyleContext$KeyEnumeration, i)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/StyleContext;[Ljava/lang/Object;)V", nullptr, 0, $method(StyleContext$KeyEnumeration, init$, void, $StyleContext*, $ObjectArray*)},
+		{"hasMoreElements", "()Z", nullptr, $PUBLIC, $virtualMethod(StyleContext$KeyEnumeration, hasMoreElements, bool)},
+		{"nextElement", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(StyleContext$KeyEnumeration, nextElement, $Object*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.StyleContext$KeyEnumeration", "javax.swing.text.StyleContext", "KeyEnumeration", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.StyleContext$KeyEnumeration",
+		"java.lang.Object",
+		"java.util.Enumeration",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/Enumeration<Ljava/lang/Object;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StyleContext"
+	};
+	$loadClass(StyleContext$KeyEnumeration, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StyleContext$KeyEnumeration);
+	});
 	return class$;
 }
 

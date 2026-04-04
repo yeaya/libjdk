@@ -1,9 +1,6 @@
 #include <com/sun/security/sasl/util/AbstractSaslImpl.h>
-
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
@@ -40,8 +37,6 @@
 
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -66,65 +61,6 @@ namespace com {
 			namespace sasl {
 				namespace util {
 
-$FieldInfo _AbstractSaslImpl_FieldInfo_[] = {
-	{"completed", "Z", nullptr, $PROTECTED, $field(AbstractSaslImpl, completed)},
-	{"privacy", "Z", nullptr, $PROTECTED, $field(AbstractSaslImpl, privacy)},
-	{"integrity", "Z", nullptr, $PROTECTED, $field(AbstractSaslImpl, integrity)},
-	{"qop", "[B", nullptr, $PROTECTED, $field(AbstractSaslImpl, qop)},
-	{"allQop", "B", nullptr, $PROTECTED, $field(AbstractSaslImpl, allQop)},
-	{"strength", "[B", nullptr, $PROTECTED, $field(AbstractSaslImpl, strength)},
-	{"sendMaxBufSize", "I", nullptr, $PROTECTED, $field(AbstractSaslImpl, sendMaxBufSize)},
-	{"recvMaxBufSize", "I", nullptr, $PROTECTED, $field(AbstractSaslImpl, recvMaxBufSize)},
-	{"rawSendSize", "I", nullptr, $PROTECTED, $field(AbstractSaslImpl, rawSendSize)},
-	{"myClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractSaslImpl, myClassName)},
-	{"SASL_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, SASL_LOGGER_NAME)},
-	{"MAX_SEND_BUF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractSaslImpl, MAX_SEND_BUF)},
-	{"logger", "Ljava/util/logging/Logger;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractSaslImpl, logger)},
-	{"NO_PROTECTION", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, NO_PROTECTION)},
-	{"INTEGRITY_ONLY_PROTECTION", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, INTEGRITY_ONLY_PROTECTION)},
-	{"PRIVACY_PROTECTION", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, PRIVACY_PROTECTION)},
-	{"LOW_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, LOW_STRENGTH)},
-	{"MEDIUM_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, MEDIUM_STRENGTH)},
-	{"HIGH_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, HIGH_STRENGTH)},
-	{"DEFAULT_QOP", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, DEFAULT_QOP)},
-	{"QOP_TOKENS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, QOP_TOKENS)},
-	{"QOP_MASKS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, QOP_MASKS)},
-	{"DEFAULT_STRENGTH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, DEFAULT_STRENGTH)},
-	{"STRENGTH_TOKENS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, STRENGTH_TOKENS)},
-	{"STRENGTH_MASKS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, STRENGTH_MASKS)},
-	{}
-};
-
-$MethodInfo _AbstractSaslImpl_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/Map;Ljava/lang/String;)V", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;)V", $PROTECTED, $method(AbstractSaslImpl, init$, void, $Map*, $String*), "javax.security.sasl.SaslException"},
-	{"combineMasks", "([B)B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, combineMasks, int8_t, $bytes*)},
-	{"findPreferredMask", "(B[B)B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, findPreferredMask, int8_t, int8_t, $bytes*)},
-	{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractSaslImpl, getNegotiatedProperty, $Object*, $String*)},
-	{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
-	{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractSaslImpl, isComplete, bool)},
-	{"networkByteOrderToInt", "([BII)I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
-	{"parseProp", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[B[Ljava/lang/String;Z)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseProp, $bytes*, $String*, $String*, $StringArray*, $bytes*, $StringArray*, bool), "javax.security.sasl.SaslException"},
-	{"parseQop", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseQop, $bytes*, $String*), "javax.security.sasl.SaslException"},
-	{"parseQop", "(Ljava/lang/String;[Ljava/lang/String;Z)[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseQop, $bytes*, $String*, $StringArray*, bool), "javax.security.sasl.SaslException"},
-	{"parseStrength", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseStrength, $bytes*, $String*), "javax.security.sasl.SaslException"},
-	{"traceOutput", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, traceOutput, void, $String*, $String*, $String*, $bytes*)},
-	{"traceOutput", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BII)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, traceOutput, void, $String*, $String*, $String*, $bytes*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _AbstractSaslImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.security.sasl.util.AbstractSaslImpl",
-	"java.lang.Object",
-	nullptr,
-	_AbstractSaslImpl_FieldInfo_,
-	_AbstractSaslImpl_MethodInfo_
-};
-
-$Object* allocate$AbstractSaslImpl($Class* clazz) {
-	return $of($alloc(AbstractSaslImpl));
-}
-
 $String* AbstractSaslImpl::SASL_LOGGER_NAME = nullptr;
 $String* AbstractSaslImpl::MAX_SEND_BUF = nullptr;
 $Logger* AbstractSaslImpl::logger = nullptr;
@@ -136,7 +72,7 @@ $StringArray* AbstractSaslImpl::STRENGTH_TOKENS = nullptr;
 $bytes* AbstractSaslImpl::STRENGTH_MASKS = nullptr;
 
 void AbstractSaslImpl::init$($Map* props, $String* className) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->completed = false;
 	this->privacy = false;
 	this->integrity = false;
@@ -148,33 +84,33 @@ void AbstractSaslImpl::init$($Map* props, $String* className) {
 		$init($Sasl);
 		$set(this, qop, parseQop($assign(prop, $cast($String, props->get($Sasl::QOP)))));
 		$init($Level);
-		$nc(AbstractSaslImpl::logger)->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL01:Preferred qop property: {0}"_s, $of(prop));
+		$nc(AbstractSaslImpl::logger)->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL01:Preferred qop property: {0}"_s, prop);
 		this->allQop = combineMasks(this->qop);
-		if ($nc(AbstractSaslImpl::logger)->isLoggable($Level::FINE)) {
-			$nc(AbstractSaslImpl::logger)->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL02:Preferred qop mask: {0}"_s, $($of($Byte::valueOf(this->allQop))));
+		if (AbstractSaslImpl::logger->isLoggable($Level::FINE)) {
+			AbstractSaslImpl::logger->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL02:Preferred qop mask: {0}"_s, $($Byte::valueOf(this->allQop)));
 			if ($nc(this->qop)->length > 0) {
 				$var($StringBuilder, str, $new($StringBuilder));
-				for (int32_t i = 0; i < $nc(this->qop)->length; ++i) {
-					str->append($($Byte::toString($nc(this->qop)->get(i))));
+				for (int32_t i = 0; i < this->qop->length; ++i) {
+					str->append($($Byte::toString(this->qop->get(i))));
 					str->append(u' ');
 				}
-				$nc(AbstractSaslImpl::logger)->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL03:Preferred qops : {0}"_s, $($of(str->toString())));
+				AbstractSaslImpl::logger->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL03:Preferred qops : {0}"_s, $(str->toString()));
 			}
 		}
 		$set(this, strength, parseStrength($assign(prop, $cast($String, props->get($Sasl::STRENGTH)))));
-		$nc(AbstractSaslImpl::logger)->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL04:Preferred strength property: {0}"_s, $of(prop));
-		if ($nc(AbstractSaslImpl::logger)->isLoggable($Level::FINE) && $nc(this->strength)->length > 0) {
+		AbstractSaslImpl::logger->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL04:Preferred strength property: {0}"_s, prop);
+		if (AbstractSaslImpl::logger->isLoggable($Level::FINE) && $nc(this->strength)->length > 0) {
 			$var($StringBuilder, str, $new($StringBuilder));
 			for (int32_t i = 0; i < $nc(this->strength)->length; ++i) {
-				str->append($($Byte::toString($nc(this->strength)->get(i))));
+				str->append($($Byte::toString(this->strength->get(i))));
 				str->append(u' ');
 			}
-			$nc(AbstractSaslImpl::logger)->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL05:Cipher strengths: {0}"_s, $($of(str->toString())));
+			AbstractSaslImpl::logger->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL05:Cipher strengths: {0}"_s, $(str->toString()));
 		}
 		$assign(prop, $cast($String, props->get($Sasl::MAX_BUFFER)));
 		if (prop != nullptr) {
 			try {
-				$nc(AbstractSaslImpl::logger)->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL06:Max receive buffer size: {0}"_s, $of(prop));
+				AbstractSaslImpl::logger->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL06:Max receive buffer size: {0}"_s, prop);
 				this->recvMaxBufSize = $Integer::parseInt(prop);
 			} catch ($NumberFormatException& e) {
 				$throwNew($SaslException, $$str({"Property must be string representation of integer: "_s, $Sasl::MAX_BUFFER}));
@@ -183,7 +119,7 @@ void AbstractSaslImpl::init$($Map* props, $String* className) {
 		$assign(prop, $cast($String, props->get(AbstractSaslImpl::MAX_SEND_BUF)));
 		if (prop != nullptr) {
 			try {
-				$nc(AbstractSaslImpl::logger)->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL07:Max send buffer size: {0}"_s, $of(prop));
+				AbstractSaslImpl::logger->logp($Level::FINE, this->myClassName, "constructor"_s, "SASLIMPL07:Max send buffer size: {0}"_s, prop);
 				this->sendMaxBufSize = $Integer::parseInt(prop);
 			} catch ($NumberFormatException& e) {
 				$throwNew($SaslException, $$str({"Property must be string representation of integer: "_s, AbstractSaslImpl::MAX_SEND_BUF}));
@@ -208,69 +144,51 @@ $Object* AbstractSaslImpl::getNegotiatedProperty($String* propName) {
 		$var($String, s6263$, propName);
 		int32_t tmp6263$ = -1;
 		switch ($nc(s6263$)->hashCode()) {
-		case (int32_t)0xA3B21A61:
-			{
-				if (s6263$->equals("javax.security.sasl.qop"_s)) {
-					tmp6263$ = 0;
-				}
-				break;
+		case (int32_t)0xa3b21a61:
+			if (s6263$->equals("javax.security.sasl.qop"_s)) {
+				tmp6263$ = 0;
 			}
-		case 0x591E4BB3:
-			{
-				if (s6263$->equals("javax.security.sasl.maxbuffer"_s)) {
-					tmp6263$ = 1;
-				}
-				break;
+			break;
+		case 0x591e4bb3:
+			if (s6263$->equals("javax.security.sasl.maxbuffer"_s)) {
+				tmp6263$ = 1;
 			}
-		case (int32_t)0x840E6100:
-			{
-				if (s6263$->equals("javax.security.sasl.rawsendsize"_s)) {
-					tmp6263$ = 2;
-				}
-				break;
+			break;
+		case (int32_t)0x840e6100:
+			if (s6263$->equals("javax.security.sasl.rawsendsize"_s)) {
+				tmp6263$ = 2;
 			}
-		case (int32_t)0x9C3A55AB:
-			{
-				if (s6263$->equals("javax.security.sasl.sendmaxbuffer"_s)) {
-					tmp6263$ = 3;
-				}
-				break;
+			break;
+		case (int32_t)0x9c3a55ab:
+			if (s6263$->equals("javax.security.sasl.sendmaxbuffer"_s)) {
+				tmp6263$ = 3;
 			}
+			break;
 		}
 		switch (tmp6263$) {
 		case 0:
-			{
-				if (this->privacy) {
-					return $of("auth-conf"_s);
-				} else if (this->integrity) {
-					return $of("auth-int"_s);
-				} else {
-					return $of("auth"_s);
-				}
+			if (this->privacy) {
+				return $of("auth-conf"_s);
+			} else if (this->integrity) {
+				return $of("auth-int"_s);
+			} else {
+				return $of("auth"_s);
 			}
 		case 1:
-			{
-				return $of($Integer::toString(this->recvMaxBufSize));
-			}
+			return $of($Integer::toString(this->recvMaxBufSize));
 		case 2:
-			{
-				return $of($Integer::toString(this->rawSendSize));
-			}
+			return $of($Integer::toString(this->rawSendSize));
 		case 3:
-			{
-				return $of($Integer::toString(this->sendMaxBufSize));
-			}
+			return $of($Integer::toString(this->sendMaxBufSize));
 		default:
-			{
-				return $of(nullptr);
-			}
+			return nullptr;
 		}
 	}
 }
 
 int8_t AbstractSaslImpl::combineMasks($bytes* in) {
 	$init(AbstractSaslImpl);
-	int8_t answer = (int8_t)0;
+	int8_t answer = 0;
 	for (int32_t i = 0; i < $nc(in)->length; ++i) {
 		answer |= in->get(i);
 	}
@@ -280,7 +198,7 @@ int8_t AbstractSaslImpl::combineMasks($bytes* in) {
 int8_t AbstractSaslImpl::findPreferredMask(int8_t pref, $bytes* in) {
 	$init(AbstractSaslImpl);
 	for (int32_t i = 0; i < $nc(in)->length; ++i) {
-		if (((int32_t)(in->get(i) & (uint32_t)(int32_t)pref)) != 0) {
+		if ((in->get(i) & pref) != 0) {
 			return in->get(i);
 		}
 	}
@@ -312,7 +230,7 @@ $bytes* AbstractSaslImpl::parseStrength($String* strength) {
 
 $bytes* AbstractSaslImpl::parseProp($String* propName, $String* propVal, $StringArray* vals, $bytes* masks, $StringArray* tokens, bool ignore) {
 	$init(AbstractSaslImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, parser, $new($StringTokenizer, propVal, ", \t\n"_s));
 	$var($String, token, nullptr);
 	$var($bytes, answer, $new($bytes, $nc(vals)->length));
@@ -335,19 +253,19 @@ $bytes* AbstractSaslImpl::parseProp($String* propName, $String* propVal, $String
 		}
 	}
 	for (int32_t j = i; j < answer->length; ++j) {
-		answer->set(j, (int8_t)0);
+		answer->set(j, 0);
 	}
 	return answer;
 }
 
 void AbstractSaslImpl::traceOutput($String* srcClass, $String* srcMethod, $String* traceTag, $bytes* output) {
 	$init(AbstractSaslImpl);
-	traceOutput(srcClass, srcMethod, traceTag, output, 0, output == nullptr ? 0 : $nc(output)->length);
+	traceOutput(srcClass, srcMethod, traceTag, output, 0, output == nullptr ? 0 : output->length);
 }
 
 void AbstractSaslImpl::traceOutput($String* srcClass, $String* srcMethod, $String* traceTag, $bytes* output, int32_t offset, int32_t len) {
 	$init(AbstractSaslImpl);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		int32_t origlen = len;
 		$var($Level, lev, nullptr);
@@ -361,19 +279,19 @@ void AbstractSaslImpl::traceOutput($String* srcClass, $String* srcMethod, $Strin
 		$var($String, content, nullptr);
 		if (output != nullptr) {
 			$var($ByteArrayOutputStream, out, $new($ByteArrayOutputStream, len));
-			$$new($HexDumpEncoder)->encodeBuffer(static_cast<$InputStream*>($$new($ByteArrayInputStream, output, offset, len)), static_cast<$OutputStream*>(out));
+			$$new($HexDumpEncoder)->encodeBuffer($$new($ByteArrayInputStream, output, offset, len), out);
 			$assign(content, out->toString());
 		} else {
 			$assign(content, "NULL"_s);
 		}
-		$nc(AbstractSaslImpl::logger)->logp(lev, srcClass, srcMethod, "{0} ( {1} ): {2}"_s, $$new($ObjectArray, {
-			$of(traceTag),
-			$($of($Integer::valueOf(origlen))),
-			$of(content)
+		AbstractSaslImpl::logger->logp(lev, srcClass, srcMethod, "{0} ( {1} ): {2}"_s, $$new($ObjectArray, {
+			traceTag,
+			$($Integer::valueOf(origlen)),
+			content
 		}));
 	} catch ($Exception& e) {
 		$init($Level);
-		$nc(AbstractSaslImpl::logger)->logp($Level::WARNING, srcClass, srcMethod, "SASLIMPL09:Error generating trace output: {0}"_s, static_cast<$Throwable*>(e));
+		$nc(AbstractSaslImpl::logger)->logp($Level::WARNING, srcClass, srcMethod, "SASLIMPL09:Error generating trace output: {0}"_s, e);
 	}
 }
 
@@ -385,7 +303,7 @@ int32_t AbstractSaslImpl::networkByteOrderToInt($bytes* buf, int32_t start, int3
 	int32_t answer = 0;
 	for (int32_t i = 0; i < count; ++i) {
 		answer <<= 8;
-		answer |= ((int32_t)((int32_t)$nc(buf)->get(start + i) & (uint32_t)255));
+		answer |= ((int32_t)$nc(buf)->get(start + i) & 0xff);
 	}
 	return answer;
 }
@@ -396,12 +314,12 @@ void AbstractSaslImpl::intToNetworkByteOrder(int32_t num, $bytes* buf, int32_t s
 		$throwNew($IllegalArgumentException, "Cannot handle more than 4 bytes"_s);
 	}
 	for (int32_t i = count - 1; i >= 0; --i) {
-		$nc(buf)->set(start + i, (int8_t)((int32_t)(num & (uint32_t)255)));
+		$nc(buf)->set(start + i, (int8_t)(num & 0xff));
 		$usrAssign(num, 8);
 	}
 }
 
-void clinit$AbstractSaslImpl($Class* class$) {
+void AbstractSaslImpl::clinit$($Class* clazz) {
 	$assignStatic(AbstractSaslImpl::SASL_LOGGER_NAME, "javax.security.sasl"_s);
 	$assignStatic(AbstractSaslImpl::MAX_SEND_BUF, "javax.security.sasl.sendmaxbuffer"_s);
 	$beforeCallerSensitive();
@@ -438,7 +356,61 @@ AbstractSaslImpl::AbstractSaslImpl() {
 }
 
 $Class* AbstractSaslImpl::load$($String* name, bool initialize) {
-	$loadClass(AbstractSaslImpl, name, initialize, &_AbstractSaslImpl_ClassInfo_, clinit$AbstractSaslImpl, allocate$AbstractSaslImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"completed", "Z", nullptr, $PROTECTED, $field(AbstractSaslImpl, completed)},
+		{"privacy", "Z", nullptr, $PROTECTED, $field(AbstractSaslImpl, privacy)},
+		{"integrity", "Z", nullptr, $PROTECTED, $field(AbstractSaslImpl, integrity)},
+		{"qop", "[B", nullptr, $PROTECTED, $field(AbstractSaslImpl, qop)},
+		{"allQop", "B", nullptr, $PROTECTED, $field(AbstractSaslImpl, allQop)},
+		{"strength", "[B", nullptr, $PROTECTED, $field(AbstractSaslImpl, strength)},
+		{"sendMaxBufSize", "I", nullptr, $PROTECTED, $field(AbstractSaslImpl, sendMaxBufSize)},
+		{"recvMaxBufSize", "I", nullptr, $PROTECTED, $field(AbstractSaslImpl, recvMaxBufSize)},
+		{"rawSendSize", "I", nullptr, $PROTECTED, $field(AbstractSaslImpl, rawSendSize)},
+		{"myClassName", "Ljava/lang/String;", nullptr, $PROTECTED, $field(AbstractSaslImpl, myClassName)},
+		{"SASL_LOGGER_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, SASL_LOGGER_NAME)},
+		{"MAX_SEND_BUF", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractSaslImpl, MAX_SEND_BUF)},
+		{"logger", "Ljava/util/logging/Logger;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(AbstractSaslImpl, logger)},
+		{"NO_PROTECTION", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, NO_PROTECTION)},
+		{"INTEGRITY_ONLY_PROTECTION", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, INTEGRITY_ONLY_PROTECTION)},
+		{"PRIVACY_PROTECTION", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, PRIVACY_PROTECTION)},
+		{"LOW_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, LOW_STRENGTH)},
+		{"MEDIUM_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, MEDIUM_STRENGTH)},
+		{"HIGH_STRENGTH", "B", nullptr, $PROTECTED | $STATIC | $FINAL, $constField(AbstractSaslImpl, HIGH_STRENGTH)},
+		{"DEFAULT_QOP", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, DEFAULT_QOP)},
+		{"QOP_TOKENS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, QOP_TOKENS)},
+		{"QOP_MASKS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, QOP_MASKS)},
+		{"DEFAULT_STRENGTH", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, DEFAULT_STRENGTH)},
+		{"STRENGTH_TOKENS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, STRENGTH_TOKENS)},
+		{"STRENGTH_MASKS", "[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(AbstractSaslImpl, STRENGTH_MASKS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/Map;Ljava/lang/String;)V", "(Ljava/util/Map<Ljava/lang/String;*>;Ljava/lang/String;)V", $PROTECTED, $method(AbstractSaslImpl, init$, void, $Map*, $String*), "javax.security.sasl.SaslException"},
+		{"combineMasks", "([B)B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, combineMasks, int8_t, $bytes*)},
+		{"findPreferredMask", "(B[B)B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, findPreferredMask, int8_t, int8_t, $bytes*)},
+		{"getNegotiatedProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(AbstractSaslImpl, getNegotiatedProperty, $Object*, $String*)},
+		{"intToNetworkByteOrder", "(I[BII)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, intToNetworkByteOrder, void, int32_t, $bytes*, int32_t, int32_t)},
+		{"isComplete", "()Z", nullptr, $PUBLIC, $virtualMethod(AbstractSaslImpl, isComplete, bool)},
+		{"networkByteOrderToInt", "([BII)I", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, networkByteOrderToInt, int32_t, $bytes*, int32_t, int32_t)},
+		{"parseProp", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;[B[Ljava/lang/String;Z)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseProp, $bytes*, $String*, $String*, $StringArray*, $bytes*, $StringArray*, bool), "javax.security.sasl.SaslException"},
+		{"parseQop", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseQop, $bytes*, $String*), "javax.security.sasl.SaslException"},
+		{"parseQop", "(Ljava/lang/String;[Ljava/lang/String;Z)[B", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseQop, $bytes*, $String*, $StringArray*, bool), "javax.security.sasl.SaslException"},
+		{"parseStrength", "(Ljava/lang/String;)[B", nullptr, $PRIVATE | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, parseStrength, $bytes*, $String*), "javax.security.sasl.SaslException"},
+		{"traceOutput", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[B)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, traceOutput, void, $String*, $String*, $String*, $bytes*)},
+		{"traceOutput", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[BII)V", nullptr, $PROTECTED | $STATIC | $FINAL, $staticMethod(AbstractSaslImpl, traceOutput, void, $String*, $String*, $String*, $bytes*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.security.sasl.util.AbstractSaslImpl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AbstractSaslImpl, name, initialize, &classInfo$$, AbstractSaslImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AbstractSaslImpl);
+	});
 	return class$;
 }
 

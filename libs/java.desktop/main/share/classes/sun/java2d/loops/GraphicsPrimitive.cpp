@@ -1,15 +1,11 @@
 #include <sun/java2d/loops/GraphicsPrimitive.h>
-
 #include <java/awt/AlphaComposite.h>
-#include <java/awt/Composite.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/reflect/Field.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/HashMap.h>
 #include <java/util/StringTokenizer.h>
 #include <sun/awt/image/BufImgSurfaceData.h>
@@ -33,11 +29,9 @@
 
 using $FieldArray = $Array<::java::lang::reflect::Field>;
 using $AlphaComposite = ::java::awt::AlphaComposite;
-using $Composite = ::java::awt::Composite;
 using $Rectangle = ::java::awt::Rectangle;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -47,7 +41,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Field = ::java::lang::reflect::Field;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $BufImgSurfaceData = ::sun::awt::image::BufImgSurfaceData;
@@ -67,85 +60,6 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _GraphicsPrimitive_FieldInfo_[] = {
-	{"methodSignature", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GraphicsPrimitive, methodSignature)},
-	{"uniqueID", "I", nullptr, $PRIVATE, $field(GraphicsPrimitive, uniqueID)},
-	{"unusedPrimID", "I", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsPrimitive, unusedPrimID)},
-	{"sourceType", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(GraphicsPrimitive, sourceType)},
-	{"compositeType", "Lsun/java2d/loops/CompositeType;", nullptr, $PRIVATE, $field(GraphicsPrimitive, compositeType)},
-	{"destType", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(GraphicsPrimitive, destType)},
-	{"pNativePrim", "J", nullptr, $PRIVATE, $field(GraphicsPrimitive, pNativePrim)},
-	{"traceMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;[I>;", $STATIC, $staticField(GraphicsPrimitive, traceMap)},
-	{"traceflags", "I", nullptr, $PUBLIC | $STATIC, $staticField(GraphicsPrimitive, traceflags)},
-	{"tracefile", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticField(GraphicsPrimitive, tracefile)},
-	{"traceout", "Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC, $staticField(GraphicsPrimitive, traceout)},
-	{"TRACELOG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsPrimitive, TRACELOG)},
-	{"TRACETIMESTAMP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsPrimitive, TRACETIMESTAMP)},
-	{"TRACECOUNTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsPrimitive, TRACECOUNTS)},
-	{"cachedname", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GraphicsPrimitive, cachedname)},
-	{}
-};
-
-$MethodInfo _GraphicsPrimitive_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(GraphicsPrimitive, init$, void, $String*, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"<init>", "(JLjava/lang/String;ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(GraphicsPrimitive, init$, void, int64_t, $String*, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"convertFrom", "(Lsun/java2d/loops/Blit;Lsun/java2d/SurfaceData;IIIILsun/java2d/SurfaceData;)Lsun/java2d/SurfaceData;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, convertFrom, $SurfaceData*, $Blit*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, $SurfaceData*)},
-	{"convertFrom", "(Lsun/java2d/loops/Blit;Lsun/java2d/SurfaceData;IIIILsun/java2d/SurfaceData;I)Lsun/java2d/SurfaceData;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, convertFrom, $SurfaceData*, $Blit*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, $SurfaceData*, int32_t)},
-	{"convertTo", "(Lsun/java2d/loops/Blit;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/Region;IIII)V", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, convertTo, void, $Blit*, $SurfaceData*, $SurfaceData*, $Region*, int32_t, int32_t, int32_t, int32_t)},
-	{"createConverter", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/Blit;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, createConverter, $Blit*, $SurfaceType*, $SurfaceType*)},
-	{"getCompositeType", "()Lsun/java2d/loops/CompositeType;", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getCompositeType, $CompositeType*)},
-	{"getDestType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getDestType, $SurfaceType*)},
-	{"getGeneralOp", "(ILsun/java2d/loops/CompositeType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, getGeneralOp, GraphicsPrimitive*, int32_t, $CompositeType*)},
-	{"getNativePrim", "()J", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getNativePrim, int64_t)},
-	{"getPrimTypeID", "()I", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getPrimTypeID, int32_t)},
-	{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getSignature, $String*)},
-	{"getSourceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getSourceType, $SurfaceType*)},
-	{"getTraceOutputFile", "()Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsPrimitive, getTraceOutputFile, $PrintStream*)},
-	{"getUniqueID", "()I", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getUniqueID, int32_t)},
-	{"makePrimTypeID", "()I", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(GraphicsPrimitive, makePrimTypeID, int32_t)},
-	{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(GraphicsPrimitive, makePrimitive, GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"makeUniqueID", "(ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)I", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(GraphicsPrimitive, makeUniqueID, int32_t, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"satisfies", "(Ljava/lang/String;Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Z", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, satisfies, bool, $String*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
-	{"satisfiesSameAs", "(Lsun/java2d/loops/GraphicsPrimitive;)Z", nullptr, $FINAL, $method(GraphicsPrimitive, satisfiesSameAs, bool, GraphicsPrimitive*)},
-	{"setupGeneralBinaryOp", "(Lsun/java2d/loops/GraphicsPrimitive$GeneralBinaryOp;)V", nullptr, $PROTECTED, $virtualMethod(GraphicsPrimitive, setupGeneralBinaryOp, void, $GraphicsPrimitive$GeneralBinaryOp*)},
-	{"setupGeneralUnaryOp", "(Lsun/java2d/loops/GraphicsPrimitive$GeneralUnaryOp;)V", nullptr, $PROTECTED, $virtualMethod(GraphicsPrimitive, setupGeneralUnaryOp, void, $GraphicsPrimitive$GeneralUnaryOp*)},
-	{"simplename", "([Ljava/lang/reflect/Field;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive, simplename, $String*, $FieldArray*, Object$*)},
-	{"simplename", "(Lsun/java2d/loops/SurfaceType;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive, simplename, $String*, $SurfaceType*)},
-	{"simplename", "(Lsun/java2d/loops/CompositeType;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive, simplename, $String*, $CompositeType*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GraphicsPrimitive, toString, $String*)},
-	{"tracePrimitive", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitive, tracePrimitive, void, Object$*)},
-	{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive, traceWrap, GraphicsPrimitive*)},
-	{"tracingEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive, tracingEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _GraphicsPrimitive_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.GraphicsPrimitive$TraceReporter", "sun.java2d.loops.GraphicsPrimitive", "TraceReporter", $PUBLIC | $STATIC},
-	{"sun.java2d.loops.GraphicsPrimitive$GeneralUnaryOp", "sun.java2d.loops.GraphicsPrimitive", "GeneralUnaryOp", $PROTECTED | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp", "sun.java2d.loops.GraphicsPrimitive", "GeneralBinaryOp", $PROTECTED | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.java2d.loops.GraphicsPrimitive$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _GraphicsPrimitive_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.java2d.loops.GraphicsPrimitive",
-	"java.lang.Object",
-	nullptr,
-	_GraphicsPrimitive_FieldInfo_,
-	_GraphicsPrimitive_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GraphicsPrimitive_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.GraphicsPrimitive$TraceReporter,sun.java2d.loops.GraphicsPrimitive$GeneralUnaryOp,sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp,sun.java2d.loops.GraphicsPrimitive$1"
-};
-
-$Object* allocate$GraphicsPrimitive($Class* clazz) {
-	return $of($alloc(GraphicsPrimitive));
-}
-
 int32_t GraphicsPrimitive::unusedPrimID = 0;
 $HashMap* GraphicsPrimitive::traceMap = nullptr;
 int32_t GraphicsPrimitive::traceflags = 0;
@@ -153,9 +67,8 @@ $String* GraphicsPrimitive::tracefile = nullptr;
 $PrintStream* GraphicsPrimitive::traceout = nullptr;
 
 int32_t GraphicsPrimitive::makePrimTypeID() {
-	$load(GraphicsPrimitive);
+	$init(GraphicsPrimitive);
 	$synchronized(class$) {
-		$init(GraphicsPrimitive);
 		if (GraphicsPrimitive::unusedPrimID > 255) {
 			$throwNew($InternalError, "primitive id overflow"_s);
 		}
@@ -164,9 +77,8 @@ int32_t GraphicsPrimitive::makePrimTypeID() {
 }
 
 int32_t GraphicsPrimitive::makeUniqueID(int32_t primTypeID, $SurfaceType* src, $CompositeType* cmp, $SurfaceType* dst) {
-	$load(GraphicsPrimitive);
+	$init(GraphicsPrimitive);
 	$synchronized(class$) {
-		$init(GraphicsPrimitive);
 		int32_t var$1 = (primTypeID << 24) | ($nc(dst)->getUniqueID() << 16);
 		int32_t var$0 = var$1 | ($nc(cmp)->getUniqueID() << 8);
 		return var$0 | ($nc(src)->getUniqueID());
@@ -227,7 +139,7 @@ $SurfaceType* GraphicsPrimitive::getDestType() {
 }
 
 bool GraphicsPrimitive::satisfies($String* signature, $SurfaceType* srctype$renamed, $CompositeType* comptype$renamed, $SurfaceType* dsttype$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, srctype, srctype$renamed);
 	$var($CompositeType, comptype, comptype$renamed);
 	$var($SurfaceType, dsttype, dsttype$renamed);
@@ -241,7 +153,7 @@ bool GraphicsPrimitive::satisfies($String* signature, $SurfaceType* srctype$rena
 		if ($nc(srctype)->equals(this->sourceType)) {
 			break;
 		}
-		$assign(srctype, $nc(srctype)->getSuperType());
+		$assign(srctype, srctype->getSuperType());
 	}
 	while (true) {
 		if (comptype == nullptr) {
@@ -250,7 +162,7 @@ bool GraphicsPrimitive::satisfies($String* signature, $SurfaceType* srctype$rena
 		if ($nc(comptype)->equals(this->compositeType)) {
 			break;
 		}
-		$assign(comptype, $nc(comptype)->getSuperType());
+		$assign(comptype, comptype->getSuperType());
 	}
 	while (true) {
 		if (dsttype == nullptr) {
@@ -259,7 +171,7 @@ bool GraphicsPrimitive::satisfies($String* signature, $SurfaceType* srctype$rena
 		if ($nc(dsttype)->equals(this->destType)) {
 			break;
 		}
-		$assign(dsttype, $nc(dsttype)->getSuperType());
+		$assign(dsttype, dsttype->getSuperType());
 	}
 	return true;
 }
@@ -271,12 +183,12 @@ bool GraphicsPrimitive::satisfiesSameAs(GraphicsPrimitive* other) {
 }
 
 GraphicsPrimitive* GraphicsPrimitive::makePrimitive($SurfaceType* srctype, $CompositeType* comptype, $SurfaceType* dsttype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$throwNew($InternalError, $("%s not implemented for %s, comp: %s, dst: %s"_s->formatted($$new($ObjectArray, {
-		$($of($of(this)->getClass()->getName())),
-		$of(srctype),
-		$of(comptype),
-		$of(dsttype)
+		$($of(this)->getClass()->getName()),
+		srctype,
+		comptype,
+		dsttype
 	}))));
 	$shouldNotReachHere();
 }
@@ -288,13 +200,13 @@ bool GraphicsPrimitive::tracingEnabled() {
 
 $PrintStream* GraphicsPrimitive::getTraceOutputFile() {
 	$init(GraphicsPrimitive);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (GraphicsPrimitive::traceout == nullptr) {
 		if (GraphicsPrimitive::tracefile != nullptr) {
-			$var($FileOutputStream, o, $cast($FileOutputStream, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GraphicsPrimitive$1)))));
+			$var($FileOutputStream, o, $cast($FileOutputStream, $AccessController::doPrivileged($$new($GraphicsPrimitive$1))));
 			if (o != nullptr) {
-				$assignStatic(GraphicsPrimitive::traceout, $new($PrintStream, static_cast<$OutputStream*>(o)));
+				$assignStatic(GraphicsPrimitive::traceout, $new($PrintStream, o));
 			} else {
 				$assignStatic(GraphicsPrimitive::traceout, $System::err);
 			}
@@ -306,11 +218,10 @@ $PrintStream* GraphicsPrimitive::getTraceOutputFile() {
 }
 
 void GraphicsPrimitive::tracePrimitive(Object$* prim) {
-	$load(GraphicsPrimitive);
+	$init(GraphicsPrimitive);
 	$synchronized(class$) {
-		$init(GraphicsPrimitive);
-		$useLocalCurrentObjectStackCache();
-		if (((int32_t)(GraphicsPrimitive::traceflags & (uint32_t)GraphicsPrimitive::TRACECOUNTS)) != 0) {
+		$useLocalObjectStack();
+		if ((GraphicsPrimitive::traceflags & GraphicsPrimitive::TRACECOUNTS) != 0) {
 			if (GraphicsPrimitive::traceMap == nullptr) {
 				$assignStatic(GraphicsPrimitive::traceMap, $new($HashMap));
 				$GraphicsPrimitive$TraceReporter::setShutdownHook();
@@ -318,13 +229,13 @@ void GraphicsPrimitive::tracePrimitive(Object$* prim) {
 			$var($ints, o, $cast($ints, $nc(GraphicsPrimitive::traceMap)->get(prim)));
 			if (o == nullptr) {
 				$assign(o, $new($ints, 1));
-				$nc(GraphicsPrimitive::traceMap)->put(prim, o);
+				GraphicsPrimitive::traceMap->put(prim, o);
 			}
 			++(*$nc(o))[0];
 		}
-		if (((int32_t)(GraphicsPrimitive::traceflags & (uint32_t)GraphicsPrimitive::TRACELOG)) != 0) {
+		if ((GraphicsPrimitive::traceflags & GraphicsPrimitive::TRACELOG) != 0) {
 			$var($PrintStream, ps, getTraceOutputFile());
-			if (((int32_t)(GraphicsPrimitive::traceflags & (uint32_t)GraphicsPrimitive::TRACETIMESTAMP)) != 0) {
+			if ((GraphicsPrimitive::traceflags & GraphicsPrimitive::TRACETIMESTAMP) != 0) {
 				$nc(ps)->print($$str({$$str($System::currentTimeMillis()), ": "_s}));
 			}
 			$nc(ps)->println(prim);
@@ -333,7 +244,7 @@ void GraphicsPrimitive::tracePrimitive(Object$* prim) {
 }
 
 void GraphicsPrimitive::setupGeneralBinaryOp($GraphicsPrimitive$GeneralBinaryOp* gbo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t primID = $nc(gbo)->getPrimTypeID();
 	$var($String, methodSignature, gbo->getSignature());
 	$var($SurfaceType, srctype, gbo->getSourceType());
@@ -361,7 +272,7 @@ void GraphicsPrimitive::setupGeneralBinaryOp($GraphicsPrimitive$GeneralBinaryOp*
 }
 
 void GraphicsPrimitive::setupGeneralUnaryOp($GraphicsPrimitive$GeneralUnaryOp* guo) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t primID = $nc(guo)->getPrimTypeID();
 	$var($String, methodSignature, guo->getSignature());
 	$var($CompositeType, comptype, guo->getCompositeType());
@@ -378,7 +289,7 @@ void GraphicsPrimitive::setupGeneralUnaryOp($GraphicsPrimitive$GeneralUnaryOp* g
 
 $Blit* GraphicsPrimitive::createConverter($SurfaceType* srctype, $SurfaceType* dsttype) {
 	$init(GraphicsPrimitive);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(srctype)->equals(dsttype)) {
 		return nullptr;
 	}
@@ -397,11 +308,11 @@ $SurfaceData* GraphicsPrimitive::convertFrom($Blit* ob, $SurfaceData* srcData, i
 
 $SurfaceData* GraphicsPrimitive::convertFrom($Blit* ob, $SurfaceData* srcData, int32_t srcX, int32_t srcY, int32_t w, int32_t h, $SurfaceData* dstData$renamed, int32_t type) {
 	$init(GraphicsPrimitive);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceData, dstData, dstData$renamed);
 	if (dstData != nullptr) {
 		$var($Rectangle, r, dstData->getBounds());
-		if (w > $nc(r)->width || h > $nc(r)->height) {
+		if (w > $nc(r)->width || h > r->height) {
 			$assign(dstData, nullptr);
 		}
 	}
@@ -430,7 +341,7 @@ GraphicsPrimitive* GraphicsPrimitive::getGeneralOp(int32_t primID, $CompositeTyp
 
 $String* GraphicsPrimitive::simplename($FieldArray* fields, Object$* o) {
 	$init(GraphicsPrimitive);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	for (int32_t i = 0; i < $nc(fields)->length; ++i) {
 		$var($Field, f, fields->get(i));
@@ -459,31 +370,36 @@ $String* GraphicsPrimitive::simplename($CompositeType* ct) {
 }
 
 $String* GraphicsPrimitive::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->cachedname == nullptr) {
 		$var($String, sig, this->methodSignature);
-		int32_t index = $nc(sig)->indexOf((int32_t)u'(');
+		int32_t index = $nc(sig)->indexOf(u'(');
 		if (index >= 0) {
 			$assign(sig, sig->substring(0, index));
 		}
-		$var($String, var$5, $$str({$($of(this)->getClass()->getName()), "::"_s, sig, "("_s}));
-		$var($String, var$4, $$concat(var$5, $(simplename(this->sourceType))));
-		$var($String, var$3, $$concat(var$4, ", "_s));
-		$var($String, var$2, $$concat(var$3, $(simplename(this->compositeType))));
-		$var($String, var$1, $$concat(var$2, ", "_s));
-		$var($String, var$0, $$concat(var$1, $(simplename(this->destType))));
-		$set(this, cachedname, $concat(var$0, ")"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append($($of(this)->getClass()->getName()));
+		var$0->append("::"_s);
+		var$0->append(sig);
+		var$0->append("("_s);
+		var$0->append($(simplename(this->sourceType)));
+		var$0->append(", "_s);
+		var$0->append($(simplename(this->compositeType)));
+		var$0->append(", "_s);
+		var$0->append($(simplename(this->destType)));
+		var$0->append(")"_s);
+		$set(this, cachedname, $str(var$0));
 	}
 	return this->cachedname;
 }
 
-void clinit$GraphicsPrimitive($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void GraphicsPrimitive::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	GraphicsPrimitive::unusedPrimID = 1;
 	{
 		$var($GetPropertyAction, gpa, $new($GetPropertyAction, "sun.java2d.trace"_s));
-		$var($String, trace, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>(gpa))));
+		$var($String, trace, $cast($String, $AccessController::doPrivileged(gpa)));
 		if (trace != nullptr) {
 			bool verbose = false;
 			int32_t traceflags = 0;
@@ -509,28 +425,28 @@ void clinit$GraphicsPrimitive($Class* class$) {
 			}
 			if (verbose) {
 				$nc($System::err)->print("GraphicsPrimitive logging "_s);
-				if (((int32_t)(traceflags & (uint32_t)GraphicsPrimitive::TRACELOG)) != 0) {
-					$nc($System::err)->println("enabled"_s);
-					$nc($System::err)->print("GraphicsPrimitive timetamps "_s);
-					if (((int32_t)(traceflags & (uint32_t)GraphicsPrimitive::TRACETIMESTAMP)) != 0) {
-						$nc($System::err)->println("enabled"_s);
+				if ((traceflags & GraphicsPrimitive::TRACELOG) != 0) {
+					$System::err->println("enabled"_s);
+					$System::err->print("GraphicsPrimitive timetamps "_s);
+					if ((traceflags & GraphicsPrimitive::TRACETIMESTAMP) != 0) {
+						$System::err->println("enabled"_s);
 					} else {
-						$nc($System::err)->println("disabled"_s);
+						$System::err->println("disabled"_s);
 					}
 				} else {
-					$nc($System::err)->println("[and timestamps] disabled"_s);
+					$System::err->println("[and timestamps] disabled"_s);
 				}
-				$nc($System::err)->print("GraphicsPrimitive invocation counts "_s);
-				if (((int32_t)(traceflags & (uint32_t)GraphicsPrimitive::TRACECOUNTS)) != 0) {
-					$nc($System::err)->println("enabled"_s);
+				$System::err->print("GraphicsPrimitive invocation counts "_s);
+				if ((traceflags & GraphicsPrimitive::TRACECOUNTS) != 0) {
+					$System::err->println("enabled"_s);
 				} else {
-					$nc($System::err)->println("disabled"_s);
+					$System::err->println("disabled"_s);
 				}
-				$nc($System::err)->print("GraphicsPrimitive trace output to "_s);
+				$System::err->print("GraphicsPrimitive trace output to "_s);
 				if (GraphicsPrimitive::tracefile == nullptr) {
-					$nc($System::err)->println("System.err"_s);
+					$System::err->println("System.err"_s);
 				} else {
-					$nc($System::err)->println($$str({"file \'"_s, GraphicsPrimitive::tracefile, "\'"_s}));
+					$System::err->println($$str({"file \'"_s, GraphicsPrimitive::tracefile, "\'"_s}));
 				}
 			}
 			GraphicsPrimitive::traceflags = traceflags;
@@ -542,7 +458,80 @@ GraphicsPrimitive::GraphicsPrimitive() {
 }
 
 $Class* GraphicsPrimitive::load$($String* name, bool initialize) {
-	$loadClass(GraphicsPrimitive, name, initialize, &_GraphicsPrimitive_ClassInfo_, clinit$GraphicsPrimitive, allocate$GraphicsPrimitive);
+	$FieldInfo fieldInfos$$[] = {
+		{"methodSignature", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GraphicsPrimitive, methodSignature)},
+		{"uniqueID", "I", nullptr, $PRIVATE, $field(GraphicsPrimitive, uniqueID)},
+		{"unusedPrimID", "I", nullptr, $PRIVATE | $STATIC, $staticField(GraphicsPrimitive, unusedPrimID)},
+		{"sourceType", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(GraphicsPrimitive, sourceType)},
+		{"compositeType", "Lsun/java2d/loops/CompositeType;", nullptr, $PRIVATE, $field(GraphicsPrimitive, compositeType)},
+		{"destType", "Lsun/java2d/loops/SurfaceType;", nullptr, $PRIVATE, $field(GraphicsPrimitive, destType)},
+		{"pNativePrim", "J", nullptr, $PRIVATE, $field(GraphicsPrimitive, pNativePrim)},
+		{"traceMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Object;[I>;", $STATIC, $staticField(GraphicsPrimitive, traceMap)},
+		{"traceflags", "I", nullptr, $PUBLIC | $STATIC, $staticField(GraphicsPrimitive, traceflags)},
+		{"tracefile", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticField(GraphicsPrimitive, tracefile)},
+		{"traceout", "Ljava/io/PrintStream;", nullptr, $PUBLIC | $STATIC, $staticField(GraphicsPrimitive, traceout)},
+		{"TRACELOG", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsPrimitive, TRACELOG)},
+		{"TRACETIMESTAMP", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsPrimitive, TRACETIMESTAMP)},
+		{"TRACECOUNTS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GraphicsPrimitive, TRACECOUNTS)},
+		{"cachedname", "Ljava/lang/String;", nullptr, $PRIVATE, $field(GraphicsPrimitive, cachedname)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(GraphicsPrimitive, init$, void, $String*, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"<init>", "(JLjava/lang/String;ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)V", nullptr, $PROTECTED, $method(GraphicsPrimitive, init$, void, int64_t, $String*, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"convertFrom", "(Lsun/java2d/loops/Blit;Lsun/java2d/SurfaceData;IIIILsun/java2d/SurfaceData;)Lsun/java2d/SurfaceData;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, convertFrom, $SurfaceData*, $Blit*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, $SurfaceData*)},
+		{"convertFrom", "(Lsun/java2d/loops/Blit;Lsun/java2d/SurfaceData;IIIILsun/java2d/SurfaceData;I)Lsun/java2d/SurfaceData;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, convertFrom, $SurfaceData*, $Blit*, $SurfaceData*, int32_t, int32_t, int32_t, int32_t, $SurfaceData*, int32_t)},
+		{"convertTo", "(Lsun/java2d/loops/Blit;Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Lsun/java2d/pipe/Region;IIII)V", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, convertTo, void, $Blit*, $SurfaceData*, $SurfaceData*, $Region*, int32_t, int32_t, int32_t, int32_t)},
+		{"createConverter", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/Blit;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, createConverter, $Blit*, $SurfaceType*, $SurfaceType*)},
+		{"getCompositeType", "()Lsun/java2d/loops/CompositeType;", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getCompositeType, $CompositeType*)},
+		{"getDestType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getDestType, $SurfaceType*)},
+		{"getGeneralOp", "(ILsun/java2d/loops/CompositeType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED | $STATIC, $staticMethod(GraphicsPrimitive, getGeneralOp, GraphicsPrimitive*, int32_t, $CompositeType*)},
+		{"getNativePrim", "()J", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getNativePrim, int64_t)},
+		{"getPrimTypeID", "()I", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getPrimTypeID, int32_t)},
+		{"getSignature", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getSignature, $String*)},
+		{"getSourceType", "()Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getSourceType, $SurfaceType*)},
+		{"getTraceOutputFile", "()Ljava/io/PrintStream;", nullptr, $PRIVATE | $STATIC, $staticMethod(GraphicsPrimitive, getTraceOutputFile, $PrintStream*)},
+		{"getUniqueID", "()I", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, getUniqueID, int32_t)},
+		{"makePrimTypeID", "()I", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(GraphicsPrimitive, makePrimTypeID, int32_t)},
+		{"makePrimitive", "(Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PROTECTED, $virtualMethod(GraphicsPrimitive, makePrimitive, GraphicsPrimitive*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"makeUniqueID", "(ILsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)I", nullptr, $PUBLIC | $STATIC | $FINAL | $SYNCHRONIZED, $staticMethod(GraphicsPrimitive, makeUniqueID, int32_t, int32_t, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"satisfies", "(Ljava/lang/String;Lsun/java2d/loops/SurfaceType;Lsun/java2d/loops/CompositeType;Lsun/java2d/loops/SurfaceType;)Z", nullptr, $PUBLIC | $FINAL, $method(GraphicsPrimitive, satisfies, bool, $String*, $SurfaceType*, $CompositeType*, $SurfaceType*)},
+		{"satisfiesSameAs", "(Lsun/java2d/loops/GraphicsPrimitive;)Z", nullptr, $FINAL, $method(GraphicsPrimitive, satisfiesSameAs, bool, GraphicsPrimitive*)},
+		{"setupGeneralBinaryOp", "(Lsun/java2d/loops/GraphicsPrimitive$GeneralBinaryOp;)V", nullptr, $PROTECTED, $virtualMethod(GraphicsPrimitive, setupGeneralBinaryOp, void, $GraphicsPrimitive$GeneralBinaryOp*)},
+		{"setupGeneralUnaryOp", "(Lsun/java2d/loops/GraphicsPrimitive$GeneralUnaryOp;)V", nullptr, $PROTECTED, $virtualMethod(GraphicsPrimitive, setupGeneralUnaryOp, void, $GraphicsPrimitive$GeneralUnaryOp*)},
+		{"simplename", "([Ljava/lang/reflect/Field;Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive, simplename, $String*, $FieldArray*, Object$*)},
+		{"simplename", "(Lsun/java2d/loops/SurfaceType;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive, simplename, $String*, $SurfaceType*)},
+		{"simplename", "(Lsun/java2d/loops/CompositeType;)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive, simplename, $String*, $CompositeType*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(GraphicsPrimitive, toString, $String*)},
+		{"tracePrimitive", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GraphicsPrimitive, tracePrimitive, void, Object$*)},
+		{"traceWrap", "()Lsun/java2d/loops/GraphicsPrimitive;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GraphicsPrimitive, traceWrap, GraphicsPrimitive*)},
+		{"tracingEnabled", "()Z", nullptr, $PUBLIC | $STATIC, $staticMethod(GraphicsPrimitive, tracingEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.GraphicsPrimitive$TraceReporter", "sun.java2d.loops.GraphicsPrimitive", "TraceReporter", $PUBLIC | $STATIC},
+		{"sun.java2d.loops.GraphicsPrimitive$GeneralUnaryOp", "sun.java2d.loops.GraphicsPrimitive", "GeneralUnaryOp", $PROTECTED | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp", "sun.java2d.loops.GraphicsPrimitive", "GeneralBinaryOp", $PROTECTED | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.java2d.loops.GraphicsPrimitive$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.java2d.loops.GraphicsPrimitive",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.GraphicsPrimitive$TraceReporter,sun.java2d.loops.GraphicsPrimitive$GeneralUnaryOp,sun.java2d.loops.GraphicsPrimitive$GeneralBinaryOp,sun.java2d.loops.GraphicsPrimitive$1"
+	};
+	$loadClass(GraphicsPrimitive, name, initialize, &classInfo$$, GraphicsPrimitive::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GraphicsPrimitive);
+	});
 	return class$;
 }
 

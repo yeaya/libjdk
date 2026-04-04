@@ -1,5 +1,4 @@
 #include <javax/xml/crypto/KeySelector$SingletonKeySelector$1.h>
-
 #include <java/security/Key.h>
 #include <javax/xml/crypto/KeySelector$SingletonKeySelector.h>
 #include <jcpp.h>
@@ -16,50 +15,6 @@ namespace javax {
 	namespace xml {
 		namespace crypto {
 
-$FieldInfo _KeySelector$SingletonKeySelector$1_FieldInfo_[] = {
-	{"this$0", "Ljavax/xml/crypto/KeySelector$SingletonKeySelector;", nullptr, $FINAL | $SYNTHETIC, $field(KeySelector$SingletonKeySelector$1, this$0)},
-	{}
-};
-
-$MethodInfo _KeySelector$SingletonKeySelector$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/crypto/KeySelector$SingletonKeySelector;)V", nullptr, 0, $method(KeySelector$SingletonKeySelector$1, init$, void, $KeySelector$SingletonKeySelector*)},
-	{"getKey", "()Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(KeySelector$SingletonKeySelector$1, getKey, $Key*)},
-	{}
-};
-
-$EnclosingMethodInfo _KeySelector$SingletonKeySelector$1_EnclosingMethodInfo_ = {
-	"javax.xml.crypto.KeySelector$SingletonKeySelector",
-	"select",
-	"(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljavax/xml/crypto/KeySelector$Purpose;Ljavax/xml/crypto/AlgorithmMethod;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/KeySelectorResult;"
-};
-
-$InnerClassInfo _KeySelector$SingletonKeySelector$1_InnerClassesInfo_[] = {
-	{"javax.xml.crypto.KeySelector$SingletonKeySelector", "javax.xml.crypto.KeySelector", "SingletonKeySelector", $PRIVATE | $STATIC},
-	{"javax.xml.crypto.KeySelector$SingletonKeySelector$1", nullptr, nullptr, 0},
-	{"javax.xml.crypto.KeySelector$Purpose", "javax.xml.crypto.KeySelector", "Purpose", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _KeySelector$SingletonKeySelector$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.xml.crypto.KeySelector$SingletonKeySelector$1",
-	"java.lang.Object",
-	"javax.xml.crypto.KeySelectorResult",
-	_KeySelector$SingletonKeySelector$1_FieldInfo_,
-	_KeySelector$SingletonKeySelector$1_MethodInfo_,
-	nullptr,
-	&_KeySelector$SingletonKeySelector$1_EnclosingMethodInfo_,
-	_KeySelector$SingletonKeySelector$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.xml.crypto.KeySelector"
-};
-
-$Object* allocate$KeySelector$SingletonKeySelector$1($Class* clazz) {
-	return $of($alloc(KeySelector$SingletonKeySelector$1));
-}
-
 void KeySelector$SingletonKeySelector$1::init$($KeySelector$SingletonKeySelector* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -72,7 +27,44 @@ KeySelector$SingletonKeySelector$1::KeySelector$SingletonKeySelector$1() {
 }
 
 $Class* KeySelector$SingletonKeySelector$1::load$($String* name, bool initialize) {
-	$loadClass(KeySelector$SingletonKeySelector$1, name, initialize, &_KeySelector$SingletonKeySelector$1_ClassInfo_, allocate$KeySelector$SingletonKeySelector$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/xml/crypto/KeySelector$SingletonKeySelector;", nullptr, $FINAL | $SYNTHETIC, $field(KeySelector$SingletonKeySelector$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/crypto/KeySelector$SingletonKeySelector;)V", nullptr, 0, $method(KeySelector$SingletonKeySelector$1, init$, void, $KeySelector$SingletonKeySelector*)},
+		{"getKey", "()Ljava/security/Key;", nullptr, $PUBLIC, $virtualMethod(KeySelector$SingletonKeySelector$1, getKey, $Key*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.xml.crypto.KeySelector$SingletonKeySelector",
+		"select",
+		"(Ljavax/xml/crypto/dsig/keyinfo/KeyInfo;Ljavax/xml/crypto/KeySelector$Purpose;Ljavax/xml/crypto/AlgorithmMethod;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/KeySelectorResult;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.xml.crypto.KeySelector$SingletonKeySelector", "javax.xml.crypto.KeySelector", "SingletonKeySelector", $PRIVATE | $STATIC},
+		{"javax.xml.crypto.KeySelector$SingletonKeySelector$1", nullptr, nullptr, 0},
+		{"javax.xml.crypto.KeySelector$Purpose", "javax.xml.crypto.KeySelector", "Purpose", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.xml.crypto.KeySelector$SingletonKeySelector$1",
+		"java.lang.Object",
+		"javax.xml.crypto.KeySelectorResult",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.xml.crypto.KeySelector"
+	};
+	$loadClass(KeySelector$SingletonKeySelector$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KeySelector$SingletonKeySelector$1);
+	});
 	return class$;
 }
 

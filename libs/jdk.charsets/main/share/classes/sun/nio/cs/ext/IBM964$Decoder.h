@@ -34,6 +34,7 @@ class IBM964$Decoder : public ::java::nio::charset::CharsetDecoder {
 	$class(IBM964$Decoder, 0, ::java::nio::charset::CharsetDecoder)
 public:
 	IBM964$Decoder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::nio::charset::Charset* cs);
 	::java::nio::charset::CoderResult* decodeArrayLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);
 	::java::nio::charset::CoderResult* decodeBufferLoop(::java::nio::ByteBuffer* src, ::java::nio::CharBuffer* dst);

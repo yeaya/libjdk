@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XMenuWindow$MappingData.h>
-
 #include <java/awt/Dimension.h>
 #include <java/awt/Rectangle.h>
 #include <sun/awt/X11/XBaseMenuWindow$MappingData.h>
@@ -19,52 +18,6 @@ using $XBaseMenuWindow$MappingData = ::sun::awt::X11::XBaseMenuWindow$MappingDat
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XMenuWindow$MappingData_FieldInfo_[] = {
-	{"captionRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, captionRect)},
-	{"desiredSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, desiredSize)},
-	{"leftMarkWidth", "I", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, leftMarkWidth)},
-	{"shortcutOrigin", "I", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, shortcutOrigin)},
-	{"rightMarkOrigin", "I", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, rightMarkOrigin)},
-	{}
-};
-
-$MethodInfo _XMenuWindow$MappingData_MethodInfo_[] = {
-	{"<init>", "([Lsun/awt/X11/XMenuItemPeer;Ljava/awt/Rectangle;Ljava/awt/Dimension;III)V", nullptr, 0, $method(XMenuWindow$MappingData, init$, void, $XMenuItemPeerArray*, $Rectangle*, $Dimension*, int32_t, int32_t, int32_t)},
-	{"<init>", "()V", nullptr, 0, $method(XMenuWindow$MappingData, init$, void)},
-	{"getCaptionRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getCaptionRect, $Rectangle*)},
-	{"getDesiredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getDesiredSize, $Dimension*)},
-	{"getLeftMarkWidth", "()I", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getLeftMarkWidth, int32_t)},
-	{"getRightMarkOrigin", "()I", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getRightMarkOrigin, int32_t)},
-	{"getShortcutOrigin", "()I", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getShortcutOrigin, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XMenuWindow$MappingData_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XMenuWindow$MappingData", "sun.awt.X11.XMenuWindow", "MappingData", $STATIC},
-	{"sun.awt.X11.XBaseMenuWindow$MappingData", "sun.awt.X11.XBaseMenuWindow", "MappingData", $STATIC},
-	{}
-};
-
-$ClassInfo _XMenuWindow$MappingData_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.XMenuWindow$MappingData",
-	"sun.awt.X11.XBaseMenuWindow$MappingData",
-	nullptr,
-	_XMenuWindow$MappingData_FieldInfo_,
-	_XMenuWindow$MappingData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMenuWindow$MappingData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XMenuWindow"
-};
-
-$Object* allocate$XMenuWindow$MappingData($Class* clazz) {
-	return $of($alloc(XMenuWindow$MappingData));
-}
 
 void XMenuWindow$MappingData::init$($XMenuItemPeerArray* items, $Rectangle* captionRect, $Dimension* desiredSize, int32_t leftMarkWidth, int32_t shortcutOrigin, int32_t rightMarkOrigin) {
 	$XBaseMenuWindow$MappingData::init$(items);
@@ -107,7 +60,47 @@ XMenuWindow$MappingData::XMenuWindow$MappingData() {
 }
 
 $Class* XMenuWindow$MappingData::load$($String* name, bool initialize) {
-	$loadClass(XMenuWindow$MappingData, name, initialize, &_XMenuWindow$MappingData_ClassInfo_, allocate$XMenuWindow$MappingData);
+	$FieldInfo fieldInfos$$[] = {
+		{"captionRect", "Ljava/awt/Rectangle;", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, captionRect)},
+		{"desiredSize", "Ljava/awt/Dimension;", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, desiredSize)},
+		{"leftMarkWidth", "I", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, leftMarkWidth)},
+		{"shortcutOrigin", "I", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, shortcutOrigin)},
+		{"rightMarkOrigin", "I", nullptr, $PRIVATE, $field(XMenuWindow$MappingData, rightMarkOrigin)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Lsun/awt/X11/XMenuItemPeer;Ljava/awt/Rectangle;Ljava/awt/Dimension;III)V", nullptr, 0, $method(XMenuWindow$MappingData, init$, void, $XMenuItemPeerArray*, $Rectangle*, $Dimension*, int32_t, int32_t, int32_t)},
+		{"<init>", "()V", nullptr, 0, $method(XMenuWindow$MappingData, init$, void)},
+		{"getCaptionRect", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getCaptionRect, $Rectangle*)},
+		{"getDesiredSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getDesiredSize, $Dimension*)},
+		{"getLeftMarkWidth", "()I", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getLeftMarkWidth, int32_t)},
+		{"getRightMarkOrigin", "()I", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getRightMarkOrigin, int32_t)},
+		{"getShortcutOrigin", "()I", nullptr, $PUBLIC, $virtualMethod(XMenuWindow$MappingData, getShortcutOrigin, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XMenuWindow$MappingData", "sun.awt.X11.XMenuWindow", "MappingData", $STATIC},
+		{"sun.awt.X11.XBaseMenuWindow$MappingData", "sun.awt.X11.XBaseMenuWindow", "MappingData", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.XMenuWindow$MappingData",
+		"sun.awt.X11.XBaseMenuWindow$MappingData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XMenuWindow"
+	};
+	$loadClass(XMenuWindow$MappingData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMenuWindow$MappingData);
+	});
 	return class$;
 }
 

@@ -33,6 +33,7 @@ class DrawGlyphList : public ::sun::java2d::loops::GraphicsPrimitive {
 	$class(DrawGlyphList, 0, ::sun::java2d::loops::GraphicsPrimitive)
 public:
 	DrawGlyphList();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	void init$(int64_t pNativePrim, ::sun::java2d::loops::SurfaceType* srctype, ::sun::java2d::loops::CompositeType* comptype, ::sun::java2d::loops::SurfaceType* dsttype);
 	virtual void DrawGlyphList$(::sun::java2d::SunGraphics2D* sg2d, ::sun::java2d::SurfaceData* dest, ::sun::font::GlyphList* srcData, int32_t fromGlyph, int32_t toGlyph);

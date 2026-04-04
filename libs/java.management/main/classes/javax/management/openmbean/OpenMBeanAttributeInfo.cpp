@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/OpenMBeanAttributeInfo.h>
-
 #include <javax/management/openmbean/OpenMBeanParameterInfo.h>
 #include <jcpp.h>
 
@@ -10,29 +9,6 @@ using $OpenMBeanParameterInfo = ::javax::management::openmbean::OpenMBeanParamet
 namespace javax {
 	namespace management {
 		namespace openmbean {
-
-$MethodInfo _OpenMBeanAttributeInfo_MethodInfo_[] = {
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{"isIs", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isIs, bool)},
-	{"isReadable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isReadable, bool)},
-	{"isWritable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isWritable, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _OpenMBeanAttributeInfo_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.management.openmbean.OpenMBeanAttributeInfo",
-	nullptr,
-	"javax.management.openmbean.OpenMBeanParameterInfo",
-	nullptr,
-	_OpenMBeanAttributeInfo_MethodInfo_
-};
-
-$Object* allocate$OpenMBeanAttributeInfo($Class* clazz) {
-	return $of($alloc(OpenMBeanAttributeInfo));
-}
 
 bool OpenMBeanAttributeInfo::equals(Object$* obj) {
 	 return this->$OpenMBeanParameterInfo::equals(obj);
@@ -47,7 +23,26 @@ $String* OpenMBeanAttributeInfo::toString() {
 }
 
 $Class* OpenMBeanAttributeInfo::load$($String* name, bool initialize) {
-	$loadClass(OpenMBeanAttributeInfo, name, initialize, &_OpenMBeanAttributeInfo_ClassInfo_, allocate$OpenMBeanAttributeInfo);
+	$MethodInfo methodInfos$$[] = {
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{"isIs", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isIs, bool)},
+		{"isReadable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isReadable, bool)},
+		{"isWritable", "()Z", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(OpenMBeanAttributeInfo, isWritable, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.management.openmbean.OpenMBeanAttributeInfo",
+		nullptr,
+		"javax.management.openmbean.OpenMBeanParameterInfo",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(OpenMBeanAttributeInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(OpenMBeanAttributeInfo);
+	});
 	return class$;
 }
 

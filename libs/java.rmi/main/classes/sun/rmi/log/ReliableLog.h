@@ -40,6 +40,7 @@ class ReliableLog : public ::java::lang::Object {
 	$class(ReliableLog, 0, ::java::lang::Object)
 public:
 	ReliableLog();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* dirPath, ::sun::rmi::log::LogHandler* handler, bool pad);
 	void init$($String* dirPath, ::sun::rmi::log::LogHandler* handler);
 	virtual void close();

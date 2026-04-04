@@ -1,5 +1,4 @@
 #include <sun/rmi/transport/DGCClient$EndpointEntry$RenewCleanThread.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
@@ -33,7 +32,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashSet = ::java::util::HashSet;
@@ -56,89 +54,47 @@ public:
 		this->sequenceNum_ = sequenceNum_;
 	}
 	virtual $Object* run() override {
-		 return $of($nc(inst$)->lambda$run$0(needRenewal_, refsToDirty_, sequenceNum_));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0>());
+		 return $nc(inst$)->lambda$run$0(needRenewal_, refsToDirty_, sequenceNum_);
 	}
 	DGCClient$EndpointEntry$RenewCleanThread* inst$ = nullptr;
 	bool needRenewal_ = false;
 	$Set* refsToDirty_ = nullptr;
 	int64_t sequenceNum_ = 0;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::fieldInfos[5] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, inst$)},
-	{"needRenewal_", "Z", nullptr, $PUBLIC, $field(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, needRenewal_)},
-	{"refsToDirty_", "Ljava/util/Set;", nullptr, $PUBLIC, $field(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, refsToDirty_)},
-	{"sequenceNum_", "J", nullptr, $PUBLIC, $field(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, sequenceNum_)},
-	{}
-};
-$MethodInfo DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::methodInfos[3] = {
-	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RenewCleanThread;ZLjava/util/Set;J)V", nullptr, $PUBLIC, $method(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, init$, void, DGCClient$EndpointEntry$RenewCleanThread*, bool, $Set*, int64_t)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, run, $Object*)},
-	{}
-};
-$ClassInfo DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	fieldInfos,
-	methodInfos
 };
 $Class* DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::load$($String* name, bool initialize) {
-	$loadClass(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, inst$)},
+		{"needRenewal_", "Z", nullptr, $PUBLIC, $field(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, needRenewal_)},
+		{"refsToDirty_", "Ljava/util/Set;", nullptr, $PUBLIC, $field(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, refsToDirty_)},
+		{"sequenceNum_", "J", nullptr, $PUBLIC, $field(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, sequenceNum_)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry$RenewCleanThread;ZLjava/util/Set;J)V", nullptr, $PUBLIC, $method(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, init$, void, DGCClient$EndpointEntry$RenewCleanThread*, bool, $Set*, int64_t)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0);
+	});
 	return class$;
 }
 $Class* DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::class$ = nullptr;
-
-$FieldInfo _DGCClient$EndpointEntry$RenewCleanThread_FieldInfo_[] = {
-	{"this$0", "Lsun/rmi/transport/DGCClient$EndpointEntry;", nullptr, $FINAL | $SYNTHETIC, $field(DGCClient$EndpointEntry$RenewCleanThread, this$0)},
-	{}
-};
-
-$MethodInfo _DGCClient$EndpointEntry$RenewCleanThread_MethodInfo_[] = {
-	{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry$RenewCleanThread, init$, void, $DGCClient$EndpointEntry*)},
-	{"lambda$run$0", "(ZLjava/util/Set;J)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(DGCClient$EndpointEntry$RenewCleanThread, lambda$run$0, $Void*, bool, $Set*, int64_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RenewCleanThread, run, void)},
-	{}
-};
-
-$InnerClassInfo _DGCClient$EndpointEntry$RenewCleanThread_InnerClassesInfo_[] = {
-	{"sun.rmi.transport.DGCClient$EndpointEntry", "sun.rmi.transport.DGCClient", "EndpointEntry", $PRIVATE | $STATIC},
-	{"sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread", "sun.rmi.transport.DGCClient$EndpointEntry", "RenewCleanThread", $PRIVATE},
-	{}
-};
-
-$ClassInfo _DGCClient$EndpointEntry$RenewCleanThread_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_DGCClient$EndpointEntry$RenewCleanThread_FieldInfo_,
-	_DGCClient$EndpointEntry$RenewCleanThread_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DGCClient$EndpointEntry$RenewCleanThread_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.rmi.transport.DGCClient"
-};
-
-$Object* allocate$DGCClient$EndpointEntry$RenewCleanThread($Class* clazz) {
-	return $of($alloc(DGCClient$EndpointEntry$RenewCleanThread));
-}
 
 void DGCClient$EndpointEntry$RenewCleanThread::init$($DGCClient$EndpointEntry* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void DGCClient$EndpointEntry$RenewCleanThread::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	do {
 		int64_t timeToWait = 0;
@@ -179,7 +135,7 @@ void DGCClient$EndpointEntry$RenewCleanThread::run() {
 		$var($Set, refsToDirty_, refsToDirty);
 		int64_t sequenceNum_ = sequenceNum;
 		$init($DGCClient);
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, this, needRenewal_, refsToDirty_, sequenceNum_)), $DGCClient::SOCKET_ACC);
+		$AccessController::doPrivileged($cast($PrivilegedAction, $$new(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0, this, needRenewal_, refsToDirty_, sequenceNum_)), $DGCClient::SOCKET_ACC);
 	} while (!this->this$0->removed || !$nc(this->this$0->pendingCleans)->isEmpty());
 }
 
@@ -198,11 +154,43 @@ DGCClient$EndpointEntry$RenewCleanThread::DGCClient$EndpointEntry$RenewCleanThre
 
 $Class* DGCClient$EndpointEntry$RenewCleanThread::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0")) {
 			return DGCClient$EndpointEntry$RenewCleanThread$$Lambda$lambda$run$0::load$(name, initialize);
 		}
 	}
-	$loadClass(DGCClient$EndpointEntry$RenewCleanThread, name, initialize, &_DGCClient$EndpointEntry$RenewCleanThread_ClassInfo_, allocate$DGCClient$EndpointEntry$RenewCleanThread);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/rmi/transport/DGCClient$EndpointEntry;", nullptr, $FINAL | $SYNTHETIC, $field(DGCClient$EndpointEntry$RenewCleanThread, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/rmi/transport/DGCClient$EndpointEntry;)V", nullptr, $PRIVATE, $method(DGCClient$EndpointEntry$RenewCleanThread, init$, void, $DGCClient$EndpointEntry*)},
+		{"lambda$run$0", "(ZLjava/util/Set;J)Ljava/lang/Void;", nullptr, $PRIVATE | $SYNTHETIC, $method(DGCClient$EndpointEntry$RenewCleanThread, lambda$run$0, $Void*, bool, $Set*, int64_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(DGCClient$EndpointEntry$RenewCleanThread, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.transport.DGCClient$EndpointEntry", "sun.rmi.transport.DGCClient", "EndpointEntry", $PRIVATE | $STATIC},
+		{"sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread", "sun.rmi.transport.DGCClient$EndpointEntry", "RenewCleanThread", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.rmi.transport.DGCClient$EndpointEntry$RenewCleanThread",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.rmi.transport.DGCClient"
+	};
+	$loadClass(DGCClient$EndpointEntry$RenewCleanThread, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DGCClient$EndpointEntry$RenewCleanThread);
+	});
 	return class$;
 }
 

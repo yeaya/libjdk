@@ -105,6 +105,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::java2d::marlin::RendererContext* rdrCtx);
 	void _endRendering(int32_t ymin, int32_t ymax);
 	void addLine(double x1, double y1, double x2, double y2);
@@ -129,7 +130,7 @@ public:
 	static bool ENABLE_BLOCK_FLAGS;
 	static bool ENABLE_BLOCK_FLAGS_HEURISTICS;
 	static const int32_t ALL_BUT_LSB = (-2);
-	static const int32_t ERR_STEP_MAX = 0x7FFFFFFF;
+	static const int32_t ERR_STEP_MAX = 0x7fffffff;
 	static double POWER_2_TO_32;
 	static double SUBPIXEL_SCALE_X;
 	static double SUBPIXEL_SCALE_Y;

@@ -1,5 +1,4 @@
 #include <sun/awt/ModalityEvent.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/lang/Error.h>
 #include <sun/awt/ModalityListener.h>
@@ -17,37 +16,6 @@ using $ModalityListener = ::sun::awt::ModalityListener;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _ModalityEvent_FieldInfo_[] = {
-	{"MODALITY_PUSHED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModalityEvent, MODALITY_PUSHED)},
-	{"MODALITY_POPPED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModalityEvent, MODALITY_POPPED)},
-	{"listener", "Lsun/awt/ModalityListener;", nullptr, $PRIVATE, $field(ModalityEvent, listener)},
-	{}
-};
-
-$MethodInfo _ModalityEvent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;Lsun/awt/ModalityListener;I)V", nullptr, $PUBLIC, $method(ModalityEvent, init$, void, Object$*, $ModalityListener*, int32_t)},
-	{"dispatch", "()V", nullptr, $PUBLIC, $virtualMethod(ModalityEvent, dispatch, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ModalityEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.ModalityEvent",
-	"java.awt.AWTEvent",
-	"java.awt.ActiveEvent",
-	_ModalityEvent_FieldInfo_,
-	_ModalityEvent_MethodInfo_
-};
-
-$Object* allocate$ModalityEvent($Class* clazz) {
-	return $of($alloc(ModalityEvent));
-}
 
 $String* ModalityEvent::toString() {
 	 return this->$AWTEvent::toString();
@@ -77,19 +45,13 @@ void ModalityEvent::init$(Object$* source, $ModalityListener* listener, int32_t 
 void ModalityEvent::dispatch() {
 	switch (getID()) {
 	case ModalityEvent::MODALITY_PUSHED:
-		{
-			$nc(this->listener)->modalityPushed(this);
-			break;
-		}
+		$nc(this->listener)->modalityPushed(this);
+		break;
 	case ModalityEvent::MODALITY_POPPED:
-		{
-			$nc(this->listener)->modalityPopped(this);
-			break;
-		}
+		$nc(this->listener)->modalityPopped(this);
+		break;
 	default:
-		{
-			$throwNew($Error, "Invalid event id."_s);
-		}
+		$throwNew($Error, "Invalid event id."_s);
 	}
 }
 
@@ -97,7 +59,33 @@ ModalityEvent::ModalityEvent() {
 }
 
 $Class* ModalityEvent::load$($String* name, bool initialize) {
-	$loadClass(ModalityEvent, name, initialize, &_ModalityEvent_ClassInfo_, allocate$ModalityEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"MODALITY_PUSHED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModalityEvent, MODALITY_PUSHED)},
+		{"MODALITY_POPPED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(ModalityEvent, MODALITY_POPPED)},
+		{"listener", "Lsun/awt/ModalityListener;", nullptr, $PRIVATE, $field(ModalityEvent, listener)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;Lsun/awt/ModalityListener;I)V", nullptr, $PUBLIC, $method(ModalityEvent, init$, void, Object$*, $ModalityListener*, int32_t)},
+		{"dispatch", "()V", nullptr, $PUBLIC, $virtualMethod(ModalityEvent, dispatch, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.ModalityEvent",
+		"java.awt.AWTEvent",
+		"java.awt.ActiveEvent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ModalityEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ModalityEvent));
+	});
 	return class$;
 }
 

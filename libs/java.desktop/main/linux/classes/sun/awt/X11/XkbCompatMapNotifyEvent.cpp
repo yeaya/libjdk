@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XkbCompatMapNotifyEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,72 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XkbCompatMapNotifyEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbCompatMapNotifyEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbCompatMapNotifyEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XkbCompatMapNotifyEvent, pData)},
-	{}
-};
-
-$MethodInfo _XkbCompatMapNotifyEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbCompatMapNotifyEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XkbCompatMapNotifyEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbCompatMapNotifyEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbCompatMapNotifyEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbCompatMapNotifyEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbCompatMapNotifyEvent, getSize, int32_t)},
-	{"get_changed_groups", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_changed_groups, int32_t)},
-	{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_device, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_display, int64_t)},
-	{"get_first_si", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_first_si, int32_t)},
-	{"get_num_si", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_num_si, int32_t)},
-	{"get_num_total_si", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_num_total_si, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_serial, int64_t)},
-	{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_time, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_type, int32_t)},
-	{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_xkb_type, int32_t)},
-	{"set_changed_groups", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_changed_groups, void, int32_t)},
-	{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_device, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_display, void, int64_t)},
-	{"set_first_si", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_first_si, void, int32_t)},
-	{"set_num_si", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_num_si, void, int32_t)},
-	{"set_num_total_si", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_num_total_si, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_serial, void, int64_t)},
-	{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_time, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_type, void, int32_t)},
-	{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_xkb_type, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbCompatMapNotifyEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbCompatMapNotifyEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XkbCompatMapNotifyEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XkbCompatMapNotifyEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XkbCompatMapNotifyEvent_FieldInfo_,
-	_XkbCompatMapNotifyEvent_MethodInfo_
-};
-
-$Object* allocate$XkbCompatMapNotifyEvent($Class* clazz) {
-	return $of($alloc(XkbCompatMapNotifyEvent));
-}
 
 int32_t XkbCompatMapNotifyEvent::getSize() {
 	$init(XkbCompatMapNotifyEvent);
@@ -115,7 +55,7 @@ void XkbCompatMapNotifyEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -274,7 +214,7 @@ $String* XkbCompatMapNotifyEvent::getFieldsAsString() {
 }
 
 $Object* XkbCompatMapNotifyEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XkbCompatMapNotifyEvent::zero() {
@@ -289,7 +229,59 @@ XkbCompatMapNotifyEvent::XkbCompatMapNotifyEvent() {
 }
 
 $Class* XkbCompatMapNotifyEvent::load$($String* name, bool initialize) {
-	$loadClass(XkbCompatMapNotifyEvent, name, initialize, &_XkbCompatMapNotifyEvent_ClassInfo_, allocate$XkbCompatMapNotifyEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XkbCompatMapNotifyEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XkbCompatMapNotifyEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XkbCompatMapNotifyEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XkbCompatMapNotifyEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XkbCompatMapNotifyEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbCompatMapNotifyEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbCompatMapNotifyEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XkbCompatMapNotifyEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XkbCompatMapNotifyEvent, getSize, int32_t)},
+		{"get_changed_groups", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_changed_groups, int32_t)},
+		{"get_device", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_device, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_display, int64_t)},
+		{"get_first_si", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_first_si, int32_t)},
+		{"get_num_si", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_num_si, int32_t)},
+		{"get_num_total_si", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_num_total_si, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_serial, int64_t)},
+		{"get_time", "()J", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_time, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_type, int32_t)},
+		{"get_xkb_type", "()I", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, get_xkb_type, int32_t)},
+		{"set_changed_groups", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_changed_groups, void, int32_t)},
+		{"set_device", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_device, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_display, void, int64_t)},
+		{"set_first_si", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_first_si, void, int32_t)},
+		{"set_num_si", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_num_si, void, int32_t)},
+		{"set_num_total_si", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_num_total_si, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_serial, void, int64_t)},
+		{"set_time", "(J)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_time, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_type, void, int32_t)},
+		{"set_xkb_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XkbCompatMapNotifyEvent, set_xkb_type, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbCompatMapNotifyEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XkbCompatMapNotifyEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XkbCompatMapNotifyEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XkbCompatMapNotifyEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XkbCompatMapNotifyEvent);
+	});
 	return class$;
 }
 

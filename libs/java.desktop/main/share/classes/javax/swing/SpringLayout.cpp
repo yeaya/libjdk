@@ -1,5 +1,4 @@
 #include <javax/swing/SpringLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -36,7 +35,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
@@ -47,8 +45,6 @@ using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
-using $Set = ::java::util::Set;
 using $JComponent = ::javax::swing::JComponent;
 using $Spring = ::javax::swing::Spring;
 using $Spring$HeightSpring = ::javax::swing::Spring$HeightSpring;
@@ -58,79 +54,6 @@ using $SpringLayout$SpringProxy = ::javax::swing::SpringLayout$SpringProxy;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _SpringLayout_FieldInfo_[] = {
-	{"componentConstraints", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/Component;Ljavax/swing/SpringLayout$Constraints;>;", $PRIVATE, $field(SpringLayout, componentConstraints)},
-	{"cyclicReference", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout, cyclicReference)},
-	{"cyclicSprings", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/Spring;>;", $PRIVATE, $field(SpringLayout, cyclicSprings)},
-	{"acyclicSprings", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/Spring;>;", $PRIVATE, $field(SpringLayout, acyclicSprings)},
-	{"NORTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, NORTH)},
-	{"SOUTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, SOUTH)},
-	{"EAST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, EAST)},
-	{"WEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, WEST)},
-	{"HORIZONTAL_CENTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, HORIZONTAL_CENTER)},
-	{"VERTICAL_CENTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, VERTICAL_CENTER)},
-	{"BASELINE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, BASELINE)},
-	{"WIDTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, WIDTH)},
-	{"HEIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, HEIGHT)},
-	{"ALL_HORIZONTAL", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SpringLayout, ALL_HORIZONTAL)},
-	{"ALL_VERTICAL", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SpringLayout, ALL_VERTICAL)},
-	{}
-};
-
-$MethodInfo _SpringLayout_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SpringLayout, init$, void)},
-	{"abandonCycles", "(Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout, abandonCycles, $Spring*, $Spring*)},
-	{"addInsets", "(IILjava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpringLayout, addInsets, $Dimension*, int32_t, int32_t, $Container*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, addLayoutComponent, void, $Component*, Object$*)},
-	{"applyDefaults", "(Ljava/awt/Component;Ljavax/swing/SpringLayout$Constraints;)Ljavax/swing/SpringLayout$Constraints;", nullptr, $PRIVATE, $method(SpringLayout, applyDefaults, $SpringLayout$Constraints*, $Component*, $SpringLayout$Constraints*)},
-	{"applyDefaults", "(Ljavax/swing/SpringLayout$Constraints;Ljava/lang/String;Ljavax/swing/Spring;Ljava/lang/String;Ljavax/swing/Spring;Ljava/util/List;)V", "(Ljavax/swing/SpringLayout$Constraints;Ljava/lang/String;Ljavax/swing/Spring;Ljava/lang/String;Ljavax/swing/Spring;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(SpringLayout, applyDefaults, void, $SpringLayout$Constraints*, $String*, $Spring*, $String*, $Spring*, $List*)},
-	{"getConstraint", "(Ljava/lang/String;Ljava/awt/Component;)Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, getConstraint, $Spring*, $String*, $Component*)},
-	{"getConstraints", "(Ljava/awt/Component;)Ljavax/swing/SpringLayout$Constraints;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, getConstraints, $SpringLayout$Constraints*, $Component*)},
-	{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(SpringLayout, getLayoutAlignmentX, float, $Container*)},
-	{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(SpringLayout, getLayoutAlignmentY, float, $Container*)},
-	{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, invalidateLayout, void, $Container*)},
-	{"isCyclic", "(Ljavax/swing/Spring;)Z", nullptr, 0, $virtualMethod(SpringLayout, isCyclic, bool, $Spring*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, layoutContainer, void, $Container*)},
-	{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, maximumLayoutSize, $Dimension*, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"putConstraint", "(Ljava/lang/String;Ljava/awt/Component;ILjava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, putConstraint, void, $String*, $Component*, int32_t, $String*, $Component*)},
-	{"putConstraint", "(Ljava/lang/String;Ljava/awt/Component;Ljavax/swing/Spring;Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, putConstraint, void, $String*, $Component*, $Spring*, $String*, $Component*)},
-	{"putConstraint", "(Ljava/lang/String;Ljava/awt/Component;Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout, putConstraint, void, $String*, $Component*, $Spring*)},
-	{"putConstraints", "(Ljava/awt/Component;Ljavax/swing/SpringLayout$Constraints;)V", nullptr, $PRIVATE, $method(SpringLayout, putConstraints, void, $Component*, $SpringLayout$Constraints*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, removeLayoutComponent, void, $Component*)},
-	{"resetCyclicStatuses", "()V", nullptr, $PRIVATE, $method(SpringLayout, resetCyclicStatuses, void)},
-	{"setParent", "(Ljava/awt/Container;)V", nullptr, $PRIVATE, $method(SpringLayout, setParent, void, $Container*)},
-	{}
-};
-
-$InnerClassInfo _SpringLayout_InnerClassesInfo_[] = {
-	{"javax.swing.SpringLayout$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"javax.swing.SpringLayout$SpringProxy", "javax.swing.SpringLayout", "SpringProxy", $PRIVATE | $STATIC},
-	{"javax.swing.SpringLayout$Constraints", "javax.swing.SpringLayout", "Constraints", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _SpringLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.SpringLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager2",
-	_SpringLayout_FieldInfo_,
-	_SpringLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SpringLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.SpringLayout$1,javax.swing.SpringLayout$SpringProxy,javax.swing.SpringLayout$Constraints,javax.swing.SpringLayout$Constraints$2,javax.swing.SpringLayout$Constraints$1"
-};
-
-$Object* allocate$SpringLayout($Class* clazz) {
-	return $of($alloc(SpringLayout));
-}
 
 $String* SpringLayout::NORTH = nullptr;
 $String* SpringLayout::SOUTH = nullptr;
@@ -155,17 +78,17 @@ void SpringLayout::resetCyclicStatuses() {
 }
 
 void SpringLayout::setParent($Container* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	resetCyclicStatuses();
 	$var($SpringLayout$Constraints, pc, getConstraints(p));
 	$nc(pc)->setX($($Spring::constant(0)));
 	pc->setY($($Spring::constant(0)));
 	$var($Spring, width, pc->getWidth());
-	if ($instanceOf($Spring$WidthSpring, width) && $equals($nc(($cast($Spring$WidthSpring, width)))->c, p)) {
+	if ($instanceOf($Spring$WidthSpring, width) && $equals($cast($Spring$WidthSpring, width)->c, p)) {
 		pc->setWidth($($Spring::constant(0, 0, $Integer::MAX_VALUE)));
 	}
 	$var($Spring, height, pc->getHeight());
-	if ($instanceOf($Spring$HeightSpring, height) && $equals($nc(($cast($Spring$HeightSpring, height)))->c, p)) {
+	if ($instanceOf($Spring$HeightSpring, height) && $equals($cast($Spring$HeightSpring, height)->c, p)) {
 		pc->setHeight($($Spring::constant(0, 0, $Integer::MAX_VALUE)));
 	}
 }
@@ -180,7 +103,7 @@ bool SpringLayout::isCyclic($Spring* s) {
 	if ($nc(this->acyclicSprings)->contains(s)) {
 		return false;
 	}
-	$nc(this->cyclicSprings)->add(s);
+	this->cyclicSprings->add(s);
 	bool result = $nc(s)->isCyclic(this);
 	if (!result) {
 		$nc(this->acyclicSprings)->add(s);
@@ -205,31 +128,31 @@ void SpringLayout::removeLayoutComponent($Component* c) {
 $Dimension* SpringLayout::addInsets(int32_t width, int32_t height, $Container* p) {
 	$init(SpringLayout);
 	$var($Insets, i, $nc(p)->getInsets());
-	return $new($Dimension, width + $nc(i)->left + i->right, height + i->top + i->bottom);
+	return $new($Dimension, width + $nc(i)->left + $nc(i)->right, height + $nc(i)->top + $nc(i)->bottom);
 }
 
 $Dimension* SpringLayout::minimumLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setParent(parent);
 	$var($SpringLayout$Constraints, pc, getConstraints(parent));
-	int32_t var$0 = $nc($(abandonCycles($($nc(pc)->getWidth()))))->getMinimumValue();
-	return addInsets(var$0, $nc($(abandonCycles($($nc(pc)->getHeight()))))->getMinimumValue(), parent);
+	int32_t var$0 = $$nc(abandonCycles($($nc(pc)->getWidth())))->getMinimumValue();
+	return addInsets(var$0, $$nc(abandonCycles($(pc->getHeight())))->getMinimumValue(), parent);
 }
 
 $Dimension* SpringLayout::preferredLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setParent(parent);
 	$var($SpringLayout$Constraints, pc, getConstraints(parent));
-	int32_t var$0 = $nc($(abandonCycles($($nc(pc)->getWidth()))))->getPreferredValue();
-	return addInsets(var$0, $nc($(abandonCycles($($nc(pc)->getHeight()))))->getPreferredValue(), parent);
+	int32_t var$0 = $$nc(abandonCycles($($nc(pc)->getWidth())))->getPreferredValue();
+	return addInsets(var$0, $$nc(abandonCycles($(pc->getHeight())))->getPreferredValue(), parent);
 }
 
 $Dimension* SpringLayout::maximumLayoutSize($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setParent(parent);
 	$var($SpringLayout$Constraints, pc, getConstraints(parent));
-	int32_t var$0 = $nc($(abandonCycles($($nc(pc)->getWidth()))))->getMaximumValue();
-	return addInsets(var$0, $nc($(abandonCycles($($nc(pc)->getHeight()))))->getMaximumValue(), parent);
+	int32_t var$0 = $$nc(abandonCycles($($nc(pc)->getWidth())))->getMaximumValue();
+	return addInsets(var$0, $$nc(abandonCycles($(pc->getHeight())))->getMaximumValue(), parent);
 }
 
 void SpringLayout::addLayoutComponent($Component* component, Object$* constraints) {
@@ -254,18 +177,18 @@ void SpringLayout::putConstraint($String* e1, $Component* c1, int32_t pad, $Stri
 }
 
 void SpringLayout::putConstraint($String* e1, $Component* c1, $Spring* s, $String* e2, $Component* c2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	putConstraint(e1, c1, $($Spring::sum(s, $(getConstraint(e2, c2)))));
 }
 
 void SpringLayout::putConstraint($String* e, $Component* c, $Spring* s) {
 	if (s != nullptr) {
-		$nc($(getConstraints(c)))->setConstraint(e, s);
+		$$nc(getConstraints(c))->setConstraint(e, s);
 	}
 }
 
 $SpringLayout$Constraints* SpringLayout::applyDefaults($Component* c, $SpringLayout$Constraints* constraints$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpringLayout$Constraints, constraints, constraints$renamed);
 	if (constraints == nullptr) {
 		$assign(constraints, $new($SpringLayout$Constraints));
@@ -273,19 +196,17 @@ $SpringLayout$Constraints* SpringLayout::applyDefaults($Component* c, $SpringLay
 	if ($nc(constraints)->c == nullptr) {
 		$set(constraints, c, c);
 	}
-	if ($nc($nc(constraints)->horizontalHistory)->size() < 2) {
-		$var($SpringLayout$Constraints, var$0, constraints);
-		$var($String, var$1, SpringLayout::WEST);
-		$var($Spring, var$2, $Spring::constant(0));
-		$var($String, var$3, SpringLayout::WIDTH);
-		applyDefaults(var$0, var$1, var$2, var$3, $($Spring::width(c)), constraints->horizontalHistory);
+	if ($nc(constraints->horizontalHistory)->size() < 2) {
+		$var($String, var$0, SpringLayout::WEST);
+		$var($Spring, var$1, $Spring::constant(0));
+		$var($String, var$2, SpringLayout::WIDTH);
+		applyDefaults(constraints, var$0, var$1, var$2, $($Spring::width(c)), constraints->horizontalHistory);
 	}
-	if ($nc($nc(constraints)->verticalHistory)->size() < 2) {
-		$var($SpringLayout$Constraints, var$4, constraints);
-		$var($String, var$5, SpringLayout::NORTH);
-		$var($Spring, var$6, $Spring::constant(0));
-		$var($String, var$7, SpringLayout::HEIGHT);
-		applyDefaults(var$4, var$5, var$6, var$7, $($Spring::height(c)), constraints->verticalHistory);
+	if ($nc(constraints->verticalHistory)->size() < 2) {
+		$var($String, var$3, SpringLayout::NORTH);
+		$var($Spring, var$4, $Spring::constant(0));
+		$var($String, var$5, SpringLayout::HEIGHT);
+		applyDefaults(constraints, var$3, var$4, var$5, $($Spring::height(c)), constraints->verticalHistory);
 	}
 	return constraints;
 }
@@ -309,11 +230,11 @@ void SpringLayout::putConstraints($Component* component, $SpringLayout$Constrain
 }
 
 $SpringLayout$Constraints* SpringLayout::getConstraints($Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SpringLayout$Constraints, result, $cast($SpringLayout$Constraints, $nc(this->componentConstraints)->get(c)));
 	if (result == nullptr) {
 		if ($instanceOf($JComponent, c)) {
-			$var($Object, cp, $nc(($cast($JComponent, c)))->getClientProperty(SpringLayout::class$));
+			$var($Object, cp, $cast($JComponent, c)->getClientProperty(SpringLayout::class$));
 			if ($instanceOf($SpringLayout$Constraints, cp)) {
 				return applyDefaults(c, $cast($SpringLayout$Constraints, cp));
 			}
@@ -331,31 +252,31 @@ $Spring* SpringLayout::getConstraint($String* edgeName$renamed, $Component* c) {
 }
 
 void SpringLayout::layoutContainer($Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	setParent(parent);
 	int32_t n = $nc(parent)->getComponentCount();
-	$nc($(getConstraints(parent)))->reset();
+	$$nc(getConstraints(parent))->reset();
 	for (int32_t i = 0; i < n; ++i) {
-		$nc($(getConstraints($(parent->getComponent(i)))))->reset();
+		$$nc(getConstraints($(parent->getComponent(i))))->reset();
 	}
 	$var($Insets, insets, parent->getInsets());
 	$var($SpringLayout$Constraints, pc, getConstraints(parent));
-	$nc($(abandonCycles($($nc(pc)->getX()))))->setValue(0);
-	$nc($(abandonCycles($($nc(pc)->getY()))))->setValue(0);
-	$nc($(abandonCycles($($nc(pc)->getWidth()))))->setValue(parent->getWidth() - $nc(insets)->left - insets->right);
-	$nc($(abandonCycles($($nc(pc)->getHeight()))))->setValue(parent->getHeight() - $nc(insets)->top - insets->bottom);
+	$$nc(abandonCycles($($nc(pc)->getX())))->setValue(0);
+	$$nc(abandonCycles($(pc->getY())))->setValue(0);
+	$$nc(abandonCycles($(pc->getWidth())))->setValue(parent->getWidth() - $nc(insets)->left - $nc(insets)->right);
+	$$nc(abandonCycles($(pc->getHeight())))->setValue(parent->getHeight() - insets->top - insets->bottom);
 	for (int32_t i = 0; i < n; ++i) {
 		$var($Component, c, parent->getComponent(i));
 		$var($SpringLayout$Constraints, cc, getConstraints(c));
-		int32_t x = $nc($(abandonCycles($($nc(cc)->getX()))))->getValue();
-		int32_t y = $nc($(abandonCycles($($nc(cc)->getY()))))->getValue();
-		int32_t width = $nc($(abandonCycles($($nc(cc)->getWidth()))))->getValue();
-		int32_t height = $nc($(abandonCycles($($nc(cc)->getHeight()))))->getValue();
-		$nc(c)->setBounds($nc(insets)->left + x, insets->top + y, width, height);
+		int32_t x = $$nc(abandonCycles($($nc(cc)->getX())))->getValue();
+		int32_t y = $$nc(abandonCycles($(cc->getY())))->getValue();
+		int32_t width = $$nc(abandonCycles($(cc->getWidth())))->getValue();
+		int32_t height = $$nc(abandonCycles($(cc->getHeight())))->getValue();
+		$nc(c)->setBounds(insets->left + x, insets->top + y, width, height);
 	}
 }
 
-void clinit$SpringLayout($Class* class$) {
+void SpringLayout::clinit$($Class* clazz) {
 	$assignStatic(SpringLayout::NORTH, "North"_s);
 	$assignStatic(SpringLayout::SOUTH, "South"_s);
 	$assignStatic(SpringLayout::EAST, "East"_s);
@@ -384,7 +305,74 @@ SpringLayout::SpringLayout() {
 }
 
 $Class* SpringLayout::load$($String* name, bool initialize) {
-	$loadClass(SpringLayout, name, initialize, &_SpringLayout_ClassInfo_, clinit$SpringLayout, allocate$SpringLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"componentConstraints", "Ljava/util/Map;", "Ljava/util/Map<Ljava/awt/Component;Ljavax/swing/SpringLayout$Constraints;>;", $PRIVATE, $field(SpringLayout, componentConstraints)},
+		{"cyclicReference", "Ljavax/swing/Spring;", nullptr, $PRIVATE, $field(SpringLayout, cyclicReference)},
+		{"cyclicSprings", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/Spring;>;", $PRIVATE, $field(SpringLayout, cyclicSprings)},
+		{"acyclicSprings", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/swing/Spring;>;", $PRIVATE, $field(SpringLayout, acyclicSprings)},
+		{"NORTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, NORTH)},
+		{"SOUTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, SOUTH)},
+		{"EAST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, EAST)},
+		{"WEST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, WEST)},
+		{"HORIZONTAL_CENTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, HORIZONTAL_CENTER)},
+		{"VERTICAL_CENTER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, VERTICAL_CENTER)},
+		{"BASELINE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, BASELINE)},
+		{"WIDTH", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, WIDTH)},
+		{"HEIGHT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(SpringLayout, HEIGHT)},
+		{"ALL_HORIZONTAL", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SpringLayout, ALL_HORIZONTAL)},
+		{"ALL_VERTICAL", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticField(SpringLayout, ALL_VERTICAL)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SpringLayout, init$, void)},
+		{"abandonCycles", "(Ljavax/swing/Spring;)Ljavax/swing/Spring;", nullptr, $PRIVATE, $method(SpringLayout, abandonCycles, $Spring*, $Spring*)},
+		{"addInsets", "(IILjava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticMethod(SpringLayout, addInsets, $Dimension*, int32_t, int32_t, $Container*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"addLayoutComponent", "(Ljava/awt/Component;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, addLayoutComponent, void, $Component*, Object$*)},
+		{"applyDefaults", "(Ljava/awt/Component;Ljavax/swing/SpringLayout$Constraints;)Ljavax/swing/SpringLayout$Constraints;", nullptr, $PRIVATE, $method(SpringLayout, applyDefaults, $SpringLayout$Constraints*, $Component*, $SpringLayout$Constraints*)},
+		{"applyDefaults", "(Ljavax/swing/SpringLayout$Constraints;Ljava/lang/String;Ljavax/swing/Spring;Ljava/lang/String;Ljavax/swing/Spring;Ljava/util/List;)V", "(Ljavax/swing/SpringLayout$Constraints;Ljava/lang/String;Ljavax/swing/Spring;Ljava/lang/String;Ljavax/swing/Spring;Ljava/util/List<Ljava/lang/String;>;)V", $PRIVATE, $method(SpringLayout, applyDefaults, void, $SpringLayout$Constraints*, $String*, $Spring*, $String*, $Spring*, $List*)},
+		{"getConstraint", "(Ljava/lang/String;Ljava/awt/Component;)Ljavax/swing/Spring;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, getConstraint, $Spring*, $String*, $Component*)},
+		{"getConstraints", "(Ljava/awt/Component;)Ljavax/swing/SpringLayout$Constraints;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, getConstraints, $SpringLayout$Constraints*, $Component*)},
+		{"getLayoutAlignmentX", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(SpringLayout, getLayoutAlignmentX, float, $Container*)},
+		{"getLayoutAlignmentY", "(Ljava/awt/Container;)F", nullptr, $PUBLIC, $virtualMethod(SpringLayout, getLayoutAlignmentY, float, $Container*)},
+		{"invalidateLayout", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, invalidateLayout, void, $Container*)},
+		{"isCyclic", "(Ljavax/swing/Spring;)Z", nullptr, 0, $virtualMethod(SpringLayout, isCyclic, bool, $Spring*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, layoutContainer, void, $Container*)},
+		{"maximumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, maximumLayoutSize, $Dimension*, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(SpringLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"putConstraint", "(Ljava/lang/String;Ljava/awt/Component;ILjava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, putConstraint, void, $String*, $Component*, int32_t, $String*, $Component*)},
+		{"putConstraint", "(Ljava/lang/String;Ljava/awt/Component;Ljavax/swing/Spring;Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, putConstraint, void, $String*, $Component*, $Spring*, $String*, $Component*)},
+		{"putConstraint", "(Ljava/lang/String;Ljava/awt/Component;Ljavax/swing/Spring;)V", nullptr, $PRIVATE, $method(SpringLayout, putConstraint, void, $String*, $Component*, $Spring*)},
+		{"putConstraints", "(Ljava/awt/Component;Ljavax/swing/SpringLayout$Constraints;)V", nullptr, $PRIVATE, $method(SpringLayout, putConstraints, void, $Component*, $SpringLayout$Constraints*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(SpringLayout, removeLayoutComponent, void, $Component*)},
+		{"resetCyclicStatuses", "()V", nullptr, $PRIVATE, $method(SpringLayout, resetCyclicStatuses, void)},
+		{"setParent", "(Ljava/awt/Container;)V", nullptr, $PRIVATE, $method(SpringLayout, setParent, void, $Container*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.SpringLayout$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"javax.swing.SpringLayout$SpringProxy", "javax.swing.SpringLayout", "SpringProxy", $PRIVATE | $STATIC},
+		{"javax.swing.SpringLayout$Constraints", "javax.swing.SpringLayout", "Constraints", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.SpringLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager2",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.SpringLayout$1,javax.swing.SpringLayout$SpringProxy,javax.swing.SpringLayout$Constraints,javax.swing.SpringLayout$Constraints$2,javax.swing.SpringLayout$Constraints$1"
+	};
+	$loadClass(SpringLayout, name, initialize, &classInfo$$, SpringLayout::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SpringLayout);
+	});
 	return class$;
 }
 

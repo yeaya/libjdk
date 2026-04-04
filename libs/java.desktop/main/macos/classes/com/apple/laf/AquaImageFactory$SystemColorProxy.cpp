@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaImageFactory$SystemColorProxy.h>
-
 #include <com/apple/laf/AquaImageFactory.h>
 #include <java/awt/Color.h>
 #include <jcpp.h>
@@ -13,47 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaImageFactory$SystemColorProxy_FieldInfo_[] = {
-	{"color", "Ljava/awt/Color;", nullptr, $FINAL, $field(AquaImageFactory$SystemColorProxy, color)},
-	{}
-};
-
-$MethodInfo _AquaImageFactory$SystemColorProxy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(AquaImageFactory$SystemColorProxy, init$, void, $Color*)},
-	{"getRGB", "()I", nullptr, $PUBLIC, $virtualMethod(AquaImageFactory$SystemColorProxy, getRGB, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _AquaImageFactory$SystemColorProxy_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaImageFactory$SystemColorProxy", "com.apple.laf.AquaImageFactory", "SystemColorProxy", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaImageFactory$SystemColorProxy_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaImageFactory$SystemColorProxy",
-	"java.awt.Color",
-	"javax.swing.plaf.UIResource",
-	_AquaImageFactory$SystemColorProxy_FieldInfo_,
-	_AquaImageFactory$SystemColorProxy_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaImageFactory$SystemColorProxy_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaImageFactory"
-};
-
-$Object* allocate$AquaImageFactory$SystemColorProxy($Class* clazz) {
-	return $of($alloc(AquaImageFactory$SystemColorProxy));
-}
 
 int32_t AquaImageFactory$SystemColorProxy::hashCode() {
 	 return this->$Color::hashCode();
@@ -88,7 +46,42 @@ AquaImageFactory$SystemColorProxy::AquaImageFactory$SystemColorProxy() {
 }
 
 $Class* AquaImageFactory$SystemColorProxy::load$($String* name, bool initialize) {
-	$loadClass(AquaImageFactory$SystemColorProxy, name, initialize, &_AquaImageFactory$SystemColorProxy_ClassInfo_, allocate$AquaImageFactory$SystemColorProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"color", "Ljava/awt/Color;", nullptr, $FINAL, $field(AquaImageFactory$SystemColorProxy, color)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(AquaImageFactory$SystemColorProxy, init$, void, $Color*)},
+		{"getRGB", "()I", nullptr, $PUBLIC, $virtualMethod(AquaImageFactory$SystemColorProxy, getRGB, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaImageFactory$SystemColorProxy", "com.apple.laf.AquaImageFactory", "SystemColorProxy", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaImageFactory$SystemColorProxy",
+		"java.awt.Color",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaImageFactory"
+	};
+	$loadClass(AquaImageFactory$SystemColorProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaImageFactory$SystemColorProxy));
+	});
 	return class$;
 }
 

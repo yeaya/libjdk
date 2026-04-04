@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/parser/JavacParser$1.h>
-
 #include <com/sun/tools/javac/parser/JavacParser$ParensResult.h>
 #include <com/sun/tools/javac/parser/JavacParser.h>
 #include <com/sun/tools/javac/parser/Tokens$TokenKind.h>
@@ -138,516 +137,478 @@ namespace com {
 			namespace javac {
 				namespace parser {
 
-$FieldInfo _JavacParser$1_FieldInfo_[] = {
-	{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
-	{"$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$1, $SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult)},
-	{"$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$1, $SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacParser$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.parser.JavacParser",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JavacParser$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.parser.JavacParser$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JavacParser$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.parser.JavacParser$1",
-	"java.lang.Object",
-	nullptr,
-	_JavacParser$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JavacParser$1_EnclosingMethodInfo_,
-	_JavacParser$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.parser.JavacParser"
-};
-
-$Object* allocate$JavacParser$1($Class* clazz) {
-	return $of($alloc(JavacParser$1));
-}
-
 $ints* JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag = nullptr;
 $ints* JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult = nullptr;
 $ints* JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind = nullptr;
 
-void clinit$JavacParser$1($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JavacParser$1::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag, $new($ints, $($JCTree$Tag::values())->length));
 	{
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::REFERENCE->ordinal(), 1);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::REFERENCE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::SELECT->ordinal(), 2);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::SELECT->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::CLASSDEF->ordinal(), 3);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::CLASSDEF->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::VARDEF->ordinal(), 4);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::VARDEF->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::IDENT->ordinal(), 5);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::IDENT->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)->set($JCTree$Tag::TYPEARRAY->ordinal(), 6);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag->set($JCTree$Tag::TYPEARRAY->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult, $new($ints, $($JavacParser$ParensResult::values())->length));
 	{
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult)->set($JavacParser$ParensResult::CAST->ordinal(), 1);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult->set($JavacParser$ParensResult::CAST->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult)->set($JavacParser$ParensResult::IMPLICIT_LAMBDA->ordinal(), 2);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult->set($JavacParser$ParensResult::IMPLICIT_LAMBDA->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult)->set($JavacParser$ParensResult::EXPLICIT_LAMBDA->ordinal(), 3);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult->set($JavacParser$ParensResult::EXPLICIT_LAMBDA->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
 	$assignStatic(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind, $new($ints, $($Tokens$TokenKind::values())->length));
 	{
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SEMI->ordinal(), 1);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SEMI->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::PUBLIC->ordinal(), 2);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::PUBLIC->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::FINAL->ordinal(), 3);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::FINAL->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::ABSTRACT->ordinal(), 4);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::ABSTRACT->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::MONKEYS_AT->ordinal(), 5);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::MONKEYS_AT->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::EOF->ordinal(), 6);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::EOF->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::CLASS->ordinal(), 7);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::CLASS->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::INTERFACE->ordinal(), 8);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::INTERFACE->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::ENUM->ordinal(), 9);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::ENUM->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::IMPORT->ordinal(), 10);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::IMPORT->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LBRACE->ordinal(), 11);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LBRACE->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::RBRACE->ordinal(), 12);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::RBRACE->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::PRIVATE->ordinal(), 13);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::PRIVATE->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::PROTECTED->ordinal(), 14);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::PROTECTED->ordinal(), 14);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::STATIC->ordinal(), 15);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::STATIC->ordinal(), 15);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::TRANSIENT->ordinal(), 16);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::TRANSIENT->ordinal(), 16);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::NATIVE->ordinal(), 17);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::NATIVE->ordinal(), 17);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::VOLATILE->ordinal(), 18);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::VOLATILE->ordinal(), 18);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SYNCHRONIZED->ordinal(), 19);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SYNCHRONIZED->ordinal(), 19);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::STRICTFP->ordinal(), 20);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::STRICTFP->ordinal(), 20);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LT->ordinal(), 21);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LT->ordinal(), 21);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::BYTE->ordinal(), 22);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::BYTE->ordinal(), 22);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SHORT->ordinal(), 23);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SHORT->ordinal(), 23);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::CHAR->ordinal(), 24);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::CHAR->ordinal(), 24);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::INT->ordinal(), 25);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::INT->ordinal(), 25);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LONG->ordinal(), 26);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LONG->ordinal(), 26);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::FLOAT->ordinal(), 27);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::FLOAT->ordinal(), 27);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::DOUBLE->ordinal(), 28);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::DOUBLE->ordinal(), 28);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::BOOLEAN->ordinal(), 29);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::BOOLEAN->ordinal(), 29);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::VOID->ordinal(), 30);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::VOID->ordinal(), 30);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::UNDERSCORE->ordinal(), 31);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::UNDERSCORE->ordinal(), 31);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::IDENTIFIER->ordinal(), 32);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::IDENTIFIER->ordinal(), 32);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::CASE->ordinal(), 33);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::CASE->ordinal(), 33);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::DEFAULT->ordinal(), 34);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::DEFAULT->ordinal(), 34);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::IF->ordinal(), 35);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::IF->ordinal(), 35);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::FOR->ordinal(), 36);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::FOR->ordinal(), 36);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::WHILE->ordinal(), 37);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::WHILE->ordinal(), 37);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::DO->ordinal(), 38);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::DO->ordinal(), 38);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::TRY->ordinal(), 39);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::TRY->ordinal(), 39);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SWITCH->ordinal(), 40);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SWITCH->ordinal(), 40);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::RETURN->ordinal(), 41);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::RETURN->ordinal(), 41);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::THROW->ordinal(), 42);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::THROW->ordinal(), 42);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::BREAK->ordinal(), 43);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::BREAK->ordinal(), 43);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::CONTINUE->ordinal(), 44);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::CONTINUE->ordinal(), 44);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::ELSE->ordinal(), 45);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::ELSE->ordinal(), 45);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::FINALLY->ordinal(), 46);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::FINALLY->ordinal(), 46);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::CATCH->ordinal(), 47);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::CATCH->ordinal(), 47);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::THIS->ordinal(), 48);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::THIS->ordinal(), 48);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SUPER->ordinal(), 49);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SUPER->ordinal(), 49);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::NEW->ordinal(), 50);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::NEW->ordinal(), 50);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::ASSERT->ordinal(), 51);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::ASSERT->ordinal(), 51);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::INTLITERAL->ordinal(), 52);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::INTLITERAL->ordinal(), 52);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LONGLITERAL->ordinal(), 53);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LONGLITERAL->ordinal(), 53);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::FLOATLITERAL->ordinal(), 54);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::FLOATLITERAL->ordinal(), 54);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::DOUBLELITERAL->ordinal(), 55);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::DOUBLELITERAL->ordinal(), 55);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::CHARLITERAL->ordinal(), 56);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::CHARLITERAL->ordinal(), 56);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::STRINGLITERAL->ordinal(), 57);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::STRINGLITERAL->ordinal(), 57);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::TRUE->ordinal(), 58);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::TRUE->ordinal(), 58);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::FALSE->ordinal(), 59);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::FALSE->ordinal(), 59);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::NULL->ordinal(), 60);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::NULL->ordinal(), 60);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::EQ->ordinal(), 61);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::EQ->ordinal(), 61);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::PLUSEQ->ordinal(), 62);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::PLUSEQ->ordinal(), 62);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SUBEQ->ordinal(), 63);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SUBEQ->ordinal(), 63);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::STAREQ->ordinal(), 64);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::STAREQ->ordinal(), 64);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SLASHEQ->ordinal(), 65);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SLASHEQ->ordinal(), 65);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::PERCENTEQ->ordinal(), 66);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::PERCENTEQ->ordinal(), 66);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::AMPEQ->ordinal(), 67);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::AMPEQ->ordinal(), 67);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::BAREQ->ordinal(), 68);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::BAREQ->ordinal(), 68);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::CARETEQ->ordinal(), 69);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::CARETEQ->ordinal(), 69);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LTLTEQ->ordinal(), 70);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LTLTEQ->ordinal(), 70);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::GTGTEQ->ordinal(), 71);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::GTGTEQ->ordinal(), 71);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::GTGTGTEQ->ordinal(), 72);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::GTGTGTEQ->ordinal(), 72);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LBRACKET->ordinal(), 73);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LBRACKET->ordinal(), 73);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LPAREN->ordinal(), 74);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LPAREN->ordinal(), 74);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::DOT->ordinal(), 75);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::DOT->ordinal(), 75);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::ELLIPSIS->ordinal(), 76);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::ELLIPSIS->ordinal(), 76);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::QUES->ordinal(), 77);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::QUES->ordinal(), 77);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::PLUSPLUS->ordinal(), 78);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::PLUSPLUS->ordinal(), 78);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SUBSUB->ordinal(), 79);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SUBSUB->ordinal(), 79);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::BANG->ordinal(), 80);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::BANG->ordinal(), 80);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::TILDE->ordinal(), 81);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::TILDE->ordinal(), 81);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::PLUS->ordinal(), 82);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::PLUS->ordinal(), 82);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SUB->ordinal(), 83);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SUB->ordinal(), 83);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::ARROW->ordinal(), 84);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::ARROW->ordinal(), 84);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::RPAREN->ordinal(), 85);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::RPAREN->ordinal(), 85);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::EXTENDS->ordinal(), 86);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::EXTENDS->ordinal(), 86);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::RBRACKET->ordinal(), 87);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::RBRACKET->ordinal(), 87);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::COMMA->ordinal(), 88);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::COMMA->ordinal(), 88);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::GTGTGT->ordinal(), 89);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::GTGTGT->ordinal(), 89);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::GTGT->ordinal(), 90);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::GTGT->ordinal(), 90);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::GT->ordinal(), 91);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::GT->ordinal(), 91);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::AMP->ordinal(), 92);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::AMP->ordinal(), 92);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::GTEQ->ordinal(), 93);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::GTEQ->ordinal(), 93);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::ERROR->ordinal(), 94);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::ERROR->ordinal(), 94);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::BARBAR->ordinal(), 95);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::BARBAR->ordinal(), 95);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::AMPAMP->ordinal(), 96);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::AMPAMP->ordinal(), 96);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::BAR->ordinal(), 97);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::BAR->ordinal(), 97);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::CARET->ordinal(), 98);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::CARET->ordinal(), 98);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::EQEQ->ordinal(), 99);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::EQEQ->ordinal(), 99);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::BANGEQ->ordinal(), 100);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::BANGEQ->ordinal(), 100);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LTEQ->ordinal(), 101);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LTEQ->ordinal(), 101);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::LTLT->ordinal(), 102);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::LTLT->ordinal(), 102);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::STAR->ordinal(), 103);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::STAR->ordinal(), 103);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::SLASH->ordinal(), 104);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::SLASH->ordinal(), 104);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::PERCENT->ordinal(), 105);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::PERCENT->ordinal(), 105);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)->set($Tokens$TokenKind::INSTANCEOF->ordinal(), 106);
+			JavacParser$1::$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind->set($Tokens$TokenKind::INSTANCEOF->ordinal(), 106);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -657,7 +618,39 @@ JavacParser$1::JavacParser$1() {
 }
 
 $Class* JavacParser$1::load$($String* name, bool initialize) {
-	$loadClass(JavacParser$1, name, initialize, &_JavacParser$1_ClassInfo_, clinit$JavacParser$1, allocate$JavacParser$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$com$sun$tools$javac$tree$JCTree$Tag", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$1, $SwitchMap$com$sun$tools$javac$tree$JCTree$Tag)},
+		{"$SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$1, $SwitchMap$com$sun$tools$javac$parser$JavacParser$ParensResult)},
+		{"$SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacParser$1, $SwitchMap$com$sun$tools$javac$parser$Tokens$TokenKind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.parser.JavacParser",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.parser.JavacParser$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.parser.JavacParser$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.parser.JavacParser"
+	};
+	$loadClass(JavacParser$1, name, initialize, &classInfo$$, JavacParser$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacParser$1);
+	});
 	return class$;
 }
 

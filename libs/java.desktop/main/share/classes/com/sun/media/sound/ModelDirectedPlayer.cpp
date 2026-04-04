@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/ModelDirectedPlayer.h>
-
 #include <com/sun/media/sound/ModelConnectionBlock.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$MethodInfo _ModelDirectedPlayer_MethodInfo_[] = {
-	{"play", "(I[Lcom/sun/media/sound/ModelConnectionBlock;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelDirectedPlayer, play, void, int32_t, $ModelConnectionBlockArray*)},
-	{}
-};
-
-$ClassInfo _ModelDirectedPlayer_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.media.sound.ModelDirectedPlayer",
-	nullptr,
-	nullptr,
-	nullptr,
-	_ModelDirectedPlayer_MethodInfo_
-};
-
-$Object* allocate$ModelDirectedPlayer($Class* clazz) {
-	return $of($alloc(ModelDirectedPlayer));
-}
-
 $Class* ModelDirectedPlayer::load$($String* name, bool initialize) {
-	$loadClass(ModelDirectedPlayer, name, initialize, &_ModelDirectedPlayer_ClassInfo_, allocate$ModelDirectedPlayer);
+	$MethodInfo methodInfos$$[] = {
+		{"play", "(I[Lcom/sun/media/sound/ModelConnectionBlock;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ModelDirectedPlayer, play, void, int32_t, $ModelConnectionBlockArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.media.sound.ModelDirectedPlayer",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ModelDirectedPlayer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ModelDirectedPlayer);
+	});
 	return class$;
 }
 

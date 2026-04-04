@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/ProgressBarUI.h>
-
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
@@ -11,24 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _ProgressBarUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(ProgressBarUI, init$, void)},
-	{}
-};
-
-$ClassInfo _ProgressBarUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.ProgressBarUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_ProgressBarUI_MethodInfo_
-};
-
-$Object* allocate$ProgressBarUI($Class* clazz) {
-	return $of($alloc(ProgressBarUI));
-}
-
 void ProgressBarUI::init$() {
 	$ComponentUI::init$();
 }
@@ -37,7 +18,21 @@ ProgressBarUI::ProgressBarUI() {
 }
 
 $Class* ProgressBarUI::load$($String* name, bool initialize) {
-	$loadClass(ProgressBarUI, name, initialize, &_ProgressBarUI_ClassInfo_, allocate$ProgressBarUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(ProgressBarUI, init$, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.ProgressBarUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ProgressBarUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ProgressBarUI);
+	});
 	return class$;
 }
 

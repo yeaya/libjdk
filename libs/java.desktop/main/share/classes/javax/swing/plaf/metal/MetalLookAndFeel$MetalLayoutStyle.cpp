@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel$MetalLayoutStyle.h>
-
 #include <java/awt/Container.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/ButtonModel.h>
@@ -41,45 +40,6 @@ namespace javax {
 		namespace plaf {
 			namespace metal {
 
-$FieldInfo _MetalLookAndFeel$MetalLayoutStyle_FieldInfo_[] = {
-	{"INSTANCE", "Ljavax/swing/plaf/metal/MetalLookAndFeel$MetalLayoutStyle;", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel$MetalLayoutStyle, INSTANCE)},
-	{}
-};
-
-$MethodInfo _MetalLookAndFeel$MetalLayoutStyle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(MetalLookAndFeel$MetalLayoutStyle, init$, void)},
-	{"getButtonAdjustment", "(Ljavax/swing/JComponent;I)I", nullptr, $PRIVATE, $method(MetalLookAndFeel$MetalLayoutStyle, getButtonAdjustment, int32_t, $JComponent*, int32_t)},
-	{"getButtonGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;II)I", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel$MetalLayoutStyle, getButtonGap, int32_t, $JComponent*, $JComponent*, int32_t, int32_t)},
-	{"getContainerGap", "(Ljavax/swing/JComponent;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$MetalLayoutStyle, getContainerGap, int32_t, $JComponent*, int32_t, $Container*)},
-	{"getPreferredGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljavax/swing/LayoutStyle$ComponentPlacement;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$MetalLayoutStyle, getPreferredGap, int32_t, $JComponent*, $JComponent*, $LayoutStyle$ComponentPlacement*, int32_t, $Container*)},
-	{}
-};
-
-$InnerClassInfo _MetalLookAndFeel$MetalLayoutStyle_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalLookAndFeel$MetalLayoutStyle", "javax.swing.plaf.metal.MetalLookAndFeel", "MetalLayoutStyle", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalLookAndFeel$MetalLayoutStyle_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.metal.MetalLookAndFeel$MetalLayoutStyle",
-	"sun.swing.DefaultLayoutStyle",
-	nullptr,
-	_MetalLookAndFeel$MetalLayoutStyle_FieldInfo_,
-	_MetalLookAndFeel$MetalLayoutStyle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalLookAndFeel$MetalLayoutStyle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalLookAndFeel"
-};
-
-$Object* allocate$MetalLookAndFeel$MetalLayoutStyle($Class* clazz) {
-	return $of($alloc(MetalLookAndFeel$MetalLayoutStyle));
-}
-
 MetalLookAndFeel$MetalLayoutStyle* MetalLookAndFeel$MetalLayoutStyle::INSTANCE = nullptr;
 
 void MetalLookAndFeel$MetalLayoutStyle::init$() {
@@ -87,33 +47,31 @@ void MetalLookAndFeel$MetalLayoutStyle::init$() {
 }
 
 int32_t MetalLookAndFeel$MetalLayoutStyle::getPreferredGap($JComponent* component1, $JComponent* component2, $LayoutStyle$ComponentPlacement* type, int32_t position, $Container* parent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$DefaultLayoutStyle::getPreferredGap(component1, component2, type, position, parent);
 	int32_t offset = 0;
 	$init($MetalLookAndFeel$1);
 	switch ($nc($MetalLookAndFeel$1::$SwitchMap$javax$swing$LayoutStyle$ComponentPlacement)->get($nc((type))->ordinal())) {
 	case 1:
-		{
-			if (position == $SwingConstants::EAST || position == $SwingConstants::WEST) {
-				int32_t indent = getIndent(component1, position);
-				if (indent > 0) {
-					return indent;
-				}
-				return 12;
+		if (position == $SwingConstants::EAST || position == $SwingConstants::WEST) {
+			int32_t indent = getIndent(component1, position);
+			if (indent > 0) {
+				return indent;
 			}
+			return 12;
 		}
 	case 2:
 		{
 			bool var$0 = $nc(component1)->getUIClassID() == "ToggleButtonUI"_s;
 			if (var$0 && $nc(component2)->getUIClassID() == "ToggleButtonUI"_s) {
-				$var($ButtonModel, sourceModel, $nc(($cast($JToggleButton, component1)))->getModel());
-				$var($ButtonModel, targetModel, $nc(($cast($JToggleButton, component2)))->getModel());
+				$var($ButtonModel, sourceModel, $cast($JToggleButton, component1)->getModel());
+				$var($ButtonModel, targetModel, $cast($JToggleButton, component2)->getModel());
 				bool var$2 = ($instanceOf($DefaultButtonModel, sourceModel)) && ($instanceOf($DefaultButtonModel, targetModel));
 				if (var$2) {
-					var$2 = ($nc(($cast($DefaultButtonModel, sourceModel)))->getGroup() == $nc(($cast($DefaultButtonModel, targetModel)))->getGroup());
+					var$2 = $cast($DefaultButtonModel, sourceModel)->getGroup() == $cast($DefaultButtonModel, targetModel)->getGroup();
 				}
 				bool var$1 = var$2;
-				if (var$1 && $nc(($cast($DefaultButtonModel, sourceModel)))->getGroup() != nullptr) {
+				if (var$1 && $nc($cast($DefaultButtonModel, sourceModel))->getGroup() != nullptr) {
 					return 2;
 				}
 				if ($MetalLookAndFeel::usingOcean()) {
@@ -125,10 +83,8 @@ int32_t MetalLookAndFeel$MetalLayoutStyle::getPreferredGap($JComponent* componen
 			break;
 		}
 	case 3:
-		{
-			offset = 12;
-			break;
-		}
+		offset = 12;
+		break;
 	}
 	if (isLabelAndNonlabel(component1, component2, position)) {
 		return getButtonGap(component1, component2, position, offset + 6);
@@ -157,7 +113,7 @@ int32_t MetalLookAndFeel$MetalLayoutStyle::getButtonGap($JComponent* source, $JC
 }
 
 int32_t MetalLookAndFeel$MetalLayoutStyle::getButtonAdjustment($JComponent* source, int32_t edge) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, classID, $nc(source)->getUIClassID());
 	if (classID == "ButtonUI"_s || classID == "ToggleButtonUI"_s) {
 		if (!$MetalLookAndFeel::usingOcean() && (edge == $SwingConstants::EAST || edge == $SwingConstants::SOUTH)) {
@@ -173,7 +129,7 @@ int32_t MetalLookAndFeel$MetalLayoutStyle::getButtonAdjustment($JComponent* sour
 	return 0;
 }
 
-void clinit$MetalLookAndFeel$MetalLayoutStyle($Class* class$) {
+void MetalLookAndFeel$MetalLayoutStyle::clinit$($Class* clazz) {
 	$assignStatic(MetalLookAndFeel$MetalLayoutStyle::INSTANCE, $new(MetalLookAndFeel$MetalLayoutStyle));
 }
 
@@ -181,7 +137,40 @@ MetalLookAndFeel$MetalLayoutStyle::MetalLookAndFeel$MetalLayoutStyle() {
 }
 
 $Class* MetalLookAndFeel$MetalLayoutStyle::load$($String* name, bool initialize) {
-	$loadClass(MetalLookAndFeel$MetalLayoutStyle, name, initialize, &_MetalLookAndFeel$MetalLayoutStyle_ClassInfo_, clinit$MetalLookAndFeel$MetalLayoutStyle, allocate$MetalLookAndFeel$MetalLayoutStyle);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljavax/swing/plaf/metal/MetalLookAndFeel$MetalLayoutStyle;", nullptr, $PRIVATE | $STATIC, $staticField(MetalLookAndFeel$MetalLayoutStyle, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(MetalLookAndFeel$MetalLayoutStyle, init$, void)},
+		{"getButtonAdjustment", "(Ljavax/swing/JComponent;I)I", nullptr, $PRIVATE, $method(MetalLookAndFeel$MetalLayoutStyle, getButtonAdjustment, int32_t, $JComponent*, int32_t)},
+		{"getButtonGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;II)I", nullptr, $PROTECTED, $virtualMethod(MetalLookAndFeel$MetalLayoutStyle, getButtonGap, int32_t, $JComponent*, $JComponent*, int32_t, int32_t)},
+		{"getContainerGap", "(Ljavax/swing/JComponent;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$MetalLayoutStyle, getContainerGap, int32_t, $JComponent*, int32_t, $Container*)},
+		{"getPreferredGap", "(Ljavax/swing/JComponent;Ljavax/swing/JComponent;Ljavax/swing/LayoutStyle$ComponentPlacement;ILjava/awt/Container;)I", nullptr, $PUBLIC, $virtualMethod(MetalLookAndFeel$MetalLayoutStyle, getPreferredGap, int32_t, $JComponent*, $JComponent*, $LayoutStyle$ComponentPlacement*, int32_t, $Container*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalLookAndFeel$MetalLayoutStyle", "javax.swing.plaf.metal.MetalLookAndFeel", "MetalLayoutStyle", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.metal.MetalLookAndFeel$MetalLayoutStyle",
+		"sun.swing.DefaultLayoutStyle",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalLookAndFeel"
+	};
+	$loadClass(MetalLookAndFeel$MetalLayoutStyle, name, initialize, &classInfo$$, MetalLookAndFeel$MetalLayoutStyle::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MetalLookAndFeel$MetalLayoutStyle);
+	});
 	return class$;
 }
 

@@ -30,6 +30,7 @@ class JavaBeansAccessor : public ::java::lang::Object {
 	$class(JavaBeansAccessor, 0, ::java::lang::Object)
 public:
 	JavaBeansAccessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* getConstructorPropertiesValue(::java::lang::reflect::Constructor* ctr);
 	static ::jdk::internal::access::JavaBeansAccess* getJavaBeansAccess();

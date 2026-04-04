@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$ICCMarkerSegment.h>
-
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.h>
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
@@ -38,53 +37,6 @@ namespace com {
 			namespace plugins {
 				namespace jpeg {
 
-$FieldInfo _JFIFMarkerSegment$ICCMarkerSegment_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(JFIFMarkerSegment$ICCMarkerSegment, this$0)},
-	{"chunks", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[B>;", 0, $field(JFIFMarkerSegment$ICCMarkerSegment, chunks)},
-	{"profile", "[B", nullptr, 0, $field(JFIFMarkerSegment$ICCMarkerSegment, profile)},
-	{"ID_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment$ICCMarkerSegment, ID_SIZE)},
-	{"chunksRead", "I", nullptr, 0, $field(JFIFMarkerSegment$ICCMarkerSegment, chunksRead)},
-	{"numChunks", "I", nullptr, 0, $field(JFIFMarkerSegment$ICCMarkerSegment, numChunks)},
-	{}
-};
-
-$MethodInfo _JFIFMarkerSegment$ICCMarkerSegment_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Ljava/awt/color/ICC_ColorSpace;)V", nullptr, 0, $method(JFIFMarkerSegment$ICCMarkerSegment, init$, void, $JFIFMarkerSegment*, $ICC_ColorSpace*)},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(JFIFMarkerSegment$ICCMarkerSegment, init$, void, $JFIFMarkerSegment*, $JPEGBuffer*), "java.io.IOException"},
-	{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lorg/w3c/dom/Node;)V", nullptr, 0, $method(JFIFMarkerSegment$ICCMarkerSegment, init$, void, $JFIFMarkerSegment*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
-	{"addData", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)Z", nullptr, 0, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, addData, bool, $JPEGBuffer*), "java.io.IOException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, clone, $Object*)},
-	{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, getNativeNode, $IIOMetadataNode*)},
-	{"print", "()V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, print, void)},
-	{"write", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, write, void, $ImageOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _JFIFMarkerSegment$ICCMarkerSegment_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$ICCMarkerSegment", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "ICCMarkerSegment", 0},
-	{}
-};
-
-$ClassInfo _JFIFMarkerSegment$ICCMarkerSegment_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$ICCMarkerSegment",
-	"com.sun.imageio.plugins.jpeg.MarkerSegment",
-	nullptr,
-	_JFIFMarkerSegment$ICCMarkerSegment_FieldInfo_,
-	_JFIFMarkerSegment$ICCMarkerSegment_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFIFMarkerSegment$ICCMarkerSegment_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment"
-};
-
-$Object* allocate$JFIFMarkerSegment$ICCMarkerSegment($Class* clazz) {
-	return $of($alloc(JFIFMarkerSegment$ICCMarkerSegment));
-}
-
 void JFIFMarkerSegment$ICCMarkerSegment::init$($JFIFMarkerSegment* this$0, $ICC_ColorSpace* cs) {
 	$set(this, this$0, this$0);
 	$MarkerSegment::init$($JPEG::APP2);
@@ -93,7 +45,7 @@ void JFIFMarkerSegment$ICCMarkerSegment::init$($JFIFMarkerSegment* this$0, $ICC_
 	$set(this, chunks, nullptr);
 	this->chunksRead = 0;
 	this->numChunks = 0;
-	$set(this, profile, $nc($($nc(cs)->getProfile()))->getData());
+	$set(this, profile, $$nc($nc(cs)->getProfile())->getData());
 }
 
 void JFIFMarkerSegment$ICCMarkerSegment::init$($JFIFMarkerSegment* this$0, $JPEGBuffer* buffer) {
@@ -101,11 +53,12 @@ void JFIFMarkerSegment$ICCMarkerSegment::init$($JFIFMarkerSegment* this$0, $JPEG
 	$MarkerSegment::init$(buffer);
 	$set(this, chunks, nullptr);
 	$set(this, profile, nullptr);
+	;
 	$nc(buffer)->bufPtr += JFIFMarkerSegment$ICCMarkerSegment::ID_SIZE;
 	buffer->bufAvail -= JFIFMarkerSegment$ICCMarkerSegment::ID_SIZE;
 	this->length -= JFIFMarkerSegment$ICCMarkerSegment::ID_SIZE;
-	int32_t chunkNum = (int32_t)($nc(buffer->buf)->get(buffer->bufPtr) & (uint32_t)255);
-	this->numChunks = (int32_t)($nc(buffer->buf)->get(buffer->bufPtr + 1) & (uint32_t)255);
+	int32_t chunkNum = $nc(buffer->buf)->get(buffer->bufPtr) & 0xff;
+	this->numChunks = buffer->buf->get(buffer->bufPtr + 1) & 0xff;
 	if (chunkNum > this->numChunks) {
 		$throwNew($IIOException, "Image format Error; chunk num > num chunks"_s);
 	}
@@ -121,21 +74,21 @@ void JFIFMarkerSegment$ICCMarkerSegment::init$($JFIFMarkerSegment* this$0, $JPEG
 		this->length -= 2;
 		buffer->readData(profileData);
 		$set(this, chunks, $new($ArrayList));
-		$nc(this->chunks)->add(profileData);
+		this->chunks->add(profileData);
 		this->chunksRead = 1;
 		this$0->inICC = true;
 	}
 }
 
 void JFIFMarkerSegment$ICCMarkerSegment::init$($JFIFMarkerSegment* this$0, $Node* node) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, this$0, this$0);
 	$MarkerSegment::init$($JPEG::APP2);
 	$set(this, chunks, nullptr);
 	$set(this, profile, nullptr);
 	if ($instanceOf($IIOMetadataNode, node)) {
 		$var($IIOMetadataNode, ourNode, $cast($IIOMetadataNode, node));
-		$var($ICC_Profile, prof, $cast($ICC_Profile, $nc(ourNode)->getUserObject()));
+		$var($ICC_Profile, prof, $cast($ICC_Profile, ourNode->getUserObject()));
 		if (prof != nullptr) {
 			$set(this, profile, prof->getData());
 		}
@@ -145,31 +98,33 @@ void JFIFMarkerSegment$ICCMarkerSegment::init$($JFIFMarkerSegment* this$0, $Node
 $Object* JFIFMarkerSegment$ICCMarkerSegment::clone() {
 	$var(JFIFMarkerSegment$ICCMarkerSegment, newGuy, $cast(JFIFMarkerSegment$ICCMarkerSegment, $MarkerSegment::clone()));
 	if (this->profile != nullptr) {
-		$set($nc(newGuy), profile, $cast($bytes, $nc(this->profile)->clone()));
+		$set($nc(newGuy), profile, $cast($bytes, this->profile->clone()));
 	}
-	return $of(newGuy);
+	return newGuy;
 }
 
 bool JFIFMarkerSegment$ICCMarkerSegment::addData($JPEGBuffer* buffer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	++$nc(buffer)->bufPtr;
 	--buffer->bufAvail;
-	int32_t dataLen = ((int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255)) << 8;
-	dataLen |= (int32_t)($nc(buffer->buf)->get(buffer->bufPtr++) & (uint32_t)255);
+	int32_t dataLen = ($nc(buffer->buf)->get(buffer->bufPtr++) & 0xff) << 8;
+	dataLen |= buffer->buf->get(buffer->bufPtr++) & 0xff;
 	buffer->bufAvail -= 2;
 	dataLen -= 2;
 	buffer->bufPtr += JFIFMarkerSegment$ICCMarkerSegment::ID_SIZE;
 	buffer->bufAvail -= JFIFMarkerSegment$ICCMarkerSegment::ID_SIZE;
 	dataLen -= JFIFMarkerSegment$ICCMarkerSegment::ID_SIZE;
-	int32_t chunkNum = (int32_t)($nc(buffer->buf)->get(buffer->bufPtr) & (uint32_t)255);
+	int32_t chunkNum = buffer->buf->get(buffer->bufPtr) & 0xff;
 	if (chunkNum > this->numChunks) {
 		$throwNew($IIOException, "Image format Error; chunk num > num chunks"_s);
 	}
-	int32_t newNumChunks = (int32_t)($nc(buffer->buf)->get(buffer->bufPtr + 1) & (uint32_t)255);
+	int32_t newNumChunks = buffer->buf->get(buffer->bufPtr + 1) & 0xff;
 	if (this->numChunks != newNumChunks) {
 		$throwNew($IIOException, "Image format Error; icc num chunks mismatch"_s);
 	}
 	dataLen -= 2;
+	;
 	bool retval = false;
 	$var($bytes, profileData, $new($bytes, dataLen));
 	buffer->readData(profileData);
@@ -179,12 +134,13 @@ bool JFIFMarkerSegment$ICCMarkerSegment::addData($JPEGBuffer* buffer) {
 	if (this->chunksRead < this->numChunks) {
 		this->this$0->inICC = true;
 	} else {
+		;
 		$set(this, profile, $new($bytes, this->length));
 		int32_t index = 0;
 		for (int32_t i = 1; i <= this->numChunks; ++i) {
 			bool foundIt = false;
-			for (int32_t chunk = 0; chunk < $nc(this->chunks)->size(); ++chunk) {
-				$var($bytes, chunkData, $cast($bytes, $nc(this->chunks)->get(chunk)));
+			for (int32_t chunk = 0; chunk < this->chunks->size(); ++chunk) {
+				$var($bytes, chunkData, $cast($bytes, this->chunks->get(chunk)));
 				if ($nc(chunkData)->get(0) == i) {
 					$System::arraycopy(chunkData, 2, this->profile, index, chunkData->length - 2);
 					index += chunkData->length - 2;
@@ -205,7 +161,7 @@ bool JFIFMarkerSegment$ICCMarkerSegment::addData($JPEGBuffer* buffer) {
 }
 
 $IIOMetadataNode* JFIFMarkerSegment$ICCMarkerSegment::getNativeNode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($IIOMetadataNode, node, $new($IIOMetadataNode, "app2ICC"_s));
 	if (this->profile != nullptr) {
 		node->setUserObject($($ICC_Profile::getInstance(this->profile)));
@@ -224,7 +180,48 @@ JFIFMarkerSegment$ICCMarkerSegment::JFIFMarkerSegment$ICCMarkerSegment() {
 }
 
 $Class* JFIFMarkerSegment$ICCMarkerSegment::load$($String* name, bool initialize) {
-	$loadClass(JFIFMarkerSegment$ICCMarkerSegment, name, initialize, &_JFIFMarkerSegment$ICCMarkerSegment_ClassInfo_, allocate$JFIFMarkerSegment$ICCMarkerSegment);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;", nullptr, $FINAL | $SYNTHETIC, $field(JFIFMarkerSegment$ICCMarkerSegment, this$0)},
+		{"chunks", "Ljava/util/ArrayList;", "Ljava/util/ArrayList<[B>;", 0, $field(JFIFMarkerSegment$ICCMarkerSegment, chunks)},
+		{"profile", "[B", nullptr, 0, $field(JFIFMarkerSegment$ICCMarkerSegment, profile)},
+		{"ID_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JFIFMarkerSegment$ICCMarkerSegment, ID_SIZE)},
+		{"chunksRead", "I", nullptr, 0, $field(JFIFMarkerSegment$ICCMarkerSegment, chunksRead)},
+		{"numChunks", "I", nullptr, 0, $field(JFIFMarkerSegment$ICCMarkerSegment, numChunks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Ljava/awt/color/ICC_ColorSpace;)V", nullptr, 0, $method(JFIFMarkerSegment$ICCMarkerSegment, init$, void, $JFIFMarkerSegment*, $ICC_ColorSpace*)},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)V", nullptr, 0, $method(JFIFMarkerSegment$ICCMarkerSegment, init$, void, $JFIFMarkerSegment*, $JPEGBuffer*), "java.io.IOException"},
+		{"<init>", "(Lcom/sun/imageio/plugins/jpeg/JFIFMarkerSegment;Lorg/w3c/dom/Node;)V", nullptr, 0, $method(JFIFMarkerSegment$ICCMarkerSegment, init$, void, $JFIFMarkerSegment*, $Node*), "javax.imageio.metadata.IIOInvalidTreeException"},
+		{"addData", "(Lcom/sun/imageio/plugins/jpeg/JPEGBuffer;)Z", nullptr, 0, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, addData, bool, $JPEGBuffer*), "java.io.IOException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, clone, $Object*)},
+		{"getNativeNode", "()Ljavax/imageio/metadata/IIOMetadataNode;", nullptr, 0, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, getNativeNode, $IIOMetadataNode*)},
+		{"print", "()V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, print, void)},
+		{"write", "(Ljavax/imageio/stream/ImageOutputStream;)V", nullptr, 0, $virtualMethod(JFIFMarkerSegment$ICCMarkerSegment, write, void, $ImageOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$ICCMarkerSegment", "com.sun.imageio.plugins.jpeg.JFIFMarkerSegment", "ICCMarkerSegment", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment$ICCMarkerSegment",
+		"com.sun.imageio.plugins.jpeg.MarkerSegment",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.jpeg.JFIFMarkerSegment"
+	};
+	$loadClass(JFIFMarkerSegment$ICCMarkerSegment, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JFIFMarkerSegment$ICCMarkerSegment);
+	});
 	return class$;
 }
 

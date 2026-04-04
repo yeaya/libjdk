@@ -22,6 +22,7 @@ class GroupEntry$ResolveType : public ::java::lang::Enum {
 public:
 	GroupEntry$ResolveType();
 	static $Array<::javax::xml::catalog::GroupEntry$ResolveType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* literal);
 	static ::javax::xml::catalog::GroupEntry$ResolveType* getType($String* resolveType);
 	virtual bool isType($String* type);

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/platform/JDKPlatformProvider.h>
-
 #include <com/sun/tools/javac/jvm/Target.h>
 #include <com/sun/tools/javac/platform/JDKPlatformProvider$PlatformDescriptionImpl.h>
 #include <com/sun/tools/javac/platform/PlatformDescription.h>
@@ -79,71 +78,27 @@ public:
 	virtual int32_t compare(Object$* s1, Object$* s2) override {
 		 return JDKPlatformProvider::lambda$static$0($cast($String, s1), $cast($String, s2));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JDKPlatformProvider$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JDKPlatformProvider$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$$Lambda$lambda$static$0, init$, void)},
-	{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$$Lambda$lambda$static$0, compare, int32_t, Object$*, Object$*)},
-	{}
-};
-$ClassInfo JDKPlatformProvider$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.util.Comparator",
-	nullptr,
-	methodInfos
 };
 $Class* JDKPlatformProvider$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(JDKPlatformProvider$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider$$Lambda$lambda$static$0, init$, void)},
+		{"compare", "(Ljava/lang/Object;Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider$$Lambda$lambda$static$0, compare, int32_t, Object$*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.util.Comparator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JDKPlatformProvider$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* JDKPlatformProvider$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _JDKPlatformProvider_FieldInfo_[] = {
-	{"symbolFileLocation", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JDKPlatformProvider, symbolFileLocation)},
-	{"SUPPORTED_JAVA_PLATFORM_VERSIONS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JDKPlatformProvider, SUPPORTED_JAVA_PLATFORM_VERSIONS)},
-	{"NUMERICAL_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(JDKPlatformProvider, NUMERICAL_COMPARATOR)},
-	{}
-};
-
-$MethodInfo _JDKPlatformProvider_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider, init$, void)},
-	{"findCtSym", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(JDKPlatformProvider, findCtSym, $Path*)},
-	{"getPlatform", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider, getPlatform, $PlatformDescription*, $String*, $String*)},
-	{"getSupportedPlatformNames", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider, getSupportedPlatformNames, $Iterable*)},
-	{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider, lambda$static$0, int32_t, $String*, $String*)},
-	{"targetNumericVersion", "(Lcom/sun/tools/javac/jvm/Target;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JDKPlatformProvider, targetNumericVersion, $String*, $Target*)},
-	{}
-};
-
-$InnerClassInfo _JDKPlatformProvider_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
-	{}
-};
-
-$ClassInfo _JDKPlatformProvider_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.platform.JDKPlatformProvider",
-	"java.lang.Object",
-	"com.sun.tools.javac.platform.PlatformProvider",
-	_JDKPlatformProvider_FieldInfo_,
-	_JDKPlatformProvider_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JDKPlatformProvider_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl,com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject,com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1,com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$1"
-};
-
-$Object* allocate$JDKPlatformProvider($Class* clazz) {
-	return $of($alloc(JDKPlatformProvider));
-}
 
 $StringArray* JDKPlatformProvider::symbolFileLocation = nullptr;
 $Set* JDKPlatformProvider::SUPPORTED_JAVA_PLATFORM_VERSIONS = nullptr;
@@ -168,14 +123,12 @@ $String* JDKPlatformProvider::targetNumericVersion($Target* target) {
 
 $Path* JDKPlatformProvider::findCtSym() {
 	$init(JDKPlatformProvider);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, javaHome, $System::getProperty("java.home"_s));
 	$var($Path, file, $Paths::get(javaHome, $$new($StringArray, 0)));
 	{
 		$var($StringArray, arr$, JDKPlatformProvider::symbolFileLocation);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, name, arr$->get(i$));
 			$assign(file, $nc(file)->resolve(name));
 		}
@@ -200,95 +153,87 @@ int32_t JDKPlatformProvider::lambda$static$0($String* s1, $String* s2) {
 	return i1 != i2 ? i1 - i2 : $nc(s1)->compareTo(s2);
 }
 
-void clinit$JDKPlatformProvider($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void JDKPlatformProvider::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(JDKPlatformProvider::symbolFileLocation, $new($StringArray, {
 		"lib"_s,
 		"ct.sym"_s
 	}));
-	$assignStatic(JDKPlatformProvider::NUMERICAL_COMPARATOR, static_cast<$Comparator*>($new(JDKPlatformProvider$$Lambda$lambda$static$0)));
+	$assignStatic(JDKPlatformProvider::NUMERICAL_COMPARATOR, $new(JDKPlatformProvider$$Lambda$lambda$static$0));
 	{
-		$assignStatic(JDKPlatformProvider::SUPPORTED_JAVA_PLATFORM_VERSIONS, static_cast<$Set*>(static_cast<$AbstractSet*>($new($TreeSet, JDKPlatformProvider::NUMERICAL_COMPARATOR))));
+		$assignStatic(JDKPlatformProvider::SUPPORTED_JAVA_PLATFORM_VERSIONS, $cast($AbstractSet, $new($TreeSet, JDKPlatformProvider::NUMERICAL_COMPARATOR)));
 		$var($Path, ctSymFile, JDKPlatformProvider::findCtSym());
 		if ($Files::exists(ctSymFile, $$new($LinkOptionArray, 0))) {
 			try {
 				$var($FileSystem, fs, $FileSystems::newFileSystem(ctSymFile, ($ClassLoader*)nullptr));
-				{
-					$var($Throwable, var$0, nullptr);
+				$var($Throwable, var$0, nullptr);
+				try {
 					try {
+						$var($DirectoryStream, dir, $Files::newDirectoryStream($$cast($Path, $$nc($$nc($nc(fs)->getRootDirectories())->iterator())->next())));
+						$var($Throwable, var$1, nullptr);
 						try {
-							$var($DirectoryStream, dir, $Files::newDirectoryStream($cast($Path, $($nc($($nc($($nc(fs)->getRootDirectories()))->iterator()))->next()))));
-							{
-								$var($Throwable, var$1, nullptr);
-								try {
-									try {
+							try {
+								$var($Iterator, i$, $nc(dir)->iterator());
+								for (; $nc(i$)->hasNext();) {
+									$var($Path, section, $cast($Path, i$->next()));
+									{
+										if ($$nc($$nc($nc(section)->getFileName())->toString())->contains("-"_s)) {
+											continue;
+										}
 										{
-											$var($Iterator, i$, $nc(dir)->iterator());
-											for (; $nc(i$)->hasNext();) {
-												$var($Path, section, $cast($Path, i$->next()));
+											$var($chars, arr$, $$nc($$nc(section->getFileName())->toString())->toCharArray());
+											for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
+												char16_t ver = arr$->get(i$);
 												{
-													if ($nc($($nc($($nc(section)->getFileName()))->toString()))->contains("-"_s)) {
-														continue;
-													}
-													{
-														$var($chars, arr$, $nc($($nc($($nc(section)->getFileName()))->toString()))->toCharArray());
-														int32_t len$ = arr$->length;
-														int32_t i$ = 0;
-														for (; i$ < len$; ++i$) {
-															char16_t ver = arr$->get(i$);
-															{
-																$var($String, verString, $Character::toString(ver));
-																$Target* t = $Target::lookup($$str({""_s, $$str($Integer::parseInt(verString, $Character::MAX_RADIX))}));
-																if (t != nullptr) {
-																	$nc(JDKPlatformProvider::SUPPORTED_JAVA_PLATFORM_VERSIONS)->add($(JDKPlatformProvider::targetNumericVersion(t)));
-																}
-															}
-														}
+													$var($String, verString, $Character::toString(ver));
+													$Target* t = $Target::lookup($$str({""_s, $$str($Integer::parseInt(verString, $Character::MAX_RADIX))}));
+													if (t != nullptr) {
+														JDKPlatformProvider::SUPPORTED_JAVA_PLATFORM_VERSIONS->add($(JDKPlatformProvider::targetNumericVersion(t)));
 													}
 												}
 											}
 										}
-									} catch ($Throwable& t$) {
-										if (dir != nullptr) {
-											try {
-												dir->close();
-											} catch ($Throwable& x2) {
-												t$->addSuppressed(x2);
-											}
-										}
-										$throw(t$);
 									}
-								} catch ($Throwable& var$2) {
-									$assign(var$1, var$2);
-								} /*finally*/ {
-									if (dir != nullptr) {
+								}
+							} catch ($Throwable& t$) {
+								if (dir != nullptr) {
+									try {
 										dir->close();
+									} catch ($Throwable& x2) {
+										t$->addSuppressed(x2);
 									}
 								}
-								if (var$1 != nullptr) {
-									$throw(var$1);
-								}
+								$throw(t$);
 							}
-						} catch ($Throwable& t$) {
-							if (fs != nullptr) {
-								try {
-									fs->close();
-								} catch ($Throwable& x2) {
-									t$->addSuppressed(x2);
-								}
+						} catch ($Throwable& var$2) {
+							$assign(var$1, var$2);
+						} /*finally*/ {
+							if (dir != nullptr) {
+								dir->close();
 							}
-							$throw(t$);
 						}
-					} catch ($Throwable& var$3) {
-						$assign(var$0, var$3);
-					} /*finally*/ {
+						if (var$1 != nullptr) {
+							$throw(var$1);
+						}
+					} catch ($Throwable& t$) {
 						if (fs != nullptr) {
-							fs->close();
+							try {
+								fs->close();
+							} catch ($Throwable& x2) {
+								t$->addSuppressed(x2);
+							}
 						}
+						$throw(t$);
 					}
-					if (var$0 != nullptr) {
-						$throw(var$0);
+				} catch ($Throwable& var$3) {
+					$assign(var$0, var$3);
+				} /*finally*/ {
+					if (fs != nullptr) {
+						fs->close();
 					}
+				}
+				if (var$0 != nullptr) {
+					$throw(var$0);
 				}
 			} catch ($IOException& ex) {
 			} catch ($ProviderNotFoundException& ex) {
@@ -302,11 +247,46 @@ JDKPlatformProvider::JDKPlatformProvider() {
 
 $Class* JDKPlatformProvider::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JDKPlatformProvider$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.platform.JDKPlatformProvider$$Lambda$lambda$static$0")) {
 			return JDKPlatformProvider$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(JDKPlatformProvider, name, initialize, &_JDKPlatformProvider_ClassInfo_, clinit$JDKPlatformProvider, allocate$JDKPlatformProvider);
+	$FieldInfo fieldInfos$$[] = {
+		{"symbolFileLocation", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JDKPlatformProvider, symbolFileLocation)},
+		{"SUPPORTED_JAVA_PLATFORM_VERSIONS", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(JDKPlatformProvider, SUPPORTED_JAVA_PLATFORM_VERSIONS)},
+		{"NUMERICAL_COMPARATOR", "Ljava/util/Comparator;", "Ljava/util/Comparator<Ljava/lang/String;>;", $PUBLIC | $STATIC | $FINAL, $staticField(JDKPlatformProvider, NUMERICAL_COMPARATOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JDKPlatformProvider, init$, void)},
+		{"findCtSym", "()Ljava/nio/file/Path;", nullptr, $STATIC, $staticMethod(JDKPlatformProvider, findCtSym, $Path*)},
+		{"getPlatform", "(Ljava/lang/String;Ljava/lang/String;)Lcom/sun/tools/javac/platform/PlatformDescription;", nullptr, $PUBLIC, $virtualMethod(JDKPlatformProvider, getPlatform, $PlatformDescription*, $String*, $String*)},
+		{"getSupportedPlatformNames", "()Ljava/lang/Iterable;", "()Ljava/lang/Iterable<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(JDKPlatformProvider, getSupportedPlatformNames, $Iterable*)},
+		{"lambda$static$0", "(Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JDKPlatformProvider, lambda$static$0, int32_t, $String*, $String*)},
+		{"targetNumericVersion", "(Lcom/sun/tools/javac/jvm/Target;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(JDKPlatformProvider, targetNumericVersion, $String*, $Target*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl", "com.sun.tools.javac.platform.JDKPlatformProvider", "PlatformDescriptionImpl", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.platform.JDKPlatformProvider",
+		"java.lang.Object",
+		"com.sun.tools.javac.platform.PlatformProvider",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl,com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$SigJavaFileObject,com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1,com.sun.tools.javac.platform.JDKPlatformProvider$PlatformDescriptionImpl$1$1"
+	};
+	$loadClass(JDKPlatformProvider, name, initialize, &classInfo$$, JDKPlatformProvider::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JDKPlatformProvider);
+	});
 	return class$;
 }
 

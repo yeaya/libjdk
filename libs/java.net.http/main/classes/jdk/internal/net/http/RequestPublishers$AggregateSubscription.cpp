@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RequestPublishers$AggregateSubscription.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -9,7 +8,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/http/HttpRequest$BodyPublisher.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Queue.h>
 #include <java/util/concurrent/ConcurrentLinkedQueue.h>
@@ -31,9 +29,7 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
-using $Queue = ::java::util::Queue;
 using $ConcurrentLinkedQueue = ::java::util::concurrent::ConcurrentLinkedQueue;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
@@ -55,96 +51,32 @@ public:
 	virtual void run() override {
 		$nc(inst$)->run();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RequestPublishers$AggregateSubscription$$Lambda$run>());
-	}
 	RequestPublishers$AggregateSubscription* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo RequestPublishers$AggregateSubscription$$Lambda$run::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RequestPublishers$AggregateSubscription$$Lambda$run, inst$)},
-	{}
-};
-$MethodInfo RequestPublishers$AggregateSubscription$$Lambda$run::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/RequestPublishers$AggregateSubscription;)V", nullptr, $PUBLIC, $method(RequestPublishers$AggregateSubscription$$Lambda$run, init$, void, RequestPublishers$AggregateSubscription*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription$$Lambda$run, run, void)},
-	{}
-};
-$ClassInfo RequestPublishers$AggregateSubscription$$Lambda$run::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.RequestPublishers$AggregateSubscription$$Lambda$run",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* RequestPublishers$AggregateSubscription$$Lambda$run::load$($String* name, bool initialize) {
-	$loadClass(RequestPublishers$AggregateSubscription$$Lambda$run, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(RequestPublishers$AggregateSubscription$$Lambda$run, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/RequestPublishers$AggregateSubscription;)V", nullptr, $PUBLIC, $method(RequestPublishers$AggregateSubscription$$Lambda$run, init$, void, RequestPublishers$AggregateSubscription*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription$$Lambda$run, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.RequestPublishers$AggregateSubscription$$Lambda$run",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RequestPublishers$AggregateSubscription$$Lambda$run, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$AggregateSubscription$$Lambda$run);
+	});
 	return class$;
 }
 $Class* RequestPublishers$AggregateSubscription$$Lambda$run::class$ = nullptr;
-
-$FieldInfo _RequestPublishers$AggregateSubscription_FieldInfo_[] = {
-	{"subscriber", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;", $FINAL, $field(RequestPublishers$AggregateSubscription, subscriber)},
-	{"bodies", "Ljava/util/Queue;", "Ljava/util/Queue<Ljava/net/http/HttpRequest$BodyPublisher;>;", $FINAL, $field(RequestPublishers$AggregateSubscription, bodies)},
-	{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(RequestPublishers$AggregateSubscription, scheduler)},
-	{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(RequestPublishers$AggregateSubscription, demand)},
-	{"demanded", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(RequestPublishers$AggregateSubscription, demanded)},
-	{"error", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/Throwable;>;", $FINAL, $field(RequestPublishers$AggregateSubscription, error)},
-	{"illegalRequest", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(RequestPublishers$AggregateSubscription, illegalRequest)},
-	{"publisher", "Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $VOLATILE, $field(RequestPublishers$AggregateSubscription, publisher)},
-	{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $VOLATILE, $field(RequestPublishers$AggregateSubscription, subscription)},
-	{"cancelled", "Z", nullptr, $VOLATILE, $field(RequestPublishers$AggregateSubscription, cancelled)},
-	{}
-};
-
-$MethodInfo _RequestPublishers$AggregateSubscription_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/util/List;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/List<Ljava/net/http/HttpRequest$BodyPublisher;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", 0, $method(RequestPublishers$AggregateSubscription, init$, void, $List*, $Flow$Subscriber*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, cancel, void)},
-	{"cancelSubscription", "()Z", nullptr, $PRIVATE, $method(RequestPublishers$AggregateSubscription, cancelSubscription, bool)},
-	{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, onComplete, void)},
-	{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, onError, void, $Throwable*)},
-	{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(RequestPublishers$AggregateSubscription, onNext, void, $ByteBuffer*)},
-	{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RequestPublishers$AggregateSubscription, onNext, void, Object$*)},
-	{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, onSubscribe, void, $Flow$Subscription*)},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, request, void, int64_t)},
-	{"run", "()V", nullptr, $PUBLIC, $method(RequestPublishers$AggregateSubscription, run, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _RequestPublishers$AggregateSubscription_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RequestPublishers$AggregateSubscription", "jdk.internal.net.http.RequestPublishers", "AggregateSubscription", $PRIVATE | $STATIC | $FINAL},
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RequestPublishers$AggregateSubscription_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.RequestPublishers$AggregateSubscription",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription,java.util.concurrent.Flow$Subscriber",
-	_RequestPublishers$AggregateSubscription_FieldInfo_,
-	_RequestPublishers$AggregateSubscription_MethodInfo_,
-	"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscription;Ljava/util/concurrent/Flow$Subscriber<Ljava/nio/ByteBuffer;>;",
-	nullptr,
-	_RequestPublishers$AggregateSubscription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RequestPublishers"
-};
-
-$Object* allocate$RequestPublishers$AggregateSubscription($Class* clazz) {
-	return $of($alloc(RequestPublishers$AggregateSubscription));
-}
 
 int32_t RequestPublishers$AggregateSubscription::hashCode() {
 	 return this->$Flow$Subscription::hashCode();
@@ -172,7 +104,7 @@ void RequestPublishers$AggregateSubscription::init$($List* bodies, $Flow$Subscri
 	$set(this, error, $new($AtomicReference));
 	$set(this, bodies, $new($ConcurrentLinkedQueue, bodies));
 	$set(this, subscriber, subscriber);
-	$set(this, scheduler, $SequentialScheduler::lockingScheduler(static_cast<$Runnable*>($$new(RequestPublishers$AggregateSubscription$$Lambda$run, this))));
+	$set(this, scheduler, $SequentialScheduler::lockingScheduler($$new(RequestPublishers$AggregateSubscription$$Lambda$run, this)));
 }
 
 void RequestPublishers$AggregateSubscription::request(int64_t n) {
@@ -180,7 +112,7 @@ void RequestPublishers$AggregateSubscription::request(int64_t n) {
 		return;
 	}
 	try {
-		$nc(this->demand)->increase(n);
+		this->demand->increase(n);
 	} catch ($IllegalArgumentException& x) {
 		$set(this, illegalRequest, x);
 	}
@@ -204,13 +136,13 @@ bool RequestPublishers$AggregateSubscription::cancelSubscription() {
 }
 
 void RequestPublishers$AggregateSubscription::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		while (true) {
-			bool var$0 = $nc(this->error)->get() == nullptr;
+			bool var$0 = this->error->get() == nullptr;
 			if (var$0) {
-				bool var$1 = !$nc(this->demand)->isFulfilled();
-				var$0 = (var$1 || (this->publisher == nullptr && !$nc(this->bodies)->isEmpty()));
+				bool var$1 = !this->demand->isFulfilled();
+				var$0 = var$1 || (this->publisher == nullptr && !$nc(this->bodies)->isEmpty());
 			}
 			if (!(var$0)) {
 				break;
@@ -226,7 +158,7 @@ void RequestPublishers$AggregateSubscription::run() {
 					return;
 				}
 				if (publisher == nullptr && !$nc(this->bodies)->isEmpty()) {
-					$set(this, publisher, ($assign(publisher, $cast($HttpRequest$BodyPublisher, $nc(this->bodies)->poll()))));
+					$set(this, publisher, $assign(publisher, $cast($HttpRequest$BodyPublisher, this->bodies->poll())));
 					$nc(publisher)->subscribe(this);
 					$assign(subscription, this->subscription);
 				} else if (publisher == nullptr) {
@@ -239,9 +171,9 @@ void RequestPublishers$AggregateSubscription::run() {
 				if (subscription == nullptr) {
 					return;
 				}
-				if (!$nc(this->demand)->isFulfilled()) {
-					int64_t n = $nc(this->demand)->decreaseAndGet($nc(this->demand)->get());
-					$nc(this->demanded)->increase(n);
+				if (!this->demand->isFulfilled()) {
+					int64_t n = this->demand->decreaseAndGet(this->demand->get());
+					this->demanded->increase(n);
 					$nc(subscription)->request(n);
 				}
 			}
@@ -257,16 +189,16 @@ void RequestPublishers$AggregateSubscription::onSubscribe($Flow$Subscription* su
 }
 
 void RequestPublishers$AggregateSubscription::onNext($ByteBuffer* item) {
-	if (this->cancelled || $nc(this->error)->get() != nullptr) {
+	if (this->cancelled || this->error->get() != nullptr) {
 		cancelSubscription();
 		return;
 	}
-	$nc(this->demanded)->tryDecrement();
+	this->demanded->tryDecrement();
 	$nc(this->subscriber)->onNext(item);
 }
 
 void RequestPublishers$AggregateSubscription::onError($Throwable* throwable) {
-	if ($nc(this->error)->compareAndSet(nullptr, throwable)) {
+	if (this->error->compareAndSet(nullptr, throwable)) {
 		$set(this, publisher, nullptr);
 		$set(this, subscription, nullptr);
 		$nc(this->subscriber)->onError(throwable);
@@ -276,8 +208,8 @@ void RequestPublishers$AggregateSubscription::onError($Throwable* throwable) {
 
 void RequestPublishers$AggregateSubscription::onComplete() {
 	if (this->publisher != nullptr && !$nc(this->bodies)->isEmpty()) {
-		while (!$nc(this->demanded)->isFulfilled()) {
-			$nc(this->demand)->increase($nc(this->demanded)->decreaseAndGet($nc(this->demanded)->get()));
+		while (!this->demanded->isFulfilled()) {
+			this->demand->increase(this->demanded->decreaseAndGet(this->demanded->get()));
 		}
 		$set(this, publisher, nullptr);
 		$set(this, subscription, nullptr);
@@ -301,11 +233,65 @@ RequestPublishers$AggregateSubscription::RequestPublishers$AggregateSubscription
 
 $Class* RequestPublishers$AggregateSubscription::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RequestPublishers$AggregateSubscription$$Lambda$run::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.RequestPublishers$AggregateSubscription$$Lambda$run")) {
 			return RequestPublishers$AggregateSubscription$$Lambda$run::load$(name, initialize);
 		}
 	}
-	$loadClass(RequestPublishers$AggregateSubscription, name, initialize, &_RequestPublishers$AggregateSubscription_ClassInfo_, allocate$RequestPublishers$AggregateSubscription);
+	$FieldInfo fieldInfos$$[] = {
+		{"subscriber", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;", $FINAL, $field(RequestPublishers$AggregateSubscription, subscriber)},
+		{"bodies", "Ljava/util/Queue;", "Ljava/util/Queue<Ljava/net/http/HttpRequest$BodyPublisher;>;", $FINAL, $field(RequestPublishers$AggregateSubscription, bodies)},
+		{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(RequestPublishers$AggregateSubscription, scheduler)},
+		{"demand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(RequestPublishers$AggregateSubscription, demand)},
+		{"demanded", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(RequestPublishers$AggregateSubscription, demanded)},
+		{"error", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/Throwable;>;", $FINAL, $field(RequestPublishers$AggregateSubscription, error)},
+		{"illegalRequest", "Ljava/lang/Throwable;", nullptr, $VOLATILE, $field(RequestPublishers$AggregateSubscription, illegalRequest)},
+		{"publisher", "Ljava/net/http/HttpRequest$BodyPublisher;", nullptr, $VOLATILE, $field(RequestPublishers$AggregateSubscription, publisher)},
+		{"subscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $VOLATILE, $field(RequestPublishers$AggregateSubscription, subscription)},
+		{"cancelled", "Z", nullptr, $VOLATILE, $field(RequestPublishers$AggregateSubscription, cancelled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/util/List;Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/List<Ljava/net/http/HttpRequest$BodyPublisher;>;Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", 0, $method(RequestPublishers$AggregateSubscription, init$, void, $List*, $Flow$Subscriber*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, cancel, void)},
+		{"cancelSubscription", "()Z", nullptr, $PRIVATE, $method(RequestPublishers$AggregateSubscription, cancelSubscription, bool)},
+		{"onComplete", "()V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, onComplete, void)},
+		{"onError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, onError, void, $Throwable*)},
+		{"onNext", "(Ljava/nio/ByteBuffer;)V", nullptr, $PUBLIC, $method(RequestPublishers$AggregateSubscription, onNext, void, $ByteBuffer*)},
+		{"onNext", "(Ljava/lang/Object;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(RequestPublishers$AggregateSubscription, onNext, void, Object$*)},
+		{"onSubscribe", "(Ljava/util/concurrent/Flow$Subscription;)V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, onSubscribe, void, $Flow$Subscription*)},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregateSubscription, request, void, int64_t)},
+		{"run", "()V", nullptr, $PUBLIC, $method(RequestPublishers$AggregateSubscription, run, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RequestPublishers$AggregateSubscription", "jdk.internal.net.http.RequestPublishers", "AggregateSubscription", $PRIVATE | $STATIC | $FINAL},
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"java.util.concurrent.Flow$Subscriber", "java.util.concurrent.Flow", "Subscriber", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.RequestPublishers$AggregateSubscription",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription,java.util.concurrent.Flow$Subscriber",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/util/concurrent/Flow$Subscription;Ljava/util/concurrent/Flow$Subscriber<Ljava/nio/ByteBuffer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RequestPublishers"
+	};
+	$loadClass(RequestPublishers$AggregateSubscription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RequestPublishers$AggregateSubscription));
+	});
 	return class$;
 }
 

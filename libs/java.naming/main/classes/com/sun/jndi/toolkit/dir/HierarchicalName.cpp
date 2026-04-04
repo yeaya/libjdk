@@ -1,5 +1,4 @@
 #include <com/sun/jndi/toolkit/dir/HierarchicalName.h>
-
 #include <com/sun/jndi/toolkit/dir/HierarchicalName$1.h>
 #include <com/sun/jndi/toolkit/dir/HierarchicalNameParser.h>
 #include <java/util/Enumeration.h>
@@ -29,50 +28,9 @@ namespace com {
 			namespace toolkit {
 				namespace dir {
 
-$FieldInfo _HierarchicalName_FieldInfo_[] = {
-	{"hashValue", "I", nullptr, $PRIVATE, $field(HierarchicalName, hashValue)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HierarchicalName, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _HierarchicalName_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HierarchicalName, init$, void)},
-	{"<init>", "(Ljava/util/Enumeration;Ljava/util/Properties;)V", "(Ljava/util/Enumeration<Ljava/lang/String;>;Ljava/util/Properties;)V", 0, $method(HierarchicalName, init$, void, $Enumeration*, $Properties*)},
-	{"<init>", "(Ljava/lang/String;Ljava/util/Properties;)V", nullptr, 0, $method(HierarchicalName, init$, void, $String*, $Properties*), "javax.naming.InvalidNameException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, clone, $Object*)},
-	{"getPrefix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, getPrefix, $Name*, int32_t)},
-	{"getSuffix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, getSuffix, $Name*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, hashCode, int32_t)},
-	{}
-};
-
-$InnerClassInfo _HierarchicalName_InnerClassesInfo_[] = {
-	{"com.sun.jndi.toolkit.dir.HierarchicalName$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HierarchicalName_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.toolkit.dir.HierarchicalName",
-	"javax.naming.CompoundName",
-	nullptr,
-	_HierarchicalName_FieldInfo_,
-	_HierarchicalName_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HierarchicalName_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.toolkit.dir.HierarchicalName$1"
-};
-
-$Object* allocate$HierarchicalName($Class* clazz) {
-	return $of($alloc(HierarchicalName));
-}
-
 void HierarchicalName::init$() {
 	$init($HierarchicalNameParser);
-	$CompoundName::init$(static_cast<$Enumeration*>($$new($HierarchicalName$1)), $HierarchicalNameParser::mySyntax);
+	$CompoundName::init$($$new($HierarchicalName$1), $HierarchicalNameParser::mySyntax);
 	this->hashValue = -1;
 }
 
@@ -87,10 +45,10 @@ void HierarchicalName::init$($String* n, $Properties* syntax) {
 }
 
 int32_t HierarchicalName::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->hashValue == -1) {
 		$init($Locale);
-		$var($String, name, $nc($(toString()))->toUpperCase($Locale::ENGLISH));
+		$var($String, name, $$nc(toString())->toUpperCase($Locale::ENGLISH));
 		int32_t len = name->length();
 		int32_t off = 0;
 		$var($chars, val, $new($chars, len));
@@ -103,26 +61,61 @@ int32_t HierarchicalName::hashCode() {
 }
 
 $Name* HierarchicalName::getPrefix(int32_t posn) {
-	$useLocalCurrentObjectStackCache();
-	$var($Enumeration, comps, $nc($($CompoundName::getPrefix(posn)))->getAll());
+	$useLocalObjectStack();
+	$var($Enumeration, comps, $$nc($CompoundName::getPrefix(posn))->getAll());
 	return ($new(HierarchicalName, comps, this->mySyntax));
 }
 
 $Name* HierarchicalName::getSuffix(int32_t posn) {
-	$useLocalCurrentObjectStackCache();
-	$var($Enumeration, comps, $nc($($CompoundName::getSuffix(posn)))->getAll());
+	$useLocalObjectStack();
+	$var($Enumeration, comps, $$nc($CompoundName::getSuffix(posn))->getAll());
 	return ($new(HierarchicalName, comps, this->mySyntax));
 }
 
 $Object* HierarchicalName::clone() {
-	return $of(($new(HierarchicalName, $(getAll()), this->mySyntax)));
+	return ($of($new(HierarchicalName, $(getAll()), this->mySyntax)));
 }
 
 HierarchicalName::HierarchicalName() {
 }
 
 $Class* HierarchicalName::load$($String* name, bool initialize) {
-	$loadClass(HierarchicalName, name, initialize, &_HierarchicalName_ClassInfo_, allocate$HierarchicalName);
+	$FieldInfo fieldInfos$$[] = {
+		{"hashValue", "I", nullptr, $PRIVATE, $field(HierarchicalName, hashValue)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HierarchicalName, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HierarchicalName, init$, void)},
+		{"<init>", "(Ljava/util/Enumeration;Ljava/util/Properties;)V", "(Ljava/util/Enumeration<Ljava/lang/String;>;Ljava/util/Properties;)V", 0, $method(HierarchicalName, init$, void, $Enumeration*, $Properties*)},
+		{"<init>", "(Ljava/lang/String;Ljava/util/Properties;)V", nullptr, 0, $method(HierarchicalName, init$, void, $String*, $Properties*), "javax.naming.InvalidNameException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, clone, $Object*)},
+		{"getPrefix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, getPrefix, $Name*, int32_t)},
+		{"getSuffix", "(I)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, getSuffix, $Name*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(HierarchicalName, hashCode, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.toolkit.dir.HierarchicalName$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.toolkit.dir.HierarchicalName",
+		"javax.naming.CompoundName",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.toolkit.dir.HierarchicalName$1"
+	};
+	$loadClass(HierarchicalName, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HierarchicalName));
+	});
 	return class$;
 }
 

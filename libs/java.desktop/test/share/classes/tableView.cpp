@@ -1,5 +1,4 @@
 #include <tableView.h>
-
 #include <CodeBugDocument.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -30,50 +29,6 @@ using $TableView = ::javax::swing::text::TableView;
 using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
 using $tableView$trView = ::tableView$trView;
-
-$MethodInfo _tableView_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(tableView, init$, void, $Element*)},
-	{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(tableView, create, $View*, $Element*)},
-	{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(tableView, getAlignment, float, int32_t)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(tableView, getMaximumSpan, float, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(tableView, getMinimumSpan, float, int32_t)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(tableView, getPreferredSpan, float, int32_t)},
-	{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(tableView, getViewFactory, $ViewFactory*)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(tableView, paint, void, $Graphics*, $Shape*)},
-	{"paintChild", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(tableView, paintChild, void, $Graphics*, $Rectangle*, int32_t)},
-	{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(tableView, setParent, void, $View*)},
-	{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(tableView, setSize, void, float, float)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _tableView_InnerClassesInfo_[] = {
-	{"tableView$trView", "tableView", "trView", $PUBLIC},
-	{}
-};
-
-$ClassInfo _tableView_ClassInfo_ = {
-	$ACC_SUPER,
-	"tableView",
-	"javax.swing.text.TableView",
-	"javax.swing.text.ViewFactory",
-	nullptr,
-	_tableView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_tableView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"tableView$trView"
-};
-
-$Object* allocate$tableView($Class* clazz) {
-	return $of($alloc(tableView));
-}
 
 int32_t tableView::hashCode() {
 	 return this->$TableView::hashCode();
@@ -134,27 +89,25 @@ float tableView::getPreferredSpan(int32_t axis) {
 void tableView::paint($Graphics* g, $Shape* allocation) {
 	$TableView::paint(g, allocation);
 	$var($Rectangle, alloc, $nc(allocation)->getBounds());
-	int32_t lastY = $nc(alloc)->y + alloc->height - 1;
+	int32_t lastY = $nc(alloc)->y + $nc(alloc)->height - 1;
 	$nc(g)->drawLine(alloc->x, lastY, alloc->x + alloc->width, lastY);
 }
 
 void tableView::paintChild($Graphics* g, $Rectangle* alloc, int32_t index) {
 	$TableView::paintChild(g, alloc, index);
-	int32_t lastX = $nc(alloc)->x + alloc->width;
+	int32_t lastX = $nc(alloc)->x + $nc(alloc)->width;
 	$nc(g)->drawLine(alloc->x, alloc->y, lastX, alloc->y);
 }
 
 $View* tableView::create($Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, kind, $nc(elem)->getName());
 	if (kind != nullptr) {
 		$init($CodeBugDocument);
 		if (kind->equals($CodeBugDocument::ELEMENT_TR)) {
 			return $new($tableView$trView, this, elem);
-		} else {
-			if (kind->equals($CodeBugDocument::ELEMENT_TD)) {
-				return $new($BoxView, elem, $View::Y_AXIS);
-			}
+		} else if (kind->equals($CodeBugDocument::ELEMENT_TD)) {
+			return $new($BoxView, elem, $View::Y_AXIS);
 		}
 	}
 	$var($View, p, getParent());
@@ -171,7 +124,46 @@ tableView::tableView() {
 }
 
 $Class* tableView::load$($String* name, bool initialize) {
-	$loadClass(tableView, name, initialize, &_tableView_ClassInfo_, allocate$tableView);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(tableView, init$, void, $Element*)},
+		{"create", "(Ljavax/swing/text/Element;)Ljavax/swing/text/View;", nullptr, $PUBLIC, $virtualMethod(tableView, create, $View*, $Element*)},
+		{"getAlignment", "(I)F", nullptr, $PUBLIC, $virtualMethod(tableView, getAlignment, float, int32_t)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(tableView, getMaximumSpan, float, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(tableView, getMinimumSpan, float, int32_t)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(tableView, getPreferredSpan, float, int32_t)},
+		{"getViewFactory", "()Ljavax/swing/text/ViewFactory;", nullptr, $PUBLIC, $virtualMethod(tableView, getViewFactory, $ViewFactory*)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(tableView, paint, void, $Graphics*, $Shape*)},
+		{"paintChild", "(Ljava/awt/Graphics;Ljava/awt/Rectangle;I)V", nullptr, $PROTECTED, $virtualMethod(tableView, paintChild, void, $Graphics*, $Rectangle*, int32_t)},
+		{"setParent", "(Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(tableView, setParent, void, $View*)},
+		{"setSize", "(FF)V", nullptr, $PUBLIC, $virtualMethod(tableView, setSize, void, float, float)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"tableView$trView", "tableView", "trView", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"tableView",
+		"javax.swing.text.TableView",
+		"javax.swing.text.ViewFactory",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"tableView$trView"
+	};
+	$loadClass(tableView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(tableView));
+	});
 	return class$;
 }
 

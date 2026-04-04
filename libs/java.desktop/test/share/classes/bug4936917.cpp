@@ -1,5 +1,4 @@
 #include <bug4936917.h>
-
 #include <bug4936917$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -25,7 +24,6 @@
 using $bug4936917$1 = ::bug4936917$1;
 using $Color = ::java::awt::Color;
 using $Robot = ::java::awt::Robot;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -50,35 +48,31 @@ public:
 	virtual void run() override {
 		$nc(inst$)->lambda$blockTillDisplayed$0(comp);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4936917$$Lambda$lambda$blockTillDisplayed$0>());
-	}
 	bug4936917* inst$ = nullptr;
 	$JComponent* comp = nullptr;
-	static $FieldInfo fieldInfos[3];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo bug4936917$$Lambda$lambda$blockTillDisplayed$0::fieldInfos[3] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4936917$$Lambda$lambda$blockTillDisplayed$0, inst$)},
-	{"comp", "Ljavax/swing/JComponent;", nullptr, $PUBLIC, $field(bug4936917$$Lambda$lambda$blockTillDisplayed$0, comp)},
-	{}
-};
-$MethodInfo bug4936917$$Lambda$lambda$blockTillDisplayed$0::methodInfos[3] = {
-	{"<init>", "(Lbug4936917;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(bug4936917$$Lambda$lambda$blockTillDisplayed$0, init$, void, bug4936917*, $JComponent*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917$$Lambda$lambda$blockTillDisplayed$0, run, void)},
-	{}
-};
-$ClassInfo bug4936917$$Lambda$lambda$blockTillDisplayed$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4936917$$Lambda$lambda$blockTillDisplayed$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* bug4936917$$Lambda$lambda$blockTillDisplayed$0::load$($String* name, bool initialize) {
-	$loadClass(bug4936917$$Lambda$lambda$blockTillDisplayed$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(bug4936917$$Lambda$lambda$blockTillDisplayed$0, inst$)},
+		{"comp", "Ljavax/swing/JComponent;", nullptr, $PUBLIC, $field(bug4936917$$Lambda$lambda$blockTillDisplayed$0, comp)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug4936917;Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(bug4936917$$Lambda$lambda$blockTillDisplayed$0, init$, void, bug4936917*, $JComponent*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917$$Lambda$lambda$blockTillDisplayed$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4936917$$Lambda$lambda$blockTillDisplayed$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(bug4936917$$Lambda$lambda$blockTillDisplayed$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4936917$$Lambda$lambda$blockTillDisplayed$0);
+	});
 	return class$;
 }
 $Class* bug4936917$$Lambda$lambda$blockTillDisplayed$0::class$ = nullptr;
@@ -91,75 +85,27 @@ public:
 	virtual void run() override {
 		bug4936917::lambda$destroy$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<bug4936917$$Lambda$lambda$destroy$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo bug4936917$$Lambda$lambda$destroy$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4936917$$Lambda$lambda$destroy$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917$$Lambda$lambda$destroy$1$1, run, void)},
-	{}
-};
-$ClassInfo bug4936917$$Lambda$lambda$destroy$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"bug4936917$$Lambda$lambda$destroy$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* bug4936917$$Lambda$lambda$destroy$1$1::load$($String* name, bool initialize) {
-	$loadClass(bug4936917$$Lambda$lambda$destroy$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4936917$$Lambda$lambda$destroy$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917$$Lambda$lambda$destroy$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"bug4936917$$Lambda$lambda$destroy$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug4936917$$Lambda$lambda$destroy$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4936917$$Lambda$lambda$destroy$1$1);
+	});
 	return class$;
 }
 $Class* bug4936917$$Lambda$lambda$destroy$1$1::class$ = nullptr;
-
-$FieldInfo _bug4936917_FieldInfo_[] = {
-	{"passed", "Z", nullptr, $PRIVATE, $field(bug4936917, passed)},
-	{"timer", "Ljava/util/Timer;", nullptr, $PRIVATE, $field(bug4936917, timer)},
-	{"editorPane", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(bug4936917, editorPane)},
-	{"f", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4936917, f)},
-	{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(bug4936917, p)},
-	{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(bug4936917, text)},
-	{}
-};
-
-$MethodInfo _bug4936917_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug4936917, init$, void)},
-	{"blockTillDisplayed", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(bug4936917, blockTillDisplayed, void, $JComponent*), "java.lang.Exception"},
-	{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917, destroy, void), "java.lang.Exception"},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917, init, void), "java.lang.Exception"},
-	{"lambda$blockTillDisplayed$0", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug4936917, lambda$blockTillDisplayed$0, void, $JComponent*)},
-	{"lambda$destroy$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4936917, lambda$destroy$1, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4936917, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _bug4936917_InnerClassesInfo_[] = {
-	{"bug4936917$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug4936917_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug4936917",
-	"java.lang.Object",
-	nullptr,
-	_bug4936917_FieldInfo_,
-	_bug4936917_MethodInfo_,
-	nullptr,
-	nullptr,
-	_bug4936917_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"bug4936917$1"
-};
-
-$Object* allocate$bug4936917($Class* clazz) {
-	return $of($alloc(bug4936917));
-}
 
 $JFrame* bug4936917::f = nullptr;
 
@@ -170,7 +116,7 @@ void bug4936917::init$() {
 }
 
 void bug4936917::init() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SwingUtilities::invokeAndWait($$new($bug4936917$1, this));
 	blockTillDisplayed(this->editorPane);
 	$var($Robot, robot, $new($Robot));
@@ -183,7 +129,7 @@ void bug4936917::init() {
 	this->passed = true;
 	for (int32_t x = x0; x < x0 + 10; ++x) {
 		$nc($System::out)->println($$str({"color ("_s, $$str(x), ","_s, $$str(y), ")="_s, $(robot->getPixelColor(x, y))}));
-		if (!$nc($(robot->getPixelColor(x, y)))->equals($$new($Color, 204, 204, 204))) {
+		if (!$$nc(robot->getPixelColor(x, y))->equals($$new($Color, 204, 204, 204))) {
 			++nonmatch;
 		} else {
 			++match;
@@ -195,10 +141,10 @@ void bug4936917::init() {
 }
 
 void bug4936917::blockTillDisplayed($JComponent* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (this->p == nullptr) {
 		try {
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4936917$$Lambda$lambda$blockTillDisplayed$0, this, comp)));
+			$SwingUtilities::invokeAndWait($$new(bug4936917$$Lambda$lambda$blockTillDisplayed$0, this, comp));
 		} catch ($IllegalStateException& e) {
 			try {
 				$Thread::sleep(1000);
@@ -209,7 +155,7 @@ void bug4936917::blockTillDisplayed($JComponent* comp) {
 }
 
 void bug4936917::destroy() {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(bug4936917$$Lambda$lambda$destroy$1$1)));
+	$SwingUtilities::invokeAndWait($$new(bug4936917$$Lambda$lambda$destroy$1$1));
 	if (!this->passed) {
 		$throwNew($RuntimeException, "Test failed."_s);
 	}
@@ -235,14 +181,53 @@ bug4936917::bug4936917() {
 
 $Class* bug4936917::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(bug4936917$$Lambda$lambda$blockTillDisplayed$0::classInfo$.name)) {
+		if (name->equals("bug4936917$$Lambda$lambda$blockTillDisplayed$0")) {
 			return bug4936917$$Lambda$lambda$blockTillDisplayed$0::load$(name, initialize);
 		}
-		if (name->equals(bug4936917$$Lambda$lambda$destroy$1$1::classInfo$.name)) {
+		if (name->equals("bug4936917$$Lambda$lambda$destroy$1$1")) {
 			return bug4936917$$Lambda$lambda$destroy$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(bug4936917, name, initialize, &_bug4936917_ClassInfo_, allocate$bug4936917);
+	$FieldInfo fieldInfos$$[] = {
+		{"passed", "Z", nullptr, $PRIVATE, $field(bug4936917, passed)},
+		{"timer", "Ljava/util/Timer;", nullptr, $PRIVATE, $field(bug4936917, timer)},
+		{"editorPane", "Ljavax/swing/JEditorPane;", nullptr, $PRIVATE, $field(bug4936917, editorPane)},
+		{"f", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug4936917, f)},
+		{"p", "Ljava/awt/Point;", nullptr, $PRIVATE | $VOLATILE, $field(bug4936917, p)},
+		{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(bug4936917, text)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug4936917, init$, void)},
+		{"blockTillDisplayed", "(Ljavax/swing/JComponent;)V", nullptr, 0, $virtualMethod(bug4936917, blockTillDisplayed, void, $JComponent*), "java.lang.Exception"},
+		{"destroy", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917, destroy, void), "java.lang.Exception"},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(bug4936917, init, void), "java.lang.Exception"},
+		{"lambda$blockTillDisplayed$0", "(Ljavax/swing/JComponent;)V", nullptr, $PRIVATE | $SYNTHETIC, $method(bug4936917, lambda$blockTillDisplayed$0, void, $JComponent*)},
+		{"lambda$destroy$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(bug4936917, lambda$destroy$1, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug4936917, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug4936917$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug4936917",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"bug4936917$1"
+	};
+	$loadClass(bug4936917, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug4936917);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Types$HashCodeVisitor.h>
-
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
@@ -21,8 +20,6 @@
 
 #undef METHOD
 
-using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
@@ -34,7 +31,6 @@ using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types$UnaryVisitor = ::com::sun::tools::javac::code::Types$UnaryVisitor;
 using $List = ::com::sun::tools::javac::util::List;
-using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -48,73 +44,26 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Types$HashCodeVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Types$HashCodeVisitor, init$, void)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitArrayType, $Integer*, $Type$ArrayType*, $Void*)},
-	{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitClassType, $Integer*, $Type$ClassType*, $Void*)},
-	{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitErrorType, $Integer*, $Type$ErrorType*, $Void*)},
-	{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitMethodType, $Integer*, $Type$MethodType*, $Void*)},
-	{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitType, $Integer*, $Type*, $Void*)},
-	{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitType, $Object*, $Type*, Object$*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitTypeVar, $Integer*, $Type$TypeVar*, $Void*)},
-	{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitUndetVar, $Integer*, $Type$UndetVar*, $Void*)},
-	{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitWildcardType, $Integer*, $Type$WildcardType*, $Void*)},
-	{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
-	{}
-};
-
-$InnerClassInfo _Types$HashCodeVisitor_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Types$HashCodeVisitor", "com.sun.tools.javac.code.Types", "HashCodeVisitor", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Types$HashCodeVisitor_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Types$HashCodeVisitor",
-	"com.sun.tools.javac.code.Types$UnaryVisitor",
-	nullptr,
-	nullptr,
-	_Types$HashCodeVisitor_MethodInfo_,
-	"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Integer;>;",
-	nullptr,
-	_Types$HashCodeVisitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Types"
-};
-
-$Object* allocate$Types$HashCodeVisitor($Class* clazz) {
-	return $of($alloc(Types$HashCodeVisitor));
-}
-
 void Types$HashCodeVisitor::init$() {
 	$Types$UnaryVisitor::init$();
 }
 
 $Integer* Types$HashCodeVisitor::visitType($Type* t, $Void* ignored) {
-	return $Integer::valueOf($nc($($nc(t)->getTag()))->ordinal());
+	return $Integer::valueOf($$nc($nc(t)->getTag())->ordinal());
 }
 
 $Integer* Types$HashCodeVisitor::visitClassType($Type$ClassType* t, $Void* ignored) {
-	$useLocalCurrentObjectStackCache();
-	int32_t result = $nc(($cast($Integer, $(visit($($nc(t)->getEnclosingType()))))))->intValue();
+	$useLocalObjectStack();
+	int32_t result = $$sure($Integer, visit($($nc(t)->getEnclosingType())))->intValue();
 	result *= 127;
-	result += $nc($of($($nc($nc(t)->tsym)->flatName())))->hashCode();
+	result += $$nc($nc(t->tsym)->flatName())->hashCode();
 	{
-		$var($Iterator, i$, $nc($(t->getTypeArguments()))->iterator());
+		$var($Iterator, i$, $$nc(t->getTypeArguments())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Type, s, $cast($Type, i$->next()));
 			{
 				result *= 127;
-				result += $nc(($cast($Integer, $(visit(s)))))->intValue();
+				result += $$sure($Integer, visit(s))->intValue();
 			}
 		}
 	}
@@ -122,29 +71,29 @@ $Integer* Types$HashCodeVisitor::visitClassType($Type$ClassType* t, $Void* ignor
 }
 
 $Integer* Types$HashCodeVisitor::visitMethodType($Type$MethodType* t, $Void* ignored) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($TypeTag);
 	int32_t h = $TypeTag::METHOD->ordinal();
 	{
 		$var($List, thisargs, $nc(t)->argtypes$);
-		for (; $nc(thisargs)->tail != nullptr; $assign(thisargs, $nc(thisargs)->tail)) {
-			h = (h << 5) + $nc(($cast($Integer, $(visit($cast($Type, thisargs->head))))))->intValue();
+		for (; $nc(thisargs)->tail != nullptr; $assign(thisargs, thisargs->tail)) {
+			h = (h << 5) + $$sure($Integer, visit($cast($Type, thisargs->head)))->intValue();
 		}
 	}
-	return $Integer::valueOf((h << 5) + $nc(($cast($Integer, $(visit(t->restype)))))->intValue());
+	return $Integer::valueOf((h << 5) + $$sure($Integer, visit(t->restype))->intValue());
 }
 
 $Integer* Types$HashCodeVisitor::visitWildcardType($Type$WildcardType* t, $Void* ignored) {
 	int32_t result = $nc($nc(t)->kind)->hashCode();
 	if (t->type != nullptr) {
 		result *= 127;
-		result += $nc(($cast($Integer, $(visit(t->type)))))->intValue();
+		result += $$sure($Integer, visit(t->type))->intValue();
 	}
 	return $Integer::valueOf(result);
 }
 
 $Integer* Types$HashCodeVisitor::visitArrayType($Type$ArrayType* t, $Void* ignored) {
-	return $Integer::valueOf($nc(($cast($Integer, $(visit($nc(t)->elemtype)))))->intValue() + 12);
+	return $Integer::valueOf($$sure($Integer, visit($nc(t)->elemtype))->intValue() + 12);
 }
 
 $Integer* Types$HashCodeVisitor::visitTypeVar($Type$TypeVar* t, $Void* ignored) {
@@ -195,7 +144,49 @@ Types$HashCodeVisitor::Types$HashCodeVisitor() {
 }
 
 $Class* Types$HashCodeVisitor::load$($String* name, bool initialize) {
-	$loadClass(Types$HashCodeVisitor, name, initialize, &_Types$HashCodeVisitor_ClassInfo_, allocate$Types$HashCodeVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Types$HashCodeVisitor, init$, void)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitArrayType, $Integer*, $Type$ArrayType*, $Void*)},
+		{"visitArrayType", "(Lcom/sun/tools/javac/code/Type$ArrayType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitArrayType, $Object*, $Type$ArrayType*, Object$*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitClassType, $Integer*, $Type$ClassType*, $Void*)},
+		{"visitClassType", "(Lcom/sun/tools/javac/code/Type$ClassType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitClassType, $Object*, $Type$ClassType*, Object$*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitErrorType, $Integer*, $Type$ErrorType*, $Void*)},
+		{"visitErrorType", "(Lcom/sun/tools/javac/code/Type$ErrorType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitErrorType, $Object*, $Type$ErrorType*, Object$*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitMethodType, $Integer*, $Type$MethodType*, $Void*)},
+		{"visitMethodType", "(Lcom/sun/tools/javac/code/Type$MethodType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitMethodType, $Object*, $Type$MethodType*, Object$*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitType, $Integer*, $Type*, $Void*)},
+		{"visitType", "(Lcom/sun/tools/javac/code/Type;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitType, $Object*, $Type*, Object$*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitTypeVar, $Integer*, $Type$TypeVar*, $Void*)},
+		{"visitTypeVar", "(Lcom/sun/tools/javac/code/Type$TypeVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitTypeVar, $Object*, $Type$TypeVar*, Object$*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitUndetVar, $Integer*, $Type$UndetVar*, $Void*)},
+		{"visitUndetVar", "(Lcom/sun/tools/javac/code/Type$UndetVar;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitUndetVar, $Object*, $Type$UndetVar*, Object$*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Void;)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(Types$HashCodeVisitor, visitWildcardType, $Integer*, $Type$WildcardType*, $Void*)},
+		{"visitWildcardType", "(Lcom/sun/tools/javac/code/Type$WildcardType;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Types$HashCodeVisitor, visitWildcardType, $Object*, $Type$WildcardType*, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Types$HashCodeVisitor", "com.sun.tools.javac.code.Types", "HashCodeVisitor", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.code.Types$UnaryVisitor", "com.sun.tools.javac.code.Types", "UnaryVisitor", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Types$HashCodeVisitor",
+		"com.sun.tools.javac.code.Types$UnaryVisitor",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Lcom/sun/tools/javac/code/Types$UnaryVisitor<Ljava/lang/Integer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Types"
+	};
+	$loadClass(Types$HashCodeVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Types$HashCodeVisitor);
+	});
 	return class$;
 }
 

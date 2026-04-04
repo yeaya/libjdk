@@ -23,11 +23,14 @@ public:
 	void init$($String* message);
 	void init$($String* message, $Throwable* cause);
 	virtual $Throwable* getCause() override;
-	static const int64_t serialVersionUID = (int64_t)0xD40D9BD422EA29A2;
+	static const int64_t serialVersionUID = (int64_t)0xd40d9bd422ea29a2;
 	$Throwable* cause = nullptr;
 	JMXProviderException(const JMXProviderException& e);
 	virtual void throw$() override;
-	inline JMXProviderException* operator ->() {
+	inline JMXProviderException* operator ->() const {
+		return (JMXProviderException*)throwing$;
+	}
+	inline operator JMXProviderException*() const {
 		return (JMXProviderException*)throwing$;
 	}
 };

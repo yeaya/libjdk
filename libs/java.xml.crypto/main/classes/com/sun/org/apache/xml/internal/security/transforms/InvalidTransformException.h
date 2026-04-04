@@ -36,7 +36,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	InvalidTransformException(const InvalidTransformException& e);
 	virtual void throw$() override;
-	inline InvalidTransformException* operator ->() {
+	inline InvalidTransformException* operator ->() const {
+		return (InvalidTransformException*)throwing$;
+	}
+	inline operator InvalidTransformException*() const {
 		return (InvalidTransformException*)throwing$;
 	}
 };

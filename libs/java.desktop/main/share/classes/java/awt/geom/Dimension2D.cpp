@@ -1,5 +1,4 @@
 #include <java/awt/geom/Dimension2D.h>
-
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/InternalError.h>
@@ -15,29 +14,6 @@ namespace java {
 	namespace awt {
 		namespace geom {
 
-$MethodInfo _Dimension2D_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Dimension2D, init$, void)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Dimension2D, clone, $Object*)},
-	{"getHeight", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dimension2D, getHeight, double)},
-	{"getWidth", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dimension2D, getWidth, double)},
-	{"setSize", "(DD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dimension2D, setSize, void, double, double)},
-	{"setSize", "(Ljava/awt/geom/Dimension2D;)V", nullptr, $PUBLIC, $virtualMethod(Dimension2D, setSize, void, Dimension2D*)},
-	{}
-};
-
-$ClassInfo _Dimension2D_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.geom.Dimension2D",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	nullptr,
-	_Dimension2D_MethodInfo_
-};
-
-$Object* allocate$Dimension2D($Class* clazz) {
-	return $of($alloc(Dimension2D));
-}
-
 void Dimension2D::init$() {
 }
 
@@ -48,9 +24,9 @@ void Dimension2D::setSize(Dimension2D* d) {
 
 $Object* Dimension2D::clone() {
 	try {
-		return $of($Cloneable::clone());
+		return $Cloneable::clone();
 	} catch ($CloneNotSupportedException& e) {
-		$throwNew($InternalError, static_cast<$Throwable*>(e));
+		$throwNew($InternalError, e);
 	}
 	$shouldNotReachHere();
 }
@@ -59,7 +35,26 @@ Dimension2D::Dimension2D() {
 }
 
 $Class* Dimension2D::load$($String* name, bool initialize) {
-	$loadClass(Dimension2D, name, initialize, &_Dimension2D_ClassInfo_, allocate$Dimension2D);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Dimension2D, init$, void)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Dimension2D, clone, $Object*)},
+		{"getHeight", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dimension2D, getHeight, double)},
+		{"getWidth", "()D", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dimension2D, getWidth, double)},
+		{"setSize", "(DD)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Dimension2D, setSize, void, double, double)},
+		{"setSize", "(Ljava/awt/geom/Dimension2D;)V", nullptr, $PUBLIC, $virtualMethod(Dimension2D, setSize, void, Dimension2D*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.geom.Dimension2D",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Dimension2D, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Dimension2D);
+	});
 	return class$;
 }
 

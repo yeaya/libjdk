@@ -44,6 +44,7 @@ class $export BasicGraphicsUtils : public ::java::lang::Object {
 	$class(BasicGraphicsUtils, 0, ::java::lang::Object)
 public:
 	BasicGraphicsUtils();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void drawBezel(::java::awt::Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h, bool isPressed, bool isDefault, ::java::awt::Color* shadow, ::java::awt::Color* darkShadow, ::java::awt::Color* highlight, ::java::awt::Color* lightHighlight);
 	static void drawDashedRect(::java::awt::Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height);

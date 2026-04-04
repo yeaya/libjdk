@@ -1,5 +1,4 @@
 #include <HeadlessJCheckBox$1.h>
-
 #include <HeadlessJCheckBox.h>
 #include <java/awt/Component.h>
 #include <jcpp.h>
@@ -10,42 +9,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 
-$MethodInfo _HeadlessJCheckBox$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(HeadlessJCheckBox$1, init$, void)},
-	{}
-};
-
-$EnclosingMethodInfo _HeadlessJCheckBox$1_EnclosingMethodInfo_ = {
-	"HeadlessJCheckBox",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _HeadlessJCheckBox$1_InnerClassesInfo_[] = {
-	{"HeadlessJCheckBox$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJCheckBox$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"HeadlessJCheckBox$1",
-	"java.awt.Component",
-	nullptr,
-	nullptr,
-	_HeadlessJCheckBox$1_MethodInfo_,
-	nullptr,
-	&_HeadlessJCheckBox$1_EnclosingMethodInfo_,
-	_HeadlessJCheckBox$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"HeadlessJCheckBox"
-};
-
-$Object* allocate$HeadlessJCheckBox$1($Class* clazz) {
-	return $of($alloc(HeadlessJCheckBox$1));
-}
-
 void HeadlessJCheckBox$1::init$() {
 	$Component::init$();
 }
@@ -54,7 +17,37 @@ HeadlessJCheckBox$1::HeadlessJCheckBox$1() {
 }
 
 $Class* HeadlessJCheckBox$1::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJCheckBox$1, name, initialize, &_HeadlessJCheckBox$1_ClassInfo_, allocate$HeadlessJCheckBox$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(HeadlessJCheckBox$1, init$, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"HeadlessJCheckBox",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJCheckBox$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"HeadlessJCheckBox$1",
+		"java.awt.Component",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"HeadlessJCheckBox"
+	};
+	$loadClass(HeadlessJCheckBox$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(HeadlessJCheckBox$1));
+	});
 	return class$;
 }
 

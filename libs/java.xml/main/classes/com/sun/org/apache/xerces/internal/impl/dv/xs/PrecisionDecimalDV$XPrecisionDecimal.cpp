@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/TypeValidator.h>
 #include <java/lang/NumberFormatException.h>
@@ -25,61 +24,6 @@ namespace com {
 							namespace dv {
 								namespace xs {
 
-$FieldInfo _PrecisionDecimalDV$XPrecisionDecimal_FieldInfo_[] = {
-	{"sign", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, sign)},
-	{"totalDigits", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, totalDigits)},
-	{"intDigits", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, intDigits)},
-	{"fracDigits", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, fracDigits)},
-	{"ivalue", "Ljava/lang/String;", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, ivalue)},
-	{"fvalue", "Ljava/lang/String;", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, fvalue)},
-	{"pvalue", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, pvalue)},
-	{"canonical", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrecisionDecimalDV$XPrecisionDecimal, canonical)},
-	{}
-};
-
-$MethodInfo _PrecisionDecimalDV$XPrecisionDecimal_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(PrecisionDecimalDV$XPrecisionDecimal, init$, void, $String*), "java.lang.NumberFormatException"},
-	{"canonicalToStringForHashCode", "(Ljava/lang/String;Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrecisionDecimalDV$XPrecisionDecimal, canonicalToStringForHashCode, $String*, $String*, $String*, int32_t, int32_t)},
-	{"compare", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)I", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, compare, int32_t, PrecisionDecimalDV$XPrecisionDecimal*)},
-	{"compareDecimal", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, compareDecimal, int32_t, $String*, $String*, $String*, $String*)},
-	{"compareFractionalPart", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)I", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, compareFractionalPart, int32_t, PrecisionDecimalDV$XPrecisionDecimal*)},
-	{"compareTo", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)I", nullptr, $PUBLIC, $method(PrecisionDecimalDV$XPrecisionDecimal, compareTo, int32_t, PrecisionDecimalDV$XPrecisionDecimal*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV$XPrecisionDecimal, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV$XPrecisionDecimal, hashCode, int32_t)},
-	{"initD", "(Ljava/lang/String;)V", nullptr, 0, $method(PrecisionDecimalDV$XPrecisionDecimal, initD, void, $String*), "java.lang.NumberFormatException"},
-	{"intComp", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)I", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, intComp, int32_t, PrecisionDecimalDV$XPrecisionDecimal*)},
-	{"isIdentical", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)Z", nullptr, $PUBLIC, $method(PrecisionDecimalDV$XPrecisionDecimal, isIdentical, bool, PrecisionDecimalDV$XPrecisionDecimal*)},
-	{"makeCanonical", "()V", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, makeCanonical, void)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrecisionDecimalDV$XPrecisionDecimal, toString, $String*)},
-	{"truncateTrailingZeros", "(Ljava/lang/StringBuffer;Ljava/lang/StringBuffer;)V", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, truncateTrailingZeros, void, $StringBuffer*, $StringBuffer*)},
-	{}
-};
-
-$InnerClassInfo _PrecisionDecimalDV$XPrecisionDecimal_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV$XPrecisionDecimal", "com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV", "XPrecisionDecimal", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _PrecisionDecimalDV$XPrecisionDecimal_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV$XPrecisionDecimal",
-	"java.lang.Object",
-	nullptr,
-	_PrecisionDecimalDV$XPrecisionDecimal_FieldInfo_,
-	_PrecisionDecimalDV$XPrecisionDecimal_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PrecisionDecimalDV$XPrecisionDecimal_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV"
-};
-
-$Object* allocate$PrecisionDecimalDV$XPrecisionDecimal($Class* clazz) {
-	return $of($alloc(PrecisionDecimalDV$XPrecisionDecimal));
-}
-
 void PrecisionDecimalDV$XPrecisionDecimal::init$($String* content) {
 	this->sign = 1;
 	this->totalDigits = 0;
@@ -92,9 +36,9 @@ void PrecisionDecimalDV$XPrecisionDecimal::init$($String* content) {
 		$set(this, ivalue, content);
 		this->sign = 0;
 	}
-	bool var$1 = $nc(content)->equals("+INF"_s);
-	bool var$0 = var$1 || $nc(content)->equals("INF"_s);
-	if (var$0 || $nc(content)->equals("-INF"_s)) {
+	bool var$1 = content->equals("+INF"_s);
+	bool var$0 = var$1 || content->equals("INF"_s);
+	if (var$0 || content->equals("-INF"_s)) {
 		$set(this, ivalue, content->charAt(0) == u'+' ? content->substring(1) : content);
 		return;
 	}
@@ -102,7 +46,7 @@ void PrecisionDecimalDV$XPrecisionDecimal::init$($String* content) {
 }
 
 void PrecisionDecimalDV$XPrecisionDecimal::initD($String* content) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t len = $nc(content)->length();
 	if (len == 0) {
 		$throwNew($NumberFormatException);
@@ -122,6 +66,7 @@ void PrecisionDecimalDV$XPrecisionDecimal::initD($String* content) {
 		++actualIntStart;
 	}
 	for (intEnd = actualIntStart; intEnd < len && $TypeValidator::isDigit(content->charAt(intEnd)); ++intEnd) {
+		;
 	}
 	if (intEnd < len) {
 		bool var$1 = content->charAt(intEnd) != u'.';
@@ -132,6 +77,7 @@ void PrecisionDecimalDV$XPrecisionDecimal::initD($String* content) {
 		if (content->charAt(intEnd) == u'.') {
 			fracStart = intEnd + 1;
 			for (fracEnd = fracStart; fracEnd < len && $TypeValidator::isDigit(content->charAt(fracEnd)); ++fracEnd) {
+				;
 			}
 		} else {
 			this->pvalue = $Integer::parseInt($(content->substring(intEnd + 1, len)));
@@ -228,22 +174,22 @@ bool PrecisionDecimalDV$XPrecisionDecimal::equals(Object$* val) {
 		return false;
 	}
 	$var(PrecisionDecimalDV$XPrecisionDecimal, oval, $cast(PrecisionDecimalDV$XPrecisionDecimal, val));
-	return this->compareTo(oval) == (int16_t)0;
+	return this->compareTo(oval) == 0;
 }
 
 int32_t PrecisionDecimalDV$XPrecisionDecimal::hashCode() {
-	return $nc($(canonicalToStringForHashCode(this->ivalue, this->fvalue, this->sign, this->pvalue)))->hashCode();
+	return $$nc(canonicalToStringForHashCode(this->ivalue, this->fvalue, this->sign, this->pvalue))->hashCode();
 }
 
 int32_t PrecisionDecimalDV$XPrecisionDecimal::compareFractionalPart(PrecisionDecimalDV$XPrecisionDecimal* oval) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->fvalue)->equals($nc(oval)->fvalue)) {
 		return 0;
 	}
 	$var($StringBuffer, temp1, $new($StringBuffer, this->fvalue));
-	$var($StringBuffer, temp2, $new($StringBuffer, $nc(oval)->fvalue));
+	$var($StringBuffer, temp2, $new($StringBuffer, oval->fvalue));
 	truncateTrailingZeros(temp1, temp2);
-	return $nc($(temp1->toString()))->compareTo($(temp2->toString()));
+	return $(temp1->toString())->compareTo($(temp2->toString()));
 }
 
 void PrecisionDecimalDV$XPrecisionDecimal::truncateTrailingZeros($StringBuffer* fValue, $StringBuffer* otherFValue) {
@@ -269,36 +215,36 @@ int32_t PrecisionDecimalDV$XPrecisionDecimal::compareTo(PrecisionDecimalDV$XPrec
 	}
 	bool var$0 = $nc(this->ivalue)->equals("INF"_s);
 	if (var$0 || $nc($nc(val)->ivalue)->equals("INF"_s)) {
-		if ($nc(this->ivalue)->equals(val->ivalue)) {
+		if (this->ivalue->equals($nc(val)->ivalue)) {
 			return 0;
-		} else if ($nc(this->ivalue)->equals("INF"_s)) {
+		} else if (this->ivalue->equals("INF"_s)) {
 			return 1;
 		}
 		return -1;
 	}
-	bool var$1 = $nc(this->ivalue)->equals("-INF"_s);
+	bool var$1 = this->ivalue->equals("-INF"_s);
 	if (var$1 || $nc($nc(val)->ivalue)->equals("-INF"_s)) {
-		if ($nc(this->ivalue)->equals(val->ivalue)) {
+		if (this->ivalue->equals($nc(val)->ivalue)) {
 			return 0;
-		} else if ($nc(this->ivalue)->equals("-INF"_s)) {
+		} else if (this->ivalue->equals("-INF"_s)) {
 			return -1;
 		}
 		return 1;
 	}
 	if (this->sign != $nc(val)->sign) {
-		return this->sign > val->sign ? (int16_t)1 : (int16_t)-1;
+		return this->sign > val->sign ? 1 : -1;
 	}
 	return this->sign * compare(val);
 }
 
 int32_t PrecisionDecimalDV$XPrecisionDecimal::compare(PrecisionDecimalDV$XPrecisionDecimal* val) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pvalue != 0 || $nc(val)->pvalue != 0) {
-		if (this->pvalue == val->pvalue) {
+		if (this->pvalue == $nc(val)->pvalue) {
 			return intComp(val);
 		} else {
 			if (this->intDigits + this->pvalue != val->intDigits + val->pvalue) {
-				return this->intDigits + this->pvalue > val->intDigits + val->pvalue ? (int16_t)1 : (int16_t)-1;
+				return this->intDigits + this->pvalue > val->intDigits + val->pvalue ? 1 : -1;
 			}
 			if (this->pvalue > val->pvalue) {
 				int32_t expDiff = this->pvalue - val->pvalue;
@@ -340,16 +286,16 @@ int32_t PrecisionDecimalDV$XPrecisionDecimal::compare(PrecisionDecimalDV$XPrecis
 
 int32_t PrecisionDecimalDV$XPrecisionDecimal::intComp(PrecisionDecimalDV$XPrecisionDecimal* val) {
 	if (this->intDigits != $nc(val)->intDigits) {
-		return this->intDigits > val->intDigits ? (int16_t)1 : (int16_t)-1;
+		return this->intDigits > val->intDigits ? 1 : -1;
 	}
-	return compareDecimal(this->ivalue, $nc(val)->ivalue, this->fvalue, val->fvalue);
+	return compareDecimal(this->ivalue, val->ivalue, this->fvalue, val->fvalue);
 }
 
 int32_t PrecisionDecimalDV$XPrecisionDecimal::compareDecimal($String* iValue, $String* fValue, $String* otherIValue, $String* otherFValue) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t ret = $nc(iValue)->compareTo(otherIValue);
 	if (ret != 0) {
-		return ret > 0 ? (int16_t)1 : (int16_t)-1;
+		return ret > 0 ? 1 : -1;
 	}
 	if ($nc(fValue)->equals(otherFValue)) {
 		return 0;
@@ -357,8 +303,8 @@ int32_t PrecisionDecimalDV$XPrecisionDecimal::compareDecimal($String* iValue, $S
 	$var($StringBuffer, temp1, $new($StringBuffer, fValue));
 	$var($StringBuffer, temp2, $new($StringBuffer, otherFValue));
 	truncateTrailingZeros(temp1, temp2);
-	ret = $nc($(temp1->toString()))->compareTo($(temp2->toString()));
-	return ret == 0 ? (int16_t)0 : (ret > 0 ? (int16_t)1 : (int16_t)-1);
+	ret = $(temp1->toString())->compareTo($(temp2->toString()));
+	return ret == 0 ? 0 : (ret > 0 ? 1 : -1);
 }
 
 $String* PrecisionDecimalDV$XPrecisionDecimal::toString() {
@@ -377,14 +323,14 @@ void PrecisionDecimalDV$XPrecisionDecimal::makeCanonical() {
 bool PrecisionDecimalDV$XPrecisionDecimal::isIdentical(PrecisionDecimalDV$XPrecisionDecimal* decimal) {
 	bool var$0 = $nc(this->ivalue)->equals($nc(decimal)->ivalue);
 	if (var$0) {
-		bool var$2 = $nc(this->ivalue)->equals("INF"_s);
-		bool var$1 = var$2 || $nc(this->ivalue)->equals("-INF"_s);
-		var$0 = (var$1 || $nc(this->ivalue)->equals("NaN"_s));
+		bool var$2 = this->ivalue->equals("INF"_s);
+		bool var$1 = var$2 || this->ivalue->equals("-INF"_s);
+		var$0 = var$1 || this->ivalue->equals("NaN"_s);
 	}
 	if (var$0) {
 		return true;
 	}
-	bool var$3 = this->sign == $nc(decimal)->sign && this->intDigits == decimal->intDigits && this->fracDigits == decimal->fracDigits && this->pvalue == decimal->pvalue && $nc(this->ivalue)->equals(decimal->ivalue);
+	bool var$3 = this->sign == decimal->sign && this->intDigits == decimal->intDigits && this->fracDigits == decimal->fracDigits && this->pvalue == decimal->pvalue && this->ivalue->equals(decimal->ivalue);
 	if (var$3 && $nc(this->fvalue)->equals(decimal->fvalue)) {
 		return true;
 	}
@@ -395,7 +341,56 @@ PrecisionDecimalDV$XPrecisionDecimal::PrecisionDecimalDV$XPrecisionDecimal() {
 }
 
 $Class* PrecisionDecimalDV$XPrecisionDecimal::load$($String* name, bool initialize) {
-	$loadClass(PrecisionDecimalDV$XPrecisionDecimal, name, initialize, &_PrecisionDecimalDV$XPrecisionDecimal_ClassInfo_, allocate$PrecisionDecimalDV$XPrecisionDecimal);
+	$FieldInfo fieldInfos$$[] = {
+		{"sign", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, sign)},
+		{"totalDigits", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, totalDigits)},
+		{"intDigits", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, intDigits)},
+		{"fracDigits", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, fracDigits)},
+		{"ivalue", "Ljava/lang/String;", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, ivalue)},
+		{"fvalue", "Ljava/lang/String;", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, fvalue)},
+		{"pvalue", "I", nullptr, 0, $field(PrecisionDecimalDV$XPrecisionDecimal, pvalue)},
+		{"canonical", "Ljava/lang/String;", nullptr, $PRIVATE, $field(PrecisionDecimalDV$XPrecisionDecimal, canonical)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, 0, $method(PrecisionDecimalDV$XPrecisionDecimal, init$, void, $String*), "java.lang.NumberFormatException"},
+		{"canonicalToStringForHashCode", "(Ljava/lang/String;Ljava/lang/String;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(PrecisionDecimalDV$XPrecisionDecimal, canonicalToStringForHashCode, $String*, $String*, $String*, int32_t, int32_t)},
+		{"compare", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)I", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, compare, int32_t, PrecisionDecimalDV$XPrecisionDecimal*)},
+		{"compareDecimal", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, compareDecimal, int32_t, $String*, $String*, $String*, $String*)},
+		{"compareFractionalPart", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)I", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, compareFractionalPart, int32_t, PrecisionDecimalDV$XPrecisionDecimal*)},
+		{"compareTo", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)I", nullptr, $PUBLIC, $method(PrecisionDecimalDV$XPrecisionDecimal, compareTo, int32_t, PrecisionDecimalDV$XPrecisionDecimal*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV$XPrecisionDecimal, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(PrecisionDecimalDV$XPrecisionDecimal, hashCode, int32_t)},
+		{"initD", "(Ljava/lang/String;)V", nullptr, 0, $method(PrecisionDecimalDV$XPrecisionDecimal, initD, void, $String*), "java.lang.NumberFormatException"},
+		{"intComp", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)I", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, intComp, int32_t, PrecisionDecimalDV$XPrecisionDecimal*)},
+		{"isIdentical", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/PrecisionDecimalDV$XPrecisionDecimal;)Z", nullptr, $PUBLIC, $method(PrecisionDecimalDV$XPrecisionDecimal, isIdentical, bool, PrecisionDecimalDV$XPrecisionDecimal*)},
+		{"makeCanonical", "()V", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, makeCanonical, void)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(PrecisionDecimalDV$XPrecisionDecimal, toString, $String*)},
+		{"truncateTrailingZeros", "(Ljava/lang/StringBuffer;Ljava/lang/StringBuffer;)V", nullptr, $PRIVATE, $method(PrecisionDecimalDV$XPrecisionDecimal, truncateTrailingZeros, void, $StringBuffer*, $StringBuffer*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV$XPrecisionDecimal", "com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV", "XPrecisionDecimal", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV$XPrecisionDecimal",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.dv.xs.PrecisionDecimalDV"
+	};
+	$loadClass(PrecisionDecimalDV$XPrecisionDecimal, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrecisionDecimalDV$XPrecisionDecimal);
+	});
 	return class$;
 }
 

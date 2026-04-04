@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$DividerLayout.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
@@ -21,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JButton = ::javax::swing::JButton;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 
@@ -30,57 +28,17 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicSplitPaneDivider$DividerLayout_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$DividerLayout, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneDivider$DividerLayout_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;)V", nullptr, $PROTECTED, $method(BasicSplitPaneDivider$DividerLayout, init$, void, $BasicSplitPaneDivider*)},
-	{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, addLayoutComponent, void, $String*, $Component*)},
-	{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, layoutContainer, void, $Container*)},
-	{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, minimumLayoutSize, $Dimension*, $Container*)},
-	{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, preferredLayoutSize, $Dimension*, $Container*)},
-	{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, removeLayoutComponent, void, $Component*)},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneDivider$DividerLayout_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneDivider$DividerLayout", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DividerLayout", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneDivider$DividerLayout_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider$DividerLayout",
-	"java.lang.Object",
-	"java.awt.LayoutManager",
-	_BasicSplitPaneDivider$DividerLayout_FieldInfo_,
-	_BasicSplitPaneDivider$DividerLayout_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneDivider$DividerLayout_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneDivider"
-};
-
-$Object* allocate$BasicSplitPaneDivider$DividerLayout($Class* clazz) {
-	return $of($alloc(BasicSplitPaneDivider$DividerLayout));
-}
-
 void BasicSplitPaneDivider$DividerLayout::init$($BasicSplitPaneDivider* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void BasicSplitPaneDivider$DividerLayout::layoutContainer($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->this$0->leftButton != nullptr && this->this$0->rightButton != nullptr && $equals(c, this->this$0)) {
 		if ($nc(this->this$0->splitPane)->isOneTouchExpandable()) {
 			$var($Insets, insets, this->this$0->getInsets());
 			if (this->this$0->orientation == $JSplitPane::VERTICAL_SPLIT) {
-				int32_t extraX = (insets != nullptr) ? $nc(insets)->left : 0;
+				int32_t extraX = (insets != nullptr) ? insets->left : 0;
 				int32_t blockSize = this->this$0->getHeight();
 				if (insets != nullptr) {
 					blockSize -= (insets->top + insets->bottom);
@@ -95,7 +53,7 @@ void BasicSplitPaneDivider$DividerLayout::layoutContainer($Container* c) {
 				$nc(this->this$0->leftButton)->setBounds(extraX + this->this$0->oneTouchOffset, y, blockSize * 2, blockSize);
 				$nc(this->this$0->rightButton)->setBounds(extraX + this->this$0->oneTouchOffset + this->this$0->oneTouchSize * 2, y, blockSize * 2, blockSize);
 			} else {
-				int32_t extraY = (insets != nullptr) ? $nc(insets)->top : 0;
+				int32_t extraY = (insets != nullptr) ? insets->top : 0;
 				int32_t blockSize = this->this$0->getWidth();
 				if (insets != nullptr) {
 					blockSize -= (insets->left + insets->right);
@@ -118,13 +76,13 @@ void BasicSplitPaneDivider$DividerLayout::layoutContainer($Container* c) {
 }
 
 $Dimension* BasicSplitPaneDivider$DividerLayout::minimumLayoutSize($Container* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!$equals(c, this->this$0) || this->this$0->splitPane == nullptr) {
 		return $new($Dimension, 0, 0);
 	}
 	$var($Dimension, buttonMinSize, nullptr);
 	if ($nc(this->this$0->splitPane)->isOneTouchExpandable() && this->this$0->leftButton != nullptr) {
-		$assign(buttonMinSize, $nc(this->this$0->leftButton)->getMinimumSize());
+		$assign(buttonMinSize, this->this$0->leftButton->getMinimumSize());
 	}
 	$var($Insets, insets, this->this$0->getInsets());
 	int32_t width = this->this$0->getDividerSize();
@@ -165,7 +123,41 @@ BasicSplitPaneDivider$DividerLayout::BasicSplitPaneDivider$DividerLayout() {
 }
 
 $Class* BasicSplitPaneDivider$DividerLayout::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneDivider$DividerLayout, name, initialize, &_BasicSplitPaneDivider$DividerLayout_ClassInfo_, allocate$BasicSplitPaneDivider$DividerLayout);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneDivider;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneDivider$DividerLayout, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneDivider;)V", nullptr, $PROTECTED, $method(BasicSplitPaneDivider$DividerLayout, init$, void, $BasicSplitPaneDivider*)},
+		{"addLayoutComponent", "(Ljava/lang/String;Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, addLayoutComponent, void, $String*, $Component*)},
+		{"layoutContainer", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, layoutContainer, void, $Container*)},
+		{"minimumLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, minimumLayoutSize, $Dimension*, $Container*)},
+		{"preferredLayoutSize", "(Ljava/awt/Container;)Ljava/awt/Dimension;", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, preferredLayoutSize, $Dimension*, $Container*)},
+		{"removeLayoutComponent", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneDivider$DividerLayout, removeLayoutComponent, void, $Component*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneDivider$DividerLayout", "javax.swing.plaf.basic.BasicSplitPaneDivider", "DividerLayout", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider$DividerLayout",
+		"java.lang.Object",
+		"java.awt.LayoutManager",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneDivider"
+	};
+	$loadClass(BasicSplitPaneDivider$DividerLayout, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicSplitPaneDivider$DividerLayout);
+	});
 	return class$;
 }
 

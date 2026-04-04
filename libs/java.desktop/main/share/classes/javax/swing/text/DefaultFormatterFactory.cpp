@@ -1,5 +1,4 @@
 #include <javax/swing/text/DefaultFormatterFactory.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JFormattedTextField$AbstractFormatter.h>
 #include <javax/swing/JFormattedTextField$AbstractFormatterFactory.h>
@@ -17,58 +16,6 @@ using $JFormattedTextField$AbstractFormatterFactory = ::javax::swing::JFormatted
 namespace javax {
 	namespace swing {
 		namespace text {
-
-$FieldInfo _DefaultFormatterFactory_FieldInfo_[] = {
-	{"defaultFormat", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(DefaultFormatterFactory, defaultFormat)},
-	{"displayFormat", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(DefaultFormatterFactory, displayFormat)},
-	{"editFormat", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(DefaultFormatterFactory, editFormat)},
-	{"nullFormat", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(DefaultFormatterFactory, nullFormat)},
-	{}
-};
-
-$MethodInfo _DefaultFormatterFactory_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void)},
-	{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void, $JFormattedTextField$AbstractFormatter*)},
-	{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*)},
-	{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*)},
-	{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*)},
-	{"getDefaultFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getDefaultFormatter, $JFormattedTextField$AbstractFormatter*)},
-	{"getDisplayFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getDisplayFormatter, $JFormattedTextField$AbstractFormatter*)},
-	{"getEditFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getEditFormatter, $JFormattedTextField$AbstractFormatter*)},
-	{"getFormatter", "(Ljavax/swing/JFormattedTextField;)Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getFormatter, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField*)},
-	{"getNullFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getNullFormatter, $JFormattedTextField$AbstractFormatter*)},
-	{"setDefaultFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, setDefaultFormatter, void, $JFormattedTextField$AbstractFormatter*)},
-	{"setDisplayFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, setDisplayFormatter, void, $JFormattedTextField$AbstractFormatter*)},
-	{"setEditFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, setEditFormatter, void, $JFormattedTextField$AbstractFormatter*)},
-	{"setNullFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, setNullFormatter, void, $JFormattedTextField$AbstractFormatter*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DefaultFormatterFactory_InnerClassesInfo_[] = {
-	{"javax.swing.JFormattedTextField$AbstractFormatterFactory", "javax.swing.JFormattedTextField", "AbstractFormatterFactory", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultFormatterFactory_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.DefaultFormatterFactory",
-	"javax.swing.JFormattedTextField$AbstractFormatterFactory",
-	"java.io.Serializable",
-	_DefaultFormatterFactory_FieldInfo_,
-	_DefaultFormatterFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultFormatterFactory_InnerClassesInfo_
-};
-
-$Object* allocate$DefaultFormatterFactory($Class* clazz) {
-	return $of($alloc(DefaultFormatterFactory));
-}
 
 int32_t DefaultFormatterFactory::hashCode() {
 	 return this->$JFormattedTextField$AbstractFormatterFactory::hashCode();
@@ -147,7 +94,7 @@ $JFormattedTextField$AbstractFormatter* DefaultFormatterFactory::getNullFormatte
 }
 
 $JFormattedTextField$AbstractFormatter* DefaultFormatterFactory::getFormatter($JFormattedTextField* source) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFormattedTextField$AbstractFormatter, format, nullptr);
 	if (source == nullptr) {
 		return nullptr;
@@ -173,7 +120,53 @@ DefaultFormatterFactory::DefaultFormatterFactory() {
 }
 
 $Class* DefaultFormatterFactory::load$($String* name, bool initialize) {
-	$loadClass(DefaultFormatterFactory, name, initialize, &_DefaultFormatterFactory_ClassInfo_, allocate$DefaultFormatterFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"defaultFormat", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(DefaultFormatterFactory, defaultFormat)},
+		{"displayFormat", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(DefaultFormatterFactory, displayFormat)},
+		{"editFormat", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(DefaultFormatterFactory, editFormat)},
+		{"nullFormat", "Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PRIVATE, $field(DefaultFormatterFactory, nullFormat)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void)},
+		{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void, $JFormattedTextField$AbstractFormatter*)},
+		{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*)},
+		{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*)},
+		{"<init>", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $method(DefaultFormatterFactory, init$, void, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField$AbstractFormatter*)},
+		{"getDefaultFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getDefaultFormatter, $JFormattedTextField$AbstractFormatter*)},
+		{"getDisplayFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getDisplayFormatter, $JFormattedTextField$AbstractFormatter*)},
+		{"getEditFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getEditFormatter, $JFormattedTextField$AbstractFormatter*)},
+		{"getFormatter", "(Ljavax/swing/JFormattedTextField;)Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getFormatter, $JFormattedTextField$AbstractFormatter*, $JFormattedTextField*)},
+		{"getNullFormatter", "()Ljavax/swing/JFormattedTextField$AbstractFormatter;", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, getNullFormatter, $JFormattedTextField$AbstractFormatter*)},
+		{"setDefaultFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, setDefaultFormatter, void, $JFormattedTextField$AbstractFormatter*)},
+		{"setDisplayFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, setDisplayFormatter, void, $JFormattedTextField$AbstractFormatter*)},
+		{"setEditFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, setEditFormatter, void, $JFormattedTextField$AbstractFormatter*)},
+		{"setNullFormatter", "(Ljavax/swing/JFormattedTextField$AbstractFormatter;)V", nullptr, $PUBLIC, $virtualMethod(DefaultFormatterFactory, setNullFormatter, void, $JFormattedTextField$AbstractFormatter*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JFormattedTextField$AbstractFormatterFactory", "javax.swing.JFormattedTextField", "AbstractFormatterFactory", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.DefaultFormatterFactory",
+		"javax.swing.JFormattedTextField$AbstractFormatterFactory",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(DefaultFormatterFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultFormatterFactory));
+	});
 	return class$;
 }
 

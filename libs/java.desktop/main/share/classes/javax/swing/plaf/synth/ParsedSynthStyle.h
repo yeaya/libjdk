@@ -30,6 +30,7 @@ class ParsedSynthStyle : public ::sun::swing::plaf::synth::DefaultSynthStyle {
 	$class(ParsedSynthStyle, 0, ::sun::swing::plaf::synth::DefaultSynthStyle)
 public:
 	ParsedSynthStyle();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::swing::plaf::synth::DefaultSynthStyle* style);
 	virtual ::sun::swing::plaf::synth::DefaultSynthStyle* addTo(::sun::swing::plaf::synth::DefaultSynthStyle* style) override;

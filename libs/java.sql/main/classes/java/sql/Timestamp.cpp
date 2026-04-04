@@ -1,6 +1,4 @@
 #include <java/sql/Timestamp.h>
-
-#include <java/lang/CharSequence.h>
 #include <java/sql/Date.h>
 #include <java/time/Instant.h>
 #include <java/time/LocalDateTime.h>
@@ -15,7 +13,6 @@
 #undef YEAR_LENGTH
 
 using $ArithmeticException = ::java::lang::ArithmeticException;
-using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -32,63 +29,9 @@ using $Date = ::java::util::Date;
 namespace java {
 	namespace sql {
 
-$NamedAttribute Timestamp_Attribute_var$0[] = {
-	{"since", 's', "1.2"},
-	{}
-};
-
-$CompoundAttribute _Timestamp_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", Timestamp_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _Timestamp_FieldInfo_[] = {
-	{"nanos", "I", nullptr, $PRIVATE, $field(Timestamp, nanos)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Timestamp, serialVersionUID)},
-	{"MILLIS_PER_SECOND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Timestamp, MILLIS_PER_SECOND)},
-	{}
-};
-
-$MethodInfo _Timestamp_MethodInfo_[] = {
-	{"<init>", "(IIIIIII)V", nullptr, $PUBLIC | $DEPRECATED, $method(Timestamp, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, _Timestamp_MethodAnnotations_init$0},
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(Timestamp, init$, void, int64_t)},
-	{"after", "(Ljava/sql/Timestamp;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, after, bool, Timestamp*)},
-	{"before", "(Ljava/sql/Timestamp;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, before, bool, Timestamp*)},
-	{"compareTo", "(Ljava/sql/Timestamp;)I", nullptr, $PUBLIC, $virtualMethod(Timestamp, compareTo, int32_t, Timestamp*)},
-	{"compareTo", "(Ljava/util/Date;)I", nullptr, $PUBLIC, $virtualMethod(Timestamp, compareTo, int32_t, $Date*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Timestamp, compareTo, int32_t, Object$*)},
-	{"equals", "(Ljava/sql/Timestamp;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, equals, bool, Timestamp*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, equals, bool, Object$*)},
-	{"from", "(Ljava/time/Instant;)Ljava/sql/Timestamp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Timestamp, from, Timestamp*, $Instant*)},
-	{"getNanos", "()I", nullptr, $PUBLIC, $virtualMethod(Timestamp, getNanos, int32_t)},
-	{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(Timestamp, getTime, int64_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Timestamp, hashCode, int32_t)},
-	{"setNanos", "(I)V", nullptr, $PUBLIC, $virtualMethod(Timestamp, setNanos, void, int32_t)},
-	{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(Timestamp, setTime, void, int64_t)},
-	{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toInstant, $Instant*)},
-	{"toLocalDateTime", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toLocalDateTime, $LocalDateTime*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Ljava/sql/Timestamp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Timestamp, valueOf, Timestamp*, $String*)},
-	{"valueOf", "(Ljava/time/LocalDateTime;)Ljava/sql/Timestamp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Timestamp, valueOf, Timestamp*, $LocalDateTime*)},
-	{}
-};
-
-$ClassInfo _Timestamp_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.sql.Timestamp",
-	"java.util.Date",
-	nullptr,
-	_Timestamp_FieldInfo_,
-	_Timestamp_MethodInfo_
-};
-
-$Object* allocate$Timestamp($Class* clazz) {
-	return $of($alloc(Timestamp));
-}
-
 void Timestamp::init$(int32_t year, int32_t month, int32_t date, int32_t hour, int32_t minute, int32_t second, int32_t nano) {
 	$Date::init$(year, month, date, hour, minute, second);
-	if (nano > 0x3B9AC9FF || nano < 0) {
+	if (nano > 999999999 || nano < 0) {
 		$throwNew($IllegalArgumentException, "nanos > 999999999 or < 0"_s);
 	}
 	this->nanos = nano;
@@ -96,30 +39,30 @@ void Timestamp::init$(int32_t year, int32_t month, int32_t date, int32_t hour, i
 
 void Timestamp::init$(int64_t time) {
 	$Date::init$((time / 1000) * 1000);
-	this->nanos = (int32_t)((time % 1000) * 0x000F4240);
+	this->nanos = (int32_t)((time % 1000) * 1000000);
 	if (this->nanos < 0) {
-		this->nanos = 0x3B9ACA00 + this->nanos;
+		this->nanos = 1000000000 + this->nanos;
 		$Date::setTime(((time / 1000) - 1) * 1000);
 	}
 }
 
 void Timestamp::setTime(int64_t time) {
 	$Date::setTime((time / 1000) * 1000);
-	this->nanos = (int32_t)((time % 1000) * 0x000F4240);
+	this->nanos = (int32_t)((time % 1000) * 1000000);
 	if (this->nanos < 0) {
-		this->nanos = 0x3B9ACA00 + this->nanos;
+		this->nanos = 1000000000 + this->nanos;
 		$Date::setTime(((time / 1000) - 1) * 1000);
 	}
 }
 
 int64_t Timestamp::getTime() {
 	int64_t time = $Date::getTime();
-	return (time + (this->nanos / 0x000F4240));
+	return (time + (this->nanos / 1000000));
 }
 
 Timestamp* Timestamp::valueOf($String* s$renamed) {
 	$init(Timestamp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, s$renamed);
 	int32_t YEAR_LENGTH = 4;
 	int32_t MONTH_LENGTH = 2;
@@ -144,15 +87,15 @@ Timestamp* Timestamp::valueOf($String* s$renamed) {
 		$throwNew($IllegalArgumentException, "null string"_s);
 	}
 	$assign(s, $nc(s)->trim());
-	dividingSpace = s->indexOf((int32_t)u' ');
+	dividingSpace = s->indexOf(u' ');
 	if (dividingSpace < 0) {
 		$throwNew($IllegalArgumentException, formatError);
 	}
-	firstDash = s->indexOf((int32_t)u'-');
-	secondDash = s->indexOf((int32_t)u'-', firstDash + 1);
-	firstColon = s->indexOf((int32_t)u':', dividingSpace + 1);
-	secondColon = s->indexOf((int32_t)u':', firstColon + 1);
-	period = s->indexOf((int32_t)u'.', secondColon + 1);
+	firstDash = s->indexOf(u'-');
+	secondDash = s->indexOf(u'-', firstDash + 1);
+	firstColon = s->indexOf(u':', dividingSpace + 1);
+	secondColon = s->indexOf(u':', firstColon + 1);
+	period = s->indexOf(u'.', secondColon + 1);
 	bool parsedDate = false;
 	if (firstDash > 0 && secondDash > 0 && secondDash < dividingSpace - 1) {
 		if (firstDash == YEAR_LENGTH && (secondDash - firstDash > 1 && secondDash - firstDash <= MONTH_LENGTH + 1) && (dividingSpace - secondDash > 1 && dividingSpace - secondDash <= DAY_LENGTH + 1)) {
@@ -222,7 +165,7 @@ $String* Timestamp::toString() {
 		}
 		++yearSize;
 		count *= 10;
-	} while (count < 0x3B9ACA00);
+	} while (count < 1000000000);
 	$var($chars, buf, $new($chars, 25 + yearSize - trailingZeros));
 	$1Date::formatDecimalInt(year, buf, 0, yearSize);
 	buf->set(yearSize, u'-');
@@ -245,7 +188,7 @@ int32_t Timestamp::getNanos() {
 }
 
 void Timestamp::setNanos(int32_t n) {
-	if (n > 0x3B9AC9FF || n < 0) {
+	if (n > 999999999 || n < 0) {
 		$throwNew($IllegalArgumentException, "nanos > 999999999 or < 0"_s);
 	}
 	this->nanos = n;
@@ -331,10 +274,10 @@ Timestamp* Timestamp::from($Instant* instant) {
 	$init(Timestamp);
 	try {
 		$var(Timestamp, stamp, $new(Timestamp, $nc(instant)->getEpochSecond() * Timestamp::MILLIS_PER_SECOND));
-		stamp->nanos = $nc(instant)->getNano();
+		stamp->nanos = instant->getNano();
 		return stamp;
 	} catch ($ArithmeticException& ex) {
-		$throwNew($IllegalArgumentException, static_cast<$Throwable*>(ex));
+		$throwNew($IllegalArgumentException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -351,7 +294,54 @@ Timestamp::Timestamp() {
 }
 
 $Class* Timestamp::load$($String* name, bool initialize) {
-	$loadClass(Timestamp, name, initialize, &_Timestamp_ClassInfo_, allocate$Timestamp);
+	$FieldInfo fieldInfos$$[] = {
+		{"nanos", "I", nullptr, $PRIVATE, $field(Timestamp, nanos)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(Timestamp, serialVersionUID)},
+		{"MILLIS_PER_SECOND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Timestamp, MILLIS_PER_SECOND)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "1.2"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IIIIIII)V", nullptr, $PUBLIC | $DEPRECATED, $method(Timestamp, init$, void, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t, int32_t), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(Timestamp, init$, void, int64_t)},
+		{"after", "(Ljava/sql/Timestamp;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, after, bool, Timestamp*)},
+		{"before", "(Ljava/sql/Timestamp;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, before, bool, Timestamp*)},
+		{"compareTo", "(Ljava/sql/Timestamp;)I", nullptr, $PUBLIC, $virtualMethod(Timestamp, compareTo, int32_t, Timestamp*)},
+		{"compareTo", "(Ljava/util/Date;)I", nullptr, $PUBLIC, $virtualMethod(Timestamp, compareTo, int32_t, $Date*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Timestamp, compareTo, int32_t, Object$*)},
+		{"equals", "(Ljava/sql/Timestamp;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, equals, bool, Timestamp*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Timestamp, equals, bool, Object$*)},
+		{"from", "(Ljava/time/Instant;)Ljava/sql/Timestamp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Timestamp, from, Timestamp*, $Instant*)},
+		{"getNanos", "()I", nullptr, $PUBLIC, $virtualMethod(Timestamp, getNanos, int32_t)},
+		{"getTime", "()J", nullptr, $PUBLIC, $virtualMethod(Timestamp, getTime, int64_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(Timestamp, hashCode, int32_t)},
+		{"setNanos", "(I)V", nullptr, $PUBLIC, $virtualMethod(Timestamp, setNanos, void, int32_t)},
+		{"setTime", "(J)V", nullptr, $PUBLIC, $virtualMethod(Timestamp, setTime, void, int64_t)},
+		{"toInstant", "()Ljava/time/Instant;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toInstant, $Instant*)},
+		{"toLocalDateTime", "()Ljava/time/LocalDateTime;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toLocalDateTime, $LocalDateTime*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Timestamp, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Ljava/sql/Timestamp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Timestamp, valueOf, Timestamp*, $String*)},
+		{"valueOf", "(Ljava/time/LocalDateTime;)Ljava/sql/Timestamp;", nullptr, $PUBLIC | $STATIC, $staticMethod(Timestamp, valueOf, Timestamp*, $LocalDateTime*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.sql.Timestamp",
+		"java.util.Date",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Timestamp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Timestamp));
+	});
 	return class$;
 }
 

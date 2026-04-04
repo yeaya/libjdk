@@ -36,6 +36,7 @@ class ScreenPopupFactory : public ::javax::swing::PopupFactory {
 public:
 	ScreenPopupFactory();
 	using ::javax::swing::PopupFactory::getPopup;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::swing::Popup* getPopup(::java::awt::Component* comp, ::java::awt::Component* invoker, int32_t x, int32_t y) override;
 	static ::java::awt::Window* getWindow(::java::awt::Component* c);

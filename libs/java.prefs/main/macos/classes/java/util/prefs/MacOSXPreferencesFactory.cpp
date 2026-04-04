@@ -1,5 +1,4 @@
 #include <java/util/prefs/MacOSXPreferencesFactory.h>
-
 #include <java/util/prefs/MacOSXPreferences.h>
 #include <java/util/prefs/Preferences.h>
 #include <jcpp.h>
@@ -12,26 +11,6 @@ using $Preferences = ::java::util::prefs::Preferences;
 namespace java {
 	namespace util {
 		namespace prefs {
-
-$MethodInfo _MacOSXPreferencesFactory_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MacOSXPreferencesFactory, init$, void)},
-	{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFactory, systemRoot, $Preferences*)},
-	{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFactory, userRoot, $Preferences*)},
-	{}
-};
-
-$ClassInfo _MacOSXPreferencesFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.MacOSXPreferencesFactory",
-	"java.lang.Object",
-	"java.util.prefs.PreferencesFactory",
-	nullptr,
-	_MacOSXPreferencesFactory_MethodInfo_
-};
-
-$Object* allocate$MacOSXPreferencesFactory($Class* clazz) {
-	return $of($alloc(MacOSXPreferencesFactory));
-}
 
 void MacOSXPreferencesFactory::init$() {
 }
@@ -48,7 +27,23 @@ MacOSXPreferencesFactory::MacOSXPreferencesFactory() {
 }
 
 $Class* MacOSXPreferencesFactory::load$($String* name, bool initialize) {
-	$loadClass(MacOSXPreferencesFactory, name, initialize, &_MacOSXPreferencesFactory_ClassInfo_, allocate$MacOSXPreferencesFactory);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MacOSXPreferencesFactory, init$, void)},
+		{"systemRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFactory, systemRoot, $Preferences*)},
+		{"userRoot", "()Ljava/util/prefs/Preferences;", nullptr, $PUBLIC, $virtualMethod(MacOSXPreferencesFactory, userRoot, $Preferences*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.MacOSXPreferencesFactory",
+		"java.lang.Object",
+		"java.util.prefs.PreferencesFactory",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MacOSXPreferencesFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MacOSXPreferencesFactory);
+	});
 	return class$;
 }
 

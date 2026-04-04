@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/processing/JavacFiler$1.h>
-
 #include <com/sun/tools/javac/processing/JavacFiler.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/tools/JavaFileObject$Kind.h>
@@ -22,53 +21,17 @@ namespace com {
 			namespace javac {
 				namespace processing {
 
-$FieldInfo _JavacFiler$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$tools$JavaFileObject$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacFiler$1, $SwitchMap$javax$tools$JavaFileObject$Kind)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacFiler$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.processing.JavacFiler",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JavacFiler$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.processing.JavacFiler$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JavacFiler$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.processing.JavacFiler$1",
-	"java.lang.Object",
-	nullptr,
-	_JavacFiler$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JavacFiler$1_EnclosingMethodInfo_,
-	_JavacFiler$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.processing.JavacFiler"
-};
-
-$Object* allocate$JavacFiler$1($Class* clazz) {
-	return $of($alloc(JavacFiler$1));
-}
-
 $ints* JavacFiler$1::$SwitchMap$javax$tools$JavaFileObject$Kind = nullptr;
 
-void clinit$JavacFiler$1($Class* class$) {
+void JavacFiler$1::clinit$($Class* clazz) {
 	$assignStatic(JavacFiler$1::$SwitchMap$javax$tools$JavaFileObject$Kind, $new($ints, $($JavaFileObject$Kind::values())->length));
 	{
 		try {
-			$nc(JavacFiler$1::$SwitchMap$javax$tools$JavaFileObject$Kind)->set($JavaFileObject$Kind::SOURCE->ordinal(), 1);
+			JavacFiler$1::$SwitchMap$javax$tools$JavaFileObject$Kind->set($JavaFileObject$Kind::SOURCE->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacFiler$1::$SwitchMap$javax$tools$JavaFileObject$Kind)->set($JavaFileObject$Kind::CLASS->ordinal(), 2);
+			JavacFiler$1::$SwitchMap$javax$tools$JavaFileObject$Kind->set($JavaFileObject$Kind::CLASS->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -78,7 +41,37 @@ JavacFiler$1::JavacFiler$1() {
 }
 
 $Class* JavacFiler$1::load$($String* name, bool initialize) {
-	$loadClass(JavacFiler$1, name, initialize, &_JavacFiler$1_ClassInfo_, clinit$JavacFiler$1, allocate$JavacFiler$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$tools$JavaFileObject$Kind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacFiler$1, $SwitchMap$javax$tools$JavaFileObject$Kind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.processing.JavacFiler",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.processing.JavacFiler$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.processing.JavacFiler$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.processing.JavacFiler"
+	};
+	$loadClass(JavacFiler$1, name, initialize, &classInfo$$, JavacFiler$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacFiler$1);
+	});
 	return class$;
 }
 

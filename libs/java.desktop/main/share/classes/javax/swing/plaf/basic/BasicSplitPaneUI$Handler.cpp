@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneUI$Handler.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/event/FocusEvent.h>
@@ -14,7 +13,6 @@
 #undef DIVIDER_SIZE_PROPERTY
 #undef ORIENTATION_PROPERTY
 
-using $Component = ::java::awt::Component;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -23,56 +21,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JSplitPane = ::javax::swing::JSplitPane;
-using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicSplitPaneUI$Handler_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$Handler, this$0)},
-	{}
-};
-
-$MethodInfo _BasicSplitPaneUI$Handler_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Handler, init$, void, $BasicSplitPaneUI*)},
-	{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$Handler, focusGained, void, $FocusEvent*)},
-	{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$Handler, focusLost, void, $FocusEvent*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicSplitPaneUI$Handler_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicSplitPaneUI$Handler", "javax.swing.plaf.basic.BasicSplitPaneUI", "Handler", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicSplitPaneUI$Handler_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicSplitPaneUI$Handler",
-	"java.lang.Object",
-	"java.awt.event.FocusListener,java.beans.PropertyChangeListener",
-	_BasicSplitPaneUI$Handler_FieldInfo_,
-	_BasicSplitPaneUI$Handler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicSplitPaneUI$Handler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicSplitPaneUI"
-};
-
-$Object* allocate$BasicSplitPaneUI$Handler($Class* clazz) {
-	return $of($alloc(BasicSplitPaneUI$Handler));
-}
 
 int32_t BasicSplitPaneUI$Handler::hashCode() {
 	 return this->$FocusListener::hashCode();
@@ -99,31 +53,27 @@ void BasicSplitPaneUI$Handler::init$($BasicSplitPaneUI* this$0) {
 }
 
 void BasicSplitPaneUI$Handler::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($equals($nc(e)->getSource(), this->this$0->splitPane)) {
 		$var($String, changeName, e->getPropertyName());
 		$init($JSplitPane);
 		if (changeName == $JSplitPane::ORIENTATION_PROPERTY) {
 			this->this$0->orientation = $nc(this->this$0->splitPane)->getOrientation();
 			this->this$0->resetLayoutManager();
-		} else {
-			if (changeName == $JSplitPane::CONTINUOUS_LAYOUT_PROPERTY) {
-				this->this$0->setContinuousLayout($nc(this->this$0->splitPane)->isContinuousLayout());
-				if (!this->this$0->isContinuousLayout()) {
-					if (this->this$0->nonContinuousLayoutDivider == nullptr) {
-						this->this$0->setNonContinuousLayoutDivider($(this->this$0->createDefaultNonContinuousLayoutDivider()), true);
-					} else if ($nc(this->this$0->nonContinuousLayoutDivider)->getParent() == nullptr) {
-						this->this$0->setNonContinuousLayoutDivider(this->this$0->nonContinuousLayoutDivider, true);
-					}
-				}
-			} else {
-				if (changeName == $JSplitPane::DIVIDER_SIZE_PROPERTY) {
-					$nc(this->this$0->divider)->setDividerSize($nc(this->this$0->splitPane)->getDividerSize());
-					this->this$0->dividerSize = $nc(this->this$0->divider)->getDividerSize();
-					$nc(this->this$0->splitPane)->revalidate();
-					$nc(this->this$0->splitPane)->repaint();
+		} else if (changeName == $JSplitPane::CONTINUOUS_LAYOUT_PROPERTY) {
+			this->this$0->setContinuousLayout($nc(this->this$0->splitPane)->isContinuousLayout());
+			if (!this->this$0->isContinuousLayout()) {
+				if (this->this$0->nonContinuousLayoutDivider == nullptr) {
+					this->this$0->setNonContinuousLayoutDivider($(this->this$0->createDefaultNonContinuousLayoutDivider()), true);
+				} else if (this->this$0->nonContinuousLayoutDivider->getParent() == nullptr) {
+					this->this$0->setNonContinuousLayoutDivider(this->this$0->nonContinuousLayoutDivider, true);
 				}
 			}
+		} else if (changeName == $JSplitPane::DIVIDER_SIZE_PROPERTY) {
+			$nc(this->this$0->divider)->setDividerSize($nc(this->this$0->splitPane)->getDividerSize());
+			this->this$0->dividerSize = $nc(this->this$0->divider)->getDividerSize();
+			$nc(this->this$0->splitPane)->revalidate();
+			$nc(this->this$0->splitPane)->repaint();
 		}
 	}
 }
@@ -142,7 +92,44 @@ BasicSplitPaneUI$Handler::BasicSplitPaneUI$Handler() {
 }
 
 $Class* BasicSplitPaneUI$Handler::load$($String* name, bool initialize) {
-	$loadClass(BasicSplitPaneUI$Handler, name, initialize, &_BasicSplitPaneUI$Handler_ClassInfo_, allocate$BasicSplitPaneUI$Handler);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicSplitPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicSplitPaneUI$Handler, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicSplitPaneUI;)V", nullptr, $PRIVATE, $method(BasicSplitPaneUI$Handler, init$, void, $BasicSplitPaneUI*)},
+		{"focusGained", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$Handler, focusGained, void, $FocusEvent*)},
+		{"focusLost", "(Ljava/awt/event/FocusEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$Handler, focusLost, void, $FocusEvent*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicSplitPaneUI$Handler, propertyChange, void, $PropertyChangeEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicSplitPaneUI$Handler", "javax.swing.plaf.basic.BasicSplitPaneUI", "Handler", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicSplitPaneUI$Handler",
+		"java.lang.Object",
+		"java.awt.event.FocusListener,java.beans.PropertyChangeListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicSplitPaneUI"
+	};
+	$loadClass(BasicSplitPaneUI$Handler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicSplitPaneUI$Handler));
+	});
 	return class$;
 }
 

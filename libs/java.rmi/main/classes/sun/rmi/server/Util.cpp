@@ -1,9 +1,7 @@
 #include <sun/rmi/server/Util.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
@@ -53,7 +51,6 @@ using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $IOException = ::java::io::IOException;
-using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $Byte = ::java::lang::Byte;
@@ -64,7 +61,6 @@ using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Double = ::java::lang::Double;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
@@ -117,27 +113,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(Util::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Util$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Util$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Util$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Util$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo Util$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.Util$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Util$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(Util$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Util$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Util$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.Util$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Util$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Util$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* Util$$Lambda$lambda$static$0::class$ = nullptr;
@@ -150,82 +143,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(Util::lambda$static$1());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Util$$Lambda$lambda$static$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Util$$Lambda$lambda$static$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Util$$Lambda$lambda$static$1$1, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Util$$Lambda$lambda$static$1$1, run, $Object*)},
-	{}
-};
-$ClassInfo Util$$Lambda$lambda$static$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"sun.rmi.server.Util$$Lambda$lambda$static$1$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* Util$$Lambda$lambda$static$1$1::load$($String* name, bool initialize) {
-	$loadClass(Util$$Lambda$lambda$static$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Util$$Lambda$lambda$static$1$1, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Util$$Lambda$lambda$static$1$1, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"sun.rmi.server.Util$$Lambda$lambda$static$1$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Util$$Lambda$lambda$static$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Util$$Lambda$lambda$static$1$1);
+	});
 	return class$;
 }
 $Class* Util$$Lambda$lambda$static$1$1::class$ = nullptr;
-
-$FieldInfo _Util_FieldInfo_[] = {
-	{"logLevel", "I", nullptr, $STATIC | $FINAL, $staticField(Util, logLevel)},
-	{"serverRefLog", "Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Util, serverRefLog)},
-	{"ignoreStubClasses", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Util, ignoreStubClasses)},
-	{"withoutStubs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Util, withoutStubs)},
-	{"stubConsParamTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Util, stubConsParamTypes)},
-	{}
-};
-
-$MethodInfo _Util_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Util, init$, void)},
-	{"checkMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, checkMethod, void, $Method*)},
-	{"computeMethodHash", "(Ljava/lang/reflect/Method;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, computeMethodHash, int64_t, $Method*)},
-	{"createProxy", "(Ljava/lang/Class;Ljava/rmi/server/RemoteRef;Z)Ljava/rmi/Remote;", "(Ljava/lang/Class<*>;Ljava/rmi/server/RemoteRef;Z)Ljava/rmi/Remote;", $PUBLIC | $STATIC, $staticMethod(Util, createProxy, $Remote*, $Class*, $RemoteRef*, bool), "java.rmi.StubNotFoundException"},
-	{"createSkeleton", "(Ljava/rmi/Remote;)Ljava/rmi/server/Skeleton;", nullptr, $STATIC, $staticMethod(Util, createSkeleton, $Skeleton*, $Remote*), "java.rmi.server.SkeletonNotFoundException"},
-	{"createStub", "(Ljava/lang/Class;Ljava/rmi/server/RemoteRef;)Ljava/rmi/server/RemoteStub;", "(Ljava/lang/Class<*>;Ljava/rmi/server/RemoteRef;)Ljava/rmi/server/RemoteStub;", $PRIVATE | $STATIC, $staticMethod(Util, createStub, $RemoteStub*, $Class*, $RemoteRef*), "java.rmi.StubNotFoundException"},
-	{"getMethodNameAndDescriptor", "(Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, getMethodNameAndDescriptor, $String*, $Method*)},
-	{"getRemoteClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteClass, $Class*, $Class*), "java.lang.ClassNotFoundException"},
-	{"getRemoteInterfaces", "(Ljava/lang/Class;)[Ljava/lang/Class;", "(Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteInterfaces, $ClassArray*, $Class*)},
-	{"getRemoteInterfaces", "(Ljava/util/ArrayList;Ljava/lang/Class;)V", "(Ljava/util/ArrayList<Ljava/lang/Class<*>;>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteInterfaces, void, $ArrayList*, $Class*)},
-	{"getTypeDescriptor", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(Util, getTypeDescriptor, $String*, $Class*)},
-	{"getUnqualifiedName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Util, getUnqualifiedName, $String*, $Class*)},
-	{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Util, lambda$static$0, $String*)},
-	{"lambda$static$1", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Util, lambda$static$1, $Boolean*)},
-	{"stubClassExists", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Util, stubClassExists, bool, $Class*)},
-	{}
-};
-
-$InnerClassInfo _Util_InnerClassesInfo_[] = {
-	{"sun.rmi.server.Util$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Util_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.rmi.server.Util",
-	"java.lang.Object",
-	nullptr,
-	_Util_FieldInfo_,
-	_Util_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Util_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.rmi.server.Util$1"
-};
-
-$Object* allocate$Util($Class* clazz) {
-	return $of($alloc(Util));
-}
 
 int32_t Util::logLevel = 0;
 $Log* Util::serverRefLog = nullptr;
@@ -238,7 +176,7 @@ void Util::init$() {
 
 $Remote* Util::createProxy($Class* implClass, $RemoteRef* clientRef, bool forceStubUse) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* remoteClass = nullptr;
 	try {
@@ -253,7 +191,7 @@ $Remote* Util::createProxy($Class* implClass, $RemoteRef* clientRef, bool forceS
 	$var($ClassArray, interfaces, getRemoteInterfaces(implClass));
 	$var($InvocationHandler, handler, $new($RemoteObjectInvocationHandler, clientRef));
 	try {
-		return $cast($Remote, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($Util$1, loader, interfaces, handler))));
+		return $cast($Remote, $AccessController::doPrivileged($$new($Util$1, loader, interfaces, handler)));
 	} catch ($IllegalArgumentException& e) {
 		$throwNew($StubNotFoundException, "unable to create proxy"_s, e);
 	}
@@ -262,7 +200,7 @@ $Remote* Util::createProxy($Class* implClass, $RemoteRef* clientRef, bool forceS
 
 bool Util::stubClassExists($Class* remoteClass) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	if (!$nc(Util::withoutStubs)->containsKey(remoteClass)) {
 		try {
@@ -270,7 +208,7 @@ bool Util::stubClassExists($Class* remoteClass) {
 			$Class::forName(var$0, false, $(remoteClass->getClassLoader()));
 			return true;
 		} catch ($ClassNotFoundException& cnfe) {
-			$nc(Util::withoutStubs)->put(remoteClass, nullptr);
+			Util::withoutStubs->put(remoteClass, nullptr);
 		}
 	}
 	return false;
@@ -278,7 +216,7 @@ bool Util::stubClassExists($Class* remoteClass) {
 
 $Class* Util::getRemoteClass($Class* cl) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	while (cl != nullptr) {
 		$var($ClassArray, interfaces, cl->getInterfaces());
 		for (int32_t i = interfaces->length - 1; i >= 0; --i) {
@@ -294,15 +232,15 @@ $Class* Util::getRemoteClass($Class* cl) {
 
 $ClassArray* Util::getRemoteInterfaces($Class* remoteClass) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ArrayList, list, $new($ArrayList));
 	getRemoteInterfaces(list, remoteClass);
-	return $fcast($ClassArray, list->toArray($$new($ClassArray, list->size())));
+	return $cast($ClassArray, list->toArray($$new($ClassArray, list->size())));
 }
 
 void Util::getRemoteInterfaces($ArrayList* list, $Class* cl) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* superclass = $nc(cl)->getSuperclass();
 	if (superclass != nullptr) {
@@ -326,7 +264,7 @@ void Util::getRemoteInterfaces($ArrayList* list, $Class* cl) {
 
 void Util::checkMethod($Method* m) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ClassArray, ex, $nc(m)->getExceptionTypes());
 	for (int32_t i = 0; i < $nc(ex)->length; ++i) {
 		$load($RemoteException);
@@ -339,13 +277,13 @@ void Util::checkMethod($Method* m) {
 
 $RemoteStub* Util::createStub($Class* remoteClass, $RemoteRef* ref) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($String, stubname, $str({$($nc(remoteClass)->getName()), "_Stub"_s}));
 	try {
 		$Class* stubcl = $Class::forName(stubname, false, $(remoteClass->getClassLoader()));
-		$var($Constructor, cons, $nc(stubcl)->getConstructor(Util::stubConsParamTypes));
-		return $cast($RemoteStub, $nc(cons)->newInstance($$new($ObjectArray, {$of(ref)})));
+		$var($Constructor, cons, stubcl->getConstructor(Util::stubConsParamTypes));
+		return $cast($RemoteStub, $nc(cons)->newInstance($$new($ObjectArray, {ref})));
 	} catch ($ClassNotFoundException& e) {
 		$throwNew($StubNotFoundException, $$str({"Stub class not found: "_s, stubname}), e);
 	} catch ($NoSuchMethodException& e) {
@@ -364,7 +302,7 @@ $RemoteStub* Util::createStub($Class* remoteClass, $RemoteRef* ref) {
 
 $Skeleton* Util::createSkeleton($Remote* object) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$Class* cl = nullptr;
 	try {
@@ -375,7 +313,7 @@ $Skeleton* Util::createSkeleton($Remote* object) {
 	$var($String, skelname, $str({$($nc(cl)->getName()), "_Skel"_s}));
 	try {
 		$Class* skelcl = $Class::forName(skelname, false, $(cl->getClassLoader()));
-		return $cast($Skeleton, $nc(skelcl)->newInstance());
+		return $cast($Skeleton, skelcl->newInstance());
 	} catch ($ClassNotFoundException& ex) {
 		$throwNew($SkeletonNotFoundException, $$str({"Skeleton class not found: "_s, skelname}), ex);
 	} catch ($InstantiationException& ex) {
@@ -390,7 +328,7 @@ $Skeleton* Util::createSkeleton($Remote* object) {
 
 int64_t Util::computeMethodHash($Method* m) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t hash = 0;
 	$var($ByteArrayOutputStream, sink, $new($ByteArrayOutputStream, 127));
 	try {
@@ -399,13 +337,13 @@ int64_t Util::computeMethodHash($Method* m) {
 		$var($String, s, getMethodNameAndDescriptor(m));
 		$init($Log);
 		if ($nc(Util::serverRefLog)->isLoggable($Log::VERBOSE)) {
-			$nc(Util::serverRefLog)->log($Log::VERBOSE, $$str({"string used for method hash: \""_s, s, "\""_s}));
+			Util::serverRefLog->log($Log::VERBOSE, $$str({"string used for method hash: \""_s, s, "\""_s}));
 		}
 		out->writeUTF(s);
 		out->flush();
 		$var($bytes, hasharray, $nc(md)->digest());
 		for (int32_t i = 0; i < $Math::min(8, $nc(hasharray)->length); ++i) {
-			hash += $sl((int64_t)((int32_t)($nc(hasharray)->get(i) & (uint32_t)255)), i * 8);
+			hash += $sl((int64_t)(hasharray->get(i) & 0xff), i * 8);
 		}
 	} catch ($IOException& ignore) {
 		hash = -1;
@@ -417,16 +355,15 @@ int64_t Util::computeMethodHash($Method* m) {
 
 $String* Util::getMethodNameAndDescriptor($Method* m) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, desc, $new($StringBuilder, $($nc(m)->getName())));
 	desc->append(u'(');
-	$var($ClassArray, paramTypes, $nc(m)->getParameterTypes());
+	$var($ClassArray, paramTypes, m->getParameterTypes());
 	for (int32_t i = 0; i < $nc(paramTypes)->length; ++i) {
 		desc->append($(getTypeDescriptor(paramTypes->get(i))));
 	}
 	desc->append(u')');
 	$Class* returnType = m->getReturnType();
-	$init($Void);
 	if (returnType == $Void::TYPE) {
 		desc->append(u'V');
 	} else {
@@ -437,65 +374,40 @@ $String* Util::getMethodNameAndDescriptor($Method* m) {
 
 $String* Util::getTypeDescriptor($Class* type) {
 	$init(Util);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(type)->isPrimitive()) {
-		$init($Integer);
 		if (type == $Integer::TYPE) {
 			return "I"_s;
+		} else if (type == $Boolean::TYPE) {
+			return "Z"_s;
+		} else if (type == $Byte::TYPE) {
+			return "B"_s;
+		} else if (type == $Character::TYPE) {
+			return "C"_s;
+		} else if (type == $Short::TYPE) {
+			return "S"_s;
+		} else if (type == $Long::TYPE) {
+			return "J"_s;
+		} else if (type == $Float::TYPE) {
+			return "F"_s;
+		} else if (type == $Double::TYPE) {
+			return "D"_s;
+		} else if (type == $Void::TYPE) {
+			return "V"_s;
 		} else {
-			$init($Boolean);
-			if (type == $Boolean::TYPE) {
-				return "Z"_s;
-			} else {
-				$init($Byte);
-				if (type == $Byte::TYPE) {
-					return "B"_s;
-				} else {
-					$init($Character);
-					if (type == $Character::TYPE) {
-						return "C"_s;
-					} else {
-						$init($Short);
-						if (type == $Short::TYPE) {
-							return "S"_s;
-						} else {
-							$init($Long);
-							if (type == $Long::TYPE) {
-								return "J"_s;
-							} else {
-								$init($Float);
-								if (type == $Float::TYPE) {
-									return "F"_s;
-								} else {
-									$init($Double);
-									if (type == $Double::TYPE) {
-										return "D"_s;
-									} else {
-										$init($Void);
-										if (type == $Void::TYPE) {
-											return "V"_s;
-										} else {
-											$throwNew($Error, $$str({"unrecognized primitive type: "_s, type}));
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+			$throwNew($Error, $$str({"unrecognized primitive type: "_s, type}));
 		}
 	} else if (type->isArray()) {
-		return $nc($(type->getName()))->replace(u'.', u'/');
+		return $$nc(type->getName())->replace(u'.', u'/');
 	} else {
-		return $str({"L"_s, $($nc($(type->getName()))->replace(u'.', u'/')), ";"_s});
+		return $str({"L"_s, $($$nc(type->getName())->replace(u'.', u'/')), ";"_s});
 	}
 }
 
 $String* Util::getUnqualifiedName($Class* c) {
 	$init(Util);
 	$var($String, binaryName, $nc(c)->getName());
-	return $nc(binaryName)->substring(binaryName->lastIndexOf((int32_t)u'.') + 1);
+	return $nc(binaryName)->substring($nc(binaryName)->lastIndexOf(u'.') + 1);
 }
 
 $Boolean* Util::lambda$static$1() {
@@ -508,12 +420,12 @@ $String* Util::lambda$static$0() {
 	return $System::getProperty("sun.rmi.server.logLevel"_s);
 }
 
-void clinit$Util($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void Util::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	Util::logLevel = $LogStream::parseLevel($cast($String, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Util$$Lambda$lambda$static$0))))));
+	Util::logLevel = $LogStream::parseLevel($$cast($String, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Util$$Lambda$lambda$static$0)))));
 	$assignStatic(Util::serverRefLog, $Log::getLog("sun.rmi.server.ref"_s, "transport"_s, Util::logLevel));
-	Util::ignoreStubClasses = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(Util$$Lambda$lambda$static$1$1)))))))->booleanValue();
+	Util::ignoreStubClasses = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(Util$$Lambda$lambda$static$1$1))))->booleanValue();
 	$assignStatic(Util::withoutStubs, $Collections::synchronizedMap($$new($WeakHashMap, 11)));
 	$load($RemoteRef);
 	$assignStatic(Util::stubConsParamTypes, $new($ClassArray, {$RemoteRef::class$}));
@@ -524,14 +436,60 @@ Util::Util() {
 
 $Class* Util::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Util$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.Util$$Lambda$lambda$static$0")) {
 			return Util$$Lambda$lambda$static$0::load$(name, initialize);
 		}
-		if (name->equals(Util$$Lambda$lambda$static$1$1::classInfo$.name)) {
+		if (name->equals("sun.rmi.server.Util$$Lambda$lambda$static$1$1")) {
 			return Util$$Lambda$lambda$static$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(Util, name, initialize, &_Util_ClassInfo_, clinit$Util, allocate$Util);
+	$FieldInfo fieldInfos$$[] = {
+		{"logLevel", "I", nullptr, $STATIC | $FINAL, $staticField(Util, logLevel)},
+		{"serverRefLog", "Lsun/rmi/runtime/Log;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Util, serverRefLog)},
+		{"ignoreStubClasses", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Util, ignoreStubClasses)},
+		{"withoutStubs", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/Class<*>;Ljava/lang/Void;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Util, withoutStubs)},
+		{"stubConsParamTypes", "[Ljava/lang/Class;", "[Ljava/lang/Class<*>;", $PRIVATE | $STATIC | $FINAL, $staticField(Util, stubConsParamTypes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Util, init$, void)},
+		{"checkMethod", "(Ljava/lang/reflect/Method;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, checkMethod, void, $Method*)},
+		{"computeMethodHash", "(Ljava/lang/reflect/Method;)J", nullptr, $PUBLIC | $STATIC, $staticMethod(Util, computeMethodHash, int64_t, $Method*)},
+		{"createProxy", "(Ljava/lang/Class;Ljava/rmi/server/RemoteRef;Z)Ljava/rmi/Remote;", "(Ljava/lang/Class<*>;Ljava/rmi/server/RemoteRef;Z)Ljava/rmi/Remote;", $PUBLIC | $STATIC, $staticMethod(Util, createProxy, $Remote*, $Class*, $RemoteRef*, bool), "java.rmi.StubNotFoundException"},
+		{"createSkeleton", "(Ljava/rmi/Remote;)Ljava/rmi/server/Skeleton;", nullptr, $STATIC, $staticMethod(Util, createSkeleton, $Skeleton*, $Remote*), "java.rmi.server.SkeletonNotFoundException"},
+		{"createStub", "(Ljava/lang/Class;Ljava/rmi/server/RemoteRef;)Ljava/rmi/server/RemoteStub;", "(Ljava/lang/Class<*>;Ljava/rmi/server/RemoteRef;)Ljava/rmi/server/RemoteStub;", $PRIVATE | $STATIC, $staticMethod(Util, createStub, $RemoteStub*, $Class*, $RemoteRef*), "java.rmi.StubNotFoundException"},
+		{"getMethodNameAndDescriptor", "(Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(Util, getMethodNameAndDescriptor, $String*, $Method*)},
+		{"getRemoteClass", "(Ljava/lang/Class;)Ljava/lang/Class;", "(Ljava/lang/Class<*>;)Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteClass, $Class*, $Class*), "java.lang.ClassNotFoundException"},
+		{"getRemoteInterfaces", "(Ljava/lang/Class;)[Ljava/lang/Class;", "(Ljava/lang/Class<*>;)[Ljava/lang/Class<*>;", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteInterfaces, $ClassArray*, $Class*)},
+		{"getRemoteInterfaces", "(Ljava/util/ArrayList;Ljava/lang/Class;)V", "(Ljava/util/ArrayList<Ljava/lang/Class<*>;>;Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(Util, getRemoteInterfaces, void, $ArrayList*, $Class*)},
+		{"getTypeDescriptor", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PRIVATE | $STATIC, $staticMethod(Util, getTypeDescriptor, $String*, $Class*)},
+		{"getUnqualifiedName", "(Ljava/lang/Class;)Ljava/lang/String;", "(Ljava/lang/Class<*>;)Ljava/lang/String;", $PUBLIC | $STATIC, $staticMethod(Util, getUnqualifiedName, $String*, $Class*)},
+		{"lambda$static$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Util, lambda$static$0, $String*)},
+		{"lambda$static$1", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Util, lambda$static$1, $Boolean*)},
+		{"stubClassExists", "(Ljava/lang/Class;)Z", "(Ljava/lang/Class<*>;)Z", $PRIVATE | $STATIC, $staticMethod(Util, stubClassExists, bool, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.rmi.server.Util$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.rmi.server.Util",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.rmi.server.Util$1"
+	};
+	$loadClass(Util, name, initialize, &classInfo$$, Util::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Util);
+	});
 	return class$;
 }
 

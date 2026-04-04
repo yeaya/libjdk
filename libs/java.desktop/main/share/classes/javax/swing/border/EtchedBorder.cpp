@@ -1,5 +1,4 @@
 #include <javax/swing/border/EtchedBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -26,61 +25,6 @@ namespace javax {
 	namespace swing {
 		namespace border {
 
-$Attribute EtchedBorder_Attribute_var$1[] = {
-	{'s', "etchType"},
-	{'s', "highlightColor"},
-	{'s', "shadowColor"},
-	{'-'}
-};
-
-$NamedAttribute EtchedBorder_Attribute_var$0[] = {
-	{"value", '[', EtchedBorder_Attribute_var$1},
-	{}
-};
-
-$CompoundAttribute _EtchedBorder_MethodAnnotations_init$3[] = {
-	{"Ljava/beans/ConstructorProperties;", EtchedBorder_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _EtchedBorder_FieldInfo_[] = {
-	{"RAISED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EtchedBorder, RAISED)},
-	{"LOWERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EtchedBorder, LOWERED)},
-	{"etchType", "I", nullptr, $PROTECTED, $field(EtchedBorder, etchType)},
-	{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(EtchedBorder, highlight)},
-	{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(EtchedBorder, shadow)},
-	{}
-};
-
-$MethodInfo _EtchedBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EtchedBorder, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(EtchedBorder, init$, void, int32_t)},
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(EtchedBorder, init$, void, $Color*, $Color*)},
-	{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(EtchedBorder, init$, void, int32_t, $Color*, $Color*), nullptr, nullptr, _EtchedBorder_MethodAnnotations_init$3},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"getEtchType", "()I", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getEtchType, int32_t)},
-	{"getHighlightColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getHighlightColor, $Color*, $Component*)},
-	{"getHighlightColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getHighlightColor, $Color*)},
-	{"getShadowColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getShadowColor, $Color*, $Component*)},
-	{"getShadowColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getShadowColor, $Color*)},
-	{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, isBorderOpaque, bool)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _EtchedBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.border.EtchedBorder",
-	"javax.swing.border.AbstractBorder",
-	nullptr,
-	_EtchedBorder_FieldInfo_,
-	_EtchedBorder_MethodInfo_
-};
-
-$Object* allocate$EtchedBorder($Class* clazz) {
-	return $of($alloc(EtchedBorder));
-}
-
 void EtchedBorder::init$() {
 	EtchedBorder::init$(EtchedBorder::LOWERED);
 }
@@ -101,7 +45,7 @@ void EtchedBorder::init$(int32_t etchType, $Color* highlight, $Color* shadow) {
 }
 
 void EtchedBorder::paintBorder($Component* c, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t w = width;
 	int32_t h = height;
 	$nc(g)->translate(x, y);
@@ -129,7 +73,7 @@ int32_t EtchedBorder::getEtchType() {
 }
 
 $Color* EtchedBorder::getHighlightColor($Component* c) {
-	return this->highlight != nullptr ? this->highlight : $nc($($nc(c)->getBackground()))->brighter();
+	return this->highlight != nullptr ? this->highlight : $$nc($nc(c)->getBackground())->brighter();
 }
 
 $Color* EtchedBorder::getHighlightColor() {
@@ -137,7 +81,7 @@ $Color* EtchedBorder::getHighlightColor() {
 }
 
 $Color* EtchedBorder::getShadowColor($Component* c) {
-	return this->shadow != nullptr ? this->shadow : $nc($($nc(c)->getBackground()))->darker();
+	return this->shadow != nullptr ? this->shadow : $$nc($nc(c)->getBackground())->darker();
 }
 
 $Color* EtchedBorder::getShadowColor() {
@@ -148,7 +92,54 @@ EtchedBorder::EtchedBorder() {
 }
 
 $Class* EtchedBorder::load$($String* name, bool initialize) {
-	$loadClass(EtchedBorder, name, initialize, &_EtchedBorder_ClassInfo_, allocate$EtchedBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"RAISED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EtchedBorder, RAISED)},
+		{"LOWERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(EtchedBorder, LOWERED)},
+		{"etchType", "I", nullptr, $PROTECTED, $field(EtchedBorder, etchType)},
+		{"highlight", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(EtchedBorder, highlight)},
+		{"shadow", "Ljava/awt/Color;", nullptr, $PROTECTED, $field(EtchedBorder, shadow)},
+		{}
+	};
+	$Attribute $attribute[] = {
+		{'s', "etchType"},
+		{'s', "highlightColor"},
+		{'s', "shadowColor"},
+		{'-'}
+	};
+	$NamedAttribute init$methodAnnotations$$$3$namedAttribute[] = {
+		{"value", '[', $attribute},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$3[] = {
+		{"Ljava/beans/ConstructorProperties;", init$methodAnnotations$$$3$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EtchedBorder, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(EtchedBorder, init$, void, int32_t)},
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(EtchedBorder, init$, void, $Color*, $Color*)},
+		{"<init>", "(ILjava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(EtchedBorder, init$, void, int32_t, $Color*, $Color*), nullptr, nullptr, init$methodAnnotations$$$3},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"getEtchType", "()I", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getEtchType, int32_t)},
+		{"getHighlightColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getHighlightColor, $Color*, $Component*)},
+		{"getHighlightColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getHighlightColor, $Color*)},
+		{"getShadowColor", "(Ljava/awt/Component;)Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getShadowColor, $Color*, $Component*)},
+		{"getShadowColor", "()Ljava/awt/Color;", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, getShadowColor, $Color*)},
+		{"isBorderOpaque", "()Z", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, isBorderOpaque, bool)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(EtchedBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.border.EtchedBorder",
+		"javax.swing.border.AbstractBorder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EtchedBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EtchedBorder));
+	});
 	return class$;
 }
 

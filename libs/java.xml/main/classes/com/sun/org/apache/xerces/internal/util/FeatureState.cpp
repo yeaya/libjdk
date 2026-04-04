@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/util/FeatureState.h>
-
 #include <com/sun/org/apache/xerces/internal/util/Status.h>
 #include <jcpp.h>
 
@@ -24,40 +23,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _FeatureState_FieldInfo_[] = {
-	{"status", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $FINAL, $field(FeatureState, status)},
-	{"state", "Z", nullptr, $PUBLIC | $FINAL, $field(FeatureState, state)},
-	{"SET_ENABLED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, SET_ENABLED)},
-	{"SET_DISABLED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, SET_DISABLED)},
-	{"UNKNOWN", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, UNKNOWN)},
-	{"RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, RECOGNIZED)},
-	{"NOT_SUPPORTED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, NOT_SUPPORTED)},
-	{"NOT_RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, NOT_RECOGNIZED)},
-	{"NOT_ALLOWED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, NOT_ALLOWED)},
-	{}
-};
-
-$MethodInfo _FeatureState_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/Status;Z)V", nullptr, $PUBLIC, $method(FeatureState, init$, void, $Status*, bool)},
-	{"is", "(Z)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC, $staticMethod(FeatureState, is, FeatureState*, bool)},
-	{"isExceptional", "()Z", nullptr, $PUBLIC, $virtualMethod(FeatureState, isExceptional, bool)},
-	{"of", "(Lcom/sun/org/apache/xerces/internal/util/Status;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC, $staticMethod(FeatureState, of, FeatureState*, $Status*)},
-	{}
-};
-
-$ClassInfo _FeatureState_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.util.FeatureState",
-	"java.lang.Object",
-	nullptr,
-	_FeatureState_FieldInfo_,
-	_FeatureState_MethodInfo_
-};
-
-$Object* allocate$FeatureState($Class* clazz) {
-	return $of($alloc(FeatureState));
-}
 
 FeatureState* FeatureState::SET_ENABLED = nullptr;
 FeatureState* FeatureState::SET_DISABLED = nullptr;
@@ -87,7 +52,7 @@ bool FeatureState::isExceptional() {
 	return this->status->isExceptional();
 }
 
-void clinit$FeatureState($Class* class$) {
+void FeatureState::clinit$($Class* clazz) {
 	$init($Status);
 	$assignStatic(FeatureState::SET_ENABLED, $new(FeatureState, $Status::SET, true));
 	$assignStatic(FeatureState::SET_DISABLED, $new(FeatureState, $Status::SET, false));
@@ -102,7 +67,36 @@ FeatureState::FeatureState() {
 }
 
 $Class* FeatureState::load$($String* name, bool initialize) {
-	$loadClass(FeatureState, name, initialize, &_FeatureState_ClassInfo_, clinit$FeatureState, allocate$FeatureState);
+	$FieldInfo fieldInfos$$[] = {
+		{"status", "Lcom/sun/org/apache/xerces/internal/util/Status;", nullptr, $PUBLIC | $FINAL, $field(FeatureState, status)},
+		{"state", "Z", nullptr, $PUBLIC | $FINAL, $field(FeatureState, state)},
+		{"SET_ENABLED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, SET_ENABLED)},
+		{"SET_DISABLED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, SET_DISABLED)},
+		{"UNKNOWN", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, UNKNOWN)},
+		{"RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, RECOGNIZED)},
+		{"NOT_SUPPORTED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, NOT_SUPPORTED)},
+		{"NOT_RECOGNIZED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, NOT_RECOGNIZED)},
+		{"NOT_ALLOWED", "Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(FeatureState, NOT_ALLOWED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/Status;Z)V", nullptr, $PUBLIC, $method(FeatureState, init$, void, $Status*, bool)},
+		{"is", "(Z)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC, $staticMethod(FeatureState, is, FeatureState*, bool)},
+		{"isExceptional", "()Z", nullptr, $PUBLIC, $virtualMethod(FeatureState, isExceptional, bool)},
+		{"of", "(Lcom/sun/org/apache/xerces/internal/util/Status;)Lcom/sun/org/apache/xerces/internal/util/FeatureState;", nullptr, $PUBLIC | $STATIC, $staticMethod(FeatureState, of, FeatureState*, $Status*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.util.FeatureState",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FeatureState, name, initialize, &classInfo$$, FeatureState::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(FeatureState);
+	});
 	return class$;
 }
 

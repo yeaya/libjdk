@@ -1,5 +1,4 @@
 #include <javax/swing/text/AbstractDocument$BidiRootElement.h>
-
 #include <javax/swing/text/AbstractDocument$BranchElement.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -19,43 +18,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _AbstractDocument$BidiRootElement_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$BidiRootElement, this$0)},
-	{}
-};
-
-$MethodInfo _AbstractDocument$BidiRootElement_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/AbstractDocument;)V", nullptr, 0, $method(AbstractDocument$BidiRootElement, init$, void, $AbstractDocument*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BidiRootElement, getName, $String*)},
-	{}
-};
-
-$InnerClassInfo _AbstractDocument$BidiRootElement_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$BidiRootElement", "javax.swing.text.AbstractDocument", "BidiRootElement", 0},
-	{"javax.swing.text.AbstractDocument$BranchElement", "javax.swing.text.AbstractDocument", "BranchElement", $PUBLIC},
-	{}
-};
-
-$ClassInfo _AbstractDocument$BidiRootElement_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.AbstractDocument$BidiRootElement",
-	"javax.swing.text.AbstractDocument$BranchElement",
-	nullptr,
-	_AbstractDocument$BidiRootElement_FieldInfo_,
-	_AbstractDocument$BidiRootElement_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AbstractDocument$BidiRootElement_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.AbstractDocument"
-};
-
-$Object* allocate$AbstractDocument$BidiRootElement($Class* clazz) {
-	return $of($alloc(AbstractDocument$BidiRootElement));
-}
-
 void AbstractDocument$BidiRootElement::init$($AbstractDocument* this$0) {
 	$set(this, this$0, this$0);
 	$AbstractDocument$BranchElement::init$(this$0, nullptr, nullptr);
@@ -69,7 +31,38 @@ AbstractDocument$BidiRootElement::AbstractDocument$BidiRootElement() {
 }
 
 $Class* AbstractDocument$BidiRootElement::load$($String* name, bool initialize) {
-	$loadClass(AbstractDocument$BidiRootElement, name, initialize, &_AbstractDocument$BidiRootElement_ClassInfo_, allocate$AbstractDocument$BidiRootElement);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/AbstractDocument;", nullptr, $FINAL | $SYNTHETIC, $field(AbstractDocument$BidiRootElement, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/AbstractDocument;)V", nullptr, 0, $method(AbstractDocument$BidiRootElement, init$, void, $AbstractDocument*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AbstractDocument$BidiRootElement, getName, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$BidiRootElement", "javax.swing.text.AbstractDocument", "BidiRootElement", 0},
+		{"javax.swing.text.AbstractDocument$BranchElement", "javax.swing.text.AbstractDocument", "BranchElement", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.AbstractDocument$BidiRootElement",
+		"javax.swing.text.AbstractDocument$BranchElement",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.AbstractDocument"
+	};
+	$loadClass(AbstractDocument$BidiRootElement, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AbstractDocument$BidiRootElement));
+	});
 	return class$;
 }
 

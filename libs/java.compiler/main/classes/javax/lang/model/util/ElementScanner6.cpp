@@ -1,5 +1,4 @@
 #include <javax/lang/model/util/ElementScanner6.h>
-
 #include <java/lang/Iterable.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -26,7 +25,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Iterator = ::java::util::Iterator;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
-using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
@@ -39,72 +37,6 @@ namespace javax {
 		namespace model {
 			namespace util {
 
-$NamedAttribute ElementScanner6_Attribute_var$0[] = {
-	{"value", 'e', "Ljavax/lang/model/SourceVersion; RELEASE_6"},
-	{}
-};
-
-$CompoundAttribute _ElementScanner6_Annotations_[] = {
-	{"Ljavax/annotation/processing/SupportedSourceVersion;", ElementScanner6_Attribute_var$0},
-	{}
-};
-
-$NamedAttribute ElementScanner6_Attribute_var$1[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _ElementScanner6_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", ElementScanner6_Attribute_var$1},
-	{}
-};
-
-$NamedAttribute ElementScanner6_Attribute_var$2[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _ElementScanner6_MethodAnnotations_init$1[] = {
-	{"Ljava/lang/Deprecated;", ElementScanner6_Attribute_var$2},
-	{}
-};
-
-$FieldInfo _ElementScanner6_FieldInfo_[] = {
-	{"DEFAULT_VALUE", "Ljava/lang/Object;", "TR;", $PROTECTED | $FINAL, $field(ElementScanner6, DEFAULT_VALUE)},
-	{}
-};
-
-$MethodInfo _ElementScanner6_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(ElementScanner6, init$, void), nullptr, nullptr, _ElementScanner6_MethodAnnotations_init$0},
-	{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(ElementScanner6, init$, void, Object$*), nullptr, nullptr, _ElementScanner6_MethodAnnotations_init$1},
-	{"scan", "(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;TP;)TR;", $PUBLIC | $FINAL, $method(ElementScanner6, scan, $Object*, $Iterable*, Object$*)},
-	{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, scan, $Object*, $Element*, Object$*)},
-	{"scan", "(Ljavax/lang/model/element/Element;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;)TR;", $PUBLIC | $FINAL, $method(ElementScanner6, scan, $Object*, $Element*)},
-	{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ExecutableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitExecutable, $Object*, $ExecutableElement*, Object$*)},
-	{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/PackageElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitPackage, $Object*, $PackageElement*, Object$*)},
-	{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitType, $Object*, $TypeElement*, Object$*)},
-	{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeParameterElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitTypeParameter, $Object*, $TypeParameterElement*, Object$*)},
-	{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitVariable, $Object*, $VariableElement*, Object$*)},
-	{}
-};
-
-$ClassInfo _ElementScanner6_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.lang.model.util.ElementScanner6",
-	"javax.lang.model.util.AbstractElementVisitor6",
-	nullptr,
-	_ElementScanner6_FieldInfo_,
-	_ElementScanner6_MethodInfo_,
-	"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljavax/lang/model/util/AbstractElementVisitor6<TR;TP;>;",
-	nullptr,
-	nullptr,
-	_ElementScanner6_Annotations_
-};
-
-$Object* allocate$ElementScanner6($Class* clazz) {
-	return $of($alloc(ElementScanner6));
-}
-
 void ElementScanner6::init$() {
 	$AbstractElementVisitor6::init$();
 	$set(this, DEFAULT_VALUE, nullptr);
@@ -116,7 +48,7 @@ void ElementScanner6::init$(Object$* defaultValue) {
 }
 
 $Object* ElementScanner6::scan($Iterable* iterable, Object$* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, result, this->DEFAULT_VALUE);
 	{
 		$var($Iterator, i$, $nc(iterable)->iterator());
@@ -125,47 +57,102 @@ $Object* ElementScanner6::scan($Iterable* iterable, Object$* p) {
 			$assign(result, scan(e, p));
 		}
 	}
-	return $of(result);
+	return result;
 }
 
 $Object* ElementScanner6::scan($Element* e, Object$* p) {
-	return $of($nc(e)->accept(this, p));
+	return $nc(e)->accept(this, p);
 }
 
 $Object* ElementScanner6::scan($Element* e) {
-	return $of(scan(e, ($Object*)nullptr));
+	return scan(e, nullptr);
 }
 
 $Object* ElementScanner6::visitPackage($PackageElement* e, Object$* p) {
-	return $of(scan($(static_cast<$Iterable*>($nc(e)->getEnclosedElements())), p));
+	return scan($($nc(e)->getEnclosedElements()), p);
 }
 
 $Object* ElementScanner6::visitType($TypeElement* e, Object$* p) {
-	return $of(scan($(static_cast<$Iterable*>($nc(e)->getEnclosedElements())), p));
+	return scan($($nc(e)->getEnclosedElements()), p);
 }
 
 $Object* ElementScanner6::visitVariable($VariableElement* e, Object$* p) {
 	$init($ElementKind);
 	if ($nc(e)->getKind() != $ElementKind::RESOURCE_VARIABLE) {
-		return $of(scan($(static_cast<$Iterable*>(e->getEnclosedElements())), p));
+		return scan($(e->getEnclosedElements()), p);
 	} else {
-		return $of(visitUnknown(e, p));
+		return visitUnknown(e, p);
 	}
 }
 
 $Object* ElementScanner6::visitExecutable($ExecutableElement* e, Object$* p) {
-	return $of(scan($(static_cast<$Iterable*>($nc(e)->getParameters())), p));
+	return scan($($nc(e)->getParameters()), p);
 }
 
 $Object* ElementScanner6::visitTypeParameter($TypeParameterElement* e, Object$* p) {
-	return $of(scan($(static_cast<$Iterable*>($nc(e)->getEnclosedElements())), p));
+	return scan($($nc(e)->getEnclosedElements()), p);
 }
 
 ElementScanner6::ElementScanner6() {
 }
 
 $Class* ElementScanner6::load$($String* name, bool initialize) {
-	$loadClass(ElementScanner6, name, initialize, &_ElementScanner6_ClassInfo_, allocate$ElementScanner6);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEFAULT_VALUE", "Ljava/lang/Object;", "TR;", $PROTECTED | $FINAL, $field(ElementScanner6, DEFAULT_VALUE)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$1$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$1$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED | $DEPRECATED, $method(ElementScanner6, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"<init>", "(Ljava/lang/Object;)V", "(TR;)V", $PROTECTED | $DEPRECATED, $method(ElementScanner6, init$, void, Object$*), nullptr, nullptr, init$methodAnnotations$$$1},
+		{"scan", "(Ljava/lang/Iterable;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljava/lang/Iterable<+Ljavax/lang/model/element/Element;>;TP;)TR;", $PUBLIC | $FINAL, $method(ElementScanner6, scan, $Object*, $Iterable*, Object$*)},
+		{"scan", "(Ljavax/lang/model/element/Element;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, scan, $Object*, $Element*, Object$*)},
+		{"scan", "(Ljavax/lang/model/element/Element;)Ljava/lang/Object;", "(Ljavax/lang/model/element/Element;)TR;", $PUBLIC | $FINAL, $method(ElementScanner6, scan, $Object*, $Element*)},
+		{"visitExecutable", "(Ljavax/lang/model/element/ExecutableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/ExecutableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitExecutable, $Object*, $ExecutableElement*, Object$*)},
+		{"visitPackage", "(Ljavax/lang/model/element/PackageElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/PackageElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitPackage, $Object*, $PackageElement*, Object$*)},
+		{"visitType", "(Ljavax/lang/model/element/TypeElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitType, $Object*, $TypeElement*, Object$*)},
+		{"visitTypeParameter", "(Ljavax/lang/model/element/TypeParameterElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/TypeParameterElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitTypeParameter, $Object*, $TypeParameterElement*, Object$*)},
+		{"visitVariable", "(Ljavax/lang/model/element/VariableElement;Ljava/lang/Object;)Ljava/lang/Object;", "(Ljavax/lang/model/element/VariableElement;TP;)TR;", $PUBLIC, $virtualMethod(ElementScanner6, visitVariable, $Object*, $VariableElement*, Object$*)},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"value", 'e', "Ljavax/lang/model/SourceVersion; RELEASE_6"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljavax/annotation/processing/SupportedSourceVersion;", annotations$$$namedAttribute},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.lang.model.util.ElementScanner6",
+		"javax.lang.model.util.AbstractElementVisitor6",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<R:Ljava/lang/Object;P:Ljava/lang/Object;>Ljavax/lang/model/util/AbstractElementVisitor6<TR;TP;>;",
+		nullptr,
+		nullptr,
+		annotations$$
+	};
+	$loadClass(ElementScanner6, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ElementScanner6);
+	});
 	return class$;
 }
 

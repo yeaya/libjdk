@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$ButtonFactory.h>
-
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$ButtonFactory$ConstrainedButton.h>
@@ -18,46 +17,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicOptionPaneUI$ButtonFactory_FieldInfo_[] = {
-	{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicOptionPaneUI$ButtonFactory, text)},
-	{"mnemonic", "I", nullptr, $PRIVATE, $field(BasicOptionPaneUI$ButtonFactory, mnemonic)},
-	{"icon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(BasicOptionPaneUI$ButtonFactory, icon)},
-	{"minimumWidth", "I", nullptr, $PRIVATE, $field(BasicOptionPaneUI$ButtonFactory, minimumWidth)},
-	{}
-};
-
-$MethodInfo _BasicOptionPaneUI$ButtonFactory_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjavax/swing/Icon;I)V", nullptr, 0, $method(BasicOptionPaneUI$ButtonFactory, init$, void, $String*, int32_t, $Icon*, int32_t)},
-	{"createButton", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(BasicOptionPaneUI$ButtonFactory, createButton, $JButton*)},
-	{}
-};
-
-$InnerClassInfo _BasicOptionPaneUI$ButtonFactory_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonFactory", $PRIVATE | $STATIC},
-	{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory$ConstrainedButton", "javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "ConstrainedButton", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicOptionPaneUI$ButtonFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory",
-	"java.lang.Object",
-	nullptr,
-	_BasicOptionPaneUI$ButtonFactory_FieldInfo_,
-	_BasicOptionPaneUI$ButtonFactory_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicOptionPaneUI$ButtonFactory_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicOptionPaneUI"
-};
-
-$Object* allocate$BasicOptionPaneUI$ButtonFactory($Class* clazz) {
-	return $of($alloc(BasicOptionPaneUI$ButtonFactory));
-}
 
 void BasicOptionPaneUI$ButtonFactory::init$($String* text, int32_t mnemonic, $Icon* icon, int32_t minimumWidth) {
 	this->minimumWidth = -1;
@@ -87,7 +46,41 @@ BasicOptionPaneUI$ButtonFactory::BasicOptionPaneUI$ButtonFactory() {
 }
 
 $Class* BasicOptionPaneUI$ButtonFactory::load$($String* name, bool initialize) {
-	$loadClass(BasicOptionPaneUI$ButtonFactory, name, initialize, &_BasicOptionPaneUI$ButtonFactory_ClassInfo_, allocate$BasicOptionPaneUI$ButtonFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"text", "Ljava/lang/String;", nullptr, $PRIVATE, $field(BasicOptionPaneUI$ButtonFactory, text)},
+		{"mnemonic", "I", nullptr, $PRIVATE, $field(BasicOptionPaneUI$ButtonFactory, mnemonic)},
+		{"icon", "Ljavax/swing/Icon;", nullptr, $PRIVATE, $field(BasicOptionPaneUI$ButtonFactory, icon)},
+		{"minimumWidth", "I", nullptr, $PRIVATE, $field(BasicOptionPaneUI$ButtonFactory, minimumWidth)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjavax/swing/Icon;I)V", nullptr, 0, $method(BasicOptionPaneUI$ButtonFactory, init$, void, $String*, int32_t, $Icon*, int32_t)},
+		{"createButton", "()Ljavax/swing/JButton;", nullptr, 0, $virtualMethod(BasicOptionPaneUI$ButtonFactory, createButton, $JButton*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "javax.swing.plaf.basic.BasicOptionPaneUI", "ButtonFactory", $PRIVATE | $STATIC},
+		{"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory$ConstrainedButton", "javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory", "ConstrainedButton", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicOptionPaneUI$ButtonFactory",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicOptionPaneUI"
+	};
+	$loadClass(BasicOptionPaneUI$ButtonFactory, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicOptionPaneUI$ButtonFactory);
+	});
 	return class$;
 }
 

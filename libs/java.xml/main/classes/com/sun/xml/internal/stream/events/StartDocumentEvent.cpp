@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/StartDocumentEvent.h>
-
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
 #include <javax/xml/namespace/QName.h>
@@ -30,74 +29,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _StartDocumentEvent_FieldInfo_[] = {
-	{"fSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StartDocumentEvent, fSystemId)},
-	{"fEncodingScheam", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StartDocumentEvent, fEncodingScheam)},
-	{"fStandalone", "Z", nullptr, $PROTECTED, $field(StartDocumentEvent, fStandalone)},
-	{"fVersion", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StartDocumentEvent, fVersion)},
-	{"fEncodingSchemeSet", "Z", nullptr, $PRIVATE, $field(StartDocumentEvent, fEncodingSchemeSet)},
-	{"fStandaloneSet", "Z", nullptr, $PRIVATE, $field(StartDocumentEvent, fStandaloneSet)},
-	{"nestedCall", "Z", nullptr, $PRIVATE, $field(StartDocumentEvent, nestedCall)},
-	{}
-};
-
-$MethodInfo _StartDocumentEvent_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void, $String*, $String*, bool)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ZLjavax/xml/stream/Location;)V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void, $String*, $String*, bool, $Location*)},
-	{"clear", "()V", nullptr, 0, $virtualMethod(StartDocumentEvent, clear, void)},
-	{"encodingSet", "()Z", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, encodingSet, bool)},
-	{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, getCharacterEncodingScheme, $String*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, getSystemId, $String*)},
-	{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, getVersion, $String*)},
-	{"init", "(Ljava/lang/String;Ljava/lang/String;ZLjavax/xml/stream/Location;)V", nullptr, $PROTECTED, $virtualMethod(StartDocumentEvent, init, void, $String*, $String*, bool, $Location*)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, isStandalone, bool)},
-	{"isStartDocument", "()Z", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, isStartDocument, bool)},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"setDeclaredEncoding", "(Z)V", nullptr, 0, $virtualMethod(StartDocumentEvent, setDeclaredEncoding, void, bool)},
-	{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, setEncoding, void, $String*)},
-	{"setStandalone", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, setStandalone, void, bool, bool)},
-	{"setStandalone", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, setStandalone, void, $String*)},
-	{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, setVersion, void, $String*)},
-	{"standaloneSet", "()Z", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, standaloneSet, bool)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, toString, $String*)},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(StartDocumentEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _StartDocumentEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.StartDocumentEvent",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.StartDocument",
-	_StartDocumentEvent_FieldInfo_,
-	_StartDocumentEvent_MethodInfo_
-};
-
-$Object* allocate$StartDocumentEvent($Class* clazz) {
-	return $of($alloc(StartDocumentEvent));
-}
 
 int32_t StartDocumentEvent::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -235,7 +166,7 @@ $String* StartDocumentEvent::getSystemId() {
 	if (this->fLocation == nullptr) {
 		return ""_s;
 	} else {
-		return $nc(this->fLocation)->getSystemId();
+		return this->fLocation->getSystemId();
 	}
 }
 
@@ -324,7 +255,70 @@ StartDocumentEvent::StartDocumentEvent() {
 }
 
 $Class* StartDocumentEvent::load$($String* name, bool initialize) {
-	$loadClass(StartDocumentEvent, name, initialize, &_StartDocumentEvent_ClassInfo_, allocate$StartDocumentEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"fSystemId", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StartDocumentEvent, fSystemId)},
+		{"fEncodingScheam", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StartDocumentEvent, fEncodingScheam)},
+		{"fStandalone", "Z", nullptr, $PROTECTED, $field(StartDocumentEvent, fStandalone)},
+		{"fVersion", "Ljava/lang/String;", nullptr, $PROTECTED, $field(StartDocumentEvent, fVersion)},
+		{"fEncodingSchemeSet", "Z", nullptr, $PRIVATE, $field(StartDocumentEvent, fEncodingSchemeSet)},
+		{"fStandaloneSet", "Z", nullptr, $PRIVATE, $field(StartDocumentEvent, fStandaloneSet)},
+		{"nestedCall", "Z", nullptr, $PRIVATE, $field(StartDocumentEvent, nestedCall)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void, $String*, $String*, bool)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ZLjavax/xml/stream/Location;)V", nullptr, $PUBLIC, $method(StartDocumentEvent, init$, void, $String*, $String*, bool, $Location*)},
+		{"clear", "()V", nullptr, 0, $virtualMethod(StartDocumentEvent, clear, void)},
+		{"encodingSet", "()Z", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, encodingSet, bool)},
+		{"getCharacterEncodingScheme", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, getCharacterEncodingScheme, $String*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, getSystemId, $String*)},
+		{"getVersion", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, getVersion, $String*)},
+		{"init", "(Ljava/lang/String;Ljava/lang/String;ZLjavax/xml/stream/Location;)V", nullptr, $PROTECTED, $virtualMethod(StartDocumentEvent, init, void, $String*, $String*, bool, $Location*)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"isStandalone", "()Z", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, isStandalone, bool)},
+		{"isStartDocument", "()Z", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, isStartDocument, bool)},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"setDeclaredEncoding", "(Z)V", nullptr, 0, $virtualMethod(StartDocumentEvent, setDeclaredEncoding, void, bool)},
+		{"setEncoding", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, setEncoding, void, $String*)},
+		{"setStandalone", "(ZZ)V", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, setStandalone, void, bool, bool)},
+		{"setStandalone", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, setStandalone, void, $String*)},
+		{"setVersion", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, setVersion, void, $String*)},
+		{"standaloneSet", "()Z", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, standaloneSet, bool)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StartDocumentEvent, toString, $String*)},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(StartDocumentEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.StartDocumentEvent",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.StartDocument",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StartDocumentEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StartDocumentEvent));
+	});
 	return class$;
 }
 

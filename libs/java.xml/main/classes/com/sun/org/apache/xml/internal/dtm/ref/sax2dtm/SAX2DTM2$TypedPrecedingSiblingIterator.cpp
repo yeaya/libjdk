@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2$TypedPrecedingSiblingIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
@@ -29,45 +28,6 @@ namespace com {
 						namespace dtm {
 							namespace ref {
 								namespace sax2dtm {
-
-$FieldInfo _SAX2DTM2$TypedPrecedingSiblingIterator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;", nullptr, $FINAL | $SYNTHETIC, $field(SAX2DTM2$TypedPrecedingSiblingIterator, this$0)},
-	{"_nodeType", "I", nullptr, $PRIVATE | $FINAL, $field(SAX2DTM2$TypedPrecedingSiblingIterator, _nodeType)},
-	{}
-};
-
-$MethodInfo _SAX2DTM2$TypedPrecedingSiblingIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;I)V", nullptr, $PUBLIC, $method(SAX2DTM2$TypedPrecedingSiblingIterator, init$, void, $SAX2DTM2*, int32_t)},
-	{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$TypedPrecedingSiblingIterator, getLast, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$TypedPrecedingSiblingIterator, next, int32_t)},
-	{}
-};
-
-$InnerClassInfo _SAX2DTM2$TypedPrecedingSiblingIterator_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$TypedPrecedingSiblingIterator", "com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2", "TypedPrecedingSiblingIterator", $PUBLIC | $FINAL},
-	{"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$PrecedingSiblingIterator", "com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2", "PrecedingSiblingIterator", $PUBLIC},
-	{}
-};
-
-$ClassInfo _SAX2DTM2$TypedPrecedingSiblingIterator_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$TypedPrecedingSiblingIterator",
-	"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$PrecedingSiblingIterator",
-	nullptr,
-	_SAX2DTM2$TypedPrecedingSiblingIterator_FieldInfo_,
-	_SAX2DTM2$TypedPrecedingSiblingIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SAX2DTM2$TypedPrecedingSiblingIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2"
-};
-
-$Object* allocate$SAX2DTM2$TypedPrecedingSiblingIterator($Class* clazz) {
-	return $of($alloc(SAX2DTM2$TypedPrecedingSiblingIterator));
-}
 
 void SAX2DTM2$TypedPrecedingSiblingIterator::init$($SAX2DTM2* this$0, int32_t type) {
 	$set(this, this$0, this$0);
@@ -129,7 +89,40 @@ SAX2DTM2$TypedPrecedingSiblingIterator::SAX2DTM2$TypedPrecedingSiblingIterator()
 }
 
 $Class* SAX2DTM2$TypedPrecedingSiblingIterator::load$($String* name, bool initialize) {
-	$loadClass(SAX2DTM2$TypedPrecedingSiblingIterator, name, initialize, &_SAX2DTM2$TypedPrecedingSiblingIterator_ClassInfo_, allocate$SAX2DTM2$TypedPrecedingSiblingIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;", nullptr, $FINAL | $SYNTHETIC, $field(SAX2DTM2$TypedPrecedingSiblingIterator, this$0)},
+		{"_nodeType", "I", nullptr, $PRIVATE | $FINAL, $field(SAX2DTM2$TypedPrecedingSiblingIterator, _nodeType)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2;I)V", nullptr, $PUBLIC, $method(SAX2DTM2$TypedPrecedingSiblingIterator, init$, void, $SAX2DTM2*, int32_t)},
+		{"getLast", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$TypedPrecedingSiblingIterator, getLast, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(SAX2DTM2$TypedPrecedingSiblingIterator, next, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$TypedPrecedingSiblingIterator", "com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2", "TypedPrecedingSiblingIterator", $PUBLIC | $FINAL},
+		{"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$PrecedingSiblingIterator", "com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2", "PrecedingSiblingIterator", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$TypedPrecedingSiblingIterator",
+		"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2$PrecedingSiblingIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2"
+	};
+	$loadClass(SAX2DTM2$TypedPrecedingSiblingIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SAX2DTM2$TypedPrecedingSiblingIterator);
+	});
 	return class$;
 }
 

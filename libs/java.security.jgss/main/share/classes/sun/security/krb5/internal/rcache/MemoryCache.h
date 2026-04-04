@@ -45,6 +45,7 @@ class MemoryCache : public ::sun::security::krb5::internal::ReplayCache {
 	$class(MemoryCache, 0, ::sun::security::krb5::internal::ReplayCache)
 public:
 	MemoryCache();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void checkAndStore(::sun::security::krb5::internal::KerberosTime* currTime, ::sun::security::krb5::internal::rcache::AuthTimeWithHash* time) override;
 	static ::sun::security::krb5::internal::rcache::AuthList* lambda$checkAndStore$0($String* k);

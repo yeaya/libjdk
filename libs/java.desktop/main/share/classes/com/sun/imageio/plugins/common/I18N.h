@@ -15,6 +15,7 @@ class I18N : public ::com::sun::imageio::plugins::common::I18NImpl {
 	$class(I18N, 0, ::com::sun::imageio::plugins::common::I18NImpl)
 public:
 	I18N();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getString($String* key);
 	static $String* resource_name;

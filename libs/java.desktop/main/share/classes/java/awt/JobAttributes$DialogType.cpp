@@ -1,5 +1,4 @@
 #include <java/awt/JobAttributes$DialogType.h>
-
 #include <java/awt/AttributeValue.h>
 #include <java/awt/JobAttributes.h>
 #include <jcpp.h>
@@ -21,49 +20,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _JobAttributes$DialogType_FieldInfo_[] = {
-	{"I_COMMON", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DialogType, I_COMMON)},
-	{"I_NATIVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DialogType, I_NATIVE)},
-	{"I_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DialogType, I_NONE)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobAttributes$DialogType, NAMES)},
-	{"COMMON", "Ljava/awt/JobAttributes$DialogType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DialogType, COMMON)},
-	{"NATIVE", "Ljava/awt/JobAttributes$DialogType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DialogType, NATIVE)},
-	{"NONE", "Ljava/awt/JobAttributes$DialogType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DialogType, NONE)},
-	{}
-};
-
-$MethodInfo _JobAttributes$DialogType_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(JobAttributes$DialogType, init$, void, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$DialogType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$DialogType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JobAttributes$DialogType_InnerClassesInfo_[] = {
-	{"java.awt.JobAttributes$DialogType", "java.awt.JobAttributes", "DialogType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JobAttributes$DialogType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.JobAttributes$DialogType",
-	"java.awt.AttributeValue",
-	nullptr,
-	_JobAttributes$DialogType_FieldInfo_,
-	_JobAttributes$DialogType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JobAttributes$DialogType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.JobAttributes"
-};
-
-$Object* allocate$JobAttributes$DialogType($Class* clazz) {
-	return $of($alloc(JobAttributes$DialogType));
-}
-
 $StringArray* JobAttributes$DialogType::NAMES = nullptr;
 JobAttributes$DialogType* JobAttributes$DialogType::COMMON = nullptr;
 JobAttributes$DialogType* JobAttributes$DialogType::NATIVE = nullptr;
@@ -81,7 +37,7 @@ int32_t JobAttributes$DialogType::hashCode() {
 	return $AttributeValue::hashCode();
 }
 
-void clinit$JobAttributes$DialogType($Class* class$) {
+void JobAttributes$DialogType::clinit$($Class* clazz) {
 	$assignStatic(JobAttributes$DialogType::NAMES, $new($StringArray, {
 		"common"_s,
 		"native"_s,
@@ -96,7 +52,44 @@ JobAttributes$DialogType::JobAttributes$DialogType() {
 }
 
 $Class* JobAttributes$DialogType::load$($String* name, bool initialize) {
-	$loadClass(JobAttributes$DialogType, name, initialize, &_JobAttributes$DialogType_ClassInfo_, clinit$JobAttributes$DialogType, allocate$JobAttributes$DialogType);
+	$FieldInfo fieldInfos$$[] = {
+		{"I_COMMON", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DialogType, I_COMMON)},
+		{"I_NATIVE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DialogType, I_NATIVE)},
+		{"I_NONE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$DialogType, I_NONE)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobAttributes$DialogType, NAMES)},
+		{"COMMON", "Ljava/awt/JobAttributes$DialogType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DialogType, COMMON)},
+		{"NATIVE", "Ljava/awt/JobAttributes$DialogType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DialogType, NATIVE)},
+		{"NONE", "Ljava/awt/JobAttributes$DialogType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$DialogType, NONE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(JobAttributes$DialogType, init$, void, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$DialogType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$DialogType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.JobAttributes$DialogType", "java.awt.JobAttributes", "DialogType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.JobAttributes$DialogType",
+		"java.awt.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.JobAttributes"
+	};
+	$loadClass(JobAttributes$DialogType, name, initialize, &classInfo$$, JobAttributes$DialogType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JobAttributes$DialogType);
+	});
 	return class$;
 }
 

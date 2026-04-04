@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/RequestPublishers$AggregatePublisher.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -10,7 +9,6 @@
 #include <java/util/List.h>
 #include <java/util/OptionalLong.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
-#include <java/util/concurrent/Flow$Subscription.h>
 #include <java/util/function/LongBinaryOperator.h>
 #include <java/util/function/ToLongFunction.h>
 #include <java/util/stream/LongStream.h>
@@ -27,13 +25,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $List = ::java::util::List;
-using $OptionalLong = ::java::util::OptionalLong;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $LongBinaryOperator = ::java::util::function::LongBinaryOperator;
 using $ToLongFunction = ::java::util::function::ToLongFunction;
-using $LongStream = ::java::util::stream::LongStream;
-using $Stream = ::java::util::stream::Stream;
 using $RequestPublishers$AggregateSubscription = ::jdk::internal::net::http::RequestPublishers$AggregateSubscription;
 
 namespace jdk {
@@ -49,27 +43,24 @@ public:
 	virtual int64_t applyAsLong(Object$* inst$) override {
 		 return $sure($HttpRequest$BodyPublisher, inst$)->contentLength();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RequestPublishers$AggregatePublisher$$Lambda$contentLength>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RequestPublishers$AggregatePublisher$$Lambda$contentLength::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$AggregatePublisher$$Lambda$contentLength, init$, void)},
-	{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher$$Lambda$contentLength, applyAsLong, int64_t, Object$*)},
-	{}
-};
-$ClassInfo RequestPublishers$AggregatePublisher$$Lambda$contentLength::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.RequestPublishers$AggregatePublisher$$Lambda$contentLength",
-	"java.lang.Object",
-	"java.util.function.ToLongFunction",
-	nullptr,
-	methodInfos
 };
 $Class* RequestPublishers$AggregatePublisher$$Lambda$contentLength::load$($String* name, bool initialize) {
-	$loadClass(RequestPublishers$AggregatePublisher$$Lambda$contentLength, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$AggregatePublisher$$Lambda$contentLength, init$, void)},
+		{"applyAsLong", "(Ljava/lang/Object;)J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher$$Lambda$contentLength, applyAsLong, int64_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.RequestPublishers$AggregatePublisher$$Lambda$contentLength",
+		"java.lang.Object",
+		"java.util.function.ToLongFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RequestPublishers$AggregatePublisher$$Lambda$contentLength, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$AggregatePublisher$$Lambda$contentLength);
+	});
 	return class$;
 }
 $Class* RequestPublishers$AggregatePublisher$$Lambda$contentLength::class$ = nullptr;
@@ -82,77 +73,35 @@ public:
 	virtual int64_t applyAsLong(int64_t a, int64_t b) override {
 		 return RequestPublishers$AggregatePublisher::lambda$contentLength$0(a, b);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1, init$, void)},
-	{"applyAsLong", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1, applyAsLong, int64_t, int64_t, int64_t)},
-	{}
-};
-$ClassInfo RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1",
-	"java.lang.Object",
-	"java.util.function.LongBinaryOperator",
-	nullptr,
-	methodInfos
 };
 $Class* RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::load$($String* name, bool initialize) {
-	$loadClass(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1, init$, void)},
+		{"applyAsLong", "(JJ)J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1, applyAsLong, int64_t, int64_t, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1",
+		"java.lang.Object",
+		"java.util.function.LongBinaryOperator",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1);
+	});
 	return class$;
 }
 $Class* RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::class$ = nullptr;
-
-$FieldInfo _RequestPublishers$AggregatePublisher_FieldInfo_[] = {
-	{"bodies", "Ljava/util/List;", "Ljava/util/List<Ljava/net/http/HttpRequest$BodyPublisher;>;", $FINAL, $field(RequestPublishers$AggregatePublisher, bodies)},
-	{}
-};
-
-$MethodInfo _RequestPublishers$AggregatePublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/net/http/HttpRequest$BodyPublisher;>;)V", 0, $method(RequestPublishers$AggregatePublisher, init$, void, $List*)},
-	{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher, contentLength, int64_t)},
-	{"lambda$contentLength$0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$AggregatePublisher, lambda$contentLength$0, int64_t, int64_t, int64_t)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _RequestPublishers$AggregatePublisher_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.RequestPublishers$AggregatePublisher", "jdk.internal.net.http.RequestPublishers", "AggregatePublisher", $PRIVATE | $STATIC | $FINAL},
-	{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _RequestPublishers$AggregatePublisher_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.RequestPublishers$AggregatePublisher",
-	"java.lang.Object",
-	"java.net.http.HttpRequest$BodyPublisher",
-	_RequestPublishers$AggregatePublisher_FieldInfo_,
-	_RequestPublishers$AggregatePublisher_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RequestPublishers$AggregatePublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.RequestPublishers"
-};
-
-$Object* allocate$RequestPublishers$AggregatePublisher($Class* clazz) {
-	return $of($alloc(RequestPublishers$AggregatePublisher));
-}
 
 void RequestPublishers$AggregatePublisher::init$($List* bodies) {
 	$set(this, bodies, bodies);
 }
 
 int64_t RequestPublishers$AggregatePublisher::contentLength() {
-	$useLocalCurrentObjectStackCache();
-	int64_t length = $nc($($nc($($nc($($nc(this->bodies)->stream()))->mapToLong(static_cast<$ToLongFunction*>($$new(RequestPublishers$AggregatePublisher$$Lambda$contentLength)))))->reduce(static_cast<$LongBinaryOperator*>($$new(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1)))))->orElse(0);
+	$useLocalObjectStack();
+	int64_t length = $$nc($$nc($$nc($nc(this->bodies)->stream())->mapToLong($$new(RequestPublishers$AggregatePublisher$$Lambda$contentLength)))->reduce($$new(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1)))->orElse(0);
 	if (length < 0) {
 		return -1;
 	}
@@ -165,7 +114,7 @@ void RequestPublishers$AggregatePublisher::subscribe($Flow$Subscriber* subscribe
 
 int64_t RequestPublishers$AggregatePublisher::lambda$contentLength$0(int64_t a, int64_t b) {
 	$init(RequestPublishers$AggregatePublisher);
-	return a < 0 || b < 0 ? (int64_t)-1 : a + b;
+	return a < 0 || b < 0 ? -1 : a + b;
 }
 
 RequestPublishers$AggregatePublisher::RequestPublishers$AggregatePublisher() {
@@ -173,14 +122,47 @@ RequestPublishers$AggregatePublisher::RequestPublishers$AggregatePublisher() {
 
 $Class* RequestPublishers$AggregatePublisher::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(RequestPublishers$AggregatePublisher$$Lambda$contentLength::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.RequestPublishers$AggregatePublisher$$Lambda$contentLength")) {
 			return RequestPublishers$AggregatePublisher$$Lambda$contentLength::load$(name, initialize);
 		}
-		if (name->equals(RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1")) {
 			return RequestPublishers$AggregatePublisher$$Lambda$lambda$contentLength$0$1::load$(name, initialize);
 		}
 	}
-	$loadClass(RequestPublishers$AggregatePublisher, name, initialize, &_RequestPublishers$AggregatePublisher_ClassInfo_, allocate$RequestPublishers$AggregatePublisher);
+	$FieldInfo fieldInfos$$[] = {
+		{"bodies", "Ljava/util/List;", "Ljava/util/List<Ljava/net/http/HttpRequest$BodyPublisher;>;", $FINAL, $field(RequestPublishers$AggregatePublisher, bodies)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/net/http/HttpRequest$BodyPublisher;>;)V", 0, $method(RequestPublishers$AggregatePublisher, init$, void, $List*)},
+		{"contentLength", "()J", nullptr, $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher, contentLength, int64_t)},
+		{"lambda$contentLength$0", "(JJ)J", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(RequestPublishers$AggregatePublisher, lambda$contentLength$0, int64_t, int64_t, int64_t)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $virtualMethod(RequestPublishers$AggregatePublisher, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.RequestPublishers$AggregatePublisher", "jdk.internal.net.http.RequestPublishers", "AggregatePublisher", $PRIVATE | $STATIC | $FINAL},
+		{"java.net.http.HttpRequest$BodyPublisher", "java.net.http.HttpRequest", "BodyPublisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.RequestPublishers$AggregatePublisher",
+		"java.lang.Object",
+		"java.net.http.HttpRequest$BodyPublisher",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.RequestPublishers"
+	};
+	$loadClass(RequestPublishers$AggregatePublisher, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RequestPublishers$AggregatePublisher);
+	});
 	return class$;
 }
 

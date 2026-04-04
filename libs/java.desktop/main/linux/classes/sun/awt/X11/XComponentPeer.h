@@ -125,6 +125,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::sun::awt::X11::XCreateWindowParams* params);
 	void init$(::java::awt::Component* target, int64_t parentWindow, ::java::awt::Rectangle* bounds);

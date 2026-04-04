@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/DateTimeAtCompleted.h>
-
 #include <java/util/Date.h>
 #include <javax/print/attribute/DateTimeSyntax.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _DateTimeAtCompleted_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateTimeAtCompleted, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _DateTimeAtCompleted_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $method(DateTimeAtCompleted, init$, void, $Date*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeAtCompleted, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(DateTimeAtCompleted, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DateTimeAtCompleted, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DateTimeAtCompleted_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.DateTimeAtCompleted",
-	"javax.print.attribute.DateTimeSyntax",
-	"javax.print.attribute.PrintJobAttribute",
-	_DateTimeAtCompleted_FieldInfo_,
-	_DateTimeAtCompleted_MethodInfo_
-};
-
-$Object* allocate$DateTimeAtCompleted($Class* clazz) {
-	return $of($alloc(DateTimeAtCompleted));
-}
 
 int32_t DateTimeAtCompleted::hashCode() {
 	 return this->$DateTimeSyntax::hashCode();
@@ -81,7 +50,32 @@ DateTimeAtCompleted::DateTimeAtCompleted() {
 }
 
 $Class* DateTimeAtCompleted::load$($String* name, bool initialize) {
-	$loadClass(DateTimeAtCompleted, name, initialize, &_DateTimeAtCompleted_ClassInfo_, allocate$DateTimeAtCompleted);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DateTimeAtCompleted, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/util/Date;)V", nullptr, $PUBLIC, $method(DateTimeAtCompleted, init$, void, $Date*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(DateTimeAtCompleted, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(DateTimeAtCompleted, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DateTimeAtCompleted, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.DateTimeAtCompleted",
+		"javax.print.attribute.DateTimeSyntax",
+		"javax.print.attribute.PrintJobAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DateTimeAtCompleted, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DateTimeAtCompleted));
+	});
 	return class$;
 }
 

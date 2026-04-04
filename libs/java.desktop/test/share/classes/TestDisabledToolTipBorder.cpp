@@ -1,5 +1,4 @@
 #include <TestDisabledToolTipBorder.h>
-
 #include <TestUI.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -16,7 +15,6 @@
 #undef MINUTES
 
 using $TestUI = ::TestUI;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -37,27 +35,24 @@ public:
 	virtual void run() override {
 		TestDisabledToolTipBorder::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestDisabledToolTipBorder$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestDisabledToolTipBorder$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestDisabledToolTipBorder$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestDisabledToolTipBorder$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo TestDisabledToolTipBorder$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestDisabledToolTipBorder$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestDisabledToolTipBorder$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(TestDisabledToolTipBorder$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestDisabledToolTipBorder$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestDisabledToolTipBorder$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestDisabledToolTipBorder$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestDisabledToolTipBorder$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestDisabledToolTipBorder$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* TestDisabledToolTipBorder$$Lambda$lambda$main$0::class$ = nullptr;
@@ -70,57 +65,27 @@ public:
 	virtual void run() override {
 		TestDisabledToolTipBorder::lambda$disposeUI$1();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1, run, void)},
-	{}
-};
-$ClassInfo TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1::load$($String* name, bool initialize) {
-	$loadClass(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1);
+	});
 	return class$;
 }
 $Class* TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1::class$ = nullptr;
-
-$FieldInfo _TestDisabledToolTipBorder_FieldInfo_[] = {
-	{"test", "LTestUI;", nullptr, $PRIVATE | $STATIC, $staticField(TestDisabledToolTipBorder, test)},
-	{}
-};
-
-$MethodInfo _TestDisabledToolTipBorder_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestDisabledToolTipBorder, init$, void)},
-	{"disposeUI", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestDisabledToolTipBorder, disposeUI, void), "java.lang.Exception"},
-	{"lambda$disposeUI$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestDisabledToolTipBorder, lambda$disposeUI$1, void)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestDisabledToolTipBorder, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestDisabledToolTipBorder, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _TestDisabledToolTipBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestDisabledToolTipBorder",
-	"java.lang.Object",
-	nullptr,
-	_TestDisabledToolTipBorder_FieldInfo_,
-	_TestDisabledToolTipBorder_MethodInfo_
-};
-
-$Object* allocate$TestDisabledToolTipBorder($Class* clazz) {
-	return $of($alloc(TestDisabledToolTipBorder));
-}
 
 $TestUI* TestDisabledToolTipBorder::test = nullptr;
 
@@ -128,11 +93,11 @@ void TestDisabledToolTipBorder::init$() {
 }
 
 void TestDisabledToolTipBorder::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CountDownLatch, latch, $new($CountDownLatch, 1));
 	$init(TestDisabledToolTipBorder);
 	$assignStatic(TestDisabledToolTipBorder::test, $new($TestUI, latch));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestDisabledToolTipBorder$$Lambda$lambda$main$0)));
+	$SwingUtilities::invokeAndWait($$new(TestDisabledToolTipBorder$$Lambda$lambda$main$0));
 	$init($TimeUnit);
 	bool status = latch->await(2, $TimeUnit::MINUTES);
 	if (!status) {
@@ -145,14 +110,14 @@ void TestDisabledToolTipBorder::main($StringArray* args) {
 }
 
 void TestDisabledToolTipBorder::disposeUI() {
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1)));
+	$SwingUtilities::invokeAndWait($$new(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1));
 }
 
 void TestDisabledToolTipBorder::lambda$disposeUI$1() {
 	try {
 		$init(TestDisabledToolTipBorder);
 		if (TestDisabledToolTipBorder::test != nullptr) {
-			$nc(TestDisabledToolTipBorder::test)->disposeUI();
+			TestDisabledToolTipBorder::test->disposeUI();
 		}
 	} catch ($Exception& ex) {
 		$throwNew($RuntimeException, "Exception while disposing UI"_s);
@@ -173,14 +138,36 @@ TestDisabledToolTipBorder::TestDisabledToolTipBorder() {
 
 $Class* TestDisabledToolTipBorder::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestDisabledToolTipBorder$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("TestDisabledToolTipBorder$$Lambda$lambda$main$0")) {
 			return TestDisabledToolTipBorder$$Lambda$lambda$main$0::load$(name, initialize);
 		}
-		if (name->equals(TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1::classInfo$.name)) {
+		if (name->equals("TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1")) {
 			return TestDisabledToolTipBorder$$Lambda$lambda$disposeUI$1$1::load$(name, initialize);
 		}
 	}
-	$loadClass(TestDisabledToolTipBorder, name, initialize, &_TestDisabledToolTipBorder_ClassInfo_, allocate$TestDisabledToolTipBorder);
+	$FieldInfo fieldInfos$$[] = {
+		{"test", "LTestUI;", nullptr, $PRIVATE | $STATIC, $staticField(TestDisabledToolTipBorder, test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestDisabledToolTipBorder, init$, void)},
+		{"disposeUI", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestDisabledToolTipBorder, disposeUI, void), "java.lang.Exception"},
+		{"lambda$disposeUI$1", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestDisabledToolTipBorder, lambda$disposeUI$1, void)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(TestDisabledToolTipBorder, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestDisabledToolTipBorder, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestDisabledToolTipBorder",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TestDisabledToolTipBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestDisabledToolTipBorder);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/rmi/registry/RegistryImpl_Stub.h>
-
 #include <java/io/IOException.h>
 #include <java/io/ObjectInput.h>
 #include <java/io/ObjectOutput.h>
@@ -39,8 +38,6 @@ using $RemoteException = ::java::rmi::RemoteException;
 using $UnexpectedException = ::java::rmi::UnexpectedException;
 using $UnmarshalException = ::java::rmi::UnmarshalException;
 using $Operation = ::java::rmi::server::Operation;
-using $RemoteCall = ::java::rmi::server::RemoteCall;
-using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $RemoteStub = ::java::rmi::server::RemoteStub;
 using $StreamRemoteCall = ::sun::rmi::transport::StreamRemoteCall;
@@ -48,41 +45,6 @@ using $StreamRemoteCall = ::sun::rmi::transport::StreamRemoteCall;
 namespace sun {
 	namespace rmi {
 		namespace registry {
-
-$FieldInfo _RegistryImpl_Stub_FieldInfo_[] = {
-	{"operations", "[Ljava/rmi/server/Operation;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RegistryImpl_Stub, operations)},
-	{"interfaceHash", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegistryImpl_Stub, interfaceHash)},
-	{}
-};
-
-$MethodInfo _RegistryImpl_Stub_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl_Stub, init$, void)},
-	{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(RegistryImpl_Stub, init$, void, $RemoteRef*)},
-	{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, bind, void, $String*, $Remote*), "java.rmi.AccessException,java.rmi.AlreadyBoundException,java.rmi.RemoteException"},
-	{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, list, $StringArray*), "java.rmi.AccessException,java.rmi.RemoteException"},
-	{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, lookup, $Remote*, $String*), "java.rmi.AccessException,java.rmi.NotBoundException,java.rmi.RemoteException"},
-	{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, rebind, void, $String*, $Remote*), "java.rmi.AccessException,java.rmi.RemoteException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, unbind, void, $String*), "java.rmi.AccessException,java.rmi.NotBoundException,java.rmi.RemoteException"},
-	{}
-};
-
-$ClassInfo _RegistryImpl_Stub_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.rmi.registry.RegistryImpl_Stub",
-	"java.rmi.server.RemoteStub",
-	"java.rmi.registry.Registry",
-	_RegistryImpl_Stub_FieldInfo_,
-	_RegistryImpl_Stub_MethodInfo_
-};
-
-$Object* allocate$RegistryImpl_Stub($Class* clazz) {
-	return $of($alloc(RegistryImpl_Stub));
-}
 
 int32_t RegistryImpl_Stub::hashCode() {
 	 return this->$RemoteStub::hashCode();
@@ -115,7 +77,7 @@ void RegistryImpl_Stub::init$($RemoteRef* ref) {
 }
 
 void RegistryImpl_Stub::bind($String* $param_String_1, $Remote* $param_Remote_2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall(this, RegistryImpl_Stub::operations, 0, RegistryImpl_Stub::interfaceHash)));
 		try {
@@ -139,35 +101,33 @@ void RegistryImpl_Stub::bind($String* $param_String_1, $Remote* $param_Remote_2)
 }
 
 $StringArray* RegistryImpl_Stub::list() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall(this, RegistryImpl_Stub::operations, 1, RegistryImpl_Stub::interfaceHash)));
 		$nc(this->ref)->invoke(call);
 		$var($StringArray, $result, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($ObjectInput, in, $nc(call)->getInputStream());
-					$assign($result, $cast($StringArray, $nc(in)->readObject()));
-				} catch ($ClassCastException& e) {
-					$nc(call)->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
-				} catch ($IOException& e) {
-					$nc(call)->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
-				} catch ($ClassNotFoundException& e) {
-					$nc(call)->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->ref)->done(call);
+				$var($ObjectInput, in, $nc(call)->getInputStream());
+				$assign($result, $cast($StringArray, $nc(in)->readObject()));
+			} catch ($ClassCastException& e) {
+				$nc(call)->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
+			} catch ($IOException& e) {
+				$nc(call)->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
+			} catch ($ClassNotFoundException& e) {
+				$nc(call)->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->ref)->done(call);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		return $result;
 	} catch ($RuntimeException& e) {
@@ -181,7 +141,7 @@ $StringArray* RegistryImpl_Stub::list() {
 }
 
 $Remote* RegistryImpl_Stub::lookup($String* $param_String_1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall(this, RegistryImpl_Stub::operations, 2, RegistryImpl_Stub::interfaceHash)));
 		try {
@@ -192,30 +152,28 @@ $Remote* RegistryImpl_Stub::lookup($String* $param_String_1) {
 		}
 		$nc(this->ref)->invoke(call);
 		$var($Remote, $result, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
+		$var($Throwable, var$0, nullptr);
+		try {
 			try {
-				try {
-					$var($ObjectInput, in, $nc(call)->getInputStream());
-					$assign($result, $cast($Remote, $nc(in)->readObject()));
-				} catch ($ClassCastException& e) {
-					$nc(call)->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
-				} catch ($IOException& e) {
-					$nc(call)->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
-				} catch ($ClassNotFoundException& e) {
-					$nc(call)->discardPendingRefs();
-					$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
-				}
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				$nc(this->ref)->done(call);
+				$var($ObjectInput, in, $nc(call)->getInputStream());
+				$assign($result, $cast($Remote, $nc(in)->readObject()));
+			} catch ($ClassCastException& e) {
+				$nc(call)->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
+			} catch ($IOException& e) {
+				$nc(call)->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
+			} catch ($ClassNotFoundException& e) {
+				$nc(call)->discardPendingRefs();
+				$throwNew($UnmarshalException, "error unmarshalling return"_s, e);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			$nc(this->ref)->done(call);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 		return $result;
 	} catch ($RuntimeException& e) {
@@ -231,7 +189,7 @@ $Remote* RegistryImpl_Stub::lookup($String* $param_String_1) {
 }
 
 void RegistryImpl_Stub::rebind($String* $param_String_1, $Remote* $param_Remote_2) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall(this, RegistryImpl_Stub::operations, 3, RegistryImpl_Stub::interfaceHash)));
 		try {
@@ -253,7 +211,7 @@ void RegistryImpl_Stub::rebind($String* $param_String_1, $Remote* $param_Remote_
 }
 
 void RegistryImpl_Stub::unbind($String* $param_String_1) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($StreamRemoteCall, call, $cast($StreamRemoteCall, $nc(this->ref)->newCall(this, RegistryImpl_Stub::operations, 4, RegistryImpl_Stub::interfaceHash)));
 		try {
@@ -275,8 +233,8 @@ void RegistryImpl_Stub::unbind($String* $param_String_1) {
 	}
 }
 
-void clinit$RegistryImpl_Stub($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void RegistryImpl_Stub::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(RegistryImpl_Stub::operations, $new($OperationArray, {
 		$$new($Operation, "void bind(java.lang.String, java.rmi.Remote)"_s),
 		$$new($Operation, "java.lang.String list()[]"_s),
@@ -290,7 +248,37 @@ RegistryImpl_Stub::RegistryImpl_Stub() {
 }
 
 $Class* RegistryImpl_Stub::load$($String* name, bool initialize) {
-	$loadClass(RegistryImpl_Stub, name, initialize, &_RegistryImpl_Stub_ClassInfo_, clinit$RegistryImpl_Stub, allocate$RegistryImpl_Stub);
+	$FieldInfo fieldInfos$$[] = {
+		{"operations", "[Ljava/rmi/server/Operation;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(RegistryImpl_Stub, operations)},
+		{"interfaceHash", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RegistryImpl_Stub, interfaceHash)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RegistryImpl_Stub, init$, void)},
+		{"<init>", "(Ljava/rmi/server/RemoteRef;)V", nullptr, $PUBLIC, $method(RegistryImpl_Stub, init$, void, $RemoteRef*)},
+		{"bind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, bind, void, $String*, $Remote*), "java.rmi.AccessException,java.rmi.AlreadyBoundException,java.rmi.RemoteException"},
+		{"list", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, list, $StringArray*), "java.rmi.AccessException,java.rmi.RemoteException"},
+		{"lookup", "(Ljava/lang/String;)Ljava/rmi/Remote;", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, lookup, $Remote*, $String*), "java.rmi.AccessException,java.rmi.NotBoundException,java.rmi.RemoteException"},
+		{"rebind", "(Ljava/lang/String;Ljava/rmi/Remote;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, rebind, void, $String*, $Remote*), "java.rmi.AccessException,java.rmi.RemoteException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(RegistryImpl_Stub, unbind, void, $String*), "java.rmi.AccessException,java.rmi.NotBoundException,java.rmi.RemoteException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.rmi.registry.RegistryImpl_Stub",
+		"java.rmi.server.RemoteStub",
+		"java.rmi.registry.Registry",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RegistryImpl_Stub, name, initialize, &classInfo$$, RegistryImpl_Stub::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RegistryImpl_Stub));
+	});
 	return class$;
 }
 

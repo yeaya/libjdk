@@ -1,5 +1,4 @@
 #include <javax/swing/undo/UndoManager.h>
-
 #include <java/util/Iterator.h>
 #include <java/util/Vector.h>
 #include <javax/swing/UIManager.h>
@@ -36,69 +35,6 @@ namespace javax {
 	namespace swing {
 		namespace undo {
 
-$FieldInfo _UndoManager_FieldInfo_[] = {
-	{"indexOfNextAdd", "I", nullptr, 0, $field(UndoManager, indexOfNextAdd)},
-	{"limit", "I", nullptr, 0, $field(UndoManager, limit)},
-	{}
-};
-
-$MethodInfo _UndoManager_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UndoManager, init$, void)},
-	{"addEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, addEdit, bool, $UndoableEdit*)},
-	{"canRedo", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, canRedo, bool)},
-	{"canUndo", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, canUndo, bool)},
-	{"canUndoOrRedo", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, canUndoOrRedo, bool)},
-	{"discardAllEdits", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, discardAllEdits, void)},
-	{"editToBeRedone", "()Ljavax/swing/undo/UndoableEdit;", nullptr, $PROTECTED, $virtualMethod(UndoManager, editToBeRedone, $UndoableEdit*)},
-	{"editToBeUndone", "()Ljavax/swing/undo/UndoableEdit;", nullptr, $PROTECTED, $virtualMethod(UndoManager, editToBeUndone, $UndoableEdit*)},
-	{"end", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, end, void)},
-	{"getEditLockSupport", "(Ljavax/swing/undo/UndoableEdit;)Lsun/swing/text/UndoableEditLockSupport;", nullptr, $PRIVATE, $method(UndoManager, getEditLockSupport, $UndoableEditLockSupport*, $UndoableEdit*)},
-	{"getLimit", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, getLimit, int32_t)},
-	{"getRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, getRedoPresentationName, $String*)},
-	{"getUndoOrRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, getUndoOrRedoPresentationName, $String*)},
-	{"getUndoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, getUndoPresentationName, $String*)},
-	{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(UndoManager, redo, void), "javax.swing.undo.CannotRedoException"},
-	{"redoTo", "(Ljavax/swing/undo/UndoableEdit;)V", nullptr, $PROTECTED, $virtualMethod(UndoManager, redoTo, void, $UndoableEdit*), "javax.swing.undo.CannotRedoException"},
-	{"setLimit", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, setLimit, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UndoManager, toString, $String*)},
-	{"trimEdits", "(II)V", nullptr, $PROTECTED, $virtualMethod(UndoManager, trimEdits, void, int32_t, int32_t)},
-	{"trimForLimit", "()V", nullptr, $PROTECTED, $virtualMethod(UndoManager, trimForLimit, void)},
-	{"tryUndoOrRedo", "(Ljavax/swing/undo/UndoManager$Action;)V", nullptr, $PRIVATE, $method(UndoManager, tryUndoOrRedo, void, $UndoManager$Action*)},
-	{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(UndoManager, undo, void), "javax.swing.undo.CannotUndoException"},
-	{"undoOrRedo", "()V", nullptr, $PUBLIC, $virtualMethod(UndoManager, undoOrRedo, void), "javax.swing.undo.CannotRedoException,javax.swing.undo.CannotUndoException"},
-	{"undoTo", "(Ljavax/swing/undo/UndoableEdit;)V", nullptr, $PROTECTED, $virtualMethod(UndoManager, undoTo, void, $UndoableEdit*), "javax.swing.undo.CannotUndoException"},
-	{"undoableEditHappened", "(Ljavax/swing/event/UndoableEditEvent;)V", nullptr, $PUBLIC, $virtualMethod(UndoManager, undoableEditHappened, void, $UndoableEditEvent*)},
-	{}
-};
-
-$InnerClassInfo _UndoManager_InnerClassesInfo_[] = {
-	{"javax.swing.undo.UndoManager$Action", "javax.swing.undo.UndoManager", "Action", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _UndoManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.undo.UndoManager",
-	"javax.swing.undo.CompoundEdit",
-	"javax.swing.event.UndoableEditListener",
-	_UndoManager_FieldInfo_,
-	_UndoManager_MethodInfo_,
-	nullptr,
-	nullptr,
-	_UndoManager_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.undo.UndoManager$Action"
-};
-
-$Object* allocate$UndoManager($Class* clazz) {
-	return $of($alloc(UndoManager));
-}
-
 int32_t UndoManager::hashCode() {
 	 return this->$CompoundEdit::hashCode();
 }
@@ -130,7 +66,7 @@ int32_t UndoManager::getLimit() {
 
 void UndoManager::discardAllEdits() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		{
 			$var($Iterator, i$, $nc(this->edits)->iterator());
 			for (; $nc(i$)->hasNext();) {
@@ -171,7 +107,7 @@ void UndoManager::trimForLimit() {
 }
 
 void UndoManager::trimEdits(int32_t from, int32_t to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (from <= to) {
 		for (int32_t i = to; from <= i; --i) {
 			$var($UndoableEdit, e, $cast($UndoableEdit, $nc(this->edits)->elementAt(i)));
@@ -197,7 +133,7 @@ void UndoManager::setLimit(int32_t l) {
 }
 
 $UndoableEdit* UndoManager::editToBeUndone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t i = this->indexOfNextAdd;
 	while (i > 0) {
 		$var($UndoableEdit, edit, $cast($UndoableEdit, $nc(this->edits)->elementAt(--i)));
@@ -209,7 +145,7 @@ $UndoableEdit* UndoManager::editToBeUndone() {
 }
 
 $UndoableEdit* UndoManager::editToBeRedone() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(this->edits)->size();
 	int32_t i = this->indexOfNextAdd;
 	while (i < count) {
@@ -222,7 +158,7 @@ $UndoableEdit* UndoManager::editToBeRedone() {
 }
 
 void UndoManager::undoTo($UndoableEdit* edit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool done = false;
 	while (!done) {
 		$var($UndoableEdit, next, $cast($UndoableEdit, $nc(this->edits)->elementAt(--this->indexOfNextAdd)));
@@ -232,7 +168,7 @@ void UndoManager::undoTo($UndoableEdit* edit) {
 }
 
 void UndoManager::redoTo($UndoableEdit* edit) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool done = false;
 	while (!done) {
 		$var($UndoableEdit, next, $cast($UndoableEdit, $nc(this->edits)->elementAt(this->indexOfNextAdd++)));
@@ -278,7 +214,7 @@ void UndoManager::redo() {
 }
 
 void UndoManager::tryUndoOrRedo($UndoManager$Action* action) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UndoableEditLockSupport, lockSupport, nullptr);
 	bool undo = false;
 	$synchronized(this) {
@@ -291,7 +227,7 @@ void UndoManager::tryUndoOrRedo($UndoManager$Action* action) {
 		if (this->inProgress) {
 			$var($UndoableEdit, edit, undo ? editToBeUndone() : editToBeRedone());
 			if (edit == nullptr) {
-				$throw(undo ? static_cast<$RuntimeException*>($$new($CannotUndoException)) : static_cast<$RuntimeException*>($$new($CannotRedoException)));
+				$throw(undo ? $$cast($RuntimeException, $new($CannotUndoException)) : $$cast($RuntimeException, $new($CannotRedoException)));
 			}
 			$assign(lockSupport, getEditLockSupport(edit));
 			if (lockSupport == nullptr) {
@@ -314,54 +250,51 @@ void UndoManager::tryUndoOrRedo($UndoManager$Action* action) {
 	while (true) {
 		$nc(lockSupport)->lockEdit();
 		$var($UndoableEditLockSupport, editLockSupport, nullptr);
-		{
-			$var($Throwable, var$0, nullptr);
-			bool return$1 = false;
-			try {
-				$synchronized(this) {
-					$init($UndoManager$Action);
-					if (action == $UndoManager$Action::ANY) {
-						undo = this->indexOfNextAdd == $nc(this->edits)->size();
+		$var($Throwable, var$0, nullptr);
+		bool return$1 = false;
+		try {
+			$synchronized(this) {
+				if (action == $UndoManager$Action::ANY) {
+					undo = this->indexOfNextAdd == $nc(this->edits)->size();
+				}
+				if (this->inProgress) {
+					$var($UndoableEdit, edit, undo ? editToBeUndone() : editToBeRedone());
+					if (edit == nullptr) {
+						$throw(undo ? $$cast($RuntimeException, $new($CannotUndoException)) : $$cast($RuntimeException, $new($CannotRedoException)));
 					}
-					if (this->inProgress) {
-						$var($UndoableEdit, edit, undo ? editToBeUndone() : editToBeRedone());
-						if (edit == nullptr) {
-							$throw(undo ? static_cast<$RuntimeException*>($$new($CannotUndoException)) : static_cast<$RuntimeException*>($$new($CannotRedoException)));
-						}
-						$assign(editLockSupport, getEditLockSupport(edit));
-						if (editLockSupport == nullptr || editLockSupport == lockSupport) {
-							if (undo) {
-								undoTo(edit);
-							} else {
-								redoTo(edit);
-							}
-							return$1 = true;
-							goto $finally;
-						}
-					} else {
+					$assign(editLockSupport, getEditLockSupport(edit));
+					if (editLockSupport == nullptr || editLockSupport == lockSupport) {
 						if (undo) {
-							$CompoundEdit::undo();
+							undoTo(edit);
 						} else {
-							$CompoundEdit::redo();
+							redoTo(edit);
 						}
 						return$1 = true;
 						goto $finally;
 					}
+				} else {
+					if (undo) {
+						$CompoundEdit::undo();
+					} else {
+						$CompoundEdit::redo();
+					}
+					return$1 = true;
+					goto $finally;
 				}
-			} catch ($Throwable& var$2) {
-				$assign(var$0, var$2);
-			} $finally: {
-				if (lockSupport != nullptr) {
-					lockSupport->unlockEdit();
-				}
-				$assign(lockSupport, editLockSupport);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
+		} catch ($Throwable& var$2) {
+			$assign(var$0, var$2);
+		} $finally: {
+			if (lockSupport != nullptr) {
+				lockSupport->unlockEdit();
 			}
-			if (return$1) {
-				return;
-			}
+			$assign(lockSupport, editLockSupport);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return;
 		}
 	}
 }
@@ -416,7 +349,7 @@ $String* UndoManager::getUndoPresentationName() {
 	$synchronized(this) {
 		if (this->inProgress) {
 			if (canUndo()) {
-				return $nc($(editToBeUndone()))->getUndoPresentationName();
+				return $$nc(editToBeUndone())->getUndoPresentationName();
 			} else {
 				return $UIManager::getString("AbstractUndoableEdit.undoText"_s);
 			}
@@ -430,7 +363,7 @@ $String* UndoManager::getRedoPresentationName() {
 	$synchronized(this) {
 		if (this->inProgress) {
 			if (canRedo()) {
-				return $nc($(editToBeRedone()))->getRedoPresentationName();
+				return $$nc(editToBeRedone())->getRedoPresentationName();
 			} else {
 				return $UIManager::getString("AbstractUndoableEdit.redoText"_s);
 			}
@@ -445,7 +378,7 @@ void UndoManager::undoableEditHappened($UndoableEditEvent* e) {
 }
 
 $String* UndoManager::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({$($CompoundEdit::toString()), " limit: "_s, $$str(this->limit), " indexOfNextAdd: "_s, $$str(this->indexOfNextAdd)});
 }
 
@@ -453,7 +386,64 @@ UndoManager::UndoManager() {
 }
 
 $Class* UndoManager::load$($String* name, bool initialize) {
-	$loadClass(UndoManager, name, initialize, &_UndoManager_ClassInfo_, allocate$UndoManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"indexOfNextAdd", "I", nullptr, 0, $field(UndoManager, indexOfNextAdd)},
+		{"limit", "I", nullptr, 0, $field(UndoManager, limit)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UndoManager, init$, void)},
+		{"addEdit", "(Ljavax/swing/undo/UndoableEdit;)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, addEdit, bool, $UndoableEdit*)},
+		{"canRedo", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, canRedo, bool)},
+		{"canUndo", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, canUndo, bool)},
+		{"canUndoOrRedo", "()Z", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, canUndoOrRedo, bool)},
+		{"discardAllEdits", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, discardAllEdits, void)},
+		{"editToBeRedone", "()Ljavax/swing/undo/UndoableEdit;", nullptr, $PROTECTED, $virtualMethod(UndoManager, editToBeRedone, $UndoableEdit*)},
+		{"editToBeUndone", "()Ljavax/swing/undo/UndoableEdit;", nullptr, $PROTECTED, $virtualMethod(UndoManager, editToBeUndone, $UndoableEdit*)},
+		{"end", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, end, void)},
+		{"getEditLockSupport", "(Ljavax/swing/undo/UndoableEdit;)Lsun/swing/text/UndoableEditLockSupport;", nullptr, $PRIVATE, $method(UndoManager, getEditLockSupport, $UndoableEditLockSupport*, $UndoableEdit*)},
+		{"getLimit", "()I", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, getLimit, int32_t)},
+		{"getRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, getRedoPresentationName, $String*)},
+		{"getUndoOrRedoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, getUndoOrRedoPresentationName, $String*)},
+		{"getUndoPresentationName", "()Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, getUndoPresentationName, $String*)},
+		{"redo", "()V", nullptr, $PUBLIC, $virtualMethod(UndoManager, redo, void), "javax.swing.undo.CannotRedoException"},
+		{"redoTo", "(Ljavax/swing/undo/UndoableEdit;)V", nullptr, $PROTECTED, $virtualMethod(UndoManager, redoTo, void, $UndoableEdit*), "javax.swing.undo.CannotRedoException"},
+		{"setLimit", "(I)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(UndoManager, setLimit, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(UndoManager, toString, $String*)},
+		{"trimEdits", "(II)V", nullptr, $PROTECTED, $virtualMethod(UndoManager, trimEdits, void, int32_t, int32_t)},
+		{"trimForLimit", "()V", nullptr, $PROTECTED, $virtualMethod(UndoManager, trimForLimit, void)},
+		{"tryUndoOrRedo", "(Ljavax/swing/undo/UndoManager$Action;)V", nullptr, $PRIVATE, $method(UndoManager, tryUndoOrRedo, void, $UndoManager$Action*)},
+		{"undo", "()V", nullptr, $PUBLIC, $virtualMethod(UndoManager, undo, void), "javax.swing.undo.CannotUndoException"},
+		{"undoOrRedo", "()V", nullptr, $PUBLIC, $virtualMethod(UndoManager, undoOrRedo, void), "javax.swing.undo.CannotRedoException,javax.swing.undo.CannotUndoException"},
+		{"undoTo", "(Ljavax/swing/undo/UndoableEdit;)V", nullptr, $PROTECTED, $virtualMethod(UndoManager, undoTo, void, $UndoableEdit*), "javax.swing.undo.CannotUndoException"},
+		{"undoableEditHappened", "(Ljavax/swing/event/UndoableEditEvent;)V", nullptr, $PUBLIC, $virtualMethod(UndoManager, undoableEditHappened, void, $UndoableEditEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.undo.UndoManager$Action", "javax.swing.undo.UndoManager", "Action", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.undo.UndoManager",
+		"javax.swing.undo.CompoundEdit",
+		"javax.swing.event.UndoableEditListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.undo.UndoManager$Action"
+	};
+	$loadClass(UndoManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(UndoManager));
+	});
 	return class$;
 }
 

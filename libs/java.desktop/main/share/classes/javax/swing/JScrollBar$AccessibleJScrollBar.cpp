@@ -1,5 +1,4 @@
 #include <javax/swing/JScrollBar$AccessibleJScrollBar.h>
-
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/accessibility/AccessibleState.h>
@@ -7,7 +6,6 @@
 #include <javax/accessibility/AccessibleValue.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <jcpp.h>
 
@@ -26,61 +24,11 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
-using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _JScrollBar$AccessibleJScrollBar_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JScrollBar;", nullptr, $FINAL | $SYNTHETIC, $field(JScrollBar$AccessibleJScrollBar, this$0)},
-	{}
-};
-
-$MethodInfo _JScrollBar$AccessibleJScrollBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JScrollBar;)V", nullptr, $PROTECTED, $method(JScrollBar$AccessibleJScrollBar, init$, void, $JScrollBar*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, setCurrentAccessibleValue, bool, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JScrollBar$AccessibleJScrollBar_InnerClassesInfo_[] = {
-	{"javax.swing.JScrollBar$AccessibleJScrollBar", "javax.swing.JScrollBar", "AccessibleJScrollBar", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _JScrollBar$AccessibleJScrollBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JScrollBar$AccessibleJScrollBar",
-	"javax.swing.JComponent$AccessibleJComponent",
-	"javax.accessibility.AccessibleValue",
-	_JScrollBar$AccessibleJScrollBar_FieldInfo_,
-	_JScrollBar$AccessibleJScrollBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JScrollBar$AccessibleJScrollBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JScrollBar"
-};
-
-$Object* allocate$JScrollBar$AccessibleJScrollBar($Class* clazz) {
-	return $of($alloc(JScrollBar$AccessibleJScrollBar));
-}
 
 int32_t JScrollBar$AccessibleJScrollBar::hashCode() {
 	 return this->$JComponent$AccessibleJComponent::hashCode();
@@ -150,14 +98,56 @@ $Number* JScrollBar$AccessibleJScrollBar::getMinimumAccessibleValue() {
 
 $Number* JScrollBar$AccessibleJScrollBar::getMaximumAccessibleValue() {
 	int32_t var$0 = $nc(this->this$0->model)->getMaximum();
-	return $Integer::valueOf(var$0 - $nc(this->this$0->model)->getExtent());
+	return $Integer::valueOf(var$0 - this->this$0->model->getExtent());
 }
 
 JScrollBar$AccessibleJScrollBar::JScrollBar$AccessibleJScrollBar() {
 }
 
 $Class* JScrollBar$AccessibleJScrollBar::load$($String* name, bool initialize) {
-	$loadClass(JScrollBar$AccessibleJScrollBar, name, initialize, &_JScrollBar$AccessibleJScrollBar_ClassInfo_, allocate$JScrollBar$AccessibleJScrollBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JScrollBar;", nullptr, $FINAL | $SYNTHETIC, $field(JScrollBar$AccessibleJScrollBar, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JScrollBar;)V", nullptr, $PROTECTED, $method(JScrollBar$AccessibleJScrollBar, init$, void, $JScrollBar*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(JScrollBar$AccessibleJScrollBar, setCurrentAccessibleValue, bool, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JScrollBar$AccessibleJScrollBar", "javax.swing.JScrollBar", "AccessibleJScrollBar", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JScrollBar$AccessibleJScrollBar",
+		"javax.swing.JComponent$AccessibleJComponent",
+		"javax.accessibility.AccessibleValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JScrollBar"
+	};
+	$loadClass(JScrollBar$AccessibleJScrollBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JScrollBar$AccessibleJScrollBar));
+	});
 	return class$;
 }
 

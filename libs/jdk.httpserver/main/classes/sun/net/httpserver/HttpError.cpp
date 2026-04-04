@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/HttpError.h>
-
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -10,29 +9,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _HttpError_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpError, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _HttpError_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpError, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _HttpError_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.HttpError",
-	"java.lang.RuntimeException",
-	nullptr,
-	_HttpError_FieldInfo_,
-	_HttpError_MethodInfo_
-};
-
-$Object* allocate$HttpError($Class* clazz) {
-	return $of($alloc(HttpError));
-}
 
 void HttpError::init$($String* msg) {
 	$RuntimeException::init$(msg);
@@ -49,7 +25,25 @@ void HttpError::throw$() {
 }
 
 $Class* HttpError::load$($String* name, bool initialize) {
-	$loadClass(HttpError, name, initialize, &_HttpError_ClassInfo_, allocate$HttpError);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(HttpError, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(HttpError, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.HttpError",
+		"java.lang.RuntimeException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(HttpError, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HttpError);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class $import AbstractRegionPainter$PaintContext$CacheMode : public ::java::lang
 public:
 	AbstractRegionPainter$PaintContext$CacheMode();
 	static $Array<::javax::swing::plaf::nimbus::AbstractRegionPainter$PaintContext$CacheMode>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::javax::swing::plaf::nimbus::AbstractRegionPainter$PaintContext$CacheMode* valueOf($String* name);
 	static $Array<::javax::swing::plaf::nimbus::AbstractRegionPainter$PaintContext$CacheMode>* values();

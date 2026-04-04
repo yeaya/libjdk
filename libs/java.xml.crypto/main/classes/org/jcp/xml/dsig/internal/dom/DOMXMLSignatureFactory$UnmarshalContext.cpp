@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMXMLSignatureFactory$UnmarshalContext.h>
-
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMXMLSignatureFactory.h>
 #include <jcpp.h>
@@ -16,36 +15,6 @@ namespace org {
 				namespace internal {
 					namespace dom {
 
-$MethodInfo _DOMXMLSignatureFactory$UnmarshalContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DOMXMLSignatureFactory$UnmarshalContext, init$, void)},
-	{}
-};
-
-$InnerClassInfo _DOMXMLSignatureFactory$UnmarshalContext_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory$UnmarshalContext", "org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory", "UnmarshalContext", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _DOMXMLSignatureFactory$UnmarshalContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory$UnmarshalContext",
-	"javax.xml.crypto.dom.DOMCryptoContext",
-	nullptr,
-	nullptr,
-	_DOMXMLSignatureFactory$UnmarshalContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMXMLSignatureFactory$UnmarshalContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory"
-};
-
-$Object* allocate$DOMXMLSignatureFactory$UnmarshalContext($Class* clazz) {
-	return $of($alloc(DOMXMLSignatureFactory$UnmarshalContext));
-}
-
 void DOMXMLSignatureFactory$UnmarshalContext::init$() {
 	$DOMCryptoContext::init$();
 }
@@ -54,7 +23,32 @@ DOMXMLSignatureFactory$UnmarshalContext::DOMXMLSignatureFactory$UnmarshalContext
 }
 
 $Class* DOMXMLSignatureFactory$UnmarshalContext::load$($String* name, bool initialize) {
-	$loadClass(DOMXMLSignatureFactory$UnmarshalContext, name, initialize, &_DOMXMLSignatureFactory$UnmarshalContext_ClassInfo_, allocate$DOMXMLSignatureFactory$UnmarshalContext);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DOMXMLSignatureFactory$UnmarshalContext, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory$UnmarshalContext", "org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory", "UnmarshalContext", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory$UnmarshalContext",
+		"javax.xml.crypto.dom.DOMCryptoContext",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMXMLSignatureFactory"
+	};
+	$loadClass(DOMXMLSignatureFactory$UnmarshalContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DOMXMLSignatureFactory$UnmarshalContext);
+	});
 	return class$;
 }
 

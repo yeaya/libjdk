@@ -71,6 +71,7 @@ class StorageResolver : public ::java::lang::Object {
 	$class(StorageResolver, 0, ::java::lang::Object)
 public:
 	StorageResolver();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolverSpi* resolver);
 	void init$(::java::security::KeyStore* keyStore);
 	void init$(::java::security::cert::X509Certificate* x509certificate);

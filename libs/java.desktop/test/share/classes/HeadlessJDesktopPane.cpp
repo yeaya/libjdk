@@ -1,5 +1,4 @@
 #include <HeadlessJDesktopPane.h>
-
 #include <HeadlessJDesktopPane$1.h>
 #include <HeadlessJDesktopPane$2.h>
 #include <HeadlessJDesktopPane$3.h>
@@ -51,7 +50,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -62,44 +60,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JComponent = ::javax::swing::JComponent;
 
-$MethodInfo _HeadlessJDesktopPane_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJDesktopPane, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJDesktopPane, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJDesktopPane_InnerClassesInfo_[] = {
-	{"HeadlessJDesktopPane$4", nullptr, nullptr, 0},
-	{"HeadlessJDesktopPane$3", nullptr, nullptr, 0},
-	{"HeadlessJDesktopPane$2", nullptr, nullptr, 0},
-	{"HeadlessJDesktopPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJDesktopPane_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJDesktopPane",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJDesktopPane_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJDesktopPane_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJDesktopPane$4,HeadlessJDesktopPane$3,HeadlessJDesktopPane$2,HeadlessJDesktopPane$1"
-};
-
-$Object* allocate$HeadlessJDesktopPane($Class* clazz) {
-	return $of($alloc(HeadlessJDesktopPane));
-}
-
 void HeadlessJDesktopPane::init$() {
 }
 
 void HeadlessJDesktopPane::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JComponent, ch, $new($HeadlessJDesktopPane$1));
 	ch->getAccessibleContext();
 	ch->isFocusTraversable();
@@ -111,9 +76,9 @@ void HeadlessJDesktopPane::main($StringArray* args) {
 	ch->getMaximumSize();
 	ch->getMinimumSize();
 	ch->contains(1, 2);
-	$var($Component, c1, ch->add(static_cast<$Component*>($$new($HeadlessJDesktopPane$2))));
-	$var($Component, c2, ch->add(static_cast<$Component*>($$new($HeadlessJDesktopPane$3))));
-	$var($Component, c3, ch->add(static_cast<$Component*>($$new($HeadlessJDesktopPane$4))));
+	$var($Component, c1, ch->add($$new($HeadlessJDesktopPane$2)));
+	$var($Component, c2, ch->add($$new($HeadlessJDesktopPane$3)));
+	$var($Component, c3, ch->add($$new($HeadlessJDesktopPane$4)));
 	$var($Insets, ins, ch->getInsets());
 	ch->getAlignmentY();
 	ch->getAlignmentX();
@@ -124,26 +89,22 @@ void HeadlessJDesktopPane::main($StringArray* args) {
 	ch->setForeground($Color::red);
 	ch->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					ch->setFont(f1);
-					ch->setFont(f2);
-					ch->setFont(f3);
-					ch->setFont(f4);
-					ch->getFontMetrics(f1);
-					ch->getFontMetrics(f2);
-					ch->getFontMetrics(f3);
-					ch->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				ch->setFont(f1);
+				ch->setFont(f2);
+				ch->setFont(f3);
+				ch->setFont(f4);
+				ch->getFontMetrics(f1);
+				ch->getFontMetrics(f2);
+				ch->getFontMetrics(f3);
+				ch->getFontMetrics(f4);
 			}
 		}
 	}
@@ -208,13 +169,11 @@ void HeadlessJDesktopPane::main($StringArray* args) {
 	ch->getFont();
 	ch->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(ch));
+	c->add(ch);
 	ch->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			ch->setLocale(locale);
 		}
@@ -271,7 +230,35 @@ HeadlessJDesktopPane::HeadlessJDesktopPane() {
 }
 
 $Class* HeadlessJDesktopPane::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJDesktopPane, name, initialize, &_HeadlessJDesktopPane_ClassInfo_, allocate$HeadlessJDesktopPane);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJDesktopPane, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJDesktopPane, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJDesktopPane$4", nullptr, nullptr, 0},
+		{"HeadlessJDesktopPane$3", nullptr, nullptr, 0},
+		{"HeadlessJDesktopPane$2", nullptr, nullptr, 0},
+		{"HeadlessJDesktopPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJDesktopPane",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJDesktopPane$4,HeadlessJDesktopPane$3,HeadlessJDesktopPane$2,HeadlessJDesktopPane$1"
+	};
+	$loadClass(HeadlessJDesktopPane, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJDesktopPane);
+	});
 	return class$;
 }
 

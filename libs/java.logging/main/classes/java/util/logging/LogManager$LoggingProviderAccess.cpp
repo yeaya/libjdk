@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$LoggingProviderAccess.h>
-
 #include <java/lang/Module.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/Permission.h>
@@ -31,49 +30,6 @@ using $LoggingProviderImpl$LogManagerAccess = ::sun::util::logging::internal::Lo
 namespace java {
 	namespace util {
 		namespace logging {
-
-$FieldInfo _LogManager$LoggingProviderAccess_FieldInfo_[] = {
-	{"INSTANCE", "Ljava/util/logging/LogManager$LoggingProviderAccess;", nullptr, $STATIC | $FINAL, $staticField(LogManager$LoggingProviderAccess, INSTANCE)},
-	{}
-};
-
-$MethodInfo _LogManager$LoggingProviderAccess_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PRIVATE, $method(LogManager$LoggingProviderAccess, init$, void)},
-	{"demandLoggerFor", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PUBLIC, $virtualMethod(LogManager$LoggingProviderAccess, demandLoggerFor, $Logger*, $LogManager*, $String*, $Module*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LogManager$LoggingProviderAccess, run, $Object*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LogManager$LoggingProviderAccess_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$LoggingProviderAccess", "java.util.logging.LogManager", "LoggingProviderAccess", $PRIVATE | $STATIC | $FINAL},
-	{"sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess", "sun.util.logging.internal.LoggingProviderImpl", "LogManagerAccess", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LogManager$LoggingProviderAccess_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"java.util.logging.LogManager$LoggingProviderAccess",
-	"java.lang.Object",
-	"sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess,java.security.PrivilegedAction",
-	_LogManager$LoggingProviderAccess_FieldInfo_,
-	_LogManager$LoggingProviderAccess_MethodInfo_,
-	"Ljava/lang/Object;Lsun/util/logging/internal/LoggingProviderImpl$LogManagerAccess;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	nullptr,
-	_LogManager$LoggingProviderAccess_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$LoggingProviderAccess($Class* clazz) {
-	return $of($alloc(LogManager$LoggingProviderAccess));
-}
 
 int32_t LogManager$LoggingProviderAccess::hashCode() {
 	 return this->$LoggingProviderImpl$LogManagerAccess::hashCode();
@@ -114,16 +70,16 @@ $Logger* LogManager$LoggingProviderAccess::demandLoggerFor($LogManager* manager,
 		$init($Logger);
 		return $nc(manager)->demandSystemLogger(name, $Logger::SYSTEM_LOGGER_RB_NAME, module);
 	} else {
-		return $nc(manager)->demandLogger(name, ($String*)nullptr, module);
+		return $nc(manager)->demandLogger(name, nullptr, module);
 	}
 }
 
 $Object* LogManager$LoggingProviderAccess::run() {
 	$LoggingProviderImpl::setLogManagerAccess(LogManager$LoggingProviderAccess::INSTANCE);
-	return $of(nullptr);
+	return nullptr;
 }
 
-void clinit$LogManager$LoggingProviderAccess($Class* class$) {
+void LogManager$LoggingProviderAccess::clinit$($Class* clazz) {
 	$assignStatic(LogManager$LoggingProviderAccess::INSTANCE, $new(LogManager$LoggingProviderAccess));
 }
 
@@ -131,7 +87,44 @@ LogManager$LoggingProviderAccess::LogManager$LoggingProviderAccess() {
 }
 
 $Class* LogManager$LoggingProviderAccess::load$($String* name, bool initialize) {
-	$loadClass(LogManager$LoggingProviderAccess, name, initialize, &_LogManager$LoggingProviderAccess_ClassInfo_, clinit$LogManager$LoggingProviderAccess, allocate$LogManager$LoggingProviderAccess);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSTANCE", "Ljava/util/logging/LogManager$LoggingProviderAccess;", nullptr, $STATIC | $FINAL, $staticField(LogManager$LoggingProviderAccess, INSTANCE)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PRIVATE, $method(LogManager$LoggingProviderAccess, init$, void)},
+		{"demandLoggerFor", "(Ljava/util/logging/LogManager;Ljava/lang/String;Ljava/lang/Module;)Ljava/util/logging/Logger;", nullptr, $PUBLIC, $virtualMethod(LogManager$LoggingProviderAccess, demandLoggerFor, $Logger*, $LogManager*, $String*, $Module*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LogManager$LoggingProviderAccess, run, $Object*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$LoggingProviderAccess", "java.util.logging.LogManager", "LoggingProviderAccess", $PRIVATE | $STATIC | $FINAL},
+		{"sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess", "sun.util.logging.internal.LoggingProviderImpl", "LogManagerAccess", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"java.util.logging.LogManager$LoggingProviderAccess",
+		"java.lang.Object",
+		"sun.util.logging.internal.LoggingProviderImpl$LogManagerAccess,java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Lsun/util/logging/internal/LoggingProviderImpl$LogManagerAccess;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$LoggingProviderAccess, name, initialize, &classInfo$$, LogManager$LoggingProviderAccess::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LogManager$LoggingProviderAccess));
+	});
 	return class$;
 }
 

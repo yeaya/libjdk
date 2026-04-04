@@ -1,9 +1,7 @@
 #include <com/sun/tools/javac/model/JavacElements.h>
-
 #include <com/sun/source/util/JavacTask.h>
 #include <com/sun/tools/javac/api/JavacTaskImpl.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
-#include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
 #include <com/sun/tools/javac/code/Directive$ExportsDirective.h>
@@ -16,7 +14,6 @@
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$LookupKind.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
-#include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Source$Feature.h>
 #include <com/sun/tools/javac/code/Source.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -46,7 +43,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$Visitor.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/util/Constants.h>
@@ -68,7 +64,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -100,7 +95,6 @@
 #include <javax/lang/model/util/AbstractElementVisitor6.h>
 #include <javax/lang/model/util/ElementFilter.h>
 #include <javax/lang/model/util/Elements$Origin.h>
-#include <javax/lang/model/util/Elements.h>
 #include <jcpp.h>
 
 #undef AUTOMATIC_MODULE
@@ -127,8 +121,6 @@ using $JavacTask = ::com::sun::source::util::JavacTask;
 using $JavacTaskImpl = ::com::sun::tools::javac::api::JavacTaskImpl;
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
-using $Attribute$Visitor = ::com::sun::tools::javac::code::Attribute$Visitor;
-using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $Directive$ExportsDirective = ::com::sun::tools::javac::code::Directive$ExportsDirective;
 using $Directive$ExportsFlag = ::com::sun::tools::javac::code::Directive$ExportsFlag;
 using $Directive$OpensDirective = ::com::sun::tools::javac::code::Directive$OpensDirective;
@@ -137,7 +129,6 @@ using $Directive$RequiresDirective = ::com::sun::tools::javac::code::Directive$R
 using $Directive$RequiresFlag = ::com::sun::tools::javac::code::Directive$RequiresFlag;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
-using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Source = ::com::sun::tools::javac::code::Source;
@@ -165,18 +156,16 @@ using $JavacElements$1Vis = ::com::sun::tools::javac::model::JavacElements$1Vis;
 using $JavacElements$2Vis = ::com::sun::tools::javac::model::JavacElements$2Vis;
 using $PrintingProcessor$PrintingElementVisitor = ::com::sun::tools::javac::processing::PrintingProcessor$PrintingElementVisitor;
 using $CompilerProperties$Notes = ::com::sun::tools::javac::resources::CompilerProperties$Notes;
-using $DocCommentTable = ::com::sun::tools::javac::tree::DocCommentTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $Constants = ::com::sun::tools::javac::util::Constants;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $1Name = ::com::sun::tools::javac::util::Name;
+using $Name = ::com::sun::tools::javac::util::Name;
 using $Names = ::com::sun::tools::javac::util::Names;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $Serializable = ::java::io::Serializable;
@@ -187,11 +176,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -203,7 +190,6 @@ using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $Function = ::java::util::function::Function;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $AnnotatedConstruct = ::javax::lang::model::AnnotatedConstruct;
 using $SourceVersion = ::javax::lang::model::SourceVersion;
 using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
@@ -213,13 +199,11 @@ using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $ModuleElement$Directive = ::javax::lang::model::element::ModuleElement$Directive;
-using $ModuleElement$DirectiveKind = ::javax::lang::model::element::ModuleElement$DirectiveKind;
-using $Name = ::javax::lang::model::element::Name;
+using $1Name = ::javax::lang::model::element::Name;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $DeclaredType = ::javax::lang::model::type::DeclaredType;
 using $ElementFilter = ::javax::lang::model::util::ElementFilter;
-using $Elements = ::javax::lang::model::util::Elements;
 using $Elements$Origin = ::javax::lang::model::util::Elements$Origin;
 
 namespace com {
@@ -238,41 +222,37 @@ public:
 		$set(this, methodName, methodName);
 	}
 	virtual $Object* apply(Object$* p) override {
-		 return $of($nc(inst$)->lambda$unboundNameToSymbol$2(nameStr, clazz, methodName, $cast($Pair, p)));
-	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacElements$$Lambda$lambda$unboundNameToSymbol$2>());
+		 return $nc(inst$)->lambda$unboundNameToSymbol$2(nameStr, clazz, methodName, $cast($Pair, p));
 	}
 	JavacElements* inst$ = nullptr;
 	$String* nameStr = nullptr;
 	$Class* clazz = nullptr;
 	$String* methodName = nullptr;
-	static $FieldInfo fieldInfos[5];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JavacElements$$Lambda$lambda$unboundNameToSymbol$2::fieldInfos[5] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, inst$)},
-	{"nameStr", "Ljava/lang/String;", nullptr, $PUBLIC, $field(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, nameStr)},
-	{"clazz", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, clazz)},
-	{"methodName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, methodName)},
-	{}
-};
-$MethodInfo JavacElements$$Lambda$lambda$unboundNameToSymbol$2::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, init$, void, JavacElements*, $String*, $Class*, $String*)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacElements$$Lambda$lambda$unboundNameToSymbol$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	fieldInfos,
-	methodInfos
 };
 $Class* JavacElements$$Lambda$lambda$unboundNameToSymbol$2::load$($String* name, bool initialize) {
-	$loadClass(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, inst$)},
+		{"nameStr", "Ljava/lang/String;", nullptr, $PUBLIC, $field(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, nameStr)},
+		{"clazz", "Ljava/lang/Class;", nullptr, $PUBLIC, $field(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, clazz)},
+		{"methodName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, methodName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/model/JavacElements;Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, init$, void, JavacElements*, $String*, $Class*, $String*)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacElements$$Lambda$lambda$unboundNameToSymbol$2);
+	});
 	return class$;
 }
 $Class* JavacElements$$Lambda$lambda$unboundNameToSymbol$2::class$ = nullptr;
@@ -285,27 +265,24 @@ public:
 	virtual $Object* apply(Object$* s) override {
 		 return $of(JavacElements::lambda$unboundNameToSymbol$0($cast($Symbol, s)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1::load$($String* name, bool initialize) {
-	$loadClass(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1);
+	});
 	return class$;
 }
 $Class* JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1::class$ = nullptr;
@@ -318,125 +295,27 @@ public:
 	virtual $Object* apply(Object$* m) override {
 		 return $of(JavacElements::lambda$unboundNameToSymbol$1($cast($Symbol$ModuleSymbol, m)));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2::load$($String* name, bool initialize) {
-	$loadClass(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2);
+	});
 	return class$;
 }
 $Class* JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2::class$ = nullptr;
-
-$FieldInfo _JavacElements_FieldInfo_[] = {
-	{"javaCompiler", "Lcom/sun/tools/javac/main/JavaCompiler;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, javaCompiler)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, syms)},
-	{"modules", "Lcom/sun/tools/javac/comp/Modules;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, modules)},
-	{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, names)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, types)},
-	{"enter", "Lcom/sun/tools/javac/comp/Enter;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, enter)},
-	{"resolve", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, resolve)},
-	{"javacTaskImpl", "Lcom/sun/tools/javac/api/JavacTaskImpl;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, javacTaskImpl)},
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, log)},
-	{"allowModules", "Z", nullptr, $PRIVATE | $FINAL, $field(JavacElements, allowModules)},
-	{"alreadyWarnedDuplicates", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JavacElements, alreadyWarnedDuplicates)},
-	{"resultCache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Pair<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Optional<Lcom/sun/tools/javac/code/Symbol;>;>;", $PRIVATE | $FINAL, $field(JavacElements, resultCache)},
-	{}
-};
-
-$MethodInfo _JavacElements_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(JavacElements, init$, void, $Context*)},
-	{"addMembers", "(Lcom/sun/tools/javac/code/Scope$WriteableScope;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(JavacElements, addMembers, void, $Scope$WriteableScope*, $Type*)},
-	{"cast", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/Object;)TT;", $PRIVATE | $STATIC, $staticMethod(JavacElements, cast, $Object*, $Class*, Object$*)},
-	{"containsAnnoOfType", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;Lcom/sun/tools/javac/code/Type;)Z", $PRIVATE | $STATIC, $staticMethod(JavacElements, containsAnnoOfType, bool, $List*, $Type*)},
-	{"doGetElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/Class;)Lcom/sun/tools/javac/code/Symbol;", "<S:Lcom/sun/tools/javac/code/Symbol;>(Ljavax/lang/model/element/ModuleElement;Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/Class<TS;>;)TS;", $PRIVATE, $method(JavacElements, doGetElement, $Symbol*, $ModuleElement*, $String*, $CharSequence*, $Class*)},
-	{"doGetPackageElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PRIVATE, $method(JavacElements, doGetPackageElement, $Symbol$PackageSymbol*, $ModuleElement*, $CharSequence*)},
-	{"doGetTypeElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PRIVATE, $method(JavacElements, doGetTypeElement, $Symbol$ClassSymbol*, $ModuleElement*, $CharSequence*)},
-	{"ensureEntered", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JavacElements, ensureEntered, void, $String*)},
-	{"getAllAnnotationMirrors", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/List;", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(JavacElements, getAllAnnotationMirrors, $1List*, $Element*)},
-	{"getAllMembers", "(Ljavax/lang/model/element/TypeElement;)Lcom/sun/tools/javac/model/FilteredMemberList;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getAllMembers, $1List*, $TypeElement*)},
-	{"getAllModuleElements", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC, $virtualMethod(JavacElements, getAllModuleElements, $Set*)},
-	{"getBinaryName", "(Ljavax/lang/model/element/TypeElement;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getBinaryName, $Name*, $TypeElement*)},
-	{"getConstantExpression", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getConstantExpression, $String*, Object$*)},
-	{"getDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getDocComment, $String*, $Element*)},
-	{"getElementValuesWithDefaults", "(Ljavax/lang/model/element/AnnotationMirror;)Ljava/util/Map;", "(Ljavax/lang/model/element/AnnotationMirror;)Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC, $virtualMethod(JavacElements, getElementValuesWithDefaults, $Map*, $AnnotationMirror*)},
-	{"getEnterEnv", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $method(JavacElements, getEnterEnv, $Env*, $Symbol*)},
-	{"getModuleElement", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getModuleElement, $ModuleElement*, $CharSequence*)},
-	{"getModuleOf", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getModuleOf, $ModuleElement*, $Element*)},
-	{"getName", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getName, $Name*, $CharSequence*)},
-	{"getOrigin", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getOrigin, $Elements$Origin*, $Element*)},
-	{"getOrigin", "(Ljavax/lang/model/AnnotatedConstruct;Ljavax/lang/model/element/AnnotationMirror;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getOrigin, $Elements$Origin*, $AnnotatedConstruct*, $AnnotationMirror*)},
-	{"getOrigin", "(Ljavax/lang/model/element/ModuleElement;Ljavax/lang/model/element/ModuleElement$Directive;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getOrigin, $Elements$Origin*, $ModuleElement*, $ModuleElement$Directive*)},
-	{"getPackageElement", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getPackageElement, $PackageElement*, $CharSequence*)},
-	{"getPackageElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getPackageElement, $PackageElement*, $ModuleElement*, $CharSequence*)},
-	{"getPackageOf", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getPackageOf, $PackageElement*, $Element*)},
-	{"getTree", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getTree, $JCTree*, $Element*)},
-	{"getTreeAndTopLevel", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/Pair;", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PRIVATE, $method(JavacElements, getTreeAndTopLevel, $Pair*, $Element*)},
-	{"getTreeAndTopLevel", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)Lcom/sun/tools/javac/util/Pair;", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC, $virtualMethod(JavacElements, getTreeAndTopLevel, $Pair*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
-	{"getTypeElement", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getTypeElement, $TypeElement*, $CharSequence*)},
-	{"getTypeElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getTypeElement, $TypeElement*, $ModuleElement*, $CharSequence*)},
-	{"hides", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/Element;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, hides, bool, $Element*, $Element*)},
-	{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/model/JavacElements;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacElements, instance, JavacElements*, $Context*)},
-	{"isAutomaticModule", "(Ljavax/lang/model/element/ModuleElement;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, isAutomaticModule, bool, $ModuleElement*)},
-	{"isDeprecated", "(Ljavax/lang/model/element/Element;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, isDeprecated, bool, $Element*)},
-	{"isFunctionalInterface", "(Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, isFunctionalInterface, bool, $TypeElement*)},
-	{"isInherited", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(JavacElements, isInherited, bool, $Type*)},
-	{"lambda$unboundNameToSymbol$0", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacElements, lambda$unboundNameToSymbol$0, $Symbol$ModuleSymbol*, $Symbol*)},
-	{"lambda$unboundNameToSymbol$1", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacElements, lambda$unboundNameToSymbol$1, $String*, $Symbol$ModuleSymbol*)},
-	{"lambda$unboundNameToSymbol$2", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Lcom/sun/tools/javac/util/Pair;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacElements, lambda$unboundNameToSymbol$2, $Optional*, $String*, $Class*, $String*, $Pair*)},
-	{"matchAnnoToTree", "(Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/Element;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PRIVATE, $method(JavacElements, matchAnnoToTree, $JCTree*, $AnnotationMirror*, $Element*, $JCTree*)},
-	{"matchAnnoToTree", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree;", $PRIVATE, $method(JavacElements, matchAnnoToTree, $JCTree*, $Attribute$Compound*, $List*, $List*)},
-	{"matchAttributeToTree", "(Lcom/sun/tools/javac/code/Attribute;Lcom/sun/tools/javac/code/Attribute;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PRIVATE, $method(JavacElements, matchAttributeToTree, $JCTree*, $Attribute*, $Attribute*, $JCTree*)},
-	{"nameToSymbol", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljava/lang/Class;)Lcom/sun/tools/javac/code/Symbol;", "<S:Lcom/sun/tools/javac/code/Symbol;>(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljava/lang/Class<TS;>;)TS;", $PRIVATE, $method(JavacElements, nameToSymbol, $Symbol*, $Symbol$ModuleSymbol*, $String*, $Class*)},
-	{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(JavacElements, newRound, void)},
-	{"overrides", "(Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, overrides, bool, $ExecutableElement*, $ExecutableElement*, $TypeElement*)},
-	{"printElements", "(Ljava/io/Writer;[Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacElements, printElements, void, $Writer*, $ElementArray*)},
-	{"scanForAssign", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(JavacElements, scanForAssign, $JCTree$JCExpression*, $Symbol$MethodSymbol*, $JCTree*)},
-	{"unboundNameToSymbol", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Lcom/sun/tools/javac/code/Symbol;", "<S:Lcom/sun/tools/javac/code/Symbol;>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TS;>;)TS;", $PRIVATE, $method(JavacElements, unboundNameToSymbol, $Symbol*, $String*, $String*, $Class*)},
-	{}
-};
-
-$InnerClassInfo _JavacElements_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.model.JavacElements$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.model.JavacElements$1TS", nullptr, "TS", 0},
-	{"com.sun.tools.javac.model.JavacElements$2Vis", nullptr, "Vis", 0},
-	{"com.sun.tools.javac.model.JavacElements$1Vis", nullptr, "Vis", 0},
-	{}
-};
-
-$ClassInfo _JavacElements_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.model.JavacElements",
-	"java.lang.Object",
-	"javax.lang.model.util.Elements",
-	_JavacElements_FieldInfo_,
-	_JavacElements_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JavacElements_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.model.JavacElements$1,com.sun.tools.javac.model.JavacElements$1TS,com.sun.tools.javac.model.JavacElements$2Vis,com.sun.tools.javac.model.JavacElements$1Vis"
-};
-
-$Object* allocate$JavacElements($Class* clazz) {
-	return $of($alloc(JavacElements));
-}
 
 JavacElements* JavacElements::instance($Context* context) {
 	$init(JavacElements);
@@ -448,10 +327,10 @@ JavacElements* JavacElements::instance($Context* context) {
 }
 
 void JavacElements::init$($Context* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, alreadyWarnedDuplicates, $new($HashSet));
 	$set(this, resultCache, $new($HashMap));
-	$nc(context)->put(JavacElements::class$, $of(this));
+	$nc(context)->put(JavacElements::class$, this);
 	$set(this, javaCompiler, $JavaCompiler::instance(context));
 	$set(this, syms, $Symtab::instance(context));
 	$set(this, modules, $Modules::instance(context));
@@ -483,16 +362,16 @@ $Set* JavacElements::getAllModuleElements() {
 }
 
 $ModuleElement* JavacElements::getModuleElement($CharSequence* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureEntered("getModuleElement"_s);
 	if ($nc(this->modules)->getDefaultModule() == $nc(this->syms)->noModule) {
 		return nullptr;
 	}
 	$var($String, strName, $nc(name)->toString());
 	if ($nc(strName)->equals(""_s)) {
-		return $as($ModuleElement, $nc(this->syms)->unnamedModule);
+		return $as($ModuleElement, this->syms->unnamedModule);
 	}
-	return $as($ModuleElement, $nc(this->modules)->getObservableModule($($nc(this->names)->fromString(strName))));
+	return $as($ModuleElement, this->modules->getObservableModule($($nc(this->names)->fromString(strName))));
 }
 
 $PackageElement* JavacElements::getPackageElement($CharSequence* name) {
@@ -540,19 +419,19 @@ $Symbol* JavacElements::doGetElement($ModuleElement* module, $String* methodName
 }
 
 $Symbol* JavacElements::unboundNameToSymbol($String* methodName, $String* nameStr, $Class* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(this->modules)->getDefaultModule() == $nc(this->syms)->noModule) {
-		return nameToSymbol($nc(this->syms)->noModule, nameStr, clazz);
+		return nameToSymbol(this->syms->noModule, nameStr, clazz);
 	}
-	$var($Object, var$0, $of($Pair::of(methodName, nameStr)));
-	return $cast($Symbol, $nc(($cast($Optional, $($nc(this->resultCache)->computeIfAbsent(var$0, static_cast<$Function*>($$new(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, this, nameStr, clazz, methodName)))))))->orElse(nullptr));
+	$var($Object, var$0, $Pair::of(methodName, nameStr));
+	return $cast($Symbol, $$sure($Optional, this->resultCache->computeIfAbsent(var$0, $$new(JavacElements$$Lambda$lambda$unboundNameToSymbol$2, this, nameStr, clazz, methodName)))->orElse(nullptr));
 }
 
 $Symbol* JavacElements::nameToSymbol($Symbol$ModuleSymbol* module, $String* nameStr, $Class* clazz) {
-	$useLocalCurrentObjectStackCache();
-	$var($1Name, name, $nc(this->names)->fromString(nameStr));
+	$useLocalObjectStack();
+	$var($Name, name, $nc(this->names)->fromString(nameStr));
 	$load($Symbol$ClassSymbol);
-	$var($Symbol, sym, (clazz == $Symbol$ClassSymbol::class$) ? static_cast<$Symbol*>($nc(this->syms)->getClass(module, name)) : static_cast<$Symbol*>($nc(this->syms)->lookupPackage(module, name)));
+	$var($Symbol, sym, (clazz == $Symbol$ClassSymbol::class$) ? $cast($Symbol, $nc(this->syms)->getClass(module, name)) : $cast($Symbol, $nc(this->syms)->lookupPackage(module, name)));
 	try {
 		if (sym == nullptr) {
 			$assign(sym, $nc(this->javaCompiler)->resolveIdent(module, nameStr));
@@ -561,7 +440,7 @@ $Symbol* JavacElements::nameToSymbol($Symbol$ModuleSymbol* module, $String* name
 			$nc(sym)->complete();
 			$init($Kinds$Kind);
 			bool var$0 = sym->kind != $Kinds$Kind::ERR && sym->exists();
-			if (var$0 && $nc($of(name))->equals($(sym->getQualifiedName()))) {
+			if (var$0 && $nc(name)->equals($(sym->getQualifiedName()))) {
 				return $cast($Symbol, clazz->cast(sym));
 			}
 		}
@@ -574,7 +453,7 @@ $Symbol* JavacElements::nameToSymbol($Symbol$ModuleSymbol* module, $String* name
 }
 
 $JCTree* JavacElements::matchAnnoToTree($AnnotationMirror* findme, $Element* e, $JCTree* tree) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Symbol);
 	$var($Symbol, sym, $cast($Symbol, cast($Symbol::class$, e)));
 	{
@@ -586,29 +465,25 @@ $JCTree* JavacElements::matchAnnoToTree($AnnotationMirror* findme, $Element* e, 
 	}
 	$var($List, annos, $cast($List, $nc(sym)->getAnnotationMirrors()));
 	$load($Attribute$Compound);
-	return matchAnnoToTree($cast($Attribute$Compound, $(cast($Attribute$Compound::class$, findme))), annos, vis->result);
+	return matchAnnoToTree($$cast($Attribute$Compound, cast($Attribute$Compound::class$, findme)), annos, vis->result);
 }
 
 $JCTree* JavacElements::matchAnnoToTree($Attribute$Compound* findme, $List* annos, $List* trees) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(annos)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Attribute$Compound, anno, $cast($Attribute$Compound, i$->next()));
-			{
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(annos)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Attribute$Compound, anno, $cast($Attribute$Compound, i$->next()));
+		{
+			$var($Iterator, i$, $nc(trees)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($JCTree$JCAnnotation, tree, $cast($JCTree$JCAnnotation, i$->next()));
 				{
-					$var($Iterator, i$, $nc(trees)->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($JCTree$JCAnnotation, tree, $cast($JCTree$JCAnnotation, i$->next()));
-						{
-							if ($nc($nc(tree)->type)->tsym != $nc($nc(anno)->type)->tsym) {
-								continue;
-							}
-							$var($JCTree, match, matchAttributeToTree(findme, anno, tree));
-							if (match != nullptr) {
-								return match;
-							}
-						}
+					if ($nc($nc(tree)->type)->tsym != $nc($nc(anno)->type)->tsym) {
+						continue;
+					}
+					$var($JCTree, match, matchAttributeToTree(findme, anno, tree));
+					if (match != nullptr) {
+						return match;
 					}
 				}
 			}
@@ -638,11 +513,11 @@ $JCTree$JCExpression* JavacElements::scanForAssign($Symbol$MethodSymbol* sym, $J
 
 $JCTree* JavacElements::getTree($Element* e) {
 	$var($Pair, treeTop, getTreeAndTopLevel(e));
-	return (treeTop != nullptr) ? $cast($JCTree, $nc(treeTop)->fst) : ($JCTree*)nullptr;
+	return (treeTop != nullptr) ? $cast($JCTree, treeTop->fst) : ($JCTree*)nullptr;
 }
 
 $String* JavacElements::getDocComment($Element* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Pair, treeTop, getTreeAndTopLevel(e));
 	if (treeTop == nullptr) {
 		return nullptr;
@@ -652,7 +527,7 @@ $String* JavacElements::getDocComment($Element* e) {
 	if ($nc(toplevel)->docComments == nullptr) {
 		return nullptr;
 	}
-	return $nc($nc(toplevel)->docComments)->getCommentText(tree);
+	return $nc(toplevel->docComments)->getCommentText(tree);
 }
 
 $PackageElement* JavacElements::getPackageOf($Element* e) {
@@ -661,19 +536,19 @@ $PackageElement* JavacElements::getPackageOf($Element* e) {
 		return nullptr;
 	} else {
 		$load($Symbol);
-		return $as($PackageElement, $nc(($cast($Symbol, $(cast($Symbol::class$, e)))))->packge());
+		return $as($PackageElement, $$sure($Symbol, cast($Symbol::class$, e))->packge());
 	}
 }
 
 $ModuleElement* JavacElements::getModuleOf($Element* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Symbol);
 	$var($Symbol, sym, $cast($Symbol, cast($Symbol::class$, e)));
 	if ($nc(this->modules)->getDefaultModule() == $nc(this->syms)->noModule) {
 		return nullptr;
 	}
 	$init($Kinds$Kind);
-	return ($nc(sym)->kind == $Kinds$Kind::MDL) ? ($cast($ModuleElement, e)) : $as($ModuleElement, $nc($($nc(sym)->packge()))->modle);
+	return ($nc(sym)->kind == $Kinds$Kind::MDL) ? $cast($ModuleElement, e) : $as($ModuleElement, $nc($(sym->packge()))->modle);
 }
 
 bool JavacElements::isDeprecated($Element* e) {
@@ -686,11 +561,11 @@ bool JavacElements::isDeprecated($Element* e) {
 $Elements$Origin* JavacElements::getOrigin($Element* e) {
 	$load($Symbol);
 	$var($Symbol, sym, $cast($Symbol, cast($Symbol::class$, e)));
-	if (((int64_t)($nc(sym)->flags() & (uint64_t)$Flags::GENERATEDCONSTR)) != 0) {
+	if (($nc(sym)->flags() & $Flags::GENERATEDCONSTR) != 0) {
 		$init($Elements$Origin);
 		return $Elements$Origin::MANDATED;
 	}
-	if (((int64_t)($nc(sym)->flags() & (uint64_t)(int64_t)$Flags::MANDATED)) != 0) {
+	if ((sym->flags() & $Flags::MANDATED) != 0) {
 		$init($Elements$Origin);
 		return $Elements$Origin::MANDATED;
 	}
@@ -710,83 +585,74 @@ $Elements$Origin* JavacElements::getOrigin($AnnotatedConstruct* c, $AnnotationMi
 }
 
 $Elements$Origin* JavacElements::getOrigin($ModuleElement* m, $ModuleElement$Directive* directive) {
-	$useLocalCurrentObjectStackCache();
-	$init($JavacElements$1);
+	$useLocalObjectStack();
 	{
-		$var($Directive$RequiresDirective, rd, nullptr)
-		$var($Directive$ExportsDirective, ed, nullptr)
-		$var($Directive$OpensDirective, od, nullptr)
-		switch ($nc($JavacElements$1::$SwitchMap$javax$lang$model$element$ModuleElement$DirectiveKind)->get($nc(($($nc(directive)->getKind())))->ordinal())) {
+		$init($JavacElements$1);
+		$var($Directive$RequiresDirective, rd, nullptr);
+		$var($Directive$ExportsDirective, ed, nullptr);
+		$var($Directive$OpensDirective, od, nullptr);
+		switch ($nc($JavacElements$1::$SwitchMap$javax$lang$model$element$ModuleElement$DirectiveKind)->get(($$nc($nc(directive)->getKind()))->ordinal())) {
 		case 1:
-			{
-				$load($Directive$RequiresDirective);
-				$assign(rd, $cast($Directive$RequiresDirective, cast($Directive$RequiresDirective::class$, directive)));
-				$init($Directive$RequiresFlag);
-				if ($nc($nc(rd)->flags)->contains($Directive$RequiresFlag::MANDATED)) {
-					$init($Elements$Origin);
-					return $Elements$Origin::MANDATED;
-				}
-				$init($Directive$RequiresFlag);
-				if ($nc($nc(rd)->flags)->contains($Directive$RequiresFlag::SYNTHETIC)) {
-					$init($Elements$Origin);
-					return $Elements$Origin::SYNTHETIC;
-				}
+			$load($Directive$RequiresDirective);
+			$assign(rd, $cast($Directive$RequiresDirective, cast($Directive$RequiresDirective::class$, directive)));
+			$init($Directive$RequiresFlag);
+			if ($nc($nc(rd)->flags)->contains($Directive$RequiresFlag::MANDATED)) {
 				$init($Elements$Origin);
-				return $Elements$Origin::EXPLICIT;
+				return $Elements$Origin::MANDATED;
 			}
+			if (rd->flags->contains($Directive$RequiresFlag::SYNTHETIC)) {
+				$init($Elements$Origin);
+				return $Elements$Origin::SYNTHETIC;
+			}
+			$init($Elements$Origin);
+			return $Elements$Origin::EXPLICIT;
 		case 2:
-			{
-				$load($Directive$ExportsDirective);
-				$assign(ed, $cast($Directive$ExportsDirective, cast($Directive$ExportsDirective::class$, directive)));
-				$init($Directive$ExportsFlag);
-				if ($nc($nc(ed)->flags)->contains($Directive$ExportsFlag::MANDATED)) {
-					$init($Elements$Origin);
-					return $Elements$Origin::MANDATED;
-				}
-				$init($Directive$ExportsFlag);
-				if ($nc($nc(ed)->flags)->contains($Directive$ExportsFlag::SYNTHETIC)) {
-					$init($Elements$Origin);
-					return $Elements$Origin::SYNTHETIC;
-				}
+			$load($Directive$ExportsDirective);
+			$assign(ed, $cast($Directive$ExportsDirective, cast($Directive$ExportsDirective::class$, directive)));
+			$init($Directive$ExportsFlag);
+			if ($nc($nc(ed)->flags)->contains($Directive$ExportsFlag::MANDATED)) {
 				$init($Elements$Origin);
-				return $Elements$Origin::EXPLICIT;
+				return $Elements$Origin::MANDATED;
 			}
+			if (ed->flags->contains($Directive$ExportsFlag::SYNTHETIC)) {
+				$init($Elements$Origin);
+				return $Elements$Origin::SYNTHETIC;
+			}
+			$init($Elements$Origin);
+			return $Elements$Origin::EXPLICIT;
 		case 3:
-			{
-				$load($Directive$OpensDirective);
-				$assign(od, $cast($Directive$OpensDirective, cast($Directive$OpensDirective::class$, directive)));
-				$init($Directive$OpensFlag);
-				if ($nc($nc(od)->flags)->contains($Directive$OpensFlag::MANDATED)) {
-					$init($Elements$Origin);
-					return $Elements$Origin::MANDATED;
-				}
-				$init($Directive$OpensFlag);
-				if ($nc($nc(od)->flags)->contains($Directive$OpensFlag::SYNTHETIC)) {
-					$init($Elements$Origin);
-					return $Elements$Origin::SYNTHETIC;
-				}
+			$load($Directive$OpensDirective);
+			$assign(od, $cast($Directive$OpensDirective, cast($Directive$OpensDirective::class$, directive)));
+			$init($Directive$OpensFlag);
+			if ($nc($nc(od)->flags)->contains($Directive$OpensFlag::MANDATED)) {
 				$init($Elements$Origin);
-				return $Elements$Origin::EXPLICIT;
+				return $Elements$Origin::MANDATED;
 			}
+			if (od->flags->contains($Directive$OpensFlag::SYNTHETIC)) {
+				$init($Elements$Origin);
+				return $Elements$Origin::SYNTHETIC;
+			}
+			$init($Elements$Origin);
+			return $Elements$Origin::EXPLICIT;
 		}
 	}
 	$init($Elements$Origin);
 	return $Elements$Origin::EXPLICIT;
 }
 
-$Name* JavacElements::getBinaryName($TypeElement* type) {
+$1Name* JavacElements::getBinaryName($TypeElement* type) {
 	$load($Symbol$TypeSymbol);
-	return $nc(($cast($Symbol$TypeSymbol, $(cast($Symbol$TypeSymbol::class$, type)))))->flatName();
+	return $$sure($Symbol$TypeSymbol, cast($Symbol$TypeSymbol::class$, type))->flatName();
 }
 
 $Map* JavacElements::getElementValuesWithDefaults($AnnotationMirror* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Attribute$Compound);
 	$var($Attribute$Compound, anno, $cast($Attribute$Compound, cast($Attribute$Compound::class$, a)));
 	$var($DeclaredType, annotype, $nc(a)->getAnnotationType());
 	$var($Map, valmap, $nc(anno)->getElementValues());
 	{
-		$var($Iterator, i$, $nc($($ElementFilter::methodsIn($(static_cast<$Iterable*>($nc($($nc(annotype)->asElement()))->getEnclosedElements())))))->iterator());
+		$var($Iterator, i$, $$nc($ElementFilter::methodsIn($($$nc($nc(annotype)->asElement())->getEnclosedElements())))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($ExecutableElement, ex, $cast($ExecutableElement, i$->next()));
 			{
@@ -802,11 +668,11 @@ $Map* JavacElements::getElementValuesWithDefaults($AnnotationMirror* a) {
 }
 
 $1List* JavacElements::getAllMembers($TypeElement* element) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Symbol);
 	$var($Symbol, sym, $cast($Symbol, cast($Symbol::class$, element)));
-	$var($Scope$WriteableScope, scope, $nc($($nc(sym)->members()))->dupUnshared());
-	$var($List, closure, $nc(this->types)->closure($($cast($Type, sym->asType()))));
+	$var($Scope$WriteableScope, scope, $$nc($nc(sym)->members())->dupUnshared());
+	$var($List, closure, $nc(this->types)->closure($$cast($Type, sym->asType())));
 	{
 		$var($Iterator, i$, $nc(closure)->iterator());
 		for (; $nc(i$)->hasNext();) {
@@ -818,60 +684,56 @@ $1List* JavacElements::getAllMembers($TypeElement* element) {
 }
 
 void JavacElements::addMembers($Scope$WriteableScope* scope, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool members$continue = false;
-	{
-		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc($($nc($($nc(type)->asElement()))->members()))->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Symbol, e, $cast($Symbol, i$->next()));
+	$init($Scope$LookupKind);
+	$var($Iterator, i$, $$nc($$nc($$nc($nc(type)->asElement())->members())->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Symbol, e, $cast($Symbol, i$->next()));
+		{
 			{
-				{
-					$var($Iterator, i$, $nc($($nc(scope)->getSymbolsByName($($cast($1Name, $nc(e)->getSimpleName())))))->iterator());
-					for (; $nc(i$)->hasNext();) {
-						$var($Symbol, overrider, $cast($Symbol, i$->next()));
-						{
-							if ($nc(overrider)->kind == $nc(e)->kind && ((int64_t)(overrider->flags() & (uint64_t)(int64_t)$Flags::SYNTHETIC)) == 0) {
-								$init($ElementKind);
-								bool var$0 = overrider->getKind() == $ElementKind::METHOD;
-								if (var$0 && overrides($cast($ExecutableElement, overrider), $cast($ExecutableElement, e), $cast($TypeElement, $(type->asElement())))) {
-									members$continue = true;
-									break;
-								}
-							}
+				$var($Iterator, i$, $$nc($nc(scope)->getSymbolsByName($$cast($Name, $nc(e)->getSimpleName())))->iterator());
+				for (; $nc(i$)->hasNext();) {
+					$var($Symbol, overrider, $cast($Symbol, i$->next()));
+					if ($nc(overrider)->kind == e->kind && (overrider->flags() & $Flags::SYNTHETIC) == 0) {
+						$init($ElementKind);
+						bool var$0 = overrider->getKind() == $ElementKind::METHOD;
+						if (var$0 && overrides($cast($ExecutableElement, overrider), $cast($ExecutableElement, e), $$cast($TypeElement, type->asElement()))) {
+							members$continue = true;
+							break;
 						}
 					}
-					if (members$continue) {
-						members$continue = false;
-						continue;
-					}
 				}
-				bool derived = $cast($Symbol, $nc(e)->getEnclosingElement()) != scope->owner;
-				$ElementKind* kind = e->getKind();
-				$init($ElementKind);
-				bool initializer = kind == $ElementKind::CONSTRUCTOR || kind == $ElementKind::INSTANCE_INIT || kind == $ElementKind::STATIC_INIT;
-				if (!derived || (!initializer && e->isInheritedIn(scope->owner, this->types))) {
-					scope->enter(e);
+				if (members$continue) {
+					members$continue = false;
+					continue;
 				}
+			}
+			bool derived = $cast($Symbol, e->getEnclosingElement()) != scope->owner;
+			$ElementKind* kind = e->getKind();
+			$init($ElementKind);
+			bool initializer = kind == $ElementKind::CONSTRUCTOR || kind == $ElementKind::INSTANCE_INIT || kind == $ElementKind::STATIC_INIT;
+			if (!derived || (!initializer && e->isInheritedIn(scope->owner, this->types))) {
+				scope->enter(e);
 			}
 		}
 	}
 }
 
 $1List* JavacElements::getAllAnnotationMirrors($Element* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Symbol);
 	$var($Symbol, sym, $cast($Symbol, cast($Symbol::class$, e)));
 	$var($List, annos, $cast($List, $nc(sym)->getAnnotationMirrors()));
 	$init($ElementKind);
-	while (sym->getKind() == $ElementKind::CLASS) {
-		$var($Type, sup, $nc(($cast($Symbol$ClassSymbol, sym)))->getSuperclass());
+	while ($nc(sym)->getKind() == $ElementKind::CLASS) {
+		$var($Type, sup, $cast($Symbol$ClassSymbol, sym)->getSuperclass());
 		$init($TypeTag);
 		bool var$0 = !$nc(sup)->hasTag($TypeTag::CLASS);
-		if (var$0 || $nc(sup)->isErroneous() || $nc(sup)->tsym == $nc($nc(this->syms)->objectType)->tsym) {
+		if (var$0 || sup->isErroneous() || sup->tsym == $nc($nc(this->syms)->objectType)->tsym) {
 			break;
 		}
-		$assign(sym, $nc(sup)->tsym);
+		$assign(sym, sup->tsym);
 		$var($List, oldAnnos, annos);
 		$var($List, newAnnos, $cast($List, $nc(sym)->getAnnotationMirrors()));
 		{
@@ -880,7 +742,7 @@ $1List* JavacElements::getAllAnnotationMirrors($Element* e) {
 				$var($Attribute$Compound, anno, $cast($Attribute$Compound, i$->next()));
 				{
 					bool var$1 = isInherited($nc(anno)->type);
-					if (var$1 && !containsAnnoOfType(oldAnnos, $nc(anno)->type)) {
+					if (var$1 && !containsAnnoOfType(oldAnnos, anno->type)) {
 						$assign(annos, $nc(annos)->prepend(anno));
 					}
 				}
@@ -896,23 +758,19 @@ bool JavacElements::isInherited($Type* annotype) {
 
 bool JavacElements::containsAnnoOfType($List* annos, $Type* type) {
 	$init(JavacElements);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(annos)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($Attribute$Compound, anno, $cast($Attribute$Compound, i$->next()));
-			{
-				if ($nc($nc(anno)->type)->tsym == $nc(type)->tsym) {
-					return true;
-				}
-			}
+	$useLocalObjectStack();
+	$var($Iterator, i$, $nc(annos)->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($Attribute$Compound, anno, $cast($Attribute$Compound, i$->next()));
+		if ($nc($nc(anno)->type)->tsym == $nc(type)->tsym) {
+			return true;
 		}
 	}
 	return false;
 }
 
 bool JavacElements::hides($Element* hiderEl, $Element* hideeEl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Symbol);
 	$var($Symbol, hider, $cast($Symbol, cast($Symbol::class$, hiderEl)));
 	$var($Symbol, hidee, $cast($Symbol, cast($Symbol::class$, hideeEl)));
@@ -926,16 +784,16 @@ bool JavacElements::hides($Element* hiderEl, $Element* hideeEl) {
 			return false;
 		}
 	}
-	$var($Symbol$ClassSymbol, hiderClass, $nc($nc(hider)->owner)->enclClass());
+	$var($Symbol$ClassSymbol, hiderClass, $nc(hider->owner)->enclClass());
 	$var($Symbol$ClassSymbol, hideeClass, $nc($nc(hidee)->owner)->enclClass());
-	if (hiderClass == nullptr || hideeClass == nullptr || !$nc(hiderClass)->isSubClass(hideeClass, this->types)) {
+	if (hiderClass == nullptr || hideeClass == nullptr || !hiderClass->isSubClass(hideeClass, this->types)) {
 		return false;
 	}
 	return hidee->isAccessibleIn(hiderClass, this->types);
 }
 
 bool JavacElements::overrides($ExecutableElement* riderEl, $ExecutableElement* rideeEl, $TypeElement* typeEl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Symbol$MethodSymbol);
 	$var($Symbol$MethodSymbol, rider, $cast($Symbol$MethodSymbol, cast($Symbol$MethodSymbol::class$, riderEl)));
 	$var($Symbol$MethodSymbol, ridee, $cast($Symbol$MethodSymbol, cast($Symbol$MethodSymbol::class$, rideeEl)));
@@ -951,19 +809,15 @@ $String* JavacElements::getConstantExpression(Object$* value) {
 }
 
 void JavacElements::printElements($Writer* w, $ElementArray* elements) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ElementArray, arr$, elements);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Element, element, arr$->get(i$));
-			$nc(($cast($PrintingProcessor$PrintingElementVisitor, $(($$new($PrintingProcessor$PrintingElementVisitor, w, this))->visit(element)))))->flush();
-		}
+	$useLocalObjectStack();
+	$var($ElementArray, arr$, elements);
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Element, element, arr$->get(i$));
+		$$sure($PrintingProcessor$PrintingElementVisitor, ($$new($PrintingProcessor$PrintingElementVisitor, w, this))->visit(element))->flush();
 	}
 }
 
-$Name* JavacElements::getName($CharSequence* cs) {
+$1Name* JavacElements::getName($CharSequence* cs) {
 	return $nc(this->names)->fromString($($nc(cs)->toString()));
 }
 
@@ -980,11 +834,11 @@ bool JavacElements::isFunctionalInterface($TypeElement* element) {
 
 bool JavacElements::isAutomaticModule($ModuleElement* module) {
 	$var($Symbol$ModuleSymbol, msym, $cast($Symbol$ModuleSymbol, module));
-	return ((int64_t)($nc(msym)->flags() & (uint64_t)$Flags::AUTOMATIC_MODULE)) != 0;
+	return ($nc(msym)->flags() & $Flags::AUTOMATIC_MODULE) != 0;
 }
 
 $Pair* JavacElements::getTreeAndTopLevel($Element* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($Symbol);
 	$var($Symbol, sym, $cast($Symbol, cast($Symbol::class$, e)));
 	$var($Env, enterEnv, getEnterEnv(sym));
@@ -992,14 +846,14 @@ $Pair* JavacElements::getTreeAndTopLevel($Element* e) {
 		return nullptr;
 	}
 	$var($JCTree, tree, $TreeInfo::declarationFor(sym, $nc(enterEnv)->tree));
-	if (tree == nullptr || $nc(enterEnv)->toplevel == nullptr) {
+	if (tree == nullptr || enterEnv->toplevel == nullptr) {
 		return nullptr;
 	}
-	return $new($Pair, tree, $nc(enterEnv)->toplevel);
+	return $new($Pair, tree, enterEnv->toplevel);
 }
 
 $Pair* JavacElements::getTreeAndTopLevel($Element* e, $AnnotationMirror* a, $AnnotationValue* v) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (e == nullptr) {
 		return nullptr;
 	}
@@ -1015,15 +869,15 @@ $Pair* JavacElements::getTreeAndTopLevel($Element* e, $AnnotationMirror* a, $Ann
 		return elemTreeTop;
 	}
 	if (v == nullptr) {
-		return $new($Pair, annoTree, $cast($JCTree$JCCompilationUnit, $nc(elemTreeTop)->snd));
+		return $new($Pair, annoTree, $cast($JCTree$JCCompilationUnit, elemTreeTop->snd));
 	}
 	$load($Attribute);
 	$var($Attribute, var$0, $cast($Attribute, cast($Attribute::class$, v)));
-	$var($JCTree, valueTree, matchAttributeToTree(var$0, $cast($Attribute, $(cast($Attribute::class$, a))), annoTree));
+	$var($JCTree, valueTree, matchAttributeToTree(var$0, $$cast($Attribute, cast($Attribute::class$, a)), annoTree));
 	if (valueTree == nullptr) {
-		return $new($Pair, annoTree, $cast($JCTree$JCCompilationUnit, $nc(elemTreeTop)->snd));
+		return $new($Pair, annoTree, $cast($JCTree$JCCompilationUnit, elemTreeTop->snd));
 	}
-	return $new($Pair, valueTree, $cast($JCTree$JCCompilationUnit, $nc(elemTreeTop)->snd));
+	return $new($Pair, valueTree, $cast($JCTree$JCCompilationUnit, elemTreeTop->snd));
 }
 
 $Env* JavacElements::getEnterEnv($Symbol* sym) {
@@ -1031,26 +885,20 @@ $Env* JavacElements::getEnterEnv($Symbol* sym) {
 	$init($JavacElements$1);
 	switch ($nc($JavacElements$1::$SwitchMap$com$sun$tools$javac$code$Kinds$Kind)->get($nc(($nc(sym)->kind))->ordinal())) {
 	case 1:
-		{
-			$assign(ts, $cast($Symbol$PackageSymbol, sym));
-			break;
-		}
+		$assign(ts, $cast($Symbol$PackageSymbol, sym));
+		break;
 	case 2:
-		{
-			$assign(ts, $cast($Symbol$ModuleSymbol, sym));
-			break;
-		}
+		$assign(ts, $cast($Symbol$ModuleSymbol, sym));
+		break;
 	default:
-		{
-			$assign(ts, sym->enclClass());
-		}
+		$assign(ts, sym->enclClass());
 	}
 	return (ts != nullptr) ? $nc(this->enter)->getEnv(ts) : ($Env*)nullptr;
 }
 
 void JavacElements::ensureEntered($String* methodName) {
 	if (this->javacTaskImpl != nullptr) {
-		$nc(this->javacTaskImpl)->ensureEntered();
+		this->javacTaskImpl->ensureEntered();
 	}
 	if (!$nc(this->javaCompiler)->isEnterDone()) {
 		$throwNew($IllegalStateException, $$str({"Cannot use Elements."_s, methodName, " before the TaskEvent.Kind.ENTER finished event."_s}));
@@ -1062,23 +910,23 @@ $Object* JavacElements::cast($Class* clazz, Object$* o) {
 	if (!$nc(clazz)->isInstance(o)) {
 		$throwNew($IllegalArgumentException, $($nc($of(o))->toString()));
 	}
-	return $of($nc(clazz)->cast(o));
+	return clazz->cast(o);
 }
 
 void JavacElements::newRound() {
-	$nc(this->resultCache)->clear();
+	this->resultCache->clear();
 }
 
 $Optional* JavacElements::lambda$unboundNameToSymbol$2($String* nameStr, $Class* clazz, $String* methodName, $Pair* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Set, found, $new($LinkedHashSet));
-	$var($Set, allModules, $new($HashSet, $(static_cast<$Collection*>($nc(this->modules)->allModules()))));
-	allModules->removeAll($($nc(this->modules)->getRootModules()));
+	$var($Set, allModules, $new($HashSet, $($nc(this->modules)->allModules())));
+	allModules->removeAll($(this->modules->getRootModules()));
 	{
-		$var($Iterator, i$, $nc($($Arrays::asList($$new($SetArray, {
-			$($nc(this->modules)->getRootModules()),
+		$var($Iterator, i$, $$nc($Arrays::asList($$new($SetArray, {
+			$(this->modules->getRootModules()),
 			allModules
-		}))))->iterator());
+		})))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Set, modules, $cast($Set, i$->next()));
 			{
@@ -1097,7 +945,7 @@ $Optional* JavacElements::lambda$unboundNameToSymbol$2($String* nameStr, $Class*
 							} else {
 								$load($Symbol$PackageSymbol);
 								if (clazz == $Symbol$PackageSymbol::class$) {
-									if (!$nc($($nc(sym)->members()))->isEmpty() || $nc(($cast($Symbol$PackageSymbol, sym)))->package_info != nullptr) {
+									if (!$$nc($nc(sym)->members())->isEmpty() || $cast($Symbol$PackageSymbol, sym)->package_info != nullptr) {
 										found->add(sym);
 									}
 								}
@@ -1106,10 +954,10 @@ $Optional* JavacElements::lambda$unboundNameToSymbol$2($String* nameStr, $Class*
 					}
 				}
 				if (found->size() == 1) {
-					return $Optional::of($cast($Symbol, $($nc($(found->iterator()))->next())));
+					return $Optional::of($$cast($Symbol, $$nc(found->iterator())->next()));
 				} else if (found->size() > 1) {
-					if ($nc(this->alreadyWarnedDuplicates)->add($$str({methodName, ":"_s, nameStr}))) {
-						$var($String, moduleNames, $cast($String, $nc($($nc($($nc($(found->stream()))->map(static_cast<$Function*>($$new(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1)))))->map(static_cast<$Function*>($$new(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2)))))->collect($($Collectors::joining(", "_s)))));
+					if (this->alreadyWarnedDuplicates->add($$str({methodName, ":"_s, nameStr}))) {
+						$var($String, moduleNames, $cast($String, $$nc($$nc($$nc(found->stream())->map($$new(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1)))->map($$new(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2)))->collect($($Collectors::joining(", "_s)))));
 						$nc(this->log)->note($($CompilerProperties$Notes::MultipleElements(methodName, nameStr, moduleNames)));
 					}
 					return $Optional::empty();
@@ -1136,17 +984,106 @@ JavacElements::JavacElements() {
 
 $Class* JavacElements::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JavacElements$$Lambda$lambda$unboundNameToSymbol$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$2")) {
 			return JavacElements$$Lambda$lambda$unboundNameToSymbol$2::load$(name, initialize);
 		}
-		if (name->equals(JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1")) {
 			return JavacElements$$Lambda$lambda$unboundNameToSymbol$0$1::load$(name, initialize);
 		}
-		if (name->equals(JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.model.JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2")) {
 			return JavacElements$$Lambda$lambda$unboundNameToSymbol$1$2::load$(name, initialize);
 		}
 	}
-	$loadClass(JavacElements, name, initialize, &_JavacElements_ClassInfo_, allocate$JavacElements);
+	$FieldInfo fieldInfos$$[] = {
+		{"javaCompiler", "Lcom/sun/tools/javac/main/JavaCompiler;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, javaCompiler)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, syms)},
+		{"modules", "Lcom/sun/tools/javac/comp/Modules;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, modules)},
+		{"names", "Lcom/sun/tools/javac/util/Names;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, names)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, types)},
+		{"enter", "Lcom/sun/tools/javac/comp/Enter;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, enter)},
+		{"resolve", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, resolve)},
+		{"javacTaskImpl", "Lcom/sun/tools/javac/api/JavacTaskImpl;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, javacTaskImpl)},
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(JavacElements, log)},
+		{"allowModules", "Z", nullptr, $PRIVATE | $FINAL, $field(JavacElements, allowModules)},
+		{"alreadyWarnedDuplicates", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $FINAL, $field(JavacElements, alreadyWarnedDuplicates)},
+		{"resultCache", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/tools/javac/util/Pair<Ljava/lang/String;Ljava/lang/String;>;Ljava/util/Optional<Lcom/sun/tools/javac/code/Symbol;>;>;", $PRIVATE | $FINAL, $field(JavacElements, resultCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Context;)V", nullptr, $PROTECTED, $method(JavacElements, init$, void, $Context*)},
+		{"addMembers", "(Lcom/sun/tools/javac/code/Scope$WriteableScope;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PRIVATE, $method(JavacElements, addMembers, void, $Scope$WriteableScope*, $Type*)},
+		{"cast", "(Ljava/lang/Class;Ljava/lang/Object;)Ljava/lang/Object;", "<T:Ljava/lang/Object;>(Ljava/lang/Class<TT;>;Ljava/lang/Object;)TT;", $PRIVATE | $STATIC, $staticMethod(JavacElements, cast, $Object*, $Class*, Object$*)},
+		{"containsAnnoOfType", "(Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/code/Type;)Z", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;Lcom/sun/tools/javac/code/Type;)Z", $PRIVATE | $STATIC, $staticMethod(JavacElements, containsAnnoOfType, bool, $List*, $Type*)},
+		{"doGetElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/Class;)Lcom/sun/tools/javac/code/Symbol;", "<S:Lcom/sun/tools/javac/code/Symbol;>(Ljavax/lang/model/element/ModuleElement;Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/Class<TS;>;)TS;", $PRIVATE, $method(JavacElements, doGetElement, $Symbol*, $ModuleElement*, $String*, $CharSequence*, $Class*)},
+		{"doGetPackageElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PRIVATE, $method(JavacElements, doGetPackageElement, $Symbol$PackageSymbol*, $ModuleElement*, $CharSequence*)},
+		{"doGetTypeElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PRIVATE, $method(JavacElements, doGetTypeElement, $Symbol$ClassSymbol*, $ModuleElement*, $CharSequence*)},
+		{"ensureEntered", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(JavacElements, ensureEntered, void, $String*)},
+		{"getAllAnnotationMirrors", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/List;", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;", $PUBLIC, $virtualMethod(JavacElements, getAllAnnotationMirrors, $1List*, $Element*)},
+		{"getAllMembers", "(Ljavax/lang/model/element/TypeElement;)Lcom/sun/tools/javac/model/FilteredMemberList;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getAllMembers, $1List*, $TypeElement*)},
+		{"getAllModuleElements", "()Ljava/util/Set;", "()Ljava/util/Set<+Ljavax/lang/model/element/ModuleElement;>;", $PUBLIC, $virtualMethod(JavacElements, getAllModuleElements, $Set*)},
+		{"getBinaryName", "(Ljavax/lang/model/element/TypeElement;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getBinaryName, $1Name*, $TypeElement*)},
+		{"getConstantExpression", "(Ljava/lang/Object;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getConstantExpression, $String*, Object$*)},
+		{"getDocComment", "(Ljavax/lang/model/element/Element;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getDocComment, $String*, $Element*)},
+		{"getElementValuesWithDefaults", "(Ljavax/lang/model/element/AnnotationMirror;)Ljava/util/Map;", "(Ljavax/lang/model/element/AnnotationMirror;)Ljava/util/Map<Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC, $virtualMethod(JavacElements, getElementValuesWithDefaults, $Map*, $AnnotationMirror*)},
+		{"getEnterEnv", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/comp/Env;", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;", $PRIVATE, $method(JavacElements, getEnterEnv, $Env*, $Symbol*)},
+		{"getModuleElement", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getModuleElement, $ModuleElement*, $CharSequence*)},
+		{"getModuleOf", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/ModuleElement;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getModuleOf, $ModuleElement*, $Element*)},
+		{"getName", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getName, $1Name*, $CharSequence*)},
+		{"getOrigin", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getOrigin, $Elements$Origin*, $Element*)},
+		{"getOrigin", "(Ljavax/lang/model/AnnotatedConstruct;Ljavax/lang/model/element/AnnotationMirror;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getOrigin, $Elements$Origin*, $AnnotatedConstruct*, $AnnotationMirror*)},
+		{"getOrigin", "(Ljavax/lang/model/element/ModuleElement;Ljavax/lang/model/element/ModuleElement$Directive;)Ljavax/lang/model/util/Elements$Origin;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getOrigin, $Elements$Origin*, $ModuleElement*, $ModuleElement$Directive*)},
+		{"getPackageElement", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getPackageElement, $PackageElement*, $CharSequence*)},
+		{"getPackageElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$PackageSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getPackageElement, $PackageElement*, $ModuleElement*, $CharSequence*)},
+		{"getPackageOf", "(Ljavax/lang/model/element/Element;)Ljavax/lang/model/element/PackageElement;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getPackageOf, $PackageElement*, $Element*)},
+		{"getTree", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getTree, $JCTree*, $Element*)},
+		{"getTreeAndTopLevel", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/Pair;", "(Ljavax/lang/model/element/Element;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PRIVATE, $method(JavacElements, getTreeAndTopLevel, $Pair*, $Element*)},
+		{"getTreeAndTopLevel", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)Lcom/sun/tools/javac/util/Pair;", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/AnnotationValue;)Lcom/sun/tools/javac/util/Pair<Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree$JCCompilationUnit;>;", $PUBLIC, $virtualMethod(JavacElements, getTreeAndTopLevel, $Pair*, $Element*, $AnnotationMirror*, $AnnotationValue*)},
+		{"getTypeElement", "(Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getTypeElement, $TypeElement*, $CharSequence*)},
+		{"getTypeElement", "(Ljavax/lang/model/element/ModuleElement;Ljava/lang/CharSequence;)Lcom/sun/tools/javac/code/Symbol$ClassSymbol;", nullptr, $PUBLIC, $virtualMethod(JavacElements, getTypeElement, $TypeElement*, $ModuleElement*, $CharSequence*)},
+		{"hides", "(Ljavax/lang/model/element/Element;Ljavax/lang/model/element/Element;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, hides, bool, $Element*, $Element*)},
+		{"instance", "(Lcom/sun/tools/javac/util/Context;)Lcom/sun/tools/javac/model/JavacElements;", nullptr, $PUBLIC | $STATIC, $staticMethod(JavacElements, instance, JavacElements*, $Context*)},
+		{"isAutomaticModule", "(Ljavax/lang/model/element/ModuleElement;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, isAutomaticModule, bool, $ModuleElement*)},
+		{"isDeprecated", "(Ljavax/lang/model/element/Element;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, isDeprecated, bool, $Element*)},
+		{"isFunctionalInterface", "(Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, isFunctionalInterface, bool, $TypeElement*)},
+		{"isInherited", "(Lcom/sun/tools/javac/code/Type;)Z", nullptr, $PRIVATE, $method(JavacElements, isInherited, bool, $Type*)},
+		{"lambda$unboundNameToSymbol$0", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacElements, lambda$unboundNameToSymbol$0, $Symbol$ModuleSymbol*, $Symbol*)},
+		{"lambda$unboundNameToSymbol$1", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JavacElements, lambda$unboundNameToSymbol$1, $String*, $Symbol$ModuleSymbol*)},
+		{"lambda$unboundNameToSymbol$2", "(Ljava/lang/String;Ljava/lang/Class;Ljava/lang/String;Lcom/sun/tools/javac/util/Pair;)Ljava/util/Optional;", nullptr, $PRIVATE | $SYNTHETIC, $method(JavacElements, lambda$unboundNameToSymbol$2, $Optional*, $String*, $Class*, $String*, $Pair*)},
+		{"matchAnnoToTree", "(Ljavax/lang/model/element/AnnotationMirror;Ljavax/lang/model/element/Element;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PRIVATE, $method(JavacElements, matchAnnoToTree, $JCTree*, $AnnotationMirror*, $Element*, $JCTree*)},
+		{"matchAnnoToTree", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/tree/JCTree;", "(Lcom/sun/tools/javac/code/Attribute$Compound;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute$Compound;>;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/tree/JCTree$JCAnnotation;>;)Lcom/sun/tools/javac/tree/JCTree;", $PRIVATE, $method(JavacElements, matchAnnoToTree, $JCTree*, $Attribute$Compound*, $List*, $List*)},
+		{"matchAttributeToTree", "(Lcom/sun/tools/javac/code/Attribute;Lcom/sun/tools/javac/code/Attribute;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree;", nullptr, $PRIVATE, $method(JavacElements, matchAttributeToTree, $JCTree*, $Attribute*, $Attribute*, $JCTree*)},
+		{"nameToSymbol", "(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljava/lang/Class;)Lcom/sun/tools/javac/code/Symbol;", "<S:Lcom/sun/tools/javac/code/Symbol;>(Lcom/sun/tools/javac/code/Symbol$ModuleSymbol;Ljava/lang/String;Ljava/lang/Class<TS;>;)TS;", $PRIVATE, $method(JavacElements, nameToSymbol, $Symbol*, $Symbol$ModuleSymbol*, $String*, $Class*)},
+		{"newRound", "()V", nullptr, $PUBLIC, $virtualMethod(JavacElements, newRound, void)},
+		{"overrides", "(Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/ExecutableElement;Ljavax/lang/model/element/TypeElement;)Z", nullptr, $PUBLIC, $virtualMethod(JavacElements, overrides, bool, $ExecutableElement*, $ExecutableElement*, $TypeElement*)},
+		{"printElements", "(Ljava/io/Writer;[Ljavax/lang/model/element/Element;)V", nullptr, $PUBLIC | $TRANSIENT, $virtualMethod(JavacElements, printElements, void, $Writer*, $ElementArray*)},
+		{"scanForAssign", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;Lcom/sun/tools/javac/tree/JCTree;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PRIVATE, $method(JavacElements, scanForAssign, $JCTree$JCExpression*, $Symbol$MethodSymbol*, $JCTree*)},
+		{"unboundNameToSymbol", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Lcom/sun/tools/javac/code/Symbol;", "<S:Lcom/sun/tools/javac/code/Symbol;>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class<TS;>;)TS;", $PRIVATE, $method(JavacElements, unboundNameToSymbol, $Symbol*, $String*, $String*, $Class*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.model.JavacElements$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.model.JavacElements$1TS", nullptr, "TS", 0},
+		{"com.sun.tools.javac.model.JavacElements$2Vis", nullptr, "Vis", 0},
+		{"com.sun.tools.javac.model.JavacElements$1Vis", nullptr, "Vis", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.model.JavacElements",
+		"java.lang.Object",
+		"javax.lang.model.util.Elements",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.model.JavacElements$1,com.sun.tools.javac.model.JavacElements$1TS,com.sun.tools.javac.model.JavacElements$2Vis,com.sun.tools.javac.model.JavacElements$1Vis"
+	};
+	$loadClass(JavacElements, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacElements);
+	});
 	return class$;
 }
 

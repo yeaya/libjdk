@@ -159,6 +159,7 @@ class XSDAbstractTraverser : public ::java::lang::Object {
 	$class(XSDAbstractTraverser, 0, ::java::lang::Object)
 public:
 	XSDAbstractTraverser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDHandler* handler, ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSAttributeChecker* attrChecker);
 	void checkEnumerationAndLengthInconsistency(::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* baseValidator, ::java::util::List* enumData, ::org::w3c::dom::Element* contextNode, $String* typeName);
 	void checkEnumerationAndMaxLengthInconsistency(::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType* baseValidator, ::java::util::List* enumData, ::org::w3c::dom::Element* contextNode, $String* typeName);

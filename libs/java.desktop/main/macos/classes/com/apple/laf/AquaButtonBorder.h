@@ -49,6 +49,7 @@ class AquaButtonBorder : public ::com::apple::laf::AquaBorder {
 	$class(AquaButtonBorder, 0, ::com::apple::laf::AquaBorder)
 public:
 	AquaButtonBorder();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::apple::laf::AquaUtilControlSize$SizeDescriptor* sizeDescriptor);
 	void init$(::com::apple::laf::AquaButtonBorder* other);
 	virtual void alterPreferredSize(::java::awt::Dimension* d);

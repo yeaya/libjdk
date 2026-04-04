@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/InstructionFactory$MethodObject.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/InstructionFactory.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <jcpp.h>
@@ -19,44 +18,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$FieldInfo _InstructionFactory$MethodObject_FieldInfo_[] = {
-	{"arg_types", "[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $FINAL, $field(InstructionFactory$MethodObject, arg_types)},
-	{"result_type", "Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $FINAL, $field(InstructionFactory$MethodObject, result_type)},
-	{"class_name", "Ljava/lang/String;", nullptr, $FINAL, $field(InstructionFactory$MethodObject, class_name)},
-	{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(InstructionFactory$MethodObject, name)},
-	{}
-};
-
-$MethodInfo _InstructionFactory$MethodObject_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, 0, $method(InstructionFactory$MethodObject, init$, void, $String*, $String*, $Type*, $TypeArray*)},
-	{}
-};
-
-$InnerClassInfo _InstructionFactory$MethodObject_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.generic.InstructionFactory$MethodObject", "com.sun.org.apache.bcel.internal.generic.InstructionFactory", "MethodObject", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _InstructionFactory$MethodObject_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.InstructionFactory$MethodObject",
-	"java.lang.Object",
-	nullptr,
-	_InstructionFactory$MethodObject_FieldInfo_,
-	_InstructionFactory$MethodObject_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InstructionFactory$MethodObject_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.generic.InstructionFactory"
-};
-
-$Object* allocate$InstructionFactory$MethodObject($Class* clazz) {
-	return $of($alloc(InstructionFactory$MethodObject));
-}
-
 void InstructionFactory$MethodObject::init$($String* c, $String* n, $Type* r, $TypeArray* a) {
 	$set(this, class_name, c);
 	$set(this, name, n);
@@ -68,7 +29,39 @@ InstructionFactory$MethodObject::InstructionFactory$MethodObject() {
 }
 
 $Class* InstructionFactory$MethodObject::load$($String* name, bool initialize) {
-	$loadClass(InstructionFactory$MethodObject, name, initialize, &_InstructionFactory$MethodObject_ClassInfo_, allocate$InstructionFactory$MethodObject);
+	$FieldInfo fieldInfos$$[] = {
+		{"arg_types", "[Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $FINAL, $field(InstructionFactory$MethodObject, arg_types)},
+		{"result_type", "Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $FINAL, $field(InstructionFactory$MethodObject, result_type)},
+		{"class_name", "Ljava/lang/String;", nullptr, $FINAL, $field(InstructionFactory$MethodObject, class_name)},
+		{"name", "Ljava/lang/String;", nullptr, $FINAL, $field(InstructionFactory$MethodObject, name)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Lcom/sun/org/apache/bcel/internal/generic/Type;[Lcom/sun/org/apache/bcel/internal/generic/Type;)V", nullptr, 0, $method(InstructionFactory$MethodObject, init$, void, $String*, $String*, $Type*, $TypeArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.generic.InstructionFactory$MethodObject", "com.sun.org.apache.bcel.internal.generic.InstructionFactory", "MethodObject", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.InstructionFactory$MethodObject",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.generic.InstructionFactory"
+	};
+	$loadClass(InstructionFactory$MethodObject, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InstructionFactory$MethodObject);
+	});
 	return class$;
 }
 

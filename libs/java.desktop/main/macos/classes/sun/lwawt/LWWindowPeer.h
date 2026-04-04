@@ -120,6 +120,7 @@ public:
 	virtual bool isObscured() override;
 	virtual bool isReparentSupported() override;
 	virtual void layout() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::Window* target, ::sun::lwawt::PlatformComponent* platformComponent, ::sun::lwawt::PlatformWindow* platformWindow, ::sun::lwawt::LWWindowPeer$PeerType* peerType);
 	void activateDisplayListener();
 	virtual void applyShapeImpl(::sun::java2d::pipe::Region* shape) override;

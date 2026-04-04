@@ -82,6 +82,7 @@ class Obj : public ::java::lang::Object {
 	$class(Obj, 0, ::java::lang::Object)
 public:
 	Obj();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* decodeObject(::javax::naming::directory::Attributes* attrs);
 	static ::javax::naming::Reference* decodeReference(::javax::naming::directory::Attributes* attrs, $StringArray* codebases);

@@ -36,7 +36,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	InvalidSignatureValueException(const InvalidSignatureValueException& e);
 	virtual void throw$() override;
-	inline InvalidSignatureValueException* operator ->() {
+	inline InvalidSignatureValueException* operator ->() const {
+		return (InvalidSignatureValueException*)throwing$;
+	}
+	inline operator InvalidSignatureValueException*() const {
 		return (InvalidSignatureValueException*)throwing$;
 	}
 };

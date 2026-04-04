@@ -1,5 +1,4 @@
 #include <javax/swing/table/DefaultTableModel.h>
-
 #include <java/util/Vector.h>
 #include <javax/swing/event/TableModelEvent.h>
 #include <javax/swing/table/AbstractTableModel.h>
@@ -16,68 +15,6 @@ using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 namespace javax {
 	namespace swing {
 		namespace table {
-
-$FieldInfo _DefaultTableModel_FieldInfo_[] = {
-	{"dataVector", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/util/Vector;>;", $PROTECTED, $field(DefaultTableModel, dataVector)},
-	{"columnIdentifiers", "Ljava/util/Vector;", nullptr, $PROTECTED, $field(DefaultTableModel, columnIdentifiers)},
-	{}
-};
-
-$MethodInfo _DefaultTableModel_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableModel, init$, void)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(DefaultTableModel, init$, void, int32_t, int32_t)},
-	{"<init>", "(Ljava/util/Vector;I)V", "(Ljava/util/Vector<*>;I)V", $PUBLIC, $method(DefaultTableModel, init$, void, $Vector*, int32_t)},
-	{"<init>", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(DefaultTableModel, init$, void, $ObjectArray*, int32_t)},
-	{"<init>", "(Ljava/util/Vector;Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/util/Vector;>;Ljava/util/Vector<*>;)V", $PUBLIC, $method(DefaultTableModel, init$, void, $Vector*, $Vector*)},
-	{"<init>", "([[Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DefaultTableModel, init$, void, $ObjectArray2*, $ObjectArray*)},
-	{"addColumn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, addColumn, void, Object$*)},
-	{"addColumn", "(Ljava/lang/Object;Ljava/util/Vector;)V", "(Ljava/lang/Object;Ljava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, addColumn, void, Object$*, $Vector*)},
-	{"addColumn", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, addColumn, void, Object$*, $ObjectArray*)},
-	{"addRow", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, addRow, void, $Vector*)},
-	{"addRow", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, addRow, void, $ObjectArray*)},
-	{"convertToVector", "([Ljava/lang/Object;)Ljava/util/Vector;", "([Ljava/lang/Object;)Ljava/util/Vector<Ljava/lang/Object;>;", $PROTECTED | $STATIC, $staticMethod(DefaultTableModel, convertToVector, $Vector*, $ObjectArray*)},
-	{"convertToVector", "([[Ljava/lang/Object;)Ljava/util/Vector;", "([[Ljava/lang/Object;)Ljava/util/Vector<Ljava/util/Vector<Ljava/lang/Object;>;>;", $PROTECTED | $STATIC, $staticMethod(DefaultTableModel, convertToVector, $Vector*, $ObjectArray2*)},
-	{"gcd", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultTableModel, gcd, int32_t, int32_t, int32_t)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, getColumnCount, int32_t)},
-	{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, getColumnName, $String*, int32_t)},
-	{"getDataVector", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/util/Vector;>;", $PUBLIC, $virtualMethod(DefaultTableModel, getDataVector, $Vector*)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, getRowCount, int32_t)},
-	{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, getValueAt, $Object*, int32_t, int32_t)},
-	{"insertRow", "(ILjava/util/Vector;)V", "(ILjava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, insertRow, void, int32_t, $Vector*)},
-	{"insertRow", "(I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, insertRow, void, int32_t, $ObjectArray*)},
-	{"isCellEditable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, isCellEditable, bool, int32_t, int32_t)},
-	{"justifyRows", "(II)V", nullptr, $PRIVATE, $method(DefaultTableModel, justifyRows, void, int32_t, int32_t)},
-	{"moveRow", "(III)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, moveRow, void, int32_t, int32_t, int32_t)},
-	{"newDataAvailable", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, newDataAvailable, void, $TableModelEvent*)},
-	{"newRowsAdded", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, newRowsAdded, void, $TableModelEvent*)},
-	{"newVector", "(I)Ljava/util/Vector;", "<E:Ljava/lang/Object;>(I)Ljava/util/Vector<TE;>;", $PRIVATE | $STATIC, $staticMethod(DefaultTableModel, newVector, $Vector*, int32_t)},
-	{"nonNullVector", "(Ljava/util/Vector;)Ljava/util/Vector;", "<E:Ljava/lang/Object;>(Ljava/util/Vector<TE;>;)Ljava/util/Vector<TE;>;", $PRIVATE | $STATIC, $staticMethod(DefaultTableModel, nonNullVector, $Vector*, $Vector*)},
-	{"removeRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, removeRow, void, int32_t)},
-	{"rotate", "(Ljava/util/Vector;III)V", "<E:Ljava/lang/Object;>(Ljava/util/Vector<TE;>;III)V", $PRIVATE | $STATIC, $staticMethod(DefaultTableModel, rotate, void, $Vector*, int32_t, int32_t, int32_t)},
-	{"rowsRemoved", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, rowsRemoved, void, $TableModelEvent*)},
-	{"setColumnCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setColumnCount, void, int32_t)},
-	{"setColumnIdentifiers", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, setColumnIdentifiers, void, $Vector*)},
-	{"setColumnIdentifiers", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setColumnIdentifiers, void, $ObjectArray*)},
-	{"setDataVector", "(Ljava/util/Vector;Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/util/Vector;>;Ljava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, setDataVector, void, $Vector*, $Vector*)},
-	{"setDataVector", "([[Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setDataVector, void, $ObjectArray2*, $ObjectArray*)},
-	{"setNumRows", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setNumRows, void, int32_t)},
-	{"setRowCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setRowCount, void, int32_t)},
-	{"setValueAt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setValueAt, void, Object$*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _DefaultTableModel_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.table.DefaultTableModel",
-	"javax.swing.table.AbstractTableModel",
-	nullptr,
-	_DefaultTableModel_FieldInfo_,
-	_DefaultTableModel_MethodInfo_
-};
-
-$Object* allocate$DefaultTableModel($Class* clazz) {
-	return $of($alloc(DefaultTableModel));
-}
 
 void DefaultTableModel::init$() {
 	DefaultTableModel::init$(0, 0);
@@ -130,7 +67,7 @@ void DefaultTableModel::setDataVector($Vector* dataVector, $Vector* columnIdenti
 }
 
 void DefaultTableModel::setDataVector($ObjectArray2* dataVector, $ObjectArray* columnIdentifiers) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, var$0, convertToVector(dataVector));
 	setDataVector(var$0, $(convertToVector(columnIdentifiers)));
 }
@@ -140,13 +77,13 @@ void DefaultTableModel::newDataAvailable($TableModelEvent* event) {
 }
 
 void DefaultTableModel::justifyRows(int32_t from, int32_t to) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->dataVector)->setSize(getRowCount());
 	for (int32_t i = from; i < to; ++i) {
 		if ($nc(this->dataVector)->elementAt(i) == nullptr) {
-			$nc(this->dataVector)->setElementAt($$new($Vector), i);
+			this->dataVector->setElementAt($$new($Vector), i);
 		}
-		$nc(($cast($Vector, $($nc(this->dataVector)->elementAt(i)))))->setSize(getColumnCount());
+		$$sure($Vector, this->dataVector->elementAt(i))->setSize(getColumnCount());
 	}
 }
 
@@ -203,7 +140,7 @@ int32_t DefaultTableModel::gcd(int32_t i, int32_t j) {
 
 void DefaultTableModel::rotate($Vector* v, int32_t a, int32_t b, int32_t shift) {
 	$init(DefaultTableModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t size = b - a;
 	int32_t r = size - shift;
 	int32_t g = gcd(size, r);
@@ -257,7 +194,7 @@ void DefaultTableModel::addColumn(Object$* columnName) {
 }
 
 void DefaultTableModel::addColumn(Object$* columnName, $Vector* columnData) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->columnIdentifiers)->addElement(columnName);
 	if (columnData != nullptr) {
 		int32_t columnSize = columnData->size();
@@ -291,9 +228,9 @@ int32_t DefaultTableModel::getColumnCount() {
 $String* DefaultTableModel::getColumnName(int32_t column) {
 	$var($Object, id, nullptr);
 	if (column < $nc(this->columnIdentifiers)->size() && (column >= 0)) {
-		$assign(id, $nc(this->columnIdentifiers)->elementAt(column));
+		$assign(id, this->columnIdentifiers->elementAt(column));
 	}
-	return (id == nullptr) ? $AbstractTableModel::getColumnName(column) : $nc($of(id))->toString();
+	return (id == nullptr) ? $AbstractTableModel::getColumnName(column) : id->toString();
 }
 
 bool DefaultTableModel::isCellEditable(int32_t row, int32_t column) {
@@ -302,7 +239,7 @@ bool DefaultTableModel::isCellEditable(int32_t row, int32_t column) {
 
 $Object* DefaultTableModel::getValueAt(int32_t row, int32_t column) {
 	$var($Vector, rowVector, $cast($Vector, $nc(this->dataVector)->elementAt(row)));
-	return $of($nc(rowVector)->elementAt(column));
+	return $nc(rowVector)->elementAt(column);
 }
 
 void DefaultTableModel::setValueAt(Object$* aValue, int32_t row, int32_t column) {
@@ -313,16 +250,14 @@ void DefaultTableModel::setValueAt(Object$* aValue, int32_t row, int32_t column)
 
 $Vector* DefaultTableModel::convertToVector($ObjectArray* anArray) {
 	$init(DefaultTableModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (anArray == nullptr) {
 		return nullptr;
 	}
 	$var($Vector, v, $new($Vector, $nc(anArray)->length));
 	{
 		$var($ObjectArray, arr$, anArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Object0, o, arr$->get(i$));
 			{
 				v->addElement(o);
@@ -334,16 +269,14 @@ $Vector* DefaultTableModel::convertToVector($ObjectArray* anArray) {
 
 $Vector* DefaultTableModel::convertToVector($ObjectArray2* anArray) {
 	$init(DefaultTableModel);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (anArray == nullptr) {
 		return nullptr;
 	}
 	$var($Vector, v, $new($Vector, $nc(anArray)->length));
 	{
 		$var($ObjectArray2, arr$, anArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($ObjectArray, o, arr$->get(i$));
 			{
 				v->addElement($(convertToVector(o)));
@@ -357,7 +290,64 @@ DefaultTableModel::DefaultTableModel() {
 }
 
 $Class* DefaultTableModel::load$($String* name, bool initialize) {
-	$loadClass(DefaultTableModel, name, initialize, &_DefaultTableModel_ClassInfo_, allocate$DefaultTableModel);
+	$FieldInfo fieldInfos$$[] = {
+		{"dataVector", "Ljava/util/Vector;", "Ljava/util/Vector<Ljava/util/Vector;>;", $PROTECTED, $field(DefaultTableModel, dataVector)},
+		{"columnIdentifiers", "Ljava/util/Vector;", nullptr, $PROTECTED, $field(DefaultTableModel, columnIdentifiers)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DefaultTableModel, init$, void)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(DefaultTableModel, init$, void, int32_t, int32_t)},
+		{"<init>", "(Ljava/util/Vector;I)V", "(Ljava/util/Vector<*>;I)V", $PUBLIC, $method(DefaultTableModel, init$, void, $Vector*, int32_t)},
+		{"<init>", "([Ljava/lang/Object;I)V", nullptr, $PUBLIC, $method(DefaultTableModel, init$, void, $ObjectArray*, int32_t)},
+		{"<init>", "(Ljava/util/Vector;Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/util/Vector;>;Ljava/util/Vector<*>;)V", $PUBLIC, $method(DefaultTableModel, init$, void, $Vector*, $Vector*)},
+		{"<init>", "([[Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(DefaultTableModel, init$, void, $ObjectArray2*, $ObjectArray*)},
+		{"addColumn", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, addColumn, void, Object$*)},
+		{"addColumn", "(Ljava/lang/Object;Ljava/util/Vector;)V", "(Ljava/lang/Object;Ljava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, addColumn, void, Object$*, $Vector*)},
+		{"addColumn", "(Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, addColumn, void, Object$*, $ObjectArray*)},
+		{"addRow", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, addRow, void, $Vector*)},
+		{"addRow", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, addRow, void, $ObjectArray*)},
+		{"convertToVector", "([Ljava/lang/Object;)Ljava/util/Vector;", "([Ljava/lang/Object;)Ljava/util/Vector<Ljava/lang/Object;>;", $PROTECTED | $STATIC, $staticMethod(DefaultTableModel, convertToVector, $Vector*, $ObjectArray*)},
+		{"convertToVector", "([[Ljava/lang/Object;)Ljava/util/Vector;", "([[Ljava/lang/Object;)Ljava/util/Vector<Ljava/util/Vector<Ljava/lang/Object;>;>;", $PROTECTED | $STATIC, $staticMethod(DefaultTableModel, convertToVector, $Vector*, $ObjectArray2*)},
+		{"gcd", "(II)I", nullptr, $PRIVATE | $STATIC, $staticMethod(DefaultTableModel, gcd, int32_t, int32_t, int32_t)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, getColumnCount, int32_t)},
+		{"getColumnName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, getColumnName, $String*, int32_t)},
+		{"getDataVector", "()Ljava/util/Vector;", "()Ljava/util/Vector<Ljava/util/Vector;>;", $PUBLIC, $virtualMethod(DefaultTableModel, getDataVector, $Vector*)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, getRowCount, int32_t)},
+		{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, getValueAt, $Object*, int32_t, int32_t)},
+		{"insertRow", "(ILjava/util/Vector;)V", "(ILjava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, insertRow, void, int32_t, $Vector*)},
+		{"insertRow", "(I[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, insertRow, void, int32_t, $ObjectArray*)},
+		{"isCellEditable", "(II)Z", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, isCellEditable, bool, int32_t, int32_t)},
+		{"justifyRows", "(II)V", nullptr, $PRIVATE, $method(DefaultTableModel, justifyRows, void, int32_t, int32_t)},
+		{"moveRow", "(III)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, moveRow, void, int32_t, int32_t, int32_t)},
+		{"newDataAvailable", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, newDataAvailable, void, $TableModelEvent*)},
+		{"newRowsAdded", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, newRowsAdded, void, $TableModelEvent*)},
+		{"newVector", "(I)Ljava/util/Vector;", "<E:Ljava/lang/Object;>(I)Ljava/util/Vector<TE;>;", $PRIVATE | $STATIC, $staticMethod(DefaultTableModel, newVector, $Vector*, int32_t)},
+		{"nonNullVector", "(Ljava/util/Vector;)Ljava/util/Vector;", "<E:Ljava/lang/Object;>(Ljava/util/Vector<TE;>;)Ljava/util/Vector<TE;>;", $PRIVATE | $STATIC, $staticMethod(DefaultTableModel, nonNullVector, $Vector*, $Vector*)},
+		{"removeRow", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, removeRow, void, int32_t)},
+		{"rotate", "(Ljava/util/Vector;III)V", "<E:Ljava/lang/Object;>(Ljava/util/Vector<TE;>;III)V", $PRIVATE | $STATIC, $staticMethod(DefaultTableModel, rotate, void, $Vector*, int32_t, int32_t, int32_t)},
+		{"rowsRemoved", "(Ljavax/swing/event/TableModelEvent;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, rowsRemoved, void, $TableModelEvent*)},
+		{"setColumnCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setColumnCount, void, int32_t)},
+		{"setColumnIdentifiers", "(Ljava/util/Vector;)V", "(Ljava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, setColumnIdentifiers, void, $Vector*)},
+		{"setColumnIdentifiers", "([Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setColumnIdentifiers, void, $ObjectArray*)},
+		{"setDataVector", "(Ljava/util/Vector;Ljava/util/Vector;)V", "(Ljava/util/Vector<+Ljava/util/Vector;>;Ljava/util/Vector<*>;)V", $PUBLIC, $virtualMethod(DefaultTableModel, setDataVector, void, $Vector*, $Vector*)},
+		{"setDataVector", "([[Ljava/lang/Object;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setDataVector, void, $ObjectArray2*, $ObjectArray*)},
+		{"setNumRows", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setNumRows, void, int32_t)},
+		{"setRowCount", "(I)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setRowCount, void, int32_t)},
+		{"setValueAt", "(Ljava/lang/Object;II)V", nullptr, $PUBLIC, $virtualMethod(DefaultTableModel, setValueAt, void, Object$*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.table.DefaultTableModel",
+		"javax.swing.table.AbstractTableModel",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DefaultTableModel, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DefaultTableModel));
+	});
 	return class$;
 }
 

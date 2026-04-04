@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/nimbus/NimbusDefaults.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Insets.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -314,7 +312,6 @@ using $Color = ::java::awt::Color;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $Insets = ::java::awt::Insets;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -328,13 +325,11 @@ using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
-using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JComponent = ::javax::swing::JComponent;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
-using $Border = ::javax::swing::border::Border;
 using $BorderUIResource = ::javax::swing::plaf::BorderUIResource;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 using $DimensionUIResource = ::javax::swing::plaf::DimensionUIResource;
@@ -438,71 +433,14 @@ namespace javax {
 		namespace plaf {
 			namespace nimbus {
 
-$FieldInfo _NimbusDefaults_FieldInfo_[] = {
-	{"m", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/plaf/synth/Region;Ljava/util/List<Ljavax/swing/plaf/nimbus/NimbusDefaults$LazyStyle;>;>;", $PRIVATE, $field(NimbusDefaults, m)},
-	{"registeredRegions", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/swing/plaf/synth/Region;>;", $PRIVATE, $field(NimbusDefaults, registeredRegions)},
-	{"overridesCache", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/JComponent;Ljava/util/Map<Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;>;>;", $PRIVATE, $field(NimbusDefaults, overridesCache)},
-	{"defaultStyle", "Lsun/swing/plaf/synth/DefaultSynthStyle;", nullptr, $PRIVATE, $field(NimbusDefaults, defaultStyle)},
-	{"defaultFont", "Ljavax/swing/plaf/FontUIResource;", nullptr, $PRIVATE, $field(NimbusDefaults, defaultFont)},
-	{"colorTree", "Ljavax/swing/plaf/nimbus/NimbusDefaults$ColorTree;", nullptr, $PRIVATE, $field(NimbusDefaults, colorTree)},
-	{"defaultsListener", "Ljavax/swing/plaf/nimbus/NimbusDefaults$DefaultsListener;", nullptr, $PRIVATE, $field(NimbusDefaults, defaultsListener)},
-	{"derivedColors", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/plaf/nimbus/DerivedColor;Ljavax/swing/plaf/nimbus/DerivedColor;>;", $PRIVATE, $field(NimbusDefaults, derivedColors)},
-	{}
-};
-
-$MethodInfo _NimbusDefaults_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(NimbusDefaults, init$, void)},
-	{"addColor", "(Ljavax/swing/UIDefaults;Ljava/lang/String;IIII)V", nullptr, $PRIVATE, $method(NimbusDefaults, addColor, void, $UIDefaults*, $String*, int32_t, int32_t, int32_t, int32_t)},
-	{"addColor", "(Ljavax/swing/UIDefaults;Ljava/lang/String;Ljava/lang/String;FFFI)V", nullptr, $PRIVATE, $method(NimbusDefaults, addColor, void, $UIDefaults*, $String*, $String*, float, float, float, int32_t)},
-	{"addColor", "(Ljavax/swing/UIDefaults;Ljava/lang/String;Ljava/lang/String;FFFIZ)V", nullptr, $PRIVATE, $method(NimbusDefaults, addColor, void, $UIDefaults*, $String*, $String*, float, float, float, int32_t, bool)},
-	{"clearOverridesCache", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(NimbusDefaults, clearOverridesCache, void, $JComponent*)},
-	{"getDerivedColor", "(Ljava/lang/String;FFFIZ)Ljavax/swing/plaf/nimbus/DerivedColor;", nullptr, $PUBLIC, $method(NimbusDefaults, getDerivedColor, $DerivedColor*, $String*, float, float, float, int32_t, bool)},
-	{"getDerivedColor", "(Ljava/lang/String;Ljava/lang/String;FFFIZ)Ljavax/swing/plaf/nimbus/DerivedColor;", nullptr, $PRIVATE, $method(NimbusDefaults, getDerivedColor, $DerivedColor*, $String*, $String*, float, float, float, int32_t, bool)},
-	{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, 0, $method(NimbusDefaults, getStyle, $SynthStyle*, $JComponent*, $Region*)},
-	{"initialize", "()V", nullptr, 0, $method(NimbusDefaults, initialize, void)},
-	{"initializeDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, 0, $method(NimbusDefaults, initializeDefaults, void, $UIDefaults*)},
-	{"register", "(Ljavax/swing/plaf/synth/Region;Ljava/lang/String;)V", nullptr, 0, $method(NimbusDefaults, register$, void, $Region*, $String*)},
-	{"uninitialize", "()V", nullptr, 0, $method(NimbusDefaults, uninitialize, void)},
-	{}
-};
-
-$InnerClassInfo _NimbusDefaults_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.nimbus.NimbusDefaults$PainterBorder", "javax.swing.plaf.nimbus.NimbusDefaults", "PainterBorder", $PRIVATE | $STATIC | $FINAL},
-	{"javax.swing.plaf.nimbus.NimbusDefaults$DefaultsListener", "javax.swing.plaf.nimbus.NimbusDefaults", "DefaultsListener", $PRIVATE},
-	{"javax.swing.plaf.nimbus.NimbusDefaults$ColorTree", "javax.swing.plaf.nimbus.NimbusDefaults", "ColorTree", $PRIVATE},
-	{"javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle", "javax.swing.plaf.nimbus.NimbusDefaults", "LazyStyle", $PRIVATE | $FINAL},
-	{"javax.swing.plaf.nimbus.NimbusDefaults$LazyPainter", "javax.swing.plaf.nimbus.NimbusDefaults", "LazyPainter", $PRIVATE | $STATIC | $FINAL},
-	{"javax.swing.plaf.nimbus.NimbusDefaults$DerivedFont", "javax.swing.plaf.nimbus.NimbusDefaults", "DerivedFont", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _NimbusDefaults_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"javax.swing.plaf.nimbus.NimbusDefaults",
-	"java.lang.Object",
-	nullptr,
-	_NimbusDefaults_FieldInfo_,
-	_NimbusDefaults_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NimbusDefaults_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.nimbus.NimbusDefaults$PainterBorder,javax.swing.plaf.nimbus.NimbusDefaults$DefaultsListener,javax.swing.plaf.nimbus.NimbusDefaults$ColorTree,javax.swing.plaf.nimbus.NimbusDefaults$ColorTree$Node,javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle,javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle$Part,javax.swing.plaf.nimbus.NimbusDefaults$LazyPainter,javax.swing.plaf.nimbus.NimbusDefaults$DerivedFont"
-};
-
-$Object* allocate$NimbusDefaults($Class* clazz) {
-	return $of($alloc(NimbusDefaults));
-}
-
 void NimbusDefaults::initialize() {
 	$UIManager::addPropertyChangeListener(this->defaultsListener);
-	$nc($($UIManager::getDefaults()))->addPropertyChangeListener(this->colorTree);
+	$$nc($UIManager::getDefaults())->addPropertyChangeListener(this->colorTree);
 }
 
 void NimbusDefaults::uninitialize() {
 	$UIManager::removePropertyChangeListener(this->defaultsListener);
-	$nc($($UIManager::getDefaults()))->removePropertyChangeListener(this->colorTree);
+	$$nc($UIManager::getDefaults())->removePropertyChangeListener(this->colorTree);
 }
 
 void NimbusDefaults::init$() {
@@ -514,7 +452,7 @@ void NimbusDefaults::init$() {
 	$set(this, m, $new($HashMap));
 	$set(this, defaultFont, $FontUtilities::getFontConfigFUIR("sans"_s, $Font::PLAIN, 12));
 	$set(this, defaultStyle, $new($DefaultSynthStyle));
-	$nc(this->defaultStyle)->setFont(this->defaultFont);
+	this->defaultStyle->setFont(this->defaultFont);
 	$init($Region);
 	register$($Region::ARROW_BUTTON, "ArrowButton"_s);
 	register$($Region::BUTTON, "Button"_s);
@@ -607,7 +545,7 @@ void NimbusDefaults::init$() {
 }
 
 void NimbusDefaults::initializeDefaults($UIDefaults* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	addColor(d, "text"_s, 0, 0, 0, 255);
 	addColor(d, "control"_s, 214, 217, 223, 255);
 	addColor(d, "nimbusBase"_s, 51, 98, 140, 255);
@@ -660,7 +598,6 @@ void NimbusDefaults::initializeDefaults($UIDefaults* d) {
 	d->put("Button.defaultButtonFollowsFocus"_s, $Boolean::FALSE);
 	$var($String, var$4, "javax.swing.plaf.nimbus.ButtonPainter"_s);
 	$var($Insets, var$5, $new($Insets, 7, 7, 7, 7));
-	$init($Double);
 	d->put("Button[Default].backgroundPainter"_s, $$new($NimbusDefaults$LazyPainter, var$4, $ButtonPainter::BACKGROUND_DEFAULT, var$5, $$new($Dimension, 104, 33), false, $AbstractRegionPainter$PaintContext$CacheMode::NINE_SQUARE_SCALE, $Double::POSITIVE_INFINITY, 2.0));
 	$var($String, var$6, "javax.swing.plaf.nimbus.ButtonPainter"_s);
 	$var($Insets, var$7, $new($Insets, 7, 7, 7, 7));
@@ -1997,7 +1934,7 @@ void NimbusDefaults::initializeDefaults($UIDefaults* d) {
 }
 
 void NimbusDefaults::register$($Region* region, $String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (region == nullptr || prefix == nullptr) {
 		$throwNew($IllegalArgumentException, "Neither Region nor Prefix may be null"_s);
 	}
@@ -2005,16 +1942,14 @@ void NimbusDefaults::register$($Region* region, $String* prefix) {
 	if (styles == nullptr) {
 		$assign(styles, $new($LinkedList));
 		styles->add($$new($NimbusDefaults$LazyStyle, this, prefix));
-		$nc(this->m)->put(region, styles);
+		this->m->put(region, styles);
 	} else {
 		{
-			$var($Iterator, i$, $nc(styles)->iterator());
+			$var($Iterator, i$, styles->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($NimbusDefaults$LazyStyle, s, $cast($NimbusDefaults$LazyStyle, i$->next()));
-				{
-					if ($nc(prefix)->equals($nc(s)->prefix)) {
-						return;
-					}
+				if ($nc(prefix)->equals($nc(s)->prefix)) {
+					return;
 				}
 			}
 		}
@@ -2024,12 +1959,12 @@ void NimbusDefaults::register$($Region* region, $String* prefix) {
 }
 
 $SynthStyle* NimbusDefaults::getStyle($JComponent* comp, $Region* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (comp == nullptr || r == nullptr) {
 		$throwNew($IllegalArgumentException, "Neither comp nor r may be null"_s);
 	}
 	$var($List, styles, $cast($List, $nc(this->m)->get(r)));
-	if (styles == nullptr || $nc(styles)->size() == 0) {
+	if (styles == nullptr || styles->size() == 0) {
 		return this->defaultStyle;
 	}
 	$var($NimbusDefaults$LazyStyle, foundStyle, nullptr);
@@ -2037,16 +1972,14 @@ $SynthStyle* NimbusDefaults::getStyle($JComponent* comp, $Region* r) {
 		$var($Iterator, i$, $nc(styles)->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($NimbusDefaults$LazyStyle, s, $cast($NimbusDefaults$LazyStyle, i$->next()));
-			{
-				if ($nc(s)->matches(comp)) {
-					if (foundStyle == nullptr || ($nc($nc(foundStyle)->parts)->length < $nc(s->parts)->length) || ($nc($nc(foundStyle)->parts)->length == $nc(s->parts)->length && foundStyle->simple && !s->simple)) {
-						$assign(foundStyle, s);
-					}
+			if ($nc(s)->matches(comp)) {
+				if (foundStyle == nullptr || ($nc(foundStyle->parts)->length < $nc(s->parts)->length) || ($nc(foundStyle->parts)->length == $nc(s->parts)->length && foundStyle->simple && !s->simple)) {
+					$assign(foundStyle, s);
 				}
 			}
 		}
 	}
-	return foundStyle == nullptr ? static_cast<$SynthStyle*>(this->defaultStyle) : $nc(foundStyle)->getStyle(comp, r);
+	return foundStyle == nullptr ? $cast($SynthStyle, this->defaultStyle) : foundStyle->getStyle(comp, r);
 }
 
 void NimbusDefaults::clearOverridesCache($JComponent* c) {
@@ -2054,7 +1987,7 @@ void NimbusDefaults::clearOverridesCache($JComponent* c) {
 }
 
 void NimbusDefaults::addColor($UIDefaults* d, $String* uin, int32_t r, int32_t g, int32_t b, int32_t a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Color, color, $new($ColorUIResource, $$new($Color, r, g, b, a)));
 	$nc(this->colorTree)->addColor(uin, color);
 	$nc(d)->put(uin, color);
@@ -2081,9 +2014,9 @@ $DerivedColor* NimbusDefaults::getDerivedColor($String* uin, $String* parentUin,
 		$assign(color, $new($DerivedColor, parentUin, hOffset, sOffset, bOffset, aOffset));
 	}
 	if ($nc(this->derivedColors)->containsKey(color)) {
-		return $cast($DerivedColor, $nc(this->derivedColors)->get(color));
+		return $cast($DerivedColor, this->derivedColors->get(color));
 	} else {
-		$nc(this->derivedColors)->put(color, color);
+		this->derivedColors->put(color, color);
 		$nc(color)->rederiveColor();
 		$nc(this->colorTree)->addColor(uin, color);
 		return color;
@@ -2094,7 +2027,58 @@ NimbusDefaults::NimbusDefaults() {
 }
 
 $Class* NimbusDefaults::load$($String* name, bool initialize) {
-	$loadClass(NimbusDefaults, name, initialize, &_NimbusDefaults_ClassInfo_, allocate$NimbusDefaults);
+	$FieldInfo fieldInfos$$[] = {
+		{"m", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/plaf/synth/Region;Ljava/util/List<Ljavax/swing/plaf/nimbus/NimbusDefaults$LazyStyle;>;>;", $PRIVATE, $field(NimbusDefaults, m)},
+		{"registeredRegions", "Ljava/util/Map;", "Ljava/util/Map<Ljava/lang/String;Ljavax/swing/plaf/synth/Region;>;", $PRIVATE, $field(NimbusDefaults, registeredRegions)},
+		{"overridesCache", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/JComponent;Ljava/util/Map<Ljavax/swing/plaf/synth/Region;Ljavax/swing/plaf/synth/SynthStyle;>;>;", $PRIVATE, $field(NimbusDefaults, overridesCache)},
+		{"defaultStyle", "Lsun/swing/plaf/synth/DefaultSynthStyle;", nullptr, $PRIVATE, $field(NimbusDefaults, defaultStyle)},
+		{"defaultFont", "Ljavax/swing/plaf/FontUIResource;", nullptr, $PRIVATE, $field(NimbusDefaults, defaultFont)},
+		{"colorTree", "Ljavax/swing/plaf/nimbus/NimbusDefaults$ColorTree;", nullptr, $PRIVATE, $field(NimbusDefaults, colorTree)},
+		{"defaultsListener", "Ljavax/swing/plaf/nimbus/NimbusDefaults$DefaultsListener;", nullptr, $PRIVATE, $field(NimbusDefaults, defaultsListener)},
+		{"derivedColors", "Ljava/util/Map;", "Ljava/util/Map<Ljavax/swing/plaf/nimbus/DerivedColor;Ljavax/swing/plaf/nimbus/DerivedColor;>;", $PRIVATE, $field(NimbusDefaults, derivedColors)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(NimbusDefaults, init$, void)},
+		{"addColor", "(Ljavax/swing/UIDefaults;Ljava/lang/String;IIII)V", nullptr, $PRIVATE, $method(NimbusDefaults, addColor, void, $UIDefaults*, $String*, int32_t, int32_t, int32_t, int32_t)},
+		{"addColor", "(Ljavax/swing/UIDefaults;Ljava/lang/String;Ljava/lang/String;FFFI)V", nullptr, $PRIVATE, $method(NimbusDefaults, addColor, void, $UIDefaults*, $String*, $String*, float, float, float, int32_t)},
+		{"addColor", "(Ljavax/swing/UIDefaults;Ljava/lang/String;Ljava/lang/String;FFFIZ)V", nullptr, $PRIVATE, $method(NimbusDefaults, addColor, void, $UIDefaults*, $String*, $String*, float, float, float, int32_t, bool)},
+		{"clearOverridesCache", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $method(NimbusDefaults, clearOverridesCache, void, $JComponent*)},
+		{"getDerivedColor", "(Ljava/lang/String;FFFIZ)Ljavax/swing/plaf/nimbus/DerivedColor;", nullptr, $PUBLIC, $method(NimbusDefaults, getDerivedColor, $DerivedColor*, $String*, float, float, float, int32_t, bool)},
+		{"getDerivedColor", "(Ljava/lang/String;Ljava/lang/String;FFFIZ)Ljavax/swing/plaf/nimbus/DerivedColor;", nullptr, $PRIVATE, $method(NimbusDefaults, getDerivedColor, $DerivedColor*, $String*, $String*, float, float, float, int32_t, bool)},
+		{"getStyle", "(Ljavax/swing/JComponent;Ljavax/swing/plaf/synth/Region;)Ljavax/swing/plaf/synth/SynthStyle;", nullptr, 0, $method(NimbusDefaults, getStyle, $SynthStyle*, $JComponent*, $Region*)},
+		{"initialize", "()V", nullptr, 0, $method(NimbusDefaults, initialize, void)},
+		{"initializeDefaults", "(Ljavax/swing/UIDefaults;)V", nullptr, 0, $method(NimbusDefaults, initializeDefaults, void, $UIDefaults*)},
+		{"register", "(Ljavax/swing/plaf/synth/Region;Ljava/lang/String;)V", nullptr, 0, $method(NimbusDefaults, register$, void, $Region*, $String*)},
+		{"uninitialize", "()V", nullptr, 0, $method(NimbusDefaults, uninitialize, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.nimbus.NimbusDefaults$PainterBorder", "javax.swing.plaf.nimbus.NimbusDefaults", "PainterBorder", $PRIVATE | $STATIC | $FINAL},
+		{"javax.swing.plaf.nimbus.NimbusDefaults$DefaultsListener", "javax.swing.plaf.nimbus.NimbusDefaults", "DefaultsListener", $PRIVATE},
+		{"javax.swing.plaf.nimbus.NimbusDefaults$ColorTree", "javax.swing.plaf.nimbus.NimbusDefaults", "ColorTree", $PRIVATE},
+		{"javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle", "javax.swing.plaf.nimbus.NimbusDefaults", "LazyStyle", $PRIVATE | $FINAL},
+		{"javax.swing.plaf.nimbus.NimbusDefaults$LazyPainter", "javax.swing.plaf.nimbus.NimbusDefaults", "LazyPainter", $PRIVATE | $STATIC | $FINAL},
+		{"javax.swing.plaf.nimbus.NimbusDefaults$DerivedFont", "javax.swing.plaf.nimbus.NimbusDefaults", "DerivedFont", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"javax.swing.plaf.nimbus.NimbusDefaults",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.nimbus.NimbusDefaults$PainterBorder,javax.swing.plaf.nimbus.NimbusDefaults$DefaultsListener,javax.swing.plaf.nimbus.NimbusDefaults$ColorTree,javax.swing.plaf.nimbus.NimbusDefaults$ColorTree$Node,javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle,javax.swing.plaf.nimbus.NimbusDefaults$LazyStyle$Part,javax.swing.plaf.nimbus.NimbusDefaults$LazyPainter,javax.swing.plaf.nimbus.NimbusDefaults$DerivedFont"
+	};
+	$loadClass(NimbusDefaults, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NimbusDefaults);
+	});
 	return class$;
 }
 

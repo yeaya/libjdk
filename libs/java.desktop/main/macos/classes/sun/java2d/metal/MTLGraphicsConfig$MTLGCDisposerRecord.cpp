@@ -1,5 +1,4 @@
 #include <sun/java2d/metal/MTLGraphicsConfig$MTLGCDisposerRecord.h>
-
 #include <sun/java2d/metal/MTLGraphicsConfig.h>
 #include <sun/java2d/metal/MTLRenderQueue.h>
 #include <jcpp.h>
@@ -13,42 +12,6 @@ using $MTLRenderQueue = ::sun::java2d::metal::MTLRenderQueue;
 namespace sun {
 	namespace java2d {
 		namespace metal {
-
-$FieldInfo _MTLGraphicsConfig$MTLGCDisposerRecord_FieldInfo_[] = {
-	{"pCfgInfo", "J", nullptr, $PRIVATE, $field(MTLGraphicsConfig$MTLGCDisposerRecord, pCfgInfo)},
-	{}
-};
-
-$MethodInfo _MTLGraphicsConfig$MTLGCDisposerRecord_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(MTLGraphicsConfig$MTLGCDisposerRecord, init$, void, int64_t)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig$MTLGCDisposerRecord, dispose, void)},
-	{}
-};
-
-$InnerClassInfo _MTLGraphicsConfig$MTLGCDisposerRecord_InnerClassesInfo_[] = {
-	{"sun.java2d.metal.MTLGraphicsConfig$MTLGCDisposerRecord", "sun.java2d.metal.MTLGraphicsConfig", "MTLGCDisposerRecord", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MTLGraphicsConfig$MTLGCDisposerRecord_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.metal.MTLGraphicsConfig$MTLGCDisposerRecord",
-	"java.lang.Object",
-	"sun.java2d.DisposerRecord",
-	_MTLGraphicsConfig$MTLGCDisposerRecord_FieldInfo_,
-	_MTLGraphicsConfig$MTLGCDisposerRecord_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MTLGraphicsConfig$MTLGCDisposerRecord_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.metal.MTLGraphicsConfig"
-};
-
-$Object* allocate$MTLGraphicsConfig$MTLGCDisposerRecord($Class* clazz) {
-	return $of($alloc(MTLGraphicsConfig$MTLGCDisposerRecord));
-}
 
 void MTLGraphicsConfig$MTLGCDisposerRecord::init$(int64_t pCfgInfo) {
 	this->pCfgInfo = pCfgInfo;
@@ -65,7 +28,37 @@ MTLGraphicsConfig$MTLGCDisposerRecord::MTLGraphicsConfig$MTLGCDisposerRecord() {
 }
 
 $Class* MTLGraphicsConfig$MTLGCDisposerRecord::load$($String* name, bool initialize) {
-	$loadClass(MTLGraphicsConfig$MTLGCDisposerRecord, name, initialize, &_MTLGraphicsConfig$MTLGCDisposerRecord_ClassInfo_, allocate$MTLGraphicsConfig$MTLGCDisposerRecord);
+	$FieldInfo fieldInfos$$[] = {
+		{"pCfgInfo", "J", nullptr, $PRIVATE, $field(MTLGraphicsConfig$MTLGCDisposerRecord, pCfgInfo)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(MTLGraphicsConfig$MTLGCDisposerRecord, init$, void, int64_t)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(MTLGraphicsConfig$MTLGCDisposerRecord, dispose, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.metal.MTLGraphicsConfig$MTLGCDisposerRecord", "sun.java2d.metal.MTLGraphicsConfig", "MTLGCDisposerRecord", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.metal.MTLGraphicsConfig$MTLGCDisposerRecord",
+		"java.lang.Object",
+		"sun.java2d.DisposerRecord",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.metal.MTLGraphicsConfig"
+	};
+	$loadClass(MTLGraphicsConfig$MTLGCDisposerRecord, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MTLGraphicsConfig$MTLGCDisposerRecord);
+	});
 	return class$;
 }
 

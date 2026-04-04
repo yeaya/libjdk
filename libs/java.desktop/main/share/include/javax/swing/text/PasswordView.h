@@ -33,6 +33,7 @@ class $import PasswordView : public ::javax::swing::text::FieldView {
 	$class(PasswordView, 0, ::javax::swing::text::FieldView)
 public:
 	PasswordView();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::text::Element* elem);
 	virtual int32_t drawEchoCharacter(::java::awt::Graphics* g, int32_t x, int32_t y, char16_t c);
 	virtual float drawEchoCharacter(::java::awt::Graphics2D* g, float x, float y, char16_t c);

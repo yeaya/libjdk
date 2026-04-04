@@ -28,6 +28,7 @@ class TranslucentWindowPainter : public ::java::lang::Object {
 	$class(TranslucentWindowPainter, 0, ::java::lang::Object)
 public:
 	TranslucentWindowPainter();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::awt::windows::WWindowPeer* peer);
 	static ::java::awt::Image* clearImage(::java::awt::Image* bb);
 	static ::sun::awt::windows::TranslucentWindowPainter* createInstance(::sun::awt::windows::WWindowPeer* peer);

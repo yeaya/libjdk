@@ -1,5 +1,4 @@
 #include <com/sun/xml/internal/stream/events/EntityReferenceEvent.h>
-
 #include <com/sun/xml/internal/stream/events/DummyEvent.h>
 #include <java/io/Writer.h>
 #include <javax/xml/namespace/QName.h>
@@ -32,56 +31,6 @@ namespace com {
 			namespace internal {
 				namespace stream {
 					namespace events {
-
-$FieldInfo _EntityReferenceEvent_FieldInfo_[] = {
-	{"fEntityDeclaration", "Ljavax/xml/stream/events/EntityDeclaration;", nullptr, $PRIVATE, $field(EntityReferenceEvent, fEntityDeclaration)},
-	{"fEntityName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EntityReferenceEvent, fEntityName)},
-	{}
-};
-
-$MethodInfo _EntityReferenceEvent_MethodInfo_[] = {
-	{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
-	{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
-	{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getEventType", "()I", nullptr, $PUBLIC},
-	{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
-	{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(EntityReferenceEvent, init$, void)},
-	{"<init>", "(Ljava/lang/String;Ljavax/xml/stream/events/EntityDeclaration;)V", nullptr, $PUBLIC, $method(EntityReferenceEvent, init$, void, $String*, $EntityDeclaration*)},
-	{"getDeclaration", "()Ljavax/xml/stream/events/EntityDeclaration;", nullptr, $PUBLIC, $virtualMethod(EntityReferenceEvent, getDeclaration, $EntityDeclaration*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityReferenceEvent, getName, $String*)},
-	{"init", "()V", nullptr, $PROTECTED, $virtualMethod(EntityReferenceEvent, init, void)},
-	{"*isAttribute", "()Z", nullptr, $PUBLIC},
-	{"*isCharacters", "()Z", nullptr, $PUBLIC},
-	{"*isEndDocument", "()Z", nullptr, $PUBLIC},
-	{"*isEndElement", "()Z", nullptr, $PUBLIC},
-	{"*isEntityReference", "()Z", nullptr, $PUBLIC},
-	{"*isNamespace", "()Z", nullptr, $PUBLIC},
-	{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
-	{"*isStartDocument", "()Z", nullptr, $PUBLIC},
-	{"*isStartElement", "()Z", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityReferenceEvent, toString, $String*)},
-	{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
-	{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(EntityReferenceEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _EntityReferenceEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.xml.internal.stream.events.EntityReferenceEvent",
-	"com.sun.xml.internal.stream.events.DummyEvent",
-	"javax.xml.stream.events.EntityReference",
-	_EntityReferenceEvent_FieldInfo_,
-	_EntityReferenceEvent_MethodInfo_
-};
-
-$Object* allocate$EntityReferenceEvent($Class* clazz) {
-	return $of($alloc(EntityReferenceEvent));
-}
 
 int32_t EntityReferenceEvent::getEventType() {
 	 return this->$DummyEvent::getEventType();
@@ -180,7 +129,7 @@ $String* EntityReferenceEvent::getName() {
 }
 
 $String* EntityReferenceEvent::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, text, $nc(this->fEntityDeclaration)->getReplacementText());
 	if (text == nullptr) {
 		$assign(text, ""_s);
@@ -189,9 +138,9 @@ $String* EntityReferenceEvent::toString() {
 }
 
 void EntityReferenceEvent::writeAsEncodedUnicodeEx($Writer* writer) {
-	$nc(writer)->write((int32_t)u'&');
+	$nc(writer)->write(u'&');
 	writer->write($(getName()));
-	writer->write((int32_t)u';');
+	writer->write(u';');
 }
 
 $EntityDeclaration* EntityReferenceEvent::getDeclaration() {
@@ -206,7 +155,52 @@ EntityReferenceEvent::EntityReferenceEvent() {
 }
 
 $Class* EntityReferenceEvent::load$($String* name, bool initialize) {
-	$loadClass(EntityReferenceEvent, name, initialize, &_EntityReferenceEvent_ClassInfo_, allocate$EntityReferenceEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"fEntityDeclaration", "Ljavax/xml/stream/events/EntityDeclaration;", nullptr, $PRIVATE, $field(EntityReferenceEvent, fEntityDeclaration)},
+		{"fEntityName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(EntityReferenceEvent, fEntityName)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*asCharacters", "()Ljavax/xml/stream/events/Characters;", nullptr, $PUBLIC},
+		{"*asEndElement", "()Ljavax/xml/stream/events/EndElement;", nullptr, $PUBLIC},
+		{"*asStartElement", "()Ljavax/xml/stream/events/StartElement;", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getEventType", "()I", nullptr, $PUBLIC},
+		{"*getLocation", "()Ljavax/xml/stream/Location;", nullptr, $PUBLIC},
+		{"*getSchemaType", "()Ljavax/xml/namespace/QName;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(EntityReferenceEvent, init$, void)},
+		{"<init>", "(Ljava/lang/String;Ljavax/xml/stream/events/EntityDeclaration;)V", nullptr, $PUBLIC, $method(EntityReferenceEvent, init$, void, $String*, $EntityDeclaration*)},
+		{"getDeclaration", "()Ljavax/xml/stream/events/EntityDeclaration;", nullptr, $PUBLIC, $virtualMethod(EntityReferenceEvent, getDeclaration, $EntityDeclaration*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityReferenceEvent, getName, $String*)},
+		{"init", "()V", nullptr, $PROTECTED, $virtualMethod(EntityReferenceEvent, init, void)},
+		{"*isAttribute", "()Z", nullptr, $PUBLIC},
+		{"*isCharacters", "()Z", nullptr, $PUBLIC},
+		{"*isEndDocument", "()Z", nullptr, $PUBLIC},
+		{"*isEndElement", "()Z", nullptr, $PUBLIC},
+		{"*isEntityReference", "()Z", nullptr, $PUBLIC},
+		{"*isNamespace", "()Z", nullptr, $PUBLIC},
+		{"*isProcessingInstruction", "()Z", nullptr, $PUBLIC},
+		{"*isStartDocument", "()Z", nullptr, $PUBLIC},
+		{"*isStartElement", "()Z", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EntityReferenceEvent, toString, $String*)},
+		{"*writeAsEncodedUnicode", "(Ljava/io/Writer;)V", nullptr, $PUBLIC},
+		{"writeAsEncodedUnicodeEx", "(Ljava/io/Writer;)V", nullptr, $PROTECTED, $virtualMethod(EntityReferenceEvent, writeAsEncodedUnicodeEx, void, $Writer*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.xml.internal.stream.events.EntityReferenceEvent",
+		"com.sun.xml.internal.stream.events.DummyEvent",
+		"javax.xml.stream.events.EntityReference",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(EntityReferenceEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(EntityReferenceEvent));
+	});
 	return class$;
 }
 

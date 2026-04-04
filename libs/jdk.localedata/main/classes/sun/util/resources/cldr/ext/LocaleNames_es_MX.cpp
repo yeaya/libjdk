@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_es_MX.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,295 +13,276 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_es_MX_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_es_MX, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_es_MX, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_es_MX_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_es_MX",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_es_MX_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_es_MX($Class* clazz) {
-	return $of($alloc(LocaleNames_es_MX));
-}
-
 void LocaleNames_es_MX::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_es_MX::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("011"_s),
-			$of(u"África Occidental"_s)
+			"011"_s,
+			u"África Occidental"_s
 		}),
 		$$new($ObjectArray, {
-			$of("014"_s),
-			$of(u"África Oriental"_s)
+			"014"_s,
+			u"África Oriental"_s
 		}),
 		$$new($ObjectArray, {
-			$of("015"_s),
-			$of(u"África septentrional"_s)
+			"015"_s,
+			u"África septentrional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("018"_s),
-			$of(u"África meridional"_s)
+			"018"_s,
+			u"África meridional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("030"_s),
-			$of("Asia Oriental"_s)
+			"030"_s,
+			"Asia Oriental"_s
 		}),
 		$$new($ObjectArray, {
-			$of("034"_s),
-			$of("Asia meridional"_s)
+			"034"_s,
+			"Asia meridional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("035"_s),
-			$of(u"Sudeste Asiático"_s)
+			"035"_s,
+			u"Sudeste Asiático"_s
 		}),
 		$$new($ObjectArray, {
-			$of("039"_s),
-			$of("Europa meridional"_s)
+			"039"_s,
+			"Europa meridional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("145"_s),
-			$of("Asia Occidental"_s)
+			"145"_s,
+			"Asia Occidental"_s
 		}),
 		$$new($ObjectArray, {
-			$of("151"_s),
-			$of("Europa Oriental"_s)
+			"151"_s,
+			"Europa Oriental"_s
 		}),
 		$$new($ObjectArray, {
-			$of("154"_s),
-			$of("Europa septentrional"_s)
+			"154"_s,
+			"Europa septentrional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("155"_s),
-			$of("Europa Occidental"_s)
+			"155"_s,
+			"Europa Occidental"_s
 		}),
 		$$new($ObjectArray, {
-			$of("BA"_s),
-			$of("Bosnia y Herzegovina"_s)
+			"BA"_s,
+			"Bosnia y Herzegovina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("CI"_s),
-			$of(u"Côte d’Ivoire"_s)
+			"CI"_s,
+			u"Côte d’Ivoire"_s
 		}),
 		$$new($ObjectArray, {
-			$of("EZ"_s),
-			$of("zona euro"_s)
+			"EZ"_s,
+			"zona euro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GG"_s),
-			$of("Guernsey"_s)
+			"GG"_s,
+			"Guernsey"_s
 		}),
 		$$new($ObjectArray, {
-			$of("RO"_s),
-			$of("Rumania"_s)
+			"RO"_s,
+			"Rumania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SA"_s),
-			$of("Arabia Saudita"_s)
+			"SA"_s,
+			"Arabia Saudita"_s
 		}),
 		$$new($ObjectArray, {
-			$of("SZ"_s),
-			$of("Eswatini"_s)
+			"SZ"_s,
+			"Eswatini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("TA"_s),
-			$of(u"Tristán de Acuña"_s)
+			"TA"_s,
+			u"Tristán de Acuña"_s
 		}),
 		$$new($ObjectArray, {
-			$of("UM"_s),
-			$of("Islas menores alejadas de EE. UU."_s)
+			"UM"_s,
+			"Islas menores alejadas de EE. UU."_s
 		}),
 		$$new($ObjectArray, {
-			$of("UN"_s),
-			$of("ONU"_s)
+			"UN"_s,
+			"ONU"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eu"_s),
-			$of("euskera"_s)
+			"eu"_s,
+			"euskera"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lo"_s),
-			$of("lao"_s)
+			"lo"_s,
+			"lao"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nr"_s),
-			$of("ndebele meridional"_s)
+			"nr"_s,
+			"ndebele meridional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("pa"_s),
-			$of(u"punyabí"_s)
+			"pa"_s,
+			u"punyabí"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ss"_s),
-			$of("siswati"_s)
+			"ss"_s,
+			"siswati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw"_s),
-			$of("suajili"_s)
+			"sw"_s,
+			"suajili"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tn"_s),
-			$of("setswana"_s)
+			"tn"_s,
+			"setswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ace"_s),
-			$of(u"acehnés"_s)
+			"ace"_s,
+			u"acehnés"_s
 		}),
 		$$new($ObjectArray, {
-			$of("arp"_s),
-			$of("arapaho"_s)
+			"arp"_s,
+			"arapaho"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bas"_s),
-			$of("basa"_s)
+			"bas"_s,
+			"basa"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bax"_s),
-			$of("bamun"_s)
+			"bax"_s,
+			"bamun"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bho"_s),
-			$of("bhoshpuri"_s)
+			"bho"_s,
+			"bhoshpuri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bla"_s),
-			$of("siksika"_s)
+			"bla"_s,
+			"siksika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bua"_s),
-			$of("buriat"_s)
+			"bua"_s,
+			"buriat"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dum"_s),
-			$of(u"neerlandés medieval"_s)
+			"dum"_s,
+			u"neerlandés medieval"_s
 		}),
 		$$new($ObjectArray, {
-			$of("enm"_s),
-			$of(u"inglés medieval"_s)
+			"enm"_s,
+			u"inglés medieval"_s
 		}),
 		$$new($ObjectArray, {
-			$of("frm"_s),
-			$of(u"francés medieval"_s)
+			"frm"_s,
+			u"francés medieval"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gan"_s),
-			$of("gan (China)"_s)
+			"gan"_s,
+			"gan (China)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmh"_s),
-			$of(u"alemán de la alta edad media"_s)
+			"gmh"_s,
+			u"alemán de la alta edad media"_s
 		}),
 		$$new($ObjectArray, {
-			$of("grc"_s),
-			$of("griego antiguo"_s)
+			"grc"_s,
+			"griego antiguo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hak"_s),
-			$of("kejia (China)"_s)
+			"hak"_s,
+			"kejia (China)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hil"_s),
-			$of(u"hiligainón"_s)
+			"hil"_s,
+			u"hiligainón"_s
 		}),
 		$$new($ObjectArray, {
-			$of("hsn"_s),
-			$of("xiang (China)"_s)
+			"hsn"_s,
+			"xiang (China)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inh"_s),
-			$of("ingusetio"_s)
+			"inh"_s,
+			"ingusetio"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kbd"_s),
-			$of("kabardiano"_s)
+			"kbd"_s,
+			"kabardiano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("krc"_s),
-			$of(u"karachái bálkaro"_s)
+			"krc"_s,
+			u"karachái bálkaro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kum"_s),
-			$of("cumuco"_s)
+			"kum"_s,
+			"cumuco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lus"_s),
-			$of("lushai"_s)
+			"lus"_s,
+			"lushai"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of(u"irlandés medieval"_s)
+			"mga"_s,
+			u"irlandés medieval"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nan"_s),
-			$of("min nan (Chino)"_s)
+			"nan"_s,
+			"min nan (Chino)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nso"_s),
-			$of("sotho septentrional"_s)
+			"nso"_s,
+			"sotho septentrional"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shu"_s),
-			$of(u"árabe chadiano"_s)
+			"shu"_s,
+			u"árabe chadiano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("syr"_s),
-			$of("siriaco"_s)
+			"syr"_s,
+			"siriaco"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tet"_s),
-			$of(u"tetún"_s)
+			"tet"_s,
+			u"tetún"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tyv"_s),
-			$of("tuviniano"_s)
+			"tyv"_s,
+			"tuviniano"_s
 		}),
 		$$new($ObjectArray, {
-			$of("wuu"_s),
-			$of("chino wu"_s)
+			"wuu"_s,
+			"chino wu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xal"_s),
-			$of("kalmyk"_s)
+			"xal"_s,
+			"kalmyk"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zgh"_s),
-			$of(u"tamazight marroquí estándar"_s)
+			"zgh"_s,
+			u"tamazight marroquí estándar"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Hanb"_s),
-			$of("hanb"_s)
+			"Hanb"_s,
+			"hanb"_s
 		}),
 		$$new($ObjectArray, {
-			$of("Mlym"_s),
-			$of(u"malayálam"_s)
+			"Mlym"_s,
+			u"malayálam"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sw_CD"_s),
-			$of("suajili del Congo"_s)
+			"sw_CD"_s,
+			"suajili del Congo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.ca.roc"_s),
-			$of("calendario minguo"_s)
+			"type.ca.roc"_s,
+			"calendario minguo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.nu.gujr"_s),
-			$of(u"dígitos en gujarati"_s)
+			"type.nu.gujr"_s,
+			u"dígitos en gujarati"_s
 		}),
 		$$new($ObjectArray, {
-			$of("type.co.ducet"_s),
-			$of(u"orden de clasificación de Unicode predeterminado"_s)
+			"type.co.ducet"_s,
+			u"orden de clasificación de Unicode predeterminado"_s
 		})
 	}));
 	return data;
@@ -312,7 +292,22 @@ LocaleNames_es_MX::LocaleNames_es_MX() {
 }
 
 $Class* LocaleNames_es_MX::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_es_MX, name, initialize, &_LocaleNames_es_MX_ClassInfo_, allocate$LocaleNames_es_MX);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_es_MX, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_es_MX, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_es_MX",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_es_MX, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_es_MX);
+	});
 	return class$;
 }
 

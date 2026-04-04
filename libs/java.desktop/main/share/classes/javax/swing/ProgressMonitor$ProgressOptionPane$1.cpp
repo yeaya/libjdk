@@ -1,5 +1,4 @@
 #include <javax/swing/ProgressMonitor$ProgressOptionPane$1.h>
-
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
 #include <javax/swing/ProgressMonitor$ProgressOptionPane.h>
@@ -17,51 +16,6 @@ using $ProgressMonitor$ProgressOptionPane = ::javax::swing::ProgressMonitor$Prog
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _ProgressMonitor$ProgressOptionPane$1_FieldInfo_[] = {
-	{"this$1", "Ljavax/swing/ProgressMonitor$ProgressOptionPane;", nullptr, $FINAL | $SYNTHETIC, $field(ProgressMonitor$ProgressOptionPane$1, this$1)},
-	{"gotFocus", "Z", nullptr, 0, $field(ProgressMonitor$ProgressOptionPane$1, gotFocus)},
-	{}
-};
-
-$MethodInfo _ProgressMonitor$ProgressOptionPane$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/ProgressMonitor$ProgressOptionPane;)V", nullptr, 0, $method(ProgressMonitor$ProgressOptionPane$1, init$, void, $ProgressMonitor$ProgressOptionPane*)},
-	{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$ProgressOptionPane$1, windowActivated, void, $WindowEvent*)},
-	{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$ProgressOptionPane$1, windowClosing, void, $WindowEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _ProgressMonitor$ProgressOptionPane$1_EnclosingMethodInfo_ = {
-	"javax.swing.ProgressMonitor$ProgressOptionPane",
-	"createDialog",
-	"(Ljava/awt/Component;Ljava/lang/String;)Ljavax/swing/JDialog;"
-};
-
-$InnerClassInfo _ProgressMonitor$ProgressOptionPane$1_InnerClassesInfo_[] = {
-	{"javax.swing.ProgressMonitor$ProgressOptionPane", "javax.swing.ProgressMonitor", "ProgressOptionPane", $PRIVATE},
-	{"javax.swing.ProgressMonitor$ProgressOptionPane$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ProgressMonitor$ProgressOptionPane$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ProgressMonitor$ProgressOptionPane$1",
-	"java.awt.event.WindowAdapter",
-	nullptr,
-	_ProgressMonitor$ProgressOptionPane$1_FieldInfo_,
-	_ProgressMonitor$ProgressOptionPane$1_MethodInfo_,
-	nullptr,
-	&_ProgressMonitor$ProgressOptionPane$1_EnclosingMethodInfo_,
-	_ProgressMonitor$ProgressOptionPane$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ProgressMonitor"
-};
-
-$Object* allocate$ProgressMonitor$ProgressOptionPane$1($Class* clazz) {
-	return $of($alloc(ProgressMonitor$ProgressOptionPane$1));
-}
 
 void ProgressMonitor$ProgressOptionPane$1::init$($ProgressMonitor$ProgressOptionPane* this$1) {
 	$set(this, this$1, this$1);
@@ -84,7 +38,45 @@ ProgressMonitor$ProgressOptionPane$1::ProgressMonitor$ProgressOptionPane$1() {
 }
 
 $Class* ProgressMonitor$ProgressOptionPane$1::load$($String* name, bool initialize) {
-	$loadClass(ProgressMonitor$ProgressOptionPane$1, name, initialize, &_ProgressMonitor$ProgressOptionPane$1_ClassInfo_, allocate$ProgressMonitor$ProgressOptionPane$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Ljavax/swing/ProgressMonitor$ProgressOptionPane;", nullptr, $FINAL | $SYNTHETIC, $field(ProgressMonitor$ProgressOptionPane$1, this$1)},
+		{"gotFocus", "Z", nullptr, 0, $field(ProgressMonitor$ProgressOptionPane$1, gotFocus)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/ProgressMonitor$ProgressOptionPane;)V", nullptr, 0, $method(ProgressMonitor$ProgressOptionPane$1, init$, void, $ProgressMonitor$ProgressOptionPane*)},
+		{"windowActivated", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$ProgressOptionPane$1, windowActivated, void, $WindowEvent*)},
+		{"windowClosing", "(Ljava/awt/event/WindowEvent;)V", nullptr, $PUBLIC, $virtualMethod(ProgressMonitor$ProgressOptionPane$1, windowClosing, void, $WindowEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.ProgressMonitor$ProgressOptionPane",
+		"createDialog",
+		"(Ljava/awt/Component;Ljava/lang/String;)Ljavax/swing/JDialog;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ProgressMonitor$ProgressOptionPane", "javax.swing.ProgressMonitor", "ProgressOptionPane", $PRIVATE},
+		{"javax.swing.ProgressMonitor$ProgressOptionPane$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ProgressMonitor$ProgressOptionPane$1",
+		"java.awt.event.WindowAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ProgressMonitor"
+	};
+	$loadClass(ProgressMonitor$ProgressOptionPane$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ProgressMonitor$ProgressOptionPane$1));
+	});
 	return class$;
 }
 

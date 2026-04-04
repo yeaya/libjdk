@@ -25,6 +25,7 @@ class PNGImageWriteParam : public ::javax::imageio::ImageWriteParam {
 	$class(PNGImageWriteParam, 0, ::javax::imageio::ImageWriteParam)
 public:
 	PNGImageWriteParam();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::util::Locale* locale);
 	virtual $StringArray* getCompressionQualityDescriptions() override;
 	virtual $floats* getCompressionQualityValues() override;

@@ -1,5 +1,4 @@
 #include <javax/print/event/PrintEvent.h>
-
 #include <java/util/EventObject.h>
 #include <jcpp.h>
 
@@ -12,44 +11,39 @@ namespace javax {
 	namespace print {
 		namespace event {
 
-$FieldInfo _PrintEvent_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintEvent, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _PrintEvent_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PrintEvent, init$, void, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrintEvent, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PrintEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.print.event.PrintEvent",
-	"java.util.EventObject",
-	nullptr,
-	_PrintEvent_FieldInfo_,
-	_PrintEvent_MethodInfo_
-};
-
-$Object* allocate$PrintEvent($Class* clazz) {
-	return $of($alloc(PrintEvent));
-}
-
 void PrintEvent::init$(Object$* source) {
 	$EventObject::init$(source);
 }
 
 $String* PrintEvent::toString() {
-	$useLocalCurrentObjectStackCache();
-	return ($str({"PrintEvent on "_s, $($nc($of($(getSource())))->toString())}));
+	$useLocalObjectStack();
+	return ($str({"PrintEvent on "_s, $($$nc(getSource())->toString())}));
 }
 
 PrintEvent::PrintEvent() {
 }
 
 $Class* PrintEvent::load$($String* name, bool initialize) {
-	$loadClass(PrintEvent, name, initialize, &_PrintEvent_ClassInfo_, allocate$PrintEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(PrintEvent, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(PrintEvent, init$, void, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PrintEvent, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.print.event.PrintEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PrintEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PrintEvent);
+	});
 	return class$;
 }
 

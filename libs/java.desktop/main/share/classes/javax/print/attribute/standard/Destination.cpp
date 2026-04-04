@@ -1,5 +1,4 @@
 #include <javax/print/attribute/standard/Destination.h>
-
 #include <java/net/URI.h>
 #include <javax/print/attribute/URISyntax.h>
 #include <jcpp.h>
@@ -14,36 +13,6 @@ namespace javax {
 	namespace print {
 		namespace attribute {
 			namespace standard {
-
-$FieldInfo _Destination_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Destination, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Destination_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(Destination, init$, void, $URI*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Destination, equals, bool, Object$*)},
-	{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Destination, getCategory, $Class*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Destination, getName, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _Destination_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.print.attribute.standard.Destination",
-	"javax.print.attribute.URISyntax",
-	"javax.print.attribute.PrintJobAttribute,javax.print.attribute.PrintRequestAttribute",
-	_Destination_FieldInfo_,
-	_Destination_MethodInfo_
-};
-
-$Object* allocate$Destination($Class* clazz) {
-	return $of($alloc(Destination));
-}
 
 int32_t Destination::hashCode() {
 	 return this->$URISyntax::hashCode();
@@ -81,7 +50,32 @@ Destination::Destination() {
 }
 
 $Class* Destination::load$($String* name, bool initialize) {
-	$loadClass(Destination, name, initialize, &_Destination_ClassInfo_, allocate$Destination);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Destination, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "(Ljava/net/URI;)V", nullptr, $PUBLIC, $method(Destination, init$, void, $URI*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Destination, equals, bool, Object$*)},
+		{"getCategory", "()Ljava/lang/Class;", "()Ljava/lang/Class<+Ljavax/print/attribute/Attribute;>;", $PUBLIC | $FINAL, $virtualMethod(Destination, getCategory, $Class*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Destination, getName, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.print.attribute.standard.Destination",
+		"javax.print.attribute.URISyntax",
+		"javax.print.attribute.PrintJobAttribute,javax.print.attribute.PrintRequestAttribute",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Destination, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Destination));
+	});
 	return class$;
 }
 

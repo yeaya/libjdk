@@ -1,13 +1,10 @@
 #include <java.logging.h>
-
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>
 #include <java/lang/Library.h>
 #include <java/lang/ModuleInfo.h>
 #include <java/lang/ResourceEntry.h>
 #include <jcpp.h>
-#include <module-info>
-
 #include <java/util/logging/ConsoleHandler.h>
 #include <java/util/logging/ErrorManager.h>
 #include <java/util/logging/FileHandler.h>
@@ -213,6 +210,7 @@ $bytes* java$logging$GetResource($String* name) {
 
 void java$logging::init() {
 	::java$base::init();
+	#include <module-info.h>
 	::java::lang::Library lib = {
 		"java.logging", "17.35", "",
 		&_java$logging_ModuleInfo_,

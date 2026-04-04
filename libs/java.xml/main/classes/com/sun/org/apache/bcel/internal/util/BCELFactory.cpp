@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/util/BCELFactory.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AccessFlags.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Utility.h>
@@ -77,7 +76,6 @@ using $INSTANCEOF = ::com::sun::org::apache::bcel::internal::generic::INSTANCEOF
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionConst = ::com::sun::org::apache::bcel::internal::generic::InstructionConst;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
-using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $LDC = ::com::sun::org::apache::bcel::internal::generic::LDC;
 using $LDC2_W = ::com::sun::org::apache::bcel::internal::generic::LDC2_W;
@@ -87,11 +85,9 @@ using $MethodGen = ::com::sun::org::apache::bcel::internal::generic::MethodGen;
 using $NEWARRAY = ::com::sun::org::apache::bcel::internal::generic::NEWARRAY;
 using $ObjectType = ::com::sun::org::apache::bcel::internal::generic::ObjectType;
 using $RET = ::com::sun::org::apache::bcel::internal::generic::RET;
-using $ReferenceType = ::com::sun::org::apache::bcel::internal::generic::ReferenceType;
 using $ReturnInstruction = ::com::sun::org::apache::bcel::internal::generic::ReturnInstruction;
 using $Select = ::com::sun::org::apache::bcel::internal::generic::Select;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
-using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $BCELifier = ::com::sun::org::apache::bcel::internal::util::BCELifier;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Character = ::java::lang::Character;
@@ -105,9 +101,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $Map = ::java::util::Map;
 
 namespace com {
 	namespace sun {
@@ -116,52 +110,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace util {
-
-$FieldInfo _BCELFactory_FieldInfo_[] = {
-	{"CONSTANT_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BCELFactory, CONSTANT_PREFIX)},
-	{"_mg", "Lcom/sun/org/apache/bcel/internal/generic/MethodGen;", nullptr, $PRIVATE | $FINAL, $field(BCELFactory, _mg)},
-	{"_out", "Ljava/io/PrintWriter;", nullptr, $PRIVATE | $FINAL, $field(BCELFactory, _out)},
-	{"_cp", "Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PRIVATE | $FINAL, $field(BCELFactory, _cp)},
-	{"branch_map", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;>;", $PRIVATE | $FINAL, $field(BCELFactory, branch_map)},
-	{"branches", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;>;", $PRIVATE | $FINAL, $field(BCELFactory, branches)},
-	{}
-};
-
-$MethodInfo _BCELFactory_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;Ljava/io/PrintWriter;)V", nullptr, 0, $method(BCELFactory, init$, void, $MethodGen*, $PrintWriter*)},
-	{"createConstant", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(BCELFactory, createConstant, void, Object$*)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, start, void)},
-	{"updateBranchTargets", "()V", nullptr, $PRIVATE, $method(BCELFactory, updateBranchTargets, void)},
-	{"updateExceptionHandlers", "()V", nullptr, $PRIVATE, $method(BCELFactory, updateExceptionHandlers, void)},
-	{"visitAllocationInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/AllocationInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitAllocationInstruction, void, $AllocationInstruction*)},
-	{"visitArrayInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitArrayInstruction, void, $ArrayInstruction*)},
-	{"visitBranchInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitBranchInstruction, void, $BranchInstruction*)},
-	{"visitCHECKCAST", "(Lcom/sun/org/apache/bcel/internal/generic/CHECKCAST;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitCHECKCAST, void, $CHECKCAST*)},
-	{"visitConstantPushInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPushInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitConstantPushInstruction, void, $ConstantPushInstruction*)},
-	{"visitFieldInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/FieldInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitFieldInstruction, void, $FieldInstruction*)},
-	{"visitINSTANCEOF", "(Lcom/sun/org/apache/bcel/internal/generic/INSTANCEOF;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitINSTANCEOF, void, $INSTANCEOF*)},
-	{"visitInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Z", nullptr, $PRIVATE, $method(BCELFactory, visitInstruction, bool, $Instruction*)},
-	{"visitInvokeInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/InvokeInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitInvokeInstruction, void, $InvokeInstruction*)},
-	{"visitLDC", "(Lcom/sun/org/apache/bcel/internal/generic/LDC;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitLDC, void, $LDC*)},
-	{"visitLDC2_W", "(Lcom/sun/org/apache/bcel/internal/generic/LDC2_W;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitLDC2_W, void, $LDC2_W*)},
-	{"visitLocalVariableInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitLocalVariableInstruction, void, $LocalVariableInstruction*)},
-	{"visitRET", "(Lcom/sun/org/apache/bcel/internal/generic/RET;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitRET, void, $RET*)},
-	{"visitReturnInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitReturnInstruction, void, $ReturnInstruction*)},
-	{}
-};
-
-$ClassInfo _BCELFactory_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.util.BCELFactory",
-	"com.sun.org.apache.bcel.internal.generic.EmptyVisitor",
-	nullptr,
-	_BCELFactory_FieldInfo_,
-	_BCELFactory_MethodInfo_
-};
-
-$Object* allocate$BCELFactory($Class* clazz) {
-	return $of($alloc(BCELFactory));
-}
 
 $String* BCELFactory::CONSTANT_PREFIX = nullptr;
 
@@ -175,15 +123,15 @@ void BCELFactory::init$($MethodGen* mg, $PrintWriter* out) {
 }
 
 void BCELFactory::start() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = !$nc(this->_mg)->isAbstract();
-	if (var$0 && !$nc(this->_mg)->isNative()) {
+	if (var$0 && !this->_mg->isNative()) {
 		{
-			$var($InstructionHandle, ih, $nc($($nc(this->_mg)->getInstructionList()))->getStart());
-			for (; ih != nullptr; $assign(ih, $nc(ih)->getNext())) {
+			$var($InstructionHandle, ih, $$nc(this->_mg->getInstructionList())->getStart());
+			for (; ih != nullptr; $assign(ih, ih->getNext())) {
 				$var($Instruction, i, ih->getInstruction());
 				if ($instanceOf($BranchInstruction, i)) {
-					$nc(this->branch_map)->put(i, ih);
+					this->branch_map->put(i, ih);
 				}
 				if (ih->hasTargeters()) {
 					if ($instanceOf($BranchInstruction, i)) {
@@ -205,34 +153,44 @@ void BCELFactory::start() {
 }
 
 bool BCELFactory::visitInstruction($Instruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t opcode = $nc(i)->getOpcode();
 	if (($InstructionConst::getInstruction(opcode) != nullptr) && !($instanceOf($ConstantPushInstruction, i)) && !($instanceOf($ReturnInstruction, i))) {
 		$init($Locale);
-		$nc(this->_out)->println($$str({"il.append(InstructionConst."_s, $($nc($(i->getName()))->toUpperCase($Locale::ENGLISH)), ");"_s}));
+		$nc(this->_out)->println($$str({"il.append(InstructionConst."_s, $($$nc(i->getName())->toUpperCase($Locale::ENGLISH)), ");"_s}));
 		return true;
 	}
 	return false;
 }
 
 void BCELFactory::visitLocalVariableInstruction($LocalVariableInstruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t opcode = $nc(i)->getOpcode();
 	$var($Type, type, i->getType(this->_cp));
 	if (opcode == $Const::IINC) {
-		$var($String, var$1, $$str({"il.append(new IINC("_s, $$str(i->getIndex()), ", "_s}));
-		$var($String, var$0, $$concat(var$1, $$str($nc(($cast($IINC, i)))->getIncrement())));
-		$nc(this->_out)->println($$concat(var$0, "));"_s));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("il.append(new IINC("_s);
+		var$0->append(i->getIndex());
+		var$0->append(", "_s);
+		var$0->append($cast($IINC, i)->getIncrement());
+		var$0->append("));"_s);
+		$nc(this->_out)->println($$str(var$0));
 	} else {
 		$var($String, kind, (opcode < $Const::ISTORE) ? "Load"_s : "Store"_s);
-		$var($String, var$3, $$str({"il.append(_factory.create"_s, kind, "("_s, $($BCELifier::printType(type)), ", "_s}));
-		$var($String, var$2, $$concat(var$3, $$str(i->getIndex())));
-		$nc(this->_out)->println($$concat(var$2, "));"_s));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append("il.append(_factory.create"_s);
+		var$1->append(kind);
+		var$1->append("("_s);
+		var$1->append($($BCELifier::printType(type)));
+		var$1->append(", "_s);
+		var$1->append(i->getIndex());
+		var$1->append("));"_s);
+		$nc(this->_out)->println($$str(var$1));
 	}
 }
 
 void BCELFactory::visitArrayInstruction($ArrayInstruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t opcode = $nc(i)->getOpcode();
 	$var($Type, type, i->getType(this->_cp));
 	$var($String, kind, (opcode < $Const::IASTORE) ? "Load"_s : "Store"_s);
@@ -240,77 +198,85 @@ void BCELFactory::visitArrayInstruction($ArrayInstruction* i) {
 }
 
 void BCELFactory::visitFieldInstruction($FieldInstruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t opcode = $nc(i)->getOpcode();
-	$var($String, class_name, $nc($(i->getReferenceType(this->_cp)))->getSignature());
+	$var($String, class_name, $$nc(i->getReferenceType(this->_cp))->getSignature());
 	$var($String, field_name, i->getFieldName(this->_cp));
 	$var($Type, type, i->getFieldType(this->_cp));
-	$var($String, var$1, $$str({"il.append(_factory.createFieldAccess(\""_s, class_name, "\", \""_s, field_name, "\", "_s, $($BCELifier::printType(type)), ", "_s, BCELFactory::CONSTANT_PREFIX}));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("il.append(_factory.createFieldAccess(\""_s);
+	var$0->append(class_name);
+	var$0->append("\", \""_s);
+	var$0->append(field_name);
+	var$0->append("\", "_s);
+	var$0->append($($BCELifier::printType(type)));
+	var$0->append(", "_s);
+	var$0->append(BCELFactory::CONSTANT_PREFIX);
 	$init($Locale);
-	$var($String, var$0, $$concat(var$1, $($nc($($Const::getOpcodeName(opcode)))->toUpperCase($Locale::ENGLISH))));
-	$nc(this->_out)->println($$concat(var$0, "));"_s));
+	var$0->append($($$nc($Const::getOpcodeName(opcode))->toUpperCase($Locale::ENGLISH)));
+	var$0->append("));"_s);
+	$nc(this->_out)->println($$str(var$0));
 }
 
 void BCELFactory::visitInvokeInstruction($InvokeInstruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t opcode = $nc(i)->getOpcode();
-	$var($String, class_name, $nc($(i->getReferenceType(this->_cp)))->getSignature());
+	$var($String, class_name, $$nc(i->getReferenceType(this->_cp))->getSignature());
 	$var($String, method_name, i->getMethodName(this->_cp));
 	$var($Type, type, i->getReturnType(this->_cp));
 	$var($TypeArray, arg_types, i->getArgumentTypes(this->_cp));
-	$var($String, var$4, $$str({"il.append(_factory.createInvoke(\""_s, class_name, "\", \""_s, method_name, "\", "_s, $($BCELifier::printType(type)), ", "_s}));
-	$var($String, var$3, $$concat(var$4, $($BCELifier::printArgumentTypes(arg_types))));
-	$var($String, var$2, $$concat(var$3, ", "_s));
-	$var($String, var$1, $$concat(var$2, BCELFactory::CONSTANT_PREFIX));
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("il.append(_factory.createInvoke(\""_s);
+	var$0->append(class_name);
+	var$0->append("\", \""_s);
+	var$0->append(method_name);
+	var$0->append("\", "_s);
+	var$0->append($($BCELifier::printType(type)));
+	var$0->append(", "_s);
+	var$0->append($($BCELifier::printArgumentTypes(arg_types)));
+	var$0->append(", "_s);
+	var$0->append(BCELFactory::CONSTANT_PREFIX);
 	$init($Locale);
-	$var($String, var$0, $$concat(var$1, $($nc($($Const::getOpcodeName(opcode)))->toUpperCase($Locale::ENGLISH))));
-	$nc(this->_out)->println($$concat(var$0, "));"_s));
+	var$0->append($($$nc($Const::getOpcodeName(opcode))->toUpperCase($Locale::ENGLISH)));
+	var$0->append("));"_s);
+	$nc(this->_out)->println($$str(var$0));
 }
 
 void BCELFactory::visitAllocationInstruction($AllocationInstruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, type, nullptr);
 	if ($instanceOf($CPInstruction, i)) {
-		$assign(type, $nc(($cast($CPInstruction, i)))->getType(this->_cp));
+		$assign(type, $cast($CPInstruction, i)->getType(this->_cp));
 	} else {
-		$assign(type, $nc(($cast($NEWARRAY, i)))->getType());
+		$assign(type, $nc($cast($NEWARRAY, i))->getType());
 	}
-	int16_t opcode = $nc(($cast($Instruction, i)))->getOpcode();
+	int16_t opcode = $nc($cast($Instruction, i))->getOpcode();
 	int32_t dim = 1;
 	switch (opcode) {
 	case $Const::NEW:
-		{
-			$nc(this->_out)->println($$str({"il.append(_factory.createNew(\""_s, $($nc(($cast($ObjectType, type)))->getClassName()), "\"));"_s}));
-			break;
-		}
+		$nc(this->_out)->println($$str({"il.append(_factory.createNew(\""_s, $($nc($cast($ObjectType, type))->getClassName()), "\"));"_s}));
+		break;
 	case $Const::MULTIANEWARRAY:
-		{
-			dim = $nc(($cast($MULTIANEWARRAY, i)))->getDimensions();
-		}
+		dim = $cast($MULTIANEWARRAY, i)->getDimensions();
 	case $Const::ANEWARRAY:
-		{}
 	case $Const::NEWARRAY:
-		{
-			if ($instanceOf($ArrayType, type)) {
-				$assign(type, $nc(($cast($ArrayType, type)))->getBasicType());
-			}
-			$nc(this->_out)->println($$str({"il.append(_factory.createNewArray("_s, $($BCELifier::printType(type)), ", (short) "_s, $$str(dim), "));"_s}));
-			break;
+		if ($instanceOf($ArrayType, type)) {
+			$assign(type, $cast($ArrayType, type)->getBasicType());
 		}
+		$nc(this->_out)->println($$str({"il.append(_factory.createNewArray("_s, $($BCELifier::printType(type)), ", (short) "_s, $$str(dim), "));"_s}));
+		break;
 	default:
-		{
-			$throwNew($IllegalArgumentException, $$str({"Unhandled opcode: "_s, $$str(opcode)}));
-		}
+		$throwNew($IllegalArgumentException, $$str({"Unhandled opcode: "_s, $$str(opcode)}));
 	}
 }
 
 void BCELFactory::createConstant(Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, embed, $nc($of(value))->toString());
 	if ($instanceOf($String, value)) {
 		$assign(embed, $str({$$str(u'\"'), $($Utility::convertString(embed)), $$str(u'\"')}));
 	} else if ($instanceOf($Character, value)) {
-		$assign(embed, $str({"(char)0x"_s, $($Integer::toHexString($nc(($cast($Character, value)))->charValue()))}));
+		$assign(embed, $str({"(char)0x"_s, $($Integer::toHexString($cast($Character, value)->charValue()))}));
 	} else if ($instanceOf($Float, value)) {
 		$plusAssign(embed, "f"_s);
 	} else if ($instanceOf($Long, value)) {
@@ -335,31 +301,31 @@ void BCELFactory::visitConstantPushInstruction($ConstantPushInstruction* i) {
 }
 
 void BCELFactory::visitINSTANCEOF($INSTANCEOF* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, type, $nc(i)->getType(this->_cp));
 	$nc(this->_out)->println($$str({"il.append(new INSTANCEOF(_cp.addClass("_s, $($BCELifier::printType(type)), ")));"_s}));
 }
 
 void BCELFactory::visitCHECKCAST($CHECKCAST* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, type, $nc(i)->getType(this->_cp));
 	$nc(this->_out)->println($$str({"il.append(_factory.createCheckCast("_s, $($BCELifier::printType(type)), "));"_s}));
 }
 
 void BCELFactory::visitReturnInstruction($ReturnInstruction* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Type, type, $nc(i)->getType(this->_cp));
 	$nc(this->_out)->println($$str({"il.append(_factory.createReturn("_s, $($BCELifier::printType(type)), "));"_s}));
 }
 
 void BCELFactory::visitBranchInstruction($BranchInstruction* bi) {
-	$useLocalCurrentObjectStackCache();
-	$var($BranchHandle, bh, $cast($BranchHandle, $nc(this->branch_map)->get(bi)));
+	$useLocalObjectStack();
+	$var($BranchHandle, bh, $cast($BranchHandle, this->branch_map->get(bi)));
 	int32_t pos = $nc(bh)->getPosition();
 	$var($String, name, $str({$($nc(bi)->getName()), "_"_s, $$str(pos)}));
 	if ($instanceOf($Select, bi)) {
 		$var($Select, s, $cast($Select, bi));
-		$nc(this->branches)->add(bi);
+		this->branches->add(bi);
 		$var($StringBuilder, args, $new($StringBuilder, "new int[] { "_s));
 		$var($ints, matchs, s->getMatchs());
 		for (int32_t i = 0; i < $nc(matchs)->length; ++i) {
@@ -370,25 +336,25 @@ void BCELFactory::visitBranchInstruction($BranchInstruction* bi) {
 		}
 		args->append(" }"_s);
 		$init($Locale);
-		$nc(this->_out)->print($$str({"Select "_s, name, " = new "_s, $($nc($(bi->getName()))->toUpperCase($Locale::ENGLISH)), "("_s, args, ", new InstructionHandle[] { "_s}));
-		for (int32_t i = 0; i < $nc(matchs)->length; ++i) {
-			$nc(this->_out)->print("null"_s);
+		$nc(this->_out)->print($$str({"Select "_s, name, " = new "_s, $($$nc(bi->getName())->toUpperCase($Locale::ENGLISH)), "("_s, args, ", new InstructionHandle[] { "_s}));
+		for (int32_t i = 0; i < matchs->length; ++i) {
+			this->_out->print("null"_s);
 			if (i < matchs->length - 1) {
-				$nc(this->_out)->print(", "_s);
+				this->_out->print(", "_s);
 			}
 		}
-		$nc(this->_out)->println(" }, null);"_s);
+		this->_out->println(" }, null);"_s);
 	} else {
-		int32_t t_pos = $nc($(bh->getTarget()))->getPosition();
+		int32_t t_pos = $$nc(bh->getTarget())->getPosition();
 		$var($String, target, nullptr);
 		if (pos > t_pos) {
 			$assign(target, $str({"ih_"_s, $$str(t_pos)}));
 		} else {
-			$nc(this->branches)->add(bi);
+			this->branches->add(bi);
 			$assign(target, "null"_s);
 		}
 		$init($Locale);
-		$nc(this->_out)->println($$str({"    BranchInstruction "_s, name, " = _factory.createBranchInstruction("_s, BCELFactory::CONSTANT_PREFIX, $($nc($(bi->getName()))->toUpperCase($Locale::ENGLISH)), ", "_s, target, ");"_s}));
+		$nc(this->_out)->println($$str({"    BranchInstruction "_s, name, " = _factory.createBranchInstruction("_s, BCELFactory::CONSTANT_PREFIX, $($$nc(bi->getName())->toUpperCase($Locale::ENGLISH)), ", "_s, target, ");"_s}));
 	}
 	if (bh->hasTargeters()) {
 		$nc(this->_out)->println($$str({"    ih_"_s, $$str(pos), " = il.append("_s, name, ");"_s}));
@@ -398,28 +364,26 @@ void BCELFactory::visitBranchInstruction($BranchInstruction* bi) {
 }
 
 void BCELFactory::visitRET($RET* i) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(this->_out)->println($$str({"il.append(new RET("_s, $$str($nc(i)->getIndex()), ")));"_s}));
 }
 
 void BCELFactory::updateBranchTargets() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Iterator, i$, $nc(this->branches)->iterator());
-		for (; $nc(i$)->hasNext();) {
-			$var($BranchInstruction, bi, $cast($BranchInstruction, i$->next()));
-			{
-				$var($BranchHandle, bh, $cast($BranchHandle, $nc(this->branch_map)->get(bi)));
-				int32_t pos = $nc(bh)->getPosition();
-				$var($String, name, $str({$($nc(bi)->getName()), "_"_s, $$str(pos)}));
-				int32_t t_pos = $nc($(bh->getTarget()))->getPosition();
-				$nc(this->_out)->println($$str({"    "_s, name, ".setTarget(ih_"_s, $$str(t_pos), ");"_s}));
-				if ($instanceOf($Select, bi)) {
-					$var($InstructionHandleArray, ihs, $nc(($cast($Select, bi)))->getTargets());
-					for (int32_t j = 0; j < $nc(ihs)->length; ++j) {
-						t_pos = $nc(ihs->get(j))->getPosition();
-						$nc(this->_out)->println($$str({"    "_s, name, ".setTarget("_s, $$str(j), ", ih_"_s, $$str(t_pos), ");"_s}));
-					}
+	$useLocalObjectStack();
+	$var($Iterator, i$, this->branches->iterator());
+	for (; $nc(i$)->hasNext();) {
+		$var($BranchInstruction, bi, $cast($BranchInstruction, i$->next()));
+		{
+			$var($BranchHandle, bh, $cast($BranchHandle, this->branch_map->get(bi)));
+			int32_t pos = $nc(bh)->getPosition();
+			$var($String, name, $str({$($nc(bi)->getName()), "_"_s, $$str(pos)}));
+			int32_t t_pos = $$nc(bh->getTarget())->getPosition();
+			$nc(this->_out)->println($$str({"    "_s, name, ".setTarget(ih_"_s, $$str(t_pos), ");"_s}));
+			if ($instanceOf($Select, bi)) {
+				$var($InstructionHandleArray, ihs, $cast($Select, bi)->getTargets());
+				for (int32_t j = 0; j < $nc(ihs)->length; ++j) {
+					t_pos = $nc(ihs->get(j))->getPosition();
+					this->_out->println($$str({"    "_s, name, ".setTarget("_s, $$str(j), ", ih_"_s, $$str(t_pos), ");"_s}));
 				}
 			}
 		}
@@ -427,29 +391,31 @@ void BCELFactory::updateBranchTargets() {
 }
 
 void BCELFactory::updateExceptionHandlers() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($CodeExceptionGenArray, handlers, $nc(this->_mg)->getExceptionHandlers());
 	{
 		$var($CodeExceptionGenArray, arr$, handlers);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($CodeExceptionGen, h, arr$->get(i$));
 			{
-				$var($String, type, ($nc(h)->getCatchType() == nullptr) ? "null"_s : $BCELifier::printType($(static_cast<$Type*>($nc(h)->getCatchType()))));
-				$var($String, var$5, $$str({"    method.addExceptionHandler(ih_"_s, $$str($nc($($nc(h)->getStartPC()))->getPosition()), ", ih_"_s}));
-				$var($String, var$4, $$concat(var$5, $$str($nc($(h->getEndPC()))->getPosition())));
-				$var($String, var$3, $$concat(var$4, ", ih_"_s));
-				$var($String, var$2, $$concat(var$3, $$str($nc($(h->getHandlerPC()))->getPosition())));
-				$var($String, var$1, $$concat(var$2, ", "_s));
-				$var($String, var$0, $$concat(var$1, type));
-				$nc(this->_out)->println($$concat(var$0, ");"_s));
+				$var($String, type, ($nc(h)->getCatchType() == nullptr) ? "null"_s : $BCELifier::printType($(h->getCatchType())));
+				$var($StringBuilder, var$0, $new($StringBuilder));
+				var$0->append("    method.addExceptionHandler(ih_"_s);
+				var$0->append($$nc(h->getStartPC())->getPosition());
+				var$0->append(", ih_"_s);
+				var$0->append($$nc(h->getEndPC())->getPosition());
+				var$0->append(", ih_"_s);
+				var$0->append($$nc(h->getHandlerPC())->getPosition());
+				var$0->append(", "_s);
+				var$0->append(type);
+				var$0->append(");"_s);
+				$nc(this->_out)->println($$str(var$0));
 			}
 		}
 	}
 }
 
-void clinit$BCELFactory($Class* class$) {
+void BCELFactory::clinit$($Class* clazz) {
 	$load($Const);
 	$assignStatic(BCELFactory::CONSTANT_PREFIX, $str({$($Const::class$->getSimpleName()), "."_s}));
 }
@@ -458,7 +424,48 @@ BCELFactory::BCELFactory() {
 }
 
 $Class* BCELFactory::load$($String* name, bool initialize) {
-	$loadClass(BCELFactory, name, initialize, &_BCELFactory_ClassInfo_, clinit$BCELFactory, allocate$BCELFactory);
+	$FieldInfo fieldInfos$$[] = {
+		{"CONSTANT_PREFIX", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BCELFactory, CONSTANT_PREFIX)},
+		{"_mg", "Lcom/sun/org/apache/bcel/internal/generic/MethodGen;", nullptr, $PRIVATE | $FINAL, $field(BCELFactory, _mg)},
+		{"_out", "Ljava/io/PrintWriter;", nullptr, $PRIVATE | $FINAL, $field(BCELFactory, _out)},
+		{"_cp", "Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;", nullptr, $PRIVATE | $FINAL, $field(BCELFactory, _cp)},
+		{"branch_map", "Ljava/util/Map;", "Ljava/util/Map<Lcom/sun/org/apache/bcel/internal/generic/Instruction;Lcom/sun/org/apache/bcel/internal/generic/InstructionHandle;>;", $PRIVATE | $FINAL, $field(BCELFactory, branch_map)},
+		{"branches", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;>;", $PRIVATE | $FINAL, $field(BCELFactory, branches)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/MethodGen;Ljava/io/PrintWriter;)V", nullptr, 0, $method(BCELFactory, init$, void, $MethodGen*, $PrintWriter*)},
+		{"createConstant", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(BCELFactory, createConstant, void, Object$*)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, start, void)},
+		{"updateBranchTargets", "()V", nullptr, $PRIVATE, $method(BCELFactory, updateBranchTargets, void)},
+		{"updateExceptionHandlers", "()V", nullptr, $PRIVATE, $method(BCELFactory, updateExceptionHandlers, void)},
+		{"visitAllocationInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/AllocationInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitAllocationInstruction, void, $AllocationInstruction*)},
+		{"visitArrayInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/ArrayInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitArrayInstruction, void, $ArrayInstruction*)},
+		{"visitBranchInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitBranchInstruction, void, $BranchInstruction*)},
+		{"visitCHECKCAST", "(Lcom/sun/org/apache/bcel/internal/generic/CHECKCAST;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitCHECKCAST, void, $CHECKCAST*)},
+		{"visitConstantPushInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPushInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitConstantPushInstruction, void, $ConstantPushInstruction*)},
+		{"visitFieldInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/FieldInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitFieldInstruction, void, $FieldInstruction*)},
+		{"visitINSTANCEOF", "(Lcom/sun/org/apache/bcel/internal/generic/INSTANCEOF;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitINSTANCEOF, void, $INSTANCEOF*)},
+		{"visitInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/Instruction;)Z", nullptr, $PRIVATE, $method(BCELFactory, visitInstruction, bool, $Instruction*)},
+		{"visitInvokeInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/InvokeInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitInvokeInstruction, void, $InvokeInstruction*)},
+		{"visitLDC", "(Lcom/sun/org/apache/bcel/internal/generic/LDC;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitLDC, void, $LDC*)},
+		{"visitLDC2_W", "(Lcom/sun/org/apache/bcel/internal/generic/LDC2_W;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitLDC2_W, void, $LDC2_W*)},
+		{"visitLocalVariableInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/LocalVariableInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitLocalVariableInstruction, void, $LocalVariableInstruction*)},
+		{"visitRET", "(Lcom/sun/org/apache/bcel/internal/generic/RET;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitRET, void, $RET*)},
+		{"visitReturnInstruction", "(Lcom/sun/org/apache/bcel/internal/generic/ReturnInstruction;)V", nullptr, $PUBLIC, $virtualMethod(BCELFactory, visitReturnInstruction, void, $ReturnInstruction*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.util.BCELFactory",
+		"com.sun.org.apache.bcel.internal.generic.EmptyVisitor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(BCELFactory, name, initialize, &classInfo$$, BCELFactory::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BCELFactory);
+	});
 	return class$;
 }
 

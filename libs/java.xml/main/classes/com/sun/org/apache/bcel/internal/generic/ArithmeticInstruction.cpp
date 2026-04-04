@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
@@ -65,33 +64,6 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _ArithmeticInstruction_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(ArithmeticInstruction, init$, void)},
-	{"<init>", "(S)V", nullptr, $PROTECTED, $method(ArithmeticInstruction, init$, void, int16_t)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ArithmeticInstruction, getType, $Type*, $ConstantPoolGen*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ArithmeticInstruction_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.StackProducer,com.sun.org.apache.bcel.internal.generic.StackConsumer",
-	nullptr,
-	_ArithmeticInstruction_MethodInfo_
-};
-
-$Object* allocate$ArithmeticInstruction($Class* clazz) {
-	return $of($alloc(ArithmeticInstruction));
-}
-
 $String* ArithmeticInstruction::toString() {
 	 return this->$Instruction::toString();
 }
@@ -129,97 +101,55 @@ void ArithmeticInstruction::init$(int16_t opcode) {
 }
 
 $Type* ArithmeticInstruction::getType($ConstantPoolGen* cp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int16_t _opcode = $Instruction::getOpcode();
 	switch (_opcode) {
 	case $Const::DADD:
-		{}
 	case $Const::DDIV:
-		{}
 	case $Const::DMUL:
-		{}
 	case $Const::DNEG:
-		{}
 	case $Const::DREM:
-		{}
 	case $Const::DSUB:
-		{
-			$init($Type);
-			return $Type::DOUBLE;
-		}
+		$init($Type);
+		return $Type::DOUBLE;
 	case $Const::FADD:
-		{}
 	case $Const::FDIV:
-		{}
 	case $Const::FMUL:
-		{}
 	case $Const::FNEG:
-		{}
 	case $Const::FREM:
-		{}
 	case $Const::FSUB:
-		{
-			$init($Type);
-			return $Type::FLOAT;
-		}
+		$init($Type);
+		return $Type::FLOAT;
 	case $Const::IADD:
-		{}
 	case $Const::IAND:
-		{}
 	case $Const::IDIV:
-		{}
 	case $Const::IMUL:
-		{}
 	case $Const::INEG:
-		{}
 	case $Const::IOR:
-		{}
 	case $Const::IREM:
-		{}
 	case $Const::ISHL:
-		{}
 	case $Const::ISHR:
-		{}
 	case $Const::ISUB:
-		{}
 	case $Const::IUSHR:
-		{}
 	case $Const::IXOR:
-		{
-			$init($Type);
-			return $Type::INT;
-		}
+		$init($Type);
+		return $Type::INT;
 	case $Const::LADD:
-		{}
 	case $Const::LAND:
-		{}
 	case $Const::LDIV:
-		{}
 	case $Const::LMUL:
-		{}
 	case $Const::LNEG:
-		{}
 	case $Const::LOR:
-		{}
 	case $Const::LREM:
-		{}
 	case $Const::LSHL:
-		{}
 	case $Const::LSHR:
-		{}
 	case $Const::LSUB:
-		{}
 	case $Const::LUSHR:
-		{}
 	case $Const::LXOR:
-		{
-			$init($Type);
-			return $Type::LONG;
-		}
+		$init($Type);
+		return $Type::LONG;
 	default:
-		{
-			$throwNew($ClassGenException, $$str({"Unknown type "_s, $$str(_opcode)}));
-		}
+		$throwNew($ClassGenException, $$str({"Unknown type "_s, $$str(_opcode)}));
 	}
 }
 
@@ -227,7 +157,30 @@ ArithmeticInstruction::ArithmeticInstruction() {
 }
 
 $Class* ArithmeticInstruction::load$($String* name, bool initialize) {
-	$loadClass(ArithmeticInstruction, name, initialize, &_ArithmeticInstruction_ClassInfo_, allocate$ArithmeticInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*consumeStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(ArithmeticInstruction, init$, void)},
+		{"<init>", "(S)V", nullptr, $PROTECTED, $method(ArithmeticInstruction, init$, void, int16_t)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(ArithmeticInstruction, getType, $Type*, $ConstantPoolGen*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.ArithmeticInstruction",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.TypedInstruction,com.sun.org.apache.bcel.internal.generic.StackProducer,com.sun.org.apache.bcel.internal.generic.StackConsumer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ArithmeticInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ArithmeticInstruction));
+	});
 	return class$;
 }
 

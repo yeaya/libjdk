@@ -100,7 +100,7 @@ public:
 	virtual void setVisible(bool b) override;
 	virtual $String* toString() override;
 	::java::awt::MenuComponent* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xC4BF91FA99520A56;
+	static const int64_t serialVersionUID = (int64_t)0xc4bf91fa99520a56;
 };
 
 	} // awt

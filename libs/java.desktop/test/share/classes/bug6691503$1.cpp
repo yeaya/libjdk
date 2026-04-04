@@ -1,5 +1,4 @@
 #include <bug6691503$1.h>
-
 #include <bug6691503.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JFrame.h>
@@ -17,65 +16,58 @@ using $JFrame = ::javax::swing::JFrame;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 
-$FieldInfo _bug6691503$1_FieldInfo_[] = {
-	{"this$0", "Lbug6691503;", nullptr, $FINAL | $SYNTHETIC, $field(bug6691503$1, this$0)},
-	{}
-};
-
-$MethodInfo _bug6691503$1_MethodInfo_[] = {
-	{"<init>", "(Lbug6691503;)V", nullptr, 0, $method(bug6691503$1, init$, void, $bug6691503*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6691503$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6691503$1_EnclosingMethodInfo_ = {
-	"bug6691503",
-	"setupUI",
-	"()V"
-};
-
-$InnerClassInfo _bug6691503$1_InnerClassesInfo_[] = {
-	{"bug6691503$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6691503$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6691503$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6691503$1_FieldInfo_,
-	_bug6691503$1_MethodInfo_,
-	nullptr,
-	&_bug6691503$1_EnclosingMethodInfo_,
-	_bug6691503$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6691503"
-};
-
-$Object* allocate$bug6691503$1($Class* clazz) {
-	return $of($alloc(bug6691503$1));
-}
-
 void bug6691503$1::init$($bug6691503* this$0) {
 	$set(this, this$0, this$0);
 }
 
 void bug6691503$1::run() {
 	$set(this->this$0, frame, $new($JFrame));
-	$nc(this->this$0->frame)->setVisible(true);
+	this->this$0->frame->setVisible(true);
 	$set(this->this$0, popupMenu, $new($JPopupMenu));
 	$var($JMenuItem, click, $new($JMenuItem, "Click"_s));
-	$nc(this->this$0->popupMenu)->add(click);
+	this->this$0->popupMenu->add(click);
 }
 
 bug6691503$1::bug6691503$1() {
 }
 
 $Class* bug6691503$1::load$($String* name, bool initialize) {
-	$loadClass(bug6691503$1, name, initialize, &_bug6691503$1_ClassInfo_, allocate$bug6691503$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lbug6691503;", nullptr, $FINAL | $SYNTHETIC, $field(bug6691503$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6691503;)V", nullptr, 0, $method(bug6691503$1, init$, void, $bug6691503*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6691503$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6691503",
+		"setupUI",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6691503$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6691503$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6691503"
+	};
+	$loadClass(bug6691503$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6691503$1);
+	});
 	return class$;
 }
 

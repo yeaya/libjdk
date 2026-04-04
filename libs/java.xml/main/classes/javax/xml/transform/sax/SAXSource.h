@@ -26,6 +26,7 @@ class $export SAXSource : public ::javax::xml::transform::Source {
 	$class(SAXSource, 0, ::javax::xml::transform::Source)
 public:
 	SAXSource();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::org::xml::sax::XMLReader* reader, ::org::xml::sax::InputSource* inputSource);
 	void init$(::org::xml::sax::InputSource* inputSource);

@@ -119,6 +119,7 @@ class $export TransPatterns : public ::com::sun::tools::javac::tree::TreeTransla
 	$class(TransPatterns, 0, ::com::sun::tools::javac::tree::TreeTranslator)
 public:
 	TransPatterns();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	virtual ::com::sun::tools::javac::tree::JCTree$JCExpression* convert(::com::sun::tools::javac::tree::JCTree$JCExpression* expr, ::com::sun::tools::javac::code::Type* target);
 	void handleSwitch(::com::sun::tools::javac::tree::JCTree* tree, ::com::sun::tools::javac::tree::JCTree$JCExpression* selector, ::com::sun::tools::javac::util::List* cases, bool hasTotalPattern, bool patternSwitch);

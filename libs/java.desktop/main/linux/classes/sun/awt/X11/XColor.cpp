@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XColor.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,62 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XColor_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XColor, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XColor, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XColor, pData)},
-	{}
-};
-
-$MethodInfo _XColor_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XColor, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XColor, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColor, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XColor, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XColor, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XColor, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XColor, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XColor, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XColor, getSize, int32_t)},
-	{"get_blue", "()S", nullptr, $PUBLIC, $virtualMethod(XColor, get_blue, int16_t)},
-	{"get_flags", "()B", nullptr, $PUBLIC, $virtualMethod(XColor, get_flags, int8_t)},
-	{"get_green", "()S", nullptr, $PUBLIC, $virtualMethod(XColor, get_green, int16_t)},
-	{"get_pad", "()B", nullptr, $PUBLIC, $virtualMethod(XColor, get_pad, int8_t)},
-	{"get_pixel", "()J", nullptr, $PUBLIC, $virtualMethod(XColor, get_pixel, int64_t)},
-	{"get_red", "()S", nullptr, $PUBLIC, $virtualMethod(XColor, get_red, int16_t)},
-	{"set_blue", "(S)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_blue, void, int16_t)},
-	{"set_flags", "(B)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_flags, void, int8_t)},
-	{"set_green", "(S)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_green, void, int16_t)},
-	{"set_pad", "(B)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_pad, void, int8_t)},
-	{"set_pixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_pixel, void, int64_t)},
-	{"set_red", "(S)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_red, void, int16_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColor, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColor, zero, void)},
-	{}
-};
-
-$ClassInfo _XColor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XColor",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XColor_FieldInfo_,
-	_XColor_MethodInfo_
-};
-
-$Object* allocate$XColor($Class* clazz) {
-	return $of($alloc(XColor));
-}
 
 int32_t XColor::getSize() {
 	$init(XColor);
@@ -105,7 +55,7 @@ void XColor::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -198,7 +148,7 @@ $String* XColor::getFieldsAsString() {
 }
 
 $Object* XColor::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XColor::zero() {
@@ -213,7 +163,49 @@ XColor::XColor() {
 }
 
 $Class* XColor::load$($String* name, bool initialize) {
-	$loadClass(XColor, name, initialize, &_XColor_ClassInfo_, allocate$XColor);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XColor, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XColor, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XColor, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XColor, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XColor, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColor, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XColor, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XColor, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XColor, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XColor, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XColor, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XColor, getSize, int32_t)},
+		{"get_blue", "()S", nullptr, $PUBLIC, $virtualMethod(XColor, get_blue, int16_t)},
+		{"get_flags", "()B", nullptr, $PUBLIC, $virtualMethod(XColor, get_flags, int8_t)},
+		{"get_green", "()S", nullptr, $PUBLIC, $virtualMethod(XColor, get_green, int16_t)},
+		{"get_pad", "()B", nullptr, $PUBLIC, $virtualMethod(XColor, get_pad, int8_t)},
+		{"get_pixel", "()J", nullptr, $PUBLIC, $virtualMethod(XColor, get_pixel, int64_t)},
+		{"get_red", "()S", nullptr, $PUBLIC, $virtualMethod(XColor, get_red, int16_t)},
+		{"set_blue", "(S)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_blue, void, int16_t)},
+		{"set_flags", "(B)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_flags, void, int8_t)},
+		{"set_green", "(S)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_green, void, int16_t)},
+		{"set_pad", "(B)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_pad, void, int8_t)},
+		{"set_pixel", "(J)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_pixel, void, int64_t)},
+		{"set_red", "(S)V", nullptr, $PUBLIC, $virtualMethod(XColor, set_red, void, int16_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColor, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XColor, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XColor",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XColor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XColor);
+	});
 	return class$;
 }
 

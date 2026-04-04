@@ -1,5 +1,4 @@
 #include <org/jcp/xml/dsig/internal/dom/ApacheTransform.h>
-
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/Transform.h>
@@ -69,7 +68,6 @@ using $Policy = ::org::jcp::xml::dsig::internal::dom::Policy;
 using $Utils = ::org::jcp::xml::dsig::internal::dom::Utils;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace org {
 	namespace jcp {
@@ -77,40 +75,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _ApacheTransform_FieldInfo_[] = {
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ApacheTransform, LOG)},
-	{"transform", "Lcom/sun/org/apache/xml/internal/security/transforms/Transform;", nullptr, $PRIVATE, $field(ApacheTransform, transform$)},
-	{"ownerDoc", "Lorg/w3c/dom/Document;", nullptr, $PROTECTED, $field(ApacheTransform, ownerDoc)},
-	{"transformElem", "Lorg/w3c/dom/Element;", nullptr, $PROTECTED, $field(ApacheTransform, transformElem)},
-	{"params", "Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;", nullptr, $PROTECTED, $field(ApacheTransform, params)},
-	{}
-};
-
-$MethodInfo _ApacheTransform_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ApacheTransform, init$, void)},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheTransform, getParameterSpec, $AlgorithmParameterSpec*)},
-	{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
-	{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheTransform, isFeatureSupported, bool, $String*)},
-	{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
-	{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
-	{"transformIt", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PRIVATE, $method(ApacheTransform, transformIt, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
-	{}
-};
-
-$ClassInfo _ApacheTransform_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.ApacheTransform",
-	"javax.xml.crypto.dsig.TransformService",
-	nullptr,
-	_ApacheTransform_FieldInfo_,
-	_ApacheTransform_MethodInfo_
-};
-
-$Object* allocate$ApacheTransform($Class* clazz) {
-	return $of($alloc(ApacheTransform));
-}
 
 $Logger* ApacheTransform::LOG = nullptr;
 
@@ -132,7 +96,7 @@ void ApacheTransform::init($XMLStructure* parent, $XMLCryptoContext* context) {
 	if (!($instanceOf($DOMStructure, parent))) {
 		$throwNew($ClassCastException, "parent must be of type DOMStructure"_s);
 	}
-	$set(this, transformElem, $cast($Element, $nc(($cast($DOMStructure, parent)))->getNode()));
+	$set(this, transformElem, $cast($Element, $nc($cast($DOMStructure, parent))->getNode()));
 	$set(this, ownerDoc, $DOMUtils::getOwnerDocument(this->transformElem));
 }
 
@@ -146,7 +110,7 @@ void ApacheTransform::marshalParams($XMLStructure* parent, $XMLCryptoContext* co
 	if (!($instanceOf($DOMStructure, parent))) {
 		$throwNew($ClassCastException, "parent must be of type DOMStructure"_s);
 	}
-	$set(this, transformElem, $cast($Element, $nc(($cast($DOMStructure, parent)))->getNode()));
+	$set(this, transformElem, $cast($Element, $nc($cast($DOMStructure, parent))->getNode()));
 	$set(this, ownerDoc, $DOMUtils::getOwnerDocument(this->transformElem));
 }
 
@@ -168,7 +132,7 @@ $Data* ApacheTransform::transform($Data* data, $XMLCryptoContext* xc, $OutputStr
 }
 
 $Data* ApacheTransform::transformIt($Data* data, $XMLCryptoContext* xc, $OutputStream* os) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->ownerDoc == nullptr) {
 		$throwNew($TransformException, "transform must be marshalled"_s);
 	}
@@ -178,7 +142,7 @@ $Data* ApacheTransform::transformIt($Data* data, $XMLCryptoContext* xc, $OutputS
 			$var($String, var$1, getAlgorithm());
 			$set(this, transform$, $new($Transform, var$0, var$1, $($nc(this->transformElem)->getChildNodes())));
 			$nc(this->transform$)->setElement(this->transformElem, $($nc(xc)->getBaseURI()));
-			$nc(ApacheTransform::LOG)->debug("Created transform for algorithm: {}"_s, $$new($ObjectArray, {$($of(getAlgorithm()))}));
+			$nc(ApacheTransform::LOG)->debug("Created transform for algorithm: {}"_s, $$new($ObjectArray, {$(getAlgorithm())}));
 		} catch ($Exception& ex) {
 			$throwNew($TransformException, $$str({"Couldn\'t find Transform for: "_s, $(getAlgorithm())}), ex);
 		}
@@ -192,24 +156,24 @@ $Data* ApacheTransform::transformIt($Data* data, $XMLCryptoContext* xc, $OutputS
 	$var($XMLSignatureInput, in, nullptr);
 	if ($instanceOf($ApacheData, data)) {
 		$nc(ApacheTransform::LOG)->debug("ApacheData = true"_s);
-		$assign(in, $nc(($cast($ApacheData, data)))->getXMLSignatureInput());
+		$assign(in, $cast($ApacheData, data)->getXMLSignatureInput());
 	} else if ($instanceOf($NodeSetData, data)) {
 		$nc(ApacheTransform::LOG)->debug("isNodeSet() = true"_s);
 		if ($instanceOf($DOMSubTreeData, data)) {
-			$nc(ApacheTransform::LOG)->debug("DOMSubTreeData = true"_s);
+			ApacheTransform::LOG->debug("DOMSubTreeData = true"_s);
 			$var($DOMSubTreeData, subTree, $cast($DOMSubTreeData, data));
-			$assign(in, $new($XMLSignatureInput, $($nc(subTree)->getRoot())));
-			in->setExcludeComments($nc(subTree)->excludeComments());
+			$assign(in, $new($XMLSignatureInput, $(subTree->getRoot())));
+			in->setExcludeComments(subTree->excludeComments());
 		} else {
-			$var($Set, nodeSet, $Utils::toNodeSet($($nc(($cast($NodeSetData, data)))->iterator())));
+			$var($Set, nodeSet, $Utils::toNodeSet($($cast($NodeSetData, data)->iterator())));
 			$assign(in, $new($XMLSignatureInput, nodeSet));
 		}
 	} else {
 		$nc(ApacheTransform::LOG)->debug("isNodeSet() = false"_s);
 		try {
-			$assign(in, $new($XMLSignatureInput, $($nc(($cast($OctetStreamData, data)))->getOctetStream())));
+			$assign(in, $new($XMLSignatureInput, $($nc($cast($OctetStreamData, data))->getOctetStream())));
 		} catch ($Exception& ex) {
-			$throwNew($TransformException, static_cast<$Throwable*>(ex));
+			$throwNew($TransformException, ex);
 		}
 	}
 	bool secVal = $Utils::secureValidation(xc);
@@ -224,13 +188,13 @@ $Data* ApacheTransform::transformIt($Data* data, $XMLCryptoContext* xc, $OutputS
 		} else {
 			$assign(in, $nc(this->transform$)->performTransform(in, secVal));
 		}
-		if (in->isOctetStream()) {
-			return static_cast<$Data*>(static_cast<$OctetStreamData*>($new($ApacheOctetStreamData, in)));
+		if ($nc(in)->isOctetStream()) {
+			return $cast($OctetStreamData, $new($ApacheOctetStreamData, in));
 		} else {
-			return static_cast<$Data*>(static_cast<$ApacheData*>($new($ApacheNodeSetData, in)));
+			return $cast($ApacheData, $new($ApacheNodeSetData, in));
 		}
 	} catch ($Exception& ex) {
-		$throwNew($TransformException, static_cast<$Throwable*>(ex));
+		$throwNew($TransformException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -243,7 +207,7 @@ bool ApacheTransform::isFeatureSupported($String* feature) {
 	}
 }
 
-void clinit$ApacheTransform($Class* class$) {
+void ApacheTransform::clinit$($Class* clazz) {
 	{
 		$Init::init();
 	}
@@ -254,7 +218,36 @@ ApacheTransform::ApacheTransform() {
 }
 
 $Class* ApacheTransform::load$($String* name, bool initialize) {
-	$loadClass(ApacheTransform, name, initialize, &_ApacheTransform_ClassInfo_, clinit$ApacheTransform, allocate$ApacheTransform);
+	$FieldInfo fieldInfos$$[] = {
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ApacheTransform, LOG)},
+		{"transform", "Lcom/sun/org/apache/xml/internal/security/transforms/Transform;", nullptr, $PRIVATE, $field(ApacheTransform, transform$)},
+		{"ownerDoc", "Lorg/w3c/dom/Document;", nullptr, $PROTECTED, $field(ApacheTransform, ownerDoc)},
+		{"transformElem", "Lorg/w3c/dom/Element;", nullptr, $PROTECTED, $field(ApacheTransform, transformElem)},
+		{"params", "Ljavax/xml/crypto/dsig/spec/TransformParameterSpec;", nullptr, $PROTECTED, $field(ApacheTransform, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ApacheTransform, init$, void)},
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheTransform, getParameterSpec, $AlgorithmParameterSpec*)},
+		{"init", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, init, void, $XMLStructure*, $XMLCryptoContext*), "java.security.InvalidAlgorithmParameterException"},
+		{"isFeatureSupported", "(Ljava/lang/String;)Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(ApacheTransform, isFeatureSupported, bool, $String*)},
+		{"marshalParams", "(Ljavax/xml/crypto/XMLStructure;Ljavax/xml/crypto/XMLCryptoContext;)V", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, marshalParams, void, $XMLStructure*, $XMLCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, transform, $Data*, $Data*, $XMLCryptoContext*), "javax.xml.crypto.dsig.TransformException"},
+		{"transform", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PUBLIC, $virtualMethod(ApacheTransform, transform, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+		{"transformIt", "(Ljavax/xml/crypto/Data;Ljavax/xml/crypto/XMLCryptoContext;Ljava/io/OutputStream;)Ljavax/xml/crypto/Data;", nullptr, $PRIVATE, $method(ApacheTransform, transformIt, $Data*, $Data*, $XMLCryptoContext*, $OutputStream*), "javax.xml.crypto.dsig.TransformException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.ApacheTransform",
+		"javax.xml.crypto.dsig.TransformService",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ApacheTransform, name, initialize, &classInfo$$, ApacheTransform::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ApacheTransform));
+	});
 	return class$;
 }
 

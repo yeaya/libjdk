@@ -115,6 +115,7 @@ class $export MetalFileChooserUI : public ::javax::swing::plaf::basic::BasicFile
 	$class(MetalFileChooserUI, 0, ::javax::swing::plaf::basic::BasicFileChooserUI)
 public:
 	MetalFileChooserUI();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::JFileChooser* filechooser);
 	static bool access$000(::javax::swing::plaf::metal::MetalFileChooserUI* x0);
 	static ::java::io::File* access$100(::javax::swing::plaf::metal::MetalFileChooserUI* x0);

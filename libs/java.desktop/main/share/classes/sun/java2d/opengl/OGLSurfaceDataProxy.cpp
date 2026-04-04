@@ -1,5 +1,4 @@
 #include <sun/java2d/opengl/OGLSurfaceDataProxy.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Transparency.h>
 #include <java/lang/OutOfMemoryError.h>
@@ -28,33 +27,6 @@ using $OGLSurfaceData = ::sun::java2d::opengl::OGLSurfaceData;
 namespace sun {
 	namespace java2d {
 		namespace opengl {
-
-$FieldInfo _OGLSurfaceDataProxy_FieldInfo_[] = {
-	{"oglgc", "Lsun/java2d/opengl/OGLGraphicsConfig;", nullptr, 0, $field(OGLSurfaceDataProxy, oglgc)},
-	{"transparency", "I", nullptr, 0, $field(OGLSurfaceDataProxy, transparency)},
-	{}
-};
-
-$MethodInfo _OGLSurfaceDataProxy_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/opengl/OGLGraphicsConfig;I)V", nullptr, $PUBLIC, $method(OGLSurfaceDataProxy, init$, void, $OGLGraphicsConfig*, int32_t)},
-	{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/java2d/opengl/OGLGraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLSurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $OGLGraphicsConfig*)},
-	{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
-	{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _OGLSurfaceDataProxy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.opengl.OGLSurfaceDataProxy",
-	"sun.java2d.SurfaceDataProxy",
-	nullptr,
-	_OGLSurfaceDataProxy_FieldInfo_,
-	_OGLSurfaceDataProxy_MethodInfo_
-};
-
-$Object* allocate$OGLSurfaceDataProxy($Class* clazz) {
-	return $of($alloc(OGLSurfaceDataProxy));
-}
 
 $SurfaceDataProxy* OGLSurfaceDataProxy::createProxy($SurfaceData* srcData, $OGLGraphicsConfig* dstConfig) {
 	$init(OGLSurfaceDataProxy);
@@ -92,7 +64,29 @@ OGLSurfaceDataProxy::OGLSurfaceDataProxy() {
 }
 
 $Class* OGLSurfaceDataProxy::load$($String* name, bool initialize) {
-	$loadClass(OGLSurfaceDataProxy, name, initialize, &_OGLSurfaceDataProxy_ClassInfo_, allocate$OGLSurfaceDataProxy);
+	$FieldInfo fieldInfos$$[] = {
+		{"oglgc", "Lsun/java2d/opengl/OGLGraphicsConfig;", nullptr, 0, $field(OGLSurfaceDataProxy, oglgc)},
+		{"transparency", "I", nullptr, 0, $field(OGLSurfaceDataProxy, transparency)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/opengl/OGLGraphicsConfig;I)V", nullptr, $PUBLIC, $method(OGLSurfaceDataProxy, init$, void, $OGLGraphicsConfig*, int32_t)},
+		{"createProxy", "(Lsun/java2d/SurfaceData;Lsun/java2d/opengl/OGLGraphicsConfig;)Lsun/java2d/SurfaceDataProxy;", nullptr, $PUBLIC | $STATIC, $staticMethod(OGLSurfaceDataProxy, createProxy, $SurfaceDataProxy*, $SurfaceData*, $OGLGraphicsConfig*)},
+		{"isSupportedOperation", "(Lsun/java2d/SurfaceData;ILsun/java2d/loops/CompositeType;Ljava/awt/Color;)Z", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceDataProxy, isSupportedOperation, bool, $SurfaceData*, int32_t, $CompositeType*, $Color*)},
+		{"validateSurfaceData", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;II)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(OGLSurfaceDataProxy, validateSurfaceData, $SurfaceData*, $SurfaceData*, $SurfaceData*, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.opengl.OGLSurfaceDataProxy",
+		"sun.java2d.SurfaceDataProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(OGLSurfaceDataProxy, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(OGLSurfaceDataProxy));
+	});
 	return class$;
 }
 

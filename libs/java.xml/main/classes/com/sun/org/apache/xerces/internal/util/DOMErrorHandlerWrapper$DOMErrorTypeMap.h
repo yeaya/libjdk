@@ -38,6 +38,7 @@ class DOMErrorHandlerWrapper$DOMErrorTypeMap : public ::java::lang::Object {
 	$class(DOMErrorHandlerWrapper$DOMErrorTypeMap, 0, ::java::lang::Object)
 public:
 	DOMErrorHandlerWrapper$DOMErrorTypeMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getDOMErrorType(::com::sun::org::apache::xerces::internal::util::XMLErrorCode* error);
 	static ::java::util::Map* fgDOMErrorTypeTable;

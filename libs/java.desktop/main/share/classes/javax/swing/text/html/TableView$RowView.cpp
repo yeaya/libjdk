@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/TableView$RowView.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -46,7 +45,6 @@ using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
-using $StyleSheet$BoxPainter = ::javax::swing::text::html::StyleSheet$BoxPainter;
 using $TableView = ::javax::swing::text::html::TableView;
 using $TableView$CellView = ::javax::swing::text::html::TableView$CellView;
 
@@ -54,68 +52,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 			namespace html {
-
-$FieldInfo _TableView$RowView_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/TableView;", nullptr, $FINAL | $SYNTHETIC, $field(TableView$RowView, this$0)},
-	{"painter", "Ljavax/swing/text/html/StyleSheet$BoxPainter;", nullptr, $PRIVATE, $field(TableView$RowView, painter)},
-	{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(TableView$RowView, attr)},
-	{"fillColumns", "Ljava/util/BitSet;", nullptr, 0, $field(TableView$RowView, fillColumns)},
-	{"rowIndex", "I", nullptr, 0, $field(TableView$RowView, rowIndex)},
-	{"viewIndex", "I", nullptr, 0, $field(TableView$RowView, viewIndex)},
-	{"multiRowCells", "Z", nullptr, 0, $field(TableView$RowView, multiRowCells)},
-	{}
-};
-
-$MethodInfo _TableView$RowView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/TableView;Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(TableView$RowView, init$, void, $TableView*, $Element*)},
-	{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
-	{"clearFilledColumns", "()V", nullptr, 0, $virtualMethod(TableView$RowView, clearFilledColumns, void)},
-	{"fillColumn", "(I)V", nullptr, 0, $virtualMethod(TableView$RowView, fillColumn, void, int32_t)},
-	{"findViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(TableView$RowView, findViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
-	{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getAttributes, $AttributeSet*)},
-	{"getColumnCount", "()I", nullptr, 0, $virtualMethod(TableView$RowView, getColumnCount, int32_t)},
-	{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getMaximumSpan, float, int32_t)},
-	{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getMinimumSpan, float, int32_t)},
-	{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getPreferredSpan, float, int32_t)},
-	{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getResizeWeight, int32_t, int32_t)},
-	{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, getStyleSheet, $StyleSheet*)},
-	{"getViewAtPosition", "(ILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, getViewAtPosition, $View*, int32_t, $Rectangle*)},
-	{"isFilled", "(I)Z", nullptr, 0, $virtualMethod(TableView$RowView, isFilled, bool, int32_t)},
-	{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, paint, void, $Graphics*, $Shape*)},
-	{"preferenceChanged", "(Ljavax/swing/text/View;ZZ)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, preferenceChanged, void, $View*, bool, bool)},
-	{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, replace, void, int32_t, int32_t, $ViewArray*)},
-	{"setPropertiesFromAttributes", "()V", nullptr, 0, $virtualMethod(TableView$RowView, setPropertiesFromAttributes, void)},
-	{}
-};
-
-$InnerClassInfo _TableView$RowView_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.TableView$RowView", "javax.swing.text.html.TableView", "RowView", $PUBLIC},
-	{}
-};
-
-$ClassInfo _TableView$RowView_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.text.html.TableView$RowView",
-	"javax.swing.text.BoxView",
-	nullptr,
-	_TableView$RowView_FieldInfo_,
-	_TableView$RowView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TableView$RowView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.TableView"
-};
-
-$Object* allocate$TableView$RowView($Class* clazz) {
-	return $of($alloc(TableView$RowView));
-}
 
 void TableView$RowView::init$($TableView* this$0, $Element* elem) {
 	$set(this, this$0, this$0);
@@ -141,7 +77,7 @@ int32_t TableView$RowView::getColumnCount() {
 	int32_t nfill = 0;
 	int32_t n = $nc(this->fillColumns)->size();
 	for (int32_t i = 0; i < n; ++i) {
-		if ($nc(this->fillColumns)->get(i)) {
+		if (this->fillColumns->get(i)) {
 			++nfill;
 		}
 	}
@@ -153,10 +89,10 @@ $AttributeSet* TableView$RowView::getAttributes() {
 }
 
 $View* TableView$RowView::findViewAtPoint(int32_t x, int32_t y, $Rectangle* alloc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
-		if ($nc($(getChildAllocation(i, alloc)))->contains((double)x, (double)y)) {
+		if ($$nc(getChildAllocation(i, alloc))->contains((double)x, (double)y)) {
 			childAllocation(i, alloc);
 			return getView(i);
 		}
@@ -170,7 +106,7 @@ $StyleSheet* TableView$RowView::getStyleSheet() {
 }
 
 void TableView$RowView::preferenceChanged($View* child, bool width, bool height) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BoxView::preferenceChanged(child, width, height);
 	if (this->this$0->multiRowCells && height) {
 		for (int32_t i = this->rowIndex - 1; i >= 0; --i) {
@@ -186,8 +122,8 @@ void TableView$RowView::preferenceChanged($View* child, bool width, bool height)
 $SizeRequirements* TableView$RowView::calculateMajorAxisRequirements(int32_t axis, $SizeRequirements* r) {
 	$var($SizeRequirements, req, $new($SizeRequirements));
 	req->minimum = $nc(this->this$0->totalColumnRequirements)->minimum;
-	req->maximum = $nc(this->this$0->totalColumnRequirements)->maximum;
-	req->preferred = $nc(this->this$0->totalColumnRequirements)->preferred;
+	req->maximum = this->this$0->totalColumnRequirements->maximum;
+	req->preferred = this->this$0->totalColumnRequirements->preferred;
 	req->alignment = 0.0f;
 	return req;
 }
@@ -229,7 +165,7 @@ void TableView$RowView::changedUpdate($DocumentEvent* e, $Shape* a, $ViewFactory
 	int32_t pos = $nc(e)->getOffset();
 	bool var$0 = pos <= getStartOffset();
 	if (var$0) {
-		int32_t var$1 = (pos + e->getLength());
+		int32_t var$1 = pos + e->getLength();
 		var$0 = var$1 >= getEndOffset();
 	}
 	if (var$0) {
@@ -239,7 +175,7 @@ void TableView$RowView::changedUpdate($DocumentEvent* e, $Shape* a, $ViewFactory
 
 void TableView$RowView::paint($Graphics* g, $Shape* allocation) {
 	$var($Rectangle, a, $cast($Rectangle, allocation));
-	$nc(this->painter)->paint(g, (float)$nc(a)->x, (float)a->y, (float)a->width, (float)a->height, this);
+	$nc(this->painter)->paint(g, (float)$nc(a)->x, (float)$nc(a)->y, (float)$nc(a)->width, (float)$nc(a)->height, this);
 	$BoxView::paint(g, a);
 }
 
@@ -249,7 +185,7 @@ void TableView$RowView::replace(int32_t offset, int32_t length, $ViewArray* view
 }
 
 $SizeRequirements* TableView$RowView::calculateMinorAxisRequirements(int32_t axis, $SizeRequirements* r$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, r, r$renamed);
 	int64_t min = 0;
 	int64_t pref = 0;
@@ -263,8 +199,8 @@ $SizeRequirements* TableView$RowView::calculateMinorAxisRequirements(int32_t axi
 			max = $Math::max((int64_t)$cast(int32_t, $nc(v)->getMaximumSpan(axis)), max);
 		} else {
 			min = $Math::max((int64_t)$cast(int32_t, $nc(v)->getMinimumSpan(axis)), min);
-			pref = $Math::max((int64_t)$cast(int32_t, $nc(v)->getPreferredSpan(axis)), pref);
-			max = $Math::max((int64_t)$cast(int32_t, $nc(v)->getMaximumSpan(axis)), max);
+			pref = $Math::max((int64_t)$cast(int32_t, v->getPreferredSpan(axis)), pref);
+			max = $Math::max((int64_t)$cast(int32_t, v->getMaximumSpan(axis)), max);
 		}
 	}
 	if (r == nullptr) {
@@ -278,7 +214,7 @@ $SizeRequirements* TableView$RowView::calculateMinorAxisRequirements(int32_t axi
 }
 
 void TableView$RowView::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t col = 0;
 	int32_t ncells = getViewCount();
 	for (int32_t cell = 0; cell < ncells; ++cell) {
@@ -287,15 +223,16 @@ void TableView$RowView::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints*
 			continue;
 		}
 		for (; isFilled(col); ++col) {
+			;
 		}
 		int32_t colSpan = this->this$0->getColumnsOccupied(cv);
 		$nc(spans)->set(cell, $nc(this->this$0->columnSpans)->get(col));
 		$nc(offsets)->set(cell, $nc(this->this$0->columnOffsets)->get(col));
 		if (colSpan > 1) {
-			int32_t n = $nc(this->this$0->columnSpans)->length;
+			int32_t n = this->this$0->columnSpans->length;
 			for (int32_t j = 1; j < colSpan; ++j) {
 				if ((col + j) < n) {
-					(*spans)[cell] += $nc(this->this$0->columnSpans)->get(col + j);
+					(*spans)[cell] += this->this$0->columnSpans->get(col + j);
 					(*spans)[cell] += this->this$0->cellSpacing;
 				}
 			}
@@ -306,13 +243,14 @@ void TableView$RowView::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints*
 }
 
 void TableView$RowView::layoutMinorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BoxView::layoutMinorAxis(targetSpan, axis, offsets, spans);
 	int32_t col = 0;
 	int32_t ncells = getViewCount();
 	for (int32_t cell = 0; cell < ncells; ++cell, ++col) {
 		$var($View, cv, getView(cell));
 		for (; isFilled(col); ++col) {
+			;
 		}
 		int32_t colSpan = this->this$0->getColumnsOccupied(cv);
 		int32_t rowSpan = this->this$0->getRowsOccupied(cv);
@@ -332,7 +270,7 @@ int32_t TableView$RowView::getResizeWeight(int32_t axis) {
 }
 
 $View* TableView$RowView::getViewAtPosition(int32_t pos, $Rectangle* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = getViewCount();
 	for (int32_t i = 0; i < n; ++i) {
 		$var($View, v, getView(i));
@@ -365,7 +303,63 @@ TableView$RowView::TableView$RowView() {
 }
 
 $Class* TableView$RowView::load$($String* name, bool initialize) {
-	$loadClass(TableView$RowView, name, initialize, &_TableView$RowView_ClassInfo_, allocate$TableView$RowView);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/TableView;", nullptr, $FINAL | $SYNTHETIC, $field(TableView$RowView, this$0)},
+		{"painter", "Ljavax/swing/text/html/StyleSheet$BoxPainter;", nullptr, $PRIVATE, $field(TableView$RowView, painter)},
+		{"attr", "Ljavax/swing/text/AttributeSet;", nullptr, $PRIVATE, $field(TableView$RowView, attr)},
+		{"fillColumns", "Ljava/util/BitSet;", nullptr, 0, $field(TableView$RowView, fillColumns)},
+		{"rowIndex", "I", nullptr, 0, $field(TableView$RowView, rowIndex)},
+		{"viewIndex", "I", nullptr, 0, $field(TableView$RowView, viewIndex)},
+		{"multiRowCells", "Z", nullptr, 0, $field(TableView$RowView, multiRowCells)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/TableView;Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(TableView$RowView, init$, void, $TableView*, $Element*)},
+		{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"changedUpdate", "(Ljavax/swing/event/DocumentEvent;Ljava/awt/Shape;Ljavax/swing/text/ViewFactory;)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, changedUpdate, void, $DocumentEvent*, $Shape*, $ViewFactory*)},
+		{"clearFilledColumns", "()V", nullptr, 0, $virtualMethod(TableView$RowView, clearFilledColumns, void)},
+		{"fillColumn", "(I)V", nullptr, 0, $virtualMethod(TableView$RowView, fillColumn, void, int32_t)},
+		{"findViewAtPoint", "(IILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, 0, $virtualMethod(TableView$RowView, findViewAtPoint, $View*, int32_t, int32_t, $Rectangle*)},
+		{"getAttributes", "()Ljavax/swing/text/AttributeSet;", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getAttributes, $AttributeSet*)},
+		{"getColumnCount", "()I", nullptr, 0, $virtualMethod(TableView$RowView, getColumnCount, int32_t)},
+		{"getMaximumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getMaximumSpan, float, int32_t)},
+		{"getMinimumSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getMinimumSpan, float, int32_t)},
+		{"getPreferredSpan", "(I)F", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getPreferredSpan, float, int32_t)},
+		{"getResizeWeight", "(I)I", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, getResizeWeight, int32_t, int32_t)},
+		{"getStyleSheet", "()Ljavax/swing/text/html/StyleSheet;", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, getStyleSheet, $StyleSheet*)},
+		{"getViewAtPosition", "(ILjava/awt/Rectangle;)Ljavax/swing/text/View;", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, getViewAtPosition, $View*, int32_t, $Rectangle*)},
+		{"isFilled", "(I)Z", nullptr, 0, $virtualMethod(TableView$RowView, isFilled, bool, int32_t)},
+		{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"layoutMinorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(TableView$RowView, layoutMinorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{"paint", "(Ljava/awt/Graphics;Ljava/awt/Shape;)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, paint, void, $Graphics*, $Shape*)},
+		{"preferenceChanged", "(Ljavax/swing/text/View;ZZ)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, preferenceChanged, void, $View*, bool, bool)},
+		{"replace", "(II[Ljavax/swing/text/View;)V", nullptr, $PUBLIC, $virtualMethod(TableView$RowView, replace, void, int32_t, int32_t, $ViewArray*)},
+		{"setPropertiesFromAttributes", "()V", nullptr, 0, $virtualMethod(TableView$RowView, setPropertiesFromAttributes, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.TableView$RowView", "javax.swing.text.html.TableView", "RowView", $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.text.html.TableView$RowView",
+		"javax.swing.text.BoxView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.TableView"
+	};
+	$loadClass(TableView$RowView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableView$RowView);
+	});
 	return class$;
 }
 

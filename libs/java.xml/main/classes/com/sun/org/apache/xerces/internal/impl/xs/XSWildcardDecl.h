@@ -41,6 +41,7 @@ class XSWildcardDecl : public ::com::sun::org::apache::xerces::internal::xs::XSW
 	$class(XSWildcardDecl, 0, ::com::sun::org::apache::xerces::internal::xs::XSWildcard)
 public:
 	XSWildcardDecl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual bool allowNamespace($String* namespace$);
 	bool areSame(::com::sun::org::apache::xerces::internal::impl::xs::XSWildcardDecl* wildcard);

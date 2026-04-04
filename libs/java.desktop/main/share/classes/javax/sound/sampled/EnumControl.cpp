@@ -1,6 +1,4 @@
 #include <javax/sound/sampled/EnumControl.h>
-
-#include <javax/sound/sampled/Control$Type.h>
 #include <javax/sound/sampled/Control.h>
 #include <javax/sound/sampled/EnumControl$Type.h>
 #include <jcpp.h>
@@ -11,52 +9,11 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Control = ::javax::sound::sampled::Control;
-using $Control$Type = ::javax::sound::sampled::Control$Type;
 using $EnumControl$Type = ::javax::sound::sampled::EnumControl$Type;
 
 namespace javax {
 	namespace sound {
 		namespace sampled {
-
-$FieldInfo _EnumControl_FieldInfo_[] = {
-	{"values", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EnumControl, values)},
-	{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(EnumControl, value)},
-	{}
-};
-
-$MethodInfo _EnumControl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/sound/sampled/EnumControl$Type;[Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $method(EnumControl, init$, void, $EnumControl$Type*, $ObjectArray*, Object$*)},
-	{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumControl, getValue, $Object*)},
-	{"getValues", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumControl, getValues, $ObjectArray*)},
-	{"isValueSupported", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(EnumControl, isValueSupported, bool, Object$*)},
-	{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(EnumControl, setValue, void, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumControl, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _EnumControl_InnerClassesInfo_[] = {
-	{"javax.sound.sampled.EnumControl$Type", "javax.sound.sampled.EnumControl", "Type", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _EnumControl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.sound.sampled.EnumControl",
-	"javax.sound.sampled.Control",
-	nullptr,
-	_EnumControl_FieldInfo_,
-	_EnumControl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_EnumControl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.sound.sampled.EnumControl$Type"
-};
-
-$Object* allocate$EnumControl($Class* clazz) {
-	return $of($alloc(EnumControl));
-}
 
 void EnumControl::init$($EnumControl$Type* type, $ObjectArray* values, Object$* value) {
 	$Control::init$(type);
@@ -72,7 +29,7 @@ void EnumControl::setValue(Object$* value) {
 }
 
 $Object* EnumControl::getValue() {
-	return $of(this->value);
+	return this->value;
 }
 
 $ObjectArray* EnumControl::getValues() {
@@ -81,7 +38,7 @@ $ObjectArray* EnumControl::getValues() {
 
 bool EnumControl::isValueSupported(Object$* value) {
 	for (int32_t i = 0; i < $nc(this->values)->length; ++i) {
-		if ($nc($of(value))->equals($nc(this->values)->get(i))) {
+		if ($nc($of(value))->equals(this->values->get(i))) {
 			return true;
 		}
 	}
@@ -89,9 +46,9 @@ bool EnumControl::isValueSupported(Object$* value) {
 }
 
 $String* EnumControl::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $String::format("%s with current value: %s"_s, $$new($ObjectArray, {
-		$($of($Control::toString())),
+		$($Control::toString()),
 		$(getValue())
 	}));
 }
@@ -100,7 +57,41 @@ EnumControl::EnumControl() {
 }
 
 $Class* EnumControl::load$($String* name, bool initialize) {
-	$loadClass(EnumControl, name, initialize, &_EnumControl_ClassInfo_, allocate$EnumControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"values", "[Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(EnumControl, values)},
+		{"value", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(EnumControl, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/sound/sampled/EnumControl$Type;[Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, $PROTECTED, $method(EnumControl, init$, void, $EnumControl$Type*, $ObjectArray*, Object$*)},
+		{"getValue", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumControl, getValue, $Object*)},
+		{"getValues", "()[Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(EnumControl, getValues, $ObjectArray*)},
+		{"isValueSupported", "(Ljava/lang/Object;)Z", nullptr, $PRIVATE, $method(EnumControl, isValueSupported, bool, Object$*)},
+		{"setValue", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(EnumControl, setValue, void, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(EnumControl, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.sound.sampled.EnumControl$Type", "javax.sound.sampled.EnumControl", "Type", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.sound.sampled.EnumControl",
+		"javax.sound.sampled.Control",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.sound.sampled.EnumControl$Type"
+	};
+	$loadClass(EnumControl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EnumControl);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/resources/gtk_fr.h>
-
 #include <java/util/ListResourceBundle.h>
 #include <jcpp.h>
 
@@ -16,151 +15,132 @@ namespace com {
 					namespace gtk {
 						namespace resources {
 
-$MethodInfo _gtk_fr_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(gtk_fr, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(gtk_fr, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _gtk_fr_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.resources.gtk_fr",
-	"java.util.ListResourceBundle",
-	nullptr,
-	nullptr,
-	_gtk_fr_MethodInfo_
-};
-
-$Object* allocate$gtk_fr($Class* clazz) {
-	return $of($alloc(gtk_fr));
-}
-
 void gtk_fr::init$() {
 	$ListResourceBundle::init$();
 }
 
 $ObjectArray2* gtk_fr::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("FileChooser.acceptAllFileFilter.textAndMnemonic"_s),
-			$of("Tous les fichiers"_s)
+			"FileChooser.acceptAllFileFilter.textAndMnemonic"_s,
+			"Tous les fichiers"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButton.textAndMnemonic"_s),
-			$of("Annuler"_s)
+			"FileChooser.cancelButton.textAndMnemonic"_s,
+			"Annuler"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.cancelButtonToolTip.textAndMnemonic"_s),
-			$of(u"Ferme la boîte de dialogue du sélecteur de fichiers."_s)
+			"FileChooser.cancelButtonToolTip.textAndMnemonic"_s,
+			u"Ferme la boîte de dialogue du sélecteur de fichiers."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.deleteFileButton.textAndMnemonic"_s),
-			$of("Supprimer &le fichier"_s)
+			"FileChooser.deleteFileButton.textAndMnemonic"_s,
+			"Supprimer &le fichier"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filesLabel.textAndMnemonic"_s),
-			$of("&Fichiers"_s)
+			"FileChooser.filesLabel.textAndMnemonic"_s,
+			"&Fichiers"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.filterLabel.textAndMnemonic"_s),
-			$of("Filtre :"_s)
+			"FileChooser.filterLabel.textAndMnemonic"_s,
+			"Filtre :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.foldersLabel.textAndMnemonic"_s),
-			$of("&Dossiers"_s)
+			"FileChooser.foldersLabel.textAndMnemonic"_s,
+			"&Dossiers"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderButton.textAndMnemonic"_s),
-			$of("&Nouveau dossier"_s)
+			"FileChooser.newFolderButton.textAndMnemonic"_s,
+			"&Nouveau dossier"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderDialog.textAndMnemonic"_s),
-			$of("Nom du dossier :"_s)
+			"FileChooser.newFolderDialog.textAndMnemonic"_s,
+			"Nom du dossier :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderNoDirectoryError.textAndMnemonic"_s),
-			$of(u"Erreur lors de la création du répertoire \"{0}\" : ce fichier ou répertoire n\'\'existe pas"_s)
+			"FileChooser.newFolderNoDirectoryError.textAndMnemonic"_s,
+			u"Erreur lors de la création du répertoire \"{0}\" : ce fichier ou répertoire n\'\'existe pas"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.newFolderNoDirectoryErrorTitle.textAndMnemonic"_s),
-			$of("Erreur"_s)
+			"FileChooser.newFolderNoDirectoryErrorTitle.textAndMnemonic"_s,
+			"Erreur"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButton.textAndMnemonic"_s),
-			$of("OK"_s)
+			"FileChooser.openButton.textAndMnemonic"_s,
+			"OK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openButtonToolTip.textAndMnemonic"_s),
-			$of(u"Ouvre le fichier sélectionné."_s)
+			"FileChooser.openButtonToolTip.textAndMnemonic"_s,
+			u"Ouvre le fichier sélectionné."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.openDialogTitle.textAndMnemonic"_s),
-			$of("Ouvrir"_s)
+			"FileChooser.openDialogTitle.textAndMnemonic"_s,
+			"Ouvrir"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.pathLabel.textAndMnemonic"_s),
-			$of(u"&Sélection :"_s)
+			"FileChooser.pathLabel.textAndMnemonic"_s,
+			u"&Sélection :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameFileButton.textAndMnemonic"_s),
-			$of("&Renommer le fichier"_s)
+			"FileChooser.renameFileButton.textAndMnemonic"_s,
+			"&Renommer le fichier"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameFileDialog.textAndMnemonic"_s),
-			$of("Renomme le fichier \"{0}\" en"_s)
+			"FileChooser.renameFileDialog.textAndMnemonic"_s,
+			"Renomme le fichier \"{0}\" en"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameFileError.textAndMnemonic"_s),
-			$of("Erreur lors du changement de nom du fichier \"{0}\" en \"{1}\""_s)
+			"FileChooser.renameFileError.textAndMnemonic"_s,
+			"Erreur lors du changement de nom du fichier \"{0}\" en \"{1}\""_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.renameFileError.titleAndMnemonic"_s),
-			$of("Erreur"_s)
+			"FileChooser.renameFileError.titleAndMnemonic"_s,
+			"Erreur"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButton.textAndMnemonic"_s),
-			$of("OK"_s)
+			"FileChooser.saveButton.textAndMnemonic"_s,
+			"OK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveButtonToolTip.textAndMnemonic"_s),
-			$of(u"Enregistre le fichier sélectionné."_s)
+			"FileChooser.saveButtonToolTip.textAndMnemonic"_s,
+			u"Enregistre le fichier sélectionné."_s
 		}),
 		$$new($ObjectArray, {
-			$of("FileChooser.saveDialogTitle.textAndMnemonic"_s),
-			$of("Enregistrer"_s)
+			"FileChooser.saveDialogTitle.textAndMnemonic"_s,
+			"Enregistrer"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.blue.textAndMnemonic"_s),
-			$of("&Bleu :"_s)
+			"GTKColorChooserPanel.blue.textAndMnemonic"_s,
+			"&Bleu :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.color.textAndMnemonic"_s),
-			$of("&Nom de couleur :"_s)
+			"GTKColorChooserPanel.color.textAndMnemonic"_s,
+			"&Nom de couleur :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.green.textAndMnemonic"_s),
-			$of("&Vert :"_s)
+			"GTKColorChooserPanel.green.textAndMnemonic"_s,
+			"&Vert :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.hue.textAndMnemonic"_s),
-			$of("&Teinte :"_s)
+			"GTKColorChooserPanel.hue.textAndMnemonic"_s,
+			"&Teinte :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.red.textAndMnemonic"_s),
-			$of(u"Roug&e :"_s)
+			"GTKColorChooserPanel.red.textAndMnemonic"_s,
+			u"Roug&e :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.saturation.textAndMnemonic"_s),
-			$of("&Saturation :"_s)
+			"GTKColorChooserPanel.saturation.textAndMnemonic"_s,
+			"&Saturation :"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.textAndMnemonic"_s),
-			$of(u"Sélecteur de couleurs &GTK"_s)
+			"GTKColorChooserPanel.textAndMnemonic"_s,
+			u"Sélecteur de couleurs &GTK"_s
 		}),
 		$$new($ObjectArray, {
-			$of("GTKColorChooserPanel.value.textAndMnemonic"_s),
-			$of("&Valeur :"_s)
+			"GTKColorChooserPanel.value.textAndMnemonic"_s,
+			"&Valeur :"_s
 		})
 	});
 }
@@ -169,7 +149,22 @@ gtk_fr::gtk_fr() {
 }
 
 $Class* gtk_fr::load$($String* name, bool initialize) {
-	$loadClass(gtk_fr, name, initialize, &_gtk_fr_ClassInfo_, allocate$gtk_fr);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(gtk_fr, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(gtk_fr, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.resources.gtk_fr",
+		"java.util.ListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(gtk_fr, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(gtk_fr);
+	});
 	return class$;
 }
 

@@ -1,12 +1,10 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMRSAPSSSignatureMethod.h>
-
 #include <com/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-#include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
@@ -22,7 +20,6 @@
 #include <java/security/spec/MGF1ParameterSpec.h>
 #include <java/security/spec/PSSParameterSpec.h>
 #include <javax/xml/crypto/MarshalException.h>
-#include <javax/xml/crypto/XMLCryptoContext.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dsig/DigestMethod.h>
 #include <javax/xml/crypto/dsig/SignedInfo.h>
@@ -62,10 +59,8 @@ using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Cons
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -85,7 +80,6 @@ using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $MGF1ParameterSpec = ::java::security::spec::MGF1ParameterSpec;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
-using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DigestMethod = ::javax::xml::crypto::dsig::DigestMethod;
 using $SignedInfo = ::javax::xml::crypto::dsig::SignedInfo;
@@ -111,58 +105,6 @@ namespace org {
 			namespace dsig {
 				namespace internal {
 					namespace dom {
-
-$FieldInfo _DOMRSAPSSSignatureMethod_FieldInfo_[] = {
-	{"DOM_SIGNATURE_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMRSAPSSSignatureMethod, DOM_SIGNATURE_PROVIDER)},
-	{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMRSAPSSSignatureMethod, LOG)},
-	{"params", "Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(DOMRSAPSSSignatureMethod, params)},
-	{"signature", "Ljava/security/Signature;", nullptr, $PRIVATE, $field(DOMRSAPSSSignatureMethod, signature)},
-	{"RSA_PSS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMRSAPSSSignatureMethod, RSA_PSS)},
-	{"DEFAULT_PSS_SPEC", "Ljavax/xml/crypto/dsig/spec/RSAPSSParameterSpec;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMRSAPSSSignatureMethod, DEFAULT_PSS_SPEC)},
-	{"spec", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE, $field(DOMRSAPSSSignatureMethod, spec)},
-	{}
-};
-
-$MethodInfo _DOMRSAPSSSignatureMethod_MethodInfo_[] = {
-	{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMRSAPSSSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMRSAPSSSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
-	{"checkParams", "(Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;)V", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, checkParams, void, $SignatureMethodParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMRSAPSSSignatureMethod, equals, bool, Object$*)},
-	{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMRSAPSSSignatureMethod, getParameterSpec, $AlgorithmParameterSpec*)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMRSAPSSSignatureMethod, hashCode, int32_t)},
-	{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMRSAPSSSignatureMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
-	{"marshalParams", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, marshalParams, void, $Element*, $String*), "javax.xml.crypto.MarshalException"},
-	{"paramsEqual", "(Ljava/security/spec/AlgorithmParameterSpec;)Z", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, paramsEqual, bool, $AlgorithmParameterSpec*)},
-	{"sign", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/XMLSignContext;)[B", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, sign, $bytes*, $Key*, $SignedInfo*, $XMLSignContext*), "java.security.InvalidKeyException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{"unmarshalParams", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, unmarshalParams, $SignatureMethodParameterSpec*, $Element*), "javax.xml.crypto.MarshalException"},
-	{"validateDigestAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMRSAPSSSignatureMethod, validateDigestAlgorithm, $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm*, $String*), "javax.xml.crypto.MarshalException"},
-	{"verify", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;[BLjavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, verify, bool, $Key*, $SignedInfo*, $bytes*, $XMLValidateContext*), "java.security.InvalidKeyException,java.security.SignatureException,javax.xml.crypto.dsig.XMLSignatureException"},
-	{}
-};
-
-$InnerClassInfo _DOMRSAPSSSignatureMethod_InnerClassesInfo_[] = {
-	{"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod$RSAPSS", "org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod", "RSAPSS", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _DOMRSAPSSSignatureMethod_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod",
-	"org.jcp.xml.dsig.internal.dom.AbstractDOMSignatureMethod",
-	nullptr,
-	_DOMRSAPSSSignatureMethod_FieldInfo_,
-	_DOMRSAPSSSignatureMethod_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DOMRSAPSSSignatureMethod_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod$RSAPSS"
-};
-
-$Object* allocate$DOMRSAPSSSignatureMethod($Class* clazz) {
-	return $of($alloc(DOMRSAPSSSignatureMethod));
-}
 
 $String* DOMRSAPSSSignatureMethod::DOM_SIGNATURE_PROVIDER = nullptr;
 $Logger* DOMRSAPSSSignatureMethod::LOG = nullptr;
@@ -193,17 +135,17 @@ void DOMRSAPSSSignatureMethod::init$($Element* smElem) {
 	try {
 		checkParams(this->params);
 	} catch ($InvalidAlgorithmParameterException& iape) {
-		$throwNew($MarshalException, static_cast<$Throwable*>(iape));
+		$throwNew($MarshalException, iape);
 	}
 }
 
 void DOMRSAPSSSignatureMethod::checkParams($SignatureMethodParameterSpec* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($RSAPSSParameterSpec, params))) {
 		$throwNew($InvalidAlgorithmParameterException, "params must be of type RSAPSSParameterSpec"_s);
 	}
-	$set(this, spec, $nc(($cast($RSAPSSParameterSpec, params)))->getPSSParameterSpec());
-	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Setting RSAPSSParameterSpec to: {}"_s, $$new($ObjectArray, {$($of($nc($of(params))->toString()))}));
+	$set(this, spec, $nc($cast($RSAPSSParameterSpec, params))->getPSSParameterSpec());
+	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Setting RSAPSSParameterSpec to: {}"_s, $$new($ObjectArray, {$($of(params)->toString())}));
 }
 
 $AlgorithmParameterSpec* DOMRSAPSSSignatureMethod::getParameterSpec() {
@@ -211,7 +153,7 @@ $AlgorithmParameterSpec* DOMRSAPSSSignatureMethod::getParameterSpec() {
 }
 
 void DOMRSAPSSSignatureMethod::marshalParams($Element* parent, $String* prefix) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Document, ownerDoc, $DOMUtils::getOwnerDocument(parent));
 	$init($Constants);
 	$var($Element, rsaPssParamsElement, $nc(ownerDoc)->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_RSAPSSPARAMS})));
@@ -229,8 +171,8 @@ void DOMRSAPSSSignatureMethod::marshalParams($Element* parent, $String* prefix) 
 		}
 		int32_t var$0 = $nc(this->spec)->getSaltLength();
 		if (var$0 != digestAlgorithm->getSaltLength()) {
-			$var($Element, saltLengthElement, $nc($(rsaPssParamsElement->getOwnerDocument()))->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_SALTLENGTH})));
-			$var($Text, saltLengthText, $nc($(rsaPssParamsElement->getOwnerDocument()))->createTextNode($($String::valueOf($nc(this->spec)->getSaltLength()))));
+			$var($Element, saltLengthElement, $$nc(rsaPssParamsElement->getOwnerDocument())->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_SALTLENGTH})));
+			$var($Text, saltLengthText, $$nc(rsaPssParamsElement->getOwnerDocument())->createTextNode($($String::valueOf($nc(this->spec)->getSaltLength()))));
 			$nc(saltLengthElement)->appendChild(saltLengthText);
 			rsaPssParamsElement->appendChild(saltLengthElement);
 		}
@@ -239,14 +181,14 @@ void DOMRSAPSSSignatureMethod::marshalParams($Element* parent, $String* prefix) 
 	} catch ($XMLSignatureException& e) {
 		$throwNew($MarshalException, $$str({"Invalid digest name supplied: "_s, $($nc(this->spec)->getDigestAlgorithm())}));
 	}
-	if (!$nc($($nc(this->spec)->getMGFAlgorithm()))->equals("MGF1"_s)) {
-		$throwNew($MarshalException, $$str({"Unsupported MGF algorithm supplied: "_s, $($nc(this->spec)->getMGFAlgorithm())}));
+	if (!$$nc($nc(this->spec)->getMGFAlgorithm())->equals("MGF1"_s)) {
+		$throwNew($MarshalException, $$str({"Unsupported MGF algorithm supplied: "_s, $(this->spec->getMGFAlgorithm())}));
 	}
-	$var($MGF1ParameterSpec, mgfSpec, $cast($MGF1ParameterSpec, $nc(this->spec)->getMGFParameters()));
+	$var($MGF1ParameterSpec, mgfSpec, $cast($MGF1ParameterSpec, this->spec->getMGFParameters()));
 	try {
 		$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* mgfDigestAlgorithm = $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::fromDigestAlgorithm($($nc(mgfSpec)->getDigestAlgorithm()));
 		if (mgfDigestAlgorithm != digestAlgorithm) {
-			$var($Element, mgfElement, $nc($(rsaPssParamsElement->getOwnerDocument()))->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_MGF})));
+			$var($Element, mgfElement, $$nc(rsaPssParamsElement->getOwnerDocument())->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_MGF})));
 			try {
 				$nc(mgfElement)->setAttributeNS(nullptr, $Constants::_ATT_ALGORITHM, "http://www.w3.org/2007/05/xmldsig-more#MGF1"_s);
 			} catch ($DOMException& e) {
@@ -265,8 +207,8 @@ void DOMRSAPSSSignatureMethod::marshalParams($Element* parent, $String* prefix) 
 		$throwNew($MarshalException, $$str({"Invalid digest name supplied: "_s, $($nc(mgfSpec)->getDigestAlgorithm())}));
 	}
 	if ($nc(this->spec)->getTrailerField() != 1) {
-		$var($Element, trailerFieldElement, $nc($(rsaPssParamsElement->getOwnerDocument()))->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_TRAILERFIELD})));
-		$var($Text, trailerFieldText, $nc($(rsaPssParamsElement->getOwnerDocument()))->createTextNode($($String::valueOf($nc(this->spec)->getTrailerField()))));
+		$var($Element, trailerFieldElement, $$nc(rsaPssParamsElement->getOwnerDocument())->createElementNS($Constants::XML_DSIG_NS_MORE_07_05, $$str({"pss:"_s, $Constants::_TAG_TRAILERFIELD})));
+		$var($Text, trailerFieldText, $$nc(rsaPssParamsElement->getOwnerDocument())->createTextNode($($String::valueOf($nc(this->spec)->getTrailerField()))));
 		$nc(trailerFieldElement)->appendChild(trailerFieldText);
 		rsaPssParamsElement->appendChild(trailerFieldElement);
 	}
@@ -286,7 +228,7 @@ $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* DOMRSAPSSSignatureMethod::
 }
 
 $SignatureMethodParameterSpec* DOMRSAPSSSignatureMethod::unmarshalParams($Element* paramsElem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (paramsElem != nullptr) {
 		$init($Constants);
 		$var($Element, saltLengthNode, $XMLUtils::selectNode($(paramsElem->getFirstChild()), $Constants::XML_DSIG_NS_MORE_07_05, $Constants::_TAG_SALTLENGTH, 0));
@@ -294,7 +236,7 @@ $SignatureMethodParameterSpec* DOMRSAPSSSignatureMethod::unmarshalParams($Elemen
 		$var($Element, digestAlgorithmNode, $XMLUtils::selectDsNode($(paramsElem->getFirstChild()), $Constants::_TAG_DIGESTMETHOD, 0));
 		$var($Element, mgfNode, $XMLUtils::selectNode($(paramsElem->getFirstChild()), $Constants::XML_DSIG_NS_MORE_07_05, $Constants::_TAG_MGF, 0));
 		$init($SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm);
-		$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* digestAlgorithm = digestAlgorithmNode != nullptr ? validateDigestAlgorithm($($nc(digestAlgorithmNode)->getAttribute($Constants::_ATT_ALGORITHM))) : $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::SHA256;
+		$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* digestAlgorithm = digestAlgorithmNode != nullptr ? validateDigestAlgorithm($(digestAlgorithmNode->getAttribute($Constants::_ATT_ALGORITHM))) : $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm::SHA256;
 		$SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm* mgfDigestAlgorithm = digestAlgorithm;
 		if (mgfNode != nullptr) {
 			$var($String, mgfAlgorithm, mgfNode->getAttribute($Constants::_ATT_ALGORITHM));
@@ -308,13 +250,13 @@ $SignatureMethodParameterSpec* DOMRSAPSSSignatureMethod::unmarshalParams($Elemen
 		}
 		int32_t saltLength = 0;
 		try {
-			saltLength = saltLengthNode == nullptr ? $nc(digestAlgorithm)->getSaltLength() : $Integer::parseUnsignedInt($($nc(saltLengthNode)->getTextContent()));
+			saltLength = saltLengthNode == nullptr ? $nc(digestAlgorithm)->getSaltLength() : $Integer::parseUnsignedInt($(saltLengthNode->getTextContent()));
 		} catch ($NumberFormatException& ex) {
 			$throwNew($MarshalException, $$str({"Invalid salt length supplied: "_s, $($nc(saltLengthNode)->getTextContent())}));
 		}
 		int32_t trailerField = 0;
 		try {
-			trailerField = trailerFieldNode == nullptr ? 1 : $Integer::parseUnsignedInt($($nc(trailerFieldNode)->getTextContent()));
+			trailerField = trailerFieldNode == nullptr ? 1 : $Integer::parseUnsignedInt($(trailerFieldNode->getTextContent()));
 		} catch ($NumberFormatException& ex) {
 			$throwNew($MarshalException, $$str({"Invalid trailer field supplied: "_s, $($nc(trailerFieldNode)->getTextContent())}));
 		}
@@ -326,7 +268,7 @@ $SignatureMethodParameterSpec* DOMRSAPSSSignatureMethod::unmarshalParams($Elemen
 }
 
 bool DOMRSAPSSSignatureMethod::verify($Key* key, $SignedInfo* si, $bytes* sig, $XMLValidateContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr || si == nullptr || sig == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -338,59 +280,57 @@ bool DOMRSAPSSSignatureMethod::verify($Key* key, $SignedInfo* si, $bytes* sig, $
 			$var($Provider, p, $cast($Provider, $nc(context)->getProperty(DOMRSAPSSSignatureMethod::DOM_SIGNATURE_PROVIDER)));
 			$set(this, signature, (p == nullptr) ? $Signature::getInstance($(getJCAAlgorithm())) : $Signature::getInstance($(getJCAAlgorithm()), p));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($1XMLSignatureException, static_cast<$Throwable*>(nsae));
+			$throwNew($1XMLSignatureException, nsae);
 		}
 	}
 	$nc(this->signature)->initVerify($cast($PublicKey, key));
 	try {
-		$nc(this->signature)->setParameter(this->spec);
+		this->signature->setParameter(this->spec);
 	} catch ($InvalidAlgorithmParameterException& e) {
-		$throwNew($1XMLSignatureException, static_cast<$Throwable*>(e));
+		$throwNew($1XMLSignatureException, e);
 	}
-	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Signature provider: {}"_s, $$new($ObjectArray, {$($of($nc(this->signature)->getProvider()))}));
-	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Verifying with key: {}"_s, $$new($ObjectArray, {$of(key)}));
-	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("JCA Algorithm: {}"_s, $$new($ObjectArray, {$($of(getJCAAlgorithm()))}));
-	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Signature Bytes length: {}"_s, $$new($ObjectArray, {$($of($Integer::valueOf($nc(sig)->length)))}));
+	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Signature provider: {}"_s, $$new($ObjectArray, {$(this->signature->getProvider())}));
+	DOMRSAPSSSignatureMethod::LOG->debug("Verifying with key: {}"_s, $$new($ObjectArray, {key}));
+	DOMRSAPSSSignatureMethod::LOG->debug("JCA Algorithm: {}"_s, $$new($ObjectArray, {$(getJCAAlgorithm())}));
+	DOMRSAPSSSignatureMethod::LOG->debug("Signature Bytes length: {}"_s, $$new($ObjectArray, {$($Integer::valueOf($nc(sig)->length))}));
 	try {
 		$var($SignerOutputStream, outputStream, $new($SignerOutputStream, this->signature));
-		{
-			$var($Throwable, var$0, nullptr);
-			bool var$2 = false;
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		bool var$2 = false;
+		bool return$1 = false;
+		try {
 			try {
+				$nc($cast($DOMSignedInfo, si))->canonicalize(context, outputStream);
+				var$2 = $nc(this->signature)->verify(sig);
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					$nc(($cast($DOMSignedInfo, si)))->canonicalize(context, outputStream);
-					var$2 = $nc(this->signature)->verify(sig);
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						outputStream->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					outputStream->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				outputStream->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			outputStream->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($IOException& ioe) {
-		$throwNew($1XMLSignatureException, static_cast<$Throwable*>(ioe));
+		$throwNew($1XMLSignatureException, ioe);
 	}
 	$shouldNotReachHere();
 }
 
 $bytes* DOMRSAPSSSignatureMethod::sign($Key* key, $SignedInfo* si, $XMLSignContext* context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (key == nullptr || si == nullptr) {
 		$throwNew($NullPointerException);
 	}
@@ -402,60 +342,58 @@ $bytes* DOMRSAPSSSignatureMethod::sign($Key* key, $SignedInfo* si, $XMLSignConte
 			$var($Provider, p, $cast($Provider, $nc(context)->getProperty(DOMRSAPSSSignatureMethod::DOM_SIGNATURE_PROVIDER)));
 			$set(this, signature, (p == nullptr) ? $Signature::getInstance($(getJCAAlgorithm())) : $Signature::getInstance($(getJCAAlgorithm()), p));
 		} catch ($NoSuchAlgorithmException& nsae) {
-			$throwNew($1XMLSignatureException, static_cast<$Throwable*>(nsae));
+			$throwNew($1XMLSignatureException, nsae);
 		}
 	}
 	$nc(this->signature)->initSign($cast($PrivateKey, key));
 	try {
-		$nc(this->signature)->setParameter(this->spec);
+		this->signature->setParameter(this->spec);
 	} catch ($InvalidAlgorithmParameterException& e) {
-		$throwNew($1XMLSignatureException, static_cast<$Throwable*>(e));
+		$throwNew($1XMLSignatureException, e);
 	}
-	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Signature provider: {}"_s, $$new($ObjectArray, {$($of($nc(this->signature)->getProvider()))}));
-	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Signing with key: {}"_s, $$new($ObjectArray, {$of(key)}));
-	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("JCA Algorithm: {}"_s, $$new($ObjectArray, {$($of(getJCAAlgorithm()))}));
+	$nc(DOMRSAPSSSignatureMethod::LOG)->debug("Signature provider: {}"_s, $$new($ObjectArray, {$(this->signature->getProvider())}));
+	DOMRSAPSSSignatureMethod::LOG->debug("Signing with key: {}"_s, $$new($ObjectArray, {key}));
+	DOMRSAPSSSignatureMethod::LOG->debug("JCA Algorithm: {}"_s, $$new($ObjectArray, {$(getJCAAlgorithm())}));
 	try {
 		$var($SignerOutputStream, outputStream, $new($SignerOutputStream, this->signature));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($bytes, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($bytes, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
+				$nc($cast($DOMSignedInfo, si))->canonicalize(context, outputStream);
+				$assign(var$2, $nc(this->signature)->sign());
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					$nc(($cast($DOMSignedInfo, si)))->canonicalize(context, outputStream);
-					$assign(var$2, $nc(this->signature)->sign());
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						outputStream->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					outputStream->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				outputStream->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			outputStream->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($SignatureException& e) {
-		$throwNew($1XMLSignatureException, static_cast<$Throwable*>(e));
+		$throwNew($1XMLSignatureException, e);
 	} catch ($IOException& e) {
-		$throwNew($1XMLSignatureException, static_cast<$Throwable*>(e));
+		$throwNew($1XMLSignatureException, e);
 	}
 	$shouldNotReachHere();
 }
 
 bool DOMRSAPSSSignatureMethod::paramsEqual($AlgorithmParameterSpec* spec) {
-	return $nc($of($(getParameterSpec())))->equals(spec);
+	return $$nc(getParameterSpec())->equals(spec);
 }
 
 int32_t DOMRSAPSSSignatureMethod::hashCode() {
@@ -470,8 +408,8 @@ void DOMRSAPSSSignatureMethod::marshal($Node* parent, $String* dsPrefix, $DOMCry
 	$AbstractDOMSignatureMethod::marshal(parent, dsPrefix, context);
 }
 
-void clinit$DOMRSAPSSSignatureMethod($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void DOMRSAPSSSignatureMethod::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(DOMRSAPSSSignatureMethod::DOM_SIGNATURE_PROVIDER, "org.jcp.xml.dsig.internal.dom.SignatureProvider"_s);
 	$assignStatic(DOMRSAPSSSignatureMethod::RSA_PSS, "http://www.w3.org/2007/05/xmldsig-more#rsa-pss"_s);
 	$assignStatic(DOMRSAPSSSignatureMethod::LOG, $LoggerFactory::getLogger(DOMRSAPSSSignatureMethod::class$));
@@ -482,7 +420,53 @@ DOMRSAPSSSignatureMethod::DOMRSAPSSSignatureMethod() {
 }
 
 $Class* DOMRSAPSSSignatureMethod::load$($String* name, bool initialize) {
-	$loadClass(DOMRSAPSSSignatureMethod, name, initialize, &_DOMRSAPSSSignatureMethod_ClassInfo_, clinit$DOMRSAPSSSignatureMethod, allocate$DOMRSAPSSSignatureMethod);
+	$FieldInfo fieldInfos$$[] = {
+		{"DOM_SIGNATURE_PROVIDER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMRSAPSSSignatureMethod, DOM_SIGNATURE_PROVIDER)},
+		{"LOG", "Lcom/sun/org/slf4j/internal/Logger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMRSAPSSSignatureMethod, LOG)},
+		{"params", "Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, $PRIVATE | $FINAL, $field(DOMRSAPSSSignatureMethod, params)},
+		{"signature", "Ljava/security/Signature;", nullptr, $PRIVATE, $field(DOMRSAPSSSignatureMethod, signature)},
+		{"RSA_PSS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DOMRSAPSSSignatureMethod, RSA_PSS)},
+		{"DEFAULT_PSS_SPEC", "Ljavax/xml/crypto/dsig/spec/RSAPSSParameterSpec;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMRSAPSSSignatureMethod, DEFAULT_PSS_SPEC)},
+		{"spec", "Ljava/security/spec/PSSParameterSpec;", nullptr, $PRIVATE, $field(DOMRSAPSSSignatureMethod, spec)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/security/spec/AlgorithmParameterSpec;)V", nullptr, 0, $method(DOMRSAPSSSignatureMethod, init$, void, $AlgorithmParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"<init>", "(Lorg/w3c/dom/Element;)V", nullptr, 0, $method(DOMRSAPSSSignatureMethod, init$, void, $Element*), "javax.xml.crypto.MarshalException"},
+		{"checkParams", "(Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;)V", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, checkParams, void, $SignatureMethodParameterSpec*), "java.security.InvalidAlgorithmParameterException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMRSAPSSSignatureMethod, equals, bool, Object$*)},
+		{"getParameterSpec", "()Ljava/security/spec/AlgorithmParameterSpec;", nullptr, $PUBLIC | $FINAL, $virtualMethod(DOMRSAPSSSignatureMethod, getParameterSpec, $AlgorithmParameterSpec*)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMRSAPSSSignatureMethod, hashCode, int32_t)},
+		{"marshal", "(Lorg/w3c/dom/Node;Ljava/lang/String;Ljavax/xml/crypto/dom/DOMCryptoContext;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(DOMRSAPSSSignatureMethod, marshal, void, $Node*, $String*, $DOMCryptoContext*), "javax.xml.crypto.MarshalException"},
+		{"marshalParams", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, marshalParams, void, $Element*, $String*), "javax.xml.crypto.MarshalException"},
+		{"paramsEqual", "(Ljava/security/spec/AlgorithmParameterSpec;)Z", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, paramsEqual, bool, $AlgorithmParameterSpec*)},
+		{"sign", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;Ljavax/xml/crypto/dsig/XMLSignContext;)[B", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, sign, $bytes*, $Key*, $SignedInfo*, $XMLSignContext*), "java.security.InvalidKeyException,javax.xml.crypto.dsig.XMLSignatureException"},
+		{"unmarshalParams", "(Lorg/w3c/dom/Element;)Ljavax/xml/crypto/dsig/spec/SignatureMethodParameterSpec;", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, unmarshalParams, $SignatureMethodParameterSpec*, $Element*), "javax.xml.crypto.MarshalException"},
+		{"validateDigestAlgorithm", "(Ljava/lang/String;)Lcom/sun/org/apache/xml/internal/security/algorithms/implementations/SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm;", nullptr, $PRIVATE | $STATIC, $staticMethod(DOMRSAPSSSignatureMethod, validateDigestAlgorithm, $SignatureBaseRSA$SignatureRSASSAPSS$DigestAlgorithm*, $String*), "javax.xml.crypto.MarshalException"},
+		{"verify", "(Ljava/security/Key;Ljavax/xml/crypto/dsig/SignedInfo;[BLjavax/xml/crypto/dsig/XMLValidateContext;)Z", nullptr, 0, $virtualMethod(DOMRSAPSSSignatureMethod, verify, bool, $Key*, $SignedInfo*, $bytes*, $XMLValidateContext*), "java.security.InvalidKeyException,java.security.SignatureException,javax.xml.crypto.dsig.XMLSignatureException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod$RSAPSS", "org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod", "RSAPSS", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod",
+		"org.jcp.xml.dsig.internal.dom.AbstractDOMSignatureMethod",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"org.jcp.xml.dsig.internal.dom.DOMRSAPSSSignatureMethod$RSAPSS"
+	};
+	$loadClass(DOMRSAPSSSignatureMethod, name, initialize, &classInfo$$, DOMRSAPSSSignatureMethod::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMRSAPSSSignatureMethod));
+	});
 	return class$;
 }
 

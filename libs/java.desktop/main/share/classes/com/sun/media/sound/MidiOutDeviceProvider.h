@@ -32,6 +32,7 @@ class MidiOutDeviceProvider : public ::com::sun::media::sound::AbstractMidiDevic
 	$class(MidiOutDeviceProvider, 0, ::com::sun::media::sound::AbstractMidiDeviceProvider)
 public:
 	MidiOutDeviceProvider();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::javax::sound::midi::MidiDevice* createDevice(::com::sun::media::sound::AbstractMidiDeviceProvider$Info* info) override;
 	virtual ::com::sun::media::sound::AbstractMidiDeviceProvider$Info* createInfo(int32_t index) override;

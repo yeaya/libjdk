@@ -67,6 +67,7 @@ class AttributeValues : public ::java::lang::Cloneable {
 	$class(AttributeValues, 0, ::java::lang::Cloneable)
 public:
 	AttributeValues();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	bool allDefined(int32_t mask);
 	bool anyDefined(int32_t mask);

@@ -38,6 +38,7 @@ class $import MBeanInfo : public ::java::lang::Cloneable, public ::java::io::Ser
 public:
 	MBeanInfo();
 	virtual void finalize() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* className, $String* description, $Array<::javax::management::MBeanAttributeInfo>* attributes, $Array<::javax::management::MBeanConstructorInfo>* constructors, $Array<::javax::management::MBeanOperationInfo>* operations, $Array<::javax::management::MBeanNotificationInfo>* notifications);
 	void init$($String* className, $String* description, $Array<::javax::management::MBeanAttributeInfo>* attributes, $Array<::javax::management::MBeanConstructorInfo>* constructors, $Array<::javax::management::MBeanOperationInfo>* operations, $Array<::javax::management::MBeanNotificationInfo>* notifications, ::javax::management::Descriptor* descriptor);
 	static bool arrayGettersSafe($Class* subclass, $Class* immutableClass);
@@ -63,7 +64,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* in);
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t serialVersionUID = (int64_t)0xA6795E2F085689C9;
+	static const int64_t serialVersionUID = (int64_t)0xa6795e2f085689c9;
 	::javax::management::Descriptor* descriptor = nullptr;
 	$String* description = nullptr;
 	$String* className = nullptr;

@@ -1,5 +1,4 @@
 #include <javax/naming/directory/SearchControls.h>
-
 #include <jcpp.h>
 
 #undef OBJECT_SCOPE
@@ -13,51 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace javax {
 	namespace naming {
 		namespace directory {
-
-$FieldInfo _SearchControls_FieldInfo_[] = {
-	{"OBJECT_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SearchControls, OBJECT_SCOPE)},
-	{"ONELEVEL_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SearchControls, ONELEVEL_SCOPE)},
-	{"SUBTREE_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SearchControls, SUBTREE_SCOPE)},
-	{"searchScope", "I", nullptr, $PRIVATE, $field(SearchControls, searchScope)},
-	{"timeLimit", "I", nullptr, $PRIVATE, $field(SearchControls, timeLimit)},
-	{"derefLink", "Z", nullptr, $PRIVATE, $field(SearchControls, derefLink)},
-	{"returnObj", "Z", nullptr, $PRIVATE, $field(SearchControls, returnObj)},
-	{"countLimit", "J", nullptr, $PRIVATE, $field(SearchControls, countLimit)},
-	{"attributesToReturn", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SearchControls, attributesToReturn)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SearchControls, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SearchControls_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(SearchControls, init$, void)},
-	{"<init>", "(IJI[Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(SearchControls, init$, void, int32_t, int64_t, int32_t, $StringArray*, bool, bool)},
-	{"getCountLimit", "()J", nullptr, $PUBLIC, $virtualMethod(SearchControls, getCountLimit, int64_t)},
-	{"getDerefLinkFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(SearchControls, getDerefLinkFlag, bool)},
-	{"getReturningAttributes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SearchControls, getReturningAttributes, $StringArray*)},
-	{"getReturningObjFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(SearchControls, getReturningObjFlag, bool)},
-	{"getSearchScope", "()I", nullptr, $PUBLIC, $virtualMethod(SearchControls, getSearchScope, int32_t)},
-	{"getTimeLimit", "()I", nullptr, $PUBLIC, $virtualMethod(SearchControls, getTimeLimit, int32_t)},
-	{"setCountLimit", "(J)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setCountLimit, void, int64_t)},
-	{"setDerefLinkFlag", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setDerefLinkFlag, void, bool)},
-	{"setReturningAttributes", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setReturningAttributes, void, $StringArray*)},
-	{"setReturningObjFlag", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setReturningObjFlag, void, bool)},
-	{"setSearchScope", "(I)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setSearchScope, void, int32_t)},
-	{"setTimeLimit", "(I)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setTimeLimit, void, int32_t)},
-	{}
-};
-
-$ClassInfo _SearchControls_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.directory.SearchControls",
-	"java.lang.Object",
-	"java.io.Serializable",
-	_SearchControls_FieldInfo_,
-	_SearchControls_MethodInfo_
-};
-
-$Object* allocate$SearchControls($Class* clazz) {
-	return $of($alloc(SearchControls));
-}
 
 void SearchControls::init$() {
 	this->searchScope = SearchControls::ONELEVEL_SCOPE;
@@ -129,7 +83,47 @@ SearchControls::SearchControls() {
 }
 
 $Class* SearchControls::load$($String* name, bool initialize) {
-	$loadClass(SearchControls, name, initialize, &_SearchControls_ClassInfo_, allocate$SearchControls);
+	$FieldInfo fieldInfos$$[] = {
+		{"OBJECT_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SearchControls, OBJECT_SCOPE)},
+		{"ONELEVEL_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SearchControls, ONELEVEL_SCOPE)},
+		{"SUBTREE_SCOPE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(SearchControls, SUBTREE_SCOPE)},
+		{"searchScope", "I", nullptr, $PRIVATE, $field(SearchControls, searchScope)},
+		{"timeLimit", "I", nullptr, $PRIVATE, $field(SearchControls, timeLimit)},
+		{"derefLink", "Z", nullptr, $PRIVATE, $field(SearchControls, derefLink)},
+		{"returnObj", "Z", nullptr, $PRIVATE, $field(SearchControls, returnObj)},
+		{"countLimit", "J", nullptr, $PRIVATE, $field(SearchControls, countLimit)},
+		{"attributesToReturn", "[Ljava/lang/String;", nullptr, $PRIVATE, $field(SearchControls, attributesToReturn)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(SearchControls, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(SearchControls, init$, void)},
+		{"<init>", "(IJI[Ljava/lang/String;ZZ)V", nullptr, $PUBLIC, $method(SearchControls, init$, void, int32_t, int64_t, int32_t, $StringArray*, bool, bool)},
+		{"getCountLimit", "()J", nullptr, $PUBLIC, $virtualMethod(SearchControls, getCountLimit, int64_t)},
+		{"getDerefLinkFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(SearchControls, getDerefLinkFlag, bool)},
+		{"getReturningAttributes", "()[Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SearchControls, getReturningAttributes, $StringArray*)},
+		{"getReturningObjFlag", "()Z", nullptr, $PUBLIC, $virtualMethod(SearchControls, getReturningObjFlag, bool)},
+		{"getSearchScope", "()I", nullptr, $PUBLIC, $virtualMethod(SearchControls, getSearchScope, int32_t)},
+		{"getTimeLimit", "()I", nullptr, $PUBLIC, $virtualMethod(SearchControls, getTimeLimit, int32_t)},
+		{"setCountLimit", "(J)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setCountLimit, void, int64_t)},
+		{"setDerefLinkFlag", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setDerefLinkFlag, void, bool)},
+		{"setReturningAttributes", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setReturningAttributes, void, $StringArray*)},
+		{"setReturningObjFlag", "(Z)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setReturningObjFlag, void, bool)},
+		{"setSearchScope", "(I)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setSearchScope, void, int32_t)},
+		{"setTimeLimit", "(I)V", nullptr, $PUBLIC, $virtualMethod(SearchControls, setTimeLimit, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.directory.SearchControls",
+		"java.lang.Object",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SearchControls, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SearchControls);
+	});
 	return class$;
 }
 

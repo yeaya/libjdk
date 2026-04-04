@@ -1,6 +1,4 @@
 #include <sun/awt/windows/WMenuItemPeer$1.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/event/ActionEvent.h>
 #include <sun/awt/windows/WMenuItemPeer.h>
@@ -8,7 +6,6 @@
 
 #undef ACTION_PERFORMED
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $MenuItem = ::java::awt::MenuItem;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -22,50 +19,6 @@ namespace sun {
 	namespace awt {
 		namespace windows {
 
-$FieldInfo _WMenuItemPeer$1_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/windows/WMenuItemPeer;", nullptr, $FINAL | $SYNTHETIC, $field(WMenuItemPeer$1, this$0)},
-	{"val$modifiers", "I", nullptr, $FINAL | $SYNTHETIC, $field(WMenuItemPeer$1, val$modifiers)},
-	{"val$when", "J", nullptr, $FINAL | $SYNTHETIC, $field(WMenuItemPeer$1, val$when)},
-	{}
-};
-
-$MethodInfo _WMenuItemPeer$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/windows/WMenuItemPeer;JI)V", "()V", 0, $method(WMenuItemPeer$1, init$, void, $WMenuItemPeer*, int64_t, int32_t)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WMenuItemPeer$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _WMenuItemPeer$1_EnclosingMethodInfo_ = {
-	"sun.awt.windows.WMenuItemPeer",
-	"handleAction",
-	"(JI)V"
-};
-
-$InnerClassInfo _WMenuItemPeer$1_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WMenuItemPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WMenuItemPeer$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WMenuItemPeer$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_WMenuItemPeer$1_FieldInfo_,
-	_WMenuItemPeer$1_MethodInfo_,
-	nullptr,
-	&_WMenuItemPeer$1_EnclosingMethodInfo_,
-	_WMenuItemPeer$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WMenuItemPeer"
-};
-
-$Object* allocate$WMenuItemPeer$1($Class* clazz) {
-	return $of($alloc(WMenuItemPeer$1));
-}
-
 void WMenuItemPeer$1::init$($WMenuItemPeer* this$0, int64_t val$when, int32_t val$modifiers) {
 	$set(this, this$0, this$0);
 	this->val$when = val$when;
@@ -73,15 +26,52 @@ void WMenuItemPeer$1::init$($WMenuItemPeer* this$0, int64_t val$when, int32_t va
 }
 
 void WMenuItemPeer$1::run() {
-	$useLocalCurrentObjectStackCache();
-	this->this$0->postEvent($$new($ActionEvent, this->this$0->target, $ActionEvent::ACTION_PERFORMED, $($nc(($cast($MenuItem, this->this$0->target)))->getActionCommand()), this->val$when, this->val$modifiers));
+	$useLocalObjectStack();
+	this->this$0->postEvent($$new($ActionEvent, this->this$0->target, $ActionEvent::ACTION_PERFORMED, $($nc($cast($MenuItem, this->this$0->target))->getActionCommand()), this->val$when, this->val$modifiers));
 }
 
 WMenuItemPeer$1::WMenuItemPeer$1() {
 }
 
 $Class* WMenuItemPeer$1::load$($String* name, bool initialize) {
-	$loadClass(WMenuItemPeer$1, name, initialize, &_WMenuItemPeer$1_ClassInfo_, allocate$WMenuItemPeer$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/windows/WMenuItemPeer;", nullptr, $FINAL | $SYNTHETIC, $field(WMenuItemPeer$1, this$0)},
+		{"val$modifiers", "I", nullptr, $FINAL | $SYNTHETIC, $field(WMenuItemPeer$1, val$modifiers)},
+		{"val$when", "J", nullptr, $FINAL | $SYNTHETIC, $field(WMenuItemPeer$1, val$when)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/windows/WMenuItemPeer;JI)V", "()V", 0, $method(WMenuItemPeer$1, init$, void, $WMenuItemPeer*, int64_t, int32_t)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(WMenuItemPeer$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.awt.windows.WMenuItemPeer",
+		"handleAction",
+		"(JI)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WMenuItemPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WMenuItemPeer$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WMenuItemPeer"
+	};
+	$loadClass(WMenuItemPeer$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(WMenuItemPeer$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/x11/X11SurfaceData$X11PixmapSurfaceData.h>
-
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
@@ -31,56 +30,9 @@ namespace sun {
 	namespace java2d {
 		namespace x11 {
 
-$FieldInfo _X11SurfaceData$X11PixmapSurfaceData_FieldInfo_[] = {
-	{"offscreenImage", "Ljava/awt/Image;", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, offscreenImage)},
-	{"width", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, width)},
-	{"height", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, height)},
-	{"transparency", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, transparency)},
-	{"scale", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, scale)},
-	{}
-};
-
-$MethodInfo _X11SurfaceData$X11PixmapSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11GraphicsConfig;IILjava/awt/Image;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;JIZ)V", nullptr, $PUBLIC, $method(X11SurfaceData$X11PixmapSurfaceData, init$, void, $X11GraphicsConfig*, int32_t, int32_t, $Image*, $SurfaceType*, $ColorModel*, int64_t, int32_t, bool)},
-	{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
-	{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, flush, void)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getBounds, $Rectangle*)},
-	{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getDefaultScaleX, double)},
-	{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getDefaultScaleY, double)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getDestination, $Object*)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getReplacement, $SurfaceData*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getTransparency, int32_t)},
-	{}
-};
-
-$InnerClassInfo _X11SurfaceData$X11PixmapSurfaceData_InnerClassesInfo_[] = {
-	{"sun.java2d.x11.X11SurfaceData$X11PixmapSurfaceData", "sun.java2d.x11.X11SurfaceData", "X11PixmapSurfaceData", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _X11SurfaceData$X11PixmapSurfaceData_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.x11.X11SurfaceData$X11PixmapSurfaceData",
-	"sun.java2d.x11.X11SurfaceData",
-	nullptr,
-	_X11SurfaceData$X11PixmapSurfaceData_FieldInfo_,
-	_X11SurfaceData$X11PixmapSurfaceData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_X11SurfaceData$X11PixmapSurfaceData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.x11.X11SurfaceData"
-};
-
-$Object* allocate$X11SurfaceData$X11PixmapSurfaceData($Class* clazz) {
-	return $of($alloc(X11SurfaceData$X11PixmapSurfaceData));
-}
-
 void X11SurfaceData$X11PixmapSurfaceData::init$($X11GraphicsConfig* gc, int32_t width, int32_t height, $Image* image, $SurfaceType* sType, $ColorModel* cm, int64_t drawable, int32_t transparency, bool isTexture) {
 	$X11SurfaceData::init$(nullptr, gc, sType, cm);
-	this->scale = isTexture ? 1 : $nc($($cast($X11GraphicsDevice, $nc(gc)->getDevice())))->getScaleFactor();
+	this->scale = isTexture ? 1 : $$sure($X11GraphicsDevice, $nc(gc)->getDevice())->getScaleFactor();
 	this->width = width * this->scale;
 	this->height = height * this->scale;
 	$set(this, offscreenImage, image);
@@ -111,7 +63,7 @@ void X11SurfaceData$X11PixmapSurfaceData::flush() {
 }
 
 $Object* X11SurfaceData$X11PixmapSurfaceData::getDestination() {
-	return $of(this->offscreenImage);
+	return this->offscreenImage;
 }
 
 double X11SurfaceData$X11PixmapSurfaceData::getDefaultScaleX() {
@@ -126,7 +78,48 @@ X11SurfaceData$X11PixmapSurfaceData::X11SurfaceData$X11PixmapSurfaceData() {
 }
 
 $Class* X11SurfaceData$X11PixmapSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(X11SurfaceData$X11PixmapSurfaceData, name, initialize, &_X11SurfaceData$X11PixmapSurfaceData_ClassInfo_, allocate$X11SurfaceData$X11PixmapSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"offscreenImage", "Ljava/awt/Image;", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, offscreenImage)},
+		{"width", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, width)},
+		{"height", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, height)},
+		{"transparency", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, transparency)},
+		{"scale", "I", nullptr, $PRIVATE | $FINAL, $field(X11SurfaceData$X11PixmapSurfaceData, scale)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11GraphicsConfig;IILjava/awt/Image;Lsun/java2d/loops/SurfaceType;Ljava/awt/image/ColorModel;JIZ)V", nullptr, $PUBLIC, $method(X11SurfaceData$X11PixmapSurfaceData, init$, void, $X11GraphicsConfig*, int32_t, int32_t, $Image*, $SurfaceType*, $ColorModel*, int64_t, int32_t, bool)},
+		{"canSourceSendExposures", "(IIII)Z", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, canSourceSendExposures, bool, int32_t, int32_t, int32_t, int32_t)},
+		{"flush", "()V", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, flush, void)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getBounds, $Rectangle*)},
+		{"getDefaultScaleX", "()D", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getDefaultScaleX, double)},
+		{"getDefaultScaleY", "()D", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getDefaultScaleY, double)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getDestination, $Object*)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getReplacement, $SurfaceData*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC, $virtualMethod(X11SurfaceData$X11PixmapSurfaceData, getTransparency, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.x11.X11SurfaceData$X11PixmapSurfaceData", "sun.java2d.x11.X11SurfaceData", "X11PixmapSurfaceData", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.x11.X11SurfaceData$X11PixmapSurfaceData",
+		"sun.java2d.x11.X11SurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.x11.X11SurfaceData"
+	};
+	$loadClass(X11SurfaceData$X11PixmapSurfaceData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(X11SurfaceData$X11PixmapSurfaceData));
+	});
 	return class$;
 }
 

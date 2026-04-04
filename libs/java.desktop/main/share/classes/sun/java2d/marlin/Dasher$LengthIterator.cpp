@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/Dasher$LengthIterator.h>
-
 #include <sun/java2d/marlin/Dasher.h>
 #include <sun/java2d/marlin/Helpers.h>
 #include <jcpp.h>
@@ -22,64 +21,6 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _Dasher$LengthIterator_FieldInfo_[] = {
-	{"recCurveStack", "[[D", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, recCurveStack)},
-	{"sidesRight", "[Z", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, sidesRight)},
-	{"curveType", "I", nullptr, $PRIVATE, $field(Dasher$LengthIterator, curveType)},
-	{"nextT", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, nextT)},
-	{"lenAtNextT", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lenAtNextT)},
-	{"lastT", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lastT)},
-	{"lenAtLastT", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lenAtLastT)},
-	{"lenAtLastSplit", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lenAtLastSplit)},
-	{"lastSegLen", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lastSegLen$)},
-	{"recLevel", "I", nullptr, $PRIVATE, $field(Dasher$LengthIterator, recLevel)},
-	{"done", "Z", nullptr, $PRIVATE, $field(Dasher$LengthIterator, done)},
-	{"curLeafCtrlPolyLengths", "[D", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, curLeafCtrlPolyLengths)},
-	{"cachedHaveLowAcceleration", "I", nullptr, $PRIVATE, $field(Dasher$LengthIterator, cachedHaveLowAcceleration)},
-	{"nextRoots", "[D", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, nextRoots)},
-	{"flatLeafCoefCache", "[D", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, flatLeafCoefCache)},
-	{}
-};
-
-$MethodInfo _Dasher$LengthIterator_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(Dasher$LengthIterator, init$, void)},
-	{"goLeft", "()V", nullptr, $PRIVATE, $method(Dasher$LengthIterator, goLeft, void)},
-	{"goToNextLeaf", "()V", nullptr, $PRIVATE, $method(Dasher$LengthIterator, goToNextLeaf, void)},
-	{"haveLowAcceleration", "(D)Z", nullptr, $PRIVATE, $method(Dasher$LengthIterator, haveLowAcceleration, bool, double)},
-	{"initializeIterationOnCurve", "([DI)V", nullptr, 0, $method(Dasher$LengthIterator, initializeIterationOnCurve, void, $doubles*, int32_t)},
-	{"lastSegLen", "()D", nullptr, 0, $method(Dasher$LengthIterator, lastSegLen, double)},
-	{"next", "(D)D", nullptr, 0, $method(Dasher$LengthIterator, next, double, double)},
-	{"onLeaf", "()D", nullptr, $PRIVATE, $method(Dasher$LengthIterator, onLeaf, double)},
-	{"reset", "()V", nullptr, 0, $method(Dasher$LengthIterator, reset, void)},
-	{"totalLength", "()D", nullptr, 0, $method(Dasher$LengthIterator, totalLength, double)},
-	{}
-};
-
-$InnerClassInfo _Dasher$LengthIterator_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.Dasher$LengthIterator", "sun.java2d.marlin.Dasher", "LengthIterator", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _Dasher$LengthIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.Dasher$LengthIterator",
-	"java.lang.Object",
-	nullptr,
-	_Dasher$LengthIterator_FieldInfo_,
-	_Dasher$LengthIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Dasher$LengthIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.Dasher"
-};
-
-$Object* allocate$Dasher$LengthIterator($Class* clazz) {
-	return $of($alloc(Dasher$LengthIterator));
-}
-
 void Dasher$LengthIterator::init$() {
 	$set(this, curLeafCtrlPolyLengths, $new($doubles, 3));
 	this->cachedHaveLowAcceleration = -1;
@@ -92,7 +33,6 @@ void Dasher$LengthIterator::init$() {
 	}));
 	$set(this, recCurveStack, $new($doubleArray2, 16 + 1, 8));
 	$set(this, sidesRight, $new($booleans, 16));
-	$init($Double);
 	this->nextT = $Double::MAX_VALUE;
 	this->lenAtNextT = $Double::MAX_VALUE;
 	this->lenAtLastSplit = $Double::MIN_VALUE;
@@ -102,6 +42,7 @@ void Dasher$LengthIterator::init$() {
 }
 
 void Dasher$LengthIterator::reset() {
+	;
 }
 
 void Dasher$LengthIterator::initializeIterationOnCurve($doubles* pts, int32_t type) {
@@ -115,10 +56,10 @@ void Dasher$LengthIterator::initializeIterationOnCurve($doubles* pts, int32_t ty
 	goLeft();
 	this->lenAtLastSplit = 0.0;
 	if (this->recLevel > 0) {
-		$nc(this->sidesRight)->set(0, false);
+		this->sidesRight->set(0, false);
 		this->done = false;
 	} else {
-		$nc(this->sidesRight)->set(0, true);
+		this->sidesRight->set(0, true);
 		this->done = true;
 	}
 	this->lastSegLen$ = 0.0;
@@ -126,14 +67,14 @@ void Dasher$LengthIterator::initializeIterationOnCurve($doubles* pts, int32_t ty
 
 bool Dasher$LengthIterator::haveLowAcceleration(double err) {
 	if (this->cachedHaveLowAcceleration == -1) {
-		double len1 = $nc(this->curLeafCtrlPolyLengths)->get(0);
-		double len2 = $nc(this->curLeafCtrlPolyLengths)->get(1);
+		double len1 = this->curLeafCtrlPolyLengths->get(0);
+		double len2 = this->curLeafCtrlPolyLengths->get(1);
 		if (!$Helpers::within(len1, len2, err * len2)) {
 			this->cachedHaveLowAcceleration = 0;
 			return false;
 		}
 		if (this->curveType == 8) {
-			double len3 = $nc(this->curLeafCtrlPolyLengths)->get(2);
+			double len3 = this->curLeafCtrlPolyLengths->get(2);
 			double errLen3 = err * len3;
 			bool var$0 = $Helpers::within(len2, len3, errLen3);
 			if (!(var$0 && $Helpers::within(len1, len3, errLen3))) {
@@ -162,10 +103,10 @@ double Dasher$LengthIterator::next(double len) {
 	if (!haveLowAcceleration(0.05)) {
 		$var($doubles, _flatLeafCoefCache, this->flatLeafCoefCache);
 		if ($nc(_flatLeafCoefCache)->get(2) < 0.0) {
-			double x = $nc(this->curLeafCtrlPolyLengths)->get(0);
-			double y = x + $nc(this->curLeafCtrlPolyLengths)->get(1);
+			double x = this->curLeafCtrlPolyLengths->get(0);
+			double y = x + this->curLeafCtrlPolyLengths->get(1);
 			if (this->curveType == 8) {
-				double z = y + $nc(this->curLeafCtrlPolyLengths)->get(2);
+				double z = y + this->curLeafCtrlPolyLengths->get(2);
 				_flatLeafCoefCache->set(0, 3.0 * (x - y) + z);
 				_flatLeafCoefCache->set(1, 3.0 * (y - 2.0 * x));
 				_flatLeafCoefCache->set(2, 3.0 * x);
@@ -177,13 +118,13 @@ double Dasher$LengthIterator::next(double len) {
 				_flatLeafCoefCache->set(3, -y);
 			}
 		}
-		double a = $nc(_flatLeafCoefCache)->get(0);
+		double a = _flatLeafCoefCache->get(0);
 		double b = _flatLeafCoefCache->get(1);
 		double c = _flatLeafCoefCache->get(2);
 		double d = t * _flatLeafCoefCache->get(3);
 		int32_t n = $Helpers::cubicRootsInAB(a, b, c, d, this->nextRoots, 0, 0.0, 1.0);
-		if (n == 1 && !$Double::isNaN($nc(this->nextRoots)->get(0))) {
-			t = $nc(this->nextRoots)->get(0);
+		if (n == 1 && !$Double::isNaN(this->nextRoots->get(0))) {
+			t = this->nextRoots->get(0);
 		}
 	}
 	t = t * (this->nextT - this->lastT) + this->lastT;
@@ -208,7 +149,7 @@ double Dasher$LengthIterator::lastSegLen() {
 }
 
 void Dasher$LengthIterator::goToNextLeaf() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($booleans, _sides, this->sidesRight);
 	int32_t _recLevel = this->recLevel;
 	--_recLevel;
@@ -220,9 +161,9 @@ void Dasher$LengthIterator::goToNextLeaf() {
 		}
 		--_recLevel;
 	}
-	$nc(_sides)->set(_recLevel, true);
-	$var($Object, var$0, $of($nc(this->recCurveStack)->get(_recLevel++)));
-	$System::arraycopy(var$0, 0, $nc(this->recCurveStack)->get(_recLevel), 0, 8);
+	_sides->set(_recLevel, true);
+	$var($Object, var$0, $nc(this->recCurveStack)->get(_recLevel++));
+	$System::arraycopy(var$0, 0, this->recCurveStack->get(_recLevel), 0, 8);
 	this->recLevel = _recLevel;
 	goLeft();
 }
@@ -234,7 +175,7 @@ void Dasher$LengthIterator::goLeft() {
 		this->lenAtLastT = this->lenAtNextT;
 		this->nextT += ($sl(1, 16 - this->recLevel)) * 1.52587890625E-5;
 		this->lenAtNextT += len;
-		$nc(this->flatLeafCoefCache)->set(2, -1.0);
+		this->flatLeafCoefCache->set(2, -1.0);
 		this->cachedHaveLowAcceleration = -1;
 	} else {
 		$Helpers::subdivide($nc(this->recCurveStack)->get(this->recLevel), $nc(this->recCurveStack)->get(this->recLevel + 1), $nc(this->recCurveStack)->get(this->recLevel), this->curveType);
@@ -255,7 +196,7 @@ double Dasher$LengthIterator::onLeaf() {
 		double y1 = curve->get(i + 1);
 		double len = $Helpers::linelen(x0, y0, x1, y1);
 		polyLen += len;
-		$nc(this->curLeafCtrlPolyLengths)->set((i >> 1) - 1, len);
+		this->curLeafCtrlPolyLengths->set((i >> 1) - 1, len);
 		x0 = x1;
 		y0 = y1;
 	}
@@ -271,7 +212,59 @@ Dasher$LengthIterator::Dasher$LengthIterator() {
 }
 
 $Class* Dasher$LengthIterator::load$($String* name, bool initialize) {
-	$loadClass(Dasher$LengthIterator, name, initialize, &_Dasher$LengthIterator_ClassInfo_, allocate$Dasher$LengthIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"recCurveStack", "[[D", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, recCurveStack)},
+		{"sidesRight", "[Z", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, sidesRight)},
+		{"curveType", "I", nullptr, $PRIVATE, $field(Dasher$LengthIterator, curveType)},
+		{"nextT", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, nextT)},
+		{"lenAtNextT", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lenAtNextT)},
+		{"lastT", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lastT)},
+		{"lenAtLastT", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lenAtLastT)},
+		{"lenAtLastSplit", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lenAtLastSplit)},
+		{"lastSegLen", "D", nullptr, $PRIVATE, $field(Dasher$LengthIterator, lastSegLen$)},
+		{"recLevel", "I", nullptr, $PRIVATE, $field(Dasher$LengthIterator, recLevel)},
+		{"done", "Z", nullptr, $PRIVATE, $field(Dasher$LengthIterator, done)},
+		{"curLeafCtrlPolyLengths", "[D", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, curLeafCtrlPolyLengths)},
+		{"cachedHaveLowAcceleration", "I", nullptr, $PRIVATE, $field(Dasher$LengthIterator, cachedHaveLowAcceleration)},
+		{"nextRoots", "[D", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, nextRoots)},
+		{"flatLeafCoefCache", "[D", nullptr, $PRIVATE | $FINAL, $field(Dasher$LengthIterator, flatLeafCoefCache)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(Dasher$LengthIterator, init$, void)},
+		{"goLeft", "()V", nullptr, $PRIVATE, $method(Dasher$LengthIterator, goLeft, void)},
+		{"goToNextLeaf", "()V", nullptr, $PRIVATE, $method(Dasher$LengthIterator, goToNextLeaf, void)},
+		{"haveLowAcceleration", "(D)Z", nullptr, $PRIVATE, $method(Dasher$LengthIterator, haveLowAcceleration, bool, double)},
+		{"initializeIterationOnCurve", "([DI)V", nullptr, 0, $method(Dasher$LengthIterator, initializeIterationOnCurve, void, $doubles*, int32_t)},
+		{"lastSegLen", "()D", nullptr, 0, $method(Dasher$LengthIterator, lastSegLen, double)},
+		{"next", "(D)D", nullptr, 0, $method(Dasher$LengthIterator, next, double, double)},
+		{"onLeaf", "()D", nullptr, $PRIVATE, $method(Dasher$LengthIterator, onLeaf, double)},
+		{"reset", "()V", nullptr, 0, $method(Dasher$LengthIterator, reset, void)},
+		{"totalLength", "()D", nullptr, 0, $method(Dasher$LengthIterator, totalLength, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.Dasher$LengthIterator", "sun.java2d.marlin.Dasher", "LengthIterator", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.Dasher$LengthIterator",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.Dasher"
+	};
+	$loadClass(Dasher$LengthIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Dasher$LengthIterator);
+	});
 	return class$;
 }
 

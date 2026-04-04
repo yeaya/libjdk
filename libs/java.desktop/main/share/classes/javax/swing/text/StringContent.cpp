@@ -1,5 +1,4 @@
 #include <javax/swing/text/StringContent.h>
-
 #include <java/lang/Math.h>
 #include <java/util/Vector.h>
 #include <javax/swing/text/AbstractDocument$Content.h>
@@ -35,66 +34,6 @@ namespace javax {
 	namespace swing {
 		namespace text {
 
-$FieldInfo _StringContent_FieldInfo_[] = {
-	{"empty", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringContent, empty)},
-	{"data", "[C", nullptr, $PRIVATE, $field(StringContent, data)},
-	{"count", "I", nullptr, $PRIVATE, $field(StringContent, count)},
-	{"marks", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/StringContent$PosRec;>;", $TRANSIENT, $field(StringContent, marks)},
-	{}
-};
-
-$MethodInfo _StringContent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(StringContent, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringContent, init$, void, int32_t)},
-	{"createPosition", "(I)Ljavax/swing/text/Position;", nullptr, $PUBLIC, $virtualMethod(StringContent, createPosition, $Position*, int32_t), "javax.swing.text.BadLocationException"},
-	{"getChars", "(IILjavax/swing/text/Segment;)V", nullptr, $PUBLIC, $virtualMethod(StringContent, getChars, void, int32_t, int32_t, $Segment*), "javax.swing.text.BadLocationException"},
-	{"getPositionsInRange", "(Ljava/util/Vector;II)Ljava/util/Vector;", nullptr, $PROTECTED, $method(StringContent, getPositionsInRange, $Vector*, $Vector*, int32_t, int32_t)},
-	{"getString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringContent, getString, $String*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"insertString", "(ILjava/lang/String;)Ljavax/swing/undo/UndoableEdit;", nullptr, $PUBLIC, $virtualMethod(StringContent, insertString, $UndoableEdit*, int32_t, $String*), "javax.swing.text.BadLocationException"},
-	{"length", "()I", nullptr, $PUBLIC, $virtualMethod(StringContent, length, int32_t)},
-	{"remove", "(II)Ljavax/swing/undo/UndoableEdit;", nullptr, $PUBLIC, $virtualMethod(StringContent, remove, $UndoableEdit*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
-	{"replace", "(II[CII)V", nullptr, 0, $method(StringContent, replace, void, int32_t, int32_t, $chars*, int32_t, int32_t)},
-	{"resize", "(I)V", nullptr, 0, $method(StringContent, resize, void, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"updateMarksForInsert", "(II)V", nullptr, $SYNCHRONIZED, $method(StringContent, updateMarksForInsert, void, int32_t, int32_t)},
-	{"updateMarksForRemove", "(II)V", nullptr, $SYNCHRONIZED, $method(StringContent, updateMarksForRemove, void, int32_t, int32_t)},
-	{"updateUndoPositions", "(Ljava/util/Vector;)V", nullptr, $PROTECTED, $method(StringContent, updateUndoPositions, void, $Vector*)},
-	{}
-};
-
-$InnerClassInfo _StringContent_InnerClassesInfo_[] = {
-	{"javax.swing.text.AbstractDocument$Content", "javax.swing.text.AbstractDocument", "Content", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.text.StringContent$RemoveUndo", "javax.swing.text.StringContent", "RemoveUndo", 0},
-	{"javax.swing.text.StringContent$InsertUndo", "javax.swing.text.StringContent", "InsertUndo", 0},
-	{"javax.swing.text.StringContent$UndoPosRef", "javax.swing.text.StringContent", "UndoPosRef", $FINAL},
-	{"javax.swing.text.StringContent$StickyPosition", "javax.swing.text.StringContent", "StickyPosition", $FINAL},
-	{"javax.swing.text.StringContent$PosRec", "javax.swing.text.StringContent", "PosRec", $FINAL},
-	{}
-};
-
-$ClassInfo _StringContent_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"javax.swing.text.StringContent",
-	"java.lang.Object",
-	"javax.swing.text.AbstractDocument$Content,java.io.Serializable",
-	_StringContent_FieldInfo_,
-	_StringContent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_StringContent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.text.StringContent$RemoveUndo,javax.swing.text.StringContent$InsertUndo,javax.swing.text.StringContent$UndoPosRef,javax.swing.text.StringContent$StickyPosition,javax.swing.text.StringContent$PosRec"
-};
-
-$Object* allocate$StringContent($Class* clazz) {
-	return $of($alloc(StringContent));
-}
-
 int32_t StringContent::hashCode() {
 	 return this->$AbstractDocument$Content::hashCode();
 }
@@ -126,7 +65,7 @@ void StringContent::init$(int32_t initialLength) {
 		initialLength = 1;
 	}
 	$set(this, data, $new($chars, initialLength));
-	$nc(this->data)->set(0, u'\n');
+	this->data->set(0, u'\n');
 	this->count = 1;
 }
 
@@ -147,7 +86,7 @@ $UndoableEdit* StringContent::insertString(int32_t where, $String* str) {
 }
 
 $UndoableEdit* StringContent::remove(int32_t where, int32_t nitems) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (where + nitems >= this->count) {
 		$throwNew($BadLocationException, "Invalid range"_s, this->count);
 	}
@@ -189,7 +128,7 @@ void StringContent::replace(int32_t offset, int32_t length, $chars* replArray, i
 	int32_t nmove = this->count - src;
 	int32_t dest = src + delta;
 	if ((this->count + delta) >= $nc(this->data)->length) {
-		int32_t newLength = $Math::max(2 * $nc(this->data)->length, this->count + delta);
+		int32_t newLength = $Math::max(2 * this->data->length, this->count + delta);
 		$var($chars, newData, $new($chars, newLength));
 		$System::arraycopy(this->data, 0, newData, 0, offset);
 		$System::arraycopy(replArray, replOffset, newData, offset, replLength);
@@ -210,15 +149,15 @@ void StringContent::resize(int32_t ncount) {
 
 void StringContent::updateMarksForInsert(int32_t offset, int32_t length) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		if (offset == 0) {
 			offset = 1;
 		}
 		int32_t n = $nc(this->marks)->size();
 		for (int32_t i = 0; i < n; ++i) {
-			$var($StringContent$PosRec, mark, $cast($StringContent$PosRec, $nc(this->marks)->elementAt(i)));
+			$var($StringContent$PosRec, mark, $cast($StringContent$PosRec, this->marks->elementAt(i)));
 			if ($nc(mark)->unused) {
-				$nc(this->marks)->removeElementAt(i);
+				this->marks->removeElementAt(i);
 				i -= 1;
 				n -= 1;
 			} else if (mark->offset >= offset) {
@@ -230,12 +169,12 @@ void StringContent::updateMarksForInsert(int32_t offset, int32_t length) {
 
 void StringContent::updateMarksForRemove(int32_t offset, int32_t length) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		int32_t n = $nc(this->marks)->size();
 		for (int32_t i = 0; i < n; ++i) {
-			$var($StringContent$PosRec, mark, $cast($StringContent$PosRec, $nc(this->marks)->elementAt(i)));
+			$var($StringContent$PosRec, mark, $cast($StringContent$PosRec, this->marks->elementAt(i)));
 			if ($nc(mark)->unused) {
-				$nc(this->marks)->removeElementAt(i);
+				this->marks->removeElementAt(i);
 				i -= 1;
 				n -= 1;
 			} else if (mark->offset >= (offset + length)) {
@@ -248,14 +187,14 @@ void StringContent::updateMarksForRemove(int32_t offset, int32_t length) {
 }
 
 $Vector* StringContent::getPositionsInRange($Vector* v, int32_t offset, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t n = $nc(this->marks)->size();
 	int32_t end = offset + length;
 	$var($Vector, placeIn, (v == nullptr) ? $new($Vector) : v);
 	for (int32_t i = 0; i < n; ++i) {
-		$var($StringContent$PosRec, mark, $cast($StringContent$PosRec, $nc(this->marks)->elementAt(i)));
+		$var($StringContent$PosRec, mark, $cast($StringContent$PosRec, this->marks->elementAt(i)));
 		if ($nc(mark)->unused) {
-			$nc(this->marks)->removeElementAt(i);
+			this->marks->removeElementAt(i);
 			i -= 1;
 			n -= 1;
 		} else if (mark->offset >= offset && mark->offset <= end) {
@@ -266,7 +205,7 @@ $Vector* StringContent::getPositionsInRange($Vector* v, int32_t offset, int32_t 
 }
 
 void StringContent::updateUndoPositions($Vector* positions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t counter = $nc(positions)->size() - 1; counter >= 0; --counter) {
 		$var($StringContent$UndoPosRef, ref, $cast($StringContent$UndoPosRef, positions->elementAt(counter)));
 		if ($nc($nc(ref)->rec)->unused) {
@@ -277,7 +216,7 @@ void StringContent::updateUndoPositions($Vector* positions) {
 	}
 }
 
-void clinit$StringContent($Class* class$) {
+void StringContent::clinit$($Class* clazz) {
 	$assignStatic(StringContent::empty, $new($chars, 0));
 }
 
@@ -285,7 +224,61 @@ StringContent::StringContent() {
 }
 
 $Class* StringContent::load$($String* name, bool initialize) {
-	$loadClass(StringContent, name, initialize, &_StringContent_ClassInfo_, clinit$StringContent, allocate$StringContent);
+	$FieldInfo fieldInfos$$[] = {
+		{"empty", "[C", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(StringContent, empty)},
+		{"data", "[C", nullptr, $PRIVATE, $field(StringContent, data)},
+		{"count", "I", nullptr, $PRIVATE, $field(StringContent, count)},
+		{"marks", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/swing/text/StringContent$PosRec;>;", $TRANSIENT, $field(StringContent, marks)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(StringContent, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(StringContent, init$, void, int32_t)},
+		{"createPosition", "(I)Ljavax/swing/text/Position;", nullptr, $PUBLIC, $virtualMethod(StringContent, createPosition, $Position*, int32_t), "javax.swing.text.BadLocationException"},
+		{"getChars", "(IILjavax/swing/text/Segment;)V", nullptr, $PUBLIC, $virtualMethod(StringContent, getChars, void, int32_t, int32_t, $Segment*), "javax.swing.text.BadLocationException"},
+		{"getPositionsInRange", "(Ljava/util/Vector;II)Ljava/util/Vector;", nullptr, $PROTECTED, $method(StringContent, getPositionsInRange, $Vector*, $Vector*, int32_t, int32_t)},
+		{"getString", "(II)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StringContent, getString, $String*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"insertString", "(ILjava/lang/String;)Ljavax/swing/undo/UndoableEdit;", nullptr, $PUBLIC, $virtualMethod(StringContent, insertString, $UndoableEdit*, int32_t, $String*), "javax.swing.text.BadLocationException"},
+		{"length", "()I", nullptr, $PUBLIC, $virtualMethod(StringContent, length, int32_t)},
+		{"remove", "(II)Ljavax/swing/undo/UndoableEdit;", nullptr, $PUBLIC, $virtualMethod(StringContent, remove, $UndoableEdit*, int32_t, int32_t), "javax.swing.text.BadLocationException"},
+		{"replace", "(II[CII)V", nullptr, 0, $method(StringContent, replace, void, int32_t, int32_t, $chars*, int32_t, int32_t)},
+		{"resize", "(I)V", nullptr, 0, $method(StringContent, resize, void, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"updateMarksForInsert", "(II)V", nullptr, $SYNCHRONIZED, $method(StringContent, updateMarksForInsert, void, int32_t, int32_t)},
+		{"updateMarksForRemove", "(II)V", nullptr, $SYNCHRONIZED, $method(StringContent, updateMarksForRemove, void, int32_t, int32_t)},
+		{"updateUndoPositions", "(Ljava/util/Vector;)V", nullptr, $PROTECTED, $method(StringContent, updateUndoPositions, void, $Vector*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.AbstractDocument$Content", "javax.swing.text.AbstractDocument", "Content", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.text.StringContent$RemoveUndo", "javax.swing.text.StringContent", "RemoveUndo", 0},
+		{"javax.swing.text.StringContent$InsertUndo", "javax.swing.text.StringContent", "InsertUndo", 0},
+		{"javax.swing.text.StringContent$UndoPosRef", "javax.swing.text.StringContent", "UndoPosRef", $FINAL},
+		{"javax.swing.text.StringContent$StickyPosition", "javax.swing.text.StringContent", "StickyPosition", $FINAL},
+		{"javax.swing.text.StringContent$PosRec", "javax.swing.text.StringContent", "PosRec", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"javax.swing.text.StringContent",
+		"java.lang.Object",
+		"javax.swing.text.AbstractDocument$Content,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.text.StringContent$RemoveUndo,javax.swing.text.StringContent$InsertUndo,javax.swing.text.StringContent$UndoPosRef,javax.swing.text.StringContent$StickyPosition,javax.swing.text.StringContent$PosRec"
+	};
+	$loadClass(StringContent, name, initialize, &classInfo$$, StringContent::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StringContent));
+	});
 	return class$;
 }
 

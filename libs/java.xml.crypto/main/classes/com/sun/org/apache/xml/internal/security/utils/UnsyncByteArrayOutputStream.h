@@ -32,7 +32,7 @@ public:
 	virtual void write($bytes* arg0, int32_t arg1, int32_t arg2) override;
 	virtual void write(int32_t arg0) override;
 	virtual void writeTo(::java::io::OutputStream* out);
-	static const int32_t VM_ARRAY_INDEX_MAX_VALUE = 0x7FFFFFF7; // Integer.MAX_VALUE - 8
+	static const int32_t VM_ARRAY_INDEX_MAX_VALUE = 0x7ffffff7; // Integer.MAX_VALUE - 8
 	static const int32_t INITIAL_SIZE = 8192;
 	$bytes* buf = nullptr;
 	int32_t size = 0;

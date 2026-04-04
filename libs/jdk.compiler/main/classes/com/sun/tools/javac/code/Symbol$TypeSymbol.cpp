@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
-
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Kinds$KindSelector.h>
 #include <com/sun/tools/javac/code/Scope$LookupKind.h>
@@ -33,7 +32,6 @@
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Kinds$KindSelector = ::com::sun::tools::javac::code::Kinds$KindSelector;
 using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
-using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$Visitor = ::com::sun::tools::javac::code::Symbol$Visitor;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -45,7 +43,6 @@ using $1List = ::com::sun::tools::javac::util::List;
 using $Name = ::com::sun::tools::javac::util::Name;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -59,47 +56,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$MethodInfo _Symbol$TypeSymbol_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$TypeSymbol, init$, void, $Kinds$Kind*, int64_t, $Name*, $Type*, $Symbol*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$TypeSymbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
-	{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, asType, $TypeMirror*)},
-	{"formFlatName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$TypeSymbol, formFlatName, $Name*, $Name*, $Symbol*)},
-	{"formFullName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$TypeSymbol, formFullName, $Name*, $Name*, $Symbol*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getAnnotationMirrors, $List*)},
-	{"getAnnotationTypeMetadata", "()Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeMetadata;", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeSymbol, getAnnotationTypeMetadata, $Annotate$AnnotationTypeMetadata*)},
-	{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Symbol$TypeSymbol, getEnclosedElements, $List*)},
-	{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getEnclosingElement, $Element*)},
-	{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getSimpleName, $1Name*)},
-	{"isAnnotationType", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeSymbol, isAnnotationType, bool)},
-	{"precedes", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC | $FINAL, $method(Symbol$TypeSymbol, precedes, bool, Symbol$TypeSymbol*, $Types*)},
-	{}
-};
-
-$InnerClassInfo _Symbol$TypeSymbol_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Symbol$TypeSymbol_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.code.Symbol$TypeSymbol",
-	"com.sun.tools.javac.code.Symbol",
-	nullptr,
-	nullptr,
-	_Symbol$TypeSymbol_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Symbol$TypeSymbol_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Symbol"
-};
-
-$Object* allocate$Symbol$TypeSymbol($Class* clazz) {
-	return $of($alloc(Symbol$TypeSymbol));
-}
-
 void Symbol$TypeSymbol::init$($Kinds$Kind* kind, int64_t flags, $Name* name, $Type* type, $Symbol* owner) {
 	$Symbol::init$(kind, flags, name, type, owner);
 }
@@ -110,18 +66,18 @@ $Name* Symbol$TypeSymbol::formFullName($Name* name, $Symbol* owner) {
 		return name;
 	}
 	$init($Kinds$Kind);
-	bool var$0 = ($nc(owner)->kind != $Kinds$Kind::ERR);
+	bool var$0 = $nc(owner)->kind != $Kinds$Kind::ERR;
 	if (var$0) {
 		$init($Kinds$KindSelector);
 		bool var$1 = $nc(owner->kind)->matches($Kinds$KindSelector::VAL_MTH);
 		$init($TypeTag);
-		var$0 = (var$1 || (owner->kind == $Kinds$Kind::TYP && $nc(owner->type)->hasTag($TypeTag::TYPEVAR)));
+		var$0 = var$1 || (owner->kind == $Kinds$Kind::TYP && $nc(owner->type)->hasTag($TypeTag::TYPEVAR));
 	}
 	if (var$0) {
 		return name;
 	}
-	$var($Name, prefix, $nc(owner)->getQualifiedName());
-	if (prefix == nullptr || prefix == $nc($nc($nc(prefix)->table)->names)->empty) {
+	$var($Name, prefix, owner->getQualifiedName());
+	if (prefix == nullptr || prefix == $nc($nc(prefix->table)->names)->empty) {
 		return name;
 	} else {
 		return prefix->append(u'.', name);
@@ -131,14 +87,15 @@ $Name* Symbol$TypeSymbol::formFullName($Name* name, $Symbol* owner) {
 $Name* Symbol$TypeSymbol::formFlatName($Name* name, $Symbol* owner) {
 	$init(Symbol$TypeSymbol);
 	$init($Kinds$KindSelector);
-	bool var$0 = owner == nullptr || $nc($nc(owner)->kind)->matches($Kinds$KindSelector::VAL_MTH);
+	bool var$0 = owner == nullptr || $nc(owner->kind)->matches($Kinds$KindSelector::VAL_MTH);
+	$init($Kinds$Kind);
 	$init($TypeTag);
-	if (var$0 || ($nc(owner)->kind == $Kinds$Kind::TYP && $nc(owner->type)->hasTag($TypeTag::TYPEVAR))) {
+	if (var$0 || (owner->kind == $Kinds$Kind::TYP && $nc(owner->type)->hasTag($TypeTag::TYPEVAR))) {
 		return name;
 	}
 	char16_t sep = $nc(owner)->kind == $Kinds$Kind::TYP ? u'$' : u'.';
-	$var($Name, prefix, $nc(owner)->flatName());
-	if (prefix == nullptr || prefix == $nc($nc($nc(prefix)->table)->names)->empty) {
+	$var($Name, prefix, owner->flatName());
+	if (prefix == nullptr || prefix == $nc($nc(prefix->table)->names)->empty) {
 		return name;
 	} else {
 		return prefix->append(sep, name);
@@ -146,25 +103,23 @@ $Name* Symbol$TypeSymbol::formFlatName($Name* name, $Symbol* owner) {
 }
 
 bool Symbol$TypeSymbol::precedes(Symbol$TypeSymbol* that, $Types* types) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this == that) {
 		return false;
 	}
 	if ($nc(this->type)->hasTag($($nc($nc(that)->type)->getTag()))) {
 		$init($TypeTag);
 		if ($nc(this->type)->hasTag($TypeTag::CLASS)) {
-			int32_t var$1 = $nc(types)->rank($nc(that)->type);
+			int32_t var$1 = $nc(types)->rank(that->type);
 			bool var$0 = var$1 < types->rank(this->type);
 			if (!var$0) {
-				int32_t var$3 = $nc(types)->rank($nc(that)->type);
+				int32_t var$3 = types->rank(that->type);
 				bool var$2 = var$3 == types->rank(this->type);
-				var$0 = var$2 && $nc($($nc(that)->getQualifiedName()))->compareTo($(this->getQualifiedName())) < 0;
+				var$0 = var$2 && $$nc(that->getQualifiedName())->compareTo($(this->getQualifiedName())) < 0;
 			}
 			return var$0;
-		} else {
-			if ($nc(this->type)->hasTag($TypeTag::TYPEVAR)) {
-				return $nc(types)->isSubtype(this->type, $nc(that)->type);
-			}
+		} else if ($nc(this->type)->hasTag($TypeTag::TYPEVAR)) {
+			return $nc(types)->isSubtype(this->type, that->type);
 		}
 	}
 	$init($TypeTag);
@@ -172,7 +127,7 @@ bool Symbol$TypeSymbol::precedes(Symbol$TypeSymbol* that, $Types* types) {
 }
 
 $List* Symbol$TypeSymbol::getEnclosedElements() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($1List, list, $1List::nil());
 	$init($Kinds$Kind);
 	$init($TypeTag);
@@ -182,12 +137,12 @@ $List* Symbol$TypeSymbol::getEnclosedElements() {
 	apiComplete();
 	{
 		$init($Scope$LookupKind);
-		$var($Iterator, i$, $nc($($nc($(members()))->getSymbols($Scope$LookupKind::NON_RECURSIVE)))->iterator());
+		$var($Iterator, i$, $$nc($$nc(members())->getSymbols($Scope$LookupKind::NON_RECURSIVE))->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Symbol, sym, $cast($Symbol, i$->next()));
 			{
 				$nc(sym)->apiComplete();
-				if (((int64_t)(sym->flags() & (uint64_t)(int64_t)4096)) == 0 && $equals(sym->owner, this) && sym->kind != $Kinds$Kind::ERR) {
+				if ((sym->flags() & 0x1000) == 0 && $equals(sym->owner, this) && sym->kind != $Kinds$Kind::ERR) {
 					$assign(list, $nc(list)->prepend(sym));
 				}
 			}
@@ -206,7 +161,7 @@ bool Symbol$TypeSymbol::isAnnotationType() {
 }
 
 $Object* Symbol$TypeSymbol::accept($Symbol$Visitor* v, Object$* p) {
-	return $of($nc(v)->visitTypeSymbol(this, p));
+	return $nc(v)->visitTypeSymbol(this, p);
 }
 
 $List* Symbol$TypeSymbol::getAnnotationMirrors() {
@@ -229,7 +184,43 @@ Symbol$TypeSymbol::Symbol$TypeSymbol() {
 }
 
 $Class* Symbol$TypeSymbol::load$($String* name, bool initialize) {
-	$loadClass(Symbol$TypeSymbol, name, initialize, &_Symbol$TypeSymbol_ClassInfo_, allocate$Symbol$TypeSymbol);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Kinds$Kind;JLcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Symbol;)V", nullptr, $PUBLIC, $method(Symbol$TypeSymbol, init$, void, $Kinds$Kind*, int64_t, $Name*, $Type*, $Symbol*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Symbol$Visitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Lcom/sun/tools/javac/code/Symbol$Visitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Symbol$TypeSymbol, accept, $Object*, $Symbol$Visitor*, Object$*)},
+		{"asType", "()Ljavax/lang/model/type/TypeMirror;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, asType, $TypeMirror*)},
+		{"formFlatName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$TypeSymbol, formFlatName, $Name*, $Name*, $Symbol*)},
+		{"formFullName", "(Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/util/Name;", nullptr, $PUBLIC | $STATIC, $staticMethod(Symbol$TypeSymbol, formFullName, $Name*, $Name*, $Symbol*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getAnnotationMirrors, $List*)},
+		{"getAnnotationTypeMetadata", "()Lcom/sun/tools/javac/comp/Annotate$AnnotationTypeMetadata;", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeSymbol, getAnnotationTypeMetadata, $Annotate$AnnotationTypeMetadata*)},
+		{"getEnclosedElements", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Symbol;>;", $PUBLIC, $virtualMethod(Symbol$TypeSymbol, getEnclosedElements, $List*)},
+		{"getEnclosingElement", "()Ljavax/lang/model/element/Element;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getEnclosingElement, $Element*)},
+		{"getSimpleName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Symbol$TypeSymbol, getSimpleName, $1Name*)},
+		{"isAnnotationType", "()Z", nullptr, $PUBLIC, $virtualMethod(Symbol$TypeSymbol, isAnnotationType, bool)},
+		{"precedes", "(Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/Types;)Z", nullptr, $PUBLIC | $FINAL, $method(Symbol$TypeSymbol, precedes, bool, Symbol$TypeSymbol*, $Types*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Symbol$TypeSymbol", "com.sun.tools.javac.code.Symbol", "TypeSymbol", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.code.Symbol$TypeSymbol",
+		"com.sun.tools.javac.code.Symbol",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Symbol"
+	};
+	$loadClass(Symbol$TypeSymbol, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Symbol$TypeSymbol));
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <java/awt/JobAttributes$MultipleDocumentHandlingType.h>
-
 #include <java/awt/AttributeValue.h>
 #include <java/awt/JobAttributes.h>
 #include <jcpp.h>
@@ -19,47 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _JobAttributes$MultipleDocumentHandlingType_FieldInfo_[] = {
-	{"I_SEPARATE_DOCUMENTS_COLLATED_COPIES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$MultipleDocumentHandlingType, I_SEPARATE_DOCUMENTS_COLLATED_COPIES)},
-	{"I_SEPARATE_DOCUMENTS_UNCOLLATED_COPIES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$MultipleDocumentHandlingType, I_SEPARATE_DOCUMENTS_UNCOLLATED_COPIES)},
-	{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobAttributes$MultipleDocumentHandlingType, NAMES)},
-	{"SEPARATE_DOCUMENTS_COLLATED_COPIES", "Ljava/awt/JobAttributes$MultipleDocumentHandlingType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$MultipleDocumentHandlingType, SEPARATE_DOCUMENTS_COLLATED_COPIES)},
-	{"SEPARATE_DOCUMENTS_UNCOLLATED_COPIES", "Ljava/awt/JobAttributes$MultipleDocumentHandlingType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$MultipleDocumentHandlingType, SEPARATE_DOCUMENTS_UNCOLLATED_COPIES)},
-	{}
-};
-
-$MethodInfo _JobAttributes$MultipleDocumentHandlingType_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PRIVATE, $method(JobAttributes$MultipleDocumentHandlingType, init$, void, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$MultipleDocumentHandlingType, hashCode, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$MultipleDocumentHandlingType, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _JobAttributes$MultipleDocumentHandlingType_InnerClassesInfo_[] = {
-	{"java.awt.JobAttributes$MultipleDocumentHandlingType", "java.awt.JobAttributes", "MultipleDocumentHandlingType", $PUBLIC | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _JobAttributes$MultipleDocumentHandlingType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"java.awt.JobAttributes$MultipleDocumentHandlingType",
-	"java.awt.AttributeValue",
-	nullptr,
-	_JobAttributes$MultipleDocumentHandlingType_FieldInfo_,
-	_JobAttributes$MultipleDocumentHandlingType_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JobAttributes$MultipleDocumentHandlingType_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.JobAttributes"
-};
-
-$Object* allocate$JobAttributes$MultipleDocumentHandlingType($Class* clazz) {
-	return $of($alloc(JobAttributes$MultipleDocumentHandlingType));
-}
-
 $StringArray* JobAttributes$MultipleDocumentHandlingType::NAMES = nullptr;
 JobAttributes$MultipleDocumentHandlingType* JobAttributes$MultipleDocumentHandlingType::SEPARATE_DOCUMENTS_COLLATED_COPIES = nullptr;
 JobAttributes$MultipleDocumentHandlingType* JobAttributes$MultipleDocumentHandlingType::SEPARATE_DOCUMENTS_UNCOLLATED_COPIES = nullptr;
@@ -76,7 +34,7 @@ int32_t JobAttributes$MultipleDocumentHandlingType::hashCode() {
 	return $AttributeValue::hashCode();
 }
 
-void clinit$JobAttributes$MultipleDocumentHandlingType($Class* class$) {
+void JobAttributes$MultipleDocumentHandlingType::clinit$($Class* clazz) {
 	$assignStatic(JobAttributes$MultipleDocumentHandlingType::NAMES, $new($StringArray, {
 		"separate-documents-collated-copies"_s,
 		"separate-documents-uncollated-copies"_s
@@ -89,7 +47,42 @@ JobAttributes$MultipleDocumentHandlingType::JobAttributes$MultipleDocumentHandli
 }
 
 $Class* JobAttributes$MultipleDocumentHandlingType::load$($String* name, bool initialize) {
-	$loadClass(JobAttributes$MultipleDocumentHandlingType, name, initialize, &_JobAttributes$MultipleDocumentHandlingType_ClassInfo_, clinit$JobAttributes$MultipleDocumentHandlingType, allocate$JobAttributes$MultipleDocumentHandlingType);
+	$FieldInfo fieldInfos$$[] = {
+		{"I_SEPARATE_DOCUMENTS_COLLATED_COPIES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$MultipleDocumentHandlingType, I_SEPARATE_DOCUMENTS_COLLATED_COPIES)},
+		{"I_SEPARATE_DOCUMENTS_UNCOLLATED_COPIES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(JobAttributes$MultipleDocumentHandlingType, I_SEPARATE_DOCUMENTS_UNCOLLATED_COPIES)},
+		{"NAMES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(JobAttributes$MultipleDocumentHandlingType, NAMES)},
+		{"SEPARATE_DOCUMENTS_COLLATED_COPIES", "Ljava/awt/JobAttributes$MultipleDocumentHandlingType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$MultipleDocumentHandlingType, SEPARATE_DOCUMENTS_COLLATED_COPIES)},
+		{"SEPARATE_DOCUMENTS_UNCOLLATED_COPIES", "Ljava/awt/JobAttributes$MultipleDocumentHandlingType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(JobAttributes$MultipleDocumentHandlingType, SEPARATE_DOCUMENTS_UNCOLLATED_COPIES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PRIVATE, $method(JobAttributes$MultipleDocumentHandlingType, init$, void, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$MultipleDocumentHandlingType, hashCode, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JobAttributes$MultipleDocumentHandlingType, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.JobAttributes$MultipleDocumentHandlingType", "java.awt.JobAttributes", "MultipleDocumentHandlingType", $PUBLIC | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"java.awt.JobAttributes$MultipleDocumentHandlingType",
+		"java.awt.AttributeValue",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.JobAttributes"
+	};
+	$loadClass(JobAttributes$MultipleDocumentHandlingType, name, initialize, &classInfo$$, JobAttributes$MultipleDocumentHandlingType::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JobAttributes$MultipleDocumentHandlingType);
+	});
 	return class$;
 }
 

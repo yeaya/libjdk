@@ -57,6 +57,7 @@ class CPlatformEmbeddedFrame : public ::sun::lwawt::PlatformWindow {
 	$class(CPlatformEmbeddedFrame, 0, ::sun::lwawt::PlatformWindow)
 public:
 	CPlatformEmbeddedFrame();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void dispose() override;
 	virtual void enterFullScreenMode() override;

@@ -40,6 +40,7 @@ class CFontManager : public ::sun::font::SunFontManager {
 	$class(CFontManager, 0, ::sun::font::SunFontManager)
 public:
 	CFontManager();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void addNativeFontFamilyNames(::java::util::TreeMap* familyNames, ::java::util::Locale* requestedLocale) override;
 	bool cloneStyledFont(::sun::font::FontFamily* realFamily, $String* logicalFamilyName, int32_t style);

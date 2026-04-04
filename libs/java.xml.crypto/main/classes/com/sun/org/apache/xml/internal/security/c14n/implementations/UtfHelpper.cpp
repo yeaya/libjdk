@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/UtfHelpper.h>
-
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -45,58 +44,27 @@ public:
 	virtual $Object* run() override {
 		 return $of(UtfHelpper::lambda$static$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<UtfHelpper$$Lambda$lambda$static$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo UtfHelpper$$Lambda$lambda$static$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(UtfHelpper$$Lambda$lambda$static$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UtfHelpper$$Lambda$lambda$static$0, run, $Object*)},
-	{}
-};
-$ClassInfo UtfHelpper$$Lambda$lambda$static$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.UtfHelpper$$Lambda$lambda$static$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* UtfHelpper$$Lambda$lambda$static$0::load$($String* name, bool initialize) {
-	$loadClass(UtfHelpper$$Lambda$lambda$static$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(UtfHelpper$$Lambda$lambda$static$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(UtfHelpper$$Lambda$lambda$static$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.UtfHelpper$$Lambda$lambda$static$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(UtfHelpper$$Lambda$lambda$static$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(UtfHelpper$$Lambda$lambda$static$0);
+	});
 	return class$;
 }
 $Class* UtfHelpper$$Lambda$lambda$static$0::class$ = nullptr;
-
-$FieldInfo _UtfHelpper_FieldInfo_[] = {
-	{"OLD_UTF8", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UtfHelpper, OLD_UTF8)},
-	{}
-};
-
-$MethodInfo _UtfHelpper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(UtfHelpper, init$, void)},
-	{"getStringInUtf8", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, getStringInUtf8, $bytes*, $String*)},
-	{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UtfHelpper, lambda$static$0, $Boolean*)},
-	{"writeByte", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map<Ljava/lang/String;[B>;)V", $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeByte, void, $String*, $OutputStream*, $Map*), "java.io.IOException"},
-	{"writeCodePointToUtf8", "(ILjava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeCodePointToUtf8, void, int32_t, $OutputStream*), "java.io.IOException"},
-	{"writeStringToUtf8", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeStringToUtf8, void, $String*, $OutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _UtfHelpper_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.c14n.implementations.UtfHelpper",
-	"java.lang.Object",
-	nullptr,
-	_UtfHelpper_FieldInfo_,
-	_UtfHelpper_MethodInfo_
-};
-
-$Object* allocate$UtfHelpper($Class* clazz) {
-	return $of($alloc(UtfHelpper));
-}
 
 bool UtfHelpper::OLD_UTF8 = false;
 
@@ -115,7 +83,7 @@ void UtfHelpper::writeByte($String* str, $OutputStream* out, $Map* cache) {
 
 void UtfHelpper::writeCodePointToUtf8(int32_t c, $OutputStream* out) {
 	$init(UtfHelpper);
-	if (!$Character::isValidCodePoint(c) || c >= 0x0000D800 && c <= 0x0000DBFF || c >= 0x0000DC00 && c <= 0x0000DFFF) {
+	if (!$Character::isValidCodePoint(c) || c >= 0x0000d800 && c <= 0x0000dbff || c >= 0x0000dc00 && c <= 0x0000dfff) {
 		$nc(out)->write(63);
 		return;
 	}
@@ -128,17 +96,17 @@ void UtfHelpper::writeCodePointToUtf8(int32_t c, $OutputStream* out) {
 		$nc(out)->write(c);
 		return;
 	}
-	int8_t extraByte = (int8_t)0;
+	int8_t extraByte = 0;
 	if (c < 2048) {
-		extraByte = (int8_t)1;
+		extraByte = 1;
 	} else if (c < 0x00010000) {
-		extraByte = (int8_t)2;
+		extraByte = 2;
 	} else if (c < 0x00200000) {
-		extraByte = (int8_t)3;
+		extraByte = 3;
 	} else if (c < 0x04000000) {
-		extraByte = (int8_t)4;
-	} else if (c <= 0x7FFFFFFF) {
-		extraByte = (int8_t)5;
+		extraByte = 4;
+	} else if (c <= 0x7fffffff) {
+		extraByte = 5;
 	} else {
 		$nc(out)->write(63);
 		return;
@@ -146,11 +114,11 @@ void UtfHelpper::writeCodePointToUtf8(int32_t c, $OutputStream* out) {
 	int8_t write = 0;
 	int32_t shift = 6 * extraByte;
 	write = (int8_t)(($sl(254, 6 - extraByte)) | ($usr(c, shift)));
-	$nc(out)->write((int32_t)write);
+	$nc(out)->write(write);
 	for (int32_t i = extraByte - 1; i >= 0; --i) {
 		shift -= 6;
-		write = (int8_t)(128 | ((int32_t)(($usr(c, shift)) & (uint32_t)63)));
-		out->write((int32_t)write);
+		write = (int8_t)(0x80 | (($usr(c, shift)) & 0x3f));
+		out->write(write);
 	}
 }
 
@@ -162,7 +130,7 @@ void UtfHelpper::writeStringToUtf8($String* str, $OutputStream* out) {
 	while (i < length) {
 		c = str->codePointAt(i);
 		i += $Character::charCount(c);
-		if (!$Character::isValidCodePoint(c) || c >= 0x0000D800 && c <= 0x0000DBFF || c >= 0x0000DC00 && c <= 0x0000DFFF) {
+		if (!$Character::isValidCodePoint(c) || c >= 0x0000d800 && c <= 0x0000dbff || c >= 0x0000dc00 && c <= 0x0000dfff) {
 			$nc(out)->write(63);
 			continue;
 		}
@@ -175,17 +143,17 @@ void UtfHelpper::writeStringToUtf8($String* str, $OutputStream* out) {
 			$nc(out)->write(c);
 			continue;
 		}
-		int8_t extraByte = (int8_t)0;
+		int8_t extraByte = 0;
 		if (c < 2048) {
-			extraByte = (int8_t)1;
+			extraByte = 1;
 		} else if (c < 0x00010000) {
-			extraByte = (int8_t)2;
+			extraByte = 2;
 		} else if (c < 0x00200000) {
-			extraByte = (int8_t)3;
+			extraByte = 3;
 		} else if (c < 0x04000000) {
-			extraByte = (int8_t)4;
-		} else if (c <= 0x7FFFFFFF) {
-			extraByte = (int8_t)5;
+			extraByte = 4;
+		} else if (c <= 0x7fffffff) {
+			extraByte = 5;
 		} else {
 			$nc(out)->write(63);
 			continue;
@@ -193,18 +161,18 @@ void UtfHelpper::writeStringToUtf8($String* str, $OutputStream* out) {
 		int8_t write = 0;
 		int32_t shift = 6 * extraByte;
 		write = (int8_t)(($sl(254, 6 - extraByte)) | ($usr(c, shift)));
-		$nc(out)->write((int32_t)write);
+		$nc(out)->write(write);
 		for (int32_t j = extraByte - 1; j >= 0; --j) {
 			shift -= 6;
-			write = (int8_t)(128 | ((int32_t)(($usr(c, shift)) & (uint32_t)63)));
-			out->write((int32_t)write);
+			write = (int8_t)(0x80 | (($usr(c, shift)) & 0x3f));
+			out->write(write);
 		}
 	}
 }
 
 $bytes* UtfHelpper::getStringInUtf8($String* str) {
 	$init(UtfHelpper);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(str)->length();
 	bool expanded = false;
 	$var($bytes, result, $new($bytes, length));
@@ -214,7 +182,7 @@ $bytes* UtfHelpper::getStringInUtf8($String* str) {
 	while (i < length) {
 		c = str->codePointAt(i);
 		i += $Character::charCount(c);
-		if (!$Character::isValidCodePoint(c) || c >= 0x0000D800 && c <= 0x0000DBFF || c >= 0x0000DC00 && c <= 0x0000DFFF) {
+		if (!$Character::isValidCodePoint(c) || c >= 0x0000d800 && c <= 0x0000dbff || c >= 0x0000dc00 && c <= 0x0000dfff) {
 			$nc(result)->set(out++, (int8_t)63);
 			continue;
 		}
@@ -233,19 +201,19 @@ $bytes* UtfHelpper::getStringInUtf8($String* str) {
 			$assign(result, newResult);
 			expanded = true;
 		}
-		int8_t extraByte = (int8_t)0;
+		int8_t extraByte = 0;
 		if (c < 2048) {
-			extraByte = (int8_t)1;
+			extraByte = 1;
 		} else if (c < 0x00010000) {
-			extraByte = (int8_t)2;
+			extraByte = 2;
 		} else if (c < 0x00200000) {
-			extraByte = (int8_t)3;
+			extraByte = 3;
 		} else if (c < 0x04000000) {
-			extraByte = (int8_t)4;
-		} else if (c <= 0x7FFFFFFF) {
-			extraByte = (int8_t)5;
+			extraByte = 4;
+		} else if (c <= 0x7fffffff) {
+			extraByte = 5;
 		} else {
-			$nc(result)->set(out++, (int8_t)63);
+			$nc(result)->set(out++, 63);
 			continue;
 		}
 		int8_t write = 0;
@@ -254,7 +222,7 @@ $bytes* UtfHelpper::getStringInUtf8($String* str) {
 		$nc(result)->set(out++, write);
 		for (int32_t j = extraByte - 1; j >= 0; --j) {
 			shift -= 6;
-			write = (int8_t)(128 | ((int32_t)(($usr(c, shift)) & (uint32_t)63)));
+			write = (int8_t)(0x80 | (($usr(c, shift)) & 0x3f));
 			result->set(out++, write);
 		}
 	}
@@ -271,10 +239,10 @@ $Boolean* UtfHelpper::lambda$static$0() {
 	return $Boolean::valueOf($Boolean::getBoolean("com.sun.org.apache.xml.internal.security.c14n.oldUtf8"_s));
 }
 
-void clinit$UtfHelpper($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void UtfHelpper::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
-	UtfHelpper::OLD_UTF8 = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new(UtfHelpper$$Lambda$lambda$static$0)))))))->booleanValue();
+	UtfHelpper::OLD_UTF8 = $$sure($Boolean, $AccessController::doPrivileged($cast($PrivilegedAction, $$new(UtfHelpper$$Lambda$lambda$static$0))))->booleanValue();
 }
 
 UtfHelpper::UtfHelpper() {
@@ -282,11 +250,34 @@ UtfHelpper::UtfHelpper() {
 
 $Class* UtfHelpper::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(UtfHelpper$$Lambda$lambda$static$0::classInfo$.name)) {
+		if (name->equals("com.sun.org.apache.xml.internal.security.c14n.implementations.UtfHelpper$$Lambda$lambda$static$0")) {
 			return UtfHelpper$$Lambda$lambda$static$0::load$(name, initialize);
 		}
 	}
-	$loadClass(UtfHelpper, name, initialize, &_UtfHelpper_ClassInfo_, clinit$UtfHelpper, allocate$UtfHelpper);
+	$FieldInfo fieldInfos$$[] = {
+		{"OLD_UTF8", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(UtfHelpper, OLD_UTF8)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(UtfHelpper, init$, void)},
+		{"getStringInUtf8", "(Ljava/lang/String;)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, getStringInUtf8, $bytes*, $String*)},
+		{"lambda$static$0", "()Ljava/lang/Boolean;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(UtfHelpper, lambda$static$0, $Boolean*)},
+		{"writeByte", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map;)V", "(Ljava/lang/String;Ljava/io/OutputStream;Ljava/util/Map<Ljava/lang/String;[B>;)V", $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeByte, void, $String*, $OutputStream*, $Map*), "java.io.IOException"},
+		{"writeCodePointToUtf8", "(ILjava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeCodePointToUtf8, void, int32_t, $OutputStream*), "java.io.IOException"},
+		{"writeStringToUtf8", "(Ljava/lang/String;Ljava/io/OutputStream;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(UtfHelpper, writeStringToUtf8, void, $String*, $OutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.c14n.implementations.UtfHelpper",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(UtfHelpper, name, initialize, &classInfo$$, UtfHelpper::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(UtfHelpper);
+	});
 	return class$;
 }
 

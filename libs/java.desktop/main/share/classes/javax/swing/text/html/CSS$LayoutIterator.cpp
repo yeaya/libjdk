@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/CSS$LayoutIterator.h>
-
 #include <javax/swing/text/html/CSS.h>
 #include <jcpp.h>
 
@@ -13,55 +12,49 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _CSS$LayoutIterator_FieldInfo_[] = {
-	{"WorstAdjustmentWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CSS$LayoutIterator, WorstAdjustmentWeight)},
-	{}
-};
-
-$MethodInfo _CSS$LayoutIterator_MethodInfo_[] = {
-	{"getAdjustmentWeight", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getAdjustmentWeight, int32_t)},
-	{"getBorderWidth", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getBorderWidth, float)},
-	{"getCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getCount, int32_t)},
-	{"getLeadingCollapseSpan", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getLeadingCollapseSpan, float)},
-	{"getMaximumSpan", "(F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getMaximumSpan, float, float)},
-	{"getMinimumSpan", "(F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getMinimumSpan, float, float)},
-	{"getOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getOffset, int32_t)},
-	{"getPreferredSpan", "(F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getPreferredSpan, float, float)},
-	{"getSpan", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getSpan, int32_t)},
-	{"getTrailingCollapseSpan", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getTrailingCollapseSpan, float)},
-	{"setIndex", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, setIndex, void, int32_t)},
-	{"setOffset", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, setOffset, void, int32_t)},
-	{"setSpan", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, setSpan, void, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CSS$LayoutIterator_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.CSS$LayoutIterator", "javax.swing.text.html.CSS", "LayoutIterator", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _CSS$LayoutIterator_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"javax.swing.text.html.CSS$LayoutIterator",
-	nullptr,
-	nullptr,
-	_CSS$LayoutIterator_FieldInfo_,
-	_CSS$LayoutIterator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CSS$LayoutIterator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.CSS"
-};
-
-$Object* allocate$CSS$LayoutIterator($Class* clazz) {
-	return $of($alloc(CSS$LayoutIterator));
-}
-
 $Class* CSS$LayoutIterator::load$($String* name, bool initialize) {
-	$loadClass(CSS$LayoutIterator, name, initialize, &_CSS$LayoutIterator_ClassInfo_, allocate$CSS$LayoutIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"WorstAdjustmentWeight", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(CSS$LayoutIterator, WorstAdjustmentWeight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"getAdjustmentWeight", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getAdjustmentWeight, int32_t)},
+		{"getBorderWidth", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getBorderWidth, float)},
+		{"getCount", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getCount, int32_t)},
+		{"getLeadingCollapseSpan", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getLeadingCollapseSpan, float)},
+		{"getMaximumSpan", "(F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getMaximumSpan, float, float)},
+		{"getMinimumSpan", "(F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getMinimumSpan, float, float)},
+		{"getOffset", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getOffset, int32_t)},
+		{"getPreferredSpan", "(F)F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getPreferredSpan, float, float)},
+		{"getSpan", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getSpan, int32_t)},
+		{"getTrailingCollapseSpan", "()F", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, getTrailingCollapseSpan, float)},
+		{"setIndex", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, setIndex, void, int32_t)},
+		{"setOffset", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, setOffset, void, int32_t)},
+		{"setSpan", "(I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CSS$LayoutIterator, setSpan, void, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.CSS$LayoutIterator", "javax.swing.text.html.CSS", "LayoutIterator", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"javax.swing.text.html.CSS$LayoutIterator",
+		nullptr,
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.CSS"
+	};
+	$loadClass(CSS$LayoutIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CSS$LayoutIterator);
+	});
 	return class$;
 }
 

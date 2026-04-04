@@ -31,6 +31,7 @@ class $export XMLMessages : public ::java::lang::Object {
 	$class(XMLMessages, 0, ::java::lang::Object)
 public:
 	XMLMessages();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* createMsg(::java::util::ResourceBundle* fResourceBundle, $String* msgKey, $ObjectArray* args);
 	static $String* createXMLMessage($String* msgKey, $ObjectArray* args);

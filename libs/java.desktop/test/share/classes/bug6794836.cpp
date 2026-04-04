@@ -1,7 +1,5 @@
 #include <bug6794836.h>
-
 #include <java/lang/reflect/Method.h>
-#include <java/util/Dictionary.h>
 #include <java/util/Hashtable.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JSlider.h>
@@ -13,40 +11,16 @@
 #undef MAX_VALUE
 #undef MIN_VALUE
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
-using $Dictionary = ::java::util::Dictionary;
 using $Hashtable = ::java::util::Hashtable;
 using $JLabel = ::javax::swing::JLabel;
 using $JSlider = ::javax::swing::JSlider;
 using $SliderUI = ::javax::swing::plaf::SliderUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
-
-$MethodInfo _bug6794836_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6794836, init$, void)},
-	{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6794836, fail, void, $String*)},
-	{"invokeMethod", "(Ljava/lang/String;Ljavax/swing/plaf/basic/BasicSliderUI;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6794836, invokeMethod, $Object*, $String*, $BasicSliderUI*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6794836, main, void, $StringArray*), "java.lang.Exception"},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6794836, run, void), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _bug6794836_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"bug6794836",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_bug6794836_MethodInfo_
-};
-
-$Object* allocate$bug6794836($Class* clazz) {
-	return $of($alloc(bug6794836));
-}
 
 void bug6794836::init$() {
 }
@@ -56,7 +30,7 @@ void bug6794836::main($StringArray* args) {
 }
 
 void bug6794836::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JSlider, slider, $new($JSlider, 0, $Integer::MAX_VALUE));
 	slider->setPaintLabels(true);
 	$var($JLabel, minLabel, $new($JLabel, "Min"_s));
@@ -81,7 +55,7 @@ $Object* bug6794836::invokeMethod($String* name, $BasicSliderUI* ui) {
 	$load($BasicSliderUI);
 	$var($Method, method, $BasicSliderUI::class$->getDeclaredMethod(name, nullptr));
 	$nc(method)->setAccessible(true);
-	return $of(method->invoke(ui, nullptr));
+	return method->invoke(ui, nullptr);
 }
 
 void bug6794836::fail($String* s) {
@@ -92,7 +66,25 @@ bug6794836::bug6794836() {
 }
 
 $Class* bug6794836::load$($String* name, bool initialize) {
-	$loadClass(bug6794836, name, initialize, &_bug6794836_ClassInfo_, allocate$bug6794836);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(bug6794836, init$, void)},
+		{"fail", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6794836, fail, void, $String*)},
+		{"invokeMethod", "(Ljava/lang/String;Ljavax/swing/plaf/basic/BasicSliderUI;)Ljava/lang/Object;", nullptr, $PRIVATE | $STATIC, $staticMethod(bug6794836, invokeMethod, $Object*, $String*, $BasicSliderUI*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(bug6794836, main, void, $StringArray*), "java.lang.Exception"},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6794836, run, void), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"bug6794836",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(bug6794836, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6794836);
+	});
 	return class$;
 }
 

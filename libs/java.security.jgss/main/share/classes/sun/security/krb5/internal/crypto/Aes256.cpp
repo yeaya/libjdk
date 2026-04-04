@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/crypto/Aes256.h>
-
 #include <sun/security/krb5/internal/crypto/dk/AesDkCrypto.h>
 #include <jcpp.h>
 
@@ -16,36 +15,6 @@ namespace sun {
 			namespace internal {
 				namespace crypto {
 
-$FieldInfo _Aes256_FieldInfo_[] = {
-	{"CRYPTO", "Lsun/security/krb5/internal/crypto/dk/AesDkCrypto;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Aes256, CRYPTO)},
-	{}
-};
-
-$MethodInfo _Aes256_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Aes256, init$, void)},
-	{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
-	{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
-	{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, getChecksumLength, int32_t)},
-	{"stringToKey", "([CLjava/lang/String;[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, stringToKey, $bytes*, $chars*, $String*, $bytes*), "java.security.GeneralSecurityException"},
-	{}
-};
-
-$ClassInfo _Aes256_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.security.krb5.internal.crypto.Aes256",
-	"java.lang.Object",
-	nullptr,
-	_Aes256_FieldInfo_,
-	_Aes256_MethodInfo_
-};
-
-$Object* allocate$Aes256($Class* clazz) {
-	return $of($alloc(Aes256));
-}
-
 $AesDkCrypto* Aes256::CRYPTO = nullptr;
 
 void Aes256::init$() {
@@ -53,40 +22,40 @@ void Aes256::init$() {
 
 $bytes* Aes256::stringToKey($chars* password, $String* salt, $bytes* params) {
 	$init(Aes256);
-	return $nc(Aes256::CRYPTO)->stringToKey(password, salt, params);
+	return Aes256::CRYPTO->stringToKey(password, salt, params);
 }
 
 int32_t Aes256::getChecksumLength() {
 	$init(Aes256);
-	return $nc(Aes256::CRYPTO)->getChecksumLength();
+	return Aes256::CRYPTO->getChecksumLength();
 }
 
 $bytes* Aes256::calculateChecksum($bytes* baseKey, int32_t usage, $bytes* input, int32_t start, int32_t len) {
 	$init(Aes256);
-	return $nc(Aes256::CRYPTO)->calculateChecksum(baseKey, usage, input, start, len);
+	return Aes256::CRYPTO->calculateChecksum(baseKey, usage, input, start, len);
 }
 
 $bytes* Aes256::encrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* plaintext, int32_t start, int32_t len) {
 	$init(Aes256);
-	return $nc(Aes256::CRYPTO)->encrypt(baseKey, usage, ivec, nullptr, plaintext, start, len);
+	return Aes256::CRYPTO->encrypt(baseKey, usage, ivec, nullptr, plaintext, start, len);
 }
 
 $bytes* Aes256::encryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* plaintext, int32_t start, int32_t len) {
 	$init(Aes256);
-	return $nc(Aes256::CRYPTO)->encryptRaw(baseKey, usage, ivec, plaintext, start, len);
+	return Aes256::CRYPTO->encryptRaw(baseKey, usage, ivec, plaintext, start, len);
 }
 
 $bytes* Aes256::decrypt($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len) {
 	$init(Aes256);
-	return $nc(Aes256::CRYPTO)->decrypt(baseKey, usage, ivec, ciphertext, start, len);
+	return Aes256::CRYPTO->decrypt(baseKey, usage, ivec, ciphertext, start, len);
 }
 
 $bytes* Aes256::decryptRaw($bytes* baseKey, int32_t usage, $bytes* ivec, $bytes* ciphertext, int32_t start, int32_t len) {
 	$init(Aes256);
-	return $nc(Aes256::CRYPTO)->decryptRaw(baseKey, usage, ivec, ciphertext, start, len);
+	return Aes256::CRYPTO->decryptRaw(baseKey, usage, ivec, ciphertext, start, len);
 }
 
-void clinit$Aes256($Class* class$) {
+void Aes256::clinit$($Class* clazz) {
 	$assignStatic(Aes256::CRYPTO, $new($AesDkCrypto, 256));
 }
 
@@ -94,7 +63,32 @@ Aes256::Aes256() {
 }
 
 $Class* Aes256::load$($String* name, bool initialize) {
-	$loadClass(Aes256, name, initialize, &_Aes256_ClassInfo_, clinit$Aes256, allocate$Aes256);
+	$FieldInfo fieldInfos$$[] = {
+		{"CRYPTO", "Lsun/security/krb5/internal/crypto/dk/AesDkCrypto;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Aes256, CRYPTO)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Aes256, init$, void)},
+		{"calculateChecksum", "([BI[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, calculateChecksum, $bytes*, $bytes*, int32_t, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"decrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, decrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"decryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, decryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException"},
+		{"encrypt", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, encrypt, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"encryptRaw", "([BI[B[BII)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, encryptRaw, $bytes*, $bytes*, int32_t, $bytes*, $bytes*, int32_t, int32_t), "java.security.GeneralSecurityException,sun.security.krb5.KrbCryptoException"},
+		{"getChecksumLength", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, getChecksumLength, int32_t)},
+		{"stringToKey", "([CLjava/lang/String;[B)[B", nullptr, $PUBLIC | $STATIC, $staticMethod(Aes256, stringToKey, $bytes*, $chars*, $String*, $bytes*), "java.security.GeneralSecurityException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.security.krb5.internal.crypto.Aes256",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Aes256, name, initialize, &classInfo$$, Aes256::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Aes256);
+	});
 	return class$;
 }
 

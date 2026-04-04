@@ -40,6 +40,7 @@ class $import AWTKeyStroke : public ::java::io::Serializable {
 	$class(AWTKeyStroke, 0, ::java::io::Serializable)
 public:
 	AWTKeyStroke();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(char16_t keyChar, int32_t keyCode, int32_t modifiers, bool onKeyRelease);
 	virtual bool equals(Object$* anObject) override;
@@ -66,7 +67,7 @@ public:
 	static void registerSubclass($Class* subclass);
 	virtual $String* toString() override;
 	static bool $assertionsDisabled;
-	static const int64_t serialVersionUID = (int64_t)0xA6C22238AAA57CF1;
+	static const int64_t serialVersionUID = (int64_t)0xa6c22238aaa57cf1;
 	static ::java::util::Map* modifierKeywords;
 	static ::java::awt::VKCollection* vks;
 	static $Object* APP_CONTEXT_CACHE_KEY;

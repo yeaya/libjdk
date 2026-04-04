@@ -1,5 +1,4 @@
 #include <TestBasicComboBoxEditor.h>
-
 #include <TestBasicComboBoxEditor$UserComboBoxEditorType.h>
 #include <java/awt/Component.h>
 #include <java/io/Serializable.h>
@@ -36,76 +35,42 @@ public:
 	virtual void run() override {
 		TestBasicComboBoxEditor::testBasicComboBoxEditor();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor, run, void)},
-	{}
-};
-$ClassInfo TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor::load$($String* name, bool initialize) {
-	$loadClass(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor);
+	});
 	return class$;
 }
 $Class* TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor::class$ = nullptr;
-
-$MethodInfo _TestBasicComboBoxEditor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(TestBasicComboBoxEditor, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestBasicComboBoxEditor, main, void, $StringArray*), "java.lang.Exception"},
-	{"testBasicComboBoxEditor", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestBasicComboBoxEditor, testBasicComboBoxEditor, void)},
-	{}
-};
-
-$InnerClassInfo _TestBasicComboBoxEditor_InnerClassesInfo_[] = {
-	{"TestBasicComboBoxEditor$UserComboBoxEditorType", "TestBasicComboBoxEditor", "UserComboBoxEditorType", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _TestBasicComboBoxEditor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"TestBasicComboBoxEditor",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_TestBasicComboBoxEditor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TestBasicComboBoxEditor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"TestBasicComboBoxEditor$UserComboBoxEditorType"
-};
-
-$Object* allocate$TestBasicComboBoxEditor($Class* clazz) {
-	return $of($alloc(TestBasicComboBoxEditor));
-}
 
 void TestBasicComboBoxEditor::init$() {
 }
 
 void TestBasicComboBoxEditor::main($StringArray* args) {
+	$useLocalObjectStack();
 	$load(TestBasicComboBoxEditor);
-	$useLocalCurrentObjectStackCache();
 	$beforeCallerSensitive();
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor)));
+	$SwingUtilities::invokeAndWait($$new(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor));
 	$System::setSecurityManager($$new($SecurityManager));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor)));
+	$SwingUtilities::invokeAndWait($$new(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor));
 }
 
 void TestBasicComboBoxEditor::testBasicComboBoxEditor() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BasicComboBoxEditor, comboBoxEditor, $new($BasicComboBoxEditor));
 	comboBoxEditor->setItem($$new($TestBasicComboBoxEditor$UserComboBoxEditorType, "100"_s));
 	$var($JTextField, editor, $cast($JTextField, comboBoxEditor->getEditorComponent()));
@@ -121,11 +86,37 @@ TestBasicComboBoxEditor::TestBasicComboBoxEditor() {
 
 $Class* TestBasicComboBoxEditor::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor::classInfo$.name)) {
+		if (name->equals("TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor")) {
 			return TestBasicComboBoxEditor$$Lambda$testBasicComboBoxEditor::load$(name, initialize);
 		}
 	}
-	$loadClass(TestBasicComboBoxEditor, name, initialize, &_TestBasicComboBoxEditor_ClassInfo_, allocate$TestBasicComboBoxEditor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(TestBasicComboBoxEditor, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(TestBasicComboBoxEditor, main, void, $StringArray*), "java.lang.Exception"},
+		{"testBasicComboBoxEditor", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(TestBasicComboBoxEditor, testBasicComboBoxEditor, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"TestBasicComboBoxEditor$UserComboBoxEditorType", "TestBasicComboBoxEditor", "UserComboBoxEditorType", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"TestBasicComboBoxEditor",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"TestBasicComboBoxEditor$UserComboBoxEditorType"
+	};
+	$loadClass(TestBasicComboBoxEditor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TestBasicComboBoxEditor);
+	});
 	return class$;
 }
 

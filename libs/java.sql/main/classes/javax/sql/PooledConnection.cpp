@@ -1,5 +1,4 @@
 #include <javax/sql/PooledConnection.h>
-
 #include <java/sql/Connection.h>
 #include <javax/sql/ConnectionEventListener.h>
 #include <javax/sql/StatementEventListener.h>
@@ -14,31 +13,27 @@ using $StatementEventListener = ::javax::sql::StatementEventListener;
 namespace javax {
 	namespace sql {
 
-$MethodInfo _PooledConnection_MethodInfo_[] = {
-	{"addConnectionEventListener", "(Ljavax/sql/ConnectionEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, addConnectionEventListener, void, $ConnectionEventListener*)},
-	{"addStatementEventListener", "(Ljavax/sql/StatementEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, addStatementEventListener, void, $StatementEventListener*)},
-	{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, close, void), "java.sql.SQLException"},
-	{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, getConnection, $Connection*), "java.sql.SQLException"},
-	{"removeConnectionEventListener", "(Ljavax/sql/ConnectionEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, removeConnectionEventListener, void, $ConnectionEventListener*)},
-	{"removeStatementEventListener", "(Ljavax/sql/StatementEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, removeStatementEventListener, void, $StatementEventListener*)},
-	{}
-};
-
-$ClassInfo _PooledConnection_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sql.PooledConnection",
-	nullptr,
-	nullptr,
-	nullptr,
-	_PooledConnection_MethodInfo_
-};
-
-$Object* allocate$PooledConnection($Class* clazz) {
-	return $of($alloc(PooledConnection));
-}
-
 $Class* PooledConnection::load$($String* name, bool initialize) {
-	$loadClass(PooledConnection, name, initialize, &_PooledConnection_ClassInfo_, allocate$PooledConnection);
+	$MethodInfo methodInfos$$[] = {
+		{"addConnectionEventListener", "(Ljavax/sql/ConnectionEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, addConnectionEventListener, void, $ConnectionEventListener*)},
+		{"addStatementEventListener", "(Ljavax/sql/StatementEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, addStatementEventListener, void, $StatementEventListener*)},
+		{"close", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, close, void), "java.sql.SQLException"},
+		{"getConnection", "()Ljava/sql/Connection;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, getConnection, $Connection*), "java.sql.SQLException"},
+		{"removeConnectionEventListener", "(Ljavax/sql/ConnectionEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, removeConnectionEventListener, void, $ConnectionEventListener*)},
+		{"removeStatementEventListener", "(Ljavax/sql/StatementEventListener;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(PooledConnection, removeStatementEventListener, void, $StatementEventListener*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sql.PooledConnection",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PooledConnection, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PooledConnection);
+	});
 	return class$;
 }
 

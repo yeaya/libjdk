@@ -78,6 +78,7 @@ class GTKIconFactory : public ::java::lang::Object {
 	$class(GTKIconFactory, 0, ::java::lang::Object)
 public:
 	GTKIconFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::javax::swing::Icon* getAscendingSortIcon();
 	static ::javax::swing::plaf::synth::SynthIcon* getCheckBoxIcon();

@@ -39,6 +39,7 @@ class $import AWTPermissions : public ::java::lang::Object {
 	$class(AWTPermissions, 0, ::java::lang::Object)
 public:
 	AWTPermissions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::java::awt::AWTPermission* TOPLEVEL_WINDOW_PERMISSION;
 	static ::java::awt::AWTPermission* ACCESS_CLIPBOARD_PERMISSION;

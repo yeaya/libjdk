@@ -1,5 +1,4 @@
 #include <javax/swing/event/TableModelEvent.h>
-
 #include <java/util/EventObject.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
@@ -21,45 +20,6 @@ using $TableModel = ::javax::swing::table::TableModel;
 namespace javax {
 	namespace swing {
 		namespace event {
-
-$FieldInfo _TableModelEvent_FieldInfo_[] = {
-	{"INSERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, INSERT)},
-	{"UPDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, UPDATE)},
-	{"DELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, DELETE)},
-	{"HEADER_ROW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, HEADER_ROW)},
-	{"ALL_COLUMNS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, ALL_COLUMNS)},
-	{"type", "I", nullptr, $PROTECTED, $field(TableModelEvent, type)},
-	{"firstRow", "I", nullptr, $PROTECTED, $field(TableModelEvent, firstRow)},
-	{"lastRow", "I", nullptr, $PROTECTED, $field(TableModelEvent, lastRow)},
-	{"column", "I", nullptr, $PROTECTED, $field(TableModelEvent, column)},
-	{}
-};
-
-$MethodInfo _TableModelEvent_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/table/TableModel;)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*)},
-	{"<init>", "(Ljavax/swing/table/TableModel;I)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*, int32_t)},
-	{"<init>", "(Ljavax/swing/table/TableModel;II)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*, int32_t, int32_t)},
-	{"<init>", "(Ljavax/swing/table/TableModel;III)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljavax/swing/table/TableModel;IIII)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*, int32_t, int32_t, int32_t, int32_t)},
-	{"getColumn", "()I", nullptr, $PUBLIC, $virtualMethod(TableModelEvent, getColumn, int32_t)},
-	{"getFirstRow", "()I", nullptr, $PUBLIC, $virtualMethod(TableModelEvent, getFirstRow, int32_t)},
-	{"getLastRow", "()I", nullptr, $PUBLIC, $virtualMethod(TableModelEvent, getLastRow, int32_t)},
-	{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(TableModelEvent, getType, int32_t)},
-	{}
-};
-
-$ClassInfo _TableModelEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.event.TableModelEvent",
-	"java.util.EventObject",
-	nullptr,
-	_TableModelEvent_FieldInfo_,
-	_TableModelEvent_MethodInfo_
-};
-
-$Object* allocate$TableModelEvent($Class* clazz) {
-	return $of($alloc(TableModelEvent));
-}
 
 void TableModelEvent::init$($TableModel* source) {
 	TableModelEvent::init$(source, 0, $Integer::MAX_VALUE, TableModelEvent::ALL_COLUMNS, TableModelEvent::UPDATE);
@@ -105,7 +65,41 @@ TableModelEvent::TableModelEvent() {
 }
 
 $Class* TableModelEvent::load$($String* name, bool initialize) {
-	$loadClass(TableModelEvent, name, initialize, &_TableModelEvent_ClassInfo_, allocate$TableModelEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"INSERT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, INSERT)},
+		{"UPDATE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, UPDATE)},
+		{"DELETE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, DELETE)},
+		{"HEADER_ROW", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, HEADER_ROW)},
+		{"ALL_COLUMNS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(TableModelEvent, ALL_COLUMNS)},
+		{"type", "I", nullptr, $PROTECTED, $field(TableModelEvent, type)},
+		{"firstRow", "I", nullptr, $PROTECTED, $field(TableModelEvent, firstRow)},
+		{"lastRow", "I", nullptr, $PROTECTED, $field(TableModelEvent, lastRow)},
+		{"column", "I", nullptr, $PROTECTED, $field(TableModelEvent, column)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/table/TableModel;)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*)},
+		{"<init>", "(Ljavax/swing/table/TableModel;I)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*, int32_t)},
+		{"<init>", "(Ljavax/swing/table/TableModel;II)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*, int32_t, int32_t)},
+		{"<init>", "(Ljavax/swing/table/TableModel;III)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljavax/swing/table/TableModel;IIII)V", nullptr, $PUBLIC, $method(TableModelEvent, init$, void, $TableModel*, int32_t, int32_t, int32_t, int32_t)},
+		{"getColumn", "()I", nullptr, $PUBLIC, $virtualMethod(TableModelEvent, getColumn, int32_t)},
+		{"getFirstRow", "()I", nullptr, $PUBLIC, $virtualMethod(TableModelEvent, getFirstRow, int32_t)},
+		{"getLastRow", "()I", nullptr, $PUBLIC, $virtualMethod(TableModelEvent, getLastRow, int32_t)},
+		{"getType", "()I", nullptr, $PUBLIC, $virtualMethod(TableModelEvent, getType, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.event.TableModelEvent",
+		"java.util.EventObject",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(TableModelEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableModelEvent);
+	});
 	return class$;
 }
 

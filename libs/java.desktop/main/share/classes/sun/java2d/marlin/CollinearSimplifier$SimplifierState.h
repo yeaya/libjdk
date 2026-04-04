@@ -15,6 +15,7 @@ class CollinearSimplifier$SimplifierState : public ::java::lang::Enum {
 public:
 	CollinearSimplifier$SimplifierState();
 	static $Array<::sun::java2d::marlin::CollinearSimplifier$SimplifierState>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal);
 	static ::sun::java2d::marlin::CollinearSimplifier$SimplifierState* valueOf($String* name);
 	static $Array<::sun::java2d::marlin::CollinearSimplifier$SimplifierState>* values();

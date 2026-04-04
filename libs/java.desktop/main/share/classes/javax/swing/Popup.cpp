@@ -1,5 +1,4 @@
 #include <javax/swing/Popup.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -15,7 +14,6 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,50 +28,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 namespace javax {
 	namespace swing {
-
-$FieldInfo _Popup_FieldInfo_[] = {
-	{"component", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(Popup, component)},
-	{}
-};
-
-$MethodInfo _Popup_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Component;Ljava/awt/Component;II)V", nullptr, $PROTECTED, $method(Popup, init$, void, $Component*, $Component*, int32_t, int32_t)},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(Popup, init$, void)},
-	{"createComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, 0, $virtualMethod(Popup, createComponent, $Component*, $Component*)},
-	{"dispose", "()V", nullptr, 0, $virtualMethod(Popup, dispose, void)},
-	{"getComponent", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(Popup, getComponent, $Component*)},
-	{"getParentWindow", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PRIVATE, $method(Popup, getParentWindow, $Window*, $Component*)},
-	{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(Popup, hide, void)},
-	{"pack", "()V", nullptr, 0, $virtualMethod(Popup, pack, void)},
-	{"reset", "(Ljava/awt/Component;Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(Popup, reset, void, $Component*, $Component*, int32_t, int32_t)},
-	{"show", "()V", nullptr, $PUBLIC, $virtualMethod(Popup, show, void)},
-	{}
-};
-
-$InnerClassInfo _Popup_InnerClassesInfo_[] = {
-	{"javax.swing.Popup$DefaultFrame", "javax.swing.Popup", "DefaultFrame", $STATIC},
-	{"javax.swing.Popup$HeavyWeightWindow", "javax.swing.Popup", "HeavyWeightWindow", $STATIC},
-	{}
-};
-
-$ClassInfo _Popup_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.Popup",
-	"java.lang.Object",
-	nullptr,
-	_Popup_FieldInfo_,
-	_Popup_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Popup_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.Popup$DefaultFrame,javax.swing.Popup$HeavyWeightWindow"
-};
-
-$Object* allocate$Popup($Class* clazz) {
-	return $of($alloc(Popup));
-}
 
 void Popup::init$($Component* owner, $Component* contents, int32_t x, int32_t y) {
 	Popup::init$();
@@ -94,30 +48,30 @@ void Popup::show() {
 }
 
 void Popup::hide() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, component, getComponent());
 	if ($instanceOf($JWindow, component)) {
-		$nc(component)->hide();
-		$nc($($nc(($cast($JWindow, component)))->getContentPane()))->removeAll();
+		component->hide();
+		$$nc($cast($JWindow, component)->getContentPane())->removeAll();
 	}
 	dispose();
 }
 
 void Popup::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, component, getComponent());
 	$var($Window, window, $SwingUtilities::getWindowAncestor(component));
 	if ($instanceOf($JWindow, component)) {
-		$nc(($cast($Window, component)))->dispose();
+		$cast($Window, component)->dispose();
 		$assign(component, nullptr);
 	}
 	if ($instanceOf($Popup$DefaultFrame, window)) {
-		$nc(window)->dispose();
+		window->dispose();
 	}
 }
 
 void Popup::reset($Component* owner, $Component* contents, int32_t ownerX, int32_t ownerY) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getComponent() == nullptr) {
 		$set(this, component, createComponent(owner));
 	}
@@ -126,7 +80,7 @@ void Popup::reset($Component* owner, $Component* contents, int32_t ownerX, int32
 		$var($JWindow, component, $cast($JWindow, getComponent()));
 		$nc(component)->setBounds(ownerX, ownerY, 1, 1);
 		$init($BorderLayout);
-		$nc($(component->getContentPane()))->add(contents, $of($BorderLayout::CENTER));
+		$$nc(component->getContentPane())->add(contents, $BorderLayout::CENTER);
 		component->invalidate();
 		component->validate();
 		if (component->isVisible()) {
@@ -138,7 +92,7 @@ void Popup::reset($Component* owner, $Component* contents, int32_t ownerX, int32
 void Popup::pack() {
 	$var($Component, component, getComponent());
 	if ($instanceOf($Window, component)) {
-		$nc(($cast($Window, component)))->pack();
+		$cast($Window, component)->pack();
 	}
 }
 
@@ -170,7 +124,45 @@ Popup::Popup() {
 }
 
 $Class* Popup::load$($String* name, bool initialize) {
-	$loadClass(Popup, name, initialize, &_Popup_ClassInfo_, allocate$Popup);
+	$FieldInfo fieldInfos$$[] = {
+		{"component", "Ljava/awt/Component;", nullptr, $PRIVATE, $field(Popup, component)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Component;Ljava/awt/Component;II)V", nullptr, $PROTECTED, $method(Popup, init$, void, $Component*, $Component*, int32_t, int32_t)},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(Popup, init$, void)},
+		{"createComponent", "(Ljava/awt/Component;)Ljava/awt/Component;", nullptr, 0, $virtualMethod(Popup, createComponent, $Component*, $Component*)},
+		{"dispose", "()V", nullptr, 0, $virtualMethod(Popup, dispose, void)},
+		{"getComponent", "()Ljava/awt/Component;", nullptr, 0, $virtualMethod(Popup, getComponent, $Component*)},
+		{"getParentWindow", "(Ljava/awt/Component;)Ljava/awt/Window;", nullptr, $PRIVATE, $method(Popup, getParentWindow, $Window*, $Component*)},
+		{"hide", "()V", nullptr, $PUBLIC, $virtualMethod(Popup, hide, void)},
+		{"pack", "()V", nullptr, 0, $virtualMethod(Popup, pack, void)},
+		{"reset", "(Ljava/awt/Component;Ljava/awt/Component;II)V", nullptr, 0, $virtualMethod(Popup, reset, void, $Component*, $Component*, int32_t, int32_t)},
+		{"show", "()V", nullptr, $PUBLIC, $virtualMethod(Popup, show, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.Popup$DefaultFrame", "javax.swing.Popup", "DefaultFrame", $STATIC},
+		{"javax.swing.Popup$HeavyWeightWindow", "javax.swing.Popup", "HeavyWeightWindow", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.Popup",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.Popup$DefaultFrame,javax.swing.Popup$HeavyWeightWindow"
+	};
+	$loadClass(Popup, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Popup);
+	});
 	return class$;
 }
 

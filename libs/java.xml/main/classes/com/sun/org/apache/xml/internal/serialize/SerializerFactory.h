@@ -45,6 +45,7 @@ class SerializerFactory : public ::java::lang::Object {
 	$class(SerializerFactory, 0, ::java::lang::Object)
 public:
 	SerializerFactory();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::com::sun::org::apache::xml::internal::serialize::SerializerFactory* getSerializerFactory($String* method);
 	virtual $String* getSupportedMethod() {return nullptr;}

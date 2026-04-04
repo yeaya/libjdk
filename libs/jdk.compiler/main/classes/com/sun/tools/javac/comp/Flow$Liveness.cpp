@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Flow$Liveness.h>
-
 #include <com/sun/tools/javac/comp/Flow$Liveness$1.h>
 #include <com/sun/tools/javac/comp/Flow$Liveness$2.h>
 #include <com/sun/tools/javac/comp/Flow$Liveness$3.h>
@@ -26,55 +25,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Flow$Liveness_FieldInfo_[] = {
-	{"ALIVE", "Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$Liveness, ALIVE)},
-	{"DEAD", "Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$Liveness, DEAD)},
-	{"RECOVERY", "Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$Liveness, RECOVERY)},
-	{"$VALUES", "[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$Liveness, $VALUES)},
-	{}
-};
-
-$MethodInfo _Flow$Liveness_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$Liveness, $values, $Flow$LivenessArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Flow$Liveness, init$, void, $String*, int32_t)},
-	{"and", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Liveness, and$, Flow$Liveness*, Flow$Liveness*)},
-	{"and", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness, and$, Flow$Liveness*, bool)},
-	{"from", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, from, Flow$Liveness*, bool)},
-	{"or", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Liveness, or$, Flow$Liveness*, Flow$Liveness*)},
-	{"or", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness, or$, Flow$Liveness*, bool)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, valueOf, Flow$Liveness*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, values, $Flow$LivenessArray*)},
-	{}
-};
-
-$InnerClassInfo _Flow$Liveness_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Flow$Liveness", "com.sun.tools.javac.comp.Flow", "Liveness", $STATIC | $ABSTRACT | $ENUM},
-	{"com.sun.tools.javac.comp.Flow$Liveness$3", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.Flow$Liveness$2", nullptr, nullptr, $FINAL | $ENUM},
-	{"com.sun.tools.javac.comp.Flow$Liveness$1", nullptr, nullptr, $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _Flow$Liveness_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT | $ENUM,
-	"com.sun.tools.javac.comp.Flow$Liveness",
-	"java.lang.Enum",
-	nullptr,
-	_Flow$Liveness_FieldInfo_,
-	_Flow$Liveness_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Flow$Liveness;>;",
-	nullptr,
-	_Flow$Liveness_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Flow"
-};
-
-$Object* allocate$Flow$Liveness($Class* clazz) {
-	return $of($alloc(Flow$Liveness));
-}
 
 Flow$Liveness* Flow$Liveness::ALIVE = nullptr;
 Flow$Liveness* Flow$Liveness::DEAD = nullptr;
@@ -117,7 +67,7 @@ Flow$Liveness* Flow$Liveness::from(bool value) {
 	return value ? Flow$Liveness::ALIVE : Flow$Liveness::DEAD;
 }
 
-void clinit$Flow$Liveness($Class* class$) {
+void Flow$Liveness::clinit$($Class* clazz) {
 	$assignStatic(Flow$Liveness::ALIVE, $new($Flow$Liveness$1, "ALIVE"_s, 0));
 	$assignStatic(Flow$Liveness::DEAD, $new($Flow$Liveness$2, "DEAD"_s, 1));
 	$assignStatic(Flow$Liveness::RECOVERY, $new($Flow$Liveness$3, "RECOVERY"_s, 2));
@@ -128,7 +78,50 @@ Flow$Liveness::Flow$Liveness() {
 }
 
 $Class* Flow$Liveness::load$($String* name, bool initialize) {
-	$loadClass(Flow$Liveness, name, initialize, &_Flow$Liveness_ClassInfo_, clinit$Flow$Liveness, allocate$Flow$Liveness);
+	$FieldInfo fieldInfos$$[] = {
+		{"ALIVE", "Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$Liveness, ALIVE)},
+		{"DEAD", "Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$Liveness, DEAD)},
+		{"RECOVERY", "Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(Flow$Liveness, RECOVERY)},
+		{"$VALUES", "[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(Flow$Liveness, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Flow$Liveness, $values, $Flow$LivenessArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(Flow$Liveness, init$, void, $String*, int32_t)},
+		{"and", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Liveness, and$, Flow$Liveness*, Flow$Liveness*)},
+		{"and", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness, and$, Flow$Liveness*, bool)},
+		{"from", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, from, Flow$Liveness*, bool)},
+		{"or", "(Lcom/sun/tools/javac/comp/Flow$Liveness;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Flow$Liveness, or$, Flow$Liveness*, Flow$Liveness*)},
+		{"or", "(Z)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC, $virtualMethod(Flow$Liveness, or$, Flow$Liveness*, bool)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, valueOf, Flow$Liveness*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/comp/Flow$Liveness;", nullptr, $PUBLIC | $STATIC, $staticMethod(Flow$Liveness, values, $Flow$LivenessArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Flow$Liveness", "com.sun.tools.javac.comp.Flow", "Liveness", $STATIC | $ABSTRACT | $ENUM},
+		{"com.sun.tools.javac.comp.Flow$Liveness$3", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.Flow$Liveness$2", nullptr, nullptr, $FINAL | $ENUM},
+		{"com.sun.tools.javac.comp.Flow$Liveness$1", nullptr, nullptr, $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT | $ENUM,
+		"com.sun.tools.javac.comp.Flow$Liveness",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/comp/Flow$Liveness;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Flow"
+	};
+	$loadClass(Flow$Liveness, name, initialize, &classInfo$$, Flow$Liveness::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Flow$Liveness));
+	});
 	return class$;
 }
 

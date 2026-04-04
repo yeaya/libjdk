@@ -1,9 +1,7 @@
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Container$AccessibleAWTContainer.h>
-#include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -35,7 +33,6 @@
 #undef SWING_COMPONENT
 
 using $Color = ::java::awt::Color;
-using $Container = ::java::awt::Container;
 using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
@@ -68,100 +65,6 @@ using $TitledBorder = ::javax::swing::border::TitledBorder;
 
 namespace javax {
 	namespace swing {
-
-$CompoundAttribute _JComponent$AccessibleJComponent_FieldAnnotations_accessibleFocusHandler[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _JComponent$AccessibleJComponent_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/JComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JComponent$AccessibleJComponent, this$0)},
-	{"propertyListenersCount", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(JComponent$AccessibleJComponent, propertyListenersCount)},
-	{"accessibleFocusHandler", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED | $DEPRECATED, $field(JComponent$AccessibleJComponent, accessibleFocusHandler), _JComponent$AccessibleJComponent_FieldAnnotations_accessibleFocusHandler},
-	{}
-};
-
-$MethodInfo _JComponent$AccessibleJComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $method(JComponent$AccessibleJComponent, init$, void, $JComponent*)},
-	{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, addFocusListener, void, $FocusListener*)},
-	{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, addPropertyChangeListener, void, $PropertyChangeListener*)},
-	{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, contains, bool, $Point*)},
-	{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleAt, $Accessible*, $Point*)},
-	{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleChild, $Accessible*, int32_t)},
-	{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleChildrenCount, int32_t)},
-	{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleComponent, $AccessibleComponent*)},
-	{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleDescription, $String*)},
-	{"getAccessibleExtendedComponent", "()Ljavax/accessibility/AccessibleExtendedComponent;", nullptr, 0, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleExtendedComponent, $AccessibleExtendedComponent*)},
-	{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleIndexInParent, int32_t)},
-	{"getAccessibleKeyBinding", "()Ljavax/accessibility/AccessibleKeyBinding;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleKeyBinding, $AccessibleKeyBinding*)},
-	{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleName, $String*)},
-	{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleParent, $Accessible*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getBackground, $Color*)},
-	{"getBorderTitle", "(Ljavax/swing/border/Border;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JComponent$AccessibleJComponent, getBorderTitle, $String*, $Border*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getBounds, $Rectangle*)},
-	{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getCursor, $Cursor*)},
-	{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getFont, $Font*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getForeground, $Color*)},
-	{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getLocale, $Locale*)},
-	{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getLocation, $Point*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getLocationOnScreen, $Point*)},
-	{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getSize, $Dimension*)},
-	{"getTitledBorderText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getTitledBorderText, $String*)},
-	{"getToolTipText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getToolTipText, $String*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, isEnabled, bool)},
-	{"isFocusTraversable", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, isFocusTraversable, bool)},
-	{"isShowing", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, isShowing, bool)},
-	{"isVisible", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, isVisible, bool)},
-	{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, removeFocusListener, void, $FocusListener*)},
-	{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, removePropertyChangeListener, void, $PropertyChangeListener*)},
-	{"requestFocus", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, requestFocus, void)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setBackground, void, $Color*)},
-	{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setBounds, void, $Rectangle*)},
-	{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setCursor, void, $Cursor*)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setFont, void, $Font*)},
-	{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setForeground, void, $Color*)},
-	{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setLocation, void, $Point*)},
-	{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setSize, void, $Dimension*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setVisible, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _JComponent$AccessibleJComponent_InnerClassesInfo_[] = {
-	{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
-	{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent$AccessibleFocusHandler", "javax.swing.JComponent$AccessibleJComponent", "AccessibleFocusHandler", $PROTECTED},
-	{"javax.swing.JComponent$AccessibleJComponent$AccessibleContainerHandler", "javax.swing.JComponent$AccessibleJComponent", "AccessibleContainerHandler", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JComponent$AccessibleJComponent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.JComponent$AccessibleJComponent",
-	"java.awt.Container$AccessibleAWTContainer",
-	"javax.accessibility.AccessibleExtendedComponent",
-	_JComponent$AccessibleJComponent_FieldInfo_,
-	_JComponent$AccessibleJComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JComponent$AccessibleJComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JComponent"
-};
-
-$Object* allocate$JComponent$AccessibleJComponent($Class* clazz) {
-	return $of($alloc(JComponent$AccessibleJComponent));
-}
 
 int32_t JComponent$AccessibleJComponent::hashCode() {
 	 return this->$Container$AccessibleAWTContainer::hashCode();
@@ -199,14 +102,14 @@ void JComponent$AccessibleJComponent::removePropertyChangeListener($PropertyChan
 }
 
 $String* JComponent$AccessibleJComponent::getBorderTitle($Border* b) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, s, nullptr);
 	if ($instanceOf($TitledBorder, b)) {
-		return $nc(($cast($TitledBorder, b)))->getTitle();
+		return $cast($TitledBorder, b)->getTitle();
 	} else if ($instanceOf($CompoundBorder, b)) {
-		$assign(s, getBorderTitle($($nc(($cast($CompoundBorder, b)))->getInsideBorder())));
+		$assign(s, getBorderTitle($($cast($CompoundBorder, b)->getInsideBorder())));
 		if (s == nullptr) {
-			$assign(s, getBorderTitle($($nc(($cast($CompoundBorder, b)))->getOutsideBorder())));
+			$assign(s, getBorderTitle($($cast($CompoundBorder, b)->getOutsideBorder())));
 		}
 		return s;
 	} else {
@@ -215,7 +118,7 @@ $String* JComponent$AccessibleJComponent::getBorderTitle($Border* b) {
 }
 
 $String* JComponent$AccessibleJComponent::getAccessibleName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, this->accessibleName);
 	if (name == nullptr) {
 		$init($AccessibleContext);
@@ -228,7 +131,7 @@ $String* JComponent$AccessibleJComponent::getAccessibleName() {
 		$init($JLabel);
 		$var($Object, o, this->this$0->getClientProperty($JLabel::LABELED_BY_PROPERTY));
 		if ($instanceOf($Accessible, o)) {
-			$var($AccessibleContext, ac, $nc(($cast($Accessible, o)))->getAccessibleContext());
+			$var($AccessibleContext, ac, $cast($Accessible, o)->getAccessibleContext());
 			if (ac != nullptr) {
 				$assign(name, ac->getAccessibleName());
 			}
@@ -238,7 +141,7 @@ $String* JComponent$AccessibleJComponent::getAccessibleName() {
 }
 
 $String* JComponent$AccessibleJComponent::getAccessibleDescription() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, description, this->accessibleDescription);
 	if (description == nullptr) {
 		$init($AccessibleContext);
@@ -254,7 +157,7 @@ $String* JComponent$AccessibleJComponent::getAccessibleDescription() {
 		$init($JLabel);
 		$var($Object, o, this->this$0->getClientProperty($JLabel::LABELED_BY_PROPERTY));
 		if ($instanceOf($Accessible, o)) {
-			$var($AccessibleContext, ac, $nc(($cast($Accessible, o)))->getAccessibleContext());
+			$var($AccessibleContext, ac, $cast($Accessible, o)->getAccessibleContext());
 			if (ac != nullptr) {
 				$assign(description, ac->getAccessibleDescription());
 			}
@@ -296,24 +199,24 @@ $String* JComponent$AccessibleJComponent::getToolTipText() {
 $String* JComponent$AccessibleJComponent::getTitledBorderText() {
 	$var($Border, border, this->this$0->getBorder());
 	if ($instanceOf($TitledBorder, border)) {
-		return $nc(($cast($TitledBorder, border)))->getTitle();
+		return $cast($TitledBorder, border)->getTitle();
 	} else {
 		return nullptr;
 	}
 }
 
 $AccessibleKeyBinding* JComponent$AccessibleJComponent::getAccessibleKeyBinding() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($JLabel);
 	$var($Object, o, this->this$0->getClientProperty($JLabel::LABELED_BY_PROPERTY));
 	if ($instanceOf($Accessible, o)) {
-		$var($AccessibleContext, ac, $nc(($cast($Accessible, o)))->getAccessibleContext());
+		$var($AccessibleContext, ac, $cast($Accessible, o)->getAccessibleContext());
 		if (ac != nullptr) {
 			$var($AccessibleComponent, comp, ac->getAccessibleComponent());
 			if (!($instanceOf($AccessibleExtendedComponent, comp))) {
 				return nullptr;
 			}
-			return $nc(($cast($AccessibleExtendedComponent, comp)))->getAccessibleKeyBinding();
+			return $nc($cast($AccessibleExtendedComponent, comp))->getAccessibleKeyBinding();
 		}
 	}
 	return nullptr;
@@ -447,7 +350,94 @@ JComponent$AccessibleJComponent::JComponent$AccessibleJComponent() {
 }
 
 $Class* JComponent$AccessibleJComponent::load$($String* name, bool initialize) {
-	$loadClass(JComponent$AccessibleJComponent, name, initialize, &_JComponent$AccessibleJComponent_ClassInfo_, allocate$JComponent$AccessibleJComponent);
+	$CompoundAttribute accessibleFocusHandlerfieldAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/JComponent;", nullptr, $FINAL | $SYNTHETIC, $field(JComponent$AccessibleJComponent, this$0)},
+		{"propertyListenersCount", "I", nullptr, $PRIVATE | $VOLATILE | $TRANSIENT, $field(JComponent$AccessibleJComponent, propertyListenersCount)},
+		{"accessibleFocusHandler", "Ljava/awt/event/FocusListener;", nullptr, $PROTECTED | $DEPRECATED, $field(JComponent$AccessibleJComponent, accessibleFocusHandler), accessibleFocusHandlerfieldAnnotations$$},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JComponent;)V", nullptr, $PROTECTED, $method(JComponent$AccessibleJComponent, init$, void, $JComponent*)},
+		{"addFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, addFocusListener, void, $FocusListener*)},
+		{"addPropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, addPropertyChangeListener, void, $PropertyChangeListener*)},
+		{"contains", "(Ljava/awt/Point;)Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, contains, bool, $Point*)},
+		{"getAccessibleAt", "(Ljava/awt/Point;)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleAt, $Accessible*, $Point*)},
+		{"getAccessibleChild", "(I)Ljavax/accessibility/Accessible;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleChild, $Accessible*, int32_t)},
+		{"getAccessibleChildrenCount", "()I", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleChildrenCount, int32_t)},
+		{"getAccessibleComponent", "()Ljavax/accessibility/AccessibleComponent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleComponent, $AccessibleComponent*)},
+		{"getAccessibleDescription", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleDescription, $String*)},
+		{"getAccessibleExtendedComponent", "()Ljavax/accessibility/AccessibleExtendedComponent;", nullptr, 0, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleExtendedComponent, $AccessibleExtendedComponent*)},
+		{"getAccessibleIndexInParent", "()I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleIndexInParent, int32_t)},
+		{"getAccessibleKeyBinding", "()Ljavax/accessibility/AccessibleKeyBinding;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleKeyBinding, $AccessibleKeyBinding*)},
+		{"getAccessibleName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleName, $String*)},
+		{"getAccessibleParent", "()Ljavax/accessibility/Accessible;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleParent, $Accessible*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getBackground, $Color*)},
+		{"getBorderTitle", "(Ljavax/swing/border/Border;)Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JComponent$AccessibleJComponent, getBorderTitle, $String*, $Border*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getBounds, $Rectangle*)},
+		{"getCursor", "()Ljava/awt/Cursor;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getCursor, $Cursor*)},
+		{"getFont", "()Ljava/awt/Font;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getFont, $Font*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getForeground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getForeground, $Color*)},
+		{"getLocale", "()Ljava/util/Locale;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getLocale, $Locale*)},
+		{"getLocation", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getLocation, $Point*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getLocationOnScreen, $Point*)},
+		{"getSize", "()Ljava/awt/Dimension;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, getSize, $Dimension*)},
+		{"getTitledBorderText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getTitledBorderText, $String*)},
+		{"getToolTipText", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, getToolTipText, $String*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, isEnabled, bool)},
+		{"isFocusTraversable", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, isFocusTraversable, bool)},
+		{"isShowing", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, isShowing, bool)},
+		{"isVisible", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, isVisible, bool)},
+		{"removeFocusListener", "(Ljava/awt/event/FocusListener;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, removeFocusListener, void, $FocusListener*)},
+		{"removePropertyChangeListener", "(Ljava/beans/PropertyChangeListener;)V", nullptr, $PUBLIC, $virtualMethod(JComponent$AccessibleJComponent, removePropertyChangeListener, void, $PropertyChangeListener*)},
+		{"requestFocus", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, requestFocus, void)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setBackground, void, $Color*)},
+		{"setBounds", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setBounds, void, $Rectangle*)},
+		{"setCursor", "(Ljava/awt/Cursor;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setCursor, void, $Cursor*)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setFont, void, $Font*)},
+		{"setForeground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setForeground, void, $Color*)},
+		{"setLocation", "(Ljava/awt/Point;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setLocation, void, $Point*)},
+		{"setSize", "(Ljava/awt/Dimension;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setSize, void, $Dimension*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(JComponent$AccessibleJComponent, setVisible, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JComponent$AccessibleJComponent", "javax.swing.JComponent", "AccessibleJComponent", $PUBLIC | $ABSTRACT},
+		{"java.awt.Container$AccessibleAWTContainer", "java.awt.Container", "AccessibleAWTContainer", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent$AccessibleFocusHandler", "javax.swing.JComponent$AccessibleJComponent", "AccessibleFocusHandler", $PROTECTED},
+		{"javax.swing.JComponent$AccessibleJComponent$AccessibleContainerHandler", "javax.swing.JComponent$AccessibleJComponent", "AccessibleContainerHandler", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.JComponent$AccessibleJComponent",
+		"java.awt.Container$AccessibleAWTContainer",
+		"javax.accessibility.AccessibleExtendedComponent",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JComponent"
+	};
+	$loadClass(JComponent$AccessibleJComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JComponent$AccessibleJComponent));
+	});
 	return class$;
 }
 

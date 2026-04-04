@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/parsers/DOMParser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractDOMParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
@@ -32,7 +31,6 @@
 #include <org/xml/sax/EntityResolver.h>
 #include <org/xml/sax/ErrorHandler.h>
 #include <org/xml/sax/InputSource.h>
-#include <org/xml/sax/Locator.h>
 #include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/SAXNotRecognizedException.h>
 #include <org/xml/sax/SAXNotSupportedException.h>
@@ -97,7 +95,6 @@ using $Node = ::org::w3c::dom::Node;
 using $EntityResolver = ::org::xml::sax::EntityResolver;
 using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $InputSource = ::org::xml::sax::InputSource;
-using $Locator = ::org::xml::sax::Locator;
 using $SAXException = ::org::xml::sax::SAXException;
 using $SAXNotRecognizedException = ::org::xml::sax::SAXNotRecognizedException;
 using $SAXNotSupportedException = ::org::xml::sax::SAXNotSupportedException;
@@ -112,51 +109,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace parsers {
-
-$FieldInfo _DOMParser_FieldInfo_[] = {
-	{"USE_ENTITY_RESOLVER2", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParser, USE_ENTITY_RESOLVER2)},
-	{"REPORT_WHITESPACE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParser, REPORT_WHITESPACE)},
-	{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMParser, XML_SECURITY_PROPERTY_MANAGER)},
-	{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMParser, RECOGNIZED_FEATURES)},
-	{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParser, SYMBOL_TABLE)},
-	{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParser, XMLGRAMMAR_POOL)},
-	{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMParser, RECOGNIZED_PROPERTIES)},
-	{"fUseEntityResolver2", "Z", nullptr, $PROTECTED, $field(DOMParser, fUseEntityResolver2)},
-	{}
-};
-
-$MethodInfo _DOMParser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(DOMParser, init$, void, $XMLParserConfiguration*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DOMParser, init$, void)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(DOMParser, init$, void, $SymbolTable*)},
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(DOMParser, init$, void, $SymbolTable*, $XMLGrammarPool*)},
-	{"getEntityResolver", "()Lorg/xml/sax/EntityResolver;", nullptr, $PUBLIC, $virtualMethod(DOMParser, getEntityResolver, $EntityResolver*)},
-	{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(DOMParser, getErrorHandler, $ErrorHandler*)},
-	{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMParser, getFeature, bool, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMParser, getProperty, $Object*, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"getXMLParserConfiguration", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;", nullptr, $PUBLIC, $virtualMethod(DOMParser, getXMLParserConfiguration, $XMLParserConfiguration*)},
-	{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, parse, void, $String*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, parse, void, $InputSource*), "org.xml.sax.SAXException,java.io.IOException"},
-	{"setEntityResolver", "(Lorg/xml/sax/EntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setEntityResolver, void, $EntityResolver*)},
-	{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setErrorHandler, void, $ErrorHandler*)},
-	{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setFeature, void, $String*, bool), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{"setProperty0", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setProperty0, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
-	{}
-};
-
-$ClassInfo _DOMParser_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.parsers.DOMParser",
-	"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser",
-	nullptr,
-	_DOMParser_FieldInfo_,
-	_DOMParser_MethodInfo_
-};
-
-$Object* allocate$DOMParser($Class* clazz) {
-	return $of($alloc(DOMParser));
-}
 
 $String* DOMParser::USE_ENTITY_RESOLVER2 = nullptr;
 $String* DOMParser::REPORT_WHITESPACE = nullptr;
@@ -193,7 +145,7 @@ void DOMParser::init$($SymbolTable* symbolTable, $XMLGrammarPool* grammarPool) {
 }
 
 void DOMParser::parse($String* systemId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XMLInputSource, source, $new($XMLInputSource, nullptr, systemId, nullptr, false));
 	try {
 		parse(source);
@@ -231,13 +183,13 @@ void DOMParser::parse($String* systemId) {
 }
 
 void DOMParser::parse($InputSource* inputSource) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($String, var$0, $nc(inputSource)->getPublicId());
 		$var($XMLInputSource, xmlInputSource, $new($XMLInputSource, var$0, $(inputSource->getSystemId()), nullptr, false));
-		xmlInputSource->setByteStream($($nc(inputSource)->getByteStream()));
-		xmlInputSource->setCharacterStream($($nc(inputSource)->getCharacterStream()));
-		xmlInputSource->setEncoding($($nc(inputSource)->getEncoding()));
+		xmlInputSource->setByteStream($(inputSource->getByteStream()));
+		xmlInputSource->setCharacterStream($(inputSource->getCharacterStream()));
+		xmlInputSource->setEncoding($(inputSource->getEncoding()));
 		parse(xmlInputSource);
 	} catch ($XMLParseException& e) {
 		$var($Exception, ex, e->getException());
@@ -272,20 +224,20 @@ void DOMParser::parse($InputSource* inputSource) {
 }
 
 void DOMParser::setEntityResolver($EntityResolver* resolver) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($XMLParser);
 		$var($XMLEntityResolver, xer, $cast($XMLEntityResolver, $nc(this->fConfiguration)->getProperty($XMLParser::ENTITY_RESOLVER)));
 		if (this->fUseEntityResolver2 && $instanceOf($EntityResolver2, resolver)) {
 			if ($instanceOf($EntityResolver2Wrapper, xer)) {
 				$var($EntityResolver2Wrapper, er2w, $cast($EntityResolver2Wrapper, xer));
-				$nc(er2w)->setEntityResolver($cast($EntityResolver2, resolver));
+				er2w->setEntityResolver($cast($EntityResolver2, resolver));
 			} else {
 				$nc(this->fConfiguration)->setProperty($XMLParser::ENTITY_RESOLVER, $$new($EntityResolver2Wrapper, $cast($EntityResolver2, resolver)));
 			}
 		} else if ($instanceOf($EntityResolverWrapper, xer)) {
 			$var($EntityResolverWrapper, erw, $cast($EntityResolverWrapper, xer));
-			$nc(erw)->setEntityResolver(resolver);
+			erw->setEntityResolver(resolver);
 		} else {
 			$nc(this->fConfiguration)->setProperty($XMLParser::ENTITY_RESOLVER, $$new($EntityResolverWrapper, resolver));
 		}
@@ -294,16 +246,16 @@ void DOMParser::setEntityResolver($EntityResolver* resolver) {
 }
 
 $EntityResolver* DOMParser::getEntityResolver() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($EntityResolver, entityResolver, nullptr);
 	try {
 		$init($XMLParser);
 		$var($XMLEntityResolver, xmlEntityResolver, $cast($XMLEntityResolver, $nc(this->fConfiguration)->getProperty($XMLParser::ENTITY_RESOLVER)));
 		if (xmlEntityResolver != nullptr) {
 			if ($instanceOf($EntityResolverWrapper, xmlEntityResolver)) {
-				$assign(entityResolver, $nc(($cast($EntityResolverWrapper, xmlEntityResolver)))->getEntityResolver());
+				$assign(entityResolver, $cast($EntityResolverWrapper, xmlEntityResolver)->getEntityResolver());
 			} else if ($instanceOf($EntityResolver2Wrapper, xmlEntityResolver)) {
-				$assign(entityResolver, $nc(($cast($EntityResolver2Wrapper, xmlEntityResolver)))->getEntityResolver());
+				$assign(entityResolver, $cast($EntityResolver2Wrapper, xmlEntityResolver)->getEntityResolver());
 			}
 		}
 	} catch ($XMLConfigurationException& e) {
@@ -312,13 +264,13 @@ $EntityResolver* DOMParser::getEntityResolver() {
 }
 
 void DOMParser::setErrorHandler($ErrorHandler* errorHandler) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$init($XMLParser);
 		$var($XMLErrorHandler, xeh, $cast($XMLErrorHandler, $nc(this->fConfiguration)->getProperty($XMLParser::ERROR_HANDLER)));
 		if ($instanceOf($ErrorHandlerWrapper, xeh)) {
 			$var($ErrorHandlerWrapper, ehw, $cast($ErrorHandlerWrapper, xeh));
-			$nc(ehw)->setErrorHandler(errorHandler);
+			ehw->setErrorHandler(errorHandler);
 		} else {
 			$nc(this->fConfiguration)->setProperty($XMLParser::ERROR_HANDLER, $$new($ErrorHandlerWrapper, errorHandler));
 		}
@@ -327,13 +279,13 @@ void DOMParser::setErrorHandler($ErrorHandler* errorHandler) {
 }
 
 $ErrorHandler* DOMParser::getErrorHandler() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ErrorHandler, errorHandler, nullptr);
 	try {
 		$init($XMLParser);
 		$var($XMLErrorHandler, xmlErrorHandler, $cast($XMLErrorHandler, $nc(this->fConfiguration)->getProperty($XMLParser::ERROR_HANDLER)));
 		if (xmlErrorHandler != nullptr && $instanceOf($ErrorHandlerWrapper, xmlErrorHandler)) {
-			$assign(errorHandler, $nc(($cast($ErrorHandlerWrapper, xmlErrorHandler)))->getErrorHandler());
+			$assign(errorHandler, $cast($ErrorHandlerWrapper, xmlErrorHandler)->getErrorHandler());
 		}
 	} catch ($XMLConfigurationException& e) {
 	}
@@ -341,7 +293,7 @@ $ErrorHandler* DOMParser::getErrorHandler() {
 }
 
 void DOMParser::setFeature($String* featureId, bool state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(featureId)->equals(DOMParser::USE_ENTITY_RESOLVER2)) {
 			if (state != this->fUseEntityResolver2) {
@@ -355,15 +307,15 @@ void DOMParser::setFeature($String* featureId, bool state) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		if (e->getType() == $Status::NOT_RECOGNIZED) {
-			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "feature-not-recognized"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "feature-not-recognized"_s, $$new($ObjectArray, {identifier}))));
 		} else {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "feature-not-supported"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "feature-not-supported"_s, $$new($ObjectArray, {identifier}))));
 		}
 	}
 }
 
 bool DOMParser::getFeature($String* featureId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		if ($nc(featureId)->equals(DOMParser::USE_ENTITY_RESOLVER2)) {
 			return this->fUseEntityResolver2;
@@ -373,9 +325,9 @@ bool DOMParser::getFeature($String* featureId) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		if (e->getType() == $Status::NOT_RECOGNIZED) {
-			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "feature-not-recognized"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "feature-not-recognized"_s, $$new($ObjectArray, {identifier}))));
 		} else {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "feature-not-supported"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "feature-not-supported"_s, $$new($ObjectArray, {identifier}))));
 		}
 	}
 	$shouldNotReachHere();
@@ -389,7 +341,7 @@ void DOMParser::setProperty($String* propertyId, Object$* value) {
 		return;
 	}
 	$init($JdkConstants);
-	if ($nc(propertyId)->equals($JdkConstants::XML_SECURITY_PROPERTY_MANAGER)) {
+	if (propertyId->equals($JdkConstants::XML_SECURITY_PROPERTY_MANAGER)) {
 		if (value == nullptr) {
 			$set(this, securityPropertyManager, $new($XMLSecurityPropertyManager));
 		} else {
@@ -419,22 +371,22 @@ void DOMParser::setProperty($String* propertyId, Object$* value) {
 }
 
 void DOMParser::setProperty0($String* propertyId, Object$* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(this->fConfiguration)->setProperty(propertyId, value);
 	} catch ($XMLConfigurationException& e) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		if (e->getType() == $Status::NOT_RECOGNIZED) {
-			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "property-not-recognized"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "property-not-recognized"_s, $$new($ObjectArray, {identifier}))));
 		} else {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {identifier}))));
 		}
 	}
 }
 
 $Object* DOMParser::getProperty($String* propertyId) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($AbstractDOMParser);
 	if ($nc(propertyId)->equals($AbstractDOMParser::CURRENT_ELEMENT_NODE)) {
 		bool deferred = false;
@@ -445,7 +397,7 @@ $Object* DOMParser::getProperty($String* propertyId) {
 		if (deferred) {
 			$throwNew($SAXNotSupportedException, "Current element node cannot be queried when node expansion is deferred."_s);
 		}
-		return $of((this->fCurrentNode != nullptr && $nc(this->fCurrentNode)->getNodeType() == $Node::ELEMENT_NODE) ? $of(this->fCurrentNode) : ($Object*)nullptr);
+		return (this->fCurrentNode != nullptr && this->fCurrentNode->getNodeType() == $Node::ELEMENT_NODE) ? $of(this->fCurrentNode) : ($Object*)nullptr;
 	}
 	try {
 		$var($XMLSecurityPropertyManager, spm, $cast($XMLSecurityPropertyManager, $nc(this->fConfiguration)->getProperty(DOMParser::XML_SECURITY_PROPERTY_MANAGER)));
@@ -453,14 +405,14 @@ $Object* DOMParser::getProperty($String* propertyId) {
 		if (index > -1) {
 			return $of(spm->getValueByIndex(index));
 		}
-		return $of($nc(this->fConfiguration)->getProperty(propertyId));
+		return $nc(this->fConfiguration)->getProperty(propertyId);
 	} catch ($XMLConfigurationException& e) {
 		$var($String, identifier, e->getIdentifier());
 		$init($Status);
 		if (e->getType() == $Status::NOT_RECOGNIZED) {
-			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "property-not-recognized"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotRecognizedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "property-not-recognized"_s, $$new($ObjectArray, {identifier}))));
 		} else {
-			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {$of(identifier)}))));
+			$throwNew($SAXNotSupportedException, $($SAXMessageFormatter::formatMessage($($nc(this->fConfiguration)->getLocale()), "property-not-supported"_s, $$new($ObjectArray, {identifier}))));
 		}
 	}
 	$shouldNotReachHere();
@@ -470,7 +422,7 @@ $XMLParserConfiguration* DOMParser::getXMLParserConfiguration() {
 	return this->fConfiguration;
 }
 
-void clinit$DOMParser($Class* class$) {
+void DOMParser::clinit$($Class* clazz) {
 	$init($Constants);
 	$assignStatic(DOMParser::USE_ENTITY_RESOLVER2, $str({$Constants::SAX_FEATURE_PREFIX, $Constants::USE_ENTITY_RESOLVER2_FEATURE}));
 	$assignStatic(DOMParser::REPORT_WHITESPACE, $str({$Constants::SUN_SCHEMA_FEATURE_PREFIX, $Constants::SUN_REPORT_IGNORED_ELEMENT_CONTENT_WHITESPACE}));
@@ -489,7 +441,47 @@ DOMParser::DOMParser() {
 }
 
 $Class* DOMParser::load$($String* name, bool initialize) {
-	$loadClass(DOMParser, name, initialize, &_DOMParser_ClassInfo_, clinit$DOMParser, allocate$DOMParser);
+	$FieldInfo fieldInfos$$[] = {
+		{"USE_ENTITY_RESOLVER2", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParser, USE_ENTITY_RESOLVER2)},
+		{"REPORT_WHITESPACE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParser, REPORT_WHITESPACE)},
+		{"XML_SECURITY_PROPERTY_MANAGER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMParser, XML_SECURITY_PROPERTY_MANAGER)},
+		{"RECOGNIZED_FEATURES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMParser, RECOGNIZED_FEATURES)},
+		{"SYMBOL_TABLE", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParser, SYMBOL_TABLE)},
+		{"XMLGRAMMAR_POOL", "Ljava/lang/String;", nullptr, $PROTECTED | $STATIC | $FINAL, $staticField(DOMParser, XMLGRAMMAR_POOL)},
+		{"RECOGNIZED_PROPERTIES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DOMParser, RECOGNIZED_PROPERTIES)},
+		{"fUseEntityResolver2", "Z", nullptr, $PROTECTED, $field(DOMParser, fUseEntityResolver2)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;)V", nullptr, $PUBLIC, $method(DOMParser, init$, void, $XMLParserConfiguration*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DOMParser, init$, void)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;)V", nullptr, $PUBLIC, $method(DOMParser, init$, void, $SymbolTable*)},
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/util/SymbolTable;Lcom/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool;)V", nullptr, $PUBLIC, $method(DOMParser, init$, void, $SymbolTable*, $XMLGrammarPool*)},
+		{"getEntityResolver", "()Lorg/xml/sax/EntityResolver;", nullptr, $PUBLIC, $virtualMethod(DOMParser, getEntityResolver, $EntityResolver*)},
+		{"getErrorHandler", "()Lorg/xml/sax/ErrorHandler;", nullptr, $PUBLIC, $virtualMethod(DOMParser, getErrorHandler, $ErrorHandler*)},
+		{"getFeature", "(Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(DOMParser, getFeature, bool, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getProperty", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DOMParser, getProperty, $Object*, $String*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"getXMLParserConfiguration", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration;", nullptr, $PUBLIC, $virtualMethod(DOMParser, getXMLParserConfiguration, $XMLParserConfiguration*)},
+		{"parse", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, parse, void, $String*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"parse", "(Lorg/xml/sax/InputSource;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, parse, void, $InputSource*), "org.xml.sax.SAXException,java.io.IOException"},
+		{"setEntityResolver", "(Lorg/xml/sax/EntityResolver;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setEntityResolver, void, $EntityResolver*)},
+		{"setErrorHandler", "(Lorg/xml/sax/ErrorHandler;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setErrorHandler, void, $ErrorHandler*)},
+		{"setFeature", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setFeature, void, $String*, bool), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"setProperty", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setProperty, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{"setProperty0", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(DOMParser, setProperty0, void, $String*, Object$*), "org.xml.sax.SAXNotRecognizedException,org.xml.sax.SAXNotSupportedException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.parsers.DOMParser",
+		"com.sun.org.apache.xerces.internal.parsers.AbstractDOMParser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DOMParser, name, initialize, &classInfo$$, DOMParser::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DOMParser));
+	});
 	return class$;
 }
 

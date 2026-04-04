@@ -51,7 +51,7 @@ public:
 	::java::awt::event::FocusEvent$Cause* cause = nullptr;
 	bool temporary = false;
 	::java::awt::Component* opposite = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x0744BF4B378F62CC;
+	static const int64_t serialVersionUID = (int64_t)0x0744bf4b378f62cc;
 };
 
 		} // event

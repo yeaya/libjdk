@@ -1,5 +1,4 @@
 #include <sun/security/krb5/KrbSafe.h>
-
 #include <sun/security/krb5/Checksum.h>
 #include <sun/security/krb5/Credentials.h>
 #include <sun/security/krb5/EncryptionKey.h>
@@ -41,35 +40,6 @@ namespace sun {
 	namespace security {
 		namespace krb5 {
 
-$FieldInfo _KrbSafe_FieldInfo_[] = {
-	{"obuf", "[B", nullptr, $PRIVATE, $field(KrbSafe, obuf)},
-	{"userData", "[B", nullptr, $PRIVATE, $field(KrbSafe, userData)},
-	{}
-};
-
-$MethodInfo _KrbSafe_MethodInfo_[] = {
-	{"<init>", "([BLsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;)V", nullptr, $PUBLIC, $method(KrbSafe, init$, void, $bytes*, $Credentials*, $EncryptionKey*, $KerberosTime*, $SeqNumber*, $HostAddress*, $HostAddress*), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"<init>", "([BLsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;ZZ)V", nullptr, $PUBLIC, $method(KrbSafe, init$, void, $bytes*, $Credentials*, $EncryptionKey*, $SeqNumber*, $HostAddress*, $HostAddress*, bool, bool), "sun.security.krb5.KrbException,java.io.IOException"},
-	{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbSafe, getData, $bytes*)},
-	{"getMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbSafe, getMessage, $bytes*)},
-	{"mk_safe", "([BLsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;)[B", nullptr, $PRIVATE, $method(KrbSafe, mk_safe, $bytes*, $bytes*, $EncryptionKey*, $KerberosTime*, $SeqNumber*, $HostAddress*, $HostAddress*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
-	{"rd_safe", "(Lsun/security/krb5/internal/KRBSafe;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;ZZLsun/security/krb5/PrincipalName;)[B", nullptr, $PRIVATE, $method(KrbSafe, rd_safe, $bytes*, $KRBSafe*, $EncryptionKey*, $SeqNumber*, $HostAddress*, $HostAddress*, bool, bool, $PrincipalName*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,java.io.IOException,sun.security.krb5.KrbCryptoException"},
-	{}
-};
-
-$ClassInfo _KrbSafe_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.KrbSafe",
-	"sun.security.krb5.KrbAppMessage",
-	nullptr,
-	_KrbSafe_FieldInfo_,
-	_KrbSafe_MethodInfo_
-};
-
-$Object* allocate$KrbSafe($Class* clazz) {
-	return $of($alloc(KrbSafe));
-}
-
 void KrbSafe::init$($bytes* userData, $Credentials* creds, $EncryptionKey* subKey, $KerberosTime* timestamp, $SeqNumber* seqNumber, $HostAddress* saddr, $HostAddress* raddr) {
 	$KrbAppMessage::init$();
 	$var($EncryptionKey, reqKey, nullptr);
@@ -82,7 +52,7 @@ void KrbSafe::init$($bytes* userData, $Credentials* creds, $EncryptionKey* subKe
 }
 
 void KrbSafe::init$($bytes* msg, $Credentials* creds, $EncryptionKey* subKey, $SeqNumber* seqNumber, $HostAddress* saddr, $HostAddress* raddr, bool timestampRequired, bool seqNumberRequired) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$KrbAppMessage::init$();
 	$var($KRBSafe, krb_safe, $new($KRBSafe, msg));
 	$var($EncryptionKey, reqKey, nullptr);
@@ -103,7 +73,7 @@ $bytes* KrbSafe::getData() {
 }
 
 $bytes* KrbSafe::mk_safe($bytes* userData, $EncryptionKey* key, $KerberosTime* timestamp, $SeqNumber* seqNumber, $HostAddress* sAddress, $HostAddress* rAddress) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Integer, usec, nullptr);
 	$var($Integer, seqno, nullptr);
 	if (timestamp != nullptr) {
@@ -135,7 +105,31 @@ KrbSafe::KrbSafe() {
 }
 
 $Class* KrbSafe::load$($String* name, bool initialize) {
-	$loadClass(KrbSafe, name, initialize, &_KrbSafe_ClassInfo_, allocate$KrbSafe);
+	$FieldInfo fieldInfos$$[] = {
+		{"obuf", "[B", nullptr, $PRIVATE, $field(KrbSafe, obuf)},
+		{"userData", "[B", nullptr, $PRIVATE, $field(KrbSafe, userData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([BLsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;)V", nullptr, $PUBLIC, $method(KrbSafe, init$, void, $bytes*, $Credentials*, $EncryptionKey*, $KerberosTime*, $SeqNumber*, $HostAddress*, $HostAddress*), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"<init>", "([BLsun/security/krb5/Credentials;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;ZZ)V", nullptr, $PUBLIC, $method(KrbSafe, init$, void, $bytes*, $Credentials*, $EncryptionKey*, $SeqNumber*, $HostAddress*, $HostAddress*, bool, bool), "sun.security.krb5.KrbException,java.io.IOException"},
+		{"getData", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbSafe, getData, $bytes*)},
+		{"getMessage", "()[B", nullptr, $PUBLIC, $virtualMethod(KrbSafe, getMessage, $bytes*)},
+		{"mk_safe", "([BLsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/KerberosTime;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;)[B", nullptr, $PRIVATE, $method(KrbSafe, mk_safe, $bytes*, $bytes*, $EncryptionKey*, $KerberosTime*, $SeqNumber*, $HostAddress*, $HostAddress*), "sun.security.krb5.Asn1Exception,java.io.IOException,sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,sun.security.krb5.KrbCryptoException"},
+		{"rd_safe", "(Lsun/security/krb5/internal/KRBSafe;Lsun/security/krb5/EncryptionKey;Lsun/security/krb5/internal/SeqNumber;Lsun/security/krb5/internal/HostAddress;Lsun/security/krb5/internal/HostAddress;ZZLsun/security/krb5/PrincipalName;)[B", nullptr, $PRIVATE, $method(KrbSafe, rd_safe, $bytes*, $KRBSafe*, $EncryptionKey*, $SeqNumber*, $HostAddress*, $HostAddress*, bool, bool, $PrincipalName*), "sun.security.krb5.Asn1Exception,sun.security.krb5.internal.KdcErrException,sun.security.krb5.internal.KrbApErrException,java.io.IOException,sun.security.krb5.KrbCryptoException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.KrbSafe",
+		"sun.security.krb5.KrbAppMessage",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(KrbSafe, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(KrbSafe);
+	});
 	return class$;
 }
 

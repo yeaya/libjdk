@@ -1,5 +1,4 @@
 #include <javax/management/MBeanServerPermission.h>
-
 #include <java/io/ObjectInputStream.h>
 #include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
@@ -34,55 +33,6 @@ using $MBeanServerPermissionCollection = ::javax::management::MBeanServerPermiss
 namespace javax {
 	namespace management {
 
-$FieldInfo _MBeanServerPermission_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, serialVersionUID)},
-	{"CREATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, CREATE)},
-	{"FIND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, FIND)},
-	{"NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, NEW)},
-	{"RELEASE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, RELEASE)},
-	{"N_NAMES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, N_NAMES)},
-	{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerPermission, names)},
-	{"CREATE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, CREATE_MASK)},
-	{"FIND_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, FIND_MASK)},
-	{"NEW_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, NEW_MASK)},
-	{"RELEASE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, RELEASE_MASK)},
-	{"ALL_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, ALL_MASK)},
-	{"canonicalNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerPermission, canonicalNames)},
-	{"mask", "I", nullptr, $TRANSIENT, $field(MBeanServerPermission, mask)},
-	{}
-};
-
-$MethodInfo _MBeanServerPermission_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanServerPermission, init$, void, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanServerPermission, init$, void, $String*, $String*)},
-	{"<init>", "(I)V", nullptr, 0, $method(MBeanServerPermission, init$, void, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, equals, bool, Object$*)},
-	{"getCanonicalName", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MBeanServerPermission, getCanonicalName, $String*, int32_t)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, hashCode, int32_t)},
-	{"impliedMask", "(I)I", nullptr, $STATIC, $staticMethod(MBeanServerPermission, impliedMask, int32_t, int32_t)},
-	{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, implies, bool, $Permission*)},
-	{"makeCanonicalName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, makeCanonicalName, $String*, int32_t)},
-	{"nameIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, nameIndex, int32_t, $String*), "java.lang.IllegalArgumentException"},
-	{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, newPermissionCollection, $PermissionCollection*)},
-	{"parseMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, parseMask, int32_t, $String*)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanServerPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"simplifyMask", "(I)I", nullptr, $STATIC, $staticMethod(MBeanServerPermission, simplifyMask, int32_t, int32_t)},
-	{}
-};
-
-$ClassInfo _MBeanServerPermission_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.MBeanServerPermission",
-	"java.security.BasicPermission",
-	nullptr,
-	_MBeanServerPermission_FieldInfo_,
-	_MBeanServerPermission_MethodInfo_
-};
-
-$Object* allocate$MBeanServerPermission($Class* clazz) {
-	return $of($alloc(MBeanServerPermission));
-}
-
 $StringArray* MBeanServerPermission::names = nullptr;
 $StringArray* MBeanServerPermission::canonicalNames = nullptr;
 
@@ -91,7 +41,7 @@ void MBeanServerPermission::init$($String* name) {
 }
 
 void MBeanServerPermission::init$($String* name, $String* actions) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicPermission::init$($(getCanonicalName(parseMask(name))), actions);
 	this->mask = parseMask(name);
 	if (actions != nullptr && actions->length() > 0) {
@@ -111,7 +61,7 @@ void MBeanServerPermission::readObject($ObjectInputStream* in) {
 
 int32_t MBeanServerPermission::simplifyMask(int32_t mask) {
 	$init(MBeanServerPermission);
-	if (((int32_t)(mask & (uint32_t)MBeanServerPermission::CREATE_MASK)) != 0) {
+	if ((mask & MBeanServerPermission::CREATE_MASK) != 0) {
 		mask &= (uint32_t)~MBeanServerPermission::NEW_MASK;
 	}
 	return mask;
@@ -119,7 +69,7 @@ int32_t MBeanServerPermission::simplifyMask(int32_t mask) {
 
 int32_t MBeanServerPermission::impliedMask(int32_t mask) {
 	$init(MBeanServerPermission);
-	if (((int32_t)(mask & (uint32_t)MBeanServerPermission::CREATE_MASK)) != 0) {
+	if ((mask & MBeanServerPermission::CREATE_MASK) != 0) {
 		mask |= MBeanServerPermission::NEW_MASK;
 	}
 	return mask;
@@ -132,31 +82,31 @@ $String* MBeanServerPermission::getCanonicalName(int32_t mask) {
 	}
 	mask = simplifyMask(mask);
 	$synchronized(MBeanServerPermission::canonicalNames) {
-		if ($nc(MBeanServerPermission::canonicalNames)->get(mask) == nullptr) {
-			$nc(MBeanServerPermission::canonicalNames)->set(mask, $(makeCanonicalName(mask)));
+		if (MBeanServerPermission::canonicalNames->get(mask) == nullptr) {
+			MBeanServerPermission::canonicalNames->set(mask, $(makeCanonicalName(mask)));
 		}
 	}
-	return $nc(MBeanServerPermission::canonicalNames)->get(mask);
+	return MBeanServerPermission::canonicalNames->get(mask);
 }
 
 $String* MBeanServerPermission::makeCanonicalName(int32_t mask) {
 	$init(MBeanServerPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	for (int32_t i = 0; i < MBeanServerPermission::N_NAMES; ++i) {
-		if (((int32_t)(mask & (uint32_t)($sl(1, i)))) != 0) {
+		if ((mask & ($sl(1, i))) != 0) {
 			if (buf->length() > 0) {
 				buf->append(u',');
 			}
-			buf->append($nc(MBeanServerPermission::names)->get(i));
+			buf->append(MBeanServerPermission::names->get(i));
 		}
 	}
-	return $nc($(buf->toString()))->intern();
+	return $(buf->toString())->intern();
 }
 
 int32_t MBeanServerPermission::parseMask($String* name$renamed) {
 	$init(MBeanServerPermission);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, name, name$renamed);
 	if (name == nullptr) {
 		$throwNew($NullPointerException, "MBeanServerPermission: target name can\'t be null"_s);
@@ -165,7 +115,7 @@ int32_t MBeanServerPermission::parseMask($String* name$renamed) {
 	if (name->equals("*"_s)) {
 		return MBeanServerPermission::ALL_MASK;
 	}
-	if (name->indexOf((int32_t)u',') < 0) {
+	if (name->indexOf(u',') < 0) {
 		return impliedMask($sl(1, nameIndex($(name->trim()))));
 	}
 	int32_t mask = 0;
@@ -181,7 +131,7 @@ int32_t MBeanServerPermission::parseMask($String* name$renamed) {
 int32_t MBeanServerPermission::nameIndex($String* name) {
 	$init(MBeanServerPermission);
 	for (int32_t i = 0; i < MBeanServerPermission::N_NAMES; ++i) {
-		if ($nc($nc(MBeanServerPermission::names)->get(i))->equals(name)) {
+		if ($nc(MBeanServerPermission::names->get(i))->equals(name)) {
 			return i;
 		}
 	}
@@ -198,7 +148,7 @@ bool MBeanServerPermission::implies($Permission* p) {
 		return false;
 	}
 	$var(MBeanServerPermission, that, $cast(MBeanServerPermission, p));
-	return (((int32_t)(this->mask & (uint32_t)$nc(that)->mask)) == that->mask);
+	return ((this->mask & $nc(that)->mask) == $nc(that)->mask);
 }
 
 bool MBeanServerPermission::equals(Object$* obj) {
@@ -216,7 +166,7 @@ $PermissionCollection* MBeanServerPermission::newPermissionCollection() {
 	return $new($MBeanServerPermissionCollection);
 }
 
-void clinit$MBeanServerPermission($Class* class$) {
+void MBeanServerPermission::clinit$($Class* clazz) {
 	$assignStatic(MBeanServerPermission::names, $new($StringArray, {
 		"createMBeanServer"_s,
 		"findMBeanServer"_s,
@@ -230,7 +180,51 @@ MBeanServerPermission::MBeanServerPermission() {
 }
 
 $Class* MBeanServerPermission::load$($String* name, bool initialize) {
-	$loadClass(MBeanServerPermission, name, initialize, &_MBeanServerPermission_ClassInfo_, clinit$MBeanServerPermission, allocate$MBeanServerPermission);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, serialVersionUID)},
+		{"CREATE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, CREATE)},
+		{"FIND", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, FIND)},
+		{"NEW", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, NEW)},
+		{"RELEASE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, RELEASE)},
+		{"N_NAMES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, N_NAMES)},
+		{"names", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerPermission, names)},
+		{"CREATE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, CREATE_MASK)},
+		{"FIND_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, FIND_MASK)},
+		{"NEW_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, NEW_MASK)},
+		{"RELEASE_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, RELEASE_MASK)},
+		{"ALL_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MBeanServerPermission, ALL_MASK)},
+		{"canonicalNames", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MBeanServerPermission, canonicalNames)},
+		{"mask", "I", nullptr, $TRANSIENT, $field(MBeanServerPermission, mask)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanServerPermission, init$, void, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(MBeanServerPermission, init$, void, $String*, $String*)},
+		{"<init>", "(I)V", nullptr, 0, $method(MBeanServerPermission, init$, void, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, equals, bool, Object$*)},
+		{"getCanonicalName", "(I)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(MBeanServerPermission, getCanonicalName, $String*, int32_t)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, hashCode, int32_t)},
+		{"impliedMask", "(I)I", nullptr, $STATIC, $staticMethod(MBeanServerPermission, impliedMask, int32_t, int32_t)},
+		{"implies", "(Ljava/security/Permission;)Z", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, implies, bool, $Permission*)},
+		{"makeCanonicalName", "(I)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, makeCanonicalName, $String*, int32_t)},
+		{"nameIndex", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, nameIndex, int32_t, $String*), "java.lang.IllegalArgumentException"},
+		{"newPermissionCollection", "()Ljava/security/PermissionCollection;", nullptr, $PUBLIC, $virtualMethod(MBeanServerPermission, newPermissionCollection, $PermissionCollection*)},
+		{"parseMask", "(Ljava/lang/String;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(MBeanServerPermission, parseMask, int32_t, $String*)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(MBeanServerPermission, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"simplifyMask", "(I)I", nullptr, $STATIC, $staticMethod(MBeanServerPermission, simplifyMask, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.MBeanServerPermission",
+		"java.security.BasicPermission",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MBeanServerPermission, name, initialize, &classInfo$$, MBeanServerPermission::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MBeanServerPermission));
+	});
 	return class$;
 }
 

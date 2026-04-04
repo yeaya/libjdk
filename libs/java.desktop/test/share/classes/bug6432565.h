@@ -20,6 +20,7 @@ class $export bug6432565 : public ::java::lang::Object {
 	$class(bug6432565, 0, ::java::lang::Object)
 public:
 	bug6432565();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static ::java::util::concurrent::atomic::AtomicReference* throwable;

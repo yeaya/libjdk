@@ -1,5 +1,4 @@
 #include <javax/swing/ColorChooserDialog$3.h>
-
 #include <java/awt/Dialog.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/ColorChooserDialog.h>
@@ -16,48 +15,6 @@ using $ColorChooserDialog = ::javax::swing::ColorChooserDialog;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _ColorChooserDialog$3_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/ColorChooserDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ColorChooserDialog$3, this$0)},
-	{}
-};
-
-$MethodInfo _ColorChooserDialog$3_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/ColorChooserDialog;)V", nullptr, 0, $method(ColorChooserDialog$3, init$, void, $ColorChooserDialog*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ColorChooserDialog$3, actionPerformed, void, $ActionEvent*)},
-	{}
-};
-
-$EnclosingMethodInfo _ColorChooserDialog$3_EnclosingMethodInfo_ = {
-	"javax.swing.ColorChooserDialog",
-	"initColorChooserDialog",
-	"(Ljava/awt/Component;Ljavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)V"
-};
-
-$InnerClassInfo _ColorChooserDialog$3_InnerClassesInfo_[] = {
-	{"javax.swing.ColorChooserDialog$3", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ColorChooserDialog$3_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ColorChooserDialog$3",
-	"java.lang.Object",
-	"java.awt.event.ActionListener",
-	_ColorChooserDialog$3_FieldInfo_,
-	_ColorChooserDialog$3_MethodInfo_,
-	nullptr,
-	&_ColorChooserDialog$3_EnclosingMethodInfo_,
-	_ColorChooserDialog$3_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ColorChooserDialog"
-};
-
-$Object* allocate$ColorChooserDialog$3($Class* clazz) {
-	return $of($alloc(ColorChooserDialog$3));
-}
-
 void ColorChooserDialog$3::init$($ColorChooserDialog* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -70,7 +27,42 @@ ColorChooserDialog$3::ColorChooserDialog$3() {
 }
 
 $Class* ColorChooserDialog$3::load$($String* name, bool initialize) {
-	$loadClass(ColorChooserDialog$3, name, initialize, &_ColorChooserDialog$3_ClassInfo_, allocate$ColorChooserDialog$3);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/ColorChooserDialog;", nullptr, $FINAL | $SYNTHETIC, $field(ColorChooserDialog$3, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/ColorChooserDialog;)V", nullptr, 0, $method(ColorChooserDialog$3, init$, void, $ColorChooserDialog*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ColorChooserDialog$3, actionPerformed, void, $ActionEvent*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.swing.ColorChooserDialog",
+		"initColorChooserDialog",
+		"(Ljava/awt/Component;Ljavax/swing/JColorChooser;Ljava/awt/event/ActionListener;Ljava/awt/event/ActionListener;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ColorChooserDialog$3", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ColorChooserDialog$3",
+		"java.lang.Object",
+		"java.awt.event.ActionListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ColorChooserDialog"
+	};
+	$loadClass(ColorChooserDialog$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ColorChooserDialog$3);
+	});
 	return class$;
 }
 

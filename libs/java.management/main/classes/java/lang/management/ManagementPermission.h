@@ -15,7 +15,7 @@ public:
 	ManagementPermission();
 	void init$($String* name);
 	void init$($String* name, $String* actions);
-	static const int64_t serialVersionUID = (int64_t)0x1A554318911C9931;
+	static const int64_t serialVersionUID = (int64_t)0x1a554318911c9931;
 };
 
 		} // management

@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WPopupMenuPeer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Event.h>
@@ -15,7 +14,6 @@
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WMenuItemPeer.h>
 #include <sun/awt/windows/WMenuPeer.h>
-#include <sun/awt/windows/WObjectPeer.h>
 #include <sun/awt/windows/WToolkit.h>
 #include <jcpp.h>
 
@@ -24,7 +22,6 @@
 using $Component = ::java::awt::Component;
 using $Event = ::java::awt::Event;
 using $Font = ::java::awt::Font;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem = ::java::awt::MenuItem;
 using $Point = ::java::awt::Point;
@@ -33,52 +30,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
-using $AWTAccessor$PopupMenuAccessor = ::sun::awt::AWTAccessor$PopupMenuAccessor;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WMenuPeer = ::sun::awt::windows::WMenuPeer;
-using $WObjectPeer = ::sun::awt::windows::WObjectPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;
 
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$MethodInfo _WPopupMenuPeer_MethodInfo_[] = {
-	{"*addItem", "(Ljava/awt/MenuItem;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*delItem", "(I)V", nullptr, $PUBLIC | $NATIVE},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/PopupMenu;)V", nullptr, 0, $method(WPopupMenuPeer, init$, void, $PopupMenu*)},
-	{"_show", "(Ljava/awt/Event;)V", nullptr, $PRIVATE | $NATIVE, $method(WPopupMenuPeer, _show, void, $Event*)},
-	{"createMenu", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $PRIVATE | $NATIVE, $method(WPopupMenuPeer, createMenu, void, $WComponentPeer*)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"*setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"show", "(Ljava/awt/Event;)V", nullptr, $PUBLIC, $virtualMethod(WPopupMenuPeer, show, void, $Event*)},
-	{"show", "(Ljava/awt/Component;Ljava/awt/Point;)V", nullptr, 0, $method(WPopupMenuPeer, show, void, $Component*, $Point*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX__show 8
-#define _METHOD_INDEX_createMenu 9
-
-$ClassInfo _WPopupMenuPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WPopupMenuPeer",
-	"sun.awt.windows.WMenuPeer",
-	"java.awt.peer.PopupMenuPeer",
-	nullptr,
-	_WPopupMenuPeer_MethodInfo_
-};
-
-$Object* allocate$WPopupMenuPeer($Class* clazz) {
-	return $of($alloc(WPopupMenuPeer));
-}
 
 void WPopupMenuPeer::addItem($MenuItem* item) {
 	this->$WMenuPeer::addItem(item);
@@ -125,13 +83,13 @@ void WPopupMenuPeer::finalize() {
 }
 
 void WPopupMenuPeer::init$($PopupMenu* target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$WMenuPeer::init$();
 	$set(this, target, target);
 	$var($MenuContainer, parent, nullptr);
-	bool isTrayIconPopup = $nc($($AWTAccessor::getPopupMenuAccessor()))->isTrayIconPopup(target);
+	bool isTrayIconPopup = $$nc($AWTAccessor::getPopupMenuAccessor())->isTrayIconPopup(target);
 	if (isTrayIconPopup) {
-		$assign(parent, $nc($($AWTAccessor::getMenuComponentAccessor()))->getParent(target));
+		$assign(parent, $$nc($AWTAccessor::getMenuComponentAccessor())->getParent(target));
 	} else {
 		$assign(parent, $nc(target)->getParent());
 	}
@@ -150,13 +108,13 @@ void WPopupMenuPeer::init$($PopupMenu* target) {
 }
 
 void WPopupMenuPeer::createMenu($WComponentPeer* parent) {
-	$prepareNative(WPopupMenuPeer, createMenu, void, $WComponentPeer* parent);
+	$prepareNative(createMenu, void, $WComponentPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
 
 void WPopupMenuPeer::show($Event* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, origin, $cast($Component, $nc(e)->target));
 	$var($WComponentPeer, peer, $cast($WComponentPeer, $WToolkit::targetToPeer(origin)));
 	if (peer == nullptr) {
@@ -165,7 +123,7 @@ void WPopupMenuPeer::show($Event* e) {
 		{
 			$var($Component, c, origin);
 			for (; c != nativeOrigin; $assign(c, $nc(c)->getParent())) {
-				$var($Point, p, c->getLocation());
+				$var($Point, p, $nc(c)->getLocation());
 				e->x += $nc(p)->x;
 				e->y += p->y;
 			}
@@ -175,20 +133,20 @@ void WPopupMenuPeer::show($Event* e) {
 }
 
 void WPopupMenuPeer::show($Component* origin, $Point* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WComponentPeer, peer, $cast($WComponentPeer, $WToolkit::targetToPeer(origin)));
-	$var($Event, e, $new($Event, origin, 0, $Event::MOUSE_DOWN, $nc(p)->x, p->y, 0, 0));
+	$var($Event, e, $new($Event, origin, 0, $Event::MOUSE_DOWN, $nc(p)->x, $nc(p)->y, 0, 0));
 	if (peer == nullptr) {
 		$var($Component, nativeOrigin, $WToolkit::getNativeContainer(origin));
 		$set(e, target, nativeOrigin);
 	}
-	e->x = $nc(p)->x;
+	e->x = p->x;
 	e->y = p->y;
 	_show(e);
 }
 
 void WPopupMenuPeer::_show($Event* e) {
-	$prepareNative(WPopupMenuPeer, _show, void, $Event* e);
+	$prepareNative(_show, void, $Event* e);
 	$invokeNative(e);
 	$finishNative();
 }
@@ -197,7 +155,36 @@ WPopupMenuPeer::WPopupMenuPeer() {
 }
 
 $Class* WPopupMenuPeer::load$($String* name, bool initialize) {
-	$loadClass(WPopupMenuPeer, name, initialize, &_WPopupMenuPeer_ClassInfo_, allocate$WPopupMenuPeer);
+	$MethodInfo methodInfos$$[] = {
+		{"*addItem", "(Ljava/awt/MenuItem;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*delItem", "(I)V", nullptr, $PUBLIC | $NATIVE},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/PopupMenu;)V", nullptr, 0, $method(WPopupMenuPeer, init$, void, $PopupMenu*)},
+		{"_show", "(Ljava/awt/Event;)V", nullptr, $PRIVATE | $NATIVE, $method(WPopupMenuPeer, _show, void, $Event*)},
+		{"createMenu", "(Lsun/awt/windows/WComponentPeer;)V", nullptr, $PRIVATE | $NATIVE, $method(WPopupMenuPeer, createMenu, void, $WComponentPeer*)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"*setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"show", "(Ljava/awt/Event;)V", nullptr, $PUBLIC, $virtualMethod(WPopupMenuPeer, show, void, $Event*)},
+		{"show", "(Ljava/awt/Component;Ljava/awt/Point;)V", nullptr, 0, $method(WPopupMenuPeer, show, void, $Component*, $Point*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WPopupMenuPeer",
+		"sun.awt.windows.WMenuPeer",
+		"java.awt.peer.PopupMenuPeer",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(WPopupMenuPeer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WPopupMenuPeer));
+	});
 	return class$;
 }
 

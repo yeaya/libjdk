@@ -1,5 +1,4 @@
 #include <sun/java2d/Spans$Span.h>
-
 #include <sun/java2d/Spans.h>
 #include <jcpp.h>
 
@@ -10,51 +9,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace java2d {
-
-$FieldInfo _Spans$Span_FieldInfo_[] = {
-	{"mStart", "F", nullptr, $PRIVATE, $field(Spans$Span, mStart)},
-	{"mEnd", "F", nullptr, $PRIVATE, $field(Spans$Span, mEnd)},
-	{}
-};
-
-$MethodInfo _Spans$Span_MethodInfo_[] = {
-	{"<init>", "(FF)V", nullptr, 0, $method(Spans$Span, init$, void, float, float)},
-	{"compareTo", "(Lsun/java2d/Spans$Span;)I", nullptr, $PUBLIC, $virtualMethod(Spans$Span, compareTo, int32_t, Spans$Span*)},
-	{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spans$Span, compareTo, int32_t, Object$*)},
-	{"contains", "(F)Z", nullptr, 0, $virtualMethod(Spans$Span, contains, bool, float)},
-	{"getEnd", "()F", nullptr, $FINAL, $method(Spans$Span, getEnd, float)},
-	{"getStart", "()F", nullptr, $FINAL, $method(Spans$Span, getStart, float)},
-	{"setEnd", "(F)V", nullptr, $FINAL, $method(Spans$Span, setEnd, void, float)},
-	{"setStart", "(F)V", nullptr, $FINAL, $method(Spans$Span, setStart, void, float)},
-	{"subsume", "(Lsun/java2d/Spans$Span;)Z", nullptr, 0, $virtualMethod(Spans$Span, subsume, bool, Spans$Span*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Spans$Span, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Spans$Span_InnerClassesInfo_[] = {
-	{"sun.java2d.Spans$Span", "sun.java2d.Spans", "Span", $STATIC},
-	{}
-};
-
-$ClassInfo _Spans$Span_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.Spans$Span",
-	"java.lang.Object",
-	"java.lang.Comparable",
-	_Spans$Span_FieldInfo_,
-	_Spans$Span_MethodInfo_,
-	"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/java2d/Spans$Span;>;",
-	nullptr,
-	_Spans$Span_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.Spans"
-};
-
-$Object* allocate$Spans$Span($Class* clazz) {
-	return $of($alloc(Spans$Span));
-}
 
 void Spans$Span::init$(float start, float end) {
 	this->mStart = start;
@@ -79,7 +33,7 @@ void Spans$Span::setEnd(float end) {
 
 bool Spans$Span::subsume(Spans$Span* otherSpan) {
 	bool isSubsumed = contains($nc(otherSpan)->mStart);
-	if (isSubsumed && $nc(otherSpan)->mEnd > this->mEnd) {
+	if (isSubsumed && otherSpan->mEnd > this->mEnd) {
 		this->mEnd = otherSpan->mEnd;
 	}
 	return isSubsumed;
@@ -103,7 +57,7 @@ int32_t Spans$Span::compareTo(Spans$Span* otherSpan) {
 }
 
 $String* Spans$Span::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	return $str({"Span: "_s, $$str(this->mStart), " to "_s, $$str(this->mEnd)});
 }
 
@@ -115,7 +69,46 @@ Spans$Span::Spans$Span() {
 }
 
 $Class* Spans$Span::load$($String* name, bool initialize) {
-	$loadClass(Spans$Span, name, initialize, &_Spans$Span_ClassInfo_, allocate$Spans$Span);
+	$FieldInfo fieldInfos$$[] = {
+		{"mStart", "F", nullptr, $PRIVATE, $field(Spans$Span, mStart)},
+		{"mEnd", "F", nullptr, $PRIVATE, $field(Spans$Span, mEnd)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(FF)V", nullptr, 0, $method(Spans$Span, init$, void, float, float)},
+		{"compareTo", "(Lsun/java2d/Spans$Span;)I", nullptr, $PUBLIC, $virtualMethod(Spans$Span, compareTo, int32_t, Spans$Span*)},
+		{"compareTo", "(Ljava/lang/Object;)I", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Spans$Span, compareTo, int32_t, Object$*)},
+		{"contains", "(F)Z", nullptr, 0, $virtualMethod(Spans$Span, contains, bool, float)},
+		{"getEnd", "()F", nullptr, $FINAL, $method(Spans$Span, getEnd, float)},
+		{"getStart", "()F", nullptr, $FINAL, $method(Spans$Span, getStart, float)},
+		{"setEnd", "(F)V", nullptr, $FINAL, $method(Spans$Span, setEnd, void, float)},
+		{"setStart", "(F)V", nullptr, $FINAL, $method(Spans$Span, setStart, void, float)},
+		{"subsume", "(Lsun/java2d/Spans$Span;)Z", nullptr, 0, $virtualMethod(Spans$Span, subsume, bool, Spans$Span*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Spans$Span, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.Spans$Span", "sun.java2d.Spans", "Span", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.Spans$Span",
+		"java.lang.Object",
+		"java.lang.Comparable",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/lang/Comparable<Lsun/java2d/Spans$Span;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.Spans"
+	};
+	$loadClass(Spans$Span, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Spans$Span);
+	});
 	return class$;
 }
 

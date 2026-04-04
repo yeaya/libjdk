@@ -57,6 +57,7 @@ public:
 	using ::java::awt::KeyboardFocusManager::focusNextComponent;
 	using ::java::awt::KeyboardFocusManager::focusPreviousComponent;
 	using ::java::awt::KeyboardFocusManager::downFocusCycle;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual void clearMarkers() override;
 	void consumeNextKeyTyped(::java::awt::event::KeyEvent* e);

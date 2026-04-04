@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XMappingEvent.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XEvent.h>
@@ -11,66 +10,13 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $Native = ::sun::awt::X11::Native;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XMappingEvent_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XMappingEvent, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XMappingEvent, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(XMappingEvent, pData)},
-	{}
-};
-
-$MethodInfo _XMappingEvent_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(XMappingEvent, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XMappingEvent, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XMappingEvent, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMappingEvent, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMappingEvent, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XMappingEvent, getSize, int32_t)},
-	{"get_count", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_count, int32_t)},
-	{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_display, int64_t)},
-	{"get_first_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_first_keycode, int32_t)},
-	{"get_request", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_request, int32_t)},
-	{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_send_event, bool)},
-	{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_serial, int64_t)},
-	{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_type, int32_t)},
-	{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_window, int64_t)},
-	{"set_count", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_count, void, int32_t)},
-	{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_display, void, int64_t)},
-	{"set_first_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_first_keycode, void, int32_t)},
-	{"set_request", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_request, void, int32_t)},
-	{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_send_event, void, bool)},
-	{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_serial, void, int64_t)},
-	{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_type, void, int32_t)},
-	{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_window, void, int64_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XMappingEvent, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XMappingEvent, zero, void)},
-	{}
-};
-
-$ClassInfo _XMappingEvent_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.XMappingEvent",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_XMappingEvent_FieldInfo_,
-	_XMappingEvent_MethodInfo_
-};
-
-$Object* allocate$XMappingEvent($Class* clazz) {
-	return $of($alloc(XMappingEvent));
-}
 
 int32_t XMappingEvent::getSize() {
 	$init(XMappingEvent);
@@ -109,7 +55,7 @@ void XMappingEvent::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -215,7 +161,7 @@ $String* XMappingEvent::getName() {
 }
 
 $String* XMappingEvent::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 320));
 	$init($XlibWrapper);
 	ret->append("type = "_s)->append($nc($XlibWrapper::eventToString)->get(get_type()))->append(", "_s);
@@ -230,7 +176,7 @@ $String* XMappingEvent::getFieldsAsString() {
 }
 
 $Object* XMappingEvent::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void XMappingEvent::zero() {
@@ -245,7 +191,53 @@ XMappingEvent::XMappingEvent() {
 }
 
 $Class* XMappingEvent::load$($String* name, bool initialize) {
-	$loadClass(XMappingEvent, name, initialize, &_XMappingEvent_ClassInfo_, allocate$XMappingEvent);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(XMappingEvent, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(XMappingEvent, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(XMappingEvent, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(XMappingEvent, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XMappingEvent, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XMappingEvent, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMappingEvent, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(XMappingEvent, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(XMappingEvent, getSize, int32_t)},
+		{"get_count", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_count, int32_t)},
+		{"get_display", "()J", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_display, int64_t)},
+		{"get_first_keycode", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_first_keycode, int32_t)},
+		{"get_request", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_request, int32_t)},
+		{"get_send_event", "()Z", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_send_event, bool)},
+		{"get_serial", "()J", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_serial, int64_t)},
+		{"get_type", "()I", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_type, int32_t)},
+		{"get_window", "()J", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, get_window, int64_t)},
+		{"set_count", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_count, void, int32_t)},
+		{"set_display", "(J)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_display, void, int64_t)},
+		{"set_first_keycode", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_first_keycode, void, int32_t)},
+		{"set_request", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_request, void, int32_t)},
+		{"set_send_event", "(Z)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_send_event, void, bool)},
+		{"set_serial", "(J)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_serial, void, int64_t)},
+		{"set_type", "(I)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_type, void, int32_t)},
+		{"set_window", "(J)V", nullptr, $PUBLIC, $virtualMethod(XMappingEvent, set_window, void, int64_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XMappingEvent, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XMappingEvent, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.XMappingEvent",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMappingEvent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMappingEvent);
+	});
 	return class$;
 }
 

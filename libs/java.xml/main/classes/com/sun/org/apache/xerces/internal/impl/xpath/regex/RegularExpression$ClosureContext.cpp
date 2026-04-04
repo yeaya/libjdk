@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression$ClosureContext.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/RegularExpression.h>
 #include <jcpp.h>
 
@@ -17,46 +16,6 @@ namespace com {
 						namespace impl {
 							namespace xpath {
 								namespace regex {
-
-$FieldInfo _RegularExpression$ClosureContext_FieldInfo_[] = {
-	{"offsets", "[I", nullptr, 0, $field(RegularExpression$ClosureContext, offsets)},
-	{"currentIndex", "I", nullptr, 0, $field(RegularExpression$ClosureContext, currentIndex)},
-	{}
-};
-
-$MethodInfo _RegularExpression$ClosureContext_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(RegularExpression$ClosureContext, init$, void)},
-	{"addOffset", "(I)V", nullptr, 0, $method(RegularExpression$ClosureContext, addOffset, void, int32_t)},
-	{"contains", "(I)Z", nullptr, 0, $method(RegularExpression$ClosureContext, contains, bool, int32_t)},
-	{"expandOffsets", "()[I", nullptr, $PRIVATE, $method(RegularExpression$ClosureContext, expandOffsets, $ints*)},
-	{"reset", "()V", nullptr, 0, $method(RegularExpression$ClosureContext, reset, void)},
-	{}
-};
-
-$InnerClassInfo _RegularExpression$ClosureContext_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ClosureContext", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ClosureContext", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _RegularExpression$ClosureContext_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ClosureContext",
-	"java.lang.Object",
-	nullptr,
-	_RegularExpression$ClosureContext_FieldInfo_,
-	_RegularExpression$ClosureContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RegularExpression$ClosureContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression"
-};
-
-$Object* allocate$RegularExpression$ClosureContext($Class* clazz) {
-	return $of($alloc(RegularExpression$ClosureContext));
-}
 
 void RegularExpression$ClosureContext::init$() {
 	$set(this, offsets, $new($ints, 4));
@@ -95,7 +54,41 @@ RegularExpression$ClosureContext::RegularExpression$ClosureContext() {
 }
 
 $Class* RegularExpression$ClosureContext::load$($String* name, bool initialize) {
-	$loadClass(RegularExpression$ClosureContext, name, initialize, &_RegularExpression$ClosureContext_ClassInfo_, allocate$RegularExpression$ClosureContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"offsets", "[I", nullptr, 0, $field(RegularExpression$ClosureContext, offsets)},
+		{"currentIndex", "I", nullptr, 0, $field(RegularExpression$ClosureContext, currentIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(RegularExpression$ClosureContext, init$, void)},
+		{"addOffset", "(I)V", nullptr, 0, $method(RegularExpression$ClosureContext, addOffset, void, int32_t)},
+		{"contains", "(I)Z", nullptr, 0, $method(RegularExpression$ClosureContext, contains, bool, int32_t)},
+		{"expandOffsets", "()[I", nullptr, $PRIVATE, $method(RegularExpression$ClosureContext, expandOffsets, $ints*)},
+		{"reset", "()V", nullptr, 0, $method(RegularExpression$ClosureContext, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ClosureContext", "com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression", "ClosureContext", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression$ClosureContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xpath.regex.RegularExpression"
+	};
+	$loadClass(RegularExpression$ClosureContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RegularExpression$ClosureContext);
+	});
 	return class$;
 }
 

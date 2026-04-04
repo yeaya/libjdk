@@ -63,6 +63,7 @@ class Output : public ::com::sun::org::apache::xalan::internal::xsltc::compiler:
 	$class(Output, 0, ::com::sun::org::apache::xalan::internal::xsltc::compiler::TopLevelElement)
 public:
 	Output();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void disable();
 	virtual void display(int32_t indent) override;

@@ -1,5 +1,4 @@
 #include <javax/xml/transform/stax/StAXResult.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <javax/xml/stream/XMLEventWriter.h>
 #include <javax/xml/stream/XMLStreamWriter.h>
@@ -19,37 +18,6 @@ namespace javax {
 	namespace xml {
 		namespace transform {
 			namespace stax {
-
-$FieldInfo _StAXResult_FieldInfo_[] = {
-	{"FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StAXResult, FEATURE)},
-	{"xmlEventWriter", "Ljavax/xml/stream/XMLEventWriter;", nullptr, $PRIVATE, $field(StAXResult, xmlEventWriter)},
-	{"xmlStreamWriter", "Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PRIVATE, $field(StAXResult, xmlStreamWriter)},
-	{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StAXResult, systemId)},
-	{}
-};
-
-$MethodInfo _StAXResult_MethodInfo_[] = {
-	{"<init>", "(Ljavax/xml/stream/XMLEventWriter;)V", nullptr, $PUBLIC, $method(StAXResult, init$, void, $XMLEventWriter*)},
-	{"<init>", "(Ljavax/xml/stream/XMLStreamWriter;)V", nullptr, $PUBLIC, $method(StAXResult, init$, void, $XMLStreamWriter*)},
-	{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StAXResult, getSystemId, $String*)},
-	{"getXMLEventWriter", "()Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(StAXResult, getXMLEventWriter, $XMLEventWriter*)},
-	{"getXMLStreamWriter", "()Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(StAXResult, getXMLStreamWriter, $XMLStreamWriter*)},
-	{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StAXResult, setSystemId, void, $String*)},
-	{}
-};
-
-$ClassInfo _StAXResult_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.xml.transform.stax.StAXResult",
-	"java.lang.Object",
-	"javax.xml.transform.Result",
-	_StAXResult_FieldInfo_,
-	_StAXResult_MethodInfo_
-};
-
-$Object* allocate$StAXResult($Class* clazz) {
-	return $of($alloc(StAXResult));
-}
 
 $String* StAXResult::FEATURE = nullptr;
 
@@ -92,12 +60,38 @@ $String* StAXResult::getSystemId() {
 StAXResult::StAXResult() {
 }
 
-void clinit$StAXResult($Class* class$) {
+void StAXResult::clinit$($Class* clazz) {
 	$assignStatic(StAXResult::FEATURE, "http://javax.xml.transform.stax.StAXResult/feature"_s);
 }
 
 $Class* StAXResult::load$($String* name, bool initialize) {
-	$loadClass(StAXResult, name, initialize, &_StAXResult_ClassInfo_, clinit$StAXResult, allocate$StAXResult);
+	$FieldInfo fieldInfos$$[] = {
+		{"FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(StAXResult, FEATURE)},
+		{"xmlEventWriter", "Ljavax/xml/stream/XMLEventWriter;", nullptr, $PRIVATE, $field(StAXResult, xmlEventWriter)},
+		{"xmlStreamWriter", "Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PRIVATE, $field(StAXResult, xmlStreamWriter)},
+		{"systemId", "Ljava/lang/String;", nullptr, $PRIVATE, $field(StAXResult, systemId)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/xml/stream/XMLEventWriter;)V", nullptr, $PUBLIC, $method(StAXResult, init$, void, $XMLEventWriter*)},
+		{"<init>", "(Ljavax/xml/stream/XMLStreamWriter;)V", nullptr, $PUBLIC, $method(StAXResult, init$, void, $XMLStreamWriter*)},
+		{"getSystemId", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StAXResult, getSystemId, $String*)},
+		{"getXMLEventWriter", "()Ljavax/xml/stream/XMLEventWriter;", nullptr, $PUBLIC, $virtualMethod(StAXResult, getXMLEventWriter, $XMLEventWriter*)},
+		{"getXMLStreamWriter", "()Ljavax/xml/stream/XMLStreamWriter;", nullptr, $PUBLIC, $virtualMethod(StAXResult, getXMLStreamWriter, $XMLStreamWriter*)},
+		{"setSystemId", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(StAXResult, setSystemId, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.xml.transform.stax.StAXResult",
+		"java.lang.Object",
+		"javax.xml.transform.Result",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StAXResult, name, initialize, &classInfo$$, StAXResult::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(StAXResult);
+	});
 	return class$;
 }
 

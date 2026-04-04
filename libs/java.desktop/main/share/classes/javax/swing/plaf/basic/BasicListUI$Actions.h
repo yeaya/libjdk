@@ -97,6 +97,7 @@ class BasicListUI$Actions : public ::sun::swing::UIAction {
 	$class(BasicListUI$Actions, 0, ::sun::swing::UIAction)
 public:
 	BasicListUI$Actions();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	virtual bool accept(Object$* c) override;
 	virtual void actionPerformed(::java::awt::event::ActionEvent* e) override;

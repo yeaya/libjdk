@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaButtonBorder$Toggle.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaBorder.h>
@@ -17,9 +15,7 @@
 #undef BUTTON_BEVEL
 #undef BUTTON_BEVEL_ROUND
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
 using $AquaButtonBorder$SizeConstants = ::com::apple::laf::AquaButtonBorder$SizeConstants;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
@@ -35,45 +31,13 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaButtonBorder$Toggle_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonBorder$Toggle, init$, void)},
-	{"<init>", "(Lcom/apple/laf/AquaButtonBorder$Toggle;)V", nullptr, $PUBLIC, $method(AquaButtonBorder$Toggle, init$, void, AquaButtonBorder$Toggle*)},
-	{"doButtonPaint", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Toggle, doButtonPaint, void, $AbstractButton*, $ButtonModel*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonBorder$Toggle_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonBorder$Toggle", "com.apple.laf.AquaButtonBorder", "Toggle", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaButtonBorder$Toggle_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonBorder$Toggle",
-	"com.apple.laf.AquaButtonBorder",
-	nullptr,
-	nullptr,
-	_AquaButtonBorder$Toggle_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonBorder$Toggle_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonBorder"
-};
-
-$Object* allocate$AquaButtonBorder$Toggle($Class* clazz) {
-	return $of($alloc(AquaButtonBorder$Toggle));
-}
-
 void AquaButtonBorder$Toggle::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaButtonBorder::init$($$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 6, 6, 6))));
 }
 
 void AquaButtonBorder$Toggle::init$(AquaButtonBorder$Toggle* other) {
-	$AquaButtonBorder::init$(static_cast<$AquaButtonBorder*>(other));
+	$AquaButtonBorder::init$(other);
 }
 
 void AquaButtonBorder$Toggle::doButtonPaint($AbstractButton* b, $ButtonModel* model, $Graphics* g, int32_t x, int32_t y, int32_t width, int32_t height) {
@@ -92,7 +56,34 @@ AquaButtonBorder$Toggle::AquaButtonBorder$Toggle() {
 }
 
 $Class* AquaButtonBorder$Toggle::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonBorder$Toggle, name, initialize, &_AquaButtonBorder$Toggle_ClassInfo_, allocate$AquaButtonBorder$Toggle);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonBorder$Toggle, init$, void)},
+		{"<init>", "(Lcom/apple/laf/AquaButtonBorder$Toggle;)V", nullptr, $PUBLIC, $method(AquaButtonBorder$Toggle, init$, void, AquaButtonBorder$Toggle*)},
+		{"doButtonPaint", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Toggle, doButtonPaint, void, $AbstractButton*, $ButtonModel*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonBorder$Toggle", "com.apple.laf.AquaButtonBorder", "Toggle", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonBorder$Toggle",
+		"com.apple.laf.AquaButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonBorder"
+	};
+	$loadClass(AquaButtonBorder$Toggle, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonBorder$Toggle));
+	});
 	return class$;
 }
 

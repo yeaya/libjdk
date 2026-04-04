@@ -1,5 +1,4 @@
 #include <java/awt/EventQueue$2.h>
-
 #include <java/awt/EventDispatchThread.h>
 #include <java/awt/EventQueue.h>
 #include <java/lang/Runnable.h>
@@ -16,51 +15,6 @@ using $FwDispatcher = ::sun::awt::FwDispatcher;
 
 namespace java {
 	namespace awt {
-
-$MethodInfo _EventQueue$2_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(EventQueue$2, init$, void)},
-	{"getDispatchThread", "(Ljava/awt/EventQueue;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, getDispatchThread, $Thread*, $EventQueue*)},
-	{"getMostRecentEventTime", "(Ljava/awt/EventQueue;)J", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, getMostRecentEventTime, int64_t, $EventQueue*)},
-	{"invokeAndWait", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, invokeAndWait, void, Object$*, $Runnable*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
-	{"isDispatchThreadImpl", "(Ljava/awt/EventQueue;)Z", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, isDispatchThreadImpl, bool, $EventQueue*)},
-	{"noEvents", "(Ljava/awt/EventQueue;)Z", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, noEvents, bool, $EventQueue*)},
-	{"removeSourceEvents", "(Ljava/awt/EventQueue;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, removeSourceEvents, void, $EventQueue*, Object$*, bool)},
-	{"setFwDispatcher", "(Ljava/awt/EventQueue;Lsun/awt/FwDispatcher;)V", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, setFwDispatcher, void, $EventQueue*, $FwDispatcher*)},
-	{"wakeup", "(Ljava/awt/EventQueue;Z)V", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, wakeup, void, $EventQueue*, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _EventQueue$2_EnclosingMethodInfo_ = {
-	"java.awt.EventQueue",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _EventQueue$2_InnerClassesInfo_[] = {
-	{"java.awt.EventQueue$2", nullptr, nullptr, 0},
-	{"sun.awt.AWTAccessor$EventQueueAccessor", "sun.awt.AWTAccessor", "EventQueueAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _EventQueue$2_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.EventQueue$2",
-	"java.lang.Object",
-	"sun.awt.AWTAccessor$EventQueueAccessor",
-	nullptr,
-	_EventQueue$2_MethodInfo_,
-	nullptr,
-	&_EventQueue$2_EnclosingMethodInfo_,
-	_EventQueue$2_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.EventQueue"
-};
-
-$Object* allocate$EventQueue$2($Class* clazz) {
-	return $of($alloc(EventQueue$2));
-}
 
 void EventQueue$2::init$() {
 }
@@ -101,7 +55,46 @@ EventQueue$2::EventQueue$2() {
 }
 
 $Class* EventQueue$2::load$($String* name, bool initialize) {
-	$loadClass(EventQueue$2, name, initialize, &_EventQueue$2_ClassInfo_, allocate$EventQueue$2);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(EventQueue$2, init$, void)},
+		{"getDispatchThread", "(Ljava/awt/EventQueue;)Ljava/lang/Thread;", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, getDispatchThread, $Thread*, $EventQueue*)},
+		{"getMostRecentEventTime", "(Ljava/awt/EventQueue;)J", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, getMostRecentEventTime, int64_t, $EventQueue*)},
+		{"invokeAndWait", "(Ljava/lang/Object;Ljava/lang/Runnable;)V", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, invokeAndWait, void, Object$*, $Runnable*), "java.lang.InterruptedException,java.lang.reflect.InvocationTargetException"},
+		{"isDispatchThreadImpl", "(Ljava/awt/EventQueue;)Z", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, isDispatchThreadImpl, bool, $EventQueue*)},
+		{"noEvents", "(Ljava/awt/EventQueue;)Z", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, noEvents, bool, $EventQueue*)},
+		{"removeSourceEvents", "(Ljava/awt/EventQueue;Ljava/lang/Object;Z)V", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, removeSourceEvents, void, $EventQueue*, Object$*, bool)},
+		{"setFwDispatcher", "(Ljava/awt/EventQueue;Lsun/awt/FwDispatcher;)V", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, setFwDispatcher, void, $EventQueue*, $FwDispatcher*)},
+		{"wakeup", "(Ljava/awt/EventQueue;Z)V", nullptr, $PUBLIC, $virtualMethod(EventQueue$2, wakeup, void, $EventQueue*, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.EventQueue",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.EventQueue$2", nullptr, nullptr, 0},
+		{"sun.awt.AWTAccessor$EventQueueAccessor", "sun.awt.AWTAccessor", "EventQueueAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.EventQueue$2",
+		"java.lang.Object",
+		"sun.awt.AWTAccessor$EventQueueAccessor",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.EventQueue"
+	};
+	$loadClass(EventQueue$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventQueue$2);
+	});
 	return class$;
 }
 

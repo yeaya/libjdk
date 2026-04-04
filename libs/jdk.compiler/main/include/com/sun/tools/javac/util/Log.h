@@ -90,6 +90,7 @@ class $import Log : public ::com::sun::tools::javac::util::AbstractLog {
 	$class(Log, 0, ::com::sun::tools::javac::util::AbstractLog)
 public:
 	Log();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::com::sun::tools::javac::util::Context* context);
 	void init$(::com::sun::tools::javac::util::Context* context, ::java::io::PrintWriter* writer);
 	void init$(::com::sun::tools::javac::util::Context* context, ::java::io::PrintWriter* out, ::java::io::PrintWriter* err);

@@ -1,5 +1,4 @@
 #include <sun/font/CharacterIteratorCodePointIterator.h>
-
 #include <java/text/CharacterIterator.h>
 #include <sun/font/CodePointIterator.h>
 #include <jcpp.h>
@@ -15,34 +14,6 @@ using $CodePointIterator = ::sun::font::CodePointIterator;
 
 namespace sun {
 	namespace font {
-
-$FieldInfo _CharacterIteratorCodePointIterator_FieldInfo_[] = {
-	{"iter", "Ljava/text/CharacterIterator;", nullptr, $PRIVATE, $field(CharacterIteratorCodePointIterator, iter)},
-	{}
-};
-
-$MethodInfo _CharacterIteratorCodePointIterator_MethodInfo_[] = {
-	{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $method(CharacterIteratorCodePointIterator, init$, void, $CharacterIterator*)},
-	{"charIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, charIndex, int32_t)},
-	{"next", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, next, int32_t)},
-	{"prev", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, prev, int32_t)},
-	{"setToLimit", "()V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, setToLimit, void)},
-	{"setToStart", "()V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, setToStart, void)},
-	{}
-};
-
-$ClassInfo _CharacterIteratorCodePointIterator_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.font.CharacterIteratorCodePointIterator",
-	"sun.font.CodePointIterator",
-	nullptr,
-	_CharacterIteratorCodePointIterator_FieldInfo_,
-	_CharacterIteratorCodePointIterator_MethodInfo_
-};
-
-$Object* allocate$CharacterIteratorCodePointIterator($Class* clazz) {
-	return $of($alloc(CharacterIteratorCodePointIterator));
-}
 
 void CharacterIteratorCodePointIterator::init$($CharacterIterator* iter) {
 	$CodePointIterator::init$();
@@ -60,10 +31,10 @@ void CharacterIteratorCodePointIterator::setToLimit() {
 int32_t CharacterIteratorCodePointIterator::next() {
 	char16_t cp1 = $nc(this->iter)->current();
 	if (cp1 != $CharacterIterator::DONE) {
-		char16_t cp2 = $nc(this->iter)->next();
+		char16_t cp2 = this->iter->next();
 		if ($Character::isHighSurrogate(cp1) && cp2 != $CharacterIterator::DONE) {
 			if ($Character::isLowSurrogate(cp2)) {
-				$nc(this->iter)->next();
+				this->iter->next();
 				return $Character::toCodePoint(cp1, cp2);
 			}
 		}
@@ -76,11 +47,11 @@ int32_t CharacterIteratorCodePointIterator::prev() {
 	char16_t cp2 = $nc(this->iter)->previous();
 	if (cp2 != $CharacterIterator::DONE) {
 		if ($Character::isLowSurrogate(cp2)) {
-			char16_t cp1 = $nc(this->iter)->previous();
+			char16_t cp1 = this->iter->previous();
 			if ($Character::isHighSurrogate(cp1)) {
 				return $Character::toCodePoint(cp1, cp2);
 			}
-			$nc(this->iter)->next();
+			this->iter->next();
 		}
 		return cp2;
 	}
@@ -95,7 +66,30 @@ CharacterIteratorCodePointIterator::CharacterIteratorCodePointIterator() {
 }
 
 $Class* CharacterIteratorCodePointIterator::load$($String* name, bool initialize) {
-	$loadClass(CharacterIteratorCodePointIterator, name, initialize, &_CharacterIteratorCodePointIterator_ClassInfo_, allocate$CharacterIteratorCodePointIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"iter", "Ljava/text/CharacterIterator;", nullptr, $PRIVATE, $field(CharacterIteratorCodePointIterator, iter)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/text/CharacterIterator;)V", nullptr, $PUBLIC, $method(CharacterIteratorCodePointIterator, init$, void, $CharacterIterator*)},
+		{"charIndex", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, charIndex, int32_t)},
+		{"next", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, next, int32_t)},
+		{"prev", "()I", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, prev, int32_t)},
+		{"setToLimit", "()V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, setToLimit, void)},
+		{"setToStart", "()V", nullptr, $PUBLIC, $virtualMethod(CharacterIteratorCodePointIterator, setToStart, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.font.CharacterIteratorCodePointIterator",
+		"sun.font.CodePointIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CharacterIteratorCodePointIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CharacterIteratorCodePointIterator);
+	});
 	return class$;
 }
 

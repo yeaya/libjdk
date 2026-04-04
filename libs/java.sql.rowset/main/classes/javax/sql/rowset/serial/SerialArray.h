@@ -60,7 +60,7 @@ public:
 	int32_t baseType = 0;
 	$String* baseTypeName = nullptr;
 	int32_t len = 0;
-	static const int64_t serialVersionUID = (int64_t)0x8A821B5514A364F8;
+	static const int64_t serialVersionUID = (int64_t)0x8a821b5514a364f8;
 };
 
 			} // serial

@@ -12,6 +12,7 @@ class $export bug5076514 : public ::java::lang::Object {
 	$class(bug5076514, 0, ::java::lang::Object)
 public:
 	bug5076514();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void main($StringArray* args);
 	static $String* ACCESS_CLIPBOARD;

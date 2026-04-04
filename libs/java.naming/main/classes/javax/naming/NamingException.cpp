@@ -1,5 +1,4 @@
 #include <javax/naming/NamingException.h>
-
 #include <javax/naming/CompositeName.h>
 #include <javax/naming/Name.h>
 #include <jcpp.h>
@@ -15,60 +14,17 @@ using $Name = ::javax::naming::Name;
 namespace javax {
 	namespace naming {
 
-$FieldInfo _NamingException_FieldInfo_[] = {
-	{"resolvedName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(NamingException, resolvedName)},
-	{"resolvedObj", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(NamingException, resolvedObj)},
-	{"remainingName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(NamingException, remainingName)},
-	{"rootException", "Ljava/lang/Throwable;", nullptr, $PROTECTED, $field(NamingException, rootException)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _NamingException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamingException, init$, void, $String*)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamingException, init$, void)},
-	{"appendRemainingComponent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, appendRemainingComponent, void, $String*)},
-	{"appendRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, appendRemainingName, void, $Name*)},
-	{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(NamingException, getCause, $Throwable*)},
-	{"getExplanation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamingException, getExplanation, $String*)},
-	{"getRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(NamingException, getRemainingName, $Name*)},
-	{"getResolvedName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(NamingException, getResolvedName, $Name*)},
-	{"getResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingException, getResolvedObj, $Object*)},
-	{"getRootCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(NamingException, getRootCause, $Throwable*)},
-	{"initCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(NamingException, initCause, $Throwable*, $Throwable*)},
-	{"setRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, setRemainingName, void, $Name*)},
-	{"setResolvedName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, setResolvedName, void, $Name*)},
-	{"setResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, setResolvedObj, void, Object$*)},
-	{"setRootCause", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, setRootCause, void, $Throwable*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamingException, toString, $String*)},
-	{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamingException, toString, $String*, bool)},
-	{}
-};
-
-$ClassInfo _NamingException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.naming.NamingException",
-	"java.lang.Exception",
-	nullptr,
-	_NamingException_FieldInfo_,
-	_NamingException_MethodInfo_
-};
-
-$Object* allocate$NamingException($Class* clazz) {
-	return $of($alloc(NamingException));
-}
-
 void NamingException::init$($String* explanation) {
 	$Exception::init$(explanation);
 	$set(this, rootException, nullptr);
-	$set(this, resolvedName, ($set(this, remainingName, nullptr)));
+	$set(this, resolvedName, $set(this, remainingName, nullptr));
 	$set(this, resolvedObj, nullptr);
 }
 
 void NamingException::init$() {
 	$Exception::init$();
 	$set(this, rootException, nullptr);
-	$set(this, resolvedName, ($set(this, remainingName, nullptr)));
+	$set(this, resolvedName, $set(this, remainingName, nullptr));
 	$set(this, resolvedObj, nullptr);
 }
 
@@ -81,7 +37,7 @@ $Name* NamingException::getRemainingName() {
 }
 
 $Object* NamingException::getResolvedObj() {
-	return $of(this->resolvedObj);
+	return this->resolvedObj;
 }
 
 $String* NamingException::getExplanation() {
@@ -90,7 +46,7 @@ $String* NamingException::getExplanation() {
 
 void NamingException::setResolvedName($Name* name) {
 	if (name != nullptr) {
-		$set(this, resolvedName, ($cast($Name, name->clone())));
+		$set(this, resolvedName, $cast($Name, name->clone()));
 	} else {
 		$set(this, resolvedName, nullptr);
 	}
@@ -98,7 +54,7 @@ void NamingException::setResolvedName($Name* name) {
 
 void NamingException::setRemainingName($Name* name) {
 	if (name != nullptr) {
-		$set(this, remainingName, ($cast($Name, name->clone())));
+		$set(this, remainingName, $cast($Name, name->clone()));
 	} else {
 		$set(this, remainingName, nullptr);
 	}
@@ -127,12 +83,12 @@ void NamingException::appendRemainingName($Name* name) {
 	}
 	if (this->remainingName != nullptr) {
 		try {
-			$nc(this->remainingName)->addAll(name);
+			this->remainingName->addAll(name);
 		} catch (NamingException& e) {
 			$throwNew($IllegalArgumentException, $(e->toString()));
 		}
 	} else {
-		$set(this, remainingName, ($cast($Name, $nc(name)->clone())));
+		$set(this, remainingName, $cast($Name, $nc(name)->clone()));
 	}
 }
 
@@ -157,7 +113,7 @@ $Throwable* NamingException::initCause($Throwable* cause) {
 }
 
 $String* NamingException::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, answer, $Exception::toString());
 	if (this->rootException != nullptr) {
 		$plusAssign(answer, $$str({" [Root exception is "_s, this->rootException, "]"_s}));
@@ -187,7 +143,45 @@ void NamingException::throw$() {
 }
 
 $Class* NamingException::load$($String* name, bool initialize) {
-	$loadClass(NamingException, name, initialize, &_NamingException_ClassInfo_, allocate$NamingException);
+	$FieldInfo fieldInfos$$[] = {
+		{"resolvedName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(NamingException, resolvedName)},
+		{"resolvedObj", "Ljava/lang/Object;", nullptr, $PROTECTED, $field(NamingException, resolvedObj)},
+		{"remainingName", "Ljavax/naming/Name;", nullptr, $PROTECTED, $field(NamingException, remainingName)},
+		{"rootException", "Ljava/lang/Throwable;", nullptr, $PROTECTED, $field(NamingException, rootException)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(NamingException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(NamingException, init$, void, $String*)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamingException, init$, void)},
+		{"appendRemainingComponent", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, appendRemainingComponent, void, $String*)},
+		{"appendRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, appendRemainingName, void, $Name*)},
+		{"getCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(NamingException, getCause, $Throwable*)},
+		{"getExplanation", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamingException, getExplanation, $String*)},
+		{"getRemainingName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(NamingException, getRemainingName, $Name*)},
+		{"getResolvedName", "()Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(NamingException, getResolvedName, $Name*)},
+		{"getResolvedObj", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(NamingException, getResolvedObj, $Object*)},
+		{"getRootCause", "()Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(NamingException, getRootCause, $Throwable*)},
+		{"initCause", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", nullptr, $PUBLIC, $virtualMethod(NamingException, initCause, $Throwable*, $Throwable*)},
+		{"setRemainingName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, setRemainingName, void, $Name*)},
+		{"setResolvedName", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, setResolvedName, void, $Name*)},
+		{"setResolvedObj", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, setResolvedObj, void, Object$*)},
+		{"setRootCause", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $virtualMethod(NamingException, setRootCause, void, $Throwable*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamingException, toString, $String*)},
+		{"toString", "(Z)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamingException, toString, $String*, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.naming.NamingException",
+		"java.lang.Exception",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NamingException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NamingException);
+	});
 	return class$;
 }
 

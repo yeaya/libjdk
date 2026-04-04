@@ -1,5 +1,4 @@
 #include <sun/print/PeekMetrics.h>
-
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
 #include <java/awt/Composite.h>
@@ -30,47 +29,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace sun {
 	namespace print {
-
-$FieldInfo _PeekMetrics_FieldInfo_[] = {
-	{"mHasNonSolidColors", "Z", nullptr, $PRIVATE, $field(PeekMetrics, mHasNonSolidColors)},
-	{"mHasCompositing", "Z", nullptr, $PRIVATE, $field(PeekMetrics, mHasCompositing)},
-	{"mHasText", "Z", nullptr, $PRIVATE, $field(PeekMetrics, mHasText)},
-	{"mHasImages", "Z", nullptr, $PRIVATE, $field(PeekMetrics, mHasImages)},
-	{}
-};
-
-$MethodInfo _PeekMetrics_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(PeekMetrics, init$, void)},
-	{"checkAlpha", "(Ljava/awt/Composite;)V", nullptr, $PRIVATE, $method(PeekMetrics, checkAlpha, void, $Composite*)},
-	{"checkDrawingMode", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(PeekMetrics, checkDrawingMode, void, $Graphics2D*)},
-	{"checkPaint", "(Ljava/awt/Paint;)V", nullptr, $PRIVATE, $method(PeekMetrics, checkPaint, void, $Paint*)},
-	{"clear", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, clear, void, $Graphics2D*)},
-	{"draw", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, draw, void, $Graphics2D*)},
-	{"drawImage", "(Ljava/awt/Graphics2D;Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawImage, void, $Graphics2D*, $Image*)},
-	{"drawImage", "(Ljava/awt/Graphics2D;Ljava/awt/image/RenderedImage;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawImage, void, $Graphics2D*, $RenderedImage*)},
-	{"drawImage", "(Ljava/awt/Graphics2D;Ljava/awt/image/renderable/RenderableImage;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawImage, void, $Graphics2D*, $RenderableImage*)},
-	{"drawText", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawText, void, $Graphics2D*)},
-	{"drawText", "(Ljava/awt/Graphics2D;Ljava/awt/font/TextLayout;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawText, void, $Graphics2D*, $TextLayout*)},
-	{"fill", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, fill, void, $Graphics2D*)},
-	{"hasCompositing", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, hasCompositing, bool)},
-	{"hasImages", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, hasImages, bool)},
-	{"hasNonSolidColors", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, hasNonSolidColors, bool)},
-	{"hasText", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, hasText, bool)},
-	{}
-};
-
-$ClassInfo _PeekMetrics_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.print.PeekMetrics",
-	"java.lang.Object",
-	nullptr,
-	_PeekMetrics_FieldInfo_,
-	_PeekMetrics_MethodInfo_
-};
-
-$Object* allocate$PeekMetrics($Class* clazz) {
-	return $of($alloc(PeekMetrics));
-}
 
 void PeekMetrics::init$() {
 }
@@ -126,14 +84,14 @@ void PeekMetrics::drawImage($Graphics2D* g, $RenderableImage* image) {
 }
 
 void PeekMetrics::checkDrawingMode($Graphics2D* g) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	checkPaint($($nc(g)->getPaint()));
-	checkAlpha($($nc(g)->getComposite()));
+	checkAlpha($(g->getComposite()));
 }
 
 void PeekMetrics::checkPaint($Paint* paint) {
 	if ($instanceOf($Color, paint)) {
-		if ($nc(($cast($Color, paint)))->getAlpha() < 255) {
+		if ($cast($Color, paint)->getAlpha() < 255) {
 			this->mHasNonSolidColors = true;
 		}
 	} else {
@@ -144,7 +102,7 @@ void PeekMetrics::checkPaint($Paint* paint) {
 void PeekMetrics::checkAlpha($Composite* composite) {
 	if ($instanceOf($AlphaComposite, composite)) {
 		$var($AlphaComposite, alphaComposite, $cast($AlphaComposite, composite));
-		float alpha = $nc(alphaComposite)->getAlpha();
+		float alpha = alphaComposite->getAlpha();
 		int32_t rule = alphaComposite->getRule();
 		if (alpha != 1.0 || (rule != $AlphaComposite::SRC && rule != $AlphaComposite::SRC_OVER)) {
 			this->mHasCompositing = true;
@@ -158,7 +116,43 @@ PeekMetrics::PeekMetrics() {
 }
 
 $Class* PeekMetrics::load$($String* name, bool initialize) {
-	$loadClass(PeekMetrics, name, initialize, &_PeekMetrics_ClassInfo_, allocate$PeekMetrics);
+	$FieldInfo fieldInfos$$[] = {
+		{"mHasNonSolidColors", "Z", nullptr, $PRIVATE, $field(PeekMetrics, mHasNonSolidColors)},
+		{"mHasCompositing", "Z", nullptr, $PRIVATE, $field(PeekMetrics, mHasCompositing)},
+		{"mHasText", "Z", nullptr, $PRIVATE, $field(PeekMetrics, mHasText)},
+		{"mHasImages", "Z", nullptr, $PRIVATE, $field(PeekMetrics, mHasImages)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(PeekMetrics, init$, void)},
+		{"checkAlpha", "(Ljava/awt/Composite;)V", nullptr, $PRIVATE, $method(PeekMetrics, checkAlpha, void, $Composite*)},
+		{"checkDrawingMode", "(Ljava/awt/Graphics2D;)V", nullptr, $PRIVATE, $method(PeekMetrics, checkDrawingMode, void, $Graphics2D*)},
+		{"checkPaint", "(Ljava/awt/Paint;)V", nullptr, $PRIVATE, $method(PeekMetrics, checkPaint, void, $Paint*)},
+		{"clear", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, clear, void, $Graphics2D*)},
+		{"draw", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, draw, void, $Graphics2D*)},
+		{"drawImage", "(Ljava/awt/Graphics2D;Ljava/awt/Image;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawImage, void, $Graphics2D*, $Image*)},
+		{"drawImage", "(Ljava/awt/Graphics2D;Ljava/awt/image/RenderedImage;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawImage, void, $Graphics2D*, $RenderedImage*)},
+		{"drawImage", "(Ljava/awt/Graphics2D;Ljava/awt/image/renderable/RenderableImage;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawImage, void, $Graphics2D*, $RenderableImage*)},
+		{"drawText", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawText, void, $Graphics2D*)},
+		{"drawText", "(Ljava/awt/Graphics2D;Ljava/awt/font/TextLayout;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, drawText, void, $Graphics2D*, $TextLayout*)},
+		{"fill", "(Ljava/awt/Graphics2D;)V", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, fill, void, $Graphics2D*)},
+		{"hasCompositing", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, hasCompositing, bool)},
+		{"hasImages", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, hasImages, bool)},
+		{"hasNonSolidColors", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, hasNonSolidColors, bool)},
+		{"hasText", "()Z", nullptr, $PUBLIC, $virtualMethod(PeekMetrics, hasText, bool)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.print.PeekMetrics",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PeekMetrics, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PeekMetrics);
+	});
 	return class$;
 }
 

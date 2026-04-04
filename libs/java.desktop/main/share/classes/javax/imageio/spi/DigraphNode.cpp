@@ -1,5 +1,4 @@
 #include <javax/imageio/spi/DigraphNode.h>
-
 #include <java/lang/Cloneable.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -12,53 +11,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
-using $Set = ::java::util::Set;
 
 namespace javax {
 	namespace imageio {
 		namespace spi {
-
-$FieldInfo _DigraphNode_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigraphNode, serialVersionUID)},
-	{"data", "Ljava/lang/Object;", "TE;", $PROTECTED, $field(DigraphNode, data)},
-	{"outNodes", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/imageio/spi/DigraphNode<TE;>;>;", $PROTECTED, $field(DigraphNode, outNodes)},
-	{"inDegree", "I", nullptr, $PROTECTED, $field(DigraphNode, inDegree)},
-	{"inNodes", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/imageio/spi/DigraphNode<TE;>;>;", $PRIVATE, $field(DigraphNode, inNodes)},
-	{}
-};
-
-$MethodInfo _DigraphNode_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $method(DigraphNode, init$, void, Object$*)},
-	{"addEdge", "(Ljavax/imageio/spi/DigraphNode;)Z", "(Ljavax/imageio/spi/DigraphNode<TE;>;)Z", $PUBLIC, $virtualMethod(DigraphNode, addEdge, bool, DigraphNode*)},
-	{"decrementInDegree", "()V", nullptr, $PRIVATE, $method(DigraphNode, decrementInDegree, void)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(DigraphNode, dispose, void)},
-	{"getData", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(DigraphNode, getData, $Object*)},
-	{"getInDegree", "()I", nullptr, $PUBLIC, $virtualMethod(DigraphNode, getInDegree, int32_t)},
-	{"getOutNodes", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/imageio/spi/DigraphNode<TE;>;>;", $PUBLIC, $virtualMethod(DigraphNode, getOutNodes, $Iterator*)},
-	{"hasEdge", "(Ljavax/imageio/spi/DigraphNode;)Z", "(Ljavax/imageio/spi/DigraphNode<TE;>;)Z", $PUBLIC, $virtualMethod(DigraphNode, hasEdge, bool, DigraphNode*)},
-	{"incrementInDegree", "()V", nullptr, $PRIVATE, $method(DigraphNode, incrementInDegree, void)},
-	{"removeEdge", "(Ljavax/imageio/spi/DigraphNode;)Z", "(Ljavax/imageio/spi/DigraphNode<TE;>;)Z", $PUBLIC, $virtualMethod(DigraphNode, removeEdge, bool, DigraphNode*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DigraphNode_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.spi.DigraphNode",
-	"java.lang.Object",
-	"java.lang.Cloneable,java.io.Serializable",
-	_DigraphNode_FieldInfo_,
-	_DigraphNode_MethodInfo_,
-	"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Cloneable;Ljava/io/Serializable;"
-};
-
-$Object* allocate$DigraphNode($Class* clazz) {
-	return $of($alloc(DigraphNode));
-}
 
 int32_t DigraphNode::hashCode() {
 	 return this->$Cloneable::hashCode();
@@ -88,7 +44,7 @@ void DigraphNode::init$(Object$* data) {
 }
 
 $Object* DigraphNode::getData() {
-	return $of(this->data);
+	return this->data;
 }
 
 $Iterator* DigraphNode::getOutNodes() {
@@ -99,7 +55,7 @@ bool DigraphNode::addEdge(DigraphNode* node) {
 	if ($nc(this->outNodes)->contains(node)) {
 		return false;
 	}
-	$nc(this->outNodes)->add(node);
+	this->outNodes->add(node);
 	$nc($nc(node)->inNodes)->add(this);
 	node->incrementInDegree();
 	return true;
@@ -113,14 +69,14 @@ bool DigraphNode::removeEdge(DigraphNode* node) {
 	if (!$nc(this->outNodes)->contains(node)) {
 		return false;
 	}
-	$nc(this->outNodes)->remove(node);
+	this->outNodes->remove(node);
 	$nc($nc(node)->inNodes)->remove(this);
 	node->decrementInDegree();
 	return true;
 }
 
 void DigraphNode::dispose() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, inNodesArray, $nc(this->inNodes)->toArray());
 	for (int32_t i = 0; i < $nc(inNodesArray)->length; ++i) {
 		$var(DigraphNode, node, $cast(DigraphNode, inNodesArray->get(i)));
@@ -149,7 +105,44 @@ DigraphNode::DigraphNode() {
 }
 
 $Class* DigraphNode::load$($String* name, bool initialize) {
-	$loadClass(DigraphNode, name, initialize, &_DigraphNode_ClassInfo_, allocate$DigraphNode);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(DigraphNode, serialVersionUID)},
+		{"data", "Ljava/lang/Object;", "TE;", $PROTECTED, $field(DigraphNode, data)},
+		{"outNodes", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/imageio/spi/DigraphNode<TE;>;>;", $PROTECTED, $field(DigraphNode, outNodes)},
+		{"inDegree", "I", nullptr, $PROTECTED, $field(DigraphNode, inDegree)},
+		{"inNodes", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/imageio/spi/DigraphNode<TE;>;>;", $PRIVATE, $field(DigraphNode, inNodes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/Object;)V", "(TE;)V", $PUBLIC, $method(DigraphNode, init$, void, Object$*)},
+		{"addEdge", "(Ljavax/imageio/spi/DigraphNode;)Z", "(Ljavax/imageio/spi/DigraphNode<TE;>;)Z", $PUBLIC, $virtualMethod(DigraphNode, addEdge, bool, DigraphNode*)},
+		{"decrementInDegree", "()V", nullptr, $PRIVATE, $method(DigraphNode, decrementInDegree, void)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(DigraphNode, dispose, void)},
+		{"getData", "()Ljava/lang/Object;", "()TE;", $PUBLIC, $virtualMethod(DigraphNode, getData, $Object*)},
+		{"getInDegree", "()I", nullptr, $PUBLIC, $virtualMethod(DigraphNode, getInDegree, int32_t)},
+		{"getOutNodes", "()Ljava/util/Iterator;", "()Ljava/util/Iterator<Ljavax/imageio/spi/DigraphNode<TE;>;>;", $PUBLIC, $virtualMethod(DigraphNode, getOutNodes, $Iterator*)},
+		{"hasEdge", "(Ljavax/imageio/spi/DigraphNode;)Z", "(Ljavax/imageio/spi/DigraphNode<TE;>;)Z", $PUBLIC, $virtualMethod(DigraphNode, hasEdge, bool, DigraphNode*)},
+		{"incrementInDegree", "()V", nullptr, $PRIVATE, $method(DigraphNode, incrementInDegree, void)},
+		{"removeEdge", "(Ljavax/imageio/spi/DigraphNode;)Z", "(Ljavax/imageio/spi/DigraphNode<TE;>;)Z", $PUBLIC, $virtualMethod(DigraphNode, removeEdge, bool, DigraphNode*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.spi.DigraphNode",
+		"java.lang.Object",
+		"java.lang.Cloneable,java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		"<E:Ljava/lang/Object;>Ljava/lang/Object;Ljava/lang/Cloneable;Ljava/io/Serializable;"
+	};
+	$loadClass(DigraphNode, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DigraphNode));
+	});
 	return class$;
 }
 

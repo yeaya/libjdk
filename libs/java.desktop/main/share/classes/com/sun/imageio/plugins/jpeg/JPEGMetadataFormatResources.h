@@ -16,6 +16,7 @@ class JPEGMetadataFormatResources : public ::java::util::ListResourceBundle {
 	$class(JPEGMetadataFormatResources, 0, ::java::util::ListResourceBundle)
 public:
 	JPEGMetadataFormatResources();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Array<::java::lang::Object, 2>* commonContents;
 };

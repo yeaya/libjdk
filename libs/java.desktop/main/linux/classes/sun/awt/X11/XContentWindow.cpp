@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XContentWindow.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -65,9 +64,7 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AwtGraphicsConfigData = ::sun::awt::X11::AwtGraphicsConfigData;
 using $PropMwmHints = ::sun::awt::X11::PropMwmHints;
 using $WindowDimensions = ::sun::awt::X11::WindowDimensions;
@@ -89,93 +86,11 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XContentWindow_FieldInfo_[] = {
-	{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XContentWindow, insLog)},
-	{"parentFrame", "Lsun/awt/X11/XDecoratedPeer;", nullptr, $PRIVATE | $FINAL, $field(XContentWindow, parentFrame)},
-	{"iconifiedExposeEvents", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/X11/XContentWindow$SavedExposeEvent;>;", $PRIVATE | $FINAL, $field(XContentWindow, iconifiedExposeEvents)},
-	{}
-};
-
-$MethodInfo _XContentWindow_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/XDecoratedPeer;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XContentWindow, init$, void, $XDecoratedPeer*, $Rectangle*)},
-	{"createContent", "(Lsun/awt/X11/XDecoratedPeer;)Lsun/awt/X11/XContentWindow;", nullptr, $STATIC, $staticMethod(XContentWindow, createContent, XContentWindow*, $XDecoratedPeer*)},
-	{"dispose", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, dispose, void)},
-	{"doLayout", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, doLayout, void, int32_t, int32_t, int32_t, int32_t)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getColorModel, $ColorModel*)},
-	{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getColorModel, $ColorModel*, int32_t)},
-	{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getEventSource, $Component*)},
-	{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getFontMetrics, $FontMetrics*, $Font*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getGraphics, $Graphics*)},
-	{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getGraphicsConfiguration, $GraphicsConfiguration*)},
-	{"getGraphicsConfigurationData", "()Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getGraphicsConfigurationData, $AwtGraphicsConfigData*)},
-	{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getLocationOnScreen, $Point*)},
-	{"getMWMHints", "()Lsun/awt/X11/PropMwmHints;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getMWMHints, $PropMwmHints*)},
-	{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getSurfaceData, $SurfaceData*)},
-	{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getTarget, $Object*)},
-	{"getTargetBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getTargetBounds, $Rectangle*)},
-	{"getWMName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XContentWindow, getWMName, $String*)},
-	{"getWinBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getWinBackground, $Color*)},
-	{"handleButtonPressRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleButtonPressRelease, void, $XEvent*)},
-	{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleConfigureNotifyEvent, void, $XEvent*)},
-	{"handleExposeEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XContentWindow, handleExposeEvent, void, $XEvent*)},
-	{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleKeyPress, void, $XEvent*)},
-	{"handleKeyRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleKeyRelease, void, $XEvent*)},
-	{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleMapNotifyEvent, void, $XEvent*)},
-	{"handleMotionNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleMotionNotify, void, $XEvent*)},
-	{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handlePropertyNotify, void, $XEvent*)},
-	{"handleResize", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(XContentWindow, handleResize, void, $Rectangle*)},
-	{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleUnmapNotifyEvent, void, $XEvent*)},
-	{"handleXCrossingEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleXCrossingEvent, void, $XEvent*)},
-	{"isEmbedded", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, isEmbedded, bool)},
-	{"isEventDisabled", "(Lsun/awt/X11/XEvent;)Z", nullptr, $PROTECTED, $virtualMethod(XContentWindow, isEventDisabled, bool, $XEvent*)},
-	{"isMouseAbove", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, isMouseAbove, bool)},
-	{"layout", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, layout, void)},
-	{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, paint, void, $Graphics*)},
-	{"popup", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, popup, void, int32_t, int32_t, int32_t, int32_t)},
-	{"postEventToEventQueue", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, postEventToEventQueue, void, $AWTEvent*)},
-	{"postKeyEvent", "(IIIIIJIJII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, postKeyEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int64_t, int32_t, int64_t, int32_t, int32_t)},
-	{"postPaintEvent", "(Ljava/awt/Component;IIII)V", nullptr, $PUBLIC, $virtualMethod(XContentWindow, postPaintEvent, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
-	{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XContentWindow, preInit, void, $XCreateWindowParams*)},
-	{"purgeIconifiedExposeEvents", "()V", nullptr, 0, $method(XContentWindow, purgeIconifiedExposeEvents, void)},
-	{"reshape", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, reshape, void, int32_t, int32_t, int32_t, int32_t)},
-	{"reshape", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, reshape, void, $Rectangle*)},
-	{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, setBackground, void, $Color*)},
-	{"setContentBounds", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, 0, $method(XContentWindow, setContentBounds, void, $WindowDimensions*)},
-	{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, setFullScreenExclusiveModeState, void, bool)},
-	{"setMWMHints", "(Lsun/awt/X11/PropMwmHints;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, setMWMHints, void, $PropMwmHints*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XContentWindow, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _XContentWindow_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XContentWindow$SavedExposeEvent", "sun.awt.X11.XContentWindow", "SavedExposeEvent", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _XContentWindow_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11.XContentWindow",
-	"sun.awt.X11.XWindow",
-	nullptr,
-	_XContentWindow_FieldInfo_,
-	_XContentWindow_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XContentWindow_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XContentWindow$SavedExposeEvent"
-};
-
-$Object* allocate$XContentWindow($Class* clazz) {
-	return $of($alloc(XContentWindow));
-}
-
 $PlatformLogger* XContentWindow::insLog = nullptr;
 
 XContentWindow* XContentWindow::createContent($XDecoratedPeer* parentFrame) {
 	$init(XContentWindow);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WindowDimensions, dims, $nc(parentFrame)->getDimensions());
 	$var($Rectangle, rec, $nc(dims)->getBounds());
 	$var($Insets, ins, dims->getInsets());
@@ -199,13 +114,13 @@ void XContentWindow::init$($XDecoratedPeer* parentFrame, $Rectangle* bounds) {
 }
 
 void XContentWindow::preInit($XCreateWindowParams* params) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XWindow::preInit(params);
 	$init($XBaseWindow);
-	$nc(params)->putIfNull($of($XBaseWindow::BIT_GRAVITY), $($of($Integer::valueOf($XConstants::NorthWestGravity))));
+	$nc(params)->putIfNull($XBaseWindow::BIT_GRAVITY, $($Integer::valueOf($XConstants::NorthWestGravity)));
 	$var($Long, eventMask, $cast($Long, params->get($XBaseWindow::EVENT_MASK)));
 	if (eventMask != nullptr) {
-		$assign(eventMask, $Long::valueOf((int64_t)(eventMask->longValue() & (uint64_t)~($XConstants::StructureNotifyMask))));
+		$assign(eventMask, $Long::valueOf(eventMask->longValue() & ~($XConstants::StructureNotifyMask)));
 		params->put($XBaseWindow::EVENT_MASK, eventMask);
 	}
 }
@@ -217,21 +132,13 @@ $String* XContentWindow::getWMName() {
 bool XContentWindow::isEventDisabled($XEvent* e) {
 	switch ($nc(e)->get_type()) {
 	case $XConstants::EnterNotify:
-		{}
 	case $XConstants::LeaveNotify:
-		{
-			return false;
-		}
+		return false;
 	case $XConstants::ConfigureNotify:
-		{
-			return true;
-		}
+		return true;
 	case $XConstants::MapNotify:
-		{}
 	case $XConstants::UnmapNotify:
-		{
-			return true;
-		}
+		return true;
 	default:
 		{
 			bool var$0 = $XWindow::isEventDisabled(e);
@@ -241,48 +148,46 @@ bool XContentWindow::isEventDisabled($XEvent* e) {
 }
 
 void XContentWindow::setContentBounds($WindowDimensions* dims) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Rectangle, newBounds, $nc(dims)->getBounds());
-			$var($Insets, in, dims->getInsets());
-			if (in != nullptr) {
-				$nc(newBounds)->setLocation(-in->left, -in->top);
-			}
-			$init($PlatformLogger$Level);
-			if ($nc(XContentWindow::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(XContentWindow::insLog)->fine("Setting content bounds {0}, old bounds {1}"_s, $$new($ObjectArray, {
-					$of(newBounds),
-					$($of(getBounds()))
-				}));
-			}
-			bool needHandleResize = !($nc(newBounds)->equals($(getBounds())));
-			bool needPaint = this->width <= 0 || this->height <= 0;
-			reshape(newBounds);
-			if (needHandleResize) {
-				$nc(XContentWindow::insLog)->fine("Sending RESIZED"_s);
-				handleResize(newBounds);
-			}
-			if (needPaint) {
-				postPaintEvent(this->target, 0, 0, newBounds->width, newBounds->height);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Rectangle, newBounds, $nc(dims)->getBounds());
+		$var($Insets, in, dims->getInsets());
+		if (in != nullptr) {
+			$nc(newBounds)->setLocation(-in->left, -in->top);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$init($PlatformLogger$Level);
+		if ($nc(XContentWindow::insLog)->isLoggable($PlatformLogger$Level::FINE)) {
+			$nc(XContentWindow::insLog)->fine("Setting content bounds {0}, old bounds {1}"_s, $$new($ObjectArray, {
+				newBounds,
+				$(getBounds())
+			}));
 		}
+		bool needHandleResize = !($nc(newBounds)->equals($(getBounds())));
+		bool needPaint = this->width <= 0 || this->height <= 0;
+		reshape(newBounds);
+		if (needHandleResize) {
+			$nc(XContentWindow::insLog)->fine("Sending RESIZED"_s);
+			handleResize(newBounds);
+		}
+		if (needPaint) {
+			postPaintEvent(this->target, 0, 0, newBounds->width, newBounds->height);
+		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XContentWindow::handleExposeEvent($XEvent* xev) {
 	bool var$0 = $nc(this->parentFrame)->isTargetUndecorated();
 	if (var$0 && $XWM::getWMID() != $XWM::UNITY_COMPIZ_WM && this->width <= 0 && this->height <= 0) {
-		setContentBounds($($nc(this->parentFrame)->getDimensions()));
+		setContentBounds($(this->parentFrame->getDimensions()));
 	}
 	if (this->width <= 0 || this->height <= 0) {
 		return;
@@ -291,38 +196,41 @@ void XContentWindow::handleExposeEvent($XEvent* xev) {
 }
 
 void XContentWindow::handleResize($Rectangle* bounds) {
-	$useLocalCurrentObjectStackCache();
-	$nc($($AWTAccessor::getComponentAccessor()))->setSize(this->target, $nc(bounds)->width, bounds->height);
+	$useLocalObjectStack();
+	$$nc($AWTAccessor::getComponentAccessor())->setSize(this->target, $nc(bounds)->width, $nc(bounds)->height);
 	postEvent($$new($ComponentEvent, this->target, $ComponentEvent::COMPONENT_RESIZED));
 }
 
 void XContentWindow::postPaintEvent($Component* target, int32_t x, int32_t y, int32_t w, int32_t h) {
-	if ($instanceOf($XFramePeer, this->parentFrame) && ((int32_t)($nc(($cast($XFramePeer, this->parentFrame)))->getState() & (uint32_t)$Frame::ICONIFIED)) != 0) {
-		$nc(this->iconifiedExposeEvents)->add($$new($XContentWindow$SavedExposeEvent, target, x, y, w, h));
+	if ($instanceOf($XFramePeer, this->parentFrame) && ($cast($XFramePeer, this->parentFrame)->getState() & $Frame::ICONIFIED) != 0) {
+		this->iconifiedExposeEvents->add($$new($XContentWindow$SavedExposeEvent, target, x, y, w, h));
 	} else {
 		$XWindow::postPaintEvent(target, x, y, w, h);
 	}
 }
 
 void XContentWindow::purgeIconifiedExposeEvents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	{
-		$var($Iterator, i$, $nc(this->iconifiedExposeEvents)->iterator());
+		$var($Iterator, i$, this->iconifiedExposeEvents->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($XContentWindow$SavedExposeEvent, evt, $cast($XContentWindow$SavedExposeEvent, i$->next()));
 			{
-				$XWindow::postPaintEvent($nc(evt)->target, evt->x, evt->y, evt->w, evt->h);
+				$XWindow::postPaintEvent($nc(evt)->target, $nc(evt)->x, $nc(evt)->y, $nc(evt)->w, $nc(evt)->h);
 			}
 		}
 	}
-	$nc(this->iconifiedExposeEvents)->clear();
+	this->iconifiedExposeEvents->clear();
 }
 
 $String* XContentWindow::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({$($of(this)->getClass()->getName()), "["_s}));
-	$var($String, var$0, $$concat(var$1, $(getBounds())));
-	return $concat(var$0, "]"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append($($of(this)->getClass()->getName()));
+	var$0->append("["_s);
+	var$0->append($(getBounds()));
+	var$0->append("]"_s);
+	return $str(var$0);
 }
 
 void XContentWindow::setFullScreenExclusiveModeState(bool state) {
@@ -458,7 +366,7 @@ $Component* XContentWindow::getEventSource() {
 }
 
 $Object* XContentWindow::getTarget() {
-	return $of($XWindow::getTarget());
+	return $XWindow::getTarget();
 }
 
 $AwtGraphicsConfigData* XContentWindow::getGraphicsConfigurationData() {
@@ -469,7 +377,7 @@ $GraphicsConfiguration* XContentWindow::getGraphicsConfiguration() {
 	return $XWindow::getGraphicsConfiguration();
 }
 
-void clinit$XContentWindow($Class* class$) {
+void XContentWindow::clinit$($Class* clazz) {
 	$assignStatic(XContentWindow::insLog, $PlatformLogger::getLogger("sun.awt.X11.insets.XContentWindow"_s));
 }
 
@@ -477,7 +385,83 @@ XContentWindow::XContentWindow() {
 }
 
 $Class* XContentWindow::load$($String* name, bool initialize) {
-	$loadClass(XContentWindow, name, initialize, &_XContentWindow_ClassInfo_, clinit$XContentWindow, allocate$XContentWindow);
+	$FieldInfo fieldInfos$$[] = {
+		{"insLog", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC, $staticField(XContentWindow, insLog)},
+		{"parentFrame", "Lsun/awt/X11/XDecoratedPeer;", nullptr, $PRIVATE | $FINAL, $field(XContentWindow, parentFrame)},
+		{"iconifiedExposeEvents", "Ljava/util/List;", "Ljava/util/List<Lsun/awt/X11/XContentWindow$SavedExposeEvent;>;", $PRIVATE | $FINAL, $field(XContentWindow, iconifiedExposeEvents)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/XDecoratedPeer;Ljava/awt/Rectangle;)V", nullptr, $PRIVATE, $method(XContentWindow, init$, void, $XDecoratedPeer*, $Rectangle*)},
+		{"createContent", "(Lsun/awt/X11/XDecoratedPeer;)Lsun/awt/X11/XContentWindow;", nullptr, $STATIC, $staticMethod(XContentWindow, createContent, XContentWindow*, $XDecoratedPeer*)},
+		{"dispose", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, dispose, void)},
+		{"doLayout", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, doLayout, void, int32_t, int32_t, int32_t, int32_t)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getColorModel, $ColorModel*)},
+		{"getColorModel", "(I)Ljava/awt/image/ColorModel;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getColorModel, $ColorModel*, int32_t)},
+		{"getEventSource", "()Ljava/awt/Component;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getEventSource, $Component*)},
+		{"getFontMetrics", "(Ljava/awt/Font;)Ljava/awt/FontMetrics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getFontMetrics, $FontMetrics*, $Font*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getGraphics, $Graphics*)},
+		{"getGraphicsConfiguration", "()Ljava/awt/GraphicsConfiguration;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getGraphicsConfiguration, $GraphicsConfiguration*)},
+		{"getGraphicsConfigurationData", "()Lsun/awt/X11/AwtGraphicsConfigData;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getGraphicsConfigurationData, $AwtGraphicsConfigData*)},
+		{"getLocationOnScreen", "()Ljava/awt/Point;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getLocationOnScreen, $Point*)},
+		{"getMWMHints", "()Lsun/awt/X11/PropMwmHints;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getMWMHints, $PropMwmHints*)},
+		{"getSurfaceData", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getSurfaceData, $SurfaceData*)},
+		{"getTarget", "()Ljava/lang/Object;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getTarget, $Object*)},
+		{"getTargetBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getTargetBounds, $Rectangle*)},
+		{"getWMName", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(XContentWindow, getWMName, $String*)},
+		{"getWinBackground", "()Ljava/awt/Color;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, getWinBackground, $Color*)},
+		{"handleButtonPressRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleButtonPressRelease, void, $XEvent*)},
+		{"handleConfigureNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleConfigureNotifyEvent, void, $XEvent*)},
+		{"handleExposeEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC, $virtualMethod(XContentWindow, handleExposeEvent, void, $XEvent*)},
+		{"handleKeyPress", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleKeyPress, void, $XEvent*)},
+		{"handleKeyRelease", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleKeyRelease, void, $XEvent*)},
+		{"handleMapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleMapNotifyEvent, void, $XEvent*)},
+		{"handleMotionNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleMotionNotify, void, $XEvent*)},
+		{"handlePropertyNotify", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handlePropertyNotify, void, $XEvent*)},
+		{"handleResize", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC, $method(XContentWindow, handleResize, void, $Rectangle*)},
+		{"handleUnmapNotifyEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleUnmapNotifyEvent, void, $XEvent*)},
+		{"handleXCrossingEvent", "(Lsun/awt/X11/XEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, handleXCrossingEvent, void, $XEvent*)},
+		{"isEmbedded", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, isEmbedded, bool)},
+		{"isEventDisabled", "(Lsun/awt/X11/XEvent;)Z", nullptr, $PROTECTED, $virtualMethod(XContentWindow, isEventDisabled, bool, $XEvent*)},
+		{"isMouseAbove", "()Z", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, isMouseAbove, bool)},
+		{"layout", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, layout, void)},
+		{"paint", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, paint, void, $Graphics*)},
+		{"popup", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, popup, void, int32_t, int32_t, int32_t, int32_t)},
+		{"postEventToEventQueue", "(Ljava/awt/AWTEvent;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, postEventToEventQueue, void, $AWTEvent*)},
+		{"postKeyEvent", "(IIIIIJIJII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, postKeyEvent, void, int32_t, int32_t, int32_t, int32_t, int32_t, int64_t, int32_t, int64_t, int32_t, int32_t)},
+		{"postPaintEvent", "(Ljava/awt/Component;IIII)V", nullptr, $PUBLIC, $virtualMethod(XContentWindow, postPaintEvent, void, $Component*, int32_t, int32_t, int32_t, int32_t)},
+		{"preInit", "(Lsun/awt/X11/XCreateWindowParams;)V", nullptr, 0, $virtualMethod(XContentWindow, preInit, void, $XCreateWindowParams*)},
+		{"purgeIconifiedExposeEvents", "()V", nullptr, 0, $method(XContentWindow, purgeIconifiedExposeEvents, void)},
+		{"reshape", "(IIII)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, reshape, void, int32_t, int32_t, int32_t, int32_t)},
+		{"reshape", "(Ljava/awt/Rectangle;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, reshape, void, $Rectangle*)},
+		{"setBackground", "(Ljava/awt/Color;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, setBackground, void, $Color*)},
+		{"setContentBounds", "(Lsun/awt/X11/WindowDimensions;)V", nullptr, 0, $method(XContentWindow, setContentBounds, void, $WindowDimensions*)},
+		{"setFullScreenExclusiveModeState", "(Z)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, setFullScreenExclusiveModeState, void, bool)},
+		{"setMWMHints", "(Lsun/awt/X11/PropMwmHints;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XContentWindow, setMWMHints, void, $PropMwmHints*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XContentWindow, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XContentWindow$SavedExposeEvent", "sun.awt.X11.XContentWindow", "SavedExposeEvent", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11.XContentWindow",
+		"sun.awt.X11.XWindow",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XContentWindow$SavedExposeEvent"
+	};
+	$loadClass(XContentWindow, name, initialize, &classInfo$$, XContentWindow::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XContentWindow));
+	});
 	return class$;
 }
 

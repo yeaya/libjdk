@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicMenuUI$Actions.h>
-
 #include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
@@ -36,46 +35,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$FieldInfo _BasicMenuUI$Actions_FieldInfo_[] = {
-	{"SELECT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicMenuUI$Actions, SELECT)},
-	{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE, $field(BasicMenuUI$Actions, menu)},
-	{"force", "Z", nullptr, $PRIVATE, $field(BasicMenuUI$Actions, force)},
-	{}
-};
-
-$MethodInfo _BasicMenuUI$Actions_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljavax/swing/JMenu;Z)V", nullptr, 0, $method(BasicMenuUI$Actions, init$, void, $String*, $JMenu*, bool)},
-	{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicMenuUI$Actions, accept, bool, Object$*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuUI$Actions, actionPerformed, void, $ActionEvent*)},
-	{"getMenu", "(Ljava/awt/event/ActionEvent;)Ljavax/swing/JMenu;", nullptr, $PRIVATE, $method(BasicMenuUI$Actions, getMenu, $JMenu*, $ActionEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicMenuUI$Actions_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicMenuUI$Actions", "javax.swing.plaf.basic.BasicMenuUI", "Actions", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicMenuUI$Actions_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicMenuUI$Actions",
-	"sun.swing.UIAction",
-	nullptr,
-	_BasicMenuUI$Actions_FieldInfo_,
-	_BasicMenuUI$Actions_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicMenuUI$Actions_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicMenuUI"
-};
-
-$Object* allocate$BasicMenuUI$Actions($Class* clazz) {
-	return $of($alloc(BasicMenuUI$Actions));
-}
-
 $String* BasicMenuUI$Actions::SELECT = nullptr;
 
 void BasicMenuUI$Actions::init$($String* key, $JMenu* menu, bool shouldForce) {
@@ -93,7 +52,7 @@ $JMenu* BasicMenuUI$Actions::getMenu($ActionEvent* e) {
 }
 
 void BasicMenuUI$Actions::actionPerformed($ActionEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JMenu, menu, getMenu(e));
 	$init($BasicMenuUI);
 	if (!$BasicMenuUI::crossMenuMnemonic) {
@@ -108,7 +67,7 @@ void BasicMenuUI$Actions::actionPerformed($ActionEvent* e) {
 		if (cnt != nullptr && $instanceOf($JMenuBar, cnt)) {
 			$var($MenuElementArray, me, nullptr);
 			$var($MenuElementArray, subElements, nullptr);
-			$assign(subElements, $nc($(menu->getPopupMenu()))->getSubElements());
+			$assign(subElements, $$nc(menu->getPopupMenu())->getSubElements());
 			if ($nc(subElements)->length > 0) {
 				$assign(me, $new($MenuElementArray, 4));
 				me->set(0, $cast($MenuElement, cnt));
@@ -133,7 +92,7 @@ void BasicMenuUI$Actions::actionPerformed($ActionEvent* e) {
 
 bool BasicMenuUI$Actions::accept(Object$* c) {
 	if ($instanceOf($JMenu, c)) {
-		return $nc(($cast($JMenu, c)))->isEnabled();
+		return $cast($JMenu, c)->isEnabled();
 	}
 	return true;
 }
@@ -141,12 +100,46 @@ bool BasicMenuUI$Actions::accept(Object$* c) {
 BasicMenuUI$Actions::BasicMenuUI$Actions() {
 }
 
-void clinit$BasicMenuUI$Actions($Class* class$) {
+void BasicMenuUI$Actions::clinit$($Class* clazz) {
 	$assignStatic(BasicMenuUI$Actions::SELECT, "selectMenu"_s);
 }
 
 $Class* BasicMenuUI$Actions::load$($String* name, bool initialize) {
-	$loadClass(BasicMenuUI$Actions, name, initialize, &_BasicMenuUI$Actions_ClassInfo_, clinit$BasicMenuUI$Actions, allocate$BasicMenuUI$Actions);
+	$FieldInfo fieldInfos$$[] = {
+		{"SELECT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(BasicMenuUI$Actions, SELECT)},
+		{"menu", "Ljavax/swing/JMenu;", nullptr, $PRIVATE, $field(BasicMenuUI$Actions, menu)},
+		{"force", "Z", nullptr, $PRIVATE, $field(BasicMenuUI$Actions, force)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljavax/swing/JMenu;Z)V", nullptr, 0, $method(BasicMenuUI$Actions, init$, void, $String*, $JMenu*, bool)},
+		{"accept", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(BasicMenuUI$Actions, accept, bool, Object$*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicMenuUI$Actions, actionPerformed, void, $ActionEvent*)},
+		{"getMenu", "(Ljava/awt/event/ActionEvent;)Ljavax/swing/JMenu;", nullptr, $PRIVATE, $method(BasicMenuUI$Actions, getMenu, $JMenu*, $ActionEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicMenuUI$Actions", "javax.swing.plaf.basic.BasicMenuUI", "Actions", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicMenuUI$Actions",
+		"sun.swing.UIAction",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicMenuUI"
+	};
+	$loadClass(BasicMenuUI$Actions, name, initialize, &classInfo$$, BasicMenuUI$Actions::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(BasicMenuUI$Actions);
+	});
 	return class$;
 }
 

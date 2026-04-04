@@ -1,11 +1,9 @@
 #include <java/util/logging/LogManager$1.h>
-
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/util/logging/LogManager.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -19,48 +17,11 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$MethodInfo _LogManager$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(LogManager$1, init$, void)},
-	{"run", "()Ljava/util/logging/LogManager;", nullptr, $PUBLIC, $virtualMethod(LogManager$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LogManager$1_EnclosingMethodInfo_ = {
-	"java.util.logging.LogManager",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _LogManager$1_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LogManager$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.logging.LogManager$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_LogManager$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/logging/LogManager;>;",
-	&_LogManager$1_EnclosingMethodInfo_,
-	_LogManager$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$1($Class* clazz) {
-	return $of($alloc(LogManager$1));
-}
-
 void LogManager$1::init$() {
 }
 
 $Object* LogManager$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$var($LogManager, mgr, nullptr);
 	$var($String, cname, nullptr);
@@ -68,10 +29,10 @@ $Object* LogManager$1::run() {
 		$assign(cname, $System::getProperty("java.util.logging.manager"_s));
 		if (cname != nullptr) {
 			try {
-				$var($Object, tmp, $nc($nc($($ClassLoader::getSystemClassLoader()))->loadClass(cname))->newInstance());
+				$var($Object, tmp, $nc($$nc($ClassLoader::getSystemClassLoader())->loadClass(cname))->newInstance());
 				$assign(mgr, $cast($LogManager, tmp));
 			} catch ($ClassNotFoundException& ex) {
-				$var($Object, tmp, $nc($nc($($($Thread::currentThread())->getContextClassLoader()))->loadClass(cname))->newInstance());
+				$var($Object, tmp, $nc($$nc($($Thread::currentThread())->getContextClassLoader())->loadClass(cname))->newInstance());
 				$assign(mgr, $cast($LogManager, tmp));
 			}
 		}
@@ -82,14 +43,45 @@ $Object* LogManager$1::run() {
 	if (mgr == nullptr) {
 		$assign(mgr, $new($LogManager));
 	}
-	return $of(mgr);
+	return mgr;
 }
 
 LogManager$1::LogManager$1() {
 }
 
 $Class* LogManager$1::load$($String* name, bool initialize) {
-	$loadClass(LogManager$1, name, initialize, &_LogManager$1_ClassInfo_, allocate$LogManager$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(LogManager$1, init$, void)},
+		{"run", "()Ljava/util/logging/LogManager;", nullptr, $PUBLIC, $virtualMethod(LogManager$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.logging.LogManager",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.logging.LogManager$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/util/logging/LogManager;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$1);
+	});
 	return class$;
 }
 

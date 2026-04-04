@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/RIFFInvalidFormatException.h>
-
 #include <com/sun/media/sound/InvalidFormatException.h>
 #include <jcpp.h>
 
@@ -12,30 +11,6 @@ namespace com {
 	namespace sun {
 		namespace media {
 			namespace sound {
-
-$FieldInfo _RIFFInvalidFormatException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RIFFInvalidFormatException, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RIFFInvalidFormatException_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RIFFInvalidFormatException, init$, void)},
-	{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFInvalidFormatException, init$, void, $String*)},
-	{}
-};
-
-$ClassInfo _RIFFInvalidFormatException_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.media.sound.RIFFInvalidFormatException",
-	"com.sun.media.sound.InvalidFormatException",
-	nullptr,
-	_RIFFInvalidFormatException_FieldInfo_,
-	_RIFFInvalidFormatException_MethodInfo_
-};
-
-$Object* allocate$RIFFInvalidFormatException($Class* clazz) {
-	return $of($alloc(RIFFInvalidFormatException));
-}
 
 void RIFFInvalidFormatException::init$() {
 	$InvalidFormatException::init$("Invalid format!"_s);
@@ -56,7 +31,26 @@ void RIFFInvalidFormatException::throw$() {
 }
 
 $Class* RIFFInvalidFormatException::load$($String* name, bool initialize) {
-	$loadClass(RIFFInvalidFormatException, name, initialize, &_RIFFInvalidFormatException_ClassInfo_, allocate$RIFFInvalidFormatException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RIFFInvalidFormatException, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RIFFInvalidFormatException, init$, void)},
+		{"<init>", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $method(RIFFInvalidFormatException, init$, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.media.sound.RIFFInvalidFormatException",
+		"com.sun.media.sound.InvalidFormatException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RIFFInvalidFormatException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RIFFInvalidFormatException);
+	});
 	return class$;
 }
 

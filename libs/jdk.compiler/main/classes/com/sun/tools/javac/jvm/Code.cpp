@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/jvm/Code.h>
-
 #include <com/sun/tools/javac/code/Attribute$TypeCompound.h>
 #include <com/sun/tools/javac/code/Flags.h>
 #include <com/sun/tools/javac/code/Symbol$DynamicMethodSymbol.h>
@@ -25,7 +24,6 @@
 #include <com/sun/tools/javac/jvm/Code$StackMapFormat.h>
 #include <com/sun/tools/javac/jvm/Code$StackMapFrame.h>
 #include <com/sun/tools/javac/jvm/Code$State.h>
-#include <com/sun/tools/javac/jvm/PoolConstant$Dynamic.h>
 #include <com/sun/tools/javac/jvm/PoolConstant$LoadableConstant.h>
 #include <com/sun/tools/javac/jvm/PoolConstant.h>
 #include <com/sun/tools/javac/jvm/PoolWriter.h>
@@ -103,7 +101,6 @@ using $Code$StackMapFormat = ::com::sun::tools::javac::jvm::Code$StackMapFormat;
 using $Code$StackMapFrame = ::com::sun::tools::javac::jvm::Code$StackMapFrame;
 using $Code$State = ::com::sun::tools::javac::jvm::Code$State;
 using $PoolConstant = ::com::sun::tools::javac::jvm::PoolConstant;
-using $PoolConstant$Dynamic = ::com::sun::tools::javac::jvm::PoolConstant$Dynamic;
 using $PoolConstant$LoadableConstant = ::com::sun::tools::javac::jvm::PoolConstant$LoadableConstant;
 using $PoolWriter = ::com::sun::tools::javac::jvm::PoolWriter;
 using $UninitializedType = ::com::sun::tools::javac::jvm::UninitializedType;
@@ -117,7 +114,6 @@ using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $Position$LineMap = ::com::sun::tools::javac::util::Position$LineMap;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
@@ -130,13 +126,10 @@ using $Short = ::java::lang::Short;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
-using $1List = ::java::util::List;
 using $IntFunction = ::java::util::function::IntFunction;
 using $Predicate = ::java::util::function::Predicate;
 using $ToIntBiFunction = ::java::util::function::ToIntBiFunction;
 using $ToIntFunction = ::java::util::function::ToIntFunction;
-using $IntStream = ::java::util::stream::IntStream;
-using $Stream = ::java::util::stream::Stream;
 
 namespace com {
 	namespace sun {
@@ -152,27 +145,24 @@ public:
 	virtual bool test(Object$* r) override {
 		 return Code::lambda$fillLocalVarPosition$0($cast($Code$LocalVar$Range, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Code$$Lambda$lambda$fillLocalVarPosition$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Code$$Lambda$lambda$fillLocalVarPosition$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$0, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$0, test, bool, Object$*)},
-	{}
-};
-$ClassInfo Code$$Lambda$lambda$fillLocalVarPosition$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$0",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$0::load$($String* name, bool initialize) {
-	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$0, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$0, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$0",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$$Lambda$lambda$fillLocalVarPosition$0);
+	});
 	return class$;
 }
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$0::class$ = nullptr;
@@ -183,29 +173,26 @@ public:
 	void init$() {
 	}
 	virtual $Object* apply(int32_t s) override {
-		 return $of(Code::lambda$fillLocalVarPosition$1(s));
+		 return Code::lambda$fillLocalVarPosition$1(s);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Code$$Lambda$lambda$fillLocalVarPosition$1$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Code$$Lambda$lambda$fillLocalVarPosition$1$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$1$1, init$, void)},
-	{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$1$1, apply, $Object*, int32_t)},
-	{}
-};
-$ClassInfo Code$$Lambda$lambda$fillLocalVarPosition$1$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$1$1",
-	"java.lang.Object",
-	"java.util.function.IntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$1$1::load$($String* name, bool initialize) {
-	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$1$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$1$1, init$, void)},
+		{"apply", "(I)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$1$1, apply, $Object*, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$1$1",
+		"java.lang.Object",
+		"java.util.function.IntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$1$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$$Lambda$lambda$fillLocalVarPosition$1$1);
+	});
 	return class$;
 }
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$1$1::class$ = nullptr;
@@ -218,27 +205,24 @@ public:
 	virtual int32_t applyAsInt(Object$* r) override {
 		 return Code::lambda$fillLocalVarPosition$2($cast($Code$LocalVar$Range, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Code$$Lambda$lambda$fillLocalVarPosition$2$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Code$$Lambda$lambda$fillLocalVarPosition$2$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$2$2, init$, void)},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$2$2, applyAsInt, int32_t, Object$*)},
-	{}
-};
-$ClassInfo Code$$Lambda$lambda$fillLocalVarPosition$2$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$2$2",
-	"java.lang.Object",
-	"java.util.function.ToIntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$2$2::load$($String* name, bool initialize) {
-	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$2$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$2$2, init$, void)},
+		{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$2$2, applyAsInt, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$2$2",
+		"java.lang.Object",
+		"java.util.function.ToIntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$2$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$$Lambda$lambda$fillLocalVarPosition$2$2);
+	});
 	return class$;
 }
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$2$2::class$ = nullptr;
@@ -251,27 +235,24 @@ public:
 	virtual int32_t applyAsInt(Object$* r) override {
 		 return Code::lambda$fillLocalVarPosition$3($cast($Code$LocalVar$Range, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Code$$Lambda$lambda$fillLocalVarPosition$3$3>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo Code$$Lambda$lambda$fillLocalVarPosition$3$3::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$3$3, init$, void)},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$3$3, applyAsInt, int32_t, Object$*)},
-	{}
-};
-$ClassInfo Code$$Lambda$lambda$fillLocalVarPosition$3$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$3$3",
-	"java.lang.Object",
-	"java.util.function.ToIntFunction",
-	nullptr,
-	methodInfos
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$3$3::load$($String* name, bool initialize) {
-	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$3$3, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$3$3, init$, void)},
+		{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$3$3, applyAsInt, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$3$3",
+		"java.lang.Object",
+		"java.util.function.ToIntFunction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$3$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$$Lambda$lambda$fillLocalVarPosition$3$3);
+	});
 	return class$;
 }
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$3$3::class$ = nullptr;
@@ -285,196 +266,32 @@ public:
 	virtual int32_t applyAsInt(Object$* r) override {
 		 return Code::lambda$fillLocalVarPosition$4(lv, $cast($Code$LocalVar$Range, r));
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<Code$$Lambda$lambda$fillLocalVarPosition$4$4>());
-	}
 	$Code$LocalVar* lv = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo Code$$Lambda$lambda$fillLocalVarPosition$4$4::fieldInfos[2] = {
-	{"lv", "Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, $PUBLIC, $field(Code$$Lambda$lambda$fillLocalVarPosition$4$4, lv)},
-	{}
-};
-$MethodInfo Code$$Lambda$lambda$fillLocalVarPosition$4$4::methodInfos[3] = {
-	{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$4$4, init$, void, $Code$LocalVar*)},
-	{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$4$4, applyAsInt, int32_t, Object$*)},
-	{}
-};
-$ClassInfo Code$$Lambda$lambda$fillLocalVarPosition$4$4::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$4$4",
-	"java.lang.Object",
-	"java.util.function.ToIntFunction",
-	fieldInfos,
-	methodInfos
 };
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$4$4::load$($String* name, bool initialize) {
-	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$4$4, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"lv", "Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, $PUBLIC, $field(Code$$Lambda$lambda$fillLocalVarPosition$4$4, lv)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, $PUBLIC, $method(Code$$Lambda$lambda$fillLocalVarPosition$4$4, init$, void, $Code$LocalVar*)},
+		{"applyAsInt", "(Ljava/lang/Object;)I", nullptr, $PUBLIC, $virtualMethod(Code$$Lambda$lambda$fillLocalVarPosition$4$4, applyAsInt, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$4$4",
+		"java.lang.Object",
+		"java.util.function.ToIntFunction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(Code$$Lambda$lambda$fillLocalVarPosition$4$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Code$$Lambda$lambda$fillLocalVarPosition$4$4);
+	});
 	return class$;
 }
 $Class* Code$$Lambda$lambda$fillLocalVarPosition$4$4::class$ = nullptr;
-
-$FieldInfo _Code_FieldInfo_[] = {
-	{"debugCode", "Z", nullptr, $PUBLIC | $FINAL, $field(Code, debugCode)},
-	{"needStackMap", "Z", nullptr, $PUBLIC | $FINAL, $field(Code, needStackMap)},
-	{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL, $field(Code, types)},
-	{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $FINAL, $field(Code, syms)},
-	{"poolWriter", "Lcom/sun/tools/javac/jvm/PoolWriter;", nullptr, $FINAL, $field(Code, poolWriter)},
-	{"max_stack", "I", nullptr, $PUBLIC, $field(Code, max_stack)},
-	{"max_locals", "I", nullptr, $PUBLIC, $field(Code, max_locals)},
-	{"code", "[B", nullptr, $PUBLIC, $field(Code, code)},
-	{"cp", "I", nullptr, $PUBLIC, $field(Code, cp)},
-	{"catchInfo", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<[C>;", 0, $field(Code, catchInfo)},
-	{"lineInfo", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<[C>;", 0, $field(Code, lineInfo)},
-	{"crt", "Lcom/sun/tools/javac/jvm/CRTable;", nullptr, $PUBLIC, $field(Code, crt)},
-	{"fatcode", "Z", nullptr, $PUBLIC, $field(Code, fatcode)},
-	{"alive", "Z", nullptr, $PRIVATE, $field(Code, alive)},
-	{"state", "Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0, $field(Code, state)},
-	{"fixedPc", "Z", nullptr, $PRIVATE, $field(Code, fixedPc)},
-	{"nextreg", "I", nullptr, $PUBLIC, $field(Code, nextreg)},
-	{"pendingJumps", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Code, pendingJumps)},
-	{"pendingStatPos", "I", nullptr, 0, $field(Code, pendingStatPos)},
-	{"pendingStackMap", "Z", nullptr, 0, $field(Code, pendingStackMap)},
-	{"stackMap", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, 0, $field(Code, stackMap)},
-	{"varDebugInfo", "Z", nullptr, 0, $field(Code, varDebugInfo)},
-	{"lineDebugInfo", "Z", nullptr, 0, $field(Code, lineDebugInfo)},
-	{"lineMap", "Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, 0, $field(Code, lineMap)},
-	{"meth", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $FINAL, $field(Code, meth)},
-	{"letExprStackPos", "I", nullptr, $PRIVATE, $field(Code, letExprStackPos)},
-	{"stackMapBuffer", "[Lcom/sun/tools/javac/jvm/Code$StackMapFrame;", nullptr, 0, $field(Code, stackMapBuffer)},
-	{"stackMapTableBuffer", "[Lcom/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame;", nullptr, 0, $field(Code, stackMapTableBuffer)},
-	{"stackMapBufferSize", "I", nullptr, 0, $field(Code, stackMapBufferSize)},
-	{"lastStackMapPC", "I", nullptr, 0, $field(Code, lastStackMapPC)},
-	{"lastFrame", "Lcom/sun/tools/javac/jvm/Code$StackMapFrame;", nullptr, 0, $field(Code, lastFrame)},
-	{"frameBeforeLast", "Lcom/sun/tools/javac/jvm/Code$StackMapFrame;", nullptr, 0, $field(Code, frameBeforeLast)},
-	{"jsrReturnValue", "Lcom/sun/tools/javac/code/Type;", nullptr, $STATIC | $FINAL, $staticField(Code, jsrReturnValue)},
-	{"lvar", "[Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, 0, $field(Code, lvar)},
-	{"varBuffer", "[Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, 0, $field(Code, varBuffer)},
-	{"varBufferSize", "I", nullptr, 0, $field(Code, varBufferSize)},
-	{}
-};
-
-$MethodInfo _Code_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;ZLcom/sun/tools/javac/util/Position$LineMap;ZLcom/sun/tools/javac/jvm/Code$StackMapFormat;ZLcom/sun/tools/javac/jvm/CRTable;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/jvm/PoolWriter;)V", nullptr, $PUBLIC, $method(Code, init$, void, $Symbol$MethodSymbol*, bool, $Position$LineMap*, bool, $Code$StackMapFormat*, bool, $CRTable*, $Symtab*, $Types*, $PoolWriter*)},
-	{"addCatch", "(CCCC)V", nullptr, $PUBLIC, $virtualMethod(Code, addCatch, void, char16_t, char16_t, char16_t, char16_t)},
-	{"addLineNumber", "(CC)V", nullptr, $PUBLIC, $virtualMethod(Code, addLineNumber, void, char16_t, char16_t)},
-	{"addLocalVar", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, $PRIVATE, $method(Code, addLocalVar, void, $Symbol$VarSymbol*)},
-	{"adjustAliveRanges", "(II)V", nullptr, 0, $virtualMethod(Code, adjustAliveRanges, void, int32_t, int32_t)},
-	{"align", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, align, void, int32_t)},
-	{"appendArray", "([I[I)[I", nullptr, $PRIVATE, $method(Code, appendArray, $ints*, $ints*, $ints*)},
-	{"arraycode", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, arraycode, int32_t, $Type*)},
-	{"branch", "(I)Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, $PUBLIC, $virtualMethod(Code, branch, $Code$Chain*, int32_t)},
-	{"checkLimits", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/Log;)Z", nullptr, $PUBLIC, $virtualMethod(Code, checkLimits, bool, $JCDiagnostic$DiagnosticPosition*, $Log*)},
-	{"compressCatchTable", "()V", nullptr, $PUBLIC, $virtualMethod(Code, compressCatchTable, void)},
-	{"curCP", "()I", nullptr, $PUBLIC, $virtualMethod(Code, curCP, int32_t)},
-	{"emit1", "(I)V", nullptr, $PRIVATE, $method(Code, emit1, void, int32_t)},
-	{"emit2", "(I)V", nullptr, $PRIVATE, $method(Code, emit2, void, int32_t)},
-	{"emit4", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, emit4, void, int32_t)},
-	{"emitAnewarray", "(ILcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitAnewarray, void, int32_t, $Type*)},
-	{"emitCLDCStackMap", "(II)V", nullptr, 0, $virtualMethod(Code, emitCLDCStackMap, void, int32_t, int32_t)},
-	{"emitInvokedynamic", "(Lcom/sun/tools/javac/code/Symbol$DynamicMethodSymbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokedynamic, void, $Symbol$DynamicMethodSymbol*, $Type*)},
-	{"emitInvokeinterface", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokeinterface, void, $Symbol*, $Type*)},
-	{"emitInvokespecial", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokespecial, void, $Symbol*, $Type*)},
-	{"emitInvokestatic", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokestatic, void, $Symbol*, $Type*)},
-	{"emitInvokevirtual", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokevirtual, void, $Symbol*, $Type*)},
-	{"emitJump", "(I)I", nullptr, $PUBLIC, $virtualMethod(Code, emitJump, int32_t, int32_t)},
-	{"emitLdc", "(Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitLdc, void, $PoolConstant$LoadableConstant*)},
-	{"emitMultianewarray", "(IILcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitMultianewarray, void, int32_t, int32_t, $Type*)},
-	{"emitNewarray", "(ILcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitNewarray, void, int32_t, $Type*)},
-	{"emitStackMap", "()V", nullptr, $PUBLIC, $virtualMethod(Code, emitStackMap, void)},
-	{"emitStackMapFrame", "(II)V", nullptr, 0, $virtualMethod(Code, emitStackMapFrame, void, int32_t, int32_t)},
-	{"emitop", "(I)V", nullptr, $PRIVATE, $method(Code, emitop, void, int32_t)},
-	{"emitop0", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop0, void, int32_t)},
-	{"emitop1", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop1, void, int32_t, int32_t)},
-	{"emitop1", "(IILcom/sun/tools/javac/jvm/PoolConstant;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop1, void, int32_t, int32_t, $PoolConstant*)},
-	{"emitop1w", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop1w, void, int32_t, int32_t)},
-	{"emitop1w", "(III)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop1w, void, int32_t, int32_t, int32_t)},
-	{"emitop2", "(ILcom/sun/tools/javac/jvm/PoolConstant;Ljava/util/function/ToIntBiFunction;)V", "<P::Lcom/sun/tools/javac/jvm/PoolConstant;>(ITP;Ljava/util/function/ToIntBiFunction<Lcom/sun/tools/javac/jvm/PoolWriter;TP;>;)V", $PUBLIC, $virtualMethod(Code, emitop2, void, int32_t, $PoolConstant*, $ToIntBiFunction*)},
-	{"emitop2", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop2, void, int32_t, int32_t)},
-	{"emitop2", "(IILcom/sun/tools/javac/jvm/PoolConstant;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop2, void, int32_t, int32_t, $PoolConstant*)},
-	{"emitop4", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop4, void, int32_t, int32_t)},
-	{"endScope", "(I)V", nullptr, $PRIVATE, $method(Code, endScope, void, int32_t)},
-	{"endScopes", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, endScopes, void, int32_t)},
-	{"entryPoint", "()I", nullptr, $PUBLIC, $virtualMethod(Code, entryPoint, int32_t)},
-	{"entryPoint", "(Lcom/sun/tools/javac/jvm/Code$State;)I", nullptr, $PUBLIC, $virtualMethod(Code, entryPoint, int32_t, $Code$State*)},
-	{"entryPoint", "(Lcom/sun/tools/javac/jvm/Code$State;Lcom/sun/tools/javac/code/Type;)I", nullptr, $PUBLIC, $virtualMethod(Code, entryPoint, int32_t, $Code$State*, $Type*)},
-	{"fillExceptionParameterPositions", "()V", nullptr, $PUBLIC, $virtualMethod(Code, fillExceptionParameterPositions, void)},
-	{"fillLocalVarPosition", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, $PRIVATE, $method(Code, fillLocalVarPosition, void, $Code$LocalVar*)},
-	{"findExceptionIndex", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition;)I", nullptr, $PRIVATE, $method(Code, findExceptionIndex, int32_t, $TypeAnnotationPosition*)},
-	{"get1", "(I)I", nullptr, $PRIVATE, $method(Code, get1, int32_t, int32_t)},
-	{"get2", "(I)I", nullptr, $PRIVATE, $method(Code, get2, int32_t, int32_t)},
-	{"get4", "(I)I", nullptr, $PUBLIC, $virtualMethod(Code, get4, int32_t, int32_t)},
-	{"getInitialFrame", "()Lcom/sun/tools/javac/jvm/Code$StackMapFrame;", nullptr, 0, $virtualMethod(Code, getInitialFrame, $Code$StackMapFrame*)},
-	{"getLVTSize", "()I", nullptr, $PUBLIC, $virtualMethod(Code, getLVTSize, int32_t)},
-	{"getLocalsSize", "()I", nullptr, $PRIVATE, $method(Code, getLocalsSize, int32_t)},
-	{"isAlive", "()Z", nullptr, $PUBLIC, $virtualMethod(Code, isAlive, bool)},
-	{"isStatementStart", "()Z", nullptr, $PUBLIC, $virtualMethod(Code, isStatementStart, bool)},
-	{"lambda$fillLocalVarPosition$0", "(Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$0, bool, $Code$LocalVar$Range*)},
-	{"lambda$fillLocalVarPosition$1", "(I)[Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$1, $Code$LocalVar$RangeArray*, int32_t)},
-	{"lambda$fillLocalVarPosition$2", "(Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$2, int32_t, $Code$LocalVar$Range*)},
-	{"lambda$fillLocalVarPosition$3", "(Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$3, int32_t, $Code$LocalVar$Range*)},
-	{"lambda$fillLocalVarPosition$4", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$4, int32_t, $Code$LocalVar*, $Code$LocalVar$Range*)},
-	{"markDead", "()V", nullptr, $PUBLIC, $virtualMethod(Code, markDead, void)},
-	{"markStatBegin", "()V", nullptr, $PUBLIC, $virtualMethod(Code, markStatBegin, void)},
-	{"mergeChains", "(Lcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, mergeChains, $Code$Chain*, $Code$Chain*, $Code$Chain*)},
-	{"mnem", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, mnem, $String*, int32_t)},
-	{"negate", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, negate, int32_t, int32_t)},
-	{"newLocal", "(I)I", nullptr, $PRIVATE, $method(Code, newLocal, int32_t, int32_t)},
-	{"newLocal", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, $PRIVATE, $method(Code, newLocal, int32_t, $Type*)},
-	{"newLocal", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)I", nullptr, $PUBLIC, $virtualMethod(Code, newLocal, int32_t, $Symbol$VarSymbol*)},
-	{"newRegSegment", "()V", nullptr, $PUBLIC, $virtualMethod(Code, newRegSegment, void)},
-	{"postop", "()V", nullptr, 0, $virtualMethod(Code, postop, void)},
-	{"put1", "(II)V", nullptr, $PRIVATE, $method(Code, put1, void, int32_t, int32_t)},
-	{"put2", "(II)V", nullptr, $PRIVATE, $method(Code, put2, void, int32_t, int32_t)},
-	{"put4", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, put4, void, int32_t, int32_t)},
-	{"putVar", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, 0, $virtualMethod(Code, putVar, void, $Code$LocalVar*)},
-	{"resolve", "(Lcom/sun/tools/javac/jvm/Code$Chain;I)V", nullptr, $PUBLIC, $virtualMethod(Code, resolve, void, $Code$Chain*, int32_t)},
-	{"resolve", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, $PUBLIC, $virtualMethod(Code, resolve, void, $Code$Chain*)},
-	{"resolvePending", "()V", nullptr, $PUBLIC, $virtualMethod(Code, resolvePending, void)},
-	{"setDefined", "(Lcom/sun/tools/javac/util/Bits;)V", nullptr, $PUBLIC, $virtualMethod(Code, setDefined, void, $Bits*)},
-	{"setDefined", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, setDefined, void, int32_t)},
-	{"setLetExprStackPos", "(I)I", nullptr, $PUBLIC, $virtualMethod(Code, setLetExprStackPos, int32_t, int32_t)},
-	{"setUndefined", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, setUndefined, void, int32_t)},
-	{"statBegin", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, statBegin, void, int32_t)},
-	{"truncate", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, truncate, int32_t, int32_t)},
-	{"typecode", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, typecode, int32_t, $Type*)},
-	{"width", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, width, int32_t, int32_t)},
-	{"width", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, width, int32_t, $Type*)},
-	{"width", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)I", $PUBLIC | $STATIC, $staticMethod(Code, width, int32_t, $List*)},
-	{}
-};
-
-$InnerClassInfo _Code_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.jvm.Code$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{"com.sun.tools.javac.jvm.Code$Mneumonics", "com.sun.tools.javac.jvm.Code", "Mneumonics", $PRIVATE | $STATIC},
-	{"com.sun.tools.javac.jvm.Code$LocalVar", "com.sun.tools.javac.jvm.Code", "LocalVar", $STATIC},
-	{"com.sun.tools.javac.jvm.Code$State", "com.sun.tools.javac.jvm.Code", "State", 0},
-	{"com.sun.tools.javac.jvm.Code$Chain", "com.sun.tools.javac.jvm.Code", "Chain", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.jvm.Code$StackMapFrame", "com.sun.tools.javac.jvm.Code", "StackMapFrame", $STATIC},
-	{"com.sun.tools.javac.jvm.Code$StackMapFormat", "com.sun.tools.javac.jvm.Code", "StackMapFormat", $PUBLIC | $STATIC | $ENUM},
-	{}
-};
-
-$ClassInfo _Code_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.jvm.Code",
-	"java.lang.Object",
-	nullptr,
-	_Code_FieldInfo_,
-	_Code_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Code_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.jvm.Code$1,com.sun.tools.javac.jvm.Code$Mneumonics,com.sun.tools.javac.jvm.Code$LocalVar,com.sun.tools.javac.jvm.Code$LocalVar$Range,com.sun.tools.javac.jvm.Code$State,com.sun.tools.javac.jvm.Code$Chain,com.sun.tools.javac.jvm.Code$StackMapFrame,com.sun.tools.javac.jvm.Code$StackMapFormat,com.sun.tools.javac.jvm.Code$StackMapFormat$2,com.sun.tools.javac.jvm.Code$StackMapFormat$1"
-};
-
-$Object* allocate$Code($Class* clazz) {
-	return $of($alloc(Code));
-}
 
 $Type* Code::jsrReturnValue = nullptr;
 
@@ -531,16 +348,11 @@ void Code::init$($Symbol$MethodSymbol* meth, bool fatcode, $Position$LineMap* li
 	$init($Code$1);
 	switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat)->get($nc((stackMap))->ordinal())) {
 	case 1:
-		{}
 	case 2:
-		{
-			this->needStackMap = true;
-			break;
-		}
+		this->needStackMap = true;
+		break;
 	default:
-		{
-			this->needStackMap = false;
-		}
+		this->needStackMap = false;
 	}
 	$set(this, state, $new($Code$State, this));
 	$set(this, lvar, $new($Code$LocalVarArray, 20));
@@ -548,65 +360,37 @@ void Code::init$($Symbol$MethodSymbol* meth, bool fatcode, $Position$LineMap* li
 
 int32_t Code::typecode($Type* type) {
 	$init(Code);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Code$1);
-	switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(type)->getTag())))->ordinal())) {
+	switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(type)->getTag()))->ordinal())) {
 	case 1:
-		{
-			return 5;
-		}
+		return 5;
 	case 2:
-		{
-			return 7;
-		}
+		return 7;
 	case 3:
-		{
-			return 6;
-		}
+		return 6;
 	case 4:
-		{
-			return 0;
-		}
+		return 0;
 	case 5:
-		{
-			return 1;
-		}
+		return 1;
 	case 6:
-		{
-			return 2;
-		}
+		return 2;
 	case 7:
-		{
-			return 3;
-		}
+		return 3;
 	case 8:
-		{
-			return 5;
-		}
+		return 5;
 	case 9:
-		{
-			return 8;
-		}
+		return 8;
 	case 10:
-		{}
 	case 11:
-		{}
 	case 12:
-		{}
 	case 13:
-		{}
 	case 14:
-		{}
 	case 15:
-		{}
 	case 16:
-		{
-			return 4;
-		}
+		return 4;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"typecode "_s, $(type->getTag())})));
-		}
+		$throwNew($AssertionError, $$of($str({"typecode "_s, $(type->getTag())})));
 	}
 }
 
@@ -614,17 +398,11 @@ int32_t Code::truncate(int32_t tc) {
 	$init(Code);
 	switch (tc) {
 	case 5:
-		{}
 	case 7:
-		{}
 	case 6:
-		{
-			return 0;
-		}
+		return 0;
 	default:
-		{
-			return tc;
-		}
+		return tc;
 	}
 }
 
@@ -632,19 +410,12 @@ int32_t Code::width(int32_t typecode) {
 	$init(Code);
 	switch (typecode) {
 	case 1:
-		{}
 	case 3:
-		{
-			return 2;
-		}
+		return 2;
 	case 8:
-		{
-			return 0;
-		}
+		return 0;
 	default:
-		{
-			return 1;
-		}
+		return 1;
 	}
 }
 
@@ -658,7 +429,7 @@ int32_t Code::width($List* types) {
 	int32_t w = 0;
 	{
 		$var($List, l, types);
-		for (; $nc(l)->nonEmpty(); $assign(l, $nc(l)->tail)) {
+		for (; $nc(l)->nonEmpty(); $assign(l, l->tail)) {
 			w = w + width($cast($Type, l->head));
 		}
 	}
@@ -667,53 +438,31 @@ int32_t Code::width($List* types) {
 
 int32_t Code::arraycode($Type* type) {
 	$init(Code);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Code$1);
-	switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get($nc(($($nc(type)->getTag())))->ordinal())) {
+	switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$code$TypeTag)->get(($$nc($nc(type)->getTag()))->ordinal())) {
 	case 1:
-		{
-			return 8;
-		}
+		return 8;
 	case 8:
-		{
-			return 4;
-		}
+		return 4;
 	case 2:
-		{
-			return 9;
-		}
+		return 9;
 	case 3:
-		{
-			return 5;
-		}
+		return 5;
 	case 4:
-		{
-			return 10;
-		}
+		return 10;
 	case 5:
-		{
-			return 11;
-		}
+		return 11;
 	case 6:
-		{
-			return 6;
-		}
+		return 6;
 	case 7:
-		{
-			return 7;
-		}
+		return 7;
 	case 10:
-		{
-			return 0;
-		}
+		return 0;
 	case 11:
-		{
-			return 1;
-		}
+		return 1;
 	default:
-		{
-			$throwNew($AssertionError, $of($$str({"arraycode "_s, type})));
-		}
+		$throwNew($AssertionError, $$of($str({"arraycode "_s, type})));
 	}
 }
 
@@ -744,8 +493,8 @@ void Code::emit2(int32_t od) {
 		emit1(od >> 8);
 		emit1(od);
 	} else {
-		$nc(this->code)->set(this->cp++, (int8_t)(od >> 8));
-		$nc(this->code)->set(this->cp++, (int8_t)od);
+		this->code->set(this->cp++, (int8_t)(od >> 8));
+		this->code->set(this->cp++, (int8_t)od);
 	}
 }
 
@@ -759,15 +508,15 @@ void Code::emit4(int32_t od) {
 		emit1(od >> 8);
 		emit1(od);
 	} else {
-		$nc(this->code)->set(this->cp++, (int8_t)(od >> 24));
-		$nc(this->code)->set(this->cp++, (int8_t)(od >> 16));
-		$nc(this->code)->set(this->cp++, (int8_t)(od >> 8));
-		$nc(this->code)->set(this->cp++, (int8_t)od);
+		this->code->set(this->cp++, (int8_t)(od >> 24));
+		this->code->set(this->cp++, (int8_t)(od >> 16));
+		this->code->set(this->cp++, (int8_t)(od >> 8));
+		this->code->set(this->cp++, (int8_t)od);
 	}
 }
 
 void Code::emitop(int32_t op) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->pendingJumps != nullptr) {
 		resolvePending();
 	}
@@ -795,7 +544,7 @@ void Code::emitLdc($PoolConstant$LoadableConstant* constant) {
 	if (od <= 255) {
 		emitop1(18, od, constant);
 	} else {
-		emitop2(19, od, static_cast<$PoolConstant*>(constant));
+		emitop2(19, od, constant);
 	}
 }
 
@@ -831,7 +580,7 @@ void Code::emitAnewarray(int32_t od, $Type* arrayType) {
 }
 
 void Code::emitInvokeinterface($Symbol* member, $Type* mtype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t argsize = width($($nc(mtype)->getParameterTypes()));
 	emitop(185);
 	if (!this->alive) {
@@ -841,11 +590,11 @@ void Code::emitInvokeinterface($Symbol* member, $Type* mtype) {
 	emit1(argsize + 1);
 	emit1(0);
 	$nc(this->state)->pop(argsize + 1);
-	$nc(this->state)->push($($nc(mtype)->getReturnType()));
+	$nc(this->state)->push($(mtype->getReturnType()));
 }
 
 void Code::emitInvokespecial($Symbol* member, $Type* mtype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t argsize = width($($nc(mtype)->getParameterTypes()));
 	emitop(183);
 	if (!this->alive) {
@@ -854,14 +603,14 @@ void Code::emitInvokespecial($Symbol* member, $Type* mtype) {
 	emit2($nc(this->poolWriter)->putMember(member));
 	$nc(this->state)->pop(argsize);
 	if ($nc(member)->isConstructor()) {
-		$nc(this->state)->markInitialized($cast($UninitializedType, $($nc(this->state)->peek())));
+		$nc(this->state)->markInitialized($$cast($UninitializedType, $nc(this->state)->peek()));
 	}
 	$nc(this->state)->pop(1);
-	$nc(this->state)->push($($nc(mtype)->getReturnType()));
+	$nc(this->state)->push($(mtype->getReturnType()));
 }
 
 void Code::emitInvokestatic($Symbol* member, $Type* mtype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t argsize = width($($nc(mtype)->getParameterTypes()));
 	emitop(184);
 	if (!this->alive) {
@@ -869,11 +618,11 @@ void Code::emitInvokestatic($Symbol* member, $Type* mtype) {
 	}
 	emit2($nc(this->poolWriter)->putMember(member));
 	$nc(this->state)->pop(argsize);
-	$nc(this->state)->push($($nc(mtype)->getReturnType()));
+	$nc(this->state)->push($(mtype->getReturnType()));
 }
 
 void Code::emitInvokevirtual($Symbol* member, $Type* mtype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t argsize = width($($nc(mtype)->getParameterTypes()));
 	emitop(182);
 	if (!this->alive) {
@@ -881,11 +630,11 @@ void Code::emitInvokevirtual($Symbol* member, $Type* mtype) {
 	}
 	emit2($nc(this->poolWriter)->putMember(member));
 	$nc(this->state)->pop(argsize + 1);
-	$nc(this->state)->push($($nc(mtype)->getReturnType()));
+	$nc(this->state)->push($(mtype->getReturnType()));
 }
 
 void Code::emitInvokedynamic($Symbol$DynamicMethodSymbol* dynMember, $Type* mtype) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t argsize = width($($nc(mtype)->getParameterTypes()));
 	emitop(186);
 	if (!this->alive) {
@@ -894,11 +643,11 @@ void Code::emitInvokedynamic($Symbol$DynamicMethodSymbol* dynMember, $Type* mtyp
 	emit2($nc(this->poolWriter)->putDynamic(dynMember));
 	emit2(0);
 	$nc(this->state)->pop(argsize);
-	$nc(this->state)->push($($nc(mtype)->getReturnType()));
+	$nc(this->state)->push($(mtype->getReturnType()));
 }
 
 void Code::emitop0(int32_t op) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	emitop(op);
 	if (!this->alive) {
 		return;
@@ -906,603 +655,391 @@ void Code::emitop0(int32_t op) {
 	switch (op) {
 	case 50:
 		{
-			{
-				$nc(this->state)->pop(1);
-				$var($Type, a, $nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1));
-				$init($TypeTag);
-				$Assert::check(!$nc(a)->hasTag($TypeTag::BOT));
-				$nc(this->state)->pop(1);
-				$nc(this->state)->push($($nc(this->types)->erasure($($nc(this->types)->elemtype(a)))));
-			}
-			break;
+			$nc(this->state)->pop(1);
+			$var($Type, a, $nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1));
+			$init($TypeTag);
+			$Assert::check(!$nc(a)->hasTag($TypeTag::BOT));
+			$nc(this->state)->pop(1);
+			$nc(this->state)->push($($nc(this->types)->erasure($($nc(this->types)->elemtype(a)))));
 		}
+		break;
 	case 167:
-		{
-			markDead();
-			break;
-		}
+		markDead();
+		break;
 	case 0:
-		{}
 	case 116:
-		{}
 	case 117:
-		{}
 	case 118:
-		{}
 	case 119:
-		{
-			break;
-		}
+		break;
 	case 1:
-		{
-			$nc(this->state)->push($nc(this->syms)->botType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->botType);
+		break;
 	case 2:
-		{}
 	case 3:
-		{}
 	case 4:
-		{}
 	case 5:
-		{}
 	case 6:
-		{}
 	case 7:
-		{}
 	case 8:
-		{}
 	case 26:
-		{}
 	case 27:
-		{}
 	case 28:
-		{}
 	case 29:
-		{
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 9:
-		{}
 	case 10:
-		{}
 	case 30:
-		{}
 	case 31:
-		{}
 	case 32:
-		{}
 	case 33:
-		{
-			$nc(this->state)->push($nc(this->syms)->longType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->longType);
+		break;
 	case 11:
-		{}
 	case 12:
-		{}
 	case 13:
-		{}
 	case 34:
-		{}
 	case 35:
-		{}
 	case 36:
-		{}
 	case 37:
-		{
-			$nc(this->state)->push($nc(this->syms)->floatType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->floatType);
+		break;
 	case 14:
-		{}
 	case 15:
-		{}
 	case 38:
-		{}
 	case 39:
-		{}
 	case 40:
-		{}
 	case 41:
-		{
-			$nc(this->state)->push($nc(this->syms)->doubleType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->doubleType);
+		break;
 	case 42:
-		{
-			$nc(this->state)->push($nc($nc($nc(this->lvar)->get(0))->sym)->type);
-			break;
-		}
+		$nc(this->state)->push($nc($nc($nc(this->lvar)->get(0))->sym)->type);
+		break;
 	case 43:
-		{
-			$nc(this->state)->push($nc($nc($nc(this->lvar)->get(1))->sym)->type);
-			break;
-		}
+		$nc(this->state)->push($nc($nc($nc(this->lvar)->get(1))->sym)->type);
+		break;
 	case 44:
-		{
-			$nc(this->state)->push($nc($nc($nc(this->lvar)->get(2))->sym)->type);
-			break;
-		}
+		$nc(this->state)->push($nc($nc($nc(this->lvar)->get(2))->sym)->type);
+		break;
 	case 45:
-		{
-			$nc(this->state)->push($nc($nc($nc(this->lvar)->get(3))->sym)->type);
-			break;
-		}
+		$nc(this->state)->push($nc($nc($nc(this->lvar)->get(3))->sym)->type);
+		break;
 	case 46:
-		{}
 	case 51:
-		{}
 	case 52:
-		{}
 	case 53:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 47:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->longType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->longType);
+		break;
 	case 48:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->floatType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->floatType);
+		break;
 	case 49:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->doubleType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->doubleType);
+		break;
 	case 59:
-		{}
 	case 60:
-		{}
 	case 61:
-		{}
 	case 62:
-		{}
 	case 67:
-		{}
 	case 68:
-		{}
 	case 69:
-		{}
 	case 70:
-		{}
 	case 75:
-		{}
 	case 76:
-		{}
 	case 77:
-		{}
 	case 78:
-		{}
 	case 87:
-		{}
 	case 123:
-		{}
 	case 121:
-		{}
 	case 125:
-		{
-			$nc(this->state)->pop(1);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		break;
 	case 176:
-		{}
 	case 172:
-		{}
 	case 174:
-		{
-			$Assert::check($nc(this->state)->nlocks == 0);
-			$nc(this->state)->pop(1);
-			markDead();
-			break;
-		}
+		$Assert::check($nc(this->state)->nlocks == 0);
+		$nc(this->state)->pop(1);
+		markDead();
+		break;
 	case 191:
-		{
-			$nc(this->state)->pop(1);
-			markDead();
-			break;
-		}
+		$nc(this->state)->pop(1);
+		markDead();
+		break;
 	case 63:
-		{}
 	case 64:
-		{}
 	case 65:
-		{}
 	case 66:
-		{}
 	case 71:
-		{}
 	case 72:
-		{}
 	case 73:
-		{}
 	case 74:
-		{}
 	case 88:
-		{
-			$nc(this->state)->pop(2);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		break;
 	case 173:
-		{}
 	case 175:
-		{
-			$Assert::check($nc(this->state)->nlocks == 0);
-			$nc(this->state)->pop(2);
-			markDead();
-			break;
-		}
+		$Assert::check($nc(this->state)->nlocks == 0);
+		$nc(this->state)->pop(2);
+		markDead();
+		break;
 	case 89:
-		{
-			$nc(this->state)->push($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1));
-			break;
-		}
+		$nc(this->state)->push($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1));
+		break;
 	case 177:
-		{
-			$Assert::check($nc(this->state)->nlocks == 0);
-			markDead();
-			break;
-		}
+		$Assert::check($nc(this->state)->nlocks == 0);
+		markDead();
+		break;
 	case 190:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 100:
-		{}
 	case 96:
-		{}
 	case 104:
-		{}
 	case 108:
-		{}
 	case 112:
-		{}
 	case 120:
-		{}
 	case 122:
-		{}
 	case 124:
-		{}
 	case 126:
-		{}
 	case 128:
-		{}
 	case 130:
-		{
-			$nc(this->state)->pop(1);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		break;
 	case 83:
-		{
-			$nc(this->state)->pop(3);
-			break;
-		}
+		$nc(this->state)->pop(3);
+		break;
 	case 127:
-		{}
 	case 129:
-		{}
 	case 131:
-		{}
 	case 113:
-		{}
 	case 109:
-		{}
 	case 105:
-		{}
 	case 101:
-		{}
 	case 97:
-		{
-			$nc(this->state)->pop(2);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		break;
 	case 148:
-		{
-			$nc(this->state)->pop(4);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->pop(4);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 136:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 133:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($nc(this->syms)->longType);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($nc(this->syms)->longType);
+		break;
 	case 134:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($nc(this->syms)->floatType);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($nc(this->syms)->floatType);
+		break;
 	case 135:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($nc(this->syms)->doubleType);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($nc(this->syms)->doubleType);
+		break;
 	case 137:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->floatType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->floatType);
+		break;
 	case 138:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->doubleType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->doubleType);
+		break;
 	case 139:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 140:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($nc(this->syms)->longType);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($nc(this->syms)->longType);
+		break;
 	case 141:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($nc(this->syms)->doubleType);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($nc(this->syms)->doubleType);
+		break;
 	case 142:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 143:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->longType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->longType);
+		break;
 	case 144:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->floatType);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->floatType);
+		break;
 	case 170:
-		{}
 	case 171:
-		{
-			$nc(this->state)->pop(1);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		break;
 	case 90:
 		{
-			{
-				$var($Type, val1, $nc(this->state)->pop1());
-				$var($Type, val2, $nc(this->state)->pop1());
-				$nc(this->state)->push(val1);
-				$nc(this->state)->push(val2);
-				$nc(this->state)->push(val1);
-				break;
-			}
+			$var($Type, val1, $nc(this->state)->pop1());
+			$var($Type, val2, $nc(this->state)->pop1());
+			$nc(this->state)->push(val1);
+			$nc(this->state)->push(val2);
+			$nc(this->state)->push(val1);
+			break;
 		}
 	case 84:
-		{
-			$nc(this->state)->pop(3);
-			break;
-		}
+		$nc(this->state)->pop(3);
+		break;
 	case 145:
-		{}
 	case 146:
-		{}
 	case 147:
-		{
-			break;
-		}
+		break;
 	case 106:
-		{}
 	case 98:
-		{}
 	case 102:
-		{}
 	case 110:
-		{}
 	case 114:
-		{
-			$nc(this->state)->pop(1);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		break;
 	case 85:
-		{}
 	case 79:
-		{}
 	case 81:
-		{}
 	case 86:
-		{
-			$nc(this->state)->pop(3);
-			break;
-		}
+		$nc(this->state)->pop(3);
+		break;
 	case 80:
-		{}
 	case 82:
-		{
-			$nc(this->state)->pop(4);
-			break;
-		}
+		$nc(this->state)->pop(4);
+		break;
 	case 92:
-		{
+		if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
+			$var($Type, value1, this->state->pop1());
+			$var($Type, value2, $nc(this->state)->pop1());
+			$nc(this->state)->push(value2);
+			$nc(this->state)->push(value1);
+			$nc(this->state)->push(value2);
+			$nc(this->state)->push(value1);
+		} else {
+			$var($Type, value, this->state->pop2());
+			$nc(this->state)->push(value);
+			$nc(this->state)->push(value);
+		}
+		break;
+	case 93:
+		if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
+			$var($Type, value1, this->state->pop1());
+			$var($Type, value2, $nc(this->state)->pop1());
+			$var($Type, value3, $nc(this->state)->pop1());
+			$nc(this->state)->push(value2);
+			$nc(this->state)->push(value1);
+			$nc(this->state)->push(value3);
+			$nc(this->state)->push(value2);
+			$nc(this->state)->push(value1);
+		} else {
+			$var($Type, value1, this->state->pop2());
+			$var($Type, value2, $nc(this->state)->pop1());
+			$nc(this->state)->push(value1);
+			$nc(this->state)->push(value2);
+			$nc(this->state)->push(value1);
+		}
+		break;
+	case 94:
+		if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
+			$var($Type, value1, this->state->pop1());
+			$var($Type, value2, $nc(this->state)->pop1());
 			if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
-				$var($Type, value1, $nc(this->state)->pop1());
-				$var($Type, value2, $nc(this->state)->pop1());
+				$var($Type, value3, this->state->pop1());
+				$var($Type, value4, $nc(this->state)->pop1());
 				$nc(this->state)->push(value2);
 				$nc(this->state)->push(value1);
+				$nc(this->state)->push(value4);
+				$nc(this->state)->push(value3);
 				$nc(this->state)->push(value2);
 				$nc(this->state)->push(value1);
 			} else {
-				$var($Type, value, $nc(this->state)->pop2());
-				$nc(this->state)->push(value);
-				$nc(this->state)->push(value);
-			}
-			break;
-		}
-	case 93:
-		{
-			if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
-				$var($Type, value1, $nc(this->state)->pop1());
-				$var($Type, value2, $nc(this->state)->pop1());
-				$var($Type, value3, $nc(this->state)->pop1());
+				$var($Type, value3, this->state->pop2());
 				$nc(this->state)->push(value2);
 				$nc(this->state)->push(value1);
 				$nc(this->state)->push(value3);
 				$nc(this->state)->push(value2);
 				$nc(this->state)->push(value1);
+			}
+		} else {
+			$var($Type, value1, this->state->pop2());
+			if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
+				$var($Type, value2, this->state->pop1());
+				$var($Type, value3, $nc(this->state)->pop1());
+				$nc(this->state)->push(value1);
+				$nc(this->state)->push(value3);
+				$nc(this->state)->push(value2);
+				$nc(this->state)->push(value1);
 			} else {
-				$var($Type, value1, $nc(this->state)->pop2());
-				$var($Type, value2, $nc(this->state)->pop1());
+				$var($Type, value2, this->state->pop2());
 				$nc(this->state)->push(value1);
 				$nc(this->state)->push(value2);
 				$nc(this->state)->push(value1);
 			}
-			break;
 		}
-	case 94:
-		{
-			if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
-				$var($Type, value1, $nc(this->state)->pop1());
-				$var($Type, value2, $nc(this->state)->pop1());
-				if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
-					$var($Type, value3, $nc(this->state)->pop1());
-					$var($Type, value4, $nc(this->state)->pop1());
-					$nc(this->state)->push(value2);
-					$nc(this->state)->push(value1);
-					$nc(this->state)->push(value4);
-					$nc(this->state)->push(value3);
-					$nc(this->state)->push(value2);
-					$nc(this->state)->push(value1);
-				} else {
-					$var($Type, value3, $nc(this->state)->pop2());
-					$nc(this->state)->push(value2);
-					$nc(this->state)->push(value1);
-					$nc(this->state)->push(value3);
-					$nc(this->state)->push(value2);
-					$nc(this->state)->push(value1);
-				}
-			} else {
-				$var($Type, value1, $nc(this->state)->pop2());
-				if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
-					$var($Type, value2, $nc(this->state)->pop1());
-					$var($Type, value3, $nc(this->state)->pop1());
-					$nc(this->state)->push(value1);
-					$nc(this->state)->push(value3);
-					$nc(this->state)->push(value2);
-					$nc(this->state)->push(value1);
-				} else {
-					$var($Type, value2, $nc(this->state)->pop2());
-					$nc(this->state)->push(value1);
-					$nc(this->state)->push(value2);
-					$nc(this->state)->push(value1);
-				}
-			}
-			break;
-		}
+		break;
 	case 91:
 		{
-			{
-				$var($Type, value1, $nc(this->state)->pop1());
-				if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
-					$var($Type, value2, $nc(this->state)->pop1());
-					$var($Type, value3, $nc(this->state)->pop1());
-					$nc(this->state)->push(value1);
-					$nc(this->state)->push(value3);
-					$nc(this->state)->push(value2);
-					$nc(this->state)->push(value1);
-				} else {
-					$var($Type, value2, $nc(this->state)->pop2());
-					$nc(this->state)->push(value1);
-					$nc(this->state)->push(value2);
-					$nc(this->state)->push(value1);
-				}
-			}
-			break;
-		}
-	case 149:
-		{}
-	case 150:
-		{
-			$nc(this->state)->pop(2);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
-	case 151:
-		{}
-	case 152:
-		{
-			$nc(this->state)->pop(4);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
-	case 95:
-		{
-			{
-				$var($Type, value1, $nc(this->state)->pop1());
-				$var($Type, value2, $nc(this->state)->pop1());
+			$var($Type, value1, $nc(this->state)->pop1());
+			if ($nc($nc(this->state)->stack)->get($nc(this->state)->stacksize - 1) != nullptr) {
+				$var($Type, value2, this->state->pop1());
+				$var($Type, value3, $nc(this->state)->pop1());
+				$nc(this->state)->push(value1);
+				$nc(this->state)->push(value3);
+				$nc(this->state)->push(value2);
+				$nc(this->state)->push(value1);
+			} else {
+				$var($Type, value2, this->state->pop2());
 				$nc(this->state)->push(value1);
 				$nc(this->state)->push(value2);
-				break;
+				$nc(this->state)->push(value1);
 			}
 		}
+		break;
+	case 149:
+	case 150:
+		$nc(this->state)->pop(2);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
+	case 151:
+	case 152:
+		$nc(this->state)->pop(4);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
+	case 95:
+		{
+			$var($Type, value1, $nc(this->state)->pop1());
+			$var($Type, value2, $nc(this->state)->pop1());
+			$nc(this->state)->push(value1);
+			$nc(this->state)->push(value2);
+			break;
+		}
 	case 99:
-		{}
 	case 103:
-		{}
 	case 107:
-		{}
 	case 111:
-		{}
 	case 115:
-		{
-			$nc(this->state)->pop(2);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		break;
 	case 169:
-		{
-			markDead();
-			break;
-		}
+		markDead();
+		break;
 	case 196:
-		{
-			return;
-		}
+		return;
 	case 194:
-		{}
 	case 195:
-		{
-			$nc(this->state)->pop(1);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $($of(mnem(op))));
-		}
+		$throwNew($AssertionError, $$of(mnem(op)));
 	}
 	postop();
 }
@@ -1512,7 +1049,7 @@ void Code::emitop1(int32_t op, int32_t od) {
 }
 
 void Code::emitop1(int32_t op, int32_t od, $PoolConstant* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	emitop(op);
 	if (!this->alive) {
 		return;
@@ -1520,19 +1057,13 @@ void Code::emitop1(int32_t op, int32_t od, $PoolConstant* data) {
 	emit1(od);
 	switch (op) {
 	case 16:
-		{
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 18:
-		{
-			$nc(this->state)->push($($nc(this->types)->constantType($cast($PoolConstant$LoadableConstant, data))));
-			break;
-		}
+		$nc(this->state)->push($($nc(this->types)->constantType($cast($PoolConstant$LoadableConstant, data))));
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $($of(mnem(op))));
-		}
+		$throwNew($AssertionError, $$of(mnem(op)));
 	}
 	postop();
 }
@@ -1551,55 +1082,34 @@ void Code::emitop1w(int32_t op, int32_t od) {
 	}
 	switch (op) {
 	case 21:
-		{
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 22:
-		{
-			$nc(this->state)->push($nc(this->syms)->longType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->longType);
+		break;
 	case 23:
-		{
-			$nc(this->state)->push($nc(this->syms)->floatType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->floatType);
+		break;
 	case 24:
-		{
-			$nc(this->state)->push($nc(this->syms)->doubleType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->doubleType);
+		break;
 	case 25:
-		{
-			$nc(this->state)->push($nc($nc($nc(this->lvar)->get(od))->sym)->type);
-			break;
-		}
+		$nc(this->state)->push($nc($nc($nc(this->lvar)->get(od))->sym)->type);
+		break;
 	case 55:
-		{}
 	case 57:
-		{
-			$nc(this->state)->pop(2);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		break;
 	case 54:
-		{}
 	case 56:
-		{}
 	case 58:
-		{
-			$nc(this->state)->pop(1);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		break;
 	case 169:
-		{
-			markDead();
-			break;
-		}
+		markDead();
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $($of(mnem(op))));
-		}
+		$throwNew($AssertionError, $$of(mnem(op)));
 	}
 	postop();
 }
@@ -1620,13 +1130,9 @@ void Code::emitop1w(int32_t op, int32_t od1, int32_t od2) {
 	}
 	switch (op) {
 	case 132:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $($of(mnem(op))));
-		}
+		$throwNew($AssertionError, $$of(mnem(op)));
 	}
 }
 
@@ -1636,11 +1142,11 @@ void Code::emitop2(int32_t op, $PoolConstant* constant, $ToIntBiFunction* poolFu
 }
 
 void Code::emitop2(int32_t op, int32_t od) {
-	emitop2(op, od, ($PoolConstant*)nullptr);
+	emitop2(op, od, nullptr);
 }
 
 void Code::emitop2(int32_t op, int32_t od, $PoolConstant* data) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	emitop(op);
 	if (!this->alive) {
 		return;
@@ -1648,116 +1154,72 @@ void Code::emitop2(int32_t op, int32_t od, $PoolConstant* data) {
 	emit2(od);
 	switch (op) {
 	case 178:
-		{
-			$nc(this->state)->push($($nc(($cast($Symbol, data)))->erasure(this->types)));
-			break;
-		}
+		$nc(this->state)->push($($nc($cast($Symbol, data))->erasure(this->types)));
+		break;
 	case 179:
-		{
-			$nc(this->state)->pop($($nc(($cast($Symbol, data)))->erasure(this->types)));
-			break;
-		}
+		$nc(this->state)->pop($($nc($cast($Symbol, data))->erasure(this->types)));
+		break;
 	case 187:
 		{
-			{
-				$var($Type, t, $cast($Type, data));
-				$nc(this->state)->push($($UninitializedType::uninitializedObject($($nc($nc(t)->tsym)->erasure(this->types)), this->cp - 3)));
-				break;
-			}
+			$var($Type, t, $cast($Type, data));
+			$nc(this->state)->push($($UninitializedType::uninitializedObject($($nc($nc(t)->tsym)->erasure(this->types)), this->cp - 3)));
+			break;
 		}
 	case 17:
-		{
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 198:
-		{}
 	case 199:
-		{}
 	case 153:
-		{}
 	case 154:
-		{}
 	case 155:
-		{}
 	case 156:
-		{}
 	case 157:
-		{}
 	case 158:
-		{
-			$nc(this->state)->pop(1);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		break;
 	case 159:
-		{}
 	case 160:
-		{}
 	case 161:
-		{}
 	case 162:
-		{}
 	case 163:
-		{}
 	case 164:
-		{}
 	case 165:
-		{}
 	case 166:
-		{
-			$nc(this->state)->pop(2);
-			break;
-		}
+		$nc(this->state)->pop(2);
+		break;
 	case 167:
-		{
-			markDead();
-			break;
-		}
+		markDead();
+		break;
 	case 181:
-		{
-			$nc(this->state)->pop($($nc(($cast($Symbol, data)))->erasure(this->types)));
-			$nc(this->state)->pop(1);
-			break;
-		}
+		$nc(this->state)->pop($($nc($cast($Symbol, data))->erasure(this->types)));
+		$nc(this->state)->pop(1);
+		break;
 	case 180:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($($nc(($cast($Symbol, data)))->erasure(this->types)));
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($($nc($cast($Symbol, data))->erasure(this->types)));
+		break;
 	case 192:
 		{
-			{
-				$nc(this->state)->pop(1);
-				$var($Type, t, $nc(this->types)->erasure($cast($Type, data)));
-				$nc(this->state)->push(t);
-				break;
-			}
+			$nc(this->state)->pop(1);
+			$var($Type, t, $nc(this->types)->erasure($cast($Type, data)));
+			$nc(this->state)->push(t);
+			break;
 		}
 	case 20:
-		{
-			$nc(this->state)->push($($nc(this->types)->constantType($cast($PoolConstant$LoadableConstant, data))));
-			break;
-		}
+		$nc(this->state)->push($($nc(this->types)->constantType($cast($PoolConstant$LoadableConstant, data))));
+		break;
 	case 193:
-		{
-			$nc(this->state)->pop(1);
-			$nc(this->state)->push($nc(this->syms)->intType);
-			break;
-		}
+		$nc(this->state)->pop(1);
+		$nc(this->state)->push($nc(this->syms)->intType);
+		break;
 	case 19:
-		{
-			$nc(this->state)->push($($nc(this->types)->constantType($cast($PoolConstant$LoadableConstant, data))));
-			break;
-		}
+		$nc(this->state)->push($($nc(this->types)->constantType($cast($PoolConstant$LoadableConstant, data))));
+		break;
 	case 168:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $($of(mnem(op))));
-		}
+		$throwNew($AssertionError, $$of(mnem(op)));
 	}
 }
 
@@ -1769,18 +1231,12 @@ void Code::emitop4(int32_t op, int32_t od) {
 	emit4(od);
 	switch (op) {
 	case 200:
-		{
-			markDead();
-			break;
-		}
+		markDead();
+		break;
 	case 201:
-		{
-			break;
-		}
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $($of(mnem(op))));
-		}
+		$throwNew($AssertionError, $$of(mnem(op)));
 	}
 }
 
@@ -1809,16 +1265,16 @@ void Code::put4(int32_t pc, int32_t od) {
 }
 
 int32_t Code::get1(int32_t pc) {
-	return (int32_t)($nc(this->code)->get(pc) & (uint32_t)255);
+	return $nc(this->code)->get(pc) & 0xff;
 }
 
 int32_t Code::get2(int32_t pc) {
-	int32_t var$0 = (get1(pc) << 8);
+	int32_t var$0 = get1(pc) << 8;
 	return var$0 | get1(pc + 1);
 }
 
 int32_t Code::get4(int32_t pc) {
-	int32_t var$2 = (get1(pc) << 24);
+	int32_t var$2 = get1(pc) << 24;
 	int32_t var$1 = var$2 | (get1(pc + 1) << 16);
 	int32_t var$0 = var$1 | (get1(pc + 2) << 8);
 	return var$0 | (get1(pc + 3));
@@ -1840,7 +1296,7 @@ int32_t Code::entryPoint() {
 }
 
 int32_t Code::entryPoint($Code$State* state) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pc = curCP();
 	this->alive = true;
 	$var($Code$State, newState, $nc(state)->dup());
@@ -1855,7 +1311,7 @@ int32_t Code::entryPoint($Code$State* state) {
 }
 
 int32_t Code::entryPoint($Code$State* state, $Type* pushed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t pc = curCP();
 	this->alive = true;
 	$var($Code$State, newState, $nc(state)->dup());
@@ -1888,19 +1344,13 @@ void Code::emitStackMap() {
 	$init($Code$1);
 	switch ($nc($Code$1::$SwitchMap$com$sun$tools$javac$jvm$Code$StackMapFormat)->get($nc((this->stackMap))->ordinal())) {
 	case 1:
-		{
-			emitCLDCStackMap(pc, getLocalsSize());
-			break;
-		}
+		emitCLDCStackMap(pc, getLocalsSize());
+		break;
 	case 2:
-		{
-			emitStackMapFrame(pc, getLocalsSize());
-			break;
-		}
+		emitStackMapFrame(pc, getLocalsSize());
+		break;
 	default:
-		{
-			$throwNew($AssertionError, $of("Should have chosen a stackmap format"_s));
-		}
+		$throwNew($AssertionError, $of("Should have chosen a stackmap format"_s));
 	}
 	if (this->debugCode) {
 		$nc(this->state)->dump(pc);
@@ -1908,7 +1358,7 @@ void Code::emitStackMap() {
 }
 
 int32_t Code::getLocalsSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t nextLocal = 0;
 	for (int32_t i = this->max_locals - 1; i >= 0; --i) {
 		if ($nc($nc(this->state)->defined)->isMember(i) && $nc(this->lvar)->get(i) != nullptr) {
@@ -1920,7 +1370,7 @@ int32_t Code::getLocalsSize() {
 }
 
 void Code::emitCLDCStackMap(int32_t pc, int32_t localsSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->lastStackMapPC == pc) {
 		$nc(this->stackMapBuffer)->set(--this->stackMapBufferSize, nullptr);
 	}
@@ -1928,7 +1378,7 @@ void Code::emitCLDCStackMap(int32_t pc, int32_t localsSize) {
 	if (this->stackMapBuffer == nullptr) {
 		$set(this, stackMapBuffer, $new($Code$StackMapFrameArray, 20));
 	} else {
-		$set(this, stackMapBuffer, $fcast($Code$StackMapFrameArray, $ArrayUtils::ensureCapacity(this->stackMapBuffer, this->stackMapBufferSize)));
+		$set(this, stackMapBuffer, $cast($Code$StackMapFrameArray, $ArrayUtils::ensureCapacity(this->stackMapBuffer, this->stackMapBufferSize)));
 	}
 	$var($Code$StackMapFrame, frame, $nc(this->stackMapBuffer)->set(this->stackMapBufferSize++, $$new($Code$StackMapFrame)));
 	$nc(frame)->pc = pc;
@@ -1943,16 +1393,16 @@ void Code::emitCLDCStackMap(int32_t pc, int32_t localsSize) {
 		}
 	}
 	$set(frame, stack, $new($TypeArray, $nc(this->state)->stacksize));
-	for (int32_t i = 0; i < $nc(this->state)->stacksize; ++i) {
-		$nc(frame->stack)->set(i, $nc($nc(this->state)->stack)->get(i));
+	for (int32_t i = 0; i < this->state->stacksize; ++i) {
+		frame->stack->set(i, $nc(this->state->stack)->get(i));
 	}
 }
 
 void Code::emitStackMapFrame(int32_t pc, int32_t localsSize) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->lastFrame == nullptr) {
 		$set(this, lastFrame, getInitialFrame());
-	} else if ($nc(this->lastFrame)->pc == pc) {
+	} else if (this->lastFrame->pc == pc) {
 		$nc(this->stackMapTableBuffer)->set(--this->stackMapBufferSize, nullptr);
 		$set(this, lastFrame, this->frameBeforeLast);
 		$set(this, frameBeforeLast, nullptr);
@@ -1974,34 +1424,30 @@ void Code::emitStackMapFrame(int32_t pc, int32_t localsSize) {
 		}
 	}
 	$set(frame, locals, $new($TypeArray, localCount));
-	{
-		int32_t i = 0;
-		int32_t j = 0;
-		for (; i < localsSize; ++i, ++j) {
-			$Assert::check(j < localCount);
-			$nc(frame->locals)->set(j, locals->get(i));
-			if (width(locals->get(i)) > 1) {
-				++i;
-			}
+	for (int32_t i = 0, j = 0; i < localsSize; ++i, ++j) {
+		$Assert::check(j < localCount);
+		$nc(frame->locals)->set(j, locals->get(i));
+		if (width(locals->get(i)) > 1) {
+			++i;
 		}
 	}
 	int32_t stackCount = 0;
 	for (int32_t i = 0; i < $nc(this->state)->stacksize; ++i) {
-		if ($nc($nc(this->state)->stack)->get(i) != nullptr) {
+		if ($nc(this->state->stack)->get(i) != nullptr) {
 			++stackCount;
 		}
 	}
 	$set(frame, stack, $new($TypeArray, stackCount));
 	stackCount = 0;
 	for (int32_t i = 0; i < $nc(this->state)->stacksize; ++i) {
-		if ($nc($nc(this->state)->stack)->get(i) != nullptr) {
-			$nc(frame->stack)->set(stackCount++, $($nc(this->types)->erasure($nc($nc(this->state)->stack)->get(i))));
+		if ($nc(this->state->stack)->get(i) != nullptr) {
+			$nc(frame->stack)->set(stackCount++, $($nc(this->types)->erasure(this->state->stack->get(i))));
 		}
 	}
 	if (this->stackMapTableBuffer == nullptr) {
 		$set(this, stackMapTableBuffer, $new($ClassWriter$StackMapTableFrameArray, 20));
 	} else {
-		$set(this, stackMapTableBuffer, $fcast($ClassWriter$StackMapTableFrameArray, $ArrayUtils::ensureCapacity(this->stackMapTableBuffer, this->stackMapBufferSize)));
+		$set(this, stackMapTableBuffer, $cast($ClassWriter$StackMapTableFrameArray, $ArrayUtils::ensureCapacity(this->stackMapTableBuffer, this->stackMapBufferSize)));
 	}
 	$nc(this->stackMapTableBuffer)->set(this->stackMapBufferSize++, $($ClassWriter$StackMapTableFrame::getInstance(frame, $nc(this->lastFrame)->pc, $nc(this->lastFrame)->locals, this->types)));
 	$set(this, frameBeforeLast, this->lastFrame);
@@ -2009,15 +1455,15 @@ void Code::emitStackMapFrame(int32_t pc, int32_t localsSize) {
 }
 
 $Code$StackMapFrame* Code::getInitialFrame() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Code$StackMapFrame, frame, $new($Code$StackMapFrame));
-	$var($List, arg_types, $nc(($cast($Type$MethodType, $($nc(this->meth)->externalType(this->types)))))->argtypes$);
+	$var($List, arg_types, $nc($$cast($Type$MethodType, $nc(this->meth)->externalType(this->types)))->argtypes$);
 	int32_t len = $nc(arg_types)->length();
 	int32_t count = 0;
-	if (!$nc(this->meth)->isStatic()) {
-		$var($Type, thisType, $nc($nc(this->meth)->owner)->type);
+	if (!this->meth->isStatic()) {
+		$var($Type, thisType, $nc(this->meth->owner)->type);
 		$set(frame, locals, $new($TypeArray, len + 1));
-		if ($nc(this->meth)->isConstructor() && thisType != $nc(this->syms)->objectType) {
+		if (this->meth->isConstructor() && thisType != $nc(this->syms)->objectType) {
 			$nc(frame->locals)->set(count++, $($UninitializedType::uninitializedThis(thisType)));
 		} else {
 			$nc(frame->locals)->set(count++, $($nc(this->types)->erasure(thisType)));
@@ -2068,7 +1514,7 @@ int32_t Code::emitJump(int32_t opcode) {
 }
 
 $Code$Chain* Code::branch(int32_t opcode) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Code$Chain, result, nullptr);
 	if (opcode == 167) {
 		$assign(result, this->pendingJumps);
@@ -2076,8 +1522,7 @@ $Code$Chain* Code::branch(int32_t opcode) {
 	}
 	if (opcode != 168 && isAlive()) {
 		int32_t var$0 = emitJump(opcode);
-		$var($Code$Chain, var$1, result);
-		$assign(result, $new($Code$Chain, var$0, var$1, $($nc(this->state)->dup())));
+		$assign(result, $new($Code$Chain, var$0, result, $($nc(this->state)->dup())));
 		this->fixedPc = this->fatcode;
 		if (opcode == 167) {
 			this->alive = false;
@@ -2087,11 +1532,11 @@ $Code$Chain* Code::branch(int32_t opcode) {
 }
 
 void Code::resolve($Code$Chain* chain$renamed, int32_t target) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Code$Chain, chain, chain$renamed);
 	bool changed = false;
 	$var($Code$State, newState, this->state);
-	for (; chain != nullptr; $assign(chain, $nc(chain)->next)) {
+	for (; chain != nullptr; $assign(chain, chain->next)) {
 		$Assert::check(this->state != chain->state && (target > chain->pc || isStatementStart()));
 		if (target >= this->cp) {
 			target = this->cp;
@@ -2120,7 +1565,7 @@ void Code::resolve($Code$Chain* chain$renamed, int32_t target) {
 			} else {
 				put2(chain->pc + 1, target - chain->pc);
 			}
-			$Assert::check(!this->alive || $nc(chain->state)->stacksize == $nc(newState)->stacksize && $nc(chain->state)->nlocks == newState->nlocks);
+			$Assert::check(!this->alive || $nc(chain->state)->stacksize == $nc(newState)->stacksize && chain->state->nlocks == newState->nlocks);
 		}
 		this->fixedPc = true;
 		if (this->cp == target) {
@@ -2145,7 +1590,7 @@ void Code::resolve($Code$Chain* chain$renamed, int32_t target) {
 }
 
 void Code::resolve($Code$Chain* chain) {
-	$Assert::check(!this->alive || chain == nullptr || $nc(this->state)->stacksize == $nc($nc(chain)->state)->stacksize && $nc(this->state)->nlocks == $nc(chain->state)->nlocks);
+	$Assert::check(!this->alive || chain == nullptr || $nc(this->state)->stacksize == $nc(chain->state)->stacksize && this->state->nlocks == chain->state->nlocks);
 	$set(this, pendingJumps, mergeChains(chain, this->pendingJumps));
 }
 
@@ -2157,18 +1602,18 @@ void Code::resolvePending() {
 
 $Code$Chain* Code::mergeChains($Code$Chain* chain1, $Code$Chain* chain2) {
 	$init(Code);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (chain2 == nullptr) {
 		return chain1;
 	}
 	if (chain1 == nullptr) {
 		return chain2;
 	}
-	$Assert::check($nc($nc(chain1)->state)->stacksize == $nc($nc(chain2)->state)->stacksize && $nc(chain1->state)->nlocks == $nc(chain2->state)->nlocks);
-	if ($nc(chain1)->pc < $nc(chain2)->pc) {
+	$Assert::check($nc($nc(chain1)->state)->stacksize == $nc($nc(chain2)->state)->stacksize && chain1->state->nlocks == chain2->state->nlocks);
+	if (chain1->pc < chain2->pc) {
 		return $new($Code$Chain, chain2->pc, $(mergeChains(chain1, chain2->next)), chain2->state);
 	}
-	return $new($Code$Chain, $nc(chain1)->pc, $(mergeChains(chain1->next, chain2)), chain1->state);
+	return $new($Code$Chain, chain1->pc, $(mergeChains(chain1->next, chain2)), chain1->state);
 }
 
 void Code::addCatch(char16_t startPc, char16_t endPc, char16_t handlerPc, char16_t catchType) {
@@ -2181,7 +1626,7 @@ void Code::addCatch(char16_t startPc, char16_t endPc, char16_t handlerPc, char16
 }
 
 void Code::compressCatchTable() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ListBuffer, compressedCatchInfo, $new($ListBuffer));
 	$var($List, handlerPcs, $List::nil());
 	{
@@ -2213,10 +1658,10 @@ void Code::compressCatchTable() {
 
 void Code::addLineNumber(char16_t startPc, char16_t lineNumber) {
 	if (this->lineDebugInfo) {
-		if ($nc(this->lineInfo)->nonEmpty() && $nc(($cast($chars, $nc(this->lineInfo)->head)))->get(0) == startPc) {
+		if ($nc(this->lineInfo)->nonEmpty() && $nc(($cast($chars, this->lineInfo->head)))->get(0) == startPc) {
 			$set(this, lineInfo, $nc(this->lineInfo)->tail);
 		}
-		if ($nc(this->lineInfo)->isEmpty() || $nc(($cast($chars, $nc(this->lineInfo)->head)))->get(1) != lineNumber) {
+		if ($nc(this->lineInfo)->isEmpty() || $nc(($cast($chars, this->lineInfo->head)))->get(1) != lineNumber) {
 			$set(this, lineInfo, $nc(this->lineInfo)->prepend($$new($chars, {
 				startPc,
 				lineNumber
@@ -2245,7 +1690,7 @@ void Code::markStatBegin() {
 
 void Code::addLocalVar($Symbol$VarSymbol* v) {
 	int32_t adr = $nc(v)->adr;
-	$set(this, lvar, $fcast($Code$LocalVarArray, $ArrayUtils::ensureCapacity(this->lvar, adr + 1)));
+	$set(this, lvar, $cast($Code$LocalVarArray, $ArrayUtils::ensureCapacity(this->lvar, adr + 1)));
 	$Assert::checkNull($nc(this->lvar)->get(adr));
 	if (this->pendingJumps != nullptr) {
 		resolvePending();
@@ -2255,26 +1700,18 @@ void Code::addLocalVar($Symbol$VarSymbol* v) {
 }
 
 void Code::adjustAliveRanges(int32_t oldCP, int32_t delta) {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Code$LocalVarArray, arr$, this->lvar);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Code$LocalVar, localVar, arr$->get(i$));
-			{
-				if (localVar != nullptr) {
-					{
-						$var($Iterator, i$, $nc(localVar->aliveRanges)->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($Code$LocalVar$Range, range, $cast($Code$LocalVar$Range, i$->next()));
-							{
-								if ($nc(range)->closed() && range->start_pc + range->length >= oldCP) {
-									range->length += delta;
-								}
-							}
-						}
-					}
+	$useLocalObjectStack();
+	$var($Code$LocalVarArray, arr$, this->lvar);
+	int32_t len$ = $nc(arr$)->length;
+	int32_t i$ = 0;
+	for (; i$ < len$; ++i$) {
+		$var($Code$LocalVar, localVar, arr$->get(i$));
+		if (localVar != nullptr) {
+			$var($Iterator, i$, $nc(localVar->aliveRanges)->iterator());
+			for (; $nc(i$)->hasNext();) {
+				$var($Code$LocalVar$Range, range, $cast($Code$LocalVar$Range, i$->next()));
+				if ($nc(range)->closed() && range->start_pc + range->length >= oldCP) {
+					range->length += delta;
 				}
 			}
 		}
@@ -2282,7 +1719,7 @@ void Code::adjustAliveRanges(int32_t oldCP, int32_t delta) {
 }
 
 int32_t Code::getLVTSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = this->varBufferSize;
 	for (int32_t i = 0; i < this->varBufferSize; ++i) {
 		$var($Code$LocalVar, var, $nc(this->varBuffer)->get(i));
@@ -2292,9 +1729,9 @@ int32_t Code::getLVTSize() {
 }
 
 void Code::setDefined($Bits* newDefined) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->alive && newDefined != $nc(this->state)->defined) {
-		$var($Bits, diff, $$new($Bits, $nc(this->state)->defined)->xorSet(newDefined));
+		$var($Bits, diff, $$new($Bits, this->state->defined)->xorSet(newDefined));
 		for (int32_t adr = $nc(diff)->nextBit(0); adr >= 0; adr = diff->nextBit(adr + 1)) {
 			if (adr >= this->nextreg) {
 				$nc($nc(this->state)->defined)->excl(adr);
@@ -2314,15 +1751,15 @@ void Code::setDefined(int32_t adr) {
 	} else {
 		$nc($nc(this->state)->defined)->incl(adr);
 		if (this->cp < $Character::MAX_VALUE) {
-			$nc(v)->openRange((char16_t)this->cp);
+			v->openRange((char16_t)this->cp);
 		}
 	}
 }
 
 void Code::setUndefined(int32_t adr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($nc(this->state)->defined)->excl(adr);
-	if (adr < $nc(this->lvar)->length && $nc(this->lvar)->get(adr) != nullptr && $nc($nc(this->lvar)->get(adr))->isLastRangeInitialized()) {
+	if (adr < $nc(this->lvar)->length && this->lvar->get(adr) != nullptr && $nc(this->lvar->get(adr))->isLastRangeInitialized()) {
 		$var($Code$LocalVar, v, $nc(this->lvar)->get(adr));
 		int32_t var$0 = curCP();
 		char16_t length = (char16_t)(var$0 - $nc($($nc(v)->lastRange()))->start_pc);
@@ -2338,7 +1775,7 @@ void Code::setUndefined(int32_t adr) {
 }
 
 void Code::endScope(int32_t adr) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Code$LocalVar, v, $nc(this->lvar)->get(adr));
 	if (v != nullptr) {
 		if (v->isLastRangeInitialized()) {
@@ -2356,25 +1793,25 @@ void Code::endScope(int32_t adr) {
 }
 
 void Code::fillLocalVarPosition($Code$LocalVar* lv) {
-	$useLocalCurrentObjectStackCache();
-	bool var$0 = lv == nullptr || $nc(lv)->sym == nullptr || $nc($nc(lv)->sym)->isExceptionParameter();
-	if (var$0 || !$nc($nc(lv)->sym)->hasTypeAnnotations()) {
+	$useLocalObjectStack();
+	bool var$0 = lv == nullptr || lv->sym == nullptr || lv->sym->isExceptionParameter();
+	if (var$0 || !lv->sym->hasTypeAnnotations()) {
 		return;
 	}
-	$var($Code$LocalVar$RangeArray, validRanges, $fcast($Code$LocalVar$RangeArray, $nc($($nc($($nc($nc(lv)->aliveRanges)->stream()))->filter(static_cast<$Predicate*>($$new(Code$$Lambda$lambda$fillLocalVarPosition$0)))))->toArray(static_cast<$IntFunction*>($$new(Code$$Lambda$lambda$fillLocalVarPosition$1$1)))));
+	$var($Code$LocalVar$RangeArray, validRanges, $cast($Code$LocalVar$RangeArray, $$nc($$nc($nc($nc(lv)->aliveRanges)->stream())->filter($$new(Code$$Lambda$lambda$fillLocalVarPosition$0)))->toArray($$new(Code$$Lambda$lambda$fillLocalVarPosition$1$1))));
 	if ($nc(validRanges)->length == 0) {
 		return;
 	}
-	$var($ints, lvarOffset, $nc($($nc($($Arrays::stream(validRanges)))->mapToInt(static_cast<$ToIntFunction*>($$new(Code$$Lambda$lambda$fillLocalVarPosition$2$2)))))->toArray());
-	$var($ints, lvarLength, $nc($($nc($($Arrays::stream(validRanges)))->mapToInt(static_cast<$ToIntFunction*>($$new(Code$$Lambda$lambda$fillLocalVarPosition$3$3)))))->toArray());
-	$var($ints, lvarIndex, $nc($($nc($($Arrays::stream(validRanges)))->mapToInt(static_cast<$ToIntFunction*>($$new(Code$$Lambda$lambda$fillLocalVarPosition$4$4, lv)))))->toArray());
+	$var($ints, lvarOffset, $$nc($$nc($Arrays::stream(validRanges))->mapToInt($$new(Code$$Lambda$lambda$fillLocalVarPosition$2$2)))->toArray());
+	$var($ints, lvarLength, $$nc($$nc($Arrays::stream(validRanges))->mapToInt($$new(Code$$Lambda$lambda$fillLocalVarPosition$3$3)))->toArray());
+	$var($ints, lvarIndex, $$nc($$nc($Arrays::stream(validRanges))->mapToInt($$new(Code$$Lambda$lambda$fillLocalVarPosition$4$4, lv)))->toArray());
 	{
-		$var($Iterator, i$, $nc($($nc(lv->sym)->getRawTypeAttributes()))->iterator());
+		$var($Iterator, i$, $$nc($nc(lv->sym)->getRawTypeAttributes())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($Attribute$TypeCompound, ta, $cast($Attribute$TypeCompound, i$->next()));
 			{
 				$var($TypeAnnotationPosition, p, $nc(ta)->position);
-				$set($nc(p), lvarOffset, appendArray(p->lvarOffset, lvarOffset));
+				$set($nc(p), lvarOffset, appendArray($nc(p)->lvarOffset, lvarOffset));
 				$set(p, lvarLength, appendArray(p->lvarLength, lvarLength));
 				$set(p, lvarIndex, appendArray(p->lvarIndex, lvarIndex));
 				p->isValidOffset = true;
@@ -2384,7 +1821,7 @@ void Code::fillLocalVarPosition($Code$LocalVar* lv) {
 }
 
 $ints* Code::appendArray($ints* source, $ints* append) {
-	if (source == nullptr || $nc(source)->length == 0) {
+	if (source == nullptr || source->length == 0) {
 		return append;
 	}
 	$var($ints, result, $new($ints, $nc(source)->length + $nc(append)->length));
@@ -2394,15 +1831,15 @@ $ints* Code::appendArray($ints* source, $ints* append) {
 }
 
 void Code::fillExceptionParameterPositions() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < this->varBufferSize; ++i) {
 		$var($Code$LocalVar, lv, $nc(this->varBuffer)->get(i));
-		bool var$0 = lv == nullptr || $nc(lv)->sym == nullptr || !$nc($nc(lv)->sym)->hasTypeAnnotations();
-		if (var$0 || !$nc($nc(lv)->sym)->isExceptionParameter()) {
+		bool var$0 = lv == nullptr || lv->sym == nullptr || !lv->sym->hasTypeAnnotations();
+		if (var$0 || !lv->sym->isExceptionParameter()) {
 			continue;
 		}
 		{
-			$var($Iterator, i$, $nc($($nc($nc(lv)->sym)->getRawTypeAttributes()))->iterator());
+			$var($Iterator, i$, $$nc($nc($nc(lv)->sym)->getRawTypeAttributes())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Attribute$TypeCompound, ta, $cast($Attribute$TypeCompound, i$->next()));
 				{
@@ -2421,7 +1858,7 @@ void Code::fillExceptionParameterPositions() {
 }
 
 int32_t Code::findExceptionIndex($TypeAnnotationPosition* p) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t catchType = $nc(p)->getCatchType();
 	int32_t startPos = p->getStartPos();
 	int32_t len = $nc(this->catchInfo)->length();
@@ -2442,16 +1879,16 @@ void Code::putVar($Code$LocalVar* var) {
 	bool var$0 = this->varDebugInfo;
 	if (!var$0) {
 		bool var$1 = $nc($nc(var)->sym)->isExceptionParameter();
-		var$0 = (var$1 && $nc(var->sym)->hasTypeAnnotations());
+		var$0 = var$1 && var->sym->hasTypeAnnotations();
 	}
 	bool keepLocalVariables = var$0;
 	if (!keepLocalVariables) {
 		return;
 	}
-	bool var$2 = ((int64_t)($nc(var->sym)->flags() & (uint64_t)(int64_t)$Flags::SYNTHETIC)) != 0;
+	bool var$2 = ($nc($nc(var)->sym)->flags() & $Flags::SYNTHETIC) != 0;
 	if (var$2) {
-		bool var$3 = ((int64_t)($nc($nc(var->sym)->owner)->flags() & (uint64_t)$Flags::LAMBDA_METHOD)) == 0;
-		var$2 = (var$3 || ((int64_t)($nc(var->sym)->flags() & (uint64_t)$Flags::PARAMETER)) == 0);
+		bool var$3 = ($nc(var->sym->owner)->flags() & $Flags::LAMBDA_METHOD) == 0;
+		var$2 = var$3 || (var->sym->flags() & $Flags::PARAMETER) == 0;
 	}
 	bool ignoredSyntheticVar = var$2;
 	if (ignoredSyntheticVar) {
@@ -2460,7 +1897,7 @@ void Code::putVar($Code$LocalVar* var) {
 	if (this->varBuffer == nullptr) {
 		$set(this, varBuffer, $new($Code$LocalVarArray, 20));
 	} else {
-		$set(this, varBuffer, $fcast($Code$LocalVarArray, $ArrayUtils::ensureCapacity(this->varBuffer, this->varBufferSize)));
+		$set(this, varBuffer, $cast($Code$LocalVarArray, $ArrayUtils::ensureCapacity(this->varBuffer, this->varBufferSize)));
 	}
 	$nc(this->varBuffer)->set(this->varBufferSize++, var);
 }
@@ -2480,7 +1917,7 @@ int32_t Code::newLocal($Type* type) {
 }
 
 int32_t Code::newLocal($Symbol$VarSymbol* v) {
-	int32_t reg = $nc(v)->adr = newLocal($(v->erasure(this->types)));
+	int32_t reg = $nc(v)->adr = newLocal($($nc(v)->erasure(this->types)));
 	addLocalVar(v);
 	return reg;
 }
@@ -2528,7 +1965,7 @@ bool Code::lambda$fillLocalVarPosition$0($Code$LocalVar$Range* r) {
 	return $nc(r)->closed() && r->length > 0;
 }
 
-void clinit$Code($Class* class$) {
+void Code::clinit$($Class* clazz) {
 	$init($TypeTag);
 	$assignStatic(Code::jsrReturnValue, $new($Type$JCPrimitiveType, $TypeTag::INT, nullptr));
 }
@@ -2538,23 +1975,177 @@ Code::Code() {
 
 $Class* Code::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(Code$$Lambda$lambda$fillLocalVarPosition$0::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$0")) {
 			return Code$$Lambda$lambda$fillLocalVarPosition$0::load$(name, initialize);
 		}
-		if (name->equals(Code$$Lambda$lambda$fillLocalVarPosition$1$1::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$1$1")) {
 			return Code$$Lambda$lambda$fillLocalVarPosition$1$1::load$(name, initialize);
 		}
-		if (name->equals(Code$$Lambda$lambda$fillLocalVarPosition$2$2::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$2$2")) {
 			return Code$$Lambda$lambda$fillLocalVarPosition$2$2::load$(name, initialize);
 		}
-		if (name->equals(Code$$Lambda$lambda$fillLocalVarPosition$3$3::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$3$3")) {
 			return Code$$Lambda$lambda$fillLocalVarPosition$3$3::load$(name, initialize);
 		}
-		if (name->equals(Code$$Lambda$lambda$fillLocalVarPosition$4$4::classInfo$.name)) {
+		if (name->equals("com.sun.tools.javac.jvm.Code$$Lambda$lambda$fillLocalVarPosition$4$4")) {
 			return Code$$Lambda$lambda$fillLocalVarPosition$4$4::load$(name, initialize);
 		}
 	}
-	$loadClass(Code, name, initialize, &_Code_ClassInfo_, clinit$Code, allocate$Code);
+	$FieldInfo fieldInfos$$[] = {
+		{"debugCode", "Z", nullptr, $PUBLIC | $FINAL, $field(Code, debugCode)},
+		{"needStackMap", "Z", nullptr, $PUBLIC | $FINAL, $field(Code, needStackMap)},
+		{"types", "Lcom/sun/tools/javac/code/Types;", nullptr, $FINAL, $field(Code, types)},
+		{"syms", "Lcom/sun/tools/javac/code/Symtab;", nullptr, $FINAL, $field(Code, syms)},
+		{"poolWriter", "Lcom/sun/tools/javac/jvm/PoolWriter;", nullptr, $FINAL, $field(Code, poolWriter)},
+		{"max_stack", "I", nullptr, $PUBLIC, $field(Code, max_stack)},
+		{"max_locals", "I", nullptr, $PUBLIC, $field(Code, max_locals)},
+		{"code", "[B", nullptr, $PUBLIC, $field(Code, code)},
+		{"cp", "I", nullptr, $PUBLIC, $field(Code, cp)},
+		{"catchInfo", "Lcom/sun/tools/javac/util/ListBuffer;", "Lcom/sun/tools/javac/util/ListBuffer<[C>;", 0, $field(Code, catchInfo)},
+		{"lineInfo", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<[C>;", 0, $field(Code, lineInfo)},
+		{"crt", "Lcom/sun/tools/javac/jvm/CRTable;", nullptr, $PUBLIC, $field(Code, crt)},
+		{"fatcode", "Z", nullptr, $PUBLIC, $field(Code, fatcode)},
+		{"alive", "Z", nullptr, $PRIVATE, $field(Code, alive)},
+		{"state", "Lcom/sun/tools/javac/jvm/Code$State;", nullptr, 0, $field(Code, state)},
+		{"fixedPc", "Z", nullptr, $PRIVATE, $field(Code, fixedPc)},
+		{"nextreg", "I", nullptr, $PUBLIC, $field(Code, nextreg)},
+		{"pendingJumps", "Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, 0, $field(Code, pendingJumps)},
+		{"pendingStatPos", "I", nullptr, 0, $field(Code, pendingStatPos)},
+		{"pendingStackMap", "Z", nullptr, 0, $field(Code, pendingStackMap)},
+		{"stackMap", "Lcom/sun/tools/javac/jvm/Code$StackMapFormat;", nullptr, 0, $field(Code, stackMap)},
+		{"varDebugInfo", "Z", nullptr, 0, $field(Code, varDebugInfo)},
+		{"lineDebugInfo", "Z", nullptr, 0, $field(Code, lineDebugInfo)},
+		{"lineMap", "Lcom/sun/tools/javac/util/Position$LineMap;", nullptr, 0, $field(Code, lineMap)},
+		{"meth", "Lcom/sun/tools/javac/code/Symbol$MethodSymbol;", nullptr, $FINAL, $field(Code, meth)},
+		{"letExprStackPos", "I", nullptr, $PRIVATE, $field(Code, letExprStackPos)},
+		{"stackMapBuffer", "[Lcom/sun/tools/javac/jvm/Code$StackMapFrame;", nullptr, 0, $field(Code, stackMapBuffer)},
+		{"stackMapTableBuffer", "[Lcom/sun/tools/javac/jvm/ClassWriter$StackMapTableFrame;", nullptr, 0, $field(Code, stackMapTableBuffer)},
+		{"stackMapBufferSize", "I", nullptr, 0, $field(Code, stackMapBufferSize)},
+		{"lastStackMapPC", "I", nullptr, 0, $field(Code, lastStackMapPC)},
+		{"lastFrame", "Lcom/sun/tools/javac/jvm/Code$StackMapFrame;", nullptr, 0, $field(Code, lastFrame)},
+		{"frameBeforeLast", "Lcom/sun/tools/javac/jvm/Code$StackMapFrame;", nullptr, 0, $field(Code, frameBeforeLast)},
+		{"jsrReturnValue", "Lcom/sun/tools/javac/code/Type;", nullptr, $STATIC | $FINAL, $staticField(Code, jsrReturnValue)},
+		{"lvar", "[Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, 0, $field(Code, lvar)},
+		{"varBuffer", "[Lcom/sun/tools/javac/jvm/Code$LocalVar;", nullptr, 0, $field(Code, varBuffer)},
+		{"varBufferSize", "I", nullptr, 0, $field(Code, varBufferSize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Symbol$MethodSymbol;ZLcom/sun/tools/javac/util/Position$LineMap;ZLcom/sun/tools/javac/jvm/Code$StackMapFormat;ZLcom/sun/tools/javac/jvm/CRTable;Lcom/sun/tools/javac/code/Symtab;Lcom/sun/tools/javac/code/Types;Lcom/sun/tools/javac/jvm/PoolWriter;)V", nullptr, $PUBLIC, $method(Code, init$, void, $Symbol$MethodSymbol*, bool, $Position$LineMap*, bool, $Code$StackMapFormat*, bool, $CRTable*, $Symtab*, $Types*, $PoolWriter*)},
+		{"addCatch", "(CCCC)V", nullptr, $PUBLIC, $virtualMethod(Code, addCatch, void, char16_t, char16_t, char16_t, char16_t)},
+		{"addLineNumber", "(CC)V", nullptr, $PUBLIC, $virtualMethod(Code, addLineNumber, void, char16_t, char16_t)},
+		{"addLocalVar", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)V", nullptr, $PRIVATE, $method(Code, addLocalVar, void, $Symbol$VarSymbol*)},
+		{"adjustAliveRanges", "(II)V", nullptr, 0, $virtualMethod(Code, adjustAliveRanges, void, int32_t, int32_t)},
+		{"align", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, align, void, int32_t)},
+		{"appendArray", "([I[I)[I", nullptr, $PRIVATE, $method(Code, appendArray, $ints*, $ints*, $ints*)},
+		{"arraycode", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, arraycode, int32_t, $Type*)},
+		{"branch", "(I)Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, $PUBLIC, $virtualMethod(Code, branch, $Code$Chain*, int32_t)},
+		{"checkLimits", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/Log;)Z", nullptr, $PUBLIC, $virtualMethod(Code, checkLimits, bool, $JCDiagnostic$DiagnosticPosition*, $Log*)},
+		{"compressCatchTable", "()V", nullptr, $PUBLIC, $virtualMethod(Code, compressCatchTable, void)},
+		{"curCP", "()I", nullptr, $PUBLIC, $virtualMethod(Code, curCP, int32_t)},
+		{"emit1", "(I)V", nullptr, $PRIVATE, $method(Code, emit1, void, int32_t)},
+		{"emit2", "(I)V", nullptr, $PRIVATE, $method(Code, emit2, void, int32_t)},
+		{"emit4", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, emit4, void, int32_t)},
+		{"emitAnewarray", "(ILcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitAnewarray, void, int32_t, $Type*)},
+		{"emitCLDCStackMap", "(II)V", nullptr, 0, $virtualMethod(Code, emitCLDCStackMap, void, int32_t, int32_t)},
+		{"emitInvokedynamic", "(Lcom/sun/tools/javac/code/Symbol$DynamicMethodSymbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokedynamic, void, $Symbol$DynamicMethodSymbol*, $Type*)},
+		{"emitInvokeinterface", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokeinterface, void, $Symbol*, $Type*)},
+		{"emitInvokespecial", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokespecial, void, $Symbol*, $Type*)},
+		{"emitInvokestatic", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokestatic, void, $Symbol*, $Type*)},
+		{"emitInvokevirtual", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitInvokevirtual, void, $Symbol*, $Type*)},
+		{"emitJump", "(I)I", nullptr, $PUBLIC, $virtualMethod(Code, emitJump, int32_t, int32_t)},
+		{"emitLdc", "(Lcom/sun/tools/javac/jvm/PoolConstant$LoadableConstant;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitLdc, void, $PoolConstant$LoadableConstant*)},
+		{"emitMultianewarray", "(IILcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitMultianewarray, void, int32_t, int32_t, $Type*)},
+		{"emitNewarray", "(ILcom/sun/tools/javac/code/Type;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitNewarray, void, int32_t, $Type*)},
+		{"emitStackMap", "()V", nullptr, $PUBLIC, $virtualMethod(Code, emitStackMap, void)},
+		{"emitStackMapFrame", "(II)V", nullptr, 0, $virtualMethod(Code, emitStackMapFrame, void, int32_t, int32_t)},
+		{"emitop", "(I)V", nullptr, $PRIVATE, $method(Code, emitop, void, int32_t)},
+		{"emitop0", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop0, void, int32_t)},
+		{"emitop1", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop1, void, int32_t, int32_t)},
+		{"emitop1", "(IILcom/sun/tools/javac/jvm/PoolConstant;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop1, void, int32_t, int32_t, $PoolConstant*)},
+		{"emitop1w", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop1w, void, int32_t, int32_t)},
+		{"emitop1w", "(III)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop1w, void, int32_t, int32_t, int32_t)},
+		{"emitop2", "(ILcom/sun/tools/javac/jvm/PoolConstant;Ljava/util/function/ToIntBiFunction;)V", "<P::Lcom/sun/tools/javac/jvm/PoolConstant;>(ITP;Ljava/util/function/ToIntBiFunction<Lcom/sun/tools/javac/jvm/PoolWriter;TP;>;)V", $PUBLIC, $virtualMethod(Code, emitop2, void, int32_t, $PoolConstant*, $ToIntBiFunction*)},
+		{"emitop2", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop2, void, int32_t, int32_t)},
+		{"emitop2", "(IILcom/sun/tools/javac/jvm/PoolConstant;)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop2, void, int32_t, int32_t, $PoolConstant*)},
+		{"emitop4", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, emitop4, void, int32_t, int32_t)},
+		{"endScope", "(I)V", nullptr, $PRIVATE, $method(Code, endScope, void, int32_t)},
+		{"endScopes", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, endScopes, void, int32_t)},
+		{"entryPoint", "()I", nullptr, $PUBLIC, $virtualMethod(Code, entryPoint, int32_t)},
+		{"entryPoint", "(Lcom/sun/tools/javac/jvm/Code$State;)I", nullptr, $PUBLIC, $virtualMethod(Code, entryPoint, int32_t, $Code$State*)},
+		{"entryPoint", "(Lcom/sun/tools/javac/jvm/Code$State;Lcom/sun/tools/javac/code/Type;)I", nullptr, $PUBLIC, $virtualMethod(Code, entryPoint, int32_t, $Code$State*, $Type*)},
+		{"fillExceptionParameterPositions", "()V", nullptr, $PUBLIC, $virtualMethod(Code, fillExceptionParameterPositions, void)},
+		{"fillLocalVarPosition", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, $PRIVATE, $method(Code, fillLocalVarPosition, void, $Code$LocalVar*)},
+		{"findExceptionIndex", "(Lcom/sun/tools/javac/code/TypeAnnotationPosition;)I", nullptr, $PRIVATE, $method(Code, findExceptionIndex, int32_t, $TypeAnnotationPosition*)},
+		{"get1", "(I)I", nullptr, $PRIVATE, $method(Code, get1, int32_t, int32_t)},
+		{"get2", "(I)I", nullptr, $PRIVATE, $method(Code, get2, int32_t, int32_t)},
+		{"get4", "(I)I", nullptr, $PUBLIC, $virtualMethod(Code, get4, int32_t, int32_t)},
+		{"getInitialFrame", "()Lcom/sun/tools/javac/jvm/Code$StackMapFrame;", nullptr, 0, $virtualMethod(Code, getInitialFrame, $Code$StackMapFrame*)},
+		{"getLVTSize", "()I", nullptr, $PUBLIC, $virtualMethod(Code, getLVTSize, int32_t)},
+		{"getLocalsSize", "()I", nullptr, $PRIVATE, $method(Code, getLocalsSize, int32_t)},
+		{"isAlive", "()Z", nullptr, $PUBLIC, $virtualMethod(Code, isAlive, bool)},
+		{"isStatementStart", "()Z", nullptr, $PUBLIC, $virtualMethod(Code, isStatementStart, bool)},
+		{"lambda$fillLocalVarPosition$0", "(Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;)Z", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$0, bool, $Code$LocalVar$Range*)},
+		{"lambda$fillLocalVarPosition$1", "(I)[Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$1, $Code$LocalVar$RangeArray*, int32_t)},
+		{"lambda$fillLocalVarPosition$2", "(Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$2, int32_t, $Code$LocalVar$Range*)},
+		{"lambda$fillLocalVarPosition$3", "(Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$3, int32_t, $Code$LocalVar$Range*)},
+		{"lambda$fillLocalVarPosition$4", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;Lcom/sun/tools/javac/jvm/Code$LocalVar$Range;)I", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(Code, lambda$fillLocalVarPosition$4, int32_t, $Code$LocalVar*, $Code$LocalVar$Range*)},
+		{"markDead", "()V", nullptr, $PUBLIC, $virtualMethod(Code, markDead, void)},
+		{"markStatBegin", "()V", nullptr, $PUBLIC, $virtualMethod(Code, markStatBegin, void)},
+		{"mergeChains", "(Lcom/sun/tools/javac/jvm/Code$Chain;Lcom/sun/tools/javac/jvm/Code$Chain;)Lcom/sun/tools/javac/jvm/Code$Chain;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, mergeChains, $Code$Chain*, $Code$Chain*, $Code$Chain*)},
+		{"mnem", "(I)Ljava/lang/String;", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, mnem, $String*, int32_t)},
+		{"negate", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, negate, int32_t, int32_t)},
+		{"newLocal", "(I)I", nullptr, $PRIVATE, $method(Code, newLocal, int32_t, int32_t)},
+		{"newLocal", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, $PRIVATE, $method(Code, newLocal, int32_t, $Type*)},
+		{"newLocal", "(Lcom/sun/tools/javac/code/Symbol$VarSymbol;)I", nullptr, $PUBLIC, $virtualMethod(Code, newLocal, int32_t, $Symbol$VarSymbol*)},
+		{"newRegSegment", "()V", nullptr, $PUBLIC, $virtualMethod(Code, newRegSegment, void)},
+		{"postop", "()V", nullptr, 0, $virtualMethod(Code, postop, void)},
+		{"put1", "(II)V", nullptr, $PRIVATE, $method(Code, put1, void, int32_t, int32_t)},
+		{"put2", "(II)V", nullptr, $PRIVATE, $method(Code, put2, void, int32_t, int32_t)},
+		{"put4", "(II)V", nullptr, $PUBLIC, $virtualMethod(Code, put4, void, int32_t, int32_t)},
+		{"putVar", "(Lcom/sun/tools/javac/jvm/Code$LocalVar;)V", nullptr, 0, $virtualMethod(Code, putVar, void, $Code$LocalVar*)},
+		{"resolve", "(Lcom/sun/tools/javac/jvm/Code$Chain;I)V", nullptr, $PUBLIC, $virtualMethod(Code, resolve, void, $Code$Chain*, int32_t)},
+		{"resolve", "(Lcom/sun/tools/javac/jvm/Code$Chain;)V", nullptr, $PUBLIC, $virtualMethod(Code, resolve, void, $Code$Chain*)},
+		{"resolvePending", "()V", nullptr, $PUBLIC, $virtualMethod(Code, resolvePending, void)},
+		{"setDefined", "(Lcom/sun/tools/javac/util/Bits;)V", nullptr, $PUBLIC, $virtualMethod(Code, setDefined, void, $Bits*)},
+		{"setDefined", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, setDefined, void, int32_t)},
+		{"setLetExprStackPos", "(I)I", nullptr, $PUBLIC, $virtualMethod(Code, setLetExprStackPos, int32_t, int32_t)},
+		{"setUndefined", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, setUndefined, void, int32_t)},
+		{"statBegin", "(I)V", nullptr, $PUBLIC, $virtualMethod(Code, statBegin, void, int32_t)},
+		{"truncate", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, truncate, int32_t, int32_t)},
+		{"typecode", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, typecode, int32_t, $Type*)},
+		{"width", "(I)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, width, int32_t, int32_t)},
+		{"width", "(Lcom/sun/tools/javac/code/Type;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(Code, width, int32_t, $Type*)},
+		{"width", "(Lcom/sun/tools/javac/util/List;)I", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)I", $PUBLIC | $STATIC, $staticMethod(Code, width, int32_t, $List*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.jvm.Code$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{"com.sun.tools.javac.jvm.Code$Mneumonics", "com.sun.tools.javac.jvm.Code", "Mneumonics", $PRIVATE | $STATIC},
+		{"com.sun.tools.javac.jvm.Code$LocalVar", "com.sun.tools.javac.jvm.Code", "LocalVar", $STATIC},
+		{"com.sun.tools.javac.jvm.Code$State", "com.sun.tools.javac.jvm.Code", "State", 0},
+		{"com.sun.tools.javac.jvm.Code$Chain", "com.sun.tools.javac.jvm.Code", "Chain", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.jvm.Code$StackMapFrame", "com.sun.tools.javac.jvm.Code", "StackMapFrame", $STATIC},
+		{"com.sun.tools.javac.jvm.Code$StackMapFormat", "com.sun.tools.javac.jvm.Code", "StackMapFormat", $PUBLIC | $STATIC | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.jvm.Code",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.jvm.Code$1,com.sun.tools.javac.jvm.Code$Mneumonics,com.sun.tools.javac.jvm.Code$LocalVar,com.sun.tools.javac.jvm.Code$LocalVar$Range,com.sun.tools.javac.jvm.Code$State,com.sun.tools.javac.jvm.Code$Chain,com.sun.tools.javac.jvm.Code$StackMapFrame,com.sun.tools.javac.jvm.Code$StackMapFormat,com.sun.tools.javac.jvm.Code$StackMapFormat$2,com.sun.tools.javac.jvm.Code$StackMapFormat$1"
+	};
+	$loadClass(Code, name, initialize, &classInfo$$, Code::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Code);
+	});
 	return class$;
 }
 

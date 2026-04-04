@@ -1,5 +1,4 @@
 #include <javax/sound/sampled/LineListener.h>
-
 #include <javax/sound/sampled/LineEvent.h>
 #include <jcpp.h>
 
@@ -11,26 +10,22 @@ namespace javax {
 	namespace sound {
 		namespace sampled {
 
-$MethodInfo _LineListener_MethodInfo_[] = {
-	{"update", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LineListener, update, void, $LineEvent*)},
-	{}
-};
-
-$ClassInfo _LineListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"javax.sound.sampled.LineListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_LineListener_MethodInfo_
-};
-
-$Object* allocate$LineListener($Class* clazz) {
-	return $of($alloc(LineListener));
-}
-
 $Class* LineListener::load$($String* name, bool initialize) {
-	$loadClass(LineListener, name, initialize, &_LineListener_ClassInfo_, allocate$LineListener);
+	$MethodInfo methodInfos$$[] = {
+		{"update", "(Ljavax/sound/sampled/LineEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(LineListener, update, void, $LineEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"javax.sound.sampled.LineListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LineListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineListener);
+	});
 	return class$;
 }
 

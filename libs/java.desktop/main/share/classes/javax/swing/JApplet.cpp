@@ -1,5 +1,4 @@
 #include <javax/swing/JApplet.h>
-
 #include <java/applet/Applet.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
@@ -55,188 +54,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 namespace javax {
 	namespace swing {
 
-$NamedAttribute JApplet_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$1[] = {
-	{"defaultProperty", 's', "JMenuBar"},
-	{"description", 's', "Swing\'s Applet subclass."},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$2[] = {
-	{"delegate", 's', "getContentPane"},
-	{}
-};
-
-$CompoundAttribute _JApplet_Annotations_[] = {
-	{"Ljava/lang/Deprecated;", JApplet_Attribute_var$0},
-	{"Ljava/beans/JavaBean;", JApplet_Attribute_var$1},
-	{"Ljavax/swing/SwingContainer;", JApplet_Attribute_var$2},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$3[] = {
-	{"bound", 'Z', "false"},
-	{}
-};
-
-$CompoundAttribute _JApplet_MethodAnnotations_getGraphics6[] = {
-	{"Ljava/beans/BeanProperty;", JApplet_Attribute_var$3},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$4[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "the RootPane object for this applet."},
-	{}
-};
-
-$CompoundAttribute _JApplet_MethodAnnotations_getRootPane9[] = {
-	{"Ljava/beans/BeanProperty;", JApplet_Attribute_var$4},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$5[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The client area of the applet where child components are normally inserted."},
-	{}
-};
-
-$CompoundAttribute _JApplet_MethodAnnotations_setContentPane15[] = {
-	{"Ljava/beans/BeanProperty;", JApplet_Attribute_var$5},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$6[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "A transparent pane used for menu rendering."},
-	{}
-};
-
-$CompoundAttribute _JApplet_MethodAnnotations_setGlassPane16[] = {
-	{"Ljava/beans/BeanProperty;", JApplet_Attribute_var$6},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$7[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The menubar for accessing pulldown menus from this applet."},
-	{}
-};
-
-$CompoundAttribute _JApplet_MethodAnnotations_setJMenuBar17[] = {
-	{"Ljava/beans/BeanProperty;", JApplet_Attribute_var$7},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$8[] = {
-	{"bound", 'Z', "false"},
-	{"hidden", 'Z', "true"},
-	{"description", 's', "The pane which holds the various applet layers."},
-	{}
-};
-
-$CompoundAttribute _JApplet_MethodAnnotations_setLayeredPane18[] = {
-	{"Ljava/beans/BeanProperty;", JApplet_Attribute_var$8},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$9[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "Whether the add and setLayout methods are forwarded"},
-	{}
-};
-
-$CompoundAttribute _JApplet_MethodAnnotations_setRootPaneCheckingEnabled21[] = {
-	{"Ljava/beans/BeanProperty;", JApplet_Attribute_var$9},
-	{}
-};
-
-$NamedAttribute JApplet_Attribute_var$10[] = {
-	{"hidden", 'Z', "true"},
-	{"description", 's', "Mechanism for transfer of data into the component"},
-	{}
-};
-
-$CompoundAttribute _JApplet_MethodAnnotations_setTransferHandler22[] = {
-	{"Ljava/beans/BeanProperty;", JApplet_Attribute_var$10},
-	{}
-};
-
-$FieldInfo _JApplet_FieldInfo_[] = {
-	{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $field(JApplet, rootPane)},
-	{"rootPaneCheckingEnabled", "Z", nullptr, $PROTECTED, $field(JApplet, rootPaneCheckingEnabled)},
-	{"transferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE, $field(JApplet, transferHandler)},
-	{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JApplet, accessibleContext)},
-	{}
-};
-
-$MethodInfo _JApplet_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JApplet, init$, void), "java.awt.HeadlessException"},
-	{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JApplet, addImpl, void, $Component*, Object$*, int32_t)},
-	{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(JApplet, createRootPane, $JRootPane*)},
-	{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JApplet, getAccessibleContext, $AccessibleContext*)},
-	{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JApplet, getContentPane, $Container*)},
-	{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JApplet, getGlassPane, $Component*)},
-	{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(JApplet, getGraphics, $Graphics*), nullptr, nullptr, _JApplet_MethodAnnotations_getGraphics6},
-	{"getJMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PUBLIC, $virtualMethod(JApplet, getJMenuBar, $JMenuBar*)},
-	{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JApplet, getLayeredPane, $JLayeredPane*)},
-	{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JApplet, getRootPane, $JRootPane*), nullptr, nullptr, _JApplet_MethodAnnotations_getRootPane9},
-	{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, $PUBLIC, $virtualMethod(JApplet, getTransferHandler, $TransferHandler*)},
-	{"isRootPaneCheckingEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(JApplet, isRootPaneCheckingEnabled, bool)},
-	{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JApplet, paramString, $String*)},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, remove, void, $Component*)},
-	{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(JApplet, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
-	{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setContentPane, void, $Container*), nullptr, nullptr, _JApplet_MethodAnnotations_setContentPane15},
-	{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setGlassPane, void, $Component*), nullptr, nullptr, _JApplet_MethodAnnotations_setGlassPane16},
-	{"setJMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setJMenuBar, void, $JMenuBar*), nullptr, nullptr, _JApplet_MethodAnnotations_setJMenuBar17},
-	{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setLayeredPane, void, $JLayeredPane*), nullptr, nullptr, _JApplet_MethodAnnotations_setLayeredPane18},
-	{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setLayout, void, $LayoutManager*)},
-	{"setRootPane", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(JApplet, setRootPane, void, $JRootPane*)},
-	{"setRootPaneCheckingEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(JApplet, setRootPaneCheckingEnabled, void, bool), nullptr, nullptr, _JApplet_MethodAnnotations_setRootPaneCheckingEnabled21},
-	{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setTransferHandler, void, $TransferHandler*), nullptr, nullptr, _JApplet_MethodAnnotations_setTransferHandler22},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, update, void, $Graphics*)},
-	{}
-};
-
-$InnerClassInfo _JApplet_InnerClassesInfo_[] = {
-	{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
-	{"javax.swing.JApplet$AccessibleJApplet", "javax.swing.JApplet", "AccessibleJApplet", $PROTECTED},
-	{}
-};
-
-$ClassInfo _JApplet_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.JApplet",
-	"java.applet.Applet",
-	"javax.swing.RootPaneContainer,javax.swing.TransferHandler$HasGetTransferHandler",
-	_JApplet_FieldInfo_,
-	_JApplet_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JApplet_InnerClassesInfo_,
-	_JApplet_Annotations_,
-	nullptr,
-	"javax.swing.JApplet$AccessibleJApplet"
-};
-
-$Object* allocate$JApplet($Class* clazz) {
-	return $of($alloc(JApplet));
-}
-
 $String* JApplet::toString() {
 	 return this->$Applet::toString();
 }
@@ -258,7 +75,7 @@ void JApplet::finalize() {
 }
 
 void JApplet::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Applet::init$();
 	this->rootPaneCheckingEnabled = false;
 	$set(this, accessibleContext, nullptr);
@@ -288,7 +105,7 @@ void JApplet::setTransferHandler($TransferHandler* newHandler) {
 	$var($TransferHandler, oldHandler, this->transferHandler);
 	$set(this, transferHandler, newHandler);
 	$SwingUtilities::installSwingDropTargetAsNecessary(this, this->transferHandler);
-	firePropertyChange("transferHandler"_s, $of(oldHandler), $of(newHandler));
+	firePropertyChange("transferHandler"_s, oldHandler, newHandler);
 }
 
 $TransferHandler* JApplet::getTransferHandler() {
@@ -300,11 +117,11 @@ void JApplet::update($Graphics* g) {
 }
 
 void JApplet::setJMenuBar($JMenuBar* menuBar) {
-	$nc($(getRootPane()))->setJMenuBar(menuBar);
+	$$nc(getRootPane())->setJMenuBar(menuBar);
 }
 
 $JMenuBar* JApplet::getJMenuBar() {
-	return $nc($(getRootPane()))->getJMenuBar();
+	return $$nc(getRootPane())->getJMenuBar();
 }
 
 bool JApplet::isRootPaneCheckingEnabled() {
@@ -317,7 +134,7 @@ void JApplet::setRootPaneCheckingEnabled(bool enabled) {
 
 void JApplet::addImpl($Component* comp, Object$* constraints, int32_t index) {
 	if (isRootPaneCheckingEnabled()) {
-		$nc($(getContentPane()))->add(comp, constraints, index);
+		$$nc(getContentPane())->add(comp, constraints, index);
 	} else {
 		$Applet::addImpl(comp, constraints, index);
 	}
@@ -327,13 +144,13 @@ void JApplet::remove($Component* comp) {
 	if ($equals(comp, this->rootPane)) {
 		$Applet::remove(comp);
 	} else {
-		$nc($(getContentPane()))->remove(comp);
+		$$nc(getContentPane())->remove(comp);
 	}
 }
 
 void JApplet::setLayout($LayoutManager* manager) {
 	if (isRootPaneCheckingEnabled()) {
-		$nc($(getContentPane()))->setLayout(manager);
+		$$nc(getContentPane())->setLayout(manager);
 	} else {
 		$Applet::setLayout(manager);
 	}
@@ -345,51 +162,49 @@ $JRootPane* JApplet::getRootPane() {
 
 void JApplet::setRootPane($JRootPane* root) {
 	if (this->rootPane != nullptr) {
-		remove(static_cast<$Component*>(this->rootPane));
+		remove(this->rootPane);
 	}
 	$set(this, rootPane, root);
 	if (this->rootPane != nullptr) {
 		bool checkingEnabled = isRootPaneCheckingEnabled();
-		{
-			$var($Throwable, var$0, nullptr);
-			try {
-				setRootPaneCheckingEnabled(false);
-				$init($BorderLayout);
-				add(static_cast<$Component*>(this->rootPane), $of($BorderLayout::CENTER));
-			} catch ($Throwable& var$1) {
-				$assign(var$0, var$1);
-			} /*finally*/ {
-				setRootPaneCheckingEnabled(checkingEnabled);
-			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
+		$var($Throwable, var$0, nullptr);
+		try {
+			setRootPaneCheckingEnabled(false);
+			$init($BorderLayout);
+			add(this->rootPane, $BorderLayout::CENTER);
+		} catch ($Throwable& var$1) {
+			$assign(var$0, var$1);
+		} /*finally*/ {
+			setRootPaneCheckingEnabled(checkingEnabled);
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
 		}
 	}
 }
 
 $Container* JApplet::getContentPane() {
-	return $nc($(getRootPane()))->getContentPane();
+	return $$nc(getRootPane())->getContentPane();
 }
 
 void JApplet::setContentPane($Container* contentPane) {
-	$nc($(getRootPane()))->setContentPane(contentPane);
+	$$nc(getRootPane())->setContentPane(contentPane);
 }
 
 $JLayeredPane* JApplet::getLayeredPane() {
-	return $nc($(getRootPane()))->getLayeredPane();
+	return $$nc(getRootPane())->getLayeredPane();
 }
 
 void JApplet::setLayeredPane($JLayeredPane* layeredPane) {
-	$nc($(getRootPane()))->setLayeredPane(layeredPane);
+	$$nc(getRootPane())->setLayeredPane(layeredPane);
 }
 
 $Component* JApplet::getGlassPane() {
-	return $nc($(getRootPane()))->getGlassPane();
+	return $$nc(getRootPane())->getGlassPane();
 }
 
 void JApplet::setGlassPane($Component* glassPane) {
-	$nc($(getRootPane()))->setGlassPane(glassPane);
+	$$nc(getRootPane())->setGlassPane(glassPane);
 }
 
 $Graphics* JApplet::getGraphics() {
@@ -400,15 +215,15 @@ $Graphics* JApplet::getGraphics() {
 void JApplet::repaint(int64_t time, int32_t x, int32_t y, int32_t width, int32_t height) {
 	$init($RepaintManager);
 	if ($RepaintManager::HANDLE_TOP_LEVEL_PAINT) {
-		$nc($($RepaintManager::currentManager(static_cast<$Component*>(this))))->addDirtyRegion(static_cast<$Applet*>(this), x, y, width, height);
+		$$nc($RepaintManager::currentManager(this))->addDirtyRegion(this, x, y, width, height);
 	} else {
 		$Applet::repaint(time, x, y, width, height);
 	}
 }
 
 $String* JApplet::paramString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, rootPaneString, this->rootPane != nullptr ? $nc(this->rootPane)->toString() : ""_s);
+	$useLocalObjectStack();
+	$var($String, rootPaneString, this->rootPane != nullptr ? this->rootPane->toString() : ""_s);
 	$var($String, rootPaneCheckingEnabledString, this->rootPaneCheckingEnabled ? "true"_s : "false"_s);
 	return $str({$($Applet::paramString()), ",rootPane="_s, rootPaneString, ",rootPaneCheckingEnabled="_s, rootPaneCheckingEnabledString});
 }
@@ -424,7 +239,163 @@ JApplet::JApplet() {
 }
 
 $Class* JApplet::load$($String* name, bool initialize) {
-	$loadClass(JApplet, name, initialize, &_JApplet_ClassInfo_, allocate$JApplet);
+	$FieldInfo fieldInfos$$[] = {
+		{"rootPane", "Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $field(JApplet, rootPane)},
+		{"rootPaneCheckingEnabled", "Z", nullptr, $PROTECTED, $field(JApplet, rootPaneCheckingEnabled)},
+		{"transferHandler", "Ljavax/swing/TransferHandler;", nullptr, $PRIVATE, $field(JApplet, transferHandler)},
+		{"accessibleContext", "Ljavax/accessibility/AccessibleContext;", nullptr, $PROTECTED, $field(JApplet, accessibleContext)},
+		{}
+	};
+	$NamedAttribute getGraphicsmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{}
+	};
+	$CompoundAttribute getGraphicsmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getGraphicsmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute getRootPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "the RootPane object for this applet."},
+		{}
+	};
+	$CompoundAttribute getRootPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", getRootPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setContentPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The client area of the applet where child components are normally inserted."},
+		{}
+	};
+	$CompoundAttribute setContentPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setContentPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setGlassPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "A transparent pane used for menu rendering."},
+		{}
+	};
+	$CompoundAttribute setGlassPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setGlassPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setJMenuBarmethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The menubar for accessing pulldown menus from this applet."},
+		{}
+	};
+	$CompoundAttribute setJMenuBarmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setJMenuBarmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setLayeredPanemethodAnnotations$$$namedAttribute[] = {
+		{"bound", 'Z', "false"},
+		{"hidden", 'Z', "true"},
+		{"description", 's', "The pane which holds the various applet layers."},
+		{}
+	};
+	$CompoundAttribute setLayeredPanemethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setLayeredPanemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setRootPaneCheckingEnabledmethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "Whether the add and setLayout methods are forwarded"},
+		{}
+	};
+	$CompoundAttribute setRootPaneCheckingEnabledmethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setRootPaneCheckingEnabledmethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$NamedAttribute setTransferHandlermethodAnnotations$$$namedAttribute[] = {
+		{"hidden", 'Z', "true"},
+		{"description", 's', "Mechanism for transfer of data into the component"},
+		{}
+	};
+	$CompoundAttribute setTransferHandlermethodAnnotations$$[] = {
+		{"Ljava/beans/BeanProperty;", setTransferHandlermethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JApplet, init$, void), "java.awt.HeadlessException"},
+		{"addImpl", "(Ljava/awt/Component;Ljava/lang/Object;I)V", nullptr, $PROTECTED, $virtualMethod(JApplet, addImpl, void, $Component*, Object$*, int32_t)},
+		{"createRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PROTECTED, $virtualMethod(JApplet, createRootPane, $JRootPane*)},
+		{"getAccessibleContext", "()Ljavax/accessibility/AccessibleContext;", nullptr, $PUBLIC, $virtualMethod(JApplet, getAccessibleContext, $AccessibleContext*)},
+		{"getContentPane", "()Ljava/awt/Container;", nullptr, $PUBLIC, $virtualMethod(JApplet, getContentPane, $Container*)},
+		{"getGlassPane", "()Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(JApplet, getGlassPane, $Component*)},
+		{"getGraphics", "()Ljava/awt/Graphics;", nullptr, $PUBLIC, $virtualMethod(JApplet, getGraphics, $Graphics*), nullptr, nullptr, getGraphicsmethodAnnotations$$},
+		{"getJMenuBar", "()Ljavax/swing/JMenuBar;", nullptr, $PUBLIC, $virtualMethod(JApplet, getJMenuBar, $JMenuBar*)},
+		{"getLayeredPane", "()Ljavax/swing/JLayeredPane;", nullptr, $PUBLIC, $virtualMethod(JApplet, getLayeredPane, $JLayeredPane*)},
+		{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PUBLIC, $virtualMethod(JApplet, getRootPane, $JRootPane*), nullptr, nullptr, getRootPanemethodAnnotations$$},
+		{"getTransferHandler", "()Ljavax/swing/TransferHandler;", nullptr, $PUBLIC, $virtualMethod(JApplet, getTransferHandler, $TransferHandler*)},
+		{"isRootPaneCheckingEnabled", "()Z", nullptr, $PROTECTED, $virtualMethod(JApplet, isRootPaneCheckingEnabled, bool)},
+		{"paramString", "()Ljava/lang/String;", nullptr, $PROTECTED, $virtualMethod(JApplet, paramString, $String*)},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, remove, void, $Component*)},
+		{"repaint", "(JIIII)V", nullptr, $PUBLIC, $virtualMethod(JApplet, repaint, void, int64_t, int32_t, int32_t, int32_t, int32_t)},
+		{"setContentPane", "(Ljava/awt/Container;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setContentPane, void, $Container*), nullptr, nullptr, setContentPanemethodAnnotations$$},
+		{"setGlassPane", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setGlassPane, void, $Component*), nullptr, nullptr, setGlassPanemethodAnnotations$$},
+		{"setJMenuBar", "(Ljavax/swing/JMenuBar;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setJMenuBar, void, $JMenuBar*), nullptr, nullptr, setJMenuBarmethodAnnotations$$},
+		{"setLayeredPane", "(Ljavax/swing/JLayeredPane;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setLayeredPane, void, $JLayeredPane*), nullptr, nullptr, setLayeredPanemethodAnnotations$$},
+		{"setLayout", "(Ljava/awt/LayoutManager;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setLayout, void, $LayoutManager*)},
+		{"setRootPane", "(Ljavax/swing/JRootPane;)V", nullptr, $PROTECTED, $virtualMethod(JApplet, setRootPane, void, $JRootPane*)},
+		{"setRootPaneCheckingEnabled", "(Z)V", nullptr, $PROTECTED, $virtualMethod(JApplet, setRootPaneCheckingEnabled, void, bool), nullptr, nullptr, setRootPaneCheckingEnabledmethodAnnotations$$},
+		{"setTransferHandler", "(Ljavax/swing/TransferHandler;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, setTransferHandler, void, $TransferHandler*), nullptr, nullptr, setTransferHandlermethodAnnotations$$},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"update", "(Ljava/awt/Graphics;)V", nullptr, $PUBLIC, $virtualMethod(JApplet, update, void, $Graphics*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.TransferHandler$HasGetTransferHandler", "javax.swing.TransferHandler", "HasGetTransferHandler", $STATIC | $INTERFACE | $ABSTRACT},
+		{"javax.swing.JApplet$AccessibleJApplet", "javax.swing.JApplet", "AccessibleJApplet", $PROTECTED},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$1[] = {
+		{"defaultProperty", 's', "JMenuBar"},
+		{"description", 's', "Swing\'s Applet subclass."},
+		{}
+	};
+	$NamedAttribute annotations$$$namedAttribute$2[] = {
+		{"delegate", 's', "getContentPane"},
+		{}
+	};
+	$CompoundAttribute annotations$$[] = {
+		{"Ljava/lang/Deprecated;", annotations$$$namedAttribute},
+		{"Ljava/beans/JavaBean;", annotations$$$namedAttribute$1},
+		{"Ljavax/swing/SwingContainer;", annotations$$$namedAttribute$2},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.JApplet",
+		"java.applet.Applet",
+		"javax.swing.RootPaneContainer,javax.swing.TransferHandler$HasGetTransferHandler",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		annotations$$,
+		nullptr,
+		"javax.swing.JApplet$AccessibleJApplet"
+	};
+	$loadClass(JApplet, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JApplet));
+	});
 	return class$;
 }
 

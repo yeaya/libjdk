@@ -1,5 +1,4 @@
 #include <com/sun/source/tree/ThrowTree.h>
-
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace tree {
 
-$MethodInfo _ThrowTree_MethodInfo_[] = {
-	{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ThrowTree, getExpression, $ExpressionTree*)},
-	{}
-};
-
-$ClassInfo _ThrowTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.tree.ThrowTree",
-	nullptr,
-	"com.sun.source.tree.StatementTree",
-	nullptr,
-	_ThrowTree_MethodInfo_
-};
-
-$Object* allocate$ThrowTree($Class* clazz) {
-	return $of($alloc(ThrowTree));
-}
-
 $Class* ThrowTree::load$($String* name, bool initialize) {
-	$loadClass(ThrowTree, name, initialize, &_ThrowTree_ClassInfo_, allocate$ThrowTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getExpression", "()Lcom/sun/source/tree/ExpressionTree;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(ThrowTree, getExpression, $ExpressionTree*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.tree.ThrowTree",
+		nullptr,
+		"com.sun.source.tree.StatementTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(ThrowTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ThrowTree);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/source/doctree/IdentifierTree.h>
-
 #include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
@@ -12,26 +11,22 @@ namespace com {
 		namespace source {
 			namespace doctree {
 
-$MethodInfo _IdentifierTree_MethodInfo_[] = {
-	{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IdentifierTree, getName, $Name*)},
-	{}
-};
-
-$ClassInfo _IdentifierTree_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.source.doctree.IdentifierTree",
-	nullptr,
-	"com.sun.source.doctree.DocTree",
-	nullptr,
-	_IdentifierTree_MethodInfo_
-};
-
-$Object* allocate$IdentifierTree($Class* clazz) {
-	return $of($alloc(IdentifierTree));
-}
-
 $Class* IdentifierTree::load$($String* name, bool initialize) {
-	$loadClass(IdentifierTree, name, initialize, &_IdentifierTree_ClassInfo_, allocate$IdentifierTree);
+	$MethodInfo methodInfos$$[] = {
+		{"getName", "()Ljavax/lang/model/element/Name;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(IdentifierTree, getName, $Name*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.source.doctree.IdentifierTree",
+		nullptr,
+		"com.sun.source.doctree.DocTree",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IdentifierTree, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IdentifierTree);
+	});
 	return class$;
 }
 

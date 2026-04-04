@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/file/BaseFileManager$ContentCacheEntry.h>
-
 #include <com/sun/tools/javac/file/BaseFileManager.h>
 #include <java/lang/ref/SoftReference.h>
 #include <java/nio/CharBuffer.h>
@@ -20,44 +19,6 @@ namespace com {
 			namespace javac {
 				namespace file {
 
-$FieldInfo _BaseFileManager$ContentCacheEntry_FieldInfo_[] = {
-	{"timestamp", "J", nullptr, $FINAL, $field(BaseFileManager$ContentCacheEntry, timestamp)},
-	{"ref", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/nio/CharBuffer;>;", $FINAL, $field(BaseFileManager$ContentCacheEntry, ref)},
-	{}
-};
-
-$MethodInfo _BaseFileManager$ContentCacheEntry_MethodInfo_[] = {
-	{"<init>", "(Ljavax/tools/JavaFileObject;Ljava/nio/CharBuffer;)V", nullptr, 0, $method(BaseFileManager$ContentCacheEntry, init$, void, $JavaFileObject*, $CharBuffer*)},
-	{"getValue", "()Ljava/nio/CharBuffer;", nullptr, 0, $virtualMethod(BaseFileManager$ContentCacheEntry, getValue, $CharBuffer*)},
-	{"isValid", "(Ljavax/tools/JavaFileObject;)Z", nullptr, 0, $virtualMethod(BaseFileManager$ContentCacheEntry, isValid, bool, $JavaFileObject*)},
-	{}
-};
-
-$InnerClassInfo _BaseFileManager$ContentCacheEntry_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.file.BaseFileManager$ContentCacheEntry", "com.sun.tools.javac.file.BaseFileManager", "ContentCacheEntry", $PROTECTED | $STATIC},
-	{}
-};
-
-$ClassInfo _BaseFileManager$ContentCacheEntry_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.file.BaseFileManager$ContentCacheEntry",
-	"java.lang.Object",
-	nullptr,
-	_BaseFileManager$ContentCacheEntry_FieldInfo_,
-	_BaseFileManager$ContentCacheEntry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BaseFileManager$ContentCacheEntry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.file.BaseFileManager"
-};
-
-$Object* allocate$BaseFileManager$ContentCacheEntry($Class* clazz) {
-	return $of($alloc(BaseFileManager$ContentCacheEntry));
-}
-
 void BaseFileManager$ContentCacheEntry::init$($JavaFileObject* file, $CharBuffer* cb) {
 	this->timestamp = $nc(file)->getLastModified();
 	$set(this, ref, $new($SoftReference, cb));
@@ -75,7 +36,39 @@ BaseFileManager$ContentCacheEntry::BaseFileManager$ContentCacheEntry() {
 }
 
 $Class* BaseFileManager$ContentCacheEntry::load$($String* name, bool initialize) {
-	$loadClass(BaseFileManager$ContentCacheEntry, name, initialize, &_BaseFileManager$ContentCacheEntry_ClassInfo_, allocate$BaseFileManager$ContentCacheEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"timestamp", "J", nullptr, $FINAL, $field(BaseFileManager$ContentCacheEntry, timestamp)},
+		{"ref", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<Ljava/nio/CharBuffer;>;", $FINAL, $field(BaseFileManager$ContentCacheEntry, ref)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/tools/JavaFileObject;Ljava/nio/CharBuffer;)V", nullptr, 0, $method(BaseFileManager$ContentCacheEntry, init$, void, $JavaFileObject*, $CharBuffer*)},
+		{"getValue", "()Ljava/nio/CharBuffer;", nullptr, 0, $virtualMethod(BaseFileManager$ContentCacheEntry, getValue, $CharBuffer*)},
+		{"isValid", "(Ljavax/tools/JavaFileObject;)Z", nullptr, 0, $virtualMethod(BaseFileManager$ContentCacheEntry, isValid, bool, $JavaFileObject*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.file.BaseFileManager$ContentCacheEntry", "com.sun.tools.javac.file.BaseFileManager", "ContentCacheEntry", $PROTECTED | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.file.BaseFileManager$ContentCacheEntry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.file.BaseFileManager"
+	};
+	$loadClass(BaseFileManager$ContentCacheEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BaseFileManager$ContentCacheEntry);
+	});
 	return class$;
 }
 

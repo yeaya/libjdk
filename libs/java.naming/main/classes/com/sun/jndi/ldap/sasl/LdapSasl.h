@@ -52,6 +52,7 @@ class LdapSasl : public ::java::lang::Object {
 	$class(LdapSasl, 0, ::java::lang::Object)
 public:
 	LdapSasl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $StringArray* getSaslMechanismNames($String* str);
 	static ::com::sun::jndi::ldap::LdapResult* saslBind(::com::sun::jndi::ldap::LdapClient* clnt, ::com::sun::jndi::ldap::Connection* conn, $String* server, $String* dn, Object$* pw, $String* authMech, ::java::util::Hashtable* env, $Array<::javax::naming::ldap::Control>* bindCtls);

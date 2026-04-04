@@ -1,12 +1,9 @@
 #include <javax/swing/plaf/metal/MetalRootPaneUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLayeredPane.h>
@@ -39,8 +36,6 @@ using $Component = ::java::awt::Component;
 using $Cursor = ::java::awt::Cursor;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
-using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -62,69 +57,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace metal {
-
-$FieldInfo _MetalRootPaneUI_FieldInfo_[] = {
-	{"borderKeys", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalRootPaneUI, borderKeys)},
-	{"CORNER_DRAG_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalRootPaneUI, CORNER_DRAG_WIDTH)},
-	{"BORDER_DRAG_THICKNESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalRootPaneUI, BORDER_DRAG_THICKNESS)},
-	{"window", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(MetalRootPaneUI, window)},
-	{"titlePane", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(MetalRootPaneUI, titlePane)},
-	{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PRIVATE, $field(MetalRootPaneUI, mouseInputListener)},
-	{"layoutManager", "Ljava/awt/LayoutManager;", nullptr, $PRIVATE, $field(MetalRootPaneUI, layoutManager)},
-	{"savedOldLayout", "Ljava/awt/LayoutManager;", nullptr, $PRIVATE, $field(MetalRootPaneUI, savedOldLayout)},
-	{"root", "Ljavax/swing/JRootPane;", nullptr, $PRIVATE, $field(MetalRootPaneUI, root)},
-	{"lastCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(MetalRootPaneUI, lastCursor)},
-	{"cursorMapping", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalRootPaneUI, cursorMapping)},
-	{}
-};
-
-$MethodInfo _MetalRootPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MetalRootPaneUI, init$, void)},
-	{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PRIVATE, $method(MetalRootPaneUI, createLayoutManager, $LayoutManager*)},
-	{"createTitlePane", "(Ljavax/swing/JRootPane;)Ljavax/swing/JComponent;", nullptr, $PRIVATE, $method(MetalRootPaneUI, createTitlePane, $JComponent*, $JRootPane*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalRootPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{"createWindowMouseInputListener", "(Ljavax/swing/JRootPane;)Ljavax/swing/event/MouseInputListener;", nullptr, $PRIVATE, $method(MetalRootPaneUI, createWindowMouseInputListener, $MouseInputListener*, $JRootPane*)},
-	{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PRIVATE, $method(MetalRootPaneUI, getRootPane, $JRootPane*)},
-	{"getTitlePane", "()Ljavax/swing/JComponent;", nullptr, $PRIVATE, $method(MetalRootPaneUI, getTitlePane, $JComponent*)},
-	{"installBorder", "(Ljavax/swing/JRootPane;)V", nullptr, 0, $virtualMethod(MetalRootPaneUI, installBorder, void, $JRootPane*)},
-	{"installClientDecorations", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, installClientDecorations, void, $JRootPane*)},
-	{"installLayout", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, installLayout, void, $JRootPane*)},
-	{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI, installUI, void, $JComponent*)},
-	{"installWindowListeners", "(Ljavax/swing/JRootPane;Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, installWindowListeners, void, $JRootPane*, $Component*)},
-	{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI, propertyChange, void, $PropertyChangeEvent*)},
-	{"setTitlePane", "(Ljavax/swing/JRootPane;Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, setTitlePane, void, $JRootPane*, $JComponent*)},
-	{"uninstallBorder", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, uninstallBorder, void, $JRootPane*)},
-	{"uninstallClientDecorations", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, uninstallClientDecorations, void, $JRootPane*)},
-	{"uninstallLayout", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, uninstallLayout, void, $JRootPane*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI, uninstallUI, void, $JComponent*)},
-	{"uninstallWindowListeners", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, uninstallWindowListeners, void, $JRootPane*)},
-	{}
-};
-
-$InnerClassInfo _MetalRootPaneUI_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.metal.MetalRootPaneUI$MouseInputHandler", "javax.swing.plaf.metal.MetalRootPaneUI", "MouseInputHandler", $PRIVATE},
-	{"javax.swing.plaf.metal.MetalRootPaneUI$MetalRootLayout", "javax.swing.plaf.metal.MetalRootPaneUI", "MetalRootLayout", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _MetalRootPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.metal.MetalRootPaneUI",
-	"javax.swing.plaf.basic.BasicRootPaneUI",
-	nullptr,
-	_MetalRootPaneUI_FieldInfo_,
-	_MetalRootPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetalRootPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.metal.MetalRootPaneUI$MouseInputHandler,javax.swing.plaf.metal.MetalRootPaneUI$MetalRootLayout"
-};
-
-$Object* allocate$MetalRootPaneUI($Class* clazz) {
-	return $of($alloc(MetalRootPaneUI));
-}
 
 $StringArray* MetalRootPaneUI::borderKeys = nullptr;
 $ints* MetalRootPaneUI::cursorMapping = nullptr;
@@ -161,7 +93,7 @@ void MetalRootPaneUI::installBorder($JRootPane* root) {
 	if (style == $JRootPane::NONE) {
 		$LookAndFeel::uninstallBorder(root);
 	} else {
-		$LookAndFeel::installBorder(root, $nc(MetalRootPaneUI::borderKeys)->get(style));
+		$LookAndFeel::installBorder(root, MetalRootPaneUI::borderKeys->get(style));
 	}
 }
 
@@ -186,7 +118,7 @@ void MetalRootPaneUI::installWindowListeners($JRootPane* root, $Component* paren
 
 void MetalRootPaneUI::uninstallWindowListeners($JRootPane* root) {
 	if (this->window != nullptr) {
-		$nc(this->window)->removeMouseListener(this->mouseInputListener);
+		this->window->removeMouseListener(this->mouseInputListener);
 		$nc(this->window)->removeMouseMotionListener(this->mouseInputListener);
 	}
 }
@@ -207,14 +139,14 @@ void MetalRootPaneUI::uninstallLayout($JRootPane* root) {
 }
 
 void MetalRootPaneUI::installClientDecorations($JRootPane* root) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	installBorder(root);
 	$var($JComponent, titlePane, createTitlePane(root));
 	setTitlePane(root, titlePane);
 	installWindowListeners(root, $($nc(root)->getParent()));
 	installLayout(root);
 	if (this->window != nullptr) {
-		$nc(root)->revalidate();
+		root->revalidate();
 		root->repaint();
 	}
 }
@@ -230,7 +162,7 @@ void MetalRootPaneUI::uninstallClientDecorations($JRootPane* root) {
 		root->revalidate();
 	}
 	if (this->window != nullptr) {
-		$nc(this->window)->setCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
+		this->window->setCursor($($Cursor::getPredefinedCursor($Cursor::DEFAULT_CURSOR)));
 	}
 	$set(this, window, nullptr);
 }
@@ -248,16 +180,16 @@ $LayoutManager* MetalRootPaneUI::createLayoutManager() {
 }
 
 void MetalRootPaneUI::setTitlePane($JRootPane* root, $JComponent* titlePane) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JLayeredPane, layeredPane, $nc(root)->getLayeredPane());
 	$var($JComponent, oldTitlePane, getTitlePane());
 	if (oldTitlePane != nullptr) {
 		oldTitlePane->setVisible(false);
-		$nc(layeredPane)->remove(static_cast<$Component*>(oldTitlePane));
+		$nc(layeredPane)->remove(oldTitlePane);
 	}
 	if (titlePane != nullptr) {
 		$init($JLayeredPane);
-		$nc(layeredPane)->add(static_cast<$Component*>(titlePane), $of($JLayeredPane::FRAME_CONTENT_LAYER));
+		$nc(layeredPane)->add(titlePane, $JLayeredPane::FRAME_CONTENT_LAYER);
 		titlePane->setVisible(true);
 	}
 	$set(this, titlePane, titlePane);
@@ -272,7 +204,7 @@ $JRootPane* MetalRootPaneUI::getRootPane() {
 }
 
 void MetalRootPaneUI::propertyChange($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BasicRootPaneUI::propertyChange(e);
 	$var($String, propertyName, $nc(e)->getPropertyName());
 	if (propertyName == nullptr) {
@@ -287,16 +219,16 @@ void MetalRootPaneUI::propertyChange($PropertyChangeEvent* e) {
 		}
 	} else if (propertyName->equals("ancestor"_s)) {
 		uninstallWindowListeners(this->root);
-		if ($nc(($cast($JRootPane, $(e->getSource()))))->getWindowDecorationStyle() != $JRootPane::NONE) {
+		if ($$sure($JRootPane, e->getSource())->getWindowDecorationStyle() != $JRootPane::NONE) {
 			installWindowListeners(this->root, $($nc(this->root)->getParent()));
 		}
 	}
 	return;
 }
 
-void clinit$MetalRootPaneUI($Class* class$) {
+void MetalRootPaneUI::clinit$($Class* clazz) {
 	$assignStatic(MetalRootPaneUI::borderKeys, $new($StringArray, {
-		($String*)nullptr,
+		nullptr,
 		"RootPane.frameBorder"_s,
 		"RootPane.plainDialogBorder"_s,
 		"RootPane.informationDialogBorder"_s,
@@ -339,7 +271,64 @@ MetalRootPaneUI::MetalRootPaneUI() {
 }
 
 $Class* MetalRootPaneUI::load$($String* name, bool initialize) {
-	$loadClass(MetalRootPaneUI, name, initialize, &_MetalRootPaneUI_ClassInfo_, clinit$MetalRootPaneUI, allocate$MetalRootPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"borderKeys", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalRootPaneUI, borderKeys)},
+		{"CORNER_DRAG_WIDTH", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalRootPaneUI, CORNER_DRAG_WIDTH)},
+		{"BORDER_DRAG_THICKNESS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MetalRootPaneUI, BORDER_DRAG_THICKNESS)},
+		{"window", "Ljava/awt/Window;", nullptr, $PRIVATE, $field(MetalRootPaneUI, window)},
+		{"titlePane", "Ljavax/swing/JComponent;", nullptr, $PRIVATE, $field(MetalRootPaneUI, titlePane)},
+		{"mouseInputListener", "Ljavax/swing/event/MouseInputListener;", nullptr, $PRIVATE, $field(MetalRootPaneUI, mouseInputListener)},
+		{"layoutManager", "Ljava/awt/LayoutManager;", nullptr, $PRIVATE, $field(MetalRootPaneUI, layoutManager)},
+		{"savedOldLayout", "Ljava/awt/LayoutManager;", nullptr, $PRIVATE, $field(MetalRootPaneUI, savedOldLayout)},
+		{"root", "Ljavax/swing/JRootPane;", nullptr, $PRIVATE, $field(MetalRootPaneUI, root)},
+		{"lastCursor", "Ljava/awt/Cursor;", nullptr, $PRIVATE, $field(MetalRootPaneUI, lastCursor)},
+		{"cursorMapping", "[I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(MetalRootPaneUI, cursorMapping)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MetalRootPaneUI, init$, void)},
+		{"createLayoutManager", "()Ljava/awt/LayoutManager;", nullptr, $PRIVATE, $method(MetalRootPaneUI, createLayoutManager, $LayoutManager*)},
+		{"createTitlePane", "(Ljavax/swing/JRootPane;)Ljavax/swing/JComponent;", nullptr, $PRIVATE, $method(MetalRootPaneUI, createTitlePane, $JComponent*, $JRootPane*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(MetalRootPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{"createWindowMouseInputListener", "(Ljavax/swing/JRootPane;)Ljavax/swing/event/MouseInputListener;", nullptr, $PRIVATE, $method(MetalRootPaneUI, createWindowMouseInputListener, $MouseInputListener*, $JRootPane*)},
+		{"getRootPane", "()Ljavax/swing/JRootPane;", nullptr, $PRIVATE, $method(MetalRootPaneUI, getRootPane, $JRootPane*)},
+		{"getTitlePane", "()Ljavax/swing/JComponent;", nullptr, $PRIVATE, $method(MetalRootPaneUI, getTitlePane, $JComponent*)},
+		{"installBorder", "(Ljavax/swing/JRootPane;)V", nullptr, 0, $virtualMethod(MetalRootPaneUI, installBorder, void, $JRootPane*)},
+		{"installClientDecorations", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, installClientDecorations, void, $JRootPane*)},
+		{"installLayout", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, installLayout, void, $JRootPane*)},
+		{"installUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI, installUI, void, $JComponent*)},
+		{"installWindowListeners", "(Ljavax/swing/JRootPane;Ljava/awt/Component;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, installWindowListeners, void, $JRootPane*, $Component*)},
+		{"propertyChange", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI, propertyChange, void, $PropertyChangeEvent*)},
+		{"setTitlePane", "(Ljavax/swing/JRootPane;Ljavax/swing/JComponent;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, setTitlePane, void, $JRootPane*, $JComponent*)},
+		{"uninstallBorder", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, uninstallBorder, void, $JRootPane*)},
+		{"uninstallClientDecorations", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, uninstallClientDecorations, void, $JRootPane*)},
+		{"uninstallLayout", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, uninstallLayout, void, $JRootPane*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(MetalRootPaneUI, uninstallUI, void, $JComponent*)},
+		{"uninstallWindowListeners", "(Ljavax/swing/JRootPane;)V", nullptr, $PRIVATE, $method(MetalRootPaneUI, uninstallWindowListeners, void, $JRootPane*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.metal.MetalRootPaneUI$MouseInputHandler", "javax.swing.plaf.metal.MetalRootPaneUI", "MouseInputHandler", $PRIVATE},
+		{"javax.swing.plaf.metal.MetalRootPaneUI$MetalRootLayout", "javax.swing.plaf.metal.MetalRootPaneUI", "MetalRootLayout", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.metal.MetalRootPaneUI",
+		"javax.swing.plaf.basic.BasicRootPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.metal.MetalRootPaneUI$MouseInputHandler,javax.swing.plaf.metal.MetalRootPaneUI$MetalRootLayout"
+	};
+	$loadClass(MetalRootPaneUI, name, initialize, &classInfo$$, MetalRootPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MetalRootPaneUI));
+	});
 	return class$;
 }
 

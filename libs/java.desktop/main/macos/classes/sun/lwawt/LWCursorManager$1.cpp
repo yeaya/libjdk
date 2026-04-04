@@ -1,5 +1,4 @@
 #include <sun/lwawt/LWCursorManager$1.h>
-
 #include <sun/lwawt/LWCursorManager.h>
 #include <jcpp.h>
 
@@ -13,48 +12,6 @@ using $LWCursorManager = ::sun::lwawt::LWCursorManager;
 namespace sun {
 	namespace lwawt {
 
-$FieldInfo _LWCursorManager$1_FieldInfo_[] = {
-	{"this$0", "Lsun/lwawt/LWCursorManager;", nullptr, $FINAL | $SYNTHETIC, $field(LWCursorManager$1, this$0)},
-	{}
-};
-
-$MethodInfo _LWCursorManager$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/lwawt/LWCursorManager;)V", nullptr, 0, $method(LWCursorManager$1, init$, void, $LWCursorManager*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCursorManager$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _LWCursorManager$1_EnclosingMethodInfo_ = {
-	"sun.lwawt.LWCursorManager",
-	"updateCursorLater",
-	"(Lsun/lwawt/LWWindowPeer;)V"
-};
-
-$InnerClassInfo _LWCursorManager$1_InnerClassesInfo_[] = {
-	{"sun.lwawt.LWCursorManager$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LWCursorManager$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.LWCursorManager$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_LWCursorManager$1_FieldInfo_,
-	_LWCursorManager$1_MethodInfo_,
-	nullptr,
-	&_LWCursorManager$1_EnclosingMethodInfo_,
-	_LWCursorManager$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.lwawt.LWCursorManager"
-};
-
-$Object* allocate$LWCursorManager$1($Class* clazz) {
-	return $of($alloc(LWCursorManager$1));
-}
-
 void LWCursorManager$1::init$($LWCursorManager* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -67,7 +24,42 @@ LWCursorManager$1::LWCursorManager$1() {
 }
 
 $Class* LWCursorManager$1::load$($String* name, bool initialize) {
-	$loadClass(LWCursorManager$1, name, initialize, &_LWCursorManager$1_ClassInfo_, allocate$LWCursorManager$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/lwawt/LWCursorManager;", nullptr, $FINAL | $SYNTHETIC, $field(LWCursorManager$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/lwawt/LWCursorManager;)V", nullptr, 0, $method(LWCursorManager$1, init$, void, $LWCursorManager*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LWCursorManager$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.lwawt.LWCursorManager",
+		"updateCursorLater",
+		"(Lsun/lwawt/LWWindowPeer;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.LWCursorManager$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.LWCursorManager$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.lwawt.LWCursorManager"
+	};
+	$loadClass(LWCursorManager$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LWCursorManager$1);
+	});
 	return class$;
 }
 

@@ -60,6 +60,7 @@ class $import Target : public ::java::lang::Enum {
 public:
 	Target();
 	static $Array<::com::sun::tools::javac::jvm::Target>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name, int32_t majorVersion, int32_t minorVersion);
 	virtual bool allApiModulesAreRoots();
 	virtual bool hasMethodParameters();

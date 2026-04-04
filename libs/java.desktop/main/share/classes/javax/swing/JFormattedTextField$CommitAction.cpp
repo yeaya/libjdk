@@ -1,5 +1,4 @@
 #include <javax/swing/JFormattedTextField$CommitAction.h>
-
 #include <java/awt/event/ActionEvent.h>
 #include <java/text/ParseException.h>
 #include <javax/swing/JFormattedTextField.h>
@@ -20,39 +19,6 @@ using $JTextComponent = ::javax::swing::text::JTextComponent;
 namespace javax {
 	namespace swing {
 
-$MethodInfo _JFormattedTextField$CommitAction_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(JFormattedTextField$CommitAction, init$, void)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$CommitAction, actionPerformed, void, $ActionEvent*)},
-	{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$CommitAction, isEnabled, bool)},
-	{}
-};
-
-$InnerClassInfo _JFormattedTextField$CommitAction_InnerClassesInfo_[] = {
-	{"javax.swing.JFormattedTextField$CommitAction", "javax.swing.JFormattedTextField", "CommitAction", $STATIC},
-	{"javax.swing.JTextField$NotifyAction", "javax.swing.JTextField", "NotifyAction", $STATIC},
-	{}
-};
-
-$ClassInfo _JFormattedTextField$CommitAction_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.JFormattedTextField$CommitAction",
-	"javax.swing.JTextField$NotifyAction",
-	nullptr,
-	nullptr,
-	_JFormattedTextField$CommitAction_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JFormattedTextField$CommitAction_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.JFormattedTextField"
-};
-
-$Object* allocate$JFormattedTextField$CommitAction($Class* clazz) {
-	return $of($alloc(JFormattedTextField$CommitAction));
-}
-
 void JFormattedTextField$CommitAction::init$() {
 	$JTextField$NotifyAction::init$();
 }
@@ -61,9 +27,9 @@ void JFormattedTextField$CommitAction::actionPerformed($ActionEvent* e) {
 	$var($JTextComponent, target, getFocusedComponent());
 	if ($instanceOf($JFormattedTextField, target)) {
 		try {
-			$nc(($cast($JFormattedTextField, target)))->commitEdit();
+			$cast($JFormattedTextField, target)->commitEdit();
 		} catch ($ParseException& pe) {
-			$nc(($cast($JFormattedTextField, target)))->invalidEdit();
+			$cast($JFormattedTextField, target)->invalidEdit();
 			return;
 		}
 	}
@@ -71,11 +37,11 @@ void JFormattedTextField$CommitAction::actionPerformed($ActionEvent* e) {
 }
 
 bool JFormattedTextField$CommitAction::isEnabled() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTextComponent, target, getFocusedComponent());
 	if ($instanceOf($JFormattedTextField, target)) {
 		$var($JFormattedTextField, ftf, $cast($JFormattedTextField, target));
-		if (!$nc(ftf)->isEdited()) {
+		if (!ftf->isEdited()) {
 			return false;
 		}
 		return true;
@@ -87,7 +53,35 @@ JFormattedTextField$CommitAction::JFormattedTextField$CommitAction() {
 }
 
 $Class* JFormattedTextField$CommitAction::load$($String* name, bool initialize) {
-	$loadClass(JFormattedTextField$CommitAction, name, initialize, &_JFormattedTextField$CommitAction_ClassInfo_, allocate$JFormattedTextField$CommitAction);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(JFormattedTextField$CommitAction, init$, void)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$CommitAction, actionPerformed, void, $ActionEvent*)},
+		{"isEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(JFormattedTextField$CommitAction, isEnabled, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.JFormattedTextField$CommitAction", "javax.swing.JFormattedTextField", "CommitAction", $STATIC},
+		{"javax.swing.JTextField$NotifyAction", "javax.swing.JTextField", "NotifyAction", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.JFormattedTextField$CommitAction",
+		"javax.swing.JTextField$NotifyAction",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.JFormattedTextField"
+	};
+	$loadClass(JFormattedTextField$CommitAction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(JFormattedTextField$CommitAction));
+	});
 	return class$;
 }
 

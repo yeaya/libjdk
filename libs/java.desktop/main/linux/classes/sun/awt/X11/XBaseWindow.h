@@ -89,6 +89,7 @@ class XBaseWindow : public ::java::lang::Object {
 	$class(XBaseWindow, 0, ::java::lang::Object)
 public:
 	XBaseWindow();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(int64_t parentWindow, ::java::awt::Rectangle* bounds);
 	void init$(::java::awt::Rectangle* bounds);

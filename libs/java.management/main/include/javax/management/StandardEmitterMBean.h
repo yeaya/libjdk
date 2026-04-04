@@ -32,6 +32,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(Object$* implementation, $Class* mbeanInterface, ::javax::management::NotificationEmitter* emitter);
 	void init$(Object$* implementation, $Class* mbeanInterface, bool isMXBean, ::javax::management::NotificationEmitter* emitter);
 	void init$($Class* mbeanInterface, ::javax::management::NotificationEmitter* emitter);

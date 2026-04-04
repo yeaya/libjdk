@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/PopupMenuUI.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/JPopupMenu.h>
@@ -8,7 +7,6 @@
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
-using $Component = ::java::awt::Component;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -21,26 +19,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 
-$MethodInfo _PopupMenuUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(PopupMenuUI, init$, void)},
-	{"getPopup", "(Ljavax/swing/JPopupMenu;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(PopupMenuUI, getPopup, $Popup*, $JPopupMenu*, int32_t, int32_t)},
-	{"isPopupTrigger", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $virtualMethod(PopupMenuUI, isPopupTrigger, bool, $MouseEvent*)},
-	{}
-};
-
-$ClassInfo _PopupMenuUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"javax.swing.plaf.PopupMenuUI",
-	"javax.swing.plaf.ComponentUI",
-	nullptr,
-	nullptr,
-	_PopupMenuUI_MethodInfo_
-};
-
-$Object* allocate$PopupMenuUI($Class* clazz) {
-	return $of($alloc(PopupMenuUI));
-}
-
 void PopupMenuUI::init$() {
 	$ComponentUI::init$();
 }
@@ -50,7 +28,7 @@ bool PopupMenuUI::isPopupTrigger($MouseEvent* e) {
 }
 
 $Popup* PopupMenuUI::getPopup($JPopupMenu* popup, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PopupFactory, popupFactory, $PopupFactory::getSharedInstance());
 	return $nc(popupFactory)->getPopup($($nc(popup)->getInvoker()), popup, x, y);
 }
@@ -59,7 +37,23 @@ PopupMenuUI::PopupMenuUI() {
 }
 
 $Class* PopupMenuUI::load$($String* name, bool initialize) {
-	$loadClass(PopupMenuUI, name, initialize, &_PopupMenuUI_ClassInfo_, allocate$PopupMenuUI);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(PopupMenuUI, init$, void)},
+		{"getPopup", "(Ljavax/swing/JPopupMenu;II)Ljavax/swing/Popup;", nullptr, $PUBLIC, $virtualMethod(PopupMenuUI, getPopup, $Popup*, $JPopupMenu*, int32_t, int32_t)},
+		{"isPopupTrigger", "(Ljava/awt/event/MouseEvent;)Z", nullptr, $PUBLIC, $virtualMethod(PopupMenuUI, isPopupTrigger, bool, $MouseEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"javax.swing.plaf.PopupMenuUI",
+		"javax.swing.plaf.ComponentUI",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(PopupMenuUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PopupMenuUI);
+	});
 	return class$;
 }
 

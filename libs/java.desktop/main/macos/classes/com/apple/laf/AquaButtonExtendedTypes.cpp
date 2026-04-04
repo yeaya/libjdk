@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaButtonExtendedTypes.h>
-
 #include <apple/laf/JRSUIConstants$SegmentPosition.h>
 #include <apple/laf/JRSUIConstants$Size.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
@@ -24,7 +23,6 @@
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/swing/AbstractButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/border/Border.h>
 #include <jcpp.h>
 
@@ -70,7 +68,6 @@ using $AquaButtonExtendedTypes$TypeSpecifier = ::com::apple::laf::AquaButtonExte
 using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$SizeVariant;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -79,61 +76,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $AbstractButton = ::javax::swing::AbstractButton;
-using $JComponent = ::javax::swing::JComponent;
 using $Border = ::javax::swing::border::Border;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _AquaButtonExtendedTypes_FieldInfo_[] = {
-	{"typeDefinitions", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/util/Map<Ljava/lang/String;Lcom/apple/laf/AquaButtonExtendedTypes$TypeSpecifier;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonExtendedTypes, typeDefinitions)},
-	{}
-};
-
-$MethodInfo _AquaButtonExtendedTypes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonExtendedTypes, init$, void)},
-	{"getAllTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/apple/laf/AquaButtonExtendedTypes$TypeSpecifier;>;", $PROTECTED | $STATIC, $staticMethod(AquaButtonExtendedTypes, getAllTypes, $Map*)},
-	{"getBorderForPosition", "(Ljavax/swing/AbstractButton;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonExtendedTypes, getBorderForPosition, $Border*, $AbstractButton*, Object$*, Object$*)},
-	{"getRealPositionForLogicalPosition", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonExtendedTypes, getRealPositionForLogicalPosition, $String*, $String*, bool)},
-	{"getSpecifierByName", "(Ljava/lang/String;)Lcom/apple/laf/AquaButtonExtendedTypes$TypeSpecifier;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonExtendedTypes, getSpecifierByName, $AquaButtonExtendedTypes$TypeSpecifier*, $String*)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonExtendedTypes_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonExtendedTypes$SegmentedNamedBorder", "com.apple.laf.AquaButtonExtendedTypes", "SegmentedNamedBorder", $PUBLIC | $STATIC},
-	{"com.apple.laf.AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "SegmentedBorderDefinedTypeSpecifier", $STATIC},
-	{"com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "BorderDefinedTypeSpecifier", $STATIC},
-	{"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "TypeSpecifier", $STATIC | $ABSTRACT},
-	{"com.apple.laf.AquaButtonExtendedTypes$8", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaButtonExtendedTypes$7", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaButtonExtendedTypes$6", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaButtonExtendedTypes$5", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaButtonExtendedTypes$4", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaButtonExtendedTypes$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaButtonExtendedTypes$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaButtonExtendedTypes$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaButtonExtendedTypes_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonExtendedTypes",
-	"java.lang.Object",
-	nullptr,
-	_AquaButtonExtendedTypes_FieldInfo_,
-	_AquaButtonExtendedTypes_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonExtendedTypes_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonExtendedTypes$SegmentedNamedBorder,com.apple.laf.AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier,com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier,com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier$1,com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier,com.apple.laf.AquaButtonExtendedTypes$8,com.apple.laf.AquaButtonExtendedTypes$7,com.apple.laf.AquaButtonExtendedTypes$6,com.apple.laf.AquaButtonExtendedTypes$5,com.apple.laf.AquaButtonExtendedTypes$4,com.apple.laf.AquaButtonExtendedTypes$3,com.apple.laf.AquaButtonExtendedTypes$2,com.apple.laf.AquaButtonExtendedTypes$1"
-};
-
-$Object* allocate$AquaButtonExtendedTypes($Class* clazz) {
-	return $of($alloc(AquaButtonExtendedTypes));
-}
 
 $AquaUtils$RecyclableSingleton* AquaButtonExtendedTypes::typeDefinitions = nullptr;
 
@@ -142,13 +89,16 @@ void AquaButtonExtendedTypes::init$() {
 
 $Border* AquaButtonExtendedTypes::getBorderForPosition($AbstractButton* c, Object$* type, Object$* logicalPosition) {
 	$init(AquaButtonExtendedTypes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, nullptr);
 	if (logicalPosition == nullptr) {
 		$assign(var$0, $cast($String, type));
 	} else {
-		$var($String, var$1, $$str({type, "-"_s}));
-		$assign(var$0, $concat(var$1, $(getRealPositionForLogicalPosition($cast($String, logicalPosition), $nc($($nc(c)->getComponentOrientation()))->isLeftToRight()))));
+		$var($StringBuilder, var$1, $new($StringBuilder));
+		var$1->append(type);
+		var$1->append("-"_s);
+		var$1->append($(getRealPositionForLogicalPosition($cast($String, logicalPosition), $$nc($nc(c)->getComponentOrientation())->isLeftToRight())));
+		$assign(var$0, $str(var$1));
 	}
 	$var($String, name, var$0);
 	$var($AquaButtonExtendedTypes$TypeSpecifier, specifier, getSpecifierByName(name));
@@ -159,7 +109,7 @@ $Border* AquaButtonExtendedTypes::getBorderForPosition($AbstractButton* c, Objec
 	if (!($instanceOf($AquaBorder, border))) {
 		return border;
 	}
-	return $nc(($cast($AquaBorder, border)))->deriveBorderForSize($($AquaUtilControlSize::getUserSizeFrom(c)));
+	return $nc($cast($AquaBorder, border))->deriveBorderForSize($($AquaUtilControlSize::getUserSizeFrom(c)));
 }
 
 $String* AquaButtonExtendedTypes::getRealPositionForLogicalPosition($String* logicalPosition, bool leftToRight) {
@@ -177,66 +127,64 @@ $String* AquaButtonExtendedTypes::getRealPositionForLogicalPosition($String* log
 
 $AquaButtonExtendedTypes$TypeSpecifier* AquaButtonExtendedTypes::getSpecifierByName($String* name) {
 	$init(AquaButtonExtendedTypes);
-	return $cast($AquaButtonExtendedTypes$TypeSpecifier, $nc(($cast($Map, $($nc(AquaButtonExtendedTypes::typeDefinitions)->get()))))->get(name));
+	return $cast($AquaButtonExtendedTypes$TypeSpecifier, $$sure($Map, AquaButtonExtendedTypes::typeDefinitions->get())->get(name));
 }
 
 $Map* AquaButtonExtendedTypes::getAllTypes() {
 	$init(AquaButtonExtendedTypes);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Map, specifiersByName, $new($HashMap));
 	$var($Insets, focusInsets, $new($Insets, 4, 4, 4, 4));
 	$init($JRSUIConstants$Widget);
 	$init($JRSUIConstants$SegmentPosition);
 	$var($AquaButtonExtendedTypes$TypeSpecifierArray, specifiers, $new($AquaButtonExtendedTypes$TypeSpecifierArray, {
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$2, "toolbar"_s, true)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$3, "icon"_s, true)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$4, "text"_s, false)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$5, "toggle"_s, false)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$6, "combobox"_s, $JRSUIConstants$Widget::BUTTON_POP_DOWN, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(7, 10, 6, 30)))->alterInsets(1, 2, 0, 2)))->alterMinSize(0, 29)), 0, -3, 0, -6)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "comboboxInternal"_s, $JRSUIConstants$Widget::BUTTON_POP_DOWN, $($nc($($$new($AquaUtilControlSize$SizeVariant)->alterInsets(1, 2, 0, 2)))->alterMinSize(0, 29)), 0, -3, 0, -6)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$7, "comboboxEndCap"_s, $JRSUIConstants$Widget::BUTTON_COMBO_BOX, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(5, 10, 6, 10)))->alterInsets(1, 2, 0, 2)))->alterMinSize(0, 29)), 0, -3, 0, -6)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "square"_s, $JRSUIConstants$Widget::BUTTON_BEVEL, $($nc($($$new($AquaUtilControlSize$SizeVariant, 16, 16)->alterMargins(5, 7, 5, 7)))->replaceInsets(focusInsets)))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$8, "gradient"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($nc($($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(8, 9, 8, 9)))->replaceInsets(focusInsets)))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "bevel"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_ROUND, $($nc($($$new($AquaUtilControlSize$SizeVariant, 22, 22)->alterMargins(7, 8, 9, 8)))->alterInsets(0, 0, 0, 0)))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "textured"_s, $JRSUIConstants$Widget::BUTTON_PUSH_TEXTURED, $($nc($($$new($AquaUtilControlSize$SizeVariant, 28, 28)->alterMargins(5, 10, 6, 10)))->alterInsets(1, 2, 0, 2)))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "roundRect"_s, $JRSUIConstants$Widget::BUTTON_PUSH_INSET, $($nc($($$new($AquaUtilControlSize$SizeVariant, 28, 28)->alterMargins(4, 14, 4, 14)))->replaceInsets(focusInsets)))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "recessed"_s, $JRSUIConstants$Widget::BUTTON_PUSH_SCOPE, $($nc($($$new($AquaUtilControlSize$SizeVariant, 28, 28)->alterMargins(4, 14, 4, 14)))->replaceInsets(focusInsets)))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "well"_s, $JRSUIConstants$Widget::FRAME_WELL, $$new($AquaUtilControlSize$SizeVariant, 32, 32))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "help"_s, $JRSUIConstants$Widget::BUTTON_ROUND_HELP, $($nc($($$new($AquaUtilControlSize$SizeVariant)->alterInsets(2, 0, 0, 0)))->alterMinSize(28, 28)), -3, -3, -3, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "round"_s, $JRSUIConstants$Widget::BUTTON_ROUND, $($nc($($$new($AquaUtilControlSize$SizeVariant)->alterInsets(2, 0, 0, 0)))->alterMinSize(28, 28)), -3, -3, -3, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "texturedRound"_s, $JRSUIConstants$Widget::BUTTON_ROUND_INSET, $($nc($($$new($AquaUtilControlSize$SizeVariant)->alterInsets(0, 0, 0, 0)))->alterMinSize(26, 26)), -2, -2, 0, 0)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmented-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED, $JRSUIConstants$SegmentPosition::FIRST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 16, 6, 10)))->alterInsets(2, 3, 2, 0)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmented-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED, $JRSUIConstants$SegmentPosition::MIDDLE, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 9, 6, 10)))->alterInsets(2, 0, 2, 0)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmented-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED, $JRSUIConstants$SegmentPosition::LAST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 9, 6, 16)))->alterInsets(2, 0, 2, 3)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmented-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED, $JRSUIConstants$SegmentPosition::ONLY, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 16, 6, 16)))->alterInsets(2, 3, 2, 3)))->alterMinSize(34, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedRoundRect-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_INSET, $JRSUIConstants$SegmentPosition::FIRST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 8)))->alterInsets(2, 2, 2, 0)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedRoundRect-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_INSET, $JRSUIConstants$SegmentPosition::MIDDLE, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 8)))->alterInsets(2, 0, 2, 0)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedRoundRect-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_INSET, $JRSUIConstants$SegmentPosition::LAST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 12)))->alterInsets(2, 0, 2, 2)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedRoundRect-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_INSET, $JRSUIConstants$SegmentPosition::ONLY, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 12)))->alterInsets(2, 2, 2, 2)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTexturedRounded-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_SCURVE, $JRSUIConstants$SegmentPosition::FIRST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 8)))->alterInsets(2, 2, 2, 0)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTexturedRounded-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_SCURVE, $JRSUIConstants$SegmentPosition::MIDDLE, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 8)))->alterInsets(2, 0, 2, 0)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTexturedRounded-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_SCURVE, $JRSUIConstants$SegmentPosition::LAST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 12)))->alterInsets(2, 0, 2, 2)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTexturedRounded-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_SCURVE, $JRSUIConstants$SegmentPosition::ONLY, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 12)))->alterInsets(2, 2, 2, 2)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTextured-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TEXTURED, $JRSUIConstants$SegmentPosition::FIRST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 8)))->alterInsets(2, 3, 2, 0)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTextured-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TEXTURED, $JRSUIConstants$SegmentPosition::MIDDLE, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 8)))->alterInsets(2, 0, 2, 0)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTextured-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TEXTURED, $JRSUIConstants$SegmentPosition::LAST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 12)))->alterInsets(2, 0, 2, 3)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTextured-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TEXTURED, $JRSUIConstants$SegmentPosition::ONLY, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 12)))->alterInsets(2, 3, 2, 3)))->alterMinSize(0, 28)), 0, -3, 0, -3)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedCapsule-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TOOLBAR, $JRSUIConstants$SegmentPosition::FIRST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 8)))->alterInsets(2, 2, 2, 0)))->alterMinSize(0, 28)), 0, 0, 0, 0)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedCapsule-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TOOLBAR, $JRSUIConstants$SegmentPosition::MIDDLE, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 8)))->alterInsets(2, 0, 2, 0)))->alterMinSize(0, 28)), 0, 0, 0, 0)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedCapsule-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TOOLBAR, $JRSUIConstants$SegmentPosition::LAST, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 12)))->alterInsets(2, 0, 2, 2)))->alterMinSize(0, 28)), 0, 0, 0, 0)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedCapsule-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TOOLBAR, $JRSUIConstants$SegmentPosition::ONLY, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 12)))->alterInsets(2, 2, 2, 2)))->alterMinSize(34, 28)), 0, 0, 0, 0)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "segmentedGradient-first"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($nc($($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(4, 5, 4, 5)))->replaceInsets($$new($Insets, -2, - 0, -2, - 0))))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "segmentedGradient-middle"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($nc($($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(4, 5, 4, 5)))->replaceInsets($$new($Insets, -2, -1, -2, - 0))))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "segmentedGradient-last"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($nc($($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(4, 5, 4, 5)))->replaceInsets($$new($Insets, -2, -1, -2, - 0))))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "segmentedGradient-only"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($nc($($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(4, 5, 4, 5)))->replaceInsets($$new($Insets, -2, -1, -2, -1))))),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "disclosure"_s, $JRSUIConstants$Widget::BUTTON_DISCLOSURE, $($nc($($nc($($$new($AquaUtilControlSize$SizeVariant)->alterMargins(10, 10, 10, 10)))->replaceInsets(focusInsets)))->alterMinSize(27, 27)), -1, -1, -1, -1)),
-		static_cast<$AquaButtonExtendedTypes$TypeSpecifier*>($$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "scrollColumnSizer"_s, $JRSUIConstants$Widget::SCROLL_COLUMN_SIZER, $$new($AquaUtilControlSize$SizeVariant, 14, 14)))
+		$$new($AquaButtonExtendedTypes$2, "toolbar"_s, true),
+		$$new($AquaButtonExtendedTypes$3, "icon"_s, true),
+		$$new($AquaButtonExtendedTypes$4, "text"_s, false),
+		$$new($AquaButtonExtendedTypes$5, "toggle"_s, false),
+		$$new($AquaButtonExtendedTypes$6, "combobox"_s, $JRSUIConstants$Widget::BUTTON_POP_DOWN, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(7, 10, 6, 30))->alterInsets(1, 2, 0, 2))->alterMinSize(0, 29)), 0, -3, 0, -6),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "comboboxInternal"_s, $JRSUIConstants$Widget::BUTTON_POP_DOWN, $($$nc($$new($AquaUtilControlSize$SizeVariant)->alterInsets(1, 2, 0, 2))->alterMinSize(0, 29)), 0, -3, 0, -6),
+		$$new($AquaButtonExtendedTypes$7, "comboboxEndCap"_s, $JRSUIConstants$Widget::BUTTON_COMBO_BOX, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(5, 10, 6, 10))->alterInsets(1, 2, 0, 2))->alterMinSize(0, 29)), 0, -3, 0, -6),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "square"_s, $JRSUIConstants$Widget::BUTTON_BEVEL, $($$nc($$new($AquaUtilControlSize$SizeVariant, 16, 16)->alterMargins(5, 7, 5, 7))->replaceInsets(focusInsets))),
+		$$new($AquaButtonExtendedTypes$8, "gradient"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($$nc($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(8, 9, 8, 9))->replaceInsets(focusInsets))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "bevel"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_ROUND, $($$nc($$new($AquaUtilControlSize$SizeVariant, 22, 22)->alterMargins(7, 8, 9, 8))->alterInsets(0, 0, 0, 0))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "textured"_s, $JRSUIConstants$Widget::BUTTON_PUSH_TEXTURED, $($$nc($$new($AquaUtilControlSize$SizeVariant, 28, 28)->alterMargins(5, 10, 6, 10))->alterInsets(1, 2, 0, 2))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "roundRect"_s, $JRSUIConstants$Widget::BUTTON_PUSH_INSET, $($$nc($$new($AquaUtilControlSize$SizeVariant, 28, 28)->alterMargins(4, 14, 4, 14))->replaceInsets(focusInsets))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "recessed"_s, $JRSUIConstants$Widget::BUTTON_PUSH_SCOPE, $($$nc($$new($AquaUtilControlSize$SizeVariant, 28, 28)->alterMargins(4, 14, 4, 14))->replaceInsets(focusInsets))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "well"_s, $JRSUIConstants$Widget::FRAME_WELL, $$new($AquaUtilControlSize$SizeVariant, 32, 32)),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "help"_s, $JRSUIConstants$Widget::BUTTON_ROUND_HELP, $($$nc($$new($AquaUtilControlSize$SizeVariant)->alterInsets(2, 0, 0, 0))->alterMinSize(28, 28)), -3, -3, -3, -3),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "round"_s, $JRSUIConstants$Widget::BUTTON_ROUND, $($$nc($$new($AquaUtilControlSize$SizeVariant)->alterInsets(2, 0, 0, 0))->alterMinSize(28, 28)), -3, -3, -3, -3),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "texturedRound"_s, $JRSUIConstants$Widget::BUTTON_ROUND_INSET, $($$nc($$new($AquaUtilControlSize$SizeVariant)->alterInsets(0, 0, 0, 0))->alterMinSize(26, 26)), -2, -2, 0, 0),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmented-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED, $JRSUIConstants$SegmentPosition::FIRST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 16, 6, 10))->alterInsets(2, 3, 2, 0))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmented-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED, $JRSUIConstants$SegmentPosition::MIDDLE, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 9, 6, 10))->alterInsets(2, 0, 2, 0))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmented-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED, $JRSUIConstants$SegmentPosition::LAST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 9, 6, 16))->alterInsets(2, 0, 2, 3))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmented-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED, $JRSUIConstants$SegmentPosition::ONLY, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 16, 6, 16))->alterInsets(2, 3, 2, 3))->alterMinSize(34, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedRoundRect-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_INSET, $JRSUIConstants$SegmentPosition::FIRST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 8))->alterInsets(2, 2, 2, 0))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedRoundRect-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_INSET, $JRSUIConstants$SegmentPosition::MIDDLE, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 8))->alterInsets(2, 0, 2, 0))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedRoundRect-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_INSET, $JRSUIConstants$SegmentPosition::LAST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 12))->alterInsets(2, 0, 2, 2))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedRoundRect-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_INSET, $JRSUIConstants$SegmentPosition::ONLY, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 12))->alterInsets(2, 2, 2, 2))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTexturedRounded-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_SCURVE, $JRSUIConstants$SegmentPosition::FIRST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 8))->alterInsets(2, 2, 2, 0))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTexturedRounded-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_SCURVE, $JRSUIConstants$SegmentPosition::MIDDLE, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 8))->alterInsets(2, 0, 2, 0))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTexturedRounded-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_SCURVE, $JRSUIConstants$SegmentPosition::LAST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 12))->alterInsets(2, 0, 2, 2))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTexturedRounded-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_SCURVE, $JRSUIConstants$SegmentPosition::ONLY, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 12))->alterInsets(2, 2, 2, 2))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTextured-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TEXTURED, $JRSUIConstants$SegmentPosition::FIRST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 8))->alterInsets(2, 3, 2, 0))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTextured-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TEXTURED, $JRSUIConstants$SegmentPosition::MIDDLE, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 8))->alterInsets(2, 0, 2, 0))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTextured-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TEXTURED, $JRSUIConstants$SegmentPosition::LAST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 12))->alterInsets(2, 0, 2, 3))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedTextured-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TEXTURED, $JRSUIConstants$SegmentPosition::ONLY, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 12))->alterInsets(2, 3, 2, 3))->alterMinSize(0, 28)), 0, -3, 0, -3),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedCapsule-first"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TOOLBAR, $JRSUIConstants$SegmentPosition::FIRST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 8))->alterInsets(2, 2, 2, 0))->alterMinSize(0, 28)), 0, 0, 0, 0),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedCapsule-middle"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TOOLBAR, $JRSUIConstants$SegmentPosition::MIDDLE, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 8))->alterInsets(2, 0, 2, 0))->alterMinSize(0, 28)), 0, 0, 0, 0),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedCapsule-last"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TOOLBAR, $JRSUIConstants$SegmentPosition::LAST, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 8, 6, 12))->alterInsets(2, 0, 2, 2))->alterMinSize(0, 28)), 0, 0, 0, 0),
+		$$new($AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier, "segmentedCapsule-only"_s, $JRSUIConstants$Widget::BUTTON_SEGMENTED_TOOLBAR, $JRSUIConstants$SegmentPosition::ONLY, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(6, 12, 6, 12))->alterInsets(2, 2, 2, 2))->alterMinSize(34, 28)), 0, 0, 0, 0),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "segmentedGradient-first"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($$nc($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(4, 5, 4, 5))->replaceInsets($$new($Insets, -2, -0, -2, -0)))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "segmentedGradient-middle"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($$nc($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(4, 5, 4, 5))->replaceInsets($$new($Insets, -2, -1, -2, -0)))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "segmentedGradient-last"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($$nc($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(4, 5, 4, 5))->replaceInsets($$new($Insets, -2, -1, -2, -0)))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "segmentedGradient-only"_s, $JRSUIConstants$Widget::BUTTON_BEVEL_INSET, $($$nc($$new($AquaUtilControlSize$SizeVariant, 18, 18)->alterMargins(4, 5, 4, 5))->replaceInsets($$new($Insets, -2, -1, -2, -1)))),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "disclosure"_s, $JRSUIConstants$Widget::BUTTON_DISCLOSURE, $($$nc($$nc($$new($AquaUtilControlSize$SizeVariant)->alterMargins(10, 10, 10, 10))->replaceInsets(focusInsets))->alterMinSize(27, 27)), -1, -1, -1, -1),
+		$$new($AquaButtonExtendedTypes$BorderDefinedTypeSpecifier, "scrollColumnSizer"_s, $JRSUIConstants$Widget::SCROLL_COLUMN_SIZER, $$new($AquaUtilControlSize$SizeVariant, 14, 14))
 	}));
 	{
 		$var($AquaButtonExtendedTypes$TypeSpecifierArray, arr$, specifiers);
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			$var($AquaButtonExtendedTypes$TypeSpecifier, specifier, arr$->get(i$));
 			{
 				specifiersByName->put($nc(specifier)->name, specifier);
@@ -246,7 +194,7 @@ $Map* AquaButtonExtendedTypes::getAllTypes() {
 	return specifiersByName;
 }
 
-void clinit$AquaButtonExtendedTypes($Class* class$) {
+void AquaButtonExtendedTypes::clinit$($Class* clazz) {
 	$assignStatic(AquaButtonExtendedTypes::typeDefinitions, $new($AquaButtonExtendedTypes$1));
 }
 
@@ -254,7 +202,50 @@ AquaButtonExtendedTypes::AquaButtonExtendedTypes() {
 }
 
 $Class* AquaButtonExtendedTypes::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonExtendedTypes, name, initialize, &_AquaButtonExtendedTypes_ClassInfo_, clinit$AquaButtonExtendedTypes, allocate$AquaButtonExtendedTypes);
+	$FieldInfo fieldInfos$$[] = {
+		{"typeDefinitions", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/util/Map<Ljava/lang/String;Lcom/apple/laf/AquaButtonExtendedTypes$TypeSpecifier;>;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaButtonExtendedTypes, typeDefinitions)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonExtendedTypes, init$, void)},
+		{"getAllTypes", "()Ljava/util/Map;", "()Ljava/util/Map<Ljava/lang/String;Lcom/apple/laf/AquaButtonExtendedTypes$TypeSpecifier;>;", $PROTECTED | $STATIC, $staticMethod(AquaButtonExtendedTypes, getAllTypes, $Map*)},
+		{"getBorderForPosition", "(Ljavax/swing/AbstractButton;Ljava/lang/Object;Ljava/lang/Object;)Ljavax/swing/border/Border;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonExtendedTypes, getBorderForPosition, $Border*, $AbstractButton*, Object$*, Object$*)},
+		{"getRealPositionForLogicalPosition", "(Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonExtendedTypes, getRealPositionForLogicalPosition, $String*, $String*, bool)},
+		{"getSpecifierByName", "(Ljava/lang/String;)Lcom/apple/laf/AquaButtonExtendedTypes$TypeSpecifier;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaButtonExtendedTypes, getSpecifierByName, $AquaButtonExtendedTypes$TypeSpecifier*, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonExtendedTypes$SegmentedNamedBorder", "com.apple.laf.AquaButtonExtendedTypes", "SegmentedNamedBorder", $PUBLIC | $STATIC},
+		{"com.apple.laf.AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "SegmentedBorderDefinedTypeSpecifier", $STATIC},
+		{"com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "BorderDefinedTypeSpecifier", $STATIC},
+		{"com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier", "com.apple.laf.AquaButtonExtendedTypes", "TypeSpecifier", $STATIC | $ABSTRACT},
+		{"com.apple.laf.AquaButtonExtendedTypes$8", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaButtonExtendedTypes$7", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaButtonExtendedTypes$6", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaButtonExtendedTypes$5", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaButtonExtendedTypes$4", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaButtonExtendedTypes$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaButtonExtendedTypes$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaButtonExtendedTypes$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonExtendedTypes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonExtendedTypes$SegmentedNamedBorder,com.apple.laf.AquaButtonExtendedTypes$SegmentedBorderDefinedTypeSpecifier,com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier,com.apple.laf.AquaButtonExtendedTypes$BorderDefinedTypeSpecifier$1,com.apple.laf.AquaButtonExtendedTypes$TypeSpecifier,com.apple.laf.AquaButtonExtendedTypes$8,com.apple.laf.AquaButtonExtendedTypes$7,com.apple.laf.AquaButtonExtendedTypes$6,com.apple.laf.AquaButtonExtendedTypes$5,com.apple.laf.AquaButtonExtendedTypes$4,com.apple.laf.AquaButtonExtendedTypes$3,com.apple.laf.AquaButtonExtendedTypes$2,com.apple.laf.AquaButtonExtendedTypes$1"
+	};
+	$loadClass(AquaButtonExtendedTypes, name, initialize, &classInfo$$, AquaButtonExtendedTypes::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaButtonExtendedTypes);
+	});
 	return class$;
 }
 

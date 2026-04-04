@@ -69,6 +69,7 @@ class $export KrbApReq : public ::java::lang::Object {
 	$class(KrbApReq, 0, ::java::lang::Object)
 public:
 	KrbApReq();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::security::krb5::Credentials* tgsCred, bool mutualRequired, bool useSubKey, bool useSeqNumber, ::sun::security::krb5::Checksum* cksum);
 	void init$($bytes* message, ::sun::security::jgss::krb5::Krb5AcceptCredential* cred, ::java::net::InetAddress* initiator);
 	void init$(::sun::security::krb5::internal::APOptions* apOptions, ::sun::security::krb5::internal::Ticket* ticket, ::sun::security::krb5::EncryptionKey* key, ::sun::security::krb5::PrincipalName* cname, ::sun::security::krb5::Checksum* cksum, ::sun::security::krb5::internal::KerberosTime* ctime, ::sun::security::krb5::EncryptionKey* subKey, ::sun::security::krb5::internal::SeqNumber* seqNumber, ::sun::security::krb5::internal::AuthorizationData* authorizationData);

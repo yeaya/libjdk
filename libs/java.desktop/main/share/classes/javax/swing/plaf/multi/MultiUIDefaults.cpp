@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/multi/MultiUIDefaults.h>
-
 #include <javax/swing/UIDefaults.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UIDefaults = ::javax::swing::UIDefaults;
@@ -12,25 +10,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace multi {
-
-$MethodInfo _MultiUIDefaults_MethodInfo_[] = {
-	{"<init>", "(IF)V", nullptr, 0, $method(MultiUIDefaults, init$, void, int32_t, float)},
-	{"getUIError", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MultiUIDefaults, getUIError, void, $String*)},
-	{}
-};
-
-$ClassInfo _MultiUIDefaults_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.multi.MultiUIDefaults",
-	"javax.swing.UIDefaults",
-	nullptr,
-	nullptr,
-	_MultiUIDefaults_MethodInfo_
-};
-
-$Object* allocate$MultiUIDefaults($Class* clazz) {
-	return $of($alloc(MultiUIDefaults));
-}
 
 void MultiUIDefaults::init$(int32_t initialCapacity, float loadFactor) {
 	$UIDefaults::init$(initialCapacity, loadFactor);
@@ -44,7 +23,22 @@ MultiUIDefaults::MultiUIDefaults() {
 }
 
 $Class* MultiUIDefaults::load$($String* name, bool initialize) {
-	$loadClass(MultiUIDefaults, name, initialize, &_MultiUIDefaults_ClassInfo_, allocate$MultiUIDefaults);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(IF)V", nullptr, 0, $method(MultiUIDefaults, init$, void, int32_t, float)},
+		{"getUIError", "(Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(MultiUIDefaults, getUIError, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.multi.MultiUIDefaults",
+		"javax.swing.UIDefaults",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(MultiUIDefaults, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MultiUIDefaults));
+	});
 	return class$;
 }
 

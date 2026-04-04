@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WMenuItemPeer.h>
-
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Font.h>
 #include <java/awt/MenuContainer.h>
@@ -7,9 +6,7 @@
 #include <java/awt/MenuShortcut.h>
 #include <java/lang/Error.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/Runnable.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/windows/WMenuBarPeer.h>
 #include <sun/awt/windows/WMenuItemPeer$1.h>
@@ -29,9 +26,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $WMenuBarPeer = ::sun::awt::windows::WMenuBarPeer;
 using $WMenuItemPeer$1 = ::sun::awt::windows::WMenuItemPeer$1;
 using $WMenuItemPeer$2 = ::sun::awt::windows::WMenuItemPeer$2;
@@ -43,75 +38,6 @@ using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WMenuItemPeer_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WMenuItemPeer, log)},
-	{"shortcutLabel", "Ljava/lang/String;", nullptr, 0, $field(WMenuItemPeer, shortcutLabel)},
-	{"parent", "Lsun/awt/windows/WMenuPeer;", nullptr, $PROTECTED, $field(WMenuItemPeer, parent)},
-	{"isCheckbox", "Z", nullptr, $PRIVATE | $FINAL, $field(WMenuItemPeer, isCheckbox)},
-	{"defaultMenuFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(WMenuItemPeer, defaultMenuFont)},
-	{}
-};
-
-$MethodInfo _WMenuItemPeer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PROTECTED, $method(WMenuItemPeer, init$, void)},
-	{"<init>", "(Ljava/awt/MenuItem;)V", nullptr, 0, $method(WMenuItemPeer, init$, void, $MenuItem*)},
-	{"<init>", "(Ljava/awt/MenuItem;Z)V", nullptr, 0, $method(WMenuItemPeer, init$, void, $MenuItem*, bool)},
-	{"_dispose", "()V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(WMenuItemPeer, _dispose, void)},
-	{"_setFont", "(Ljava/awt/Font;)V", nullptr, $PRIVATE | $NATIVE, $method(WMenuItemPeer, _setFont, void, $Font*)},
-	{"_setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WMenuItemPeer, _setLabel, void, $String*)},
-	{"checkMenuCreation", "()V", nullptr, 0, $virtualMethod(WMenuItemPeer, checkMenuCreation, void)},
-	{"create", "(Lsun/awt/windows/WMenuPeer;)V", nullptr, $NATIVE, $virtualMethod(WMenuItemPeer, create, void, $WMenuPeer*)},
-	{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WMenuItemPeer, disposeImpl, void)},
-	{"enable", "(Z)V", nullptr, $NATIVE, $virtualMethod(WMenuItemPeer, enable, void, bool)},
-	{"getDefaultFont", "()Ljava/awt/Font;", nullptr, $STATIC, $staticMethod(WMenuItemPeer, getDefaultFont, $Font*)},
-	{"handleAction", "(JI)V", nullptr, 0, $virtualMethod(WMenuItemPeer, handleAction, void, int64_t, int32_t)},
-	{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WMenuItemPeer, initIDs, void)},
-	{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(WMenuItemPeer, postEvent, void, $AWTEvent*)},
-	{"readShortcutLabel", "()V", nullptr, $PRIVATE, $method(WMenuItemPeer, readShortcutLabel, void)},
-	{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WMenuItemPeer, setEnabled, void, bool)},
-	{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(WMenuItemPeer, setFont, void, $Font*)},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WMenuItemPeer, setLabel, void, $String*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-#define _METHOD_INDEX__dispose 8
-#define _METHOD_INDEX__setFont 9
-#define _METHOD_INDEX__setLabel 10
-#define _METHOD_INDEX_create 12
-#define _METHOD_INDEX_enable 14
-#define _METHOD_INDEX_initIDs 17
-
-$InnerClassInfo _WMenuItemPeer_InnerClassesInfo_[] = {
-	{"sun.awt.windows.WMenuItemPeer$2", nullptr, nullptr, 0},
-	{"sun.awt.windows.WMenuItemPeer$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WMenuItemPeer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.windows.WMenuItemPeer",
-	"sun.awt.windows.WObjectPeer",
-	"java.awt.peer.MenuItemPeer",
-	_WMenuItemPeer_FieldInfo_,
-	_WMenuItemPeer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WMenuItemPeer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.windows.WMenuItemPeer$2,sun.awt.windows.WMenuItemPeer$1"
-};
-
-$Object* allocate$WMenuItemPeer($Class* clazz) {
-	return $of($alloc(WMenuItemPeer));
-}
 
 void WMenuItemPeer::dispose() {
 	this->$WObjectPeer::dispose();
@@ -141,7 +67,7 @@ $PlatformLogger* WMenuItemPeer::log = nullptr;
 $Font* WMenuItemPeer::defaultMenuFont = nullptr;
 
 void WMenuItemPeer::_dispose() {
-	$prepareNative(WMenuItemPeer, _dispose, void);
+	$prepareNative(_dispose, void);
 	$invokeNative();
 	$finishNative();
 }
@@ -156,14 +82,14 @@ void WMenuItemPeer::setEnabled(bool b) {
 }
 
 void WMenuItemPeer::readShortcutLabel() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($WMenuPeer, ancestor, this->parent);
 	while (ancestor != nullptr && !($instanceOf($WMenuBarPeer, ancestor))) {
 		$assign(ancestor, ancestor->parent);
 	}
 	if ($instanceOf($WMenuBarPeer, ancestor)) {
-		$var($MenuShortcut, sc, $nc(($cast($MenuItem, this->target)))->getShortcut());
-		$set(this, shortcutLabel, (sc != nullptr) ? $nc(sc)->toString() : ($String*)nullptr);
+		$var($MenuShortcut, sc, $nc($cast($MenuItem, this->target))->getShortcut());
+		$set(this, shortcutLabel, (sc != nullptr) ? sc->toString() : ($String*)nullptr);
 	} else {
 		$set(this, shortcutLabel, nullptr);
 	}
@@ -175,7 +101,7 @@ void WMenuItemPeer::setLabel($String* label) {
 }
 
 void WMenuItemPeer::_setLabel($String* label) {
-	$prepareNative(WMenuItemPeer, _setLabel, void, $String* label);
+	$prepareNative(_setLabel, void, $String* label);
 	$invokeNative(label);
 	$finishNative();
 }
@@ -215,13 +141,13 @@ void WMenuItemPeer::postEvent($AWTEvent* event) {
 }
 
 void WMenuItemPeer::create($WMenuPeer* parent) {
-	$prepareNative(WMenuItemPeer, create, void, $WMenuPeer* parent);
+	$prepareNative(create, void, $WMenuPeer* parent);
 	$invokeNative(parent);
 	$finishNative();
 }
 
 void WMenuItemPeer::enable(bool e) {
-	$prepareNative(WMenuItemPeer, enable, void, bool e);
+	$prepareNative(enable, void, bool e);
 	$invokeNative(e);
 	$finishNative();
 }
@@ -237,13 +163,13 @@ $Font* WMenuItemPeer::getDefaultFont() {
 
 void WMenuItemPeer::initIDs() {
 	$init(WMenuItemPeer);
-	$prepareNativeStatic(WMenuItemPeer, initIDs, void);
+	$prepareNativeStatic(initIDs, void);
 	$invokeNativeStatic();
 	$finishNativeStatic();
 }
 
 void WMenuItemPeer::_setFont($Font* f) {
-	$prepareNative(WMenuItemPeer, _setFont, void, $Font* f);
+	$prepareNative(_setFont, void, $Font* f);
 	$invokeNative(f);
 	$finishNative();
 }
@@ -252,14 +178,14 @@ void WMenuItemPeer::setFont($Font* f) {
 	_setFont(f);
 }
 
-void clinit$WMenuItemPeer($Class* class$) {
+void WMenuItemPeer::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	$assignStatic(WMenuItemPeer::log, $PlatformLogger::getLogger("sun.awt.WMenuItemPeer"_s));
 	{
 		WMenuItemPeer::initIDs();
 	}
 	{
-		$assignStatic(WMenuItemPeer::defaultMenuFont, $cast($Font, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($WMenuItemPeer$2)))));
+		$assignStatic(WMenuItemPeer::defaultMenuFont, $cast($Font, $AccessController::doPrivileged($$new($WMenuItemPeer$2))));
 	}
 }
 
@@ -267,7 +193,63 @@ WMenuItemPeer::WMenuItemPeer() {
 }
 
 $Class* WMenuItemPeer::load$($String* name, bool initialize) {
-	$loadClass(WMenuItemPeer, name, initialize, &_WMenuItemPeer_ClassInfo_, clinit$WMenuItemPeer, allocate$WMenuItemPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WMenuItemPeer, log)},
+		{"shortcutLabel", "Ljava/lang/String;", nullptr, 0, $field(WMenuItemPeer, shortcutLabel)},
+		{"parent", "Lsun/awt/windows/WMenuPeer;", nullptr, $PROTECTED, $field(WMenuItemPeer, parent)},
+		{"isCheckbox", "Z", nullptr, $PRIVATE | $FINAL, $field(WMenuItemPeer, isCheckbox)},
+		{"defaultMenuFont", "Ljava/awt/Font;", nullptr, $PRIVATE | $STATIC, $staticField(WMenuItemPeer, defaultMenuFont)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*dispose", "()V", nullptr, $PUBLIC | $FINAL},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PROTECTED, $method(WMenuItemPeer, init$, void)},
+		{"<init>", "(Ljava/awt/MenuItem;)V", nullptr, 0, $method(WMenuItemPeer, init$, void, $MenuItem*)},
+		{"<init>", "(Ljava/awt/MenuItem;Z)V", nullptr, 0, $method(WMenuItemPeer, init$, void, $MenuItem*, bool)},
+		{"_dispose", "()V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(WMenuItemPeer, _dispose, void)},
+		{"_setFont", "(Ljava/awt/Font;)V", nullptr, $PRIVATE | $NATIVE, $method(WMenuItemPeer, _setFont, void, $Font*)},
+		{"_setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $NATIVE, $virtualMethod(WMenuItemPeer, _setLabel, void, $String*)},
+		{"checkMenuCreation", "()V", nullptr, 0, $virtualMethod(WMenuItemPeer, checkMenuCreation, void)},
+		{"create", "(Lsun/awt/windows/WMenuPeer;)V", nullptr, $NATIVE, $virtualMethod(WMenuItemPeer, create, void, $WMenuPeer*)},
+		{"disposeImpl", "()V", nullptr, $PROTECTED, $virtualMethod(WMenuItemPeer, disposeImpl, void)},
+		{"enable", "(Z)V", nullptr, $NATIVE, $virtualMethod(WMenuItemPeer, enable, void, bool)},
+		{"getDefaultFont", "()Ljava/awt/Font;", nullptr, $STATIC, $staticMethod(WMenuItemPeer, getDefaultFont, $Font*)},
+		{"handleAction", "(JI)V", nullptr, 0, $virtualMethod(WMenuItemPeer, handleAction, void, int64_t, int32_t)},
+		{"initIDs", "()V", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(WMenuItemPeer, initIDs, void)},
+		{"postEvent", "(Ljava/awt/AWTEvent;)V", nullptr, 0, $virtualMethod(WMenuItemPeer, postEvent, void, $AWTEvent*)},
+		{"readShortcutLabel", "()V", nullptr, $PRIVATE, $method(WMenuItemPeer, readShortcutLabel, void)},
+		{"setEnabled", "(Z)V", nullptr, $PUBLIC, $virtualMethod(WMenuItemPeer, setEnabled, void, bool)},
+		{"setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC, $virtualMethod(WMenuItemPeer, setFont, void, $Font*)},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(WMenuItemPeer, setLabel, void, $String*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.windows.WMenuItemPeer$2", nullptr, nullptr, 0},
+		{"sun.awt.windows.WMenuItemPeer$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.windows.WMenuItemPeer",
+		"sun.awt.windows.WObjectPeer",
+		"java.awt.peer.MenuItemPeer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.windows.WMenuItemPeer$2,sun.awt.windows.WMenuItemPeer$1"
+	};
+	$loadClass(WMenuItemPeer, name, initialize, &classInfo$$, WMenuItemPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WMenuItemPeer));
+	});
 	return class$;
 }
 

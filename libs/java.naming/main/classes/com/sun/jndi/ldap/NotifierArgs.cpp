@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/NotifierArgs.h>
-
 #include <javax/naming/directory/SearchControls.h>
 #include <javax/naming/event/EventContext.h>
 #include <javax/naming/event/NamespaceChangeListener.h>
@@ -27,48 +26,11 @@ namespace com {
 		namespace jndi {
 			namespace ldap {
 
-$FieldInfo _NotifierArgs_FieldInfo_[] = {
-	{"ADDED_MASK", "I", nullptr, $STATIC | $FINAL, $constField(NotifierArgs, ADDED_MASK)},
-	{"REMOVED_MASK", "I", nullptr, $STATIC | $FINAL, $constField(NotifierArgs, REMOVED_MASK)},
-	{"CHANGED_MASK", "I", nullptr, $STATIC | $FINAL, $constField(NotifierArgs, CHANGED_MASK)},
-	{"RENAMED_MASK", "I", nullptr, $STATIC | $FINAL, $constField(NotifierArgs, RENAMED_MASK)},
-	{"name", "Ljava/lang/String;", nullptr, 0, $field(NotifierArgs, name)},
-	{"filter", "Ljava/lang/String;", nullptr, 0, $field(NotifierArgs, filter)},
-	{"controls", "Ljavax/naming/directory/SearchControls;", nullptr, 0, $field(NotifierArgs, controls)},
-	{"mask", "I", nullptr, 0, $field(NotifierArgs, mask)},
-	{"sum", "I", nullptr, $PRIVATE, $field(NotifierArgs, sum)},
-	{}
-};
-
-$MethodInfo _NotifierArgs_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, 0, $method(NotifierArgs, init$, void, $String*, int32_t, $NamingListener*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NotifierArgs, init$, void, $String*, $String*, $SearchControls*, $NamingListener*)},
-	{"checkControls", "(Ljavax/naming/directory/SearchControls;)Z", nullptr, $PRIVATE, $method(NotifierArgs, checkControls, bool, $SearchControls*)},
-	{"checkStringArrays", "([Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NotifierArgs, checkStringArrays, bool, $StringArray*, $StringArray*)},
-	{"controlsCode", "()I", nullptr, $PRIVATE, $method(NotifierArgs, controlsCode, int32_t)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotifierArgs, equals, bool, Object$*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotifierArgs, hashCode, int32_t)},
-	{}
-};
-
-$ClassInfo _NotifierArgs_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.NotifierArgs",
-	"java.lang.Object",
-	nullptr,
-	_NotifierArgs_FieldInfo_,
-	_NotifierArgs_MethodInfo_
-};
-
-$Object* allocate$NotifierArgs($Class* clazz) {
-	return $of($alloc(NotifierArgs));
-}
-
 void NotifierArgs::init$($String* name, int32_t scope, $NamingListener* l) {
 	NotifierArgs::init$(name, "(objectclass=*)"_s, nullptr, l);
 	if (scope != $EventContext::ONELEVEL_SCOPE) {
 		$set(this, controls, $new($SearchControls));
-		$nc(this->controls)->setSearchScope(scope);
+		this->controls->setSearchScope(scope);
 	}
 }
 
@@ -88,7 +50,7 @@ void NotifierArgs::init$($String* name, $String* filter, $SearchControls* ctls, 
 bool NotifierArgs::equals(Object$* obj) {
 	if ($instanceOf(NotifierArgs, obj)) {
 		$var(NotifierArgs, target, $cast(NotifierArgs, obj));
-		bool var$1 = this->mask == $nc(target)->mask && $nc(this->name)->equals(target->name);
+		bool var$1 = this->mask == target->mask && $nc(this->name)->equals(target->name);
 		bool var$0 = var$1 && $nc(this->filter)->equals(target->filter);
 		return var$0 && checkControls(target->controls);
 	}
@@ -96,34 +58,34 @@ bool NotifierArgs::equals(Object$* obj) {
 }
 
 bool NotifierArgs::checkControls($SearchControls* ctls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->controls == nullptr || ctls == nullptr) {
 		return ctls == this->controls;
 	}
 	int32_t var$5 = $nc(this->controls)->getSearchScope();
-	bool var$4 = (var$5 == $nc(ctls)->getSearchScope());
+	bool var$4 = var$5 == $nc(ctls)->getSearchScope();
 	if (var$4) {
-		int32_t var$6 = $nc(this->controls)->getTimeLimit();
-		var$4 = (var$6 == ctls->getTimeLimit());
+		int32_t var$6 = this->controls->getTimeLimit();
+		var$4 = var$6 == ctls->getTimeLimit();
 	}
 	bool var$3 = var$4;
 	if (var$3) {
-		bool var$7 = $nc(this->controls)->getDerefLinkFlag();
-		var$3 = (var$7 == ctls->getDerefLinkFlag());
+		bool var$7 = this->controls->getDerefLinkFlag();
+		var$3 = var$7 == ctls->getDerefLinkFlag();
 	}
 	bool var$2 = var$3;
 	if (var$2) {
-		bool var$8 = $nc(this->controls)->getReturningObjFlag();
-		var$2 = (var$8 == ctls->getReturningObjFlag());
+		bool var$8 = this->controls->getReturningObjFlag();
+		var$2 = var$8 == ctls->getReturningObjFlag();
 	}
 	bool var$1 = var$2;
 	if (var$1) {
-		int64_t var$9 = $nc(this->controls)->getCountLimit();
-		var$1 = (var$9 == ctls->getCountLimit());
+		int64_t var$9 = this->controls->getCountLimit();
+		var$1 = var$9 == ctls->getCountLimit();
 	}
 	bool var$0 = var$1;
 	if (var$0) {
-		$var($StringArray, var$10, $nc(this->controls)->getReturningAttributes());
+		$var($StringArray, var$10, this->controls->getReturningAttributes());
 		var$0 = checkStringArrays(var$10, $(ctls->getReturningAttributes()));
 	}
 	return var$0;
@@ -136,8 +98,8 @@ bool NotifierArgs::checkStringArrays($StringArray* s1, $StringArray* s2) {
 	if ($nc(s1)->length != $nc(s2)->length) {
 		return false;
 	}
-	for (int32_t i = 0; i < $nc(s1)->length; ++i) {
-		if (!$nc(s1->get(i))->equals($nc(s2)->get(i))) {
+	for (int32_t i = 0; i < s1->length; ++i) {
+		if (!$nc(s1->get(i))->equals(s2->get(i))) {
 			return false;
 		}
 	}
@@ -158,9 +120,9 @@ int32_t NotifierArgs::controlsCode() {
 		return 0;
 	}
 	int32_t var$2 = $nc(this->controls)->getTimeLimit();
-	int32_t var$1 = var$2 + (int32_t)$nc(this->controls)->getCountLimit();
-	int32_t var$0 = var$1 + ($nc(this->controls)->getDerefLinkFlag() ? 1 : 0);
-	int32_t total = var$0 + ($nc(this->controls)->getReturningObjFlag() ? 1 : 0);
+	int32_t var$1 = var$2 + (int32_t)this->controls->getCountLimit();
+	int32_t var$0 = var$1 + (this->controls->getDerefLinkFlag() ? 1 : 0);
+	int32_t total = var$0 + (this->controls->getReturningObjFlag() ? 1 : 0);
 	$var($StringArray, attrs, $nc(this->controls)->getReturningAttributes());
 	if (attrs != nullptr) {
 		for (int32_t i = 0; i < attrs->length; ++i) {
@@ -174,7 +136,39 @@ NotifierArgs::NotifierArgs() {
 }
 
 $Class* NotifierArgs::load$($String* name, bool initialize) {
-	$loadClass(NotifierArgs, name, initialize, &_NotifierArgs_ClassInfo_, allocate$NotifierArgs);
+	$FieldInfo fieldInfos$$[] = {
+		{"ADDED_MASK", "I", nullptr, $STATIC | $FINAL, $constField(NotifierArgs, ADDED_MASK)},
+		{"REMOVED_MASK", "I", nullptr, $STATIC | $FINAL, $constField(NotifierArgs, REMOVED_MASK)},
+		{"CHANGED_MASK", "I", nullptr, $STATIC | $FINAL, $constField(NotifierArgs, CHANGED_MASK)},
+		{"RENAMED_MASK", "I", nullptr, $STATIC | $FINAL, $constField(NotifierArgs, RENAMED_MASK)},
+		{"name", "Ljava/lang/String;", nullptr, 0, $field(NotifierArgs, name)},
+		{"filter", "Ljava/lang/String;", nullptr, 0, $field(NotifierArgs, filter)},
+		{"controls", "Ljavax/naming/directory/SearchControls;", nullptr, 0, $field(NotifierArgs, controls)},
+		{"mask", "I", nullptr, 0, $field(NotifierArgs, mask)},
+		{"sum", "I", nullptr, $PRIVATE, $field(NotifierArgs, sum)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, 0, $method(NotifierArgs, init$, void, $String*, int32_t, $NamingListener*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, 0, $method(NotifierArgs, init$, void, $String*, $String*, $SearchControls*, $NamingListener*)},
+		{"checkControls", "(Ljavax/naming/directory/SearchControls;)Z", nullptr, $PRIVATE, $method(NotifierArgs, checkControls, bool, $SearchControls*)},
+		{"checkStringArrays", "([Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(NotifierArgs, checkStringArrays, bool, $StringArray*, $StringArray*)},
+		{"controlsCode", "()I", nullptr, $PRIVATE, $method(NotifierArgs, controlsCode, int32_t)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(NotifierArgs, equals, bool, Object$*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(NotifierArgs, hashCode, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.NotifierArgs",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(NotifierArgs, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NotifierArgs);
+	});
 	return class$;
 }
 

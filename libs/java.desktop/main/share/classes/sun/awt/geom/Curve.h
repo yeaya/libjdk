@@ -43,6 +43,7 @@ class Curve : public ::java::lang::Object {
 	$class(Curve, 0, ::java::lang::Object)
 public:
 	Curve();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t direction);
 	virtual double TforY(double y) {return 0.0;}
 	virtual double XforT(double t) {return 0.0;}

@@ -1,5 +1,4 @@
 #include <java/util/prefs/NodeChangeListener.h>
-
 #include <java/util/prefs/NodeChangeEvent.h>
 #include <jcpp.h>
 
@@ -11,27 +10,23 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$MethodInfo _NodeChangeListener_MethodInfo_[] = {
-	{"childAdded", "(Ljava/util/prefs/NodeChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeChangeListener, childAdded, void, $NodeChangeEvent*)},
-	{"childRemoved", "(Ljava/util/prefs/NodeChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeChangeListener, childRemoved, void, $NodeChangeEvent*)},
-	{}
-};
-
-$ClassInfo _NodeChangeListener_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"java.util.prefs.NodeChangeListener",
-	nullptr,
-	"java.util.EventListener",
-	nullptr,
-	_NodeChangeListener_MethodInfo_
-};
-
-$Object* allocate$NodeChangeListener($Class* clazz) {
-	return $of($alloc(NodeChangeListener));
-}
-
 $Class* NodeChangeListener::load$($String* name, bool initialize) {
-	$loadClass(NodeChangeListener, name, initialize, &_NodeChangeListener_ClassInfo_, allocate$NodeChangeListener);
+	$MethodInfo methodInfos$$[] = {
+		{"childAdded", "(Ljava/util/prefs/NodeChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeChangeListener, childAdded, void, $NodeChangeEvent*)},
+		{"childRemoved", "(Ljava/util/prefs/NodeChangeEvent;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(NodeChangeListener, childRemoved, void, $NodeChangeEvent*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"java.util.prefs.NodeChangeListener",
+		nullptr,
+		"java.util.EventListener",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NodeChangeListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NodeChangeListener);
+	});
 	return class$;
 }
 

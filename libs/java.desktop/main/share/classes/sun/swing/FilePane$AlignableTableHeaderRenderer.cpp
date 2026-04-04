@@ -1,5 +1,4 @@
 #include <sun/swing/FilePane$AlignableTableHeaderRenderer.h>
-
 #include <java/awt/Component.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
@@ -24,47 +23,9 @@ using $SwingConstants = ::javax::swing::SwingConstants;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $ShellFolderColumnInfo = ::sun::awt::shell::ShellFolderColumnInfo;
 using $FilePane = ::sun::swing::FilePane;
-using $FilePane$DetailsTableModel = ::sun::swing::FilePane$DetailsTableModel;
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _FilePane$AlignableTableHeaderRenderer_FieldInfo_[] = {
-	{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$AlignableTableHeaderRenderer, this$0)},
-	{"wrappedRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, 0, $field(FilePane$AlignableTableHeaderRenderer, wrappedRenderer)},
-	{}
-};
-
-$MethodInfo _FilePane$AlignableTableHeaderRenderer_MethodInfo_[] = {
-	{"<init>", "(Lsun/swing/FilePane;Ljavax/swing/table/TableCellRenderer;)V", nullptr, $PUBLIC, $method(FilePane$AlignableTableHeaderRenderer, init$, void, $FilePane*, $TableCellRenderer*)},
-	{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(FilePane$AlignableTableHeaderRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _FilePane$AlignableTableHeaderRenderer_InnerClassesInfo_[] = {
-	{"sun.swing.FilePane$AlignableTableHeaderRenderer", "sun.swing.FilePane", "AlignableTableHeaderRenderer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _FilePane$AlignableTableHeaderRenderer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.swing.FilePane$AlignableTableHeaderRenderer",
-	"java.lang.Object",
-	"javax.swing.table.TableCellRenderer",
-	_FilePane$AlignableTableHeaderRenderer_FieldInfo_,
-	_FilePane$AlignableTableHeaderRenderer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FilePane$AlignableTableHeaderRenderer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.swing.FilePane"
-};
-
-$Object* allocate$FilePane$AlignableTableHeaderRenderer($Class* clazz) {
-	return $of($alloc(FilePane$AlignableTableHeaderRenderer));
-}
 
 void FilePane$AlignableTableHeaderRenderer::init$($FilePane* this$0, $TableCellRenderer* wrappedRenderer) {
 	$set(this, this$0, this$0);
@@ -72,7 +33,7 @@ void FilePane$AlignableTableHeaderRenderer::init$($FilePane* this$0, $TableCellR
 }
 
 $Component* FilePane$AlignableTableHeaderRenderer::getTableCellRendererComponent($JTable* table, Object$* value, bool isSelected, bool hasFocus, int32_t row, int32_t column) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, c, $nc(this->wrappedRenderer)->getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column));
 	int32_t modelColumn = $nc(table)->convertColumnIndexToModel(column);
 	$var($ShellFolderColumnInfo, columnInfo, $nc($($nc(this->this$0->detailsTableModel)->getColumns()))->get(modelColumn));
@@ -81,7 +42,7 @@ $Component* FilePane$AlignableTableHeaderRenderer::getTableCellRendererComponent
 		$assign(alignment, $Integer::valueOf($SwingConstants::CENTER));
 	}
 	if ($instanceOf($JLabel, c)) {
-		$nc(($cast($JLabel, c)))->setHorizontalAlignment($nc(alignment)->intValue());
+		$cast($JLabel, c)->setHorizontalAlignment($nc(alignment)->intValue());
 	}
 	return c;
 }
@@ -90,7 +51,38 @@ FilePane$AlignableTableHeaderRenderer::FilePane$AlignableTableHeaderRenderer() {
 }
 
 $Class* FilePane$AlignableTableHeaderRenderer::load$($String* name, bool initialize) {
-	$loadClass(FilePane$AlignableTableHeaderRenderer, name, initialize, &_FilePane$AlignableTableHeaderRenderer_ClassInfo_, allocate$FilePane$AlignableTableHeaderRenderer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/swing/FilePane;", nullptr, $FINAL | $SYNTHETIC, $field(FilePane$AlignableTableHeaderRenderer, this$0)},
+		{"wrappedRenderer", "Ljavax/swing/table/TableCellRenderer;", nullptr, 0, $field(FilePane$AlignableTableHeaderRenderer, wrappedRenderer)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/swing/FilePane;Ljavax/swing/table/TableCellRenderer;)V", nullptr, $PUBLIC, $method(FilePane$AlignableTableHeaderRenderer, init$, void, $FilePane*, $TableCellRenderer*)},
+		{"getTableCellRendererComponent", "(Ljavax/swing/JTable;Ljava/lang/Object;ZZII)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(FilePane$AlignableTableHeaderRenderer, getTableCellRendererComponent, $Component*, $JTable*, Object$*, bool, bool, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.FilePane$AlignableTableHeaderRenderer", "sun.swing.FilePane", "AlignableTableHeaderRenderer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.swing.FilePane$AlignableTableHeaderRenderer",
+		"java.lang.Object",
+		"javax.swing.table.TableCellRenderer",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.swing.FilePane"
+	};
+	$loadClass(FilePane$AlignableTableHeaderRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FilePane$AlignableTableHeaderRenderer);
+	});
 	return class$;
 }
 

@@ -64,6 +64,7 @@ class AquaFileSystemModel : public ::javax::swing::table::AbstractTableModel, pu
 	$class(AquaFileSystemModel, 0, ::javax::swing::table::AbstractTableModel, ::java::beans::PropertyChangeListener)
 public:
 	AquaFileSystemModel();
+	static void clinit$(::java::lang::Class* clazz);
 	virtual $Object* clone() override;
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;

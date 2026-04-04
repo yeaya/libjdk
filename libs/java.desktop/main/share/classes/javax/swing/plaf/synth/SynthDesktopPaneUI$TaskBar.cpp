@@ -1,13 +1,10 @@
 #include <javax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/Insets.h>
-#include <java/awt/LayoutManager.h>
 #include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/ContainerEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/JDesktopPane.h>
@@ -28,9 +25,7 @@ using $ComponentArray = $Array<::java::awt::Component>;
 using $Component = ::java::awt::Component;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $ComponentListener = ::java::awt::event::ComponentListener;
 using $ContainerEvent = ::java::awt::event::ContainerEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -40,7 +35,6 @@ using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JPanel = ::javax::swing::JPanel;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
-using $Border = ::javax::swing::border::Border;
 using $SynthDesktopPaneUI$TaskBar$1 = ::javax::swing::plaf::synth::SynthDesktopPaneUI$TaskBar$1;
 using $SynthDesktopPaneUI$TaskBar$2 = ::javax::swing::plaf::synth::SynthDesktopPaneUI$TaskBar$2;
 
@@ -48,50 +42,6 @@ namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$MethodInfo _SynthDesktopPaneUI$TaskBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(SynthDesktopPaneUI$TaskBar, init$, void)},
-	{"adjustSize", "()V", nullptr, 0, $virtualMethod(SynthDesktopPaneUI$TaskBar, adjustSize, void)},
-	{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentAdded, void, $ContainerEvent*)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentMoved, void, $ComponentEvent*)},
-	{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentRemoved, void, $ContainerEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentShown, void, $ComponentEvent*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _SynthDesktopPaneUI$TaskBar_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar", "javax.swing.plaf.synth.SynthDesktopPaneUI", "TaskBar", $STATIC},
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$2", nullptr, nullptr, 0},
-	{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthDesktopPaneUI$TaskBar_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar",
-	"javax.swing.JPanel",
-	"java.awt.event.ComponentListener,java.awt.event.ContainerListener",
-	nullptr,
-	_SynthDesktopPaneUI$TaskBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthDesktopPaneUI$TaskBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.synth.SynthDesktopPaneUI"
-};
-
-$Object* allocate$SynthDesktopPaneUI$TaskBar($Class* clazz) {
-	return $of($alloc(SynthDesktopPaneUI$TaskBar));
-}
 
 $String* SynthDesktopPaneUI$TaskBar::toString() {
 	 return this->$JPanel::toString();
@@ -114,7 +64,7 @@ void SynthDesktopPaneUI$TaskBar::finalize() {
 }
 
 void SynthDesktopPaneUI$TaskBar::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$JPanel::init$();
 	setOpaque(true);
 	setLayout($$new($SynthDesktopPaneUI$TaskBar$1, this, $FlowLayout::LEFT, 0, 0));
@@ -122,12 +72,12 @@ void SynthDesktopPaneUI$TaskBar::init$() {
 }
 
 void SynthDesktopPaneUI$TaskBar::adjustSize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JDesktopPane, desktop, $cast($JDesktopPane, getParent()));
 	if (desktop != nullptr) {
 		int32_t height = $nc($(getPreferredSize()))->height;
 		$var($Insets, insets, getInsets());
-		if (height == $nc(insets)->top + insets->bottom) {
+		if (height == $nc(insets)->top + $nc(insets)->bottom) {
 			if (getHeight() <= height) {
 				height += 21;
 			} else {
@@ -157,33 +107,29 @@ void SynthDesktopPaneUI$TaskBar::componentShown($ComponentEvent* e) {
 }
 
 void SynthDesktopPaneUI$TaskBar::componentHidden($ComponentEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JInternalFrame, $($nc(e)->getSource()))) {
-		$nc($($nc(($cast($JInternalFrame, $(e->getSource()))))->getDesktopIcon()))->setVisible(false);
+		$$nc($$sure($JInternalFrame, e->getSource())->getDesktopIcon())->setVisible(false);
 		revalidate();
 	}
 }
 
 void SynthDesktopPaneUI$TaskBar::componentAdded($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JInternalFrame, $($nc(e)->getChild()))) {
 		$var($JDesktopPane, desktop, $cast($JDesktopPane, e->getSource()));
 		$var($JInternalFrame, f, $cast($JInternalFrame, e->getChild()));
 		$var($JInternalFrame$JDesktopIcon, desktopIcon, $nc(f)->getDesktopIcon());
 		{
 			$var($ComponentArray, arr$, getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($Component, comp, arr$->get(i$));
-				{
-					if ($equals(comp, desktopIcon)) {
-						return;
-					}
+				if ($equals(comp, desktopIcon)) {
+					return;
 				}
 			}
 		}
-		add(static_cast<$Component*>(desktopIcon));
+		add(desktopIcon);
 		f->addComponentListener(this);
 		if (getComponentCount() == 1) {
 			adjustSize();
@@ -192,11 +138,11 @@ void SynthDesktopPaneUI$TaskBar::componentAdded($ContainerEvent* e) {
 }
 
 void SynthDesktopPaneUI$TaskBar::componentRemoved($ContainerEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($instanceOf($JInternalFrame, $($nc(e)->getChild()))) {
 		$var($JInternalFrame, f, $cast($JInternalFrame, e->getChild()));
 		if (!$nc(f)->isIcon()) {
-			remove($(static_cast<$Component*>(f->getDesktopIcon())));
+			remove($(f->getDesktopIcon()));
 			f->removeComponentListener(this);
 			revalidate();
 			repaint();
@@ -208,7 +154,46 @@ SynthDesktopPaneUI$TaskBar::SynthDesktopPaneUI$TaskBar() {
 }
 
 $Class* SynthDesktopPaneUI$TaskBar::load$($String* name, bool initialize) {
-	$loadClass(SynthDesktopPaneUI$TaskBar, name, initialize, &_SynthDesktopPaneUI$TaskBar_ClassInfo_, allocate$SynthDesktopPaneUI$TaskBar);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(SynthDesktopPaneUI$TaskBar, init$, void)},
+		{"adjustSize", "()V", nullptr, 0, $virtualMethod(SynthDesktopPaneUI$TaskBar, adjustSize, void)},
+		{"componentAdded", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentAdded, void, $ContainerEvent*)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentMoved, void, $ComponentEvent*)},
+		{"componentRemoved", "(Ljava/awt/event/ContainerEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentRemoved, void, $ContainerEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(SynthDesktopPaneUI$TaskBar, componentShown, void, $ComponentEvent*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar", "javax.swing.plaf.synth.SynthDesktopPaneUI", "TaskBar", $STATIC},
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$2", nullptr, nullptr, 0},
+		{"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.synth.SynthDesktopPaneUI$TaskBar",
+		"javax.swing.JPanel",
+		"java.awt.event.ComponentListener,java.awt.event.ContainerListener",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.synth.SynthDesktopPaneUI"
+	};
+	$loadClass(SynthDesktopPaneUI$TaskBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthDesktopPaneUI$TaskBar));
+	});
 	return class$;
 }
 

@@ -1,30 +1,10 @@
 #include <HeadlessJFormattedTextField.h>
-
 #include <javax/swing/JTextField.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextField = ::javax::swing::JTextField;
-
-$MethodInfo _HeadlessJFormattedTextField_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJFormattedTextField, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJFormattedTextField, main, void, $StringArray*)},
-	{}
-};
-
-$ClassInfo _HeadlessJFormattedTextField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJFormattedTextField",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJFormattedTextField_MethodInfo_
-};
-
-$Object* allocate$HeadlessJFormattedTextField($Class* clazz) {
-	return $of($alloc(HeadlessJFormattedTextField));
-}
 
 void HeadlessJFormattedTextField::init$() {
 }
@@ -41,7 +21,22 @@ HeadlessJFormattedTextField::HeadlessJFormattedTextField() {
 }
 
 $Class* HeadlessJFormattedTextField::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJFormattedTextField, name, initialize, &_HeadlessJFormattedTextField_ClassInfo_, allocate$HeadlessJFormattedTextField);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJFormattedTextField, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJFormattedTextField, main, void, $StringArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJFormattedTextField",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(HeadlessJFormattedTextField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJFormattedTextField);
+	});
 	return class$;
 }
 

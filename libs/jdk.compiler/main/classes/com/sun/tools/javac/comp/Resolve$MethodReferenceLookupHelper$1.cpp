@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodReferenceLookupHelper$1.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Env.h>
@@ -40,52 +39,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$MethodReferenceLookupHelper$1_FieldInfo_[] = {
-	{"this$1", "Lcom/sun/tools/javac/comp/Resolve$MethodReferenceLookupHelper;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodReferenceLookupHelper$1, this$1)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodReferenceLookupHelper$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodReferenceLookupHelper;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, 0, $method(Resolve$MethodReferenceLookupHelper$1, init$, void, $Resolve$MethodReferenceLookupHelper*, $JCTree$JCMemberReference*, $Name*, $Type*, $List*, $List*, $Resolve$MethodResolutionPhase*)},
-	{"lookup", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, lookup, $Symbol*, $Env*, $Resolve$MethodResolutionPhase*)},
-	{"referenceKind", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, referenceKind, $JCTree$JCMemberReference$ReferenceKind*, $Symbol*)},
-	{"unboundLookup", "(Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupHelper;", nullptr, 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, unboundLookup, $Resolve$ReferenceLookupHelper*, $InferenceContext*)},
-	{}
-};
-
-$EnclosingMethodInfo _Resolve$MethodReferenceLookupHelper$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Resolve$MethodReferenceLookupHelper",
-	"unboundLookup",
-	"(Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupHelper;"
-};
-
-$InnerClassInfo _Resolve$MethodReferenceLookupHelper$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodReferenceLookupHelper", "com.sun.tools.javac.comp.Resolve", "MethodReferenceLookupHelper", 0},
-	{"com.sun.tools.javac.comp.Resolve$MethodReferenceLookupHelper$1", nullptr, nullptr, 0},
-	{"com.sun.tools.javac.comp.Resolve$ReferenceLookupHelper", "com.sun.tools.javac.comp.Resolve", "ReferenceLookupHelper", $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$MethodReferenceLookupHelper$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodReferenceLookupHelper$1",
-	"com.sun.tools.javac.comp.Resolve$ReferenceLookupHelper",
-	nullptr,
-	_Resolve$MethodReferenceLookupHelper$1_FieldInfo_,
-	_Resolve$MethodReferenceLookupHelper$1_MethodInfo_,
-	nullptr,
-	&_Resolve$MethodReferenceLookupHelper$1_EnclosingMethodInfo_,
-	_Resolve$MethodReferenceLookupHelper$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodReferenceLookupHelper$1($Class* clazz) {
-	return $of($alloc(Resolve$MethodReferenceLookupHelper$1));
-}
-
 void Resolve$MethodReferenceLookupHelper$1::init$($Resolve$MethodReferenceLookupHelper* this$1, $JCTree$JCMemberReference* referenceTree, $Name* name, $Type* site, $List* argtypes, $List* typeargtypes, $Resolve$MethodResolutionPhase* maxPhase) {
 	$set(this, this$1, this$1);
 	$Resolve$ReferenceLookupHelper::init$(this$1->this$0, referenceTree, name, site, argtypes, typeargtypes, maxPhase);
@@ -108,7 +61,46 @@ Resolve$MethodReferenceLookupHelper$1::Resolve$MethodReferenceLookupHelper$1() {
 }
 
 $Class* Resolve$MethodReferenceLookupHelper$1::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodReferenceLookupHelper$1, name, initialize, &_Resolve$MethodReferenceLookupHelper$1_ClassInfo_, allocate$Resolve$MethodReferenceLookupHelper$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$1", "Lcom/sun/tools/javac/comp/Resolve$MethodReferenceLookupHelper;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodReferenceLookupHelper$1, this$1)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve$MethodReferenceLookupHelper;Lcom/sun/tools/javac/tree/JCTree$JCMemberReference;Lcom/sun/tools/javac/util/Name;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/util/List;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)V", nullptr, 0, $method(Resolve$MethodReferenceLookupHelper$1, init$, void, $Resolve$MethodReferenceLookupHelper*, $JCTree$JCMemberReference*, $Name*, $Type*, $List*, $List*, $Resolve$MethodResolutionPhase*)},
+		{"lookup", "(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", "(Lcom/sun/tools/javac/comp/Env<Lcom/sun/tools/javac/comp/AttrContext;>;Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;)Lcom/sun/tools/javac/code/Symbol;", 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, lookup, $Symbol*, $Env*, $Resolve$MethodResolutionPhase*)},
+		{"referenceKind", "(Lcom/sun/tools/javac/code/Symbol;)Lcom/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind;", nullptr, 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, referenceKind, $JCTree$JCMemberReference$ReferenceKind*, $Symbol*)},
+		{"unboundLookup", "(Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupHelper;", nullptr, 0, $virtualMethod(Resolve$MethodReferenceLookupHelper$1, unboundLookup, $Resolve$ReferenceLookupHelper*, $InferenceContext*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Resolve$MethodReferenceLookupHelper",
+		"unboundLookup",
+		"(Lcom/sun/tools/javac/comp/InferenceContext;)Lcom/sun/tools/javac/comp/Resolve$ReferenceLookupHelper;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodReferenceLookupHelper", "com.sun.tools.javac.comp.Resolve", "MethodReferenceLookupHelper", 0},
+		{"com.sun.tools.javac.comp.Resolve$MethodReferenceLookupHelper$1", nullptr, nullptr, 0},
+		{"com.sun.tools.javac.comp.Resolve$ReferenceLookupHelper", "com.sun.tools.javac.comp.Resolve", "ReferenceLookupHelper", $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodReferenceLookupHelper$1",
+		"com.sun.tools.javac.comp.Resolve$ReferenceLookupHelper",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodReferenceLookupHelper$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodReferenceLookupHelper$1);
+	});
 	return class$;
 }
 

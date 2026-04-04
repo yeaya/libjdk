@@ -26,7 +26,7 @@ public:
 	void init$(::java::awt::PopupMenu* this$0);
 	virtual ::javax::accessibility::AccessibleRole* getAccessibleRole() override;
 	::java::awt::PopupMenu* this$0 = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xC4931EF2014135ED;
+	static const int64_t serialVersionUID = (int64_t)0xc4931ef2014135ed;
 };
 
 	} // awt

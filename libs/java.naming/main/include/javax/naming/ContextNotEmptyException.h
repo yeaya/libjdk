@@ -14,10 +14,13 @@ public:
 	ContextNotEmptyException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x0F23E1B098D287E5;
+	static const int64_t serialVersionUID = (int64_t)0x0f23e1b098d287e5;
 	ContextNotEmptyException(const ContextNotEmptyException& e);
 	virtual void throw$() override;
-	inline ContextNotEmptyException* operator ->() {
+	inline ContextNotEmptyException* operator ->() const {
+		return (ContextNotEmptyException*)throwing$;
+	}
+	inline operator ContextNotEmptyException*() const {
 		return (ContextNotEmptyException*)throwing$;
 	}
 };

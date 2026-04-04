@@ -61,7 +61,7 @@ public:
 	virtual $Array<::javax::print::attribute::Attribute>* toArray() override;
 	virtual $String* toString() override;
 	void writeObject(::java::io::ObjectOutputStream* s);
-	static const int64_t serialVersionUID = (int64_t)0x49B674370AD3160D;
+	static const int64_t serialVersionUID = (int64_t)0x49b674370ad3160d;
 	$Class* myInterface = nullptr;
 	::java::util::HashMap* attrMap = nullptr;
 };

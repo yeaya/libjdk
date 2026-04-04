@@ -39,6 +39,7 @@ class $import XMLStringFactoryDefault : public ::com::sun::org::apache::xml::int
 	$class(XMLStringFactoryDefault, 0, ::com::sun::org::apache::xml::internal::utils::XMLStringFactory)
 public:
 	XMLStringFactoryDefault();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* emptystr() override;
 	virtual ::com::sun::org::apache::xml::internal::utils::XMLString* newstr($String* string) override;

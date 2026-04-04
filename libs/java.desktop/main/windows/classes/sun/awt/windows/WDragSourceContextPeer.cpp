@@ -1,5 +1,4 @@
 #include <sun/awt/windows/WDragSourceContextPeer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Graphics.h>
@@ -25,18 +24,15 @@
 
 using $Component = ::java::awt::Component;
 using $Cursor = ::java::awt::Cursor;
-using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $DragGestureEvent = ::java::awt::dnd::DragGestureEvent;
-using $DragGestureRecognizer = ::java::awt::dnd::DragGestureRecognizer;
 using $InvalidDnDOperationException = ::java::awt::dnd::InvalidDnDOperationException;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $Raster = ::java::awt::image::Raster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -48,40 +44,6 @@ using $WToolkit = ::sun::awt::windows::WToolkit;
 namespace sun {
 	namespace awt {
 		namespace windows {
-
-$FieldInfo _WDragSourceContextPeer_FieldInfo_[] = {
-	{"theInstance", "Lsun/awt/windows/WDragSourceContextPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDragSourceContextPeer, theInstance)},
-	{}
-};
-
-$MethodInfo _WDragSourceContextPeer_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/dnd/DragGestureEvent;)V", nullptr, $PRIVATE, $method(WDragSourceContextPeer, init$, void, $DragGestureEvent*)},
-	{"createDragSource", "(Ljava/awt/Component;Ljava/awt/datatransfer/Transferable;Ljava/awt/event/InputEvent;I[JLjava/util/Map;)J", "(Ljava/awt/Component;Ljava/awt/datatransfer/Transferable;Ljava/awt/event/InputEvent;I[JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;)J", $NATIVE, $method(WDragSourceContextPeer, createDragSource, int64_t, $Component*, $Transferable*, $InputEvent*, int32_t, $longs*, $Map*)},
-	{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Lsun/awt/windows/WDragSourceContextPeer;", nullptr, $STATIC, $staticMethod(WDragSourceContextPeer, createDragSourceContextPeer, WDragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
-	{"doDragDrop", "(JLjava/awt/Cursor;[IIIII)V", nullptr, $NATIVE, $method(WDragSourceContextPeer, doDragDrop, void, int64_t, $Cursor*, $ints*, int32_t, int32_t, int32_t, int32_t)},
-	{"quitSecondaryEventLoop", "()V", nullptr, $PUBLIC, $virtualMethod(WDragSourceContextPeer, quitSecondaryEventLoop, void)},
-	{"setNativeCursor", "(JLjava/awt/Cursor;I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(WDragSourceContextPeer, setNativeCursor, void, int64_t, $Cursor*, int32_t)},
-	{"startDrag", "(Ljava/awt/datatransfer/Transferable;[JLjava/util/Map;)V", "(Ljava/awt/datatransfer/Transferable;[JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;)V", $PROTECTED, $virtualMethod(WDragSourceContextPeer, startDrag, void, $Transferable*, $longs*, $Map*)},
-	{"startSecondaryEventLoop", "()V", nullptr, $PUBLIC, $virtualMethod(WDragSourceContextPeer, startSecondaryEventLoop, void)},
-	{}
-};
-
-#define _METHOD_INDEX_createDragSource 1
-#define _METHOD_INDEX_doDragDrop 3
-#define _METHOD_INDEX_setNativeCursor 5
-
-$ClassInfo _WDragSourceContextPeer_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.windows.WDragSourceContextPeer",
-	"sun.awt.dnd.SunDragSourceContextPeer",
-	nullptr,
-	_WDragSourceContextPeer_FieldInfo_,
-	_WDragSourceContextPeer_MethodInfo_
-};
-
-$Object* allocate$WDragSourceContextPeer($Class* clazz) {
-	return $of($alloc(WDragSourceContextPeer));
-}
 
 WDragSourceContextPeer* WDragSourceContextPeer::theInstance = nullptr;
 
@@ -99,17 +61,16 @@ void WDragSourceContextPeer::init$($DragGestureEvent* dge) {
 
 WDragSourceContextPeer* WDragSourceContextPeer::createDragSourceContextPeer($DragGestureEvent* dge) {
 	$init(WDragSourceContextPeer);
-	$nc(WDragSourceContextPeer::theInstance)->setTrigger(dge);
+	WDragSourceContextPeer::theInstance->setTrigger(dge);
 	return WDragSourceContextPeer::theInstance;
 }
 
 void WDragSourceContextPeer::startDrag($Transferable* trans, $longs* formats, $Map* formatMap) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int64_t nativeCtxtLocal = 0;
-	$var($Component, var$0, $nc($(getTrigger()))->getComponent());
-	$var($Transferable, var$1, trans);
-	$var($InputEvent, var$2, $nc($(getTrigger()))->getTriggerEvent());
-	nativeCtxtLocal = createDragSource(var$0, var$1, var$2, $nc($($nc($(getTrigger()))->getSourceAsDragGestureRecognizer()))->getSourceActions(), formats, formatMap);
+	$var($Component, var$0, $$nc(getTrigger())->getComponent());
+	$var($InputEvent, var$1, $$nc(getTrigger())->getTriggerEvent());
+	nativeCtxtLocal = createDragSource(var$0, trans, var$1, $$nc($$nc(getTrigger())->getSourceAsDragGestureRecognizer())->getSourceActions(), formats, formatMap);
 	if (nativeCtxtLocal == 0) {
 		$throwNew($InvalidDnDOperationException, "failed to create native peer"_s);
 	}
@@ -127,8 +88,8 @@ void WDragSourceContextPeer::startDrag($Transferable* trans, $longs* formats, $M
 			}
 			$assign(op, getDragImageOffset());
 			$var($BufferedImage, bi, $new($BufferedImage, imageWidth, imageHeight, $BufferedImage::TYPE_INT_ARGB));
-			$nc($(bi->getGraphics()))->drawImage(im, 0, 0, nullptr);
-			$assign(imageData, $nc(($cast($DataBufferInt, $($nc($(bi->getData()))->getDataBuffer()))))->getData());
+			$$nc(bi->getGraphics())->drawImage(im, 0, 0, nullptr);
+			$assign(imageData, $$sure($DataBufferInt, $$nc(bi->getData())->getDataBuffer())->getData());
 		} catch ($Throwable& ex) {
 			$throwNew($InvalidDnDOperationException, $$str({"drag image creation problem: "_s, $(ex->getMessage())}));
 		}
@@ -136,35 +97,34 @@ void WDragSourceContextPeer::startDrag($Transferable* trans, $longs* formats, $M
 	setNativeContext(nativeCtxtLocal);
 	$WDropTargetContextPeer::setCurrentJVMLocalSourceTransferable(trans);
 	if (imageData != nullptr) {
-		int64_t var$3 = getNativeContext();
-		doDragDrop(var$3, $(getCursor()), imageData, imageWidth, imageHeight, $nc(op)->x, op->y);
+		int64_t var$2 = getNativeContext();
+		doDragDrop(var$2, $(getCursor()), imageData, imageWidth, imageHeight, $nc(op)->x, $nc(op)->y);
 	} else {
-		int64_t var$4 = getNativeContext();
-		doDragDrop(var$4, $(getCursor()), nullptr, -1, -1, 0, 0);
+		int64_t var$3 = getNativeContext();
+		doDragDrop(var$3, $(getCursor()), nullptr, -1, -1, 0, 0);
 	}
 }
 
 int64_t WDragSourceContextPeer::createDragSource($Component* component, $Transferable* transferable, $InputEvent* nativeTrigger, int32_t actions, $longs* formats, $Map* formatMap) {
-	int64_t $ret = 0;
-	$prepareNative(WDragSourceContextPeer, createDragSource, int64_t, $Component* component, $Transferable* transferable, $InputEvent* nativeTrigger, int32_t actions, $longs* formats, $Map* formatMap);
-	$ret = $invokeNative(component, transferable, nativeTrigger, actions, formats, formatMap);
+	$prepareNative(createDragSource, int64_t, $Component* component, $Transferable* transferable, $InputEvent* nativeTrigger, int32_t actions, $longs* formats, $Map* formatMap);
+	int64_t $ret = $invokeNative(component, transferable, nativeTrigger, actions, formats, formatMap);
 	$finishNative();
 	return $ret;
 }
 
 void WDragSourceContextPeer::doDragDrop(int64_t nativeCtxt, $Cursor* cursor, $ints* imageData, int32_t imgWidth, int32_t imgHight, int32_t offsetX, int32_t offsetY) {
-	$prepareNative(WDragSourceContextPeer, doDragDrop, void, int64_t nativeCtxt, $Cursor* cursor, $ints* imageData, int32_t imgWidth, int32_t imgHight, int32_t offsetX, int32_t offsetY);
+	$prepareNative(doDragDrop, void, int64_t nativeCtxt, $Cursor* cursor, $ints* imageData, int32_t imgWidth, int32_t imgHight, int32_t offsetX, int32_t offsetY);
 	$invokeNative(nativeCtxt, cursor, imageData, imgWidth, imgHight, offsetX, offsetY);
 	$finishNative();
 }
 
 void WDragSourceContextPeer::setNativeCursor(int64_t nativeCtxt, $Cursor* c, int32_t cType) {
-	$prepareNative(WDragSourceContextPeer, setNativeCursor, void, int64_t nativeCtxt, $Cursor* c, int32_t cType);
+	$prepareNative(setNativeCursor, void, int64_t nativeCtxt, $Cursor* c, int32_t cType);
 	$invokeNative(nativeCtxt, c, cType);
 	$finishNative();
 }
 
-void clinit$WDragSourceContextPeer($Class* class$) {
+void WDragSourceContextPeer::clinit$($Class* clazz) {
 	$assignStatic(WDragSourceContextPeer::theInstance, $new(WDragSourceContextPeer, nullptr));
 }
 
@@ -172,7 +132,32 @@ WDragSourceContextPeer::WDragSourceContextPeer() {
 }
 
 $Class* WDragSourceContextPeer::load$($String* name, bool initialize) {
-	$loadClass(WDragSourceContextPeer, name, initialize, &_WDragSourceContextPeer_ClassInfo_, clinit$WDragSourceContextPeer, allocate$WDragSourceContextPeer);
+	$FieldInfo fieldInfos$$[] = {
+		{"theInstance", "Lsun/awt/windows/WDragSourceContextPeer;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WDragSourceContextPeer, theInstance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/dnd/DragGestureEvent;)V", nullptr, $PRIVATE, $method(WDragSourceContextPeer, init$, void, $DragGestureEvent*)},
+		{"createDragSource", "(Ljava/awt/Component;Ljava/awt/datatransfer/Transferable;Ljava/awt/event/InputEvent;I[JLjava/util/Map;)J", "(Ljava/awt/Component;Ljava/awt/datatransfer/Transferable;Ljava/awt/event/InputEvent;I[JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;)J", $NATIVE, $method(WDragSourceContextPeer, createDragSource, int64_t, $Component*, $Transferable*, $InputEvent*, int32_t, $longs*, $Map*)},
+		{"createDragSourceContextPeer", "(Ljava/awt/dnd/DragGestureEvent;)Lsun/awt/windows/WDragSourceContextPeer;", nullptr, $STATIC, $staticMethod(WDragSourceContextPeer, createDragSourceContextPeer, WDragSourceContextPeer*, $DragGestureEvent*), "java.awt.dnd.InvalidDnDOperationException"},
+		{"doDragDrop", "(JLjava/awt/Cursor;[IIIII)V", nullptr, $NATIVE, $method(WDragSourceContextPeer, doDragDrop, void, int64_t, $Cursor*, $ints*, int32_t, int32_t, int32_t, int32_t)},
+		{"quitSecondaryEventLoop", "()V", nullptr, $PUBLIC, $virtualMethod(WDragSourceContextPeer, quitSecondaryEventLoop, void)},
+		{"setNativeCursor", "(JLjava/awt/Cursor;I)V", nullptr, $PROTECTED | $NATIVE, $virtualMethod(WDragSourceContextPeer, setNativeCursor, void, int64_t, $Cursor*, int32_t)},
+		{"startDrag", "(Ljava/awt/datatransfer/Transferable;[JLjava/util/Map;)V", "(Ljava/awt/datatransfer/Transferable;[JLjava/util/Map<Ljava/lang/Long;Ljava/awt/datatransfer/DataFlavor;>;)V", $PROTECTED, $virtualMethod(WDragSourceContextPeer, startDrag, void, $Transferable*, $longs*, $Map*)},
+		{"startSecondaryEventLoop", "()V", nullptr, $PUBLIC, $virtualMethod(WDragSourceContextPeer, startSecondaryEventLoop, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.windows.WDragSourceContextPeer",
+		"sun.awt.dnd.SunDragSourceContextPeer",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(WDragSourceContextPeer, name, initialize, &classInfo$$, WDragSourceContextPeer::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WDragSourceContextPeer);
+	});
 	return class$;
 }
 

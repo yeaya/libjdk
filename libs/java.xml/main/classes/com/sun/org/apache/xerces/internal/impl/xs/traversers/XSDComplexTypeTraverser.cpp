@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDComplexTypeTraverser.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/InvalidDatatypeFacetException.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/SchemaDVFactory.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
@@ -45,7 +44,6 @@
 #include <java/lang/StringBuffer.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
-#include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
 #undef ATTIDX_ABSTRACT
@@ -96,16 +94,12 @@ using $XSAnnotationImplArray = $Array<::com::sun::org::apache::xerces::internal:
 using $XSParticleDeclArray = $Array<::com::sun::org::apache::xerces::internal::impl::xs::XSParticleDecl>;
 using $XSObjectArray = $Array<::com::sun::org::apache::xerces::internal::xs::XSObject>;
 using $InvalidDatatypeFacetException = ::com::sun::org::apache::xerces::internal::impl::dv::InvalidDatatypeFacetException;
-using $SchemaDVFactory = ::com::sun::org::apache::xerces::internal::impl::dv::SchemaDVFactory;
-using $ValidationContext = ::com::sun::org::apache::xerces::internal::impl::dv::ValidationContext;
 using $XSFacets = ::com::sun::org::apache::xerces::internal::impl::dv::XSFacets;
 using $XSSimpleType = ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType;
 using $XSSimpleTypeDecl = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl;
-using $ValidationState = ::com::sun::org::apache::xerces::internal::impl::validation::ValidationState;
 using $SchemaGrammar = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaGrammar;
 using $SchemaSymbols = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaSymbols;
 using $XSAnnotationImpl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAnnotationImpl;
-using $XSAttributeDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeDecl;
 using $XSAttributeGroupDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeGroupDecl;
 using $XSAttributeUseImpl = ::com::sun::org::apache::xerces::internal::impl::xs::XSAttributeUseImpl;
 using $XSComplexTypeDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSComplexTypeDecl;
@@ -118,20 +112,15 @@ using $XSDAbstractParticleTraverser = ::com::sun::org::apache::xerces::internal:
 using $XSDAbstractTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDAbstractTraverser;
 using $XSDAbstractTraverser$FacetInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDAbstractTraverser$FacetInfo;
 using $XSDComplexTypeTraverser$ComplexTypeRecoverableError = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDComplexTypeTraverser$ComplexTypeRecoverableError;
-using $XSDGroupTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDGroupTraverser;
 using $XSDHandler = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDHandler;
-using $XSDSimpleTypeTraverser = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDSimpleTypeTraverser;
 using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo;
 using $XInt = ::com::sun::org::apache::xerces::internal::impl::xs::util::XInt;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
-using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
 using $XSAttributeUse = ::com::sun::org::apache::xerces::internal::xs::XSAttributeUse;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
-using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -141,7 +130,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Element = ::org::w3c::dom::Element;
-using $Node = ::org::w3c::dom::Node;
 
 namespace com {
 	namespace sun {
@@ -153,81 +141,12 @@ namespace com {
 							namespace xs {
 								namespace traversers {
 
-$FieldInfo _XSDComplexTypeTraverser_FieldInfo_[] = {
-	{"GLOBAL_NUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDComplexTypeTraverser, GLOBAL_NUM)},
-	{"fErrorContent", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE | $STATIC, $staticField(XSDComplexTypeTraverser, fErrorContent)},
-	{"fErrorWildcard", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PRIVATE | $STATIC, $staticField(XSDComplexTypeTraverser, fErrorWildcard)},
-	{"fName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fName)},
-	{"fTargetNamespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fTargetNamespace)},
-	{"fDerivedBy", "S", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fDerivedBy)},
-	{"fFinal", "S", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fFinal)},
-	{"fBlock", "S", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fBlock)},
-	{"fContentType", "S", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fContentType)},
-	{"fBaseType", "Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fBaseType)},
-	{"fAttrGrp", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fAttrGrp)},
-	{"fXSSimpleType", "Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fXSSimpleType)},
-	{"fParticle", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fParticle)},
-	{"fIsAbstract", "Z", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fIsAbstract)},
-	{"fComplexTypeDecl", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fComplexTypeDecl)},
-	{"fAnnotations", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fAnnotations)},
-	{"fGlobalStore", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fGlobalStore)},
-	{"fGlobalStorePos", "I", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fGlobalStorePos)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDComplexTypeTraverser, DEBUG)},
-	{}
-};
-
-$MethodInfo _XSDComplexTypeTraverser_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, 0, $method(XSDComplexTypeTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
-	{"addAnnotation", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, addAnnotation, void, $XSAnnotationImpl*)},
-	{"contentBackup", "()V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, contentBackup, void)},
-	{"contentRestore", "()V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, contentRestore, void)},
-	{"genAnonTypeName", "(Lorg/w3c/dom/Element;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, genAnonTypeName, $String*, $Element*)},
-	{"getErrorContent", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDComplexTypeTraverser, getErrorContent, $XSParticleDecl*)},
-	{"getErrorWildcard", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDComplexTypeTraverser, getErrorWildcard, $XSWildcardDecl*)},
-	{"handleComplexTypeError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, handleComplexTypeError, void, $String*, $ObjectArray*, $Element*)},
-	{"isAttrOrAttrGroup", "(Lorg/w3c/dom/Element;)Z", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, isAttrOrAttrGroup, bool, $Element*)},
-	{"mergeAttributes", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Ljava/lang/String;ZLorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, mergeAttributes, void, $XSAttributeGroupDecl*, $XSAttributeGroupDecl*, $String*, bool, $Element*), "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"},
-	{"processComplexContent", "(Lorg/w3c/dom/Element;ZZLcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, processComplexContent, void, $Element*, bool, bool, $XSDocumentInfo*, $SchemaGrammar*), "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"},
-	{"traverseComplexContent", "(Lorg/w3c/dom/Element;ZLcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseComplexContent, void, $Element*, bool, $XSDocumentInfo*, $SchemaGrammar*), "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"},
-	{"traverseComplexContentDecl", "(Lorg/w3c/dom/Element;Z)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseComplexContentDecl, void, $Element*, bool)},
-	{"traverseComplexTypeDecl", "(Lorg/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseComplexTypeDecl, $XSComplexTypeDecl*, $Element*, $String*, $ObjectArray*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{"traverseGlobal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, 0, $virtualMethod(XSDComplexTypeTraverser, traverseGlobal, $XSComplexTypeDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{"traverseLocal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, 0, $virtualMethod(XSDComplexTypeTraverser, traverseLocal, $XSComplexTypeDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
-	{"traverseSimpleContent", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseSimpleContent, void, $Element*, $XSDocumentInfo*, $SchemaGrammar*), "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"},
-	{"traverseSimpleContentDecl", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseSimpleContentDecl, void, $Element*)},
-	{}
-};
-
-$InnerClassInfo _XSDComplexTypeTraverser_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser", "ComplexTypeRecoverableError", $PRIVATE | $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XSDComplexTypeTraverser_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser",
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser",
-	nullptr,
-	_XSDComplexTypeTraverser_FieldInfo_,
-	_XSDComplexTypeTraverser_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XSDComplexTypeTraverser_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"
-};
-
-$Object* allocate$XSDComplexTypeTraverser($Class* clazz) {
-	return $of($alloc(XSDComplexTypeTraverser));
-}
-
 $XSParticleDecl* XSDComplexTypeTraverser::fErrorContent = nullptr;
 $XSWildcardDecl* XSDComplexTypeTraverser::fErrorWildcard = nullptr;
 
 $XSParticleDecl* XSDComplexTypeTraverser::getErrorContent() {
 	$init(XSDComplexTypeTraverser);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (XSDComplexTypeTraverser::fErrorContent == nullptr) {
 		$var($XSParticleDecl, particle, $new($XSParticleDecl));
 		particle->fType = $XSParticleDecl::PARTICLE_WILDCARD;
@@ -238,7 +157,7 @@ $XSParticleDecl* XSDComplexTypeTraverser::getErrorContent() {
 		group->fCompositor = $XSModelGroupImpl::MODELGROUP_SEQUENCE;
 		group->fParticleCount = 1;
 		$set(group, fParticles, $new($XSParticleDeclArray, 1));
-		$nc(group->fParticles)->set(0, particle);
+		group->fParticles->set(0, particle);
 		$var($XSParticleDecl, errorContent, $new($XSParticleDecl));
 		errorContent->fType = $XSParticleDecl::PARTICLE_MODELGROUP;
 		$set(errorContent, fValue, group);
@@ -277,7 +196,7 @@ void XSDComplexTypeTraverser::init$($XSDHandler* handler, $XSAttributeChecker* g
 }
 
 $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseLocal($Element* complexTypeNode, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(complexTypeNode, false, schemaDoc));
 	$var($String, complexTypeName, genAnonTypeName(complexTypeNode));
 	contentBackup();
@@ -290,7 +209,7 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseLocal($Element* complexType
 }
 
 $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseGlobal($Element* complexTypeNode, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, attrValues, $nc(this->fAttrChecker)->checkAttributes(complexTypeNode, true, schemaDoc));
 	$var($String, complexTypeName, $cast($String, $nc(attrValues)->get($XSAttributeChecker::ATTIDX_NAME)));
 	contentBackup();
@@ -300,8 +219,8 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseGlobal($Element* complexTyp
 	if (complexTypeName == nullptr) {
 		$init($SchemaSymbols);
 		reportSchemaError("s4s-att-must-appear"_s, $$new($ObjectArray, {
-			$of($SchemaSymbols::ELT_COMPLEXTYPE),
-			$of($SchemaSymbols::ATT_NAME)
+			$SchemaSymbols::ELT_COMPLEXTYPE,
+			$SchemaSymbols::ATT_NAME
 		}), complexTypeNode);
 		$assign(type, nullptr);
 	} else {
@@ -309,7 +228,7 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseGlobal($Element* complexTyp
 			grammar->addGlobalComplexTypeDecl(type);
 		}
 		$var($String, loc, $nc(this->fSchemaHandler)->schemaDocument2SystemId(schemaDoc));
-		$var($XSTypeDefinition, type2, grammar->getGlobalTypeDecl($($nc(type)->getName()), loc));
+		$var($XSTypeDefinition, type2, grammar->getGlobalTypeDecl($(type->getName()), loc));
 		if (type2 == nullptr) {
 			grammar->addGlobalComplexTypeDecl(type, loc);
 		}
@@ -319,7 +238,7 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseGlobal($Element* complexTyp
 					$assign(type, $cast($XSComplexTypeDecl, type2));
 				}
 			}
-			$nc(this->fSchemaHandler)->addGlobalTypeDecl(type);
+			this->fSchemaHandler->addGlobalTypeDecl(type);
 		}
 	}
 	$nc(this->fAttrChecker)->returnAttrArray(attrValues, schemaDoc);
@@ -327,7 +246,7 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseGlobal($Element* complexTyp
 }
 
 $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseComplexTypeDecl($Element* complexTypeDecl, $String* complexTypeName, $ObjectArray* attrValues, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, fComplexTypeDecl, $new($XSComplexTypeDecl));
 	$set(this, fAttrGrp, $new($XSAttributeGroupDecl));
 	$init($XSAttributeChecker);
@@ -336,10 +255,10 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseComplexTypeDecl($Element* c
 	$var($Boolean, mixedAtt, $cast($Boolean, attrValues->get($XSAttributeChecker::ATTIDX_MIXED)));
 	$var($XInt, finalAtt, $cast($XInt, attrValues->get($XSAttributeChecker::ATTIDX_FINAL)));
 	$set(this, fName, complexTypeName);
-	$nc(this->fComplexTypeDecl)->setName(this->fName);
+	this->fComplexTypeDecl->setName(this->fName);
 	$set(this, fTargetNamespace, $nc(schemaDoc)->fTargetNamespace);
-	this->fBlock = blockAtt == nullptr ? schemaDoc->fBlockDefault : $nc(blockAtt)->shortValue();
-	this->fFinal = finalAtt == nullptr ? schemaDoc->fFinalDefault : $nc(finalAtt)->shortValue();
+	this->fBlock = blockAtt == nullptr ? schemaDoc->fBlockDefault : blockAtt->shortValue();
+	this->fFinal = finalAtt == nullptr ? schemaDoc->fFinalDefault : finalAtt->shortValue();
 	this->fBlock &= (uint16_t)($XSConstants::DERIVATION_EXTENSION | $XSConstants::DERIVATION_RESTRICTION);
 	this->fFinal &= (uint16_t)($XSConstants::DERIVATION_EXTENSION | $XSConstants::DERIVATION_RESTRICTION);
 	this->fIsAbstract = (abstractAtt != nullptr && abstractAtt->booleanValue());
@@ -349,7 +268,7 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseComplexTypeDecl($Element* c
 		$assign(child, $DOMUtil::getFirstChildElement(complexTypeDecl));
 		if (child != nullptr) {
 			$init($SchemaSymbols);
-			if ($nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+			if ($$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 				addAnnotation($(traverseAnnotationDecl(child, attrValues, false, schemaDoc)));
 				$assign(child, $DOMUtil::getNextSiblingElement(child));
 			} else {
@@ -358,10 +277,10 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseComplexTypeDecl($Element* c
 					addAnnotation($(traverseSyntheticAnnotation(complexTypeDecl, text, attrValues, false, schemaDoc)));
 				}
 			}
-			if (child != nullptr && $nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+			if (child != nullptr && $$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-					$of(this->fName),
-					$of($SchemaSymbols::ELT_ANNOTATION)
+					this->fName,
+					$SchemaSymbols::ELT_ANNOTATION
 				}), child);
 			}
 		} else {
@@ -377,50 +296,49 @@ $XSComplexTypeDecl* XSDComplexTypeTraverser::traverseComplexTypeDecl($Element* c
 			processComplexContent(child, $nc(mixedAtt)->booleanValue(), false, schemaDoc, grammar);
 		} else {
 			$init($SchemaSymbols);
-			if ($nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_SIMPLECONTENT)) {
+			if ($$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_SIMPLECONTENT)) {
 				traverseSimpleContent(child, schemaDoc, grammar);
 				$var($Element, elemTmp, $DOMUtil::getNextSiblingElement(child));
 				if (elemTmp != nullptr) {
 					$var($String, siblingName, $DOMUtil::getLocalName(elemTmp));
 					$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-						$of(this->fName),
-						$of(siblingName)
+						this->fName,
+						siblingName
+					}), elemTmp);
+				}
+			} else if ($$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_COMPLEXCONTENT)) {
+				traverseComplexContent(child, $nc(mixedAtt)->booleanValue(), schemaDoc, grammar);
+				$var($Element, elemTmp, $DOMUtil::getNextSiblingElement(child));
+				if (elemTmp != nullptr) {
+					$var($String, siblingName, $DOMUtil::getLocalName(elemTmp));
+					$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
+						this->fName,
+						siblingName
 					}), elemTmp);
 				}
 			} else {
-				if ($nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_COMPLEXCONTENT)) {
-					traverseComplexContent(child, $nc(mixedAtt)->booleanValue(), schemaDoc, grammar);
-					$var($Element, elemTmp, $DOMUtil::getNextSiblingElement(child));
-					if (elemTmp != nullptr) {
-						$var($String, siblingName, $DOMUtil::getLocalName(elemTmp));
-						$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-							$of(this->fName),
-							$of(siblingName)
-						}), elemTmp);
-					}
-				} else {
-					$init($SchemaGrammar);
-					$set(this, fBaseType, $SchemaGrammar::fAnyType);
-					this->fDerivedBy = $XSConstants::DERIVATION_RESTRICTION;
-					processComplexContent(child, $nc(mixedAtt)->booleanValue(), false, schemaDoc, grammar);
-				}
+				$init($SchemaGrammar);
+				$set(this, fBaseType, $SchemaGrammar::fAnyType);
+				this->fDerivedBy = $XSConstants::DERIVATION_RESTRICTION;
+				processComplexContent(child, $nc(mixedAtt)->booleanValue(), false, schemaDoc, grammar);
 			}
 		}
 	} catch ($XSDComplexTypeTraverser$ComplexTypeRecoverableError& e) {
 		handleComplexTypeError($(e->getMessage()), e->errorSubstText, e->errorElem);
 	}
-	$nc(this->fComplexTypeDecl)->setValues(this->fName, this->fTargetNamespace, this->fBaseType, this->fDerivedBy, this->fFinal, this->fBlock, this->fContentType, this->fIsAbstract, this->fAttrGrp, this->fXSSimpleType, this->fParticle, $$new($XSObjectListImpl, $fcast($XSObjectArray, this->fAnnotations), this->fAnnotations == nullptr ? 0 : $nc(this->fAnnotations)->length));
+	;
+	$nc(this->fComplexTypeDecl)->setValues(this->fName, this->fTargetNamespace, this->fBaseType, this->fDerivedBy, this->fFinal, this->fBlock, this->fContentType, this->fIsAbstract, this->fAttrGrp, this->fXSSimpleType, this->fParticle, $$new($XSObjectListImpl, $cast($XSObjectArray, this->fAnnotations), this->fAnnotations == nullptr ? 0 : this->fAnnotations->length));
 	return this->fComplexTypeDecl;
 }
 
 void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentElement, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, simpleContentAttrValues, $nc(this->fAttrChecker)->checkAttributes(simpleContentElement, false, schemaDoc));
 	this->fContentType = $XSComplexTypeDecl::CONTENTTYPE_SIMPLE;
 	$set(this, fParticle, nullptr);
 	$var($Element, simpleContent, $DOMUtil::getFirstChildElement(simpleContentElement));
 	$init($SchemaSymbols);
-	if (simpleContent != nullptr && $nc($($DOMUtil::getLocalName(simpleContent)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+	if (simpleContent != nullptr && $$nc($DOMUtil::getLocalName(simpleContent))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 		addAnnotation($(traverseAnnotationDecl(simpleContent, simpleContentAttrValues, false, schemaDoc)));
 		$assign(simpleContent, $DOMUtil::getNextSiblingElement(simpleContent));
 	} else {
@@ -432,31 +350,29 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 	if (simpleContent == nullptr) {
 		$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.2"_s, $$new($ObjectArray, {
-			$of(this->fName),
-			$of($SchemaSymbols::ELT_SIMPLECONTENT)
+			this->fName,
+			$SchemaSymbols::ELT_SIMPLECONTENT
 		}), simpleContentElement);
 	}
 	$var($String, simpleContentName, $DOMUtil::getLocalName(simpleContent));
 	if ($nc(simpleContentName)->equals($SchemaSymbols::ELT_RESTRICTION)) {
 		this->fDerivedBy = $XSConstants::DERIVATION_RESTRICTION;
+	} else if (simpleContentName->equals($SchemaSymbols::ELT_EXTENSION)) {
+		this->fDerivedBy = $XSConstants::DERIVATION_EXTENSION;
 	} else {
-		if (simpleContentName->equals($SchemaSymbols::ELT_EXTENSION)) {
-			this->fDerivedBy = $XSConstants::DERIVATION_EXTENSION;
-		} else {
-			$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
-			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-				$of(this->fName),
-				$of(simpleContentName)
-			}), simpleContent);
-		}
+		$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
+		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
+			this->fName,
+			simpleContentName
+		}), simpleContent);
 	}
 	$var($Element, elemTmp, $DOMUtil::getNextSiblingElement(simpleContent));
 	if (elemTmp != nullptr) {
 		$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 		$var($String, siblingName, $DOMUtil::getLocalName(elemTmp));
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-			$of(this->fName),
-			$of(siblingName)
+			this->fName,
+			siblingName
 		}), elemTmp);
 	}
 	$var($ObjectArray, derivationTypeAttrValues, $nc(this->fAttrChecker)->checkAttributes(simpleContent, false, schemaDoc));
@@ -465,8 +381,8 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 		$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 		$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-att-must-appear"_s, $$new($ObjectArray, {
-			$of(simpleContentName),
-			$of("base"_s)
+			simpleContentName,
+			"base"_s
 		}), simpleContent);
 	}
 	$var($XSTypeDefinition, type, $cast($XSTypeDefinition, $nc(this->fSchemaHandler)->getGlobalDecl(schemaDoc, $XSDHandler::TYPEDECL_TYPE, baseTypeName, simpleContent)));
@@ -485,14 +401,14 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 		if (baseComplexType->getContentType() == $XSComplexTypeDecl::CONTENTTYPE_SIMPLE) {
 			$assign(baseValidator, $cast($XSSimpleType, baseComplexType->getSimpleType()));
 		} else {
-			bool var$1 = this->fDerivedBy == $XSConstants::DERIVATION_RESTRICTION && baseComplexType->getContentType() == $XSComplexTypeDecl::CONTENTTYPE_MIXED;
-			if (var$1 && $nc(($cast($XSParticleDecl, $(baseComplexType->getParticle()))))->emptiable()) {
+			bool var$0 = this->fDerivedBy == $XSConstants::DERIVATION_RESTRICTION && baseComplexType->getContentType() == $XSComplexTypeDecl::CONTENTTYPE_MIXED;
+			if (var$0 && $$sure($XSParticleDecl, baseComplexType->getParticle())->emptiable()) {
 			} else {
 				$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 				$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "src-ct.2.1"_s, $$new($ObjectArray, {
-					$of(this->fName),
-					$($of(baseComplexType->getName()))
+					this->fName,
+					$(baseComplexType->getName())
 				}), simpleContent);
 			}
 		}
@@ -502,25 +418,25 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 			$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 			$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "src-ct.2.1"_s, $$new($ObjectArray, {
-				$of(this->fName),
-				$($of(baseValidator->getName()))
+				this->fName,
+				$(baseValidator->getName())
 			}), simpleContent);
 		}
 		baseFinalSet = baseValidator->getFinal();
 	}
-	if (((int32_t)(baseFinalSet & (uint32_t)(int32_t)this->fDerivedBy)) != 0) {
+	if ((baseFinalSet & this->fDerivedBy) != 0) {
 		$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 		$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 		$var($String, errorKey, (this->fDerivedBy == $XSConstants::DERIVATION_EXTENSION) ? "cos-ct-extends.1.1"_s : "derivation-ok-restriction.1"_s);
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, errorKey, $$new($ObjectArray, {
-			$of(this->fName),
-			$($of($nc(this->fBaseType)->getName()))
+			this->fName,
+			$($nc(this->fBaseType)->getName())
 		}), simpleContent);
 	}
 	$var($Element, scElement, simpleContent);
 	$assign(simpleContent, $DOMUtil::getFirstChildElement(simpleContent));
 	if (simpleContent != nullptr) {
-		if ($nc($($DOMUtil::getLocalName(simpleContent)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+		if ($$nc($DOMUtil::getLocalName(simpleContent))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 			addAnnotation($(traverseAnnotationDecl(simpleContent, derivationTypeAttrValues, false, schemaDoc)));
 			$assign(simpleContent, $DOMUtil::getNextSiblingElement(simpleContent));
 		} else {
@@ -529,12 +445,12 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 				addAnnotation($(traverseSyntheticAnnotation(scElement, text, derivationTypeAttrValues, false, schemaDoc)));
 			}
 		}
-		if (simpleContent != nullptr && $nc($($DOMUtil::getLocalName(simpleContent)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+		if (simpleContent != nullptr && $$nc($DOMUtil::getLocalName(simpleContent))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 			$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 			$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-				$of(this->fName),
-				$of($SchemaSymbols::ELT_ANNOTATION)
+				this->fName,
+				$SchemaSymbols::ELT_ANNOTATION
 			}), simpleContent);
 		}
 	} else {
@@ -544,7 +460,7 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 		}
 	}
 	if (this->fDerivedBy == $XSConstants::DERIVATION_RESTRICTION) {
-		if (simpleContent != nullptr && $nc($($DOMUtil::getLocalName(simpleContent)))->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
+		if (simpleContent != nullptr && $$nc($DOMUtil::getLocalName(simpleContent))->equals($SchemaSymbols::ELT_SIMPLETYPE)) {
 			$var($XSSimpleType, dv, $nc($nc(this->fSchemaHandler)->fSimpleTypeTraverser)->traverseLocal(simpleContent, schemaDoc, grammar));
 			if (dv == nullptr) {
 				$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
@@ -555,9 +471,9 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 				$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 				$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "derivation-ok-restriction.5.2.2.1"_s, $$new($ObjectArray, {
-					$of(this->fName),
-					$($of($nc(dv)->getName())),
-					$($of(baseValidator->getName()))
+					this->fName,
+					$($nc(dv)->getName()),
+					$(baseValidator->getName())
 				}), simpleContent);
 			}
 			$assign(baseValidator, dv);
@@ -566,12 +482,12 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 		if (baseValidator == nullptr) {
 			$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 			$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
-			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "src-ct.2.2"_s, $$new($ObjectArray, {$of(this->fName)}), simpleContent);
+			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "src-ct.2.2"_s, $$new($ObjectArray, {this->fName}), simpleContent);
 		}
 		$var($Element, attrNode, nullptr);
 		$var($XSFacets, facetData, nullptr);
-		int16_t presentFacets = (int16_t)0;
-		int16_t fixedFacets = (int16_t)0;
+		int16_t presentFacets = 0;
+		int16_t fixedFacets = 0;
 		if (simpleContent != nullptr) {
 			$var($XSDAbstractTraverser$FacetInfo, fi, traverseFacets(simpleContent, this->fComplexTypeDecl, baseValidator, schemaDoc));
 			$assign(attrNode, $nc(fi)->nodeAfterFacets);
@@ -582,23 +498,23 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 		$var($String, name, genAnonTypeName(simpleContentElement));
 		$set(this, fXSSimpleType, $nc($nc(this->fSchemaHandler)->fDVFactory)->createTypeRestriction(name, $nc(schemaDoc)->fTargetNamespace, (int16_t)0, baseValidator, nullptr));
 		try {
-			$nc(this->fValidationState)->setNamespaceSupport($nc(schemaDoc)->fNamespaceSupport);
+			$nc(this->fValidationState)->setNamespaceSupport(schemaDoc->fNamespaceSupport);
 			$nc(this->fXSSimpleType)->applyFacets(facetData, presentFacets, fixedFacets, this->fValidationState);
 		} catch ($InvalidDatatypeFacetException& ex) {
-			$var($String, var$2, ex->getKey());
-			reportSchemaError(var$2, $(ex->getArgs()), simpleContent);
-			$set(this, fXSSimpleType, $nc($nc(this->fSchemaHandler)->fDVFactory)->createTypeRestriction(name, $nc(schemaDoc)->fTargetNamespace, (int16_t)0, baseValidator, nullptr));
+			$var($String, var$1, ex->getKey());
+			reportSchemaError(var$1, $(ex->getArgs()), simpleContent);
+			$set(this, fXSSimpleType, $nc($nc(this->fSchemaHandler)->fDVFactory)->createTypeRestriction(name, schemaDoc->fTargetNamespace, (int16_t)0, baseValidator, nullptr));
 		}
 		if ($instanceOf($XSSimpleTypeDecl, this->fXSSimpleType)) {
-			$nc(($cast($XSSimpleTypeDecl, this->fXSSimpleType)))->setAnonymous(true);
+			$cast($XSSimpleTypeDecl, this->fXSSimpleType)->setAnonymous(true);
 		}
 		if (attrNode != nullptr) {
 			if (!isAttrOrAttrGroup(attrNode)) {
 				$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 				$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-					$of(this->fName),
-					$($of($DOMUtil::getLocalName(attrNode)))
+					this->fName,
+					$($DOMUtil::getLocalName(attrNode))
 				}), attrNode);
 			}
 			$var($Element, node, traverseAttrsAndAttrGrps(attrNode, this->fAttrGrp, schemaDoc, grammar, this->fComplexTypeDecl));
@@ -606,8 +522,8 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 				$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 				$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-					$of(this->fName),
-					$($of($DOMUtil::getLocalName(node)))
+					this->fName,
+					$($DOMUtil::getLocalName(node))
 				}), node);
 			}
 		}
@@ -633,8 +549,8 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 				$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 				$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-					$of(this->fName),
-					$($of($DOMUtil::getLocalName(attrNode)))
+					this->fName,
+					$($DOMUtil::getLocalName(attrNode))
 				}), attrNode);
 			}
 			$var($Element, node, traverseAttrsAndAttrGrps(attrNode, this->fAttrGrp, schemaDoc, grammar, this->fComplexTypeDecl));
@@ -642,8 +558,8 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 				$nc(this->fAttrChecker)->returnAttrArray(simpleContentAttrValues, schemaDoc);
 				$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-					$of(this->fName),
-					$($of($DOMUtil::getLocalName(node)))
+					this->fName,
+					$($DOMUtil::getLocalName(node))
 				}), node);
 			}
 			$nc(this->fAttrGrp)->removeProhibitedAttrs();
@@ -663,7 +579,7 @@ void XSDComplexTypeTraverser::traverseSimpleContent($Element* simpleContentEleme
 }
 
 void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentElement, bool mixedOnType, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray, complexContentAttrValues, $nc(this->fAttrChecker)->checkAttributes(complexContentElement, false, schemaDoc));
 	bool mixedContent = mixedOnType;
 	$var($Boolean, mixedAtt, $cast($Boolean, $nc(complexContentAttrValues)->get($XSAttributeChecker::ATTIDX_MIXED)));
@@ -673,7 +589,7 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 	$set(this, fXSSimpleType, nullptr);
 	$var($Element, complexContent, $DOMUtil::getFirstChildElement(complexContentElement));
 	$init($SchemaSymbols);
-	if (complexContent != nullptr && $nc($($DOMUtil::getLocalName(complexContent)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+	if (complexContent != nullptr && $$nc($DOMUtil::getLocalName(complexContent))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 		addAnnotation($(traverseAnnotationDecl(complexContent, complexContentAttrValues, false, schemaDoc)));
 		$assign(complexContent, $DOMUtil::getNextSiblingElement(complexContent));
 	} else {
@@ -685,31 +601,29 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 	if (complexContent == nullptr) {
 		$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.2"_s, $$new($ObjectArray, {
-			$of(this->fName),
-			$of($SchemaSymbols::ELT_COMPLEXCONTENT)
+			this->fName,
+			$SchemaSymbols::ELT_COMPLEXCONTENT
 		}), complexContentElement);
 	}
 	$var($String, complexContentName, $DOMUtil::getLocalName(complexContent));
 	if ($nc(complexContentName)->equals($SchemaSymbols::ELT_RESTRICTION)) {
 		this->fDerivedBy = $XSConstants::DERIVATION_RESTRICTION;
+	} else if (complexContentName->equals($SchemaSymbols::ELT_EXTENSION)) {
+		this->fDerivedBy = $XSConstants::DERIVATION_EXTENSION;
 	} else {
-		if (complexContentName->equals($SchemaSymbols::ELT_EXTENSION)) {
-			this->fDerivedBy = $XSConstants::DERIVATION_EXTENSION;
-		} else {
-			$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
-			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-				$of(this->fName),
-				$of(complexContentName)
-			}), complexContent);
-		}
+		$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
+		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
+			this->fName,
+			complexContentName
+		}), complexContent);
 	}
 	$var($Element, elemTmp, $DOMUtil::getNextSiblingElement(complexContent));
 	if (elemTmp != nullptr) {
 		$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 		$var($String, siblingName, $DOMUtil::getLocalName(elemTmp));
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-			$of(this->fName),
-			$of(siblingName)
+			this->fName,
+			siblingName
 		}), elemTmp);
 	}
 	$var($ObjectArray, derivationTypeAttrValues, $nc(this->fAttrChecker)->checkAttributes(complexContent, false, schemaDoc));
@@ -718,8 +632,8 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 		$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 		$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-att-must-appear"_s, $$new($ObjectArray, {
-			$of(complexContentName),
-			$of("base"_s)
+			complexContentName,
+			"base"_s
 		}), complexContent);
 	}
 	$var($XSTypeDefinition, type, $cast($XSTypeDefinition, $nc(this->fSchemaHandler)->getGlobalDecl(schemaDoc, $XSDHandler::TYPEDECL_TYPE, baseTypeName, complexContent)));
@@ -732,24 +646,24 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 		$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 		$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "src-ct.1"_s, $$new($ObjectArray, {
-			$of(this->fName),
-			$($of($nc(type)->getName()))
+			this->fName,
+			$($nc(type)->getName())
 		}), complexContent);
 	}
 	$var($XSComplexTypeDecl, baseType, $cast($XSComplexTypeDecl, type));
 	$set(this, fBaseType, baseType);
-	if (((int32_t)($nc(baseType)->getFinal() & (uint32_t)(int32_t)this->fDerivedBy)) != 0) {
+	if (($nc(baseType)->getFinal() & this->fDerivedBy) != 0) {
 		$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 		$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 		$var($String, errorKey, (this->fDerivedBy == $XSConstants::DERIVATION_EXTENSION) ? "cos-ct-extends.1.1"_s : "derivation-ok-restriction.1"_s);
 		$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, errorKey, $$new($ObjectArray, {
-			$of(this->fName),
-			$($of($nc(this->fBaseType)->getName()))
+			this->fName,
+			$($nc(this->fBaseType)->getName())
 		}), complexContent);
 	}
 	$assign(complexContent, $DOMUtil::getFirstChildElement(complexContent));
 	if (complexContent != nullptr) {
-		if ($nc($($DOMUtil::getLocalName(complexContent)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+		if ($$nc($DOMUtil::getLocalName(complexContent))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 			addAnnotation($(traverseAnnotationDecl(complexContent, derivationTypeAttrValues, false, schemaDoc)));
 			$assign(complexContent, $DOMUtil::getNextSiblingElement(complexContent));
 		} else {
@@ -758,12 +672,12 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 				addAnnotation($(traverseSyntheticAnnotation(complexContent, text, derivationTypeAttrValues, false, schemaDoc)));
 			}
 		}
-		if (complexContent != nullptr && $nc($($DOMUtil::getLocalName(complexContent)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+		if (complexContent != nullptr && $$nc($DOMUtil::getLocalName(complexContent))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 			$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 			$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-				$of(this->fName),
-				$of($SchemaSymbols::ELT_ANNOTATION)
+				this->fName,
+				$SchemaSymbols::ELT_ANNOTATION
 			}), complexContent);
 		}
 	} else {
@@ -779,14 +693,14 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 		$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 		$throw(e);
 	}
-	$var($XSParticleDecl, baseContent, $cast($XSParticleDecl, $nc(baseType)->getParticle()));
+	$var($XSParticleDecl, baseContent, $cast($XSParticleDecl, baseType->getParticle()));
 	if (this->fDerivedBy == $XSConstants::DERIVATION_RESTRICTION) {
 		if (this->fContentType == $XSComplexTypeDecl::CONTENTTYPE_MIXED && baseType->getContentType() != $XSComplexTypeDecl::CONTENTTYPE_MIXED) {
 			$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 			$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
 			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "derivation-ok-restriction.5.4.1.2"_s, $$new($ObjectArray, {
-				$of(this->fName),
-				$($of(baseType->getName()))
+				this->fName,
+				$(baseType->getName())
 			}), complexContent);
 		}
 		try {
@@ -816,16 +730,16 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 			if (this->fContentType == $XSComplexTypeDecl::CONTENTTYPE_ELEMENT && baseType->getContentType() != $XSComplexTypeDecl::CONTENTTYPE_ELEMENT) {
 				$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 				$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
-				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "cos-ct-extends.1.4.3.2.2.1.a"_s, $$new($ObjectArray, {$of(this->fName)}), complexContent);
+				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "cos-ct-extends.1.4.3.2.2.1.a"_s, $$new($ObjectArray, {this->fName}), complexContent);
 			} else if (this->fContentType == $XSComplexTypeDecl::CONTENTTYPE_MIXED && baseType->getContentType() != $XSComplexTypeDecl::CONTENTTYPE_MIXED) {
 				$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
 				$nc(this->fAttrChecker)->returnAttrArray(derivationTypeAttrValues, schemaDoc);
-				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "cos-ct-extends.1.4.3.2.2.1.b"_s, $$new($ObjectArray, {$of(this->fName)}), complexContent);
+				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "cos-ct-extends.1.4.3.2.2.1.b"_s, $$new($ObjectArray, {this->fName}), complexContent);
 			}
-			bool var$0 = $nc(this->fParticle)->fType == $XSParticleDecl::PARTICLE_MODELGROUP && $nc(($cast($XSModelGroupImpl, $nc(this->fParticle)->fValue)))->fCompositor == $XSModelGroupImpl::MODELGROUP_ALL;
+			bool var$0 = $nc(this->fParticle)->fType == $XSParticleDecl::PARTICLE_MODELGROUP && $nc($cast($XSModelGroupImpl, this->fParticle->fValue))->fCompositor == $XSModelGroupImpl::MODELGROUP_ALL;
 			if (!var$0) {
-				bool var$1 = $nc(($cast($XSParticleDecl, $(baseType->getParticle()))))->fType == $XSParticleDecl::PARTICLE_MODELGROUP;
-				var$0 = var$1 && $nc(($cast($XSModelGroupImpl, $nc(($cast($XSParticleDecl, $(baseType->getParticle()))))->fValue)))->fCompositor == $XSModelGroupImpl::MODELGROUP_ALL;
+				bool var$1 = $nc($$cast($XSParticleDecl, baseType->getParticle()))->fType == $XSParticleDecl::PARTICLE_MODELGROUP;
+				var$0 = var$1 && $nc($cast($XSModelGroupImpl, $nc(($$cast($XSParticleDecl, baseType->getParticle())))->fValue))->fCompositor == $XSModelGroupImpl::MODELGROUP_ALL;
 			}
 			if (var$0) {
 				$nc(this->fAttrChecker)->returnAttrArray(complexContentAttrValues, schemaDoc);
@@ -836,7 +750,7 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 			group->fCompositor = $XSModelGroupImpl::MODELGROUP_SEQUENCE;
 			group->fParticleCount = 2;
 			$set(group, fParticles, $new($XSParticleDeclArray, 2));
-			$nc(group->fParticles)->set(0, $cast($XSParticleDecl, $(baseType->getParticle())));
+			group->fParticles->set(0, $$cast($XSParticleDecl, baseType->getParticle()));
 			$nc(group->fParticles)->set(1, this->fParticle);
 			$init($XSObjectListImpl);
 			$set(group, fAnnotations, $XSObjectListImpl::EMPTY_LIST);
@@ -860,30 +774,30 @@ void XSDComplexTypeTraverser::traverseComplexContent($Element* complexContentEle
 }
 
 void XSDComplexTypeTraverser::mergeAttributes($XSAttributeGroupDecl* fromAttrGrp, $XSAttributeGroupDecl* toAttrGrp, $String* typeName, bool extension, $Element* elem) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XSObjectList, attrUseS, $nc(fromAttrGrp)->getAttributeUses());
 	$var($XSAttributeUseImpl, oneAttrUse, nullptr);
 	int32_t attrCount = $nc(attrUseS)->getLength();
 	for (int32_t i = 0; i < attrCount; ++i) {
 		$assign(oneAttrUse, $cast($XSAttributeUseImpl, attrUseS->item(i)));
 		$var($String, var$0, $nc($nc(oneAttrUse)->fAttrDecl)->getNamespace());
-		$var($XSAttributeUse, existingAttrUse, $nc(toAttrGrp)->getAttributeUse(var$0, $($nc(oneAttrUse->fAttrDecl)->getName())));
+		$var($XSAttributeUse, existingAttrUse, $nc(toAttrGrp)->getAttributeUse(var$0, $(oneAttrUse->fAttrDecl->getName())));
 		if (existingAttrUse == nullptr) {
-			$var($String, idName, toAttrGrp->addAttributeUse(oneAttrUse));
+			$var($String, idName, $nc(toAttrGrp)->addAttributeUse(oneAttrUse));
 			if (idName != nullptr) {
 				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "ct-props-correct.5"_s, $$new($ObjectArray, {
-					$of(typeName),
-					$of(idName),
-					$($of($nc($nc(oneAttrUse)->fAttrDecl)->getName()))
+					typeName,
+					idName,
+					$($nc(oneAttrUse->fAttrDecl)->getName())
 				}), elem);
 			}
 		} else if (!$equals(existingAttrUse, oneAttrUse)) {
 			if (extension) {
 				reportSchemaError("ct-props-correct.4"_s, $$new($ObjectArray, {
-					$of(typeName),
-					$($of($nc($nc(oneAttrUse)->fAttrDecl)->getName()))
+					typeName,
+					$($nc(oneAttrUse->fAttrDecl)->getName())
 				}), elem);
-				toAttrGrp->replaceAttributeUse(existingAttrUse, oneAttrUse);
+				$nc(toAttrGrp)->replaceAttributeUse(existingAttrUse, oneAttrUse);
 			}
 		}
 	}
@@ -891,16 +805,16 @@ void XSDComplexTypeTraverser::mergeAttributes($XSAttributeGroupDecl* fromAttrGrp
 		if ($nc(toAttrGrp)->fAttributeWC == nullptr) {
 			$set(toAttrGrp, fAttributeWC, fromAttrGrp->fAttributeWC);
 		} else if (fromAttrGrp->fAttributeWC != nullptr) {
-			$set(toAttrGrp, fAttributeWC, $nc(toAttrGrp->fAttributeWC)->performUnionWith(fromAttrGrp->fAttributeWC, $nc(toAttrGrp->fAttributeWC)->fProcessContents));
+			$set(toAttrGrp, fAttributeWC, toAttrGrp->fAttributeWC->performUnionWith(fromAttrGrp->fAttributeWC, toAttrGrp->fAttributeWC->fProcessContents));
 			if (toAttrGrp->fAttributeWC == nullptr) {
-				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "src-ct.5"_s, $$new($ObjectArray, {$of(typeName)}), elem);
+				$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "src-ct.5"_s, $$new($ObjectArray, {typeName}), elem);
 			}
 		}
 	}
 }
 
 void XSDComplexTypeTraverser::processComplexContent($Element* complexContentChild, bool isMixed, bool isDerivation, $XSDocumentInfo* schemaDoc, $SchemaGrammar* grammar) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Element, attrNode, nullptr);
 	$var($XSParticleDecl, particle, nullptr);
 	bool emptyParticle = false;
@@ -910,48 +824,42 @@ void XSDComplexTypeTraverser::processComplexContent($Element* complexContentChil
 		if ($nc(childName)->equals($SchemaSymbols::ELT_GROUP)) {
 			$assign(particle, $nc($nc(this->fSchemaHandler)->fGroupTraverser)->traverseLocal(complexContentChild, schemaDoc, grammar));
 			$assign(attrNode, $DOMUtil::getNextSiblingElement(complexContentChild));
-		} else {
-			if (childName->equals($SchemaSymbols::ELT_SEQUENCE)) {
-				$assign(particle, traverseSequence(complexContentChild, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, this->fComplexTypeDecl));
-				if (particle != nullptr) {
-					$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, particle->fValue));
-					if ($nc(group)->fParticleCount == 0) {
-						emptyParticle = true;
-					}
-				}
-				$assign(attrNode, $DOMUtil::getNextSiblingElement(complexContentChild));
-			} else {
-				if (childName->equals($SchemaSymbols::ELT_CHOICE)) {
-					$assign(particle, traverseChoice(complexContentChild, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, this->fComplexTypeDecl));
-					if (particle != nullptr && particle->fMinOccurs == 0) {
-						$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, particle->fValue));
-						if ($nc(group)->fParticleCount == 0) {
-							emptyParticle = true;
-						}
-					}
-					$assign(attrNode, $DOMUtil::getNextSiblingElement(complexContentChild));
-				} else {
-					if (childName->equals($SchemaSymbols::ELT_ALL)) {
-						$assign(particle, traverseAll(complexContentChild, schemaDoc, grammar, $XSDAbstractTraverser::PROCESSING_ALL_GP, this->fComplexTypeDecl));
-						if (particle != nullptr) {
-							$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, particle->fValue));
-							if ($nc(group)->fParticleCount == 0) {
-								emptyParticle = true;
-							}
-						}
-						$assign(attrNode, $DOMUtil::getNextSiblingElement(complexContentChild));
-					} else {
-						$assign(attrNode, complexContentChild);
-					}
+		} else if (childName->equals($SchemaSymbols::ELT_SEQUENCE)) {
+			$assign(particle, traverseSequence(complexContentChild, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, this->fComplexTypeDecl));
+			if (particle != nullptr) {
+				$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, particle->fValue));
+				if ($nc(group)->fParticleCount == 0) {
+					emptyParticle = true;
 				}
 			}
+			$assign(attrNode, $DOMUtil::getNextSiblingElement(complexContentChild));
+		} else if (childName->equals($SchemaSymbols::ELT_CHOICE)) {
+			$assign(particle, traverseChoice(complexContentChild, schemaDoc, grammar, $XSDAbstractTraverser::NOT_ALL_CONTEXT, this->fComplexTypeDecl));
+			if (particle != nullptr && particle->fMinOccurs == 0) {
+				$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, particle->fValue));
+				if ($nc(group)->fParticleCount == 0) {
+					emptyParticle = true;
+				}
+			}
+			$assign(attrNode, $DOMUtil::getNextSiblingElement(complexContentChild));
+		} else if (childName->equals($SchemaSymbols::ELT_ALL)) {
+			$assign(particle, traverseAll(complexContentChild, schemaDoc, grammar, $XSDAbstractTraverser::PROCESSING_ALL_GP, this->fComplexTypeDecl));
+			if (particle != nullptr) {
+				$var($XSModelGroupImpl, group, $cast($XSModelGroupImpl, particle->fValue));
+				if ($nc(group)->fParticleCount == 0) {
+					emptyParticle = true;
+				}
+			}
+			$assign(attrNode, $DOMUtil::getNextSiblingElement(complexContentChild));
+		} else {
+			$assign(attrNode, complexContentChild);
 		}
 	}
 	if (emptyParticle) {
 		$var($Element, child, $DOMUtil::getFirstChildElement(complexContentChild));
 		if (child != nullptr) {
 			$init($SchemaSymbols);
-			if ($nc($($DOMUtil::getLocalName(child)))->equals($SchemaSymbols::ELT_ANNOTATION)) {
+			if ($$nc($DOMUtil::getLocalName(child))->equals($SchemaSymbols::ELT_ANNOTATION)) {
 				$assign(child, $DOMUtil::getNextSiblingElement(child));
 			}
 		}
@@ -973,15 +881,15 @@ void XSDComplexTypeTraverser::processComplexContent($Element* complexContentChil
 	if (attrNode != nullptr) {
 		if (!isAttrOrAttrGroup(attrNode)) {
 			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-				$of(this->fName),
-				$($of($DOMUtil::getLocalName(attrNode)))
+				this->fName,
+				$($DOMUtil::getLocalName(attrNode))
 			}), attrNode);
 		}
 		$var($Element, node, traverseAttrsAndAttrGrps(attrNode, this->fAttrGrp, schemaDoc, grammar, this->fComplexTypeDecl));
 		if (node != nullptr) {
 			$throwNew($XSDComplexTypeTraverser$ComplexTypeRecoverableError, "s4s-elt-invalid-content.1"_s, $$new($ObjectArray, {
-				$of(this->fName),
-				$($of($DOMUtil::getLocalName(node)))
+				this->fName,
+				$($DOMUtil::getLocalName(node))
 			}), node);
 		}
 		if (!isDerivation) {
@@ -994,8 +902,8 @@ bool XSDComplexTypeTraverser::isAttrOrAttrGroup($Element* e) {
 	$var($String, elementName, $DOMUtil::getLocalName(e));
 	$init($SchemaSymbols);
 	bool var$1 = $nc(elementName)->equals($SchemaSymbols::ELT_ATTRIBUTE);
-	bool var$0 = var$1 || $nc(elementName)->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP);
-	if (var$0 || $nc(elementName)->equals($SchemaSymbols::ELT_ANYATTRIBUTE)) {
+	bool var$0 = var$1 || elementName->equals($SchemaSymbols::ELT_ATTRIBUTEGROUP);
+	if (var$0 || elementName->equals($SchemaSymbols::ELT_ANYATTRIBUTE)) {
 		return true;
 	} else {
 		return false;
@@ -1009,7 +917,7 @@ void XSDComplexTypeTraverser::traverseComplexContentDecl($Element* complexConten
 }
 
 $String* XSDComplexTypeTraverser::genAnonTypeName($Element* complexTypeDecl) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuffer, typeName, $new($StringBuffer, "#AnonType_"_s));
 	$var($Element, node, $DOMUtil::getParent(complexTypeDecl));
 	while (node != nullptr && (node != $DOMUtil::getRoot($($DOMUtil::getDocument(node))))) {
@@ -1033,7 +941,7 @@ void XSDComplexTypeTraverser::handleComplexTypeError($String* messageId, $Object
 }
 
 void XSDComplexTypeTraverser::contentBackup() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->fGlobalStore == nullptr) {
 		$set(this, fGlobalStore, $new($ObjectArray, XSDComplexTypeTraverser::GLOBAL_NUM));
 		this->fGlobalStorePos = 0;
@@ -1043,36 +951,35 @@ void XSDComplexTypeTraverser::contentBackup() {
 		$System::arraycopy(this->fGlobalStore, 0, newArray, 0, this->fGlobalStorePos);
 		$set(this, fGlobalStore, newArray);
 	}
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fComplexTypeDecl);
-	$init($Boolean);
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fIsAbstract ? $Boolean::TRUE : $Boolean::FALSE);
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fName);
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fTargetNamespace);
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, $($Integer::valueOf((this->fDerivedBy << 16) + this->fFinal)));
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, $($Integer::valueOf((this->fBlock << 16) + this->fContentType)));
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fBaseType);
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fAttrGrp);
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fParticle);
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fXSSimpleType);
-	$nc(this->fGlobalStore)->set(this->fGlobalStorePos++, this->fAnnotations);
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fComplexTypeDecl);
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fIsAbstract ? $Boolean::TRUE : $Boolean::FALSE);
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fName);
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fTargetNamespace);
+	this->fGlobalStore->set(this->fGlobalStorePos++, $($Integer::valueOf((this->fDerivedBy << 16) + this->fFinal)));
+	this->fGlobalStore->set(this->fGlobalStorePos++, $($Integer::valueOf((this->fBlock << 16) + this->fContentType)));
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fBaseType);
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fAttrGrp);
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fParticle);
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fXSSimpleType);
+	this->fGlobalStore->set(this->fGlobalStorePos++, this->fAnnotations);
 }
 
 void XSDComplexTypeTraverser::contentRestore() {
 	$set(this, fAnnotations, $cast($XSAnnotationImplArray, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)));
-	$set(this, fXSSimpleType, $cast($XSSimpleType, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)));
-	$set(this, fParticle, $cast($XSParticleDecl, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)));
-	$set(this, fAttrGrp, $cast($XSAttributeGroupDecl, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)));
-	$set(this, fBaseType, $cast($XSTypeDefinition, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)));
-	int32_t i = $nc((($cast($Integer, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)))))->intValue();
+	$set(this, fXSSimpleType, $cast($XSSimpleType, this->fGlobalStore->get(--this->fGlobalStorePos)));
+	$set(this, fParticle, $cast($XSParticleDecl, this->fGlobalStore->get(--this->fGlobalStorePos)));
+	$set(this, fAttrGrp, $cast($XSAttributeGroupDecl, this->fGlobalStore->get(--this->fGlobalStorePos)));
+	$set(this, fBaseType, $cast($XSTypeDefinition, this->fGlobalStore->get(--this->fGlobalStorePos)));
+	int32_t i = $nc($cast($Integer, this->fGlobalStore->get(--this->fGlobalStorePos)))->intValue();
 	this->fBlock = (int16_t)(i >> 16);
 	this->fContentType = (int16_t)i;
-	i = $nc((($cast($Integer, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)))))->intValue();
+	i = $nc($cast($Integer, this->fGlobalStore->get(--this->fGlobalStorePos)))->intValue();
 	this->fDerivedBy = (int16_t)(i >> 16);
 	this->fFinal = (int16_t)i;
-	$set(this, fTargetNamespace, $cast($String, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)));
-	$set(this, fName, $cast($String, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)));
-	this->fIsAbstract = $nc(($cast($Boolean, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos))))->booleanValue();
-	$set(this, fComplexTypeDecl, $cast($XSComplexTypeDecl, $nc(this->fGlobalStore)->get(--this->fGlobalStorePos)));
+	$set(this, fTargetNamespace, $cast($String, this->fGlobalStore->get(--this->fGlobalStorePos)));
+	$set(this, fName, $cast($String, this->fGlobalStore->get(--this->fGlobalStorePos)));
+	this->fIsAbstract = $nc($cast($Boolean, this->fGlobalStore->get(--this->fGlobalStorePos)))->booleanValue();
+	$set(this, fComplexTypeDecl, $cast($XSComplexTypeDecl, this->fGlobalStore->get(--this->fGlobalStorePos)));
 }
 
 void XSDComplexTypeTraverser::addAnnotation($XSAnnotationImpl* annotation) {
@@ -1082,14 +989,14 @@ void XSDComplexTypeTraverser::addAnnotation($XSAnnotationImpl* annotation) {
 	if (this->fAnnotations == nullptr) {
 		$set(this, fAnnotations, $new($XSAnnotationImplArray, 1));
 	} else {
-		$var($XSAnnotationImplArray, tempArray, $new($XSAnnotationImplArray, $nc(this->fAnnotations)->length + 1));
-		$System::arraycopy(this->fAnnotations, 0, tempArray, 0, $nc(this->fAnnotations)->length);
+		$var($XSAnnotationImplArray, tempArray, $new($XSAnnotationImplArray, this->fAnnotations->length + 1));
+		$System::arraycopy(this->fAnnotations, 0, tempArray, 0, this->fAnnotations->length);
 		$set(this, fAnnotations, tempArray);
 	}
 	$nc(this->fAnnotations)->set($nc(this->fAnnotations)->length - 1, annotation);
 }
 
-void clinit$XSDComplexTypeTraverser($Class* class$) {
+void XSDComplexTypeTraverser::clinit$($Class* clazz) {
 	$assignStatic(XSDComplexTypeTraverser::fErrorContent, nullptr);
 	$assignStatic(XSDComplexTypeTraverser::fErrorWildcard, nullptr);
 }
@@ -1098,7 +1005,70 @@ XSDComplexTypeTraverser::XSDComplexTypeTraverser() {
 }
 
 $Class* XSDComplexTypeTraverser::load$($String* name, bool initialize) {
-	$loadClass(XSDComplexTypeTraverser, name, initialize, &_XSDComplexTypeTraverser_ClassInfo_, clinit$XSDComplexTypeTraverser, allocate$XSDComplexTypeTraverser);
+	$FieldInfo fieldInfos$$[] = {
+		{"GLOBAL_NUM", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDComplexTypeTraverser, GLOBAL_NUM)},
+		{"fErrorContent", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE | $STATIC, $staticField(XSDComplexTypeTraverser, fErrorContent)},
+		{"fErrorWildcard", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PRIVATE | $STATIC, $staticField(XSDComplexTypeTraverser, fErrorWildcard)},
+		{"fName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fName)},
+		{"fTargetNamespace", "Ljava/lang/String;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fTargetNamespace)},
+		{"fDerivedBy", "S", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fDerivedBy)},
+		{"fFinal", "S", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fFinal)},
+		{"fBlock", "S", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fBlock)},
+		{"fContentType", "S", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fContentType)},
+		{"fBaseType", "Lcom/sun/org/apache/xerces/internal/xs/XSTypeDefinition;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fBaseType)},
+		{"fAttrGrp", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fAttrGrp)},
+		{"fXSSimpleType", "Lcom/sun/org/apache/xerces/internal/impl/dv/XSSimpleType;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fXSSimpleType)},
+		{"fParticle", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fParticle)},
+		{"fIsAbstract", "Z", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fIsAbstract)},
+		{"fComplexTypeDecl", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fComplexTypeDecl)},
+		{"fAnnotations", "[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fAnnotations)},
+		{"fGlobalStore", "[Ljava/lang/Object;", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fGlobalStore)},
+		{"fGlobalStorePos", "I", nullptr, $PRIVATE, $field(XSDComplexTypeTraverser, fGlobalStorePos)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDComplexTypeTraverser, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker;)V", nullptr, 0, $method(XSDComplexTypeTraverser, init$, void, $XSDHandler*, $XSAttributeChecker*)},
+		{"addAnnotation", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAnnotationImpl;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, addAnnotation, void, $XSAnnotationImpl*)},
+		{"contentBackup", "()V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, contentBackup, void)},
+		{"contentRestore", "()V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, contentRestore, void)},
+		{"genAnonTypeName", "(Lorg/w3c/dom/Element;)Ljava/lang/String;", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, genAnonTypeName, $String*, $Element*)},
+		{"getErrorContent", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDComplexTypeTraverser, getErrorContent, $XSParticleDecl*)},
+		{"getErrorWildcard", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDComplexTypeTraverser, getErrorWildcard, $XSWildcardDecl*)},
+		{"handleComplexTypeError", "(Ljava/lang/String;[Ljava/lang/Object;Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, handleComplexTypeError, void, $String*, $ObjectArray*, $Element*)},
+		{"isAttrOrAttrGroup", "(Lorg/w3c/dom/Element;)Z", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, isAttrOrAttrGroup, bool, $Element*)},
+		{"mergeAttributes", "(Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeGroupDecl;Ljava/lang/String;ZLorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, mergeAttributes, void, $XSAttributeGroupDecl*, $XSAttributeGroupDecl*, $String*, bool, $Element*), "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"},
+		{"processComplexContent", "(Lorg/w3c/dom/Element;ZZLcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, processComplexContent, void, $Element*, bool, bool, $XSDocumentInfo*, $SchemaGrammar*), "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"},
+		{"traverseComplexContent", "(Lorg/w3c/dom/Element;ZLcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseComplexContent, void, $Element*, bool, $XSDocumentInfo*, $SchemaGrammar*), "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"},
+		{"traverseComplexContentDecl", "(Lorg/w3c/dom/Element;Z)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseComplexContentDecl, void, $Element*, bool)},
+		{"traverseComplexTypeDecl", "(Lorg/w3c/dom/Element;Ljava/lang/String;[Ljava/lang/Object;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseComplexTypeDecl, $XSComplexTypeDecl*, $Element*, $String*, $ObjectArray*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{"traverseGlobal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, 0, $virtualMethod(XSDComplexTypeTraverser, traverseGlobal, $XSComplexTypeDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{"traverseLocal", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, 0, $virtualMethod(XSDComplexTypeTraverser, traverseLocal, $XSComplexTypeDecl*, $Element*, $XSDocumentInfo*, $SchemaGrammar*)},
+		{"traverseSimpleContent", "(Lorg/w3c/dom/Element;Lcom/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo;Lcom/sun/org/apache/xerces/internal/impl/xs/SchemaGrammar;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseSimpleContent, void, $Element*, $XSDocumentInfo*, $SchemaGrammar*), "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"},
+		{"traverseSimpleContentDecl", "(Lorg/w3c/dom/Element;)V", nullptr, $PRIVATE, $method(XSDComplexTypeTraverser, traverseSimpleContentDecl, void, $Element*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError", "com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser", "ComplexTypeRecoverableError", $PRIVATE | $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser",
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDAbstractParticleTraverser",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.xs.traversers.XSDComplexTypeTraverser$ComplexTypeRecoverableError"
+	};
+	$loadClass(XSDComplexTypeTraverser, name, initialize, &classInfo$$, XSDComplexTypeTraverser::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDComplexTypeTraverser);
+	});
 	return class$;
 }
 

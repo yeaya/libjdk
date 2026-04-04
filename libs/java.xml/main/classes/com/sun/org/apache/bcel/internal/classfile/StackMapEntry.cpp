@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/StackMapEntry.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ClassFormatException.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
@@ -51,74 +50,6 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$CompoundAttribute _StackMapEntry_MethodAnnotations_init$1[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StackMapEntry_MethodAnnotations_setNumberOfLocals17[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _StackMapEntry_MethodAnnotations_setNumberOfStackItems18[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _StackMapEntry_FieldInfo_[] = {
-	{"frameType", "I", nullptr, $PRIVATE, $field(StackMapEntry, frameType)},
-	{"byteCodeOffset", "I", nullptr, $PRIVATE, $field(StackMapEntry, byteCodeOffset)},
-	{"typesOfLocals", "[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PRIVATE, $field(StackMapEntry, typesOfLocals)},
-	{"typesOfStackItems", "[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PRIVATE, $field(StackMapEntry, typesOfStackItems)},
-	{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE, $field(StackMapEntry, constantPool)},
-	{}
-};
-
-$MethodInfo _StackMapEntry_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(StackMapEntry, init$, void, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;I[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC | $DEPRECATED, $method(StackMapEntry, init$, void, int32_t, int32_t, $StackMapTypeArray*, int32_t, $StackMapTypeArray*, $ConstantPool*), nullptr, nullptr, _StackMapEntry_MethodAnnotations_init$1},
-	{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMapEntry, init$, void, int32_t, int32_t, $StackMapTypeArray*, $StackMapTypeArray*, $ConstantPool*)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(StackMapEntry, accept, void, $Visitor*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;", nullptr, $PUBLIC, $method(StackMapEntry, copy, StackMapEntry*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(StackMapEntry, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getByteCodeOffset", "()I", nullptr, $PUBLIC, $method(StackMapEntry, getByteCodeOffset, int32_t)},
-	{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $method(StackMapEntry, getConstantPool, $ConstantPool*)},
-	{"getFrameType", "()I", nullptr, $PUBLIC, $method(StackMapEntry, getFrameType, int32_t)},
-	{"getMapEntrySize", "()I", nullptr, 0, $method(StackMapEntry, getMapEntrySize, int32_t)},
-	{"getNumberOfLocals", "()I", nullptr, $PUBLIC, $method(StackMapEntry, getNumberOfLocals, int32_t)},
-	{"getNumberOfStackItems", "()I", nullptr, $PUBLIC, $method(StackMapEntry, getNumberOfStackItems, int32_t)},
-	{"getTypesOfLocals", "()[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PUBLIC, $method(StackMapEntry, getTypesOfLocals, $StackMapTypeArray*)},
-	{"getTypesOfStackItems", "()[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PUBLIC, $method(StackMapEntry, getTypesOfStackItems, $StackMapTypeArray*)},
-	{"setByteCodeOffset", "(I)V", nullptr, $PUBLIC, $method(StackMapEntry, setByteCodeOffset, void, int32_t)},
-	{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMapEntry, setConstantPool, void, $ConstantPool*)},
-	{"setFrameType", "(I)V", nullptr, $PUBLIC, $method(StackMapEntry, setFrameType, void, int32_t)},
-	{"setNumberOfLocals", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $method(StackMapEntry, setNumberOfLocals, void, int32_t), nullptr, nullptr, _StackMapEntry_MethodAnnotations_setNumberOfLocals17},
-	{"setNumberOfStackItems", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $method(StackMapEntry, setNumberOfStackItems, void, int32_t), nullptr, nullptr, _StackMapEntry_MethodAnnotations_setNumberOfStackItems18},
-	{"setTypesOfLocals", "([Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;)V", nullptr, $PUBLIC, $method(StackMapEntry, setTypesOfLocals, void, $StackMapTypeArray*)},
-	{"setTypesOfStackItems", "([Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;)V", nullptr, $PUBLIC, $method(StackMapEntry, setTypesOfStackItems, void, $StackMapTypeArray*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackMapEntry, toString, $String*)},
-	{"updateByteCodeOffset", "(I)V", nullptr, $PUBLIC, $method(StackMapEntry, updateByteCodeOffset, void, int32_t)},
-	{}
-};
-
-$ClassInfo _StackMapEntry_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.StackMapEntry",
-	"java.lang.Object",
-	"com.sun.org.apache.bcel.internal.classfile.Node,java.lang.Cloneable",
-	_StackMapEntry_FieldInfo_,
-	_StackMapEntry_MethodInfo_
-};
-
-$Object* allocate$StackMapEntry($Class* clazz) {
-	return $of($alloc(StackMapEntry));
-}
-
 int32_t StackMapEntry::hashCode() {
 	 return this->$Node::hashCode();
 }
@@ -136,40 +67,40 @@ void StackMapEntry::finalize() {
 }
 
 void StackMapEntry::init$($DataInput* input, $ConstantPool* constantPool) {
-	$useLocalCurrentObjectStackCache();
-	StackMapEntry::init$((int32_t)($nc(input)->readByte() & (uint32_t)255), -1, nullptr, nullptr, constantPool);
+	$useLocalObjectStack();
+	StackMapEntry::init$($nc(input)->readByte() & 0xff, -1, nullptr, nullptr, constantPool);
 	if (this->frameType >= $Const::SAME_FRAME && this->frameType <= $Const::SAME_FRAME_MAX) {
 		this->byteCodeOffset = this->frameType - $Const::SAME_FRAME;
 	} else if (this->frameType >= $Const::SAME_LOCALS_1_STACK_ITEM_FRAME && this->frameType <= $Const::SAME_LOCALS_1_STACK_ITEM_FRAME_MAX) {
 		this->byteCodeOffset = this->frameType - $Const::SAME_LOCALS_1_STACK_ITEM_FRAME;
 		$set(this, typesOfStackItems, $new($StackMapTypeArray, 1));
-		$nc(this->typesOfStackItems)->set(0, $$new($StackMapType, input, constantPool));
+		this->typesOfStackItems->set(0, $$new($StackMapType, input, constantPool));
 	} else if (this->frameType == $Const::SAME_LOCALS_1_STACK_ITEM_FRAME_EXTENDED) {
-		this->byteCodeOffset = $nc(input)->readShort();
+		this->byteCodeOffset = input->readShort();
 		$set(this, typesOfStackItems, $new($StackMapTypeArray, 1));
-		$nc(this->typesOfStackItems)->set(0, $$new($StackMapType, input, constantPool));
+		this->typesOfStackItems->set(0, $$new($StackMapType, input, constantPool));
 	} else if (this->frameType >= $Const::CHOP_FRAME && this->frameType <= $Const::CHOP_FRAME_MAX) {
-		this->byteCodeOffset = $nc(input)->readShort();
+		this->byteCodeOffset = input->readShort();
 	} else if (this->frameType == $Const::SAME_FRAME_EXTENDED) {
-		this->byteCodeOffset = $nc(input)->readShort();
+		this->byteCodeOffset = input->readShort();
 	} else if (this->frameType >= $Const::APPEND_FRAME && this->frameType <= $Const::APPEND_FRAME_MAX) {
-		this->byteCodeOffset = $nc(input)->readShort();
+		this->byteCodeOffset = input->readShort();
 		int32_t number_of_locals = this->frameType - 251;
 		$set(this, typesOfLocals, $new($StackMapTypeArray, number_of_locals));
 		for (int32_t i = 0; i < number_of_locals; ++i) {
-			$nc(this->typesOfLocals)->set(i, $$new($StackMapType, input, constantPool));
+			this->typesOfLocals->set(i, $$new($StackMapType, input, constantPool));
 		}
 	} else if (this->frameType == $Const::FULL_FRAME) {
-		this->byteCodeOffset = $nc(input)->readShort();
+		this->byteCodeOffset = input->readShort();
 		int32_t number_of_locals = input->readShort();
 		$set(this, typesOfLocals, $new($StackMapTypeArray, number_of_locals));
 		for (int32_t i = 0; i < number_of_locals; ++i) {
-			$nc(this->typesOfLocals)->set(i, $$new($StackMapType, input, constantPool));
+			this->typesOfLocals->set(i, $$new($StackMapType, input, constantPool));
 		}
 		int32_t number_of_stack_items = input->readShort();
 		$set(this, typesOfStackItems, $new($StackMapTypeArray, number_of_stack_items));
 		for (int32_t i = 0; i < number_of_stack_items; ++i) {
-			$nc(this->typesOfStackItems)->set(i, $$new($StackMapType, input, constantPool));
+			this->typesOfStackItems->set(i, $$new($StackMapType, input, constantPool));
 		}
 	} else {
 		$throwNew($ClassFormatException, $$str({"Invalid frame type found while parsing stack map table: "_s, $$str(this->frameType)}));
@@ -192,7 +123,7 @@ void StackMapEntry::init$(int32_t tag, int32_t byteCodeOffset, $StackMapTypeArra
 }
 
 void StackMapEntry::dump($DataOutputStream* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc(file)->write(this->frameType);
 	if (this->frameType >= $Const::SAME_FRAME && this->frameType <= $Const::SAME_FRAME_MAX) {
 	} else if (this->frameType >= $Const::SAME_LOCALS_1_STACK_ITEM_FRAME && this->frameType <= $Const::SAME_LOCALS_1_STACK_ITEM_FRAME_MAX) {
@@ -208,9 +139,7 @@ void StackMapEntry::dump($DataOutputStream* file) {
 		file->writeShort(this->byteCodeOffset);
 		{
 			$var($StackMapTypeArray, arr$, this->typesOfLocals);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StackMapType, type, arr$->get(i$));
 				{
 					$nc(type)->dump(file);
@@ -222,9 +151,7 @@ void StackMapEntry::dump($DataOutputStream* file) {
 		file->writeShort($nc(this->typesOfLocals)->length);
 		{
 			$var($StackMapTypeArray, arr$, this->typesOfLocals);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StackMapType, type, arr$->get(i$));
 				{
 					$nc(type)->dump(file);
@@ -234,9 +161,7 @@ void StackMapEntry::dump($DataOutputStream* file) {
 		file->writeShort($nc(this->typesOfStackItems)->length);
 		{
 			$var($StackMapTypeArray, arr$, this->typesOfStackItems);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StackMapType, type, arr$->get(i$));
 				{
 					$nc(type)->dump(file);
@@ -249,7 +174,7 @@ void StackMapEntry::dump($DataOutputStream* file) {
 }
 
 $String* StackMapEntry::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder, 64));
 	buf->append("("_s);
 	if (this->frameType >= $Const::SAME_FRAME && this->frameType <= $Const::SAME_FRAME_MAX) {
@@ -272,9 +197,9 @@ $String* StackMapEntry::toString() {
 	buf->append(", offset delta="_s)->append(this->byteCodeOffset);
 	if ($nc(this->typesOfLocals)->length > 0) {
 		buf->append(", locals={"_s);
-		for (int32_t i = 0; i < $nc(this->typesOfLocals)->length; ++i) {
-			buf->append($of($nc(this->typesOfLocals)->get(i)));
-			if (i < $nc(this->typesOfLocals)->length - 1) {
+		for (int32_t i = 0; i < this->typesOfLocals->length; ++i) {
+			buf->append(this->typesOfLocals->get(i));
+			if (i < this->typesOfLocals->length - 1) {
 				buf->append(", "_s);
 			}
 		}
@@ -282,9 +207,9 @@ $String* StackMapEntry::toString() {
 	}
 	if ($nc(this->typesOfStackItems)->length > 0) {
 		buf->append(", stack items={"_s);
-		for (int32_t i = 0; i < $nc(this->typesOfStackItems)->length; ++i) {
-			buf->append($of($nc(this->typesOfStackItems)->get(i)));
-			if (i < $nc(this->typesOfStackItems)->length - 1) {
+		for (int32_t i = 0; i < this->typesOfStackItems->length; ++i) {
+			buf->append(this->typesOfStackItems->get(i));
+			if (i < this->typesOfStackItems->length - 1) {
 				buf->append(", "_s);
 			}
 		}
@@ -295,7 +220,7 @@ $String* StackMapEntry::toString() {
 }
 
 int32_t StackMapEntry::getMapEntrySize() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->frameType >= $Const::SAME_FRAME && this->frameType <= $Const::SAME_FRAME_MAX) {
 		return 1;
 	} else if (this->frameType >= $Const::SAME_LOCALS_1_STACK_ITEM_FRAME && this->frameType <= $Const::SAME_LOCALS_1_STACK_ITEM_FRAME_MAX) {
@@ -310,9 +235,7 @@ int32_t StackMapEntry::getMapEntrySize() {
 		int32_t len = 3;
 		{
 			$var($StackMapTypeArray, arr$, this->typesOfLocals);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StackMapType, types_of_local, arr$->get(i$));
 				{
 					len += $nc(types_of_local)->hasIndex() ? 3 : 1;
@@ -324,9 +247,7 @@ int32_t StackMapEntry::getMapEntrySize() {
 		int32_t len = 7;
 		{
 			$var($StackMapTypeArray, arr$, this->typesOfLocals);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StackMapType, types_of_local, arr$->get(i$));
 				{
 					len += $nc(types_of_local)->hasIndex() ? 3 : 1;
@@ -335,9 +256,7 @@ int32_t StackMapEntry::getMapEntrySize() {
 		}
 		{
 			$var($StackMapTypeArray, arr$, this->typesOfStackItems);
-			int32_t len$ = arr$->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
+			for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 				$var($StackMapType, types_of_stack_item, arr$->get(i$));
 				{
 					len += $nc(types_of_stack_item)->hasIndex() ? 3 : 1;
@@ -371,7 +290,7 @@ int32_t StackMapEntry::getFrameType() {
 }
 
 void StackMapEntry::setByteCodeOffset(int32_t new_offset) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (new_offset < 0 || new_offset > 32767) {
 		$throwNew($IllegalArgumentException, $$str({"Invalid StackMap offset: "_s, $$str(new_offset)}));
 	}
@@ -437,7 +356,7 @@ $StackMapTypeArray* StackMapEntry::getTypesOfStackItems() {
 }
 
 StackMapEntry* StackMapEntry::copy() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var(StackMapEntry, e, nullptr);
 	try {
 		$assign(e, $cast(StackMapEntry, clone()));
@@ -446,11 +365,11 @@ StackMapEntry* StackMapEntry::copy() {
 	}
 	$set($nc(e), typesOfLocals, $new($StackMapTypeArray, $nc(this->typesOfLocals)->length));
 	for (int32_t i = 0; i < $nc(this->typesOfLocals)->length; ++i) {
-		$nc(e->typesOfLocals)->set(i, $($nc($nc(this->typesOfLocals)->get(i))->copy()));
+		$nc(e->typesOfLocals)->set(i, $($nc(this->typesOfLocals->get(i))->copy()));
 	}
 	$set(e, typesOfStackItems, $new($StackMapTypeArray, $nc(this->typesOfStackItems)->length));
 	for (int32_t i = 0; i < $nc(this->typesOfStackItems)->length; ++i) {
-		$nc(e->typesOfStackItems)->set(i, $($nc($nc(this->typesOfStackItems)->get(i))->copy()));
+		$nc(e->typesOfStackItems)->set(i, $($nc(this->typesOfStackItems->get(i))->copy()));
 	}
 	return e;
 }
@@ -471,7 +390,67 @@ StackMapEntry::StackMapEntry() {
 }
 
 $Class* StackMapEntry::load$($String* name, bool initialize) {
-	$loadClass(StackMapEntry, name, initialize, &_StackMapEntry_ClassInfo_, allocate$StackMapEntry);
+	$FieldInfo fieldInfos$$[] = {
+		{"frameType", "I", nullptr, $PRIVATE, $field(StackMapEntry, frameType)},
+		{"byteCodeOffset", "I", nullptr, $PRIVATE, $field(StackMapEntry, byteCodeOffset)},
+		{"typesOfLocals", "[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PRIVATE, $field(StackMapEntry, typesOfLocals)},
+		{"typesOfStackItems", "[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PRIVATE, $field(StackMapEntry, typesOfStackItems)},
+		{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE, $field(StackMapEntry, constantPool)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$1[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setNumberOfLocalsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute setNumberOfStackItemsmethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(StackMapEntry, init$, void, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;I[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC | $DEPRECATED, $method(StackMapEntry, init$, void, int32_t, int32_t, $StackMapTypeArray*, int32_t, $StackMapTypeArray*, $ConstantPool*), nullptr, nullptr, init$methodAnnotations$$$1},
+		{"<init>", "(II[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMapEntry, init$, void, int32_t, int32_t, $StackMapTypeArray*, $StackMapTypeArray*, $ConstantPool*)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/classfile/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(StackMapEntry, accept, void, $Visitor*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/StackMapEntry;", nullptr, $PUBLIC, $method(StackMapEntry, copy, StackMapEntry*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(StackMapEntry, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getByteCodeOffset", "()I", nullptr, $PUBLIC, $method(StackMapEntry, getByteCodeOffset, int32_t)},
+		{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $method(StackMapEntry, getConstantPool, $ConstantPool*)},
+		{"getFrameType", "()I", nullptr, $PUBLIC, $method(StackMapEntry, getFrameType, int32_t)},
+		{"getMapEntrySize", "()I", nullptr, 0, $method(StackMapEntry, getMapEntrySize, int32_t)},
+		{"getNumberOfLocals", "()I", nullptr, $PUBLIC, $method(StackMapEntry, getNumberOfLocals, int32_t)},
+		{"getNumberOfStackItems", "()I", nullptr, $PUBLIC, $method(StackMapEntry, getNumberOfStackItems, int32_t)},
+		{"getTypesOfLocals", "()[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PUBLIC, $method(StackMapEntry, getTypesOfLocals, $StackMapTypeArray*)},
+		{"getTypesOfStackItems", "()[Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PUBLIC, $method(StackMapEntry, getTypesOfStackItems, $StackMapTypeArray*)},
+		{"setByteCodeOffset", "(I)V", nullptr, $PUBLIC, $method(StackMapEntry, setByteCodeOffset, void, int32_t)},
+		{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMapEntry, setConstantPool, void, $ConstantPool*)},
+		{"setFrameType", "(I)V", nullptr, $PUBLIC, $method(StackMapEntry, setFrameType, void, int32_t)},
+		{"setNumberOfLocals", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $method(StackMapEntry, setNumberOfLocals, void, int32_t), nullptr, nullptr, setNumberOfLocalsmethodAnnotations$$},
+		{"setNumberOfStackItems", "(I)V", nullptr, $PUBLIC | $DEPRECATED, $method(StackMapEntry, setNumberOfStackItems, void, int32_t), nullptr, nullptr, setNumberOfStackItemsmethodAnnotations$$},
+		{"setTypesOfLocals", "([Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;)V", nullptr, $PUBLIC, $method(StackMapEntry, setTypesOfLocals, void, $StackMapTypeArray*)},
+		{"setTypesOfStackItems", "([Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;)V", nullptr, $PUBLIC, $method(StackMapEntry, setTypesOfStackItems, void, $StackMapTypeArray*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackMapEntry, toString, $String*)},
+		{"updateByteCodeOffset", "(I)V", nullptr, $PUBLIC, $method(StackMapEntry, updateByteCodeOffset, void, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.StackMapEntry",
+		"java.lang.Object",
+		"com.sun.org.apache.bcel.internal.classfile.Node,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StackMapEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(StackMapEntry));
+	});
 	return class$;
 }
 

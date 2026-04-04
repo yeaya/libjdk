@@ -1,5 +1,4 @@
 #include <sun/swing/SwingAccessor.h>
-
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodHandles.h>
@@ -25,7 +24,6 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodHandles$Lookup = ::java::lang::invoke::MethodHandles$Lookup;
 using $JComponent = ::javax::swing::JComponent;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $PopupFactory = ::javax::swing::PopupFactory;
@@ -43,67 +41,6 @@ using $SwingAccessor$UIDefaultsAccessor = ::sun::swing::SwingAccessor$UIDefaults
 
 namespace sun {
 	namespace swing {
-
-$FieldInfo _SwingAccessor_FieldInfo_[] = {
-	{"jComponentAccessor", "Lsun/swing/SwingAccessor$JComponentAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, jComponentAccessor)},
-	{"jtextComponentAccessor", "Lsun/swing/SwingAccessor$JTextComponentAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, jtextComponentAccessor)},
-	{"jLightweightFrameAccessor", "Lsun/swing/SwingAccessor$JLightweightFrameAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, jLightweightFrameAccessor)},
-	{"uiDefaultsAccessor", "Lsun/swing/SwingAccessor$UIDefaultsAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, uiDefaultsAccessor)},
-	{"repaintManagerAccessor", "Lsun/swing/SwingAccessor$RepaintManagerAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, repaintManagerAccessor)},
-	{"popupFactoryAccessor", "Lsun/swing/SwingAccessor$PopupFactoryAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, popupFactoryAccessor)},
-	{"keyStrokeAccessor", "Lsun/swing/SwingAccessor$KeyStrokeAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, keyStrokeAccessor)},
-	{}
-};
-
-$MethodInfo _SwingAccessor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(SwingAccessor, init$, void)},
-	{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(SwingAccessor, ensureClassInitialized, void, $Class*)},
-	{"getJComponentAccessor", "()Lsun/swing/SwingAccessor$JComponentAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getJComponentAccessor, $SwingAccessor$JComponentAccessor*)},
-	{"getJLightweightFrameAccessor", "()Lsun/swing/SwingAccessor$JLightweightFrameAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getJLightweightFrameAccessor, $SwingAccessor$JLightweightFrameAccessor*)},
-	{"getJTextComponentAccessor", "()Lsun/swing/SwingAccessor$JTextComponentAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getJTextComponentAccessor, $SwingAccessor$JTextComponentAccessor*)},
-	{"getKeyStrokeAccessor", "()Lsun/swing/SwingAccessor$KeyStrokeAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getKeyStrokeAccessor, $SwingAccessor$KeyStrokeAccessor*)},
-	{"getPopupFactoryAccessor", "()Lsun/swing/SwingAccessor$PopupFactoryAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getPopupFactoryAccessor, $SwingAccessor$PopupFactoryAccessor*)},
-	{"getRepaintManagerAccessor", "()Lsun/swing/SwingAccessor$RepaintManagerAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getRepaintManagerAccessor, $SwingAccessor$RepaintManagerAccessor*)},
-	{"getUIDefaultsAccessor", "()Lsun/swing/SwingAccessor$UIDefaultsAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getUIDefaultsAccessor, $SwingAccessor$UIDefaultsAccessor*)},
-	{"setJComponentAccessor", "(Lsun/swing/SwingAccessor$JComponentAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setJComponentAccessor, void, $SwingAccessor$JComponentAccessor*)},
-	{"setJLightweightFrameAccessor", "(Lsun/swing/SwingAccessor$JLightweightFrameAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setJLightweightFrameAccessor, void, $SwingAccessor$JLightweightFrameAccessor*)},
-	{"setJTextComponentAccessor", "(Lsun/swing/SwingAccessor$JTextComponentAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setJTextComponentAccessor, void, $SwingAccessor$JTextComponentAccessor*)},
-	{"setKeyStrokeAccessor", "(Lsun/swing/SwingAccessor$KeyStrokeAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setKeyStrokeAccessor, void, $SwingAccessor$KeyStrokeAccessor*)},
-	{"setPopupFactoryAccessor", "(Lsun/swing/SwingAccessor$PopupFactoryAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setPopupFactoryAccessor, void, $SwingAccessor$PopupFactoryAccessor*)},
-	{"setRepaintManagerAccessor", "(Lsun/swing/SwingAccessor$RepaintManagerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setRepaintManagerAccessor, void, $SwingAccessor$RepaintManagerAccessor*)},
-	{"setUIDefaultsAccessor", "(Lsun/swing/SwingAccessor$UIDefaultsAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setUIDefaultsAccessor, void, $SwingAccessor$UIDefaultsAccessor*)},
-	{}
-};
-
-$InnerClassInfo _SwingAccessor_InnerClassesInfo_[] = {
-	{"sun.swing.SwingAccessor$KeyStrokeAccessor", "sun.swing.SwingAccessor", "KeyStrokeAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.SwingAccessor$PopupFactoryAccessor", "sun.swing.SwingAccessor", "PopupFactoryAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.SwingAccessor$RepaintManagerAccessor", "sun.swing.SwingAccessor", "RepaintManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.SwingAccessor$UIDefaultsAccessor", "sun.swing.SwingAccessor", "UIDefaultsAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.SwingAccessor$JLightweightFrameAccessor", "sun.swing.SwingAccessor", "JLightweightFrameAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.SwingAccessor$JTextComponentAccessor", "sun.swing.SwingAccessor", "JTextComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"sun.swing.SwingAccessor$JComponentAccessor", "sun.swing.SwingAccessor", "JComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _SwingAccessor_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.swing.SwingAccessor",
-	"java.lang.Object",
-	nullptr,
-	_SwingAccessor_FieldInfo_,
-	_SwingAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SwingAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.SwingAccessor$KeyStrokeAccessor,sun.swing.SwingAccessor$PopupFactoryAccessor,sun.swing.SwingAccessor$RepaintManagerAccessor,sun.swing.SwingAccessor$UIDefaultsAccessor,sun.swing.SwingAccessor$JLightweightFrameAccessor,sun.swing.SwingAccessor$JTextComponentAccessor,sun.swing.SwingAccessor$JComponentAccessor"
-};
-
-$Object* allocate$SwingAccessor($Class* clazz) {
-	return $of($alloc(SwingAccessor));
-}
 
 $SwingAccessor$JComponentAccessor* SwingAccessor::jComponentAccessor = nullptr;
 $SwingAccessor$JTextComponentAccessor* SwingAccessor::jtextComponentAccessor = nullptr;
@@ -218,7 +155,7 @@ void SwingAccessor::ensureClassInitialized($Class* c) {
 	$load(SwingAccessor);
 	$beforeCallerSensitive();
 	try {
-		$nc($($MethodHandles::lookup()))->ensureInitialized(c);
+		$$nc($MethodHandles::lookup())->ensureInitialized(c);
 	} catch ($IllegalAccessException& e) {
 	}
 }
@@ -227,7 +164,62 @@ SwingAccessor::SwingAccessor() {
 }
 
 $Class* SwingAccessor::load$($String* name, bool initialize) {
-	$loadClass(SwingAccessor, name, initialize, &_SwingAccessor_ClassInfo_, allocate$SwingAccessor);
+	$FieldInfo fieldInfos$$[] = {
+		{"jComponentAccessor", "Lsun/swing/SwingAccessor$JComponentAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, jComponentAccessor)},
+		{"jtextComponentAccessor", "Lsun/swing/SwingAccessor$JTextComponentAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, jtextComponentAccessor)},
+		{"jLightweightFrameAccessor", "Lsun/swing/SwingAccessor$JLightweightFrameAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, jLightweightFrameAccessor)},
+		{"uiDefaultsAccessor", "Lsun/swing/SwingAccessor$UIDefaultsAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, uiDefaultsAccessor)},
+		{"repaintManagerAccessor", "Lsun/swing/SwingAccessor$RepaintManagerAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, repaintManagerAccessor)},
+		{"popupFactoryAccessor", "Lsun/swing/SwingAccessor$PopupFactoryAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, popupFactoryAccessor)},
+		{"keyStrokeAccessor", "Lsun/swing/SwingAccessor$KeyStrokeAccessor;", nullptr, $PRIVATE | $STATIC, $staticField(SwingAccessor, keyStrokeAccessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(SwingAccessor, init$, void)},
+		{"ensureClassInitialized", "(Ljava/lang/Class;)V", "(Ljava/lang/Class<*>;)V", $PRIVATE | $STATIC, $staticMethod(SwingAccessor, ensureClassInitialized, void, $Class*)},
+		{"getJComponentAccessor", "()Lsun/swing/SwingAccessor$JComponentAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getJComponentAccessor, $SwingAccessor$JComponentAccessor*)},
+		{"getJLightweightFrameAccessor", "()Lsun/swing/SwingAccessor$JLightweightFrameAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getJLightweightFrameAccessor, $SwingAccessor$JLightweightFrameAccessor*)},
+		{"getJTextComponentAccessor", "()Lsun/swing/SwingAccessor$JTextComponentAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getJTextComponentAccessor, $SwingAccessor$JTextComponentAccessor*)},
+		{"getKeyStrokeAccessor", "()Lsun/swing/SwingAccessor$KeyStrokeAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getKeyStrokeAccessor, $SwingAccessor$KeyStrokeAccessor*)},
+		{"getPopupFactoryAccessor", "()Lsun/swing/SwingAccessor$PopupFactoryAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getPopupFactoryAccessor, $SwingAccessor$PopupFactoryAccessor*)},
+		{"getRepaintManagerAccessor", "()Lsun/swing/SwingAccessor$RepaintManagerAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getRepaintManagerAccessor, $SwingAccessor$RepaintManagerAccessor*)},
+		{"getUIDefaultsAccessor", "()Lsun/swing/SwingAccessor$UIDefaultsAccessor;", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, getUIDefaultsAccessor, $SwingAccessor$UIDefaultsAccessor*)},
+		{"setJComponentAccessor", "(Lsun/swing/SwingAccessor$JComponentAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setJComponentAccessor, void, $SwingAccessor$JComponentAccessor*)},
+		{"setJLightweightFrameAccessor", "(Lsun/swing/SwingAccessor$JLightweightFrameAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setJLightweightFrameAccessor, void, $SwingAccessor$JLightweightFrameAccessor*)},
+		{"setJTextComponentAccessor", "(Lsun/swing/SwingAccessor$JTextComponentAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setJTextComponentAccessor, void, $SwingAccessor$JTextComponentAccessor*)},
+		{"setKeyStrokeAccessor", "(Lsun/swing/SwingAccessor$KeyStrokeAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setKeyStrokeAccessor, void, $SwingAccessor$KeyStrokeAccessor*)},
+		{"setPopupFactoryAccessor", "(Lsun/swing/SwingAccessor$PopupFactoryAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setPopupFactoryAccessor, void, $SwingAccessor$PopupFactoryAccessor*)},
+		{"setRepaintManagerAccessor", "(Lsun/swing/SwingAccessor$RepaintManagerAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setRepaintManagerAccessor, void, $SwingAccessor$RepaintManagerAccessor*)},
+		{"setUIDefaultsAccessor", "(Lsun/swing/SwingAccessor$UIDefaultsAccessor;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SwingAccessor, setUIDefaultsAccessor, void, $SwingAccessor$UIDefaultsAccessor*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.SwingAccessor$KeyStrokeAccessor", "sun.swing.SwingAccessor", "KeyStrokeAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.SwingAccessor$PopupFactoryAccessor", "sun.swing.SwingAccessor", "PopupFactoryAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.SwingAccessor$RepaintManagerAccessor", "sun.swing.SwingAccessor", "RepaintManagerAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.SwingAccessor$UIDefaultsAccessor", "sun.swing.SwingAccessor", "UIDefaultsAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.SwingAccessor$JLightweightFrameAccessor", "sun.swing.SwingAccessor", "JLightweightFrameAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.SwingAccessor$JTextComponentAccessor", "sun.swing.SwingAccessor", "JTextComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"sun.swing.SwingAccessor$JComponentAccessor", "sun.swing.SwingAccessor", "JComponentAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.swing.SwingAccessor",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.SwingAccessor$KeyStrokeAccessor,sun.swing.SwingAccessor$PopupFactoryAccessor,sun.swing.SwingAccessor$RepaintManagerAccessor,sun.swing.SwingAccessor$UIDefaultsAccessor,sun.swing.SwingAccessor$JLightweightFrameAccessor,sun.swing.SwingAccessor$JTextComponentAccessor,sun.swing.SwingAccessor$JComponentAccessor"
+	};
+	$loadClass(SwingAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SwingAccessor);
+	});
 	return class$;
 }
 

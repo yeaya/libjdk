@@ -22,6 +22,7 @@ class XDropTargetContextPeer$XDropTargetProtocolListenerImpl : public ::sun::awt
 	$class(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, 0, ::sun::awt::X11::XDropTargetProtocolListener)
 public:
 	XDropTargetContextPeer$XDropTargetProtocolListenerImpl();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::X11::XDropTargetProtocolListener* getInstance();
 	virtual void handleDropTargetNotification(::sun::awt::X11::XWindow* xwindow, int32_t x, int32_t y, int32_t dropAction, int32_t actions, $longs* formats, int64_t nativeCtxt, int32_t eventID) override;

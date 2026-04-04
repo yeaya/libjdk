@@ -35,7 +35,7 @@ public:
 	void readObject(::java::io::ObjectInputStream* ois);
 	virtual $String* toString() override;
 	static void validate(::javax::management::Notification* notif, ::java::lang::Integer* id);
-	static const int64_t serialVersionUID = (int64_t)0x6A8719773C45AA3E;
+	static const int64_t serialVersionUID = (int64_t)0x6a8719773c45aa3e;
 	::javax::management::Notification* notif = nullptr;
 	::java::lang::Integer* id = nullptr;
 };

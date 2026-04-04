@@ -1,5 +1,4 @@
 #include <java/awt/EventDispatchThread$1.h>
-
 #include <java/awt/EventDispatchThread.h>
 #include <jcpp.h>
 
@@ -13,48 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 
-$FieldInfo _EventDispatchThread$1_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/EventDispatchThread;", nullptr, $FINAL | $SYNTHETIC, $field(EventDispatchThread$1, this$0)},
-	{}
-};
-
-$MethodInfo _EventDispatchThread$1_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/EventDispatchThread;)V", nullptr, 0, $method(EventDispatchThread$1, init$, void, $EventDispatchThread*)},
-	{"evaluate", "()Z", nullptr, $PUBLIC, $virtualMethod(EventDispatchThread$1, evaluate, bool)},
-	{}
-};
-
-$EnclosingMethodInfo _EventDispatchThread$1_EnclosingMethodInfo_ = {
-	"java.awt.EventDispatchThread",
-	"run",
-	"()V"
-};
-
-$InnerClassInfo _EventDispatchThread$1_InnerClassesInfo_[] = {
-	{"java.awt.EventDispatchThread$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _EventDispatchThread$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.awt.EventDispatchThread$1",
-	"java.lang.Object",
-	"java.awt.Conditional",
-	_EventDispatchThread$1_FieldInfo_,
-	_EventDispatchThread$1_MethodInfo_,
-	nullptr,
-	&_EventDispatchThread$1_EnclosingMethodInfo_,
-	_EventDispatchThread$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.EventDispatchThread"
-};
-
-$Object* allocate$EventDispatchThread$1($Class* clazz) {
-	return $of($alloc(EventDispatchThread$1));
-}
-
 void EventDispatchThread$1::init$($EventDispatchThread* this$0) {
 	$set(this, this$0, this$0);
 }
@@ -67,7 +24,42 @@ EventDispatchThread$1::EventDispatchThread$1() {
 }
 
 $Class* EventDispatchThread$1::load$($String* name, bool initialize) {
-	$loadClass(EventDispatchThread$1, name, initialize, &_EventDispatchThread$1_ClassInfo_, allocate$EventDispatchThread$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/EventDispatchThread;", nullptr, $FINAL | $SYNTHETIC, $field(EventDispatchThread$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/EventDispatchThread;)V", nullptr, 0, $method(EventDispatchThread$1, init$, void, $EventDispatchThread*)},
+		{"evaluate", "()Z", nullptr, $PUBLIC, $virtualMethod(EventDispatchThread$1, evaluate, bool)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.awt.EventDispatchThread",
+		"run",
+		"()V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.EventDispatchThread$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.awt.EventDispatchThread$1",
+		"java.lang.Object",
+		"java.awt.Conditional",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.EventDispatchThread"
+	};
+	$loadClass(EventDispatchThread$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(EventDispatchThread$1);
+	});
 	return class$;
 }
 

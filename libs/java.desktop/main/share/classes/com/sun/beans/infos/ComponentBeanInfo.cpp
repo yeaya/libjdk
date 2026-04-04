@@ -1,5 +1,4 @@
 #include <com/sun/beans/infos/ComponentBeanInfo.h>
-
 #include <java/awt/Component.h>
 #include <java/beans/IntrospectionException.h>
 #include <java/beans/PropertyDescriptor.h>
@@ -22,30 +21,6 @@ namespace com {
 		namespace beans {
 			namespace infos {
 
-$FieldInfo _ComponentBeanInfo_FieldInfo_[] = {
-	{"beanClass", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/awt/Component;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ComponentBeanInfo, beanClass)},
-	{}
-};
-
-$MethodInfo _ComponentBeanInfo_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ComponentBeanInfo, init$, void)},
-	{"getPropertyDescriptors", "()[Ljava/beans/PropertyDescriptor;", nullptr, $PUBLIC, $virtualMethod(ComponentBeanInfo, getPropertyDescriptors, $PropertyDescriptorArray*)},
-	{}
-};
-
-$ClassInfo _ComponentBeanInfo_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.beans.infos.ComponentBeanInfo",
-	"java.beans.SimpleBeanInfo",
-	nullptr,
-	_ComponentBeanInfo_FieldInfo_,
-	_ComponentBeanInfo_MethodInfo_
-};
-
-$Object* allocate$ComponentBeanInfo($Class* clazz) {
-	return $of($alloc(ComponentBeanInfo));
-}
-
 $Class* ComponentBeanInfo::beanClass = nullptr;
 
 void ComponentBeanInfo::init$() {
@@ -53,7 +28,7 @@ void ComponentBeanInfo::init$() {
 }
 
 $PropertyDescriptorArray* ComponentBeanInfo::getPropertyDescriptors() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$var($PropertyDescriptor, name, $new($PropertyDescriptor, "name"_s, ComponentBeanInfo::beanClass));
 		$var($PropertyDescriptor, background, $new($PropertyDescriptor, "background"_s, ComponentBeanInfo::beanClass));
@@ -84,7 +59,7 @@ $PropertyDescriptorArray* ComponentBeanInfo::getPropertyDescriptors() {
 	$shouldNotReachHere();
 }
 
-void clinit$ComponentBeanInfo($Class* class$) {
+void ComponentBeanInfo::clinit$($Class* clazz) {
 	$load($Component);
 	$assignStatic(ComponentBeanInfo::beanClass, $Component::class$);
 }
@@ -93,7 +68,26 @@ ComponentBeanInfo::ComponentBeanInfo() {
 }
 
 $Class* ComponentBeanInfo::load$($String* name, bool initialize) {
-	$loadClass(ComponentBeanInfo, name, initialize, &_ComponentBeanInfo_ClassInfo_, clinit$ComponentBeanInfo, allocate$ComponentBeanInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"beanClass", "Ljava/lang/Class;", "Ljava/lang/Class<Ljava/awt/Component;>;", $PRIVATE | $STATIC | $FINAL, $staticField(ComponentBeanInfo, beanClass)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ComponentBeanInfo, init$, void)},
+		{"getPropertyDescriptors", "()[Ljava/beans/PropertyDescriptor;", nullptr, $PUBLIC, $virtualMethod(ComponentBeanInfo, getPropertyDescriptors, $PropertyDescriptorArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.beans.infos.ComponentBeanInfo",
+		"java.beans.SimpleBeanInfo",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ComponentBeanInfo, name, initialize, &classInfo$$, ComponentBeanInfo::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ComponentBeanInfo);
+	});
 	return class$;
 }
 

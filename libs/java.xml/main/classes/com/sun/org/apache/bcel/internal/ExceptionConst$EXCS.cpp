@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/ExceptionConst$EXCS.h>
-
 #include <com/sun/org/apache/bcel/internal/ExceptionConst.h>
 #include <java/lang/Enum.h>
 #include <jcpp.h>
@@ -23,49 +22,6 @@ namespace com {
 			namespace apache {
 				namespace bcel {
 					namespace internal {
-
-$FieldInfo _ExceptionConst$EXCS_FieldInfo_[] = {
-	{"EXCS_CLASS_AND_INTERFACE_RESOLUTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_CLASS_AND_INTERFACE_RESOLUTION)},
-	{"EXCS_FIELD_AND_METHOD_RESOLUTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_FIELD_AND_METHOD_RESOLUTION)},
-	{"EXCS_INTERFACE_METHOD_RESOLUTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_INTERFACE_METHOD_RESOLUTION)},
-	{"EXCS_STRING_RESOLUTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_STRING_RESOLUTION)},
-	{"EXCS_ARRAY_EXCEPTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_ARRAY_EXCEPTION)},
-	{"$VALUES", "[Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ExceptionConst$EXCS, $VALUES)},
-	{}
-};
-
-$MethodInfo _ExceptionConst$EXCS_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExceptionConst$EXCS, $values, $ExceptionConst$EXCSArray*)},
-	{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ExceptionConst$EXCS, init$, void, $String*, int32_t)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionConst$EXCS, valueOf, ExceptionConst$EXCS*, $String*)},
-	{"values", "()[Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionConst$EXCS, values, $ExceptionConst$EXCSArray*)},
-	{}
-};
-
-$InnerClassInfo _ExceptionConst$EXCS_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.bcel.internal.ExceptionConst$EXCS", "com.sun.org.apache.bcel.internal.ExceptionConst", "EXCS", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _ExceptionConst$EXCS_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.org.apache.bcel.internal.ExceptionConst$EXCS",
-	"java.lang.Enum",
-	nullptr,
-	_ExceptionConst$EXCS_FieldInfo_,
-	_ExceptionConst$EXCS_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;>;",
-	nullptr,
-	_ExceptionConst$EXCS_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.bcel.internal.ExceptionConst"
-};
-
-$Object* allocate$ExceptionConst$EXCS($Class* clazz) {
-	return $of($alloc(ExceptionConst$EXCS));
-}
 
 ExceptionConst$EXCS* ExceptionConst$EXCS::EXCS_CLASS_AND_INTERFACE_RESOLUTION = nullptr;
 ExceptionConst$EXCS* ExceptionConst$EXCS::EXCS_FIELD_AND_METHOD_RESOLUTION = nullptr;
@@ -99,7 +55,7 @@ void ExceptionConst$EXCS::init$($String* $enum$name, int32_t $enum$ordinal) {
 	$Enum::init$($enum$name, $enum$ordinal);
 }
 
-void clinit$ExceptionConst$EXCS($Class* class$) {
+void ExceptionConst$EXCS::clinit$($Class* clazz) {
 	$assignStatic(ExceptionConst$EXCS::EXCS_CLASS_AND_INTERFACE_RESOLUTION, $new(ExceptionConst$EXCS, "EXCS_CLASS_AND_INTERFACE_RESOLUTION"_s, 0));
 	$assignStatic(ExceptionConst$EXCS::EXCS_FIELD_AND_METHOD_RESOLUTION, $new(ExceptionConst$EXCS, "EXCS_FIELD_AND_METHOD_RESOLUTION"_s, 1));
 	$assignStatic(ExceptionConst$EXCS::EXCS_INTERFACE_METHOD_RESOLUTION, $new(ExceptionConst$EXCS, "EXCS_INTERFACE_METHOD_RESOLUTION"_s, 2));
@@ -112,7 +68,44 @@ ExceptionConst$EXCS::ExceptionConst$EXCS() {
 }
 
 $Class* ExceptionConst$EXCS::load$($String* name, bool initialize) {
-	$loadClass(ExceptionConst$EXCS, name, initialize, &_ExceptionConst$EXCS_ClassInfo_, clinit$ExceptionConst$EXCS, allocate$ExceptionConst$EXCS);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXCS_CLASS_AND_INTERFACE_RESOLUTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_CLASS_AND_INTERFACE_RESOLUTION)},
+		{"EXCS_FIELD_AND_METHOD_RESOLUTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_FIELD_AND_METHOD_RESOLUTION)},
+		{"EXCS_INTERFACE_METHOD_RESOLUTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_INTERFACE_METHOD_RESOLUTION)},
+		{"EXCS_STRING_RESOLUTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_STRING_RESOLUTION)},
+		{"EXCS_ARRAY_EXCEPTION", "Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(ExceptionConst$EXCS, EXCS_ARRAY_EXCEPTION)},
+		{"$VALUES", "[Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(ExceptionConst$EXCS, $VALUES)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(ExceptionConst$EXCS, $values, $ExceptionConst$EXCSArray*)},
+		{"<init>", "(Ljava/lang/String;I)V", "()V", $PRIVATE, $method(ExceptionConst$EXCS, init$, void, $String*, int32_t)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionConst$EXCS, valueOf, ExceptionConst$EXCS*, $String*)},
+		{"values", "()[Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;", nullptr, $PUBLIC | $STATIC, $staticMethod(ExceptionConst$EXCS, values, $ExceptionConst$EXCSArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.bcel.internal.ExceptionConst$EXCS", "com.sun.org.apache.bcel.internal.ExceptionConst", "EXCS", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.org.apache.bcel.internal.ExceptionConst$EXCS",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/org/apache/bcel/internal/ExceptionConst$EXCS;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.bcel.internal.ExceptionConst"
+	};
+	$loadClass(ExceptionConst$EXCS, name, initialize, &classInfo$$, ExceptionConst$EXCS::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ExceptionConst$EXCS));
+	});
 	return class$;
 }
 

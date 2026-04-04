@@ -1,7 +1,5 @@
 #include <sun/awt/X11/XErrorHandlerUtil.h>
-
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler.h>
@@ -21,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
@@ -33,41 +30,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XErrorHandlerUtil_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XErrorHandlerUtil, log)},
-	{"display", "J", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, display)},
-	{"saved_error_handler", "J", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, saved_error_handler)},
-	{"saved_error", "Lsun/awt/X11/XErrorEvent;", nullptr, $STATIC | $VOLATILE, $staticField(XErrorHandlerUtil, saved_error)},
-	{"current_error_handler", "Lsun/awt/X11/XErrorHandler;", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, current_error_handler)},
-	{"noisyAwtHandler", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, noisyAwtHandler)},
-	{"initPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, initPassed)},
-	{}
-};
-
-$MethodInfo _XErrorHandlerUtil_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XErrorHandlerUtil, init$, void)},
-	{"RESTORE_XERROR_HANDLER", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorHandlerUtil, RESTORE_XERROR_HANDLER, void)},
-	{"SAVED_XERROR_HANDLER", "(JLsun/awt/X11/XErrorEvent;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorHandlerUtil, SAVED_XERROR_HANDLER, int32_t, int64_t, $XErrorEvent*)},
-	{"WITH_XERROR_HANDLER", "(Lsun/awt/X11/XErrorHandler;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorHandlerUtil, WITH_XERROR_HANDLER, void, $XErrorHandler*)},
-	{"XSync", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XErrorHandlerUtil, XSync, void)},
-	{"globalErrorHandler", "(JJ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XErrorHandlerUtil, globalErrorHandler, int32_t, int64_t, int64_t)},
-	{"init", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XErrorHandlerUtil, init, void, int64_t)},
-	{}
-};
-
-$ClassInfo _XErrorHandlerUtil_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.X11.XErrorHandlerUtil",
-	"java.lang.Object",
-	nullptr,
-	_XErrorHandlerUtil_FieldInfo_,
-	_XErrorHandlerUtil_MethodInfo_
-};
-
-$Object* allocate$XErrorHandlerUtil($Class* clazz) {
-	return $of($alloc(XErrorHandlerUtil));
-}
 
 $PlatformLogger* XErrorHandlerUtil::log = nullptr;
 int64_t XErrorHandlerUtil::display = 0;
@@ -83,22 +45,20 @@ void XErrorHandlerUtil::init$() {
 void XErrorHandlerUtil::init(int64_t display) {
 	$init(XErrorHandlerUtil);
 	$SunToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (!XErrorHandlerUtil::initPassed) {
-				XErrorHandlerUtil::display = display;
-				XErrorHandlerUtil::saved_error_handler = $XlibWrapper::SetToolkitErrorHandler();
-				XErrorHandlerUtil::initPassed = true;
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SunToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (!XErrorHandlerUtil::initPassed) {
+			XErrorHandlerUtil::display = display;
+			XErrorHandlerUtil::saved_error_handler = $XlibWrapper::SetToolkitErrorHandler();
+			XErrorHandlerUtil::initPassed = true;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SunToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
@@ -117,19 +77,23 @@ void XErrorHandlerUtil::RESTORE_XERROR_HANDLER() {
 
 int32_t XErrorHandlerUtil::SAVED_XERROR_HANDLER(int64_t display, $XErrorEvent* error) {
 	$init(XErrorHandlerUtil);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (XErrorHandlerUtil::saved_error_handler != 0) {
 	}
 	$init($PlatformLogger$Level);
 	if ($nc(XErrorHandlerUtil::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$var($String, var$6, $$str({"Unhandled XErrorEvent: id="_s, $$str($nc(error)->get_resourceid()), ", serial="_s}));
-		$var($String, var$5, $$concat(var$6, $$str(error->get_serial())));
-		$var($String, var$4, $$concat(var$5, ", ec="_s));
-		$var($String, var$3, $$concat(var$4, $$str(error->get_error_code())));
-		$var($String, var$2, $$concat(var$3, ", rc="_s));
-		$var($String, var$1, $$concat(var$2, $$str(error->get_request_code())));
-		$var($String, var$0, $$concat(var$1, ", mc="_s));
-		$nc(XErrorHandlerUtil::log)->fine($$concat(var$0, $$str(error->get_minor_code())));
+		$var($StringBuilder, var$0, $new($StringBuilder));
+		var$0->append("Unhandled XErrorEvent: id="_s);
+		var$0->append($nc(error)->get_resourceid());
+		var$0->append(", serial="_s);
+		var$0->append(error->get_serial());
+		var$0->append(", ec="_s);
+		var$0->append(error->get_error_code());
+		var$0->append(", rc="_s);
+		var$0->append(error->get_request_code());
+		var$0->append(", mc="_s);
+		var$0->append(error->get_minor_code());
+		XErrorHandlerUtil::log->fine($$str(var$0));
 	}
 	return 0;
 }
@@ -143,12 +107,12 @@ int32_t XErrorHandlerUtil::globalErrorHandler(int64_t display, int64_t event_ptr
 	$assignStatic(XErrorHandlerUtil::saved_error, event);
 	try {
 		if (XErrorHandlerUtil::current_error_handler != nullptr) {
-			return $nc(XErrorHandlerUtil::current_error_handler)->handleError(display, event);
+			return XErrorHandlerUtil::current_error_handler->handleError(display, event);
 		} else {
 			return SAVED_XERROR_HANDLER(display, event);
 		}
 	} catch ($Throwable& z) {
-		$nc(XErrorHandlerUtil::log)->fine("Error in GlobalErrorHandler"_s, $cast($Throwable, z));
+		$nc(XErrorHandlerUtil::log)->fine("Error in GlobalErrorHandler"_s, z);
 	}
 	return 0;
 }
@@ -156,33 +120,61 @@ int32_t XErrorHandlerUtil::globalErrorHandler(int64_t display, int64_t event_ptr
 void XErrorHandlerUtil::XSync() {
 	$init(XErrorHandlerUtil);
 	$SunToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$XlibWrapper::XSync(XErrorHandlerUtil::display, 0);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$SunToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		$XlibWrapper::XSync(XErrorHandlerUtil::display, 0);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$SunToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$XErrorHandlerUtil($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void XErrorHandlerUtil::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$assignStatic(XErrorHandlerUtil::log, $PlatformLogger::getLogger("sun.awt.X11.XErrorHandlerUtil"_s));
-	XErrorHandlerUtil::noisyAwtHandler = $nc(($cast($Boolean, $($AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetBooleanAction, "sun.awt.noisyerrorhandler"_s)))))))->booleanValue();
+	XErrorHandlerUtil::noisyAwtHandler = $$sure($Boolean, $AccessController::doPrivileged($$new($GetBooleanAction, "sun.awt.noisyerrorhandler"_s)))->booleanValue();
 }
 
 XErrorHandlerUtil::XErrorHandlerUtil() {
 }
 
 $Class* XErrorHandlerUtil::load$($String* name, bool initialize) {
-	$loadClass(XErrorHandlerUtil, name, initialize, &_XErrorHandlerUtil_ClassInfo_, clinit$XErrorHandlerUtil, allocate$XErrorHandlerUtil);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XErrorHandlerUtil, log)},
+		{"display", "J", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, display)},
+		{"saved_error_handler", "J", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, saved_error_handler)},
+		{"saved_error", "Lsun/awt/X11/XErrorEvent;", nullptr, $STATIC | $VOLATILE, $staticField(XErrorHandlerUtil, saved_error)},
+		{"current_error_handler", "Lsun/awt/X11/XErrorHandler;", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, current_error_handler)},
+		{"noisyAwtHandler", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, noisyAwtHandler)},
+		{"initPassed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(XErrorHandlerUtil, initPassed)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XErrorHandlerUtil, init$, void)},
+		{"RESTORE_XERROR_HANDLER", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorHandlerUtil, RESTORE_XERROR_HANDLER, void)},
+		{"SAVED_XERROR_HANDLER", "(JLsun/awt/X11/XErrorEvent;)I", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorHandlerUtil, SAVED_XERROR_HANDLER, int32_t, int64_t, $XErrorEvent*)},
+		{"WITH_XERROR_HANDLER", "(Lsun/awt/X11/XErrorHandler;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(XErrorHandlerUtil, WITH_XERROR_HANDLER, void, $XErrorHandler*)},
+		{"XSync", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(XErrorHandlerUtil, XSync, void)},
+		{"globalErrorHandler", "(JJ)I", nullptr, $PRIVATE | $STATIC, $staticMethod(XErrorHandlerUtil, globalErrorHandler, int32_t, int64_t, int64_t)},
+		{"init", "(J)V", nullptr, $PRIVATE | $STATIC, $staticMethod(XErrorHandlerUtil, init, void, int64_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.X11.XErrorHandlerUtil",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XErrorHandlerUtil, name, initialize, &classInfo$$, XErrorHandlerUtil::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XErrorHandlerUtil);
+	});
 	return class$;
 }
 

@@ -43,6 +43,7 @@ class EventDispatchThread : public ::java::lang::Thread {
 	$class(EventDispatchThread, 0, ::java::lang::Thread)
 public:
 	EventDispatchThread();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::lang::ThreadGroup* group, $String* name, ::java::awt::EventQueue* queue);
 	virtual void addEventFilter(::java::awt::EventFilter* filter);

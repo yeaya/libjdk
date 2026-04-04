@@ -1,5 +1,4 @@
 #include <javax/management/MatchQueryExp.h>
-
 #include <javax/management/AttributeValueExp.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/ObjectName.h>
@@ -20,42 +19,6 @@ using $ValueExp = ::javax::management::ValueExp;
 
 namespace javax {
 	namespace management {
-
-$FieldInfo _MatchQueryExp_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MatchQueryExp, serialVersionUID)},
-	{"exp", "Ljavax/management/AttributeValueExp;", nullptr, $PRIVATE, $field(MatchQueryExp, exp)},
-	{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MatchQueryExp, pattern)},
-	{}
-};
-
-$MethodInfo _MatchQueryExp_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MatchQueryExp, init$, void)},
-	{"<init>", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)V", nullptr, $PUBLIC, $method(MatchQueryExp, init$, void, $AttributeValueExp*, $StringValueExp*)},
-	{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
-	{"getAttribute", "()Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, getAttribute, $AttributeValueExp*)},
-	{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, getPattern, $String*)},
-	{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, toString, $String*)},
-	{"wildmatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MatchQueryExp, wildmatch, bool, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _MatchQueryExp_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.MatchQueryExp",
-	"javax.management.QueryEval",
-	"javax.management.QueryExp",
-	_MatchQueryExp_FieldInfo_,
-	_MatchQueryExp_MethodInfo_
-};
-
-$Object* allocate$MatchQueryExp($Class* clazz) {
-	return $of($alloc(MatchQueryExp));
-}
 
 void MatchQueryExp::setMBeanServer($MBeanServer* s) {
 	this->$QueryEval::setMBeanServer(s);
@@ -96,23 +59,26 @@ $String* MatchQueryExp::getPattern() {
 }
 
 bool MatchQueryExp::apply($ObjectName* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ValueExp, val, $nc(this->exp)->apply(name));
 	if (!($instanceOf($StringValueExp, val))) {
 		return false;
 	}
-	return wildmatch($($nc(($cast($StringValueExp, val)))->getValue()), this->pattern);
+	return wildmatch($($nc($cast($StringValueExp, val))->getValue()), this->pattern);
 }
 
 $String* MatchQueryExp::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$0, $$str({this->exp, " like "_s}));
-	return $concat(var$0, $($new($StringValueExp, this->pattern)));
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append(this->exp);
+	var$0->append(" like "_s);
+	var$0->append($$new($StringValueExp, this->pattern));
+	return $str(var$0);
 }
 
 bool MatchQueryExp::wildmatch($String* s, $String* p) {
 	$init(MatchQueryExp);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	char16_t c = 0;
 	int32_t si = 0;
 	int32_t pi = 0;
@@ -193,7 +159,38 @@ MatchQueryExp::MatchQueryExp() {
 }
 
 $Class* MatchQueryExp::load$($String* name, bool initialize) {
-	$loadClass(MatchQueryExp, name, initialize, &_MatchQueryExp_ClassInfo_, allocate$MatchQueryExp);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(MatchQueryExp, serialVersionUID)},
+		{"exp", "Ljavax/management/AttributeValueExp;", nullptr, $PRIVATE, $field(MatchQueryExp, exp)},
+		{"pattern", "Ljava/lang/String;", nullptr, $PRIVATE, $field(MatchQueryExp, pattern)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MatchQueryExp, init$, void)},
+		{"<init>", "(Ljavax/management/AttributeValueExp;Ljavax/management/StringValueExp;)V", nullptr, $PUBLIC, $method(MatchQueryExp, init$, void, $AttributeValueExp*, $StringValueExp*)},
+		{"apply", "(Ljavax/management/ObjectName;)Z", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, apply, bool, $ObjectName*), "javax.management.BadStringOperationException,javax.management.BadBinaryOpValueExpException,javax.management.BadAttributeValueExpException,javax.management.InvalidApplicationException"},
+		{"getAttribute", "()Ljavax/management/AttributeValueExp;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, getAttribute, $AttributeValueExp*)},
+		{"getPattern", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, getPattern, $String*)},
+		{"*setMBeanServer", "(Ljavax/management/MBeanServer;)V", nullptr, $PUBLIC},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(MatchQueryExp, toString, $String*)},
+		{"wildmatch", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(MatchQueryExp, wildmatch, bool, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.MatchQueryExp",
+		"javax.management.QueryEval",
+		"javax.management.QueryExp",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(MatchQueryExp, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(MatchQueryExp));
+	});
 	return class$;
 }
 

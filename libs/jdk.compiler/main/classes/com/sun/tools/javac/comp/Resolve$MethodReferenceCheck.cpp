@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodReferenceCheck.h>
-
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
@@ -26,7 +25,6 @@ using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$AbstractMethodCheck = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck;
 using $Resolve$MethodCheck = ::com::sun::tools::javac::comp::Resolve$MethodCheck;
 using $Resolve$MethodReferenceCheck$1 = ::com::sun::tools::javac::comp::Resolve$MethodReferenceCheck$1;
-using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$MethodResultInfo = ::com::sun::tools::javac::comp::Resolve$MethodResultInfo;
 using $Resolve$MostSpecificCheck = ::com::sun::tools::javac::comp::Resolve$MostSpecificCheck;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
@@ -42,48 +40,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Resolve$MethodReferenceCheck_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodReferenceCheck, this$0)},
-	{"pendingInferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, 0, $field(Resolve$MethodReferenceCheck, pendingInferenceContext)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodReferenceCheck_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $method(Resolve$MethodReferenceCheck, init$, void, $Resolve*, $InferenceContext*)},
-	{"checkArg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Resolve$MethodReferenceCheck, checkArg, void, $JCDiagnostic$DiagnosticPosition*, bool, $Type*, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
-	{"methodCheckResult", "(ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PRIVATE, $method(Resolve$MethodReferenceCheck, methodCheckResult, $Attr$ResultInfo*, bool, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
-	{"mostSpecificCheck", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", $PUBLIC, $virtualMethod(Resolve$MethodReferenceCheck, mostSpecificCheck, $Resolve$MethodCheck*, $List*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodReferenceCheck, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$MethodReferenceCheck_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodReferenceCheck", "com.sun.tools.javac.comp.Resolve", "MethodReferenceCheck", 0},
-	{"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck", "com.sun.tools.javac.comp.Resolve", "AbstractMethodCheck", $ABSTRACT},
-	{"com.sun.tools.javac.comp.Resolve$MethodReferenceCheck$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Resolve$MethodReferenceCheck_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodReferenceCheck",
-	"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck",
-	nullptr,
-	_Resolve$MethodReferenceCheck_FieldInfo_,
-	_Resolve$MethodReferenceCheck_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$MethodReferenceCheck_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodReferenceCheck($Class* clazz) {
-	return $of($alloc(Resolve$MethodReferenceCheck));
-}
 
 void Resolve$MethodReferenceCheck::init$($Resolve* this$0, $InferenceContext* pendingInferenceContext) {
 	$set(this, this$0, this$0);
@@ -113,7 +69,43 @@ Resolve$MethodReferenceCheck::Resolve$MethodReferenceCheck() {
 }
 
 $Class* Resolve$MethodReferenceCheck::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodReferenceCheck, name, initialize, &_Resolve$MethodReferenceCheck_ClassInfo_, allocate$Resolve$MethodReferenceCheck);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodReferenceCheck, this$0)},
+		{"pendingInferenceContext", "Lcom/sun/tools/javac/comp/InferenceContext;", nullptr, 0, $field(Resolve$MethodReferenceCheck, pendingInferenceContext)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;Lcom/sun/tools/javac/comp/InferenceContext;)V", nullptr, 0, $method(Resolve$MethodReferenceCheck, init$, void, $Resolve*, $InferenceContext*)},
+		{"checkArg", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)V", nullptr, 0, $virtualMethod(Resolve$MethodReferenceCheck, checkArg, void, $JCDiagnostic$DiagnosticPosition*, bool, $Type*, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+		{"methodCheckResult", "(ZLcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/Attr$ResultInfo;", nullptr, $PRIVATE, $method(Resolve$MethodReferenceCheck, methodCheckResult, $Attr$ResultInfo*, bool, $Type*, $DeferredAttr$DeferredAttrContext*, $Warner*)},
+		{"mostSpecificCheck", "(Lcom/sun/tools/javac/util/List;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", "(Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Type;>;)Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", $PUBLIC, $virtualMethod(Resolve$MethodReferenceCheck, mostSpecificCheck, $Resolve$MethodCheck*, $List*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodReferenceCheck, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodReferenceCheck", "com.sun.tools.javac.comp.Resolve", "MethodReferenceCheck", 0},
+		{"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck", "com.sun.tools.javac.comp.Resolve", "AbstractMethodCheck", $ABSTRACT},
+		{"com.sun.tools.javac.comp.Resolve$MethodReferenceCheck$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodReferenceCheck",
+		"com.sun.tools.javac.comp.Resolve$AbstractMethodCheck",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodReferenceCheck, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodReferenceCheck);
+	});
 	return class$;
 }
 

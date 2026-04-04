@@ -1,5 +1,4 @@
 #include <org/ietf/jgss/GSSCredential.h>
-
 #include <java/lang/Cloneable.h>
 #include <org/ietf/jgss/GSSName.h>
 #include <org/ietf/jgss/Oid.h>
@@ -23,44 +22,6 @@ namespace org {
 	namespace ietf {
 		namespace jgss {
 
-$FieldInfo _GSSCredential_FieldInfo_[] = {
-	{"INITIATE_AND_ACCEPT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, INITIATE_AND_ACCEPT)},
-	{"INITIATE_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, INITIATE_ONLY)},
-	{"ACCEPT_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, ACCEPT_ONLY)},
-	{"DEFAULT_LIFETIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, DEFAULT_LIFETIME)},
-	{"INDEFINITE_LIFETIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, INDEFINITE_LIFETIME)},
-	{}
-};
-
-$MethodInfo _GSSCredential_MethodInfo_[] = {
-	{"add", "(Lorg/ietf/jgss/GSSName;IILorg/ietf/jgss/Oid;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, add, void, $GSSName*, int32_t, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
-	{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, dispose, void), "org.ietf.jgss.GSSException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
-	{"getMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getMechs, $OidArray*), "org.ietf.jgss.GSSException"},
-	{"getName", "()Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getName, $GSSName*), "org.ietf.jgss.GSSException"},
-	{"getName", "(Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getName, $GSSName*, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getRemainingAcceptLifetime", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getRemainingAcceptLifetime, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getRemainingInitLifetime", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getRemainingInitLifetime, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
-	{"getRemainingLifetime", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getRemainingLifetime, int32_t), "org.ietf.jgss.GSSException"},
-	{"getUsage", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getUsage, int32_t), "org.ietf.jgss.GSSException"},
-	{"getUsage", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getUsage, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
-	{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _GSSCredential_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"org.ietf.jgss.GSSCredential",
-	nullptr,
-	"java.lang.Cloneable",
-	_GSSCredential_FieldInfo_,
-	_GSSCredential_MethodInfo_
-};
-
-$Object* allocate$GSSCredential($Class* clazz) {
-	return $of($alloc(GSSCredential));
-}
-
 bool GSSCredential::equals(Object$* another) {
 	 return this->$Cloneable::equals(another);
 }
@@ -70,7 +31,40 @@ int32_t GSSCredential::hashCode() {
 }
 
 $Class* GSSCredential::load$($String* name, bool initialize) {
-	$loadClass(GSSCredential, name, initialize, &_GSSCredential_ClassInfo_, allocate$GSSCredential);
+	$FieldInfo fieldInfos$$[] = {
+		{"INITIATE_AND_ACCEPT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, INITIATE_AND_ACCEPT)},
+		{"INITIATE_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, INITIATE_ONLY)},
+		{"ACCEPT_ONLY", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, ACCEPT_ONLY)},
+		{"DEFAULT_LIFETIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, DEFAULT_LIFETIME)},
+		{"INDEFINITE_LIFETIME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(GSSCredential, INDEFINITE_LIFETIME)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"add", "(Lorg/ietf/jgss/GSSName;IILorg/ietf/jgss/Oid;I)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, add, void, $GSSName*, int32_t, int32_t, $Oid*, int32_t), "org.ietf.jgss.GSSException"},
+		{"dispose", "()V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, dispose, void), "org.ietf.jgss.GSSException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC | $ABSTRACT},
+		{"getMechs", "()[Lorg/ietf/jgss/Oid;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getMechs, $OidArray*), "org.ietf.jgss.GSSException"},
+		{"getName", "()Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getName, $GSSName*), "org.ietf.jgss.GSSException"},
+		{"getName", "(Lorg/ietf/jgss/Oid;)Lorg/ietf/jgss/GSSName;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getName, $GSSName*, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getRemainingAcceptLifetime", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getRemainingAcceptLifetime, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getRemainingInitLifetime", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getRemainingInitLifetime, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
+		{"getRemainingLifetime", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getRemainingLifetime, int32_t), "org.ietf.jgss.GSSException"},
+		{"getUsage", "()I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getUsage, int32_t), "org.ietf.jgss.GSSException"},
+		{"getUsage", "(Lorg/ietf/jgss/Oid;)I", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(GSSCredential, getUsage, int32_t, $Oid*), "org.ietf.jgss.GSSException"},
+		{"hashCode", "()I", nullptr, $PUBLIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"org.ietf.jgss.GSSCredential",
+		nullptr,
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GSSCredential, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GSSCredential);
+	});
 	return class$;
 }
 

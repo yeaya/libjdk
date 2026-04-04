@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/PUSH.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BIPUSH.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
@@ -58,45 +57,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _PUSH_FieldInfo_[] = {
-	{"instruction", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(PUSH, instruction)},
-	{}
-};
-
-$MethodInfo _PUSH_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;I)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, int32_t)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, bool)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;F)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, float)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;J)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, int64_t)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;D)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, double)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $String*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Lcom/sun/org/apache/bcel/internal/generic/ObjectType;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $ObjectType*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Ljava/lang/Number;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $Number*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Ljava/lang/Character;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $Character*)},
-	{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $Boolean*)},
-	{"getInstruction", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $method(PUSH, getInstruction, $Instruction*)},
-	{"getInstructionList", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(PUSH, getInstructionList, $InstructionList*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PUSH, toString, $String*)},
-	{}
-};
-
-$ClassInfo _PUSH_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.PUSH",
-	"java.lang.Object",
-	"com.sun.org.apache.bcel.internal.generic.CompoundInstruction,com.sun.org.apache.bcel.internal.generic.VariableLengthInstruction",
-	_PUSH_FieldInfo_,
-	_PUSH_MethodInfo_
-};
-
-$Object* allocate$PUSH($Class* clazz) {
-	return $of($alloc(PUSH));
-}
 
 int32_t PUSH::hashCode() {
 	 return this->$CompoundInstruction::hashCode();
@@ -188,15 +148,15 @@ void PUSH::init$($ConstantPoolGen* cp, $ObjectType* value) {
 }
 
 void PUSH::init$($ConstantPoolGen* cp, $Number* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (($instanceOf($Integer, value)) || ($instanceOf($Short, value)) || ($instanceOf($Byte, value))) {
 		$set(this, instruction, $$new(PUSH, cp, $nc(value)->intValue())->instruction);
 	} else if ($instanceOf($Double, value)) {
-		$set(this, instruction, $$new(PUSH, cp, $nc(value)->doubleValue())->instruction);
+		$set(this, instruction, $$new(PUSH, cp, value->doubleValue())->instruction);
 	} else if ($instanceOf($Float, value)) {
-		$set(this, instruction, $$new(PUSH, cp, $nc(value)->floatValue())->instruction);
+		$set(this, instruction, $$new(PUSH, cp, value->floatValue())->instruction);
 	} else if ($instanceOf($Long, value)) {
-		$set(this, instruction, $$new(PUSH, cp, $nc(value)->longValue())->instruction);
+		$set(this, instruction, $$new(PUSH, cp, value->longValue())->instruction);
 	} else {
 		$throwNew($ClassGenException, $$str({"What\'s this: "_s, value}));
 	}
@@ -226,7 +186,41 @@ PUSH::PUSH() {
 }
 
 $Class* PUSH::load$($String* name, bool initialize) {
-	$loadClass(PUSH, name, initialize, &_PUSH_ClassInfo_, allocate$PUSH);
+	$FieldInfo fieldInfos$$[] = {
+		{"instruction", "Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PRIVATE, $field(PUSH, instruction)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;I)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, int32_t)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Z)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, bool)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;F)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, float)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;J)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, int64_t)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;D)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, double)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $String*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Lcom/sun/org/apache/bcel/internal/generic/ObjectType;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $ObjectType*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Ljava/lang/Number;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $Number*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Ljava/lang/Character;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $Character*)},
+		{"<init>", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;Ljava/lang/Boolean;)V", nullptr, $PUBLIC, $method(PUSH, init$, void, $ConstantPoolGen*, $Boolean*)},
+		{"getInstruction", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $method(PUSH, getInstruction, $Instruction*)},
+		{"getInstructionList", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC, $virtualMethod(PUSH, getInstructionList, $InstructionList*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(PUSH, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.PUSH",
+		"java.lang.Object",
+		"com.sun.org.apache.bcel.internal.generic.CompoundInstruction,com.sun.org.apache.bcel.internal.generic.VariableLengthInstruction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PUSH, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PUSH));
+	});
 	return class$;
 }
 

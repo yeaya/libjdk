@@ -48,6 +48,7 @@ public:
 	using ::javax::swing::plaf::basic::BasicComboBoxRenderer$UIResource::add;
 	using ::javax::swing::plaf::basic::BasicComboBoxRenderer$UIResource::getMousePosition;
 	using ::javax::swing::plaf::basic::BasicComboBoxRenderer$UIResource::list;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::Component* getListCellRendererComponent(::javax::swing::JList* list, Object$* value, int32_t index, bool isSelected, bool cellHasFocus) override;
 	using ::javax::swing::plaf::basic::BasicComboBoxRenderer$UIResource::setUI;

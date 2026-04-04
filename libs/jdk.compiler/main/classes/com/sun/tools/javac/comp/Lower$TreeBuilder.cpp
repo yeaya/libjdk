@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Lower$TreeBuilder.h>
-
 #include <com/sun/tools/javac/comp/Lower.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <jcpp.h>
@@ -15,38 +14,33 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$MethodInfo _Lower$TreeBuilder_MethodInfo_[] = {
-	{"build", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lower$TreeBuilder, build, $JCTree$JCExpression*, $JCTree$JCExpression*)},
-	{}
-};
-
-$InnerClassInfo _Lower$TreeBuilder_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Lower$TreeBuilder", "com.sun.tools.javac.comp.Lower", "TreeBuilder", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Lower$TreeBuilder_ClassInfo_ = {
-	$INTERFACE | $ABSTRACT,
-	"com.sun.tools.javac.comp.Lower$TreeBuilder",
-	nullptr,
-	nullptr,
-	nullptr,
-	_Lower$TreeBuilder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Lower$TreeBuilder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Lower"
-};
-
-$Object* allocate$Lower$TreeBuilder($Class* clazz) {
-	return $of($alloc(Lower$TreeBuilder));
-}
-
 $Class* Lower$TreeBuilder::load$($String* name, bool initialize) {
-	$loadClass(Lower$TreeBuilder, name, initialize, &_Lower$TreeBuilder_ClassInfo_, allocate$Lower$TreeBuilder);
+	$MethodInfo methodInfos$$[] = {
+		{"build", "(Lcom/sun/tools/javac/tree/JCTree$JCExpression;)Lcom/sun/tools/javac/tree/JCTree$JCExpression;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Lower$TreeBuilder, build, $JCTree$JCExpression*, $JCTree$JCExpression*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Lower$TreeBuilder", "com.sun.tools.javac.comp.Lower", "TreeBuilder", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$INTERFACE | $ABSTRACT,
+		"com.sun.tools.javac.comp.Lower$TreeBuilder",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Lower"
+	};
+	$loadClass(Lower$TreeBuilder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Lower$TreeBuilder);
+	});
 	return class$;
 }
 

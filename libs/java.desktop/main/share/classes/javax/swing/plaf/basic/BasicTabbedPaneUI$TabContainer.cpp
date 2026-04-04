@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$TabContainer.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
@@ -22,62 +21,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JPanel = ::javax::swing::JPanel;
-using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$CroppedEdge = ::javax::swing::plaf::basic::BasicTabbedPaneUI$CroppedEdge;
-using $BasicTabbedPaneUI$ScrollableTabPanel = ::javax::swing::plaf::basic::BasicTabbedPaneUI$ScrollableTabPanel;
-using $BasicTabbedPaneUI$ScrollableTabSupport = ::javax::swing::plaf::basic::BasicTabbedPaneUI$ScrollableTabSupport;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicTabbedPaneUI$TabContainer_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$TabContainer, this$0)},
-	{"notifyTabbedPane", "Z", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$TabContainer, notifyTabbedPane)},
-	{}
-};
-
-$MethodInfo _BasicTabbedPaneUI$TabContainer_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$TabContainer, init$, void, $BasicTabbedPaneUI*)},
-	{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabContainer, doLayout, void)},
-	{"isOptimizedDrawingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabContainer, isOptimizedDrawingEnabled, bool)},
-	{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabContainer, remove, void, $Component*)},
-	{"removeUnusedTabComponents", "()V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$TabContainer, removeUnusedTabComponents, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _BasicTabbedPaneUI$TabContainer_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabContainer", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabContainer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _BasicTabbedPaneUI$TabContainer_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI$TabContainer",
-	"javax.swing.JPanel",
-	"javax.swing.plaf.UIResource",
-	_BasicTabbedPaneUI$TabContainer_FieldInfo_,
-	_BasicTabbedPaneUI$TabContainer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicTabbedPaneUI$TabContainer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicTabbedPaneUI"
-};
-
-$Object* allocate$BasicTabbedPaneUI$TabContainer($Class* clazz) {
-	return $of($alloc(BasicTabbedPaneUI$TabContainer));
-}
 
 $String* BasicTabbedPaneUI$TabContainer::toString() {
 	 return this->$JPanel::toString();
@@ -101,7 +51,7 @@ void BasicTabbedPaneUI$TabContainer::finalize() {
 
 void BasicTabbedPaneUI$TabContainer::init$($BasicTabbedPaneUI* this$0) {
 	$set(this, this$0, this$0);
-	$JPanel::init$(($LayoutManager*)nullptr);
+	$JPanel::init$(nullptr);
 	this->notifyTabbedPane = true;
 	setOpaque(false);
 }
@@ -115,27 +65,21 @@ void BasicTabbedPaneUI$TabContainer::remove($Component* comp) {
 }
 
 void BasicTabbedPaneUI$TabContainer::removeUnusedTabComponents() {
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($ComponentArray, arr$, getComponents());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
-			$var($Component, c, arr$->get(i$));
-			{
-				if (!($instanceOf($UIResource, c))) {
-					int32_t index = $nc(this->this$0->tabPane)->indexOfTabComponent(c);
-					if (index == -1) {
-						$JPanel::remove(c);
-					}
-				}
+	$useLocalObjectStack();
+	$var($ComponentArray, arr$, getComponents());
+	for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+		$var($Component, c, arr$->get(i$));
+		if (!($instanceOf($UIResource, c))) {
+			int32_t index = $nc(this->this$0->tabPane)->indexOfTabComponent(c);
+			if (index == -1) {
+				$JPanel::remove(c);
 			}
 		}
 	}
 }
 
 bool BasicTabbedPaneUI$TabContainer::isOptimizedDrawingEnabled() {
-	return this->this$0->tabScroller != nullptr && !$nc($nc(this->this$0->tabScroller)->croppedEdge)->isParamsSet();
+	return this->this$0->tabScroller != nullptr && !$nc(this->this$0->tabScroller->croppedEdge)->isParamsSet();
 }
 
 void BasicTabbedPaneUI$TabContainer::doLayout() {
@@ -151,7 +95,46 @@ BasicTabbedPaneUI$TabContainer::BasicTabbedPaneUI$TabContainer() {
 }
 
 $Class* BasicTabbedPaneUI$TabContainer::load$($String* name, bool initialize) {
-	$loadClass(BasicTabbedPaneUI$TabContainer, name, initialize, &_BasicTabbedPaneUI$TabContainer_ClassInfo_, allocate$BasicTabbedPaneUI$TabContainer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicTabbedPaneUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicTabbedPaneUI$TabContainer, this$0)},
+		{"notifyTabbedPane", "Z", nullptr, $PRIVATE, $field(BasicTabbedPaneUI$TabContainer, notifyTabbedPane)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicTabbedPaneUI;)V", nullptr, $PUBLIC, $method(BasicTabbedPaneUI$TabContainer, init$, void, $BasicTabbedPaneUI*)},
+		{"doLayout", "()V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabContainer, doLayout, void)},
+		{"isOptimizedDrawingEnabled", "()Z", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabContainer, isOptimizedDrawingEnabled, bool)},
+		{"remove", "(Ljava/awt/Component;)V", nullptr, $PUBLIC, $virtualMethod(BasicTabbedPaneUI$TabContainer, remove, void, $Component*)},
+		{"removeUnusedTabComponents", "()V", nullptr, $PRIVATE, $method(BasicTabbedPaneUI$TabContainer, removeUnusedTabComponents, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicTabbedPaneUI$TabContainer", "javax.swing.plaf.basic.BasicTabbedPaneUI", "TabContainer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI$TabContainer",
+		"javax.swing.JPanel",
+		"javax.swing.plaf.UIResource",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicTabbedPaneUI"
+	};
+	$loadClass(BasicTabbedPaneUI$TabContainer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicTabbedPaneUI$TabContainer));
+	});
 	return class$;
 }
 

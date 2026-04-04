@@ -29,7 +29,7 @@ public:
 	$bytes* locBytes = nullptr;
 	int32_t hash = 0;
 	::java::io::ObjectInputFilter* objectInputFilter = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0x7CBD1E97ED63FC3E;
+	static const int64_t serialVersionUID = (int64_t)0x7cbd1e97ed63fc3e;
 };
 
 	} // rmi

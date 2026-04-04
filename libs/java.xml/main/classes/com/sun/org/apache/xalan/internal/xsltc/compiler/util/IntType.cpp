@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/IntType.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
@@ -109,7 +108,6 @@ using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $1Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
-using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $BooleanType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::BooleanType;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
@@ -138,50 +136,6 @@ namespace com {
 						namespace xsltc {
 							namespace compiler {
 								namespace util {
-
-$MethodInfo _IntType_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PROTECTED, $method(IntType, init$, void)},
-	{"ADD", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, ADD, $Instruction*)},
-	{"DIV", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, DIV, $Instruction*)},
-	{"GE", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(IntType, GE, $BranchInstruction*, bool)},
-	{"GT", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(IntType, GT, $BranchInstruction*, bool)},
-	{"LE", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(IntType, LE, $BranchInstruction*, bool)},
-	{"LOAD", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, LOAD, $Instruction*, int32_t)},
-	{"LT", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(IntType, LT, $BranchInstruction*, bool)},
-	{"MUL", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, MUL, $Instruction*)},
-	{"NEG", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, NEG, $Instruction*)},
-	{"REM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, REM, $Instruction*)},
-	{"STORE", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, STORE, $Instruction*, int32_t)},
-	{"SUB", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, SUB, $Instruction*)},
-	{"distanceTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)I", nullptr, $PUBLIC, $virtualMethod(IntType, distanceTo, int32_t, $Type*)},
-	{"identicalTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)Z", nullptr, $PUBLIC, $virtualMethod(IntType, identicalTo, bool, $Type*)},
-	{"toJCType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(IntType, toJCType, $1Type*)},
-	{"toSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntType, toSignature, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntType, toString, $String*)},
-	{"translateBox", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(IntType, translateBox, void, $ClassGenerator*, $MethodGenerator*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)V", nullptr, $PUBLIC, $virtualMethod(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $Type*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/RealType;)V", nullptr, $PUBLIC, $method(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $RealType*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/StringType;)V", nullptr, $PUBLIC, $method(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $StringType*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/BooleanType;)V", nullptr, $PUBLIC, $method(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $BooleanType*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ReferenceType;)V", nullptr, $PUBLIC, $method(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $ReferenceType*)},
-	{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $Class*)},
-	{"translateToDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/BooleanType;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC, $virtualMethod(IntType, translateToDesynthesized, $FlowList*, $ClassGenerator*, $MethodGenerator*, $BooleanType*)},
-	{"translateUnBox", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(IntType, translateUnBox, void, $ClassGenerator*, $MethodGenerator*)},
-	{}
-};
-
-$ClassInfo _IntType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.IntType",
-	"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NumberType",
-	nullptr,
-	nullptr,
-	_IntType_MethodInfo_
-};
-
-$Object* allocate$IntType($Class* clazz) {
-	return $of($alloc(IntType));
-}
 
 void IntType::init$() {
 	$NumberType::init$();
@@ -218,128 +172,101 @@ int32_t IntType::distanceTo($Type* type) {
 }
 
 void IntType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $Type* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($Type);
 	if (type == $Type::Real) {
 		translateTo(classGen, methodGen, $cast($RealType, type));
+	} else if (type == $Type::String) {
+		translateTo(classGen, methodGen, $cast($StringType, type));
+	} else if (type == $Type::Boolean) {
+		translateTo(classGen, methodGen, $cast($BooleanType, type));
+	} else if (type == $Type::Reference) {
+		translateTo(classGen, methodGen, $cast($ReferenceType, type));
 	} else {
-		if (type == $Type::String) {
-			translateTo(classGen, methodGen, $cast($StringType, type));
-		} else {
-			if (type == $Type::Boolean) {
-				translateTo(classGen, methodGen, $cast($BooleanType, type));
-			} else {
-				if (type == $Type::Reference) {
-					translateTo(classGen, methodGen, $cast($ReferenceType, type));
-				} else {
-					$init($ErrorMsg);
-					$var($String, var$0, $ErrorMsg::DATA_CONVERSION_ERR);
-					$var($Object, var$1, $of(toString()));
-					$var($ErrorMsg, err, $new($ErrorMsg, var$0, var$1, $($of($nc(type)->toString()))));
-					$nc($($nc(classGen)->getParser()))->reportError($Constants::FATAL, err);
-				}
-			}
-		}
+		$init($ErrorMsg);
+		$var($String, var$0, $ErrorMsg::DATA_CONVERSION_ERR);
+		$var($Object, var$1, toString());
+		$var($ErrorMsg, err, $new($ErrorMsg, var$0, var$1, $($nc(type)->toString())));
+		$$nc($nc(classGen)->getParser())->reportError($Constants::FATAL, err);
 	}
 }
 
 void IntType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $RealType* type) {
 	$init($Constants);
-	$nc($($nc(methodGen)->getInstructionList()))->append(static_cast<$Instruction*>($Constants::I2D));
+	$$nc($nc(methodGen)->getInstructionList())->append($Constants::I2D);
 }
 
 void IntType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $StringType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($$new($INVOKESTATIC, $nc(cpg)->addMethodref($Constants::INTEGER_CLASS, "toString"_s, $$str({"(I)"_s, $Constants::STRING_SIG})))));
+	$nc(il)->append($$new($INVOKESTATIC, $nc(cpg)->addMethodref($Constants::INTEGER_CLASS, "toString"_s, $$str({"(I)"_s, $Constants::STRING_SIG}))));
 }
 
 void IntType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $BooleanType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$var($BranchHandle, falsec, $nc(il)->append(static_cast<$BranchInstruction*>($$new($IFEQ, nullptr))));
+	$var($BranchHandle, falsec, $nc(il)->append($$new($IFEQ, nullptr)));
 	$init($Constants);
 	il->append($Constants::ICONST_1);
-	$var($BranchHandle, truec, il->append(static_cast<$BranchInstruction*>($$new($GOTO, nullptr))));
+	$var($BranchHandle, truec, il->append($$new($GOTO, nullptr)));
 	$nc(falsec)->setTarget($(il->append($Constants::ICONST_0)));
 	$nc(truec)->setTarget($(il->append($Constants::NOP)));
 }
 
 $FlowList* IntType::translateToDesynthesized($ClassGenerator* classGen, $MethodGenerator* methodGen, $BooleanType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	return $new($FlowList, $(static_cast<$InstructionHandle*>($nc(il)->append(static_cast<$BranchInstruction*>($$new($IFEQ, nullptr))))));
+	return $new($FlowList, $($nc(il)->append($$new($IFEQ, nullptr))));
 }
 
 void IntType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $ReferenceType* type) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($$new($NEW, $nc(cpg)->addClass($Constants::INTEGER_CLASS))));
-	il->append(static_cast<$Instruction*>($Constants::DUP_X1));
-	il->append(static_cast<$Instruction*>($Constants::SWAP));
-	il->append(static_cast<$Instruction*>($$new($INVOKESPECIAL, $nc(cpg)->addMethodref($Constants::INTEGER_CLASS, "<init>"_s, "(I)V"_s))));
+	$nc(il)->append($$new($NEW, $nc(cpg)->addClass($Constants::INTEGER_CLASS)));
+	il->append($Constants::DUP_X1);
+	il->append($Constants::SWAP);
+	il->append($$new($INVOKESPECIAL, cpg->addMethodref($Constants::INTEGER_CLASS, "<init>"_s, "(I)V"_s)));
 }
 
 void IntType::translateTo($ClassGenerator* classGen, $MethodGenerator* methodGen, $Class* clazz) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
-	$init($Character);
 	if (clazz == $Character::TYPE) {
 		$init($Constants);
-		$nc(il)->append(static_cast<$Instruction*>($Constants::I2C));
+		$nc(il)->append($Constants::I2C);
+	} else if (clazz == $Byte::TYPE) {
+		$init($Constants);
+		$nc(il)->append($Constants::I2B);
+	} else if (clazz == $Short::TYPE) {
+		$init($Constants);
+		$nc(il)->append($Constants::I2S);
+	} else if (clazz == $Integer::TYPE) {
+		$init($Constants);
+		$nc(il)->append($Constants::NOP);
+	} else if (clazz == $Long::TYPE) {
+		$init($Constants);
+		$nc(il)->append($Constants::I2L);
+	} else if (clazz == $Float::TYPE) {
+		$init($Constants);
+		$nc(il)->append($Constants::I2F);
+	} else if (clazz == $Double::TYPE) {
+		$init($Constants);
+		$nc(il)->append($Constants::I2D);
+	} else if ($nc(clazz)->isAssignableFrom($Double::class$)) {
+		$init($Constants);
+		$nc(il)->append($Constants::I2D);
+		$init($Type);
+		$nc($Type::Real)->translateTo(classGen, methodGen, $Type::Reference);
 	} else {
-		$init($Byte);
-		if (clazz == $Byte::TYPE) {
-			$init($Constants);
-			$nc(il)->append(static_cast<$Instruction*>($Constants::I2B));
-		} else {
-			$init($Short);
-			if (clazz == $Short::TYPE) {
-				$init($Constants);
-				$nc(il)->append(static_cast<$Instruction*>($Constants::I2S));
-			} else {
-				$init($Integer);
-				if (clazz == $Integer::TYPE) {
-					$init($Constants);
-					$nc(il)->append($Constants::NOP);
-				} else {
-					$init($Long);
-					if (clazz == $Long::TYPE) {
-						$init($Constants);
-						$nc(il)->append(static_cast<$Instruction*>($Constants::I2L));
-					} else {
-						$init($Float);
-						if (clazz == $Float::TYPE) {
-							$init($Constants);
-							$nc(il)->append(static_cast<$Instruction*>($Constants::I2F));
-						} else {
-							$init($Double);
-							if (clazz == $Double::TYPE) {
-								$init($Constants);
-								$nc(il)->append(static_cast<$Instruction*>($Constants::I2D));
-							} else {
-								if ($nc(clazz)->isAssignableFrom($Double::class$)) {
-									$init($Constants);
-									$nc(il)->append(static_cast<$Instruction*>($Constants::I2D));
-									$init($Type);
-									$nc($Type::Real)->translateTo(classGen, methodGen, $Type::Reference);
-								} else {
-									$init($ErrorMsg);
-									$var($String, var$0, $ErrorMsg::DATA_CONVERSION_ERR);
-									$var($Object, var$1, $of(toString()));
-									$var($ErrorMsg, err, $new($ErrorMsg, var$0, var$1, $($of(clazz->getName()))));
-									$nc($($nc(classGen)->getParser()))->reportError($Constants::FATAL, err);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
+		$init($ErrorMsg);
+		$var($String, var$0, $ErrorMsg::DATA_CONVERSION_ERR);
+		$var($Object, var$1, toString());
+		$var($ErrorMsg, err, $new($ErrorMsg, var$0, var$1, $(clazz->getName())));
+		$$nc($nc(classGen)->getParser())->reportError($Constants::FATAL, err);
 	}
 }
 
@@ -349,13 +276,13 @@ void IntType::translateBox($ClassGenerator* classGen, $MethodGenerator* methodGe
 }
 
 void IntType::translateUnBox($ClassGenerator* classGen, $MethodGenerator* methodGen) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ConstantPoolGen, cpg, $nc(classGen)->getConstantPool());
 	$var($InstructionList, il, $nc(methodGen)->getInstructionList());
 	$init($Constants);
-	$nc(il)->append(static_cast<$Instruction*>($$new($CHECKCAST, $nc(cpg)->addClass($Constants::INTEGER_CLASS))));
-	int32_t index = $nc(cpg)->addMethodref($Constants::INTEGER_CLASS, $Constants::INT_VALUE, $Constants::INT_VALUE_SIG);
-	il->append(static_cast<$Instruction*>($$new($INVOKEVIRTUAL, index)));
+	$nc(il)->append($$new($CHECKCAST, $nc(cpg)->addClass($Constants::INTEGER_CLASS)));
+	int32_t index = cpg->addMethodref($Constants::INTEGER_CLASS, $Constants::INT_VALUE, $Constants::INT_VALUE_SIG);
+	il->append($$new($INVOKEVIRTUAL, index));
 }
 
 $Instruction* IntType::ADD() {
@@ -397,26 +324,66 @@ $Instruction* IntType::STORE(int32_t slot) {
 }
 
 $BranchInstruction* IntType::GT(bool tozero) {
-	return tozero ? static_cast<$BranchInstruction*>($new($IFGT, nullptr)) : static_cast<$BranchInstruction*>($new($IF_ICMPGT, nullptr));
+	return tozero ? $cast($BranchInstruction, $new($IFGT, nullptr)) : $cast($BranchInstruction, $new($IF_ICMPGT, nullptr));
 }
 
 $BranchInstruction* IntType::GE(bool tozero) {
-	return tozero ? static_cast<$BranchInstruction*>($new($IFGE, nullptr)) : static_cast<$BranchInstruction*>($new($IF_ICMPGE, nullptr));
+	return tozero ? $cast($BranchInstruction, $new($IFGE, nullptr)) : $cast($BranchInstruction, $new($IF_ICMPGE, nullptr));
 }
 
 $BranchInstruction* IntType::LT(bool tozero) {
-	return tozero ? static_cast<$BranchInstruction*>($new($IFLT, nullptr)) : static_cast<$BranchInstruction*>($new($IF_ICMPLT, nullptr));
+	return tozero ? $cast($BranchInstruction, $new($IFLT, nullptr)) : $cast($BranchInstruction, $new($IF_ICMPLT, nullptr));
 }
 
 $BranchInstruction* IntType::LE(bool tozero) {
-	return tozero ? static_cast<$BranchInstruction*>($new($IFLE, nullptr)) : static_cast<$BranchInstruction*>($new($IF_ICMPLE, nullptr));
+	return tozero ? $cast($BranchInstruction, $new($IFLE, nullptr)) : $cast($BranchInstruction, $new($IF_ICMPLE, nullptr));
 }
 
 IntType::IntType() {
 }
 
 $Class* IntType::load$($String* name, bool initialize) {
-	$loadClass(IntType, name, initialize, &_IntType_ClassInfo_, allocate$IntType);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PROTECTED, $method(IntType, init$, void)},
+		{"ADD", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, ADD, $Instruction*)},
+		{"DIV", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, DIV, $Instruction*)},
+		{"GE", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(IntType, GE, $BranchInstruction*, bool)},
+		{"GT", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(IntType, GT, $BranchInstruction*, bool)},
+		{"LE", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(IntType, LE, $BranchInstruction*, bool)},
+		{"LOAD", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, LOAD, $Instruction*, int32_t)},
+		{"LT", "(Z)Lcom/sun/org/apache/bcel/internal/generic/BranchInstruction;", nullptr, $PUBLIC, $virtualMethod(IntType, LT, $BranchInstruction*, bool)},
+		{"MUL", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, MUL, $Instruction*)},
+		{"NEG", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, NEG, $Instruction*)},
+		{"REM", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, REM, $Instruction*)},
+		{"STORE", "(I)Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, STORE, $Instruction*, int32_t)},
+		{"SUB", "()Lcom/sun/org/apache/bcel/internal/generic/Instruction;", nullptr, $PUBLIC, $virtualMethod(IntType, SUB, $Instruction*)},
+		{"distanceTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)I", nullptr, $PUBLIC, $virtualMethod(IntType, distanceTo, int32_t, $Type*)},
+		{"identicalTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)Z", nullptr, $PUBLIC, $virtualMethod(IntType, identicalTo, bool, $Type*)},
+		{"toJCType", "()Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(IntType, toJCType, $1Type*)},
+		{"toSignature", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntType, toSignature, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(IntType, toString, $String*)},
+		{"translateBox", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(IntType, translateBox, void, $ClassGenerator*, $MethodGenerator*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/Type;)V", nullptr, $PUBLIC, $virtualMethod(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $Type*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/RealType;)V", nullptr, $PUBLIC, $method(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $RealType*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/StringType;)V", nullptr, $PUBLIC, $method(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $StringType*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/BooleanType;)V", nullptr, $PUBLIC, $method(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $BooleanType*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ReferenceType;)V", nullptr, $PUBLIC, $method(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $ReferenceType*)},
+		{"translateTo", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class;)V", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Ljava/lang/Class<*>;)V", $PUBLIC, $virtualMethod(IntType, translateTo, void, $ClassGenerator*, $MethodGenerator*, $Class*)},
+		{"translateToDesynthesized", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/BooleanType;)Lcom/sun/org/apache/xalan/internal/xsltc/compiler/FlowList;", nullptr, $PUBLIC, $virtualMethod(IntType, translateToDesynthesized, $FlowList*, $ClassGenerator*, $MethodGenerator*, $BooleanType*)},
+		{"translateUnBox", "(Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator;Lcom/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator;)V", nullptr, $PUBLIC, $virtualMethod(IntType, translateUnBox, void, $ClassGenerator*, $MethodGenerator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.IntType",
+		"com.sun.org.apache.xalan.internal.xsltc.compiler.util.NumberType",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(IntType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(IntType);
+	});
 	return class$;
 }
 

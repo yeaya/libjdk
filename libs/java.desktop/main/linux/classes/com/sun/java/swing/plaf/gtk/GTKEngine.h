@@ -85,6 +85,7 @@ class GTKEngine : public ::java::lang::Object {
 	$class(GTKEngine, 0, ::java::lang::Object)
 public:
 	GTKEngine();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual ::java::awt::image::BufferedImage* finishPainting();
 	virtual ::java::awt::image::BufferedImage* finishPainting(bool useCache);

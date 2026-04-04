@@ -1,5 +1,4 @@
 #include <java/awt/ContainerOrderFocusTraversalPolicy.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FocusTraversalPolicy.h>
@@ -32,53 +31,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _ContainerOrderFocusTraversalPolicy_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ContainerOrderFocusTraversalPolicy, log)},
-	{"FORWARD_TRAVERSAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ContainerOrderFocusTraversalPolicy, FORWARD_TRAVERSAL)},
-	{"BACKWARD_TRAVERSAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ContainerOrderFocusTraversalPolicy, BACKWARD_TRAVERSAL)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ContainerOrderFocusTraversalPolicy, serialVersionUID)},
-	{"implicitDownCycleTraversal", "Z", nullptr, $PRIVATE, $field(ContainerOrderFocusTraversalPolicy, implicitDownCycleTraversal)},
-	{"cachedRoot", "Ljava/awt/Container;", nullptr, $PRIVATE | $TRANSIENT, $field(ContainerOrderFocusTraversalPolicy, cachedRoot)},
-	{"cachedCycle", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE | $TRANSIENT, $field(ContainerOrderFocusTraversalPolicy, cachedCycle)},
-	{}
-};
-
-$MethodInfo _ContainerOrderFocusTraversalPolicy_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ContainerOrderFocusTraversalPolicy, init$, void)},
-	{"accept", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(ContainerOrderFocusTraversalPolicy, accept, bool, $Component*)},
-	{"enumerateCycle", "(Ljava/awt/Container;Ljava/util/List;)V", "(Ljava/awt/Container;Ljava/util/List<Ljava/awt/Component;>;)V", $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, enumerateCycle, void, $Container*, $List*)},
-	{"getComponentAfter", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getComponentAfter, $Component*, $Container*, $Component*)},
-	{"getComponentBefore", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getComponentBefore, $Component*, $Container*, $Component*)},
-	{"getComponentDownCycle", "(Ljava/awt/Component;I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, getComponentDownCycle, $Component*, $Component*, int32_t)},
-	{"getComponentIndex", "(Ljava/util/List;Ljava/awt/Component;)I", "(Ljava/util/List<Ljava/awt/Component;>;Ljava/awt/Component;)I", $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, getComponentIndex, int32_t, $List*, $Component*)},
-	{"getDefaultComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getDefaultComponent, $Component*, $Container*)},
-	{"getFirstComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getFirstComponent, $Component*, $Container*)},
-	{"getFocusTraversalCycle", "(Ljava/awt/Container;)Ljava/util/List;", "(Ljava/awt/Container;)Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, getFocusTraversalCycle, $List*, $Container*)},
-	{"getImplicitDownCycleTraversal", "()Z", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getImplicitDownCycleTraversal, bool)},
-	{"getLastComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getLastComponent, $Component*, $Container*)},
-	{"getTopmostProvider", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, getTopmostProvider, $Container*, $Container*, $Component*)},
-	{"setImplicitDownCycleTraversal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, setImplicitDownCycleTraversal, void, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ContainerOrderFocusTraversalPolicy_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.ContainerOrderFocusTraversalPolicy",
-	"java.awt.FocusTraversalPolicy",
-	"java.io.Serializable",
-	_ContainerOrderFocusTraversalPolicy_FieldInfo_,
-	_ContainerOrderFocusTraversalPolicy_MethodInfo_
-};
-
-$Object* allocate$ContainerOrderFocusTraversalPolicy($Class* clazz) {
-	return $of($alloc(ContainerOrderFocusTraversalPolicy));
-}
 
 int32_t ContainerOrderFocusTraversalPolicy::hashCode() {
 	 return this->$FocusTraversalPolicy::hashCode();
@@ -118,18 +70,18 @@ int32_t ContainerOrderFocusTraversalPolicy::getComponentIndex($List* cycle, $Com
 }
 
 void ContainerOrderFocusTraversalPolicy::enumerateCycle($Container* container, $List* cycle) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(container)->isVisible();
 	if (!(var$0 && container->isDisplayable())) {
 		return;
 	}
 	$nc(cycle)->add(container);
-	$var($ComponentArray, components, $nc(container)->getComponents());
+	$var($ComponentArray, components, container->getComponents());
 	for (int32_t i = 0; i < $nc(components)->length; ++i) {
 		$var($Component, comp, components->get(i));
 		if ($instanceOf($Container, comp)) {
 			$var($Container, cont, $cast($Container, comp));
-			bool var$1 = !$nc(cont)->isFocusCycleRoot();
+			bool var$1 = !cont->isFocusCycleRoot();
 			if (var$1 && !cont->isFocusTraversalPolicyProvider()) {
 				enumerateCycle(cont, cycle);
 				continue;
@@ -140,7 +92,7 @@ void ContainerOrderFocusTraversalPolicy::enumerateCycle($Container* container, $
 }
 
 $Container* ContainerOrderFocusTraversalPolicy::getTopmostProvider($Container* focusCycleRoot, $Component* aComponent) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Container, aCont, $nc(aComponent)->getParent());
 	$var($Container, ftp, nullptr);
 	while (aCont != focusCycleRoot && aCont != nullptr) {
@@ -156,25 +108,25 @@ $Container* ContainerOrderFocusTraversalPolicy::getTopmostProvider($Container* f
 }
 
 $Component* ContainerOrderFocusTraversalPolicy::getComponentDownCycle($Component* comp, int32_t traversalDirection) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, retComp, nullptr);
 	if ($instanceOf($Container, comp)) {
 		$var($Container, cont, $cast($Container, comp));
-		if ($nc(cont)->isFocusCycleRoot()) {
+		if (cont->isFocusCycleRoot()) {
 			if (getImplicitDownCycleTraversal()) {
-				$assign(retComp, $nc($(cont->getFocusTraversalPolicy()))->getDefaultComponent(cont));
+				$assign(retComp, $$nc(cont->getFocusTraversalPolicy())->getDefaultComponent(cont));
 				$init($PlatformLogger$Level);
 				if (retComp != nullptr && $nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Transferred focus down-cycle to "_s, retComp, " in the focus cycle root "_s, cont}));
+					ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Transferred focus down-cycle to "_s, retComp, " in the focus cycle root "_s, cont}));
 				}
 			} else {
 				return nullptr;
 			}
 		} else if (cont->isFocusTraversalPolicyProvider()) {
-			$assign(retComp, traversalDirection == ContainerOrderFocusTraversalPolicy::FORWARD_TRAVERSAL ? $nc($(cont->getFocusTraversalPolicy()))->getDefaultComponent(cont) : $nc($(cont->getFocusTraversalPolicy()))->getLastComponent(cont));
+			$assign(retComp, traversalDirection == ContainerOrderFocusTraversalPolicy::FORWARD_TRAVERSAL ? $$nc(cont->getFocusTraversalPolicy())->getDefaultComponent(cont) : $$nc(cont->getFocusTraversalPolicy())->getLastComponent(cont));
 			$init($PlatformLogger$Level);
 			if (retComp != nullptr && $nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Transferred focus to "_s, retComp, " in the FTP provider "_s, cont}));
+				ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Transferred focus to "_s, retComp, " in the FTP provider "_s, cont}));
 			}
 		}
 	}
@@ -182,11 +134,11 @@ $Component* ContainerOrderFocusTraversalPolicy::getComponentDownCycle($Component
 }
 
 $Component* ContainerOrderFocusTraversalPolicy::getComponentAfter($Container* aContainer, $Component* aComponent$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, aComponent, aComponent$renamed);
 	$init($PlatformLogger$Level);
 	if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Searching in "_s, aContainer, " for component after "_s, aComponent}));
+		ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Searching in "_s, aContainer, " for component after "_s, aComponent}));
 	}
 	if (aContainer == nullptr || aComponent == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer and aComponent cannot be null"_s);
@@ -195,14 +147,14 @@ $Component* ContainerOrderFocusTraversalPolicy::getComponentAfter($Container* aC
 	if (var$0 && !aContainer->isFocusCycleRoot()) {
 		$throwNew($IllegalArgumentException, "aContainer should be focus cycle root or focus traversal policy provider"_s);
 	} else {
-		bool var$2 = aContainer->isFocusCycleRoot();
-		if (var$2 && !$nc(aComponent)->isFocusCycleRoot(aContainer)) {
+		bool var$1 = aContainer->isFocusCycleRoot();
+		if (var$1 && !$nc(aComponent)->isFocusCycleRoot(aContainer)) {
 			$throwNew($IllegalArgumentException, "aContainer is not a focus cycle root of aComponent"_s);
 		}
 	}
-	$synchronized($nc(aContainer)->getTreeLock()) {
-		bool var$3 = aContainer->isVisible();
-		if (!(var$3 && aContainer->isDisplayable())) {
+	$synchronized(aContainer->getTreeLock()) {
+		bool var$2 = aContainer->isVisible();
+		if (!(var$2 && aContainer->isDisplayable())) {
 			return nullptr;
 		}
 		$var($Component, comp, getComponentDownCycle(aComponent, ContainerOrderFocusTraversalPolicy::FORWARD_TRAVERSAL));
@@ -211,27 +163,27 @@ $Component* ContainerOrderFocusTraversalPolicy::getComponentAfter($Container* aC
 		}
 		$var($Container, provider, getTopmostProvider(aContainer, aComponent));
 		if (provider != nullptr) {
-			if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Asking FTP "_s, provider, " for component after "_s, aComponent}));
+			if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+				ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Asking FTP "_s, provider, " for component after "_s, aComponent}));
 			}
 			$var($FocusTraversalPolicy, policy, provider->getFocusTraversalPolicy());
 			$var($Component, afterComp, $nc(policy)->getComponentAfter(provider, aComponent));
 			if (afterComp != nullptr) {
-				if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### FTP returned "_s, afterComp}));
+				if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+					ContainerOrderFocusTraversalPolicy::log->fine($$str({"### FTP returned "_s, afterComp}));
 				}
 				return afterComp;
 			}
 			$assign(aComponent, provider);
 		}
 		$var($List, cycle, getFocusTraversalCycle(aContainer));
-		if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Cycle is "_s, cycle, ", component is "_s, aComponent}));
+		if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+			ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Cycle is "_s, cycle, ", component is "_s, aComponent}));
 		}
 		int32_t index = getComponentIndex(cycle, aComponent);
 		if (index < 0) {
-			if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Didn\'t find component "_s, aComponent, " in a cycle "_s, aContainer}));
+			if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+				ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Didn\'t find component "_s, aComponent, " in a cycle "_s, aContainer}));
 			}
 			return getFirstComponent(aContainer);
 		}
@@ -256,7 +208,7 @@ $Component* ContainerOrderFocusTraversalPolicy::getComponentAfter($Container* aC
 }
 
 $Component* ContainerOrderFocusTraversalPolicy::getComponentBefore($Container* aContainer, $Component* aComponent$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Component, aComponent, aComponent$renamed);
 	if (aContainer == nullptr || aComponent == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer and aComponent cannot be null"_s);
@@ -265,27 +217,27 @@ $Component* ContainerOrderFocusTraversalPolicy::getComponentBefore($Container* a
 	if (var$0 && !aContainer->isFocusCycleRoot()) {
 		$throwNew($IllegalArgumentException, "aContainer should be focus cycle root or focus traversal policy provider"_s);
 	} else {
-		bool var$2 = aContainer->isFocusCycleRoot();
-		if (var$2 && !$nc(aComponent)->isFocusCycleRoot(aContainer)) {
+		bool var$1 = aContainer->isFocusCycleRoot();
+		if (var$1 && !$nc(aComponent)->isFocusCycleRoot(aContainer)) {
 			$throwNew($IllegalArgumentException, "aContainer is not a focus cycle root of aComponent"_s);
 		}
 	}
-	$synchronized($nc(aContainer)->getTreeLock()) {
-		bool var$3 = aContainer->isVisible();
-		if (!(var$3 && aContainer->isDisplayable())) {
+	$synchronized(aContainer->getTreeLock()) {
+		bool var$2 = aContainer->isVisible();
+		if (!(var$2 && aContainer->isDisplayable())) {
 			return nullptr;
 		}
 		$var($Container, provider, getTopmostProvider(aContainer, aComponent));
 		if (provider != nullptr) {
 			$init($PlatformLogger$Level);
 			if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Asking FTP "_s, provider, " for component after "_s, aComponent}));
+				ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Asking FTP "_s, provider, " for component after "_s, aComponent}));
 			}
 			$var($FocusTraversalPolicy, policy, provider->getFocusTraversalPolicy());
 			$var($Component, beforeComp, $nc(policy)->getComponentBefore(provider, aComponent));
 			if (beforeComp != nullptr) {
-				if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-					$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### FTP returned "_s, beforeComp}));
+				if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+					ContainerOrderFocusTraversalPolicy::log->fine($$str({"### FTP returned "_s, beforeComp}));
 				}
 				return beforeComp;
 			}
@@ -297,12 +249,12 @@ $Component* ContainerOrderFocusTraversalPolicy::getComponentBefore($Container* a
 		$var($List, cycle, getFocusTraversalCycle(aContainer));
 		$init($PlatformLogger$Level);
 		if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Cycle is "_s, cycle, ", component is "_s, aComponent}));
+			ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Cycle is "_s, cycle, ", component is "_s, aComponent}));
 		}
 		int32_t index = getComponentIndex(cycle, aComponent);
 		if (index < 0) {
-			if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Didn\'t find component "_s, aComponent, " in a cycle "_s, aContainer}));
+			if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+				ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Didn\'t find component "_s, aComponent, " in a cycle "_s, aContainer}));
 			}
 			return getLastComponent(aContainer);
 		}
@@ -329,11 +281,11 @@ $Component* ContainerOrderFocusTraversalPolicy::getComponentBefore($Container* a
 }
 
 $Component* ContainerOrderFocusTraversalPolicy::getFirstComponent($Container* aContainer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cycle, nullptr);
 	$init($PlatformLogger$Level);
 	if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Getting first component in "_s, aContainer}));
+		ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Getting first component in "_s, aContainer}));
 	}
 	if (aContainer == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer cannot be null"_s);
@@ -349,24 +301,22 @@ $Component* ContainerOrderFocusTraversalPolicy::getFirstComponent($Container* aC
 			$assign(cycle, getFocusTraversalCycle(aContainer));
 		}
 		if ($nc(cycle)->size() == 0) {
-			if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(ContainerOrderFocusTraversalPolicy::log)->fine("### Cycle is empty"_s);
+			if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+				ContainerOrderFocusTraversalPolicy::log->fine("### Cycle is empty"_s);
 			}
 			return nullptr;
 		}
-		if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Cycle is "_s, cycle}));
+		if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+			ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Cycle is "_s, cycle}));
 		}
 		{
-			$var($Iterator, i$, $nc(cycle)->iterator());
+			$var($Iterator, i$, cycle->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($Component, comp, $cast($Component, i$->next()));
-				{
-					if (accept(comp)) {
-						return comp;
-					} else if (!$equals(comp, aContainer) && ($assign(comp, getComponentDownCycle(comp, ContainerOrderFocusTraversalPolicy::FORWARD_TRAVERSAL))) != nullptr) {
-						return comp;
-					}
+				if (accept(comp)) {
+					return comp;
+				} else if (!$equals(comp, aContainer) && ($assign(comp, getComponentDownCycle(comp, ContainerOrderFocusTraversalPolicy::FORWARD_TRAVERSAL))) != nullptr) {
+					return comp;
 				}
 			}
 		}
@@ -375,11 +325,11 @@ $Component* ContainerOrderFocusTraversalPolicy::getFirstComponent($Container* aC
 }
 
 $Component* ContainerOrderFocusTraversalPolicy::getLastComponent($Container* aContainer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($List, cycle, nullptr);
 	$init($PlatformLogger$Level);
 	if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Getting last component in "_s, aContainer}));
+		ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Getting last component in "_s, aContainer}));
 	}
 	if (aContainer == nullptr) {
 		$throwNew($IllegalArgumentException, "aContainer cannot be null"_s);
@@ -395,22 +345,22 @@ $Component* ContainerOrderFocusTraversalPolicy::getLastComponent($Container* aCo
 			$assign(cycle, getFocusTraversalCycle(aContainer));
 		}
 		if ($nc(cycle)->size() == 0) {
-			if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-				$nc(ContainerOrderFocusTraversalPolicy::log)->fine("### Cycle is empty"_s);
+			if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+				ContainerOrderFocusTraversalPolicy::log->fine("### Cycle is empty"_s);
 			}
 			return nullptr;
 		}
-		if ($nc(ContainerOrderFocusTraversalPolicy::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(ContainerOrderFocusTraversalPolicy::log)->fine($$str({"### Cycle is "_s, cycle}));
+		if (ContainerOrderFocusTraversalPolicy::log->isLoggable($PlatformLogger$Level::FINE)) {
+			ContainerOrderFocusTraversalPolicy::log->fine($$str({"### Cycle is "_s, cycle}));
 		}
-		for (int32_t i = $nc(cycle)->size() - 1; i >= 0; --i) {
+		for (int32_t i = cycle->size() - 1; i >= 0; --i) {
 			$var($Component, comp, $cast($Component, cycle->get(i)));
 			if (accept(comp)) {
 				return comp;
 			} else if ($instanceOf($Container, comp) && !$equals(comp, aContainer)) {
 				$var($Container, cont, $cast($Container, comp));
-				if ($nc(cont)->isFocusTraversalPolicyProvider()) {
-					$var($Component, retComp, $nc($(cont->getFocusTraversalPolicy()))->getLastComponent(cont));
+				if (cont->isFocusTraversalPolicyProvider()) {
+					$var($Component, retComp, $$nc(cont->getFocusTraversalPolicy())->getLastComponent(cont));
 					if (retComp != nullptr) {
 						return retComp;
 					}
@@ -438,23 +388,21 @@ bool ContainerOrderFocusTraversalPolicy::accept($Component* aComponent) {
 		return false;
 	}
 	if (!($instanceOf($Window, aComponent))) {
-		{
-			$var($Container, enableTest, $nc(aComponent)->getParent());
-			for (; enableTest != nullptr; $assign(enableTest, $nc(enableTest)->getParent())) {
-				bool var$0 = enableTest->isEnabled();
-				if (!(var$0 || enableTest->isLightweight())) {
-					return false;
-				}
-				if ($instanceOf($Window, enableTest)) {
-					break;
-				}
+		$var($Container, enableTest, aComponent->getParent());
+		for (; enableTest != nullptr; $assign(enableTest, enableTest->getParent())) {
+			bool var$0 = enableTest->isEnabled();
+			if (!(var$0 || enableTest->isLightweight())) {
+				return false;
+			}
+			if ($instanceOf($Window, enableTest)) {
+				break;
 			}
 		}
 	}
 	return true;
 }
 
-void clinit$ContainerOrderFocusTraversalPolicy($Class* class$) {
+void ContainerOrderFocusTraversalPolicy::clinit$($Class* clazz) {
 	$assignStatic(ContainerOrderFocusTraversalPolicy::log, $PlatformLogger::getLogger("java.awt.ContainerOrderFocusTraversalPolicy"_s));
 }
 
@@ -462,7 +410,49 @@ ContainerOrderFocusTraversalPolicy::ContainerOrderFocusTraversalPolicy() {
 }
 
 $Class* ContainerOrderFocusTraversalPolicy::load$($String* name, bool initialize) {
-	$loadClass(ContainerOrderFocusTraversalPolicy, name, initialize, &_ContainerOrderFocusTraversalPolicy_ClassInfo_, clinit$ContainerOrderFocusTraversalPolicy, allocate$ContainerOrderFocusTraversalPolicy);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(ContainerOrderFocusTraversalPolicy, log)},
+		{"FORWARD_TRAVERSAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ContainerOrderFocusTraversalPolicy, FORWARD_TRAVERSAL)},
+		{"BACKWARD_TRAVERSAL", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ContainerOrderFocusTraversalPolicy, BACKWARD_TRAVERSAL)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ContainerOrderFocusTraversalPolicy, serialVersionUID)},
+		{"implicitDownCycleTraversal", "Z", nullptr, $PRIVATE, $field(ContainerOrderFocusTraversalPolicy, implicitDownCycleTraversal)},
+		{"cachedRoot", "Ljava/awt/Container;", nullptr, $PRIVATE | $TRANSIENT, $field(ContainerOrderFocusTraversalPolicy, cachedRoot)},
+		{"cachedCycle", "Ljava/util/List;", "Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE | $TRANSIENT, $field(ContainerOrderFocusTraversalPolicy, cachedCycle)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ContainerOrderFocusTraversalPolicy, init$, void)},
+		{"accept", "(Ljava/awt/Component;)Z", nullptr, $PROTECTED, $virtualMethod(ContainerOrderFocusTraversalPolicy, accept, bool, $Component*)},
+		{"enumerateCycle", "(Ljava/awt/Container;Ljava/util/List;)V", "(Ljava/awt/Container;Ljava/util/List<Ljava/awt/Component;>;)V", $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, enumerateCycle, void, $Container*, $List*)},
+		{"getComponentAfter", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getComponentAfter, $Component*, $Container*, $Component*)},
+		{"getComponentBefore", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getComponentBefore, $Component*, $Container*, $Component*)},
+		{"getComponentDownCycle", "(Ljava/awt/Component;I)Ljava/awt/Component;", nullptr, $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, getComponentDownCycle, $Component*, $Component*, int32_t)},
+		{"getComponentIndex", "(Ljava/util/List;Ljava/awt/Component;)I", "(Ljava/util/List<Ljava/awt/Component;>;Ljava/awt/Component;)I", $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, getComponentIndex, int32_t, $List*, $Component*)},
+		{"getDefaultComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getDefaultComponent, $Component*, $Container*)},
+		{"getFirstComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getFirstComponent, $Component*, $Container*)},
+		{"getFocusTraversalCycle", "(Ljava/awt/Container;)Ljava/util/List;", "(Ljava/awt/Container;)Ljava/util/List<Ljava/awt/Component;>;", $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, getFocusTraversalCycle, $List*, $Container*)},
+		{"getImplicitDownCycleTraversal", "()Z", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getImplicitDownCycleTraversal, bool)},
+		{"getLastComponent", "(Ljava/awt/Container;)Ljava/awt/Component;", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, getLastComponent, $Component*, $Container*)},
+		{"getTopmostProvider", "(Ljava/awt/Container;Ljava/awt/Component;)Ljava/awt/Container;", nullptr, $PRIVATE, $method(ContainerOrderFocusTraversalPolicy, getTopmostProvider, $Container*, $Container*, $Component*)},
+		{"setImplicitDownCycleTraversal", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ContainerOrderFocusTraversalPolicy, setImplicitDownCycleTraversal, void, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.ContainerOrderFocusTraversalPolicy",
+		"java.awt.FocusTraversalPolicy",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ContainerOrderFocusTraversalPolicy, name, initialize, &classInfo$$, ContainerOrderFocusTraversalPolicy::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ContainerOrderFocusTraversalPolicy));
+	});
 	return class$;
 }
 

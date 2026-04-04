@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$4.h>
-
 #include <com/sun/imageio/plugins/bmp/BMPImageReader.h>
 #include <jcpp.h>
 
@@ -15,43 +14,6 @@ namespace com {
 			namespace plugins {
 				namespace bmp {
 
-$MethodInfo _BMPImageReader$4_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(BMPImageReader$4, init$, void)},
-	{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$4, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _BMPImageReader$4_EnclosingMethodInfo_ = {
-	"com.sun.imageio.plugins.bmp.BMPImageReader",
-	"isLinkedProfileAllowed",
-	"()Z"
-};
-
-$InnerClassInfo _BMPImageReader$4_InnerClassesInfo_[] = {
-	{"com.sun.imageio.plugins.bmp.BMPImageReader$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BMPImageReader$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.imageio.plugins.bmp.BMPImageReader$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_BMPImageReader$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
-	&_BMPImageReader$4_EnclosingMethodInfo_,
-	_BMPImageReader$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.imageio.plugins.bmp.BMPImageReader"
-};
-
-$Object* allocate$BMPImageReader$4($Class* clazz) {
-	return $of($alloc(BMPImageReader$4));
-}
-
 void BMPImageReader$4::init$() {
 }
 
@@ -63,7 +25,38 @@ BMPImageReader$4::BMPImageReader$4() {
 }
 
 $Class* BMPImageReader$4::load$($String* name, bool initialize) {
-	$loadClass(BMPImageReader$4, name, initialize, &_BMPImageReader$4_ClassInfo_, allocate$BMPImageReader$4);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(BMPImageReader$4, init$, void)},
+		{"run", "()Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(BMPImageReader$4, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.imageio.plugins.bmp.BMPImageReader",
+		"isLinkedProfileAllowed",
+		"()Z"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.imageio.plugins.bmp.BMPImageReader$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.imageio.plugins.bmp.BMPImageReader$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Boolean;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.imageio.plugins.bmp.BMPImageReader"
+	};
+	$loadClass(BMPImageReader$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BMPImageReader$4);
+	});
 	return class$;
 }
 

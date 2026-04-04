@@ -1,15 +1,11 @@
 #include <sun/awt/DebugSettings.h>
-
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStream.h>
-#include <java/io/OutputStream.h>
 #include <java/io/StringBufferInputStream.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -35,8 +31,6 @@ using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $IOException = ::java::io::IOException;
-using $InputStream = ::java::io::InputStream;
-using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $StringBufferInputStream = ::java::io::StringBufferInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -45,13 +39,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Properties = ::java::util::Properties;
-using $Set = ::java::util::Set;
 using $DebugSettings$1 = ::sun::awt::DebugSettings$1;
 using $NativeLibLoader = ::sun::awt::NativeLibLoader;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
@@ -59,67 +51,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _DebugSettings_FieldInfo_[] = {
-	{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, log)},
-	{"PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugSettings, PREFIX)},
-	{"PROP_FILE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugSettings, PROP_FILE)},
-	{"DEFAULT_PROPS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, DEFAULT_PROPS)},
-	{"instance", "Lsun/awt/DebugSettings;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, instance)},
-	{"props", "Ljava/util/Properties;", nullptr, $PRIVATE | $FINAL, $field(DebugSettings, props)},
-	{"PROP_CTRACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, PROP_CTRACE)},
-	{"PROP_CTRACE_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, PROP_CTRACE_LEN)},
-	{}
-};
-
-$MethodInfo _DebugSettings_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DebugSettings, init$, void)},
-	{"getBoolean", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DebugSettings, getBoolean, bool, $String*, bool)},
-	{"getInstance", "()Lsun/awt/DebugSettings;", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugSettings, getInstance, DebugSettings*)},
-	{"getInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DebugSettings, getInt, int32_t, $String*, int32_t)},
-	{"getPropertyNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $SYNCHRONIZED, $method(DebugSettings, getPropertyNames, $List*)},
-	{"getString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DebugSettings, getString, $String*, $String*, $String*)},
-	{"init", "()V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(DebugSettings, init, void)},
-	{"loadDefaultProperties", "()V", nullptr, $PRIVATE, $method(DebugSettings, loadDefaultProperties, void)},
-	{"loadFileProperties", "()V", nullptr, $PRIVATE, $method(DebugSettings, loadFileProperties, void)},
-	{"loadNativeSettings", "()V", nullptr, $PRIVATE, $method(DebugSettings, loadNativeSettings, void)},
-	{"loadProperties", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DebugSettings, loadProperties, void)},
-	{"loadSystemProperties", "()V", nullptr, $PRIVATE, $method(DebugSettings, loadSystemProperties, void)},
-	{"println", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(DebugSettings, println, void, Object$*)},
-	{"setCTracingOn", "(Z)V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DebugSettings, setCTracingOn, void, bool)},
-	{"setCTracingOn", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DebugSettings, setCTracingOn, void, bool, $String*)},
-	{"setCTracingOn", "(ZLjava/lang/String;I)V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DebugSettings, setCTracingOn, void, bool, $String*, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DebugSettings, toString, $String*)},
-	{}
-};
-
-#define _METHOD_INDEX_setCTracingOn$13 13
-#define _METHOD_INDEX_setCTracingOn$14 14
-#define _METHOD_INDEX_setCTracingOn$15 15
-
-$InnerClassInfo _DebugSettings_InnerClassesInfo_[] = {
-	{"sun.awt.DebugSettings$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DebugSettings_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.awt.DebugSettings",
-	"java.lang.Object",
-	nullptr,
-	_DebugSettings_FieldInfo_,
-	_DebugSettings_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DebugSettings_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.DebugSettings$1"
-};
-
-$Object* allocate$DebugSettings($Class* clazz) {
-	return $of($alloc(DebugSettings));
-}
 
 $PlatformLogger* DebugSettings::log = nullptr;
 $String* DebugSettings::PREFIX = nullptr;
@@ -134,15 +65,14 @@ void DebugSettings::init$() {
 }
 
 void DebugSettings::init() {
-	$load(DebugSettings);
+	$init(DebugSettings);
 	$synchronized(class$) {
-		$init(DebugSettings);
-		if (!$nc($nc(DebugSettings::instance)->props)->isEmpty()) {
+		if (!$nc(DebugSettings::instance->props)->isEmpty()) {
 			return;
 		}
 		$NativeLibLoader::loadLibraries();
-		$nc(DebugSettings::instance)->loadProperties();
-		$nc(DebugSettings::instance)->loadNativeSettings();
+		DebugSettings::instance->loadProperties();
+		DebugSettings::instance->loadNativeSettings();
 	}
 }
 
@@ -153,26 +83,26 @@ DebugSettings* DebugSettings::getInstance() {
 
 void DebugSettings::loadProperties() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$beforeCallerSensitive();
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($DebugSettings$1, this)));
+		$AccessController::doPrivileged($$new($DebugSettings$1, this));
 		$init($PlatformLogger$Level);
 		if ($nc(DebugSettings::log)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(DebugSettings::log)->fine("DebugSettings:\n{0}"_s, $$new($ObjectArray, {$of(this)}));
+			DebugSettings::log->fine("DebugSettings:\n{0}"_s, $$new($ObjectArray, {this}));
 		}
 	}
 }
 
 $String* DebugSettings::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ByteArrayOutputStream, bout, $new($ByteArrayOutputStream));
-	$var($PrintStream, pout, $new($PrintStream, static_cast<$OutputStream*>(bout)));
+	$var($PrintStream, pout, $new($PrintStream, bout));
 	{
-		$var($Iterator, i$, $nc($($nc(this->props)->stringPropertyNames()))->iterator());
+		$var($Iterator, i$, $$nc(this->props->stringPropertyNames())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, key, $cast($String, i$->next()));
 			{
-				$var($String, value, $nc(this->props)->getProperty(key, ""_s));
+				$var($String, value, this->props->getProperty(key, ""_s));
 				pout->println($$str({key, " = "_s, value}));
 			}
 		}
@@ -181,11 +111,11 @@ $String* DebugSettings::toString() {
 }
 
 void DebugSettings::loadDefaultProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
-		for (int32_t nprop = 0; nprop < $nc(DebugSettings::DEFAULT_PROPS)->length; ++nprop) {
-			$var($StringBufferInputStream, in, $new($StringBufferInputStream, $nc(DebugSettings::DEFAULT_PROPS)->get(nprop)));
-			$nc(this->props)->load(static_cast<$InputStream*>(in));
+		for (int32_t nprop = 0; nprop < DebugSettings::DEFAULT_PROPS->length; ++nprop) {
+			$var($StringBufferInputStream, in, $new($StringBufferInputStream, DebugSettings::DEFAULT_PROPS->get(nprop)));
+			this->props->load(in);
 			in->close();
 		}
 	} catch ($IOException& ioe) {
@@ -193,7 +123,7 @@ void DebugSettings::loadDefaultProperties() {
 }
 
 void DebugSettings::loadFileProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, propPath, nullptr);
 	$var($Properties, fileProps, nullptr);
 	$assign(propPath, $System::getProperty($$str({DebugSettings::PREFIX, "."_s, DebugSettings::PROP_FILE}), ""_s));
@@ -205,7 +135,7 @@ void DebugSettings::loadFileProperties() {
 	try {
 		println($$str({"Reading debug settings from \'"_s, $(propFile->getCanonicalPath()), "\'..."_s}));
 		$var($FileInputStream, fin, $new($FileInputStream, propFile));
-		$nc(this->props)->load(static_cast<$InputStream*>(fin));
+		this->props->load(fin);
 		fin->close();
 	} catch ($FileNotFoundException& fne) {
 		println("Did not find settings file."_s);
@@ -215,16 +145,16 @@ void DebugSettings::loadFileProperties() {
 }
 
 void DebugSettings::loadSystemProperties() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Properties, sysProps, $System::getProperties());
 	{
-		$var($Iterator, i$, $nc($($nc(sysProps)->stringPropertyNames()))->iterator());
+		$var($Iterator, i$, $$nc($nc(sysProps)->stringPropertyNames())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, key, $cast($String, i$->next()));
 			{
 				$var($String, value, sysProps->getProperty(key, ""_s));
 				if ($nc(key)->startsWith(DebugSettings::PREFIX)) {
-					$nc(this->props)->setProperty(key, value);
+					this->props->setProperty(key, value);
 				}
 			}
 		}
@@ -233,7 +163,7 @@ void DebugSettings::loadSystemProperties() {
 
 bool DebugSettings::getBoolean($String* key, bool defval) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, value, getString(key, $($String::valueOf(defval))));
 		return $nc(value)->equalsIgnoreCase("true"_s);
 	}
@@ -241,7 +171,7 @@ bool DebugSettings::getBoolean($String* key, bool defval) {
 
 int32_t DebugSettings::getInt($String* key, int32_t defval) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, value, getString(key, $($String::valueOf(defval))));
 		return $Integer::parseInt(value);
 	}
@@ -249,23 +179,23 @@ int32_t DebugSettings::getInt($String* key, int32_t defval) {
 
 $String* DebugSettings::getString($String* key, $String* defval) {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($String, actualKeyName, $str({DebugSettings::PREFIX, "."_s, key}));
-		$var($String, value, $nc(this->props)->getProperty(actualKeyName, defval));
+		$var($String, value, this->props->getProperty(actualKeyName, defval));
 		return value;
 	}
 }
 
 $List* DebugSettings::getPropertyNames() {
 	$synchronized(this) {
-		$useLocalCurrentObjectStackCache();
+		$useLocalObjectStack();
 		$var($List, propNames, $new($LinkedList));
 		{
-			$var($Iterator, i$, $nc($($nc(this->props)->stringPropertyNames()))->iterator());
+			$var($Iterator, i$, $$nc(this->props->stringPropertyNames())->iterator());
 			for (; $nc(i$)->hasNext();) {
 				$var($String, propName, $cast($String, i$->next()));
 				{
-					$assign(propName, $nc(propName)->substring($nc(DebugSettings::PREFIX)->length() + 1));
+					$assign(propName, $nc(propName)->substring(DebugSettings::PREFIX->length() + 1));
 					propNames->add(propName);
 				}
 			}
@@ -277,36 +207,36 @@ $List* DebugSettings::getPropertyNames() {
 void DebugSettings::println(Object$* object) {
 	$init($PlatformLogger$Level);
 	if ($nc(DebugSettings::log)->isLoggable($PlatformLogger$Level::FINER)) {
-		$nc(DebugSettings::log)->finer($($nc($of(object))->toString()));
+		DebugSettings::log->finer($($nc($of(object))->toString()));
 	}
 }
 
 void DebugSettings::setCTracingOn(bool enabled) {
-	$prepareNative0(_METHOD_INDEX_setCTracingOn$13, DebugSettings, setCTracingOn, void, bool enabled);
+	$prepareNativeEx(setCTracingOn, "(Z)V", void, bool enabled);
 	$invokeNative(enabled);
 	$finishNative();
 }
 
 void DebugSettings::setCTracingOn(bool enabled, $String* file) {
-	$prepareNative0(_METHOD_INDEX_setCTracingOn$14, DebugSettings, setCTracingOn, void, bool enabled, $String* file);
+	$prepareNativeEx(setCTracingOn, "(ZLjava/lang/String;)V", void, bool enabled, $String* file);
 	$invokeNative(enabled, file);
 	$finishNative();
 }
 
 void DebugSettings::setCTracingOn(bool enabled, $String* file, int32_t line) {
-	$prepareNative0(_METHOD_INDEX_setCTracingOn$15, DebugSettings, setCTracingOn, void, bool enabled, $String* file, int32_t line);
+	$prepareNativeEx(setCTracingOn, "(ZLjava/lang/String;I)V", void, bool enabled, $String* file, int32_t line);
 	$invokeNative(enabled, file, line);
 	$finishNative();
 }
 
 void DebugSettings::loadNativeSettings() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool ctracingOn = false;
 	ctracingOn = getBoolean(DebugSettings::PROP_CTRACE, false);
 	setCTracingOn(ctracingOn);
 	$var($List, traces, $new($LinkedList));
 	{
-		$var($Iterator, i$, $nc($(getPropertyNames()))->iterator());
+		$var($Iterator, i$, $$nc(getPropertyNames())->iterator());
 		for (; $nc(i$)->hasNext();) {
 			$var($String, key, $cast($String, i$->next()));
 			{
@@ -326,7 +256,7 @@ void DebugSettings::loadNativeSettings() {
 				$var($String, trace, $nc(key)->substring(DebugSettings::PROP_CTRACE_LEN + 1));
 				$var($String, filespec, nullptr);
 				$var($String, linespec, nullptr);
-				int32_t delim = trace->indexOf((int32_t)u'@');
+				int32_t delim = trace->indexOf(u'@');
 				bool enabled = false;
 				$assign(filespec, delim != -1 ? trace->substring(0, delim) : trace);
 				$assign(linespec, delim != -1 ? trace->substring(delim + 1) : ""_s);
@@ -342,7 +272,7 @@ void DebugSettings::loadNativeSettings() {
 	}
 }
 
-void clinit$DebugSettings($Class* class$) {
+void DebugSettings::clinit$($Class* clazz) {
 	$assignStatic(DebugSettings::PREFIX, "awtdebug"_s);
 	$assignStatic(DebugSettings::PROP_FILE, "properties"_s);
 	$assignStatic(DebugSettings::PROP_CTRACE, "ctrace"_s);
@@ -354,14 +284,65 @@ void clinit$DebugSettings($Class* class$) {
 		"awtdebug.ctrace=false"_s
 	}));
 	$assignStatic(DebugSettings::instance, $new(DebugSettings));
-	DebugSettings::PROP_CTRACE_LEN = $nc(DebugSettings::PROP_CTRACE)->length();
+	DebugSettings::PROP_CTRACE_LEN = DebugSettings::PROP_CTRACE->length();
 }
 
 DebugSettings::DebugSettings() {
 }
 
 $Class* DebugSettings::load$($String* name, bool initialize) {
-	$loadClass(DebugSettings, name, initialize, &_DebugSettings_ClassInfo_, clinit$DebugSettings, allocate$DebugSettings);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, log)},
+		{"PREFIX", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugSettings, PREFIX)},
+		{"PROP_FILE", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(DebugSettings, PROP_FILE)},
+		{"DEFAULT_PROPS", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, DEFAULT_PROPS)},
+		{"instance", "Lsun/awt/DebugSettings;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, instance)},
+		{"props", "Ljava/util/Properties;", nullptr, $PRIVATE | $FINAL, $field(DebugSettings, props)},
+		{"PROP_CTRACE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, PROP_CTRACE)},
+		{"PROP_CTRACE_LEN", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DebugSettings, PROP_CTRACE_LEN)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DebugSettings, init$, void)},
+		{"getBoolean", "(Ljava/lang/String;Z)Z", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DebugSettings, getBoolean, bool, $String*, bool)},
+		{"getInstance", "()Lsun/awt/DebugSettings;", nullptr, $PUBLIC | $STATIC, $staticMethod(DebugSettings, getInstance, DebugSettings*)},
+		{"getInt", "(Ljava/lang/String;I)I", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DebugSettings, getInt, int32_t, $String*, int32_t)},
+		{"getPropertyNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PRIVATE | $SYNCHRONIZED, $method(DebugSettings, getPropertyNames, $List*)},
+		{"getString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC | $SYNCHRONIZED, $method(DebugSettings, getString, $String*, $String*, $String*)},
+		{"init", "()V", nullptr, $STATIC | $SYNCHRONIZED, $staticMethod(DebugSettings, init, void)},
+		{"loadDefaultProperties", "()V", nullptr, $PRIVATE, $method(DebugSettings, loadDefaultProperties, void)},
+		{"loadFileProperties", "()V", nullptr, $PRIVATE, $method(DebugSettings, loadFileProperties, void)},
+		{"loadNativeSettings", "()V", nullptr, $PRIVATE, $method(DebugSettings, loadNativeSettings, void)},
+		{"loadProperties", "()V", nullptr, $PRIVATE | $SYNCHRONIZED, $method(DebugSettings, loadProperties, void)},
+		{"loadSystemProperties", "()V", nullptr, $PRIVATE, $method(DebugSettings, loadSystemProperties, void)},
+		{"println", "(Ljava/lang/Object;)V", nullptr, $PRIVATE, $method(DebugSettings, println, void, Object$*)},
+		{"setCTracingOn", "(Z)V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DebugSettings, setCTracingOn, void, bool)},
+		{"setCTracingOn", "(ZLjava/lang/String;)V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DebugSettings, setCTracingOn, void, bool, $String*)},
+		{"setCTracingOn", "(ZLjava/lang/String;I)V", nullptr, $PRIVATE | $SYNCHRONIZED | $NATIVE, $method(DebugSettings, setCTracingOn, void, bool, $String*, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(DebugSettings, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.DebugSettings$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.awt.DebugSettings",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.DebugSettings$1"
+	};
+	$loadClass(DebugSettings, name, initialize, &classInfo$$, DebugSettings::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(DebugSettings);
+	});
 	return class$;
 }
 

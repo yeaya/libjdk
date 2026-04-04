@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/serializer/dom3/NamespaceSupport.h>
-
 #include <com/sun/org/apache/xml/internal/serializer/dom3/NamespaceSupport$Prefixes.h>
 #include <java/util/Enumeration.h>
 #include <jcpp.h>
@@ -25,57 +24,6 @@ namespace com {
 						namespace serializer {
 							namespace dom3 {
 
-$FieldInfo _NamespaceSupport_FieldInfo_[] = {
-	{"PREFIX_XML", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NamespaceSupport, PREFIX_XML)},
-	{"PREFIX_XMLNS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NamespaceSupport, PREFIX_XMLNS)},
-	{"XML_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamespaceSupport, XML_URI)},
-	{"XMLNS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamespaceSupport, XMLNS_URI)},
-	{"fNamespace", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(NamespaceSupport, fNamespace)},
-	{"fNamespaceSize", "I", nullptr, $PROTECTED, $field(NamespaceSupport, fNamespaceSize)},
-	{"fContext", "[I", nullptr, $PROTECTED, $field(NamespaceSupport, fContext)},
-	{"fCurrentContext", "I", nullptr, $PROTECTED, $field(NamespaceSupport, fCurrentContext)},
-	{"fPrefixes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(NamespaceSupport, fPrefixes)},
-	{}
-};
-
-$MethodInfo _NamespaceSupport_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(NamespaceSupport, init$, void)},
-	{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, declarePrefix, bool, $String*, $String*)},
-	{"getAllPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getAllPrefixes, $Enumeration*)},
-	{"getDeclaredPrefixAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixAt, $String*, int32_t)},
-	{"getDeclaredPrefixCount", "()I", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixCount, int32_t)},
-	{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getPrefix, $String*, $String*)},
-	{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getURI, $String*, $String*)},
-	{"popContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, popContext, void)},
-	{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, pushContext, void)},
-	{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, reset, void)},
-	{}
-};
-
-$InnerClassInfo _NamespaceSupport_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xml.internal.serializer.dom3.NamespaceSupport$Prefixes", "com.sun.org.apache.xml.internal.serializer.dom3.NamespaceSupport", "Prefixes", $PROTECTED | $FINAL},
-	{}
-};
-
-$ClassInfo _NamespaceSupport_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.serializer.dom3.NamespaceSupport",
-	"java.lang.Object",
-	nullptr,
-	_NamespaceSupport_FieldInfo_,
-	_NamespaceSupport_MethodInfo_,
-	nullptr,
-	nullptr,
-	_NamespaceSupport_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xml.internal.serializer.dom3.NamespaceSupport$Prefixes"
-};
-
-$Object* allocate$NamespaceSupport($Class* clazz) {
-	return $of($alloc(NamespaceSupport));
-}
-
 $String* NamespaceSupport::PREFIX_XML = nullptr;
 $String* NamespaceSupport::PREFIX_XMLNS = nullptr;
 $String* NamespaceSupport::XML_URI = nullptr;
@@ -92,19 +40,19 @@ void NamespaceSupport::reset() {
 	this->fCurrentContext = 0;
 	$nc(this->fContext)->set(this->fCurrentContext, this->fNamespaceSize);
 	$nc(this->fNamespace)->set(this->fNamespaceSize++, NamespaceSupport::PREFIX_XML);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, NamespaceSupport::XML_URI);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, NamespaceSupport::PREFIX_XMLNS);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, NamespaceSupport::XMLNS_URI);
+	this->fNamespace->set(this->fNamespaceSize++, NamespaceSupport::XML_URI);
+	this->fNamespace->set(this->fNamespaceSize++, NamespaceSupport::PREFIX_XMLNS);
+	this->fNamespace->set(this->fNamespaceSize++, NamespaceSupport::XMLNS_URI);
 	++this->fCurrentContext;
 }
 
 void NamespaceSupport::pushContext() {
 	if (this->fCurrentContext + 1 == $nc(this->fContext)->length) {
-		$var($ints, contextarray, $new($ints, $nc(this->fContext)->length * 2));
-		$System::arraycopy(this->fContext, 0, contextarray, 0, $nc(this->fContext)->length);
+		$var($ints, contextarray, $new($ints, this->fContext->length * 2));
+		$System::arraycopy(this->fContext, 0, contextarray, 0, this->fContext->length);
 		$set(this, fContext, contextarray);
 	}
-	$nc(this->fContext)->set(++this->fCurrentContext, this->fNamespaceSize);
+	this->fContext->set(++this->fCurrentContext, this->fNamespaceSize);
 }
 
 void NamespaceSupport::popContext() {
@@ -117,7 +65,7 @@ bool NamespaceSupport::declarePrefix($String* prefix, $String* uri) {
 	}
 	for (int32_t i = this->fNamespaceSize; i > $nc(this->fContext)->get(this->fCurrentContext); i -= 2) {
 		if ($nc($nc(this->fNamespace)->get(i - 2))->equals(prefix)) {
-			$nc(this->fNamespace)->set(i - 1, uri);
+			this->fNamespace->set(i - 1, uri);
 			return true;
 		}
 	}
@@ -126,25 +74,25 @@ bool NamespaceSupport::declarePrefix($String* prefix, $String* uri) {
 		$System::arraycopy(this->fNamespace, 0, namespacearray, 0, this->fNamespaceSize);
 		$set(this, fNamespace, namespacearray);
 	}
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, prefix);
-	$nc(this->fNamespace)->set(this->fNamespaceSize++, uri);
+	this->fNamespace->set(this->fNamespaceSize++, prefix);
+	this->fNamespace->set(this->fNamespaceSize++, uri);
 	return true;
 }
 
 $String* NamespaceSupport::getURI($String* prefix) {
 	for (int32_t i = this->fNamespaceSize; i > 0; i -= 2) {
 		if ($nc($nc(this->fNamespace)->get(i - 2))->equals(prefix)) {
-			return $nc(this->fNamespace)->get(i - 1);
+			return this->fNamespace->get(i - 1);
 		}
 	}
 	return nullptr;
 }
 
 $String* NamespaceSupport::getPrefix($String* uri) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = this->fNamespaceSize; i > 0; i -= 2) {
 		if ($nc($nc(this->fNamespace)->get(i - 1))->equals(uri)) {
-			if ($nc($(getURI($nc(this->fNamespace)->get(i - 2))))->equals(uri)) {
+			if ($$nc(getURI(this->fNamespace->get(i - 2)))->equals(uri)) {
 				return $nc(this->fNamespace)->get(i - 2);
 			}
 		}
@@ -161,7 +109,7 @@ $String* NamespaceSupport::getDeclaredPrefixAt(int32_t index) {
 }
 
 $Enumeration* NamespaceSupport::getAllPrefixes() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = 0;
 	if ($nc(this->fPrefixes)->length < ($nc(this->fNamespace)->length / 2)) {
 		$var($StringArray, prefixes, $new($StringArray, this->fNamespaceSize));
@@ -170,22 +118,22 @@ $Enumeration* NamespaceSupport::getAllPrefixes() {
 	$var($String, prefix, nullptr);
 	bool unique = true;
 	for (int32_t i = 2; i < (this->fNamespaceSize - 2); i += 2) {
-		$assign(prefix, $nc(this->fNamespace)->get(i + 2));
+		$assign(prefix, this->fNamespace->get(i + 2));
 		for (int32_t k = 0; k < count; ++k) {
-			if ($nc(this->fPrefixes)->get(k) == prefix) {
+			if (this->fPrefixes->get(k) == prefix) {
 				unique = false;
 				break;
 			}
 		}
 		if (unique) {
-			$nc(this->fPrefixes)->set(count++, prefix);
+			this->fPrefixes->set(count++, prefix);
 		}
 		unique = true;
 	}
 	return $new($NamespaceSupport$Prefixes, this, this->fPrefixes, count);
 }
 
-void clinit$NamespaceSupport($Class* class$) {
+void NamespaceSupport::clinit$($Class* clazz) {
 	$assignStatic(NamespaceSupport::PREFIX_XML, "xml"_s->intern());
 	$assignStatic(NamespaceSupport::PREFIX_XMLNS, "xmlns"_s->intern());
 	$assignStatic(NamespaceSupport::XML_URI, "http://www.w3.org/XML/1998/namespace"_s->intern());
@@ -196,7 +144,52 @@ NamespaceSupport::NamespaceSupport() {
 }
 
 $Class* NamespaceSupport::load$($String* name, bool initialize) {
-	$loadClass(NamespaceSupport, name, initialize, &_NamespaceSupport_ClassInfo_, clinit$NamespaceSupport, allocate$NamespaceSupport);
+	$FieldInfo fieldInfos$$[] = {
+		{"PREFIX_XML", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NamespaceSupport, PREFIX_XML)},
+		{"PREFIX_XMLNS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(NamespaceSupport, PREFIX_XMLNS)},
+		{"XML_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamespaceSupport, XML_URI)},
+		{"XMLNS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(NamespaceSupport, XMLNS_URI)},
+		{"fNamespace", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(NamespaceSupport, fNamespace)},
+		{"fNamespaceSize", "I", nullptr, $PROTECTED, $field(NamespaceSupport, fNamespaceSize)},
+		{"fContext", "[I", nullptr, $PROTECTED, $field(NamespaceSupport, fContext)},
+		{"fCurrentContext", "I", nullptr, $PROTECTED, $field(NamespaceSupport, fCurrentContext)},
+		{"fPrefixes", "[Ljava/lang/String;", nullptr, $PROTECTED, $field(NamespaceSupport, fPrefixes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(NamespaceSupport, init$, void)},
+		{"declarePrefix", "(Ljava/lang/String;Ljava/lang/String;)Z", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, declarePrefix, bool, $String*, $String*)},
+		{"getAllPrefixes", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(NamespaceSupport, getAllPrefixes, $Enumeration*)},
+		{"getDeclaredPrefixAt", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixAt, $String*, int32_t)},
+		{"getDeclaredPrefixCount", "()I", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getDeclaredPrefixCount, int32_t)},
+		{"getPrefix", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getPrefix, $String*, $String*)},
+		{"getURI", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, getURI, $String*, $String*)},
+		{"popContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, popContext, void)},
+		{"pushContext", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, pushContext, void)},
+		{"reset", "()V", nullptr, $PUBLIC, $virtualMethod(NamespaceSupport, reset, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xml.internal.serializer.dom3.NamespaceSupport$Prefixes", "com.sun.org.apache.xml.internal.serializer.dom3.NamespaceSupport", "Prefixes", $PROTECTED | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.serializer.dom3.NamespaceSupport",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xml.internal.serializer.dom3.NamespaceSupport$Prefixes"
+	};
+	$loadClass(NamespaceSupport, name, initialize, &classInfo$$, NamespaceSupport::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(NamespaceSupport);
+	});
 	return class$;
 }
 

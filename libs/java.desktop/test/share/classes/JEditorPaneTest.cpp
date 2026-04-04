@@ -1,13 +1,10 @@
 #include <JEditorPaneTest.h>
-
 #include <JEditorPaneTest$1.h>
 #include <java/awt/Robot.h>
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileWriter.h>
 #include <java/io/IOException.h>
-#include <java/io/Writer.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
@@ -17,50 +14,17 @@ using $BufferedWriter = ::java::io::BufferedWriter;
 using $File = ::java::io::File;
 using $FileWriter = ::java::io::FileWriter;
 using $IOException = ::java::io::IOException;
-using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-
-$MethodInfo _JEditorPaneTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JEditorPaneTest, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPaneTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"writeFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JEditorPaneTest, writeFile, void, $File*)},
-	{}
-};
-
-$InnerClassInfo _JEditorPaneTest_InnerClassesInfo_[] = {
-	{"JEditorPaneTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _JEditorPaneTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JEditorPaneTest",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_JEditorPaneTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_JEditorPaneTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"JEditorPaneTest$1"
-};
-
-$Object* allocate$JEditorPaneTest($Class* clazz) {
-	return $of($alloc(JEditorPaneTest));
-}
 
 void JEditorPaneTest::init$() {
 }
 
 void JEditorPaneTest::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Robot, robot, $new($Robot));
 	try {
 		$var($File, file, $File::createTempFile("Temp_"_s, ".txt"_s));
@@ -78,7 +42,7 @@ void JEditorPaneTest::main($StringArray* args) {
 }
 
 void JEditorPaneTest::writeFile($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($FileWriter, fw, nullptr);
 	try {
 		$assign(fw, $new($FileWriter, $($nc(file)->getAbsoluteFile())));
@@ -94,7 +58,33 @@ JEditorPaneTest::JEditorPaneTest() {
 }
 
 $Class* JEditorPaneTest::load$($String* name, bool initialize) {
-	$loadClass(JEditorPaneTest, name, initialize, &_JEditorPaneTest_ClassInfo_, allocate$JEditorPaneTest);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JEditorPaneTest, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JEditorPaneTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"writeFile", "(Ljava/io/File;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JEditorPaneTest, writeFile, void, $File*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"JEditorPaneTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JEditorPaneTest",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"JEditorPaneTest$1"
+	};
+	$loadClass(JEditorPaneTest, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JEditorPaneTest);
+	});
 	return class$;
 }
 

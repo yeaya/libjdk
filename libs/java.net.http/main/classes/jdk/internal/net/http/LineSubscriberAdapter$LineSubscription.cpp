@@ -1,8 +1,6 @@
 #include <jdk/internal/net/http/LineSubscriberAdapter$LineSubscription.h>
-
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/CharSequence.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
@@ -17,7 +15,6 @@
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CoderResult.h>
 #include <java/nio/charset/CodingErrorAction.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
 #include <java/util/concurrent/CompletableFuture.h>
@@ -35,7 +32,6 @@
 
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
-using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -50,7 +46,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CoderResult = ::java::nio::charset::CoderResult;
 using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
@@ -77,106 +72,37 @@ public:
 	virtual void run() override {
 		$nc(inst$)->loop();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LineSubscriberAdapter$LineSubscription$$Lambda$loop>());
-	}
 	LineSubscriberAdapter$LineSubscription* inst$ = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo LineSubscriberAdapter$LineSubscription$$Lambda$loop::fieldInfos[2] = {
-	{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LineSubscriberAdapter$LineSubscription$$Lambda$loop, inst$)},
-	{}
-};
-$MethodInfo LineSubscriberAdapter$LineSubscription$$Lambda$loop::methodInfos[3] = {
-	{"<init>", "(Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;)V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription$$Lambda$loop, init$, void, LineSubscriberAdapter$LineSubscription*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription$$Lambda$loop, run, void)},
-	{}
-};
-$ClassInfo LineSubscriberAdapter$LineSubscription$$Lambda$loop::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"jdk.internal.net.http.LineSubscriberAdapter$LineSubscription$$Lambda$loop",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* LineSubscriberAdapter$LineSubscription$$Lambda$loop::load$($String* name, bool initialize) {
-	$loadClass(LineSubscriberAdapter$LineSubscription$$Lambda$loop, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"inst$", "Ljava/lang/Object;", nullptr, $PUBLIC, $field(LineSubscriberAdapter$LineSubscription$$Lambda$loop, inst$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;)V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription$$Lambda$loop, init$, void, LineSubscriberAdapter$LineSubscription*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription$$Lambda$loop, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"jdk.internal.net.http.LineSubscriberAdapter$LineSubscription$$Lambda$loop",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(LineSubscriberAdapter$LineSubscription$$Lambda$loop, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LineSubscriberAdapter$LineSubscription$$Lambda$loop);
+	});
 	return class$;
 }
 $Class* LineSubscriberAdapter$LineSubscription$$Lambda$loop::class$ = nullptr;
 
-$FieldInfo _LineSubscriberAdapter$LineSubscription_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LineSubscriberAdapter$LineSubscription, $assertionsDisabled)},
-	{"upstreamSubscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, upstreamSubscription)},
-	{"decoder", "Ljava/nio/charset/CharsetDecoder;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, decoder)},
-	{"newline", "Ljava/lang/String;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, newline)},
-	{"downstreamDemand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, downstreamDemand)},
-	{"queue", "Ljava/util/concurrent/ConcurrentLinkedDeque;", "Ljava/util/concurrent/ConcurrentLinkedDeque<Ljava/nio/ByteBuffer;>;", $FINAL, $field(LineSubscriberAdapter$LineSubscription, queue)},
-	{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, scheduler)},
-	{"upstream", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;", $FINAL, $field(LineSubscriberAdapter$LineSubscription, upstream)},
-	{"cf", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<*>;", $FINAL, $field(LineSubscriberAdapter$LineSubscription, cf)},
-	{"errorRef", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/Throwable;>;", $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, errorRef)},
-	{"demanded", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, demanded)},
-	{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LineSubscriberAdapter$LineSubscription, completed)},
-	{"cancelled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LineSubscriberAdapter$LineSubscription, cancelled)},
-	{"chars", "[C", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, chars)},
-	{"leftover", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, leftover)},
-	{"buffer", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, buffer)},
-	{"builder", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, builder)},
-	{"nextLine", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LineSubscriberAdapter$LineSubscription, nextLine$)},
-	{}
-};
-
-$MethodInfo _LineSubscriberAdapter$LineSubscription_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/CharsetDecoder;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/CharsetDecoder;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;Ljava/util/concurrent/CompletableFuture<*>;)V", $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, init$, void, $Flow$Subscription*, $CharsetDecoder*, $String*, $Flow$Subscriber*, $CompletableFuture*)},
-	{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription, cancel, void)},
-	{"create", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/Charset;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/CompletableFuture;)Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/Charset;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;Ljava/util/concurrent/CompletableFuture<*>;)Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;", $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, create, LineSubscriberAdapter$LineSubscription*, $Flow$Subscription*, $Charset*, $String*, $Flow$Subscriber*, $CompletableFuture*)},
-	{"endOfLine", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, endOfLine, int32_t, $StringBuilder*, $String*, bool)},
-	{"isUnderFlow", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Z", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, isUnderFlow, bool, $ByteBuffer*, $CharBuffer*, bool), "java.nio.charset.CharacterCodingException"},
-	{"loop", "()V", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, loop, void)},
-	{"nextLine", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, nextLine, $String*, $StringBuilder*, $String*, bool)},
-	{"nextLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, nextLine, $String*), "java.nio.charset.CharacterCodingException"},
-	{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription, request, void, int64_t)},
-	{"signalComplete", "()V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, signalComplete, void)},
-	{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, signalError, void, $Throwable*)},
-	{"submit", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, submit, void, $List*)},
-	{"take", "(Ljava/lang/StringBuilder;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, take, $String*, $StringBuilder*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _LineSubscriberAdapter$LineSubscription_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.LineSubscriberAdapter$LineSubscription", "jdk.internal.net.http.LineSubscriberAdapter", "LineSubscription", $STATIC | $FINAL},
-	{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _LineSubscriberAdapter$LineSubscription_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.LineSubscriberAdapter$LineSubscription",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Subscription",
-	_LineSubscriberAdapter$LineSubscription_FieldInfo_,
-	_LineSubscriberAdapter$LineSubscription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LineSubscriberAdapter$LineSubscription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.LineSubscriberAdapter"
-};
-
-$Object* allocate$LineSubscriberAdapter$LineSubscription($Class* clazz) {
-	return $of($alloc(LineSubscriberAdapter$LineSubscription));
-}
-
 bool LineSubscriberAdapter$LineSubscription::$assertionsDisabled = false;
 
 void LineSubscriberAdapter$LineSubscription::init$($Flow$Subscription* s, $CharsetDecoder* dec, $String* separator, $Flow$Subscriber* subscriber, $CompletableFuture* completion) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$set(this, errorRef, $new($AtomicReference));
 	$set(this, demanded, $new($AtomicLong));
 	$set(this, chars, $new($chars, 1024));
@@ -190,14 +116,14 @@ void LineSubscriberAdapter$LineSubscription::init$($Flow$Subscription* s, $Chars
 	$set(this, newline, separator);
 	$set(this, upstream, $cast($Flow$Subscriber, $Objects::requireNonNull(subscriber)));
 	$set(this, cf, $cast($CompletableFuture, $Objects::requireNonNull(completion)));
-	$set(this, scheduler, $SequentialScheduler::lockingScheduler(static_cast<$Runnable*>($$new(LineSubscriberAdapter$LineSubscription$$Lambda$loop, this))));
+	$set(this, scheduler, $SequentialScheduler::lockingScheduler($$new(LineSubscriberAdapter$LineSubscription$$Lambda$loop, this)));
 }
 
 void LineSubscriberAdapter$LineSubscription::request(int64_t n) {
 	if (this->cancelled) {
 		return;
 	}
-	if ($nc(this->downstreamDemand)->increase(n)) {
+	if (this->downstreamDemand->increase(n)) {
 		$nc(this->scheduler)->runOrSchedule();
 	}
 }
@@ -208,8 +134,8 @@ void LineSubscriberAdapter$LineSubscription::cancel() {
 }
 
 void LineSubscriberAdapter$LineSubscription::submit($List* list) {
-	$nc(this->queue)->addAll(list);
-	$nc(this->demanded)->decrementAndGet();
+	this->queue->addAll(list);
+	this->demanded->decrementAndGet();
 	$nc(this->scheduler)->runOrSchedule();
 }
 
@@ -219,7 +145,7 @@ void LineSubscriberAdapter$LineSubscription::signalComplete() {
 }
 
 void LineSubscriberAdapter$LineSubscription::signalError($Throwable* error) {
-	if ($nc(this->errorRef)->compareAndSet(nullptr, $cast($Throwable, $Objects::requireNonNull(error)))) {
+	if (this->errorRef->compareAndSet(nullptr, $cast($Throwable, $Objects::requireNonNull(error)))) {
 		$nc(this->scheduler)->runOrSchedule();
 	}
 }
@@ -231,29 +157,29 @@ bool LineSubscriberAdapter$LineSubscription::isUnderFlow($ByteBuffer* in, $CharB
 	} else {
 		$var($CoderResult, res, nullptr);
 		while ($nc(in)->hasRemaining()) {
-			$nc(this->leftover)->position(limit);
-			$nc(this->leftover)->limit(++limit);
-			$nc(this->leftover)->put(in->get());
-			$nc(this->leftover)->position(0);
+			this->leftover->position(limit);
+			this->leftover->limit(++limit);
+			this->leftover->put(in->get());
+			this->leftover->position(0);
 			$assign(res, $nc(this->decoder)->decode(this->leftover, out, endOfInput && !in->hasRemaining()));
-			int32_t remaining = $nc(this->leftover)->remaining();
+			int32_t remaining = this->leftover->remaining();
 			if (remaining > 0) {
-				if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && !($nc(this->leftover)->position() == 0)) {
+				if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && !(this->leftover->position() == 0)) {
 					$throwNew($AssertionError);
 				}
-				$nc(this->leftover)->position(remaining);
+				this->leftover->position(remaining);
 			} else {
-				$nc(this->leftover)->position(0);
+				this->leftover->position(0);
 			}
-			$nc(this->leftover)->limit($nc(this->leftover)->capacity());
+			this->leftover->limit(this->leftover->capacity());
 			bool var$0 = $nc(res)->isUnderflow() && remaining > 0;
 			if (var$0 && in->hasRemaining()) {
 				continue;
 			}
-			if ($nc(res)->isError()) {
+			if (res->isError()) {
 				res->throwException();
 			}
-			if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && ! !$nc(res)->isOverflow()) {
+			if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && ! !res->isOverflow()) {
 				$throwNew($AssertionError);
 			}
 			return false;
@@ -316,35 +242,35 @@ $String* LineSubscriberAdapter$LineSubscription::nextLine($StringBuilder* b, $St
 }
 
 $String* LineSubscriberAdapter$LineSubscription::nextLine() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && !(this->nextLine$ == nullptr)) {
 		$throwNew($AssertionError);
 	}
 	bool LINES$continue = false;
 	while (this->nextLine$ == nullptr) {
-		bool endOfInput = this->completed && $nc(this->queue)->isEmpty();
+		bool endOfInput = this->completed && this->queue->isEmpty();
 		$set(this, nextLine$, nextLine(this->builder, this->newline, endOfInput && $nc(this->leftover)->position() == 0));
 		if (this->nextLine$ != nullptr) {
 			return this->nextLine$;
 		}
 		$var($ByteBuffer, b, nullptr);
 		bool BUFFERS$continue = false;
-		while (($assign(b, $cast($ByteBuffer, $nc(this->queue)->peek()))) != nullptr) {
+		while (($assign(b, $cast($ByteBuffer, this->queue->peek()))) != nullptr) {
 			if (!$nc(b)->hasRemaining()) {
-				$nc(this->queue)->poll();
+				this->queue->poll();
 				continue;
 			}
-			while ($nc(b)->hasRemaining()) {
+			while (b->hasRemaining()) {
 				$nc(this->buffer)->position(0);
-				$nc(this->buffer)->limit($nc(this->buffer)->capacity());
-				bool endofInput = this->completed && $nc(this->queue)->size() <= 1;
+				this->buffer->limit(this->buffer->capacity());
+				bool endofInput = this->completed && this->queue->size() <= 1;
 				if (isUnderFlow(b, this->buffer, endofInput)) {
 					if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && ! !b->hasRemaining()) {
 						$throwNew($AssertionError);
 					}
-					if ($nc(this->buffer)->position() > 0) {
-						$nc(this->buffer)->flip();
-						$nc(this->builder)->append(static_cast<$CharSequence*>(this->buffer));
+					if (this->buffer->position() > 0) {
+						this->buffer->flip();
+						this->builder->append(this->buffer);
 					}
 					BUFFERS$continue = true;
 					break;
@@ -353,13 +279,13 @@ $String* LineSubscriberAdapter$LineSubscription::nextLine() {
 				if ($nc(res)->isError()) {
 					res->throwException();
 				}
-				if ($nc(this->buffer)->position() > 0) {
-					$nc(this->buffer)->flip();
-					$nc(this->builder)->append(static_cast<$CharSequence*>(this->buffer));
+				if (this->buffer->position() > 0) {
+					this->buffer->flip();
+					this->builder->append(this->buffer);
 					LINES$continue = true;
 					break;
 				}
-				bool var$0 = $nc(res)->isUnderflow();
+				bool var$0 = res->isUnderflow();
 				if (var$0 && b->hasRemaining()) {
 					$nc(this->leftover)->put(b);
 					if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && ! !b->hasRemaining()) {
@@ -381,34 +307,34 @@ $String* LineSubscriberAdapter$LineSubscription::nextLine() {
 			LINES$continue = false;
 			continue;
 		}
-		if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && !$nc(this->queue)->isEmpty()) {
+		if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && !this->queue->isEmpty()) {
 			$throwNew($AssertionError);
 		}
 		if (endOfInput) {
 			$nc(this->leftover)->flip();
 			$nc(this->buffer)->position(0);
-			$nc(this->buffer)->limit($nc(this->buffer)->capacity());
+			this->buffer->limit(this->buffer->capacity());
 			$var($CoderResult, res, $nc(this->decoder)->decode(this->leftover, this->buffer, endOfInput));
-			if ($nc(this->buffer)->position() > 0) {
-				$nc(this->buffer)->flip();
-				$nc(this->builder)->append(static_cast<$CharSequence*>(this->buffer));
+			if (this->buffer->position() > 0) {
+				this->buffer->flip();
+				this->builder->append(this->buffer);
 			}
 			if ($nc(res)->isError()) {
 				res->throwException();
 			}
-			$nc(this->buffer)->position(0);
-			$nc(this->buffer)->limit($nc(this->buffer)->capacity());
-			$assign(res, $nc(this->decoder)->flush(this->buffer));
-			if ($nc(this->buffer)->position() > 0) {
-				$nc(this->buffer)->flip();
-				$nc(this->builder)->append(static_cast<$CharSequence*>(this->buffer));
+			this->buffer->position(0);
+			this->buffer->limit(this->buffer->capacity());
+			$assign(res, this->decoder->flush(this->buffer));
+			if (this->buffer->position() > 0) {
+				this->buffer->flip();
+				this->builder->append(this->buffer);
 			}
 			if ($nc(res)->isError()) {
 				res->throwException();
 			}
-			$nc(this->leftover)->position(0);
-			$nc(this->leftover)->limit($nc(this->leftover)->capacity());
-			$nc(this->decoder)->reset();
+			this->leftover->position(0);
+			this->leftover->limit(this->leftover->capacity());
+			this->decoder->reset();
 			return $set(this, nextLine$, nextLine(this->builder, this->newline, endOfInput));
 		}
 		return nullptr;
@@ -417,10 +343,10 @@ $String* LineSubscriberAdapter$LineSubscription::nextLine() {
 }
 
 void LineSubscriberAdapter$LineSubscription::loop() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		while (!this->cancelled) {
-			$var($Throwable, error, $cast($Throwable, $nc(this->errorRef)->get()));
+			$var($Throwable, error, $cast($Throwable, this->errorRef->get()));
 			if (error != nullptr) {
 				this->cancelled = true;
 				$nc(this->scheduler)->stop();
@@ -435,17 +361,17 @@ void LineSubscriberAdapter$LineSubscription::loop() {
 				if (this->completed) {
 					$nc(this->scheduler)->stop();
 					if ($nc(this->leftover)->position() != 0) {
-						$nc(this->errorRef)->compareAndSet(nullptr, $$new($IllegalStateException, $$str({"premature end of input ("_s, $$str($nc(this->leftover)->position()), " undecoded bytes)"_s})));
+						this->errorRef->compareAndSet(nullptr, $$new($IllegalStateException, $$str({"premature end of input ("_s, $$str(this->leftover->position()), " undecoded bytes)"_s})));
 						continue;
 					} else {
 						$nc(this->upstream)->onComplete();
 					}
 					return;
 				} else {
-					bool var$1 = $nc(this->demanded)->get() == 0;
-					if (var$1 && !$nc(this->downstreamDemand)->isFulfilled()) {
-						int64_t incr = $Math::max((int64_t)1, $nc(this->downstreamDemand)->get());
-						$nc(this->demanded)->addAndGet(incr);
+					bool var$0 = this->demanded->get() == 0;
+					if (var$0 && !this->downstreamDemand->isFulfilled()) {
+						int64_t incr = $Math::max((int64_t)1, this->downstreamDemand->get());
+						this->demanded->addAndGet(incr);
 						$nc(this->upstreamSubscription)->request(incr);
 						continue;
 					} else {
@@ -456,16 +382,16 @@ void LineSubscriberAdapter$LineSubscription::loop() {
 			if (!LineSubscriberAdapter$LineSubscription::$assertionsDisabled && !(this->nextLine$ != nullptr)) {
 				$throwNew($AssertionError);
 			}
-			bool var$2 = !LineSubscriberAdapter$LineSubscription::$assertionsDisabled;
-			if (var$2) {
-				bool var$4 = this->newline != nullptr && !$nc(this->nextLine$)->endsWith(this->newline);
-				bool var$3 = var$4 || !$nc(this->nextLine$)->endsWith("\n"_s);
-				var$2 = !(var$3 || !$nc(this->nextLine$)->endsWith("\r"_s));
+			bool var$1 = !LineSubscriberAdapter$LineSubscription::$assertionsDisabled;
+			if (var$1) {
+				bool var$3 = this->newline != nullptr && !$nc(this->nextLine$)->endsWith(this->newline);
+				bool var$2 = var$3 || !$nc(this->nextLine$)->endsWith("\n"_s);
+				var$1 = !(var$2 || !$nc(this->nextLine$)->endsWith("\r"_s));
 			}
-			if (var$2) {
+			if (var$1) {
 				$throwNew($AssertionError);
 			}
-			if ($nc(this->downstreamDemand)->tryDecrement()) {
+			if (this->downstreamDemand->tryDecrement()) {
 				$var($String, forward, this->nextLine$);
 				$set(this, nextLine$, nullptr);
 				$nc(this->upstream)->onNext(forward);
@@ -474,34 +400,31 @@ void LineSubscriberAdapter$LineSubscription::loop() {
 			}
 		}
 	} catch ($Throwable& t) {
-		{
-			$var($Throwable, var$5, nullptr);
-			try {
-				$nc(this->upstreamSubscription)->cancel();
-			} catch ($Throwable& var$6) {
-				$assign(var$5, var$6);
-			} /*finally*/ {
-				signalError(t);
-			}
-			if (var$5 != nullptr) {
-				$throw(var$5);
-			}
+		$var($Throwable, var$4, nullptr);
+		try {
+			$nc(this->upstreamSubscription)->cancel();
+		} catch ($Throwable& var$5) {
+			$assign(var$4, var$5);
+		} /*finally*/ {
+			signalError(t);
+		}
+		if (var$4 != nullptr) {
+			$throw(var$4);
 		}
 	}
 }
 
 LineSubscriberAdapter$LineSubscription* LineSubscriberAdapter$LineSubscription::create($Flow$Subscription* s, $Charset* charset, $String* lineSeparator, $Flow$Subscriber* upstream, $CompletableFuture* cf) {
 	$init(LineSubscriberAdapter$LineSubscription);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Flow$Subscription, var$0, $cast($Flow$Subscription, $Objects::requireNonNull(s)));
 	$init($CodingErrorAction);
-	$var($CharsetDecoder, var$1, $nc($($nc($($nc(($cast($Charset, $Objects::requireNonNull(charset))))->newDecoder()))->onMalformedInput($CodingErrorAction::REPLACE)))->onUnmappableCharacter($CodingErrorAction::REPLACE));
-	$var($String, var$2, lineSeparator);
-	$var($Flow$Subscriber, var$3, $cast($Flow$Subscriber, $Objects::requireNonNull(upstream)));
-	return $new(LineSubscriberAdapter$LineSubscription, var$0, var$1, var$2, var$3, $cast($CompletableFuture, $Objects::requireNonNull(cf)));
+	$var($CharsetDecoder, var$1, $$nc($$nc($sure($Charset, $Objects::requireNonNull(charset))->newDecoder())->onMalformedInput($CodingErrorAction::REPLACE))->onUnmappableCharacter($CodingErrorAction::REPLACE));
+	$var($Flow$Subscriber, var$2, $cast($Flow$Subscriber, $Objects::requireNonNull(upstream)));
+	return $new(LineSubscriberAdapter$LineSubscription, var$0, var$1, lineSeparator, var$2, $cast($CompletableFuture, $Objects::requireNonNull(cf)));
 }
 
-void clinit$LineSubscriberAdapter$LineSubscription($Class* class$) {
+void LineSubscriberAdapter$LineSubscription::clinit$($Class* clazz) {
 	$load($LineSubscriberAdapter);
 	LineSubscriberAdapter$LineSubscription::$assertionsDisabled = !$LineSubscriberAdapter::class$->desiredAssertionStatus();
 }
@@ -511,11 +434,70 @@ LineSubscriberAdapter$LineSubscription::LineSubscriberAdapter$LineSubscription()
 
 $Class* LineSubscriberAdapter$LineSubscription::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LineSubscriberAdapter$LineSubscription$$Lambda$loop::classInfo$.name)) {
+		if (name->equals("jdk.internal.net.http.LineSubscriberAdapter$LineSubscription$$Lambda$loop")) {
 			return LineSubscriberAdapter$LineSubscription$$Lambda$loop::load$(name, initialize);
 		}
 	}
-	$loadClass(LineSubscriberAdapter$LineSubscription, name, initialize, &_LineSubscriberAdapter$LineSubscription_ClassInfo_, clinit$LineSubscriberAdapter$LineSubscription, allocate$LineSubscriberAdapter$LineSubscription);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(LineSubscriberAdapter$LineSubscription, $assertionsDisabled)},
+		{"upstreamSubscription", "Ljava/util/concurrent/Flow$Subscription;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, upstreamSubscription)},
+		{"decoder", "Ljava/nio/charset/CharsetDecoder;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, decoder)},
+		{"newline", "Ljava/lang/String;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, newline)},
+		{"downstreamDemand", "Ljdk/internal/net/http/common/Demand;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, downstreamDemand)},
+		{"queue", "Ljava/util/concurrent/ConcurrentLinkedDeque;", "Ljava/util/concurrent/ConcurrentLinkedDeque<Ljava/nio/ByteBuffer;>;", $FINAL, $field(LineSubscriberAdapter$LineSubscription, queue)},
+		{"scheduler", "Ljdk/internal/net/http/common/SequentialScheduler;", nullptr, $FINAL, $field(LineSubscriberAdapter$LineSubscription, scheduler)},
+		{"upstream", "Ljava/util/concurrent/Flow$Subscriber;", "Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;", $FINAL, $field(LineSubscriberAdapter$LineSubscription, upstream)},
+		{"cf", "Ljava/util/concurrent/CompletableFuture;", "Ljava/util/concurrent/CompletableFuture<*>;", $FINAL, $field(LineSubscriberAdapter$LineSubscription, cf)},
+		{"errorRef", "Ljava/util/concurrent/atomic/AtomicReference;", "Ljava/util/concurrent/atomic/AtomicReference<Ljava/lang/Throwable;>;", $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, errorRef)},
+		{"demanded", "Ljava/util/concurrent/atomic/AtomicLong;", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, demanded)},
+		{"completed", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LineSubscriberAdapter$LineSubscription, completed)},
+		{"cancelled", "Z", nullptr, $PRIVATE | $VOLATILE, $field(LineSubscriberAdapter$LineSubscription, cancelled)},
+		{"chars", "[C", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, chars)},
+		{"leftover", "Ljava/nio/ByteBuffer;", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, leftover)},
+		{"buffer", "Ljava/nio/CharBuffer;", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, buffer)},
+		{"builder", "Ljava/lang/StringBuilder;", nullptr, $PRIVATE | $FINAL, $field(LineSubscriberAdapter$LineSubscription, builder)},
+		{"nextLine", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LineSubscriberAdapter$LineSubscription, nextLine$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/CharsetDecoder;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/CompletableFuture;)V", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/CharsetDecoder;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;Ljava/util/concurrent/CompletableFuture<*>;)V", $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, init$, void, $Flow$Subscription*, $CharsetDecoder*, $String*, $Flow$Subscriber*, $CompletableFuture*)},
+		{"cancel", "()V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription, cancel, void)},
+		{"create", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/Charset;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber;Ljava/util/concurrent/CompletableFuture;)Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;", "(Ljava/util/concurrent/Flow$Subscription;Ljava/nio/charset/Charset;Ljava/lang/String;Ljava/util/concurrent/Flow$Subscriber<-Ljava/lang/String;>;Ljava/util/concurrent/CompletableFuture<*>;)Ljdk/internal/net/http/LineSubscriberAdapter$LineSubscription;", $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, create, LineSubscriberAdapter$LineSubscription*, $Flow$Subscription*, $Charset*, $String*, $Flow$Subscriber*, $CompletableFuture*)},
+		{"endOfLine", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, endOfLine, int32_t, $StringBuilder*, $String*, bool)},
+		{"isUnderFlow", "(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Z", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, isUnderFlow, bool, $ByteBuffer*, $CharBuffer*, bool), "java.nio.charset.CharacterCodingException"},
+		{"loop", "()V", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, loop, void)},
+		{"nextLine", "(Ljava/lang/StringBuilder;Ljava/lang/String;Z)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, nextLine, $String*, $StringBuilder*, $String*, bool)},
+		{"nextLine", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(LineSubscriberAdapter$LineSubscription, nextLine, $String*), "java.nio.charset.CharacterCodingException"},
+		{"request", "(J)V", nullptr, $PUBLIC, $virtualMethod(LineSubscriberAdapter$LineSubscription, request, void, int64_t)},
+		{"signalComplete", "()V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, signalComplete, void)},
+		{"signalError", "(Ljava/lang/Throwable;)V", nullptr, $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, signalError, void, $Throwable*)},
+		{"submit", "(Ljava/util/List;)V", "(Ljava/util/List<Ljava/nio/ByteBuffer;>;)V", $PUBLIC, $method(LineSubscriberAdapter$LineSubscription, submit, void, $List*)},
+		{"take", "(Ljava/lang/StringBuilder;II)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LineSubscriberAdapter$LineSubscription, take, $String*, $StringBuilder*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.LineSubscriberAdapter$LineSubscription", "jdk.internal.net.http.LineSubscriberAdapter", "LineSubscription", $STATIC | $FINAL},
+		{"java.util.concurrent.Flow$Subscription", "java.util.concurrent.Flow", "Subscription", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.LineSubscriberAdapter$LineSubscription",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Subscription",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.LineSubscriberAdapter"
+	};
+	$loadClass(LineSubscriberAdapter$LineSubscription, name, initialize, &classInfo$$, LineSubscriberAdapter$LineSubscription::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(LineSubscriberAdapter$LineSubscription);
+	});
 	return class$;
 }
 

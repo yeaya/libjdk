@@ -1,5 +1,4 @@
 #include <javax/sql/rowset/serial/SerialRef.h>
-
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream$PutField.h>
@@ -35,43 +34,6 @@ namespace javax {
 		namespace rowset {
 			namespace serial {
 
-$FieldInfo _SerialRef_FieldInfo_[] = {
-	{"baseTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialRef, baseTypeName)},
-	{"object", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SerialRef, object)},
-	{"reference", "Ljava/sql/Ref;", nullptr, $PRIVATE, $field(SerialRef, reference)},
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialRef, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _SerialRef_MethodInfo_[] = {
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Ljava/sql/Ref;)V", nullptr, $PUBLIC, $method(SerialRef, init$, void, $Ref*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialRef, clone, $Object*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialRef, equals, bool, Object$*)},
-	{"getBaseTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialRef, getBaseTypeName, $String*), "javax.sql.rowset.serial.SerialException"},
-	{"getObject", "(Ljava/util/Map;)Ljava/lang/Object;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(SerialRef, getObject, $Object*, $Map*), "javax.sql.rowset.serial.SerialException"},
-	{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialRef, getObject, $Object*), "javax.sql.rowset.serial.SerialException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialRef, hashCode, int32_t)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialRef, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
-	{"setObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SerialRef, setObject, void, Object$*), "javax.sql.rowset.serial.SerialException"},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialRef, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _SerialRef_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.sql.rowset.serial.SerialRef",
-	"java.lang.Object",
-	"java.sql.Ref,java.io.Serializable,java.lang.Cloneable",
-	_SerialRef_FieldInfo_,
-	_SerialRef_MethodInfo_
-};
-
-$Object* allocate$SerialRef($Class* clazz) {
-	return $of($alloc(SerialRef));
-}
-
 $String* SerialRef::toString() {
 	 return this->$Ref::toString();
 }
@@ -101,29 +63,29 @@ $Object* SerialRef::getObject($Map* map$renamed) {
 	$var($Map, map, map$renamed);
 	$assign(map, $new($Hashtable, map));
 	if (this->object != nullptr) {
-		return $of(map->get(this->object));
+		return map->get(this->object);
 	} else {
 		$throwNew($SerialException, "The object is not set"_s);
 	}
 }
 
 $Object* SerialRef::getObject() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->reference != nullptr) {
 		try {
-			return $of($nc(this->reference)->getObject());
+			return this->reference->getObject();
 		} catch ($SQLException& e) {
 			$throwNew($SerialException, $$str({"SQLException: "_s, $(e->getMessage())}));
 		}
 	}
 	if (this->object != nullptr) {
-		return $of(this->object);
+		return this->object;
 	}
 	$throwNew($SerialException, "The object is not set"_s);
 }
 
 void SerialRef::setObject(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$nc(this->reference)->setObject(obj);
 	} catch ($SQLException& e) {
@@ -138,14 +100,14 @@ bool SerialRef::equals(Object$* obj) {
 	}
 	if ($instanceOf(SerialRef, obj)) {
 		$var(SerialRef, ref, $cast(SerialRef, obj));
-		bool var$0 = $nc(this->baseTypeName)->equals($nc(ref)->baseTypeName);
-		return var$0 && $nc($of(this->object))->equals($nc(ref)->object);
+		bool var$0 = $nc(this->baseTypeName)->equals(ref->baseTypeName);
+		return var$0 && $nc(this->object)->equals(ref->object);
 	}
 	return false;
 }
 
 int32_t SerialRef::hashCode() {
-	int32_t var$0 = (31 + $nc($of(this->object))->hashCode()) * 31;
+	int32_t var$0 = (31 + $nc(this->object)->hashCode()) * 31;
 	return var$0 + $nc(this->baseTypeName)->hashCode();
 }
 
@@ -162,14 +124,14 @@ $Object* SerialRef::clone() {
 
 void SerialRef::readObject($ObjectInputStream* s) {
 	$var($ObjectInputStream$GetField, fields, $nc(s)->readFields());
-	$set(this, object, $nc(fields)->get("object"_s, ($Object*)nullptr));
-	$set(this, baseTypeName, $cast($String, fields->get("baseTypeName"_s, ($Object*)nullptr)));
-	$set(this, reference, $cast($Ref, fields->get("reference"_s, ($Object*)nullptr)));
+	$set(this, object, $nc(fields)->get("object"_s, nullptr));
+	$set(this, baseTypeName, $cast($String, fields->get("baseTypeName"_s, nullptr)));
+	$set(this, reference, $cast($Ref, fields->get("reference"_s, nullptr)));
 }
 
 void SerialRef::writeObject($ObjectOutputStream* s) {
 	$var($ObjectOutputStream$PutField, fields, $nc(s)->putFields());
-	$nc(fields)->put("baseTypeName"_s, $of(this->baseTypeName));
+	$nc(fields)->put("baseTypeName"_s, this->baseTypeName);
 	fields->put("object"_s, this->object);
 	fields->put("reference"_s, $instanceOf($Serializable, this->reference) ? $of(this->reference) : ($Object*)nullptr);
 	s->writeFields();
@@ -179,7 +141,39 @@ SerialRef::SerialRef() {
 }
 
 $Class* SerialRef::load$($String* name, bool initialize) {
-	$loadClass(SerialRef, name, initialize, &_SerialRef_ClassInfo_, allocate$SerialRef);
+	$FieldInfo fieldInfos$$[] = {
+		{"baseTypeName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SerialRef, baseTypeName)},
+		{"object", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(SerialRef, object)},
+		{"reference", "Ljava/sql/Ref;", nullptr, $PRIVATE, $field(SerialRef, reference)},
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(SerialRef, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Ljava/sql/Ref;)V", nullptr, $PUBLIC, $method(SerialRef, init$, void, $Ref*), "javax.sql.rowset.serial.SerialException,java.sql.SQLException"},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialRef, clone, $Object*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(SerialRef, equals, bool, Object$*)},
+		{"getBaseTypeName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SerialRef, getBaseTypeName, $String*), "javax.sql.rowset.serial.SerialException"},
+		{"getObject", "(Ljava/util/Map;)Ljava/lang/Object;", "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/Class<*>;>;)Ljava/lang/Object;", $PUBLIC, $virtualMethod(SerialRef, getObject, $Object*, $Map*), "javax.sql.rowset.serial.SerialException"},
+		{"getObject", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(SerialRef, getObject, $Object*), "javax.sql.rowset.serial.SerialException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(SerialRef, hashCode, int32_t)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(SerialRef, readObject, void, $ObjectInputStream*), "java.io.IOException,java.lang.ClassNotFoundException"},
+		{"setObject", "(Ljava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(SerialRef, setObject, void, Object$*), "javax.sql.rowset.serial.SerialException"},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(SerialRef, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.sql.rowset.serial.SerialRef",
+		"java.lang.Object",
+		"java.sql.Ref,java.io.Serializable,java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(SerialRef, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SerialRef));
+	});
 	return class$;
 }
 

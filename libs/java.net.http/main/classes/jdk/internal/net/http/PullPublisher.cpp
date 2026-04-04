@@ -1,10 +1,8 @@
 #include <jdk/internal/net/http/PullPublisher.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Iterable.h>
 #include <java/util/Iterator.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
-#include <java/util/concurrent/Flow$Subscription.h>
 #include <jdk/internal/net/http/PullPublisher$Subscription.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
 #include <jcpp.h>
@@ -17,53 +15,12 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
 using $PullPublisher$Subscription = ::jdk::internal::net::http::PullPublisher$Subscription;
-using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
 
 namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _PullPublisher_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PullPublisher, $assertionsDisabled)},
-	{"iterable", "Ljava/lang/Iterable;", "Ljava/lang/Iterable<TT;>;", $PRIVATE | $FINAL, $field(PullPublisher, iterable)},
-	{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $FINAL, $field(PullPublisher, throwable)},
-	{}
-};
-
-$MethodInfo _PullPublisher_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Iterable;Ljava/lang/Throwable;)V", "(Ljava/lang/Iterable<TT;>;Ljava/lang/Throwable;)V", 0, $method(PullPublisher, init$, void, $Iterable*, $Throwable*)},
-	{"<init>", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<TT;>;)V", 0, $method(PullPublisher, init$, void, $Iterable*)},
-	{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC, $virtualMethod(PullPublisher, subscribe, void, $Flow$Subscriber*)},
-	{}
-};
-
-$InnerClassInfo _PullPublisher_InnerClassesInfo_[] = {
-	{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{"jdk.internal.net.http.PullPublisher$Subscription", "jdk.internal.net.http.PullPublisher", "Subscription", $PRIVATE},
-	{}
-};
-
-$ClassInfo _PullPublisher_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.PullPublisher",
-	"java.lang.Object",
-	"java.util.concurrent.Flow$Publisher",
-	_PullPublisher_FieldInfo_,
-	_PullPublisher_MethodInfo_,
-	"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<TT;>;",
-	nullptr,
-	_PullPublisher_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.PullPublisher$Subscription,jdk.internal.net.http.PullPublisher$Subscription$PullTask"
-};
-
-$Object* allocate$PullPublisher($Class* clazz) {
-	return $of($alloc(PullPublisher));
-}
 
 bool PullPublisher::$assertionsDisabled = false;
 
@@ -77,16 +34,16 @@ void PullPublisher::init$($Iterable* iterable) {
 }
 
 void PullPublisher::subscribe($Flow$Subscriber* subscriber) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PullPublisher$Subscription, sub, nullptr);
 	if (this->throwable != nullptr) {
 		if (!PullPublisher::$assertionsDisabled && !(this->iterable == nullptr)) {
-			$throwNew($AssertionError, $of($$str({"non-null iterable: "_s, this->iterable})));
+			$throwNew($AssertionError, $$of($str({"non-null iterable: "_s, this->iterable})));
 		}
 		$assign(sub, $new($PullPublisher$Subscription, this, subscriber, nullptr, this->throwable));
 	} else {
 		if (!PullPublisher::$assertionsDisabled && !(this->throwable == nullptr)) {
-			$throwNew($AssertionError, $of($$str({"non-null exception: "_s, this->throwable})));
+			$throwNew($AssertionError, $$of($str({"non-null exception: "_s, this->throwable})));
 		}
 		$assign(sub, $new($PullPublisher$Subscription, this, subscriber, $($nc(this->iterable)->iterator()), nullptr));
 	}
@@ -96,7 +53,7 @@ void PullPublisher::subscribe($Flow$Subscriber* subscriber) {
 	}
 }
 
-void clinit$PullPublisher($Class* class$) {
+void PullPublisher::clinit$($Class* clazz) {
 	PullPublisher::$assertionsDisabled = !PullPublisher::class$->desiredAssertionStatus();
 }
 
@@ -104,7 +61,40 @@ PullPublisher::PullPublisher() {
 }
 
 $Class* PullPublisher::load$($String* name, bool initialize) {
-	$loadClass(PullPublisher, name, initialize, &_PullPublisher_ClassInfo_, clinit$PullPublisher, allocate$PullPublisher);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(PullPublisher, $assertionsDisabled)},
+		{"iterable", "Ljava/lang/Iterable;", "Ljava/lang/Iterable<TT;>;", $PRIVATE | $FINAL, $field(PullPublisher, iterable)},
+		{"throwable", "Ljava/lang/Throwable;", nullptr, $PRIVATE | $FINAL, $field(PullPublisher, throwable)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Iterable;Ljava/lang/Throwable;)V", "(Ljava/lang/Iterable<TT;>;Ljava/lang/Throwable;)V", 0, $method(PullPublisher, init$, void, $Iterable*, $Throwable*)},
+		{"<init>", "(Ljava/lang/Iterable;)V", "(Ljava/lang/Iterable<TT;>;)V", 0, $method(PullPublisher, init$, void, $Iterable*)},
+		{"subscribe", "(Ljava/util/concurrent/Flow$Subscriber;)V", "(Ljava/util/concurrent/Flow$Subscriber<-TT;>;)V", $PUBLIC, $virtualMethod(PullPublisher, subscribe, void, $Flow$Subscriber*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.concurrent.Flow$Publisher", "java.util.concurrent.Flow", "Publisher", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{"jdk.internal.net.http.PullPublisher$Subscription", "jdk.internal.net.http.PullPublisher", "Subscription", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.PullPublisher",
+		"java.lang.Object",
+		"java.util.concurrent.Flow$Publisher",
+		fieldInfos$$,
+		methodInfos$$,
+		"<T:Ljava/lang/Object;>Ljava/lang/Object;Ljava/util/concurrent/Flow$Publisher<TT;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.PullPublisher$Subscription,jdk.internal.net.http.PullPublisher$Subscription$PullTask"
+	};
+	$loadClass(PullPublisher, name, initialize, &classInfo$$, PullPublisher::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PullPublisher);
+	});
 	return class$;
 }
 

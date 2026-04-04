@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsRootPaneUI.h>
-
 #include <com/sun/java/swing/plaf/windows/WindowsRootPaneUI$AltProcessor.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -22,42 +21,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsRootPaneUI_FieldInfo_[] = {
-	{"windowsRootPaneUI", "Lcom/sun/java/swing/plaf/windows/WindowsRootPaneUI;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsRootPaneUI, windowsRootPaneUI)},
-	{"altProcessor", "Lcom/sun/java/swing/plaf/windows/WindowsRootPaneUI$AltProcessor;", nullptr, $STATIC | $FINAL, $staticField(WindowsRootPaneUI, altProcessor)},
-	{}
-};
-
-$MethodInfo _WindowsRootPaneUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsRootPaneUI, init$, void)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsRootPaneUI, createUI, $ComponentUI*, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _WindowsRootPaneUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsRootPaneUI$AltProcessor", "com.sun.java.swing.plaf.windows.WindowsRootPaneUI", "AltProcessor", $STATIC},
-	{}
-};
-
-$ClassInfo _WindowsRootPaneUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsRootPaneUI",
-	"javax.swing.plaf.basic.BasicRootPaneUI",
-	nullptr,
-	_WindowsRootPaneUI_FieldInfo_,
-	_WindowsRootPaneUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsRootPaneUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsRootPaneUI$AltProcessor"
-};
-
-$Object* allocate$WindowsRootPaneUI($Class* clazz) {
-	return $of($alloc(WindowsRootPaneUI));
-}
-
 WindowsRootPaneUI* WindowsRootPaneUI::windowsRootPaneUI = nullptr;
 $WindowsRootPaneUI$AltProcessor* WindowsRootPaneUI::altProcessor = nullptr;
 
@@ -70,7 +33,7 @@ $ComponentUI* WindowsRootPaneUI::createUI($JComponent* c) {
 	return WindowsRootPaneUI::windowsRootPaneUI;
 }
 
-void clinit$WindowsRootPaneUI($Class* class$) {
+void WindowsRootPaneUI::clinit$($Class* clazz) {
 	$assignStatic(WindowsRootPaneUI::windowsRootPaneUI, $new(WindowsRootPaneUI));
 	$assignStatic(WindowsRootPaneUI::altProcessor, $new($WindowsRootPaneUI$AltProcessor));
 }
@@ -79,7 +42,37 @@ WindowsRootPaneUI::WindowsRootPaneUI() {
 }
 
 $Class* WindowsRootPaneUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsRootPaneUI, name, initialize, &_WindowsRootPaneUI_ClassInfo_, clinit$WindowsRootPaneUI, allocate$WindowsRootPaneUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"windowsRootPaneUI", "Lcom/sun/java/swing/plaf/windows/WindowsRootPaneUI;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(WindowsRootPaneUI, windowsRootPaneUI)},
+		{"altProcessor", "Lcom/sun/java/swing/plaf/windows/WindowsRootPaneUI$AltProcessor;", nullptr, $STATIC | $FINAL, $staticField(WindowsRootPaneUI, altProcessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsRootPaneUI, init$, void)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsRootPaneUI, createUI, $ComponentUI*, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsRootPaneUI$AltProcessor", "com.sun.java.swing.plaf.windows.WindowsRootPaneUI", "AltProcessor", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsRootPaneUI",
+		"javax.swing.plaf.basic.BasicRootPaneUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsRootPaneUI$AltProcessor"
+	};
+	$loadClass(WindowsRootPaneUI, name, initialize, &classInfo$$, WindowsRootPaneUI::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(WindowsRootPaneUI));
+	});
 	return class$;
 }
 

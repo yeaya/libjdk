@@ -32,6 +32,7 @@ class $export FloatControl$Type : public ::javax::sound::sampled::Control$Type {
 	$class(FloatControl$Type, 0, ::javax::sound::sampled::Control$Type)
 public:
 	FloatControl$Type();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name);
 	static ::javax::sound::sampled::FloatControl$Type* MASTER_GAIN;
 	static ::javax::sound::sampled::FloatControl$Type* AUX_SEND;

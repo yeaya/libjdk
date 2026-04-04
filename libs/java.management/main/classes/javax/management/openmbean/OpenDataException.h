@@ -15,10 +15,13 @@ public:
 	OpenDataException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x73D40DDDBCF30AEE;
+	static const int64_t serialVersionUID = (int64_t)0x73d40dddbcf30aee;
 	OpenDataException(const OpenDataException& e);
 	virtual void throw$() override;
-	inline OpenDataException* operator ->() {
+	inline OpenDataException* operator ->() const {
+		return (OpenDataException*)throwing$;
+	}
+	inline operator OpenDataException*() const {
 		return (OpenDataException*)throwing$;
 	}
 };

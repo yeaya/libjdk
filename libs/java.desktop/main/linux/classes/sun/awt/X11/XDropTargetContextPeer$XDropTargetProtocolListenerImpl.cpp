@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDropTargetContextPeer$XDropTargetProtocolListenerImpl.h>
-
 #include <java/awt/Component.h>
 #include <java/lang/AssertionError.h>
 #include <sun/awt/AppContext.h>
@@ -29,44 +28,6 @@ namespace sun {
 	namespace awt {
 		namespace X11 {
 
-$FieldInfo _XDropTargetContextPeer$XDropTargetProtocolListenerImpl_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, $assertionsDisabled)},
-	{"theInstance", "Lsun/awt/X11/XDropTargetProtocolListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, theInstance)},
-	{}
-};
-
-$MethodInfo _XDropTargetContextPeer$XDropTargetProtocolListenerImpl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, init$, void)},
-	{"getInstance", "()Lsun/awt/X11/XDropTargetProtocolListener;", nullptr, $STATIC, $staticMethod(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, getInstance, $XDropTargetProtocolListener*)},
-	{"handleDropTargetNotification", "(Lsun/awt/X11/XWindow;IIII[JJI)V", nullptr, $PUBLIC, $virtualMethod(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, handleDropTargetNotification, void, $XWindow*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _XDropTargetContextPeer$XDropTargetProtocolListenerImpl_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XDropTargetContextPeer$XDropTargetProtocolListenerImpl", "sun.awt.X11.XDropTargetContextPeer", "XDropTargetProtocolListenerImpl", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _XDropTargetContextPeer$XDropTargetProtocolListenerImpl_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XDropTargetContextPeer$XDropTargetProtocolListenerImpl",
-	"java.lang.Object",
-	"sun.awt.X11.XDropTargetProtocolListener",
-	_XDropTargetContextPeer$XDropTargetProtocolListenerImpl_FieldInfo_,
-	_XDropTargetContextPeer$XDropTargetProtocolListenerImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XDropTargetContextPeer$XDropTargetProtocolListenerImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XDropTargetContextPeer"
-};
-
-$Object* allocate$XDropTargetContextPeer$XDropTargetProtocolListenerImpl($Class* clazz) {
-	return $of($alloc(XDropTargetContextPeer$XDropTargetProtocolListenerImpl));
-}
-
 bool XDropTargetContextPeer$XDropTargetProtocolListenerImpl::$assertionsDisabled = false;
 $XDropTargetProtocolListener* XDropTargetContextPeer$XDropTargetProtocolListenerImpl::theInstance = nullptr;
 
@@ -79,7 +40,7 @@ $XDropTargetProtocolListener* XDropTargetContextPeer$XDropTargetProtocolListener
 }
 
 void XDropTargetContextPeer$XDropTargetProtocolListenerImpl::handleDropTargetNotification($XWindow* xwindow, int32_t x, int32_t y, int32_t dropAction, int32_t actions, $longs* formats, int64_t nativeCtxt, int32_t eventID) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Object, target, $nc(xwindow)->getTarget());
 	if (!XDropTargetContextPeer$XDropTargetProtocolListenerImpl::$assertionsDisabled && !$instanceOf($Component, target)) {
 		$throwNew($AssertionError);
@@ -93,7 +54,7 @@ void XDropTargetContextPeer$XDropTargetProtocolListenerImpl::handleDropTargetNot
 	$XDropTargetContextPeer::access$000(peer, component, x, y, dropAction, actions, formats, nativeCtxt, eventID, !$SunDropTargetContextPeer::DISPATCH_SYNC);
 }
 
-void clinit$XDropTargetContextPeer$XDropTargetProtocolListenerImpl($Class* class$) {
+void XDropTargetContextPeer$XDropTargetProtocolListenerImpl::clinit$($Class* clazz) {
 	$load($XDropTargetContextPeer);
 	XDropTargetContextPeer$XDropTargetProtocolListenerImpl::$assertionsDisabled = !$XDropTargetContextPeer::class$->desiredAssertionStatus();
 	$assignStatic(XDropTargetContextPeer$XDropTargetProtocolListenerImpl::theInstance, $new(XDropTargetContextPeer$XDropTargetProtocolListenerImpl));
@@ -103,7 +64,39 @@ XDropTargetContextPeer$XDropTargetProtocolListenerImpl::XDropTargetContextPeer$X
 }
 
 $Class* XDropTargetContextPeer$XDropTargetProtocolListenerImpl::load$($String* name, bool initialize) {
-	$loadClass(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, name, initialize, &_XDropTargetContextPeer$XDropTargetProtocolListenerImpl_ClassInfo_, clinit$XDropTargetContextPeer$XDropTargetProtocolListenerImpl, allocate$XDropTargetContextPeer$XDropTargetProtocolListenerImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, $assertionsDisabled)},
+		{"theInstance", "Lsun/awt/X11/XDropTargetProtocolListener;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, theInstance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, init$, void)},
+		{"getInstance", "()Lsun/awt/X11/XDropTargetProtocolListener;", nullptr, $STATIC, $staticMethod(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, getInstance, $XDropTargetProtocolListener*)},
+		{"handleDropTargetNotification", "(Lsun/awt/X11/XWindow;IIII[JJI)V", nullptr, $PUBLIC, $virtualMethod(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, handleDropTargetNotification, void, $XWindow*, int32_t, int32_t, int32_t, int32_t, $longs*, int64_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XDropTargetContextPeer$XDropTargetProtocolListenerImpl", "sun.awt.X11.XDropTargetContextPeer", "XDropTargetProtocolListenerImpl", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XDropTargetContextPeer$XDropTargetProtocolListenerImpl",
+		"java.lang.Object",
+		"sun.awt.X11.XDropTargetProtocolListener",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XDropTargetContextPeer"
+	};
+	$loadClass(XDropTargetContextPeer$XDropTargetProtocolListenerImpl, name, initialize, &classInfo$$, XDropTargetContextPeer$XDropTargetProtocolListenerImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XDropTargetContextPeer$XDropTargetProtocolListenerImpl);
+	});
 	return class$;
 }
 

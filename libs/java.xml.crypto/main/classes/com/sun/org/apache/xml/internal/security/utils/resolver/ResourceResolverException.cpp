@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <jcpp.h>
 
@@ -19,50 +18,6 @@ namespace com {
 						namespace security {
 							namespace utils {
 								namespace resolver {
-
-$CompoundAttribute _ResourceResolverException_MethodAnnotations_init$3[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$CompoundAttribute _ResourceResolverException_MethodAnnotations_init$5[] = {
-	{"Ljava/lang/Deprecated;", nullptr},
-	{}
-};
-
-$FieldInfo _ResourceResolverException_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResourceResolverException, serialVersionUID)},
-	{"uri", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ResourceResolverException, uri)},
-	{"baseURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ResourceResolverException, baseURI)},
-	{}
-};
-
-$MethodInfo _ResourceResolverException_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $String*, $ObjectArray*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $Exception*, $String*, $String*, $String*)},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ResourceResolverException, init$, void, $String*, $Exception*, $String*, $String*), nullptr, nullptr, _ResourceResolverException_MethodAnnotations_init$3},
-	{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $Exception*, $String*, $String*, $String*, $ObjectArray*)},
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ResourceResolverException, init$, void, $String*, $ObjectArray*, $Exception*, $String*, $String*), nullptr, nullptr, _ResourceResolverException_MethodAnnotations_init$5},
-	{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, getURI, $String*)},
-	{"getbaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, getbaseURI, $String*)},
-	{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, setURI, void, $String*)},
-	{"setbaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, setbaseURI, void, $String*)},
-	{}
-};
-
-$ClassInfo _ResourceResolverException_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException",
-	"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
-	nullptr,
-	_ResourceResolverException_FieldInfo_,
-	_ResourceResolverException_MethodInfo_
-};
-
-$Object* allocate$ResourceResolverException($Class* clazz) {
-	return $of($alloc(ResourceResolverException));
-}
 
 void ResourceResolverException::init$($String* msgID, $String* uri, $String* baseURI) {
 	$XMLSecurityException::init$(msgID);
@@ -123,7 +78,44 @@ void ResourceResolverException::throw$() {
 }
 
 $Class* ResourceResolverException::load$($String* name, bool initialize) {
-	$loadClass(ResourceResolverException, name, initialize, &_ResourceResolverException_ClassInfo_, allocate$ResourceResolverException);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(ResourceResolverException, serialVersionUID)},
+		{"uri", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ResourceResolverException, uri)},
+		{"baseURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(ResourceResolverException, baseURI)},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$3[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$$5[] = {
+		{"Ljava/lang/Deprecated;", nullptr},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $String*, $ObjectArray*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $Exception*, $String*, $String*, $String*)},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ResourceResolverException, init$, void, $String*, $Exception*, $String*, $String*), nullptr, nullptr, init$methodAnnotations$$$3},
+		{"<init>", "(Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PUBLIC, $method(ResourceResolverException, init$, void, $Exception*, $String*, $String*, $String*, $ObjectArray*)},
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/Object;Ljava/lang/Exception;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC | $DEPRECATED, $method(ResourceResolverException, init$, void, $String*, $ObjectArray*, $Exception*, $String*, $String*), nullptr, nullptr, init$methodAnnotations$$$5},
+		{"getURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, getURI, $String*)},
+		{"getbaseURI", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, getbaseURI, $String*)},
+		{"setURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, setURI, void, $String*)},
+		{"setbaseURI", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ResourceResolverException, setbaseURI, void, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolverException",
+		"com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ResourceResolverException, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResourceResolverException);
+	});
 	return class$;
 }
 

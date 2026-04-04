@@ -1,5 +1,4 @@
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/awt/geom/RoundRectangle2D.h>
@@ -17,64 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 namespace java {
 	namespace awt {
 		namespace geom {
-
-$FieldInfo _RoundRectangle2D$Float_FieldInfo_[] = {
-	{"x", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, x)},
-	{"y", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, y)},
-	{"width", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, width)},
-	{"height", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, height)},
-	{"arcwidth", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, arcwidth)},
-	{"archeight", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, archeight)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoundRectangle2D$Float, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _RoundRectangle2D$Float_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(RoundRectangle2D$Float, init$, void)},
-	{"<init>", "(FFFFFF)V", nullptr, $PUBLIC, $method(RoundRectangle2D$Float, init$, void, float, float, float, float, float, float)},
-	{"getArcHeight", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getArcHeight, double)},
-	{"getArcWidth", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getArcWidth, double)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getBounds2D, $Rectangle2D*)},
-	{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getHeight, double)},
-	{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getWidth, double)},
-	{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getX, double)},
-	{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getY, double)},
-	{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, isEmpty, bool)},
-	{"setRoundRect", "(FFFFFF)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, setRoundRect, void, float, float, float, float, float, float)},
-	{"setRoundRect", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, setRoundRect, void, double, double, double, double, double, double)},
-	{"setRoundRect", "(Ljava/awt/geom/RoundRectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, setRoundRect, void, $RoundRectangle2D*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _RoundRectangle2D$Float_InnerClassesInfo_[] = {
-	{"java.awt.geom.RoundRectangle2D$Float", "java.awt.geom.RoundRectangle2D", "Float", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _RoundRectangle2D$Float_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.RoundRectangle2D$Float",
-	"java.awt.geom.RoundRectangle2D",
-	"java.io.Serializable",
-	_RoundRectangle2D$Float_FieldInfo_,
-	_RoundRectangle2D$Float_MethodInfo_,
-	nullptr,
-	nullptr,
-	_RoundRectangle2D$Float_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.RoundRectangle2D"
-};
-
-$Object* allocate$RoundRectangle2D$Float($Class* clazz) {
-	return $of($alloc(RoundRectangle2D$Float));
-}
 
 int32_t RoundRectangle2D$Float::hashCode() {
 	 return this->$RoundRectangle2D::hashCode();
@@ -168,7 +109,59 @@ RoundRectangle2D$Float::RoundRectangle2D$Float() {
 }
 
 $Class* RoundRectangle2D$Float::load$($String* name, bool initialize) {
-	$loadClass(RoundRectangle2D$Float, name, initialize, &_RoundRectangle2D$Float_ClassInfo_, allocate$RoundRectangle2D$Float);
+	$FieldInfo fieldInfos$$[] = {
+		{"x", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, x)},
+		{"y", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, y)},
+		{"width", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, width)},
+		{"height", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, height)},
+		{"arcwidth", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, arcwidth)},
+		{"archeight", "F", nullptr, $PUBLIC, $field(RoundRectangle2D$Float, archeight)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(RoundRectangle2D$Float, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(RoundRectangle2D$Float, init$, void)},
+		{"<init>", "(FFFFFF)V", nullptr, $PUBLIC, $method(RoundRectangle2D$Float, init$, void, float, float, float, float, float, float)},
+		{"getArcHeight", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getArcHeight, double)},
+		{"getArcWidth", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getArcWidth, double)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getBounds2D, $Rectangle2D*)},
+		{"getHeight", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getHeight, double)},
+		{"getWidth", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getWidth, double)},
+		{"getX", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getX, double)},
+		{"getY", "()D", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, getY, double)},
+		{"isEmpty", "()Z", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, isEmpty, bool)},
+		{"setRoundRect", "(FFFFFF)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, setRoundRect, void, float, float, float, float, float, float)},
+		{"setRoundRect", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, setRoundRect, void, double, double, double, double, double, double)},
+		{"setRoundRect", "(Ljava/awt/geom/RoundRectangle2D;)V", nullptr, $PUBLIC, $virtualMethod(RoundRectangle2D$Float, setRoundRect, void, $RoundRectangle2D*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.RoundRectangle2D$Float", "java.awt.geom.RoundRectangle2D", "Float", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.RoundRectangle2D$Float",
+		"java.awt.geom.RoundRectangle2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.RoundRectangle2D"
+	};
+	$loadClass(RoundRectangle2D$Float, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(RoundRectangle2D$Float));
+	});
 	return class$;
 }
 

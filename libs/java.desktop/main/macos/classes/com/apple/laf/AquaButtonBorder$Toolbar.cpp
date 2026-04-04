@@ -1,6 +1,4 @@
 #include <com/apple/laf/AquaButtonBorder$Toolbar.h>
-
-#include <apple/laf/JRSUIConstants$Property.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaBorder.h>
@@ -15,9 +13,7 @@
 
 #undef TOOLBAR_ITEM_WELL
 
-using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
-using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
 using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$SizeVariant;
@@ -32,47 +28,15 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$MethodInfo _AquaButtonBorder$Toolbar_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonBorder$Toolbar, init$, void)},
-	{"<init>", "(Lcom/apple/laf/AquaButtonBorder$Toolbar;)V", nullptr, $PUBLIC, $method(AquaButtonBorder$Toolbar, init$, void, AquaButtonBorder$Toolbar*)},
-	{"doButtonPaint", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Toolbar, doButtonPaint, void, $AbstractButton*, $ButtonModel*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaButtonBorder$Toolbar_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaButtonBorder$Toolbar", "com.apple.laf.AquaButtonBorder", "Toolbar", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaButtonBorder$Toolbar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaButtonBorder$Toolbar",
-	"com.apple.laf.AquaButtonBorder",
-	nullptr,
-	nullptr,
-	_AquaButtonBorder$Toolbar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaButtonBorder$Toolbar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaButtonBorder"
-};
-
-$Object* allocate$AquaButtonBorder$Toolbar($Class* clazz) {
-	return $of($alloc(AquaButtonBorder$Toolbar));
-}
-
 void AquaButtonBorder$Toolbar::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$AquaButtonBorder::init$($$new($AquaUtilControlSize$SizeDescriptor, $($$new($AquaUtilControlSize$SizeVariant)->alterMargins(5, 5, 5, 5))));
 	$init($JRSUIConstants$Widget);
 	$nc($nc(this->painter)->state)->set($JRSUIConstants$Widget::TOOLBAR_ITEM_WELL);
 }
 
 void AquaButtonBorder$Toolbar::init$(AquaButtonBorder$Toolbar* other) {
-	$AquaButtonBorder::init$(static_cast<$AquaButtonBorder*>(other));
+	$AquaButtonBorder::init$(other);
 }
 
 void AquaButtonBorder$Toolbar::doButtonPaint($AbstractButton* b, $ButtonModel* model, $Graphics* g, int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -86,7 +50,34 @@ AquaButtonBorder$Toolbar::AquaButtonBorder$Toolbar() {
 }
 
 $Class* AquaButtonBorder$Toolbar::load$($String* name, bool initialize) {
-	$loadClass(AquaButtonBorder$Toolbar, name, initialize, &_AquaButtonBorder$Toolbar_ClassInfo_, allocate$AquaButtonBorder$Toolbar);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AquaButtonBorder$Toolbar, init$, void)},
+		{"<init>", "(Lcom/apple/laf/AquaButtonBorder$Toolbar;)V", nullptr, $PUBLIC, $method(AquaButtonBorder$Toolbar, init$, void, AquaButtonBorder$Toolbar*)},
+		{"doButtonPaint", "(Ljavax/swing/AbstractButton;Ljavax/swing/ButtonModel;Ljava/awt/Graphics;IIII)V", nullptr, $PROTECTED, $virtualMethod(AquaButtonBorder$Toolbar, doButtonPaint, void, $AbstractButton*, $ButtonModel*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaButtonBorder$Toolbar", "com.apple.laf.AquaButtonBorder", "Toolbar", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaButtonBorder$Toolbar",
+		"com.apple.laf.AquaButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaButtonBorder"
+	};
+	$loadClass(AquaButtonBorder$Toolbar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AquaButtonBorder$Toolbar));
+	});
 	return class$;
 }
 

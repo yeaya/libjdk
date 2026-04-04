@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/PathSimplifier.h>
-
 #include <sun/java2d/marlin/DPathConsumer2D.h>
 #include <sun/java2d/marlin/MarlinProperties.h>
 #include <jcpp.h>
@@ -16,41 +15,6 @@ using $MarlinProperties = ::sun::java2d::marlin::MarlinProperties;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _PathSimplifier_FieldInfo_[] = {
-	{"PIX_THRESHOLD", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PathSimplifier, PIX_THRESHOLD)},
-	{"SQUARE_TOLERANCE", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PathSimplifier, SQUARE_TOLERANCE)},
-	{"delegate", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(PathSimplifier, delegate)},
-	{"cx", "D", nullptr, $PRIVATE, $field(PathSimplifier, cx)},
-	{"cy", "D", nullptr, $PRIVATE, $field(PathSimplifier, cy)},
-	{}
-};
-
-$MethodInfo _PathSimplifier_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(PathSimplifier, init$, void)},
-	{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, closePath, void)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, curveTo, void, double, double, double, double, double, double)},
-	{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, getNativeConsumer, int64_t)},
-	{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/PathSimplifier;", nullptr, 0, $method(PathSimplifier, init, PathSimplifier*, $DPathConsumer2D*)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, lineTo, void, double, double)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, moveTo, void, double, double)},
-	{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, pathDone, void)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, quadTo, void, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _PathSimplifier_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.PathSimplifier",
-	"java.lang.Object",
-	"sun.java2d.marlin.DPathConsumer2D",
-	_PathSimplifier_FieldInfo_,
-	_PathSimplifier_MethodInfo_
-};
-
-$Object* allocate$PathSimplifier($Class* clazz) {
-	return $of($alloc(PathSimplifier));
-}
 
 double PathSimplifier::PIX_THRESHOLD = 0.0;
 double PathSimplifier::SQUARE_TOLERANCE = 0.0;
@@ -126,7 +90,7 @@ void PathSimplifier::lineTo(double xe, double ye) {
 	this->cy = ye;
 }
 
-void clinit$PathSimplifier($Class* class$) {
+void PathSimplifier::clinit$($Class* clazz) {
 	PathSimplifier::PIX_THRESHOLD = $MarlinProperties::getPathSimplifierPixelTolerance();
 	PathSimplifier::SQUARE_TOLERANCE = PathSimplifier::PIX_THRESHOLD * PathSimplifier::PIX_THRESHOLD;
 }
@@ -135,7 +99,37 @@ PathSimplifier::PathSimplifier() {
 }
 
 $Class* PathSimplifier::load$($String* name, bool initialize) {
-	$loadClass(PathSimplifier, name, initialize, &_PathSimplifier_ClassInfo_, clinit$PathSimplifier, allocate$PathSimplifier);
+	$FieldInfo fieldInfos$$[] = {
+		{"PIX_THRESHOLD", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PathSimplifier, PIX_THRESHOLD)},
+		{"SQUARE_TOLERANCE", "D", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(PathSimplifier, SQUARE_TOLERANCE)},
+		{"delegate", "Lsun/java2d/marlin/DPathConsumer2D;", nullptr, $PRIVATE, $field(PathSimplifier, delegate)},
+		{"cx", "D", nullptr, $PRIVATE, $field(PathSimplifier, cx)},
+		{"cy", "D", nullptr, $PRIVATE, $field(PathSimplifier, cy)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(PathSimplifier, init$, void)},
+		{"closePath", "()V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, closePath, void)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, curveTo, void, double, double, double, double, double, double)},
+		{"getNativeConsumer", "()J", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, getNativeConsumer, int64_t)},
+		{"init", "(Lsun/java2d/marlin/DPathConsumer2D;)Lsun/java2d/marlin/PathSimplifier;", nullptr, 0, $method(PathSimplifier, init, PathSimplifier*, $DPathConsumer2D*)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, lineTo, void, double, double)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, moveTo, void, double, double)},
+		{"pathDone", "()V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, pathDone, void)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC, $virtualMethod(PathSimplifier, quadTo, void, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.PathSimplifier",
+		"java.lang.Object",
+		"sun.java2d.marlin.DPathConsumer2D",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(PathSimplifier, name, initialize, &classInfo$$, PathSimplifier::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(PathSimplifier);
+	});
 	return class$;
 }
 

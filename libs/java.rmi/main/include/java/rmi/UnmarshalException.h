@@ -20,10 +20,13 @@ public:
 	UnmarshalException();
 	void init$($String* s);
 	void init$($String* s, ::java::lang::Exception* ex);
-	static const int64_t serialVersionUID = (int64_t)0x083FAA3ABFE9087A;
+	static const int64_t serialVersionUID = (int64_t)0x083faa3abfe9087a;
 	UnmarshalException(const UnmarshalException& e);
 	virtual void throw$() override;
-	inline UnmarshalException* operator ->() {
+	inline UnmarshalException* operator ->() const {
+		return (UnmarshalException*)throwing$;
+	}
+	inline operator UnmarshalException*() const {
 		return (UnmarshalException*)throwing$;
 	}
 };

@@ -1,5 +1,4 @@
 #include <sun/security/krb5/internal/ccache/FileCredentialsCache$1.h>
-
 #include <sun/security/krb5/internal/ccache/FileCredentialsCache.h>
 #include <jcpp.h>
 
@@ -13,43 +12,6 @@ namespace sun {
 		namespace krb5 {
 			namespace internal {
 				namespace ccache {
-
-$MethodInfo _FileCredentialsCache$1_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(FileCredentialsCache$1, init$, void)},
-	{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache$1, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _FileCredentialsCache$1_EnclosingMethodInfo_ = {
-	"sun.security.krb5.internal.ccache.FileCredentialsCache",
-	"getDefaultCacheName",
-	"()Ljava/lang/String;"
-};
-
-$InnerClassInfo _FileCredentialsCache$1_InnerClassesInfo_[] = {
-	{"sun.security.krb5.internal.ccache.FileCredentialsCache$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _FileCredentialsCache$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.security.krb5.internal.ccache.FileCredentialsCache$1",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	_FileCredentialsCache$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
-	&_FileCredentialsCache$1_EnclosingMethodInfo_,
-	_FileCredentialsCache$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.security.krb5.internal.ccache.FileCredentialsCache"
-};
-
-$Object* allocate$FileCredentialsCache$1($Class* clazz) {
-	return $of($alloc(FileCredentialsCache$1));
-}
 
 void FileCredentialsCache$1::init$() {
 }
@@ -67,7 +29,38 @@ FileCredentialsCache$1::FileCredentialsCache$1() {
 }
 
 $Class* FileCredentialsCache$1::load$($String* name, bool initialize) {
-	$loadClass(FileCredentialsCache$1, name, initialize, &_FileCredentialsCache$1_ClassInfo_, allocate$FileCredentialsCache$1);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(FileCredentialsCache$1, init$, void)},
+		{"run", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(FileCredentialsCache$1, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.security.krb5.internal.ccache.FileCredentialsCache",
+		"getDefaultCacheName",
+		"()Ljava/lang/String;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.krb5.internal.ccache.FileCredentialsCache$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.security.krb5.internal.ccache.FileCredentialsCache$1",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/String;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.security.krb5.internal.ccache.FileCredentialsCache"
+	};
+	$loadClass(FileCredentialsCache$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileCredentialsCache$1);
+	});
 	return class$;
 }
 

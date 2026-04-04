@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/BufferedRenderPipe$1.h>
-
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/pipe/BufferedRenderPipe.h>
 #include <jcpp.h>
@@ -15,53 +14,6 @@ using $BufferedRenderPipe = ::sun::java2d::pipe::BufferedRenderPipe;
 namespace sun {
 	namespace java2d {
 		namespace pipe {
-
-$FieldInfo _BufferedRenderPipe$1_FieldInfo_[] = {
-	{"this$0", "Lsun/java2d/pipe/BufferedRenderPipe;", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, this$0)},
-	{"val$sg2d", "Lsun/java2d/SunGraphics2D;", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$sg2d)},
-	{"val$isClosed", "Z", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$isClosed)},
-	{"val$nPoints", "I", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$nPoints)},
-	{"val$yPoints", "[I", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$yPoints)},
-	{"val$xPoints", "[I", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$xPoints)},
-	{}
-};
-
-$MethodInfo _BufferedRenderPipe$1_MethodInfo_[] = {
-	{"<init>", "(Lsun/java2d/pipe/BufferedRenderPipe;[I[IIZLsun/java2d/SunGraphics2D;)V", "()V", 0, $method(BufferedRenderPipe$1, init$, void, $BufferedRenderPipe*, $ints*, $ints*, int32_t, bool, $SunGraphics2D*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _BufferedRenderPipe$1_EnclosingMethodInfo_ = {
-	"sun.java2d.pipe.BufferedRenderPipe",
-	"drawPoly",
-	"(Lsun/java2d/SunGraphics2D;[I[IIZ)V"
-};
-
-$InnerClassInfo _BufferedRenderPipe$1_InnerClassesInfo_[] = {
-	{"sun.java2d.pipe.BufferedRenderPipe$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _BufferedRenderPipe$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.pipe.BufferedRenderPipe$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_BufferedRenderPipe$1_FieldInfo_,
-	_BufferedRenderPipe$1_MethodInfo_,
-	nullptr,
-	&_BufferedRenderPipe$1_EnclosingMethodInfo_,
-	_BufferedRenderPipe$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.pipe.BufferedRenderPipe"
-};
-
-$Object* allocate$BufferedRenderPipe$1($Class* clazz) {
-	return $of($alloc(BufferedRenderPipe$1));
-}
 
 void BufferedRenderPipe$1::init$($BufferedRenderPipe* this$0, $ints* val$xPoints, $ints* val$yPoints, int32_t val$nPoints, bool val$isClosed, $SunGraphics2D* val$sg2d) {
 	$set(this, this$0, this$0);
@@ -80,7 +32,47 @@ BufferedRenderPipe$1::BufferedRenderPipe$1() {
 }
 
 $Class* BufferedRenderPipe$1::load$($String* name, bool initialize) {
-	$loadClass(BufferedRenderPipe$1, name, initialize, &_BufferedRenderPipe$1_ClassInfo_, allocate$BufferedRenderPipe$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/java2d/pipe/BufferedRenderPipe;", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, this$0)},
+		{"val$sg2d", "Lsun/java2d/SunGraphics2D;", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$sg2d)},
+		{"val$isClosed", "Z", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$isClosed)},
+		{"val$nPoints", "I", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$nPoints)},
+		{"val$yPoints", "[I", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$yPoints)},
+		{"val$xPoints", "[I", nullptr, $FINAL | $SYNTHETIC, $field(BufferedRenderPipe$1, val$xPoints)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/java2d/pipe/BufferedRenderPipe;[I[IIZLsun/java2d/SunGraphics2D;)V", "()V", 0, $method(BufferedRenderPipe$1, init$, void, $BufferedRenderPipe*, $ints*, $ints*, int32_t, bool, $SunGraphics2D*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(BufferedRenderPipe$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.pipe.BufferedRenderPipe",
+		"drawPoly",
+		"(Lsun/java2d/SunGraphics2D;[I[IIZ)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.pipe.BufferedRenderPipe$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.pipe.BufferedRenderPipe$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.pipe.BufferedRenderPipe"
+	};
+	$loadClass(BufferedRenderPipe$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(BufferedRenderPipe$1);
+	});
 	return class$;
 }
 

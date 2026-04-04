@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/CollinearSimplifier$1.h>
-
 #include <java/lang/NoSuchFieldError.h>
 #include <sun/java2d/marlin/CollinearSimplifier$SimplifierState.h>
 #include <sun/java2d/marlin/CollinearSimplifier.h>
@@ -16,57 +15,21 @@ namespace sun {
 	namespace java2d {
 		namespace marlin {
 
-$FieldInfo _CollinearSimplifier$1_FieldInfo_[] = {
-	{"$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CollinearSimplifier$1, $SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState)},
-	{}
-};
-
-$EnclosingMethodInfo _CollinearSimplifier$1_EnclosingMethodInfo_ = {
-	"sun.java2d.marlin.CollinearSimplifier",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _CollinearSimplifier$1_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.CollinearSimplifier$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _CollinearSimplifier$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"sun.java2d.marlin.CollinearSimplifier$1",
-	"java.lang.Object",
-	nullptr,
-	_CollinearSimplifier$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_CollinearSimplifier$1_EnclosingMethodInfo_,
-	_CollinearSimplifier$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.CollinearSimplifier"
-};
-
-$Object* allocate$CollinearSimplifier$1($Class* clazz) {
-	return $of($alloc(CollinearSimplifier$1));
-}
-
 $ints* CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState = nullptr;
 
-void clinit$CollinearSimplifier$1($Class* class$) {
+void CollinearSimplifier$1::clinit$($Class* clazz) {
 	$assignStatic(CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState, $new($ints, $($CollinearSimplifier$SimplifierState::values())->length));
 	{
 		try {
-			$nc(CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState)->set($CollinearSimplifier$SimplifierState::Empty->ordinal(), 1);
+			CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState->set($CollinearSimplifier$SimplifierState::Empty->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState)->set($CollinearSimplifier$SimplifierState::PreviousPoint->ordinal(), 2);
+			CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState->set($CollinearSimplifier$SimplifierState::PreviousPoint->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState)->set($CollinearSimplifier$SimplifierState::PreviousLine->ordinal(), 3);
+			CollinearSimplifier$1::$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState->set($CollinearSimplifier$SimplifierState::PreviousLine->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -76,7 +39,37 @@ CollinearSimplifier$1::CollinearSimplifier$1() {
 }
 
 $Class* CollinearSimplifier$1::load$($String* name, bool initialize) {
-	$loadClass(CollinearSimplifier$1, name, initialize, &_CollinearSimplifier$1_ClassInfo_, clinit$CollinearSimplifier$1, allocate$CollinearSimplifier$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(CollinearSimplifier$1, $SwitchMap$sun$java2d$marlin$CollinearSimplifier$SimplifierState)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.java2d.marlin.CollinearSimplifier",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.CollinearSimplifier$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"sun.java2d.marlin.CollinearSimplifier$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.CollinearSimplifier"
+	};
+	$loadClass(CollinearSimplifier$1, name, initialize, &classInfo$$, CollinearSimplifier$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(CollinearSimplifier$1);
+	});
 	return class$;
 }
 

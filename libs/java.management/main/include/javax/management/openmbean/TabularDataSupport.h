@@ -73,7 +73,7 @@ public:
 	virtual int32_t size() override;
 	virtual $String* toString() override;
 	virtual ::java::util::Collection* values() override;
-	static const int64_t serialVersionUID = (int64_t)0x4F620EA86B971743;
+	static const int64_t serialVersionUID = (int64_t)0x4f620ea86b971743;
 	::java::util::Map* dataMap = nullptr;
 	::javax::management::openmbean::TabularType* tabularType = nullptr;
 	$StringArray* indexNamesArray = nullptr;

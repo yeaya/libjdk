@@ -1,5 +1,4 @@
 #include <com/apple/laf/ScreenMenuItem.h>
-
 #include <com/apple/laf/AquaIcon.h>
 #include <com/apple/laf/ScreenMenuItemUI.h>
 #include <com/apple/laf/ScreenMenuPropertyHandler.h>
@@ -12,11 +11,8 @@
 #include <java/awt/MenuContainer.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/ComponentListener.h>
 #include <java/awt/peer/MenuComponentPeer.h>
-#include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
@@ -35,14 +31,10 @@ using $ScreenMenuPropertyHandler = ::com::apple::laf::ScreenMenuPropertyHandler;
 using $ScreenMenuPropertyListener = ::com::apple::laf::ScreenMenuPropertyListener;
 using $Font = ::java::awt::Font;
 using $Image = ::java::awt::Image;
-using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem = ::java::awt::MenuItem;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ActionListener = ::java::awt::event::ActionListener;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $ComponentListener = ::java::awt::event::ComponentListener;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -52,58 +44,11 @@ using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
-using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $CMenuItem = ::sun::lwawt::macosx::CMenuItem;
 
 namespace com {
 	namespace apple {
 		namespace laf {
-
-$FieldInfo _ScreenMenuItem_FieldInfo_[] = {
-	{"fListener", "Lcom/apple/laf/ScreenMenuPropertyListener;", nullptr, 0, $field(ScreenMenuItem, fListener)},
-	{"fMenuItem", "Ljavax/swing/JMenuItem;", nullptr, 0, $field(ScreenMenuItem, fMenuItem)},
-	{}
-};
-
-$MethodInfo _ScreenMenuItem_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljavax/swing/JMenuItem;)V", nullptr, 0, $method(ScreenMenuItem, init$, void, $JMenuItem*)},
-	{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, actionPerformed, void, $ActionEvent*)},
-	{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, addNotify, void)},
-	{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, componentHidden, void, $ComponentEvent*)},
-	{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, componentMoved, void, $ComponentEvent*)},
-	{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, componentResized, void, $ComponentEvent*)},
-	{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, componentShown, void, $ComponentEvent*)},
-	{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, removeNotify, void)},
-	{"setAccelerator", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setAccelerator, void, $KeyStroke*)},
-	{"setChildVisible", "(Ljavax/swing/JMenuItem;Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setChildVisible, void, $JMenuItem*, bool)},
-	{"*setEnabled", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED},
-	{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
-	{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setIcon, void, $Icon*)},
-	{"setIndeterminate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setIndeterminate, void, bool)},
-	{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScreenMenuItem, setLabel, void, $String*)},
-	{"setToolTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setToolTipText, void, $String*)},
-	{"setVisible", "(Z)V", nullptr, $PUBLIC, $method(ScreenMenuItem, setVisible, void, bool)},
-	{"syncLabelAndKS", "(Ljava/awt/MenuItem;Ljava/lang/String;Ljavax/swing/KeyStroke;)V", nullptr, $STATIC, $staticMethod(ScreenMenuItem, syncLabelAndKS, void, $MenuItem*, $String*, $KeyStroke*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _ScreenMenuItem_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.apple.laf.ScreenMenuItem",
-	"java.awt.MenuItem",
-	"java.awt.event.ActionListener,java.awt.event.ComponentListener,com.apple.laf.ScreenMenuPropertyHandler",
-	_ScreenMenuItem_FieldInfo_,
-	_ScreenMenuItem_MethodInfo_
-};
-
-$Object* allocate$ScreenMenuItem($Class* clazz) {
-	return $of($alloc(ScreenMenuItem));
-}
 
 void ScreenMenuItem::setEnabled(bool b) {
 	this->$MenuItem::setEnabled(b);
@@ -134,18 +79,18 @@ void ScreenMenuItem::finalize() {
 }
 
 void ScreenMenuItem::init$($JMenuItem* mi) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MenuItem::init$($($nc(mi)->getText()));
 	$set(this, fMenuItem, mi);
-	setEnabled($nc(this->fMenuItem)->isEnabled());
+	setEnabled(this->fMenuItem->isEnabled());
 	$var($ComponentUI, ui, $nc(this->fMenuItem)->getUI());
 	if ($instanceOf($ScreenMenuItemUI, ui)) {
-		$nc(($cast($ScreenMenuItemUI, ui)))->updateListenersForScreenMenuItem();
+		$cast($ScreenMenuItemUI, ui)->updateListenersForScreenMenuItem();
 	}
 }
 
 void ScreenMenuItem::addNotify() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$MenuItem::addNotify();
 	$nc(this->fMenuItem)->addComponentListener(this);
 	$set(this, fListener, $new($ScreenMenuPropertyListener, this));
@@ -166,9 +111,9 @@ void ScreenMenuItem::addNotify() {
 		this->setToolTipText(tooltipText);
 	}
 	if ($instanceOf($JRadioButtonMenuItem, this->fMenuItem)) {
-		$var($ComponentUI, ui, $nc(this->fMenuItem)->getUI());
+		$var($ComponentUI, ui, this->fMenuItem->getUI());
 		if ($instanceOf($ScreenMenuItemUI, ui)) {
-			$nc(($cast($ScreenMenuItemUI, ui)))->updateListenersForScreenMenuItem();
+			$cast($ScreenMenuItemUI, ui)->updateListenersForScreenMenuItem();
 		}
 	}
 }
@@ -183,8 +128,8 @@ void ScreenMenuItem::removeNotify() {
 
 void ScreenMenuItem::syncLabelAndKS($MenuItem* menuItem, $String* label, $KeyStroke* ks) {
 	$init(ScreenMenuItem);
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(menuItem));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(menuItem));
 	if (!($instanceOf($CMenuItem, peer))) {
 		return;
 	}
@@ -192,10 +137,9 @@ void ScreenMenuItem::syncLabelAndKS($MenuItem* menuItem, $String* label, $KeyStr
 	if (ks == nullptr) {
 		$nc(cmi)->setLabel(label);
 	} else {
-		$var($String, var$0, label);
-		char16_t var$1 = $nc(ks)->getKeyChar();
-		int32_t var$2 = ks->getKeyCode();
-		$nc(cmi)->setLabel(var$0, var$1, var$2, ks->getModifiers());
+		char16_t var$0 = ks->getKeyChar();
+		int32_t var$1 = ks->getKeyCode();
+		$nc(cmi)->setLabel(label, var$0, var$1, ks->getModifiers());
 	}
 }
 
@@ -230,13 +174,13 @@ void ScreenMenuItem::componentHidden($ComponentEvent* e) {
 void ScreenMenuItem::setVisible(bool b) {
 	$var($MenuContainer, parent, getParent());
 	if (parent != nullptr) {
-		$nc(($cast($ScreenMenuPropertyHandler, parent)))->setChildVisible(this->fMenuItem, b);
+		$cast($ScreenMenuPropertyHandler, parent)->setChildVisible(this->fMenuItem, b);
 	}
 }
 
 void ScreenMenuItem::setToolTipText($String* text) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(this));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(this));
 	if (!($instanceOf($CMenuItem, peer))) {
 		return;
 	}
@@ -245,8 +189,8 @@ void ScreenMenuItem::setToolTipText($String* text) {
 }
 
 void ScreenMenuItem::setIcon($Icon* i) {
-	$useLocalCurrentObjectStackCache();
-	$var($Object, peer, $nc($($AWTAccessor::getMenuComponentAccessor()))->getPeer(this));
+	$useLocalObjectStack();
+	$var($Object, peer, $$nc($AWTAccessor::getMenuComponentAccessor())->getPeer(this));
 	if (!($instanceOf($CMenuItem, peer))) {
 		return;
 	}
@@ -271,7 +215,48 @@ ScreenMenuItem::ScreenMenuItem() {
 }
 
 $Class* ScreenMenuItem::load$($String* name, bool initialize) {
-	$loadClass(ScreenMenuItem, name, initialize, &_ScreenMenuItem_ClassInfo_, allocate$ScreenMenuItem);
+	$FieldInfo fieldInfos$$[] = {
+		{"fListener", "Lcom/apple/laf/ScreenMenuPropertyListener;", nullptr, 0, $field(ScreenMenuItem, fListener)},
+		{"fMenuItem", "Ljavax/swing/JMenuItem;", nullptr, 0, $field(ScreenMenuItem, fMenuItem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljavax/swing/JMenuItem;)V", nullptr, 0, $method(ScreenMenuItem, init$, void, $JMenuItem*)},
+		{"actionPerformed", "(Ljava/awt/event/ActionEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, actionPerformed, void, $ActionEvent*)},
+		{"addNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, addNotify, void)},
+		{"componentHidden", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, componentHidden, void, $ComponentEvent*)},
+		{"componentMoved", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, componentMoved, void, $ComponentEvent*)},
+		{"componentResized", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, componentResized, void, $ComponentEvent*)},
+		{"componentShown", "(Ljava/awt/event/ComponentEvent;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, componentShown, void, $ComponentEvent*)},
+		{"removeNotify", "()V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, removeNotify, void)},
+		{"setAccelerator", "(Ljavax/swing/KeyStroke;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setAccelerator, void, $KeyStroke*)},
+		{"setChildVisible", "(Ljavax/swing/JMenuItem;Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setChildVisible, void, $JMenuItem*, bool)},
+		{"*setEnabled", "(Z)V", nullptr, $PUBLIC | $SYNCHRONIZED},
+		{"*setFont", "(Ljava/awt/Font;)V", nullptr, $PUBLIC},
+		{"setIcon", "(Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setIcon, void, $Icon*)},
+		{"setIndeterminate", "(Z)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setIndeterminate, void, bool)},
+		{"setLabel", "(Ljava/lang/String;)V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(ScreenMenuItem, setLabel, void, $String*)},
+		{"setToolTipText", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(ScreenMenuItem, setToolTipText, void, $String*)},
+		{"setVisible", "(Z)V", nullptr, $PUBLIC, $method(ScreenMenuItem, setVisible, void, bool)},
+		{"syncLabelAndKS", "(Ljava/awt/MenuItem;Ljava/lang/String;Ljavax/swing/KeyStroke;)V", nullptr, $STATIC, $staticMethod(ScreenMenuItem, syncLabelAndKS, void, $MenuItem*, $String*, $KeyStroke*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.apple.laf.ScreenMenuItem",
+		"java.awt.MenuItem",
+		"java.awt.event.ActionListener,java.awt.event.ComponentListener,com.apple.laf.ScreenMenuPropertyHandler",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ScreenMenuItem, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ScreenMenuItem));
+	});
 	return class$;
 }
 

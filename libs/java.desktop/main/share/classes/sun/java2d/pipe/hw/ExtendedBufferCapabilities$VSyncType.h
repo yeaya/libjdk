@@ -23,6 +23,7 @@ class ExtendedBufferCapabilities$VSyncType : public ::java::lang::Enum {
 public:
 	ExtendedBufferCapabilities$VSyncType();
 	static $Array<::sun::java2d::pipe::hw::ExtendedBufferCapabilities$VSyncType>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t id);
 	virtual int32_t id();
 	static ::sun::java2d::pipe::hw::ExtendedBufferCapabilities$VSyncType* valueOf($String* name);

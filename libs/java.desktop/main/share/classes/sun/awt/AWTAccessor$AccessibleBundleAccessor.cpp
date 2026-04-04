@@ -1,5 +1,4 @@
 #include <sun/awt/AWTAccessor$AccessibleBundleAccessor.h>
-
 #include <javax/accessibility/AccessibleBundle.h>
 #include <sun/awt/AWTAccessor.h>
 #include <jcpp.h>
@@ -12,38 +11,33 @@ using $AccessibleBundle = ::javax::accessibility::AccessibleBundle;
 namespace sun {
 	namespace awt {
 
-$MethodInfo _AWTAccessor$AccessibleBundleAccessor_MethodInfo_[] = {
-	{"getKey", "(Ljavax/accessibility/AccessibleBundle;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AccessibleBundleAccessor, getKey, $String*, $AccessibleBundle*)},
-	{}
-};
-
-$InnerClassInfo _AWTAccessor$AccessibleBundleAccessor_InnerClassesInfo_[] = {
-	{"sun.awt.AWTAccessor$AccessibleBundleAccessor", "sun.awt.AWTAccessor", "AccessibleBundleAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _AWTAccessor$AccessibleBundleAccessor_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"sun.awt.AWTAccessor$AccessibleBundleAccessor",
-	nullptr,
-	nullptr,
-	nullptr,
-	_AWTAccessor$AccessibleBundleAccessor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AWTAccessor$AccessibleBundleAccessor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.AWTAccessor"
-};
-
-$Object* allocate$AWTAccessor$AccessibleBundleAccessor($Class* clazz) {
-	return $of($alloc(AWTAccessor$AccessibleBundleAccessor));
-}
-
 $Class* AWTAccessor$AccessibleBundleAccessor::load$($String* name, bool initialize) {
-	$loadClass(AWTAccessor$AccessibleBundleAccessor, name, initialize, &_AWTAccessor$AccessibleBundleAccessor_ClassInfo_, allocate$AWTAccessor$AccessibleBundleAccessor);
+	$MethodInfo methodInfos$$[] = {
+		{"getKey", "(Ljavax/accessibility/AccessibleBundle;)Ljava/lang/String;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(AWTAccessor$AccessibleBundleAccessor, getKey, $String*, $AccessibleBundle*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.AWTAccessor$AccessibleBundleAccessor", "sun.awt.AWTAccessor", "AccessibleBundleAccessor", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"sun.awt.AWTAccessor$AccessibleBundleAccessor",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.AWTAccessor"
+	};
+	$loadClass(AWTAccessor$AccessibleBundleAccessor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AWTAccessor$AccessibleBundleAccessor);
+	});
 	return class$;
 }
 

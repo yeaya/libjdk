@@ -23,6 +23,7 @@ class EncodingMap : public ::java::lang::Object {
 	$class(EncodingMap, 0, ::java::lang::Object)
 public:
 	EncodingMap();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $String* getIANA2JavaMapping($String* ianaEncoding);
 	static $String* getJava2IANAMapping($String* javaEncoding);

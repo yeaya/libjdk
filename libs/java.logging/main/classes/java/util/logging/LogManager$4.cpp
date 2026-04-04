@@ -1,5 +1,4 @@
 #include <java/util/logging/LogManager$4.h>
-
 #include <java/util/List.h>
 #include <java/util/logging/LogManager.h>
 #include <java/util/logging/Logger.h>
@@ -17,51 +16,6 @@ namespace java {
 	namespace util {
 		namespace logging {
 
-$FieldInfo _LogManager$4_FieldInfo_[] = {
-	{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$4, this$0)},
-	{"val$handlersPropertyName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$4, val$handlersPropertyName)},
-	{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$4, val$name)},
-	{"val$logger", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$4, val$logger)},
-	{}
-};
-
-$MethodInfo _LogManager$4_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(LogManager$4, init$, void, $LogManager*, $Logger*, $String*, $String*)},
-	{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LogManager$4, run, $Object*)},
-	{}
-};
-
-$EnclosingMethodInfo _LogManager$4_EnclosingMethodInfo_ = {
-	"java.util.logging.LogManager",
-	"loadLoggerHandlers",
-	"(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _LogManager$4_InnerClassesInfo_[] = {
-	{"java.util.logging.LogManager$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _LogManager$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.logging.LogManager$4",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	_LogManager$4_FieldInfo_,
-	_LogManager$4_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
-	&_LogManager$4_EnclosingMethodInfo_,
-	_LogManager$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.logging.LogManager"
-};
-
-$Object* allocate$LogManager$4($Class* clazz) {
-	return $of($alloc(LogManager$4));
-}
-
 void LogManager$4::init$($LogManager* this$0, $Logger* val$logger, $String* val$name, $String* val$handlersPropertyName) {
 	$set(this, this$0, this$0);
 	$set(this, val$logger, val$logger);
@@ -71,14 +25,52 @@ void LogManager$4::init$($LogManager* this$0, $Logger* val$logger, $String* val$
 
 $Object* LogManager$4::run() {
 	this->this$0->setLoggerHandlers(this->val$logger, this->val$name, this->val$handlersPropertyName, $(this->this$0->createLoggerHandlers(this->val$name, this->val$handlersPropertyName)));
-	return $of(nullptr);
+	return nullptr;
 }
 
 LogManager$4::LogManager$4() {
 }
 
 $Class* LogManager$4::load$($String* name, bool initialize) {
-	$loadClass(LogManager$4, name, initialize, &_LogManager$4_ClassInfo_, allocate$LogManager$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/logging/LogManager;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$4, this$0)},
+		{"val$handlersPropertyName", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$4, val$handlersPropertyName)},
+		{"val$name", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$4, val$name)},
+		{"val$logger", "Ljava/util/logging/Logger;", nullptr, $FINAL | $SYNTHETIC, $field(LogManager$4, val$logger)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/logging/LogManager;Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;)V", "()V", 0, $method(LogManager$4, init$, void, $LogManager*, $Logger*, $String*, $String*)},
+		{"run", "()Ljava/lang/Void;", nullptr, $PUBLIC, $virtualMethod(LogManager$4, run, $Object*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"java.util.logging.LogManager",
+		"loadLoggerHandlers",
+		"(Ljava/util/logging/Logger;Ljava/lang/String;Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.logging.LogManager$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.logging.LogManager$4",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedAction<Ljava/lang/Void;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.logging.LogManager"
+	};
+	$loadClass(LogManager$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LogManager$4);
+	});
 	return class$;
 }
 

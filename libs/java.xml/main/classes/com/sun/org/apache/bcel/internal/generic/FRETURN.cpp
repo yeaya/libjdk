@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/FRETURN.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
@@ -11,10 +10,7 @@
 #undef FRETURN
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
-using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
 using $ReturnInstruction = ::com::sun::org::apache::bcel::internal::generic::ReturnInstruction;
-using $StackConsumer = ::com::sun::org::apache::bcel::internal::generic::StackConsumer;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -26,25 +22,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$MethodInfo _FRETURN_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FRETURN, init$, void)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(FRETURN, accept, void, $Visitor*)},
-	{}
-};
-
-$ClassInfo _FRETURN_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.FRETURN",
-	"com.sun.org.apache.bcel.internal.generic.ReturnInstruction",
-	nullptr,
-	nullptr,
-	_FRETURN_MethodInfo_
-};
-
-$Object* allocate$FRETURN($Class* clazz) {
-	return $of($alloc(FRETURN));
-}
 
 void FRETURN::init$() {
 	$ReturnInstruction::init$($Const::FRETURN);
@@ -62,7 +39,22 @@ FRETURN::FRETURN() {
 }
 
 $Class* FRETURN::load$($String* name, bool initialize) {
-	$loadClass(FRETURN, name, initialize, &_FRETURN_ClassInfo_, allocate$FRETURN);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FRETURN, init$, void)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(FRETURN, accept, void, $Visitor*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.FRETURN",
+		"com.sun.org.apache.bcel.internal.generic.ReturnInstruction",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FRETURN, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FRETURN));
+	});
 	return class$;
 }
 

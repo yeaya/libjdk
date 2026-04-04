@@ -15,6 +15,7 @@ class ClassFinder$2 : public ::java::lang::Object {
 	$class(ClassFinder$2, 0, ::java::lang::Object)
 public:
 	ClassFinder$2();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$javax$tools$JavaFileObject$Kind;
 };
 

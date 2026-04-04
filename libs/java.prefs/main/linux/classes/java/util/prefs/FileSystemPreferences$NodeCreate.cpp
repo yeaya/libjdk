@@ -1,5 +1,4 @@
 #include <java/util/prefs/FileSystemPreferences$NodeCreate.h>
-
 #include <java/util/prefs/FileSystemPreferences$Change.h>
 #include <java/util/prefs/FileSystemPreferences.h>
 #include <jcpp.h>
@@ -15,43 +14,6 @@ namespace java {
 	namespace util {
 		namespace prefs {
 
-$FieldInfo _FileSystemPreferences$NodeCreate_FieldInfo_[] = {
-	{"this$0", "Ljava/util/prefs/FileSystemPreferences;", nullptr, $FINAL | $SYNTHETIC, $field(FileSystemPreferences$NodeCreate, this$0)},
-	{}
-};
-
-$MethodInfo _FileSystemPreferences$NodeCreate_MethodInfo_[] = {
-	{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, $PRIVATE, $method(FileSystemPreferences$NodeCreate, init$, void, $FileSystemPreferences*)},
-	{"replay", "()V", nullptr, 0, $virtualMethod(FileSystemPreferences$NodeCreate, replay, void)},
-	{}
-};
-
-$InnerClassInfo _FileSystemPreferences$NodeCreate_InnerClassesInfo_[] = {
-	{"java.util.prefs.FileSystemPreferences$NodeCreate", "java.util.prefs.FileSystemPreferences", "NodeCreate", $PRIVATE},
-	{"java.util.prefs.FileSystemPreferences$Change", "java.util.prefs.FileSystemPreferences", "Change", $PRIVATE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _FileSystemPreferences$NodeCreate_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.util.prefs.FileSystemPreferences$NodeCreate",
-	"java.util.prefs.FileSystemPreferences$Change",
-	nullptr,
-	_FileSystemPreferences$NodeCreate_FieldInfo_,
-	_FileSystemPreferences$NodeCreate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileSystemPreferences$NodeCreate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.util.prefs.FileSystemPreferences"
-};
-
-$Object* allocate$FileSystemPreferences$NodeCreate($Class* clazz) {
-	return $of($alloc(FileSystemPreferences$NodeCreate));
-}
-
 void FileSystemPreferences$NodeCreate::init$($FileSystemPreferences* this$0) {
 	$set(this, this$0, this$0);
 	$FileSystemPreferences$Change::init$(this$0);
@@ -64,7 +26,38 @@ FileSystemPreferences$NodeCreate::FileSystemPreferences$NodeCreate() {
 }
 
 $Class* FileSystemPreferences$NodeCreate::load$($String* name, bool initialize) {
-	$loadClass(FileSystemPreferences$NodeCreate, name, initialize, &_FileSystemPreferences$NodeCreate_ClassInfo_, allocate$FileSystemPreferences$NodeCreate);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/util/prefs/FileSystemPreferences;", nullptr, $FINAL | $SYNTHETIC, $field(FileSystemPreferences$NodeCreate, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/util/prefs/FileSystemPreferences;)V", nullptr, $PRIVATE, $method(FileSystemPreferences$NodeCreate, init$, void, $FileSystemPreferences*)},
+		{"replay", "()V", nullptr, 0, $virtualMethod(FileSystemPreferences$NodeCreate, replay, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.util.prefs.FileSystemPreferences$NodeCreate", "java.util.prefs.FileSystemPreferences", "NodeCreate", $PRIVATE},
+		{"java.util.prefs.FileSystemPreferences$Change", "java.util.prefs.FileSystemPreferences", "Change", $PRIVATE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.util.prefs.FileSystemPreferences$NodeCreate",
+		"java.util.prefs.FileSystemPreferences$Change",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.util.prefs.FileSystemPreferences"
+	};
+	$loadClass(FileSystemPreferences$NodeCreate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileSystemPreferences$NodeCreate);
+	});
 	return class$;
 }
 

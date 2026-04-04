@@ -1,5 +1,4 @@
 #include <com/sun/jndi/ldap/LdapCtx.h>
-
 #include <com/sun/jndi/ldap/Connection.h>
 #include <com/sun/jndi/ldap/DefaultResponseControlFactory.h>
 #include <com/sun/jndi/ldap/EventSupport.h>
@@ -21,11 +20,9 @@
 #include <com/sun/jndi/ldap/Obj.h>
 #include <com/sun/jndi/ldap/ext/StartTlsResponseImpl.h>
 #include <com/sun/jndi/toolkit/ctx/AtomicContext.h>
-#include <com/sun/jndi/toolkit/ctx/ComponentContext.h>
 #include <com/sun/jndi/toolkit/ctx/ComponentDirContext.h>
 #include <com/sun/jndi/toolkit/ctx/Continuation.h>
 #include <com/sun/jndi/toolkit/ctx/PartialCompositeContext.h>
-#include <com/sun/jndi/toolkit/ctx/PartialCompositeDirContext.h>
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx.h>
 #include <com/sun/jndi/toolkit/dir/SearchFilter.h>
 #include <java/io/IOException.h>
@@ -238,11 +235,8 @@ using $ManageReferralControl = ::com::sun::jndi::ldap::ManageReferralControl;
 using $Obj = ::com::sun::jndi::ldap::Obj;
 using $StartTlsResponseImpl = ::com::sun::jndi::ldap::ext::StartTlsResponseImpl;
 using $AtomicContext = ::com::sun::jndi::toolkit::ctx::AtomicContext;
-using $ComponentContext = ::com::sun::jndi::toolkit::ctx::ComponentContext;
 using $ComponentDirContext = ::com::sun::jndi::toolkit::ctx::ComponentDirContext;
 using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
-using $PartialCompositeContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeContext;
-using $PartialCompositeDirContext = ::com::sun::jndi::toolkit::ctx::PartialCompositeDirContext;
 using $HierMemDirCtx = ::com::sun::jndi::toolkit::dir::HierMemDirCtx;
 using $SearchFilter = ::com::sun::jndi::toolkit::dir::SearchFilter;
 using $IOException = ::java::io::IOException;
@@ -273,7 +267,6 @@ using $Vector = ::java::util::Vector;
 using $Function = ::java::util::function::Function;
 using $Predicate = ::java::util::function::Predicate;
 using $Collectors = ::java::util::stream::Collectors;
-using $Stream = ::java::util::stream::Stream;
 using $AuthenticationException = ::javax::naming::AuthenticationException;
 using $AuthenticationNotSupportedException = ::javax::naming::AuthenticationNotSupportedException;
 using $CommunicationException = ::javax::naming::CommunicationException;
@@ -333,27 +326,24 @@ public:
 	virtual $Object* run() override {
 		 return $of(LdapCtx::lambda$getMechsAllowedToSendCredentials$0());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0, init$, void)},
-	{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0, run, $Object*)},
-	{}
-};
-$ClassInfo LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0",
-	"java.lang.Object",
-	"java.security.PrivilegedAction",
-	nullptr,
-	methodInfos
 };
 $Class* LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0::load$($String* name, bool initialize) {
-	$loadClass(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0, init$, void)},
+		{"run", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0, run, $Object*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0",
+		"java.lang.Object",
+		"java.security.PrivilegedAction",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0);
+	});
 	return class$;
 }
 $Class* LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0::class$ = nullptr;
@@ -366,27 +356,24 @@ public:
 	virtual $Object* apply(Object$* inst$) override {
 		 return $of($sure($String, inst$)->trim());
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapCtx$$Lambda$trim$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LdapCtx$$Lambda$trim$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapCtx$$Lambda$trim$1, init$, void)},
-	{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapCtx$$Lambda$trim$1, apply, $Object*, Object$*)},
-	{}
-};
-$ClassInfo LdapCtx$$Lambda$trim$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapCtx$$Lambda$trim$1",
-	"java.lang.Object",
-	"java.util.function.Function",
-	nullptr,
-	methodInfos
 };
 $Class* LdapCtx$$Lambda$trim$1::load$($String* name, bool initialize) {
-	$loadClass(LdapCtx$$Lambda$trim$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LdapCtx$$Lambda$trim$1, init$, void)},
+		{"apply", "(Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapCtx$$Lambda$trim$1, apply, $Object*, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapCtx$$Lambda$trim$1",
+		"java.lang.Object",
+		"java.util.function.Function",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LdapCtx$$Lambda$trim$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapCtx$$Lambda$trim$1);
+	});
 	return class$;
 }
 $Class* LdapCtx$$Lambda$trim$1::class$ = nullptr;
@@ -399,304 +386,27 @@ public:
 	virtual bool test(Object$* inst$) override {
 		 return $sure($String, inst$)->isBlank();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<LdapCtx$$Lambda$isBlank$2>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo LdapCtx$$Lambda$isBlank$2::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LdapCtx$$Lambda$isBlank$2, init$, void)},
-	{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapCtx$$Lambda$isBlank$2, test, bool, Object$*)},
-	{}
-};
-$ClassInfo LdapCtx$$Lambda$isBlank$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"com.sun.jndi.ldap.LdapCtx$$Lambda$isBlank$2",
-	"java.lang.Object",
-	"java.util.function.Predicate",
-	nullptr,
-	methodInfos
 };
 $Class* LdapCtx$$Lambda$isBlank$2::load$($String* name, bool initialize) {
-	$loadClass(LdapCtx$$Lambda$isBlank$2, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LdapCtx$$Lambda$isBlank$2, init$, void)},
+		{"test", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(LdapCtx$$Lambda$isBlank$2, test, bool, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"com.sun.jndi.ldap.LdapCtx$$Lambda$isBlank$2",
+		"java.lang.Object",
+		"java.util.function.Predicate",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LdapCtx$$Lambda$isBlank$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LdapCtx$$Lambda$isBlank$2);
+	});
 	return class$;
 }
 $Class* LdapCtx$$Lambda$isBlank$2::class$ = nullptr;
-
-$FieldInfo _LdapCtx_FieldInfo_[] = {
-	{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, debug)},
-	{"HARD_CLOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, HARD_CLOSE)},
-	{"SOFT_CLOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, SOFT_CLOSE)},
-	{"DEFAULT_PORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_PORT)},
-	{"DEFAULT_SSL_PORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_SSL_PORT)},
-	{"DEFAULT_HOST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LdapCtx, DEFAULT_HOST)},
-	{"DEFAULT_DELETE_RDN", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_DELETE_RDN)},
-	{"DEFAULT_TYPES_ONLY", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_TYPES_ONLY)},
-	{"DEFAULT_DEREF_ALIASES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_DEREF_ALIASES)},
-	{"DEFAULT_LDAP_VERSION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_LDAP_VERSION)},
-	{"DEFAULT_BATCH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_BATCH_SIZE)},
-	{"DEFAULT_REFERRAL_MODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_REFERRAL_MODE)},
-	{"DEFAULT_REF_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_REF_SEPARATOR)},
-	{"DEFAULT_SSL_FACTORY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapCtx, DEFAULT_SSL_FACTORY)},
-	{"DEFAULT_REFERRAL_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_REFERRAL_LIMIT)},
-	{"STARTTLS_REQ_OID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, STARTTLS_REQ_OID)},
-	{"SCHEMA_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, SCHEMA_ATTRIBUTES)},
-	{"VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, VERSION)},
-	{"BINARY_ATTRIBUTES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, BINARY_ATTRIBUTES)},
-	{"DELETE_RDN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, DELETE_RDN)},
-	{"DEREF_ALIASES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, DEREF_ALIASES)},
-	{"TYPES_ONLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, TYPES_ONLY)},
-	{"REF_SEPARATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, REF_SEPARATOR)},
-	{"SOCKET_FACTORY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, SOCKET_FACTORY)},
-	{"BIND_CONTROLS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapCtx, BIND_CONTROLS)},
-	{"REFERRAL_LIMIT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, REFERRAL_LIMIT)},
-	{"TRACE_BER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, TRACE_BER)},
-	{"NETSCAPE_SCHEMA_BUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, NETSCAPE_SCHEMA_BUG)},
-	{"OLD_NETSCAPE_SCHEMA_BUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, OLD_NETSCAPE_SCHEMA_BUG)},
-	{"CONNECT_TIMEOUT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, CONNECT_TIMEOUT)},
-	{"READ_TIMEOUT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, READ_TIMEOUT)},
-	{"ENABLE_POOL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, ENABLE_POOL)},
-	{"DOMAIN_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, DOMAIN_NAME)},
-	{"WAIT_FOR_REPLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, WAIT_FOR_REPLY)},
-	{"REPLY_QUEUE_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, REPLY_QUEUE_SIZE)},
-	{"ALLOWED_MECHS_SP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, ALLOWED_MECHS_SP)},
-	{"ALLOWED_MECHS_SP_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, ALLOWED_MECHS_SP_VALUE)},
-	{"MECHS_ALLOWED_BY_SP", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, MECHS_ALLOWED_BY_SP)},
-	{"UNSECURED_CRED_TRANSMIT_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, UNSECURED_CRED_TRANSMIT_MSG)},
-	{"parser", "Ljavax/naming/NameParser;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, parser)},
-	{"myResponseControlFactory", "Ljavax/naming/ldap/ControlFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, myResponseControlFactory)},
-	{"manageReferralControl", "Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, manageReferralControl)},
-	{"EMPTY_SCHEMA", "Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, EMPTY_SCHEMA)},
-	{"port_number", "I", nullptr, 0, $field(LdapCtx, port_number)},
-	{"hostname", "Ljava/lang/String;", nullptr, 0, $field(LdapCtx, hostname)},
-	{"clnt", "Lcom/sun/jndi/ldap/LdapClient;", nullptr, 0, $field(LdapCtx, clnt)},
-	{"envprops", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", 0, $field(LdapCtx, envprops)},
-	{"handleReferrals", "I", nullptr, 0, $field(LdapCtx, handleReferrals)},
-	{"hasLdapsScheme", "Z", nullptr, 0, $field(LdapCtx, hasLdapsScheme)},
-	{"currentDN", "Ljava/lang/String;", nullptr, 0, $field(LdapCtx, currentDN)},
-	{"currentParsedDN", "Ljavax/naming/Name;", nullptr, 0, $field(LdapCtx, currentParsedDN)},
-	{"respCtls", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/naming/ldap/Control;>;", 0, $field(LdapCtx, respCtls)},
-	{"reqCtls", "[Ljavax/naming/ldap/Control;", nullptr, 0, $field(LdapCtx, reqCtls)},
-	{"contextSeenStartTlsEnabled", "Z", nullptr, $VOLATILE, $field(LdapCtx, contextSeenStartTlsEnabled)},
-	{"trace", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(LdapCtx, trace)},
-	{"netscapeSchemaBug", "Z", nullptr, $PRIVATE, $field(LdapCtx, netscapeSchemaBug)},
-	{"bindCtls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(LdapCtx, bindCtls)},
-	{"referralHopLimit", "I", nullptr, $PRIVATE, $field(LdapCtx, referralHopLimit)},
-	{"schemaTrees", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/naming/directory/DirContext;>;", $PRIVATE, $field(LdapCtx, schemaTrees)},
-	{"batchSize", "I", nullptr, $PRIVATE, $field(LdapCtx, batchSize)},
-	{"deleteRDN", "Z", nullptr, $PRIVATE, $field(LdapCtx, deleteRDN)},
-	{"typesOnly", "Z", nullptr, $PRIVATE, $field(LdapCtx, typesOnly)},
-	{"derefAliases", "I", nullptr, $PRIVATE, $field(LdapCtx, derefAliases)},
-	{"addrEncodingSeparator", "C", nullptr, $PRIVATE, $field(LdapCtx, addrEncodingSeparator)},
-	{"binaryAttrs", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE, $field(LdapCtx, binaryAttrs)},
-	{"connectTimeout", "I", nullptr, $PRIVATE, $field(LdapCtx, connectTimeout)},
-	{"readTimeout", "I", nullptr, $PRIVATE, $field(LdapCtx, readTimeout)},
-	{"waitForReply", "Z", nullptr, $PRIVATE, $field(LdapCtx, waitForReply)},
-	{"replyQueueSize", "I", nullptr, $PRIVATE, $field(LdapCtx, replyQueueSize)},
-	{"useSsl", "Z", nullptr, $PRIVATE, $field(LdapCtx, useSsl)},
-	{"useDefaultPortNumber", "Z", nullptr, $PRIVATE, $field(LdapCtx, useDefaultPortNumber)},
-	{"parentIsLdapCtx", "Z", nullptr, $PRIVATE, $field(LdapCtx, parentIsLdapCtx)},
-	{"hopCount", "I", nullptr, $PRIVATE, $field(LdapCtx, hopCount)},
-	{"url", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapCtx, url)},
-	{"eventSupport", "Lcom/sun/jndi/ldap/EventSupport;", nullptr, $PRIVATE, $field(LdapCtx, eventSupport)},
-	{"unsolicited", "Z", nullptr, $PRIVATE, $field(LdapCtx, unsolicited)},
-	{"sharable", "Z", nullptr, $PRIVATE, $field(LdapCtx, sharable)},
-	{"enumCount", "I", nullptr, $PRIVATE, $field(LdapCtx, enumCount)},
-	{"closeRequested", "Z", nullptr, $PRIVATE, $field(LdapCtx, closeRequested)},
-	{}
-};
-
-$MethodInfo _LdapCtx_MethodInfo_[] = {
-	{"*bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
-	{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
-	{"*bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"*createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC},
-	{"*destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
-	{"*getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
-	{"*getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
-	{"*getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
-	{"*getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
-	{"*getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
-	{"*getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
-	{"*getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
-	{"*getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
-	{"*getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Hashtable;Z)V", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Hashtable<**>;Z)V", $PUBLIC, $method(LdapCtx, init$, void, $String*, $String*, int32_t, $Hashtable*, bool), "javax.naming.NamingException"},
-	{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx, init$, void, LdapCtx*, $String*), "javax.naming.NamingException"},
-	{"addControl", "([Ljavax/naming/ldap/Control;Ljavax/naming/ldap/Control;)[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, addControl, $ControlArray*, $ControlArray*, $Control*)},
-	{"addNamingListener", "(Ljavax/naming/Name;ILjavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $Name*, int32_t, $NamingListener*), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $String*, int32_t, $NamingListener*), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $String*, $String*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $Name*, $String*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $Name*, $String*, $ObjectArray*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
-	{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $String*, $String*, $ObjectArray*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
-	{"addRdnAttributes", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Z)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, addRdnAttributes, $Attributes*, $String*, $Attributes*, bool), "javax.naming.NamingException"},
-	{"addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addToEnvironment, $Object*, $String*, Object$*), "javax.naming.NamingException"},
-	{"addUnsolicited", "()V", nullptr, $PRIVATE, $method(LdapCtx, addUnsolicited, void), "javax.naming.NamingException"},
-	{"adjustDeleteStatus", "(Ljava/lang/String;Lcom/sun/jndi/ldap/LdapResult;)V", nullptr, $PRIVATE, $method(LdapCtx, adjustDeleteStatus, void, $String*, $LdapResult*)},
-	{"appendVector", "(Ljava/util/Vector;Ljava/util/Vector;)Ljava/util/Vector;", "<T:Ljava/lang/Object;>(Ljava/util/Vector<TT;>;Ljava/util/Vector<TT;>;)Ljava/util/Vector<TT;>;", $PRIVATE | $STATIC, $staticMethod(LdapCtx, appendVector, $Vector*, $Vector*, $Vector*)},
-	{"buildSchemaTree", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(LdapCtx, buildSchemaTree, $DirContext*, $String*), "javax.naming.NamingException"},
-	{"c_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_bind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"c_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_bind, void, $Name*, Object$*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"c_createSubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_createSubcontext, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_createSubcontext, $DirContext*, $Name*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"c_destroySubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_destroySubcontext, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_getAttributes, $Attributes*, $Name*, $StringArray*, $Continuation*), "javax.naming.NamingException"},
-	{"c_getNameParser", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_getNameParser, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_getSchema", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_getSchema, $DirContext*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_getSchemaClassDefinition", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_getSchemaClassDefinition, $DirContext*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_list", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapCtx, c_list, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_listBindings", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(LdapCtx, c_listBindings, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_lookup", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_lookup, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_lookupLink", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_lookupLink, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_modifyAttributes, void, $Name*, int32_t, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"c_modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_modifyAttributes, void, $Name*, $ModificationItemArray*, $Continuation*), "javax.naming.NamingException"},
-	{"c_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_rebind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
-	{"c_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_rebind, void, $Name*, Object$*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"c_rename", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_rename, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"c_search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED, $method(LdapCtx, c_search, $NamingEnumeration*, $Name*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
-	{"c_search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED, $virtualMethod(LdapCtx, c_search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*, $Continuation*), "javax.naming.NamingException"},
-	{"c_search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED, $virtualMethod(LdapCtx, c_search, $NamingEnumeration*, $Name*, $String*, $SearchControls*, $Continuation*), "javax.naming.NamingException"},
-	{"c_search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED, $virtualMethod(LdapCtx, c_search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*, $Continuation*), "javax.naming.NamingException"},
-	{"c_unbind", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_unbind, void, $Name*, $Continuation*), "javax.naming.NamingException"},
-	{"cloneControls", "([Ljavax/naming/ldap/Control;)[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, cloneControls, $ControlArray*, $ControlArray*)},
-	{"cloneSearchControls", "(Ljavax/naming/directory/SearchControls;)Ljavax/naming/directory/SearchControls;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, cloneSearchControls, $SearchControls*, $SearchControls*)},
-	{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LdapCtx, close, void), "javax.naming.NamingException"},
-	{"closeConnection", "(Z)V", nullptr, $PRIVATE, $method(LdapCtx, closeConnection, void, bool)},
-	{"compare", "(Ljavax/naming/Name;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jndi/ldap/LdapResult;", nullptr, $PRIVATE, $method(LdapCtx, compare, $LdapResult*, $Name*, $String*, $String*), "java.io.IOException,javax.naming.NamingException"},
-	{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
-	{"concatNames", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, concatNames, $String*, $String*, $String*)},
-	{"connect", "(Z)V", nullptr, $PRIVATE, $method(LdapCtx, connect, void, bool), "javax.naming.NamingException"},
-	{"containsIgnoreCase", "(Ljavax/naming/NamingEnumeration;Ljava/lang/String;)Z", "(Ljavax/naming/NamingEnumeration<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(LdapCtx, containsIgnoreCase, bool, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
-	{"convertControls", "(Ljava/util/Vector;)[Ljavax/naming/ldap/Control;", "(Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)[Ljavax/naming/ldap/Control;", 0, $method(LdapCtx, convertControls, $ControlArray*, $Vector*), "javax.naming.NamingException"},
-	{"convertToLdapModCode", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, convertToLdapModCode, int32_t, int32_t)},
-	{"decEnumCount", "()V", nullptr, $SYNCHRONIZED, $method(LdapCtx, decEnumCount, void)},
-	{"doSearch", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;ZZ)Lcom/sun/jndi/ldap/LdapResult;", nullptr, $PRIVATE, $method(LdapCtx, doSearch, $LdapResult*, $Name*, $String*, $SearchControls*, bool, bool), "javax.naming.NamingException"},
-	{"doSearchOnce", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Z)Lcom/sun/jndi/ldap/LdapResult;", nullptr, $PRIVATE, $method(LdapCtx, doSearchOnce, $LdapResult*, $Name*, $String*, $SearchControls*, bool), "javax.naming.NamingException"},
-	{"ensureCanTransmitCredentials", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, ensureCanTransmitCredentials, void, $String*), "javax.naming.NamingException"},
-	{"ensureOpen", "()V", nullptr, $PRIVATE, $method(LdapCtx, ensureOpen, void), "javax.naming.NamingException"},
-	{"ensureOpen", "(Z)V", nullptr, $PRIVATE, $method(LdapCtx, ensureOpen, void, bool), "javax.naming.NamingException"},
-	{"extendedOperation", "(Ljavax/naming/ldap/ExtendedRequest;)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, extendedOperation, $ExtendedResponse*, $ExtendedRequest*), "javax.naming.NamingException"},
-	{"extractURLs", "(Ljava/lang/String;)Ljava/util/Vector;", "(Ljava/lang/String;)Ljava/util/Vector<Ljava/util/Vector<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticMethod(LdapCtx, extractURLs, $Vector*, $String*)},
-	{"filterToAssertion", "(Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, filterToAssertion, bool, $String*, $StringArray*)},
-	{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, finalize, void)},
-	{"findControl", "([Ljavax/naming/ldap/Control;Ljavax/naming/ldap/Control;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, findControl, int32_t, $ControlArray*, $Control*)},
-	{"fireUnsolicited", "(Ljava/lang/Object;)V", nullptr, 0, $method(LdapCtx, fireUnsolicited, void, Object$*)},
-	{"fullyQualifiedName", "(Ljavax/naming/Name;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapCtx, fullyQualifiedName, $String*, $Name*)},
-	{"fullyQualifiedName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapCtx, fullyQualifiedName, $String*, $String*)},
-	{"getConnectControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, getConnectControls, $ControlArray*), "javax.naming.NamingException"},
-	{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(LdapCtx, getEnvironment, $Hashtable*), "javax.naming.NamingException"},
-	{"getMechsAllowedToSendCredentials", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, getMechsAllowedToSendCredentials, $String*)},
-	{"getMechsFromPropertyValue", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(LdapCtx, getMechsFromPropertyValue, $Set*, $String*)},
-	{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, getNameInNamespace, $String*)},
-	{"getRequestControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, getRequestControls, $ControlArray*), "javax.naming.NamingException"},
-	{"getResponseControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, getResponseControls, $ControlArray*), "javax.naming.NamingException"},
-	{"getSchemaEntry", "(Ljavax/naming/Name;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapCtx, getSchemaEntry, $String*, $Name*, bool), "javax.naming.NamingException"},
-	{"getSchemaTree", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(LdapCtx, getSchemaTree, $DirContext*, $Name*), "javax.naming.NamingException"},
-	{"getSearchReply", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/LdapResult;)Lcom/sun/jndi/ldap/LdapResult;", nullptr, 0, $method(LdapCtx, getSearchReply, $LdapResult*, $LdapClient*, $LdapResult*), "javax.naming.NamingException"},
-	{"getTargetName", "(Ljavax/naming/Name;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, getTargetName, $String*, $Name*), "javax.naming.NamingException"},
-	{"getURL", "()Ljava/lang/String;", nullptr, 0, $method(LdapCtx, getURL, $String*)},
-	{"incEnumCount", "()V", nullptr, $SYNCHRONIZED, $method(LdapCtx, incEnumCount, void)},
-	{"initEnv", "()V", nullptr, $PRIVATE, $method(LdapCtx, initEnv, void), "javax.naming.NamingException"},
-	{"isConnectionEncrypted", "()Z", nullptr, $PRIVATE, $method(LdapCtx, isConnectionEncrypted, bool)},
-	{"lambda$getMechsAllowedToSendCredentials$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapCtx, lambda$getMechsAllowedToSendCredentials$0, $String*)},
-	{"*list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"*lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
-	{"mapErrorCode", "(ILjava/lang/String;)Ljavax/naming/NamingException;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapCtx, mapErrorCode, $NamingException*, int32_t, $String*)},
-	{"*modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
-	{"*modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
-	{"*modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC},
-	{"*modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC},
-	{"newInstance", "([Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/LdapContext;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, newInstance, $LdapContext*, $ControlArray*), "javax.naming.NamingException"},
-	{"p_getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(LdapCtx, p_getEnvironment, $Hashtable*)},
-	{"processReturnCode", "(Lcom/sun/jndi/ldap/LdapResult;)V", nullptr, $PROTECTED, $method(LdapCtx, processReturnCode, void, $LdapResult*), "javax.naming.NamingException"},
-	{"processReturnCode", "(Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;)V", nullptr, 0, $method(LdapCtx, processReturnCode, void, $LdapResult*, $Name*), "javax.naming.NamingException"},
-	{"processReturnCode", "(Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/Name;Ljava/util/Hashtable;Ljava/lang/String;)V", "(Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/Name;Ljava/util/Hashtable<**>;Ljava/lang/String;)V", $PROTECTED, $method(LdapCtx, processReturnCode, void, $LdapResult*, $Name*, Object$*, $Name*, $Hashtable*, $String*), "javax.naming.NamingException"},
-	{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
-	{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
-	{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
-	{"reconnect", "([Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, reconnect, void, $ControlArray*), "javax.naming.NamingException"},
-	{"removeControl", "([Ljavax/naming/ldap/Control;Ljavax/naming/ldap/Control;)[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, removeControl, $ControlArray*, $ControlArray*, $Control*)},
-	{"removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, removeFromEnvironment, $Object*, $String*), "javax.naming.NamingException"},
-	{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, removeNamingListener, void, $NamingListener*), "javax.naming.NamingException"},
-	{"removeUnsolicited", "()V", nullptr, $PRIVATE, $method(LdapCtx, removeUnsolicited, void)},
-	{"*rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"*search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
-	{"searchAux", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;ZZLcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;ZZLcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", 0, $method(LdapCtx, searchAux, $NamingEnumeration*, $Name*, $String*, $SearchControls*, bool, bool, $Continuation*), "javax.naming.NamingException"},
-	{"searchToCompare", "(Ljava/lang/String;Ljavax/naming/directory/SearchControls;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, searchToCompare, bool, $String*, $SearchControls*, $StringArray*)},
-	{"setBatchSize", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setBatchSize, void, $String*)},
-	{"setBinaryAttributes", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setBinaryAttributes, void, $String*)},
-	{"setConnectTimeout", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setConnectTimeout, void, $String*)},
-	{"setDeleteRDN", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setDeleteRDN, void, $String*)},
-	{"setDerefAliases", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setDerefAliases, void, $String*)},
-	{"setDomainName", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx, setDomainName, void, $String*)},
-	{"setHopCount", "(I)V", nullptr, 0, $method(LdapCtx, setHopCount, void, int32_t)},
-	{"setParents", "(Ljavax/naming/directory/Attributes;Ljavax/naming/Name;)V", nullptr, 0, $method(LdapCtx, setParents, void, $Attributes*, $Name*), "javax.naming.NamingException"},
-	{"setProviderUrl", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx, setProviderUrl, void, $String*)},
-	{"setReadTimeout", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setReadTimeout, void, $String*)},
-	{"setRefSeparator", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setRefSeparator, void, $String*), "javax.naming.NamingException"},
-	{"setReferralLimit", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setReferralLimit, void, $String*)},
-	{"setReferralMode", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(LdapCtx, setReferralMode, void, $String*, bool)},
-	{"setReplyQueueSize", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setReplyQueueSize, void, $String*)},
-	{"setRequestControls", "([Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, setRequestControls, void, $ControlArray*), "javax.naming.NamingException"},
-	{"setTypesOnly", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setTypesOnly, void, $String*)},
-	{"setWaitForReply", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setWaitForReply, void, $String*)},
-	{"targetMustExist", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapCtx, targetMustExist, bool)},
-	{"*unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
-	{"*unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _LdapCtx_InnerClassesInfo_[] = {
-	{"com.sun.jndi.ldap.LdapCtx$SearchArgs", "com.sun.jndi.ldap.LdapCtx", "SearchArgs", $STATIC | $FINAL},
-	{}
-};
-
-$ClassInfo _LdapCtx_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.jndi.ldap.LdapCtx",
-	"com.sun.jndi.toolkit.ctx.ComponentDirContext",
-	"javax.naming.event.EventDirContext,javax.naming.ldap.LdapContext",
-	_LdapCtx_FieldInfo_,
-	_LdapCtx_MethodInfo_,
-	nullptr,
-	nullptr,
-	_LdapCtx_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.jndi.ldap.LdapCtx$SearchArgs"
-};
-
-$Object* allocate$LdapCtx($Class* clazz) {
-	return $of($alloc(LdapCtx));
-}
 
 $Attributes* LdapCtx::getAttributes($String* name) {
 	 return this->$ComponentDirContext::getAttributes(name);
@@ -981,17 +691,17 @@ void LdapCtx::init$($String* dn, $String* host, int32_t port_number, $Hashtable*
 		if ("ssl"_s->equals($($nc(this->envprops)->get($Context::SECURITY_PROTOCOL)))) {
 			this->useSsl = true;
 		}
-		$set(this, trace, $cast($OutputStream, $nc(this->envprops)->get(LdapCtx::TRACE_BER)));
+		$set(this, trace, $cast($OutputStream, this->envprops->get(LdapCtx::TRACE_BER)));
 		bool var$0 = props->get(LdapCtx::NETSCAPE_SCHEMA_BUG) != nullptr;
 		if (var$0 || props->get(LdapCtx::OLD_NETSCAPE_SCHEMA_BUG) != nullptr) {
 			this->netscapeSchemaBug = true;
 		}
 	}
 	$set(this, currentDN, (dn != nullptr) ? dn : ""_s);
-	$set(this, currentParsedDN, $nc(LdapCtx::parser)->parse(this->currentDN));
+	$set(this, currentParsedDN, LdapCtx::parser->parse(this->currentDN));
 	$set(this, hostname, (host != nullptr && host->length() > 0) ? host : LdapCtx::DEFAULT_HOST);
 	if ($nc(this->hostname)->charAt(0) == u'[') {
-		$set(this, hostname, $nc(this->hostname)->substring(1, $nc(this->hostname)->length() - 1));
+		$set(this, hostname, this->hostname->substring(1, this->hostname->length() - 1));
 	}
 	if (port_number > 0) {
 		this->port_number = port_number;
@@ -1054,13 +764,13 @@ void LdapCtx::init$(LdapCtx* existing, $String* newDN) {
 	if (existing->currentDN == this->currentDN) {
 		$set(this, currentParsedDN, existing->currentParsedDN);
 	} else {
-		$set(this, currentParsedDN, $nc(LdapCtx::parser)->parse(this->currentDN));
+		$set(this, currentParsedDN, LdapCtx::parser->parse(this->currentDN));
 	}
 	$set(this, envprops, existing->envprops);
 	$set(this, schemaTrees, existing->schemaTrees);
 	$set(this, clnt, existing->clnt);
 	$nc(this->clnt)->incRefCount();
-	this->parentIsLdapCtx = ((newDN == nullptr || $nc(newDN)->equals(existing->currentDN)) ? existing->parentIsLdapCtx : true);
+	this->parentIsLdapCtx = ((newDN == nullptr || newDN->equals(existing->currentDN)) ? existing->parentIsLdapCtx : true);
 	$set(this, trace, existing->trace);
 	this->netscapeSchemaBug = existing->netscapeSchemaBug;
 	initEnv();
@@ -1077,9 +787,9 @@ void LdapCtx::c_bind($Name* name, Object$* obj, $Continuation* cont) {
 }
 
 void LdapCtx::c_bind($Name* name, Object$* obj, $Attributes* attrs$renamed, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, attrs, attrs$renamed);
-	$nc(cont)->setError($of(this), name);
+	$nc(cont)->setError(this, name);
 	$var($Attributes, inputAttrs, attrs);
 	try {
 		ensureOpen();
@@ -1088,7 +798,7 @@ void LdapCtx::c_bind($Name* name, Object$* obj, $Attributes* attrs$renamed, $Con
 				$throwNew($IllegalArgumentException, "cannot bind null object with no attributes"_s);
 			}
 		} else {
-			$assign(attrs, $Obj::determineBindAttrs(this->addrEncodingSeparator, obj, attrs, false, name, static_cast<$Context*>(static_cast<$PartialCompositeContext*>(static_cast<$ComponentContext*>(static_cast<$AtomicContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>(this)))))), this->envprops));
+			$assign(attrs, $Obj::determineBindAttrs(this->addrEncodingSeparator, obj, attrs, false, name, $cast($AtomicContext, this), this->envprops));
 		}
 		$var($String, newDN, fullyQualifiedName(name));
 		$assign(attrs, addRdnAttributes(newDN, attrs, inputAttrs != attrs));
@@ -1104,35 +814,33 @@ void LdapCtx::c_bind($Name* name, Object$* obj, $Attributes* attrs$renamed, $Con
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool return$1 = false;
-				bool continue$2 = false;
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			bool continue$2 = false;
+			try {
 				try {
-					try {
-						$nc(refCtx)->bind(name, obj, inputAttrs);
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$2 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					$nc(refCtx)->close();
+					$nc(refCtx)->bind(name, obj, inputAttrs);
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$2 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$2) {
-					continue;
-				}
-				if (return$1) {
-					return;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$2) {
+				continue;
+			}
+			if (return$1) {
+				return;
 			}
 		}
 	} catch ($IOException& e) {
@@ -1149,9 +857,9 @@ void LdapCtx::c_rebind($Name* name, Object$* obj, $Continuation* cont) {
 }
 
 void LdapCtx::c_rebind($Name* name, Object$* obj, $Attributes* attrs$renamed, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, attrs, attrs$renamed);
-	$nc(cont)->setError($of(this), name);
+	$nc(cont)->setError(this, name);
 	$var($Attributes, inputAttrs, attrs);
 	try {
 		$var($Attributes, origAttrs, nullptr);
@@ -1164,7 +872,7 @@ void LdapCtx::c_rebind($Name* name, Object$* obj, $Attributes* attrs$renamed, $C
 			return;
 		}
 		if (attrs == nullptr && $instanceOf($DirContext, obj)) {
-			$assign(attrs, $nc(($cast($DirContext, obj)))->getAttributes(""_s));
+			$assign(attrs, $cast($DirContext, obj)->getAttributes(""_s));
 		}
 		$var($Attributes, keepAttrs, $cast($Attributes, $nc(origAttrs)->clone()));
 		if (attrs == nullptr) {
@@ -1173,18 +881,18 @@ void LdapCtx::c_rebind($Name* name, Object$* obj, $Attributes* attrs$renamed, $C
 			if (origObjectClass != nullptr) {
 				$assign(origObjectClass, $cast($Attribute, origObjectClass->clone()));
 				for (int32_t i = 0; i < $nc($Obj::JAVA_OBJECT_CLASSES)->length; ++i) {
-					$nc(origObjectClass)->remove($of($nc($Obj::JAVA_OBJECT_CLASSES_LOWER)->get(i)));
-					origObjectClass->remove($of($nc($Obj::JAVA_OBJECT_CLASSES)->get(i)));
+					$nc(origObjectClass)->remove($nc($Obj::JAVA_OBJECT_CLASSES_LOWER)->get(i));
+					origObjectClass->remove($Obj::JAVA_OBJECT_CLASSES->get(i));
 				}
 				origAttrs->put(origObjectClass);
 			}
-			for (int32_t i = 1; i < $nc($Obj::JAVA_ATTRIBUTES)->length; ++i) {
-				origAttrs->remove($nc($Obj::JAVA_ATTRIBUTES)->get(i));
+			for (int32_t i = 1; i < $Obj::JAVA_ATTRIBUTES->length; ++i) {
+				origAttrs->remove($Obj::JAVA_ATTRIBUTES->get(i));
 			}
 			$assign(attrs, origAttrs);
 		}
 		if (obj != nullptr) {
-			$assign(attrs, $Obj::determineBindAttrs(this->addrEncodingSeparator, obj, attrs, inputAttrs != attrs, name, static_cast<$Context*>(static_cast<$PartialCompositeContext*>(static_cast<$ComponentContext*>(static_cast<$AtomicContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>(this)))))), this->envprops));
+			$assign(attrs, $Obj::determineBindAttrs(this->addrEncodingSeparator, obj, attrs, inputAttrs != attrs, name, $cast($AtomicContext, this), this->envprops));
 		}
 		$var($String, newDN, fullyQualifiedName(name));
 		$var($LdapResult, answer, $nc(this->clnt)->delete$(newDN, this->reqCtls));
@@ -1226,35 +934,33 @@ void LdapCtx::c_rebind($Name* name, Object$* obj, $Attributes* attrs$renamed, $C
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool return$1 = false;
-				bool continue$2 = false;
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			bool continue$2 = false;
+			try {
 				try {
-					try {
-						$nc(refCtx)->rebind(name, obj, inputAttrs);
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$2 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					$nc(refCtx)->close();
+					$nc(refCtx)->rebind(name, obj, inputAttrs);
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$2 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$2) {
-					continue;
-				}
-				if (return$1) {
-					return;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$2) {
+				continue;
+			}
+			if (return$1) {
+				return;
 			}
 		}
 	} catch ($IOException& e) {
@@ -1267,8 +973,8 @@ void LdapCtx::c_rebind($Name* name, Object$* obj, $Attributes* attrs$renamed, $C
 }
 
 void LdapCtx::c_unbind($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
-	$nc(cont)->setError($of(this), name);
+	$useLocalObjectStack();
+	$nc(cont)->setError(this, name);
 	try {
 		ensureOpen();
 		$var($String, fname, fullyQualifiedName(name));
@@ -1284,35 +990,33 @@ void LdapCtx::c_unbind($Name* name, $Continuation* cont) {
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool return$1 = false;
-				bool continue$2 = false;
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			bool continue$2 = false;
+			try {
 				try {
-					try {
-						$nc(refCtx)->unbind(name);
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$2 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					$nc(refCtx)->close();
+					$nc(refCtx)->unbind(name);
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$2 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$2) {
-					continue;
-				}
-				if (return$1) {
-					return;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$2) {
+				continue;
+			}
+			if (return$1) {
+				return;
 			}
 		}
 	} catch ($IOException& e) {
@@ -1325,33 +1029,33 @@ void LdapCtx::c_unbind($Name* name, $Continuation* cont) {
 }
 
 void LdapCtx::c_rename($Name* oldName, $Name* newName, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, oldParsed, nullptr);
 	$var($Name, newParsed, nullptr);
 	$var($Name, oldParent, nullptr);
 	$var($Name, newParent, nullptr);
 	$var($String, newRDN, nullptr);
 	$var($String, newSuperior, nullptr);
-	$nc(cont)->setError($of(this), oldName);
+	$nc(cont)->setError(this, oldName);
 	try {
 		ensureOpen();
 		if ($nc(oldName)->isEmpty()) {
-			$assign(oldParent, $nc(LdapCtx::parser)->parse(""_s));
+			$assign(oldParent, LdapCtx::parser->parse(""_s));
 		} else {
-			$assign(oldParsed, $nc(LdapCtx::parser)->parse($(oldName->get(0))));
-			$assign(oldParent, $nc(oldParsed)->getPrefix(oldParsed->size() - 1));
+			$assign(oldParsed, LdapCtx::parser->parse($(oldName->get(0))));
+			$assign(oldParent, $nc(oldParsed)->getPrefix($nc(oldParsed)->size() - 1));
 		}
 		if ($instanceOf($CompositeName, newName)) {
-			$assign(newParsed, $nc(LdapCtx::parser)->parse($($nc(newName)->get(0))));
+			$assign(newParsed, LdapCtx::parser->parse($(newName->get(0))));
 		} else {
 			$assign(newParsed, newName);
 		}
-		$assign(newParent, $nc(newParsed)->getPrefix(newParsed->size() - 1));
-		if (!$nc($of(oldParent))->equals(newParent)) {
+		$assign(newParent, $nc(newParsed)->getPrefix($nc(newParsed)->size() - 1));
+		if (!$nc(oldParent)->equals(newParent)) {
 			if (!$nc(this->clnt)->isLdapv3) {
 				$throwNew($InvalidNameException, "LDAPv2 doesn\'t support changing the parent as a result of a rename"_s);
 			} else {
-				$assign(newSuperior, fullyQualifiedName($($nc($of(newParent))->toString())));
+				$assign(newSuperior, fullyQualifiedName($($nc(newParent)->toString())));
 			}
 		}
 		$assign(newRDN, newParsed->get(newParsed->size() - 1));
@@ -1372,35 +1076,33 @@ void LdapCtx::c_rename($Name* oldName, $Name* newName, $Continuation* cont) {
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool return$1 = false;
-				bool continue$2 = false;
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			bool continue$2 = false;
+			try {
 				try {
-					try {
-						$nc(refCtx)->rename(oldName, newName);
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$2 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					$nc(refCtx)->close();
+					$nc(refCtx)->rename(oldName, newName);
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$2 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$2) {
-					continue;
-				}
-				if (return$1) {
-					return;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$2) {
+				continue;
+			}
+			if (return$1) {
+				return;
 			}
 		}
 	} catch ($IOException& e) {
@@ -1417,15 +1119,15 @@ $Context* LdapCtx::c_createSubcontext($Name* name, $Continuation* cont) {
 }
 
 $DirContext* LdapCtx::c_createSubcontext($Name* name, $Attributes* attrs$renamed, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, attrs, attrs$renamed);
-	$nc(cont)->setError($of(this), name);
+	$nc(cont)->setError(this, name);
 	$var($Attributes, inputAttrs, attrs);
 	try {
 		ensureOpen();
 		if (attrs == nullptr) {
 			$init($Obj);
-			$var($Attribute, oc, $new($BasicAttribute, $nc($Obj::JAVA_ATTRIBUTES)->get($Obj::OBJECT_CLASS), $of($nc($Obj::JAVA_OBJECT_CLASSES)->get($Obj::STRUCTURAL))));
+			$var($Attribute, oc, $new($BasicAttribute, $nc($Obj::JAVA_ATTRIBUTES)->get($Obj::OBJECT_CLASS), $nc($Obj::JAVA_OBJECT_CLASSES)->get($Obj::STRUCTURAL)));
 			oc->add("top"_s);
 			$assign(attrs, $new($BasicAttributes, true));
 			attrs->put(oc);
@@ -1439,43 +1141,41 @@ $DirContext* LdapCtx::c_createSubcontext($Name* name, $Attributes* attrs$renamed
 			processReturnCode(answer, name);
 			return nullptr;
 		}
-		return static_cast<$DirContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>($new(LdapCtx, this, newDN))));
+		return $cast($ComponentDirContext, $new(LdapCtx, this, newDN));
 	} catch ($LdapReferralException& e) {
 		if (this->handleReferrals == $LdapClient::LDAP_REF_THROW) {
 			$throw($(cont->fillInException(e)));
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($DirContext, var$2, nullptr);
-				bool return$1 = false;
-				bool continue$3 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($DirContext, var$2, nullptr);
+			bool return$1 = false;
+			bool continue$3 = false;
+			try {
 				try {
-					try {
-						$assign(var$2, $nc(refCtx)->createSubcontext(name, inputAttrs));
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$3 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$4) {
-					$assign(var$0, var$4);
-				} $finally: {
-					$nc(refCtx)->close();
+					$assign(var$2, $nc(refCtx)->createSubcontext(name, inputAttrs));
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$3 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$3) {
-					continue;
-				}
-				if (return$1) {
-					return var$2;
-				}
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$3) {
+				continue;
+			}
+			if (return$1) {
+				return var$2;
 			}
 		}
 	} catch ($IOException& e) {
@@ -1489,8 +1189,8 @@ $DirContext* LdapCtx::c_createSubcontext($Name* name, $Attributes* attrs$renamed
 }
 
 void LdapCtx::c_destroySubcontext($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
-	$nc(cont)->setError($of(this), name);
+	$useLocalObjectStack();
+	$nc(cont)->setError(this, name);
 	try {
 		ensureOpen();
 		$var($String, fname, fullyQualifiedName(name));
@@ -1506,35 +1206,33 @@ void LdapCtx::c_destroySubcontext($Name* name, $Continuation* cont) {
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool return$1 = false;
-				bool continue$2 = false;
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			bool continue$2 = false;
+			try {
 				try {
-					try {
-						$nc(refCtx)->destroySubcontext(name);
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$2 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					$nc(refCtx)->close();
+					$nc(refCtx)->destroySubcontext(name);
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$2 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$2) {
-					continue;
-				}
-				if (return$1) {
-					return;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$2) {
+				continue;
+			}
+			if (return$1) {
+				return;
 			}
 		}
 	} catch ($IOException& e) {
@@ -1548,13 +1246,13 @@ void LdapCtx::c_destroySubcontext($Name* name, $Continuation* cont) {
 
 $Attributes* LdapCtx::addRdnAttributes($String* dn, $Attributes* attrs$renamed, bool directUpdate) {
 	$init(LdapCtx);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Attributes, attrs, attrs$renamed);
 	if ($nc(dn)->isEmpty()) {
 		return attrs;
 	}
 	$var($List, rdnList, ($$new($LdapName, dn))->getRdns());
-	$var($Rdn, rdn, $cast($Rdn, $nc(rdnList)->get(rdnList->size() - 1)));
+	$var($Rdn, rdn, $cast($Rdn, $nc(rdnList)->get($nc(rdnList)->size() - 1)));
 	$var($Attributes, nameAttrs, $nc(rdn)->toAttributes());
 	$var($NamingEnumeration, enum_, $nc(nameAttrs)->getAll());
 	$var($Attribute, nameAttr, nullptr);
@@ -1564,7 +1262,7 @@ $Attributes* LdapCtx::addRdnAttributes($String* dn, $Attributes* attrs$renamed, 
 			bool var$0 = !attrs->isCaseIgnored();
 			if (var$0) {
 				$var($NamingEnumeration, var$1, attrs->getIDs());
-				var$0 = containsIgnoreCase(var$1, $($nc(nameAttr)->getID()));
+				var$0 = containsIgnoreCase(var$1, $(nameAttr->getID()));
 			}
 			if (var$0) {
 				continue;
@@ -1573,7 +1271,7 @@ $Attributes* LdapCtx::addRdnAttributes($String* dn, $Attributes* attrs$renamed, 
 				$assign(attrs, $cast($Attributes, attrs->clone()));
 				directUpdate = true;
 			}
-			attrs->put(nameAttr);
+			$nc(attrs)->put(nameAttr);
 		}
 	}
 	return attrs;
@@ -1592,11 +1290,11 @@ bool LdapCtx::containsIgnoreCase($NamingEnumeration* enumStr, $String* str) {
 }
 
 void LdapCtx::adjustDeleteStatus($String* fname, $LdapResult* answer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ($nc(answer)->status == $LdapClient::LDAP_NO_SUCH_OBJECT && answer->matchedDN != nullptr) {
 		try {
-			$var($Name, orig, $nc(LdapCtx::parser)->parse(fname));
-			$var($Name, matched, $nc(LdapCtx::parser)->parse(answer->matchedDN));
+			$var($Name, orig, LdapCtx::parser->parse(fname));
+			$var($Name, matched, LdapCtx::parser->parse(answer->matchedDN));
 			int32_t var$0 = $nc(orig)->size();
 			if ((var$0 - $nc(matched)->size()) == 1) {
 				answer->status = $LdapClient::LDAP_SUCCESS;
@@ -1608,25 +1306,25 @@ void LdapCtx::adjustDeleteStatus($String* fname, $LdapResult* answer) {
 
 $Vector* LdapCtx::appendVector($Vector* v1$renamed, $Vector* v2) {
 	$init(LdapCtx);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Vector, v1, v1$renamed);
 	if (v1 == nullptr) {
 		$assign(v1, v2);
 	} else {
 		for (int32_t i = 0; i < $nc(v2)->size(); ++i) {
-			$nc(v1)->addElement($(v2->elementAt(i)));
+			v1->addElement($(v2->elementAt(i)));
 		}
 	}
 	return v1;
 }
 
 $Object* LdapCtx::c_lookupLink($Name* name, $Continuation* cont) {
-	return $of(c_lookup(name, cont));
+	return c_lookup(name, cont);
 }
 
 $Object* LdapCtx::c_lookup($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
-	$nc(cont)->setError($of(this), name);
+	$useLocalObjectStack();
+	$nc(cont)->setError(this, name);
 	$var($Object, obj, nullptr);
 	$var($Attributes, attrs, nullptr);
 	try {
@@ -1639,10 +1337,10 @@ $Object* LdapCtx::c_lookup($Name* name, $Continuation* cont) {
 		if (answer->status != $LdapClient::LDAP_SUCCESS) {
 			processReturnCode(answer, name);
 		}
-		if (answer->entries == nullptr || $nc(answer->entries)->size() != 1) {
+		if (answer->entries == nullptr || answer->entries->size() != 1) {
 			$assign(attrs, $new($BasicAttributes, $LdapClient::caseIgnore));
 		} else {
-			$var($LdapEntry, entry, $cast($LdapEntry, $nc(answer->entries)->elementAt(0)));
+			$var($LdapEntry, entry, $cast($LdapEntry, answer->entries->elementAt(0)));
 			$assign(attrs, $nc(entry)->attributes);
 			$var($Vector, entryCtls, entry->respCtls);
 			if (entryCtls != nullptr) {
@@ -1662,43 +1360,41 @@ $Object* LdapCtx::c_lookup($Name* name, $Continuation* cont) {
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($Object, var$2, nullptr);
-				bool return$1 = false;
-				bool continue$3 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($Object, var$2, nullptr);
+			bool return$1 = false;
+			bool continue$3 = false;
+			try {
 				try {
-					try {
-						$assign(var$2, $nc(refCtx)->lookup(name));
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$3 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$4) {
-					$assign(var$0, var$4);
-				} $finally: {
-					$nc(refCtx)->close();
+					$assign(var$2, $nc(refCtx)->lookup(name));
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$3 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$3) {
-					continue;
-				}
-				if (return$1) {
-					return var$2;
-				}
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$3) {
+				continue;
+			}
+			if (return$1) {
+				return var$2;
 			}
 		}
 	} catch ($NamingException& e) {
 		$throw($(cont->fillInException(e)));
 	}
 	try {
-		return $of($DirectoryManager::getObjectInstance(obj, name, static_cast<$Context*>(static_cast<$PartialCompositeContext*>(static_cast<$ComponentContext*>(static_cast<$AtomicContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>(this)))))), this->envprops, attrs));
+		return $DirectoryManager::getObjectInstance(obj, name, $cast($AtomicContext, this), this->envprops, attrs);
 	} catch ($NamingException& e) {
 		$throw($(cont->fillInException(e)));
 	} catch ($Exception& e) {
@@ -1710,19 +1406,19 @@ $Object* LdapCtx::c_lookup($Name* name, $Continuation* cont) {
 }
 
 $NamingEnumeration* LdapCtx::c_list($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, cons, $new($SearchControls));
 	$var($StringArray, classAttrs, $new($StringArray, 2));
 	$init($Obj);
 	classAttrs->set(0, $nc($Obj::JAVA_ATTRIBUTES)->get($Obj::OBJECT_CLASS));
-	classAttrs->set(1, $nc($Obj::JAVA_ATTRIBUTES)->get($Obj::CLASSNAME));
+	classAttrs->set(1, $Obj::JAVA_ATTRIBUTES->get($Obj::CLASSNAME));
 	cons->setReturningAttributes(classAttrs);
 	cons->setReturningObjFlag(true);
-	$nc(cont)->setError($of(this), name);
+	$nc(cont)->setError(this, name);
 	$var($LdapResult, answer, nullptr);
 	try {
 		$assign(answer, doSearch(name, "(objectClass=*)"_s, cons, true, true));
-		if (($nc(answer)->status != $LdapClient::LDAP_SUCCESS) || ($nc(answer)->referrals != nullptr)) {
+		if (($nc(answer)->status != $LdapClient::LDAP_SUCCESS) || (answer->referrals != nullptr)) {
 			processReturnCode(answer, name);
 		}
 		return $new($LdapNamingEnumeration, this, answer, name, cont);
@@ -1732,45 +1428,43 @@ $NamingEnumeration* LdapCtx::c_list($Name* name, $Continuation* cont) {
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($NamingEnumeration, var$2, nullptr);
-				bool return$1 = false;
-				bool continue$3 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($NamingEnumeration, var$2, nullptr);
+			bool return$1 = false;
+			bool continue$3 = false;
+			try {
 				try {
-					try {
-						$assign(var$2, $nc(refCtx)->list(name));
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$3 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$4) {
-					$assign(var$0, var$4);
-				} $finally: {
-					$nc(refCtx)->close();
+					$assign(var$2, $nc(refCtx)->list(name));
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$3 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$3) {
-					continue;
-				}
-				if (return$1) {
-					return var$2;
-				}
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$3) {
+				continue;
+			}
+			if (return$1) {
+				return var$2;
 			}
 		}
 	} catch ($LimitExceededException& e) {
 		$var($LdapNamingEnumeration, res, $new($LdapNamingEnumeration, this, answer, name, cont));
-		res->setNamingException($cast($LimitExceededException, $(cont->fillInException(e))));
+		res->setNamingException($$cast($LimitExceededException, cont->fillInException(e)));
 		return res;
 	} catch ($PartialResultException& e) {
 		$var($LdapNamingEnumeration, res, $new($LdapNamingEnumeration, this, answer, name, cont));
-		res->setNamingException($cast($PartialResultException, $(cont->fillInException(e))));
+		res->setNamingException($$cast($PartialResultException, cont->fillInException(e)));
 		return res;
 	} catch ($NamingException& e) {
 		$throw($(cont->fillInException(e)));
@@ -1779,15 +1473,15 @@ $NamingEnumeration* LdapCtx::c_list($Name* name, $Continuation* cont) {
 }
 
 $NamingEnumeration* LdapCtx::c_listBindings($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, cons, $new($SearchControls));
 	cons->setReturningAttributes(nullptr);
 	cons->setReturningObjFlag(true);
-	$nc(cont)->setError($of(this), name);
+	$nc(cont)->setError(this, name);
 	$var($LdapResult, answer, nullptr);
 	try {
 		$assign(answer, doSearch(name, "(objectClass=*)"_s, cons, true, true));
-		if (($nc(answer)->status != $LdapClient::LDAP_SUCCESS) || ($nc(answer)->referrals != nullptr)) {
+		if (($nc(answer)->status != $LdapClient::LDAP_SUCCESS) || (answer->referrals != nullptr)) {
 			processReturnCode(answer, name);
 		}
 		return $new($LdapBindingEnumeration, this, answer, name, cont);
@@ -1797,36 +1491,34 @@ $NamingEnumeration* LdapCtx::c_listBindings($Name* name, $Continuation* cont) {
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($NamingEnumeration, var$2, nullptr);
-				bool return$1 = false;
-				bool continue$3 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($NamingEnumeration, var$2, nullptr);
+			bool return$1 = false;
+			bool continue$3 = false;
+			try {
 				try {
-					try {
-						$assign(var$2, $nc(refCtx)->listBindings(name));
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$3 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$4) {
-					$assign(var$0, var$4);
-				} $finally: {
-					$nc(refCtx)->close();
+					$assign(var$2, $nc(refCtx)->listBindings(name));
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$3 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$3) {
-					continue;
-				}
-				if (return$1) {
-					return var$2;
-				}
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$3) {
+				continue;
+			}
+			if (return$1) {
+				return var$2;
 			}
 		}
 	} catch ($LimitExceededException& e) {
@@ -1853,14 +1545,14 @@ $String* LdapCtx::getNameInNamespace() {
 }
 
 $Name* LdapCtx::composeName($Name* name$renamed, $Name* prefix$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Name, prefix, prefix$renamed);
 	$var($Name, name, name$renamed);
 	$var($Name, result, nullptr);
 	if (($instanceOf($LdapName, name)) && ($instanceOf($LdapName, prefix))) {
-		$assign(result, ($cast($Name, $nc(prefix)->clone())));
+		$assign(result, $cast($Name, prefix->clone()));
 		$nc(result)->addAll(name);
-		return $$new($CompositeName)->add($($of(result)->toString()));
+		return $$new($CompositeName)->add($(result->toString()));
 	}
 	if (!($instanceOf($CompositeName, name))) {
 		$assign(name, $$new($CompositeName)->add($($nc($of(name))->toString())));
@@ -1871,11 +1563,11 @@ $Name* LdapCtx::composeName($Name* name$renamed, $Name* prefix$renamed) {
 	int32_t prefixLast = $nc(prefix)->size() - 1;
 	bool var$2 = $nc(name)->isEmpty();
 	bool var$1 = var$2 || prefix->isEmpty();
-	bool var$0 = var$1 || $nc($($nc(name)->get(0)))->isEmpty();
-	if (var$0 || $nc($(prefix->get(prefixLast)))->isEmpty()) {
+	bool var$0 = var$1 || $$nc(name->get(0))->isEmpty();
+	if (var$0 || $$nc(prefix->get(prefixLast))->isEmpty()) {
 		return $ComponentDirContext::composeName(name, prefix);
 	}
-	$assign(result, ($cast($Name, prefix->clone())));
+	$assign(result, $cast($Name, prefix->clone()));
 	$nc(result)->addAll(name);
 	if (this->parentIsLdapCtx) {
 		$var($String, var$3, result->get(prefixLast + 1));
@@ -1888,7 +1580,7 @@ $Name* LdapCtx::composeName($Name* name$renamed, $Name* prefix$renamed) {
 }
 
 $String* LdapCtx::fullyQualifiedName($Name* rel) {
-	return $nc(rel)->isEmpty() ? this->currentDN : fullyQualifiedName($($nc(rel)->get(0)));
+	return $nc(rel)->isEmpty() ? this->currentDN : fullyQualifiedName($(rel->get(0)));
 }
 
 $String* LdapCtx::fullyQualifiedName($String* rel) {
@@ -1897,9 +1589,9 @@ $String* LdapCtx::fullyQualifiedName($String* rel) {
 
 $String* LdapCtx::concatNames($String* lesser, $String* greater) {
 	$init(LdapCtx);
-	if (lesser == nullptr || $nc(lesser)->isEmpty()) {
+	if (lesser == nullptr || lesser->isEmpty()) {
 		return greater;
-	} else if (greater == nullptr || $nc(greater)->isEmpty()) {
+	} else if (greater == nullptr || greater->isEmpty()) {
 		return lesser;
 	} else {
 		return ($str({lesser, ","_s, greater}));
@@ -1907,8 +1599,8 @@ $String* LdapCtx::concatNames($String* lesser, $String* greater) {
 }
 
 $Attributes* LdapCtx::c_getAttributes($Name* name, $StringArray* attrIds, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
-	$nc(cont)->setError($of(this), name);
+	$useLocalObjectStack();
+	$nc(cont)->setError(this, name);
 	$var($SearchControls, cons, $new($SearchControls));
 	cons->setSearchScope($SearchControls::OBJECT_SCOPE);
 	cons->setReturningAttributes(attrIds);
@@ -1918,7 +1610,7 @@ $Attributes* LdapCtx::c_getAttributes($Name* name, $StringArray* attrIds, $Conti
 		if (answer->status != $LdapClient::LDAP_SUCCESS) {
 			processReturnCode(answer, name);
 		}
-		if (answer->entries == nullptr || $nc(answer->entries)->size() != 1) {
+		if (answer->entries == nullptr || answer->entries->size() != 1) {
 			return $new($BasicAttributes, $LdapClient::caseIgnore);
 		}
 		$var($LdapEntry, entry, $cast($LdapEntry, $nc(answer->entries)->elementAt(0)));
@@ -1926,7 +1618,7 @@ $Attributes* LdapCtx::c_getAttributes($Name* name, $StringArray* attrIds, $Conti
 		if (entryCtls != nullptr) {
 			appendVector(this->respCtls, entryCtls);
 		}
-		setParents(entry->attributes, $cast($Name, $($nc(name)->clone())));
+		setParents(entry->attributes, $$cast($Name, $nc(name)->clone()));
 		return (entry->attributes);
 	} catch ($LdapReferralException& e) {
 		if (this->handleReferrals == $LdapClient::LDAP_REF_THROW) {
@@ -1934,36 +1626,34 @@ $Attributes* LdapCtx::c_getAttributes($Name* name, $StringArray* attrIds, $Conti
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($Attributes, var$2, nullptr);
-				bool return$1 = false;
-				bool continue$3 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($Attributes, var$2, nullptr);
+			bool return$1 = false;
+			bool continue$3 = false;
+			try {
 				try {
-					try {
-						$assign(var$2, $nc(refCtx)->getAttributes(name, attrIds));
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$3 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$4) {
-					$assign(var$0, var$4);
-				} $finally: {
-					$nc(refCtx)->close();
+					$assign(var$2, $nc(refCtx)->getAttributes(name, attrIds));
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$3 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$3) {
-					continue;
-				}
-				if (return$1) {
-					return var$2;
-				}
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$3) {
+				continue;
+			}
+			if (return$1) {
+				return var$2;
 			}
 		}
 	} catch ($NamingException& e) {
@@ -1973,11 +1663,11 @@ $Attributes* LdapCtx::c_getAttributes($Name* name, $StringArray* attrIds, $Conti
 }
 
 void LdapCtx::c_modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
-	$nc(cont)->setError($of(this), name);
+	$useLocalObjectStack();
+	$nc(cont)->setError(this, name);
 	try {
 		ensureOpen();
-		if (attrs == nullptr || $nc(attrs)->size() == 0) {
+		if (attrs == nullptr || attrs->size() == 0) {
 			return;
 		}
 		$var($String, newDN, fullyQualifiedName(name));
@@ -1987,7 +1677,7 @@ void LdapCtx::c_modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs
 		$var($NamingEnumeration, ae, attrs->getAll());
 		for (int32_t i = 0; i < jmods->length && $nc(ae)->hasMore(); ++i) {
 			jmods->set(i, jmod_op);
-			jattrs->set(i, $cast($Attribute, $(ae->next())));
+			jattrs->set(i, $$cast($Attribute, ae->next()));
 		}
 		$var($LdapResult, answer, $nc(this->clnt)->modify(newDN, jmods, jattrs, this->reqCtls));
 		$set(this, respCtls, $nc(answer)->resControls);
@@ -2001,35 +1691,33 @@ void LdapCtx::c_modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool return$1 = false;
-				bool continue$2 = false;
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			bool continue$2 = false;
+			try {
 				try {
-					try {
-						$nc(refCtx)->modifyAttributes(name, mod_op, attrs);
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$2 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					$nc(refCtx)->close();
+					$nc(refCtx)->modifyAttributes(name, mod_op, attrs);
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$2 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$2) {
-					continue;
-				}
-				if (return$1) {
-					return;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$2) {
+				continue;
+			}
+			if (return$1) {
+				return;
 			}
 		}
 	} catch ($IOException& e) {
@@ -2042,11 +1730,11 @@ void LdapCtx::c_modifyAttributes($Name* name, int32_t mod_op, $Attributes* attrs
 }
 
 void LdapCtx::c_modifyAttributes($Name* name, $ModificationItemArray* mods, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
-	$nc(cont)->setError($of(this), name);
+	$useLocalObjectStack();
+	$nc(cont)->setError(this, name);
 	try {
 		ensureOpen();
-		if (mods == nullptr || $nc(mods)->length == 0) {
+		if (mods == nullptr || mods->length == 0) {
 			return;
 		}
 		$var($String, newDN, fullyQualifiedName(name));
@@ -2056,7 +1744,7 @@ void LdapCtx::c_modifyAttributes($Name* name, $ModificationItemArray* mods, $Con
 		for (int32_t i = 0; i < jmods->length; ++i) {
 			$assign(mod, mods->get(i));
 			jmods->set(i, convertToLdapModCode($nc(mod)->getModificationOp()));
-			jattrs->set(i, $($nc(mod)->getAttribute()));
+			jattrs->set(i, $(mod->getAttribute()));
 		}
 		$var($LdapResult, answer, $nc(this->clnt)->modify(newDN, jmods, jattrs, this->reqCtls));
 		$set(this, respCtls, $nc(answer)->resControls);
@@ -2069,35 +1757,33 @@ void LdapCtx::c_modifyAttributes($Name* name, $ModificationItemArray* mods, $Con
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				bool return$1 = false;
-				bool continue$2 = false;
+			$var($Throwable, var$0, nullptr);
+			bool return$1 = false;
+			bool continue$2 = false;
+			try {
 				try {
-					try {
-						$nc(refCtx)->modifyAttributes(name, mods);
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$2 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$3) {
-					$assign(var$0, var$3);
-				} $finally: {
-					$nc(refCtx)->close();
+					$nc(refCtx)->modifyAttributes(name, mods);
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$2 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$2) {
-					continue;
-				}
-				if (return$1) {
-					return;
-				}
+			} catch ($Throwable& var$3) {
+				$assign(var$0, var$3);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$2) {
+				continue;
+			}
+			if (return$1) {
+				return;
 			}
 		}
 	} catch ($IOException& e) {
@@ -2113,26 +1799,18 @@ int32_t LdapCtx::convertToLdapModCode(int32_t mod_op) {
 	$init(LdapCtx);
 	switch (mod_op) {
 	case $DirContext::ADD_ATTRIBUTE:
-		{
-			return ($LdapClient::ADD);
-		}
+		return ($LdapClient::ADD);
 	case $DirContext::REPLACE_ATTRIBUTE:
-		{
-			return ($LdapClient::REPLACE);
-		}
+		return ($LdapClient::REPLACE);
 	case $DirContext::REMOVE_ATTRIBUTE:
-		{
-			return ($LdapClient::DELETE);
-		}
+		return ($LdapClient::DELETE);
 	default:
-		{
-			$throwNew($IllegalArgumentException, "Invalid modification code"_s);
-		}
+		$throwNew($IllegalArgumentException, "Invalid modification code"_s);
 	}
 }
 
 $DirContext* LdapCtx::c_getSchema($Name* name, $Continuation* cont) {
-	$nc(cont)->setError($of(this), name);
+	$nc(cont)->setError(this, name);
 	try {
 		return getSchemaTree(name);
 	} catch ($NamingException& e) {
@@ -2142,15 +1820,15 @@ $DirContext* LdapCtx::c_getSchema($Name* name, $Continuation* cont) {
 }
 
 $DirContext* LdapCtx::c_getSchemaClassDefinition($Name* name, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
-	$nc(cont)->setError($of(this), name);
+	$useLocalObjectStack();
+	$nc(cont)->setError(this, name);
 	try {
-		$var($Attribute, objectClassAttr, $nc($(c_getAttributes(name, $$new($StringArray, {"objectclass"_s}), cont)))->get("objectclass"_s));
-		if (objectClassAttr == nullptr || $nc(objectClassAttr)->size() == 0) {
+		$var($Attribute, objectClassAttr, $$nc(c_getAttributes(name, $$new($StringArray, {"objectclass"_s}), cont))->get("objectclass"_s));
+		if (objectClassAttr == nullptr || objectClassAttr->size() == 0) {
 			return LdapCtx::EMPTY_SCHEMA;
 		}
 		$init($LdapSchemaParser);
-		$var($Context, ocSchema, $cast($Context, $nc($(c_getSchema(name, cont)))->lookup($LdapSchemaParser::OBJECTCLASS_DEFINITION_NAME)));
+		$var($Context, ocSchema, $cast($Context, $$nc(c_getSchema(name, cont))->lookup($LdapSchemaParser::OBJECTCLASS_DEFINITION_NAME)));
 		$var($HierMemDirCtx, objectClassCtx, $new($HierMemDirCtx));
 		$var($DirContext, objectClassDef, nullptr);
 		$var($String, objectClassName, nullptr);
@@ -2159,11 +1837,11 @@ $DirContext* LdapCtx::c_getSchemaClassDefinition($Name* name, $Continuation* con
 			for (; $nc(objectClasses)->hasMoreElements();) {
 				$assign(objectClassName, $cast($String, objectClasses->nextElement()));
 				$assign(objectClassDef, $cast($DirContext, $nc(ocSchema)->lookup(objectClassName)));
-				objectClassCtx->bind(objectClassName, $of(objectClassDef));
+				objectClassCtx->bind(objectClassName, objectClassDef);
 			}
 		}
 		objectClassCtx->setReadOnly($$new($SchemaViolationException, "Cannot update schema object"_s));
-		return static_cast<$DirContext*>(objectClassCtx);
+		return $cast($DirContext, objectClassCtx);
 	} catch ($NamingException& e) {
 		$throw($(cont->fillInException(e)));
 	}
@@ -2171,10 +1849,11 @@ $DirContext* LdapCtx::c_getSchemaClassDefinition($Name* name, $Continuation* con
 }
 
 $DirContext* LdapCtx::getSchemaTree($Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, subschemasubentry, getSchemaEntry(name, true));
 	$var($DirContext, schemaTree, $cast($DirContext, $nc(this->schemaTrees)->get(subschemasubentry)));
 	if (schemaTree == nullptr) {
+		;
 		$assign(schemaTree, buildSchemaTree(subschemasubentry));
 		$nc(this->schemaTrees)->put(subschemasubentry, schemaTree);
 	}
@@ -2182,14 +1861,14 @@ $DirContext* LdapCtx::getSchemaTree($Name* name) {
 }
 
 $DirContext* LdapCtx::buildSchemaTree($String* subschemasubentry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, constraints, $new($SearchControls, $SearchControls::OBJECT_SCOPE, 0, 0, LdapCtx::SCHEMA_ATTRIBUTES, true, false));
 	$var($Name, sse, ($$new($CompositeName))->add(subschemasubentry));
 	$var($NamingEnumeration, results, searchAux(sse, "(objectClass=subschema)"_s, constraints, false, true, $$new($Continuation)));
 	if (!$nc(results)->hasMore()) {
 		$throwNew($OperationNotSupportedException, $$str({"Cannot get read subschemasubentry: "_s, subschemasubentry}));
 	}
-	$var($SearchResult, result, $cast($SearchResult, $nc(results)->next()));
+	$var($SearchResult, result, $cast($SearchResult, results->next()));
 	results->close();
 	$var($Object, obj, $nc(result)->getObject());
 	if (!($instanceOf(LdapCtx, obj))) {
@@ -2199,7 +1878,7 @@ $DirContext* LdapCtx::buildSchemaTree($String* subschemasubentry) {
 }
 
 $String* LdapCtx::getSchemaEntry($Name* name, bool relative) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, constraints, $new($SearchControls, $SearchControls::OBJECT_SCOPE, 0, 0, $$new($StringArray, {"subschemasubentry"_s}), false, false));
 	$var($NamingEnumeration, results, nullptr);
 	try {
@@ -2215,10 +1894,10 @@ $String* LdapCtx::getSchemaEntry($Name* name, bool relative) {
 	if (!$nc(results)->hasMoreElements()) {
 		$throwNew($ConfigurationException, $$str({"Requesting schema of nonexistent entry: "_s, name}));
 	}
-	$var($SearchResult, result, $cast($SearchResult, $nc(results)->next()));
+	$var($SearchResult, result, $cast($SearchResult, results->next()));
 	results->close();
-	$var($Attribute, schemaEntryAttr, $nc($($nc(result)->getAttributes()))->get("subschemasubentry"_s));
-	if (schemaEntryAttr == nullptr || $nc(schemaEntryAttr)->size() < 0) {
+	$var($Attribute, schemaEntryAttr, $$nc($nc(result)->getAttributes())->get("subschemasubentry"_s));
+	if (schemaEntryAttr == nullptr || schemaEntryAttr->size() < 0) {
 		bool var$1 = $nc(this->currentDN)->length() == 0;
 		if (var$1 && $nc(name)->isEmpty()) {
 			$throwNew($OperationNotSupportedException, "Cannot read subschemasubentry of root DSE"_s);
@@ -2226,14 +1905,14 @@ $String* LdapCtx::getSchemaEntry($Name* name, bool relative) {
 			return getSchemaEntry($$new($CompositeName), false);
 		}
 	}
-	return ($cast($String, $nc(schemaEntryAttr)->get()));
+	return $cast($String, $nc(schemaEntryAttr)->get());
 }
 
 void LdapCtx::setParents($Attributes* attrs, $Name* name) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($NamingEnumeration, ae, $nc(attrs)->getAll());
 	while ($nc(ae)->hasMore()) {
-		$nc(($cast($LdapAttribute, $(ae->next()))))->setParent(static_cast<$DirContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>(this))), name);
+		$$sure($LdapAttribute, ae->next())->setParent($cast($ComponentDirContext, this), name);
 	}
 }
 
@@ -2245,18 +1924,18 @@ $String* LdapCtx::getURL() {
 }
 
 $NamingEnumeration* LdapCtx::c_search($Name* name, $Attributes* matchingAttributes, $Continuation* cont) {
-	return c_search(name, matchingAttributes, ($StringArray*)nullptr, cont);
+	return c_search(name, matchingAttributes, nullptr, cont);
 }
 
 $NamingEnumeration* LdapCtx::c_search($Name* name, $Attributes* matchingAttributes, $StringArray* attributesToReturn, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, cons, $new($SearchControls));
 	cons->setReturningAttributes(attributesToReturn);
 	$var($String, filter, nullptr);
 	try {
 		$assign(filter, $SearchFilter::format(matchingAttributes));
 	} catch ($NamingException& e) {
-		$nc(cont)->setError($of(this), name);
+		$nc(cont)->setError(this, name);
 		$throw($(cont->fillInException(e)));
 	}
 	return c_search(name, filter, cons, cont);
@@ -2267,19 +1946,19 @@ $NamingEnumeration* LdapCtx::c_search($Name* name, $String* filter, $SearchContr
 }
 
 $NamingEnumeration* LdapCtx::c_search($Name* name, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* cons, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, strfilter, nullptr);
 	try {
 		$assign(strfilter, $SearchFilter::format(filterExpr, filterArgs));
 	} catch ($NamingException& e) {
-		$nc(cont)->setError($of(this), name);
+		$nc(cont)->setError(this, name);
 		$throw($(cont->fillInException(e)));
 	}
 	return c_search(name, strfilter, cons, cont);
 }
 
 $NamingEnumeration* LdapCtx::searchAux($Name* name, $String* filter, $SearchControls* cons$renamed, bool relative, bool waitForReply, $Continuation* cont) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SearchControls, cons, cons$renamed);
 	$var($LdapResult, answer, nullptr);
 	$var($StringArray, tokens, $new($StringArray, 2));
@@ -2301,13 +1980,13 @@ $NamingEnumeration* LdapCtx::searchAux($Name* name, $String* filter, $SearchCont
 				$init($Obj);
 				$var($StringArray, totalAttrs, $new($StringArray, reqAttrs->length + $nc($Obj::JAVA_ATTRIBUTES)->length));
 				$System::arraycopy(reqAttrs, 0, totalAttrs, 0, reqAttrs->length);
-				$System::arraycopy($Obj::JAVA_ATTRIBUTES, 0, totalAttrs, reqAttrs->length, $nc($Obj::JAVA_ATTRIBUTES)->length);
+				$System::arraycopy($Obj::JAVA_ATTRIBUTES, 0, totalAttrs, reqAttrs->length, $Obj::JAVA_ATTRIBUTES->length);
 				cons->setReturningAttributes(totalAttrs);
 			}
 		}
 	}
 	$var($LdapCtx$SearchArgs, args, $new($LdapCtx$SearchArgs, name, filter, cons, reqAttrs));
-	$nc(cont)->setError($of(this), name);
+	$nc(cont)->setError(this, name);
 	try {
 		if (searchToCompare(filter, cons, tokens)) {
 			$assign(answer, compare(name, tokens->get(0), tokens->get(1)));
@@ -2325,36 +2004,34 @@ $NamingEnumeration* LdapCtx::searchAux($Name* name, $String* filter, $SearchCont
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$0, nullptr);
-				$var($NamingEnumeration, var$2, nullptr);
-				bool return$1 = false;
-				bool continue$3 = false;
+			$var($Throwable, var$0, nullptr);
+			$var($NamingEnumeration, var$2, nullptr);
+			bool return$1 = false;
+			bool continue$3 = false;
+			try {
 				try {
-					try {
-						$assign(var$2, $nc(refCtx)->search(name, filter, cons));
-						return$1 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$3 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$4) {
-					$assign(var$0, var$4);
-				} $finally: {
-					$nc(refCtx)->close();
+					$assign(var$2, $nc(refCtx)->search(name, filter, cons));
+					return$1 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$3 = true;
+					goto $finally;
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
-				}
-				if (continue$3) {
-					continue;
-				}
-				if (return$1) {
-					return var$2;
-				}
+			} catch ($Throwable& var$4) {
+				$assign(var$0, var$4);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			if (continue$3) {
+				continue;
+			}
+			if (return$1) {
+				return var$2;
 			}
 		}
 	} catch ($LimitExceededException& e) {
@@ -2376,7 +2053,7 @@ $NamingEnumeration* LdapCtx::searchAux($Name* name, $String* filter, $SearchCont
 }
 
 $LdapResult* LdapCtx::getSearchReply($LdapClient* eClnt, $LdapResult* res) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->clnt != eClnt) {
 		$throwNew($CommunicationException, "Context\'s connection changed; unable to continue enumeration"_s);
 	}
@@ -2399,46 +2076,36 @@ $LdapResult* LdapCtx::doSearchOnce($Name* name, $String* filter, $SearchControls
 }
 
 $LdapResult* LdapCtx::doSearch($Name* name, $String* filter, $SearchControls* cons, bool relative, bool waitForReply) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	try {
 		int32_t scope = 0;
 		switch ($nc(cons)->getSearchScope()) {
 		case $SearchControls::OBJECT_SCOPE:
-			{
-				scope = $LdapClient::SCOPE_BASE_OBJECT;
-				break;
-			}
+			scope = $LdapClient::SCOPE_BASE_OBJECT;
+			break;
 		default:
-			{}
 		case $SearchControls::ONELEVEL_SCOPE:
-			{
-				scope = $LdapClient::SCOPE_ONE_LEVEL;
-				break;
-			}
+			scope = $LdapClient::SCOPE_ONE_LEVEL;
+			break;
 		case $SearchControls::SUBTREE_SCOPE:
-			{
-				scope = $LdapClient::SCOPE_SUBTREE;
-				break;
-			}
+			scope = $LdapClient::SCOPE_SUBTREE;
+			break;
 		}
 		$var($StringArray, retattrs, cons->getReturningAttributes());
 		if (retattrs != nullptr && retattrs->length == 0) {
 			$assign(retattrs, $new($StringArray, 1));
 			retattrs->set(0, "1.1"_s);
 		}
-		$var($String, nm, relative ? fullyQualifiedName(name) : ($nc(name)->isEmpty() ? ""_s : $nc(name)->get(0)));
+		$var($String, nm, relative ? fullyQualifiedName(name) : ($nc(name)->isEmpty() ? ""_s : name->get(0)));
 		int32_t msecLimit = cons->getTimeLimit();
 		int32_t secLimit = 0;
 		if (msecLimit > 0) {
 			secLimit = (msecLimit / 1000) + 1;
 		}
-		$var($String, var$0, nm);
-		int32_t var$1 = scope;
-		int32_t var$2 = this->derefAliases;
-		int32_t var$3 = (int32_t)cons->getCountLimit();
-		int32_t var$4 = secLimit;
-		$var($LdapResult, answer, $nc(this->clnt)->search(var$0, var$1, var$2, var$3, var$4, cons->getReturningObjFlag() ? false : this->typesOnly, retattrs, filter, this->batchSize, this->reqCtls, this->binaryAttrs, waitForReply, this->replyQueueSize));
+		int32_t var$0 = this->derefAliases;
+		int32_t var$1 = (int32_t)cons->getCountLimit();
+		$var($LdapResult, answer, $nc(this->clnt)->search(nm, scope, var$0, var$1, secLimit, cons->getReturningObjFlag() ? false : this->typesOnly, retattrs, filter, this->batchSize, this->reqCtls, this->binaryAttrs, waitForReply, this->replyQueueSize));
 		$set(this, respCtls, $nc(answer)->resControls);
 		return answer;
 	} catch ($IOException& e) {
@@ -2454,8 +2121,8 @@ bool LdapCtx::searchToCompare($String* filter, $SearchControls* cons, $StringArr
 	if ($nc(cons)->getSearchScope() != $SearchControls::OBJECT_SCOPE) {
 		return false;
 	}
-	$var($StringArray, attrs, $nc(cons)->getReturningAttributes());
-	if (attrs == nullptr || $nc(attrs)->length != 0) {
+	$var($StringArray, attrs, cons->getReturningAttributes());
+	if (attrs == nullptr || attrs->length != 0) {
 		return false;
 	}
 	if (!filterToAssertion(filter, tokens)) {
@@ -2466,24 +2133,24 @@ bool LdapCtx::searchToCompare($String* filter, $SearchControls* cons, $StringArr
 
 bool LdapCtx::filterToAssertion($String* filter, $StringArray* tokens) {
 	$init(LdapCtx);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringTokenizer, assertionTokenizer, $new($StringTokenizer, filter, "="_s));
 	if (assertionTokenizer->countTokens() != 2) {
 		return false;
 	}
 	$nc(tokens)->set(0, $(assertionTokenizer->nextToken()));
 	tokens->set(1, $(assertionTokenizer->nextToken()));
-	if ($nc(tokens->get(1))->indexOf((int32_t)u'*') != -1) {
+	if ($nc(tokens->get(1))->indexOf(u'*') != -1) {
 		return false;
 	}
 	bool hasParens = false;
 	int32_t len = $nc(tokens->get(1))->length();
-	bool var$0 = ($nc(tokens->get(0))->charAt(0) == u'(');
+	bool var$0 = $nc(tokens->get(0))->charAt(0) == u'(';
 	if (var$0 && ($nc(tokens->get(1))->charAt(len - 1) == u')')) {
 		hasParens = true;
 	} else {
-		bool var$2 = ($nc(tokens->get(0))->charAt(0) == u'(');
-		if (var$2 || ($nc(tokens->get(1))->charAt(len - 1) == u')')) {
+		bool var$1 = $nc(tokens->get(0))->charAt(0) == u'(';
+		if (var$1 || ($nc(tokens->get(1))->charAt(len - 1) == u')')) {
 			return false;
 		}
 	}
@@ -2503,7 +2170,7 @@ bool LdapCtx::filterToAssertion($String* filter, $StringArray* tokens) {
 }
 
 $LdapResult* LdapCtx::compare($Name* name, $String* type, $String* value) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	ensureOpen();
 	$var($String, nm, fullyQualifiedName(name));
 	$var($LdapResult, answer, $nc(this->clnt)->compare(nm, type, value, this->reqCtls));
@@ -2513,7 +2180,7 @@ $LdapResult* LdapCtx::compare($Name* name, $String* type, $String* value) {
 
 $SearchControls* LdapCtx::cloneSearchControls($SearchControls* cons) {
 	$init(LdapCtx);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (cons == nullptr) {
 		return nullptr;
 	}
@@ -2526,9 +2193,8 @@ $SearchControls* LdapCtx::cloneSearchControls($SearchControls* cons) {
 	int32_t var$0 = cons->getSearchScope();
 	int64_t var$1 = cons->getCountLimit();
 	int32_t var$2 = cons->getTimeLimit();
-	$var($StringArray, var$3, retAttrs);
-	bool var$4 = cons->getReturningObjFlag();
-	return $new($SearchControls, var$0, var$1, var$2, var$3, var$4, cons->getDerefLinkFlag());
+	bool var$3 = cons->getReturningObjFlag();
+	return $new($SearchControls, var$0, var$1, var$2, retAttrs, var$3, cons->getDerefLinkFlag());
 }
 
 $Hashtable* LdapCtx::p_getEnvironment() {
@@ -2536,502 +2202,364 @@ $Hashtable* LdapCtx::p_getEnvironment() {
 }
 
 $Hashtable* LdapCtx::getEnvironment() {
-	return (this->envprops == nullptr ? $new($Hashtable, 5, 0.75f) : $cast($Hashtable, $nc(this->envprops)->clone()));
+	return (this->envprops == nullptr ? $new($Hashtable, 5, 0.75f) : $cast($Hashtable, this->envprops->clone()));
 }
 
 $Object* LdapCtx::removeFromEnvironment($String* propName) {
-	if (this->envprops == nullptr || $nc(this->envprops)->get(propName) == nullptr) {
-		return $of(nullptr);
+	if (this->envprops == nullptr || this->envprops->get(propName) == nullptr) {
+		return nullptr;
 	}
 	{
 		$var($String, s79810$, propName);
 		int32_t tmp79810$ = -1;
 		switch ($nc(s79810$)->hashCode()) {
-		case 0x46B41F9D:
-			{
-				if (s79810$->equals("java.naming.ldap.ref.separator"_s)) {
-					tmp79810$ = 0;
-				}
-				break;
+		case 0x46b41f9d:
+			if (s79810$->equals("java.naming.ldap.ref.separator"_s)) {
+				tmp79810$ = 0;
 			}
-		case (int32_t)0xC3A9B598:
-			{
-				if (s79810$->equals("java.naming.ldap.typesOnly"_s)) {
-					tmp79810$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xc3a9b598:
+			if (s79810$->equals("java.naming.ldap.typesOnly"_s)) {
+				tmp79810$ = 1;
 			}
-		case (int32_t)0x8E4A00A4:
-			{
-				if (s79810$->equals("java.naming.ldap.deleteRDN"_s)) {
-					tmp79810$ = 2;
-				}
-				break;
+			break;
+		case (int32_t)0x8e4a00a4:
+			if (s79810$->equals("java.naming.ldap.deleteRDN"_s)) {
+				tmp79810$ = 2;
 			}
-		case 0x1F3A2F79:
-			{
-				if (s79810$->equals("java.naming.ldap.derefAliases"_s)) {
-					tmp79810$ = 3;
-				}
-				break;
+			break;
+		case 0x1f3a2f79:
+			if (s79810$->equals("java.naming.ldap.derefAliases"_s)) {
+				tmp79810$ = 3;
 			}
-		case (int32_t)0x9B3C76A1:
-			{
-				if (s79810$->equals("java.naming.batchsize"_s)) {
-					tmp79810$ = 4;
-				}
-				break;
+			break;
+		case (int32_t)0x9b3c76a1:
+			if (s79810$->equals("java.naming.batchsize"_s)) {
+				tmp79810$ = 4;
 			}
-		case (int32_t)0xDC61C837:
-			{
-				if (s79810$->equals("java.naming.ldap.referral.limit"_s)) {
-					tmp79810$ = 5;
-				}
-				break;
+			break;
+		case (int32_t)0xdc61c837:
+			if (s79810$->equals("java.naming.ldap.referral.limit"_s)) {
+				tmp79810$ = 5;
 			}
-		case 0x2E666A77:
-			{
-				if (s79810$->equals("java.naming.referral"_s)) {
-					tmp79810$ = 6;
-				}
-				break;
+			break;
+		case 0x2e666a77:
+			if (s79810$->equals("java.naming.referral"_s)) {
+				tmp79810$ = 6;
 			}
-		case 0x2A03534B:
-			{
-				if (s79810$->equals("java.naming.ldap.attributes.binary"_s)) {
-					tmp79810$ = 7;
-				}
-				break;
+			break;
+		case 0x2a03534b:
+			if (s79810$->equals("java.naming.ldap.attributes.binary"_s)) {
+				tmp79810$ = 7;
 			}
-		case 0x5A3E0B4C:
-			{
-				if (s79810$->equals("com.sun.jndi.ldap.connect.timeout"_s)) {
-					tmp79810$ = 8;
-				}
-				break;
+			break;
+		case 0x5a3e0b4c:
+			if (s79810$->equals("com.sun.jndi.ldap.connect.timeout"_s)) {
+				tmp79810$ = 8;
 			}
-		case 0x0313007A:
-			{
-				if (s79810$->equals("com.sun.jndi.ldap.read.timeout"_s)) {
-					tmp79810$ = 9;
-				}
-				break;
+			break;
+		case 0x0313007a:
+			if (s79810$->equals("com.sun.jndi.ldap.read.timeout"_s)) {
+				tmp79810$ = 9;
 			}
-		case 0x5A4FC22B:
-			{
-				if (s79810$->equals("com.sun.jndi.ldap.search.waitForReply"_s)) {
-					tmp79810$ = 10;
-				}
-				break;
+			break;
+		case 0x5a4fc22b:
+			if (s79810$->equals("com.sun.jndi.ldap.search.waitForReply"_s)) {
+				tmp79810$ = 10;
 			}
-		case 0x6ED26D9D:
-			{
-				if (s79810$->equals("com.sun.jndi.ldap.search.replyQueueSize"_s)) {
-					tmp79810$ = 11;
-				}
-				break;
+			break;
+		case 0x6ed26d9d:
+			if (s79810$->equals("com.sun.jndi.ldap.search.replyQueueSize"_s)) {
+				tmp79810$ = 11;
 			}
-		case (int32_t)0x951457EC:
-			{
-				if (s79810$->equals("java.naming.security.protocol"_s)) {
-					tmp79810$ = 12;
-				}
-				break;
+			break;
+		case (int32_t)0x951457ec:
+			if (s79810$->equals("java.naming.security.protocol"_s)) {
+				tmp79810$ = 12;
 			}
-		case (int32_t)0x8148236B:
-			{
-				if (s79810$->equals("java.naming.ldap.version"_s)) {
-					tmp79810$ = 13;
-				}
-				break;
+			break;
+		case (int32_t)0x8148236b:
+			if (s79810$->equals("java.naming.ldap.version"_s)) {
+				tmp79810$ = 13;
 			}
-		case (int32_t)0xB4A532E4:
-			{
-				if (s79810$->equals("java.naming.ldap.factory.socket"_s)) {
-					tmp79810$ = 14;
-				}
-				break;
+			break;
+		case (int32_t)0xb4a532e4:
+			if (s79810$->equals("java.naming.ldap.factory.socket"_s)) {
+				tmp79810$ = 14;
 			}
-		case 0x1F025CCC:
-			{
-				if (s79810$->equals("java.naming.security.authentication"_s)) {
-					tmp79810$ = 15;
-				}
-				break;
+			break;
+		case 0x1f025ccc:
+			if (s79810$->equals("java.naming.security.authentication"_s)) {
+				tmp79810$ = 15;
 			}
-		case (int32_t)0xC52DD15A:
-			{
-				if (s79810$->equals("java.naming.security.principal"_s)) {
-					tmp79810$ = 16;
-				}
-				break;
+			break;
+		case (int32_t)0xc52dd15a:
+			if (s79810$->equals("java.naming.security.principal"_s)) {
+				tmp79810$ = 16;
 			}
-		case (int32_t)0xB414E928:
-			{
-				if (s79810$->equals("java.naming.security.credentials"_s)) {
-					tmp79810$ = 17;
-				}
-				break;
+			break;
+		case (int32_t)0xb414e928:
+			if (s79810$->equals("java.naming.security.credentials"_s)) {
+				tmp79810$ = 17;
 			}
+			break;
 		}
 		switch (tmp79810$) {
 		case 0:
-			{
-				this->addrEncodingSeparator = LdapCtx::DEFAULT_REF_SEPARATOR;
-				break;
-			}
+			this->addrEncodingSeparator = LdapCtx::DEFAULT_REF_SEPARATOR;
+			break;
 		case 1:
-			{
-				this->typesOnly = LdapCtx::DEFAULT_TYPES_ONLY;
-				break;
-			}
+			this->typesOnly = LdapCtx::DEFAULT_TYPES_ONLY;
+			break;
 		case 2:
-			{
-				this->deleteRDN = LdapCtx::DEFAULT_DELETE_RDN;
-				break;
-			}
+			this->deleteRDN = LdapCtx::DEFAULT_DELETE_RDN;
+			break;
 		case 3:
-			{
-				this->derefAliases = LdapCtx::DEFAULT_DEREF_ALIASES;
-				break;
-			}
+			this->derefAliases = LdapCtx::DEFAULT_DEREF_ALIASES;
+			break;
 		case 4:
-			{
-				this->batchSize = LdapCtx::DEFAULT_BATCH_SIZE;
-				break;
-			}
+			this->batchSize = LdapCtx::DEFAULT_BATCH_SIZE;
+			break;
 		case 5:
-			{
-				this->referralHopLimit = LdapCtx::DEFAULT_REFERRAL_LIMIT;
-				break;
-			}
+			this->referralHopLimit = LdapCtx::DEFAULT_REFERRAL_LIMIT;
+			break;
 		case 6:
-			{
-				setReferralMode(nullptr, true);
-				break;
-			}
+			setReferralMode(nullptr, true);
+			break;
 		case 7:
-			{
-				setBinaryAttributes(nullptr);
-				break;
-			}
+			setBinaryAttributes(nullptr);
+			break;
 		case 8:
-			{
-				this->connectTimeout = -1;
-				break;
-			}
+			this->connectTimeout = -1;
+			break;
 		case 9:
-			{
-				this->readTimeout = -1;
-				break;
-			}
+			this->readTimeout = -1;
+			break;
 		case 10:
-			{
-				this->waitForReply = true;
-				break;
-			}
+			this->waitForReply = true;
+			break;
 		case 11:
-			{
-				this->replyQueueSize = -1;
-				break;
-			}
+			this->replyQueueSize = -1;
+			break;
 		case 12:
-			{
-				closeConnection(LdapCtx::SOFT_CLOSE);
-				if (this->useSsl && !this->hasLdapsScheme) {
-					this->useSsl = false;
-					$set(this, url, nullptr);
-					if (this->useDefaultPortNumber) {
-						this->port_number = LdapCtx::DEFAULT_PORT;
-					}
+			closeConnection(LdapCtx::SOFT_CLOSE);
+			if (this->useSsl && !this->hasLdapsScheme) {
+				this->useSsl = false;
+				$set(this, url, nullptr);
+				if (this->useDefaultPortNumber) {
+					this->port_number = LdapCtx::DEFAULT_PORT;
 				}
-				break;
 			}
+			break;
 		case 13:
-			{}
 		case 14:
-			{
-				closeConnection(LdapCtx::SOFT_CLOSE);
-				break;
-			}
+			closeConnection(LdapCtx::SOFT_CLOSE);
+			break;
 		case 15:
-			{}
 		case 16:
-			{}
 		case 17:
-			{
-				this->sharable = false;
-				break;
-			}
+			this->sharable = false;
+			break;
 		}
 	}
 	$set(this, envprops, $cast($Hashtable, $nc(this->envprops)->clone()));
-	return $of($nc(this->envprops)->remove(propName));
+	return $nc(this->envprops)->remove(propName);
 }
 
 $Object* LdapCtx::addToEnvironment($String* propName, Object$* propVal) {
 	if (propVal == nullptr) {
-		return $of(removeFromEnvironment(propName));
+		return removeFromEnvironment(propName);
 	}
 	{
 		$var($String, s82387$, propName);
 		int32_t tmp82387$ = -1;
 		switch ($nc(s82387$)->hashCode()) {
-		case 0x46B41F9D:
-			{
-				if (s82387$->equals("java.naming.ldap.ref.separator"_s)) {
-					tmp82387$ = 0;
-				}
-				break;
+		case 0x46b41f9d:
+			if (s82387$->equals("java.naming.ldap.ref.separator"_s)) {
+				tmp82387$ = 0;
 			}
-		case (int32_t)0xC3A9B598:
-			{
-				if (s82387$->equals("java.naming.ldap.typesOnly"_s)) {
-					tmp82387$ = 1;
-				}
-				break;
+			break;
+		case (int32_t)0xc3a9b598:
+			if (s82387$->equals("java.naming.ldap.typesOnly"_s)) {
+				tmp82387$ = 1;
 			}
-		case (int32_t)0x8E4A00A4:
-			{
-				if (s82387$->equals("java.naming.ldap.deleteRDN"_s)) {
-					tmp82387$ = 2;
-				}
-				break;
+			break;
+		case (int32_t)0x8e4a00a4:
+			if (s82387$->equals("java.naming.ldap.deleteRDN"_s)) {
+				tmp82387$ = 2;
 			}
-		case 0x1F3A2F79:
-			{
-				if (s82387$->equals("java.naming.ldap.derefAliases"_s)) {
-					tmp82387$ = 3;
-				}
-				break;
+			break;
+		case 0x1f3a2f79:
+			if (s82387$->equals("java.naming.ldap.derefAliases"_s)) {
+				tmp82387$ = 3;
 			}
-		case (int32_t)0x9B3C76A1:
-			{
-				if (s82387$->equals("java.naming.batchsize"_s)) {
-					tmp82387$ = 4;
-				}
-				break;
+			break;
+		case (int32_t)0x9b3c76a1:
+			if (s82387$->equals("java.naming.batchsize"_s)) {
+				tmp82387$ = 4;
 			}
-		case (int32_t)0xDC61C837:
-			{
-				if (s82387$->equals("java.naming.ldap.referral.limit"_s)) {
-					tmp82387$ = 5;
-				}
-				break;
+			break;
+		case (int32_t)0xdc61c837:
+			if (s82387$->equals("java.naming.ldap.referral.limit"_s)) {
+				tmp82387$ = 5;
 			}
-		case 0x2E666A77:
-			{
-				if (s82387$->equals("java.naming.referral"_s)) {
-					tmp82387$ = 6;
-				}
-				break;
+			break;
+		case 0x2e666a77:
+			if (s82387$->equals("java.naming.referral"_s)) {
+				tmp82387$ = 6;
 			}
-		case 0x2A03534B:
-			{
-				if (s82387$->equals("java.naming.ldap.attributes.binary"_s)) {
-					tmp82387$ = 7;
-				}
-				break;
+			break;
+		case 0x2a03534b:
+			if (s82387$->equals("java.naming.ldap.attributes.binary"_s)) {
+				tmp82387$ = 7;
 			}
-		case 0x5A3E0B4C:
-			{
-				if (s82387$->equals("com.sun.jndi.ldap.connect.timeout"_s)) {
-					tmp82387$ = 8;
-				}
-				break;
+			break;
+		case 0x5a3e0b4c:
+			if (s82387$->equals("com.sun.jndi.ldap.connect.timeout"_s)) {
+				tmp82387$ = 8;
 			}
-		case 0x0313007A:
-			{
-				if (s82387$->equals("com.sun.jndi.ldap.read.timeout"_s)) {
-					tmp82387$ = 9;
-				}
-				break;
+			break;
+		case 0x0313007a:
+			if (s82387$->equals("com.sun.jndi.ldap.read.timeout"_s)) {
+				tmp82387$ = 9;
 			}
-		case 0x5A4FC22B:
-			{
-				if (s82387$->equals("com.sun.jndi.ldap.search.waitForReply"_s)) {
-					tmp82387$ = 10;
-				}
-				break;
+			break;
+		case 0x5a4fc22b:
+			if (s82387$->equals("com.sun.jndi.ldap.search.waitForReply"_s)) {
+				tmp82387$ = 10;
 			}
-		case 0x6ED26D9D:
-			{
-				if (s82387$->equals("com.sun.jndi.ldap.search.replyQueueSize"_s)) {
-					tmp82387$ = 11;
-				}
-				break;
+			break;
+		case 0x6ed26d9d:
+			if (s82387$->equals("com.sun.jndi.ldap.search.replyQueueSize"_s)) {
+				tmp82387$ = 11;
 			}
-		case (int32_t)0x951457EC:
-			{
-				if (s82387$->equals("java.naming.security.protocol"_s)) {
-					tmp82387$ = 12;
-				}
-				break;
+			break;
+		case (int32_t)0x951457ec:
+			if (s82387$->equals("java.naming.security.protocol"_s)) {
+				tmp82387$ = 12;
 			}
-		case (int32_t)0x8148236B:
-			{
-				if (s82387$->equals("java.naming.ldap.version"_s)) {
-					tmp82387$ = 13;
-				}
-				break;
+			break;
+		case (int32_t)0x8148236b:
+			if (s82387$->equals("java.naming.ldap.version"_s)) {
+				tmp82387$ = 13;
 			}
-		case (int32_t)0xB4A532E4:
-			{
-				if (s82387$->equals("java.naming.ldap.factory.socket"_s)) {
-					tmp82387$ = 14;
-				}
-				break;
+			break;
+		case (int32_t)0xb4a532e4:
+			if (s82387$->equals("java.naming.ldap.factory.socket"_s)) {
+				tmp82387$ = 14;
 			}
-		case 0x1F025CCC:
-			{
-				if (s82387$->equals("java.naming.security.authentication"_s)) {
-					tmp82387$ = 15;
-				}
-				break;
+			break;
+		case 0x1f025ccc:
+			if (s82387$->equals("java.naming.security.authentication"_s)) {
+				tmp82387$ = 15;
 			}
-		case (int32_t)0xC52DD15A:
-			{
-				if (s82387$->equals("java.naming.security.principal"_s)) {
-					tmp82387$ = 16;
-				}
-				break;
+			break;
+		case (int32_t)0xc52dd15a:
+			if (s82387$->equals("java.naming.security.principal"_s)) {
+				tmp82387$ = 16;
 			}
-		case (int32_t)0xB414E928:
-			{
-				if (s82387$->equals("java.naming.security.credentials"_s)) {
-					tmp82387$ = 17;
-				}
-				break;
+			break;
+		case (int32_t)0xb414e928:
+			if (s82387$->equals("java.naming.security.credentials"_s)) {
+				tmp82387$ = 17;
 			}
+			break;
 		}
 		switch (tmp82387$) {
 		case 0:
-			{
-				setRefSeparator($cast($String, propVal));
-				break;
-			}
+			setRefSeparator($cast($String, propVal));
+			break;
 		case 1:
-			{
-				setTypesOnly($cast($String, propVal));
-				break;
-			}
+			setTypesOnly($cast($String, propVal));
+			break;
 		case 2:
-			{
-				setDeleteRDN($cast($String, propVal));
-				break;
-			}
+			setDeleteRDN($cast($String, propVal));
+			break;
 		case 3:
-			{
-				setDerefAliases($cast($String, propVal));
-				break;
-			}
+			setDerefAliases($cast($String, propVal));
+			break;
 		case 4:
-			{
-				setBatchSize($cast($String, propVal));
-				break;
-			}
+			setBatchSize($cast($String, propVal));
+			break;
 		case 5:
-			{
-				setReferralLimit($cast($String, propVal));
-				break;
-			}
+			setReferralLimit($cast($String, propVal));
+			break;
 		case 6:
-			{
-				setReferralMode($cast($String, propVal), true);
-				break;
-			}
+			setReferralMode($cast($String, propVal), true);
+			break;
 		case 7:
-			{
-				setBinaryAttributes($cast($String, propVal));
-				break;
-			}
+			setBinaryAttributes($cast($String, propVal));
+			break;
 		case 8:
-			{
-				setConnectTimeout($cast($String, propVal));
-				break;
-			}
+			setConnectTimeout($cast($String, propVal));
+			break;
 		case 9:
-			{
-				setReadTimeout($cast($String, propVal));
-				break;
-			}
+			setReadTimeout($cast($String, propVal));
+			break;
 		case 10:
-			{
-				setWaitForReply($cast($String, propVal));
-				break;
-			}
+			setWaitForReply($cast($String, propVal));
+			break;
 		case 11:
-			{
-				setReplyQueueSize($cast($String, propVal));
-				break;
-			}
+			setReplyQueueSize($cast($String, propVal));
+			break;
 		case 12:
-			{
-				closeConnection(LdapCtx::SOFT_CLOSE);
-				if ("ssl"_s->equals(propVal)) {
-					this->useSsl = true;
-					$set(this, url, nullptr);
-					if (this->useDefaultPortNumber) {
-						this->port_number = LdapCtx::DEFAULT_SSL_PORT;
-					}
+			closeConnection(LdapCtx::SOFT_CLOSE);
+			if ("ssl"_s->equals(propVal)) {
+				this->useSsl = true;
+				$set(this, url, nullptr);
+				if (this->useDefaultPortNumber) {
+					this->port_number = LdapCtx::DEFAULT_SSL_PORT;
 				}
-				break;
 			}
+			break;
 		case 13:
-			{}
 		case 14:
-			{
-				closeConnection(LdapCtx::SOFT_CLOSE);
-				break;
-			}
+			closeConnection(LdapCtx::SOFT_CLOSE);
+			break;
 		case 15:
-			{}
 		case 16:
-			{}
 		case 17:
-			{
-				this->sharable = false;
-				break;
-			}
+			this->sharable = false;
+			break;
 		}
 	}
-	$set(this, envprops, this->envprops == nullptr ? $new($Hashtable, 5, 0.75f) : $cast($Hashtable, $nc(this->envprops)->clone()));
-	return $of($nc(this->envprops)->put(propName, propVal));
+	$set(this, envprops, this->envprops == nullptr ? $new($Hashtable, 5, 0.75f) : $cast($Hashtable, this->envprops->clone()));
+	return $nc(this->envprops)->put(propName, propVal);
 }
 
 void LdapCtx::setProviderUrl($String* providerUrl) {
 	if (this->envprops != nullptr) {
 		$init($Context);
-		$nc(this->envprops)->put($Context::PROVIDER_URL, providerUrl);
+		this->envprops->put($Context::PROVIDER_URL, providerUrl);
 	}
 }
 
 void LdapCtx::setDomainName($String* domainName) {
 	if (this->envprops != nullptr) {
-		$nc(this->envprops)->put(LdapCtx::DOMAIN_NAME, domainName);
+		this->envprops->put(LdapCtx::DOMAIN_NAME, domainName);
 	}
 }
 
 void LdapCtx::initEnv() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->envprops == nullptr) {
 		setReferralMode(nullptr, false);
 		return;
 	}
 	$init($Context);
-	setBatchSize($cast($String, $($nc(this->envprops)->get($Context::BATCHSIZE))));
-	setRefSeparator($cast($String, $($nc(this->envprops)->get(LdapCtx::REF_SEPARATOR))));
-	setDeleteRDN($cast($String, $($nc(this->envprops)->get(LdapCtx::DELETE_RDN))));
-	setTypesOnly($cast($String, $($nc(this->envprops)->get(LdapCtx::TYPES_ONLY))));
-	setDerefAliases($cast($String, $($nc(this->envprops)->get(LdapCtx::DEREF_ALIASES))));
-	setReferralLimit($cast($String, $($nc(this->envprops)->get(LdapCtx::REFERRAL_LIMIT))));
-	setBinaryAttributes($cast($String, $($nc(this->envprops)->get(LdapCtx::BINARY_ATTRIBUTES))));
-	$set(this, bindCtls, cloneControls($cast($ControlArray, $($nc(this->envprops)->get(LdapCtx::BIND_CONTROLS)))));
-	setReferralMode($cast($String, $($nc(this->envprops)->get($Context::REFERRAL))), false);
-	setConnectTimeout($cast($String, $($nc(this->envprops)->get(LdapCtx::CONNECT_TIMEOUT))));
-	setReadTimeout($cast($String, $($nc(this->envprops)->get(LdapCtx::READ_TIMEOUT))));
-	setWaitForReply($cast($String, $($nc(this->envprops)->get(LdapCtx::WAIT_FOR_REPLY))));
-	setReplyQueueSize($cast($String, $($nc(this->envprops)->get(LdapCtx::REPLY_QUEUE_SIZE))));
+	setBatchSize($$cast($String, $nc(this->envprops)->get($Context::BATCHSIZE)));
+	setRefSeparator($$cast($String, $nc(this->envprops)->get(LdapCtx::REF_SEPARATOR)));
+	setDeleteRDN($$cast($String, $nc(this->envprops)->get(LdapCtx::DELETE_RDN)));
+	setTypesOnly($$cast($String, $nc(this->envprops)->get(LdapCtx::TYPES_ONLY)));
+	setDerefAliases($$cast($String, $nc(this->envprops)->get(LdapCtx::DEREF_ALIASES)));
+	setReferralLimit($$cast($String, $nc(this->envprops)->get(LdapCtx::REFERRAL_LIMIT)));
+	setBinaryAttributes($$cast($String, $nc(this->envprops)->get(LdapCtx::BINARY_ATTRIBUTES)));
+	$set(this, bindCtls, cloneControls($$cast($ControlArray, $nc(this->envprops)->get(LdapCtx::BIND_CONTROLS))));
+	setReferralMode($$cast($String, $nc(this->envprops)->get($Context::REFERRAL)), false);
+	setConnectTimeout($$cast($String, $nc(this->envprops)->get(LdapCtx::CONNECT_TIMEOUT)));
+	setReadTimeout($$cast($String, $nc(this->envprops)->get(LdapCtx::READ_TIMEOUT)));
+	setWaitForReply($$cast($String, $nc(this->envprops)->get(LdapCtx::WAIT_FOR_REPLY)));
+	setReplyQueueSize($$cast($String, $nc(this->envprops)->get(LdapCtx::REPLY_QUEUE_SIZE)));
 }
 
 void LdapCtx::setDeleteRDN($String* deleteRDNProp) {
@@ -3059,68 +2587,48 @@ void LdapCtx::setBatchSize($String* batchSizeProp) {
 }
 
 void LdapCtx::setReferralMode($String* ref, bool update) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (ref != nullptr) {
-		{
-			$var($String, s88545$, ref);
-			int32_t tmp88545$ = -1;
-			switch (s88545$->hashCode()) {
-			case (int32_t)0xE7640B41:
-				{
-					if (s88545$->equals("follow-scheme"_s)) {
-						tmp88545$ = 0;
-					}
-					break;
-				}
-			case (int32_t)0xB45D3BB1:
-				{
-					if (s88545$->equals("follow"_s)) {
-						tmp88545$ = 1;
-					}
-					break;
-				}
-			case 0x0693A6E6:
-				{
-					if (s88545$->equals("throw"_s)) {
-						tmp88545$ = 2;
-					}
-					break;
-				}
-			case (int32_t)0xB90BFDD2:
-				{
-					if (s88545$->equals("ignore"_s)) {
-						tmp88545$ = 3;
-					}
-					break;
-				}
+		$var($String, s88545$, ref);
+		int32_t tmp88545$ = -1;
+		switch (s88545$->hashCode()) {
+		case (int32_t)0xe7640b41:
+			if (s88545$->equals("follow-scheme"_s)) {
+				tmp88545$ = 0;
 			}
-			switch (tmp88545$) {
-			case 0:
-				{
-					this->handleReferrals = $LdapClient::LDAP_REF_FOLLOW_SCHEME;
-					break;
-				}
-			case 1:
-				{
-					this->handleReferrals = $LdapClient::LDAP_REF_FOLLOW;
-					break;
-				}
-			case 2:
-				{
-					this->handleReferrals = $LdapClient::LDAP_REF_THROW;
-					break;
-				}
-			case 3:
-				{
-					this->handleReferrals = $LdapClient::LDAP_REF_IGNORE;
-					break;
-				}
-			default:
-				{
-					$init($Context);
-					$throwNew($IllegalArgumentException, $$str({"Illegal value for "_s, $Context::REFERRAL, " property."_s}));
-				}
+			break;
+		case (int32_t)0xb45d3bb1:
+			if (s88545$->equals("follow"_s)) {
+				tmp88545$ = 1;
 			}
+			break;
+		case 0x0693a6e6:
+			if (s88545$->equals("throw"_s)) {
+				tmp88545$ = 2;
+			}
+			break;
+		case (int32_t)0xb90bfdd2:
+			if (s88545$->equals("ignore"_s)) {
+				tmp88545$ = 3;
+			}
+			break;
+		}
+		switch (tmp88545$) {
+		case 0:
+			this->handleReferrals = $LdapClient::LDAP_REF_FOLLOW_SCHEME;
+			break;
+		case 1:
+			this->handleReferrals = $LdapClient::LDAP_REF_FOLLOW;
+			break;
+		case 2:
+			this->handleReferrals = $LdapClient::LDAP_REF_THROW;
+			break;
+		case 3:
+			this->handleReferrals = $LdapClient::LDAP_REF_IGNORE;
+			break;
+		default:
+			$init($Context);
+			$throwNew($IllegalArgumentException, $$str({"Illegal value for "_s, $Context::REFERRAL, " property."_s}));
 		}
 	} else {
 		this->handleReferrals = LdapCtx::DEFAULT_REFERRAL_MODE;
@@ -3133,67 +2641,47 @@ void LdapCtx::setReferralMode($String* ref, bool update) {
 }
 
 void LdapCtx::setDerefAliases($String* deref) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (deref != nullptr) {
-		{
-			$var($String, s89925$, deref);
-			int32_t tmp89925$ = -1;
-			switch (s89925$->hashCode()) {
-			case 0x063DCA8C:
-				{
-					if (s89925$->equals("never"_s)) {
-						tmp89925$ = 0;
-					}
-					break;
-				}
-			case 0x69FD713A:
-				{
-					if (s89925$->equals("searching"_s)) {
-						tmp89925$ = 1;
-					}
-					break;
-				}
-			case (int32_t)0xCD259B89:
-				{
-					if (s89925$->equals("finding"_s)) {
-						tmp89925$ = 2;
-					}
-					break;
-				}
-			case (int32_t)0xABAF920F:
-				{
-					if (s89925$->equals("always"_s)) {
-						tmp89925$ = 3;
-					}
-					break;
-				}
+		$var($String, s89925$, deref);
+		int32_t tmp89925$ = -1;
+		switch (s89925$->hashCode()) {
+		case 0x063dca8c:
+			if (s89925$->equals("never"_s)) {
+				tmp89925$ = 0;
 			}
-			switch (tmp89925$) {
-			case 0:
-				{
-					this->derefAliases = 0;
-					break;
-				}
-			case 1:
-				{
-					this->derefAliases = 1;
-					break;
-				}
-			case 2:
-				{
-					this->derefAliases = 2;
-					break;
-				}
-			case 3:
-				{
-					this->derefAliases = 3;
-					break;
-				}
-			default:
-				{
-					$throwNew($IllegalArgumentException, $$str({"Illegal value for "_s, LdapCtx::DEREF_ALIASES, " property."_s}));
-				}
+			break;
+		case 0x69fd713a:
+			if (s89925$->equals("searching"_s)) {
+				tmp89925$ = 1;
 			}
+			break;
+		case (int32_t)0xcd259b89:
+			if (s89925$->equals("finding"_s)) {
+				tmp89925$ = 2;
+			}
+			break;
+		case (int32_t)0xabaf920f:
+			if (s89925$->equals("always"_s)) {
+				tmp89925$ = 3;
+			}
+			break;
+		}
+		switch (tmp89925$) {
+		case 0:
+			this->derefAliases = 0;
+			break;
+		case 1:
+			this->derefAliases = 1;
+			break;
+		case 2:
+			this->derefAliases = 2;
+			break;
+		case 3:
+			this->derefAliases = 3;
+			break;
+		default:
+			$throwNew($IllegalArgumentException, $$str({"Illegal value for "_s, LdapCtx::DEREF_ALIASES, " property."_s}));
 		}
 	} else {
 		this->derefAliases = LdapCtx::DEFAULT_DEREF_ALIASES;
@@ -3260,19 +2748,19 @@ void LdapCtx::setReadTimeout($String* readTimeoutProp) {
 
 $Vector* LdapCtx::extractURLs($String* refString) {
 	$init(LdapCtx);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t separator = 0;
 	int32_t urlCount = 0;
-	while ((separator = $nc(refString)->indexOf((int32_t)u'\n', separator)) >= 0) {
+	while ((separator = $nc(refString)->indexOf(u'\n', separator)) >= 0) {
 		++separator;
 		++urlCount;
 	}
 	$var($Vector, referrals, $new($Vector, urlCount));
 	int32_t iURL = 0;
 	int32_t i = 0;
-	separator = $nc(refString)->indexOf((int32_t)u'\n');
+	separator = refString->indexOf(u'\n');
 	iURL = separator + 1;
-	while ((separator = refString->indexOf((int32_t)u'\n', iURL)) >= 0) {
+	while ((separator = refString->indexOf(u'\n', iURL)) >= 0) {
 		$var($Vector, referral, $new($Vector, 1));
 		referral->addElement($(refString->substring(iURL, separator)));
 		referrals->addElement(referral);
@@ -3285,16 +2773,15 @@ $Vector* LdapCtx::extractURLs($String* refString) {
 }
 
 void LdapCtx::setBinaryAttributes($String* attrIds) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (attrIds == nullptr) {
 		$set(this, binaryAttrs, nullptr);
 	} else {
 		$set(this, binaryAttrs, $new($Hashtable, 11, 0.75f));
 		$init($Locale);
-		$var($StringTokenizer, tokens, $new($StringTokenizer, $($nc(attrIds)->toLowerCase($Locale::ENGLISH)), " "_s));
+		$var($StringTokenizer, tokens, $new($StringTokenizer, $(attrIds->toLowerCase($Locale::ENGLISH)), " "_s));
 		while (tokens->hasMoreTokens()) {
-			$init($Boolean);
-			$nc(this->binaryAttrs)->put($(tokens->nextToken()), $Boolean::TRUE);
+			this->binaryAttrs->put($(tokens->nextToken()), $Boolean::TRUE);
 		}
 	}
 }
@@ -3308,11 +2795,13 @@ void LdapCtx::finalize() {
 
 void LdapCtx::close() {
 	$synchronized(this) {
+		;
 		if (this->eventSupport != nullptr) {
-			$nc(this->eventSupport)->cleanup();
+			this->eventSupport->cleanup();
 			removeUnsolicited();
 		}
 		if (this->enumCount > 0) {
+			;
 			this->closeRequested = true;
 			return;
 		}
@@ -3321,7 +2810,7 @@ void LdapCtx::close() {
 }
 
 void LdapCtx::reconnect($ControlArray* connCtls) {
-	$set(this, envprops, this->envprops == nullptr ? $new($Hashtable, 5, 0.75f) : $cast($Hashtable, $nc(this->envprops)->clone()));
+	$set(this, envprops, this->envprops == nullptr ? $new($Hashtable, 5, 0.75f) : $cast($Hashtable, this->envprops->clone()));
 	if (connCtls == nullptr) {
 		$nc(this->envprops)->remove(LdapCtx::BIND_CONTROLS);
 		$set(this, bindCtls, nullptr);
@@ -3335,17 +2824,17 @@ void LdapCtx::reconnect($ControlArray* connCtls) {
 $String* LdapCtx::getMechsAllowedToSendCredentials() {
 	$init(LdapCtx);
 	$beforeCallerSensitive();
-	$var($PrivilegedAction, pa, static_cast<$PrivilegedAction*>($new(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0)));
+	$var($PrivilegedAction, pa, $new(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0));
 	return $System::getSecurityManager() == nullptr ? $cast($String, $nc(pa)->run()) : $cast($String, $AccessController::doPrivileged(pa));
 }
 
 $Set* LdapCtx::getMechsFromPropertyValue($String* propValue) {
 	$init(LdapCtx);
-	$useLocalCurrentObjectStackCache();
-	if (propValue == nullptr || $nc(propValue)->isBlank()) {
+	$useLocalObjectStack();
+	if (propValue == nullptr || propValue->isBlank()) {
 		return $Collections::emptySet();
 	}
-	return $cast($Set, $nc($($nc($($nc($($Arrays::stream($($nc(propValue)->split(","_s)))))->map(static_cast<$Function*>($$new(LdapCtx$$Lambda$trim$1)))))->filter($($Predicate::not$(static_cast<$Predicate*>($$new(LdapCtx$$Lambda$isBlank$2)))))))->collect($($Collectors::toUnmodifiableSet())));
+	return $cast($Set, $$nc($$nc($$nc($Arrays::stream($($nc(propValue)->split(","_s))))->map($$new(LdapCtx$$Lambda$trim$1)))->filter($($Predicate::not$($$new(LdapCtx$$Lambda$isBlank$2)))))->collect($($Collectors::toUnmodifiableSet())));
 }
 
 bool LdapCtx::isConnectionEncrypted() {
@@ -3353,7 +2842,7 @@ bool LdapCtx::isConnectionEncrypted() {
 }
 
 void LdapCtx::ensureCanTransmitCredentials($String* authMechanism) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = "none"_s->equalsIgnoreCase(authMechanism);
 	if (var$0 || "anonymous"_s->equalsIgnoreCase(authMechanism)) {
 		return;
@@ -3386,34 +2875,34 @@ void LdapCtx::ensureOpen() {
 }
 
 void LdapCtx::ensureOpen(bool startTLS) {
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (this->clnt == nullptr) {
-				$set(this, schemaTrees, $new($Hashtable, 11, 0.75f));
-				connect(startTLS);
-			} else if (!this->sharable || startTLS) {
-				$synchronized(this->clnt) {
-					if (!$nc(this->clnt)->isLdapv3 || $nc(this->clnt)->referenceCount > 1 || $nc(this->clnt)->usingSaslStreams() || !$nc($nc(this->clnt)->conn)->useable) {
-						closeConnection(LdapCtx::SOFT_CLOSE);
-					}
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (this->clnt == nullptr) {
+			;
+			$set(this, schemaTrees, $new($Hashtable, 11, 0.75f));
+			connect(startTLS);
+		} else if (!this->sharable || startTLS) {
+			$synchronized(this->clnt) {
+				if (!this->clnt->isLdapv3 || this->clnt->referenceCount > 1 || this->clnt->usingSaslStreams() || !$nc(this->clnt->conn)->useable) {
+					closeConnection(LdapCtx::SOFT_CLOSE);
 				}
-				$set(this, schemaTrees, $new($Hashtable, 11, 0.75f));
-				connect(startTLS);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			this->sharable = true;
+			$set(this, schemaTrees, $new($Hashtable, 11, 0.75f));
+			connect(startTLS);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		this->sharable = true;
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void LdapCtx::connect(bool startTLS) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	$var($String, user, nullptr);
 	$var($Object, passwd, nullptr);
 	$var($String, secProtocol, nullptr);
@@ -3424,13 +2913,13 @@ void LdapCtx::connect(bool startTLS) {
 	bool usePool = false;
 	if (this->envprops != nullptr) {
 		$init($Context);
-		$assign(user, $cast($String, $nc(this->envprops)->get($Context::SECURITY_PRINCIPAL)));
-		$assign(passwd, $nc(this->envprops)->get($Context::SECURITY_CREDENTIALS));
-		$assign(ver, $cast($String, $nc(this->envprops)->get(LdapCtx::VERSION)));
-		$assign(secProtocol, this->useSsl ? "ssl"_s : $cast($String, $nc(this->envprops)->get($Context::SECURITY_PROTOCOL)));
-		$assign(socketFactory, $cast($String, $nc(this->envprops)->get(LdapCtx::SOCKET_FACTORY)));
-		$assign(authMechanism, $cast($String, $nc(this->envprops)->get($Context::SECURITY_AUTHENTICATION)));
-		usePool = "true"_s->equalsIgnoreCase($cast($String, $($nc(this->envprops)->get(LdapCtx::ENABLE_POOL))));
+		$assign(user, $cast($String, this->envprops->get($Context::SECURITY_PRINCIPAL)));
+		$assign(passwd, this->envprops->get($Context::SECURITY_CREDENTIALS));
+		$assign(ver, $cast($String, this->envprops->get(LdapCtx::VERSION)));
+		$assign(secProtocol, this->useSsl ? "ssl"_s : $cast($String, this->envprops->get($Context::SECURITY_PROTOCOL)));
+		$assign(socketFactory, $cast($String, this->envprops->get(LdapCtx::SOCKET_FACTORY)));
+		$assign(authMechanism, $cast($String, this->envprops->get($Context::SECURITY_AUTHENTICATION)));
+		usePool = "true"_s->equalsIgnoreCase($$cast($String, this->envprops->get(LdapCtx::ENABLE_POOL)));
 	}
 	if (socketFactory == nullptr) {
 		$assign(socketFactory, "ssl"_s->equals(secProtocol) ? LdapCtx::DEFAULT_SSL_FACTORY : ($String*)nullptr);
@@ -3474,15 +2963,15 @@ void LdapCtx::connect(bool startTLS) {
 		while (true) {
 			if (($assign(referral, e->getNextReferral())) == nullptr) {
 				if (saved_ex != nullptr) {
-					$throw(($cast($NamingException, $(saved_ex->fillInStackTrace()))));
+					$throw($$cast($NamingException, saved_ex->fillInStackTrace()));
 				} else {
 					$throwNew($NamingException, "Internal error processing referral during connection"_s);
 				}
 			}
 			$assign(url, $new($LdapURL, referral));
 			$set(this, hostname, url->getHost());
-			if ((this->hostname != nullptr) && ($nc(this->hostname)->charAt(0) == u'[')) {
-				$set(this, hostname, $nc(this->hostname)->substring(1, $nc(this->hostname)->length() - 1));
+			if ((this->hostname != nullptr) && (this->hostname->charAt(0) == u'[')) {
+				$set(this, hostname, this->hostname->substring(1, this->hostname->length() - 1));
 			}
 			this->port_number = url->getPort();
 			try {
@@ -3499,7 +2988,8 @@ void LdapCtx::connect(bool startTLS) {
 void LdapCtx::closeConnection(bool hardclose) {
 	removeUnsolicited();
 	if (this->clnt != nullptr) {
-		$nc(this->clnt)->close(this->reqCtls, hardclose);
+		;
+		this->clnt->close(this->reqCtls, hardclose);
 		$set(this, clnt, nullptr);
 	}
 }
@@ -3507,12 +2997,14 @@ void LdapCtx::closeConnection(bool hardclose) {
 void LdapCtx::incEnumCount() {
 	$synchronized(this) {
 		++this->enumCount;
+		;
 	}
 }
 
 void LdapCtx::decEnumCount() {
 	$synchronized(this) {
 		--this->enumCount;
+		;
 		if (this->enumCount == 0 && this->closeRequested) {
 			try {
 				close();
@@ -3527,113 +3019,105 @@ void LdapCtx::processReturnCode($LdapResult* answer) {
 }
 
 void LdapCtx::processReturnCode($LdapResult* answer, $Name* remainName) {
-	$useLocalCurrentObjectStackCache();
-	$var($LdapResult, var$0, answer);
-	$var($Name, var$1, ($$new($CompositeName))->add(this->currentDN));
-	$var($Name, var$2, remainName);
-	$var($Hashtable, var$3, this->envprops);
-	processReturnCode(var$0, var$1, this, var$2, var$3, $(fullyQualifiedName(remainName)));
+	$useLocalObjectStack();
+	$var($Name, var$0, ($$new($CompositeName))->add(this->currentDN));
+	$var($Hashtable, var$1, this->envprops);
+	processReturnCode(answer, var$0, this, remainName, var$1, $(fullyQualifiedName(remainName)));
 }
 
 void LdapCtx::processReturnCode($LdapResult* res, $Name* resolvedName, Object$* resolvedObj, $Name* remainName, $Hashtable* envprops, $String* fullDN) {
-	$useLocalCurrentObjectStackCache();
-	$var($String, msg, $LdapClient::getErrorMessage($nc(res)->status, res->errorMessage));
+	$useLocalObjectStack();
+	$var($String, msg, $LdapClient::getErrorMessage($nc(res)->status, $nc(res)->errorMessage));
 	$var($NamingException, e, nullptr);
 	$var($LdapReferralException, r, nullptr);
 	{
-		$var($Vector, refs, nullptr)
-		switch ($nc(res)->status) {
+		$var($Vector, refs, nullptr);
+		switch (res->status) {
 		case $LdapClient::LDAP_SUCCESS:
-			{
-				if (res->referrals != nullptr) {
-					$assign(msg, "Unprocessed Continuation Reference(s)"_s);
-					if (this->handleReferrals == $LdapClient::LDAP_REF_IGNORE) {
-						$assign(e, $new($PartialResultException, msg));
-						break;
-					}
-					int32_t contRefCount = $nc(res->referrals)->size();
-					$var($LdapReferralException, head, nullptr);
-					$var($LdapReferralException, ptr, nullptr);
-					$assign(msg, "Continuation Reference"_s);
-					for (int32_t i = 0; i < contRefCount; ++i) {
-						$assign(r, $new($LdapReferralException, resolvedName, resolvedObj, remainName, msg, envprops, fullDN, this->handleReferrals, this->reqCtls));
-						r->setReferralInfo($cast($Vector, $($nc(res->referrals)->elementAt(i))), true);
-						if (this->hopCount > 1) {
-							r->setHopCount(this->hopCount);
-						}
-						if (head == nullptr) {
-							$assign(head, ($assign(ptr, r)));
-						} else {
-							$set($nc(ptr), nextReferralEx, r);
-							$assign(ptr, r);
-						}
-					}
-					$set(res, referrals, nullptr);
-					if (res->refEx == nullptr) {
-						$set(res, refEx, head);
-					} else {
-						$assign(ptr, res->refEx);
-						while ($nc(ptr)->nextReferralEx != nullptr) {
-							$assign(ptr, ptr->nextReferralEx);
-						}
-						$set($nc(ptr), nextReferralEx, head);
-					}
-					if (this->hopCount > this->referralHopLimit) {
-						$var($NamingException, lee, $new($LimitExceededException, "Referral limit exceeded"_s));
-						lee->setRootCause(r);
-						$throw(lee);
-					}
-				}
-				return;
-			}
-		case $LdapClient::LDAP_REFERRAL:
-			{
+			if (res->referrals != nullptr) {
+				$assign(msg, "Unprocessed Continuation Reference(s)"_s);
 				if (this->handleReferrals == $LdapClient::LDAP_REF_IGNORE) {
 					$assign(e, $new($PartialResultException, msg));
 					break;
 				}
-				$assign(r, $new($LdapReferralException, resolvedName, resolvedObj, remainName, msg, envprops, fullDN, this->handleReferrals, this->reqCtls));
-				if (res->referrals == nullptr) {
-					$assign(refs, nullptr);
-				} else if (this->handleReferrals == $LdapClient::LDAP_REF_FOLLOW_SCHEME) {
-					$assign(refs, $new($Vector));
-					{
-						$var($Iterator, i$, $nc(($cast($Vector, $($nc(res->referrals)->elementAt(0)))))->iterator());
-						for (; $nc(i$)->hasNext();) {
-							$var($String, s, $cast($String, i$->next()));
-							{
-								if ($nc(s)->startsWith("ldap:"_s)) {
-									refs->add(s);
-								}
-							}
-						}
+				int32_t contRefCount = res->referrals->size();
+				$var($LdapReferralException, head, nullptr);
+				$var($LdapReferralException, ptr, nullptr);
+				$assign(msg, "Continuation Reference"_s);
+				for (int32_t i = 0; i < contRefCount; ++i) {
+					$assign(r, $new($LdapReferralException, resolvedName, resolvedObj, remainName, msg, envprops, fullDN, this->handleReferrals, this->reqCtls));
+					r->setReferralInfo($$cast($Vector, $nc(res->referrals)->elementAt(i)), true);
+					if (this->hopCount > 1) {
+						r->setHopCount(this->hopCount);
 					}
-					if (refs->isEmpty()) {
-						$assign(refs, nullptr);
+					if (head == nullptr) {
+						$assign(head, $assign(ptr, r));
+					} else {
+						$set($nc(ptr), nextReferralEx, r);
+						$assign(ptr, r);
 					}
-				} else {
-					$assign(refs, $cast($Vector, $nc(res->referrals)->elementAt(0)));
 				}
-				$nc(r)->setReferralInfo(refs, false);
-				if (this->hopCount > 1) {
-					$nc(r)->setHopCount(this->hopCount);
+				$set(res, referrals, nullptr);
+				if (res->refEx == nullptr) {
+					$set(res, refEx, head);
+				} else {
+					$assign(ptr, res->refEx);
+					while ($nc(ptr)->nextReferralEx != nullptr) {
+						$assign(ptr, ptr->nextReferralEx);
+					}
+					$set($nc(ptr), nextReferralEx, head);
 				}
 				if (this->hopCount > this->referralHopLimit) {
 					$var($NamingException, lee, $new($LimitExceededException, "Referral limit exceeded"_s));
 					lee->setRootCause(r);
-					$assign(e, lee);
-				} else {
-					$assign(e, r);
+					$throw(lee);
 				}
+			}
+			return;
+		case $LdapClient::LDAP_REFERRAL:
+			if (this->handleReferrals == $LdapClient::LDAP_REF_IGNORE) {
+				$assign(e, $new($PartialResultException, msg));
 				break;
 			}
+			$assign(r, $new($LdapReferralException, resolvedName, resolvedObj, remainName, msg, envprops, fullDN, this->handleReferrals, this->reqCtls));
+			if (res->referrals == nullptr) {
+				$assign(refs, nullptr);
+			} else if (this->handleReferrals == $LdapClient::LDAP_REF_FOLLOW_SCHEME) {
+				$assign(refs, $new($Vector));
+				{
+					$var($Iterator, i$, $$sure($Vector, res->referrals->elementAt(0))->iterator());
+					for (; $nc(i$)->hasNext();) {
+						$var($String, s, $cast($String, i$->next()));
+						if ($nc(s)->startsWith("ldap:"_s)) {
+							refs->add(s);
+						}
+					}
+				}
+				if (refs->isEmpty()) {
+					$assign(refs, nullptr);
+				}
+			} else {
+				$assign(refs, $cast($Vector, res->referrals->elementAt(0)));
+			}
+			r->setReferralInfo(refs, false);
+			if (this->hopCount > 1) {
+				r->setHopCount(this->hopCount);
+			}
+			if (this->hopCount > this->referralHopLimit) {
+				$var($NamingException, lee, $new($LimitExceededException, "Referral limit exceeded"_s));
+				lee->setRootCause(r);
+				$assign(e, lee);
+			} else {
+				$assign(e, r);
+			}
+			break;
 		case $LdapClient::LDAP_PARTIAL_RESULTS:
 			{
 				if (this->handleReferrals == $LdapClient::LDAP_REF_IGNORE) {
 					$assign(e, $new($PartialResultException, msg));
 					break;
 				}
-				if ((res->errorMessage != nullptr) && (!$nc(res->errorMessage)->isEmpty())) {
+				if ((res->errorMessage != nullptr) && (!res->errorMessage->isEmpty())) {
 					$set(res, referrals, extractURLs(res->errorMessage));
 				} else {
 					$assign(e, $new($PartialResultException, msg));
@@ -3641,11 +3125,11 @@ void LdapCtx::processReturnCode($LdapResult* res, $Name* resolvedName, Object$* 
 				}
 				$assign(r, $new($LdapReferralException, resolvedName, resolvedObj, remainName, msg, envprops, fullDN, this->handleReferrals, this->reqCtls));
 				if (this->hopCount > 1) {
-					$nc(r)->setHopCount(this->hopCount);
+					r->setHopCount(this->hopCount);
 				}
-				bool var$0 = ((res->entries == nullptr) || ($nc(res->entries)->isEmpty()));
-				if (var$0 && ((res->referrals != nullptr) && ($nc(res->referrals)->size() == 1))) {
-					$nc(r)->setReferralInfo(res->referrals, false);
+				bool var$0 = (res->entries == nullptr) || (res->entries->isEmpty());
+				if (var$0 && ((res->referrals != nullptr) && (res->referrals->size() == 1))) {
+					r->setReferralInfo(res->referrals, false);
 					if (this->hopCount > this->referralHopLimit) {
 						$var($NamingException, lee, $new($LimitExceededException, "Referral limit exceeded"_s));
 						lee->setRootCause(r);
@@ -3654,28 +3138,23 @@ void LdapCtx::processReturnCode($LdapResult* res, $Name* resolvedName, Object$* 
 						$assign(e, r);
 					}
 				} else {
-					$nc(r)->setReferralInfo(res->referrals, true);
+					r->setReferralInfo(res->referrals, true);
 					$set(res, refEx, r);
 					return;
 				}
 				break;
 			}
 		case $LdapClient::LDAP_INVALID_DN_SYNTAX:
-			{}
 		case $LdapClient::LDAP_NAMING_VIOLATION:
-			{
-				if (remainName != nullptr) {
-					$assign(e, $new($InvalidNameException, $$str({$($of(remainName)->toString()), ": "_s, msg})));
-				} else {
-					$assign(e, $new($InvalidNameException, msg));
-				}
-				break;
+			if (remainName != nullptr) {
+				$assign(e, $new($InvalidNameException, $$str({$($of(remainName)->toString()), ": "_s, msg})));
+			} else {
+				$assign(e, $new($InvalidNameException, msg));
 			}
+			break;
 		default:
-			{
-				$assign(e, mapErrorCode(res->status, res->errorMessage));
-				break;
-			}
+			$assign(e, mapErrorCode(res->status, res->errorMessage));
+			break;
 		}
 	}
 	$nc(e)->setResolvedName(resolvedName);
@@ -3686,7 +3165,7 @@ void LdapCtx::processReturnCode($LdapResult* res, $Name* resolvedName, Object$* 
 
 $NamingException* LdapCtx::mapErrorCode(int32_t errorCode, $String* errorMessage) {
 	$init(LdapCtx);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (errorCode == $LdapClient::LDAP_SUCCESS) {
 		return nullptr;
 	}
@@ -3694,179 +3173,110 @@ $NamingException* LdapCtx::mapErrorCode(int32_t errorCode, $String* errorMessage
 	$var($String, message, $LdapClient::getErrorMessage(errorCode, errorMessage));
 	switch (errorCode) {
 	case $LdapClient::LDAP_ALIAS_DEREFERENCING_PROBLEM:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	case $LdapClient::LDAP_ALIAS_PROBLEM:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	case $LdapClient::LDAP_ATTRIBUTE_OR_VALUE_EXISTS:
-		{
-			$assign(e, $new($AttributeInUseException, message));
-			break;
-		}
+		$assign(e, $new($AttributeInUseException, message));
+		break;
 	case $LdapClient::LDAP_AUTH_METHOD_NOT_SUPPORTED:
-		{}
 	case $LdapClient::LDAP_CONFIDENTIALITY_REQUIRED:
-		{}
 	case $LdapClient::LDAP_STRONG_AUTH_REQUIRED:
-		{}
 	case $LdapClient::LDAP_INAPPROPRIATE_AUTHENTICATION:
-		{
-			$assign(e, $new($AuthenticationNotSupportedException, message));
-			break;
-		}
+		$assign(e, $new($AuthenticationNotSupportedException, message));
+		break;
 	case $LdapClient::LDAP_ENTRY_ALREADY_EXISTS:
-		{
-			$assign(e, $new($NameAlreadyBoundException, message));
-			break;
-		}
+		$assign(e, $new($NameAlreadyBoundException, message));
+		break;
 	case $LdapClient::LDAP_INVALID_CREDENTIALS:
-		{}
 	case $LdapClient::LDAP_SASL_BIND_IN_PROGRESS:
-		{
-			$assign(e, $new($AuthenticationException, message));
-			break;
-		}
+		$assign(e, $new($AuthenticationException, message));
+		break;
 	case $LdapClient::LDAP_INAPPROPRIATE_MATCHING:
-		{
-			$assign(e, $new($InvalidSearchFilterException, message));
-			break;
-		}
+		$assign(e, $new($InvalidSearchFilterException, message));
+		break;
 	case $LdapClient::LDAP_INSUFFICIENT_ACCESS_RIGHTS:
-		{
-			$assign(e, $new($NoPermissionException, message));
-			break;
-		}
+		$assign(e, $new($NoPermissionException, message));
+		break;
 	case $LdapClient::LDAP_INVALID_ATTRIBUTE_SYNTAX:
-		{}
 	case $LdapClient::LDAP_CONSTRAINT_VIOLATION:
-		{
-			$assign(e, $new($InvalidAttributeValueException, message));
-			break;
-		}
+		$assign(e, $new($InvalidAttributeValueException, message));
+		break;
 	case $LdapClient::LDAP_LOOP_DETECT:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	case $LdapClient::LDAP_NO_SUCH_ATTRIBUTE:
-		{
-			$assign(e, $new($NoSuchAttributeException, message));
-			break;
-		}
+		$assign(e, $new($NoSuchAttributeException, message));
+		break;
 	case $LdapClient::LDAP_NO_SUCH_OBJECT:
-		{
-			$assign(e, $new($NameNotFoundException, message));
-			break;
-		}
+		$assign(e, $new($NameNotFoundException, message));
+		break;
 	case $LdapClient::LDAP_OBJECT_CLASS_MODS_PROHIBITED:
-		{}
 	case $LdapClient::LDAP_OBJECT_CLASS_VIOLATION:
-		{}
 	case $LdapClient::LDAP_NOT_ALLOWED_ON_RDN:
-		{
-			$assign(e, $new($SchemaViolationException, message));
-			break;
-		}
+		$assign(e, $new($SchemaViolationException, message));
+		break;
 	case $LdapClient::LDAP_NOT_ALLOWED_ON_NON_LEAF:
-		{
-			$assign(e, $new($ContextNotEmptyException, message));
-			break;
-		}
+		$assign(e, $new($ContextNotEmptyException, message));
+		break;
 	case $LdapClient::LDAP_OPERATIONS_ERROR:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	case $LdapClient::LDAP_OTHER:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	case $LdapClient::LDAP_PROTOCOL_ERROR:
-		{
-			$assign(e, $new($CommunicationException, message));
-			break;
-		}
+		$assign(e, $new($CommunicationException, message));
+		break;
 	case $LdapClient::LDAP_SIZE_LIMIT_EXCEEDED:
-		{
-			$assign(e, $new($SizeLimitExceededException, message));
-			break;
-		}
+		$assign(e, $new($SizeLimitExceededException, message));
+		break;
 	case $LdapClient::LDAP_TIME_LIMIT_EXCEEDED:
-		{
-			$assign(e, $new($TimeLimitExceededException, message));
-			break;
-		}
+		$assign(e, $new($TimeLimitExceededException, message));
+		break;
 	case $LdapClient::LDAP_UNAVAILABLE_CRITICAL_EXTENSION:
-		{
-			$assign(e, $new($OperationNotSupportedException, message));
-			break;
-		}
+		$assign(e, $new($OperationNotSupportedException, message));
+		break;
 	case $LdapClient::LDAP_UNAVAILABLE:
-		{}
 	case $LdapClient::LDAP_BUSY:
-		{
-			$assign(e, $new($ServiceUnavailableException, message));
-			break;
-		}
+		$assign(e, $new($ServiceUnavailableException, message));
+		break;
 	case $LdapClient::LDAP_UNDEFINED_ATTRIBUTE_TYPE:
-		{
-			$assign(e, $new($InvalidAttributeIdentifierException, message));
-			break;
-		}
+		$assign(e, $new($InvalidAttributeIdentifierException, message));
+		break;
 	case $LdapClient::LDAP_UNWILLING_TO_PERFORM:
-		{
-			$assign(e, $new($OperationNotSupportedException, message));
-			break;
-		}
+		$assign(e, $new($OperationNotSupportedException, message));
+		break;
 	case $LdapClient::LDAP_COMPARE_FALSE:
-		{}
 	case $LdapClient::LDAP_COMPARE_TRUE:
-		{}
 	case $LdapClient::LDAP_IS_LEAF:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	case $LdapClient::LDAP_ADMIN_LIMIT_EXCEEDED:
-		{
-			$assign(e, $new($LimitExceededException, message));
-			break;
-		}
+		$assign(e, $new($LimitExceededException, message));
+		break;
 	case $LdapClient::LDAP_REFERRAL:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	case $LdapClient::LDAP_PARTIAL_RESULTS:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	case $LdapClient::LDAP_INVALID_DN_SYNTAX:
-		{}
 	case $LdapClient::LDAP_NAMING_VIOLATION:
-		{
-			$assign(e, $new($InvalidNameException, message));
-			break;
-		}
+		$assign(e, $new($InvalidNameException, message));
+		break;
 	default:
-		{
-			$assign(e, $new($NamingException, message));
-			break;
-		}
+		$assign(e, $new($NamingException, message));
+		break;
 	}
 	return e;
 }
 
 $ExtendedResponse* LdapCtx::extendedOperation($ExtendedRequest* request) {
-	$useLocalCurrentObjectStackCache();
-	bool startTLS = ($nc($($nc(request)->getID()))->equals(LdapCtx::STARTTLS_REQ_OID));
+	$useLocalObjectStack();
+	bool startTLS = ($$nc($nc(request)->getID())->equals(LdapCtx::STARTTLS_REQ_OID));
 	ensureOpen(startTLS);
 	try {
 		$var($String, var$0, request->getID());
@@ -3875,11 +3285,11 @@ $ExtendedResponse* LdapCtx::extendedOperation($ExtendedRequest* request) {
 		if (answer->status != $LdapClient::LDAP_SUCCESS) {
 			processReturnCode(answer, $$new($CompositeName));
 		}
-		int32_t len = (answer->extensionValue == nullptr) ? 0 : $nc(answer->extensionValue)->length;
+		int32_t len = (answer->extensionValue == nullptr) ? 0 : answer->extensionValue->length;
 		$var($ExtendedResponse, er, request->createExtendedResponse(answer->extensionId, answer->extensionValue, 0, len));
 		if ($instanceOf($StartTlsResponseImpl, er)) {
-			$var($String, domainName, ($cast($String, (this->envprops != nullptr ? $nc(this->envprops)->get(LdapCtx::DOMAIN_NAME) : ($Object*)nullptr))));
-			$nc(($cast($StartTlsResponseImpl, er)))->setConnection($nc(this->clnt)->conn, domainName);
+			$var($String, domainName, $cast($String, (this->envprops != nullptr ? this->envprops->get(LdapCtx::DOMAIN_NAME) : ($Object*)nullptr)));
+			$cast($StartTlsResponseImpl, er)->setConnection($nc(this->clnt)->conn, domainName);
 			this->contextSeenStartTlsEnabled |= startTLS;
 		}
 		return er;
@@ -3889,36 +3299,34 @@ $ExtendedResponse* LdapCtx::extendedOperation($ExtendedRequest* request) {
 		}
 		while (true) {
 			$var($LdapReferralContext, refCtx, $cast($LdapReferralContext, $nc(e)->getReferralContext(this->envprops, this->bindCtls)));
-			{
-				$var($Throwable, var$1, nullptr);
-				$var($ExtendedResponse, var$3, nullptr);
-				bool return$2 = false;
-				bool continue$4 = false;
+			$var($Throwable, var$1, nullptr);
+			$var($ExtendedResponse, var$3, nullptr);
+			bool return$2 = false;
+			bool continue$4 = false;
+			try {
 				try {
-					try {
-						$assign(var$3, $nc(refCtx)->extendedOperation(request));
-						return$2 = true;
-						goto $finally;
-					} catch ($LdapReferralException& re) {
-						$assign(e, re);
-						// continue;
-						continue$4 = true;
-						goto $finally;
-					}
-				} catch ($Throwable& var$5) {
-					$assign(var$1, var$5);
-				} $finally: {
-					$nc(refCtx)->close();
+					$assign(var$3, $nc(refCtx)->extendedOperation(request));
+					return$2 = true;
+					goto $finally;
+				} catch ($LdapReferralException& re) {
+					$assign(e, re);
+					// continue;
+					continue$4 = true;
+					goto $finally;
 				}
-				if (var$1 != nullptr) {
-					$throw(var$1);
-				}
-				if (continue$4) {
-					continue;
-				}
-				if (return$2) {
-					return var$3;
-				}
+			} catch ($Throwable& var$5) {
+				$assign(var$1, var$5);
+			} $finally: {
+				$nc(refCtx)->close();
+			}
+			if (var$1 != nullptr) {
+				$throw(var$1);
+			}
+			if (continue$4) {
+				continue;
+			}
+			if (return$2) {
+				return var$3;
 			}
 		}
 	} catch ($IOException& e) {
@@ -3950,16 +3358,16 @@ $ControlArray* LdapCtx::getResponseControls() {
 }
 
 $ControlArray* LdapCtx::convertControls($Vector* ctls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t count = $nc(ctls)->size();
 	if (count == 0) {
 		return nullptr;
 	}
 	$var($ControlArray, controls, $new($ControlArray, count));
 	for (int32_t i = 0; i < count; ++i) {
-		controls->set(i, $($nc(LdapCtx::myResponseControlFactory)->getControlInstance($cast($Control, $(ctls->elementAt(i))))));
+		controls->set(i, $(LdapCtx::myResponseControlFactory->getControlInstance($$cast($Control, ctls->elementAt(i)))));
 		if (controls->get(i) == nullptr) {
-			controls->set(i, $($ControlFactory::getControlInstance($cast($Control, $(ctls->elementAt(i))), static_cast<$Context*>(static_cast<$PartialCompositeContext*>(static_cast<$ComponentContext*>(static_cast<$AtomicContext*>(static_cast<$PartialCompositeDirContext*>(static_cast<$ComponentDirContext*>(this)))))), this->envprops)));
+			controls->set(i, $($ControlFactory::getControlInstance($$cast($Control, ctls->elementAt(i)), $cast($AtomicContext, this), this->envprops)));
 		}
 	}
 	return controls;
@@ -4020,7 +3428,7 @@ void LdapCtx::addNamingListener($Name* nm, int32_t scope, $NamingListener* l) {
 }
 
 void LdapCtx::addNamingListener($String* nm, int32_t scope, $NamingListener* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->eventSupport == nullptr) {
 		$set(this, eventSupport, $new($EventSupport, this));
 	}
@@ -4041,13 +3449,12 @@ void LdapCtx::removeNamingListener($NamingListener* l) {
 }
 
 void LdapCtx::addNamingListener($String* nm, $String* filter, $SearchControls* ctls, $NamingListener* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->eventSupport == nullptr) {
 		$set(this, eventSupport, $new($EventSupport, this));
 	}
 	$var($String, var$0, getTargetName($$new($CompositeName, nm)));
-	$var($String, var$1, filter);
-	$nc(this->eventSupport)->addNamingListener(var$0, var$1, $(cloneSearchControls(ctls)), l);
+	$nc(this->eventSupport)->addNamingListener(var$0, filter, $(cloneSearchControls(ctls)), l);
 	if ($instanceOf($UnsolicitedNotificationListener, l) && !this->unsolicited) {
 		addUnsolicited();
 	}
@@ -4062,7 +3469,7 @@ void LdapCtx::addNamingListener($Name* nm, $String* filter, $ObjectArray* filter
 }
 
 void LdapCtx::addNamingListener($String* nm, $String* filterExpr, $ObjectArray* filterArgs, $SearchControls* ctls, $NamingListener* l) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, strfilter, $SearchFilter::format(filterExpr, filterArgs));
 	addNamingListener($(getTargetName($$new($CompositeName, nm))), strfilter, ctls, l);
 }
@@ -4074,7 +3481,7 @@ bool LdapCtx::targetMustExist() {
 $String* LdapCtx::getTargetName($Name* nm) {
 	$init(LdapCtx);
 	if ($instanceOf($CompositeName, nm)) {
-		if ($nc(nm)->size() > 1) {
+		if (nm->size() > 1) {
 			$throwNew($InvalidNameException, $$str({"Target cannot span multiple namespaces: "_s, nm}));
 		} else if (nm->isEmpty()) {
 			return ""_s;
@@ -4087,6 +3494,7 @@ $String* LdapCtx::getTargetName($Name* nm) {
 }
 
 void LdapCtx::addUnsolicited() {
+	;
 	ensureOpen();
 	$synchronized(this->eventSupport) {
 		$nc(this->clnt)->addUnsolicited(this);
@@ -4095,21 +3503,23 @@ void LdapCtx::addUnsolicited() {
 }
 
 void LdapCtx::removeUnsolicited() {
+	;
 	if (this->eventSupport == nullptr) {
 		return;
 	}
 	$synchronized(this->eventSupport) {
 		if (this->unsolicited && this->clnt != nullptr) {
-			$nc(this->clnt)->removeUnsolicited(this);
+			this->clnt->removeUnsolicited(this);
 		}
 		this->unsolicited = false;
 	}
 }
 
 void LdapCtx::fireUnsolicited(Object$* obj) {
+	;
 	$synchronized(this->eventSupport) {
 		if (this->unsolicited) {
-			$nc(this->eventSupport)->fireUnsolicited(obj);
+			this->eventSupport->fireUnsolicited(obj);
 			if ($instanceOf($NamingException, obj)) {
 				this->unsolicited = false;
 			}
@@ -4122,7 +3532,7 @@ $String* LdapCtx::lambda$getMechsAllowedToSendCredentials$0() {
 	return $System::getProperty(LdapCtx::ALLOWED_MECHS_SP);
 }
 
-void clinit$LdapCtx($Class* class$) {
+void LdapCtx::clinit$($Class* clazz) {
 	$assignStatic(LdapCtx::DEFAULT_HOST, "localhost"_s);
 	$assignStatic(LdapCtx::DEFAULT_SSL_FACTORY, "javax.net.ssl.SSLSocketFactory"_s);
 	$assignStatic(LdapCtx::STARTTLS_REQ_OID, "1.3.6.1.4.1.1466.20037"_s);
@@ -4159,7 +3569,7 @@ void clinit$LdapCtx($Class* class$) {
 	$assignStatic(LdapCtx::manageReferralControl, $new($ManageReferralControl, false));
 	$assignStatic(LdapCtx::EMPTY_SCHEMA, $new($HierMemDirCtx));
 	{
-		$nc(LdapCtx::EMPTY_SCHEMA)->setReadOnly($$new($SchemaViolationException, "Cannot update schema object"_s));
+		LdapCtx::EMPTY_SCHEMA->setReadOnly($$new($SchemaViolationException, "Cannot update schema object"_s));
 	}
 }
 
@@ -4168,17 +3578,285 @@ LdapCtx::LdapCtx() {
 
 $Class* LdapCtx::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0")) {
 			return LdapCtx$$Lambda$lambda$getMechsAllowedToSendCredentials$0::load$(name, initialize);
 		}
-		if (name->equals(LdapCtx$$Lambda$trim$1::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapCtx$$Lambda$trim$1")) {
 			return LdapCtx$$Lambda$trim$1::load$(name, initialize);
 		}
-		if (name->equals(LdapCtx$$Lambda$isBlank$2::classInfo$.name)) {
+		if (name->equals("com.sun.jndi.ldap.LdapCtx$$Lambda$isBlank$2")) {
 			return LdapCtx$$Lambda$isBlank$2::load$(name, initialize);
 		}
 	}
-	$loadClass(LdapCtx, name, initialize, &_LdapCtx_ClassInfo_, clinit$LdapCtx, allocate$LdapCtx);
+	$FieldInfo fieldInfos$$[] = {
+		{"debug", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, debug)},
+		{"HARD_CLOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, HARD_CLOSE)},
+		{"SOFT_CLOSE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, SOFT_CLOSE)},
+		{"DEFAULT_PORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_PORT)},
+		{"DEFAULT_SSL_PORT", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_SSL_PORT)},
+		{"DEFAULT_HOST", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(LdapCtx, DEFAULT_HOST)},
+		{"DEFAULT_DELETE_RDN", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_DELETE_RDN)},
+		{"DEFAULT_TYPES_ONLY", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_TYPES_ONLY)},
+		{"DEFAULT_DEREF_ALIASES", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_DEREF_ALIASES)},
+		{"DEFAULT_LDAP_VERSION", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_LDAP_VERSION)},
+		{"DEFAULT_BATCH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_BATCH_SIZE)},
+		{"DEFAULT_REFERRAL_MODE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_REFERRAL_MODE)},
+		{"DEFAULT_REF_SEPARATOR", "C", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_REF_SEPARATOR)},
+		{"DEFAULT_SSL_FACTORY", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapCtx, DEFAULT_SSL_FACTORY)},
+		{"DEFAULT_REFERRAL_LIMIT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(LdapCtx, DEFAULT_REFERRAL_LIMIT)},
+		{"STARTTLS_REQ_OID", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, STARTTLS_REQ_OID)},
+		{"SCHEMA_ATTRIBUTES", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, SCHEMA_ATTRIBUTES)},
+		{"VERSION", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, VERSION)},
+		{"BINARY_ATTRIBUTES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, BINARY_ATTRIBUTES)},
+		{"DELETE_RDN", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, DELETE_RDN)},
+		{"DEREF_ALIASES", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, DEREF_ALIASES)},
+		{"TYPES_ONLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, TYPES_ONLY)},
+		{"REF_SEPARATOR", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, REF_SEPARATOR)},
+		{"SOCKET_FACTORY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, SOCKET_FACTORY)},
+		{"BIND_CONTROLS", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(LdapCtx, BIND_CONTROLS)},
+		{"REFERRAL_LIMIT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, REFERRAL_LIMIT)},
+		{"TRACE_BER", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, TRACE_BER)},
+		{"NETSCAPE_SCHEMA_BUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, NETSCAPE_SCHEMA_BUG)},
+		{"OLD_NETSCAPE_SCHEMA_BUG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, OLD_NETSCAPE_SCHEMA_BUG)},
+		{"CONNECT_TIMEOUT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, CONNECT_TIMEOUT)},
+		{"READ_TIMEOUT", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, READ_TIMEOUT)},
+		{"ENABLE_POOL", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, ENABLE_POOL)},
+		{"DOMAIN_NAME", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, DOMAIN_NAME)},
+		{"WAIT_FOR_REPLY", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, WAIT_FOR_REPLY)},
+		{"REPLY_QUEUE_SIZE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, REPLY_QUEUE_SIZE)},
+		{"ALLOWED_MECHS_SP", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, ALLOWED_MECHS_SP)},
+		{"ALLOWED_MECHS_SP_VALUE", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, ALLOWED_MECHS_SP_VALUE)},
+		{"MECHS_ALLOWED_BY_SP", "Ljava/util/Set;", "Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, MECHS_ALLOWED_BY_SP)},
+		{"UNSECURED_CRED_TRANSMIT_MSG", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, UNSECURED_CRED_TRANSMIT_MSG)},
+		{"parser", "Ljavax/naming/NameParser;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, parser)},
+		{"myResponseControlFactory", "Ljavax/naming/ldap/ControlFactory;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, myResponseControlFactory)},
+		{"manageReferralControl", "Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, manageReferralControl)},
+		{"EMPTY_SCHEMA", "Lcom/sun/jndi/toolkit/dir/HierMemDirCtx;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(LdapCtx, EMPTY_SCHEMA)},
+		{"port_number", "I", nullptr, 0, $field(LdapCtx, port_number)},
+		{"hostname", "Ljava/lang/String;", nullptr, 0, $field(LdapCtx, hostname)},
+		{"clnt", "Lcom/sun/jndi/ldap/LdapClient;", nullptr, 0, $field(LdapCtx, clnt)},
+		{"envprops", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", 0, $field(LdapCtx, envprops)},
+		{"handleReferrals", "I", nullptr, 0, $field(LdapCtx, handleReferrals)},
+		{"hasLdapsScheme", "Z", nullptr, 0, $field(LdapCtx, hasLdapsScheme)},
+		{"currentDN", "Ljava/lang/String;", nullptr, 0, $field(LdapCtx, currentDN)},
+		{"currentParsedDN", "Ljavax/naming/Name;", nullptr, 0, $field(LdapCtx, currentParsedDN)},
+		{"respCtls", "Ljava/util/Vector;", "Ljava/util/Vector<Ljavax/naming/ldap/Control;>;", 0, $field(LdapCtx, respCtls)},
+		{"reqCtls", "[Ljavax/naming/ldap/Control;", nullptr, 0, $field(LdapCtx, reqCtls)},
+		{"contextSeenStartTlsEnabled", "Z", nullptr, $VOLATILE, $field(LdapCtx, contextSeenStartTlsEnabled)},
+		{"trace", "Ljava/io/OutputStream;", nullptr, $PRIVATE, $field(LdapCtx, trace)},
+		{"netscapeSchemaBug", "Z", nullptr, $PRIVATE, $field(LdapCtx, netscapeSchemaBug)},
+		{"bindCtls", "[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE, $field(LdapCtx, bindCtls)},
+		{"referralHopLimit", "I", nullptr, $PRIVATE, $field(LdapCtx, referralHopLimit)},
+		{"schemaTrees", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljavax/naming/directory/DirContext;>;", $PRIVATE, $field(LdapCtx, schemaTrees)},
+		{"batchSize", "I", nullptr, $PRIVATE, $field(LdapCtx, batchSize)},
+		{"deleteRDN", "Z", nullptr, $PRIVATE, $field(LdapCtx, deleteRDN)},
+		{"typesOnly", "Z", nullptr, $PRIVATE, $field(LdapCtx, typesOnly)},
+		{"derefAliases", "I", nullptr, $PRIVATE, $field(LdapCtx, derefAliases)},
+		{"addrEncodingSeparator", "C", nullptr, $PRIVATE, $field(LdapCtx, addrEncodingSeparator)},
+		{"binaryAttrs", "Ljava/util/Hashtable;", "Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Boolean;>;", $PRIVATE, $field(LdapCtx, binaryAttrs)},
+		{"connectTimeout", "I", nullptr, $PRIVATE, $field(LdapCtx, connectTimeout)},
+		{"readTimeout", "I", nullptr, $PRIVATE, $field(LdapCtx, readTimeout)},
+		{"waitForReply", "Z", nullptr, $PRIVATE, $field(LdapCtx, waitForReply)},
+		{"replyQueueSize", "I", nullptr, $PRIVATE, $field(LdapCtx, replyQueueSize)},
+		{"useSsl", "Z", nullptr, $PRIVATE, $field(LdapCtx, useSsl)},
+		{"useDefaultPortNumber", "Z", nullptr, $PRIVATE, $field(LdapCtx, useDefaultPortNumber)},
+		{"parentIsLdapCtx", "Z", nullptr, $PRIVATE, $field(LdapCtx, parentIsLdapCtx)},
+		{"hopCount", "I", nullptr, $PRIVATE, $field(LdapCtx, hopCount)},
+		{"url", "Ljava/lang/String;", nullptr, $PRIVATE, $field(LdapCtx, url)},
+		{"eventSupport", "Lcom/sun/jndi/ldap/EventSupport;", nullptr, $PRIVATE, $field(LdapCtx, eventSupport)},
+		{"unsolicited", "Z", nullptr, $PRIVATE, $field(LdapCtx, unsolicited)},
+		{"sharable", "Z", nullptr, $PRIVATE, $field(LdapCtx, sharable)},
+		{"enumCount", "I", nullptr, $PRIVATE, $field(LdapCtx, enumCount)},
+		{"closeRequested", "Z", nullptr, $PRIVATE, $field(LdapCtx, closeRequested)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*bind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
+		{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
+		{"*bind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*bind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*composeName", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljava/lang/String;)Ljavax/naming/Context;", nullptr, $PUBLIC},
+		{"*createSubcontext", "(Ljavax/naming/Name;)Ljavax/naming/Context;", nullptr, $PUBLIC},
+		{"*destroySubcontext", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*destroySubcontext", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*getAttributes", "(Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
+		{"*getAttributes", "(Ljavax/naming/Name;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
+		{"*getAttributes", "(Ljava/lang/String;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
+		{"*getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;)Ljavax/naming/directory/Attributes;", nullptr, $PUBLIC},
+		{"*getNameParser", "(Ljava/lang/String;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
+		{"*getNameParser", "(Ljavax/naming/Name;)Ljavax/naming/NameParser;", nullptr, $PUBLIC},
+		{"*getSchema", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
+		{"*getSchema", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
+		{"*getSchemaClassDefinition", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
+		{"*getSchemaClassDefinition", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Hashtable;Z)V", "(Ljava/lang/String;Ljava/lang/String;ILjava/util/Hashtable<**>;Z)V", $PUBLIC, $method(LdapCtx, init$, void, $String*, $String*, int32_t, $Hashtable*, bool), "javax.naming.NamingException"},
+		{"<init>", "(Lcom/sun/jndi/ldap/LdapCtx;Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx, init$, void, LdapCtx*, $String*), "javax.naming.NamingException"},
+		{"addControl", "([Ljavax/naming/ldap/Control;Ljavax/naming/ldap/Control;)[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, addControl, $ControlArray*, $ControlArray*, $Control*)},
+		{"addNamingListener", "(Ljavax/naming/Name;ILjavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $Name*, int32_t, $NamingListener*), "javax.naming.NamingException"},
+		{"addNamingListener", "(Ljava/lang/String;ILjavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $String*, int32_t, $NamingListener*), "javax.naming.NamingException"},
+		{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $String*, $String*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
+		{"addNamingListener", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $Name*, $String*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
+		{"addNamingListener", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $Name*, $String*, $ObjectArray*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
+		{"addNamingListener", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addNamingListener, void, $String*, $String*, $ObjectArray*, $SearchControls*, $NamingListener*), "javax.naming.NamingException"},
+		{"addRdnAttributes", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;Z)Ljavax/naming/directory/Attributes;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, addRdnAttributes, $Attributes*, $String*, $Attributes*, bool), "javax.naming.NamingException"},
+		{"addToEnvironment", "(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, addToEnvironment, $Object*, $String*, Object$*), "javax.naming.NamingException"},
+		{"addUnsolicited", "()V", nullptr, $PRIVATE, $method(LdapCtx, addUnsolicited, void), "javax.naming.NamingException"},
+		{"adjustDeleteStatus", "(Ljava/lang/String;Lcom/sun/jndi/ldap/LdapResult;)V", nullptr, $PRIVATE, $method(LdapCtx, adjustDeleteStatus, void, $String*, $LdapResult*)},
+		{"appendVector", "(Ljava/util/Vector;Ljava/util/Vector;)Ljava/util/Vector;", "<T:Ljava/lang/Object;>(Ljava/util/Vector<TT;>;Ljava/util/Vector<TT;>;)Ljava/util/Vector<TT;>;", $PRIVATE | $STATIC, $staticMethod(LdapCtx, appendVector, $Vector*, $Vector*, $Vector*)},
+		{"buildSchemaTree", "(Ljava/lang/String;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(LdapCtx, buildSchemaTree, $DirContext*, $String*), "javax.naming.NamingException"},
+		{"c_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_bind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"c_bind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_bind, void, $Name*, Object$*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"c_createSubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/Context;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_createSubcontext, $Context*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_createSubcontext", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_createSubcontext, $DirContext*, $Name*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"c_destroySubcontext", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_destroySubcontext, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_getAttributes", "(Ljavax/naming/Name;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/Attributes;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_getAttributes, $Attributes*, $Name*, $StringArray*, $Continuation*), "javax.naming.NamingException"},
+		{"c_getNameParser", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NameParser;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_getNameParser, $NameParser*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_getSchema", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_getSchema, $DirContext*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_getSchemaClassDefinition", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/directory/DirContext;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_getSchemaClassDefinition, $DirContext*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_list", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/NameClassPair;>;", $PROTECTED, $virtualMethod(LdapCtx, c_list, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_listBindings", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/Binding;>;", $PROTECTED, $virtualMethod(LdapCtx, c_listBindings, $NamingEnumeration*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_lookup", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_lookup, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_lookupLink", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljava/lang/Object;", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_lookupLink, $Object*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_modifyAttributes, void, $Name*, int32_t, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"c_modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_modifyAttributes, void, $Name*, $ModificationItemArray*, $Continuation*), "javax.naming.NamingException"},
+		{"c_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_rebind, void, $Name*, Object$*, $Continuation*), "javax.naming.NamingException"},
+		{"c_rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_rebind, void, $Name*, Object$*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"c_rename", "(Ljavax/naming/Name;Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_rename, void, $Name*, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"c_search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED, $method(LdapCtx, c_search, $NamingEnumeration*, $Name*, $Attributes*, $Continuation*), "javax.naming.NamingException"},
+		{"c_search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED, $virtualMethod(LdapCtx, c_search, $NamingEnumeration*, $Name*, $Attributes*, $StringArray*, $Continuation*), "javax.naming.NamingException"},
+		{"c_search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED, $virtualMethod(LdapCtx, c_search, $NamingEnumeration*, $Name*, $String*, $SearchControls*, $Continuation*), "javax.naming.NamingException"},
+		{"c_search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;Lcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", $PROTECTED, $virtualMethod(LdapCtx, c_search, $NamingEnumeration*, $Name*, $String*, $ObjectArray*, $SearchControls*, $Continuation*), "javax.naming.NamingException"},
+		{"c_unbind", "(Ljavax/naming/Name;Lcom/sun/jndi/toolkit/ctx/Continuation;)V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, c_unbind, void, $Name*, $Continuation*), "javax.naming.NamingException"},
+		{"cloneControls", "([Ljavax/naming/ldap/Control;)[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, cloneControls, $ControlArray*, $ControlArray*)},
+		{"cloneSearchControls", "(Ljavax/naming/directory/SearchControls;)Ljavax/naming/directory/SearchControls;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, cloneSearchControls, $SearchControls*, $SearchControls*)},
+		{"close", "()V", nullptr, $PUBLIC | $SYNCHRONIZED, $virtualMethod(LdapCtx, close, void), "javax.naming.NamingException"},
+		{"closeConnection", "(Z)V", nullptr, $PRIVATE, $method(LdapCtx, closeConnection, void, bool)},
+		{"compare", "(Ljavax/naming/Name;Ljava/lang/String;Ljava/lang/String;)Lcom/sun/jndi/ldap/LdapResult;", nullptr, $PRIVATE, $method(LdapCtx, compare, $LdapResult*, $Name*, $String*, $String*), "java.io.IOException,javax.naming.NamingException"},
+		{"composeName", "(Ljavax/naming/Name;Ljavax/naming/Name;)Ljavax/naming/Name;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, composeName, $Name*, $Name*, $Name*), "javax.naming.NamingException"},
+		{"concatNames", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, concatNames, $String*, $String*, $String*)},
+		{"connect", "(Z)V", nullptr, $PRIVATE, $method(LdapCtx, connect, void, bool), "javax.naming.NamingException"},
+		{"containsIgnoreCase", "(Ljavax/naming/NamingEnumeration;Ljava/lang/String;)Z", "(Ljavax/naming/NamingEnumeration<Ljava/lang/String;>;Ljava/lang/String;)Z", $PRIVATE | $STATIC, $staticMethod(LdapCtx, containsIgnoreCase, bool, $NamingEnumeration*, $String*), "javax.naming.NamingException"},
+		{"convertControls", "(Ljava/util/Vector;)[Ljavax/naming/ldap/Control;", "(Ljava/util/Vector<Ljavax/naming/ldap/Control;>;)[Ljavax/naming/ldap/Control;", 0, $method(LdapCtx, convertControls, $ControlArray*, $Vector*), "javax.naming.NamingException"},
+		{"convertToLdapModCode", "(I)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, convertToLdapModCode, int32_t, int32_t)},
+		{"decEnumCount", "()V", nullptr, $SYNCHRONIZED, $method(LdapCtx, decEnumCount, void)},
+		{"doSearch", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;ZZ)Lcom/sun/jndi/ldap/LdapResult;", nullptr, $PRIVATE, $method(LdapCtx, doSearch, $LdapResult*, $Name*, $String*, $SearchControls*, bool, bool), "javax.naming.NamingException"},
+		{"doSearchOnce", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;Z)Lcom/sun/jndi/ldap/LdapResult;", nullptr, $PRIVATE, $method(LdapCtx, doSearchOnce, $LdapResult*, $Name*, $String*, $SearchControls*, bool), "javax.naming.NamingException"},
+		{"ensureCanTransmitCredentials", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, ensureCanTransmitCredentials, void, $String*), "javax.naming.NamingException"},
+		{"ensureOpen", "()V", nullptr, $PRIVATE, $method(LdapCtx, ensureOpen, void), "javax.naming.NamingException"},
+		{"ensureOpen", "(Z)V", nullptr, $PRIVATE, $method(LdapCtx, ensureOpen, void, bool), "javax.naming.NamingException"},
+		{"extendedOperation", "(Ljavax/naming/ldap/ExtendedRequest;)Ljavax/naming/ldap/ExtendedResponse;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, extendedOperation, $ExtendedResponse*, $ExtendedRequest*), "javax.naming.NamingException"},
+		{"extractURLs", "(Ljava/lang/String;)Ljava/util/Vector;", "(Ljava/lang/String;)Ljava/util/Vector<Ljava/util/Vector<Ljava/lang/String;>;>;", $PRIVATE | $STATIC, $staticMethod(LdapCtx, extractURLs, $Vector*, $String*)},
+		{"filterToAssertion", "(Ljava/lang/String;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, filterToAssertion, bool, $String*, $StringArray*)},
+		{"finalize", "()V", nullptr, $PROTECTED, $virtualMethod(LdapCtx, finalize, void)},
+		{"findControl", "([Ljavax/naming/ldap/Control;Ljavax/naming/ldap/Control;)I", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, findControl, int32_t, $ControlArray*, $Control*)},
+		{"fireUnsolicited", "(Ljava/lang/Object;)V", nullptr, 0, $method(LdapCtx, fireUnsolicited, void, Object$*)},
+		{"fullyQualifiedName", "(Ljavax/naming/Name;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapCtx, fullyQualifiedName, $String*, $Name*)},
+		{"fullyQualifiedName", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapCtx, fullyQualifiedName, $String*, $String*)},
+		{"getConnectControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, getConnectControls, $ControlArray*), "javax.naming.NamingException"},
+		{"getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PUBLIC, $virtualMethod(LdapCtx, getEnvironment, $Hashtable*), "javax.naming.NamingException"},
+		{"getMechsAllowedToSendCredentials", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, getMechsAllowedToSendCredentials, $String*)},
+		{"getMechsFromPropertyValue", "(Ljava/lang/String;)Ljava/util/Set;", "(Ljava/lang/String;)Ljava/util/Set<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(LdapCtx, getMechsFromPropertyValue, $Set*, $String*)},
+		{"getNameInNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, getNameInNamespace, $String*)},
+		{"getRequestControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, getRequestControls, $ControlArray*), "javax.naming.NamingException"},
+		{"getResponseControls", "()[Ljavax/naming/ldap/Control;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, getResponseControls, $ControlArray*), "javax.naming.NamingException"},
+		{"getSchemaEntry", "(Ljavax/naming/Name;Z)Ljava/lang/String;", nullptr, $PRIVATE, $method(LdapCtx, getSchemaEntry, $String*, $Name*, bool), "javax.naming.NamingException"},
+		{"getSchemaTree", "(Ljavax/naming/Name;)Ljavax/naming/directory/DirContext;", nullptr, $PRIVATE, $method(LdapCtx, getSchemaTree, $DirContext*, $Name*), "javax.naming.NamingException"},
+		{"getSearchReply", "(Lcom/sun/jndi/ldap/LdapClient;Lcom/sun/jndi/ldap/LdapResult;)Lcom/sun/jndi/ldap/LdapResult;", nullptr, 0, $method(LdapCtx, getSearchReply, $LdapResult*, $LdapClient*, $LdapResult*), "javax.naming.NamingException"},
+		{"getTargetName", "(Ljavax/naming/Name;)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, getTargetName, $String*, $Name*), "javax.naming.NamingException"},
+		{"getURL", "()Ljava/lang/String;", nullptr, 0, $method(LdapCtx, getURL, $String*)},
+		{"incEnumCount", "()V", nullptr, $SYNCHRONIZED, $method(LdapCtx, incEnumCount, void)},
+		{"initEnv", "()V", nullptr, $PRIVATE, $method(LdapCtx, initEnv, void), "javax.naming.NamingException"},
+		{"isConnectionEncrypted", "()Z", nullptr, $PRIVATE, $method(LdapCtx, isConnectionEncrypted, bool)},
+		{"lambda$getMechsAllowedToSendCredentials$0", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(LdapCtx, lambda$getMechsAllowedToSendCredentials$0, $String*)},
+		{"*list", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*list", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*listBindings", "(Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*listBindings", "(Ljavax/naming/Name;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*lookup", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookup", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookupLink", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"*lookupLink", "(Ljavax/naming/Name;)Ljava/lang/Object;", nullptr, $PUBLIC},
+		{"mapErrorCode", "(ILjava/lang/String;)Ljavax/naming/NamingException;", nullptr, $PUBLIC | $STATIC, $staticMethod(LdapCtx, mapErrorCode, $NamingException*, int32_t, $String*)},
+		{"*modifyAttributes", "(Ljava/lang/String;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
+		{"*modifyAttributes", "(Ljavax/naming/Name;ILjavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
+		{"*modifyAttributes", "(Ljava/lang/String;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC},
+		{"*modifyAttributes", "(Ljavax/naming/Name;[Ljavax/naming/directory/ModificationItem;)V", nullptr, $PUBLIC},
+		{"newInstance", "([Ljavax/naming/ldap/Control;)Ljavax/naming/ldap/LdapContext;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, newInstance, $LdapContext*, $ControlArray*), "javax.naming.NamingException"},
+		{"p_getEnvironment", "()Ljava/util/Hashtable;", "()Ljava/util/Hashtable<Ljava/lang/String;Ljava/lang/Object;>;", $PROTECTED, $virtualMethod(LdapCtx, p_getEnvironment, $Hashtable*)},
+		{"processReturnCode", "(Lcom/sun/jndi/ldap/LdapResult;)V", nullptr, $PROTECTED, $method(LdapCtx, processReturnCode, void, $LdapResult*), "javax.naming.NamingException"},
+		{"processReturnCode", "(Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;)V", nullptr, 0, $method(LdapCtx, processReturnCode, void, $LdapResult*, $Name*), "javax.naming.NamingException"},
+		{"processReturnCode", "(Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/Name;Ljava/util/Hashtable;Ljava/lang/String;)V", "(Lcom/sun/jndi/ldap/LdapResult;Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/Name;Ljava/util/Hashtable<**>;Ljava/lang/String;)V", $PROTECTED, $method(LdapCtx, processReturnCode, void, $LdapResult*, $Name*, Object$*, $Name*, $Hashtable*, $String*), "javax.naming.NamingException"},
+		{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
+		{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;Ljavax/naming/directory/Attributes;)V", nullptr, $PUBLIC},
+		{"*rebind", "(Ljava/lang/String;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"*rebind", "(Ljavax/naming/Name;Ljava/lang/Object;)V", nullptr, $PUBLIC},
+		{"reconnect", "([Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, reconnect, void, $ControlArray*), "javax.naming.NamingException"},
+		{"removeControl", "([Ljavax/naming/ldap/Control;Ljavax/naming/ldap/Control;)[Ljavax/naming/ldap/Control;", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, removeControl, $ControlArray*, $ControlArray*, $Control*)},
+		{"removeFromEnvironment", "(Ljava/lang/String;)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(LdapCtx, removeFromEnvironment, $Object*, $String*), "javax.naming.NamingException"},
+		{"removeNamingListener", "(Ljavax/naming/event/NamingListener;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, removeNamingListener, void, $NamingListener*), "javax.naming.NamingException"},
+		{"removeUnsolicited", "()V", nullptr, $PRIVATE, $method(LdapCtx, removeUnsolicited, void)},
+		{"*rename", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*rename", "(Ljavax/naming/Name;Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*search", "(Ljava/lang/String;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*search", "(Ljavax/naming/Name;Ljavax/naming/directory/Attributes;[Ljava/lang/String;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*search", "(Ljava/lang/String;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*search", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*search", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"*search", "(Ljavax/naming/Name;Ljava/lang/String;[Ljava/lang/Object;Ljavax/naming/directory/SearchControls;)Ljavax/naming/NamingEnumeration;", nullptr, $PUBLIC},
+		{"searchAux", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;ZZLcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration;", "(Ljavax/naming/Name;Ljava/lang/String;Ljavax/naming/directory/SearchControls;ZZLcom/sun/jndi/toolkit/ctx/Continuation;)Ljavax/naming/NamingEnumeration<Ljavax/naming/directory/SearchResult;>;", 0, $method(LdapCtx, searchAux, $NamingEnumeration*, $Name*, $String*, $SearchControls*, bool, bool, $Continuation*), "javax.naming.NamingException"},
+		{"searchToCompare", "(Ljava/lang/String;Ljavax/naming/directory/SearchControls;[Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(LdapCtx, searchToCompare, bool, $String*, $SearchControls*, $StringArray*)},
+		{"setBatchSize", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setBatchSize, void, $String*)},
+		{"setBinaryAttributes", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setBinaryAttributes, void, $String*)},
+		{"setConnectTimeout", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setConnectTimeout, void, $String*)},
+		{"setDeleteRDN", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setDeleteRDN, void, $String*)},
+		{"setDerefAliases", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setDerefAliases, void, $String*)},
+		{"setDomainName", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx, setDomainName, void, $String*)},
+		{"setHopCount", "(I)V", nullptr, 0, $method(LdapCtx, setHopCount, void, int32_t)},
+		{"setParents", "(Ljavax/naming/directory/Attributes;Ljavax/naming/Name;)V", nullptr, 0, $method(LdapCtx, setParents, void, $Attributes*, $Name*), "javax.naming.NamingException"},
+		{"setProviderUrl", "(Ljava/lang/String;)V", nullptr, 0, $method(LdapCtx, setProviderUrl, void, $String*)},
+		{"setReadTimeout", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setReadTimeout, void, $String*)},
+		{"setRefSeparator", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setRefSeparator, void, $String*), "javax.naming.NamingException"},
+		{"setReferralLimit", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setReferralLimit, void, $String*)},
+		{"setReferralMode", "(Ljava/lang/String;Z)V", nullptr, $PRIVATE, $method(LdapCtx, setReferralMode, void, $String*, bool)},
+		{"setReplyQueueSize", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setReplyQueueSize, void, $String*)},
+		{"setRequestControls", "([Ljavax/naming/ldap/Control;)V", nullptr, $PUBLIC, $virtualMethod(LdapCtx, setRequestControls, void, $ControlArray*), "javax.naming.NamingException"},
+		{"setTypesOnly", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setTypesOnly, void, $String*)},
+		{"setWaitForReply", "(Ljava/lang/String;)V", nullptr, $PRIVATE, $method(LdapCtx, setWaitForReply, void, $String*)},
+		{"targetMustExist", "()Z", nullptr, $PUBLIC, $virtualMethod(LdapCtx, targetMustExist, bool)},
+		{"*unbind", "(Ljava/lang/String;)V", nullptr, $PUBLIC},
+		{"*unbind", "(Ljavax/naming/Name;)V", nullptr, $PUBLIC},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jndi.ldap.LdapCtx$SearchArgs", "com.sun.jndi.ldap.LdapCtx", "SearchArgs", $STATIC | $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.jndi.ldap.LdapCtx",
+		"com.sun.jndi.toolkit.ctx.ComponentDirContext",
+		"javax.naming.event.EventDirContext,javax.naming.ldap.LdapContext",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.jndi.ldap.LdapCtx$SearchArgs"
+	};
+	$loadClass(LdapCtx, name, initialize, &classInfo$$, LdapCtx::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(LdapCtx));
+	});
 	return class$;
 }
 

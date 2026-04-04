@@ -1,5 +1,4 @@
 #include <sun/java2d/marlin/DMarlinRenderingEngine.h>
-
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
@@ -7,7 +6,6 @@
 #include <java/awt/geom/PathIterator.h>
 #include <java/lang/Math.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <sun/awt/geom/PathConsumer2D.h>
 #include <sun/java2d/ReentrantContext.h>
@@ -115,29 +113,21 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $PathConsumer2D = ::sun::awt::geom::PathConsumer2D;
-using $ReentrantContext = ::sun::java2d::ReentrantContext;
 using $ReentrantContextProvider = ::sun::java2d::ReentrantContextProvider;
-using $CollinearSimplifier = ::sun::java2d::marlin::CollinearSimplifier;
 using $DMarlinRenderingEngine$1 = ::sun::java2d::marlin::DMarlinRenderingEngine$1;
 using $DMarlinRenderingEngine$2 = ::sun::java2d::marlin::DMarlinRenderingEngine$2;
 using $DMarlinRenderingEngine$NormMode = ::sun::java2d::marlin::DMarlinRenderingEngine$NormMode;
 using $DPathConsumer2D = ::sun::java2d::marlin::DPathConsumer2D;
-using $Dasher = ::sun::java2d::marlin::Dasher;
 using $MarlinCache = ::sun::java2d::marlin::MarlinCache;
 using $MarlinConst = ::sun::java2d::marlin::MarlinConst;
 using $MarlinProperties = ::sun::java2d::marlin::MarlinProperties;
 using $MarlinTileGenerator = ::sun::java2d::marlin::MarlinTileGenerator;
 using $MarlinUtils = ::sun::java2d::marlin::MarlinUtils;
-using $PathSimplifier = ::sun::java2d::marlin::PathSimplifier;
 using $Renderer = ::sun::java2d::marlin::Renderer;
 using $RendererContext = ::sun::java2d::marlin::RendererContext;
-using $RendererContext$PathConsumer2DAdapter = ::sun::java2d::marlin::RendererContext$PathConsumer2DAdapter;
-using $Stroker = ::sun::java2d::marlin::Stroker;
 using $TransformingPathConsumer2D = ::sun::java2d::marlin::TransformingPathConsumer2D;
-using $TransformingPathConsumer2D$CurveBasicMonotonizer = ::sun::java2d::marlin::TransformingPathConsumer2D$CurveBasicMonotonizer;
 using $Version = ::sun::java2d::marlin::Version;
 using $AATileGenerator = ::sun::java2d::pipe::AATileGenerator;
 using $Region = ::sun::java2d::pipe::Region;
@@ -147,74 +137,6 @@ using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 namespace sun {
 	namespace java2d {
 		namespace marlin {
-
-$FieldInfo _DMarlinRenderingEngine_FieldInfo_[] = {
-	{"DISABLE_2ND_STROKER_CLIPPING", "Z", nullptr, $STATIC | $FINAL, $constField(DMarlinRenderingEngine, DISABLE_2ND_STROKER_CLIPPING)},
-	{"DO_TRACE_PATH", "Z", nullptr, $STATIC | $FINAL, $constField(DMarlinRenderingEngine, DO_TRACE_PATH)},
-	{"DO_CLIP", "Z", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, DO_CLIP)},
-	{"DO_CLIP_FILL", "Z", nullptr, $STATIC | $FINAL, $constField(DMarlinRenderingEngine, DO_CLIP_FILL)},
-	{"DO_CLIP_RUNTIME_ENABLE", "Z", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, DO_CLIP_RUNTIME_ENABLE)},
-	{"MIN_PEN_SIZE", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, MIN_PEN_SIZE)},
-	{"UPPER_BND", "D", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, UPPER_BND)},
-	{"LOWER_BND", "D", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, LOWER_BND)},
-	{"USE_THREAD_LOCAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, USE_THREAD_LOCAL)},
-	{"REF_TYPE", "I", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, REF_TYPE)},
-	{"RDR_CTX_PROVIDER", "Lsun/java2d/ReentrantContextProvider;", "Lsun/java2d/ReentrantContextProvider<Lsun/java2d/marlin/RendererContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, RDR_CTX_PROVIDER)},
-	{"SETTINGS_LOGGED", "Z", nullptr, $PRIVATE | $STATIC, $staticField(DMarlinRenderingEngine, SETTINGS_LOGGED)},
-	{}
-};
-
-$MethodInfo _DMarlinRenderingEngine_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(DMarlinRenderingEngine, init$, void)},
-	{"createStrokedShape", "(Ljava/awt/Shape;FIIF[FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, createStrokedShape, $Shape*, $Shape*, float, int32_t, int32_t, float, $floats*, float)},
-	{"getAATileGenerator", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;Lsun/java2d/pipe/Region;Ljava/awt/BasicStroke;ZZ[I)Lsun/java2d/pipe/AATileGenerator;", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, getAATileGenerator, $AATileGenerator*, $Shape*, $AffineTransform*, $Region*, $BasicStroke*, bool, bool, $ints*)},
-	{"getAATileGenerator", "(DDDDDDDDLsun/java2d/pipe/Region;[I)Lsun/java2d/pipe/AATileGenerator;", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, getAATileGenerator, $AATileGenerator*, double, double, double, double, double, double, double, double, $Region*, $ints*)},
-	{"getMinimumAAPenSize", "()F", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, getMinimumAAPenSize, float)},
-	{"getRendererContext", "()Lsun/java2d/marlin/RendererContext;", nullptr, $STATIC, $staticMethod(DMarlinRenderingEngine, getRendererContext, $RendererContext*)},
-	{"logSettings", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DMarlinRenderingEngine, logSettings, void, $String*)},
-	{"nearZero", "(D)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DMarlinRenderingEngine, nearZero, bool, double)},
-	{"pathTo", "(Lsun/java2d/marlin/RendererContext;Ljava/awt/geom/PathIterator;Lsun/java2d/marlin/DPathConsumer2D;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DMarlinRenderingEngine, pathTo, void, $RendererContext*, $PathIterator*, $DPathConsumer2D*)},
-	{"pathToLoop", "([DLjava/awt/geom/PathIterator;Lsun/java2d/marlin/DPathConsumer2D;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DMarlinRenderingEngine, pathToLoop, void, $doubles*, $PathIterator*, $DPathConsumer2D*)},
-	{"returnRendererContext", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, $STATIC, $staticMethod(DMarlinRenderingEngine, returnRendererContext, void, $RendererContext*)},
-	{"strokeTo", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;Ljava/awt/BasicStroke;ZZZLsun/awt/geom/PathConsumer2D;)V", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, strokeTo, void, $Shape*, $AffineTransform*, $BasicStroke*, bool, bool, bool, $PathConsumer2D*)},
-	{"strokeTo", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;Lsun/java2d/pipe/Region;Ljava/awt/BasicStroke;ZZZLsun/awt/geom/PathConsumer2D;)V", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, strokeTo, void, $Shape*, $AffineTransform*, $Region*, $BasicStroke*, bool, bool, bool, $PathConsumer2D*)},
-	{"strokeTo", "(Lsun/java2d/marlin/RendererContext;Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;Ljava/awt/BasicStroke;ZLsun/java2d/marlin/DMarlinRenderingEngine$NormMode;ZLsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(DMarlinRenderingEngine, strokeTo, void, $RendererContext*, $Shape*, $AffineTransform*, $BasicStroke*, bool, $DMarlinRenderingEngine$NormMode*, bool, $DPathConsumer2D*)},
-	{"strokeTo", "(Lsun/java2d/marlin/RendererContext;Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;DLsun/java2d/marlin/DMarlinRenderingEngine$NormMode;IIF[FFLsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(DMarlinRenderingEngine, strokeTo, void, $RendererContext*, $Shape*, $AffineTransform*, double, $DMarlinRenderingEngine$NormMode*, int32_t, int32_t, float, $floats*, float, $DPathConsumer2D*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"userSpaceLineWidth", "(Ljava/awt/geom/AffineTransform;D)D", nullptr, $PRIVATE, $method(DMarlinRenderingEngine, userSpaceLineWidth, double, $AffineTransform*, double)},
-	{}
-};
-
-$InnerClassInfo _DMarlinRenderingEngine_InnerClassesInfo_[] = {
-	{"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator", "sun.java2d.marlin.DMarlinRenderingEngine", "NormalizingPathIterator", $STATIC | $ABSTRACT},
-	{"sun.java2d.marlin.DMarlinRenderingEngine$NormMode", "sun.java2d.marlin.DMarlinRenderingEngine", "NormMode", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
-	{"sun.java2d.marlin.DMarlinRenderingEngine$2", nullptr, nullptr, 0},
-	{"sun.java2d.marlin.DMarlinRenderingEngine$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _DMarlinRenderingEngine_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"sun.java2d.marlin.DMarlinRenderingEngine",
-	"sun.java2d.pipe.RenderingEngine",
-	"sun.java2d.marlin.MarlinConst",
-	_DMarlinRenderingEngine_FieldInfo_,
-	_DMarlinRenderingEngine_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DMarlinRenderingEngine_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator,sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelQuarter,sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelCenter,sun.java2d.marlin.DMarlinRenderingEngine$NormMode,sun.java2d.marlin.DMarlinRenderingEngine$NormMode$3,sun.java2d.marlin.DMarlinRenderingEngine$NormMode$2,sun.java2d.marlin.DMarlinRenderingEngine$NormMode$1,sun.java2d.marlin.DMarlinRenderingEngine$2,sun.java2d.marlin.DMarlinRenderingEngine$1"
-};
-
-$Object* allocate$DMarlinRenderingEngine($Class* clazz) {
-	return $of($alloc(DMarlinRenderingEngine));
-}
 
 int32_t DMarlinRenderingEngine::hashCode() {
 	 return this->$RenderingEngine::hashCode();
@@ -252,78 +174,73 @@ void DMarlinRenderingEngine::init$() {
 }
 
 $Shape* DMarlinRenderingEngine::createStrokedShape($Shape* src, float width, int32_t caps, int32_t join, float miterlimit, $floats* dashes, float dashphase) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($RendererContext, rdrCtx, getRendererContext());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($Shape, var$2, nullptr);
-		bool return$1 = false;
-		try {
-			$var($Path2D$Double, p2d, $nc(rdrCtx)->getPath2D());
-			$init($DMarlinRenderingEngine$NormMode);
-			strokeTo(rdrCtx, src, nullptr, width, $DMarlinRenderingEngine$NormMode::OFF, caps, join, miterlimit, dashes, dashphase, $($nc(rdrCtx->transformerPC2D)->wrapPath2D(p2d)));
-			$assign(var$2, $new($Path2D$Double, static_cast<$Shape*>(p2d)));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} $finally: {
-			returnRendererContext(rdrCtx);
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+	$var($Throwable, var$0, nullptr);
+	$var($Shape, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		$var($Path2D$Double, p2d, $nc(rdrCtx)->getPath2D());
+		$init($DMarlinRenderingEngine$NormMode);
+		strokeTo(rdrCtx, src, nullptr, width, $DMarlinRenderingEngine$NormMode::OFF, caps, join, miterlimit, dashes, dashphase, $($nc(rdrCtx->transformerPC2D)->wrapPath2D(p2d)));
+		$assign(var$2, $new($Path2D$Double, p2d));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} $finally: {
+		returnRendererContext(rdrCtx);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void DMarlinRenderingEngine::strokeTo($Shape* src, $AffineTransform* at, $BasicStroke* bs, bool thin, bool normalize, bool antialias, $PathConsumer2D* consumer) {
-	strokeTo(src, at, ($Region*)nullptr, bs, thin, normalize, antialias, consumer);
+	strokeTo(src, at, nullptr, bs, thin, normalize, antialias, consumer);
 }
 
 void DMarlinRenderingEngine::strokeTo($Shape* src, $AffineTransform* at, $Region* clip, $BasicStroke* bs, bool thin, bool normalize, bool antialias, $PathConsumer2D* consumer) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AffineTransform, _at, (at != nullptr && !at->isIdentity()) ? at : ($AffineTransform*)nullptr);
 	$init($DMarlinRenderingEngine$NormMode);
 	$DMarlinRenderingEngine$NormMode* norm = (normalize) ? ((antialias) ? $DMarlinRenderingEngine$NormMode::ON_WITH_AA : $DMarlinRenderingEngine$NormMode::ON_NO_AA) : $DMarlinRenderingEngine$NormMode::OFF;
 	$var($RendererContext, rdrCtx, getRendererContext());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if ((clip != nullptr) && (DMarlinRenderingEngine::DO_CLIP || (DMarlinRenderingEngine::DO_CLIP_RUNTIME_ENABLE && $MarlinProperties::isDoClipAtRuntime()))) {
-				$var($doubles, clipRect, $nc(rdrCtx)->clipRect);
-				double rdrOffX = 0.25;
-				double rdrOffY = 0.25;
-				double margin = 0.001;
-				$nc(clipRect)->set(0, $nc(clip)->getLoY() - margin + rdrOffY);
-				int32_t var$1 = clip->getLoY();
-				clipRect->set(1, var$1 + clip->getHeight() + margin + rdrOffY);
-				clipRect->set(2, clip->getLoX() - margin + rdrOffX);
-				int32_t var$2 = clip->getLoX();
-				clipRect->set(3, var$2 + clip->getWidth() + margin + rdrOffX);
-				$init($MarlinConst);
-				if ($MarlinConst::DO_LOG_CLIP) {
-					$MarlinUtils::logInfo($$str({"clipRect (clip): "_s, $($Arrays::toString(rdrCtx->clipRect))}));
-				}
-				rdrCtx->doClip = true;
+	$var($Throwable, var$0, nullptr);
+	try {
+		if ((clip != nullptr) && (DMarlinRenderingEngine::DO_CLIP || (DMarlinRenderingEngine::DO_CLIP_RUNTIME_ENABLE && $MarlinProperties::isDoClipAtRuntime()))) {
+			$var($doubles, clipRect, $nc(rdrCtx)->clipRect);
+			double rdrOffX = 0.25;
+			double rdrOffY = 0.25;
+			double margin = 0.001;
+			$nc(clipRect)->set(0, clip->getLoY() - margin + rdrOffY);
+			int32_t var$1 = clip->getLoY();
+			clipRect->set(1, var$1 + clip->getHeight() + margin + rdrOffY);
+			clipRect->set(2, clip->getLoX() - margin + rdrOffX);
+			int32_t var$2 = clip->getLoX();
+			clipRect->set(3, var$2 + clip->getWidth() + margin + rdrOffX);
+			$init($MarlinConst);
+			if ($MarlinConst::DO_LOG_CLIP) {
+				$MarlinUtils::logInfo($$str({"clipRect (clip): "_s, $($Arrays::toString(rdrCtx->clipRect))}));
 			}
-			strokeTo(rdrCtx, src, _at, bs, thin, norm, antialias, $(static_cast<$DPathConsumer2D*>($nc($nc(rdrCtx)->p2dAdapter)->init(consumer))));
-		} catch ($Throwable& var$3) {
-			$assign(var$0, var$3);
-		} /*finally*/ {
-			returnRendererContext(rdrCtx);
+			rdrCtx->doClip = true;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+		strokeTo(rdrCtx, src, _at, bs, thin, norm, antialias, $($nc($nc(rdrCtx)->p2dAdapter)->init(consumer)));
+	} catch ($Throwable& var$3) {
+		$assign(var$0, var$3);
+	} /*finally*/ {
+		returnRendererContext(rdrCtx);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void DMarlinRenderingEngine::strokeTo($RendererContext* rdrCtx, $Shape* src, $AffineTransform* at, $BasicStroke* bs, bool thin, $DMarlinRenderingEngine$NormMode* normalize, bool antialias, $DPathConsumer2D* pc2d) {
-	$useLocalCurrentObjectStackCache();
 	double lw = 0.0;
 	if (thin) {
 		if (antialias) {
@@ -334,23 +251,18 @@ void DMarlinRenderingEngine::strokeTo($RendererContext* rdrCtx, $Shape* src, $Af
 	} else {
 		lw = $nc(bs)->getLineWidth();
 	}
-	$var($RendererContext, var$0, rdrCtx);
-	$var($Shape, var$1, src);
-	$var($AffineTransform, var$2, at);
-	double var$3 = lw;
-	$var($DMarlinRenderingEngine$NormMode, var$4, normalize);
-	int32_t var$5 = $nc(bs)->getEndCap();
-	int32_t var$6 = bs->getLineJoin();
-	float var$7 = bs->getMiterLimit();
-	$var($floats, var$8, bs->getDashArray());
-	strokeTo(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, var$8, bs->getDashPhase(), pc2d);
+	int32_t var$0 = $nc(bs)->getEndCap();
+	int32_t var$1 = bs->getLineJoin();
+	float var$2 = bs->getMiterLimit();
+	$var($floats, var$3, bs->getDashArray());
+	strokeTo(rdrCtx, src, at, lw, normalize, var$0, var$1, var$2, var$3, bs->getDashPhase(), pc2d);
 }
 
 double DMarlinRenderingEngine::userSpaceLineWidth($AffineTransform* at, double lw) {
 	double widthScale = 0.0;
 	if (at == nullptr) {
 		widthScale = 1.0;
-	} else if (((int32_t)($nc(at)->getType() & (uint32_t)($AffineTransform::TYPE_GENERAL_TRANSFORM | $AffineTransform::TYPE_GENERAL_SCALE))) != 0) {
+	} else if ((at->getType() & ($AffineTransform::TYPE_GENERAL_TRANSFORM | $AffineTransform::TYPE_GENERAL_SCALE)) != 0) {
 		widthScale = $Math::sqrt($Math::abs(at->getDeterminant()));
 	} else {
 		double A = at->getScaleX();
@@ -368,7 +280,7 @@ double DMarlinRenderingEngine::userSpaceLineWidth($AffineTransform* at, double l
 }
 
 void DMarlinRenderingEngine::strokeTo($RendererContext* rdrCtx, $Shape* src, $AffineTransform* at$renamed, double width, $DMarlinRenderingEngine$NormMode* norm, int32_t caps, int32_t join, float miterlimit, $floats* dashes, float dashphase, $DPathConsumer2D* pc2d$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($DPathConsumer2D, pc2d, pc2d$renamed);
 	$var($AffineTransform, at, at$renamed);
 	$var($AffineTransform, strokerat, nullptr);
@@ -386,7 +298,6 @@ void DMarlinRenderingEngine::strokeTo($RendererContext* rdrCtx, $Shape* src, $Af
 		double c = at->getShearY();
 		double d = at->getScaleY();
 		double det = a * d - c * b;
-		$init($Double);
 		if ($Math::abs(det) <= (2.0 * $Double::MIN_VALUE)) {
 			$nc(pc2d)->moveTo(0.0, 0.0);
 			pc2d->pathDone();
@@ -409,6 +320,7 @@ void DMarlinRenderingEngine::strokeTo($RendererContext* rdrCtx, $Shape* src, $Af
 		$assign(at, nullptr);
 	}
 	$var($TransformingPathConsumer2D, transformerPC2D, $nc(rdrCtx)->transformerPC2D);
+	;
 	$init($MarlinConst);
 	if ($MarlinConst::USE_SIMPLIFIER) {
 		$assign(pc2d, $nc(rdrCtx->simplifier)->init(pc2d));
@@ -417,14 +329,17 @@ void DMarlinRenderingEngine::strokeTo($RendererContext* rdrCtx, $Shape* src, $Af
 	$assign(pc2d, $nc(rdrCtx->stroker)->init(pc2d, width, caps, join, miterlimit, (dashesD == nullptr)));
 	$nc(rdrCtx->monotonizer)->init(width);
 	if (dashesD != nullptr) {
+		;
 		$assign(pc2d, $nc(rdrCtx->dasher)->init(pc2d, dashesD, dashLen, dashphase, recycleDashes));
 		{
-			$nc(rdrCtx->stroker)->disableClipping();
+			rdrCtx->stroker->disableClipping();
 		}
 	} else if (rdrCtx->doClip && (caps != $MarlinConst::CAP_BUTT)) {
+		;
 		$assign(pc2d, transformerPC2D->detectClosedPath(pc2d));
 	}
 	$assign(pc2d, transformerPC2D->inverseDeltaTransformConsumer(pc2d, strokerat));
+	;
 	$var($PathIterator, pi, $nc(norm)->getNormalizingPathIterator(rdrCtx, $($nc(src)->getPathIterator(at))));
 	pathTo(rdrCtx, pi, pc2d);
 }
@@ -450,143 +365,133 @@ void DMarlinRenderingEngine::pathTo($RendererContext* rdrCtx, $PathIterator* pi,
 void DMarlinRenderingEngine::pathToLoop($doubles* coords, $PathIterator* pi, $DPathConsumer2D* pc2d) {
 	$init(DMarlinRenderingEngine);
 	bool subpathStarted = false;
-	for (; !$nc(pi)->isDone(); $nc(pi)->next()) {
+	for (; !$nc(pi)->isDone(); pi->next()) {
 		switch (pi->currentSegment(coords)) {
 		case $PathIterator::SEG_MOVETO:
-			{
-				if ($nc(coords)->get(0) < DMarlinRenderingEngine::UPPER_BND && coords->get(0) > DMarlinRenderingEngine::LOWER_BND && coords->get(1) < DMarlinRenderingEngine::UPPER_BND && coords->get(1) > DMarlinRenderingEngine::LOWER_BND) {
+			if ($nc(coords)->get(0) < DMarlinRenderingEngine::UPPER_BND && coords->get(0) > DMarlinRenderingEngine::LOWER_BND && coords->get(1) < DMarlinRenderingEngine::UPPER_BND && coords->get(1) > DMarlinRenderingEngine::LOWER_BND) {
+				$nc(pc2d)->moveTo(coords->get(0), coords->get(1));
+				subpathStarted = true;
+			}
+			break;
+		case $PathIterator::SEG_LINETO:
+			if ($nc(coords)->get(0) < DMarlinRenderingEngine::UPPER_BND && coords->get(0) > DMarlinRenderingEngine::LOWER_BND && coords->get(1) < DMarlinRenderingEngine::UPPER_BND && coords->get(1) > DMarlinRenderingEngine::LOWER_BND) {
+				if (subpathStarted) {
+					$nc(pc2d)->lineTo(coords->get(0), coords->get(1));
+				} else {
 					$nc(pc2d)->moveTo(coords->get(0), coords->get(1));
 					subpathStarted = true;
 				}
-				break;
 			}
-		case $PathIterator::SEG_LINETO:
-			{
-				if ($nc(coords)->get(0) < DMarlinRenderingEngine::UPPER_BND && coords->get(0) > DMarlinRenderingEngine::LOWER_BND && coords->get(1) < DMarlinRenderingEngine::UPPER_BND && coords->get(1) > DMarlinRenderingEngine::LOWER_BND) {
-					if (subpathStarted) {
-						$nc(pc2d)->lineTo(coords->get(0), coords->get(1));
-					} else {
-						$nc(pc2d)->moveTo(coords->get(0), coords->get(1));
-						subpathStarted = true;
-					}
-				}
-				break;
-			}
+			break;
 		case $PathIterator::SEG_QUADTO:
-			{
-				if ($nc(coords)->get(2) < DMarlinRenderingEngine::UPPER_BND && coords->get(2) > DMarlinRenderingEngine::LOWER_BND && coords->get(3) < DMarlinRenderingEngine::UPPER_BND && coords->get(3) > DMarlinRenderingEngine::LOWER_BND) {
-					if (subpathStarted) {
-						if (coords->get(0) < DMarlinRenderingEngine::UPPER_BND && coords->get(0) > DMarlinRenderingEngine::LOWER_BND && coords->get(1) < DMarlinRenderingEngine::UPPER_BND && coords->get(1) > DMarlinRenderingEngine::LOWER_BND) {
-							$nc(pc2d)->quadTo(coords->get(0), coords->get(1), coords->get(2), coords->get(3));
-						} else {
-							$nc(pc2d)->lineTo(coords->get(2), coords->get(3));
-						}
-					} else {
-						$nc(pc2d)->moveTo(coords->get(2), coords->get(3));
-						subpathStarted = true;
-					}
-				}
-				break;
-			}
-		case $PathIterator::SEG_CUBICTO:
-			{
-				if ($nc(coords)->get(4) < DMarlinRenderingEngine::UPPER_BND && coords->get(4) > DMarlinRenderingEngine::LOWER_BND && coords->get(5) < DMarlinRenderingEngine::UPPER_BND && coords->get(5) > DMarlinRenderingEngine::LOWER_BND) {
-					if (subpathStarted) {
-						if (coords->get(0) < DMarlinRenderingEngine::UPPER_BND && coords->get(0) > DMarlinRenderingEngine::LOWER_BND && coords->get(1) < DMarlinRenderingEngine::UPPER_BND && coords->get(1) > DMarlinRenderingEngine::LOWER_BND && coords->get(2) < DMarlinRenderingEngine::UPPER_BND && coords->get(2) > DMarlinRenderingEngine::LOWER_BND && coords->get(3) < DMarlinRenderingEngine::UPPER_BND && coords->get(3) > DMarlinRenderingEngine::LOWER_BND) {
-							$nc(pc2d)->curveTo(coords->get(0), coords->get(1), coords->get(2), coords->get(3), coords->get(4), coords->get(5));
-						} else {
-							$nc(pc2d)->lineTo(coords->get(4), coords->get(5));
-						}
-					} else {
-						$nc(pc2d)->moveTo(coords->get(4), coords->get(5));
-						subpathStarted = true;
-					}
-				}
-				break;
-			}
-		case $PathIterator::SEG_CLOSE:
-			{
+			if ($nc(coords)->get(2) < DMarlinRenderingEngine::UPPER_BND && coords->get(2) > DMarlinRenderingEngine::LOWER_BND && coords->get(3) < DMarlinRenderingEngine::UPPER_BND && coords->get(3) > DMarlinRenderingEngine::LOWER_BND) {
 				if (subpathStarted) {
-					$nc(pc2d)->closePath();
+					if (coords->get(0) < DMarlinRenderingEngine::UPPER_BND && coords->get(0) > DMarlinRenderingEngine::LOWER_BND && coords->get(1) < DMarlinRenderingEngine::UPPER_BND && coords->get(1) > DMarlinRenderingEngine::LOWER_BND) {
+						$nc(pc2d)->quadTo(coords->get(0), coords->get(1), coords->get(2), coords->get(3));
+					} else {
+						$nc(pc2d)->lineTo(coords->get(2), coords->get(3));
+					}
+				} else {
+					$nc(pc2d)->moveTo(coords->get(2), coords->get(3));
+					subpathStarted = true;
 				}
-				break;
 			}
+			break;
+		case $PathIterator::SEG_CUBICTO:
+			if ($nc(coords)->get(4) < DMarlinRenderingEngine::UPPER_BND && coords->get(4) > DMarlinRenderingEngine::LOWER_BND && coords->get(5) < DMarlinRenderingEngine::UPPER_BND && coords->get(5) > DMarlinRenderingEngine::LOWER_BND) {
+				if (subpathStarted) {
+					if (coords->get(0) < DMarlinRenderingEngine::UPPER_BND && coords->get(0) > DMarlinRenderingEngine::LOWER_BND && coords->get(1) < DMarlinRenderingEngine::UPPER_BND && coords->get(1) > DMarlinRenderingEngine::LOWER_BND && coords->get(2) < DMarlinRenderingEngine::UPPER_BND && coords->get(2) > DMarlinRenderingEngine::LOWER_BND && coords->get(3) < DMarlinRenderingEngine::UPPER_BND && coords->get(3) > DMarlinRenderingEngine::LOWER_BND) {
+						$nc(pc2d)->curveTo(coords->get(0), coords->get(1), coords->get(2), coords->get(3), coords->get(4), coords->get(5));
+					} else {
+						$nc(pc2d)->lineTo(coords->get(4), coords->get(5));
+					}
+				} else {
+					$nc(pc2d)->moveTo(coords->get(4), coords->get(5));
+					subpathStarted = true;
+				}
+			}
+			break;
+		case $PathIterator::SEG_CLOSE:
+			if (subpathStarted) {
+				$nc(pc2d)->closePath();
+			}
+			break;
 		default:
-			{}
+			break;
 		}
 	}
 	$nc(pc2d)->pathDone();
 }
 
 $AATileGenerator* DMarlinRenderingEngine::getAATileGenerator($Shape* s, $AffineTransform* at, $Region* clip, $BasicStroke* bs, bool thin, bool normalize, $ints* bbox) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($MarlinTileGenerator, ptg, nullptr);
 	$var($Renderer, r, nullptr);
 	$var($RendererContext, rdrCtx, getRendererContext());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			if (DMarlinRenderingEngine::DO_CLIP || (DMarlinRenderingEngine::DO_CLIP_RUNTIME_ENABLE && $MarlinProperties::isDoClipAtRuntime())) {
-				$var($doubles, clipRect, $nc(rdrCtx)->clipRect);
-				$init($Renderer);
-				double rdrOffX = $Renderer::RDR_OFFSET_X;
-				double rdrOffY = $Renderer::RDR_OFFSET_Y;
-				double margin = 0.001;
-				$nc(clipRect)->set(0, $nc(clip)->getLoY() - margin + rdrOffY);
-				int32_t var$1 = clip->getLoY();
-				clipRect->set(1, var$1 + clip->getHeight() + margin + rdrOffY);
-				clipRect->set(2, clip->getLoX() - margin + rdrOffX);
-				int32_t var$2 = clip->getLoX();
-				clipRect->set(3, var$2 + clip->getWidth() + margin + rdrOffX);
-				$init($MarlinConst);
-				if ($MarlinConst::DO_LOG_CLIP) {
-					$MarlinUtils::logInfo($$str({"clipRect (clip): "_s, $($Arrays::toString(rdrCtx->clipRect))}));
-				}
-				rdrCtx->doClip = true;
+	$var($Throwable, var$0, nullptr);
+	try {
+		if (DMarlinRenderingEngine::DO_CLIP || (DMarlinRenderingEngine::DO_CLIP_RUNTIME_ENABLE && $MarlinProperties::isDoClipAtRuntime())) {
+			$var($doubles, clipRect, $nc(rdrCtx)->clipRect);
+			$init($Renderer);
+			double rdrOffX = $Renderer::RDR_OFFSET_X;
+			double rdrOffY = $Renderer::RDR_OFFSET_Y;
+			double margin = 0.001;
+			$nc(clipRect)->set(0, $nc(clip)->getLoY() - margin + rdrOffY);
+			int32_t var$1 = clip->getLoY();
+			clipRect->set(1, var$1 + clip->getHeight() + margin + rdrOffY);
+			clipRect->set(2, clip->getLoX() - margin + rdrOffX);
+			int32_t var$2 = clip->getLoX();
+			clipRect->set(3, var$2 + clip->getWidth() + margin + rdrOffX);
+			$init($MarlinConst);
+			if ($MarlinConst::DO_LOG_CLIP) {
+				$MarlinUtils::logInfo($$str({"clipRect (clip): "_s, $($Arrays::toString(rdrCtx->clipRect))}));
 			}
-			$var($AffineTransform, _at, (at != nullptr && !at->isIdentity()) ? at : ($AffineTransform*)nullptr);
-			$init($DMarlinRenderingEngine$NormMode);
-			$DMarlinRenderingEngine$NormMode* norm = (normalize) ? $DMarlinRenderingEngine$NormMode::ON_WITH_AA : $DMarlinRenderingEngine$NormMode::OFF;
-			if (bs == nullptr) {
-				$var($PathIterator, pi, norm->getNormalizingPathIterator(rdrCtx, $($nc(s)->getPathIterator(_at))));
-				int32_t var$3 = $nc(clip)->getLoX();
-				int32_t var$4 = clip->getLoY();
-				int32_t var$5 = clip->getWidth();
-				int32_t var$6 = clip->getHeight();
-				$assign(r, $nc($nc(rdrCtx)->renderer)->init(var$3, var$4, var$5, var$6, $nc(pi)->getWindingRule()));
-				$var($DPathConsumer2D, pc2d, r);
-				if (rdrCtx->doClip) {
-					$assign(pc2d, $nc(rdrCtx->transformerPC2D)->pathClipper(pc2d));
-				}
-				pathTo(rdrCtx, pi, pc2d);
-			} else {
-				int32_t var$7 = $nc(clip)->getLoX();
-				int32_t var$8 = clip->getLoY();
-				int32_t var$9 = clip->getWidth();
-				$assign(r, $nc($nc(rdrCtx)->renderer)->init(var$7, var$8, var$9, clip->getHeight(), $MarlinConst::WIND_NON_ZERO));
-				strokeTo(rdrCtx, s, _at, bs, thin, norm, true, static_cast<$DPathConsumer2D*>(r));
-			}
-			if ($nc(r)->endRendering()) {
-				$assign(ptg, $nc($nc(rdrCtx)->ptg)->init());
-				$nc(ptg)->getBbox(bbox);
-				$assign(r, nullptr);
-			}
-		} catch ($Throwable& var$10) {
-			$assign(var$0, var$10);
-		} /*finally*/ {
-			if (r != nullptr) {
-				r->dispose();
-			}
+			rdrCtx->doClip = true;
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		$var($AffineTransform, _at, (at != nullptr && !at->isIdentity()) ? at : ($AffineTransform*)nullptr);
+		$init($DMarlinRenderingEngine$NormMode);
+		$DMarlinRenderingEngine$NormMode* norm = (normalize) ? $DMarlinRenderingEngine$NormMode::ON_WITH_AA : $DMarlinRenderingEngine$NormMode::OFF;
+		if (bs == nullptr) {
+			$var($PathIterator, pi, norm->getNormalizingPathIterator(rdrCtx, $($nc(s)->getPathIterator(_at))));
+			int32_t var$3 = $nc(clip)->getLoX();
+			int32_t var$4 = clip->getLoY();
+			int32_t var$5 = clip->getWidth();
+			int32_t var$6 = clip->getHeight();
+			$assign(r, $nc($nc(rdrCtx)->renderer)->init(var$3, var$4, var$5, var$6, $nc(pi)->getWindingRule()));
+			$var($DPathConsumer2D, pc2d, r);
+			if ($nc(rdrCtx)->doClip) {
+				;
+				$assign(pc2d, $nc(rdrCtx->transformerPC2D)->pathClipper(pc2d));
+			}
+			;
+			pathTo(rdrCtx, pi, pc2d);
+		} else {
+			int32_t var$7 = $nc(clip)->getLoX();
+			int32_t var$8 = clip->getLoY();
+			int32_t var$9 = clip->getWidth();
+			$assign(r, $nc($nc(rdrCtx)->renderer)->init(var$7, var$8, var$9, clip->getHeight(), $MarlinConst::WIND_NON_ZERO));
+			strokeTo(rdrCtx, s, _at, bs, thin, norm, true, r);
 		}
+		if ($nc(r)->endRendering()) {
+			$assign(ptg, $nc($nc(rdrCtx)->ptg)->init());
+			$nc(ptg)->getBbox(bbox);
+			$assign(r, nullptr);
+		}
+	} catch ($Throwable& var$10) {
+		$assign(var$0, var$10);
+	} /*finally*/ {
+		if (r != nullptr) {
+			r->dispose();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return ptg;
 }
 
 $AATileGenerator* DMarlinRenderingEngine::getAATileGenerator(double x, double y, double dx1, double dy1, double dx2, double dy2, double lw1, double lw2, $Region* clip, $ints* bbox) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	double ldx1 = 0.0;
 	double ldy1 = 0.0;
 	double ldx2 = 0.0;
@@ -612,47 +517,45 @@ $AATileGenerator* DMarlinRenderingEngine::getAATileGenerator(double x, double y,
 	$var($MarlinTileGenerator, ptg, nullptr);
 	$var($Renderer, r, nullptr);
 	$var($RendererContext, rdrCtx, getRendererContext());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			int32_t var$1 = $nc(clip)->getLoX();
-			int32_t var$2 = clip->getLoY();
-			int32_t var$3 = clip->getWidth();
-			$assign(r, $nc($nc(rdrCtx)->renderer)->init(var$1, var$2, var$3, clip->getHeight(), $MarlinConst::WIND_EVEN_ODD));
-			$nc(r)->moveTo(x, y);
+	$var($Throwable, var$0, nullptr);
+	try {
+		int32_t var$1 = $nc(clip)->getLoX();
+		int32_t var$2 = clip->getLoY();
+		int32_t var$3 = clip->getWidth();
+		$assign(r, $nc($nc(rdrCtx)->renderer)->init(var$1, var$2, var$3, clip->getHeight(), $MarlinConst::WIND_EVEN_ODD));
+		$nc(r)->moveTo(x, y);
+		r->lineTo((x + dx1), (y + dy1));
+		r->lineTo((x + dx1 + dx2), (y + dy1 + dy2));
+		r->lineTo((x + dx2), (y + dy2));
+		r->closePath();
+		if (innerpgram) {
+			x += ldx1 + ldx2;
+			y += ldy1 + ldy2;
+			dx1 -= 2.0 * ldx1;
+			dy1 -= 2.0 * ldy1;
+			dx2 -= 2.0 * ldx2;
+			dy2 -= 2.0 * ldy2;
+			r->moveTo(x, y);
 			r->lineTo((x + dx1), (y + dy1));
 			r->lineTo((x + dx1 + dx2), (y + dy1 + dy2));
 			r->lineTo((x + dx2), (y + dy2));
 			r->closePath();
-			if (innerpgram) {
-				x += ldx1 + ldx2;
-				y += ldy1 + ldy2;
-				dx1 -= 2.0 * ldx1;
-				dy1 -= 2.0 * ldy1;
-				dx2 -= 2.0 * ldx2;
-				dy2 -= 2.0 * ldy2;
-				r->moveTo(x, y);
-				r->lineTo((x + dx1), (y + dy1));
-				r->lineTo((x + dx1 + dx2), (y + dy1 + dy2));
-				r->lineTo((x + dx2), (y + dy2));
-				r->closePath();
-			}
-			r->pathDone();
-			if (r->endRendering()) {
-				$assign(ptg, $nc(rdrCtx->ptg)->init());
-				$nc(ptg)->getBbox(bbox);
-				$assign(r, nullptr);
-			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} /*finally*/ {
-			if (r != nullptr) {
-				r->dispose();
-			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		r->pathDone();
+		if (r->endRendering()) {
+			$assign(ptg, $nc($nc(rdrCtx)->ptg)->init());
+			$nc(ptg)->getBbox(bbox);
+			$assign(r, nullptr);
 		}
+	} catch ($Throwable& var$4) {
+		$assign(var$0, var$4);
+	} /*finally*/ {
+		if (r != nullptr) {
+			r->dispose();
+		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 	return ptg;
 }
@@ -663,7 +566,7 @@ float DMarlinRenderingEngine::getMinimumAAPenSize() {
 
 void DMarlinRenderingEngine::logSettings($String* reClass) {
 	$init(DMarlinRenderingEngine);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (DMarlinRenderingEngine::SETTINGS_LOGGED) {
 		return;
 	}
@@ -671,22 +574,15 @@ void DMarlinRenderingEngine::logSettings($String* reClass) {
 	$var($String, refType, nullptr);
 	switch (DMarlinRenderingEngine::REF_TYPE) {
 	default:
-		{}
 	case $ReentrantContextProvider::REF_HARD:
-		{
-			$assign(refType, "hard"_s);
-			break;
-		}
+		$assign(refType, "hard"_s);
+		break;
 	case $ReentrantContextProvider::REF_SOFT:
-		{
-			$assign(refType, "soft"_s);
-			break;
-		}
+		$assign(refType, "soft"_s);
+		break;
 	case $ReentrantContextProvider::REF_WEAK:
-		{
-			$assign(refType, "weak"_s);
-			break;
-		}
+		$assign(refType, "weak"_s);
+		break;
 	}
 	$MarlinUtils::logInfo("==============================================================================="_s);
 	$MarlinUtils::logInfo("Marlin software rasterizer           = ENABLED"_s);
@@ -739,18 +635,19 @@ void DMarlinRenderingEngine::logSettings($String* reClass) {
 $RendererContext* DMarlinRenderingEngine::getRendererContext() {
 	$init(DMarlinRenderingEngine);
 	$var($RendererContext, rdrCtx, $cast($RendererContext, $nc(DMarlinRenderingEngine::RDR_CTX_PROVIDER)->acquire()));
+	;
 	return rdrCtx;
 }
 
 void DMarlinRenderingEngine::returnRendererContext($RendererContext* rdrCtx) {
 	$init(DMarlinRenderingEngine);
 	$nc(rdrCtx)->dispose();
+	;
 	$nc(DMarlinRenderingEngine::RDR_CTX_PROVIDER)->release(rdrCtx);
 }
 
-void clinit$DMarlinRenderingEngine($Class* class$) {
-	$useLocalCurrentObjectStackCache();
-	$init($Float);
+void DMarlinRenderingEngine::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	DMarlinRenderingEngine::UPPER_BND = $Float::MAX_VALUE / 2.0;
 	DMarlinRenderingEngine::LOWER_BND = -DMarlinRenderingEngine::UPPER_BND;
 	$beforeCallerSensitive();
@@ -759,54 +656,42 @@ void clinit$DMarlinRenderingEngine($Class* class$) {
 	$init($MarlinConst);
 	DMarlinRenderingEngine::MIN_PEN_SIZE = 1.0f / $MarlinConst::MIN_SUBPIXELS;
 	{
+		;
 	}
 	{
 		DMarlinRenderingEngine::USE_THREAD_LOCAL = $MarlinProperties::isUseThreadLocal();
-		$var($String, refType, $cast($String, $AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($GetPropertyAction, "sun.java2d.renderer.useRef"_s, "soft"_s)))));
+		$var($String, refType, $cast($String, $AccessController::doPrivileged($$new($GetPropertyAction, "sun.java2d.renderer.useRef"_s, "soft"_s))));
 		{
 			$var($String, s44864$, refType);
 			int32_t tmp44864$ = -1;
 			switch ($nc(s44864$)->hashCode()) {
-			case 0x0035F42A:
-				{
-					if (s44864$->equals("soft"_s)) {
-						tmp44864$ = 1;
-					}
-					break;
+			case 0x0035f42a:
+				if (s44864$->equals("soft"_s)) {
+					tmp44864$ = 1;
 				}
-			case 0x00379F78:
-				{
-					if (s44864$->equals("weak"_s)) {
-						tmp44864$ = 2;
-					}
-					break;
+				break;
+			case 0x00379f78:
+				if (s44864$->equals("weak"_s)) {
+					tmp44864$ = 2;
 				}
-			case 0x0030C0EB:
-				{
-					if (s44864$->equals("hard"_s)) {
-						tmp44864$ = 3;
-					}
-					break;
+				break;
+			case 0x0030c0eb:
+				if (s44864$->equals("hard"_s)) {
+					tmp44864$ = 3;
 				}
+				break;
 			}
 			switch (tmp44864$) {
 			default:
-				{}
 			case 1:
-				{
-					DMarlinRenderingEngine::REF_TYPE = $ReentrantContextProvider::REF_SOFT;
-					break;
-				}
+				DMarlinRenderingEngine::REF_TYPE = $ReentrantContextProvider::REF_SOFT;
+				break;
 			case 2:
-				{
-					DMarlinRenderingEngine::REF_TYPE = $ReentrantContextProvider::REF_WEAK;
-					break;
-				}
+				DMarlinRenderingEngine::REF_TYPE = $ReentrantContextProvider::REF_WEAK;
+				break;
 			case 3:
-				{
-					DMarlinRenderingEngine::REF_TYPE = $ReentrantContextProvider::REF_HARD;
-					break;
-				}
+				DMarlinRenderingEngine::REF_TYPE = $ReentrantContextProvider::REF_HARD;
+				break;
 			}
 		}
 		if (DMarlinRenderingEngine::USE_THREAD_LOCAL) {
@@ -822,7 +707,69 @@ DMarlinRenderingEngine::DMarlinRenderingEngine() {
 }
 
 $Class* DMarlinRenderingEngine::load$($String* name, bool initialize) {
-	$loadClass(DMarlinRenderingEngine, name, initialize, &_DMarlinRenderingEngine_ClassInfo_, clinit$DMarlinRenderingEngine, allocate$DMarlinRenderingEngine);
+	$FieldInfo fieldInfos$$[] = {
+		{"DISABLE_2ND_STROKER_CLIPPING", "Z", nullptr, $STATIC | $FINAL, $constField(DMarlinRenderingEngine, DISABLE_2ND_STROKER_CLIPPING)},
+		{"DO_TRACE_PATH", "Z", nullptr, $STATIC | $FINAL, $constField(DMarlinRenderingEngine, DO_TRACE_PATH)},
+		{"DO_CLIP", "Z", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, DO_CLIP)},
+		{"DO_CLIP_FILL", "Z", nullptr, $STATIC | $FINAL, $constField(DMarlinRenderingEngine, DO_CLIP_FILL)},
+		{"DO_CLIP_RUNTIME_ENABLE", "Z", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, DO_CLIP_RUNTIME_ENABLE)},
+		{"MIN_PEN_SIZE", "F", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, MIN_PEN_SIZE)},
+		{"UPPER_BND", "D", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, UPPER_BND)},
+		{"LOWER_BND", "D", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, LOWER_BND)},
+		{"USE_THREAD_LOCAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, USE_THREAD_LOCAL)},
+		{"REF_TYPE", "I", nullptr, $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, REF_TYPE)},
+		{"RDR_CTX_PROVIDER", "Lsun/java2d/ReentrantContextProvider;", "Lsun/java2d/ReentrantContextProvider<Lsun/java2d/marlin/RendererContext;>;", $PRIVATE | $STATIC | $FINAL, $staticField(DMarlinRenderingEngine, RDR_CTX_PROVIDER)},
+		{"SETTINGS_LOGGED", "Z", nullptr, $PRIVATE | $STATIC, $staticField(DMarlinRenderingEngine, SETTINGS_LOGGED)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(DMarlinRenderingEngine, init$, void)},
+		{"createStrokedShape", "(Ljava/awt/Shape;FIIF[FF)Ljava/awt/Shape;", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, createStrokedShape, $Shape*, $Shape*, float, int32_t, int32_t, float, $floats*, float)},
+		{"getAATileGenerator", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;Lsun/java2d/pipe/Region;Ljava/awt/BasicStroke;ZZ[I)Lsun/java2d/pipe/AATileGenerator;", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, getAATileGenerator, $AATileGenerator*, $Shape*, $AffineTransform*, $Region*, $BasicStroke*, bool, bool, $ints*)},
+		{"getAATileGenerator", "(DDDDDDDDLsun/java2d/pipe/Region;[I)Lsun/java2d/pipe/AATileGenerator;", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, getAATileGenerator, $AATileGenerator*, double, double, double, double, double, double, double, double, $Region*, $ints*)},
+		{"getMinimumAAPenSize", "()F", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, getMinimumAAPenSize, float)},
+		{"getRendererContext", "()Lsun/java2d/marlin/RendererContext;", nullptr, $STATIC, $staticMethod(DMarlinRenderingEngine, getRendererContext, $RendererContext*)},
+		{"logSettings", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DMarlinRenderingEngine, logSettings, void, $String*)},
+		{"nearZero", "(D)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(DMarlinRenderingEngine, nearZero, bool, double)},
+		{"pathTo", "(Lsun/java2d/marlin/RendererContext;Ljava/awt/geom/PathIterator;Lsun/java2d/marlin/DPathConsumer2D;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DMarlinRenderingEngine, pathTo, void, $RendererContext*, $PathIterator*, $DPathConsumer2D*)},
+		{"pathToLoop", "([DLjava/awt/geom/PathIterator;Lsun/java2d/marlin/DPathConsumer2D;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(DMarlinRenderingEngine, pathToLoop, void, $doubles*, $PathIterator*, $DPathConsumer2D*)},
+		{"returnRendererContext", "(Lsun/java2d/marlin/RendererContext;)V", nullptr, $STATIC, $staticMethod(DMarlinRenderingEngine, returnRendererContext, void, $RendererContext*)},
+		{"strokeTo", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;Ljava/awt/BasicStroke;ZZZLsun/awt/geom/PathConsumer2D;)V", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, strokeTo, void, $Shape*, $AffineTransform*, $BasicStroke*, bool, bool, bool, $PathConsumer2D*)},
+		{"strokeTo", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;Lsun/java2d/pipe/Region;Ljava/awt/BasicStroke;ZZZLsun/awt/geom/PathConsumer2D;)V", nullptr, $PUBLIC, $virtualMethod(DMarlinRenderingEngine, strokeTo, void, $Shape*, $AffineTransform*, $Region*, $BasicStroke*, bool, bool, bool, $PathConsumer2D*)},
+		{"strokeTo", "(Lsun/java2d/marlin/RendererContext;Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;Ljava/awt/BasicStroke;ZLsun/java2d/marlin/DMarlinRenderingEngine$NormMode;ZLsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(DMarlinRenderingEngine, strokeTo, void, $RendererContext*, $Shape*, $AffineTransform*, $BasicStroke*, bool, $DMarlinRenderingEngine$NormMode*, bool, $DPathConsumer2D*)},
+		{"strokeTo", "(Lsun/java2d/marlin/RendererContext;Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;DLsun/java2d/marlin/DMarlinRenderingEngine$NormMode;IIF[FFLsun/java2d/marlin/DPathConsumer2D;)V", nullptr, 0, $method(DMarlinRenderingEngine, strokeTo, void, $RendererContext*, $Shape*, $AffineTransform*, double, $DMarlinRenderingEngine$NormMode*, int32_t, int32_t, float, $floats*, float, $DPathConsumer2D*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"userSpaceLineWidth", "(Ljava/awt/geom/AffineTransform;D)D", nullptr, $PRIVATE, $method(DMarlinRenderingEngine, userSpaceLineWidth, double, $AffineTransform*, double)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator", "sun.java2d.marlin.DMarlinRenderingEngine", "NormalizingPathIterator", $STATIC | $ABSTRACT},
+		{"sun.java2d.marlin.DMarlinRenderingEngine$NormMode", "sun.java2d.marlin.DMarlinRenderingEngine", "NormMode", $PRIVATE | $STATIC | $ABSTRACT | $ENUM},
+		{"sun.java2d.marlin.DMarlinRenderingEngine$2", nullptr, nullptr, 0},
+		{"sun.java2d.marlin.DMarlinRenderingEngine$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"sun.java2d.marlin.DMarlinRenderingEngine",
+		"sun.java2d.pipe.RenderingEngine",
+		"sun.java2d.marlin.MarlinConst",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator,sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelQuarter,sun.java2d.marlin.DMarlinRenderingEngine$NormalizingPathIterator$NearestPixelCenter,sun.java2d.marlin.DMarlinRenderingEngine$NormMode,sun.java2d.marlin.DMarlinRenderingEngine$NormMode$3,sun.java2d.marlin.DMarlinRenderingEngine$NormMode$2,sun.java2d.marlin.DMarlinRenderingEngine$NormMode$1,sun.java2d.marlin.DMarlinRenderingEngine$2,sun.java2d.marlin.DMarlinRenderingEngine$1"
+	};
+	$loadClass(DMarlinRenderingEngine, name, initialize, &classInfo$$, DMarlinRenderingEngine::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DMarlinRenderingEngine));
+	});
 	return class$;
 }
 

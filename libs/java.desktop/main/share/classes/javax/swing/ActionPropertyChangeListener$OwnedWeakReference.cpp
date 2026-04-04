@@ -1,5 +1,4 @@
 #include <javax/swing/ActionPropertyChangeListener$OwnedWeakReference.h>
-
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
 #include <javax/swing/ActionPropertyChangeListener.h>
@@ -18,42 +17,6 @@ using $JComponent = ::javax::swing::JComponent;
 namespace javax {
 	namespace swing {
 
-$FieldInfo _ActionPropertyChangeListener$OwnedWeakReference_FieldInfo_[] = {
-	{"owner", "Ljavax/swing/ActionPropertyChangeListener;", "Ljavax/swing/ActionPropertyChangeListener<*>;", $PRIVATE, $field(ActionPropertyChangeListener$OwnedWeakReference, owner)},
-	{}
-};
-
-$MethodInfo _ActionPropertyChangeListener$OwnedWeakReference_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JComponent;Ljava/lang/ref/ReferenceQueue;Ljavax/swing/ActionPropertyChangeListener;)V", "(TU;Ljava/lang/ref/ReferenceQueue<-TU;>;Ljavax/swing/ActionPropertyChangeListener<*>;)V", 0, $method(ActionPropertyChangeListener$OwnedWeakReference, init$, void, $JComponent*, $ReferenceQueue*, $ActionPropertyChangeListener*)},
-	{"getOwner", "()Ljavax/swing/ActionPropertyChangeListener;", "()Ljavax/swing/ActionPropertyChangeListener<*>;", $PUBLIC, $virtualMethod(ActionPropertyChangeListener$OwnedWeakReference, getOwner, $ActionPropertyChangeListener*)},
-	{}
-};
-
-$InnerClassInfo _ActionPropertyChangeListener$OwnedWeakReference_InnerClassesInfo_[] = {
-	{"javax.swing.ActionPropertyChangeListener$OwnedWeakReference", "javax.swing.ActionPropertyChangeListener", "OwnedWeakReference", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _ActionPropertyChangeListener$OwnedWeakReference_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.ActionPropertyChangeListener$OwnedWeakReference",
-	"java.lang.ref.WeakReference",
-	nullptr,
-	_ActionPropertyChangeListener$OwnedWeakReference_FieldInfo_,
-	_ActionPropertyChangeListener$OwnedWeakReference_MethodInfo_,
-	"<U:Ljavax/swing/JComponent;>Ljava/lang/ref/WeakReference<TU;>;",
-	nullptr,
-	_ActionPropertyChangeListener$OwnedWeakReference_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.ActionPropertyChangeListener"
-};
-
-$Object* allocate$ActionPropertyChangeListener$OwnedWeakReference($Class* clazz) {
-	return $of($alloc(ActionPropertyChangeListener$OwnedWeakReference));
-}
-
 void ActionPropertyChangeListener$OwnedWeakReference::init$($JComponent* target, $ReferenceQueue* queue, $ActionPropertyChangeListener* owner) {
 	$WeakReference::init$(target, queue);
 	$set(this, owner, owner);
@@ -67,7 +30,37 @@ ActionPropertyChangeListener$OwnedWeakReference::ActionPropertyChangeListener$Ow
 }
 
 $Class* ActionPropertyChangeListener$OwnedWeakReference::load$($String* name, bool initialize) {
-	$loadClass(ActionPropertyChangeListener$OwnedWeakReference, name, initialize, &_ActionPropertyChangeListener$OwnedWeakReference_ClassInfo_, allocate$ActionPropertyChangeListener$OwnedWeakReference);
+	$FieldInfo fieldInfos$$[] = {
+		{"owner", "Ljavax/swing/ActionPropertyChangeListener;", "Ljavax/swing/ActionPropertyChangeListener<*>;", $PRIVATE, $field(ActionPropertyChangeListener$OwnedWeakReference, owner)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JComponent;Ljava/lang/ref/ReferenceQueue;Ljavax/swing/ActionPropertyChangeListener;)V", "(TU;Ljava/lang/ref/ReferenceQueue<-TU;>;Ljavax/swing/ActionPropertyChangeListener<*>;)V", 0, $method(ActionPropertyChangeListener$OwnedWeakReference, init$, void, $JComponent*, $ReferenceQueue*, $ActionPropertyChangeListener*)},
+		{"getOwner", "()Ljavax/swing/ActionPropertyChangeListener;", "()Ljavax/swing/ActionPropertyChangeListener<*>;", $PUBLIC, $virtualMethod(ActionPropertyChangeListener$OwnedWeakReference, getOwner, $ActionPropertyChangeListener*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.ActionPropertyChangeListener$OwnedWeakReference", "javax.swing.ActionPropertyChangeListener", "OwnedWeakReference", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.ActionPropertyChangeListener$OwnedWeakReference",
+		"java.lang.ref.WeakReference",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"<U:Ljavax/swing/JComponent;>Ljava/lang/ref/WeakReference<TU;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.ActionPropertyChangeListener"
+	};
+	$loadClass(ActionPropertyChangeListener$OwnedWeakReference, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ActionPropertyChangeListener$OwnedWeakReference);
+	});
 	return class$;
 }
 

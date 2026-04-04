@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/LocaleNames_xh.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,43 +13,24 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _LocaleNames_xh_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_xh, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_xh, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _LocaleNames_xh_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.LocaleNames_xh",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_LocaleNames_xh_MethodInfo_
-};
-
-$Object* allocate$LocaleNames_xh($Class* clazz) {
-	return $of($alloc(LocaleNames_xh));
-}
-
 void LocaleNames_xh::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* LocaleNames_xh::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("MK"_s),
-			$of("uMntla Macedonia"_s)
+			"MK"_s,
+			"uMntla Macedonia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ZA"_s),
-			$of("eMzantsi Afrika"_s)
+			"ZA"_s,
+			"eMzantsi Afrika"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xh"_s),
-			$of("isiXhosa"_s)
+			"xh"_s,
+			"isiXhosa"_s
 		})
 	}));
 	return data;
@@ -60,7 +40,22 @@ LocaleNames_xh::LocaleNames_xh() {
 }
 
 $Class* LocaleNames_xh::load$($String* name, bool initialize) {
-	$loadClass(LocaleNames_xh, name, initialize, &_LocaleNames_xh_ClassInfo_, allocate$LocaleNames_xh);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(LocaleNames_xh, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(LocaleNames_xh, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.LocaleNames_xh",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(LocaleNames_xh, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(LocaleNames_xh);
+	});
 	return class$;
 }
 

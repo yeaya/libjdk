@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate$Monitor.h>
-
 #include <java/lang/InterruptedException.h>
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
@@ -14,7 +13,6 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate.h>
 #include <jcpp.h>
 
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -27,7 +25,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
-using $List = ::java::util::List;
 using $SSLFlowDelegate$Monitor$FinalMonitorable = ::jdk::internal::net::http::common::SSLFlowDelegate$Monitor$FinalMonitorable;
 using $SSLFlowDelegate$Monitorable = ::jdk::internal::net::http::common::SSLFlowDelegate$Monitorable;
 
@@ -36,50 +33,6 @@ namespace jdk {
 		namespace net {
 			namespace http {
 				namespace common {
-
-$FieldInfo _SSLFlowDelegate$Monitor_FieldInfo_[] = {
-	{"list", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/ref/WeakReference<Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;>;>;", $FINAL, $field(SSLFlowDelegate$Monitor, list)},
-	{"finalList", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/net/http/common/SSLFlowDelegate$Monitor$FinalMonitorable;>;", $FINAL, $field(SSLFlowDelegate$Monitor, finalList)},
-	{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;>;", $FINAL, $field(SSLFlowDelegate$Monitor, queue)},
-	{"themon", "Ljdk/internal/net/http/common/SSLFlowDelegate$Monitor;", nullptr, $STATIC, $staticField(SSLFlowDelegate$Monitor, themon)},
-	{}
-};
-
-$MethodInfo _SSLFlowDelegate$Monitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(SSLFlowDelegate$Monitor, init$, void)},
-	{"add", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLFlowDelegate$Monitor, add, void, $SSLFlowDelegate$Monitorable*)},
-	{"addTarget", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Monitor, addTarget, void, $SSLFlowDelegate$Monitorable*)},
-	{"remove", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLFlowDelegate$Monitor, remove, void, $SSLFlowDelegate$Monitorable*)},
-	{"removeTarget", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Monitor, removeTarget, void, $SSLFlowDelegate$Monitorable*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Monitor, run, void)},
-	{}
-};
-
-$InnerClassInfo _SSLFlowDelegate$Monitor_InnerClassesInfo_[] = {
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Monitor", "jdk.internal.net.http.common.SSLFlowDelegate", "Monitor", $PUBLIC | $STATIC},
-	{"jdk.internal.net.http.common.SSLFlowDelegate$Monitor$FinalMonitorable", "jdk.internal.net.http.common.SSLFlowDelegate$Monitor", "FinalMonitorable", $FINAL},
-	{}
-};
-
-$ClassInfo _SSLFlowDelegate$Monitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"jdk.internal.net.http.common.SSLFlowDelegate$Monitor",
-	"java.lang.Thread",
-	nullptr,
-	_SSLFlowDelegate$Monitor_FieldInfo_,
-	_SSLFlowDelegate$Monitor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLFlowDelegate$Monitor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"jdk.internal.net.http.common.SSLFlowDelegate"
-};
-
-$Object* allocate$SSLFlowDelegate$Monitor($Class* clazz) {
-	return $of($alloc(SSLFlowDelegate$Monitor));
-}
 
 SSLFlowDelegate$Monitor* SSLFlowDelegate$Monitor::themon = nullptr;
 
@@ -96,11 +49,11 @@ void SSLFlowDelegate$Monitor::addTarget($SSLFlowDelegate$Monitorable* o) {
 }
 
 void SSLFlowDelegate$Monitor::removeTarget($SSLFlowDelegate$Monitorable* o) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$synchronized(this->list) {
-		$var($Iterator, it, $nc(this->list)->iterator());
+		$var($Iterator, it, this->list->iterator());
 		while ($nc(it)->hasNext()) {
-			$var($SSLFlowDelegate$Monitorable, m, $cast($SSLFlowDelegate$Monitorable, $nc(($cast($WeakReference, $(it->next()))))->get()));
+			$var($SSLFlowDelegate$Monitorable, m, $cast($SSLFlowDelegate$Monitorable, $$sure($WeakReference, it->next())->get()));
 			if (m == nullptr) {
 				it->remove();
 			}
@@ -126,18 +79,18 @@ void SSLFlowDelegate$Monitor::remove($SSLFlowDelegate$Monitorable* o) {
 }
 
 void SSLFlowDelegate$Monitor::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$nc($System::out)->println("Monitor starting"_s);
 	try {
 		while (true) {
 			$Thread::sleep(20 * 1000);
 			$synchronized(this->list) {
 				$var($Reference, expired, nullptr);
-				while (($assign(expired, $nc(this->queue)->poll())) != nullptr) {
-					$nc(this->list)->remove($of(expired));
+				while (($assign(expired, this->queue->poll())) != nullptr) {
+					this->list->remove(expired);
 				}
 				{
-					$var($Iterator, i$, $nc(this->list)->iterator());
+					$var($Iterator, i$, this->list->iterator());
 					for (; $nc(i$)->hasNext();) {
 						$var($WeakReference, ref, $cast($WeakReference, i$->next()));
 						{
@@ -148,23 +101,23 @@ void SSLFlowDelegate$Monitor::run() {
 							if ($instanceOf($SSLFlowDelegate$Monitor$FinalMonitorable, o)) {
 								ref->enqueue();
 							}
-							$nc($System::out)->println($($nc(o)->getInfo()));
-							$nc($System::out)->println("-------------------------"_s);
+							$System::out->println($($nc(o)->getInfo()));
+							$System::out->println("-------------------------"_s);
 						}
 					}
 				}
 			}
-			$nc($System::out)->println("--o-o-o-o-o-o-o-o-o-o-o-o-o-o-"_s);
+			$System::out->println("--o-o-o-o-o-o-o-o-o-o-o-o-o-o-"_s);
 		}
 	} catch ($InterruptedException& e) {
-		$nc($System::out)->println($$str({"Monitor exiting with "_s, e}));
+		$System::out->println($$str({"Monitor exiting with "_s, e}));
 	}
 }
 
-void clinit$SSLFlowDelegate$Monitor($Class* class$) {
+void SSLFlowDelegate$Monitor::clinit$($Class* clazz) {
 	{
 		$assignStatic(SSLFlowDelegate$Monitor::themon, $new(SSLFlowDelegate$Monitor));
-		$nc(SSLFlowDelegate$Monitor::themon)->start();
+		SSLFlowDelegate$Monitor::themon->start();
 	}
 }
 
@@ -172,7 +125,45 @@ SSLFlowDelegate$Monitor::SSLFlowDelegate$Monitor() {
 }
 
 $Class* SSLFlowDelegate$Monitor::load$($String* name, bool initialize) {
-	$loadClass(SSLFlowDelegate$Monitor, name, initialize, &_SSLFlowDelegate$Monitor_ClassInfo_, clinit$SSLFlowDelegate$Monitor, allocate$SSLFlowDelegate$Monitor);
+	$FieldInfo fieldInfos$$[] = {
+		{"list", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/ref/WeakReference<Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;>;>;", $FINAL, $field(SSLFlowDelegate$Monitor, list)},
+		{"finalList", "Ljava/util/List;", "Ljava/util/List<Ljdk/internal/net/http/common/SSLFlowDelegate$Monitor$FinalMonitorable;>;", $FINAL, $field(SSLFlowDelegate$Monitor, finalList)},
+		{"queue", "Ljava/lang/ref/ReferenceQueue;", "Ljava/lang/ref/ReferenceQueue<Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;>;", $FINAL, $field(SSLFlowDelegate$Monitor, queue)},
+		{"themon", "Ljdk/internal/net/http/common/SSLFlowDelegate$Monitor;", nullptr, $STATIC, $staticField(SSLFlowDelegate$Monitor, themon)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(SSLFlowDelegate$Monitor, init$, void)},
+		{"add", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLFlowDelegate$Monitor, add, void, $SSLFlowDelegate$Monitorable*)},
+		{"addTarget", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Monitor, addTarget, void, $SSLFlowDelegate$Monitorable*)},
+		{"remove", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(SSLFlowDelegate$Monitor, remove, void, $SSLFlowDelegate$Monitorable*)},
+		{"removeTarget", "(Ljdk/internal/net/http/common/SSLFlowDelegate$Monitorable;)V", nullptr, 0, $virtualMethod(SSLFlowDelegate$Monitor, removeTarget, void, $SSLFlowDelegate$Monitorable*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(SSLFlowDelegate$Monitor, run, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Monitor", "jdk.internal.net.http.common.SSLFlowDelegate", "Monitor", $PUBLIC | $STATIC},
+		{"jdk.internal.net.http.common.SSLFlowDelegate$Monitor$FinalMonitorable", "jdk.internal.net.http.common.SSLFlowDelegate$Monitor", "FinalMonitorable", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"jdk.internal.net.http.common.SSLFlowDelegate$Monitor",
+		"java.lang.Thread",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"jdk.internal.net.http.common.SSLFlowDelegate"
+	};
+	$loadClass(SSLFlowDelegate$Monitor, name, initialize, &classInfo$$, SSLFlowDelegate$Monitor::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLFlowDelegate$Monitor);
+	});
 	return class$;
 }
 

@@ -15,6 +15,7 @@ class JNIWriter$1 : public ::java::lang::Object {
 	$class(JNIWriter$1, 0, ::java::lang::Object)
 public:
 	JNIWriter$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$tools$javac$jvm$JNIWriter$EncoderType;
 	static $ints* $SwitchMap$javax$lang$model$type$TypeKind;
 };

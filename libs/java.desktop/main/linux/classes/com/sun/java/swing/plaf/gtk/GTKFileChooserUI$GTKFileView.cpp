@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI$GTKFileView.h>
-
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/io/File.h>
 #include <java/util/Hashtable.h>
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $BasicFileChooserUI$BasicFileView = ::javax::swing::plaf::basic::BasicFileChooserUI$BasicFileView;
 
 namespace com {
@@ -24,46 +22,6 @@ namespace com {
 			namespace swing {
 				namespace plaf {
 					namespace gtk {
-
-$FieldInfo _GTKFileChooserUI$GTKFileView_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$GTKFileView, this$0)},
-	{}
-};
-
-$MethodInfo _GTKFileChooserUI$GTKFileView_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI$GTKFileView, init$, void, $GTKFileChooserUI*)},
-	{"cacheIcon", "(Ljava/io/File;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileView, cacheIcon, void, $File*, $Icon*)},
-	{"clearIconCache", "()V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileView, clearIconCache, void)},
-	{"getCachedIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileView, getCachedIcon, $Icon*, $File*)},
-	{"getIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileView, getIcon, $Icon*, $File*)},
-	{}
-};
-
-$InnerClassInfo _GTKFileChooserUI$GTKFileView_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileView", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFileView", $PRIVATE},
-	{"javax.swing.plaf.basic.BasicFileChooserUI$BasicFileView", "javax.swing.plaf.basic.BasicFileChooserUI", "BasicFileView", $PROTECTED},
-	{}
-};
-
-$ClassInfo _GTKFileChooserUI$GTKFileView_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileView",
-	"javax.swing.plaf.basic.BasicFileChooserUI$BasicFileView",
-	nullptr,
-	_GTKFileChooserUI$GTKFileView_FieldInfo_,
-	_GTKFileChooserUI$GTKFileView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_GTKFileChooserUI$GTKFileView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
-};
-
-$Object* allocate$GTKFileChooserUI$GTKFileView($Class* clazz) {
-	return $of($alloc(GTKFileChooserUI$GTKFileView));
-}
 
 void GTKFileChooserUI$GTKFileView::init$($GTKFileChooserUI* this$0) {
 	$set(this, this$0, this$0);
@@ -89,7 +47,41 @@ GTKFileChooserUI$GTKFileView::GTKFileChooserUI$GTKFileView() {
 }
 
 $Class* GTKFileChooserUI$GTKFileView::load$($String* name, bool initialize) {
-	$loadClass(GTKFileChooserUI$GTKFileView, name, initialize, &_GTKFileChooserUI$GTKFileView_ClassInfo_, allocate$GTKFileChooserUI$GTKFileView);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;", nullptr, $FINAL | $SYNTHETIC, $field(GTKFileChooserUI$GTKFileView, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/java/swing/plaf/gtk/GTKFileChooserUI;)V", nullptr, $PUBLIC, $method(GTKFileChooserUI$GTKFileView, init$, void, $GTKFileChooserUI*)},
+		{"cacheIcon", "(Ljava/io/File;Ljavax/swing/Icon;)V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileView, cacheIcon, void, $File*, $Icon*)},
+		{"clearIconCache", "()V", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileView, clearIconCache, void)},
+		{"getCachedIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileView, getCachedIcon, $Icon*, $File*)},
+		{"getIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(GTKFileChooserUI$GTKFileView, getIcon, $Icon*, $File*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileView", "com.sun.java.swing.plaf.gtk.GTKFileChooserUI", "GTKFileView", $PRIVATE},
+		{"javax.swing.plaf.basic.BasicFileChooserUI$BasicFileView", "javax.swing.plaf.basic.BasicFileChooserUI", "BasicFileView", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI$GTKFileView",
+		"javax.swing.plaf.basic.BasicFileChooserUI$BasicFileView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.gtk.GTKFileChooserUI"
+	};
+	$loadClass(GTKFileChooserUI$GTKFileView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(GTKFileChooserUI$GTKFileView);
+	});
 	return class$;
 }
 

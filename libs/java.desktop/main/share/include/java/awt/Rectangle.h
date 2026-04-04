@@ -36,6 +36,7 @@ public:
 	virtual $Object* clone() override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::java::awt::Rectangle* r);
 	void init$(int32_t x, int32_t y, int32_t width, int32_t height);
@@ -89,7 +90,7 @@ public:
 	int32_t y = 0;
 	int32_t width = 0;
 	int32_t height = 0;
-	static const int64_t serialVersionUID = (int64_t)0xC3B06A051ACA6A74;
+	static const int64_t serialVersionUID = (int64_t)0xc3b06a051aca6a74;
 };
 
 	} // awt

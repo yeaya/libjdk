@@ -1,5 +1,4 @@
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
-
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$State.h>
 #include <com/sun/java/swing/plaf/windows/WindowsGraphicsUtils.h>
@@ -17,7 +16,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/AssertionError.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
@@ -49,17 +47,14 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
@@ -79,56 +74,6 @@ namespace com {
 				namespace plaf {
 					namespace windows {
 
-$FieldInfo _WindowsMenuItemUI_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsMenuItemUI, $assertionsDisabled)},
-	{"changeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(WindowsMenuItemUI, changeListener)},
-	{"accessor", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;", nullptr, $FINAL, $field(WindowsMenuItemUI, accessor)},
-	{}
-};
-
-$MethodInfo _WindowsMenuItemUI_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsMenuItemUI, init$, void)},
-	{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsMenuItemUI, access$000, $JMenuItem*, WindowsMenuItemUI*)},
-	{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
-	{"getPart", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, getPart, $TMSchema$Part*, $WindowsMenuItemUIAccessor*, $JMenuItem*)},
-	{"getState", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, getState, $TMSchema$State*, $WindowsMenuItemUIAccessor*, $JMenuItem*)},
-	{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuItemUI, installListeners, void)},
-	{"isVistaPainting", "(Lcom/sun/java/swing/plaf/windows/XPStyle;)Z", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, isVistaPainting, bool, $XPStyle*)},
-	{"isVistaPainting", "()Z", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, isVistaPainting, bool)},
-	{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuItemUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
-	{"paintBackground", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, paintBackground, void, $WindowsMenuItemUIAccessor*, $Graphics*, $JMenuItem*, $Color*)},
-	{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuItemUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
-	{"paintText", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, paintText, void, $WindowsMenuItemUIAccessor*, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
-	{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuItemUI, uninstallListeners, void)},
-	{"updateCheckIcon", "()V", nullptr, $PRIVATE, $method(WindowsMenuItemUI, updateCheckIcon, void)},
-	{}
-};
-
-$InnerClassInfo _WindowsMenuItemUI_InnerClassesInfo_[] = {
-	{"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$2", nullptr, nullptr, 0},
-	{"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _WindowsMenuItemUI_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.java.swing.plaf.windows.WindowsMenuItemUI",
-	"javax.swing.plaf.basic.BasicMenuItemUI",
-	nullptr,
-	_WindowsMenuItemUI_FieldInfo_,
-	_WindowsMenuItemUI_MethodInfo_,
-	nullptr,
-	nullptr,
-	_WindowsMenuItemUI_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$2,com.sun.java.swing.plaf.windows.WindowsMenuItemUI$1"
-};
-
-$Object* allocate$WindowsMenuItemUI($Class* clazz) {
-	return $of($alloc(WindowsMenuItemUI));
-}
-
 bool WindowsMenuItemUI::$assertionsDisabled = false;
 
 $JMenuItem* WindowsMenuItemUI::access$000(WindowsMenuItemUI* x0) {
@@ -147,11 +92,11 @@ $ComponentUI* WindowsMenuItemUI::createUI($JComponent* c) {
 }
 
 void WindowsMenuItemUI::updateCheckIcon() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, prefix, getPropertyPrefix());
 	if (this->checkIcon == nullptr || $instanceOf($UIResource, this->checkIcon)) {
 		$set(this, checkIcon, $UIManager::getIcon($$str({prefix, ".checkIcon"_s})));
-		bool isColumnLayout = $MenuItemLayoutHelper::isColumnLayout($nc($($nc(this->menuItem)->getComponentOrientation()))->isLeftToRight(), this->menuItem);
+		bool isColumnLayout = $MenuItemLayoutHelper::isColumnLayout($$nc($nc(this->menuItem)->getComponentOrientation())->isLeftToRight(), this->menuItem);
 		if (isColumnLayout) {
 			$var($MenuItemCheckIconFactory, iconFactory, $cast($MenuItemCheckIconFactory, $UIManager::get($$str({prefix, ".checkIconFactory"_s}))));
 			bool var$0 = iconFactory != nullptr && $MenuItemLayoutHelper::useCheckAndArrow(this->menuItem);
@@ -177,7 +122,7 @@ void WindowsMenuItemUI::uninstallListeners() {
 }
 
 void WindowsMenuItemUI::paintText($Graphics* g, $JMenuItem* menuItem, $Rectangle* textRect, $String* text) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (WindowsMenuItemUI::isVistaPainting()) {
 		WindowsMenuItemUI::paintText(this->accessor, g, menuItem, textRect, text);
 		return;
@@ -187,7 +132,7 @@ void WindowsMenuItemUI::paintText($Graphics* g, $JMenuItem* menuItem, $Rectangle
 	bool var$0 = $nc(model)->isEnabled();
 	if (var$0) {
 		bool var$1 = model->isArmed();
-		var$0 = (var$1 || ($instanceOf($JMenu, menuItem) && model->isSelected()));
+		var$0 = var$1 || ($instanceOf($JMenu, menuItem) && model->isSelected());
 	}
 	if (var$0) {
 		g->setColor(this->selectionForeground);
@@ -206,7 +151,7 @@ void WindowsMenuItemUI::paintBackground($Graphics* g, $JMenuItem* menuItem, $Col
 
 void WindowsMenuItemUI::paintBackground($WindowsMenuItemUIAccessor* menuItemUI, $Graphics* g, $JMenuItem* menuItem, $Color* bgColor) {
 	$init(WindowsMenuItemUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XPStyle, xp, $XPStyle::getXP());
 	if (!WindowsMenuItemUI::$assertionsDisabled && !isVistaPainting(xp)) {
 		$throwNew($AssertionError);
@@ -228,23 +173,20 @@ void WindowsMenuItemUI::paintBackground($WindowsMenuItemUIAccessor* menuItemUI, 
 
 void WindowsMenuItemUI::paintText($WindowsMenuItemUIAccessor* menuItemUI, $Graphics* g, $JMenuItem* menuItem, $Rectangle* textRect, $String* text) {
 	$init(WindowsMenuItemUI);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!WindowsMenuItemUI::$assertionsDisabled && !isVistaPainting()) {
 		$throwNew($AssertionError);
 	}
 	if (isVistaPainting()) {
 		$TMSchema$State* state = $nc(menuItemUI)->getState(menuItem);
-		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(static_cast<$JComponent*>(menuItem), g));
+		$var($FontMetrics, fm, $SwingUtilities2::getFontMetrics(menuItem, g));
 		int32_t mnemIndex = $nc(menuItem)->getDisplayedMnemonicIndex();
 		if ($WindowsLookAndFeel::isMnemonicHidden() == true) {
 			mnemIndex = -1;
 		}
-		$var($AbstractButton, var$0, static_cast<$AbstractButton*>(menuItem));
-		$var($TMSchema$Part, var$1, menuItemUI->getPart(menuItem));
-		$var($TMSchema$State, var$2, state);
-		$var($Graphics, var$3, g);
-		int32_t var$4 = $nc(textRect)->x;
-		$WindowsGraphicsUtils::paintXPText(var$0, var$1, var$2, var$3, var$4, textRect->y + $nc(fm)->getAscent(), text, mnemIndex);
+		$var($TMSchema$Part, var$0, menuItemUI->getPart(menuItem));
+		int32_t var$1 = $nc(textRect)->x;
+		$WindowsGraphicsUtils::paintXPText(menuItem, var$0, state, g, var$1, textRect->y + $nc(fm)->getAscent(), text, mnemIndex);
 	}
 }
 
@@ -279,7 +221,7 @@ bool WindowsMenuItemUI::isVistaPainting() {
 	return isVistaPainting($($XPStyle::getXP()));
 }
 
-void clinit$WindowsMenuItemUI($Class* class$) {
+void WindowsMenuItemUI::clinit$($Class* clazz) {
 	WindowsMenuItemUI::$assertionsDisabled = !WindowsMenuItemUI::class$->desiredAssertionStatus();
 }
 
@@ -287,7 +229,51 @@ WindowsMenuItemUI::WindowsMenuItemUI() {
 }
 
 $Class* WindowsMenuItemUI::load$($String* name, bool initialize) {
-	$loadClass(WindowsMenuItemUI, name, initialize, &_WindowsMenuItemUI_ClassInfo_, clinit$WindowsMenuItemUI, allocate$WindowsMenuItemUI);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(WindowsMenuItemUI, $assertionsDisabled)},
+		{"changeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE, $field(WindowsMenuItemUI, changeListener)},
+		{"accessor", "Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;", nullptr, $FINAL, $field(WindowsMenuItemUI, accessor)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(WindowsMenuItemUI, init$, void)},
+		{"access$000", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUI;)Ljavax/swing/JMenuItem;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(WindowsMenuItemUI, access$000, $JMenuItem*, WindowsMenuItemUI*)},
+		{"createUI", "(Ljavax/swing/JComponent;)Ljavax/swing/plaf/ComponentUI;", nullptr, $PUBLIC | $STATIC, $staticMethod(WindowsMenuItemUI, createUI, $ComponentUI*, $JComponent*)},
+		{"getPart", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$Part;", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, getPart, $TMSchema$Part*, $WindowsMenuItemUIAccessor*, $JMenuItem*)},
+		{"getState", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;Ljavax/swing/JMenuItem;)Lcom/sun/java/swing/plaf/windows/TMSchema$State;", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, getState, $TMSchema$State*, $WindowsMenuItemUIAccessor*, $JMenuItem*)},
+		{"installListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuItemUI, installListeners, void)},
+		{"isVistaPainting", "(Lcom/sun/java/swing/plaf/windows/XPStyle;)Z", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, isVistaPainting, bool, $XPStyle*)},
+		{"isVistaPainting", "()Z", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, isVistaPainting, bool)},
+		{"paintBackground", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuItemUI, paintBackground, void, $Graphics*, $JMenuItem*, $Color*)},
+		{"paintBackground", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Color;)V", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, paintBackground, void, $WindowsMenuItemUIAccessor*, $Graphics*, $JMenuItem*, $Color*)},
+		{"paintText", "(Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuItemUI, paintText, void, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
+		{"paintText", "(Lcom/sun/java/swing/plaf/windows/WindowsMenuItemUIAccessor;Ljava/awt/Graphics;Ljavax/swing/JMenuItem;Ljava/awt/Rectangle;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(WindowsMenuItemUI, paintText, void, $WindowsMenuItemUIAccessor*, $Graphics*, $JMenuItem*, $Rectangle*, $String*)},
+		{"uninstallListeners", "()V", nullptr, $PROTECTED, $virtualMethod(WindowsMenuItemUI, uninstallListeners, void)},
+		{"updateCheckIcon", "()V", nullptr, $PRIVATE, $method(WindowsMenuItemUI, updateCheckIcon, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$2", nullptr, nullptr, 0},
+		{"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.java.swing.plaf.windows.WindowsMenuItemUI",
+		"javax.swing.plaf.basic.BasicMenuItemUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.java.swing.plaf.windows.WindowsMenuItemUI$2,com.sun.java.swing.plaf.windows.WindowsMenuItemUI$1"
+	};
+	$loadClass(WindowsMenuItemUI, name, initialize, &classInfo$$, WindowsMenuItemUI::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(WindowsMenuItemUI);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/java2d/d3d/D3DTextureToSurfaceScale.h>
-
 #include <java/awt/Composite.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/AffineTransformOp.h>
@@ -34,25 +33,6 @@ namespace sun {
 	namespace java2d {
 		namespace d3d {
 
-$MethodInfo _D3DTextureToSurfaceScale_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(D3DTextureToSurfaceScale, init$, void)},
-	{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DTextureToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
-	{}
-};
-
-$ClassInfo _D3DTextureToSurfaceScale_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.java2d.d3d.D3DTextureToSurfaceScale",
-	"sun.java2d.loops.ScaledBlit",
-	nullptr,
-	nullptr,
-	_D3DTextureToSurfaceScale_MethodInfo_
-};
-
-$Object* allocate$D3DTextureToSurfaceScale($Class* clazz) {
-	return $of($alloc(D3DTextureToSurfaceScale));
-}
-
 void D3DTextureToSurfaceScale::init$() {
 	$init($D3DSurfaceData);
 	$init($CompositeType);
@@ -67,7 +47,22 @@ D3DTextureToSurfaceScale::D3DTextureToSurfaceScale() {
 }
 
 $Class* D3DTextureToSurfaceScale::load$($String* name, bool initialize) {
-	$loadClass(D3DTextureToSurfaceScale, name, initialize, &_D3DTextureToSurfaceScale_ClassInfo_, allocate$D3DTextureToSurfaceScale);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(D3DTextureToSurfaceScale, init$, void)},
+		{"Scale", "(Lsun/java2d/SurfaceData;Lsun/java2d/SurfaceData;Ljava/awt/Composite;Lsun/java2d/pipe/Region;IIIIDDDD)V", nullptr, $PUBLIC, $virtualMethod(D3DTextureToSurfaceScale, Scale, void, $SurfaceData*, $SurfaceData*, $Composite*, $Region*, int32_t, int32_t, int32_t, int32_t, double, double, double, double)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.java2d.d3d.D3DTextureToSurfaceScale",
+		"sun.java2d.loops.ScaledBlit",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(D3DTextureToSurfaceScale, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(D3DTextureToSurfaceScale);
+	});
 	return class$;
 }
 

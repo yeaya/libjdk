@@ -45,6 +45,7 @@ public:
 	CPrinterDialogPeer();
 	using ::sun::lwawt::LWWindowPeer::getOnscreenGraphics;
 	using ::sun::lwawt::LWWindowPeer::handleEvent;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::sun::lwawt::macosx::CPrinterDialog* target, ::sun::lwawt::PlatformComponent* platformComponent, ::sun::lwawt::PlatformWindow* platformWindow);
 	virtual void addDropTarget(::java::awt::dnd::DropTarget* dt) override;
 	virtual void disposeImpl() override;

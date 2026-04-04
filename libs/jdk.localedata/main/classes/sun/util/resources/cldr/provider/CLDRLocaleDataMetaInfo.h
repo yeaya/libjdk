@@ -30,6 +30,7 @@ class CLDRLocaleDataMetaInfo : public ::sun::util::locale::provider::LocaleDataM
 	$class(CLDRLocaleDataMetaInfo, 0, ::sun::util::locale::provider::LocaleDataMetaInfo)
 public:
 	CLDRLocaleDataMetaInfo();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* availableLanguageTags($String* category) override;
 	virtual ::sun::util::locale::provider::LocaleProviderAdapter$Type* getType() override;

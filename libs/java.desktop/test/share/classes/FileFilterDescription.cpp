@@ -1,5 +1,4 @@
 #include <FileFilterDescription.h>
-
 #include <FileFilterDescription$CustomFileFilter.h>
 #include <java/applet/Applet.h>
 #include <java/awt/Component.h>
@@ -18,7 +17,6 @@
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-#include <javax/swing/filechooser/FileFilter.h>
 #include <jcpp.h>
 
 using $FileFilterDescription$CustomFileFilter = ::FileFilterDescription$CustomFileFilter;
@@ -42,7 +40,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $FileFilter = ::javax::swing::filechooser::FileFilter;
 
 class FileFilterDescription$$Lambda$lambda$test$0 : public $Runnable {
 	$class(FileFilterDescription$$Lambda$lambda$test$0, $NO_CLASS_INIT, $Runnable)
@@ -53,70 +50,32 @@ public:
 	virtual void run() override {
 		FileFilterDescription::lambda$test$0(info);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileFilterDescription$$Lambda$lambda$test$0>());
-	}
 	$UIManager$LookAndFeelInfo* info = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo FileFilterDescription$$Lambda$lambda$test$0::fieldInfos[2] = {
-	{"info", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(FileFilterDescription$$Lambda$lambda$test$0, info)},
-	{}
-};
-$MethodInfo FileFilterDescription$$Lambda$lambda$test$0::methodInfos[3] = {
-	{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(FileFilterDescription$$Lambda$lambda$test$0, init$, void, $UIManager$LookAndFeelInfo*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileFilterDescription$$Lambda$lambda$test$0, run, void)},
-	{}
-};
-$ClassInfo FileFilterDescription$$Lambda$lambda$test$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"FileFilterDescription$$Lambda$lambda$test$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* FileFilterDescription$$Lambda$lambda$test$0::load$($String* name, bool initialize) {
-	$loadClass(FileFilterDescription$$Lambda$lambda$test$0, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"info", "Ljavax/swing/UIManager$LookAndFeelInfo;", nullptr, $PUBLIC, $field(FileFilterDescription$$Lambda$lambda$test$0, info)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PUBLIC, $method(FileFilterDescription$$Lambda$lambda$test$0, init$, void, $UIManager$LookAndFeelInfo*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileFilterDescription$$Lambda$lambda$test$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"FileFilterDescription$$Lambda$lambda$test$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileFilterDescription$$Lambda$lambda$test$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileFilterDescription$$Lambda$lambda$test$0);
+	});
 	return class$;
 }
 $Class* FileFilterDescription$$Lambda$lambda$test$0::class$ = nullptr;
-
-$MethodInfo _FileFilterDescription_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileFilterDescription, init$, void)},
-	{"init", "()V", nullptr, $PUBLIC, $virtualMethod(FileFilterDescription, init, void)},
-	{"lambda$test$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileFilterDescription, lambda$test$0, void, $UIManager$LookAndFeelInfo*)},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileFilterDescription, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{"start", "()V", nullptr, $PUBLIC, $virtualMethod(FileFilterDescription, start, void)},
-	{"test", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileFilterDescription, test, void), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _FileFilterDescription_InnerClassesInfo_[] = {
-	{"FileFilterDescription$CustomFileFilter", "FileFilterDescription", "CustomFileFilter", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _FileFilterDescription_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"FileFilterDescription",
-	"java.applet.Applet",
-	nullptr,
-	nullptr,
-	_FileFilterDescription_MethodInfo_,
-	nullptr,
-	nullptr,
-	_FileFilterDescription_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"FileFilterDescription$CustomFileFilter"
-};
-
-$Object* allocate$FileFilterDescription($Class* clazz) {
-	return $of($alloc(FileFilterDescription));
-}
 
 void FileFilterDescription::init$() {
 	$Applet::init$();
@@ -129,22 +88,20 @@ void FileFilterDescription::start() {
 	try {
 		test();
 	} catch ($Exception& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void FileFilterDescription::test() {
 	$init(FileFilterDescription);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($UIManager$LookAndFeelInfoArray, infos, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, infos);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, info, arr$->get(i$));
 			{
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(FileFilterDescription$$Lambda$lambda$test$0, info)));
+				$SwingUtilities::invokeAndWait($$new(FileFilterDescription$$Lambda$lambda$test$0, info));
 			}
 		}
 	}
@@ -155,19 +112,19 @@ void FileFilterDescription::setLookAndFeel($UIManager$LookAndFeelInfo* info) {
 	try {
 		$UIManager::setLookAndFeel($($nc(info)->getClassName()));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($UnsupportedLookAndFeelException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void FileFilterDescription::lambda$test$0($UIManager$LookAndFeelInfo* info) {
 	$init(FileFilterDescription);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, $new($JFileChooser));
 	setLookAndFeel(info);
 	chooser->setAcceptAllFileFilterUsed(false);
@@ -181,11 +138,40 @@ FileFilterDescription::FileFilterDescription() {
 
 $Class* FileFilterDescription::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FileFilterDescription$$Lambda$lambda$test$0::classInfo$.name)) {
+		if (name->equals("FileFilterDescription$$Lambda$lambda$test$0")) {
 			return FileFilterDescription$$Lambda$lambda$test$0::load$(name, initialize);
 		}
 	}
-	$loadClass(FileFilterDescription, name, initialize, &_FileFilterDescription_ClassInfo_, allocate$FileFilterDescription);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileFilterDescription, init$, void)},
+		{"init", "()V", nullptr, $PUBLIC, $virtualMethod(FileFilterDescription, init, void)},
+		{"lambda$test$0", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileFilterDescription, lambda$test$0, void, $UIManager$LookAndFeelInfo*)},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileFilterDescription, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{"start", "()V", nullptr, $PUBLIC, $virtualMethod(FileFilterDescription, start, void)},
+		{"test", "()V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileFilterDescription, test, void), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"FileFilterDescription$CustomFileFilter", "FileFilterDescription", "CustomFileFilter", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"FileFilterDescription",
+		"java.applet.Applet",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"FileFilterDescription$CustomFileFilter"
+	};
+	$loadClass(FileFilterDescription, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileFilterDescription));
+	});
 	return class$;
 }
 

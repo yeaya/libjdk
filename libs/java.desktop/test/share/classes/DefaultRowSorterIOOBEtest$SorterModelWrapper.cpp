@@ -1,5 +1,4 @@
 #include <DefaultRowSorterIOOBEtest$SorterModelWrapper.h>
-
 #include <DefaultRowSorterIOOBEtest.h>
 #include <javax/swing/DefaultRowSorter$ModelWrapper.h>
 #include <javax/swing/table/TableModel.h>
@@ -11,43 +10,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultRowSorter$ModelWrapper = ::javax::swing::DefaultRowSorter$ModelWrapper;
-using $TableModel = ::javax::swing::table::TableModel;
-
-$MethodInfo _DefaultRowSorterIOOBEtest$SorterModelWrapper_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(DefaultRowSorterIOOBEtest$SorterModelWrapper, init$, void)},
-	{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getColumnCount, int32_t)},
-	{"getIdentifier", "(I)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getIdentifier, $Object*, int32_t)},
-	{"getModel", "()Ljavax/swing/table/TableModel;", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getModel, $Object*)},
-	{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getRowCount, int32_t)},
-	{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getValueAt, $Object*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _DefaultRowSorterIOOBEtest$SorterModelWrapper_InnerClassesInfo_[] = {
-	{"DefaultRowSorterIOOBEtest$SorterModelWrapper", "DefaultRowSorterIOOBEtest", "SorterModelWrapper", $STATIC},
-	{"javax.swing.DefaultRowSorter$ModelWrapper", "javax.swing.DefaultRowSorter", "ModelWrapper", $PROTECTED | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultRowSorterIOOBEtest$SorterModelWrapper_ClassInfo_ = {
-	$ACC_SUPER,
-	"DefaultRowSorterIOOBEtest$SorterModelWrapper",
-	"javax.swing.DefaultRowSorter$ModelWrapper",
-	nullptr,
-	nullptr,
-	_DefaultRowSorterIOOBEtest$SorterModelWrapper_MethodInfo_,
-	"Ljavax/swing/DefaultRowSorter$ModelWrapper<Ljavax/swing/table/TableModel;Ljava/lang/Integer;>;",
-	nullptr,
-	_DefaultRowSorterIOOBEtest$SorterModelWrapper_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"DefaultRowSorterIOOBEtest"
-};
-
-$Object* allocate$DefaultRowSorterIOOBEtest$SorterModelWrapper($Class* clazz) {
-	return $of($alloc(DefaultRowSorterIOOBEtest$SorterModelWrapper));
-}
 
 void DefaultRowSorterIOOBEtest$SorterModelWrapper::init$() {
 	$DefaultRowSorter$ModelWrapper::init$();
@@ -55,7 +17,7 @@ void DefaultRowSorterIOOBEtest$SorterModelWrapper::init$() {
 
 $Object* DefaultRowSorterIOOBEtest$SorterModelWrapper::getModel() {
 	$init($DefaultRowSorterIOOBEtest);
-	return $of($DefaultRowSorterIOOBEtest::tableModel);
+	return $DefaultRowSorterIOOBEtest::tableModel;
 }
 
 int32_t DefaultRowSorterIOOBEtest$SorterModelWrapper::getColumnCount() {
@@ -70,7 +32,7 @@ int32_t DefaultRowSorterIOOBEtest$SorterModelWrapper::getRowCount() {
 
 $Object* DefaultRowSorterIOOBEtest$SorterModelWrapper::getValueAt(int32_t row, int32_t column) {
 	$init($DefaultRowSorterIOOBEtest);
-	return $of($nc($DefaultRowSorterIOOBEtest::tableModel)->getValueAt(row, column));
+	return $nc($DefaultRowSorterIOOBEtest::tableModel)->getValueAt(row, column);
 }
 
 $Object* DefaultRowSorterIOOBEtest$SorterModelWrapper::getIdentifier(int32_t row) {
@@ -81,7 +43,38 @@ DefaultRowSorterIOOBEtest$SorterModelWrapper::DefaultRowSorterIOOBEtest$SorterMo
 }
 
 $Class* DefaultRowSorterIOOBEtest$SorterModelWrapper::load$($String* name, bool initialize) {
-	$loadClass(DefaultRowSorterIOOBEtest$SorterModelWrapper, name, initialize, &_DefaultRowSorterIOOBEtest$SorterModelWrapper_ClassInfo_, allocate$DefaultRowSorterIOOBEtest$SorterModelWrapper);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(DefaultRowSorterIOOBEtest$SorterModelWrapper, init$, void)},
+		{"getColumnCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getColumnCount, int32_t)},
+		{"getIdentifier", "(I)Ljava/lang/Integer;", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getIdentifier, $Object*, int32_t)},
+		{"getModel", "()Ljavax/swing/table/TableModel;", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getModel, $Object*)},
+		{"getRowCount", "()I", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getRowCount, int32_t)},
+		{"getValueAt", "(II)Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(DefaultRowSorterIOOBEtest$SorterModelWrapper, getValueAt, $Object*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"DefaultRowSorterIOOBEtest$SorterModelWrapper", "DefaultRowSorterIOOBEtest", "SorterModelWrapper", $STATIC},
+		{"javax.swing.DefaultRowSorter$ModelWrapper", "javax.swing.DefaultRowSorter", "ModelWrapper", $PROTECTED | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"DefaultRowSorterIOOBEtest$SorterModelWrapper",
+		"javax.swing.DefaultRowSorter$ModelWrapper",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		"Ljavax/swing/DefaultRowSorter$ModelWrapper<Ljavax/swing/table/TableModel;Ljava/lang/Integer;>;",
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"DefaultRowSorterIOOBEtest"
+	};
+	$loadClass(DefaultRowSorterIOOBEtest$SorterModelWrapper, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultRowSorterIOOBEtest$SorterModelWrapper);
+	});
 	return class$;
 }
 

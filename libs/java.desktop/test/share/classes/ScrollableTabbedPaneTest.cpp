@@ -1,5 +1,4 @@
 #include <ScrollableTabbedPaneTest.h>
-
 #include <ScrollableTabbedPaneTest$1.h>
 #include <ScrollableTabbedPaneTest$2.h>
 #include <ScrollableTabbedPaneTest$3.h>
@@ -9,7 +8,6 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/Runnable.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/SwingUtilities.h>
@@ -32,7 +30,6 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JFrame = ::javax::swing::JFrame;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
@@ -40,56 +37,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-
-$FieldInfo _ScrollableTabbedPaneTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollableTabbedPaneTest, frame)},
-	{"pane", "Ljavax/swing/JTabbedPane;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollableTabbedPaneTest, pane)},
-	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollableTabbedPaneTest, robot)},
-	{"errorString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ScrollableTabbedPaneTest, errorString)},
-	{}
-};
-
-$MethodInfo _ScrollableTabbedPaneTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ScrollableTabbedPaneTest, init$, void)},
-	{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, cleanUp, void), "java.lang.Exception"},
-	{"createLeftUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, createLeftUI, void, $String*), "java.lang.Exception"},
-	{"createRightUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, createRightUI, void, $String*), "java.lang.Exception"},
-	{"createUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, createUI, void, $String*), "java.lang.Exception"},
-	{"executeCase", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, executeCase, void, $String*, $String*), "java.lang.Exception"},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollableTabbedPaneTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"runTestCase", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, runTestCase, void, $String*), "java.lang.Exception"},
-	{"stepsToExecute", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, stepsToExecute, void, $String*), "java.lang.Exception"},
-	{"tryLookAndFeel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, tryLookAndFeel, bool, $String*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _ScrollableTabbedPaneTest_InnerClassesInfo_[] = {
-	{"ScrollableTabbedPaneTest$5", nullptr, nullptr, 0},
-	{"ScrollableTabbedPaneTest$4", nullptr, nullptr, 0},
-	{"ScrollableTabbedPaneTest$3", nullptr, nullptr, 0},
-	{"ScrollableTabbedPaneTest$2", nullptr, nullptr, 0},
-	{"ScrollableTabbedPaneTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _ScrollableTabbedPaneTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"ScrollableTabbedPaneTest",
-	"java.lang.Object",
-	nullptr,
-	_ScrollableTabbedPaneTest_FieldInfo_,
-	_ScrollableTabbedPaneTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ScrollableTabbedPaneTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"ScrollableTabbedPaneTest$5,ScrollableTabbedPaneTest$4,ScrollableTabbedPaneTest$3,ScrollableTabbedPaneTest$2,ScrollableTabbedPaneTest$1"
-};
-
-$Object* allocate$ScrollableTabbedPaneTest($Class* clazz) {
-	return $of($alloc(ScrollableTabbedPaneTest));
-}
 
 $JFrame* ScrollableTabbedPaneTest::frame = nullptr;
 $JTabbedPane* ScrollableTabbedPaneTest::pane = nullptr;
@@ -101,15 +48,13 @@ void ScrollableTabbedPaneTest::init$() {
 
 void ScrollableTabbedPaneTest::main($StringArray* args) {
 	$init(ScrollableTabbedPaneTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$assignStatic(ScrollableTabbedPaneTest::robot, $new($Robot));
-	$nc(ScrollableTabbedPaneTest::robot)->delay(1000);
+	ScrollableTabbedPaneTest::robot->delay(1000);
 	$var($UIManager$LookAndFeelInfoArray, lookAndFeelArray, $UIManager::getInstalledLookAndFeels());
 	{
 		$var($UIManager$LookAndFeelInfoArray, arr$, lookAndFeelArray);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($UIManager$LookAndFeelInfo, lookAndFeelItem, arr$->get(i$));
 			{
 				$var($String, var$0, $nc(lookAndFeelItem)->getClassName());
@@ -184,7 +129,7 @@ void ScrollableTabbedPaneTest::runTestCase($String* shortLAF) {
 	$SwingUtilities::invokeAndWait($$new($ScrollableTabbedPaneTest$5, shortLAF));
 }
 
-void clinit$ScrollableTabbedPaneTest($Class* class$) {
+void ScrollableTabbedPaneTest::clinit$($Class* clazz) {
 	$assignStatic(ScrollableTabbedPaneTest::errorString, ""_s);
 }
 
@@ -192,7 +137,51 @@ ScrollableTabbedPaneTest::ScrollableTabbedPaneTest() {
 }
 
 $Class* ScrollableTabbedPaneTest::load$($String* name, bool initialize) {
-	$loadClass(ScrollableTabbedPaneTest, name, initialize, &_ScrollableTabbedPaneTest_ClassInfo_, clinit$ScrollableTabbedPaneTest, allocate$ScrollableTabbedPaneTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollableTabbedPaneTest, frame)},
+		{"pane", "Ljavax/swing/JTabbedPane;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollableTabbedPaneTest, pane)},
+		{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(ScrollableTabbedPaneTest, robot)},
+		{"errorString", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $VOLATILE, $staticField(ScrollableTabbedPaneTest, errorString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ScrollableTabbedPaneTest, init$, void)},
+		{"cleanUp", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, cleanUp, void), "java.lang.Exception"},
+		{"createLeftUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, createLeftUI, void, $String*), "java.lang.Exception"},
+		{"createRightUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, createRightUI, void, $String*), "java.lang.Exception"},
+		{"createUI", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, createUI, void, $String*), "java.lang.Exception"},
+		{"executeCase", "(Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, executeCase, void, $String*, $String*), "java.lang.Exception"},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(ScrollableTabbedPaneTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"runTestCase", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, runTestCase, void, $String*), "java.lang.Exception"},
+		{"stepsToExecute", "(Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, stepsToExecute, void, $String*), "java.lang.Exception"},
+		{"tryLookAndFeel", "(Ljava/lang/String;)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(ScrollableTabbedPaneTest, tryLookAndFeel, bool, $String*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"ScrollableTabbedPaneTest$5", nullptr, nullptr, 0},
+		{"ScrollableTabbedPaneTest$4", nullptr, nullptr, 0},
+		{"ScrollableTabbedPaneTest$3", nullptr, nullptr, 0},
+		{"ScrollableTabbedPaneTest$2", nullptr, nullptr, 0},
+		{"ScrollableTabbedPaneTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"ScrollableTabbedPaneTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"ScrollableTabbedPaneTest$5,ScrollableTabbedPaneTest$4,ScrollableTabbedPaneTest$3,ScrollableTabbedPaneTest$2,ScrollableTabbedPaneTest$1"
+	};
+	$loadClass(ScrollableTabbedPaneTest, name, initialize, &classInfo$$, ScrollableTabbedPaneTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(ScrollableTabbedPaneTest);
+	});
 	return class$;
 }
 

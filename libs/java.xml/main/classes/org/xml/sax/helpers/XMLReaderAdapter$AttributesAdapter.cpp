@@ -1,5 +1,4 @@
 #include <org/xml/sax/helpers/XMLReaderAdapter$AttributesAdapter.h>
-
 #include <org/xml/sax/Attributes.h>
 #include <org/xml/sax/helpers/XMLReaderAdapter.h>
 #include <jcpp.h>
@@ -15,49 +14,6 @@ namespace org {
 	namespace xml {
 		namespace sax {
 			namespace helpers {
-
-$FieldInfo _XMLReaderAdapter$AttributesAdapter_FieldInfo_[] = {
-	{"this$0", "Lorg/xml/sax/helpers/XMLReaderAdapter;", nullptr, $FINAL | $SYNTHETIC, $field(XMLReaderAdapter$AttributesAdapter, this$0)},
-	{"attributes", "Lorg/xml/sax/Attributes;", nullptr, $PRIVATE, $field(XMLReaderAdapter$AttributesAdapter, attributes)},
-	{}
-};
-
-$MethodInfo _XMLReaderAdapter$AttributesAdapter_MethodInfo_[] = {
-	{"<init>", "(Lorg/xml/sax/helpers/XMLReaderAdapter;)V", nullptr, 0, $method(XMLReaderAdapter$AttributesAdapter, init$, void, $XMLReaderAdapter*)},
-	{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getLength, int32_t)},
-	{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getName, $String*, int32_t)},
-	{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getType, $String*, int32_t)},
-	{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getType, $String*, $String*)},
-	{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getValue, $String*, int32_t)},
-	{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getValue, $String*, $String*)},
-	{"setAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, 0, $method(XMLReaderAdapter$AttributesAdapter, setAttributes, void, $Attributes*)},
-	{}
-};
-
-$InnerClassInfo _XMLReaderAdapter$AttributesAdapter_InnerClassesInfo_[] = {
-	{"org.xml.sax.helpers.XMLReaderAdapter$AttributesAdapter", "org.xml.sax.helpers.XMLReaderAdapter", "AttributesAdapter", $FINAL},
-	{}
-};
-
-$ClassInfo _XMLReaderAdapter$AttributesAdapter_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"org.xml.sax.helpers.XMLReaderAdapter$AttributesAdapter",
-	"java.lang.Object",
-	"org.xml.sax.AttributeList",
-	_XMLReaderAdapter$AttributesAdapter_FieldInfo_,
-	_XMLReaderAdapter$AttributesAdapter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XMLReaderAdapter$AttributesAdapter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"org.xml.sax.helpers.XMLReaderAdapter"
-};
-
-$Object* allocate$XMLReaderAdapter$AttributesAdapter($Class* clazz) {
-	return $of($alloc(XMLReaderAdapter$AttributesAdapter));
-}
 
 void XMLReaderAdapter$AttributesAdapter::init$($XMLReaderAdapter* this$0) {
 	$set(this, this$0, this$0);
@@ -95,7 +51,44 @@ XMLReaderAdapter$AttributesAdapter::XMLReaderAdapter$AttributesAdapter() {
 }
 
 $Class* XMLReaderAdapter$AttributesAdapter::load$($String* name, bool initialize) {
-	$loadClass(XMLReaderAdapter$AttributesAdapter, name, initialize, &_XMLReaderAdapter$AttributesAdapter_ClassInfo_, allocate$XMLReaderAdapter$AttributesAdapter);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lorg/xml/sax/helpers/XMLReaderAdapter;", nullptr, $FINAL | $SYNTHETIC, $field(XMLReaderAdapter$AttributesAdapter, this$0)},
+		{"attributes", "Lorg/xml/sax/Attributes;", nullptr, $PRIVATE, $field(XMLReaderAdapter$AttributesAdapter, attributes)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lorg/xml/sax/helpers/XMLReaderAdapter;)V", nullptr, 0, $method(XMLReaderAdapter$AttributesAdapter, init$, void, $XMLReaderAdapter*)},
+		{"getLength", "()I", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getLength, int32_t)},
+		{"getName", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getName, $String*, int32_t)},
+		{"getType", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getType, $String*, int32_t)},
+		{"getType", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getType, $String*, $String*)},
+		{"getValue", "(I)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getValue, $String*, int32_t)},
+		{"getValue", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLReaderAdapter$AttributesAdapter, getValue, $String*, $String*)},
+		{"setAttributes", "(Lorg/xml/sax/Attributes;)V", nullptr, 0, $method(XMLReaderAdapter$AttributesAdapter, setAttributes, void, $Attributes*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"org.xml.sax.helpers.XMLReaderAdapter$AttributesAdapter", "org.xml.sax.helpers.XMLReaderAdapter", "AttributesAdapter", $FINAL},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"org.xml.sax.helpers.XMLReaderAdapter$AttributesAdapter",
+		"java.lang.Object",
+		"org.xml.sax.AttributeList",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"org.xml.sax.helpers.XMLReaderAdapter"
+	};
+	$loadClass(XMLReaderAdapter$AttributesAdapter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLReaderAdapter$AttributesAdapter);
+	});
 	return class$;
 }
 

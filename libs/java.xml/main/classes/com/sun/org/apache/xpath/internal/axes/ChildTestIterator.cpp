@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/axes/ChildTestIterator.h>
-
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
@@ -31,36 +30,6 @@ namespace com {
 				namespace xpath {
 					namespace internal {
 						namespace axes {
-
-$FieldInfo _ChildTestIterator_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ChildTestIterator, serialVersionUID)},
-	{"m_traverser", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;", nullptr, $PROTECTED | $TRANSIENT, $field(ChildTestIterator, m_traverser)},
-	{}
-};
-
-$MethodInfo _ChildTestIterator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(ChildTestIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
-	{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;)V", nullptr, $PUBLIC, $method(ChildTestIterator, init$, void, $DTMAxisTraverser*)},
-	{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(ChildTestIterator, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
-	{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(ChildTestIterator, detach, void)},
-	{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(ChildTestIterator, getAxis, int32_t)},
-	{"getNextNode", "()I", nullptr, $PROTECTED, $virtualMethod(ChildTestIterator, getNextNode, int32_t)},
-	{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ChildTestIterator, setRoot, void, int32_t, Object$*)},
-	{}
-};
-
-$ClassInfo _ChildTestIterator_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.axes.ChildTestIterator",
-	"com.sun.org.apache.xpath.internal.axes.BasicTestIterator",
-	nullptr,
-	_ChildTestIterator_FieldInfo_,
-	_ChildTestIterator_MethodInfo_
-};
-
-$Object* allocate$ChildTestIterator($Class* clazz) {
-	return $of($alloc(ChildTestIterator));
-}
 
 void ChildTestIterator::init$($Compiler* compiler, int32_t opPos, int32_t analysis) {
 	$BasicTestIterator::init$(compiler, opPos, analysis);
@@ -104,7 +73,32 @@ ChildTestIterator::ChildTestIterator() {
 }
 
 $Class* ChildTestIterator::load$($String* name, bool initialize) {
-	$loadClass(ChildTestIterator, name, initialize, &_ChildTestIterator_ClassInfo_, allocate$ChildTestIterator);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(ChildTestIterator, serialVersionUID)},
+		{"m_traverser", "Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;", nullptr, $PROTECTED | $TRANSIENT, $field(ChildTestIterator, m_traverser)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xpath/internal/compiler/Compiler;II)V", nullptr, 0, $method(ChildTestIterator, init$, void, $Compiler*, int32_t, int32_t), "javax.xml.transform.TransformerException"},
+		{"<init>", "(Lcom/sun/org/apache/xml/internal/dtm/DTMAxisTraverser;)V", nullptr, $PUBLIC, $method(ChildTestIterator, init$, void, $DTMAxisTraverser*)},
+		{"cloneWithReset", "()Lcom/sun/org/apache/xml/internal/dtm/DTMIterator;", nullptr, $PUBLIC, $virtualMethod(ChildTestIterator, cloneWithReset, $DTMIterator*), "java.lang.CloneNotSupportedException"},
+		{"detach", "()V", nullptr, $PUBLIC, $virtualMethod(ChildTestIterator, detach, void)},
+		{"getAxis", "()I", nullptr, $PUBLIC, $virtualMethod(ChildTestIterator, getAxis, int32_t)},
+		{"getNextNode", "()I", nullptr, $PROTECTED, $virtualMethod(ChildTestIterator, getNextNode, int32_t)},
+		{"setRoot", "(ILjava/lang/Object;)V", nullptr, $PUBLIC, $virtualMethod(ChildTestIterator, setRoot, void, int32_t, Object$*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.axes.ChildTestIterator",
+		"com.sun.org.apache.xpath.internal.axes.BasicTestIterator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(ChildTestIterator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(ChildTestIterator));
+	});
 	return class$;
 }
 

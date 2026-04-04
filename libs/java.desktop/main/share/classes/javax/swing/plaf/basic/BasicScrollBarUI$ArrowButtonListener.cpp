@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicScrollBarUI$ArrowButtonListener.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
@@ -19,54 +18,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JScrollBar = ::javax::swing::JScrollBar;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $Timer = ::javax::swing::Timer;
 using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
-using $BasicScrollBarUI$ScrollListener = ::javax::swing::plaf::basic::BasicScrollBarUI$ScrollListener;
 
 namespace javax {
 	namespace swing {
 		namespace plaf {
 			namespace basic {
-
-$FieldInfo _BasicScrollBarUI$ArrowButtonListener_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/plaf/basic/BasicScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicScrollBarUI$ArrowButtonListener, this$0)},
-	{"handledEvent", "Z", nullptr, 0, $field(BasicScrollBarUI$ArrowButtonListener, handledEvent)},
-	{}
-};
-
-$MethodInfo _BasicScrollBarUI$ArrowButtonListener_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/plaf/basic/BasicScrollBarUI;)V", nullptr, $PROTECTED, $method(BasicScrollBarUI$ArrowButtonListener, init$, void, $BasicScrollBarUI*)},
-	{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$ArrowButtonListener, mousePressed, void, $MouseEvent*)},
-	{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$ArrowButtonListener, mouseReleased, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _BasicScrollBarUI$ArrowButtonListener_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicScrollBarUI$ArrowButtonListener", "javax.swing.plaf.basic.BasicScrollBarUI", "ArrowButtonListener", $PROTECTED},
-	{}
-};
-
-$ClassInfo _BasicScrollBarUI$ArrowButtonListener_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicScrollBarUI$ArrowButtonListener",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_BasicScrollBarUI$ArrowButtonListener_FieldInfo_,
-	_BasicScrollBarUI$ArrowButtonListener_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicScrollBarUI$ArrowButtonListener_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicScrollBarUI"
-};
-
-$Object* allocate$BasicScrollBarUI$ArrowButtonListener($Class* clazz) {
-	return $of($alloc(BasicScrollBarUI$ArrowButtonListener));
-}
 
 void BasicScrollBarUI$ArrowButtonListener::init$($BasicScrollBarUI* this$0) {
 	$set(this, this$0, this$0);
@@ -88,7 +46,7 @@ void BasicScrollBarUI$ArrowButtonListener::mousePressed($MouseEvent* e) {
 	$nc(this->this$0->scrollTimer)->start();
 	this->handledEvent = true;
 	bool var$0 = !$nc(this->this$0->scrollbar)->hasFocus();
-	if (var$0 && $nc(this->this$0->scrollbar)->isRequestFocusEnabled()) {
+	if (var$0 && this->this$0->scrollbar->isRequestFocusEnabled()) {
 		$nc(this->this$0->scrollbar)->requestFocus();
 	}
 }
@@ -103,7 +61,39 @@ BasicScrollBarUI$ArrowButtonListener::BasicScrollBarUI$ArrowButtonListener() {
 }
 
 $Class* BasicScrollBarUI$ArrowButtonListener::load$($String* name, bool initialize) {
-	$loadClass(BasicScrollBarUI$ArrowButtonListener, name, initialize, &_BasicScrollBarUI$ArrowButtonListener_ClassInfo_, allocate$BasicScrollBarUI$ArrowButtonListener);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/plaf/basic/BasicScrollBarUI;", nullptr, $FINAL | $SYNTHETIC, $field(BasicScrollBarUI$ArrowButtonListener, this$0)},
+		{"handledEvent", "Z", nullptr, 0, $field(BasicScrollBarUI$ArrowButtonListener, handledEvent)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/plaf/basic/BasicScrollBarUI;)V", nullptr, $PROTECTED, $method(BasicScrollBarUI$ArrowButtonListener, init$, void, $BasicScrollBarUI*)},
+		{"mousePressed", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$ArrowButtonListener, mousePressed, void, $MouseEvent*)},
+		{"mouseReleased", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(BasicScrollBarUI$ArrowButtonListener, mouseReleased, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicScrollBarUI$ArrowButtonListener", "javax.swing.plaf.basic.BasicScrollBarUI", "ArrowButtonListener", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicScrollBarUI$ArrowButtonListener",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicScrollBarUI"
+	};
+	$loadClass(BasicScrollBarUI$ArrowButtonListener, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicScrollBarUI$ArrowButtonListener));
+	});
 	return class$;
 }
 

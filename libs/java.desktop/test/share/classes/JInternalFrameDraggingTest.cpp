@@ -1,5 +1,4 @@
 #include <JInternalFrameDraggingTest.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -35,14 +34,11 @@
 using $PointArray = $Array<::java::awt::Point>;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $BufferedImage = ::java::awt::image::BufferedImage;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -64,27 +60,24 @@ public:
 	virtual void run() override {
 		JInternalFrameDraggingTest::createAndShowGUI();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JInternalFrameDraggingTest$$Lambda$createAndShowGUI>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JInternalFrameDraggingTest$$Lambda$createAndShowGUI::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest$$Lambda$createAndShowGUI, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameDraggingTest$$Lambda$createAndShowGUI, run, void)},
-	{}
-};
-$ClassInfo JInternalFrameDraggingTest$$Lambda$createAndShowGUI::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JInternalFrameDraggingTest$$Lambda$createAndShowGUI",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JInternalFrameDraggingTest$$Lambda$createAndShowGUI::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrameDraggingTest$$Lambda$createAndShowGUI, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest$$Lambda$createAndShowGUI, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameDraggingTest$$Lambda$createAndShowGUI, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JInternalFrameDraggingTest$$Lambda$createAndShowGUI",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JInternalFrameDraggingTest$$Lambda$createAndShowGUI, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JInternalFrameDraggingTest$$Lambda$createAndShowGUI);
+	});
 	return class$;
 }
 $Class* JInternalFrameDraggingTest$$Lambda$createAndShowGUI::class$ = nullptr;
@@ -97,27 +90,24 @@ public:
 	virtual void run() override {
 		JInternalFrameDraggingTest::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JInternalFrameDraggingTest$$Lambda$lambda$main$0$1>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo JInternalFrameDraggingTest$$Lambda$lambda$main$0$1::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1, run, void)},
-	{}
-};
-$ClassInfo JInternalFrameDraggingTest$$Lambda$lambda$main$0$1::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JInternalFrameDraggingTest$$Lambda$lambda$main$0$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* JInternalFrameDraggingTest$$Lambda$lambda$main$0$1::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JInternalFrameDraggingTest$$Lambda$lambda$main$0$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1);
+	});
 	return class$;
 }
 $Class* JInternalFrameDraggingTest$$Lambda$lambda$main$0$1::class$ = nullptr;
@@ -131,33 +121,29 @@ public:
 	virtual void run() override {
 		JInternalFrameDraggingTest::lambda$getInternalFrameLocation$1(points);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2>());
-	}
 	$PointArray* points = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2::fieldInfos[2] = {
-	{"points", "[Ljava/awt/Point;", nullptr, $PUBLIC, $field(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, points)},
-	{}
-};
-$MethodInfo JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2::methodInfos[3] = {
-	{"<init>", "([Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, init$, void, $PointArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, run, void)},
-	{}
-};
-$ClassInfo JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"points", "[Ljava/awt/Point;", nullptr, $PUBLIC, $field(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, points)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, init$, void, $PointArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2);
+	});
 	return class$;
 }
 $Class* JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2::class$ = nullptr;
@@ -171,71 +157,32 @@ public:
 	virtual void run() override {
 		JInternalFrameDraggingTest::lambda$getDesktopPaneLocation$2(points);
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3>());
-	}
 	$PointArray* points = nullptr;
-	static $FieldInfo fieldInfos[2];
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$FieldInfo JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3::fieldInfos[2] = {
-	{"points", "[Ljava/awt/Point;", nullptr, $PUBLIC, $field(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, points)},
-	{}
-};
-$MethodInfo JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3::methodInfos[3] = {
-	{"<init>", "([Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, init$, void, $PointArray*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, run, void)},
-	{}
-};
-$ClassInfo JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	fieldInfos,
-	methodInfos
 };
 $Class* JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3::load$($String* name, bool initialize) {
-	$loadClass(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, name, initialize, &classInfo$, allocate$);
+	$FieldInfo fieldInfos$$[] = {
+		{"points", "[Ljava/awt/Point;", nullptr, $PUBLIC, $field(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, points)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([Ljava/awt/Point;)V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, init$, void, $PointArray*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3);
+	});
 	return class$;
 }
 $Class* JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3::class$ = nullptr;
-
-$FieldInfo _JInternalFrameDraggingTest_FieldInfo_[] = {
-	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, frame)},
-	{"desktopPane", "Ljavax/swing/JDesktopPane;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, desktopPane)},
-	{"internalFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, internalFrame)},
-	{"FRAME_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, FRAME_SIZE)},
-	{"BACKGROUND_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, BACKGROUND_COLOR)},
-	{}
-};
-
-$MethodInfo _JInternalFrameDraggingTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest, init$, void)},
-	{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameDraggingTest, createAndShowGUI, void)},
-	{"getDesktopPaneLocation", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameDraggingTest, getDesktopPaneLocation, $Point*), "java.lang.Exception"},
-	{"getInternalFrameLocation", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameDraggingTest, getInternalFrameLocation, $Point*), "java.lang.Exception"},
-	{"lambda$getDesktopPaneLocation$2", "([Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JInternalFrameDraggingTest, lambda$getDesktopPaneLocation$2, void, $PointArray*)},
-	{"lambda$getInternalFrameLocation$1", "([Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JInternalFrameDraggingTest, lambda$getInternalFrameLocation$1, void, $PointArray*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JInternalFrameDraggingTest, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JInternalFrameDraggingTest, main, void, $StringArray*), "java.lang.Exception"},
-	{"moveFrame", "(Ljava/awt/Robot;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameDraggingTest, moveFrame, void, $Robot*, int32_t, int32_t, int32_t), "java.lang.Exception"},
-	{}
-};
-
-$ClassInfo _JInternalFrameDraggingTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"JInternalFrameDraggingTest",
-	"java.lang.Object",
-	nullptr,
-	_JInternalFrameDraggingTest_FieldInfo_,
-	_JInternalFrameDraggingTest_MethodInfo_
-};
-
-$Object* allocate$JInternalFrameDraggingTest($Class* clazz) {
-	return $of($alloc(JInternalFrameDraggingTest));
-}
 
 $JFrame* JInternalFrameDraggingTest::frame = nullptr;
 $JDesktopPane* JInternalFrameDraggingTest::desktopPane = nullptr;
@@ -248,61 +195,64 @@ void JInternalFrameDraggingTest::init$() {
 
 void JInternalFrameDraggingTest::main($StringArray* args) {
 	$init(JInternalFrameDraggingTest);
-	$useLocalCurrentObjectStackCache();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Robot, robot, $new($Robot));
-			robot->setAutoDelay(20);
-			$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JInternalFrameDraggingTest$$Lambda$createAndShowGUI)));
-			robot->waitForIdle();
-			int32_t translate = JInternalFrameDraggingTest::FRAME_SIZE / 4;
-			moveFrame(robot, translate, translate / 2, translate / 2);
-			robot->waitForIdle();
-			$var($Point, p, getDesktopPaneLocation());
-			int32_t size = translate / 2;
-			$var($Rectangle, rect, $new($Rectangle, $nc(p)->x, p->y, size, size));
-			$var($BufferedImage, img, robot->createScreenCapture(rect));
-			int32_t testRGB = $nc(JInternalFrameDraggingTest::BACKGROUND_COLOR)->getRGB();
-			for (int32_t i = 1; i < size; ++i) {
-				int32_t rgbCW = $nc(img)->getRGB(i, size / 2);
-				int32_t rgbCH = img->getRGB(size / 2, i);
-				if (rgbCW != testRGB || rgbCH != testRGB) {
-					$var($String, var$3, $$str({"i "_s, $$str(i), " rgbCW "_s, $($Integer::toHexString(rgbCW)), " testRGB "_s}));
-					$var($String, var$2, $$concat(var$3, $($Integer::toHexString(testRGB))));
-					$var($String, var$1, $$concat(var$2, " rgbCH "_s));
-					$nc($System::out)->println($$concat(var$1, $($Integer::toHexString(rgbCH))));
-					$throwNew($RuntimeException, "Background color is wrong!"_s);
-				}
-			}
-		} catch ($Throwable& var$4) {
-			$assign(var$0, var$4);
-		} /*finally*/ {
-			if (JInternalFrameDraggingTest::frame != nullptr) {
-				$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1)));
+	$useLocalObjectStack();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Robot, robot, $new($Robot));
+		robot->setAutoDelay(20);
+		$SwingUtilities::invokeAndWait($$new(JInternalFrameDraggingTest$$Lambda$createAndShowGUI));
+		robot->waitForIdle();
+		int32_t translate = JInternalFrameDraggingTest::FRAME_SIZE / 4;
+		moveFrame(robot, translate, translate / 2, translate / 2);
+		robot->waitForIdle();
+		$var($Point, p, getDesktopPaneLocation());
+		int32_t size = translate / 2;
+		$var($Rectangle, rect, $new($Rectangle, $nc(p)->x, $nc(p)->y, size, size));
+		$var($BufferedImage, img, robot->createScreenCapture(rect));
+		int32_t testRGB = $nc(JInternalFrameDraggingTest::BACKGROUND_COLOR)->getRGB();
+		for (int32_t i = 1; i < size; ++i) {
+			int32_t rgbCW = $nc(img)->getRGB(i, size / 2);
+			int32_t rgbCH = img->getRGB(size / 2, i);
+			if (rgbCW != testRGB || rgbCH != testRGB) {
+				$var($StringBuilder, var$1, $new($StringBuilder));
+				var$1->append("i "_s);
+				var$1->append(i);
+				var$1->append(" rgbCW "_s);
+				var$1->append($($Integer::toHexString(rgbCW)));
+				var$1->append(" testRGB "_s);
+				var$1->append($($Integer::toHexString(testRGB)));
+				var$1->append(" rgbCH "_s);
+				var$1->append($($Integer::toHexString(rgbCH)));
+				$nc($System::out)->println($$str(var$1));
+				$throwNew($RuntimeException, "Background color is wrong!"_s);
 			}
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+	} catch ($Throwable& var$2) {
+		$assign(var$0, var$2);
+	} /*finally*/ {
+		if (JInternalFrameDraggingTest::frame != nullptr) {
+			$SwingUtilities::invokeAndWait($$new(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1));
 		}
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void JInternalFrameDraggingTest::createAndShowGUI() {
 	$init(JInternalFrameDraggingTest);
 	$assignStatic(JInternalFrameDraggingTest::frame, $new($JFrame));
-	$nc(JInternalFrameDraggingTest::frame)->setUndecorated(true);
+	JInternalFrameDraggingTest::frame->setUndecorated(true);
 	$nc(JInternalFrameDraggingTest::frame)->setDefaultCloseOperation($JFrame::EXIT_ON_CLOSE);
 	$nc(JInternalFrameDraggingTest::frame)->setLayout($$new($BorderLayout));
 	$assignStatic(JInternalFrameDraggingTest::desktopPane, $new($JDesktopPane));
-	$nc(JInternalFrameDraggingTest::desktopPane)->setBackground(JInternalFrameDraggingTest::BACKGROUND_COLOR);
-	$init($BorderLayout);
-	$nc(JInternalFrameDraggingTest::frame)->add(static_cast<$Component*>(JInternalFrameDraggingTest::desktopPane), $of($BorderLayout::CENTER));
+	JInternalFrameDraggingTest::desktopPane->setBackground(JInternalFrameDraggingTest::BACKGROUND_COLOR);
+	$nc(JInternalFrameDraggingTest::frame)->add(JInternalFrameDraggingTest::desktopPane, $BorderLayout::CENTER);
 	$nc(JInternalFrameDraggingTest::frame)->setSize(JInternalFrameDraggingTest::FRAME_SIZE, JInternalFrameDraggingTest::FRAME_SIZE);
 	$nc(JInternalFrameDraggingTest::frame)->setVisible(true);
 	$assignStatic(JInternalFrameDraggingTest::internalFrame, $new($JInternalFrame, "Test"_s));
-	$nc(JInternalFrameDraggingTest::internalFrame)->setSize(JInternalFrameDraggingTest::FRAME_SIZE / 2, JInternalFrameDraggingTest::FRAME_SIZE / 2);
-	$nc(JInternalFrameDraggingTest::desktopPane)->add(static_cast<$Component*>(JInternalFrameDraggingTest::internalFrame));
+	JInternalFrameDraggingTest::internalFrame->setSize(JInternalFrameDraggingTest::FRAME_SIZE / 2, JInternalFrameDraggingTest::FRAME_SIZE / 2);
+	$nc(JInternalFrameDraggingTest::desktopPane)->add(JInternalFrameDraggingTest::internalFrame);
 	$nc(JInternalFrameDraggingTest::internalFrame)->setVisible(true);
 	$nc(JInternalFrameDraggingTest::internalFrame)->setResizable(true);
 	$nc(JInternalFrameDraggingTest::frame)->setVisible(true);
@@ -310,45 +260,43 @@ void JInternalFrameDraggingTest::createAndShowGUI() {
 
 void JInternalFrameDraggingTest::moveFrame($Robot* robot, int32_t w, int32_t h, int32_t N) {
 	$init(JInternalFrameDraggingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Point, p, getInternalFrameLocation());
 	int32_t xs = $nc(p)->x + 100;
 	int32_t ys = p->y + 15;
 	$nc(robot)->mouseMove(xs, ys);
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			robot->mousePress($InputEvent::BUTTON1_MASK);
-			int32_t dx = $div(w, N);
-			int32_t dy = $div(h, N);
-			int32_t y = ys;
-			for (int32_t x = xs; x < xs + w; x += dx, y += dy) {
-				robot->mouseMove(x, y);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			robot->mouseRelease($InputEvent::BUTTON1_MASK);
+	$var($Throwable, var$0, nullptr);
+	try {
+		robot->mousePress($InputEvent::BUTTON1_MASK);
+		int32_t dx = $div(w, N);
+		int32_t dy = $div(h, N);
+		int32_t y = ys;
+		for (int32_t x = xs; x < xs + w; x += dx, y += dy) {
+			robot->mouseMove(x, y);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		robot->mouseRelease($InputEvent::BUTTON1_MASK);
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 $Point* JInternalFrameDraggingTest::getInternalFrameLocation() {
 	$init(JInternalFrameDraggingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, points, $new($PointArray, 1));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, points)));
+	$SwingUtilities::invokeAndWait($$new(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2, points));
 	return points->get(0);
 }
 
 $Point* JInternalFrameDraggingTest::getDesktopPaneLocation() {
 	$init(JInternalFrameDraggingTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($PointArray, points, $new($PointArray, 1));
-	$SwingUtilities::invokeAndWait(static_cast<$Runnable*>($$new(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, points)));
+	$SwingUtilities::invokeAndWait($$new(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3, points));
 	return points->get(0);
 }
 
@@ -367,7 +315,7 @@ void JInternalFrameDraggingTest::lambda$main$0() {
 	$nc(JInternalFrameDraggingTest::frame)->dispose();
 }
 
-void clinit$JInternalFrameDraggingTest($Class* class$) {
+void JInternalFrameDraggingTest::clinit$($Class* clazz) {
 	JInternalFrameDraggingTest::FRAME_SIZE = 500;
 	$init($Color);
 	$assignStatic(JInternalFrameDraggingTest::BACKGROUND_COLOR, $Color::ORANGE);
@@ -378,20 +326,50 @@ JInternalFrameDraggingTest::JInternalFrameDraggingTest() {
 
 $Class* JInternalFrameDraggingTest::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(JInternalFrameDraggingTest$$Lambda$createAndShowGUI::classInfo$.name)) {
+		if (name->equals("JInternalFrameDraggingTest$$Lambda$createAndShowGUI")) {
 			return JInternalFrameDraggingTest$$Lambda$createAndShowGUI::load$(name, initialize);
 		}
-		if (name->equals(JInternalFrameDraggingTest$$Lambda$lambda$main$0$1::classInfo$.name)) {
+		if (name->equals("JInternalFrameDraggingTest$$Lambda$lambda$main$0$1")) {
 			return JInternalFrameDraggingTest$$Lambda$lambda$main$0$1::load$(name, initialize);
 		}
-		if (name->equals(JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2::classInfo$.name)) {
+		if (name->equals("JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2")) {
 			return JInternalFrameDraggingTest$$Lambda$lambda$getInternalFrameLocation$1$2::load$(name, initialize);
 		}
-		if (name->equals(JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3::classInfo$.name)) {
+		if (name->equals("JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3")) {
 			return JInternalFrameDraggingTest$$Lambda$lambda$getDesktopPaneLocation$2$3::load$(name, initialize);
 		}
 	}
-	$loadClass(JInternalFrameDraggingTest, name, initialize, &_JInternalFrameDraggingTest_ClassInfo_, clinit$JInternalFrameDraggingTest, allocate$JInternalFrameDraggingTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, frame)},
+		{"desktopPane", "Ljavax/swing/JDesktopPane;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, desktopPane)},
+		{"internalFrame", "Ljavax/swing/JInternalFrame;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, internalFrame)},
+		{"FRAME_SIZE", "I", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, FRAME_SIZE)},
+		{"BACKGROUND_COLOR", "Ljava/awt/Color;", nullptr, $PRIVATE | $STATIC, $staticField(JInternalFrameDraggingTest, BACKGROUND_COLOR)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(JInternalFrameDraggingTest, init$, void)},
+		{"createAndShowGUI", "()V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameDraggingTest, createAndShowGUI, void)},
+		{"getDesktopPaneLocation", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameDraggingTest, getDesktopPaneLocation, $Point*), "java.lang.Exception"},
+		{"getInternalFrameLocation", "()Ljava/awt/Point;", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameDraggingTest, getInternalFrameLocation, $Point*), "java.lang.Exception"},
+		{"lambda$getDesktopPaneLocation$2", "([Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JInternalFrameDraggingTest, lambda$getDesktopPaneLocation$2, void, $PointArray*)},
+		{"lambda$getInternalFrameLocation$1", "([Ljava/awt/Point;)V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JInternalFrameDraggingTest, lambda$getInternalFrameLocation$1, void, $PointArray*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(JInternalFrameDraggingTest, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(JInternalFrameDraggingTest, main, void, $StringArray*), "java.lang.Exception"},
+		{"moveFrame", "(Ljava/awt/Robot;III)V", nullptr, $PRIVATE | $STATIC, $staticMethod(JInternalFrameDraggingTest, moveFrame, void, $Robot*, int32_t, int32_t, int32_t), "java.lang.Exception"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"JInternalFrameDraggingTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(JInternalFrameDraggingTest, name, initialize, &classInfo$$, JInternalFrameDraggingTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JInternalFrameDraggingTest);
+	});
 	return class$;
 }
 

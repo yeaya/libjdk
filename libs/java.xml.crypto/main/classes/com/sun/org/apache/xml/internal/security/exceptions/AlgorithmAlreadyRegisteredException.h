@@ -36,7 +36,10 @@ public:
 	static const int64_t serialVersionUID = (int64_t)1;
 	AlgorithmAlreadyRegisteredException(const AlgorithmAlreadyRegisteredException& e);
 	virtual void throw$() override;
-	inline AlgorithmAlreadyRegisteredException* operator ->() {
+	inline AlgorithmAlreadyRegisteredException* operator ->() const {
+		return (AlgorithmAlreadyRegisteredException*)throwing$;
+	}
+	inline operator AlgorithmAlreadyRegisteredException*() const {
 		return (AlgorithmAlreadyRegisteredException*)throwing$;
 	}
 };

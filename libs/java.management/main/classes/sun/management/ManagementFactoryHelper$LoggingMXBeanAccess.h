@@ -37,6 +37,7 @@ class $export ManagementFactoryHelper$LoggingMXBeanAccess : public ::java::lang:
 	$class(ManagementFactoryHelper$LoggingMXBeanAccess, 0, ::java::lang::Object)
 public:
 	ManagementFactoryHelper$LoggingMXBeanAccess();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static $Object* getMXBeanImplementation();
 	::java::util::Map* initMethodMap(Object$* impl);

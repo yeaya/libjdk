@@ -33,6 +33,7 @@ class $export Http2Connection$ValidatingHeadersConsumer : public ::jdk::internal
 	$class(Http2Connection$ValidatingHeadersConsumer, 0, ::jdk::internal::net::http::hpack::DecodingCallback)
 public:
 	Http2Connection$ValidatingHeadersConsumer();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	::java::io::UncheckedIOException* newException($String* message, $String* header);
 	using ::jdk::internal::net::http::hpack::DecodingCallback::onDecoded;

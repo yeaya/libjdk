@@ -29,6 +29,7 @@ class $import JRadioButton : public ::javax::swing::JToggleButton {
 	$class(JRadioButton, 0, ::javax::swing::JToggleButton)
 public:
 	JRadioButton();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JToggleButton::contains;
 	using ::javax::swing::JToggleButton::enable;
 	using ::javax::swing::JToggleButton::getBounds;

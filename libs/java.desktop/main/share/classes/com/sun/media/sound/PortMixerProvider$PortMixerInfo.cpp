@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/PortMixerProvider$PortMixerInfo.h>
-
 #include <com/sun/media/sound/PortMixerProvider.h>
 #include <javax/sound/sampled/Mixer$Info.h>
 #include <jcpp.h>
@@ -15,43 +14,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _PortMixerProvider$PortMixerInfo_FieldInfo_[] = {
-	{"index", "I", nullptr, $PRIVATE | $FINAL, $field(PortMixerProvider$PortMixerInfo, index)},
-	{}
-};
-
-$MethodInfo _PortMixerProvider$PortMixerInfo_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixerProvider$PortMixerInfo, init$, void, int32_t, $String*, $String*, $String*, $String*)},
-	{"getIndex", "()I", nullptr, 0, $method(PortMixerProvider$PortMixerInfo, getIndex, int32_t)},
-	{}
-};
-
-$InnerClassInfo _PortMixerProvider$PortMixerInfo_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.PortMixerProvider$PortMixerInfo", "com.sun.media.sound.PortMixerProvider", "PortMixerInfo", $STATIC | $FINAL},
-	{"javax.sound.sampled.Mixer$Info", "javax.sound.sampled.Mixer", "Info", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _PortMixerProvider$PortMixerInfo_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"com.sun.media.sound.PortMixerProvider$PortMixerInfo",
-	"javax.sound.sampled.Mixer$Info",
-	nullptr,
-	_PortMixerProvider$PortMixerInfo_FieldInfo_,
-	_PortMixerProvider$PortMixerInfo_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PortMixerProvider$PortMixerInfo_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.PortMixerProvider"
-};
-
-$Object* allocate$PortMixerProvider$PortMixerInfo($Class* clazz) {
-	return $of($alloc(PortMixerProvider$PortMixerInfo));
-}
-
 void PortMixerProvider$PortMixerInfo::init$(int32_t index, $String* name, $String* vendor, $String* description, $String* version) {
 	$Mixer$Info::init$($$str({"Port "_s, name}), vendor, description, version);
 	this->index = index;
@@ -65,7 +27,38 @@ PortMixerProvider$PortMixerInfo::PortMixerProvider$PortMixerInfo() {
 }
 
 $Class* PortMixerProvider$PortMixerInfo::load$($String* name, bool initialize) {
-	$loadClass(PortMixerProvider$PortMixerInfo, name, initialize, &_PortMixerProvider$PortMixerInfo_ClassInfo_, allocate$PortMixerProvider$PortMixerInfo);
+	$FieldInfo fieldInfos$$[] = {
+		{"index", "I", nullptr, $PRIVATE | $FINAL, $field(PortMixerProvider$PortMixerInfo, index)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE, $method(PortMixerProvider$PortMixerInfo, init$, void, int32_t, $String*, $String*, $String*, $String*)},
+		{"getIndex", "()I", nullptr, 0, $method(PortMixerProvider$PortMixerInfo, getIndex, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.PortMixerProvider$PortMixerInfo", "com.sun.media.sound.PortMixerProvider", "PortMixerInfo", $STATIC | $FINAL},
+		{"javax.sound.sampled.Mixer$Info", "javax.sound.sampled.Mixer", "Info", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"com.sun.media.sound.PortMixerProvider$PortMixerInfo",
+		"javax.sound.sampled.Mixer$Info",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.PortMixerProvider"
+	};
+	$loadClass(PortMixerProvider$PortMixerInfo, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(PortMixerProvider$PortMixerInfo);
+	});
 	return class$;
 }
 

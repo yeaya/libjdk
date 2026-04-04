@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMAny.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMNode.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet.h>
 #include <jcpp.h>
@@ -19,39 +18,6 @@ namespace com {
 						namespace impl {
 							namespace dtd {
 								namespace models {
-
-$FieldInfo _CMAny_FieldInfo_[] = {
-	{"fType", "I", nullptr, $PRIVATE, $field(CMAny, fType)},
-	{"fURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CMAny, fURI)},
-	{"fPosition", "I", nullptr, $PRIVATE, $field(CMAny, fPosition)},
-	{}
-};
-
-$MethodInfo _CMAny_MethodInfo_[] = {
-	{"<init>", "(ILjava/lang/String;I)V", nullptr, $PUBLIC, $method(CMAny, init$, void, int32_t, $String*, int32_t)},
-	{"calcFirstPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(CMAny, calcFirstPos, void, $CMStateSet*)},
-	{"calcLastPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(CMAny, calcLastPos, void, $CMStateSet*)},
-	{"getPosition", "()I", nullptr, $FINAL, $method(CMAny, getPosition, int32_t)},
-	{"getType", "()I", nullptr, $FINAL, $method(CMAny, getType, int32_t)},
-	{"getURI", "()Ljava/lang/String;", nullptr, $FINAL, $method(CMAny, getURI, $String*)},
-	{"isNullable", "()Z", nullptr, $PUBLIC, $virtualMethod(CMAny, isNullable, bool)},
-	{"setPosition", "(I)V", nullptr, $FINAL, $method(CMAny, setPosition, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CMAny, toString, $String*)},
-	{}
-};
-
-$ClassInfo _CMAny_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.CMAny",
-	"com.sun.org.apache.xerces.internal.impl.dtd.models.CMNode",
-	nullptr,
-	_CMAny_FieldInfo_,
-	_CMAny_MethodInfo_
-};
-
-$Object* allocate$CMAny($Class* clazz) {
-	return $of($alloc(CMAny));
-}
 
 void CMAny::init$(int32_t type, $String* uri, int32_t position) {
 	$CMNode::init$(type);
@@ -82,7 +48,7 @@ bool CMAny::isNullable() {
 }
 
 $String* CMAny::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, strRet, $new($StringBuilder));
 	strRet->append("("_s);
 	strRet->append("##any:uri="_s);
@@ -114,7 +80,35 @@ CMAny::CMAny() {
 }
 
 $Class* CMAny::load$($String* name, bool initialize) {
-	$loadClass(CMAny, name, initialize, &_CMAny_ClassInfo_, allocate$CMAny);
+	$FieldInfo fieldInfos$$[] = {
+		{"fType", "I", nullptr, $PRIVATE, $field(CMAny, fType)},
+		{"fURI", "Ljava/lang/String;", nullptr, $PRIVATE, $field(CMAny, fURI)},
+		{"fPosition", "I", nullptr, $PRIVATE, $field(CMAny, fPosition)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(ILjava/lang/String;I)V", nullptr, $PUBLIC, $method(CMAny, init$, void, int32_t, $String*, int32_t)},
+		{"calcFirstPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(CMAny, calcFirstPos, void, $CMStateSet*)},
+		{"calcLastPos", "(Lcom/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet;)V", nullptr, $PROTECTED, $virtualMethod(CMAny, calcLastPos, void, $CMStateSet*)},
+		{"getPosition", "()I", nullptr, $FINAL, $method(CMAny, getPosition, int32_t)},
+		{"getType", "()I", nullptr, $FINAL, $method(CMAny, getType, int32_t)},
+		{"getURI", "()Ljava/lang/String;", nullptr, $FINAL, $method(CMAny, getURI, $String*)},
+		{"isNullable", "()Z", nullptr, $PUBLIC, $virtualMethod(CMAny, isNullable, bool)},
+		{"setPosition", "(I)V", nullptr, $FINAL, $method(CMAny, setPosition, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CMAny, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.CMAny",
+		"com.sun.org.apache.xerces.internal.impl.dtd.models.CMNode",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CMAny, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CMAny);
+	});
 	return class$;
 }
 

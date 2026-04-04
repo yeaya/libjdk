@@ -1,5 +1,4 @@
 #include <sun/java2d/pipe/AATextRenderer.h>
-
 #include <sun/awt/SunHints.h>
 #include <sun/font/GlyphList.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -19,25 +18,6 @@ namespace sun {
 	namespace java2d {
 		namespace pipe {
 
-$MethodInfo _AATextRenderer_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AATextRenderer, init$, void)},
-	{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(AATextRenderer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
-	{}
-};
-
-$ClassInfo _AATextRenderer_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.pipe.AATextRenderer",
-	"sun.java2d.pipe.GlyphListLoopPipe",
-	nullptr,
-	nullptr,
-	_AATextRenderer_MethodInfo_
-};
-
-$Object* allocate$AATextRenderer($Class* clazz) {
-	return $of($alloc(AATextRenderer));
-}
-
 void AATextRenderer::init$() {
 	$GlyphListLoopPipe::init$();
 }
@@ -50,7 +30,22 @@ AATextRenderer::AATextRenderer() {
 }
 
 $Class* AATextRenderer::load$($String* name, bool initialize) {
-	$loadClass(AATextRenderer, name, initialize, &_AATextRenderer_ClassInfo_, allocate$AATextRenderer);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AATextRenderer, init$, void)},
+		{"drawGlyphList", "(Lsun/java2d/SunGraphics2D;Lsun/font/GlyphList;)V", nullptr, $PROTECTED, $virtualMethod(AATextRenderer, drawGlyphList, void, $SunGraphics2D*, $GlyphList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.pipe.AATextRenderer",
+		"sun.java2d.pipe.GlyphListLoopPipe",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(AATextRenderer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(AATextRenderer));
+	});
 	return class$;
 }
 

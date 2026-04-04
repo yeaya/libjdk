@@ -15,10 +15,13 @@ public:
 	InvalidAttributesException();
 	void init$($String* explanation);
 	void init$();
-	static const int64_t serialVersionUID = (int64_t)0x24301A12642C8465;
+	static const int64_t serialVersionUID = (int64_t)0x24301a12642c8465;
 	InvalidAttributesException(const InvalidAttributesException& e);
 	virtual void throw$() override;
-	inline InvalidAttributesException* operator ->() {
+	inline InvalidAttributesException* operator ->() const {
+		return (InvalidAttributesException*)throwing$;
+	}
+	inline operator InvalidAttributesException*() const {
 		return (InvalidAttributesException*)throwing$;
 	}
 };

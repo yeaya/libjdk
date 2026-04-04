@@ -1,5 +1,4 @@
 #include <MethodsTest.h>
-
 #include <MethodsTest$1.h>
 #include <java/net/ProxySelector.h>
 #include <java/net/URI.h>
@@ -19,7 +18,6 @@
 #undef TEST_URI
 
 using $MethodsTest$1 = ::MethodsTest$1;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -34,45 +32,6 @@ using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublisher
 using $HttpRequest$Builder = ::java::net::http::HttpRequest$Builder;
 using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
 
-$FieldInfo _MethodsTest_FieldInfo_[] = {
-	{"TEST_URI", "Ljava/net/URI;", nullptr, $STATIC | $FINAL, $staticField(MethodsTest, TEST_URI)},
-	{"FORBIDDEN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MethodsTest, FORBIDDEN)},
-	{"client", "Ljava/net/http/HttpClient;", nullptr, $STATIC | $FINAL, $staticField(MethodsTest, client)},
-	{}
-};
-
-$MethodInfo _MethodsTest_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(MethodsTest, init$, void)},
-	{"bad", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(MethodsTest, bad, void, $String*), "java.io.IOException,java.lang.InterruptedException"},
-	{"good", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(MethodsTest, good, void, $String*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodsTest, main, void, $StringArray*), "java.lang.Exception"},
-	{}
-};
-
-$InnerClassInfo _MethodsTest_InnerClassesInfo_[] = {
-	{"MethodsTest$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _MethodsTest_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"MethodsTest",
-	"java.lang.Object",
-	nullptr,
-	_MethodsTest_FieldInfo_,
-	_MethodsTest_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MethodsTest_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"MethodsTest$1"
-};
-
-$Object* allocate$MethodsTest($Class* clazz) {
-	return $of($alloc(MethodsTest));
-}
-
 $URI* MethodsTest::TEST_URI = nullptr;
 $String* MethodsTest::FORBIDDEN = nullptr;
 $HttpClient* MethodsTest::client = nullptr;
@@ -82,7 +41,7 @@ void MethodsTest::init$() {
 
 void MethodsTest::bad($String* name) {
 	$init(MethodsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(MethodsTest::TEST_URI));
 	try {
 		$nc(builder)->method(name, $($HttpRequest$BodyPublishers::noBody()));
@@ -101,7 +60,7 @@ void MethodsTest::bad($String* name) {
 
 void MethodsTest::good($String* name) {
 	$init(MethodsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($HttpRequest$Builder, builder, $HttpRequest::newBuilder(MethodsTest::TEST_URI));
 	try {
 		$nc(builder)->method(name, $($HttpRequest$BodyPublishers::noBody()));
@@ -112,7 +71,7 @@ void MethodsTest::good($String* name) {
 
 void MethodsTest::main($StringArray* args) {
 	$init(MethodsTest);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bad("bad:method"_s);
 	bad("Foo\n"_s);
 	good("X-Foo!"_s);
@@ -125,8 +84,8 @@ void MethodsTest::main($StringArray* args) {
 	good("Hello#world"_s);
 	good("Qwer#ert"_s);
 	bad(u"méthode"_s);
-	for (char16_t c = (char16_t)0; c < 256; ++c) {
-		if (c < 32 || $nc(MethodsTest::FORBIDDEN)->indexOf((int32_t)c) > -1 || c >= 127) {
+	for (char16_t c = 0; c < 256; ++c) {
+		if (c < 32 || MethodsTest::FORBIDDEN->indexOf(c) > -1 || c >= 127) {
 			bad($$str({"me"_s, $$str(c), "thod"_s}));
 			bad($$str({$$str(c), "thod"_s}));
 			bad($$str({"me"_s, $$str(c)}));
@@ -138,19 +97,52 @@ void MethodsTest::main($StringArray* args) {
 	}
 }
 
-void clinit$MethodsTest($Class* class$) {
-	$useLocalCurrentObjectStackCache();
+void MethodsTest::clinit$($Class* clazz) {
+	$useLocalObjectStack();
 	$assignStatic(MethodsTest::FORBIDDEN, "()<>@,;:\\\"/[]?={} \t\r\n"_s);
 	$assignStatic(MethodsTest::TEST_URI, $URI::create("http://www.foo.com/"_s));
 	$init($HttpClient$Builder);
-	$assignStatic(MethodsTest::client, $nc($($nc($($HttpClient::newBuilder()))->proxy($HttpClient$Builder::NO_PROXY)))->build());
+	$assignStatic(MethodsTest::client, $$nc($$nc($HttpClient::newBuilder())->proxy($HttpClient$Builder::NO_PROXY))->build());
 }
 
 MethodsTest::MethodsTest() {
 }
 
 $Class* MethodsTest::load$($String* name, bool initialize) {
-	$loadClass(MethodsTest, name, initialize, &_MethodsTest_ClassInfo_, clinit$MethodsTest, allocate$MethodsTest);
+	$FieldInfo fieldInfos$$[] = {
+		{"TEST_URI", "Ljava/net/URI;", nullptr, $STATIC | $FINAL, $staticField(MethodsTest, TEST_URI)},
+		{"FORBIDDEN", "Ljava/lang/String;", nullptr, $STATIC | $FINAL, $staticField(MethodsTest, FORBIDDEN)},
+		{"client", "Ljava/net/http/HttpClient;", nullptr, $STATIC | $FINAL, $staticField(MethodsTest, client)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(MethodsTest, init$, void)},
+		{"bad", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(MethodsTest, bad, void, $String*), "java.io.IOException,java.lang.InterruptedException"},
+		{"good", "(Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(MethodsTest, good, void, $String*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(MethodsTest, main, void, $StringArray*), "java.lang.Exception"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"MethodsTest$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"MethodsTest",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"MethodsTest$1"
+	};
+	$loadClass(MethodsTest, name, initialize, &classInfo$$, MethodsTest::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(MethodsTest);
+	});
 	return class$;
 }
 

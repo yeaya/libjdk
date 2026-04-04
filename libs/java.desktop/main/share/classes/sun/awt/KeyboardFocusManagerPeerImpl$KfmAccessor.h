@@ -18,6 +18,7 @@ class KeyboardFocusManagerPeerImpl$KfmAccessor : public ::java::lang::Object {
 	$class(KeyboardFocusManagerPeerImpl$KfmAccessor, 0, ::java::lang::Object)
 public:
 	KeyboardFocusManagerPeerImpl$KfmAccessor();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static ::sun::awt::AWTAccessor$KeyboardFocusManagerAccessor* instance;
 };

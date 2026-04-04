@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/BoundKind.h>
-
 #include <java/lang/Enum.h>
 #include <jcpp.h>
 
@@ -18,38 +17,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace code {
-
-$FieldInfo _BoundKind_FieldInfo_[] = {
-	{"EXTENDS", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BoundKind, EXTENDS)},
-	{"SUPER", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BoundKind, SUPER)},
-	{"UNBOUND", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BoundKind, UNBOUND)},
-	{"$VALUES", "[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(BoundKind, $VALUES)},
-	{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(BoundKind, name$)},
-	{}
-};
-
-$MethodInfo _BoundKind_MethodInfo_[] = {
-	{"$values", "()[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BoundKind, $values, $BoundKindArray*)},
-	{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(BoundKind, init$, void, $String*, int32_t, $String*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BoundKind, toString, $String*)},
-	{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BoundKind, valueOf, BoundKind*, $String*)},
-	{"values", "()[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BoundKind, values, $BoundKindArray*)},
-	{}
-};
-
-$ClassInfo _BoundKind_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
-	"com.sun.tools.javac.code.BoundKind",
-	"java.lang.Enum",
-	nullptr,
-	_BoundKind_FieldInfo_,
-	_BoundKind_MethodInfo_,
-	"Ljava/lang/Enum<Lcom/sun/tools/javac/code/BoundKind;>;"
-};
-
-$Object* allocate$BoundKind($Class* clazz) {
-	return $of($alloc(BoundKind));
-}
 
 BoundKind* BoundKind::EXTENDS = nullptr;
 BoundKind* BoundKind::SUPER = nullptr;
@@ -84,7 +51,7 @@ $String* BoundKind::toString() {
 	return this->name$;
 }
 
-void clinit$BoundKind($Class* class$) {
+void BoundKind::clinit$($Class* clazz) {
 	$assignStatic(BoundKind::EXTENDS, $new(BoundKind, "EXTENDS"_s, 0, "? extends "_s));
 	$assignStatic(BoundKind::SUPER, $new(BoundKind, "SUPER"_s, 1, "? super "_s));
 	$assignStatic(BoundKind::UNBOUND, $new(BoundKind, "UNBOUND"_s, 2, "?"_s));
@@ -95,7 +62,34 @@ BoundKind::BoundKind() {
 }
 
 $Class* BoundKind::load$($String* name, bool initialize) {
-	$loadClass(BoundKind, name, initialize, &_BoundKind_ClassInfo_, clinit$BoundKind, allocate$BoundKind);
+	$FieldInfo fieldInfos$$[] = {
+		{"EXTENDS", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BoundKind, EXTENDS)},
+		{"SUPER", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BoundKind, SUPER)},
+		{"UNBOUND", "Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC | $FINAL | $ENUM, $staticField(BoundKind, UNBOUND)},
+		{"$VALUES", "[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PRIVATE | $STATIC | $FINAL | $SYNTHETIC, $staticField(BoundKind, $VALUES)},
+		{"name", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(BoundKind, name$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"$values", "()[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(BoundKind, $values, $BoundKindArray*)},
+		{"<init>", "(Ljava/lang/String;ILjava/lang/String;)V", "(Ljava/lang/String;)V", $PRIVATE, $method(BoundKind, init$, void, $String*, int32_t, $String*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(BoundKind, toString, $String*)},
+		{"valueOf", "(Ljava/lang/String;)Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BoundKind, valueOf, BoundKind*, $String*)},
+		{"values", "()[Lcom/sun/tools/javac/code/BoundKind;", nullptr, $PUBLIC | $STATIC, $staticMethod(BoundKind, values, $BoundKindArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER | $ENUM,
+		"com.sun.tools.javac.code.BoundKind",
+		"java.lang.Enum",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Enum<Lcom/sun/tools/javac/code/BoundKind;>;"
+	};
+	$loadClass(BoundKind, name, initialize, &classInfo$$, BoundKind::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BoundKind));
+	});
 	return class$;
 }
 

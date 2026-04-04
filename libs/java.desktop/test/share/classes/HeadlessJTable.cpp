@@ -1,5 +1,4 @@
 #include <HeadlessJTable.h>
-
 #include <HeadlessJTable$1.h>
 #include <HeadlessJTable$2.h>
 #include <HeadlessJTable$3.h>
@@ -57,7 +56,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -67,80 +65,44 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JTable = ::javax::swing::JTable;
-using $JTableHeader = ::javax::swing::table::JTableHeader;
-using $TableColumn = ::javax::swing::table::TableColumn;
-using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $TableModel = ::javax::swing::table::TableModel;
-
-$MethodInfo _HeadlessJTable_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTable, init$, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTable, main, void, $StringArray*)},
-	{}
-};
-
-$InnerClassInfo _HeadlessJTable_InnerClassesInfo_[] = {
-	{"HeadlessJTable$4", nullptr, nullptr, 0},
-	{"HeadlessJTable$3", nullptr, nullptr, 0},
-	{"HeadlessJTable$2", nullptr, nullptr, 0},
-	{"HeadlessJTable$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _HeadlessJTable_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"HeadlessJTable",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_HeadlessJTable_MethodInfo_,
-	nullptr,
-	nullptr,
-	_HeadlessJTable_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"HeadlessJTable$4,HeadlessJTable$3,HeadlessJTable$2,HeadlessJTable$1"
-};
-
-$Object* allocate$HeadlessJTable($Class* clazz) {
-	return $of($alloc(HeadlessJTable));
-}
 
 void HeadlessJTable::init$() {
 }
 
 void HeadlessJTable::main($StringArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JTable, t, nullptr);
 	$assign(t, $new($JTable));
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("cell_1_1"_s),
-			$of("cell_1_2"_s),
-			$of("cell_1_3"_s)
+			"cell_1_1"_s,
+			"cell_1_2"_s,
+			"cell_1_3"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cell_2_1"_s),
-			$of("cell_2_2"_s),
-			$of("cell_2_3"_s)
+			"cell_2_1"_s,
+			"cell_2_2"_s,
+			"cell_2_3"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cell_3_1"_s),
-			$of("cell_3_2"_s),
-			$of("cell_3_3"_s)
+			"cell_3_1"_s,
+			"cell_3_2"_s,
+			"cell_3_3"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cell_4_1"_s),
-			$of("cell_4_2"_s),
-			$of("cell_4_3"_s)
+			"cell_4_1"_s,
+			"cell_4_2"_s,
+			"cell_4_3"_s
 		})
 	}));
 	$var($TableModel, dataModel, $new($HeadlessJTable$1, data));
 	$assign(t, $new($JTable, dataModel));
 	t->setAutoResizeMode($JTable::AUTO_RESIZE_ALL_COLUMNS);
 	t->getAutoResizeMode();
-	$nc($($nc($(t->getColumnModel()))->getColumn(1)))->setMinWidth(5);
-	$nc($(t->getTableHeader()))->setReorderingAllowed(false);
-	$nc($(t->getTableHeader()))->setResizingAllowed(false);
+	$$nc($$nc(t->getColumnModel())->getColumn(1))->setMinWidth(5);
+	$$nc(t->getTableHeader())->setReorderingAllowed(false);
+	$$nc(t->getTableHeader())->setResizingAllowed(false);
 	t->getAccessibleContext();
 	t->isFocusTraversable();
 	t->setEnabled(false);
@@ -151,9 +113,9 @@ void HeadlessJTable::main($StringArray* args) {
 	t->getMaximumSize();
 	t->getMinimumSize();
 	t->contains(1, 2);
-	$var($Component, c1, t->add(static_cast<$Component*>($$new($HeadlessJTable$2))));
-	$var($Component, c2, t->add(static_cast<$Component*>($$new($HeadlessJTable$3))));
-	$var($Component, c3, t->add(static_cast<$Component*>($$new($HeadlessJTable$4))));
+	$var($Component, c1, t->add($$new($HeadlessJTable$2)));
+	$var($Component, c2, t->add($$new($HeadlessJTable$3)));
+	$var($Component, c3, t->add($$new($HeadlessJTable$4)));
 	$var($Insets, ins, t->getInsets());
 	t->getAlignmentY();
 	t->getAlignmentX();
@@ -164,26 +126,22 @@ void HeadlessJTable::main($StringArray* args) {
 	t->setForeground($Color::red);
 	t->setBackground($Color::red);
 	{
-		$var($StringArray, arr$, $nc($($Toolkit::getDefaultToolkit()))->getFontList());
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		$var($StringArray, arr$, $$nc($Toolkit::getDefaultToolkit())->getFontList());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($String, font, arr$->get(i$));
-			{
-				for (int32_t j = 8; j < 17; ++j) {
-					$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
-					$var($Font, f2, $new($Font, font, $Font::BOLD, j));
-					$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
-					$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
-					t->setFont(f1);
-					t->setFont(f2);
-					t->setFont(f3);
-					t->setFont(f4);
-					t->getFontMetrics(f1);
-					t->getFontMetrics(f2);
-					t->getFontMetrics(f3);
-					t->getFontMetrics(f4);
-				}
+			for (int32_t j = 8; j < 17; ++j) {
+				$var($Font, f1, $new($Font, font, $Font::PLAIN, j));
+				$var($Font, f2, $new($Font, font, $Font::BOLD, j));
+				$var($Font, f3, $new($Font, font, $Font::ITALIC, j));
+				$var($Font, f4, $new($Font, font, $Font::BOLD | $Font::ITALIC, j));
+				t->setFont(f1);
+				t->setFont(f2);
+				t->setFont(f3);
+				t->setFont(f4);
+				t->getFontMetrics(f1);
+				t->getFontMetrics(f2);
+				t->getFontMetrics(f3);
+				t->getFontMetrics(f4);
 			}
 		}
 	}
@@ -248,13 +206,11 @@ void HeadlessJTable::main($StringArray* args) {
 	t->getFont();
 	t->isFontSet();
 	$var($Container, c, $new($Container));
-	c->add(static_cast<$Component*>(t));
+	c->add(t);
 	t->getLocale();
 	{
 		$var($LocaleArray, arr$, $Locale::getAvailableLocales());
-		int32_t len$ = arr$->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Locale, locale, arr$->get(i$));
 			t->setLocale(locale);
 		}
@@ -311,7 +267,35 @@ HeadlessJTable::HeadlessJTable() {
 }
 
 $Class* HeadlessJTable::load$($String* name, bool initialize) {
-	$loadClass(HeadlessJTable, name, initialize, &_HeadlessJTable_ClassInfo_, allocate$HeadlessJTable);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTable, init$, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(HeadlessJTable, main, void, $StringArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"HeadlessJTable$4", nullptr, nullptr, 0},
+		{"HeadlessJTable$3", nullptr, nullptr, 0},
+		{"HeadlessJTable$2", nullptr, nullptr, 0},
+		{"HeadlessJTable$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"HeadlessJTable",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"HeadlessJTable$4,HeadlessJTable$3,HeadlessJTable$2,HeadlessJTable$1"
+	};
+	$loadClass(HeadlessJTable, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(HeadlessJTable);
+	});
 	return class$;
 }
 

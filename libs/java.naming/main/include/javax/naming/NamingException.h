@@ -44,10 +44,13 @@ public:
 	$Object* resolvedObj = nullptr;
 	::javax::naming::Name* remainingName = nullptr;
 	$Throwable* rootException = nullptr;
-	static const int64_t serialVersionUID = (int64_t)0xEDF860E38A3EE737;
+	static const int64_t serialVersionUID = (int64_t)0xedf860e38a3ee737;
 	NamingException(const NamingException& e);
 	virtual void throw$() override;
-	inline NamingException* operator ->() {
+	inline NamingException* operator ->() const {
+		return (NamingException*)throwing$;
+	}
+	inline operator NamingException*() const {
 		return (NamingException*)throwing$;
 	}
 };

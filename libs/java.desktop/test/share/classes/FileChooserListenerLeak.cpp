@@ -1,5 +1,4 @@
 #include <FileChooserListenerLeak.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
@@ -44,14 +43,12 @@ using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAnd
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
-using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -72,101 +69,71 @@ public:
 	virtual void run() override {
 		FileChooserListenerLeak::lambda$main$0();
 	}
-	static $Object* allocate$($Class* clazz) {
-		return $of($alloc<FileChooserListenerLeak$$Lambda$lambda$main$0>());
-	}
-	static $MethodInfo methodInfos[3];
-	static $ClassInfo classInfo$;
-};
-$MethodInfo FileChooserListenerLeak$$Lambda$lambda$main$0::methodInfos[3] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileChooserListenerLeak$$Lambda$lambda$main$0, init$, void)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileChooserListenerLeak$$Lambda$lambda$main$0, run, void)},
-	{}
-};
-$ClassInfo FileChooserListenerLeak$$Lambda$lambda$main$0::classInfo$ = {
-	$PUBLIC | $FINAL,
-	"FileChooserListenerLeak$$Lambda$lambda$main$0",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	nullptr,
-	methodInfos
 };
 $Class* FileChooserListenerLeak$$Lambda$lambda$main$0::load$($String* name, bool initialize) {
-	$loadClass(FileChooserListenerLeak$$Lambda$lambda$main$0, name, initialize, &classInfo$, allocate$);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileChooserListenerLeak$$Lambda$lambda$main$0, init$, void)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(FileChooserListenerLeak$$Lambda$lambda$main$0, run, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL,
+		"FileChooserListenerLeak$$Lambda$lambda$main$0",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FileChooserListenerLeak$$Lambda$lambda$main$0, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileChooserListenerLeak$$Lambda$lambda$main$0);
+	});
 	return class$;
 }
 $Class* FileChooserListenerLeak$$Lambda$lambda$main$0::class$ = nullptr;
-
-$MethodInfo _FileChooserListenerLeak_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(FileChooserListenerLeak, init$, void)},
-	{"checkListenersCount", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileChooserListenerLeak, checkListenersCount, void, $Component*)},
-	{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileChooserListenerLeak, lambda$main$0, void)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileChooserListenerLeak, main, void, $StringArray*), "java.lang.Exception"},
-	{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileChooserListenerLeak, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
-	{"test", "([Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileChooserListenerLeak, test, void, $ObjectArray*)},
-	{}
-};
-
-$ClassInfo _FileChooserListenerLeak_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"FileChooserListenerLeak",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_FileChooserListenerLeak_MethodInfo_
-};
-
-$Object* allocate$FileChooserListenerLeak($Class* clazz) {
-	return $of($alloc(FileChooserListenerLeak));
-}
 
 void FileChooserListenerLeak::init$() {
 }
 
 void FileChooserListenerLeak::main($StringArray* args) {
-	$EventQueue::invokeAndWait(static_cast<$Runnable*>($$new(FileChooserListenerLeak$$Lambda$lambda$main$0)));
+	$EventQueue::invokeAndWait($$new(FileChooserListenerLeak$$Lambda$lambda$main$0));
 }
 
 void FileChooserListenerLeak::checkListenersCount($Component* comp) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	test($($nc(comp)->getComponentListeners()));
-	test($($nc(comp)->getFocusListeners()));
-	test($($nc(comp)->getHierarchyListeners()));
-	test($($nc(comp)->getHierarchyBoundsListeners()));
-	test($($nc(comp)->getKeyListeners()));
-	test($($nc(comp)->getMouseListeners()));
-	test($($nc(comp)->getMouseMotionListeners()));
-	test($($nc(comp)->getMouseWheelListeners()));
-	test($($nc(comp)->getInputMethodListeners()));
-	test($($nc(comp)->getPropertyChangeListeners()));
+	test($(comp->getFocusListeners()));
+	test($(comp->getHierarchyListeners()));
+	test($(comp->getHierarchyBoundsListeners()));
+	test($(comp->getKeyListeners()));
+	test($(comp->getMouseListeners()));
+	test($(comp->getMouseMotionListeners()));
+	test($(comp->getMouseWheelListeners()));
+	test($(comp->getInputMethodListeners()));
+	test($(comp->getPropertyChangeListeners()));
 	if ($instanceOf($JComponent, comp)) {
-		test($($nc(($cast($JComponent, comp)))->getAncestorListeners()));
-		test($($nc(($cast($JComponent, comp)))->getVetoableChangeListeners()));
+		test($($cast($JComponent, comp)->getAncestorListeners()));
+		test($($cast($JComponent, comp)->getVetoableChangeListeners()));
 	}
 	if ($instanceOf($JMenuItem, comp)) {
-		test($($nc(($cast($JMenuItem, comp)))->getMenuKeyListeners()));
-		test($($nc(($cast($JMenuItem, comp)))->getMenuDragMouseListeners()));
+		test($($cast($JMenuItem, comp)->getMenuKeyListeners()));
+		test($($cast($JMenuItem, comp)->getMenuDragMouseListeners()));
 	}
 	if ($instanceOf($JMenu, comp)) {
-		test($($nc(($cast($JMenu, comp)))->getMenuListeners()));
+		test($($cast($JMenu, comp)->getMenuListeners()));
 	}
 	if ($instanceOf($Container, comp)) {
-		{
-			$var($ComponentArray, arr$, $nc(($cast($Container, comp)))->getComponents());
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($Component, child, arr$->get(i$));
-				{
-					checkListenersCount(child);
-				}
+		$var($ComponentArray, arr$, $cast($Container, comp)->getComponents());
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($Component, child, arr$->get(i$));
+			{
+				checkListenersCount(child);
 			}
 		}
 	}
 }
 
 void FileChooserListenerLeak::test($ObjectArray* listeners) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t length = $nc(listeners)->length;
 	if (length > 20) {
 		$throwNew($RuntimeException, $$str({"The count of listeners is: "_s, $$str(length)}));
@@ -174,36 +141,32 @@ void FileChooserListenerLeak::test($ObjectArray* listeners) {
 }
 
 void FileChooserListenerLeak::setLookAndFeel($UIManager$LookAndFeelInfo* laf) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	try {
 		$UIManager::setLookAndFeel($($nc(laf)->getClassName()));
 	} catch ($UnsupportedLookAndFeelException& ignored) {
 		$nc($System::out)->println($$str({"Unsupported LookAndFeel: "_s, $($nc(laf)->getClassName())}));
 	} catch ($ClassNotFoundException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($InstantiationException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	} catch ($IllegalAccessException& e) {
-		$throwNew($RuntimeException, static_cast<$Throwable*>(e));
+		$throwNew($RuntimeException, e);
 	}
 }
 
 void FileChooserListenerLeak::lambda$main$0() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JFileChooser, chooser, $new($JFileChooser));
 	checkListenersCount(chooser);
 	$var($UIManager$LookAndFeelInfoArray, infos, $UIManager::getInstalledLookAndFeels());
 	for (int32_t i = 0; i < 100; ++i) {
-		{
-			$var($UIManager$LookAndFeelInfoArray, arr$, infos);
-			int32_t len$ = $nc(arr$)->length;
-			int32_t i$ = 0;
-			for (; i$ < len$; ++i$) {
-				$var($UIManager$LookAndFeelInfo, installedLookAndFeel, arr$->get(i$));
-				{
-					setLookAndFeel(installedLookAndFeel);
-					$SwingUtilities::updateComponentTreeUI(chooser);
-				}
+		$var($UIManager$LookAndFeelInfoArray, arr$, infos);
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
+			$var($UIManager$LookAndFeelInfo, installedLookAndFeel, arr$->get(i$));
+			{
+				setLookAndFeel(installedLookAndFeel);
+				$SwingUtilities::updateComponentTreeUI(chooser);
 			}
 		}
 	}
@@ -215,11 +178,30 @@ FileChooserListenerLeak::FileChooserListenerLeak() {
 
 $Class* FileChooserListenerLeak::load$($String* name, bool initialize) {
 	if (name != nullptr) {
-		if (name->equals(FileChooserListenerLeak$$Lambda$lambda$main$0::classInfo$.name)) {
+		if (name->equals("FileChooserListenerLeak$$Lambda$lambda$main$0")) {
 			return FileChooserListenerLeak$$Lambda$lambda$main$0::load$(name, initialize);
 		}
 	}
-	$loadClass(FileChooserListenerLeak, name, initialize, &_FileChooserListenerLeak_ClassInfo_, allocate$FileChooserListenerLeak);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(FileChooserListenerLeak, init$, void)},
+		{"checkListenersCount", "(Ljava/awt/Component;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileChooserListenerLeak, checkListenersCount, void, $Component*)},
+		{"lambda$main$0", "()V", nullptr, $PRIVATE | $STATIC | $SYNTHETIC, $staticMethod(FileChooserListenerLeak, lambda$main$0, void)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(FileChooserListenerLeak, main, void, $StringArray*), "java.lang.Exception"},
+		{"setLookAndFeel", "(Ljavax/swing/UIManager$LookAndFeelInfo;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileChooserListenerLeak, setLookAndFeel, void, $UIManager$LookAndFeelInfo*)},
+		{"test", "([Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(FileChooserListenerLeak, test, void, $ObjectArray*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"FileChooserListenerLeak",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(FileChooserListenerLeak, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(FileChooserListenerLeak);
+	});
 	return class$;
 }
 

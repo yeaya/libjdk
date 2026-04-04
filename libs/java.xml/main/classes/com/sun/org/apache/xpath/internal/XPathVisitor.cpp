@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
-
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/axes/LocPathIterator.h>
@@ -37,36 +36,6 @@ namespace com {
 			namespace apache {
 				namespace xpath {
 					namespace internal {
-
-$MethodInfo _XPathVisitor_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XPathVisitor, init$, void)},
-	{"visitBinaryOperation", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/operations/Operation;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitBinaryOperation, bool, $ExpressionOwner*, $Operation*)},
-	{"visitFunction", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/functions/Function;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitFunction, bool, $ExpressionOwner*, $Function*)},
-	{"visitLocationPath", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitLocationPath, bool, $ExpressionOwner*, $LocPathIterator*)},
-	{"visitMatchPattern", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/patterns/StepPattern;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitMatchPattern, bool, $ExpressionOwner*, $StepPattern*)},
-	{"visitNumberLiteral", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/objects/XNumber;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitNumberLiteral, bool, $ExpressionOwner*, $XNumber*)},
-	{"visitPredicate", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitPredicate, bool, $ExpressionOwner*, $Expression*)},
-	{"visitStep", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/patterns/NodeTest;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitStep, bool, $ExpressionOwner*, $NodeTest*)},
-	{"visitStringLiteral", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/objects/XString;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitStringLiteral, bool, $ExpressionOwner*, $XString*)},
-	{"visitUnaryOperation", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/operations/UnaryOperation;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitUnaryOperation, bool, $ExpressionOwner*, $UnaryOperation*)},
-	{"visitUnionPath", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/axes/UnionPathIterator;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitUnionPath, bool, $ExpressionOwner*, $UnionPathIterator*)},
-	{"visitUnionPattern", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/patterns/UnionPattern;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitUnionPattern, bool, $ExpressionOwner*, $UnionPattern*)},
-	{"visitVariableRef", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/operations/Variable;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitVariableRef, bool, $ExpressionOwner*, $Variable*)},
-	{}
-};
-
-$ClassInfo _XPathVisitor_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xpath.internal.XPathVisitor",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_XPathVisitor_MethodInfo_
-};
-
-$Object* allocate$XPathVisitor($Class* clazz) {
-	return $of($alloc(XPathVisitor));
-}
 
 void XPathVisitor::init$() {
 }
@@ -123,7 +92,33 @@ XPathVisitor::XPathVisitor() {
 }
 
 $Class* XPathVisitor::load$($String* name, bool initialize) {
-	$loadClass(XPathVisitor, name, initialize, &_XPathVisitor_ClassInfo_, allocate$XPathVisitor);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XPathVisitor, init$, void)},
+		{"visitBinaryOperation", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/operations/Operation;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitBinaryOperation, bool, $ExpressionOwner*, $Operation*)},
+		{"visitFunction", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/functions/Function;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitFunction, bool, $ExpressionOwner*, $Function*)},
+		{"visitLocationPath", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/axes/LocPathIterator;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitLocationPath, bool, $ExpressionOwner*, $LocPathIterator*)},
+		{"visitMatchPattern", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/patterns/StepPattern;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitMatchPattern, bool, $ExpressionOwner*, $StepPattern*)},
+		{"visitNumberLiteral", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/objects/XNumber;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitNumberLiteral, bool, $ExpressionOwner*, $XNumber*)},
+		{"visitPredicate", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/Expression;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitPredicate, bool, $ExpressionOwner*, $Expression*)},
+		{"visitStep", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/patterns/NodeTest;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitStep, bool, $ExpressionOwner*, $NodeTest*)},
+		{"visitStringLiteral", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/objects/XString;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitStringLiteral, bool, $ExpressionOwner*, $XString*)},
+		{"visitUnaryOperation", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/operations/UnaryOperation;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitUnaryOperation, bool, $ExpressionOwner*, $UnaryOperation*)},
+		{"visitUnionPath", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/axes/UnionPathIterator;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitUnionPath, bool, $ExpressionOwner*, $UnionPathIterator*)},
+		{"visitUnionPattern", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/patterns/UnionPattern;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitUnionPattern, bool, $ExpressionOwner*, $UnionPattern*)},
+		{"visitVariableRef", "(Lcom/sun/org/apache/xpath/internal/ExpressionOwner;Lcom/sun/org/apache/xpath/internal/operations/Variable;)Z", nullptr, $PUBLIC, $virtualMethod(XPathVisitor, visitVariableRef, bool, $ExpressionOwner*, $Variable*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xpath.internal.XPathVisitor",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XPathVisitor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XPathVisitor);
+	});
 	return class$;
 }
 

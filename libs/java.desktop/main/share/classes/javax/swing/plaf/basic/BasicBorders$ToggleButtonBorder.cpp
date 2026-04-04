@@ -1,5 +1,4 @@
 #include <javax/swing/plaf/basic/BasicBorders$ToggleButtonBorder.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
@@ -24,39 +23,6 @@ namespace javax {
 		namespace plaf {
 			namespace basic {
 
-$MethodInfo _BasicBorders$ToggleButtonBorder_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$ToggleButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
-	{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$ToggleButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
-	{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$ToggleButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _BasicBorders$ToggleButtonBorder_InnerClassesInfo_[] = {
-	{"javax.swing.plaf.basic.BasicBorders$ToggleButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
-	{"javax.swing.plaf.basic.BasicBorders$ButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ButtonBorder", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _BasicBorders$ToggleButtonBorder_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.swing.plaf.basic.BasicBorders$ToggleButtonBorder",
-	"javax.swing.plaf.basic.BasicBorders$ButtonBorder",
-	nullptr,
-	nullptr,
-	_BasicBorders$ToggleButtonBorder_MethodInfo_,
-	nullptr,
-	nullptr,
-	_BasicBorders$ToggleButtonBorder_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.plaf.basic.BasicBorders"
-};
-
-$Object* allocate$BasicBorders$ToggleButtonBorder($Class* clazz) {
-	return $of($alloc(BasicBorders$ToggleButtonBorder));
-}
-
 void BasicBorders$ToggleButtonBorder::init$($Color* shadow, $Color* darkShadow, $Color* highlight, $Color* lightHighlight) {
 	$BasicBorders$ButtonBorder::init$(shadow, darkShadow, highlight, lightHighlight);
 }
@@ -74,7 +40,35 @@ BasicBorders$ToggleButtonBorder::BasicBorders$ToggleButtonBorder() {
 }
 
 $Class* BasicBorders$ToggleButtonBorder::load$($String* name, bool initialize) {
-	$loadClass(BasicBorders$ToggleButtonBorder, name, initialize, &_BasicBorders$ToggleButtonBorder_ClassInfo_, allocate$BasicBorders$ToggleButtonBorder);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;Ljava/awt/Color;)V", nullptr, $PUBLIC, $method(BasicBorders$ToggleButtonBorder, init$, void, $Color*, $Color*, $Color*, $Color*)},
+		{"getBorderInsets", "(Ljava/awt/Component;Ljava/awt/Insets;)Ljava/awt/Insets;", nullptr, $PUBLIC, $virtualMethod(BasicBorders$ToggleButtonBorder, getBorderInsets, $Insets*, $Component*, $Insets*)},
+		{"paintBorder", "(Ljava/awt/Component;Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(BasicBorders$ToggleButtonBorder, paintBorder, void, $Component*, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.plaf.basic.BasicBorders$ToggleButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ToggleButtonBorder", $PUBLIC | $STATIC},
+		{"javax.swing.plaf.basic.BasicBorders$ButtonBorder", "javax.swing.plaf.basic.BasicBorders", "ButtonBorder", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.swing.plaf.basic.BasicBorders$ToggleButtonBorder",
+		"javax.swing.plaf.basic.BasicBorders$ButtonBorder",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.plaf.basic.BasicBorders"
+	};
+	$loadClass(BasicBorders$ToggleButtonBorder, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(BasicBorders$ToggleButtonBorder));
+	});
 	return class$;
 }
 

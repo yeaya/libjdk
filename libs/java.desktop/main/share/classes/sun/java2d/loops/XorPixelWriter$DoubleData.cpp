@@ -1,5 +1,4 @@
 #include <sun/java2d/loops/XorPixelWriter$DoubleData.h>
-
 #include <java/awt/image/WritableRaster.h>
 #include <sun/java2d/loops/PixelWriter.h>
 #include <sun/java2d/loops/XorPixelWriter.h>
@@ -17,53 +16,15 @@ namespace sun {
 	namespace java2d {
 		namespace loops {
 
-$FieldInfo _XorPixelWriter$DoubleData_FieldInfo_[] = {
-	{"xorData", "[J", nullptr, 0, $field(XorPixelWriter$DoubleData, xorData)},
-	{}
-};
-
-$MethodInfo _XorPixelWriter$DoubleData_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(XorPixelWriter$DoubleData, init$, void, Object$*, Object$*)},
-	{"setRaster", "(Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XorPixelWriter$DoubleData, setRaster, void, $WritableRaster*)},
-	{"writePixel", "(II)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XorPixelWriter$DoubleData, writePixel, void, int32_t, int32_t)},
-	{"xorPixel", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XorPixelWriter$DoubleData, xorPixel, void, Object$*)},
-	{}
-};
-
-$InnerClassInfo _XorPixelWriter$DoubleData_InnerClassesInfo_[] = {
-	{"sun.java2d.loops.XorPixelWriter$DoubleData", "sun.java2d.loops.XorPixelWriter", "DoubleData", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _XorPixelWriter$DoubleData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.java2d.loops.XorPixelWriter$DoubleData",
-	"sun.java2d.loops.XorPixelWriter",
-	nullptr,
-	_XorPixelWriter$DoubleData_FieldInfo_,
-	_XorPixelWriter$DoubleData_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XorPixelWriter$DoubleData_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.java2d.loops.XorPixelWriter"
-};
-
-$Object* allocate$XorPixelWriter$DoubleData($Class* clazz) {
-	return $of($alloc(XorPixelWriter$DoubleData));
-}
-
 void XorPixelWriter$DoubleData::init$(Object$* srcPixel, Object$* xorPixel) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$XorPixelWriter::init$();
 	$var($doubles, srcData, $cast($doubles, srcPixel));
 	$var($doubles, xorData, $cast($doubles, xorPixel));
 	$set(this, xorData, $new($longs, $nc(srcData)->length));
 	for (int32_t i = 0; i < srcData->length; ++i) {
 		int64_t var$0 = $Double::doubleToLongBits(srcData->get(i));
-		$nc(this->xorData)->set(i, (var$0 ^ $Double::doubleToLongBits($nc(xorData)->get(i))));
+		this->xorData->set(i, (var$0 ^ $Double::doubleToLongBits($nc(xorData)->get(i))));
 	}
 }
 
@@ -87,7 +48,39 @@ XorPixelWriter$DoubleData::XorPixelWriter$DoubleData() {
 }
 
 $Class* XorPixelWriter$DoubleData::load$($String* name, bool initialize) {
-	$loadClass(XorPixelWriter$DoubleData, name, initialize, &_XorPixelWriter$DoubleData_ClassInfo_, allocate$XorPixelWriter$DoubleData);
+	$FieldInfo fieldInfos$$[] = {
+		{"xorData", "[J", nullptr, 0, $field(XorPixelWriter$DoubleData, xorData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Object;Ljava/lang/Object;)V", nullptr, 0, $method(XorPixelWriter$DoubleData, init$, void, Object$*, Object$*)},
+		{"setRaster", "(Ljava/awt/image/WritableRaster;)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XorPixelWriter$DoubleData, setRaster, void, $WritableRaster*)},
+		{"writePixel", "(II)V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(XorPixelWriter$DoubleData, writePixel, void, int32_t, int32_t)},
+		{"xorPixel", "(Ljava/lang/Object;)V", nullptr, $PROTECTED, $virtualMethod(XorPixelWriter$DoubleData, xorPixel, void, Object$*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.java2d.loops.XorPixelWriter$DoubleData", "sun.java2d.loops.XorPixelWriter", "DoubleData", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.java2d.loops.XorPixelWriter$DoubleData",
+		"sun.java2d.loops.XorPixelWriter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.java2d.loops.XorPixelWriter"
+	};
+	$loadClass(XorPixelWriter$DoubleData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XorPixelWriter$DoubleData);
+	});
 	return class$;
 }
 

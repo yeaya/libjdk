@@ -40,6 +40,7 @@ class MXBeanLookup : public ::java::lang::Object {
 	$class(MXBeanLookup, 0, ::java::lang::Object)
 public:
 	MXBeanLookup();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::management::MBeanServerConnection* mbsc);
 	virtual void addReference(::javax::management::ObjectName* name, Object$* mxbean);
 	static ::com::sun::jmx::mbeanserver::MXBeanLookup* getLookup();

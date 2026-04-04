@@ -1,12 +1,8 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUIImpl.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
-#include <java/awt/LayoutManager.h>
-#include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -14,7 +10,6 @@
 #include <java/io/File.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Box.h>
@@ -39,7 +34,6 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
-#include <sun/swing/FilePane$FileChooserUIAccessor.h>
 #include <sun/swing/FilePane.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <sun/swing/plaf/synth/SynthFileChooserUI.h>
@@ -78,16 +72,10 @@
 using $FileArray = $Array<::java::io::File>;
 using $SynthFileChooserUIImpl$AlignedLabelArray = $Array<::sun::swing::plaf::synth::SynthFileChooserUIImpl$AlignedLabel>;
 using $BorderLayout = ::java::awt::BorderLayout;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
-using $LayoutManager = ::java::awt::LayoutManager;
-using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
-using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -95,8 +83,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Box = ::javax::swing::Box;
@@ -111,16 +97,13 @@ using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
 using $JPanel = ::javax::swing::JPanel;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
-using $JTextField = ::javax::swing::JTextField;
 using $JToggleButton = ::javax::swing::JToggleButton;
-using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $UIManager = ::javax::swing::UIManager;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $FilePane = ::sun::swing::FilePane;
-using $FilePane$FileChooserUIAccessor = ::sun::swing::FilePane$FileChooserUIAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 using $SynthFileChooserUI = ::sun::swing::plaf::synth::SynthFileChooserUI;
 using $SynthFileChooserUIImpl$1 = ::sun::swing::plaf::synth::SynthFileChooserUIImpl$1;
@@ -140,121 +123,6 @@ namespace sun {
 	namespace swing {
 		namespace plaf {
 			namespace synth {
-
-$FieldInfo _SynthFileChooserUIImpl_FieldInfo_[] = {
-	{"lookInLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, lookInLabel)},
-	{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/io/File;>;", $PRIVATE, $field(SynthFileChooserUIImpl, directoryComboBox)},
-	{"directoryComboBoxModel", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl$DirectoryComboBoxModel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, directoryComboBoxModel)},
-	{"directoryComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, directoryComboBoxAction)},
-	{"filterComboBoxModel", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl$FilterComboBoxModel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, filterComboBoxModel)},
-	{"fileNameTextField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, fileNameTextField)},
-	{"filePane", "Lsun/swing/FilePane;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, filePane)},
-	{"listViewButton", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, listViewButton)},
-	{"detailsViewButton", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, detailsViewButton)},
-	{"readOnly", "Z", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, readOnly)},
-	{"buttonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, buttonPanel)},
-	{"bottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, bottomPanel)},
-	{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(SynthFileChooserUIImpl, filterComboBox)},
-	{"hstrut5", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthFileChooserUIImpl, hstrut5)},
-	{"shrinkwrap", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthFileChooserUIImpl, shrinkwrap)},
-	{"LIST_PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(SynthFileChooserUIImpl, LIST_PREF_SIZE)},
-	{"lookInLabelMnemonic", "I", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, lookInLabelMnemonic)},
-	{"lookInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, lookInLabelText)},
-	{"saveInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, saveInLabelText)},
-	{"fileNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, fileNameLabelMnemonic)},
-	{"fileNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, fileNameLabelText)},
-	{"folderNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, folderNameLabelMnemonic)},
-	{"folderNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, folderNameLabelText)},
-	{"filesOfTypeLabelMnemonic", "I", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, filesOfTypeLabelMnemonic)},
-	{"filesOfTypeLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, filesOfTypeLabelText)},
-	{"upFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, upFolderToolTipText)},
-	{"upFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, upFolderAccessibleName)},
-	{"homeFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, homeFolderToolTipText)},
-	{"homeFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, homeFolderAccessibleName)},
-	{"newFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, newFolderToolTipText)},
-	{"newFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, newFolderAccessibleName)},
-	{"listViewButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, listViewButtonToolTipText)},
-	{"listViewButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, listViewButtonAccessibleName)},
-	{"detailsViewButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, detailsViewButtonToolTipText)},
-	{"detailsViewButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, detailsViewButtonAccessibleName)},
-	{"fileNameLabel", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl$AlignedLabel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, fileNameLabel)},
-	{"modeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $FINAL, $field(SynthFileChooserUIImpl, modeListener)},
-	{"space", "I", nullptr, $STATIC | $FINAL, $constField(SynthFileChooserUIImpl, space)},
-	{}
-};
-
-$MethodInfo _SynthFileChooserUIImpl_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(SynthFileChooserUIImpl, init$, void, $JFileChooser*)},
-	{"access$000", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthFileChooserUIImpl, access$000, bool, SynthFileChooserUIImpl*)},
-	{"access$100", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)Ljava/io/File;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthFileChooserUIImpl, access$100, $File*, SynthFileChooserUIImpl*)},
-	{"access$200", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthFileChooserUIImpl, access$200, $MouseListener*, SynthFileChooserUIImpl*, $JFileChooser*, $JList*)},
-	{"addControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, addControlButtons, void)},
-	{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createActionMap, $ActionMap*)},
-	{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Lsun/swing/plaf/synth/SynthFileChooserUIImpl$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createDirectoryComboBoxModel, $SynthFileChooserUIImpl$DirectoryComboBoxModel*, $JFileChooser*)},
-	{"createDirectoryComboBoxRenderer", "(Ljavax/swing/JFileChooser;)Lsun/swing/plaf/synth/SynthFileChooserUIImpl$DirectoryComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createDirectoryComboBoxRenderer, $SynthFileChooserUIImpl$DirectoryComboBoxRenderer*, $JFileChooser*)},
-	{"createFilterComboBoxModel", "()Lsun/swing/plaf/synth/SynthFileChooserUIImpl$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createFilterComboBoxModel, $SynthFileChooserUIImpl$FilterComboBoxModel*)},
-	{"createFilterComboBoxRenderer", "()Lsun/swing/plaf/synth/SynthFileChooserUIImpl$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createFilterComboBoxRenderer, $SynthFileChooserUIImpl$FilterComboBoxRenderer*)},
-	{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doAccessoryChanged, void, $PropertyChangeEvent*)},
-	{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doControlButtonsChanged, void, $PropertyChangeEvent*)},
-	{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doDirectoryChanged, void, $PropertyChangeEvent*)},
-	{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doSelectedFileChanged, void, $PropertyChangeEvent*)},
-	{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
-	{"fileNameString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SynthFileChooserUIImpl, fileNameString, $String*, $File*)},
-	{"fileNameString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SynthFileChooserUIImpl, fileNameString, $String*, $FileArray*)},
-	{"getDirectoryComboBox", "()Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, getDirectoryComboBox, $JComponent*)},
-	{"getDirectoryComboBoxAction", "()Ljavax/swing/Action;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, getDirectoryComboBoxAction, $Action*)},
-	{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, getFileName, $String*)},
-	{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE, $method(SynthFileChooserUIImpl, getMnemonic, int32_t, $String*, $Locale*)},
-	{"groupLabels", "([Lsun/swing/plaf/synth/SynthFileChooserUIImpl$AlignedLabel;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthFileChooserUIImpl, groupLabels, void, $SynthFileChooserUIImpl$AlignedLabelArray*)},
-	{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, installComponents, void, $JFileChooser*)},
-	{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, installDefaults, void, $JFileChooser*)},
-	{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, installListeners, void, $JFileChooser*)},
-	{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, installStrings, void, $JFileChooser*)},
-	{"populateFileNameLabel", "()V", nullptr, $PRIVATE, $method(SynthFileChooserUIImpl, populateFileNameLabel, void)},
-	{"removeControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, removeControlButtons, void)},
-	{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, rescanCurrentDirectory, void, $JFileChooser*)},
-	{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, setFileName, void, $String*)},
-	{"uninstallListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, uninstallListeners, void, $JFileChooser*)},
-	{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, uninstallUI, void, $JComponent*)},
-	{}
-};
-
-$InnerClassInfo _SynthFileChooserUIImpl_InnerClassesInfo_[] = {
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$AlignedLabel", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "AlignedLabel", $PRIVATE},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$ButtonAreaLayout", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "ButtonAreaLayout", $PRIVATE | $STATIC},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxModel", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "FilterComboBoxModel", $PROTECTED},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxRenderer", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "FilterComboBoxRenderer", $PUBLIC},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxAction", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "DirectoryComboBoxAction", $PROTECTED},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxModel", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "DirectoryComboBoxModel", $PROTECTED},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$IndentIcon", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "IndentIcon", 0},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxRenderer", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "DirectoryComboBoxRenderer", $PRIVATE},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$SynthFileChooserUIAccessor", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "SynthFileChooserUIAccessor", $PRIVATE},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$4", nullptr, nullptr, 0},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$3", nullptr, nullptr, 0},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$2", nullptr, nullptr, 0},
-	{"sun.swing.plaf.synth.SynthFileChooserUIImpl$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SynthFileChooserUIImpl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl",
-	"sun.swing.plaf.synth.SynthFileChooserUI",
-	nullptr,
-	_SynthFileChooserUIImpl_FieldInfo_,
-	_SynthFileChooserUIImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SynthFileChooserUIImpl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.swing.plaf.synth.SynthFileChooserUIImpl$AlignedLabel,sun.swing.plaf.synth.SynthFileChooserUIImpl$ButtonAreaLayout,sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxModel,sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxRenderer,sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxAction,sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxModel,sun.swing.plaf.synth.SynthFileChooserUIImpl$IndentIcon,sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxRenderer,sun.swing.plaf.synth.SynthFileChooserUIImpl$SynthFileChooserUIAccessor,sun.swing.plaf.synth.SynthFileChooserUIImpl$4,sun.swing.plaf.synth.SynthFileChooserUIImpl$3,sun.swing.plaf.synth.SynthFileChooserUIImpl$2,sun.swing.plaf.synth.SynthFileChooserUIImpl$1"
-};
-
-$Object* allocate$SynthFileChooserUIImpl($Class* clazz) {
-	return $of($alloc(SynthFileChooserUIImpl));
-}
 
 $Dimension* SynthFileChooserUIImpl::hstrut5 = nullptr;
 $Insets* SynthFileChooserUIImpl::shrinkwrap = nullptr;
@@ -276,7 +144,7 @@ bool SynthFileChooserUIImpl::access$000(SynthFileChooserUIImpl* x0) {
 }
 
 void SynthFileChooserUIImpl::populateFileNameLabel() {
-	if ($nc($(getFileChooser()))->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY) {
+	if ($$nc(getFileChooser())->getFileSelectionMode() == $JFileChooser::DIRECTORIES_ONLY) {
 		$nc(this->fileNameLabel)->setText(this->folderNameLabelText);
 		$nc(this->fileNameLabel)->setDisplayedMnemonic(this->folderNameLabelMnemonic);
 	} else {
@@ -316,22 +184,20 @@ void SynthFileChooserUIImpl::installDefaults($JFileChooser* fc) {
 }
 
 void SynthFileChooserUIImpl::installComponents($JFileChooser* fc) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthFileChooserUI::installComponents(fc);
 	$var($SynthContext, context, getContext(fc, $SynthConstants::ENABLED));
 	$nc(fc)->setLayout($$new($BorderLayout, 0, 11));
-	$var($JPanel, topPanel, $new($JPanel, static_cast<$LayoutManager*>($$new($BorderLayout, 11, 0))));
+	$var($JPanel, topPanel, $new($JPanel, $$new($BorderLayout, 11, 0)));
 	$var($JPanel, topButtonPanel, $new($JPanel));
 	topButtonPanel->setLayout($$new($BoxLayout, topButtonPanel, $BoxLayout::LINE_AXIS));
-	$init($BorderLayout);
-	topPanel->add(static_cast<$Component*>(topButtonPanel), $of($BorderLayout::AFTER_LINE_ENDS));
-	fc->add(static_cast<$Component*>(topPanel), $of($BorderLayout::NORTH));
+	topPanel->add(topButtonPanel, $BorderLayout::AFTER_LINE_ENDS);
+	fc->add(topPanel, $BorderLayout::NORTH);
 	$set(this, lookInLabel, $new($JLabel, this->lookInLabelText));
-	$nc(this->lookInLabel)->setDisplayedMnemonic(this->lookInLabelMnemonic);
-	topPanel->add(static_cast<$Component*>(this->lookInLabel), $of($BorderLayout::BEFORE_LINE_BEGINS));
+	this->lookInLabel->setDisplayedMnemonic(this->lookInLabelMnemonic);
+	topPanel->add(this->lookInLabel, $BorderLayout::BEFORE_LINE_BEGINS);
 	$set(this, directoryComboBox, $new($JComboBox));
-	$nc($($nc(this->directoryComboBox)->getAccessibleContext()))->setAccessibleDescription(this->lookInLabelText);
-	$init($Boolean);
+	$$nc(this->directoryComboBox->getAccessibleContext())->setAccessibleDescription(this->lookInLabelText);
 	$nc(this->directoryComboBox)->putClientProperty("JComboBox.isTableCellEditor"_s, $Boolean::TRUE);
 	$nc(this->lookInLabel)->setLabelFor(this->directoryComboBox);
 	$set(this, directoryComboBoxModel, createDirectoryComboBoxModel(fc));
@@ -342,7 +208,7 @@ void SynthFileChooserUIImpl::installComponents($JFileChooser* fc) {
 	$nc(this->directoryComboBox)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	$nc(this->directoryComboBox)->setAlignmentY($JComponent::TOP_ALIGNMENT);
 	$nc(this->directoryComboBox)->setMaximumRowCount(8);
-	topPanel->add(static_cast<$Component*>(this->directoryComboBox), $of($BorderLayout::CENTER));
+	topPanel->add(this->directoryComboBox, $BorderLayout::CENTER);
 	$set(this, filePane, $new($FilePane, $$new($SynthFileChooserUIImpl$SynthFileChooserUIAccessor, this)));
 	fc->addPropertyChangeListener(this->filePane);
 	$var($JPopupMenu, contextMenu, $nc(this->filePane)->getComponentPopupMenu());
@@ -358,75 +224,75 @@ void SynthFileChooserUIImpl::installComponents($JFileChooser* fc) {
 	upFolderButton->setText(nullptr);
 	upFolderButton->setIcon(this->upFolderIcon);
 	upFolderButton->setToolTipText(this->upFolderToolTipText);
-	$nc($(upFolderButton->getAccessibleContext()))->setAccessibleName(this->upFolderAccessibleName);
+	$$nc(upFolderButton->getAccessibleContext())->setAccessibleName(this->upFolderAccessibleName);
 	upFolderButton->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	upFolderButton->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	upFolderButton->setMargin(SynthFileChooserUIImpl::shrinkwrap);
-	topButtonPanel->add(static_cast<$Component*>(upFolderButton));
+	topButtonPanel->add(upFolderButton);
 	topButtonPanel->add($($Box::createRigidArea(SynthFileChooserUIImpl::hstrut5)));
 	$var($File, homeDir, $nc(fsv)->getHomeDirectory());
 	$var($String, toolTipText, this->homeFolderToolTipText);
 	$var($JButton, b, $new($JButton, this->homeFolderIcon));
 	b->setToolTipText(toolTipText);
-	$nc($(b->getAccessibleContext()))->setAccessibleName(this->homeFolderAccessibleName);
+	$$nc(b->getAccessibleContext())->setAccessibleName(this->homeFolderAccessibleName);
 	b->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	b->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	b->setMargin(SynthFileChooserUIImpl::shrinkwrap);
 	b->addActionListener($(getGoHomeAction()));
-	topButtonPanel->add(static_cast<$Component*>(b));
+	topButtonPanel->add(b);
 	topButtonPanel->add($($Box::createRigidArea(SynthFileChooserUIImpl::hstrut5)));
 	if (!this->readOnly) {
 		$assign(b, $new($JButton, $($nc(this->filePane)->getNewFolderAction())));
 		b->setText(nullptr);
 		b->setIcon(this->newFolderIcon);
 		b->setToolTipText(this->newFolderToolTipText);
-		$nc($(b->getAccessibleContext()))->setAccessibleName(this->newFolderAccessibleName);
+		$$nc(b->getAccessibleContext())->setAccessibleName(this->newFolderAccessibleName);
 		b->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 		b->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 		b->setMargin(SynthFileChooserUIImpl::shrinkwrap);
-		topButtonPanel->add(static_cast<$Component*>(b));
+		topButtonPanel->add(b);
 		topButtonPanel->add($($Box::createRigidArea(SynthFileChooserUIImpl::hstrut5)));
 	}
 	$var($ButtonGroup, viewButtonGroup, $new($ButtonGroup));
 	$set(this, listViewButton, $new($JToggleButton, this->listViewIcon));
-	$nc(this->listViewButton)->setToolTipText(this->listViewButtonToolTipText);
-	$nc($($nc(this->listViewButton)->getAccessibleContext()))->setAccessibleName(this->listViewButtonAccessibleName);
+	this->listViewButton->setToolTipText(this->listViewButtonToolTipText);
+	$$nc($nc(this->listViewButton)->getAccessibleContext())->setAccessibleName(this->listViewButtonAccessibleName);
 	$nc(this->listViewButton)->setSelected(true);
 	$nc(this->listViewButton)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	$nc(this->listViewButton)->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	$nc(this->listViewButton)->setMargin(SynthFileChooserUIImpl::shrinkwrap);
 	$nc(this->listViewButton)->addActionListener($($nc(this->filePane)->getViewTypeAction($FilePane::VIEWTYPE_LIST)));
-	topButtonPanel->add(static_cast<$Component*>(this->listViewButton));
+	topButtonPanel->add(this->listViewButton);
 	viewButtonGroup->add(this->listViewButton);
 	$set(this, detailsViewButton, $new($JToggleButton, this->detailsViewIcon));
-	$nc(this->detailsViewButton)->setToolTipText(this->detailsViewButtonToolTipText);
-	$nc($($nc(this->detailsViewButton)->getAccessibleContext()))->setAccessibleName(this->detailsViewButtonAccessibleName);
+	this->detailsViewButton->setToolTipText(this->detailsViewButtonToolTipText);
+	$$nc($nc(this->detailsViewButton)->getAccessibleContext())->setAccessibleName(this->detailsViewButtonAccessibleName);
 	$nc(this->detailsViewButton)->setAlignmentX($JComponent::LEFT_ALIGNMENT);
 	$nc(this->detailsViewButton)->setAlignmentY($JComponent::CENTER_ALIGNMENT);
 	$nc(this->detailsViewButton)->setMargin(SynthFileChooserUIImpl::shrinkwrap);
 	$nc(this->detailsViewButton)->addActionListener($($nc(this->filePane)->getViewTypeAction($FilePane::VIEWTYPE_DETAILS)));
-	topButtonPanel->add(static_cast<$Component*>(this->detailsViewButton));
+	topButtonPanel->add(this->detailsViewButton);
 	viewButtonGroup->add(this->detailsViewButton);
 	$nc(this->filePane)->addPropertyChangeListener($$new($SynthFileChooserUIImpl$2, this));
-	fc->add($(static_cast<$Component*>(getAccessoryPanel())), $of($BorderLayout::AFTER_LINE_ENDS));
+	fc->add($(getAccessoryPanel()), $BorderLayout::AFTER_LINE_ENDS);
 	$var($JComponent, accessory, fc->getAccessory());
 	if (accessory != nullptr) {
-		$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory));
+		$$nc(getAccessoryPanel())->add(accessory);
 	}
 	$nc(this->filePane)->setPreferredSize(SynthFileChooserUIImpl::LIST_PREF_SIZE);
-	fc->add(static_cast<$Component*>(this->filePane), $of($BorderLayout::CENTER));
+	fc->add(this->filePane, $BorderLayout::CENTER);
 	$set(this, bottomPanel, $new($JPanel));
-	$nc(this->bottomPanel)->setLayout($$new($BoxLayout, this->bottomPanel, $BoxLayout::Y_AXIS));
-	fc->add(static_cast<$Component*>(this->bottomPanel), $of($BorderLayout::SOUTH));
+	this->bottomPanel->setLayout($$new($BoxLayout, this->bottomPanel, $BoxLayout::Y_AXIS));
+	fc->add(this->bottomPanel, $BorderLayout::SOUTH);
 	$var($JPanel, fileNamePanel, $new($JPanel));
 	fileNamePanel->setLayout($$new($BoxLayout, fileNamePanel, $BoxLayout::LINE_AXIS));
-	$nc(this->bottomPanel)->add(static_cast<$Component*>(fileNamePanel));
+	$nc(this->bottomPanel)->add(fileNamePanel);
 	$nc(this->bottomPanel)->add($($Box::createRigidArea($$new($Dimension, 1, 5))));
 	$set(this, fileNameLabel, $new($SynthFileChooserUIImpl$AlignedLabel, this));
 	populateFileNameLabel();
-	fileNamePanel->add(static_cast<$Component*>(this->fileNameLabel));
+	fileNamePanel->add(this->fileNameLabel);
 	$set(this, fileNameTextField, $new($SynthFileChooserUIImpl$3, this, 35));
-	fileNamePanel->add(static_cast<$Component*>(this->fileNameTextField));
+	fileNamePanel->add(this->fileNameTextField);
 	$nc(this->fileNameLabel)->setLabelFor(this->fileNameTextField);
 	$nc(this->fileNameTextField)->addFocusListener($$new($SynthFileChooserUIImpl$4, this));
 	if (fc->isMultiSelectionEnabled()) {
@@ -436,21 +302,21 @@ void SynthFileChooserUIImpl::installComponents($JFileChooser* fc) {
 	}
 	$var($JPanel, filesOfTypePanel, $new($JPanel));
 	filesOfTypePanel->setLayout($$new($BoxLayout, filesOfTypePanel, $BoxLayout::LINE_AXIS));
-	$nc(this->bottomPanel)->add(static_cast<$Component*>(filesOfTypePanel));
+	$nc(this->bottomPanel)->add(filesOfTypePanel);
 	$var($SynthFileChooserUIImpl$AlignedLabel, filesOfTypeLabel, $new($SynthFileChooserUIImpl$AlignedLabel, this, this->filesOfTypeLabelText));
 	filesOfTypeLabel->setDisplayedMnemonic(this->filesOfTypeLabelMnemonic);
-	filesOfTypePanel->add(static_cast<$Component*>(filesOfTypeLabel));
+	filesOfTypePanel->add(filesOfTypeLabel);
 	$set(this, filterComboBoxModel, createFilterComboBoxModel());
 	fc->addPropertyChangeListener(this->filterComboBoxModel);
-	$set(this, filterComboBox, $new($JComboBox, static_cast<$ComboBoxModel*>(this->filterComboBoxModel)));
-	$nc($($nc(this->filterComboBox)->getAccessibleContext()))->setAccessibleDescription(this->filesOfTypeLabelText);
+	$set(this, filterComboBox, $new($JComboBox, this->filterComboBoxModel));
+	$$nc(this->filterComboBox->getAccessibleContext())->setAccessibleDescription(this->filesOfTypeLabelText);
 	filesOfTypeLabel->setLabelFor(this->filterComboBox);
 	$nc(this->filterComboBox)->setRenderer($(createFilterComboBoxRenderer()));
-	filesOfTypePanel->add(static_cast<$Component*>(this->filterComboBox));
+	filesOfTypePanel->add(this->filterComboBox);
 	$set(this, buttonPanel, $new($JPanel));
-	$nc(this->buttonPanel)->setLayout($$new($SynthFileChooserUIImpl$ButtonAreaLayout));
-	$nc(this->buttonPanel)->add($(static_cast<$Component*>(getApproveButton(fc))));
-	$nc(this->buttonPanel)->add($(static_cast<$Component*>(getCancelButton(fc))));
+	this->buttonPanel->setLayout($$new($SynthFileChooserUIImpl$ButtonAreaLayout));
+	$nc(this->buttonPanel)->add($(getApproveButton(fc)));
+	$nc(this->buttonPanel)->add($(getCancelButton(fc)));
 	if (fc->getControlButtonsAreShown()) {
 		addControlButtons();
 	}
@@ -479,15 +345,15 @@ $String* SynthFileChooserUIImpl::fileNameString($File* file) {
 		$var($JFileChooser, fc, getFileChooser());
 		bool var$0 = $nc(fc)->isDirectorySelectionEnabled();
 		if (var$0 && !fc->isFileSelectionEnabled()) {
-			return $nc(file)->getPath();
+			return file->getPath();
 		} else {
-			return $nc(file)->getName();
+			return file->getName();
 		}
 	}
 }
 
 $String* SynthFileChooserUIImpl::fileNameString($FileArray* files) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, sb, $new($StringBuilder));
 	for (int32_t i = 0; files != nullptr && i < files->length; ++i) {
 		if (i > 0) {
@@ -508,7 +374,7 @@ void SynthFileChooserUIImpl::uninstallUI($JComponent* c) {
 	$nc(c)->removePropertyChangeListener(this->filterComboBoxModel);
 	c->removePropertyChangeListener(this->filePane);
 	if (this->filePane != nullptr) {
-		$nc(this->filePane)->uninstallUI();
+		this->filePane->uninstallUI();
 		$set(this, filePane, nullptr);
 	}
 	$SynthFileChooserUI::uninstallUI(c);
@@ -518,33 +384,33 @@ void SynthFileChooserUIImpl::installStrings($JFileChooser* fc) {
 	$SynthFileChooserUI::installStrings(fc);
 	$var($Locale, l, $nc(fc)->getLocale());
 	this->lookInLabelMnemonic = getMnemonic("FileChooser.lookInLabelMnemonic"_s, l);
-	$set(this, lookInLabelText, $UIManager::getString($of("FileChooser.lookInLabelText"_s), l));
-	$set(this, saveInLabelText, $UIManager::getString($of("FileChooser.saveInLabelText"_s), l));
+	$set(this, lookInLabelText, $UIManager::getString("FileChooser.lookInLabelText"_s, l));
+	$set(this, saveInLabelText, $UIManager::getString("FileChooser.saveInLabelText"_s, l));
 	this->fileNameLabelMnemonic = getMnemonic("FileChooser.fileNameLabelMnemonic"_s, l);
-	$set(this, fileNameLabelText, $UIManager::getString($of("FileChooser.fileNameLabelText"_s), l));
+	$set(this, fileNameLabelText, $UIManager::getString("FileChooser.fileNameLabelText"_s, l));
 	this->folderNameLabelMnemonic = getMnemonic("FileChooser.folderNameLabelMnemonic"_s, l);
-	$set(this, folderNameLabelText, $UIManager::getString($of("FileChooser.folderNameLabelText"_s), l));
+	$set(this, folderNameLabelText, $UIManager::getString("FileChooser.folderNameLabelText"_s, l));
 	this->filesOfTypeLabelMnemonic = getMnemonic("FileChooser.filesOfTypeLabelMnemonic"_s, l);
-	$set(this, filesOfTypeLabelText, $UIManager::getString($of("FileChooser.filesOfTypeLabelText"_s), l));
-	$set(this, upFolderToolTipText, $UIManager::getString($of("FileChooser.upFolderToolTipText"_s), l));
-	$set(this, upFolderAccessibleName, $UIManager::getString($of("FileChooser.upFolderAccessibleName"_s), l));
-	$set(this, homeFolderToolTipText, $UIManager::getString($of("FileChooser.homeFolderToolTipText"_s), l));
-	$set(this, homeFolderAccessibleName, $UIManager::getString($of("FileChooser.homeFolderAccessibleName"_s), l));
-	$set(this, newFolderToolTipText, $UIManager::getString($of("FileChooser.newFolderToolTipText"_s), l));
-	$set(this, newFolderAccessibleName, $UIManager::getString($of("FileChooser.newFolderAccessibleName"_s), l));
-	$set(this, listViewButtonToolTipText, $UIManager::getString($of("FileChooser.listViewButtonToolTipText"_s), l));
-	$set(this, listViewButtonAccessibleName, $UIManager::getString($of("FileChooser.listViewButtonAccessibleName"_s), l));
-	$set(this, detailsViewButtonToolTipText, $UIManager::getString($of("FileChooser.detailsViewButtonToolTipText"_s), l));
-	$set(this, detailsViewButtonAccessibleName, $UIManager::getString($of("FileChooser.detailsViewButtonAccessibleName"_s), l));
+	$set(this, filesOfTypeLabelText, $UIManager::getString("FileChooser.filesOfTypeLabelText"_s, l));
+	$set(this, upFolderToolTipText, $UIManager::getString("FileChooser.upFolderToolTipText"_s, l));
+	$set(this, upFolderAccessibleName, $UIManager::getString("FileChooser.upFolderAccessibleName"_s, l));
+	$set(this, homeFolderToolTipText, $UIManager::getString("FileChooser.homeFolderToolTipText"_s, l));
+	$set(this, homeFolderAccessibleName, $UIManager::getString("FileChooser.homeFolderAccessibleName"_s, l));
+	$set(this, newFolderToolTipText, $UIManager::getString("FileChooser.newFolderToolTipText"_s, l));
+	$set(this, newFolderAccessibleName, $UIManager::getString("FileChooser.newFolderAccessibleName"_s, l));
+	$set(this, listViewButtonToolTipText, $UIManager::getString("FileChooser.listViewButtonToolTipText"_s, l));
+	$set(this, listViewButtonAccessibleName, $UIManager::getString("FileChooser.listViewButtonAccessibleName"_s, l));
+	$set(this, detailsViewButtonToolTipText, $UIManager::getString("FileChooser.detailsViewButtonToolTipText"_s, l));
+	$set(this, detailsViewButtonAccessibleName, $UIManager::getString("FileChooser.detailsViewButtonAccessibleName"_s, l));
 }
 
 int32_t SynthFileChooserUIImpl::getMnemonic($String* key, $Locale* l) {
-	return $SwingUtilities2::getUIDefaultsInt($of(key), l);
+	return $SwingUtilities2::getUIDefaultsInt(key, l);
 }
 
 $String* SynthFileChooserUIImpl::getFileName() {
 	if (this->fileNameTextField != nullptr) {
-		return $nc(this->fileNameTextField)->getText();
+		return this->fileNameTextField->getText();
 	} else {
 		return nullptr;
 	}
@@ -552,7 +418,7 @@ $String* SynthFileChooserUIImpl::getFileName() {
 
 void SynthFileChooserUIImpl::setFileName($String* fileName) {
 	if (this->fileNameTextField != nullptr) {
-		$nc(this->fileNameTextField)->setText(fileName);
+		this->fileNameTextField->setText(fileName);
 	}
 }
 
@@ -561,19 +427,19 @@ void SynthFileChooserUIImpl::rescanCurrentDirectory($JFileChooser* fc) {
 }
 
 void SynthFileChooserUIImpl::doSelectedFileChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthFileChooserUI::doSelectedFileChanged(e);
 	$var($File, f, $cast($File, $nc(e)->getNewValue()));
 	$var($JFileChooser, fc, getFileChooser());
 	bool var$0 = f != nullptr;
 	if (var$0) {
 		bool var$2 = $nc(fc)->isFileSelectionEnabled();
-		bool var$1 = (var$2 && !f->isDirectory());
+		bool var$1 = var$2 && !f->isDirectory();
 		if (!var$1) {
-			bool var$3 = $nc(f)->isDirectory();
-			var$1 = (var$3 && $nc(fc)->isDirectorySelectionEnabled());
+			bool var$3 = f->isDirectory();
+			var$1 = var$3 && fc->isDirectorySelectionEnabled();
 		}
-		var$0 = (var$1);
+		var$0 = var$1;
 	}
 	if (var$0) {
 		setFileName($(fileNameString(f)));
@@ -581,14 +447,14 @@ void SynthFileChooserUIImpl::doSelectedFileChanged($PropertyChangeEvent* e) {
 }
 
 void SynthFileChooserUIImpl::doSelectedFilesChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthFileChooserUI::doSelectedFilesChanged(e);
 	$var($FileArray, files, $cast($FileArray, $nc(e)->getNewValue()));
 	$var($JFileChooser, fc, getFileChooser());
 	bool var$0 = files != nullptr && files->length > 0;
 	if (var$0) {
 		bool var$1 = files->length > 1 || $nc(fc)->isDirectorySelectionEnabled();
-		var$0 = (var$1 || !$nc(files->get(0))->isDirectory());
+		var$0 = var$1 || !$nc(files->get(0))->isDirectory();
 	}
 	if (var$0) {
 		setFileName($(fileNameString(files)));
@@ -596,20 +462,20 @@ void SynthFileChooserUIImpl::doSelectedFilesChanged($PropertyChangeEvent* e) {
 }
 
 void SynthFileChooserUIImpl::doDirectoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthFileChooserUI::doDirectoryChanged(e);
 	$var($JFileChooser, fc, getFileChooser());
 	$var($FileSystemView, fsv, $nc(fc)->getFileSystemView());
 	$var($File, currentDirectory, fc->getCurrentDirectory());
 	if (!this->readOnly && currentDirectory != nullptr) {
-		$nc($(getNewFolderAction()))->setEnabled($nc(this->filePane)->canWrite(currentDirectory));
+		$$nc(getNewFolderAction())->setEnabled($nc(this->filePane)->canWrite(currentDirectory));
 	}
 	if (currentDirectory != nullptr) {
 		$var($JComponent, cb, getDirectoryComboBox());
 		if ($instanceOf($JComboBox, cb)) {
-			$var($ComboBoxModel, model, $nc(($cast($JComboBox, cb)))->getModel());
+			$var($ComboBoxModel, model, $cast($JComboBox, cb)->getModel());
 			if ($instanceOf($SynthFileChooserUIImpl$DirectoryComboBoxModel, model)) {
-				$nc(($cast($SynthFileChooserUIImpl$DirectoryComboBoxModel, model)))->addItem(currentDirectory);
+				$cast($SynthFileChooserUIImpl$DirectoryComboBoxModel, model)->addItem(currentDirectory);
 			}
 		}
 		bool var$0 = fc->isDirectorySelectionEnabled();
@@ -624,13 +490,13 @@ void SynthFileChooserUIImpl::doDirectoryChanged($PropertyChangeEvent* e) {
 }
 
 void SynthFileChooserUIImpl::doFileSelectionModeChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$SynthFileChooserUI::doFileSelectionModeChanged(e);
 	$var($JFileChooser, fc, getFileChooser());
 	$var($File, currentDirectory, $nc(fc)->getCurrentDirectory());
 	bool var$1 = currentDirectory != nullptr && fc->isDirectorySelectionEnabled();
 	bool var$0 = var$1 && !fc->isFileSelectionEnabled();
-	if (var$0 && $nc($(fc->getFileSystemView()))->isFileSystem(currentDirectory)) {
+	if (var$0 && $$nc(fc->getFileSystemView())->isFileSystem(currentDirectory)) {
 		setFileName($(currentDirectory->getPath()));
 	} else {
 		setFileName(nullptr);
@@ -638,22 +504,22 @@ void SynthFileChooserUIImpl::doFileSelectionModeChanged($PropertyChangeEvent* e)
 }
 
 void SynthFileChooserUIImpl::doAccessoryChanged($PropertyChangeEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (getAccessoryPanel() != nullptr) {
 		if ($nc(e)->getOldValue() != nullptr) {
-			$nc($(getAccessoryPanel()))->remove($cast($JComponent, $(e->getOldValue())));
+			$$nc(getAccessoryPanel())->remove($$cast($JComponent, e->getOldValue()));
 		}
-		$var($JComponent, accessory, $cast($JComponent, $nc(e)->getNewValue()));
+		$var($JComponent, accessory, $cast($JComponent, e->getNewValue()));
 		if (accessory != nullptr) {
 			$init($BorderLayout);
-			$nc($(getAccessoryPanel()))->add(static_cast<$Component*>(accessory), $of($BorderLayout::CENTER));
+			$$nc(getAccessoryPanel())->add(accessory, $BorderLayout::CENTER);
 		}
 	}
 }
 
 void SynthFileChooserUIImpl::doControlButtonsChanged($PropertyChangeEvent* e) {
 	$SynthFileChooserUI::doControlButtonsChanged(e);
-	if ($nc($(getFileChooser()))->getControlButtonsAreShown()) {
+	if ($$nc(getFileChooser())->getControlButtonsAreShown()) {
 		addControlButtons();
 	} else {
 		removeControlButtons();
@@ -662,18 +528,18 @@ void SynthFileChooserUIImpl::doControlButtonsChanged($PropertyChangeEvent* e) {
 
 void SynthFileChooserUIImpl::addControlButtons() {
 	if (this->bottomPanel != nullptr) {
-		$nc(this->bottomPanel)->add(static_cast<$Component*>(this->buttonPanel));
+		this->bottomPanel->add(this->buttonPanel);
 	}
 }
 
 void SynthFileChooserUIImpl::removeControlButtons() {
 	if (this->bottomPanel != nullptr) {
-		$nc(this->bottomPanel)->remove(static_cast<$Component*>(this->buttonPanel));
+		this->bottomPanel->remove(this->buttonPanel);
 	}
 }
 
 $ActionMap* SynthFileChooserUIImpl::createActionMap() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ActionMap, map, $new($ActionMapUIResource));
 	$FilePane::addActionsToMap(map, $($nc(this->filePane)->getActions()));
 	map->put("fileNameCompletion"_s, $(getFileNameCompletionAction()));
@@ -711,7 +577,7 @@ void SynthFileChooserUIImpl::groupLabels($SynthFileChooserUIImpl$AlignedLabelArr
 	}
 }
 
-void clinit$SynthFileChooserUIImpl($Class* class$) {
+void SynthFileChooserUIImpl::clinit$($Class* clazz) {
 	$assignStatic(SynthFileChooserUIImpl::hstrut5, $new($Dimension, 5, 1));
 	$assignStatic(SynthFileChooserUIImpl::shrinkwrap, $new($Insets, 0, 0, 0, 0));
 	$assignStatic(SynthFileChooserUIImpl::LIST_PREF_SIZE, $new($Dimension, 405, 135));
@@ -721,7 +587,116 @@ SynthFileChooserUIImpl::SynthFileChooserUIImpl() {
 }
 
 $Class* SynthFileChooserUIImpl::load$($String* name, bool initialize) {
-	$loadClass(SynthFileChooserUIImpl, name, initialize, &_SynthFileChooserUIImpl_ClassInfo_, clinit$SynthFileChooserUIImpl, allocate$SynthFileChooserUIImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"lookInLabel", "Ljavax/swing/JLabel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, lookInLabel)},
+		{"directoryComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljava/io/File;>;", $PRIVATE, $field(SynthFileChooserUIImpl, directoryComboBox)},
+		{"directoryComboBoxModel", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl$DirectoryComboBoxModel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, directoryComboBoxModel)},
+		{"directoryComboBoxAction", "Ljavax/swing/Action;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, directoryComboBoxAction)},
+		{"filterComboBoxModel", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl$FilterComboBoxModel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, filterComboBoxModel)},
+		{"fileNameTextField", "Ljavax/swing/JTextField;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, fileNameTextField)},
+		{"filePane", "Lsun/swing/FilePane;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, filePane)},
+		{"listViewButton", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, listViewButton)},
+		{"detailsViewButton", "Ljavax/swing/JToggleButton;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, detailsViewButton)},
+		{"readOnly", "Z", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, readOnly)},
+		{"buttonPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, buttonPanel)},
+		{"bottomPanel", "Ljavax/swing/JPanel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, bottomPanel)},
+		{"filterComboBox", "Ljavax/swing/JComboBox;", "Ljavax/swing/JComboBox<Ljavax/swing/filechooser/FileFilter;>;", $PRIVATE, $field(SynthFileChooserUIImpl, filterComboBox)},
+		{"hstrut5", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthFileChooserUIImpl, hstrut5)},
+		{"shrinkwrap", "Ljava/awt/Insets;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(SynthFileChooserUIImpl, shrinkwrap)},
+		{"LIST_PREF_SIZE", "Ljava/awt/Dimension;", nullptr, $PRIVATE | $STATIC, $staticField(SynthFileChooserUIImpl, LIST_PREF_SIZE)},
+		{"lookInLabelMnemonic", "I", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, lookInLabelMnemonic)},
+		{"lookInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, lookInLabelText)},
+		{"saveInLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, saveInLabelText)},
+		{"fileNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, fileNameLabelMnemonic)},
+		{"fileNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, fileNameLabelText)},
+		{"folderNameLabelMnemonic", "I", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, folderNameLabelMnemonic)},
+		{"folderNameLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, folderNameLabelText)},
+		{"filesOfTypeLabelMnemonic", "I", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, filesOfTypeLabelMnemonic)},
+		{"filesOfTypeLabelText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, filesOfTypeLabelText)},
+		{"upFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, upFolderToolTipText)},
+		{"upFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, upFolderAccessibleName)},
+		{"homeFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, homeFolderToolTipText)},
+		{"homeFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, homeFolderAccessibleName)},
+		{"newFolderToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, newFolderToolTipText)},
+		{"newFolderAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, newFolderAccessibleName)},
+		{"listViewButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, listViewButtonToolTipText)},
+		{"listViewButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, listViewButtonAccessibleName)},
+		{"detailsViewButtonToolTipText", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, detailsViewButtonToolTipText)},
+		{"detailsViewButtonAccessibleName", "Ljava/lang/String;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, detailsViewButtonAccessibleName)},
+		{"fileNameLabel", "Lsun/swing/plaf/synth/SynthFileChooserUIImpl$AlignedLabel;", nullptr, $PRIVATE, $field(SynthFileChooserUIImpl, fileNameLabel)},
+		{"modeListener", "Ljava/beans/PropertyChangeListener;", nullptr, $PRIVATE | $FINAL, $field(SynthFileChooserUIImpl, modeListener)},
+		{"space", "I", nullptr, $STATIC | $FINAL, $constField(SynthFileChooserUIImpl, space)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $method(SynthFileChooserUIImpl, init$, void, $JFileChooser*)},
+		{"access$000", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)Z", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthFileChooserUIImpl, access$000, bool, SynthFileChooserUIImpl*)},
+		{"access$100", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;)Ljava/io/File;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthFileChooserUIImpl, access$100, $File*, SynthFileChooserUIImpl*)},
+		{"access$200", "(Lsun/swing/plaf/synth/SynthFileChooserUIImpl;Ljavax/swing/JFileChooser;Ljavax/swing/JList;)Ljava/awt/event/MouseListener;", nullptr, $STATIC | $SYNTHETIC, $staticMethod(SynthFileChooserUIImpl, access$200, $MouseListener*, SynthFileChooserUIImpl*, $JFileChooser*, $JList*)},
+		{"addControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, addControlButtons, void)},
+		{"createActionMap", "()Ljavax/swing/ActionMap;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createActionMap, $ActionMap*)},
+		{"createDirectoryComboBoxModel", "(Ljavax/swing/JFileChooser;)Lsun/swing/plaf/synth/SynthFileChooserUIImpl$DirectoryComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createDirectoryComboBoxModel, $SynthFileChooserUIImpl$DirectoryComboBoxModel*, $JFileChooser*)},
+		{"createDirectoryComboBoxRenderer", "(Ljavax/swing/JFileChooser;)Lsun/swing/plaf/synth/SynthFileChooserUIImpl$DirectoryComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createDirectoryComboBoxRenderer, $SynthFileChooserUIImpl$DirectoryComboBoxRenderer*, $JFileChooser*)},
+		{"createFilterComboBoxModel", "()Lsun/swing/plaf/synth/SynthFileChooserUIImpl$FilterComboBoxModel;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createFilterComboBoxModel, $SynthFileChooserUIImpl$FilterComboBoxModel*)},
+		{"createFilterComboBoxRenderer", "()Lsun/swing/plaf/synth/SynthFileChooserUIImpl$FilterComboBoxRenderer;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, createFilterComboBoxRenderer, $SynthFileChooserUIImpl$FilterComboBoxRenderer*)},
+		{"doAccessoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doAccessoryChanged, void, $PropertyChangeEvent*)},
+		{"doControlButtonsChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doControlButtonsChanged, void, $PropertyChangeEvent*)},
+		{"doDirectoryChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doDirectoryChanged, void, $PropertyChangeEvent*)},
+		{"doFileSelectionModeChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doFileSelectionModeChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFileChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doSelectedFileChanged, void, $PropertyChangeEvent*)},
+		{"doSelectedFilesChanged", "(Ljava/beans/PropertyChangeEvent;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, doSelectedFilesChanged, void, $PropertyChangeEvent*)},
+		{"fileNameString", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SynthFileChooserUIImpl, fileNameString, $String*, $File*)},
+		{"fileNameString", "([Ljava/io/File;)Ljava/lang/String;", nullptr, $PRIVATE, $method(SynthFileChooserUIImpl, fileNameString, $String*, $FileArray*)},
+		{"getDirectoryComboBox", "()Ljavax/swing/JComponent;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, getDirectoryComboBox, $JComponent*)},
+		{"getDirectoryComboBoxAction", "()Ljavax/swing/Action;", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, getDirectoryComboBoxAction, $Action*)},
+		{"getFileName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, getFileName, $String*)},
+		{"getMnemonic", "(Ljava/lang/String;Ljava/util/Locale;)I", nullptr, $PRIVATE, $method(SynthFileChooserUIImpl, getMnemonic, int32_t, $String*, $Locale*)},
+		{"groupLabels", "([Lsun/swing/plaf/synth/SynthFileChooserUIImpl$AlignedLabel;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(SynthFileChooserUIImpl, groupLabels, void, $SynthFileChooserUIImpl$AlignedLabelArray*)},
+		{"installComponents", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, installComponents, void, $JFileChooser*)},
+		{"installDefaults", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, installDefaults, void, $JFileChooser*)},
+		{"installListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, installListeners, void, $JFileChooser*)},
+		{"installStrings", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, installStrings, void, $JFileChooser*)},
+		{"populateFileNameLabel", "()V", nullptr, $PRIVATE, $method(SynthFileChooserUIImpl, populateFileNameLabel, void)},
+		{"removeControlButtons", "()V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, removeControlButtons, void)},
+		{"rescanCurrentDirectory", "(Ljavax/swing/JFileChooser;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, rescanCurrentDirectory, void, $JFileChooser*)},
+		{"setFileName", "(Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, setFileName, void, $String*)},
+		{"uninstallListeners", "(Ljavax/swing/JFileChooser;)V", nullptr, $PROTECTED, $virtualMethod(SynthFileChooserUIImpl, uninstallListeners, void, $JFileChooser*)},
+		{"uninstallUI", "(Ljavax/swing/JComponent;)V", nullptr, $PUBLIC, $virtualMethod(SynthFileChooserUIImpl, uninstallUI, void, $JComponent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$AlignedLabel", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "AlignedLabel", $PRIVATE},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$ButtonAreaLayout", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "ButtonAreaLayout", $PRIVATE | $STATIC},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxModel", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "FilterComboBoxModel", $PROTECTED},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxRenderer", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "FilterComboBoxRenderer", $PUBLIC},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxAction", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "DirectoryComboBoxAction", $PROTECTED},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxModel", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "DirectoryComboBoxModel", $PROTECTED},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$IndentIcon", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "IndentIcon", 0},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxRenderer", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "DirectoryComboBoxRenderer", $PRIVATE},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$SynthFileChooserUIAccessor", "sun.swing.plaf.synth.SynthFileChooserUIImpl", "SynthFileChooserUIAccessor", $PRIVATE},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$4", nullptr, nullptr, 0},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$3", nullptr, nullptr, 0},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$2", nullptr, nullptr, 0},
+		{"sun.swing.plaf.synth.SynthFileChooserUIImpl$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl",
+		"sun.swing.plaf.synth.SynthFileChooserUI",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.swing.plaf.synth.SynthFileChooserUIImpl$AlignedLabel,sun.swing.plaf.synth.SynthFileChooserUIImpl$ButtonAreaLayout,sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxModel,sun.swing.plaf.synth.SynthFileChooserUIImpl$FilterComboBoxRenderer,sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxAction,sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxModel,sun.swing.plaf.synth.SynthFileChooserUIImpl$IndentIcon,sun.swing.plaf.synth.SynthFileChooserUIImpl$DirectoryComboBoxRenderer,sun.swing.plaf.synth.SynthFileChooserUIImpl$SynthFileChooserUIAccessor,sun.swing.plaf.synth.SynthFileChooserUIImpl$4,sun.swing.plaf.synth.SynthFileChooserUIImpl$3,sun.swing.plaf.synth.SynthFileChooserUIImpl$2,sun.swing.plaf.synth.SynthFileChooserUIImpl$1"
+	};
+	$loadClass(SynthFileChooserUIImpl, name, initialize, &classInfo$$, SynthFileChooserUIImpl::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(SynthFileChooserUIImpl));
+	});
 	return class$;
 }
 

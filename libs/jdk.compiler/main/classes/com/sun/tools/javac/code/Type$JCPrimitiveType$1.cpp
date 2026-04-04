@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType$1.h>
-
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -27,51 +26,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Type$JCPrimitiveType$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$JCPrimitiveType$1, this$0)},
-	{}
-};
-
-$MethodInfo _Type$JCPrimitiveType$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type$JCPrimitiveType;Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$JCPrimitiveType$1, init$, void, $Type$JCPrimitiveType*, $TypeTag*, $Symbol$TypeSymbol*, $TypeMetadata*)},
-	{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType$1, baseType, $Type*)},
-	{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCPrimitiveType$1, cloneWithMetadata, $Type$JCPrimitiveType*, $TypeMetadata*)},
-	{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCPrimitiveType$1, getAnnotationMirrors, $List*)},
-	{}
-};
-
-$EnclosingMethodInfo _Type$JCPrimitiveType$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.code.Type$JCPrimitiveType",
-	"cloneWithMetadata",
-	"(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$JCPrimitiveType;"
-};
-
-$InnerClassInfo _Type$JCPrimitiveType$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Type$JCPrimitiveType", "com.sun.tools.javac.code.Type", "JCPrimitiveType", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.code.Type$JCPrimitiveType$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Type$JCPrimitiveType$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.code.Type$JCPrimitiveType$1",
-	"com.sun.tools.javac.code.Type$JCPrimitiveType",
-	nullptr,
-	_Type$JCPrimitiveType$1_FieldInfo_,
-	_Type$JCPrimitiveType$1_MethodInfo_,
-	nullptr,
-	&_Type$JCPrimitiveType$1_EnclosingMethodInfo_,
-	_Type$JCPrimitiveType$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Type"
-};
-
-$Object* allocate$Type$JCPrimitiveType$1($Class* clazz) {
-	return $of($alloc(Type$JCPrimitiveType$1));
-}
-
 void Type$JCPrimitiveType$1::init$($Type$JCPrimitiveType* this$0, $TypeTag* tag, $Symbol$TypeSymbol* tsym, $TypeMetadata* metadata) {
 	$set(this, this$0, this$0);
 	$Type$JCPrimitiveType::init$(tag, tsym, metadata);
@@ -93,7 +47,45 @@ Type$JCPrimitiveType$1::Type$JCPrimitiveType$1() {
 }
 
 $Class* Type$JCPrimitiveType$1::load$($String* name, bool initialize) {
-	$loadClass(Type$JCPrimitiveType$1, name, initialize, &_Type$JCPrimitiveType$1_ClassInfo_, allocate$Type$JCPrimitiveType$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/code/Type$JCPrimitiveType;", nullptr, $FINAL | $SYNTHETIC, $field(Type$JCPrimitiveType$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type$JCPrimitiveType;Lcom/sun/tools/javac/code/TypeTag;Lcom/sun/tools/javac/code/Symbol$TypeSymbol;Lcom/sun/tools/javac/code/TypeMetadata;)V", nullptr, 0, $method(Type$JCPrimitiveType$1, init$, void, $Type$JCPrimitiveType*, $TypeTag*, $Symbol$TypeSymbol*, $TypeMetadata*)},
+		{"baseType", "()Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC, $virtualMethod(Type$JCPrimitiveType$1, baseType, $Type*)},
+		{"cloneWithMetadata", "(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCPrimitiveType$1, cloneWithMetadata, $Type$JCPrimitiveType*, $TypeMetadata*)},
+		{"getAnnotationMirrors", "()Ljava/util/List;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(Type$JCPrimitiveType$1, getAnnotationMirrors, $List*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.code.Type$JCPrimitiveType",
+		"cloneWithMetadata",
+		"(Lcom/sun/tools/javac/code/TypeMetadata;)Lcom/sun/tools/javac/code/Type$JCPrimitiveType;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Type$JCPrimitiveType", "com.sun.tools.javac.code.Type", "JCPrimitiveType", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.code.Type$JCPrimitiveType$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.code.Type$JCPrimitiveType$1",
+		"com.sun.tools.javac.code.Type$JCPrimitiveType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Type"
+	};
+	$loadClass(Type$JCPrimitiveType$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Type$JCPrimitiveType$1));
+	});
 	return class$;
 }
 

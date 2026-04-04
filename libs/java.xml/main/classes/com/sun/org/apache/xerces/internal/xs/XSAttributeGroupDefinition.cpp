@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition.h>
-
 #include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSWildcard.h>
@@ -19,29 +18,25 @@ namespace com {
 					namespace internal {
 						namespace xs {
 
-$MethodInfo _XSAttributeGroupDefinition_MethodInfo_[] = {
-	{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeGroupDefinition, getAnnotation, $XSAnnotation*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeGroupDefinition, getAnnotations, $XSObjectList*)},
-	{"getAttributeUses", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeGroupDefinition, getAttributeUses, $XSObjectList*)},
-	{"getAttributeWildcard", "()Lcom/sun/org/apache/xerces/internal/xs/XSWildcard;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeGroupDefinition, getAttributeWildcard, $XSWildcard*)},
-	{}
-};
-
-$ClassInfo _XSAttributeGroupDefinition_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.xerces.internal.xs.XSAttributeGroupDefinition",
-	nullptr,
-	"com.sun.org.apache.xerces.internal.xs.XSObject",
-	nullptr,
-	_XSAttributeGroupDefinition_MethodInfo_
-};
-
-$Object* allocate$XSAttributeGroupDefinition($Class* clazz) {
-	return $of($alloc(XSAttributeGroupDefinition));
-}
-
 $Class* XSAttributeGroupDefinition::load$($String* name, bool initialize) {
-	$loadClass(XSAttributeGroupDefinition, name, initialize, &_XSAttributeGroupDefinition_ClassInfo_, allocate$XSAttributeGroupDefinition);
+	$MethodInfo methodInfos$$[] = {
+		{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeGroupDefinition, getAnnotation, $XSAnnotation*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeGroupDefinition, getAnnotations, $XSObjectList*)},
+		{"getAttributeUses", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeGroupDefinition, getAttributeUses, $XSObjectList*)},
+		{"getAttributeWildcard", "()Lcom/sun/org/apache/xerces/internal/xs/XSWildcard;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(XSAttributeGroupDefinition, getAttributeWildcard, $XSWildcard*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.xerces.internal.xs.XSAttributeGroupDefinition",
+		nullptr,
+		"com.sun.org.apache.xerces.internal.xs.XSObject",
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(XSAttributeGroupDefinition, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSAttributeGroupDefinition);
+	});
 	return class$;
 }
 

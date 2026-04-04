@@ -39,6 +39,7 @@ public:
 	virtual bool equals(Object$* o) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* name, $String* description, ::java::lang::reflect::Method* getter, ::java::lang::reflect::Method* setter);
 	void init$($String* name, $String* description, ::java::lang::reflect::Method* getter, ::java::lang::reflect::Method* setter, ::javax::management::Descriptor* descriptor);
 	void init$($String* name, $String* type, $String* description, bool isReadable, bool isWritable, bool isIs);
@@ -51,8 +52,8 @@ public:
 	virtual $String* toString() override;
 	::javax::management::Descriptor* validDescriptor(::javax::management::Descriptor* in);
 	void writeObject(::java::io::ObjectOutputStream* out);
-	static const int64_t oldSerialVersionUID = (int64_t)0x62814AF8F0446C19;
-	static const int64_t newSerialVersionUID = (int64_t)0x55C940A1EF0E6771;
+	static const int64_t oldSerialVersionUID = (int64_t)0x62814af8f0446c19;
+	static const int64_t newSerialVersionUID = (int64_t)0x55c940a1ef0e6771;
 	static $Array<::java::io::ObjectStreamField>* oldSerialPersistentFields;
 	static $Array<::java::io::ObjectStreamField>* newSerialPersistentFields;
 	static int64_t serialVersionUID;

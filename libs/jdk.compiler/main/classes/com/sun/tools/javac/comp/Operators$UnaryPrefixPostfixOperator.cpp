@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Operators$UnaryPrefixPostfixOperator.h>
-
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -11,7 +10,6 @@
 
 using $Symbol$OperatorSymbol = ::com::sun::tools::javac::code::Symbol$OperatorSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Types = ::com::sun::tools::javac::code::Types;
 using $Operators = ::com::sun::tools::javac::comp::Operators;
 using $Operators$UnaryNumericOperator = ::com::sun::tools::javac::comp::Operators$UnaryNumericOperator;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
@@ -26,43 +24,6 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Operators$UnaryPrefixPostfixOperator_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $FINAL | $SYNTHETIC, $field(Operators$UnaryPrefixPostfixOperator, this$0)},
-	{}
-};
-
-$MethodInfo _Operators$UnaryPrefixPostfixOperator_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$UnaryPrefixPostfixOperator, init$, void, $Operators*, $JCTree$Tag*)},
-	{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryPrefixPostfixOperator, resolve, $Symbol$OperatorSymbol*, $Type*)},
-	{}
-};
-
-$InnerClassInfo _Operators$UnaryPrefixPostfixOperator_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Operators$UnaryPrefixPostfixOperator", "com.sun.tools.javac.comp.Operators", "UnaryPrefixPostfixOperator", 0},
-	{"com.sun.tools.javac.comp.Operators$UnaryNumericOperator", "com.sun.tools.javac.comp.Operators", "UnaryNumericOperator", 0},
-	{}
-};
-
-$ClassInfo _Operators$UnaryPrefixPostfixOperator_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Operators$UnaryPrefixPostfixOperator",
-	"com.sun.tools.javac.comp.Operators$UnaryNumericOperator",
-	nullptr,
-	_Operators$UnaryPrefixPostfixOperator_FieldInfo_,
-	_Operators$UnaryPrefixPostfixOperator_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Operators$UnaryPrefixPostfixOperator_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Operators"
-};
-
-$Object* allocate$Operators$UnaryPrefixPostfixOperator($Class* clazz) {
-	return $of($alloc(Operators$UnaryPrefixPostfixOperator));
-}
-
 void Operators$UnaryPrefixPostfixOperator::init$($Operators* this$0, $JCTree$Tag* tag) {
 	$set(this, this$0, this$0);
 	$Operators$UnaryNumericOperator::init$(this$0, tag);
@@ -76,7 +37,38 @@ Operators$UnaryPrefixPostfixOperator::Operators$UnaryPrefixPostfixOperator() {
 }
 
 $Class* Operators$UnaryPrefixPostfixOperator::load$($String* name, bool initialize) {
-	$loadClass(Operators$UnaryPrefixPostfixOperator, name, initialize, &_Operators$UnaryPrefixPostfixOperator_ClassInfo_, allocate$Operators$UnaryPrefixPostfixOperator);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Operators;", nullptr, $FINAL | $SYNTHETIC, $field(Operators$UnaryPrefixPostfixOperator, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Operators;Lcom/sun/tools/javac/tree/JCTree$Tag;)V", nullptr, 0, $method(Operators$UnaryPrefixPostfixOperator, init$, void, $Operators*, $JCTree$Tag*)},
+		{"resolve", "(Lcom/sun/tools/javac/code/Type;)Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;", nullptr, $PUBLIC, $virtualMethod(Operators$UnaryPrefixPostfixOperator, resolve, $Symbol$OperatorSymbol*, $Type*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Operators$UnaryPrefixPostfixOperator", "com.sun.tools.javac.comp.Operators", "UnaryPrefixPostfixOperator", 0},
+		{"com.sun.tools.javac.comp.Operators$UnaryNumericOperator", "com.sun.tools.javac.comp.Operators", "UnaryNumericOperator", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Operators$UnaryPrefixPostfixOperator",
+		"com.sun.tools.javac.comp.Operators$UnaryNumericOperator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Operators"
+	};
+	$loadClass(Operators$UnaryPrefixPostfixOperator, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Operators$UnaryPrefixPostfixOperator));
+	});
 	return class$;
 }
 

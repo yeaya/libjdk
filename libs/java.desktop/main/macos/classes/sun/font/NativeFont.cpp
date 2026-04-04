@@ -1,5 +1,4 @@
 #include <sun/font/NativeFont.h>
-
 #include <java/awt/FontFormatException.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/geom/GeneralPath.h>
@@ -30,36 +29,6 @@ using $StrikeMetrics = ::sun::font::StrikeMetrics;
 
 namespace sun {
 	namespace font {
-
-$MethodInfo _NativeFont_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(NativeFont, init$, void, $String*, bool), "java.awt.FontFormatException"},
-	{"createStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, 0, $virtualMethod(NativeFont, createStrike, $FontStrike*, $FontStrikeDesc*)},
-	{"getDelegateFont", "()Lsun/font/PhysicalFont;", nullptr, 0, $virtualMethod(NativeFont, getDelegateFont, $PhysicalFont*)},
-	{"getFontMetrics", "(J)Lsun/font/StrikeMetrics;", nullptr, 0, $virtualMethod(NativeFont, getFontMetrics, $StrikeMetrics*, int64_t)},
-	{"getGlyphAdvance", "(JI)F", nullptr, 0, $virtualMethod(NativeFont, getGlyphAdvance, float, int64_t, int32_t)},
-	{"getGlyphImage", "(JI)J", nullptr, 0, $virtualMethod(NativeFont, getGlyphImage, int64_t, int64_t, int32_t)},
-	{"getGlyphMetrics", "(JILjava/awt/geom/Point2D$Float;)V", nullptr, 0, $virtualMethod(NativeFont, getGlyphMetrics, void, int64_t, int32_t, $Point2D$Float*)},
-	{"getGlyphOutline", "(JIFF)Ljava/awt/geom/GeneralPath;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getGlyphOutline, $GeneralPath*, int64_t, int32_t, float, float)},
-	{"getGlyphOutlineBounds", "(JI)Ljava/awt/geom/Rectangle2D$Float;", nullptr, 0, $virtualMethod(NativeFont, getGlyphOutlineBounds, $Rectangle2D$Float*, int64_t, int32_t)},
-	{"getGlyphVectorOutline", "(J[IIFF)Ljava/awt/geom/GeneralPath;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getGlyphVectorOutline, $GeneralPath*, int64_t, $ints*, int32_t, float, float)},
-	{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getMapper, $CharToGlyphMapper*)},
-	{"getMaxCharBounds", "(Ljava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getMaxCharBounds, $Rectangle2D*, $FontRenderContext*)},
-	{"hasExternalBitmaps", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(NativeFont, hasExternalBitmaps, bool, $String*)},
-	{}
-};
-
-$ClassInfo _NativeFont_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.font.NativeFont",
-	"sun.font.PhysicalFont",
-	nullptr,
-	nullptr,
-	_NativeFont_MethodInfo_
-};
-
-$Object* allocate$NativeFont($Class* clazz) {
-	return $of($alloc(NativeFont));
-}
 
 void NativeFont::init$($String* platName, bool isBitmapDelegate) {
 	$PhysicalFont::init$();
@@ -118,7 +87,33 @@ NativeFont::NativeFont() {
 }
 
 $Class* NativeFont::load$($String* name, bool initialize) {
-	$loadClass(NativeFont, name, initialize, &_NativeFont_ClassInfo_, allocate$NativeFont);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Z)V", nullptr, $PUBLIC, $method(NativeFont, init$, void, $String*, bool), "java.awt.FontFormatException"},
+		{"createStrike", "(Lsun/font/FontStrikeDesc;)Lsun/font/FontStrike;", nullptr, 0, $virtualMethod(NativeFont, createStrike, $FontStrike*, $FontStrikeDesc*)},
+		{"getDelegateFont", "()Lsun/font/PhysicalFont;", nullptr, 0, $virtualMethod(NativeFont, getDelegateFont, $PhysicalFont*)},
+		{"getFontMetrics", "(J)Lsun/font/StrikeMetrics;", nullptr, 0, $virtualMethod(NativeFont, getFontMetrics, $StrikeMetrics*, int64_t)},
+		{"getGlyphAdvance", "(JI)F", nullptr, 0, $virtualMethod(NativeFont, getGlyphAdvance, float, int64_t, int32_t)},
+		{"getGlyphImage", "(JI)J", nullptr, 0, $virtualMethod(NativeFont, getGlyphImage, int64_t, int64_t, int32_t)},
+		{"getGlyphMetrics", "(JILjava/awt/geom/Point2D$Float;)V", nullptr, 0, $virtualMethod(NativeFont, getGlyphMetrics, void, int64_t, int32_t, $Point2D$Float*)},
+		{"getGlyphOutline", "(JIFF)Ljava/awt/geom/GeneralPath;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getGlyphOutline, $GeneralPath*, int64_t, int32_t, float, float)},
+		{"getGlyphOutlineBounds", "(JI)Ljava/awt/geom/Rectangle2D$Float;", nullptr, 0, $virtualMethod(NativeFont, getGlyphOutlineBounds, $Rectangle2D$Float*, int64_t, int32_t)},
+		{"getGlyphVectorOutline", "(J[IIFF)Ljava/awt/geom/GeneralPath;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getGlyphVectorOutline, $GeneralPath*, int64_t, $ints*, int32_t, float, float)},
+		{"getMapper", "()Lsun/font/CharToGlyphMapper;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getMapper, $CharToGlyphMapper*)},
+		{"getMaxCharBounds", "(Ljava/awt/font/FontRenderContext;)Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC, $virtualMethod(NativeFont, getMaxCharBounds, $Rectangle2D*, $FontRenderContext*)},
+		{"hasExternalBitmaps", "(Ljava/lang/String;)Z", nullptr, $STATIC, $staticMethod(NativeFont, hasExternalBitmaps, bool, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.font.NativeFont",
+		"sun.font.PhysicalFont",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(NativeFont, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(NativeFont);
+	});
 	return class$;
 }
 

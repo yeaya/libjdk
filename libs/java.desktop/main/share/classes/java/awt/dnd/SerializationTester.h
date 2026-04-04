@@ -19,6 +19,7 @@ class SerializationTester : public ::java::lang::Object {
 	$class(SerializationTester, 0, ::java::lang::Object)
 public:
 	SerializationTester();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static bool test(Object$* obj);
 	static ::java::io::ObjectOutputStream* stream;

@@ -1,5 +1,4 @@
 #include <javax/xml/catalog/CatalogEntry.h>
-
 #include <java/lang/UnsupportedOperationException.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
 #include <javax/xml/catalog/BaseEntry.h>
@@ -18,25 +17,6 @@ namespace javax {
 	namespace xml {
 		namespace catalog {
 
-$MethodInfo _CatalogEntry_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(CatalogEntry, init$, void, $String*, $StringArray*)},
-	{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CatalogEntry, match, $String*, $String*)},
-	{}
-};
-
-$ClassInfo _CatalogEntry_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.xml.catalog.CatalogEntry",
-	"javax.xml.catalog.GroupEntry",
-	nullptr,
-	nullptr,
-	_CatalogEntry_MethodInfo_
-};
-
-$Object* allocate$CatalogEntry($Class* clazz) {
-	return $of($alloc(CatalogEntry));
-}
-
 void CatalogEntry::init$($String* base, $StringArray* attributes) {
 	$GroupEntry::init$(base, attributes);
 	$init($BaseEntry$CatalogEntryType);
@@ -52,7 +32,22 @@ CatalogEntry::CatalogEntry() {
 }
 
 $Class* CatalogEntry::load$($String* name, bool initialize) {
-	$loadClass(CatalogEntry, name, initialize, &_CatalogEntry_ClassInfo_, allocate$CatalogEntry);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;[Ljava/lang/String;)V", nullptr, $PUBLIC | $TRANSIENT, $method(CatalogEntry, init$, void, $String*, $StringArray*)},
+		{"match", "(Ljava/lang/String;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(CatalogEntry, match, $String*, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.xml.catalog.CatalogEntry",
+		"javax.xml.catalog.GroupEntry",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CatalogEntry, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CatalogEntry);
+	});
 	return class$;
 }
 

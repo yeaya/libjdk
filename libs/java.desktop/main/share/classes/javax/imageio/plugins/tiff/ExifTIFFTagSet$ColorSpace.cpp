@@ -1,5 +1,4 @@
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet$ColorSpace.h>
-
 #include <javax/imageio/plugins/tiff/ExifTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <jcpp.h>
@@ -16,47 +15,42 @@ namespace javax {
 		namespace plugins {
 			namespace tiff {
 
-$MethodInfo _ExifTIFFTagSet$ColorSpace_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$ColorSpace, init$, void)},
-	{}
-};
-
-$InnerClassInfo _ExifTIFFTagSet$ColorSpace_InnerClassesInfo_[] = {
-	{"javax.imageio.plugins.tiff.ExifTIFFTagSet$ColorSpace", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "ColorSpace", $STATIC},
-	{}
-};
-
-$ClassInfo _ExifTIFFTagSet$ColorSpace_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet$ColorSpace",
-	"javax.imageio.plugins.tiff.TIFFTag",
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$ColorSpace_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ExifTIFFTagSet$ColorSpace_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.imageio.plugins.tiff.ExifTIFFTagSet"
-};
-
-$Object* allocate$ExifTIFFTagSet$ColorSpace($Class* clazz) {
-	return $of($alloc(ExifTIFFTagSet$ColorSpace));
-}
-
 void ExifTIFFTagSet$ColorSpace::init$() {
-	$TIFFTag::init$("ColorSpace"_s, 0x0000A001, $sl(1, $TIFFTag::TIFF_SHORT), 1);
+	$TIFFTag::init$("ColorSpace"_s, 0x0000a001, $sl(1, $TIFFTag::TIFF_SHORT), 1);
 	addValueName(1, "sRGB"_s);
-	addValueName(0x0000FFFF, "Uncalibrated"_s);
+	addValueName(0x0000ffff, "Uncalibrated"_s);
 }
 
 ExifTIFFTagSet$ColorSpace::ExifTIFFTagSet$ColorSpace() {
 }
 
 $Class* ExifTIFFTagSet$ColorSpace::load$($String* name, bool initialize) {
-	$loadClass(ExifTIFFTagSet$ColorSpace, name, initialize, &_ExifTIFFTagSet$ColorSpace_ClassInfo_, allocate$ExifTIFFTagSet$ColorSpace);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(ExifTIFFTagSet$ColorSpace, init$, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.imageio.plugins.tiff.ExifTIFFTagSet$ColorSpace", "javax.imageio.plugins.tiff.ExifTIFFTagSet", "ColorSpace", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet$ColorSpace",
+		"javax.imageio.plugins.tiff.TIFFTag",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.imageio.plugins.tiff.ExifTIFFTagSet"
+	};
+	$loadClass(ExifTIFFTagSet$ColorSpace, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ExifTIFFTagSet$ColorSpace);
+	});
 	return class$;
 }
 

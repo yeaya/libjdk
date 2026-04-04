@@ -138,6 +138,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::jdk::internal::net::http::HttpClientBuilderImpl* builder, ::jdk::internal::net::http::HttpClientImpl$SingleFacadeFactory* facadeFactory);
 	void addFilter($Class* f);
 	virtual ::java::util::Optional* authenticator() override;

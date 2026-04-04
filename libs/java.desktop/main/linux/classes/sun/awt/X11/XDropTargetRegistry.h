@@ -41,6 +41,7 @@ class XDropTargetRegistry : public ::java::lang::Object {
 	$class(XDropTargetRegistry, 0, ::java::lang::Object)
 public:
 	XDropTargetRegistry();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void addDelayedRegistrationEntry(int64_t window);
 	static int64_t getDnDProxyWindow();

@@ -1,5 +1,4 @@
 #include <javax/management/remote/rmi/RMIConnector$1.h>
-
 #include <com/sun/jmx/remote/internal/rmi/ProxyRef.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassLoader.h>
@@ -29,7 +28,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Module = ::java::lang::Module;
 using $ModuleDescriptor = ::java::lang::module::ModuleDescriptor;
-using $ModuleDescriptor$Builder = ::java::lang::module::ModuleDescriptor$Builder;
 using $ModuleDescriptor$Modifier = ::java::lang::module::ModuleDescriptor$Modifier;
 using $URI = ::java::net::URI;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
@@ -44,49 +42,6 @@ namespace javax {
 		namespace remote {
 			namespace rmi {
 
-$FieldInfo _RMIConnector$1_FieldInfo_[] = {
-	{"val$pRefByteCode", "[B", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnector$1, val$pRefByteCode)},
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RMIConnector$1, $assertionsDisabled)},
-	{}
-};
-
-$MethodInfo _RMIConnector$1_MethodInfo_[] = {
-	{"<init>", "([B)V", "()V", 0, $method(RMIConnector$1, init$, void, $bytes*)},
-	{"run", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(RMIConnector$1, run, $Object*), "java.lang.Exception"},
-	{}
-};
-
-$EnclosingMethodInfo _RMIConnector$1_EnclosingMethodInfo_ = {
-	"javax.management.remote.rmi.RMIConnector",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _RMIConnector$1_InnerClassesInfo_[] = {
-	{"javax.management.remote.rmi.RMIConnector$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _RMIConnector$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.management.remote.rmi.RMIConnector$1",
-	"java.lang.Object",
-	"java.security.PrivilegedExceptionAction",
-	_RMIConnector$1_FieldInfo_,
-	_RMIConnector$1_MethodInfo_,
-	"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/reflect/Constructor<*>;>;",
-	&_RMIConnector$1_EnclosingMethodInfo_,
-	_RMIConnector$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.management.remote.rmi.RMIConnector"
-};
-
-$Object* allocate$RMIConnector$1($Class* clazz) {
-	return $of($alloc(RMIConnector$1));
-}
-
 bool RMIConnector$1::$assertionsDisabled = false;
 
 void RMIConnector$1::init$($bytes* val$pRefByteCode) {
@@ -94,11 +49,11 @@ void RMIConnector$1::init$($bytes* val$pRefByteCode) {
 }
 
 $Object* RMIConnector$1::run() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	$load($RMIConnector);
 	$Class* thisClass = $RMIConnector::class$;
-	$var($ClassLoader, thisLoader, $nc(thisClass)->getClassLoader());
+	$var($ClassLoader, thisLoader, thisClass->getClassLoader());
 	$var($ProtectionDomain, thisProtectionDomain, thisClass->getProtectionDomain());
 	$load($ProxyRef);
 	$var($String, proxyRefCName, $ProxyRef::class$->getName());
@@ -116,7 +71,7 @@ $Object* RMIConnector$1::run() {
 		$throwNew($AssertionError);
 	}
 	$init($ModuleDescriptor$Modifier);
-	$var($ModuleDescriptor, descriptor, $nc($($nc($($ModuleDescriptor::newModule("jdk.remoteref"_s, $($Set::of($of($ModuleDescriptor$Modifier::SYNTHETIC))))))->packages($($Set::of($of(pkg))))))->build());
+	$var($ModuleDescriptor, descriptor, $$nc($$nc($ModuleDescriptor::newModule("jdk.remoteref"_s, $($Set::of($ModuleDescriptor$Modifier::SYNTHETIC))))->packages($($Set::of(pkg))))->build());
 	$var($Module, m, $Modules::defineModule(cl, descriptor, nullptr));
 	$Modules::addReads(m, $($Object::class$->getModule()));
 	$Modules::addReads(m, jmxModule);
@@ -128,7 +83,7 @@ $Object* RMIConnector$1::run() {
 	return $of($nc(c)->getConstructor($$new($ClassArray, {$RemoteRef::class$})));
 }
 
-void clinit$RMIConnector$1($Class* class$) {
+void RMIConnector$1::clinit$($Class* clazz) {
 	$load($RMIConnector);
 	RMIConnector$1::$assertionsDisabled = !$RMIConnector::class$->desiredAssertionStatus();
 }
@@ -137,7 +92,43 @@ RMIConnector$1::RMIConnector$1() {
 }
 
 $Class* RMIConnector$1::load$($String* name, bool initialize) {
-	$loadClass(RMIConnector$1, name, initialize, &_RMIConnector$1_ClassInfo_, clinit$RMIConnector$1, allocate$RMIConnector$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$pRefByteCode", "[B", nullptr, $FINAL | $SYNTHETIC, $field(RMIConnector$1, val$pRefByteCode)},
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(RMIConnector$1, $assertionsDisabled)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([B)V", "()V", 0, $method(RMIConnector$1, init$, void, $bytes*)},
+		{"run", "()Ljava/lang/reflect/Constructor;", "()Ljava/lang/reflect/Constructor<*>;", $PUBLIC, $virtualMethod(RMIConnector$1, run, $Object*), "java.lang.Exception"},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"javax.management.remote.rmi.RMIConnector",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.management.remote.rmi.RMIConnector$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.management.remote.rmi.RMIConnector$1",
+		"java.lang.Object",
+		"java.security.PrivilegedExceptionAction",
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljava/lang/Object;Ljava/security/PrivilegedExceptionAction<Ljava/lang/reflect/Constructor<*>;>;",
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.management.remote.rmi.RMIConnector"
+	};
+	$loadClass(RMIConnector$1, name, initialize, &classInfo$$, RMIConnector$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(RMIConnector$1);
+	});
 	return class$;
 }
 

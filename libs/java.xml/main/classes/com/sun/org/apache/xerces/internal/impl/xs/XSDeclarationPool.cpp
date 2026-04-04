@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSDeclarationPool.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/SchemaDVFactoryImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl.h>
@@ -50,70 +49,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _XSDeclarationPool_FieldInfo_[] = {
-	{"CHUNK_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDeclarationPool, CHUNK_SHIFT)},
-	{"CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDeclarationPool, CHUNK_SIZE)},
-	{"CHUNK_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDeclarationPool, CHUNK_MASK)},
-	{"INITIAL_CHUNK_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDeclarationPool, INITIAL_CHUNK_COUNT)},
-	{"fElementDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fElementDecl)},
-	{"fElementDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fElementDeclIndex)},
-	{"fParticleDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fParticleDecl)},
-	{"fParticleDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fParticleDeclIndex)},
-	{"fModelGroup", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fModelGroup)},
-	{"fModelGroupIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fModelGroupIndex)},
-	{"fAttrDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fAttrDecl)},
-	{"fAttrDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fAttrDeclIndex)},
-	{"fCTDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fCTDecl)},
-	{"fCTDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fCTDeclIndex)},
-	{"fSTDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fSTDecl)},
-	{"fSTDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fSTDeclIndex)},
-	{"fAttributeUse", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fAttributeUse)},
-	{"fAttributeUseIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fAttributeUseIndex)},
-	{"dvFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/SchemaDVFactoryImpl;", nullptr, $PRIVATE, $field(XSDeclarationPool, dvFactory)},
-	{}
-};
-
-$MethodInfo _XSDeclarationPool_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSDeclarationPool, init$, void)},
-	{"ensureAttrDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureAttrDeclCapacity, bool, int32_t)},
-	{"ensureAttributeUseCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureAttributeUseCapacity, bool, int32_t)},
-	{"ensureCTDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureCTDeclCapacity, bool, int32_t)},
-	{"ensureElementDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureElementDeclCapacity, bool, int32_t)},
-	{"ensureModelGroupCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureModelGroupCapacity, bool, int32_t)},
-	{"ensureParticleDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureParticleDeclCapacity, bool, int32_t)},
-	{"ensureSTDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureSTDeclCapacity, bool, int32_t)},
-	{"getAttributeDecl", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getAttributeDecl, $XSAttributeDecl*)},
-	{"getAttributeUse", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getAttributeUse, $XSAttributeUseImpl*)},
-	{"getComplexTypeDecl", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getComplexTypeDecl, $XSComplexTypeDecl*)},
-	{"getElementDecl", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getElementDecl, $XSElementDecl*)},
-	{"getModelGroup", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getModelGroup, $XSModelGroupImpl*)},
-	{"getParticleDecl", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getParticleDecl, $XSParticleDecl*)},
-	{"getSimpleTypeDecl", "()Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getSimpleTypeDecl, $XSSimpleTypeDecl*)},
-	{"reset", "()V", nullptr, $PUBLIC, $method(XSDeclarationPool, reset, void)},
-	{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSElementDeclArray2*, $XSElementDeclArray2*, int32_t)},
-	{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSParticleDeclArray2*, $XSParticleDeclArray2*, int32_t)},
-	{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSModelGroupImplArray2*, $XSModelGroupImplArray2*, int32_t)},
-	{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSAttributeDeclArray2*, $XSAttributeDeclArray2*, int32_t)},
-	{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSAttributeUseImplArray2*, $XSAttributeUseImplArray2*, int32_t)},
-	{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSSimpleTypeDeclArray2*, $XSSimpleTypeDeclArray2*, int32_t)},
-	{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSComplexTypeDeclArray2*, $XSComplexTypeDeclArray2*, int32_t)},
-	{"setDVFactory", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/SchemaDVFactoryImpl;)V", nullptr, $PUBLIC, $method(XSDeclarationPool, setDVFactory, void, $SchemaDVFactoryImpl*)},
-	{}
-};
-
-$ClassInfo _XSDeclarationPool_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSDeclarationPool",
-	"java.lang.Object",
-	nullptr,
-	_XSDeclarationPool_FieldInfo_,
-	_XSDeclarationPool_MethodInfo_
-};
-
-$Object* allocate$XSDeclarationPool($Class* clazz) {
-	return $of($alloc(XSDeclarationPool));
-}
-
 void XSDeclarationPool::init$() {
 	$set(this, fElementDecl, $new($XSElementDeclArray2, XSDeclarationPool::INITIAL_CHUNK_COUNT));
 	this->fElementDeclIndex = 0;
@@ -137,12 +72,12 @@ void XSDeclarationPool::setDVFactory($SchemaDVFactoryImpl* dvFactory) {
 
 $XSElementDecl* XSDeclarationPool::getElementDecl() {
 	int32_t chunk = $sr(this->fElementDeclIndex, XSDeclarationPool::CHUNK_SHIFT);
-	int32_t index = (int32_t)(this->fElementDeclIndex & (uint32_t)XSDeclarationPool::CHUNK_MASK);
+	int32_t index = this->fElementDeclIndex & XSDeclarationPool::CHUNK_MASK;
 	ensureElementDeclCapacity(chunk);
 	if ($nc($nc(this->fElementDecl)->get(chunk))->get(index) == nullptr) {
-		$nc($nc(this->fElementDecl)->get(chunk))->set(index, $$new($XSElementDecl));
+		$nc(this->fElementDecl->get(chunk))->set(index, $$new($XSElementDecl));
 	} else {
-		$nc($nc($nc(this->fElementDecl)->get(chunk))->get(index))->reset();
+		$nc($nc(this->fElementDecl->get(chunk))->get(index))->reset();
 	}
 	++this->fElementDeclIndex;
 	return $nc($nc(this->fElementDecl)->get(chunk))->get(index);
@@ -150,12 +85,12 @@ $XSElementDecl* XSDeclarationPool::getElementDecl() {
 
 $XSAttributeDecl* XSDeclarationPool::getAttributeDecl() {
 	int32_t chunk = $sr(this->fAttrDeclIndex, XSDeclarationPool::CHUNK_SHIFT);
-	int32_t index = (int32_t)(this->fAttrDeclIndex & (uint32_t)XSDeclarationPool::CHUNK_MASK);
+	int32_t index = this->fAttrDeclIndex & XSDeclarationPool::CHUNK_MASK;
 	ensureAttrDeclCapacity(chunk);
 	if ($nc($nc(this->fAttrDecl)->get(chunk))->get(index) == nullptr) {
-		$nc($nc(this->fAttrDecl)->get(chunk))->set(index, $$new($XSAttributeDecl));
+		$nc(this->fAttrDecl->get(chunk))->set(index, $$new($XSAttributeDecl));
 	} else {
-		$nc($nc($nc(this->fAttrDecl)->get(chunk))->get(index))->reset();
+		$nc($nc(this->fAttrDecl->get(chunk))->get(index))->reset();
 	}
 	++this->fAttrDeclIndex;
 	return $nc($nc(this->fAttrDecl)->get(chunk))->get(index);
@@ -163,12 +98,12 @@ $XSAttributeDecl* XSDeclarationPool::getAttributeDecl() {
 
 $XSAttributeUseImpl* XSDeclarationPool::getAttributeUse() {
 	int32_t chunk = $sr(this->fAttributeUseIndex, XSDeclarationPool::CHUNK_SHIFT);
-	int32_t index = (int32_t)(this->fAttributeUseIndex & (uint32_t)XSDeclarationPool::CHUNK_MASK);
+	int32_t index = this->fAttributeUseIndex & XSDeclarationPool::CHUNK_MASK;
 	ensureAttributeUseCapacity(chunk);
 	if ($nc($nc(this->fAttributeUse)->get(chunk))->get(index) == nullptr) {
-		$nc($nc(this->fAttributeUse)->get(chunk))->set(index, $$new($XSAttributeUseImpl));
+		$nc(this->fAttributeUse->get(chunk))->set(index, $$new($XSAttributeUseImpl));
 	} else {
-		$nc($nc($nc(this->fAttributeUse)->get(chunk))->get(index))->reset();
+		$nc($nc(this->fAttributeUse->get(chunk))->get(index))->reset();
 	}
 	++this->fAttributeUseIndex;
 	return $nc($nc(this->fAttributeUse)->get(chunk))->get(index);
@@ -176,12 +111,12 @@ $XSAttributeUseImpl* XSDeclarationPool::getAttributeUse() {
 
 $XSComplexTypeDecl* XSDeclarationPool::getComplexTypeDecl() {
 	int32_t chunk = $sr(this->fCTDeclIndex, XSDeclarationPool::CHUNK_SHIFT);
-	int32_t index = (int32_t)(this->fCTDeclIndex & (uint32_t)XSDeclarationPool::CHUNK_MASK);
+	int32_t index = this->fCTDeclIndex & XSDeclarationPool::CHUNK_MASK;
 	ensureCTDeclCapacity(chunk);
 	if ($nc($nc(this->fCTDecl)->get(chunk))->get(index) == nullptr) {
-		$nc($nc(this->fCTDecl)->get(chunk))->set(index, $$new($XSComplexTypeDecl));
+		$nc(this->fCTDecl->get(chunk))->set(index, $$new($XSComplexTypeDecl));
 	} else {
-		$nc($nc($nc(this->fCTDecl)->get(chunk))->get(index))->reset();
+		$nc($nc(this->fCTDecl->get(chunk))->get(index))->reset();
 	}
 	++this->fCTDeclIndex;
 	return $nc($nc(this->fCTDecl)->get(chunk))->get(index);
@@ -189,12 +124,12 @@ $XSComplexTypeDecl* XSDeclarationPool::getComplexTypeDecl() {
 
 $XSSimpleTypeDecl* XSDeclarationPool::getSimpleTypeDecl() {
 	int32_t chunk = $sr(this->fSTDeclIndex, XSDeclarationPool::CHUNK_SHIFT);
-	int32_t index = (int32_t)(this->fSTDeclIndex & (uint32_t)XSDeclarationPool::CHUNK_MASK);
+	int32_t index = this->fSTDeclIndex & XSDeclarationPool::CHUNK_MASK;
 	ensureSTDeclCapacity(chunk);
 	if ($nc($nc(this->fSTDecl)->get(chunk))->get(index) == nullptr) {
-		$nc($nc(this->fSTDecl)->get(chunk))->set(index, $($nc(this->dvFactory)->newXSSimpleTypeDecl()));
+		$nc(this->fSTDecl->get(chunk))->set(index, $($nc(this->dvFactory)->newXSSimpleTypeDecl()));
 	} else {
-		$nc($nc($nc(this->fSTDecl)->get(chunk))->get(index))->reset();
+		$nc($nc(this->fSTDecl->get(chunk))->get(index))->reset();
 	}
 	++this->fSTDeclIndex;
 	return $nc($nc(this->fSTDecl)->get(chunk))->get(index);
@@ -202,12 +137,12 @@ $XSSimpleTypeDecl* XSDeclarationPool::getSimpleTypeDecl() {
 
 $XSParticleDecl* XSDeclarationPool::getParticleDecl() {
 	int32_t chunk = $sr(this->fParticleDeclIndex, XSDeclarationPool::CHUNK_SHIFT);
-	int32_t index = (int32_t)(this->fParticleDeclIndex & (uint32_t)XSDeclarationPool::CHUNK_MASK);
+	int32_t index = this->fParticleDeclIndex & XSDeclarationPool::CHUNK_MASK;
 	ensureParticleDeclCapacity(chunk);
 	if ($nc($nc(this->fParticleDecl)->get(chunk))->get(index) == nullptr) {
-		$nc($nc(this->fParticleDecl)->get(chunk))->set(index, $$new($XSParticleDecl));
+		$nc(this->fParticleDecl->get(chunk))->set(index, $$new($XSParticleDecl));
 	} else {
-		$nc($nc($nc(this->fParticleDecl)->get(chunk))->get(index))->reset();
+		$nc($nc(this->fParticleDecl->get(chunk))->get(index))->reset();
 	}
 	++this->fParticleDeclIndex;
 	return $nc($nc(this->fParticleDecl)->get(chunk))->get(index);
@@ -215,12 +150,12 @@ $XSParticleDecl* XSDeclarationPool::getParticleDecl() {
 
 $XSModelGroupImpl* XSDeclarationPool::getModelGroup() {
 	int32_t chunk = $sr(this->fModelGroupIndex, XSDeclarationPool::CHUNK_SHIFT);
-	int32_t index = (int32_t)(this->fModelGroupIndex & (uint32_t)XSDeclarationPool::CHUNK_MASK);
+	int32_t index = this->fModelGroupIndex & XSDeclarationPool::CHUNK_MASK;
 	ensureModelGroupCapacity(chunk);
 	if ($nc($nc(this->fModelGroup)->get(chunk))->get(index) == nullptr) {
-		$nc($nc(this->fModelGroup)->get(chunk))->set(index, $$new($XSModelGroupImpl));
+		$nc(this->fModelGroup->get(chunk))->set(index, $$new($XSModelGroupImpl));
 	} else {
-		$nc($nc($nc(this->fModelGroup)->get(chunk))->get(index))->reset();
+		$nc($nc(this->fModelGroup->get(chunk))->get(index))->reset();
 	}
 	++this->fModelGroupIndex;
 	return $nc($nc(this->fModelGroup)->get(chunk))->get(index);
@@ -228,8 +163,8 @@ $XSModelGroupImpl* XSDeclarationPool::getModelGroup() {
 
 bool XSDeclarationPool::ensureElementDeclCapacity(int32_t chunk) {
 	if (chunk >= $nc(this->fElementDecl)->length) {
-		$set(this, fElementDecl, resize(this->fElementDecl, $nc(this->fElementDecl)->length * 2));
-	} else if ($nc(this->fElementDecl)->get(chunk) != nullptr) {
+		$set(this, fElementDecl, resize(this->fElementDecl, this->fElementDecl->length * 2));
+	} else if (this->fElementDecl->get(chunk) != nullptr) {
 		return false;
 	}
 	$nc(this->fElementDecl)->set(chunk, $$new($XSElementDeclArray, XSDeclarationPool::CHUNK_SIZE));
@@ -244,8 +179,8 @@ $XSElementDeclArray2* XSDeclarationPool::resize($XSElementDeclArray2* array, int
 
 bool XSDeclarationPool::ensureParticleDeclCapacity(int32_t chunk) {
 	if (chunk >= $nc(this->fParticleDecl)->length) {
-		$set(this, fParticleDecl, resize(this->fParticleDecl, $nc(this->fParticleDecl)->length * 2));
-	} else if ($nc(this->fParticleDecl)->get(chunk) != nullptr) {
+		$set(this, fParticleDecl, resize(this->fParticleDecl, this->fParticleDecl->length * 2));
+	} else if (this->fParticleDecl->get(chunk) != nullptr) {
 		return false;
 	}
 	$nc(this->fParticleDecl)->set(chunk, $$new($XSParticleDeclArray, XSDeclarationPool::CHUNK_SIZE));
@@ -254,8 +189,8 @@ bool XSDeclarationPool::ensureParticleDeclCapacity(int32_t chunk) {
 
 bool XSDeclarationPool::ensureModelGroupCapacity(int32_t chunk) {
 	if (chunk >= $nc(this->fModelGroup)->length) {
-		$set(this, fModelGroup, resize(this->fModelGroup, $nc(this->fModelGroup)->length * 2));
-	} else if ($nc(this->fModelGroup)->get(chunk) != nullptr) {
+		$set(this, fModelGroup, resize(this->fModelGroup, this->fModelGroup->length * 2));
+	} else if (this->fModelGroup->get(chunk) != nullptr) {
 		return false;
 	}
 	$nc(this->fModelGroup)->set(chunk, $$new($XSModelGroupImplArray, XSDeclarationPool::CHUNK_SIZE));
@@ -276,8 +211,8 @@ $XSModelGroupImplArray2* XSDeclarationPool::resize($XSModelGroupImplArray2* arra
 
 bool XSDeclarationPool::ensureAttrDeclCapacity(int32_t chunk) {
 	if (chunk >= $nc(this->fAttrDecl)->length) {
-		$set(this, fAttrDecl, resize(this->fAttrDecl, $nc(this->fAttrDecl)->length * 2));
-	} else if ($nc(this->fAttrDecl)->get(chunk) != nullptr) {
+		$set(this, fAttrDecl, resize(this->fAttrDecl, this->fAttrDecl->length * 2));
+	} else if (this->fAttrDecl->get(chunk) != nullptr) {
 		return false;
 	}
 	$nc(this->fAttrDecl)->set(chunk, $$new($XSAttributeDeclArray, XSDeclarationPool::CHUNK_SIZE));
@@ -292,8 +227,8 @@ $XSAttributeDeclArray2* XSDeclarationPool::resize($XSAttributeDeclArray2* array,
 
 bool XSDeclarationPool::ensureAttributeUseCapacity(int32_t chunk) {
 	if (chunk >= $nc(this->fAttributeUse)->length) {
-		$set(this, fAttributeUse, resize(this->fAttributeUse, $nc(this->fAttributeUse)->length * 2));
-	} else if ($nc(this->fAttributeUse)->get(chunk) != nullptr) {
+		$set(this, fAttributeUse, resize(this->fAttributeUse, this->fAttributeUse->length * 2));
+	} else if (this->fAttributeUse->get(chunk) != nullptr) {
 		return false;
 	}
 	$nc(this->fAttributeUse)->set(chunk, $$new($XSAttributeUseImplArray, XSDeclarationPool::CHUNK_SIZE));
@@ -308,8 +243,8 @@ $XSAttributeUseImplArray2* XSDeclarationPool::resize($XSAttributeUseImplArray2* 
 
 bool XSDeclarationPool::ensureSTDeclCapacity(int32_t chunk) {
 	if (chunk >= $nc(this->fSTDecl)->length) {
-		$set(this, fSTDecl, resize(this->fSTDecl, $nc(this->fSTDecl)->length * 2));
-	} else if ($nc(this->fSTDecl)->get(chunk) != nullptr) {
+		$set(this, fSTDecl, resize(this->fSTDecl, this->fSTDecl->length * 2));
+	} else if (this->fSTDecl->get(chunk) != nullptr) {
 		return false;
 	}
 	$nc(this->fSTDecl)->set(chunk, $$new($XSSimpleTypeDeclArray, XSDeclarationPool::CHUNK_SIZE));
@@ -324,8 +259,8 @@ $XSSimpleTypeDeclArray2* XSDeclarationPool::resize($XSSimpleTypeDeclArray2* arra
 
 bool XSDeclarationPool::ensureCTDeclCapacity(int32_t chunk) {
 	if (chunk >= $nc(this->fCTDecl)->length) {
-		$set(this, fCTDecl, resize(this->fCTDecl, $nc(this->fCTDecl)->length * 2));
-	} else if ($nc(this->fCTDecl)->get(chunk) != nullptr) {
+		$set(this, fCTDecl, resize(this->fCTDecl, this->fCTDecl->length * 2));
+	} else if (this->fCTDecl->get(chunk) != nullptr) {
 		return false;
 	}
 	$nc(this->fCTDecl)->set(chunk, $$new($XSComplexTypeDeclArray, XSDeclarationPool::CHUNK_SIZE));
@@ -352,7 +287,66 @@ XSDeclarationPool::XSDeclarationPool() {
 }
 
 $Class* XSDeclarationPool::load$($String* name, bool initialize) {
-	$loadClass(XSDeclarationPool, name, initialize, &_XSDeclarationPool_ClassInfo_, allocate$XSDeclarationPool);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHUNK_SHIFT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDeclarationPool, CHUNK_SHIFT)},
+		{"CHUNK_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDeclarationPool, CHUNK_SIZE)},
+		{"CHUNK_MASK", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDeclarationPool, CHUNK_MASK)},
+		{"INITIAL_CHUNK_COUNT", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSDeclarationPool, INITIAL_CHUNK_COUNT)},
+		{"fElementDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fElementDecl)},
+		{"fElementDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fElementDeclIndex)},
+		{"fParticleDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fParticleDecl)},
+		{"fParticleDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fParticleDeclIndex)},
+		{"fModelGroup", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fModelGroup)},
+		{"fModelGroupIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fModelGroupIndex)},
+		{"fAttrDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fAttrDecl)},
+		{"fAttrDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fAttrDeclIndex)},
+		{"fCTDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fCTDecl)},
+		{"fCTDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fCTDeclIndex)},
+		{"fSTDecl", "[[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fSTDecl)},
+		{"fSTDeclIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fSTDeclIndex)},
+		{"fAttributeUse", "[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $PRIVATE, $field(XSDeclarationPool, fAttributeUse)},
+		{"fAttributeUseIndex", "I", nullptr, $PRIVATE, $field(XSDeclarationPool, fAttributeUseIndex)},
+		{"dvFactory", "Lcom/sun/org/apache/xerces/internal/impl/dv/xs/SchemaDVFactoryImpl;", nullptr, $PRIVATE, $field(XSDeclarationPool, dvFactory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSDeclarationPool, init$, void)},
+		{"ensureAttrDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureAttrDeclCapacity, bool, int32_t)},
+		{"ensureAttributeUseCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureAttributeUseCapacity, bool, int32_t)},
+		{"ensureCTDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureCTDeclCapacity, bool, int32_t)},
+		{"ensureElementDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureElementDeclCapacity, bool, int32_t)},
+		{"ensureModelGroupCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureModelGroupCapacity, bool, int32_t)},
+		{"ensureParticleDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureParticleDeclCapacity, bool, int32_t)},
+		{"ensureSTDeclCapacity", "(I)Z", nullptr, $PRIVATE, $method(XSDeclarationPool, ensureSTDeclCapacity, bool, int32_t)},
+		{"getAttributeDecl", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getAttributeDecl, $XSAttributeDecl*)},
+		{"getAttributeUse", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getAttributeUse, $XSAttributeUseImpl*)},
+		{"getComplexTypeDecl", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getComplexTypeDecl, $XSComplexTypeDecl*)},
+		{"getElementDecl", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getElementDecl, $XSElementDecl*)},
+		{"getModelGroup", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getModelGroup, $XSModelGroupImpl*)},
+		{"getParticleDecl", "()Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getParticleDecl, $XSParticleDecl*)},
+		{"getSimpleTypeDecl", "()Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PUBLIC | $FINAL, $method(XSDeclarationPool, getSimpleTypeDecl, $XSSimpleTypeDecl*)},
+		{"reset", "()V", nullptr, $PUBLIC, $method(XSDeclarationPool, reset, void)},
+		{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSElementDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSElementDeclArray2*, $XSElementDeclArray2*, int32_t)},
+		{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSParticleDeclArray2*, $XSParticleDeclArray2*, int32_t)},
+		{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSModelGroupImplArray2*, $XSModelGroupImplArray2*, int32_t)},
+		{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSAttributeDeclArray2*, $XSAttributeDeclArray2*, int32_t)},
+		{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSAttributeUseImpl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSAttributeUseImplArray2*, $XSAttributeUseImplArray2*, int32_t)},
+		{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSSimpleTypeDeclArray2*, $XSSimpleTypeDeclArray2*, int32_t)},
+		{"resize", "([[Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;I)[[Lcom/sun/org/apache/xerces/internal/impl/xs/XSComplexTypeDecl;", nullptr, $PRIVATE | $STATIC, $staticMethod(XSDeclarationPool, resize, $XSComplexTypeDeclArray2*, $XSComplexTypeDeclArray2*, int32_t)},
+		{"setDVFactory", "(Lcom/sun/org/apache/xerces/internal/impl/dv/xs/SchemaDVFactoryImpl;)V", nullptr, $PUBLIC, $method(XSDeclarationPool, setDVFactory, void, $SchemaDVFactoryImpl*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSDeclarationPool",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSDeclarationPool, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSDeclarationPool);
+	});
 	return class$;
 }
 

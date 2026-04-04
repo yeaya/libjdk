@@ -1,5 +1,4 @@
 #include <javax/swing/PopupFactory$MediumWeightPopup$MediumWeightComponent.h>
-
 #include <java/awt/BorderLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Panel.h>
@@ -7,7 +6,6 @@
 #include <jcpp.h>
 
 using $BorderLayout = ::java::awt::BorderLayout;
-using $LayoutManager = ::java::awt::LayoutManager;
 using $Panel = ::java::awt::Panel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -15,42 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 
 namespace javax {
 	namespace swing {
-
-$MethodInfo _PopupFactory$MediumWeightPopup$MediumWeightComponent_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, 0, $method(PopupFactory$MediumWeightPopup$MediumWeightComponent, init$, void)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _PopupFactory$MediumWeightPopup$MediumWeightComponent_InnerClassesInfo_[] = {
-	{"javax.swing.PopupFactory$MediumWeightPopup", "javax.swing.PopupFactory", "MediumWeightPopup", $PRIVATE | $STATIC},
-	{"javax.swing.PopupFactory$MediumWeightPopup$MediumWeightComponent", "javax.swing.PopupFactory$MediumWeightPopup", "MediumWeightComponent", $PRIVATE | $STATIC},
-	{}
-};
-
-$ClassInfo _PopupFactory$MediumWeightPopup$MediumWeightComponent_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.PopupFactory$MediumWeightPopup$MediumWeightComponent",
-	"java.awt.Panel",
-	"javax.swing.SwingHeavyWeight",
-	nullptr,
-	_PopupFactory$MediumWeightPopup$MediumWeightComponent_MethodInfo_,
-	nullptr,
-	nullptr,
-	_PopupFactory$MediumWeightPopup$MediumWeightComponent_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.PopupFactory"
-};
-
-$Object* allocate$PopupFactory$MediumWeightPopup$MediumWeightComponent($Class* clazz) {
-	return $of($alloc(PopupFactory$MediumWeightPopup$MediumWeightComponent));
-}
 
 $String* PopupFactory$MediumWeightPopup$MediumWeightComponent::toString() {
 	 return this->$Panel::toString();
@@ -80,7 +42,38 @@ PopupFactory$MediumWeightPopup$MediumWeightComponent::PopupFactory$MediumWeightP
 }
 
 $Class* PopupFactory$MediumWeightPopup$MediumWeightComponent::load$($String* name, bool initialize) {
-	$loadClass(PopupFactory$MediumWeightPopup$MediumWeightComponent, name, initialize, &_PopupFactory$MediumWeightPopup$MediumWeightComponent_ClassInfo_, allocate$PopupFactory$MediumWeightPopup$MediumWeightComponent);
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, 0, $method(PopupFactory$MediumWeightPopup$MediumWeightComponent, init$, void)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.PopupFactory$MediumWeightPopup", "javax.swing.PopupFactory", "MediumWeightPopup", $PRIVATE | $STATIC},
+		{"javax.swing.PopupFactory$MediumWeightPopup$MediumWeightComponent", "javax.swing.PopupFactory$MediumWeightPopup", "MediumWeightComponent", $PRIVATE | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.PopupFactory$MediumWeightPopup$MediumWeightComponent",
+		"java.awt.Panel",
+		"javax.swing.SwingHeavyWeight",
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.PopupFactory"
+	};
+	$loadClass(PopupFactory$MediumWeightPopup$MediumWeightComponent, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(PopupFactory$MediumWeightPopup$MediumWeightComponent));
+	});
 	return class$;
 }
 

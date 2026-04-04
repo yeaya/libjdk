@@ -1,5 +1,4 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters.h>
-
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilder.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
@@ -12,14 +11,12 @@
 using $MXBeanMappingArray = $Array<::com::sun::jmx::mbeanserver::MXBeanMapping>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $DefaultMXBeanMappingFactory$CompositeBuilder = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$CompositeBuilder;
-using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Method = ::java::lang::reflect::Method;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 
 namespace com {
@@ -27,53 +24,13 @@ namespace com {
 		namespace jmx {
 			namespace mbeanserver {
 
-$FieldInfo _DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_FieldInfo_[] = {
-	{"getterConverters", "[Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, getterConverters)},
-	{"possibleCause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, possibleCause$)},
-	{}
-};
-
-$MethodInfo _DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, init$, void, $Class*, $StringArray*, $MXBeanMappingArray*)},
-	{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, applicable, $String*, $MethodArray*)},
-	{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*)},
-	{"possibleCause", "()Ljava/lang/Throwable;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, possibleCause, $Throwable*)},
-	{}
-};
-
-$InnerClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_InnerClassesInfo_[] = {
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderCheckGetters", $PRIVATE | $STATIC},
-	{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters",
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder",
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_FieldInfo_,
-	_DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
-};
-
-$Object* allocate$DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters($Class* clazz) {
-	return $of($alloc(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters));
-}
-
 void DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters::init$($Class* targetClass, $StringArray* itemNames, $MXBeanMappingArray* getterConverters) {
 	$DefaultMXBeanMappingFactory$CompositeBuilder::init$(targetClass, itemNames);
 	$set(this, getterConverters, getterConverters);
 }
 
 $String* DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters::applicable($MethodArray* getters) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(getters)->length; ++i) {
 		try {
 			$nc($nc(this->getterConverters)->get(i))->checkReconstructible();
@@ -98,7 +55,41 @@ DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters::DefaultMXBeanMappingFa
 }
 
 $Class* DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters::load$($String* name, bool initialize) {
-	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, name, initialize, &_DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters_ClassInfo_, allocate$DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters);
+	$FieldInfo fieldInfos$$[] = {
+		{"getterConverters", "[Lcom/sun/jmx/mbeanserver/MXBeanMapping;", nullptr, $PRIVATE | $FINAL, $field(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, getterConverters)},
+		{"possibleCause", "Ljava/lang/Throwable;", nullptr, $PRIVATE, $field(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, possibleCause$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/Class;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", "(Ljava/lang/Class<*>;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)V", 0, $method(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, init$, void, $Class*, $StringArray*, $MXBeanMappingArray*)},
+		{"applicable", "([Ljava/lang/reflect/Method;)Ljava/lang/String;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, applicable, $String*, $MethodArray*)},
+		{"fromCompositeData", "(Ljavax/management/openmbean/CompositeData;[Ljava/lang/String;[Lcom/sun/jmx/mbeanserver/MXBeanMapping;)Ljava/lang/Object;", nullptr, $FINAL, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, fromCompositeData, $Object*, $CompositeData*, $StringArray*, $MXBeanMappingArray*)},
+		{"possibleCause", "()Ljava/lang/Throwable;", nullptr, 0, $virtualMethod(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, possibleCause, $Throwable*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilderCheckGetters", $PRIVATE | $STATIC},
+		{"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder", "com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory", "CompositeBuilder", $PRIVATE | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters",
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory$CompositeBuilder",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.jmx.mbeanserver.DefaultMXBeanMappingFactory"
+	};
+	$loadClass(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(DefaultMXBeanMappingFactory$CompositeBuilderCheckGetters);
+	});
 	return class$;
 }
 

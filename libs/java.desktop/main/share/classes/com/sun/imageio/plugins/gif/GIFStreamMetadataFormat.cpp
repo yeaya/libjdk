@@ -1,5 +1,4 @@
 #include <com/sun/imageio/plugins/gif/GIFStreamMetadataFormat.h>
-
 #include <com/sun/imageio/plugins/gif/GIFStreamMetadata.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -28,46 +27,21 @@ namespace com {
 			namespace plugins {
 				namespace gif {
 
-$FieldInfo _GIFStreamMetadataFormat_FieldInfo_[] = {
-	{"instance", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(GIFStreamMetadataFormat, instance)},
-	{}
-};
-
-$MethodInfo _GIFStreamMetadataFormat_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(GIFStreamMetadataFormat, init$, void)},
-	{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(GIFStreamMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
-	{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GIFStreamMetadataFormat, getInstance, $IIOMetadataFormat*)},
-	{}
-};
-
-$ClassInfo _GIFStreamMetadataFormat_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.imageio.plugins.gif.GIFStreamMetadataFormat",
-	"javax.imageio.metadata.IIOMetadataFormatImpl",
-	nullptr,
-	_GIFStreamMetadataFormat_FieldInfo_,
-	_GIFStreamMetadataFormat_MethodInfo_
-};
-
-$Object* allocate$GIFStreamMetadataFormat($Class* clazz) {
-	return $of($alloc(GIFStreamMetadataFormat));
-}
-
 $IIOMetadataFormat* GIFStreamMetadataFormat::instance = nullptr;
 
 void GIFStreamMetadataFormat::init$() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($GIFStreamMetadata);
 	$IIOMetadataFormatImpl::init$($GIFStreamMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_SOME);
 	addElement("Version"_s, $GIFStreamMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
-	addAttribute("Version"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, ($String*)nullptr, $($Arrays::asList($GIFStreamMetadata::versionStrings)));
+	addAttribute("Version"_s, "value"_s, $IIOMetadataFormat::DATATYPE_STRING, true, nullptr, $($Arrays::asList($GIFStreamMetadata::versionStrings)));
 	addElement("LogicalScreenDescriptor"_s, $GIFStreamMetadata::nativeMetadataFormatName, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
 	addAttribute("LogicalScreenDescriptor"_s, "logicalScreenWidth"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, "1"_s, "65535"_s, true, true);
 	addAttribute("LogicalScreenDescriptor"_s, "logicalScreenHeight"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, "1"_s, "65535"_s, true, true);
 	addAttribute("LogicalScreenDescriptor"_s, "colorResolution"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, "1"_s, "8"_s, true, true);
 	addAttribute("LogicalScreenDescriptor"_s, "pixelAspectRatio"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, "0"_s, "255"_s, true, true);
 	addElement("GlobalColorTable"_s, $GIFStreamMetadata::nativeMetadataFormatName, 2, 256);
-	addAttribute("GlobalColorTable"_s, "sizeOfGlobalColorTable"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, ($String*)nullptr, $($Arrays::asList($GIFStreamMetadata::colorTableSizes)));
+	addAttribute("GlobalColorTable"_s, "sizeOfGlobalColorTable"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, $($Arrays::asList($GIFStreamMetadata::colorTableSizes)));
 	addAttribute("GlobalColorTable"_s, "backgroundColorIndex"_s, $IIOMetadataFormat::DATATYPE_INTEGER, true, nullptr, "0"_s, "255"_s, true, true);
 	addBooleanAttribute("GlobalColorTable"_s, "sortFlag"_s, false, false);
 	addElement("ColorTableEntry"_s, "GlobalColorTable"_s, $IIOMetadataFormat::CHILD_POLICY_EMPTY);
@@ -82,9 +56,8 @@ bool GIFStreamMetadataFormat::canNodeAppear($String* elementName, $ImageTypeSpec
 }
 
 $IIOMetadataFormat* GIFStreamMetadataFormat::getInstance() {
-	$load(GIFStreamMetadataFormat);
+	$init(GIFStreamMetadataFormat);
 	$synchronized(class$) {
-		$init(GIFStreamMetadataFormat);
 		if (GIFStreamMetadataFormat::instance == nullptr) {
 			$assignStatic(GIFStreamMetadataFormat::instance, $new(GIFStreamMetadataFormat));
 		}
@@ -92,7 +65,7 @@ $IIOMetadataFormat* GIFStreamMetadataFormat::getInstance() {
 	}
 }
 
-void clinit$GIFStreamMetadataFormat($Class* class$) {
+void GIFStreamMetadataFormat::clinit$($Class* clazz) {
 	$assignStatic(GIFStreamMetadataFormat::instance, nullptr);
 }
 
@@ -100,7 +73,27 @@ GIFStreamMetadataFormat::GIFStreamMetadataFormat() {
 }
 
 $Class* GIFStreamMetadataFormat::load$($String* name, bool initialize) {
-	$loadClass(GIFStreamMetadataFormat, name, initialize, &_GIFStreamMetadataFormat_ClassInfo_, clinit$GIFStreamMetadataFormat, allocate$GIFStreamMetadataFormat);
+	$FieldInfo fieldInfos$$[] = {
+		{"instance", "Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PRIVATE | $STATIC, $staticField(GIFStreamMetadataFormat, instance)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(GIFStreamMetadataFormat, init$, void)},
+		{"canNodeAppear", "(Ljava/lang/String;Ljavax/imageio/ImageTypeSpecifier;)Z", nullptr, $PUBLIC, $virtualMethod(GIFStreamMetadataFormat, canNodeAppear, bool, $String*, $ImageTypeSpecifier*)},
+		{"getInstance", "()Ljavax/imageio/metadata/IIOMetadataFormat;", nullptr, $PUBLIC | $STATIC | $SYNCHRONIZED, $staticMethod(GIFStreamMetadataFormat, getInstance, $IIOMetadataFormat*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.imageio.plugins.gif.GIFStreamMetadataFormat",
+		"javax.imageio.metadata.IIOMetadataFormatImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(GIFStreamMetadataFormat, name, initialize, &classInfo$$, GIFStreamMetadataFormat::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(GIFStreamMetadataFormat);
+	});
 	return class$;
 }
 

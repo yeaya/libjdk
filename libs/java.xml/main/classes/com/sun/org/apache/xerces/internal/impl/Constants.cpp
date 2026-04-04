@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/Constants$ArrayEnumeration.h>
 #include <java/util/Enumeration.h>
 #include <jcpp.h>
@@ -171,7 +170,6 @@
 #undef ZEPHYR_PROPERTY_PREFIX
 
 using $Constants$ArrayEnumeration = ::com::sun::org::apache::xerces::internal::impl::Constants$ArrayEnumeration;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -185,215 +183,6 @@ namespace com {
 				namespace xerces {
 					namespace internal {
 						namespace impl {
-
-$FieldInfo _Constants_FieldInfo_[] = {
-	{"NS_XMLSCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NS_XMLSCHEMA)},
-	{"NS_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NS_DTD)},
-	{"W3C_XML_SCHEMA10_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, W3C_XML_SCHEMA10_NS_URI)},
-	{"SUN_SCHEMA_FEATURE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SUN_SCHEMA_FEATURE_PREFIX)},
-	{"SUN_REPORT_IGNORED_ELEMENT_CONTENT_WHITESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SUN_REPORT_IGNORED_ELEMENT_CONTENT_WHITESPACE)},
-	{"ZEPHYR_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ZEPHYR_PROPERTY_PREFIX)},
-	{"STAX_PROPERTIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STAX_PROPERTIES)},
-	{"STAX_ENTITY_RESOLVER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STAX_ENTITY_RESOLVER_PROPERTY)},
-	{"STAX_REPORT_CDATA_EVENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STAX_REPORT_CDATA_EVENT)},
-	{"READER_IN_DEFINED_STATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, READER_IN_DEFINED_STATE)},
-	{"ADD_NAMESPACE_DECL_AS_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ADD_NAMESPACE_DECL_AS_ATTRIBUTE)},
-	{"ESCAPE_CHARACTERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ESCAPE_CHARACTERS)},
-	{"REUSE_INSTANCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, REUSE_INSTANCE)},
-	{"SUN_DOM_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SUN_DOM_PROPERTY_PREFIX)},
-	{"SUN_DOM_ANCESTOR_CHECCK", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SUN_DOM_ANCESTOR_CHECCK)},
-	{"IGNORE_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IGNORE_EXTERNAL_DTD)},
-	{"SAX_FEATURE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SAX_FEATURE_PREFIX)},
-	{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACES_FEATURE)},
-	{"NAMESPACE_PREFIXES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACE_PREFIXES_FEATURE)},
-	{"STRING_INTERNING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STRING_INTERNING_FEATURE)},
-	{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATION_FEATURE)},
-	{"EXTERNAL_GENERAL_ENTITIES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, EXTERNAL_GENERAL_ENTITIES_FEATURE)},
-	{"EXTERNAL_PARAMETER_ENTITIES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, EXTERNAL_PARAMETER_ENTITIES_FEATURE)},
-	{"LEXICAL_HANDLER_PARAMETER_ENTITIES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LEXICAL_HANDLER_PARAMETER_ENTITIES_FEATURE)},
-	{"IS_STANDALONE_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IS_STANDALONE_FEATURE)},
-	{"RESOLVE_DTD_URIS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, RESOLVE_DTD_URIS_FEATURE)},
-	{"USE_ATTRIBUTES2_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, USE_ATTRIBUTES2_FEATURE)},
-	{"USE_LOCATOR2_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, USE_LOCATOR2_FEATURE)},
-	{"USE_ENTITY_RESOLVER2_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, USE_ENTITY_RESOLVER2_FEATURE)},
-	{"UNICODE_NORMALIZATION_CHECKING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, UNICODE_NORMALIZATION_CHECKING_FEATURE)},
-	{"XMLNS_URIS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XMLNS_URIS_FEATURE)},
-	{"XML_11_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XML_11_FEATURE)},
-	{"ALLOW_DTD_EVENTS_AFTER_ENDDTD_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ALLOW_DTD_EVENTS_AFTER_ENDDTD_FEATURE)},
-	{"SAX_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SAX_PROPERTY_PREFIX)},
-	{"DECLARATION_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DECLARATION_HANDLER_PROPERTY)},
-	{"LEXICAL_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LEXICAL_HANDLER_PROPERTY)},
-	{"DOM_NODE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_NODE_PROPERTY)},
-	{"XML_STRING_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XML_STRING_PROPERTY)},
-	{"FEATURE_SECURE_PROCESSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, FEATURE_SECURE_PROCESSING)},
-	{"DOCUMENT_XML_VERSION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOCUMENT_XML_VERSION_PROPERTY)},
-	{"JAXP_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, JAXP_PROPERTY_PREFIX)},
-	{"SCHEMA_SOURCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_SOURCE)},
-	{"SCHEMA_LANGUAGE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_LANGUAGE)},
-	{"JAXPAPI_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, JAXPAPI_PROPERTY_PREFIX)},
-	{"INCLUDE_COMMENTS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, INCLUDE_COMMENTS_FEATURE)},
-	{"CREATE_CDATA_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CREATE_CDATA_NODES_FEATURE)},
-	{"LOAD_AS_INFOSET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LOAD_AS_INFOSET)},
-	{"DOM_CANONICAL_FORM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CANONICAL_FORM)},
-	{"DOM_CDATA_SECTIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CDATA_SECTIONS)},
-	{"DOM_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_COMMENTS)},
-	{"DOM_CHARSET_OVERRIDES_XML_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CHARSET_OVERRIDES_XML_ENCODING)},
-	{"DOM_DATATYPE_NORMALIZATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_DATATYPE_NORMALIZATION)},
-	{"DOM_ENTITIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_ENTITIES)},
-	{"DOM_INFOSET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_INFOSET)},
-	{"DOM_NAMESPACES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_NAMESPACES)},
-	{"DOM_NAMESPACE_DECLARATIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_NAMESPACE_DECLARATIONS)},
-	{"DOM_SUPPORTED_MEDIATYPES_ONLY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_SUPPORTED_MEDIATYPES_ONLY)},
-	{"DOM_VALIDATE_IF_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_VALIDATE_IF_SCHEMA)},
-	{"DOM_VALIDATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_VALIDATE)},
-	{"DOM_ELEMENT_CONTENT_WHITESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_ELEMENT_CONTENT_WHITESPACE)},
-	{"DOM_DISCARD_DEFAULT_CONTENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_DISCARD_DEFAULT_CONTENT)},
-	{"DOM_NORMALIZE_CHARACTERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_NORMALIZE_CHARACTERS)},
-	{"DOM_CHECK_CHAR_NORMALIZATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CHECK_CHAR_NORMALIZATION)},
-	{"DOM_WELLFORMED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_WELLFORMED)},
-	{"DOM_SPLIT_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_SPLIT_CDATA)},
-	{"DOM_FORMAT_PRETTY_PRINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_FORMAT_PRETTY_PRINT)},
-	{"DOM_XMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_XMLDECL)},
-	{"DOM_UNKNOWNCHARS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_UNKNOWNCHARS)},
-	{"DOM_CERTIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CERTIFIED)},
-	{"DOM_DISALLOW_DOCTYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_DISALLOW_DOCTYPE)},
-	{"DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)},
-	{"DOM_RESOURCE_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_RESOURCE_RESOLVER)},
-	{"DOM_ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_ERROR_HANDLER)},
-	{"DOM_SCHEMA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_SCHEMA_TYPE)},
-	{"DOM_SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_SCHEMA_LOCATION)},
-	{"DOM_ANCESTOR_CHECCK", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_ANCESTOR_CHECCK)},
-	{"DOM_PSVI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_PSVI)},
-	{"XERCES_FEATURE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XERCES_FEATURE_PREFIX)},
-	{"SCHEMA_VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_VALIDATION_FEATURE)},
-	{"SCHEMA_NORMALIZED_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_NORMALIZED_VALUE)},
-	{"SCHEMA_ELEMENT_DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_ELEMENT_DEFAULT)},
-	{"SCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_FULL_CHECKING)},
-	{"SCHEMA_AUGMENT_PSVI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_AUGMENT_PSVI)},
-	{"DYNAMIC_VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DYNAMIC_VALIDATION_FEATURE)},
-	{"WARN_ON_DUPLICATE_ATTDEF_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, WARN_ON_DUPLICATE_ATTDEF_FEATURE)},
-	{"WARN_ON_UNDECLARED_ELEMDEF_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, WARN_ON_UNDECLARED_ELEMDEF_FEATURE)},
-	{"WARN_ON_DUPLICATE_ENTITYDEF_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, WARN_ON_DUPLICATE_ENTITYDEF_FEATURE)},
-	{"ALLOW_JAVA_ENCODINGS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ALLOW_JAVA_ENCODINGS_FEATURE)},
-	{"DISALLOW_DOCTYPE_DECL_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DISALLOW_DOCTYPE_DECL_FEATURE)},
-	{"CONTINUE_AFTER_FATAL_ERROR_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CONTINUE_AFTER_FATAL_ERROR_FEATURE)},
-	{"LOAD_DTD_GRAMMAR_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LOAD_DTD_GRAMMAR_FEATURE)},
-	{"LOAD_EXTERNAL_DTD_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LOAD_EXTERNAL_DTD_FEATURE)},
-	{"DEFER_NODE_EXPANSION_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DEFER_NODE_EXPANSION_FEATURE)},
-	{"CREATE_ENTITY_REF_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CREATE_ENTITY_REF_NODES_FEATURE)},
-	{"INCLUDE_IGNORABLE_WHITESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, INCLUDE_IGNORABLE_WHITESPACE)},
-	{"DEFAULT_ATTRIBUTE_VALUES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DEFAULT_ATTRIBUTE_VALUES_FEATURE)},
-	{"VALIDATE_CONTENT_MODELS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATE_CONTENT_MODELS_FEATURE)},
-	{"VALIDATE_DATATYPES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATE_DATATYPES_FEATURE)},
-	{"BALANCE_SYNTAX_TREES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, BALANCE_SYNTAX_TREES)},
-	{"NOTIFY_CHAR_REFS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NOTIFY_CHAR_REFS_FEATURE)},
-	{"NOTIFY_BUILTIN_REFS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NOTIFY_BUILTIN_REFS_FEATURE)},
-	{"STANDARD_URI_CONFORMANT_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STANDARD_URI_CONFORMANT_FEATURE)},
-	{"GENERATE_SYNTHETIC_ANNOTATIONS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, GENERATE_SYNTHETIC_ANNOTATIONS_FEATURE)},
-	{"VALIDATE_ANNOTATIONS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATE_ANNOTATIONS_FEATURE)},
-	{"HONOUR_ALL_SCHEMALOCATIONS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, HONOUR_ALL_SCHEMALOCATIONS_FEATURE)},
-	{"NAMESPACE_GROWTH_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACE_GROWTH_FEATURE)},
-	{"TOLERATE_DUPLICATES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, TOLERATE_DUPLICATES_FEATURE)},
-	{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_FEATURE)},
-	{"XINCLUDE_FIXUP_BASE_URIS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_FIXUP_BASE_URIS_FEATURE)},
-	{"XINCLUDE_FIXUP_LANGUAGE_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_FIXUP_LANGUAGE_FEATURE)},
-	{"IGNORE_XSI_TYPE_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IGNORE_XSI_TYPE_FEATURE)},
-	{"ID_IDREF_CHECKING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ID_IDREF_CHECKING_FEATURE)},
-	{"IDC_CHECKING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IDC_CHECKING_FEATURE)},
-	{"UNPARSED_ENTITY_CHECKING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, UNPARSED_ENTITY_CHECKING_FEATURE)},
-	{"USE_GRAMMAR_POOL_ONLY_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, USE_GRAMMAR_POOL_ONLY_FEATURE)},
-	{"PARSER_SETTINGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, PARSER_SETTINGS)},
-	{"XINCLUDE_AWARE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_AWARE)},
-	{"IGNORE_SCHEMA_LOCATION_HINTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IGNORE_SCHEMA_LOCATION_HINTS)},
-	{"CHANGE_IGNORABLE_CHARACTERS_INTO_IGNORABLE_WHITESPACES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CHANGE_IGNORABLE_CHARACTERS_INTO_IGNORABLE_WHITESPACES)},
-	{"XERCES_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XERCES_PROPERTY_PREFIX)},
-	{"CURRENT_ELEMENT_NODE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CURRENT_ELEMENT_NODE_PROPERTY)},
-	{"DOCUMENT_CLASS_NAME_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOCUMENT_CLASS_NAME_PROPERTY)},
-	{"SYMBOL_TABLE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SYMBOL_TABLE_PROPERTY)},
-	{"ERROR_REPORTER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ERROR_REPORTER_PROPERTY)},
-	{"ERROR_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ERROR_HANDLER_PROPERTY)},
-	{"XINCLUDE_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_HANDLER_PROPERTY)},
-	{"XPOINTER_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XPOINTER_HANDLER_PROPERTY)},
-	{"ENTITY_MANAGER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ENTITY_MANAGER_PROPERTY)},
-	{"BUFFER_SIZE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, BUFFER_SIZE_PROPERTY)},
-	{"SECURITY_MANAGER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SECURITY_MANAGER_PROPERTY)},
-	{"LOCALE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LOCALE_PROPERTY)},
-	{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SECURITY_MANAGER)},
-	{"ENTITY_RESOLVER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ENTITY_RESOLVER_PROPERTY)},
-	{"XMLGRAMMAR_POOL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XMLGRAMMAR_POOL_PROPERTY)},
-	{"DATATYPE_VALIDATOR_FACTORY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DATATYPE_VALIDATOR_FACTORY_PROPERTY)},
-	{"DOCUMENT_SCANNER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOCUMENT_SCANNER_PROPERTY)},
-	{"DTD_SCANNER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DTD_SCANNER_PROPERTY)},
-	{"DTD_PROCESSOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DTD_PROCESSOR_PROPERTY)},
-	{"VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATOR_PROPERTY)},
-	{"DTD_VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DTD_VALIDATOR_PROPERTY)},
-	{"SCHEMA_VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_VALIDATOR_PROPERTY)},
-	{"SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_LOCATION)},
-	{"SCHEMA_NONS_LOCATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_NONS_LOCATION)},
-	{"NAMESPACE_BINDER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACE_BINDER_PROPERTY)},
-	{"NAMESPACE_CONTEXT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACE_CONTEXT_PROPERTY)},
-	{"VALIDATION_MANAGER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATION_MANAGER_PROPERTY)},
-	{"ROOT_TYPE_DEFINITION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ROOT_TYPE_DEFINITION_PROPERTY)},
-	{"ROOT_ELEMENT_DECLARATION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ROOT_ELEMENT_DECLARATION_PROPERTY)},
-	{"XPOINTER_SCHEMA_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XPOINTER_SCHEMA_PROPERTY)},
-	{"SCHEMA_DV_FACTORY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_DV_FACTORY_PROPERTY)},
-	{"ELEMENT_PSVI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMENT_PSVI)},
-	{"ATTRIBUTE_PSVI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRIBUTE_PSVI)},
-	{"ATTRIBUTE_DECLARED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRIBUTE_DECLARED)},
-	{"TYPEINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, TYPEINFO)},
-	{"ID_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ID_ATTRIBUTE)},
-	{"ENTITY_SKIPPED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ENTITY_SKIPPED)},
-	{"CHAR_REF_PROBABLE_WS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CHAR_REF_PROBABLE_WS)},
-	{"LAST_ENTITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LAST_ENTITY)},
-	{"XML_VERSION_ERROR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, XML_VERSION_ERROR)},
-	{"XML_VERSION_1_0", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, XML_VERSION_1_0)},
-	{"XML_VERSION_1_1", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, XML_VERSION_1_1)},
-	{"ANONYMOUS_TYPE_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ANONYMOUS_TYPE_NAMESPACE)},
-	{"SCHEMA_1_1_SUPPORT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SCHEMA_1_1_SUPPORT)},
-	{"SCHEMA_VERSION_1_0", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SCHEMA_VERSION_1_0)},
-	{"SCHEMA_VERSION_1_0_EXTENDED", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SCHEMA_VERSION_1_0_EXTENDED)},
-	{"fgSAXFeatures", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgSAXFeatures)},
-	{"fgSAXProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgSAXProperties)},
-	{"fgXercesFeatures", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgXercesFeatures)},
-	{"fgXercesProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgXercesProperties)},
-	{"fgEmptyEnumeration", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgEmptyEnumeration)},
-	{}
-};
-
-$MethodInfo _Constants_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(Constants, init$, void)},
-	{"getSAXFeatures", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Constants, getSAXFeatures, $Enumeration*)},
-	{"getSAXProperties", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Constants, getSAXProperties, $Enumeration*)},
-	{"getXercesFeatures", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Constants, getXercesFeatures, $Enumeration*)},
-	{"getXercesProperties", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Constants, getXercesProperties, $Enumeration*)},
-	{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, main, void, $StringArray*)},
-	{"print", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, print, void, $String*, $String*, $ObjectArray*)},
-	{}
-};
-
-$InnerClassInfo _Constants_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.Constants$ArrayEnumeration", "com.sun.org.apache.xerces.internal.impl.Constants", "ArrayEnumeration", $STATIC},
-	{}
-};
-
-$ClassInfo _Constants_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.Constants",
-	"java.lang.Object",
-	nullptr,
-	_Constants_FieldInfo_,
-	_Constants_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Constants_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.Constants$ArrayEnumeration"
-};
-
-$Object* allocate$Constants($Class* clazz) {
-	return $of($alloc(Constants));
-}
 
 $String* Constants::NS_XMLSCHEMA = nullptr;
 $String* Constants::NS_DTD = nullptr;
@@ -565,22 +354,22 @@ void Constants::init$() {
 
 $Enumeration* Constants::getSAXFeatures() {
 	$init(Constants);
-	return $nc(Constants::fgSAXFeatures)->length > 0 ? static_cast<$Enumeration*>($new($Constants$ArrayEnumeration, Constants::fgSAXFeatures)) : Constants::fgEmptyEnumeration;
+	return Constants::fgSAXFeatures->length > 0 ? $cast($Enumeration, $new($Constants$ArrayEnumeration, Constants::fgSAXFeatures)) : Constants::fgEmptyEnumeration;
 }
 
 $Enumeration* Constants::getSAXProperties() {
 	$init(Constants);
-	return $nc(Constants::fgSAXProperties)->length > 0 ? static_cast<$Enumeration*>($new($Constants$ArrayEnumeration, Constants::fgSAXProperties)) : Constants::fgEmptyEnumeration;
+	return Constants::fgSAXProperties->length > 0 ? $cast($Enumeration, $new($Constants$ArrayEnumeration, Constants::fgSAXProperties)) : Constants::fgEmptyEnumeration;
 }
 
 $Enumeration* Constants::getXercesFeatures() {
 	$init(Constants);
-	return $nc(Constants::fgXercesFeatures)->length > 0 ? static_cast<$Enumeration*>($new($Constants$ArrayEnumeration, Constants::fgXercesFeatures)) : Constants::fgEmptyEnumeration;
+	return Constants::fgXercesFeatures->length > 0 ? $cast($Enumeration, $new($Constants$ArrayEnumeration, Constants::fgXercesFeatures)) : Constants::fgEmptyEnumeration;
 }
 
 $Enumeration* Constants::getXercesProperties() {
 	$init(Constants);
-	return $nc(Constants::fgXercesProperties)->length > 0 ? static_cast<$Enumeration*>($new($Constants$ArrayEnumeration, Constants::fgXercesProperties)) : Constants::fgEmptyEnumeration;
+	return Constants::fgXercesProperties->length > 0 ? $cast($Enumeration, $new($Constants$ArrayEnumeration, Constants::fgXercesProperties)) : Constants::fgEmptyEnumeration;
 }
 
 void Constants::main($StringArray* argv) {
@@ -595,18 +384,18 @@ void Constants::print($String* header, $String* prefix, $ObjectArray* array) {
 	$init(Constants);
 	$nc($System::out)->print(header);
 	if ($nc(array)->length > 0) {
-		$nc($System::out)->println();
+		$System::out->println();
 		for (int32_t i = 0; i < array->length; ++i) {
-			$nc($System::out)->print("  "_s);
-			$nc($System::out)->print(prefix);
-			$nc($System::out)->println(array->get(i));
+			$System::out->print("  "_s);
+			$System::out->print(prefix);
+			$System::out->println(array->get(i));
 		}
 	} else {
-		$nc($System::out)->println(" none."_s);
+		$System::out->println(" none."_s);
 	}
 }
 
-void clinit$Constants($Class* class$) {
+void Constants::clinit$($Class* clazz) {
 	$assignStatic(Constants::SUN_SCHEMA_FEATURE_PREFIX, "http://java.sun.com/xml/schema/features/"_s);
 	$assignStatic(Constants::SUN_REPORT_IGNORED_ELEMENT_CONTENT_WHITESPACE, "report-ignored-element-content-whitespace"_s);
 	$assignStatic(Constants::ZEPHYR_PROPERTY_PREFIX, "http://java.sun.com/xml/stream/properties/"_s);
@@ -844,7 +633,210 @@ Constants::Constants() {
 }
 
 $Class* Constants::load$($String* name, bool initialize) {
-	$loadClass(Constants, name, initialize, &_Constants_ClassInfo_, clinit$Constants, allocate$Constants);
+	$FieldInfo fieldInfos$$[] = {
+		{"NS_XMLSCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NS_XMLSCHEMA)},
+		{"NS_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NS_DTD)},
+		{"W3C_XML_SCHEMA10_NS_URI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, W3C_XML_SCHEMA10_NS_URI)},
+		{"SUN_SCHEMA_FEATURE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SUN_SCHEMA_FEATURE_PREFIX)},
+		{"SUN_REPORT_IGNORED_ELEMENT_CONTENT_WHITESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SUN_REPORT_IGNORED_ELEMENT_CONTENT_WHITESPACE)},
+		{"ZEPHYR_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ZEPHYR_PROPERTY_PREFIX)},
+		{"STAX_PROPERTIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STAX_PROPERTIES)},
+		{"STAX_ENTITY_RESOLVER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STAX_ENTITY_RESOLVER_PROPERTY)},
+		{"STAX_REPORT_CDATA_EVENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STAX_REPORT_CDATA_EVENT)},
+		{"READER_IN_DEFINED_STATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, READER_IN_DEFINED_STATE)},
+		{"ADD_NAMESPACE_DECL_AS_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ADD_NAMESPACE_DECL_AS_ATTRIBUTE)},
+		{"ESCAPE_CHARACTERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ESCAPE_CHARACTERS)},
+		{"REUSE_INSTANCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, REUSE_INSTANCE)},
+		{"SUN_DOM_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SUN_DOM_PROPERTY_PREFIX)},
+		{"SUN_DOM_ANCESTOR_CHECCK", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SUN_DOM_ANCESTOR_CHECCK)},
+		{"IGNORE_EXTERNAL_DTD", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IGNORE_EXTERNAL_DTD)},
+		{"SAX_FEATURE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SAX_FEATURE_PREFIX)},
+		{"NAMESPACES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACES_FEATURE)},
+		{"NAMESPACE_PREFIXES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACE_PREFIXES_FEATURE)},
+		{"STRING_INTERNING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STRING_INTERNING_FEATURE)},
+		{"VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATION_FEATURE)},
+		{"EXTERNAL_GENERAL_ENTITIES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, EXTERNAL_GENERAL_ENTITIES_FEATURE)},
+		{"EXTERNAL_PARAMETER_ENTITIES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, EXTERNAL_PARAMETER_ENTITIES_FEATURE)},
+		{"LEXICAL_HANDLER_PARAMETER_ENTITIES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LEXICAL_HANDLER_PARAMETER_ENTITIES_FEATURE)},
+		{"IS_STANDALONE_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IS_STANDALONE_FEATURE)},
+		{"RESOLVE_DTD_URIS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, RESOLVE_DTD_URIS_FEATURE)},
+		{"USE_ATTRIBUTES2_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, USE_ATTRIBUTES2_FEATURE)},
+		{"USE_LOCATOR2_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, USE_LOCATOR2_FEATURE)},
+		{"USE_ENTITY_RESOLVER2_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, USE_ENTITY_RESOLVER2_FEATURE)},
+		{"UNICODE_NORMALIZATION_CHECKING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, UNICODE_NORMALIZATION_CHECKING_FEATURE)},
+		{"XMLNS_URIS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XMLNS_URIS_FEATURE)},
+		{"XML_11_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XML_11_FEATURE)},
+		{"ALLOW_DTD_EVENTS_AFTER_ENDDTD_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ALLOW_DTD_EVENTS_AFTER_ENDDTD_FEATURE)},
+		{"SAX_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SAX_PROPERTY_PREFIX)},
+		{"DECLARATION_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DECLARATION_HANDLER_PROPERTY)},
+		{"LEXICAL_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LEXICAL_HANDLER_PROPERTY)},
+		{"DOM_NODE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_NODE_PROPERTY)},
+		{"XML_STRING_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XML_STRING_PROPERTY)},
+		{"FEATURE_SECURE_PROCESSING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, FEATURE_SECURE_PROCESSING)},
+		{"DOCUMENT_XML_VERSION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOCUMENT_XML_VERSION_PROPERTY)},
+		{"JAXP_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, JAXP_PROPERTY_PREFIX)},
+		{"SCHEMA_SOURCE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_SOURCE)},
+		{"SCHEMA_LANGUAGE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_LANGUAGE)},
+		{"JAXPAPI_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, JAXPAPI_PROPERTY_PREFIX)},
+		{"INCLUDE_COMMENTS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, INCLUDE_COMMENTS_FEATURE)},
+		{"CREATE_CDATA_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CREATE_CDATA_NODES_FEATURE)},
+		{"LOAD_AS_INFOSET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LOAD_AS_INFOSET)},
+		{"DOM_CANONICAL_FORM", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CANONICAL_FORM)},
+		{"DOM_CDATA_SECTIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CDATA_SECTIONS)},
+		{"DOM_COMMENTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_COMMENTS)},
+		{"DOM_CHARSET_OVERRIDES_XML_ENCODING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CHARSET_OVERRIDES_XML_ENCODING)},
+		{"DOM_DATATYPE_NORMALIZATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_DATATYPE_NORMALIZATION)},
+		{"DOM_ENTITIES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_ENTITIES)},
+		{"DOM_INFOSET", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_INFOSET)},
+		{"DOM_NAMESPACES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_NAMESPACES)},
+		{"DOM_NAMESPACE_DECLARATIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_NAMESPACE_DECLARATIONS)},
+		{"DOM_SUPPORTED_MEDIATYPES_ONLY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_SUPPORTED_MEDIATYPES_ONLY)},
+		{"DOM_VALIDATE_IF_SCHEMA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_VALIDATE_IF_SCHEMA)},
+		{"DOM_VALIDATE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_VALIDATE)},
+		{"DOM_ELEMENT_CONTENT_WHITESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_ELEMENT_CONTENT_WHITESPACE)},
+		{"DOM_DISCARD_DEFAULT_CONTENT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_DISCARD_DEFAULT_CONTENT)},
+		{"DOM_NORMALIZE_CHARACTERS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_NORMALIZE_CHARACTERS)},
+		{"DOM_CHECK_CHAR_NORMALIZATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CHECK_CHAR_NORMALIZATION)},
+		{"DOM_WELLFORMED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_WELLFORMED)},
+		{"DOM_SPLIT_CDATA", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_SPLIT_CDATA)},
+		{"DOM_FORMAT_PRETTY_PRINT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_FORMAT_PRETTY_PRINT)},
+		{"DOM_XMLDECL", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_XMLDECL)},
+		{"DOM_UNKNOWNCHARS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_UNKNOWNCHARS)},
+		{"DOM_CERTIFIED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_CERTIFIED)},
+		{"DOM_DISALLOW_DOCTYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_DISALLOW_DOCTYPE)},
+		{"DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_IGNORE_UNKNOWN_CHARACTER_DENORMALIZATIONS)},
+		{"DOM_RESOURCE_RESOLVER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_RESOURCE_RESOLVER)},
+		{"DOM_ERROR_HANDLER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_ERROR_HANDLER)},
+		{"DOM_SCHEMA_TYPE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_SCHEMA_TYPE)},
+		{"DOM_SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_SCHEMA_LOCATION)},
+		{"DOM_ANCESTOR_CHECCK", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_ANCESTOR_CHECCK)},
+		{"DOM_PSVI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOM_PSVI)},
+		{"XERCES_FEATURE_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XERCES_FEATURE_PREFIX)},
+		{"SCHEMA_VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_VALIDATION_FEATURE)},
+		{"SCHEMA_NORMALIZED_VALUE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_NORMALIZED_VALUE)},
+		{"SCHEMA_ELEMENT_DEFAULT", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_ELEMENT_DEFAULT)},
+		{"SCHEMA_FULL_CHECKING", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_FULL_CHECKING)},
+		{"SCHEMA_AUGMENT_PSVI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_AUGMENT_PSVI)},
+		{"DYNAMIC_VALIDATION_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DYNAMIC_VALIDATION_FEATURE)},
+		{"WARN_ON_DUPLICATE_ATTDEF_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, WARN_ON_DUPLICATE_ATTDEF_FEATURE)},
+		{"WARN_ON_UNDECLARED_ELEMDEF_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, WARN_ON_UNDECLARED_ELEMDEF_FEATURE)},
+		{"WARN_ON_DUPLICATE_ENTITYDEF_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, WARN_ON_DUPLICATE_ENTITYDEF_FEATURE)},
+		{"ALLOW_JAVA_ENCODINGS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ALLOW_JAVA_ENCODINGS_FEATURE)},
+		{"DISALLOW_DOCTYPE_DECL_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DISALLOW_DOCTYPE_DECL_FEATURE)},
+		{"CONTINUE_AFTER_FATAL_ERROR_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CONTINUE_AFTER_FATAL_ERROR_FEATURE)},
+		{"LOAD_DTD_GRAMMAR_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LOAD_DTD_GRAMMAR_FEATURE)},
+		{"LOAD_EXTERNAL_DTD_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LOAD_EXTERNAL_DTD_FEATURE)},
+		{"DEFER_NODE_EXPANSION_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DEFER_NODE_EXPANSION_FEATURE)},
+		{"CREATE_ENTITY_REF_NODES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CREATE_ENTITY_REF_NODES_FEATURE)},
+		{"INCLUDE_IGNORABLE_WHITESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, INCLUDE_IGNORABLE_WHITESPACE)},
+		{"DEFAULT_ATTRIBUTE_VALUES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DEFAULT_ATTRIBUTE_VALUES_FEATURE)},
+		{"VALIDATE_CONTENT_MODELS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATE_CONTENT_MODELS_FEATURE)},
+		{"VALIDATE_DATATYPES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATE_DATATYPES_FEATURE)},
+		{"BALANCE_SYNTAX_TREES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, BALANCE_SYNTAX_TREES)},
+		{"NOTIFY_CHAR_REFS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NOTIFY_CHAR_REFS_FEATURE)},
+		{"NOTIFY_BUILTIN_REFS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NOTIFY_BUILTIN_REFS_FEATURE)},
+		{"STANDARD_URI_CONFORMANT_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, STANDARD_URI_CONFORMANT_FEATURE)},
+		{"GENERATE_SYNTHETIC_ANNOTATIONS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, GENERATE_SYNTHETIC_ANNOTATIONS_FEATURE)},
+		{"VALIDATE_ANNOTATIONS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATE_ANNOTATIONS_FEATURE)},
+		{"HONOUR_ALL_SCHEMALOCATIONS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, HONOUR_ALL_SCHEMALOCATIONS_FEATURE)},
+		{"NAMESPACE_GROWTH_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACE_GROWTH_FEATURE)},
+		{"TOLERATE_DUPLICATES_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, TOLERATE_DUPLICATES_FEATURE)},
+		{"XINCLUDE_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_FEATURE)},
+		{"XINCLUDE_FIXUP_BASE_URIS_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_FIXUP_BASE_URIS_FEATURE)},
+		{"XINCLUDE_FIXUP_LANGUAGE_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_FIXUP_LANGUAGE_FEATURE)},
+		{"IGNORE_XSI_TYPE_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IGNORE_XSI_TYPE_FEATURE)},
+		{"ID_IDREF_CHECKING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ID_IDREF_CHECKING_FEATURE)},
+		{"IDC_CHECKING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IDC_CHECKING_FEATURE)},
+		{"UNPARSED_ENTITY_CHECKING_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, UNPARSED_ENTITY_CHECKING_FEATURE)},
+		{"USE_GRAMMAR_POOL_ONLY_FEATURE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, USE_GRAMMAR_POOL_ONLY_FEATURE)},
+		{"PARSER_SETTINGS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, PARSER_SETTINGS)},
+		{"XINCLUDE_AWARE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_AWARE)},
+		{"IGNORE_SCHEMA_LOCATION_HINTS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, IGNORE_SCHEMA_LOCATION_HINTS)},
+		{"CHANGE_IGNORABLE_CHARACTERS_INTO_IGNORABLE_WHITESPACES", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CHANGE_IGNORABLE_CHARACTERS_INTO_IGNORABLE_WHITESPACES)},
+		{"XERCES_PROPERTY_PREFIX", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XERCES_PROPERTY_PREFIX)},
+		{"CURRENT_ELEMENT_NODE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CURRENT_ELEMENT_NODE_PROPERTY)},
+		{"DOCUMENT_CLASS_NAME_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOCUMENT_CLASS_NAME_PROPERTY)},
+		{"SYMBOL_TABLE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SYMBOL_TABLE_PROPERTY)},
+		{"ERROR_REPORTER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ERROR_REPORTER_PROPERTY)},
+		{"ERROR_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ERROR_HANDLER_PROPERTY)},
+		{"XINCLUDE_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XINCLUDE_HANDLER_PROPERTY)},
+		{"XPOINTER_HANDLER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XPOINTER_HANDLER_PROPERTY)},
+		{"ENTITY_MANAGER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ENTITY_MANAGER_PROPERTY)},
+		{"BUFFER_SIZE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, BUFFER_SIZE_PROPERTY)},
+		{"SECURITY_MANAGER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SECURITY_MANAGER_PROPERTY)},
+		{"LOCALE_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LOCALE_PROPERTY)},
+		{"SECURITY_MANAGER", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SECURITY_MANAGER)},
+		{"ENTITY_RESOLVER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ENTITY_RESOLVER_PROPERTY)},
+		{"XMLGRAMMAR_POOL_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XMLGRAMMAR_POOL_PROPERTY)},
+		{"DATATYPE_VALIDATOR_FACTORY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DATATYPE_VALIDATOR_FACTORY_PROPERTY)},
+		{"DOCUMENT_SCANNER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DOCUMENT_SCANNER_PROPERTY)},
+		{"DTD_SCANNER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DTD_SCANNER_PROPERTY)},
+		{"DTD_PROCESSOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DTD_PROCESSOR_PROPERTY)},
+		{"VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATOR_PROPERTY)},
+		{"DTD_VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, DTD_VALIDATOR_PROPERTY)},
+		{"SCHEMA_VALIDATOR_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_VALIDATOR_PROPERTY)},
+		{"SCHEMA_LOCATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_LOCATION)},
+		{"SCHEMA_NONS_LOCATION", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_NONS_LOCATION)},
+		{"NAMESPACE_BINDER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACE_BINDER_PROPERTY)},
+		{"NAMESPACE_CONTEXT_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, NAMESPACE_CONTEXT_PROPERTY)},
+		{"VALIDATION_MANAGER_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, VALIDATION_MANAGER_PROPERTY)},
+		{"ROOT_TYPE_DEFINITION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ROOT_TYPE_DEFINITION_PROPERTY)},
+		{"ROOT_ELEMENT_DECLARATION_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ROOT_ELEMENT_DECLARATION_PROPERTY)},
+		{"XPOINTER_SCHEMA_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, XPOINTER_SCHEMA_PROPERTY)},
+		{"SCHEMA_DV_FACTORY_PROPERTY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, SCHEMA_DV_FACTORY_PROPERTY)},
+		{"ELEMENT_PSVI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ELEMENT_PSVI)},
+		{"ATTRIBUTE_PSVI", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRIBUTE_PSVI)},
+		{"ATTRIBUTE_DECLARED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ATTRIBUTE_DECLARED)},
+		{"TYPEINFO", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, TYPEINFO)},
+		{"ID_ATTRIBUTE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ID_ATTRIBUTE)},
+		{"ENTITY_SKIPPED", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ENTITY_SKIPPED)},
+		{"CHAR_REF_PROBABLE_WS", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, CHAR_REF_PROBABLE_WS)},
+		{"LAST_ENTITY", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, LAST_ENTITY)},
+		{"XML_VERSION_ERROR", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, XML_VERSION_ERROR)},
+		{"XML_VERSION_1_0", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, XML_VERSION_1_0)},
+		{"XML_VERSION_1_1", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, XML_VERSION_1_1)},
+		{"ANONYMOUS_TYPE_NAMESPACE", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(Constants, ANONYMOUS_TYPE_NAMESPACE)},
+		{"SCHEMA_1_1_SUPPORT", "Z", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SCHEMA_1_1_SUPPORT)},
+		{"SCHEMA_VERSION_1_0", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SCHEMA_VERSION_1_0)},
+		{"SCHEMA_VERSION_1_0_EXTENDED", "S", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(Constants, SCHEMA_VERSION_1_0_EXTENDED)},
+		{"fgSAXFeatures", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgSAXFeatures)},
+		{"fgSAXProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgSAXProperties)},
+		{"fgXercesFeatures", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgXercesFeatures)},
+		{"fgXercesProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgXercesProperties)},
+		{"fgEmptyEnumeration", "Ljava/util/Enumeration;", "Ljava/util/Enumeration<Ljava/lang/Object;>;", $PRIVATE | $STATIC | $FINAL, $staticField(Constants, fgEmptyEnumeration)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(Constants, init$, void)},
+		{"getSAXFeatures", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Constants, getSAXFeatures, $Enumeration*)},
+		{"getSAXProperties", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Constants, getSAXProperties, $Enumeration*)},
+		{"getXercesFeatures", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Constants, getXercesFeatures, $Enumeration*)},
+		{"getXercesProperties", "()Ljava/util/Enumeration;", "()Ljava/util/Enumeration<Ljava/lang/Object;>;", $PUBLIC | $STATIC, $staticMethod(Constants, getXercesProperties, $Enumeration*)},
+		{"main", "([Ljava/lang/String;)V", nullptr, $PUBLIC | $STATIC, $staticMethod(Constants, main, void, $StringArray*)},
+		{"print", "(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(Constants, print, void, $String*, $String*, $ObjectArray*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.Constants$ArrayEnumeration", "com.sun.org.apache.xerces.internal.impl.Constants", "ArrayEnumeration", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.Constants",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.Constants$ArrayEnumeration"
+	};
+	$loadClass(Constants, name, initialize, &classInfo$$, Constants::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(Constants);
+	});
 	return class$;
 }
 

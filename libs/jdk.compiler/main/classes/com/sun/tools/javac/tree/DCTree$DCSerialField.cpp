@@ -1,10 +1,8 @@
 #include <com/sun/tools/javac/tree/DCTree$DCSerialField.h>
-
 #include <com/sun/source/doctree/DocTree$Kind.h>
 #include <com/sun/source/doctree/DocTreeVisitor.h>
 #include <com/sun/source/doctree/IdentifierTree.h>
 #include <com/sun/source/doctree/ReferenceTree.h>
-#include <com/sun/source/doctree/SerialFieldTree.h>
 #include <com/sun/tools/javac/tree/DCTree$DCBlockTag.h>
 #include <com/sun/tools/javac/tree/DCTree$DCIdentifier.h>
 #include <com/sun/tools/javac/tree/DCTree$DCReference.h>
@@ -17,7 +15,6 @@ using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $DocTreeVisitor = ::com::sun::source::doctree::DocTreeVisitor;
 using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
 using $ReferenceTree = ::com::sun::source::doctree::ReferenceTree;
-using $SerialFieldTree = ::com::sun::source::doctree::SerialFieldTree;
 using $DCTree$DCBlockTag = ::com::sun::tools::javac::tree::DCTree$DCBlockTag;
 using $DCTree$DCIdentifier = ::com::sun::tools::javac::tree::DCTree$DCIdentifier;
 using $DCTree$DCReference = ::com::sun::tools::javac::tree::DCTree$DCReference;
@@ -32,55 +29,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace tree {
-
-$FieldInfo _DCTree$DCSerialField_FieldInfo_[] = {
-	{"name", "Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCSerialField, name)},
-	{"type", "Lcom/sun/tools/javac/tree/DCTree$DCReference;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCSerialField, type)},
-	{"description", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCSerialField, description)},
-	{}
-};
-
-$MethodInfo _DCTree$DCSerialField_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;Lcom/sun/tools/javac/tree/DCTree$DCReference;Ljava/util/List;)V", "(Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;Lcom/sun/tools/javac/tree/DCTree$DCReference;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCSerialField, init$, void, $DCTree$DCIdentifier*, $DCTree$DCReference*, $List*)},
-	{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCSerialField, accept, $Object*, $DocTreeVisitor*, Object$*)},
-	{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCSerialField, getDescription, $List*)},
-	{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCSerialField, getKind, $DocTree$Kind*)},
-	{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCSerialField, getName, $IdentifierTree*)},
-	{"getType", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCSerialField, getType, $ReferenceTree*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _DCTree$DCSerialField_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.tree.DCTree$DCSerialField", "com.sun.tools.javac.tree.DCTree", "DCSerialField", $PUBLIC | $STATIC},
-	{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _DCTree$DCSerialField_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.tree.DCTree$DCSerialField",
-	"com.sun.tools.javac.tree.DCTree$DCBlockTag",
-	"com.sun.source.doctree.SerialFieldTree",
-	_DCTree$DCSerialField_FieldInfo_,
-	_DCTree$DCSerialField_MethodInfo_,
-	nullptr,
-	nullptr,
-	_DCTree$DCSerialField_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.tree.DCTree"
-};
-
-$Object* allocate$DCTree$DCSerialField($Class* clazz) {
-	return $of($alloc(DCTree$DCSerialField));
-}
 
 $String* DCTree$DCSerialField::getTagName() {
 	 return this->$DCTree$DCBlockTag::getTagName();
@@ -119,7 +67,7 @@ $DocTree$Kind* DCTree$DCSerialField::getKind() {
 }
 
 $Object* DCTree$DCSerialField::accept($DocTreeVisitor* v, Object$* d) {
-	return $of($nc(v)->visitSerialField(this, d));
+	return $nc(v)->visitSerialField(this, d);
 }
 
 $List* DCTree$DCSerialField::getDescription() {
@@ -138,7 +86,50 @@ DCTree$DCSerialField::DCTree$DCSerialField() {
 }
 
 $Class* DCTree$DCSerialField::load$($String* name, bool initialize) {
-	$loadClass(DCTree$DCSerialField, name, initialize, &_DCTree$DCSerialField_ClassInfo_, allocate$DCTree$DCSerialField);
+	$FieldInfo fieldInfos$$[] = {
+		{"name", "Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCSerialField, name)},
+		{"type", "Lcom/sun/tools/javac/tree/DCTree$DCReference;", nullptr, $PUBLIC | $FINAL, $field(DCTree$DCSerialField, type)},
+		{"description", "Ljava/util/List;", "Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;", $PUBLIC | $FINAL, $field(DCTree$DCSerialField, description)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*getTagName", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;Lcom/sun/tools/javac/tree/DCTree$DCReference;Ljava/util/List;)V", "(Lcom/sun/tools/javac/tree/DCTree$DCIdentifier;Lcom/sun/tools/javac/tree/DCTree$DCReference;Ljava/util/List<Lcom/sun/tools/javac/tree/DCTree;>;)V", 0, $method(DCTree$DCSerialField, init$, void, $DCTree$DCIdentifier*, $DCTree$DCReference*, $List*)},
+		{"accept", "(Lcom/sun/source/doctree/DocTreeVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;D:Ljava/lang/Object;>(Lcom/sun/source/doctree/DocTreeVisitor<TR;TD;>;TD;)TR;", $PUBLIC, $virtualMethod(DCTree$DCSerialField, accept, $Object*, $DocTreeVisitor*, Object$*)},
+		{"getDescription", "()Ljava/util/List;", "()Ljava/util/List<+Lcom/sun/source/doctree/DocTree;>;", $PUBLIC, $virtualMethod(DCTree$DCSerialField, getDescription, $List*)},
+		{"getKind", "()Lcom/sun/source/doctree/DocTree$Kind;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCSerialField, getKind, $DocTree$Kind*)},
+		{"getName", "()Lcom/sun/source/doctree/IdentifierTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCSerialField, getName, $IdentifierTree*)},
+		{"getType", "()Lcom/sun/source/doctree/ReferenceTree;", nullptr, $PUBLIC, $virtualMethod(DCTree$DCSerialField, getType, $ReferenceTree*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.tree.DCTree$DCSerialField", "com.sun.tools.javac.tree.DCTree", "DCSerialField", $PUBLIC | $STATIC},
+		{"com.sun.tools.javac.tree.DCTree$DCBlockTag", "com.sun.tools.javac.tree.DCTree", "DCBlockTag", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.tree.DCTree$DCSerialField",
+		"com.sun.tools.javac.tree.DCTree$DCBlockTag",
+		"com.sun.source.doctree.SerialFieldTree",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.tree.DCTree"
+	};
+	$loadClass(DCTree$DCSerialField, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCTree$DCSerialField));
+	});
 	return class$;
 }
 

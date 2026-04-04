@@ -1,5 +1,4 @@
 #include <java/awt/geom/Path2D$Float.h>
-
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/GeneralPath.h>
@@ -65,78 +64,6 @@ namespace java {
 	namespace awt {
 		namespace geom {
 
-$FieldInfo _Path2D$Float_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Path2D$Float, $assertionsDisabled)},
-	{"floatCoords", "[F", nullptr, $TRANSIENT, $field(Path2D$Float, floatCoords)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Path2D$Float, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Path2D$Float_MethodInfo_[] = {
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void)},
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void, int32_t)},
-	{"<init>", "(II)V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void, $Shape*)},
-	{"<init>", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void, $Shape*, $AffineTransform*)},
-	{"append", "(FF)V", nullptr, 0, $virtualMethod(Path2D$Float, append, void, float, float)},
-	{"append", "(DD)V", nullptr, 0, $virtualMethod(Path2D$Float, append, void, double, double)},
-	{"append", "(Ljava/awt/geom/PathIterator;Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, append, void, $PathIterator*, bool)},
-	{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, clone, $Object*)},
-	{"cloneCoordsDouble", "(Ljava/awt/geom/AffineTransform;)[D", nullptr, 0, $virtualMethod(Path2D$Float, cloneCoordsDouble, $doubles*, $AffineTransform*)},
-	{"cloneCoordsFloat", "(Ljava/awt/geom/AffineTransform;)[F", nullptr, 0, $virtualMethod(Path2D$Float, cloneCoordsFloat, $floats*, $AffineTransform*)},
-	{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, curveTo, void, double, double, double, double, double, double)},
-	{"curveTo", "(FFFFFF)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Path2D$Float, curveTo, void, float, float, float, float, float, float)},
-	{"expandCoords", "([FI)[F", nullptr, $STATIC, $staticMethod(Path2D$Float, expandCoords, $floats*, $floats*, int32_t)},
-	{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, getBounds2D, $Rectangle2D*)},
-	{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, getPathIterator, $PathIterator*, $AffineTransform*)},
-	{"getPoint", "(I)Ljava/awt/geom/Point2D;", nullptr, 0, $virtualMethod(Path2D$Float, getPoint, $Point2D*, int32_t)},
-	{"lineTo", "(DD)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, lineTo, void, double, double)},
-	{"lineTo", "(FF)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Path2D$Float, lineTo, void, float, float)},
-	{"moveTo", "(DD)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, moveTo, void, double, double)},
-	{"moveTo", "(FF)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Path2D$Float, moveTo, void, float, float)},
-	{"needRoom", "(ZI)V", nullptr, 0, $virtualMethod(Path2D$Float, needRoom, void, bool, int32_t)},
-	{"pointCrossings", "(DD)I", nullptr, 0, $virtualMethod(Path2D$Float, pointCrossings, int32_t, double, double)},
-	{"quadTo", "(DDDD)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, quadTo, void, double, double, double, double)},
-	{"quadTo", "(FFFF)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Path2D$Float, quadTo, void, float, float, float, float)},
-	{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Path2D$Float, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
-	{"rectCrossings", "(DDDD)I", nullptr, 0, $virtualMethod(Path2D$Float, rectCrossings, int32_t, double, double, double, double)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"transform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, transform, void, $AffineTransform*)},
-	{"trimToSize", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, trimToSize, void)},
-	{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Path2D$Float, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
-	{}
-};
-
-$InnerClassInfo _Path2D$Float_InnerClassesInfo_[] = {
-	{"java.awt.geom.Path2D$Float", "java.awt.geom.Path2D", "Float", $PUBLIC | $STATIC},
-	{"java.awt.geom.Path2D$Float$TxIterator", "java.awt.geom.Path2D$Float", "TxIterator", $STATIC},
-	{"java.awt.geom.Path2D$Float$CopyIterator", "java.awt.geom.Path2D$Float", "CopyIterator", $STATIC},
-	{}
-};
-
-$ClassInfo _Path2D$Float_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.geom.Path2D$Float",
-	"java.awt.geom.Path2D",
-	"java.io.Serializable",
-	_Path2D$Float_FieldInfo_,
-	_Path2D$Float_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Path2D$Float_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.geom.Path2D"
-};
-
-$Object* allocate$Path2D$Float($Class* clazz) {
-	return $of($alloc(Path2D$Float));
-}
-
 int32_t Path2D$Float::hashCode() {
 	 return this->$Path2D::hashCode();
 }
@@ -169,16 +96,16 @@ void Path2D$Float::init$(int32_t rule, int32_t initialCapacity) {
 }
 
 void Path2D$Float::init$($Shape* s) {
-	Path2D$Float::init$(s, ($AffineTransform*)nullptr);
+	Path2D$Float::init$(s, nullptr);
 }
 
 void Path2D$Float::init$($Shape* s, $AffineTransform* at) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Path2D::init$();
 	if ($instanceOf($Path2D, s)) {
 		$var($Path2D, p2d, $cast($Path2D, s));
-		setWindingRule($nc(p2d)->windingRule);
-		this->numTypes = $nc(p2d)->numTypes;
+		setWindingRule(p2d->windingRule);
+		this->numTypes = p2d->numTypes;
 		$set(this, pointTypes, $Arrays::copyOf(p2d->pointTypes, p2d->numTypes));
 		this->numCoords = p2d->numCoords;
 		$set(this, floatCoords, p2d->cloneCoordsFloat(at));
@@ -206,7 +133,7 @@ $floats* Path2D$Float::cloneCoordsFloat($AffineTransform* at) {
 		$assign(ret, $Arrays::copyOf(this->floatCoords, this->numCoords));
 	} else {
 		$assign(ret, $new($floats, this->numCoords));
-		$nc(at)->transform(this->floatCoords, 0, ret, 0, this->numCoords / 2);
+		at->transform(this->floatCoords, 0, ret, 0, this->numCoords / 2);
 	}
 	return ret;
 }
@@ -218,19 +145,19 @@ $doubles* Path2D$Float::cloneCoordsDouble($AffineTransform* at) {
 			ret->set(i, $nc(this->floatCoords)->get(i));
 		}
 	} else {
-		$nc(at)->transform(this->floatCoords, 0, ret, 0, this->numCoords / 2);
+		at->transform(this->floatCoords, 0, ret, 0, this->numCoords / 2);
 	}
 	return ret;
 }
 
 void Path2D$Float::append(float x, float y) {
 	$nc(this->floatCoords)->set(this->numCoords++, x);
-	$nc(this->floatCoords)->set(this->numCoords++, y);
+	this->floatCoords->set(this->numCoords++, y);
 }
 
 void Path2D$Float::append(double x, double y) {
 	$nc(this->floatCoords)->set(this->numCoords++, (float)x);
-	$nc(this->floatCoords)->set(this->numCoords++, (float)y);
+	this->floatCoords->set(this->numCoords++, (float)y);
 }
 
 $Point2D* Path2D$Float::getPoint(int32_t coordindex) {
@@ -284,28 +211,28 @@ $floats* Path2D$Float::expandCoords($floats* oldCoords, int32_t needed) {
 
 void Path2D$Float::moveTo(double x, double y) {
 	$synchronized(this) {
-		if (this->numTypes > 0 && $nc(this->pointTypes)->get(this->numTypes - 1) == (int8_t)0) {
+		if (this->numTypes > 0 && $nc(this->pointTypes)->get(this->numTypes - 1) == 0) {
 			$nc(this->floatCoords)->set(this->numCoords - 2, (float)x);
-			$nc(this->floatCoords)->set(this->numCoords - 1, (float)y);
+			this->floatCoords->set(this->numCoords - 1, (float)y);
 		} else {
 			needRoom(false, 2);
-			$nc(this->pointTypes)->set(this->numTypes++, (int8_t)0);
+			$nc(this->pointTypes)->set(this->numTypes++, 0);
 			$nc(this->floatCoords)->set(this->numCoords++, (float)x);
-			$nc(this->floatCoords)->set(this->numCoords++, (float)y);
+			this->floatCoords->set(this->numCoords++, (float)y);
 		}
 	}
 }
 
 void Path2D$Float::moveTo(float x, float y) {
 	$synchronized(this) {
-		if (this->numTypes > 0 && $nc(this->pointTypes)->get(this->numTypes - 1) == (int8_t)0) {
+		if (this->numTypes > 0 && $nc(this->pointTypes)->get(this->numTypes - 1) == 0) {
 			$nc(this->floatCoords)->set(this->numCoords - 2, x);
-			$nc(this->floatCoords)->set(this->numCoords - 1, y);
+			this->floatCoords->set(this->numCoords - 1, y);
 		} else {
 			needRoom(false, 2);
-			$nc(this->pointTypes)->set(this->numTypes++, (int8_t)0);
+			$nc(this->pointTypes)->set(this->numTypes++, 0);
 			$nc(this->floatCoords)->set(this->numCoords++, x);
-			$nc(this->floatCoords)->set(this->numCoords++, y);
+			this->floatCoords->set(this->numCoords++, y);
 		}
 	}
 }
@@ -313,66 +240,66 @@ void Path2D$Float::moveTo(float x, float y) {
 void Path2D$Float::lineTo(double x, double y) {
 	$synchronized(this) {
 		needRoom(true, 2);
-		$nc(this->pointTypes)->set(this->numTypes++, (int8_t)1);
+		$nc(this->pointTypes)->set(this->numTypes++, 1);
 		$nc(this->floatCoords)->set(this->numCoords++, (float)x);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)y);
+		this->floatCoords->set(this->numCoords++, (float)y);
 	}
 }
 
 void Path2D$Float::lineTo(float x, float y) {
 	$synchronized(this) {
 		needRoom(true, 2);
-		$nc(this->pointTypes)->set(this->numTypes++, (int8_t)1);
+		$nc(this->pointTypes)->set(this->numTypes++, 1);
 		$nc(this->floatCoords)->set(this->numCoords++, x);
-		$nc(this->floatCoords)->set(this->numCoords++, y);
+		this->floatCoords->set(this->numCoords++, y);
 	}
 }
 
 void Path2D$Float::quadTo(double x1, double y1, double x2, double y2) {
 	$synchronized(this) {
 		needRoom(true, 4);
-		$nc(this->pointTypes)->set(this->numTypes++, (int8_t)2);
+		$nc(this->pointTypes)->set(this->numTypes++, 2);
 		$nc(this->floatCoords)->set(this->numCoords++, (float)x1);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)y1);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)x2);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)y2);
+		this->floatCoords->set(this->numCoords++, (float)y1);
+		this->floatCoords->set(this->numCoords++, (float)x2);
+		this->floatCoords->set(this->numCoords++, (float)y2);
 	}
 }
 
 void Path2D$Float::quadTo(float x1, float y1, float x2, float y2) {
 	$synchronized(this) {
 		needRoom(true, 4);
-		$nc(this->pointTypes)->set(this->numTypes++, (int8_t)2);
+		$nc(this->pointTypes)->set(this->numTypes++, 2);
 		$nc(this->floatCoords)->set(this->numCoords++, x1);
-		$nc(this->floatCoords)->set(this->numCoords++, y1);
-		$nc(this->floatCoords)->set(this->numCoords++, x2);
-		$nc(this->floatCoords)->set(this->numCoords++, y2);
+		this->floatCoords->set(this->numCoords++, y1);
+		this->floatCoords->set(this->numCoords++, x2);
+		this->floatCoords->set(this->numCoords++, y2);
 	}
 }
 
 void Path2D$Float::curveTo(double x1, double y1, double x2, double y2, double x3, double y3) {
 	$synchronized(this) {
 		needRoom(true, 6);
-		$nc(this->pointTypes)->set(this->numTypes++, (int8_t)3);
+		$nc(this->pointTypes)->set(this->numTypes++, 3);
 		$nc(this->floatCoords)->set(this->numCoords++, (float)x1);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)y1);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)x2);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)y2);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)x3);
-		$nc(this->floatCoords)->set(this->numCoords++, (float)y3);
+		this->floatCoords->set(this->numCoords++, (float)y1);
+		this->floatCoords->set(this->numCoords++, (float)x2);
+		this->floatCoords->set(this->numCoords++, (float)y2);
+		this->floatCoords->set(this->numCoords++, (float)x3);
+		this->floatCoords->set(this->numCoords++, (float)y3);
 	}
 }
 
 void Path2D$Float::curveTo(float x1, float y1, float x2, float y2, float x3, float y3) {
 	$synchronized(this) {
 		needRoom(true, 6);
-		$nc(this->pointTypes)->set(this->numTypes++, (int8_t)3);
+		$nc(this->pointTypes)->set(this->numTypes++, 3);
 		$nc(this->floatCoords)->set(this->numCoords++, x1);
-		$nc(this->floatCoords)->set(this->numCoords++, y1);
-		$nc(this->floatCoords)->set(this->numCoords++, x2);
-		$nc(this->floatCoords)->set(this->numCoords++, y2);
-		$nc(this->floatCoords)->set(this->numCoords++, x3);
-		$nc(this->floatCoords)->set(this->numCoords++, y3);
+		this->floatCoords->set(this->numCoords++, y1);
+		this->floatCoords->set(this->numCoords++, x2);
+		this->floatCoords->set(this->numCoords++, y2);
+		this->floatCoords->set(this->numCoords++, x3);
+		this->floatCoords->set(this->numCoords++, y3);
 	}
 }
 
@@ -394,65 +321,49 @@ int32_t Path2D$Float::pointCrossings(double px, double py) {
 	for (int32_t i = 1; i < this->numTypes; ++i) {
 		switch ($nc(this->pointTypes)->get(i)) {
 		case $PathIterator::SEG_MOVETO:
-			{
-				if (cury != movy) {
-					crossings += $Curve::pointCrossingsForLine(px, py, curx, cury, movx, movy);
-				}
-				movx = (curx = coords->get(ci++));
-				movy = (cury = coords->get(ci++));
-				break;
+			if (cury != movy) {
+				crossings += $Curve::pointCrossingsForLine(px, py, curx, cury, movx, movy);
 			}
+			movx = (curx = coords->get(ci++));
+			movy = (cury = coords->get(ci++));
+			break;
 		case $PathIterator::SEG_LINETO:
 			{
-				double var$0 = px;
-				double var$1 = py;
-				double var$2 = curx;
-				double var$3 = cury;
-				double var$4 = endx = coords->get(ci++);
-				crossings += $Curve::pointCrossingsForLine(var$0, var$1, var$2, var$3, var$4, endy = coords->get(ci++));
+				double var$0 = endx = coords->get(ci++);
+				crossings += $Curve::pointCrossingsForLine(px, py, curx, cury, var$0, endy = coords->get(ci++));
 				curx = endx;
 				cury = endy;
 				break;
 			}
 		case $PathIterator::SEG_QUADTO:
 			{
-				double var$5 = px;
-				double var$6 = py;
-				double var$7 = curx;
-				double var$8 = cury;
-				double var$9 = (double)coords->get(ci++);
-				double var$10 = (double)coords->get(ci++);
-				double var$11 = endx = coords->get(ci++);
-				crossings += $Curve::pointCrossingsForQuad(var$5, var$6, var$7, var$8, var$9, var$10, var$11, endy = coords->get(ci++), 0);
+				double var$1 = coords->get(ci++);
+				double var$2 = coords->get(ci++);
+				double var$3 = endx = coords->get(ci++);
+				crossings += $Curve::pointCrossingsForQuad(px, py, curx, cury, var$1, var$2, var$3, endy = coords->get(ci++), 0);
 				curx = endx;
 				cury = endy;
 				break;
 			}
 		case $PathIterator::SEG_CUBICTO:
 			{
-				double var$12 = px;
-				double var$13 = py;
-				double var$14 = curx;
-				double var$15 = cury;
-				double var$16 = (double)coords->get(ci++);
-				double var$17 = (double)coords->get(ci++);
-				double var$18 = (double)coords->get(ci++);
-				double var$19 = (double)coords->get(ci++);
-				double var$20 = endx = coords->get(ci++);
-				crossings += $Curve::pointCrossingsForCubic(var$12, var$13, var$14, var$15, var$16, var$17, var$18, var$19, var$20, endy = coords->get(ci++), 0);
+				double var$4 = coords->get(ci++);
+				double var$5 = coords->get(ci++);
+				double var$6 = coords->get(ci++);
+				double var$7 = coords->get(ci++);
+				double var$8 = endx = coords->get(ci++);
+				crossings += $Curve::pointCrossingsForCubic(px, py, curx, cury, var$4, var$5, var$6, var$7, var$8, endy = coords->get(ci++), 0);
 				curx = endx;
 				cury = endy;
 				break;
 			}
 		case $PathIterator::SEG_CLOSE:
-			{
-				if (cury != movy) {
-					crossings += $Curve::pointCrossingsForLine(px, py, curx, cury, movx, movy);
-				}
-				curx = movx;
-				cury = movy;
-				break;
+			if (cury != movy) {
+				crossings += $Curve::pointCrossingsForLine(px, py, curx, cury, movx, movy);
 			}
+			curx = movx;
+			cury = movy;
+			break;
 		}
 	}
 	if (cury != movy) {
@@ -479,74 +390,49 @@ int32_t Path2D$Float::rectCrossings(double rxmin, double rymin, double rxmax, do
 	for (int32_t i = 1; crossings != $Curve::RECT_INTERSECTS && i < this->numTypes; ++i) {
 		switch ($nc(this->pointTypes)->get(i)) {
 		case $PathIterator::SEG_MOVETO:
-			{
-				if (curx != movx || cury != movy) {
-					crossings = $Curve::rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, movx, movy);
-				}
-				movx = (curx = coords->get(ci++));
-				movy = (cury = coords->get(ci++));
-				break;
+			if (curx != movx || cury != movy) {
+				crossings = $Curve::rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, movx, movy);
 			}
+			movx = (curx = coords->get(ci++));
+			movy = (cury = coords->get(ci++));
+			break;
 		case $PathIterator::SEG_LINETO:
 			{
-				int32_t var$0 = crossings;
-				double var$1 = rxmin;
-				double var$2 = rymin;
-				double var$3 = rxmax;
-				double var$4 = rymax;
-				double var$5 = curx;
-				double var$6 = cury;
-				double var$7 = endx = coords->get(ci++);
-				crossings = $Curve::rectCrossingsForLine(var$0, var$1, var$2, var$3, var$4, var$5, var$6, var$7, endy = coords->get(ci++));
+				double var$0 = endx = coords->get(ci++);
+				crossings = $Curve::rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, var$0, endy = coords->get(ci++));
 				curx = endx;
 				cury = endy;
 				break;
 			}
 		case $PathIterator::SEG_QUADTO:
 			{
-				int32_t var$8 = crossings;
-				double var$9 = rxmin;
-				double var$10 = rymin;
-				double var$11 = rxmax;
-				double var$12 = rymax;
-				double var$13 = curx;
-				double var$14 = cury;
-				double var$15 = (double)coords->get(ci++);
-				double var$16 = (double)coords->get(ci++);
-				double var$17 = endx = coords->get(ci++);
-				crossings = $Curve::rectCrossingsForQuad(var$8, var$9, var$10, var$11, var$12, var$13, var$14, var$15, var$16, var$17, endy = coords->get(ci++), 0);
+				double var$1 = coords->get(ci++);
+				double var$2 = coords->get(ci++);
+				double var$3 = endx = coords->get(ci++);
+				crossings = $Curve::rectCrossingsForQuad(crossings, rxmin, rymin, rxmax, rymax, curx, cury, var$1, var$2, var$3, endy = coords->get(ci++), 0);
 				curx = endx;
 				cury = endy;
 				break;
 			}
 		case $PathIterator::SEG_CUBICTO:
 			{
-				int32_t var$18 = crossings;
-				double var$19 = rxmin;
-				double var$20 = rymin;
-				double var$21 = rxmax;
-				double var$22 = rymax;
-				double var$23 = curx;
-				double var$24 = cury;
-				double var$25 = (double)coords->get(ci++);
-				double var$26 = (double)coords->get(ci++);
-				double var$27 = (double)coords->get(ci++);
-				double var$28 = (double)coords->get(ci++);
-				double var$29 = endx = coords->get(ci++);
-				crossings = $Curve::rectCrossingsForCubic(var$18, var$19, var$20, var$21, var$22, var$23, var$24, var$25, var$26, var$27, var$28, var$29, endy = coords->get(ci++), 0);
+				double var$4 = coords->get(ci++);
+				double var$5 = coords->get(ci++);
+				double var$6 = coords->get(ci++);
+				double var$7 = coords->get(ci++);
+				double var$8 = endx = coords->get(ci++);
+				crossings = $Curve::rectCrossingsForCubic(crossings, rxmin, rymin, rxmax, rymax, curx, cury, var$4, var$5, var$6, var$7, var$8, endy = coords->get(ci++), 0);
 				curx = endx;
 				cury = endy;
 				break;
 			}
 		case $PathIterator::SEG_CLOSE:
-			{
-				if (curx != movx || cury != movy) {
-					crossings = $Curve::rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, movx, movy);
-				}
-				curx = movx;
-				cury = movy;
-				break;
+			if (curx != movx || cury != movy) {
+				crossings = $Curve::rectCrossingsForLine(crossings, rxmin, rymin, rxmax, rymax, curx, cury, movx, movy);
 			}
+			curx = movx;
+			cury = movy;
+			break;
 		}
 	}
 	if (crossings != $Curve::RECT_INTERSECTS && (curx != movx || cury != movy)) {
@@ -560,37 +446,27 @@ void Path2D$Float::append($PathIterator* pi, bool connect) {
 	while (!$nc(pi)->isDone()) {
 		switch (pi->currentSegment(coords)) {
 		case 0:
-			{
-				if (!connect || this->numTypes < 1 || this->numCoords < 1) {
-					moveTo(coords->get(0), coords->get(1));
-					break;
-				}
-				if ($nc(this->pointTypes)->get(this->numTypes - 1) != (int8_t)4 && $nc(this->floatCoords)->get(this->numCoords - 2) == coords->get(0) && $nc(this->floatCoords)->get(this->numCoords - 1) == coords->get(1)) {
-					break;
-				}
-				lineTo(coords->get(0), coords->get(1));
+			if (!connect || this->numTypes < 1 || this->numCoords < 1) {
+				moveTo(coords->get(0), coords->get(1));
 				break;
 			}
+			if ($nc(this->pointTypes)->get(this->numTypes - 1) != 4 && $nc(this->floatCoords)->get(this->numCoords - 2) == coords->get(0) && this->floatCoords->get(this->numCoords - 1) == coords->get(1)) {
+				break;
+			}
+			lineTo(coords->get(0), coords->get(1));
+			break;
 		case 1:
-			{
-				lineTo(coords->get(0), coords->get(1));
-				break;
-			}
+			lineTo(coords->get(0), coords->get(1));
+			break;
 		case 2:
-			{
-				quadTo(coords->get(0), coords->get(1), coords->get(2), coords->get(3));
-				break;
-			}
+			quadTo(coords->get(0), coords->get(1), coords->get(2), coords->get(3));
+			break;
 		case 3:
-			{
-				curveTo(coords->get(0), coords->get(1), coords->get(2), coords->get(3), coords->get(4), coords->get(5));
-				break;
-			}
+			curveTo(coords->get(0), coords->get(1), coords->get(2), coords->get(3), coords->get(4), coords->get(5));
+			break;
 		case 4:
-			{
-				closePath();
-				break;
-			}
+			closePath();
+			break;
 		}
 		pi->next();
 		connect = false;
@@ -610,10 +486,10 @@ $Rectangle2D* Path2D$Float::getBounds2D() {
 		int32_t i = this->numCoords;
 		if (i > 0) {
 			y1 = (y2 = $nc(this->floatCoords)->get(--i));
-			x1 = (x2 = $nc(this->floatCoords)->get(--i));
+			x1 = (x2 = this->floatCoords->get(--i));
 			while (i > 0) {
-				float y = $nc(this->floatCoords)->get(--i);
-				float x = $nc(this->floatCoords)->get(--i);
+				float y = this->floatCoords->get(--i);
+				float x = this->floatCoords->get(--i);
 				if (x < x1) {
 					x1 = x;
 				}
@@ -644,9 +520,9 @@ $PathIterator* Path2D$Float::getPathIterator($AffineTransform* at) {
 
 $Object* Path2D$Float::clone() {
 	if ($instanceOf($GeneralPath, this)) {
-		return $of($new($GeneralPath, static_cast<$Shape*>(this)));
+		return $of($new($GeneralPath, this));
 	} else {
-		return $of($new(Path2D$Float, static_cast<$Shape*>(this)));
+		return $of($new(Path2D$Float, this));
 	}
 }
 
@@ -658,7 +534,7 @@ void Path2D$Float::readObject($ObjectInputStream* s) {
 	$Path2D::readObject(s, false);
 }
 
-void clinit$Path2D$Float($Class* class$) {
+void Path2D$Float::clinit$($Class* clazz) {
 	$load($Path2D);
 	Path2D$Float::$assertionsDisabled = !$Path2D::class$->desiredAssertionStatus();
 }
@@ -667,7 +543,73 @@ Path2D$Float::Path2D$Float() {
 }
 
 $Class* Path2D$Float::load$($String* name, bool initialize) {
-	$loadClass(Path2D$Float, name, initialize, &_Path2D$Float_ClassInfo_, clinit$Path2D$Float, allocate$Path2D$Float);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(Path2D$Float, $assertionsDisabled)},
+		{"floatCoords", "[F", nullptr, $TRANSIENT, $field(Path2D$Float, floatCoords)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Path2D$Float, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void)},
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void, int32_t)},
+		{"<init>", "(II)V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Shape;)V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void, $Shape*)},
+		{"<init>", "(Ljava/awt/Shape;Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC, $method(Path2D$Float, init$, void, $Shape*, $AffineTransform*)},
+		{"append", "(FF)V", nullptr, 0, $virtualMethod(Path2D$Float, append, void, float, float)},
+		{"append", "(DD)V", nullptr, 0, $virtualMethod(Path2D$Float, append, void, double, double)},
+		{"append", "(Ljava/awt/geom/PathIterator;Z)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, append, void, $PathIterator*, bool)},
+		{"clone", "()Ljava/lang/Object;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, clone, $Object*)},
+		{"cloneCoordsDouble", "(Ljava/awt/geom/AffineTransform;)[D", nullptr, 0, $virtualMethod(Path2D$Float, cloneCoordsDouble, $doubles*, $AffineTransform*)},
+		{"cloneCoordsFloat", "(Ljava/awt/geom/AffineTransform;)[F", nullptr, 0, $virtualMethod(Path2D$Float, cloneCoordsFloat, $floats*, $AffineTransform*)},
+		{"curveTo", "(DDDDDD)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, curveTo, void, double, double, double, double, double, double)},
+		{"curveTo", "(FFFFFF)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Path2D$Float, curveTo, void, float, float, float, float, float, float)},
+		{"expandCoords", "([FI)[F", nullptr, $STATIC, $staticMethod(Path2D$Float, expandCoords, $floats*, $floats*, int32_t)},
+		{"getBounds2D", "()Ljava/awt/geom/Rectangle2D;", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, getBounds2D, $Rectangle2D*)},
+		{"getPathIterator", "(Ljava/awt/geom/AffineTransform;)Ljava/awt/geom/PathIterator;", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, getPathIterator, $PathIterator*, $AffineTransform*)},
+		{"getPoint", "(I)Ljava/awt/geom/Point2D;", nullptr, 0, $virtualMethod(Path2D$Float, getPoint, $Point2D*, int32_t)},
+		{"lineTo", "(DD)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, lineTo, void, double, double)},
+		{"lineTo", "(FF)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Path2D$Float, lineTo, void, float, float)},
+		{"moveTo", "(DD)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, moveTo, void, double, double)},
+		{"moveTo", "(FF)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Path2D$Float, moveTo, void, float, float)},
+		{"needRoom", "(ZI)V", nullptr, 0, $virtualMethod(Path2D$Float, needRoom, void, bool, int32_t)},
+		{"pointCrossings", "(DD)I", nullptr, 0, $virtualMethod(Path2D$Float, pointCrossings, int32_t, double, double)},
+		{"quadTo", "(DDDD)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $virtualMethod(Path2D$Float, quadTo, void, double, double, double, double)},
+		{"quadTo", "(FFFF)V", nullptr, $PUBLIC | $FINAL | $SYNCHRONIZED, $method(Path2D$Float, quadTo, void, float, float, float, float)},
+		{"readObject", "(Ljava/io/ObjectInputStream;)V", nullptr, $PRIVATE, $method(Path2D$Float, readObject, void, $ObjectInputStream*), "java.lang.ClassNotFoundException,java.io.IOException"},
+		{"rectCrossings", "(DDDD)I", nullptr, 0, $virtualMethod(Path2D$Float, rectCrossings, int32_t, double, double, double, double)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"transform", "(Ljava/awt/geom/AffineTransform;)V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, transform, void, $AffineTransform*)},
+		{"trimToSize", "()V", nullptr, $PUBLIC | $FINAL, $virtualMethod(Path2D$Float, trimToSize, void)},
+		{"writeObject", "(Ljava/io/ObjectOutputStream;)V", nullptr, $PRIVATE, $method(Path2D$Float, writeObject, void, $ObjectOutputStream*), "java.io.IOException"},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.geom.Path2D$Float", "java.awt.geom.Path2D", "Float", $PUBLIC | $STATIC},
+		{"java.awt.geom.Path2D$Float$TxIterator", "java.awt.geom.Path2D$Float", "TxIterator", $STATIC},
+		{"java.awt.geom.Path2D$Float$CopyIterator", "java.awt.geom.Path2D$Float", "CopyIterator", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.geom.Path2D$Float",
+		"java.awt.geom.Path2D",
+		"java.io.Serializable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.geom.Path2D"
+	};
+	$loadClass(Path2D$Float, name, initialize, &classInfo$$, Path2D$Float::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Path2D$Float));
+	});
 	return class$;
 }
 

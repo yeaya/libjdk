@@ -1,5 +1,4 @@
 #include <com/sun/tools/script/shell/Main$1.h>
-
 #include <com/sun/tools/script/shell/Main.h>
 #include <javax/script/ScriptEngine.h>
 #include <jcpp.h>
@@ -18,49 +17,6 @@ namespace com {
 			namespace script {
 				namespace shell {
 
-$FieldInfo _Main$1_FieldInfo_[] = {
-	{"val$se", "Ljavax/script/ScriptEngine;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, val$se)},
-	{}
-};
-
-$MethodInfo _Main$1_MethodInfo_[] = {
-	{"<init>", "(Ljavax/script/ScriptEngine;)V", "()V", 0, $method(Main$1, init$, void, $ScriptEngine*)},
-	{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main$1, run, void, $StringArray*)},
-	{}
-};
-
-$EnclosingMethodInfo _Main$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.script.shell.Main",
-	"addInteractiveMode",
-	"(Ljavax/script/ScriptEngine;)V"
-};
-
-$InnerClassInfo _Main$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.script.shell.Main$1", nullptr, nullptr, 0},
-	{"com.sun.tools.script.shell.Main$Command", "com.sun.tools.script.shell.Main", "Command", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Main$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.script.shell.Main$1",
-	"java.lang.Object",
-	"com.sun.tools.script.shell.Main$Command",
-	_Main$1_FieldInfo_,
-	_Main$1_MethodInfo_,
-	nullptr,
-	&_Main$1_EnclosingMethodInfo_,
-	_Main$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.script.shell.Main"
-};
-
-$Object* allocate$Main$1($Class* clazz) {
-	return $of($alloc(Main$1));
-}
-
 void Main$1::init$($ScriptEngine* val$se) {
 	$set(this, val$se, val$se);
 }
@@ -74,7 +30,43 @@ Main$1::Main$1() {
 }
 
 $Class* Main$1::load$($String* name, bool initialize) {
-	$loadClass(Main$1, name, initialize, &_Main$1_ClassInfo_, allocate$Main$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$se", "Ljavax/script/ScriptEngine;", nullptr, $FINAL | $SYNTHETIC, $field(Main$1, val$se)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/script/ScriptEngine;)V", "()V", 0, $method(Main$1, init$, void, $ScriptEngine*)},
+		{"run", "([Ljava/lang/String;)V", nullptr, $PUBLIC, $virtualMethod(Main$1, run, void, $StringArray*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.script.shell.Main",
+		"addInteractiveMode",
+		"(Ljavax/script/ScriptEngine;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.script.shell.Main$1", nullptr, nullptr, 0},
+		{"com.sun.tools.script.shell.Main$Command", "com.sun.tools.script.shell.Main", "Command", $PRIVATE | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.script.shell.Main$1",
+		"java.lang.Object",
+		"com.sun.tools.script.shell.Main$Command",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.script.shell.Main"
+	};
+	$loadClass(Main$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Main$1);
+	});
 	return class$;
 }
 

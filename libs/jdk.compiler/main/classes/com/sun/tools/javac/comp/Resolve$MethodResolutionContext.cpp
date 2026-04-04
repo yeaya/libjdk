@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionContext.h>
-
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
@@ -22,8 +21,6 @@
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
-using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
-using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
@@ -42,52 +39,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace comp {
-
-$FieldInfo _Resolve$MethodResolutionContext_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodResolutionContext, this$0)},
-	{"candidates", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate;>;", $PRIVATE, $field(Resolve$MethodResolutionContext, candidates)},
-	{"step", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, 0, $field(Resolve$MethodResolutionContext, step)},
-	{"methodCheck", "Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", nullptr, 0, $field(Resolve$MethodResolutionContext, methodCheck)},
-	{"internalResolution", "Z", nullptr, $PRIVATE, $field(Resolve$MethodResolutionContext, internalResolution)},
-	{"attrMode", "Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $PRIVATE, $field(Resolve$MethodResolutionContext, attrMode$)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodResolutionContext_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$MethodResolutionContext, init$, void, $Resolve*)},
-	{"addApplicableCandidate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, addApplicableCandidate, void, $Symbol*, $Type*)},
-	{"addInapplicableCandidate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, addInapplicableCandidate, void, $Symbol*, $JCDiagnostic*)},
-	{"attrMode", "()Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, attrMode, $DeferredAttr$AttrMode*)},
-	{"deferredAttrContext", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*, $Symbol*, $InferenceContext*, $Attr$ResultInfo*, $Warner*)},
-	{"internal", "()Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, internal, bool)},
-	{}
-};
-
-$InnerClassInfo _Resolve$MethodResolutionContext_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "com.sun.tools.javac.comp.Resolve", "MethodResolutionContext", 0},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext$Candidate", "com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "Candidate", 0},
-	{}
-};
-
-$ClassInfo _Resolve$MethodResolutionContext_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionContext",
-	"java.lang.Object",
-	nullptr,
-	_Resolve$MethodResolutionContext_FieldInfo_,
-	_Resolve$MethodResolutionContext_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$MethodResolutionContext_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodResolutionContext($Class* clazz) {
-	return $of($alloc(Resolve$MethodResolutionContext));
-}
 
 void Resolve$MethodResolutionContext::init$($Resolve* this$0) {
 	$set(this, this$0, this$0);
@@ -110,8 +61,8 @@ void Resolve$MethodResolutionContext::addApplicableCandidate($Symbol* sym, $Type
 }
 
 $DeferredAttr$DeferredAttrContext* Resolve$MethodResolutionContext::deferredAttrContext($Symbol* sym, $InferenceContext* inferenceContext, $Attr$ResultInfo* pendingResult, $Warner* warn) {
-	$var($DeferredAttr$DeferredAttrContext, parent, (pendingResult == nullptr) ? $nc(this->this$0->deferredAttr)->emptyDeferredAttrContext : $nc($nc(pendingResult)->checkContext)->deferredAttrContext());
-	return $new($DeferredAttr$DeferredAttrContext, static_cast<$DeferredAttr*>($nc(this->this$0->deferredAttr)), this->attrMode$, sym, this->step, inferenceContext, parent, warn);
+	$var($DeferredAttr$DeferredAttrContext, parent, (pendingResult == nullptr) ? $nc(this->this$0->deferredAttr)->emptyDeferredAttrContext : $nc(pendingResult->checkContext)->deferredAttrContext());
+	return $new($DeferredAttr$DeferredAttrContext, $nc(this->this$0->deferredAttr), this->attrMode$, sym, this->step, inferenceContext, parent, warn);
 }
 
 $DeferredAttr$AttrMode* Resolve$MethodResolutionContext::attrMode() {
@@ -126,7 +77,47 @@ Resolve$MethodResolutionContext::Resolve$MethodResolutionContext() {
 }
 
 $Class* Resolve$MethodResolutionContext::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodResolutionContext, name, initialize, &_Resolve$MethodResolutionContext_ClassInfo_, allocate$Resolve$MethodResolutionContext);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Resolve;", nullptr, $FINAL | $SYNTHETIC, $field(Resolve$MethodResolutionContext, this$0)},
+		{"candidates", "Lcom/sun/tools/javac/util/List;", "Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/comp/Resolve$MethodResolutionContext$Candidate;>;", $PRIVATE, $field(Resolve$MethodResolutionContext, candidates)},
+		{"step", "Lcom/sun/tools/javac/comp/Resolve$MethodResolutionPhase;", nullptr, 0, $field(Resolve$MethodResolutionContext, step)},
+		{"methodCheck", "Lcom/sun/tools/javac/comp/Resolve$MethodCheck;", nullptr, 0, $field(Resolve$MethodResolutionContext, methodCheck)},
+		{"internalResolution", "Z", nullptr, $PRIVATE, $field(Resolve$MethodResolutionContext, internalResolution)},
+		{"attrMode", "Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, $PRIVATE, $field(Resolve$MethodResolutionContext, attrMode$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Resolve;)V", nullptr, 0, $method(Resolve$MethodResolutionContext, init$, void, $Resolve*)},
+		{"addApplicableCandidate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/code/Type;)V", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, addApplicableCandidate, void, $Symbol*, $Type*)},
+		{"addInapplicableCandidate", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, addInapplicableCandidate, void, $Symbol*, $JCDiagnostic*)},
+		{"attrMode", "()Lcom/sun/tools/javac/comp/DeferredAttr$AttrMode;", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, attrMode, $DeferredAttr$AttrMode*)},
+		{"deferredAttrContext", "(Lcom/sun/tools/javac/code/Symbol;Lcom/sun/tools/javac/comp/InferenceContext;Lcom/sun/tools/javac/comp/Attr$ResultInfo;Lcom/sun/tools/javac/util/Warner;)Lcom/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext;", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, deferredAttrContext, $DeferredAttr$DeferredAttrContext*, $Symbol*, $InferenceContext*, $Attr$ResultInfo*, $Warner*)},
+		{"internal", "()Z", nullptr, 0, $virtualMethod(Resolve$MethodResolutionContext, internal, bool)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "com.sun.tools.javac.comp.Resolve", "MethodResolutionContext", 0},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionContext$Candidate", "com.sun.tools.javac.comp.Resolve$MethodResolutionContext", "Candidate", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionContext",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodResolutionContext, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResolutionContext);
+	});
 	return class$;
 }
 

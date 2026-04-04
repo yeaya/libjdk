@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/model/JavacTypes$1.h>
-
 #include <com/sun/tools/javac/model/JavacTypes.h>
 #include <java/lang/NoSuchFieldError.h>
 #include <javax/lang/model/type/TypeKind.h>
@@ -38,121 +37,85 @@ namespace com {
 			namespace javac {
 				namespace model {
 
-$FieldInfo _JavacTypes$1_FieldInfo_[] = {
-	{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacTypes$1, $SwitchMap$javax$lang$model$type$TypeKind)},
-	{}
-};
-
-$EnclosingMethodInfo _JavacTypes$1_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.model.JavacTypes",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _JavacTypes$1_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.model.JavacTypes$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
-	{}
-};
-
-$ClassInfo _JavacTypes$1_ClassInfo_ = {
-	$ACC_SUPER | $SYNTHETIC,
-	"com.sun.tools.javac.model.JavacTypes$1",
-	"java.lang.Object",
-	nullptr,
-	_JavacTypes$1_FieldInfo_,
-	nullptr,
-	nullptr,
-	&_JavacTypes$1_EnclosingMethodInfo_,
-	_JavacTypes$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.model.JavacTypes"
-};
-
-$Object* allocate$JavacTypes$1($Class* clazz) {
-	return $of($alloc(JavacTypes$1));
-}
-
 $ints* JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind = nullptr;
 
-void clinit$JavacTypes$1($Class* class$) {
+void JavacTypes$1::clinit$($Class* clazz) {
 	$assignStatic(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind, $new($ints, $($TypeKind::values())->length));
 	{
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::DECLARED->ordinal(), 1);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::DECLARED->ordinal(), 1);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::INTERSECTION->ordinal(), 2);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::INTERSECTION->ordinal(), 2);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::ERROR->ordinal(), 3);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::ERROR->ordinal(), 3);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::TYPEVAR->ordinal(), 4);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::TYPEVAR->ordinal(), 4);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::BOOLEAN->ordinal(), 5);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::BOOLEAN->ordinal(), 5);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::BYTE->ordinal(), 6);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::BYTE->ordinal(), 6);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::SHORT->ordinal(), 7);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::SHORT->ordinal(), 7);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::INT->ordinal(), 8);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::INT->ordinal(), 8);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::LONG->ordinal(), 9);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::LONG->ordinal(), 9);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::CHAR->ordinal(), 10);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::CHAR->ordinal(), 10);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::FLOAT->ordinal(), 11);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::FLOAT->ordinal(), 11);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::DOUBLE->ordinal(), 12);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::DOUBLE->ordinal(), 12);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::VOID->ordinal(), 13);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::VOID->ordinal(), 13);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::NONE->ordinal(), 14);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::NONE->ordinal(), 14);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::EXECUTABLE->ordinal(), 15);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::EXECUTABLE->ordinal(), 15);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::WILDCARD->ordinal(), 16);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::WILDCARD->ordinal(), 16);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::PACKAGE->ordinal(), 17);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::PACKAGE->ordinal(), 17);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::MODULE->ordinal(), 18);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::MODULE->ordinal(), 18);
 		} catch ($NoSuchFieldError& ex) {
 		}
 		try {
-			$nc(JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind)->set($TypeKind::ARRAY->ordinal(), 19);
+			JavacTypes$1::$SwitchMap$javax$lang$model$type$TypeKind->set($TypeKind::ARRAY->ordinal(), 19);
 		} catch ($NoSuchFieldError& ex) {
 		}
 	}
@@ -162,7 +125,37 @@ JavacTypes$1::JavacTypes$1() {
 }
 
 $Class* JavacTypes$1::load$($String* name, bool initialize) {
-	$loadClass(JavacTypes$1, name, initialize, &_JavacTypes$1_ClassInfo_, clinit$JavacTypes$1, allocate$JavacTypes$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"$SwitchMap$javax$lang$model$type$TypeKind", "[I", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(JavacTypes$1, $SwitchMap$javax$lang$model$type$TypeKind)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.model.JavacTypes",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.model.JavacTypes$1", nullptr, nullptr, $STATIC | $SYNTHETIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $SYNTHETIC,
+		"com.sun.tools.javac.model.JavacTypes$1",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		nullptr,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.model.JavacTypes"
+	};
+	$loadClass(JavacTypes$1, name, initialize, &classInfo$$, JavacTypes$1::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(JavacTypes$1);
+	});
 	return class$;
 }
 

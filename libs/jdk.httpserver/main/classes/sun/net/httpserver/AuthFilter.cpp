@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/AuthFilter.h>
-
 #include <com/sun/net/httpserver/Authenticator$Failure.h>
 #include <com/sun/net/httpserver/Authenticator$Result.h>
 #include <com/sun/net/httpserver/Authenticator$Retry.h>
@@ -31,33 +30,6 @@ namespace sun {
 	namespace net {
 		namespace httpserver {
 
-$FieldInfo _AuthFilter_FieldInfo_[] = {
-	{"authenticator", "Lcom/sun/net/httpserver/Authenticator;", nullptr, $PRIVATE, $field(AuthFilter, authenticator)},
-	{}
-};
-
-$MethodInfo _AuthFilter_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/net/httpserver/Authenticator;)V", nullptr, $PUBLIC, $method(AuthFilter, init$, void, $Authenticator*)},
-	{"consumeInput", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, consumeInput, void, $HttpExchange*), "java.io.IOException"},
-	{"description", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthFilter, description, $String*)},
-	{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, doFilter, void, $HttpExchange*, $Filter$Chain*), "java.io.IOException"},
-	{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, setAuthenticator, void, $Authenticator*)},
-	{}
-};
-
-$ClassInfo _AuthFilter_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.net.httpserver.AuthFilter",
-	"com.sun.net.httpserver.Filter",
-	nullptr,
-	_AuthFilter_FieldInfo_,
-	_AuthFilter_MethodInfo_
-};
-
-$Object* allocate$AuthFilter($Class* clazz) {
-	return $of($alloc(AuthFilter));
-}
-
 void AuthFilter::init$($Authenticator* authenticator) {
 	$Filter::init$();
 	$set(this, authenticator, authenticator);
@@ -72,31 +44,32 @@ void AuthFilter::setAuthenticator($Authenticator* a) {
 }
 
 void AuthFilter::consumeInput($HttpExchange* t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InputStream, i, $nc(t)->getRequestBody());
 	$var($bytes, b, $new($bytes, 4096));
 	while ($nc(i)->read(b) != -1) {
+		;
 	}
-	$nc(i)->close();
+	i->close();
 }
 
 void AuthFilter::doFilter($HttpExchange* t, $Filter$Chain* chain) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->authenticator != nullptr) {
-		$var($Authenticator$Result, r, $nc(this->authenticator)->authenticate(t));
+		$var($Authenticator$Result, r, this->authenticator->authenticate(t));
 		if ($instanceOf($Authenticator$Success, r)) {
 			$var($Authenticator$Success, s, $cast($Authenticator$Success, r));
 			$var($ExchangeImpl, e, $ExchangeImpl::get(t));
-			$nc(e)->setPrincipal($($nc(s)->getPrincipal()));
+			$nc(e)->setPrincipal($(s->getPrincipal()));
 			$nc(chain)->doFilter(t);
 		} else if ($instanceOf($Authenticator$Retry, r)) {
 			$var($Authenticator$Retry, ry, $cast($Authenticator$Retry, r));
 			consumeInput(t);
-			$nc(t)->sendResponseHeaders($nc(ry)->getResponseCode(), -1);
+			$nc(t)->sendResponseHeaders(ry->getResponseCode(), -1);
 		} else if ($instanceOf($Authenticator$Failure, r)) {
 			$var($Authenticator$Failure, f, $cast($Authenticator$Failure, r));
 			consumeInput(t);
-			$nc(t)->sendResponseHeaders($nc(f)->getResponseCode(), -1);
+			$nc(t)->sendResponseHeaders(f->getResponseCode(), -1);
 		}
 	} else {
 		$nc(chain)->doFilter(t);
@@ -107,7 +80,29 @@ AuthFilter::AuthFilter() {
 }
 
 $Class* AuthFilter::load$($String* name, bool initialize) {
-	$loadClass(AuthFilter, name, initialize, &_AuthFilter_ClassInfo_, allocate$AuthFilter);
+	$FieldInfo fieldInfos$$[] = {
+		{"authenticator", "Lcom/sun/net/httpserver/Authenticator;", nullptr, $PRIVATE, $field(AuthFilter, authenticator)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/net/httpserver/Authenticator;)V", nullptr, $PUBLIC, $method(AuthFilter, init$, void, $Authenticator*)},
+		{"consumeInput", "(Lcom/sun/net/httpserver/HttpExchange;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, consumeInput, void, $HttpExchange*), "java.io.IOException"},
+		{"description", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AuthFilter, description, $String*)},
+		{"doFilter", "(Lcom/sun/net/httpserver/HttpExchange;Lcom/sun/net/httpserver/Filter$Chain;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, doFilter, void, $HttpExchange*, $Filter$Chain*), "java.io.IOException"},
+		{"setAuthenticator", "(Lcom/sun/net/httpserver/Authenticator;)V", nullptr, $PUBLIC, $virtualMethod(AuthFilter, setAuthenticator, void, $Authenticator*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.net.httpserver.AuthFilter",
+		"com.sun.net.httpserver.Filter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AuthFilter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AuthFilter);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <sun/net/httpserver/SSLStreams$Parameters.h>
-
 #include <com/sun/net/httpserver/HttpsConfigurator.h>
 #include <com/sun/net/httpserver/HttpsParameters.h>
 #include <java/net/InetSocketAddress.h>
@@ -20,48 +19,6 @@ using $SSLStreams = ::sun::net::httpserver::SSLStreams;
 namespace sun {
 	namespace net {
 		namespace httpserver {
-
-$FieldInfo _SSLStreams$Parameters_FieldInfo_[] = {
-	{"this$0", "Lsun/net/httpserver/SSLStreams;", nullptr, $FINAL | $SYNTHETIC, $field(SSLStreams$Parameters, this$0)},
-	{"addr", "Ljava/net/InetSocketAddress;", nullptr, 0, $field(SSLStreams$Parameters, addr)},
-	{"cfg", "Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, 0, $field(SSLStreams$Parameters, cfg)},
-	{"params", "Ljavax/net/ssl/SSLParameters;", nullptr, 0, $field(SSLStreams$Parameters, params)},
-	{}
-};
-
-$MethodInfo _SSLStreams$Parameters_MethodInfo_[] = {
-	{"<init>", "(Lsun/net/httpserver/SSLStreams;Lcom/sun/net/httpserver/HttpsConfigurator;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(SSLStreams$Parameters, init$, void, $SSLStreams*, $HttpsConfigurator*, $InetSocketAddress*)},
-	{"getClientAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, getClientAddress, $InetSocketAddress*)},
-	{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, getHttpsConfigurator, $HttpsConfigurator*)},
-	{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, 0, $virtualMethod(SSLStreams$Parameters, getSSLParameters, $SSLParameters*)},
-	{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, setSSLParameters, void, $SSLParameters*)},
-	{}
-};
-
-$InnerClassInfo _SSLStreams$Parameters_InnerClassesInfo_[] = {
-	{"sun.net.httpserver.SSLStreams$Parameters", "sun.net.httpserver.SSLStreams", "Parameters", 0},
-	{}
-};
-
-$ClassInfo _SSLStreams$Parameters_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.net.httpserver.SSLStreams$Parameters",
-	"com.sun.net.httpserver.HttpsParameters",
-	nullptr,
-	_SSLStreams$Parameters_FieldInfo_,
-	_SSLStreams$Parameters_MethodInfo_,
-	nullptr,
-	nullptr,
-	_SSLStreams$Parameters_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.net.httpserver.SSLStreams"
-};
-
-$Object* allocate$SSLStreams$Parameters($Class* clazz) {
-	return $of($alloc(SSLStreams$Parameters));
-}
 
 void SSLStreams$Parameters::init$($SSLStreams* this$0, $HttpsConfigurator* cfg, $InetSocketAddress* addr) {
 	$set(this, this$0, this$0);
@@ -90,7 +47,43 @@ SSLStreams$Parameters::SSLStreams$Parameters() {
 }
 
 $Class* SSLStreams$Parameters::load$($String* name, bool initialize) {
-	$loadClass(SSLStreams$Parameters, name, initialize, &_SSLStreams$Parameters_ClassInfo_, allocate$SSLStreams$Parameters);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/net/httpserver/SSLStreams;", nullptr, $FINAL | $SYNTHETIC, $field(SSLStreams$Parameters, this$0)},
+		{"addr", "Ljava/net/InetSocketAddress;", nullptr, 0, $field(SSLStreams$Parameters, addr)},
+		{"cfg", "Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, 0, $field(SSLStreams$Parameters, cfg)},
+		{"params", "Ljavax/net/ssl/SSLParameters;", nullptr, 0, $field(SSLStreams$Parameters, params)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/net/httpserver/SSLStreams;Lcom/sun/net/httpserver/HttpsConfigurator;Ljava/net/InetSocketAddress;)V", nullptr, 0, $method(SSLStreams$Parameters, init$, void, $SSLStreams*, $HttpsConfigurator*, $InetSocketAddress*)},
+		{"getClientAddress", "()Ljava/net/InetSocketAddress;", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, getClientAddress, $InetSocketAddress*)},
+		{"getHttpsConfigurator", "()Lcom/sun/net/httpserver/HttpsConfigurator;", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, getHttpsConfigurator, $HttpsConfigurator*)},
+		{"getSSLParameters", "()Ljavax/net/ssl/SSLParameters;", nullptr, 0, $virtualMethod(SSLStreams$Parameters, getSSLParameters, $SSLParameters*)},
+		{"setSSLParameters", "(Ljavax/net/ssl/SSLParameters;)V", nullptr, $PUBLIC, $virtualMethod(SSLStreams$Parameters, setSSLParameters, void, $SSLParameters*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.net.httpserver.SSLStreams$Parameters", "sun.net.httpserver.SSLStreams", "Parameters", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.net.httpserver.SSLStreams$Parameters",
+		"com.sun.net.httpserver.HttpsParameters",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.net.httpserver.SSLStreams"
+	};
+	$loadClass(SSLStreams$Parameters, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SSLStreams$Parameters);
+	});
 	return class$;
 }
 

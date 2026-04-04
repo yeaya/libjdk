@@ -15,10 +15,13 @@ public:
 	KeyAlreadyExistsException();
 	void init$();
 	void init$($String* msg);
-	static const int64_t serialVersionUID = (int64_t)0x199B68BDCD90E532;
+	static const int64_t serialVersionUID = (int64_t)0x199b68bdcd90e532;
 	KeyAlreadyExistsException(const KeyAlreadyExistsException& e);
 	virtual void throw$() override;
-	inline KeyAlreadyExistsException* operator ->() {
+	inline KeyAlreadyExistsException* operator ->() const {
+		return (KeyAlreadyExistsException*)throwing$;
+	}
+	inline operator KeyAlreadyExistsException*() const {
 		return (KeyAlreadyExistsException*)throwing$;
 	}
 };

@@ -47,6 +47,7 @@ class $import DesktopProperty : public ::javax::swing::UIDefaults$ActiveValue {
 	$class(DesktopProperty, 0, ::javax::swing::UIDefaults$ActiveValue)
 public:
 	DesktopProperty();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* key, Object$* fallback);
 	virtual $Object* configureValue(Object$* value);
 	virtual $Object* createValue(::javax::swing::UIDefaults* table) override;

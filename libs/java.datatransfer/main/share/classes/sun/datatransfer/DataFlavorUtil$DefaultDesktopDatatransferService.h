@@ -41,6 +41,7 @@ class DataFlavorUtil$DefaultDesktopDatatransferService : public ::sun::datatrans
 	$class(DataFlavorUtil$DefaultDesktopDatatransferService, 0, ::sun::datatransfer::DesktopDatatransferService)
 public:
 	DataFlavorUtil$DefaultDesktopDatatransferService();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	virtual $String* getDefaultUnicodeEncoding() override;
 	static ::sun::datatransfer::DesktopDatatransferService* getDesktopService();

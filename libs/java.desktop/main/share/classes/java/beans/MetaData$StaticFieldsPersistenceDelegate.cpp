@@ -1,5 +1,4 @@
 #include <java/beans/MetaData$StaticFieldsPersistenceDelegate.h>
-
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData.h>
@@ -27,53 +26,20 @@ using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;
 namespace java {
 	namespace beans {
 
-$MethodInfo _MetaData$StaticFieldsPersistenceDelegate_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(MetaData$StaticFieldsPersistenceDelegate, init$, void)},
-	{"installFields", "(Ljava/beans/Encoder;Ljava/lang/Class;)V", "(Ljava/beans/Encoder;Ljava/lang/Class<*>;)V", $PROTECTED, $virtualMethod(MetaData$StaticFieldsPersistenceDelegate, installFields, void, $Encoder*, $Class*)},
-	{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$StaticFieldsPersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
-	{"writeObject", "(Ljava/lang/Object;Ljava/beans/Encoder;)V", nullptr, $PUBLIC, $virtualMethod(MetaData$StaticFieldsPersistenceDelegate, writeObject, void, Object$*, $Encoder*)},
-	{}
-};
-
-$InnerClassInfo _MetaData$StaticFieldsPersistenceDelegate_InnerClassesInfo_[] = {
-	{"java.beans.MetaData$StaticFieldsPersistenceDelegate", "java.beans.MetaData", "StaticFieldsPersistenceDelegate", $STATIC},
-	{}
-};
-
-$ClassInfo _MetaData$StaticFieldsPersistenceDelegate_ClassInfo_ = {
-	$ACC_SUPER,
-	"java.beans.MetaData$StaticFieldsPersistenceDelegate",
-	"java.beans.PersistenceDelegate",
-	nullptr,
-	nullptr,
-	_MetaData$StaticFieldsPersistenceDelegate_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MetaData$StaticFieldsPersistenceDelegate_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.beans.MetaData"
-};
-
-$Object* allocate$MetaData$StaticFieldsPersistenceDelegate($Class* clazz) {
-	return $of($alloc(MetaData$StaticFieldsPersistenceDelegate));
-}
-
 void MetaData$StaticFieldsPersistenceDelegate::init$() {
 	$PersistenceDelegate::init$();
 }
 
 void MetaData$StaticFieldsPersistenceDelegate::installFields($Encoder* out, $Class* cls) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$beforeCallerSensitive();
 	bool var$0 = $Modifier::isPublic($nc(cls)->getModifiers());
 	if (var$0 && $ReflectUtil::isPackageAccessible(cls)) {
-		$var($FieldArray, fields, $nc(cls)->getFields());
+		$var($FieldArray, fields, cls->getFields());
 		for (int32_t i = 0; i < $nc(fields)->length; ++i) {
 			$var($Field, field, fields->get(i));
 			if ($Object::class$->isAssignableFrom($nc(field)->getType())) {
-				$nc(out)->writeExpression($$new($Expression, field, "get"_s, $$new($ObjectArray, {($Object*)nullptr})));
+				$nc(out)->writeExpression($$new($Expression, field, "get"_s, $$new($ObjectArray, {nullptr})));
 			}
 		}
 	}
@@ -86,7 +52,6 @@ $Expression* MetaData$StaticFieldsPersistenceDelegate::instantiate(Object$* oldI
 
 void MetaData$StaticFieldsPersistenceDelegate::writeObject(Object$* oldInstance, $Encoder* out) {
 	if ($nc(out)->getAttribute(this) == nullptr) {
-		$init($Boolean);
 		out->setAttribute(this, $Boolean::TRUE);
 		installFields(out, $nc($of(oldInstance))->getClass());
 	}
@@ -97,7 +62,35 @@ MetaData$StaticFieldsPersistenceDelegate::MetaData$StaticFieldsPersistenceDelega
 }
 
 $Class* MetaData$StaticFieldsPersistenceDelegate::load$($String* name, bool initialize) {
-	$loadClass(MetaData$StaticFieldsPersistenceDelegate, name, initialize, &_MetaData$StaticFieldsPersistenceDelegate_ClassInfo_, allocate$MetaData$StaticFieldsPersistenceDelegate);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(MetaData$StaticFieldsPersistenceDelegate, init$, void)},
+		{"installFields", "(Ljava/beans/Encoder;Ljava/lang/Class;)V", "(Ljava/beans/Encoder;Ljava/lang/Class<*>;)V", $PROTECTED, $virtualMethod(MetaData$StaticFieldsPersistenceDelegate, installFields, void, $Encoder*, $Class*)},
+		{"instantiate", "(Ljava/lang/Object;Ljava/beans/Encoder;)Ljava/beans/Expression;", nullptr, $PROTECTED, $virtualMethod(MetaData$StaticFieldsPersistenceDelegate, instantiate, $Expression*, Object$*, $Encoder*)},
+		{"writeObject", "(Ljava/lang/Object;Ljava/beans/Encoder;)V", nullptr, $PUBLIC, $virtualMethod(MetaData$StaticFieldsPersistenceDelegate, writeObject, void, Object$*, $Encoder*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.beans.MetaData$StaticFieldsPersistenceDelegate", "java.beans.MetaData", "StaticFieldsPersistenceDelegate", $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"java.beans.MetaData$StaticFieldsPersistenceDelegate",
+		"java.beans.PersistenceDelegate",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.beans.MetaData"
+	};
+	$loadClass(MetaData$StaticFieldsPersistenceDelegate, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MetaData$StaticFieldsPersistenceDelegate);
+	});
 	return class$;
 }
 

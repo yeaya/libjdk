@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/classfile/StackMapType.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <java/io/DataInput.h>
@@ -25,53 +24,16 @@ namespace com {
 					namespace internal {
 						namespace classfile {
 
-$FieldInfo _StackMapType_FieldInfo_[] = {
-	{"type", "B", nullptr, $PRIVATE, $field(StackMapType, type)},
-	{"index", "I", nullptr, $PRIVATE, $field(StackMapType, index)},
-	{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE, $field(StackMapType, constantPool)},
-	{}
-};
-
-$MethodInfo _StackMapType_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(StackMapType, init$, void, $DataInput*, $ConstantPool*), "java.io.IOException"},
-	{"<init>", "(BILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMapType, init$, void, int8_t, int32_t, $ConstantPool*)},
-	{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PUBLIC, $method(StackMapType, copy, StackMapType*)},
-	{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(StackMapType, dump, void, $DataOutputStream*), "java.io.IOException"},
-	{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $method(StackMapType, getConstantPool, $ConstantPool*)},
-	{"getIndex", "()I", nullptr, $PUBLIC, $method(StackMapType, getIndex, int32_t)},
-	{"getType", "()B", nullptr, $PUBLIC, $method(StackMapType, getType, int8_t)},
-	{"hasIndex", "()Z", nullptr, $PUBLIC, $method(StackMapType, hasIndex, bool)},
-	{"printIndex", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(StackMapType, printIndex, $String*)},
-	{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMapType, setConstantPool, void, $ConstantPool*)},
-	{"setIndex", "(I)V", nullptr, $PUBLIC, $method(StackMapType, setIndex, void, int32_t)},
-	{"setType", "(B)V", nullptr, $PUBLIC, $method(StackMapType, setType, void, int8_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackMapType, toString, $String*)},
-	{}
-};
-
-$ClassInfo _StackMapType_ClassInfo_ = {
-	$PUBLIC | $FINAL | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.classfile.StackMapType",
-	"java.lang.Object",
-	"java.lang.Cloneable",
-	_StackMapType_FieldInfo_,
-	_StackMapType_MethodInfo_
-};
-
-$Object* allocate$StackMapType($Class* clazz) {
-	return $of($alloc(StackMapType));
-}
-
 void StackMapType::init$($DataInput* file, $ConstantPool* constant_pool) {
 	StackMapType::init$($nc(file)->readByte(), -1, constant_pool);
 	if (hasIndex()) {
-		this->index = $nc(file)->readShort();
+		this->index = file->readShort();
 	}
 	$set(this, constantPool, constant_pool);
 }
 
 void StackMapType::init$(int8_t type, int32_t index, $ConstantPool* constant_pool) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->index = -1;
 	if ((type < $Const::ITEM_Bogus) || (type > $Const::ITEM_NewObject)) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal type for StackMapType: "_s, $$str(type)}));
@@ -82,7 +44,7 @@ void StackMapType::init$(int8_t type, int32_t index, $ConstantPool* constant_poo
 }
 
 void StackMapType::setType(int8_t t) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if ((t < $Const::ITEM_Bogus) || (t > $Const::ITEM_NewObject)) {
 		$throwNew($IllegalArgumentException, $$str({"Illegal type for StackMapType: "_s, $$str(t)}));
 	}
@@ -113,7 +75,7 @@ bool StackMapType::hasIndex() {
 }
 
 $String* StackMapType::printIndex() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->type == $Const::ITEM_Object) {
 		if (this->index < 0) {
 			return ", class=<unknown>"_s;
@@ -127,10 +89,13 @@ $String* StackMapType::printIndex() {
 }
 
 $String* StackMapType::toString() {
-	$useLocalCurrentObjectStackCache();
-	$var($String, var$1, $$str({"(type="_s, $($Const::getItemName(this->type))}));
-	$var($String, var$0, $$concat(var$1, $(printIndex())));
-	return $concat(var$0, ")"_s);
+	$useLocalObjectStack();
+	$var($StringBuilder, var$0, $new($StringBuilder));
+	var$0->append("(type="_s);
+	var$0->append($($Const::getItemName(this->type)));
+	var$0->append($(printIndex()));
+	var$0->append(")"_s);
+	return $str(var$0);
 }
 
 StackMapType* StackMapType::copy() {
@@ -153,7 +118,39 @@ StackMapType::StackMapType() {
 }
 
 $Class* StackMapType::load$($String* name, bool initialize) {
-	$loadClass(StackMapType, name, initialize, &_StackMapType_ClassInfo_, allocate$StackMapType);
+	$FieldInfo fieldInfos$$[] = {
+		{"type", "B", nullptr, $PRIVATE, $field(StackMapType, type)},
+		{"index", "I", nullptr, $PRIVATE, $field(StackMapType, index)},
+		{"constantPool", "Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PRIVATE, $field(StackMapType, constantPool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/DataInput;Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, 0, $method(StackMapType, init$, void, $DataInput*, $ConstantPool*), "java.io.IOException"},
+		{"<init>", "(BILcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMapType, init$, void, int8_t, int32_t, $ConstantPool*)},
+		{"copy", "()Lcom/sun/org/apache/bcel/internal/classfile/StackMapType;", nullptr, $PUBLIC, $method(StackMapType, copy, StackMapType*)},
+		{"dump", "(Ljava/io/DataOutputStream;)V", nullptr, $PUBLIC, $method(StackMapType, dump, void, $DataOutputStream*), "java.io.IOException"},
+		{"getConstantPool", "()Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;", nullptr, $PUBLIC, $method(StackMapType, getConstantPool, $ConstantPool*)},
+		{"getIndex", "()I", nullptr, $PUBLIC, $method(StackMapType, getIndex, int32_t)},
+		{"getType", "()B", nullptr, $PUBLIC, $method(StackMapType, getType, int8_t)},
+		{"hasIndex", "()Z", nullptr, $PUBLIC, $method(StackMapType, hasIndex, bool)},
+		{"printIndex", "()Ljava/lang/String;", nullptr, $PRIVATE, $method(StackMapType, printIndex, $String*)},
+		{"setConstantPool", "(Lcom/sun/org/apache/bcel/internal/classfile/ConstantPool;)V", nullptr, $PUBLIC, $method(StackMapType, setConstantPool, void, $ConstantPool*)},
+		{"setIndex", "(I)V", nullptr, $PUBLIC, $method(StackMapType, setIndex, void, int32_t)},
+		{"setType", "(B)V", nullptr, $PUBLIC, $method(StackMapType, setType, void, int8_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(StackMapType, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $FINAL | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.classfile.StackMapType",
+		"java.lang.Object",
+		"java.lang.Cloneable",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StackMapType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StackMapType);
+	});
 	return class$;
 }
 

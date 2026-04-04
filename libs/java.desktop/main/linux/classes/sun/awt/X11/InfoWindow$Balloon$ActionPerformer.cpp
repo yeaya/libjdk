@@ -1,6 +1,4 @@
 #include <sun/awt/X11/InfoWindow$Balloon$ActionPerformer.h>
-
-#include <java/awt/AWTEvent.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
@@ -14,7 +12,6 @@
 #undef ACTION_PERFORMED
 #undef BUTTON1
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -23,49 +20,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InfoWindow$Balloon = ::sun::awt::X11::InfoWindow$Balloon;
-using $InfoWindow$Balloon$LiveArguments = ::sun::awt::X11::InfoWindow$Balloon$LiveArguments;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _InfoWindow$Balloon$ActionPerformer_FieldInfo_[] = {
-	{"this$0", "Lsun/awt/X11/InfoWindow$Balloon;", nullptr, $FINAL | $SYNTHETIC, $field(InfoWindow$Balloon$ActionPerformer, this$0)},
-	{}
-};
-
-$MethodInfo _InfoWindow$Balloon$ActionPerformer_MethodInfo_[] = {
-	{"<init>", "(Lsun/awt/X11/InfoWindow$Balloon;)V", nullptr, $PRIVATE, $method(InfoWindow$Balloon$ActionPerformer, init$, void, $InfoWindow$Balloon*)},
-	{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(InfoWindow$Balloon$ActionPerformer, mouseClicked, void, $MouseEvent*)},
-	{}
-};
-
-$InnerClassInfo _InfoWindow$Balloon$ActionPerformer_InnerClassesInfo_[] = {
-	{"sun.awt.X11.InfoWindow$Balloon", "sun.awt.X11.InfoWindow", "Balloon", $PUBLIC | $STATIC},
-	{"sun.awt.X11.InfoWindow$Balloon$ActionPerformer", "sun.awt.X11.InfoWindow$Balloon", "ActionPerformer", $PRIVATE},
-	{}
-};
-
-$ClassInfo _InfoWindow$Balloon$ActionPerformer_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.awt.X11.InfoWindow$Balloon$ActionPerformer",
-	"java.awt.event.MouseAdapter",
-	nullptr,
-	_InfoWindow$Balloon$ActionPerformer_FieldInfo_,
-	_InfoWindow$Balloon$ActionPerformer_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InfoWindow$Balloon$ActionPerformer_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.InfoWindow"
-};
-
-$Object* allocate$InfoWindow$Balloon$ActionPerformer($Class* clazz) {
-	return $of($alloc(InfoWindow$Balloon$ActionPerformer));
-}
 
 void InfoWindow$Balloon$ActionPerformer::init$($InfoWindow$Balloon* this$0) {
 	$set(this, this$0, this$0);
@@ -73,7 +32,7 @@ void InfoWindow$Balloon$ActionPerformer::init$($InfoWindow$Balloon* this$0) {
 }
 
 void InfoWindow$Balloon$ActionPerformer::mouseClicked($MouseEvent* e) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	this->this$0->hide();
 	if ($nc(e)->getButton() == $MouseEvent::BUTTON1) {
 		$var($Object, var$0, this->this$0->target);
@@ -88,7 +47,38 @@ InfoWindow$Balloon$ActionPerformer::InfoWindow$Balloon$ActionPerformer() {
 }
 
 $Class* InfoWindow$Balloon$ActionPerformer::load$($String* name, bool initialize) {
-	$loadClass(InfoWindow$Balloon$ActionPerformer, name, initialize, &_InfoWindow$Balloon$ActionPerformer_ClassInfo_, allocate$InfoWindow$Balloon$ActionPerformer);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/awt/X11/InfoWindow$Balloon;", nullptr, $FINAL | $SYNTHETIC, $field(InfoWindow$Balloon$ActionPerformer, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/awt/X11/InfoWindow$Balloon;)V", nullptr, $PRIVATE, $method(InfoWindow$Balloon$ActionPerformer, init$, void, $InfoWindow$Balloon*)},
+		{"mouseClicked", "(Ljava/awt/event/MouseEvent;)V", nullptr, $PUBLIC, $virtualMethod(InfoWindow$Balloon$ActionPerformer, mouseClicked, void, $MouseEvent*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.InfoWindow$Balloon", "sun.awt.X11.InfoWindow", "Balloon", $PUBLIC | $STATIC},
+		{"sun.awt.X11.InfoWindow$Balloon$ActionPerformer", "sun.awt.X11.InfoWindow$Balloon", "ActionPerformer", $PRIVATE},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.awt.X11.InfoWindow$Balloon$ActionPerformer",
+		"java.awt.event.MouseAdapter",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.InfoWindow"
+	};
+	$loadClass(InfoWindow$Balloon$ActionPerformer, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(InfoWindow$Balloon$ActionPerformer));
+	});
 	return class$;
 }
 

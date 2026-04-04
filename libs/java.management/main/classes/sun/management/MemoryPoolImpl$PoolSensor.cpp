@@ -1,5 +1,4 @@
 #include <sun/management/MemoryPoolImpl$PoolSensor.h>
-
 #include <java/lang/management/MemoryUsage.h>
 #include <sun/management/MemoryImpl.h>
 #include <sun/management/MemoryPoolImpl.h>
@@ -18,45 +17,6 @@ using $Sensor = ::sun::management::Sensor;
 namespace sun {
 	namespace management {
 
-$FieldInfo _MemoryPoolImpl$PoolSensor_FieldInfo_[] = {
-	{"this$0", "Lsun/management/MemoryPoolImpl;", nullptr, $FINAL | $SYNTHETIC, $field(MemoryPoolImpl$PoolSensor, this$0)},
-	{"pool", "Lsun/management/MemoryPoolImpl;", nullptr, $FINAL, $field(MemoryPoolImpl$PoolSensor, pool)},
-	{}
-};
-
-$MethodInfo _MemoryPoolImpl$PoolSensor_MethodInfo_[] = {
-	{"<init>", "(Lsun/management/MemoryPoolImpl;Lsun/management/MemoryPoolImpl;Ljava/lang/String;)V", nullptr, 0, $method(MemoryPoolImpl$PoolSensor, init$, void, $MemoryPoolImpl*, $MemoryPoolImpl*, $String*)},
-	{"clearAction", "()V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, clearAction, void)},
-	{"triggerAction", "(Ljava/lang/management/MemoryUsage;)V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, triggerAction, void, $MemoryUsage*)},
-	{"triggerAction", "()V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, triggerAction, void)},
-	{}
-};
-
-$InnerClassInfo _MemoryPoolImpl$PoolSensor_InnerClassesInfo_[] = {
-	{"sun.management.MemoryPoolImpl$PoolSensor", "sun.management.MemoryPoolImpl", "PoolSensor", 0},
-	{}
-};
-
-$ClassInfo _MemoryPoolImpl$PoolSensor_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.MemoryPoolImpl$PoolSensor",
-	"sun.management.Sensor",
-	nullptr,
-	_MemoryPoolImpl$PoolSensor_FieldInfo_,
-	_MemoryPoolImpl$PoolSensor_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MemoryPoolImpl$PoolSensor_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.MemoryPoolImpl"
-};
-
-$Object* allocate$MemoryPoolImpl$PoolSensor($Class* clazz) {
-	return $of($alloc(MemoryPoolImpl$PoolSensor));
-}
-
 void MemoryPoolImpl$PoolSensor::init$($MemoryPoolImpl* this$0, $MemoryPoolImpl* pool, $String* name) {
 	$set(this, this$0, this$0);
 	$Sensor::init$(name);
@@ -64,11 +24,10 @@ void MemoryPoolImpl$PoolSensor::init$($MemoryPoolImpl* this$0, $MemoryPoolImpl* 
 }
 
 void MemoryPoolImpl$PoolSensor::triggerAction($MemoryUsage* usage) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($String, var$0, "java.management.memory.threshold.exceeded"_s);
 	$var($String, var$1, $nc(this->pool)->getName());
-	$var($MemoryUsage, var$2, usage);
-	$MemoryImpl::createNotification(var$0, var$1, var$2, getCount());
+	$MemoryImpl::createNotification(var$0, var$1, usage, getCount());
 }
 
 void MemoryPoolImpl$PoolSensor::triggerAction() {
@@ -81,7 +40,40 @@ MemoryPoolImpl$PoolSensor::MemoryPoolImpl$PoolSensor() {
 }
 
 $Class* MemoryPoolImpl$PoolSensor::load$($String* name, bool initialize) {
-	$loadClass(MemoryPoolImpl$PoolSensor, name, initialize, &_MemoryPoolImpl$PoolSensor_ClassInfo_, allocate$MemoryPoolImpl$PoolSensor);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lsun/management/MemoryPoolImpl;", nullptr, $FINAL | $SYNTHETIC, $field(MemoryPoolImpl$PoolSensor, this$0)},
+		{"pool", "Lsun/management/MemoryPoolImpl;", nullptr, $FINAL, $field(MemoryPoolImpl$PoolSensor, pool)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lsun/management/MemoryPoolImpl;Lsun/management/MemoryPoolImpl;Ljava/lang/String;)V", nullptr, 0, $method(MemoryPoolImpl$PoolSensor, init$, void, $MemoryPoolImpl*, $MemoryPoolImpl*, $String*)},
+		{"clearAction", "()V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, clearAction, void)},
+		{"triggerAction", "(Ljava/lang/management/MemoryUsage;)V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, triggerAction, void, $MemoryUsage*)},
+		{"triggerAction", "()V", nullptr, 0, $virtualMethod(MemoryPoolImpl$PoolSensor, triggerAction, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.MemoryPoolImpl$PoolSensor", "sun.management.MemoryPoolImpl", "PoolSensor", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.MemoryPoolImpl$PoolSensor",
+		"sun.management.Sensor",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.MemoryPoolImpl"
+	};
+	$loadClass(MemoryPoolImpl$PoolSensor, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MemoryPoolImpl$PoolSensor);
+	});
 	return class$;
 }
 

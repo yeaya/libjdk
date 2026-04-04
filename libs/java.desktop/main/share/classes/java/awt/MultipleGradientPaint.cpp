@@ -1,5 +1,4 @@
 #include <java/awt/MultipleGradientPaint.h>
-
 #include <java/awt/Color.h>
 #include <java/awt/MultipleGradientPaint$ColorSpaceType.h>
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
@@ -14,7 +13,6 @@
 #undef TRANSLUCENT
 
 using $ColorArray = $Array<::java::awt::Color>;
-using $Color = ::java::awt::Color;
 using $MultipleGradientPaint$ColorSpaceType = ::java::awt::MultipleGradientPaint$ColorSpaceType;
 using $MultipleGradientPaint$CycleMethod = ::java::awt::MultipleGradientPaint$CycleMethod;
 using $Transparency = ::java::awt::Transparency;
@@ -31,60 +29,8 @@ using $Arrays = ::java::util::Arrays;
 namespace java {
 	namespace awt {
 
-$FieldInfo _MultipleGradientPaint_FieldInfo_[] = {
-	{"transparency", "I", nullptr, $FINAL, $field(MultipleGradientPaint, transparency)},
-	{"fractions", "[F", nullptr, $FINAL, $field(MultipleGradientPaint, fractions)},
-	{"colors", "[Ljava/awt/Color;", nullptr, $FINAL, $field(MultipleGradientPaint, colors)},
-	{"gradientTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $FINAL, $field(MultipleGradientPaint, gradientTransform)},
-	{"cycleMethod", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $FINAL, $field(MultipleGradientPaint, cycleMethod)},
-	{"colorSpace", "Ljava/awt/MultipleGradientPaint$ColorSpaceType;", nullptr, $FINAL, $field(MultipleGradientPaint, colorSpace)},
-	{"model", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(MultipleGradientPaint, model)},
-	{"normalizedIntervals", "[F", nullptr, 0, $field(MultipleGradientPaint, normalizedIntervals)},
-	{"isSimpleLookup", "Z", nullptr, 0, $field(MultipleGradientPaint, isSimpleLookup)},
-	{"gradients", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[[I>;", 0, $field(MultipleGradientPaint, gradients)},
-	{"gradient", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[I>;", 0, $field(MultipleGradientPaint, gradient)},
-	{"fastGradientArraySize", "I", nullptr, 0, $field(MultipleGradientPaint, fastGradientArraySize)},
-	{}
-};
-
-$MethodInfo _MultipleGradientPaint_MethodInfo_[] = {
-	{"<init>", "([F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(MultipleGradientPaint, init$, void, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*, $AffineTransform*)},
-	{"getColorSpace", "()Ljava/awt/MultipleGradientPaint$ColorSpaceType;", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getColorSpace, $MultipleGradientPaint$ColorSpaceType*)},
-	{"getColors", "()[Ljava/awt/Color;", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getColors, $ColorArray*)},
-	{"getCycleMethod", "()Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getCycleMethod, $MultipleGradientPaint$CycleMethod*)},
-	{"getFractions", "()[F", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getFractions, $floats*)},
-	{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getTransform, $AffineTransform*)},
-	{"getTransparency", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleGradientPaint, getTransparency, int32_t)},
-	{}
-};
-
-$InnerClassInfo _MultipleGradientPaint_InnerClassesInfo_[] = {
-	{"java.awt.MultipleGradientPaint$ColorSpaceType", "java.awt.MultipleGradientPaint", "ColorSpaceType", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{"java.awt.MultipleGradientPaint$CycleMethod", "java.awt.MultipleGradientPaint", "CycleMethod", $PUBLIC | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MultipleGradientPaint_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"java.awt.MultipleGradientPaint",
-	"java.lang.Object",
-	"java.awt.Paint",
-	_MultipleGradientPaint_FieldInfo_,
-	_MultipleGradientPaint_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MultipleGradientPaint_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"java.awt.MultipleGradientPaint$ColorSpaceType,java.awt.MultipleGradientPaint$CycleMethod"
-};
-
-$Object* allocate$MultipleGradientPaint($Class* clazz) {
-	return $of($alloc(MultipleGradientPaint));
-}
-
 void MultipleGradientPaint::init$($floats* fractions, $ColorArray* colors, $MultipleGradientPaint$CycleMethod* cycleMethod, $MultipleGradientPaint$ColorSpaceType* colorSpace, $AffineTransform* gradientTransform) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (fractions == nullptr) {
 		$throwNew($NullPointerException, "Fractions array cannot be null"_s);
 	}
@@ -103,15 +49,13 @@ void MultipleGradientPaint::init$($floats* fractions, $ColorArray* colors, $Mult
 	if ($nc(fractions)->length != $nc(colors)->length) {
 		$throwNew($IllegalArgumentException, "Colors and fractions must have equal size"_s);
 	}
-	if ($nc(colors)->length < 2) {
+	if (colors->length < 2) {
 		$throwNew($IllegalArgumentException, "User must specify at least 2 colors"_s);
 	}
 	float previousFraction = -1.0f;
 	{
 		$var($floats, arr$, fractions);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = arr$->length, i$ = 0; i$ < len$; ++i$) {
 			float currentFraction = arr$->get(i$);
 			{
 				if (currentFraction < 0.0f || currentFraction > 1.0f) {
@@ -126,7 +70,7 @@ void MultipleGradientPaint::init$($floats* fractions, $ColorArray* colors, $Mult
 	}
 	bool fixFirst = false;
 	bool fixLast = false;
-	int32_t len = $nc(fractions)->length;
+	int32_t len = fractions->length;
 	int32_t off = 0;
 	if (fractions->get(0) != 0.0f) {
 		fixFirst = true;
@@ -140,20 +84,20 @@ void MultipleGradientPaint::init$($floats* fractions, $ColorArray* colors, $Mult
 	$set(this, fractions, $new($floats, len));
 	$System::arraycopy(fractions, 0, this->fractions, off, fractions->length);
 	$set(this, colors, $new($ColorArray, len));
-	$System::arraycopy(colors, 0, this->colors, off, $nc(colors)->length);
+	$System::arraycopy(colors, 0, this->colors, off, colors->length);
 	if (fixFirst) {
-		$nc(this->fractions)->set(0, 0.0f);
-		$nc(this->colors)->set(0, $nc(colors)->get(0));
+		this->fractions->set(0, 0.0f);
+		this->colors->set(0, colors->get(0));
 	}
 	if (fixLast) {
-		$nc(this->fractions)->set(len - 1, 1.0f);
-		$nc(this->colors)->set(len - 1, $nc(colors)->get(colors->length - 1));
+		this->fractions->set(len - 1, 1.0f);
+		this->colors->set(len - 1, colors->get(colors->length - 1));
 	}
 	$set(this, colorSpace, colorSpace);
 	$set(this, cycleMethod, cycleMethod);
 	$set(this, gradientTransform, $new($AffineTransform, gradientTransform));
 	bool opaque = true;
-	for (int32_t i = 0; i < $nc(colors)->length; ++i) {
+	for (int32_t i = 0; i < colors->length; ++i) {
 		opaque = opaque && ($nc(colors->get(i))->getAlpha() == 255);
 	}
 	this->transparency = opaque ? $Transparency::OPAQUE : $Transparency::TRANSLUCENT;
@@ -164,7 +108,7 @@ $floats* MultipleGradientPaint::getFractions() {
 }
 
 $ColorArray* MultipleGradientPaint::getColors() {
-	return $fcast($ColorArray, $Arrays::copyOf(this->colors, $nc(this->colors)->length));
+	return $cast($ColorArray, $Arrays::copyOf(this->colors, $nc(this->colors)->length));
 }
 
 $MultipleGradientPaint$CycleMethod* MultipleGradientPaint::getCycleMethod() {
@@ -187,7 +131,53 @@ MultipleGradientPaint::MultipleGradientPaint() {
 }
 
 $Class* MultipleGradientPaint::load$($String* name, bool initialize) {
-	$loadClass(MultipleGradientPaint, name, initialize, &_MultipleGradientPaint_ClassInfo_, allocate$MultipleGradientPaint);
+	$FieldInfo fieldInfos$$[] = {
+		{"transparency", "I", nullptr, $FINAL, $field(MultipleGradientPaint, transparency)},
+		{"fractions", "[F", nullptr, $FINAL, $field(MultipleGradientPaint, fractions)},
+		{"colors", "[Ljava/awt/Color;", nullptr, $FINAL, $field(MultipleGradientPaint, colors)},
+		{"gradientTransform", "Ljava/awt/geom/AffineTransform;", nullptr, $FINAL, $field(MultipleGradientPaint, gradientTransform)},
+		{"cycleMethod", "Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $FINAL, $field(MultipleGradientPaint, cycleMethod)},
+		{"colorSpace", "Ljava/awt/MultipleGradientPaint$ColorSpaceType;", nullptr, $FINAL, $field(MultipleGradientPaint, colorSpace)},
+		{"model", "Ljava/awt/image/ColorModel;", nullptr, 0, $field(MultipleGradientPaint, model)},
+		{"normalizedIntervals", "[F", nullptr, 0, $field(MultipleGradientPaint, normalizedIntervals)},
+		{"isSimpleLookup", "Z", nullptr, 0, $field(MultipleGradientPaint, isSimpleLookup)},
+		{"gradients", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[[I>;", 0, $field(MultipleGradientPaint, gradients)},
+		{"gradient", "Ljava/lang/ref/SoftReference;", "Ljava/lang/ref/SoftReference<[I>;", 0, $field(MultipleGradientPaint, gradient)},
+		{"fastGradientArraySize", "I", nullptr, 0, $field(MultipleGradientPaint, fastGradientArraySize)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "([F[Ljava/awt/Color;Ljava/awt/MultipleGradientPaint$CycleMethod;Ljava/awt/MultipleGradientPaint$ColorSpaceType;Ljava/awt/geom/AffineTransform;)V", nullptr, 0, $method(MultipleGradientPaint, init$, void, $floats*, $ColorArray*, $MultipleGradientPaint$CycleMethod*, $MultipleGradientPaint$ColorSpaceType*, $AffineTransform*)},
+		{"getColorSpace", "()Ljava/awt/MultipleGradientPaint$ColorSpaceType;", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getColorSpace, $MultipleGradientPaint$ColorSpaceType*)},
+		{"getColors", "()[Ljava/awt/Color;", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getColors, $ColorArray*)},
+		{"getCycleMethod", "()Ljava/awt/MultipleGradientPaint$CycleMethod;", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getCycleMethod, $MultipleGradientPaint$CycleMethod*)},
+		{"getFractions", "()[F", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getFractions, $floats*)},
+		{"getTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC | $FINAL, $method(MultipleGradientPaint, getTransform, $AffineTransform*)},
+		{"getTransparency", "()I", nullptr, $PUBLIC | $FINAL, $virtualMethod(MultipleGradientPaint, getTransparency, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.MultipleGradientPaint$ColorSpaceType", "java.awt.MultipleGradientPaint", "ColorSpaceType", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{"java.awt.MultipleGradientPaint$CycleMethod", "java.awt.MultipleGradientPaint", "CycleMethod", $PUBLIC | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"java.awt.MultipleGradientPaint",
+		"java.lang.Object",
+		"java.awt.Paint",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"java.awt.MultipleGradientPaint$ColorSpaceType,java.awt.MultipleGradientPaint$CycleMethod"
+	};
+	$loadClass(MultipleGradientPaint, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MultipleGradientPaint);
+	});
 	return class$;
 }
 

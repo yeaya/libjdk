@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509Certificate.h>
-
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
@@ -27,12 +26,10 @@ using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
 using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
-using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PublicKey = ::java::security::PublicKey;
@@ -54,40 +51,6 @@ namespace com {
 							namespace keys {
 								namespace content {
 									namespace x509 {
-
-$FieldInfo _XMLX509Certificate_FieldInfo_[] = {
-	{"JCA_CERT_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLX509Certificate, JCA_CERT_ID)},
-	{}
-};
-
-$MethodInfo _XMLX509Certificate_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509Certificate, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(XMLX509Certificate, init$, void, $Document*, $bytes*)},
-	{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509Certificate, init$, void, $Document*, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, equals, bool, Object$*)},
-	{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, getBaseLocalName, $String*)},
-	{"getCertificateBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, getCertificateBytes, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException,java.io.IOException"},
-	{"getX509Certificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, getX509Certificate, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, hashCode, int32_t)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _XMLX509Certificate_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509Certificate",
-	"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
-	"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
-	_XMLX509Certificate_FieldInfo_,
-	_XMLX509Certificate_MethodInfo_
-};
-
-$Object* allocate$XMLX509Certificate($Class* clazz) {
-	return $of($alloc(XMLX509Certificate));
-}
 
 $Object* XMLX509Certificate::clone() {
 	 return this->$SignatureElementProxy::clone();
@@ -117,7 +80,7 @@ void XMLX509Certificate::init$($Document* doc, $X509Certificate* x509certificate
 	try {
 		this->addBase64Text($($nc(x509certificate)->getEncoded()));
 	} catch ($CertificateEncodingException& ex) {
-		$throwNew($XMLSecurityException, static_cast<$Exception*>(ex));
+		$throwNew($XMLSecurityException, ex);
 	}
 }
 
@@ -126,44 +89,42 @@ $bytes* XMLX509Certificate::getCertificateBytes() {
 }
 
 $X509Certificate* XMLX509Certificate::getX509Certificate() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($bytes, certbytes, this->getCertificateBytes());
 	try {
 		$var($InputStream, is, $new($ByteArrayInputStream, certbytes));
-		{
-			$var($Throwable, var$0, nullptr);
-			$var($X509Certificate, var$2, nullptr);
-			bool return$1 = false;
+		$var($Throwable, var$0, nullptr);
+		$var($X509Certificate, var$2, nullptr);
+		bool return$1 = false;
+		try {
 			try {
+				$var($CertificateFactory, certFact, $CertificateFactory::getInstance(XMLX509Certificate::JCA_CERT_ID));
+				$assign(var$2, $cast($X509Certificate, $nc(certFact)->generateCertificate(is)));
+				return$1 = true;
+				goto $finally;
+			} catch ($Throwable& t$) {
 				try {
-					$var($CertificateFactory, certFact, $CertificateFactory::getInstance(XMLX509Certificate::JCA_CERT_ID));
-					$assign(var$2, $cast($X509Certificate, $nc(certFact)->generateCertificate(is)));
-					return$1 = true;
-					goto $finally;
-				} catch ($Throwable& t$) {
-					try {
-						is->close();
-					} catch ($Throwable& x2) {
-						t$->addSuppressed(x2);
-					}
-					$throw(t$);
+					is->close();
+				} catch ($Throwable& x2) {
+					t$->addSuppressed(x2);
 				}
-			} catch ($Throwable& var$3) {
-				$assign(var$0, var$3);
-			} $finally: {
-				is->close();
+				$throw(t$);
 			}
-			if (var$0 != nullptr) {
-				$throw(var$0);
-			}
-			if (return$1) {
-				return var$2;
-			}
+		} catch ($Throwable& var$3) {
+			$assign(var$0, var$3);
+		} $finally: {
+			is->close();
+		}
+		if (var$0 != nullptr) {
+			$throw(var$0);
+		}
+		if (return$1) {
+			return var$2;
 		}
 	} catch ($CertificateException& ex) {
-		$throwNew($XMLSecurityException, $cast($Exception, ex));
+		$throwNew($XMLSecurityException, ex);
 	} catch ($IOException& ex) {
-		$throwNew($XMLSecurityException, $cast($Exception, ex));
+		$throwNew($XMLSecurityException, ex);
 	}
 	$shouldNotReachHere();
 }
@@ -177,7 +138,7 @@ $PublicKey* XMLX509Certificate::getPublicKey() {
 }
 
 bool XMLX509Certificate::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(XMLX509Certificate, obj))) {
 		return false;
 	}
@@ -192,7 +153,7 @@ bool XMLX509Certificate::equals(Object$* obj) {
 }
 
 int32_t XMLX509Certificate::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	int32_t result = 17;
 	try {
 		$var($bytes, bytes, getCertificateBytes());
@@ -201,7 +162,7 @@ int32_t XMLX509Certificate::hashCode() {
 		}
 	} catch ($XMLSecurityException& e) {
 		$init($ElementProxy);
-		$nc($ElementProxy::LOG)->debug($(e->getMessage()), static_cast<$Throwable*>(e));
+		$nc($ElementProxy::LOG)->debug($(e->getMessage()), e);
 	}
 	return result;
 }
@@ -214,12 +175,41 @@ $String* XMLX509Certificate::getBaseLocalName() {
 XMLX509Certificate::XMLX509Certificate() {
 }
 
-void clinit$XMLX509Certificate($Class* class$) {
+void XMLX509Certificate::clinit$($Class* clazz) {
 	$assignStatic(XMLX509Certificate::JCA_CERT_ID, "X.509"_s);
 }
 
 $Class* XMLX509Certificate::load$($String* name, bool initialize) {
-	$loadClass(XMLX509Certificate, name, initialize, &_XMLX509Certificate_ClassInfo_, clinit$XMLX509Certificate, allocate$XMLX509Certificate);
+	$FieldInfo fieldInfos$$[] = {
+		{"JCA_CERT_ID", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(XMLX509Certificate, JCA_CERT_ID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"<init>", "(Lorg/w3c/dom/Element;Ljava/lang/String;)V", nullptr, $PUBLIC, $method(XMLX509Certificate, init$, void, $Element*, $String*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"<init>", "(Lorg/w3c/dom/Document;[B)V", nullptr, $PUBLIC, $method(XMLX509Certificate, init$, void, $Document*, $bytes*)},
+		{"<init>", "(Lorg/w3c/dom/Document;Ljava/security/cert/X509Certificate;)V", nullptr, $PUBLIC, $method(XMLX509Certificate, init$, void, $Document*, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, equals, bool, Object$*)},
+		{"getBaseLocalName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, getBaseLocalName, $String*)},
+		{"getCertificateBytes", "()[B", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, getCertificateBytes, $bytes*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"getPublicKey", "()Ljava/security/PublicKey;", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, getPublicKey, $PublicKey*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException,java.io.IOException"},
+		{"getX509Certificate", "()Ljava/security/cert/X509Certificate;", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, getX509Certificate, $X509Certificate*), "com.sun.org.apache.xml.internal.security.exceptions.XMLSecurityException"},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(XMLX509Certificate, hashCode, int32_t)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509Certificate",
+		"com.sun.org.apache.xml.internal.security.utils.SignatureElementProxy",
+		"com.sun.org.apache.xml.internal.security.keys.content.x509.XMLX509DataContent",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XMLX509Certificate, name, initialize, &classInfo$$, XMLX509Certificate::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(XMLX509Certificate));
+	});
 	return class$;
 }
 

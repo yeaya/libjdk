@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter$1.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/util/ErrorHandlerProxy.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler.h>
@@ -22,48 +21,6 @@ namespace com {
 					namespace internal {
 						namespace impl {
 
-$FieldInfo _XMLErrorReporter$1_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $FINAL | $SYNTHETIC, $field(XMLErrorReporter$1, this$0)},
-	{}
-};
-
-$MethodInfo _XMLErrorReporter$1_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;)V", nullptr, 0, $method(XMLErrorReporter$1, init$, void, $XMLErrorReporter*)},
-	{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PROTECTED, $virtualMethod(XMLErrorReporter$1, getErrorHandler, $XMLErrorHandler*)},
-	{}
-};
-
-$EnclosingMethodInfo _XMLErrorReporter$1_EnclosingMethodInfo_ = {
-	"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter",
-	"getSAXErrorHandler",
-	"()Lorg/xml/sax/ErrorHandler;"
-};
-
-$InnerClassInfo _XMLErrorReporter$1_InnerClassesInfo_[] = {
-	{"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XMLErrorReporter$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter$1",
-	"com.sun.org.apache.xerces.internal.util.ErrorHandlerProxy",
-	nullptr,
-	_XMLErrorReporter$1_FieldInfo_,
-	_XMLErrorReporter$1_MethodInfo_,
-	nullptr,
-	&_XMLErrorReporter$1_EnclosingMethodInfo_,
-	_XMLErrorReporter$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter"
-};
-
-$Object* allocate$XMLErrorReporter$1($Class* clazz) {
-	return $of($alloc(XMLErrorReporter$1));
-}
-
 void XMLErrorReporter$1::init$($XMLErrorReporter* this$0) {
 	$set(this, this$0, this$0);
 	$ErrorHandlerProxy::init$();
@@ -77,7 +34,42 @@ XMLErrorReporter$1::XMLErrorReporter$1() {
 }
 
 $Class* XMLErrorReporter$1::load$($String* name, bool initialize) {
-	$loadClass(XMLErrorReporter$1, name, initialize, &_XMLErrorReporter$1_ClassInfo_, allocate$XMLErrorReporter$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;", nullptr, $FINAL | $SYNTHETIC, $field(XMLErrorReporter$1, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/org/apache/xerces/internal/impl/XMLErrorReporter;)V", nullptr, 0, $method(XMLErrorReporter$1, init$, void, $XMLErrorReporter*)},
+		{"getErrorHandler", "()Lcom/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler;", nullptr, $PROTECTED, $virtualMethod(XMLErrorReporter$1, getErrorHandler, $XMLErrorHandler*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter",
+		"getSAXErrorHandler",
+		"()Lorg/xml/sax/ErrorHandler;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter$1",
+		"com.sun.org.apache.xerces.internal.util.ErrorHandlerProxy",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.org.apache.xerces.internal.impl.XMLErrorReporter"
+	};
+	$loadClass(XMLErrorReporter$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XMLErrorReporter$1);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <javax/swing/text/html/TableView$CellView.h>
-
 #include <java/lang/Math.h>
 #include <javax/swing/SizeRequirements.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -34,51 +33,13 @@ namespace javax {
 		namespace text {
 			namespace html {
 
-$FieldInfo _TableView$CellView_FieldInfo_[] = {
-	{"this$0", "Ljavax/swing/text/html/TableView;", nullptr, $FINAL | $SYNTHETIC, $field(TableView$CellView, this$0)},
-	{}
-};
-
-$MethodInfo _TableView$CellView_MethodInfo_[] = {
-	{"<init>", "(Ljavax/swing/text/html/TableView;Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(TableView$CellView, init$, void, $TableView*, $Element*)},
-	{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView$CellView, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView$CellView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
-	{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(TableView$CellView, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
-	{}
-};
-
-$InnerClassInfo _TableView$CellView_InnerClassesInfo_[] = {
-	{"javax.swing.text.html.TableView$CellView", "javax.swing.text.html.TableView", "CellView", 0},
-	{}
-};
-
-$ClassInfo _TableView$CellView_ClassInfo_ = {
-	$ACC_SUPER,
-	"javax.swing.text.html.TableView$CellView",
-	"javax.swing.text.html.BlockView",
-	nullptr,
-	_TableView$CellView_FieldInfo_,
-	_TableView$CellView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_TableView$CellView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"javax.swing.text.html.TableView"
-};
-
-$Object* allocate$TableView$CellView($Class* clazz) {
-	return $of($alloc(TableView$CellView));
-}
-
 void TableView$CellView::init$($TableView* this$0, $Element* elem) {
 	$set(this, this$0, this$0);
 	$BlockView::init$(elem, $View::Y_AXIS);
 }
 
 void TableView$CellView::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints* offsets, $ints* spans) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$BlockView::layoutMajorAxis(targetSpan, axis, offsets, spans);
 	int32_t used = 0;
 	int32_t n = $nc(spans)->length;
@@ -88,12 +49,12 @@ void TableView$CellView::layoutMajorAxis(int32_t targetSpan, int32_t axis, $ints
 	int32_t adjust = 0;
 	if (used < targetSpan) {
 		$init($HTML$Attribute);
-		$var($String, valign, $cast($String, $nc($($nc($(getElement()))->getAttributes()))->getAttribute($HTML$Attribute::VALIGN)));
+		$var($String, valign, $cast($String, $$nc($$nc(getElement())->getAttributes())->getAttribute($HTML$Attribute::VALIGN)));
 		if (valign == nullptr) {
-			$var($AttributeSet, rowAttr, $nc($($nc($(getElement()))->getParentElement()))->getAttributes());
+			$var($AttributeSet, rowAttr, $$nc($$nc(getElement())->getParentElement())->getAttributes());
 			$assign(valign, $cast($String, $nc(rowAttr)->getAttribute($HTML$Attribute::VALIGN)));
 		}
-		if ((valign == nullptr) || $nc(valign)->equals("middle"_s)) {
+		if ((valign == nullptr) || valign->equals("middle"_s)) {
 			adjust = (targetSpan - used) / 2;
 		} else if (valign->equals("bottom"_s)) {
 			adjust = targetSpan - used;
@@ -113,7 +74,7 @@ $SizeRequirements* TableView$CellView::calculateMajorAxisRequirements(int32_t ax
 }
 
 $SizeRequirements* TableView$CellView::calculateMinorAxisRequirements(int32_t axis, $SizeRequirements* r) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SizeRequirements, rv, $BlockView::calculateMinorAxisRequirements(axis, r));
 	int32_t n = getViewCount();
 	int32_t min = 0;
@@ -121,7 +82,7 @@ $SizeRequirements* TableView$CellView::calculateMinorAxisRequirements(int32_t ax
 		$var($View, v, getView(i));
 		min = $Math::max($cast(int32_t, $nc(v)->getMinimumSpan(axis)), min);
 	}
-	$nc(rv)->minimum = $Math::min(rv->minimum, min);
+	$nc(rv)->minimum = $Math::min($nc(rv)->minimum, min);
 	return rv;
 }
 
@@ -129,7 +90,39 @@ TableView$CellView::TableView$CellView() {
 }
 
 $Class* TableView$CellView::load$($String* name, bool initialize) {
-	$loadClass(TableView$CellView, name, initialize, &_TableView$CellView_ClassInfo_, allocate$TableView$CellView);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljavax/swing/text/html/TableView;", nullptr, $FINAL | $SYNTHETIC, $field(TableView$CellView, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljavax/swing/text/html/TableView;Ljavax/swing/text/Element;)V", nullptr, $PUBLIC, $method(TableView$CellView, init$, void, $TableView*, $Element*)},
+		{"calculateMajorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView$CellView, calculateMajorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"calculateMinorAxisRequirements", "(ILjavax/swing/SizeRequirements;)Ljavax/swing/SizeRequirements;", nullptr, $PROTECTED, $virtualMethod(TableView$CellView, calculateMinorAxisRequirements, $SizeRequirements*, int32_t, $SizeRequirements*)},
+		{"layoutMajorAxis", "(II[I[I)V", nullptr, $PROTECTED, $virtualMethod(TableView$CellView, layoutMajorAxis, void, int32_t, int32_t, $ints*, $ints*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"javax.swing.text.html.TableView$CellView", "javax.swing.text.html.TableView", "CellView", 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"javax.swing.text.html.TableView$CellView",
+		"javax.swing.text.html.BlockView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"javax.swing.text.html.TableView"
+	};
+	$loadClass(TableView$CellView, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TableView$CellView);
+	});
 	return class$;
 }
 

@@ -23,6 +23,7 @@ class EllipseIterator : public ::java::awt::geom::PathIterator {
 	$class(EllipseIterator, 0, ::java::awt::geom::PathIterator)
 public:
 	EllipseIterator();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::geom::Ellipse2D* e, ::java::awt::geom::AffineTransform* at);
 	virtual int32_t currentSegment($floats* coords) override;
 	virtual int32_t currentSegment($doubles* coords) override;

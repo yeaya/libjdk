@@ -1,13 +1,10 @@
 #include <com/sun/org/apache/bcel/internal/generic/DCONST.h>
-
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/ConstantPushInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/PushInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/generic/TypedInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -22,12 +19,8 @@
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::ClassGenException;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $ConstantPushInstruction = ::com::sun::org::apache::bcel::internal::generic::ConstantPushInstruction;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
-using $PushInstruction = ::com::sun::org::apache::bcel::internal::generic::PushInstruction;
-using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
-using $TypedInstruction = ::com::sun::org::apache::bcel::internal::generic::TypedInstruction;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -42,39 +35,6 @@ namespace com {
 				namespace bcel {
 					namespace internal {
 						namespace generic {
-
-$FieldInfo _DCONST_FieldInfo_[] = {
-	{"value", "D", nullptr, $PRIVATE, $field(DCONST, value)},
-	{}
-};
-
-$MethodInfo _DCONST_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC},
-	{"<init>", "()V", nullptr, 0, $method(DCONST, init$, void)},
-	{"<init>", "(D)V", nullptr, $PUBLIC, $method(DCONST, init$, void, double)},
-	{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(DCONST, accept, void, $Visitor*)},
-	{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(DCONST, getType, $Type*, $ConstantPoolGen*)},
-	{"getValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(DCONST, getValue, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _DCONST_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.bcel.internal.generic.DCONST",
-	"com.sun.org.apache.bcel.internal.generic.Instruction",
-	"com.sun.org.apache.bcel.internal.generic.ConstantPushInstruction",
-	_DCONST_FieldInfo_,
-	_DCONST_MethodInfo_
-};
-
-$Object* allocate$DCONST($Class* clazz) {
-	return $of($alloc(DCONST));
-}
 
 $String* DCONST::toString() {
 	 return this->$Instruction::toString();
@@ -105,7 +65,7 @@ void DCONST::init$() {
 }
 
 void DCONST::init$(double f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$Instruction::init$($Const::DCONST_0, (int16_t)1);
 	if (f == 0.0) {
 		$Instruction::setOpcode($Const::DCONST_0);
@@ -138,7 +98,35 @@ DCONST::DCONST() {
 }
 
 $Class* DCONST::load$($String* name, bool initialize) {
-	$loadClass(DCONST, name, initialize, &_DCONST_ClassInfo_, allocate$DCONST);
+	$FieldInfo fieldInfos$$[] = {
+		{"value", "D", nullptr, $PRIVATE, $field(DCONST, value)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC},
+		{"<init>", "()V", nullptr, 0, $method(DCONST, init$, void)},
+		{"<init>", "(D)V", nullptr, $PUBLIC, $method(DCONST, init$, void, double)},
+		{"accept", "(Lcom/sun/org/apache/bcel/internal/generic/Visitor;)V", nullptr, $PUBLIC, $virtualMethod(DCONST, accept, void, $Visitor*)},
+		{"getType", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)Lcom/sun/org/apache/bcel/internal/generic/Type;", nullptr, $PUBLIC, $virtualMethod(DCONST, getType, $Type*, $ConstantPoolGen*)},
+		{"getValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(DCONST, getValue, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{"*produceStack", "(Lcom/sun/org/apache/bcel/internal/generic/ConstantPoolGen;)I", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.bcel.internal.generic.DCONST",
+		"com.sun.org.apache.bcel.internal.generic.Instruction",
+		"com.sun.org.apache.bcel.internal.generic.ConstantPushInstruction",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(DCONST, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(DCONST));
+	});
 	return class$;
 }
 

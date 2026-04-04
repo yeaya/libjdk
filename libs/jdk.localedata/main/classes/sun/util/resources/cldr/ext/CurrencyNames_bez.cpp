@@ -1,5 +1,4 @@
 #include <sun/util/resources/cldr/ext/CurrencyNames_bez.h>
-
 #include <sun/util/resources/OpenListResourceBundle.h>
 #include <jcpp.h>
 
@@ -14,263 +13,244 @@ namespace sun {
 			namespace cldr {
 				namespace ext {
 
-$MethodInfo _CurrencyNames_bez_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_bez, init$, void)},
-	{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_bez, getContents, $ObjectArray2*)},
-	{}
-};
-
-$ClassInfo _CurrencyNames_bez_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.util.resources.cldr.ext.CurrencyNames_bez",
-	"sun.util.resources.OpenListResourceBundle",
-	nullptr,
-	nullptr,
-	_CurrencyNames_bez_MethodInfo_
-};
-
-$Object* allocate$CurrencyNames_bez($Class* clazz) {
-	return $of($alloc(CurrencyNames_bez));
-}
-
 void CurrencyNames_bez::init$() {
 	$OpenListResourceBundle::init$();
 }
 
 $ObjectArray2* CurrencyNames_bez::getContents() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectArray2, data, $new($ObjectArray2, {
 		$$new($ObjectArray, {
-			$of("TZS"_s),
-			$of("TSh"_s)
+			"TZS"_s,
+			"TSh"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aed"_s),
-			$of("Lupila lwa Hufalme dza Huhihalabu"_s)
+			"aed"_s,
+			"Lupila lwa Hufalme dza Huhihalabu"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aoa"_s),
-			$of("Lupila lwa Huangola"_s)
+			"aoa"_s,
+			"Lupila lwa Huangola"_s
 		}),
 		$$new($ObjectArray, {
-			$of("aud"_s),
-			$of("Lupila lwa Huaustlalia"_s)
+			"aud"_s,
+			"Lupila lwa Huaustlalia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bhd"_s),
-			$of("Lupila lwa Hubahareni"_s)
+			"bhd"_s,
+			"Lupila lwa Hubahareni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bif"_s),
-			$of("Lupila lwa Huburundi"_s)
+			"bif"_s,
+			"Lupila lwa Huburundi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("bwp"_s),
-			$of("Lupila lwa Hubotswana"_s)
+			"bwp"_s,
+			"Lupila lwa Hubotswana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cad"_s),
-			$of("Lupila lwa Hukanada"_s)
+			"cad"_s,
+			"Lupila lwa Hukanada"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cdf"_s),
-			$of("Lupila lwa Hukongo"_s)
+			"cdf"_s,
+			"Lupila lwa Hukongo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("chf"_s),
-			$of("Lupila lwa Huuswisi"_s)
+			"chf"_s,
+			"Lupila lwa Huuswisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cny"_s),
-			$of("Lupila lwa Huchina"_s)
+			"cny"_s,
+			"Lupila lwa Huchina"_s
 		}),
 		$$new($ObjectArray, {
-			$of("cve"_s),
-			$of("Lupila lwa Hukepuvede"_s)
+			"cve"_s,
+			"Lupila lwa Hukepuvede"_s
 		}),
 		$$new($ObjectArray, {
-			$of("djf"_s),
-			$of("Lupila lwa Hujibuti"_s)
+			"djf"_s,
+			"Lupila lwa Hujibuti"_s
 		}),
 		$$new($ObjectArray, {
-			$of("dzd"_s),
-			$of("Lupila lwa Hualjelia"_s)
+			"dzd"_s,
+			"Lupila lwa Hualjelia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("egp"_s),
-			$of("Lupila lwa Humisri"_s)
+			"egp"_s,
+			"Lupila lwa Humisri"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ern"_s),
-			$of("Lupila lwa Hueritrea"_s)
+			"ern"_s,
+			"Lupila lwa Hueritrea"_s
 		}),
 		$$new($ObjectArray, {
-			$of("etb"_s),
-			$of("Lupila lwa Huuhabeshi"_s)
+			"etb"_s,
+			"Lupila lwa Huuhabeshi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("eur"_s),
-			$of("Lupila lwa Yulo"_s)
+			"eur"_s,
+			"Lupila lwa Yulo"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gbp"_s),
-			$of("Lupila lwa Huuingereza"_s)
+			"gbp"_s,
+			"Lupila lwa Huuingereza"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ghc"_s),
-			$of("Lupila lwa Hughana"_s)
+			"ghc"_s,
+			"Lupila lwa Hughana"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gmd"_s),
-			$of("Lupila lwa Hugambia"_s)
+			"gmd"_s,
+			"Lupila lwa Hugambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("gns"_s),
-			$of("Lupila lwa Hujine"_s)
+			"gns"_s,
+			"Lupila lwa Hujine"_s
 		}),
 		$$new($ObjectArray, {
-			$of("inr"_s),
-			$of("Lupila lwa Huindia"_s)
+			"inr"_s,
+			"Lupila lwa Huindia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("jpy"_s),
-			$of("Lupila lwa Hijapani"_s)
+			"jpy"_s,
+			"Lupila lwa Hijapani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kes"_s),
-			$of("Shilingi ya Hukenya"_s)
+			"kes"_s,
+			"Shilingi ya Hukenya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("kmf"_s),
-			$of("Lupila lwa Hukomoro"_s)
+			"kmf"_s,
+			"Lupila lwa Hukomoro"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lrd"_s),
-			$of("Lupila lwa Hulibelia"_s)
+			"lrd"_s,
+			"Lupila lwa Hulibelia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lsl"_s),
-			$of("Lupila lwa Hulesoto"_s)
+			"lsl"_s,
+			"Lupila lwa Hulesoto"_s
 		}),
 		$$new($ObjectArray, {
-			$of("lyd"_s),
-			$of("Lupila lwa Hulibya"_s)
+			"lyd"_s,
+			"Lupila lwa Hulibya"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mad"_s),
-			$of("Lupila lwa Humoloko"_s)
+			"mad"_s,
+			"Lupila lwa Humoloko"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mga"_s),
-			$of("Lupila lwa Hubukini"_s)
+			"mga"_s,
+			"Lupila lwa Hubukini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mro"_s),
-			$of(u"Lupila lwa Humolitania (1973–2017)"_s)
+			"mro"_s,
+			u"Lupila lwa Humolitania (1973–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mru"_s),
-			$of("Lupila lwa Humolitania"_s)
+			"mru"_s,
+			"Lupila lwa Humolitania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mur"_s),
-			$of("Lupila lwa Humolisi"_s)
+			"mur"_s,
+			"Lupila lwa Humolisi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mwk"_s),
-			$of("Lupila lwa Humalawi"_s)
+			"mwk"_s,
+			"Lupila lwa Humalawi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("mzm"_s),
-			$of("Lupila lwa Humsumbiji"_s)
+			"mzm"_s,
+			"Lupila lwa Humsumbiji"_s
 		}),
 		$$new($ObjectArray, {
-			$of("nad"_s),
-			$of("Lupila lwa Hunamibia"_s)
+			"nad"_s,
+			"Lupila lwa Hunamibia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ngn"_s),
-			$of("Lupila lwa Hunijelia"_s)
+			"ngn"_s,
+			"Lupila lwa Hunijelia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("rwf"_s),
-			$of("Lupila lwa Hurwanda"_s)
+			"rwf"_s,
+			"Lupila lwa Hurwanda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sar"_s),
-			$of("Lupila lwa Husaudi"_s)
+			"sar"_s,
+			"Lupila lwa Husaudi"_s
 		}),
 		$$new($ObjectArray, {
-			$of("scr"_s),
-			$of("Lupila lwa Hushelisheli"_s)
+			"scr"_s,
+			"Lupila lwa Hushelisheli"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sdg"_s),
-			$of("Lupila lwa Husudani"_s)
+			"sdg"_s,
+			"Lupila lwa Husudani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("shp"_s),
-			$of("Lupila lwa Husantahelena"_s)
+			"shp"_s,
+			"Lupila lwa Husantahelena"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sll"_s),
-			$of("Lupila lwa Lioni"_s)
+			"sll"_s,
+			"Lupila lwa Lioni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("sos"_s),
-			$of("Lupila lwa Husomalia"_s)
+			"sos"_s,
+			"Lupila lwa Husomalia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("std"_s),
-			$of(u"Lupila lwa Husaotome na Huprinisipe (1977–2017)"_s)
+			"std"_s,
+			u"Lupila lwa Husaotome na Huprinisipe (1977–2017)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("stn"_s),
-			$of("Lupila lwa Husaotome na Huprinisipe"_s)
+			"stn"_s,
+			"Lupila lwa Husaotome na Huprinisipe"_s
 		}),
 		$$new($ObjectArray, {
-			$of("szl"_s),
-			$of("Lupila lwa Lilangeni"_s)
+			"szl"_s,
+			"Lupila lwa Lilangeni"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tnd"_s),
-			$of("Lupila lwa Hutunisia"_s)
+			"tnd"_s,
+			"Lupila lwa Hutunisia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("tzs"_s),
-			$of("Shilingi ya Hutanzania"_s)
+			"tzs"_s,
+			"Shilingi ya Hutanzania"_s
 		}),
 		$$new($ObjectArray, {
-			$of("ugx"_s),
-			$of("Shilingi ya Huuganda"_s)
+			"ugx"_s,
+			"Shilingi ya Huuganda"_s
 		}),
 		$$new($ObjectArray, {
-			$of("usd"_s),
-			$of("Lupila lwa Humalekani"_s)
+			"usd"_s,
+			"Lupila lwa Humalekani"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xaf"_s),
-			$of("Lupila lwa CFA BEAC"_s)
+			"xaf"_s,
+			"Lupila lwa CFA BEAC"_s
 		}),
 		$$new($ObjectArray, {
-			$of("xof"_s),
-			$of("Lupila lwa CFA BCEAO"_s)
+			"xof"_s,
+			"Lupila lwa CFA BCEAO"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zar"_s),
-			$of("Lupila lwa Huafriaka ya Hukusini"_s)
+			"zar"_s,
+			"Lupila lwa Huafriaka ya Hukusini"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmk"_s),
-			$of(u"Lupila lwa Huzambia (1968–2012)"_s)
+			"zmk"_s,
+			u"Lupila lwa Huzambia (1968–2012)"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zmw"_s),
-			$of("Lupila lwa Huzambia"_s)
+			"zmw"_s,
+			"Lupila lwa Huzambia"_s
 		}),
 		$$new($ObjectArray, {
-			$of("zwd"_s),
-			$of("Lupila lwa Huzimbabwe"_s)
+			"zwd"_s,
+			"Lupila lwa Huzimbabwe"_s
 		})
 	}));
 	return data;
@@ -280,7 +260,22 @@ CurrencyNames_bez::CurrencyNames_bez() {
 }
 
 $Class* CurrencyNames_bez::load$($String* name, bool initialize) {
-	$loadClass(CurrencyNames_bez, name, initialize, &_CurrencyNames_bez_ClassInfo_, allocate$CurrencyNames_bez);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(CurrencyNames_bez, init$, void)},
+		{"getContents", "()[[Ljava/lang/Object;", nullptr, $PROTECTED | $FINAL, $virtualMethod(CurrencyNames_bez, getContents, $ObjectArray2*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.util.resources.cldr.ext.CurrencyNames_bez",
+		"sun.util.resources.OpenListResourceBundle",
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CurrencyNames_bez, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CurrencyNames_bez);
+	});
 	return class$;
 }
 

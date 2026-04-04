@@ -16,6 +16,7 @@ class $import WindowsButtonUI$1 : public ::java::lang::Object {
 	$class(WindowsButtonUI$1, 0, ::java::lang::Object)
 public:
 	WindowsButtonUI$1();
+	static void clinit$(::java::lang::Class* clazz);
 	static $ints* $SwitchMap$com$sun$java$swing$plaf$windows$TMSchema$Part;
 };
 

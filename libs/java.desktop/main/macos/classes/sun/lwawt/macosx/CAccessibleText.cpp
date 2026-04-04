@@ -1,11 +1,8 @@
 #include <sun/lwawt/macosx/CAccessibleText.h>
-
 #include <java/awt/Component.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
-#include <java/lang/Runnable.h>
-#include <java/util/concurrent/Callable.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleEditableText.h>
 #include <javax/swing/text/Document.h>
@@ -37,11 +34,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Runnable = ::java::lang::Runnable;
-using $Callable = ::java::util::concurrent::Callable;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleEditableText = ::javax::accessibility::AccessibleEditableText;
-using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $CAccessibility = ::sun::lwawt::macosx::CAccessibility;
@@ -64,66 +58,6 @@ using $CAccessibleText$9 = ::sun::lwawt::macosx::CAccessibleText$9;
 namespace sun {
 	namespace lwawt {
 		namespace macosx {
-
-$MethodInfo _CAccessibleText_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(CAccessibleText, init$, void)},
-	{"getAccessibleEditableText", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleEditableText;", nullptr, $STATIC, $staticMethod(CAccessibleText, getAccessibleEditableText, $AccessibleEditableText*, $Accessible*, $Component*)},
-	{"getBoundsForRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;II)[D", nullptr, $STATIC, $staticMethod(CAccessibleText, getBoundsForRange, $doubles*, $Accessible*, $Component*, int32_t, int32_t)},
-	{"getCharacterIndexAtPosition", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;II)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getCharacterIndexAtPosition, int32_t, $Accessible*, $Component*, int32_t, int32_t)},
-	{"getLineNumberForIndex", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;I)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getLineNumberForIndex, int32_t, $Accessible*, $Component*, int32_t)},
-	{"getLineNumberForIndex", "(Ljavax/accessibility/Accessible;I)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getLineNumberForIndex, int32_t, $Accessible*, int32_t)},
-	{"getLineNumberForInsertionPoint", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getLineNumberForInsertionPoint, int32_t, $Accessible*, $Component*)},
-	{"getLineNumberForInsertionPoint", "(Ljavax/accessibility/Accessible;)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getLineNumberForInsertionPoint, int32_t, $Accessible*)},
-	{"getRangeForIndex", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;I)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getRangeForIndex, $ints*, $Accessible*, $Component*, int32_t)},
-	{"getRangeForLine", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;I)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getRangeForLine, $ints*, $Accessible*, $Component*, int32_t)},
-	{"getRangeForLine", "(Ljavax/accessibility/Accessible;I)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getRangeForLine, $ints*, $Accessible*, int32_t)},
-	{"getSelectedText", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CAccessibleText, getSelectedText, $String*, $Accessible*, $Component*)},
-	{"getSelectedTextRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getSelectedTextRange, $ints*, $Accessible*, $Component*)},
-	{"getStringForRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;II)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CAccessibleText, getStringForRange, $String*, $Accessible*, $Component*, int32_t, int32_t)},
-	{"getTextRange", "(Ljavax/accessibility/AccessibleEditableText;IILjava/awt/Component;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CAccessibleText, getTextRange, $String*, $AccessibleEditableText*, int32_t, int32_t, $Component*)},
-	{"getVisibleCharacterRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getVisibleCharacterRange, $ints*, $Accessible*, $Component*)},
-	{"getVisibleCharacterRange", "(Ljavax/accessibility/Accessible;)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getVisibleCharacterRange, $ints*, $Accessible*)},
-	{"setSelectedText", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CAccessibleText, setSelectedText, void, $Accessible*, $Component*, $String*)},
-	{"setSelectedTextRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;II)V", nullptr, $STATIC, $staticMethod(CAccessibleText, setSelectedTextRange, void, $Accessible*, $Component*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _CAccessibleText_InnerClassesInfo_[] = {
-	{"sun.lwawt.macosx.CAccessibleText$14", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$13", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$12", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$11", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$10", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$9", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$8", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$7", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$6", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$5", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$4", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$3", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$2", nullptr, nullptr, 0},
-	{"sun.lwawt.macosx.CAccessibleText$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _CAccessibleText_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.lwawt.macosx.CAccessibleText",
-	"java.lang.Object",
-	nullptr,
-	nullptr,
-	_CAccessibleText_MethodInfo_,
-	nullptr,
-	nullptr,
-	_CAccessibleText_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.lwawt.macosx.CAccessibleText$14,sun.lwawt.macosx.CAccessibleText$13,sun.lwawt.macosx.CAccessibleText$12,sun.lwawt.macosx.CAccessibleText$11,sun.lwawt.macosx.CAccessibleText$10,sun.lwawt.macosx.CAccessibleText$9,sun.lwawt.macosx.CAccessibleText$8,sun.lwawt.macosx.CAccessibleText$7,sun.lwawt.macosx.CAccessibleText$6,sun.lwawt.macosx.CAccessibleText$5,sun.lwawt.macosx.CAccessibleText$4,sun.lwawt.macosx.CAccessibleText$3,sun.lwawt.macosx.CAccessibleText$2,sun.lwawt.macosx.CAccessibleText$1"
-};
-
-$Object* allocate$CAccessibleText($Class* clazz) {
-	return $of($alloc(CAccessibleText));
-}
 
 void CAccessibleText::init$() {
 }
@@ -164,11 +98,11 @@ $String* CAccessibleText::getTextRange($AccessibleEditableText* aet, int32_t sta
 }
 
 int32_t CAccessibleText::getCharacterIndexAtPosition($Accessible* a, $Component* c, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return 0;
 	}
-	return $nc(($cast($Integer, $($CAccessibility::invokeAndWait($$new($CAccessibleText$6, a, x, y), c)))))->intValue();
+	return $$sure($Integer, $CAccessibility::invokeAndWait($$new($CAccessibleText$6, a, x, y), c))->intValue();
 }
 
 $ints* CAccessibleText::getSelectedTextRange($Accessible* a, $Component* c) {
@@ -186,19 +120,19 @@ $ints* CAccessibleText::getVisibleCharacterRange($Accessible* a, $Component* c) 
 }
 
 int32_t CAccessibleText::getLineNumberForIndex($Accessible* a, $Component* c, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return 0;
 	}
-	return $nc(($cast($Integer, $($CAccessibility::invokeAndWait($$new($CAccessibleText$9, a, index), c)))))->intValue();
+	return $$sure($Integer, $CAccessibility::invokeAndWait($$new($CAccessibleText$9, a, index), c))->intValue();
 }
 
 int32_t CAccessibleText::getLineNumberForInsertionPoint($Accessible* a, $Component* c) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (a == nullptr) {
 		return 0;
 	}
-	return $nc(($cast($Integer, $($CAccessibility::invokeAndWait($$new($CAccessibleText$10, a), c)))))->intValue();
+	return $$sure($Integer, $CAccessibility::invokeAndWait($$new($CAccessibleText$10, a), c))->intValue();
 }
 
 $ints* CAccessibleText::getRangeForLine($Accessible* a, $Component* c, int32_t line) {
@@ -216,7 +150,7 @@ $ints* CAccessibleText::getRangeForIndex($Accessible* a, $Component* c, int32_t 
 }
 
 $doubles* CAccessibleText::getBoundsForRange($Accessible* a, $Component* c, int32_t location, int32_t length) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($doubles, ret, $new($doubles, 4));
 	if (a == nullptr) {
 		return ret;
@@ -232,17 +166,17 @@ $String* CAccessibleText::getStringForRange($Accessible* a, $Component* c, int32
 }
 
 $ints* CAccessibleText::getVisibleCharacterRange($Accessible* a) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Accessible, sa, $CAccessible::getSwingAccessible(a));
 	if (!($instanceOf($JTextComponent, sa))) {
 		return nullptr;
 	}
 	$var($JTextComponent, jc, $cast($JTextComponent, sa));
 	$var($Rectangle, rect, $nc(jc)->getVisibleRect());
-	$var($Point, topLeft, $new($Point, $nc(rect)->x, rect->y));
-	$var($Point, topRight, $new($Point, $nc(rect)->x + rect->width, rect->y));
-	$var($Point, bottomLeft, $new($Point, $nc(rect)->x, rect->y + rect->height));
-	$var($Point, bottomRight, $new($Point, $nc(rect)->x + rect->width, rect->y + rect->height));
+	$var($Point, topLeft, $new($Point, $nc(rect)->x, $nc(rect)->y));
+	$var($Point, topRight, $new($Point, rect->x + rect->width, rect->y));
+	$var($Point, bottomLeft, $new($Point, rect->x, rect->y + rect->height));
+	$var($Point, bottomRight, $new($Point, rect->x + rect->width, rect->y + rect->height));
 	int32_t var$0 = jc->viewToModel(topLeft);
 	int32_t start = $Math::min(var$0, jc->viewToModel(topRight));
 	int32_t var$1 = jc->viewToModel(bottomLeft);
@@ -260,13 +194,13 @@ $ints* CAccessibleText::getVisibleCharacterRange($Accessible* a) {
 }
 
 int32_t CAccessibleText::getLineNumberForIndex($Accessible* a, int32_t index) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Accessible, sa, $CAccessible::getSwingAccessible(a));
 	if (!($instanceOf($JTextComponent, sa))) {
 		return -1;
 	}
 	$var($JTextComponent, jc, $cast($JTextComponent, sa));
-	$var($Element, root, $nc($($nc(jc)->getDocument()))->getDefaultRootElement());
+	$var($Element, root, $$nc($nc(jc)->getDocument())->getDefaultRootElement());
 	if (index == -1) {
 		index = jc->getCaretPosition();
 	}
@@ -278,20 +212,20 @@ int32_t CAccessibleText::getLineNumberForInsertionPoint($Accessible* a) {
 }
 
 $ints* CAccessibleText::getRangeForLine($Accessible* a, int32_t lineIndex) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Accessible, sa, $CAccessible::getSwingAccessible(a));
 	if (!($instanceOf($JTextComponent, sa))) {
 		return nullptr;
 	}
 	$var($JTextComponent, jc, $cast($JTextComponent, sa));
-	$var($Element, root, $nc($($nc(jc)->getDocument()))->getDefaultRootElement());
+	$var($Element, root, $$nc($nc(jc)->getDocument())->getDefaultRootElement());
 	$var($Element, line, $nc(root)->getElement(lineIndex));
 	if (line == nullptr) {
 		return nullptr;
 	}
 	return $new($ints, {
 		$nc(line)->getStartOffset(),
-		line->getEndOffset()
+		$nc(line)->getEndOffset()
 	});
 }
 
@@ -299,7 +233,62 @@ CAccessibleText::CAccessibleText() {
 }
 
 $Class* CAccessibleText::load$($String* name, bool initialize) {
-	$loadClass(CAccessibleText, name, initialize, &_CAccessibleText_ClassInfo_, allocate$CAccessibleText);
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(CAccessibleText, init$, void)},
+		{"getAccessibleEditableText", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljavax/accessibility/AccessibleEditableText;", nullptr, $STATIC, $staticMethod(CAccessibleText, getAccessibleEditableText, $AccessibleEditableText*, $Accessible*, $Component*)},
+		{"getBoundsForRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;II)[D", nullptr, $STATIC, $staticMethod(CAccessibleText, getBoundsForRange, $doubles*, $Accessible*, $Component*, int32_t, int32_t)},
+		{"getCharacterIndexAtPosition", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;II)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getCharacterIndexAtPosition, int32_t, $Accessible*, $Component*, int32_t, int32_t)},
+		{"getLineNumberForIndex", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;I)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getLineNumberForIndex, int32_t, $Accessible*, $Component*, int32_t)},
+		{"getLineNumberForIndex", "(Ljavax/accessibility/Accessible;I)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getLineNumberForIndex, int32_t, $Accessible*, int32_t)},
+		{"getLineNumberForInsertionPoint", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getLineNumberForInsertionPoint, int32_t, $Accessible*, $Component*)},
+		{"getLineNumberForInsertionPoint", "(Ljavax/accessibility/Accessible;)I", nullptr, $STATIC, $staticMethod(CAccessibleText, getLineNumberForInsertionPoint, int32_t, $Accessible*)},
+		{"getRangeForIndex", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;I)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getRangeForIndex, $ints*, $Accessible*, $Component*, int32_t)},
+		{"getRangeForLine", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;I)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getRangeForLine, $ints*, $Accessible*, $Component*, int32_t)},
+		{"getRangeForLine", "(Ljavax/accessibility/Accessible;I)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getRangeForLine, $ints*, $Accessible*, int32_t)},
+		{"getSelectedText", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CAccessibleText, getSelectedText, $String*, $Accessible*, $Component*)},
+		{"getSelectedTextRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getSelectedTextRange, $ints*, $Accessible*, $Component*)},
+		{"getStringForRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;II)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CAccessibleText, getStringForRange, $String*, $Accessible*, $Component*, int32_t, int32_t)},
+		{"getTextRange", "(Ljavax/accessibility/AccessibleEditableText;IILjava/awt/Component;)Ljava/lang/String;", nullptr, $STATIC, $staticMethod(CAccessibleText, getTextRange, $String*, $AccessibleEditableText*, int32_t, int32_t, $Component*)},
+		{"getVisibleCharacterRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getVisibleCharacterRange, $ints*, $Accessible*, $Component*)},
+		{"getVisibleCharacterRange", "(Ljavax/accessibility/Accessible;)[I", nullptr, $STATIC, $staticMethod(CAccessibleText, getVisibleCharacterRange, $ints*, $Accessible*)},
+		{"setSelectedText", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;Ljava/lang/String;)V", nullptr, $STATIC, $staticMethod(CAccessibleText, setSelectedText, void, $Accessible*, $Component*, $String*)},
+		{"setSelectedTextRange", "(Ljavax/accessibility/Accessible;Ljava/awt/Component;II)V", nullptr, $STATIC, $staticMethod(CAccessibleText, setSelectedTextRange, void, $Accessible*, $Component*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.lwawt.macosx.CAccessibleText$14", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$13", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$12", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$11", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$10", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$9", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$8", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$7", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$6", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$5", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$4", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$3", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$2", nullptr, nullptr, 0},
+		{"sun.lwawt.macosx.CAccessibleText$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.lwawt.macosx.CAccessibleText",
+		"java.lang.Object",
+		nullptr,
+		nullptr,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.lwawt.macosx.CAccessibleText$14,sun.lwawt.macosx.CAccessibleText$13,sun.lwawt.macosx.CAccessibleText$12,sun.lwawt.macosx.CAccessibleText$11,sun.lwawt.macosx.CAccessibleText$10,sun.lwawt.macosx.CAccessibleText$9,sun.lwawt.macosx.CAccessibleText$8,sun.lwawt.macosx.CAccessibleText$7,sun.lwawt.macosx.CAccessibleText$6,sun.lwawt.macosx.CAccessibleText$5,sun.lwawt.macosx.CAccessibleText$4,sun.lwawt.macosx.CAccessibleText$3,sun.lwawt.macosx.CAccessibleText$2,sun.lwawt.macosx.CAccessibleText$1"
+	};
+	$loadClass(CAccessibleText, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CAccessibleText);
+	});
 	return class$;
 }
 

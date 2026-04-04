@@ -15,6 +15,7 @@ class MetalFontDesktopProperty : public ::sun::swing::plaf::DesktopProperty {
 	$class(MetalFontDesktopProperty, 0, ::sun::swing::plaf::DesktopProperty)
 public:
 	MetalFontDesktopProperty();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(int32_t type);
 	void init$($String* key, int32_t type);
 	virtual $Object* configureValue(Object$* value) override;

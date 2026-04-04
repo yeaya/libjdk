@@ -1,5 +1,4 @@
 #include <com/sun/media/sound/SoftChannel$4.h>
-
 #include <com/sun/media/sound/SoftChannel.h>
 #include <java/lang/Math.h>
 #include <jcpp.h>
@@ -18,50 +17,6 @@ namespace com {
 		namespace media {
 			namespace sound {
 
-$FieldInfo _SoftChannel$4_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/media/sound/SoftChannel;", nullptr, $FINAL | $SYNTHETIC, $field(SoftChannel$4, this$0)},
-	{"val$scale", "D", nullptr, $FINAL | $SYNTHETIC, $field(SoftChannel$4, val$scale)},
-	{"s", "D", nullptr, 0, $field(SoftChannel$4, s)},
-	{}
-};
-
-$MethodInfo _SoftChannel$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/media/sound/SoftChannel;D)V", "()V", 0, $method(SoftChannel$4, init$, void, $SoftChannel*, double)},
-	{"transform", "(D)D", nullptr, $PUBLIC, $virtualMethod(SoftChannel$4, transform, double, double)},
-	{}
-};
-
-$EnclosingMethodInfo _SoftChannel$4_EnclosingMethodInfo_ = {
-	"com.sun.media.sound.SoftChannel",
-	"createModelConnections",
-	"(Lcom/sun/media/sound/ModelIdentifier;[I[I)[Lcom/sun/media/sound/ModelConnectionBlock;"
-};
-
-$InnerClassInfo _SoftChannel$4_InnerClassesInfo_[] = {
-	{"com.sun.media.sound.SoftChannel$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _SoftChannel$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.media.sound.SoftChannel$4",
-	"java.lang.Object",
-	"com.sun.media.sound.ModelTransform",
-	_SoftChannel$4_FieldInfo_,
-	_SoftChannel$4_MethodInfo_,
-	nullptr,
-	&_SoftChannel$4_EnclosingMethodInfo_,
-	_SoftChannel$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.media.sound.SoftChannel"
-};
-
-$Object* allocate$SoftChannel$4($Class* clazz) {
-	return $of($alloc(SoftChannel$4));
-}
-
 void SoftChannel$4::init$($SoftChannel* this$0, double val$scale) {
 	$set(this, this$0, this$0);
 	this->val$scale = val$scale;
@@ -74,9 +29,9 @@ double SoftChannel$4::transform(double value) {
 	} else if (this->s > 1) {
 		value = 1 + (value * (this->s - 1.0));
 	} else {
-		return (double)0;
+		return 0;
 	}
-	double var$0 = -((5.0 / 12.0) / $Math::log((double)10));
+	double var$0 = -((5.0 / 12.0) / $Math::log(10));
 	return var$0 * $Math::log(value);
 }
 
@@ -84,7 +39,44 @@ SoftChannel$4::SoftChannel$4() {
 }
 
 $Class* SoftChannel$4::load$($String* name, bool initialize) {
-	$loadClass(SoftChannel$4, name, initialize, &_SoftChannel$4_ClassInfo_, allocate$SoftChannel$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/media/sound/SoftChannel;", nullptr, $FINAL | $SYNTHETIC, $field(SoftChannel$4, this$0)},
+		{"val$scale", "D", nullptr, $FINAL | $SYNTHETIC, $field(SoftChannel$4, val$scale)},
+		{"s", "D", nullptr, 0, $field(SoftChannel$4, s)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/media/sound/SoftChannel;D)V", "()V", 0, $method(SoftChannel$4, init$, void, $SoftChannel*, double)},
+		{"transform", "(D)D", nullptr, $PUBLIC, $virtualMethod(SoftChannel$4, transform, double, double)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.media.sound.SoftChannel",
+		"createModelConnections",
+		"(Lcom/sun/media/sound/ModelIdentifier;[I[I)[Lcom/sun/media/sound/ModelConnectionBlock;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.media.sound.SoftChannel$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.media.sound.SoftChannel$4",
+		"java.lang.Object",
+		"com.sun.media.sound.ModelTransform",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.media.sound.SoftChannel"
+	};
+	$loadClass(SoftChannel$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(SoftChannel$4);
+	});
 	return class$;
 }
 

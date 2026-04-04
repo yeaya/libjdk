@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/websocket/StatusCodes.h>
-
 #include <jcpp.h>
 
 #undef CLOSED_ABNORMALLY
@@ -17,35 +16,6 @@ namespace jdk {
 			namespace http {
 				namespace websocket {
 
-$FieldInfo _StatusCodes_FieldInfo_[] = {
-	{"PROTOCOL_ERROR", "I", nullptr, $STATIC | $FINAL, $constField(StatusCodes, PROTOCOL_ERROR)},
-	{"NO_STATUS_CODE", "I", nullptr, $STATIC | $FINAL, $constField(StatusCodes, NO_STATUS_CODE)},
-	{"CLOSED_ABNORMALLY", "I", nullptr, $STATIC | $FINAL, $constField(StatusCodes, CLOSED_ABNORMALLY)},
-	{"NOT_CONSISTENT", "I", nullptr, $STATIC | $FINAL, $constField(StatusCodes, NOT_CONSISTENT)},
-	{}
-};
-
-$MethodInfo _StatusCodes_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(StatusCodes, init$, void)},
-	{"isLegal", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StatusCodes, isLegal, bool, int32_t)},
-	{"isLegalToReceiveFromServer", "(I)Z", nullptr, $STATIC, $staticMethod(StatusCodes, isLegalToReceiveFromServer, bool, int32_t)},
-	{"isLegalToSendFromClient", "(I)Z", nullptr, $STATIC, $staticMethod(StatusCodes, isLegalToSendFromClient, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _StatusCodes_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"jdk.internal.net.http.websocket.StatusCodes",
-	"java.lang.Object",
-	nullptr,
-	_StatusCodes_FieldInfo_,
-	_StatusCodes_MethodInfo_
-};
-
-$Object* allocate$StatusCodes($Class* clazz) {
-	return $of($alloc(StatusCodes));
-}
-
 void StatusCodes::init$() {
 }
 
@@ -56,33 +26,21 @@ bool StatusCodes::isLegalToSendFromClient(int32_t code) {
 	if (code > 4999) {
 		return false;
 	}
-
 	bool var$0 = false;
 	switch (code) {
 	case StatusCodes::PROTOCOL_ERROR:
-		{}
 	case StatusCodes::NOT_CONSISTENT:
-		{}
 	case 1003:
-		{}
 	case 1009:
-		{}
 	case 1010:
-		{}
 	case 1012:
-		{}
 	case 1013:
-		{}
 	case 1014:
-		{
-			var$0 = false;
-			break;
-		}
+		var$0 = false;
+		break;
 	default:
-		{
-			var$0 = true;
-			break;
-		}
+		var$0 = true;
+		break;
 	}
 	return var$0;
 }
@@ -95,29 +53,22 @@ bool StatusCodes::isLegalToReceiveFromServer(int32_t code) {
 }
 
 bool StatusCodes::isLegal(int32_t code) {
-	if (code < 1000 || code > 0x0000FFFF) {
+	if (code < 1000 || code > 0x0000ffff) {
 		return false;
 	}
 	if ((code >= 1016 && code <= 2999) || code == 1004) {
 		return false;
 	}
-
 	bool var$0 = false;
 	switch (code) {
 	case StatusCodes::NO_STATUS_CODE:
-		{}
 	case StatusCodes::CLOSED_ABNORMALLY:
-		{}
 	case 1015:
-		{
-			var$0 = false;
-			break;
-		}
+		var$0 = false;
+		break;
 	default:
-		{
-			var$0 = true;
-			break;
-		}
+		var$0 = true;
+		break;
 	}
 	return var$0;
 }
@@ -126,7 +77,31 @@ StatusCodes::StatusCodes() {
 }
 
 $Class* StatusCodes::load$($String* name, bool initialize) {
-	$loadClass(StatusCodes, name, initialize, &_StatusCodes_ClassInfo_, allocate$StatusCodes);
+	$FieldInfo fieldInfos$$[] = {
+		{"PROTOCOL_ERROR", "I", nullptr, $STATIC | $FINAL, $constField(StatusCodes, PROTOCOL_ERROR)},
+		{"NO_STATUS_CODE", "I", nullptr, $STATIC | $FINAL, $constField(StatusCodes, NO_STATUS_CODE)},
+		{"CLOSED_ABNORMALLY", "I", nullptr, $STATIC | $FINAL, $constField(StatusCodes, CLOSED_ABNORMALLY)},
+		{"NOT_CONSISTENT", "I", nullptr, $STATIC | $FINAL, $constField(StatusCodes, NOT_CONSISTENT)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(StatusCodes, init$, void)},
+		{"isLegal", "(I)Z", nullptr, $PRIVATE | $STATIC, $staticMethod(StatusCodes, isLegal, bool, int32_t)},
+		{"isLegalToReceiveFromServer", "(I)Z", nullptr, $STATIC, $staticMethod(StatusCodes, isLegalToReceiveFromServer, bool, int32_t)},
+		{"isLegalToSendFromClient", "(I)Z", nullptr, $STATIC, $staticMethod(StatusCodes, isLegalToSendFromClient, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"jdk.internal.net.http.websocket.StatusCodes",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(StatusCodes, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(StatusCodes);
+	});
 	return class$;
 }
 

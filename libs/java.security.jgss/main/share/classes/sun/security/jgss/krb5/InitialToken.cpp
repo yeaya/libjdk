@@ -1,5 +1,4 @@
 #include <sun/security/jgss/krb5/InitialToken.h>
-
 #include <java/net/Inet4Address.h>
 #include <java/net/Inet6Address.h>
 #include <java/net/InetAddress.h>
@@ -50,62 +49,6 @@ namespace sun {
 		namespace jgss {
 			namespace krb5 {
 
-$FieldInfo _InitialToken_FieldInfo_[] = {
-	{"CHECKSUM_TYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_TYPE)},
-	{"CHECKSUM_LENGTH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_LENGTH_SIZE)},
-	{"CHECKSUM_BINDINGS_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_BINDINGS_SIZE)},
-	{"CHECKSUM_FLAGS_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_FLAGS_SIZE)},
-	{"CHECKSUM_DELEG_OPT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_DELEG_OPT_SIZE)},
-	{"CHECKSUM_DELEG_LGTH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_DELEG_LGTH_SIZE)},
-	{"CHECKSUM_DELEG_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_DELEG_FLAG)},
-	{"CHECKSUM_MUTUAL_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_MUTUAL_FLAG)},
-	{"CHECKSUM_REPLAY_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_REPLAY_FLAG)},
-	{"CHECKSUM_SEQUENCE_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_SEQUENCE_FLAG)},
-	{"CHECKSUM_CONF_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_CONF_FLAG)},
-	{"CHECKSUM_INTEG_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_INTEG_FLAG)},
-	{"CHECKSUM_FIRST_BYTES", "[B", nullptr, $PRIVATE | $FINAL, $field(InitialToken, CHECKSUM_FIRST_BYTES)},
-	{"CHANNEL_BINDING_AF_UNSPEC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHANNEL_BINDING_AF_UNSPEC)},
-	{"CHANNEL_BINDING_AF_INET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHANNEL_BINDING_AF_INET)},
-	{"CHANNEL_BINDING_AF_INET6", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHANNEL_BINDING_AF_INET6)},
-	{"CHANNEL_BINDING_AF_NULL_ADDR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHANNEL_BINDING_AF_NULL_ADDR)},
-	{"Inet4_ADDRSZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, Inet4_ADDRSZ)},
-	{"Inet6_ADDRSZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, Inet6_ADDRSZ)},
-	{}
-};
-
-$MethodInfo _InitialToken_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, 0, $method(InitialToken, init$, void)},
-	{"computeChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)[B", nullptr, $PRIVATE, $method(InitialToken, computeChannelBinding, $bytes*, $ChannelBinding*), "org.ietf.jgss.GSSException"},
-	{"encode", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InitialToken, encode, $bytes*), "java.io.IOException"},
-	{"getAddrBytes", "(Ljava/net/InetAddress;)[B", nullptr, $PRIVATE, $method(InitialToken, getAddrBytes, $bytes*, $InetAddress*), "org.ietf.jgss.GSSException"},
-	{"getAddrType", "(Ljava/net/InetAddress;I)I", nullptr, $PRIVATE, $method(InitialToken, getAddrType, int32_t, $InetAddress*, int32_t)},
-	{}
-};
-
-$InnerClassInfo _InitialToken_InnerClassesInfo_[] = {
-	{"sun.security.jgss.krb5.InitialToken$OverloadedChecksum", "sun.security.jgss.krb5.InitialToken", "OverloadedChecksum", $PROTECTED},
-	{}
-};
-
-$ClassInfo _InitialToken_ClassInfo_ = {
-	$ACC_SUPER | $ABSTRACT,
-	"sun.security.jgss.krb5.InitialToken",
-	"sun.security.jgss.krb5.Krb5Token",
-	nullptr,
-	_InitialToken_FieldInfo_,
-	_InitialToken_MethodInfo_,
-	nullptr,
-	nullptr,
-	_InitialToken_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.security.jgss.krb5.InitialToken$OverloadedChecksum"
-};
-
-$Object* allocate$InitialToken($Class* clazz) {
-	return $of($alloc(InitialToken));
-}
-
 void InitialToken::init$() {
 	$Krb5Token::init$();
 	$set(this, CHECKSUM_FIRST_BYTES, $new($bytes, {
@@ -132,30 +75,24 @@ $bytes* InitialToken::getAddrBytes($InetAddress* addr) {
 	if (addressBytes != nullptr) {
 		switch (addressType) {
 		case InitialToken::CHANNEL_BINDING_AF_INET:
-			{
-				if (addressBytes->length != InitialToken::Inet4_ADDRSZ) {
-					$throwNew($GSSException, $GSSException::FAILURE, -1, "Incorrect AF-INET address length in ChannelBinding."_s);
-				}
-				return (addressBytes);
+			if (addressBytes->length != InitialToken::Inet4_ADDRSZ) {
+				$throwNew($GSSException, $GSSException::FAILURE, -1, "Incorrect AF-INET address length in ChannelBinding."_s);
 			}
+			return (addressBytes);
 		case InitialToken::CHANNEL_BINDING_AF_INET6:
-			{
-				if (addressBytes->length != InitialToken::Inet6_ADDRSZ) {
-					$throwNew($GSSException, $GSSException::FAILURE, -1, "Incorrect AF-INET6 address length in ChannelBinding."_s);
-				}
-				return (addressBytes);
+			if (addressBytes->length != InitialToken::Inet6_ADDRSZ) {
+				$throwNew($GSSException, $GSSException::FAILURE, -1, "Incorrect AF-INET6 address length in ChannelBinding."_s);
 			}
+			return (addressBytes);
 		default:
-			{
-				$throwNew($GSSException, $GSSException::FAILURE, -1, "Cannot handle non AF-INET addresses in ChannelBinding."_s);
-			}
+			$throwNew($GSSException, $GSSException::FAILURE, -1, "Cannot handle non AF-INET addresses in ChannelBinding."_s);
 		}
 	}
 	return nullptr;
 }
 
 $bytes* InitialToken::computeChannelBinding($ChannelBinding* channelBinding) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($InetAddress, initiatorAddress, $nc(channelBinding)->getInitiatorAddress());
 	$var($InetAddress, acceptorAddress, channelBinding->getAcceptorAddress());
 	int32_t size = 5 * 4;
@@ -218,7 +155,57 @@ InitialToken::InitialToken() {
 }
 
 $Class* InitialToken::load$($String* name, bool initialize) {
-	$loadClass(InitialToken, name, initialize, &_InitialToken_ClassInfo_, allocate$InitialToken);
+	$FieldInfo fieldInfos$$[] = {
+		{"CHECKSUM_TYPE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_TYPE)},
+		{"CHECKSUM_LENGTH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_LENGTH_SIZE)},
+		{"CHECKSUM_BINDINGS_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_BINDINGS_SIZE)},
+		{"CHECKSUM_FLAGS_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_FLAGS_SIZE)},
+		{"CHECKSUM_DELEG_OPT_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_DELEG_OPT_SIZE)},
+		{"CHECKSUM_DELEG_LGTH_SIZE", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_DELEG_LGTH_SIZE)},
+		{"CHECKSUM_DELEG_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_DELEG_FLAG)},
+		{"CHECKSUM_MUTUAL_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_MUTUAL_FLAG)},
+		{"CHECKSUM_REPLAY_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_REPLAY_FLAG)},
+		{"CHECKSUM_SEQUENCE_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_SEQUENCE_FLAG)},
+		{"CHECKSUM_CONF_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_CONF_FLAG)},
+		{"CHECKSUM_INTEG_FLAG", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHECKSUM_INTEG_FLAG)},
+		{"CHECKSUM_FIRST_BYTES", "[B", nullptr, $PRIVATE | $FINAL, $field(InitialToken, CHECKSUM_FIRST_BYTES)},
+		{"CHANNEL_BINDING_AF_UNSPEC", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHANNEL_BINDING_AF_UNSPEC)},
+		{"CHANNEL_BINDING_AF_INET", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHANNEL_BINDING_AF_INET)},
+		{"CHANNEL_BINDING_AF_INET6", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHANNEL_BINDING_AF_INET6)},
+		{"CHANNEL_BINDING_AF_NULL_ADDR", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, CHANNEL_BINDING_AF_NULL_ADDR)},
+		{"Inet4_ADDRSZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, Inet4_ADDRSZ)},
+		{"Inet6_ADDRSZ", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(InitialToken, Inet6_ADDRSZ)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, 0, $method(InitialToken, init$, void)},
+		{"computeChannelBinding", "(Lorg/ietf/jgss/ChannelBinding;)[B", nullptr, $PRIVATE, $method(InitialToken, computeChannelBinding, $bytes*, $ChannelBinding*), "org.ietf.jgss.GSSException"},
+		{"encode", "()[B", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(InitialToken, encode, $bytes*), "java.io.IOException"},
+		{"getAddrBytes", "(Ljava/net/InetAddress;)[B", nullptr, $PRIVATE, $method(InitialToken, getAddrBytes, $bytes*, $InetAddress*), "org.ietf.jgss.GSSException"},
+		{"getAddrType", "(Ljava/net/InetAddress;I)I", nullptr, $PRIVATE, $method(InitialToken, getAddrType, int32_t, $InetAddress*, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.security.jgss.krb5.InitialToken$OverloadedChecksum", "sun.security.jgss.krb5.InitialToken", "OverloadedChecksum", $PROTECTED},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER | $ABSTRACT,
+		"sun.security.jgss.krb5.InitialToken",
+		"sun.security.jgss.krb5.Krb5Token",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.security.jgss.krb5.InitialToken$OverloadedChecksum"
+	};
+	$loadClass(InitialToken, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(InitialToken);
+	});
 	return class$;
 }
 

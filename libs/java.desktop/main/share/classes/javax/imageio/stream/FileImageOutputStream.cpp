@@ -1,8 +1,6 @@
 #include <javax/imageio/stream/FileImageOutputStream.h>
-
 #include <com/sun/imageio/stream/CloseableDisposerRecord.h>
 #include <com/sun/imageio/stream/StreamFinalizer.h>
-#include <java/io/Closeable.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/RandomAccessFile.h>
@@ -11,12 +9,10 @@
 #include <javax/imageio/stream/ImageInputStreamImpl.h>
 #include <javax/imageio/stream/ImageOutputStreamImpl.h>
 #include <sun/java2d/Disposer.h>
-#include <sun/java2d/DisposerRecord.h>
 #include <jcpp.h>
 
 using $CloseableDisposerRecord = ::com::sun::imageio::stream::CloseableDisposerRecord;
 using $StreamFinalizer = ::com::sun::imageio::stream::StreamFinalizer;
-using $Closeable = ::java::io::Closeable;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $RandomAccessFile = ::java::io::RandomAccessFile;
@@ -27,59 +23,13 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 using $ImageInputStreamImpl = ::javax::imageio::stream::ImageInputStreamImpl;
 using $ImageOutputStreamImpl = ::javax::imageio::stream::ImageOutputStreamImpl;
 using $Disposer = ::sun::java2d::Disposer;
-using $DisposerRecord = ::sun::java2d::DisposerRecord;
 
 namespace javax {
 	namespace imageio {
 		namespace stream {
-
-$NamedAttribute FileImageOutputStream_Attribute_var$0[] = {
-	{"since", 's', "9"},
-	{}
-};
-
-$CompoundAttribute _FileImageOutputStream_MethodAnnotations_finalize3[] = {
-	{"Ljava/lang/Deprecated;", FileImageOutputStream_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _FileImageOutputStream_FieldInfo_[] = {
-	{"raf", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE, $field(FileImageOutputStream, raf)},
-	{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileImageOutputStream, disposerReferent)},
-	{"disposerRecord", "Lcom/sun/imageio/stream/CloseableDisposerRecord;", nullptr, $PRIVATE | $FINAL, $field(FileImageOutputStream, disposerRecord)},
-	{}
-};
-
-$MethodInfo _FileImageOutputStream_MethodInfo_[] = {
-	{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileImageOutputStream, init$, void, $File*), "java.io.FileNotFoundException,java.io.IOException"},
-	{"<init>", "(Ljava/io/RandomAccessFile;)V", nullptr, $PUBLIC, $method(FileImageOutputStream, init$, void, $RandomAccessFile*)},
-	{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, close, void), "java.io.IOException"},
-	{"finalize", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(FileImageOutputStream, finalize, void), "java.lang.Throwable", nullptr, _FileImageOutputStream_MethodAnnotations_finalize3},
-	{"length", "()J", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, length, int64_t)},
-	{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, read, int32_t), "java.io.IOException"},
-	{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, seek, void, int64_t), "java.io.IOException"},
-	{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, write, void, int32_t), "java.io.IOException"},
-	{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
-	{}
-};
-
-$ClassInfo _FileImageOutputStream_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.imageio.stream.FileImageOutputStream",
-	"javax.imageio.stream.ImageOutputStreamImpl",
-	nullptr,
-	_FileImageOutputStream_FieldInfo_,
-	_FileImageOutputStream_MethodInfo_
-};
-
-$Object* allocate$FileImageOutputStream($Class* clazz) {
-	return $of($alloc(FileImageOutputStream));
-}
 
 void FileImageOutputStream::init$($File* f) {
 	FileImageOutputStream::init$(f == nullptr ? ($RandomAccessFile*)nullptr : $$new($RandomAccessFile, f, "rw"_s));
@@ -96,7 +46,7 @@ void FileImageOutputStream::init$($RandomAccessFile* raf) {
 		$set(this, disposerReferent, $new($Object));
 		$Disposer::addRecord(this->disposerReferent, this->disposerRecord);
 	} else {
-		$set(this, disposerReferent, $new($StreamFinalizer, static_cast<$ImageInputStream*>(static_cast<$ImageInputStreamImpl*>(static_cast<$ImageOutputStreamImpl*>(this)))));
+		$set(this, disposerReferent, $new($StreamFinalizer, $cast($ImageInputStreamImpl, this)));
 	}
 }
 
@@ -149,7 +99,7 @@ void FileImageOutputStream::seek(int64_t pos) {
 	}
 	this->bitOffset = 0;
 	$nc(this->raf)->seek(pos);
-	this->streamPos = $nc(this->raf)->getFilePointer();
+	this->streamPos = this->raf->getFilePointer();
 }
 
 void FileImageOutputStream::close() {
@@ -165,7 +115,44 @@ FileImageOutputStream::FileImageOutputStream() {
 }
 
 $Class* FileImageOutputStream::load$($String* name, bool initialize) {
-	$loadClass(FileImageOutputStream, name, initialize, &_FileImageOutputStream_ClassInfo_, allocate$FileImageOutputStream);
+	$FieldInfo fieldInfos$$[] = {
+		{"raf", "Ljava/io/RandomAccessFile;", nullptr, $PRIVATE, $field(FileImageOutputStream, raf)},
+		{"disposerReferent", "Ljava/lang/Object;", nullptr, $PRIVATE | $FINAL, $field(FileImageOutputStream, disposerReferent)},
+		{"disposerRecord", "Lcom/sun/imageio/stream/CloseableDisposerRecord;", nullptr, $PRIVATE | $FINAL, $field(FileImageOutputStream, disposerRecord)},
+		{}
+	};
+	$NamedAttribute finalizemethodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "9"},
+		{}
+	};
+	$CompoundAttribute finalizemethodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", finalizemethodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/io/File;)V", nullptr, $PUBLIC, $method(FileImageOutputStream, init$, void, $File*), "java.io.FileNotFoundException,java.io.IOException"},
+		{"<init>", "(Ljava/io/RandomAccessFile;)V", nullptr, $PUBLIC, $method(FileImageOutputStream, init$, void, $RandomAccessFile*)},
+		{"close", "()V", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, close, void), "java.io.IOException"},
+		{"finalize", "()V", nullptr, $PROTECTED | $DEPRECATED, $virtualMethod(FileImageOutputStream, finalize, void), "java.lang.Throwable", nullptr, finalizemethodAnnotations$$},
+		{"length", "()J", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, length, int64_t)},
+		{"read", "()I", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, read, int32_t), "java.io.IOException"},
+		{"read", "([BII)I", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, read, int32_t, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{"seek", "(J)V", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, seek, void, int64_t), "java.io.IOException"},
+		{"write", "(I)V", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, write, void, int32_t), "java.io.IOException"},
+		{"write", "([BII)V", nullptr, $PUBLIC, $virtualMethod(FileImageOutputStream, write, void, $bytes*, int32_t, int32_t), "java.io.IOException"},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.imageio.stream.FileImageOutputStream",
+		"javax.imageio.stream.ImageOutputStreamImpl",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(FileImageOutputStream, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(FileImageOutputStream));
+	});
 	return class$;
 }
 

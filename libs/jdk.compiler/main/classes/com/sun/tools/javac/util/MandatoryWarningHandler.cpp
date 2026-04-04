@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/MandatoryWarningHandler.h>
-
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/code/Source.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
@@ -31,7 +30,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
 using $Objects = ::java::util::Objects;
-using $Set = ::java::util::Set;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 
 namespace com {
@@ -39,54 +37,6 @@ namespace com {
 		namespace tools {
 			namespace javac {
 				namespace util {
-
-$FieldInfo _MandatoryWarningHandler_FieldInfo_[] = {
-	{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, log)},
-	{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, source)},
-	{"verbose", "Z", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, verbose)},
-	{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, prefix)},
-	{"sourcesWithReportedWarnings", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PRIVATE, $field(MandatoryWarningHandler, sourcesWithReportedWarnings)},
-	{"deferredDiagnosticKind", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PRIVATE, $field(MandatoryWarningHandler, deferredDiagnosticKind)},
-	{"deferredDiagnosticSource", "Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $field(MandatoryWarningHandler, deferredDiagnosticSource)},
-	{"deferredDiagnosticArg", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(MandatoryWarningHandler, deferredDiagnosticArg)},
-	{"enforceMandatory", "Z", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, enforceMandatory)},
-	{"lintCategory", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, lintCategory)},
-	{}
-};
-
-$MethodInfo _MandatoryWarningHandler_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/code/Source;ZZLjava/lang/String;Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $method(MandatoryWarningHandler, init$, void, $Log*, $Source*, bool, bool, $String*, $Lint$LintCategory*)},
-	{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, clear, void)},
-	{"logMandatoryNote", "(Ljavax/tools/JavaFileObject;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(MandatoryWarningHandler, logMandatoryNote, void, $JavaFileObject*, $String*, $ObjectArray*)},
-	{"logMandatoryWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PRIVATE, $method(MandatoryWarningHandler, logMandatoryWarning, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
-	{"reportDeferredDiagnostic", "()V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, reportDeferredDiagnostic, void)},
-	{}
-};
-
-$InnerClassInfo _MandatoryWarningHandler_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.MandatoryWarningHandler$DeferredDiagnosticKind", "com.sun.tools.javac.util.MandatoryWarningHandler", "DeferredDiagnosticKind", $PRIVATE | $STATIC | $FINAL | $ENUM},
-	{}
-};
-
-$ClassInfo _MandatoryWarningHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.util.MandatoryWarningHandler",
-	"java.lang.Object",
-	nullptr,
-	_MandatoryWarningHandler_FieldInfo_,
-	_MandatoryWarningHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_MandatoryWarningHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.MandatoryWarningHandler$DeferredDiagnosticKind"
-};
-
-$Object* allocate$MandatoryWarningHandler($Class* clazz) {
-	return $of($alloc(MandatoryWarningHandler));
-}
 
 void MandatoryWarningHandler::init$($Log* log, $Source* source, bool verbose, bool enforceMandatory, $String* prefix, $Lint$LintCategory* lc) {
 	$set(this, log, log);
@@ -103,7 +53,7 @@ void MandatoryWarningHandler::report($JCDiagnostic$DiagnosticPosition* pos, $JCD
 		if (this->sourcesWithReportedWarnings == nullptr) {
 			$set(this, sourcesWithReportedWarnings, $new($HashSet));
 		}
-		if ($nc(this->log)->nwarnings < $nc(this->log)->MaxWarnings) {
+		if (this->log->nwarnings < this->log->MaxWarnings) {
 			logMandatoryWarning(pos, warnKey);
 			$nc(this->sourcesWithReportedWarnings)->add(currentSource);
 		} else if (this->deferredDiagnosticKind == nullptr) {
@@ -138,18 +88,18 @@ void MandatoryWarningHandler::report($JCDiagnostic$DiagnosticPosition* pos, $JCD
 }
 
 void MandatoryWarningHandler::reportDeferredDiagnostic() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->deferredDiagnosticKind != nullptr) {
 		if (this->deferredDiagnosticArg == nullptr) {
 			if (this->source != nullptr) {
-				logMandatoryNote(this->deferredDiagnosticSource, $($nc(this->deferredDiagnosticKind)->getKey(this->prefix)), $$new($ObjectArray, {$of(this->source)}));
+				logMandatoryNote(this->deferredDiagnosticSource, $(this->deferredDiagnosticKind->getKey(this->prefix)), $$new($ObjectArray, {this->source}));
 			} else {
 				logMandatoryNote(this->deferredDiagnosticSource, $($nc(this->deferredDiagnosticKind)->getKey(this->prefix)), $$new($ObjectArray, 0));
 			}
 		} else if (this->source != nullptr) {
 			logMandatoryNote(this->deferredDiagnosticSource, $($nc(this->deferredDiagnosticKind)->getKey(this->prefix)), $$new($ObjectArray, {
 				this->deferredDiagnosticArg,
-				$of(this->source)
+				this->source
 			}));
 		} else {
 			logMandatoryNote(this->deferredDiagnosticSource, $($nc(this->deferredDiagnosticKind)->getKey(this->prefix)), $$new($ObjectArray, {this->deferredDiagnosticArg}));
@@ -169,7 +119,7 @@ void MandatoryWarningHandler::logMandatoryWarning($JCDiagnostic$DiagnosticPositi
 }
 
 void MandatoryWarningHandler::logMandatoryNote($JavaFileObject* file, $String* msg, $ObjectArray* args) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->enforceMandatory) {
 		$nc(this->log)->mandatoryNote(file, $$new($JCDiagnostic$Note, "compiler"_s, msg, args));
 	} else {
@@ -188,7 +138,49 @@ MandatoryWarningHandler::MandatoryWarningHandler() {
 }
 
 $Class* MandatoryWarningHandler::load$($String* name, bool initialize) {
-	$loadClass(MandatoryWarningHandler, name, initialize, &_MandatoryWarningHandler_ClassInfo_, allocate$MandatoryWarningHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"log", "Lcom/sun/tools/javac/util/Log;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, log)},
+		{"source", "Lcom/sun/tools/javac/code/Source;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, source)},
+		{"verbose", "Z", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, verbose)},
+		{"prefix", "Ljava/lang/String;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, prefix)},
+		{"sourcesWithReportedWarnings", "Ljava/util/Set;", "Ljava/util/Set<Ljavax/tools/JavaFileObject;>;", $PRIVATE, $field(MandatoryWarningHandler, sourcesWithReportedWarnings)},
+		{"deferredDiagnosticKind", "Lcom/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind;", nullptr, $PRIVATE, $field(MandatoryWarningHandler, deferredDiagnosticKind)},
+		{"deferredDiagnosticSource", "Ljavax/tools/JavaFileObject;", nullptr, $PRIVATE, $field(MandatoryWarningHandler, deferredDiagnosticSource)},
+		{"deferredDiagnosticArg", "Ljava/lang/Object;", nullptr, $PRIVATE, $field(MandatoryWarningHandler, deferredDiagnosticArg)},
+		{"enforceMandatory", "Z", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, enforceMandatory)},
+		{"lintCategory", "Lcom/sun/tools/javac/code/Lint$LintCategory;", nullptr, $PRIVATE | $FINAL, $field(MandatoryWarningHandler, lintCategory)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/util/Log;Lcom/sun/tools/javac/code/Source;ZZLjava/lang/String;Lcom/sun/tools/javac/code/Lint$LintCategory;)V", nullptr, $PUBLIC, $method(MandatoryWarningHandler, init$, void, $Log*, $Source*, bool, bool, $String*, $Lint$LintCategory*)},
+		{"clear", "()V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, clear, void)},
+		{"logMandatoryNote", "(Ljavax/tools/JavaFileObject;Ljava/lang/String;[Ljava/lang/Object;)V", nullptr, $PRIVATE | $TRANSIENT, $method(MandatoryWarningHandler, logMandatoryNote, void, $JavaFileObject*, $String*, $ObjectArray*)},
+		{"logMandatoryWarning", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PRIVATE, $method(MandatoryWarningHandler, logMandatoryWarning, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+		{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/JCDiagnostic$Warning;)V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, report, void, $JCDiagnostic$DiagnosticPosition*, $JCDiagnostic$Warning*)},
+		{"reportDeferredDiagnostic", "()V", nullptr, $PUBLIC, $virtualMethod(MandatoryWarningHandler, reportDeferredDiagnostic, void)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.MandatoryWarningHandler$DeferredDiagnosticKind", "com.sun.tools.javac.util.MandatoryWarningHandler", "DeferredDiagnosticKind", $PRIVATE | $STATIC | $FINAL | $ENUM},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.util.MandatoryWarningHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.MandatoryWarningHandler$DeferredDiagnosticKind"
+	};
+	$loadClass(MandatoryWarningHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(MandatoryWarningHandler);
+	});
 	return class$;
 }
 

@@ -1,9 +1,7 @@
 #include <sun/lwawt/macosx/CPrinterSurfaceData.h>
-
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
-#include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
@@ -25,7 +23,6 @@
 
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Image = ::java::awt::Image;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
@@ -46,42 +43,6 @@ namespace sun {
 	namespace lwawt {
 		namespace macosx {
 
-$FieldInfo _CPrinterSurfaceData_FieldInfo_[] = {
-	{"DESC_INT_RGB_PQ", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CPrinterSurfaceData, DESC_INT_RGB_PQ)},
-	{"IntRgbPQ", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CPrinterSurfaceData, IntRgbPQ)},
-	{}
-};
-
-$MethodInfo _CPrinterSurfaceData_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/GraphicsConfiguration;J)V", nullptr, $PRIVATE, $method(CPrinterSurfaceData, init$, void, $GraphicsConfiguration*, int64_t)},
-	{"_flush", "()V", nullptr, $NATIVE, $virtualMethod(CPrinterSurfaceData, _flush, void)},
-	{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIILjava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, copyArea, $BufferedImage*, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, $BufferedImage*)},
-	{"createData", "(Ljava/awt/print/PageFormat;J)Lsun/java2d/SurfaceData;", nullptr, $STATIC, $staticMethod(CPrinterSurfaceData, createData, $SurfaceData*, $PageFormat*, int64_t)},
-	{"enableFlushing", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, enableFlushing, void)},
-	{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, getDestination, $Object*)},
-	{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
-	{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, getReplacement, $SurfaceData*)},
-	{"initOps", "(JLjava/nio/ByteBuffer;[Ljava/lang/Object;II)V", nullptr, $PRIVATE | $NATIVE, $method(CPrinterSurfaceData, initOps, void, int64_t, $ByteBuffer*, $ObjectArray*, int32_t, int32_t)},
-	{"xorSurfacePixels", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, xorSurfacePixels, bool, $SunGraphics2D*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t)},
-	{}
-};
-
-#define _METHOD_INDEX__flush 1
-#define _METHOD_INDEX_initOps 8
-
-$ClassInfo _CPrinterSurfaceData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.lwawt.macosx.CPrinterSurfaceData",
-	"sun.java2d.OSXSurfaceData",
-	nullptr,
-	_CPrinterSurfaceData_FieldInfo_,
-	_CPrinterSurfaceData_MethodInfo_
-};
-
-$Object* allocate$CPrinterSurfaceData($Class* clazz) {
-	return $of($alloc(CPrinterSurfaceData));
-}
-
 $String* CPrinterSurfaceData::DESC_INT_RGB_PQ = nullptr;
 $SurfaceType* CPrinterSurfaceData::IntRgbPQ = nullptr;
 
@@ -91,16 +52,14 @@ $SurfaceData* CPrinterSurfaceData::createData($PageFormat* pf, int64_t context) 
 }
 
 void CPrinterSurfaceData::init$($GraphicsConfiguration* gc, int64_t context) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($SurfaceType, var$0, CPrinterSurfaceData::IntRgbPQ);
 	$var($ColorModel, var$1, $nc(gc)->getColorModel());
-	$var($GraphicsConfiguration, var$2, gc);
-	$OSXSurfaceData::init$(var$0, var$1, var$2, $(gc->getBounds()));
-	int64_t var$3 = context;
-	$var($ByteBuffer, var$4, this->fGraphicsStates);
-	$var($ObjectArray, var$5, this->fGraphicsStatesObject);
-	int32_t var$6 = $nc($($nc(gc)->getBounds()))->width;
-	initOps(var$3, var$4, var$5, var$6, $nc($(gc->getBounds()))->height);
+	$OSXSurfaceData::init$(var$0, var$1, gc, $(gc->getBounds()));
+	$var($ByteBuffer, var$2, this->fGraphicsStates);
+	$var($ObjectArray, var$3, this->fGraphicsStatesObject);
+	int32_t var$4 = $nc($(gc->getBounds()))->width;
+	initOps(context, var$2, var$3, var$4, $nc($(gc->getBounds()))->height);
 }
 
 $SurfaceData* CPrinterSurfaceData::getReplacement() {
@@ -108,7 +67,7 @@ $SurfaceData* CPrinterSurfaceData::getReplacement() {
 }
 
 void CPrinterSurfaceData::initOps(int64_t context, $ByteBuffer* byteParameters, $ObjectArray* objectParameters, int32_t width, int32_t height) {
-	$prepareNative(CPrinterSurfaceData, initOps, void, int64_t context, $ByteBuffer* byteParameters, $ObjectArray* objectParameters, int32_t width, int32_t height);
+	$prepareNative(initOps, void, int64_t context, $ByteBuffer* byteParameters, $ObjectArray* objectParameters, int32_t width, int32_t height);
 	$invokeNative(context, byteParameters, objectParameters, width, height);
 	$finishNative();
 }
@@ -118,13 +77,13 @@ void CPrinterSurfaceData::enableFlushing() {
 }
 
 void CPrinterSurfaceData::_flush() {
-	$prepareNative(CPrinterSurfaceData, _flush, void);
+	$prepareNative(_flush, void);
 	$invokeNative();
 	$finishNative();
 }
 
 $Object* CPrinterSurfaceData::getDestination() {
-	return $of(nullptr);
+	return nullptr;
 }
 
 $Raster* CPrinterSurfaceData::getRaster(int32_t x, int32_t y, int32_t w, int32_t h) {
@@ -133,10 +92,10 @@ $Raster* CPrinterSurfaceData::getRaster(int32_t x, int32_t y, int32_t w, int32_t
 }
 
 $BufferedImage* CPrinterSurfaceData::copyArea($SunGraphics2D* sg2d, int32_t x, int32_t y, int32_t w, int32_t h, $BufferedImage* dstImage$renamed) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($BufferedImage, dstImage, dstImage$renamed);
 	if (dstImage == nullptr) {
-		$assign(dstImage, $nc($(getDeviceConfiguration()))->createCompatibleImage(w, h));
+		$assign(dstImage, $$nc(getDeviceConfiguration())->createCompatibleImage(w, h));
 	}
 	$var($Graphics, g, $nc(dstImage)->createGraphics());
 	$var($BufferedImage, thisImage, getCompositingImage(w, h));
@@ -150,7 +109,7 @@ bool CPrinterSurfaceData::xorSurfacePixels($SunGraphics2D* sg2d, $BufferedImage*
 	$shouldNotReachHere();
 }
 
-void clinit$CPrinterSurfaceData($Class* class$) {
+void CPrinterSurfaceData::clinit$($Class* clazz) {
 	$assignStatic(CPrinterSurfaceData::DESC_INT_RGB_PQ, "Integer RGB Printer Quartz"_s);
 	$init($SurfaceType);
 	$assignStatic(CPrinterSurfaceData::IntRgbPQ, $nc($SurfaceType::IntRgb)->deriveSubType(CPrinterSurfaceData::DESC_INT_RGB_PQ));
@@ -160,7 +119,35 @@ CPrinterSurfaceData::CPrinterSurfaceData() {
 }
 
 $Class* CPrinterSurfaceData::load$($String* name, bool initialize) {
-	$loadClass(CPrinterSurfaceData, name, initialize, &_CPrinterSurfaceData_ClassInfo_, clinit$CPrinterSurfaceData, allocate$CPrinterSurfaceData);
+	$FieldInfo fieldInfos$$[] = {
+		{"DESC_INT_RGB_PQ", "Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CPrinterSurfaceData, DESC_INT_RGB_PQ)},
+		{"IntRgbPQ", "Lsun/java2d/loops/SurfaceType;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(CPrinterSurfaceData, IntRgbPQ)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/GraphicsConfiguration;J)V", nullptr, $PRIVATE, $method(CPrinterSurfaceData, init$, void, $GraphicsConfiguration*, int64_t)},
+		{"_flush", "()V", nullptr, $NATIVE, $virtualMethod(CPrinterSurfaceData, _flush, void)},
+		{"copyArea", "(Lsun/java2d/SunGraphics2D;IIIILjava/awt/image/BufferedImage;)Ljava/awt/image/BufferedImage;", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, copyArea, $BufferedImage*, $SunGraphics2D*, int32_t, int32_t, int32_t, int32_t, $BufferedImage*)},
+		{"createData", "(Ljava/awt/print/PageFormat;J)Lsun/java2d/SurfaceData;", nullptr, $STATIC, $staticMethod(CPrinterSurfaceData, createData, $SurfaceData*, $PageFormat*, int64_t)},
+		{"enableFlushing", "()V", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, enableFlushing, void)},
+		{"getDestination", "()Ljava/lang/Object;", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, getDestination, $Object*)},
+		{"getRaster", "(IIII)Ljava/awt/image/Raster;", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, getRaster, $Raster*, int32_t, int32_t, int32_t, int32_t)},
+		{"getReplacement", "()Lsun/java2d/SurfaceData;", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, getReplacement, $SurfaceData*)},
+		{"initOps", "(JLjava/nio/ByteBuffer;[Ljava/lang/Object;II)V", nullptr, $PRIVATE | $NATIVE, $method(CPrinterSurfaceData, initOps, void, int64_t, $ByteBuffer*, $ObjectArray*, int32_t, int32_t)},
+		{"xorSurfacePixels", "(Lsun/java2d/SunGraphics2D;Ljava/awt/image/BufferedImage;IIIII)Z", nullptr, $PUBLIC, $virtualMethod(CPrinterSurfaceData, xorSurfacePixels, bool, $SunGraphics2D*, $BufferedImage*, int32_t, int32_t, int32_t, int32_t, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.lwawt.macosx.CPrinterSurfaceData",
+		"sun.java2d.OSXSurfaceData",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CPrinterSurfaceData, name, initialize, &classInfo$$, CPrinterSurfaceData::clinit$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CPrinterSurfaceData));
+	});
 	return class$;
 }
 

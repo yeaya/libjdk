@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager.h>
-
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMBuilder.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/DOM2SAX.h>
@@ -11,7 +10,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMManagerDefault.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2.h>
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources.h>
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
@@ -51,14 +49,12 @@ using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
 using $DTMManagerDefault = ::com::sun::org::apache::xml::internal::dtm::ref::DTMManagerDefault;
-using $SAX2DTM = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM;
 using $SAX2DTM2 = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2;
 using $XMLErrorResources = ::com::sun::org::apache::xml::internal::res::XMLErrorResources;
 using $XMLMessages = ::com::sun::org::apache::xml::internal::res::XMLMessages;
 using $SystemIDResolver = ::com::sun::org::apache::xml::internal::utils::SystemIDResolver;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $XMLStringFactory = ::com::sun::org::apache::xml::internal::utils::XMLStringFactory;
-using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -72,9 +68,6 @@ using $SAXSource = ::javax::xml::transform::sax::SAXSource;
 using $StAXSource = ::javax::xml::transform::stax::StAXSource;
 using $StreamSource = ::javax::xml::transform::stream::StreamSource;
 using $Node = ::org::w3c::dom::Node;
-using $ContentHandler = ::org::xml::sax::ContentHandler;
-using $DTDHandler = ::org::xml::sax::DTDHandler;
-using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $InputSource = ::org::xml::sax::InputSource;
 using $SAXNotRecognizedException = ::org::xml::sax::SAXNotRecognizedException;
 using $SAXNotSupportedException = ::org::xml::sax::SAXNotSupportedException;
@@ -88,37 +81,6 @@ namespace com {
 					namespace internal {
 						namespace xsltc {
 							namespace dom {
-
-$FieldInfo _XSLTCDTMManager_FieldInfo_[] = {
-	{"DUMPTREE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSLTCDTMManager, DUMPTREE)},
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSLTCDTMManager, DEBUG)},
-	{}
-};
-
-$MethodInfo _XSLTCDTMManager_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSLTCDTMManager, init$, void)},
-	{"createNewDTMManagerInstance", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSLTCDTMManager, createNewDTMManagerInstance, XSLTCDTMManager*)},
-	{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool)},
-	{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool, bool)},
-	{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool, bool, bool)},
-	{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZZIZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool, bool, int32_t, bool)},
-	{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZZIZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool, bool, int32_t, bool, bool)},
-	{"newInstance", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSLTCDTMManager, newInstance, XSLTCDTMManager*)},
-	{}
-};
-
-$ClassInfo _XSLTCDTMManager_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager",
-	"com.sun.org.apache.xml.internal.dtm.ref.DTMManagerDefault",
-	nullptr,
-	_XSLTCDTMManager_FieldInfo_,
-	_XSLTCDTMManager_MethodInfo_
-};
-
-$Object* allocate$XSLTCDTMManager($Class* clazz) {
-	return $of($alloc(XSLTCDTMManager));
-}
 
 void XSLTCDTMManager::init$() {
 	$DTMManagerDefault::init$();
@@ -151,7 +113,8 @@ $DTM* XSLTCDTMManager::getDTM($Source* source, bool unique, $DTMWSFilter* whiteS
 }
 
 $DTM* XSLTCDTMManager::getDTM($Source* source, bool unique, $DTMWSFilter* whiteSpaceFilter, bool incremental, bool doIndexing, bool hasUserReader, int32_t size, bool buildIdIndex, bool newNameTable) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
+	;
 	int32_t dtmPos = getFirstFreeDTMID();
 	int32_t documentID = $sl(dtmPos, $DTMManager::IDENT_DTM_NODE_BITS);
 	if ((nullptr != source) && $instanceOf($StAXSource, source)) {
@@ -175,10 +138,10 @@ $DTM* XSLTCDTMManager::getDTM($Source* source, bool unique, $DTMWSFilter* whiteS
 		addDTM(dtm, dtmPos, 0);
 		try {
 			if (staxevent2sax != nullptr) {
-				staxevent2sax->setContentHandler(static_cast<$ContentHandler*>(static_cast<$SAX2DTM*>(static_cast<$SAX2DTM2*>(dtm))));
+				staxevent2sax->setContentHandler($cast($SAX2DTM2, dtm));
 				staxevent2sax->parse();
 			} else if (staxStream2SAX != nullptr) {
-				staxStream2SAX->setContentHandler(static_cast<$ContentHandler*>(static_cast<$SAX2DTM*>(static_cast<$SAX2DTM2*>(dtm))));
+				staxStream2SAX->setContentHandler($cast($SAX2DTM2, dtm));
 				staxStream2SAX->parse();
 			}
 		} catch ($RuntimeException& re) {
@@ -199,7 +162,7 @@ $DTM* XSLTCDTMManager::getDTM($Source* source, bool unique, $DTMWSFilter* whiteS
 		}
 		$nc(dtm)->setDocumentURI($(source->getSystemId()));
 		addDTM(dtm, dtmPos, 0);
-		dom2sax->setContentHandler(static_cast<$ContentHandler*>(static_cast<$SAX2DTM*>(static_cast<$SAX2DTM2*>(dtm))));
+		dom2sax->setContentHandler($cast($SAX2DTM2, dtm));
 		try {
 			dom2sax->parse();
 		} catch ($RuntimeException& re) {
@@ -243,7 +206,7 @@ $DTM* XSLTCDTMManager::getDTM($Source* source, bool unique, $DTMWSFilter* whiteS
 			}
 			$nc(reader)->setContentHandler($($nc(dtm)->getBuilder()));
 			if (!hasUserReader || nullptr == reader->getDTDHandler()) {
-				reader->setDTDHandler(static_cast<$DTDHandler*>(static_cast<$SAX2DTM*>(static_cast<$SAX2DTM2*>(dtm))));
+				reader->setDTDHandler($cast($SAX2DTM2, dtm));
 			}
 			if (!hasUserReader || nullptr == reader->getErrorHandler()) {
 				reader->setErrorHandler(dtm);
@@ -253,31 +216,30 @@ $DTM* XSLTCDTMManager::getDTM($Source* source, bool unique, $DTMWSFilter* whiteS
 			} catch ($SAXNotRecognizedException& e) {
 			} catch ($SAXNotSupportedException& e) {
 			}
-			{
-				$var($Throwable, var$0, nullptr);
+			$var($Throwable, var$0, nullptr);
+			try {
 				try {
-					try {
-						reader->parse(xmlSource);
-					} catch ($RuntimeException& re) {
-						$throw(re);
-					} catch ($Exception& e) {
-						$throwNew($WrappedRuntimeException, e);
-					}
-				} catch ($Throwable& var$1) {
-					$assign(var$0, var$1);
-				} /*finally*/ {
-					if (!hasUserReader) {
-						releaseXMLReader(reader);
-					}
+					reader->parse(xmlSource);
+				} catch ($RuntimeException& re) {
+					$throw(re);
+				} catch ($Exception& e) {
+					$throwNew($WrappedRuntimeException, e);
 				}
-				if (var$0 != nullptr) {
-					$throw(var$0);
+			} catch ($Throwable& var$1) {
+				$assign(var$0, var$1);
+			} /*finally*/ {
+				if (!hasUserReader) {
+					releaseXMLReader(reader);
 				}
 			}
+			if (var$0 != nullptr) {
+				$throw(var$0);
+			}
+			;
 			return dtm;
 		} else {
 			$init($XMLErrorResources);
-			$throwNew($DTMException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_NOT_SUPPORTED, $$new($ObjectArray, {$of(source)}))));
+			$throwNew($DTMException, $($XMLMessages::createXMLMessage($XMLErrorResources::ER_NOT_SUPPORTED, $$new($ObjectArray, {source}))));
 		}
 	}
 }
@@ -286,7 +248,33 @@ XSLTCDTMManager::XSLTCDTMManager() {
 }
 
 $Class* XSLTCDTMManager::load$($String* name, bool initialize) {
-	$loadClass(XSLTCDTMManager, name, initialize, &_XSLTCDTMManager_ClassInfo_, allocate$XSLTCDTMManager);
+	$FieldInfo fieldInfos$$[] = {
+		{"DUMPTREE", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSLTCDTMManager, DUMPTREE)},
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XSLTCDTMManager, DEBUG)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSLTCDTMManager, init$, void)},
+		{"createNewDTMManagerInstance", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSLTCDTMManager, createNewDTMManagerInstance, XSLTCDTMManager*)},
+		{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool)},
+		{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool, bool)},
+		{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool, bool, bool)},
+		{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZZIZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool, bool, int32_t, bool)},
+		{"getDTM", "(Ljavax/xml/transform/Source;ZLcom/sun/org/apache/xml/internal/dtm/DTMWSFilter;ZZZIZZ)Lcom/sun/org/apache/xml/internal/dtm/DTM;", nullptr, $PUBLIC, $virtualMethod(XSLTCDTMManager, getDTM, $DTM*, $Source*, bool, $DTMWSFilter*, bool, bool, bool, int32_t, bool, bool)},
+		{"newInstance", "()Lcom/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager;", nullptr, $PUBLIC | $STATIC, $staticMethod(XSLTCDTMManager, newInstance, XSLTCDTMManager*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xalan.internal.xsltc.dom.XSLTCDTMManager",
+		"com.sun.org.apache.xml.internal.dtm.ref.DTMManagerDefault",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSLTCDTMManager, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSLTCDTMManager);
+	});
 	return class$;
 }
 

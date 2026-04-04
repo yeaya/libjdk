@@ -1,5 +1,4 @@
 #include <jdk/internal/net/http/ResponseInfoImpl.h>
-
 #include <java/net/http/HttpClient$Version.h>
 #include <java/net/http/HttpHeaders.h>
 #include <jdk/internal/net/http/Response.h>
@@ -17,43 +16,6 @@ namespace jdk {
 	namespace internal {
 		namespace net {
 			namespace http {
-
-$FieldInfo _ResponseInfoImpl_FieldInfo_[] = {
-	{"statusCode", "I", nullptr, $PRIVATE | $FINAL, $field(ResponseInfoImpl, statusCode$)},
-	{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(ResponseInfoImpl, headers$)},
-	{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $FINAL, $field(ResponseInfoImpl, version$)},
-	{}
-};
-
-$MethodInfo _ResponseInfoImpl_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, 0, $method(ResponseInfoImpl, init$, void, $Response*)},
-	{"<init>", "(ILjava/net/http/HttpHeaders;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, $method(ResponseInfoImpl, init$, void, int32_t, $HttpHeaders*, $HttpClient$Version*)},
-	{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, headers, $HttpHeaders*)},
-	{"statusCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, statusCode, int32_t)},
-	{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, version, $HttpClient$Version*)},
-	{}
-};
-
-$InnerClassInfo _ResponseInfoImpl_InnerClassesInfo_[] = {
-	{"java.net.http.HttpResponse$ResponseInfo", "java.net.http.HttpResponse", "ResponseInfo", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ResponseInfoImpl_ClassInfo_ = {
-	$ACC_SUPER,
-	"jdk.internal.net.http.ResponseInfoImpl",
-	"java.lang.Object",
-	"java.net.http.HttpResponse$ResponseInfo",
-	_ResponseInfoImpl_FieldInfo_,
-	_ResponseInfoImpl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_ResponseInfoImpl_InnerClassesInfo_
-};
-
-$Object* allocate$ResponseInfoImpl($Class* clazz) {
-	return $of($alloc(ResponseInfoImpl));
-}
 
 void ResponseInfoImpl::init$($Response* response) {
 	this->statusCode$ = $nc(response)->statusCode();
@@ -83,7 +45,38 @@ ResponseInfoImpl::ResponseInfoImpl() {
 }
 
 $Class* ResponseInfoImpl::load$($String* name, bool initialize) {
-	$loadClass(ResponseInfoImpl, name, initialize, &_ResponseInfoImpl_ClassInfo_, allocate$ResponseInfoImpl);
+	$FieldInfo fieldInfos$$[] = {
+		{"statusCode", "I", nullptr, $PRIVATE | $FINAL, $field(ResponseInfoImpl, statusCode$)},
+		{"headers", "Ljava/net/http/HttpHeaders;", nullptr, $PRIVATE | $FINAL, $field(ResponseInfoImpl, headers$)},
+		{"version", "Ljava/net/http/HttpClient$Version;", nullptr, $PRIVATE | $FINAL, $field(ResponseInfoImpl, version$)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/net/http/Response;)V", nullptr, 0, $method(ResponseInfoImpl, init$, void, $Response*)},
+		{"<init>", "(ILjava/net/http/HttpHeaders;Ljava/net/http/HttpClient$Version;)V", nullptr, 0, $method(ResponseInfoImpl, init$, void, int32_t, $HttpHeaders*, $HttpClient$Version*)},
+		{"headers", "()Ljava/net/http/HttpHeaders;", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, headers, $HttpHeaders*)},
+		{"statusCode", "()I", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, statusCode, int32_t)},
+		{"version", "()Ljava/net/http/HttpClient$Version;", nullptr, $PUBLIC, $virtualMethod(ResponseInfoImpl, version, $HttpClient$Version*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.net.http.HttpResponse$ResponseInfo", "java.net.http.HttpResponse", "ResponseInfo", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"jdk.internal.net.http.ResponseInfoImpl",
+		"java.lang.Object",
+		"java.net.http.HttpResponse$ResponseInfo",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$
+	};
+	$loadClass(ResponseInfoImpl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ResponseInfoImpl);
+	});
 	return class$;
 }
 

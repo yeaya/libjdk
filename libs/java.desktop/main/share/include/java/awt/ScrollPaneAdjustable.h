@@ -35,6 +35,7 @@ public:
 	virtual bool equals(Object$* arg0) override;
 	virtual void finalize() override;
 	virtual int32_t hashCode() override;
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::java::awt::ScrollPane* sp, ::java::awt::event::AdjustmentListener* l, int32_t orientation);
 	virtual void addAdjustmentListener(::java::awt::event::AdjustmentListener* l) override;
 	virtual $Array<::java::awt::event::AdjustmentListener>* getAdjustmentListeners();
@@ -70,7 +71,7 @@ public:
 	int32_t blockIncrement = 0;
 	::java::awt::event::AdjustmentListener* adjustmentListener = nullptr;
 	static $String* SCROLLPANE_ONLY;
-	static const int64_t serialVersionUID = (int64_t)0xD15FC9183E503B89;
+	static const int64_t serialVersionUID = (int64_t)0xd15fc9183e503b89;
 };
 
 	} // awt

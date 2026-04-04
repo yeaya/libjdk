@@ -1,5 +1,4 @@
 #include <java.datatransfer.test.h>
-
 #include <java.datatransfer.h>
 #include <java.base.h>
 #include <java/lang/ClassEntry.h>

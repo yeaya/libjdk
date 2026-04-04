@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/util/Log$DiagnosticHandler.h>
-
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
 #include <com/sun/tools/javac/util/Log.h>
 #include <jcpp.h>
@@ -17,43 +16,6 @@ namespace com {
 			namespace javac {
 				namespace util {
 
-$FieldInfo _Log$DiagnosticHandler_FieldInfo_[] = {
-	{"prev", "Lcom/sun/tools/javac/util/Log$DiagnosticHandler;", nullptr, $PROTECTED, $field(Log$DiagnosticHandler, prev)},
-	{}
-};
-
-$MethodInfo _Log$DiagnosticHandler_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(Log$DiagnosticHandler, init$, void)},
-	{"install", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED, $virtualMethod(Log$DiagnosticHandler, install, void, $Log*)},
-	{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log$DiagnosticHandler, report, void, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Log$DiagnosticHandler_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.util.Log$DiagnosticHandler", "com.sun.tools.javac.util.Log", "DiagnosticHandler", $PUBLIC | $STATIC | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Log$DiagnosticHandler_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"com.sun.tools.javac.util.Log$DiagnosticHandler",
-	"java.lang.Object",
-	nullptr,
-	_Log$DiagnosticHandler_FieldInfo_,
-	_Log$DiagnosticHandler_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Log$DiagnosticHandler_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.util.Log"
-};
-
-$Object* allocate$Log$DiagnosticHandler($Class* clazz) {
-	return $of($alloc(Log$DiagnosticHandler));
-}
-
 void Log$DiagnosticHandler::init$() {
 }
 
@@ -66,7 +28,38 @@ Log$DiagnosticHandler::Log$DiagnosticHandler() {
 }
 
 $Class* Log$DiagnosticHandler::load$($String* name, bool initialize) {
-	$loadClass(Log$DiagnosticHandler, name, initialize, &_Log$DiagnosticHandler_ClassInfo_, allocate$Log$DiagnosticHandler);
+	$FieldInfo fieldInfos$$[] = {
+		{"prev", "Lcom/sun/tools/javac/util/Log$DiagnosticHandler;", nullptr, $PROTECTED, $field(Log$DiagnosticHandler, prev)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(Log$DiagnosticHandler, init$, void)},
+		{"install", "(Lcom/sun/tools/javac/util/Log;)V", nullptr, $PROTECTED, $virtualMethod(Log$DiagnosticHandler, install, void, $Log*)},
+		{"report", "(Lcom/sun/tools/javac/util/JCDiagnostic;)V", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(Log$DiagnosticHandler, report, void, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.util.Log$DiagnosticHandler", "com.sun.tools.javac.util.Log", "DiagnosticHandler", $PUBLIC | $STATIC | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"com.sun.tools.javac.util.Log$DiagnosticHandler",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.util.Log"
+	};
+	$loadClass(Log$DiagnosticHandler, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Log$DiagnosticHandler);
+	});
 	return class$;
 }
 

@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/code/Attribute$Array.h>
-
 #include <com/sun/tools/javac/code/Attribute$Visitor.h>
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -28,47 +27,6 @@ namespace com {
 			namespace javac {
 				namespace code {
 
-$FieldInfo _Attribute$Array_FieldInfo_[] = {
-	{"values", "[Lcom/sun/tools/javac/code/Attribute;", nullptr, $PUBLIC | $FINAL, $field(Attribute$Array, values)},
-	{}
-};
-
-$MethodInfo _Attribute$Array_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PUBLIC, $method(Attribute$Array, init$, void, $Type*, $AttributeArray*)},
-	{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;)V", $PUBLIC, $method(Attribute$Array, init$, void, $Type*, $List*)},
-	{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, accept, void, $Attribute$Visitor*)},
-	{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Array, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
-	{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, getPosition, $TypeAnnotationPosition*)},
-	{"getValue", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC, $virtualMethod(Attribute$Array, getValue, $Object*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, toString, $String*)},
-	{}
-};
-
-$InnerClassInfo _Attribute$Array_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.code.Attribute$Array", "com.sun.tools.javac.code.Attribute", "Array", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _Attribute$Array_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.tools.javac.code.Attribute$Array",
-	"com.sun.tools.javac.code.Attribute",
-	nullptr,
-	_Attribute$Array_FieldInfo_,
-	_Attribute$Array_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Attribute$Array_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.code.Attribute"
-};
-
-$Object* allocate$Attribute$Array($Class* clazz) {
-	return $of($alloc(Attribute$Array));
-}
-
 void Attribute$Array::init$($Type* type, $AttributeArray* values) {
 	$Attribute::init$(type);
 	$set(this, values, values);
@@ -76,7 +34,7 @@ void Attribute$Array::init$($Type* type, $AttributeArray* values) {
 
 void Attribute$Array::init$($Type* type, $List* values) {
 	$Attribute::init$(type);
-	$set(this, values, $fcast($AttributeArray, $nc(values)->toArray($$new($AttributeArray, values->size()))));
+	$set(this, values, $cast($AttributeArray, $nc(values)->toArray($$new($AttributeArray, $nc(values)->size()))));
 }
 
 void Attribute$Array::accept($Attribute$Visitor* v) {
@@ -84,22 +42,20 @@ void Attribute$Array::accept($Attribute$Visitor* v) {
 }
 
 $String* Attribute$Array::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, buf, $new($StringBuilder));
 	buf->append(u'{');
 	bool first = true;
 	{
 		$var($AttributeArray, arr$, this->values);
-		int32_t len$ = $nc(arr$)->length;
-		int32_t i$ = 0;
-		for (; i$ < len$; ++i$) {
+		for (int32_t len$ = $nc(arr$)->length, i$ = 0; i$ < len$; ++i$) {
 			$var($Attribute, value, arr$->get(i$));
 			{
 				if (!first) {
 					buf->append(", "_s);
 				}
 				first = false;
-				buf->append($of(value));
+				buf->append(value);
 			}
 		}
 	}
@@ -112,12 +68,12 @@ $Object* Attribute$Array::getValue() {
 }
 
 $Object* Attribute$Array::accept($AnnotationValueVisitor* v, Object$* p) {
-	return $of($nc(v)->visitArray($($cast($1List, getValue())), p));
+	return $nc(v)->visitArray($$cast($1List, getValue()), p);
 }
 
 $TypeAnnotationPosition* Attribute$Array::getPosition() {
 	if ($nc(this->values)->length != 0) {
-		return $nc($nc(this->values)->get(0))->getPosition();
+		return $nc(this->values->get(0))->getPosition();
 	} else {
 		return nullptr;
 	}
@@ -127,7 +83,42 @@ Attribute$Array::Attribute$Array() {
 }
 
 $Class* Attribute$Array::load$($String* name, bool initialize) {
-	$loadClass(Attribute$Array, name, initialize, &_Attribute$Array_ClassInfo_, allocate$Attribute$Array);
+	$FieldInfo fieldInfos$$[] = {
+		{"values", "[Lcom/sun/tools/javac/code/Attribute;", nullptr, $PUBLIC | $FINAL, $field(Attribute$Array, values)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;[Lcom/sun/tools/javac/code/Attribute;)V", nullptr, $PUBLIC, $method(Attribute$Array, init$, void, $Type*, $AttributeArray*)},
+		{"<init>", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List;)V", "(Lcom/sun/tools/javac/code/Type;Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;)V", $PUBLIC, $method(Attribute$Array, init$, void, $Type*, $List*)},
+		{"accept", "(Lcom/sun/tools/javac/code/Attribute$Visitor;)V", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, accept, void, $Attribute$Visitor*)},
+		{"accept", "(Ljavax/lang/model/element/AnnotationValueVisitor;Ljava/lang/Object;)Ljava/lang/Object;", "<R:Ljava/lang/Object;P:Ljava/lang/Object;>(Ljavax/lang/model/element/AnnotationValueVisitor<TR;TP;>;TP;)TR;", $PUBLIC, $virtualMethod(Attribute$Array, accept, $Object*, $AnnotationValueVisitor*, Object$*)},
+		{"getPosition", "()Lcom/sun/tools/javac/code/TypeAnnotationPosition;", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, getPosition, $TypeAnnotationPosition*)},
+		{"getValue", "()Lcom/sun/tools/javac/util/List;", "()Lcom/sun/tools/javac/util/List<Lcom/sun/tools/javac/code/Attribute;>;", $PUBLIC, $virtualMethod(Attribute$Array, getValue, $Object*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(Attribute$Array, toString, $String*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.code.Attribute$Array", "com.sun.tools.javac.code.Attribute", "Array", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.tools.javac.code.Attribute$Array",
+		"com.sun.tools.javac.code.Attribute",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.code.Attribute"
+	};
+	$loadClass(Attribute$Array, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attribute$Array);
+	});
 	return class$;
 }
 

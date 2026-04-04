@@ -35,6 +35,7 @@ class XDnDConstants : public ::java::lang::Object {
 	$class(XDnDConstants, 0, ::java::lang::Object)
 public:
 	XDnDConstants();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static int32_t getJavaActionForXDnDAction(int64_t xdndAction);
 	static int64_t getXDnDActionForJavaAction(int32_t javaAction);
@@ -55,7 +56,7 @@ public:
 	static ::sun::awt::X11::XSelection* XDnDSelection;
 	static const int32_t XDND_MIN_PROTOCOL_VERSION = 3;
 	static const int32_t XDND_PROTOCOL_VERSION = 5;
-	static const int32_t XDND_PROTOCOL_MASK = 0xFF000000;
+	static const int32_t XDND_PROTOCOL_MASK = 0xff000000;
 	static const int32_t XDND_PROTOCOL_SHIFT = 24;
 	static const int32_t XDND_DATA_TYPES_BIT = 1;
 	static const int32_t XDND_ACCEPT_DROP_FLAG = 1;

@@ -30,6 +30,7 @@ class $import JCheckBoxMenuItem : public ::javax::swing::JMenuItem {
 	$class(JCheckBoxMenuItem, 0, ::javax::swing::JMenuItem)
 public:
 	JCheckBoxMenuItem();
+	static void clinit$(::java::lang::Class* clazz);
 	using ::javax::swing::JMenuItem::getComponent;
 	using ::javax::swing::JMenuItem::contains;
 	using ::javax::swing::JMenuItem::enable;

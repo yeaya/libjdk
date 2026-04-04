@@ -1,5 +1,4 @@
 #include <sun/awt/CGraphicsConfig.h>
-
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Rectangle.h>
@@ -29,42 +28,6 @@ using $CFRetainedResource = ::sun::lwawt::macosx::CFRetainedResource;
 
 namespace sun {
 	namespace awt {
-
-$FieldInfo _CGraphicsConfig_FieldInfo_[] = {
-	{"device", "Lsun/awt/CGraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(CGraphicsConfig, device)},
-	{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(CGraphicsConfig, colorModel)},
-	{}
-};
-
-$MethodInfo _CGraphicsConfig_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Lsun/awt/CGraphicsDevice;)V", nullptr, $PROTECTED, $method(CGraphicsConfig, init$, void, $CGraphicsDevice*)},
-	{"createSurfaceData", "(Lsun/lwawt/macosx/CFRetainedResource;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CGraphicsConfig, createSurfaceData, $SurfaceData*, $CFRetainedResource*)},
-	{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CGraphicsConfig, getBounds, $Rectangle*)},
-	{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(CGraphicsConfig, getColorModel, $ColorModel*)},
-	{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(CGraphicsConfig, getDefaultTransform, $AffineTransform*)},
-	{"getDevice", "()Lsun/awt/CGraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CGraphicsConfig, getDevice, $GraphicsDevice*)},
-	{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(CGraphicsConfig, getNormalizingTransform, $AffineTransform*)},
-	{"isTranslucencyCapable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CGraphicsConfig, isTranslucencyCapable, bool)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$ClassInfo _CGraphicsConfig_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER | $ABSTRACT,
-	"sun.awt.CGraphicsConfig",
-	"java.awt.GraphicsConfiguration",
-	"sun.lwawt.LWGraphicsConfig",
-	_CGraphicsConfig_FieldInfo_,
-	_CGraphicsConfig_MethodInfo_
-};
-
-$Object* allocate$CGraphicsConfig($Class* clazz) {
-	return $of($alloc(CGraphicsConfig));
-}
 
 int32_t CGraphicsConfig::hashCode() {
 	 return this->$GraphicsConfiguration::hashCode();
@@ -113,7 +76,7 @@ $GraphicsDevice* CGraphicsConfig::getDevice() {
 
 $AffineTransform* CGraphicsConfig::getNormalizingTransform() {
 	double xscale = $nc(this->device)->getXResolution() / 72.0;
-	double yscale = $nc(this->device)->getYResolution() / 72.0;
+	double yscale = this->device->getYResolution() / 72.0;
 	return $new($AffineTransform, xscale, 0.0, 0.0, yscale, 0.0, 0.0);
 }
 
@@ -125,7 +88,38 @@ CGraphicsConfig::CGraphicsConfig() {
 }
 
 $Class* CGraphicsConfig::load$($String* name, bool initialize) {
-	$loadClass(CGraphicsConfig, name, initialize, &_CGraphicsConfig_ClassInfo_, allocate$CGraphicsConfig);
+	$FieldInfo fieldInfos$$[] = {
+		{"device", "Lsun/awt/CGraphicsDevice;", nullptr, $PRIVATE | $FINAL, $field(CGraphicsConfig, device)},
+		{"colorModel", "Ljava/awt/image/ColorModel;", nullptr, $PRIVATE, $field(CGraphicsConfig, colorModel)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Lsun/awt/CGraphicsDevice;)V", nullptr, $PROTECTED, $method(CGraphicsConfig, init$, void, $CGraphicsDevice*)},
+		{"createSurfaceData", "(Lsun/lwawt/macosx/CFRetainedResource;)Lsun/java2d/SurfaceData;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CGraphicsConfig, createSurfaceData, $SurfaceData*, $CFRetainedResource*)},
+		{"getBounds", "()Ljava/awt/Rectangle;", nullptr, $PUBLIC | $FINAL, $virtualMethod(CGraphicsConfig, getBounds, $Rectangle*)},
+		{"getColorModel", "()Ljava/awt/image/ColorModel;", nullptr, $PUBLIC, $virtualMethod(CGraphicsConfig, getColorModel, $ColorModel*)},
+		{"getDefaultTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(CGraphicsConfig, getDefaultTransform, $AffineTransform*)},
+		{"getDevice", "()Lsun/awt/CGraphicsDevice;", nullptr, $PUBLIC, $virtualMethod(CGraphicsConfig, getDevice, $GraphicsDevice*)},
+		{"getNormalizingTransform", "()Ljava/awt/geom/AffineTransform;", nullptr, $PUBLIC, $virtualMethod(CGraphicsConfig, getNormalizingTransform, $AffineTransform*)},
+		{"isTranslucencyCapable", "()Z", nullptr, $PUBLIC | $FINAL, $virtualMethod(CGraphicsConfig, isTranslucencyCapable, bool)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER | $ABSTRACT,
+		"sun.awt.CGraphicsConfig",
+		"java.awt.GraphicsConfiguration",
+		"sun.lwawt.LWGraphicsConfig",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(CGraphicsConfig, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(CGraphicsConfig));
+	});
 	return class$;
 }
 

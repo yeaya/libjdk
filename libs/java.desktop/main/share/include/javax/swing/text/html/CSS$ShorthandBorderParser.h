@@ -31,6 +31,7 @@ class $import CSS$ShorthandBorderParser : public ::java::lang::Object {
 	$class(CSS$ShorthandBorderParser, 0, ::java::lang::Object)
 public:
 	CSS$ShorthandBorderParser();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	static void parseShorthandBorder(::javax::swing::text::MutableAttributeSet* attributes, ::javax::swing::text::html::CSS$Attribute* key, $String* value);
 	static $Array<::javax::swing::text::html::CSS$Attribute>* keys;

@@ -67,6 +67,7 @@ class $export HTMLDocument : public ::javax::swing::text::DefaultStyledDocument 
 	$class(HTMLDocument, 0, ::javax::swing::text::DefaultStyledDocument)
 public:
 	HTMLDocument();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$();
 	void init$(::javax::swing::text::html::StyleSheet* styles);
 	void init$(::javax::swing::text::AbstractDocument$Content* c, ::javax::swing::text::html::StyleSheet* styles);

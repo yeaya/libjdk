@@ -48,7 +48,7 @@ public:
 	virtual ::org::w3c::dom::Node* getPreviousSibling() override;
 	virtual ::com::sun::org::apache::xerces::internal::dom::NodeImpl* parentNode() override;
 	virtual ::com::sun::org::apache::xerces::internal::dom::ChildNode* previousSibling() override;
-	static const int64_t serialVersionUID = (int64_t)0xAB2C31E407625E4E;
+	static const int64_t serialVersionUID = (int64_t)0xab2c31e407625e4e;
 	::com::sun::org::apache::xerces::internal::dom::ChildNode* previousSibling$ = nullptr;
 	::com::sun::org::apache::xerces::internal::dom::ChildNode* nextSibling = nullptr;
 };

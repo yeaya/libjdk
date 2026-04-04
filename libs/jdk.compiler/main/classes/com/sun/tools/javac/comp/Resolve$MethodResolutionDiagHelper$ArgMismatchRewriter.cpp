@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter.h>
-
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionDiagHelper.h>
 #include <com/sun/tools/javac/util/DiagnosticSource.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
@@ -24,63 +23,57 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_FieldInfo_[] = {
-	{"causeIndex", "I", nullptr, 0, $field(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, causeIndex)},
-	{}
-};
-
-$MethodInfo _Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_MethodInfo_[] = {
-	{"<init>", "(I)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, init$, void, int32_t)},
-	{"rewriteDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, rewriteDiagnostic, $JCDiagnostic*, $JCDiagnostic$Factory*, $JCDiagnostic$DiagnosticPosition*, $DiagnosticSource*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic*)},
-	{}
-};
-
-$InnerClassInfo _Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "com.sun.tools.javac.comp.Resolve", "MethodResolutionDiagHelper", $STATIC},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "ArgMismatchRewriter", $STATIC},
-	{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$DiagnosticRewriter", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "DiagnosticRewriter", $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter",
-	"java.lang.Object",
-	"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$DiagnosticRewriter",
-	_Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_FieldInfo_,
-	_Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Resolve"
-};
-
-$Object* allocate$Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter($Class* clazz) {
-	return $of($alloc(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter));
-}
-
 void Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter::init$(int32_t causeIndex) {
 	this->causeIndex = causeIndex;
 }
 
 $JCDiagnostic* Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter::rewriteDiagnostic($JCDiagnostic$Factory* diags, $JCDiagnostic$DiagnosticPosition* preferredPos, $DiagnosticSource* preferredSource, $JCDiagnostic$DiagnosticType* preferredKind, $JCDiagnostic* d) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($JCDiagnostic, cause, $cast($JCDiagnostic, $nc($($nc(d)->getArgs()))->get(this->causeIndex)));
 	$var($JCDiagnostic$DiagnosticPosition, pos, d->getDiagnosticPosition());
 	if (pos == nullptr) {
 		$assign(pos, preferredPos);
 	}
-	return $nc(diags)->create(preferredKind, preferredSource, pos, "prob.found.req"_s, $$new($ObjectArray, {$of(cause)}));
+	return $nc(diags)->create(preferredKind, preferredSource, pos, "prob.found.req"_s, $$new($ObjectArray, {cause}));
 }
 
 Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter::Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter() {
 }
 
 $Class* Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter::load$($String* name, bool initialize) {
-	$loadClass(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, name, initialize, &_Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter_ClassInfo_, allocate$Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter);
+	$FieldInfo fieldInfos$$[] = {
+		{"causeIndex", "I", nullptr, 0, $field(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, causeIndex)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(I)V", nullptr, $PUBLIC, $method(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, init$, void, int32_t)},
+		{"rewriteDiagnostic", "(Lcom/sun/tools/javac/util/JCDiagnostic$Factory;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/util/DiagnosticSource;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticType;Lcom/sun/tools/javac/util/JCDiagnostic;)Lcom/sun/tools/javac/util/JCDiagnostic;", nullptr, $PUBLIC, $virtualMethod(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, rewriteDiagnostic, $JCDiagnostic*, $JCDiagnostic$Factory*, $JCDiagnostic$DiagnosticPosition*, $DiagnosticSource*, $JCDiagnostic$DiagnosticType*, $JCDiagnostic*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "com.sun.tools.javac.comp.Resolve", "MethodResolutionDiagHelper", $STATIC},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "ArgMismatchRewriter", $STATIC},
+		{"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$DiagnosticRewriter", "com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper", "DiagnosticRewriter", $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter",
+		"java.lang.Object",
+		"com.sun.tools.javac.comp.Resolve$MethodResolutionDiagHelper$DiagnosticRewriter",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Resolve"
+	};
+	$loadClass(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Resolve$MethodResolutionDiagHelper$ArgMismatchRewriter);
+	});
 	return class$;
 }
 

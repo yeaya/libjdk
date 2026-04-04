@@ -1,5 +1,4 @@
 #include <bug6274267$1.h>
-
 #include <bug6274267.h>
 #include <jcpp.h>
 
@@ -9,48 +8,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-
-$FieldInfo _bug6274267$1_FieldInfo_[] = {
-	{"val$test", "Lbug6274267;", nullptr, $FINAL | $SYNTHETIC, $field(bug6274267$1, val$test)},
-	{}
-};
-
-$MethodInfo _bug6274267$1_MethodInfo_[] = {
-	{"<init>", "(Lbug6274267;)V", "()V", 0, $method(bug6274267$1, init$, void, $bug6274267*)},
-	{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6274267$1, run, void)},
-	{}
-};
-
-$EnclosingMethodInfo _bug6274267$1_EnclosingMethodInfo_ = {
-	"bug6274267",
-	"main",
-	"([Ljava/lang/String;)V"
-};
-
-$InnerClassInfo _bug6274267$1_InnerClassesInfo_[] = {
-	{"bug6274267$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _bug6274267$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"bug6274267$1",
-	"java.lang.Object",
-	"java.lang.Runnable",
-	_bug6274267$1_FieldInfo_,
-	_bug6274267$1_MethodInfo_,
-	nullptr,
-	&_bug6274267$1_EnclosingMethodInfo_,
-	_bug6274267$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"bug6274267"
-};
-
-$Object* allocate$bug6274267$1($Class* clazz) {
-	return $of($alloc(bug6274267$1));
-}
 
 void bug6274267$1::init$($bug6274267* val$test) {
 	$set(this, val$test, val$test);
@@ -64,7 +21,42 @@ bug6274267$1::bug6274267$1() {
 }
 
 $Class* bug6274267$1::load$($String* name, bool initialize) {
-	$loadClass(bug6274267$1, name, initialize, &_bug6274267$1_ClassInfo_, allocate$bug6274267$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$test", "Lbug6274267;", nullptr, $FINAL | $SYNTHETIC, $field(bug6274267$1, val$test)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lbug6274267;)V", "()V", 0, $method(bug6274267$1, init$, void, $bug6274267*)},
+		{"run", "()V", nullptr, $PUBLIC, $virtualMethod(bug6274267$1, run, void)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"bug6274267",
+		"main",
+		"([Ljava/lang/String;)V"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"bug6274267$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"bug6274267$1",
+		"java.lang.Object",
+		"java.lang.Runnable",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"bug6274267"
+	};
+	$loadClass(bug6274267$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(bug6274267$1);
+	});
 	return class$;
 }
 

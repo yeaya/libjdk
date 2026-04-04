@@ -34,6 +34,7 @@ class $import Win32ShellFolder2$SystemIcon : public ::java::lang::Enum {
 public:
 	Win32ShellFolder2$SystemIcon();
 	static $Array<::sun::awt::shell::Win32ShellFolder2$SystemIcon>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, int32_t iconID);
 	virtual int32_t getIconID();
 	static ::sun::awt::shell::Win32ShellFolder2$SystemIcon* valueOf($String* name);

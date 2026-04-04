@@ -29,6 +29,7 @@ class $import StateEdit : public ::javax::swing::undo::AbstractUndoableEdit {
 	$class(StateEdit, 0, ::javax::swing::undo::AbstractUndoableEdit)
 public:
 	StateEdit();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$(::javax::swing::undo::StateEditable* anObject);
 	void init$(::javax::swing::undo::StateEditable* anObject, $String* name);
 	virtual void end();

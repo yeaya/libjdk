@@ -1,5 +1,4 @@
 #include <com/sun/tools/javac/comp/Attr$4.h>
-
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTypeApply.h>
@@ -8,7 +7,6 @@
 #include <jcpp.h>
 
 using $Attr = ::com::sun::tools::javac::comp::Attr;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCTypeApply = ::com::sun::tools::javac::tree::JCTree$JCTypeApply;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -23,62 +21,55 @@ namespace com {
 			namespace javac {
 				namespace comp {
 
-$FieldInfo _Attr$4_FieldInfo_[] = {
-	{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$4, this$0)},
-	{}
-};
-
-$MethodInfo _Attr$4_MethodInfo_[] = {
-	{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$4, init$, void, $Attr*)},
-	{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Attr$4, visitTypeApply, void, $JCTree$JCTypeApply*)},
-	{}
-};
-
-$EnclosingMethodInfo _Attr$4_EnclosingMethodInfo_ = {
-	"com.sun.tools.javac.comp.Attr",
-	nullptr,
-	nullptr
-};
-
-$InnerClassInfo _Attr$4_InnerClassesInfo_[] = {
-	{"com.sun.tools.javac.comp.Attr$4", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _Attr$4_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.sun.tools.javac.comp.Attr$4",
-	"com.sun.tools.javac.tree.TreeTranslator",
-	nullptr,
-	_Attr$4_FieldInfo_,
-	_Attr$4_MethodInfo_,
-	nullptr,
-	&_Attr$4_EnclosingMethodInfo_,
-	_Attr$4_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.sun.tools.javac.comp.Attr"
-};
-
-$Object* allocate$Attr$4($Class* clazz) {
-	return $of($alloc(Attr$4));
-}
-
 void Attr$4::init$($Attr* this$0) {
 	$set(this, this$0, this$0);
 	$TreeTranslator::init$();
 }
 
 void Attr$4::visitTypeApply($JCTree$JCTypeApply* tree) {
-	$set(this, result, translate(static_cast<$JCTree*>($nc(tree)->clazz)));
+	$set(this, result, translate($nc(tree)->clazz));
 }
 
 Attr$4::Attr$4() {
 }
 
 $Class* Attr$4::load$($String* name, bool initialize) {
-	$loadClass(Attr$4, name, initialize, &_Attr$4_ClassInfo_, allocate$Attr$4);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Lcom/sun/tools/javac/comp/Attr;", nullptr, $FINAL | $SYNTHETIC, $field(Attr$4, this$0)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/sun/tools/javac/comp/Attr;)V", nullptr, 0, $method(Attr$4, init$, void, $Attr*)},
+		{"visitTypeApply", "(Lcom/sun/tools/javac/tree/JCTree$JCTypeApply;)V", nullptr, $PUBLIC, $virtualMethod(Attr$4, visitTypeApply, void, $JCTree$JCTypeApply*)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"com.sun.tools.javac.comp.Attr",
+		nullptr,
+		nullptr
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.sun.tools.javac.comp.Attr$4", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.sun.tools.javac.comp.Attr$4",
+		"com.sun.tools.javac.tree.TreeTranslator",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.sun.tools.javac.comp.Attr"
+	};
+	$loadClass(Attr$4, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(Attr$4);
+	});
 	return class$;
 }
 

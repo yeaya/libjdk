@@ -1,5 +1,4 @@
 #include <sun/management/ManagementFactoryHelper$1.h>
-
 #include <javax/management/ObjectName.h>
 #include <jdk/internal/misc/VM$BufferPool.h>
 #include <sun/management/ManagementFactoryHelper.h>
@@ -18,60 +17,12 @@ using $Util = ::sun::management::Util;
 namespace sun {
 	namespace management {
 
-$FieldInfo _ManagementFactoryHelper$1_FieldInfo_[] = {
-	{"val$pool", "Ljdk/internal/misc/VM$BufferPool;", nullptr, $FINAL | $SYNTHETIC, $field(ManagementFactoryHelper$1, val$pool)},
-	{"objname", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $VOLATILE, $field(ManagementFactoryHelper$1, objname)},
-	{}
-};
-
-$MethodInfo _ManagementFactoryHelper$1_MethodInfo_[] = {
-	{"<init>", "(Ljdk/internal/misc/VM$BufferPool;)V", "()V", 0, $method(ManagementFactoryHelper$1, init$, void, $VM$BufferPool*)},
-	{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getCount, int64_t)},
-	{"getMemoryUsed", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getMemoryUsed, int64_t)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getName, $String*)},
-	{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getObjectName, $ObjectName*)},
-	{"getTotalCapacity", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getTotalCapacity, int64_t)},
-	{}
-};
-
-$EnclosingMethodInfo _ManagementFactoryHelper$1_EnclosingMethodInfo_ = {
-	"sun.management.ManagementFactoryHelper",
-	"createBufferPoolMXBean",
-	"(Ljdk/internal/misc/VM$BufferPool;)Ljava/lang/management/BufferPoolMXBean;"
-};
-
-$InnerClassInfo _ManagementFactoryHelper$1_InnerClassesInfo_[] = {
-	{"sun.management.ManagementFactoryHelper$1", nullptr, nullptr, 0},
-	{"jdk.internal.misc.VM$BufferPool", "jdk.internal.misc.VM", "BufferPool", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _ManagementFactoryHelper$1_ClassInfo_ = {
-	$ACC_SUPER,
-	"sun.management.ManagementFactoryHelper$1",
-	"java.lang.Object",
-	"java.lang.management.BufferPoolMXBean",
-	_ManagementFactoryHelper$1_FieldInfo_,
-	_ManagementFactoryHelper$1_MethodInfo_,
-	nullptr,
-	&_ManagementFactoryHelper$1_EnclosingMethodInfo_,
-	_ManagementFactoryHelper$1_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"sun.management.ManagementFactoryHelper"
-};
-
-$Object* allocate$ManagementFactoryHelper$1($Class* clazz) {
-	return $of($alloc(ManagementFactoryHelper$1));
-}
-
 void ManagementFactoryHelper$1::init$($VM$BufferPool* val$pool) {
 	$set(this, val$pool, val$pool);
 }
 
 $ObjectName* ManagementFactoryHelper$1::getObjectName() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($ObjectName, result, this->objname);
 	if (result == nullptr) {
 		$synchronized(this) {
@@ -105,7 +56,48 @@ ManagementFactoryHelper$1::ManagementFactoryHelper$1() {
 }
 
 $Class* ManagementFactoryHelper$1::load$($String* name, bool initialize) {
-	$loadClass(ManagementFactoryHelper$1, name, initialize, &_ManagementFactoryHelper$1_ClassInfo_, allocate$ManagementFactoryHelper$1);
+	$FieldInfo fieldInfos$$[] = {
+		{"val$pool", "Ljdk/internal/misc/VM$BufferPool;", nullptr, $FINAL | $SYNTHETIC, $field(ManagementFactoryHelper$1, val$pool)},
+		{"objname", "Ljavax/management/ObjectName;", nullptr, $PRIVATE | $VOLATILE, $field(ManagementFactoryHelper$1, objname)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljdk/internal/misc/VM$BufferPool;)V", "()V", 0, $method(ManagementFactoryHelper$1, init$, void, $VM$BufferPool*)},
+		{"getCount", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getCount, int64_t)},
+		{"getMemoryUsed", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getMemoryUsed, int64_t)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getName, $String*)},
+		{"getObjectName", "()Ljavax/management/ObjectName;", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getObjectName, $ObjectName*)},
+		{"getTotalCapacity", "()J", nullptr, $PUBLIC, $virtualMethod(ManagementFactoryHelper$1, getTotalCapacity, int64_t)},
+		{}
+	};
+	$EnclosingMethodInfo enclosingMethodInfo$$ = {
+		"sun.management.ManagementFactoryHelper",
+		"createBufferPoolMXBean",
+		"(Ljdk/internal/misc/VM$BufferPool;)Ljava/lang/management/BufferPoolMXBean;"
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.management.ManagementFactoryHelper$1", nullptr, nullptr, 0},
+		{"jdk.internal.misc.VM$BufferPool", "jdk.internal.misc.VM", "BufferPool", $PUBLIC | $STATIC | $INTERFACE | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"sun.management.ManagementFactoryHelper$1",
+		"java.lang.Object",
+		"java.lang.management.BufferPoolMXBean",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		&enclosingMethodInfo$$,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"sun.management.ManagementFactoryHelper"
+	};
+	$loadClass(ManagementFactoryHelper$1, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(ManagementFactoryHelper$1);
+	});
 	return class$;
 }
 

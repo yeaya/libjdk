@@ -91,7 +91,7 @@ public:
 	virtual int32_t nextNode() override;
 	void readObject(::java::io::ObjectInputStream* stream);
 	virtual void setRoot(int32_t context, Object$* environment) override;
-	static const int64_t serialVersionUID = (int64_t)0xC9BBA3FC6F7975A3;
+	static const int64_t serialVersionUID = (int64_t)0xc9bba3fc6f7975a3;
 	$Array<::com::sun::org::apache::xpath::internal::axes::LocPathIterator>* m_exprs = nullptr;
 	$Array<::com::sun::org::apache::xml::internal::dtm::DTMIterator>* m_iterators = nullptr;
 };

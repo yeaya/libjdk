@@ -24,6 +24,7 @@ class $import BoundKind : public ::java::lang::Enum {
 public:
 	BoundKind();
 	static $Array<::com::sun::tools::javac::code::BoundKind>* $values();
+	static void clinit$(::java::lang::Class* clazz);
 	void init$($String* $enum$name, int32_t $enum$ordinal, $String* name);
 	virtual $String* toString() override;
 	static ::com::sun::tools::javac::code::BoundKind* valueOf($String* name);

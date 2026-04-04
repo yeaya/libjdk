@@ -1,5 +1,4 @@
 #include <javax/management/relation/RoleStatus.h>
-
 #include <jcpp.h>
 
 #undef LESS_THAN_MIN_ROLE_DEGREE
@@ -20,47 +19,6 @@ namespace javax {
 	namespace management {
 		namespace relation {
 
-$NamedAttribute RoleStatus_Attribute_var$0[] = {
-	{"since", 's', "16"},
-	{"forRemoval", 'Z', "true"},
-	{}
-};
-
-$CompoundAttribute _RoleStatus_MethodAnnotations_init$0[] = {
-	{"Ljava/lang/Deprecated;", RoleStatus_Attribute_var$0},
-	{}
-};
-
-$FieldInfo _RoleStatus_FieldInfo_[] = {
-	{"NO_ROLE_WITH_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, NO_ROLE_WITH_NAME)},
-	{"ROLE_NOT_READABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, ROLE_NOT_READABLE)},
-	{"ROLE_NOT_WRITABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, ROLE_NOT_WRITABLE)},
-	{"LESS_THAN_MIN_ROLE_DEGREE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, LESS_THAN_MIN_ROLE_DEGREE)},
-	{"MORE_THAN_MAX_ROLE_DEGREE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, MORE_THAN_MAX_ROLE_DEGREE)},
-	{"REF_MBEAN_OF_INCORRECT_CLASS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, REF_MBEAN_OF_INCORRECT_CLASS)},
-	{"REF_MBEAN_NOT_REGISTERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, REF_MBEAN_NOT_REGISTERED)},
-	{}
-};
-
-$MethodInfo _RoleStatus_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(RoleStatus, init$, void), nullptr, nullptr, _RoleStatus_MethodAnnotations_init$0},
-	{"isRoleStatus", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(RoleStatus, isRoleStatus, bool, int32_t)},
-	{}
-};
-
-$ClassInfo _RoleStatus_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.relation.RoleStatus",
-	"java.lang.Object",
-	nullptr,
-	_RoleStatus_FieldInfo_,
-	_RoleStatus_MethodInfo_
-};
-
-$Object* allocate$RoleStatus($Class* clazz) {
-	return $of($alloc(RoleStatus));
-}
-
 void RoleStatus::init$() {
 }
 
@@ -75,7 +33,41 @@ RoleStatus::RoleStatus() {
 }
 
 $Class* RoleStatus::load$($String* name, bool initialize) {
-	$loadClass(RoleStatus, name, initialize, &_RoleStatus_ClassInfo_, allocate$RoleStatus);
+	$FieldInfo fieldInfos$$[] = {
+		{"NO_ROLE_WITH_NAME", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, NO_ROLE_WITH_NAME)},
+		{"ROLE_NOT_READABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, ROLE_NOT_READABLE)},
+		{"ROLE_NOT_WRITABLE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, ROLE_NOT_WRITABLE)},
+		{"LESS_THAN_MIN_ROLE_DEGREE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, LESS_THAN_MIN_ROLE_DEGREE)},
+		{"MORE_THAN_MAX_ROLE_DEGREE", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, MORE_THAN_MAX_ROLE_DEGREE)},
+		{"REF_MBEAN_OF_INCORRECT_CLASS", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, REF_MBEAN_OF_INCORRECT_CLASS)},
+		{"REF_MBEAN_NOT_REGISTERED", "I", nullptr, $PUBLIC | $STATIC | $FINAL, $constField(RoleStatus, REF_MBEAN_NOT_REGISTERED)},
+		{}
+	};
+	$NamedAttribute init$methodAnnotations$$$namedAttribute[] = {
+		{"since", 's', "16"},
+		{"forRemoval", 'Z', "true"},
+		{}
+	};
+	$CompoundAttribute init$methodAnnotations$$[] = {
+		{"Ljava/lang/Deprecated;", init$methodAnnotations$$$namedAttribute},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC | $DEPRECATED, $method(RoleStatus, init$, void), nullptr, nullptr, init$methodAnnotations$$},
+		{"isRoleStatus", "(I)Z", nullptr, $PUBLIC | $STATIC, $staticMethod(RoleStatus, isRoleStatus, bool, int32_t)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.relation.RoleStatus",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(RoleStatus, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(RoleStatus);
+	});
 	return class$;
 }
 

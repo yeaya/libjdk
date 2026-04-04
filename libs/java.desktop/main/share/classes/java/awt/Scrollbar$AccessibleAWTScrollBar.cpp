@@ -1,7 +1,5 @@
 #include <java/awt/Scrollbar$AccessibleAWTScrollBar.h>
-
 #include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
 #include <java/awt/Scrollbar.h>
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleRole.h>
@@ -15,7 +13,6 @@
 #undef SCROLL_BAR
 #undef VERTICAL
 
-using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Scrollbar = ::java::awt::Scrollbar;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -31,55 +28,6 @@ using $AccessibleValue = ::javax::accessibility::AccessibleValue;
 
 namespace java {
 	namespace awt {
-
-$FieldInfo _Scrollbar$AccessibleAWTScrollBar_FieldInfo_[] = {
-	{"this$0", "Ljava/awt/Scrollbar;", nullptr, $FINAL | $SYNTHETIC, $field(Scrollbar$AccessibleAWTScrollBar, this$0)},
-	{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Scrollbar$AccessibleAWTScrollBar, serialVersionUID)},
-	{}
-};
-
-$MethodInfo _Scrollbar$AccessibleAWTScrollBar_MethodInfo_[] = {
-	{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
-	{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
-	{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
-	{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
-	{"<init>", "(Ljava/awt/Scrollbar;)V", nullptr, $PROTECTED, $method(Scrollbar$AccessibleAWTScrollBar, init$, void, $Scrollbar*)},
-	{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getAccessibleRole, $AccessibleRole*)},
-	{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getAccessibleStateSet, $AccessibleStateSet*)},
-	{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getAccessibleValue, $AccessibleValue*)},
-	{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getCurrentAccessibleValue, $Number*)},
-	{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getMaximumAccessibleValue, $Number*)},
-	{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getMinimumAccessibleValue, $Number*)},
-	{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, setCurrentAccessibleValue, bool, $Number*)},
-	{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
-	{}
-};
-
-$InnerClassInfo _Scrollbar$AccessibleAWTScrollBar_InnerClassesInfo_[] = {
-	{"java.awt.Scrollbar$AccessibleAWTScrollBar", "java.awt.Scrollbar", "AccessibleAWTScrollBar", $PROTECTED},
-	{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
-	{}
-};
-
-$ClassInfo _Scrollbar$AccessibleAWTScrollBar_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"java.awt.Scrollbar$AccessibleAWTScrollBar",
-	"java.awt.Component$AccessibleAWTComponent",
-	"javax.accessibility.AccessibleValue",
-	_Scrollbar$AccessibleAWTScrollBar_FieldInfo_,
-	_Scrollbar$AccessibleAWTScrollBar_MethodInfo_,
-	nullptr,
-	nullptr,
-	_Scrollbar$AccessibleAWTScrollBar_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"java.awt.Scrollbar"
-};
-
-$Object* allocate$Scrollbar$AccessibleAWTScrollBar($Class* clazz) {
-	return $of($alloc(Scrollbar$AccessibleAWTScrollBar));
-}
 
 int32_t Scrollbar$AccessibleAWTScrollBar::hashCode() {
 	 return this->$Component$AccessibleAWTComponent::hashCode();
@@ -137,7 +85,7 @@ $Number* Scrollbar$AccessibleAWTScrollBar::getCurrentAccessibleValue() {
 
 bool Scrollbar$AccessibleAWTScrollBar::setCurrentAccessibleValue($Number* n) {
 	if ($instanceOf($Integer, n)) {
-		this->this$0->setValue($nc(n)->intValue());
+		this->this$0->setValue(n->intValue());
 		return true;
 	} else {
 		return false;
@@ -156,7 +104,50 @@ Scrollbar$AccessibleAWTScrollBar::Scrollbar$AccessibleAWTScrollBar() {
 }
 
 $Class* Scrollbar$AccessibleAWTScrollBar::load$($String* name, bool initialize) {
-	$loadClass(Scrollbar$AccessibleAWTScrollBar, name, initialize, &_Scrollbar$AccessibleAWTScrollBar_ClassInfo_, allocate$Scrollbar$AccessibleAWTScrollBar);
+	$FieldInfo fieldInfos$$[] = {
+		{"this$0", "Ljava/awt/Scrollbar;", nullptr, $FINAL | $SYNTHETIC, $field(Scrollbar$AccessibleAWTScrollBar, this$0)},
+		{"serialVersionUID", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Scrollbar$AccessibleAWTScrollBar, serialVersionUID)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"*clone", "()Ljava/lang/Object;", nullptr, $PROTECTED | $NATIVE},
+		{"*equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC},
+		{"*finalize", "()V", nullptr, $PROTECTED | $DEPRECATED},
+		{"*hashCode", "()I", nullptr, $PUBLIC | $NATIVE},
+		{"<init>", "(Ljava/awt/Scrollbar;)V", nullptr, $PROTECTED, $method(Scrollbar$AccessibleAWTScrollBar, init$, void, $Scrollbar*)},
+		{"getAccessibleRole", "()Ljavax/accessibility/AccessibleRole;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getAccessibleRole, $AccessibleRole*)},
+		{"getAccessibleStateSet", "()Ljavax/accessibility/AccessibleStateSet;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getAccessibleStateSet, $AccessibleStateSet*)},
+		{"getAccessibleValue", "()Ljavax/accessibility/AccessibleValue;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getAccessibleValue, $AccessibleValue*)},
+		{"getCurrentAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getCurrentAccessibleValue, $Number*)},
+		{"getMaximumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getMaximumAccessibleValue, $Number*)},
+		{"getMinimumAccessibleValue", "()Ljava/lang/Number;", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, getMinimumAccessibleValue, $Number*)},
+		{"setCurrentAccessibleValue", "(Ljava/lang/Number;)Z", nullptr, $PUBLIC, $virtualMethod(Scrollbar$AccessibleAWTScrollBar, setCurrentAccessibleValue, bool, $Number*)},
+		{"*toString", "()Ljava/lang/String;", nullptr, $PUBLIC},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"java.awt.Scrollbar$AccessibleAWTScrollBar", "java.awt.Scrollbar", "AccessibleAWTScrollBar", $PROTECTED},
+		{"java.awt.Component$AccessibleAWTComponent", "java.awt.Component", "AccessibleAWTComponent", $PROTECTED | $ABSTRACT},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"java.awt.Scrollbar$AccessibleAWTScrollBar",
+		"java.awt.Component$AccessibleAWTComponent",
+		"javax.accessibility.AccessibleValue",
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"java.awt.Scrollbar"
+	};
+	$loadClass(Scrollbar$AccessibleAWTScrollBar, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $of($alloc(Scrollbar$AccessibleAWTScrollBar));
+	});
 	return class$;
 }
 

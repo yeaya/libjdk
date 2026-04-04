@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
-
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
 #include <jcpp.h>
 
@@ -15,26 +14,22 @@ namespace com {
 					namespace internal {
 						namespace generic {
 
-$MethodInfo _CompoundInstruction_MethodInfo_[] = {
-	{"getInstructionList", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompoundInstruction, getInstructionList, $InstructionList*)},
-	{}
-};
-
-$ClassInfo _CompoundInstruction_ClassInfo_ = {
-	$PUBLIC | $INTERFACE | $ABSTRACT,
-	"com.sun.org.apache.bcel.internal.generic.CompoundInstruction",
-	nullptr,
-	nullptr,
-	nullptr,
-	_CompoundInstruction_MethodInfo_
-};
-
-$Object* allocate$CompoundInstruction($Class* clazz) {
-	return $of($alloc(CompoundInstruction));
-}
-
 $Class* CompoundInstruction::load$($String* name, bool initialize) {
-	$loadClass(CompoundInstruction, name, initialize, &_CompoundInstruction_ClassInfo_, allocate$CompoundInstruction);
+	$MethodInfo methodInfos$$[] = {
+		{"getInstructionList", "()Lcom/sun/org/apache/bcel/internal/generic/InstructionList;", nullptr, $PUBLIC | $ABSTRACT, $virtualMethod(CompoundInstruction, getInstructionList, $InstructionList*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $INTERFACE | $ABSTRACT,
+		"com.sun.org.apache.bcel.internal.generic.CompoundInstruction",
+		nullptr,
+		nullptr,
+		nullptr,
+		methodInfos$$
+	};
+	$loadClass(CompoundInstruction, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(CompoundInstruction);
+	});
 	return class$;
 }
 

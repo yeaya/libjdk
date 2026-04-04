@@ -55,12 +55,15 @@ public:
 	virtual void printStackTrace(::java::io::PrintStream* s) override;
 	virtual void printStackTrace(::java::io::PrintWriter* s) override;
 	virtual void setLocator(::javax::xml::transform::SourceLocator* location);
-	static const int64_t serialVersionUID = (int64_t)0x0D8ABBD092FFB30C;
+	static const int64_t serialVersionUID = (int64_t)0x0d8abbd092ffb30c;
 	::javax::xml::transform::SourceLocator* locator = nullptr;
 	$Throwable* containedException = nullptr;
 	TransformerException(const TransformerException& e);
 	virtual void throw$() override;
-	inline TransformerException* operator ->() {
+	inline TransformerException* operator ->() const {
+		return (TransformerException*)throwing$;
+	}
+	inline operator TransformerException*() const {
 		return (TransformerException*)throwing$;
 	}
 };

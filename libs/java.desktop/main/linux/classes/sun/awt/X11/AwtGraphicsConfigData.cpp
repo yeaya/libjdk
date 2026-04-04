@@ -1,5 +1,4 @@
 #include <sun/awt/X11/AwtGraphicsConfigData.h>
-
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/X11/ColorData.h>
 #include <sun/awt/X11/Native.h>
@@ -15,7 +14,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $ColorData = ::sun::awt::X11::ColorData;
 using $Native = ::sun::awt::X11::Native;
 using $XRenderPictFormat = ::sun::awt::X11::XRenderPictFormat;
@@ -23,81 +21,10 @@ using $XVisualInfo = ::sun::awt::X11::XVisualInfo;
 using $XWrapperBase = ::sun::awt::X11::XWrapperBase;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 using $awtImageData = ::sun::awt::X11::awtImageData;
-using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _AwtGraphicsConfigData_FieldInfo_[] = {
-	{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(AwtGraphicsConfigData, unsafe)},
-	{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(AwtGraphicsConfigData, should_free_memory)},
-	{"pData", "J", nullptr, 0, $field(AwtGraphicsConfigData, pData)},
-	{}
-};
-
-$MethodInfo _AwtGraphicsConfigData_MethodInfo_[] = {
-	{"<init>", "(J)V", nullptr, $PUBLIC, $method(AwtGraphicsConfigData, init$, void, int64_t)},
-	{"<init>", "()V", nullptr, $PUBLIC, $method(AwtGraphicsConfigData, init$, void)},
-	{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtGraphicsConfigData, clone, $Object*)},
-	{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, dispose, void)},
-	{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, getDataSize, int32_t)},
-	{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AwtGraphicsConfigData, getFieldsAsString, $String*)},
-	{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AwtGraphicsConfigData, getName, $String*)},
-	{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, getPData, int64_t)},
-	{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(AwtGraphicsConfigData, getSize, int32_t)},
-	{"get_AwtColorMatch", "(I)J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_AwtColorMatch, int64_t, int32_t)},
-	{"get_AwtColorMatch", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_AwtColorMatch, int64_t)},
-	{"get_awtImage", "(I)Lsun/awt/X11/awtImageData;", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awtImage, $awtImageData*, int32_t)},
-	{"get_awtImage", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awtImage, int64_t)},
-	{"get_awt_cmap", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awt_cmap, int64_t)},
-	{"get_awt_depth", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awt_depth, int32_t)},
-	{"get_awt_num_colors", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awt_num_colors, int32_t)},
-	{"get_awt_visInfo", "()Lsun/awt/X11/XVisualInfo;", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awt_visInfo, $XVisualInfo*)},
-	{"get_color_data", "(I)Lsun/awt/X11/ColorData;", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_color_data, $ColorData*, int32_t)},
-	{"get_color_data", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_color_data, int64_t)},
-	{"get_glxInfo", "(I)J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_glxInfo, int64_t, int32_t)},
-	{"get_glxInfo", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_glxInfo, int64_t)},
-	{"get_isTranslucencySupported", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_isTranslucencySupported, int32_t)},
-	{"get_monoImage", "(I)J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoImage, int64_t, int32_t)},
-	{"get_monoImage", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoImage, int64_t)},
-	{"get_monoPixmap", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoPixmap, int64_t)},
-	{"get_monoPixmapGC", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoPixmapGC, int64_t)},
-	{"get_monoPixmapHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoPixmapHeight, int32_t)},
-	{"get_monoPixmapWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoPixmapWidth, int32_t)},
-	{"get_pixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_pixelStride, int32_t)},
-	{"get_renderPictFormat", "()Lsun/awt/X11/XRenderPictFormat;", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_renderPictFormat, $XRenderPictFormat*)},
-	{"set_AwtColorMatch", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_AwtColorMatch, void, int64_t)},
-	{"set_awtImage", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_awtImage, void, int64_t)},
-	{"set_awt_cmap", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_awt_cmap, void, int64_t)},
-	{"set_awt_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_awt_depth, void, int32_t)},
-	{"set_awt_num_colors", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_awt_num_colors, void, int32_t)},
-	{"set_color_data", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_color_data, void, int64_t)},
-	{"set_glxInfo", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_glxInfo, void, int64_t)},
-	{"set_isTranslucencySupported", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_isTranslucencySupported, void, int32_t)},
-	{"set_monoImage", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoImage, void, int64_t)},
-	{"set_monoPixmap", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoPixmap, void, int64_t)},
-	{"set_monoPixmapGC", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoPixmapGC, void, int64_t)},
-	{"set_monoPixmapHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoPixmapHeight, void, int32_t)},
-	{"set_monoPixmapWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoPixmapWidth, void, int32_t)},
-	{"set_pixelStride", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_pixelStride, void, int32_t)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtGraphicsConfigData, toString, $String*)},
-	{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtGraphicsConfigData, zero, void)},
-	{}
-};
-
-$ClassInfo _AwtGraphicsConfigData_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"sun.awt.X11.AwtGraphicsConfigData",
-	"sun.awt.X11.XWrapperBase",
-	nullptr,
-	_AwtGraphicsConfigData_FieldInfo_,
-	_AwtGraphicsConfigData_MethodInfo_
-};
-
-$Object* allocate$AwtGraphicsConfigData($Class* clazz) {
-	return $of($alloc(AwtGraphicsConfigData));
-}
 
 int32_t AwtGraphicsConfigData::getSize() {
 	$init(AwtGraphicsConfigData);
@@ -136,7 +63,7 @@ void AwtGraphicsConfigData::dispose() {
 	$init($XWrapperBase);
 	$nc($XWrapperBase::log)->finest("Disposing"_s);
 	if (this->should_free_memory) {
-		$nc($XWrapperBase::log)->finest("freeing memory"_s);
+		$XWrapperBase::log->finest("freeing memory"_s);
 		$nc(this->unsafe)->freeMemory(this->pData);
 	}
 }
@@ -359,11 +286,11 @@ $String* AwtGraphicsConfigData::getName() {
 }
 
 $String* AwtGraphicsConfigData::getFieldsAsString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($StringBuilder, ret, $new($StringBuilder, 640));
 	ret->append("awt_depth = "_s)->append(get_awt_depth())->append(", "_s);
 	ret->append("awt_cmap = "_s)->append(get_awt_cmap())->append(", "_s);
-	ret->append("awt_visInfo = "_s)->append($($of(get_awt_visInfo())))->append(", "_s);
+	ret->append("awt_visInfo = "_s)->append($(get_awt_visInfo()))->append(", "_s);
 	ret->append("awt_num_colors = "_s)->append(get_awt_num_colors())->append(", "_s);
 	ret->append("awtImage = "_s)->append(get_awtImage())->append(", "_s);
 	ret->append("AwtColorMatch = "_s)->append(get_AwtColorMatch())->append(", "_s);
@@ -376,12 +303,12 @@ $String* AwtGraphicsConfigData::getFieldsAsString() {
 	ret->append("color_data = "_s)->append(get_color_data())->append(", "_s);
 	ret->append("glxInfo = "_s)->append(get_glxInfo())->append(", "_s);
 	ret->append("isTranslucencySupported = "_s)->append(get_isTranslucencySupported())->append(", "_s);
-	ret->append("renderPictFormat = "_s)->append($($of(get_renderPictFormat())))->append(", "_s);
+	ret->append("renderPictFormat = "_s)->append($(get_renderPictFormat()))->append(", "_s);
 	return ret->toString();
 }
 
 $Object* AwtGraphicsConfigData::clone() {
-	return $of($XWrapperBase::clone());
+	return $XWrapperBase::clone();
 }
 
 void AwtGraphicsConfigData::zero() {
@@ -396,7 +323,72 @@ AwtGraphicsConfigData::AwtGraphicsConfigData() {
 }
 
 $Class* AwtGraphicsConfigData::load$($String* name, bool initialize) {
-	$loadClass(AwtGraphicsConfigData, name, initialize, &_AwtGraphicsConfigData_ClassInfo_, allocate$AwtGraphicsConfigData);
+	$FieldInfo fieldInfos$$[] = {
+		{"unsafe", "Ljdk/internal/misc/Unsafe;", nullptr, $PRIVATE, $field(AwtGraphicsConfigData, unsafe)},
+		{"should_free_memory", "Z", nullptr, $PRIVATE | $FINAL, $field(AwtGraphicsConfigData, should_free_memory)},
+		{"pData", "J", nullptr, 0, $field(AwtGraphicsConfigData, pData)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(J)V", nullptr, $PUBLIC, $method(AwtGraphicsConfigData, init$, void, int64_t)},
+		{"<init>", "()V", nullptr, $PUBLIC, $method(AwtGraphicsConfigData, init$, void)},
+		{"clone", "()Lsun/awt/X11/XEvent;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtGraphicsConfigData, clone, $Object*)},
+		{"dispose", "()V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, dispose, void)},
+		{"getDataSize", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, getDataSize, int32_t)},
+		{"getFieldsAsString", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AwtGraphicsConfigData, getFieldsAsString, $String*)},
+		{"getName", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AwtGraphicsConfigData, getName, $String*)},
+		{"getPData", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, getPData, int64_t)},
+		{"getSize", "()I", nullptr, $PUBLIC | $STATIC, $staticMethod(AwtGraphicsConfigData, getSize, int32_t)},
+		{"get_AwtColorMatch", "(I)J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_AwtColorMatch, int64_t, int32_t)},
+		{"get_AwtColorMatch", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_AwtColorMatch, int64_t)},
+		{"get_awtImage", "(I)Lsun/awt/X11/awtImageData;", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awtImage, $awtImageData*, int32_t)},
+		{"get_awtImage", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awtImage, int64_t)},
+		{"get_awt_cmap", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awt_cmap, int64_t)},
+		{"get_awt_depth", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awt_depth, int32_t)},
+		{"get_awt_num_colors", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awt_num_colors, int32_t)},
+		{"get_awt_visInfo", "()Lsun/awt/X11/XVisualInfo;", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_awt_visInfo, $XVisualInfo*)},
+		{"get_color_data", "(I)Lsun/awt/X11/ColorData;", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_color_data, $ColorData*, int32_t)},
+		{"get_color_data", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_color_data, int64_t)},
+		{"get_glxInfo", "(I)J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_glxInfo, int64_t, int32_t)},
+		{"get_glxInfo", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_glxInfo, int64_t)},
+		{"get_isTranslucencySupported", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_isTranslucencySupported, int32_t)},
+		{"get_monoImage", "(I)J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoImage, int64_t, int32_t)},
+		{"get_monoImage", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoImage, int64_t)},
+		{"get_monoPixmap", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoPixmap, int64_t)},
+		{"get_monoPixmapGC", "()J", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoPixmapGC, int64_t)},
+		{"get_monoPixmapHeight", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoPixmapHeight, int32_t)},
+		{"get_monoPixmapWidth", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_monoPixmapWidth, int32_t)},
+		{"get_pixelStride", "()I", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_pixelStride, int32_t)},
+		{"get_renderPictFormat", "()Lsun/awt/X11/XRenderPictFormat;", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, get_renderPictFormat, $XRenderPictFormat*)},
+		{"set_AwtColorMatch", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_AwtColorMatch, void, int64_t)},
+		{"set_awtImage", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_awtImage, void, int64_t)},
+		{"set_awt_cmap", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_awt_cmap, void, int64_t)},
+		{"set_awt_depth", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_awt_depth, void, int32_t)},
+		{"set_awt_num_colors", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_awt_num_colors, void, int32_t)},
+		{"set_color_data", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_color_data, void, int64_t)},
+		{"set_glxInfo", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_glxInfo, void, int64_t)},
+		{"set_isTranslucencySupported", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_isTranslucencySupported, void, int32_t)},
+		{"set_monoImage", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoImage, void, int64_t)},
+		{"set_monoPixmap", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoPixmap, void, int64_t)},
+		{"set_monoPixmapGC", "(J)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoPixmapGC, void, int64_t)},
+		{"set_monoPixmapHeight", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoPixmapHeight, void, int32_t)},
+		{"set_monoPixmapWidth", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_monoPixmapWidth, void, int32_t)},
+		{"set_pixelStride", "(I)V", nullptr, $PUBLIC, $virtualMethod(AwtGraphicsConfigData, set_pixelStride, void, int32_t)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtGraphicsConfigData, toString, $String*)},
+		{"zero", "()V", nullptr, $PUBLIC | $VOLATILE | $SYNTHETIC, $virtualMethod(AwtGraphicsConfigData, zero, void)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"sun.awt.X11.AwtGraphicsConfigData",
+		"sun.awt.X11.XWrapperBase",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(AwtGraphicsConfigData, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AwtGraphicsConfigData);
+	});
 	return class$;
 }
 

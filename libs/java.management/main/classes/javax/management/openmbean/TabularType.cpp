@@ -1,5 +1,4 @@
 #include <javax/management/openmbean/TabularType.h>
-
 #include <java/lang/ClassCastException.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
@@ -30,45 +29,8 @@ namespace javax {
 	namespace management {
 		namespace openmbean {
 
-$FieldInfo _TabularType_FieldInfo_[] = {
-	{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TabularType, serialVersionUID)},
-	{"rowType", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE, $field(TabularType, rowType)},
-	{"indexNames", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(TabularType, indexNames)},
-	{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(TabularType, myHashCode)},
-	{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(TabularType, myToString)},
-	{}
-};
-
-$MethodInfo _TabularType_MethodInfo_[] = {
-	{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TabularType, init$, void, $String*, $String*, $CompositeType*, $StringArray*), "javax.management.openmbean.OpenDataException"},
-	{"checkForEmptyString", "([Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TabularType, checkForEmptyString, void, $StringArray*, $String*)},
-	{"checkForNullElement", "([Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TabularType, checkForNullElement, void, $ObjectArray*, $String*)},
-	{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularType, equals, bool, Object$*)},
-	{"getIndexNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TabularType, getIndexNames, $List*)},
-	{"getRowType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC, $virtualMethod(TabularType, getRowType, $CompositeType*)},
-	{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TabularType, hashCode, int32_t)},
-	{"isAssignableFrom", "(Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;)Z", 0, $virtualMethod(TabularType, isAssignableFrom, bool, $OpenType*)},
-	{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularType, isValue, bool, Object$*)},
-	{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TabularType, toString, $String*)},
-	{}
-};
-
-$ClassInfo _TabularType_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"javax.management.openmbean.TabularType",
-	"javax.management.openmbean.OpenType",
-	nullptr,
-	_TabularType_FieldInfo_,
-	_TabularType_MethodInfo_,
-	"Ljavax/management/openmbean/OpenType<Ljavax/management/openmbean/TabularData;>;"
-};
-
-$Object* allocate$TabularType($Class* clazz) {
-	return $of($alloc(TabularType));
-}
-
 void TabularType::init$($String* typeName, $String* description, $CompositeType* rowType, $StringArray* indexNames) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$load($TabularData);
 	$OpenType::init$($($TabularData::class$->getName()), typeName, description, false);
 	$set(this, myHashCode, nullptr);
@@ -84,8 +46,8 @@ void TabularType::init$($String* typeName, $String* description, $CompositeType*
 		}
 	}
 	$set(this, rowType, rowType);
-	$var($List, tmpList, $new($ArrayList, $nc(indexNames)->length + 1));
-	for (int32_t i = 0; i < $nc(indexNames)->length; ++i) {
+	$var($List, tmpList, $new($ArrayList, indexNames->length + 1));
+	for (int32_t i = 0; i < indexNames->length; ++i) {
 		tmpList->add(indexNames->get(i));
 	}
 	$set(this, indexNames, $Collections::unmodifiableList(tmpList));
@@ -93,8 +55,8 @@ void TabularType::init$($String* typeName, $String* description, $CompositeType*
 
 void TabularType::checkForNullElement($ObjectArray* arg, $String* argName) {
 	$init(TabularType);
-	$useLocalCurrentObjectStackCache();
-	if ((arg == nullptr) || ($nc(arg)->length == 0)) {
+	$useLocalObjectStack();
+	if ((arg == nullptr) || (arg->length == 0)) {
 		$throwNew($IllegalArgumentException, $$str({"Argument "_s, argName, "[] cannot be null or empty."_s}));
 	}
 	for (int32_t i = 0; i < $nc(arg)->length; ++i) {
@@ -106,7 +68,7 @@ void TabularType::checkForNullElement($ObjectArray* arg, $String* argName) {
 
 void TabularType::checkForEmptyString($StringArray* arg, $String* argName) {
 	$init(TabularType);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	for (int32_t i = 0; i < $nc(arg)->length; ++i) {
 		if ($($nc(arg->get(i))->trim())->isEmpty()) {
 			$throwNew($IllegalArgumentException, $$str({"Argument\'s element "_s, argName, "["_s, $$str(i), "] cannot be an empty string."_s}));
@@ -123,7 +85,7 @@ $List* TabularType::getIndexNames() {
 }
 
 bool TabularType::isValue(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf($TabularData, obj))) {
 		return false;
 	}
@@ -133,20 +95,20 @@ bool TabularType::isValue(Object$* obj) {
 }
 
 bool TabularType::isAssignableFrom($OpenType* ot) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!($instanceOf(TabularType, ot))) {
 		return false;
 	}
 	$var(TabularType, tt, $cast(TabularType, ot));
-	bool var$0 = !$nc($(getTypeName()))->equals($($nc(tt)->getTypeName()));
-	if (var$0 || !$nc($(getIndexNames()))->equals($($nc(tt)->getIndexNames()))) {
+	bool var$0 = !$$nc(getTypeName())->equals($($nc(tt)->getTypeName()));
+	if (var$0 || !$$nc(getIndexNames())->equals($(tt->getIndexNames()))) {
 		return false;
 	}
-	return $nc($(getRowType()))->isAssignableFrom($($nc(tt)->getRowType()));
+	return $$nc(getRowType())->isAssignableFrom($(tt->getRowType()));
 }
 
 bool TabularType::equals(Object$* obj) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (obj == nullptr) {
 		return false;
 	}
@@ -156,23 +118,23 @@ bool TabularType::equals(Object$* obj) {
 	} catch ($ClassCastException& e) {
 		return false;
 	}
-	if (!$nc($(this->getTypeName()))->equals($($nc(other)->getTypeName()))) {
+	if (!$$nc(this->getTypeName())->equals($($nc(other)->getTypeName()))) {
 		return false;
 	}
-	if (!$nc(this->rowType)->equals($nc(other)->rowType)) {
+	if (!$nc(this->rowType)->equals(other->rowType)) {
 		return false;
 	}
-	if (!$nc(this->indexNames)->equals($nc(other)->indexNames)) {
+	if (!$nc(this->indexNames)->equals(other->indexNames)) {
 		return false;
 	}
 	return true;
 }
 
 int32_t TabularType::hashCode() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myHashCode == nullptr) {
 		int32_t value = 0;
-		value += $nc($(this->getTypeName()))->hashCode();
+		value += $$nc(this->getTypeName())->hashCode();
 		value += $nc(this->rowType)->hashCode();
 		{
 			$var($Iterator, i$, $nc(this->indexNames)->iterator());
@@ -187,9 +149,9 @@ int32_t TabularType::hashCode() {
 }
 
 $String* TabularType::toString() {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (this->myToString == nullptr) {
-		$var($StringBuilder, result, $$new($StringBuilder)->append($($of(this)->getClass()->getName()))->append("(name="_s)->append($(getTypeName()))->append(",rowType="_s)->append($($nc(this->rowType)->toString()))->append(",indexNames=("_s));
+		$var($StringBuilder, result, $$new($StringBuilder)->append($(this->getClass()->getName()))->append("(name="_s)->append($(getTypeName()))->append(",rowType="_s)->append($($nc(this->rowType)->toString()))->append(",indexNames=("_s));
 		$var($String, sep, ""_s);
 		{
 			$var($Iterator, i$, $nc(this->indexNames)->iterator());
@@ -211,7 +173,39 @@ TabularType::TabularType() {
 }
 
 $Class* TabularType::load$($String* name, bool initialize) {
-	$loadClass(TabularType, name, initialize, &_TabularType_ClassInfo_, allocate$TabularType);
+	$FieldInfo fieldInfos$$[] = {
+		{"serialVersionUID", "J", nullptr, $STATIC | $FINAL, $constField(TabularType, serialVersionUID)},
+		{"rowType", "Ljavax/management/openmbean/CompositeType;", nullptr, $PRIVATE, $field(TabularType, rowType)},
+		{"indexNames", "Ljava/util/List;", "Ljava/util/List<Ljava/lang/String;>;", $PRIVATE, $field(TabularType, indexNames)},
+		{"myHashCode", "Ljava/lang/Integer;", nullptr, $PRIVATE | $TRANSIENT, $field(TabularType, myHashCode)},
+		{"myToString", "Ljava/lang/String;", nullptr, $PRIVATE | $TRANSIENT, $field(TabularType, myToString)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/lang/String;Ljava/lang/String;Ljavax/management/openmbean/CompositeType;[Ljava/lang/String;)V", nullptr, $PUBLIC, $method(TabularType, init$, void, $String*, $String*, $CompositeType*, $StringArray*), "javax.management.openmbean.OpenDataException"},
+		{"checkForEmptyString", "([Ljava/lang/String;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TabularType, checkForEmptyString, void, $StringArray*, $String*)},
+		{"checkForNullElement", "([Ljava/lang/Object;Ljava/lang/String;)V", nullptr, $PRIVATE | $STATIC, $staticMethod(TabularType, checkForNullElement, void, $ObjectArray*, $String*)},
+		{"equals", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularType, equals, bool, Object$*)},
+		{"getIndexNames", "()Ljava/util/List;", "()Ljava/util/List<Ljava/lang/String;>;", $PUBLIC, $virtualMethod(TabularType, getIndexNames, $List*)},
+		{"getRowType", "()Ljavax/management/openmbean/CompositeType;", nullptr, $PUBLIC, $virtualMethod(TabularType, getRowType, $CompositeType*)},
+		{"hashCode", "()I", nullptr, $PUBLIC, $virtualMethod(TabularType, hashCode, int32_t)},
+		{"isAssignableFrom", "(Ljavax/management/openmbean/OpenType;)Z", "(Ljavax/management/openmbean/OpenType<*>;)Z", 0, $virtualMethod(TabularType, isAssignableFrom, bool, $OpenType*)},
+		{"isValue", "(Ljava/lang/Object;)Z", nullptr, $PUBLIC, $virtualMethod(TabularType, isValue, bool, Object$*)},
+		{"toString", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(TabularType, toString, $String*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"javax.management.openmbean.TabularType",
+		"javax.management.openmbean.OpenType",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		"Ljavax/management/openmbean/OpenType<Ljavax/management/openmbean/TabularData;>;"
+	};
+	$loadClass(TabularType, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(TabularType);
+	});
 	return class$;
 }
 

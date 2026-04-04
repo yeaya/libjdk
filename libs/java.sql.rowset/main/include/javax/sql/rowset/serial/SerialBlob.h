@@ -52,7 +52,7 @@ public:
 	::java::sql::Blob* blob = nullptr;
 	int64_t len = 0;
 	int64_t origLen = 0;
-	static const int64_t serialVersionUID = (int64_t)0x8EF86B518C1492E7;
+	static const int64_t serialVersionUID = (int64_t)0x8ef86b518c1492e7;
 };
 
 			} // serial

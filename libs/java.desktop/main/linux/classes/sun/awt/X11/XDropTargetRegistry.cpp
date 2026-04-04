@@ -1,5 +1,4 @@
 #include <sun/awt/X11/XDropTargetRegistry.h>
-
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/UnsupportedOperationException.h>
@@ -69,12 +68,9 @@ using $XDropTargetRegistry$1 = ::sun::awt::X11::XDropTargetRegistry$1;
 using $XDropTargetRegistry$EmbeddedDropSiteEntry = ::sun::awt::X11::XDropTargetRegistry$EmbeddedDropSiteEntry;
 using $XEmbedCanvasPeer = ::sun::awt::X11::XEmbedCanvasPeer;
 using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
-using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
-using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XException = ::sun::awt::X11::XException;
-using $XRootWindow = ::sun::awt::X11::XRootWindow;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XWindow = ::sun::awt::X11::XWindow;
 using $XWindowAttributes = ::sun::awt::X11::XWindowAttributes;
@@ -87,64 +83,6 @@ using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 namespace sun {
 	namespace awt {
 		namespace X11 {
-
-$FieldInfo _XDropTargetRegistry_FieldInfo_[] = {
-	{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XDropTargetRegistry, $assertionsDisabled)},
-	{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetRegistry, logger)},
-	{"DELAYED_REGISTRATION_PERIOD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XDropTargetRegistry, DELAYED_REGISTRATION_PERIOD)},
-	{"theInstance", "Lsun/awt/X11/XDropTargetRegistry;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetRegistry, theInstance)},
-	{"delayedRegistrationMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Long;Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(XDropTargetRegistry, delayedRegistrationMap)},
-	{"embeddedDropSiteRegistry", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Long;Lsun/awt/X11/XDropTargetRegistry$EmbeddedDropSiteEntry;>;", $PRIVATE | $FINAL, $field(XDropTargetRegistry, embeddedDropSiteRegistry)},
-	{"XEMBED_PROTOCOLS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XDropTargetRegistry, XEMBED_PROTOCOLS)},
-	{"NON_XEMBED_PROTOCOLS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XDropTargetRegistry, NON_XEMBED_PROTOCOLS)},
-	{}
-};
-
-$MethodInfo _XDropTargetRegistry_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PRIVATE, $method(XDropTargetRegistry, init$, void)},
-	{"addDelayedRegistrationEntry", "(J)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, addDelayedRegistrationEntry, void, int64_t)},
-	{"getDnDProxyWindow", "()J", nullptr, $STATIC, $staticMethod(XDropTargetRegistry, getDnDProxyWindow, int64_t)},
-	{"getEmbeddedDropSite", "(JII)J", nullptr, $PUBLIC, $method(XDropTargetRegistry, getEmbeddedDropSite, int64_t, int64_t, int32_t, int32_t)},
-	{"getRegistry", "()Lsun/awt/X11/XDropTargetRegistry;", nullptr, $STATIC, $staticMethod(XDropTargetRegistry, getRegistry, XDropTargetRegistry*)},
-	{"getToplevelWindow", "(J)J", nullptr, $PRIVATE, $method(XDropTargetRegistry, getToplevelWindow, int64_t, int64_t)},
-	{"registerDropSite", "(J)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, registerDropSite, void, int64_t)},
-	{"registerEmbeddedDropSite", "(JJ)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, registerEmbeddedDropSite, void, int64_t, int64_t)},
-	{"registerEmbedderDropSite", "(J)Lsun/awt/X11/XDropTargetRegistry$EmbeddedDropSiteEntry;", nullptr, $PRIVATE, $method(XDropTargetRegistry, registerEmbedderDropSite, $XDropTargetRegistry$EmbeddedDropSiteEntry*, int64_t)},
-	{"registerProtocols", "(JZLjava/util/List;)V", "(JZLjava/util/List<Lsun/awt/X11/XDropTargetProtocol;>;)V", $PRIVATE, $method(XDropTargetRegistry, registerProtocols, void, int64_t, bool, $List*)},
-	{"registerXEmbedClient", "(JJ)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, registerXEmbedClient, void, int64_t, int64_t)},
-	{"removeDelayedRegistrationEntry", "(J)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, removeDelayedRegistrationEntry, void, int64_t)},
-	{"unregisterDropSite", "(J)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, unregisterDropSite, void, int64_t)},
-	{"unregisterEmbeddedDropSite", "(JJ)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, unregisterEmbeddedDropSite, void, int64_t, int64_t)},
-	{"unregisterEmbedderDropSite", "(JLsun/awt/X11/XDropTargetRegistry$EmbeddedDropSiteEntry;)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, unregisterEmbedderDropSite, void, int64_t, $XDropTargetRegistry$EmbeddedDropSiteEntry*)},
-	{"unregisterXEmbedClient", "(JJ)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, unregisterXEmbedClient, void, int64_t, int64_t)},
-	{"updateEmbedderDropSite", "(J)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, updateEmbedderDropSite, void, int64_t)},
-	{}
-};
-
-$InnerClassInfo _XDropTargetRegistry_InnerClassesInfo_[] = {
-	{"sun.awt.X11.XDropTargetRegistry$EmbeddedDropSiteEntry", "sun.awt.X11.XDropTargetRegistry", "EmbeddedDropSiteEntry", $PRIVATE | $STATIC | $FINAL},
-	{"sun.awt.X11.XDropTargetRegistry$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _XDropTargetRegistry_ClassInfo_ = {
-	$FINAL | $ACC_SUPER,
-	"sun.awt.X11.XDropTargetRegistry",
-	"java.lang.Object",
-	nullptr,
-	_XDropTargetRegistry_FieldInfo_,
-	_XDropTargetRegistry_MethodInfo_,
-	nullptr,
-	nullptr,
-	_XDropTargetRegistry_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"sun.awt.X11.XDropTargetRegistry$EmbeddedDropSiteEntry,sun.awt.X11.XDropTargetRegistry$1"
-};
-
-$Object* allocate$XDropTargetRegistry($Class* clazz) {
-	return $of($alloc(XDropTargetRegistry));
-}
 
 bool XDropTargetRegistry::$assertionsDisabled = false;
 $PlatformLogger* XDropTargetRegistry::logger = nullptr;
@@ -161,7 +99,7 @@ XDropTargetRegistry* XDropTargetRegistry::getRegistry() {
 }
 
 int64_t XDropTargetRegistry::getToplevelWindow(int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XBaseWindow, candWindow, $XToolkit::windowToXWindow(window));
 	if (candWindow != nullptr) {
 		$var($XWindowPeer, toplevel, candWindow->getToplevelXWindow());
@@ -180,11 +118,11 @@ int64_t XDropTargetRegistry::getToplevelWindow(int64_t window) {
 
 int64_t XDropTargetRegistry::getDnDProxyWindow() {
 	$init(XDropTargetRegistry);
-	return $nc($($XWindow::getXAWTRootWindow()))->getWindow();
+	return $$nc($XWindow::getXAWTRootWindow())->getWindow();
 }
 
 $XDropTargetRegistry$EmbeddedDropSiteEntry* XDropTargetRegistry::registerEmbedderDropSite(int64_t embedder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!XDropTargetRegistry::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -198,62 +136,58 @@ $XDropTargetRegistry$EmbeddedDropSiteEntry* XDropTargetRegistry::registerEmbedde
 	}
 	$assign(embedderProtocols, $Collections::unmodifiableList(embedderProtocols));
 	$XlibWrapper::XGrabServer($XToolkit::getDisplay());
-	{
-		$var($Throwable, var$0, nullptr);
-		$var($XDropTargetRegistry$EmbeddedDropSiteEntry, var$2, nullptr);
-		bool return$1 = false;
+	$var($Throwable, var$0, nullptr);
+	$var($XDropTargetRegistry$EmbeddedDropSiteEntry, var$2, nullptr);
+	bool return$1 = false;
+	try {
+		int64_t root = 0;
+		int64_t event_mask = 0;
+		$var($XWindowAttributes, wattr, $new($XWindowAttributes));
+		$var($Throwable, var$3, nullptr);
 		try {
-			int64_t root = 0;
-			int64_t event_mask = 0;
-			$var($XWindowAttributes, wattr, $new($XWindowAttributes));
-			{
-				$var($Throwable, var$3, nullptr);
-				try {
-					$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-					int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), embedder, wattr->pData);
-					$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-					if ((status == 0) || (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success))) {
-						$throwNew($XException, "XGetWindowAttributes failed"_s);
-					}
-					event_mask = wattr->get_your_event_mask();
-					root = wattr->get_root();
-				} catch ($Throwable& var$4) {
-					$assign(var$3, var$4);
-				} /*finally*/ {
-					wattr->dispose();
-				}
-				if (var$3 != nullptr) {
-					$throw(var$3);
-				}
+			$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+			int32_t status = $XlibWrapper::XGetWindowAttributes($XToolkit::getDisplay(), embedder, wattr->pData);
+			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+			if ((status == 0) || (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success))) {
+				$throwNew($XException, "XGetWindowAttributes failed"_s);
 			}
-			if (((int64_t)(event_mask & (uint64_t)$XConstants::PropertyChangeMask)) == 0) {
-				$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-				$XlibWrapper::XSelectInput($XToolkit::getDisplay(), embedder, event_mask | $XConstants::PropertyChangeMask);
-				$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-				if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
-					$throwNew($XException, "XSelectInput failed"_s);
-				}
+			event_mask = wattr->get_your_event_mask();
+			root = wattr->get_root();
+		} catch ($Throwable& var$4) {
+			$assign(var$3, var$4);
+		} /*finally*/ {
+			wattr->dispose();
+		}
+		if (var$3 != nullptr) {
+			$throw(var$3);
+		}
+		if ((event_mask & $XConstants::PropertyChangeMask) == 0) {
+			$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+			$XlibWrapper::XSelectInput($XToolkit::getDisplay(), embedder, event_mask | $XConstants::PropertyChangeMask);
+			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+			if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
+				$throwNew($XException, "XSelectInput failed"_s);
 			}
-			$assign(var$2, $new($XDropTargetRegistry$EmbeddedDropSiteEntry, root, event_mask, embedderProtocols));
-			return$1 = true;
-			goto $finally;
-		} catch ($Throwable& var$5) {
-			$assign(var$0, var$5);
-		} $finally: {
-			$XlibWrapper::XUngrabServer($XToolkit::getDisplay());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
-		if (return$1) {
-			return var$2;
-		}
+		$assign(var$2, $new($XDropTargetRegistry$EmbeddedDropSiteEntry, root, event_mask, embedderProtocols));
+		return$1 = true;
+		goto $finally;
+	} catch ($Throwable& var$5) {
+		$assign(var$0, var$5);
+	} $finally: {
+		$XlibWrapper::XUngrabServer($XToolkit::getDisplay());
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
+	}
+	if (return$1) {
+		return var$2;
 	}
 	$shouldNotReachHere();
 }
 
 void XDropTargetRegistry::registerProtocols(int64_t embedder, bool protocols, $List* supportedProtocols) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Iterator, dropTargetProtocols, nullptr);
 	if (!$nc(supportedProtocols)->isEmpty()) {
 		$assign(dropTargetProtocols, supportedProtocols->iterator());
@@ -261,28 +195,26 @@ void XDropTargetRegistry::registerProtocols(int64_t embedder, bool protocols, $L
 		$assign(dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
 	}
 	$XlibWrapper::XGrabServer($XToolkit::getDisplay());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while ($nc(dropTargetProtocols)->hasNext()) {
-				$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
-				if ((protocols == XDropTargetRegistry::XEMBED_PROTOCOLS) == $nc(dropTargetProtocol)->isXEmbedSupported()) {
-					dropTargetProtocol->registerEmbedderDropSite(embedder);
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		while ($nc(dropTargetProtocols)->hasNext()) {
+			$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
+			if ((protocols == XDropTargetRegistry::XEMBED_PROTOCOLS) == $nc(dropTargetProtocol)->isXEmbedSupported()) {
+				dropTargetProtocol->registerEmbedderDropSite(embedder);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XlibWrapper::XUngrabServer($XToolkit::getDisplay());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XlibWrapper::XUngrabServer($XToolkit::getDisplay());
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XDropTargetRegistry::updateEmbedderDropSite(int64_t embedder) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XBaseWindow, xbaseWindow, $XToolkit::windowToXWindow(embedder));
 	if (xbaseWindow != nullptr) {
 		return;
@@ -302,7 +234,7 @@ void XDropTargetRegistry::updateEmbedderDropSite(int64_t embedder) {
 	$var($Long, lToplevel, $Long::valueOf(embedder));
 	bool isXEmbedServer = false;
 	$synchronized(this) {
-		$var($XDropTargetRegistry$EmbeddedDropSiteEntry, entry, $cast($XDropTargetRegistry$EmbeddedDropSiteEntry, $nc(this->embeddedDropSiteRegistry)->get(lToplevel)));
+		$var($XDropTargetRegistry$EmbeddedDropSiteEntry, entry, $cast($XDropTargetRegistry$EmbeddedDropSiteEntry, this->embeddedDropSiteRegistry->get(lToplevel)));
 		if (entry == nullptr) {
 			return;
 		}
@@ -315,64 +247,60 @@ void XDropTargetRegistry::updateEmbedderDropSite(int64_t embedder) {
 		$assign(dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
 	}
 	$XlibWrapper::XGrabServer($XToolkit::getDisplay());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while ($nc(dropTargetProtocols)->hasNext()) {
-				$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
-				if (!isXEmbedServer || !$nc(dropTargetProtocol)->isXEmbedSupported()) {
-					dropTargetProtocol->registerEmbedderDropSite(embedder);
-				}
+	$var($Throwable, var$0, nullptr);
+	try {
+		while ($nc(dropTargetProtocols)->hasNext()) {
+			$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
+			if (!isXEmbedServer || !$nc(dropTargetProtocol)->isXEmbedSupported()) {
+				$nc(dropTargetProtocol)->registerEmbedderDropSite(embedder);
 			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XlibWrapper::XUngrabServer($XToolkit::getDisplay());
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XlibWrapper::XUngrabServer($XToolkit::getDisplay());
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XDropTargetRegistry::unregisterEmbedderDropSite(int64_t embedder, $XDropTargetRegistry$EmbeddedDropSiteEntry* entry) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!XDropTargetRegistry::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
 	$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
 	$XlibWrapper::XGrabServer($XToolkit::getDisplay());
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			while ($nc(dropTargetProtocols)->hasNext()) {
-				$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
-				$nc(dropTargetProtocol)->unregisterEmbedderDropSite(embedder);
-			}
-			int64_t event_mask = $nc(entry)->getEventMask();
-			if (((int64_t)(event_mask & (uint64_t)$XConstants::PropertyChangeMask)) == 0) {
-				$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
-				$XlibWrapper::XSelectInput($XToolkit::getDisplay(), embedder, event_mask);
-				$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
-				if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
-					$throwNew($XException, "XSelectInput failed"_s);
-				}
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XlibWrapper::XUngrabServer($XToolkit::getDisplay());
+	$var($Throwable, var$0, nullptr);
+	try {
+		while ($nc(dropTargetProtocols)->hasNext()) {
+			$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
+			$nc(dropTargetProtocol)->unregisterEmbedderDropSite(embedder);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
+		int64_t event_mask = $nc(entry)->getEventMask();
+		if ((event_mask & $XConstants::PropertyChangeMask) == 0) {
+			$XErrorHandlerUtil::WITH_XERROR_HANDLER($($XErrorHandler$IgnoreBadWindowHandler::getInstance()));
+			$XlibWrapper::XSelectInput($XToolkit::getDisplay(), embedder, event_mask);
+			$XErrorHandlerUtil::RESTORE_XERROR_HANDLER();
+			if (($XErrorHandlerUtil::saved_error != nullptr) && ($nc($XErrorHandlerUtil::saved_error)->get_error_code() != $XConstants::Success)) {
+				$throwNew($XException, "XSelectInput failed"_s);
+			}
 		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XlibWrapper::XUngrabServer($XToolkit::getDisplay());
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XDropTargetRegistry::registerEmbeddedDropSite(int64_t toplevel, int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($XBaseWindow, xBaseWindow, $XToolkit::windowToXWindow(window));
-	bool isXEmbedClient = ($instanceOf($XEmbeddedFramePeer, xBaseWindow)) && $nc(($cast($XEmbeddedFramePeer, xBaseWindow)))->isXEmbedActive();
+	bool isXEmbedClient = ($instanceOf($XEmbeddedFramePeer, xBaseWindow)) && $cast($XEmbeddedFramePeer, xBaseWindow)->isXEmbedActive();
 	$var($XEmbedCanvasPeer, peer, nullptr);
 	{
 		$var($XBaseWindow, xbaseWindow, $XToolkit::windowToXWindow(toplevel));
@@ -387,7 +315,7 @@ void XDropTargetRegistry::registerEmbeddedDropSite(int64_t toplevel, int64_t win
 	$var($Long, lToplevel, $Long::valueOf(toplevel));
 	$var($XDropTargetRegistry$EmbeddedDropSiteEntry, entry, nullptr);
 	$synchronized(this) {
-		$assign(entry, $cast($XDropTargetRegistry$EmbeddedDropSiteEntry, $nc(this->embeddedDropSiteRegistry)->get(lToplevel)));
+		$assign(entry, $cast($XDropTargetRegistry$EmbeddedDropSiteEntry, this->embeddedDropSiteRegistry->get(lToplevel)));
 		if (entry == nullptr) {
 			if (peer != nullptr) {
 				peer->setXEmbedDropTarget();
@@ -396,7 +324,7 @@ void XDropTargetRegistry::registerEmbeddedDropSite(int64_t toplevel, int64_t win
 				$assign(entry, registerEmbedderDropSite(toplevel));
 				registerProtocols(toplevel, XDropTargetRegistry::NON_XEMBED_PROTOCOLS, $($nc(entry)->getSupportedProtocols()));
 			}
-			$nc(this->embeddedDropSiteRegistry)->put(lToplevel, entry);
+			this->embeddedDropSiteRegistry->put(lToplevel, entry);
 		}
 	}
 	if (!XDropTargetRegistry::$assertionsDisabled && !(entry != nullptr)) {
@@ -405,7 +333,7 @@ void XDropTargetRegistry::registerEmbeddedDropSite(int64_t toplevel, int64_t win
 	$synchronized(entry) {
 		if (peer == nullptr) {
 			if (!isXEmbedClient) {
-				registerProtocols(toplevel, XDropTargetRegistry::XEMBED_PROTOCOLS, $($nc(entry)->getSupportedProtocols()));
+				registerProtocols(toplevel, XDropTargetRegistry::XEMBED_PROTOCOLS, $(entry->getSupportedProtocols()));
 			} else {
 				$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
 				while ($nc(dropTargetProtocols)->hasNext()) {
@@ -416,22 +344,22 @@ void XDropTargetRegistry::registerEmbeddedDropSite(int64_t toplevel, int64_t win
 				}
 			}
 		}
-		$nc(entry)->addSite(window, isXEmbedClient);
+		entry->addSite(window, isXEmbedClient);
 	}
 }
 
 void XDropTargetRegistry::unregisterEmbeddedDropSite(int64_t toplevel, int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, lToplevel, $Long::valueOf(toplevel));
 	$var($XDropTargetRegistry$EmbeddedDropSiteEntry, entry, nullptr);
 	$synchronized(this) {
-		$assign(entry, $cast($XDropTargetRegistry$EmbeddedDropSiteEntry, $nc(this->embeddedDropSiteRegistry)->get(lToplevel)));
+		$assign(entry, $cast($XDropTargetRegistry$EmbeddedDropSiteEntry, this->embeddedDropSiteRegistry->get(lToplevel)));
 		if (entry == nullptr) {
 			return;
 		}
 		$nc(entry)->removeSite(window);
 		if (!entry->hasSites()) {
-			$nc(this->embeddedDropSiteRegistry)->remove(lToplevel);
+			this->embeddedDropSiteRegistry->remove(lToplevel);
 			$var($XBaseWindow, xbaseWindow, $XToolkit::windowToXWindow(toplevel));
 			if (xbaseWindow != nullptr) {
 				if ($instanceOf($XEmbedCanvasPeer, xbaseWindow)) {
@@ -448,9 +376,9 @@ void XDropTargetRegistry::unregisterEmbeddedDropSite(int64_t toplevel, int64_t w
 }
 
 int64_t XDropTargetRegistry::getEmbeddedDropSite(int64_t embedder, int32_t x, int32_t y) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, lToplevel, $Long::valueOf(embedder));
-	$var($XDropTargetRegistry$EmbeddedDropSiteEntry, entry, $cast($XDropTargetRegistry$EmbeddedDropSiteEntry, $nc(this->embeddedDropSiteRegistry)->get(lToplevel)));
+	$var($XDropTargetRegistry$EmbeddedDropSiteEntry, entry, $cast($XDropTargetRegistry$EmbeddedDropSiteEntry, this->embeddedDropSiteRegistry->get(lToplevel)));
 	if (entry == nullptr) {
 		return 0;
 	}
@@ -458,7 +386,7 @@ int64_t XDropTargetRegistry::getEmbeddedDropSite(int64_t embedder, int32_t x, in
 }
 
 void XDropTargetRegistry::registerDropSite(int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!XDropTargetRegistry::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -483,7 +411,7 @@ void XDropTargetRegistry::registerDropSite(int64_t window) {
 }
 
 void XDropTargetRegistry::unregisterDropSite(int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (!XDropTargetRegistry::$assertionsDisabled && !$XToolkit::isAWTLockHeldByCurrentThread()) {
 		$throwNew($AssertionError);
 	}
@@ -504,14 +432,14 @@ void XDropTargetRegistry::unregisterDropSite(int64_t window) {
 }
 
 void XDropTargetRegistry::registerXEmbedClient(int64_t canvasWindow, int64_t clientWindow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($XDragAndDropProtocols);
 	$var($XDragSourceProtocol, xdndDragProtocol, $XDragAndDropProtocols::getDragSourceProtocol($XDragAndDropProtocols::XDnD));
 	$var($XDragSourceProtocol$TargetWindowInfo, info, $nc(xdndDragProtocol)->getTargetWindowInfo(clientWindow));
 	if (info != nullptr && info->getProtocolVersion() >= $XDnDConstants::XDND_MIN_PROTOCOL_VERSION) {
 		$init($PlatformLogger$Level);
 		if ($nc(XDropTargetRegistry::logger)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XDropTargetRegistry::logger)->fine($$str({"        XEmbed drop site will be registered for "_s, $($Long::toHexString(clientWindow))}));
+			XDropTargetRegistry::logger->fine($$str({"        XEmbed drop site will be registered for "_s, $($Long::toHexString(clientWindow))}));
 		}
 		registerEmbeddedDropSite(canvasWindow, clientWindow);
 		$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
@@ -519,17 +447,17 @@ void XDropTargetRegistry::registerXEmbedClient(int64_t canvasWindow, int64_t cli
 			$var($XDropTargetProtocol, dropTargetProtocol, $cast($XDropTargetProtocol, dropTargetProtocols->next()));
 			$nc(dropTargetProtocol)->registerEmbeddedDropSite(clientWindow);
 		}
-		if ($nc(XDropTargetRegistry::logger)->isLoggable($PlatformLogger$Level::FINE)) {
-			$nc(XDropTargetRegistry::logger)->fine($$str({"        XEmbed drop site has been registered for "_s, $($Long::toHexString(clientWindow))}));
+		if (XDropTargetRegistry::logger->isLoggable($PlatformLogger$Level::FINE)) {
+			XDropTargetRegistry::logger->fine($$str({"        XEmbed drop site has been registered for "_s, $($Long::toHexString(clientWindow))}));
 		}
 	}
 }
 
 void XDropTargetRegistry::unregisterXEmbedClient(int64_t canvasWindow, int64_t clientWindow) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$init($PlatformLogger$Level);
 	if ($nc(XDropTargetRegistry::logger)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDropTargetRegistry::logger)->fine($$str({"        XEmbed drop site will be unregistered for "_s, $($Long::toHexString(clientWindow))}));
+		XDropTargetRegistry::logger->fine($$str({"        XEmbed drop site will be unregistered for "_s, $($Long::toHexString(clientWindow))}));
 	}
 	$var($Iterator, dropTargetProtocols, $XDragAndDropProtocols::getDropTargetProtocols());
 	while ($nc(dropTargetProtocols)->hasNext()) {
@@ -537,56 +465,52 @@ void XDropTargetRegistry::unregisterXEmbedClient(int64_t canvasWindow, int64_t c
 		$nc(dropTargetProtocol)->unregisterEmbeddedDropSite(clientWindow);
 	}
 	unregisterEmbeddedDropSite(canvasWindow, clientWindow);
-	if ($nc(XDropTargetRegistry::logger)->isLoggable($PlatformLogger$Level::FINE)) {
-		$nc(XDropTargetRegistry::logger)->fine($$str({"        XEmbed drop site has beed unregistered for "_s, $($Long::toHexString(clientWindow))}));
+	if (XDropTargetRegistry::logger->isLoggable($PlatformLogger$Level::FINE)) {
+		XDropTargetRegistry::logger->fine($$str({"        XEmbed drop site has beed unregistered for "_s, $($Long::toHexString(clientWindow))}));
 	}
 }
 
 void XDropTargetRegistry::addDelayedRegistrationEntry(int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, lWindow, $Long::valueOf(window));
 	$var($Runnable, runnable, $new($XDropTargetRegistry$1, this, window));
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			removeDelayedRegistrationEntry(window);
-			$nc(this->delayedRegistrationMap)->put(lWindow, runnable);
-			$XToolkit::schedule(runnable, XDropTargetRegistry::DELAYED_REGISTRATION_PERIOD);
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
-		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	$var($Throwable, var$0, nullptr);
+	try {
+		removeDelayedRegistrationEntry(window);
+		this->delayedRegistrationMap->put(lWindow, runnable);
+		$XToolkit::schedule(runnable, XDropTargetRegistry::DELAYED_REGISTRATION_PERIOD);
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
 void XDropTargetRegistry::removeDelayedRegistrationEntry(int64_t window) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($Long, lWindow, $Long::valueOf(window));
 	$XToolkit::awtLock();
-	{
-		$var($Throwable, var$0, nullptr);
-		try {
-			$var($Runnable, runnable, $cast($Runnable, $nc(this->delayedRegistrationMap)->remove(lWindow)));
-			if (runnable != nullptr) {
-				$XToolkit::remove(runnable);
-			}
-		} catch ($Throwable& var$1) {
-			$assign(var$0, var$1);
-		} /*finally*/ {
-			$XToolkit::awtUnlock();
+	$var($Throwable, var$0, nullptr);
+	try {
+		$var($Runnable, runnable, $cast($Runnable, this->delayedRegistrationMap->remove(lWindow)));
+		if (runnable != nullptr) {
+			$XToolkit::remove(runnable);
 		}
-		if (var$0 != nullptr) {
-			$throw(var$0);
-		}
+	} catch ($Throwable& var$1) {
+		$assign(var$0, var$1);
+	} /*finally*/ {
+		$XToolkit::awtUnlock();
+	}
+	if (var$0 != nullptr) {
+		$throw(var$0);
 	}
 }
 
-void clinit$XDropTargetRegistry($Class* class$) {
+void XDropTargetRegistry::clinit$($Class* clazz) {
 	XDropTargetRegistry::$assertionsDisabled = !XDropTargetRegistry::class$->desiredAssertionStatus();
 	$assignStatic(XDropTargetRegistry::logger, $PlatformLogger::getLogger("sun.awt.X11.xembed.xdnd.XDropTargetRegistry"_s));
 	$assignStatic(XDropTargetRegistry::theInstance, $new(XDropTargetRegistry));
@@ -596,7 +520,59 @@ XDropTargetRegistry::XDropTargetRegistry() {
 }
 
 $Class* XDropTargetRegistry::load$($String* name, bool initialize) {
-	$loadClass(XDropTargetRegistry, name, initialize, &_XDropTargetRegistry_ClassInfo_, clinit$XDropTargetRegistry, allocate$XDropTargetRegistry);
+	$FieldInfo fieldInfos$$[] = {
+		{"$assertionsDisabled", "Z", nullptr, $STATIC | $FINAL | $SYNTHETIC, $staticField(XDropTargetRegistry, $assertionsDisabled)},
+		{"logger", "Lsun/util/logging/PlatformLogger;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetRegistry, logger)},
+		{"DELAYED_REGISTRATION_PERIOD", "J", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XDropTargetRegistry, DELAYED_REGISTRATION_PERIOD)},
+		{"theInstance", "Lsun/awt/X11/XDropTargetRegistry;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(XDropTargetRegistry, theInstance)},
+		{"delayedRegistrationMap", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Long;Ljava/lang/Runnable;>;", $PRIVATE | $FINAL, $field(XDropTargetRegistry, delayedRegistrationMap)},
+		{"embeddedDropSiteRegistry", "Ljava/util/HashMap;", "Ljava/util/HashMap<Ljava/lang/Long;Lsun/awt/X11/XDropTargetRegistry$EmbeddedDropSiteEntry;>;", $PRIVATE | $FINAL, $field(XDropTargetRegistry, embeddedDropSiteRegistry)},
+		{"XEMBED_PROTOCOLS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XDropTargetRegistry, XEMBED_PROTOCOLS)},
+		{"NON_XEMBED_PROTOCOLS", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(XDropTargetRegistry, NON_XEMBED_PROTOCOLS)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PRIVATE, $method(XDropTargetRegistry, init$, void)},
+		{"addDelayedRegistrationEntry", "(J)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, addDelayedRegistrationEntry, void, int64_t)},
+		{"getDnDProxyWindow", "()J", nullptr, $STATIC, $staticMethod(XDropTargetRegistry, getDnDProxyWindow, int64_t)},
+		{"getEmbeddedDropSite", "(JII)J", nullptr, $PUBLIC, $method(XDropTargetRegistry, getEmbeddedDropSite, int64_t, int64_t, int32_t, int32_t)},
+		{"getRegistry", "()Lsun/awt/X11/XDropTargetRegistry;", nullptr, $STATIC, $staticMethod(XDropTargetRegistry, getRegistry, XDropTargetRegistry*)},
+		{"getToplevelWindow", "(J)J", nullptr, $PRIVATE, $method(XDropTargetRegistry, getToplevelWindow, int64_t, int64_t)},
+		{"registerDropSite", "(J)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, registerDropSite, void, int64_t)},
+		{"registerEmbeddedDropSite", "(JJ)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, registerEmbeddedDropSite, void, int64_t, int64_t)},
+		{"registerEmbedderDropSite", "(J)Lsun/awt/X11/XDropTargetRegistry$EmbeddedDropSiteEntry;", nullptr, $PRIVATE, $method(XDropTargetRegistry, registerEmbedderDropSite, $XDropTargetRegistry$EmbeddedDropSiteEntry*, int64_t)},
+		{"registerProtocols", "(JZLjava/util/List;)V", "(JZLjava/util/List<Lsun/awt/X11/XDropTargetProtocol;>;)V", $PRIVATE, $method(XDropTargetRegistry, registerProtocols, void, int64_t, bool, $List*)},
+		{"registerXEmbedClient", "(JJ)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, registerXEmbedClient, void, int64_t, int64_t)},
+		{"removeDelayedRegistrationEntry", "(J)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, removeDelayedRegistrationEntry, void, int64_t)},
+		{"unregisterDropSite", "(J)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, unregisterDropSite, void, int64_t)},
+		{"unregisterEmbeddedDropSite", "(JJ)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, unregisterEmbeddedDropSite, void, int64_t, int64_t)},
+		{"unregisterEmbedderDropSite", "(JLsun/awt/X11/XDropTargetRegistry$EmbeddedDropSiteEntry;)V", nullptr, $PRIVATE, $method(XDropTargetRegistry, unregisterEmbedderDropSite, void, int64_t, $XDropTargetRegistry$EmbeddedDropSiteEntry*)},
+		{"unregisterXEmbedClient", "(JJ)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, unregisterXEmbedClient, void, int64_t, int64_t)},
+		{"updateEmbedderDropSite", "(J)V", nullptr, $PUBLIC, $method(XDropTargetRegistry, updateEmbedderDropSite, void, int64_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"sun.awt.X11.XDropTargetRegistry$EmbeddedDropSiteEntry", "sun.awt.X11.XDropTargetRegistry", "EmbeddedDropSiteEntry", $PRIVATE | $STATIC | $FINAL},
+		{"sun.awt.X11.XDropTargetRegistry$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$FINAL | $ACC_SUPER,
+		"sun.awt.X11.XDropTargetRegistry",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"sun.awt.X11.XDropTargetRegistry$EmbeddedDropSiteEntry,sun.awt.X11.XDropTargetRegistry$1"
+	};
+	$loadClass(XDropTargetRegistry, name, initialize, &classInfo$$, XDropTargetRegistry::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(XDropTargetRegistry);
+	});
 	return class$;
 }
 

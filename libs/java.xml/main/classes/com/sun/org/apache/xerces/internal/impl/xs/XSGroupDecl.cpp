@@ -1,5 +1,4 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSGroupDecl.h>
-
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
@@ -32,41 +31,6 @@ namespace com {
 						namespace impl {
 							namespace xs {
 
-$FieldInfo _XSGroupDecl_FieldInfo_[] = {
-	{"fName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSGroupDecl, fName)},
-	{"fTargetNamespace", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSGroupDecl, fTargetNamespace)},
-	{"fModelGroup", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;", nullptr, $PUBLIC, $field(XSGroupDecl, fModelGroup)},
-	{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSGroupDecl, fAnnotations)},
-	{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSGroupDecl, fNamespaceItem)},
-	{}
-};
-
-$MethodInfo _XSGroupDecl_MethodInfo_[] = {
-	{"<init>", "()V", nullptr, $PUBLIC, $method(XSGroupDecl, init$, void)},
-	{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getAnnotation, $XSAnnotation*)},
-	{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getAnnotations, $XSObjectList*)},
-	{"getModelGroup", "()Lcom/sun/org/apache/xerces/internal/xs/XSModelGroup;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getModelGroup, $XSModelGroup*)},
-	{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getName, $String*)},
-	{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getNamespace, $String*)},
-	{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getNamespaceItem, $XSNamespaceItem*)},
-	{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getType, int16_t)},
-	{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, 0, $virtualMethod(XSGroupDecl, setNamespaceItem, void, $XSNamespaceItem*)},
-	{}
-};
-
-$ClassInfo _XSGroupDecl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.sun.org.apache.xerces.internal.impl.xs.XSGroupDecl",
-	"java.lang.Object",
-	"com.sun.org.apache.xerces.internal.xs.XSModelGroupDefinition",
-	_XSGroupDecl_FieldInfo_,
-	_XSGroupDecl_MethodInfo_
-};
-
-$Object* allocate$XSGroupDecl($Class* clazz) {
-	return $of($alloc(XSGroupDecl));
-}
-
 void XSGroupDecl::init$() {
 	$set(this, fName, nullptr);
 	$set(this, fTargetNamespace, nullptr);
@@ -92,12 +56,12 @@ $XSModelGroup* XSGroupDecl::getModelGroup() {
 }
 
 $XSAnnotation* XSGroupDecl::getAnnotation() {
-	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, $nc(this->fAnnotations)->item(0)) : ($XSAnnotation*)nullptr;
+	return (this->fAnnotations != nullptr) ? $cast($XSAnnotation, this->fAnnotations->item(0)) : ($XSAnnotation*)nullptr;
 }
 
 $XSObjectList* XSGroupDecl::getAnnotations() {
 	$init($XSObjectListImpl);
-	return (this->fAnnotations != nullptr) ? this->fAnnotations : static_cast<$XSObjectList*>($XSObjectListImpl::EMPTY_LIST);
+	return (this->fAnnotations != nullptr) ? this->fAnnotations : $cast($XSObjectList, $XSObjectListImpl::EMPTY_LIST);
 }
 
 $XSNamespaceItem* XSGroupDecl::getNamespaceItem() {
@@ -112,7 +76,37 @@ XSGroupDecl::XSGroupDecl() {
 }
 
 $Class* XSGroupDecl::load$($String* name, bool initialize) {
-	$loadClass(XSGroupDecl, name, initialize, &_XSGroupDecl_ClassInfo_, allocate$XSGroupDecl);
+	$FieldInfo fieldInfos$$[] = {
+		{"fName", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSGroupDecl, fName)},
+		{"fTargetNamespace", "Ljava/lang/String;", nullptr, $PUBLIC, $field(XSGroupDecl, fTargetNamespace)},
+		{"fModelGroup", "Lcom/sun/org/apache/xerces/internal/impl/xs/XSModelGroupImpl;", nullptr, $PUBLIC, $field(XSGroupDecl, fModelGroup)},
+		{"fAnnotations", "Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $field(XSGroupDecl, fAnnotations)},
+		{"fNamespaceItem", "Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PRIVATE, $field(XSGroupDecl, fNamespaceItem)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "()V", nullptr, $PUBLIC, $method(XSGroupDecl, init$, void)},
+		{"getAnnotation", "()Lcom/sun/org/apache/xerces/internal/xs/XSAnnotation;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getAnnotation, $XSAnnotation*)},
+		{"getAnnotations", "()Lcom/sun/org/apache/xerces/internal/xs/XSObjectList;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getAnnotations, $XSObjectList*)},
+		{"getModelGroup", "()Lcom/sun/org/apache/xerces/internal/xs/XSModelGroup;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getModelGroup, $XSModelGroup*)},
+		{"getName", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getName, $String*)},
+		{"getNamespace", "()Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getNamespace, $String*)},
+		{"getNamespaceItem", "()Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getNamespaceItem, $XSNamespaceItem*)},
+		{"getType", "()S", nullptr, $PUBLIC, $virtualMethod(XSGroupDecl, getType, int16_t)},
+		{"setNamespaceItem", "(Lcom/sun/org/apache/xerces/internal/xs/XSNamespaceItem;)V", nullptr, 0, $virtualMethod(XSGroupDecl, setNamespaceItem, void, $XSNamespaceItem*)},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.sun.org.apache.xerces.internal.impl.xs.XSGroupDecl",
+		"java.lang.Object",
+		"com.sun.org.apache.xerces.internal.xs.XSModelGroupDefinition",
+		fieldInfos$$,
+		methodInfos$$
+	};
+	$loadClass(XSGroupDecl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(XSGroupDecl);
+	});
 	return class$;
 }
 

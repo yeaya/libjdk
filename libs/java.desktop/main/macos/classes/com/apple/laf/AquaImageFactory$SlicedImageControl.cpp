@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaImageFactory$SlicedImageControl.h>
-
 #include <com/apple/laf/AquaImageFactory$NineSliceMetrics.h>
 #include <com/apple/laf/AquaImageFactory.h>
 #include <java/awt/Graphics.h>
@@ -37,61 +36,6 @@ namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaImageFactory$SlicedImageControl_FieldInfo_[] = {
-	{"NW", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, NW)},
-	{"N", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, N)},
-	{"NE", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, NE)},
-	{"W", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, W)},
-	{"C", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, C)},
-	{"E", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, E)},
-	{"SW", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, SW)},
-	{"S", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, S)},
-	{"SE", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, SE)},
-	{"metrics", "Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, metrics)},
-	{"totalWidth", "I", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, totalWidth)},
-	{"totalHeight", "I", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, totalHeight)},
-	{"centerColWidth", "I", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, centerColWidth)},
-	{"centerRowHeight", "I", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, centerRowHeight)},
-	{}
-};
-
-$MethodInfo _AquaImageFactory$SlicedImageControl_MethodInfo_[] = {
-	{"<init>", "(Ljava/awt/Image;IIII)V", nullptr, $PUBLIC, $method(AquaImageFactory$SlicedImageControl, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t)},
-	{"<init>", "(Ljava/awt/Image;IIIIZ)V", nullptr, $PUBLIC, $method(AquaImageFactory$SlicedImageControl, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t, bool)},
-	{"<init>", "(Ljava/awt/Image;IIIIZZZ)V", nullptr, $PUBLIC, $method(AquaImageFactory$SlicedImageControl, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t, bool, bool, bool)},
-	{"<init>", "(Ljava/awt/Image;Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;)V", nullptr, $PUBLIC, $method(AquaImageFactory$SlicedImageControl, init$, void, $Image*, $AquaImageFactory$NineSliceMetrics*)},
-	{"createSlice", "(Ljava/awt/Image;IIII)Ljava/awt/image/BufferedImage;", nullptr, $STATIC, $staticMethod(AquaImageFactory$SlicedImageControl, createSlice, $BufferedImage*, $Image*, int32_t, int32_t, int32_t, int32_t)},
-	{"paint", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaImageFactory$SlicedImageControl, paint, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
-	{"paintCompressed", "(Ljava/awt/Graphics;II)V", nullptr, 0, $virtualMethod(AquaImageFactory$SlicedImageControl, paintCompressed, void, $Graphics*, int32_t, int32_t)},
-	{"paintStretchedMiddles", "(Ljava/awt/Graphics;II)V", nullptr, 0, $virtualMethod(AquaImageFactory$SlicedImageControl, paintStretchedMiddles, void, $Graphics*, int32_t, int32_t)},
-	{}
-};
-
-$InnerClassInfo _AquaImageFactory$SlicedImageControl_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaImageFactory$SlicedImageControl", "com.apple.laf.AquaImageFactory", "SlicedImageControl", $PUBLIC | $STATIC},
-	{}
-};
-
-$ClassInfo _AquaImageFactory$SlicedImageControl_ClassInfo_ = {
-	$PUBLIC | $ACC_SUPER,
-	"com.apple.laf.AquaImageFactory$SlicedImageControl",
-	"java.lang.Object",
-	nullptr,
-	_AquaImageFactory$SlicedImageControl_FieldInfo_,
-	_AquaImageFactory$SlicedImageControl_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaImageFactory$SlicedImageControl_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaImageFactory"
-};
-
-$Object* allocate$AquaImageFactory$SlicedImageControl($Class* clazz) {
-	return $of($alloc(AquaImageFactory$SlicedImageControl));
-}
-
 void AquaImageFactory$SlicedImageControl::init$($Image* img, int32_t westCut, int32_t eastCut, int32_t northCut, int32_t southCut) {
 	AquaImageFactory$SlicedImageControl::init$(img, westCut, eastCut, northCut, southCut, true);
 }
@@ -108,10 +52,10 @@ void AquaImageFactory$SlicedImageControl::init$($Image* img, int32_t westCut, in
 void AquaImageFactory$SlicedImageControl::init$($Image* img, $AquaImageFactory$NineSliceMetrics* metrics) {
 	$set(this, metrics, metrics);
 	bool var$0 = $nc(img)->getWidth(nullptr) != $nc(metrics)->minW;
-	if (var$0 || $nc(img)->getHeight(nullptr) != $nc(metrics)->minH) {
+	if (var$0 || img->getHeight(nullptr) != metrics->minH) {
 		$throwNew($IllegalArgumentException, "SlicedImageControl: template image and NineSliceMetrics don\'t agree on minimum dimensions"_s);
 	}
-	this->totalWidth = $nc(metrics)->minW;
+	this->totalWidth = metrics->minW;
 	this->totalHeight = metrics->minH;
 	this->centerColWidth = this->totalWidth - metrics->wCut - metrics->eCut;
 	this->centerRowHeight = this->totalHeight - metrics->nCut - metrics->sCut;
@@ -127,7 +71,7 @@ void AquaImageFactory$SlicedImageControl::init$($Image* img, $AquaImageFactory$N
 }
 
 $BufferedImage* AquaImageFactory$SlicedImageControl::createSlice($Image* img, int32_t x, int32_t y, int32_t w, int32_t h) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	if (w == 0 || h == 0) {
 		return nullptr;
 	}
@@ -150,35 +94,35 @@ void AquaImageFactory$SlicedImageControl::paint($Graphics* g, int32_t x, int32_t
 
 void AquaImageFactory$SlicedImageControl::paintStretchedMiddles($Graphics* g, int32_t w, int32_t h) {
 	int32_t baseX = $nc(this->metrics)->stretchH ? 0 : ((w / 2) - (this->totalWidth / 2));
-	int32_t baseY = $nc(this->metrics)->stretchV ? 0 : ((h / 2) - (this->totalHeight / 2));
-	int32_t adjustedWidth = $nc(this->metrics)->stretchH ? w : this->totalWidth;
-	int32_t adjustedHeight = $nc(this->metrics)->stretchV ? h : this->totalHeight;
+	int32_t baseY = this->metrics->stretchV ? 0 : ((h / 2) - (this->totalHeight / 2));
+	int32_t adjustedWidth = this->metrics->stretchH ? w : this->totalWidth;
+	int32_t adjustedHeight = this->metrics->stretchV ? h : this->totalHeight;
 	if (this->NW != nullptr) {
 		$nc(g)->drawImage(this->NW, baseX, baseY, nullptr);
 	}
 	if (this->N != nullptr) {
-		$nc(g)->drawImage(this->N, baseX + $nc(this->metrics)->wCut, baseY, adjustedWidth - $nc(this->metrics)->eCut - $nc(this->metrics)->wCut, $nc(this->metrics)->nCut, nullptr);
+		$nc(g)->drawImage(this->N, baseX + this->metrics->wCut, baseY, adjustedWidth - this->metrics->eCut - this->metrics->wCut, this->metrics->nCut, nullptr);
 	}
 	if (this->NE != nullptr) {
-		$nc(g)->drawImage(this->NE, baseX + adjustedWidth - $nc(this->metrics)->eCut, baseY, nullptr);
+		$nc(g)->drawImage(this->NE, baseX + adjustedWidth - this->metrics->eCut, baseY, nullptr);
 	}
 	if (this->W != nullptr) {
-		$nc(g)->drawImage(this->W, baseX, baseY + $nc(this->metrics)->nCut, $nc(this->metrics)->wCut, adjustedHeight - $nc(this->metrics)->nCut - $nc(this->metrics)->sCut, nullptr);
+		$nc(g)->drawImage(this->W, baseX, baseY + this->metrics->nCut, this->metrics->wCut, adjustedHeight - this->metrics->nCut - this->metrics->sCut, nullptr);
 	}
 	if (this->C != nullptr) {
-		$nc(g)->drawImage(this->C, baseX + $nc(this->metrics)->wCut, baseY + $nc(this->metrics)->nCut, adjustedWidth - $nc(this->metrics)->eCut - $nc(this->metrics)->wCut, adjustedHeight - $nc(this->metrics)->nCut - $nc(this->metrics)->sCut, nullptr);
+		$nc(g)->drawImage(this->C, baseX + this->metrics->wCut, baseY + this->metrics->nCut, adjustedWidth - this->metrics->eCut - this->metrics->wCut, adjustedHeight - this->metrics->nCut - this->metrics->sCut, nullptr);
 	}
 	if (this->E != nullptr) {
-		$nc(g)->drawImage(this->E, baseX + adjustedWidth - $nc(this->metrics)->eCut, baseY + $nc(this->metrics)->nCut, $nc(this->metrics)->eCut, adjustedHeight - $nc(this->metrics)->nCut - $nc(this->metrics)->sCut, nullptr);
+		$nc(g)->drawImage(this->E, baseX + adjustedWidth - this->metrics->eCut, baseY + this->metrics->nCut, this->metrics->eCut, adjustedHeight - this->metrics->nCut - this->metrics->sCut, nullptr);
 	}
 	if (this->SW != nullptr) {
-		$nc(g)->drawImage(this->SW, baseX, baseY + adjustedHeight - $nc(this->metrics)->sCut, nullptr);
+		$nc(g)->drawImage(this->SW, baseX, baseY + adjustedHeight - this->metrics->sCut, nullptr);
 	}
 	if (this->S != nullptr) {
-		$nc(g)->drawImage(this->S, baseX + $nc(this->metrics)->wCut, baseY + adjustedHeight - $nc(this->metrics)->sCut, adjustedWidth - $nc(this->metrics)->eCut - $nc(this->metrics)->wCut, $nc(this->metrics)->sCut, nullptr);
+		$nc(g)->drawImage(this->S, baseX + this->metrics->wCut, baseY + adjustedHeight - this->metrics->sCut, adjustedWidth - this->metrics->eCut - this->metrics->wCut, this->metrics->sCut, nullptr);
 	}
 	if (this->SE != nullptr) {
-		$nc(g)->drawImage(this->SE, baseX + adjustedWidth - $nc(this->metrics)->eCut, baseY + adjustedHeight - $nc(this->metrics)->sCut, nullptr);
+		$nc(g)->drawImage(this->SE, baseX + adjustedWidth - this->metrics->eCut, baseY + adjustedHeight - this->metrics->sCut, nullptr);
 	}
 }
 
@@ -186,10 +130,10 @@ void AquaImageFactory$SlicedImageControl::paintCompressed($Graphics* g, int32_t 
 	double heightRatio = h > this->totalHeight ? 1.0 : (double)h / (double)this->totalHeight;
 	double widthRatio = w > this->totalWidth ? 1.0 : (double)w / (double)this->totalWidth;
 	int32_t northHeight = $cast(int32_t, ($nc(this->metrics)->nCut * heightRatio));
-	int32_t southHeight = $cast(int32_t, ($nc(this->metrics)->sCut * heightRatio));
+	int32_t southHeight = $cast(int32_t, (this->metrics->sCut * heightRatio));
 	int32_t centerHeight = h - northHeight - southHeight;
-	int32_t westWidth = $cast(int32_t, ($nc(this->metrics)->wCut * widthRatio));
-	int32_t eastWidth = $cast(int32_t, ($nc(this->metrics)->eCut * widthRatio));
+	int32_t westWidth = $cast(int32_t, (this->metrics->wCut * widthRatio));
+	int32_t eastWidth = $cast(int32_t, (this->metrics->eCut * widthRatio));
 	int32_t centerWidth = w - westWidth - eastWidth;
 	if (this->NW != nullptr) {
 		$nc(g)->drawImage(this->NW, 0, 0, westWidth, northHeight, nullptr);
@@ -224,7 +168,56 @@ AquaImageFactory$SlicedImageControl::AquaImageFactory$SlicedImageControl() {
 }
 
 $Class* AquaImageFactory$SlicedImageControl::load$($String* name, bool initialize) {
-	$loadClass(AquaImageFactory$SlicedImageControl, name, initialize, &_AquaImageFactory$SlicedImageControl_ClassInfo_, allocate$AquaImageFactory$SlicedImageControl);
+	$FieldInfo fieldInfos$$[] = {
+		{"NW", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, NW)},
+		{"N", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, N)},
+		{"NE", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, NE)},
+		{"W", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, W)},
+		{"C", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, C)},
+		{"E", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, E)},
+		{"SW", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, SW)},
+		{"S", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, S)},
+		{"SE", "Ljava/awt/image/BufferedImage;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, SE)},
+		{"metrics", "Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, metrics)},
+		{"totalWidth", "I", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, totalWidth)},
+		{"totalHeight", "I", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, totalHeight)},
+		{"centerColWidth", "I", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, centerColWidth)},
+		{"centerRowHeight", "I", nullptr, $FINAL, $field(AquaImageFactory$SlicedImageControl, centerRowHeight)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Ljava/awt/Image;IIII)V", nullptr, $PUBLIC, $method(AquaImageFactory$SlicedImageControl, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t)},
+		{"<init>", "(Ljava/awt/Image;IIIIZ)V", nullptr, $PUBLIC, $method(AquaImageFactory$SlicedImageControl, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t, bool)},
+		{"<init>", "(Ljava/awt/Image;IIIIZZZ)V", nullptr, $PUBLIC, $method(AquaImageFactory$SlicedImageControl, init$, void, $Image*, int32_t, int32_t, int32_t, int32_t, bool, bool, bool)},
+		{"<init>", "(Ljava/awt/Image;Lcom/apple/laf/AquaImageFactory$NineSliceMetrics;)V", nullptr, $PUBLIC, $method(AquaImageFactory$SlicedImageControl, init$, void, $Image*, $AquaImageFactory$NineSliceMetrics*)},
+		{"createSlice", "(Ljava/awt/Image;IIII)Ljava/awt/image/BufferedImage;", nullptr, $STATIC, $staticMethod(AquaImageFactory$SlicedImageControl, createSlice, $BufferedImage*, $Image*, int32_t, int32_t, int32_t, int32_t)},
+		{"paint", "(Ljava/awt/Graphics;IIII)V", nullptr, $PUBLIC, $virtualMethod(AquaImageFactory$SlicedImageControl, paint, void, $Graphics*, int32_t, int32_t, int32_t, int32_t)},
+		{"paintCompressed", "(Ljava/awt/Graphics;II)V", nullptr, 0, $virtualMethod(AquaImageFactory$SlicedImageControl, paintCompressed, void, $Graphics*, int32_t, int32_t)},
+		{"paintStretchedMiddles", "(Ljava/awt/Graphics;II)V", nullptr, 0, $virtualMethod(AquaImageFactory$SlicedImageControl, paintStretchedMiddles, void, $Graphics*, int32_t, int32_t)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaImageFactory$SlicedImageControl", "com.apple.laf.AquaImageFactory", "SlicedImageControl", $PUBLIC | $STATIC},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$PUBLIC | $ACC_SUPER,
+		"com.apple.laf.AquaImageFactory$SlicedImageControl",
+		"java.lang.Object",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaImageFactory"
+	};
+	$loadClass(AquaImageFactory$SlicedImageControl, name, initialize, &classInfo$$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaImageFactory$SlicedImageControl);
+	});
 	return class$;
 }
 

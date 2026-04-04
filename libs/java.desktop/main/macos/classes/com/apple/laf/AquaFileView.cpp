@@ -1,5 +1,4 @@
 #include <com/apple/laf/AquaFileView.h>
-
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <com/apple/laf/AquaFileView$1.h>
 #include <com/apple/laf/AquaFileView$2.h>
@@ -10,7 +9,6 @@
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/io/File.h>
 #include <java/security/AccessController.h>
-#include <java/security/PrivilegedAction.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
 #include <java/util/Map.h>
@@ -42,155 +40,60 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
-using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
-using $Map = ::java::util::Map;
 using $Icon = ::javax::swing::Icon;
-using $JFileChooser = ::javax::swing::JFileChooser;
-using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $FileView = ::javax::swing::filechooser::FileView;
 
 namespace com {
 	namespace apple {
 		namespace laf {
 
-$FieldInfo _AquaFileView_FieldInfo_[] = {
-	{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileView, DEBUG)},
-	{"UNINITALIZED_LS_INFO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileView, UNINITALIZED_LS_INFO)},
-	{"kLSItemInfoIsPlainFile", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsPlainFile)},
-	{"kLSItemInfoIsPackage", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsPackage)},
-	{"kLSItemInfoIsApplication", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsApplication)},
-	{"kLSItemInfoIsContainer", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsContainer)},
-	{"kLSItemInfoIsAliasFile", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsAliasFile)},
-	{"kLSItemInfoIsSymlink", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsSymlink)},
-	{"kLSItemInfoIsInvisible", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsInvisible)},
-	{"kLSItemInfoIsNativeApp", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsNativeApp)},
-	{"kLSItemInfoIsClassicApp", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsClassicApp)},
-	{"kLSItemInfoAppPrefersNative", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoAppPrefersNative)},
-	{"kLSItemInfoAppPrefersClassic", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoAppPrefersClassic)},
-	{"kLSItemInfoAppIsScriptable", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoAppIsScriptable)},
-	{"kLSItemInfoIsVolume", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsVolume)},
-	{"kLSItemInfoExtensionIsHidden", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoExtensionIsHidden)},
-	{"machineName", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileView, machineName)},
-	{"MAX_CACHED_ENTRIES", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, MAX_CACHED_ENTRIES)},
-	{"cache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/io/File;Lcom/apple/laf/AquaFileView$FileInfo;>;", $PROTECTED | $FINAL, $field(AquaFileView, cache)},
-	{"fFileChooserUI", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL, $field(AquaFileView, fFileChooserUI)},
-	{}
-};
-
-$MethodInfo _AquaFileView_MethodInfo_[] = {
-	{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PUBLIC, $method(AquaFileView, init$, void, $AquaFileChooserUI*)},
-	{"_applicationIsTraversable", "()Z", nullptr, 0, $virtualMethod(AquaFileView, _applicationIsTraversable, bool)},
-	{"_directoryDescriptionText", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileView, _directoryDescriptionText, $String*)},
-	{"_fileDescriptionText", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileView, _fileDescriptionText, $String*)},
-	{"_packageIsTraversable", "()Z", nullptr, 0, $virtualMethod(AquaFileView, _packageIsTraversable, bool)},
-	{"getDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, getDescription, $String*, $File*)},
-	{"getFileInfoFor", "(Ljava/io/File;)Lcom/apple/laf/AquaFileView$FileInfo;", nullptr, 0, $virtualMethod(AquaFileView, getFileInfoFor, $AquaFileView$FileInfo*, $File*)},
-	{"getIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, getIcon, $Icon*, $File*)},
-	{"getLSInfoFor", "(Ljava/io/File;)I", nullptr, 0, $virtualMethod(AquaFileView, getLSInfoFor, int32_t, $File*)},
-	{"getMachineName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaFileView, getMachineName, $String*)},
-	{"getName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, getName, $String*, $File*)},
-	{"getNativeDisplayName", "([BZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativeDisplayName, $String*, $bytes*, bool)},
-	{"getNativeLSInfo", "([BZ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativeLSInfo, int32_t, $bytes*, bool)},
-	{"getNativeMachineName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativeMachineName, $String*)},
-	{"getNativePathForResolvedAlias", "([BZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativePathForResolvedAlias, $String*, $bytes*, bool)},
-	{"getNativePathToSharedJDKBundle", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativePathToSharedJDKBundle, $String*)},
-	{"getPathComponents", "(Ljava/io/File;)Ljava/util/LinkedList;", "(Ljava/io/File;)Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AquaFileView, getPathComponents, $LinkedList*, $File*)},
-	{"getPathToRunningJDKBundle", "()Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFileView, getPathToRunningJDKBundle, $String*)},
-	{"getPathToSharedJDKBundle", "()Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFileView, getPathToSharedJDKBundle, $String*)},
-	{"getTypeDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, getTypeDescription, $String*, $File*)},
-	{"isAlias", "(Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileView, isAlias, bool, $File*)},
-	{"isApplication", "(Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileView, isApplication, bool, $File*)},
-	{"isPackage", "(Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileView, isPackage, bool, $File*)},
-	{"isTraversable", "(Ljava/io/File;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, isTraversable, $Boolean*, $File*)},
-	{"resolveAlias", "(Ljava/io/File;)Ljava/io/File;", nullptr, 0, $virtualMethod(AquaFileView, resolveAlias, $File*, $File*)},
-	{}
-};
-
-#define _METHOD_INDEX_getNativeDisplayName 11
-#define _METHOD_INDEX_getNativeLSInfo 12
-#define _METHOD_INDEX_getNativeMachineName 13
-#define _METHOD_INDEX_getNativePathForResolvedAlias 14
-#define _METHOD_INDEX_getNativePathToSharedJDKBundle 15
-
-$InnerClassInfo _AquaFileView_InnerClassesInfo_[] = {
-	{"com.apple.laf.AquaFileView$FileInfo", "com.apple.laf.AquaFileView", "FileInfo", $STATIC},
-	{"com.apple.laf.AquaFileView$3", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFileView$2", nullptr, nullptr, 0},
-	{"com.apple.laf.AquaFileView$1", nullptr, nullptr, 0},
-	{}
-};
-
-$ClassInfo _AquaFileView_ClassInfo_ = {
-	$ACC_SUPER,
-	"com.apple.laf.AquaFileView",
-	"javax.swing.filechooser.FileView",
-	nullptr,
-	_AquaFileView_FieldInfo_,
-	_AquaFileView_MethodInfo_,
-	nullptr,
-	nullptr,
-	_AquaFileView_InnerClassesInfo_,
-	nullptr,
-	nullptr,
-	"com.apple.laf.AquaFileView$FileInfo,com.apple.laf.AquaFileView$3,com.apple.laf.AquaFileView$2,com.apple.laf.AquaFileView$1"
-};
-
-$Object* allocate$AquaFileView($Class* clazz) {
-	return $of($alloc(AquaFileView));
-}
-
 $AquaUtils$RecyclableSingleton* AquaFileView::machineName = nullptr;
 
 $String* AquaFileView::getNativePathToSharedJDKBundle() {
 	$init(AquaFileView);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(AquaFileView, getNativePathToSharedJDKBundle, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getNativePathToSharedJDKBundle, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* AquaFileView::getNativeMachineName() {
 	$init(AquaFileView);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(AquaFileView, getNativeMachineName, $String*);
-	$assign($ret, $invokeNativeStaticObject());
+	$prepareNativeStatic(getNativeMachineName, $String*);
+	$var($String, $ret, $invokeNativeStaticObject());
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* AquaFileView::getNativeDisplayName($bytes* pathBytes, bool isDirectory) {
 	$init(AquaFileView);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(AquaFileView, getNativeDisplayName, $String*, $bytes* pathBytes, bool isDirectory);
-	$assign($ret, $invokeNativeStaticObject(pathBytes, isDirectory));
+	$prepareNativeStatic(getNativeDisplayName, $String*, $bytes* pathBytes, bool isDirectory);
+	$var($String, $ret, $invokeNativeStaticObject(pathBytes, isDirectory));
 	$finishNativeStatic();
 	return $ret;
 }
 
 int32_t AquaFileView::getNativeLSInfo($bytes* pathBytes, bool isDirectory) {
 	$init(AquaFileView);
-	int32_t $ret = 0;
-	$prepareNativeStatic(AquaFileView, getNativeLSInfo, int32_t, $bytes* pathBytes, bool isDirectory);
-	$ret = $invokeNativeStatic(pathBytes, isDirectory);
+	$prepareNativeStatic(getNativeLSInfo, int32_t, $bytes* pathBytes, bool isDirectory);
+	int32_t $ret = $invokeNativeStatic(pathBytes, isDirectory);
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* AquaFileView::getNativePathForResolvedAlias($bytes* absolutePath, bool isDirectory) {
 	$init(AquaFileView);
-	$var($String, $ret, nullptr);
-	$prepareNativeStatic(AquaFileView, getNativePathForResolvedAlias, $String*, $bytes* absolutePath, bool isDirectory);
-	$assign($ret, $invokeNativeStaticObject(absolutePath, isDirectory));
+	$prepareNativeStatic(getNativePathForResolvedAlias, $String*, $bytes* absolutePath, bool isDirectory);
+	$var($String, $ret, $invokeNativeStaticObject(absolutePath, isDirectory));
 	$finishNativeStatic();
 	return $ret;
 }
 
 $String* AquaFileView::getMachineName() {
 	$init(AquaFileView);
-	return $cast($String, $nc(AquaFileView::machineName)->get());
+	return $cast($String, AquaFileView::machineName->get());
 }
 
 $String* AquaFileView::getPathToRunningJDKBundle() {
@@ -204,13 +107,13 @@ $String* AquaFileView::getPathToSharedJDKBundle() {
 }
 
 $AquaFileView$FileInfo* AquaFileView::getFileInfoFor($File* file) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AquaFileView$FileInfo, info, $cast($AquaFileView$FileInfo, $nc(this->cache)->get(file)));
 	if (info != nullptr) {
 		return info;
 	}
 	$var($AquaFileView$FileInfo, newInfo, $new($AquaFileView$FileInfo, file));
-	$nc(this->cache)->put(file, newInfo);
+	this->cache->put(file, newInfo);
 	return newInfo;
 }
 
@@ -237,24 +140,24 @@ bool AquaFileView::_applicationIsTraversable() {
 }
 
 $String* AquaFileView::getName($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AquaFileView$FileInfo, info, getFileInfoFor(f));
 	if ($nc(info)->displayName != nullptr) {
 		return info->displayName;
 	}
-	$var($String, nativeDisplayName, getNativeDisplayName($nc(info)->pathBytes, info->isDirectory));
+	$var($String, nativeDisplayName, getNativeDisplayName(info->pathBytes, info->isDirectory));
 	if (nativeDisplayName != nullptr) {
-		$set($nc(info), displayName, nativeDisplayName);
+		$set(info, displayName, nativeDisplayName);
 		return nativeDisplayName;
 	}
 	$var($String, displayName, $nc(f)->getName());
 	bool var$0 = f->isDirectory();
-	if (var$0 && $nc($($nc($($nc(this->fFileChooserUI)->getFileChooser()))->getFileSystemView()))->isRoot(f)) {
+	if (var$0 && $$nc($$nc($nc(this->fFileChooserUI)->getFileChooser())->getFileSystemView())->isRoot(f)) {
 		$var($String, localMachineName, getMachineName());
-		$set($nc(info), displayName, localMachineName);
+		$set(info, displayName, localMachineName);
 		return localMachineName;
 	}
-	$set($nc(info), displayName, displayName);
+	$set(info, displayName, displayName);
 	return displayName;
 }
 
@@ -270,23 +173,23 @@ $String* AquaFileView::getTypeDescription($File* f) {
 }
 
 $Icon* AquaFileView::getIcon($File* f) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($AquaFileView$FileInfo, info, getFileInfoFor(f));
 	if ($nc(info)->icon != nullptr) {
 		return info->icon;
 	}
 	if (f == nullptr) {
-		$set($nc(info), icon, $AquaIcon$SystemIcon::getDocumentIconUIResource());
+		$set(info, icon, $AquaIcon$SystemIcon::getDocumentIconUIResource());
 	} else {
 		$var($AquaIcon$FileIcon, fileIcon, $new($AquaIcon$FileIcon, f));
-		$set($nc(info), icon, fileIcon);
+		$set(info, icon, fileIcon);
 		if (!fileIcon->hasIconRef()) {
-			if ($nc(f)->isDirectory()) {
-				if ($nc($($nc($($nc(this->fFileChooserUI)->getFileChooser()))->getFileSystemView()))->isRoot(f)) {
+			if (f->isDirectory()) {
+				if ($$nc($$nc($nc(this->fFileChooserUI)->getFileChooser())->getFileSystemView())->isRoot(f)) {
 					$set(info, icon, $AquaIcon$SystemIcon::getComputerIconUIResource());
 				} else {
-					bool var$1 = f->getParent() == nullptr;
-					if (var$1 || $nc($(f->getParent()))->equals("/"_s)) {
+					bool var$0 = f->getParent() == nullptr;
+					if (var$0 || $$nc(f->getParent())->equals("/"_s)) {
 						$set(info, icon, $AquaIcon$SystemIcon::getHardDriveIconUIResource());
 					} else {
 						$set(info, icon, $AquaIcon$SystemIcon::getFolderIconUIResource());
@@ -297,45 +200,38 @@ $Icon* AquaFileView::getIcon($File* f) {
 			}
 		}
 	}
-	return $nc(info)->icon;
+	return info->icon;
 }
 
 $Boolean* AquaFileView::isTraversable($File* f) {
 	if ($nc(f)->isDirectory()) {
 		bool var$0 = _packageIsTraversable();
 		if (var$0 && _applicationIsTraversable()) {
-			$init($Boolean);
 			return $Boolean::TRUE;
 		} else {
-			bool var$2 = !_packageIsTraversable();
-			if (var$2 && !_applicationIsTraversable()) {
-				bool var$3 = isPackage(f);
-				if (var$3 || isApplication(f)) {
-					$init($Boolean);
+			bool var$1 = !_packageIsTraversable();
+			if (var$1 && !_applicationIsTraversable()) {
+				bool var$2 = isPackage(f);
+				if (var$2 || isApplication(f)) {
 					return $Boolean::FALSE;
 				}
 			} else if (!_applicationIsTraversable()) {
 				if (isApplication(f)) {
-					$init($Boolean);
 					return $Boolean::FALSE;
 				}
 			} else if (!_packageIsTraversable()) {
-				bool var$4 = isPackage(f);
-				if (var$4 && !isApplication(f)) {
-					$init($Boolean);
+				bool var$3 = isPackage(f);
+				if (var$3 && !isApplication(f)) {
 					return $Boolean::FALSE;
 				}
 			}
 		}
-		$init($Boolean);
 		return $Boolean::TRUE;
 	}
 	if (isAlias(f)) {
 		$var($File, realFile, resolveAlias(f));
-		$init($Boolean);
 		return $nc(realFile)->isDirectory() ? $Boolean::TRUE : $Boolean::FALSE;
 	}
-	$init($Boolean);
 	return $Boolean::FALSE;
 }
 
@@ -344,30 +240,32 @@ int32_t AquaFileView::getLSInfoFor($File* f) {
 	if ($nc(info)->launchServicesInfo == AquaFileView::UNINITALIZED_LS_INFO) {
 		info->launchServicesInfo = getNativeLSInfo(info->pathBytes, info->isDirectory);
 	}
-	return $nc(info)->launchServicesInfo;
+	return info->launchServicesInfo;
 }
 
 bool AquaFileView::isAlias($File* f) {
 	int32_t lsInfo = getLSInfoFor(f);
-	return (((int32_t)(lsInfo & (uint32_t)AquaFileView::kLSItemInfoIsAliasFile)) != 0) && (((int32_t)(lsInfo & (uint32_t)AquaFileView::kLSItemInfoIsSymlink)) == 0);
+	return ((lsInfo & AquaFileView::kLSItemInfoIsAliasFile) != 0) && ((lsInfo & AquaFileView::kLSItemInfoIsSymlink) == 0);
 }
 
 bool AquaFileView::isApplication($File* f) {
-	return ((int32_t)(getLSInfoFor(f) & (uint32_t)AquaFileView::kLSItemInfoIsApplication)) != 0;
+	return (getLSInfoFor(f) & AquaFileView::kLSItemInfoIsApplication) != 0;
 }
 
 bool AquaFileView::isPackage($File* f) {
-	return ((int32_t)(getLSInfoFor(f) & (uint32_t)AquaFileView::kLSItemInfoIsPackage)) != 0;
+	return (getLSInfoFor(f) & AquaFileView::kLSItemInfoIsPackage) != 0;
 }
 
 $File* AquaFileView::resolveAlias($File* mFile) {
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	bool var$0 = $nc(mFile)->exists();
 	if (var$0 && !isAlias(mFile)) {
+		;
 		return mFile;
 	}
 	$var($LinkedList, components, getPathComponents(mFile));
 	if (components == nullptr) {
+		;
 		return mFile;
 	}
 	$var($File, file, $new($File, "/"_s));
@@ -382,7 +280,7 @@ $File* AquaFileView::resolveAlias($File* mFile) {
 					return mFile;
 				}
 				if (isAlias(file)) {
-					$var($String, path, getNativePathForResolvedAlias($nc(info)->pathBytes, info->isDirectory));
+					$var($String, path, getNativePathForResolvedAlias($nc(info)->pathBytes, $nc(info)->isDirectory));
 					if (path == nullptr) {
 						return mFile;
 					}
@@ -396,7 +294,7 @@ $File* AquaFileView::resolveAlias($File* mFile) {
 
 $LinkedList* AquaFileView::getPathComponents($File* mFile) {
 	$init(AquaFileView);
-	$useLocalCurrentObjectStackCache();
+	$useLocalObjectStack();
 	$var($LinkedList, componentList, $new($LinkedList));
 	$var($String, parent, nullptr);
 	$var($File, file, $new($File, $($nc(mFile)->getAbsolutePath())));
@@ -408,10 +306,10 @@ $LinkedList* AquaFileView::getPathComponents($File* mFile) {
 	return componentList;
 }
 
-void clinit$AquaFileView($Class* class$) {
+void AquaFileView::clinit$($Class* clazz) {
 	$beforeCallerSensitive();
 	{
-		$AccessController::doPrivileged(static_cast<$PrivilegedAction*>($$new($AquaFileView$1)));
+		$AccessController::doPrivileged($$new($AquaFileView$1));
 	}
 	$assignStatic(AquaFileView::machineName, $new($AquaFileView$2));
 }
@@ -420,7 +318,81 @@ AquaFileView::AquaFileView() {
 }
 
 $Class* AquaFileView::load$($String* name, bool initialize) {
-	$loadClass(AquaFileView, name, initialize, &_AquaFileView_ClassInfo_, clinit$AquaFileView, allocate$AquaFileView);
+	$FieldInfo fieldInfos$$[] = {
+		{"DEBUG", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileView, DEBUG)},
+		{"UNINITALIZED_LS_INFO", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(AquaFileView, UNINITALIZED_LS_INFO)},
+		{"kLSItemInfoIsPlainFile", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsPlainFile)},
+		{"kLSItemInfoIsPackage", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsPackage)},
+		{"kLSItemInfoIsApplication", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsApplication)},
+		{"kLSItemInfoIsContainer", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsContainer)},
+		{"kLSItemInfoIsAliasFile", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsAliasFile)},
+		{"kLSItemInfoIsSymlink", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsSymlink)},
+		{"kLSItemInfoIsInvisible", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsInvisible)},
+		{"kLSItemInfoIsNativeApp", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsNativeApp)},
+		{"kLSItemInfoIsClassicApp", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsClassicApp)},
+		{"kLSItemInfoAppPrefersNative", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoAppPrefersNative)},
+		{"kLSItemInfoAppPrefersClassic", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoAppPrefersClassic)},
+		{"kLSItemInfoAppIsScriptable", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoAppIsScriptable)},
+		{"kLSItemInfoIsVolume", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoIsVolume)},
+		{"kLSItemInfoExtensionIsHidden", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, kLSItemInfoExtensionIsHidden)},
+		{"machineName", "Lcom/apple/laf/AquaUtils$RecyclableSingleton;", "Lcom/apple/laf/AquaUtils$RecyclableSingleton<Ljava/lang/String;>;", $PRIVATE | $STATIC | $FINAL, $staticField(AquaFileView, machineName)},
+		{"MAX_CACHED_ENTRIES", "I", nullptr, $STATIC | $FINAL, $constField(AquaFileView, MAX_CACHED_ENTRIES)},
+		{"cache", "Ljava/util/Map;", "Ljava/util/Map<Ljava/io/File;Lcom/apple/laf/AquaFileView$FileInfo;>;", $PROTECTED | $FINAL, $field(AquaFileView, cache)},
+		{"fFileChooserUI", "Lcom/apple/laf/AquaFileChooserUI;", nullptr, $FINAL, $field(AquaFileView, fFileChooserUI)},
+		{}
+	};
+	$MethodInfo methodInfos$$[] = {
+		{"<init>", "(Lcom/apple/laf/AquaFileChooserUI;)V", nullptr, $PUBLIC, $method(AquaFileView, init$, void, $AquaFileChooserUI*)},
+		{"_applicationIsTraversable", "()Z", nullptr, 0, $virtualMethod(AquaFileView, _applicationIsTraversable, bool)},
+		{"_directoryDescriptionText", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileView, _directoryDescriptionText, $String*)},
+		{"_fileDescriptionText", "()Ljava/lang/String;", nullptr, 0, $virtualMethod(AquaFileView, _fileDescriptionText, $String*)},
+		{"_packageIsTraversable", "()Z", nullptr, 0, $virtualMethod(AquaFileView, _packageIsTraversable, bool)},
+		{"getDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, getDescription, $String*, $File*)},
+		{"getFileInfoFor", "(Ljava/io/File;)Lcom/apple/laf/AquaFileView$FileInfo;", nullptr, 0, $virtualMethod(AquaFileView, getFileInfoFor, $AquaFileView$FileInfo*, $File*)},
+		{"getIcon", "(Ljava/io/File;)Ljavax/swing/Icon;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, getIcon, $Icon*, $File*)},
+		{"getLSInfoFor", "(Ljava/io/File;)I", nullptr, 0, $virtualMethod(AquaFileView, getLSInfoFor, int32_t, $File*)},
+		{"getMachineName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC, $staticMethod(AquaFileView, getMachineName, $String*)},
+		{"getName", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, getName, $String*, $File*)},
+		{"getNativeDisplayName", "([BZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativeDisplayName, $String*, $bytes*, bool)},
+		{"getNativeLSInfo", "([BZ)I", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativeLSInfo, int32_t, $bytes*, bool)},
+		{"getNativeMachineName", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativeMachineName, $String*)},
+		{"getNativePathForResolvedAlias", "([BZ)Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativePathForResolvedAlias, $String*, $bytes*, bool)},
+		{"getNativePathToSharedJDKBundle", "()Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $NATIVE, $staticMethod(AquaFileView, getNativePathToSharedJDKBundle, $String*)},
+		{"getPathComponents", "(Ljava/io/File;)Ljava/util/LinkedList;", "(Ljava/io/File;)Ljava/util/LinkedList<Ljava/lang/String;>;", $PRIVATE | $STATIC, $staticMethod(AquaFileView, getPathComponents, $LinkedList*, $File*)},
+		{"getPathToRunningJDKBundle", "()Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFileView, getPathToRunningJDKBundle, $String*)},
+		{"getPathToSharedJDKBundle", "()Ljava/lang/String;", nullptr, $PROTECTED | $STATIC, $staticMethod(AquaFileView, getPathToSharedJDKBundle, $String*)},
+		{"getTypeDescription", "(Ljava/io/File;)Ljava/lang/String;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, getTypeDescription, $String*, $File*)},
+		{"isAlias", "(Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileView, isAlias, bool, $File*)},
+		{"isApplication", "(Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileView, isApplication, bool, $File*)},
+		{"isPackage", "(Ljava/io/File;)Z", nullptr, 0, $virtualMethod(AquaFileView, isPackage, bool, $File*)},
+		{"isTraversable", "(Ljava/io/File;)Ljava/lang/Boolean;", nullptr, $PUBLIC, $virtualMethod(AquaFileView, isTraversable, $Boolean*, $File*)},
+		{"resolveAlias", "(Ljava/io/File;)Ljava/io/File;", nullptr, 0, $virtualMethod(AquaFileView, resolveAlias, $File*, $File*)},
+		{}
+	};
+	$InnerClassInfo innerClassesInfo$$[] = {
+		{"com.apple.laf.AquaFileView$FileInfo", "com.apple.laf.AquaFileView", "FileInfo", $STATIC},
+		{"com.apple.laf.AquaFileView$3", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFileView$2", nullptr, nullptr, 0},
+		{"com.apple.laf.AquaFileView$1", nullptr, nullptr, 0},
+		{}
+	};
+	$ClassInfo classInfo$$ = {
+		$ACC_SUPER,
+		"com.apple.laf.AquaFileView",
+		"javax.swing.filechooser.FileView",
+		nullptr,
+		fieldInfos$$,
+		methodInfos$$,
+		nullptr,
+		nullptr,
+		innerClassesInfo$$,
+		nullptr,
+		nullptr,
+		"com.apple.laf.AquaFileView$FileInfo,com.apple.laf.AquaFileView$3,com.apple.laf.AquaFileView$2,com.apple.laf.AquaFileView$1"
+	};
+	$loadClass(AquaFileView, name, initialize, &classInfo$$, AquaFileView::clinit$, []($Class* clazz) -> $Object* {
+		return $alloc(AquaFileView);
+	});
 	return class$;
 }
 
